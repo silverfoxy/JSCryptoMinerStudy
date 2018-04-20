@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<!--[if (IE)]><!--> <html dir="ltr" lang="en" class="ie no-js"> <!--<![endif]-->
+<!--[if !(IE)]><!--> <html dir="ltr" lang="en" class="no-js"> <!--<![endif]-->
+
+  <head>
+  <meta charset="utf-8" />
+     <!--[if lt IE 9]>
+    <meta http-equiv="REFRESH" content="0;url=/browser">
+    <style type="text/css" media="screen">
+      html, body, meta, *{color: #FFFFFF !important; height: 0px !important; width: 0px !important; position: absolute !important; top: 0 !important; left: 0 !important;}
+    </style>
+  <![endif]-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><link rel="prefetch" href="/static/www/new/js/app.js" as="script">
+  <link rel="prefetch" href="/static/www/new/js/foundation.min.js" as="script">
+  <link rel="prefetch" href="/static/www/new/css/fonts/brandon_blk-toms.woff" as="font">
+  <link rel="prefetch" href="/static/www/new/css/fonts/proximanova-bold-webfont.woff" as="font">
+  <link rel="prefetch" href="/static/www/new/css/fonts/proximanova-semibold-toms.woff" as="font">
+  <link rel="prefetch" href="/static/www/new/css/fonts/more_fonts/brandon_med-webfont.woff" as="font">
+  <link rel="prefetch" href="/static/www/new/css/fonts/proximanova-regular-toms.woff" as="font">
+
+  <link rel="dns-prefetch" href="//media01.toms.com/">
+  <link rel="dns-prefetch" href="//media02.toms.com/">
+  <link rel="dns-prefetch" href="//media03.toms.com/">
+  <link rel="dns-prefetch" href="//media04.toms.com/">
+  <link rel="dns-prefetch" href="//media05.toms.com/">
+  <title>TOMS® Official Site | The One for One® Company</title>
+        <meta name="description" content="With every product you purchase, TOMS will help a person in need. One for One®." />
+	    <meta name="author" content="TOMS"/>
+
+    <link rel="schema.DC" href="http://www.purl.org/dc/elements/1.1/" />
+    <link rel="schema.DCTERMS" href="http://www.purl.org/dc/terms/" />
+    <link rel="schema.DCMITYPE" href="http://www.purl.org/dc/dcmitype/" />
+
+    <meta name="DC.title" content="TOMS® Official Site | The One for One® Company" />
+	<meta name="DC.creator" content="TOMS" />
+
+    <meta name="DC.description" content="With every product you purchase, TOMS will help a person in need. One for One®." />
+	<meta name="DC.publisher" content="TOMS" />
+
+    <meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
+
+    <meta name="DC.format" content="text/html" />
+
+    <meta name="DC.language" scheme="RFC1766" content="en" />
+
+    <meta name="DC.rights" content="/company/terms.jsp" />
+
+    <meta name="DC.identifier" scheme="DCTERMS.URI" content="/" />
+	
+	<meta property="og:title" content="TOMS® Official Site | The One for One® Company"/>
+	<meta name="twitter:title" content="TOMS® Official Site | The One for One® Company"/>
+	<meta property="og:description" content="With every product you purchase, TOMS will help a person in need. One for One®."/>
+	<meta name="twitter:description" content="With every product you purchase, TOMS will help a person in need. One for One®."/>
+	<meta name="twitter:card" content="Summary"/>
+
+	<meta property="og:image" content="http://media03.toms.com/static/www/images/home/socialshare/TOMS-WI17-SocialShare-1200x630.jpg"/>
+	<meta name="twitter:image" content="http://media03.toms.com/static/www/images/home/socialshare/TOMS-WI17-SocialShare-1200x630.jpg"/>
+	<link rel="canonical" href="http://www.toms.com/"/>
+	<link rel="stylesheet" href="/static/www/new/css/foundation.css" />
+  <link rel="stylesheet" href="/static/www/new/css/style.css" />
+  <link rel="stylesheet" href="/static/www/new/css/marketplace.css" />
+  <script src="/static/www/new/js/modernizr.js"></script>
+  <script>
+    				window.dataLayer = window.dataLayer || [];
+    				window.dataLayer.push({"page":{"type":"TOMS One Column Page"},"event":"dataLayer-initialized","countryCode":"US","language":"en","products":[],"user":{"id":"","loggedIn":false},"country":"United States"});
+    				
+    				var lsGtmDataLayer = '';
+    				var mcGtmDataLayer = '';
+    				var cmailGtmDataLayer = '';
+    				var googleTagMgrAccount = 'GTM-KZVQ';
+    				if(lsGtmDataLayer!=null && lsGtmDataLayer != ''){
+      					dataLayer[dataLayer.length] = JSON.parse(lsGtmDataLayer);
+    				}
+    				if(mcGtmDataLayer!=null && mcGtmDataLayer != ''){
+      					dataLayer[dataLayer.length] = JSON.parse(mcGtmDataLayer);
+   					}
+    				if(cmailGtmDataLayer!=null && cmailGtmDataLayer != ''){
+      					dataLayer[dataLayer.length] = JSON.parse(cmailGtmDataLayer);
+   					}
+    				
+    					(function (w,d,s,l,i){
+        					w[l] = w[l] || [];
+        					w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        					var f = d.getElementsByTagName(s)[0],
+        					j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        					j.async = true;
+        					j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        					f.parentNode.insertBefore(j, f);
+    					})(window, document, 'script', 'dataLayer', googleTagMgrAccount);
+    				</script>
+          <script data-name="__br_tm" type="text/javascript">
+              
+                var brontoData = {"grandTotal":".00","cartUrl":"http://www.toms.com/shopping-bag","subtotal":".00","discountAmount":".00","lineItems":[],"orderId":"51468234647","currency":"USD"};
+              
+              var _bsw = _bsw || [];
+              _bsw.push(['_bswId', 'a0c37cb6f04630049968a9b7ce6c63daebf76be92d5cf6fcd19963f42343c9ef']);
+              (function() {
+                var bsw = document.createElement('script'); bsw.type = 'text/javascript'; bsw.async = true;
+                bsw.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'js.bronto.com/c/afw4vvhf59jsr30biyc90iswkwq4zgvkg15nfw62owtf3balx9/a0c37cb6f04630049968a9b7ce6c63daebf76be92d5cf6fcd19963f42343c9ef/s/b.min.js';
+                var t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(bsw, t);
+              })();
+            </script>
+          <script type="text/javascript">
+				(function(url) {
+					if (!window.DataLayer) {
+						window.DataLayer = {};
+					}
+					if (!DataLayer.events) {
+						DataLayer.events = {};
+					}
+					DataLayer.events.SiteSection = "1";
+					var loc, ct = document.createElement("script");
+					ct.type = "text/javascript";
+					ct.async = true;
+					ct.src = url;
+					loc = document.getElementsByTagName('script')[0];
+					loc.parentNode.insertBefore(ct, loc);
+				}(document.location.protocol + "//intljs.rmtag.com/111548.ct.js"));
+				</script>
+		<script>
+			var pdpDetails = null;
+		</script>
+	<script type="text/javascript">
+				var monetateT = new Date().getTime();
+				(function() {
+					var p = document.location.protocol;
+					if (p == "http:" || p == "https:") {
+						var m = document.createElement("script");
+						m.type = "text/javascript";
+						m.src = (p == "https:" ? "https://s" : "http://")
+								+ "e.monetate.net/js/2/a-c9f79050/p/toms.com/entry.js";
+						var e = document.createElement("div");
+						e.appendChild(m);
+						document.write(e.innerHTML);
+					}
+				})();
+			</script>
+		<script src="/static/www/new/js/jquery.js"></script>
+		<script src="/static/www/new/js/foundation/jquery.cookie.js"></script>
+		<link rel="shortcut icon" href="/static/www/new/images/fav/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="http://media03.toms.com/static/www/new/images/fav/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="http://media03.toms.com/static/www/new/images/fav/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="http://media03.toms.com/static/www/new/images/fav/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="http://media03.toms.com/static/www/new/images/fav/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="http://media03.toms.com/static/www/new/images/fav/android-chrome-192x192.png" sizes="192x192">
+        <meta name="msapplication-square70x70logo" content="http://media03.toms.com/static/www/new/images/fav/smalltile.png" />
+        <meta name="msapplication-square150x150logo" content="http://media03.toms.com/static/www/new/images/fav/mediumtile.png" />
+        <meta name="msapplication-wide310x150logo" content="http://media03.toms.com/static/www/new/images/fav/widetile.png" />
+        <meta name="msapplication-square310x310logo" content="http://media03.toms.com/static/www/new/images/fav/largetile.png" />
+	</head>
+<body id="" class='en_US oneColumnPage loyalct login-background'>
+  <script type="text/javascript">
+    if(TOMS === undefined || typeof TOMS !== "object"){var TOMS = {};};
+    if(TOMS.VALS === undefined || typeof TOMS.VALS !== "object"){
+      TOMS.VALS = (function(){
+        return {
+          cookieVersion : 'v1',
+          cookieName : 'acceptCookies',
+          cookieEnabled : false,
+          cookiesAllowed : true,
+          deviceType : ''
+        };
+      })();
+    };
+    (function(){$.ajax({url: '/browse/categoryLastBrowsed.jsp'});})();
+	</script>
+	
+    <a href="#site-main-content" class="off-screen show-on-focus">Skip to main content</a>
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+    <input type="hidden" value="tomsSiteUS" id="currentSiteIdInput"/>
+    <input id="storeLocator" type="hidden" value='/store-locator' />
+    <input id="privacyPolicy" type="hidden" value='/privacy-policy' />
+    <input id="jvmname" type="hidden" value="toms-app-07-p-prd1-app2" />
+<script type="text/javascript">if(top != self){top.location=self.location;};</script>
+    <input type="hidden" id="locale" value="en_US"/>
+
+    <aside class="left-off-canvas-menu" aria-hidden="true">
+			    <div class="nav-header text-center">
+		      		<a class="left" href="/account/login.jsp;jsessionid=5as-WqGa5PsmTYms4psmDHJ5.1eb41ff9-d1e9-3343-a94a-dae5b7735ebe">Login</a><a class="left" onclick="topNavCreateUser();" href="/account/createUser.jsp;jsessionid=5as-WqGa5PsmTYms4psmDHJ5.1eb41ff9-d1e9-3343-a94a-dae5b7735ebe?userType=login"><span>Create Account</span></a></div> 
+		      <div class="nav-data">
+                <span class="left-menu-data"></span>
+		      </div>
+		      <div class="nav-header text-center">
+		      		<a href="/store-locator" class="left">Store Locator</a>
+	            <a href="/customer-service" class="left" >Get Help</a>
+		      </div>
+		      <div class="nav-data lang">
+                <span class="left-menu-data"></span>
+		      </div>
+		</aside>
+		<a class="exit-off-canvas"></a>
+					<nav class="meganav clearfix">
+						<ul class="inner-top clearfix">
+                            <li class="left lang hide-for-small">
+                                <h3 class="off-screen" id="visit-toms-sites">Visit other TOMS global websites</h3>
+                <p aria-labelledby="cur-lang">
+                                <a href="/" class="icon-flag_us nav-toggle current-lang" aria-expanded="false" aria-haspopup="true">                                  
+                                    <span class="off-screen" id="cur-lang">Currently selected country and language: United States</span>
+                                    <span class="lang-std">English</span>
+                                    <span class="chevron" aria-hidden="true"></span>
+                                    <span class="off-screen">(click to expand and see all TOMS global website)</span>
+                                </a>
+                            </p>
+                        <span class="pipe hide-for-small remove-on-mobile" aria-hidden="true">&nbsp;</span>
+          <ul id="hdr-lang-dropdown" class="remove-on-mobile" aria-labelledby="visit-toms-sites" aria-hidden="true" tabindex="0">
+            <li class="icon-flag_ie left" tabindex="0">
+                  <span>Ireland</span>
+                    <div>
+                      <a href="http://www.toms.ie?locale=en_IE"><span class="off-screen">Visit TOMS Ireland site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_at left" tabindex="0">
+                  <span>Austria</span>
+                    <div>
+                      <a href="http://www.shoptoms.at?locale=de_AT"><span class="off-screen">Visit TOMS Austria site in </span> Deutsch</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.at?locale=en_AT"><span class="off-screen">Visit TOMS Austria site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_ca left" tabindex="0">
+                  <span>Canada</span>
+                    <div>
+                      <a href="http://www.toms.ca?locale=en_CA"><span class="off-screen">Visit TOMS Canada site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_fr left" tabindex="0">
+                  <span>France</span>
+                    <div>
+                      <a href="http://www.toms.fr?locale=fr_FR"><span class="off-screen">Visit TOMS France site in </span> Français</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.toms.fr?locale=en_FR"><span class="off-screen">Visit TOMS France site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_de left" tabindex="0">
+                  <span>Germany</span>
+                    <div>
+                      <a href="http://www.shoptoms.de?locale=de_DE"><span class="off-screen">Visit TOMS Germany site in </span> Deutsch</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.de?locale=en_DE"><span class="off-screen">Visit TOMS Germany site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_nl left" tabindex="0">
+                  <span>Netherlands</span>
+                    <div>
+                      <a href="http://www.shoptoms.nl?locale=nl_NL"><span class="off-screen">Visit TOMS Netherlands site in </span> Nederlands</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.nl?locale=en_NL"><span class="off-screen">Visit TOMS Netherlands site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_gb left" tabindex="0">
+                  <span>United Kingdom</span>
+                    <div>
+                      <a href="http://www.toms.co.uk?locale=en_GB"><span class="off-screen">Visit TOMS United Kingdom site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_us left" tabindex="0">
+                  <span>United States</span>
+                    <div>
+                      <a>English</a>
+                            </div>
+                </li>
+                <li tabindex="0"><a href="#" class="off-screen menu-close">Close menu</a></li>
+    <script>
+        var hashValue = window.location.hash;
+        //retrieving the href value of the content url
+        var a_href = $('.hash').attr('href');
+        if (hashValue!=null && hashValue !="") {
+            $('.hash').attr('href',a_href+hashValue);
+        }
+    </script>
+</ul>
+          <ul class="show-for-small" aria-hidden="true">
+            <li>
+                          <a class="icon-flag_ie" href="http://www.toms.ie?locale=en_IE"><span>Ireland</span>
+                          <div><span class="off-screen">Visit TOMS Ireland site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_at" href="http://www.shoptoms.at?locale=de_AT"><span>Österreich</span>
+                          <div><span class="off-screen">Visit TOMS Österreich site in </span> Deutsch</div></a></li>
+                        <li>
+                          <a class="icon-flag_at" href="http://www.shoptoms.at?locale=en_AT"><span>Austria</span>
+                          <div><span class="off-screen">Visit TOMS Austria site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_ca" href="http://www.toms.ca?locale=en_CA"><span>Canada</span>
+                          <div><span class="off-screen">Visit TOMS Canada site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_fr" href="http://www.toms.fr?locale=fr_FR"><span>France</span>
+                          <div><span class="off-screen">Visit TOMS France site in </span> Français</div></a></li>
+                        <li>
+                          <a class="icon-flag_fr" href="http://www.toms.fr?locale=en_FR"><span>France</span>
+                          <div><span class="off-screen">Visit TOMS France site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_de" href="http://www.shoptoms.de?locale=de_DE"><span>Deutschland</span>
+                          <div><span class="off-screen">Visit TOMS Deutschland site in </span> Deutsch</div></a></li>
+                        <li>
+                          <a class="icon-flag_de" href="http://www.shoptoms.de?locale=en_DE"><span>Germany</span>
+                          <div><span class="off-screen">Visit TOMS Germany site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_nl" href="http://www.shoptoms.nl?locale=nl_NL"><span>Nederland</span>
+                          <div><span class="off-screen">Visit TOMS Nederland site in </span> Nederlands</div></a></li>
+                        <li>
+                          <a class="icon-flag_nl" href="http://www.shoptoms.nl?locale=en_NL"><span>Netherlands</span>
+                          <div><span class="off-screen">Visit TOMS Netherlands site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_gb" href="http://www.toms.co.uk?locale=en_GB"><span>United Kingdom</span>
+                          <div><span class="off-screen">Visit TOMS United Kingdom site in </span> English</div></a></li>
+                        <li>
+                          <a class="icon-flag_us" href="/home/US;jsessionid=5as-WqGa5PsmTYms4psmDHJ5.1eb41ff9-d1e9-3343-a94a-dae5b7735ebe?locale=en_US"><span>United States</span>
+                          <div><span class="off-screen">Visit TOMS United States site in </span> English</div></a></li>
+                        </ul>
+       </li>
+							<li class="left promotional-slot small-only-text-center remove-on-mobile">
+					     	<h3 class="off-screen">Special promotion</h3>
+	        <p>
+            <a href="/free-shipping" class="promo-link">Free Shipping $59+ & Free Returns &nbsp;<span style="font-size:0.65rem;"><u>See Details</u></span></a>
+	        </p>
+	      </li> 
+              <li id="nav-cart-img" class="right cart-actions remove-on-mobile" tabindex="0">        	
+    		    <span class="pipe hide-for-small" aria-hidden="true">&nbsp;</span>								
+                <h2 class="off-screen" id="cart-summary">Shopping bag summary</h2>
+                <a href="/shopping-bag" id="cart-num">
+                  <span id="nav-cart-num">
+                    0</span>
+                  <span class="off-screen"> item in shopping bag</span>
+                    </a>
+                <a href="#" class="off-screen nav-toggle" aria-expanded="false" aria-haspopup="true">Click to toggle shopping cart content</a>
+                <ul id="cart-view" class="hide-for-medium-down" aria-hidden="true" tabindex="0">
+                    <li>
+                        <div id="mini-cart" class="hide-for-medium-down" aria-labelledby="cart-summary" tabindex="0">
+                            <div class="row">
+      <div class="large-12 columns mini-cart-no-item" tabindex="0">
+        <span>There are no items in your cart.</span>
+      </div>
+    </div>
+  <span id="monetate_minicart" style="display:none;" aria-hidden="true">{"page":{"type":"TOMS One Column Page"},"countryCode":"US","language":"en","user":{"loggedIn":false},"country":"United States"}</span>
+		<input id="itemC" type="hidden" value="0"/>
+<input id="orderR" type="hidden" value="0.0"/>
+
+  <div class="row mini-cart-button-con text-center" tabindex="0"><a href="/shopping-bag" class="btn green rev" tabindex="0" role="button">VIEW BAG</a> 
+      <a href="/shopping-bag" class="btn green" tabindex="0" role="button">CHECKOUT</a>
+      <a href="#" class="off-screen cart-toggle close">Close menu</a></div>
+    <script>
+  function submitCheckoutForm(){
+     document.getElementById("atg_store_mini_bag").submit();
+  };
+</script></div>
+                    </li>
+                </ul>
+              </li>
+              <li id="nav-login" class="right user-actions hide-for-small remove-on-mobile" tabindex="0">
+             		<h2 class="off-screen" id="macct-info">Account information</h2>
+                <a href="/account/login.jsp;jsessionid=5as-WqGa5PsmTYms4psmDHJ5.1eb41ff9-d1e9-3343-a94a-dae5b7735ebe?lastVisitedUrl=/home/"><span class="nav_guestUser_label">Login</span>
+                      </a><ul aria-hidden="true" tabindex="0">
+                    <li>
+                        <div id="nav-account" class="hide-for-small-only" aria-labelledby="macct-info" tabindex="0">
+	                      </div>
+                    </li>
+                  </ul>
+
+	                </li>
+						</ul>
+                        <h3 class="off-screen" id="top-main-nav" tabindex="0">Main navigation links</h3>
+						<ul id="main-nav-bar" role="navigation" aria-labelledby="top-main-nav">
+							<li class="logo left remove-on-mobile" tabindex="0">
+							<a href="/">
+                                        <img src="/static/www/new/images/navigation/toms_logo.svg" alt="Go to the homepage" />
+                                    </a>
+								</li>
+			        <li class="mobile-nav show-for-small-down remove-on-mobile">
+			   	    	<a href="#" class="left-off-canvas-toggle"><img src="http://media03.toms.com/static/www/new/images/navigation/mobile_icon_menu.png" alt="nav"/></a>
+			        </li>
+					    <li class="left expandable hide-for-small" tabindex="0">
+										<a class="topMainNav nav-top-links" href="#" aria-haspopup="true" aria-expanded="false" title="">
+											Shop<span class="off-screen"> (click to toggle menu)</span>
+										</a>
+										<span class="chevron" aria-hidden="true"></span>
+										
+												<input type="hidden" id="navCategoryName" value="">
+ 
+    <ul class="clearfix sub-nav-full-width mega-sub-nav" aria-hidden="true">
+    	<li class="navWide navLeft remove-on-mobile left" aria-hidden="true">&nbsp;</li>
+      <li class="left">
+								<p>
+									<a class="megaNav" href="/women" title="Women" data-display-name="Women">Women<span class="chevron-right right"></span></a>
+								</p>
+								<ul>
+									<li class="hide all-links"><a
+										href="/women" class="all-links shopAllFirst">Shop All&nbsp;Women</a></li>
+									<li>
+											<a class="mega-featured" href='/women/womens-shoes' data-display-name="Shoes" title="Women's Shoes">Shoes<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/women/womens-shoes" class="all-links shopAllSecond">Shop All&nbsp;Shoes</a></li>
+													<li><a class="megaNavLastMobile" href='/women/womens-shoes/women-shoes-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/womens-exclusives' data-display-name="Exclusives"> Exclusives</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/shoes-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/boots' data-display-name="Boots"> Boots</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/classic-alpargatas' data-display-name="Classic Alpargatas"> Classic Alpargatas</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/espadrilles' data-display-name="Espadrilles"> Espadrilles</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/flats' data-display-name="Flats"> Flats</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/heels' data-display-name="Heels"> Heels</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/platforms' data-display-name="Platforms"> Platforms</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/sandals' data-display-name="Sandals"> Sandals</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/slip-on-shoes' data-display-name="Slip Ons"> Slip Ons</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/sneakers' data-display-name="Sneakers"> Sneakers</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/wedges' data-display-name="Wedges"> Wedges</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/wedding' data-display-name="Wedding"> Wedding</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-shoes/vegan' data-display-name="Vegan"> Vegan</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/women/womens-sunglasses' data-display-name="Sunglasses" title="Women's Sunglasses">Sunglasses<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/women/womens-sunglasses" class="all-links shopAllSecond">Shop All&nbsp;Sunglasses</a></li>
+													<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/polarized-womens-sunglasses' data-display-name="Polarized"> Polarized</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/womens-oversized' data-display-name="Oversized"> Oversized</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/cat-eye-frames' data-display-name="Cat-Eye"> Cat-Eye</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/round-frames' data-display-name="Round"> Round</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/square-frames' data-display-name="Square"> Square</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/pilot-frames' data-display-name="Pilot"> Pilot</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/sunglasses-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/sunglasses-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-sunglasses/view-all' data-display-name="View All"> View All</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/women/womens-bags' data-display-name="Bags" title="Women's Bags">Bags<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/women/womens-bags" class="all-links shopAllSecond">Shop All&nbsp;Bags</a></li>
+													<li><a class="megaNavLastMobile" href='/women/womens-bags/backpacks' data-display-name="Backpacks"> Backpacks</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/tote-bags' data-display-name="Tote Bags"> Tote Bags</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/travel-bags' data-display-name="Travel Bags"> Travel Bags</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/cross-body-bags' data-display-name="Crossbody Bags"> Crossbody Bags</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/clutches' data-display-name="Clutches"> Clutches</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/bags-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/bags-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/women/womens-bags/view-all-bags' data-display-name="View All Women's Bags"> View All Women&#39;s Bags</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/women/womens-apparel' data-display-name="Apparel" title="Women's Apparel">Apparel<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/women/womens-apparel" class="all-links shopAllSecond">Shop All&nbsp;Apparel</a></li>
+													</ul></li>
+										</ul>
+								<ul class="other-links">
+									<li><a class="megaNavSidePane" href="/women/new-arrivals/" title="">New Arrivals</a></li>
+											<li><a class="megaNavSidePane" href="/women/womens-shoes/flats" title="">Flats</a></li>
+											<li><a class="megaNavSidePane" href="/women/womens-shoes/vegan" title="Shop Women&#39;s Vegan Products">Vegan</a></li>
+											</ul>
+								<ul>
+										<li><a class="megaNavSidePane" href="/women" title="Shop Women&#39;s View All">View All</a></li>
+											</ul>
+										</li>
+						<li class="left">
+								<p>
+									<a class="megaNav" href="/men" title="Men" data-display-name="Men">Men<span class="chevron-right right"></span></a>
+								</p>
+								<ul>
+									<li class="hide all-links"><a
+										href="/men" class="all-links shopAllFirst">Shop All&nbsp;Men</a></li>
+									<li>
+											<a class="mega-featured" href='/men/mens-shoes' data-display-name="Shoes" title="Men's Shoes">Shoes<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/men/mens-shoes" class="all-links shopAllSecond">Shop All&nbsp;Shoes</a></li>
+													<li><a class="megaNavLastMobile" href='/men/mens-shoes/classic-alpargatas' data-display-name="Classic Alpargatas"> Classic Alpargatas</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/boots' data-display-name="Boots"> Boots</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/dress-shoes' data-display-name="Dress Shoes"> Dress Shoes</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/sneakers' data-display-name="Sneakers"> Sneakers</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/slippers' data-display-name="Slippers"> Slippers</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/slip-on-shoes' data-display-name="Slip Ons"> Slip Ons</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/shoes-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/shoes-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/exclusives' data-display-name="Exclusives"> Exclusives</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-shoes/mens-boat-shoes' data-display-name="Boat Shoes"> Boat Shoes</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/men/mens-sunglasses' data-display-name="Sunglasses" title="Men's Sunglasses">Sunglasses<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/men/mens-sunglasses" class="all-links shopAllSecond">Shop All&nbsp;Sunglasses</a></li>
+													<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/mens-polarized' data-display-name="Polarized"> Polarized</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/square-frames' data-display-name="Square"> Square</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/round-frames' data-display-name="Round"> Round</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/pilot-frames' data-display-name="Pilot"> Pilot</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/sunglasses-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/mens-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														<li><a class="megaNavLastMobile" href='/men/mens-sunglasses/view-all' data-display-name="View All"> View All</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/men/mens-bags' data-display-name="Bags" title="Men's Bags">Bags<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/men/mens-bags" class="all-links shopAllSecond">Shop All&nbsp;Bags</a></li>
+													</ul></li>
+										<li>
+											<a class="mega-featured" href='/men/mens-apparel' data-display-name="Apparel" title="Men's Apparel">Apparel<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/men/mens-apparel" class="all-links shopAllSecond">Shop All&nbsp;Apparel</a></li>
+													</ul></li>
+										</ul>
+								<ul class="other-links">
+									<li><a class="megaNavSidePane" href="/men/new-arrivals/" title="">New Arrivals</a></li>
+											<li><a class="megaNavSidePane" href="/men/mens-shoes/sneakers" title="">Sneakers</a></li>
+											<li><a class="megaNavSidePane" href="/men/mens-shoes/slip-on-shoes" title="">Slip Ons</a></li>
+											</ul>
+								<ul>
+										<li><a class="megaNavSidePane" href="/men" title="Men&#39;s View All">View All</a></li>
+											</ul>
+										</li>
+						<li class="left">
+								<p>
+									<a class="megaNav" href="/kids" title="Kids" data-display-name="Kids">Kids<span class="chevron-right right"></span></a>
+								</p>
+								<ul>
+									<li class="hide all-links"><a
+										href="/kids" class="all-links shopAllFirst">Shop All&nbsp;Kids</a></li>
+									<li>
+											<a class="mega-featured" href='/kids/baby-shoes' data-display-name="Baby Shoes" title="Baby Shoes">Baby Shoes<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/kids/baby-shoes" class="all-links shopAllSecond">Shop All&nbsp;Baby Shoes</a></li>
+													</ul></li>
+										<li>
+											<a class="mega-featured" href='/kids/tiny-shoes' data-display-name="Tiny Shoes" title="Tiny Shoes">Tiny Shoes<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/kids/tiny-shoes" class="all-links shopAllSecond">Shop All&nbsp;Tiny Shoes</a></li>
+													<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-classic-alpargatas' data-display-name="Classic Alpargatas"> Classic Alpargatas</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-boots' data-display-name="Boots"> Boots</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-dress-shoes' data-display-name="Dress Shoes"> Dress Shoes</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-slippers' data-display-name="Slippers"> Slippers</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-sneakers' data-display-name="Sneakers"> Sneakers</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-slip-ons' data-display-name="Slip Ons"> Slip Ons</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-exclusives' data-display-name="Exclusives"> Exclusives</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/tiny-shoes/tiny-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														</ul></li>
+										<li>
+											<a class="mega-featured" href='/kids/youth-shoes' data-display-name="Youth Shoes" title="Youth Shoes">Youth Shoes<span class="hide"></span></a>
+												
+												<ul class="hide">
+													<li><a href="/kids/youth-shoes" class="all-links shopAllSecond">Shop All&nbsp;Youth Shoes</a></li>
+													<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-classic-alpargatas' data-display-name="Classic Alpargatas"> Classic Alpargatas</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-boots-and-booties' data-display-name="Boots & Booties"> Boots &amp; Booties</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-dress-shoes' data-display-name="Dress Shoes"> Dress Shoes</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-slippers' data-display-name="Slippers"> Slippers</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-sneakers' data-display-name="Sneakers"> Sneakers</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-slip-ons' data-display-name="Slip Ons"> Slip Ons</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-exclusives' data-display-name="Exclusives"> Exclusives</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-new-arrivals' data-display-name="New Arrivals"> New Arrivals</a></li>
+														<li><a class="megaNavLastMobile" href='/kids/youth-shoes/youth-best-sellers' data-display-name="Best Sellers"> Best Sellers</a></li>
+														</ul></li>
+										</ul>
+								<ul class="other-links">
+									<li><a class="megaNavSidePane" href="/kids/new-arrivals/" title="">New Arrivals</a></li>
+											<li><a class="megaNavSidePane" href="/exclusives/category-tiny?N=4230934041+218521578+3893857130&amp;" title="">Exclusives</a></li>
+											<li><a class="megaNavSidePane" href="/kids/sandals" title="">Sandals</a></li>
+											</ul>
+								<ul>
+										<li><a class="megaNavSidePane" href="/kids" title="Kid&#39;s View All">View All</a></li>
+											</ul>
+										</li>
+						<li class="left marketplace">
+							<p>
+								<a class="megaNav" href="/sunglasses" data-display-name="Sunglasses">Sunglasses<span
+								class="chevron-right right remove-on-mobile"></span></a>
+							</p>
+							<p class="top-seperator">
+								<a class="megaNav" href="/exclusives" data-display-name="Exclusives">Exclusives<span
+								class="chevron-right right remove-on-mobile"></span></a>
+							</p>
+							<p>
+								<a class="megaNav" href="/gift-cards" data-display-name="Gift Cards">Gift Cards<span
+								class="chevron-right right remove-on-mobile"></span></a>
+							</p>
+							<p class="top-seperator">
+							          <a href='/sale' class="sale megaNav">SALE<span class="chevron-right right remove-on-mobile"></span></a></p>
+		                        </li>
+							<li class="left remove-on-mobile sub-banner">
+                    <a href="/featured-shops/core-classics" data-display-name="SHOP CLASSICS" style="margin:0;display:block"><img src="http://media03.toms.com/static/www/images/navigation/promotional_content/us-can/2017/HO17-CoreClassics-Meganav-200x365.jpg" alt="Text: The shoe that started it all. Shop classics. Image: woman standing wearing red classic alpargatas." />
+                                <span class="cta button" title="" data-display-name="SHOP CLASSICS" role="button">
+                                    SHOP CLASSICS</span>
+                            </a>
+                        </li>
+				<li class="navWide navRight remove-on-mobile right" aria-hidden="true">&nbsp;</li>
+                <li class="off-screen"><a href="#" class="mega-close">Close menu</a></li>
+            </ul>
+        </li>
+									<li class="left expandable hide-for-small" tabindex="0">
+										<a class="topMainNav nav-top-links" href="#" aria-haspopup="true" aria-expanded="false" title="">
+											How We Give<span class="off-screen"> (click to toggle menu)</span>
+										</a>
+										<span class="chevron" aria-hidden="true"></span>
+										
+												<ul class="clearfix type2 mega-sub-nav" aria-hidden="true">
+          <li class="left">
+          <p><a href="/improving-lives" data-display-name="Improving Lives" title="">Improving Lives<span class="chevron-right right"></span></a></p>
+              <ul>
+              <li><a href="/improving-lives" data-display-name="Improving Lives" title="">Improving Lives</a></li>
+                <li><a href="/what-we-give" data-display-name="Improving Lives" title="">What We give</a></li>
+                <li><a href="/where-we-give" data-display-name="Improving Lives" title="">Where We give</a></li>
+                <li><a href="/thoughtful-partners" data-display-name="Improving Lives" title="">Thoughtful Partnerships</a></li>
+                <li><a href="/beyond-one-for-one" data-display-name="Improving Lives" title="">Beyond One for One</a></li>
+                </ul>
+          
+        </li>
+                            
+            <li class="right sub-banner remove-on-mobile">
+                <a href="/improving-lives" data-display-name="LEARN MORE" style="margin:0;display:block;height:100%"><img src="http://media03.toms.com/static/www/images/navigation/promotional_content/us-can/2018/giving/Wk1-5-Meganav-Giving_200x236.jpg" alt="Every purchase has a purpose. Learn more."/>
+                            <span class="button" title="" data-display-name="LEARN MORE" role="button">
+                            LEARN MORE</span>
+                        </a>
+                    </li>
+            <li><a href="#" class="off-screen mega-close">Close menu</a></li>
+        </ul>
+        
+  </li>
+									<li class="left hide-for-small" tabindex="0">
+										<a href="/passport" class="topMainNav" title="TOMS Passport Rewards Program">
+											Passport Rewards</a>
+									</li>
+									<li class="right search remove-on-mobile" tabindex="0" role="search" aria-label="Use down arrows to hear search results after entering text">
+                                <h2 class="off-screen">Search the site</h2>
+      <div id="mega-search-trigger" class="show-for-small-only" aria-hidden="true"><span id="m-search-ico" class="search-icon"></span></div>
+      <form id="searchForm" onSubmit="searchFormSubmit();" name="searchForm" action="/search;jsessionid=5as-WqGa5PsmTYms4psmDHJ5.1eb41ff9-d1e9-3343-a94a-dae5b7735ebe?_DARGS=/globalelement/searchBoxNew.jsp" method="post"><div style="display:none"><input name="_dyncharset" value="UTF-8" type="hidden"/> </div><div style="display:none"><input value="8586338506504751423" type="hidden"/> </div><input type="hidden" name="Dy" value="1"/>
+        <input type="hidden" name="Nty" value="1"/>
+        <input type="hidden" id="searchKey1" value=''/>
+        <input name="siteScope" value="ok" type="hidden"/><input name="_D:siteScope" value=" " type="hidden"/><label for="search-input-new" class="off-screen">What are you looking for?</label>
+        <input type="search" placeholder="What are you looking for?" id="search-input-new" name="Ntt" autocomplete="off" data-rfkid='rfkid_6'/>
+        <input type="hidden" value="tomsSiteUS" priority="10" />
+        <input id="atg_store_searchSubmit" name="search" value="submit" onclick="searchFormSubmit()" class="search-icon text-left hide-for-small" type="submit"/><input name="_D:search" value=" " type="hidden"/><div style="display:none"><input name="_DARGS" value="/globalelement/searchBoxNew.jsp" type="hidden"/> </div></form><script type="text/javascript">
+    function searchFormSubmit(){
+    var action = '/search' + "?Ntt="+document.getElementById('search-input-new').value;
+        document.searchForm.action=action;
+        document.searchForm.submit(); return false;
+    }
+    </script>
+</li>
+						</ul>
+					</nav>
+					<div id="site-main-content" class="mainContentBody" tabindex="-1">
+        <div class="container">
+  <div id="hp_hero" class="row hero-banner tyrion max-1400" >
+    <a data-label="Wk11-12-Hero-USCA-VeniceCollection_2100x1050" data-link-pos="img" href="/venice-collection">
+    <img data-hero src="https://media01.toms.com/static/www/images/home/hero/2018/us_ca/Wk11-12-Hero-USCA-VeniceCollection_2100x1050.jpg" alt="Text: Introducing the Venice Collection. A curated selection of updated TOMS original styles. A tribute to our roots and our next chapter. Shop women. Shop men. Shop kids. Featured: Venice collection classics and TRAVELER sunglasses for the Venice collection.">
+    </a>
+    <div class="the_wall clearfix">
+      <div class="banner_buddy  supporting"> </div><div class="banner_inner text-center lannister enhanced"  style="padding:2rem; background-color:rgba(255,255,255,0.85);">
+
+    <div class="banner_text">
+        <h3 class="banner_brow"  style="color:#000000;">INTRODUCING</h3><hr class="brow"  style="border-color:#000000;"/><dl>
+          <dt class="banner_title" style="color:#000000;">THE VENICE<br />COLLECTION</dt>
+          <dd class="banner_summary" style="color:#000000;">A curated selection of updated TOMS original styles. <br class="show-for-medium-up"/>A tribute to our roots and our next chapter.</dd>
+        </dl>
+      </div>
+      <div class="banner_links">
+        <ul>
+          <li>
+            <a data-label="Wk11-12-Hero-USCA-VeniceCollection_2100x1050" data-link-pos="link1" href="/venice-collection/#venice_women"  style="color:#000000;border-color:#000000;"  data-promo="Hero">Shop Women</a>
+          </li>
+          <li>
+            <a data-label="Wk11-12-Hero-USCA-VeniceCollection_2100x1050" data-link-pos="link2" href="/venice-collection/#venice_men"  style="color:#000000;border-color:#000000;"  data-promo="Hero">Shop Men</a>
+          </li>
+          <li>
+            <a data-label="Wk11-12-Hero-USCA-VeniceCollection_2100x1050" data-link-pos="link3" href="/venice-collection/#venice_kids"  style="color:#000000;border-color:#000000;"  data-promo="Hero">Shop Kids</a>
+          </li>
+          </ul>
+      </div>
+      </div>
+    <div class="banner_buddy  supporting"> </div></div></div>
+</div>
+<div class="row max-1400">
+<div class="small-12 columns varys">
+<h3>With every product you purchase, TOMS will help a person in need. <span>One for One&reg;</span></h3>
+</div>
+</div><div class="container">
+  <div class="row max-1400">
+    <div class="small-12 medium-6 large-4 columns eddard" data-rfkid="rfkid_1a">
+      <a href="/women/new-arrivals" data-link-pos="a" data-label="Wk11-12-Promo1a-US-WomensLeatherDecon_890x1040"  title="Shop shoes for women." data-promo="Promo1">
+        <figure>
+          <img src="https://media01.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo1a-US-WomensLeatherDecon_890x1040.jpg" alt="Featured: black leather women's deconstructed alpargatas.">
+          <figcaption>
+            <h5>A LEATHER SLIP-ON</h5>
+            <p><span class="psuedo-link">Shop Women</span></p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="small-12 medium-6 large-4 columns eddard" data-rfkid="rfkid_1b">
+      <a href="/venice-collection#venice_traveler" data-link-pos="b" data-label="Wk11-12-Promo1b-US-EWTravelerZuma_890x1040"  title="Shop TRAVELER sunglasses." data-promo="Promo1">
+        <figure>
+          <img src="https://media01.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo1b-US-EWTravelerZuma_890x1040.jpg" alt="Woman wearing sunglasses TRAVELER by TOMS Zuma matte aqua glass.">
+          <figcaption>
+            <h5>TRAVELER FOR THE VENICE COLLECTION</h5>
+            <p><span class="psuedo-link">Shop Sunglasses</span></p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="small-12 medium-6 large-4 medium-centered large-uncentered columns eddard" data-rfkid="rfkid_1c">
+      <a href="/men/mens-shoes/slip-on-shoes" data-link-pos="c" data-label="Wk11-12-Promo1c-US-MensSuedeDecon_890x1040"  title="Shop slip-on shoes for men." data-promo="Promo1">
+        <figure>
+          <img src="https://media04.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo1c-US-MensSuedeDecon_890x1040.jpg" alt="Featured: men's pine suede deconstructed alpargatas.">
+          <figcaption>
+            <h5>THE DECONSTRUCTED ALPARGATA</h5>
+            <p><span class="psuedo-link">Shop Men’s Slip-ons</span></p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row max-1400 daenerys">
+    <div class="small-12 medium-7  columns"  data-rfkid="rfkid_2l">
+      <a href="/exclusives" data-link-pos="lg" title="Shop exclusive styles for kids and women." data-label="Wk11-12-Promo2L-USCA-KidsBunnies_1550x1810"  data-promo="Promo2"><figure>
+        <img src="https://media01.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo2L-USCA-KidsBunnies_1550x1810.jpg" alt="Featured: bunny face jersey in youth Luca slip-ons and tiny TOMS crib alpargatas.">
+      </figure>
+      </a></div>
+    <div class="small-12 medium-5  columns"  data-rfkid="rfkid_2s">
+      <div class="media-block">
+        <a href="/exclusives" data-link-pos="sm" title="Shop exclusive styles for women and kids." data-label="Wk11-12-Promo2S-USCA-WomensBunnies_1190x1020"  data-promo="Promo2"><img src="https://media04.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo2S-USCA-WomensBunnies_1190x1020.jpg" alt="Featured: bunny women's classics.">
+        </a></div>
+      <div class="content-block">
+        <h4>HOP TO IT</h4>
+        <p>A limited edition spring slip-on with a cottontail.</p>
+        <ul class="gilly">
+          <li>
+            <a href="/exclusives" data-link-pos="link1" data-label="Wk11-12-Promo2L-USCA-KidsBunnies_1550x1810"  data-promo="Promo2">Shop Exclusives</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+<style>
+.bronn .text-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 0.9375rem;
+  width: 100%;
+}
+.bronn h4 {
+  margin-top: 2.125rem;
+  font-family: proximabold;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  line-height: 1.75rem;
+}
+.bronn .inline-list li {
+  display: block;
+  float: none;
+  margin-top: 0.5625rem;
+}
+.bronn a {
+  color: #161616;
+  font-family: proximabold;
+  font-size: 0.8375rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid rgba(0,0,0,0.65);
+  display: inline-block;
+}
+.blue.bronn {
+  background-color: #0A182F;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 0.9375rem;
+}
+.blue.bronn .banner_brow {
+  color: #fff;
+  margin-top: 3.75rem;
+}
+.blue.bronn .brow {
+  display: inline-block;
+  width: 6.25rem;
+  border: 1px solid #fff;
+  margin: 1rem 0;
+}
+.blue.bronn p {
+  color: #fff;
+  font-size: 1.25rem;
+  font-family: proximabold;
+  letter-spacing: 1.5px;
+  line-height: 1.75rem;
+}
+.blue.bronn .inline-list {
+  margin-top: 1rem;
+  margin-bottom: 3.75rem;
+}
+.blue.bronn a {
+  color: #fff;
+  border-color: #fff;
+  line-height: 0.8375rem;
+}
+.tyrion > a > img {
+  margin: 0 auto 1.3125rem;
+}
+@media screen and (min-width:40.063em) {
+  .productspotlight {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .blue.bronn .inline-list {
+    margin: 0 auto;
+  }
+  .bronn .inline-list li {
+    display: inline-block;
+    float: left;
+  }
+  .bronn .inline-list > li:first-child {
+    margin-left: 0;
+  }
+  .blue.bronn .banner_brow {
+    margin-top: 0.9375rem;
+  }
+  .blue.bronn p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .blue.bronn a {
+    margin: 1rem auto 1.875rem;
+    line-height: 1.375rem;
+  }
+}
+@media screen and (min-width:64.063em) {
+  .bronn h4 {
+    margin-top: 3.375rem;
+    font-size: 2.25rem;
+    letter-spacing: 2px;
+    line-height: 2.75rem;
+  }
+  .bronn a {
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(0,0,0,0.65);
+    padding-bottom: 1px;
+  }
+  .bronn a:hover {
+    border-bottom: 2px solid rgba(0,0,0,1);
+    padding-bottom: 0;
+  }
+  .blue.bronn a:hover {
+    border-color: rgba(255,255,255,1);
+  }
+  .blue.bronn .banner_brow {
+    margin-top: 5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .blue.bronn .brow {
+    margin: 1.375rem 0;
+  }
+  .blue.bronn p {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    letter-spacing: 2px;
+  }
+  .blue.bronn a {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin: 2.875rem auto 5rem;
+  }
+}
+</style><div class="row max-1400 text-center bronn">
+  <div class="small-12 columns">
+    <img data-interchange="[https://media04.toms.com/static/www/images/home/promotional_content/2018/us_ca/ClassicsPromo-WhiteBackground_435x365.jpg, (default)], [https://media02.toms.com/static/www/images/home/promotional_content/2018/us_ca/ClassicsPromo-WhiteBackground_2100x600.jpg, (medium)]" src="" alt="The classic alpargata is the shoe that started it all" class="productHP">
+    <div class="text-content">
+      <h4>THE SHOE THAT <br class="show-for-small-only"/>STARTED IT ALL</h4>
+      <ul class="inline-list productspotlight">
+        <li><a href="/featured-shops/core-classics" data-link-pos="link1" data-label="PromoClassics" data-promo="Supporting">Shop Now</a></li>
+      </ul>
+    </div>
+  </div>
+</div><div class="container">
+  <div class="row max-1400 daenerys">
+    <div class="small-12 medium-7 medium-push-5 columns"  data-rfkid="rfkid_3l">
+      <a href="/women/womens-shoes/wedges" data-link-pos="lg" title="Shop wedges for women." data-label="Wk11-12-Promo3L-US-WomensMonicaWedge_1550x1810"  data-promo="Promo3"><figure>
+        <img src="https://media04.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo3L-US-WomensMonicaWedge_1550x1810.jpg" alt="Featured: bloom suede women's Monica wedges. Image: woman sitting on sofa and placing mug on coffee table.">
+      </figure>
+      </a></div>
+    <div class="small-12 medium-5 medium-pull-7 columns"  data-rfkid="rfkid_3s">
+      <div class="media-block">
+        <a href="/women/womens-shoes/sandals" data-link-pos="sm" title="Shop sandals for women." data-label="Wk11-12-Promo3S-US-WomensPoppySandal_1190x1020"  data-promo="Promo3"><img src="https://media05.toms.com/static/www/images/home/promotional_content/2018/us_ca/Wk11-12-Promo3S-US-WomensPoppySandal_1190x1020.jpg" alt="Featured: bloom suede rose gold specchio women's Poppy sandals.">
+        </a></div>
+      <div class="content-block">
+        <h4>NEED A LIFT?</h4>
+        <p>We got you. The Monica and Poppy add some <br class="show-for-medium-up"/>height to any look.</p>
+        <ul class="gilly">
+          <li>
+            <a href="/women/womens-shoes/wedges" data-link-pos="link1" data-label="Wk11-12-Promo3L-US-WomensMonicaWedge_1550x1810"  data-promo="Promo3">Shop Women’s Wedges</a>
+          </li>
+          <li>
+            <a href="/women/womens-shoes/sandals" data-link-pos="link2" data-label="Wk11-12-Promo3S-US-WomensPoppySandal_1190x1020"  data-promo="Promo3">Shop Women’s Sandals</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+<div id="olapic_specific_widget"></div><script type="text/javascript" src="https://photorankstatics-a.akamaihd.net/81b03e40475846d5883661ff57b34ece/static/frontend/latest/build.min.js"  data-olapic="olapic_specific_widget" data-instance="c4709474730520aa1d05b0fb891c4408" data-apikey="761b4416f91ffe4ae5a731183060bf3d5280ba570a5b93ef58c53c09d250e37f" async="async"></script><div data-rfkid="rfkid_1"></div><div class="container">
+  <div class="row hero-banner tyrion max-1400 supporting" >
+    <img data-hero src="https://media02.toms.com/static/www/images/home/givingblock/us_ca/Wk46-USCA-Footer-HoldingHands_1400x580.jpg" alt="Text: Every purchase has a purpose. Through your purchase, TOMS helps provide shoes, sight and water to people in need. Learn more.">
+    <div class="the_wall clearfix">
+      <div class="banner_buddy  supporting"> </div><div class="banner_inner text-center lannister" >
+    <div class="banner_text">
+        <dl>
+          <dt class="banner_title">EVERY PURCHASE <br/>HAS A PURPOSE</dt>
+          <dd class="banner_summary">Through your purchase, TOMS helps provide shoes, <br class="show-for-medium-up"/>sight and water to people in need.</dd>
+        </dl>
+      </div>
+      <div class="banner_links">
+        <ul>
+          <li>
+            <a data-label="Wk46-USCA-Footer-HoldingHands_1400x580" data-link-pos="link1" href="/improving-lives"  data-promo="Giving">Learn More</a>
+          </li>
+          </ul>
+      </div>
+      </div>
+    <div class="banner_buddy  supporting"> </div></div></div>
+</div>
+<div class="row max-1400 text-center passaporte">
+  <div class="small-12 columns">
+    <div class="blue bronn">
+      <h3 class="banner_brow">PASSPORT REWARDS</h3>
+      <hr class="brow"/>
+      <p>WANT FREE SHIPPING, EARLY <br class="show-for-medium-up" />ACCESS TO SALES AND EXCLUSIVE PERKS?</p>
+	  <ul class="inline-list productspotlight">
+		<li><a href="/passport" data-link-pos="link1" data-label="NonLoyalty" data-promo="Passport">Join for Free</a></li>
+        <li><a href="/account/login.jsp?userType=passport" data-link-pos="link2" data-label="NonLoyalty" data-promo="Passport">Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</div><script>
+  $('a[data-promo]').on('click', function(e){
+    try {
+      e.stopPropagation();
+      e.preventDefault();
+      var lynk = $(this).attr('href');
+      var label = $(this).attr('data-label');
+      var indx = $(this).attr('data-link-pos');
+      var promo = $(this).attr('data-promo');
+      var isMobile = (TOMS.VALS['deviceType'] == "Mobile") ? '|m' : '';
+      if(dataLayer !== undefined){
+        dataLayer.push({
+          'event': 'hp_promo_click',
+          'label': 'TOMSHP - ' + promo + '[' + indx + '] - ' + label + isMobile
+        });
+      }
+      setTimeout(function(){
+        document.location = lynk;
+      }, 200);
+    } catch(err) {
+      console.log(err.message);
+    }
+  });
+</script><script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "TOMS",
+      "url" : "http://www.toms.com",
+      "potentialAction": 
+      {
+        "@type": "SearchAction",
+        "target": "http://www.toms.com/search?Ntt={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+	</script>
+<input type="hidden" id="twitterAccount" value="TOMS"/>
+<input type="hidden" id="facebookAppID" value="149248711837494"/>
+
+
+<input id="storeLocator" type="hidden" value='/store-locator' />
+    <input id="privacyPolicy" type="hidden" value='/privacy-policy' />
+    <input id="jvmname" type="hidden" value="toms-app-07-p-prd1-app2" />
+<div class="push"></div>
+    <div id="footer-container">
+        <div id="newsletter" class="row">
+            <div class="columns text-center ft_social">
+                <h2>Connect with us</h2>
+                <h3>Follow us or sign up for emails</h3>
+
+                <ul class="ft-social-li">
+                    <li>
+                      <a href="https://instagram.com/TOMS" target="_blank">
+                        <span class="shareThis st_instagram_custom" displayText='Instagram'>TOMS Instagram (opens in a new window)</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.facebook.com/toms" target="_blank">
+                        <span class="shareThis st_facebook_custom" displayText='Facebook'>TOMS Facebook (opens in a new window)</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/TOMS" target="_blank">
+                        <span class="shareThis st_twitter_custom" displayText='Twitter'>TOMS Twitter (opens in a new window)</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/toms" target="_blank">
+                        <span class="shareThis st_youtube_custom" displayText='YouTube'>TOMS YouTube (opens in a new window)</span>
+                      </a>
+                    </li>
+                    </ul>
+
+                  <form id="subscribeForm" name="subscribeForm" action="/globalelement/?_DARGS=/globalelement/footer.jsp" target="hidden-form" method="POST" onsubmit="return validateForm('subscribeForm')"><div style="display:none"><input name="_dyncharset" value="UTF-8" type="hidden"/> </div><div style="display:none"><input name="_dynSessConf" value="-435122171200807178" type="hidden"/> </div><div class="emailSignUpFormMessages" tabindex="0">
+                            <span id="newsletter-signup-error" class="errorMessage" style="display:none;" aria-hidden="true" tabindex="0">
+                                Please enter a valid email address.</span>
+                        </div>
+                        <div id="newsletter-signup-confirm" style="display:none;" aria-hidden="true" tabindex="0">Thank you for signing up!</div>
+                        <input id="language" name="/platform/extension/common/CheetahMailServiceFormHandler.userLanguageSelected" value="en_US" type="hidden"/><input name="_D:/platform/extension/common/CheetahMailServiceFormHandler.userLanguageSelected" value=" " type="hidden"/><input name="/platform/extension/common/CheetahMailServiceFormHandler.type" value="globalfooter" type="hidden"/><input name="_D:/platform/extension/common/CheetahMailServiceFormHandler.type" value=" " type="hidden"/><label for="guestEmailId" class="off-screen">Enter your email</label>
+                        <input id="guestEmailId" placeholder="Enter your email" name="guestEmailIdBox" value="" type="email"/><input name="_D:guestEmailIdBox" value=" " type="hidden"/><input name="/platform/extension/common/CheetahMailServiceFormHandler.subscribeGuestUser" value="Submit" type="hidden"/><input name="_D:/platform/extension/common/CheetahMailServiceFormHandler.subscribeGuestUser" value=" " type="hidden"/><a class="button postfix" onclick="validateForm('subscribeForm');" id="subscribeGuestUserId" role="button"><span>Sign up</span></a>
+                        <div id="ft-em-tou" class="termsOfUse">By clicking 'Sign Up', you agree to receive marketing emails from TOMS and agree to our <a href="/terms-of-use-terms-of-sale">Terms of Use &amp; Terms of Sale</a> and <a href="/privacy-policy">Privacy Policy</a>.</div>
+                    <div style="display:none"><input name="_DARGS" value="/globalelement/footer.jsp" type="hidden"/> </div></form><iframe style="display:none; visibility: hidden;" height="0" width="0" tabindex="-1" name="hidden-form" aria-hidden="true" title="Ignore the content here">You need a browser that supports iframes to use this feature.</iframe>
+        <script>
+          function validateForm(elem){   
+            var pattern = RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+            var x=document.forms[elem]["guestEmailId"].value;
+            var localelang=document.forms[elem]["language"].value;
+            if(pattern.test(x)){
+              $.get('/globalelement/cheetaMailAjax.jsp?emailId='+x+'&locale='+localelang, function(data){
+                //done
+              });
+              $("#newsletter-signup-error").attr("aria-hidden","true").add("#guestEmailId, #subscribeGuestUserId, label[for='guestEmailId']").hide();
+              $("#newsletter-signup-confirm").attr("aria-hidden","false").show(0,function() {
+                  $(this).focus();
+              });
+            } else {
+              $("#guestEmailId").addClass("error");
+              $("#newsletter-signup-error").attr("aria-hidden","false").show(0,function() {
+                  $(this).focus();
+              });
+            }
+            return false;
+          }
+        </script>
+        </div>
+        </div>
+    </div>
+    <div class="row center-footer show-for-medium-up full-width">
+        <div class="sub-footer-con" role="navigation" aria-labelledby="footer-title">
+            <h3 class="off-screen" id="footer-title">Additional site links</h3>
+  
+            <div class="medium-3 columns">
+                      <ul class="list-no-style">
+                        <li class="footer-list-head" title="About TOMS">ABOUT TOMS</li>
+                        <li>
+                                  <a href="/blakes-bio" title="Blake Mycoskie's Bio" target="" >Blake Mycoskie's Bio</a>
+                                </li>
+                              <li>
+                                  <a href="/about-toms" title="Company Information" target="" >Company Information</a>
+                                </li>
+                              <li>
+                                  <a href="/jobs" title="Jobs at TOMS" target="" >Jobs at TOMS</a>
+                                </li>
+                              <li>
+                                  <a href="/affiliate-program" title="Affiliate Program" target="" >Affiliate Program</a>
+                                </li>
+                              <li>
+                                  <a href="/request-catalog" title="Request a Catalog" target="" >Request a Catalog</a>
+                                </li>
+                              <li>
+                                  <a href="/passport" title="TOMS Passport Rewards" target="" >TOMS Passport Rewards</a>
+                                </li>
+                              <li>
+                                  <a href="/supply-chain-transparency" title="CA Supply Chain Act" target="" >CA Supply Chain Act</a>
+                                </li>
+                              </ul>
+                    </div>
+                  <div class="medium-3 columns">
+                      <ul class="list-no-style">
+                        <li class="footer-list-head" title="Get Help">GET HELP</li>
+                        <li>
+                                  <a href="/faq#track" title="Track My Order" target="" >Track My Order</a>
+                                </li>
+                              <li>
+                                  <a href="/faq#returns" title="Return Policy" target="" >Returns</a>
+                                </li>
+                              <li>
+                                  <a href="/faq#shipping" title="Shipping and Delivery" target="" >Shipping and Delivery</a>
+                                </li>
+                              <li>
+                                  <a href="/faq" title="Frequently Asked Questions" target="" >FAQ</a>
+                                </li>
+                              <li>
+                                  <a href="/faq#sizecharts" title="Size Charts" target="" >Size Charts</a>
+                                </li>
+                              <li>
+                                  <a href="/accessibility" title="Accessibility Statement" target="" >Accessibility</a>
+                                </li>
+                              </ul>
+                    </div>
+                  <div class="medium-3 columns">
+                      <ul class="list-no-style">
+                        <li class="footer-list-head" title="Fan Favorites">FAN FAVORITES</li>
+                        <li>
+                                  <a href="/exclusives" title="TOMS Exclusives" target="" >TOMS Exclusives</a>
+                                </li>
+                              <li>
+                                  <a href="/women/womens-shoes/slip-on-shoes" title="Women's Slip-Ons" target="" >Women's Slip-Ons</a>
+                                </li>
+                              <li>
+                                  <a href="/men/mens-shoes/sneakers" title="Men's Sneakers" target="" >Men's Sneakers</a>
+                                </li>
+                              <li>
+                                  <a href="/kids/youth-shoes" title="Youth Shoes" target="" >Youth Shoes</a>
+                                </li>
+                              <li>
+                                  <a href="/kids/tiny-shoes" title="Tiny Shoes" target="" >Tiny Shoes</a>
+                                </li>
+                              <li>
+                                  <a href="/sunglasses" title="Sunglasses" target="" >Sunglasses</a>
+                                </li>
+                              <li>
+                                  <a href="/vegan" title="Vegan Styles" target="" >Vegan Styles</a>
+                                </li>
+                              <li>
+                                  <a href="/catalog" title="Catalog Styles" target="" >Catalog Styles</a>
+                                </li>
+                              </ul>
+                    </div>
+                  <div class="medium-3 columns">
+            <ul class="list-no-style">
+                <li class="footer-list-head">Store Locator</li>
+                <li class="footer-spacer"><a href="/store-locator">Find a Store</a></li>
+                <li class="footer-list-head">Reward Programs</li>
+                <li><a href="/passport">Passport Rewards</a></li>
+                <li><a href="/invite">Refer A Friend</a></li>
+                </ul>
+        </div>
+        </div> 
+    </div> 
+    <footer class="row sub-footer-con">
+        <div class="large-12 columns">
+            <div class="change-lang lang-select-ele" tabindex="0">
+      <h3 class="off-screen" id="visit-toms-sites-ft">Visit other TOMS global websites</h3>
+                      <a class="change-lang-trigger lang-select-ele" aria-expanded="false" aria-haspopup="true">
+                        <span class="flag-icon icon-flag_us"></span>
+                        <span class="off-screen">Currently selected country and language: United States</span>
+                        <span class="footer-current-lang">English</span>
+                        <span class="chevron" aria-hidden="true"></span>
+                        <span class="off-screen">(click to expand and see all TOMS global website)</span>
+                      </a>
+                    <ul id="ft-lang-dropdown" class="sub_menu lang-select-ele" aria-labelledby="visit-toms-sites-ft" aria-hidden="true" tabindex="0">
+        <li class="icon-flag_ie left" tabindex="0">
+                  <span>Ireland</span>
+                    <div>
+                      <a href="http://www.toms.ie?locale=en_IE"><span class="off-screen">Visit TOMS Ireland site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_at left" tabindex="0">
+                  <span>Austria</span>
+                    <div>
+                      <a href="http://www.shoptoms.at?locale=de_AT"><span class="off-screen">Visit TOMS Austria site in </span> Deutsch</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.at?locale=en_AT"><span class="off-screen">Visit TOMS Austria site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_ca left" tabindex="0">
+                  <span>Canada</span>
+                    <div>
+                      <a href="http://www.toms.ca?locale=en_CA"><span class="off-screen">Visit TOMS Canada site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_fr left" tabindex="0">
+                  <span>France</span>
+                    <div>
+                      <a href="http://www.toms.fr?locale=fr_FR"><span class="off-screen">Visit TOMS France site in </span> Français</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.toms.fr?locale=en_FR"><span class="off-screen">Visit TOMS France site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_de left" tabindex="0">
+                  <span>Germany</span>
+                    <div>
+                      <a href="http://www.shoptoms.de?locale=de_DE"><span class="off-screen">Visit TOMS Germany site in </span> Deutsch</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.de?locale=en_DE"><span class="off-screen">Visit TOMS Germany site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_nl left" tabindex="0">
+                  <span>Netherlands</span>
+                    <div>
+                      <a href="http://www.shoptoms.nl?locale=nl_NL"><span class="off-screen">Visit TOMS Netherlands site in </span> Nederlands</a>
+                            &nbsp;|&nbsp;
+                          <a href="http://www.shoptoms.nl?locale=en_NL"><span class="off-screen">Visit TOMS Netherlands site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_gb left" tabindex="0">
+                  <span>United Kingdom</span>
+                    <div>
+                      <a href="http://www.toms.co.uk?locale=en_GB"><span class="off-screen">Visit TOMS United Kingdom site in </span> English</a></div>
+                </li>
+                <li class="icon-flag_us left" tabindex="0">
+                  <span>United States</span>
+                    <div>
+                      <a>English</a>
+                            </div>
+                </li>
+                <li tabindex="0"><a href="#" class="off-screen menu-close">Close menu</a></li>
+    <script>
+        var hashValue = window.location.hash;
+        //retrieving the href value of the content url
+        var a_href = $('.hash').attr('href');
+        if (hashValue!=null && hashValue !="") {
+            $('.hash').attr('href',a_href+hashValue);
+        }
+    </script>
+</ul>
+    </div>
+    <ul id="ft-btm-links" class="sub-footer-large-medium-margin dropdown">
+                    <li class="show-for-small-only"><div class="mobPhone"><a href="tel://800.975.8667">Call us&nbsp;800.975.8667</a></div></li>
+                    <li tabindex="0"><a href="/site-map-en">Site Map</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-use-terms-of-sale">Terms of Use & Terms of Sale</a></li>
+                    <li><a href="/proposition-65">Proposition 65</a></li>
+                        <li class="show-for-small-only"><a href="/supply-chain-transparency">Transparency in Supply Chains</a></li>
+                    <li class="ft-mob-row">&copy; 2006-2018 TOMS.com, LLC. <br class="show-for-small-only" /> All Rights Reserved.</li>
+            </ul>
+        </div>
+        <input type="hidden" id="sendInfoToAhalogy" value="false"/> 
+
+<script data-cfasync='false' type='text/javascript'>
+if($("#sendInfoToAhalogy").val() !=undefined && $("#sendInfoToAhalogy").val() !="" && $("#sendInfoToAhalogy").val()=="true"){
+  (function(a,h,a_,l,o,g,y){
+	  window[a_]=
+	  {c:o,b:g,u:l}
+	  ;var s=a.createElement(h);s.src=l,e=a.getElementsByTagName(h)[0];e.parentNode.insertBefore(s,e);
+	  })(document,'script','_ahalogy','//w.ahalogy.com/',
+	  {client:"43736288656-toms"}
+	  );
+}
+</script>
+</footer>
+    <!--[if IE]>
+      <script src="/static/www/new/js/jquery.placeholder.js"></script>
+      <script>
+      $(function() {
+        $('input, textarea').placeholder();     
+      });
+      </script>
+    <![endif]-->
+<script>
+    (function(f,b){
+      var c;
+      f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+      f._hjSettings={hjid:2344, hjsv:3};
+      c=b.createElement("script");c.async=1;
+      c.src="//static.hotjar.com/c/hotjar-2344.js?sv=3";
+      b.getElementsByTagName("head")[0].appendChild(c); 
+    })(window,document);
+    (function() {
+      setTimeout(function() {
+        hj('tagRecording', ['\'' + $("#jvmname").val() + '\'']);
+      },100);
+    })();
+    </script>
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KZVQ" height="0" width="0" tabindex="-1" style="display: none; visibility: hidden" aria-hidden="true" title="Ignore the content here">You need a browser that supports iframes to use this feature.</iframe></noscript>
+  <noscript><div class="noscript"><p>Hi there, JavaScript seems to be disabled on your browser. Please enable JavaScript on your browser to utilize the functionality of our site.</p></div></noscript>
+<a id="liveagent_button_online_57350000000009A-1" href="javascript:void(0)" class="global-chat-btn toms-event" style="position: fixed" onclick="liveagent.startChat('57350000000009A')" data-event="Live Chat">
+    <span>Help</span>
+</a>
+<a id="liveagent_button_offline_57350000000009A-1" href="/email-us-en" class="global-chat-btn toms-event" target="_new" style="position: fixed;" data-event="Live Chat Offline">
+    <span>Help</span>
+</a>
+<script type="text/javascript">
+    var chatDeploymentId = "572500000000090";
+    var chatOrgId = "00D50000000JKsL";
+    var chatSrc = "https://d.la1-c2-phx.salesforceliveagent.com/chat";
+
+    if (!window._laq) { window._laq = []; }
+    window._laq.push(function(){
+        var key = "57350000000009A", onlineId = "liveagent_button_online_57350000000009A-1", offlineId = "liveagent_button_offline_57350000000009A-1";
+        liveagent.showWhenOnline(key, document.getElementById(onlineId));
+        liveagent.showWhenOffline(key, document.getElementById(offlineId));
+        liveagent.addButtonEventHandler(key, displayChatButtons);
+    });
+
+    function displayChatButtons(e){
+        if (e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) {
+            $("#liveagent_button_online_57350000000009A-1").addClass("show");
+            $("#liveagent_button_offline_57350000000009A-1").removeClass("show");
+        }
+        if (e == liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) {
+            $("#liveagent_button_online_57350000000009A-1").removeClass("show");
+            $("#liveagent_button_offline_57350000000009A-1").addClass("show");
+        }
+    }
+</script>
+<script type='text/javascript' src='https://c.la1-c2-phx.salesforceliveagent.com/content/g/deployment.js'></script>
+<script type='text/javascript'>liveagent.init(chatSrc, chatDeploymentId, chatOrgId);</script>
+
+</div>
+    </div> </div>
+    <script src="/static/www/new/js/foundation.min.js"></script>
+<script src="/static/www/new/js/fastclick.js"></script>
+<script src="/static/www/new/js/foundation/foundation.accordion.js"></script>
+<script src="/static/www/new/js/foundation/foundation.orbit.js"></script>
+<script src="/static/www/new/js/hoverIntent.js"></script>
+<script src="/static/www/new/js/app.js"></script>
+<script>
+  $("#hp_hero ul[data-orbit]").on("ready.fndtn.orbit", function(event) {
+    $('#hp_hero').css('max-height', 'none'); 
+    $(this).show();
+  });
+  
+  $("#product_carousel ul[data-orbit]").on("ready.fndtn.orbit", function(event) {
+    if($("#product_carousel ol.orbit-bullets li").length == 1) {
+      $("#product_carousel .orbit-prev, #product_carousel .orbit-next, #product_carousel .orbit-bullets-container").hide();
+    }
+    $(this).show();
+  });
+  $(document).ready(function(){
+    $(".container hr.promo-divide:gt(2)").filter(':not(.canvas-bg)').addClass("show-for-medium-up");
+  });
+  $(document).foundation({
+    orbit: {
+      animation: 'slide',
+      timer_speed: 4500,
+      pause_on_hover: true,
+      resume_on_mouseout: true,
+      animation_speed: 400,
+      stack_on_small: false,
+      navigation_arrows: false,
+      slide_number: false,
+      container_class: 'orbit-container',
+      stack_on_small_class: 'orbit-stack-on-small',
+      next_class: 'orbit-next',
+      prev_class: 'orbit-prev',
+      timer_paused_class: 'paused',
+      timer_progress_class: 'orbit-progress',
+      slides_container_class: 'orbit-slides-container',
+      bullets_container_class: 'orbit-bullets',
+      bullets_active_class: 'active',
+      slide_number_class: 'orbit-slide-number',
+      caption_class: 'orbit-caption',
+      active_slide_class: 'active',
+      orbit_transition_class: 'orbit-transitioning',
+      bullets: true,
+      timer: false,
+      variable_height: false,
+      swipe: true
+    }
+  });
+  function validateSignupForm(elem) {
+    var pattern = RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+    var email = document.forms[elem]["email"];
+    var jEmail = $(email);
+    var buttonError = true;
+    if(elem.indexOf("banner-") != -1) {
+      buttonError = false;
+    }
+    if(pattern.test(email.value)){
+      $.ajax({
+        type: 'post',
+        url : "/json-service/cheetahMail/emailSubscriptionIntegration.jsp",
+        async : false,
+        data : $("#"+elem).serialize(),
+        success : function(msg) {
+          if (msg.indexOf("success") !=-1) {
+            $("#"+elem+ " .row.collapse").hide();
+            $("#"+elem+ " .em-signup-error").hide();
+            $("#"+elem+ " .em-signup-confirm").show();
+          } else {
+            jEmail.addClass("error");
+            if (buttonError)
+            $("#"+elem+ " .button").addClass("error");
+          }
+        },
+        error : function(status, statusCode) {
+          jEmail.addClass("error");
+            if (buttonError)
+          $("#"+elem+ " .button").addClass("error");
+        }
+      });
+    } else {
+      jEmail.addClass("error");
+      if (buttonError) {
+        $("#"+elem+ " .button").addClass("error");
+        $("#"+elem+ " .em-signup-error").show();
+      }
+      return false;
+    }
+  }
+</script>
+<div style="display:none">
+  <div itemscope itemtype="http://schema.org/Product">
+    <p itemprop="name">I just helped a person in need by purchasing from TOMS. Join the movement.</p>
+  </div>
+</div>
+<script>var displayCrossSiteSniffer = true;</script>
+
+<script src="//cdn.crowdtwist.com/trck/prod/2/49/v2/20150109/actions" type="text/javascript"></script>
+   
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"9739634","applicationTime":445,"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"f30542f3b3","transactionName":"ZwRWZUBSXkNVBRFdCl5OfmJiHFNRRhIXXQFXBEceYlJXVWcKCkBKYABTVGFfX0QaDBZE","agent":"","errorBeacon":"bam.nr-data.net"}</script></body>
+</html>

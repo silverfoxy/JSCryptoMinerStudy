@@ -1,0 +1,1 @@
+<script src="http://js.114ic.com/js/fkwap.js" type="text/javascript"></script>

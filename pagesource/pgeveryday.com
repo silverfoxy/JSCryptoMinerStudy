@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<!--[if IE 10 ]><html dir="ltr" class="ie ie10 no-js" lang="en"><![endif]-->
+
+<html dir="ltr" class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+    <!-- Savvis load balancing check -->
+    <!-- identification -->
+<!-- 005 -->
+    
+        <script>
+            //1063328 - XFS
+            if (top.location != self.location) {
+                top.location = self.location.href;
+            }
+        </script>
+    <script type='text/javascript'>
+        (function(e,t){function _(e){var t=M[e]={};return v.each(e.split(y),function(e,n){t[n]=!0}),t}function H(e,n,r){if(r===t&&e.nodeType===1){var i="data-"+n.replace(P,"-$1").toLowerCase();r=e.getAttribute(i);if(typeof r=="string"){try{r=r==="true"?!0:r==="false"?!1:r==="null"?null:+r+""===r?+r:D.test(r)?v.parseJSON(r):r}catch(s){}v.data(e,n,r)}else r=t}return r}function B(e){var t;for(t in e){if(t==="data"&&v.isEmptyObject(e[t]))continue;if(t!=="toJSON")return!1}return!0}function et(){return!1}function tt(){return!0}function ut(e){return!e||!e.parentNode||e.parentNode.nodeType===11}function at(e,t){do e=e[t];while(e&&e.nodeType!==1);return e}function ft(e,t,n){t=t||0;if(v.isFunction(t))return v.grep(e,function(e,r){var i=!!t.call(e,r,e);return i===n});if(t.nodeType)return v.grep(e,function(e,r){return e===t===n});if(typeof t=="string"){var r=v.grep(e,function(e){return e.nodeType===1});if(it.test(t))return v.filter(t,r,!n);t=v.filter(t,r)}return v.grep(e,function(e,r){return v.inArray(e,t)>=0===n})}function lt(e){var t=ct.split("|"),n=e.createDocumentFragment();if(n.createElement)while(t.length)n.createElement(t.pop());return n}function Lt(e,t){return e.getElementsByTagName(t)[0]||e.appendChild(e.ownerDocument.createElement(t))}function At(e,t){if(t.nodeType!==1||!v.hasData(e))return;var n,r,i,s=v._data(e),o=v._data(t,s),u=s.events;if(u){delete o.handle,o.events={};for(n in u)for(r=0,i=u[n].length;r<i;r++)v.event.add(t,n,u[n][r])}o.data&&(o.data=v.extend({},o.data))}function Ot(e,t){var n;if(t.nodeType!==1)return;t.clearAttributes&&t.clearAttributes(),t.mergeAttributes&&t.mergeAttributes(e),n=t.nodeName.toLowerCase(),n==="object"?(t.parentNode&&(t.outerHTML=e.outerHTML),v.support.html5Clone&&e.innerHTML&&!v.trim(t.innerHTML)&&(t.innerHTML=e.innerHTML)):n==="input"&&Et.test(e.type)?(t.defaultChecked=t.checked=e.checked,t.value!==e.value&&(t.value=e.value)):n==="option"?t.selected=e.defaultSelected:n==="input"||n==="textarea"?t.defaultValue=e.defaultValue:n==="script"&&t.text!==e.text&&(t.text=e.text),t.removeAttribute(v.expando)}function Mt(e){return typeof e.getElementsByTagName!="undefined"?e.getElementsByTagName("*"):typeof e.querySelectorAll!="undefined"?e.querySelectorAll("*"):[]}function _t(e){Et.test(e.type)&&(e.defaultChecked=e.checked)}function Qt(e,t){if(t in e)return t;var n=t.charAt(0).toUpperCase()+t.slice(1),r=t,i=Jt.length;while(i--){t=Jt[i]+n;if(t in e)return t}return r}function Gt(e,t){return e=t||e,v.css(e,"display")==="none"||!v.contains(e.ownerDocument,e)}function Yt(e,t){var n,r,i=[],s=0,o=e.length;for(;s<o;s++){n=e[s];if(!n.style)continue;i[s]=v._data(n,"olddisplay"),t?(!i[s]&&n.style.display==="none"&&(n.style.display=""),n.style.display===""&&Gt(n)&&(i[s]=v._data(n,"olddisplay",nn(n.nodeName)))):(r=Dt(n,"display"),!i[s]&&r!=="none"&&v._data(n,"olddisplay",r))}for(s=0;s<o;s++){n=e[s];if(!n.style)continue;if(!t||n.style.display==="none"||n.style.display==="")n.style.display=t?i[s]||"":"none"}return e}function Zt(e,t,n){var r=Rt.exec(t);return r?Math.max(0,r[1]-(n||0))+(r[2]||"px"):t}function en(e,t,n,r){var i=n===(r?"border":"content")?4:t==="width"?1:0,s=0;for(;i<4;i+=2)n==="margin"&&(s+=v.css(e,n+$t[i],!0)),r?(n==="content"&&(s-=parseFloat(Dt(e,"padding"+$t[i]))||0),n!=="margin"&&(s-=parseFloat(Dt(e,"border"+$t[i]+"Width"))||0)):(s+=parseFloat(Dt(e,"padding"+$t[i]))||0,n!=="padding"&&(s+=parseFloat(Dt(e,"border"+$t[i]+"Width"))||0));return s}function tn(e,t,n){var r=t==="width"?e.offsetWidth:e.offsetHeight,i=!0,s=v.support.boxSizing&&v.css(e,"boxSizing")==="border-box";if(r<=0||r==null){r=Dt(e,t);if(r<0||r==null)r=e.style[t];if(Ut.test(r))return r;i=s&&(v.support.boxSizingReliable||r===e.style[t]),r=parseFloat(r)||0}return r+en(e,t,n||(s?"border":"content"),i)+"px"}function nn(e){if(Wt[e])return Wt[e];var t=v("<"+e+">").appendTo(i.body),n=t.css("display");t.remove();if(n==="none"||n===""){Pt=i.body.appendChild(Pt||v.extend(i.createElement("iframe"),{frameBorder:0,width:0,height:0}));if(!Ht||!Pt.createElement)Ht=(Pt.contentWindow||Pt.contentDocument).document,Ht.write("<!doctype html><html><body>"),Ht.close();t=Ht.body.appendChild(Ht.createElement(e)),n=Dt(t,"display"),i.body.removeChild(Pt)}return Wt[e]=n,n}function fn(e,t,n,r){var i;if(v.isArray(t))v.each(t,function(t,i){n||sn.test(e)?r(e,i):fn(e+"["+(typeof i=="object"?t:"")+"]",i,n,r)});else if(!n&&v.type(t)==="object")for(i in t)fn(e+"["+i+"]",t[i],n,r);else r(e,t)}function Cn(e){return function(t,n){typeof t!="string"&&(n=t,t="*");var r,i,s,o=t.toLowerCase().split(y),u=0,a=o.length;if(v.isFunction(n))for(;u<a;u++)r=o[u],s=/^\+/.test(r),s&&(r=r.substr(1)||"*"),i=e[r]=e[r]||[],i[s?"unshift":"push"](n)}}function kn(e,n,r,i,s,o){s=s||n.dataTypes[0],o=o||{},o[s]=!0;var u,a=e[s],f=0,l=a?a.length:0,c=e===Sn;for(;f<l&&(c||!u);f++)u=a[f](n,r,i),typeof u=="string"&&(!c||o[u]?u=t:(n.dataTypes.unshift(u),u=kn(e,n,r,i,u,o)));return(c||!u)&&!o["*"]&&(u=kn(e,n,r,i,"*",o)),u}function Ln(e,n){var r,i,s=v.ajaxSettings.flatOptions||{};for(r in n)n[r]!==t&&((s[r]?e:i||(i={}))[r]=n[r]);i&&v.extend(!0,e,i)}function An(e,n,r){var i,s,o,u,a=e.contents,f=e.dataTypes,l=e.responseFields;for(s in l)s in r&&(n[l[s]]=r[s]);while(f[0]==="*")f.shift(),i===t&&(i=e.mimeType||n.getResponseHeader("content-type"));if(i)for(s in a)if(a[s]&&a[s].test(i)){f.unshift(s);break}if(f[0]in r)o=f[0];else{for(s in r){if(!f[0]||e.converters[s+" "+f[0]]){o=s;break}u||(u=s)}o=o||u}if(o)return o!==f[0]&&f.unshift(o),r[o]}function On(e,t){var n,r,i,s,o=e.dataTypes.slice(),u=o[0],a={},f=0;e.dataFilter&&(t=e.dataFilter(t,e.dataType));if(o[1])for(n in e.converters)a[n.toLowerCase()]=e.converters[n];for(;i=o[++f];)if(i!=="*"){if(u!=="*"&&u!==i){n=a[u+" "+i]||a["* "+i];if(!n)for(r in a){s=r.split(" ");if(s[1]===i){n=a[u+" "+s[0]]||a["* "+s[0]];if(n){n===!0?n=a[r]:a[r]!==!0&&(i=s[0],o.splice(f--,0,i));break}}}if(n!==!0)if(n&&e["throws"])t=n(t);else try{t=n(t)}catch(l){return{state:"parsererror",error:n?l:"No conversion from "+u+" to "+i}}}u=i}return{state:"success",data:t}}function Fn(){try{return new e.XMLHttpRequest}catch(t){}}function In(){try{return new e.ActiveXObject("Microsoft.XMLHTTP")}catch(t){}}function $n(){return setTimeout(function(){qn=t},0),qn=v.now()}function Jn(e,t){v.each(t,function(t,n){var r=(Vn[t]||[]).concat(Vn["*"]),i=0,s=r.length;for(;i<s;i++)if(r[i].call(e,t,n))return})}function Kn(e,t,n){var r,i=0,s=0,o=Xn.length,u=v.Deferred().always(function(){delete a.elem}),a=function(){var t=qn||$n(),n=Math.max(0,f.startTime+f.duration-t),r=n/f.duration||0,i=1-r,s=0,o=f.tweens.length;for(;s<o;s++)f.tweens[s].run(i);return u.notifyWith(e,[f,i,n]),i<1&&o?n:(u.resolveWith(e,[f]),!1)},f=u.promise({elem:e,props:v.extend({},t),opts:v.extend(!0,{specialEasing:{}},n),originalProperties:t,originalOptions:n,startTime:qn||$n(),duration:n.duration,tweens:[],createTween:function(t,n,r){var i=v.Tween(e,f.opts,t,n,f.opts.specialEasing[t]||f.opts.easing);return f.tweens.push(i),i},stop:function(t){var n=0,r=t?f.tweens.length:0;for(;n<r;n++)f.tweens[n].run(1);return t?u.resolveWith(e,[f,t]):u.rejectWith(e,[f,t]),this}}),l=f.props;Qn(l,f.opts.specialEasing);for(;i<o;i++){r=Xn[i].call(f,e,l,f.opts);if(r)return r}return Jn(f,l),v.isFunction(f.opts.start)&&f.opts.start.call(e,f),v.fx.timer(v.extend(a,{anim:f,queue:f.opts.queue,elem:e})),f.progress(f.opts.progress).done(f.opts.done,f.opts.complete).fail(f.opts.fail).always(f.opts.always)}function Qn(e,t){var n,r,i,s,o;for(n in e){r=v.camelCase(n),i=t[r],s=e[n],v.isArray(s)&&(i=s[1],s=e[n]=s[0]),n!==r&&(e[r]=s,delete e[n]),o=v.cssHooks[r];if(o&&"expand"in o){s=o.expand(s),delete e[r];for(n in s)n in e||(e[n]=s[n],t[n]=i)}else t[r]=i}}function Gn(e,t,n){var r,i,s,o,u,a,f,l,c,h=this,p=e.style,d={},m=[],g=e.nodeType&&Gt(e);n.queue||(l=v._queueHooks(e,"fx"),l.unqueued==null&&(l.unqueued=0,c=l.empty.fire,l.empty.fire=function(){l.unqueued||c()}),l.unqueued++,h.always(function(){h.always(function(){l.unqueued--,v.queue(e,"fx").length||l.empty.fire()})})),e.nodeType===1&&("height"in t||"width"in t)&&(n.overflow=[p.overflow,p.overflowX,p.overflowY],v.css(e,"display")==="inline"&&v.css(e,"float")==="none"&&(!v.support.inlineBlockNeedsLayout||nn(e.nodeName)==="inline"?p.display="inline-block":p.zoom=1)),n.overflow&&(p.overflow="hidden",v.support.shrinkWrapBlocks||h.done(function(){p.overflow=n.overflow[0],p.overflowX=n.overflow[1],p.overflowY=n.overflow[2]}));for(r in t){s=t[r];if(Un.exec(s)){delete t[r],a=a||s==="toggle";if(s===(g?"hide":"show"))continue;m.push(r)}}o=m.length;if(o){u=v._data(e,"fxshow")||v._data(e,"fxshow",{}),"hidden"in u&&(g=u.hidden),a&&(u.hidden=!g),g?v(e).show():h.done(function(){v(e).hide()}),h.done(function(){var t;v.removeData(e,"fxshow",!0);for(t in d)v.style(e,t,d[t])});for(r=0;r<o;r++)i=m[r],f=h.createTween(i,g?u[i]:0),d[i]=u[i]||v.style(e,i),i in u||(u[i]=f.start,g&&(f.end=f.start,f.start=i==="width"||i==="height"?1:0))}}function Yn(e,t,n,r,i){return new Yn.prototype.init(e,t,n,r,i)}function Zn(e,t){var n,r={height:e},i=0;t=t?1:0;for(;i<4;i+=2-t)n=$t[i],r["margin"+n]=r["padding"+n]=e;return t&&(r.opacity=r.width=e),r}function tr(e){return v.isWindow(e)?e:e.nodeType===9?e.defaultView||e.parentWindow:!1}var n,r,i=e.document,s=e.location,o=e.navigator,u=e.jQuery,a=e.$,f=Array.prototype.push,l=Array.prototype.slice,c=Array.prototype.indexOf,h=Object.prototype.toString,p=Object.prototype.hasOwnProperty,d=String.prototype.trim,v=function(e,t){return new v.fn.init(e,t,n)},m=/[\-+]?(?:\d*\.|)\d+(?:[eE][\-+]?\d+|)/.source,g=/\S/,y=/\s+/,b=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,w=/^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,E=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,S=/^[\],:{}\s]*$/,x=/(?:^|:|,)(?:\s*\[)+/g,T=/\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,N=/"[^"\\\r\n]*"|true|false|null|-?(?:\d\d*\.|)\d+(?:[eE][\-+]?\d+|)/g,C=/^-ms-/,k=/-([\da-z])/gi,L=function(e,t){return(t+"").toUpperCase()},A=function(){i.addEventListener?(i.removeEventListener("DOMContentLoaded",A,!1),v.ready()):i.readyState==="complete"&&(i.detachEvent("onreadystatechange",A),v.ready())},O={};v.fn=v.prototype={constructor:v,init:function(e,n,r){var s,o,u,a;if(!e)return this;if(e.nodeType)return this.context=this[0]=e,this.length=1,this;if(typeof e=="string"){e.charAt(0)==="<"&&e.charAt(e.length-1)===">"&&e.length>=3?s=[null,e,null]:s=w.exec(e);if(s&&(s[1]||!n)){if(s[1])return n=n instanceof v?n[0]:n,a=n&&n.nodeType?n.ownerDocument||n:i,e=v.parseHTML(s[1],a,!0),E.test(s[1])&&v.isPlainObject(n)&&this.attr.call(e,n,!0),v.merge(this,e);o=i.getElementById(s[2]);if(o&&o.parentNode){if(o.id!==s[2])return r.find(e);this.length=1,this[0]=o}return this.context=i,this.selector=e,this}return!n||n.jquery?(n||r).find(e):this.constructor(n).find(e)}return v.isFunction(e)?r.ready(e):(e.selector!==t&&(this.selector=e.selector,this.context=e.context),v.makeArray(e,this))},selector:"",jquery:"1.8.3",length:0,size:function(){return this.length},toArray:function(){return l.call(this)},get:function(e){return e==null?this.toArray():e<0?this[this.length+e]:this[e]},pushStack:function(e,t,n){var r=v.merge(this.constructor(),e);return r.prevObject=this,r.context=this.context,t==="find"?r.selector=this.selector+(this.selector?" ":"")+n:t&&(r.selector=this.selector+"."+t+"("+n+")"),r},each:function(e,t){return v.each(this,e,t)},ready:function(e){return v.ready.promise().done(e),this},eq:function(e){return e=+e,e===-1?this.slice(e):this.slice(e,e+1)},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},slice:function(){return this.pushStack(l.apply(this,arguments),"slice",l.call(arguments).join(","))},map:function(e){return this.pushStack(v.map(this,function(t,n){return e.call(t,n,t)}))},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:[].sort,splice:[].splice},v.fn.init.prototype=v.fn,v.extend=v.fn.extend=function(){var e,n,r,i,s,o,u=arguments[0]||{},a=1,f=arguments.length,l=!1;typeof u=="boolean"&&(l=u,u=arguments[1]||{},a=2),typeof u!="object"&&!v.isFunction(u)&&(u={}),f===a&&(u=this,--a);for(;a<f;a++)if((e=arguments[a])!=null)for(n in e){r=u[n],i=e[n];if(u===i)continue;l&&i&&(v.isPlainObject(i)||(s=v.isArray(i)))?(s?(s=!1,o=r&&v.isArray(r)?r:[]):o=r&&v.isPlainObject(r)?r:{},u[n]=v.extend(l,o,i)):i!==t&&(u[n]=i)}return u},v.extend({noConflict:function(t){return e.$===v&&(e.$=a),t&&e.jQuery===v&&(e.jQuery=u),v},isReady:!1,readyWait:1,holdReady:function(e){e?v.readyWait++:v.ready(!0)},ready:function(e){if(e===!0?--v.readyWait:v.isReady)return;if(!i.body)return setTimeout(v.ready,1);v.isReady=!0;if(e!==!0&&--v.readyWait>0)return;r.resolveWith(i,[v]),v.fn.trigger&&v(i).trigger("ready").off("ready")},isFunction:function(e){return v.type(e)==="function"},isArray:Array.isArray||function(e){return v.type(e)==="array"},isWindow:function(e){return e!=null&&e==e.window},isNumeric:function(e){return!isNaN(parseFloat(e))&&isFinite(e)},type:function(e){return e==null?String(e):O[h.call(e)]||"object"},isPlainObject:function(e){if(!e||v.type(e)!=="object"||e.nodeType||v.isWindow(e))return!1;try{if(e.constructor&&!p.call(e,"constructor")&&!p.call(e.constructor.prototype,"isPrototypeOf"))return!1}catch(n){return!1}var r;for(r in e);return r===t||p.call(e,r)},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},error:function(e){throw new Error(e)},parseHTML:function(e,t,n){var r;return!e||typeof e!="string"?null:(typeof t=="boolean"&&(n=t,t=0),t=t||i,(r=E.exec(e))?[t.createElement(r[1])]:(r=v.buildFragment([e],t,n?null:[]),v.merge([],(r.cacheable?v.clone(r.fragment):r.fragment).childNodes)))},parseJSON:function(t){if(!t||typeof t!="string")return null;t=v.trim(t);if(e.JSON&&e.JSON.parse)return e.JSON.parse(t);if(S.test(t.replace(T,"@").replace(N,"]").replace(x,"")))return(new Function("return "+t))();v.error("Invalid JSON: "+t)},parseXML:function(n){var r,i;if(!n||typeof n!="string")return null;try{e.DOMParser?(i=new DOMParser,r=i.parseFromString(n,"text/xml")):(r=new ActiveXObject("Microsoft.XMLDOM"),r.async="false",r.loadXML(n))}catch(s){r=t}return(!r||!r.documentElement||r.getElementsByTagName("parsererror").length)&&v.error("Invalid XML: "+n),r},noop:function(){},globalEval:function(t){t&&g.test(t)&&(e.execScript||function(t){e.eval.call(e,t)})(t)},camelCase:function(e){return e.replace(C,"ms-").replace(k,L)},nodeName:function(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()},each:function(e,n,r){var i,s=0,o=e.length,u=o===t||v.isFunction(e);if(r){if(u){for(i in e)if(n.apply(e[i],r)===!1)break}else for(;s<o;)if(n.apply(e[s++],r)===!1)break}else if(u){for(i in e)if(n.call(e[i],i,e[i])===!1)break}else for(;s<o;)if(n.call(e[s],s,e[s++])===!1)break;return e},trim:d&&!d.call("\ufeff\u00a0")?function(e){return e==null?"":d.call(e)}:function(e){return e==null?"":(e+"").replace(b,"")},makeArray:function(e,t){var n,r=t||[];return e!=null&&(n=v.type(e),e.length==null||n==="string"||n==="function"||n==="regexp"||v.isWindow(e)?f.call(r,e):v.merge(r,e)),r},inArray:function(e,t,n){var r;if(t){if(c)return c.call(t,e,n);r=t.length,n=n?n<0?Math.max(0,r+n):n:0;for(;n<r;n++)if(n in t&&t[n]===e)return n}return-1},merge:function(e,n){var r=n.length,i=e.length,s=0;if(typeof r=="number")for(;s<r;s++)e[i++]=n[s];else while(n[s]!==t)e[i++]=n[s++];return e.length=i,e},grep:function(e,t,n){var r,i=[],s=0,o=e.length;n=!!n;for(;s<o;s++)r=!!t(e[s],s),n!==r&&i.push(e[s]);return i},map:function(e,n,r){var i,s,o=[],u=0,a=e.length,f=e instanceof v||a!==t&&typeof a=="number"&&(a>0&&e[0]&&e[a-1]||a===0||v.isArray(e));if(f)for(;u<a;u++)i=n(e[u],u,r),i!=null&&(o[o.length]=i);else for(s in e)i=n(e[s],s,r),i!=null&&(o[o.length]=i);return o.concat.apply([],o)},guid:1,proxy:function(e,n){var r,i,s;return typeof n=="string"&&(r=e[n],n=e,e=r),v.isFunction(e)?(i=l.call(arguments,2),s=function(){return e.apply(n,i.concat(l.call(arguments)))},s.guid=e.guid=e.guid||v.guid++,s):t},access:function(e,n,r,i,s,o,u){var a,f=r==null,l=0,c=e.length;if(r&&typeof r=="object"){for(l in r)v.access(e,n,l,r[l],1,o,i);s=1}else if(i!==t){a=u===t&&v.isFunction(i),f&&(a?(a=n,n=function(e,t,n){return a.call(v(e),n)}):(n.call(e,i),n=null));if(n)for(;l<c;l++)n(e[l],r,a?i.call(e[l],l,n(e[l],r)):i,u);s=1}return s?e:f?n.call(e):c?n(e[0],r):o},now:function(){return(new Date).getTime()}}),v.ready.promise=function(t){if(!r){r=v.Deferred();if(i.readyState==="complete")setTimeout(v.ready,1);else if(i.addEventListener)i.addEventListener("DOMContentLoaded",A,!1),e.addEventListener("load",v.ready,!1);else{i.attachEvent("onreadystatechange",A),e.attachEvent("onload",v.ready);var n=!1;try{n=e.frameElement==null&&i.documentElement}catch(s){}n&&n.doScroll&&function o(){if(!v.isReady){try{n.doScroll("left")}catch(e){return setTimeout(o,50)}v.ready()}}()}}return r.promise(t)},v.each("Boolean Number String Function Array Date RegExp Object".split(" "),function(e,t){O["[object "+t+"]"]=t.toLowerCase()}),n=v(i);var M={};v.Callbacks=function(e){e=typeof e=="string"?M[e]||_(e):v.extend({},e);var n,r,i,s,o,u,a=[],f=!e.once&&[],l=function(t){n=e.memory&&t,r=!0,u=s||0,s=0,o=a.length,i=!0;for(;a&&u<o;u++)if(a[u].apply(t[0],t[1])===!1&&e.stopOnFalse){n=!1;break}i=!1,a&&(f?f.length&&l(f.shift()):n?a=[]:c.disable())},c={add:function(){if(a){var t=a.length;(function r(t){v.each(t,function(t,n){var i=v.type(n);i==="function"?(!e.unique||!c.has(n))&&a.push(n):n&&n.length&&i!=="string"&&r(n)})})(arguments),i?o=a.length:n&&(s=t,l(n))}return this},remove:function(){return a&&v.each(arguments,function(e,t){var n;while((n=v.inArray(t,a,n))>-1)a.splice(n,1),i&&(n<=o&&o--,n<=u&&u--)}),this},has:function(e){return v.inArray(e,a)>-1},empty:function(){return a=[],this},disable:function(){return a=f=n=t,this},disabled:function(){return!a},lock:function(){return f=t,n||c.disable(),this},locked:function(){return!f},fireWith:function(e,t){return t=t||[],t=[e,t.slice?t.slice():t],a&&(!r||f)&&(i?f.push(t):l(t)),this},fire:function(){return c.fireWith(this,arguments),this},fired:function(){return!!r}};return c},v.extend({Deferred:function(e){var t=[["resolve","done",v.Callbacks("once memory"),"resolved"],["reject","fail",v.Callbacks("once memory"),"rejected"],["notify","progress",v.Callbacks("memory")]],n="pending",r={state:function(){return n},always:function(){return i.done(arguments).fail(arguments),this},then:function(){var e=arguments;return v.Deferred(function(n){v.each(t,function(t,r){var s=r[0],o=e[t];i[r[1]](v.isFunction(o)?function(){var e=o.apply(this,arguments);e&&v.isFunction(e.promise)?e.promise().done(n.resolve).fail(n.reject).progress(n.notify):n[s+"With"](this===i?n:this,[e])}:n[s])}),e=null}).promise()},promise:function(e){return e!=null?v.extend(e,r):r}},i={};return r.pipe=r.then,v.each(t,function(e,s){var o=s[2],u=s[3];r[s[1]]=o.add,u&&o.add(function(){n=u},t[e^1][2].disable,t[2][2].lock),i[s[0]]=o.fire,i[s[0]+"With"]=o.fireWith}),r.promise(i),e&&e.call(i,i),i},when:function(e){var t=0,n=l.call(arguments),r=n.length,i=r!==1||e&&v.isFunction(e.promise)?r:0,s=i===1?e:v.Deferred(),o=function(e,t,n){return function(r){t[e]=this,n[e]=arguments.length>1?l.call(arguments):r,n===u?s.notifyWith(t,n):--i||s.resolveWith(t,n)}},u,a,f;if(r>1){u=new Array(r),a=new Array(r),f=new Array(r);for(;t<r;t++)n[t]&&v.isFunction(n[t].promise)?n[t].promise().done(o(t,f,n)).fail(s.reject).progress(o(t,a,u)):--i}return i||s.resolveWith(f,n),s.promise()}}),v.support=function(){var t,n,r,s,o,u,a,f,l,c,h,p=i.createElement("div");p.setAttribute("className","t"),p.innerHTML="  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>",n=p.getElementsByTagName("*"),r=p.getElementsByTagName("a")[0];if(!n||!r||!n.length)return{};s=i.createElement("select"),o=s.appendChild(i.createElement("option")),u=p.getElementsByTagName("input")[0],r.style.cssText="top:1px;float:left;opacity:.5",t={leadingWhitespace:p.firstChild.nodeType===3,tbody:!p.getElementsByTagName("tbody").length,htmlSerialize:!!p.getElementsByTagName("link").length,style:/top/.test(r.getAttribute("style")),hrefNormalized:r.getAttribute("href")==="/a",opacity:/^0.5/.test(r.style.opacity),cssFloat:!!r.style.cssFloat,checkOn:u.value==="on",optSelected:o.selected,getSetAttribute:p.className!=="t",enctype:!!i.createElement("form").enctype,html5Clone:i.createElement("nav").cloneNode(!0).outerHTML!=="<:nav></:nav>",boxModel:i.compatMode==="CSS1Compat",submitBubbles:!0,changeBubbles:!0,focusinBubbles:!1,deleteExpando:!0,noCloneEvent:!0,inlineBlockNeedsLayout:!1,shrinkWrapBlocks:!1,reliableMarginRight:!0,boxSizingReliable:!0,pixelPosition:!1},u.checked=!0,t.noCloneChecked=u.cloneNode(!0).checked,s.disabled=!0,t.optDisabled=!o.disabled;try{delete p.test}catch(d){t.deleteExpando=!1}!p.addEventListener&&p.attachEvent&&p.fireEvent&&(p.attachEvent("onclick",h=function(){t.noCloneEvent=!1}),p.cloneNode(!0).fireEvent("onclick"),p.detachEvent("onclick",h)),u=i.createElement("input"),u.value="t",u.setAttribute("type","radio"),t.radioValue=u.value==="t",u.setAttribute("checked","checked"),u.setAttribute("name","t"),p.appendChild(u),a=i.createDocumentFragment(),a.appendChild(p.lastChild),t.checkClone=a.cloneNode(!0).cloneNode(!0).lastChild.checked,t.appendChecked=u.checked,a.removeChild(u),a.appendChild(p);if(p.attachEvent)for(l in{submit:!0,change:!0,focusin:!0})f="on"+l,c=f in p,c||(p.setAttribute(f,"return;"),c=typeof p[f]=="function"),t[l+"Bubbles"]=c;return v(function(){var n,r,s,o,u="padding:0;margin:0;border:0;display:block;overflow:hidden;",a=i.getElementsByTagName("body")[0];if(!a)return;n=i.createElement("div"),n.style.cssText="visibility:hidden;border:0;width:0;height:0;position:static;top:0;margin-top:1px",a.insertBefore(n,a.firstChild),r=i.createElement("div"),n.appendChild(r),r.innerHTML="<table><tr><td></td><td>t</td></tr></table>",s=r.getElementsByTagName("td"),s[0].style.cssText="padding:0;margin:0;border:0;display:none",c=s[0].offsetHeight===0,s[0].style.display="",s[1].style.display="none",t.reliableHiddenOffsets=c&&s[0].offsetHeight===0,r.innerHTML="",r.style.cssText="box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;position:absolute;top:1%;",t.boxSizing=r.offsetWidth===4,t.doesNotIncludeMarginInBodyOffset=a.offsetTop!==1,e.getComputedStyle&&(t.pixelPosition=(e.getComputedStyle(r,null)||{}).top!=="1%",t.boxSizingReliable=(e.getComputedStyle(r,null)||{width:"4px"}).width==="4px",o=i.createElement("div"),o.style.cssText=r.style.cssText=u,o.style.marginRight=o.style.width="0",r.style.width="1px",r.appendChild(o),t.reliableMarginRight=!parseFloat((e.getComputedStyle(o,null)||{}).marginRight)),typeof r.style.zoom!="undefined"&&(r.innerHTML="",r.style.cssText=u+"width:1px;padding:1px;display:inline;zoom:1",t.inlineBlockNeedsLayout=r.offsetWidth===3,r.style.display="block",r.style.overflow="visible",r.innerHTML="<div></div>",r.firstChild.style.width="5px",t.shrinkWrapBlocks=r.offsetWidth!==3,n.style.zoom=1),a.removeChild(n),n=r=s=o=null}),a.removeChild(p),n=r=s=o=u=a=p=null,t}();var D=/(?:\{[\s\S]*\}|\[[\s\S]*\])$/,P=/([A-Z])/g;v.extend({cache:{},deletedIds:[],uuid:0,expando:"jQuery"+(v.fn.jquery+Math.random()).replace(/\D/g,""),noData:{embed:!0,object:"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000",applet:!0},hasData:function(e){return e=e.nodeType?v.cache[e[v.expando]]:e[v.expando],!!e&&!B(e)},data:function(e,n,r,i){if(!v.acceptData(e))return;var s,o,u=v.expando,a=typeof n=="string",f=e.nodeType,l=f?v.cache:e,c=f?e[u]:e[u]&&u;if((!c||!l[c]||!i&&!l[c].data)&&a&&r===t)return;c||(f?e[u]=c=v.deletedIds.pop()||v.guid++:c=u),l[c]||(l[c]={},f||(l[c].toJSON=v.noop));if(typeof n=="object"||typeof n=="function")i?l[c]=v.extend(l[c],n):l[c].data=v.extend(l[c].data,n);return s=l[c],i||(s.data||(s.data={}),s=s.data),r!==t&&(s[v.camelCase(n)]=r),a?(o=s[n],o==null&&(o=s[v.camelCase(n)])):o=s,o},removeData:function(e,t,n){if(!v.acceptData(e))return;var r,i,s,o=e.nodeType,u=o?v.cache:e,a=o?e[v.expando]:v.expando;if(!u[a])return;if(t){r=n?u[a]:u[a].data;if(r){v.isArray(t)||(t in r?t=[t]:(t=v.camelCase(t),t in r?t=[t]:t=t.split(" ")));for(i=0,s=t.length;i<s;i++)delete r[t[i]];if(!(n?B:v.isEmptyObject)(r))return}}if(!n){delete u[a].data;if(!B(u[a]))return}o?v.cleanData([e],!0):v.support.deleteExpando||u!=u.window?delete u[a]:u[a]=null},_data:function(e,t,n){return v.data(e,t,n,!0)},acceptData:function(e){var t=e.nodeName&&v.noData[e.nodeName.toLowerCase()];return!t||t!==!0&&e.getAttribute("classid")===t}}),v.fn.extend({data:function(e,n){var r,i,s,o,u,a=this[0],f=0,l=null;if(e===t){if(this.length){l=v.data(a);if(a.nodeType===1&&!v._data(a,"parsedAttrs")){s=a.attributes;for(u=s.length;f<u;f++)o=s[f].name,o.indexOf("data-")||(o=v.camelCase(o.substring(5)),H(a,o,l[o]));v._data(a,"parsedAttrs",!0)}}return l}return typeof e=="object"?this.each(function(){v.data(this,e)}):(r=e.split(".",2),r[1]=r[1]?"."+r[1]:"",i=r[1]+"!",v.access(this,function(n){if(n===t)return l=this.triggerHandler("getData"+i,[r[0]]),l===t&&a&&(l=v.data(a,e),l=H(a,e,l)),l===t&&r[1]?this.data(r[0]):l;r[1]=n,this.each(function(){var t=v(this);t.triggerHandler("setData"+i,r),v.data(this,e,n),t.triggerHandler("changeData"+i,r)})},null,n,arguments.length>1,null,!1))},removeData:function(e){return this.each(function(){v.removeData(this,e)})}}),v.extend({queue:function(e,t,n){var r;if(e)return t=(t||"fx")+"queue",r=v._data(e,t),n&&(!r||v.isArray(n)?r=v._data(e,t,v.makeArray(n)):r.push(n)),r||[]},dequeue:function(e,t){t=t||"fx";var n=v.queue(e,t),r=n.length,i=n.shift(),s=v._queueHooks(e,t),o=function(){v.dequeue(e,t)};i==="inprogress"&&(i=n.shift(),r--),i&&(t==="fx"&&n.unshift("inprogress"),delete s.stop,i.call(e,o,s)),!r&&s&&s.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return v._data(e,n)||v._data(e,n,{empty:v.Callbacks("once memory").add(function(){v.removeData(e,t+"queue",!0),v.removeData(e,n,!0)})})}}),v.fn.extend({queue:function(e,n){var r=2;return typeof e!="string"&&(n=e,e="fx",r--),arguments.length<r?v.queue(this[0],e):n===t?this:this.each(function(){var t=v.queue(this,e,n);v._queueHooks(this,e),e==="fx"&&t[0]!=="inprogress"&&v.dequeue(this,e)})},dequeue:function(e){return this.each(function(){v.dequeue(this,e)})},delay:function(e,t){return e=v.fx?v.fx.speeds[e]||e:e,t=t||"fx",this.queue(t,function(t,n){var r=setTimeout(t,e);n.stop=function(){clearTimeout(r)}})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,n){var r,i=1,s=v.Deferred(),o=this,u=this.length,a=function(){--i||s.resolveWith(o,[o])};typeof e!="string"&&(n=e,e=t),e=e||"fx";while(u--)r=v._data(o[u],e+"queueHooks"),r&&r.empty&&(i++,r.empty.add(a));return a(),s.promise(n)}});var j,F,I,q=/[\t\r\n]/g,R=/\r/g,U=/^(?:button|input)$/i,z=/^(?:button|input|object|select|textarea)$/i,W=/^a(?:rea|)$/i,X=/^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i,V=v.support.getSetAttribute;v.fn.extend({attr:function(e,t){return v.access(this,v.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){v.removeAttr(this,e)})},prop:function(e,t){return v.access(this,v.prop,e,t,arguments.length>1)},removeProp:function(e){return e=v.propFix[e]||e,this.each(function(){try{this[e]=t,delete this[e]}catch(n){}})},addClass:function(e){var t,n,r,i,s,o,u;if(v.isFunction(e))return this.each(function(t){v(this).addClass(e.call(this,t,this.className))});if(e&&typeof e=="string"){t=e.split(y);for(n=0,r=this.length;n<r;n++){i=this[n];if(i.nodeType===1)if(!i.className&&t.length===1)i.className=e;else{s=" "+i.className+" ";for(o=0,u=t.length;o<u;o++)s.indexOf(" "+t[o]+" ")<0&&(s+=t[o]+" ");i.className=v.trim(s)}}}return this},removeClass:function(e){var n,r,i,s,o,u,a;if(v.isFunction(e))return this.each(function(t){v(this).removeClass(e.call(this,t,this.className))});if(e&&typeof e=="string"||e===t){n=(e||"").split(y);for(u=0,a=this.length;u<a;u++){i=this[u];if(i.nodeType===1&&i.className){r=(" "+i.className+" ").replace(q," ");for(s=0,o=n.length;s<o;s++)while(r.indexOf(" "+n[s]+" ")>=0)r=r.replace(" "+n[s]+" "," ");i.className=e?v.trim(r):""}}}return this},toggleClass:function(e,t){var n=typeof e,r=typeof t=="boolean";return v.isFunction(e)?this.each(function(n){v(this).toggleClass(e.call(this,n,this.className,t),t)}):this.each(function(){if(n==="string"){var i,s=0,o=v(this),u=t,a=e.split(y);while(i=a[s++])u=r?u:!o.hasClass(i),o[u?"addClass":"removeClass"](i)}else if(n==="undefined"||n==="boolean")this.className&&v._data(this,"__className__",this.className),this.className=this.className||e===!1?"":v._data(this,"__className__")||""})},hasClass:function(e){var t=" "+e+" ",n=0,r=this.length;for(;n<r;n++)if(this[n].nodeType===1&&(" "+this[n].className+" ").replace(q," ").indexOf(t)>=0)return!0;return!1},val:function(e){var n,r,i,s=this[0];if(!arguments.length){if(s)return n=v.valHooks[s.type]||v.valHooks[s.nodeName.toLowerCase()],n&&"get"in n&&(r=n.get(s,"value"))!==t?r:(r=s.value,typeof r=="string"?r.replace(R,""):r==null?"":r);return}return i=v.isFunction(e),this.each(function(r){var s,o=v(this);if(this.nodeType!==1)return;i?s=e.call(this,r,o.val()):s=e,s==null?s="":typeof s=="number"?s+="":v.isArray(s)&&(s=v.map(s,function(e){return e==null?"":e+""})),n=v.valHooks[this.type]||v.valHooks[this.nodeName.toLowerCase()];if(!n||!("set"in n)||n.set(this,s,"value")===t)this.value=s})}}),v.extend({valHooks:{option:{get:function(e){var t=e.attributes.value;return!t||t.specified?e.value:e.text}},select:{get:function(e){var t,n,r=e.options,i=e.selectedIndex,s=e.type==="select-one"||i<0,o=s?null:[],u=s?i+1:r.length,a=i<0?u:s?i:0;for(;a<u;a++){n=r[a];if((n.selected||a===i)&&(v.support.optDisabled?!n.disabled:n.getAttribute("disabled")===null)&&(!n.parentNode.disabled||!v.nodeName(n.parentNode,"optgroup"))){t=v(n).val();if(s)return t;o.push(t)}}return o},set:function(e,t){var n=v.makeArray(t);return v(e).find("option").each(function(){this.selected=v.inArray(v(this).val(),n)>=0}),n.length||(e.selectedIndex=-1),n}}},attrFn:{},attr:function(e,n,r,i){var s,o,u,a=e.nodeType;if(!e||a===3||a===8||a===2)return;if(i&&v.isFunction(v.fn[n]))return v(e)[n](r);if(typeof e.getAttribute=="undefined")return v.prop(e,n,r);u=a!==1||!v.isXMLDoc(e),u&&(n=n.toLowerCase(),o=v.attrHooks[n]||(X.test(n)?F:j));if(r!==t){if(r===null){v.removeAttr(e,n);return}return o&&"set"in o&&u&&(s=o.set(e,r,n))!==t?s:(e.setAttribute(n,r+""),r)}return o&&"get"in o&&u&&(s=o.get(e,n))!==null?s:(s=e.getAttribute(n),s===null?t:s)},removeAttr:function(e,t){var n,r,i,s,o=0;if(t&&e.nodeType===1){r=t.split(y);for(;o<r.length;o++)i=r[o],i&&(n=v.propFix[i]||i,s=X.test(i),s||v.attr(e,i,""),e.removeAttribute(V?i:n),s&&n in e&&(e[n]=!1))}},attrHooks:{type:{set:function(e,t){if(U.test(e.nodeName)&&e.parentNode)v.error("type property can't be changed");else if(!v.support.radioValue&&t==="radio"&&v.nodeName(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}},value:{get:function(e,t){return j&&v.nodeName(e,"button")?j.get(e,t):t in e?e.value:null},set:function(e,t,n){if(j&&v.nodeName(e,"button"))return j.set(e,t,n);e.value=t}}},propFix:{tabindex:"tabIndex",readonly:"readOnly","for":"htmlFor","class":"className",maxlength:"maxLength",cellspacing:"cellSpacing",cellpadding:"cellPadding",rowspan:"rowSpan",colspan:"colSpan",usemap:"useMap",frameborder:"frameBorder",contenteditable:"contentEditable"},prop:function(e,n,r){var i,s,o,u=e.nodeType;if(!e||u===3||u===8||u===2)return;return o=u!==1||!v.isXMLDoc(e),o&&(n=v.propFix[n]||n,s=v.propHooks[n]),r!==t?s&&"set"in s&&(i=s.set(e,r,n))!==t?i:e[n]=r:s&&"get"in s&&(i=s.get(e,n))!==null?i:e[n]},propHooks:{tabIndex:{get:function(e){var n=e.getAttributeNode("tabindex");return n&&n.specified?parseInt(n.value,10):z.test(e.nodeName)||W.test(e.nodeName)&&e.href?0:t}}}}),F={get:function(e,n){var r,i=v.prop(e,n);return i===!0||typeof i!="boolean"&&(r=e.getAttributeNode(n))&&r.nodeValue!==!1?n.toLowerCase():t},set:function(e,t,n){var r;return t===!1?v.removeAttr(e,n):(r=v.propFix[n]||n,r in e&&(e[r]=!0),e.setAttribute(n,n.toLowerCase())),n}},V||(I={name:!0,id:!0,coords:!0},j=v.valHooks.button={get:function(e,n){var r;return r=e.getAttributeNode(n),r&&(I[n]?r.value!=="":r.specified)?r.value:t},set:function(e,t,n){var r=e.getAttributeNode(n);return r||(r=i.createAttribute(n),e.setAttributeNode(r)),r.value=t+""}},v.each(["width","height"],function(e,t){v.attrHooks[t]=v.extend(v.attrHooks[t],{set:function(e,n){if(n==="")return e.setAttribute(t,"auto"),n}})}),v.attrHooks.contenteditable={get:j.get,set:function(e,t,n){t===""&&(t="false"),j.set(e,t,n)}}),v.support.hrefNormalized||v.each(["href","src","width","height"],function(e,n){v.attrHooks[n]=v.extend(v.attrHooks[n],{get:function(e){var r=e.getAttribute(n,2);return r===null?t:r}})}),v.support.style||(v.attrHooks.style={get:function(e){return e.style.cssText.toLowerCase()||t},set:function(e,t){return e.style.cssText=t+""}}),v.support.optSelected||(v.propHooks.selected=v.extend(v.propHooks.selected,{get:function(e){var t=e.parentNode;return t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex),null}})),v.support.enctype||(v.propFix.enctype="encoding"),v.support.checkOn||v.each(["radio","checkbox"],function(){v.valHooks[this]={get:function(e){return e.getAttribute("value")===null?"on":e.value}}}),v.each(["radio","checkbox"],function(){v.valHooks[this]=v.extend(v.valHooks[this],{set:function(e,t){if(v.isArray(t))return e.checked=v.inArray(v(e).val(),t)>=0}})});var $=/^(?:textarea|input|select)$/i,J=/^([^\.]*|)(?:\.(.+)|)$/,K=/(?:^|\s)hover(\.\S+|)\b/,Q=/^key/,G=/^(?:mouse|contextmenu)|click/,Y=/^(?:focusinfocus|focusoutblur)$/,Z=function(e){return v.event.special.hover?e:e.replace(K,"mouseenter$1 mouseleave$1")};v.event={add:function(e,n,r,i,s){var o,u,a,f,l,c,h,p,d,m,g;if(e.nodeType===3||e.nodeType===8||!n||!r||!(o=v._data(e)))return;r.handler&&(d=r,r=d.handler,s=d.selector),r.guid||(r.guid=v.guid++),a=o.events,a||(o.events=a={}),u=o.handle,u||(o.handle=u=function(e){return typeof v=="undefined"||!!e&&v.event.triggered===e.type?t:v.event.dispatch.apply(u.elem,arguments)},u.elem=e),n=v.trim(Z(n)).split(" ");for(f=0;f<n.length;f++){l=J.exec(n[f])||[],c=l[1],h=(l[2]||"").split(".").sort(),g=v.event.special[c]||{},c=(s?g.delegateType:g.bindType)||c,g=v.event.special[c]||{},p=v.extend({type:c,origType:l[1],data:i,handler:r,guid:r.guid,selector:s,needsContext:s&&v.expr.match.needsContext.test(s),namespace:h.join(".")},d),m=a[c];if(!m){m=a[c]=[],m.delegateCount=0;if(!g.setup||g.setup.call(e,i,h,u)===!1)e.addEventListener?e.addEventListener(c,u,!1):e.attachEvent&&e.attachEvent("on"+c,u)}g.add&&(g.add.call(e,p),p.handler.guid||(p.handler.guid=r.guid)),s?m.splice(m.delegateCount++,0,p):m.push(p),v.event.global[c]=!0}e=null},global:{},remove:function(e,t,n,r,i){var s,o,u,a,f,l,c,h,p,d,m,g=v.hasData(e)&&v._data(e);if(!g||!(h=g.events))return;t=v.trim(Z(t||"")).split(" ");for(s=0;s<t.length;s++){o=J.exec(t[s])||[],u=a=o[1],f=o[2];if(!u){for(u in h)v.event.remove(e,u+t[s],n,r,!0);continue}p=v.event.special[u]||{},u=(r?p.delegateType:p.bindType)||u,d=h[u]||[],l=d.length,f=f?new RegExp("(^|\\.)"+f.split(".").sort().join("\\.(?:.*\\.|)")+"(\\.|$)"):null;for(c=0;c<d.length;c++)m=d[c],(i||a===m.origType)&&(!n||n.guid===m.guid)&&(!f||f.test(m.namespace))&&(!r||r===m.selector||r==="**"&&m.selector)&&(d.splice(c--,1),m.selector&&d.delegateCount--,p.remove&&p.remove.call(e,m));d.length===0&&l!==d.length&&((!p.teardown||p.teardown.call(e,f,g.handle)===!1)&&v.removeEvent(e,u,g.handle),delete h[u])}v.isEmptyObject(h)&&(delete g.handle,v.removeData(e,"events",!0))},customEvent:{getData:!0,setData:!0,changeData:!0},trigger:function(n,r,s,o){if(!s||s.nodeType!==3&&s.nodeType!==8){var u,a,f,l,c,h,p,d,m,g,y=n.type||n,b=[];if(Y.test(y+v.event.triggered))return;y.indexOf("!")>=0&&(y=y.slice(0,-1),a=!0),y.indexOf(".")>=0&&(b=y.split("."),y=b.shift(),b.sort());if((!s||v.event.customEvent[y])&&!v.event.global[y])return;n=typeof n=="object"?n[v.expando]?n:new v.Event(y,n):new v.Event(y),n.type=y,n.isTrigger=!0,n.exclusive=a,n.namespace=b.join("."),n.namespace_re=n.namespace?new RegExp("(^|\\.)"+b.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,h=y.indexOf(":")<0?"on"+y:"";if(!s){u=v.cache;for(f in u)u[f].events&&u[f].events[y]&&v.event.trigger(n,r,u[f].handle.elem,!0);return}n.result=t,n.target||(n.target=s),r=r!=null?v.makeArray(r):[],r.unshift(n),p=v.event.special[y]||{};if(p.trigger&&p.trigger.apply(s,r)===!1)return;m=[[s,p.bindType||y]];if(!o&&!p.noBubble&&!v.isWindow(s)){g=p.delegateType||y,l=Y.test(g+y)?s:s.parentNode;for(c=s;l;l=l.parentNode)m.push([l,g]),c=l;c===(s.ownerDocument||i)&&m.push([c.defaultView||c.parentWindow||e,g])}for(f=0;f<m.length&&!n.isPropagationStopped();f++)l=m[f][0],n.type=m[f][1],d=(v._data(l,"events")||{})[n.type]&&v._data(l,"handle"),d&&d.apply(l,r),d=h&&l[h],d&&v.acceptData(l)&&d.apply&&d.apply(l,r)===!1&&n.preventDefault();return n.type=y,!o&&!n.isDefaultPrevented()&&(!p._default||p._default.apply(s.ownerDocument,r)===!1)&&(y!=="click"||!v.nodeName(s,"a"))&&v.acceptData(s)&&h&&s[y]&&(y!=="focus"&&y!=="blur"||n.target.offsetWidth!==0)&&!v.isWindow(s)&&(c=s[h],c&&(s[h]=null),v.event.triggered=y,s[y](),v.event.triggered=t,c&&(s[h]=c)),n.result}return},dispatch:function(n){n=v.event.fix(n||e.event);var r,i,s,o,u,a,f,c,h,p,d=(v._data(this,"events")||{})[n.type]||[],m=d.delegateCount,g=l.call(arguments),y=!n.exclusive&&!n.namespace,b=v.event.special[n.type]||{},w=[];g[0]=n,n.delegateTarget=this;if(b.preDispatch&&b.preDispatch.call(this,n)===!1)return;if(m&&(!n.button||n.type!=="click"))for(s=n.target;s!=this;s=s.parentNode||this)if(s.disabled!==!0||n.type!=="click"){u={},f=[];for(r=0;r<m;r++)c=d[r],h=c.selector,u[h]===t&&(u[h]=c.needsContext?v(h,this).index(s)>=0:v.find(h,this,null,[s]).length),u[h]&&f.push(c);f.length&&w.push({elem:s,matches:f})}d.length>m&&w.push({elem:this,matches:d.slice(m)});for(r=0;r<w.length&&!n.isPropagationStopped();r++){a=w[r],n.currentTarget=a.elem;for(i=0;i<a.matches.length&&!n.isImmediatePropagationStopped();i++){c=a.matches[i];if(y||!n.namespace&&!c.namespace||n.namespace_re&&n.namespace_re.test(c.namespace))n.data=c.data,n.handleObj=c,o=((v.event.special[c.origType]||{}).handle||c.handler).apply(a.elem,g),o!==t&&(n.result=o,o===!1&&(n.preventDefault(),n.stopPropagation()))}}return b.postDispatch&&b.postDispatch.call(this,n),n.result},props:"attrChange attrName relatedNode srcElement altKey bubbles cancelable ctrlKey currentTarget eventPhase metaKey relatedTarget shiftKey target timeStamp view which".split(" "),fixHooks:{},keyHooks:{props:"char charCode key keyCode".split(" "),filter:function(e,t){return e.which==null&&(e.which=t.charCode!=null?t.charCode:t.keyCode),e}},mouseHooks:{props:"button buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),filter:function(e,n){var r,s,o,u=n.button,a=n.fromElement;return e.pageX==null&&n.clientX!=null&&(r=e.target.ownerDocument||i,s=r.documentElement,o=r.body,e.pageX=n.clientX+(s&&s.scrollLeft||o&&o.scrollLeft||0)-(s&&s.clientLeft||o&&o.clientLeft||0),e.pageY=n.clientY+(s&&s.scrollTop||o&&o.scrollTop||0)-(s&&s.clientTop||o&&o.clientTop||0)),!e.relatedTarget&&a&&(e.relatedTarget=a===e.target?n.toElement:a),!e.which&&u!==t&&(e.which=u&1?1:u&2?3:u&4?2:0),e}},fix:function(e){if(e[v.expando])return e;var t,n,r=e,s=v.event.fixHooks[e.type]||{},o=s.props?this.props.concat(s.props):this.props;e=v.Event(r);for(t=o.length;t;)n=o[--t],e[n]=r[n];return e.target||(e.target=r.srcElement||i),e.target.nodeType===3&&(e.target=e.target.parentNode),e.metaKey=!!e.metaKey,s.filter?s.filter(e,r):e},special:{load:{noBubble:!0},focus:{delegateType:"focusin"},blur:{delegateType:"focusout"},beforeunload:{setup:function(e,t,n){v.isWindow(this)&&(this.onbeforeunload=n)},teardown:function(e,t){this.onbeforeunload===t&&(this.onbeforeunload=null)}}},simulate:function(e,t,n,r){var i=v.extend(new v.Event,n,{type:e,isSimulated:!0,originalEvent:{}});r?v.event.trigger(i,null,t):v.event.dispatch.call(t,i),i.isDefaultPrevented()&&n.preventDefault()}},v.event.handle=v.event.dispatch,v.removeEvent=i.removeEventListener?function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n,!1)}:function(e,t,n){var r="on"+t;e.detachEvent&&(typeof e[r]=="undefined"&&(e[r]=null),e.detachEvent(r,n))},v.Event=function(e,t){if(!(this instanceof v.Event))return new v.Event(e,t);e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||e.returnValue===!1||e.getPreventDefault&&e.getPreventDefault()?tt:et):this.type=e,t&&v.extend(this,t),this.timeStamp=e&&e.timeStamp||v.now(),this[v.expando]=!0},v.Event.prototype={preventDefault:function(){this.isDefaultPrevented=tt;var e=this.originalEvent;if(!e)return;e.preventDefault?e.preventDefault():e.returnValue=!1},stopPropagation:function(){this.isPropagationStopped=tt;var e=this.originalEvent;if(!e)return;e.stopPropagation&&e.stopPropagation(),e.cancelBubble=!0},stopImmediatePropagation:function(){this.isImmediatePropagationStopped=tt,this.stopPropagation()},isDefaultPrevented:et,isPropagationStopped:et,isImmediatePropagationStopped:et},v.each({mouseenter:"mouseover",mouseleave:"mouseout"},function(e,t){v.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,s=e.handleObj,o=s.selector;if(!i||i!==r&&!v.contains(r,i))e.type=s.origType,n=s.handler.apply(this,arguments),e.type=t;return n}}}),v.support.submitBubbles||(v.event.special.submit={setup:function(){if(v.nodeName(this,"form"))return!1;v.event.add(this,"click._submit keypress._submit",function(e){var n=e.target,r=v.nodeName(n,"input")||v.nodeName(n,"button")?n.form:t;r&&!v._data(r,"_submit_attached")&&(v.event.add(r,"submit._submit",function(e){e._submit_bubble=!0}),v._data(r,"_submit_attached",!0))})},postDispatch:function(e){e._submit_bubble&&(delete e._submit_bubble,this.parentNode&&!e.isTrigger&&v.event.simulate("submit",this.parentNode,e,!0))},teardown:function(){if(v.nodeName(this,"form"))return!1;v.event.remove(this,"._submit")}}),v.support.changeBubbles||(v.event.special.change={setup:function(){if($.test(this.nodeName)){if(this.type==="checkbox"||this.type==="radio")v.event.add(this,"propertychange._change",function(e){e.originalEvent.propertyName==="checked"&&(this._just_changed=!0)}),v.event.add(this,"click._change",function(e){this._just_changed&&!e.isTrigger&&(this._just_changed=!1),v.event.simulate("change",this,e,!0)});return!1}v.event.add(this,"beforeactivate._change",function(e){var t=e.target;$.test(t.nodeName)&&!v._data(t,"_change_attached")&&(v.event.add(t,"change._change",function(e){this.parentNode&&!e.isSimulated&&!e.isTrigger&&v.event.simulate("change",this.parentNode,e,!0)}),v._data(t,"_change_attached",!0))})},handle:function(e){var t=e.target;if(this!==t||e.isSimulated||e.isTrigger||t.type!=="radio"&&t.type!=="checkbox")return e.handleObj.handler.apply(this,arguments)},teardown:function(){return v.event.remove(this,"._change"),!$.test(this.nodeName)}}),v.support.focusinBubbles||v.each({focus:"focusin",blur:"focusout"},function(e,t){var n=0,r=function(e){v.event.simulate(t,e.target,v.event.fix(e),!0)};v.event.special[t]={setup:function(){n++===0&&i.addEventListener(e,r,!0)},teardown:function(){--n===0&&i.removeEventListener(e,r,!0)}}}),v.fn.extend({on:function(e,n,r,i,s){var o,u;if(typeof e=="object"){typeof n!="string"&&(r=r||n,n=t);for(u in e)this.on(u,n,r,e[u],s);return this}r==null&&i==null?(i=n,r=n=t):i==null&&(typeof n=="string"?(i=r,r=t):(i=r,r=n,n=t));if(i===!1)i=et;else if(!i)return this;return s===1&&(o=i,i=function(e){return v().off(e),o.apply(this,arguments)},i.guid=o.guid||(o.guid=v.guid++)),this.each(function(){v.event.add(this,e,i,r,n)})},one:function(e,t,n,r){return this.on(e,t,n,r,1)},off:function(e,n,r){var i,s;if(e&&e.preventDefault&&e.handleObj)return i=e.handleObj,v(e.delegateTarget).off(i.namespace?i.origType+"."+i.namespace:i.origType,i.selector,i.handler),this;if(typeof e=="object"){for(s in e)this.off(s,n,e[s]);return this}if(n===!1||typeof n=="function")r=n,n=t;return r===!1&&(r=et),this.each(function(){v.event.remove(this,e,r,n)})},bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},live:function(e,t,n){return v(this.context).on(e,this.selector,t,n),this},die:function(e,t){return v(this.context).off(e,this.selector||"**",t),this},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return arguments.length===1?this.off(e,"**"):this.off(t,e||"**",n)},trigger:function(e,t){return this.each(function(){v.event.trigger(e,t,this)})},triggerHandler:function(e,t){if(this[0])return v.event.trigger(e,t,this[0],!0)},toggle:function(e){var t=arguments,n=e.guid||v.guid++,r=0,i=function(n){var i=(v._data(this,"lastToggle"+e.guid)||0)%r;return v._data(this,"lastToggle"+e.guid,i+1),n.preventDefault(),t[i].apply(this,arguments)||!1};i.guid=n;while(r<t.length)t[r++].guid=n;return this.click(i)},hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)}}),v.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "),function(e,t){v.fn[t]=function(e,n){return n==null&&(n=e,e=null),arguments.length>0?this.on(t,null,e,n):this.trigger(t)},Q.test(t)&&(v.event.fixHooks[t]=v.event.keyHooks),G.test(t)&&(v.event.fixHooks[t]=v.event.mouseHooks)}),function(e,t){function nt(e,t,n,r){n=n||[],t=t||g;var i,s,a,f,l=t.nodeType;if(!e||typeof e!="string")return n;if(l!==1&&l!==9)return[];a=o(t);if(!a&&!r)if(i=R.exec(e))if(f=i[1]){if(l===9){s=t.getElementById(f);if(!s||!s.parentNode)return n;if(s.id===f)return n.push(s),n}else if(t.ownerDocument&&(s=t.ownerDocument.getElementById(f))&&u(t,s)&&s.id===f)return n.push(s),n}else{if(i[2])return S.apply(n,x.call(t.getElementsByTagName(e),0)),n;if((f=i[3])&&Z&&t.getElementsByClassName)return S.apply(n,x.call(t.getElementsByClassName(f),0)),n}return vt(e.replace(j,"$1"),t,n,r,a)}function rt(e){return function(t){var n=t.nodeName.toLowerCase();return n==="input"&&t.type===e}}function it(e){return function(t){var n=t.nodeName.toLowerCase();return(n==="input"||n==="button")&&t.type===e}}function st(e){return N(function(t){return t=+t,N(function(n,r){var i,s=e([],n.length,t),o=s.length;while(o--)n[i=s[o]]&&(n[i]=!(r[i]=n[i]))})})}function ot(e,t,n){if(e===t)return n;var r=e.nextSibling;while(r){if(r===t)return-1;r=r.nextSibling}return 1}function ut(e,t){var n,r,s,o,u,a,f,l=L[d][e+" "];if(l)return t?0:l.slice(0);u=e,a=[],f=i.preFilter;while(u){if(!n||(r=F.exec(u)))r&&(u=u.slice(r[0].length)||u),a.push(s=[]);n=!1;if(r=I.exec(u))s.push(n=new m(r.shift())),u=u.slice(n.length),n.type=r[0].replace(j," ");for(o in i.filter)(r=J[o].exec(u))&&(!f[o]||(r=f[o](r)))&&(s.push(n=new m(r.shift())),u=u.slice(n.length),n.type=o,n.matches=r);if(!n)break}return t?u.length:u?nt.error(e):L(e,a).slice(0)}function at(e,t,r){var i=t.dir,s=r&&t.dir==="parentNode",o=w++;return t.first?function(t,n,r){while(t=t[i])if(s||t.nodeType===1)return e(t,n,r)}:function(t,r,u){if(!u){var a,f=b+" "+o+" ",l=f+n;while(t=t[i])if(s||t.nodeType===1){if((a=t[d])===l)return t.sizset;if(typeof a=="string"&&a.indexOf(f)===0){if(t.sizset)return t}else{t[d]=l;if(e(t,r,u))return t.sizset=!0,t;t.sizset=!1}}}else while(t=t[i])if(s||t.nodeType===1)if(e(t,r,u))return t}}function ft(e){return e.length>1?function(t,n,r){var i=e.length;while(i--)if(!e[i](t,n,r))return!1;return!0}:e[0]}function lt(e,t,n,r,i){var s,o=[],u=0,a=e.length,f=t!=null;for(;u<a;u++)if(s=e[u])if(!n||n(s,r,i))o.push(s),f&&t.push(u);return o}function ct(e,t,n,r,i,s){return r&&!r[d]&&(r=ct(r)),i&&!i[d]&&(i=ct(i,s)),N(function(s,o,u,a){var f,l,c,h=[],p=[],d=o.length,v=s||dt(t||"*",u.nodeType?[u]:u,[]),m=e&&(s||!t)?lt(v,h,e,u,a):v,g=n?i||(s?e:d||r)?[]:o:m;n&&n(m,g,u,a);if(r){f=lt(g,p),r(f,[],u,a),l=f.length;while(l--)if(c=f[l])g[p[l]]=!(m[p[l]]=c)}if(s){if(i||e){if(i){f=[],l=g.length;while(l--)(c=g[l])&&f.push(m[l]=c);i(null,g=[],f,a)}l=g.length;while(l--)(c=g[l])&&(f=i?T.call(s,c):h[l])>-1&&(s[f]=!(o[f]=c))}}else g=lt(g===o?g.splice(d,g.length):g),i?i(null,o,g,a):S.apply(o,g)})}function ht(e){var t,n,r,s=e.length,o=i.relative[e[0].type],u=o||i.relative[" "],a=o?1:0,f=at(function(e){return e===t},u,!0),l=at(function(e){return T.call(t,e)>-1},u,!0),h=[function(e,n,r){return!o&&(r||n!==c)||((t=n).nodeType?f(e,n,r):l(e,n,r))}];for(;a<s;a++)if(n=i.relative[e[a].type])h=[at(ft(h),n)];else{n=i.filter[e[a].type].apply(null,e[a].matches);if(n[d]){r=++a;for(;r<s;r++)if(i.relative[e[r].type])break;return ct(a>1&&ft(h),a>1&&e.slice(0,a-1).join("").replace(j,"$1"),n,a<r&&ht(e.slice(a,r)),r<s&&ht(e=e.slice(r)),r<s&&e.join(""))}h.push(n)}return ft(h)}function pt(e,t){var r=t.length>0,s=e.length>0,o=function(u,a,f,l,h){var p,d,v,m=[],y=0,w="0",x=u&&[],T=h!=null,N=c,C=u||s&&i.find.TAG("*",h&&a.parentNode||a),k=b+=N==null?1:Math.E;T&&(c=a!==g&&a,n=o.el);for(;(p=C[w])!=null;w++){if(s&&p){for(d=0;v=e[d];d++)if(v(p,a,f)){l.push(p);break}T&&(b=k,n=++o.el)}r&&((p=!v&&p)&&y--,u&&x.push(p))}y+=w;if(r&&w!==y){for(d=0;v=t[d];d++)v(x,m,a,f);if(u){if(y>0)while(w--)!x[w]&&!m[w]&&(m[w]=E.call(l));m=lt(m)}S.apply(l,m),T&&!u&&m.length>0&&y+t.length>1&&nt.uniqueSort(l)}return T&&(b=k,c=N),x};return o.el=0,r?N(o):o}function dt(e,t,n){var r=0,i=t.length;for(;r<i;r++)nt(e,t[r],n);return n}function vt(e,t,n,r,s){var o,u,f,l,c,h=ut(e),p=h.length;if(!r&&h.length===1){u=h[0]=h[0].slice(0);if(u.length>2&&(f=u[0]).type==="ID"&&t.nodeType===9&&!s&&i.relative[u[1].type]){t=i.find.ID(f.matches[0].replace($,""),t,s)[0];if(!t)return n;e=e.slice(u.shift().length)}for(o=J.POS.test(e)?-1:u.length-1;o>=0;o--){f=u[o];if(i.relative[l=f.type])break;if(c=i.find[l])if(r=c(f.matches[0].replace($,""),z.test(u[0].type)&&t.parentNode||t,s)){u.splice(o,1),e=r.length&&u.join("");if(!e)return S.apply(n,x.call(r,0)),n;break}}}return a(e,h)(r,t,s,n,z.test(e)),n}function mt(){}var n,r,i,s,o,u,a,f,l,c,h=!0,p="undefined",d=("sizcache"+Math.random()).replace(".",""),m=String,g=e.document,y=g.documentElement,b=0,w=0,E=[].pop,S=[].push,x=[].slice,T=[].indexOf||function(e){var t=0,n=this.length;for(;t<n;t++)if(this[t]===e)return t;return-1},N=function(e,t){return e[d]=t==null||t,e},C=function(){var e={},t=[];return N(function(n,r){return t.push(n)>i.cacheLength&&delete e[t.shift()],e[n+" "]=r},e)},k=C(),L=C(),A=C(),O="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[-\\w]|[^\\x00-\\xa0])+",_=M.replace("w","w#"),D="([*^$|!~]?=)",P="\\["+O+"*("+M+")"+O+"*(?:"+D+O+"*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|("+_+")|)|)"+O+"*\\]",H=":("+M+")(?:\\((?:(['\"])((?:\\\\.|[^\\\\])*?)\\2|([^()[\\]]*|(?:(?:"+P+")|[^:]|\\\\.)*|.*))\\)|)",B=":(even|odd|eq|gt|lt|nth|first|last)(?:\\("+O+"*((?:-\\d)?\\d*)"+O+"*\\)|)(?=[^-]|$)",j=new RegExp("^"+O+"+|((?:^|[^\\\\])(?:\\\\.)*)"+O+"+$","g"),F=new RegExp("^"+O+"*,"+O+"*"),I=new RegExp("^"+O+"*([\\x20\\t\\r\\n\\f>+~])"+O+"*"),q=new RegExp(H),R=/^(?:#([\w\-]+)|(\w+)|\.([\w\-]+))$/,U=/^:not/,z=/[\x20\t\r\n\f]*[+~]/,W=/:not\($/,X=/h\d/i,V=/input|select|textarea|button/i,$=/\\(?!\\)/g,J={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),NAME:new RegExp("^\\[name=['\"]?("+M+")['\"]?\\]"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+P),PSEUDO:new RegExp("^"+H),POS:new RegExp(B,"i"),CHILD:new RegExp("^:(only|nth|first|last)-child(?:\\("+O+"*(even|odd|(([+-]|)(\\d*)n|)"+O+"*(?:([+-]|)"+O+"*(\\d+)|))"+O+"*\\)|)","i"),needsContext:new RegExp("^"+O+"*[>+~]|"+B,"i")},K=function(e){var t=g.createElement("div");try{return e(t)}catch(n){return!1}finally{t=null}},Q=K(function(e){return e.appendChild(g.createComment("")),!e.getElementsByTagName("*").length}),G=K(function(e){return e.innerHTML="<a href='#'></a>",e.firstChild&&typeof e.firstChild.getAttribute!==p&&e.firstChild.getAttribute("href")==="#"}),Y=K(function(e){e.innerHTML="<select></select>";var t=typeof e.lastChild.getAttribute("multiple");return t!=="boolean"&&t!=="string"}),Z=K(function(e){return e.innerHTML="<div class='hidden e'></div><div class='hidden'></div>",!e.getElementsByClassName||!e.getElementsByClassName("e").length?!1:(e.lastChild.className="e",e.getElementsByClassName("e").length===2)}),et=K(function(e){e.id=d+0,e.innerHTML="<a name='"+d+"'></a><div name='"+d+"'></div>",y.insertBefore(e,y.firstChild);var t=g.getElementsByName&&g.getElementsByName(d).length===2+g.getElementsByName(d+0).length;return r=!g.getElementById(d),y.removeChild(e),t});try{x.call(y.childNodes,0)[0].nodeType}catch(tt){x=function(e){var t,n=[];for(;t=this[e];e++)n.push(t);return n}}nt.matches=function(e,t){return nt(e,null,null,t)},nt.matchesSelector=function(e,t){return nt(t,null,null,[e]).length>0},s=nt.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(i===1||i===9||i===11){if(typeof e.textContent=="string")return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=s(e)}else if(i===3||i===4)return e.nodeValue}else for(;t=e[r];r++)n+=s(t);return n},o=nt.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return t?t.nodeName!=="HTML":!1},u=nt.contains=y.contains?function(e,t){var n=e.nodeType===9?e.documentElement:e,r=t&&t.parentNode;return e===r||!!(r&&r.nodeType===1&&n.contains&&n.contains(r))}:y.compareDocumentPosition?function(e,t){return t&&!!(e.compareDocumentPosition(t)&16)}:function(e,t){while(t=t.parentNode)if(t===e)return!0;return!1},nt.attr=function(e,t){var n,r=o(e);return r||(t=t.toLowerCase()),(n=i.attrHandle[t])?n(e):r||Y?e.getAttribute(t):(n=e.getAttributeNode(t),n?typeof e[t]=="boolean"?e[t]?t:null:n.specified?n.value:null:null)},i=nt.selectors={cacheLength:50,createPseudo:N,match:J,attrHandle:G?{}:{href:function(e){return e.getAttribute("href",2)},type:function(e){return e.getAttribute("type")}},find:{ID:r?function(e,t,n){if(typeof t.getElementById!==p&&!n){var r=t.getElementById(e);return r&&r.parentNode?[r]:[]}}:function(e,n,r){if(typeof n.getElementById!==p&&!r){var i=n.getElementById(e);return i?i.id===e||typeof i.getAttributeNode!==p&&i.getAttributeNode("id").value===e?[i]:t:[]}},TAG:Q?function(e,t){if(typeof t.getElementsByTagName!==p)return t.getElementsByTagName(e)}:function(e,t){var n=t.getElementsByTagName(e);if(e==="*"){var r,i=[],s=0;for(;r=n[s];s++)r.nodeType===1&&i.push(r);return i}return n},NAME:et&&function(e,t){if(typeof t.getElementsByName!==p)return t.getElementsByName(name)},CLASS:Z&&function(e,t,n){if(typeof t.getElementsByClassName!==p&&!n)return t.getElementsByClassName(e)}},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace($,""),e[3]=(e[4]||e[5]||"").replace($,""),e[2]==="~="&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),e[1]==="nth"?(e[2]||nt.error(e[0]),e[3]=+(e[3]?e[4]+(e[5]||1):2*(e[2]==="even"||e[2]==="odd")),e[4]=+(e[6]+e[7]||e[2]==="odd")):e[2]&&nt.error(e[0]),e},PSEUDO:function(e){var t,n;if(J.CHILD.test(e[0]))return null;if(e[3])e[2]=e[3];else if(t=e[4])q.test(t)&&(n=ut(t,!0))&&(n=t.indexOf(")",t.length-n)-t.length)&&(t=t.slice(0,n),e[0]=e[0].slice(0,n)),e[2]=t;return e.slice(0,3)}},filter:{ID:r?function(e){return e=e.replace($,""),function(t){return t.getAttribute("id")===e}}:function(e){return e=e.replace($,""),function(t){var n=typeof t.getAttributeNode!==p&&t.getAttributeNode("id");return n&&n.value===e}},TAG:function(e){return e==="*"?function(){return!0}:(e=e.replace($,"").toLowerCase(),function(t){return t.nodeName&&t.nodeName.toLowerCase()===e})},CLASS:function(e){var t=k[d][e+" "];return t||(t=new RegExp("(^|"+O+")"+e+"("+O+"|$)"))&&k(e,function(e){return t.test(e.className||typeof e.getAttribute!==p&&e.getAttribute("class")||"")})},ATTR:function(e,t,n){return function(r,i){var s=nt.attr(r,e);return s==null?t==="!=":t?(s+="",t==="="?s===n:t==="!="?s!==n:t==="^="?n&&s.indexOf(n)===0:t==="*="?n&&s.indexOf(n)>-1:t==="$="?n&&s.substr(s.length-n.length)===n:t==="~="?(" "+s+" ").indexOf(n)>-1:t==="|="?s===n||s.substr(0,n.length+1)===n+"-":!1):!0}},CHILD:function(e,t,n,r){return e==="nth"?function(e){var t,i,s=e.parentNode;if(n===1&&r===0)return!0;if(s){i=0;for(t=s.firstChild;t;t=t.nextSibling)if(t.nodeType===1){i++;if(e===t)break}}return i-=r,i===n||i%n===0&&i/n>=0}:function(t){var n=t;switch(e){case"only":case"first":while(n=n.previousSibling)if(n.nodeType===1)return!1;if(e==="first")return!0;n=t;case"last":while(n=n.nextSibling)if(n.nodeType===1)return!1;return!0}}},PSEUDO:function(e,t){var n,r=i.pseudos[e]||i.setFilters[e.toLowerCase()]||nt.error("unsupported pseudo: "+e);return r[d]?r(t):r.length>1?(n=[e,e,"",t],i.setFilters.hasOwnProperty(e.toLowerCase())?N(function(e,n){var i,s=r(e,t),o=s.length;while(o--)i=T.call(e,s[o]),e[i]=!(n[i]=s[o])}):function(e){return r(e,0,n)}):r}},pseudos:{not:N(function(e){var t=[],n=[],r=a(e.replace(j,"$1"));return r[d]?N(function(e,t,n,i){var s,o=r(e,null,i,[]),u=e.length;while(u--)if(s=o[u])e[u]=!(t[u]=s)}):function(e,i,s){return t[0]=e,r(t,null,s,n),!n.pop()}}),has:N(function(e){return function(t){return nt(e,t).length>0}}),contains:N(function(e){return function(t){return(t.textContent||t.innerText||s(t)).indexOf(e)>-1}}),enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return t==="input"&&!!e.checked||t==="option"&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},parent:function(e){return!i.pseudos.empty(e)},empty:function(e){var t;e=e.firstChild;while(e){if(e.nodeName>"@"||(t=e.nodeType)===3||t===4)return!1;e=e.nextSibling}return!0},header:function(e){return X.test(e.nodeName)},text:function(e){var t,n;return e.nodeName.toLowerCase()==="input"&&(t=e.type)==="text"&&((n=e.getAttribute("type"))==null||n.toLowerCase()===t)},radio:rt("radio"),checkbox:rt("checkbox"),file:rt("file"),password:rt("password"),image:rt("image"),submit:it("submit"),reset:it("reset"),button:function(e){var t=e.nodeName.toLowerCase();return t==="input"&&e.type==="button"||t==="button"},input:function(e){return V.test(e.nodeName)},focus:function(e){var t=e.ownerDocument;return e===t.activeElement&&(!t.hasFocus||t.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},active:function(e){return e===e.ownerDocument.activeElement},first:st(function(){return[0]}),last:st(function(e,t){return[t-1]}),eq:st(function(e,t,n){return[n<0?n+t:n]}),even:st(function(e,t){for(var n=0;n<t;n+=2)e.push(n);return e}),odd:st(function(e,t){for(var n=1;n<t;n+=2)e.push(n);return e}),lt:st(function(e,t,n){for(var r=n<0?n+t:n;--r>=0;)e.push(r);return e}),gt:st(function(e,t,n){for(var r=n<0?n+t:n;++r<t;)e.push(r);return e})}},f=y.compareDocumentPosition?function(e,t){return e===t?(l=!0,0):(!e.compareDocumentPosition||!t.compareDocumentPosition?e.compareDocumentPosition:e.compareDocumentPosition(t)&4)?-1:1}:function(e,t){if(e===t)return l=!0,0;if(e.sourceIndex&&t.sourceIndex)return e.sourceIndex-t.sourceIndex;var n,r,i=[],s=[],o=e.parentNode,u=t.parentNode,a=o;if(o===u)return ot(e,t);if(!o)return-1;if(!u)return 1;while(a)i.unshift(a),a=a.parentNode;a=u;while(a)s.unshift(a),a=a.parentNode;n=i.length,r=s.length;for(var f=0;f<n&&f<r;f++)if(i[f]!==s[f])return ot(i[f],s[f]);return f===n?ot(e,s[f],-1):ot(i[f],t,1)},[0,0].sort(f),h=!l,nt.uniqueSort=function(e){var t,n=[],r=1,i=0;l=h,e.sort(f);if(l){for(;t=e[r];r++)t===e[r-1]&&(i=n.push(r));while(i--)e.splice(n[i],1)}return e},nt.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},a=nt.compile=function(e,t){var n,r=[],i=[],s=A[d][e+" "];if(!s){t||(t=ut(e)),n=t.length;while(n--)s=ht(t[n]),s[d]?r.push(s):i.push(s);s=A(e,pt(i,r))}return s},g.querySelectorAll&&function(){var e,t=vt,n=/'|\\/g,r=/\=[\x20\t\r\n\f]*([^'"\]]*)[\x20\t\r\n\f]*\]/g,i=[":focus"],s=[":active"],u=y.matchesSelector||y.mozMatchesSelector||y.webkitMatchesSelector||y.oMatchesSelector||y.msMatchesSelector;K(function(e){e.innerHTML="<select><option selected=''></option></select>",e.querySelectorAll("[selected]").length||i.push("\\["+O+"*(?:checked|disabled|ismap|multiple|readonly|selected|value)"),e.querySelectorAll(":checked").length||i.push(":checked")}),K(function(e){e.innerHTML="<p test=''></p>",e.querySelectorAll("[test^='']").length&&i.push("[*^$]="+O+"*(?:\"\"|'')"),e.innerHTML="<input type='hidden'/>",e.querySelectorAll(":enabled").length||i.push(":enabled",":disabled")}),i=new RegExp(i.join("|")),vt=function(e,r,s,o,u){if(!o&&!u&&!i.test(e)){var a,f,l=!0,c=d,h=r,p=r.nodeType===9&&e;if(r.nodeType===1&&r.nodeName.toLowerCase()!=="object"){a=ut(e),(l=r.getAttribute("id"))?c=l.replace(n,"\\$&"):r.setAttribute("id",c),c="[id='"+c+"'] ",f=a.length;while(f--)a[f]=c+a[f].join("");h=z.test(e)&&r.parentNode||r,p=a.join(",")}if(p)try{return S.apply(s,x.call(h.querySelectorAll(p),0)),s}catch(v){}finally{l||r.removeAttribute("id")}}return t(e,r,s,o,u)},u&&(K(function(t){e=u.call(t,"div");try{u.call(t,"[test!='']:sizzle"),s.push("!=",H)}catch(n){}}),s=new RegExp(s.join("|")),nt.matchesSelector=function(t,n){n=n.replace(r,"='$1']");if(!o(t)&&!s.test(n)&&!i.test(n))try{var a=u.call(t,n);if(a||e||t.document&&t.document.nodeType!==11)return a}catch(f){}return nt(n,null,null,[t]).length>0})}(),i.pseudos.nth=i.pseudos.eq,i.filters=mt.prototype=i.pseudos,i.setFilters=new mt,nt.attr=v.attr,v.find=nt,v.expr=nt.selectors,v.expr[":"]=v.expr.pseudos,v.unique=nt.uniqueSort,v.text=nt.getText,v.isXMLDoc=nt.isXML,v.contains=nt.contains}(e);var nt=/Until$/,rt=/^(?:parents|prev(?:Until|All))/,it=/^.[^:#\[\.,]*$/,st=v.expr.match.needsContext,ot={children:!0,contents:!0,next:!0,prev:!0};v.fn.extend({find:function(e){var t,n,r,i,s,o,u=this;if(typeof e!="string")return v(e).filter(function(){for(t=0,n=u.length;t<n;t++)if(v.contains(u[t],this))return!0});o=this.pushStack("","find",e);for(t=0,n=this.length;t<n;t++){r=o.length,v.find(e,this[t],o);if(t>0)for(i=r;i<o.length;i++)for(s=0;s<r;s++)if(o[s]===o[i]){o.splice(i--,1);break}}return o},has:function(e){var t,n=v(e,this),r=n.length;return this.filter(function(){for(t=0;t<r;t++)if(v.contains(this,n[t]))return!0})},not:function(e){return this.pushStack(ft(this,e,!1),"not",e)},filter:function(e){return this.pushStack(ft(this,e,!0),"filter",e)},is:function(e){return!!e&&(typeof e=="string"?st.test(e)?v(e,this.context).index(this[0])>=0:v.filter(e,this).length>0:this.filter(e).length>0)},closest:function(e,t){var n,r=0,i=this.length,s=[],o=st.test(e)||typeof e!="string"?v(e,t||this.context):0;for(;r<i;r++){n=this[r];while(n&&n.ownerDocument&&n!==t&&n.nodeType!==11){if(o?o.index(n)>-1:v.find.matchesSelector(n,e)){s.push(n);break}n=n.parentNode}}return s=s.length>1?v.unique(s):s,this.pushStack(s,"closest",e)},index:function(e){return e?typeof e=="string"?v.inArray(this[0],v(e)):v.inArray(e.jquery?e[0]:e,this):this[0]&&this[0].parentNode?this.prevAll().length:-1},add:function(e,t){var n=typeof e=="string"?v(e,t):v.makeArray(e&&e.nodeType?[e]:e),r=v.merge(this.get(),n);return this.pushStack(ut(n[0])||ut(r[0])?r:v.unique(r))},addBack:function(e){return this.add(e==null?this.prevObject:this.prevObject.filter(e))}}),v.fn.andSelf=v.fn.addBack,v.each({parent:function(e){var t=e.parentNode;return t&&t.nodeType!==11?t:null},parents:function(e){return v.dir(e,"parentNode")},parentsUntil:function(e,t,n){return v.dir(e,"parentNode",n)},next:function(e){return at(e,"nextSibling")},prev:function(e){return at(e,"previousSibling")},nextAll:function(e){return v.dir(e,"nextSibling")},prevAll:function(e){return v.dir(e,"previousSibling")},nextUntil:function(e,t,n){return v.dir(e,"nextSibling",n)},prevUntil:function(e,t,n){return v.dir(e,"previousSibling",n)},siblings:function(e){return v.sibling((e.parentNode||{}).firstChild,e)},children:function(e){return v.sibling(e.firstChild)},contents:function(e){return v.nodeName(e,"iframe")?e.contentDocument||e.contentWindow.document:v.merge([],e.childNodes)}},function(e,t){v.fn[e]=function(n,r){var i=v.map(this,t,n);return nt.test(e)||(r=n),r&&typeof r=="string"&&(i=v.filter(r,i)),i=this.length>1&&!ot[e]?v.unique(i):i,this.length>1&&rt.test(e)&&(i=i.reverse()),this.pushStack(i,e,l.call(arguments).join(","))}}),v.extend({filter:function(e,t,n){return n&&(e=":not("+e+")"),t.length===1?v.find.matchesSelector(t[0],e)?[t[0]]:[]:v.find.matches(e,t)},dir:function(e,n,r){var i=[],s=e[n];while(s&&s.nodeType!==9&&(r===t||s.nodeType!==1||!v(s).is(r)))s.nodeType===1&&i.push(s),s=s[n];return i},sibling:function(e,t){var n=[];for(;e;e=e.nextSibling)e.nodeType===1&&e!==t&&n.push(e);return n}});var ct="abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",ht=/ jQuery\d+="(?:null|\d+)"/g,pt=/^\s+/,dt=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,vt=/<([\w:]+)/,mt=/<tbody/i,gt=/<|&#?\w+;/,yt=/<(?:script|style|link)/i,bt=/<(?:script|object|embed|option|style)/i,wt=new RegExp("<(?:"+ct+")[\\s/>]","i"),Et=/^(?:checkbox|radio)$/,St=/checked\s*(?:[^=]|=\s*.checked.)/i,xt=/\/(java|ecma)script/i,Tt=/^\s*<!(?:\[CDATA\[|\-\-)|[\]\-]{2}>\s*$/g,Nt={option:[1,"<select multiple='multiple'>","</select>"],legend:[1,"<fieldset>","</fieldset>"],thead:[1,"<table>","</table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],col:[2,"<table><tbody></tbody><colgroup>","</colgroup></table>"],area:[1,"<map>","</map>"],_default:[0,"",""]},Ct=lt(i),kt=Ct.appendChild(i.createElement("div"));Nt.optgroup=Nt.option,Nt.tbody=Nt.tfoot=Nt.colgroup=Nt.caption=Nt.thead,Nt.th=Nt.td,v.support.htmlSerialize||(Nt._default=[1,"X<div>","</div>"]),v.fn.extend({text:function(e){return v.access(this,function(e){return e===t?v.text(this):this.empty().append((this[0]&&this[0].ownerDocument||i).createTextNode(e))},null,e,arguments.length)},wrapAll:function(e){if(v.isFunction(e))return this.each(function(t){v(this).wrapAll(e.call(this,t))});if(this[0]){var t=v(e,this[0].ownerDocument).eq(0).clone(!0);this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){var e=this;while(e.firstChild&&e.firstChild.nodeType===1)e=e.firstChild;return e}).append(this)}return this},wrapInner:function(e){return v.isFunction(e)?this.each(function(t){v(this).wrapInner(e.call(this,t))}):this.each(function(){var t=v(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=v.isFunction(e);return this.each(function(n){v(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(){return this.parent().each(function(){v.nodeName(this,"body")||v(this).replaceWith(this.childNodes)}).end()},append:function(){return this.domManip(arguments,!0,function(e){(this.nodeType===1||this.nodeType===11)&&this.appendChild(e)})},prepend:function(){return this.domManip(arguments,!0,function(e){(this.nodeType===1||this.nodeType===11)&&this.insertBefore(e,this.firstChild)})},before:function(){if(!ut(this[0]))return this.domManip(arguments,!1,function(e){this.parentNode.insertBefore(e,this)});if(arguments.length){var e=v.clean(arguments);return this.pushStack(v.merge(e,this),"before",this.selector)}},after:function(){if(!ut(this[0]))return this.domManip(arguments,!1,function(e){this.parentNode.insertBefore(e,this.nextSibling)});if(arguments.length){var e=v.clean(arguments);return this.pushStack(v.merge(this,e),"after",this.selector)}},remove:function(e,t){var n,r=0;for(;(n=this[r])!=null;r++)if(!e||v.filter(e,[n]).length)!t&&n.nodeType===1&&(v.cleanData(n.getElementsByTagName("*")),v.cleanData([n])),n.parentNode&&n.parentNode.removeChild(n);return this},empty:function(){var e,t=0;for(;(e=this[t])!=null;t++){e.nodeType===1&&v.cleanData(e.getElementsByTagName("*"));while(e.firstChild)e.removeChild(e.firstChild)}return this},clone:function(e,t){return e=e==null?!1:e,t=t==null?e:t,this.map(function(){return v.clone(this,e,t)})},html:function(e){return v.access(this,function(e){var n=this[0]||{},r=0,i=this.length;if(e===t)return n.nodeType===1?n.innerHTML.replace(ht,""):t;if(typeof e=="string"&&!yt.test(e)&&(v.support.htmlSerialize||!wt.test(e))&&(v.support.leadingWhitespace||!pt.test(e))&&!Nt[(vt.exec(e)||["",""])[1].toLowerCase()]){e=e.replace(dt,"<$1></$2>");try{for(;r<i;r++)n=this[r]||{},n.nodeType===1&&(v.cleanData(n.getElementsByTagName("*")),n.innerHTML=e);n=0}catch(s){}}n&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(e){return ut(this[0])?this.length?this.pushStack(v(v.isFunction(e)?e():e),"replaceWith",e):this:v.isFunction(e)?this.each(function(t){var n=v(this),r=n.html();n.replaceWith(e.call(this,t,r))}):(typeof e!="string"&&(e=v(e).detach()),this.each(function(){var t=this.nextSibling,n=this.parentNode;v(this).remove(),t?v(t).before(e):v(n).append(e)}))},detach:function(e){return this.remove(e,!0)},domManip:function(e,n,r){e=[].concat.apply([],e);var i,s,o,u,a=0,f=e[0],l=[],c=this.length;if(!v.support.checkClone&&c>1&&typeof f=="string"&&St.test(f))return this.each(function(){v(this).domManip(e,n,r)});if(v.isFunction(f))return this.each(function(i){var s=v(this);e[0]=f.call(this,i,n?s.html():t),s.domManip(e,n,r)});if(this[0]){i=v.buildFragment(e,this,l),o=i.fragment,s=o.firstChild,o.childNodes.length===1&&(o=s);if(s){n=n&&v.nodeName(s,"tr");for(u=i.cacheable||c-1;a<c;a++)r.call(n&&v.nodeName(this[a],"table")?Lt(this[a],"tbody"):this[a],a===u?o:v.clone(o,!0,!0))}o=s=null,l.length&&v.each(l,function(e,t){t.src?v.ajax?v.ajax({url:t.src,type:"GET",dataType:"script",async:!1,global:!1,"throws":!0}):v.error("no ajax"):v.globalEval((t.text||t.textContent||t.innerHTML||"").replace(Tt,"")),t.parentNode&&t.parentNode.removeChild(t)})}return this}}),v.buildFragment=function(e,n,r){var s,o,u,a=e[0];return n=n||i,n=!n.nodeType&&n[0]||n,n=n.ownerDocument||n,e.length===1&&typeof a=="string"&&a.length<512&&n===i&&a.charAt(0)==="<"&&!bt.test(a)&&(v.support.checkClone||!St.test(a))&&(v.support.html5Clone||!wt.test(a))&&(o=!0,s=v.fragments[a],u=s!==t),s||(s=n.createDocumentFragment(),v.clean(e,n,s,r),o&&(v.fragments[a]=u&&s)),{fragment:s,cacheable:o}},v.fragments={},v.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){v.fn[e]=function(n){var r,i=0,s=[],o=v(n),u=o.length,a=this.length===1&&this[0].parentNode;if((a==null||a&&a.nodeType===11&&a.childNodes.length===1)&&u===1)return o[t](this[0]),this;for(;i<u;i++)r=(i>0?this.clone(!0):this).get(),v(o[i])[t](r),s=s.concat(r);return this.pushStack(s,e,o.selector)}}),v.extend({clone:function(e,t,n){var r,i,s,o;v.support.html5Clone||v.isXMLDoc(e)||!wt.test("<"+e.nodeName+">")?o=e.cloneNode(!0):(kt.innerHTML=e.outerHTML,kt.removeChild(o=kt.firstChild));if((!v.support.noCloneEvent||!v.support.noCloneChecked)&&(e.nodeType===1||e.nodeType===11)&&!v.isXMLDoc(e)){Ot(e,o),r=Mt(e),i=Mt(o);for(s=0;r[s];++s)i[s]&&Ot(r[s],i[s])}if(t){At(e,o);if(n){r=Mt(e),i=Mt(o);for(s=0;r[s];++s)At(r[s],i[s])}}return r=i=null,o},clean:function(e,t,n,r){var s,o,u,a,f,l,c,h,p,d,m,g,y=t===i&&Ct,b=[];if(!t||typeof t.createDocumentFragment=="undefined")t=i;for(s=0;(u=e[s])!=null;s++){typeof u=="number"&&(u+="");if(!u)continue;if(typeof u=="string")if(!gt.test(u))u=t.createTextNode(u);else{y=y||lt(t),c=t.createElement("div"),y.appendChild(c),u=u.replace(dt,"<$1></$2>"),a=(vt.exec(u)||["",""])[1].toLowerCase(),f=Nt[a]||Nt._default,l=f[0],c.innerHTML=f[1]+u+f[2];while(l--)c=c.lastChild;if(!v.support.tbody){h=mt.test(u),p=a==="table"&&!h?c.firstChild&&c.firstChild.childNodes:f[1]==="<table>"&&!h?c.childNodes:[];for(o=p.length-1;o>=0;--o)v.nodeName(p[o],"tbody")&&!p[o].childNodes.length&&p[o].parentNode.removeChild(p[o])}!v.support.leadingWhitespace&&pt.test(u)&&c.insertBefore(t.createTextNode(pt.exec(u)[0]),c.firstChild),u=c.childNodes,c.parentNode.removeChild(c)}u.nodeType?b.push(u):v.merge(b,u)}c&&(u=c=y=null);if(!v.support.appendChecked)for(s=0;(u=b[s])!=null;s++)v.nodeName(u,"input")?_t(u):typeof u.getElementsByTagName!="undefined"&&v.grep(u.getElementsByTagName("input"),_t);if(n){m=function(e){if(!e.type||xt.test(e.type))return r?r.push(e.parentNode?e.parentNode.removeChild(e):e):n.appendChild(e)};for(s=0;(u=b[s])!=null;s++)if(!v.nodeName(u,"script")||!m(u))n.appendChild(u),typeof u.getElementsByTagName!="undefined"&&(g=v.grep(v.merge([],u.getElementsByTagName("script")),m),b.splice.apply(b,[s+1,0].concat(g)),s+=g.length)}return b},cleanData:function(e,t){var n,r,i,s,o=0,u=v.expando,a=v.cache,f=v.support.deleteExpando,l=v.event.special;for(;(i=e[o])!=null;o++)if(t||v.acceptData(i)){r=i[u],n=r&&a[r];if(n){if(n.events)for(s in n.events)l[s]?v.event.remove(i,s):v.removeEvent(i,s,n.handle);a[r]&&(delete a[r],f?delete i[u]:i.removeAttribute?i.removeAttribute(u):i[u]=null,v.deletedIds.push(r))}}}}),function(){var e,t;v.uaMatch=function(e){e=e.toLowerCase();var t=/(chrome)[ \/]([\w.]+)/.exec(e)||/(webkit)[ \/]([\w.]+)/.exec(e)||/(opera)(?:.*version|)[ \/]([\w.]+)/.exec(e)||/(msie) ([\w.]+)/.exec(e)||e.indexOf("compatible")<0&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(e)||[];return{browser:t[1]||"",version:t[2]||"0"}},e=v.uaMatch(o.userAgent),t={},e.browser&&(t[e.browser]=!0,t.version=e.version),t.chrome?t.webkit=!0:t.webkit&&(t.safari=!0),v.browser=t,v.sub=function(){function e(t,n){return new e.fn.init(t,n)}v.extend(!0,e,this),e.superclass=this,e.fn=e.prototype=this(),e.fn.constructor=e,e.sub=this.sub,e.fn.init=function(r,i){return i&&i instanceof v&&!(i instanceof e)&&(i=e(i)),v.fn.init.call(this,r,i,t)},e.fn.init.prototype=e.fn;var t=e(i);return e}}();var Dt,Pt,Ht,Bt=/alpha\([^)]*\)/i,jt=/opacity=([^)]*)/,Ft=/^(top|right|bottom|left)$/,It=/^(none|table(?!-c[ea]).+)/,qt=/^margin/,Rt=new RegExp("^("+m+")(.*)$","i"),Ut=new RegExp("^("+m+")(?!px)[a-z%]+$","i"),zt=new RegExp("^([-+])=("+m+")","i"),Wt={BODY:"block"},Xt={position:"absolute",visibility:"hidden",display:"block"},Vt={letterSpacing:0,fontWeight:400},$t=["Top","Right","Bottom","Left"],Jt=["Webkit","O","Moz","ms"],Kt=v.fn.toggle;v.fn.extend({css:function(e,n){return v.access(this,function(e,n,r){return r!==t?v.style(e,n,r):v.css(e,n)},e,n,arguments.length>1)},show:function(){return Yt(this,!0)},hide:function(){return Yt(this)},toggle:function(e,t){var n=typeof e=="boolean";return v.isFunction(e)&&v.isFunction(t)?Kt.apply(this,arguments):this.each(function(){(n?e:Gt(this))?v(this).show():v(this).hide()})}}),v.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=Dt(e,"opacity");return n===""?"1":n}}}},cssNumber:{fillOpacity:!0,fontWeight:!0,lineHeight:!0,opacity:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{"float":v.support.cssFloat?"cssFloat":"styleFloat"},style:function(e,n,r,i){if(!e||e.nodeType===3||e.nodeType===8||!e.style)return;var s,o,u,a=v.camelCase(n),f=e.style;n=v.cssProps[a]||(v.cssProps[a]=Qt(f,a)),u=v.cssHooks[n]||v.cssHooks[a];if(r===t)return u&&"get"in u&&(s=u.get(e,!1,i))!==t?s:f[n];o=typeof r,o==="string"&&(s=zt.exec(r))&&(r=(s[1]+1)*s[2]+parseFloat(v.css(e,n)),o="number");if(r==null||o==="number"&&isNaN(r))return;o==="number"&&!v.cssNumber[a]&&(r+="px");if(!u||!("set"in u)||(r=u.set(e,r,i))!==t)try{f[n]=r}catch(l){}},css:function(e,n,r,i){var s,o,u,a=v.camelCase(n);return n=v.cssProps[a]||(v.cssProps[a]=Qt(e.style,a)),u=v.cssHooks[n]||v.cssHooks[a],u&&"get"in u&&(s=u.get(e,!0,i)),s===t&&(s=Dt(e,n)),s==="normal"&&n in Vt&&(s=Vt[n]),r||i!==t?(o=parseFloat(s),r||v.isNumeric(o)?o||0:s):s},swap:function(e,t,n){var r,i,s={};for(i in t)s[i]=e.style[i],e.style[i]=t[i];r=n.call(e);for(i in t)e.style[i]=s[i];return r}}),e.getComputedStyle?Dt=function(t,n){var r,i,s,o,u=e.getComputedStyle(t,null),a=t.style;return u&&(r=u.getPropertyValue(n)||u[n],r===""&&!v.contains(t.ownerDocument,t)&&(r=v.style(t,n)),Ut.test(r)&&qt.test(n)&&(i=a.width,s=a.minWidth,o=a.maxWidth,a.minWidth=a.maxWidth=a.width=r,r=u.width,a.width=i,a.minWidth=s,a.maxWidth=o)),r}:i.documentElement.currentStyle&&(Dt=function(e,t){var n,r,i=e.currentStyle&&e.currentStyle[t],s=e.style;return i==null&&s&&s[t]&&(i=s[t]),Ut.test(i)&&!Ft.test(t)&&(n=s.left,r=e.runtimeStyle&&e.runtimeStyle.left,r&&(e.runtimeStyle.left=e.currentStyle.left),s.left=t==="fontSize"?"1em":i,i=s.pixelLeft+"px",s.left=n,r&&(e.runtimeStyle.left=r)),i===""?"auto":i}),v.each(["height","width"],function(e,t){v.cssHooks[t]={get:function(e,n,r){if(n)return e.offsetWidth===0&&It.test(Dt(e,"display"))?v.swap(e,Xt,function(){return tn(e,t,r)}):tn(e,t,r)},set:function(e,n,r){return Zt(e,n,r?en(e,t,r,v.support.boxSizing&&v.css(e,"boxSizing")==="border-box"):0)}}}),v.support.opacity||(v.cssHooks.opacity={get:function(e,t){return jt.test((t&&e.currentStyle?e.currentStyle.filter:e.style.filter)||"")?.01*parseFloat(RegExp.$1)+"":t?"1":""},set:function(e,t){var n=e.style,r=e.currentStyle,i=v.isNumeric(t)?"alpha(opacity="+t*100+")":"",s=r&&r.filter||n.filter||"";n.zoom=1;if(t>=1&&v.trim(s.replace(Bt,""))===""&&n.removeAttribute){n.removeAttribute("filter");if(r&&!r.filter)return}n.filter=Bt.test(s)?s.replace(Bt,i):s+" "+i}}),v(function(){v.support.reliableMarginRight||(v.cssHooks.marginRight={get:function(e,t){return v.swap(e,{display:"inline-block"},function(){if(t)return Dt(e,"marginRight")})}}),!v.support.pixelPosition&&v.fn.position&&v.each(["top","left"],function(e,t){v.cssHooks[t]={get:function(e,n){if(n){var r=Dt(e,t);return Ut.test(r)?v(e).position()[t]+"px":r}}}})}),v.expr&&v.expr.filters&&(v.expr.filters.hidden=function(e){return e.offsetWidth===0&&e.offsetHeight===0||!v.support.reliableHiddenOffsets&&(e.style&&e.style.display||Dt(e,"display"))==="none"},v.expr.filters.visible=function(e){return!v.expr.filters.hidden(e)}),v.each({margin:"",padding:"",border:"Width"},function(e,t){v.cssHooks[e+t]={expand:function(n){var r,i=typeof n=="string"?n.split(" "):[n],s={};for(r=0;r<4;r++)s[e+$t[r]+t]=i[r]||i[r-2]||i[0];return s}},qt.test(e)||(v.cssHooks[e+t].set=Zt)});var rn=/%20/g,sn=/\[\]$/,on=/\r?\n/g,un=/^(?:color|date|datetime|datetime-local|email|hidden|month|number|password|range|search|tel|text|time|url|week)$/i,an=/^(?:select|textarea)/i;v.fn.extend({serialize:function(){return v.param(this.serializeArray())},serializeArray:function(){return this.map(function(){return this.elements?v.makeArray(this.elements):this}).filter(function(){return this.name&&!this.disabled&&(this.checked||an.test(this.nodeName)||un.test(this.type))}).map(function(e,t){var n=v(this).val();return n==null?null:v.isArray(n)?v.map(n,function(e,n){return{name:t.name,value:e.replace(on,"\r\n")}}):{name:t.name,value:n.replace(on,"\r\n")}}).get()}}),v.param=function(e,n){var r,i=[],s=function(e,t){t=v.isFunction(t)?t():t==null?"":t,i[i.length]=encodeURIComponent(e)+"="+encodeURIComponent(t)};n===t&&(n=v.ajaxSettings&&v.ajaxSettings.traditional);if(v.isArray(e)||e.jquery&&!v.isPlainObject(e))v.each(e,function(){s(this.name,this.value)});else for(r in e)fn(r,e[r],n,s);return i.join("&").replace(rn,"+")};var ln,cn,hn=/#.*$/,pn=/^(.*?):[ \t]*([^\r\n]*)\r?$/mg,dn=/^(?:about|app|app\-storage|.+\-extension|file|res|widget):$/,vn=/^(?:GET|HEAD)$/,mn=/^\/\//,gn=/\?/,yn=/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,bn=/([?&])_=[^&]*/,wn=/^([\w\+\.\-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,En=v.fn.load,Sn={},xn={},Tn=["*/"]+["*"];try{cn=s.href}catch(Nn){cn=i.createElement("a"),cn.href="",cn=cn.href}ln=wn.exec(cn.toLowerCase())||[],v.fn.load=function(e,n,r){if(typeof e!="string"&&En)return En.apply(this,arguments);if(!this.length)return this;var i,s,o,u=this,a=e.indexOf(" ");return a>=0&&(i=e.slice(a,e.length),e=e.slice(0,a)),v.isFunction(n)?(r=n,n=t):n&&typeof n=="object"&&(s="POST"),v.ajax({url:e,type:s,dataType:"html",data:n,complete:function(e,t){r&&u.each(r,o||[e.responseText,t,e])}}).done(function(e){o=arguments,u.html(i?v("<div>").append(e.replace(yn,"")).find(i):e)}),this},v.each("ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend".split(" "),function(e,t){v.fn[t]=function(e){return this.on(t,e)}}),v.each(["get","post"],function(e,n){v[n]=function(e,r,i,s){return v.isFunction(r)&&(s=s||i,i=r,r=t),v.ajax({type:n,url:e,data:r,success:i,dataType:s})}}),v.extend({getScript:function(e,n){return v.get(e,t,n,"script")},getJSON:function(e,t,n){return v.get(e,t,n,"json")},ajaxSetup:function(e,t){return t?Ln(e,v.ajaxSettings):(t=e,e=v.ajaxSettings),Ln(e,t),e},ajaxSettings:{url:cn,isLocal:dn.test(ln[1]),global:!0,type:"GET",contentType:"application/x-www-form-urlencoded; charset=UTF-8",processData:!0,async:!0,accepts:{xml:"application/xml, text/xml",html:"text/html",text:"text/plain",json:"application/json, text/javascript","*":Tn},contents:{xml:/xml/,html:/html/,json:/json/},responseFields:{xml:"responseXML",text:"responseText"},converters:{"* text":e.String,"text html":!0,"text json":v.parseJSON,"text xml":v.parseXML},flatOptions:{context:!0,url:!0}},ajaxPrefilter:Cn(Sn),ajaxTransport:Cn(xn),ajax:function(e,n){function T(e,n,s,a){var l,y,b,w,S,T=n;if(E===2)return;E=2,u&&clearTimeout(u),o=t,i=a||"",x.readyState=e>0?4:0,s&&(w=An(c,x,s));if(e>=200&&e<300||e===304)c.ifModified&&(S=x.getResponseHeader("Last-Modified"),S&&(v.lastModified[r]=S),S=x.getResponseHeader("Etag"),S&&(v.etag[r]=S)),e===304?(T="notmodified",l=!0):(l=On(c,w),T=l.state,y=l.data,b=l.error,l=!b);else{b=T;if(!T||e)T="error",e<0&&(e=0)}x.status=e,x.statusText=(n||T)+"",l?d.resolveWith(h,[y,T,x]):d.rejectWith(h,[x,T,b]),x.statusCode(g),g=t,f&&p.trigger("ajax"+(l?"Success":"Error"),[x,c,l?y:b]),m.fireWith(h,[x,T]),f&&(p.trigger("ajaxComplete",[x,c]),--v.active||v.event.trigger("ajaxStop"))}typeof e=="object"&&(n=e,e=t),n=n||{};var r,i,s,o,u,a,f,l,c=v.ajaxSetup({},n),h=c.context||c,p=h!==c&&(h.nodeType||h instanceof v)?v(h):v.event,d=v.Deferred(),m=v.Callbacks("once memory"),g=c.statusCode||{},b={},w={},E=0,S="canceled",x={readyState:0,setRequestHeader:function(e,t){if(!E){var n=e.toLowerCase();e=w[n]=w[n]||e,b[e]=t}return this},getAllResponseHeaders:function(){return E===2?i:null},getResponseHeader:function(e){var n;if(E===2){if(!s){s={};while(n=pn.exec(i))s[n[1].toLowerCase()]=n[2]}n=s[e.toLowerCase()]}return n===t?null:n},overrideMimeType:function(e){return E||(c.mimeType=e),this},abort:function(e){return e=e||S,o&&o.abort(e),T(0,e),this}};d.promise(x),x.success=x.done,x.error=x.fail,x.complete=m.add,x.statusCode=function(e){if(e){var t;if(E<2)for(t in e)g[t]=[g[t],e[t]];else t=e[x.status],x.always(t)}return this},c.url=((e||c.url)+"").replace(hn,"").replace(mn,ln[1]+"//"),c.dataTypes=v.trim(c.dataType||"*").toLowerCase().split(y),c.crossDomain==null&&(a=wn.exec(c.url.toLowerCase()),c.crossDomain=!(!a||a[1]===ln[1]&&a[2]===ln[2]&&(a[3]||(a[1]==="http:"?80:443))==(ln[3]||(ln[1]==="http:"?80:443)))),c.data&&c.processData&&typeof c.data!="string"&&(c.data=v.param(c.data,c.traditional)),kn(Sn,c,n,x);if(E===2)return x;f=c.global,c.type=c.type.toUpperCase(),c.hasContent=!vn.test(c.type),f&&v.active++===0&&v.event.trigger("ajaxStart");if(!c.hasContent){c.data&&(c.url+=(gn.test(c.url)?"&":"?")+c.data,delete c.data),r=c.url;if(c.cache===!1){var N=v.now(),C=c.url.replace(bn,"$1_="+N);c.url=C+(C===c.url?(gn.test(c.url)?"&":"?")+"_="+N:"")}}(c.data&&c.hasContent&&c.contentType!==!1||n.contentType)&&x.setRequestHeader("Content-Type",c.contentType),c.ifModified&&(r=r||c.url,v.lastModified[r]&&x.setRequestHeader("If-Modified-Since",v.lastModified[r]),v.etag[r]&&x.setRequestHeader("If-None-Match",v.etag[r])),x.setRequestHeader("Accept",c.dataTypes[0]&&c.accepts[c.dataTypes[0]]?c.accepts[c.dataTypes[0]]+(c.dataTypes[0]!=="*"?", "+Tn+"; q=0.01":""):c.accepts["*"]);for(l in c.headers)x.setRequestHeader(l,c.headers[l]);if(!c.beforeSend||c.beforeSend.call(h,x,c)!==!1&&E!==2){S="abort";for(l in{success:1,error:1,complete:1})x[l](c[l]);o=kn(xn,c,n,x);if(!o)T(-1,"No Transport");else{x.readyState=1,f&&p.trigger("ajaxSend",[x,c]),c.async&&c.timeout>0&&(u=setTimeout(function(){x.abort("timeout")},c.timeout));try{E=1,o.send(b,T)}catch(k){if(!(E<2))throw k;T(-1,k)}}return x}return x.abort()},active:0,lastModified:{},etag:{}});var Mn=[],_n=/\?/,Dn=/(=)\?(?=&|$)|\?\?/,Pn=v.now();v.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Mn.pop()||v.expando+"_"+Pn++;return this[e]=!0,e}}),v.ajaxPrefilter("json jsonp",function(n,r,i){var s,o,u,a=n.data,f=n.url,l=n.jsonp!==!1,c=l&&Dn.test(f),h=l&&!c&&typeof a=="string"&&!(n.contentType||"").indexOf("application/x-www-form-urlencoded")&&Dn.test(a);if(n.dataTypes[0]==="jsonp"||c||h)return s=n.jsonpCallback=v.isFunction(n.jsonpCallback)?n.jsonpCallback():n.jsonpCallback,o=e[s],c?n.url=f.replace(Dn,"$1"+s):h?n.data=a.replace(Dn,"$1"+s):l&&(n.url+=(_n.test(f)?"&":"?")+n.jsonp+"="+s),n.converters["script json"]=function(){return u||v.error(s+" was not called"),u[0]},n.dataTypes[0]="json",e[s]=function(){u=arguments},i.always(function(){e[s]=o,n[s]&&(n.jsonpCallback=r.jsonpCallback,Mn.push(s)),u&&v.isFunction(o)&&o(u[0]),u=o=t}),"script"}),v.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/javascript|ecmascript/},converters:{"text script":function(e){return v.globalEval(e),e}}}),v.ajaxPrefilter("script",function(e){e.cache===t&&(e.cache=!1),e.crossDomain&&(e.type="GET",e.global=!1)}),v.ajaxTransport("script",function(e){if(e.crossDomain){var n,r=i.head||i.getElementsByTagName("head")[0]||i.documentElement;return{send:function(s,o){n=i.createElement("script"),n.async="async",e.scriptCharset&&(n.charset=e.scriptCharset),n.src=e.url,n.onload=n.onreadystatechange=function(e,i){if(i||!n.readyState||/loaded|complete/.test(n.readyState))n.onload=n.onreadystatechange=null,r&&n.parentNode&&r.removeChild(n),n=t,i||o(200,"success")},r.insertBefore(n,r.firstChild)},abort:function(){n&&n.onload(0,1)}}}});var Hn,Bn=e.ActiveXObject?function(){for(var e in Hn)Hn[e](0,1)}:!1,jn=0;v.ajaxSettings.xhr=e.ActiveXObject?function(){return!this.isLocal&&Fn()||In()}:Fn,function(e){v.extend(v.support,{ajax:!!e,cors:!!e&&"withCredentials"in e})}(v.ajaxSettings.xhr()),v.support.ajax&&v.ajaxTransport(function(n){if(!n.crossDomain||v.support.cors){var r;return{send:function(i,s){var o,u,a=n.xhr();n.username?a.open(n.type,n.url,n.async,n.username,n.password):a.open(n.type,n.url,n.async);if(n.xhrFields)for(u in n.xhrFields)a[u]=n.xhrFields[u];n.mimeType&&a.overrideMimeType&&a.overrideMimeType(n.mimeType),!n.crossDomain&&!i["X-Requested-With"]&&(i["X-Requested-With"]="XMLHttpRequest");try{for(u in i)a.setRequestHeader(u,i[u])}catch(f){}a.send(n.hasContent&&n.data||null),r=function(e,i){var u,f,l,c,h;try{if(r&&(i||a.readyState===4)){r=t,o&&(a.onreadystatechange=v.noop,Bn&&delete Hn[o]);if(i)a.readyState!==4&&a.abort();else{u=a.status,l=a.getAllResponseHeaders(),c={},h=a.responseXML,h&&h.documentElement&&(c.xml=h);try{c.text=a.responseText}catch(p){}try{f=a.statusText}catch(p){f=""}!u&&n.isLocal&&!n.crossDomain?u=c.text?200:404:u===1223&&(u=204)}}}catch(d){i||s(-1,d)}c&&s(u,f,c,l)},n.async?a.readyState===4?setTimeout(r,0):(o=++jn,Bn&&(Hn||(Hn={},v(e).unload(Bn)),Hn[o]=r),a.onreadystatechange=r):r()},abort:function(){r&&r(0,1)}}}});var qn,Rn,Un=/^(?:toggle|show|hide)$/,zn=new RegExp("^(?:([-+])=|)("+m+")([a-z%]*)$","i"),Wn=/queueHooks$/,Xn=[Gn],Vn={"*":[function(e,t){var n,r,i=this.createTween(e,t),s=zn.exec(t),o=i.cur(),u=+o||0,a=1,f=20;if(s){n=+s[2],r=s[3]||(v.cssNumber[e]?"":"px");if(r!=="px"&&u){u=v.css(i.elem,e,!0)||n||1;do a=a||".5",u/=a,v.style(i.elem,e,u+r);while(a!==(a=i.cur()/o)&&a!==1&&--f)}i.unit=r,i.start=u,i.end=s[1]?u+(s[1]+1)*n:n}return i}]};v.Animation=v.extend(Kn,{tweener:function(e,t){v.isFunction(e)?(t=e,e=["*"]):e=e.split(" ");var n,r=0,i=e.length;for(;r<i;r++)n=e[r],Vn[n]=Vn[n]||[],Vn[n].unshift(t)},prefilter:function(e,t){t?Xn.unshift(e):Xn.push(e)}}),v.Tween=Yn,Yn.prototype={constructor:Yn,init:function(e,t,n,r,i,s){this.elem=e,this.prop=n,this.easing=i||"swing",this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=s||(v.cssNumber[n]?"":"px")},cur:function(){var e=Yn.propHooks[this.prop];return e&&e.get?e.get(this):Yn.propHooks._default.get(this)},run:function(e){var t,n=Yn.propHooks[this.prop];return this.options.duration?this.pos=t=v.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):Yn.propHooks._default.set(this),this}},Yn.prototype.init.prototype=Yn.prototype,Yn.propHooks={_default:{get:function(e){var t;return e.elem[e.prop]==null||!!e.elem.style&&e.elem.style[e.prop]!=null?(t=v.css(e.elem,e.prop,!1,""),!t||t==="auto"?0:t):e.elem[e.prop]},set:function(e){v.fx.step[e.prop]?v.fx.step[e.prop](e):e.elem.style&&(e.elem.style[v.cssProps[e.prop]]!=null||v.cssHooks[e.prop])?v.style(e.elem,e.prop,e.now+e.unit):e.elem[e.prop]=e.now}}},Yn.propHooks.scrollTop=Yn.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},v.each(["toggle","show","hide"],function(e,t){var n=v.fn[t];v.fn[t]=function(r,i,s){return r==null||typeof r=="boolean"||!e&&v.isFunction(r)&&v.isFunction(i)?n.apply(this,arguments):this.animate(Zn(t,!0),r,i,s)}}),v.fn.extend({fadeTo:function(e,t,n,r){return this.filter(Gt).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=v.isEmptyObject(e),s=v.speed(t,n,r),o=function(){var t=Kn(this,v.extend({},e),s);i&&t.stop(!0)};return i||s.queue===!1?this.each(o):this.queue(s.queue,o)},stop:function(e,n,r){var i=function(e){var t=e.stop;delete e.stop,t(r)};return typeof e!="string"&&(r=n,n=e,e=t),n&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,n=e!=null&&e+"queueHooks",s=v.timers,o=v._data(this);if(n)o[n]&&o[n].stop&&i(o[n]);else for(n in o)o[n]&&o[n].stop&&Wn.test(n)&&i(o[n]);for(n=s.length;n--;)s[n].elem===this&&(e==null||s[n].queue===e)&&(s[n].anim.stop(r),t=!1,s.splice(n,1));(t||!r)&&v.dequeue(this,e)})}}),v.each({slideDown:Zn("show"),slideUp:Zn("hide"),slideToggle:Zn("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){v.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),v.speed=function(e,t,n){var r=e&&typeof e=="object"?v.extend({},e):{complete:n||!n&&t||v.isFunction(e)&&e,duration:e,easing:n&&t||t&&!v.isFunction(t)&&t};r.duration=v.fx.off?0:typeof r.duration=="number"?r.duration:r.duration in v.fx.speeds?v.fx.speeds[r.duration]:v.fx.speeds._default;if(r.queue==null||r.queue===!0)r.queue="fx";return r.old=r.complete,r.complete=function(){v.isFunction(r.old)&&r.old.call(this),r.queue&&v.dequeue(this,r.queue)},r},v.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2}},v.timers=[],v.fx=Yn.prototype.init,v.fx.tick=function(){var e,n=v.timers,r=0;qn=v.now();for(;r<n.length;r++)e=n[r],!e()&&n[r]===e&&n.splice(r--,1);n.length||v.fx.stop(),qn=t},v.fx.timer=function(e){e()&&v.timers.push(e)&&!Rn&&(Rn=setInterval(v.fx.tick,v.fx.interval))},v.fx.interval=13,v.fx.stop=function(){clearInterval(Rn),Rn=null},v.fx.speeds={slow:600,fast:200,_default:400},v.fx.step={},v.expr&&v.expr.filters&&(v.expr.filters.animated=function(e){return v.grep(v.timers,function(t){return e===t.elem}).length});var er=/^(?:body|html)$/i;v.fn.offset=function(e){if(arguments.length)return e===t?this:this.each(function(t){v.offset.setOffset(this,e,t)});var n,r,i,s,o,u,a,f={top:0,left:0},l=this[0],c=l&&l.ownerDocument;if(!c)return;return(r=c.body)===l?v.offset.bodyOffset(l):(n=c.documentElement,v.contains(n,l)?(typeof l.getBoundingClientRect!="undefined"&&(f=l.getBoundingClientRect()),i=tr(c),s=n.clientTop||r.clientTop||0,o=n.clientLeft||r.clientLeft||0,u=i.pageYOffset||n.scrollTop,a=i.pageXOffset||n.scrollLeft,{top:f.top+u-s,left:f.left+a-o}):f)},v.offset={bodyOffset:function(e){var t=e.offsetTop,n=e.offsetLeft;return v.support.doesNotIncludeMarginInBodyOffset&&(t+=parseFloat(v.css(e,"marginTop"))||0,n+=parseFloat(v.css(e,"marginLeft"))||0),{top:t,left:n}},setOffset:function(e,t,n){var r=v.css(e,"position");r==="static"&&(e.style.position="relative");var i=v(e),s=i.offset(),o=v.css(e,"top"),u=v.css(e,"left"),a=(r==="absolute"||r==="fixed")&&v.inArray("auto",[o,u])>-1,f={},l={},c,h;a?(l=i.position(),c=l.top,h=l.left):(c=parseFloat(o)||0,h=parseFloat(u)||0),v.isFunction(t)&&(t=t.call(e,n,s)),t.top!=null&&(f.top=t.top-s.top+c),t.left!=null&&(f.left=t.left-s.left+h),"using"in t?t.using.call(e,f):i.css(f)}},v.fn.extend({position:function(){if(!this[0])return;var e=this[0],t=this.offsetParent(),n=this.offset(),r=er.test(t[0].nodeName)?{top:0,left:0}:t.offset();return n.top-=parseFloat(v.css(e,"marginTop"))||0,n.left-=parseFloat(v.css(e,"marginLeft"))||0,r.top+=parseFloat(v.css(t[0],"borderTopWidth"))||0,r.left+=parseFloat(v.css(t[0],"borderLeftWidth"))||0,{top:n.top-r.top,left:n.left-r.left}},offsetParent:function(){return this.map(function(){var e=this.offsetParent||i.body;while(e&&!er.test(e.nodeName)&&v.css(e,"position")==="static")e=e.offsetParent;return e||i.body})}}),v.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,n){var r=/Y/.test(n);v.fn[e]=function(i){return v.access(this,function(e,i,s){var o=tr(e);if(s===t)return o?n in o?o[n]:o.document.documentElement[i]:e[i];o?o.scrollTo(r?v(o).scrollLeft():s,r?s:v(o).scrollTop()):e[i]=s},e,i,arguments.length,null)}}),v.each({Height:"height",Width:"width"},function(e,n){v.each({padding:"inner"+e,content:n,"":"outer"+e},function(r,i){v.fn[i]=function(i,s){var o=arguments.length&&(r||typeof i!="boolean"),u=r||(i===!0||s===!0?"margin":"border");return v.access(this,function(n,r,i){var s;return v.isWindow(n)?n.document.documentElement["client"+e]:n.nodeType===9?(s=n.documentElement,Math.max(n.body["scroll"+e],s["scroll"+e],n.body["offset"+e],s["offset"+e],s["client"+e])):i===t?v.css(n,r,i,u):v.style(n,r,i,u)},n,o?i:t,o,null)}})}),e.jQuery=e.$=v,typeof define=="function"&&define.amd&&define.amd.jQuery&&define("jquery",[],function(){return v})})(window);
+    </script>
+    
+
+    <!-- Start Visual Website Optimizer Asynchronous Code -->
+    
+    <!-- End Visual Website Optimizer Asynchronous Code -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>P&G Everyday - Coupons & Offers, Recipes, Home Decor</title>
+    <meta name="description" content="Explore and discover P&G everyday home tips and articles, digital & newspaper coupons, cooking & recipes, cleaning, home décor, entertaining, crafts, gardening and more. If you don't have an account, register for P&G Everyday US (EN) to discover and enjoy great savings on a variety of products." />
+    <meta name="title" content="P&G Everyday - Coupons & Offers, Recipes, Home Decor" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="fb:app_id" content="1518728368394121" />
+    
+
+
+
+    <link rel="icon" type="image/png" href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/apple-touch-icon-57x57-precomposed.png" />
+   
+
+    
+    
+<link rel="canonical"  href="https://www.pgeveryday.com/"/><link rel="next" href="https://www.pgeveryday.com/?page=2" />    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="msapplication-TileImage" content="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/favicon/apple-touch-icon-114x114-precomposed.png" />
+    <meta name="msapplication-TileColor" content="#0589EB" />
+    
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.pgeveryday.com/" />
+        <meta property="og:image" content="http://www.pgeveryday.com/LayoutAssets/Core/Images/Logo/en-US/logoEverydaymeFb.gif" />
+        <meta property="og:large_image" content="" />
+        <meta property="og:site_name" content="P&G" />
+        <meta property="og:description" content="Explore and discover P&G everyday home tips and articles, digital & newspaper coupons, cooking & recipes, cleaning, home décor, entertaining, crafts, gardening and more. If you don't have an account, register for P&G Everyday US (EN) to discover and enjoy great savings on a variety of products." />
+
+        <!--[if IE 8]><link href="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Styles/theme/print.css" rel="stylesheet"  media="print"><![endif]-->
+    <script>
+
+
+        
+        
+
+    </script>
+    <script type='text/javascript'>
+    function createReservedVariable(name, value) {
+        //Custom Object representing a reserved custom variable
+        var cv = new Object();
+        cv.name = name;   //the property has to be "name"
+        cv.value = value; //the property has to be "value"
+        return cv;
+    }
+
+    //Create an array filled with custom objects, one for each reserved custom variable
+    //The name of the array has to be "pgReservedVars"
+    var pgReservedVars = new Array();
+
+	pgReservedVars.push(createReservedVariable('marketingID', ''));
+	pgReservedVars.push(createReservedVariable('userID', ''));
+	pgReservedVars.push(createReservedVariable('content.category', ''));
+	pgReservedVars.push(createReservedVariable('content.sub-category', ''));
+	pgReservedVars.push(createReservedVariable('content.type', 'Hygiene'));
+	pgReservedVars.push(createReservedVariable('pg.category', ''));
+	pgReservedVars.push(createReservedVariable('pg.segment', ''));
+	pgReservedVars.push(createReservedVariable('pg.brand', ''));
+	pgReservedVars.push(createReservedVariable('pg.product-name', ''));
+	pgReservedVars.push(createReservedVariable('pg.gtin', ''));
+
+	function createCustomVariable(index, name, value, scope) {
+        //Custom Object representing a custom variable
+        var cv = new Object();
+        cv.index = index; //the property has to be "index"
+        cv.name = name;   //the property has to be "name"
+        cv.value = value; //the property has to be "value"
+        cv.scope = scope; //the property has to be "scope"
+        return cv;
+    }
+
+    //The array that should be filled - name should be "pgCustomVars "
+    var pgCustomVars  = new Array();
+    pgCustomVars.push(createCustomVariable(4, 'user-type', 'anonymous', 2));
+    pgCustomVars.push(createCustomVariable(10, 'marketing-campaign', '', 3));
+    pgCustomVars.push(createCustomVariable(11, 'user-city', '', 1));
+    pgCustomVars.push(createCustomVariable(12, 'user-gender', '', 1));
+    pgCustomVars.push(createCustomVariable(13, 'user-title', '', 1));
+    pgCustomVars.push(createCustomVariable(14, 'landing-page-type', '', 3));
+    pgCustomVars.push(createCustomVariable(15, 'pageTitle', '', 3));
+    pgCustomVars.push(createCustomVariable(16, 'loginType', 'not-logged'));
+	
+</script>
+<script type='text/javascript'>
+	var pgMediaID = '';</script>
+<!-- GTM Start -->
+<script type='text/javascript'>
+  var PGdataLayer =
+  {
+   'GTM':{
+		'SiteLocale': '',
+			'SiteTouchpoint': '3158',
+			'SiteCountry': 'US',
+			'SiteBrand': 'Multibrand - GHH',
+			'SiteLanguage': 'English',
+			'SitePlatform': 'GHH',
+			'SiteEnvironment': 'Prod',
+			'SiteHost': 'CTL',
+			'SiteTechnicalAgency': 'Proximity',
+			'SiteStatus': 'Live',
+			'SiteLocalContainer': 'GTM-NF9G8J7',
+			'GoogleAnalyticsLocal': 'UA-33586507-1',
+			'GoogleAnalyticsBrand': '',
+			'GoogleAnalyticsSiteSpeedSampleRate': 'high',
+			'GoogleAnalyticsReportingView': '62311391',
+			'GhosteryAdChoices': 'true',
+			'GhosteryAdChoicesID': '8875',
+			'GhosteryOverlay': '',
+			'GhosteryOverlayID': '',
+			'FacebookConnectAppID': '1518728368394121',
+			'FacebookConnectLocale': 'en_US',
+			'FacebookRemarketingID': '',
+			'BINPlatform': 'Google Adsense'
+ }
+  }
+</script>
+<!-- GTM End --><meta name="p:domain_verify" content="18d089808e61a2c785cb7f851d0a37a2"/>    
+
+    <style id="critical-css" type="text/css">.lazy{display:none}.box .lazy{width:100%}.scrolling{-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;-webkit-box-flex:1}.group:before,.nav-cart__details .divider-group:before,.nav-cart__infos:before,.group:after,.nav-cart__details .divider-group:after,.nav-cart__infos:after{content:"";display:table}.group:after,.nav-cart__details .divider-group:after,.nav-cart__infos:after{clear:both}.group,.nav-cart__details .divider-group,.nav-cart__infos{zoom:1}.nopadding{padding:0}.noindent{margin-left:0;padding-left:0}.nobullet{list-style:none;list-style-image:none}.inline{display:inline}.txt-left{text-align:left}.txt-right{text-align:right}.fl-left{float:left}.fl-right{float:right}#mobile-primary-nav ul,#mobile-primary-nav ol,#header ol,#footer ul,#primary .box article ul{list-style-type:none;padding:0;margin:0}.mobile-only{display:none}.is-hidden{display:none}@font-face{font-family:'icons';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/icons/icons.eot?13qkwj");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/icons/icons.eot?#iefix-13qkwj") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/icons/icons.ttf?13qkwj") format("truetype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/icons/icons.woff?13qkwj") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/icons/icons.svg?13qkwj#icons") format("svg");font-weight:normal;font-style:normal}[class^="fonticon-"],[class*=" fonticon-"]{font-family:'icons';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fonticon-lir-sign:before{content:"\e902"}.fonticon-peso:before{content:"\e901"}.fonticon-pound:before{content:"\e900"}.fonticon-about-coupons:before{content:"\e600"}.fonticon-about-dollar:before{content:"\e601"}.fonticon-about-idea:before{content:"\e602"}.fonticon-about-letter:before{content:"\e603"}.fonticon-about-ratings:before{content:"\e604"}.fonticon-about-recipe:before{content:"\e605"}.fonticon-about-support:before{content:"\e606"}.fonticon-about-talk:before{content:"\e607"}.fonticon-about-try:before{content:"\e608"}.fonticon-add:before{content:"\e609"}.fonticon-ambassador .path1:before{content:"\e60a";color:#058aec}.fonticon-ambassador .path2:before{content:"\e60b";margin-left:-1em;color:#69b9f4}.fonticon-ambassador .path3:before{content:"\e60c";margin-left:-1em;color:#69b9f4}.fonticon-ambassador .path4:before{content:"\e60d";margin-left:-1em;color:#69b9f4}.fonticon-aquarius:before{content:"\e60e"}.fonticon-aries:before{content:"\e60f"}.fonticon-arrow-ariane:before{content:"\e610"}.fonticon-arrow-ariane-rtl:before{content:"\e611"}.fonticon-arrow-bottom:before{content:"\e612"}.fonticon-arrow-bottom-thin:before{content:"\e613"}.fonticon-arrow-left:before{content:"\e614"}.fonticon-arrow-left-thin:before{content:"\e615"}.fonticon-arrow-right:before{content:"\e616"}.fonticon-arrow-right-thin:before{content:"\e617"}.fonticon-arrow-seperator-left:before{content:"\e618"}.fonticon-arrow-top:before{content:"\e619"}.fonticon-arrow-top-thin:before{content:"\e61a"}.fonticon-article:before{content:"\e61b"}.fonticon-articlelogo:before{content:"\e61c"}.fonticon-attention:before{content:"\e61d"}.fonticon-attention2:before{content:"\e61e"}.fonticon-baby:before{content:"\e61f"}.fonticon-basket:before{content:"\e620"}.fonticon-blockquote-bottom:before,.box .wrap-color blockquote p.quote-after:before{content:"\e621"}.fonticon-blockquote-top:before,.box .wrap-color blockquote p.quote-before:before{content:"\e622"}.fonticon-box:before{content:"\e623"}.fonticon-boy:before{content:"\e624"}.fonticon-bulb:before{content:"\e625"}.fonticon-buy:before{content:"\e626"}.fonticon-camera:before{content:"\e627"}.fonticon-cancel:before{content:"\e628"}.fonticon-cancer:before{content:"\e629"}.fonticon-capricorn:before{content:"\e62a"}.fonticon-card-shopper-card:before,.box-e-saver .recto .scissored .icon-scissored span:before{content:"\e62b"}.fonticon-cart:before{content:"\e62c"}.fonticon-cat:before{content:"\e62d"}.fonticon-catering:before{content:"\e62e"}.fonticon-chart:before{content:"\e62f"}.fonticon-chat:before{content:"\e630"}.fonticon-check:before{content:"\e631"}.fonticon-check2:before{content:"\e632"}.fonticon-check-sign:before{content:"\e633"}.fonticon-check-sign-empty:before{content:"\e634"}.fonticon-clipped:before{content:"\e635"}.fonticon-close:before{content:"\e636"}.fonticon-close-neg:before{content:"\e637"}.fonticon-close-neg2:before{content:"\e638"}.fonticon-comment:before{content:"\e639"}.fonticon-contest:before{content:"\e63a"}.fonticon-cook-hat:before{content:"\e63b"}.fonticon-cook-time:before{content:"\e63c"}.fonticon-coupon:before{content:"\e63d"}.fonticon-coupon2:before{content:"\e63e"}.fonticon-coupon3:before{content:"\e63f"}.fonticon-coupon-confirm .path1:before{content:"\e640";color:#058aec}.fonticon-coupon-confirm .path2:before{content:"\e641";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path3:before{content:"\e642";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path4:before{content:"\e643";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path5:before{content:"\e644";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path6:before{content:"\e645";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path7:before{content:"\e646";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path8:before{content:"\e647";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path9:before{content:"\e648";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path10:before{content:"\e649";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path11:before{content:"\e64a";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path12:before{content:"\e64b";margin-left:-1em;color:#058aec}.fonticon-coupon-confirm .path13:before{content:"\e64c";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path14:before{content:"\e64d";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path15:before{content:"\e64e";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path16:before{content:"\e64f";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path17:before{content:"\e650";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path18:before{content:"\e651";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path19:before{content:"\e652";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path20:before{content:"\e653";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path21:before{content:"\e654";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path22:before{content:"\e655";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path23:before{content:"\e656";margin-left:-1em;color:#d72da8}.fonticon-coupon-confirm .path24:before{content:"\e657";margin-left:-1em;color:#d72da8}.fonticon-delete:before{content:"\e658"}.fonticon-discuss:before{content:"\e659"}.fonticon-dog:before{content:"\e65a"}.fonticon-dollar-sign:before{content:"\e65b"}.fonticon-ecoupon:before{content:"\e65c"}.fonticon-error:before{content:"\e65d"}.fonticon-euro-sign:before{content:"\e65e"}.fonticon-exclusive:before{content:"\e65f"}.fonticon-facebook:before{content:"\e660"}.fonticon-facebook-sign:before{content:"\e661"}.fonticon-favoris:before{content:"\e662"}.fonticon-female1 .path1:before{content:"\e663";color:#010101}.fonticon-female1 .path2:before{content:"\e664";margin-left:-1em;color:#eacdba}.fonticon-female1 .path3:before{content:"\e665";margin-left:-1em;color:#cb2c27}.fonticon-female1 .path4:before{content:"\e666";margin-left:-1em;color:#cb2c27}.fonticon-female1 .path5:before{content:"\e667";margin-left:-1em;color:#cb2c27}.fonticon-female1 .path6:before{content:"\e668";margin-left:-1em;color:#cb2c27}.fonticon-female1 .path7:before{content:"\e669";margin-left:-1em;color:#eacdbc}.fonticon-female1 .path8:before{content:"\e66a";margin-left:-1em;color:#c94097}.fonticon-female2 .path1:before{content:"\e66b";color:#010101}.fonticon-female2 .path2:before{content:"\e66c";margin-left:-1em;color:#eacdba}.fonticon-female2 .path3:before{content:"\e66d";margin-left:-1em;color:#ffd263}.fonticon-female2 .path4:before{content:"\e66e";margin-left:-1em;color:#ffd263}.fonticon-female2 .path5:before{content:"\e66f";margin-left:-1em;color:#eacdbc}.fonticon-female2 .path6:before{content:"\e670";margin-left:-1em;color:#c94097}.fonticon-female3 .path1:before{content:"\e671";color:#eacdbc}.fonticon-female3 .path2:before{content:"\e672";margin-left:-1em;color:#010101}.fonticon-female3 .path3:before{content:"\e673";margin-left:-1em;color:#010101}.fonticon-female3 .path4:before{content:"\e674";margin-left:-1em;color:#010101}.fonticon-female3 .path5:before{content:"\e675";margin-left:-1em;color:#eacdbc}.fonticon-female3 .path6:before{content:"\e676";margin-left:-1em;color:#c94097}.fonticon-female4 .path1:before{content:"\e677";color:#010101}.fonticon-female4 .path2:before{content:"\e678";margin-left:-1em;color:#eacdba}.fonticon-female4 .path3:before{content:"\e679";margin-left:-1em;color:#623e17}.fonticon-female4 .path4:before{content:"\e67a";margin-left:-1em;color:#623e17}.fonticon-female4 .path5:before{content:"\e67b";margin-left:-1em;color:#623e17}.fonticon-female4 .path6:before{content:"\e67c";margin-left:-1em;color:#623e17}.fonticon-female4 .path7:before{content:"\e67d";margin-left:-1em;color:#eacdbc}.fonticon-female4 .path8:before{content:"\e67e";margin-left:-1em;color:#c94097}.fonticon-file:before{content:"\e67f"}.fonticon-game:before{content:"\e680"}.fonticon-gemini:before{content:"\e681"}.fonticon-gift:before{content:"\e682"}.fonticon-gift2:before{content:"\e683"}.fonticon-girl:before{content:"\e684"}.fonticon-globe:before{content:"\e685"}.fonticon-google:before{content:"\e686"}.fonticon-hide:before{content:"\e687"}.fonticon-home:before{content:"\e688"}.fonticon-horoscope:before{content:"\e689"}.fonticon-info:before{content:"\e68a"}.fonticon-info-pin:before{content:"\e68b"}.fonticon-info-sign:before{content:"\e68c"}.fonticon-leo:before{content:"\e68d"}.fonticon-libra:before{content:"\e68e"}.fonticon-like:before{content:"\e68f"}.fonticon-lock:before{content:"\e690"}.fonticon-mail:before{content:"\e691"}.fonticon-mail2:before{content:"\e692"}.fonticon-mail-sign:before{content:"\e693"}.fonticon-male1 .path1:before{content:"\e694";color:#eacdba}.fonticon-male1 .path2:before{content:"\e695";margin-left:-1em;color:#623e17}.fonticon-male1 .path3:before{content:"\e696";margin-left:-1em;color:#eacdba}.fonticon-male1 .path4:before{content:"\e697";margin-left:-1em;color:#eacdba}.fonticon-male1 .path5:before{content:"\e698";margin-left:-1em;color:#3c83c5}.fonticon-male1 .path6:before{content:"\e699";margin-left:-1em;color:#623e17}.fonticon-male2 .path1:before{content:"\e69a";color:#eacdba}.fonticon-male2 .path2:before{content:"\e69b";margin-left:-1em;color:#ffd263}.fonticon-male2 .path3:before{content:"\e69c";margin-left:-1em;color:#eacdba}.fonticon-male2 .path4:before{content:"\e69d";margin-left:-1em;color:#eacdba}.fonticon-male2 .path5:before{content:"\e69e";margin-left:-1em;color:#3c83c5}.fonticon-male3 .path1:before{content:"\e69f";color:#eacdba}.fonticon-male3 .path2:before{content:"\e6a0";margin-left:-1em;color:#eacdba}.fonticon-male3 .path3:before{content:"\e6a1";margin-left:-1em;color:#3c83c5}.fonticon-male3 .path4:before{content:"\e6a2";margin-left:-1em;color:#eacdba}.fonticon-male3 .path5:before{content:"\e6a3";margin-left:-1em;color:#cb2c27}.fonticon-male3 .path6:before{content:"\e6a4";margin-left:-1em;color:#cb2c27}.fonticon-male3 .path7:before{content:"\e6a5";margin-left:-1em;color:#cb2c27}.fonticon-male3 .path8:before{content:"\e6a6";margin-left:-1em;color:#cb2c27}.fonticon-male4 .path1:before{content:"\e6a7";color:#eacdba}.fonticon-male4 .path2:before{content:"\e6a8";margin-left:-1em;color:#010101}.fonticon-male4 .path3:before{content:"\e6a9";margin-left:-1em;color:#010101}.fonticon-male4 .path4:before{content:"\e6aa";margin-left:-1em;color:#010101}.fonticon-male4 .path5:before{content:"\e6ab";margin-left:-1em;color:#eacdba}.fonticon-male4 .path6:before{content:"\e6ac";margin-left:-1em;color:#eacdba}.fonticon-male4 .path7:before{content:"\e6ad";margin-left:-1em;color:#3c83c5}.fonticon-man:before{content:"\e6ae"}.fonticon-maximize:before{content:"\e6af"}.fonticon-menu:before{content:"\e6b0"}.fonticon-money:before{content:"\e6b1"}.fonticon-music:before{content:"\e6b2"}.fonticon-newspaper:before{content:"\e6b3"}.fonticon-odnoklassniki-sign:before{content:"\e6b4"}.fonticon-order:before{content:"\e6b5"}.fonticon-pause:before{content:"\e6b6"}.fonticon-phone:before{content:"\e6b7"}.fonticon-picto-dollar:before{content:"\e6b8"}.fonticon-picto-talk:before{content:"\e6b9"}.fonticon-pinterest:before{content:"\e6ba"}.fonticon-pinterest-round:before{content:"\e6bb"}.fonticon-pinterest-sign:before{content:"\e6bc"}.fonticon-pisces:before{content:"\e6bd"}.fonticon-plate:before{content:"\e6be"}.fonticon-play-btn .path1:before{content:"\e6bf";color:rgba(255,255,255,0.6)}.fonticon-play-btn .path2:before{content:"\e6c0";margin-left:-1em;color:#058aec}.fonticon-play-btn .path3:before{content:"\e6c1";margin-left:-1em;color:#058aec}.fonticon-pound-sign:before{content:"\e6c2"}.fonticon-power:before{content:"\e6c3"}.fonticon-prep-time:before{content:"\e6c4"}.fonticon-print:before{content:"\e6c5"}.fonticon-printed .path1:before{content:"\e6c6";color:#5b5b5b}.fonticon-printed .path2:before{content:"\e6c7";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path3:before{content:"\e6c8";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path4:before{content:"\e6c9";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path5:before{content:"\e6ca";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path6:before{content:"\e6cb";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path7:before{content:"\e6cc";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path8:before{content:"\e6cd";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path9:before{content:"\e6ce";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path10:before{content:"\e6cf";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path11:before{content:"\e6d0";margin-left:-1em;color:#5b5b5b}.fonticon-printed .path12:before{content:"\e6d1";margin-left:-1em;color:#d72da8}.fonticon-printer:before{content:"\e6d2"}.fonticon-print-sign:before{content:"\e6d3"}.fonticon-profile:before{content:"\e6d4"}.fonticon-question:before{content:"\e6d5"}.fonticon-question-sign:before{content:"\e6d6"}.fonticon-redeem:before{content:"\e6d7"}.fonticon-register:before{content:"\e6d8"}.fonticon-report:before{content:"\e6d9"}.fonticon-ruble-sign:before{content:"\e6da"}.fonticon-ruble-two-sign:before{content:"\e6db"}.fonticon-rupee-sign:before{content:"\e6dc"}.fonticon-sagittarius:before{content:"\e6dd"}.fonticon-sample-ordered .path1:before{content:"\e6de";color:#d72da8}.fonticon-sample-ordered .path2:before{content:"\e6df";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path3:before{content:"\e6e0";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path4:before{content:"\e6e1";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path5:before{content:"\e6e2";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path6:before{content:"\e6e3";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path7:before{content:"\e6e4";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path8:before{content:"\e6e5";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path9:before{content:"\e6e6";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path10:before{content:"\e6e7";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path11:before{content:"\e6e8";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path12:before{content:"\e6e9";margin-left:-1em;color:#5b5b5b}.fonticon-sample-ordered .path13:before{content:"\e6ea";margin-left:-1em;color:#5b5b5b}.fonticon-save:before{content:"\e6eb"}.fonticon-scissors:before{content:"\e6ec"}.fonticon-scissors2:before,.recto .scissored span:before{content:"\e6ed"}.fonticon-scissors3:before{content:"\e6ee"}.fonticon-scorpio:before{content:"\e6ef"}.fonticon-search:before{content:"\e6f0"}.fonticon-select-arrows:before{content:"\e6f1"}.fonticon-settings:before{content:"\e6f2"}.fonticon-share:before{content:"\e6f3"}.fonticon-slideshow:before{content:"\e6f4"}.fonticon-spotify .path1:before{content:"\e6f5";color:#fff}.fonticon-spotify .path2:before{content:"\e6f6";margin-left:-1em;color:#99c93c}.fonticon-spotify .path3:before{content:"\e6f7";margin-left:-1em;color:#99c93c}.fonticon-spotify .path4:before{content:"\e6f8";margin-left:-1em;color:#99c93c}.fonticon-star:before{content:"\e6f9"}.fonticon-sun:before{content:"\e6fa"}.fonticon-taurus:before{content:"\e6fb"}.fonticon-tumblr:before{content:"\e6fc"}.fonticon-tumblr-sign:before{content:"\e6fd"}.fonticon-twitter:before{content:"\e6fe"}.fonticon-twitter2:before{content:"\e6ff"}.fonticon-twitter2-sign:before{content:"\e700"}.fonticon-twitter-sign:before{content:"\e701"}.fonticon-virgo:before{content:"\e702"}.fonticon-visible:before{content:"\e703"}.fonticon-vkontakte:before{content:"\e704"}.fonticon-woman:before{content:"\e705"}.fonticon-work:before{content:"\e706"}.fonticon-write:before{content:"\e707"}.fonticon-yen-sign:before{content:"\e708"}.fonticon-youtube:before{content:"\e709"}.fonticon-youtube-bad:before{content:"\e70a"}.fonticon-youtube-bad-sign:before{content:"\e70b"}.fonticon-youtube-sign:before{content:"\e70c"}.inline-list,.lang-selector ul,.breadcrumb .breadcrumb__list,.breadcrumb .breadcrumb__divider,.breadcrumb__stepwise .breadcrumb__list-stepwise,.social__list{margin:0;padding:0}.inline-list>li,.lang-selector ul>li,.breadcrumb .breadcrumb__list>li,.breadcrumb .breadcrumb__divider>li,.breadcrumb__stepwise .breadcrumb__list-stepwise>li,.social__list>li{margin-right:10px;list-style:none;display:inline-block;vertical-align:baseline}.list-reset,.list-unstyled,.lang-selector ul,.breadcrumb .breadcrumb__list,.breadcrumb .breadcrumb__divider,.breadcrumb__stepwise .breadcrumb__list-stepwise,.social__list{margin:0;padding:0}.list-reset li,.list-unstyled li,.lang-selector ul li,.breadcrumb .breadcrumb__list li,.breadcrumb .breadcrumb__divider li,.breadcrumb__stepwise .breadcrumb__list-stepwise li,.social__list li{list-style:none;margin:0;float:left}.valign-middle{display:inline-block;vertical-align:middle}.valign-top{display:inline-block;vertical-align:top}.divider-group{margin-bottom:10px;border-bottom:1px solid #c2c2c2}@media only screen and (min-width: 959px){.divider-group{padding-bottom:10px}}.only-mobile{display:block}@media only screen and (min-width: 959px){.only-mobile{display:none}}.nav--collapsible .nav__item.active .nav__collapse-arrow{display:block}@media only screen and (min-width: 959px){.nav--collapsible .nav__item.active .nav__collapse-arrow{display:none}}.s-header__social,.s-header__user__expand:after,.nav-cart:after,.nav--arrow .nav__item.active:after{display:none}@media only screen and (min-width: 959px){.s-header__social,.s-header__user__expand:after,.nav-cart:after,.nav--arrow .nav__item.active:after{display:block}}.only-desktop{display:none}@media only screen and (min-width: 959px){.only-desktop{display:block}}.form__message:after,.s-header__user__box__logged:after,.s-header__user__expand:after,.spotify__info__arrow div:after,.nav-cart:after,.nav-cart__details:after,.nav--arrow .nav__item.active:after{content:" ";position:absolute;width:0px;height:0px;border-style:solid}.padding--big{padding:20px}.padding--base{padding:10px}.padding--base__divider{margin:20px -10px;border-bottom:1px solid #c2c2c2}.padding--big__divider{margin:20px -20px;border-bottom:1px solid #c2c2c2}.float__left{float:left}.float__right{float:right}.border-grey{border:1px solid #c2c2c2}.d-none{display:none}article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;background:#ebebeb;color:#000;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:hover,a:active{outline:0}h1{font-size:2em;margin:0.67em 0}h2{font-size:1.5em;margin:0.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.75em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace, serif;_font-family:'courier new', monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0;white-space:normal;*margin-left:-7px}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{vertical-align:top;overflow-x:hidden;overflow-y:auto;resize:none}table{border-collapse:collapse;border-spacing:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}.collapse{display:none}.collapse.in{display:block}.collapsing{position:relative;height:0;overflow:hidden;-webkit-transition:height 0.35s ease;transition:height 0.35s ease}.remove-margin{margin:0}.breakword{word-wrap:break-word}@font-face{font-family:'fontlineale';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-bold.eot");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-bold.eot?#iefix") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-bold.woff") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-bold.ttf") format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'fontlineale';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-std.eot");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-std.eot?#iefix") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-std.woff") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/frutiger/frutiger-cyrillic-std.ttf") format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'fontserif';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-bold.eot");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-bold.eot?#iefix") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-bold.woff") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-bold.ttf") format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'fontserif';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-std.eot");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-std.eot?#iefix") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-std.woff") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/rockwell/rockwell-cyrillic-std.ttf") format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'pacifico';src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/pacifico/pacifico-webfont.eot");src:url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/pacifico/pacifico-webfont.eot?#iefix") format("embedded-opentype"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/pacifico/pacifico-webfont.woff") format("woff"),url("https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Fonts/pacifico/pacifico-webfont.ttf") format("truetype");font-weight:normal;font-style:normal}.AzureRadiance,.color1{background:#058aec}.HollywoodCerise,.color2{background:#c09}.MonaLisa,.color3{background:#f99}.JapaneseLaurel,.color4{background:#090}.RedOrange,.color5{background:#f33}.BlazeOrange,.color6{background:#f60}.YellowSea,.color7{background:#fbac01}.Atlantis,.color8{background:#9c3}.DarkBlue{background:#00336E}.GoldSochi,.color9{background:#D4A93D}.Gold,.color9{background:#fc6}.GoldenTainoi,.color10{background:#fc6}.BerylGreen{background:#D8E4BC}.spotify{background:#81b71a}.block-tools.color1{border-color:#058aec}.block-tools.color2{border-color:#c09}.block-tools.color7{border-color:#fbac01}.pink-color{color:#d72da8}.post-title.title-AzureRadiance,.post-title.title-color1{color:#058aec}.post-title.title-HollywoodCerise,.post-title.title-color2{color:#c09}.post-title.title-MonaLisa,.post-title.title-color3{color:#f99}.post-title.title-JapaneseLaurel,.post-title.title-color4{color:#090}.post-title.title-RedOrange,.post-title.title-color5{color:#f33}.post-title.title-BlazeOrange,.post-title.title-color6{color:#f60}.post-title.title-YellowSea,.post-title.title-color7{color:#fbac01}.post-title.title-Atlantis,.post-title.title-color8{color:#9c3}.post-title.title-GoldSochi,.post-title.title-color9{color:#D4A93D}.post-title.title-Gold,.post-title.title-color10{color:#fc6}.post-title.title-DarkBlue,.post-title.title-color11{color:#00336E}.post-title.title-BerylGreen,.post-title.title-color12{color:#D8E4BC}div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}ul li{list-style:none}a{color:#000;text-decoration:underline;line-height:inherit}a:hover{color:#000;text-decoration:none;-webkit-focus-ring-color:none;-webkit-transition-property:prefixed-for-transition(-webkit, compact(background, false, false, false, false, false, false, false, false, false));-moz-transition-property:prefixed-for-transition(-moz, compact(background, false, false, false, false, false, false, false, false, false));-o-transition-property:prefixed-for-transition(-o, compact(background, false, false, false, false, false, false, false, false, false));transition-property:compact(background, false, false, false, false, false, false, false, false, false);-webkit-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-moz-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-o-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);prefix-identifier(transition-timing-function, ):set-arglist-default(ease-out, );-webkit-transition-property:prefixed-for-transition(-webkit, compact(border-color, false, false, false, false, false, false, false, false, false));-moz-transition-property:prefixed-for-transition(-moz, compact(border-color, false, false, false, false, false, false, false, false, false));-o-transition-property:prefixed-for-transition(-o, compact(border-color, false, false, false, false, false, false, false, false, false));transition-property:compact(border-color, false, false, false, false, false, false, false, false, false);-webkit-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-moz-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-o-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);prefix-identifier(transition-timing-function, ):set-arglist-default(ease-out, );-webkit-transition-property:prefixed-for-transition(-webkit, compact(color, false, false, false, false, false, false, false, false, false));-moz-transition-property:prefixed-for-transition(-moz, compact(color, false, false, false, false, false, false, false, false, false));-o-transition-property:prefixed-for-transition(-o, compact(color, false, false, false, false, false, false, false, false, false));transition-property:compact(color, false, false, false, false, false, false, false, false, false);-webkit-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-moz-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);-o-transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);transition-duration:compact(.2s, false, false, false, false, false, false, false, false, false);prefix-identifier(transition-timing-function, ):set-arglist-default(ease-out, )}a img{border:none}em{line-height:inherit}i{line-height:inherit;font-style:normal}strong,b{font-weight:bold;line-height:inherit}small{line-height:inherit}a{color:#058aec;text-decoration:underline}a:focus{outline:thin dotted}a:hover,a:active{color:#058aec;text-decoration:none}a.disabled{color:#058aec !important;cursor:default !important;pointer-events:none}a.disabled:hover{text-decoration:none !important}.link{color:#000;text-decoration:underline}.link:focus{outline:thin dotted}.link:hover,.link:active{color:#000;text-decoration:none}.link.disabled{color:#000 !important;cursor:default !important;pointer-events:none}.link.disabled:hover{text-decoration:none !important}.link--inverted{text-decoration:none}.link--inverted:hover{text-decoration:underline}.link--no-underline{text-decoration:none}.link--no-underline:hover{text-decoration:none}h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5 .h5,h6 .h6{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#058aec;white-space:normal;overflow:hidden;margin-bottom:10px}h1 a,.h1 a,h2 a,.h2 a,h3 a,.h3 a,h4 a,.h4 a,h5 .h5 a,h6 .h6 a{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;white-space:normal;overflow:hidden;margin-bottom:10px}h1 a:hover,h1:active,.h1 a:hover,.h1:active,h2 a:hover,h2:active,.h2 a:hover,.h2:active,h3 a:hover,h3:active,.h3 a:hover,.h3:active,h4 a:hover,h4:active,.h4 a:hover,.h4:active,h5 .h5 a:hover,h5 .h5:active,h6 .h6 a:hover,h6 .h6:active{color:#058aec}h1.headings--user,.h1.headings--user,h2.headings--user,.h2.headings--user,h3.headings--user,.h3.headings--user,h4.headings--user,.h4.headings--user,h5 .h5.headings--user,h6 .h6.headings--user{color:#d72da8;overflow:visible}h1,.h1{font-size:28px;font-size:2.8rem;line-height:32px;line-height:3.2rem}h2,.h2{font-size:24px;font-size:2.4rem;line-height:26px;line-height:2.6rem}.closed-box__title h2{color:#000;font-size:16px;font-size:1.6rem;line-height:18px;line-height:1.8rem;font-weight:bold;margin-bottom:0}h3,.h3{font-size:18px;font-size:1.8rem;line-height:20px;line-height:2rem}h4,.h4{font-size:16px;font-size:1.6rem;line-height:18px;line-height:1.8rem}h5,.h5{font-size:14px;font-size:1.4rem;line-height:16px;line-height:1.6rem}h6,.h6{font-size:14px;font-size:1.4rem;line-height:16px;line-height:1.6rem;color:#000}.subheadings-01{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#058aec;font-size:20px;margin-top:0}.subheadings-01.headings--user{color:#d72da8}.subheadings-02{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#7d7d7d;font-size:18px;line-height:1.9rem;margin-top:0}.subheadings-03{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#7d7d7d;font-size:16px;margin-top:0}.subheadings-04{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#7d7d7d;font-size:14px;margin-top:0}.subheadings-05{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#7d7d7d;font-size:14px;margin-top:0}.subheadings-06{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-weight:normal;color:#7d7d7d;font-size:14px;margin-top:0}h1.post-title{font-weight:bold;font-family:"Rodeo"}h2.post-title{color:#3b3b3b;overflow:visible}.post-title{font-weight:bold;text-align:left;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:18px;font-size:1.8rem;line-height:27px;line-height:2.7rem;padding:0 10px;margin:6px 0}.post-title a{text-decoration:none;color:#3b3b3b}p{font-size:12px;font-size:1.2rem;line-height:16px;line-height:1.6rem;margin:5px 0}p.box-category,p.post-category{margin:0}.post-category{margin:0}::selection{background:#fe57a1;color:#fff;text-shadow:none}.text--tiny{font-size:10px;font-size:1rem;line-height:15px;line-height:1.5rem}.text--small,.relay__address .text--small{font-size:10px;font-size:1rem;line-height:15px;line-height:1.5rem}.text--medium{font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem}.text--large{font-size:16px;font-size:1.6rem;line-height:24px;line-height:2.4rem}.text--extra-large{font-size:18px;font-size:1.8rem;line-height:27px;line-height:2.7rem}.text--extra-larger{font-size:20px;font-size:2rem;line-height:30px;line-height:3rem}.text--bold{font-weight:bold}.text--italic{font-style:italic}.text--underline{text-decoration:underline}.text--black{color:#000}.text--grey{color:#7d7d7d}.text--blue{color:#058aec}.text--pink{color:#d72da8}.text--orange{color:#f60}.text--orange-light{color:#ffb380}.text--error{color:#CF0000}.backgroundcolor--green{background:#27CD3F}.backgroundcolor--orange{background:#FF9801}.backgroundcolor--pink{background:#d72da8}.float--left{float:left}.float--right{float:right}.text--caps{text-transform:uppercase}.shape--circle{width:8px;height:8px;-webkit-border-radius:8px;border-radius:8px;display:inline-block;margin:0 5px 0 0}.no-margin{margin:0}.text--center{text-align:center}.text--justify{text-align:justify}.text--left{text-align:left}.text--right{text-align:right}.text--right .title-box{width:95%;margin-bottom:20px;text-align:left}@media only screen and (max-width: 689px){.text--right .title-box{width:87% !important}}.text--left{text-align:left}.btn{display:inline-block;vertical-align:middle;margin:0;border:1px solid #058aec;padding:6px 10px 6px 10px;font-size:12px;font-size:1.2rem;line-height:16px;line-height:1.6rem;font-family:Arial, sans-serif;font-weight:normal;text-decoration:none;text-align:center;color:#000;background-color:#fff;-webkit-border-radius:3px;border-radius:3px}@media only screen and (max-width: 689px){.btn{text-align:left;padding:7px 15px 7px 15px}}.btn .fonticon{color:#058aec;margin-right:5px}.btn .fonticon.fonticon--after{margin:0 0 0 5px}.btn:hover,.btn:focus,.btn:active,.btn.btn--active{cursor:pointer;text-decoration:none;color:#fff;background-color:#058aec}.btn:hover .fonticon,.btn:focus .fonticon,.btn:active .fonticon,.btn.btn--active .fonticon{color:#fff}.btn:active,.btn .btn--active{-webkit-box-shadow:compact(inset 0px 0px 10px #035088, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(inset 0px 0px 10px #035088, false, false, false, false, false, false, false, false, false);box-shadow:compact(inset 0px 0px 10px #035088, false, false, false, false, false, false, false, false, false)}.btn.btn--disabled,.btn.btn--disabled:hover,.btn.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn.btn--disabled:hover,.btn.btn--disabled:active,.btn.btn--disabled.btn--active,.btn.btn--disabled:focus,.btn.btn--disabled:hover:hover,.btn.btn--disabled:hover:active,.btn.btn--disabled:hover.btn--active,.btn.btn--disabled:hover:focus,.btn.btn--disabled:active:hover,.btn.btn--disabled:active:active,.btn.btn--disabled:active.btn--active,.btn.btn--disabled:active:focus{color:#000;background-color:#fff;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false)}.btn.btn--disabled .fonticon,.btn.btn--disabled:hover .fonticon,.btn.btn--disabled:active .fonticon{color:#058aec}.btn.btn--important{background-color:#058aec;color:#fff}.btn.btn--important .fonticon{color:#fff}.btn.btn--important:hover{background-color:#5bb8fc;border-color:#5bb8fc}.btn.btn--important.btn--disabled,.btn.btn--important.btn--disabled:hover,.btn.btn--important.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn.btn--important.btn--disabled:hover,.btn.btn--important.btn--disabled:active,.btn.btn--important.btn--disabled.active,.btn.btn--important.btn--disabled:focus,.btn.btn--important.btn--disabled:hover:hover,.btn.btn--important.btn--disabled:hover:active,.btn.btn--important.btn--disabled:hover.active,.btn.btn--important.btn--disabled:hover:focus,.btn.btn--important.btn--disabled:active:hover,.btn.btn--important.btn--disabled:active:active,.btn.btn--important.btn--disabled:active.active,.btn.btn--important.btn--disabled:active:focus{color:#fff;background-color:#058aec}.btn.btn--important.btn--disabled:hover .fonticon,.btn.btn--important.btn--disabled:active .fonticon,.btn.btn--important.btn--disabled.active .fonticon,.btn.btn--important.btn--disabled:focus .fonticon,.btn.btn--important.btn--disabled:hover:hover .fonticon,.btn.btn--important.btn--disabled:hover:active .fonticon,.btn.btn--important.btn--disabled:hover.active .fonticon,.btn.btn--important.btn--disabled:hover:focus .fonticon,.btn.btn--important.btn--disabled:active:hover .fonticon,.btn.btn--important.btn--disabled:active:active .fonticon,.btn.btn--important.btn--disabled:active.active .fonticon,.btn.btn--important.btn--disabled:active:focus .fonticon{color:#fff}.btn.btn--main{padding:0px 12.5px;border:none;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:18px;font-size:1.8rem;line-height:40px;line-height:4rem;text-transform:uppercase;background-color:#058aec;color:#fff;-webkit-border-radius:0;border-radius:0}.btn.btn--main .fonticon{color:#fff;margin-right:20px}.btn.btn--main .fonticon.fonticon--after{margin:0 0 0 20px}.btn.btn--main:hover{background-color:#5bb8fc;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false)}.btn.btn--main.btn--disabled,.btn.btn--main.btn--disabled:hover,.btn.btn--main.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn.btn--main.btn--disabled:hover,.btn.btn--main.btn--disabled:active,.btn.btn--main.btn--disabled.active,.btn.btn--main.btn--disabled:focus,.btn.btn--main.btn--disabled:hover:hover,.btn.btn--main.btn--disabled:hover:active,.btn.btn--main.btn--disabled:hover.active,.btn.btn--main.btn--disabled:hover:focus,.btn.btn--main.btn--disabled:active:hover,.btn.btn--main.btn--disabled:active:active,.btn.btn--main.btn--disabled:active.active,.btn.btn--main.btn--disabled:active:focus{color:#fff;background-color:#058aec}.btn.btn--main.btn--aside{background-color:#fff;border:1px solid #058aec;color:#058aec;font-weight:bold}.btn--user{display:inline-block;vertical-align:middle;margin:0;border:1px solid #d72da8;padding:6px 10px 6px 10px;font-size:12px;font-size:1.2rem;line-height:16px;line-height:1.6rem;font-family:Arial, sans-serif;font-weight:normal;text-decoration:none;text-align:center;color:#000;background-color:#fff;-webkit-border-radius:3px;border-radius:3px}@media only screen and (max-width: 689px){.btn--user{text-align:left;padding:7px 15px 7px 15px}}.btn--user .fonticon{color:#d72da8;margin-right:5px}.btn--user .fonticon.fonticon--after{margin:0 0 0 5px}.btn--user:hover,.btn--user:focus,.btn--user:active,.btn--user.btn--active{cursor:pointer;text-decoration:none;color:#fff;background-color:#d72da8}.btn--user:hover .fonticon,.btn--user:focus .fonticon,.btn--user:active .fonticon,.btn--user.btn--active .fonticon{color:#fff}.btn--user:active,.btn--user .btn--active{-webkit-box-shadow:compact(inset 0px 0px 10px #851967, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(inset 0px 0px 10px #851967, false, false, false, false, false, false, false, false, false);box-shadow:compact(inset 0px 0px 10px #851967, false, false, false, false, false, false, false, false, false)}.btn--user.btn--disabled,.btn--user.btn--disabled:hover,.btn--user.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn--user.btn--disabled:hover,.btn--user.btn--disabled:active,.btn--user.btn--disabled.btn--active,.btn--user.btn--disabled:focus,.btn--user.btn--disabled:hover:hover,.btn--user.btn--disabled:hover:active,.btn--user.btn--disabled:hover.btn--active,.btn--user.btn--disabled:hover:focus,.btn--user.btn--disabled:active:hover,.btn--user.btn--disabled:active:active,.btn--user.btn--disabled:active.btn--active,.btn--user.btn--disabled:active:focus{color:#000;background-color:#fff;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false)}.btn--user.btn--disabled .fonticon,.btn--user.btn--disabled:hover .fonticon,.btn--user.btn--disabled:active .fonticon{color:#d72da8}.btn--user.btn--important{background-color:#d72da8;color:#fff}.btn--user.btn--important .fonticon{color:#fff}.btn--user.btn--important:hover{background-color:#e783cb;border-color:#e783cb}.btn--user.btn--important.btn--disabled,.btn--user.btn--important.btn--disabled:hover,.btn--user.btn--important.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn--user.btn--important.btn--disabled:hover,.btn--user.btn--important.btn--disabled:active,.btn--user.btn--important.btn--disabled.active,.btn--user.btn--important.btn--disabled:focus,.btn--user.btn--important.btn--disabled:hover:hover,.btn--user.btn--important.btn--disabled:hover:active,.btn--user.btn--important.btn--disabled:hover.active,.btn--user.btn--important.btn--disabled:hover:focus,.btn--user.btn--important.btn--disabled:active:hover,.btn--user.btn--important.btn--disabled:active:active,.btn--user.btn--important.btn--disabled:active.active,.btn--user.btn--important.btn--disabled:active:focus{color:#fff;background-color:#d72da8}.btn--user.btn--important.btn--disabled:hover .fonticon,.btn--user.btn--important.btn--disabled:active .fonticon,.btn--user.btn--important.btn--disabled.active .fonticon,.btn--user.btn--important.btn--disabled:focus .fonticon,.btn--user.btn--important.btn--disabled:hover:hover .fonticon,.btn--user.btn--important.btn--disabled:hover:active .fonticon,.btn--user.btn--important.btn--disabled:hover.active .fonticon,.btn--user.btn--important.btn--disabled:hover:focus .fonticon,.btn--user.btn--important.btn--disabled:active:hover .fonticon,.btn--user.btn--important.btn--disabled:active:active .fonticon,.btn--user.btn--important.btn--disabled:active.active .fonticon,.btn--user.btn--important.btn--disabled:active:focus .fonticon{color:#fff}.btn--user.btn--main{padding:0px 12.5px;border:none;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:18px;font-size:1.8rem;line-height:40px;line-height:4rem;text-transform:uppercase;background-color:#d72da8;color:#fff;-webkit-border-radius:0;border-radius:0}.btn--user.btn--main .fonticon{color:#fff;margin-right:20px}.btn--user.btn--main .fonticon.fonticon--after{margin:0 0 0 20px}.btn--user.btn--main:hover{background-color:#e783cb;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false)}.btn--user.btn--main.btn--disabled,.btn--user.btn--main.btn--disabled:hover,.btn--user.btn--main.btn--disabled:active{opacity:.3;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=30);zoom:1;cursor:default}.btn--user.btn--main.btn--disabled:hover,.btn--user.btn--main.btn--disabled:active,.btn--user.btn--main.btn--disabled.active,.btn--user.btn--main.btn--disabled:focus,.btn--user.btn--main.btn--disabled:hover:hover,.btn--user.btn--main.btn--disabled:hover:active,.btn--user.btn--main.btn--disabled:hover.active,.btn--user.btn--main.btn--disabled:hover:focus,.btn--user.btn--main.btn--disabled:active:hover,.btn--user.btn--main.btn--disabled:active:active,.btn--user.btn--main.btn--disabled:active.active,.btn--user.btn--main.btn--disabled:active:focus{color:#fff;background-color:#d72da8}.btn--user.btn--main.btn--aside{background-color:#fff;border:1px solid #d72da8;color:#d72da8;font-weight:bold}.btn--small{font-size:9px;font-size:.9rem;line-height:12.8px;line-height:1.28rem;padding:0px 10px}.btn--tiny{font-size:9px;font-size:.9rem;line-height:9px;line-height:.9rem;padding:3px}.btn-medium{width:75%}@media only screen and (min-width: 690px) and (max-width: 958px){.btn-medium{width:100%}}@media only screen and (max-width: 689px){.btn-medium{width:92%}}.btn-small{min-width:40%}.btn--block{width:100%;text-align:center}.btn--icon-only .fonticon{margin:0}.btn--caps{text-transform:uppercase}.btn--center{text-align:center}.btn--margin{margin:10px 10px 10px 0}.btn--margin-right{margin-right:10px}.btn--margin-top{margin-top:10px}.btn--margin-bottom{margin-bottom:10px}button.btn{filter:progid:DXImageTransform.Microsoft.gradient(enabled = false)}.search__button{position:absolute;right:10px;top:7px;color:#058aec;border:none;margin:0;padding:0;height:22px;-webkit-border-radius:0;border-radius:0;background:none;top:8px;right:18px}.search__button .fonticon{font-size:16px;font-size:1.6rem;line-height:16px;line-height:1.6rem}.search__button:hover,.search__button:focus{color:#7d7d7d;background:none;border:none;outline:none;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false)}button.btn{background-image:none;margin-top:5px}@media only screen and (max-width: 689px){button.btn{margin-top:10px}}button.btn:hover,button.btn:focus{background-image:none;outline:none}.btn--lightgrey{background-color:#c2c2c2 !important;color:#000;margin-top:10px}.btn--cta{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;background:#058aec;color:#fff;text-decoration:none;margin-top:10px;display:inline-block;font-size:15px;font-size:1.5rem;line-height:22.5px;line-height:2.25rem;padding:10px}@media only screen and (min-width: 959px){.btn--cta{padding:10px 20px}.btn--cta else{font-size:18px;font-size:1.8rem;line-height:20px;line-height:2rem}}.btn--cta:hover,.btn--cta:active,.btn--cta:focus{color:#fff;background:#5bb8fc}.btn--cta .fonticon{font-size:10px;color:#fff;margin-left:5px;display:inline-block;vertical-align:middle}@media only screen and (min-width: 959px){.btn--cta .fonticon{margin-left:10px;font-size:14px}}.btn--cta.cta--full{width:100%;text-align:center}.btn--cta.cta--big{font-size:32px;font-size:3.2rem;line-height:40px;line-height:4rem}@media only screen and (min-width: 959px){.btn--cta.cta--2lines{max-width:230px}}.btn--cta.cta--user{background-color:#d72da8}.btn--cta.cta--user:hover,.btn--cta.cta--user:active,.btn--cta.cta--user:focus{color:#fff;background:#df58ba}.form__fieldset{border:none;padding:0;margin:0}@media only screen and (min-width: 959px){.form__fieldset.fieldset--valid-border{border-left:10px solid #c2c2c2}}.form__fieldset.fieldset--valid-border.fieldset--valid-border--valid{border-color:#058aec}.form__fieldset.fieldset--valid-border--user.fieldset--valid-border--valid{border-color:#d72da8}.form__fieldset h2{line-height:30px}.fieldset__divider{border-bottom:1px solid #c2c2c2;margin-bottom:10px}.fieldset__divider--lightergrey{border-bottom:1px solid #ebebeb;margin-bottom:10px}.fieldset__divider--blue{border-bottom:1px solid #058aec}.rating-divider{padding-top:10px;margin-bottom:2px}.fieldset__title{padding:10px 12.5%}@media only screen and (min-width: 959px){.fieldset__title{padding:10px 30px 10px 45px}}@media only screen and (min-width: 690px) and (max-width: 958px){.fieldset__title{padding:10px 30px 10px 35px}}@media only screen and (max-width: 689px){.fieldset__title{padding:4px 8.5%}}.form__item{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding:0 12.5% 10px;display:table}.form__item:before,.form__item:after{content:" ";display:table}.form__item:after{clear:both}@media only screen and (min-width: 959px){.form__item{padding:0 25px 10px 40px}}@media only screen and (min-width: 690px) and (max-width: 958px){.form__item{padding:0 25px 10px 30px}}@media only screen and (max-width: 689px){.form__item{padding:4px 8.5%}}@media only screen and (min-width: 959px){.form__item__full{padding-left:5px;padding-right:5px;width:100%;float:left}}.form__item__label p{font-size:16px}.form__item__label.special-offers-text p{font-size:12px}@media only screen and (min-width: 690px) and (max-width: 958px){.form__item__label,.form__item__input,.form__item__info{position:relative;padding-left:5px;padding-right:5px;width:33.2%;left:0%;right:auto;float:left}}@media only screen and (min-width: 959px){.form__item__label,.form__item__input,.form__item__info{display:table-cell;vertical-align:middle;position:relative;padding-left:5px;padding-right:5px;width:33.2%;left:0%;right:auto;float:left}}.form__dob,.form__select--half{width:auto;margin-left:-5px;margin-right:-5px;margin-top:0;margin-bottom:0;max-width:none;*zoom:1}.form__dob:before,.form__dob:after,.form__select--half:before,.form__select--half:after{content:" ";display:table}.form__dob:after,.form__select--half:after{clear:both}.form__dob__item{padding-left:5px;padding-right:5px;width:33.3%;float:left}.form__select--half__item{padding-left:5px;padding-right:5px;width:50%;float:left}@media only screen and (max-width: 689px){.form__select--half__item{width:48%}}@media only screen and (max-width: 689px){.form__item__input .btn{margin-bottom:5px;text-align:center}}.form__item__input textarea{min-height:100px}.form__privacy-box{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1}.form__privacy-box:before,.form__privacy-box:after{content:" ";display:table}.form__privacy-box:after{clear:both}@media only screen and (min-width: 959px){.form__privacy{padding-left:5px;padding-right:5px;width:70%;float:left}}@media only screen and (min-width: 690px) and (max-width: 958px){.form__privacy{padding-left:5px;padding-right:5px;width:70%;float:left}}@media only screen and (min-width: 959px){.form__btn{padding-left:5px;padding-right:5px;width:30%;float:left}}@media only screen and (min-width: 690px) and (max-width: 958px){.form__btn{padding-left:5px;padding-right:5px;width:30%;float:left}}.form__input{width:100%;padding:5px;border:1px solid #7d7d7d;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem}.form__input:focus{border:1px solid #058aec;-webkit-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(none, false, false, false, false, false, false, false, false, false);box-shadow:compact(none, false, false, false, false, false, false, false, false, false);outline:none}.form__input.input--small{padding:2px;font-size:12px;font-size:1.2rem;line-height:14px;line-height:1.4rem}.form__input .js-ugc-article-form #text{height:100px}.form__input.form__input--half{width:50%}.form__input ::-webkit-input-placeholder{font-style:italic}.form__input ::-moz-placeholder{font-style:italic}.form__input :-ms-input-placeholder{font-style:italic}.form__input input:-moz-placeholder{font-style:italic}.form__select{width:100%;padding:5px;border:1px solid #7d7d7d;-webkit-border-radius:0;border-radius:0;outline:none}.form__select:hover{border-color:#058aec}.input__checkbox,.input__radio{margin:10px 0}.form__label--radio{margin:0 10px 0 5px}.form__ajax-check__loader{display:none;background:url("../../Images/ajax-loader-small.gif") no-repeat 98%;height:16px;margin-top:-22px;position:absolute;width:100%}.input--invisible,input[type="text"].input--invisible{border:0}.input--invisible:focus,input[type="text"].input--invisible:focus{outline:none}.field-xxxsmall-style{width:40px;text-align:center}.checkbox--block input,.checkbox--block label{display:inline-block;vertical-align:top}.form__btn{padding:50px 15px 0 30px}@media only screen and (min-width: 690px) and (max-width: 958px){.form__btn{padding:25px 0 0 0px}}@media only screen and (max-width: 689px){.form__btn{padding:25px 0 0 0}}.full-page--form{padding:10px 12.5%}@media only screen and (min-width: 959px){.full-page--form{padding:10px 30px 10px 60px}}@media only screen and (min-width: 690px) and (max-width: 958px){.full-page--form{padding:10px 20px 10px 40px}}.full-page--noTitle{border-left:10px solid #fff;padding-top:10px}.input-validation-error,.token-input-list.input-validation-error{border-color:#CF0000}.input-validation-error select{border:1px solid #CF0000}.form__message{display:none;position:relative;width:100%;float:left;border:1px solid #7d7d7d}.form__message:after{left:-5px;top:11.5px;border-width:5px 5px 5px 0;border-color:transparent #7d7d7d transparent transparent}@media only screen and (max-width: 689px){.form__message:after{top:-5px;left:50%;margin-left:-5px;margin-top:0;border-width:0 5px 5px 5px;border-color:transparent transparent #7d7d7d transparent}}.form__message .form__message__icon{display:table-cell;vertical-align:middle;border-right:1px solid #7d7d7d;padding:6px 8px 5px}.form__message .form__message__icon .fonticon{font-size:13px;font-size:1.3rem;line-height:13px;line-height:1.3rem}.form__message .form__message__txt{display:table-cell;vertical-align:middle;font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem;padding:6px 12px 5px;word-wrap:break-word;width:100%}@media only screen and (max-width: 689px){.form__message{margin-top:10px}}.form__message.form__message--error{color:#CF0000}.form__message.form__message--info{color:#058aec}.form__message__success{display:none;margin:6px 0 0 6px;width:18px;height:18px}.form__message__success .fonticon{font-size:18px;font-size:1.8rem;line-height:18px;line-height:1.8rem;color:#058aec}@media only screen and (max-width: 689px){.form__message__success{float:right;margin:-28px -25px 0 0}}.search__input{position:relative;width:100%;padding:5px;border:1px solid #c2c2c2;-moz-box-sizing:border-box !important;-webkit-box-sizing:border-box !important;box-sizing:border-box !important;font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem;height:30px;-webkit-border-radius:3px;border-radius:3px}.search__input:focus{border-color:#058aec}.search{position:relative}.search ::-webkit-input-placeholder{font-style:italic}.search ::-moz-placeholder{font-style:italic}.search :-ms-input-placeholder{font-style:italic}.search input:-moz-placeholder{font-style:italic}.login__form__input{font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem}.form__item__label--addConfirm{float:left;height:40px;padding-top:19px;text-align:center}@media only screen and (max-width: 689px){.form__item__label--addConfirm{padding-top:10px;width:100%}}.parsley-error .form__message--info{display:none}.parsley-error .form__message--error{display:block}.parsley-success .form__message{display:none}.parsley-success .form__message__success{display:block}#childnumber{display:none}.safari-ddl{margin:9px 0 0 4px !important}.postbackerror{color:#CF0000;border:none !important;float:none !important;margin:0 !important;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem}.golden-align{padding-left:58px}@media only screen and (min-width: 690px) and (max-width: 958px){.golden-align{padding-left:58px}}@media only screen and (max-width: 689px){.golden-align{padding-left:58px}}.special-offers-text{width:75% !important;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem;padding-left:60px !important}@media only screen and (max-width: 689px){.special-offers-text{padding-left:0 !important}}@media only screen and (max-width: 320px){.special-offers-text{padding-left:0 !important}}.special-offers-text .special-offers-align{float:left;padding-right:15px}.special-offers-text .special-offers-align-text{float:left;width:86%;padding:0 0 5px 30px}.special-offers-text img{max-width:none}.radiocheck label{margin-right:10px}.outeriframe-ie-wrapper{position:absolute;right:27px;bottom:20px;background:#c2c2c2;padding:10px}.form__full__width{width:100%;margin:0 0 0 -7px;padding-top:14px}.form-header{display:table-cell;vertical-align:middle}.form-header p{padding:0 0 0 10px;line-height:14px}.form-header .fonticon{color:#058aec;font-size:27px;font-size:2.7rem;line-height:40.5px;line-height:4.05rem}.ajax-spinner{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:url("../../Images/ajax-loader-small.gif") no-repeat center center;z-index:99;background-color:#fff;background-color:rgba(255,255,255,0.7)}.picture-to-resize,#js-picture-to-resize{position:fixed !important;visibility:hidden}.input-supp{position:relative}.input-supp .form__input{padding-right:25px}.input-supp .sr-only{font-size:0}.delete-button{position:absolute;right:15px;top:50%;margin:0;margin-top:-6px;font-size:12px;font-size:1.2rem;line-height:12px;line-height:1.2rem;display:block;color:#7d7d7d}#multisample .registration-right .esample-box .delete-button{position:relative}.form__message__doublerror .parsley-errors-list{float:left}.checkbox__parsley .parsley-errors-list{display:none}.js-ingredient-list .sr-only,.js-direction-list .sr-only{color:#fff;position:static;width:100%}.modal-inner .child-info .form__item{padding:0}.modal-inner .child-info .form__item .form__item__full{margin-bottom:10px}.modal-inner .child-info .form__item .fieldset__divider{display:none}@media only screen and (min-width: 959px){.modal-inner .child-info .form__item .form__item__label{width:30%}}.modal-inner .child-info .form__item .form__item__label p{font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem}@media only screen and (min-width: 959px){.modal-inner .child-info .form__item .form__item__input{width:65%}}.modal-inner .child-info .form__item .form__message__success{right:0;top:-45px}.modal-inner .form__item__label,.modal-inner .form__item__input,.modal-inner .form__item__info{text-align:left;margin:0 0 10px;padding:0;width:100%}.modal-inner .form__message:after{top:-5px;left:50%;margin-left:-5px;margin-top:0;border-width:0 5px 5px 5px;border-color:transparent transparent #7d7d7d transparent}.modal-inner .form__message__success{position:absolute;top:-42px;right:-30px}.modal-inner .modal-box-children .form__message__success{right:0}.modal-inner .modal-box-children .form__message:after{left:15%}.relay-list__container{display:none}.sampling-coll__invalid-country__error{display:none}.relay__opening-days{padding-right:20px}.relay__address{padding:10px 50px}.modal-inner .fieldset__divider{margin:10px -10px}.modal-inner .form__item{padding:0 25%}@media only screen and (max-width: 689px){.modal-inner .form__item{padding:0 5%}}.modal-inner .form__item__label,.modal-inner .form__item__input,.modal-inner .form__item__info{text-align:left;margin:0 0 10px;padding:0;width:100%}.modal-inner .form__message:after{top:-5px;left:50%;margin-left:-5px;margin-top:0;border-width:0 5px 5px 5px;border-color:transparent transparent #7d7d7d transparent}.location-text{padding-top:30px}label[for="t-and-c"]{font-size:12px}@media only screen and (max-width: 689px){.modal-inner .reset-password-content .form__item{padding:4px 8.5%}}.table__lines{width:100%;margin-top:10px}.table__lines.table--white th,.table__lines.table--white td{background:#fff}.table__lines.table--white thead{text-align:left}.table__lines tr{border-bottom:1px solid #c2c2c2;margin:0 10px}@media only screen and (min-width: 959px){.table__lines tr{padding:0}}.table__lines.no-border tr{border:none}.table__lines tr:nth-child(odd){background-color:#ebebeb}.table__lines th,.table__lines td{padding:5px}@media only screen and (min-width: 959px){.table__lines th,.table__lines td{padding:10px}}@media only screen and (max-width: 689px){.table__lines thead,.table__lines tbody,.table__lines th,.table__lines td,.table__lines tr{display:block;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines thead,.table__lines tbody,.table__lines th,.table__lines td,.table__lines tr{display:block}}.table__lines thead tr{background-color:#fff !important}@media only screen and (max-width: 689px){.table__lines thead tr{position:absolute;top:-9999px;left:-9999px}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines thead tr{position:absolute;top:-9999px;left:-9999px}}@media only screen and (max-width: 689px){.table__lines td.card-number{background-color:#d2d2d2}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines td.card-number{background-color:#d2d2d2}}@media only screen and (max-width: 689px){.table__lines td{position:relative;white-space:normal;min-height:30px}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines td{position:relative;white-space:normal;min-height:30px}}@media only screen and (max-width: 689px){.table__lines td:before{position:absolute;top:6px;left:6px;width:45%;padding-right:10px;white-space:nowrap;font-weight:bold}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines td:before{position:absolute;top:6px;left:6px;width:45%;padding-right:10px;white-space:nowrap;font-weight:bold}}@media only screen and (max-width: 689px){.table__lines td:before{content:attr(data-title)}}@media only screen and (min-width: 690px) and (max-width: 958px){.table__lines td:before{content:attr(data-title)}}@media only screen and (min-width: 959px){.loyalty__table__action{width:300px}}.js-loyalty-points-recap p{font-size:15px;font-size:1.5rem;line-height:22.5px;line-height:2.25rem}.table--medium{width:90%;padding:0 0 0 20px}tr.no--border{border:none}.top-profile .pagination .current-page{margin-top:-5px;padding:5px;border:1px solid #058aec}@media print{*{background:transparent !important;color:black !important;box-shadow:none !important;text-shadow:none !important;filter:none !important;-ms-filter:none !important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #7d7d7d;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}@page{margin:1cm}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}.post-meta,#form-comment,footer{display:none}#content-body{width:100%}.article .box{width:100%}#wrapper #header{position:relative}#secondary-nav,#block-connect,#block-search,#primary-nav,.box1,.box2,.block-brands,.menu-footer-01,.menu-footer-02,object,#cookie-consent-footer,#header,.post-footer{display:none}#block-logo{display:block !important}#home .box1{display:block}.content-body-inner{height:auto !important;position:static !important}.box3{position:static !important}#home .box3{position:absolute !important}header[role='contentinfo']{display:block}a.button,#block-comment{display:none}#wrapper #content-body-wrapper{padding-top:16px}#footer a[href]:after{content:''}.brand-list,.other-brand-list{width:100%;padding:0}.box.box3{width:600px;margin:0 auto}}.print-process{width:990px;height:100%}.print-process .container{height:100%}.print-process .container .print-coupon-form{height:100%}.print-process .container .print-coupon-form .registration-right{height:100%}@media print{.printContent{width:auto;margin:0 5%;font-family:arial}.printContent .logo{margin-bottom:35px}.printContent h1{font-weight:bold;font-size:18px}.printBoxContent ul{padding:0}.printBoxContent li{float:left;width:180px;margin:0 10px 30px 0;list-style-type:none;padding:0}.printBoxContent h2{position:relative;margin:0 0 10px 0;line-height:42px;border-top:solid 1px #7d7d7d;border-bottom:solid 1px #7d7d7d;font-size:15pt}.printBoxContent h2 img{position:absolute;right:3px;top:10px}.printBoxContent p{font-size:12px}.printBoxContent p strong{display:block;font-weight:bold;margin-bottom:4px}}.s-header{position:fixed;top:0;width:100%;z-index:999999}@media only screen and (min-width: 959px){.s-header{position:static;width:auto;z-index:1}}.s-header .container{background:#fff;position:relative;margin-bottom:10px;font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem;box-shadow:0 3px 10px 0px rgba(0,0,0,0.3)}@media only screen and (min-width: 959px){.s-header .container{width:990px;margin:0 auto;box-shadow:none}}.s-header__content--mobile{zoom:1}.s-header__content--mobile:before,.s-header__content--mobile:after{content:"";display:table}@media only screen and (min-width: 959px){.s-header__content--mobile:before,.s-header__content--mobile:after{content:normal;display:block}}.s-header__content--mobile:after{clear:both}@media only screen and (min-width: 959px){.s-header__content--mobile:after{clear:none}}@media only screen and (min-width: 959px){.s-header__content--mobile{zoom:initial}}.s-header__content--mobile .s-header__logo{padding-left:5px;padding-right:5px;width:45%;float:left}@media only screen and (min-width: 959px){.s-header__content--mobile .s-header__logo{padding-left:5px;padding-right:5px;width:20%;float:left}}.s-header__content{background-color:#fff}@media only screen and (min-width: 959px){.s-header__content{border-left:1px solid #c2c2c2;border-right:1px solid #c2c2c2}}.s-header__content__inner{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding:5px 0 0 0}.s-header__content__inner:before,.s-header__content__inner:after{content:" ";display:table}.s-header__content__inner:after{clear:both}@media only screen and (min-width: 959px){.s-header__content__inner{font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem;padding:10px 0}}.s-header__avatar{display:block;float:left;margin-right:5px;margin-top:8px}@media only screen and (min-width: 959px){.s-header__avatar{display:none}}.s-header__avatar .header__tooltip{border:1px solid #c7c7c7;z-index:999999;position:absolute;background:#ffffff;width:190px;margin-top:15px;display:none;margin-left:-65px;overflow:visible !important}.s-header__avatar .header__tooltip ul li{list-style:none;border-bottom:1px solid #c7c7c7;padding:10px}.s-header__avatar .header__tooltip ul li:last-child{border-bottom:none}.s-header__avatar .header__tooltip ul li a{color:#000;font-size:12px;text-decoration:none}.s-header__avatar .header__tooltip:after,.s-header__avatar .header__tooltip:before{bottom:100%;left:42%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none}.s-header__avatar .header__tooltip:after{border-bottom-color:#fff;border-width:12px;margin-left:-13px}.s-header__avatar .header__tooltip:before{border-bottom-color:#c7c7c7;border-width:14px;margin-left:-15px}.lang-selector--active .s-header__content__inner{padding:30px 0 0 0}@media only screen and (min-width: 959px){.lang-selector--active .s-header__content__inner{padding:5px 0 0 0}}.s-header__nav-mobile{padding-left:5px;padding-right:5px;width:17%;float:left;padding-top:10px;text-align:center}@media only screen and (min-width: 959px){.s-header__nav-mobile{display:none}}.s-header__nav-mobile .fonticon{color:#058aec;font-size:20px;font-size:2rem;line-height:30px;line-height:3rem}.s-header__nav-mobile a{text-decoration:none}.s-header__logo{padding-left:5px;padding-right:5px;width:50%;float:left;text-align:center;position:relative;overflow:hidden}@media only screen and (min-width: 959px){.s-header__logo{padding-left:5px;padding-right:5px;width:20%;float:left}}.s-header__logo img{max-height:50px;width:auto}@media only screen and (min-width: 959px){.s-header__logo img{max-height:65px}}.s-header__logo h1{margin:0;position:absolute;top:0;left:10px;z-index:1}.s-header__logo a{display:block;position:relative}.s-header__logo .s-header__logo-cache{background:#fff;position:relative}.s-header__middle{position:absolute;top:5px;right:20px;width:100%}@media only screen and (min-width: 959px){.s-header__middle{padding-left:5px;padding-right:5px;width:40%;float:left;margin-top:10px;position:static;bottom:auto}}.s-header__middle .s-header__search{display:none}@media only screen and (min-width: 959px){.s-header__middle .s-header__search{display:block}}.s-header__middle__row{width:auto;margin-left:-5px;margin-right:-5px;margin-top:0;margin-bottom:0;max-width:none;*zoom:1;min-height:20px}.s-header__middle__row:before,.s-header__middle__row:after{content:" ";display:table}.s-header__middle__row:after{clear:both}.s-header__social{padding-left:5px;padding-right:5px;width:50%;float:left;height:20px}.s-header__language{text-align:right}@media only screen and (min-width: 959px){.s-header__language{padding-left:5px;padding-right:5px;width:50%;float:left}}.lang-selector{margin-left:-5px}.lang-selector p{display:inline-block;vertical-align:top;margin-right:5px}.lang-selector ul{display:inline-block;vertical-align:middle}.lang-selector li+li:before{content:'\2022';padding:0 5px 0 3px;vertical-align:top}.lang-selector a{outline:none}.lang-selector img{max-width:60px;outline:none;filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");filter:gray}.lang-selector img:hover{-webkit-filter:grayscale(0%);-moz-filter:grayscale(0%);-ms-filter:grayscale(0%);-o-filter:grayscale(0%);filter:grayscale(0%)}.lang-selector .active{background-color:#ebebeb;text-decoration:none;cursor:default}.lang-selector .active img{-webkit-filter:grayscale(0%);-moz-filter:grayscale(0%);-ms-filter:grayscale(0%);-o-filter:grayscale(0%);filter:grayscale(0%)}.s-header__user{display:none}@media only screen and (min-width: 959px){.s-header__user{padding-left:5px;padding-right:5px;width:30%;float:left;display:block;height:20px}}.s-header__cart{position:relative;display:none}@media only screen and (min-width: 959px){.s-header__cart{padding-left:5px;padding-right:5px;width:10%;float:left;padding-right:20px;display:block;margin-top:35px}}.s-header__cart-mobile{padding-left:5px;padding-right:5px;width:17%;float:left;position:relative;margin-top:8px}@media only screen and (min-width: 959px){.s-header__cart-mobile{display:none;margin-top:10px}}.s-header__search-mobile-toggle{padding-left:5px;padding-right:5px;width:17%;float:left;width:30px;margin:10px 0 0 4px}@media only screen and (min-width: 959px){.s-header__search-mobile-toggle{display:none}}.s-header__search-mobile-toggle a{text-decoration:none}.s-header__search-mobile-toggle .fonticon{font-size:20px;font-size:2rem;line-height:20px;line-height:2rem;color:#058aec}.s-header__search-mobile{display:none;padding-left:5px;padding-right:5px;width:100%;float:left;padding:10px}@media only screen and (min-width: 690px) and (max-width: 958px){.s-header__search-mobile{padding:0;position:relative}}@media only screen and (max-width: 689px){.s-header__search-mobile{padding:0;position:relative}}.s-header__search{margin:5px 0}.s-header__user{position:static;padding:10px;display:none;border-top:1px solid #c2c2c2}@media only screen and (min-width: 959px){.s-header__user{position:relative;border-top:none;padding:0;display:block;margin-top:35px}}.s-header__overlay{display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:99999;opacity:0;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100');filter:alpha(opacity=0);zoom:1;filter:alpha(opacity=0.3);background-color:#000}@media only screen and (min-width: 959px){.s-header__login,.s-header__logged{border:none}}.s-header__user__box{display:block;position:relative;width:100%;text-decoration:none;overflow:hidden}@media only screen and (min-width: 959px){.s-header__user__box{border:1px solid #c2c2c2;-webkit-border-radius:3px;border-radius:3px}}.s-header__user__box__login{text-align:center;background-color:#d72da8;color:#fff;border:1px solid #d72da8}.s-header__user__box__login:hover{color:#fff;-webkit-box-shadow:compact(0 0 10px #922273 inset, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0 0 10px #922273 inset, false, false, false, false, false, false, false, false, false);box-shadow:compact(0 0 10px #922273 inset, false, false, false, false, false, false, false, false, false)}@media only screen and (min-width: 959px){a.s-header__user__box__login:hover{color:#fff}}.s-header__user__box.s-header__login__btn,.s-header__user__box.s-header__register__btn{padding-left:5px;padding-right:5px;width:48%;float:left;font-size:12px;text-transform:uppercase;font-weight:bold}.s-header__user__box.s-header__login__btn{margin-right:10px}.s-header__user__box__logged{height:60px}@media only screen and (min-width: 959px){.s-header__user__box__logged{height:30px;overflow:visible}}.s-header__user__box__logged:after{right:14px;top:25px;border-width:7px 4px 0 4px;border-color:#7d7d7d transparent transparent transparent}@media only screen and (min-width: 959px){.s-header__user__box__logged:after{right:10px;top:12px}}.s-header__user__box__logged.link{text-decoration:none}.s-header__user__profilepic{float:left;margin-right:10px;margin-bottom:5px}@media only screen and (min-width: 959px){.s-header__user__profilepic{height:26px;width:26px;margin-bottom:0}}@media only screen and (min-width: 959px){.s-header__user__welcome{display:inline-block;vertical-align:top;white-space:nowrap}}.s-header__user__name{font-weight:bold;color:#d72da8;margin-left:2px}.notifications__counter{min-width:16px;padding:2px 5px;font-size:10px;font-size:1rem;line-height:15px;line-height:1.5rem;text-align:center;color:#fff;background-color:#d72da8;-webkit-border-radius:10px;border-radius:10px}.notifications__counter.japan-loyalty__points{font-size:11px;font-size:1.1rem;line-height:16.5px;line-height:1.65rem}@media only screen and (min-width: 959px){.s-header__logged:hover{-webkit-box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false);box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false)}}.s-header__logged .notifications__counter{display:inline-block}@media only screen and (min-width: 959px){.s-header__logged .notifications__counter{position:absolute;display:block;top:-8px;right:2px}.s-header__logged .notifications__counter.japan-loyalty__points{top:-20px;right:-20px}}.s-header__user__expand{display:none;background:#fff}@media only screen and (min-width: 959px){.s-header__user__expand{position:absolute;top:40px;z-index:999999;width:269px;margin:0 10px;-webkit-box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);-webkit-border-radius:3px;border-radius:3px}}.s-header__user__expand:after{left:50%;margin-left:-10px;top:-8px;border-width:0 10px 8px 10px;border-color:transparent transparent #c2c2c2 transparent}.s-header__user__expand .japan-loyalty__points{float:left;margin:0 10px 10px}@media only screen and (min-width: 959px){.s-header__user__expand .japan-loyalty__points{margin:5px 0 0}}#login__form{padding:20px}@media only screen and (max-width: 689px){#login .form__item__label{display:none}}.s-header__user__links{border-top:1px solid #c2c2c2}@media only screen and (min-width: 959px){.s-header__user__links{padding:10px;border:none}}.user__links__item{display:block;padding:10px}@media only screen and (min-width: 959px){.user__links__item{padding:0}}.user__links__item span{font-weight:bold;color:#d72da8}.divider{border-bottom:1px solid #c2c2c2;height:1px;margin:20px 0}.s-header__logo h1{margin:0px;text-indent:-999999999999px;z-index:-1;position:absolute;font-size:2px}.vip-icon,.comments_vipicon{background-color:#058aec;color:#fff;font-size:16px;font-size:1.6rem;line-height:10px;line-height:1rem;position:relative;top:0;right:11px;display:inline-block;padding:11px;margin-bottom:14px}.vip-header-profile{color:#fff;font-size:19px;font-size:1.9rem;line-height:28.5px;line-height:2.85rem;background:#058aec;margin-left:-4px;padding:5px 1px 6px 4px;vertical-align:top;display:inline-block;height:29px;width:29px}@media only screen and (max-width: 689px){.vip-header-profile{padding-bottom:15px}}.comments_vipicon{display:block;float:left;padding:5px 3px 7px 3px;margin-right:10px;top:0px;background:#058aec;width:25px;height:27px}.vip-icon .fonticon-ambassador,.comments_vipicon .fonticon-ambassador,.vip-header-profile .fonticon-ambassador{position:relative;left:-2px}.vip-icon .fonticon-ambassador .path1,.comments_vipicon .fonticon-ambassador .path1,.vip-header-profile .fonticon-ambassador .path1{left:1px}.vip-icon .fonticon-ambassador .path1:before,.vip-icon .fonticon-ambassador .path2:before,.vip-icon .fonticon-ambassador .path3:before,.vip-icon .fonticon-ambassador .path4:before,.comments_vipicon .fonticon-ambassador .path1:before,.comments_vipicon .fonticon-ambassador .path2:before,.comments_vipicon .fonticon-ambassador .path3:before,.comments_vipicon .fonticon-ambassador .path4:before,.vip-header-profile .fonticon-ambassador .path1:before,.vip-header-profile .fonticon-ambassador .path2:before,.vip-header-profile .fonticon-ambassador .path3:before,.vip-header-profile .fonticon-ambassador .path4:before{color:#e1e1e1}.vip-icon .fonticon-ambassador{left:0}.vip-icon .fonticon-ambassador .path1{left:4px;top:3px}.vip-icon .fonticon-ambassador .path2,.vip-icon .fonticon-ambassador .path3,.vip-icon .fonticon-ambassador .path4{left:20px;top:2px}.vip-reviewer{float:right;width:78px}.aside-review .vip-icon .fonticon.fonticon-ambassador{position:static}.comments_vipicon .fonticon-ambassador .path1{left:7px;top:5px}.comments_vipicon .fonticon-ambassador .path2,.comments_vipicon .fonticon-ambassador .path3,.comments_vipicon .fonticon-ambassador .path4{left:23px;top:4px}.ambassador-img{border:1px solid #058aec}.box-ambassador span{display:block;margin:7px 0 5px 0}.box-ambassador .fonticon-ambassador{font-size:26px;font-size:2.6rem;line-height:39px;line-height:3.9rem;background:#fff;color:#058aec;padding:2px 0 2px 0;width:26px;height:30px}.box-ambassador .vip-ambassador-header{position:absolute;margin:-25px 0 0 34px}.fix-header-menu-modal{height:100%;background:rgba(0,0,0,0.5)}@media only screen and (min-width: 959px){.fix-header-menu-modal{height:auto;background:transparent}}@media only screen and (max-width: 689px){#wrapper #content-wrapper{margin-top:95px}}@media only screen and (min-width: 690px) and (max-width: 958px){#wrapper #content-wrapper{margin-top:95px}}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{height:100%}html{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-size:62.5%}body{height:auto;background:#ebebeb;color:#3b3b3b;font-family:Arial,sans-serif;font-size:16px;font-size:1.6rem;line-height:20px;line-height:2rem;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;-o-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-transition:all 0.3s ease-out;-moz-transition:all 0.3s ease-out;-o-transition:all 0.3s ease-out;-ms-transition:all 0.3s ease-out;transition:all 0.3s ease-out}a:focus{outline:none}img,object,embed{max-width:100%;height:auto}#previewEmailBody img{height:inherit}#wrapper{height:100%}.layer-wrapper iframe{background-color:#fff}#content-wrapper{position:relative;z-index:99}@media only screen and (max-width: 689px){#content-wrapper{position:relative;z-index:99999;min-height:550px;height:100%}}#content-wrapper .ov-hidden{overflow:hidden}@media only screen and (min-width: 959px){#content-wrapper #content-body-wrapper{width:990px;overflow:hidden;margin:0 auto}}@media only screen and (max-width: 689px){#content-wrapper #content-body-wrapper{overflow-x:hidden}}#content-wrapper #content-body{width:1000px;padding:0 0 25px 0}@media only screen and (min-width: 690px) and (max-width: 958px){#content-wrapper #content-body{width:auto;margin:0 auto}}@media only screen and (max-width: 689px){#content-wrapper #content-body{width:auto;margin:0 auto}}#content-wrapper #content-body #content-body--container{width:auto}@media only screen and (min-width: 959px){#content-wrapper #content-body #content-body--container{width:1000px}}#content-wrapper #content-body .content-body-inner{overflow:visible !important}@media only screen and (max-width: 689px){#content-wrapper #content-body .content-body-inner.isotope{margin:10px 5px;width:100%}}@media only screen and (min-width: 690px) and (max-width: 958px){#content-wrapper #content-body .content-body-inner.isotope{margin:10px}}article{background:#fff;position:relative}.full-page{margin-bottom:10px;width:100%;max-width:990px;clear:both}@media only screen and (min-width: 690px) and (max-width: 958px){.full-page{width:100%}}.container{width:990px;margin:0 auto;padding:0;position:relative}.container:after{clear:both;content:" ";display:block;height:0;visibility:hidden}@media only screen and (min-width: 690px) and (max-width: 958px){.container{width:100%}}@media only screen and (max-width: 689px){.container{width:100%}}.bg-01{background:#fff url("../../Images/bg/bg-01.jpg") repeat}.bg-02{background:#fff url("../../Images/bg/bg-02.jpg") repeat}.ov-hidden{overflow:hidden}.load-more-content{padding:0 10px;text-align:center;float:right;margin-right:10px}.load-more-content span{padding:2px 5px}.load-more-content a{margin:0}#back-to-top{clear:both;border:2px solid #058aec;background-color:#fff;-webkit-box-shadow:compact(0 0 15px rgba(0,0,0,0.5), false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0 0 15px rgba(0,0,0,0.5), false, false, false, false, false, false, false, false, false);box-shadow:compact(0 0 15px rgba(0,0,0,0.5), false, false, false, false, false, false, false, false, false);cursor:pointer;display:none;position:fixed;right:20px;bottom:10px;padding:10px;width:100px;text-align:center;font-size:14px;z-index:100000;float:left;margin:-25px 0px 0px 0px}#back-to-top a{display:block;color:#3b3b3b}@media screen and (max-width: 959px){.mobile-only,#block-connect .mobile-only{display:block}#block-search .mobile-only{display:none}.nav-inner{max-height:100%;background:none}.nav-arrow{display:block}.menu-drop>li>a:first-child{color:#000;text-transform:uppercase;text-align:left;display:block}.categories .sub-menu{padding:0}.categories .sub-menu-content{padding:0 0 10px 0}.categories .sub-menu-content ol{columns:auto;-webkit-columns:auto;-moz-columns:auto;padding:0}#suggest .uiSelect-up,#suggest .uiSelect-list{width:175px;margin:0 0 0 37px}}@media only screen and (max-width: 689px){#block-search .mobile-only{display:block}}.anchor{position:absolute;margin-top:-125px}.anchorsitemap{position:absolute;margin-top:-250px}.search-display{background:#fff;border:1px solid #c2c2c2;display:none;overflow:visible;position:absolute;width:390px;height:auto;z-index:99999999}@media only screen and (min-width: 690px) and (max-width: 958px){.search-display{width:100%;border-left:0;border-right:0}}@media only screen and (max-width: 689px){.search-display{width:100%;border-left:0;border-right:0}}.search-display ul li a{cursor:pointer;font-size:12px;text-decoration:none;color:#000;display:block;padding:5px 10px 5px 10px}@media only screen and (min-width: 690px) and (max-width: 958px){.search-display ul li a{padding:5px 0 5px 30px}}@media only screen and (max-width: 689px){.search-display ul li a{padding:5px 0 5px 30px}}.search-display ul li a span{color:#058aec}.brandseperator{border-bottom:1px solid #c2c2c2}#header .uiSelect-list{width:100%;margin:0}.form .input-year{float:none}.innerLinkSort .innerLinkSelect li:first-child,.uiSelect-list li:first-child{border-top:none}.innerLinkSort .innerLinkSelect li:hover,.uiSelect-list li:hover,.uiSelect-list li.highlight{background-color:#c2c2c2}.box.fullArticle .innerLinkSelect ul{margin:0;padding:3px 0 0 0;position:relative;z-index:99999999}#simple-form #suggest{border:none !important;background:none !important}.uiSelect-up{padding-top:10px;padding-bottom:4px;border-top:1px solid #fff;border-bottom-width:0;max-height:150px;overflow:auto;width:200px;margin:0 0 0 40px;padding:0}.blue-checkbox{width:18px;height:18px;background:url("../../Images/Icons/blue.png") no-repeat;background-position:-147px 0;display:block;margin:0 auto}@media only screen and (max-width: 689px){.blue-checkbox{margin:8px auto}}.blue-checkbox.selected,.blue-checkbox.checkbox-selected{background-position:-170px 0}.blocked .blue-checkbox{background-position:-240px 0}.pagesetup{display:none}.hidecontent{display:none}.hidevisiblity{height:1px;visibility:hidden;position:absolute}.hide-slideshowtext{display:none}#search-results{position:relative !important}#search-results .headProfile.moreItem{border-top:1px solid #000;width:100%;position:absolute;bottom:-10rem}#search-results #more-form{background-color:#ebebeb;float:right;margin-right:22px;margin-top:-23px;padding:0 10px}.box{margin:0 10px 10px 0;float:left;text-align:left}.box.box1{width:190px;z-index:1}@media only screen and (min-width: 690px) and (max-width: 958px){.box.box1{width:31.5%}}@media only screen and (max-width: 689px){.box.box1{width:46.5%}}.box.box2{width:390px}@media only screen and (min-width: 690px) and (max-width: 958px){.box.box2{width:31.5%}}.box.box3{width:590px}@media only screen and (min-width: 690px) and (max-width: 958px){.box.box3{width:65.3%}.box.box3 .box3{width:100%}}.box.box3 .t-and-t .post-actions .social-icon-share{margin:10px 0 0 0}.box.box5{width:990px;margin-right:0}@media only screen and (min-width: 690px) and (max-width: 958px){.box.box5{width:98.6%}}@media only screen and (max-width: 689px){.box.box1,.box.box2,.box.box3,.box.box5{width:97.5%}}@media only screen and (max-width: 689px){.box.box1 .post-content,.box.box1 .closed-box__content>p,.box.box2 .post-content,.box.box2 .closed-box__content>p{display:none}}.box .slideshow_box-img{position:relative}.box .slideshow_box-img .slides-count{color:#fff;position:absolute;bottom:5px;padding:5px}@media only screen and (max-width: 689px){.box .slideshow_box-img .slides-count{bottom:5px}}.box .slideshow_box-img .slides-count .slides-num{margin-left:5px}@media screen and (min--moz-device-pixel-ratio: 0){.box .slideshow_box-img .slides-count{position:absolute;bottom:8px !important}}.wrap-color{background:white;padding-bottom:1px}.box-product .thumb{text-align:center}* .post-content{padding:0 10px 8px 10px}* .post-content p{font-size:12px;line-height:18px}* .post-content .post-content-title{font-size:14px}.boxes-one-container .box,.button-hide .box{margin:0 8px 10px 0}.recto .scissored{position:relative;margin:10px 7px 22px 8px;padding:0;border:4px dashed #058aec}.box-e-saver .recto .scissored{border:2px solid #058aec}.box-e-saver .recto .scissored .icon-scissored{background-color:#fff;padding:25px 15px 8px 25px;position:absolute;bottom:-20px;right:8px;display:block}.box-e-saver .recto .scissored .icon-scissored span{color:#058aec;font-family:"Icons";font-size:25px;position:absolute;bottom:13px;right:8px}.recto .scissored span{color:#058aec;font-family:"Icons";position:absolute;bottom:-13px;right:10px;font-size:40px;padding:0 5px;background-color:#fff}.recto .scissored .inner{padding:10px;font-size:12px;width:auto}.box .box-offer--targeted .scissored span{color:#fbac01}.box .box-offer .scissored:hover{border:4px solid #058aec;cursor:pointer}.box .box-e-saver .scissored:hover{border:2px solid #058aec;cursor:pointer}.date-start-end{font-size:11px;font-size:1.1rem;line-height:16.5px;line-height:1.65rem;word-wrap:break-word;overflow:hidden;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;padding:0 10px;margin:5px 0}.post-title,.h5{font-size:14px;font-size:1.4rem;line-height:17px;line-height:1.7rem;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;color:#000}.post .post-title,.post .h5{font-size:18px;font-size:1.8rem;line-height:27px;line-height:2.7rem}.teaser-container h2{margin-left:0 !important}.teaser-box-a{text-decoration:none}.margin-button{margin-left:10px}.roll-effect{position:absolute;top:0;left:0;color:transparent;font:0/0 a;text-shadow:none;z-index:2050;top:0;left:0;cursor:pointer;background:url(https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Images/bg/transparent.png) 0px 0px}.roll-effect:hover{border-width:1px;border-style:solid}.button-hide .roll-effect{pointer-events:none;cursor:default}.no-print{display:none}.post-tag a{color:#2a2a2a}.post-likes a{text-decoration:none}.box .recto .post-link ul,.box .box-esample .post-link ul{padding:0}.box .wrap-color blockquote{*zoom:1}.box .wrap-color blockquote:before,.box .wrap-color blockquote:after{content:" ";display:table}.box .wrap-color blockquote:after{clear:both}.box .wrap-color blockquote p{margin:0}.box .wrap-color blockquote p.quote-before{font-size:0;color:#3b3b3b;font-family:"Icons"}.box .wrap-color blockquote p.quote-before:before{font-size:16px}.box .wrap-color blockquote p.quote-after{font-size:0;color:#3b3b3b;font-family:"Icons";margin-top:10px;float:right}.box .wrap-color blockquote p.quote-after:before{font-size:16px}.quote{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:40px;line-height:47px;height:33px}.by-author{font-size:11px;font-size:1.1rem;line-height:16.5px;line-height:1.65rem;padding:0 10px;*zoom:1;margin:10px 0}.by-author:before,.by-author:after{content:" ";display:table}.by-author:after{clear:both}.by-author span{float:left;margin:5px 10px 0 0;font-size:25px}.by-author span i{font-style:normal}.by-author a{font-style:italic}.by-author .fonticon-ambassador{margin:0;width:25px;height:35px}.by-author .fonticon-ambassador i{position:relative}.by-author .fonticon-ambassador .path2,.by-author .fonticon-ambassador .path3,.by-author .fonticon-ambassador .path4{top:-25px}.by-author .fonticon-ambassador .path1{left:-6px}.by-author .fonticon-ambassador .path2{left:6px}.by-author .fonticon-ambassador .path3{left:19px}.by-author .fonticon-ambassador .path4{left:-6px}.box1 .by-author .fonticon-ambassador .path4{left:19px;top:-50px}.home .post-meta .post-information{border:none}.home .post-meta .post-information ul{padding-left:10px}.actionLinkBox .playGround{display:none}.actionLinkBox .playGround ul.shareLinkBox li{display:table-cell;padding-right:10px;vertical-align:middle}.box .home-verso-scissored p.inner{font-size:12px;margin:0 0 6px 10px}.home-verso-scissored{margin-bottom:13px;padding-bottom:13px;position:relative}.home-verso-scissored .dashed{bottom:-10px;height:18px;left:6px;position:absolute;width:100%;border:dashed #058aec;border-width:4px 0 0 0}.box-advertising{background-color:#fff}.box-advertising img{width:100%;display:block}.box.boxDisableAllLink img{width:100%;display:block}.box-article img:not(.lazy){margin-bottom:-5px}.boxes-one-container{margin-right:-10px;clear:both}.product-category{font-size:17px;font-size:1.7rem;line-height:17px;line-height:1.7rem}.box-esampling .post-link ul{padding:0}@media screen and (min-width: 690px) and (max-width: 959px){#profile-public .box1,#profile-private .box1,#profile-edit .box1{width:31.8%}.box.box3 .box-article .post-likes{width:auto}.article .box .post-likes{width:auto}}@media screen and (min-width: 690px) and (max-width: 959px){#profile-public .box1,#profile-private .box1,#profile-edit .box1{width:31.8%}.box.box3 .box-article .post-likes{width:auto}.article .box .post-likes{width:auto}}.box3.questionnaire .inner{margin:0 10px 3px 10px;font-size:0.8em}.box1.questionnaire{background:#fff}.post-header img{display:block}.post-category--icon{padding-right:30px;position:relative}.post-category__icon{position:absolute;right:10px;top:4px;font-size:18px;font-size:1.8rem;line-height:18px;line-height:1.8rem}.article__image{position:relative;min-height:50px;clear:both}.article__image img{display:block}.article__image__overlay{position:absolute;bottom:0;height:50px;width:100%;padding:10px 20px;background-color:rgba(255,255,255,0.7)}.article__image__overlay .article__image__picto{float:right}.article__image__overlay .article__image__picto.article__image__picto--spotify{font-size:32px}.article__image__overlay .article__image__picto.article__image__picto--spotify i{font-style:normal}.box1 .article__image__overlay .article__image__picto{display:none}@media only screen and (max-width: 689px){.box1 .article__image__overlay--full .article__image__logo{display:none}}.spotify__info{width:100%;background:#c2c2c2;border:1px solid #c2c2c2;-webkit-border-radius:3px;border-radius:3px;margin:10px 5px;display:table;min-height:50px;height:50px}.spotify__info p{display:table-cell;vertical-align:middle;padding:5px 10px}.spotify__info__picto{position:relative;display:table-cell;vertical-align:middle;width:65px;background:#fff;padding:0 20px;font-size:25px;font-size:2.5rem;line-height:25px;line-height:2.5rem;color:#81b71a}.spotify__info__arrow{display:table-cell;vertical-align:middle}.spotify__info__arrow div{height:100%;width:20px;position:relative}.spotify__info__arrow div:after{border-width:10px 0 10px 10px;border-color:transparent transparent transparent #ffffff;margin-top:-10px;left:0;top:50%}.article__image__overlay--full{height:100%;padding:0 0 40px 0;text-align:center}.article__image__overlay--full:before{content:"";display:inline-block;height:100%;vertical-align:middle}.article__image__overlay--full .article__image__picto{position:absolute;bottom:10px;right:20px}.article__image__overlay--full .article__image__logo{position:absolute;bottom:10px;left:20px}.cta{display:inline-block;vertical-align:middle;width:70%;padding:5px 20px;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:22px;font-size:2.2rem;line-height:26px;line-height:2.6rem;color:#fff}.box1 .cta{width:95%;padding:5px;font-size:14px;font-size:1.4rem;line-height:16px;line-height:1.6rem}@media only screen and (min-width: 690px) and (max-width: 958px){.box2 .cta{width:95%;padding:5px;font-size:14px;font-size:1.4rem;line-height:16px;line-height:1.6rem}}.cta--user{background-color:#d72da8}.spotify__player{position:relative;width:100%;padding:0;padding-top:113%}.spotify__player iframe{position:absolute;top:0;left:0;height:100%;width:100%}.fullwidthbanner{float:left;width:100%;height:367px;background:url("../../Images/spotifylogobackground.png") no-repeat right #fff}@media only screen and (min-width: 959px){.fullwidthbanner{background-size:700px auto}}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner{background:url("../../Images/spotifylogobackground.png") no-repeat right top #fff;height:auto;background-size:contain}}@media only screen and (max-width: 689px){.fullwidthbanner{background:url("../../Images/spotifylogobackgroundmobile.png") no-repeat right top #fff;height:auto}}@media only screen and (max-width: 350px){.fullwidthbanner{background:url("../../Images/spotifylogobackgroundmobile.png") no-repeat -104px 0px #fff;background-size:153%}}.fullwidthbanner .fullwidthbannerlogo{padding:20px 0 10px 40px}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannerlogo{width:125px;padding:9px 0px 10px 12px}}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner .fullwidthbannercontent{margin:275px 0 0 0;background:#fff}}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannercontent{margin:160px 0 0 0;background:#fff}}.fullwidthbanner .fullwidthbannercontent ul{float:left;padding-left:16px}.fullwidthbanner .fullwidthbannercontent li{font-weight:bold;list-style-type:decimal;margin:0 0 10px 30px;color:#a8cf40;width:230px}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner .fullwidthbannercontent li{font-size:15px;font-size:1.5rem;line-height:15px;line-height:1.5rem;width:auto}}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannercontent li{font-size:15px;font-size:1.5rem;line-height:15px;line-height:1.5rem;width:auto}}.fullwidthbanner .fullwidthbannercontent h3{font-weight:bold;width:300px;padding:0px 10px 6px 25px;color:#a8cf40;text-transform:uppercase}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner .fullwidthbannercontent h3{font-size:20px;font-size:2rem;line-height:20px;line-height:2rem;width:auto;padding:10px 10px 6px 25px}}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannercontent h3{font-size:20px;font-size:2rem;line-height:20px;line-height:2rem;width:auto}}.fullwidthbanner .fullwidthbannercontent span{font-weight:normal;color:#3b3b3b}.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton{background-color:#0589ed;padding:15px;margin:200px 20px 0 0;float:right;text-decoration:none}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton{width:94%;margin:0 10px 10px 10px;text-align:center}}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton{width:94%;margin:0 10px 10px 10px;text-align:center}}.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton .fullwidthbannericonlabel{font-weight:bold;color:#fff;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif}.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton.desktop{display:none}@media only screen and (min-width: 959px){.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton.desktop{display:block}}.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton.mobile{display:none}@media only screen and (max-width: 689px){.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton.mobile{display:block}}@media only screen and (min-width: 690px) and (max-width: 958px){.fullwidthbanner .fullwidthbannercontent .fullwidthbannercbutton.mobile{display:block}}#breadcrumb_list_spotify .breadcrumblabela{text-decoration:none}#breadcrumb_list_spotify .breadcrumb__item a{color:#c2c2c2}#breadcrumb_list_spotify .breadcrumb__item a.previous{color:#058aec}#breadcrumb_list_spotify .activated.breadcrumb__item .breadcrumblabela{color:#058aec}#breadcrumb_list_spotify .breadcrumb__item.active .breadcrumblabela{color:#fff}.menubreadcrumbfont{margin:0px;padding:0px 5px;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem;display:block}.menubreadcrumbfont ol.breadcrumb__list{width:99.8%;border:solid 1px #058aec;float:left;height:27px;margin:0 0 5px 0;overflow:hidden}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item{width:25%;text-align:center;float:left;line-height:25px}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item{display:none}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item{display:none}}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .fonticon{margin:0 -1px 0 -1px}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .previous{display:none;float:left;color:#058aec;background:#fff;text-decoration:none;padding:0 0 0 10px}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .previous{display:block}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .previous{display:block}}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item a.next{color:#c2c2c2}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .next{display:none;float:right;color:#058aec;text-decoration:none;background:#ededed}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .next{display:block}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .next{display:block}}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__item .nextbackground{color:gainsboro;background:#fff}.menubreadcrumbfont ol.breadcrumb__list .menurightarrow,.menubreadcrumbfont ol.breadcrumb__list .menuleftarrow{display:none;font-size:27px;font-size:2.7rem;line-height:27px;line-height:2.7rem}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__divider{float:right}.menubreadcrumbfont ol.breadcrumb__list .breadcrumb__divider.activebreadcrumb{display:none}.menubreadcrumbfont ol.breadcrumb__list .fonticon-arrow-ariane{font-size:27px;font-size:2.7rem;line-height:27px;line-height:2.7rem;color:#058aec}.menubreadcrumbfont ol.breadcrumb__list .activated.breadcrumb__item{color:#058aec}.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item{background-color:#058aec;color:#fff}.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow{display:block;background:#fff;color:#058aec;float:right;overflow:hidden}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow{background:#ededed}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow{background:#ededed}}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow .nextbackgroundbreadcrumb{color:#ededed;margin:0 -9px 0 0;text-shadow:1px 0px 1px #058aec;background:#fff}}@media only screen and (max-width: 768px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow .nextbackgroundbreadcrumb{margin:0 -6px 0 0px}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow .nextbackgroundbreadcrumb{color:#ededed;margin:0 -6px 0 0px;text-shadow:1px 0px 1px #058aec;background:#fff}}@media only screen and (width: 480px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menurightarrow .nextbackgroundbreadcrumb{margin:0 -12px 0 0px}}.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .menuleftarrow{display:block;background:#058aec;color:#fff;float:left}.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .fonticon-arrow-ariane{display:none}.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item .breadcrumb__divider{display:none;color:#058aec}@media only screen and (min-width: 690px) and (max-width: 958px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item{display:block;width:100%}}@media only screen and (max-width: 689px){.menubreadcrumbfont ol.breadcrumb__list .active.breadcrumb__item{display:block;width:100%}}.selectionfullwidth{float:left;padding:0 30px;width:100%}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth{padding:0 10px}}@media only screen and (max-width: 689px){.selectionfullwidth{padding:0 10px}}.selectionfullwidth .selectionfullwidthhead{padding:5px 0px 0 5px}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthhead{padding:0px}}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthhead{padding:0px}}@media only screen and (min-width: 959px){.selectionfullwidth .selectionfullwidthhead img{float:right}}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthhead img{display:block;width:180px}}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthhead img{width:130px;display:block}}.selectionfullwidth .selectionfullwidthhead span{float:left;margin:7px;color:gray;float:left;font-size:14px;font-size:1.4rem;line-height:21px;line-height:2.1rem}.selectionfullwidth h2{padding:10px 0 4px 0;font-size:40px;font-size:4rem;line-height:40px;line-height:4rem}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth h2{font-size:20px;font-size:2rem;line-height:20px;line-height:2rem}}@media only screen and (max-width: 689px){.selectionfullwidth h2{font-size:20px;font-size:2rem;line-height:20px;line-height:2rem}}.selectionfullwidth .selectionfullwidthbox{padding:5px;float:left;background:#fff !important;position:relative}.selectionfullwidth .selectionfullwidthbox.size2{width:66.5%}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthbox.size2{width:100%}}@media only screen and (min-width: 959px){.selectionfullwidth .selectionfullwidthbox.size2{height:315px}}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthbox{width:33.2%;padding:4px}}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthbox{width:100%;padding:3px}.selectionfullwidth .selectionfullwidthbox img{width:100%}}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthbox.imgsizetwo{width:66.4%}}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthbox.imgsizetwo{width:66.4%}}.selectionfullwidth .selectionfullwidthbox span{margin:180px 10px 10px 0px;padding:7px 20px;font-weight:bold;color:#fff;position:absolute;opacity:0.85;font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif;font-size:22px;font-size:2.2rem;line-height:25px;line-height:2.5rem}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthbox span{margin:150px 10px 10px 0px;padding:5px 10px;font-size:20px;font-size:2rem;line-height:21px;line-height:2.1rem}}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthbox span{margin:150px 10px 10px 0px;padding:5px 10px;font-size:20px;font-size:2rem;line-height:21px;line-height:2.1rem}}.selectionfullwidth .selectionfullwidthheader{width:100%;padding:0 5px 0 5px}.selectionfullwidth .selectionfullwidthheader img{float:left;padding:0 11px 10px 0;width:200px}@media only screen and (min-width: 690px) and (max-width: 958px){.selectionfullwidth .selectionfullwidthheader img{width:auto;padding:0 10px 10px 0}}@media only screen and (max-width: 689px){.selectionfullwidth .selectionfullwidthheader img{width:auto;padding:0px}}.selectionfullwidth .selectionfullwidthheader h2{float:left;padding:10px 10px 0 0;font-size:25px;font-size:2.5rem;line-height:37.5px;line-height:3.75rem;color:#000}.selectionfullwidth .spotify__player,.selectionfullwidth .spotify__info{float:left}.selectionfullwidth .spotify__player iframe,.selectionfullwidth .spotify__info iframe{padding:0 5px 0 5px}.post-share .fonticon-twitter-sign{text-decoration:none}.post-meta .fonticon-twitter-sign,.post-meta .fonticon-facebook-sign,.post-meta .fonticon-pinterest,.post-meta .fonticon-pinterest-sign{text-decoration:none}.post-meta .fonticon-mail{font-size:23px}.post-facebook-product .fonticon-twitter-sign{font-size:18px;margin-right:20px}.post-facebook-product .fonticon-mail{font-size:28px}ul.spotify__text{display:table;float:none;padding-top:10px}@media only screen and (min-width: 959px){ul.spotify__text{float:right;padding-top:0px}}ul.spotify__text li{color:#bbbbbb;display:table-cell;font-size:15px;vertical-align:middle}@media only screen and (min-width: 959px){ul.spotify__text li{font-size:21px}}.box-horoscope .post-actions{padding-bottom:5px}.element__postion--right{float:right}.box1.box.questionnaire .post-content,.box1.box.gatedoffers .post-content,.box1.box.quiz .post-content,.box1.box.product .post-content,.box2.box.questionnaire .post-content,.box2.box.gatedoffers .post-content,.box2.box.quiz .post-content,.box2.box.product .post-content{display:block}.breadcrumb{display:none;background:#fff;margin:10px 0px 5px 0;padding:0 10px;font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem;color:#c2c2c2}@media only screen and (min-width: 959px){.breadcrumb{display:block;margin-right:10px}}.breadcrumb .fonticon-home{font-size:14px;font-size:1.4rem;line-height:28px;line-height:2.8rem}.breadcrumb .breadcrumb__list{height:29px}.breadcrumb .breadcrumb__list>li{vertical-align:middle}.breadcrumb .breadcrumb__divider>li{vertical-align:middle}.breadcrumb .breadcrumb__divider .fonticon-arrow-ariane{font-size:30px;color:#ebebeb}.breadcrumb__link{display:block;position:relative;color:#c2c2c2;height:30px;padding:5px 10px;white-space:nowrap}.breadcrumb__link:hover{color:#000}.breadcrumb__link:first-child{text-decoration:none}.breadcrumb__link .fonticon-home{font-size:14px;font-size:1.4rem;line-height:18px;line-height:1.8rem}.breadcrumb__stepwise{margin:10px 0}.breadcrumb__stepwise .breadcrumb__list-stepwise li{background:#c2c2c2;margin-right:5px;height:5px}.breadcrumb__stepwise .breadcrumb__list-stepwise li.active{background:#058aec}.breadcrumb__stepwise .breadcrumb__list-stepwise li:last-child{margin-right:0}.nav-cart{display:block;position:relative;width:40px;padding:4px 10px 0;border:1px solid #c2c2c2;text-decoration:none;-webkit-border-radius:3px;border-radius:3px}@media only screen and (min-width: 959px){.nav-cart{width:100%;padding:4px 10px 2px}}.nav-cart:hover{-webkit-box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false);box-shadow:compact(0 0 10px #c2c2c2 inset, false, false, false, false, false, false, false, false, false)}.nav-cart:after{right:10px;top:12px;border-width:7px 4px 0 4px;border-color:#74c3fc transparent transparent transparent}.nav-cart .fonticon{color:#058aec;font-size:24px;font-size:2.4rem;line-height:16px;line-height:1.6rem;position:relative;top:4px}@media only screen and (max-width: 689px){.nav-cart .fonticon{font-size:24px;font-size:2.4rem;line-height:18px;line-height:1.8rem;left:-5px;top:3px}}@media only screen and (min-width: 690px) and (max-width: 958px){.nav-cart .fonticon{left:-3px}}.nav-cart__counter{width:20px;height:16px;text-align:center;font-size:10px;font-size:1rem;line-height:15px;line-height:1.5rem;color:#fff;background-color:#058aec;-webkit-border-radius:7px;border-radius:7px}.nav-cart .nav-cart__counter{position:absolute;top:-8px;right:-10px}.savings-coupon span{margin-right:2px}.savings-coupon b{margin-left:4px;margin-right:2px}.save-this-month span{margin-left:3px}.cart__aside .savings-coupon b{font-weight:normal}.nav-cart__details{display:none;position:absolute;top:40px;right:20px;z-index:999999;width:269px;padding:20px 20px;background-color:#fff;-webkit-box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);-moz-box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);box-shadow:compact(0px 0px 5px #7d7d7d, false, false, false, false, false, false, false, false, false);-webkit-border-radius:3px;border-radius:3px}.nav-cart__details:after{right:25px;top:-8px;border-width:0 10px 8px 10px;border-color:transparent transparent #c2c2c2 transparent}.nav-cart__infos{padding-top:10px}.nav-cart__offer,.nav-cart__action{display:inline-block;vertical-align:top}.nav-cart__offer{width:48%}.nav-cart__action{max-width:48%}.nav-cart__offer .nav-cart__counter{float:left;margin:5px}.nav-cart__offer p{margin-bottom:10px}.nav-cart__action{float:right;text-align:right}.btn--center a{margin-top:5px}.cart{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding:20px 20px 20px 10px}.cart:before,.cart:after{content:" ";display:table}.cart:after{clear:both}.cart__aside{float:left;padding-left:5px;padding-right:5px;width:100%;float:left}@media only screen and (min-width: 959px){.cart__aside{padding-left:5px;padding-right:5px;width:40%;float:left;padding-right:10px;border-right:1px solid #c2c2c2;min-height:270px}}@media only screen and (max-width: 689px){.btn--opt{width:120px}}@media only screen and (max-width: 689px){.btn--margin{text-align:center}}.cart__main{padding-left:5px;padding-right:5px;width:100%;float:left;float:right}@media only screen and (min-width: 959px){.cart__main{padding-left:5px;padding-right:5px;width:60%;float:left}}.cart__offers{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding-left:20px}.cart__offers:before,.cart__offers:after{content:" ";display:table}.cart__offers:after{clear:both}.help__link{float:right;text-transform:uppercase;color:#7d7d7d}.cart__empty{border:1px solid #058aec;padding:10px 0;text-align:center;margin-top:50px}@media only screen and (min-width: 959px){.cart__empty{position:relative;padding-left:5px;padding-right:5px;width:50%;left:25%;right:auto;float:left}}.list-coupons ul li,.list-samples ul li{position:relative;float:left;width:70px;height:70px;margin:10px 25px 20px 25px;border:1px solid #c2c2c2;text-align:center}@media only screen and (min-width: 959px){.list-coupons ul li,.list-samples ul li{margin:10px 5px 20px 10px}}.list-coupons a,.list-samples a{text-decoration:none;position:absolute;top:-12px;right:-8px;width:20px;background-repeat:no-repeat;color:#058aec}.list-coupons a:hover,.list-samples a:hover{color:#7d7d7d}.list-coupons a .fonticon,.list-samples a .fonticon{font-size:12px;font-size:1.2rem;line-height:18px;line-height:1.8rem}.list-coupons img,.list-samples img{max-width:60px;display:block;width:60px;height:60px;margin:5px}@media only screen and (max-width: 689px){.s-header__navbar{display:none}}@media only screen and (min-width: 690px) and (max-width: 958px){.s-header__navbar{display:none}}@media only screen and (min-width: 959px){.s-header__navbar .nav{border-left:1px solid #c2c2c2;border-right:1px solid #c2c2c2}}@media only screen and (max-width: 689px){.s-header__navbar .nav{max-height:calc( 100vh - 138px);overflow:scroll}}@media only screen and (min-width: 690px) and (max-width: 958px){.s-header__navbar .nav{max-height:calc( 100vh - 138px);overflow:scroll}}.nav__item:hover{cursor:hand}@media only screen and (min-width: 959px){.nav__item{height:40px;float:left;border-left:1px solid #fff;border-top:1px solid #fff;border-bottom:1px solid #fff}}.nav__item .notifications__counter{position:absolute;top:50%;margin-top:-8px}.tabs__list--mobile .notifications__counter{position:relative;display:inline-block;margin-left:10px}.nav__item-link{display:block;padding:10px;font-size:12px;font-size:1.2rem;line-height:16px;line-height:1.6rem;font-weight:bold;text-transform:uppercase;color:#fff}.nav__item-link.text--inverted:hover{text-decoration:none}@media only screen and (min-width: 959px){.nav__item-link{display:table-cell;vertical-align:middle;padding:0;height:40px;text-align:center}}.nav__item-link .fonticon{float:right}@media only screen and (min-width: 959px){.nav__item-link .fonticon{display:none}}.nav--arrow .nav__item{position:relative}.nav--arrow .nav__item.active:after{border-width:6px 6px 0 6px;border-color:#ffffff transparent transparent transparent;left:50%;bottom:-6px;margin-left:-6px}.nav--tabs{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif}.nav__collapse-arrow{display:none;position:absolute;right:10px;top:8px;font-size:20px;font-size:2rem;line-height:20px;line-height:2rem}.nav--collapsible{font-family:"fontserif",Georgia,Cambria,"Times New Roman",Times,serif}.nav--collapsible .nav__item{display:none}@media only screen and (min-width: 959px){.nav--collapsible .nav__item{display:block}}.nav--collapsible .nav__item.active{display:block}@media only screen and (min-width: 959px){.nav__two-items .nav__item,.nav__two-items .nav__item-link{width:495px}}@media only screen and (min-width: 959px){.nav__three-items .nav__item,.nav__three-items .nav__item-link{width:330px}}@media only screen and (min-width: 959px){.nav__four-items .nav__item,.nav__four-items .nav__item-link{width:246.5px}}@media only screen and (min-width: 959px){.nav__five-items .nav__item,.nav__five-items .nav__item-link{width:197.6px}}@media only screen and (min-width: 959px){.nav__six-items .nav__item,.nav__six-items .nav__item-link{width:164.6px}}@media only screen and (min-width: 959px){.nav__seven-items .nav__item,.nav__seven-items .nav__item-link{width:141.1px}}@media only screen and (min-width: 959px){.nav__eight-items .nav__item,.nav__eight-items .nav__item-link{width:123.5px}}@media only screen and (min-width: 959px){.nav__nine-items .nav__item,.nav__nine-items .nav__item-link{width:109.7px}}.subnav{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;display:none;background:#fff}.subnav:before,.subnav:after{content:" ";display:table}.subnav:after{clear:both}@media only screen and (min-width: 959px){.subnav{position:absolute;left:0;width:100%;border-left:1px solid #c2c2c2;border-right:1px solid #c2c2c2;z-index:999}}.subnav .subnav__aside{border-bottom:5px solid #c2c2c2}@media only screen and (min-width: 959px){.subnav .subnav__aside{padding-left:5px;padding-right:5px;width:20%;float:left;min-height:116px;border-bottom:none;padding:10px 20px 0}}@media only screen and (min-width: 959px){.subnav .subnav__main{padding-left:0;padding-right:0;width:80%;float:left;min-height:116px;border-left:1px solid #c2c2c2;margin-left:-1px}}.subnav .subnav__main:first-child{border-left:none;margin-left:0;border-top:1px solid #c2c2c2}@media only screen and (min-width: 959px){.subnav .subnav__main:first-child{border-top:none;padding-left:0;padding-right:0;width:100%;float:left}}@media only screen and (min-width: 959px){.subnav.subnav__one-line .subnav__main{min-height:0}}@media only screen and (min-width: 959px){.subnav .subnav_four-cols .subnav__subcat__item{padding-left:0;padding-right:0;width:25%;float:left}}@media only screen and (min-width: 959px){.subnav .subnav_three-cols .subnav__subcat__item{padding-left:5px;padding-right:5px;width:33.3%;float:left}}@media only screen and (min-width: 959px){.subnav .subnav_two-cols .subnav__subcat__item{padding-left:5px;padding-right:5px;width:50%;float:left}}@media only screen and (min-width: 959px){.subnav .subnav_five-cols .subnav__subcat__item{padding-left:5px;padding-right:5px;width:20%;float:left}}@media only screen and (min-width: 690px) and (max-width: 958px){.subnav .subnav_five-cols .subnav__subcat__item{padding-left:5px;padding-right:5px;width:50%;float:left}}.subnav__small{display:none;background:#ebebeb;border:1px solid #c2c2c2}@media only screen and (min-width: 959px){.subnav__small{position:absolute;left:0;top:38px;width:100%;z-index:999}}.subnav__small .subnav__item-link{display:block;padding:10px;border-bottom:1px solid #c2c2c2;color:#c2c2c2;text-align:center}.subnav__small a.subnav__item-link{color:#000}.subnav__small a.subnav__item-link:hover{color:#058aec;background-color:#fff}.subnav__small{display:none;background:#ebebeb;border:1px solid #c2c2c2}@media only screen and (min-width: 959px){.subnav__small{position:absolute;left:0;top:38px;width:100%;z-index:999}}.subnav__small .subnav__item-link{display:block;padding:10px;border-bottom:1px solid #c2c2c2;color:#c2c2c2;text-align:center}.subnav__small a.subnav__item-link{color:#000}.subnav__small a.subnav__item-link:hover{color:#058aec;background-color:#fff}@media only screen and (min-width: 959px){.subnav__divider{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding-left:5px;padding-right:5px;width:100%;float:left;position:relative;width:100%;height:0;margin-top:-1px;border-top:5px solid #058aec;z-index:10}.subnav__divider:before,.subnav__divider:after{content:" ";display:table}.subnav__divider:after{clear:both}}.subnav__offers__item__link{display:block;padding:10px;font-weight:bold;text-transform:uppercase;border-top:1px solid #c2c2c2}@media only screen and (min-width: 959px){.subnav__offers__item__link{padding:0 10px;margin-bottom:5px;border-top:none}}.subnav__offers__item__link .fonticon{padding-right:10px;font-size:18px;font-size:1.8rem;line-height:27px;line-height:2.7rem}.subnav__offers__item__link .fonticon,.subnav__offers__item__link span{display:inline-block;vertical-align:middle}.subnav__offers__item__link span{border-bottom:1px solid #fff;line-height:16px}.subnav__offers__item__link:hover{cursor:pointer}.subnav__offers__item__link:hover span{border-color:#3b3b3b}.subnav__subcat__item-link{display:block;padding:10px;font-weight:bold;text-transform:uppercase}@media only screen and (min-width: 959px){.subnav__subcat__item-link{display:table-cell;vertical-align:middle;width:inherit;height:58px;padding:3px 5px 3px 35px}}.subnav__brand__item-link{display:block;position:relative;height:60px;padding:5px;text-align:center}@media only screen and (min-width: 959px){.subnav__brand__item-link{height:50px}}.subnav__brand__item-link img{height:40px}.subnav__subcat__item{border-bottom:1px solid #c2c2c2}#subnav__brands .subnav__subcat__item{border-bottom:none;float:left}@media only screen and (max-width: 689px){#subnav__brands .subnav__subcat__item{width:50%}}@media only screen and (min-width: 690px) and (max-width: 958px){#subnav__brands .subnav__subcat__item{width:19%}}@media only screen and (min-width: 959px){#subnav__brands .subnav__subcat__item{border-bottom:1px solid #c2c2c2}}#subnav__brands .subnav__brand__item-link{padding:15px}@media only screen and (min-width: 959px){#subnav__brands .subnav__brand__item-link{padding:5px}}#subnav__horoscope .subnav__subcat__item{position:relative}#subnav__horoscope .subnav__subcat__item-link{position:relative;z-index:10;padding-left:65px;color:#3b3b3b}#subnav__horoscope .fonticon{position:absolute;top:10px;left:25px;z-index:9;font-size:20px;font-size:2rem;line-height:30px;line-height:3rem;color:#058aec}#subnav__wom .subnav__main,#subnav__eo .subnav__main{vertical-align:middle}.subnav__module{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:990px;*zoom:1;padding:20px 0 40px 0}.subnav__module:before,.subnav__module:after{content:" ";display:table}.subnav__module:after{clear:both}.subnav__module .subnav__module__icon{text-align:center}@media only screen and (min-width: 959px){.subnav__module .subnav__module__icon{padding-left:5px;padding-right:5px;width:12.5%;float:left}}@media only screen and (min-width: 690px) and (max-width: 958px){.subnav__module .subnav__module__icon{padding-left:5px;padding-right:5px;width:25%;float:left}}.subnav__module .subnav__module__icon .fonticon{font-size:56px;font-size:5.6rem;line-height:84px;line-height:8.4rem}.subnav__module .subnav__module__icon img{max-width:80px}@media only screen and (max-width: 689px){.subnav__module .subnav__module__icon img{max-width:100%}}@media only screen and (min-width: 959px){.subnav__module .subnav__module__text{padding-left:5px;padding-right:5px;width:87.5%;float:left}}@media only screen and (min-width: 690px) and (max-width: 958px){.subnav__module .subnav__module__text{padding-left:5px;padding-right:5px;width:75%;float:left}}@media only screen and (max-width: 689px){.subnav__module .subnav__module__text{padding:10px}}.subnav__module .subnav__module__link{display:block;margin-top:10px;font-weight:bold}#subnav__wom .icon--subnav-big{color:#058aec}#subnav__wom .fonticon-ambassador{position:relative;top:5px;left:20px}#subnav__wom .fonticon-ambassador i{position:relative}#subnav__wom .fonticon-ambassador .path2{left:-55px}#subnav__wom .fonticon-ambassador .path3{left:55px;top:-84px}@media only screen and (max-width: 689px){#subnav__wom .fonticon-ambassador .path3{left:-29px;top:0}}@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){#subnav__wom .fonticon-ambassador .path3{left:97px}}#subnav__wom .fonticon-ambassador .path4{left:0px;top:-84px}@media only screen and (max-width: 689px){#subnav__wom .fonticon-ambassador .path4{left:-84px;top:0}}@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){#subnav__wom .fonticon-ambassador .path4{left:42px}}#subnav__eo .icon--subnav-big{color:#fbac01}.link--no-underline:hover{cursor:pointer}.link--no-underline:focus{color:#fff}.nav__color--default.nav__item{background-color:#058aec}@media only screen and (min-width: 959px){.nav__color--default.nav__item{border-top:1px solid #058aec;border-bottom:1px solid #058aec}}.nav__color--default.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--default.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--default.nav__item:hover,.nav__color--default.nav__item:focus,.nav__color--default.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--default.nav__item:hover,.s-header .nav__color--default.nav__item:focus,.s-header .nav__color--default.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--default.nav__item:hover,.tabs__list--mobile .nav__color--default.nav__item:focus,.tabs__list--mobile .nav__color--default.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--default.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--default.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--default.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--default.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--default.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--default.nav__item.active .fonticon{color:#058aec}.nav__color--default.nav__item:hover .nav__item-link,.nav__color--default.nav__item:focus .nav__item-link,.nav__color--default.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--default.nav__item:hover .nav__item-link,.nav__color--default.nav__item:focus .nav__item-link,.nav__color--default.nav__item.active .nav__item-link{color:#058aec}}.nav--collapsible .nav__color--default.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--default.nav__item.active .nav__item-link{color:#058aec}.nav--collapsible .nav__color--default.nav__item.active .nav__collapse-arrow{color:#058aec}.nav__color--default.nav__item.subnav__opened{background-color:#fff}.nav__color--default.nav__item.subnav__opened .nav__item-link{color:#058aec}.nav__color--default .notifications__counter--neg{background-color:#fff;color:#058aec}.nav__color--default:hover .notifications__counter--neg{background-color:#058aec;color:#fff}.nav__color--default .subnav__aside{border-bottom-color:#058aec}.nav__color--default .subnav__divider{border-top-color:#058aec}.nav__color--default .subnav__main:first-child{border-color:#058aec}.nav__color--default .subnav__subcat__item-link{color:#058aec}.nav__color--default .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--default .subnav__offers__item__link{border-color:#058aec}.nav__color--default .subnav__offers__item__link .fonticon{color:#058aec}.nav__color--user.nav__item{background-color:#d72da8}@media only screen and (min-width: 959px){.nav__color--user.nav__item{border-top:1px solid #d72da8;border-bottom:1px solid #d72da8}}.nav__color--user.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--user.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--user.nav__item:hover,.nav__color--user.nav__item:focus,.nav__color--user.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--user.nav__item:hover,.s-header .nav__color--user.nav__item:focus,.s-header .nav__color--user.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--user.nav__item:hover,.tabs__list--mobile .nav__color--user.nav__item:focus,.tabs__list--mobile .nav__color--user.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--user.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--user.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--user.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--user.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--user.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--user.nav__item.active .fonticon{color:#d72da8}.nav__color--user.nav__item:hover .nav__item-link,.nav__color--user.nav__item:focus .nav__item-link,.nav__color--user.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--user.nav__item:hover .nav__item-link,.nav__color--user.nav__item:focus .nav__item-link,.nav__color--user.nav__item.active .nav__item-link{color:#d72da8}}.nav--collapsible .nav__color--user.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--user.nav__item.active .nav__item-link{color:#d72da8}.nav--collapsible .nav__color--user.nav__item.active .nav__collapse-arrow{color:#d72da8}.nav__color--user.nav__item.subnav__opened{background-color:#fff}.nav__color--user.nav__item.subnav__opened .nav__item-link{color:#d72da8}.nav__color--user .notifications__counter--neg{background-color:#fff;color:#d72da8}.nav__color--user:hover .notifications__counter--neg{background-color:#d72da8;color:#fff}.nav__color--user .subnav__aside{border-bottom-color:#d72da8}.nav__color--user .subnav__divider{border-top-color:#d72da8}.nav__color--user .subnav__main:first-child{border-color:#d72da8}.nav__color--user .subnav__subcat__item-link{color:#d72da8}.nav__color--user .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--user .subnav__offers__item__link{border-color:#d72da8}.nav__color--user .subnav__offers__item__link .fonticon{color:#d72da8}.nav__color--1.nav__item{background-color:#f33}@media only screen and (min-width: 959px){.nav__color--1.nav__item{border-top:1px solid #f33;border-bottom:1px solid #f33}}.nav__color--1.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--1.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--1.nav__item:hover,.nav__color--1.nav__item:focus,.nav__color--1.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--1.nav__item:hover,.s-header .nav__color--1.nav__item:focus,.s-header .nav__color--1.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--1.nav__item:hover,.tabs__list--mobile .nav__color--1.nav__item:focus,.tabs__list--mobile .nav__color--1.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--1.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--1.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--1.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--1.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--1.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--1.nav__item.active .fonticon{color:#f33}.nav__color--1.nav__item:hover .nav__item-link,.nav__color--1.nav__item:focus .nav__item-link,.nav__color--1.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--1.nav__item:hover .nav__item-link,.nav__color--1.nav__item:focus .nav__item-link,.nav__color--1.nav__item.active .nav__item-link{color:#f33}}.nav--collapsible .nav__color--1.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--1.nav__item.active .nav__item-link{color:#f33}.nav--collapsible .nav__color--1.nav__item.active .nav__collapse-arrow{color:#f33}.nav__color--1.nav__item.subnav__opened{background-color:#fff}.nav__color--1.nav__item.subnav__opened .nav__item-link{color:#f33}.nav__color--1 .notifications__counter--neg{background-color:#fff;color:#f33}.nav__color--1:hover .notifications__counter--neg{background-color:#f33;color:#fff}.nav__color--1 .subnav__aside{border-bottom-color:#f33}.nav__color--1 .subnav__divider{border-top-color:#f33}.nav__color--1 .subnav__main:first-child{border-color:#f33}.nav__color--1 .subnav__subcat__item-link{color:#f33}.nav__color--1 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--1 .subnav__offers__item__link{border-color:#f33}.nav__color--1 .subnav__offers__item__link .fonticon{color:#f33}.nav__color--1.nav__item{border-left:none}.nav__color--2.nav__item{background-color:#090}@media only screen and (min-width: 959px){.nav__color--2.nav__item{border-top:1px solid #090;border-bottom:1px solid #090}}.nav__color--2.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--2.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--2.nav__item:hover,.nav__color--2.nav__item:focus,.nav__color--2.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--2.nav__item:hover,.s-header .nav__color--2.nav__item:focus,.s-header .nav__color--2.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--2.nav__item:hover,.tabs__list--mobile .nav__color--2.nav__item:focus,.tabs__list--mobile .nav__color--2.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--2.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--2.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--2.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--2.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--2.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--2.nav__item.active .fonticon{color:#090}.nav__color--2.nav__item:hover .nav__item-link,.nav__color--2.nav__item:focus .nav__item-link,.nav__color--2.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--2.nav__item:hover .nav__item-link,.nav__color--2.nav__item:focus .nav__item-link,.nav__color--2.nav__item.active .nav__item-link{color:#090}}.nav--collapsible .nav__color--2.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--2.nav__item.active .nav__item-link{color:#090}.nav--collapsible .nav__color--2.nav__item.active .nav__collapse-arrow{color:#090}.nav__color--2.nav__item.subnav__opened{background-color:#fff}.nav__color--2.nav__item.subnav__opened .nav__item-link{color:#090}.nav__color--2 .notifications__counter--neg{background-color:#fff;color:#090}.nav__color--2:hover .notifications__counter--neg{background-color:#090;color:#fff}.nav__color--2 .subnav__aside{border-bottom-color:#090}.nav__color--2 .subnav__divider{border-top-color:#090}.nav__color--2 .subnav__main:first-child{border-color:#090}.nav__color--2 .subnav__subcat__item-link{color:#090}.nav__color--2 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--2 .subnav__offers__item__link{border-color:#090}.nav__color--2 .subnav__offers__item__link .fonticon{color:#090}.nav__color--3.nav__item{background-color:#f99}@media only screen and (min-width: 959px){.nav__color--3.nav__item{border-top:1px solid #f99;border-bottom:1px solid #f99}}.nav__color--3.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--3.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--3.nav__item:hover,.nav__color--3.nav__item:focus,.nav__color--3.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--3.nav__item:hover,.s-header .nav__color--3.nav__item:focus,.s-header .nav__color--3.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--3.nav__item:hover,.tabs__list--mobile .nav__color--3.nav__item:focus,.tabs__list--mobile .nav__color--3.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--3.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--3.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--3.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--3.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--3.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--3.nav__item.active .fonticon{color:#f99}.nav__color--3.nav__item:hover .nav__item-link,.nav__color--3.nav__item:focus .nav__item-link,.nav__color--3.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--3.nav__item:hover .nav__item-link,.nav__color--3.nav__item:focus .nav__item-link,.nav__color--3.nav__item.active .nav__item-link{color:#f99}}.nav--collapsible .nav__color--3.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--3.nav__item.active .nav__item-link{color:#f99}.nav--collapsible .nav__color--3.nav__item.active .nav__collapse-arrow{color:#f99}.nav__color--3.nav__item.subnav__opened{background-color:#fff}.nav__color--3.nav__item.subnav__opened .nav__item-link{color:#f99}.nav__color--3 .notifications__counter--neg{background-color:#fff;color:#f99}.nav__color--3:hover .notifications__counter--neg{background-color:#f99;color:#fff}.nav__color--3 .subnav__aside{border-bottom-color:#f99}.nav__color--3 .subnav__divider{border-top-color:#f99}.nav__color--3 .subnav__main:first-child{border-color:#f99}.nav__color--3 .subnav__subcat__item-link{color:#f99}.nav__color--3 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--3 .subnav__offers__item__link{border-color:#f99}.nav__color--3 .subnav__offers__item__link .fonticon{color:#f99}.nav__color--4.nav__item{background-color:#c09}@media only screen and (min-width: 959px){.nav__color--4.nav__item{border-top:1px solid #c09;border-bottom:1px solid #c09}}.nav__color--4.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--4.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--4.nav__item:hover,.nav__color--4.nav__item:focus,.nav__color--4.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--4.nav__item:hover,.s-header .nav__color--4.nav__item:focus,.s-header .nav__color--4.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--4.nav__item:hover,.tabs__list--mobile .nav__color--4.nav__item:focus,.tabs__list--mobile .nav__color--4.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--4.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--4.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--4.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--4.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--4.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--4.nav__item.active .fonticon{color:#c09}.nav__color--4.nav__item:hover .nav__item-link,.nav__color--4.nav__item:focus .nav__item-link,.nav__color--4.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--4.nav__item:hover .nav__item-link,.nav__color--4.nav__item:focus .nav__item-link,.nav__color--4.nav__item.active .nav__item-link{color:#c09}}.nav--collapsible .nav__color--4.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--4.nav__item.active .nav__item-link{color:#c09}.nav--collapsible .nav__color--4.nav__item.active .nav__collapse-arrow{color:#c09}.nav__color--4.nav__item.subnav__opened{background-color:#fff}.nav__color--4.nav__item.subnav__opened .nav__item-link{color:#c09}.nav__color--4 .notifications__counter--neg{background-color:#fff;color:#c09}.nav__color--4:hover .notifications__counter--neg{background-color:#c09;color:#fff}.nav__color--4 .subnav__aside{border-bottom-color:#c09}.nav__color--4 .subnav__divider{border-top-color:#c09}.nav__color--4 .subnav__main:first-child{border-color:#c09}.nav__color--4 .subnav__subcat__item-link{color:#c09}.nav__color--4 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--4 .subnav__offers__item__link{border-color:#c09}.nav__color--4 .subnav__offers__item__link .fonticon{color:#c09}.nav__color--5.nav__item{background-color:#c09}@media only screen and (min-width: 959px){.nav__color--5.nav__item{border-top:1px solid #c09;border-bottom:1px solid #c09}}.nav__color--5.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--5.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--5.nav__item:hover,.nav__color--5.nav__item:focus,.nav__color--5.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--5.nav__item:hover,.s-header .nav__color--5.nav__item:focus,.s-header .nav__color--5.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--5.nav__item:hover,.tabs__list--mobile .nav__color--5.nav__item:focus,.tabs__list--mobile .nav__color--5.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--5.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--5.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--5.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--5.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--5.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--5.nav__item.active .fonticon{color:#c09}.nav__color--5.nav__item:hover .nav__item-link,.nav__color--5.nav__item:focus .nav__item-link,.nav__color--5.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--5.nav__item:hover .nav__item-link,.nav__color--5.nav__item:focus .nav__item-link,.nav__color--5.nav__item.active .nav__item-link{color:#c09}}.nav--collapsible .nav__color--5.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--5.nav__item.active .nav__item-link{color:#c09}.nav--collapsible .nav__color--5.nav__item.active .nav__collapse-arrow{color:#c09}.nav__color--5.nav__item.subnav__opened{background-color:#fff}.nav__color--5.nav__item.subnav__opened .nav__item-link{color:#c09}.nav__color--5 .notifications__counter--neg{background-color:#fff;color:#c09}.nav__color--5:hover .notifications__counter--neg{background-color:#c09;color:#fff}.nav__color--5 .subnav__aside{border-bottom-color:#c09}.nav__color--5 .subnav__divider{border-top-color:#c09}.nav__color--5 .subnav__main:first-child{border-color:#c09}.nav__color--5 .subnav__subcat__item-link{color:#c09}.nav__color--5 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--5 .subnav__offers__item__link{border-color:#c09}.nav__color--5 .subnav__offers__item__link .fonticon{color:#c09}.nav__color--add1.nav__item{background-color:#fc6}@media only screen and (min-width: 959px){.nav__color--add1.nav__item{border-top:1px solid #fc6;border-bottom:1px solid #fc6}}.nav__color--add1.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--add1.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--add1.nav__item:hover,.nav__color--add1.nav__item:focus,.nav__color--add1.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--add1.nav__item:hover,.s-header .nav__color--add1.nav__item:focus,.s-header .nav__color--add1.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--add1.nav__item:hover,.tabs__list--mobile .nav__color--add1.nav__item:focus,.tabs__list--mobile .nav__color--add1.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--add1.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--add1.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--add1.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--add1.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--add1.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--add1.nav__item.active .fonticon{color:#fc6}.nav__color--add1.nav__item:hover .nav__item-link,.nav__color--add1.nav__item:focus .nav__item-link,.nav__color--add1.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--add1.nav__item:hover .nav__item-link,.nav__color--add1.nav__item:focus .nav__item-link,.nav__color--add1.nav__item.active .nav__item-link{color:#fc6}}.nav--collapsible .nav__color--add1.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--add1.nav__item.active .nav__item-link{color:#fc6}.nav--collapsible .nav__color--add1.nav__item.active .nav__collapse-arrow{color:#fc6}.nav__color--add1.nav__item.subnav__opened{background-color:#fff}.nav__color--add1.nav__item.subnav__opened .nav__item-link{color:#fc6}.nav__color--add1 .notifications__counter--neg{background-color:#fff;color:#fc6}.nav__color--add1:hover .notifications__counter--neg{background-color:#fc6;color:#fff}.nav__color--add1 .subnav__aside{border-bottom-color:#fc6}.nav__color--add1 .subnav__divider{border-top-color:#fc6}.nav__color--add1 .subnav__main:first-child{border-color:#fc6}.nav__color--add1 .subnav__subcat__item-link{color:#fc6}.nav__color--add1 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--add1 .subnav__offers__item__link{border-color:#fc6}.nav__color--add1 .subnav__offers__item__link .fonticon{color:#fc6}.nav__color--add2.nav__item{background-color:#D4A93D}@media only screen and (min-width: 959px){.nav__color--add2.nav__item{border-top:1px solid #D4A93D;border-bottom:1px solid #D4A93D}}.nav__color--add2.nav__item .nav__item-link{border-bottom:1px solid #fff}@media only screen and (min-width: 959px){.nav__color--add2.nav__item .nav__item-link{border-bottom:none}}@media only screen and (min-width: 959px){.nav__color--add2.nav__item:hover,.nav__color--add2.nav__item:focus,.nav__color--add2.nav__item.active{border-top:1px solid #fff;border-bottom:1px solid #fff;background-color:#fff}.s-header .nav__color--add2.nav__item:hover,.s-header .nav__color--add2.nav__item:focus,.s-header .nav__color--add2.nav__item.active{border-top:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2}}.tabs__list--mobile .nav__color--add2.nav__item:hover,.tabs__list--mobile .nav__color--add2.nav__item:focus,.tabs__list--mobile .nav__color--add2.nav__item.active{background-color:#fff}.tabs__list--mobile .nav__color--add2.nav__item:hover .nav__item-link,.tabs__list--mobile .nav__color--add2.nav__item:hover .fonticon,.tabs__list--mobile .nav__color--add2.nav__item:focus .nav__item-link,.tabs__list--mobile .nav__color--add2.nav__item:focus .fonticon,.tabs__list--mobile .nav__color--add2.nav__item.active .nav__item-link,.tabs__list--mobile .nav__color--add2.nav__item.active .fonticon{color:#D4A93D}.nav__color--add2.nav__item:hover .nav__item-link,.nav__color--add2.nav__item:focus .nav__item-link,.nav__color--add2.nav__item.active .nav__item-link{color:#fff}@media only screen and (min-width: 959px){.nav__color--add2.nav__item:hover .nav__item-link,.nav__color--add2.nav__item:focus .nav__item-link,.nav__color--add2.nav__item.active .nav__item-link{color:#D4A93D}}.nav--collapsible .nav__color--add2.nav__item.active{background-color:#fff}.nav--collapsible .nav__color--add2.nav__item.active .nav__item-link{color:#D4A93D}.nav--collapsible .nav__color--add2.nav__item.active .nav__collapse-arrow{color:#D4A93D}.nav__color--add2.nav__item.subnav__opened{background-color:#fff}.nav__color--add2.nav__item.subnav__opened .nav__item-link{color:#D4A93D}.nav__color--add2 .notifications__counter--neg{background-color:#fff;color:#D4A93D}.nav__color--add2:hover .notifications__counter--neg{background-color:#D4A93D;color:#fff}.nav__color--add2 .subnav__aside{border-bottom-color:#D4A93D}.nav__color--add2 .subnav__divider{border-top-color:#D4A93D}.nav__color--add2 .subnav__main:first-child{border-color:#D4A93D}.nav__color--add2 .subnav__subcat__item-link{color:#D4A93D}.nav__color--add2 .subnav__subcat__item-link.subnav__subcat__all{color:#3b3b3b}.nav__color--add2 .subnav__offers__item__link{border-color:#D4A93D}.nav__color--add2 .subnav__offers__item__link .fonticon{color:#D4A93D}.subnav__link a{color:#000;text-decoration:none;font-weight:bold}.subnav__link a:hover{text-decoration:underline}#subnav__ways .subnav__offers__item a{color:#000;text-decoration:none;font-weight:bold}#subnav__ways .subnav__offers__item a:hover{text-decoration:underline}#subnav__ways .subnav__module__text ul{display:table;padding:10px 0 0 15px}@media only screen and (max-width: 689px){#subnav__ways .subnav__module__text ul{width:100%;padding:0}}#subnav__ways .subnav__module__text ul li{display:table-cell}@media only screen and (max-width: 689px){#subnav__ways .subnav__module__text ul li{display:block;padding:5px 0 5px 10px;border-bottom:1px solid #c2c2c2}}#subnav__ways .subnav__module__text ul li .fonticon{font-size:22px;color:#058aec;float:left;margin-left:-8px;position:relative}#subnav__ways .subnav__module__text ul li .fonticon-pink{color:#d72da8}#subnav__ways .subnav__module__text ul li span{display:block;padding:0 0 0 20px;width:87%}@media only screen and (max-width: 689px){#subnav__ways .subnav__module__text ul li span{width:100%}}#subnav__ways .subnav__module__text ul li a{color:#000;text-decoration:none;font-weight:bold}#subnav__ways .subnav__module__text ul li a:hover{text-decoration:underline}.tabs__list{display:none}@media only screen and (min-width: 959px){.tabs__list{display:block}}.tabs__list--mobile{display:block}@media only screen and (min-width: 959px){.tabs__list--mobile{display:none}}.tabs__list--mobile .resp-arrow{display:none}.resp-arrow{width:0;float:right;margin-right:15px}.hide-list li{border-bottom:0}@media only screen and (min-width: 959px){.subnav__subcat__item.js_hide_view_all{display:none}}.subnav__loyalty .subnav__module__full{padding:0 5px}.subnav__loyalty .subnav__module__full .subnav__module__full__item__left{display:inline-block;margin:0 25px 0 0;width:32%}@media only screen and (max-width: 689px){.subnav__loyalty .subnav__module__full .subnav__module__full__item__left{width:100%}}.subnav__loyalty .subnav__module__full .subnav__module__full__item__right{display:inline-block;width:62%}.subnav__loyalty .subnav__subcat__item{padding:0 10px}.subnav__loyalty .subnav__subcat{margin-top:30px}.subnav__loyalty .subnav__subcat__item-link{padding-left:0}.subnav__loyalty .loyalty-points{color:#d72da8;border-bottom:1px solid #d72da8;float:left}.subnav__loyalty .text--extra-big{font-size:30px}#subnav__japloy .subnav__aside{text-align:center}#subnav__japloy .japloy__btn{display:inline-block;min-width:230px;height:40px;color:#fff;text-align:center;background-repeat:repeat;-webkit-border-radius:3px;border-radius:3px;margin-bottom:10px}#subnav__japloy .japloy__btn .fonticon,#subnav__japloy .japloy__btn span{display:inline-block;vertical-align:middle}#subnav__japloy .japloy__btn .fonticon{margin-right:5px}#subnav__japloy .japloy__btn1{background-image:url("../../Images/mile-btn-login.jpg")}#subnav__japloy .japloy__btn2{background-image:url("../../Images/mile-btn-about.jpg")}#subnav__japloy .japloy__btn3{background-image:url("../../Images/mile-btn-campaign.jpg")}@media only screen and (max-width: 958px){.scrollbar-lock{overflow:hidden;position:fixed}}.social-icon{vertical-align:middle;margin-right:5px;font-size:10px;font-size:1rem;line-height:15px;line-height:1.5rem}.social-icon span{float:left;padding:0 5px 0 0}.social-icon .btn-icon{text-decoration:none;font-size:17px;font-size:1.7rem;line-height:17px;line-height:1.7rem}.post-meta .btn-icon{font-size:18px;font-size:1.8rem;line-height:27px;line-height:2.7rem;margin:0 8px 0 0;text-decoration:none}.post-meta .post-social{float:right;padding:8px 5px 8px 5px}@media only screen and (max-width: 689px){.post-meta .post-social{float:none}}@media only screen and (min-width: 690px) and (max-width: 958px){.post-meta .post-social{float:none;clear:both}}.article .post-meta .post-social .social-icon .btn-icon,.multi-retailer .post-meta .post-social .social-icon .btn-icon,.recipe .post-meta .post-social .social-icon .btn-icon,.tip .post-meta .post-social .social-icon .btn-icon,.slideshow .post-meta .post-social .social-icon .btn-icon{font-size:30px;font-size:3rem;line-height:27px;line-height:2.7rem}.article .post-facebook.post-facebook--detailpage,.multi-retailer .post-facebook.post-facebook--detailpage,.recipe .post-facebook.post-facebook--detailpage,.tip .post-facebook.post-facebook--detailpage,.slideshow .post-facebook.post-facebook--detailpage{padding:8px 5px 8px 5px}.article .post-facebook.post-facebook--detailpage .favoritesico .fonticon,.article .post-facebook.post-facebook--detailpage .iconlabel .fonticon,.multi-retailer .post-facebook.post-facebook--detailpage .favoritesico .fonticon,.multi-retailer .post-facebook.post-facebook--detailpage .iconlabel .fonticon,.recipe .post-facebook.post-facebook--detailpage .favoritesico .fonticon,.recipe .post-facebook.post-facebook--detailpage .iconlabel .fonticon,.tip .post-facebook.post-facebook--detailpage .favoritesico .fonticon,.tip .post-facebook.post-facebook--detailpage .iconlabel .fonticon,.slideshow .post-facebook.post-facebook--detailpage .favoritesico .fonticon,.slideshow .post-facebook.post-facebook--detailpage .iconlabel .fonticon{font-size:30px;font-size:3rem;line-height:20px;line-height:2rem}.fonticon-facebook,.fonticon-facebook-sign{color:#3B5998}.fonticon-googleplus,.fonticon-google,.fonticon-googleplus-sign{color:#d55429}.fonticon-twitter,.fonticon-twitter-sign{color:#4099FF}.fonticon-youtube,.fonticon-youtube-sign{color:#e52d27}.fonticon-pinterest,.fonticon-pinterest-sign{color:#cb2027}.fonticon-tumblr,.fonticon-tumblr-sign{color:#2f4b66}.fonticon-odnoklassniki-sign{color:#f58220}.fb-button,.pinterest-button{text-decoration:none}.social__list>li{vertical-align:top}.social__list__link{display:block;position:relative;width:34px;height:34px;margin:2px 0;padding:8px;text-decoration:none;background-color:#ebebeb}.social__list__link .fonticon{font-size:20px;font-size:2rem;line-height:10px;line-height:1rem;position:absolute;left:8px;top:12px}#modal-background,#modal-background-2,#paidsample-modal-background,#choose-country,.modal-container,.modal{display:none}
+</style>
+
+    
+    <link rel="preload" href="https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Styles/theme/global-en-us.css?v=470f2c9703cde055f2872f8e864ff807" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://pgeveryday-com.secure.footprint.net//LayoutAssets/Core/Styles/theme/global-en-us.css?v=470f2c9703cde055f2872f8e864ff807"></noscript>
+
+    <script>
+        /! loadCSS and rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License /
+        !function (a) { "use strict"; var b = function (b, c, d) { function j(a) { if (e.body) return a(); setTimeout(function () { j(a) }) } function l() { f.addEventListener && f.removeEventListener("load", l), f.media = d || "all" } var g, e = a.document, f = e.createElement("link"); if (c) g = c; else { var h = (e.body || e.getElementsByTagName("head")[0]).childNodes; g = h[h.length - 1] } var i = e.styleSheets; f.rel = "stylesheet", f.href = b, f.media = "only x", j(function () { g.parentNode.insertBefore(f, c ? g : g.nextSibling) }); var k = function (a) { for (var b = f.href, c = i.length; c--;) if (i[c].href === b) return a(); setTimeout(function () { k(a) }) }; return f.addEventListener && f.addEventListener("load", l), f.onloadcssdefined = k, k(l), f }; "undefined" != typeof exports ? exports.loadCSS = b : a.loadCSS = b }("undefined" != typeof global ? global : this);
+
+        !function (a) { if (a.loadCSS) { var b = loadCSS.relpreload = {}; if (b.support = function () { try { return a.document.createElement("link").relList.supports("preload") } catch (a) { return !1 } }, b.poly = function () { for (var b = a.document.getElementsByTagName("link"), c = 0; c < b.length; c++) { var d = b[c]; "preload" === d.rel && "style" === d.getAttribute("as") && (a.loadCSS(d.href, d, d.getAttribute("media")), d.rel = null) } }, !b.support()) { b.poly(); var c = a.setInterval(b.poly, 300); a.addEventListener && a.addEventListener("load", function () { b.poly(), a.clearInterval(c) }), a.attachEvent && a.attachEvent("onload", function () { a.clearInterval(c) }) } } }(this);
+    </script>
+
+
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PW4NS3V');</script></head>
+<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW4NS3V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Facebook Initialisation -->
+    <input type="hidden" data-nongender="Pr,Other,Dr,Rev" data-popup-message="You are now leaving P\u0026G everyday. P\u0026G is not responsible for the content displayed on non-P\u0026G websites." id="jsflagvariable" data-site-domainname="pgeveryday.com" />
+
+    <div id="fb-root"></div>
+        <div id="js-facebook" data-enableconnect="True" data-enablelike="True" style="display:none"></div>
+        <div id="current-FB-settings" style="display:none" data-locale="en_US" data-appid="1518728368394121"></div>
+
+
+        <div id="GetUserFacebookUrl" style="display:none">/page/facebook/getfacebookuserdatassl</div>
+        <div id="UserConnectFacebookUrl" style="display:none">/page/facebook/userconnect</div>
+        <div id="FacebookEnableAutoLogin" style="display:none">True</div>
+        <div id="IsAuthenticated" style="display:none">False</div>
+    <div id="cookie-consent-header">
+    </div>
+
+    <div id="wrapper" class=" pahc">
+        <div>
+            <div id="content-wrapper" class="">
+                <header id="header" role="banner" class="s-header">
+                    <!-- header nav -->
+                    <div class="container">
+                        <div class="s-header__content">
+                            <div class="s-header__content__inner">
+                                <div class="s-header__content--mobile">
+
+                                    <!-- NAV MOBILE -->
+                                    <div class="s-header__nav-mobile">
+                                        <a id="js-menu-toogle" href="#" data-toggle="collapse" data-target="#js-navbar-mobile" class="navbar-toogle event_menu_click" data-pgaction-redirection="0" data-action-detail="Menu_Icon_Mobile"><i aria-hidden="true" class="fonticon fonticon-menu"></i><span class="sr-only">Menu mobile</span></a>
+                                    </div><!-- LOGO -->
+                                    <div class="s-header__logo">
+                                        <a itemprop="url" href="/" title="return to the homepage">
+                                            <h1 itemscope="" itemtype="http://schema.org/Organization">P&G Everyday - Coupons & Offers, Recipes, Home Decor</h1>
+                                            <div class="s-header__logo-cache">
+<img itemprop="logo" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/Logo/en-US/logoEverydayme.gif" width="200" height="76" alt="P&G Everyday - Coupons & Offers, Recipes, Home Decor">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="s-header__avatar">
+    <a href="#" class="js-header-avatar js-openlogin-modal ">
+        <!--<img alt="user off" class="s-header__user__profile-pic js-avatarImg" src="/LayoutAssets/Core/Images/icons/user-on.jpg">-->
+        <img alt="user off" class="s-header__user__profile-pic js-avatarImg" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/icons/user-on.jpg" /><noscript><img alt="user off" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/icons/user-on.jpg"  /></noscript>
+    </a>
+    <div class="header__tooltip">
+        <ul>
+            <li><a href="#">Hello&nbsp;<span></span></a></li>
+            <li><a href="/page/profile/detail">My profile</a></li>
+            <li><a href="/page/login/logout">Log out</a></li>
+        </ul>
+    </div>
+</div>
+
+
+                                    <!-- MIDDLE -->
+                                    <div class="s-header__middle">
+                                        <div class="s-header__middle__row group">
+                                                <div class="s-header__social">
+                                                        <ul class="inline-list list-unstyled">
+                                                            <li class="social-icon"><span>Follow us</span></li>
+                                                                <li class="social-icon"><a data-action-detail="Facebook" class="btn-icon event_socialmedia_exit" href="https://www.facebook.com/PGEveryday" target="_blank"><i aria-hidden="true" class="fonticon fonticon-facebook-sign"></i><div class="sr-only">Facebook</div></a></li>
+                                                                <li class="social-icon"><a data-action-detail="Twitter" class="btn-icon event_socialmedia_exit" href="https://twitter.com/pgeveryday" target="_blank"><i aria-hidden="true" class="fonticon fonticon-twitter-sign"></i><div class="sr-only">Twitter</div></a></li>
+                                                                <li class="social-icon"><a data-action-detail="YouTube" class="btn-icon event_socialmedia_exit" href="http://www.youtube.com/user/PGEveryday" target="_blank"><i aria-hidden="true" class="fonticon fonticon-youtube-sign"></i><div class="sr-only">YouTube</div></a></li>
+                                                        </ul>
+                                                </div>
+
+                                            <div class="s-header__language header--adchoice"></div>
+                                        </div>
+
+                                        <!-- Search -->
+                                        <div id="js-search-mobile-other" class="s-header__search">
+                                            <div role="search" class="search form-search box-search">
+                                                <form name='form-search' class='suggest-site js-form-search' method='get' action='/page/search'>
+                                                <label for="input-search" class="sr-only">What are you looking for?</label>
+                                                <input autocomplete="off" class="search__input event_search" data-action-detail="input-search" id="input-search" name="q" onkeydown="global.trackSearch(event,this);" placeholder="What are you looking for?" title="What are you looking for?" type="search" value="" />
+                                                <button type="submit" id="js-search-other" class="search__button">
+                                                    <i aria-hidden="true" class="fonticon fonticon-search"></i>
+                                                    <span class="sr-only">Click here to search</span>
+                                                </button>
+                                                <input class="searchResource" id="searchResource" name="searchResource" type="hidden" value="Enter your keyword" />
+                                                </form>
+                                            </div>
+                                            <div id="suggest" class="search-display"></div>
+                                        </div>
+                                    </div>
+                                    <div class="s-header__cart-mobile"></div>
+                                    <div class="s-header__search-mobile-toggle">
+                                        <a class="event_menu_click" data-pgaction-redirection="0" id="js-search-toogle" href="#">
+                                            <i aria-hidden="true" class="fonticon fonticon-search"></i>
+                                            <span class="sr-only">Search</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="s-header__search-mobile">
+                                    <div id="js-search-mobile" class="s-header__search">
+                                        <div role="search" class="search form-search box-search">
+                                            <form name='form-search' class='suggest-site js-form-search' method='get' action='/page/search'>
+                                            <label for="input-search-mobile" class="sr-only">What are you looking for?</label>
+                                            <input autocomplete="off" class="search__input event_search event_button_click" id="input-search-mobile" name="q" onkeydown="global.trackSearch(event,this);" placeholder="What are you looking for?" title="What are you looking for?" type="search" value="" />
+                                            <button type="submit" id="js-search-new" class="search__button event_button_click" data-action-detail="Search_Mobile"><i aria-hidden="true" class="fonticon fonticon-arrow-right"></i><span class="sr-only">Click here to search</span></button>
+                                            <input class="searchResource" id="searchResource-mobile" name="searchResource" type="hidden" value="Enter your keyword" />
+                                            </form>
+                                            <div id="suggest-mobile" class="search-display"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s-header__overlay js-header-overlay"></div>
+                                <div id="js-user-mobile" class="s-header__user">
+                                    
+<input id="js-collectionTypeNames" name="DataCollection" type="hidden" value="" />
+<input id="js-uxData" name="IsUserCollection" type="hidden" value="False" />
+<input id="need-postalAddress-popup" name="IsPostalAddressCollection" type="hidden" value="False" />
+<input id="js-collection-count" name="UserCollectionCount" type="hidden" value="0" />
+
+
+
+        <div class="s-header__login">
+                <a href="/page/login" data-statscategory="header-events" data-statsaction="login-register" class="s-header__user__box s-header__user__box__login btn link--no-underline js-openlogin-modal s-header__login__btn event_profile_login" data-pgaction-redirection='0' data-modal-intro="Log in to unlock exclusive offers, discover our tips and tricks, and get the most out of your P&amp;G everyday experience!" data-action-detail="Login_header_button">Log in</a>
+                <a href="/page/registration" data-statscategory="header-events" data-statsaction="login-register" class="s-header__user__box s-header__user__box__login btn link--no-underline s-header__register__btn js-openregistration-modal event_profile_register" data-pgaction-redirection='0' data-target-part="modal" data-titletext="Register now" data-action-detail="Register_header_button">Register</a>
+        </div>
+        <div class="s-header__logged js-collapse-click s-header__login-user hidecontent">
+            <a href="/page/profile/detail" hreflang="en" data-statscategory="header-events" data-statsaction="" data-toggle="collapse" data-target=".s-header__user__expand" class="link s-header__user__box s-header__user__box__logged header__avatar--icon">
+<img alt="user off" class="s-header__user__profile-pic js-avatarImg" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/icons/user-on.jpg" /><noscript><img alt="user off" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/icons/user-on.jpg"  /></noscript>                     <i aria-hidden="true" id="js-header-vortex-avatar" class="hidecontent"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></i>
+                <p class="s-header__user__welcome text--small">
+                    Hello&nbsp;<span class="s-header__user__name">
+ 
+                    </span>
+                </p>
+            </a>
+        </div>
+        <div style="display: none;" class="s-header__user__expand js-collapsible">
+            <div class="s-header__user__links">
+                <div class="divider-group">
+                    <a data-modal-intro="Log in to unlock exclusive offers, discover our tips and tricks, and get the most out of your P&amp;G everyday experience!" href="/page/profile/detail" class="link link--inverted user__links__item js-openlogin-modal event_menu_click" data-action-detail="Goto_Profile">My profile</a>
+                </div>
+                <a href="/page/login/logout" class="link link--inverted user__links__item event_profile_logout">Log out</a>
+            </div>
+        </div>
+
+
+<input type="hidden" id="vortex-enabled" value="True"/>
+<input type="hidden" id="abtesting-enabled" value="True"/>
+<input type="hidden" id="maintenance-mode-enabled" value="False"/>
+<input type="hidden" id="data-layer-push-delay" value="False" />
+
+    <input type="hidden" id="js-vk-vortex" value="False" />
+    <input type="hidden" id="vortex-deq-generic-thankyou-message" name="vortex-deq-generic-thankyou-message" value="Thank you !" />
+    <input type="hidden" id="vortex-current-user-urn" name="vortex-current-user-urn" value="0" />
+    <input type="hidden" id="vortex-sms-code-enabled" value="False" />
+    <input type="hidden" id="vortex-strike-iron-enabled" value="True" />
+    <input type="hidden" id="default-registration-variation-id" value="NormalRegistrationForm_en-US_2"/>
+    <input type="hidden" id="default-inline-registration-variation-id" value="InlineRegistrationForm_en-US_2"/>
+    <input type="hidden" id="email-error-message" value="Email Already Exists"/>
+    <input type="hidden" id="page-translation" value="page"/>
+    <input type="hidden" id="email-activation-optin-enabled" value="False"/>
+    <!-- registration id for each module -->
+    <input type="hidden" id="coupon-registration-id" value="CouponRegistrationForm_en-US"/>
+    <input type="hidden" id="multisample-registration-id" value="MultisampleRegistrationForm_en-US"/>
+    <input type="hidden" id="sample-registration-id" value="SampleRegistrationForm_en-US"/>
+    <input type="hidden" id="comment-registration-id" value="CommentRegistrationForm_en-US"/>
+    <input type="hidden" id="review-registration-popin-id" value="ReviewRegistrationFormPopin_en-US"/>
+    <input type="hidden" id="review-registration-inline-id" value="ReviewRegistrationFormInline_en-US"/>
+    <input type="hidden" id="favorites-registration-id" value="FavoritesRegistrationForm_en-US"/>
+    <input type="hidden" id="game-registration-id" value="GameRegistrationForm_en-US"/>
+    <input type="hidden" id="gatedoffers-registration-id" value="GatedOffersRegistrationForm_en-US"/>
+    <input type="hidden" id="questionnaire-registration-id" value="QuestionnaireRegistrationForm_en-US"/>
+    <!--end registration id for each module -->
+    <input type="hidden" id="print-coupon-redirection-url" value="/printable-coupons/print?deny=0"/>
+    <input type="hidden" id="registration-thankyou-url" value="/page/thank-you/registration-thank-you"/>
+    <input type="hidden" id="registration-page-url" value="/page/registration"/>
+    <input type="hidden" id="enable-facebook-country-selector" value="False"/>
+            <input type="hidden" id="ABCampaignIdRegistration_en-US" value="43"/>
+            <input type="hidden" id="ABCampaignIdRegistration_es-US" value="44"/>
+        <div id="abtesting-registration-variationids-popin" style="display: none;">
+                <input type="hidden" id="abtesting-registration-variationid-popin_1" value="NormalRegistrationForm_en-US_2"/>
+
+        </div>
+        <div id="abtesting-registration-variationids-inline" style="display: none;">
+                <input type="hidden" id="abtesting-registration-variationid-inline_1" value="InlineRegistrationForm_en-US_2"/>
+
+        </div>
+
+
+
+
+                                </div>
+                                <div class="s-header__cart">
+                                    
+        <a href="/page/basket" class="nav-cart js-collapse-click"><i aria-hidden="true" class="fonticon fonticon-basket"></i><span class="sr-only">Basket</span>
+            <div class="nav-cart__counter total-offers">0</div>
+        </a>
+            <div style="display: none;" class="nav-cart__details js-collapsible">
+
+
+
+        <div class="divider-group">
+            <div class="nav-cart__offer coupons">
+                <div class="nav-cart__counter total-coupon">0</div>
+                <p>
+                    Coupons &nbsp; &nbsp; &nbsp; &nbsp; 
+                </p>
+            </div>
+
+            <div class="nav-cart__action coupons">
+                        <button class="btn btn-icon btn--nomargin js-btn__print" data-modal-intro="To redeem this offer, please log in."   ><i aria-hidden="true" class="fonticon fonticon-print"></i>Print</button>
+            </div>
+
+            <div class="group"></div>
+            <input type="hidden" id="PRINT_COUPON_LAYER_URL" value="/printable-coupons/print?deny=0"/>
+            <div class="nav-cart__infos">
+                        <p class="text--small text--grey savings-coupon">My savings:<b class="text--pink">$</b><span class="text--pink text--bold"></span></p>
+                        <p class="text--small text--grey save-this-month">This month, save up to:<span class="text--pink text--bold">$&nbsp;39.24</span></p>
+            </div>
+                <a href="/coupons-offers" target="_self">See all savings</a>
+        </div>
+
+    <div class="js-view-thankyou-coupon-inline"></div>
+    <script type="text/template" id="js-view-close-link">
+        <h2 class="title-box js-main-title">
+            Thank you !
+        </h2>
+        <a href="#" class="close-box js-close-deq-modal" data-action-detail="" data-pgaction-redirection="0">X</a>
+    </script>
+    <input type="hidden" id="time-before-deq-display-coupon" name="time-before-deq-display-coupon" value="30000"/>
+<a href="/page/shopper-card-coupons-online/landing-page">Direct to Shopper Card Coupons</a>                <input id="ThirdPartyProfileUpdate" type ="hidden" value ="/page/profile/confirmaddresscoupon" />
+            <div class="btn--center">
+                <a href="/page/basket" target="_self" class="btn btn-icon"><i aria-hidden="true" class="fonticon fonticon-basket"></i>View my cart</a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+                                </div>
+                                <section>
+                                    <div class="loader__container hidecontent">
+                                        <div class="loader__content">
+                                            <div class="loader__img"></div>
+                                            <p>Loading .....</p>
+                                        </div>
+                                    </div>
+                                    <div id="modal-background" class="modal-background-collection event_close_window" data-action-detail="cancel_registration_form_default" data-pgaction-redirection="0"></div>
+
+                                    <!--facebook popup modal Begin-->
+                                        <div id="js-facebook-modal" class="facebook__modal-info modal-container"></div>
+                                    <!--facebook popup modal End-->
+                                    <!--Login popup modal Begin-->
+                                    <div id="js-login-modal" class="modal-container modal__login modal__default">
+                                        
+
+
+
+<div class="modal-inner modal-vortex__default">
+    <div class="text--right">
+        <h2 class="title-box js-main-title">Sign in</h2>
+        <a href="#" class="close-box js-close-modal event_close_window" data-action-detail="cancel_registration_form_default" data-pgaction-redirection='0'>X</a>
+    </div>
+    <div class="modal-content">
+        <div class="modal-body-box">
+            <div class="modal-box js-view-content">
+                <div class="vortex__container">
+                    <div class="login-content">
+                        <form id="login_popin" class="formparsley" action="javascript:void(0)" novalidate="">
+                            <p class="subtitle-box-error js-sub-title-error-msg error-msg hidecontent"></p>
+                            <div class="form-seperator"></div>
+                            
+
+                    <div class="form__input-fields">
+                        <div class="form__item">
+                            <div class="form__item__label">
+                                <label for="login_popin_username">
+                                    
+                                    Email
+                                </label>
+
+                            </div>
+                            <div class="form__item__input">
+                                <input type='text' class='form__input' id='login_popin_username' data-parsley-login_popin_username data-parsley-login_popin_username-message="This is a mandatory field." data-textfield name='username' value="" data-parsley-pattern="^[a-zA-Z0-9]+(_)?([-_+.][a-zA-Z0-9_]+)*\@[a-zA-Z0-9]+([-.][a-zA-Z0-9]+)*\.[a-zA-Z0-9]+([-.][a-zA-Z0-9]+)*$" data-validation-pattern="^[a-zA-Z0-9]+(_)?([-_+.][a-zA-Z0-9_]+)*\@[a-zA-Z0-9]+([-.][a-zA-Z0-9]+)*\.[a-zA-Z0-9]+([-.][a-zA-Z0-9]+)*$" data-parsley-pattern-message="Please enter a valid email address." data-parsley-required='true' autocomplete='off' data-parsley-required-message="This is a mandatory field." data-parsley-trigger='focusout keypress' />
+                            </div>
+
+                            <div id="login_popin_username-error" class="form__item__info">
+                                <div class="form__message__success js-validborder">
+                                    <i aria-hidden="true" class="fonticon fonticon-check"></i>
+                                </div>
+                                <div class="form__message form__message--error">
+                                    <div class="form__message__icon">
+                                        <i aria-hidden="true" class="fonticon fonticon-cancel"></i>
+                                    </div>
+                                    <div class="form__message__txt">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <input type="hidden" name="checkbox" value="showpassword"/>
+                        <div class="form__input-fields">
+                            <div class="form__item">
+                                <div class="form__item__label">
+                                    <label for="login_popin_password" id="lbluserpassword">
+                                        
+                                        Password
+                                    </label>
+
+                                    <div data-target="login_popin_password" data-showtext="Show" data-hidetext="Hide" class="show-password js-show-password show-active">
+                                        <i aria-hidden="true" class="fonticon fonticon-visible"></i><span>Show</span>
+                                    </div>
+                                </div>
+                                <div class="form__item__input">
+                                    <input autocomplete='off' type='password' class='form__input' id='login_popin_password' data-parsley-login_popin_password data-parsley-login_popin_password-message="The password is required" data-passswordfield name='password' value=''   data-parsley-required='true' data-parsley-required-message="This is a mandatory field." data-parsley-trigger='focusout keypress' />
+                                </div>
+                                <div id="login_popin_password-error" class="form__item__info">
+                                    <div class="form__message__success js-validborder">
+                                        <i aria-hidden="true" class="fonticon fonticon-check"></i>
+                                    </div>
+                                    <div class="form__message form__message--error">
+                                        <div class="form__message__icon">
+                                            <i aria-hidden="true" class="fonticon fonticon-cancel"></i>
+                                        </div>
+                                        <div class="form__message__txt">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="no_mapping" value="URL|Reset Password Url"/>
+                    <div class="form__item">
+                        <div class="form__item__label special-offers-text">
+                            <label for="login_popin_no_mapping" class="">
+                                <div class="special-offers-align">
+
+
+                                    <input type='checkbox' id='login_popin_no_mapping' value='true' name='login_rememberme'  data-parsley-trigger='focusout keypress' data-parsley-multiple='login_rememberme' />&nbsp; 
+                                </div>
+                                <div class="special-offers-align-text">Keep me signed in</div>
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="form__registration-buttons">
+                        <div class="form__item">
+                            <div class="form__item__input btn-center">
+
+                                    <input type="submit" id="login_popin_submit" class="js-login-continue btn btn--main btn--user btn--margin btn-large event_profile_login_submit" data-pgaction-redirection='0'  data-action-detail="default" value="Sign in" /> 
+                            </div>
+                        </div>
+                    </div>
+                        <input type="hidden" name="checkbox" value="showpassword"/>
+                <div class="separator-dashed"></div>
+                <span class=""> </span>
+<input id="FormSubmitUrl" name="FormSubmitUrl" type="hidden" value="/rest/app/{0}/account/login" /><input id="FormType" name="FormType" type="hidden" value="Login" /><input id="PostAction" name="PostAction" type="hidden" value="" /><input id="FormGetUrl" name="FormGetUrl" type="hidden" value="" />
+
+
+                            <p class="subtitle-box-error js-sub-title-error-msg error-msg hidecontent"></p>
+
+                            <input type="hidden" name="payload_event_category" value="event_crm_action"/>
+                            <input type="hidden" name="payload_event_action" value="event_profile_login_complete"/>
+                            <input type="hidden" name="payload_event_label" value="Login_header_button" />
+                            <input type="hidden" id="contenttype-login" name="contenttype-login" value="" />
+                                <!-- facebook connect -->
+                                <div class="form_registration-facebook">
+                                    <div class="form__item__input">
+                                        <div class="facebook-connect-text"><span>Or</span><hr></div><br>
+                                        <div class="facebook-connect-plugin">
+                                            <fb:login-button  scope="public_profile,email" onlogin="displayLoginPopupVortex('true', 'login', 'modal');">
+                                                Log In with Facebook
+                                            </fb:login-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="form__item">
+                                <p>
+                                    <a href="#" data-titletext="Reset my password" data-pgaction-redirection='0' class="js-show-forgetpassword">
+                                        <em>Forgotten your password?</em>
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="registration-content hidecontent" payload-event-category="event_crm_action" payload-event-action="event_profile_register_view_form" payload-event-label="default">
+                        <form id="registration" method="post" action="/" class="formparsley">
+                            <div class="form-seperator"></div>
+                            <div class="form__privacy__content registration-error-msg">
+                                <p class="subtitle-box"></p>
+                            </div>
+                            <div class="js-view-registration-content">
+                                
+                                
+                                
+                            </div>
+
+                            <input type="hidden" name="payload_event_category" value="event_crm_action"/>
+                            <input type="hidden" name="payload_event_action" value="event_profile_register_complete"/>
+                            <input type="hidden" name="payload_event_label" value="register_header_button" />
+                            <input type="hidden" id="contenttype-registration" name="contenttype-registration" value="" />
+                                <!-- facebook connect -->
+                                <div class="form_registration-facebook">
+                                    <div class="form__item__input">
+                                        <div class="facebook-connect-text"><span>Or</span><hr></div><br>
+                                        <div class="facebook-connect-plugin">
+                                            <fb:login-button  scope="public_profile,email" onlogin="displayLoginPopupVortex('true', 'registration', 'modal');">
+                                                Log In with Facebook
+                                            </fb:login-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+                        </form>
+                    </div>
+                    <div class="js-view-show-login">
+                        <p>
+                            <strong>
+                                Not a member ? <a href="#" class="js-show-registration event_profile_register" data-pgaction-redirection='0' data-target-part="modal" data-action-detail="default" data-titletext="Register now">Register</a>
+                            </strong>
+                        </p>
+                    </div>
+                    <div class="js-view-show-registration hidecontent">
+                        <p class="show-login-text">
+                            <strong>
+                                Already a member?&nbsp;<a href="#" class="js-show-login event_profile_login" data-pgaction-redirection='0' data-action-detail="default" data-target-part="modal" data-titletext="Sign in">Sign in</a>
+                            </strong>
+                        </p>
+                    </div>
+                    <div class="js-view-thankyou hidecontent">
+                        <div class="form-seperator"></div>
+                        <input type="hidden" id="registration-thankyou-dynamic-title" name="registration-thankyou-title" value="Thank you for creating your account on P&G everyday."/>
+                            <p class="hms-visible hidecontent">Thank you for subscribing to Home Made Simple</p>
+                            <p class="mbib-visible hidecontent">Thank you for subscribing to My Black Is Beautiful</p>
+                            <p class="orgullosa-visible hidecontent">Thank you for subscribing to Orgullosa</p>
+                        <div class="form__privacy__content">
+                            <p class="">Please take a little moment to complete your profile so we can personalize your experience and make sure you receive content and offers that are relevant to you.</p>
+                        </div>
+                        <div class="form-seperator"></div>
+
+                        <div class="form__item js-thankyou-btn hidecontent">
+                            <div class="form__item__input btn-center">
+                                <button type="button" class="btn btn--main btn--user btn--margin btn-large js-close-authentication event_button_click" data-pgaction-redirection='0' data-target-part="modal" data-action-detail="continue_browsing_default">
+                                    Continue browsing
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="js-show-enrichment-questions hidecontent">
+
+                        </div>
+                    </div>
+                    <div class="reset-password-content hidecontent">
+                        <div class="form__item js-show-error-resetpassword error-msg"></div>
+                        <div class="js-view-enter-email">
+                            <div class="fieldset__title">
+                                <p class="password-instruction-message">Please enter your e-mail adress to reset your password.</p>
+                            </div>
+<form action="/save-profile-section/vortex/requestpasswordform" class="formparsley" enctype="multipart/form-data" id="reset-password-email" method="post">
+
+                    <div class="form__input-fields">
+                        <div class="form__item">
+                            <div class="form__item__label">
+                                <label for="resetpassword_popin_username">
+                                    
+                                    Email
+                                </label>
+
+                            </div>
+                            <div class="form__item__input">
+                                <input type='text' class='form__input' id='resetpassword_popin_username' data-parsley-resetpassword_popin_username data-parsley-resetpassword_popin_username-message="This is a mandatory field." data-textfield name='username' value="" data-parsley-pattern=".*[@].*\..*" data-validation-pattern=".*[@].*\..*" data-parsley-pattern-message="Please enter a valid email address." data-parsley-required='true' autocomplete='off' data-parsley-required-message="This is a mandatory field." data-parsley-trigger='focusout keypress' />
+                            </div>
+
+                            <div id="resetpassword_popin_username-error" class="form__item__info">
+                                <div class="form__message__success js-validborder">
+                                    <i aria-hidden="true" class="fonticon fonticon-check"></i>
+                                </div>
+                                <div class="form__message form__message--error">
+                                    <div class="form__message__icon">
+                                        <i aria-hidden="true" class="fonticon fonticon-cancel"></i>
+                                    </div>
+                                    <div class="form__message__txt">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__registration-buttons">
+                        <div class="form__item">
+                            <div class="form__item__input btn-center">
+
+                                    <input type="submit" id="resetpassword_popin_submit" class="btn btn--main btn--user btn--margin btn-large" data-pgaction-redirection='0'  value="Reset Password" />
+                            </div>
+                        </div>
+                    </div>
+<input id="FormSubmitUrl" name="FormSubmitUrl" type="hidden" value="/rest/app/{0}/account/resetpwdbymail" /><input id="FormType" name="FormType" type="hidden" value="request_password" /><input id="PostAction" name="PostAction" type="hidden" value="" /><input id="FormGetUrl" name="FormGetUrl" type="hidden" value="" />
+                                <div class="form__item js-show-error-resetpassword error-msg"></div>
+                                <div class="form__item">
+                                    <p>
+                                        <a href="#" data-titletext="Sign in" data-pgaction-redirection='0' class="js-cancel-resetpassword">Cancel</a>
+                                    </p>
+                                </div>
+</form>                        </div>
+                        <div class="js-view-thankyou-email hidecontent">
+                            <div class="form-seperator"></div>
+                            <div class="form__privacy__content">
+                                <p class="subtitle-box">Check your email. You will receive an email very shortly containing a link to reset your password</p>
+                            </div>
+                            <div class="form-seperator"></div>
+                            <div class="form__item">
+                                <div class="form__item__input btn-center">
+                                    <button type="button" class="btn btn--main btn--user btn--margin btn-large js-close-modal" data-pgaction-redirection='0'>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-view-thankyou-password hidecontent">
+                            <div class="form-seperator"></div>
+                            <div class="form__privacy__content">
+                                <p class="subtitle-box">Check your email. You will receive an email very shortly containing a link to reset your password</p>
+                            </div>
+                            <div class="form-seperator"></div>
+                            <div class="form__item">
+                                <div class="form__item__input btn-center">
+                                    <a href="/" class="btn btn--main btn--user btn--margin btn-large" data-pgaction-redirection='0'>Go to homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="vortex-login-popin" data-form-mobile="False"></div>
+<input type="hidden" id="request-scenario" name="request-scenario" value=""/>
+
+<input id="LoginReturnUrl" name="LoginReturnUrl" type="hidden" value="" />
+<input id="IsReturnPageOverlay" name="IsReturnPageOverlay" type="hidden" value="False" />
+<div id="LoginPopinUrl" style="display: none">/page/loginpopin</div>
+<div id="LoginUrl" style="display: none">/save-profile-section/vortex/vortexloginform</div>
+
+
+
+                                            <input type="hidden" data-modal-intro="Log in to unlock exclusive offers, discover our tips and tricks, and get the most out of your P&amp;G everyday experience!" id="passiveModalIntro" />
+
+                                    </div>
+                                    <!--Login popup modal End-->
+
+                                    <!-- Facebook country selector begin -->
+                                    <!-- Facebook country selector begin -->
+
+                                    <!-- favourite thank you -->
+
+                                    <div id="js-add-favorites-thank-you" class="modal-container modal__login modal__default">
+
+                                        
+<div class="modal-inner modal-vortex__default modal_add-favourite">
+    <div class="text--right">
+        <h2 class="title-box js-main-title">Add to favorites</h2>
+        <a href="#" class="close-box js-close-modal">X</a>
+    </div>
+    <div class="modal-content">
+        <div class="form-seperator"></div>
+        <div class="form__privacy__content">
+            <p class="subtitle-box registration-message hidecontent">Thank you for creating your account on P&G everyday. This article or product has been added to your favorites.</p>
+            <p class="subtitle-box default-message">This article or product has been added to your favorites.</p>
+        </div>
+        <div class="form-seperator"></div>
+    </div>
+    <div class="js-show-enrichment-questions hidecontent"></div>
+</div>
+
+                                     </div>
+
+                                        <!-- favourite thank you end -->
+                                        <!--Registration Survey popup modal Begin-->
+                                        <!--Registration Survey popup modal End-->
+                                        <!--Data collection popup modal Begin-->
+                                        <div id="popupcollection">
+                                            <div class="modal-container modal-container-collection">
+                                                <div class="modal-inner">
+                                                    <header>
+                                                        <a type="button" aria-hidden="true" class="close closemodal closeprofilemodal"></a>
+                                                    </header>
+                                                    <div class="modal-content modal-content-collection">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Data collection popup modal End-->
+                                        <!-- Paid Sample -->
+                                        <!-- End of paid sample -->
+
+</section>
+                            </div>
+                        </div>
+                        <!-- header navigation-->
+                        <nav id="js-menu-mobile" role="navigation" class="s-header__navbar">
+                            <!-- NAV PRIMARY -->
+                            <!-- Change the class according to the number of items in the menu-->
+                            <!-- 9 items (max): .nav__nine-items-->
+                            <!-- 8 items: .nav__eight-items-->
+                            <!-- 7 items: .nav__seven-items-->
+                            <!-- 6 items (min): .nav__six-items -->
+
+                            <ul class="nav js-nav group" id="nav_header">
+         <li class="nav__item nav__color--1 js-collapse-hover">
+    <a href=/family class="nav__item-link link--no-underline event_menu_click" data-pgaction-redirection="0" data-action-detail="Family">
+        <span class="nav__first-level">Family</span>
+    </a>
+        <div class="subnav js-collapsible nav__color--1">
+            <div class="subnav__aside">
+                <ul class="subnav__offers">
+
+    <li class="subnav__offers__item"><a href="/family/products-reviews" target="_self" class="link subnav__offers__item__link"><i aria-hidden="true" class="fonticon fonticon-star"></i><span>Reviews</span></a></li>
+
+    <li class="subnav__offers__item"><a href="/family/coupons-offers/printable-coupons" class="link subnav__offers__item__link" target="_self"><i aria-hidden="true" class="fonticon fonticon-scissors"></i><span>Coupons</span></a></li>
+                </ul>
+            </div>
+            <div class="subnav__main">
+                    <ul class="subnav__subcat subnav_three-cols">
+                        <li class="subnav__subcat__item js_hide_view_all">
+                            <a href="/family" class="subnav__subcat__item-link link--inverted subnav__subcat__all" rel="nofollow">View All</a>
+                        </li>
+                            <li class="subnav__subcat__item"><a href="/family/parenting" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Parenting" title="Parenting">Parenting</a></li>
+                            <li class="subnav__subcat__item"><a href="/family/teens" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Teens" title="Teens">Teens</a></li>
+                            <li class="subnav__subcat__item"><a href="/family/pets" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Pets" title="Pets">Pets</a></li>
+                            <li class="subnav__subcat__item"><a href="/family/relationships" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Relationships" title="Relationships">Relationships</a></li>
+                            <li class="subnav__subcat__item"><a href="/family/activities" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Activities" title="Activities">Activities</a></li>
+                            <li class="subnav__subcat__item"><a href="/family/travel" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Travel" title="Travel">Travel</a></li>
+                    </ul>
+            </div>
+                <div class="subnav__divider"></div>
+        </div>
+     </li>
+         <li class="nav__item nav__color--2 js-collapse-hover">
+    <a href=/home class="nav__item-link link--no-underline event_menu_click" data-pgaction-redirection="0" data-action-detail="Home">
+        <span class="nav__first-level">Home</span>
+    </a>
+        <div class="subnav js-collapsible nav__color--2">
+            <div class="subnav__aside">
+                <ul class="subnav__offers">
+
+    <li class="subnav__offers__item"><a href="/home/products-reviews" target="_self" class="link subnav__offers__item__link"><i aria-hidden="true" class="fonticon fonticon-star"></i><span>Reviews</span></a></li>
+
+    <li class="subnav__offers__item"><a href="/home/coupons-offers/printable-coupons" class="link subnav__offers__item__link" target="_self"><i aria-hidden="true" class="fonticon fonticon-scissors"></i><span>Coupons</span></a></li>
+                </ul>
+            </div>
+            <div class="subnav__main">
+                    <ul class="subnav__subcat subnav_four-cols">
+                        <li class="subnav__subcat__item js_hide_view_all">
+                            <a href="/home" class="subnav__subcat__item-link link--inverted subnav__subcat__all" rel="nofollow">View All</a>
+                        </li>
+                            <li class="subnav__subcat__item"><a href="/home/cooking-recipes" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Cooking & Recipes" title="Cooking & Recipes">Cooking & Recipes</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/cleaning" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Cleaning" title="Cleaning">Cleaning</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/home-decor" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Home Decor" title="Home Decor">Home Decor</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/entertaining" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Entertaining" title="Entertaining">Entertaining</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/money-saving" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Money & Saving" title="Money & Saving">Money & Saving</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/crafts" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Crafts" title="Crafts">Crafts</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/gardening" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Gardening" title="Gardening">Gardening</a></li>
+                            <li class="subnav__subcat__item"><a href="/home/tv-series" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="TV Series" title="TV Series">TV Series</a></li>
+                    </ul>
+            </div>
+                <div class="subnav__divider"></div>
+        </div>
+     </li>
+         <li class="nav__item nav__color--3 js-collapse-hover">
+    <a href=/wellness class="nav__item-link link--no-underline event_menu_click" data-pgaction-redirection="0" data-action-detail="Wellness">
+        <span class="nav__first-level">Wellness</span>
+    </a>
+        <div class="subnav js-collapsible nav__color--3">
+            <div class="subnav__aside">
+                <ul class="subnav__offers">
+
+    <li class="subnav__offers__item"><a href="/wellness/products-reviews" target="_self" class="link subnav__offers__item__link"><i aria-hidden="true" class="fonticon fonticon-star"></i><span>Reviews</span></a></li>
+
+    <li class="subnav__offers__item"><a href="/wellness/coupons-offers/printable-coupons" class="link subnav__offers__item__link" target="_self"><i aria-hidden="true" class="fonticon fonticon-scissors"></i><span>Coupons</span></a></li>
+                </ul>
+            </div>
+            <div class="subnav__main">
+                    <ul class="subnav__subcat subnav_three-cols">
+                        <li class="subnav__subcat__item js_hide_view_all">
+                            <a href="/wellness" class="subnav__subcat__item-link link--inverted subnav__subcat__all" rel="nofollow">View All</a>
+                        </li>
+                            <li class="subnav__subcat__item"><a href="/wellness/family-health" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Family Health" title="Family Health">Family Health</a></li>
+                            <li class="subnav__subcat__item"><a href="/wellness/healthy-smile" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Healthy Smile" title="Healthy Smile">Healthy Smile</a></li>
+                            <li class="subnav__subcat__item"><a href="/wellness/healthy-eating" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Healthy Eating" title="Healthy Eating">Healthy Eating</a></li>
+                            <li class="subnav__subcat__item"><a href="/wellness/fitness" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Fitness" title="Fitness">Fitness</a></li>
+                            <li class="subnav__subcat__item"><a href="/wellness/sleep" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Sleep" title="Sleep">Sleep</a></li>
+                    </ul>
+            </div>
+                <div class="subnav__divider"></div>
+        </div>
+     </li>
+         <li class="nav__item nav__color--4 js-collapse-hover">
+    <a href=/beauty class="nav__item-link link--no-underline event_menu_click" data-pgaction-redirection="0" data-action-detail="Beauty">
+        <span class="nav__first-level">Beauty</span>
+    </a>
+        <div class="subnav js-collapsible nav__color--4">
+            <div class="subnav__aside">
+                <ul class="subnav__offers">
+
+    <li class="subnav__offers__item"><a href="/beauty/products-reviews" target="_self" class="link subnav__offers__item__link"><i aria-hidden="true" class="fonticon fonticon-star"></i><span>Reviews</span></a></li>
+
+    <li class="subnav__offers__item"><a href="/beauty/coupons-offers/printable-coupons" class="link subnav__offers__item__link" target="_self"><i aria-hidden="true" class="fonticon fonticon-scissors"></i><span>Coupons</span></a></li>
+                </ul>
+            </div>
+            <div class="subnav__main">
+                    <ul class="subnav__subcat subnav_three-cols">
+                        <li class="subnav__subcat__item js_hide_view_all">
+                            <a href="/beauty" class="subnav__subcat__item-link link--inverted subnav__subcat__all" rel="nofollow">View All</a>
+                        </li>
+                            <li class="subnav__subcat__item"><a href="/beauty/hair" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Hair" title="Hair">Hair</a></li>
+                            <li class="subnav__subcat__item"><a href="/beauty/skin-body" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Skin & Body" title="Skin & Body">Skin & Body</a></li>
+                            <li class="subnav__subcat__item"><a href="/beauty/style-fashion" class="subnav__subcat__item-link link--inverted event_menu_click" data-pgaction-redirection="0" data-action-detail="Style & Fashion" title="Style & Fashion">Style & Fashion</a></li>
+                    </ul>
+            </div>
+                <div class="subnav__divider"></div>
+        </div>
+     </li>
+    <li class="nav__item nav__color--default js-collapse-hover js-gocommunity">
+        <a class="nav__item-link link--no-underline event_menu_click"
+           href="#" data-pgaction-redirection="0">
+            <span class="nav__first-level">COMMUNITIES</span>
+        </a>
+        <div class="subnav subnav__one-line js-collapsible nav__color--default" id="subnav__community"
+             style="display: none;">
+            <div class="subnav__main">
+                <ul class="subnav__subcat subnav_three-cols">
+                            <li class="subnav__subcat__item subnav__link">
+                                <a class="subnav__subcat__item-link link--inverted" href="/tag/emptynest-fulllife" onclick="goToCommunauty()" data-statscategory="header-events" data-statsaction="goto-communities" data-statsoptlabel="Empty Nest - Full Life" target=""><span>Empty Nest - Full Life</span></a>
+                            </li>
+                            <li class="subnav__subcat__item subnav__link">
+                                <a class="subnav__subcat__item-link link--inverted" href="/tag/my-black-is-beautiful" onclick="goToCommunauty()" data-statscategory="header-events" data-statsaction="goto-communities" data-statsoptlabel="mbib" target=""><span>MY BLACK IS BEAUTIFUL</span></a>
+                            </li>
+                            <li class="subnav__subcat__item subnav__link">
+                                <a class="subnav__subcat__item-link link--inverted" href="/tag/orgullosa" onclick="goToCommunauty()" data-statscategory="header-events" data-statsaction="goto-communities" data-statsoptlabel="Orgullosa" target=""><span>Orgullosa</span></a>
+                            </li>
+                            <li class="subnav__subcat__item subnav__link">
+                                <a class="subnav__subcat__item-link link--inverted" href="/tag/new-mover" onclick="goToCommunauty()" data-statscategory="header-events" data-statsaction="goto-communities" data-statsoptlabel="new-mover" target=""><span>New Mover</span></a>
+                            </li>
+                </ul>
+            </div>
+            <div class="subnav__divider">
+            </div>
+        </div>
+    </li>
+
+
+<li class="nav__item nav__color--default js-collapse-hover lazyloadimg">
+    <a href="/products-reviews" target="_self" class="nav__item-link link--no-underline event_button_click" data-pgaction-redirection="0" data-action-detail="smart-shopping-action">
+        <span class="nav__first-level">
+            Our Brands
+        </span>
+    </a>
+    <div style="display: none;" id="subnav__brands" class="subnav js-collapsible nav__color--default">
+        <div class="subnav__aside">
+            <ul class="subnav__offers">
+
+    <li class="subnav__offers__item"><a href="/products-reviews" target="_self" class="link subnav__offers__item__link"><i aria-hidden="true" class="fonticon fonticon-star"></i><span>All Reviews</span></a></li>
+
+    <li class="subnav__offers__item"><a href="/coupons-offers/printable-coupons" class="link subnav__offers__item__link" target="_self"><i aria-hidden="true" class="fonticon fonticon-scissors"></i><span>All Coupons</span></a></li>
+            </ul>
+        </div>
+        <div class="subnav__main">
+            <ul class="subnav__subcat subnav_five-cols">
+             <li class="subnav__subcat__item show--all js_hide_view_all">
+                            <a href="/products-reviews" class="subnav__subcat__item-link link--inverted subnav__subcat__all" data-statsoptlabel="go-to-view-all" data-statsoptnoninteraction="" rel="nofollow">View All</a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Procter &amp; Gamble"  data-noWarn="true" href="http://www.pg.com" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pg.png" alt="Procter &amp; Gamble" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Align"  data-noWarn="true" href="https://www.pgeveryday.com/tag/align" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/align.png" alt="Align" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Always"  data-noWarn="true" href="https://www.pgeveryday.com/tag/always" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always.png" alt="Always" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Always Discreet"  data-noWarn="true" href="https://www.pgeveryday.com/tag/always-discreet" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always-discreet-logo-slice.png" alt="Always Discreet" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Aussie"  data-noWarn="true" href="https://www.pgeveryday.com/tag/aussie" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/aussie.png" alt="Aussie" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Bounce"  data-noWarn="true" href="https://www.pgeveryday.com/tag/bounce" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounce.png" alt="Bounce" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Bounty"  data-noWarn="true" href="https://www.pgeveryday.com/tag/bounty" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounty.png" alt="Bounty" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Braun"  data-noWarn="true" href="https://www.pgeveryday.com/tag/braun" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/braun.png" alt="Braun" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="cascade"  data-noWarn="true" href="https://www.pgeveryday.com/tag/cascade" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cascade.png" alt="cascade" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Charmin"  data-noWarn="true" href="https://www.pgeveryday.com/tag/charmin" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/charmin.png" alt="Charmin" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Cheer"  data-noWarn="true" href="https://www.pgeveryday.com/tag/cheer" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cheer.png" alt="Cheer" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="CLEARBLUE"  data-noWarn="true" href="https://www.pgeveryday.com/tag/clearblue" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/footer/en-US/clearblue.png" alt="CLEARBLUE" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Crest"  data-noWarn="true" href="https://www.pgeveryday.com/tag/crest" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/crest.png" alt="Crest" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Dawn"  data-noWarn="true" href="https://www.pgeveryday.com/tag/dawn" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dawn.png" alt="Dawn" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Downy"  data-noWarn="true" href="https://www.pgeveryday.com/tag/downy" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/downy.png" alt="Downy" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Dreft"  data-noWarn="true" href="https://www.pgeveryday.com/tag/dreft" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dreft.png" alt="Dreft" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Duo"  data-noWarn="true" href="https://www.pgeveryday.com/tag/cleansing-duos" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/duo.png" alt="Duo" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Era"  data-noWarn="true" href="https://www.pgeveryday.com/tag/era" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/era.png" alt="Era" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Febreze"  data-noWarn="true" href="https://www.pgeveryday.com/tag/febreze" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/Febreze.png" alt="Febreze" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Fixodent"  data-noWarn="true" href="https://www.pgeveryday.com/tag/fixodent" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/fixodent.png" alt="Fixodent" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Gain"  data-noWarn="true" href="https://www.pgeveryday.com/tag/gain" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gain.png" alt="Gain" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Gillette"  data-noWarn="true" href="https://www.pgeveryday.com/tag/gillette" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gillette.png" alt="Gillette" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Head &amp; Shoulders"  data-noWarn="true" href="https://www.pgeveryday.com/tag/head-shoulders" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/head_shoulders.png" alt="Head &amp; Shoulders" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Herbal Essences"  data-noWarn="true" href="https://www.pgeveryday.com/tag/herbal-essences" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/herbal_essences.png" alt="Herbal Essences" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Ivory Body"  data-noWarn="true" href="https://www.pgeveryday.com/tag/ivory" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/ivory_body.png" alt="Ivory Body" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Luvs"  data-noWarn="true" href="https://www.pgeveryday.com/tag/luvs" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/luvs.png" alt="Luvs" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Metamucil"  data-noWarn="true" href="http://www.metamucil.com" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/metamucil.png" alt="Metamucil" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Mr. Clean"  data-noWarn="true" href="https://www.pgeveryday.com/tag/mr-clean" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/mrclean.png" alt="Mr. Clean" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Olay"  data-noWarn="true" href="https://www.pgeveryday.com/tag/olay" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/olay.png" alt="Olay" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Old Spice"  data-noWarn="true" href="https://www.pgeveryday.com/tag/old-spice" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/old_spice.png" alt="Old Spice" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Oral B"  data-noWarn="true" href="https://www.pgeveryday.com/tag/oral-b" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/oral_b.png" alt="Oral B" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Pampers"  data-noWarn="true" href="https://www.pgeveryday.com/tag/pampers" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pampers.png" alt="Pampers" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Pantene"  data-noWarn="true" href="https://www.pgeveryday.com/tag/pantene" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pantene.png" alt="Pantene" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Pepto"  data-noWarn="true" href="https://www.pgeveryday.com/tag/pepto-bismol" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pepto.png" alt="Pepto" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Prilosec"  data-noWarn="true" href="https://www.pgeveryday.com/tag/prilosec" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/prilosec.png" alt="Prilosec" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Puffs"  data-noWarn="true" href="https://www.pgeveryday.com/tag/puffs" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/puffs.png" alt="Puffs" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Scope"  data-noWarn="" href="https://www.pgeveryday.com/tag/scope" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/scope.png" alt="Scope" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Secret"  data-noWarn="true" href="https://www.pgeveryday.com/tag/secret" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/secret.png" alt="Secret" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Swiffer"  data-noWarn="true" href="https://www.pgeveryday.com/tag/swiffer" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/swiffer.png" alt="Swiffer" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Tampax"  data-noWarn="true" href="https://www.pgeveryday.com/tag/tampax" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tampax.png" alt="Tampax" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Tide"  data-noWarn="true" href="https://www.pgeveryday.com/tag/tide" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tide.png" alt="Tide" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Unstopables"  data-noWarn="true" href="https://www.pgeveryday.com/tag/unstopables" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/unstopables.png" alt="Unstopables" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Venus"  data-noWarn="true" href="https://www.pgeveryday.com/tag/venus" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/venus.png" alt="Venus" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Vicks"  data-noWarn="true" href="https://www.pgeveryday.com/tag/vicks" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vicks.png" alt="Vicks" />
+                            </a>
+                        </li>
+                        <li class="subnav__subcat__item">
+                            <a class="subnav__brand__item-link event_menu_click"  data-action-detail="Vidal Sassoon"  data-noWarn="true" href="https://www.pgeveryday.com/tag/vidal-sassoon" target="_blank">
+                                <img class="lazyhover" width="80" height="40" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vidalsassoon.png" alt="Vidal Sassoon" />
+                            </a>
+                        </li>
+            </ul>
+        </div>
+        <div class="subnav__divider"></div>
+    </div>
+</li>
+
+<li class="nav__item nav__color--default js-collapse-hover">
+    <a class="nav__item-link link--no-underline event_menu_click" href="/tag/coupons-offers" target="_self" data-pgaction-redirection="0" data-action-detail="Goto_Brandsaver"><span class="nav__first-level">Coupons &amp; Offers</span></a>
+    <div id="subnav__ways" class="subnav js-collapsible nav__color--default" style="display: none;">
+        <div class="subnav__aside">
+            <ul class="subnav__offers">
+                <li class="subnav__offers__item">
+                    <a class="event_menu_click" href="/tag/coupons-offers" target="_self" data-action-detail="Goto_Brandsaver"><span>VIEW ALL</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="subnav__main">
+            <div class="subnav__module__text">
+                <ul>
+                        <li>
+                            <i aria-hidden="true" class="fonticon fonticon-clipped"></i>
+                            <a class="event_menu_click" data-action-detail="Goto esaver" href="/page/shopper-card-coupons-online/landing-page" target="_self"><span>DIGITAL brandSAVER COUPONS</span></a>
+                            <span>Load coupons directly to your retailer loyalty card.</span>
+                        </li>
+                    <li>
+                        <i aria-hidden="true" class="fonticon fonticon-scissors2"></i>
+                        <a class="event_menu_click" data-action-detail="Goto printathome" href="/tag/printable-coupons" target="_self"><span>PRINTABLE COUPONS</span></a>
+                        <span>
+                            Get exclusive coupons straight from the site
+                        </span>
+                    </li>
+                        <li>
+                            <i aria-hidden="true" class="fonticon fonticon-newspaper"></i>
+                            <a class="event_menu_click" href="/page/brandsaver-coupons" data-action-detail="Goto_Brandsaver" target="_self"><span>NEWSPAPER COUPONS</span></a>
+                            <span>Find valuable coupons in a local newspaper</span>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="subnav__divider"></div>
+    </div>
+</li>
+                            </ul>
+                        </nav>
+
+                        <!-- end primary nav-->
+                    </div>
+                </header>
+                <div id="content-body-wrapper" class="home">
+                    <section id="content-body" class="container" role="main">
+                        <input type="hidden" id="common_page" value="page" />
+                        <input type="hidden" id="id_currentAvailableLanguage" value="" />
+
+        <div class="breadcrumb">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item">
+                    <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><i aria-hidden="true" class="fonticon fonticon-home"></i></span></div>
+                </li>
+                <li class="breadcrumb__divider"><i aria-hidden="true" class="fonticon fonticon-arrow-ariane"></i></li>
+            </ol>
+        </div>
+                        <!--[if lt IE 8]>
+                            <div class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</div>
+                        <![endif]-->
+                        
+
+
+<div id="home" class="content-body-inner">
+    
+<div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="e077918b-a6c8-ea77-ad4c-87e0b069dcf5">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css"><!--
+#safe-home-en{
+    width: 990px;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+
+@media screen and (min-width: 690px) and (max-width: 989px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+
+@media screen and (min-width: 441px) and (max-width: 689px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: block;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+@media screen and (min-width: 321px) and (max-width: 440px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+@media screen and (max-width: 320px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+--></style>
+<div id="safe-home-en"><a class="event_banner_click" data-action-detail="hpg_header-march18_topcoupons" href="https://www.pgeveryday.com/tag/coupons-offers"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/header/Header-D_990x283.jpg" alt="Get coupons for your favorite brands" class="desktop" width="990" height="283"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/header/Header-D_990x283.jpg" alt="Get coupons for your favorite brands" class="tablet"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/header/Header-M_640x455.jpg" alt="Get coupons for your favorite brands" class="mobile"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="7735747c-20c7-19ed-274c-74505155eff4">
+        <style><!--
+.Banner-coupon-wrapper{
+			width:100%;
+			height:auto;
+			position:relative;max-width: 990px;
+		}
+
+		.Banner-coupon-wrapper .desktop-img{
+			width:100%;
+			display:inline-block;
+			
+		}
+
+		
+		.Banner-coupon-wrapper .mobile-img{
+			display:none;
+		}
+
+	.Banner-coupon-wrapper .signup{
+	top: 21%;
+    display: inline-block;
+    height: 38px;
+    position: absolute;
+    right: 7%;
+    width: 146px;
+                        
+			
+		}
+	.Banner-coupon-wrapper .login{
+	bottom: 3%;
+    display: inline-block;
+    height: 39px;
+    position: absolute;
+    right: 5%;
+    width: 150px;		
+		}
+
+	
+		@media only screen and (max-width: 680px) {.Banner-coupon-wrapper .signup{width: 100px; height:28px; top:20%;}}	
+
+
+		@media only screen and (max-width: 640px) {
+			.Banner-coupon-wrapper .mobile-img{
+				width:100%;
+				display:inline-block;
+		}
+
+			.Banner-coupon-wrapper .tablet-img,
+			.Banner-coupon-wrapper .desktop-img{
+				display:none;
+		}
+
+	.Banner-coupon-wrapper .signup {
+		        display:inline-block;
+				position:absolute; 
+				right:43%; 
+				top:73%;
+				height: 56px;
+				width:224px;
+		}
+	
+
+			.Banner-coupon-wrapper .login{
+			bottom: 4%;
+    			height: 30px;
+    			right: 21%;
+    			width: 112px;	
+				}
+}
+		@media only screen and (max-width: 400px) {
+			.Banner-coupon-wrapper .signup {
+				right:43%; 
+				bottom:2%;
+				height: 34px;
+				width:126px;
+		}
+
+		.Banner-coupon-wrapper .login{
+				bottom: 3%;
+    			height: 25px;
+    			right: 18%;
+   				width: 72px;	
+				}
+
+		}
+--></style>
+<div class="Banner-coupon-wrapper"><img class="desktop-img" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/Registration/Registration-D_990x81.jpg"> <img class="mobile-img" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/Registration/Registration-M_640x277.jpg"> <a class="signup event_profile_register" data-action-detail="hpg_header-march18_topsignup" href="https://www.pgeveryday.com/page/registration" alt="Registration" title="Registration"></a> <a class="login event_profile_login" data-action-detail="hpg_header-march18_toplogin" href="https://www.pgeveryday.com/page/login" alt="Login" title="Login"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="85361bd8-b4d0-55ee-1734-10af5a0bd147">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css"><!--
+#safe-home-en{
+    width: 990px;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+
+@media screen and (min-width: 690px) and (max-width: 989px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+
+@media screen and (min-width: 441px) and (max-width: 689px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: block;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+@media screen and (min-width: 321px) and (max-width: 440px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+@media screen and (max-width: 320px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+--></style>
+<div id="safe-home-en"><img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Whats_New/Whats_New-D_990x107.jpg" alt="See what's new on P&G everyday" class="desktop" width="990" height="107"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Whats_New/Whats_New-D_990x107.jpg" alt="See what's new on P&G everyday" class="tablet"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Whats_New/Whats_New-M_640x170.jpg" alt="See what's new on P&G everyday" class="mobile"></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="fbc8c37f-3986-5a1b-36bb-1161f8f9a5f4">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb;}
+.empty-nest-wrapper .tablet {display: none;}
+
+.empty-nest-wrapper{text-align: center;}
+
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .tablet{display: block; width: 100%;}
+
+}
+--></style>
+<div class="empty-nest-wrapper"><a class="event_banner_click" data-action-detail="March_sweeps_february_desktop" href="https://www.pgeveryday.com/home/home-decor/entry-screen/top-picks-sweeps-march-2018" target="_blank"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/Promo_Modules/March_Sweeps_HomepagePromo_D_744x229_v2.jpg" alt="Top Picks Sweeps" title="Top Picks Sweeps"></a> <a class="event_banner_click" data-action-detail="March_sweeps_february_mobile" href="https://www.pgeveryday.com/home/home-decor/entry-screen/top-picks-sweeps-march-2018" target="_blank"> <img class="tablet" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/Promo_Modules/March_Sweeps_HomepagePromo_M_640x606_v2.jpg" alt="Top Picks Sweeps" title="Top Picks Sweeps"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="e802fab5-9a2f-99c7-936d-ebc7c9531742">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb;}
+.empty-nest-wrapper .tablet {display: none;}
+
+.empty-nest-wrapper{text-align: center;}
+
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .tablet{display: block; width: 100%;}
+
+}
+--></style>
+<div class="empty-nest-wrapper"><a class="event_banner_click" data-action-detail="childrenssafedrinkingwater_march_desktop" href="https://www.pgeveryday.com/tag/childrens-safe-drinking-water" target="_blank"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/Childrens_Safe_Drinking_Water/2018_Updates/promos/CSDW_Homepage_Priority_module_March_D_ver2.jpg" alt="Use a coupon, give clean water" title="Use a coupon, give clean water"></a> <a class="event_banner_click" data-action-detail="childrenssafedrinkingwater_march_mobile" href="https://www.pgeveryday.com/tag/childrens-safe-drinking-water" target="_blank"> <img class="tablet" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/Childrens_Safe_Drinking_Water/2018_Updates/promos/CSDW_Homepage_Priority_module_March_M_ver2.jpg" alt="Use a coupon, give clean water" title="Use a coupon, give clean water"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="730a396c-0a54-6e8c-20c5-d5baa523db98">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb;}
+.empty-nest-wrapper .tablet {display: none;}
+
+.empty-nest-wrapper{text-align: center;}
+
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .tablet{display: block; width: 100%;}
+
+}
+--></style>
+<div class="empty-nest-wrapper"><a class="event_banner_click" data-action-detail="WomansDay_march_desktop" href="https://www.pgeveryday.com/tag/we-see-equal" target="_blank"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/IWD/PGE_InternationalWomensDay_2018_d.jpg" alt="Going for gold sweeps" title="Going for gold sweeps"></a> <a class="event_banner_click" data-action-detail="WomansDay_march_mobile" href="https://www.pgeveryday.com/tag/we-see-equal" target="_blank"> <img class="tablet" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/IWD/PGE_InternationalWomensDay_2018_m.jpg" alt="Going for gold sweeps" title="Going for gold sweeps"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="d14d1425-d3ea-b07e-aa10-279410cb5367">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb;}
+.empty-nest-wrapper .tablet {display: none;}
+
+.empty-nest-wrapper{text-align: center;}
+
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .tablet{display: block; width: 100%;}
+
+}
+--></style>
+<div class="empty-nest-wrapper"><a class="event_banner_click" data-action-detail="hpg_hero-december_rate-review_desktop" href="https://www.pgeveryday.com/tag/home-rate-and-review"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/December/05_CA_Homepage_Optimizations_Promo2_d.jpg" alt="Rate & review products" title="Rate & review products"></a> <a class="event_banner_click" data-action-detail="hpg_hero-december_rate-review_mobile" href="https://www.pgeveryday.com/tag/home-rate-and-review"> <img class="tablet" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/December/05_CA_Homepage_Optimizations_Promo2_m.jpg" alt="Rate & review products" title="Rate & review products"></a></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="90b37682-d83f-8938-3197-900e3baf01ac">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css"><!--
+#safe-home-en{
+    width: 990px;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+
+@media screen and (min-width: 690px) and (max-width: 989px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+
+@media screen and (min-width: 441px) and (max-width: 689px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: block;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+@media screen and (min-width: 321px) and (max-width: 440px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+@media screen and (max-width: 320px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+--></style>
+<div id="safe-home-en"><img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/flags/Best_of_Mar-D_990x107.jpg" alt="Best of March" class="desktop" width="990" height="107"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/flags/Best_of_Mar-D_990x107.jpg" alt="Best of March" class="tablet"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/flags/Best_of_Mar-M_640x147.jpg" alt="Best of March" class="mobile"></div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="f959c16b-281f-bebd-fffc-92401ebf7098">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb; float overflow: hidden;}
+.empty-nest-wrapper .mobile {display: none;}
+
+.empty-nest-wrapper .left{float:left; width: 49%; background-color: #ebebeb;text-align: right; margin-left: 7px;}
+.empty-nest-wrapper .right{background-color: #ebebeb;
+    float: left;
+    padding-left: 7px;
+    text-align: left;
+    width: 49.95%;}
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .mobile{display: block; width: 100%;}
+    .empty-nest-wrapper .left{clear:left; width: 100%; padding-bottom: 10px; background-color: #ebebeb;margin-left: 0px;}
+    .empty-nest-wrapper .right{clear:left; width: 100%; padding-left: 0px; background-color: #ebebeb; margin-left: 0;}
+
+}
+--></style>
+<div class="empty-nest-wrapper">
+<div class="border"></div>
+<div class="left"><a class="event_banner_click" data-action-detail="hmpg_article_banner_gettingfamilypet" href="https://www.pgeveryday.com/family/pets/article/6-reasons-to-bring-a-pet-into-your-family" alt="Feel good about getting a family pet" title="Feel good about getting a family pet"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_1-D_367x323.jpg"> <img class="mobile" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_1-M_640x218.jpg"></a></div>
+<div class="right"><a class="event_banner_click" data-action-detail="hmpg_article_banner_refreshyourhomespring" href="https://www.pgeveryday.com/home/home-decor/article/refresh-rooms-spring-cleaning" alt="Refresh your home for spring with 6 simple updates" title="Refresh your home for spring with 6 simple updates"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_2-D_367x323.jpg"> <img class="mobile" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_2-M_640x218.jpg"></a></div>
+</div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="c8717d37-c62f-ec2c-00e5-72e94b88d196">
+        <style><!--
+.empty-nest-wrapper{width: 100%; max-width: 990px; position: relative; padding:0px; margin: 0px; background-color: #ebebeb; float overflow: hidden;}
+.empty-nest-wrapper .mobile {display: none;}
+
+.empty-nest-wrapper .left{float:left; width: 49%; background-color: #ebebeb;text-align: right; margin-left: 7px;}
+.empty-nest-wrapper .right{background-color: #ebebeb;
+    float: left;
+    padding-left: 7px;
+    text-align: left;
+    width: 49.95%;}
+
+@media only screen and (max-width: 680px) { 
+    .empty-nest-wrapper .desktop{display: none;} 
+    .empty-nest-wrapper .mobile{display: block; width: 100%;}
+    .empty-nest-wrapper .left{clear:left; width: 100%; padding-bottom: 10px; background-color: #ebebeb;margin-left: 0px;}
+    .empty-nest-wrapper .right{clear:left; width: 100%; padding-left: 0px; background-color: #ebebeb; margin-left: 0;}
+
+}
+--></style>
+<div class="empty-nest-wrapper">
+<div class="border"></div>
+<div class="left"><a class="event_banner_click" data-action-detail="hmpg_article_banner_eatwellwithoutspending" href="https://www.pgeveryday.com/wellness/healthy-eating/slideshow/how-to-eat-healthy-on-a-budget" alt="Eat well without spending a lot" title="Eat well without spending a lot"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/February/content/Best_of_Content_3_367x323.jpg"> <img class="mobile" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/February/content/Best_of_Content_3_640x218.jpg"></a></div>
+<div class="right"><a class="event_banner_click" data-action-detail="hmpg_article_banner_hairstylesoutthedoorfast" href="https://www.pgeveryday.com/beauty/hair/slideshow/low-maintenance-hairstyles-for-when-youre-on-the-go" alt="Hassle-free hairstyles to get you out the door fast" title="Hassle-free hairstyles to get you out the door fast"> <img class="desktop" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_4-D_367x323.jpg"> <img class="mobile" src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/18Site_Updates/March/Site_Updates/best_of_content/Best-of-Content_4-M_640x218.jpg"></a></div>
+</div>
+    </article>
+</div><div class="box5 box undefined no-brand undefined_no-brand" data-category="htmlcontent">
+    <article class="box-article" id="0e284a45-7499-f722-8900-e03e9e86e15d">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css"><!--
+#safe-home-en{
+    width: 990px;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+
+@media screen and (min-width: 690px) and (max-width: 989px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+#safe-home-en img.desktop{
+    display: block;
+}
+
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: none;
+}
+}
+
+@media screen and (min-width: 441px) and (max-width: 689px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+@media screen and (min-width: 321px) and (max-width: 440px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+@media screen and (max-width: 320px) {
+    #safe-home-en{
+    width: 100%;
+}
+#safe-home-en img{
+    width: 100%;
+}
+
+#safe-home-en img.desktop{
+    display: none;
+}
+#safe-home-en img.tablet{
+    display: none;
+}
+#safe-home-en img.mobile{
+    display: block;
+}
+}
+--></style>
+<div id="safe-home-en"><img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Top_Coupons/Top_5_Coupons-D_990x163.jpg" alt="Our top 5 coupons" class="desktop" width="990" height="163"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Top_Coupons/Top_5_Coupons-D_990x163.jpg" alt="Our top 5 coupons" class="tablet"> <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/Top_Coupons/Top_5_Coupons-M_640x262.jpg" alt="Our top 5 coupons" class="mobile"></div>
+    </article>
+</div>
+<div class="box box-offer box1 coupon no-brand" data-category="coupon">
+    <article class="box-offer box-offer-ecoupon" id="overlay" data-brandcode-subbrandcode="D65~Z99" ean="136026" tag="136026;1;0.25;a60b0714-98f2-47ed-8e38-fa6c600ea902" catparams="prodcateg:!prodbrand:!prodsubcateg:!prodsubbrand:!prodformat:" thumbnailpath="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-136026-basket.jpg">
+        <header>
+            <p class="post-category color1">
+Family            </p>
+        </header>
+                 <div class="recto">
+                 
+                     
+                     <div class="scissored event_coupon_request" data-action-detail="D65|Z99">
+                         <div class="inner">
+                             <div class="info-product">
+                                 <p class="product-category">
+facial tissue                                 </p>
+                                 <h2>
+Puffs                                 </h2>
+                             </div>
+                             <div class="thumb">
+                                     <img src=https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-136026-size-1.jpg alt="Puffs" />
+                             </div>
+                             <div class="sum">
+                                 
+                                         <p class="price">
+                                             <strong>
+$0.25                                             </strong>
+                                         </p>
+                                     <p>of reduction in store*</p>
+                             </div>
+                         </div>
+                         <span></span>
+                     </div>
+                 <div class="post-meta">
+                     <div class="post-actions post__actions--padding">
+                         <div class="post-link">
+                             <ul>
+                                             <li>
+                                                 <button class="btn print-coupon event_coupon_request" data-pgaction-redirection='0' data-modal-intro="To redeem this offer, please log in." data-action-detail="D65|Z99"><i class="fonticon fonticon-print"></i>Print coupon</button>
+                                             </li>
+                                           <li class="pahc-coupon">
+                                               <a href="/page/basket" class="btn"><i aria-hidden="true" class="fonticon fonticon-gift"></i>View Basket</a>
+                                           </li>
+
+                             </ul>
+                         </div>
+                     </div>
+                     
+
+                 </div>
+                 </div>
+        <div class="verso">
+
+                <div class="home-verso-scissored">
+                    <p class="inner"><h2>The information about this product will be here soon</h2></p>
+                    <div class="dashed"><span></span></div>
+                </div>
+                <p class="coupon-info">
+                    <i>
+LIMIT ONE COUPON PER PURCHASE of products and quantities stated.                    </i>
+                </p>
+                <div class="post-meta">
+                    <div class="post-tag">
+                        <a class="btn morebutton-back" href="#"><i class="fonticon fonticon-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                </div>
+        </div>
+        <div class="selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-selected">
+                        <span></span>Coupon selected
+                    </div>
+                    <a href="#" class="unselect js-unselect-coupon">
+                        <span></span>Unselect coupon
+                    </a>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="selected-pahc selected-v2">
+                <div class="ribbons">
+                    <div class="ribbon ribbon-state">
+                        <div class="state-selected-pahc">
+                            <i aria-hidden="true" class="fonticon-mail"></i>
+                            <a href="/page/basket">Send email reminder</a>
+                        </div>
+                    </div>
+                    <div class="ribbon ribbon-all">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a href="/tag/coupon">
+                            <span></span>
+                            View all coupons
+                        </a>
+                    </div>
+                    <div class="ribbon ribbon-help">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                            <span></span>Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="no-print selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-no-print">
+                        <span></span>To print your coupons, please use a computer connected to a printer.
+                    </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="already-selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+
+                        <div class="state-redeemed">
+                            <span></span>
+                            Already Printed
+                        </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<div class="box box-offer box1 coupon no-brand" data-category="coupon">
+    <article class="box-offer box-offer-ecoupon" id="overlay" data-brandcode-subbrandcode="D34~Z99" ean="137242" tag="137242;1;0.25;7f8a652d-4387-4f46-aa53-28ae444f2451" catparams="prodcateg:!prodbrand:!prodsubcateg:!prodsubbrand:!prodformat:" thumbnailpath="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137242-basket.jpg">
+        <header>
+            <p class="post-category color1">
+Family            </p>
+        </header>
+                 <div class="recto">
+                 
+                     
+                     <div class="scissored event_coupon_request" data-action-detail="D34|Z99">
+                         <div class="inner">
+                             <div class="info-product">
+                                 <p class="product-category">
+papertowel                                 </p>
+                                 <h2>
+Bounty                                 </h2>
+                             </div>
+                             <div class="thumb">
+                                     <img src=https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137242-size-1.jpg alt="Bounty" />
+                             </div>
+                             <div class="sum">
+                                 
+                                         <p class="price">
+                                             <strong>
+$0.25                                             </strong>
+                                         </p>
+                                     <p>of reduction in store*</p>
+                             </div>
+                         </div>
+                         <span></span>
+                     </div>
+                 <div class="post-meta">
+                     <div class="post-actions post__actions--padding">
+                         <div class="post-link">
+                             <ul>
+                                             <li>
+                                                 <button class="btn print-coupon event_coupon_request" data-pgaction-redirection='0' data-modal-intro="To redeem this offer, please log in." data-action-detail="D34|Z99"><i class="fonticon fonticon-print"></i>Print coupon</button>
+                                             </li>
+                                           <li class="pahc-coupon">
+                                               <a href="/page/basket" class="btn"><i aria-hidden="true" class="fonticon fonticon-gift"></i>View Basket</a>
+                                           </li>
+
+                             </ul>
+                         </div>
+                     </div>
+                     
+
+                 </div>
+                 </div>
+        <div class="verso">
+
+                <div class="home-verso-scissored">
+                    <p class="inner"><h2>The information about this product will be here soon</h2></p>
+                    <div class="dashed"><span></span></div>
+                </div>
+                <p class="coupon-info">
+                    <i>
+LIMIT ONE COUPON PER PURCHASE of products and quantities stated.                    </i>
+                </p>
+                <div class="post-meta">
+                    <div class="post-tag">
+                        <a class="btn morebutton-back" href="#"><i class="fonticon fonticon-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                </div>
+        </div>
+        <div class="selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-selected">
+                        <span></span>Coupon selected
+                    </div>
+                    <a href="#" class="unselect js-unselect-coupon">
+                        <span></span>Unselect coupon
+                    </a>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="selected-pahc selected-v2">
+                <div class="ribbons">
+                    <div class="ribbon ribbon-state">
+                        <div class="state-selected-pahc">
+                            <i aria-hidden="true" class="fonticon-mail"></i>
+                            <a href="/page/basket">Send email reminder</a>
+                        </div>
+                    </div>
+                    <div class="ribbon ribbon-all">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a href="/tag/coupon">
+                            <span></span>
+                            View all coupons
+                        </a>
+                    </div>
+                    <div class="ribbon ribbon-help">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                            <span></span>Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="no-print selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-no-print">
+                        <span></span>To print your coupons, please use a computer connected to a printer.
+                    </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="already-selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+
+                        <div class="state-redeemed">
+                            <span></span>
+                            Already Printed
+                        </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<div class="box box-offer box1 coupon no-brand" data-category="coupon">
+    <article class="box-offer box-offer-ecoupon" id="overlay" data-brandcode-subbrandcode="META~Z99" ean="137127" tag="137127;1;1.00;1c5ea657-a76f-42da-8751-880c1004483b" catparams="prodcateg:!prodbrand:!prodsubcateg:!prodsubbrand:!prodformat:" thumbnailpath="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137127-basket.jpg">
+        <header>
+            <p class="post-category color1">
+Wellness            </p>
+        </header>
+                 <div class="recto">
+                 
+                     
+                     <div class="scissored event_coupon_request" data-action-detail="META|Z99">
+                         <div class="inner">
+                             <div class="info-product">
+                                 <p class="product-category">
+personal health care                                 </p>
+                                 <h2>
+Metamucil                                 </h2>
+                             </div>
+                             <div class="thumb">
+                                     <img src=https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137127-size-1.jpg alt="Metamucil" />
+                             </div>
+                             <div class="sum">
+                                 
+                                         <p class="price">
+                                             <strong>
+$1.00                                             </strong>
+                                         </p>
+                                     <p>of reduction in store*</p>
+                             </div>
+                         </div>
+                         <span></span>
+                     </div>
+                 <div class="post-meta">
+                     <div class="post-actions post__actions--padding">
+                         <div class="post-link">
+                             <ul>
+                                             <li>
+                                                 <button class="btn print-coupon event_coupon_request" data-pgaction-redirection='0' data-modal-intro="To redeem this offer, please log in." data-action-detail="META|Z99"><i class="fonticon fonticon-print"></i>Print coupon</button>
+                                             </li>
+                                           <li class="pahc-coupon">
+                                               <a href="/page/basket" class="btn"><i aria-hidden="true" class="fonticon fonticon-gift"></i>View Basket</a>
+                                           </li>
+
+                             </ul>
+                         </div>
+                     </div>
+                     
+
+                 </div>
+                 </div>
+        <div class="verso">
+
+                <div class="home-verso-scissored">
+                    <p class="inner"><h2>The information about this product will be here soon</h2></p>
+                    <div class="dashed"><span></span></div>
+                </div>
+                <p class="coupon-info">
+                    <i>
+LIMIT ONE COUPON PER PURCHASE of products and quantities stated.                    </i>
+                </p>
+                <div class="post-meta">
+                    <div class="post-tag">
+                        <a class="btn morebutton-back" href="#"><i class="fonticon fonticon-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                </div>
+        </div>
+        <div class="selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-selected">
+                        <span></span>Coupon selected
+                    </div>
+                    <a href="#" class="unselect js-unselect-coupon">
+                        <span></span>Unselect coupon
+                    </a>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="selected-pahc selected-v2">
+                <div class="ribbons">
+                    <div class="ribbon ribbon-state">
+                        <div class="state-selected-pahc">
+                            <i aria-hidden="true" class="fonticon-mail"></i>
+                            <a href="/page/basket">Send email reminder</a>
+                        </div>
+                    </div>
+                    <div class="ribbon ribbon-all">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a href="/tag/coupon">
+                            <span></span>
+                            View all coupons
+                        </a>
+                    </div>
+                    <div class="ribbon ribbon-help">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                            <span></span>Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="no-print selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-no-print">
+                        <span></span>To print your coupons, please use a computer connected to a printer.
+                    </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="already-selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+
+                        <div class="state-redeemed">
+                            <span></span>
+                            Already Printed
+                        </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<div class="box box-offer box1 coupon no-brand" data-category="coupon">
+    <article class="box-offer box-offer-ecoupon" id="overlay" data-brandcode-subbrandcode="E75~Z99" ean="137249" tag="137249;1;1.50;927ca660-5ddf-49b2-8f37-d2eaf4c2fb1d" catparams="prodcateg:!prodbrand:!prodsubcateg:!prodsubbrand:!prodformat:" thumbnailpath="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137249-basket.jpg">
+        <header>
+            <p class="post-category color1">
+Beauty            </p>
+        </header>
+                 <div class="recto">
+                 
+                     
+                     <div class="scissored event_coupon_request" data-action-detail="E75|Z99">
+                         <div class="inner">
+                             <div class="info-product">
+                                 <p class="product-category">
+cleansing system                                 </p>
+                                 <h2>
+Olay                                 </h2>
+                             </div>
+                             <div class="thumb">
+                                     <img src=https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137249-size-1.jpg alt="Olay" />
+                             </div>
+                             <div class="sum">
+                                 
+                                         <p class="price">
+                                             <strong>
+$1.50                                             </strong>
+                                         </p>
+                                     <p>of reduction in store*</p>
+                             </div>
+                         </div>
+                         <span></span>
+                     </div>
+                 <div class="post-meta">
+                     <div class="post-actions post__actions--padding">
+                         <div class="post-link">
+                             <ul>
+                                             <li>
+                                                 <button class="btn print-coupon event_coupon_request" data-pgaction-redirection='0' data-modal-intro="To redeem this offer, please log in." data-action-detail="E75|Z99"><i class="fonticon fonticon-print"></i>Print coupon</button>
+                                             </li>
+                                           <li class="pahc-coupon">
+                                               <a href="/page/basket" class="btn"><i aria-hidden="true" class="fonticon fonticon-gift"></i>View Basket</a>
+                                           </li>
+
+                             </ul>
+                         </div>
+                     </div>
+                     
+
+                 </div>
+                 </div>
+        <div class="verso">
+
+                <div class="home-verso-scissored">
+                    <p class="inner"><h2>The information about this product will be here soon</h2></p>
+                    <div class="dashed"><span></span></div>
+                </div>
+                <p class="coupon-info">
+                    <i>
+LIMIT ONE COUPON PER PURCHASE of products and quantities stated.                    </i>
+                </p>
+                <div class="post-meta">
+                    <div class="post-tag">
+                        <a class="btn morebutton-back" href="#"><i class="fonticon fonticon-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                </div>
+        </div>
+        <div class="selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-selected">
+                        <span></span>Coupon selected
+                    </div>
+                    <a href="#" class="unselect js-unselect-coupon">
+                        <span></span>Unselect coupon
+                    </a>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="selected-pahc selected-v2">
+                <div class="ribbons">
+                    <div class="ribbon ribbon-state">
+                        <div class="state-selected-pahc">
+                            <i aria-hidden="true" class="fonticon-mail"></i>
+                            <a href="/page/basket">Send email reminder</a>
+                        </div>
+                    </div>
+                    <div class="ribbon ribbon-all">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a href="/tag/coupon">
+                            <span></span>
+                            View all coupons
+                        </a>
+                    </div>
+                    <div class="ribbon ribbon-help">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                            <span></span>Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="no-print selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-no-print">
+                        <span></span>To print your coupons, please use a computer connected to a printer.
+                    </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="already-selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+
+                        <div class="state-redeemed">
+                            <span></span>
+                            Already Printed
+                        </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<div class="box box-offer box1 coupon no-brand" data-category="coupon">
+    <article class="box-offer box-offer-ecoupon" id="overlay" data-brandcode-subbrandcode="F35~Z99" ean="137248" tag="137248;1;0.25;8ad78e41-e736-4a63-82de-a49511c754ec" catparams="prodcateg:!prodbrand:!prodsubcateg:!prodsubbrand:!prodformat:" thumbnailpath="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137248-basket.jpg">
+        <header>
+            <p class="post-category color1">
+Family            </p>
+        </header>
+                 <div class="recto">
+                 
+                     
+                     <div class="scissored event_coupon_request" data-action-detail="F35|Z99">
+                         <div class="inner">
+                             <div class="info-product">
+                                 <p class="product-category">
+bath tissue                                 </p>
+                                 <h2>
+Charmin                                 </h2>
+                             </div>
+                             <div class="thumb">
+                                     <img src=https://pgeveryday-com.secure.footprint.net/Assets/Modules/Campaigns/Coupon/Images/en-US-137248-size-1.jpg alt="Charmin" />
+                             </div>
+                             <div class="sum">
+                                 
+                                         <p class="price">
+                                             <strong>
+$0.25                                             </strong>
+                                         </p>
+                                     <p>of reduction in store*</p>
+                             </div>
+                         </div>
+                         <span></span>
+                     </div>
+                 <div class="post-meta">
+                     <div class="post-actions post__actions--padding">
+                         <div class="post-link">
+                             <ul>
+                                             <li>
+                                                 <button class="btn print-coupon event_coupon_request" data-pgaction-redirection='0' data-modal-intro="To redeem this offer, please log in." data-action-detail="F35|Z99"><i class="fonticon fonticon-print"></i>Print coupon</button>
+                                             </li>
+                                           <li class="pahc-coupon">
+                                               <a href="/page/basket" class="btn"><i aria-hidden="true" class="fonticon fonticon-gift"></i>View Basket</a>
+                                           </li>
+
+                             </ul>
+                         </div>
+                     </div>
+                     
+
+                 </div>
+                 </div>
+        <div class="verso">
+
+                <div class="home-verso-scissored">
+                    <p class="inner"><h2>The information about this product will be here soon</h2></p>
+                    <div class="dashed"><span></span></div>
+                </div>
+                <p class="coupon-info">
+                    <i>
+LIMIT ONE COUPON PER PURCHASE of products and quantities stated.                    </i>
+                </p>
+                <div class="post-meta">
+                    <div class="post-tag">
+                        <a class="btn morebutton-back" href="#"><i class="fonticon fonticon-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                </div>
+        </div>
+        <div class="selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-selected">
+                        <span></span>Coupon selected
+                    </div>
+                    <a href="#" class="unselect js-unselect-coupon">
+                        <span></span>Unselect coupon
+                    </a>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="selected-pahc selected-v2">
+                <div class="ribbons">
+                    <div class="ribbon ribbon-state">
+                        <div class="state-selected-pahc">
+                            <i aria-hidden="true" class="fonticon-mail"></i>
+                            <a href="/page/basket">Send email reminder</a>
+                        </div>
+                    </div>
+                    <div class="ribbon ribbon-all">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a href="/tag/coupon">
+                            <span></span>
+                            View all coupons
+                        </a>
+                    </div>
+                    <div class="ribbon ribbon-help">
+                        <div class="ribbon-right">
+                            <div class="ribbon-border"></div>
+                            <div class="ribbon-corner"></div>
+                        </div>
+                        <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                            <span></span>Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="no-print selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+                    <div class="state-no-print">
+                        <span></span>To print your coupons, please use a computer connected to a printer.
+                    </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="already-selected selected-v2">
+            <div class="ribbons">
+                <div class="ribbon ribbon-state">
+
+                        <div class="state-redeemed">
+                            <span></span>
+                            Already Printed
+                        </div>
+                </div>
+                <div class="ribbon ribbon-all">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a href="/tag/coupon">
+                        <span></span>View all coupons
+                    </a>
+                </div>
+                <div class="ribbon ribbon-help">
+                    <div class="ribbon-right">
+                        <div class="ribbon-border"></div>
+                        <div class="ribbon-corner"></div>
+                    </div>
+                    <a target="_blank" href="http://b.coupons.com/help/print.asp">
+                        <span></span>Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="box box1 undefined no-brand undefined_no-brand" data-category="htmlcontent">
+
+    <article class="box-article" id="d29d635e-ae7b-d22b-23b2-16d7cf9bfe8e">
+        <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/space/1_Col_min_update2.jpg" width="640" height="75">
+    </article>
+</div><div class="box box1 undefined no-brand undefined_no-brand" data-category="htmlcontent">
+
+    <article class="box-article" id="2f9b5c9c-6448-778c-1836-b559426736cd">
+        <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/space/1_Col_min_update2.jpg" width="640" height="75">
+    </article>
+</div><div class="box box1 undefined no-brand undefined_no-brand" data-category="htmlcontent">
+
+    <article class="box-article" id="0dcfeb9e-0a34-8380-478e-66edbde54ae2">
+        <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/space/1_Col_min_update2.jpg" width="640" height="75">
+    </article>
+</div><div class="box box1 undefined no-brand undefined_no-brand" data-category="htmlcontent">
+
+    <article class="box-article" id="7b08d6f8-a69b-5061-2f1d-19647c4feb0c">
+        <img src="https://pgeveryday-com.secure.footprint.net/Assets/Modules/Editorial/HtmlContent/17Site_Updates/November_2017/space/1_Col_min_update2.jpg" width="640" height="75">
+    </article>
+</div>         <div class='box box5 navigation-bottom'><div class='top-profile pagination-items'><div class='pager-area group'><div id='saved-items' class='pagination'><ul class='inline'><li class='current-page'><a>1</a></li><li><a href='https://www.pgeveryday.com/?page=2'>2</a></li><li><a href='https://www.pgeveryday.com/?page=3'>3</a></li><li><a href='https://www.pgeveryday.com/?page=4'>4</a></li><li >...</li><li><a href='https://www.pgeveryday.com/?page=227'>227</a></li><li class='nextpage'><a class='next-page' href='https://www.pgeveryday.com/?page=2'>Next page</a></li></ul></div></div></div></div>
+</div>
+
+
+                    </section>
+                    <footer id="footer" role="contentinfo">
+                        <div class="brands">
+                            <div class="pg-brands">
+                                <div class="brands__title">
+                                    <p class="brands__title__text">
+                                        <span>Discover P&G brands</span>
+                                    </p>
+<img alt="P&amp;amp;G" class="lazy brands__title__logo" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/logos/pg-small.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img alt="P&amp;G" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/logos/pg-small.png"  /></noscript>                                </div>
+                                <ul class="brands__list">
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Procter &amp; Gamble" data-nowarn="true" href="http://www.pg.com" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pg.png" alt="Procter &amp; Gamble" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pg.png" alt="Procter &amp; Gamble" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Align" data-nowarn="true" href="https://www.pgeveryday.com/tag/align" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/align.png" alt="Align" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/align.png" alt="Align" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Always" data-nowarn="true" href="https://www.pgeveryday.com/tag/always" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always.png" alt="Always" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always.png" alt="Always" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Always Discreet" data-nowarn="true" href="https://www.pgeveryday.com/tag/always-discreet" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always-discreet-logo-slice.png" alt="Always Discreet" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/always-discreet-logo-slice.png" alt="Always Discreet" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Aussie" data-nowarn="true" href="https://www.pgeveryday.com/tag/aussie" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/aussie.png" alt="Aussie" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/aussie.png" alt="Aussie" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Bounce" data-nowarn="true" href="https://www.pgeveryday.com/tag/bounce" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounce.png" alt="Bounce" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounce.png" alt="Bounce" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Bounty" data-nowarn="true" href="https://www.pgeveryday.com/tag/bounty" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounty.png" alt="Bounty" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/bounty.png" alt="Bounty" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Braun" data-nowarn="true" href="https://www.pgeveryday.com/tag/braun" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/braun.png" alt="Braun" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/braun.png" alt="Braun" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="cascade" data-nowarn="true" href="https://www.pgeveryday.com/tag/cascade" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cascade.png" alt="cascade" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cascade.png" alt="cascade" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Charmin" data-nowarn="true" href="https://www.pgeveryday.com/tag/charmin" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/charmin.png" alt="Charmin" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/charmin.png" alt="Charmin" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Cheer" data-nowarn="true" href="https://www.pgeveryday.com/tag/cheer" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cheer.png" alt="Cheer" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/cheer.png" alt="Cheer" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="CLEARBLUE" data-nowarn="true" href="https://www.pgeveryday.com/tag/clearblue" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/footer/en-US/clearblue.png" alt="CLEARBLUE" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/footer/en-US/clearblue.png" alt="CLEARBLUE" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Crest" data-nowarn="true" href="https://www.pgeveryday.com/tag/crest" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/crest.png" alt="Crest" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/crest.png" alt="Crest" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Dawn" data-nowarn="true" href="https://www.pgeveryday.com/tag/dawn" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dawn.png" alt="Dawn" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dawn.png" alt="Dawn" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Downy" data-nowarn="true" href="https://www.pgeveryday.com/tag/downy" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/downy.png" alt="Downy" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/downy.png" alt="Downy" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Dreft" data-nowarn="true" href="https://www.pgeveryday.com/tag/dreft" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dreft.png" alt="Dreft" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/dreft.png" alt="Dreft" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Duo" data-nowarn="true" href="https://www.pgeveryday.com/tag/cleansing-duos" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/duo.png" alt="Duo" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/duo.png" alt="Duo" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Era" data-nowarn="true" href="https://www.pgeveryday.com/tag/era" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/era.png" alt="Era" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/era.png" alt="Era" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Febreze" data-nowarn="true" href="https://www.pgeveryday.com/tag/febreze" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/Febreze.png" alt="Febreze" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/Febreze.png" alt="Febreze" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Fixodent" data-nowarn="true" href="https://www.pgeveryday.com/tag/fixodent" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/fixodent.png" alt="Fixodent" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/fixodent.png" alt="Fixodent" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Gain" data-nowarn="true" href="https://www.pgeveryday.com/tag/gain" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gain.png" alt="Gain" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gain.png" alt="Gain" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Gillette" data-nowarn="true" href="https://www.pgeveryday.com/tag/gillette" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gillette.png" alt="Gillette" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/gillette.png" alt="Gillette" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Head &amp; Shoulders" data-nowarn="true" href="https://www.pgeveryday.com/tag/head-shoulders" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/head_shoulders.png" alt="Head &amp; Shoulders" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/head_shoulders.png" alt="Head &amp; Shoulders" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Herbal Essences" data-nowarn="true" href="https://www.pgeveryday.com/tag/herbal-essences" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/herbal_essences.png" alt="Herbal Essences" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/herbal_essences.png" alt="Herbal Essences" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Ivory Body" data-nowarn="true" href="https://www.pgeveryday.com/tag/ivory" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/ivory_body.png" alt="Ivory Body" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/ivory_body.png" alt="Ivory Body" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Luvs" data-nowarn="true" href="https://www.pgeveryday.com/tag/luvs" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/luvs.png" alt="Luvs" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/luvs.png" alt="Luvs" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Metamucil" data-nowarn="true" href="http://www.metamucil.com" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/metamucil.png" alt="Metamucil" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/metamucil.png" alt="Metamucil" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Mr. Clean" data-nowarn="true" href="https://www.pgeveryday.com/tag/mr-clean" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/mrclean.png" alt="Mr. Clean" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/mrclean.png" alt="Mr. Clean" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Olay" data-nowarn="true" href="https://www.pgeveryday.com/tag/olay" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/olay.png" alt="Olay" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/olay.png" alt="Olay" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Old Spice" data-nowarn="true" href="https://www.pgeveryday.com/tag/old-spice" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/old_spice.png" alt="Old Spice" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/old_spice.png" alt="Old Spice" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Oral B" data-nowarn="true" href="https://www.pgeveryday.com/tag/oral-b" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/oral_b.png" alt="Oral B" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/oral_b.png" alt="Oral B" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Pampers" data-nowarn="true" href="https://www.pgeveryday.com/tag/pampers" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pampers.png" alt="Pampers" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pampers.png" alt="Pampers" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Pantene" data-nowarn="true" href="https://www.pgeveryday.com/tag/pantene" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pantene.png" alt="Pantene" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pantene.png" alt="Pantene" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Pepto" data-nowarn="true" href="https://www.pgeveryday.com/tag/pepto-bismol" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pepto.png" alt="Pepto" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pepto.png" alt="Pepto" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Prilosec" data-nowarn="true" href="https://www.pgeveryday.com/tag/prilosec" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/prilosec.png" alt="Prilosec" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/prilosec.png" alt="Prilosec" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Puffs" data-nowarn="true" href="https://www.pgeveryday.com/tag/puffs" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/puffs.png" alt="Puffs" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/puffs.png" alt="Puffs" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Scope" data-nowarn="" href="https://www.pgeveryday.com/tag/scope" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/scope.png" alt="Scope" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/scope.png" alt="Scope" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Secret" data-nowarn="true" href="https://www.pgeveryday.com/tag/secret" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/secret.png" alt="Secret" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/secret.png" alt="Secret" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Swiffer" data-nowarn="true" href="https://www.pgeveryday.com/tag/swiffer" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/swiffer.png" alt="Swiffer" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/swiffer.png" alt="Swiffer" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Tampax" data-nowarn="true" href="https://www.pgeveryday.com/tag/tampax" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tampax.png" alt="Tampax" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tampax.png" alt="Tampax" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Tide" data-nowarn="true" href="https://www.pgeveryday.com/tag/tide" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tide.png" alt="Tide" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/tide.png" alt="Tide" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Unstopables" data-nowarn="true" href="https://www.pgeveryday.com/tag/unstopables" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/unstopables.png" alt="Unstopables" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/unstopables.png" alt="Unstopables" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Venus" data-nowarn="true" href="https://www.pgeveryday.com/tag/venus" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/venus.png" alt="Venus" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/venus.png" alt="Venus" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Vicks" data-nowarn="true" href="https://www.pgeveryday.com/tag/vicks" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vicks.png" alt="Vicks" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vicks.png" alt="Vicks" /></noscript>
+                                                    </a>
+                                                </li>
+                                                <li class="logo-brand">
+                                                    <a class="event_menu_click" data-action-detail="Vidal Sassoon" data-nowarn="true" href="https://www.pgeveryday.com/tag/vidal-sassoon" target="_blank">
+                                                        <img class="lazy" width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/bg/transparent.png" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vidalsassoon.png" alt="Vidal Sassoon" />
+                                                        <noscript><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/vidalsassoon.png" alt="Vidal Sassoon" /></noscript>
+                                                    </a>
+                                                </li>
+                                </ul>
+
+                            </div>
+
+                                <div class="other-brands">
+                                    <p class="brands__title__text">P&amp;G Family of Sites</p>
+                                    <ul class="brands__list--aside">
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link event_menu_click" data-action-detail="BeingGirl" href="https://www.youtube.com/user/beinggirl" target="_blank" data-action-detail="https://www.youtube.com/user/beinggirl">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/being_girl.png" alt="Being Girl" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/being_girl.png" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link event_menu_click" data-action-detail="HomeMadeSimple" href="/home-garden" target="_blank" data-action-detail="/home-garden">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/homemadesimple.png" alt="Home Made Simple" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/homemadesimple.png" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link" href="http://www.pampers.com" target="_blank" hreflang="en" data-action-detail="http://www.pampers.com" rel="alternate">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pampers_village.png" alt="Pampers Village" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/pampers_village.png" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link" href="http://www.orgullosa.com" target="_blank" hreflang="en" data-action-detail="http://www.orgullosa.com" rel="alternate">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/orgullosa.png" alt="Orgullosa" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/orgullosa.png" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link" href="/tag/safe-home" target="_blank" hreflang="en" data-action-detail="/tag/safe-home" rel="alternate">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/SafeHome_footerLogo.jpg" alt="Safe Home" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/SafeHome_footerLogo.jpg" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link" href="https://www.pgeveryday.com/tag/my-black-is-beautiful" target="_blank" hreflang="en" data-action-detail="https://www.pgeveryday.com/tag/my-black-is-beautiful" rel="alternate">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/MBIB.png" alt="MBIB" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/MBIB.png" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                                    <li class="logo-brand other">
+                                                        <a class="event_outbound_link" href="https://www.pgeveryday.com/tag/childrens-safe-drinking-water" target="_blank" hreflang="en" data-action-detail="https://www.pgeveryday.com/tag/childrens-safe-drinking-water" rel="alternate">
+                                                            <img class="lazy" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/CSDW.jpg" alt="CSDW" />
+                                                            <noscript><img width="80" height="40" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/CSDW.jpg" alt="" /></noscript>
+                                                        </a>
+                                                    </li>
+                                    </ul>
+                                </div>
+
+                        </div>
+
+                        <div class="footer__actions">
+                            <div class="footer__language">
+                                <div class="footer__locale"><a class="link" href="http://www.everydayme.com/" target="_blank"><i aria-hidden="true" class="fonticon fonticon-globe"></i>Change your country/region</a></div>
+                            </div>
+
+                                <div class="footer__social">
+                                        <ul class="social__list">
+                                                <li class="social__list__item"><a href="https://www.facebook.com/PGEveryday" data-action-detail="Facebook" target="_blank" class="social__list__link event_socialmedia_exit"><i aria-hidden="true" class="fonticon fonticon-facebook"></i><span class="sr-only">Facebook</span></a></li>
+                                                <li class="social__list__item"><a href="https://twitter.com/pgeveryday" data-action-detail="Twitter" target="_blank" class="social__list__link event_socialmedia_exit"><i aria-hidden="true" class="fonticon fonticon-twitter"></i><span class="sr-only">Twitter</span></a></li>
+                                                <li class="social__list__item"><a href="http://www.youtube.com/user/PGEveryday" data-action-detail="YouTube" target="_blank" class="social__list__link event_socialmedia_exit"><i aria-hidden="true" class="fonticon fonticon-youtube"></i><span class="sr-only">YouTube</span></a></li>
+                                        </ul>
+                                </div>
+                        </div>
+
+                        <div class="footer__links">
+                            <ul class="footer__links__list">
+                                                <li class="footer__links__item">
+                                                    <a class="para10" href="https://pgconsumersupport.secure.force.com/CarehubStandalone?Country=us&amp;Language=en&amp;Brand=PG+Everyday" target="_blank" hreflang="en" rel="alternate">
+                                                        Contact Us
+                                                    </a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a class="para10" href="http://www.pg.com/en_US/terms_conditions/index.shtml#use" target="_blank" hreflang="en" rel="alternate">
+                                                        Terms and Conditions
+                                                    </a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a class="" id="_bapw-link" href="#" target="_blank" hreflang="en" rel="alternate">
+
+                                                            <img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" alt="AdChoices" />
+                                                        
+                                                            <span style="vertical-align:middle !important">AdChoices</span>
+                                                    </a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a class="para10" href="/page/about-us" target="_blank" hreflang="en" rel="alternate">
+                                                        About us
+                                                    </a>
+                                                </li>
+
+                                <li class="footer__links__item toggle">
+                                    <a href="#" onclick=" analytics_event_tracking(document.getElementById('idMakeHomePage')); ">Make us your homepage</a>
+                                </li>
+<li class='footer__links__item'><a class='event_profile_register js-openlogin-modal' href='/page/login' data-toggle='modal' data-modal-intro='Log in to unlock exclusive offers, discover our tips and tricks, and get the most out of your P&G everyday experience!' hreflang="en" rel='alternate' data-action-detail='login_footer_button'>Login or Register</a></li>
+                            </ul>
+                        </div>
+                        <div style="display: none;" class="make-homepage group">
+                            <p class="brands__title__text">Make www.pgeveryday.com your homepage</p>
+
+
+
+                        </div>
+
+                        <div class="footer__links">
+                            <div class="footer__links__logo">
+                                <img alt="P&amp;amp;G" class="lazy logo-pg" data-src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/logos/pg-small.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img alt="P&amp;G" src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Images/logos/pg-small.png"  /></noscript>
+                            </div>
+                            <ul class="footer__links__list">
+                                                <li class="footer__links__item">
+                                                    <a href="http://www.pg.com/en_US/index.shtml" class="" target="_blank" hreflang="en" rel="alternate">P&amp;G</a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a href="http://www.pg.com/en_US/contact_us/index.shtml" class="" target="_blank" hreflang="en" rel="alternate">Contact P&amp;G</a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a href="http://www.pg.com/privacy/english/privacy_notice.shtml" class="" target="_blank" hreflang="en" rel="alternate">Privacy</a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a href="/page/optout" class="" target="_self" hreflang="en" rel="alternate">Unsubscribe</a>
+                                                </li>
+                                                <li class="footer__links__item">
+                                                    <a href="/page/sitemap" class="" target="_self" hreflang="en" rel="alternate">Site Map</a>
+                                                </li>
+                                            <li class="footer__links__item">
+                                                <a href="http://www.bbb.org/cincinnati/business-reviews/manufacturers-and-producers/the-procter-gamble-company-in-cincinnati-oh-3036" id="" class="" target="_blank" hreflang="en" rel="alternate"><img src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/core/images/footer/en-US/BBB_Seal.png" alt="BBB Seal" class="" /></a>
+                                            </li>
+
+                            </ul>
+                        </div>
+                        
+                        <div class="footer__legal">
+                            <p class="text--small text--grey">
+                                © 2018 Procter &amp; Gamble. All rights reserved. The use and access to the information on this site is subject to the Terms and Conditions set in our legal agreement.
+                            </p>
+                        </div>
+                    </footer>
+                    <!--New Codes being implemented for this CR-Ukraine -->
+                    <!-- A modal with its content -->
+
+
+                </div>
+            </div>
+            <!-- Mobile Left Column-->
+            <div class="layer-wrapper ">
+                <div class="layer-center container">
+                        <a class="close" href="#" onclick=" location.reload(true); ">Close<span></span></a>
+                </div>
+            </div>
+            
+            <div id="cookie-consent-footer">
+            </div>
+            <div id="current-culture" style="display: none;">en-US</div>
+            <div id="minifedjs-enabled" style="display: none;">True</div>
+            <div id="multisample-minimum-order-quantity" style="display: none;">1</div>
+
+        </div>
+    </div>
+    <div id="cdnLink" style="display:none">https://pgeveryday-com.secure.footprint.net/</div>
+  
+    
+
+                    <script type="text/javascript" defer src="https://pgeveryday-com.secure.footprint.net/LayoutAssets/Core/Scripts/Minified/global-min-jquery-exclude.js?v=c078d39502228cea19f269466af11a458"></script>
+
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+    <!-- FB CONNECT AND FB LIKE -->
+    
+
+
+       
+     
+</body>
+</html>

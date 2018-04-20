@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:fb="http://www.facebook.com/2008/fbml"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQEBVFZWDxADUVFXAQAFXg=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/responsive/icons/touch-icon-ipad-retina-6-precomposed.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/responsive/icons/touch-icon-ipad-retina-7-precomposed.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/responsive/icons/touch-icon-ipad-classic-7-precomposed.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="https://www.taylorguitars.com/sites/all/themes/responsive/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/responsive/icons/touch-icon-iphone-classic-6-precomposed.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/responsive/icons/touch-icon-iphone-classic-7-precomposed.png" />
+<script type="application/ld+json">{"@context":"http://schema.org"}</script>
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/responsive/icons/touch-icon-ipad-classic-6-precomposed.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/responsive/icons/touch-icon-iphone-6plus-precomposed.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/responsive/icons/touch-icon-iphone-retina-6-precomposed.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/responsive/icons/touch-icon-iphone-retina-7-precomposed.png" />
+<meta name="description" content="Taylor Guitars is a leading manufacturer of acoustic guitars and electric guitars. As well you can build to order via our custom guitar program." />
+<meta name="keywords" content="guitar, guitars, acoustic guitars, electric guitars, custom guitars" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.taylorguitars.com/" />
+<meta property="og:site_name" content="Taylor Guitars" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.taylorguitars.com/home" />
+<meta property="og:title" content="Taylor Guitars" />
+<meta property="og:description" content="Taylor Guitars is a leading manufacturer of acoustic and electric guitars, and offers an extensive Build to Order custom guitar program." />
+<meta property="og:image" content="https://www.taylorguitars.com/sites/default/files/tg-logo-red-2x.jpg" />
+  <title>Guitars | Taylor Guitars</title>
+  <link type="text/css" rel="stylesheet" href="https://www.taylorguitars.com/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.taylorguitars.com/sites/default/files/css/css_cS3h39M-bciO8PSONPRNbUSbNoRr9Ms3vIsNMLLD63g.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.taylorguitars.com/sites/default/files/css/css_ePOxBP-4cHKIOaj5Vv_s93L7hGmWGt8cnZgtmjrtAEY.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.taylorguitars.com/sites/default/files/css/css_JIpT8e_Uib7nW8ur1frPH5bMK7ONCubqFQa5s73xzPQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.taylorguitars.com/sites/default/files/css/css_J1k8IP7LkX8VhA8moKXhIALzfAPFdDSD3g9E9kYiS2M.css" media="all" />
+  <script type="text/javascript" src="https://www.taylorguitars.com/sites/default/files/js/js_WkOMkSyjg9rxsesVK2mUAVX_dhZTWbIE6jpIzuL-ygM.js"></script>
+<script type="text/javascript" src="https://www.taylorguitars.com/sites/default/files/js/js_a2uQkNizSmA2eFL5x8v9XyoNHvr8JOO9AZQCSj4Pz2Y.js"></script>
+<script type="text/javascript" src="https://www.taylorguitars.com/sites/default/files/js/js_EgEojhW0Ti2PJknxQ_RBSTOJlcMS3URYKAN-juO_EQQ.js"></script>
+<script type="text/javascript" src="https://www.taylorguitars.com/sites/default/files/js/js_l6uF6-Hb5Zlj483Jk7JntBhw5I-Y3JOJBwN9VdW9_Cg.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"responsive","theme_token":"vzHnDMc8c86AxVu2ZRBCnDaTfTyl-k9EPFY5DwTnec0","js":{"sites\/all\/modules\/contrib\/addthis\/addthis.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/contrib_modified\/ubercart\/uc_file\/uc_file.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/modules\/contrib\/field_group\/field_group.js":1,"sites\/all\/themes\/responsive\/js\/libs\/picturefill.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/jquery-migrate-1.2.1.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/owl.carousel.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/slick.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/jquery.proportional.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/jquery.waypoints.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/jquery.selectBox.min.js":1,"sites\/all\/themes\/responsive\/js\/libs\/jquery.matchHeight-min.js":1,"sites\/all\/themes\/responsive\/js\/main.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/contrib_modified\/ubercart\/uc_file\/uc_file.css":1,"sites\/all\/modules\/contrib_modified\/ubercart\/uc_order\/uc_order.css":1,"sites\/all\/modules\/contrib_modified\/ubercart\/uc_product\/uc_product.css":1,"sites\/all\/modules\/contrib_modified\/ubercart\/uc_store\/uc_store.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/youtube\/css\/youtube.css":1,"sites\/all\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/custom\/ubercart\/taylor_syspro\/mini-cart.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/themes\/taylor_guitar\/css\/survey_popup.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/facebook_pull\/facebook_pull.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/themes\/taylor_guitar\/layouts\/onecol\/onecol.css":1,"sites\/all\/themes\/responsive\/css\/main.css":1,"public:\/\/css_injector\/css_injector_51.css":1}},"colorbox":{"transition":"fade","speed":"350","opacity":"0.85","slideshow":false,"slideshowAuto":true,"slideshowSpeed":"2500","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","overlayClose":true,"maxWidth":"100%","maxHeight":"100%","initialWidth":"300","initialHeight":"100","fixed":true,"scrolling":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"taylor_survey_status":0,"guitar_survey_url":"http:\/\/v2.decipherinc.com\/survey\/selfserve\/b32\/131212?list=1","exit_survey_url":"http:\/\/v2.decipherinc.com\/survey\/selfserve\/b32\/131215?list=1","field_group":{"div":"default"},"urlIsAjaxTrusted":{"\/":true},"addthis":{"async":1,"domready":1,"widget_url":"https:\/\/s7.addthis.com\/js\/300\/addthis_widget.js","addthis_config":{"pubid":"","services_compact":"email,facebook,facebook_like,twitter,more","services_exclude":"","data_track_clickback":false,"ui_508_compliant":false,"ui_click":false,"ui_cobrand":"","ui_delay":0,"ui_header_background":"","ui_header_color":"","ui_open_windows":false,"ui_use_css":false,"ui_use_addressbook":false,"ui_language":"en"},"addthis_share":{"templates":{"twitter":"{{title}} {{url}} via @AddThis"}}}});
+//--><!]]>
+</script>
+</head>
+<body class="html front not-logged-in no-sidebars page-home open-mobile-search i18n-en" >
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N73MR7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N73MR7');</script>
+<!-- End Google Tag Manager -->
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs><style>.cls-1{fill:#fff;}</style><style>.cls-1{fill:#fff;}</style><style>.cls-1{fill:#fff;}</style></defs><symbol viewBox="7 84 625 625" id="taylor-arrow"><title>arrow</title> <path fill="#000"/> <path d="M319.5,709c-83.5,0-161.9-32.5-221-91.5C39.5,558.4,7,480,7,396.5s32.5-161.9,91.5-221c59-59,137.5-91.5,221-91.5
+	s161.9,32.5,221,91.5c59,59,91.5,137.5,91.5,221s-32.5,161.9-91.5,221S403,709,319.5,709z M319.5,126c-72.3,0-140.2,28.1-191.3,79.2
+	S49,324.2,49,396.5c0,72.3,28.1,140.2,79.2,191.3s119,79.2,191.3,79.2c72.3,0,140.2-28.1,191.3-79.2s79.2-119,79.2-191.3
+	c0-72.3-28.1-140.2-79.2-191.3S391.8,126,319.5,126z"/> <polygon stroke="#000000" points="379.5,261.2 223.5,377 223.5,390 379.5,505.5 379.5,456.5 279.8,383.4 379.5,310.8 "/> </symbol><symbol viewBox="450.9 291.7 324 220.3" id="taylor-icon-cart"><title>icon-cart</title> <g> <path d="M471.2,323.3c20.9,1.1,41.9,1.8,62.8,2.6c31.4,1.3,62.8,2.6,94.3,3.9c20.9,0.9,41.9,1.8,62.8,2.4c2.2,0.1,5.3-1.3,6.7-3
+		c8-9.6,15.6-19.5,23.2-29.4c4.1-5.5,9.1-8.3,16.1-8c6.3,0.3,12.7,0.4,19,0c9.1-0.7,15.3,2.8,18.8,11.1c0,2,0,4,0,6
+		c-3.2,8.3-9.3,12.6-18.2,11c-11.6-2-19.1,2.7-25.4,12.3c-6,9.3-13.5,17.5-17.9,28c-10.1,24.2-21,48.1-31.6,72
+		c-3.9,8.7-7.5,11.1-17,10.7c-25.4-0.9-50.9-2-76.3-2.9c-31.3-1.1-62.5-2.1-93.8-3.2c-8-0.3-12.6-3.7-15.1-11.4
+		c-4.7-13.8-9.2-27.7-13.8-41.6c-4.9-14.7-10-29.4-14.9-44c0-1.7,0-3.3,0-5C455.6,324.8,459.6,322.7,471.2,323.3z"/> <path d="M515.5,458.3c14.6,4.7,22.5,20.8,17.3,35.3c-3.7,10.3-11.7,15.6-21.9,18.3c-2.7,0-5.3,0-8,0c-0.9-0.3-1.8-0.8-2.7-1
+		c-14.8-3.9-23.8-19.3-19.5-33.7C485.2,462,500.7,453.5,515.5,458.3z"/> <path d="M639.3,458.9c10.6-4,22.9-1,30.1,7.2c7.6,8.8,9.1,21.3,3.9,31.2c-4.4,8.3-11.7,12.3-20.2,14.7c-2.7,0-5.3,0-8,0
+		c-0.6-0.3-1.1-0.7-1.7-0.9c-13.5-3.4-21.5-13.6-21.4-27.4C622,472.6,628.8,462.9,639.3,458.9z"/> </g> </symbol><symbol viewBox="88.1 320 360 231" id="taylor-icon-email"><title>icon-email</title> <polygon points="88.1,354.5 88.1,551 448.1,551 448.1,354.5 268.1,482.5 "/> <polygon points="90.9,320 267.9,445.5 445.4,320 "/> </symbol><symbol viewBox="607.2 385.5 10.8 21" id="taylor-icon-facebook"><title>icon-facebook</title> <g id="icon-facebook-XMLID_1_"> <g> <path d="M618,385.9c-0.2,1.1-0.4,2.1-0.6,3.2c-0.4-0.1-0.9-0.2-1.3-0.2c-2.7-0.4-2.3,1.4-2.3,3.6
+			c1.2,0,2.5,0,3.8,0c-0.1,1.1-0.2,2.1-0.2,3.1c-1.2,0-2.3,0-3.5,0c0,3.6,0,7.3,0,10.9c-1.5,0-2.9,0-4.4,0c0-3.6,0-7.3,0-10.9
+			c-0.8,0-1.6,0-2.3,0c0-1,0-2.1,0-3.1c0.8,0,1.6,0,2.3,0c0-1.5-0.1-3.2,0.2-4.4c0.7-2.1,3.2-3,6.3-2.5
+			C616.6,385.7,617.3,385.7,618,385.9z"/> </g> </g> </symbol><symbol viewBox="602.6 386.4 19 19.1" id="taylor-icon-g-plus"><title>icon-g-plus</title> <g id="icon-g-plus-XMLID_1_"> <g> <path d="M619.2,394.6c0.8,0,1.6,0,2.4,0c0,0.6,0,1.2,0,1.9c-0.8,0-1.6,0-2.4,0c0,0.8,0,1.5,0,2.3
+			c-0.6,0-1.3,0-1.9,0c0-0.8,0-1.5,0-2.3c-0.8,0-1.6,0-2.4,0c0-0.6,0-1.2,0-1.8c0.8,0,1.6,0,2.4,0c0-0.8,0-1.5,0-2.3
+			c0.6,0,1.3,0,1.9,0C619.2,393.1,619.2,393.9,619.2,394.6z"/> <path d="M608.5,398.4c-0.3,0.1-0.7,0.1-1,0.2c-1.2,0.4-2.4,1.1-2.8,2.4c-0.1,0.4,0,1,0.1,1.4
+			c0.8,2.2,4.6,3.1,7,1.6c0.9-0.5,1.8-2.2,1-3.5c-0.3-0.6-1.6-1.5-2.2-1.8C610.1,398.3,609.3,398.4,608.5,398.4z M604.2,389.2
+			c0.6-1.1,1.8-2,3.1-2.5c0.5-0.1,0.9-0.2,1.4-0.3c2.2,0,4.3,0,6.5,0c-0.4,0.3-0.9,0.6-1.3,1c-0.6,0-1.2,0-1.8,0
+			c2,1.3,2.5,3.8,0.9,5.8c-0.5,0.6-2.2,1.3-1.9,2.5s2.2,1.9,2.9,2.8c2,2.6,0.3,5.4-2,6.4c-3.1,1.3-8.8,0.4-9.4-2.4
+			c-0.2-1.1,0.3-1.9,0.8-2.5c1.3-1.7,3.3-2.3,6.3-2.2c-0.1-0.1-0.2-0.2-0.3-0.3c-0.4-0.9-0.8-1.3-0.2-2.5c-2.9,0.1-4.6-1.1-5.1-3.5
+			C603.7,390.8,603.9,389.8,604.2,389.2z M608,387.3c-1.1,0.5-1.6,0.7-2,1.9c-0.7,2.5,1.6,5.9,4,5.2c1.4-0.4,2.1-2.4,1.5-4.1
+			C611.1,388.7,610.1,387.3,608,387.3z"/> </g> </g> </symbol><symbol viewBox="603 386.1 18.9 19" id="taylor-icon-instagram"><title>icon-instagram</title> <g id="icon-instagram-XMLID_1_"> <g> <path d="M619.8,391.4c0-1.1,0-2.1,0-3.2c-1.1,0-2.2,0-3.2,0c0,1.1,0,2.2,0,3.2
+			C617.7,391.5,618.8,391.5,619.8,391.4z M614.4,405c-2.9,0-5.7,0-8.6,0c-1-0.3-1.8-0.9-2.3-1.7c-0.6-1-0.5-2.4-0.5-4
+			c0-2.5,0-5,0-7.4c0-1.6-0.1-3.1,0.5-4c0.4-0.7,1.1-1.2,1.9-1.6c0.3-0.1,0.6-0.1,0.9-0.2c3.1,0,6.3,0,9.4,0c2,0,3.8-0.1,4.9,0.8
+			c0.6,0.4,1.1,1.2,1.3,2c0,3.6,0,7.1,0,10.7c0,2.4,0,3.8-1.3,4.8C619.3,405.3,616.7,405,614.4,405z M608.5,403.2c2.5,0,5.1,0,7.6,0
+			c1.2,0,2.7,0.1,3.4-0.4c0.8-0.6,0.7-1.6,0.7-3c0-2.1,0-4.2,0-6.3c-0.9,0-1.9,0-2.8,0l0,0c1.4,3.5-1.6,7.8-5.4,7.1
+			c-3-0.5-5.8-3.4-4.3-7.1l0,0c-0.9,0-1.9,0-2.8,0c0,2,0,4.1,0,6.1c0,1.1-0.1,2.2,0.4,2.8C605.8,403.3,607.1,403.2,608.5,403.2z
+			 M609.4,394.2c-1,2.3,0.9,4.8,3.1,4.7c4.4-0.2,4.4-6.6-0.1-6.7c-0.3,0-0.5,0.1-0.8,0.1C610.6,392.6,609.8,393.3,609.4,394.2z"/> </g> </g> </symbol><symbol viewBox="0 0 402.96 359.31" id="taylor-icon-mute"><title>No-Audio</title><path class="cls-1" d="M116.84,185.22H49v151h67.84L245,431.36s23.56,19.71,23.56-.64V87.82c0-16-20.78-.37-20.78-.37Zm0,0" transform="translate(-49 -80.62)"/><path class="cls-1" d="M420.44,343.09A18.47,18.47,0,0,0,446.55,317l-47-47,47-47a18.47,18.47,0,0,0-26.12-26.12l-47,47-47-47a18.47,18.47,0,1,0-26.12,26.12l47,47-47,47a18.47,18.47,0,0,0,26.12,26.12l47-47Z" transform="translate(-49 -80.62)"/></symbol><symbol viewBox="0 0 223.29 335" id="taylor-icon-pause"><title>Pause</title><path class="cls-1" d="M26.58,0h31.9A26.58,26.58,0,0,1,85.06,26.58V308.42A26.58,26.58,0,0,1,58.48,335H26.59A26.59,26.59,0,0,1,0,308.41V26.58A26.58,26.58,0,0,1,26.58,0Z"/><path class="cls-1" d="M352.09,385.42A26.66,26.66,0,0,1,325.5,412H293.59A26.65,26.65,0,0,1,267,385.42V103.58A26.65,26.65,0,0,1,293.59,77H325.5a26.66,26.66,0,0,1,26.59,26.58Z" transform="translate(-128.79 -77)"/></symbol><symbol viewBox="605.6 384 13.8 24" id="taylor-icon-pin"><title>icon-pin</title> <g id="icon-pin-XMLID_1_"> <g> <path d="M616.3,392.6c1.1-3.1-1.2-5.7-4.1-5.7c-0.3,0.1-0.7,0.1-1,0.2c-1.2,0.4-2.1,1.4-2.5,2.6
+			c-1,2.7,1.3,6.1,4.3,5.6C614.6,395,615.8,394.1,616.3,392.6z M615.2,384.6c3,1.4,5,4.8,3.8,9.1c-1.1,3.7-2.8,7.1-4.4,10.4
+			c-0.7,1.3-1.3,2.6-2,3.9c-0.1,0-0.1,0-0.2,0c-0.6-1.1-1.2-2.3-1.7-3.4c-0.5-1-0.9-1.9-1.3-2.9c-1.4-3.3-3.1-6.3-3.8-10.4
+			c0-0.3,0.1-0.7,0.1-1c0.3-1.6,0.8-2.7,1.6-3.8c0.8-1.1,2.2-1.9,3.7-2.3c0.5-0.1,1-0.1,1.6-0.2
+			C613.5,384.2,614.4,384.2,615.2,384.6z"/> </g> </g> </symbol><symbol viewBox="0 0 316.65 357.75" id="taylor-icon-play"><title>Untitled-1</title><path class="cls-1" d="M429.8,227.32,246,121.18,167.42,75.84C146.29,63.64,129,73.62,129,98V401c0,24.4,17.29,34.38,38.42,22.18L246,377.83,429.8,271.68C450.93,259.48,450.93,239.52,429.8,227.32Z" transform="translate(-129 -70.63)"/></symbol><symbol viewBox="256.1 251.1 274.1 274" id="taylor-icon-print"><title>icon-print</title> <g> <path d="M333.9,388.1c-4.6,0-8.5-3.8-8.5-8.5v-120c0-4.7,3.9-8.5,8.5-8.5h118.6c4.6,0,8.5,3.8,8.5,8.5v120c0,4.7-3.9,8.5-8.5,8.5
+		H333.9z"/> </g> <g> <path d="M493.5,354.2c-4.6,0-8.5,3.8-8.5,8.5v39.8c0,4.7-3.9,8.5-8.5,8.5H309.8c-4.6,0-8.5-3.8-8.5-8.5v-39.8
+		c0-4.7-3.9-8.5-8.5-8.5h-28.1c-4.6,0-8.5,3.8-8.5,8.5v153.8c0,4.7,3.9,8.5,8.5,8.5h257.1c4.7,0,8.5-3.8,8.5-8.5V362.8
+		c0-4.7-3.8-8.5-8.5-8.5H493.5z M485,494c-8.5,0-15.5-7-15.5-15.5s7-15.5,15.5-15.5s15.5,7,15.5,15.5S493.5,494,485,494z"/> </g> </symbol><symbol viewBox="602.4 385.5 20 20" id="taylor-icon-search"><title>icon-search</title> <g id="icon-search-XMLID_1_"> <g> <path d="M615,394.9c1.5-3.8-1.6-6.9-5.1-6.8c-0.4,0.1-0.9,0.2-1.3,0.2c-1.5,0.5-2.8,1.6-3.3,3.1
+			c-1.2,3.4,1.8,7.2,5.4,6.7C612.8,397.6,614.3,396.6,615,394.9z M617,389.5c0.5,0.9,1.2,2.4,0.9,4c-0.2,0.9-0.3,1.6-0.6,2.3
+			c-0.2,0.5-0.5,0.9-0.7,1.4c1.4,1.4,2.8,2.7,4.2,4.1c0.6,0.5,1.5,1.1,1.6,2c0.1,0.6-1.1,1.7-1.5,2c-1,0.7-1.8-0.3-2.3-0.8
+			c-1.6-1.6-3.3-3.2-4.9-4.7c-0.3,0.1-0.7,0.3-1,0.4c-1,0.4-2.6,0.5-3.9,0.3c-2.9-0.6-4.9-2.2-5.8-4.8c-0.3-0.8-0.7-2.3-0.5-3.4
+			c0.2-1,0.3-1.8,0.8-2.6c1-1.7,2.3-3,4.2-3.7c0.6-0.2,1.5-0.2,2.1-0.5C613.4,385.5,615.7,387.1,617,389.5z"/> </g> </g> </symbol><symbol viewBox="0 0 62 62" id="taylor-icon-show-hide"><title>icon-show-hide</title> <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAA+CAMAAABEH1h2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABfVBMVEUAAACqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyOqHyMAAAA9yTdcAAAAfXRSTlMAD017osrj9OQjf8j8A1rE/mPbN83ttYVeQS4iCZP9iDUCJtPASUhD8Mw971X58WtqIMlCpgeQAY+UigqVpD7PCM44BPJi3FsRuzzCRO65KncrgokQOTNMtqOZZt02qvMp7N+AgSTFwTvLJdUnpVZX1OKyhF0/LIMGX8ZOq5Thz8wAAAABYktHRACIBR1IAAAACXBIWXMAAC4jAAAuIwF4pT92AAADUUlEQVRIx51X6UNSQRAfRfFAFLwVFZ8aiqGSR4qkCFhiSZkhah5ZoUWhqVl5vf+9nd0HAW+PR/MBx5n5vd2dnZmdAeBTVbWtptZep+t19bU1tuoqqIAaGh1Negk1ORobrGGdzS0unUOulmanGuxu1YXU6lZ8oK09b9rR2dXd0+vx9PZ0d3V25KXtbRJwX/8As6r3DmrFCm3Qa2eagf4+EXpomJmMPNLMSs03wrTDQ3z06BhV+8dFnx/3U4PHozxlYAJ1k1MaCEkLTqLNRICDpjdd65G79sk0jQITfoauPTsHCpqbpevPlHmNnvvpvAoNML+AlmMl/uujPg+pwUiL1P/hIskzlCxZWJuuv1S21jIGeWTFGhpgJYrxE8v/G8etrw5ZRRNP4f1F8/Hvxs1MWUcDBBHx3Fj8BcaaOhmLyInx1xqn/Bp+allinFg3iV4ippmyDsK9kqA3krpZ+JqAHMi8wQ/5xOhNojZLfYh6S5gt8tcuzBMPzTKzXKsn4i3CYBJ4RehAEtFJjuYdkU8DpDDTtgVoL6sAaY5qGzMvBTuY5HHJxgVbi2Po7ICN/O7KNh4APu0SpQ32yO8iR5t4T5deT4jcgoffo7fuNivTbOObICQ3vXm8AHPt26cbP0iL0TCDBR1Wye9huWqTLn2UkKDhkFh8ALQ75sO9UvgxjScu3MD70wr4BH/zxHUH9NYkrsPNfxS4jlzckeL86LpPoosrHCC5IYCzixOFDajunoWNOGgLkefnvlwsaCUpA/nw4SWskTI0YWMiuHEAjsJIWHm5AJbzgqOTcgGfpcUKaOKahRo2KxnCnLjkpRLLhlmGpdJ1gtwp4b5AhYSF+pRyymeCQ18Rs0bZ/3mksv8eKfZEBiuBFz+R4Ixg6FTwQH/DkIkU9hvDZjK6YhVd1h4AhCpvTvqLJOHv5RIJ0dYoWtLC5WhjtmC9MTsplbK28EzdFp7x2kKA80qa0nOz5gdriYMWWuJznnJD2ZBnqcGYoPrlLoxxwCcbBy5yos+HQ8YwYjcPI5fGMBIKg5hi0cIodPXz+tdvTy49ev3nqjAKRWMgpfj+pS6ky/04qOjm9o47Bup3tzdKMKWGTLZ8CM1mLA6hjFL3mQc/G4H9D5n7lMDsL57Qmj850a9ZAAAAAElFTkSuQmCC" width="62" height="62"/> </symbol><symbol viewBox="600.9 386.9 23 18.1" id="taylor-icon-twitter"><title>icon-twitter</title> <g id="icon-twitter-XMLID_1_"> <g> <path d="M621.3,389.9c1-0.2,1.8-0.5,2.6-0.7c-0.5,0.9-1.4,1.8-2.3,2.3c0.1,7-4.3,11.6-9.7,13.1
+			c-3.3,0.9-6.9,0.3-9.5-0.8c-0.5-0.2-1.1-0.4-1.5-0.8c2.6,0.2,5.7-0.6,6.9-1.9c-2.3,0-3.7-1.5-4.4-3.1l0,0c0.7,0.1,1.4,0,2.1-0.1
+			c-0.5-0.2-1-0.3-1.5-0.6c-1.2-0.7-2.3-2-2.2-4c0.6,0.3,1.2,0.5,2.1,0.6c0,0,0,0,0-0.1c-0.3-0.1-0.6-0.4-0.8-0.7
+			c-1.2-1.5-1.7-3.3-0.6-5.3l0.1,0.1c0.3,0.6,1.1,1.2,1.7,1.6c2,1.6,4.5,2.9,7.9,3c-0.4-2.6,0.8-4.4,2.6-5.2c0.5-0.2,1-0.2,1.6-0.4
+			c1.7,0,3.1,0.5,3.8,1.4c0.6-0.2,1.2-0.3,1.8-0.5c0.4-0.2,0.8-0.4,1.2-0.6C623.1,388.6,622,389.1,621.3,389.9z"/> </g> </g> </symbol><symbol viewBox="0 0 405.31 359.31" id="taylor-icon-unmute"><title>Audio</title><path class="cls-1" d="M114.84,175.22H47v151h67.84L243,421.36s23.56,19.71,23.56-.64V77.82c0-16-20.78-.37-20.78-.37Zm0,0" transform="translate(-47 -70.62)"/><path class="cls-1" d="M339.55,145.73a17.22,17.22,0,0,0-24.35,24.35,113.71,113.71,0,0,1,0,160.59,17.24,17.24,0,1,0,24.35,24.42,148.08,148.08,0,0,0,0-209.36Zm0,0" transform="translate(-47 -70.62)"/><path class="cls-1" d="M386.39,91.39a17.29,17.29,0,0,0-24.48,24.42,190.85,190.85,0,0,1,0,269.91,17.29,17.29,0,0,0,12.21,29.5,17.48,17.48,0,0,0,12.27-5.08,225.63,225.63,0,0,0,0-318.75Zm0,0" transform="translate(-47 -70.62)"/></symbol><symbol viewBox="0 0 158 110" id="taylor-icon-youtube-play"><title>icon-youtube-play</title> <g> <path id="icon-youtube-play-XMLID_142_" fill="#282828" d="M154.4,17.5c-1.8-6.7-7.1-12-13.9-13.8C128.2,0.5,79,0.5,79,0.5s-48.3-0.2-60.6,3
+		c-6.8,1.8-13.3,7.3-15.1,14C0,29.7,0.3,55,0.3,55S0,80.3,3.3,92.5c1.8,6.7,8.4,12.2,15.1,14c12.3,3.3,60.6,3,60.6,3
+		s48.3,0.2,60.6-3c6.8-1.8,13.1-7.3,14.9-14c3.3-12.1,3.3-37.5,3.3-37.5S157.7,29.7,154.4,17.5z"/> <polygon id="icon-youtube-play-XMLID_824_" fill="#FFFFFF" points="63.9,79.2 103.2,55 63.9,30.8 	"/> </g> </symbol><symbol viewBox="599.9 387 24.1 17" id="taylor-icon-youtube"><title>icon-youtube</title> <g id="icon-youtube-XMLID_1_"> <g> <path d="M622.7,388c1.8,1.4,1.3,5.4,1.3,8.5c0,2.3,0.2,4.7-0.8,6c-1.2,1.5-3.3,1.5-6.1,1.5c-3.5,0-7,0-10.4,0
+			c-2.6,0-4.6,0.1-5.7-1.4c-1.5-1.9-1-6.3-1-9.6c0-1.6-0.1-3.1,0.5-4.1c0.5-0.8,1.2-1.4,2.2-1.6c0.4-0.1,0.8-0.2,1.2-0.2
+			c4.2,0,8.4,0,12.6,0C619.1,387,621.2,386.8,622.7,388z M616.7,395.5C616.6,395.5,616.6,395.5,616.7,395.5
+			c-2.6-1.6-5.2-3.1-7.9-4.6c0,3.1,0,6.2,0,9.3C611.4,398.6,614,397.1,616.7,395.5z"/> </g> </g> </symbol><symbol viewBox="0 0 83.5 31.3" id="taylor-logo-mobile"><title>logo-mobile</title> <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M81.7,27.5L81.7,27.5c0.4,0,0.6-0.1,0.6-0.4c0-0.2-0.1-0.4-0.4-0.4
+	l-0.1,0c-0.1,0-0.1,0.1-0.1,0.2V27.5z M81.4,26.9c0-0.1,0-0.1-0.1-0.1h-0.1v-0.1h0.7c0.1,0,0.4,0,0.5,0.1c0.1,0.1,0.2,0.2,0.2,0.3
+	c0,0.3-0.2,0.4-0.4,0.5c0.2,0,0.3,0.2,0.4,0.4c0,0.1,0.1,0.2,0.1,0.3c0,0.1,0.1,0.1,0.1,0.1v0.1h-0.3c-0.1,0-0.1,0-0.1-0.1
+	c-0.1-0.1-0.2-0.5-0.3-0.6c-0.1-0.1-0.1-0.1-0.2-0.1h-0.1v0.5c0,0.1,0,0.1,0.1,0.1l0.1,0v0.1h-0.7v-0.1h0.1c0.1,0,0.1,0,0.1-0.1
+	V26.9z M83.3,27.6c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3C82.6,28.9,83.3,28.3,83.3,27.6z M80.3,27.6
+	c0-0.9,0.7-1.6,1.6-1.6c0.9,0,1.6,0.7,1.6,1.6c0,0.9-0.7,1.6-1.6,1.6C81,29.2,80.3,28.5,80.3,27.6z"/> <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M63.4,12.2c-0.7,0-2.2,0.4-2.2,3.9v1.1c0,3.5,1.5,3.9,2.2,3.9
+	c0.6,0,2.2-0.4,2.2-3.9v-1.1C65.5,12.6,64,12.2,63.4,12.2z M25.8,12.6c-1,0-1.8,0.3-2.5,0.9c-0.3,0.3-0.8,0.9-0.9,1.3
+	c-0.3,0.8-0.5,1.8-0.5,2.6v0.1c0,1,0,1.8,0.5,2.8c0.5,0.9,1.3,1,1.6,1c1.1,0,1.9-0.9,1.9-2.1L25.8,12.6z M39.7,28.4
+	c1.3-1.1,2.1-2.8,2.1-4.9c0,0,0-0.1-0.1-0.1l-0.1,0c-0.5,0.2-1.3,0.4-2,0.4c-1.3,0-2.6-0.5-3.6-1.3c-1.1,1.1-2.6,1.7-4.1,1.7
+	c-1.2,0-2.4-0.4-3.4-1.1c-1.1,1.2-2.6,1.9-4.4,2c-1.2,0-2.5-0.3-3.5-0.9c-1,1.1-2.2,1.8-3.8,2c-4,0.5-6.2,1-8.6,2.9l-0.2,0.2
+	l-0.7-0.8l0.2-0.2c2.4-1.9,2.7-4,2.7-5.8l0-15.5C8.5,7.1,6.8,7.2,5.3,7.2c-0.7,0-1.4,0.6-1.4,1.4c0,0.7,0.5,1.3,1.7,1.4
+	c-0.8,0.3-1.8,0.3-2.5,0.2C2.1,9.9,1.2,9.5,0.6,8.7C0,7.9-0.1,6.7,0.1,5.7c0.4-1.5,2-2.5,3.8-2.5c4.5,0,9.4-0.3,14-0.9
+	C20.5,2,23.2,1.5,25.7,1c0.1,1.3-0.2,2.3-0.9,3.1C24.1,5,23,5.6,21.6,5.8c-2.4,0.4-4.8,0.7-7.3,0.9l0,14.4c0,0.9,0.8,1.7,1.7,1.7
+	c1,0,1.7-0.8,1.7-1.7v-3.2c0-1.7,0.3-3.3,0.8-4.5c1.2-2.9,3.8-4.6,7.3-4.6h0.3h0.3c1.1,0,2.1,0,3-0.3L30,8.4l0,10.2
+	c0,1.1,0.9,1.9,2,1.9c1.1,0,2-0.9,2-1.9v-7.2c0-0.4-0.3-0.6-0.7-0.6c-0.2,0-0.5,0.1-0.6,0.3c-0.1-1.5,1.2-2.8,2.7-2.8
+	c1.5,0,2.8,1.2,2.8,2.6l0,7.6c0,0.9,0.8,1.7,1.8,1.7c1,0,1.7-0.8,1.7-1.7V8.6h4.2v9.8c0,1,0.9,1.8,1.9,1.8c1,0,1.9-0.8,1.9-1.8V2
+	c0-0.6-0.5-1-1.1-1h-0.3V0l5.5,0v19.2c0,0.8,0.7,1.5,1.5,1.5S57,20,57,19.2l0-3.1c0-4.6,2.6-7.8,6.3-7.8c1.5,0,2.7,0.5,4.1,1.7
+	l0.5,0.4c0.8,0.7,1.4,1.2,2.2,1.2c0.9,0,1.4-0.4,2.2-1.4c0.6-0.8,1.3-1.2,2.2-1.2c0.8,0,1.4,0.3,2,0.9c0.8-0.4,1.6-0.6,2.5-0.6
+	c1.3,0,2.5,0.5,3.5,1.4l0.2,0.2l-1.9,3c-0.6-0.5-1.2-0.8-1.8-0.8c-1.3,0-2.3,1-2.3,2.2l0,7.6c0,1.1,0.3,2.6,1.9,3.6l0.2,0.1l-0.3,1
+	l-0.3-0.1c-2.4-1-4.9-1.6-7.5-1.8l-0.3,0v-1l0.3,0c1.2,0,1.8-0.7,1.8-1.8l0-6.6c0-0.8-0.6-1.4-1.4-1.4c-0.8,0-1.4,0.6-1.4,1.4l0,1.2
+	c0,4.6-2.6,7.8-6.3,7.8c-1.7,0-3.2-0.7-4.4-2c-1,0.8-2.3,1.3-3.6,1.3c-1.6,0-3.1-0.6-4.2-1.8c-1,0.8-2.2,1.3-3.5,1.3
+	c-0.6,0-1.2-0.1-1.7-0.3c0,2-0.5,3.7-1.5,5c-1.2,1.7-2.9,2.6-5,2.6c-1.4,0-3.4-0.7-4.2-2.2c0.5,0.2,1.1,0.4,1.7,0.4
+	C37.9,29.5,38.9,29.1,39.7,28.4z"/> </symbol><symbol viewBox="0 0 83.5 39.7" id="taylor-logo"><title>logo</title> <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M81.7,27.5L81.7,27.5c0.4,0,0.6-0.1,0.6-0.4c0-0.2-0.1-0.4-0.4-0.4
+	l-0.1,0c-0.1,0-0.1,0.1-0.1,0.2V27.5z M81.4,26.9c0-0.1,0-0.1-0.1-0.1h-0.1v-0.1h0.7c0.1,0,0.4,0,0.5,0.1c0.1,0.1,0.2,0.2,0.2,0.3
+	c0,0.3-0.2,0.4-0.4,0.5c0.2,0,0.3,0.2,0.4,0.4c0,0.1,0.1,0.2,0.1,0.3c0,0.1,0.1,0.1,0.1,0.1v0.1h-0.3c-0.1,0-0.1,0-0.1-0.1
+	c-0.1-0.1-0.2-0.5-0.3-0.6c-0.1-0.1-0.1-0.1-0.2-0.1h-0.1v0.5c0,0.1,0,0.1,0.1,0.1l0.1,0v0.1h-0.7v-0.1h0.1c0.1,0,0.1,0,0.1-0.1
+	V26.9z M83.3,27.6c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3C82.6,28.9,83.3,28.3,83.3,27.6z M80.3,27.6
+	c0-0.9,0.7-1.6,1.6-1.6c0.9,0,1.6,0.7,1.6,1.6c0,0.9-0.7,1.6-1.6,1.6C81,29.2,80.3,28.5,80.3,27.6z"/> <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M63.4,12.2c-0.7,0-2.2,0.4-2.2,3.9v1.1c0,3.5,1.5,3.9,2.2,3.9
+	c0.6,0,2.2-0.4,2.2-3.9v-1.1C65.5,12.6,64,12.2,63.4,12.2z M25.8,12.6c-1,0-1.8,0.3-2.5,0.9c-0.3,0.3-0.8,0.9-0.9,1.3
+	c-0.3,0.8-0.5,1.8-0.5,2.6v0.1c0,1,0,1.8,0.5,2.8c0.5,0.9,1.3,1,1.6,1c1.1,0,1.9-0.9,1.9-2.1L25.8,12.6z M39.7,28.4
+	c1.3-1.1,2.1-2.8,2.1-4.9c0,0,0-0.1-0.1-0.1l-0.1,0c-0.5,0.2-1.3,0.4-2,0.4c-1.3,0-2.6-0.5-3.6-1.3c-1.1,1.1-2.6,1.7-4.1,1.7
+	c-1.2,0-2.4-0.4-3.4-1.1c-1.1,1.2-2.6,1.9-4.4,2c-1.2,0-2.5-0.3-3.5-0.9c-1,1.1-2.2,1.8-3.8,2c-4,0.5-6.2,1-8.6,2.9l-0.2,0.2
+	l-0.7-0.8l0.2-0.2c2.4-1.9,2.7-4,2.7-5.8l0-15.5C8.5,7.1,6.8,7.2,5.3,7.2c-0.7,0-1.4,0.6-1.4,1.4c0,0.7,0.5,1.3,1.7,1.4
+	c-0.8,0.3-1.8,0.3-2.5,0.2C2.1,9.9,1.2,9.5,0.6,8.7C0,7.9-0.1,6.7,0.1,5.7c0.4-1.5,2-2.5,3.8-2.5c4.5,0,9.4-0.3,14-0.9
+	C20.5,2,23.2,1.5,25.7,1c0.1,1.3-0.2,2.3-0.9,3.1C24.1,5,23,5.6,21.6,5.8c-2.4,0.4-4.8,0.7-7.3,0.9l0,14.4c0,0.9,0.8,1.7,1.7,1.7
+	c1,0,1.7-0.8,1.7-1.7v-3.2c0-1.7,0.3-3.3,0.8-4.5c1.2-2.9,3.8-4.6,7.3-4.6h0.3h0.3c1.1,0,2.1,0,3-0.3L30,8.4l0,10.2
+	c0,1.1,0.9,1.9,2,1.9c1.1,0,2-0.9,2-1.9v-7.2c0-0.4-0.3-0.6-0.7-0.6c-0.2,0-0.5,0.1-0.6,0.3c-0.1-1.5,1.2-2.8,2.7-2.8
+	c1.5,0,2.8,1.2,2.8,2.6l0,7.6c0,0.9,0.8,1.7,1.8,1.7c1,0,1.7-0.8,1.7-1.7V8.6h4.2v9.8c0,1,0.9,1.8,1.9,1.8c1,0,1.9-0.8,1.9-1.8V2
+	c0-0.6-0.5-1-1.1-1h-0.3V0l5.5,0v19.2c0,0.8,0.7,1.5,1.5,1.5S57,20,57,19.2l0-3.1c0-4.6,2.6-7.8,6.3-7.8c1.5,0,2.7,0.5,4.1,1.7
+	l0.5,0.4c0.8,0.7,1.4,1.2,2.2,1.2c0.9,0,1.4-0.4,2.2-1.4c0.6-0.8,1.3-1.2,2.2-1.2c0.8,0,1.4,0.3,2,0.9c0.8-0.4,1.6-0.6,2.5-0.6
+	c1.3,0,2.5,0.5,3.5,1.4l0.2,0.2l-1.9,3c-0.6-0.5-1.2-0.8-1.8-0.8c-1.3,0-2.3,1-2.3,2.2l0,7.6c0,1.1,0.3,2.6,1.9,3.6l0.2,0.1l-0.3,1
+	l-0.3-0.1c-2.4-1-4.9-1.6-7.5-1.8l-0.3,0v-1l0.3,0c1.2,0,1.8-0.7,1.8-1.8l0-6.6c0-0.8-0.6-1.4-1.4-1.4c-0.8,0-1.4,0.6-1.4,1.4l0,1.2
+	c0,4.6-2.6,7.8-6.3,7.8c-1.7,0-3.2-0.7-4.4-2c-1,0.8-2.3,1.3-3.6,1.3c-1.6,0-3.1-0.6-4.2-1.8c-1,0.8-2.2,1.3-3.5,1.3
+	c-0.6,0-1.2-0.1-1.7-0.3c0,2-0.5,3.7-1.5,5c-1.2,1.7-2.9,2.6-5,2.6c-1.4,0-3.4-0.7-4.2-2.2c0.5,0.2,1.1,0.4,1.7,0.4
+	C37.9,29.5,38.9,29.1,39.7,28.4z"/> <g> <path fill="#FFFFFF" d="M10.6,36.6c0-0.4,0.1-0.7,0.2-0.9c0.1-0.3,0.3-0.5,0.5-0.7c0.2-0.2,0.4-0.3,0.6-0.4c0.3-0.1,0.6-0.2,1-0.2
+		c0.4,0,0.7,0,0.9,0.1c0.3,0.1,0.5,0.2,0.7,0.4c0.2,0.2,0.3,0.3,0.4,0.5c0.1,0.3,0.2,0.6,0.2,0.9c0,0.7-0.2,1.2-0.6,1.6
+		c-0.4,0.4-1,0.6-1.7,0.6c-0.4,0-0.7,0-0.9-0.1c-0.3-0.1-0.5-0.2-0.6-0.4c-0.2-0.2-0.3-0.3-0.4-0.5C10.7,37.3,10.6,37,10.6,36.6z
+		 M11.5,36.4c0,0.6,0.1,1.1,0.3,1.4c0.2,0.3,0.6,0.5,1,0.5c0.2,0,0.5-0.1,0.6-0.2c0.2-0.1,0.3-0.3,0.5-0.6c0.1-0.3,0.2-0.6,0.2-1
+		c0-0.2,0-0.5-0.1-0.7c-0.1-0.2-0.1-0.4-0.2-0.6c-0.1-0.2-0.2-0.3-0.4-0.4c-0.2-0.1-0.4-0.1-0.6-0.1c-0.2,0-0.4,0-0.6,0.1
+		c-0.1,0.1-0.3,0.2-0.4,0.3c-0.1,0.1-0.2,0.3-0.2,0.5C11.5,35.9,11.5,36.2,11.5,36.4z M11.6,39.5l-0.1-0.2c0.1,0,0.1-0.1,0.3-0.2
+		c0.2-0.2,0.4-0.3,0.4-0.3c0.1,0,0.2-0.1,0.3-0.1c0.2,0,0.5,0.1,1,0.3c0.3,0.1,0.5,0.2,0.5,0.2c0.1,0,0.2,0.1,0.3,0.1
+		c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0c0,0,0.1,0,0.1,0l0.2-0.1v0.2c-0.1,0-0.2,0.1-0.4,0.3c-0.1,0.1-0.1,0.1-0.2,0.1
+		c0,0-0.1,0-0.3,0c-0.2,0-0.4-0.1-0.7-0.2c-0.4-0.1-0.7-0.2-0.8-0.2c-0.2,0-0.3-0.1-0.4-0.1c-0.1,0-0.1,0-0.2,0
+		C11.9,39.3,11.8,39.4,11.6,39.5z"/> <path fill="#FFFFFF" d="M16.2,34.7v-0.2l1,0l0.4,0l0.4,0l0.1,0v0.2c-0.2,0-0.3,0-0.4,0.1c0,0,0,0.1-0.1,0.1c0,0.1,0,0.4,0,0.8v0.7
+		l0,0.3c0,0.4,0,0.6,0,0.7c0,0.2,0.1,0.3,0.1,0.4c0.1,0.1,0.2,0.2,0.3,0.3c0.2,0.1,0.3,0.1,0.6,0.1c0.3,0,0.5,0,0.6-0.1
+		c0.2-0.1,0.3-0.2,0.3-0.4c0.1-0.1,0.1-0.4,0.1-0.8v-0.6c0-0.5,0-0.8,0-0.9c0-0.2,0-0.4,0-0.4c0,0,0-0.1-0.1-0.1
+		c-0.1,0-0.2-0.1-0.4-0.1v-0.2c0.4,0,0.6,0,0.6,0c0,0,0,0,0.1,0l0.7,0v0.2c-0.2,0-0.3,0-0.3,0c0,0,0,0-0.1,0.1c0,0,0,0.2,0,0.6
+		c0,0.4,0,0.6,0,0.8V37c0,0.2,0,0.4,0,0.5c0,0.2-0.1,0.3-0.2,0.5c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.3,0.2-0.5,0.2
+		c-0.2,0.1-0.4,0.1-0.7,0.1c-0.3,0-0.6,0-0.8-0.1c-0.2-0.1-0.3-0.1-0.5-0.2c-0.1-0.1-0.2-0.2-0.3-0.3c-0.1-0.1-0.1-0.2-0.1-0.4
+		c0-0.1,0-0.3,0-0.6l0-0.6v-0.7c0-0.3,0-0.5,0-0.7c0-0.1,0-0.1,0-0.2c0,0,0,0-0.1-0.1L16.2,34.7z"/> <path fill="#FFFFFF" d="M21.3,38.6v-0.2c0.2,0,0.3,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1-0.1c0,0,0.1-0.2,0.2-0.4
+		c0.1-0.1,0.1-0.4,0.3-0.7l0.8-1.9l0.3-0.7h0.4l1.3,3.1l0.2,0.4l0.1,0.3c0,0,0,0.1,0.1,0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.2,0
+		c0,0,0.1,0,0.1,0v0.2l-0.8,0l-1,0v-0.2c0.2,0,0.4,0,0.4,0c0,0,0,0,0-0.1c0,0,0-0.1-0.1-0.2l-0.3-0.6h-1.5l-0.1,0.4
+		c-0.1,0.3-0.1,0.4-0.1,0.5c0,0,0,0.1,0,0.1c0,0,0.2,0,0.4,0.1v0.2l-0.7,0L21.3,38.6z M22.6,37c0.2,0,0.4,0,0.6,0c0.2,0,0.4,0,0.6,0
+		l-0.6-1.5L22.6,37z"/> <path fill="#FFFFFF" d="M26.9,38.6v-0.2c0.1,0,0.1-0.1,0.2-0.1c0,0,0.1,0,0.1-0.1c0,0,0,0,0,0c0,0,0-0.2,0-0.5c0-0.3,0-0.7,0-1.1
+		c0-0.6,0-1,0-1.1c0-0.4,0-0.6,0-0.6c0,0,0,0,0-0.1c0,0-0.2,0-0.5-0.1v-0.3c0.2,0,0.5,0,0.8,0c0.4,0,0.7,0,1,0v0.3
+		c-0.2,0-0.4,0-0.4,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.4c0,0.2,0,0.5,0,0.8c0,0,0,0.3,0,0.8c0,0.3,0,0.6,0,0.8c0,0.3,0,0.4,0,0.5
+		c0.3,0,0.5,0,0.6,0c0.3,0,0.6,0,0.8-0.1c0.1,0,0.1,0,0.1,0c0,0,0,0,0-0.1c0-0.1,0.1-0.3,0.1-0.5H30c0,0.1,0,0.1,0,0.1l-0.1,0.6
+		c0,0.2,0,0.3,0,0.3c-0.1,0-0.1,0-0.2,0c-0.1,0-0.3,0-0.6,0c0,0-0.3,0-0.7,0c-0.3,0-0.5,0-0.7,0C27.6,38.6,27.3,38.6,26.9,38.6z"/> <path fill="#FFFFFF" d="M33.1,34.5v0.3c-0.2,0-0.3,0-0.4,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0.1,0,0.2c0,0.1,0,0.1,0,0.3
+		c0,0.5,0,0.7,0,0.8v1.2l0,0.5c0,0.2,0,0.3,0,0.4c0,0,0,0,0,0.1c0,0,0,0,0.1,0c0,0,0.2,0,0.3,0v0.3c-0.3,0-0.7,0-1,0
+		c-0.3,0-0.6,0-0.8,0v-0.3c0.2,0,0.3,0,0.4,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0-0.1,0-0.3c0-0.2,0-0.5,0-0.7v-1.2
+		c0-0.4,0-0.6,0-0.8c0-0.2,0-0.4,0-0.5c0,0,0,0,0-0.1c0,0,0,0-0.1,0c0,0-0.2,0-0.4,0v-0.3c0.2,0,0.5,0,0.8,0
+		C32.4,34.5,32.8,34.5,33.1,34.5z"/> <path fill="#FFFFFF" d="M35.1,38.6v-0.2c0.2,0,0.4,0,0.4,0c0,0,0.1-0.1,0.1-0.1c0-0.1,0-0.3,0-0.8v-1.8c0-0.5,0-0.7,0-0.8h-0.4
+		c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.1,0c0,0,0,0,0,0.1c0,0.1,0,0.3,0,0.5h-0.2c0-0.4,0-0.6,0-0.7c0-0.1,0-0.2,0-0.3l0,0
+		c0.1,0,0.2,0,0.3,0c0.2,0,0.5,0,1,0h1.2c0.5,0,0.8,0,1,0c0.1,0,0.2,0,0.3,0l0,0c0,0.1,0,0.2,0,0.3c0,0,0,0.2,0,0.6h-0.2
+		c0-0.2,0-0.3,0-0.4c0-0.1,0-0.1,0-0.1c0,0,0,0-0.1,0c-0.2,0-0.4,0-0.6,0h-0.4c0,0.1,0,0.3,0,0.8v1.8c0,0.4,0,0.7,0,0.8
+		c0,0.1,0,0.1,0.1,0.1c0,0,0.2,0,0.4,0v0.2c-0.4,0-0.7,0-1,0C35.7,38.6,35.4,38.6,35.1,38.6z"/> <path fill="#FFFFFF" d="M41.1,36.4l0.4-0.6c0.1-0.1,0.2-0.4,0.6-1c0.1-0.2,0.2-0.3,0.2-0.4h0.5v0.1c-0.2,0.3-0.5,0.7-0.8,1.1
+		c-0.3,0.4-0.4,0.7-0.5,0.8c0,0.1-0.1,0.2-0.1,0.2c0,0,0,0.1,0,0.2v0.5c0,0.2,0,0.4,0,0.5s0,0.2,0,0.2c0,0,0,0,0.1,0.1s0.2,0,0.4,0
+		v0.3c-0.4,0-0.7,0-1,0c-0.3,0-0.6,0-0.9,0v-0.3c0.2,0,0.4,0,0.4,0c0,0,0.1,0,0.1,0c0,0,0-0.1,0-0.2c0-0.2,0-0.4,0-0.6V37
+		c0,0,0-0.1-0.1-0.3c-0.2-0.3-0.4-0.7-0.6-1c-0.2-0.3-0.3-0.5-0.5-0.6c-0.1-0.1-0.2-0.2-0.2-0.2c0,0-0.1,0-0.3,0v-0.2l0.6-0.1
+		c0.1,0,0.2,0,0.3-0.1c0.1,0.1,0.2,0.1,0.3,0.2c0.1,0.1,0.1,0.1,0.2,0.3c0.1,0.2,0.3,0.5,0.4,0.7C40.9,36.1,41.1,36.3,41.1,36.4z"/> <path fill="#FFFFFF" d="M50,35.7h-0.2c0-0.1,0-0.2,0-0.3c0-0.1,0-0.2,0-0.2c0-0.1-0.1-0.1-0.2-0.1c-0.1-0.1-0.3-0.2-0.4-0.2
+		c-0.2,0-0.4-0.1-0.6-0.1c-0.5,0-0.9,0.2-1.2,0.5c-0.3,0.3-0.4,0.7-0.4,1.2c0,0.6,0.2,1,0.5,1.4c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.1,0,0.3,0,0.4,0c0.1,0,0.2-0.1,0.4-0.1c0-0.1,0-0.2,0-0.3c0-0.2,0-0.2,0-0.3c0-0.2,0-0.3,0-0.3c0,0,0,0-0.1,0
+		c-0.1,0-0.3,0-0.6-0.1v-0.2l0.9,0l0.9,0v0.2c-0.1,0-0.2,0.1-0.2,0.1c0,0,0,0.1,0,0.2c0,0.2,0,0.4,0,0.5c0,0.1,0,0.3,0,0.5
+		c-0.4,0.1-0.7,0.2-1,0.3c-0.3,0.1-0.5,0.1-0.8,0.1c-0.4,0-0.8-0.1-1.2-0.2c-0.2-0.1-0.4-0.2-0.6-0.4c-0.2-0.2-0.3-0.3-0.4-0.5
+		c-0.1-0.3-0.2-0.6-0.2-1c0-0.3,0-0.6,0.1-0.8c0.1-0.2,0.2-0.4,0.4-0.6c0.2-0.2,0.3-0.3,0.6-0.4c0.2-0.1,0.4-0.2,0.6-0.2
+		c0.2,0,0.5-0.1,0.7-0.1c0.3,0,0.6,0,0.9,0.1c0.3,0.1,0.5,0.1,0.7,0.2l0,0.1C50.1,34.9,50.1,35.2,50,35.7z"/> <path fill="#FFFFFF" d="M51.6,34.7v-0.2l1,0l0.4,0l0.4,0l0.1,0v0.2c-0.2,0-0.3,0-0.4,0.1c0,0,0,0.1-0.1,0.1c0,0.1,0,0.4,0,0.8v0.7
+		l0,0.3c0,0.4,0,0.6,0,0.7c0,0.2,0.1,0.3,0.1,0.4c0.1,0.1,0.2,0.2,0.3,0.3c0.2,0.1,0.3,0.1,0.6,0.1c0.3,0,0.5,0,0.6-0.1
+		c0.2-0.1,0.3-0.2,0.3-0.4c0.1-0.1,0.1-0.4,0.1-0.8v-0.6c0-0.5,0-0.8,0-0.9c0-0.2,0-0.4,0-0.4c0,0,0-0.1-0.1-0.1
+		c-0.1,0-0.2-0.1-0.4-0.1v-0.2c0.4,0,0.6,0,0.6,0c0,0,0,0,0.1,0l0.7,0v0.2c-0.2,0-0.3,0-0.3,0c0,0,0,0-0.1,0.1c0,0,0,0.2,0,0.6
+		c0,0.4,0,0.6,0,0.8V37c0,0.2,0,0.4,0,0.5c0,0.2-0.1,0.3-0.2,0.5c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.3,0.2-0.5,0.2
+		c-0.2,0.1-0.4,0.1-0.7,0.1c-0.3,0-0.6,0-0.8-0.1c-0.2-0.1-0.3-0.1-0.5-0.2c-0.1-0.1-0.2-0.2-0.3-0.3c-0.1-0.1-0.1-0.2-0.1-0.4
+		c0-0.1,0-0.3,0-0.6l0-0.6v-0.7c0-0.3,0-0.5,0-0.7c0-0.1,0-0.1,0-0.2c0,0,0,0-0.1-0.1L51.6,34.7z"/> <path fill="#FFFFFF" d="M59,34.5v0.3c-0.2,0-0.3,0-0.4,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0.1,0,0.2c0,0.1,0,0.1,0,0.3
+		c0,0.5,0,0.7,0,0.8v1.2l0,0.5c0,0.2,0,0.3,0,0.4c0,0,0,0,0,0.1c0,0,0,0,0.1,0c0,0,0.2,0,0.3,0v0.3c-0.3,0-0.7,0-1,0
+		c-0.3,0-0.6,0-0.8,0v-0.3c0.2,0,0.3,0,0.4,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0-0.1,0-0.3c0-0.2,0-0.5,0-0.7v-1.2
+		c0-0.4,0-0.6,0-0.8c0-0.2,0-0.4,0-0.5c0,0,0,0,0-0.1c0,0,0,0-0.1,0c0,0-0.2,0-0.4,0v-0.3c0.2,0,0.5,0,0.8,0
+		C58.4,34.5,58.7,34.5,59,34.5z"/> <path fill="#FFFFFF" d="M61,38.6v-0.2c0.2,0,0.4,0,0.4,0c0,0,0.1-0.1,0.1-0.1c0-0.1,0-0.3,0-0.8v-1.8c0-0.5,0-0.7,0-0.8h-0.4
+		c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.1,0c0,0,0,0,0,0.1c0,0.1,0,0.3,0,0.5h-0.2c0-0.4,0-0.6,0-0.7c0-0.1,0-0.2,0-0.3l0,0
+		c0.1,0,0.2,0,0.3,0c0.2,0,0.5,0,1,0h1.2c0.5,0,0.8,0,1,0c0.1,0,0.2,0,0.3,0l0,0c0,0.1,0,0.2,0,0.3c0,0,0,0.2,0,0.6h-0.2
+		c0-0.2,0-0.3,0-0.4c0-0.1,0-0.1,0-0.1c0,0,0,0-0.1,0c-0.2,0-0.4,0-0.6,0h-0.4c0,0.1,0,0.3,0,0.8v1.8c0,0.4,0,0.7,0,0.8
+		c0,0.1,0,0.1,0.1,0.1c0,0,0.2,0,0.4,0v0.2c-0.4,0-0.7,0-1,0C61.7,38.6,61.4,38.6,61,38.6z"/> <path fill="#FFFFFF" d="M64.3,38.6v-0.2c0.2,0,0.3,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1-0.1c0,0,0.1-0.2,0.2-0.4
+		c0.1-0.1,0.1-0.4,0.3-0.7l0.8-1.9l0.3-0.7h0.4l1.3,3.1l0.2,0.4l0.1,0.3c0,0,0,0.1,0.1,0.1c0,0,0,0,0.1,0s0.1,0,0.2,0
+		c0,0,0.1,0,0.1,0v0.2l-0.8,0l-1,0v-0.2c0.2,0,0.4,0,0.4,0c0,0,0,0,0-0.1c0,0,0-0.1-0.1-0.2l-0.3-0.6h-1.5l-0.1,0.4
+		c-0.1,0.3-0.1,0.4-0.1,0.5c0,0,0,0.1,0,0.1c0,0,0.2,0,0.4,0.1v0.2l-0.7,0L64.3,38.6z M65.6,37c0.2,0,0.4,0,0.6,0c0.2,0,0.4,0,0.6,0
+		l-0.6-1.5L65.6,37z"/> <path fill="#FFFFFF" d="M69.8,34.7v-0.2c0,0,0.2,0,0.5,0c0.1,0,0.3,0,0.6,0c0.2,0,0.4,0,0.5,0c0.2,0,0.4,0,0.6,0
+		c0.3,0,0.5,0,0.7,0.1c0.2,0,0.3,0.1,0.4,0.3c0.1,0.1,0.2,0.3,0.2,0.5c0,0.2-0.1,0.5-0.2,0.6c-0.1,0.2-0.4,0.3-0.7,0.5
+		c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.1,0.1,0.1,0.2c0,0,0,0,0,0.1l0.5,0.7c0.1,0.2,0.2,0.3,0.2,0.3c0.1,0.2,0.2,0.3,0.3,0.3
+		c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0,0.2,0v0.3c-0.3,0-0.5,0-0.7,0c-0.2,0-0.3,0-0.5,0c0,0,0-0.1-0.1-0.2l-0.6-1
+		c-0.2-0.3-0.3-0.5-0.5-0.7c-0.1-0.1-0.1-0.2-0.2-0.2l0-0.1c0.2,0,0.4,0,0.5-0.1c0.1-0.1,0.2-0.2,0.3-0.3c0.1-0.1,0.1-0.3,0.1-0.5
+		c0-0.2,0-0.3-0.1-0.4c-0.1-0.1-0.2-0.2-0.3-0.2c-0.1,0-0.2,0-0.4,0c-0.1,0-0.2,0-0.3,0c0,0.1,0,0.2,0,0.5c0,0.6,0,0.9,0,1.1
+		c0,0.3,0,0.6,0,0.9c0,0.4,0,0.6,0,0.7c0,0.1,0,0.2,0,0.2c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.2,0,0.3,0v0.3c-0.3,0-0.7,0-1,0
+		c-0.3,0-0.6,0-0.8,0v-0.3c0.2,0,0.4,0,0.4,0c0,0,0,0,0.1,0c0,0,0,0,0-0.1c0-0.1,0-0.2,0-0.3l0-0.9v-1.1l0-0.6c0-0.2,0-0.4,0-0.4
+		c0,0,0,0,0,0C70.2,34.8,70,34.7,69.8,34.7z"/> <path fill="#FFFFFF" d="M77.6,35.6h-0.2c0-0.2,0-0.4,0-0.5c-0.1-0.1-0.2-0.2-0.3-0.2c-0.1-0.1-0.3-0.1-0.5-0.1
+		c-0.3,0-0.5,0.1-0.6,0.2c-0.1,0.1-0.2,0.3-0.2,0.5c0,0.1,0,0.2,0.1,0.3c0,0.1,0.1,0.1,0.2,0.2c0.1,0,0.2,0.1,0.3,0.1
+		c0.1,0,0.3,0.1,0.5,0.1c0.2,0,0.3,0.1,0.4,0.1c0.2,0,0.3,0.1,0.4,0.1c0.1,0.1,0.2,0.1,0.2,0.2c0.1,0.1,0.1,0.2,0.1,0.3
+		s0.1,0.2,0.1,0.4c0,0.2-0.1,0.5-0.2,0.7c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.3,0.2-0.4,0.3c-0.2,0.1-0.5,0.1-0.8,0.1
+		c-0.2,0-0.5,0-0.6-0.1s-0.4-0.1-0.6-0.2c0.1-0.2,0.1-0.6,0.1-1h0.2c0,0.1,0,0.3,0,0.5c0.1,0.1,0.2,0.2,0.4,0.3
+		c0.2,0.1,0.4,0.1,0.6,0.1c0.2,0,0.4,0,0.5-0.1c0.1-0.1,0.3-0.2,0.3-0.3c0.1-0.1,0.1-0.2,0.1-0.4c0-0.1,0-0.2-0.1-0.3
+		c0-0.1-0.1-0.2-0.2-0.2c-0.1-0.1-0.3-0.1-0.5-0.2c-0.4-0.1-0.6-0.1-0.7-0.2c-0.2-0.1-0.3-0.1-0.4-0.2c-0.1-0.1-0.2-0.2-0.2-0.3
+		C75,36,75,35.9,75,35.7c0-0.2,0-0.4,0.1-0.6c0.1-0.2,0.2-0.3,0.4-0.4c0.2-0.1,0.3-0.2,0.5-0.2c0.2,0,0.4-0.1,0.6-0.1
+		c0.2,0,0.4,0,0.6,0.1c0.2,0,0.4,0.1,0.5,0.2l0,0.1c0,0.1,0,0.3-0.1,0.4C77.6,35.2,77.6,35.4,77.6,35.6z"/> </g> </symbol><symbol viewBox="0 0 238.764 117.882" id="taylor-new-logo"><title>new-logo</title> <foreignObject requiredExtensions="&amp;ns_ai;" x="0" y="0" width="1" height="1"> <i:pgfRef xlink:href="#adobe_illustrator_pgf"> </i:pgfRef> </foreignObject> <g i:extraneous="self"> <g> <path d="M114.594,86.025c3.676-3.38,6.119-8.504,5.902-14.801c0-0.121-0.094-0.232-0.217-0.244
+				c-0.076,0.017-0.244,0.074-0.352,0.123c-1.518,0.688-3.822,1.127-5.881,1.127c-3.836,0-7.473-1.379-10.34-3.902
+				c-3.115,3.297-7.406,5.168-11.918,5.168c-3.594,0-6.975-1.131-9.834-3.281c-3.09,3.656-7.598,5.748-12.797,5.916
+				c-3.465,0.111-7.146-0.955-9.979-2.832c-2.746,3.459-6.453,5.523-11.035,6.137c-11.59,1.551-17.92,3.175-24.783,8.698
+				l-0.672,0.542l-2.043-2.336l0.723-0.589c6.936-5.66,7.871-12.034,7.871-17.521l0.014-46.857
+				c-4.646,0.239-9.557,0.378-13.994,0.397c-2.094,0-3.877,1.803-3.877,4.141c0,2.148,1.508,4.05,4.756,4.3
+				c-2.43,0.886-5.244,0.946-7.25,0.514c-2.73-0.573-5.396-1.89-7.193-4.495v0.001c-1.74-2.45-2.076-6.067-1.305-8.832
+				c1.252-4.493,5.734-7.556,10.832-7.719l0,0l0,0c13.15,0.04,27.084-0.87,40.389-2.678c7.637-1.037,15.199-2.347,22.396-4.016
+				c0.182,3.919-0.719,7.018-2.459,9.397c-2.027,2.769-5.219,4.516-9.277,5.242c-6.789,1.218-13.842,2.18-20.977,2.863
+				l-0.031,43.469c0,2.768,2.252,5.02,5.021,5.02c2.766,0,5.016-2.252,5.016-5.021l-0.004-9.618c0-5.092,0.812-10.074,2.229-13.67
+				c3.51-8.932,11.035-13.85,21.188-13.85c0.328,0,0.658,0,0.988,0.002c0.328,0,0.656,0.002,0.984,0.002
+				c3.031,0,5.981-0.08,8.733-1.037l1.195-0.414l0.027,30.963c0,3.225,2.621,5.848,5.844,5.848c3.223,0,5.846-2.623,5.846-5.847
+				l0.002-21.94c0-1.08-0.902-1.957-2.002-1.957c-0.629,0-1.355,0.344-1.729,0.857c-0.365-4.707,3.451-8.407,7.861-8.407
+				c4.371,0,7.928,3.559,7.928,7.932l-0.031,23.036c0,2.779,2.266,5.041,5.049,5.041c2.783,0,5.047-2.262,5.047-5.042V25.988h12.047
+				l-0.002,29.626c0,3.052,2.48,5.534,5.531,5.534c3.051,0,5.531-2.482,5.531-5.534l0.004-49.512c0-1.694-1.377-3.073-3.068-3.073
+				h-0.9V0l16.01,0.026v58.148c0,2.458,1.998,4.458,4.455,4.458c2.455,0,4.453-2,4.453-4.458l0.002-9.54
+				c0-13.963,7.529-23.715,18.312-23.715c4.277,0,7.859,1.534,11.977,5.132c0.475,0.415,0.928,0.823,1.363,1.217
+				c2.408,2.174,4.148,3.745,6.42,3.745c2.477,0,4.133-1.131,6.332-4.32c1.619-2.343,3.857-3.58,6.471-3.58
+				c2.23,0,4.203,0.931,5.746,2.703c2.199-1.314,4.592-1.979,7.129-1.979c3.652,0,7.195,1.48,9.979,4.168l0.518,0.499l-5.494,9.063
+				c-1.627-1.508-3.551-2.346-5.156-2.346c-3.674,0-6.66,2.988-6.66,6.661l0.029,23.032c0,3.271,0.955,7.807,5.512,10.842
+				l0.568,0.381l-0.959,2.914L225.7,82.66c-6.902-2.988-14.172-4.873-21.607-5.602l-0.812-0.08v-2.904l0.881-0.018
+				c3.301-0.069,5.193-2.047,5.193-5.427l0.033-20.028c0-2.264-1.844-4.107-4.109-4.107c-2.266,0-4.107,1.844-4.107,4.108
+				l-0.029,3.573c0,13.955-7.529,23.705-18.311,23.705c-5.029,0-9.387-2.057-12.662-5.964c-2.951,2.56-6.637,3.958-10.482,3.958
+				c-4.605,0-8.916-1.939-11.975-5.354c-2.797,2.526-6.369,3.905-10.162,3.905c-1.723,0-3.402-0.285-5.012-0.851
+				c-0.041,6.189-1.605,11.131-4.307,15.286c-3.42,5.257-8.439,7.969-14.521,7.969c-4.051,0.023-9.646-1.988-12.149-6.528
+				c1.547,0.721,3.141,1.084,4.844,1.084C109.417,89.385,112.202,88.223,114.594,86.025 M74.563,38.23
+				c-2.881,0.029-5.268,0.943-7.293,2.791c-0.92,0.834-2.174,2.736-2.685,4.072c-0.947,2.475-1.49,5.396-1.49,8.021v0.317
+				c-0.002,2.957-0.004,5.51,1.471,8.432c1.383,2.736,3.75,3.033,4.705,3.033c3.078,0,5.315-2.627,5.315-6.245L74.563,38.23z
+				 M182.831,36.938c-1.883,0-6.266,1.144-6.266,11.729v3.469c0,10.585,4.383,11.728,6.266,11.728s6.264-1.143,6.264-11.728v-3.469
+				C189.094,38.081,184.714,36.938,182.831,36.938z"/> <path d="M230.034,83.209c0-1.667,1.311-3.018,2.926-3.018c1.624,0,2.943,1.342,2.943,3.018c0,1.656-1.319,3-2.943,3
+				C231.344,86.209,230.034,84.865,230.034,83.209z M235.437,83.2c0-1.414-1.108-2.536-2.477-2.536
+				c-1.359,0-2.459,1.132-2.459,2.536c0,1.394,1.106,2.528,2.459,2.528C234.322,85.729,235.437,84.594,235.437,83.2z
+				 M232.035,81.922c0-0.211-0.026-0.236-0.237-0.245h-0.128v-0.176h1.286c0.287,0,0.661-0.01,0.913,0.144
+				c0.204,0.127,0.348,0.406,0.348,0.642c0,0.501-0.382,0.796-0.821,0.87c0.347,0.07,0.517,0.457,0.652,0.753
+				c0.066,0.144,0.176,0.39,0.271,0.523c0.066,0.095,0.125,0.128,0.27,0.128v0.168h-0.575c-0.118-0.034-0.178-0.034-0.262-0.135
+				c-0.187-0.219-0.439-1.031-0.601-1.207c-0.118-0.135-0.261-0.121-0.405-0.121h-0.126v1.033c0.007,0.178,0.025,0.253,0.218,0.253
+				l0.146,0.009v0.168h-1.318v-0.168h0.118c0.192-0.016,0.253-0.009,0.253-0.229V81.922z M232.619,83.057l0.16,0.008
+				c0.48,0,0.845-0.135,0.845-0.701c0-0.457-0.253-0.678-0.684-0.678l-0.178,0.018c-0.17,0-0.144,0.195-0.144,0.312V83.057z"/> </g> <path d="M35.828,113.032c1.2-1.191,1.808-2.84,1.808-4.901c0-1.089-0.185-2.033-0.548-2.803c-0.268-0.569-0.674-1.11-1.204-1.609
+			c-0.53-0.5-1.183-0.889-1.94-1.156c-0.753-0.265-1.677-0.4-2.749-0.4c-1.136,0-2.162,0.164-3.046,0.487
+			c-0.66,0.243-1.292,0.644-1.875,1.191c-0.584,0.545-1.039,1.217-1.356,1.996c-0.315,0.775-0.474,1.696-0.474,2.737
+			c0,1.143,0.202,2.166,0.6,3.044c0.258,0.572,0.641,1.108,1.134,1.594c0.493,0.483,1.138,0.879,1.918,1.173
+			c0.532,0.202,1.136,0.334,1.803,0.399c-0.264,0.109-0.478,0.21-0.652,0.311c-0.201,0.115-0.639,0.405-1.303,0.864
+			c-0.344,0.236-0.598,0.43-0.754,0.575l-0.028,0.026l0.225,0.664l0.06-0.037c0.598-0.37,1.01-0.604,1.223-0.696
+			c0.145-0.059,0.3-0.09,0.459-0.09c0.193,0,0.574,0.061,1.132,0.18c0.413,0.096,1.2,0.315,2.337,0.653
+			c0.862,0.257,1.563,0.432,2.142,0.535c0.451,0.078,0.739,0.117,0.874,0.117h0.02l0.016-0.012c0.126-0.097,0.311-0.224,0.548-0.375
+			c0.639-0.392,1.058-0.643,1.28-0.767l0.029-0.017v-0.776l-0.787,0.336c-0.086,0.033-0.176,0.058-0.27,0.075
+			c-0.139,0.028-0.286,0.042-0.439,0.042c-0.147,0-0.325-0.019-0.544-0.059c-0.312-0.059-0.637-0.14-0.965-0.241
+			c-0.167-0.056-0.728-0.251-1.539-0.535c-0.973-0.344-1.773-0.589-2.388-0.731c0.096,0.002,0.194,0.003,0.292,0.003
+			C32.961,114.826,34.631,114.222,35.828,113.032z M29.198,103.633c0.512-0.254,1.112-0.382,1.781-0.382
+			c0.744,0,1.357,0.135,1.819,0.398c0.462,0.265,0.852,0.649,1.158,1.142c0.309,0.498,0.539,1.087,0.685,1.752
+			c0.147,0.666,0.222,1.372,0.222,2.099c0,1.154-0.162,2.14-0.481,2.93c-0.318,0.784-0.763,1.351-1.323,1.686
+			c-0.563,0.335-1.195,0.506-1.881,0.506c-1.285,0-2.278-0.507-2.946-1.507c-0.673-1.009-1.014-2.394-1.014-4.117
+			c0-0.784,0.085-1.5,0.252-2.126c0.166-0.622,0.402-1.132,0.704-1.516C28.473,104.115,28.818,103.825,29.198,103.633z"/> <path d="M51.432,102.429c-0.195,0-0.818-0.02-1.853-0.06l-0.059-0.002v0.831l0.056,0.001c0.626,0.017,1.036,0.072,1.22,0.167
+			c0.079,0.04,0.137,0.1,0.17,0.178c0.059,0.142,0.099,0.576,0.116,1.291c0.007,0.312,0.009,1.143,0.009,2.779v1.76
+			c0,1.214-0.099,2.045-0.297,2.471c-0.194,0.424-0.528,0.774-0.99,1.04c-0.463,0.267-1.097,0.403-1.884,0.403
+			c-0.685,0-1.256-0.101-1.697-0.303c-0.44-0.197-0.771-0.461-0.984-0.781c-0.213-0.323-0.347-0.754-0.395-1.281
+			c-0.022-0.246-0.033-0.901-0.033-1.947l-0.009-1.01v-2.003c0-1.204,0.04-1.993,0.119-2.345c0.026-0.133,0.075-0.222,0.148-0.266
+			c0.156-0.102,0.544-0.155,1.15-0.155h0.058v-0.832l-1.541,0.042l-1.163,0.02l-2.866-0.061v0.825l1.165,0.126
+			c0.125,0.094,0.17,0.156,0.187,0.191c0.049,0.108,0.082,0.287,0.098,0.531c0.03,0.658,0.045,1.389,0.045,2.173v2.192l-0.009,1.657
+			c0,0.927,0.014,1.477,0.043,1.682c0.04,0.335,0.155,0.692,0.342,1.06c0.188,0.365,0.463,0.7,0.819,0.992
+			c0.351,0.293,0.813,0.529,1.373,0.706c0.763,0.236,1.594,0.355,2.469,0.355c0.751,0,1.421-0.082,1.992-0.244
+			c0.574-0.162,1.077-0.405,1.497-0.725c0.415-0.319,0.744-0.681,0.977-1.078c0.229-0.397,0.384-0.88,0.459-1.437
+			c0.075-0.547,0.114-1.09,0.114-1.614v-2.028c0-0.604,0.02-1.428,0.061-2.449c0.039-1.027,0.08-1.609,0.121-1.732
+			c0.038-0.116,0.087-0.195,0.144-0.234c0.088-0.055,0.33-0.12,0.98-0.12h0.058v-0.831l-1.977,0.052
+			C51.561,102.426,51.484,102.429,51.432,102.429z"/> <path d="M67.802,113.685c-0.33-0.021-0.449-0.043-0.49-0.057c-0.059-0.021-0.112-0.052-0.158-0.092
+			c-0.047-0.042-0.098-0.113-0.149-0.206l-0.347-0.794l-0.533-1.182l-3.874-9.045h-1.303l-0.773,1.995l-2.253,5.559
+			c-0.453,1.123-0.721,1.774-0.863,2.113c-0.331,0.769-0.524,1.199-0.588,1.311c-0.062,0.113-0.124,0.195-0.182,0.244
+			c-0.057,0.049-0.127,0.086-0.208,0.109c-0.083,0.025-0.359,0.055-0.82,0.089l-0.053,0.004v0.828l2.035-0.062l2.049,0.062v-0.83
+			l-0.056-0.002c-0.838-0.029-1.118-0.096-1.204-0.147c-0.076-0.047-0.111-0.126-0.111-0.244c0-0.13,0.074-0.489,0.426-1.46
+			l0.365-0.997h4.373l0.726,1.859c0.129,0.317,0.194,0.548,0.194,0.684c0,0.094-0.033,0.157-0.104,0.195
+			c-0.046,0.026-0.256,0.072-1.154,0.11l-0.055,0.002v0.829l3.085-0.061l2.458,0.061v-0.825l-0.051-0.006
+			C68.018,113.711,67.891,113.697,67.802,113.685z M62.61,109.777c-0.489,0.016-1.045,0.023-1.699,0.023
+			c-0.677,0-1.254-0.008-1.759-0.023l1.694-4.255L62.61,109.777z"/> <path d="M80.154,111.34c-0.111,0.577-0.22,1.067-0.334,1.498c-0.064,0.209-0.109,0.272-0.132,0.292
+			c-0.016,0.014-0.087,0.053-0.394,0.098c-0.646,0.104-1.412,0.156-2.279,0.156c-0.285,0-0.813-0.02-1.566-0.059
+			c-0.006-0.206-0.009-0.682-0.011-1.416c-0.002-0.808-0.007-1.623-0.013-2.445c-0.003-1.072-0.007-1.799-0.008-2.182l-0.001-0.311
+			c0-0.961,0.013-1.766,0.04-2.396c0.032-0.815,0.063-1.006,0.079-1.047c0.023-0.066,0.059-0.11,0.11-0.138
+			c0.134-0.069,0.526-0.119,1.166-0.148l0.055-0.002v-0.874l-0.06,0.003c-0.932,0.04-1.934,0.06-2.974,0.06
+			c-0.933,0-1.774-0.02-2.501-0.06l-0.06-0.003v0.874l0.055,0.002c0.921,0.036,1.214,0.108,1.303,0.166
+			c0.051,0.028,0.085,0.068,0.104,0.122c0.05,0.15,0.086,0.769,0.104,1.839c0.01,0.413,0.014,1.514,0.014,3.364
+			c0,1.275-0.011,2.316-0.036,3.179c-0.021,0.875-0.048,1.391-0.076,1.533c-0.004,0.025-0.014,0.048-0.033,0.071
+			c-0.019,0.027-0.072,0.076-0.215,0.157c-0.275,0.163-0.479,0.272-0.624,0.333l-0.035,0.014v0.541l0.06-0.003
+			c1.176-0.052,2.016-0.078,2.567-0.078c0.354,0,0.967,0.011,1.986,0.035c1.242,0.029,1.925,0.043,2.028,0.043
+			c0.735,0,1.286-0.014,1.64-0.043c0.165-0.017,0.336-0.049,0.508-0.097l0.039-0.01l0.003-0.041
+			c0.007-0.121,0.036-0.479,0.077-0.981l0.217-1.75c0-0.018,0.004-0.081,0.027-0.28l0.007-0.062h-0.829L80.154,111.34z"/> <path d="M87.449,102.429c-0.932,0-1.771-0.02-2.492-0.06l-0.06-0.003v0.875l0.056,0.001c0.772,0.028,1.012,0.055,1.079,0.072
+			c0.11,0.028,0.158,0.06,0.179,0.082c0.03,0.031,0.052,0.081,0.068,0.146c0.04,0.179,0.073,0.638,0.102,1.362
+			c0.011,0.325,0.017,1.068,0.017,2.208v3.609c0,0.594-0.023,1.236-0.068,1.912c-0.011,0.175-0.045,0.707-0.069,0.802
+			c-0.009,0.041-0.029,0.077-0.066,0.109c-0.023,0.022-0.079,0.055-0.215,0.081c-0.09,0.016-0.437,0.036-1.029,0.059l-0.055,0.002
+			v0.874l0.06-0.003c0.721-0.04,1.554-0.06,2.474-0.06c1.059,0,2.07,0.02,3.002,0.06l0.06,0.003v-0.875l-0.057-0.001
+			c-0.696-0.014-0.937-0.037-1.016-0.055c-0.11-0.025-0.19-0.056-0.238-0.092c-0.046-0.037-0.078-0.088-0.099-0.159
+			c-0.056-0.172-0.084-0.555-0.084-1.139l-0.026-1.579v-3.478c0-0.096,0.009-0.706,0.027-1.814l0.008-0.472
+			c0.004-0.4,0.013-0.691,0.024-0.843c0.018-0.268,0.046-0.451,0.086-0.549c0.012-0.045,0.038-0.081,0.077-0.114
+			c0.027-0.022,0.087-0.055,0.212-0.084c0.075-0.018,0.314-0.042,1.03-0.063l0.056-0.001v-0.875l-0.06,0.003
+			C89.5,102.409,88.497,102.429,87.449,102.429z"/> <path d="M105.163,102.369c-0.267,0.029-0.536,0.049-0.797,0.06c-0.471,0.017-1.421,0.026-2.904,0.026h-3.486
+			c-1.441,0-2.375-0.009-2.853-0.026c-0.301-0.011-0.589-0.031-0.859-0.06l-0.029-0.003l-0.114,0.127l0.003,0.027
+			c0.041,0.301,0.069,0.568,0.085,0.815c0.007,0.134,0.018,0.667,0.038,1.637l0.008,0.411h0.826l0.002-0.056
+			c0.011-0.492,0.055-0.946,0.128-1.347c0.037-0.213,0.075-0.259,0.088-0.271c0.004-0.003,0.046-0.032,0.293-0.053
+			c0.469-0.04,1.018-0.06,1.634-0.06h1.183c0.011,0.186,0.021,0.753,0.021,2.308v5.17c0,1.234-0.031,1.981-0.092,2.22
+			c-0.041,0.147-0.118,0.248-0.236,0.311c-0.083,0.045-0.361,0.104-1.204,0.132l-0.056,0.001v0.824l0.06-0.003
+			c1.073-0.051,2.019-0.078,2.815-0.078c0.755,0,1.676,0.026,2.817,0.078l0.06,0.003v-0.824l-0.056-0.001
+			c-0.842-0.028-1.123-0.088-1.21-0.135c-0.119-0.066-0.195-0.163-0.231-0.296c-0.061-0.251-0.092-1.001-0.092-2.231v-5.17
+			c0-1.293,0.007-2.051,0.021-2.308h1.181c0.666,0,1.236,0.023,1.699,0.069c0.189,0.014,0.235,0.04,0.239,0.043
+			c0.014,0.014,0.051,0.076,0.096,0.34c0.062,0.402,0.099,0.832,0.11,1.279l0.001,0.056h0.83l0.001-0.056
+			c0.011-0.782,0.027-1.829,0.035-1.89c0.012-0.265,0.043-0.575,0.094-0.918l0.004-0.028l-0.127-0.126L105.163,102.369z"/> <path d="M118.923,102.401c-0.081,0.168-0.281,0.53-0.593,1.074c-0.92,1.633-1.456,2.576-1.636,2.884l-1.03,1.67
+			c-0.172-0.359-0.565-1.132-1.172-2.304c-0.414-0.811-0.835-1.536-1.254-2.155c-0.288-0.431-0.509-0.715-0.673-0.869
+			c-0.165-0.156-0.425-0.334-0.777-0.531l-0.02-0.011l-0.022,0.006c-0.328,0.086-0.648,0.164-0.956,0.233l-1.875,0.371v0.752h0.057
+			c0.555,0,0.7,0.029,0.733,0.044c0.08,0.042,0.248,0.172,0.598,0.549c0.427,0.467,0.894,1.097,1.393,1.876
+			c0.608,0.948,1.191,1.931,1.732,2.922c0.265,0.503,0.321,0.71,0.321,0.793v1.641c0,0.473-0.014,1.036-0.041,1.671
+			c-0.023,0.361-0.06,0.46-0.081,0.488c-0.033,0.046-0.101,0.081-0.201,0.107c-0.107,0.028-0.491,0.053-1.141,0.077l-0.056,0.001
+			v0.875l0.06-0.003c0.879-0.04,1.76-0.06,2.616-0.06c0.881,0,1.881,0.02,2.973,0.06l0.059,0.002v-0.874l-0.056-0.001
+			c-0.784-0.014-1.045-0.043-1.125-0.067c-0.108-0.031-0.184-0.075-0.229-0.135c-0.026-0.035-0.076-0.155-0.122-0.577
+			c-0.038-0.333-0.056-0.869-0.056-1.591v-1.459c0-0.294,0.013-0.507,0.042-0.635c0.038-0.178,0.121-0.392,0.245-0.633
+			c0.188-0.361,0.692-1.181,1.495-2.439c0.804-1.261,1.563-2.372,2.254-3.304l0.012-0.014v-0.463h-1.46L118.923,102.401z"/> <path d="M138.422,109.575v0.811l0.053,0.003c0.882,0.051,1.43,0.105,1.628,0.163c0.104,0.024,0.169,0.065,0.195,0.115
+			c0.029,0.066,0.063,0.286,0.063,0.96c0,0.1-0.007,0.392-0.018,0.802c-0.01,0.409-0.023,0.698-0.039,0.86
+			c-0.33,0.145-0.677,0.258-1.032,0.337c-0.359,0.079-0.734,0.119-1.114,0.119c-1.299,0-2.41-0.5-3.306-1.487
+			c-0.897-0.989-1.351-2.344-1.351-4.023c0-1.537,0.431-2.761,1.281-3.638c0.849-0.877,1.997-1.321,3.412-1.321
+			c0.608,0,1.161,0.071,1.641,0.213c0.482,0.143,0.912,0.341,1.278,0.589c0.159,0.104,0.309,0.238,0.444,0.401
+			c0.038,0.172,0.066,0.383,0.083,0.625c0.022,0.383,0.033,0.643,0.033,0.816v0.057h0.8l0.004-0.052
+			c0.114-1.271,0.242-2.17,0.379-2.673l0.004-0.02l-0.085-0.203l-0.02-0.009c-0.477-0.214-1.144-0.412-1.985-0.59
+			c-0.843-0.178-1.766-0.268-2.744-0.268c-0.792,0-1.533,0.068-2.199,0.204c-0.663,0.134-1.31,0.362-1.924,0.677
+			c-0.611,0.317-1.164,0.734-1.642,1.239c-0.481,0.507-0.861,1.107-1.129,1.783c-0.268,0.676-0.405,1.479-0.405,2.386
+			c0,1.075,0.208,2.064,0.618,2.942c0.26,0.567,0.644,1.104,1.143,1.597c0.499,0.492,1.106,0.899,1.804,1.211
+			c0.998,0.438,2.161,0.66,3.457,0.66c0.796,0,1.603-0.081,2.399-0.243c0.796-0.16,1.742-0.44,2.809-0.831l0.042-0.016l-0.006-0.044
+			c-0.051-0.452-0.077-0.903-0.077-1.34c0-0.285,0.014-0.763,0.043-1.422c0.014-0.33,0.061-0.417,0.08-0.439
+			c0.096-0.111,0.306-0.201,0.625-0.267l0.046-0.009v-0.674l-2.653,0.036L138.422,109.575z"/> <path d="M157.564,102.429c-0.195,0-0.818-0.02-1.853-0.06l-0.06-0.002v0.831l0.056,0.001c0.626,0.017,1.036,0.072,1.22,0.167
+			c0.08,0.04,0.136,0.098,0.17,0.178c0.06,0.14,0.1,0.575,0.117,1.291c0.006,0.349,0.009,1.311,0.009,2.779v1.76
+			c0,1.212-0.1,2.043-0.297,2.471c-0.194,0.424-0.528,0.774-0.99,1.04c-0.463,0.267-1.097,0.403-1.884,0.403
+			c-0.686,0-1.258-0.101-1.7-0.303c-0.439-0.198-0.77-0.461-0.981-0.781c-0.213-0.323-0.346-0.754-0.395-1.282
+			c-0.023-0.245-0.035-0.881-0.035-1.946l-0.009-1.01v-2.003c0-1.206,0.04-1.994,0.12-2.345c0.026-0.135,0.074-0.222,0.146-0.266
+			c0.157-0.102,0.545-0.155,1.152-0.155h0.058v-0.832l-1.544,0.042l-1.163,0.02l-2.864-0.061v0.825l1.165,0.126
+			c0.124,0.092,0.169,0.155,0.186,0.193c0.049,0.105,0.082,0.28,0.099,0.53c0.029,0.642,0.043,1.372,0.043,2.173v2.192l-0.009,1.657
+			c0,0.921,0.014,1.471,0.045,1.682c0.04,0.339,0.156,0.695,0.342,1.06c0.188,0.365,0.462,0.7,0.818,0.994
+			c0.352,0.292,0.815,0.529,1.374,0.705c0.763,0.236,1.594,0.355,2.469,0.355c0.751,0,1.421-0.082,1.992-0.244
+			c0.573-0.162,1.076-0.405,1.495-0.725c0.417-0.319,0.745-0.681,0.978-1.078c0.229-0.395,0.383-0.879,0.46-1.437
+			c0.075-0.55,0.112-1.093,0.112-1.614v-2.028c0-0.604,0.02-1.428,0.061-2.449c0.039-1.027,0.08-1.609,0.121-1.732
+			c0.039-0.116,0.088-0.195,0.145-0.234c0.088-0.055,0.33-0.12,0.98-0.12h0.057v-0.831l-1.977,0.052
+			C157.692,102.426,157.615,102.429,157.564,102.429z"/> <path d="M166.114,102.429c-0.931,0-1.769-0.02-2.491-0.06l-0.06-0.003v0.875l0.056,0.001c0.771,0.028,1.012,0.055,1.079,0.072
+			c0.111,0.028,0.159,0.06,0.179,0.082c0.03,0.032,0.053,0.082,0.069,0.146c0.039,0.179,0.073,0.638,0.101,1.362
+			c0.011,0.325,0.017,1.068,0.017,2.208v3.609c0,0.577-0.022,1.221-0.069,1.912c-0.036,0.608-0.057,0.762-0.067,0.802
+			c-0.009,0.04-0.03,0.076-0.066,0.109c-0.023,0.022-0.08,0.055-0.217,0.081c-0.089,0.016-0.434,0.036-1.027,0.059l-0.056,0.002
+			v0.874l0.06-0.003c0.722-0.04,1.554-0.06,2.475-0.06c1.058,0,2.068,0.02,3.001,0.06l0.06,0.003v-0.875l-0.056-0.001
+			c-0.696-0.014-0.938-0.037-1.018-0.055c-0.109-0.025-0.189-0.056-0.238-0.092c-0.044-0.036-0.077-0.088-0.098-0.159
+			c-0.056-0.172-0.083-0.555-0.083-1.139l-0.026-1.579v-3.478c0-0.096,0.009-0.746,0.035-2.287c0.006-0.4,0.014-0.691,0.026-0.843
+			c0.017-0.268,0.045-0.451,0.085-0.548c0.014-0.048,0.039-0.085,0.076-0.115c0.029-0.022,0.088-0.055,0.212-0.084
+			c0.076-0.018,0.315-0.042,1.031-0.063l0.056-0.001v-0.875l-0.06,0.003C168.167,102.409,167.163,102.429,166.114,102.429z"/> <path d="M183.831,102.369c-0.268,0.029-0.537,0.049-0.797,0.06c-0.472,0.017-1.422,0.026-2.906,0.026h-3.484
+			c-1.442,0-2.376-0.009-2.854-0.026c-0.302-0.011-0.59-0.031-0.858-0.06l-0.029-0.003l-0.116,0.127l0.004,0.027
+			c0.04,0.292,0.069,0.567,0.086,0.815c0.006,0.164,0.021,0.851,0.042,1.993l0.001,0.056h0.829l0.002-0.056
+			c0.011-0.499,0.053-0.952,0.128-1.347c0.037-0.209,0.07-0.257,0.086-0.271c0.004-0.003,0.046-0.032,0.295-0.053
+			c0.467-0.04,1.017-0.06,1.634-0.06h1.182c0.014,0.243,0.022,1.017,0.022,2.308v5.17c0,1.231-0.031,1.978-0.094,2.22
+			c-0.042,0.147-0.119,0.249-0.235,0.311c-0.083,0.045-0.361,0.104-1.204,0.132l-0.056,0.001v0.824l0.06-0.003
+			c1.087-0.052,2.008-0.078,2.815-0.078c0.754,0,1.675,0.026,2.816,0.078l0.06,0.003v-0.824l-0.056-0.001
+			c-0.844-0.028-1.123-0.088-1.209-0.135c-0.119-0.065-0.195-0.163-0.231-0.297c-0.062-0.244-0.094-0.995-0.094-2.23v-5.17
+			c0-1.27,0.007-2.044,0.022-2.308h1.181c0.673,0,1.227,0.023,1.696,0.069c0.197,0.014,0.237,0.041,0.24,0.043
+			c0.011,0.011,0.051,0.069,0.097,0.34c0.063,0.407,0.101,0.838,0.111,1.279l0.001,0.056h0.829l0.001-0.056
+			c0.018-1.331,0.029-1.848,0.035-1.89c0.011-0.268,0.042-0.577,0.095-0.917l0.004-0.029l-0.127-0.126L183.831,102.369z"/> <path d="M198.942,113.685c-0.33-0.022-0.449-0.043-0.489-0.057c-0.061-0.022-0.114-0.053-0.158-0.092
+			c-0.048-0.043-0.101-0.116-0.15-0.206l-0.346-0.794l-0.534-1.182l-3.874-9.045h-1.301l-0.774,1.995l-2.254,5.559
+			c-0.433,1.073-0.716,1.764-0.861,2.113c-0.403,0.934-0.543,1.229-0.589,1.311c-0.063,0.113-0.124,0.195-0.183,0.244
+			c-0.056,0.049-0.125,0.086-0.207,0.109c-0.083,0.025-0.36,0.055-0.82,0.089l-0.053,0.004v0.828l2.034-0.062l2.051,0.062v-0.83
+			l-0.056-0.002c-0.838-0.029-1.118-0.096-1.205-0.146c-0.076-0.048-0.111-0.128-0.111-0.245c0-0.187,0.144-0.678,0.428-1.46
+			l0.363-0.997h4.373l0.727,1.859c0.129,0.32,0.194,0.55,0.194,0.684c0,0.094-0.033,0.157-0.104,0.195
+			c-0.046,0.026-0.256,0.072-1.154,0.11l-0.055,0.002v0.829l3.085-0.061l2.458,0.061v-0.825l-0.051-0.006
+			C199.159,113.711,199.033,113.697,198.942,113.685z M193.751,109.777c-0.488,0.016-1.044,0.023-1.699,0.023
+			c-0.676,0-1.253-0.008-1.758-0.023l1.695-4.255L193.751,109.777z"/> <path d="M214.021,113.621c-0.082-0.035-0.172-0.103-0.265-0.202c-0.096-0.099-0.361-0.437-0.79-1.004
+			c-0.027-0.037-0.194-0.285-0.577-0.856l-1.338-1.995c-0.033-0.05-0.066-0.104-0.097-0.159c-0.043-0.076-0.202-0.31-0.327-0.492
+			c-0.173-0.254-0.326-0.497-0.456-0.726c0.872-0.334,1.53-0.789,1.958-1.352c0.435-0.58,0.657-1.232,0.657-1.937
+			c0-0.598-0.164-1.113-0.487-1.529c-0.321-0.417-0.716-0.695-1.176-0.829c-0.456-0.132-1.144-0.197-2.046-0.197
+			c-0.463,0-1.042,0.016-1.771,0.049c-0.43,0.026-0.937,0.038-1.553,0.038c-0.703,0-1.254-0.007-1.637-0.02
+			c-0.796-0.028-1.249-0.04-1.383-0.04h-0.057v0.818l0.053,0.003c0.701,0.047,1.12,0.102,1.244,0.165
+			c0.047,0.028,0.082,0.068,0.106,0.119c0.055,0.136,0.088,0.565,0.098,1.276l0.045,1.821v3.203l-0.069,2.523
+			c-0.017,0.45-0.046,0.79-0.086,1.012c-0.021,0.146-0.048,0.197-0.062,0.216c-0.022,0.029-0.064,0.051-0.125,0.067
+			c-0.114,0.038-0.499,0.069-1.148,0.092l-0.056,0.001v0.875l0.06-0.003c0.761-0.04,1.599-0.06,2.492-0.06
+			c1.002,0,2.006,0.02,2.985,0.06l0.06,0.002v-0.874l-0.056-0.001c-0.676-0.014-0.913-0.034-0.992-0.05
+			c-0.108-0.022-0.184-0.049-0.228-0.082c-0.043-0.031-0.076-0.066-0.095-0.101c-0.029-0.065-0.068-0.223-0.088-0.613
+			c-0.012-0.152-0.028-0.775-0.052-2.018c-0.017-0.985-0.026-1.908-0.026-2.747c0-0.522,0.016-1.561,0.051-3.265
+			c0.016-0.652,0.032-1.116,0.048-1.351c0.255-0.04,0.512-0.061,0.767-0.061c0.61,0,1.04,0.042,1.275,0.127
+			c0.361,0.134,0.668,0.374,0.913,0.715c0.246,0.341,0.37,0.774,0.37,1.29c0,0.509-0.119,0.978-0.355,1.394
+			c-0.236,0.41-0.526,0.7-0.863,0.858c-0.343,0.16-0.861,0.232-1.538,0.207l-0.042-0.002l-0.12,0.365l0.033,0.025
+			c0.165,0.121,0.341,0.309,0.522,0.557c0.373,0.508,0.825,1.201,1.344,2.058l1.847,3.045c0.106,0.197,0.174,0.358,0.201,0.479
+			l0.011,0.046l0.048-0.002c0.444-0.023,0.906-0.035,1.369-0.035c0.409,0,1.056,0.011,1.924,0.035l0.059,0.001v-0.873l-0.056-0.001
+			C214.218,113.679,214.081,113.647,214.021,113.621z"/> <path d="M226.277,109.359c-0.11-0.34-0.254-0.627-0.428-0.854c-0.172-0.225-0.408-0.428-0.701-0.601
+			c-0.292-0.173-0.677-0.321-1.145-0.442c-0.183-0.041-0.575-0.114-1.164-0.217c-0.575-0.1-1.043-0.187-1.387-0.258
+			c-0.428-0.111-0.756-0.238-0.976-0.374c-0.215-0.132-0.382-0.313-0.497-0.538c-0.117-0.231-0.178-0.534-0.183-0.9
+			c0-0.511,0.209-0.963,0.623-1.345c0.415-0.383,1.012-0.577,1.774-0.577c0.537,0,1.027,0.097,1.456,0.288
+			c0.422,0.188,0.723,0.404,0.896,0.644c0.043,0.276,0.072,0.745,0.082,1.393l0.001,0.056h0.836l0.002-0.055
+			c0.018-0.599,0.044-1.061,0.081-1.412c0.036-0.345,0.096-0.713,0.176-1.092l0.004-0.016l-0.082-0.243l-0.021-0.011
+			c-0.422-0.207-0.928-0.369-1.504-0.478c-1.128-0.215-2.376-0.234-3.515,0.03c-0.56,0.13-1.073,0.35-1.52,0.653
+			c-0.448,0.301-0.815,0.734-1.09,1.285c-0.273,0.55-0.412,1.159-0.412,1.809c0,0.462,0.077,0.903,0.228,1.311
+			c0.152,0.405,0.385,0.757,0.693,1.044c0.309,0.287,0.718,0.51,1.218,0.66c0.334,0.1,1.027,0.261,2.057,0.477
+			c0.717,0.165,1.224,0.326,1.505,0.479c0.276,0.15,0.482,0.351,0.611,0.598c0.13,0.252,0.196,0.557,0.196,0.908
+			c0,0.42-0.095,0.801-0.282,1.131c-0.185,0.327-0.49,0.588-0.907,0.776c-0.42,0.189-0.904,0.285-1.439,0.285
+			c-0.615,0-1.191-0.135-1.709-0.402c-0.512-0.261-0.88-0.568-1.094-0.911c-0.075-0.62-0.105-1.12-0.092-1.528l0.001-0.059h-0.84
+			l-0.001,0.057c-0.005,1.328-0.097,2.33-0.274,2.981l-0.012,0.045l0.042,0.021c0.663,0.322,1.279,0.554,1.833,0.686
+			c0.552,0.133,1.193,0.199,1.902,0.199c0.97,0,1.813-0.14,2.508-0.419c0.434-0.173,0.863-0.439,1.276-0.79
+			c0.412-0.352,0.74-0.745,0.971-1.168c0.307-0.566,0.464-1.229,0.464-1.97C226.444,110.089,226.387,109.701,226.277,109.359z"/> </g> </symbol></svg>
+<header id="header" class="site-header">
+  <div class="clearfix wrapper">
+    
+    <div class="mobile-wrapper">
+    <a href="#" id="mobile-toggle" class="mobile-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+   	<a href="/" class="logo" rel="home" id="logo" class="logo"><svg class="medium-hide"><use xlink:href="#taylor-new-logo"></svg><svg class="media-large-hide"><use xlink:href="#taylor-logo-mobile"></use></svg></a>
+
+    </div>
+
+
+
+    <button class="open-search"><svg class="icon icon-search"><use xlink:href="#taylor-icon-search"></svg><span class="search-label">Search</span></button>
+
+
+  	<section class="tag tag-login login region">
+  		<div class="tag">Step Forward. Music is Waiting</div>
+  		<nav class="nav login-nav">
+  			<ul><!--
+  				<li><a href="#">Sign In</a></li>
+  				<li><span class="slash">/</span></li>
+  				<li><a href="#">Join</a></li> -->
+              <li class="nav-currency"><button id="currencyBtn"></button></li>
+                      <li><a href="/user/login">Sign In</a></li>
+            <li class="medium-hide"><span class="slash">/</span></li>
+            <li><a href="/user/register">Join</a></li>
+                  </ul>
+      </nav>
+  	</section>
+      <div class="region region-header">
+    <div id="block-menu-block-20" class="block block-menu-block">
+
+    <h2>Responsive Main Menu Block</h2>
+  
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-20 menu-name-menu-responsive-main-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first expanded menu-mlid-14727 primary-menu"><a href="/guitars/acoustic">Acoustic</a><ul class="menu"><div class="wrapper"><li class="first leaf menu-mlid-17462 secondary-menu"><a href="/guitars/acoustic/series/overview">The Taylor Line<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/acoustic-browse-guitars-menu.jpg?itok=XIQL35PS"><span>Start here for an easy overview of our acoustic line</span></a></li>
+<li class="leaf menu-mlid-14756 secondary-menu"><a href="/guitars/acoustic/browse">Browse Guitars<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/TaylorGuitars-acoustic-guitar-compare.jpg?itok=EUfjy_fy"><span>Explore the design details of all current Taylor models</span></a></li>
+<li class="leaf menu-mlid-17463 secondary-menu"><a href="/guitars/new-models">New Taylor Models<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/TaylorGuitars-NewModels-Nav2-2017.jpg?itok=s-Yl8NjW"><span>See the latest designs to join the Taylor line</span></a></li>
+<li class="collapsed menu-mlid-14748 secondary-menu"><a href="https://www.taylorguitars.com/guitars/acoustic/v-class-bracing/story">V-Class™ Bracing<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/TG-Global-Nav-3-up-PS-Koa-914-1.jpg?itok=EowMJRM8"><span>Learn more about our revolutionary bracing system </span></a></li>
+<li class="last expanded menu-mlid-14746 secondary-menu more-section"><a href="/guitars/acoustic">More</a><ul class="menu"><li class="first leaf menu-mlid-17538 compare-menu-item"><a href="/guitars/compare">Compare Guitars</a></li>
+<li class="leaf menu-mlid-14752"><a href="/guitars/limited-editions">Limited Editions</a></li>
+<li class="leaf menu-mlid-17536"><a href="/guitars/custom">Custom Guitars</a></li>
+<li class="leaf menu-mlid-17535"><a href="/guitars/acoustic/shapes/overview">Taylor Body Shapes</a></li>
+<li class="leaf menu-mlid-24327"><a href="/guitars/acoustic/features">Acoustic Guitar Features</a></li>
+<li class="leaf menu-mlid-17537"><a href="/acoustic-guitar-buying-guide">Acoustic Guitar Buying Guide</a></li>
+<li class="leaf menu-mlid-23304"><a href="https://www.taylorguitars.com/sites/default/files/Taylor_FYF_Brochure_12.11.17.pdf">Find Your Fit Quick Guide</a></li>
+<li class="leaf menu-mlid-14763"><a href="/guitars/all">Model Search</a></li>
+<li class="last leaf menu-mlid-14779"><a href="https://www.taylorguitars.com/sites/default/files/TaylorGuitars-PriceList-2018-Final.pdf" target="_blank">Price List</a></li>
+</ul></li>
+</div></ul></li>
+<li class="expanded menu-mlid-14734 primary-menu"><a href="/guitars/electric">Electric</a><ul class="menu"><div class="wrapper"><li class="first leaf menu-mlid-17513 secondary-menu"><a href="/guitars/electric/t5">T5<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/t5-2016-spread-1082x810_0.jpg?itok=JOmBg2iQ"><span>The full-range electric/acoustic hollowbody hybrid</span></a></li>
+<li class="leaf menu-mlid-17514 secondary-menu"><a href="/guitars/electric/t5z">T5z<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/2748-T5z-spread-1082x810.jpg?itok=o4Z4wpef"><span>The sleeker, more compact sibling of the original T5</span></a></li>
+<li class="leaf menu-mlid-17515 secondary-menu"><a href="/guitars/electric/t3">T3<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/nav-t3-electric-392x264.jpg?itok=YB3sUW6g"><span>The versatile semi-hollowbody with coil-splitting &amp; more</span></a></li>
+<li class="leaf menu-mlid-17516 secondary-menu"><a href="/guitars/custom">Custom<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/custom-t5-855x641_0.jpg?itok=nG09zJGF"><span>Your dream Taylor electric. Brought to life by you</span></a></li>
+<li class="last expanded menu-mlid-17517 secondary-menu more-section"><a href="/guitars/electric">More</a><ul class="menu"><li class="first leaf menu-mlid-17518"><a href="/guitars/electric/find-your-fit-electric"> Find Your Electric Fit</a></li>
+<li class="leaf menu-mlid-30791"><a href="https://www.taylorguitars.com/sites/default/files/TaylorGuitars-PriceList-2018-Final.pdf">Price List</a></li>
+<li class="last leaf menu-mlid-17543"><a href="/guitars/all">Model Search</a></li>
+</ul></li>
+</div></ul></li>
+<li class="expanded menu-mlid-28562 primary-menu"><a href="/shopping-tools">Shopping Tools</a><ul class="menu"><div class="wrapper"><li class="first leaf menu-mlid-28563 secondary-menu"><a href="/guitars/acoustic/browse">Browse Guitars<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/TaylorGuitars-browse-acoustic.jpg?itok=0ul9L3f6"><span>Explore the design details of all current Taylor models</span></a></li>
+<li class="leaf menu-mlid-28564 secondary-menu compare-menu-item"><a href="/guitars/compare">Compare Guitars<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/TaylorGuitars-acoustic-guitar-compare_0.jpg?itok=CTCMCEF3"><span>Compare videos and specs for multiple guitars</span></a></li>
+<li class="leaf menu-mlid-28565 secondary-menu"><a href="/events">Events<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/Homepage-Events-1.jpg?itok=XXfMf7px"><span>Join us at a New Model Showcase or Road Show</span></a></li>
+<li class="leaf menu-mlid-28566 secondary-menu"><a href="/acoustic-guitar-buying-guide">Acoustic Buying Guide<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/196x134-AcousticBuyingGuide.jpg?itok=i3YY5GTc"><span>Free eBook download to help find the perfect guitar for you</span></a></li>
+<li class="last expanded menu-mlid-28567 secondary-menu more-section"><a href="/shopping-tools">More</a><ul class="menu"><li class="first leaf menu-mlid-31306"><a href="https://www.taylorguitars.com/guitars/taylor-difference">The Taylor Difference</a></li>
+<li class="leaf menu-mlid-29099"><a href="https://blog.taylorguitars.com/buyers-resources">Buyers Resources</a></li>
+<li class="leaf menu-mlid-31301"><a href="https://www.taylorguitars.com/guitars/acoustic/model-numbers">Understanding Model Numbers</a></li>
+<li class="leaf menu-mlid-28568"><a href="/guitars/new-models-2017">New Taylor Models</a></li>
+<li class="leaf menu-mlid-28569"><a href="/artists">Artists</a></li>
+<li class="leaf menu-mlid-29419"><a href="https://www.taylorguitars.com/videos/">Shopping Videos</a></li>
+<li class="leaf menu-mlid-28570"><a href="https://www.taylorguitars.com/sites/default/files/Taylor_FYF_Brochure_12.11.17.pdf">Find Your Fit Quick Guide</a></li>
+<li class="leaf menu-mlid-28571"><a href="https://www.taylorguitars.com/sites/default/files/TaylorGuitars-PriceList-2018-Final.pdf">Price List</a></li>
+<li class="last leaf menu-mlid-31300"><a href="/counterfeit-taylor-guitars">Counterfeit Alert</a></li>
+</ul></li>
+</div></ul></li>
+<li class="expanded menu-mlid-28586 primary-menu"><a href="https://www.taylorguitars.com/videos">Videos</a><ul class="menu"><div class="wrapper"><li class="first leaf menu-mlid-28587 secondary-menu"><a href="https://www.taylorguitars.com/videos">All Taylor Videos<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/WhereDoIStart-nav200x137.jpg?itok=WnMEfTtM"><span>All the video help you'll need to find your perfect guitar</span></a></li>
+<li class="leaf menu-mlid-28588 secondary-menu"><a href="https://www.taylorguitars.com/videos/c/the-taylor-line/85726512/">The Taylor Line<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/Taylor%20Line-nav200x137_0.jpg?itok=4tLF29St"><span>Explore our guitars with videos by series, woods, and features</span></a></li>
+<li class="leaf menu-mlid-28589 secondary-menu"><a href="https://www.taylorguitars.com/videos/c/why-taylor/85726514/">Why Taylor?<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/WhyTaylor-nav200x137_0.jpg?itok=lqNmVMC-"><span>The stories that make Taylor guitars the best in the world</span></a></li>
+<li class="leaf menu-mlid-28590 secondary-menu"><a href="https://www.taylorguitars.com/videos/c/demos-reviews/85726516/">Demos &amp; Reviews<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/Demos-nav200x137_0.jpg?itok=b38O39Q4"><span>Learn through expert reviews, shootouts, demos, and more</span></a></li>
+<li class="last expanded menu-mlid-29410 secondary-menu more-section"><a href="https://www.taylorguitars.com/videos">More</a><ul class="menu"><li class="first leaf menu-mlid-29411"><a href="https://www.taylorguitars.com/videos/c/where-do-i-start/85726515/">Where Do I Start?</a></li>
+<li class="leaf menu-mlid-29412"><a href="https://www.taylorguitars.com/videos/c/artist-players/85726831/">Artists &amp; Players</a></li>
+<li class="leaf menu-mlid-29413"><a href="https://www.taylorguitars.com/videos/c/shopping-tips/89195542/">Shopping Tips</a></li>
+<li class="leaf menu-mlid-29414"><a href="https://www.taylorguitars.com/videos/c/guitar-care/85726830/ ">Guitar Care</a></li>
+<li class="leaf menu-mlid-29415"><a href="https://www.taylorguitars.com/videos/c/learn-to-play/85726832/">Learn to Play</a></li>
+<li class="leaf menu-mlid-29416"><a href="https://www.taylorguitars.com/videos/c/recommended-videos/85709851/">Featured Videos </a></li>
+<li class="leaf menu-mlid-29417"><a href="https://www.taylorguitars.com/videos/c/most-watched-videos/85709850/">Popular Videos</a></li>
+<li class="last leaf menu-mlid-29418"><a href="https://www.taylorguitars.com/videos/c/latest-videos/85709849/">Recent Videos</a></li>
+</ul></li>
+</div></ul></li>
+<li class="expanded menu-mlid-28572 primary-menu"><a href="/owners">Owners</a><ul class="menu"><div class="wrapper"><li class="first leaf menu-mlid-28573 secondary-menu"><a href="/support">Contact &amp; Care<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/support-contact-care-thumb-300x180_1.jpg?itok=ZgPp4wfA"><span>Questions? Our expert staff is ready to assist you</span></a></li>
+<li class="leaf menu-mlid-28575 secondary-menu"><a href="/support/owners-registration">Owner Registration<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/support-owner-registration-thumb-300x180_1.jpg?itok=NWH_wxT0"><span>Join the Taylor family and enjoy exclusive owner benefits</span></a></li>
+<li class="leaf menu-mlid-28574 secondary-menu"><a href="/support/service-centers">Service Centers<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/support-service-centers-thumb-300x180_1.jpg?itok=Ew8Sfymm"><span>Tap into our network of Taylor-certified repair technicians</span></a></li>
+<li class="leaf menu-mlid-28576 secondary-menu"><a href="/wood-and-steel">Wood&amp;Steel<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/Wood_Steel_Summer2017_Cover-Thumbnail_0.jpg?itok=HdNA2NLp"><span>Our in-house magazine with all the latest from Taylor</span></a></li>
+<li class="last expanded menu-mlid-28577 secondary-menu more-section"><a href="/owners">More</a><ul class="menu"><li class="first leaf menu-mlid-29098"><a href="https://blog.taylorguitars.com/">Blog</a></li>
+<li class="leaf menu-mlid-31302"><a href="https://www.taylorguitars.com/from-the-factory-podcast">From The Factory Podcast</a></li>
+<li class="leaf menu-mlid-28578"><a href="/support/owner-resources">Owner Resources</a></li>
+<li class="leaf menu-mlid-28580"><a href="/support/service-packages">Service Packages</a></li>
+<li class="leaf menu-mlid-28581"><a href="https://www.taylorguitars.com/videos/c/guitar-care/85726830/">Guitar Care Videos</a></li>
+<li class="leaf menu-mlid-28582"><a href="https://www.taylorguitars.com/videos/c/learn-to-play/85726832/">Learn To Play Videos</a></li>
+<li class="leaf menu-mlid-28583"><a href="/community/step-forward">Step Forward</a></li>
+<li class="leaf menu-mlid-28585"><a href="/taylor-mobile-app">Taylor Mobile App</a></li>
+<li class="leaf menu-mlid-28584"><a href="/taylorsense">TaylorSense</a></li>
+<li class="leaf menu-mlid-31303"><a href="https://www.taylorguitars.com/legal/warranty">Warranty Information</a></li>
+<li class="last leaf menu-mlid-28579"><a href="/cites">CITES &amp; Customs</a></li>
+</ul></li>
+</div></ul></li>
+<li class="leaf menu-mlid-31454 primary-menu"><a href="https://www.taylorguitars.com/ebonyproject">Ebony Project</a></li>
+<li class="last expanded menu-mlid-14732 primary-menu"><a href="/taylorware/">Store</a><ul class="menu"><div class="wrapper"><li class="first collapsed menu-mlid-14744 secondary-menu"><a href="/taylorware/category/for-your-guitar/guitar-care">Guitar Care<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/store-guitarcare-thumb-300x180.jpg?itok=QPNF_V9t"><span>Humidification products, guitar polish, cloths &amp; more</span></a></li>
+<li class="leaf menu-mlid-17545 secondary-menu"><a href="/taylorware/category/for-you/apparel">Apparel<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/store-apparel-thumb-300x180_1.jpg?itok=9U-GjdTp"><span>Shirts, outerwear, &amp; hats for men, women &amp; kids</span></a></li>
+<li class="leaf menu-mlid-17546 secondary-menu"><a href="/taylorware/category/for-your-guitar/accessories">Guitar Accessories<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/store-guitaraccessories-thumb-300x180_0.jpg?itok=jzAvQYdi"><span>Picks, guitar stands, tuners, guitar bags, parts &amp; more</span></a></li>
+<li class="leaf menu-mlid-17547 secondary-menu"><a href="/taylorware/category/for-you/home-gifts">Home &amp; Gifts<img data-src= "https://www.taylorguitars.com/sites/default/files/styles/menu_images/public/store-homegifts-thumb-300x180_0.jpg?itok=zIFmeuvX"><span>Taylor mugs, glasses &amp; other gear that fans will love</span></a></li>
+<li class="last expanded menu-mlid-14741 secondary-menu more-section"><a href="/taylorware">More</a><ul class="menu"><li class="first leaf menu-mlid-14757"><a href="/taylorware/category/for-your-guitar/bags">Bags</a></li>
+<li class="leaf menu-mlid-14758"><a href="/taylorware/home-gifts/taylorware-gift-card">Gift Cards</a></li>
+<li class="leaf menu-mlid-14761"><a href="/taylorware/category/feature/new">New Items</a></li>
+<li class="leaf menu-mlid-14755"><a href="/taylorware/category/for-your-guitar/parts">Parts</a></li>
+<li class="leaf menu-mlid-14762"><a href="/taylorware/category/for-your-guitar/stands">Stands</a></li>
+<li class="leaf menu-mlid-14760"><a href="/taylorware/category/for-your-guitar/straps-end-pins-buttons">Straps, End Pins, Buttons</a></li>
+<li class="last leaf menu-mlid-14759"><a href="/taylorware/category/for-your-guitar/strings">Strings</a></li>
+</ul></li>
+</div></ul></li>
+</ul></div>
+  </div>
+</div>
+<div class="header_search_form"><div id="block-search-form" class="block block-search">
+
+    
+  <div class="content">
+    <form action="/" method="post" id="search-block-form--2" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--4">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--4" name="search_block_form" value="Search" size="40" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="GO!" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-vHEQrQZH9lW2TGUkMkuuc4vapIg1a7lEccjzV5CDUbk" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+</div>  </div>
+
+  </div>
+</header> <!-- /.section, /#header -->
+
+
+
+
+<div class="site-content-wrapper">
+  <div id="content" class="column"><div class="section">
+        <a id="main-content"></a>
+        <!--<h1 class="title" id="page-title">Taylor Guitars</h1>-->
+        <div class="tabs"></div>                  <div class="region region-content">
+    <div class="panel-display panel-1col clearfix" >
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-fieldable-panels-pane pane-current-629 pane-bundle-responsive-rotator"  >
+  
+        <h2 class="pane-title">
+      Hero Slides    </h2>
+    
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    <div class="field field-name-field-hero-rotator-item field-type-entityreference field-label-hidden"><div class="field-items"><div class="field-item even"><div  about="/responsive_modules/rotator_item/478" typeof="" class="ds-1col entity entity-responsive-modules responsive-modules-rotator-item view-mode-default clearfix">
+
+  
+  <div class="field field-name-field-hero-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" alt="" src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/V-Class-Andy-slider-2.jpg?itok=uwxbVdFY" width="1919" height="650" /></div></div></div><div id="responsive-modules-rotator-item-full-group-content-wrapper" class="hero-content-wrapper group-content-wrapper field-group-div"><div class="field field-name-field-hero-copy-placement field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Left</div></div></div><div id="responsive-modules-rotator-item-full-group-content-container" class="hero-content-container group-content-container field-group-div"><div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Introducing V-Class™ Bracing</h2></div></div></div><div class="field field-name-field-hero-copy field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Taylor’s revolutionary bracing system sets a whole new standard of acoustic sound</div></div></div><div class="field field-name-field-hero-cta field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.taylorguitars.com/guitars/acoustic/v-class-bracing/story">Learn More</a></div></div></div></div></div><div class="field field-name-field-hero-copy-region field-type-list-text field-label-above"><div class="field-label">Hero Copy Region:&nbsp;</div><div class="field-items"><div class="field-item even"> Middle Right</div></div></div></div>
+
+</div><div class="field-item odd"><div  about="/responsive_modules/rotator_item/479" typeof="" class="ds-1col entity entity-responsive-modules responsive-modules-rotator-item view-mode-default clearfix">
+
+  
+  <div class="field field-name-field-hero-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" alt="" src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/BE-Close-up-slider-1.jpg?itok=ZjBkGIMq" width="1919" height="650" /></div></div></div><div id="responsive-modules-rotator-item-full-group-content-wrapper--2" class="hero-content-wrapper group-content-wrapper field-group-div"><div class="field field-name-field-hero-copy-placement field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Right</div></div></div><div id="responsive-modules-rotator-item-full-group-content-container--2" class="hero-content-container group-content-container field-group-div"><div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Builder’s Edition: Curve Appeal </h2></div></div></div><div class="field field-name-field-hero-copy field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Powered by V-Class bracing, our new concept guitar reveals ultra-smooth body contours</div></div></div><div class="field field-name-field-hero-cta field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.taylorguitars.com/guitars/acoustic/builders-edition/story">Learn More</a></div></div></div></div></div><div class="field field-name-field-hero-copy-region field-type-list-text field-label-above"><div class="field-label">Hero Copy Region:&nbsp;</div><div class="field-items"><div class="field-item even"> Middle Right</div></div></div></div>
+
+</div><div class="field-item even"><div  about="/responsive_modules/rotator_item/480" typeof="" class="ds-1col entity entity-responsive-modules responsive-modules-rotator-item view-mode-default clearfix">
+
+  
+  <div class="field field-name-field-hero-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" alt="" src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/TG-Homepage-Ebony-Project-1.jpg?itok=KwlBNCqX" width="1919" height="650" /></div></div></div><div id="responsive-modules-rotator-item-full-group-content-wrapper--3" class="hero-content-wrapper group-content-wrapper field-group-div"><div class="field field-name-field-hero-copy-placement field-type-list-text field-label-hidden"><div class="field-items"><div class="field-item even">Left</div></div></div><div id="responsive-modules-rotator-item-full-group-content-container--3" class="hero-content-container group-content-container field-group-div"><div class="field field-name-title field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><h2>Introducing the Ebony Project</h2></div></div></div><div class="field field-name-field-hero-copy field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Follow Taylor to Cameroon for a revealing look at how ebony is sourced</div></div></div><div class="field field-name-field-hero-cta field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.taylorguitars.com/ebonyproject">Watch Now</a></div></div></div></div></div><div class="field field-name-field-hero-copy-region field-type-list-text field-label-above"><div class="field-label">Hero Copy Region:&nbsp;</div><div class="field-items"><div class="field-item even"> Middle Right</div></div></div></div>
+
+</div></div></div></div>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="multi-column-module lighter" id="">
+  <!-- Multi Column Module Title -->
+      <header class="module-header multi-column-header">
+      <div class="wrapper">
+        <div class="title"><h2>A New Class of Guitars</h2></div>
+                  <div class="copy">Introducing Taylor’s V-Class and Builder&#039;s Edition models</div>
+              </div>
+    </header>
+      <!-- Columns -->
+    <section class="module-columns column-size-2 4-columns column-count-4">
+      <div class="columns ">
+                  <div class="column">
+                          <img src="https://www.taylorguitars.com/sites/default/files/TG-V-Class-Story-Page-Product-BE-K14ce-1_0.png">
+                        <div class="column-content">
+                              <div class="column-title"><h2>Builder’s Edition K14ce</h2></div>
+                                                          <div class="column-copy"><p>This koa Grand Auditorium features a torrefied spruce top and a set of player-friendly touches like a new beveled cutaway and an armrest for an unmatched blend of sound and feel.</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/builders-edition-k14ce" class="secondary-cta">View Guitar Detail</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                          <img src="https://www.taylorguitars.com/sites/default/files/TG-V-Class-Story-Page-Product-PS14ce-1_0.png">
+                        <div class="column-content">
+                              <div class="column-title"><h2>PS14ce</h2></div>
+                                                          <div class="column-copy"><p>With stunning striped West African ebony back and sides and a rare sinker redwood top, this Presentation Grand Auditorium boasts supercharged complexity and clarity.</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/ps14ce" class="secondary-cta">View Guitar Detail</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                          <img src="https://www.taylorguitars.com/sites/default/files/TG-V-Class-Story-Page-Product-K24ce-1_0.png">
+                        <div class="column-content">
+                              <div class="column-title"><h2>K24ce</h2></div>
+                                                          <div class="column-copy"><p>On this all-koa beauty, V-Class bracing harnesses koa’s balanced articulation and smooth sustain and reveals another level of sonic sweetness. Strummed chords will resonate with more harmonic unity than ever before.</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/k24ce" class="secondary-cta">View Guitar Detail</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                          <img src="https://www.taylorguitars.com/sites/default/files/TG-V-Class-Story-Page-Product-914ce-1_0.png">
+                        <div class="column-content">
+                              <div class="column-title"><h2>914ce</h2></div>
+                                                          <div class="column-copy"><p>Indian rosewood’s rich overtones sound more musical than ever with the help of V-Class bracing. Players will hear more power in the upper register, while the bloom of the notes is enhanced to give players a more expressive tonal palette.</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/914ce" class="secondary-cta">View Guitar Detail</a></div>
+                                        </div>
+          </div>
+              </div>
+  </section>
+
+</div><div class="panel-separator"></div><div class="responsive-feature-module background-darker" id="">
+  <!-- Feature Module Title -->
+      <section class="primary-image image-type-50 image-placement-left  fg-placement-right">
+      <div class="bg-img">
+        <img src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/IMG_5789-%281%29.jpg?itok=HOqOP3TG">
+      </div>
+        </section>
+  <!-- Primary Feature -->
+  <section class="primary-callout callout-type-50 tout-background-darker content-placement-right">
+    <div class="tout tout-size-50">
+            <h2 class="tout-title">The Critics Agree</h2>
+      <div class="copy"><h3><em>"The unprecedented V-brace pattern represents an entirely new chapter in the history of the steel string acoustic guitar..."</em></h3>
+<p><a href="https://mydigitalpublication.com/publication/?i=467173&amp;ver=html5&amp;p=104" target="_blank">Music Trades, February 2018</a></p>
+</div>
+      <div class="cta-wrapper"><a href="https://www.taylorguitars.com/guitars/acoustic/v-class-bracing/story#reviews">Browse Reviews</a></div>
+              <div class="secondary-cta-area"><a href="https://www.taylorguitars.com/guitars/acoustic/v-class-bracing/story">Learn more about V-Class</a></div>
+          </div>
+  </section>
+    <!-- Optional Secondary Feature -->
+    
+  </div>
+<div class="panel-separator"></div><div class="responsive-feature-module background-lighter" id="">
+  <!-- Feature Module Title -->
+      <section class="primary-image image-type-50 image-placement-right  fg-placement-right">
+      <div class="bg-img">
+        <img src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/K24ce-V-class-Sweeps-870x650.jpg?itok=imvZcARU">
+      </div>
+        </section>
+  <!-- Primary Feature -->
+  <section class="primary-callout callout-type-50 tout-background-lighter content-placement-left">
+    <div class="tout tout-size-50">
+            <h2 class="tout-title">Enter the Good Vibrations Sweepstakes</h2>
+      <div class="copy"><p>Enter our sweepstakes for a chance to win a V-Class K24ce, one of the first guitars to feature our revolutionary new bracing design.</p>
+</div>
+      <div class="cta-wrapper"><a href="https://t.go.taylorguitars.com/webApp/tgK24ceSweepstakes?utm_source=web_tg&amp;utm_medium=web&amp;utm_content=form&amp;utm_campaign=jan18_sweeps">Enter Now</a></div>
+          </div>
+  </section>
+    <!-- Optional Secondary Feature -->
+    
+  </div>
+<div class="panel-separator"></div><div class="responsive-feature-module background-darker" id="">
+  <!-- Feature Module Title -->
+      <section class="primary-image image-type-50 image-placement-left  fg-placement-right">
+      <div class="bg-img">
+        <img src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/Homepage-Events-1.jpg?itok=q4QeH2IE">
+      </div>
+        </section>
+  <!-- Primary Feature -->
+  <section class="primary-callout callout-type-50 tout-background-darker content-placement-right">
+    <div class="tout tout-size-50">
+            <h2 class="tout-title">Experience V-Class in Action</h2>
+      <div class="copy"><p>Our factory staff is touring the nation with V-Class guitars at our New Model Showcases and Road Shows. Come discover the next generation of acoustic guitars!</p>
+</div>
+      <div class="cta-wrapper"><a href="https://www.taylorguitars.com/events/all">Find an Event</a></div>
+          </div>
+  </section>
+    <!-- Optional Secondary Feature -->
+    
+  </div>
+<div class="panel-separator"></div><div class="responsive-feature-module background-lighter" id="">
+  <!-- Feature Module Title -->
+      <section class="primary-image image-type-50 image-placement-right  fg-placement-right">
+      <div class="bg-img">
+        <img src="https://www.taylorguitars.com/sites/default/files/styles/hero_rotator/public/TG-Buyers-Resources-5050-1.jpg?itok=m-MHANzE">
+      </div>
+        </section>
+  <!-- Primary Feature -->
+  <section class="primary-callout callout-type-50 tout-background-lighter content-placement-left">
+    <div class="tout tout-size-50">
+            <h2 class="tout-title">Buyer’s Resources</h2>
+      <div class="copy"><p>Explore the Taylor knowledge base for in-depth guitar articles, shopping tips, and articles to help you find the perfect Taylor to match your needs.</p>
+</div>
+      <div class="cta-wrapper"><a href="https://blog.taylorguitars.com/buyers-resources">Learn more</a></div>
+          </div>
+  </section>
+    <!-- Optional Secondary Feature -->
+    
+  </div>
+<div class="panel-separator"></div><div class="multi-column-module darker" id="">
+  <!-- Multi Column Module Title -->
+      <header class="module-header multi-column-header">
+      <div class="wrapper">
+        <div class="title"><h2>Find Your Next Guitar</h2></div>
+                  <div class="copy">Browse, compare and explore the Taylor acoustic line</div>
+              </div>
+    </header>
+      <!-- Columns -->
+    <section class="module-columns column-size-4 4-columns column-count-4">
+      <div class="columns ">
+                  <div class="column">
+                        <div class="column-content">
+                              <div class="column-title"><h2>Browse Guitars</h2></div>
+                                                          <div class="column-copy"><p>Find guitars by shape, woods, series and more</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/browse" class="secondary-cta">Browse</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                        <div class="column-content">
+                              <div class="column-title"><h2>Compare Guitars</h2></div>
+                                                          <div class="column-copy"><p>Compare guitar videos &amp; specs head-to-head</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/compare" class="secondary-cta">Compare</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                        <div class="column-content">
+                              <div class="column-title"><h2>The Taylor Line</h2></div>
+                                                          <div class="column-copy"><p>Start here for an easy overview of our acoustic line</p></div>
+                                            <div><a href="https://www.taylorguitars.com/guitars/acoustic/series/overview" class="secondary-cta">Explore</a></div>
+                                        </div>
+          </div>
+                  <div class="column">
+                        <div class="column-content">
+                              <div class="column-title"><h2>Acoustic Guitar Buying Guide</h2></div>
+                                                          <div class="column-copy"><p>Discover the perfect acoustic guitar for you</p></div>
+                                            <div><a href="https://www.taylorguitars.com/acoustic-guitar-buying-guide" class="secondary-cta">Download</a></div>
+                                        </div>
+          </div>
+              </div>
+  </section>
+
+</div><div class="panel-separator"></div><!-- HTML Module -->
+<div class="html-module lighter" id="">
+	<section class="wrapper">
+	  <section class="left-column full">
+	  	 <h2 class="title">About Taylor Guitars</h2>	    <div class="content"><p>Taylor Guitars was founded in 1974 by <a href="/about">Bob Taylor and Kurt Listug</a>, and has grown into the leading global builder of premium acoustic guitars. Renowned for blending modern, innovative manufacturing techniques with a master craftsman's attention to detail, Taylor acoustic guitars are widely considered among the best-sounding and easiest to play in the world. The company is a pioneer in the use of computer mills, lasers and other high-tech tools and proprietary machinery, and today, Bob Taylor is widely recognized throughout the musical instrument industry as the visionary acoustic guitar manufacturer.</p>
+<p>Our site has a wealth of information about what goes into making a Taylor guitar and how to make this very important decision. We have guides for how to find the right fit for you. Learn about the subtle differences in <a href="/guitars/acoustic/features">shapes and styles</a>. Delve into different types of <a href="/guitars/acoustic/features/woods/body-woods">woods</a> and construction, which are vital to the flavor and tone of an acoustic. <a href="/guitars/acoustic/series/overview">Explore the Taylor line</a> by series to find the look and style you want for your instrument.</p>
+<p>Every guitar player needs a great <a href="/guitars/acoustic">acoustic guitar</a> – or several – in their collection. Finding the right acoustic guitar for you can be a daunting process even for the most seasoned player. If you are new to shopping for guitars, then it is even more critical that you learn all you can before you make your first purchase. If your first acoustic guitar is not the appropriate choice for you, then it can dramatically reduce the enjoyment you will get out of your instrument. If you are a new guitar player, the wrong guitar can be downright discouraging. You want a guitar that fits you, is effortless to play, and has the rich, beautiful tone you love to make it the instrument you dream of playing hour after hour.</p>
+<p>A free, guided tour of the Taylor factory is given every Monday through Friday at 1 p.m. (excluding holidays). Groups of 10 or more guests are required to make a reservation to guarantee space on the tour. Please contact us to schedule a tour for your group.</p>
+<p><a href="/contact/factory-tours">The Taylor Guitars factory tour</a> takes guests through the steps of acoustic guitar construction. From wood selection to final assembly, guests will experience each process as a guitar evolves from raw wood into a finished instrument. You will also have an opportunity to visit the <a href="/taylorware">TaylorWare store</a>. Here you will find everything for the Taylor fan, from apparel to gift items to replacement guitar parts. The tour lasts approximately one hour and 15 minutes and departs from the main building at 1980 Gillespie Way in El Cajon, California.</p>
+</div> 	    	  </section>
+	  	</section>
+</div></div>
+  </div>
+</div>
+  </div>
+      </div></div>
+</div>
+<link rel="stylesheet" href="">
+
+<footer class="site-footer">
+  <!-- <div class="wrapper"> -->
+      <div class="region region-footer">
+    <div id="block-taylor-responsive-responsive-footer" class="block block-taylor-responsive">
+
+    
+  <div class="content">
+    <div class="responsive-footer">
+  <section class="footer-newsletter">
+    <div class="wrapper">
+      <div class="title">Become A Taylor Insider</div>
+      <div class="copy">Subscribe now for emails with guitar giveaways and prizes, cool deals, guitar news and more from Taylor Guitars!</div>
+      <div class="cta-wrapper"><a href="https://t.go.taylorguitars.com/webApp/tg_APP8" target="_blank">Sign Up</a></div>
+    </div>
+  </section>
+  <div class="wrapper">
+    <section class="footer-social-bar">
+              <a href="http://www.facebook.com/taylorguitars" title="Facebook" target="_blank">
+          <svg class="icon icon-social icon-facebook"><use xlink:href="#taylor-icon-facebook"></svg>
+        </a>
+              <a href="http://www.youtube.com/taylorguitars" title="Youtube" target="_blank">
+          <svg class="icon icon-social icon-youtube"><use xlink:href="#taylor-icon-youtube"></svg>
+        </a>
+              <a href="http://www.twitter.com/taylorguitars" title="Twitter" target="_blank">
+          <svg class="icon icon-social icon-twitter"><use xlink:href="#taylor-icon-twitter"></svg>
+        </a>
+              <a href="http://www.instagram.com/taylorguitars" title="Instagram" target="_blank">
+          <svg class="icon icon-social icon-instagram"><use xlink:href="#taylor-icon-instagram"></svg>
+        </a>
+              <a href="https://plus.google.com/+taylorguitars" title="g-plus" target="_blank">
+          <svg class="icon icon-social icon-g-plus"><use xlink:href="#taylor-icon-g-plus"></svg>
+        </a>
+          </section>
+    <section class="footer-navigation">
+        <div class="contact-info">
+          <p class="us">CUSTOMER SERVICE <br> UNITED STATES <br> & CANADA <br>1-800-943-6782</p>
+          <p class="us">CUSTOMER SERVICE <br> EUROPE <br> & INTERNATIONAL <br>+31 (0) 20 667 6033</p>
+        </div>
+        <nav class="footer-nav">
+                      <div class="link-wrapper">
+              <a href="/contact">Contact Us</a>            </div>
+                      <div class="link-wrapper">
+              <a href="/about">About Taylor</a>            </div>
+                      <div class="link-wrapper">
+              <a href="/contact/factory-tours">Factory Tours</a>            </div>
+                      <div class="link-wrapper">
+              <a href="/about/careers">Careers</a>            </div>
+                      <div class="link-wrapper">
+              <a href="https://www.taylorguitars.com/legal/warranty">Warranty Information</a>            </div>
+                      <div class="link-wrapper">
+              <a href="https://www.taylorguitars.com/counterfeit-taylor-guitars">Counterfeit Alert</a>            </div>
+                      <div class="link-wrapper">
+              <a href="/about/sustainability">Sustainability</a>            </div>
+                      <div class="link-wrapper">
+              <a href="/cites">Cites &amp; Customs</a>            </div>
+                  </nav>
+    </section>
+    <section class="footer-terms-privacy">
+      <a href="/legal/terms-and-conditions">terms</a> /
+      <a href="/legal/privacy-policy">privacy policy</a> /
+      <a href="/legal/ca-supply-chains-act">ca supply chains act</a>    </section>
+    <section class="legal">
+      <p class="us">Copyright © 2012-2018 TAYLOR-LISTUG, INC. All Rights Reserved / ACTUAL PRICES ARE SET BY GLOBAL DEALERS</p>
+    </section>
+  </div>
+</div>  </div>
+</div>
+  </div>
+  <!-- </div> -->
+</footer>
+
+
+<div id="footer"><div class="section">
+</div></div> <!-- /.section, /#footer -->
+
+<script>
+  var devFont = 'https://cloud.typography.com/7218074/778908/css/fonts.css';
+  var prodFont = '//cloud.typography.com/7218074/7179752/css/fonts.css';
+  var subDomain = window.location.hostname.split('.');
+  var link = document.createElement('link');
+
+  link.rel = 'stylesheet';
+
+  if (subDomain[0] == 'www') {
+    link.href= prodFont;
+  } else {
+    link.href= devFont;
+
+  }
+
+  document.querySelector('head').appendChild(link);
+</script>
+  <script type="text/javascript" src="https://www.taylorguitars.com/sites/default/files/js/js_MLVgtzZ1ORq9krYqkeOsRay6ou_T-0QZytivuM9tTT8.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4dbb49fbcc","applicationID":"35056128","transactionName":"ZFUENUpTWBIFUkdcDV0fMxNRHV8PAFRLGxJbQA==","queueTime":0,"applicationTime":50,"atts":"SBIHQwJJSxw=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

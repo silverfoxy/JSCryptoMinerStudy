@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text../css">
+	<title>하이랜드 스포츠</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+<link rel="stylesheet" href="/css/fotorama.css" />
+<link rel="stylesheet" href="/css/common.css" />
+<script src="/js/jquery-1.8.2.min.js"></script>
+<script src="/js/fotorama.js"></script>
+<script src="/js/jquery.alsEN-1.0.min.js"></script>
+
+<script src="/js/spin.min.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/jquery.serializeObject.js"></script>
+<script src="/js/common.js"></script>
+
+
+
+<!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="/js/magnific-popup/magnific-popup.css"> 
+<!-- Magnific Popup core JS file -->
+<script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+
+
+<!--[if lt IE 7]>
+	<script type="text/javascript">//location.href="";</script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="/js/html5shiv.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+// totop
+$(".totop").hide(); // 탑 버튼 숨김
+$(function () {
+                 
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+			$('.totop').fadeIn();
+		} else {
+			$('.totop').fadeOut();
+		}
+	});
+			
+	$('.totop').click(function () {
+		$('body,html').animate({
+			scrollTop: 0
+		}, 500);  // 탑 이동 스크롤 속도
+		return false;
+	});
+});
+
+
+// 스크롤 부드럽게
+$(".page_in_scroll").click(function(event){            
+		event.preventDefault();
+		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+});
+
+// 전체메뉴보기
+$('.btn_menu_open').click(function() {
+	$('.sitemap_wrap').stop(true,true).slideDown('');
+});
+$('.btn_menu_close').click(function(){
+	$('.sitemap_wrap').stop(true,true).slideUp('');
+});
+
+
+// gnb
+$('.gnb ul li').hover(function() {
+	$(this).find('.gnb_sub').stop(true,true).fadeIn('fast');		
+}, function() {
+	$(this).find('.gnb_sub').stop(true,true).fadeOut('fast');
+});
+$('.gnb ul li').click(function(){
+	$('.gnb ul li').not($(this)).removeClass('on');
+	$(this).addClass('on');
+});
+
+
+
+// 메인 브랜드 on/off
+$('.cut_icon').toggle(function() {
+	$(this).html('<a><img src="/images/cut_icon_down.png" alt="브랜드 펼치기" /></a>');
+	$('.cut').slideUp();
+}, function() {
+	$(this).html('<a><img src="/images/cut_icon_up.png" alt="브랜드 숨기기" /></a>');
+	$('.cut').slideDown();
+});
+
+// 메인 상품 big
+$('#main .product .pro_in a').hover(function() {
+	$(this).find('.pro_over_big').stop(true,true).fadeIn('');		
+}, function() {
+	$(this).find('.pro_over_big').stop(true,true).fadeOut('');
+});
+
+// 메인 상품 small
+$('#main .product ul li a').hover(function() {
+	$(this).find('.pro_over').stop(true,true).fadeIn('');		
+}, function() {
+	$(this).find('.pro_over').stop(true,true).fadeOut('');
+});
+
+// 메인 커뮤니티
+$('#main .community dl a').hover(function() {
+	$(this).find('.community_over').stop(true,true).fadeIn('');		
+}, function() {
+	$(this).find('.community_over').stop(true,true).fadeOut('');
+});
+
+// 포토갤러리
+$('.post_photo a').hover(function() {
+	$(this).find('.post_over').stop(true,true).fadeIn('');		
+}, function() {
+	$(this).find('.post_over').stop(true,true).fadeOut('');
+});
+
+// 리스트 보기 형식
+$('.list_option2').click(function() {
+	$('.product_list').addClass('product_list2');
+	$(this).addClass('on');
+	$('.list_option1').removeClass('on');
+});
+$('.list_option1').click(function() {
+	$('.product_list').removeClass('product_list2');
+	$(this).addClass('on');
+	$('.list_option2').removeClass('on');
+});
+
+// 브랜드 카테고리 보기
+$('.brand_category ul li').hover(function(){	
+	$(this).find('.brand_category_sub').show();
+}, function() {
+	$(this).find('.brand_category_sub').hide();
+});
+
+// 브랜드 카테고리 on/off
+$('.brand_category ul li').click(function(){
+	$('.brand_category ul li').not($(this)).removeClass('on');
+	$(this).addClass('on');
+});
+
+// tab on/off
+$('.tab_common li a').click(function(){
+	$('.common_tabview').not($('.cont_'+$(this).attr("id"))).hide();
+	$('.cont_'+$(this).attr("id")).show();
+
+	$('.tab_common li a').not($(this)).removeClass('on');
+	$(this).addClass('on');	
+
+	return false;
+});
+
+// faq on/off
+$('.faq_list dl').click(function(){
+	$('.faq_list dl').not($(this)).removeClass('on');
+	$(this).addClass('on');
+});
+
+// footer 메뉴 on/off
+$('.tab_footer li').click(function(){
+	$('.common_tabview').not($('.cont_'+$(this).attr("id"))).hide();
+	$('.cont_'+$(this).attr("id")).show();
+
+	$('.tab_footer li').not($(this)).removeClass('on');
+	$(this).addClass('on');
+});
+
+
+
+/* 본페이지로 이동
+// 품질보증 슬라이드 메뉴
+$(".guarantee_brand").als({
+	visible_items: 5,
+	scrolling_items: 1,
+	orientation: "horizontal",
+	circular: "no",
+	autoscroll: "no",
+	interval: 5000,
+	direction: "right"
+});
+*/
+/*
+// 브랜드메인 좌우 슬라이드 메뉴
+$("#lista2").als({
+	visible_items: 9,
+	scrolling_items: 1,
+	orientation: "horizontal",
+	circular: "no",
+	autoscroll: "no",
+	interval: 5000,
+	direction: "right"
+});
+
+// 제품취급처 좌우 슬라이드 메뉴
+$("#lista1").als({
+	visible_items: 10,
+	scrolling_items: 1,
+	orientation: "horizontal",
+	circular: "no",
+	autoscroll: "no",
+	interval: 5000,
+	direction: "right"
+});
+
+// 제품취급처 on/off
+$('.brand_nav ul li').click(function(){
+	$('.brand_nav ul li').not($(this)).removeClass('on');
+	$(this).addClass('on');
+});
+*/
+
+});
+</script>
+</head>
+
+<body class="BACK">
+
+<div id="wrap">
+<!-- header -->
+    <script>
+		function searchAll_(tf) {
+			if (!tf.keyword.value.trim()) {
+				alert("검색어를 입력해 주세요");
+				tf.keyword.focus();
+				return false;
+			}
+			tf.submit();
+			return false;
+		}
+	</script>
+		<header id="header">
+	<div class="logo">
+		<a href="/"><img src="/images/logo.png" alt="HIGHLAND SPORTS" /></a>		
+	</div>
+
+	<a class="sitemap btn_menu_open"><img src="/images/sitemap.png" alt="sitemap" /></a>	
+	<div class="sitemap_wrap">
+		<div class="sitemap_cont">
+			<ul>
+				<li>Highland</li>
+				<li><a href="/front/intro/intro.php">소개</a></li>
+				<li><a href="/front/intro/contact.php">찾아오시는 길</a></li>
+				<li><a href="/front/intro/cibi.php">브랜드별 CI/BI</a></li>
+			</ul>
+			<ul>
+				<li><a href="/front/brand/brand_main_bike.php">Bike</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=1">TOPEAK</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=4">ASSOS</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=29">SARIS</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=33">Cycle Ops</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=8">DAINESE</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=37">CICLIS</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=49">SONAX</a></li>
+                	<li><a href="/front/brand/brand_main_bike.php?bd_id=39">POWERTAP</a></li>
+   
+			</ul>
+			<ul>
+				<li><a href="/front/brand/brand_main_snow.php">Snow</a></li>
+                	<li><a href="/front/brand/brand_main_snow.php?bd_id=102">F2</a></li>
+                	<li><a href="/front/brand/brand_main_snow.php?bd_id=101">DAINESE</a></li>
+                	<li><a href="/front/brand/brand_main_snow.php?bd_id=104">LEKI</a></li>
+                	<li><a href="/front/brand/brand_main_snow.php?bd_id=106">DEELUXE</a></li>
+                	<li><a href="/front/brand/brand_main_snow.php?bd_id=105">STOCKLI</a></li>
+   
+			</ul>
+			<ul>
+				<li>Store</li>
+				<li><a href="/front/store/store_map.php?biz_type=bike">Bike 제품취급처</a></li>
+				<li><a href="/front/store/store_map.php?biz_type=snow">Snow 제품취급처</a></li>
+			</ul>
+			<ul>
+         		<li><a href="/front/community/community_main.php">Community</a></li>
+				<li><a href="/board/list.php?db=ib_spon">하이랜드팀 선수프로필</a></li>
+				<li><a>스케쥴</a></li>
+				<li><a href="/board/list.php?db=ib_photo">포토갤러리</a></li>
+				<li><a href="/board/list.php?db=ib_movie">무비갤러리</a></li>
+			</ul>
+			<ul>
+				<li>Customer</li>
+				<li><a href="/board/list.php?db=ib_help_notice">공지사항</a></li>
+				<li><a href="/front/customer/customer_product_add.php">정품등록</a></li>
+				<li><a href="/front/customer/customer_as.php">A/S 및 반품안내</a></li>
+				<li><a href="/front/customer/customer_faq.php">자주묻는 질문</a></li>
+				<li><a href="/board/list.php?db=ib_qna">묻고 답하기</a></li>
+				<li><a href="/front/customer/customer_member_agent.php">회원정보</a></li>
+			</ul>
+		</div>
+		<a class="sitemap_close btn_menu_close"><img src="/images/btn_menu_close.png" alt="sitemap" /></a>
+	</div>
+	
+	<div class="gnb">
+		<p><a href="/front/member/login.php?req_url=%2F">로그인</a></p>
+		<p><a href="/front/member/join_step1.php">회원가입</a></p>
+    	<p><a href="/front/store/store_map.php?biz_type=assos">특약점 정보</a></p>
+	<form action="/front/common/search_list.php" method="get" name="main_search_form" id="main_search_form" onSubmit="return searchAll_(this)">	
+		<table>
+			<colgroup>
+				<col width="262px">
+				<col width="40px">
+			</colgroup>
+			<tr>
+				<td>
+					<input name="keyword" type="text" id="keyword" />
+				</td>
+				<td>
+					<a onClick="searchAll_(document.main_search_form)"><img src="/images/search.png" alt="search" /></a>
+				</td>
+			</tr>
+		</table>
+		</form>
+		<ul>
+			<li class="pl0">
+				<a>Highland</a>
+				<div class="gnb_sub">
+					<a href="/front/intro/intro.php">소개</a>
+					<a href="/front/intro/contact.php">찾아오시는 길</a>
+					<a href="/front/intro/cibi.php">브랜드별 CI/BI</a>
+				</div>
+			</li>
+			<li>
+				<a href="/front/brand/brand_main_bike.php">Bike</a>
+				<div class="gnb_sub">
+                	<a href="/front/brand/brand_main_bike.php?bd_id=1">TOPEAK</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=4">ASSOS</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=29">SARIS</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=33">Cycle Ops</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=8">DAINESE</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=37">CICLIS</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=49">SONAX</a>
+                	<a href="/front/brand/brand_main_bike.php?bd_id=39">POWERTAP</a>
+   
+				</div>
+			</li>
+			<li>
+				<a href="/front/brand/brand_main_snow.php">Snow</a>
+				<div class="gnb_sub">
+                	<a href="/front/brand/brand_main_snow.php?bd_id=102">F2</a>
+                	<a href="/front/brand/brand_main_snow.php?bd_id=101">DAINESE</a>
+                	<a href="/front/brand/brand_main_snow.php?bd_id=104">LEKI</a>
+                	<a href="/front/brand/brand_main_snow.php?bd_id=106">DEELUXE</a>
+                	<a href="/front/brand/brand_main_snow.php?bd_id=105">STOCKLI</a>
+ 
+				</div>
+			</li>
+			<li>
+				<a>Store</a>
+				<div class="gnb_sub">
+					<a href="/front/store/store_map.php?biz_type=bike">Bike</a>
+					<a href="/front/store/store_map.php?biz_type=snow">Snow</a>
+				</div>
+			</li>
+			<li>
+				<a href="/front/community/community_main.php">Community</a>
+				<div class="gnb_sub" style="left:20px;">
+					<a href="/board/list.php?db=ib_spon">하이랜드팀 선수프로필</a>
+					<a href="/front/community/schedule_list.php">스케쥴</a>
+					<a href="/board/list.php?db=ib_photo">포토갤러리</a>
+					<a href="/board/list.php?db=ib_movie">무비갤러리</a>
+				</div>
+			</li>
+			<li class="pr0">
+				<a>Customer</a>
+				<div class="gnb_sub" style="left:10px;">
+				<a href="/board/list.php?db=ib_help_notice">공지사항</a>
+				<a href="/front/customer/customer_product_add.php">정품등록</a>
+				<a href="/front/customer/customer_as.php">A/S 및 반품안내</a>
+				<a href="/front/customer/customer_faq.php">자주묻는 질문</a>
+				<a href="/board/list.php?db=ib_qna">묻고 답하기</a>
+				<a href="/front/customer/customer_member_agent.php">회원정보</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</header>
+	
+	<!--// header -->
+<!-- main -->
+	<div id="main">
+		<div class="visual" style="margin:0 0 -6px;">
+		<!--
+        	<img src="/images/main_con.jpg" alt="main" />
+			<div class="icon1">
+				<a><img src="/images/topeak.png" alt="main_icon" /></a>
+			</div>
+         -->   
+           <iframe width="1290" height="725" src="https://www.youtube.com/embed/cJjFvPBRfyY" frameborder="0" allowfullscreen></iframe>
+            
+		</div>
+		
+		<div class="ad">
+			<ol>
+				<li><a><a href="http://www.hlsc.co.kr/front/brand/brand_main_bike.php?bd_id=49"><img src="/images/ad_21.jpg" alt="ad_1" /></a></li>
+				<li><a><a href="/front/agent/agent_receiving_list.php"><img src="/images/ad_20.jpg" alt="ad_2" /></a></li>
+				<li><a><a href="http://www.hlsc.co.kr/front/agent/agent_preorder_list.php"><img src="/images/ad_19.jpg" alt="ad_3" /></a></li>
+			</ol>
+		</div>
+		
+		<div class="cut_icon"><a><img src="/images/cut_icon_up.png" alt="브랜드 숨기기" /></a></div>
+		<div class="cut">
+			<dl>
+				<dt><img src="/images/bike_cut1.jpg" alt="bike" /></dt>
+				<dd>					
+					<img src="/images/bike_cut2.jpg" alt="bike" />	
+
+					<div class="cut_brand">
+						<div id="main_brand_bike" class="cut_wrap als-container main_brand">
+							<a class="AWlef als-prev">왼쪽화살표</a>
+							<a class="AWrig als-next">오른쪽화살표</a>
+							<div class="cut_viewport als-viewport">				
+								<ul class="als-wrapper">
+									<!-- 수정 150603 -->
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=1"><img src="/images/cut_topeak.png" onmouseover='this.src="/images/cut_topeak_on.png"' onmouseout='this.src="/images/cut_topeak.png"' alt="TOPEAK" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=4"><img src="/images/cut_assos.png" onmouseover='this.src="/images/cut_assos_on.png"' onmouseout='this.src="/images/cut_assos.png"' alt="ASSOS" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=29"><img src="/images/cut_saris.png" onmouseover='this.src="/images/cut_saris_on.png"' onmouseout='this.src="/images/cut_saris.png"' alt="SARIS" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=33"><img src="/images/cut_cycleops.png" onmouseover='this.src=" /images/cut_cycleops_on.png"' onmouseout='this.src="/images/cut_cycleops.png"' alt="Cycle Ops" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=8"><img src="/images/cut_dainese.png" onmouseover='this.src="/images/cut_dainese_on.png"' onmouseout='this.src="/images/cut_dainese.png"' alt="DAINESE" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=37"><img src="/images/cut_ciclis.png" onmouseover='this.src="/images/cut_ciclis_on.png"' onmouseout='this.src="/images/cut_ciclis.png"' alt="CICLIS" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=49"><img src="/images/cut_sonax.png" onmouseover='this.src="/images/cut_sonax_on.png"' onmouseout='this.src="/images/cut_sonax.png"' alt="SONAX" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_bike.php?bd_id=39"><img src=" /images/cut_powertap.png" onmouseover='this.src=" /images/cut_powertap_on.png"' onmouseout='this.src=" /images/cut_powertap.png"' alt="POWERTAP" /></a></li>
+    
+                                    
+						<!--
+									<li class="als-item"><a><img src="/images/cut_assos.png" onmouseover='this.src="/images/cut_assos_on.png"' onmouseout='this.src="/images/cut_assos.png"' alt="Assos" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_cycleops.png" onmouseover='this.src="/images/cut_cycleops_on.png"' onmouseout='this.src="/images/cut_cycleops.png"' alt="CycleOps" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_saris.png" onmouseover='this.src="/images/cut_saris_on.png"' onmouseout='this.src="/images/cut_saris.png"' alt="Saris" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_powertap.png" onmouseover='this.src="/images/cut_powertap_on.png"' onmouseout='this.src="/images/cut_powertap.png"' alt="Powertap" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_roeckl.png" onmouseover='this.src="/images/cut_roeckl_on.png"' onmouseout='this.src="/images/cut_roeckl.png"' alt="Roeckl" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_ciclis.png" onmouseover='this.src="/images/cut_ciclis_on.png"' onmouseout='this.src="/images/cut_ciclis.png"' alt="Ciclis" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_eq.png" onmouseover='this.src="/images/cut_eq_on.png"' onmouseout='this.src="/images/cut_eq.png"' alt="EQ" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_dainese.png" onmouseover='this.src="/images/cut_dainese_on.png"' onmouseout='this.src="/images/cut_dainese.png"' alt="Dainese" /></a></li>
+							-->
+                            		<!--// 수정 150603 -->
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</dd>
+			</dl>
+			<dl>
+				<dt><img src="/images/snow_cut1.jpg" alt="snow" /></dt>
+				<dd>
+					<img src="/images/snow_cut2.jpg" alt="bike" />
+					<div class="cut_brand">
+						<div id="main_brand_snow" class="cut_wrap als-container main_brand">
+							<a class="AWlef als-prev">왼쪽화살표</a>
+							<a class="AWrig als-next">오른쪽화살표</a>
+							<div class="cut_viewport als-viewport">				
+								<ul class="als-wrapper">
+									<!-- 수정 150603 -->
+                                	<li class="als-item"><a href="/front/brand/brand_main_snow.php?bd_id=102"><img src="/images/cut_f2.png" onmouseover='this.src="/images/cut_f2_on.png"' onmouseout='this.src="/images/cut_f2.png"' alt="F2" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_snow.php?bd_id=101"><img src="/images/cut_dainese.png" onmouseover='this.src="/images/cut_dainese_on.png"' onmouseout='this.src="/images/cut_dainese.png"' alt="DAINESE" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_snow.php?bd_id=104"><img src="/images/cut_leki.png" onmouseover='this.src="/images/cut_leki_on.png"' onmouseout='this.src="/images/cut_leki.png"' alt="LEKI" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_snow.php?bd_id=106"><img src="/images/cut_deeluxe.png" onmouseover='this.src="/images/cut_deeluxe_on.png"' onmouseout='this.src="/images/cut_deeluxe.png"' alt="DEELUXE" /></a></li>
+                                	<li class="als-item"><a href="/front/brand/brand_main_snow.php?bd_id=105"><img src="/images/cut_stockli.png" onmouseover='this.src="/images/cut_stockli_on.png"' onmouseout='this.src="/images/cut_stockli.png"' alt="STOCKLI" /></a></li>
+    
+                                
+                                <!--
+                                	<li class="als-item"><a><img src="/images/cut_f2.png" onmouseover='this.src="/images/cut_f2_on.png"' onmouseout='this.src="/images/cut_f2.png"' alt="F2" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_ftwo.png" onmouseover='this.src="/images/cut_ftwo_on.png"' onmouseout='this.src="/images/cut_ftwo.png"' alt="Ftwo" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_dainese.png" onmouseover='this.src="/images/cut_dainese_on.png"' onmouseout='this.src="/images/cut_dainese.png"' alt="Dainese" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_leki.png" onmouseover='this.src="/images/cut_leki_on.png"' onmouseout='this.src="/images/cut_leki.png"' alt="Leki" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_deeluxe.png" onmouseover='this.src="/images/cut_deeluxe_on.png"' onmouseout='this.src="/images/cut_deeluxe.png"' alt="Deeluxe" /></a></li>
+
+									<li class="als-item"><a><img src="/images/cut_stockli.png" onmouseover='this.src="/images/cut_stockli_on.png"' onmouseout='this.src="/images/cut_stockli.png"' alt="Stockli" /></a></li>
+                                    -->
+									<!--// 수정 150603 -->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		
+		<div class="product">
+			<div class="pro_in">
+				<a href="http://www.hlsc.co.kr/front/brand/brand_view.php?item_id=h180336897&wci_id=8658&wc_id=171&bd_id=1">
+					<div class="pro_over_big">
+						<h1>NEW PRODUCT</h1>
+						<h2>HEXUS™ X <br>새로운 진화</h2>
+						<h3>New<em>/</em> <span>TOPEAK</span></h3>
+						<p class="info">
+							저명한 수상을 받은 21가지 기능의 멀티 툴. 새로운 디자인으로 T15, T25,
+8mm 육각 비트를 내부에 보관이 가능하도록 설계, 옆면에 장착되어 있는
+타이어레버. 사용자가 셀프로 텐션 조절 가능한 (T25 Torx® 비트)와 튜브 밸브
+(투피스 프레스타 코어)를 조이거나 제거 가능. Hexus X 는 로드와 MTB, 모든
+라이더들에게 사용 가능하며 탁월한 선택이 될 것입니다.
+						</p>
+						<span><img src="/images/bg_btn_pro.png" alt="" /></span>
+					</div>
+
+					<div class="pro_IMG fl">
+						<img src="/images/proD_7.jpg" alt="" />
+					</div>
+					<div class="pro_for fr">
+						<h1>NEW PRODUCT</h1>
+						<h2>새로운 진화<br />HEXUS™ X</h2>
+						<h3>New <em>/</em> <span>TOPEAK</span></h3>
+						<p>
+							HEXUS™ II(헥서스2)의 새로운 진화 HEXUS™ X(헥서스 엑스를)를 선보입니다. 기존 레드닷 수성을 받은 헥서스2는 기존 18가지 기능에서 21가지 기능으로 대폭 업그레이드 됩니다.
+						</p>
+						<span class="triA_L">왼쪽삼각형</span>
+					</div>
+				</a>
+			</div>
+			
+			<ul>
+            	<li>
+					<a href="/front/brand/brand_view.php?item_id=h180336909&wci_id=&wc_id=&bd_id=1">
+						<div class="pro_over">
+							<h1>PRODUCT</h1>
+							<h2>펌프 Roadie DA</h2>
+							<h3>New <em>/</em> <span>TOPEAK</span></h3>
+							<p class="info">
+								
+							</p>
+							<h4>\20,000</h4>
+							<span><img src="/images/bg_arrow1.png" alt="" /></span>
+						</div>
+						<img src="/attach_files/thumb/429_429/Roadie-DA_thumb.jpg" alt="" />
+					</a>
+				</li>
+            	<li>
+					<a href="/front/brand/brand_view.php?item_id=h180336899&wci_id=&wc_id=&bd_id=1">
+						<div class="pro_over">
+							<h1>PRODUCT</h1>
+							<h2>라이트 REDLITE AERO USB 1W</h2>
+							<h3>New <em>/</em> <span>TOPEAK</span></h3>
+							<p class="info">
+								
+							</p>
+							<h4>\35,000</h4>
+							<span><img src="/images/bg_arrow1.png" alt="" /></span>
+						</div>
+						<img src="/attach_files/thumb/429_429/REDLITE0000AERO0USB01W_thumb.jpg" alt="" />
+					</a>
+				</li>
+            	<li>
+					<a href="/front/brand/brand_view.php?item_id=h180336911&wci_id=&wc_id=&bd_id=1">
+						<div class="pro_over">
+							<h1>PRODUCT</h1>
+							<h2>펌프 Airbooster</h2>
+							<h3>New <em>/</em> <span>TOPEAK</span></h3>
+							<p class="info">
+								
+							</p>
+							<h4>\30,000</h4>
+							<span><img src="/images/bg_arrow1.png" alt="" /></span>
+						</div>
+						<img src="/attach_files/thumb/429_429/Airbooster_thumb.jpg" alt="" />
+					</a>
+				</li>
+   			
+			</ul>
+			
+			<div class="pro_in BO_N">
+				<a href="/front/common/search_product.php?key=&keyword=ridecase">
+					<div class="pro_over_big">
+						<h1>HIT PRODUCT</h1>
+						<h2>RideCase 혁신적인 장착 시스템</h2>
+						<h3>HIT <em>/</em> <span>Topeak</span></h3>
+						<p class="info">
+							토픽 파노바이크 앱과 함께 사이클링 컴퓨터로 사용할 수 있습니다. 자동차에 내비게이션으로 운동할 때 다른 앱으로 연동하여 사용할 수 있습니다. 별도의 내충격성 플라스틱 프레임과 탄소 섬유 베이스로 
+플레이트로 보호되는 복합 섬유 패널이 있어 안전하게 고정시킬 수 있습니다. 책상 위에서 별다른 거치대 없이 세워서 영상이나 화면을 조작도 가능한 만능 라이드 케이스를 만나보세요.
+						</p>
+						<span><img src="/images/bg_btn_pro.png" alt="" /></span>
+					</div>
+
+					<div class="pro_IMG fr">
+						<img src="/images/proD_5.jpg" alt="" />
+					</div>
+					<div class="pro_for fl">
+						<h1>공지사항</h1>
+						<h2>기존 제품으로<br />아이폰8/8+ 장착 가능!
+</h2>
+						<h3>HIT <em>/</em> <span>Topeak</span></h3>
+						<p>
+							아이폰[6  /6S  /7  ]->아이폰8 장착가능<br>
+
+아이폰[6+/6S+/7+]->아이폰8+장착가능<br>자전거, 자동차, 런닝, 언제 어디서나 라이드케이스와 함께!
+						</p>
+						<span class="triA_R">오른쪽삼각형</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="community">
+			<dl>
+				<dt>
+					<a href="/front/common/search_list.php?keyword=라이트+a.i">
+						<div class="community_over">
+							<h1>똑똑한 스마트빔 CICLIS의 A.I BEAM 신제품을 만나 보세요.</h1>
+						</div>
+						<img src="/images/comty_1.jpg" alt="" />
+					</a>
+				</dt>
+				<dd>
+					<div class="cm_SNS">
+						<a href="https://www.facebook.com/highlandSports" target="_blank"><img src="/images/comty_icon1.png" alt="" /></a>
+						<a><img src="/images/comty_icon2.png" alt="" /></a>
+						<a href="http://blog.naver.com/highlandsports" target="_blank"><img src="/images/comty_icon3.png" alt="" /></a>
+					</div>
+				</dd>
+            	<dd>
+					<a href="/board/view.php?db=ib_movie&id=58">
+						<div class="community_over">
+							<h1>다이네즈 윈터18/19 컬렉션 신제품 설명회 현장 스케치</h1>
+						</div>
+						<img src="./board/attach_files/ib_movie/thumb/_58_3134_322_.thumb" alt="" />
+					</a>
+				</dd>
+            	<dd>
+					<a href="/board/view.php?db=ib_movie&id=57">
+						<div class="community_over">
+							<h1>17/18 다이네즈,레키,스토클리 (하이랜드스포츠) 스키팀 영상 공개!</h1>
+						</div>
+						<img src="./board/attach_files/ib_movie/thumb/_57_3133_322_.thumb" alt="" />
+					</a>
+				</dd>
+            	<dd>
+					<a href="/board/view.php?db=ib_movie&id=56">
+						<div class="community_over">
+							<h1>싸이클옵스 해머 광고 영상 - CycleOps "HAMMER"</h1>
+						</div>
+						<img src="./board/attach_files/ib_movie/thumb/_56_3132_322_.thumb" alt="" />
+					</a>
+				</dd>
+                
+				
+			</dl>
+		</div>
+	</div>
+
+	<div class="bottom_menu">
+		<dl>
+			<a href="/front/store/store_map.php?biz_type=bike">
+				<dt>
+					<img src="/images/info_1.jpg" alt="" />
+					<h4 class="plus">하이랜드 특약점 정보</h4>
+					<h5>아소스 특약점 조회하기</h5>
+					<p>
+						<br />
+						
+					</p>
+				</dt>
+			</a>
+		</dl>
+		<dl>
+			<a>
+				<dt>
+					<img src="/images/info_2.jpg" alt="" />
+					<h4>Event</h4>
+					<h6>
+						고객님을 위해 준비한 다양한 이벤트!<br />
+						하이랜드 스포츠에서만 만날 수 있는<br />
+						특별한 혜택을 누리세요!
+					</h6>
+				</dt>
+			</a>
+		</dl>
+		<dl>
+			<a href="/front/customer/customer_faq.php">
+				<dt>
+					<img src="/images/info_3.jpg" alt="" />
+					<h4>자주 묻는 질문</h4>
+					<h6>
+						자주 물으시는 질문에 대해 시원한<br />
+						답변만을 모아두었습니다.
+					</h6>
+				</dt>
+			</a>
+		</dl>
+		<dl>
+			<a href="front/customer/customer_product_add.php">
+				<dt class="last">
+					<img src="/images/info_4.jpg" alt="" />
+					<h4>정품 라이센스 등록</h4>
+					<h6>
+						모든 제품은 (주)하이랜드 스포츠가 직접<br />
+						수입,판매하는 제품으로 정식 A/S를<br />
+						받으실 수 있습니다.
+					</h6>
+				</dt>
+			</a>
+		</dl>
+	</div>
+	<!--// main -->
+<!-- footer -->
+		
+        <a class="totop" href="#header"><img src="/images/btn_totop.gif" alt="TOP" /></a>
+
+<footer id="footer" class="mt0">
+	<dl>
+		<dd>
+			<img src="/images/footerBg1.jpg" alt="" />
+			<div class="Fin">
+				<img src="/images/footer_logo.jpg" alt="footer_logo" />
+				<strong class="Wt">(주)하이랜드스포츠 HIGHLANDSPORTS LTD.</strong>
+				<em>(우)12771 경기도 광주시 오포읍 새말길 167번길 68<br />대표이사 전성득</em>
+				<button onClick="companyInfo()"><b>사업자 정보확인</b></button>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dd>
+			<img src="/images/footerBg2.jpg" alt="" />
+			<div class="Fin">
+				<strong>사업자등록번호 : 211-86-55002</strong>
+				<strong>통신판매업신고 : 2009-170</strong>
+				<strong>TEL : +82.(0)31.8022.7510~7</strong>
+				<strong>FAX : +82.(0)31.8022.7518</strong>
+				<strong>E-MAIL: <a href="mailto:info@hlsc.co.kr">info@hlsc.co.kr</a></strong>
+				<strong>개인정보관리책임자 : 김남형 차장</strong>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dd>
+			<img src="/images/footerBg3.jpg" alt="" />
+			<div class="Fin">
+				<strong><a href="/front/intro/intro.php">회사소개</a></strong> 
+				<strong><a href="/front/common/policy.php">이용약관</a></strong> 
+				<strong><a href="/front/common/policy.php?q=privacy">개인정보보호정책</a></strong> 
+				<strong><a href="/front/common/policy.php?q=law">책임의 한계와 법적고지</a></strong>
+				<strong><a href="/front/common/policy.php?q=email">이메일 무단수집 거부</a></strong> 
+				<strong><a href="/front/customer/customer_as.php">A/S 및 반품안내</a></strong> 
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dd>
+			<img src="/images/footerBg4.jpg" alt="" />
+			<div class="Fin">
+				<strong class="s_bank">신한은행 140-006-115196 (주)하이랜드스포츠</strong>
+				<form name="shop_check" method="post" action="http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp">
+								<input type="hidden" name="site_cd" value="R5780">
+                <table>
+					<colgroup>
+						<col width="85px">
+						<col width="*">
+					</colgroup>
+					<tr>
+						<td valign="top"><a onClick="go_check()"><img src="/images/kcp.png" alt="" /></a></td>
+						<td>
+							<span><b>구매안전 (에스크로) 서비스</b></span>
+							<em class="kcp">
+								안전거래를 위해 현금등으로 결제시<br />
+								저희 사이트 KCP의 구매안전 서비스를<br />
+								이용하실 수 있습니다.
+							</em>
+                           
+						</td>
+					</tr>
+				</table>
+                </form>
+			</div>
+		</dd>
+	</dl>
+	
+	<div class="copy">
+		Copyright (c) 2014 <b>HIGHLANDSPORTS</b> CO.,LTD. All Right Reserved.
+	</div>
+</footer>
+
+
+
+
+    <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-48364815-1', 'auto');
+		  ga('send', 'pageview');
+
+</script>
+    
+    <!--에스크로 서비스 STATR -->
+	<script language="JavaScript">
+		function companyInfo() {
+			var url =
+		"http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=2118655002";
+		window.open(url, "communicationViewPopup", "width=750, height=700;");
+		}
+		
+	
+		function go_check()
+		{
+			var status  = "width=500 height=450 menubar=no,scrollbars=no,resizable=no,status=no";
+			var obj     = window.open('', 'kcp_pop', status);
+
+			document.shop_check.method = "post";
+			document.shop_check.target = "kcp_pop";
+			document.shop_check.action = "http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp";
+
+			document.shop_check.submit();
+		}
+	</script>
+<!--//에스크로 서비스 END -->
+
+	<!-- footer -->
+</div>
+
+<script>
+	var _spinner;
+	$(function(){ _spinner = new Spinner();$(document.body).append("<div id ='spinner_cont'></div>");});
+	
+	var _PHP_SELF = "/index.php";
+	
+	
+	function cgs_vimeo_volume_control() {
+	
+		var f = $("#vimeo_iframe");//<iframe src="http://player.vimeo.com/video/12345678" id="vimeo_iframe"></iframe>";
+	
+		if (!f || !f.attr("src")) return;
+	
+		var url = f.attr("src").split("?")[0];
+	
+		var data = {
+			"method" : "setVolume",
+			"value" : 1
+		};//볼륨을 0으로 설정
+	
+		f[0].contentWindow.postMessage(JSON.stringify(data), url);
+	
+		var data = {
+			"method" : "play",
+			"value" : 1
+		}//영상 재생
+	
+		f[0].contentWindow.postMessage(JSON.stringify(data), url);
+	}
+	
+	
+	$(function () {
+		
+		
+		// 메인 브랜드 좌우 슬라이드 메뉴 - bike
+		$("#main_brand_bike").als({
+			visible_items: 6,
+			scrolling_items: 1,
+			orientation: "horizontal",
+			circular: "no",
+			autoscroll: "no",
+			interval: 5000,
+			direction: "right"
+		});
+		
+		// 메인 브랜드 좌우 슬라이드 메뉴 - snow
+		$("#main_brand_snow").als({
+			visible_items: 5,
+			scrolling_items: 1,
+			orientation: "horizontal",
+			circular: "no",
+			autoscroll: "no",
+			interval: 5000,
+			direction: "right"
+		});
+
+		cgs_vimeo_volume_control();
+	});
+</script>
+
+
+
+<a id="hlsc-popup-modal-str" href="#hlsc-popup-modal">p</a>
+<a id="hlsc-popup-modal-str2" href="#hlsc-popup-modal2">p2</a>
+
+<!-- 팝업1 시작 -->	
+    <div id="hlsc-popup-modal" class="mfp-hide white-popup-block">
+        <button class="mfp-close" type="button" title="Close (Esc)">×</button>
+        <h1> </h1>
+        <p>
+       
+        <br>
+        <!-- 이미지 링크-->
+        <a href="http://www.hlsc.co.kr/front/agent/agent_preorder_list.php"><img src="/images/popup/2018_03_08_pause.jpg" /></a>
+        </p>
+        
+        <div class="popup_today_close pull-right"><label >오늘하루 그만보기<input class="today_hidden_checkbox" attr_popup_no="1" type="checkbox"></label></div>
+          
+    </div>
+<!--// 팝업1 끝 -->	
+
+
+
+<!-- 팝업2 시작 -->	
+    <div id="hlsc-popup-modal2" class="mfp-hide white-popup-block white-popup-block2">
+        <button class="mfp-close" type="button" title="Close (Esc)">×</button>
+        <h1>설 명절 배송공지 안내</h1>
+        <p>
+        
+        <br>
+        <!-- 이미지 링크-->
+        <a href=""><img src="/images/popup/2018_02_02_del.jpg" /></a>
+        </p>
+        
+        <div class="popup_today_close pull-right"><label >오늘하루 그만보기<input class="today_hidden_checkbox" attr_popup_no="2" type="checkbox"></label></div>
+          
+    </div>
+<!-- 팝업2 끝 -->	
+
+
+	<style>
+		.white-popup-block {
+			max-width: 550px;				/* 팝업1 사이즈*/ /* 1. 팝업수정점검 */
+		}
+		
+		.white-popup-block.white-popup-block2 {
+			max-width: 550px;				/* 팝업2 사이즈*/ /* 1. 팝업수정점검 */
+		}
+	</style>
+    
+	<script>
+		
+		 /* 2. 팝업수정점검 */
+		
+		// 팝업1
+		var _POPUP_START_DAY = "2018-03-02";			// 팝업1 시작일
+		var _POPUP_END_DAY = "2018-03-16";				// 팝업1 종료일
+		
+		// 팝업2
+		var _POPUP_START_DAY2 = "2018-02-02";			// 팝업2 시작일
+		var _POPUP_END_DAY2 = "2018-02-12";				// 팝업2 종료일
+		
+		$(function () {
+					
+			var arrSDay = _POPUP_START_DAY.split("-");
+			var arrEDay = _POPUP_END_DAY.split("-");
+			
+			var startTime = new Date(arrSDay[0], arrSDay[1] - 1, arrSDay[2]).getTime();
+			var endTime = new Date(arrEDay[0], arrEDay[1] -1, arrEDay[2], 23, 59, 59).getTime();
+			var todayTime = new Date().getTime();
+			
+			var popup1Open = false;
+			
+			$('#hlsc-popup-modal-str').magnificPopup({
+				type: 'inline',
+				preloader: false,
+				modal: true,
+				callbacks: {
+							  afterClose: function() {
+			//				    console.log('close of popup1');
+								setTimeout(function(){
+														popup2Open(); 
+												}, 500);
+								
+								
+								
+							  }
+				}
+			});
+			
+			$('#hlsc-popup-modal-str2').magnificPopup({
+				type: 'inline',
+				preloader: false,
+				modal: true
+			
+			});
+			
+			$(document).on('click', '.popup-modal-dismiss', function (e) {
+				e.preventDefault();
+				$.magnificPopup.close();
+			});
+			
+			$(".today_hidden_checkbox").click(clickTodayHidden);
+			
+			
+			
+			if (startTime <= todayTime && endTime >= todayTime) {
+				if($.cookie('today_popup') != 'hidden') {
+					// 팝업 
+					$('#hlsc-popup-modal-str').magnificPopup('open'); 	
+					popup1Open = true;	
+		//			console.log("popuped1");	
+				}
+			}
+			
+			if (!popup1Open) {
+				popup2Open();
+			}
+			
+			function popup2Open () {
+				// 팝업2
+				var arrSDay = _POPUP_START_DAY2.split("-");
+				var arrEDay = _POPUP_END_DAY2.split("-");
+				
+				var startTime = new Date(arrSDay[0], arrSDay[1] - 1, arrSDay[2]).getTime();
+				var endTime = new Date(arrEDay[0], arrEDay[1] -1, arrEDay[2], 23, 59, 59).getTime();
+				var todayTime = new Date().getTime();
+			
+				
+		
+				if (startTime <= todayTime && endTime >= todayTime) {
+					if($.cookie('today_popup2') != 'hidden') {
+						// 팝업 
+						$('#hlsc-popup-modal-str2').magnificPopup('open'); 	
+			//			console.log("popuped2");
+					}
+					
+				}
+				
+			}
+			
+			
+		});
+		
+		
+		function clickTodayHidden(e) {
+			var $el = $(e.target);
+			if ( $el.prop("checked")) {
+				var cookieStr = $el.attr("attr_popup_no") == "2" ? "today_popup2" : "today_popup";
+				
+				$.cookie(cookieStr, 'hidden', {expires : 1});
+				$.magnificPopup.close();
+	
+			}
+		}
+		
+	</script>
+	
+
+
+
+	
+	
+    
+
+
+</body>
+</html>

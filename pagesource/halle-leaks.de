@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=yes" />-->
+<title>halle-leaks.de</title>
+<link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet" type="text/css">
+<style>
+html {
+	font-size:100%;
+}
+body {
+	font-family:"Cutive Mono",serif;
+	font-size:1em;
+	overflow-y:scroll;
+}
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+h1 {
+	position:relative;
+	font-size:2em;
+	text-decoration:underline;
+}
+h3 {
+	font-size:1.2em;
+	text-decoration:underline;
+}
+#follow {
+	position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: 120px;
+    width: 180px;
+    height: 60px;
+    background: #e5e5e5;
+    font-size: 0.45em;
+    text-align: center;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87e0fd+0,53cbf1+40,05abe0+100;Blue+3D+%23+16 */
+background: #87e0fd; /* Old browsers */
+background: -moz-linear-gradient(top, #87e0fd 0%, #53cbf1 40%, #05abe0 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(40%,#53cbf1), color-stop(100%,#05abe0)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* IE10+ */
+background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-9 */
+}
+#follow a {
+	cursor:pointer;
+	text-decoration:none;
+	color:inherit !important;
+}
+#follow div {
+    position: absolute;
+	width:100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+#container {
+	min-width:630px;
+	max-width:1000px;
+	margin:0 auto;
+}
+#progressbar, .progressbar{
+	display:none;
+	position:relative;
+	height:20px;
+	background:#e5e5e5;
+	overflow:hidden;
+}
+#progressbar .label, .progressbar .label{
+	position:absolute;
+	z-index:10;
+	right:5px;
+	color:#b8082d;
+	font-size:1.4em;
+}
+#progressbar .donebar, .progressbar .donebar {
+	display:inline-block;
+	width:0;
+	height:100%;
+	background: #b8082d;
+	background: -moz-linear-gradient(top, #f27989 0%, #b74058 52%, #b8082d 54%, #b72c47 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f27989), color-stop(52%,#b74058), color-stop(54%,#b8082d), color-stop(100%,#b72c47));
+	background: -webkit-linear-gradient(top, #f27989 0%,#b74058 52%,#b8082d 54%,#b72c47 100%);
+	background: -o-linear-gradient(top, #f27989 0%,#b74058 52%,#b8082d 54%,#b72c47 100%);
+	background: -ms-linear-gradient(top, #f27989 0%,#b74058 52%,#b8082d 54%,#b72c47 100%);
+	background: linear-gradient(to bottom, #f27989 0%,#b74058 52%,#b8082d 54%,#b72c47 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f27989', endColorstr='#b72c47',GradientType=0 );
+}
+textarea {
+	font-family:"Cutive Mono",serif;
+	font-size:1em;
+	border:1px solid #ccc;
+	display:block;
+	width:100%;
+	height:100px;
+	resize:vertical;
+}
+.tabs {
+	border-bottom:1px solid #ccc;
+}
+.tabs ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.tabs ul>li {
+	display:inline-block;
+	padding:15px 20px;
+	position:relative;
+	cursor:pointer;
+}
+.tabs ul>li.active {
+	font-weight:bold;
+}
+.tabs ul>li.active::after {
+	content:"";
+	position:absolute;
+	z-index:10;
+	bottom:0;
+	left:50%;
+	margin-left:-5px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 8px 10px 8px;
+	border-color: transparent transparent #ccc transparent;
+}
+.tabcontainer { display:none; }
+</style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="/public/js/jquery.ui.widget.js"></script>
+<script src="/public/js/jquery.iframe-transport.js"></script>
+<script src="/public/js/jquery.fileupload.js"></script>
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+		url: '/upload',
+		progressall: function (e, data) {
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('#progressbar').show().children('.donebar').css({width:progress + '%',marginLeft:0}).parent().children('.label').html(progress+'%');
+		},
+		fail: function(e, data) {
+			alert('unbekannter Fehler! Bitte erneut versuchen.');
+		},
+        done: function (e, data) {
+			if(data.result.errors!=null && data.result.errors.length) {
+				$('#progressbar').hide();
+				var $errmsg = $('<p class="error"></p>');
+				$('#progressbar').after($errmsg);
+				$.each(data.result.errors, function (index, error) {
+					$errmsg.append('<span style="color:red">Fehler! <strong>'+error.file+'</strong> konnte nicht hochgeladen werden. ('+error.code+')</span><br />');
+				});
+				setTimeout(function() { $errmsg.fadeOut(500); }, 10000);
+			}
+			else {
+				$('#progressbar').children('.donebar').animate({marginLeft:'100%'},200,function() {
+					setTimeout(function() { $('#progressbar').fadeOut(200); },500);
+				});
+				var $scsmsg = $('<p></p>');
+				$('#progressbar').after($scsmsg);
+				$.each(data.result.files, function (index, file) {
+					$scsmsg.append('<span style="color:green">Datei <strong>'+file.name+'</strong> hochgeladen und sicher verschlüsselt. Vielen Dank!</span><br />');
+				});
+				setTimeout(function() { $scsmsg.fadeOut(500); }, 10000);
+			}
+        }
+    });
+	
+	$('#triggerSend').click(function(){
+		var $button = $(this);
+		$button.prop('disabled',true).text('sende ... bitte warten!');
+		$.post('/send',$('[name=msg]').serialize(),function(response){
+			if(response=='done') $('#msgcontainer').html('<p style="color:green">Mitteilung erfolgreich verschlüsselt und sicher versendet. Vielen Dank!</p>');
+			else{
+				$button.prop('disabled',false).text($button.attr('placeholder'));
+				var $errmsg = $('<p style="color:red;">Unbekannter Fehler! Bitte erneut versuchen.</p>');
+				$button.parent('p').before($errmsg);
+				setTimeout(function(){$errmsg.fadeOut(300)},2000);
+			}
+		});
+	});
+	
+	$('.tabs li').click(function(){
+		var $li = $(this);
+		var idx = $li.index();
+		$('.tabs li').removeClass('active').eq(idx).addClass('active');
+		$('.tabcontainer').hide().eq(idx).show();
+	});
+	
+	$('.tabs li').eq(0).trigger('click');
+	
+});
+</script>
+</head>
+
+<body>
+<div id="container">
+    <h1 align="center">HALLE LEAKS<div id="follow"><a href="https://www.facebook.com/halle.leaks.de" target="_blank"><div>Informiert bleiben!<br />HIER KLICKEN</div></a></div></h1>
+    <div class="tabs">
+    	<ul>
+        	<li class="active">Hochladen</li>
+            <li>Leaks</li>
+            <li>Dranbleiben</li>
+        </ul>
+    </div>
+    <div class="tabcontainer">
+        <h3>Dokumente hochladen, Mitteilungen senden &mdash; anonym &amp; sicher </h3>
+        <p>Über diese Seite kannst Du uns vollkommen anonym Dokumente zuspielen und Mitteilungen senden. Es werden keinerlei personenbezogene Daten erhoben oder gespeichert. Zwischen Deinem Endgerät (PC, Smartphone, Tablet etc.) und unserem Server besteht eine sichere Verbindung, alle Daten werden verschlüsselt übertragen, die übertragenen Daten können grundsätzlich nicht abgefangen werden. Für den Fall, dass unser Server Hackern zum Opfer fallen sollte, sichern wir zudem alle Dokumente mit einer sicheren Verschlüsselung ab. Alle Dokumente werden sofort nach ihrer Übertragung verschlüsselt und damit in eine gänzlich unleserliche Form gebracht, zudem verbleiben sie nur kurze Zeit auf dem Server und werden stattdessen an einen sicheren Ort verbracht. Eine Entschlüsselung zurück in eine leserliche Form ist nur mit einem speziellen Schlüssel möglich, den wir ebenfalls an einem sicheren Ort verwahren.</p>
+        <h3>Sicherheit auf Deiner Seite</h3>
+        <p>Wir haben auf unserer Seite viel dafür getan, die zugespielten Daten umfangreich zu schützen. Wir empfehlen Dir, keine Endgeräte zu nutzen, die Rückschlüsse auf Deine Person zulassen. Dies gilt insbesondere für Computer am Arbeitsplatz, die ausschließlich oder vornehmlich Dir zugänglich sind. Im Zweifelsfall ist es besser, die betreffenden Dokumente zunächst mittels USB-Stick auf ein anderes Endgerät zu transportieren und dann von dort hochzuladen.</p>
+        <h3>Mitteilung</h3>
+        <p>Über das nachfolgende Textfeld kannst Du anstelle von oder zusätzlich zu Dokumenten eine Mitteilung versenden.</p>
+        <div id="msgcontainer"
+            <p><textarea name="msg" placeholder="Mitteilung senden ..."></textarea></p>
+            <p><button id="triggerSend" type="button" placeholder="Mitteilung senden">Mitteilung senden</button></p>
+        </div>
+        <h3>Hochladen</h3>
+        <p>Du kannst Dokumente in den Formaten .png, .jpg/.jpeg, .gif, .pdf, .doc/.docx, .xls/.xlsx, .ppt/.pptx sowie .txt mit jeweils <strong>maximaler Größe von 60 MB</strong> hochladen.</p>
+        <div id="progressbar">
+            <div class="label"></div>
+            <div class="donebar"></div>
+        </div>
+        <p><input id="fileupload" type="file" name="files[]" multiple></p>
+	</div>
+    <div class="tabcontainer">
+    	<h3>Leaks</h3>
+    	
+      <hr />
+        <p><strong>Gerüchteküche 2015-001</strong><br>
+          Wir alle sind erst am Anfang! Die Rubrik &bdquo;Gerüchteküche&ldquo; ist das erste, was wir Euch liefern können. Soll bei Lieferung von Material durch Euch wöchentlich erscheinen. Wir müssen natürlich hier einige Stellen umschreiben bzw. unkenntlich machen, da wir außer der Gerüchte auch möglichst Beweise brauchen. Namen, Dienststelle der Verantwortlichen, Dokumente, Fotos, genauere Ortsangaben, wenn möglich… <br>
+          Wenn Ihr in den beschriebenen Geschichten glaubt, die Firma, das Amt etc. zu erkennen und detailliertere Infos habt, bitte mit Angaben, die Ihr dazu beisteuern könnt UND wenn möglich mit entsprechenden Belegen hochladen. <br>
+          Folgende Beiträge sind weitgehend im Originalwortlaut, aber an Stellen geXXXt, um A: die Beteiligten nicht zu beschuldigen, ohne dass die Beweise handfest sind, B: den Whistleblower zu schützen.<br>
+          ---<br>
+          <strong>Sozialmafia/Eurojobber +++ Giftmüll im Saalekreis +++ GrünXXX-XXt</strong><br>
+          <strong>#Sozialmafia</strong><br>
+          Stadt und JobXXX betreiben in Bezug mit der XXX &bdquo;Frohe X&ldquo;; mafiöse Strukturen. Mit pro Jahr geschätzten 100 1-Euro-Jobbern werden Zigtausende Euro Richtung XXX verschoben. Zudem trägt der Verein seinen Namen nicht mehr zurecht, denn mit Jugendarbeit hat der Verein seit Jahren nichts mehr zu tun.<br>
+          Auf der anderen Seite gehen Vereine die es nötig hätten, mittels 1 Euro Jobbern gefördert zu werden regelmäßig leer aus.<br>
+          Auch die Maßnahmedauer wird jedes Mal anders ausgelegt, ebenso wie man es grad braucht, obwohl es klare Vorgaben und Obergrenzen gibt.&ldquo; (Redax: gekürzt) <br>
+          +++<br>
+          <strong>#Giftmüll</strong><br>
+          Nach Informationen eines XXX-Mitarbeiters lagert XXX (eine große Baufirma) bodenverseuchenden &bdquo;Gift&ldquo;-Müll auf einen ihrer Grundstücke Nähe XXX (östlicher Saalekreis). Die Gemeinde hatte dies zwar legitim abgesegnet, doch wurde eine Bürger- Initiative gegründet, welche das nicht hinnehmen möchte. Ein wissenschaftliches Team, welches Bodenproben nimmt, wäre ratsam, ebenfalls die Öffentlichkeitarbeit in diesem Fall, sollten sich die Vorwürfe bestätigen. (Redax: Hier brauchen wir Fotos, evtl. Dokumente, Informationen/Beweise, dass Kommunal-Angestellte darüber Bescheid wissen und ggf. involviert sind, das Problem unter dem Teppich zu halten)<br>
+          +++<br>
+          <strong>#GrünXXX</strong><br>
+          Schaut euch mal das GrünXXX an, ich arbeite dort und weiß wie es abgeht. Das Faule regiert und stinkt vor sich hin. In Neustadt stapelt sich der Müll in den Gebüschen , Arbeiten werde nie zu Ende gebracht nur angefangen und Bäume werde verunstaltet. In der Ausbildungs-Abteilung beim GrünXXX sitzt eine Meisterin, die keinen Meister hat. Es werden Facharbeiter als Facharbeiter beschäftigt, die keinen Facharbeiterabschluss haben bzw noch nicht mal eine Fachausbildung für Kettensäge usw. Wenn etwas passiert, sind Leute wie ich schuld, die alles können aber nicht gelassen werden. Ehrliche Leute wie ich, die arbeiten möchten, werden freizeitlich verfolgt und in den Wahnsinn getrieben. Andere gehen nur einkaufen in der Dienstzeit und fahren mit dem Auto noch bis zu Tür, um gleich ins Geschäft zu fallen. Wenn man was sagt dann wird man gleich mundtot gemacht. Chefs sind nur im Netz und spielen bzw. verfolgen ihre Mitarbeiter und treiben sie in den Wahnsinn. Andere geben Arbeitsschutzbelehrungen aus DDR-Zeiten aus. Jemand hat einen Antrag gestellt auf neue Arbeits-Schuhe und musste 2 Jahre darauf warten, andere bekommen gleich neue. Die, welche schleimen können, bekommen auch Prämien (Redax: Das ist doch typisch für ein &bdquo;Amt&ldquo;), Andere haben noch nie eine gesehen. Ich traue mir, das zu schreiben und hoffe, dass sich noch mehr anschließen, um den ganzen ein Ende zu setzen. Habe es satt, nur unter Leuten zu sein, die nur Geld kassieren ohne eine vernünftige Leistung. Man müsste mal das Fernsehen drehen lassen in Neustadt und dadurch mal die Missstände aufdecken. Bei uns arbeiten auch kleine Sittenstrolche, die kleine Kinder anmachen und mitnehmen und da sagt keiner was, andere kommen besoffen und schlafen ihren Rausch aus bzw. kommen gar nicht und denen passiert nichts. Andere kommen einmal zu spät und bekommen eine Abmahnung. Mich kotzt es an. Bitte um Hilfe. (Redax: Auch hier brauchen wir eher Namen der Amtspersonen, welche ihre Stellung missbrauchen und konkrete Vorfälle)<br>
+          +++<br>
+        Bis nächste Woche. IHR seid dafür verantwortlich, damit Sachen konkreter werden. Brisantere Themen angesprochen werden.</p>
+        <p><strong>Der Inhalt dieser Seite lebt von EURER Mitarbeit!</strong></p>
+    </div>
+    <div class="tabcontainer">
+    	<h3>Leaks</h3>
+        <p>Auf unserer <a href="https://www.facebook.com/halle.leaks.de" target="_blank">Facebook-Seite</a> veröffentlichen wir ständig Neuigkeiten, die Du auch lesen kannst, wenn Du nicht bei Facebook angemeldet bist.</p>
+        <p style="margin-bottom:100px;"><a href="https://www.facebook.com/halle.leaks.de" target="_blank">https://www.facebook.com/halle.leaks.de</a></p>
+    </div>
+    <hr />
+    <p><a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a></p>
+</div>
+</body>
+</html>

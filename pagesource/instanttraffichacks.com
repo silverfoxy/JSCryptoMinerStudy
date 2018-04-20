@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.instanttraffichacks.com/coming-soon">redirected</a>.</body></html>

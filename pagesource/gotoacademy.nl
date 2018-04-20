@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.gotoacademy.nl/">redirected</a>.</body></html>

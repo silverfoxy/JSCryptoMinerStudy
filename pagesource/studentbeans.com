@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.studentbeans.com/us">redirected</a>.</body></html>

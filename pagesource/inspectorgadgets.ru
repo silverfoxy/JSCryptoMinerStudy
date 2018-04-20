@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.inspectorgadgets.ru/">redirected</a>.</body></html>

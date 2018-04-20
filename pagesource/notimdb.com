@@ -1,0 +1,1 @@
+<script type="text/javascript">window.location.href="http://www.imdb.com//";</script><noscript><meta http-equiv="refresh" content="0;url=http://www.imdb.com//" /></noscript>

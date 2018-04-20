@@ -1,0 +1,3 @@
+<br />
+<b>Warning</b>:  mysql_connect(): Too many connections in <b>/home/dunker/public_html/db_connect.inc.php</b> on line <b>15</b><br />
+Redirecting to http://www.yourchords.com/index-updating.php ...

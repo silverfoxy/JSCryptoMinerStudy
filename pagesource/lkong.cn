@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"> 
+<title>登录龙空</title>
+ <script src="http://lkong.cn/lkong/template/lkong/js/jquery-1.12.1.min.js" type="text/javascript"></script>
+  <script>
+$(function(){
+var signuphtml=$("#signuphtml").html();
+var loginform=$('#loginform');
+var loginhtml=loginform.html();
+var showerror=$("#showerror");
+var signuppre=$("#signuppre").html();
+$("#signuphtml").remove();
+$("#signuppre").remove();
+var mailreg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/i;	
+vobes={};
+vobes.signuppre=function(){
+showerror.html('&nbsp;');
+loginform.html(signuppre);
+}
+var patharr=location.pathname.split('/');
+if(patharr[1]=="discover"){
+if(patharr[2] && patharr[3]){
+var tmpemail=$.trim(patharr[2]);
+if(tmpemail && mailreg.test(tmpemail)){
+showerror.html('&nbsp;');
+var newhtml=signuphtml.replace(/email\@email/gi,tmpemail);
+loginform.html(newhtml);
+
+var exitsigncode=$.trim(patharr[3]);
+$("#myemailcode").val(exitsigncode);
+$("#needreturnback").hide();
+}else{
+vobes.signuppre();
+}
+
+}else{
+vobes.signuppre();
+}
+}
+loginform.on('click',"#signup",vobes.signuppre);
+loginform.on('click',"#relogin",function(){
+showerror.html('&nbsp;');
+loginform.html(loginhtml);
+
+})
+$('#loginform').submit(function(e){
+e.preventDefault();
+e.originalEvent.preventDefault()
+var dlobj=$('#button_login');
+dlobj.attr("disabled",true);
+
+var email=$('#email').val();
+email=$.trim(email);
+var mailtest=mailreg.test(email);
+if(!email || mailtest==false){
+dlobj.removeAttr("disabled");
+showerror.html("请输入邮箱地址");
+return false;
+}
+showerror.html('&nbsp;');
+$.ajax({
+url:'index.php?mod=login',
+data:$(this).serialize(),
+dataType:"json",
+type : "post",
+success :function(data){
+dlobj.removeAttr("disabled"); 
+if(data.uid){
+if(data.yousuu){
+toyousuu(data.yousuu);
+}else{
+window.location.href = window.location.href;
+}
+}else if(data.error){
+showerror.html(data.error);
+}else if(data.next){
+showerror.html('&nbsp;');
+var newhtml=signuphtml.replace(/email\@email/gi,data.next);
+loginform.html(newhtml);				
+}else{
+showerror.html('未知的登陆错误');
+}
+},
+error:function(data){
+dlobj.removeAttr("disabled"); 
+showerror.html('网络原因导致失败！');
+},
+});
+return false;
+});
+function toyousuu(identity){
+$.ajax({
+url:"http://www.yousuu.com/r",
+data:{identity:identity},
+dataType:"jsonP",
+type:"get",
+success:function(data){
+window.location.href = window.location.href;
+},
+error:function(err){
+window.location.href = window.location.href;
+},
+timeout:2000
+})
+}	
+
+});
+  </script>
+<link rel="stylesheet" type="text/css" media="screen" href="http://lkong.cn/lkong/template/lkong/css/login.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<body id="login">
+<!--[if lte IE 7]>
+<div id="ie6-warning" style="color:red;font-size:18px">你正在使用的浏览器版本太低，将不能正常浏览龙的天空。请升级 <a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie">Internet Explorer</a> 或使用 <a href="http://www.google.com/chrome/">Google Chrome</a> 浏览器。</div>
+<![endif]-->
+<div id="page">
+<div><div>
+<div id="login_form">
+<form action="index.php?mod=login" method="post" id="loginform">
+<input name="action" value="login" type="hidden">
+<ul class="clearfix">
+<li>
+<label for="email">邮箱地址</label>
+<input value="" id="email" class="text r5px" name="email" placeholder="输入email" autofocus="" type="email">
+</li>
+<li>
+<label for="password">密码</label>
+<input id="password" class="text r5px" name="password" type="password">
+</li>
+<li class="last">
+<label for="">&nbsp;</label>
+<input id="button_login" class="button_blue" value="登 录" type="submit">
+</li>
+<li>
+<input id="remember_me" name="rememberme" type="checkbox" checked="">
+<label for="remember_me" class="remember_me">记住我的登录状态</label>
+</li>
+<li>
+<a href="javascript:;" id="signup" style="color:#fff;">新用户注册</a>&nbsp;&nbsp;
+<a href="http://www.lkong.net/member.php?mod=logging&amp;action=login&amp;viewlostpw">忘记密码？</a>
+
+</li>
+</ul>
+</form>
+<div id="showerror">&nbsp;</div>
+<div id="footer">
+<p> 龙空 <a href="http://weibo.com/2215779232" target="_blank" rel="nofollow">新浪微博</a><br>
+<a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备11037503号-1</a></p>
+</div>
+</div></div>
+</div>
+<div id="signuppre" style="display:none;">
+<input name="action" value="signuppre" type="hidden">
+<div class="inthread">
+<table>
+<tr>
+<td class="label">
+<p>输入注册邮箱</p>
+</td>
+<td>
+<input value="" id="email" class="text r5px" name="email" placeholder="email是唯一的" type="email">
+</td>
+</tr>
+</table>
+</div>
+<div style="height: 36px;line-height: 36px;background-color:#fff;float:right;border-radius:10px;width:85px;">
+<a href="javascript:;" id="relogin" style="color:#3cf;display:block;">返回登录</a>
+</div>
+<input type="submit" value="验证邮箱并进入下一步" class="button_blue" style="width:350px;border-radius:10px;margin-right: 90px;"/>
+</div>
+<div id="signuphtml" style="display:none;">
+<input name="action" value="signup" type="hidden">
+<div class="inthread">
+<div style="margin-bottom:10px;padding:10px;background-color:#fff;color:#333;">
+<p>龙空已给您的邮箱 <span style="font-weight:bold;color:#FF8400;">email@email</span> 发送了一个验证码，请登录邮箱查看并在本页面填写验证码</p>
+<p id="needreturnback">如果你在两分钟内没有收到邮件，可以回到<a href="javascript:;" onclick="vobes.signuppre();" style="color:#3cf;">上一步重新发送邮件</a></p>
+</div>
+<table>
+<tr>
+<td class="label">
+<p>用户名</p>
+</td>
+<td>
+<input value="" id="username" class="text r5px" name="username" placeholder="用户名可用汉字" autofocus="" autocomplete="off">
+</td>
+</tr>
+<tr>
+<td class="label">
+<p>密码</p>
+</td>
+<td>
+<input id="password" class="text r5px" name="password" type="password">
+</td>
+</tr>
+<tr>
+<td class="label">
+<p>确认密码</p>
+</td>
+<td>
+<input id="repassword" class="text r5px" name="repassword" type="password">
+</td>
+</tr>
+<tr>
+<td class="label">
+<p>注册邮箱</p>
+</td>
+<td>
+<input id="email" class="text r5px" name="email" placeholder="email是唯一的" type="email" value="email@email" >
+</td>
+</tr>
+<tr>
+<td class="label">
+<p>邮箱验证码</p>
+</td>
+<td>
+<input class="text r5px" name="emailreg" placeholder="请输入邮箱收到的验证码" id="myemailcode" autocomplete="off">
+</td>
+</tr>
+<tr>
+<td class="label">
+<p>性别</p>
+</td>
+<td class="fs14">
+<input name="gender" id="gender" type="radio" value="2"><b class="pass" style="display:none"></b>
+<label for="gender">女</label>&nbsp;&nbsp;<input name="gender" id="gender2" type="radio" value="1" checked=""> <label for="gender2">男</label>
+</td>
+</tr>
+<tr>
+<td>
+
+</td>
+<td>
+<input id="note_ok" name="note" type="checkbox" checked disabled>
+<label for="note_ok" ><a href="http://lkong.cn/note.html" target="_blank" style="color:#3cf;">同意龙空使用协议并注册</a></label>
+</td>
+</tr>
+</table>
+<div>
+
+<div style="height: 36px;line-height: 36px;background-color:#fff;float:right;border-radius:10px;width:85px;">
+<a href="javascript:;" id="relogin" style="color:#3cf;display:block;">返回登录</a>
+</div>
+<input type="submit" value="注 册" class="button_blue" style="width:350px;border-radius:10px;margin-right: 90px;"/>
+</div>
+</div>	
+</div>
+
+</div>
+
+</div>
+</body></html>

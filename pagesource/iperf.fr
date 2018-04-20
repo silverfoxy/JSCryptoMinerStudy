@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>iPerf - The TCP, UDP and SCTP network bandwidth measurement tool</title>
+	<meta name="description" content="iPerf3 binaries - measuring TCP, UDP and SCTP bandwidth performance" />
+	<meta name="keywords" content="iPerf3, iPerf binaries, speedtest IPv6, bandwidth, delay, jitter, datagram loss, TCP, UDP, SCTP, RWin" />
+	<meta name="author" content="Vivien GUEANT" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/component.css" />
+	<script src="js/modernizr.custom.js"></script>
+</head>
+
+<body>
+		<div class="container">	
+			<header>
+				<a href="/"><img src="/images/logo_iperf.png" alt="iPerf.fr" /></a>
+
+				<h1>iPerf - The ultimate speed test tool for TCP, UDP and SCTP<span>Test the limits of your network + Internet neutrality test</span></h1>	
+			</header>
+			<div class="main clearfix">
+				<nav id="menu" class="nav">					
+					<ul>
+						<li>
+							<a href=".">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-home"></i>
+								</span>
+								<span>Home</span>
+							</a>
+						</li>
+						<li>
+							<a href="iperf-download.php">
+								<span class="icon"> 
+									<i aria-hidden="true" class="icon-download"></i>
+								</span>
+								<span>Download iPerf binaries</span>
+							</a>
+						</li>
+						<li>
+							<a href="iperf-servers.php">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-servers"></i>
+								</span>
+								<span>Public iPerf3 servers</span>
+							</a>
+						</li>
+						<li>
+							<a href="iperf-doc.php">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-doc"></i>
+								</span>
+								<span>iPerf user docs</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://lafibre.info/iperf/" target="_blank">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-forum"></i>
+								</span>
+								<span>French iPerf forum</span>
+							</a>
+						</li>
+						<li>
+							<a href="contact.php">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-contact"></i>
+								</span>
+								<span>Contact</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div><!-- /container -->
+		<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+			    }
+			    return r.className;
+			};	
+
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				changeClass(this, 'navtoogle active', 'navtoogle');
+			}
+
+			// http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+				if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+					changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+				}
+			}
+		</script>
+
+<h2>What is iPerf / iPerf3 ?</h2>
+<p>iPerf3 is a tool for active measurements of the maximum achievable bandwidth on IP networks.
+It supports tuning of various parameters related to timing, buffers and protocols (TCP, UDP, SCTP with IPv4 and IPv6).
+For each test it reports the bandwidth, loss, and other parameters.
+This is a new implementation that shares no code with the original iPerf and
+also is not backwards compatible. iPerf was orginally developed by <a href="contact.php#authors">NLANR/DAST</a>.
+iPerf3 is principally developed by <a href="https://www.es.net/" target="_blank">ESnet</a>
+/ <a href="https://www.lbl.gov/" target="_blank">Lawrence Berkeley National Laboratory</a>.
+It is released under a three-clause <a href="https://en.wikipedia.org/wiki/BSD_licenses" target="_blank">BSD license</a>.</p>
+
+<h2 id="features">iPerf features</h2>
+<ul>
+  <li>TCP and <a href="https://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol" target="_blank">SCTP</a>
+  <ul>
+    <li>Measure bandwidth</li>
+    <li>Report MSS/MTU size and observed read sizes.</li>
+    <li>Support for TCP window size via socket buffers.</li>
+  </ul></li>
+  <li>UDP
+  <ul>
+    <li>Client can create UDP streams of specified bandwidth.</li>
+    <li>Measure packet loss</li>
+    <li>Measure <a href="https://en.wikipedia.org/wiki/Packet_delay_variation">delay jitter</a></li>
+    <li>Multicast capable</li>
+  </ul></li>
+  <li>Cross-platform: Windows, Linux, Android, MacOS X, FreeBSD, OpenBSD, NetBSD, <a href="https://en.wikipedia.org/wiki/VxWorks" target="_blank">VxWorks</a>, Solaris,...</li>
+  <li>Client and server can have multiple simultaneous connections (-P option).</li>
+  <li>Server handles multiple connections, rather than quitting after a single test.</li>
+  <li>Can run for specified time (-t option), rather than a set amount of data to transfer (-n or -k option).</li>
+  <li>Print periodic, intermediate bandwidth, jitter, and loss reports at specified intervals (-i option).</li>
+  <li>Run the server as a daemon (-D option)</li>
+  <li>Use representative streams to test out how link layer compression affects your achievable bandwidth (-F option).</li>
+  <li>A server accepts a single client simultaneously (iPerf3) multiple clients simultaneously (iPerf2)</li>
+  <li>New: Ignore TCP slowstart (-O option).</li>
+  <li>New: Set target bandwidth for UDP and (new) TCP (-b option).</li>
+  <li>New: Set IPv6 flow label (-L option)</li>
+  <li>New: Set congestion control algorithm (-C option)</li>
+  <li>New: Use SCTP rather than TCP (--sctp option)</li>
+  <li>New: Output in JSON format (-J option).</li>
+  <li>New: Disk read test (server: iperf3 -s / client: iperf3 -c testhost -i1 -F filename)</li>
+  <li>New: Disk write tests (server: iperf3 -s -F filename / client: iperf3 -c testhost -i1)</li>
+</ul>
+
+<br />
+<hr />
+<h2 id="ip-info">IP information (on your terminal)</h2>
+<ul>
+      <li>The default IP protocol is <strong><span class="texterouge">IPv4</span></strong></li>
+      <li><span class="textebig">Your public IPv4 address is : <strong>54.80.80.77</strong></span> (Reverse DNS: <em>ec2-54-80-80-77.compute-1.amazonaws.com</em>)</li>
+      <li><span class="textebig">Your public IPv6 address is : <strong id="ip">You do not have IPv6 connectivity</strong></span> (Reverse DNS: <em id="hostname">n/a</em>)</li></ul>
+
+
+<br />
+<hr />
+<h2 id="mailing-list">Mailing list</h2>
+
+<p>To post a message to all the list members, you need to <a href="https://lists.sourceforge.net/lists/listinfo/iperf-users/" target="_blank">subscribe to Iperf-users</a>.</p>
+<p>To see the collection of prior postings to the list, visit the <a href="https://sourceforge.net/p/iperf/mailman/iperf-users/" target="_blank">Iperf-users Archives</a>.</p>
+
+<br />
+<hr />
+<h2 id="bug">Bug Report for iPerf3</h2>
+
+<p>Before submitting a bug report, try checking out the latest version of the code, and confirm that it’s not already fixed.
+Then submit to the iPerf3 issue tracker on GitHub: <a href="https://github.com/esnet/iperf/issues" target="_blank">https://github.com/esnet/iperf/issues</a></p>
+
+<h3>Known Issues</h3>
+
+<p>The following problems are notable known issues, which are probably of interest to a large fraction of users or have high impact for some users, and for which issues have already been filed in the issue tracker.  These issues are either open (indicating no solution currently exists) or closed with the notation that no further attempts to solve the problem are currently being made:</p>
+<ul>
+<li>UDP performance: Some problems have been noticed with iperf3 on the ESnet 100G testbed at high UDP rates (above 10Gbps).  The symptom is that on any particular run of iperf3 the receiver reports a loss rate of about 20%, regardless of the ``-b`` option used on the client side.  This problem appears not to be iperf3-specific, and may be due to the placement of the iperf3 process on a CPU and its relation to the inbound NIC.  In some cases this problem can be mitigated by an appropriate use of the CPU affinity (``-A``) option.  (Issue #55)</li>
+<li>Interval reports on high-loss networks: The way iperf3 is currently implemented, the sender write command will block until the entire block has been written. This means that it might take several seconds to send a full block if the network has high loss, and the interval reports will have widely varying interval times.  A solution is being discussed, but in the meantime a work around is to try using a small block size, for example ``-l 4K``.  (Issue #125, a fix will be released in iperf 3.1)</li>
+<li>The ``-Z`` flag sometimes causes the iperf3 client to hang on OSX. (Issue #129)</li>
+<li>When specifying the TCP buffer size using the ``-w`` flag on Linux, the Linux kernel automatically doubles the value passed in to compensate for overheads.  (This can be observed by using iperf3's ``--debug`` flag.)  However, CWND does not actually ramp up to the doubled value, but only to about 75% of the doubled value.  Some part of this behavior is documented in the tcp(7) manual page.  (Issue #145)</li>
+</ul>
+<br />
+<hr />
+<h2 id="bug2">Bug Report for iPerf2</h2>
+
+<p>The best way to get help with iPerf2 is by using its forum <a href="https://sourceforge.net/p/iperf2/discussion/" target="_blank">https://sourceforge.net/p/iperf2/discussion/</a></p>
+
+<br />
+<hr />
+<h2 id="update">Update site iperf.fr</h2>
+
+<p>To update this site, please report them to <a href="mailto:vivien16@gueant.org">vivien16@gueant.org</a> and we will try to fix them quickly.</p>
+
+
+<br />
+<hr />
+<h2 id="authors">Code Authors</h2>
+
+<p>The main authors of iPerf3 are (in alphabetical order): Jon Dugan, Seth Elliott, Bruce A. Mah, Jeff Poskanzer, Kaustubh Prabhu.
+Additional code contributions have come from (also in alphabetical order): Mark Ashley, Aaron Brown, Aeneas Jaißle, Susant Sahani, Bruce Simpson, Brian Tierney.</p>
+
+<p>iPerf3 contains some original code from iPerf2. The authors of iPerf2 are (in alphabetical order):
+Jon Dugan, John Estabrook, Jim Ferbuson, Andrew Gallatin, Mark Gates, Kevin Gibbs,
+Stephen Hemminger, Nathan Jones, Feng Qin, Gerrit Renker, Ajay Tirumala, Alex Warshavsky.</p>
+
+<p>Acknowledgements for iPerf1: Thanks to Mark Gates (NLANR), Alex Warshavsky (NLANR) and Justin Pietsch (University of Washington)
+who were responsible for the 1.1.x releases of Iperf.
+For iPerf 1.7, we would like to thank Bill Cerveny (Internet2), Micheal Lambert (PSC), Dale Finkelson (UNL)
+and Matthew Zekauskas (Internet2) for help in getting access to IPv6 networks / machines.
+Special thanks to Matthew Zekauskas (Internet2) for helping out in the FreeBSD implementation.
+Also, thanks to Kraemer Oliver (Sony) for providing an independent implementation of IPv6
+version of Iperf, which provided a useful comparison for testing our features.</p>
+
+<p>Thanks to <a href="https://www.es.net/" target="_blank">ESnet</a> for re-rolling iperf from the ground up. iPerf3 is a killer piece of software.</p>
+
+<p>Thanks to <a href="https://www.ikoula.com/" target="_blank"><img src="images/logo_ikoula.png" alt="Ikoula" /></a>
+for hosting iPerf.fr.</p>
+</body></html>
+
+
+<script>
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '//ipv6.iperf.fr/json.php', true);
+  xhr.onload = function() { 
+    var response = JSON.parse(xhr.responseText);
+    for (var k in response) {
+      if (response.hasOwnProperty(k)) {
+      	var elem = document.getElementById(k);
+        if (elem) elem.innerHTML = response[k];
+      }
+    }
+  };
+  xhr.send(null);
+</script>

@@ -1,0 +1,1 @@
+<h1>Your browser is not accepting header redirects</h1><p>Please <a href="https://www.campaignamp.com/">click here</a>

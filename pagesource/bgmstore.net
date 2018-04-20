@@ -1,0 +1,3316 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>브금저장소 :: 세상의 모든 브금! BGM STORE</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"">
+	    <meta name="viewport" content="width=1137">
+		<meta name="keywords" content="BGM,bgm,비쥐엠,비지엠,브금,background music,백그라운드뮤직,배경음악,브금저장소,브금스토어,브금검색기,브금검색"/>
+		<meta name="description" content="브금저장소 :: 세상의 모든 브금! BGM STORE"/>
+
+		<meta property="og:url" content="http://bgmstore.net/" />
+		<meta property="og:title" content="브금저장소 :: 세상의 모든 브금! BGM STORE" />
+		<meta property="og:description" content="브금저장소 :: 세상의 모든 브금! BGM STORE" />
+				<meta property="og:image" content="https://files.bgmstore.net/assets/images/fb_image.png" />
+		<meta property="og:type" content="website" />
+		
+		<link rel="apple-touch-icon" href="https://files.bgmstore.net/assets/images/app_icon.png"> 
+		<link rel="shortcut icon" href="https://files.bgmstore.net/assets/images/favicon.ico">
+		
+	    <!-- core -->
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/bootstrap-non-responsive.css">
+	    <link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/bootstrap-material-design.css">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/sweetalert2.min.css">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/ripples.min.css">
+		<link rel="stylesheet" type="text/css" href="https://files.bgmstore.net/assets/css/ladda-themeless.min.css">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/plugins.css">
+		<link rel="stylesheet" type="text/css" href="/assets/theme_v3/css/common.css">
+		
+		<!-- core -->
+		<script type="text/javascript" src="https://files.bgmstore.net/assets/js/jquery.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/assets/theme_v3/js/bootstrap.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/assets/theme_v3/js/plugins.js" charset="utf-8"></script>
+		
+		
+		<script type="text/javascript">
+$(document).ready(function() {
+	if($('#q').val() != '')
+		$('#q').focus().select();
+	$('.enableLink').linkify();
+
+
+	prevScrollTop = 0;
+	//var scrollTimeout;
+	$(window).on('scroll', function() {
+		//if (scrollTimeout) {
+		//	clearTimeout(scrollTimeout);
+	    //    scrollTimeout = null;
+		//}
+	    //scrollTimeout = setTimeout(scrollHandler, 100);
+		scrollHandler();
+	});
+	scrollHandler = function () {
+		var currentScrollTop = $(window).scrollTop();
+		if(currentScrollTop > prevScrollTop && currentScrollTop > 30)
+			$('.navbar-sub').hide();
+		else
+			$('.navbar-sub').show();
+
+		prevScrollTop = $(window).scrollTop();
+	};
+
+	$('.search_wrap #q').on('focusin', function() {
+		$(this).parents('.search_wrap').addClass('active');
+	});
+
+	$('.search_wrap #q').on('focusout', function() {
+		$(this).parents('.search_wrap').removeClass('active');
+	});
+
+
+
+    $('.navbar .ncenterDropdown').on('shown.bs.dropdown', function () {
+    	var obj = $(this);
+    	$.ajax({
+    		  url: "/ncenter/getList"
+    	}).done(function(result) {
+    		obj.find('.nano-content').html(result);
+    		obj.find('.nano').nanoScroller({ preventPageScrolling: true });
+    	});
+
+    });
+	$(".nano").nanoScroller({ preventPageScrolling: true });
+
+	$('.bgmListLoader,.categoriesLoader,.commentsArea').html('<div class="myloader"></div>');
+
+	$('.bgmListLoader').each(function(k, v) {
+		var obj = $(this);
+		setTimeout(function() {
+			var item = {};
+			item['target'] = obj.data('target');
+			item['head_title'] = obj.data('head-title');
+			item['head_color'] = obj.data('head_color');
+			item['head_emoticon'] = obj.data('emoticon');
+			item['is_sidebar'] = obj.data('is-sidebar');
+			item['titles'] = obj.data('titles');
+			item['tags'] = obj.data('tags');
+			item['doc-num'] = obj.data('doc-num');
+			item['rit'] = $('#rit_common').val();
+			console.log(item);
+	    	$.ajax({
+	    		url: "/servlet/get_bgm_list",
+	    		method: 'post',
+	    		data: $.param(item)
+	    	}).done(function(result) {
+	    		obj.replaceWith(result);
+	    	});
+		}, (k+1) * 100);
+	});
+
+	$('.commentsArea').each(function() {
+		var obj = $(this);
+
+		commentRefresh($(this).parents('.bgmInfo').data('key'));
+	});
+
+	$('.categoriesLoader').each(function() {
+		var obj = $(this);
+		$.ajax({
+  		  	url: "/servlet/get_categories_list"
+	  	}).done(function(result) {
+	  		obj.replaceWith(result);
+	  	});
+	});
+
+
+	$(document).on('keypress', function(event) {
+		var tag = event.target.tagName.toLowerCase();
+		if((event.which == 114 || event.which == 12593) && tag != 'input' && tag != 'textarea')
+			location.href="/random";
+	});
+
+	$('#addToFavorites').on('click', function(e) {
+		e.preventDefault();
+
+		var _url = 'https://bgmstore.net';
+		var _name = '브금저장소 :: 세상의 모든 브금! BGM STORE';
+
+		swal('즐겨찾기', (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command(커맨드)' : 'Ctrl(컨트롤)') + ' + D를 눌러 즐겨찾기/북마크에 추가하세요.' , 'info');
+	});
+
+	$('.remove_all').click(function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			url     : "/ncenter/remove_all",
+			data    : "rit=" + $('#rit_common').val(),
+			global  : false,
+			success : function(result) {
+				$('.nc_container').children('div').hide();
+				$('.nc_container').find('.noNotify').removeClass('hide').show();
+				$('.badgeNotify').hide();
+			}
+		});
+	});
+
+
+	$('body').on('click', '.btnVote', function(e) {
+		e.preventDefault();
+
+		var btnVote = $(this);
+		var l = Ladda.create(this);
+	 	l.start();
+
+		var key_val = $(this).parents('.bgmInfo').attr('data-key');
+
+		$.ajax({
+			url     : "/servlet/vote",
+			type    : "POST",
+			data    : "key=" + key_val + "&uid=-1&rit=" + $('#rit_common').val(),
+			global  : false,
+			success : function(result){
+				var $returned_val = jQuery.parseJSON(result);
+				if($returned_val['success'] === true)
+				{
+					swal({
+						title: "베스트로 가버렷!",
+						html: "당신의 추천 센스에 감탄합니다.<br>베스트BGM 등극의 <strong>+1 공헌자</strong>이십니다.",
+						allowOutsideClick: true,
+						imageWidth: 220,
+						imageUrl: "https://files.bgmstore.net/assets/css/images/thumbs-up.jpg"
+						});
+					$('#documentVoteCnt').text($returned_val['vote_cnt']);
+					btnVote.parents('.bgmInfo').find('.voteCnt').text($returned_val['vote_cnt']);
+				}
+				else
+				{
+					swal("오류", $returned_val['msg'], "error");
+				}
+
+				l.stop();
+			}
+		});
+	});
+
+	$('body').on('click', '.btnDownloadInner', function(e) {
+		swal({
+			title: "다운로드 시작!",
+			html: "설마 <strong>추천, 댓글</strong>도 안남기고 다운로드하는 그런.. <br>아니겠죠?",
+			imageWidth: 120,
+			type: "success",
+			allowOutsideClick: true,
+			imageUrl: "https://files.bgmstore.net/assets/css/images/funny_image0.png"
+			});
+	});
+
+
+
+$(document).on('click', '.btnScrap,.btnAddPlaylistTrigger,.btnDeleteRequestTrigger', function() {
+	swal(
+		{
+			title: "로그인 하시겠습니까?",
+			html: "로그인 후 <strong>스크랩, 플레이리스트, 업로드, 팔로우, 뉴스피드</strong> 등 모든 기능을 제한없이 이용하세요!",
+			type: "warning",
+			cancelButtonText: "싫어요.",
+			showCancelButton: true,
+			confirmButtonText: "네! 로그인할게요!",
+			closeOnConfirm: false,
+			allowOutsideClick: true
+		}).then(function() {
+			swal(
+					{
+						title: "감사합니다!",
+						html: "곧 로그인 페이지로 이동합니다.",
+						timer: 1500,
+						showConfirmButton: true,
+						confirmButtonText: "바로 이동할래!",
+						allowOutsideClick: true
+					}).then(function() {
+						location.href="/account/login?return_url=%2F";
+					}
+				);
+		});
+});
+
+
+
+
+
+
+
+
+    $('.btnConfigHapilHide').on('click', function() {
+        if($(this).find(".on_off").text() == "OFF")
+        {
+            swal('성공', '합필갤 BGM이 검색결과에서 나타나도록 설정하였습니다.', 'success');
+            $(this).find(".on_off").text("ON");
+            $.removeCookie('config_hapil_hide', {path: '/'});
+            $.cookie('config_hapil_hide', 'N', {expires: 365, path: '/', domain: '.bgmstore.net'});
+            $('.categories').each(function() {
+                if($(this).text() == '합필갤')
+                    $(this).show();
+            });
+        } else {
+            swal('성공', '합필갤 BGM이 검색결과에서 제외되도록 설정하였습니다.', 'success');
+            $(this).find(".on_off").text("OFF");
+            $.removeCookie('config_hapil_hide', {path: '/'});
+            $.cookie('config_hapil_hide', 'Y', {expires: 365, path: '/', domain: '.bgmstore.net'});
+            $('.categories').each(function() {
+                if($(this).text() == '합필갤')
+                    $(this).hide();
+            });
+        }
+    });
+
+
+
+$('.deleteReasonList').change(function() {
+	if($(this).val() == 'vio_copy')
+	{
+		swal({
+			title: "메시지",
+			html: '저작권 위반의 경우에는 본인임을 확인할 수 있는 자료와 <strong>contact@bgmstore.net</strong> 으로 메일주시면 확인 후 즉시 삭제 및 업로더 영구차단 처리하고있습니다.',
+			type: 'info'
+			});
+		$('#deleteRequestModal').modal('hide');
+	}
+});
+
+$('body').on('click', '.btnDeleteRequestTrigger', function(e) {
+	e.preventDefault();
+	$('#deleteRequestModal').modal();
+	var documentKey = $(this).parents('.bgmInfo').attr('data-key');
+
+	$('#deleteRequestModal').attr('data-document-key', documentKey);
+	$('#deleteRequestModal .deleteReasonList').val('');
+	$('#deleteRequestModal #deleteRequestContent').val('');
+});
+
+$('body').on('click', '.btnDeleteRequest', function(e) {
+	e.preventDefault();
+
+	var documentKey = $('#deleteRequestModal').attr('data-document-key');
+	var deleteReason = $('.deleteReasonList').val();
+	var deleteRequestContent = $('#deleteRequestContent').val();
+
+	if(deleteReason == '')
+	{
+		swal('오류', '삭제요청 사유를 선택해주세요.', 'warning');
+		return;
+	}
+	/*alert(documentKey);
+	alert(deleteReason);*/
+	$.ajax({
+		url     : "/servlet/delete_request",
+		type    : "post",
+		data    : "document_key=" + documentKey + "&delete_reason=" + deleteReason + "&content=" + deleteRequestContent + "&rit="+ $('#rit_common').val(),
+		global  : false,
+		success : function(result){
+			var $returned_val = jQuery.parseJSON(result);
+			swal('메시지', $returned_val['msg'], 'info');
+			$('#deleteRequestModal').modal('hide');
+		}
+	});
+});
+
+
+
+
+$(document).on("click", '.btnEmbedShareText', function(e) {
+	e.preventDefault();
+	var bgmNum = $(this).parents('.bgmInfo').attr('data-num');
+	var bgmKey = $(this).parents('.bgmInfo').attr('data-key');
+	var bgmUrl0 = "https://player.bgmstore.net/" + bgmKey + "/mp4";
+	var bgmUrl1 = "https://player.bgmstore.net/" + bgmKey;
+	var bgmUrl2 = "https://player.bgmstore.net/" + bgmKey;
+	var bgmEmbedTag0 = '<embed src="' + bgmUrl0 + '" autostart="true" allowscriptaccess="always" enablehtmlaccess="true" allowfullscreen="true" width="422" height="240" type="video/mp4"></embed><br><a href="http://bgmstore.net/view/' + bgmKey + '" target="_blank">BGM정보 : 브금저장소 - http://bgmstore.net/view/' + bgmKey + '</a>';
+	var bgmEmbedTag1 = '<iframe src="' + bgmUrl0 + '" width="422" height="240" frameborder="0"></iframe><br><a href="http://bgmstore.net/view/' + bgmKey + '" target="_blank">BGM정보 : 브금저장소 - http://bgmstore.net/view/' + bgmKey + '</a>';
+	var bgmEmbedTag2 = '<embed src="' + bgmUrl2 + '" autostart="true" allowscriptaccess="always" enablehtmlaccess="true" allowfullscreen="true" width="422" height="240" type="video/mp4"></embed><br><a href="http://bgmstore.net/view/' + bgmKey + '" target="_blank">BGM정보 : 브금저장소 - http://bgmstore.net/view/' + bgmKey + '</a>';
+
+	$('#promptModal #promptText0').val(bgmEmbedTag0);
+	$('#promptModal #promptText1').val(bgmEmbedTag1);
+	if(bgmNum > 273072) {
+		$('#promptModal #promptText2').parent().hide();
+	} else {
+		$('#promptModal #promptText2').val(bgmEmbedTag2);
+		$('#promptModal #promptText2').parent().show();
+	}
+	$('#promptModal').modal();
+});
+$('#promptText0,#promptText1,#promptText2').on('click', function (e) {
+	$(this).focus().select();
+});
+
+
+
+
+
+$limit_count = 1;
+$q_val = $('#q_val').text();
+$q_type_val = $('#q_type_val').text();
+$q_mode_val = $('#q_mode_val').text();
+$sort_by = $('#sort_by').text();
+$sort_type = $('#sort_type').text();
+$member_num = $('#member_num').text();
+
+$('.btnMoreBgm').on('click', function(e) {
+	e.preventDefault();
+
+	var l = Ladda.create(this);
+ 	l.start();
+
+	$.ajax({
+		url     : "/servlet/more_bgm",
+		type    : "POST",
+		data    : "limit_count="+$limit_count+"&q="+$q_val+"&q_type="+$q_type_val + "&sort_by=" + $sort_by + "&sort_type=" + $sort_type + "&member_num=" + $member_num + "&q_mode=" + $q_mode_val + "&rit="+ $('#rit_common').val(),
+		global  : false,
+		success : function(result){
+			$limit_count = $limit_count + 1;
+			var $returned_val = jQuery.parseJSON(result);
+			$('.search_result').last().after($returned_val['html_data']);
+			if($returned_val['result_count'] < 30) {
+				$('.btnMoreBgm').parent().hide();
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+	        console.log("Status: " + textStatus + ", Error: " + errorThrown);
+	    },
+		complete : function() {
+			l.stop();
+		}
+	});
+	return false;
+});
+
+isPlaying = false;
+audioError = false;
+$(document).on('click', '.btnPlay:not(.mp3Play)', function(e) {
+	audioError = false;
+	e.preventDefault();
+	curBtnObj = $(this);
+	curBgmEmbedAreaObj = curBtnObj.parents('.bgmInfo').find('.bgmEmbedArea');
+
+	if($('.random_autonext_player').length)
+	{
+		$('.random_autonext_player')[0].pause();
+	}
+
+	if($('#audio1').length)
+	{
+		$('#audio1')[0].pause();
+	}
+
+	playHtml = '<span class="glyphicon glyphicon-play"></span>';
+	stopHtml = '<span class="glyphicon glyphicon-stop"></span>';
+	bgmKey = curBtnObj.parents('.bgmInfo').attr('data-key');
+	bgmUrl = "https://player.bgmstore.net/" + bgmKey + "/mp4";
+	bgmEmbedTag = '<iframe src="' + bgmUrl + '" width="100%" height="240" frameborder="0"></iframe>';
+
+	if(typeof(exBtnObj) == 'undefined')
+		exBtnObj = curBtnObj;
+
+	$('.bgmEmbedArea').not(curBgmEmbedAreaObj).html('').height(0);
+	$('.btnPlay').not(curBtnObj).html(playHtml);
+
+	if(curBtnObj.is(exBtnObj)) {
+		//처음 재생 버튼을 누를때
+		if(curBgmEmbedAreaObj.height() == 0) {
+			curBgmEmbedAreaObj.height(240).html(bgmEmbedTag);
+			curBtnObj.html(stopHtml);
+		//현재 재생되고 있는 bgm을 다시 누를때, 즉 끌때
+		} else {
+			curBgmEmbedAreaObj.html('').height(0);
+			curBtnObj.html(playHtml);
+
+			if($('.random_autonext_player').length)
+			{
+				$('.random_autonext_player')[0].play();
+			}
+		}
+	} else {
+		//처음버튼 누르고 다른 버튼 재생 누를때
+		curBgmEmbedAreaObj.height(240).html(bgmEmbedTag);
+		curBtnObj.html(stopHtml);
+	}
+
+	exBtnObj = curBtnObj;
+});
+
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal" id="promptModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">퍼가기</h4>
+			</div>
+			<div class="modal-body clearfix">
+				<div class="alert alert-info">
+					<p>퍼가실때는 출처를 지우지 마시고 꼭 남겨주세요!</p>
+					<p><strong>Ctrl(컨트롤) + c</strong>를 눌러 복사하세요.</p>
+				</div>
+				<div class="form-group has-success">
+					<label class="control-label" for="promptText0">HTML5 embed로 퍼가기 (iframe 태그가 막힌 블로그/카페 등)</label>
+					<input type="text" class="form-control" id="promptText0" readonly="readonly">
+					<p class="help-block">iframe태그가 막혀있다면 위의 퍼가기를 이용하세요.</p>
+				</div>
+				<div class="form-group has-success">
+					<label class="control-label" for="promptText1">HTML5 iframe으로 퍼가기</label>
+					<input type="text" class="form-control" id="promptText1" readonly="readonly">
+					<p class="help-block">iframe태그는 막혀있는 곳이 있을 수 있습니다.</p>
+				</div>
+				<div class="form-group has-warning">
+					<label class="control-label" for="promptText2">(삭제예정) 플래시로 퍼가기 (HTML5가 지원되지 않는 곳)</label>
+					<input type="text" class="form-control" id="promptText2" readonly="readonly">
+					<p class="help-block">삭제예정입니다.</p>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		
+		<script> $(function () { $.material.init(); }); </script>
+    	<script> //$(function () { $.getScript('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'); }); </script>
+		<script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	</head>
+	<body>
+	
+	
+	
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3">
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="/"><i class="material-icons">home</i></a></li>
+							<li><a href="/random"><i class="material-icons">shuffle</i></a></li>
+							<li><a href="/random/settings"><i class="material-icons">settings</i></a></li>
+                            <li><a href="#" id="addToFavorites"><i class="material-icons">star</i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<form class="navbar-form" action="/search">
+						<div class="form-group search_wrap" style="float:left">
+                            <select name="q_type" style="width:50px; height:34px;" class="form-control">
+                                <option value="title">제목</option>
+                                <option value="url">주소</option>
+                                <option value="nickname">닉네임</option>
+                            </select>
+                            <select name="q_mode" style="width:50px; height:34px;" class="form-control">
+                                <option value="general">일반검색</option>
+                                <option value="word">단어로 검색</option>
+                                <option value="strict">완전일치</option>
+                            </select>
+							<i class="material-icons pull-left">search</i>
+							<input type="text" class="form-control" id="q" name="q" value="" placeholder="검색" autocomplete="off">
+                            <span style="margin:3px 5px 0px 0px; padding-left:10px; padding-right:10px;" class="btn pull-right btn-default btnConfigHapilHide" data-placement="bottom" title="검색에서 합필갤 BGM을 보이거나 제외할려면 클릭하세요">합필 <span class="on_off">OFF</span></span>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-3">
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown ncenterDropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="material-icons">notifications</i>
+																	</a>
+								<ul class="dropdown-menu dropdown-menu-md nc_container">
+										                                <div class="pad-all">
+	                                    <span class="text-dark box-block">
+	                                        알림이 없습니다.
+	                                    </span>
+	                                </div>
+																	</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="material-icons">drafts</i>
+																	</a>
+								<div class="dropdown-menu dropdown-menu-md nc_container">
+										                                <div class="pad-all">
+	                                       메시지가 없습니다.
+	                                </div>
+									
+	                                <div class="pad-all bord-top">
+	                                    <a href="/messages/listing/inbox" class="btn-link btn-block">
+	                                        모든 메시지보기
+	                                    </a>
+	                                </div>
+								</div>
+							</li>
+							<li><a href="/upload_v2"><i class="material-icons">cloud_upload</i></a></li>
+														<li><a href="/account/login">로그인</a></li>
+													</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-fixed-top navbar-sub">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-9">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="/search/file"><i class="material-icons text-primary">search</i> 파일검색</a></li>
+						<li><a href="/?sort_by=vote&sort_type=desc"><i class="material-icons text-warning">star</i> 베스트</a></li>
+						<li><a href="/bgm/listing/week_best"><i class="material-icons text-warning">star</i> 주간</a></li>
+						<li><a href="/bgm/listing/month_best"><i class="material-icons text-warning">star</i> 월간</a></li>
+						<li><a href="/mypage/scrap"><i class="material-icons text-primary">inbox</i> 스크랩</a></li>
+						<li><a href="/playlists"><i class="material-icons text-info">play_arrow</i> 플레이리스트</a></li>
+						<li><a href="/newsfeed"><i class="material-icons text-success">flash_on</i> 뉴스피드</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/bbs/listing/free"><i class="material-icons text-primary">forum</i> 자유게시판</a></li>
+						<li><a href="/bbs/listing/qna"><i class="material-icons text-primary">forum</i> 질문&답변</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="categoriesLoader"></div>
+
+	
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="adBox">
+	<div class="panel noPadding">
+		<div class="panel-body noPadding" style="height:90px;">
+							<!-- 728x90 리더보드 1 -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:728px;height:90px"
+				     data-ad-client="ca-pub-2759566504551542"
+				     data-ad-slot="3062819720"></ins>
+				<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+					</div>
+	</div>
+</div>
+
+<div class="alert alert-sm alert-info">
+	<a href="/page/notice"><strong>[공지]</strong> 브금저장소 업로드 규정에 대해서 다시 한번 공지합니다.</a>
+</div>
+															<div class="bgmListLoader" data-head-title="새로 올라온 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="newest" data-is-sidebar="false"></div>
+
+												<div class="bgmListLoader" data-head-title="새로 올라온 자작곡 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="newest_composition" data-is-sidebar="false"></div>
+
+												<div class="bgmListLoader" data-head-title="베스트 자작곡 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="best_composition" data-is-sidebar="false"></div>
+
+												<div class="bgmListLoader" data-head-title="주간 최다 다운로드 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="most_download" data-is-sidebar="false"></div>
+
+												<div class="bgmListLoader" data-head-title="최근 추천된 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="newest_vote" data-is-sidebar="false"></div>
+
+										<h5>
+	  		인기 브금 
+		  			  	
+		  	 
+		  	<img src="https://files.bgmstore.net/assets/images/emoticon/954_notes@2x.png" height="24">
+		  			</h5>
+
+
+<div class="panel bgmList panel-primary bgmPlayWrap" >
+									<div class="bgmInfo  " data-order="0" data-num="578" data-key="DriZy" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/DriZy" class="title">괴혼 - Katamari On The Swing</a> <span class="text-primary">[02:22]</span> <a href="/view/DriZy" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">21</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/mp4/Katamari_On_the_Swing">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/mp3/Katamari_On_the_Swing">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/swf/Katamari_On_the_Swing">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width:63%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="1" data-num="6421" data-key="OZREh" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%8F%99%EC%8B%AC" class="category">[동심]</a> 
+										<a href="/view/OZREh" class="title">테일즈위버 OST - Brand New Spring Is Coming</a> <span class="text-primary">[02:19]</span> <a href="/view/OZREh" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">46</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/mp4/2067CF4C4E225D0226956C">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/mp3/2067CF4C4E225D0226956C">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/swf/2067CF4C4E225D0226956C">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="2" data-num="12474" data-key="M4vPa" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/M4vPa" class="title">I=Nightmare MR</a> <span class="text-primary">[02:16]</span> <a href="/view/M4vPa" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">5</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/mp4/I_Nightmare_MR">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/mp3/I_Nightmare_MR">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/swf/I_Nightmare_MR">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="3" data-num="25234" data-key="T8Xh0" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/T8Xh0" class="title">Battle Hymn Of The Republic (공화국 전투 찬가) (미군, 찬송가, 성스러움, 미국, 전쟁)</a> <span class="text-primary">[05:21]</span> <a href="/view/T8Xh0" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">63</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/mp4/THE_BATTLE_HYMN_OF_THE_REPUBLIC">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/mp3/THE_BATTLE_HYMN_OF_THE_REPUBLIC">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/swf/THE_BATTLE_HYMN_OF_THE_REPUBLIC">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="4" data-num="42531" data-key="bS2Nx" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%ED%9D%A5%EA%B2%A8%EC%9B%80" class="category">[흥겨움]</a> 
+										<a href="/view/bS2Nx" class="title">크아 붐남해(바다맵)bgm (추억, 웅장, 감동, 평화, 희귀)</a> <span class="text-primary">[00:48]</span> <a href="/view/bS2Nx" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[65]</span>&nbsp;<span>+<span class="voteCnt">129</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/10865" class="btn btn-primary btn-sm nickname " target="_blank" title="우힝판다"><img src="https://files.bgmstore.net/member/images/profile/10/10865/1.gif" width="22" height="22">&nbsp;우힝판다</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/mp4/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/mp3/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/swf/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="5" data-num="53755" data-key="Ptal3" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8A%AC%ED%94%94" class="category">[슬픔]</a> 
+										<a href="/view/Ptal3" class="title">천녀유혼 ost 追 영화 음악</a> <span class="text-primary">[01:58]</span> <a href="/view/Ptal3" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">11</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/25768" class="btn btn-primary btn-sm nickname " target="_blank" title="Again"><img src="https://files.bgmstore.net/member/images/profile/25/25768/1.gif" width="22" height="22">&nbsp;Again</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/mp4/05">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/mp3/05">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/swf/05">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="6" data-num="66228" data-key="9enMa" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%ED%9D%AC%EB%A7%9D" class="category">[희망]</a> 
+										<a href="/view/9enMa" class="title">세일러문 OST - 턱시도가면(감동, 평화, 희망, 애절, 동심, 잔잔, 순수, 훈훈, 귀여움, 추억, 달달, 행복, 애니, 만화)</a> <span class="text-primary">[00:42]</span> <a href="/view/9enMa" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[3]</span>&nbsp;<span>+<span class="voteCnt">45</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/25592" class="btn btn-primary btn-sm nickname " target="_blank" title="마잭딜라"><img src="https://files.bgmstore.net/member/images/profile/25/25592/1.gif" width="22" height="22">&nbsp;마잭딜라</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/mp4/tuxedo_appear">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/mp3/tuxedo_appear">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/swf/tuxedo_appear">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="7" data-num="67220" data-key="FDi8a" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%95%A0%EC%A0%88" class="category">[애절]</a> 
+										<a href="/view/FDi8a" class="title">좋아하게되서 다행이야 - 하기와라 유키호(CV.오치아이 유리카)</a> <span class="text-primary">[04:27]</span> <a href="/view/FDi8a" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">23</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/17945" class="btn btn-primary btn-sm nickname " target="_blank" title="누마쿠라는귀엽지"><img src="https://files.bgmstore.net/member/images/profile/17/17945/1.gif" width="22" height="22">&nbsp;누마쿠라는귀엽지</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/mp4/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/mp3/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/swf/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100" style="width:69%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="8" data-num="87869" data-key="1pgfj" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%9E%94%EC%9E%94" class="category">[잔잔]</a> 
+										<a href="/view/1pgfj" class="title">Stand Still - 井口裕香(이구치 유카). (훈훈 달달 따듯 평화 감동 )</a> <span class="text-primary">[04:06]</span> <a href="/view/1pgfj" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">19</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/35582" class="btn btn-primary btn-sm nickname " target="_blank" title="LUCK"><img src="https://files.bgmstore.net/member/images/profile/35/35582/1.gif" width="22" height="22">&nbsp;LUCK</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/mp4/stand%20still_2">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/mp3/stand%20still_2">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/swf/stand%20still_2">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width:57%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="9" data-num="113814" data-key="v94J8" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/v94J8" class="title">2UNLIMITED - GET READY FOR THIS</a> <span class="text-primary">[03:43]</span> <a href="/view/v94J8" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">10</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/21255" class="btn btn-primary btn-sm nickname " target="_blank" title="녹차군"><img src="https://files.bgmstore.net/member/images/profile/21/21255/1.gif" width="22" height="22">&nbsp;녹차군</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/mp4/2%20Unlimited-Get%20Ready%20For%20This">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/mp3/2%20Unlimited-Get%20Ready%20For%20This">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/swf/2%20Unlimited-Get%20Ready%20For%20This">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="10" data-num="120142" data-key="q8ITK" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%95%A0%EC%A0%88" class="category">[애절]</a> 
+										<a href="/view/q8ITK" class="title">onpos-maxim</a> <span class="text-primary">[03:13]</span> <a href="/view/q8ITK" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">9</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/74857" class="btn btn-primary btn-sm nickname " target="_blank" title="lacrima"><img src="https://files.bgmstore.net/member/images/profile/74/74857/1.gif" width="22" height="22">&nbsp;lacrima</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/mp4/maxim1">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/mp3/maxim1">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/swf/maxim1">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width:27%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="11" data-num="123613" data-key="2HmNH" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8A%AC%ED%94%94" class="category">[슬픔]</a> 
+										<a href="/view/2HmNH" class="title">(슬픔,피아노,잔잔,애절,아련) Sawano Hiroyuki - Piano UC-NO.3 [Gundam Unicorn 2 OST)</a> <span class="text-primary">[03:20]</span> <a href="/view/2HmNH" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">51</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/70888" class="btn btn-primary btn-sm nickname " target="_blank" title="Kasio"><img src="https://files.bgmstore.net/member/images/profile/70/70888/1.gif" width="22" height="22">&nbsp;Kasio</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/mp4/13.PIANO%20UC-NO.3">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/mp3/13.PIANO%20UC-NO.3">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/swf/13.PIANO%20UC-NO.3">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="12" data-num="127227" data-key="bvbi9" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8B%A0%EB%82%A8" class="category">[신남]</a> 
+										<a href="/view/bvbi9" class="title">Sonic Adventure - Disc1 - 35 - Invincible 추락사...</a> <span class="text-primary">[01:00]</span> <a href="/view/bvbi9" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">3</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/81809" class="btn btn-primary btn-sm nickname " target="_blank" title="땅고"><img src="https://files.bgmstore.net/member/images/profile/81/81809/1.gif" width="22" height="22">&nbsp;땅고</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/mp4/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/mp3/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/swf/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" style="width:9%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="13" data-num="140495" data-key="gaM49" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%A7%84%EC%A7%80" class="category">[진지]</a> 
+										<a href="/view/gaM49" class="title">앙잉융-앙잉융의 앙잉융</a> <span class="text-primary">[02:17]</span> <a href="/view/gaM49" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[3]</span>&nbsp;<span>+<span class="voteCnt">11</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/35920" class="btn btn-primary btn-sm nickname " target="_blank" title="햄이다"><img src="https://files.bgmstore.net/member/images/profile/35/35920/1.gif" width="22" height="22">&nbsp;햄이다</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/mp4/%28IU%29%20-%20%20%20%5B%5D">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/mp3/%28IU%29%20-%20%20%20%5B%5D">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/swf/%28IU%29%20-%20%20%20%5B%5D">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  " data-order="14" data-num="140868" data-key="DEvAC" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EA%B2%BD%EC%BE%8C" class="category">[경쾌]</a> 
+										<a href="/view/DEvAC" class="title">Basick - 챔피언</a> <span class="text-primary">[04:32]</span> <a href="/view/DEvAC" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">8</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/11195" class="btn btn-primary btn-sm nickname " target="_blank" title="기로"><img src="https://files.bgmstore.net/member/images/profile/11/11195/1.gif" width="22" height="22">&nbsp;기로</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/mp4/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/mp3/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/swf/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100" style="width:24%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						
+			
+			</div>
+<style>
+	.noSearchResult p { margin-left:15px; }
+	.noSearchResult p span { margin-right:5px; }
+</style>				<!-- <div class="bgmListLoader" data-head-title="인기 브금" data-head-color="panel-primary" data-emoticon="954_notes@2x.png" data-target="week_best" data-is-sidebar="false"></div> -->
+			
+
+			<div class="searchResultWrap">
+						
+											<h5>
+	  		인기 브금 
+		  			  	
+		  	 
+		  	<img src="https://files.bgmstore.net/assets/images/emoticon/20_kissing_smiling_eyes@2x.png" height="24">
+		  			</h5>
+
+
+<div class="panel bgmList panel-primary bgmPlayWrap" >
+									<div class="bgmInfo  search_result" data-order="0" data-num="578" data-key="DriZy" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/DriZy" class="title">괴혼 - Katamari On The Swing</a> <span class="text-primary">[02:22]</span> <a href="/view/DriZy" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">21</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/mp4/Katamari_On_the_Swing">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/mp3/Katamari_On_the_Swing">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DriZy/swf/Katamari_On_the_Swing">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width:63%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="1" data-num="6421" data-key="OZREh" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%8F%99%EC%8B%AC" class="category">[동심]</a> 
+										<a href="/view/OZREh" class="title">테일즈위버 OST - Brand New Spring Is Coming</a> <span class="text-primary">[02:19]</span> <a href="/view/OZREh" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">46</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/mp4/2067CF4C4E225D0226956C">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/mp3/2067CF4C4E225D0226956C">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/OZREh/swf/2067CF4C4E225D0226956C">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="2" data-num="12474" data-key="M4vPa" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/M4vPa" class="title">I=Nightmare MR</a> <span class="text-primary">[02:16]</span> <a href="/view/M4vPa" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">5</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/mp4/I_Nightmare_MR">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/mp3/I_Nightmare_MR">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/M4vPa/swf/I_Nightmare_MR">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="3" data-num="25234" data-key="T8Xh0" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/T8Xh0" class="title">Battle Hymn Of The Republic (공화국 전투 찬가) (미군, 찬송가, 성스러움, 미국, 전쟁)</a> <span class="text-primary">[05:21]</span> <a href="/view/T8Xh0" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">63</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																	<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/mp4/THE_BATTLE_HYMN_OF_THE_REPUBLIC">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/mp3/THE_BATTLE_HYMN_OF_THE_REPUBLIC">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/T8Xh0/swf/THE_BATTLE_HYMN_OF_THE_REPUBLIC">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="4" data-num="42531" data-key="bS2Nx" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%ED%9D%A5%EA%B2%A8%EC%9B%80" class="category">[흥겨움]</a> 
+										<a href="/view/bS2Nx" class="title">크아 붐남해(바다맵)bgm (추억, 웅장, 감동, 평화, 희귀)</a> <span class="text-primary">[00:48]</span> <a href="/view/bS2Nx" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[65]</span>&nbsp;<span>+<span class="voteCnt">129</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/10865" class="btn btn-primary btn-sm nickname " target="_blank" title="우힝판다"><img src="https://files.bgmstore.net/member/images/profile/10/10865/1.gif" width="22" height="22">&nbsp;우힝판다</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/mp4/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/mp3/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bS2Nx/swf/_%ED%81%AC%EC%95%84-%EB%B6%90%EB%82%A8%ED%95%B4">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="5" data-num="53755" data-key="Ptal3" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8A%AC%ED%94%94" class="category">[슬픔]</a> 
+										<a href="/view/Ptal3" class="title">천녀유혼 ost 追 영화 음악</a> <span class="text-primary">[01:58]</span> <a href="/view/Ptal3" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">11</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/25768" class="btn btn-primary btn-sm nickname " target="_blank" title="Again"><img src="https://files.bgmstore.net/member/images/profile/25/25768/1.gif" width="22" height="22">&nbsp;Again</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/mp4/05">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/mp3/05">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/Ptal3/swf/05">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="6" data-num="66228" data-key="9enMa" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%ED%9D%AC%EB%A7%9D" class="category">[희망]</a> 
+										<a href="/view/9enMa" class="title">세일러문 OST - 턱시도가면(감동, 평화, 희망, 애절, 동심, 잔잔, 순수, 훈훈, 귀여움, 추억, 달달, 행복, 애니, 만화)</a> <span class="text-primary">[00:42]</span> <a href="/view/9enMa" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[3]</span>&nbsp;<span>+<span class="voteCnt">45</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/25592" class="btn btn-primary btn-sm nickname " target="_blank" title="마잭딜라"><img src="https://files.bgmstore.net/member/images/profile/25/25592/1.gif" width="22" height="22">&nbsp;마잭딜라</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/mp4/tuxedo_appear">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/mp3/tuxedo_appear">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/9enMa/swf/tuxedo_appear">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="7" data-num="67220" data-key="FDi8a" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%95%A0%EC%A0%88" class="category">[애절]</a> 
+										<a href="/view/FDi8a" class="title">좋아하게되서 다행이야 - 하기와라 유키호(CV.오치아이 유리카)</a> <span class="text-primary">[04:27]</span> <a href="/view/FDi8a" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">23</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/17945" class="btn btn-primary btn-sm nickname " target="_blank" title="누마쿠라는귀엽지"><img src="https://files.bgmstore.net/member/images/profile/17/17945/1.gif" width="22" height="22">&nbsp;누마쿠라는귀엽지</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/mp4/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/mp3/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/FDi8a/swf/04%20-%20Suki%20ni%20Natte%2C%20Yokatta_2013_07_12">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100" style="width:69%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="8" data-num="87869" data-key="1pgfj" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%9E%94%EC%9E%94" class="category">[잔잔]</a> 
+										<a href="/view/1pgfj" class="title">Stand Still - 井口裕香(이구치 유카). (훈훈 달달 따듯 평화 감동 )</a> <span class="text-primary">[04:06]</span> <a href="/view/1pgfj" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">19</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/35582" class="btn btn-primary btn-sm nickname " target="_blank" title="LUCK"><img src="https://files.bgmstore.net/member/images/profile/35/35582/1.gif" width="22" height="22">&nbsp;LUCK</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/mp4/stand%20still_2">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/mp3/stand%20still_2">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/1pgfj/swf/stand%20still_2">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width:57%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="9" data-num="113814" data-key="v94J8" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EB%AF%B8%EB%B6%84%EB%A5%98" class="category">[미분류]</a> 
+										<a href="/view/v94J8" class="title">2UNLIMITED - GET READY FOR THIS</a> <span class="text-primary">[03:43]</span> <a href="/view/v94J8" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[1]</span>&nbsp;<span>+<span class="voteCnt">10</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/21255" class="btn btn-primary btn-sm nickname " target="_blank" title="녹차군"><img src="https://files.bgmstore.net/member/images/profile/21/21255/1.gif" width="22" height="22">&nbsp;녹차군</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/mp4/2%20Unlimited-Get%20Ready%20For%20This">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/mp3/2%20Unlimited-Get%20Ready%20For%20This">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/v94J8/swf/2%20Unlimited-Get%20Ready%20For%20This">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="10" data-num="120142" data-key="q8ITK" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%95%A0%EC%A0%88" class="category">[애절]</a> 
+										<a href="/view/q8ITK" class="title">onpos-maxim</a> <span class="text-primary">[03:13]</span> <a href="/view/q8ITK" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[2]</span>&nbsp;<span>+<span class="voteCnt">9</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/74857" class="btn btn-primary btn-sm nickname " target="_blank" title="lacrima"><img src="https://files.bgmstore.net/member/images/profile/74/74857/1.gif" width="22" height="22">&nbsp;lacrima</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/mp4/maxim1">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/mp3/maxim1">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/q8ITK/swf/maxim1">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width:27%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="11" data-num="123613" data-key="2HmNH" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8A%AC%ED%94%94" class="category">[슬픔]</a> 
+										<a href="/view/2HmNH" class="title">(슬픔,피아노,잔잔,애절,아련) Sawano Hiroyuki - Piano UC-NO.3 [Gundam Unicorn 2 OST)</a> <span class="text-primary">[03:20]</span> <a href="/view/2HmNH" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">51</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+																							<span class="label label-danger">HOT</span>
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/70888" class="btn btn-primary btn-sm nickname " target="_blank" title="Kasio"><img src="https://files.bgmstore.net/member/images/profile/70/70888/1.gif" width="22" height="22">&nbsp;Kasio</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/mp4/13.PIANO%20UC-NO.3">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/mp3/13.PIANO%20UC-NO.3">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/2HmNH/swf/13.PIANO%20UC-NO.3">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="12" data-num="127227" data-key="bvbi9" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%8B%A0%EB%82%A8" class="category">[신남]</a> 
+										<a href="/view/bvbi9" class="title">Sonic Adventure - Disc1 - 35 - Invincible 추락사...</a> <span class="text-primary">[01:00]</span> <a href="/view/bvbi9" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">3</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/81809" class="btn btn-primary btn-sm nickname " target="_blank" title="땅고"><img src="https://files.bgmstore.net/member/images/profile/81/81809/1.gif" width="22" height="22">&nbsp;땅고</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/mp4/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/mp3/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/bvbi9/swf/Sonic%20Adventure%20-%20Disc1%20-%2035%20-%20Invincible">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" style="width:9%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="13" data-num="140495" data-key="gaM49" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EC%A7%84%EC%A7%80" class="category">[진지]</a> 
+										<a href="/view/gaM49" class="title">앙잉융-앙잉융의 앙잉융</a> <span class="text-primary">[02:17]</span> <a href="/view/gaM49" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[3]</span>&nbsp;<span>+<span class="voteCnt">11</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/35920" class="btn btn-primary btn-sm nickname " target="_blank" title="햄이다"><img src="https://files.bgmstore.net/member/images/profile/35/35920/1.gif" width="22" height="22">&nbsp;햄이다</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/mp4/%28IU%29%20-%20%20%20%5B%5D">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/mp3/%28IU%29%20-%20%20%20%5B%5D">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/gaM49/swf/%28IU%29%20-%20%20%20%5B%5D">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="bgmInfo  search_result" data-order="14" data-num="140868" data-key="DEvAC" data-is-playing="false">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="media">
+								<div class="media-left pull-left" style="width:120px;">
+									<div class="pull-left">
+										<button class="btn btn-success btn-raised btn-sm btnVote ladda-button" data-style="zoom-out" title="추천"><span class="ladda-label"><span class="glyphicon glyphicon-thumbs-up"></span></span></button>
+									</div>
+									<div class="pull-left" style="margin-left:20px;">
+																					<button class="btn btn-primary btn-raised btn-sm btnPlay"><span class="glyphicon glyphicon-play"></span></button>
+																			</div>
+								</div>
+								<div class="media-body">
+									<div class="clearfix" style="word-break:break-all;">
+										<a href="?q_type=category&q=%EA%B2%BD%EC%BE%8C" class="category">[경쾌]</a> 
+										<a href="/view/DEvAC" class="title">Basick - 챔피언</a> <span class="text-primary">[04:32]</span> <a href="/view/DEvAC" class="newWindow text-muted" title="새창으로 열기" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a><span class="voteAndComment text-primary">&nbsp;&nbsp;<span class="commentCnt">[0]</span>&nbsp;<span>+<span class="voteCnt">8</span></span></span> 
+										<span class="voteAndComment pull-right">
+																						
+											 
+											
+											 
+										</span>
+									</div>
+									<div class="addit clearfix">
+										<div style="text-align:right">
+																																		<a href="/user/11195" class="btn btn-primary btn-sm nickname " target="_blank" title="기로"><img src="https://files.bgmstore.net/member/images/profile/11/11195/1.gif" width="22" height="22">&nbsp;기로</a>
+																						<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm dropdown-toggle btnDownload" data-toggle="dropdown">
+													<span class="glyphicon glyphicon-cloud-download"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/mp4/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">mp4 파일로 다운로드</a>
+													</li>
+													<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/mp3/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">mp3 파일로 다운로드</a>
+													</li>
+																										<li>
+														<a class="btnDownloadInner" href="http://dl.bgms.kr/download/DEvAC/swf/Basick%20%20%20%EC%B1%94%ED%94%BC%EC%96%B8">swf 파일로 다운로드</a>
+													</li>
+																									</ul>
+											</div>
+											<button class="btn btn-default btn-sm btnEmbedShareText" title="퍼가기">
+												<span class="glyphicon glyphicon-share"></span>
+											</button>
+											<button class="btn btn-default btn-sm btnScrap ladda-button" data-style="zoom-out" title="스크랩">
+												<span class="ladda-label">
+													<span class="glyphicon glyphicon-inbox"></span>
+												</span>
+											</button>
+											<button class="btn btn-default btn-sm btnAddPlaylistTrigger" title="플레이리스트에 추가">
+													<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+																						
+																						
+																					</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												<div class="col-xs-1">
+														<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100" style="width:24%;">
+									<span class="sr-only"></span>
+								</div>
+							</div>
+							
+													</div>
+											</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="bgmEmbedArea"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+						
+			
+			</div>
+<style>
+	.noSearchResult p { margin-left:15px; }
+	.noSearchResult p span { margin-right:5px; }
+</style>
+			<div>
+				<button class="btn btn-primary btn-raised btn-lg btnMoreBgm ladda-button btn-block" data-style="expand-up">
+					<span class="ladda-label">
+						검색 결과 더 보기 <span class="glyphicon glyphicon-plus"></span>
+					</span>
+				</button>
+			</div>
+			</div>
+
+
+			<div class="adBox">
+	<div class="panel noPadding">
+		<div class="panel-body noPadding">
+							<!-- 일치하는 콘텐츠 (자동크기 반응형) -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-2759566504551542"
+				     data-ad-slot="8231254307"
+				     data-ad-format="autorelaxed"></ins>
+				<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+					</div>
+	</div>
+</div>		</div>
+
+		<div class="col-xs-4 sidebarRightWrap">	
+		
+	<div class="adBox">
+	<div class="panel noPadding">
+		<div class="panel-body noPadding" style="height:280px; text-align:center;">
+							<!-- 336x280 모바일 큰 직사각형 1 -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:336px;height:280px"
+				     data-ad-client="ca-pub-2759566504551542"
+				     data-ad-slot="2210577106"></ins>
+				<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+					</div>
+	</div>
+</div>	
+			<div class="bgmListLoader" data-head-title="웃음의 성지" data-head-color="panel-primary" data-emoticon="4_joy@2x.png" data-target="humor" data-is-sidebar="true"></div>
+	
+			<div class="bgmListLoader" data-head-title="인기 브금" data-head-color="panel-primary" data-emoticon="4_joy@2x.png" data-target="popular_bgm" data-is-sidebar="true"></div>
+			<div class="bgmListLoader" data-head-title="주간 베스트 브금" data-head-color="panel-primary" data-emoticon="452_medal@2x.png" data-target="week_best" data-is-sidebar="true"></div>
+	
+	
+	<h5>주간 최다 추천 자작곡 회원 <img src="https://files.bgmstore.net/assets/images/emoticon/784_peace@2x.png" height="24"></h5>
+	<div class="panel panel-default contentBox isSidebar clearfix memberRankingWrap">
+		<div class="panel-body">
+			<div class="row">
+														<div class="col-xs-6">
+						<span class="rank_num">1. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/177543" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/177/177543/1.gif" width="22" height="22">&nbsp;Titanrium</a>
+						<span class="badge badge-xs pull-right">67</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">2. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/473313" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/473/473313/1.gif" width="22" height="22">&nbsp;To-TheMoon</a>
+						<span class="badge badge-xs pull-right">53</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">3. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/484535" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/484/484535/1.gif" width="22" height="22">&nbsp;ANΩ</a>
+						<span class="badge badge-xs pull-right">53</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">4. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/482882" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/482/482882/1.gif" width="22" height="22">&nbsp;PaperC</a>
+						<span class="badge badge-xs pull-right">51</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">5. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/436344" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/436/436344/1.gif" width="22" height="22">&nbsp;UDTP</a>
+						<span class="badge badge-xs pull-right">23</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">6. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/483855" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/483/483855/1.gif" width="22" height="22">&nbsp;Harace_Kim</a>
+						<span class="badge badge-xs pull-right">21</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">7. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/281746" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/281/281746/1.gif" width="22" height="22">&nbsp;에쓰비</a>
+						<span class="badge badge-xs pull-right">19</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">8. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/465844" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/465/465844/1.gif" width="22" height="22">&nbsp;Music2ys</a>
+						<span class="badge badge-xs pull-right">19</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">9. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/487122" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/487/487122/1.gif" width="22" height="22">&nbsp;멜로데이</a>
+						<span class="badge badge-xs pull-right">16</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">10. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/476101" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/476/476101/1.gif" width="22" height="22">&nbsp;노마(noma)</a>
+						<span class="badge badge-xs pull-right">16</span>
+					</div>
+												</div>
+		</div>
+	</div>
+	
+	<h5>주간 최다 추천받은 회원 <img src="https://files.bgmstore.net/assets/images/emoticon/91_thumbsup@2x.png" height="24"></h5>
+	<div class="panel panel-default contentBox isSidebar clearfix memberRankingWrap">
+		<div class="panel-body">
+			<div class="row">
+														<div class="col-xs-6">
+						<span class="rank_num">1. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/32100" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/32/32100/1.gif" width="22" height="22">&nbsp;baby7love</a>
+						<span class="badge badge-xs pull-right">68</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">2. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/209781" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/209/209781/1.gif" width="22" height="22">&nbsp;알드노아드라이브</a>
+						<span class="badge badge-xs pull-right">62</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">3. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/186189" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/186/186189/1.gif" width="22" height="22">&nbsp;Galaxy.No1</a>
+						<span class="badge badge-xs pull-right">62</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">4. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/177543" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/177/177543/1.gif" width="22" height="22">&nbsp;Titanrium</a>
+						<span class="badge badge-xs pull-right">61</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">5. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/460767" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/460/460767/1.gif" width="22" height="22">&nbsp;김지인</a>
+						<span class="badge badge-xs pull-right">46</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">6. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/395613" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/395/395613/1.gif" width="22" height="22">&nbsp;사쿠라멜로디</a>
+						<span class="badge badge-xs pull-right">40</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">7. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/155489" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/155/155489/1.gif" width="22" height="22">&nbsp;good ost</a>
+						<span class="badge badge-xs pull-right">39</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">8. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/24552" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/24/24552/1.gif" width="22" height="22">&nbsp;땡쵸</a>
+						<span class="badge badge-xs pull-right">39</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">9. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/484535" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/484/484535/1.gif" width="22" height="22">&nbsp;ANΩ</a>
+						<span class="badge badge-xs pull-right">38</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">10. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/36606" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/36/36606/1.gif" width="22" height="22">&nbsp;BAD</a>
+						<span class="badge badge-xs pull-right">38</span>
+					</div>
+												</div>
+		</div>
+	</div>
+	
+	<h5>주간 최다 다운로드 회원 <img src="https://files.bgmstore.net/assets/images/emoticon/789_star_of_david@2x.png" height="24"></h5>
+	<div class="panel panel-default contentBox isSidebar clearfix memberRankingWrap">
+		<div class="panel-body">
+			<div class="row">
+														<div class="col-xs-6">
+						<span class="rank_num">1. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/199265" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/199/199265/1.gif" width="22" height="22">&nbsp;마나미</a>
+						<span class="badge badge-xs pull-right">44</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">2. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/24946" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/24/24946/1.gif" width="22" height="22">&nbsp;강갯구</a>
+						<span class="badge badge-xs pull-right">32</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">3. </span> <a style="font-weight:bold; text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/228049" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/228/228049/1.gif" width="22" height="22">&nbsp;에바그린</a>
+						<span class="badge badge-xs pull-right">29</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">4. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/10456" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/10/10456/1.gif" width="22" height="22">&nbsp;소노다 우미</a>
+						<span class="badge badge-xs pull-right">29</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">5. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/209781" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/209/209781/1.gif" width="22" height="22">&nbsp;알드노아드라이브</a>
+						<span class="badge badge-xs pull-right">26</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">6. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/32100" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/32/32100/1.gif" width="22" height="22">&nbsp;baby7love</a>
+						<span class="badge badge-xs pull-right">23</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">7. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/395613" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/395/395613/1.gif" width="22" height="22">&nbsp;사쿠라멜로디</a>
+						<span class="badge badge-xs pull-right">22</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">8. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/5741" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/5/5741/1.gif" width="22" height="22">&nbsp;BPM</a>
+						<span class="badge badge-xs pull-right">16</span>
+					</div>
+											</div><div class="row">
+																			<div class="col-xs-6">
+						<span class="rank_num">9. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/186189" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/186/186189/1.gif" width="22" height="22">&nbsp;Galaxy.No1</a>
+						<span class="badge badge-xs pull-right">16</span>
+					</div>
+																			<div class="col-xs-6">
+						<span class="rank_num">10. </span> <a style=" text-overflow:ellipsis; overflow:hidden; width:90px; display:inline-block; white-space:nowrap;" href="/user/220634" target="_blank"><img src="https://files.bgmstore.net/member/images/profile/220/220634/1.gif" width="22" height="22">&nbsp;Kalion</a>
+						<span class="badge badge-xs pull-right">15</span>
+					</div>
+												</div>
+		</div>
+	</div>
+	<div class="adBox">
+	<div class="panel noPadding">
+		<div class="panel-body noPadding" style="height:600px; text-align:center;">
+							<!-- 300x600 큰 스카이 스크래퍼 -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:300px;height:600px"
+				     data-ad-client="ca-pub-2759566504551542"
+				     data-ad-slot="3368590301"></ins>
+				<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+					</div>
+	</div>
+</div></div>	</div>
+</div><div style="height:30px;"></div>
+	
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3 footer-col">
+				<div class="logofooter">브금저장소</div>
+				<h5 class="text-white">세상의 모든 BGM! 브금저장소</h5><br>
+				<p>Music and rhythm find their way into the secret places of the soul.</p>
+				<p>음악과 리듬은 영혼의 비밀 장소로 파고든다.</p>
+				<p>ㅡPlato, The Republic / 플라톤 &lt;國家論&gt;</p><br>
+				<p>
+					<i class="glyphicon glyphicon-envelope"></i> 이메일 : <a href="mailto:contact@bgmstore.net">contact@bgmstore.net</a>
+				</p>
+			</div>
+			<div class="col-xs-3 footer-col">
+				<h6 class="heading7">링크</h6>
+				<ul class="footer-ul">
+					<li><a href="/about">브금저장소란?</a></li>
+					<li><a href="/termsofuse">사이트 이용약관</a></li>
+					<li><a href="/privacy">개인정보 취급 방침</a></li>
+					<li><a href="/point_policy">포인트, 레벨 정책</a></li>
+					<li><a href="/account/auth_resend">회원가입 인증메일 재발송</a></li>
+					<li><a href="/copy"><strong>저작권 보호요청 및 정책</strong></a></li>
+					<li><a href="/page/copyright_musics"><strong>저작권 보호요청 목록</strong></a></li>
+									</ul>
+			</div>
+			<div class="col-xs-3 footer-col">
+				<h6 class="heading7">최근 댓글</h6>
+				<div class="post">
+					<p>
+						
+					</p>
+					<p>
+						
+					</p>
+					<p>
+						
+					</p>
+				</div>
+			</div>
+			<div class="col-xs-3 footer-col">
+				<h6 class="heading7">SNS</h6>
+				<ul class="footer-social">
+					<li><a href="https://www.facebook.com/bgmstore.net/" target="_blank"><span class="social-icon facebook">f</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="copyright">
+	<div class="container">
+		<div class="col-md-6">
+			<p>&copy; 2012-2018 bgmstore.net 브금저장소. All Rights Reserved. </p>
+		</div>
+		<div class="col-md-6">
+			<ul class="bottom_ul">
+				<li><a href="/">bgmstore.net</a></li>
+				<li><a href="/page/about">소개</a></li>
+				<li><a href="/page/termsofuse">사이트 이용약관</a></li>
+				<li><a href="/page/privacy">개인정보 취급방침</a></li>
+				<li><a href="mailto:contact@bgmstore.net">이메일</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+	<div style="display:none">
+		<span id="q_val"></span>
+		
+		<span id="q_type_val">title</span>
+		
+		<span id="q_mode_val">general</span>
+		
+		<span id="sort_by">document_num</span>
+		
+		<span id="sort_type"></span>
+		
+		<span id="member_num"></span>
+	</div>
+	
+	<input type="hidden" id="rit_common" name="rit" value="d0f0e064168924d51116fa53d996f7ae" />
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-25470192-1', 'bgmstore.net');
+	  ga('send', 'pageview');
+	</script>
+	
+	</body>
+</html>

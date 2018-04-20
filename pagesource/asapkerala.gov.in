@@ -1,0 +1,1 @@
+Database connection error (2): Could not connect to MySQL.

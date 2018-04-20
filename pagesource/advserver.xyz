@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<title></title>
+<link href="/js/modal/modal.css" rel="stylesheet" type="text/css" />
+<style>
+body
+{
+	background: #050f1b;
+	font-size:16px;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+html
+{
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+*
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	box-sizing:border-box;
+	text-decoration:none;
+}
+
+a
+{
+	text-decoration:none;
+}
+
+img
+{
+	box-shadow: #000 0 0 0;
+	border:0;
+	vertical-align:middle;
+}
+
+.clear
+{
+	clear:both;
+}
+
+.tbl
+{
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.col
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.btn
+{
+	font-size: 0.9rem;
+	background: #24A1E6;
+	color: #FFF;
+	padding: 20px 0;
+	width: 300px;
+	margin: 0 auto;
+	max-width: 80%;
+	display: block;
+	cursor: pointer;
+	transition: all .1s ease-in-out;
+	border-radius: 0.2em;
+}
+
+.btn:hover
+{
+	background: #0087c8;
+	transition: all .1s ease-in-out;
+}
+
+.btn:active
+{
+	background: #006ead;
+}
+</style>
+</head>
+<body>
+
+<div class="tbl">
+	<div class="col">
+		<div class="btn btn-contact">GET IN TOUCH</div>
+	</div>
+</div>
+
+<div class="modal modal-contact">
+	<div class="modal-wrapper">
+		<form action="">
+			<label>Name</label>
+			<input type="text" name="name" placeholder="Your Name" />
+			<label>E-mail</label>
+			<input type="text" name="email" placeholder="Your E-Mail" />
+			<label>Message</label>
+			<textarea name="message" placeholder="Your Message..."></textarea>
+			<button type="button" class="submit">SEND</button>
+			<input type="hidden" name="a" value="contact" />
+		</form>
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/modal/modal.min.js"></script>
+<script>
+	$( ".btn-contact" ).click(
+		function()
+		{
+			var html = $( ".modal-contact" ).html();
+			modalbox.show( "CONTACT", html, 500 );
+		}
+	);
+
+	$( document ).on( "click", ".submit", function( e ){
+			e.preventDefault();
+
+			var form = $( this ).closest( "form" );
+
+			$( "*" ,form ).removeClass( "has-error" );
+			$.post( form.attr( "action" ), form.serialize(),
+				function( d )
+				{
+					if( typeof( d )!="object" )
+					{
+					   d = $.parseJSON( d );
+					}
+
+					if( d.success )
+					{
+						modalbox.destroy();
+						modalbox.show( "MESSAGE SENT", "Your message has been sent", 400 );
+
+					}else if( d.fields ){
+						inputError( form, d.fields );
+
+					}else{
+						modalbox.show( "ERROR", "An error has occurred. Please try again", "400", 1 );
+					}
+				}
+			);
+
+		});
+
+		function inputError( form, inputArray )
+		{
+			$.each( inputArray, function( k, v ){
+				$( "*[name='" + Object.keys(v)[0] + "']" ,form ).addClass("has-error");
+			});
+		}
+</script>
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1200, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>首页 - 智慧职教</title>
+    <meta name="keywords" content="智慧职教,职业教育,数字化,信息化,在线教育,智慧教育, 碎片化,慕课,微课,知识点,技能点">
+    <meta name="description" content="智慧职教以知识点/技能点为基本颗粒度，以整个专业的知识/技能树为整体架构，通过系列元数据对素材实现系统化管理，从而使得每个素材都能被便捷地查询和调用。">
+    <link href="/common/css/images/favicon.ico" rel="SHORTCUT ICON" />
+    <link rel="stylesheet" href="/portal_new/css/yui.css">
+    <link rel="stylesheet" href="/portal_new/fonts/iconfont.css">
+    <link rel="stylesheet" href="/common/css/jquery-ui.css">
+    <link href="/common/js/pnotify/jquery.pnotify.default.css" rel="stylesheet" />
+    <link href="/common/js/select2/select2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/portal_new/css/index.css">
+    <link href="/common/js/select2/select2.css" rel="stylesheet" />
+    <link href="/common/js/pnotify/jquery.pnotify.default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/portal/css/jquery-ui.css" type="text/css" media="all" />
+    <script src="/common/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/common/js/common.js"></script>
+    <script type="text/javascript" src="/common/js/pagination.js"></script>
+    <script type="text/javascript" src="/portal_new/js/Slide.js"></script>
+    <script type="text/javascript" src="/portal/js/common/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="/common/js/select2/select2.min.js"></script>
+    <script src="/common/js/pnotify/jquery.pnotify.min.js"></script>
+    <script type="text/javascript" src="/common/js/jqueryui/jqueryui.js"></script>
+
+</head>
+<body>
+    <!--头部-->
+    <div class="top-head">
+        <div class="top-head-inner">
+            <ul class="top-head-right">
+                <li id="link_login"><a href="javascript:;" class="login-link" id="login-btn">登录</a>|<a href="/portal/register/register.html" class="register-link">注册</a></li>
+                <li>
+                    <a href="javascript:;" id="mycollection" style="color: #afadad;cursor:default">我的收藏</a>
+                    <div class="tea-studio collection-box" id="collection" style="display: none;">
+                        <div class="collection-nav">
+                            <a href="javascript:;" data-type="2" class="selected">微课</a>
+                            <a href="javascript:;" data-type="3">课程</a>
+                            <a href="javascript:;" data-type="1">素材</a>
+                        </div>
+                        <div id="collection_div">
+                            正在加载...
+                        </div>
+                    </div>
+                </li>
+                <li><a href="javascript:;" id="studyCenter" style="color: #afadad;cursor:default">我的学习中心</a></li>
+                <li>
+                    <a href="javascript:;" id="teaStudio" style="color: #afadad;cursor:default">教师工作室</a>
+                    <div class="tea-studio" id="teaStudioList">
+                        正在加载...
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="/common/js/portal_new/portal_new.js" type="text/javascript"></script>
+
+    <!--遮罩层-->
+    <div class="e-mask" style="display: none;"></div>
+    <div class="more-school-dialog login-learn-community" id="login-learn-community-close" style="display: none;">
+        <div class="dialog-opacity"></div>
+        <div class="dialog-content">
+            <div class="dialog-close"><a href="javascript:void(0);">X</a></div>
+            <div class="learn-community-dialog-h2">欢迎您登录智慧职教平台，请选择：</div>
+            <div class="learn-community-dialog-btn">
+                <a href="javascript:void(0);" class="dialog-close-community-all">留在当前页</a>
+            </div>
+        </div>
+    </div>
+    <!--项目管理员登录弹出公告-->
+    <div class="e-mask" style="display: none;"></div>
+    <div class="more-school-dialog login-learn-community" id="tip_projectuser" style="display: none;">
+        <div class="dialog-opacity" style="padding:8px;"><div class="dialog-close"><a href="javascript:void(0);" onclick="window.location.reload()">X</a></div></div>
+        <div class="dialog-content" style="padding:8px;">
+            <div style="height:200px;margin-top:30px;font-size: 12pt;">
+                <b style="font-size:14px;">【重要提示】</b>
+                &nbsp;&nbsp;&nbsp;根据《职业教育专业教学资源库建设工作手册（2017）》有关要求,
+                智慧职教平台应与各资源库项目签订<a href="/special/专业教学资源库知识产权保障协议.pdf" download style="color:blue;">《知识产权保障协议》（点击下载）</a>。
+                请各项目负责人打印填写相关内容，由主持院校签字盖章，在一个月之内寄回，敬请尽快办理，以保证正常运行。
+                寄回地址：北京市朝阳区惠新东街4号富盛大厦高等教育出版社19层（100029）,沈洁,13810019456。QQ：76566219。<br />
+                （如已签订协议并返回，请忽略此信息）
+            </div>
+        </div>
+    </div>
+    <!--登录弹窗-->
+    <!--<div class="more-school-dialog login-learn-community login-dialog hidden" id="login-dialog" style="display: none;">
+        <div class="dialog-opacity"></div>
+        <div class="dialog-content">
+            <div class="dialog-close"><a href="javascript:void(0);">X</a></div>
+            <div class="login-tab">
+                <div class="login-tab-title clefix">
+                    <ul class="ul_login">
+                        <li class="current" data-sourseclass="sourceType1"><a href="javascript:void(0);">账号密码</a></li>
+                        <li data-sourseclass="sourceType0"><a href="javascript:void(0);">职教云2.0</a></li>
+                    </ul>
+                </div>
+                <div class="login-tab-content sourceType1">
+                        <form class="login" method="post" id="form_login" action="/users/login">
+                            <div class="login_name">
+                                <em class="iname"></em>
+                                <input type="text" name="username" placeholder="帐号" class="ui-widget-content ui-corner-all" />
+                            </div>
+                            <div class="login_pwd">
+                                <em class="ipwd"></em>
+                                <input type="password" name="pwd" func="validate_passowrd" placeholder="密码" class="ui-widget-content ui-corner-all" />
+                            </div>
+                            <div class="login_yzm">
+                                <input id="yzm" placeholder="字母不分大小写" name="verifycode" type="text" class="loginput ui-widget-content ui-corner-all" maxlength="4" style="width: 152px" />
+                                <img id="img_verifycode" src="/portal/users/verifycode?t=0.38074587211869715" alt="验证码" title="看不清？点击更换" />
+                                <a id="change_verifycode" href="#" class="change-code">换一张</a>
+                            </div>
+                            <div>
+                                <button type="submit" id="btn_login">登 录</button>
+                            </div>
+                            <div class="remeber">
+                                <div style="float: left;"><a href="/portal/register/register.html" class="forgetpwd" style="text-align: left;">尚未注册？现在注册</a></div>
+                                <a href="/portal/getpwd/getpwd.html" class="forgetpwd" target="_blank">忘记密码？</a>
+
+                            </div>
+                        </form>
+                </div>
+                <div class="login-tab-content sourceType0" id="zjy_div" style="display: none;">
+                    <form class="login" method="post" id="login_zjy" action="/portal/register/loginForZJY"">
+                        <div class="login_name" style="padding-bottom: 20px;">
+                            <span class="select2" style="display: block;">
+                                <input type="hidden" id="schoolId" name="schoolId" style="width: 100%" />
+                            </span>
+                        </div>
+                        <div class="login_name">
+                            <em class="iname"></em>
+                            <input type="text" name="userName" placeholder="帐号" class="ui-widget-content ui-corner-all" />
+                        </div>
+                        <div class="login_pwd">
+                            <em class="ipwd"></em>
+                            <input type="password" name="userPwd" func="validate_passowrd" placeholder="密码" class="ui-widget-content ui-corner-all" />
+                        </div>
+                        <div>
+                            <button type="button" id="btn_login_zjy">登 录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="more-school-dialog login-learn-community login-dialog hidden" id="login-dialog" style="display: none;">
+        <div class="dialog-opacity"></div>
+        <div class="dialog-content">
+            <div class="dialog-close"><a href="javascript:void(0);">X</a></div>
+            <div class="dialog-login-title">用户登录</div>
+            <div class="dialog-login-warn"></div>
+            <form class="login" method="post" id="form_login" action="/users/login">
+                <div class="login_name">
+                    <em class="iname"></em>
+                    <input type="text" name="username" placeholder="帐号" class="ui-widget-content ui-corner-all" />
+                </div>
+                <div class="login_pwd">
+                    <em class="ipwd"></em>
+                    <input type="password" name="pwd" func="validate_passowrd" placeholder="密码" class="ui-widget-content ui-corner-all" />
+                </div>
+                <div class="login_yzm">
+                    <input id="yzm" placeholder="字母不分大小写" name="verifycode" type="text" class="loginput ui-widget-content ui-corner-all" maxlength="4" style="width: 152px" />
+                    <img id="img_verifycode" src="/portal/users/verifycode?t=0.38074587211869715" alt="验证码" title="看不清？点击更换" />
+                    <a id="change_verifycode" href="#" class="change-code">换一张</a>
+                </div>
+                <div>
+                    <button type="submit" id="btn_login">登 录</button>
+                </div>
+                <div class="remeber">
+                    <div style="float: left;"><a href="/portal/register/register.html" class="forgetpwd" style="text-align: left;">尚未注册？现在注册</a></div>
+                    <a href="/portal/getpwd/getpwd.html" class="forgetpwd" target="_blank">忘记密码？</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="more-school-dialog login-learn-community login-dialog hidden" id="complete-dialog" style="top:40%">
+    </div>
+    <script id="complete_dialog_html" type="text/html">
+        <div class="dialog-opacity"></div>
+        <div class="dialog-content">
+            <p style="color: #ff0000;padding: 20px 20px 0px;font-size: 14px;line-height: 18px;">
+                【提示】目前尚未进行实名制登记的用户，请完善个人信息后，继续使用平台相关功能。
+            </p>
+            <div class="dialog-login-title" style="padding-top:10px">完善信息</div>
+            <form class="login" method="post" id="form_complete" action="/portal/register/completeRegister">
+                <input type="hidden" name="usertype" value="{{usertype}}">
+                <input type="hidden" name="username" value="{{username}}">
+                <input type="hidden" name="verifyCode" class="verifyCode">
+                <div class="login_name">
+                    <div class="cols">
+                        <input type="text" class="text" name="realname" id="realname" maxlength="11" placeholder="真实姓名" value="{{userInfo.Prop6}}">
+                    </div>
+                </div>
+
+                <div class="login_name">
+                    <div class="cols">
+                        <input type="text" class="text" name="mobile" id="mobile" maxlength="11" placeholder="手机号" value="{{userInfo.Mobile}}" data-mobile="{{userInfo.Mobile}}">
+                        <div class="register-num-wrong"></div>
+                    </div>
+                </div>
+
+                <div class="login_name hidden" id="message_div">
+                    <input type="text" class="message" name="message" id="message" placeholder="验证码" style="width: 200px" /><label><a class="message-code getCode" aria-disabled="false" href="javascript:;">获取验证码</a></label>
+                </div>
+                <input type="hidden" id="unit" value="{{unit}}" />
+                <div class="login_name">
+                    <span class="select2" style="display: block;">
+                        <input type="hidden" id="hostunit" name="hostunit" style="width: 100%" value="{{userInfo.Prop2}}" />
+                    </span>
+                </div>
+                <br />
+                {{if usertype == "1" || usertype == "2"}}
+                <div class="login_name">
+                    {{if usertype == "1"}}
+                    <input type="text" name="worknum" class="worknum" placeholder="工号" value="{{userInfo.Prop8}}">
+                    {{else}}
+                    <input type="text" name="worknum" class="worknum" placeholder="学号" value="{{userInfo.Prop8}}">
+                    {{/if}}
+                    <div class="register-worknum-wrong"></div>
+                </div>
+                {{/if}}
+                <div>
+                    <button type="button" id="btn_complete">完成</button>
+                </div>
+            </form>
+        </div>
+    </script>
+    <!--遮罩层结束-->
+    <!--教师工作室、我的收藏、个人信息-->
+    <script type="text/html" id="teaStudioList_html">
+        {{if list.length > 0}}
+        {{each list as item i}}
+        <div class="course-view clefix">
+            {{if item.cover.length > 0 }}
+            <img src='{{item.cover}}' style="width: 110px; height: 65px" class="courseimg" />
+            {{else}}
+            <img src="/project/img/smile.jpg" style="width: 110px; height: 65px" class="courseimg" />
+            {{/if}}
+            <div class="course-name">
+                <h3 title="{{item.title}}">{{subString(item.title,0,15)}}</h3>
+                <a href="/project/welcome/welcome.html?PJId={{item.propertyId}}" class="enter-btn" target="_blank">点击进入</a>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        暂无课程
+        {{/if}}
+    </script>
+    <script type="text/html" id="collection_html">
+        {{if list.length > 0}}
+        {{each list as item i}}
+        <div class="course-view clefix">
+            {{if item.PreviewUrl_Cover.length > 0 }}
+            <img src='{{item.PreviewUrl_Cover}}' style="width: 110px; height: 65px" class="courseimg" />
+            {{else}}
+            <img src="/studycenter/img/course.jpg" style="width: 110px; height: 65px" class="courseimg" />
+            {{/if}}
+            <div class="course-name">
+                <h3 title="{{item.title}}">{{subString(item.title,1,15)}}</h3>
+                <a href="{{item.linkUrl}}" class="enter-btn" target="_blank">点击进入</a>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        暂无收藏
+        {{/if}}
+    </script>
+    <!--教师工作室、我的收藏、个人信息结束-->
+    <!--底部结束-->
+    <div class="head-box">
+        <div class="head-inner">
+            <h2 class="search-text">
+                <a href="/portal_new/portal/portal.html">
+                    <img src="/portal_new/images/header-logo.jpg" />
+                </a>
+            </h2>
+            <div class="search-ib">
+                <input type="text" class="search-i" placeholder="" name="keyvalue">
+                <i class="iconfont icon-sousuo"></i>
+                <input type="submit" value="搜索" class="search-b" id="search_button">
+            </div>
+            <div class="search-ewm">
+                <p>
+                    <img src="/common/css/images/qrcode_zhzjguanfang_1.jpg" style="width: 74px; height: 75px"><span>微信公众号</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="nav-box">
+        <div class="nav-inner">
+            <ul class="nav">
+                <li><a href="/portal_new/portal/portal.html">首页</a></li>
+                <li>
+                    <a href="javascript:;" class="zyk">资源库</a>
+                    <span class="sub-nav">
+                        <a href="/portal_new/project/project.html">专业</a> |
+                        <a href="/portal_new/course/course.html">课程</a> |
+                        <a href="/portal_new/weike/weike.html">微课</a> |
+                        <a href="/portal_new/coursetrain/coursetrain.html">培训</a> |
+                        <a href="/portal_new/sourcematerial/sourcematerial.html">素材</a>
+                    </span>
+                </li>
+                <li><a href="http://mooc.icve.com.cn/" target="_blank">在线开放课程（MOOC）</a></li>
+                <!--<li><a href="http://www.hep.com.cn/book/list?reader=R3" target="_blank">新形态一体化教材</a></li>-->
+                <li><a href="/portal_new/ythbook/ythknowledgenode.html" target="_blank">新形态一体化教材</a></li>
+                <li><a href="http://zjy2.icve.com.cn/" target="_blank">职教云</a></li>
+                <!--<li><a href="http://zjy.icve.com.cn/" target="_blank">职教云</a></li>
+                <li>
+                    <a href="http://zjy2.icve.com.cn/" target="_blank" class="nav-link" style="">
+                        职教云2.0
+                        <img src="/portal_new/images/11111.gif" alt="" />
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+
+<!--幻灯区 开始-->
+<div class="silder">
+    <div class="banner-silder">
+        <div class="flexslider">
+            <ul class="slides" id="flexslider_div"></ul>
+        </div>
+    </div>
+    <script type="text/html" id="flexslider_html">
+        {{each list as item i}}
+        <li data-thumb="{{item.BannerManageUrl1}}"
+            style="background: url(&quot;{{item.BannerManageUrl1}}&quot;) center 50% no-repeat, url(&quot;{{item.BannerManageUrl2}}&quot;); width: 100%;float: left; display: block;">
+            <a href="{{item.BannerUrl}}" target="_blank">&nbsp;</a>
+        </li>
+        {{/each}}
+    </script>
+    <div class="silder-inner">
+        <div class="hc_lnav jslist">
+            <div class="allbtn">
+                <ul style="width: 200px; overflow: visible; height: auto; background-color: rgba(0, 0, 0, 0.8);" class="jspop box">
+                     <li data-id="qwwpasgkvkll4dhwzjtbxq">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-ggjc"></i>公共基础</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="-da5apuj069jwifwrgfmka">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-mzwhcc"></i>民族文化传承与创新</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="zatjarmmaa5htbscbmke5a">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-cjsm"></i>财经商贸大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="2v9darmmj6fpt-zavmx0eg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-ylws"></i>医药卫生大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                     <li data-id="gdryarmmyl1elrkwv5dejg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-szxx"></i>电子信息大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                     <li data-id="du42armmrlxkjatg4l5cva">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-zbzz"></i>装备制造大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="myz0armmoq9e93e3b0vgeg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-jyyty"></i>教育与体育大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="gsafarmmgovioqfg2rhotg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-tmjz"></i>土木建筑大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="kjhmarmmerhjvpt-bkom-w">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-mzwhcc"></i>交通运输大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="ibbsarmmvodbvvprmrhvxa">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-whys"></i>文化艺术大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="ucnoarmmvp9dlw3wcb14lg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-lvyou"></i>旅游大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="e9blapkjrydao5ds-1-bda">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-nlmy"></i>农林牧渔大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="79pgarmmulnckxua66wegw">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-shipin"></i>食品药品与粮食大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li data-id="u9v3armmxitaauj9m4of-g">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-gongan"></i>公安与司法大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li more_li more" data-id="79pgarmmulnckxua66wegw">
+                        <a href="#" class="more-pop">
+                            <i class="iconfont icon-gengduo"></i>&nbsp;&nbsp;&nbsp;&nbsp;更多
+                        </a>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="fyadarmmdatbbkdyqcpwbg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-huanjing"></i>资源环境与安全大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="yvgrarmmy55clv2etsawwg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-nengyuan"></i>能源动力与材料大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="dpp6armme7nnurlxjdmauw">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-ggfw"></i>公共管理与服务大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="vtjaarmmrjjkahp-uc5byg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-swyhg"></i>生物与化工大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="wenzarmmoqrdplnn8mx1wg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-xinwen"></i>新闻传播大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="ionearmm5rbpubgh-x0d9q">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-qgfz"></i>轻工纺织大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    <li class="hidden_li hidden more" data-id="xoejarmmskbcmim2fwhzpg">
+                        <div class="tx"><a href="javascript:;"><span>&gt;</span><i class="iconfont icon-sldl"></i>水利大类</a></div>
+                        <div class="pop">
+                            正在加载...
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="banner-right" id="ranklist_div">
+            <div class="ranklist">
+                <h3>正在加载...</h3>
+                <div class="clefix"></div>
+            </div>
+            <div class="ranklist bottom">
+                <h3>正在加载...</h3>
+                <div class="clefix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="left_menu_html">
+    {{if gjxm_list.length > 0}}
+    <dl>
+        <dt>国家级资源库</dt>
+        <dd>
+            {{each gjxm_list as item i}}
+            {{if item.Id != "-da5apuj069jwifwrgfmka"}}
+                <a class="ui-link" href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank">{{item.ProjectName}}</a>
+            {{/if}}
+            {{/each}}
+        </dd>
+    </dl>
+    {{/if}}
+    {{if sjxm_list.length > 0}}
+    <dl>
+        <dt>省级资源库</dt>
+        <dd>
+            {{each sjxm_list as item i}}
+            <a class="ui-link" href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank">{{item.ProjectName}}</a>
+            {{/each}}
+           
+        </dd>
+    </dl>
+    {{/if}}
+    {{if xjxm_list.length > 0}}
+    <dl>
+        <dt>校级资源库</dt>
+        <dd>
+            {{each xjxm_list as item i}}
+            <a class="ui-link" href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank">{{item.ProjectName}}</a>
+            {{/each}}
+          
+        </dd>
+    </dl>
+    {{/if}}
+    {{if xhxm_list.length > 0}}
+    <dl>
+        <dt>学会资源库</dt>
+        <dd>
+            {{each xhxm_list as item i}}
+            <a class="ui-link" href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank">{{item.ProjectName}}</a>
+            {{/each}}
+        
+        </dd>
+    </dl>
+    {{/if}}
+    {{if qyxm_list.length > 0}}
+    <dl>
+        <dt>企业资源库</dt>
+        <dd>
+            {{each qyxm_list as item i}}
+            <a class="ui-link" href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank">{{item.ProjectName}}</a>
+            {{/each}}
+         
+        </dd>
+    </dl>
+    {{/if}}
+</script>
+<script type="text/html" id="ranklist_html">
+    {{each firstNewsList as item i}}
+    <div class="ranklist">
+        <h3>{{item.newsTypeName}}</h3>
+        <ol>
+            {{if item.newsList.length > 0}}
+            {{each item.newsList as news n}}
+            <li class="top">{{if n + 1 < 4}}<em>{{n + 1}}</em> {{/if}}
+                <a href="/portal_new/news/news.html?id={{news.Id}}" title="{{news.Title}}">{{subString(news.Title,0,10)}}</a>
+            </li>
+            {{/each}}
+            {{else}}
+            <li class="top">
+                <a href="javascript:;">暂无新闻</a>
+            </li>
+            {{/if}}
+        </ol>
+        <div class="clefix"></div>
+    </div>
+    {{/each}}
+    {{each secondeNewsList as item i}}
+    <div class="ranklist bottom">
+        <h3>{{item.newsTypeName}}</h3>
+        <ol>
+            {{if item.newsList.length > 0}}
+            {{each item.newsList as news n}}
+            <li class="top">{{if n + 1 < 4}}<em>{{n + 1}}</em> {{/if}}
+                <a href="/portal_new/news/news.html?id={{news.Id}}" title="{{news.Title}}">{{subString(news.Title,0,10)}}</a>
+            </li>
+            {{/each}}
+            {{else}}
+            <li class="top">
+                <a href="javascript:;">暂无新闻</a>
+            </li>
+            {{/if}}
+        </ol>
+        <div class="clefix"></div>
+    </div>
+    {{/each}}
+</script>
+<!--幻灯区 结束-->
+<!--专业-->
+<div class="wrapper">
+    <div class="wrapper-inner">
+        <!-- 专业 BOX -->
+        <div class="yui3-g">
+            <div class="yui3-u-1">
+                <div class="e-section section-major">
+                    <div class="section-header">
+                        <div class="section-title">专业</div>
+                        <div class="b"></div>
+                        <div class="section-desc">海纳百川 有容乃大</div>
+                    </div>
+                    <div class="section-nav">
+                        <div class="section-more">
+                            <a href="/portal_new/project/project.html" class="more-link" target="_blank">查看更多</a>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="tab-content" id="preject">
+                            正在加载...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/html" id="project_html">
+            {{if list}}
+            {{each list as item i}}
+                {{if item.Id != "zjrxadokk7rgedcpvmqxdw"}}
+                <div class="e-box">
+                    <a href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank" class="box-link">
+                        <div class="box-img">
+                            <img src="{{item.ProImg}}" class="e-image-major" style="width: 118px; height: 66px;">
+                        </div>
+                        <div class="box-title" title="{{item.ProjectName}}">{{item.ProjectName}}</div>
+                    </a>
+                </div>
+                {{else}}
+                <div class="e-box" id="showProject">
+                    <a href='javascript:void(0);' class="box-link">
+                        <div class="box-img">
+                            <img src="{{item.ProImg}}" class="e-image-major" style="width: 118px; height: 66px;" />
+                        </div>
+                        <div class="box-title" title="{{item.ProjectName}}">{{item.ProjectName}}</div>
+                    </a>
+                </div>
+                {{/if}}
+            {{/each}}
+            {{else}}
+            暂无数据
+            {{/if}}
+        </script>
+        <!-- 专业 BOX 结束 -->
+        <!-- 课程 BOX -->
+        <div class="yui3-g">
+            <div class="yui3-u-1" id="course_div">
+                <div class="e-section section-course">
+                    <div class="section-header">
+                        <div class="section-title">课程</div>
+                        <div class="b"></div>
+                        <div class="section-desc">小立课程 大作功夫</div>
+                    </div>
+                    <div class="section-nav">
+                        <div class="section-tab">
+                            <ul class="tab-wrapper" id="course_tab_link">
+                                <li class="tab-i current"><a href="javascript:;" class="tab-link" data-id="recommendcourse">推荐课程</a>&nbsp;&nbsp;/ </li>
+                                <li class="tab-i"><a href="javascript:;" class="tab-link" data-id="hotcourse">最热课程</a>&nbsp;&nbsp;/ </li>
+                                <li class="tab-i"><a href="javascript:;" class="tab-link" data-id="newcourse">最新课程</a>&nbsp;&nbsp;/ </li>
+                            </ul>
+                        </div>
+                        <div class="section-more"><a href="/portal_new/course/course.html" class="more-link" target="_blank">查看更多</a></div>
+                    </div>
+                    <form action="/portal/portal/getCourseInfo" method="post" id="course_form">
+                        正在加载...
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/html" id="course_html">
+            <style>
+                .li_bg{
+                background: url(/portal_new/images/demo.png) no-repeat;
+                position: absolute;
+                top: -14px;
+                right: -13px;
+                display: inline-block;
+                height: 50px;
+                width: 80px;
+                background-size: cover;
+                z-index: 10;
+			}
+            .li_bg2{
+                background: url(/portal_new/images/publish.png) no-repeat;
+                position: absolute;
+                top: -10px;
+                right: -13px;
+                display: inline-block;
+                height: 48px;
+                width: 80px;
+                background-size: cover;
+                z-index: 10;
+			}
+            .li_bg3{
+                background: url(/portal_new/images/depu.png) no-repeat;
+                position: absolute;
+                top: -12px;
+                right: -14px;
+                display: inline-block;
+                height: 67px;
+                width: 80px;
+                background-size: cover;
+                z-index: 10;
+			}
+                .div_include
+                {
+                    margin-left: 30px;
+                    position: relative;
+                    width: 270px;
+                    height: 249px;
+                    overflow: inherit;
+                    display: block;
+                    float: left;
+                }
+            </style>
+            <div class="section-content " id="course">
+                <input type="hidden" name="type" value="{{type}}" id="courseType" />
+                <div class="tab-content clefix" style="display: block;">
+                    {{if list}}
+                    {{each list as item i}}
+                    <div class="div_include">
+                        {{if item.CourseCategory == 1 && item.PrintingStates == 1}}
+                            <span class="li_bg3"></span>
+                        {{else if item.CourseCategory == 1}}
+                            <span class="li_bg"></span>
+                        {{else if item.PrintingStates == 1}}
+                            <span class="li_bg2"></span>
+                        {{else}}
+                        {{/if}}
+                    <div class="e-box" style="margin:0">
+                        
+                        <a href="/portal_new/newcourseinfo/courseinfo.html?courseid={{item.Id}}" class="box-link">
+                            <div class="box-img">
+                                {{if item.Cover}}
+                                <img src="{{item.Cover}}" class="video-image" style="width: 270px; height: 130px;">
+                                {{else}}
+                                <img src="/portal_new/images/coursepage-pic.jpg" class="video-image" style="width: 270px; height: 130px;">
+                                {{/if}}
+                            </div>
+                        </a>
+                        <div class="box-row-two clefix">
+                            <h3 class="curriculum-title"><a href="/portal_new/newcourseinfo/courseinfo.html?courseid={{item.Id}}" target="_blank" class="curriculum-link" title="{{item.Title}}">{{item.Title}}</a></h3>
+                            <div class="box-row-left">
+                                <div class="box-row-s">{{if item.TeacherDisplayname}}{{item.TeacherDisplayname}}{{else}} 暂无主讲教师{{/if}}</div>
+                                <div class="box-row-s" title="{{item.UnitName}}">{{if item.UnitName}}{{item.UnitName}}{{else}} 暂无单位 {{/if}}</div>
+                            </div>
+                            <div class="box-row-right">
+                                <div class="box-row-s"><i class="iconfont icon-renyuan"></i>{{item.Num}}</div>
+                                <div class="box-row-s"><i class="iconfont icon-shijian"></i>{{if item.DatePublish}}{{dateFormat(item.DatePublish,'yyyy-MM-dd')}}{{/if}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    暂无课程
+                    {{/if}}
+                </div>
+            </div>
+            <div class="paging">
+                <div class="pagination ajax light-theme simple-pagination">
+                </div>
+            </div>
+        </script>
+        <!-- 课程 BOX 结束 -->
+        <!-- 微课 BOX -->
+        <div class="yui3-g">
+            <div class="yui3-u-1" id="weike_div">
+                <div class="e-section section-course section-fouth">
+                    <div class="section-header">
+                        <div class="section-title">微课</div>
+                        <div class="b"></div>
+                        <div class="section-desc">尽小者大 积微成著</div>
+                    </div>
+                    <div class="section-nav">
+                        <div class="section-tab">
+                            <ul class="tab-wrapper" id="weike_tab_link">
+                                <li class="tab-i current"><a href="javascript:;" class="tab-link" id="recommendweike" data-id="recommendweike">推荐微课</a>&nbsp;&nbsp;/ </li>
+                                <li class="tab-i"><a href="javascript:;" class="tab-link" data-id="hotweike">最热微课</a>&nbsp;&nbsp;/ </li>
+                                <li class="tab-i"><a href="javascript:;" class="tab-link" data-id="newweike">最新微课</a>&nbsp;&nbsp;/ </li>
+                            </ul>
+                        </div>
+                        <div class="section-more">
+                            <a href="/portal_new/weike/weike.html" class="more-link" target="_blank">查看更多</a>
+                        </div>
+                    </div>
+                    <form action="/portal/portal/getWeiKeInfo" method="post" id="weike_form">
+                        正在加载...
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/html" id="weike_html">
+            <div class="section-content" id="tabCont2">
+                <input type="hidden" name="type" value="{{type}}" />
+                <div class="tab-content clefix" style="display: block;">
+                    {{if list}}
+                    {{each list as item i}}
+                    <div class="e-box">
+                        <a href="/portal_new/newweikeinfo/weikeinfo.html?weikeId={{item.Id}}" class="box-link">
+                            <div class="box-img">
+                                {{if item.Cover}}
+                                <img src="{{item.Cover}}" alt="" class="video-image" style="width: 270px; height: 130px;">
+                                {{else}}
+                                <img src="/portal_new/images/coursepage-pic.jpg" alt="" class="video-image" style="width: 270px; height: 130px;">
+                                {{/if}}
+                            </div>
+                        </a>
+                        <div class="box-row-two clefix">
+                            <h3 class="curriculum-title"><a href="/portal_new/newweikeinfo/weikeinfo.html?weikeId={{item.Id}}" target="_blank" class="curriculum-link" title="{{item.Title}}">{{item.Title}}</a></h3>
+                            <div class="box-row-left">
+                                <div class="box-row-s">{{if item.TeacherDisplayname}}{{item.TeacherDisplayname}}{{else }}暂无主讲教师{{/if}}</div>
+                                <div class="box-row-s" title="{{item.UnitName}}">{{if item.UnitName}}{{item.UnitName}}{{else}} 暂无单位{{/if}}</div>
+                            </div>
+                            <div class="box-row-right">
+                                <div class="box-row-s"><i class="iconfont icon-renyuan"></i>{{item.Num}}</div>
+                                <div class="box-row-s"><i class="iconfont icon-shijian"></i>{{if item.DatePublish}}{{dateFormat(item.DatePublish,'yyyy-MM-dd')}}{{/if}} </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    暂无数据
+                    {{/if}}
+                </div>
+            </div>
+            <div class="paging">
+                <div class="pagination ajax light-theme simple-pagination">
+                </div>
+            </div>
+        </script>
+        <!-- 微课 BOX 结束 -->
+    </div>
+</div>
+<script type="text/html" id="homediozy_html">
+    <div class=WordSection1 style='layout-grid:15.6pt'>
+        <p class=MsoNormal style='text-indent:24pt;line-height:150%'>
+            <span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>
+                中国是一个历史悠久的多民族国家，积淀了十分丰富而又独特的优秀文化遗产。从现实情况看，民族文化传承<span style='color:black'>存在着信息缺失、表现缺失、机制缺失等问题。</span>这是政府的职责，更是教育的使命，职业教育应责无旁贷承担起这一使命<span style='color:black'>，最大程度地促进民族文化的保护与传承、创新与应用。民族文化传承与创新是促进中华文化发展的需要，是促进文化产业发展的需要。</span>
+            </span>
+        </p>
+        <p class=MsoNormal style='text-indent:24pt;line-height:150%'>
+            <span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>
+                通过信息技术、数字技术、艺术手段并用，建设<a name="OLE_LINK1">民族文化传承与创新教学资源库</a>，解决资源与需求的突出问题，实现优质资源共享，才能促进传统文化继承发展，满足文化产业转型升级需要。民族文化传承与创新教学资源库是自主学习平台、是教育教学平台、是推广应用平台。资源惠及于民众，功在当代，利在千秋。
+            </span>
+        </p>
+        <p class=MsoNormal style='text-indent:27.75pt;line-height:150%'>
+            <span lang=EN-US style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>&nbsp;</span>
+        </p>
+        <p class=MsoNormal align=right style='text-align:right;line-height:150%'>
+            <span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>职业教育民族文化传承与创新教学资源库</span><span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>项目建设领导小组组长</span>
+        </p>
+        <p class=MsoNormal align=right style='text-align:right;line-height:150%'>
+            <span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>北京电子科技职业学院校长</span>
+        </p>
+        <p class=MsoNormal align=right style='text-align:right;line-height:150%'>
+            <span style='font-size:12.0pt;line-height:150%;font-family:"Microsoft Yahei",tahoma,arial'>王海平</span>
+        </p>
+        <p class=MsoNormal style='line-height:150%'>
+            <span lang=EN-US style='font-size:12.0pt;line-height:150%;font-family:宋体;color:black'>&nbsp;</span>
+        </p>
+    </div>
+    {{if coulist}}
+    {{each coulist as item i}}
+    {{if item.Id != "zjrxadokk7rgedcpvmqxdw"}}
+    <div class="e-box">
+        <a href="/portalproject/themes/default/{{item.Id}}/sta_page/index.html?projectId={{item.Id}}" target="_blank" class="box-link">
+            <div class="box-img">
+                {{if item.ProImg}}
+                <img src="{{item.ProImg}}" class="e-image-major" style="width: 118px; height: 66px;">
+                {{else}}
+                <img src='/portal/img/118_66.png' class="e-image-major" style="width: 118px; height: 66px;" />
+                {{/if}}
+            </div>
+            <div class="box-title" title="{{item.ProjectName}}">{{item.ProjectName}}</div>
+        </a>
+    </div>
+    {{else}}
+    <div class="e-box" id="showProject">
+        <div class="e-box" id="showProject">
+            <a href='javascript:void(0);' class="box-link">
+                <div class="box-img">
+                    <img src="{{item.ProImg}}" class="e-image-major" style="width:118px;height:66px;" />
+                </div>
+                <div class="box-title" title="{{item.ProjectName}}">{{item.ProjectName}}</div>
+            </a>
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+    {{else}}
+    暂无国家项目
+    {{/if}}
+</script>
+<script src="/portal_new/js/portal/portal.js"></script>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+              
+            </div>
+             <script id="foot-left" type="text/html">
+                {{ each list as item}}
+                    <a href="{{item.SiteUrl}}" target="_blank">{{item.SiteName}}</a>
+                {{/each}}
+            </script>
+            <div class="footer-right">
+                <h3 class="footer-logo">&nbsp;</h3>
+                <div class="footer-text">
+                    <p>
+                        <a href="https://www.sojump.hk/jq/9968831.aspx" target="_blank">开通项目申请表</a>&nbsp;|&nbsp;
+                   
+                        <a href="/portal_new/platform/platform.html?page=1" target="_blank">平台简介</a>&nbsp;|&nbsp;
+                        
+                        <a href="/portal_new/platform/platform.html?page=2" target="_blank">知识产权</a>&nbsp;|&nbsp;
+                        
+                        <a href="/portal_new/platform/platform.html?page=3" target="_blank">免责声明</a>&nbsp;|&nbsp;     
+                        
+                        <a href="/portal_new/platform/platform.html?page=4" target="_blank">意见反馈</a>&nbsp;|&nbsp;         
+                        
+                        <a href="/portal_new/platform/platform.html?page=5" target="_blank">联系我们</a>&nbsp;|&nbsp;
+                        
+                        <a href="/portal_new/platform/platform.html?page=6" target="_blank">积分说明</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <span>Copyright©www.icve.com.cn</span>
+                <a href="http://www.miitbeian.gov.cn/" class="copyright-ICP">京ICP备12020869-19</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function getFriendLink() {
+            _.ajax("/common/common/getFriendLink", function (r) {
+                $(".footer-left").html(template("foot-left", r));
+            })
+        }
+        getFriendLink();
+    </script>
+</body>
+</html>

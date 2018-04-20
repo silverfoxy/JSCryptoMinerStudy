@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<base href="https://www.unionpedia.org/"/>
+<meta charset="UTF-8" />
+<meta name="google-site-verification" content="kilq9ljhh3HKXbm9RyT_sL6IOaJrYNIOVmL8-mctv7M" />
+<title>Unionpedia</title>
+<meta property="og:image" content="https://www.unionpedia.org/static/images/unionpedia_fb_thumb.png"/>
+<meta name="google-signin-client_id" content="306351555599-gi55oqatstpohugn549l05i4n1lq0t0i.apps.googleusercontent.com">
+<link rel="shortcut icon" href="static/images/unionpedia.ico" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+<link rel="stylesheet" type="text/css" href="static/css/style-v2.css"/>
+<link rel="stylesheet" type="text/css" href="static/css/login.css"/>
+<style>html,body{background-color: #FFF;}</style>
+<script>var domain = 'https://www.unionpedia.org/';</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35016837-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+function onSuccess(googleUser) {
+	var profile = googleUser.getBasicProfile();
+	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	console.log('Name: ' + profile.getName());
+	console.log('Image URL: ' + profile.getImageUrl());
+	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	var id_token = googleUser.getAuthResponse().id_token;
+	console.log('id_token: ' + id_token);
+	
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://www.unionpedia.org/Login:');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+		console.log('Signed in as: ' + xhr.responseText);
+	};
+	xhr.send('idtoken=' + id_token);
+	
+	
+}
+function onFailure(error) {
+	console.log(error);
+}
+function renderButton() {
+	gapi.signin2.render('my-signin2', {
+		'scope': 'profile email',
+		'width': 240,
+		'height': 50,
+		'longtitle': true,
+		'theme': 'dark',
+		'onsuccess': onSuccess,
+		'onfailure': onFailure
+	});
+}
+function signOut() {
+	document.getElementById('formLogout').submit();
+	return;
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function () {
+		console.log('User signed out.');
+		document.getElementById('formLogout').submit();
+	});
+}
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>   
+</head>
+<body class="lang-ltr">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=222655474428803";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div style="text-align: center;">
+<style>
+#introduction {
+	padding-top: 70px;
+}
+#introduction h1, h2 {
+	padding: 0; margin: 0; border: none;
+}
+#languages {
+	display: inline-block;
+	margin: 30px auto;
+	margin-top: 25px;
+	padding: 0;
+}
+#languages li {
+	list-style-type: none;
+	padding: 0; margin: 0;
+	-display: inline-block;
+	margin-bottom: 15px;
+}
+#languages strong {
+	font-size: 1.2em;
+}
+#languages img {
+	height: 35px;
+	margin-top: -4px;
+}
+</style>
+<div id="introduction">
+	<img src="static/images/logo-u.png" alt="Logo" style="height: 100px; margin-bottom: 5px;"/>
+	<h1><img src="static/images/unionpedia_home.png" alt="Unionpedia" title="Unionpedia" style="height: 40px;"/></h1>
+</div>
+<div style="margin: 0px; vertical-align: top;">
+<div class="fb-like" data-show-faces="false" data-layout="button_count" data-href="https://www.facebook.com/Unionpedia" style="height: 10px; margin-top: 20px; display: block;"></div>
+</div>
+<div style="margin: 30px 0; -margin-top: 10px; -background-color: red; -border: 1px solid red !important; display: inline-block;">
+	<ul id="languages" style="-background-color: blue;">
+						<li lang="en">
+			<a href="https://en.unionpedia.org/" title="English — Unionpedia — The Concept Map">
+				<strong>English</strong><br/>
+				<img src="static/images/the_concept_map_home.png" alt="The Concept Map"/>
+			</a>
+		</li>
+				<li lang="es">
+			<a href="https://es.unionpedia.org/" title="Español — Unionpedia — El mapa conceptual">
+				<strong>Español</strong><br/>
+				<img src="static/images/el_mapa_conceptual_home.png" alt="El mapa conceptual"/>
+			</a>
+		</li>
+				<li lang="pt">
+			<a href="https://pt.unionpedia.org/" title="Português — Unionp&eacute;dia — O mapa conceitual">
+				<strong>Português</strong><br/>
+				<img src="static/images/o_mapa_conceitual_home.png" alt="O mapa conceitual"/>
+			</a>
+		</li>
+				<li lang="ja">
+			<a href="https://ja.unionpedia.org/" title="日本語 — ユニオンペディア — 意味ネットワーク">
+				<strong>日本語</strong><br/>
+				<img src="static/images/concept_map_ja_home.png" alt="意味ネットワーク"/>
+			</a>
+		</li>
+				<li lang="zh">
+			<a href="https://zh.unionpedia.org/" title="中文 — 联盟百科 — 语义网络">
+				<strong>中文</strong><br/>
+				<img src="static/images/concept_map_zh_home.png" alt="语义网络"/>
+			</a>
+		</li>
+				<li lang="fr">
+			<a href="https://fr.unionpedia.org/" title="Français — Unionp&eacute;dia — La carte conceptuelle">
+				<strong>Français</strong><br/>
+				<img src="static/images/la_carte_conceptuelle_home.png" alt="La carte conceptuelle"/>
+			</a>
+		</li>
+				<li lang="de">
+			<a href="https://de.unionpedia.org/" title="Deutsch — Unionpedia — Die Concept-Map">
+				<strong>Deutsch</strong><br/>
+				<img src="static/images/die_concept_map_home.png" alt="Die Concept-Map"/>
+			</a>
+		</li>
+				<li lang="it">
+			<a href="https://it.unionpedia.org/" title="Italiano — Unionpedia — La mappa concettuale">
+				<strong>Italiano</strong><br/>
+				<img src="static/images/la_mappa_concettuale_home.png" alt="La mappa concettuale"/>
+			</a>
+		</li>
+				<li lang="pl">
+			<a href="https://pl.unionpedia.org/" title="Polski — Unionpedia — Sieć semantyczna">
+				<strong>Polski</strong><br/>
+				<img src="static/images/slogan_pl_home.png" alt="Sieć semantyczna"/>
+			</a>
+		</li>
+				<li lang="nl">
+			<a href="https://nl.unionpedia.org/" title="Nederlands — Unionpedia — Het semantisch netwerk">
+				<strong>Nederlands</strong><br/>
+				<img src="static/images/het_semantisch_netwerk_home.png" alt="Het semantisch netwerk"/>
+			</a>
+		</li>
+				<li lang="ru">
+			<a href="https://ru.unionpedia.org/" title="Русский — Юнионпедия — Семантическая сеть">
+				<strong>Русский</strong><br/>
+				<img src="static/images/concept_map_ru_home.png" alt="Семантическая сеть"/>
+			</a>
+		</li>
+				<li lang="ar">
+			<a href="https://ar.unionpedia.org/" title="العربية — يونيونبيديا — الشبكة الدلالية">
+				<strong>العربية</strong><br/>
+				<img src="static/images/concept_map_ar_home.png" alt="الشبكة الدلالية"/>
+			</a>
+		</li>
+				<li lang="hi">
+			<a href="https://hi.unionpedia.org/" title="हिन्दी — यूनियनपीडिया — अर्थ वेब विश्वकोश">
+				<strong>हिन्दी</strong><br/>
+				<img src="static/images/concept_map_hi_home.png" alt="अर्थ वेब विश्वकोश"/>
+			</a>
+		</li>
+				<li lang="sv">
+			<a href="https://sv.unionpedia.org/" title="Svenska — Unionpedia — Den semantiska nätverk">
+				<strong>Svenska</strong><br/>
+				<img src="static/images/concept_map_sv_home.png" alt="Den semantiska nätverk"/>
+			</a>
+		</li>
+				<li lang="uk">
+			<a href="https://uk.unionpedia.org/" title="Українська — Юніонпедія — Ментальна карта">
+				<strong>Українська</strong><br/>
+				<img src="static/images/concept_map_uk_home.png" alt="Ментальна карта"/>
+			</a>
+		</li>
+				<li lang="hu">
+			<a href="https://hu.unionpedia.org/" title="Magyar — Uniópédia — A koncepció térkép">
+				<strong>Magyar</strong><br/>
+				<img src="static/images/concept_map_hu_home.png" alt="A koncepció térkép"/>
+			</a>
+		</li>
+				<li lang="ca">
+			<a href="https://ca.unionpedia.org/" title="Català — Uniopèdia — El mapa conceptual">
+				<strong>Català</strong><br/>
+				<img src="static/images/concept_map_ca_home.png" alt="El mapa conceptual"/>
+			</a>
+		</li>
+				<li lang="cs">
+			<a href="https://cs.unionpedia.org/" title="Čeština — Uniepedie — Pojmová mapa">
+				<strong>Čeština</strong><br/>
+				<img src="static/images/concept_map_cs_home.png" alt="Pojmová mapa"/>
+			</a>
+		</li>
+				<li lang="he">
+			<a href="https://he.unionpedia.org/" title="עברית — יוניונפדיה — המפת מושגים">
+				<strong>עברית</strong><br/>
+				<img src="static/images/concept_map_he_home.png" alt="המפת מושגים"/>
+			</a>
+		</li>
+				<li lang="da">
+			<a href="https://da.unionpedia.org/" title="Dansk — Unionpedia — Den semantiske netværk">
+				<strong>Dansk</strong><br/>
+				<img src="static/images/concept_map_da_home.png" alt="Den semantiske netværk"/>
+			</a>
+		</li>
+				<li lang="fi">
+			<a href="https://fi.unionpedia.org/" title="Suomi — Unionpedia — Semanttinen verkko">
+				<strong>Suomi</strong><br/>
+				<img src="static/images/concept_map_fi_home.png" alt="Semanttinen verkko"/>
+			</a>
+		</li>
+				<li lang="id">
+			<a href="https://id.unionpedia.org/" title="Bahasa Indonesia — Unionpedia — Jaringan semantik">
+				<strong>Bahasa Indonesia</strong><br/>
+				<img src="static/images/concept_map_id_home.png" alt="Jaringan semantik"/>
+			</a>
+		</li>
+				<li lang="no">
+			<a href="https://no.unionpedia.org/" title="Norsk bokmål — Unionpedia — Den semantiske nettverk">
+				<strong>Norsk bokmål</strong><br/>
+				<img src="static/images/concept_map_no_home.png" alt="Den semantiske nettverk"/>
+			</a>
+		</li>
+				<li lang="ro">
+			<a href="https://ro.unionpedia.org/" title="Română — Uniunpedie — Reţea semantică">
+				<strong>Română</strong><br/>
+				<img src="static/images/concept_map_ro_home.png" alt="Reţea semantică"/>
+			</a>
+		</li>
+				<li lang="tr">
+			<a href="https://tr.unionpedia.org/" title="Türkçe — Ünionpedi — Anlamsal ağ">
+				<strong>Türkçe</strong><br/>
+				<img src="static/images/concept_map_tr_home.png" alt="Anlamsal ağ"/>
+			</a>
+		</li>
+				<li lang="vi">
+			<a href="https://vi.unionpedia.org/" title="Tiếng Việt — Unionpedia — Bản đồ tư duy">
+				<strong>Tiếng Việt</strong><br/>
+				<img src="static/images/concept_map_vi_home.png" alt="Bản đồ tư duy"/>
+			</a>
+		</li>
+				<li lang="th">
+			<a href="https://th.unionpedia.org/" title="ไทย — ยูเนี่ยนพีเดีย — แผนที่แนวคิด">
+				<strong>ไทย</strong><br/>
+				<img src="static/images/concept_map_th_home.png" alt="แผนที่แนวคิด"/>
+			</a>
+		</li>
+				<li lang="el">
+			<a href="https://el.unionpedia.org/" title="Ελληνικά — Υνιονπαίδεια — Το σημασιολογικό δίκτυο">
+				<strong>Ελληνικά</strong><br/>
+				<img src="static/images/concept_map_el_home.png" alt="Το σημασιολογικό δίκτυο"/>
+			</a>
+		</li>
+				<li lang="bg">
+			<a href="https://bg.unionpedia.org/" title="Български — Юнионпедия — Семантичната мрежа">
+				<strong>Български</strong><br/>
+				<img src="static/images/concept_map_bg_home.png" alt="Семантичната мрежа"/>
+			</a>
+		</li>
+				<li lang="hr">
+			<a href="https://hr.unionpedia.org/" title="Hrvatski — Unijapedija — Semantički mreže">
+				<strong>Hrvatski</strong><br/>
+				<img src="static/images/concept_map_hr_home.png" alt="Semantički mreže"/>
+			</a>
+		</li>
+				<li lang="sk">
+			<a href="https://sk.unionpedia.org/" title="Slovenčina — Úniapédia — Sémantickej siete">
+				<strong>Slovenčina</strong><br/>
+				<img src="static/images/concept_map_sk_home.png" alt="Sémantickej siete"/>
+			</a>
+		</li>
+				<li lang="lt">
+			<a href="https://lt.unionpedia.org/" title="Lietuvių — Unijapedija — Koncepcijų žemėlapis">
+				<strong>Lietuvių</strong><br/>
+				<img src="static/images/concept_map_lt_home.png" alt="Koncepcijų žemėlapis"/>
+			</a>
+		</li>
+				<li lang="tl">
+			<a href="https://tl.unionpedia.org/" title="Tagalog — Unyonpedia — Ang semantiko network">
+				<strong>Tagalog</strong><br/>
+				<img src="static/images/concept_map_tl_home.png" alt="Ang semantiko network"/>
+			</a>
+		</li>
+				<li lang="lv">
+			<a href="https://lv.unionpedia.org/" title="Latviešu — Ūnijapēdija — Koncepcija karti">
+				<strong>Latviešu</strong><br/>
+				<img src="static/images/concept_map_lv_home.png" alt="Koncepcija karti"/>
+			</a>
+		</li>
+				<li lang="et">
+			<a href="https://et.unionpedia.org/" title="Eesti — Unioonpeedia — Mõiste kaart">
+				<strong>Eesti</strong><br/>
+				<img src="static/images/concept_map_et_home.png" alt="Mõiste kaart"/>
+			</a>
+		</li>
+				<li lang="sl">
+			<a href="https://sl.unionpedia.org/" title="Slovenščina — Unijapedija — Koncept karta">
+				<strong>Slovenščina</strong><br/>
+				<img src="static/images/concept_map_sl_home.png" alt="Koncept karta"/>
+			</a>
+		</li>
+			</ul>
+	<div style="clear: both;"></div>
+</div>
+</div>
+
+
+
+
+
+<script>
+// Smooth scrolling
+var $root = $('html, body');
+$('a[href*=#]').click(function(){
+	var href = $.attr(this, 'href')
+	var hash = href.substr(href.indexOf("#")+1);
+    $root.animate({
+        scrollTop: $('[name="' + hash + '"]').offset().top - 7    }, 500, function () {
+        window.location.hash = hash;
+    });
+    return false;
+});
+</script>
+
+<a href="#" id="scrollToTop"></a>
+<style>
+#scrollToTop{
+	position: fixed;
+	
+		width: 55px;
+	height: 55px;
+	bottom: 10px;
+	right: 10px;
+		
+	display: none;
+	border-radius: 50%;
+	box-shadow: 1px 1px 7px rgba(0,50,150,0.3);
+	
+	background-color: rgba(0,120,205,1);
+	text-decoration: none;
+	
+	background-image: url(static/images/arrow-top.png);
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	opacity: 0.7;
+}
+#scrollToTop:hover{
+	text-decoration:none;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 265) {
+			$('#scrollToTop').fadeIn(400);
+		} else {
+			$('#scrollToTop').fadeOut(400);
+		}
+	});
+	$('#scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},400);
+		return false;
+	});
+});
+</script>
+
+</body>
+</html>

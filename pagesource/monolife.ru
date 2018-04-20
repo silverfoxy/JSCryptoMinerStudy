@@ -1,0 +1,1 @@
+<script>location.href= '/Home/Game';</script>

@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://school.js88.com/">redirected</a>.</body></html>

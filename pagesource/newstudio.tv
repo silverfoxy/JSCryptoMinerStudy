@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NewStudio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.php">
+    <link rel="stylesheet" href="/templates/newstudio/css/newstudio.css" type="text/css" />
+    <script src="/templates/newstudio/js/jquery-latest.js"></script>
+    <script src="/templates/newstudio/js/jquery.autocomplete.js"></script>
+    <script src="/templates/newstudio/js/jquery.cookie.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $(".search-query").autocomplete({
+                serviceUrl: '/autocomplete.php',
+                minChars: 2,
+                delimiter: /(;)\s*/,
+                maxHeight: 400,
+                width: 640,
+                zIndex: 9999,
+                deferRequestBy: 300,
+                onSelect: function(data, value){
+                    window.location = '/'+value;
+                }
+            });
+        })
+    </script>
+
+    <script type="text/javascript" src="/misc/js/main.js?v=1"></script>
+        <script type="text/javascript">
+        var BB_ROOT       = "./";
+        var cookieDomain  = "newstudio.tv";
+        var cookiePath    = "/";
+        var cookieSecure  = 0;
+        var cookiePrefix  = "bb_";
+        var LOGGED_IN     = 0;
+        var InfoWinParams = 'HEIGHT=510,resizable=yes,WIDTH=780';
+
+        var user = {
+            opt_js: {},
+
+            set: function(opt, val, days, reload) {
+                this.opt_js[opt] = val;
+                setCookie('opt_js', $.toJSON(this.opt_js), days);
+                if (reload) {
+                    window.location.reload();
+                }
+            }
+        }
+        
+        var ajax = new Ajax('./ajax.php', 'POST', 'json');
+
+        function getElText (e)
+        {
+            var t = '';
+            if (e.textContent !== undefined) { t = e.textContent; } else if (e.innerText !== undefined) { t = e.innerText; } else { t = jQuery(e).text(); }
+            return t;
+        }
+        function escHTML (txt)
+        {
+            return txt.replace(/</g, '&lt;');
+        }
+            </script>
+</head>
+<body style="background: url('/images/fones/fonePic1521351544.jpg') no-repeat scroll 50% 0 #000000;padding-top:420px;">
+
+<style>
+    .up-button {
+        display: none;
+        position:fixed;
+        bottom: 4px;
+        background-color:#FBF9E4;
+        width:35px;
+        line-height:30px;
+        text-align:center;
+        font-size:1.4em;
+        text-decoration:none;
+        opacity:0.7;
+        z-index:5
+    }
+    .up-button:hover{
+        opacity: 1;
+    }
+    .up-left{
+        left:0;
+        border-radius:0 4px 4px 0;
+
+    }
+    .up-right{
+        right:0;
+        border-radius:4px 0 0 4px;
+
+    }
+
+</style>
+<script type="text/javascript">
+    jQuery(function($) {
+
+            var upperLimit = 100, scrollElem = $(".up-button"), scrollSpeed = 500;
+            $(window).scroll(function () {
+                var scrollTop = $(document).scrollTop();
+                if ( scrollTop > upperLimit ) {
+                    $(scrollElem).stop().fadeTo(300, 1); // fade back in
+                } else {
+                    $(scrollElem).stop().fadeTo(300, 0); // fade out
+                }
+            }).scroll();
+            $(scrollElem).click(function(){
+                $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+            });
+
+
+    });
+</script>
+<a href="#" class="up-button up-left"><img src="/images/up_arrow.png" style="width: 17px;height: 17px;z-index:2;"></a>
+<a href="#" class="up-button up-right"><img src="/images/up_arrow.png" style="width: 17px;height: 17px;z-index:2;"></a>
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/">NewStudio.TV</a>
+                    <div class="nav-collapse collapse">
+
+                        <!--<ul class="nav">
+                            <li class="active"><a href="#"><i class="icon-film"></i> трекер</a></li>
+                        </ul>-->
+                        <div class="nav pull-right">
+
+                                                        <a href="#login" role="button" class="btn btn-inverse" data-toggle="modal">Войти</a>
+                                                    </div>
+                        <ul class="nav pull-right">
+                            <li><a href="/tracker.php"><i class="icon-film"></i> Релизы</a></li>
+                            <li><a href="/forum.php"><i class="icon-comments-alt"></i> Форум</a></li>
+                                                        <li><a href="profile.php?mode=register"><i class="icon-credit-card"></i> Регистрация</a></li>
+                                                    </ul>
+                        <form class="navbar-search pull-right" action="/tracker.php#results" method="post">
+                            <input type="hidden" name="max" value="1">
+                            <input type="hidden" name="to" value="1">
+                            <input name="nm" class="search-query" type="text" placeholder="Найти сериал" style="width:310px;">&nbsp;
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                <div style="text-align:center;text-align:middle;margin:0 auto;background:#dbdbdb;">
+            <br><center><object width="728" height="90">
+<param name="movie" value="menu.swf">
+<embed src="menu.swf" width="728" height="90">
+</embed>
+</object></center><br>        </div>
+        
+    
+    <div class="container-fluid bg-img">
+
+        <div class="row-fluid">
+            <div  id="sideLeftW" class="span9">
+                <div id="sideLeft">
+
+
+
+<script type="text/javascript">
+    $(function(){
+        $('a#news_link').click(function(){
+            if($('a#news_link').hasClass("collapsed")){
+                $.cookie("news_main", null);
+            } else {
+                $.cookie("news_main", "collapsed");
+
+            }
+        });
+    })
+</script>
+
+
+<div class="accordion" id="newswrap">
+    <div class="accordion-group" style="margin-left:5px;">
+
+        <div class="accordion-heading">
+            <h5 style="margin:0;">
+
+                <a id="news_link" class="accordion-toggle " data-toggle="collapse" data-parent="#news" href="#newswrap1">
+                    Новости
+                    <i class="icon-chevron-down pull-right"> </i>
+                </a>
+            </h5>
+        </div>
+
+        <div id="newswrap1" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                
+                <div class="well well-small">
+                    <span class="label pull-right">26.01.2018</span>
+                    <span class="label clearfix">Вы хотели правила? Держите наши правила.</span>
+                    <br>
+                    П Р А В И Л А 1. Запрещен спам и флуд.2. Запрещена реклама и ссылки на сторонние ресурсы.3. Запрещены комментарии имеющие отношение к политике, пропагандистские лозунги и тому подобное. Любое проявление национализма, тем паче нацизма, будет наказываться БАНОМ навсегда.4. Запрещается использование нецензурной лексики в любом её проявлении, в том чис...                    <a href="/viewtopic.php?t=27344" class="label-link pull-right">читать дальше…</a>
+                </div>
+
+                
+                <div class="well well-small">
+                    <span class="label pull-right">04.12.2017</span>
+                    <span class="label clearfix">Черный Кузнец — Новый альбом — 31 декабря 2017г!</span>
+                    <br>
+                    <div style="text-align: center;"><object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/s_WTRtW65So&hl=ru_RU&fs=1&" />
+<param name="allowFullScreen" value="true" />
+<param name="allowscriptaccess" value="always" />
+<embed src="http://www.youtube.com/v/s_WTRtW65So&hl=ru_RU&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385" wmode="transparent" /></object></div>                    <a href="/viewtopic.php?t=26664" class="label-link pull-right">читать дальше…</a>
+                </div>
+
+                
+                <div class="well well-small">
+                    <span class="label pull-right">29.01.2017</span>
+                    <span class="label clearfix">Спонсирование: Сумеречные Охотники</span>
+                    <br>
+                    Друзья!Как вы, вероятно, заметили, с начала наступившего года наша группа выпускает не так много релизов, как обычно. Дело в том, что ряд сериалов, которые мы хотели взять в работу после праздников, остался без спонсорской поддержки. Почему так вышло сейчас не имеет значения, вдаваться в подробности мы не хотим. Суть остаётся такова, что очень мног...                    <a href="/viewtopic.php?t=22583" class="label-link pull-right">читать дальше…</a>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion-group" style="margin-left:5px;">
+<div class="accordion-heading">
+    <h5 class="accordion-toggle">
+        Релизы
+    </h5>
+</div>
+<div class="accordion-body collapse in">
+<div class="accordion-inner">
+<div class="date">
+    <span class="label label-important">18.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=448">
+        <img src="/images/posters/448.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28135"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28250"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28134"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28249"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28133"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28248"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=448">Секретные материалы</a>
+    </div>
+    <div class="tdesc">
+        Секретные материалы (Сезон 11, Серия 8) / The X-Files (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=605">
+        <img src="/images/posters/605.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28132"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28247"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28131"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28246"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28130"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28245"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=605">Чёрная молния</a>
+    </div>
+    <div class="tdesc">
+        Чёрная молния (Сезон 1, Серия 7) / Black Lightning (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=624">
+        <img src="/images/posters/624.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28129"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28244"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28128"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28243"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28127"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28242"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=624">Нераскрытое</a>
+    </div>
+    <div class="tdesc">
+        Нераскрытое (Сезон 1, Серия 2) / Unsolved (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=436">
+        <img src="/images/posters/436.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28126"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28241"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28125"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28240"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28124"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28239"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=436">Художественные фильмы</a>
+    </div>
+    <div class="tdesc">
+        Чужак / The Outsider (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=540">
+        <img src="/images/posters/540.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28123"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28238"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28122"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28237"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28121"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28236"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=540">Хорошая борьба</a>
+    </div>
+    <div class="tdesc">
+        Хорошая борьба (Сезон 2, Серия 1) / The Good Fight (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=607">
+        <img src="/images/posters/607.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28120"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28235"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28119"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28234"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28118"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28233"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=607">Алиенист</a>
+    </div>
+    <div class="tdesc">
+        Алиенист (Сезон 1, Серия 8) / The Alienist (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=426">
+        <img src="/images/posters/426.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28117"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28232"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28116"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28231"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28115"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28230"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=426">Джессика Джонс</a>
+    </div>
+    <div class="tdesc">
+        Джессика Джонс (Сезон 2) / Marvel&#039;s Jessica Jones (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=455">
+        <img src="/images/posters/455.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28114"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28229"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28113"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28228"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28112"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28227"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=455">Хэп и Леонард</a>
+    </div>
+    <div class="tdesc">
+        Хэп и Леонард (Сезон 3, Серия 2) / Hap and Leonard (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=447">
+        <img src="/images/posters/447.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28111"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28226"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28110"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28225"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28109"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28224"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=447">Легенды завтрашнего дня</a>
+    </div>
+    <div class="tdesc">
+        Легенды завтрашнего дня (Сезон 3, Серия 14) / DC&#039;s Legends of Tomorrow (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=507">
+        <img src="/images/posters/507.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28108"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28223"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28107"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28222"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28106"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28221"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=507">Булл</a>
+    </div>
+    <div class="tdesc">
+        Булл (Сезон 2, Серия 16) / Bull (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=613">
+        <img src="/images/posters/613.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28105"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28220"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28103"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28218"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28104"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28219"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=613">Усиленная биология</a>
+    </div>
+    <div class="tdesc">
+        Усиленная биология (Сезон 1, Серия 5) / A.P. Bio (2018) WEBDL     </div>
+</div>
+<div class="date">
+    <span class="label label-important">17.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=604">
+        <img src="/images/posters/604.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28102"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28217"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28101"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28216"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28100"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28215"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=604">Чи</a>
+    </div>
+    <div class="tdesc">
+        Чи (Сезон 1, Серия 7) / The Chi (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=581">
+        <img src="/images/posters/581.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28099"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28214"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28098"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28213"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28097"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28212"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=581">Спецназ</a>
+    </div>
+    <div class="tdesc">
+        Спецназ (Сезон 1, Серия 14) / S.W.A.T. (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=625">
+        <img src="/images/posters/625.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28096"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28211"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28095"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28210"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28094"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28209"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=625">Приговорённая жить</a>
+    </div>
+    <div class="tdesc">
+        Приговорённая жить (Сезон 1, Серия 1) / Life Sentence (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=601">
+        <img src="/images/posters/601.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28093"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28208"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28092"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28207"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28091"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28206"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=601">Из Лос-Анджелеса в Вегас</a>
+    </div>
+    <div class="tdesc">
+        Из Лос-Анджелеса в Вегас (Сезон 1, Серия 7) / LA to Vegas (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=536">
+        <img src="/images/posters/536.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28090"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28205"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28089"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28204"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28088"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28203"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=536">Родина</a>
+    </div>
+    <div class="tdesc">
+        Родина (Сезон 7, Серия 5) / Homeland (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=507">
+        <img src="/images/posters/507.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28087"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28202"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28086"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28201"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28085"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28200"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=507">Булл</a>
+    </div>
+    <div class="tdesc">
+        Булл (Сезон 2, Серия 15) / Bull (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=267">
+        <img src="/images/posters/267.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28084"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28199"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28083"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28198"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28082"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28197"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=267">Стрела</a>
+    </div>
+    <div class="tdesc">
+        Стрела (Сезон 6, Серия 15) / Arrow (2017) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">16.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=616">
+        <img src="/images/posters/616.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28081"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28196"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28080"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28195"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28079"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28194"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=616">Здесь и сейчас</a>
+    </div>
+    <div class="tdesc">
+        Здесь и сейчас (Сезон 1, Серия 5) / Here and Now (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=165">
+        <img src="/images/posters/165.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28078"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28193"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28077"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28192"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28076"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28191"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=165">Ходячие мертвецы</a>
+    </div>
+    <div class="tdesc">
+        Ходячие мертвецы (Сезон 8, Серия 11) / The Walking Dead (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=366">
+        <img src="/images/posters/366.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28075"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28190"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28074"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28189"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28073"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28188"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=366">Готэм</a>
+    </div>
+    <div class="tdesc">
+        Готэм (Сезон 4, Серия 14) / Gotham (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=374">
+        <img src="/images/posters/374.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28072"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28187"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28071"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28186"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28070"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28185"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=374">Флэш</a>
+    </div>
+    <div class="tdesc">
+        Флэш (Сезон 4, Серия 16) / The Flash (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=98">
+        <img src="/images/posters/98.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28067"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28184"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28066"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28183"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28069"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28182"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=98">Бывает и хуже</a>
+    </div>
+    <div class="tdesc">
+        Бывает и хуже (Сезон 9, Серия 16) / The Middle (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=98">
+        <img src="/images/posters/98.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28064"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28181"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28063"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28180"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28068"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28179"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=98">Бывает и хуже</a>
+    </div>
+    <div class="tdesc">
+        Бывает и хуже (Сезон 9, Серия 15) / The Middle (2017) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">15.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=464">
+        <img src="/images/posters/464.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28061"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28178"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28060"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28177"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28059"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28176"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=464">Марсель</a>
+    </div>
+    <div class="tdesc">
+        Марсель (Сезон 2) / Marseille (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=426">
+        <img src="/images/posters/426.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28058"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28175"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28057"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28174"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28056"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28173"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=426">Джессика Джонс</a>
+    </div>
+    <div class="tdesc">
+        Джессика Джонс (Сезон 2, Серия 1-8) / Marvel&#039;s Jessica Jones (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=515">
+        <img src="/images/posters/515.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28055"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28171"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28054"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28170"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28053"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28169"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=515">Потоки</a>
+    </div>
+    <div class="tdesc">
+        Потоки (Сезон 2, Серия 10) / Falling Water (2018) WEBDLRip | Финал Сезона    </div>
+</div>
+<div class="date">
+    <span class="label label-important">14.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=502">
+        <img src="/images/posters/502.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28052"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28167"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28051"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28166"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28050"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28165"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=502">МакГайвер</a>
+    </div>
+    <div class="tdesc">
+        МакГайвер (Сезон 2, Серия 17) / MacGyver (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=600">
+        <img src="/images/posters/600.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28049"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28164"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28048"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28163"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28047"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28162"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=600">По ту сторону</a>
+    </div>
+    <div class="tdesc">
+        По ту сторону (Сезон 1, Серия 8) / Counterpart (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">13.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=541">
+        <img src="/images/posters/541.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28046"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28161"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28045"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28160"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28044"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28159"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=541">Заложница</a>
+    </div>
+    <div class="tdesc">
+        Заложница (Сезон 2, Серия 6) / Taken (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=624">
+        <img src="/images/posters/624.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28043"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28158"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28042"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28157"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28041"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28156"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=624">Нераскрытое</a>
+    </div>
+    <div class="tdesc">
+        Нераскрытое (Сезон 1, Серия 1) / Unsolved (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=404">
+        <img src="/images/posters/404.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28040"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28155"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28039"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28154"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28038"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28153"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=404">Люцифер</a>
+    </div>
+    <div class="tdesc">
+        Люцифер (Сезон 3, Серия 17) / Lucifer (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=404">
+        <img src="/images/posters/404.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28037"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28152"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28036"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28151"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28035"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28150"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=404">Люцифер</a>
+    </div>
+    <div class="tdesc">
+        Люцифер (Сезон 3, Серия 16) / Lucifer (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=383">
+        <img src="/images/posters/383.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28034"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28149"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28033"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28148"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28032"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28147"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=383">ЯЗомби</a>
+    </div>
+    <div class="tdesc">
+        яЗомби (Сезон 4, Серия 2) / iZombie (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=622">
+        <img src="/images/posters/622.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28031"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28146"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28030"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28145"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28029"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28144"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=622">Попутный ущерб</a>
+    </div>
+    <div class="tdesc">
+        Попутный ущерб (Сезон 1, Серия 4) / Collateral (2018) WEBDLRip | Финал сериала    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=420">
+        <img src="/images/posters/420.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28028"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28143"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28027"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28142"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28026"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28141"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=420">Эш против Зловещих мертвецов</a>
+    </div>
+    <div class="tdesc">
+        Эш против Зловещих мертвецов (Сезон 3, Серия 3) / Ash vs Evil Dead (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=569">
+        <img src="/images/posters/569.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28025"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28139"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28024"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28138"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28023"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28137"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=569">Юный Шелдон</a>
+    </div>
+    <div class="tdesc">
+        Юный Шелдон (Сезон 1, Серия 15) / Young Sheldon (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=450">
+        <img src="/images/posters/450.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28022"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28136"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28021"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28135"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28020"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28134"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=450">Американская История Преступлений</a>
+    </div>
+    <div class="tdesc">
+        Американская история преступлений (Сезон 2, Серия 7) / American Crime Story (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">12.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=623">
+        <img src="/images/posters/623.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28019"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28133"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28018"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28132"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28017"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28131"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=623">Призрачная башня</a>
+    </div>
+    <div class="tdesc">
+        Призрачная башня (Сезон 1, Серия 2) / The Looming Tower (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=515">
+        <img src="/images/posters/515.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28016"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28130"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28015"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28129"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28014"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28128"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=515">Потоки</a>
+    </div>
+    <div class="tdesc">
+        Потоки (Сезон 2, Серия 9) / Falling Water (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=575">
+        <img src="/images/posters/575.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28013"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28127"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28012"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28126"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28011"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28125"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=575">Династия</a>
+    </div>
+    <div class="tdesc">
+        Династия (Сезон 1, Серия 14) / Dynasty (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=597">
+        <img src="/images/posters/597.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28010"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28124"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28009"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28123"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28008"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28122"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=597">9-1-1</a>
+    </div>
+    <div class="tdesc">
+        9-1-1 (Сезон 1, Серия 8) / 9-1-1 (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=597">
+        <img src="/images/posters/597.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28007"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28121"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28006"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28120"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28005"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28119"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=597">9-1-1</a>
+    </div>
+    <div class="tdesc">
+        9-1-1 (Сезон 1, Серия 7) / 9-1-1 (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=498">
+        <img src="/images/posters/498.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28004"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28118"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28003"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28117"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28002"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28116"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=498">Это мы</a>
+    </div>
+    <div class="tdesc">
+        Это мы (Сезон 2, Серия 17) / This Is Us (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=599">
+        <img src="/images/posters/599.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=28001"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28115"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=28000"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28114"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27999"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28113"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=599">В одиночестве вместе</a>
+    </div>
+    <div class="tdesc">
+        В одиночестве вместе (Сезон 1, Серия 8) / Alone Together (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=581">
+        <img src="/images/posters/581.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27998"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28112"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27997"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28111"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27996"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28110"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=581">Спецназ</a>
+    </div>
+    <div class="tdesc">
+        Спецназ (Сезон 1, Серия 13) / S.W.A.T. (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=325">
+        <img src="/images/posters/325.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27995"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28109"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27994"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28108"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27993"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28107"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=325">Сверхъестественное</a>
+    </div>
+    <div class="tdesc">
+        Сверхъестественное (Сезон 13, Серия 15) / Supernatural (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=503">
+        <img src="/images/posters/503.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27992"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28106"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27991"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28105"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27990"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28104"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=503">Назначенный преемник</a>
+    </div>
+    <div class="tdesc">
+        Назначенный преемник (Сезон 2, Серия 12) / Designated Survivor (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=447">
+        <img src="/images/posters/447.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27989"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28103"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27988"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28102"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27987"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28101"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=447">Легенды завтрашнего дня</a>
+    </div>
+    <div class="tdesc">
+        Легенды завтрашнего дня (Сезон 3, Серия 13) / DC&#039;s Legends of Tomorrow (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=622">
+        <img src="/images/posters/622.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27986"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28100"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27985"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28099"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27984"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28098"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=622">Попутный ущерб</a>
+    </div>
+    <div class="tdesc">
+        Попутный ущерб (Сезон 1, Серия 3) / Collateral (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=420">
+        <img src="/images/posters/420.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27983"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28097"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27982"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28096"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27981"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28095"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=420">Эш против Зловещих мертвецов</a>
+    </div>
+    <div class="tdesc">
+        Эш против Зловещих мертвецов (Сезон 3, Серия 2) / Ash vs Evil Dead (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">11.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=491">
+        <img src="/images/posters/491.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27980"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28094"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27979"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28093"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27978"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28092"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=491">Атланта</a>
+    </div>
+    <div class="tdesc">
+        Атланта (Сезон 2, Серия 2) / Atlanta (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=446">
+        <img src="/images/posters/446.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27977"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28091"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27976"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28090"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27975"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28089"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=446">Олух</a>
+    </div>
+    <div class="tdesc">
+        Олух (Сезон 3, Серия 7) / Baskets (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=374">
+        <img src="/images/posters/374.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27974"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28088"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27973"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28087"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27972"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28086"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=374">Флэш</a>
+    </div>
+    <div class="tdesc">
+        Флэш (Сезон 4, Серия 15) / The Flash (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=609">
+        <img src="/images/posters/609.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27971"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28084"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27970"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28083"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27969"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28082"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=609">Трагедия в Уэйко</a>
+    </div>
+    <div class="tdesc">
+        Трагедия в Уэйко (Сезон 1, Серия 6) / Waco (2018) WEBDLRip | Финал сезона    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=459">
+        <img src="/images/posters/459.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27968"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28081"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27967"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28080"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27966"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28079"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=459">Путь</a>
+    </div>
+    <div class="tdesc">
+        Путь (Сезон 3, Серия 10) / The Path (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=459">
+        <img src="/images/posters/459.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27965"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28078"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27964"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28077"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27963"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28076"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=459">Путь</a>
+    </div>
+    <div class="tdesc">
+        Путь (Сезон 3, Серия 9) / The Path (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=572">
+        <img src="/images/posters/572.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27962"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28075"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27961"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28074"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27960"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28073"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=572">Морские котики</a>
+    </div>
+    <div class="tdesc">
+        Морские котики (Сезон 1, Серия 15) / Seal Team (2017) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=536">
+        <img src="/images/posters/536.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27959"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28072"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27958"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28071"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27957"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28070"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=536">Родина</a>
+    </div>
+    <div class="tdesc">
+        Родина (Сезон 7, Серия 4) / Homeland (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=622">
+        <img src="/images/posters/622.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27956"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28069"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27955"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28068"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27954"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28067"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=622">Попутный ущерб</a>
+    </div>
+    <div class="tdesc">
+        Попутный ущерб (Сезон 1, Серия 2) / Collateral (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">10.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=620">
+        <img src="/images/posters/620.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27953"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28066"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27952"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28065"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27951"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28064"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=620">Семь секунд</a>
+    </div>
+    <div class="tdesc">
+        Семь секунд (Сезон 1, Серия 1-8) / Seven Seconds (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">09.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=579">
+        <img src="/images/posters/579.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27950"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28063"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27949"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28062"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27948"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28061"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=579">Кевин (наверное) спасает мир</a>
+    </div>
+    <div class="tdesc">
+        Кевин (наверное) спасает мир (Сезон 1, Серия 16) / Kevin (Probably) Saves the World (2018) WEBDLRip | Финал Сезона    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=455">
+        <img src="/images/posters/455.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27947"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28060"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27946"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28059"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27945"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28058"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=455">Хэп и Леонард</a>
+    </div>
+    <div class="tdesc">
+        Хэп и Леонард (Сезон 3, Серия 1) / Hap and Leonard (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=366">
+        <img src="/images/posters/366.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27944"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28057"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27943"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28056"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27942"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28055"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=366">Готэм</a>
+    </div>
+    <div class="tdesc">
+        Готэм (Сезон 4, Серия 13) / Gotham (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=541">
+        <img src="/images/posters/541.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27941"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28054"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27940"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28053"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27939"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28052"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=541">Заложница</a>
+    </div>
+    <div class="tdesc">
+        Заложница (Сезон 2, Серия 5) / Taken (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=616">
+        <img src="/images/posters/616.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27938"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28051"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27937"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28050"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27936"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28049"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=616">Здесь и сейчас</a>
+    </div>
+    <div class="tdesc">
+        Здесь и сейчас (Сезон 1, Серия 4) / Here and Now (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=606">
+        <img src="/images/posters/606.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27935"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28048"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27934"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28047"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27933"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28046"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=606">Ординатор</a>
+    </div>
+    <div class="tdesc">
+        Ординатор (Сезон 1, Серия 6) / The Resident (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=621">
+        <img src="/images/posters/621.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27932"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28045"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27931"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28044"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27930"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28043"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=621">Хорошие девочки</a>
+    </div>
+    <div class="tdesc">
+        Хорошие девочки (Сезон 1, Серия 2) / Good Girls (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=617">
+        <img src="/images/posters/617.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27929"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28042"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27928"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28041"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27927"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28040"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=617">Так близко</a>
+    </div>
+    <div class="tdesc">
+        Так близко (Сезон 1, Серия 3) / This Close (2018) WEBDLRip    </div>
+</div>
+<div class="date">
+    <span class="label label-important">08.03.2018</span>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=623">
+        <img src="/images/posters/623.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27926"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28039"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27925"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28038"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27924"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28037"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=623">Призрачная башня</a>
+    </div>
+    <div class="tdesc">
+        Призрачная башня (Сезон 1, Серия 1) / The Looming Tower (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=607">
+        <img src="/images/posters/607.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27923"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28036"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27922"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28035"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27921"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28034"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=607">Алиенист</a>
+    </div>
+    <div class="tdesc">
+        Алиенист (Сезон 1, Серия 7) / The Alienist (2018) WEBDLRip    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=539">
+        <img src="/images/posters/539.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27920"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28033"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27919"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28032"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27918"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28031"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=539">По друзьям</a>
+    </div>
+    <div class="tdesc">
+        По друзьям (Сезон 2, Серия 8) / Crashing (2018) WEBDLRip | Финал сезона    </div>
+</div>
+<div class="torrent">
+    <a href="/viewforum.php?f=403">
+        <img src="/images/posters/403.jpg" alt="pic" class="img-tracker">
+    </a>
+
+    <div class="pull-right taright">
+                <a href="/download.php?id=27917"><span class="label-link">Скачать 1080p</span></a>
+        <a href="/viewtopic.php?t=28030"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27916"><span class="label-link">Скачать 720p</span></a>
+        <a href="/viewtopic.php?t=28029"><span class="label-link"><i class="icon-film"></i></span></a><br>
+                <a href="/download.php?id=27915"><span class="label-link">Скачать 400p</span></a>
+        <a href="/viewtopic.php?t=28028"><span class="label-link"><i class="icon-film"></i></span></a><br>
+            </div>
+    <div class="ttitle">
+        <a class="label-title" href="/viewforum.php?f=403">Слепая зона</a>
+    </div>
+    <div class="tdesc">
+        Слепая зона (Сезон 3, Серия 13) / Blindspot (2018) WEBDLRip    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="sideRightW" class="span3">
+<div id="sideRight">
+<div class="accordion" id="serialist">
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse10">#</a>
+        </div>
+        <div id="collapse10" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=178">10 причин моей ненависти</a></li>
+                                        <li><a href="/viewforum.php?f=340">100 (Сотня)</a></li>
+                                        <li><a href="/viewforum.php?f=132">100 Вопросов</a></li>
+                                        <li><a href="/viewforum.php?f=452">11.22.63</a></li>
+                                        <li><a href="/viewforum.php?f=547">13 причин почему</a></li>
+                                        <li><a href="/viewforum.php?f=544">24 часа: Наследие</a></li>
+                                        <li><a href="/viewforum.php?f=350">24 часа: Проживи еще один день</a></li>
+                                        <li><a href="/viewforum.php?f=257">666 парк авеню</a></li>
+                                        <li><a href="/viewforum.php?f=597">9-1-1</a></li>
+                                        <li><a href="/viewforum.php?f=109">90210</a></li>
+                                        <li><a href="/viewforum.php?f=375">Halo: Сумерки</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse11">А</a>
+        </div>
+        <div id="collapse11" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=592">А вот и Джонни</a></li>
+                                        <li><a href="/viewforum.php?f=341">Агенты Щ.И.Т.</a></li>
+                                        <li><a href="/viewforum.php?f=97">Адвокатская практика</a></li>
+                                        <li><a href="/viewforum.php?f=607">Алиенист</a></li>
+                                        <li><a href="/viewforum.php?f=479">Американская готика</a></li>
+                                        <li><a href="/viewforum.php?f=450">Американская История Преступлений</a></li>
+                                        <li><a href="/viewforum.php?f=370">Американская история ужасов</a></li>
+                                        <li><a href="/viewforum.php?f=385">Американская Одиссея</a></li>
+                                        <li><a href="/viewforum.php?f=136">Американская семейка</a></li>
+                                        <li><a href="/viewforum.php?f=550">Американские Боги</a></li>
+                                        <li><a href="/viewforum.php?f=472">Американский запад</a></li>
+                                        <li><a href="/viewforum.php?f=291">Американцы</a></li>
+                                        <li><a href="/viewforum.php?f=115">Анатомия Грей</a></li>
+                                        <li><a href="/viewforum.php?f=442">Ангел из ада</a></li>
+                                        <li><a href="/viewforum.php?f=296">Арчер</a></li>
+                                        <li><a href="/viewforum.php?f=491">Атланта</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse12">Б</a>
+        </div>
+        <div id="collapse12" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=263">Балерины</a></li>
+                                        <li><a href="/viewforum.php?f=287">Банши</a></li>
+                                        <li><a href="/viewforum.php?f=380">Батл Крик</a></li>
+                                        <li><a href="/viewforum.php?f=586">Беглецы</a></li>
+                                        <li><a href="/viewforum.php?f=224">Бедлам</a></li>
+                                        <li><a href="/viewforum.php?f=191">Без координат</a></li>
+                                        <li><a href="/viewforum.php?f=588">Безбожники</a></li>
+                                        <li><a href="/viewforum.php?f=598">Безжалостное солнце</a></li>
+                                        <li><a href="/viewforum.php?f=477">Безмозглые</a></li>
+                                        <li><a href="/viewforum.php?f=106">Безумцы</a></li>
+                                        <li><a href="/viewforum.php?f=137">Белый воротничок</a></li>
+                                        <li><a href="/viewforum.php?f=269">Бен и Кейт</a></li>
+                                        <li><a href="/viewforum.php?f=438">Беовульф: Возвращение в Шилдлендс</a></li>
+                                        <li><a href="/viewforum.php?f=543">Бессильные</a></li>
+                                        <li><a href="/viewforum.php?f=239">Бешеные псы</a></li>
+                                        <li><a href="/viewforum.php?f=441">Бешеные псы (USA)</a></li>
+                                        <li><a href="/viewforum.php?f=238">Благочестивые стервы</a></li>
+                                        <li><a href="/viewforum.php?f=349">Блудливая Калифорния</a></li>
+                                        <li><a href="/viewforum.php?f=51">Богатые: Семейство Ричей</a></li>
+                                        <li><a href="/viewforum.php?f=406">Бойтесь ходячих мертвецов</a></li>
+                                        <li><a href="/viewforum.php?f=361">Больница Ник</a></li>
+                                        <li><a href="/viewforum.php?f=596">Больное поведение</a></li>
+                                        <li><a href="/viewforum.php?f=538">Большая маленькая ложь</a></li>
+                                        <li><a href="/viewforum.php?f=427">Больше, чем искусство</a></li>
+                                        <li><a href="/viewforum.php?f=546">Большой куш</a></li>
+                                        <li><a href="/viewforum.php?f=463">Бонг времени</a></li>
+                                        <li><a href="/viewforum.php?f=189">Борджиа</a></li>
+                                        <li><a href="/viewforum.php?f=217">Босс</a></li>
+                                        <li><a href="/viewforum.php?f=264">Бриклберри</a></li>
+                                        <li><a href="/viewforum.php?f=610">Британия</a></li>
+                                        <li><a href="/viewforum.php?f=321">Бруклин 9-9</a></li>
+                                        <li><a href="/viewforum.php?f=221">Будь мужчиной</a></li>
+                                        <li><a href="/viewforum.php?f=507">Булл</a></li>
+                                        <li><a href="/viewforum.php?f=348">Бульварные ужасы</a></li>
+                                        <li><a href="/viewforum.php?f=524">Бунт пай-девочек</a></li>
+                                        <li><a href="/viewforum.php?f=98">Бывает и хуже</a></li>
+                                        <li><a href="/viewforum.php?f=184">Быть Человеком</a></li>
+                                        <li><a href="/viewforum.php?f=112">Быть Эрикой</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse13">В</a>
+        </div>
+        <div id="collapse13" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=497">В лучшем мире</a></li>
+                                        <li><a href="/viewforum.php?f=599">В одиночестве вместе</a></li>
+                                        <li><a href="/viewforum.php?f=218">В паутине закона</a></li>
+                                        <li><a href="/viewforum.php?f=205">В поле зрения</a></li>
+                                        <li><a href="/viewforum.php?f=130">В последний миг</a></li>
+                                        <li><a href="/viewforum.php?f=425">В пустыне смерти</a></li>
+                                        <li><a href="/viewforum.php?f=227">В стиле Джейн</a></li>
+                                        <li><a href="/viewforum.php?f=522">В четырёх стенах</a></li>
+                                        <li><a href="/viewforum.php?f=261">Вегас</a></li>
+                                        <li><a href="/viewforum.php?f=329">Ведьмы Ист-Энда</a></li>
+                                        <li><a href="/viewforum.php?f=314">Везунчик</a></li>
+                                        <li><a href="/viewforum.php?f=102">Везунчик Сэм</a></li>
+                                        <li><a href="/viewforum.php?f=63">Везунчик Тед</a></li>
+                                        <li><a href="/viewforum.php?f=225">Великолепный век</a></li>
+                                        <li><a href="/viewforum.php?f=345">Верить</a></li>
+                                        <li><a href="/viewforum.php?f=89">Вернуться к вам</a></li>
+                                        <li><a href="/viewforum.php?f=365">Вечность</a></li>
+                                        <li><a href="/viewforum.php?f=612">Видоизмененный углерод</a></li>
+                                        <li><a href="/viewforum.php?f=298">Викинги</a></li>
+                                        <li><a href="/viewforum.php?f=490">Виктория</a></li>
+                                        <li><a href="/viewforum.php?f=476">Вина</a></li>
+                                        <li><a href="/viewforum.php?f=453">Винил</a></li>
+                                        <li><a href="/viewforum.php?f=158">Виртуозы</a></li>
+                                        <li><a href="/viewforum.php?f=510">Вне времени</a></li>
+                                        <li><a href="/viewforum.php?f=393">Водолей</a></li>
+                                        <li><a href="/viewforum.php?f=252">Военная хроника</a></li>
+                                        <li><a href="/viewforum.php?f=201">Возмездие</a></li>
+                                        <li><a href="/viewforum.php?f=439">Война и мир</a></li>
+                                        <li><a href="/viewforum.php?f=141">Война Фойла</a></li>
+                                        <li><a href="/viewforum.php?f=478">Вольтрон. Легендарный Защитник</a></li>
+                                        <li><a href="/viewforum.php?f=108">Воплощение Страха</a></li>
+                                        <li><a href="/viewforum.php?f=342">Воскрешение</a></li>
+                                        <li><a href="/viewforum.php?f=232">Воспитывая Хоуп</a></li>
+                                        <li><a href="/viewforum.php?f=396">Восьмое чувство</a></li>
+                                        <li><a href="/viewforum.php?f=166">Врата</a></li>
+                                        <li><a href="/viewforum.php?f=174">Все лучшее в тебе</a></li>
+                                        <li><a href="/viewforum.php?f=144">Все мои бывшие</a></li>
+                                        <li><a href="/viewforum.php?f=618">Всё отстой!</a></li>
+                                        <li><a href="/viewforum.php?f=435">Второй шанс</a></li>
+                                        <li><a href="/viewforum.php?f=90">Выживание в пригороде</a></li>
+                                        <li><a href="/viewforum.php?f=358">Выжившая</a></li>
+                                        <li><a href="/viewforum.php?f=170">Выжившие</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse14">Г</a>
+        </div>
+        <div id="collapse14" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=154">Гавайи</a></li>
+                                        <li><a href="/viewforum.php?f=302">Ганнибал</a></li>
+                                        <li><a href="/viewforum.php?f=415">Герои: Возрождение</a></li>
+                                        <li><a href="/viewforum.php?f=134">Гимнастки</a></li>
+                                        <li><a href="/viewforum.php?f=212">Главный подозреваемый</a></li>
+                                        <li><a href="/viewforum.php?f=83">Говорящая с призраками</a></li>
+                                        <li><a href="/viewforum.php?f=527">Голиаф</a></li>
+                                        <li><a href="/viewforum.php?f=423">Город порока</a></li>
+                                        <li><a href="/viewforum.php?f=486">Город тайн</a></li>
+                                        <li><a href="/viewforum.php?f=93">Город Хищниц</a></li>
+                                        <li><a href="/viewforum.php?f=234">Город чудес</a></li>
+                                        <li><a href="/viewforum.php?f=366">Готэм</a></li>
+                                        <li><a href="/viewforum.php?f=528">Гранд тур</a></li>
+                                        <li><a href="/viewforum.php?f=133">Грань</a></li>
+                                        <li><a href="/viewforum.php?f=307">Грейсленд</a></li>
+                                        <li><a href="/viewforum.php?f=368">Грейспоинт</a></li>
+                                        <li><a href="/viewforum.php?f=457">Гудини и Дойл</a></li>
+                                        <li><a href="/viewforum.php?f=192">Гэвин и Стейси</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse15">Д</a>
+        </div>
+        <div id="collapse15" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=460">Дайс</a></li>
+                                        <li><a href="/viewforum.php?f=243">Даллас</a></li>
+                                        <li><a href="/viewforum.php?f=146">Дамы семьи Гилмор</a></li>
+                                        <li><a href="/viewforum.php?f=248">Две девицы на мели</a></li>
+                                        <li><a href="/viewforum.php?f=563">Двойка</a></li>
+                                        <li><a href="/viewforum.php?f=202">Двойник</a></li>
+                                        <li><a href="/viewforum.php?f=530">Девочки Гилмор: Год из жизни</a></li>
+                                        <li><a href="/viewforum.php?f=461">Девушка по вызову</a></li>
+                                        <li><a href="/viewforum.php?f=215">Девять жизней Хлои Кинг </a></li>
+                                        <li><a href="/viewforum.php?f=117">Декстер</a></li>
+                                        <li><a href="/viewforum.php?f=143">Дело Дойлов</a></li>
+                                        <li><a href="/viewforum.php?f=304">Демоны да Винчи</a></li>
+                                        <li><a href="/viewforum.php?f=181">Детройт 1-8-7</a></li>
+                                        <li><a href="/viewforum.php?f=422">Джекилл и Хайд</a></li>
+                                        <li><a href="/viewforum.php?f=426">Джессика Джонс</a></li>
+                                        <li><a href="/viewforum.php?f=315">Джо</a></li>
+                                        <li><a href="/viewforum.php?f=390">Джонатан Стрендж и мистер Норрелл</a></li>
+                                        <li><a href="/viewforum.php?f=542">Диета из Санта-Клариты</a></li>
+                                        <li><a href="/viewforum.php?f=575">Династия</a></li>
+                                        <li><a href="/viewforum.php?f=185">Династия Кеннеди</a></li>
+                                        <li><a href="/viewforum.php?f=105">Дневники «Красной туфельки»</a></li>
+                                        <li><a href="/viewforum.php?f=88">Дневники вампира</a></li>
+                                        <li><a href="/viewforum.php?f=576">Доблесть</a></li>
+                                        <li><a href="/viewforum.php?f=259">Доктор мафии</a></li>
+                                        <li><a href="/viewforum.php?f=209">Доктор Хаус</a></li>
+                                        <li><a href="/viewforum.php?f=334">Документальные фильмы</a></li>
+                                        <li><a href="/viewforum.php?f=356">Доминион</a></li>
+                                        <li><a href="/viewforum.php?f=327">Дракула</a></li>
+                                        <li><a href="/viewforum.php?f=417">Дробилка</a></li>
+                                        <li><a href="/viewforum.php?f=488">Дрянь</a></li>
+                                        <li><a href="/viewforum.php?f=81">Дурман / Косяки</a></li>
+                                        <li><a href="/viewforum.php?f=504">Дурная слава</a></li>
+                                        <li><a href="/viewforum.php?f=124">Дурнушка</a></li>
+                                        <li><a href="/viewforum.php?f=456">Дэмиен</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse16">Е</a>
+        </div>
+        <div id="collapse16" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=589">Ей это нужно позарез</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse17">Ж</a>
+        </div>
+        <div id="collapse17" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=489">Жан-Клод Ван Джонсон</a></li>
+                                        <li><a href="/viewforum.php?f=402">Жаркое Американское Лето</a></li>
+                                        <li><a href="/viewforum.php?f=545">Железный Кулак</a></li>
+                                        <li><a href="/viewforum.php?f=231">Живая мишень</a></li>
+                                        <li><a href="/viewforum.php?f=451">Животные</a></li>
+                                        <li><a href="/viewforum.php?f=94">Жизнь</a></li>
+                                        <li><a href="/viewforum.php?f=258">Жизнь как шоу</a></li>
+                                        <li><a href="/viewforum.php?f=186">Жизнь Непредсказуема</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse18">З</a>
+        </div>
+        <div id="collapse18" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=485">Завучи</a></li>
+                                        <li><a href="/viewforum.php?f=120">Задержка в развитии</a></li>
+                                        <li><a href="/viewforum.php?f=541">Заложница</a></li>
+                                        <li><a href="/viewforum.php?f=354">Замри и гори</a></li>
+                                        <li><a href="/viewforum.php?f=508">Западный мир</a></li>
+                                        <li><a href="/viewforum.php?f=275">Записки юного врача</a></li>
+                                        <li><a href="/viewforum.php?f=559">Защитники</a></li>
+                                        <li><a href="/viewforum.php?f=196">Защитница</a></li>
+                                        <li><a href="/viewforum.php?f=565">Звезда шерифа</a></li>
+                                        <li><a href="/viewforum.php?f=44">Звёздные войны: Война клонов</a></li>
+                                        <li><a href="/viewforum.php?f=568">Звёздный путь: Дискавери</a></li>
+                                        <li><a href="/viewforum.php?f=398">Зверинец</a></li>
+                                        <li><a href="/viewforum.php?f=616">Здесь и сейчас</a></li>
+                                        <li><a href="/viewforum.php?f=182">Зов крови</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse19">И</a>
+        </div>
+        <div id="collapse19" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=433">И никого не стало</a></li>
+                                        <li><a href="/viewforum.php?f=465">Игра престолов</a></li>
+                                        <li><a href="/viewforum.php?f=413">Игрок</a></li>
+                                        <li><a href="/viewforum.php?f=399">Игроки</a></li>
+                                        <li><a href="/viewforum.php?f=601">Из Лос-Анджелеса в Вегас</a></li>
+                                        <li><a href="/viewforum.php?f=437">Из-под пера Диккенса</a></li>
+                                        <li><a href="/viewforum.php?f=347">Избранный</a></li>
+                                        <li><a href="/viewforum.php?f=188">Изгнание</a></li>
+                                        <li><a href="/viewforum.php?f=449">Изгои</a></li>
+                                        <li><a href="/viewforum.php?f=466">Изгой</a></li>
+                                        <li><a href="/viewforum.php?f=343">Измена</a></li>
+                                        <li><a href="/viewforum.php?f=549">Измерение 404</a></li>
+                                        <li><a href="/viewforum.php?f=531">Изумрудный город</a></li>
+                                        <li><a href="/viewforum.php?f=247">Искатель</a></li>
+                                        <li><a href="/viewforum.php?f=336">Искусственный интеллект</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse110">К</a>
+        </div>
+        <div id="collapse110" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=494">К лучшему</a></li>
+                                        <li><a href="/viewforum.php?f=428">К югу от ада</a></li>
+                                        <li><a href="/viewforum.php?f=373">Как избежать наказания за убийство</a></li>
+                                        <li><a href="/viewforum.php?f=172">Как не стоит жить</a></li>
+                                        <li><a href="/viewforum.php?f=126">Каприка</a></li>
+                                        <li><a href="/viewforum.php?f=462">Карантин</a></li>
+                                        <li><a href="/viewforum.php?f=585">Каратель</a></li>
+                                        <li><a href="/viewforum.php?f=552">Карточный домик</a></li>
+                                        <li><a href="/viewforum.php?f=495">Карьер</a></li>
+                                        <li><a href="/viewforum.php?f=155">Касл</a></li>
+                                        <li><a href="/viewforum.php?f=579">Кевин (наверное) спасает мир</a></li>
+                                        <li><a href="/viewforum.php?f=113">Кентерберийский закон</a></li>
+                                        <li><a href="/viewforum.php?f=123">Класс</a></li>
+                                        <li><a href="/viewforum.php?f=470">Клевермэн</a></li>
+                                        <li><a href="/viewforum.php?f=92">Клиника</a></li>
+                                        <li><a href="/viewforum.php?f=204">Клуб Плейбоя</a></li>
+                                        <li><a href="/viewforum.php?f=72">Книжный магазин Блэка</a></li>
+                                        <li><a href="/viewforum.php?f=318">Коварные горничные</a></li>
+                                        <li><a href="/viewforum.php?f=213">Ковчег</a></li>
+                                        <li><a href="/viewforum.php?f=574">Коллективный разум</a></li>
+                                        <li><a href="/viewforum.php?f=432">Колония</a></li>
+                                        <li><a href="/viewforum.php?f=253">Кома</a></li>
+                                        <li><a href="/viewforum.php?f=203">Компаньоны</a></li>
+                                        <li><a href="/viewforum.php?f=602">Конец ***ного мира</a></li>
+                                        <li><a href="/viewforum.php?f=430">Конец детства</a></li>
+                                        <li><a href="/viewforum.php?f=371">Константин</a></li>
+                                        <li><a href="/viewforum.php?f=240">Континуум</a></li>
+                                        <li><a href="/viewforum.php?f=364">Конь БоДжек</a></li>
+                                        <li><a href="/viewforum.php?f=150">Копы - новобранцы</a></li>
+                                        <li><a href="/viewforum.php?f=475">Корни</a></li>
+                                        <li><a href="/viewforum.php?f=480">Королева юга</a></li>
+                                        <li><a href="/viewforum.php?f=369">Королевство</a></li>
+                                        <li><a href="/viewforum.php?f=412">Королевы крика</a></li>
+                                        <li><a href="/viewforum.php?f=69">Короли</a></li>
+                                        <li><a href="/viewforum.php?f=229">Короли побега</a></li>
+                                        <li><a href="/viewforum.php?f=525">Корона</a></li>
+                                        <li><a href="/viewforum.php?f=337">Космос: Пространство и время</a></li>
+                                        <li><a href="/viewforum.php?f=95">Кости</a></li>
+                                        <li><a href="/viewforum.php?f=255">Красавица и чудовище</a></li>
+                                        <li><a href="/viewforum.php?f=50">Красавцы</a></li>
+                                        <li><a href="/viewforum.php?f=305">Красная вдова</a></li>
+                                        <li><a href="/viewforum.php?f=372">Красные браслеты</a></li>
+                                        <li><a href="/viewforum.php?f=339">Кризис</a></li>
+                                        <li><a href="/viewforum.php?f=509">Кризис в шести сценах</a></li>
+                                        <li><a href="/viewforum.php?f=416">Кровь и нефть</a></li>
+                                        <li><a href="/viewforum.php?f=421">Кровью и потом</a></li>
+                                        <li><a href="/viewforum.php?f=434">Крудсы: Начало</a></li>
+                                        <li><a href="/viewforum.php?f=86">Крузо</a></li>
+                                        <li><a href="/viewforum.php?f=418">Куантико</a></li>
+                                        <li><a href="/viewforum.php?f=294">Культ</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse111">Л</a>
+        </div>
+        <div id="collapse111" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=312">Легавый</a></li>
+                                        <li><a href="/viewforum.php?f=363">Легенды</a></li>
+                                        <li><a href="/viewforum.php?f=447">Легенды завтрашнего дня</a></li>
+                                        <li><a href="/viewforum.php?f=537">Легион</a></li>
+                                        <li><a href="/viewforum.php?f=532">Лемони Сникетт: 33 несчастья</a></li>
+                                        <li><a href="/viewforum.php?f=246">Лонгмайр</a></li>
+                                        <li><a href="/viewforum.php?f=149">Лузеры</a></li>
+                                        <li><a href="/viewforum.php?f=114">Лунный свет</a></li>
+                                        <li><a href="/viewforum.php?f=378">Лучше звоните Солу</a></li>
+                                        <li><a href="/viewforum.php?f=317">Любовницы</a></li>
+                                        <li><a href="/viewforum.php?f=153">Любовь на шестерых</a></li>
+                                        <li><a href="/viewforum.php?f=397">Люди</a></li>
+                                        <li><a href="/viewforum.php?f=323">Люди будущего</a></li>
+                                        <li><a href="/viewforum.php?f=506">Люк Кейдж</a></li>
+                                        <li><a href="/viewforum.php?f=169">Лютер</a></li>
+                                        <li><a href="/viewforum.php?f=404">Люцифер</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse112">М</a>
+        </div>
+        <div id="collapse112" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=502">МакГайвер</a></li>
+                                        <li><a href="/viewforum.php?f=376">Марко Поло</a></li>
+                                        <li><a href="/viewforum.php?f=464">Марсель</a></li>
+                                        <li><a href="/viewforum.php?f=70">Мастера вечеринок</a></li>
+                                        <li><a href="/viewforum.php?f=554">Мгла</a></li>
+                                        <li><a href="/viewforum.php?f=159">Медиум</a></li>
+                                        <li><a href="/viewforum.php?f=391">Между</a></li>
+                                        <li><a href="/viewforum.php?f=87">Менталист</a></li>
+                                        <li><a href="/viewforum.php?f=236">Месть Тони</a></li>
+                                        <li><a href="/viewforum.php?f=222">Мешок с костями</a></li>
+                                        <li><a href="/viewforum.php?f=557">Миднайт, Техас</a></li>
+                                        <li><a href="/viewforum.php?f=444">Миллиарды</a></li>
+                                        <li><a href="/viewforum.php?f=99">Милосердие</a></li>
+                                        <li><a href="/viewforum.php?f=195">Милые обманщицы</a></li>
+                                        <li><a href="/viewforum.php?f=558">Мистер Мерседес</a></li>
+                                        <li><a href="/viewforum.php?f=394">Мистер Робот</a></li>
+                                        <li><a href="/viewforum.php?f=176">Мистер Саншайн</a></li>
+                                        <li><a href="/viewforum.php?f=608">Мозаика</a></li>
+                                        <li><a href="/viewforum.php?f=53">Мой личный злейший враг</a></li>
+                                        <li><a href="/viewforum.php?f=301">Молодняк</a></li>
+                                        <li><a href="/viewforum.php?f=521">Молодой Папа</a></li>
+                                        <li><a href="/viewforum.php?f=214">Молокососы</a></li>
+                                        <li><a href="/viewforum.php?f=194">Морская полиция: Лос-Анджелес</a></li>
+                                        <li><a href="/viewforum.php?f=572">Морские котики</a></li>
+                                        <li><a href="/viewforum.php?f=309">Мост</a></li>
+                                        <li><a href="/viewforum.php?f=299">Мотель Бейтса</a></li>
+                                        <li><a href="/viewforum.php?f=121">Мужчины среднего возраста</a></li>
+                                        <li><a href="/viewforum.php?f=333">Мушкетеры</a></li>
+                                        <li><a href="/viewforum.php?f=67">Мыслить как преступник</a></li>
+                                        <li><a href="/viewforum.php?f=580">Мэр</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse113">Н</a>
+        </div>
+        <div id="collapse113" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=401">На грани</a></li>
+                                        <li><a href="/viewforum.php?f=503">Назначенный преемник</a></li>
+                                        <li><a href="/viewforum.php?f=471">Накорми зверя</a></li>
+                                        <li><a href="/viewforum.php?f=409">Нарко</a></li>
+                                        <li><a href="/viewforum.php?f=199">Наследство сестер Корваль</a></li>
+                                        <li><a href="/viewforum.php?f=75">Настоящая кровь</a></li>
+                                        <li><a href="/viewforum.php?f=614">Наш мультяшный президент</a></li>
+                                        <li><a href="/viewforum.php?f=162">Недоросль</a></li>
+                                        <li><a href="/viewforum.php?f=230">Неизвестные лица</a></li>
+                                        <li><a href="/viewforum.php?f=573">Нелюди</a></li>
+                                        <li><a href="/viewforum.php?f=180">Необыкновенная семейка</a></li>
+                                        <li><a href="/viewforum.php?f=193">Непрощенная</a></li>
+                                        <li><a href="/viewforum.php?f=624">Нераскрытое</a></li>
+                                        <li><a href="/viewforum.php?f=382">Несгибаемая Кимми Шмидт</a></li>
+                                        <li><a href="/viewforum.php?f=313">Низкое зимнее солнце</a></li>
+                                        <li><a href="/viewforum.php?f=148">Никита</a></li>
+                                        <li><a href="/viewforum.php?f=216">Новая Мод</a></li>
+                                        <li><a href="/viewforum.php?f=245">Новости</a></li>
+                                        <li><a href="/viewforum.php?f=52">Новый Амстердам</a></li>
+                                        <li><a href="/viewforum.php?f=454">Ночной администратор</a></li>
+                                        <li><a href="/viewforum.php?f=265">Нью-Йорк 22</a></li>
+                                        <li><a href="/viewforum.php?f=316">Нэшвиль</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse114">О</a>
+        </div>
+        <div id="collapse114" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=223">Обитель лжи</a></li>
+                                        <li><a href="/viewforum.php?f=411">Области тьмы</a></li>
+                                        <li><a href="/viewforum.php?f=80">Обмани меня / Теория лжи</a></li>
+                                        <li><a href="/viewforum.php?f=220">Оборотень</a></li>
+                                        <li><a href="/viewforum.php?f=242">Общее дело</a></li>
+                                        <li><a href="/viewforum.php?f=407">Общественная мораль</a></li>
+                                        <li><a href="/viewforum.php?f=578">Одарённые</a></li>
+                                        <li><a href="/viewforum.php?f=104">Одинокий Гари</a></li>
+                                        <li><a href="/viewforum.php?f=228">Однажды в сказке</a></li>
+                                        <li><a href="/viewforum.php?f=326">Однажды в стране чудес</a></li>
+                                        <li><a href="/viewforum.php?f=556">Озарк</a></li>
+                                        <li><a href="/viewforum.php?f=446">Олух</a></li>
+                                        <li><a href="/viewforum.php?f=311">Оранжевый - хит сезона</a></li>
+                                        <li><a href="/viewforum.php?f=564">Орвилл</a></li>
+                                        <li><a href="/viewforum.php?f=606">Ординатор</a></li>
+                                        <li><a href="/viewforum.php?f=405">Особое мнение</a></li>
+                                        <li><a href="/viewforum.php?f=357">Остатки</a></li>
+                                        <li><a href="/viewforum.php?f=111">Остаться в живых</a></li>
+                                        <li><a href="/viewforum.php?f=71">Остров Харпера</a></li>
+                                        <li><a href="/viewforum.php?f=338">От заката до рассвета</a></li>
+                                        <li><a href="/viewforum.php?f=487">Отрыв</a></li>
+                                        <li><a href="/viewforum.php?f=443">Оттенки синего</a></li>
+                                        <li><a href="/viewforum.php?f=219">Отчаянные домохозяйки</a></li>
+                                        <li><a href="/viewforum.php?f=260">Отчаянные меры</a></li>
+                                        <li><a href="/viewforum.php?f=577">Охотник за разумом</a></li>
+                                        <li><a href="/viewforum.php?f=484">Очень странные дела</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse115">П</a>
+        </div>
+        <div id="collapse115" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=593">Падение Ордена</a></li>
+                                        <li><a href="/viewforum.php?f=410">Палач-Бастард</a></li>
+                                        <li><a href="/viewforum.php?f=272">Папочка</a></li>
+                                        <li><a href="/viewforum.php?f=567">Паранормальщина</a></li>
+                                        <li><a href="/viewforum.php?f=293">Партнеры</a></li>
+                                        <li><a href="/viewforum.php?f=78">Пациент всегда прав</a></li>
+                                        <li><a href="/viewforum.php?f=161">Первокурсники</a></li>
+                                        <li><a href="/viewforum.php?f=319">Пересекая черту</a></li>
+                                        <li><a href="/viewforum.php?f=164">Плохие</a></li>
+                                        <li><a href="/viewforum.php?f=590">По болезни</a></li>
+                                        <li><a href="/viewforum.php?f=468">По волчьим законам</a></li>
+                                        <li><a href="/viewforum.php?f=474">По дороге с Норманом Ридусом</a></li>
+                                        <li><a href="/viewforum.php?f=539">По друзьям</a></li>
+                                        <li><a href="/viewforum.php?f=600">По ту сторону</a></li>
+                                        <li><a href="/viewforum.php?f=548">Побег</a></li>
+                                        <li><a href="/viewforum.php?f=310">Под куполом</a></li>
+                                        <li><a href="/viewforum.php?f=388">Под прикрытием</a></li>
+                                        <li><a href="/viewforum.php?f=266">Под прицелом</a></li>
+                                        <li><a href="/viewforum.php?f=501">Подача</a></li>
+                                        <li><a href="/viewforum.php?f=82">Подопытные</a></li>
+                                        <li><a href="/viewforum.php?f=168">Подпольная империя</a></li>
+                                        <li><a href="/viewforum.php?f=271">Полнолуние</a></li>
+                                        <li><a href="/viewforum.php?f=595">Полынь</a></li>
+                                        <li><a href="/viewforum.php?f=237">Помнить всё</a></li>
+                                        <li><a href="/viewforum.php?f=622">Попутный ущерб</a></li>
+                                        <li><a href="/viewforum.php?f=583">Порох</a></li>
+                                        <li><a href="/viewforum.php?f=47">Портал Юрского периода</a></li>
+                                        <li><a href="/viewforum.php?f=387">Посланники</a></li>
+                                        <li><a href="/viewforum.php?f=419">Последнее королевство</a></li>
+                                        <li><a href="/viewforum.php?f=233">Последний настоящий мужчина</a></li>
+                                        <li><a href="/viewforum.php?f=290">Последователи</a></li>
+                                        <li><a href="/viewforum.php?f=335">Последствия</a></li>
+                                        <li><a href="/viewforum.php?f=183">Посредник Кейт</a></li>
+                                        <li><a href="/viewforum.php?f=515">Потоки</a></li>
+                                        <li><a href="/viewforum.php?f=328">Почти человек</a></li>
+                                        <li><a href="/viewforum.php?f=379">Пощёчина</a></li>
+                                        <li><a href="/viewforum.php?f=116">Правила совместной жизни</a></li>
+                                        <li><a href="/viewforum.php?f=187">Правосудие</a></li>
+                                        <li><a href="/viewforum.php?f=49">Прах к праху</a></li>
+                                        <li><a href="/viewforum.php?f=157">Преследование</a></li>
+                                        <li><a href="/viewforum.php?f=45">Привилегии богатых девчонок</a></li>
+                                        <li><a href="/viewforum.php?f=511">Приговор</a></li>
+                                        <li><a href="/viewforum.php?f=625">Приговорённая жить</a></li>
+                                        <li><a href="/viewforum.php?f=623">Призрачная башня</a></li>
+                                        <li><a href="/viewforum.php?f=377">Приключения кота в сапогах</a></li>
+                                        <li><a href="/viewforum.php?f=262">Проект Минди</a></li>
+                                        <li><a href="/viewforum.php?f=582">Проклятие</a></li>
+                                        <li><a href="/viewforum.php?f=54">Пропавший</a></li>
+                                        <li><a href="/viewforum.php?f=467">Проповедник</a></li>
+                                        <li><a href="/viewforum.php?f=251">Просветленная</a></li>
+                                        <li><a href="/viewforum.php?f=140">Прослушка</a></li>
+                                        <li><a href="/viewforum.php?f=499">Просто</a></li>
+                                        <li><a href="/viewforum.php?f=17">Прочие сериалы</a></li>
+                                        <li><a href="/viewforum.php?f=77">Психвилль</a></li>
+                                        <li><a href="/viewforum.php?f=459">Путь</a></li>
+                                        <li><a href="/viewforum.php?f=142">Пятеро под солнцем</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse116">Р</a>
+        </div>
+        <div id="collapse116" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=517">Радиоволна</a></li>
+                                        <li><a href="/viewforum.php?f=514">Развод</a></li>
+                                        <li><a href="/viewforum.php?f=482">Разгар лета</a></li>
+                                        <li><a href="/viewforum.php?f=381">Раскопка</a></li>
+                                        <li><a href="/viewforum.php?f=561">Раскосяченные</a></li>
+                                        <li><a href="/viewforum.php?f=254">Революция</a></li>
+                                        <li><a href="/viewforum.php?f=615">Реквием</a></li>
+                                        <li><a href="/viewforum.php?f=107">Ремингтон Стил</a></li>
+                                        <li><a href="/viewforum.php?f=198">Риццоли и Айлс</a></li>
+                                        <li><a href="/viewforum.php?f=536">Родина</a></li>
+                                        <li><a href="/viewforum.php?f=118">Родители</a></li>
+                                        <li><a href="/viewforum.php?f=384">Родословная</a></li>
+                                        <li><a href="/viewforum.php?f=414">Роузвуд</a></li>
+                                        <li><a href="/viewforum.php?f=526">Рубеж</a></li>
+                                        <li><a href="/viewforum.php?f=100">Рыцарь дорог</a></li>
+                                        <li><a href="/viewforum.php?f=308">Рэй Донован</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse117">С</a>
+        </div>
+        <div id="collapse117" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=469">С любовью, Нина</a></li>
+                                        <li><a href="/viewforum.php?f=346">Салем</a></li>
+                                        <li><a href="/viewforum.php?f=325">Сверхъестественное</a></li>
+                                        <li><a href="/viewforum.php?f=516">Свидетели</a></li>
+                                        <li><a href="/viewforum.php?f=55">Свингтаун (Город любви)</a></li>
+                                        <li><a href="/viewforum.php?f=226">Связь</a></li>
+                                        <li><a href="/viewforum.php?f=429">Святые и незнакомцы</a></li>
+                                        <li><a href="/viewforum.php?f=448">Секретные материалы</a></li>
+                                        <li><a href="/viewforum.php?f=400">Секс, наркотики и рок-н-ролл</a></li>
+                                        <li><a href="/viewforum.php?f=171">Семейное положение: Нужное под</a></li>
+                                        <li><a href="/viewforum.php?f=620">Семь секунд</a></li>
+                                        <li><a href="/viewforum.php?f=128">Сестра Джеки</a></li>
+                                        <li><a href="/viewforum.php?f=96">Симпсоны</a></li>
+                                        <li><a href="/viewforum.php?f=276">Синдбад</a></li>
+                                        <li><a href="/viewforum.php?f=241">Скандал</a></li>
+                                        <li><a href="/viewforum.php?f=103">Склад 13</a></li>
+                                        <li><a href="/viewforum.php?f=249">Скотт и Бейли</a></li>
+                                        <li><a href="/viewforum.php?f=101">Скучно до смерти </a></li>
+                                        <li><a href="/viewforum.php?f=403">Слепая зона</a></li>
+                                        <li><a href="/viewforum.php?f=481">Слово на букву А</a></li>
+                                        <li><a href="/viewforum.php?f=619">Смертельное влечение</a></li>
+                                        <li><a href="/viewforum.php?f=505">Смертельное оружие</a></li>
+                                        <li><a href="/viewforum.php?f=244">Смерть в раю</a></li>
+                                        <li><a href="/viewforum.php?f=555">Снегопад</a></li>
+                                        <li><a href="/viewforum.php?f=160">Событие</a></li>
+                                        <li><a href="/viewforum.php?f=320">Сонная Лощина</a></li>
+                                        <li><a href="/viewforum.php?f=386">Сорвиголова</a></li>
+                                        <li><a href="/viewforum.php?f=273">Соседи</a></li>
+                                        <li><a href="/viewforum.php?f=156">Софи</a></li>
+                                        <li><a href="/viewforum.php?f=177">Спартак: кровь и песок</a></li>
+                                        <li><a href="/viewforum.php?f=74">Спасая Жизни</a></li>
+                                        <li><a href="/viewforum.php?f=581">Спецназ</a></li>
+                                        <li><a href="/viewforum.php?f=331">Спираль</a></li>
+                                        <li><a href="/viewforum.php?f=235">Список клиентов</a></li>
+                                        <li><a href="/viewforum.php?f=127">Сплетница</a></li>
+                                        <li><a href="/viewforum.php?f=367">Сталкер</a></li>
+                                        <li><a href="/viewforum.php?f=493">СтартАп</a></li>
+                                        <li><a href="/viewforum.php?f=190">Столик в углу</a></li>
+                                        <li><a href="/viewforum.php?f=562">Страйк</a></li>
+                                        <li><a href="/viewforum.php?f=267">Стрела</a></li>
+                                        <li><a href="/viewforum.php?f=529">Стрелок</a></li>
+                                        <li><a href="/viewforum.php?f=523">Стэн против сил зла</a></li>
+                                        <li><a href="/viewforum.php?f=330">Сумасшедшие</a></li>
+                                        <li><a href="/viewforum.php?f=445">Сумеречные охотники</a></li>
+                                        <li><a href="/viewforum.php?f=392">Супергёрл</a></li>
+                                        <li><a href="/viewforum.php?f=56">Схватка</a></li>
+                                        <li><a href="/viewforum.php?f=57">Счастливчик Луи</a></li>
+                                        <li><a href="/viewforum.php?f=131">Счастливый город</a></li>
+                                        <li><a href="/viewforum.php?f=210">Счастливый конец</a></li>
+                                        <li><a href="/viewforum.php?f=496">Сын Зорна</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse118">Т</a>
+        </div>
+        <div id="collapse118" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=534">Табу</a></li>
+                                        <li><a href="/viewforum.php?f=200">Тайные связи</a></li>
+                                        <li><a href="/viewforum.php?f=617">Так близко</a></li>
+                                        <li><a href="/viewforum.php?f=551">Твин Пикс</a></li>
+                                        <li><a href="/viewforum.php?f=431">Теленовелла</a></li>
+                                        <li><a href="/viewforum.php?f=125">Теория большого взрыва</a></li>
+                                        <li><a href="/viewforum.php?f=208">Терра Нова</a></li>
+                                        <li><a href="/viewforum.php?f=473">Техкоманда</a></li>
+                                        <li><a href="/viewforum.php?f=560">Тик</a></li>
+                                        <li><a href="/viewforum.php?f=355">Тиран</a></li>
+                                        <li><a href="/viewforum.php?f=122">Тихоокеанский фронт</a></li>
+                                        <li><a href="/viewforum.php?f=483">Той ночью</a></li>
+                                        <li><a href="/viewforum.php?f=609">Трагедия в Уэйко</a></li>
+                                        <li><a href="/viewforum.php?f=332">Третья жена</a></li>
+                                        <li><a href="/viewforum.php?f=175">Три реки</a></li>
+                                        <li><a href="/viewforum.php?f=611">Тролли: праздник продолжается</a></li>
+                                        <li><a href="/viewforum.php?f=167">Трудные деньки ЭрДжея Бергера</a></li>
+                                        <li><a href="/viewforum.php?f=360">Ты - Отстой</a></li>
+                                        <li><a href="/viewforum.php?f=591">Тьма</a></li>
+                                        <li><a href="/viewforum.php?f=129">Тюдоры</a></li>
+                                        <li><a href="/viewforum.php?f=306">Тяжелый понедельник</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse119">У</a>
+        </div>
+        <div id="collapse119" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=79">Убежище</a></li>
+                                        <li><a href="/viewforum.php?f=207">Убийство</a></li>
+                                        <li><a href="/viewforum.php?f=322">Убийство на пляже</a></li>
+                                        <li><a href="/viewforum.php?f=277">Улица потрошителя</a></li>
+                                        <li><a href="/viewforum.php?f=458">Уловка</a></li>
+                                        <li><a href="/viewforum.php?f=110">Университет</a></li>
+                                        <li><a href="/viewforum.php?f=613">Усиленная биология</a></li>
+                                        <li><a href="/viewforum.php?f=389">Уэйуорд Пайнс</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse120">Ф</a>
+        </div>
+        <div id="collapse120" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=344">Фарго</a></li>
+                                        <li><a href="/viewforum.php?f=173">Фишки. Деньги. Адвокаты</a></li>
+                                        <li><a href="/viewforum.php?f=374">Флэш</a></li>
+                                        <li><a href="/viewforum.php?f=206">Форс-мажоры</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse121">Х</a>
+        </div>
+        <div id="collapse121" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=492">Харли и Дэвидсоны</a></li>
+                                        <li><a href="/viewforum.php?f=303">Хемлок Гроув</a></li>
+                                        <li><a href="/viewforum.php?f=165">Ходячие мертвецы</a></li>
+                                        <li><a href="/viewforum.php?f=520">Холистическое Детективное агентство Дирка Джентли</a></li>
+                                        <li><a href="/viewforum.php?f=179">Хор</a></li>
+                                        <li><a href="/viewforum.php?f=540">Хорошая борьба</a></li>
+                                        <li><a href="/viewforum.php?f=119">Хорошая жена</a></li>
+                                        <li><a href="/viewforum.php?f=621">Хорошие девочки</a></li>
+                                        <li><a href="/viewforum.php?f=571">Хороший доктор</a></li>
+                                        <li><a href="/viewforum.php?f=197">Хоторн</a></li>
+                                        <li><a href="/viewforum.php?f=440">Хроники Шаннары</a></li>
+                                        <li><a href="/viewforum.php?f=436">Художественные фильмы</a></li>
+                                        <li><a href="/viewforum.php?f=138">Худшая неделя моей жизни</a></li>
+                                        <li><a href="/viewforum.php?f=163">Хэйвен</a></li>
+                                        <li><a href="/viewforum.php?f=151">Хэлкэтс</a></li>
+                                        <li><a href="/viewforum.php?f=455">Хэп и Леонард</a></li>
+                                        <li><a href="/viewforum.php?f=594">Хэппи!</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse122">Ч</a>
+        </div>
+        <div id="collapse122" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=518">Чанс</a></li>
+                                        <li><a href="/viewforum.php?f=584">Человек будущего</a></li>
+                                        <li><a href="/viewforum.php?f=424">Человек в высоком замке</a></li>
+                                        <li><a href="/viewforum.php?f=353">Череп и кости</a></li>
+                                        <li><a href="/viewforum.php?f=274">Черепашки-ниндзя</a></li>
+                                        <li><a href="/viewforum.php?f=46">Черная метка</a></li>
+                                        <li><a href="/viewforum.php?f=605">Чёрная молния</a></li>
+                                        <li><a href="/viewforum.php?f=519">Чёрное зеркало</a></li>
+                                        <li><a href="/viewforum.php?f=324">Черный список</a></li>
+                                        <li><a href="/viewforum.php?f=604">Чи</a></li>
+                                        <li><a href="/viewforum.php?f=362">Чужестранка</a></li>
+                                        <li><a href="/viewforum.php?f=84">Чужие в Америке</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse123">Ш</a>
+        </div>
+        <div id="collapse123" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=395">Шёпот</a></li>
+                                        <li><a href="/viewforum.php?f=152">Шерлок</a></li>
+                                        <li><a href="/viewforum.php?f=535">Шестой отряд</a></li>
+                                        <li><a href="/viewforum.php?f=250">Школа Видеоигр</a></li>
+                                        <li><a href="/viewforum.php?f=270">Шпион</a></li>
+                                        <li><a href="/viewforum.php?f=76">Шпионки</a></li>
+                                        <li><a href="/viewforum.php?f=359">Штамм</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse124">Э</a>
+        </div>
+        <div id="collapse124" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=500">Экзорцист</a></li>
+                                        <li><a href="/viewforum.php?f=566">Электрические сны Филипа К. Дика</a></li>
+                                        <li><a href="/viewforum.php?f=256">Элементарно</a></li>
+                                        <li><a href="/viewforum.php?f=553">Эль Чапо</a></li>
+                                        <li><a href="/viewforum.php?f=145">Эта страшная буква Р</a></li>
+                                        <li><a href="/viewforum.php?f=498">Это мы</a></li>
+                                        <li><a href="/viewforum.php?f=420">Эш против Зловещих мертвецов</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse125">Ю</a>
+        </div>
+        <div id="collapse125" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=295">Южная Территория</a></li>
+                                        <li><a href="/viewforum.php?f=569">Юный Шелдон</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+        <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#serialist" href="#collapse126">Я</a>
+        </div>
+        <div id="collapse126" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul>
+                                        <li><a href="/viewforum.php?f=570">Я, опять я и снова я</a></li>
+                                        <li><a href="/viewforum.php?f=383">ЯЗомби</a></li>
+                                        <li><a href="/viewforum.php?f=85">Ясновидец</a></li>
+                                        <li><a href="/viewforum.php?f=211">Ястреб</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+                    
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+    <div class="footer">
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="navbar tl">
+                    <a href="/" title="На главную NewStudio.TV" class="brand">NewStudio.TV</a>
+                </div>
+            </div>
+            <div class="span4 offset4 tr">
+
+
+                <a target="_blank" href="/rss.php" tooltip="(ссылка откроется в новом окне)">
+                    <img border="0" src="/templates/newstudio/pic/icon-rss.png" tooltip="rss">
+                </a>
+                <a target="_blank" href="http://vk.com/club2682332" tooltip="(ссылка откроется в новом окне)">
+                    <img border="0" src="/templates/newstudio/pic/icon-vk.png" tooltip="вконтакте">
+                </a>
+
+
+                <div class="schet">
+                        <a href='http://hit.ua/?x=114090' target='_blank'>
+                            <script language="javascript" type="text/javascript"><!--
+                            Cd=document;Cr="&"+Math.random();Cp="&s=1";
+                            Cd.cookie="b=b";if(Cd.cookie)Cp+="&c=1";
+                            Cp+="&t="+(new Date()).getTimezoneOffset();
+                            if(self!=top)Cp+="&f=1";
+                            //--></script>
+                            <script language="javascript1.1" type="text/javascript"><!--
+                            if(navigator.javaEnabled())Cp+="&j=1";
+                            //--></script>
+                            <script language="javascript1.2" type="text/javascript"><!--
+                            if(typeof(screen)!='undefined')Cp+="&w="+screen.width+"&h="+
+                                    screen.height+"&d="+(screen.colorDepth?screen.colorDepth:screen.pixelDepth);
+                            //--></script>
+                            <script language="javascript" type="text/javascript"><!--
+                            Cd.write("<img src='http://c.hit.ua/hit?i=114090&g=0&x=1"+Cp+Cr+
+                                    "&r="+escape(Cd.referrer)+"&u="+escape(window.location.href)+
+                                    "' border='0' width='88' height='31' "+
+                                    "alt='hit.ua: сейчас на сайте, посетителей и просмотров за сегодня' title='hit.ua: сейчас на сайте, посетителей и просмотров за сегодня'/>");
+                            //--></script>
+                            <noscript>
+                                <img src='http://c.hit.ua/hit?i=114090&amp;g=0&amp;x=1' border='0' width='88' height='31' alt='hit.ua: сейчас на сайте, посетителей и просмотров за сегодня' title='hit.ua: сейчас на сайте, посетителей и просмотров за сегодня'/>
+                            </noscript>
+                        </a>
+                     <!--LiveInternet counter--><script type="text/javascript"><!--
+                    document.write("<a href='http://www.liveinternet.ru/click' "+
+                            "target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+                            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                            ";"+Math.random()+
+                            "' alt='' title='LiveInternet: показано число просмотров за 24"+
+                            " часа, посетителей за 24 часа и за сегодня' "+
+                            "border='0' width='88' height='31'><\/a>")
+                    //--></script><!--/LiveInternet-->
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <ul class="span2 offset1">
+                <li><a href="/faq.php">FAQ</a></li>                
+                <!--li><a href="#">Пункт меню3</a></li-->
+            </ul>
+            <ul class="span2">
+                <li><a href="/advertiser.php">Рекламодателям</a></li>
+                <!--li><a href="#">Пункт меню1</a></li>
+                <li><a href="#">Пункт меню2</a></li>
+                <li><a href="#">Пункт меню3</a></li-->
+            </ul>
+            <div class="span5" style="margin-top:-38px;">
+                
+                <!-- bigbn.com.ua 468x60-->
+<!--ScRipT lanGuagE='jAvAscrIpt'>
+//<!--
+d=document;
+rnd_num = Math.round((Math.random()*10000000));
+bbn_l='&'+escape((self!=top)?'f'+d.referrer:'h'+window.location.href);
+d.write('<iFrame src=http://ad0.bigmir.net/t.bbn?32789&0&f&'+rnd_num+bbn_l+
+' width=468 height=60 frameborder=0 vspace=0 hspace=0 marginwidth=0 marginheight=0 scrolling=no>');
+d.write('<a target=_blank href=http://ad0.bigmir.net/c.bbn?32789&0&'+rnd_num+bbn_l+
+'><img src=http://ad0.bigmir.net/t.bbn?32789&0&i&'+rnd_num+bbn_l+' width=468 height=60 border=0 alt="BigBN Common"></a></iFrame>');
+//-->
+<!--/ScriPt-->
+<!-- bigbn.com.ua 468x60-->
+                
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</div><!--wrap-->
+<!-- login Modal -->
+<div id="login" class="modal hide fade" tabindex="5" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="loginLabel">Выберите способ авторизации</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-signin" action="/login.php" method="post">
+            <input type="text" class="input-block-level" name="login_username" placeholder="Логин" accesskey="l">
+            <input type="password" class="input-block-level" name="login_password" placeholder="Пароль">
+            <label class="checkbox">
+                <input type="checkbox" value="1" name="autologin" checked="checked">Запомнить меня
+            </label>
+            <input type="hidden" name="login" value="1">
+            <button class="btn btn-large" type="submit">Войти</button>
+            <a class="btn btn-large" href="profile.php?mode=register">Регистрация</a>
+            <a class="btn btn-large" href="profile.php?mode=sendpassword">Забыли пароль?</a>
+        </form>
+    </div>
+    <!-- <div class="modal-footer"></div> -->
+</div>
+<script src="/templates/newstudio/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(window).resize(function () {
+            var bwidth = ($("body").outerWidth() - $("#wrap").outerWidth()) / 2;
+            $("#br").css("right", -bwidth);
+            $("#br").css("width", bwidth);
+            $("#bl").css("left", -bwidth);
+            $("#bl").css("width", bwidth);
+        }).resize();
+    });
+</script>
+
+
+</body>
+
+</html>
+
+	</div><!--/body_container-->
+
+	</body>
+	</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+	<meta charset="utf-8">
+	<title>UK Weather Cameras and Weather Stations (Live Weather/Webcams)</title>    
+	<link href="css/default.css" rel="stylesheet" type="text/css">   
+    <meta name="description" content="Map of UK live weather webcams / weather stations. UK weather forecast map, uk cloud coverage map, and additional tools such as sunrise and sunset times.">	    	 	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+
+	</head>
+<body onLoad="initMap()">
+
+<!-- HEADER -->
+<div id="header">
+<div id="logo"><a href="http://www.ukweathercams.co.uk/" title="live weather stations and cams" target="_top"><!-- live weather--><img src="imgs/logo.png" alt="UK Weather Cams.co.uk" width="210" height="14"></a></div>
+<div id="tag">UK based live weather stations &amp; web cams</div>
+
+<div id="menu">
+<ul id="nav">
+	<li><a href="#" style="font-weight:bold">Menu</a>
+		<ul>
+			<li><a href="/index.php" title="live weather cams">Weather Cam Map</a></li>
+            <li><a href="/weathercam-top-ten.php" title="Top 10 UK Weather Cams">Top 10 Weather Cams</a></li>
+            <!-- Removed by Google :(   <li><a href="/index_uk_weather.php" title="weather map uk">Weather Map</a></li>-->
+            <!-- Feature removed by Google <li><a href="/index_uk_cloud_coverage.php" title="cloud coverage uk">Cloud Coverage</a></li>-->
+			<li><a href="/sunrise_sunset_times.php" title="Sunset sunrise times for the UK including civil, nautical &amp; astronomical twilight predictions.">Sunrise &amp; Sunset Times</a></li>
+            <li><a href="/uk_lightning_map.php" title="UK lightning map">Lightning Map</a></li>
+            <li><a href="/flood_warnings.php" title="UK Flood Warnings">Flood Warnings</a></li>
+            <li><a href="/the-night-sky.php" title="The night sky over London, UK">The Night Sky</a></li>
+			<li><a href="/weather_links.php">Weather Links</a></li>			   
+            <!-- tools & extras -->                     
+            <li><a href="/uk_ais_map.php" title="UK AIS map">AIS/Shipping Map</a></li>			
+           	<li><a href="/tools/map-measure-distance.php">Map measure distance tool</a></li>			
+            <li><a href="/tools/what-is-my-ip.php">What is my IP?</a></li>			
+            <li><a href="/cookies.php" title="Cookie policy and terms of use">Cookies &amp; Terms</a></li>
+            <li><a href="/sitemap.php" title="Website sitemap">Sitemap</a></li>
+			<li><a href="/contact.php">Contact</a></li>            
+		</ul>
+	</li>
+</ul>    
+</div><!-- /menu -->
+<div id="share">
+<!-- AddThis Button BEGIN -->
+<div class="sharingTop addthis_default_style">
+<a class="addthis_button_facebook" style="cursor:pointer"></a>
+<a class="addthis_button_twitter" style="cursor:pointer"></a>
+<a class="addthis_button_email" style="cursor:pointer"></a> 
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=bellj1"></script>
+<!-- AddThis Button END -->
+</div>
+</div><!-- /HEADER -->
+
+<!-- MAIN MAP -->
+<div id="map" style="width:100%; height: 100%;"></div>
+<!-- /MAIN MAP -->
+
+
+
+<div id="map_legend_bg"></div>
+<div id="map_legend">
+
+<p>Legend:</p>
+
+<ul>
+<li class="leg1"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|ff766a|0000FF" style="vertical-align:middle; float: left;">Webcam/weather station</li>
+<li class="leg2"><img src="http://labs.google.com/ridefinder/images/mm_20_blue.png" style="vertical-align: central; float: left; margin-right: 3px;">Weather buoy/platform</li>
+</ul>
+
+<a href="javascript:savePos();" id="savePos">Save position &amp; zoom level</a>
+<a href="javascript:deletePos();" id="delPos">Delete/reset saved position</a>
+
+</div><!-- /map_legend -->
+
+<div id="sharing_bg"></div>
+<div id="sharing">
+
+<p>Share:</p>
+
+<div class="addthis_toolbox addthis_default_style addthis_20x20_style">
+<a class="addthis_button_facebook" style="cursor:pointer"></a>
+<a class="addthis_button_twitter" style="cursor:pointer"></a>
+<a class="addthis_button_email" style="cursor:pointer"></a> 
+<a class="addthis_button_compact" style="cursor:pointer"></a> 
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=bellj1"></script>
+<!-- AddThis Button END -->
+
+</div><!-- /sharing -->
+
+<!-- ADSENSE -->
+<div id="adsense">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- UKWC New -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-7487618867610541"
+     data-ad-slot="4357923520"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!-- /ADSENSE -->
+
+    
+<!-- GA -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6997329-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- /GA -->
+<!-- Maps API v3 -->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCPJS_V6Jc18DMPr5fZjUu-co6NYCBX2Is" type="text/javascript"></script>
+<script async type="text/javascript" src="js/infobox.js"></script>
+<script async type="text/javascript" src="js/nav.js"></script>
+
+<script type="text/javascript">
+
+	var map,
+		default_center = new google.maps.LatLng(54.300014,-2.922363),
+		default_zoom = 6;
+	
+	var customIcons = {
+      0: { icon: 'http://maps.google.com/mapfiles/ms/micons/red.png' },
+      2: { icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png' }
+    };
+	
+	function initMap() {
+	
+		var map_center = default_center,			
+			map_zoom = default_zoom;
+										
+		/* Check for saved cookie */		
+		
+		data = readCookie('ukweathercams');			
+		
+		if (data != null) {
+			values = data.split(",");			
+			map_center = new google.maps.LatLng(parseFloat(values[0]),parseFloat(values[1]));
+			map_zoom = parseInt(values[2]);		
+		}								
+								
+		var myOptions = {
+			zoom: map_zoom,
+			center: map_center,
+			disableDefaultUI: true,
+			panControl: true,
+			panControlOptions: { position:  google.maps.ControlPosition.RIGHT_BOTTOM },
+			zoomControl: true,
+			zoomControlOptions: { position:  google.maps.ControlPosition.RIGHT_BOTTOM },
+			mapTypeId: google.maps.MapTypeId.SATELLITE			
+		}
+	
+		map = new google.maps.Map(document.getElementById("map"), myOptions);	
+				
+		addMarkers();
+	}		
+	
+	function addMarkers() {				
+		
+		downloadUrl("ukwc_xml.php", function(data) {
+			var xml = data.responseXML,
+				markers = xml.documentElement.getElementsByTagName("marker");
+			
+			for (var i=0; i<markers.length; i++) {
+				
+				var name = markers[i].getAttribute("name"),
+					ws = markers[i].getAttribute("ws"),
+					type = markers[i].getAttribute("type"),
+					point = new google.maps.LatLng(
+              			parseFloat(markers[i].getAttribute("lat")),
+						parseFloat(markers[i].getAttribute("lng"))),
+					html = "<b>" + name + "</b>",
+					icon = customIcons[type] || {};		  		  		
+		  
+				var marker = new google.maps.Marker({
+					map: map,
+            		position: point,
+            		icon: icon.icon
+				});
+          							 	
+				// Infobox/Label
+  
+				var myLabel = document.createElement("div");
+				myLabel.className = "siteLabel";		
+				myLabel.innerHTML = '<a href="redirect.php?w='+ws+'" target="ukweathercams">'+name+"</a>";
+
+				var myOptions = {
+					content: myLabel,
+					disableAutoPan: true,
+					maxWidth: 0,
+					pixelOffset: new google.maps.Size(13, -37),
+					zIndex: 10,
+					boxStyle: { 			  
+					  opacity: 0.80,
+					  width: "inherit",
+					  display: "block"
+					},
+					closeBoxMargin: "2px 2px 2px 2px",
+					closeBoxURL: "",
+					infoBoxClearance: new google.maps.Size(1, 1),
+					isHidden: false,
+					pane: "floatPane",
+					enableEventPropagation: false
+				};				
+
+				var ib = new InfoBox(myOptions);
+				bindEvents(marker, name, ws, ib, type);		  	 
+        	}
+		});
+	}
+	
+	function bindEvents(marker, name, ws, ib, type) {
+		
+		var icon = marker.getIcon(),
+			rolloverIcon = "http://maps.google.com/mapfiles/ms/micons/yellow.png";
+			
+		if (type == 2) rolloverIcon = "http://labs.google.com/ridefinder/images/mm_20_yellow.png";
+						
+		google.maps.event.addListener(marker, "mouseover", function() {
+  			 ib.open(map, this);
+			 marker.setIcon(rolloverIcon);		
+		});  
+			  
+  		google.maps.event.addListener(marker, "mouseout", function() {
+			ib.close();	
+			marker.setIcon(icon);
+		});  	
+		
+		google.maps.event.addListener(marker, 'click', function() {
+        	win = window.open("redirect.php?w="+ws,"ukweathercams");
+			win.focus();
+		});
+	}
+	
+	function bindInfoWindow(marker, map, infoWindow, html) {
+      google.maps.event.addListener(marker, 'mouseover', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+      });
+    }
+
+	
+	// helper function
+	
+	function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+	
+	function doNothing() {}
+	
+	/* Cookie handling */
+	
+	function savePos() {		
+		var z = map.getZoom(),
+			p = map.getCenter();
+		
+		data = p.lat()+","+p.lng()+","+z;
+		alert("Your current map position and zoom level have been saved to a cookie, and will be automatically reloaded on your next visit.");
+		
+		setCookie('ukweathercams',data,60);		
+	}
+	
+	function deletePos() {
+		setCookie('ukweathercams',data,-10);
+		map.setCenter(default_center);
+		map.setZoom(default_zoom);
+	}
+	
+	function setCookie(c_name,value,expiredays) {
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+expiredays);
+		document.cookie=c_name+ "=" +value+
+		((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+	}
+	
+	function readCookie(name) {
+		var nameEQ = name + "=",
+			ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
+	   
+</script>
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"http://www.ukweathercams.co.uk/cookies.php","theme":"dark-bottom"};
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+<!-- End Cookie Consent plugin -->
+
+</body>
+</html>

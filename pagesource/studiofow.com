@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Welcome to the official Studio FOW website. Our goal is to make the highest quality Source Filmmaker animations and movies for your enjoyment.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio F.O.W. - Home</title>
+<meta name="google-site-verification" content="t8BXuztJhl02TfRKtPuPF1THc1LD-tqz5p_PI13R8rs" />
+<link rel="stylesheet" href="/assets/CACHE/css/6a69c7c42c0f.css" type="text/css" />
+</head>
+<body class="show-sidebar dark-sidebar">
+<a href="/" id="menu-toggle-wrapper">
+<div id="menu-toggle"></div>
+</a>
+
+<a href="/" id="inner-bar">
+</a>
+
+<div id="side-bar">
+<div class="inner-wrapper">
+<div id="side-inner">
+<div id="logo-wrapper">
+<a href="/"><img src="/assets/img/FOWHORSE_COLOR.png" alt="logo"></a>
+</div>
+<div id="side-contents">
+<ul id="navigation">
+<li class="current-menu-item"><a href="/">Home</a></li>
+<li><a href="/upcoming/">Upcoming</a></li>
+<li><a href="/movies/">Movies</a></li>
+<li><a href="/gallery/">Gallery</a></li>
+<li><a href="/team/">Meet the Team</a></li>
+<li><a href="/voiceteam/">Voice Actors</a></li>
+<li><a href="http://studiofow.tumblr.com/">Blog</a></li>
+<li><a href="/friends/">Friends</a></li>
+<li><a href="/contact/">Contact Us</a></li>
+</ul>
+</div>
+
+<div id="side-footer">
+
+<ul class="social-icons">
+<li><a href="https://studiofow.tumblr.com"><i class="fa fa-tumblr"></i></a></li>
+<li><a href="https://twitter.com/studiofow"><i class="fa fa-twitter"></i></a></li>
+<li><a href="https://www.youtube.com/channel/UCmyiBfu_idd4fdSQuA6yjew"><i class="fa fa-youtube"></i></a></li>
+<li><a href="https://plus.google.com/100974130667835865970/about"><i class="fa fa-google-plus"></i></a></li>
+</ul>
+
+<div id="copyright">
+&copy; StudioFOW 2017
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="main-content" class="abs dark-template">
+<div class="page-wrapper">
+
+<div class="page-main set-height-mobile no-side">
+<div class="owl-videobg autoplay" data-src="/media/home_page_mp4/2018/02/13/helena_wb_splah_TqqL1kR.jpg" data-webm-src="/media/home_page_mp4/2018/02/27/helena_main_websitesplashtest.webm" data-poster-src="/media/home_page_mp4/2018/02/13/helena_wb_splah.jpg"></div>
+
+<div class="caption cap-full">
+<div class="vcenter-wrapper">
+<div class="cap-lg cap-lg-def vcenter">
+<h2 class="cap-title allcaps">Severance</h2>
+<div class="cap-des">
+<p>
+RELEASED
+</p>
+</div>
+<a href="https://studiofow.com/movie/12" class="btn btn-transparent btn-lg">WATCH NOW <i class="fa fa-long-arrow-right"></i></a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript" src="/assets/js/vendors/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/imagesloaded.pkgd.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/isotope.pkgd.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/jquery.history.js"></script>
+
+<script type="text/javascript" src="/assets/js/jquery.owwwlab-kenburns.js"></script>
+
+<script type="text/javascript" src="/assets/js/jquery.owwwlab-DoubleCarousel.js"></script>
+
+<script type="text/javascript" src="/assets/js/jquery.owwwlab-video.js"></script>
+
+<script type="text/javascript" src="/assets/js/cheet.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/TweenMax.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/jquery.nicescroll.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/jquery.magnific-popup.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/mediaelement-and-player.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/jquery.inview.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/vendors/smoothscroll.js"></script>
+
+<script src="/assets/masterslider/jquery.easing.min.js"></script>
+<script src="/assets/masterslider/masterslider.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/custom.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+  ga('create', 'UA-52762548-1', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+</body>
+</html>

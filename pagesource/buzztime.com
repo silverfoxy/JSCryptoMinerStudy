@@ -1,0 +1,4 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="shortcut icon" href="/favicon.ico"><link rel="shortcut icon" href="/browserNotSupported.html"><title>Buzztime</title><style type="text/css">
+
+</style>
+<script>var defineProperty=Object.defineProperty;Object.defineProperty=function(e,r){if("__esModule"!==r)return defineProperty.apply(this,arguments);e[r]=!0}</script><script>window.matchMedia=window.matchMedia||function(){return{matches:!1,addListener:function(){},removeListener:function(){}}}</script></head><body><div id="root"></div><script type="text/javascript" src="/static/js/vendors.abb9fc823620aeaa1799.js"></script><script type="text/javascript" src="/static/js/app.ec1cb5da.js"></script></body></html>

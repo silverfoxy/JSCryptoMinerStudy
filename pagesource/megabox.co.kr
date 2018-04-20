@@ -1,0 +1,5269 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=1000,user-scalable=yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+	
+	<meta property="og:type" content="movie"/>
+	<meta property="og:site_name" content="메가박스"/>
+	<meta property="fb:app_id" content="356285641381572"/>
+	
+	<title>메인, 메가박스</title>
+	
+	<meta property="og:image" content="http://image2.megabox.co.kr/mop/home/appbunpage/URLVIEW.jpg" />
+
+	
+	<title>메인, 메가박스</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/css/megabox.css" rel="stylesheet">
+	<link href="/css/normalize.css" rel="stylesheet">
+	<!-- Bootstrap theme -->
+	<link href="/css/font-awesome.css" rel="stylesheet">
+	<link href="/css/theme.css" rel="stylesheet">
+	<link href="/css/theme2.css" rel="stylesheet">
+	<link href="/css/forms.css" rel="stylesheet">
+	<link href="/css/etc.css" rel="stylesheet">
+
+	<!-- javascript// -->
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="/js/modernizr.2.5.3.min.js"></script>
+	<script type="text/javascript" src="/js/common/init-controls.js"></script>
+	<script type="text/javascript" src="/js/common/megabox.js"></script>
+	<script type="text/javascript" src="/js/common/common.js"></script>
+	<script type="text/javascript" src="/js/common/ajax.js"></script>
+	<script type="text/javascript" src="http://image2.megabox.co.kr/mop/home/appbunpage/js/megaBranch.js"></script>
+	<script type="text/javascript" src="/pages/booking/booking.js"></script>
+
+	<script type="text/javascript" src="/js/common/facebook-sdk.js"></script>
+
+	<script type="text/javascript" src="/js/common/aes.js"></script>
+	<script type="text/javascript" src="/js/common/sha256.js"></script>
+	<script type="text/javascript" src="/js/common/DateUtils.js"></script>
+	<script type="text/javascript" src="/js/bootstrapformega.js"></script>
+	<script type="text/javascript" src="/js/holder.js"></script>
+	<script type="text/javascript" src="/js/application.js"></script>
+	<script type="text/javascript" src="/js/bootstrap-datepicker.js"></script><!-- datepicker -->
+	<script type="text/javascript" src="/js/jquery.pjax.js"></script>
+	<script type="text/javascript" src="/js/flip/jquery.easing.1.3.js"></script><!-- flip -->
+	<script type="text/javascript" src="/js/jquery.raty.js"></script><!-- star -->
+	<script type="text/javascript" src="/js/icheck.js"></script><!-- custom input -->
+	<script type="text/javascript" src="/js/jquery.stellar.js"></script><!-- custom input -->
+	<script type="text/javascript" src="/js/jquery.customSelect.js"></script><!-- custom select -->
+	<!--[if lt IE 9]>
+	<script src="/js/respond.js"></script>
+	<script src="/js/html5shiv.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="/js/bootstrap-select.js"></script><!-- custom select -->
+	<script type="text/javascript" src="/js/jquery.mousewheel.js"></script><!-- custom scrollbar -->
+	<script type="text/javascript" src="/js/perfect-scrollbar.js"></script><!-- custom scrollbar -->
+	<script type="text/javascript" src="/js/jquery.slides.js"></script>
+	<script type="text/javascript" src="/js/jquery.smint.js"></script><!-- sticky scroll -->
+	<script type="text/javascript" src="/js/jquery.bxslider.min.js"></script><!-- sticky scroll -->
+	<script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+	<script type="text/javascript" src="/js/placeholders.min.js"></script><!-- html5 placeholders ie8,9 -->
+	<!--[if lt IE 10]>
+	<style>
+		#flip_wrapper li .thumb {
+			overflow:hidden;
+		}
+		#flip_wrapper li .thumb div.lower {
+			top:336px;
+		}
+	</style>
+	<![endif]-->
+	<!--[If lt IE 9]>
+		<script src="/js/css3pie/PIE.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+	// 현재 URL 담기
+	var URLSearch = location.search ? location.search : "/";
+	var URLTitle = document.title;
+	// GA 셋팅 및 호출
+	megaboxLog.init();
+
+		var hostname = 'megabox.co.kr';
+
+		var MyFavoriteCinema = {
+			showPage: function() {
+				var requestMyFavoriteCinema = null;
+				try {
+					requestMyFavoriteCinema = new JSPRequest('/pages/mypage/MyPage_FavoriteCinema.jsp', 'div#my_theater', 'div#my_theater');
+					requestMyFavoriteCinema.request();
+					customMessageBox('my_theater');
+				} catch(e) {
+					messageBox(e);
+				}
+			},
+
+			setFavoriteCinema: function() {
+
+				var selectGroup1 = $('#my_theater select[name=selectGroup1]').val();
+				var selectCinema1 = $('#my_theater select[name=selectTheater1]').val();
+				var selectCinema2 = $('#my_theater select[name=selectTheater2]').val();
+				var selectCinema3 = $('#my_theater select[name=selectTheater3]').val();
+
+				/* if(selectGroup1 == "" || selectCinema1 == "") {
+					messageBox("알림", "1순위 입력은 필수입니다.");
+					return;
+				} */
+
+				$.ajax({
+					url: '/DataProvider',
+					type: 'POST',
+					data: {_command: 'User.setFavoriteCinema', cinema1: selectCinema1, cinema2: selectCinema2, cinema3: selectCinema3}
+
+				}).success(function( data ) {
+					if (data.resultCode === '0000') {
+						messageBox('정상적으로 완료하였습니다.', function() {
+							afterLogin();
+						});
+						$(".btn_ca_close").click(function(){
+							$(".tmpfocus").focus().removeClass("tmpfocus");
+						});
+
+					} else {
+						messageBox( data.resultMessage);
+					}
+					$(".ok").click(function(){
+						$(".tmpfocus").focus().removeClass("tmpfocus");
+					});
+				});
+			},
+
+			removeFavoriteCinema: function(index) {
+				if (index == 1) {
+					/* messageBox('1순위 영화관은 삭제할 수 없습니다.');
+					return; */
+					$('#my_theater select[name=selectGroup1]').val('');
+					$('#my_theater select[name=selectTheater1]').val('');
+				} else if (index == 2) {
+					$('#my_theater select[name=selectGroup2]').val('');
+					$('#my_theater select[name=selectTheater2]').val('');
+				} else if (index == 3) {
+					$('#my_theater select[name=selectGroup3]').val('');
+					$('#my_theater select[name=selectTheater3]').val('');
+				}
+
+				$('#my_theater select').selectpicker('refresh');
+				this.setFavoriteCinema();
+			}
+		};
+
+	
+
+	var imgPath = 'http://image2.megabox.co.kr/mop/frontbanner/2018/01/E167D2-7B1F-4D5D-A4BA-B02CC1706829.jpg';
+	var linkType = 'EVENT';
+	var link = '5883';
+	var htmlYN = 'N';
+
+	/*
+		2015.03.13
+		전면배너 팝업 24시간 보지않기 관련 추가
+		메인화면에서만 출력
+	*/
+	function frontBannerShow(){
+
+		var menuId = 'main';
+		//alert("frontBannerShow: ");
+
+		if(getCookie('fbClose24Yn') !== 'Y' && imgPath != '' && menuId == "main"){
+			$('#notice_popup').show();
+
+			// htmlYN 이 Y 인경우 무시하기
+			if(htmlYN !== 'Y') {
+				// 링크가 있는 경우엔 a태그에 링크 추가
+				if(linkType !== '' && link !== ''){
+					$('#notice_img a').attr('href', 'javascript:adHasClickHeader(\'EVENT\', \'5883\', 0, \'front\')');
+				}
+			}
+		}
+	}
+
+	</script>
+
+	<script>
+		var domain_host = location.host.toLowerCase();
+		var currentAddress = location.href;
+		if (domain_host.indexOf("www")== -1 && domain_host.indexOf("localhost")== -1 && domain_host.indexOf("megacity")== -1  && domain_host.indexOf("megact")== -1 && domain_host.indexOf("webstay")== -1 && domain_host.indexOf("dennis")== -1)
+		{
+			currentAddress = currentAddress.replace("//","//www.");
+			location.href = currentAddress;
+		}
+
+		var lowBrowserVer=false;
+		if( navigator.appName.indexOf("Microsoft") > -1 )
+		{
+			if(navigator.appVersion.indexOf("MSIE 8") > -1)
+				lowBrowserVer=true;
+			else if(navigator.appVersion.indexOf("MSIE 9") > -1)
+				lowBrowserVer=true;
+			else if(navigator.appVersion.indexOf("MSIE 7") > -1)
+				lowBrowserVer=true;
+			else
+				lowBrowserVer=false;
+		}
+	    var browser = navigator.userAgent.toLowerCase();
+		if(browser.indexOf('firefox') > -1)
+		{
+			lowBrowserVer=false;
+		}
+
+		if(browser.indexOf('opera') > -1)
+		{
+			lowBrowserVer=false;
+		}
+
+	//2014.11.06 추가좀하겠습니다.
+	//skipnav입니다.
+	function f_skipnavi(){
+		$("#main").find("a,button,*[tabindex='0'],input,select").each(function(){
+			if($(this).attr("type") != "hidden"){
+				if($(this).css("display") != "none"){
+					if($(this).attr("name") != "searchCard"){
+						$(this).focus(); return false;
+					}
+				}
+			}
+		});
+		if($("#main").find("a,button,*[tabindex='0'],input,select").size() == 0){
+			$("#footer_list").focus();
+		}
+	}
+	//2014.11.21 추가합니다.
+	//상단배너 닫아라
+	function header_TopBn(){
+		$("body").removeClass("TopBn_ok");
+	}
+
+	// 상단, 전면 배너 클릭 시 클릭 수 인자 전달
+	function adHasClickHeader(val_1, val_2, adClick, type) {
+		if(adClick > 0) {
+			$.ajax({
+				url	  : '/DataProvider',
+				type  : 'POST',
+				async : true,
+				data  : {
+					_command : 'System.adHasClicked',
+					adClick	 : adClick,
+					siteCode : '36'
+				}
+			}).success(function( data ) {
+			});
+		}
+
+		// 팝업 링크
+		if(type == 'top') {
+			window.open(val_1, val_2);
+		} else {
+			var linkType = val_1;
+			var link = val_2;
+			location.href = getBannerPopupUrl(linkType, link);
+		}
+
+	}
+	</script>
+</head>
+<body class="TopBn_ok">
+<!-- 공지 팝업 -->
+<div class="notice_popup" id="notice_popup" style="display:none;">
+	<div class="notice_popup_wrap">
+		<div class="popup_content">
+			<ul class="notice_slider">
+				<li id="notice_img">
+
+<!-- htmlYN 값으로 분기.htmlYN 이 Y 인경우   htmldescription 을 뿌려주기. -->
+
+
+	<a href="javascript:adHasClick('5883', 0, 'link');" title="더 부티크 프라이빗">
+		<img src="http://image2.megabox.co.kr/mop/frontbanner/2018/01/E167D2-7B1F-4D5D-A4BA-B02CC1706829.jpg"  alt="더 부티크 프라이빗">
+	</a>
+
+
+
+
+<!-- htmlYN 값으로 분기 끝.  -->
+
+				</li>
+			</ul>
+		</div>
+		<div class="popup_footer">
+			<span class="chk_wrap common_icheck">
+				<input type="checkbox" id="fbClose24" class="style_input"> <label for="fbClose24">하루동안 열지 않기</label>
+			</span>
+			<button onclick="closeFrontBanner()" class="btn_b">닫기</button>
+		</div>
+	</div>
+</div>
+<a href="javascript:f_skipnavi()" class="skipnavi" title="본문바로가기">본문바로가기</a>
+<div id="fb-root"></div>
+
+<form id="mainFrm" method="get">
+	<input type="hidden" name="menuId" value="" />
+</form>
+<header class="TopBn_ok"> <!-- with-image 이게 있으면 하단에 이미지가 따라 붙는 상태, full-width 이게 있으면 영역 확장됨 -->
+
+
+	<!-- 상단 배너 S -->
+
+	<!-- 광고영역추가 -->
+	<div class="header_TopBn">
+		<p><script type="text/javascript" src="http://mlink-vad.netinsight.co.kr/NetInsight/js/megabox/main/main@top"></script><script type="text/javascript">
+<!--//<![CDATA[
+   //document.MAX_ct0 = unescape('{clickurl_enc}');
+
+   //var m3_u = (location.protocol=='https:'?'https://cm.crsmedia.co.kr/adserver/www/delivery/ajs.php':'http://cm.crsmedia.co.kr/adserver/www/delivery/ajs.php');
+   //var m3_r = Math.floor(Math.random()*99999999999);
+   //if (!document.MAX_used) document.MAX_used = ',';
+   //document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   //document.write ("?zoneid=4");
+   //document.write ('&cb=' + m3_r);
+   //if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+   //document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   //document.write ("&loc=" + escape(window.location));
+   //if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+   //if (document.context) document.write ("&context=" + escape(document.context));
+   //if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+   //        document.write ("&ct0=" + escape(document.MAX_ct0));
+   //}
+   //if (document.mmm_fo) document.write ("&mmm_fo=1");
+   //document.write ("'><\/scr"+"ipt>");
+//]]>--><noscript><a href='http://cm.crsmedia.co.kr/adserver/www/delivery/ck.php?n=a301f825&cb={random}' target='_blank'><img src='http://cm.crsmedia.co.kr/adserver/www/delivery/avw.php?zoneid=4&cb={random}&n=a301f825&ct0={clickurl_enc}' border='0' alt='' /></a></noscript></script></p>
+
+		<button class="btn_close" onclick="header_TopBn()" title="상단배너 닫기"><span class="tx_skip">상단배너 닫기</span></button>
+	</div>
+	<!-- 광고영역추가// -->
+
+	<!-- 상단 배너 E -->
+	<div class="header-wrap">
+		<div class="memu_all ">
+			<div class="menus">
+				<div class="cols col1">
+					<dl class="mt35">
+						<dt><a href="javascript:void(0)" onclick="showMenu('timetable-guide')" title="예매 바로가기">예매</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('timetable-guide')" title="예매 안내 바로가기">예매 안내</a></dd>
+						<dd><a href="javascript:void(0)" data-toggle="modal" data-target="#reservation" onclick="Booking.showPage()" title="빠른 예매 바로가기">빠른 예매</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('timetable-cinema')" title="상영시간표 바로가기">상영시간표</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('mypage-booking')" title="예매 확인/취소 바로가기">예매 확인/취소</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('privateTheatre')" title="더 부티크 프라이빗 예매 바로가기">더 부티크 프라이빗 예매</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('movie-boxoffice')" title="영화 바로가기">영화</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-boxoffice')" title="박스오피스 바로가기">박스오피스</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-showing')" title="최신개봉작 바로가기">최신개봉작</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-scheduled')" title="상영예정작 바로가기">상영예정작</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-festival')" title="영화제 바로가기">영화제</a></dd>
+						<!-- <dd><a href="javascript:void(0)" onclick="showMenu('movie-missed')" title="내가 못 본 영화">내가 못 본 영화</a></dd> -->
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-interesting')" title="보고 싶은 영화 바로가기">보고 싶은 영화</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('mypage-moviestory')" title="나의 무비스토리 바로가기">나의 무비스토리</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('movie-moviepost')" title="무비포스트 바로가기">무비포스트</a></dd>
+					</dl>
+				</div>
+				<div class="cols col2">
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('specialcontent')" style="letter-spacing:-1px;" title="큐레이션 바로가기">큐레이션</a></dt>
+						<dd><a href="/?menuId=specialcontent-filmHome&majorCode=06&minorCode=0601" title="필름 소사이어티 바로가기">필름 소사이어티</a></dd>
+						<dd><a href="/?menuId=specialcontent-classicHome&majorCode=02&minorCode=0208" title="클래식 소사이어티 바로가기">클래식 소사이어티</a></dd>
+						<dd><a href="/?menuId=specialcontent-cinemaHeaven&majorCode=04&minorCode=0401" title="프로젝트 바로가기">프로젝트</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('theater')" title="영화관 바로가기">영화관</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('theater')" title="영화관찾기 바로가기">영화관찾기</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('special')" title="특별관 안내 바로가기">특별관 안내</a></dd>
+					</dl>
+
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('store')" title="스토어 바로가기">스토어</a></dt>
+						<dd><a href="/?menuId=store&majorCode=02" title="메가티켓 바로가기">메가티켓</a></dd>
+						<dd><a href="/?menuId=store&majorCode=03" title="메가찬스 바로가기">메가찬스</a></dd>
+						<dd><a href="/?menuId=store&majorCode=05" title="스페셜굿즈/콤보 바로가기">스페셜굿즈/콤보</a></dd>
+					</dl>
+
+					<dl>
+						<dt><a href="/?menuId=discountcard" title="할인카드 바로가기">할인카드</a></dt>
+						<dd><a href="/?menuId=discountcard#menu1" title="멤버십 제휴카드 바로가기">멤버십 제휴카드</a></dd>
+						<dd><a href="/?menuId=discountcard#menu2" title="할인 신용카드 바로가기">할인 신용카드</a></dd>
+						<dd><a href="/?menuId=discountcard#menu3" title="할인 포인트카드 바로가기">할인 포인트카드</a></dd>
+						<dd><a href="/?menuId=discountcard#menu4" title="관람권/상품권 바로가기">관람권/상품권</a></dd>
+					</dl>
+				</div>
+				<div class="cols col3">
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('event')" title="이벤트 바로가기">이벤트</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('event-meg')" title="메가박스 이벤트 바로가기">메가박스 이벤트</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('event-mov')" title="영화 이벤트 바로가기">영화 이벤트</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('event-pat')" title="제휴 이벤트 바로가기">제휴 이벤트</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('event-cin')" title="영화관 이벤트 바로가기">영화관 이벤트</a></dd>
+					</dl>
+
+					<dl>
+						<dt><a href="/?menuId=membership" title="멤버십 바로가기">멤버십</a></dt>
+						<dd><a href="/?menuId=membership" title="멤버십 안내 바로가기">멤버십 안내</a></dd>
+						<dd><a href="/?menuId=membership-registercard" title="멤버십 카드 등록 바로가기">멤버십 카드 등록</a></dd>
+						<dd><a href="/?menuId=membership#menu4" title="VIP ZONE 바로가기">VIP ZONE</a></dd>
+						<dd><a href="/?menuId=membership#menu5" title="스페셜 멤버십 바로가기">스페셜 멤버십</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/?menuId=mypage" title="나의 메가박스 바로가기">나의 메가박스</a></dt>
+						<dd><a href="/?menuId=mypage-membership" title="멤버십 정보 바로가기">멤버십 정보</a></dd>
+						<!-- <dd><a href="/?menuId=mypage-pointExchange" title="포인트교환 바로가기">포인트교환</a></dd> -->
+						<!-- <dd><a href="javascript:void(0)" title="메가 캐시 바로가기">메가 캐시</a></dd> -->
+						<dd><a href="/?menuId=mypage-booking" title="예매 확인/취소 바로가기">예매 확인/취소</a></dd>
+						<dd><a href="/?menuId=mypage-shopping" title="스토어 구매내역 바로가기">스토어 구매내역</a></dd>
+						<!-- <dd><a href="javascript:void(0)" title="VOD구입내역 바로가기">VOD구입내역</a></dd> -->
+						<dd><a href="/?menuId=mypage-moviestory" title="나의 무비스토리 바로가기">나의 무비스토리</a></dd>
+						<dd><a href="/?menuId=mypage-coupon" title="관람권/VIP쿠폰 바로가기">관람권/VIP쿠폰</a></dd>
+						<dd><a href="/?menuId=mypage-myinfo" title="회원정보수정 바로가기">회원정보수정</a></dd>
+						<dd><a href="/?menuId=mypage-question" title="나의 문의 내역 바로가기">나의 문의 내역</a></dd>
+						<!-- H-331 2016.01.11 이벤트 응모내역 삭제
+						<dd><a href="/?menuId=mypage-event" title="나의 이벤트 응모 내역 바로가기">나의 이벤트 응모 내역</a></dd> -->
+					</dl>
+				</div>
+				<div class="cols col4">
+
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('center')" title="고객센터 바로가기">고객센터</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-faq')" title="자주 묻는 질문 바로가기">자주 묻는 질문</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-notice')" title="공지사항 바로가기">공지사항</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-1on1')" title="1:1 문의 바로가기">1:1 문의</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-rent')" title="단체관람/대관문의 바로가기">단체관람/대관문의</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-lost', 'register')" title="분실물 문의/접수 바로가기">분실물 문의/접수</a></dd>
+						<!-- <dd><a href="javascript:void(0)" onclick="showMenu('center-remote')" title="원격지원 서비스 바로가기">원격지원 서비스</a></dd> -->
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-megabox')" title="메가박스 온라인 소개 바로가기">메가박스 온라인 소개</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('center-screenNum')" title="스크린 수 배정에 관한 기준 바로가기">스크린 수 배정에 관한 기준</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('user-join')" title="회원서비스 바로가기">회원서비스</a></dt>
+						<dd><a href="javascript:void(0)" onclick="showMenu('user-join')" title="회원가입 바로가기">회원가입</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('user-find')" title="아이디/비밀번호 찾기 바로가기">아이디/비밀번호 찾기</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('user-dormant')" title="휴면계정 복구신청 바로가기">휴면계정 복구신청</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('terms')" title="이용약관 바로가기">이용약관</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('privacy')" title="개인정보 처리방침 바로가기">개인정보 처리방침</a></dd>
+						<dd><a href="javascript:void(0)" onclick="showMenu('mypage-myinfo', 'cancelMember')" title="회원 탈퇴 바로가기">회원 탈퇴</a></dd>
+					</dl>
+				</div>
+				<div class="cols col5 last">
+
+					<dl>
+						<dt><a href="javascript:void(0)" onclick="showMenu('company')" title="회사 소개 바로가기">회사 소개</a></dt>
+						<dd><a href="/?menuId=company#menu1" title="메가박스 소개 바로가기">메가박스 소개</a></dd>
+						<dd><a href="/?menuId=company#menu2" title="오시는 길 바로가기">오시는 길</a></dd>
+						<dd><a href="/?menuId=company#menu3" title="홍보자료 바로가기">홍보자료</a></dd>
+						<dd><a href="/?menuId=company#menu4" title="제휴/광고/부대사업문의 바로가기">제휴/광고/부대사업문의</a></dd>
+						<dd><a href="/?menuId=company#menu5" title="윤리경영 바로가기">윤리경영</a></dd>
+						<dd><a href="/?menuId=company#menu6" title="IR자료 바로가기">IR자료</a></dd>
+					</dl>
+					<!-- 2015.04.13 김창현 인재채용 추가 -->
+					<dl>
+						<dt><a href="/?menuId=recruit" title="인재 채용 바로가기">인재 채용</a></dt>
+						<dd><a href="/?menuId=recruit-hr" title="메가박스 HR 바로가기">메가박스 HR</a></dd>
+						<dd><a href="/?menuId=recruit-info" title="채용안내 바로가기">채용안내</a></dd>
+						<dd><a href="/?menuId=recruit-news" title="채용공고 바로가기">채용공고</a></dd>
+						<dd><a href="/?menuId=recruit-benefit" title="Benefit 바로가기">Benefit</a></dd>
+						<!-- <dd><a href="/?menuId=recruit-inquiry" title="채용문의 바로가기">채용문의</a></dd> 17.02.01 히든요청 -->
+					</dl>
+					<a href="http://mcsi.megabox.co.kr/survey/main.do" target="_blank" title="고객 만족도 조사 새창열기" class="btn_participation">고객 만족도 조사 <span>설문참여하기</span></a>
+				</div>
+				
+					<script type="text/javascript">
+					$(function(){
+						$(".memu_all", ".header-wrap").addClass("SiteMapBn_ok");
+					});
+					</script>
+
+					<!-- 광고영역추가 -->
+					<div class="ad_wrapper">
+					<p><script type='text/javascript'>
+<!--//<![CDATA[
+   //document.MAX_ct0 = unescape('{clickurl_enc}');
+
+   //var m3_u = (location.protocol=='https:'?'https://cm.crsmedia.co.kr/adserver/www/delivery/ajs.php':'http://cm.crsmedia.co.kr/adserver/www/delivery/ajs.php');
+   //var m3_r = Math.floor(Math.random()*99999999999);
+   //if (!document.MAX_used) document.MAX_used = ',';
+   //document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   //document.write ("?zoneid=4");
+   //document.write ('&cb=' + m3_r);
+   //if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+   //document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   //document.write ("&loc=" + escape(window.location));
+   //if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+   //if (document.context) document.write ("&context=" + escape(document.context));
+   //if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+   //        document.write ("&ct0=" + escape(document.MAX_ct0));
+   //}
+   //if (document.mmm_fo) document.write ("&mmm_fo=1");
+   //document.write ("'><\/scr"+"ipt>");
+//]]>-->
+</script><noscript><a href='http://cm.crsmedia.co.kr/adserver/www/delivery/ck.php?n=a301f825&cb={random}' target='_blank'><img src='http://cm.crsmedia.co.kr/adserver/www/delivery/avw.php?zoneid=4&cb={random}&n=a301f825&ct0={clickurl_enc}' border='0' alt='' /></a></noscript><script type="text/javascript" src="http://mlink-vad.netinsight.co.kr/NetInsight/js/megabox/sitemap/sitemap@bottom"></script></p>
+
+					</div>
+					<!-- 광고영역추가// -->
+				
+			</div>
+			<button type="button" class="custom_close2" ><span class="blind">사이트맵 닫기</span></button>
+		</div>
+		<div class="header_bg_black"></div>
+
+		<!-- 네비게이션// -->
+		<div class="navigation">
+			<div class="logo" id="top_logo">
+				<a href="/" title="MEGABOX 메인으로 가기(140)"><img src="http://image2.megabox.co.kr//mop/home/logo_new.png" alt="MEGABOX" class="ie_logo big" /></a>
+			</div>
+			<ul>
+
+				<li><a href="javascript:showMenu('movie')" class="icon i1 " title="영화 바로가기">영화</a></li>
+
+				<li><a href="javascript:showMenu('specialcontent')" class="icon i2 " title="큐레이션 바로가기">큐레이션</a></li>
+
+				<li><a href="javascript:showMenu('theater')" class="icon i3 " title="영화관메인 바로가기">영화관메인</a></li>
+
+				<li><a href="javascript:showMenu('special')" class="icon i4 " title="특별관 바로가기">특별관</a></li>
+
+				<li><a href="javascript:showMenu('store')" class="icon i5 " title="스토어 바로가기"><span class="i_new">new</span>스토어</a></li>
+
+				<li><a href="javascript:showMenu('event')" class="icon i6 " title="이벤트 바로가기">이벤트</a></li>
+
+				<li class="login " id="open_myinfo"><a href="javascript:void(0)" class="icon i7" title="로그인">로그인</a></li>
+			</ul>
+
+
+		</div>
+		<!-- //네비게이션 -->
+
+		<!-- 로그인 정보// -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="member_info remove_loginInfo hide" style="cursor: pointer;">
+
+</div>
+
+
+
+<!-- 로그인창// NEW!! -->
+
+
+<div class="login_info remove_loginInfo" id="login_wrap">
+	<span class="newTop"></span>
+	<div class="middle">
+		<!-- id pw 입력// -->
+		<div class="login_input_wrap" id="login_id_view">
+			<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+			<div class="input_wrap">
+				<label for="login-id" class="login-id">아이디</label>
+				<input type="text" id="login-id" name="userId" placeholder="아이디" title="아이디입력" maxlength="20" class="mb8" value="" allowtype="hangul number alphabet special" keyenter="input:submit.img_btn.user" />
+				<label for="login-pw" class="login-pw">비밀번호</label>
+				<input type="password" id="login-pw" name="userPw" placeholder="비밀번호" title="비밀번호입력" maxlength="20" value="" keyenter="input:submit.img_btn.user" />
+				<!-- //id pw 입력 -->
+				<p class="clearfix c_purple ck_popup">
+					<span class="pull-left">
+						<label for="keep_login" class="mr5">아이디 저장</label>
+						<input type="checkbox" id="keep_login" name="keepLogin" class="style_input" title="아이디 저장"/>
+						<strong class="reep_login_pop">
+							<i></i>
+							개인정보 보호를 위해<br/>
+							개인 PC에서만 사용해 주세요.
+							<a href="/?menuId=center-faq&p=&p2=로그인+상태+유지+기능+주의+사항" class="go_help" title="도움말 보기">도움말 보기</a><!-- 로그인 상태 유지 기능 주의 사항 검색 -->
+							<a href="javascript:void(0)" class="img_btn pop_close" title="로그인 상태유지 도움말 팝업 닫기">로그인 상태유지 도움말 팝업 닫기</a>
+						</strong>
+						
+						<div class="ad_wrap pull-right">
+							<a href="javascript:adHasClick('https://www.sepay.org/spm/join?regSiteCode=XF&ctgCode=1&subCode=1', 0)" class="ad_box" title=""><img src="http://image2.megabox.co.kr/mop/home/ad/loginad/login_ad_01.png" alt="휴대폰 간편 로그인"/></a>
+						</div>
+						
+					</span>
+				</p>
+				<input type="submit" value="로그인" title="로그인" class="img_btn user" onclick="login();" />
+			</div>
+		</div>
+		<div class="orLine">
+			<span>or</span>
+		</div>
+		<div class="socialGroup">
+			<h4>간편로그인</h4>
+			<ul class="clearfix">
+<!-- 				<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li>
+				<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'kakao'); easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li>-->
+				<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코 로그인"><i class="social_payco"></i> 로그인</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="join_btn">
+		<ul class="clearfix">
+			<li><a href="javascript:void(0)" onclick="showMenu('user-nonmember')" title="비회원 예매확인/취소 바로가기">비회원 예매확인/취소</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW찾기">ID/PW찾기</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('user-dormant')" title="휴면계정 복구신청">휴면계정 복구신청</a></li>
+		</ul>
+	</div>
+	
+		<!-- 광고영역추가 -->
+		<div class="ad_wrapper">
+		<script type="text/javascript" src="http://mlink-vad.netinsight.co.kr/NetInsight/js/megabox/login/login@bottom"></script>
+		</div>
+		<!-- 광고영역추가// -->
+	
+	<a href="javascript:void(0);" class="login_box_close" title="닫기">닫기</a>
+</div>
+<!-- //로그인창 -->
+
+<iframe id="loginForIE8Frame" class="remove_loginInfo" title="IE8 로그인" name="loginForIE8Frame" height="0" width="0" marginheight="0" marginwidth="0" src="https://megabox.co.kr/pages/common/loginForIE8.jsp" frameborder="0" allowtransparency="true" scrolling="no" tabindex="-1" style="visibility: none; display: none; border: none;"></iframe>
+<div class="remove_loginInfo">
+<script type="text/javascript">
+$(document).ready(function(){
+	//추가합니다.jsm : start
+	$('#keep_login').on('ifClicked', function() {
+// 		if( $(this).hasClass("open_login_pop") ){
+// 			$(this).removeClass("open_login_pop");
+// 			$(".reep_login_pop").hide();
+// 		}else{
+// 			$(this).addClass("open_login_pop");
+// 			$(".reep_login_pop").show();
+
+// 		}
+		//saveId(!$(this).is(":checked"));
+	});
+
+	$(".reep_login_pop .pop_close").on("click",function(){
+		$(".reep_login_pop").hide();
+		$(".join_btn a:first").focus();
+
+	});
+	$(".login_box_close").click(function(){
+		$(".login_info").removeClass("open_myinfo_open");
+		$("#open_myinfo a").focus();
+	});
+
+	window.name ="Parent_window";
+});
+	/**
+	 * 로그인관련 예외사항을 저장함
+	 */
+	var loginUtil = {
+		_loginResultCode : null,
+		_loginWebId : null,
+		_loginJVipPopupYN : null,
+		_loginCallback : null,
+		_execute : function(){},
+
+		setLoginResultCode : function (resultCode) {
+			this._loginResultCode = resultCode;
+		},
+		getLoginResultCode : function () {
+			return this._loginResultCode;
+		},
+
+		setLoginJVipPopupYN : function (jVipPopupYN) {
+			this._loginJVipPopupYN = jVipPopupYN;
+		},
+		getLoginJVipPopupYN : function () {
+			return this._loginJVipPopupYN;
+		},
+
+		setLoginWebId : function (webId) {
+			this._loginWebId = webId;
+		},
+		getLoginWebId : function () {
+			return this._loginWebId;
+		},
+
+		setCallBackFunc : function (callBackFunc) {
+			if (callBackFunc != null && typeof callBackFunc == 'function') {
+				this._execute = callBackFunc;
+			} else {
+				this._execute = function(){};
+			}
+		},
+
+		executeCallBack : function(){
+			this._execute();
+		}
+	};
+
+	var reAuthData={};
+	/**
+	 * 휴대폰인증함수
+	 */
+	function reAuthMobileProcess() {
+		var ajaxOptions={
+				url: getServerUrl(true) + '/DataProvider',
+				type: 'POST',
+				data: {
+					_command: 'User.recoverPasswordSMSCerfiticate',
+					memberCode: reAuthData.reAuthMemberCode,
+					mobileNo: reAuthData.reAuthMobileNo
+				}
+			};
+
+		if(!lowBrowserVer) {
+			ajaxOptions.crossDomain=true;
+			ajaxOptions.xhrFields={withCredentials : true};
+		}
+
+		$.ajax(ajaxOptions).success(function( data ) {
+			if(data.resultCode=="0000"){
+				reAuthData.reAuthNo=data.result.authNo;
+				closeMessageBox('messageBox_reAuthPopup', 'custom');
+				customMessageBox('messageBox_authNoCheck');
+			}else{
+				messageBox('로그인', "재인증이 실패 하였습니다.<br />다시 재인증하여 주시기 바랍니다.");
+			}
+		});
+	}
+
+	/**
+	 * 메일인증함수
+	 */
+	function reAuthMailProcess() {
+		var ajaxOptions={
+				url: getServerUrl(true) + '/DataProvider',
+				type: 'POST',
+				data: {
+					_command: 'User.requestMailCertification',
+					email: reAuthData.reAuthMemberEmail
+				}
+			};
+
+		if(!lowBrowserVer) {
+			ajaxOptions.crossDomain=true;
+			ajaxOptions.xhrFields={withCredentials : true};
+		}
+
+		$.ajax(ajaxOptions).success(function( data ) {
+			if (data.resultCode=="0000") {
+				closeMessageBox('messageBox_reAuthPopup', 'custom');
+				customMessageBox('messageBox_mailAuthNoCheck');
+			} else {
+				messageBox('로그인', "재인증이 실패 하였습니다.<br />다시 재인증하여 주시기 바랍니다.");
+			}
+		});
+	}
+
+	/**
+	 * 인증번호 요청함수
+	 */
+	function reAuthCheckProcess()
+	{
+		$('div#messageBox_reAuthPopup input:radio[name^=reAuthCheck_1]').each(function(index) {
+			if ($(this).is(':checked')) {
+				var authType 	= $(this).val().trim();
+				var webID		= $('#reauth-id-webid').val().trim();
+				var memberName	= $('#reauth-id-name').val().trim();
+				var mobile1		= $('#reauth-id-phone').val().trim();
+				var mobile2		= $('#reauth-id-phone2').val().trim();
+				var mobile3		= $('#reauth-id-phone3').val().trim();
+				var emailAddr	= $('#reauth-id-email').val().trim();
+
+				if(!validate("li#reAuthTab1_webID"))	return;
+				if(!validate("li#reAuthTab1_name"))		return;
+
+				if (authType=="1") {
+					if(!validate("li#reAuthTab1_mobile"))	return;
+					reAuthData.reAuthGbn="PHONE";
+				} else {
+					if(!validate("li#reAuthTab1_email"))	return;
+					reAuthData.reAuthGbn="MAIL";
+				}
+
+				var ajaxOptions={
+						url: getServerUrl(true) + '/DataProvider',
+						type: 'POST',
+						data: {
+							_command: 'User.recoverPasswordBySimple2',
+							authGubun: authType,	// 1:휴대폰 2:이메일
+							webID: webID,
+							memberName: memberName,
+							mobile1: mobile1,
+							mobile2: mobile2,
+							mobile3: mobile3,
+							emailAddr: emailAddr,
+							siteCode : "36"
+						}
+					};
+
+				if(!lowBrowserVer) {
+					ajaxOptions.crossDomain=true;
+					ajaxOptions.xhrFields={withCredentials : true};
+				}
+
+				$.ajax(ajaxOptions).success(function( data ) {
+					if (data.resultCode == "0000") {
+
+						if (reAuthData.reAuthGbn == "PHONE") {
+							reAuthData.reAuthMemberCode = data.memberCode;
+							reAuthData.reAuthMobileNo	= String(mobile1) + String(mobile2) + String(mobile3);
+							reAuthMobileProcess();
+						} else {
+							reAuthData.reAuthMemberCode  = data.memberCode;
+							reAuthData.reAuthMemberEmail = emailAddr;
+							reAuthMailProcess();
+						}
+					} else {
+						messageBox('입력하신 아이디와 인증정보가 일치하지 않습니다.');
+					}
+				});
+			}
+		});
+	}
+
+	/**
+	 * 인증번호 확인함수
+	 */
+	function authNoCheck()
+	{
+		if(reAuthData.reAuthGbn=="PHONE")
+		{
+			var authNo=$("#messageBox_authNoCheck input[name=reAuthNo]").val().trim();
+
+			if(authNo=="")
+			{
+				messageBox('인증번호를 입력하세요.');
+				return;
+			}
+
+			if(reAuthData.reAuthNo==authNo)
+			{
+				closeMessageBox('messageBox_authNoCheck', 'custom');
+				reAuthSuccess(reAuthData.reAuthMemberCode);
+			}
+			else
+			{
+				messageBox('로그인', "재인증이 실패 하였습니다.<br />다시 재인증하여 주시기 바랍니다.", function(){
+					closeMessageBox('messageBox_authNoCheck', 'custom');
+					showReAuthPopup();
+				});
+			}
+		}
+		else
+		{
+			var authNo=$("#messageBox_mailAuthNoCheck input[name=reAuthNo]").val().trim();
+
+			if(authNo=="")
+			{
+				messageBox('인증번호를 입력하세요.');
+				return;
+			}
+
+			var ajaxOptions={
+					url: getServerUrl(true) + '/DataProvider',
+					type: 'POST',
+					data: {
+						_command: 'User.confirmMailCertification',
+						certCode: authNo
+					}
+				};
+
+			if(!lowBrowserVer)
+			{
+				ajaxOptions.crossDomain=true;
+				ajaxOptions.xhrFields={withCredentials : true};
+			}
+
+			$.ajax(ajaxOptions).success(function( data ) {
+
+				if(data.resultCode=="0000")
+				{
+					closeMessageBox('messageBox_mailAuthNoCheck', 'custom');
+					reAuthSuccess(reAuthData.reAuthMemberCode);
+				}
+				else
+				{
+					messageBox(data.resultMessage,function(){
+						closeMessageBox('messageBox_mailAuthNoCheck', 'custom');
+						showReAuthPopup();
+					});
+				}
+			});
+		}
+	}
+	/**
+	 * 아이핀인증 함수
+	 */
+	function fnPopupReAuthIPIN(){
+		window.open('', 'popupIPIN2', 'width=450, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no');
+		document.form_IpinReAuth.target = "popupIPIN2";
+		document.form_IpinReAuth.action = "https://cert.vno.co.kr/ipin.cb";
+		document.form_IpinReAuth.submit();
+	}
+	/**
+	 * 휴대폰인증 함수
+	 */
+	function fnPopupReAuthCheckPlus(){
+		window.open('', 'popupChk', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no');
+		document.form_CheckPlusReAuth.action = "https://nice.checkplus.co.kr/CheckPlusSafeModel/checkplus.cb";
+		document.form_CheckPlusReAuth.target = "popupChk";
+		document.form_CheckPlusReAuth.submit();
+	}
+	/**
+	 * 인증완료 콜백함수
+	 * @param memberCode
+	 */
+	function reAuthSuccess(memberCode)
+	{
+		if(reAuthData.reAuthMemberCode!=null && reAuthData.reAuthMemberCode!=memberCode)
+		{
+			messageBox('로그인', "인증한 회원 정보가 일치하지 않습니다.");
+			return;
+		}
+
+		var logData={
+				_command:'User.logMemberInfoChange',
+				memberCode:memberCode,
+				birthdayYn:'N',
+				handphoneYn:'N',
+				emailYn:'N',
+				smsReceiveYn:'N',
+				mailingReceiveYn:'N',
+				changePwdYn:'N',
+				passwordResetYn:'N',
+				lockAccountYn:'Y',
+				ruleAgreeYn_sub1:'N',
+				ruleAgreeYn_sub2:'N',
+				ruleAgreeYn_sub3:'N',
+				ruleAgreeYn_sub4:'N',
+				remark:'계정잠금해제',
+				userInfo:'36',
+				ipAddress:''
+		};
+		$.ajax({
+			url: '/DataProvider',
+			type: 'POST',
+			async:false,
+			data: logData
+		}).success(function( data ) {
+
+			if(data.resultCode=="0000")
+			{
+				closeMessageBox('messageBox_reAuthPopup', 'custom');
+
+				if (loginUtil.getLoginResultCode() == '7001') {
+					$("#messageBox_changePassword2").find("[name=memberCode]").val(memberCode);
+					customMessageBox('messageBox_changePassword2');
+				} else {
+					messageBox('로그인', "재인증이 완료 되었습니다.<br />다시 로그인 하여주시기 바랍니다.",function(){
+						completeLogin(function(){
+							loginUtil.executeCallBack();
+						});
+					});
+				}
+			}
+			else
+			{
+				closeMessageBox('messageBox_reAuthPopup', 'custom');
+				messageBox('로그인', "재인증이 실패 하였습니다.<br />다시 재인증하여 주시기 바랍니다.");
+			}
+
+		});
+	}
+	/**
+	 * 로그인 함수
+	 */
+	function login() {
+		saveId($('#keep_login').is(":checked"));
+
+		var keepLogin = 'N';
+		/* if (!$('#keep_login').is(':checked')) {
+			keepLogin = 'Y';
+		} */
+
+		loginProc('login_wrap', keepLogin, function(data){
+
+			location.reload(true);
+		});
+
+	}
+	/**
+	 * 로그인성공 콜백함수
+	 * @param e
+	 */
+	function loginSuccess(e) {
+		var hostNameValue=location.hostname;
+
+		if (e.origin.indexOf(hostNameValue)>-1) {
+			var message = e.data;
+			var messageArr = message.split(';');
+
+			if (messageArr[0] === 'loginForIE8') {
+				var resultCode = messageArr[1];
+				var resultMessage = messageArr[2];
+				if (resultCode == '0000') {
+					location.reload(true);
+				} else if (resultCode == '0901') {
+					customMessageBox('no_symbol_popup');
+					return;
+				} else {
+					messageBox(resultMessage);
+				}
+
+			}
+		}
+	}
+	// loginForIE8.jsp에서 보낸 메세지(로그인 결과값)를 보여준다. For IE8
+	if (window.attachEvent)
+		window.attachEvent('onmessage', loginSuccess);
+	else
+		window.addEventListener('message', loginSuccess, false);
+
+ 	/**
+	 * 로그아웃 함수
+	 */
+	function logout() {
+		$.ajax({
+			url: '/pages/common/logoutProcess.jsp',
+			type: 'POST'
+		}).success(function() {
+			//location.reload(true);
+			userModifySwitch(null);
+			location.href="/";
+		});
+	}
+
+ 	/**
+	 * 로그아웃2 함수
+	 */
+	function logout2() {
+		$.ajax({
+			url: '/pages/common/logoutProcess.jsp',
+			type: 'POST'
+		}).success(function() {
+			userModifySwitch(null);
+			//location.reload(true);
+			//location.href="/";
+		});
+	}
+
+	function saveId(isSave) {
+		var userId = $('#login_id_view input[name=userId]').val();
+
+		// 아이디저장
+		if (isSave) {
+			setCookie('saveid', userId, 30);
+		} else {		// 아이디 저장해제
+			setCookie('saveid', '', -1);
+		}
+	}
+
+	/**
+	 * 로그인화면 호출 함수
+	 */
+	function afterLogin() {
+		var requestLoginInfo = new JSPRequest('/pages/common/loginInfo.jsp', 'div#myinfo_wrap', 'div#myinfo_wrap');
+		requestLoginInfo.request();
+	}
+
+	// 페이코 로그인 url 호출
+// 	function paycoLoginUrl(){
+// 		var domain = location.hostname;
+// 		var redirect_uri = encodeURI(domain+"/pages/common/oauth/Payco_Authorization_Callback.jsp");
+// 		var url = 'https://demo-id.payco.com/oauth2.0/authorize?response_type=code&client_id=3RDY9cL78eQVVGt695nn&serviceProviderCode=FRIENDS&userLocale=ko_KR&redirect_uri='+redirect_uri;
+
+
+// 	}
+
+	$(document).ready(function() {
+
+		if (getCookie('saveid') != null && getCookie('saveid') !== '') {
+			//$('#login_id_view .remember_id').addClass('remember_id_lock');
+			$('#login_id_view input[name=userId]').val(getCookie('saveid'));
+			$('#keep_login').attr("checked", "checked");
+		}
+
+			$('.login_input_wrap').keyBlock();
+	
+
+	});
+</script>
+</div>
+<form name="form_IpinReAuth" method="post" class="remove_loginInfo">
+	<input type="hidden" name="m" value="pubmain">						<!-- 필수 데이타로, 누락하시면 안됩니다. -->
+    <input type="hidden" name="enc_data" value="AgEERDQ0Mas7zAR9riUy2avjFlvo2VjGMt1Jnik1FQsFGr8UgcwnJU8WBj7cFjfYcjXYoky1ih+aYM0fxnEL4st/xFoB+7A9jjrfha7OuyvA7FhCHHCqbFjtlLkEijLcqrxoFt10h/Q6a5XFWLCvn22lmeQTSS+DyOhw+cMJY1JEMmwofRJVk6Z9kiuSAYxmdcK8O0dH5+O2gFznnHs7l1cD98DFtWCMy3ivqAbYkPgEBUi1NmgEIM7935liOpG3TYtsfIJWe3qw2WLIpla6PZsisq8md00nVO5kg9ceCnyJS9QfYti81wBDmt9TYIdj1/n8vTSUCA==">		<!-- 위에서 업체정보를 암호화 한 데이타입니다. -->
+
+    <!-- 업체에서 응답받기 원하는 데이타를 설정하기 위해 사용할 수 있으며, 인증결과 응답시 해당 값을 그대로 송신합니다.
+    	 해당 파라미터는 추가하실 수 없습니다. -->
+    <input type="hidden" name="param_r1" value="REAUTH">
+</form>
+<form name="form_CheckPlusReAuth" method="post" class="remove_loginInfo">
+	<input type="hidden" name="m" value="checkplusSerivce">				<!-- 필수 데이타로, 누락하시면 안됩니다. -->
+	<input type="hidden" name="EncodeData" value="AgAFRzI0ODmcADNSX41Drq/W4x8eN3n+C8wjo+6meoXC8RTdjWUnnUqVQtPP1JsYDQ8UsQvjPaSH4YaG69rVfZ9lLHhGRIN4Sf5F1wykIPZtzfQKCzyBEOlacaHYtGuv4jG/Au1isSgpNCUzpBCWARDIfqBuxMD/g8jocPnDCWNSRDJsKH0SVRFJKw2LJZFBobApl3hDmZrCCmFiG9HNbCCsPQyCFjF08t6J/N0oIB1rHpc7jI0ZUNgdzWPSfe4WB+koJzjAtkNSxv28WoULyQ4BtSWmuurwR40+avoti6ZpLckQSoQfRHzN/v4IPhFc+6aqndUWY7OPayOp55cyZZgvdr7jc/uCEPWrhHv+W5HIil99u5NYjx6D8HyyEzf+rkqU2LWqznGN2xTybq5NrdojaIYwZ5cLlaHE2pv8xghHLA7octFKttai/s+EUySJevUvuD0XM2KhKBnAI5+HBD9dIJ3PIu24vIfksqrv9Ubx8N9WS21Eu1K4UbzIznhsqmm7R+sEcmE=">		<!-- 위에서 업체정보를 암호화 한 데이타입니다. -->
+
+    <!-- 업체에서 응답받기 원하는 데이타를 설정하기 위해 사용할 수 있으며, 인증결과 응답시 해당 값을 그대로 송신합니다.
+	    	 해당 파라미터는 추가하실 수 없습니다. -->
+	<input type="hidden" name="param_r1" value="REAUTH">
+</form>
+
+<!-- //로그인창 -->
+		<!-- //로그인 정보 -->
+	</div>
+</header>
+
+	
+
+
+<div class="content_wrap">
+	<!-- sub menu// -->
+
+	<script>
+	$(function(){
+		//모달창으로 탭이동시 클래스
+		$(".focus_modal").click(function(){
+			$(this).addClass("nowfocus");
+			$(".modal").focus();
+		});
+	});
+	</script>
+	<div class="header-btn-wrap">
+		<button type="button " class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+		<div class="btn_social">
+			<a class="film_society" href="/?menuId=specialcontent-filmHome&majorCode=06&minorCode=0601" title="필름 소사이어티 바로가기">필름 소사이어티</a>
+			<i class="split"></i>
+			<a class="classic_society" href="/?menuId=specialcontent-classicHome&majorCode=02&minorCode=0208" title="클래식 소사이어티 바로가기">클래식 소사이어티</a>
+		</div>
+		<div class="btn_theater">
+			<span class="membership_link">
+				<a class="membership_txt" href="/?menuId=center" title="고객센터 바로가기">고객센터</a>
+				<i class="split"></i>
+				<a class="membership_txt" href="/?menuId=membership" title="멤버십 바로가기">멤버십</a>
+				<i class="split"></i>
+				<a class="membership_txt" href="/?menuId=membership#menu4" title="VIP 바로가기">VIP</a>
+			</span>
+			<!-- 배경이 투명한 경우 상영시간표 버튼에 class=transparent -->
+			<button type="button" class="img_btn header btn_time  transparent " onclick="showMenu('timetable-movie')">상영시간표</button>
+			<button type="button" class="img_btn header btn_reservation focus_modal" data-toggle="modal" data-target="#reservation" onclick="Booking.showPage()">빠른예매</button>
+		</div>
+	</div>
+	
+<!-- //sub menu -->
+	<div id="main" class="main-content">
+		
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/pages/movie/movie.js"></script>
+<script type="text/javascript" src="/pages/event/event.js"></script>
+<script type="text/javascript" src="/pages/main/main.js"></script>
+<!-- script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script -->
+<script type="text/javascript" src="/js/html5shiv.js"></script>
+<script type="text/javascript" src="/js/common/common.js"></script>
+<script type="text/javascript">
+$(function(){
+	//초기설정
+	$(".sm_mv_slide dd:eq(0)").show();
+	$(".sm_mv_slide dt:eq(0) a").addClass("on");
+
+	//자동롤링
+	var Timer = '';
+
+	if(Timer) clearInterval(timer);
+	Timer = setInterval(function(){
+		autoRoll();
+		}, 4000);
+
+	//무비재생버튼클릭시 롤링정지
+	$(".vd_playStop a.vd_play").click(function(){
+
+		var vdstopBtn = $(this).attr("class");
+
+		if( vdstopBtn == "vd_play"){
+			$(".autoOff a.stop").removeClass("stop").addClass("play");
+			clearInterval(Timer);
+			$(this).removeClass("vd_play").addClass("vd_stop");
+			$(this).text("비디오 정지");
+
+			// 해당무비 클래스 추출
+			var Ptag = $(this).parent().parent();
+
+			// 가림처리
+			Ptag.find('.sm_mv_detail').hide();//해당 전체링크
+			$('.prevNext, .autoOff, .sm_mv_slide dt').hide();//이전다음, 자동정지, 목록버튼
+
+			// 보이기
+			Ptag.find('.mv_view').show();//해당무비
+
+			/*
+			 웹 표준화용이므로 일단 홈페이지는 숨김처리
+			 추후에 표시 예정
+			*/
+// 			Ptag.find(".mv_caption").hide();
+
+			//자막있을시에만 보임
+			if(Ptag.find(".mv_caption p").text() == ""){
+				Ptag.find(".mv_caption").hide();
+			}else{
+				Ptag.find(".mv_caption").show();
+			}
+
+			// 무비재생
+			var myVid = Ptag.find('.mv_full video').get(0);
+			myVid.play();
+			return false;
+
+		}else{//무비정지
+			$(this).removeClass("vd_stop").addClass("vd_play");
+			$(this).text("비디오 재생");
+
+			// 해당무비 클래스 추출
+			var Ptag = $(this).parent().parent();
+
+			// 가림처리
+			Ptag.find('.mv_view').hide();//해당무비
+			Ptag.find(".mv_caption").hide();//자막
+
+			// 보이기
+			Ptag.find('.sm_mv_detail').show();//해당 전체링크
+			$('.prevNext, .autoOff, .sm_mv_slide dt').show();//이전다음, 자동정지, 목록버튼
+
+			// 무비재생
+			var myVid = Ptag.find('.mv_full video').get(0);
+			myVid.pause();
+			return false;
+
+		}
+		return false;
+	});
+
+
+
+	//롤링정지버튼
+	$(".autoOff a.stop").click(function(){
+		var stopBtn = $(this).attr("class");
+
+		if( stopBtn == "stop"){
+			clearInterval(Timer);
+			$(this).removeClass("stop").addClass("play");
+			$(this).text("메인비주얼 재생");
+		}else{
+			$(this).removeClass("play").addClass("stop");
+			$(this).text("메인비주얼 정지");
+			Timer = setInterval(function(){
+				autoRoll();
+			}, 4000);
+		}
+		return false;
+	});
+
+
+	//목록버튼 클릭시 화면전환
+	$(".sm_mv_slide dt a").click(function(){
+		$(".vd_playStop").hide();//기본설정:무비재생버튼가림
+
+		if($(this).attr("class") == "on"){	//선택된경우 예외처리
+			$(this).parent().find("+dd").show();
+		}else{
+			$(".sm_mv_slide dt a").removeClass("on");
+			$(this).addClass("on");
+			$(".sm_mv_slide dd").fadeOut("normal");
+			$(this).parent().find("+dd").fadeIn("normal");
+		}
+		return false;
+	});
+
+	function autoRoll(){
+		//기본설정
+		var ddnum = [];
+		var dtnum = [];
+		var num = '';
+		for(var i=0; i< $(".sm_mv_slide dd").size(); i++){
+			if( $(".sm_mv_slide dd:eq("+i+")").css("display")  ==  "block"){num = i;}
+			ddnum.push($(".sm_mv_slide dd:eq("+i+")"));//dd 배열
+			dtnum.push($(".sm_mv_slide dt:eq("+i+") a"));//dt 배열
+		}
+		//초기설정
+		$(".vd_playStop").hide();
+		$(".sm_mv_slide dd").fadeOut("normal");//dd가림처리
+		$(".sm_mv_slide dt a").removeClass("on");//dt 버튼 클래스 리셋
+		var allnum = $(".sm_mv_slide dd").size()-1;
+		for(var i=0; i< allnum; i++){
+			if(num == i){ddnum[i+1].fadeIn("normal"); dtnum[i+1].addClass("on");
+			}else if(num == allnum){ddnum[0].fadeIn("normal"); dtnum[0].addClass("on")}
+		}
+	}
+	//이전버튼클릭시
+	$(".prevNext .prev").click(function(){
+		//기본설정
+		var ddnum = [];
+		var dtnum = [];
+		var num = '';
+		for(var i=0; i< $(".sm_mv_slide dd").size(); i++){
+			if( $(".sm_mv_slide dd:eq("+i+")").css("display")  ==  "block"){num = i;}
+			ddnum.push($(".sm_mv_slide dd:eq("+i+")"));//dd 배열
+			dtnum.push($(".sm_mv_slide dt:eq("+i+") a"));//dt 배열
+		}
+		//초기설정
+		$(".sm_mv_slide dd").fadeOut("normal");//dd가림처리
+		$(".sm_mv_slide dt a").removeClass("on");//dt 버튼 클래스 리셋
+		var allnum = $(".sm_mv_slide dd").size()-1;
+		for(var i=0; i< allnum; i++){
+			if(num == i+1){ddnum[i].fadeIn("normal"); dtnum[i].addClass("on");
+			}else if(num == 0){ddnum[5].fadeIn("normal"); dtnum[5].addClass("on")}
+		}
+
+	});
+
+	//다음버튼클릭시
+	$(".prevNext .next").click(function(){
+		//기본설정
+		var ddnum = [];
+		var dtnum = [];
+		var num = '';
+		for(var i=0; i< $(".sm_mv_slide dd").size(); i++){
+			if( $(".sm_mv_slide dd:eq("+i+")").css("display")  ==  "block"){num = i;}
+			ddnum.push($(".sm_mv_slide dd:eq("+i+")"));//dd 배열
+			dtnum.push($(".sm_mv_slide dt:eq("+i+") a"));//dt 배열
+		}
+		//초기설정
+		$(".vd_playStop").hide();
+		$(".sm_mv_slide dd").fadeOut("normal");//dd가림처리
+		$(".sm_mv_slide dt a").removeClass("on");//dt 버튼 클래스 리셋
+		var allnum = $(".sm_mv_slide dd").size()-1;
+		for(var i=0; i< allnum; i++){
+			if(num == i){ddnum[i+1].fadeIn("normal"); dtnum[i+1].addClass("on");
+			}else if(num == allnum){ddnum[0].fadeIn("normal"); dtnum[0].addClass("on")}
+		}
+	});
+
+	//ie7,ie8예외처리
+	var ie7 = navigator.userAgent.indexOf("MSIE 7");
+	var ie8 = navigator.userAgent.indexOf("MSIE 8");
+	if( ie7 < 0 && ie8 < 0) {
+		//마우스동작 설정
+		$(".sm_mv").hover(function () {//전체영역에서 벗어날경우
+			}, function () {//아웃
+				$(".prevNext, .vd_playStop").fadeOut("fast"); //무비재생정지버튼, 이전다음버튼 가림처리
+		});
+
+		$(".sm_mv_detail").hover(function () {//해당링크영역에 접근했을경우
+
+				var vdnone = $(this).parent().find(".sm_mv_bg .mv_view .mv_full video source").attr("src");//무비존재여부
+				if(vdnone == ""){
+					$(".vd_playStop").hide();//무비없을시 무비재생정지버튼 가림처리
+				}else{
+					$(".vd_stop").hide();//정지버튼 기본가림설정
+					$(".vd_playStop").fadeIn("fast");//무비존재시 무비재생정지버튼 보이기
+				}
+				$(".prevNext").fadeIn("fast");//전체링크오버시에만 이전다음버튼 보이기
+
+			}, function () {});
+
+		$(".sm_mv_bg").hover(function () {//해당무비영역에 접근했을경우
+			$(".vd_playStop").fadeIn("fast");
+			}, function () {});
+
+		//탭이동 설정
+		$(".autoOff a, .sm_mv_slide dt a").focus(function(){
+			$(".prevNext").fadeIn("fast");//무비재생정지버튼, 이전다음버튼 보이기
+		});
+
+		$(".sm_mv_detail").focus(function(){
+			var vdnone = $(this).parent().find('.sm_mv_bg .mv_view .mv_full video source').attr("src");//무비존재여부
+			if(vdnone == ""){
+					$(".vd_playStop").hide();//무비없을시 무비재생정지버튼 가림처리
+				}else{
+					$(".vd_stop").hide();//정지버튼 기본가림설정
+					$(".vd_playStop").fadeIn("fast");//무비존재시 무비재생정지버튼 보이기
+			}
+		});
+		$(".sm_mv_text").each(function(){
+			if($("strong",this).text() == ""){
+				$(this).hide();
+			}
+		});
+
+		//자막디자인
+		$(".mv_caption a").click(function(){
+			if($(this).attr("class").indexOf("subscript_open") != -1){
+				$(this).removeClass("subscript_open");
+				$(this).addClass("subscript_close");
+				$(this).text("자막닫기");
+				$(this).parent().animate({
+					top:412
+				},"slow","swing",function(){});
+				$(this).parent().find("p").show();
+
+			}else{
+				$(this).removeClass("subscript_close");
+				$(this).addClass("subscript_open");
+				$(this).text("자막열기");
+				$(this).parent().animate({
+					top:552
+				},"slow","swing",function(){
+					$(this).find("p").hide();
+				});
+			}
+		});
+
+	}else{
+		//ie7,ie8일경우
+		//마우스동작 설정
+		$(".sm_mv_text").each(function(){
+			if($("strong",this).text() == ""){
+				$(this).hide();
+			}
+		});
+		$(".mv_caption p").hide();
+		$(".sm_mv_detail, .prevNext").hover(function () {
+				$(".prevNext").show();	//전체링크오버시에만 이전다음버튼 보이기
+			}, function () {
+				$(".prevNext").hide();	//전체링크오버시에만 이전다음버튼 보이기
+		});
+
+		//탭이동 설정
+		$(".autoOff a, .sm_mv_slide dt a").focus(function(){
+			$(".prevNext").fadeIn("fast");//무비재생정지버튼, 이전다음버튼 보이기
+		});
+	}
+
+
+
+});
+</script>
+
+<!-- container// -->
+<div id="container" class="main_container">
+	<!-- 메인 비주얼 // -->
+	<div class="section no1">
+		<div class="sm_mv">
+		    <div class="autoOff">
+		    	<a class="stop" href="javascript:void(0);" title="메인비주얼 정지">메인비주얼 정지</a>
+		    </div>
+
+		    <div class="prevNext" style="display:none;">
+		        <a class="prev" href="javascript:void(0);" title="이전 메인 비주얼 보기">이전 메인 비주얼</a>
+		        <a class="next" href="javascript:void(0);" title="다음 메인 비주얼 보기">다음 메인 비주얼</a>
+		    </div>
+
+		    <dl class="sm_mv_slide">
+				
+				<dt>
+		            <a href="javascript:void(0);" title="메인비주얼 1 보기">메인비주얼 1</a>
+		        </dt>
+		        <dd class="dd_show0">
+		            <a href="javascript:MovieDetail.showPage('013458', 0);" class="sm_mv_detail" title="지금 만나러 갑니다">
+		            
+		                <span class="sm_mv_text">
+		                    <strong>지금 만나러 갑니다<em>Be With You</em></strong>
+		                    <span>당신에겐 있나요? 기적 같은 단 한 사람</span>
+		                </span>
+		            
+		            </a>
+		            <div class="vd_playStop" style="display:none">
+		                <a href="javascript:void(0);" class="vd_play" title="비디오재생">비디오재생</a>
+		           	</div>
+
+		            <!-- Video -->
+		            <div class="sm_mv_bg" style="background-image: url(http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_aini_1600x600.jpg);">
+		                <span class="blind">지금 만나러 갑니다</span>
+
+		                <figure class="mv_view">
+		                	<div class="mv_full">
+			                    <video width="100%" height="100%" poster="http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_aini_1600x600.jpg" preload="none">
+			                        <source src="http://m.mvod.megabox.co.kr/encodeFile/3550/2018/03/13/c60fd6422e31db7deb30afd8c81909b4_I.mp4" type="video/mp4" />
+			                    </video>
+			                </div>
+		                    <figcaption class="mv_caption mvcap1">
+			                	<a href="javascript:void(0);" class="subscript_open" title="자막보기">자막열기</a>
+								<p tabindex="0" style="display:none">
+								지금 만나러 갑니다<br>3월 대개봉<br><br>[제작 ㈜무비락)<br>[공동제작 ㈜도서관옆스튜디오 ㈜푸른나무 픽쳐스]<br>[제공/배급 롯데엔터테인먼트]<br><br>이번 주말에는 장마 소식이 있겠는데요<br><br>[원작 영화 <BE WITH YOU> 감독 노부히로도이 각본 요시카주오카다 토호 제작 <br>원작 소설 <IMAAINI YUKIMASU> 타쿠지이치가와 저 소학관 출판]<br><br>딱 한 번이라도<br>널 다시 볼 수 있다면<br><br>누구니?<br><br>[세상을 떠난 그녀가 다시 돌아왔다]<br>[모든 기억을 잃은 채]<br><br>기억은 안 나지만 궁금해서요<br><br>나도 그쪽이 좋아서 결혼한 거 맞죠<br><br>[첫 만남]<br>[첫 행복]<br><br>우린 고등학교 때 처음 만났고<br>당신한테 반했어<br><br>[첫 키스]<br>[우리의 사랑은 다시 이루어졌다]<br><br>아무 걱정하지 마<br>우린 잘 할거야<br>그렇게 정해져 있어<br><br>[비 오는 날 시작된 기적]<br>[소지섭]<br>[손예진]<br><br>기다려 주세요<br>지금 만나러 갑니다
+								</p>
+		                    </figcaption>
+
+		                </figure>
+		            </div>
+		        </dd>
+				
+				<dt>
+		            <a href="javascript:void(0);" title="메인비주얼 2 보기">메인비주얼 2</a>
+		        </dt>
+		        <dd class="dd_show1">
+		            <a href="javascript:EventDetail.showPage('5895', 0);" class="sm_mv_detail" title="한국스릴러 기획상영 이벤트">
+		            
+		            	<span class="blind">한국스릴러 기획상영 이벤트</span>
+		            
+		            </a>
+		            <div class="vd_playStop" style="display:none">
+		                <a href="javascript:void(0);" class="vd_play" title="비디오재생">비디오재생</a>
+		           	</div>
+
+		            <!-- Video -->
+		            <div class="sm_mv_bg" style="background-image: url(http://image2.megabox.co.kr/mop/home/ad/1600x600/180316_thriller_1600x600.jpg);">
+		                <span class="blind">한국스릴러 기획상영 이벤트</span>
+
+		                <figure class="mv_view">
+		                	<div class="mv_full">
+			                    <video width="100%" height="100%" poster="http://image2.megabox.co.kr/mop/home/ad/1600x600/180316_thriller_1600x600.jpg" preload="none">
+			                        <source src="" type="video/mp4" />
+			                    </video>
+			                </div>
+		                    <figcaption class="mv_caption mvcap2">
+			                	<a href="javascript:void(0);" class="subscript_open" title="자막보기">자막열기</a>
+								<p tabindex="0" style="display:none">
+								
+								</p>
+		                    </figcaption>
+
+		                </figure>
+		            </div>
+		        </dd>
+				
+				<dt>
+		            <a href="javascript:void(0);" title="메인비주얼 3 보기">메인비주얼 3</a>
+		        </dt>
+		        <dd class="dd_show2">
+		            <a href="javascript:MovieDetail.showPage('013511', 0);" class="sm_mv_detail" title="마법소녀 마도카 마기카(신편): 반역의 이야기">
+		            
+		                <span class="sm_mv_text">
+		                    <strong>마법소녀 마도카 마기카(신편)<em>PUELLA MAGI MADOKA MAGICA THE MOVIE: Rebellion</em></strong>
+		                    <span>희망을 위해 절망을 선택해야만 했던 '마법소녀'의 이야기</span>
+		                </span>
+		            
+		            </a>
+		            <div class="vd_playStop" style="display:none">
+		                <a href="javascript:void(0);" class="vd_play" title="비디오재생">비디오재생</a>
+		           	</div>
+
+		            <!-- Video -->
+		            <div class="sm_mv_bg" style="background-image: url(http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_magika_1600x600.jpg);">
+		                <span class="blind">마법소녀 마도카 마기카(신편)</span>
+
+		                <figure class="mv_view">
+		                	<div class="mv_full">
+			                    <video width="100%" height="100%" poster="http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_magika_1600x600.jpg" preload="none">
+			                        <source src="http://m.mvod.megabox.co.kr/encodeFile/3550/2018/03/13/0d40d38e8604ba4915e4b52579d43eb8_I.mp4" type="video/mp4" />
+			                    </video>
+			                </div>
+		                    <figcaption class="mv_caption mvcap3">
+			                	<a href="javascript:void(0);" class="subscript_open" title="자막보기">자막열기</a>
+								<p tabindex="0" style="display:none">
+								 WARNER BROS. PICTURES<br>A TimeWarner Company<br>	<br>PUELLA MAGI MADOKA MAGICA<br>극장판 마법소녀 마도카 마기카<br>[신편] 반역의 이야기<br><br>3월 MEGABOX 단독 대개봉<br><br>우리는 끝없이 싸운다<br><br>수입?배급 ANIPLUS<br><br>소녀들의<br>잔인한 운명은<br>끝나지 않는다<br><br>총감독<br>신보 아키유키<br><br>각본 <br>우로부치 겐<br><br>이런 성가신 방법까지<br>동원하는<br><br>캐릭터 원안<br>아오키 우메<br><br>애니메이션 제작<br>샤프트<br><br>너희 목적은 뭐야?<br><br>또 너 혼자만의 <br>시간으로 도망치게?<br><br>이건 환각인가 뭔가야!<br><br>언젠가 우리를<br>인도할 원환의 법칙<br><br>외톨이가 되지 말라고 했잖아<br><br>PUELLA MAGI MADOKA MAGICA<br>극장판 마법소녀 마도카 마기카<br>[신편] 반역의 이야기<br><br>ⓒMagica Quartet / Aniplex . Madoka Movie Project Rebellion<br><br>이야기는 새로운 결말을 향해<br><br>2018년 3월<br>MEGABOX 단독 대개봉
+								</p>
+		                    </figcaption>
+
+		                </figure>
+		            </div>
+		        </dd>
+				
+				<dt>
+		            <a href="javascript:void(0);" title="메인비주얼 4 보기">메인비주얼 4</a>
+		        </dt>
+		        <dd class="dd_show3">
+		            <a href="javascript:EventDetail.showPage('5867', 0);" class="sm_mv_detail" title="메가박스 x 이마트 ‘메e데이, 메e쿠폰’">
+		            
+		            	<span class="blind">메가박스 x 이마트 ‘메e데이, 메e쿠폰’</span>
+		            
+		            </a>
+		            <div class="vd_playStop" style="display:none">
+		                <a href="javascript:void(0);" class="vd_play" title="비디오재생">비디오재생</a>
+		           	</div>
+
+		            <!-- Video -->
+		            <div class="sm_mv_bg" style="background-image: url(http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_megaemart_1600x600.jpg);">
+		                <span class="blind">메가박스 x 이마트 ‘메e데이, 메e쿠폰’</span>
+
+		                <figure class="mv_view">
+		                	<div class="mv_full">
+			                    <video width="100%" height="100%" poster="http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_megaemart_1600x600.jpg" preload="none">
+			                        <source src="" type="video/mp4" />
+			                    </video>
+			                </div>
+		                    <figcaption class="mv_caption mvcap4">
+			                	<a href="javascript:void(0);" class="subscript_open" title="자막보기">자막열기</a>
+								<p tabindex="0" style="display:none">
+								
+								</p>
+		                    </figcaption>
+
+		                </figure>
+		            </div>
+		        </dd>
+				
+				<dt>
+		            <a href="javascript:void(0);" title="메인비주얼 5 보기">메인비주얼 5</a>
+		        </dt>
+		        <dd class="dd_show4">
+		            <a href="javascript:MovieDetail.showPage('013378', 0);" class="sm_mv_detail" title="허리케인 하이스트">
+		            
+		                <span class="sm_mv_text">
+		                    <strong>허리케인 하이스트<em>The Hurricane Heist</em></strong>
+		                    <span>단 한번의 기회 태풍속으로 질주하라!</span>
+		                </span>
+		            
+		            </a>
+		            <div class="vd_playStop" style="display:none">
+		                <a href="javascript:void(0);" class="vd_play" title="비디오재생">비디오재생</a>
+		           	</div>
+
+		            <!-- Video -->
+		            <div class="sm_mv_bg" style="background-image: url(http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_heist_1600x600.jpg);">
+		                <span class="blind">허리케인 하이스트</span>
+
+		                <figure class="mv_view">
+		                	<div class="mv_full">
+			                    <video width="100%" height="100%" poster="http://image2.megabox.co.kr/mop/home/ad/1600x600/180313_heist_1600x600.jpg" preload="none">
+			                        <source src="" type="video/mp4" />
+			                    </video>
+			                </div>
+		                    <figcaption class="mv_caption mvcap5">
+			                	<a href="javascript:void(0);" class="subscript_open" title="자막보기">자막열기</a>
+								<p tabindex="0" style="display:none">
+								
+								</p>
+		                    </figcaption>
+
+		                </figure>
+		            </div>
+		        </dd>
+				
+			</dl>
+		</div>
+	</div>
+	<!-- //메인 비주얼 -->
+
+	<!-- 박스오피스 등 탭 -->
+	<script type="text/javascript">
+		$(function(){
+			$(".flip_box dl dt a").click(function(){
+				var dtClass = $(this).parent().attr("class");
+				$(".flip_box dl dt a").removeClass("on");
+				$(this).addClass("on");
+				$(".flip_box dl dd").hide();
+				if(dtClass == "flip_btn1"){$(".flip_box dl dd#tab1").show();}
+				if(dtClass == "flip_btn2"){$(".flip_box dl dd#tab2").show();}
+				if(dtClass == "flip_btn3"){$(".flip_box dl dd#tab3").show();}
+				if(dtClass == "flip_btn4"){$(".flip_box dl dd#tab4").show();}
+			});
+		});
+	</script>
+	<div class="section no2">
+		<div id="flip_wrapper">
+			<div class="flip_box">
+				<dl>
+					<dt class="flip_btn1"><a href="javascript:MainMovieList.showPage('boxoffice');" class="icon on" title="박스오피스 보기">박스오피스</a></dt>
+					<dd id="tab1">
+						<!-- 박스오피스 내용  : Main_Movie.jsp-->
+					</dd>
+					<dt class="flip_btn2"><a href="javascript:MainMovieList.showPage('showing');" class="icon" title="최신개봉작 보기">최신개봉작</a></dt>
+					<dd id="tab2" style="display:none">
+						<!-- 최신개봉작 내용  : Main_Movie.jsp-->
+					</dd>
+					<dt class="flip_btn3"><a href="javascript:MainMovieList.showPage('scheduled');" class="icon" title="상영예정작 보기">상영예정작</a></dt>
+					<dd id="tab3" style="display:none">
+						<!-- 상영예정작 내용  : Main_Movie.jsp-->
+					</dd>
+					<dt class="flip_btn4"><a href="javascript:MainMovieList.showPage('specialcontent');" class="icon" title="특별콘텐트 보기">특별콘텐트</a></dt>
+					<dd id="tab4" style="display:none">
+						<!-- 특별콘텐트 내용  : Main_Movie.jsp-->
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!-- //박스오피스 등 탭 -->
+
+	<!-- 새로운 이벤트 -->
+	<div class="section no3">
+		<div class="content_wrap">
+			<h3 class="h3">새로운 이벤트</h3>
+			<div id="mainEventNew">
+				<!-- 새로운 이벤트 내용  : Main_Event_New.jsp -->
+			</div>
+		</div>
+	</div>
+	<!-- //새로운 이벤트 -->
+
+	<!-- 중간배너 -->
+	<div id="mainBannerParallax">
+		<!-- parallax배너  : Main_BannerParallax.jsp -->
+	</div>
+
+	<!-- 제휴 이벤트 -->
+	<div class="section no4">
+		<div class="content_wrap">
+			<h3 class="h3">제휴 이벤트</h3>
+			<div id="mainEventPartner">
+				<!-- 제휴 이벤트  내용 : Main_Event_Partner.jsp -->
+			</div>
+		</div>
+	</div>
+	<!-- //제휴 이벤트 -->
+
+
+	<!-- 공지사항,메가박스할인카드,페북 -->
+	<script type="text/javascript">
+	//공지사항 탭
+	$(function(){
+		$(".notice_box dl dt a").click(function(){
+			$(".notice_box dl dt a").removeClass("on");
+			$(this).addClass("on");
+			$(".notice_box dl dd").hide();
+			$(this).parent().find("+dd").show();
+		});
+	});
+	</script>
+	<div class="section no5" style="padding:0 0 80px">
+		<div class="content_wrap clearfix">
+			<div class="main_wgt">
+				<h3 class="h3">공지사항</h3>
+				<div class="notice_box common_tab">
+					<dl>
+						<dt class="bdl_e1"><a href="javascript:MainNotice.showPage('MEG');" class="on" title="전체 공지보기">전체공지</a></dt>
+						<dd>
+							<div id="notice_tab1">
+								<!-- 전체공지 내용 : Main_Notice.jsp -->
+							</div>
+						</dd>
+						<dt><a href="javascript:MainNotice.showPage('CIN');" title="영화관 공지보기">영화관 공지</a></dt>
+						<dd>
+							<div id="notice_tab2">
+								<!--영화관 공지 내용 : Main_Notice.jsp-->
+							</div>
+						</dd>
+					</dl>
+					<span class="common_tab_bar"></span>
+				</div>
+				<a class="icon plus" href="javascript:showMenu('center-notice');" title="공지사항 더보기">더보기</a>
+			</div>
+			<input type="hidden" name="searchCard" value="" />
+			<div class="main_wgt">
+				<h3 class="h3 no5_2">메가박스 할인카드 </h3>
+				<ul class="type2" id="cardList">
+					<!-- 메가박스 할인카드 내용 : Main_CardList.jsp -->
+				</ul>
+				<a class="icon plus" href="javascript:void(0)" onclick="showMenu('discountcard')" title="메가박스 할인카드 더보기">더보기</a>
+			</div>
+
+			<div class="main_wgt">
+				<div class="fb-like-box" data-href="https://www.facebook.com/megaboxon" data-width="290" data-height="330" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //공지사항,메가박스할인카드,페북 -->
+	
+				<!-- 광고영역추가 -->
+				<div class="no5 content_wrap clearfix">
+					<script type="text/javascript" src="http://mlink-vad.netinsight.co.kr/NetInsight/js/megabox/main/main@bottom"></script>
+<p>&nbsp;</p>
+
+				</div>
+				<!-- 광고영역추가// -->
+			
+		
+	
+	<div id="quick" class="quickMenu">
+		<ul>
+			<li><a href="/?menuId=membership#menu4">2018<br/>VIP안내</a></li>
+			<li><a href="/?menuId=privateTheatre">프라이빗<br/>대관예매</a></li>
+			<li><a href="javascript:showMenu('movie-moviepost')">무비<br/>포스트</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('discountcard')" >할인카드<br/>안내</a></li>
+			<li class="goToTop"><a href="#"></a></li>
+		</ul>
+	</div>
+
+</div>
+
+<!-- 영화상세모달 -->
+<div class="modal fade" id="movie_detail" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabIndex="0">
+	<div class="wrapper">
+		<div class="contents clearfix"  tabindex="0">
+			<div id="movieDetail"></div>
+			<button type="button" class="custom_close" data-dismiss="modal" aria-hidden="true">
+				<span class="blind">닫기</span>
+			</button>
+		</div>
+	</div>
+</div>
+<!-- 이벤트상세모달 -->
+<div class="modal fade event_modal" id="event_detail" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabIndex="0">
+	<div class="wrapper">
+		<div class="contents clearfix"  tabindex="0">
+			<div id="eventDetail"></div>
+			<button type="button" class="custom_close" data-dismiss="modal" aria-hidden="true">
+				<span class="blind">닫기</span>
+			</button>
+		</div>
+	</div>
+</div>
+<!-- 카드팝업 -->
+<div class="modal fade card_search" id="card_search"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" tabIndex="0">
+	<div id="cardSearch" tabindex="0"></div>
+</div>
+<!-- //container -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		//박스오피스,최신개봉작,상영예정작,특별콘텐트
+		MainMovieList.showPage('boxoffice');
+		MainEventNew.showPage();
+		MainEventPartner.showPage();
+		MainBannerParallax.showPage();
+		MainNotice.showPage('MEG');
+		MainCardSearch.showList();
+
+		if(lowBrowserVer){
+			open_pop('.pop_update');
+		}
+	});
+</script>
+<script type="text/javascript">
+	//마지막 스크롤 TOP 위치
+	//현재 ((윈도우넓이/2) +480) 을 left로 지정
+	
+	$("#quick").css("left",($(window).width() / 2 ) + 520);
+	
+	var lastScrollY = 0;
+	
+	$(document).ready(function () {
+		//setInterVal(사용할 함수, 1/1000초)  즉 quick함수를 1/1000초마다 실행
+		setInterval(quick,1);
+	});
+	
+	$(window).resize(function(){
+		$("#quick").css("left",($(window).width() / 2 ) + 520);
+	}).resize();
+	
+	$(document).ready(function(){
+		$(".goToTop").click(function(){
+			$("html, body").animate({scrollTop:0},'slow');
+			return false;
+		});
+	});
+	
+	function quick() {
+	      currentY = $(window).scrollTop();
+	      
+	      if(currentY <= 650) {
+	         $("#quick").css("top", 800);
+	      } else {
+	         $("#quick").css("top", parseInt($(window).scrollTop() + 150));
+	         if(currentY != lastScrollY) {
+	        	 
+	            //percent = 움직임속도 * (현재 scrollTop위치) - (마지막 scrollTop위치) 
+	            percent = 0.01 * (currentY - lastScrollY);
+	            
+	            //percent가 0보다 크면 수를 올림  작으면 수를 내림. 
+	            percent = ( percent > 0 ) ? Math.ceil(percent) : Math.floor(percent) ;
+	            
+	            //quick의 style:top을 현재의 top에서 percent를 더한 값(음수라면 빼지겠지?)으로 바꿔준다. 
+	            $("#quick").css("top", parseInt($("#quick").css("top")) + percent);
+	            
+	            //현재 위치를 lastScrollY에 저장해준다.
+	            lastScrollY = lastScrollY + percent;
+	         }
+	      }
+
+	   }   
+</script>
+
+	</div>
+
+
+	
+
+
+
+
+
+
+
+
+
+<!-- 영수증 from -->
+<form id="frm_ReceiptPrint" method="post" style="display:none;"></form>
+<form id="frm_vipZone" method="post" style="display:none;"></form>
+<!-- footer// -->
+<iframe src="http://image2.megabox.co.kr/mop/base/footer_theater.html" id="footer_list" title="극장목록" frameborder="0" scrolling="no"></iframe>
+<footer id="footer">
+	<div class="wrap">
+		<div class="logo">
+			<a href="/" title="MEGABOX 메인으로 가기"><img src="http://image2.megabox.co.kr/mop/home/logo_footer_new.png" alt="MEGABOX"></a>
+		</div>
+		<ul>
+			<li class="footer_company"><a href="javascript:void(0)" onclick="showMenu('company')" title="회사소개 바로가기">회사소개</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('recruit-news')" title="채용정보 바로가기">채용정보</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('company', 'menu4')" title="제휴/광고/부대사업 문의 바로가기">제휴/광고/부대사업 문의</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('terms')" title="이용약관 바로가기">이용약관</a></li>
+			<li><a class="c_mintlite" href="javascript:void(0)" onclick="showMenu('privacy')" title="개인정보 처리방침 바로가기">개인정보 처리방침</a></li>
+			<li><a href="javascript:void(0)" onclick="showMenu('center')" title="고객센터 바로가기">고객센터</a></li>
+		</ul>
+		<div class="text1">
+			서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br />
+			대표자명 김진선  |  개인정보보호 책임자 경영지원실 실장 박영진<br />
+			사업자등록번호 211-86-59478  |  통신판매업신고번호 제 833호
+		</div>
+		<div class="text3">Copyright 2014 by MEGABOX. All rights reserved</div>
+		<div class="ft_etc">
+			<a class="apple blank" href="https://itunes.apple.com/kr/app/megabox/id894443858?l=ko&ls=1&mt=8" title="MEGABOX IOS APP 설치페이지열기" target="_blank">
+				<span class="blind">MEGABOX iPhone APP</span>
+			</a>
+			<a class="android blank" href="https://play.google.com/store/apps/details?id=com.megabox.mop" title="MEGABOX Android APP 설치페이지열기" target="_blank">
+				<span class="blind">MEGABOX Android APP</span>
+			</a>
+			<a class="instagram blank" href="http://instagram.com/megaboxon" title="MEGABOX Instagram 열기" target="_blank">
+				<span class="blind">MEGABOX Instagram</span>
+			</a>
+			<a class="facebook blank" href="https://www.facebook.com/megaboxon" title="MEGABOX Facebook 열기" target="_blank">
+				<span class="blind">MEGABOX Facebook</span>
+			</a>
+			<a class="twitter blank" href="https://twitter.com/megaboxon" title="MEGABOX Twitter 열기" target="_blank">
+				<span class="blind">MEGABOX Twitter</span>
+			</a>
+			<div class="text4 blind"><span>ARS 1544-0070</span></div>
+			<!-- <a class="icon remote" href="javascript:void(0);" onclick="showMenu('center-remote')" title="원격지원 서비스">원격지원 서비스</a> -->
+			<!-- <div class="text4 blind"><span>웹접근성 인증마크 획득</span></div> -->
+		</div>
+	</div>
+</footer>
+<!-- 취소수수료 결제// -->
+<a id="bookingCancel" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_point2" data-is-custom="true" style="display:none" title="취소 수수료 결제">취소 수수료 결제</a>
+<form name="bookingCancelHttpsForm" style="display:none"></form>
+<iframe name="bookingCancelHttpsFrame" title="빈프레임" width="0" height="0" src="" frameborder="0" scrolling="no" style="display:none"></iframe>
+<div class="modal fade" id="modal_point2" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="wrapper w653">
+		<div class="contents clearfix">
+			<button type="button" class="custom_close" data-dismiss="modal" aria-hidden="true"><span class="blind">닫기</span></button>
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap positionR" style="display:block;position:static">
+					<div class="custom_alert cancellationfee" tabindex="0">
+						<div class="ca_header">
+							<h6>취소수수료 결제</h6>
+						</div>
+						<div class="ca_body">
+							<ul class="ca_notice">
+								<li>* 신용카드 또는 핸드폰 결제중 1가지 수단으로만 결제하실 수 있습니다.</li>
+								<li id="displayAmount">* 수수료금액 : 3,000원</li>
+							</ul>
+
+							<script>
+							$(function(){
+								$('input:radio').on('ifClicked', function(event){
+									if ($(this).attr("id") == 'cardCancel') {
+										$('#cardCancel').addClass('active');
+										$('#cancellatin_fee_card').show();
+										$('#mobileCancel').removeClass('active');
+										$('#cancellatin_fee_phone').hide();
+									} else if($(this).attr("id") == 'mobileCancel'){
+										$('#cardCancel').removeClass('active');
+										$('#cancellatin_fee_card').hide();
+										$('#mobileCancel').addClass('active');
+										$('#cancellatin_fee_phone').show();
+									}
+								});
+							});
+
+							</script>
+
+							<div class="tab-content">
+								<strong>결제수단선택</strong>
+								<ul class="nav2">
+									<li>
+										<input type="radio" id="cardCancel" name="payM" class="icheck active" checked />
+										<label for="cardCancel">신용카드</label>
+									</li>
+									<!--
+									<li id="mobileCancel" style="display:none"><a href="#cancellatin_fee_phone" data-toggle="tab" title="핸드폰"><i class="iradio_minimal" ></i>핸드폰</a></li>
+									 -->
+									<li>
+										<input id="mobileCancel" type="radio" name="payM" class="icheck" />
+										<label for="mobileCancel">핸드폰</label>
+									</li>
+								</ul>
+								<!-- //신용카드선택 -->
+								<div id="cancellatin_fee_card" class="tab-pane active">
+									<table class="ca_table vertical">
+										<caption class="blind2">신용카드번호, 유효기간, 비밀번호, 생년월일 입력</caption>
+										<tbody>
+											<tr>
+												<th scope="row" id="th_cancel_cardno"><label for="">카드번호</label></th>
+												<td headers="th_cancel_cardno" colspan="3">
+													<input type="hidden" id="reservationCode" name="reservationCode" value="" >
+													<input type="text" name="cardNo1" title="카드번호 첫번째 자리 입력" maxlength="4" value="" allowtype="number" validate="number" fieldname="카드번호" required="" /> -
+													<input type="text" name="cardNo2" title="카드번호 두번째 자리 입력" maxlength="4" value="" allowtype="number" validate="number" fieldname="카드번호" required="" /> -
+													<input type="text" name="cardNo3" title="카드번호 세번째 자리 입력" maxlength="4" value="" allowtype="number" validate="number" fieldname="카드번호" required="" /> -
+													<input type="password" name="cardNo4" title="카드번호 네번째 자리 입력" maxlength="4" value="" allowtype="number" validate="number" fieldname="카드번호" required="" />
+												</td>
+											</tr>
+											<tr>
+												<th scope="row" id="th_cancel_expire"><label for="">유효기간</label></th>
+												<td headers="th_cancel_expire">
+													<input type="text" name="expireMonth" title="카드 유효기간 월 입력" style="width: 50px;" maxlength="2" value="" allowtype="number" validate="number" fieldname="유효기간" required="" placeholder="2자리" onclick="this.placeholder = ''" onblur="this.placeholder = '2자리'" /> <span class="fz11">월</span>
+													<input type="text" name="expireYear" title="카드 유효기간 년도 입력" style="width: 50px;" maxlength="2" value="" allowtype="number" validate="number" fieldname="유효기간" required="" placeholder="2자리" onclick="this.placeholder = ''" onblur="this.placeholder = '2자리'" /> <span class="fz11">년</span>
+												</td>
+												<th scope="row" id="th_cancel_password"><label for="footer-card-pw">비밀번호</label></th>
+												<td headers="th_cancel_password">
+													<input type="password" id="footer-card-pw" name="password" title="비밀번호 입력" style="width: 41px;" maxlength="2" value="" allowtype="number" validate="number" fieldname="비밀번호" required="" /> <span class="fz11">앞 2자리</span>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row" id="th_cancel_birth"><label for="footer-birth">생년월일</label></th>
+												<td headers="th_cancel_birth" colspan="3">
+													<input type="password" id="footer-birth" name="socialNo" title="생년월일 6자리 또는 사업자번호 10자리 입력" style="width: 156px;" maxlength="10" value="" allowtype="number" validate="number" fieldname="생년월일" required="" />
+													<span class="fz11" style="letter-spacing: -0.5px;">생년월일 6자리(카드소유자) / 사업자번호 10자리 입력</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- 신용카드선택// -->
+								<!-- //핸드폰선택 -->
+								<div id="cancellatin_fee_phone" class="tab-pane select_phone">
+									<input type="hidden" id="transNo" name="transNo" value="" />
+									<input type="hidden" id="amount" name="amount" value="" />
+									<input type="hidden" id="cancelYN" name="cancelYN" value="Y" />
+								</div>
+								<!-- 핸드폰선택// -->
+							</div>
+						</div>
+						<div class="ca_footer">
+							<button type="button" class="img_btn booking ok" onclick="MyPageBooking.applyCancel($('#cancellatin_fee_card #reservationCode')[0].value, $('#cancellatin_fee_phone #transNo')[0].value);">확인</button>
+						</div>
+						<button type="button" class="img_btn booking btn_ca_close positionA position_top0 position_right0 mt10 mr10" onclick="$('#modal_point2').modal('hide');">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- //취소수수료 결제 -->
+
+<!-- 선호영화관// -->
+<div id="my_theater" class="custom_alert_wrap"></div>
+
+<!-- //선호영화관 -->
+
+<!-- 좌석선택// -->
+<div id="bookingSeat" tabindex="0"></div>
+<script type="text/javascript" src="/js/common/Config.js"></script>
+<script type="text/javascript" src="/pages/booking/step1/booking_step1.js"></script>
+<script type="text/javascript" src="/pages/booking/step2/booking_step2.js"></script>
+<script type="text/javascript" src="/pages/booking/step2_old/booking_seat.js"></script>
+<!-- //좌석선택 -->
+
+<!-- 결제선택 -->
+<div id="bookingPayment" tabindex="0"></div>
+<script type="text/javascript" src="/pages/booking/step3/booking_payment.js"></script>
+<!-- //결제선택 -->
+
+<!-- 로그인 팝업창 -->
+<div class="modal fade modal_login_popup" id="modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper">
+		<div class="contents clearfix" tabindex="0" style="width:542px">
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap ">
+					<div class="custom_alert positionR" tabIndex="0">
+						<div class="ca_header">
+							<h6>로그인</h6>
+						</div>
+						<div class="social_popupLogin">
+							<div class="clearfix butArea">
+								<div class="selectType mem"><a class="on" href="javascript:displayHtml('mem')" title="회원로그인">회원 로그인</a></div>
+								<div class="selectType nomem"><a href="javascript:displayHtml('nomem')" title="비회원로그인">비회원 로그인</a></div>
+							</div>
+							<div class="member">
+								<div class="clearfix">
+									<div class="so_login_wrap pull-left">
+										<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+										<div class="so_new_password">
+											<div class="so_login_id">
+										<label for="footer-book-id" class="book-id">아이디</label>
+										<input type="text" id="footer-book-id" title="아이디 입력" maxlength="20" name="userId" placeholder="아이디" value="" keyenter="#modal_login button.btn_alert_login" />
+									</div>
+									<div class="so_login_pw">
+										<label for="footer-book-pw" class="book-pw">비밀번호</label>
+										<input type="password" id="footer-book-pw" title="비밀번호 입력" maxlength="20" name="userPw" placeholder="비밀번호" keyenter="#modal_login button.btn_alert_login" />
+									</div>
+									<button type="button" class="btn_alert_login" onclick="return login2();">로그인</button>
+								</div>
+								<ul class="so_login_m">
+									<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a></li>
+									<li class="text-center m2"><a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+								</ul>
+								<!-- //비밀번호 -->
+							</div>
+									<div class="orLine"><span></span></div>
+									<div class="socialLogin_wrap pull-right">
+										<h4>간편 로그인</h4>
+										<ul class="clearfix">
+<!-- 											<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li> -->
+											<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코 로그인"><i class="social_payco"></i> 로그인</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottomArea">
+									<a href="javascript:void(0);" title="광고">-</a>
+								</div>
+							</div>
+
+							<div class="nomember" style="display:none;" id="nonmemberBookingPopup">
+								<div class="clearfix">
+									<div class="inputArea pull-left">
+										<input type="text" id="itx1" title="이름" name="name" placeholder="이름" fieldname="이름" allowtype="hangul" required />
+										<input type="text" id="itx2" title="생년월일" name="birthday" placeholder="생년월일(앞6자리)" fieldname="생년월일" allowtype="number" maxlength="6" required />
+										<input type="text" title="전화번호" name="mobileNo" placeholder="전화번호('-'없이 입력)" fieldname="전화번호" allowtype="number" maxlength="11" required />
+										<input type="password" id="itx4" title="비밀번호 입력" name="password" placeholder="비밀번호 4자리" fieldname="비밀번호" allowtype="number" maxlength="4" required />
+										<input type="password" id="itx5" title="비밀번호 재입력" name="confirmPassword" placeholder="비밀번호 4자리 확인" fieldname="비밀번호 확인" allowtype="number" maxlength="4" required />
+									</div>
+									<div class="agreementArea pull-right">
+										<h4>[비회원예매 개인정보 처리방침]</h4>
+										<div class="scrollY">
+											<div class="disT">
+												<div class="disTr">
+													<div class="disTc ti">수집항목</div>
+													<div class="disTc">이름, 생년월일(앞 6자리), 휴대폰번호, 비밀번호</div>
+												</div>
+												<div class="disTr">
+													<div class="disTc ti">이용목적</div>
+													<div class="disTc">ㆍ비회원예매 서비스 제공<br/>
+												ㆍ이용자 식별<br/>
+												ㆍ구매 및 요금 결제</div>
+												</div>
+												<div class="disTr">
+													<div class="disTc ti">보유기간</div>
+													<div class="disTc">개인정보 수집목적 달성 후 즉시 파기(단, '상법' 및 '전자상거래 등에서의 소비자보호에 관한 법률' 등 관련 법령에 따라 대금결제 및 재화 등의 공급에 관한 기록은 5년간 보유)</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="bottomArea doyouAgree clearfix">
+									<div class="pull-left">
+										<h5>개인정보 처리방침에<br/>동의하십니까?</h5>
+										<div class="customer_radio_wrap">
+											<span class="iradio_minimal" aria-checked="false" aria-disabled="false">
+												<input type="radio" title="개인정보 수집 동의함 선택 " name="radio0" id="agree-ok" class="icheck" value="Y"><!-- <ins class="iCheck-helper" style=""></ins> -->
+											</span>
+											<label for="agree-ok" class="mr17">동의함</label>
+											<span class="iradio_minimal" aria-checked="false" aria-disabled="false">
+												<input type="radio" title="개인정보 수집 동의하지 않음 선택 " name="radio0" id="agree-no" class="icheck" value="N" checked="checked"><!-- <ins class="iCheck-helper" ></ins> -->
+											</span>
+											<label for="agree-no" class="">동의하지 않음</label>
+										</div>
+										<div class="info">* 정보수집에 동의를 거부할 수 있으며, 동의하지 않을 경우<br/>비회원 예매서비스를 이용하실 수 없습니다</div>
+									</div>
+									<div class="pull-right">
+										<button type="button" class="img_btn popup" data-toggle="modal" data-target="#reservation" onclick="BookingSeatDatas.nonmemberBooking();">비회원 로그인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0);" class="common_close_btn" onclick="customHideModal('#modal_login');" title="로그인 창닫기">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //로그인 팝업창 -->
+
+<!-- 페이코 인증완료 팝업 -->
+<div id="accreditComplete" class="accreditComplete_pop open_pop" tabindex="0" style="visibility: visible;">
+	<div class="pop_con accC" tabindex="0" style="margin-top: 124px;">
+		<h2 class="ca_header" id="accreditCompleteSubject">페이코 계정 인증이 완료되었습니다. </h2>
+		<p class="loginPlease">인증받은 계정의 연동을 원하시면<br/>메가박스 ID로 로그인 해주세요.<br/>로그인 후 인증받은 계정이 자동 연결되며,<br/>이후 해당계정으로 간편로그인이 가능합니다.</p>
+		<p class="btn_box btn_box1">
+			<button class="ok_chg" onclick="paycoMessagePopupClose('login')">메가박스 로그인</button>
+		</p>
+		<div style="border-top:1px dashed #ddd; margin: 30px 20px 15px;"></div>
+		<p class="joinPlease"><strong>아직 메가박스 회원이 아니신가요?</strong>간편로그인은 메가박스 회원가입 후<br/>이용하 실 수 있습니다.</p>
+		<p class="btn_box btn_box1">
+			<button class="mbJoin" onclick="paycoMessagePopupClose('join')">메가박스 회원가입</button>
+		</p>
+		<button class="img_btn pop_close" type="button" onclick="paycoMessagePopup('close','');">닫기</button>
+	</div>
+	<div class="pop_bg"></div>
+</div>
+<!-- //페이코 인증완료 팝업 -->
+<script>
+$(function(){
+	$("#modal_login .common_close_btn").click(function(){
+		$("button.refresh_all").focus();
+	});
+
+
+
+// 	if($("#nonmemberBookingPopupSub :input:radio[name=radio0]:checked").val()
+// 	if($("#nonmemberBookingPopupSub :input:radio[name=radio0]:checked").val()
+
+	// 2018.02.08 이전 소스
+// 	$("#nonmemberBookingPopup .btn_ca_close").click(function(){
+// 		$("button.refresh_all").focus();
+// 	});
+// 	$("#nonmemberBookingPopupSub .booking.cancle").click(function(){
+// 		$("button.refresh_all").focus();
+// 	});
+// 	$(".nonmemlogin").click(function(){
+// 		$("#nonmemberBookingPopupSub").find("input").val("").end().hide();
+// 	 	$("#nonmemberBookingPopup :radio:eq(1)").iCheck('check');
+// 		$("#nonmemberBookingPopup").focus();
+// 	});
+
+});
+
+function displayHtml(id){
+
+	var $divNomember = $('div#modal_login div.nomember');
+	var $divmember = $('div#modal_login div.member');
+
+	var $aNomember = $('div#modal_login div.selectType.nomem').find('a');
+	var $amember = $('div#modal_login div.selectType.mem').find('a');
+
+	if( id == 'mem'){
+		$divmember.show();
+		$divNomember.hide();
+
+		$amember.addClass('on');
+		$aNomember.removeClass();
+	} else {
+		$divmember.hide();
+		$divNomember.show();
+
+		$aNomember.addClass('on');
+		$amember.removeClass();
+	}
+}
+
+//페이코 로그인 url 호출
+function easyLoginUrl(easyType){
+	document.domain="megabox.co.kr";
+	// 메인에 로그인창이 있으면 안보이도록 처리
+	if($('#login_wrap').hasClass('open_myinfo_open')){
+		$('#login_wrap').removeClass('open_myinfo_open');
+	}
+
+	window.open('https://id.payco.com/oauth2.0/authorize?response_type=code&client_id=3RDY9cL78eQVVGt695nn&serviceProviderCode=FRIENDS&redirect_uri=http%3A%2F%2Fwww.megabox.co.kr%2Fpages%2Fcommon%2Foauth%2FPayco_Authorization_Callback.jsp&userLocale=ko_KR&state=m8d22stdht9jqr2qo4avg2c4t3', '', 'width=420, height=550');
+}
+
+//간편로그인 완료 후 콜백
+function closeEasyLoginPopup(){
+
+   // 예매도중 로그인이 아닌경우에만 화면 리로드 처리
+   if($('div#reservation').css('display') != 'block'){
+      location.reload();
+   } else {
+      customHideModal('#modal_login');
+
+      Booking.loginFlag = 'Y';   // 예매 도중 로그인을 했는지 여부
+      if (BookingNonSeat.nonSeatYn=='Y') {
+         if(!BookingSeat.checkBlackList('')) return;
+         BookingNonSeat.transNo = BookingSeat.createTradeNo(BookingNonSeat.cinemaCode);
+         BookingNonSeat.holdNonselectionSeat(BookingNonSeat.cinemaCode, BookingNonSeat.screenCode, BookingNonSeat.playDate, BookingNonSeat.showSeq, BookingSeatType.seatType, BookingNonSeat.transNo, 'Y');
+      } else {
+         // 거래번호생성 및 좌석선점
+         BookingSeatDatas.nextStep2('');
+      }
+   }
+}
+
+function paycoMessagePopup(type, gubun){
+	
+	if(gubun == "KAKAO"){
+		$('#accreditCompleteSubject').text("카카오 계정 인증이 완료되었습니다.");		
+	}else if(gubun == "PAYCO"){
+		$('#accreditCompleteSubject').text("페이코 계정 인증이 완료되었습니다.");				
+	}else if(gubun == "NAVER"){
+		$('#accreditCompleteSubject').text("네이버 계정 인증이 완료되었습니다.");						
+	}
+	
+	if(type == 'open'){
+
+		$('body').addClass('body_ovh');
+
+		$('#accreditComplete.accreditComplete_pop').show();
+
+		//빠른예매시에 z-index값 변경
+		if($('div#reservation').css('display') == 'block'){
+			var $mask = $('<div>').attr('id', 'mask').css({
+				position: 'fixed',
+				top: 0,
+				left: 0,
+				zIndex: 10100,
+				backgroundColor: '#000',
+				display: 'block'
+			});
+			var messageBoxZindex = '10110';
+	 		if (!$('div#mask').is(':hidden')) {
+	 			messageBoxZindex = '10120';
+	 	    }
+
+	 		// 마스킹이 이미 적용되어있다면
+	 		if ($('div#mask').length == 2) {
+	 			$('div#mask').first().remove();
+	 		}
+
+	 		if ($('div#mask').length == 0) {
+	 			$('body').prepend($mask);
+	 		}
+
+	 		$('#accreditComplete.accreditComplete_pop').css('z-index', messageBoxZindex);
+		} else {
+
+			var accreditCompleteZindex = parseInt($('#accreditComplete.accreditComplete_pop').css('z-index'));
+
+			$('div[id*=modal_login]').each(function(){
+				//console.log($(this).attr('id'));
+				if($(this).css('display') == 'block'){
+					var loginZindex = parseInt($(this).css('z-index'));
+
+					if(loginZindex > accreditCompleteZindex){
+						$('#accreditComplete.accreditComplete_pop').css('z-index', loginZindex+1);
+					}
+			    }
+			});
+		}
+
+	} else {
+		$('body').removeClass('body_ovh');
+		$('#accreditComplete.accreditComplete_pop').hide();
+	}
+}
+
+function paycoMessagePopupClose(type){
+
+	// 마스킹이 이미 적용되어있다면
+	if ($('div#mask').length == 2) {
+		$('div#mask').first().remove();
+	}
+
+	// 빠른예매시
+	if($('div#reservation').css('display') == 'block'){
+		paycoMessagePopup('close','');
+	} else {
+
+		if(type == 'login'){
+
+			// 로그인 팝업창 열린게 있는지 체크 후 로그인버튼 누르면 창 사라지도록 수정
+			var loginCheck = false;
+			$('div[id*=modal_login]').each(function(){
+				//console.log($(this).attr('id'));
+				if($(this).css('display') == 'block'){
+					loginCheck = true;
+			    }
+			});
+
+			if(!loginCheck){
+				$.ajax({
+					url: '/pages/common/loginPopupAd.jsp'
+					, type: 'POST'
+				}).success(function( data ) {
+					if (data.resultCode === 'success') {
+						$("#modal_login div.member div.bottomArea a").attr("href", "javascript:adHasClick(\'"+data.link+"\', "+data.adClick+")").attr("title", data.linkAlt).html("<img src=\""+data.image+"\" alt=\""+data.alt+"\"/>");
+					}
+					showLoginPopup();
+				});
+			} else {
+				paycoMessagePopup('close','');
+			}
+
+
+		// 회원가입
+		} else {
+			// 회원가입페이지로 이동..
+			location.href = '/?menuId=user-join';
+
+		}
+	}
+
+}
+</script>
+
+<!-- 빠른예매 -->
+<div id="booking" tabIndex="0"></div>
+<!-- // 빠른예매 -->
+
+<!-- 영화가 상영되는 영화관 날짜 팝업 -->
+<div id="movieShowingCinemasPopup" class="custom_alert_wrap"></div>
+<script>
+	$(function(){
+		$(".find_zipcode_lp_close").click(function(){
+			$(".input_address").focus();
+		});
+		$(".nfind_zipcode .btn_ok").click(function(){
+			$(".input_address").focus();
+		});
+
+	});
+</script>
+<!-- 주소검색// -->
+<!-- <div class="find_zipcode" tabindex="0">
+	<div class="find_zipcode_lp positionR" tabindex="0">
+		<div class="find_zipcode_lp_header">
+			<h5>우편번호 찾기</h5>
+		</div>
+		<div class="find_zipcode_lp_body">
+
+			<ul class="find_zipcode_lp_search">
+				<li class="clearfix">
+					<span class="col1"><label for="footer-address">주소입력</label></span>
+					<span class="col2 pt2">
+						<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+						<button type="button" class="img_btn zipcode_search" onclick="ZipCode.search()">검색</button>
+						<span class="txt">찾고자 하는 주소의 동(읍/면/리)을 입력하세요.</span>
+					</span>
+				</li>
+			</ul>
+
+			<div class="find_zipcode_lp_result">
+				<p class="result_title1">우편번호</p>
+				<p class="result_title2">주소</p>
+				<div class="inside">
+					<ul id="zipcodeList">
+					</ul>
+				</div>
+			</div>
+			<button type="button" class="img_btn btn_ok" onclick="ZipCode.close();">확인</button>
+		</div>
+		<button type="button" class="img_btn find_zipcode_lp_close">닫기</button>
+	</div>
+	<span class="find_zipcode_bg"></span>
+</div> -->
+
+<!--
+<div class="find_zipcode" tabindex="0">
+	<div class="find_zipcode_lp positionR" tabindex="0">
+		<div class="find_zipcode_lp_header">
+			<h5>주소검색</h5>
+		</div>
+		<div class="find_zipcode_lp_body">
+			<ul class="nav post_tabs">
+				<li class="active"><a href="#find_zipcode1" data-toggle="tab" title="지번주소">지번주소</a></li>
+				<li class=""><a href="#find_zipcode2" data-toggle="tab" title="도로명주소">도로명주소</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="find_zipcode1">
+					<ul class="find_zipcode_lp_search">
+						<li class="clearfix">
+							<span class="col1">
+								<label for="footer-address">찾으시려는 <span class="color">동(읍/면/리)의 이름</span>을 입력해주세요.</label><br />
+								<span class="txt">예) 역삼동, 화도읍, 장유면</span>
+							</span>
+							<span class="col2 pt2">
+								<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+								<button type="button" class="btn-st2 zipcode_search" onclick="ZipCode.search()">검색</button>
+							</span>
+						</li>
+					</ul>
+					<div class="find_zipcode_lp_result">
+						<p class="result_title1">주소</p>
+						<p class="result_title2">우편번호</p>
+						<div class="inside">
+							<ul id="zipcodeList">
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="find_zipcode2">
+					<ul class="find_zipcode_lp_search">
+						<li class="clearfix">
+							<span class="col1">
+								<label for="footer-address">찾으시려는 <span class="color">도로명주소</span>의 건물번호 또는 건물명까지 상세히 입력 후 검색해주세요.</label><br />
+								<span class="txt">예) 중앙동, 법조로212번길</span>
+							</span>
+							<span class="col2 pt2">
+								<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+								<button type="button" class="btn-st2 zipcode_search" onclick="ZipCode.search()">검색</button>
+							</span>
+						</li>
+					</ul>
+					<div class="find_zipcode_lp_result">
+						<p class="result_title1">주소</p>
+						<p class="result_title2">우편번호</p>
+						<div class="inside">
+							<ul id="zipcodeList">
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<button type="button" class="img_btn btn_ok" onclick="ZipCode.close();">확인</button>
+		</div>
+		<button type="button" class="img_btn find_zipcode_lp_close">닫기</button>
+	</div>
+	<span class="find_zipcode_bg"></span>
+</div>
+ -->
+<!-- //주소검색 -->
+<!-- 주소검색// -->
+<!--
+<div class="nfind_zipcode" tabindex="0">
+	<div class="find_zipcode_lp positionR" tabindex="0">
+		<div class="find_zipcode_lp_header">
+			<h5>주소검색</h5>
+		</div>
+		<div class="find_zipcode_lp_body">
+			<ul class="nav post_tabs">
+				<li class="active"><a href="#find_zipcode1" data-toggle="tab" title="도로명주소">도로명주소</a></li>
+				<li><a href="#find_zipcode2" data-toggle="tab" title="지번주소">지번주소</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="find_zipcode1" class="find_zipcode1 tab-pane active">
+					<ul class="find_zipcode_lp_search">
+						<li class="clearfix">
+							<span class="col1">
+								<label for="footer-address">찾으시려는 <span class="color">도로명주소</span>의 건물번호 또는 건물명까지<br />상세히 입력 후 검색해주세요.</label><br />
+								<span class="txt">예) 중앙동, 법조로212번길</span>
+							</span>
+							<span class="col2 pt2">
+								<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+								<button type="button" class="btn-st2 zipcode_search" onclick="ZipCode.search()">검색</button>
+							</span>
+						</li>
+					</ul>
+					<div class="find_zipcode_lp_result zip_result_none">
+						<div class="message">검색된 결과가 없습니다.</div>
+					</div>
+				</div>
+				<div id="find_zipcode2" class="find_zipcode2 tab-pane">
+					<ul class="find_zipcode_lp_search">
+						<li class="clearfix">
+							<span class="col1">
+								<label for="footer-address">찾으시려는 <span class="color">동(읍/면/리)의 이름</span>을 입력해주세요.</label><br />
+								<span class="txt">예) 역삼동, 화도읍, 장유면</span>
+							</span>
+							<span class="col2 pt2">
+								<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+								<button type="button" class="btn-st2 zipcode_search" onclick="ZipCode.search()">검색</button>
+							</span>
+						</li>
+					</ul>
+					<div class="find_zipcode_lp_result">
+						<table>
+							<caption class="blind">도로명주소 검색 목록</caption>
+							<colgroup>
+								<col style="width:100px;">
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th>우편번호</th>
+									<th>주소</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+								<tr>
+									<td class="zip">03325</td>
+									<td><a href="javascript:void(0);" title="서울특별시 중구 장충단로 101">서울특별시 중구 장충단로 101</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="find_zipcode2_2" class="find_zipcode2_2 tab-pane">
+					<p class="chage_m">자동 변환된 도로명 주소입니다.<br />메가박스는 상세주소를 입력받지 않습니다.</p>
+					<div class="find_zipcode_lp_result">
+						<div class="z_road">
+							<b>도로명주소</b>
+							<span class="zcode">(13522)</span>
+							<span class="address">경기 성남시 분당구 야탑로 26 한국골프회관</span>
+						</div>
+						<div class="z_num">
+							<b>지번주소</b>
+							<span class="zcode">(13522)</span>
+							<span class="address">경기 성남시 분당구 야탑동 537-3번지 한국골프회관</span>
+						</div>
+					</div>
+					<div class="text-center mt20">
+						<button type="button" class="btn-m btn-st2">다시검색</button>
+						<button type="button" class="btn-m btn-st1">주소사용</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="img_btn find_zipcode_lp_close">닫기</button>
+	</div>
+	<span class="find_zipcode_bg"></span>
+</div>
+ -->
+<!-- //주소검색 -->
+
+<!-- 주소검색 tab삭제// -->
+<div class="nfind_zipcode" tabindex="0" >
+	<div class="find_zipcode_lp positionR" tabindex="0">
+		<div class="find_zipcode_lp_header">
+			<h5>주소검색</h5>
+		</div>
+		<div class="find_zipcode_lp_body">
+			<ul class="find_zipcode_lp_search">
+				<li class="clearfix">
+					<span class="col1">
+						<label for="footer-address">찾으시는 <span class="color">도로명주소(도로명+건물번호)</span>또는 <span class="color">지번주소(동+번지 또는 동+건물명)</span>를 입력 후 검색해주세요.
+</label>
+					</span>
+					<span class="col2 pt2">
+						<input type="text" title="주소입력" id="footer-address" name="search" maxlength="30" allowtype="hangul special number">
+						<button type="button" class="btn-st2 zipcode_search" onclick="ZipCode.search()">검색</button>
+						<span class="txt">
+						- 도로명 주소 : 법조로149번길, 야탑로 26, 광교마을로<br />
+						- 지번 주소 : 하동 959-5, 야탑동 한국골프회관
+						</span>
+					</span>
+				</li>
+			</ul>
+			<div class="find_zipcode_lp_result">
+				<span class="title">우편번호<span>주소(도로명/지번)</span></span>
+				 	<div class="scroll_txt">
+				 		<dl>
+					 	</dl>
+				 	</div>
+				 	<!-- 검색결과 없음 -->
+					<div class="find_zipcode_lp_result zip_result_none">
+						<div class="message">검색된 결과가 없습니다.</div>
+					</div>
+			</div>
+		</div>
+		<button type="button" class="img_btn find_zipcode_lp_close">닫기</button>
+	</div>
+	<span class="find_zipcode_bg"></span>
+</div>
+<!-- //주소검색 -->
+<!-- 주소검색 tab삭제// -->
+<div class="nfind_zipcode_selected" tabindex="0">
+	<div class="find_zipcode_lp_selected positionR" tabindex="0">
+		<div class="find_zipcode_lp_header">
+			<h5>주소검색</h5>
+		</div>
+		<div class="find_zipcode_lp_body">
+				<div class="find_zipcode">
+					<div class="find_zipcode2_2">
+						 	<p class="chage_m">자동 변환된 도로명 주소입니다.<br />메가박스는 상세주소를 입력받지 않습니다.</p>
+						 	<div class="find_zipcode_lp_result">
+								<div class="z_road">
+									<b>도로명주소</b>
+									<span class="zcode">(13522)</span>
+									<span class="address">경기 성남시 분당구 야탑로 26 한국골프회관</span>
+								</div>
+								<div class="z_num">
+									<b>지번주소</b>
+									<span class="zcode">(13522)</span>
+									<span class="address">경기 성남시 분당구 야탑동 537-3번지 한국골프회관</span>
+								</div>
+							</div>
+							<div class="text-center mt20">
+								<button type="button" class="btn-m btn-st2" onclick="ZipCode.close('.nfind_zipcode_selected'); ZipCode.show()">다시검색</button>
+								<button type="button" name="useAddrBtn" class="btn-m btn-st1">주소사용</button>
+							</div>
+					</div>
+				</div>
+		</div>
+		<button type="button" class="img_btn find_zipcode_lp_close">닫기</button>
+	</div>
+	<span class="find_zipcode_bg_selected"></span>
+</div>
+<!-- //주소검색 -->
+
+<!-- 소멸예정포인트 상세내역 팝업 -->
+<div class="modal fade" id="modal_point" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper w653">
+		<div class="contents clearfix" tabindex="0" >
+			<div class="popup_box row1">
+				<div id="extinctionPointPopup" class="custom_alert_wrap"></div>
+			</div>
+			<button type="button" class="custom_close" data-dismiss="modal" aria-hidden="true"><span class="blind">닫기</span></button>
+		</div>
+	</div>
+</div>
+
+<!-- 브라우저 업데이트 팝업 -->
+<div class="pop_update" tabindex="0">
+	<div class="pop_con" tabindex="0">
+		<dl>
+			<dt><img src="http://image2.megabox.co.kr/mop/home/brupdata/tx_updata.jpg" alt="MEGABOX 홈페이지는 Internet Explrer10이상에서 최적화된 서비스 이용이 가능합니다. IE9 이하에서는 예매가 정상적으로 진행되지 않을 수 있으니, 브라우저를 업그레이드하시거나 다른 예매수단을 이용해 주세요!" /></dt>
+			<dd class="fl">
+				<p>
+					<span>브라우저를 최신 버전으로<br/>업그레이드 해보세요!</span>
+					<a href="http://www.microsoft.com/korea/ie" target="_blank" title="Internet Explorer 새 버전 다운로드"><img src="http://image2.megabox.co.kr/mop/home/brupdata/IE_btn.png" alt="Internet Explorer 새 버전 다운로드" /></a>
+					<a href="http://www.google.com/chrome?hl=ko" target="_blank" class="last" title="Chrome 다운로드"><img src="http://image2.megabox.co.kr/mop/home/brupdata/Chrome_btn.png" alt="Chrome 다운로드" /></a>
+				</p>
+			</dd>
+			<dd class="fr">
+				<p>
+					<span>MEGABOX 모바일 APP을<br/>이용해 보세요!</span>
+					<a href="https://itunes.apple.com/us/app/megabox/id894443858?l=ko&ls=1&mt=8" target="_blank" title="Available on the App Store"><img src="http://image2.megabox.co.kr/mop/home/brupdata/appstore_btn.png" alt="Available on the App Store" /></a>
+					<a href="https://play.google.com/store/apps/details?id=com.megabox.mop&hl=ko" target="_blank" class="last" title="Available on the Google play"><img src="http://image2.megabox.co.kr/mop/home/brupdata/google_btn.png" alt="Available on the Google play" /></a>
+				</p>
+			</dd>
+		</dl>
+		<p class="btn_box">
+			<span><label for="updata_ck" class="mr5">한 달 동안 이 창을 열지 않음</label>
+			<input type="checkbox" id="updata_ck" name="keepLogin" class="style_input" title="한 달 동안 이 창을 열지 않음" /></span>
+			<button class="img_btn" onclick="open_pop('.pop_update')">닫기</button>
+		</p>
+		<button type="button" class="img_btn pop_close" onclick="open_pop('.pop_update')">닫기</button>
+	</div>
+	<div class="pop_bg"></div>
+</div>
+<!-- //브라우저 업데이트 팝업 -->
+
+<!-- 비번좀바꿔주세요 굽신굽신 S -->
+<script>
+function nonMemberCancel()
+{
+	closeMessageBox('nonmemberBookingPopupSub', 'custom');
+	closeMessageBox('nonmemberBookingPopup', 'custom');
+
+	$("#nonmemberBookingPopupSub").find("input").val("");
+ 	$("#nonmemberBookingPopup :radio:eq(1)").iCheck('check');
+}
+//비밀번호좀 바꺼주세요 굽신굽신
+function password_chg(){
+	var win_h = $(window).height();//win_height
+	var idx = $("#passwordChangePopup.password_pop");
+
+	if( idx.hasClass("open_pop") ){
+		$("body").removeClass("body_ovh");
+		idx.removeClass("open_pop").hide().css("visibility","hidden");
+	}else{
+		$("body").addClass("body_ovh");
+
+		idx.addClass("open_pop").show();
+
+		var pop_h = idx.find(".pop_con").height();//pop_con height
+		var css_mr_top = (win_h-pop_h)/2;
+		if( css_mr_top < 0 ) css_mr_top = 10;
+
+		idx.css("visibility","visible").find(".pop_con").css("marginTop",css_mr_top+"px");
+	}
+}
+//마케팅동의
+function maketing_chg(){
+	var win_h = $(window).height();//win_height
+	var idx = $("#maketingChangePopup.ad_pop");
+
+	if( idx.hasClass("open_pop") ){
+		$("body").removeClass("body_ovh");
+		idx.removeClass("open_pop").hide().css("visibility","hidden");
+	}else{
+		$("body").addClass("body_ovh");
+
+		idx.addClass("open_pop").show();
+
+		var pop_h = idx.find(".pop_con").height();//pop_con height
+		var css_mr_top = (win_h-pop_h)/2;
+		if( css_mr_top < 0 ) css_mr_top = 10;
+
+		idx.css("visibility","visible").find(".pop_con").css("marginTop",css_mr_top+"px");
+	}
+}
+$('#cancellatin_fee_card').keyBlock();
+</script>
+<div id="passwordChangePopup" class="password_pop" tabindex="0">
+	<div class="pop_con" tabindex="0">
+		<dl>
+			<dt><img src="http://image2.megabox.co.kr/mop/home/main/ti_img_pass_chg.gif" alt="개인정보보호를 위한 비밀번호 변경안내" /></dt>
+			<dd>
+				<p>
+					메가박스에서는 회원님의 개인정보를 안전하게 보호하고,<br/>
+					개인정보 도용으로 인한 피해를 예방하기 위하여 3개월 이상 비밀번호를 변경하지 않는경우,<br/>
+					비밀번호를 변경할 수 있도록 비밀번호 변경 안내를 시행하고 있습니다. <br/><br/>
+					최근 일부 사이트에서 개인정보 유출로 의심되는 사례가 증가하고 있습니다. <br/>
+					고객님께서 다른 사이트와 동일한 아이디와 비밀번호를 사용하고 계시다면 ‘2차 피해예방’을 위해<br/>
+					메가박스 비밀번호를 변경하시어 개인정보를 안전하게 보호하시기 바랍니다.
+				</p>
+				<p class="btn_box">
+					<button class="img_btn no_chg" onclick="password_chg();setCookie('changePassword', 'Y', 14);">나중에 변경하기</button>
+					<button class="img_btn ok_chg" onclick="showMenu('mypage-myinfo', 'changePassword')">지금 변경하기</button>
+				</p>
+			</dd>
+		</dl>
+		<p class="ex_tx"><img src="http://image2.megabox.co.kr/mop/home/main/img_pass_chg.png" alt="비밀번호 변경" /><span class="changePasswordDate"></span></p>
+		<button onclick="password_chg()" class="img_btn pop_close" type="button">닫기</button>
+	</div>
+	<div class="pop_bg"></div>
+</div>
+<!-- 비번좀바꿔주세요 굽신굽신 E -->
+
+<!-- 마케팅정보 수신동의 확인S -->
+<div id="maketingChangePopup" class="ad_pop" tabindex="0">
+	<div class="pop_con" tabindex="0">
+		<dl>
+			<dt>마케팅정보 수신동의 확인</dt>
+			<dd>
+				<p>
+					회원님의 마케팅 수신 동의일로 부터 일정기간이 경과되어<br />
+					수신에 대한 재동의 안내를 시행하고 있습니다.<br /><br />
+
+					메가박스의 다양한 소식 및 이벤트 정보 안내를 위한<br />
+					수신동의를 재설정 해주시기 바랍니다.<br />
+				</p>
+				<span class="agree_date">
+					<span>[수신동의 정보]</span><br />
+					<span class="marketingEmailSms"></span><br />
+					<span class="marketingDate"></span>
+				</span>
+				<p class="btn_box">
+					<button class="img_btn ok_chg" onclick="location.href='/?menuId=mypage-myinfo&modType=marketing'">지금 변경하기</button>
+					<button class="img_btn no_chg" onclick="maketing_chg()">나중에 변경하기</button>
+				</p>
+			</dd>
+		</dl>
+		<p class="ex_tx"><img src="http://image2.megabox.co.kr/mop/home/main/img_ad.png" alt="연관이미지" /></p>
+		<button onclick="maketing_chg()" class="img_btn pop_close" type="button">닫기</button>
+	</div>
+	<div class="pop_bg"></div>
+</div>
+<!-- 마케팅정보 수신동의 확인E -->
+<!-- 20171227 마케팅 수신 미 동의 유도 팝업S -->
+<div id="maketingNotAtreePopup" class="ad_induce_pop" tabindex="0">
+	<div class="pop_con" tabindex="0">
+		<h2>고객 맞춤형 서비스 제공을 위한<br/> 개인정보 수집 및 활용 동의 안내(선택)</h2>
+		<dl>
+			<dd>메가박스의 다양한 혜택 제공을 위해<br/>마케팅 수신 미동의 회원님 대상으로 수신에 대한<br/>재동의 안내를 시행하고 있습니다.</dd>
+			<dt>수집 목적 : </dt>
+			<dd>고객 맞춤형 상품 및 서비스 추천<br/>(맞춤형 혜택 알림, 모바일 알림 서비스 제공 등)</dd>
+			<dt>수집 항목 :</dt>
+			<dd>이메일, 휴대폰번호, 주소, 성별, 생년월일, 선호영화관, 문자/이메일/앱푸쉬 정보 수신동의여부, 서비스 이용기록, 포인트 적립 및 사용 정보, 접속로그</dd>
+			<dt>보유 및 이용 기간 :</dt>
+			<dd>회원 탈퇴 시 혹은 이용 목적 달성 시까지</dd>
+			<dt>마케팅 수신동의 변경을 하시겠습니까?</dt>
+		</dl>
+		<p class="btn_box">
+			<button class="ok_chg" onclick="location.href='/?menuId=mypage-myinfo&modType=marketing'">지금 변경하기</button>
+			<button class="no_chg" onclick="toggleMarketingNotAgreePopup()">나중에 변경하기</button>
+		</p>
+		<button onclick="toggleMarketingNotAgreePopup()" class="img_btn pop_close" type="button">닫기</button>
+	</div>
+	<div class="pop_bg"></div>
+</div>
+<!-- 20171227 마케팅 수신미동의 유도 팝업E -->
+<!-- 비밀번호 초기화 팝업 -->
+<div id="passwordInitPopup" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>비밀번호 변경</h6>
+		</div>
+		<div class="ca_body">
+			<p>
+				비밀번호 초기화된 고객입니다.<br>새로 사용하실 비밀번호를 입력해주세요.
+			</p>
+		</div>
+
+		<!-- 비밀번호// -->
+		<div class="ca_new_password">
+			<ul>
+				<li>
+					<strong><label for="footer-renew-pw">비밀번호</label></strong>
+					<span>
+						<input  type="password" id="footer-renew-pw" title="비밀번호 입력" name="password" maxlength="16" fieldname="비밀번호" required onkeyup="passwordLengthCheck(this)"/>
+						<span id="passwordMessage"></span>
+					</span>
+				</li>
+				<li>
+					<strong><label for="footer-renew-pw2">비밀번호 확인</label></strong>
+					<span>
+						<input  type="password" id="footer-renew-pw2" title="비밀번호 확인 입력" name="cPassword" maxlength="16" fieldname="비밀번호" required />
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- //비밀번호 -->
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="resetChangePwd()">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('passwordInitPopup', 'custom');location.reload(true);">닫기</button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+
+<!-- 비밀번호변경팝업 -->
+<div id="messageBox_changePassword2" class="custom_alert_wrap">
+	<div class="custom_alert">
+		<div class="ca_header">
+			<h6>비밀번호 변경</h6>
+			<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_changePassword2', 'custom')">닫기</button>
+		</div>
+		<div class="ca_body">
+			<p>본인 인증이 완료되었습니다.<br>새로 사용하실 비밀번호를 입력해주세요.</p>
+		</div>
+
+		<!-- 비밀번호// -->
+		<div class="ca_new_password">
+			<ul>
+				<li>
+					<strong>비밀번호</strong>
+					<span>
+						<input type="hidden" name="memberCode">
+						<input type="password" title="비밀번호 입력" name="password" maxlength="16" onkeyup="passwordLengthCheck(this)"/>
+						<span id="passwordMessage2"></span>
+					</span>
+				</li>
+				<li>
+					<strong>비밀번호 확인</strong>
+					<span>
+						<input type="password" title="비밀번호 확인 입력" name="cPassword" maxlength="16" />
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- //비밀번호 -->
+
+		<div class="ca_footer">
+			<ul class="icon_list mb20">
+				<li class="text-left">비밀번호 변경시 모바일 기기와 홈페이지에서 모두 로그아웃됩니다.<br />변경한 비밀번호로 다시 로그인해주세요.</li>
+			</ul>
+			<button type="button" class="img_btn booking ok" onclick="changePassword2()">확인</button>
+		</div>
+	</div>
+</div>
+
+<!-- 인증번호입력 팝업 -->
+<div id="messageBox_authNoCheck" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>인증번호 확인</h6>
+		</div>
+		<div class="ca_body">
+			<p>고객님의 휴대폰 번호로 인증 번호를 발송하였습니다.<br>인증번호를 확인한 후 입력해주세요.</p>
+		</div>
+
+		<!-- 비밀번호// -->
+		<div class="ca_new_password">
+			<ul>
+				<li>
+					<strong><label for="footer-chk-num2">인증번호</label></strong>
+					<span>
+						<input type="password" id="footer-chk-num2" title="인증번호입력" name="reAuthNo" maxlength="4" />
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- //비밀번호 -->
+
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="authNoCheck()">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_authNoCheck', 'custom');">닫기</button>
+	</div>
+</div>
+<!-- //인증번호 입력 팝업 -->
+
+<!-- 이메일 인증번호입력 팝업 -->
+<div id="messageBox_mailAuthNoCheck" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>인증번호 확인</h6>
+		</div>
+		<div class="ca_body">
+			<p>고객님의 이메일 주소로 인증 번호를 발송하였습니다.<br>인증번호를 확인한 후 입력해주세요.</p>
+		</div>
+
+		<!-- 비밀번호// -->
+		<div class="ca_new_password">
+			<ul>
+				<li>
+					<strong><label for="footer-chk-num1">인증번호</label></strong>
+					<span>
+						<input type="password" id="footer-chk-num1" title="인증번호 입력" name="reAuthNo" maxlength="4" />
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- //비밀번호 -->
+
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="authNoCheck()">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_mailAuthNoCheck', 'custom');">닫기</button>
+	</div>
+</div>
+<!-- //이메일 인증번호 입력 팝업 -->
+
+<!-- 회원 재인증 팝업 -->
+<div id="messageBox_reAuthPopup" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert re_auth_wrap"  tabindex="0">
+		<div class="ca_header">
+			<h6>회원 재인증</h6>
+		</div>
+		<!-- 1단계 -->
+		<div class="tab_wrap">
+			<ul class="nav">
+				<li class="active"><a href="#reAuthTab1" data-toggle="tab" title="등록한 정보로 재인증">등록한 정보로 재인증</a></li>
+				<li class=""><a href="#reAuthTab2" data-toggle="tab" title="본인인증 수단으로 재인증">본인인증 수단으로 재인증</a></li>
+			</ul>
+			<div class="tab-content">
+				<!-- 아이디 간편찾기// -->
+				<div class="tab-pane active" id="reAuthTab1">
+					<div class="ck_radio">
+						<input type="radio" title="휴대폰 선택" name="reAuthCheck_1" class="icheck" value="1" id="reAuth_phone1" checked /><!--
+					--><label for="reAuth_phone1">휴대폰</label>
+						<input type="radio" title="이메일 선택" name="reAuthCheck_1" class="icheck" value="2" id="reAuth_email1" /><!--
+					--><label for="reAuth_email1">이메일</label>
+					</div>
+
+					<ul class="reauth_input_wrap pt20">
+						<li id="reAuthTab1_webID">
+							<label for="reauth-id-webid">아이디</label>
+							<div class="inputs">
+								<input type="text"  title="아이디 입력" id="reauth-id-webid" name="web_id" maxlength="20" fieldname="아이디" allowtype="number alphabet" required />
+							</div>
+						</li>
+						<li id="reAuthTab1_name">
+							<label for="reauth-id-name">이름</label>
+							<div class="inputs">
+								<input type="text" title="이름 입력"  id="reauth-id-name" name="memberName" maxlength="30" fieldname="이름" allowtype="hangul number alphabet" required />
+							</div>
+						</li>
+						<li id="reAuthTab1_mobile">
+							<label for="">휴대폰</label>
+							<div class="inputs tel_box">
+								<input type="text" title="휴대폰 앞자리 입력" id="reauth-id-phone" name="mobile1" maxlength="3" fieldname="휴대폰" allowtype="number" validate="number" required />
+								<input type="text" title="휴대폰 중간자리 입력" id="reauth-id-phone2" name="mobile2" maxlength="4" fieldname="휴대폰" allowtype="number" validate="number" required />
+								<input type="text" title="휴대폰 뒷자리 입력" id="reauth-id-phone3" name="mobile3" maxlength="4" fieldname="휴대폰" allowtype="number" validate="number" required />
+							</div>
+						</li>
+						<li id="reAuthTab1_email" style="display:none;">
+							<label for="reauth-id-email">이메일</label>
+							<div class="inputs">
+								<input type="text" id="reauth-id-email" title="이메일 입력" name="emailAddr" style="width: 199px;" maxlength="30" fieldname="이름" allowtype="hangul number alphabet" validate="email" required />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- //아이디 간편찾기 -->
+				<!-- 아이디 본인인증으로 찾기// -->
+				<div class="tab-pane" id="reAuthTab2">
+					<div class="find_hard_wrap">
+						<h4 class="pt10">아이핀(i-PIN)으로 찾기</h4>
+						<button type="button" class="img_btn user mt13 mb20" onclick="fnPopupReAuthIPIN()">인증기관을 통해 인증 후 확인</button>
+						<h4>휴대폰으로 찾기</h4>
+						<button type="button" class="img_btn user mt13" onclick="fnPopupReAuthCheckPlus()">인증기관을 통해 인증 후 확인</button>
+					</div>
+				</div>
+				<!-- //아이디 본인인증으로 찾기 -->
+			</div>
+		</div>
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="reAuthCheckProcess()">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_reAuthPopup', 'custom');">닫기</button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+<!-- 9월29일 이전영화예매 팝업-->
+<div id="September_bk_Popup" class="custom_alert_wrap" style="z-index: 10110;"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>알림</h6>
+		</div>
+		<div class="ca_body">
+			<p>
+				메가박스 홈페이지가 새롭게 단장하여 고객 여러분께 인사 드립니다.<br/>
+				<strong>9월 28일 까지 예매</strong>는 기존 홈페이지에서 예매 가능하며,<br/>
+				<strong>9월 29일 이후 예매</strong>는 본 홈페이지에서 예매 가능합니다.<br/>
+				새롭고 편리한 홈페이지를 이용하실 수 있도록 최선의 노력을 다하겠습니다.
+			</p>
+		</div>
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking september" onclick="oldSiteGo()">9월29일 이전 영화 예매</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="oldSiteGoPopupClose();">닫기</button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+
+<!-- 아이디 등록 팝업 -->
+<div id="messageBox_IDregisterPopup" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>아이디 등록</h6>
+		</div>
+		<div class="ca_body">
+			<p>
+				메가박스에 등록된 아이디 정보가 없습니다.<br/>아이디를 등록해주세요.
+			</p>
+		</div>
+
+		<div class="ca_new_password">
+			<ul>
+				<li class="first">
+					<strong><label for="footer-new-id">아이디</label></strong>
+					<span>
+						<input type="text" id="footer-new-id" title="아이디 입력" name="webId" fieldname="아이디" maxlength="12" allowtype="alphabet number" required />
+						<button type="button" class="img_btn user" onclick="webIdRegisterCheckDupId()">중복확인</button>
+						<span style="margin-bottom:0">영문이나 숫자 혹은 그 조합 8~12자리</span>
+					</span>
+				</li>
+
+				<li>
+					<strong><label for="footer-new-pw">비밀번호</label></strong>
+					<span>
+						<input type="password" id="footer-new-pw" title="비밀번호 입력" name="webPassword" maxlength="16" fieldname="비밀번호" required onkeyup="passwordLengthCheck(this)"/>
+						<span>영문, 숫자, 특수문자 중 2가지 이상 조합<br>10자리 이상으로 입력 해 주세요.</span>
+					</span>
+				</li>
+				<li>
+					<strong><label for="footer-new-pw2">비밀번호 확인</label></strong>
+					<span>
+						<input type="password" id="footer-new-pw2" title="비밀번호 확인 입력" name="webPassword2" maxlength="16" fieldname="비밀번호" required />
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- //비밀번호 -->
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking oks" onclick="webIdRegisterSave()">적용</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_IDregisterPopup', 'custom');">닫기</button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+
+<!--로그인 특수기호 팝업-->
+<div id="no_symbol_popup" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>알림</h6>
+		</div>
+		<div class="ca_body">
+			<p>
+				메가박스 온라인 개편에 따른 로그인체계 변경으로 인하여 특수기호가<br/>
+				포함된 아이디는 로그인이 불가하오니, 아이디 변경 후 이용바랍니다.<br/><br/>
+				<strong>
+					아이디 변경은 드림센터에서 도와드리고 있습니다.<br/>
+					<span>메가박스 드림센터 : 1544-0070 (09시~21시)</span>
+				</strong><br/><br/>
+				불편을 드려 죄송합니다.<br/>
+				자세한 사항은 공지사항을 확인해주세요.
+			</p>
+		</div>
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="closeMessageBox('no_symbol_popup', 'custom');">확인</button>
+			<a class="img_btn booking notice_go" href="/?menuId=center-notice&p=detail&p2=6085" title="공지사항 확인">공지사항 확인</a>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('no_symbol_popup', 'custom');">닫기</button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+
+<!-- 로그인5회실패 팝업 -->
+<div id="messageBox_loginFail1" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>로그인</h6>
+		</div>
+		<div class="ca_body">
+			<p>로그인 5회 실패로 계정 잠금 처리 되었습니다.<br />안전한 사용을 위해 보안 인증 후 사용 가능합니다.</p>
+		</div>
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="closeMessageBox('messageBox_loginFail1', 'custom');showReAuthPopup();">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_loginFail1', 'custom');">닫기</button>
+	</div>
+</div>
+<!-- //로그인5회실패 팝업 -->
+
+<!-- 장기미사용 로그인 실패 팝업 -->
+<div id="messageBox_loginFail2" class="custom_alert_wrap"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<div class="ca_header">
+			<h6>로그인</h6>
+		</div>
+		<div class="ca_body">
+			<p>장기 미사용으로 계정 잠금 처리되었습니다.<br />안전한 사용을 위해 보안 인증 후 사용 가능합니다.</p>
+		</div>
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking ok" onclick="closeMessageBox('messageBox_loginFail2', 'custom');showReAuthPopup();">확인</button>
+		</div>
+		<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('messageBox_loginFail2', 'custom');location.reload(true);">닫기</button>
+	</div>
+</div>
+<!-- //장기미사용 로그인 실패 팝업 -->
+<!-- 중앙멤버십vip 팝업 -->
+<script type="text/javascript">
+<!--//-->
+function registerJoongAngMemberShip(resetYn) {
+ 	loginCheck(function( data ) {
+		if (data.resultCode === 'success') {
+			var mda = "N";
+			var isChoice1 = $('#joongangVipPopup').find('#agree_vip3').is(':checked');
+	 		var isChoice2   = $('#joongangVipPopup').find('#agree_vip2').is(':checked');
+			var isRequired = $('#joongangVipPopup').find('#agree_vip1').is(':checked');
+
+	 		if (!isChoice1) {
+	 			messageBox("MEGABOX VIP 새로운 혜택1에 동의해주세요");
+	 			return;
+	 		}
+
+	 		if (!isRequired) {
+	 			messageBox("제3자 정보제공 내용에 동의해주세요");
+	 			return;
+	 		}
+
+	 		if (isChoice2) {
+	 			mda = "Y";
+	 		}
+
+	 		var registerTime = new Date();
+
+			$.ajax({
+				url : '/DataProvider',
+				type : "POST",
+				async : true,
+				data : {
+					_command : 'Membership.registerJoongangMemberShip',
+					mda : mda,
+					siteCode : "36",
+					registerTime : registerTime.getTime()
+				}
+			}).success(function(data) {
+				var message = data.resultMessage;
+				if("A" == data.cardStatus || "R" == data.cardStatus){
+					message = "중앙멤버십 기회원으로 이미 발급된 카드가 있습니다.<br/>중앙 멤버십으로 문의 부탁드립니다.<br/>중앙멤버십 고객 센터 : 02-2108-3456(평일 9~18시)";
+				}
+				messageBox(message, function(){
+					$('#joongangVipPopup').modal("hide");
+					if(!BookingSeatDatas.movieData.movieCode) loginUtil.executeCallBack();
+				});
+			});
+		} else {
+			messageBox("로그인 후 이용 가능합니다");
+		}
+	});
+}
+
+</script>
+<div class="modal fade joongang_popup_wrap" id="joongangVipPopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog">
+		<input type="hidden" name="resetYn">
+		<div class="modal-content joongang_vip_popup">
+			<div class="joongang_pop_bg">
+				<div class="blind">
+		        	<h1>MEGABOX X 중앙멤버십</h1>
+		            <p>항상 메가박스를 사랑해주시는 VIP 고객님들을 위하여 메가박스와 중앙멤버십이 만나 VIP 멤버십 혜택을 강화하였습니다. VIP고객님들을 위한 더욱 풍요롭고 다양한 할인 혜택을 만나보세요.</p>
+		        </div>
+		     </div>
+		     <div class="padding_wrap">
+		     	<ul class="checkbox_wrap">
+		        	<li>
+		        		<input type="checkbox" id="agree_vip3" class="icheck" />
+						<label for="agree_vip3">[필수] 중앙멤버십 혜택 신청</label>
+						<br />
+						<b>최대 6가지의 더 다양하고 풍성한 VIP 혜택을 받으실 수 있습니다.</b><br />
+						<b>혜택 적용 기간: 2019년 2월 28일까지</b><br />
+						<b class="c_purple"><i class="fa fa-exclamation"></i> 2017 VIP  중 중앙멤버십 기 신청자는 자동 연장됩니다.</b><br />
+						<span class="img"><img src="http://image2.megabox.co.kr/mop/home/vip_popup_icon_180222.png" alt="중앙멤버십 혜택" /></span>
+		        	</li>
+		        	<li>
+						<input type="checkbox" id="agree_vip2" class="icheck" />
+						<label for="agree_vip2">[선택] 중앙일보 구독 신청</label>
+						<br />
+						<b>중앙일보 1년 무료 구독 기회! VIP 활동기간인 2019년 2월까지 신청 가능합니다.</b><br />
+						<span class="txt">
+							<span class="help">※</span>&nbsp;신청 후 3일 내에 상담원이 전화해서 구독정보 확인 후 배달될 예정이며, <span class="c_red">일부 배달불가 지역은<br />&nbsp;혜택이 제공되지 않습니다.</span>
+							<span class="line">구독관련 문의 : 중앙멤버십 고객센터 02-2108-3456 (평일 9:00~18:00)</span>
+						</span>
+					</li>
+				</ul>
+				<div class="popup_info">
+					<p>VIP멤버십 혜택을 받으시기 위해 아래 개인정보 제공에 동의를 해주세요.</p>
+				</div>
+				<div class="cont cont_1">
+					<h4>개인정보 제 3자 정보제공 동의</h4>
+					<p>
+						(주)메가박스가 제공하는 중앙 멤버십 혜택을 받을 경우 혜택 제공을 위하여 관련한 정보는<br>
+						필요한 범위 내에서 아래와 같이 제공됩니다.<br>
+						<br>
+						1. 개인정보 제공 동의<br>
+						메가박스는 정보통신망 이용촉진 및 정보보호 등에 관한 법률에 따라 이용자의 개인정보에 있어<br>
+						아래와 같이 알리고 동의를 받아 중앙멤버십 서비스 제공자에 제공합니다.<br>
+						<br>
+						2. 개인정보 제공 받는 자<br>
+						(주)중앙일보, 중앙엠앤씨(주)<br>
+						<br>
+						3. 개인정보 이용 목적<br>
+						중앙 멤버십 서비스 이용에 따른 본인 식별 및 혜택 제공에 관한 고객 응대 <br>
+						<br>
+						4. 개인정보 제공 항목<br>
+						성명, 휴대폰번호, 주소<br>
+						<br>
+						5. 개인정보 보유 및 이용 기간<br>
+						개인정보 이용목적 달성시까지(단, 관계 법령의 규정에 의해 보존의 필요가 있는 경우 및 사전 동의를 득한 경우 해당 보유기간 까지)
+					</p>
+				</div>
+				<ul class="checkbox_wrap">
+					<li>
+						<input type="checkbox" id="agree_vip1" class="icheck" />
+						<label for="agree_vip1">제 3자 정보제공 내용에 동의합니다. <span>(동의하지 않을 경우 중앙멤버십 혜택이 제공되지 않습니다.) </span></label>
+					</li>
+				</ul>
+				<div class="btn_wrap">
+					<button class="btn-st3" onclick="registerJoongAngMemberShip()">멤버십혜택 신청하기</button>
+				</div>
+		     </div>
+			<div class="vip_popup_footer">
+				<span class="chk_wrap common_icheck" id="joongang_chk_wrap">
+		            <input type="checkbox" id="joongang_chk" class="style_input"/><label for="joongang_chk">7일간 보지 않기</label>
+		        </span>
+		        <button id="joongangVip_close" onclick="joongangVipPop()" class="btn_b">닫기</button>
+			</div>
+
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- 알람창 :: 고객님은 아이디가 미등록된 회원입니다. S -->
+<div id="registerWebIdPopup" class="custom_alert_wrap">
+	<div class="custom_alert">
+		<div class="ca_header">
+			<h6>알림</h6>
+			<button type="button" class="img_btn booking btn_ca_close" onclick="closeMessageBox('registerWebIdPopup', 'custom')">닫기</button>
+		</div>
+		<div class="ca_body">
+			<p>고객님은 아이디가 미등록된 회원입니다.<br>아이디를 지금 등록 하시겠습니까?</p>
+		</div>
+
+		<div class="ca_new_password" style="text-align: center;">
+		  <strong class="registDate"></strong>
+		  <p>- 제휴멤버십, 스마트폰 등을 통하여 회원 가입<br>
+		  - 스마트폰 어플만 이용하는 고객은 아이디 없어도 이용가능</p>
+		</div>
+
+		<div class="ca_footer">
+			<button type="button" class="img_btn booking btn_close" onclick="closeMessageBox('registerWebIdPopup', 'custom')">취소</button>
+			<button type="button" class="img_btn booking btn_ids" id="idRegBtn">아이디 등록</button>
+		</div>
+	</div>
+</div>
+<!-- 알람창 :: 고객님은 아이디가 미등록된 회원입니다. E -->
+
+
+<!-- 스토어 결제완료 팝업 -->
+<div class="custom_alert_wrap store_payEnd_popup" id="storeSummaryView"  tabindex="0">
+	<div class="custom_alert"  tabindex="0">
+		<h1>결제완료</h1>
+		<p><strong>상품 결제가 완료</strong>되었습니다.</p>
+		<ul>
+			<li class="first" id="storeItemImage"></li>
+			<li class="last">
+				<p class="payEnd_tx">
+					<strong><i>·</i>상품명:</strong><span id="itemNameView">러브콤보</span><br/>
+					<strong><i>·</i>구성:</strong><span id="itemDetailNameView">팝콘(L) 1 + 음료(R) 2</span><br/>
+					<strong><i>·</i>스토어가:</strong><span id="storePayAmtView">9,000원</span><br/>
+					<strong><i>·</i>수량:</strong><span id="storeQuantityView">1개</span><br/>
+					<strong><i>·</i>결제정보:</strong><span id="storePayInfoView">신용카드 8,000원 / 메가박스 포인트 1,000P</span><br/>
+				</p>
+				<div class="ex_tx">
+					<p>스토어 상품은 <span>부분 취소가 불가</span>합니다.<br/>(ex. 3개의 쿠폰을 한 번에 구매하신 경우, 3개 모두 취소만 가능하며 <br/>그 중 사용하신 쿠폰이 있는 경우 취소가 불가합니다.)</p>
+					<p>스토어 상품 구입내역 및 모바일상품권(문자) 재전송 요청은 <br/><span>나의 메가박스 > 쇼핑내역에서 확인</span> 가능합니다.</p>
+				</div>
+			</li>
+		</ul>
+		<div class="btn_box">
+			<button class="btn_yes" onclick="location.reload(true);"><span class="blind">확인</span></button>
+			<button class="btn_print" id="storeOpenReceiptPrintBtn"><span class="blind">영수증 출력</span></button>
+			<button class="btn_shopping_list" onclick="showMenu('mypage-shopping');"><span class="blind">스토어 구매내역</span></button>
+		</div>
+		<button class="custom_close" onclick="location.reload(true);"><span class="blind">결제완료 팝업 닫기</span></button>
+	</div>
+	<span class="bg_custom_alert"></span>
+</div>
+
+<!-- 스토어 로그인창 -->
+<div class="modal fade modal_login_popup" id="store_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper">
+		<div class="contents clearfix" tabindex="0" style="width:542px">
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap ">
+					<div class="custom_alert positionR" tabIndex="0">
+						<div class="ca_header">
+							<h6>로그인</h6>
+						</div>
+						<div class="social_popupLogin">
+							<!-- <div class="clearfix butArea">
+								<div class="selectType mem"><a class="on" href="javascript:displayHtml('mem')" title="회원로그인">회원 로그인</a></div>
+								<div class="selectType nomem"><a href="javascript:displayHtml('nomem')" title="비회원로그인">비회원 로그인</a></div>
+							</div> -->
+							<div class="member">
+								<div class="clearfix">
+									<div class="so_login_wrap pull-left">
+										<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+										<div class="so_new_password">
+											<div class="so_login_id">
+												<label for="footer-store-id" class="book-id">아이디</label>
+												<input type="text" id="footer-store-id" title="아이디 입력" maxlength="20" name="userId" placeholder="아이디" value="" keyenter="#store_modal_login button.btn_alert_login" />
+											</div>
+											<div class="so_login_pw">
+												<label for="footer-store-pw" class="book-pw">비밀번호</label>
+												<input type="password" id="footer-store-pw" title="비밀번호 입력" maxlength="20" name="userPw" placeholder="비밀번호" keyenter="#store_modal_login button.btn_alert_login" />
+											</div>
+											<button type="button" class="btn_alert_login" onclick="storeLogin()">로그인</button>
+										</div>
+										<ul class="so_login_m">
+											<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a></li>
+											<li class="text-center m2"><a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+										</ul>
+										<!-- //비밀번호 -->
+									</div>
+									<div class="orLine"><span></span></div>
+									<div class="socialLogin_wrap pull-right">
+										<h4>간편 로그인</h4>
+										<ul class="clearfix">
+<!-- 											<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li> -->
+											<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코로 로그인"><i class="social_payco"></i>로 로그인</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottomArea">
+									<a href="javascript:void(0);" title="광고">-</a>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0);" class="common_close_btn" onclick="closeStoreLoginPopup()" title="로그인 창닫기">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 무비포스터 로그인창 -->
+<div class="modal fade modal_login_popup" id="moviepost_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper">
+		<div class="contents clearfix" tabindex="0" style="width:542px">
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap ">
+					<div class="custom_alert positionR" tabIndex="0">
+						<div class="ca_header">
+							<h6>로그인</h6>
+						</div>
+						<div class="social_popupLogin">
+							<!-- <div class="clearfix butArea">
+								<div class="selectType mem"><a class="on" href="javascript:displayHtml('mem')" title="회원로그인">회원 로그인</a></div>
+								<div class="selectType nomem"><a href="javascript:displayHtml('nomem')" title="비회원로그인">비회원 로그인</a></div>
+							</div> -->
+							<div class="member">
+								<div class="clearfix">
+									<div class="so_login_wrap pull-left">
+										<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+										<div class="so_new_password">
+											<div class="so_login_id">
+												<label for="footer-moviepost-id" class="book-id">아이디</label>
+												<input type="text" id="footer-moviepost-id" title="아이디 입력" maxlength="20" name="userId" placeholder="아이디" value="" keyenter="#moviepost_modal_login button.btn_alert_login" />
+											</div>
+											<div class="so_login_pw">
+												<label for="footer-moviepost-pw" class="book-pw">비밀번호</label>
+												<input type="password" id="footer-moviepost-pw" title="비밀번호 입력" maxlength="20" name="userPw" placeholder="비밀번호" keyenter="#moviepost_modal_login button.btn_alert_login" />
+											</div>
+											<button type="button" class="btn_alert_login" onclick="moviepostLogin()">로그인</button>
+										</div>
+										<ul class="so_login_m">
+											<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a></li>
+											<li class="text-center m2"><a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+										</ul>
+										<!-- //비밀번호 -->
+									</div>
+									<div class="orLine"><span></span></div>
+									<div class="socialLogin_wrap pull-right">
+										<h4>간편 로그인</h4>
+										<ul class="clearfix">
+<!-- 											<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li> -->
+											<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코로 로그인"><i class="social_payco"></i>로 로그인</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottomArea">
+									<a href="javascript:void(0);" title="광고">-</a>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0);" class="common_close_btn" onclick="closeMoviepostLoginPopup()" title="로그인 창닫기">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--
+<div class="modal fade modal_login_popup" id="store_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="custom_alert_wrap" style="display:block">
+		<div class="custom_alert" style="left: 50%;margin-left: -238px;top: 50%;margin-top: -135px;"  tabindex="0">
+			<div class="ca_header">
+				<h6>회원 로그인</h6>
+			</div>
+			<div class="ca_body">
+				<div class="ca_ad_wrap pull-left">
+					<a href="javascript:void(0);" class="ad_box" title="광고">-</a>
+				</div>
+				<div class="ca_login_wrap pull-right">
+				<p>로그인을 하시면 메가박스에서 제공하는 멤버십 포인트 사용과 <br />맞춤 서비스를 이용하실 수 있습니다.</p>
+			</div>
+				<div class="ca_new_password">
+					<ul>
+						<li class="text-center">
+							<label for="footer-store-id">아이디</label>
+							<input type="text" id="footer-store-id" title="아이디 입력" class="w140 mr10" name="userId" maxlength="20" placeholder="아이디" value="" keyenter="#store_modal_login button.btn_alert_login" />
+							<label for="footer-store-pw">비밀번호</label>
+							<input type="password" id="footer-store-pw" title="비밀번호 입력" class="w140 mr10" name="userPw" maxlength="20" placeholder="비밀번호" keyenter="#store_modal_login button.btn_alert_login" />
+							<button type="button" class="icon btn_alert_login" onclick="storeLogin()">로그인</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="ca_footer v2">
+				<a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a>
+				<a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a>
+			</div>
+			<a  href="javascript:void(0);" class="common_close_btn" onclick="closeStoreLoginPopup()" title="로그인 창닫기">닫기</a>
+
+		</div>
+		<span class="bg_custom_alert"></span>
+	</div>
+</div>
+ -->
+
+<!-- 스토어상세페이지 -->
+<script type="text/javascript" src="/pages/store/store.js"></script>
+
+<!-- 스토어 상세정보 URL 직접 호출시 사용 -->
+<a href="javascript:void(0)" id="storeDirectLink" class="blank" data-toggle="modal" data-target="#store_snack_detail" data-is-custom="true" data-code="" title="스토어 상세정보 URL 직접 호출"><span class="blind">스토어 상세정보 URL 직접 호출시 사용</span></a>
+<div class="modal fade store_detail snack_detail ticket_popup" id="store_snack_detail" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="wrapper" id="store_Detailview"></div>
+</div>
+
+
+<!-- 시네마 리플레이 투표 로그인창 -->
+<div class="modal fade modal_login_popup" id="vote_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper">
+		<div class="contents clearfix" tabindex="0" style="width:542px">
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap ">
+					<div class="custom_alert positionR" tabIndex="0">
+						<div class="ca_header">
+							<h6>로그인</h6>
+						</div>
+						<div class="social_popupLogin">
+							<!-- <div class="clearfix butArea">
+								<div class="selectType mem"><a class="on" href="javascript:displayHtml('mem')" title="회원로그인">회원 로그인</a></div>
+								<div class="selectType nomem"><a href="javascript:displayHtml('nomem')" title="비회원로그인">비회원 로그인</a></div>
+							</div> -->
+							<div class="member">
+								<div class="clearfix">
+									<div class="so_login_wrap pull-left">
+										<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+										<div class="so_new_password">
+											<div class="so_login_id">
+												<label for="footer-vote-id" class="book-id">아이디</label>
+												<input type="text" id="footer-vote-id" title="아이디 입력" maxlength="20" name="userId" placeholder="아이디" value="" keyenter="#vote_modal_login button.btn_alert_login" />
+											</div>
+											<div class="so_login_pw">
+												<label for="footer-vote-pw" class="book-pw">비밀번호</label>
+												<input type="password" id="footer-vote-pw" title="비밀번호 입력" maxlength="20" name="userPw" placeholder="비밀번호" keyenter="#vote_modal_login button.btn_alert_login" />
+											</div>
+											<button type="button" class="btn_alert_login" onclick="return voteLogin();">로그인</button>
+										</div>
+										<ul class="so_login_m">
+											<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a></li>
+											<li class="text-center m2"><a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+										</ul>
+										<!-- //비밀번호 -->
+									</div>
+									<div class="orLine"><span></span></div>
+									<div class="socialLogin_wrap pull-right">
+										<h4>간편 로그인</h4>
+										<ul class="clearfix">
+<!-- 											<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li> -->
+											<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코로 로그인"><i class="social_payco"></i>로 로그인</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottomArea">
+									<a href="javascript:void(0);" title="광고">-</a>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0);" class="common_close_btn" onclick="closeVoteLoginPopup()" title="로그인 창닫기">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--
+<div class="modal fade" id="vote_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="custom_alert_wrap" style="display:block">
+		<div class="custom_alert" style="left: 50%;margin-left: -238px;top: 50%;margin-top: -135px;"  tabindex="0">
+			<div class="ca_header">
+				<h6>회원 로그인</h6>
+			</div>
+			<div class="ca_body">
+				<div class="ca_ad_wrap pull-left">
+					<a href="javascript:void(0);" class="ad_box" title="광고">-</a>
+				</div>
+				<p>로그인을 하시면 메가박스에서 제공하는 멤버십 포인트 사용과 <br />
+	맞춤 서비스를 이용하실 수 있습니다.</p>
+			</div>
+			<div class="ca_new_password">
+				<ul>
+					<li class="text-center">
+						<label for="footer-vote-id">아이디</label>
+						<input type="text" id="footer-vote-id" title="아이디 입력" class="w140 mr10" name="userId" maxlength="20" placeholder="아이디" value="" keyenter="#vote_modal_login button.btn_alert_login" />
+						<label for="footer-vote-pw">비밀번호</label>
+						<input type="password" id="footer-vote-pw" title="비밀번호 입력" class="w140 mr10" name="userPw" maxlength="20" placeholder="비밀번호" keyenter="#vote_modal_login button.btn_alert_login" />
+						<button type="button" class="icon btn_alert_login" onclick="voteLogin()">로그인</button>
+					</li>
+				</ul>
+			</div>
+			<div class="ca_footer v2">
+				<a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기" title="회원가입">ID/PW 찾기</a> |
+				<a href="javascript:void(0);" onclick="showMenu('user-join')">회원가입</a>
+			</div>
+			<a  href="javascript:void(0);" class="common_close_btn" onclick="closeVoteLoginPopup()" title="로그인 창닫기">닫기</a>
+
+		</div>
+		<span class="bg_custom_alert"></span>
+	</div>
+</div>
+ -->
+ <!-- 2015 메가박스 시네마 리플레이 투표 결과 -->
+<div class="modal fade event_modal in" id="specialcontent_list_vote_result" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+
+</div>
+
+<!-- VIP 쿠폰북 로그인창 -->
+<div class="modal fade modal_login_popup" id="coupon_modal_login" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+	<div class="wrapper">
+		<div class="contents clearfix" tabindex="0" style="width:542px">
+			<div class="popup_box row1">
+				<div class="custom_alert_wrap ">
+					<div class="custom_alert positionR" tabIndex="0">
+						<div class="ca_header">
+							<h6>로그인</h6>
+						</div>
+						<div class="social_popupLogin">
+							<!-- <div class="clearfix butArea">
+								<div class="selectType mem"><a class="on" href="javascript:displayHtml('mem')" title="회원로그인">회원 로그인</a></div>
+								<div class="selectType nomem"><a href="javascript:displayHtml('nomem')" title="비회원로그인">비회원 로그인</a></div>
+							</div> -->
+							<div class="member">
+								<div class="clearfix">
+									<div class="so_login_wrap pull-left">
+										<h4 class="loginTitle"><span class="blind">MEGABOX</span>로그인</h4>
+										<div class="so_new_password">
+											<div class="so_login_id">
+												<label for="footer-coupon-id" class="book-id">아이디</label>
+												<input type="text" id="footer-coupon-id" title="아이디 입력" maxlength="20" name="userId" placeholder="아이디" value="" keyenter="#coupon_modal_login button.btn_alert_login" />
+											</div>
+											<div class="so_login_pw">
+												<label for="footer-coupon-pw" class="book-pw">비밀번호</label>
+												<input type="password" id="footer-coupon-pw" title="비밀번호 입력" maxlength="20" name="userPw" placeholder="비밀번호" keyenter="#coupon_modal_login button.btn_alert_login" />
+											</div>
+											<button type="button" class="btn_alert_login" onclick="couponLogin()">로그인</button>
+										</div>
+										<ul class="so_login_m">
+											<li><a href="javascript:void(0)" onclick="showMenu('user-find')" title="ID/PW 찾기">ID/PW 찾기</a></li>
+											<li class="text-center m2"><a href="javascript:void(0);" onclick="showMenu('user-join')" title="회원가입">회원가입</a></li>
+										</ul>
+										<!-- //비밀번호 -->
+									</div>
+									<div class="orLine"><span></span></div>
+									<div class="socialLogin_wrap pull-right">
+										<h4>간편 로그인</h4>
+										<ul class="clearfix">
+<!-- 											<li><a href="javascript:easyLoginUrl('KAKAO');" title="카카오로 로그인"><i class="social_kakao"></i>로 로그인</a></li> -->
+											<li><a href="javascript:void(0)" onclick="sendGAMegabox('User', 'Login', 'payco'); easyLoginUrl('PAYCO');" title="페이코로 로그인"><i class="social_payco"></i>로 로그인</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="bottomArea">
+									<a href="javascript:void(0);" title="광고">-</a>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0);" class="common_close_btn" onclick="closeCouponLoginPopup()" title="로그인 창닫기">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 카카오페이 결제화면// -->
+<form id="kakaoPayForm" name="kakaoPayForm" method="post" target="if_kakaopay"></form>
+
+<div id="pay_kakaoPay" tabIndex="0">
+</div>
+<!-- //카카오페이 결제화면 -->
+
+<!-- 페이나우 결제화면// -->
+<form id="paynowForm" name="paynowForm" method="post" target="if_paynow"></form>
+
+<div id="pay_paynow" tabIndex="0">
+</div>
+<!-- //페이나우 결제화면 -->
+
+<!-- 페이코 결제화면// -->
+<form id="paycoForm" name="paycoForm" method="post" target="if_payco"></form>
+
+<div id="pay_payco" tabIndex="0">
+</div>
+<!-- //페이코 결제화면 -->
+
+<script type="text/javascript">
+	// init-controls.js 실행
+	$(document).ready(function() {
+		initControls($(document.body));
+	});
+	var _windowPop = null;
+	var _windowTimer = null;
+
+	function confirmKakaoPay(data){
+
+		var width  = 420;
+		var height = 545;
+		var popupOptions = "toolbar=0,menubar=0,resizable=no,width="+width+",height="+height;
+		openWindowPopup('', 'kakaoPay', popupOptions);
+
+		$('#kakaoPayForm').empty();
+
+		$.each(data, function(name){
+			var input = document.createElement('input');
+			input.type = "hidden";
+			input.name = name;
+			input.value = data[name];
+			document.kakaoPayForm.appendChild(input);
+		});
+
+		document.kakaoPayForm.action = "https://" + hostname + "/pages/common/kakaopay/kakaopayLiteRequest.jsp";
+		document.kakaoPayForm.target = "kakaoPay";
+		document.kakaoPayForm.submit();
+	}
+
+	function completeKakaoPay(data){
+		if(data.resultCode === '00') {
+			if (data.type == 'booking') {
+				completeBookingKakaopay(data);
+			} else {
+				completeStoreKakaoPay(data);
+			}
+	    } else if(data.resultCode === 'KKP_SER_002') {
+	    	// X버튼 눌렀을때의 이벤트 처리 코드 등록
+	    } else {
+	    	messageBox(data.resultMsg);
+	    }
+
+		closeWindowPopup();
+	}
+
+	/* 페이나우 시작. */
+	function confirmPayNow(data){
+
+		//alert("data.transNo" + data.transNo);
+		//alert("data.amount" + data.amount);
+
+		//alert("data.type: " + data.type);
+		//alert("data.amount:" + data.amount);
+		//alert("data.count :" + data.count);
+		//alert("data.memberName " + data.memberName);
+		//alert("data.mobileNo :" + data.mobileNo);
+		//alert("data.cinemaCode :" + data.cinemaCode);
+		//alert("data.screenCode :" + data.screenCode);
+
+		var width  = 620;
+		var height = 640;
+		var popupOptions = "toolbar=0,menubar=0,resizable=no,width="+width+",height="+height;
+		openWindowPopup('', 'paynow', popupOptions);
+
+		$('#paynowForm').empty();
+
+		$.each(data, function(name){
+			var input = document.createElement('input');
+			input.type = "hidden";
+			input.name = name;
+			input.value = data[name];
+			document.paynowForm.appendChild(input);
+		});
+
+		document.paynowForm.action = "https://" + hostname + "/pages/common/paynow/payreq_crossplatform.jsp";
+		//document.paynowForm.action = "https://" + hostname + "/pages/common/paynow/sample_crossplatform.jsp";
+		document.paynowForm.target = "paynow";
+		document.paynowForm.submit();
+	}
+
+	function completePayNow(data){
+		//alert("completePayNow in footer.js");
+		//alert("data.resultCode" + data.resultCode);
+		//alert("data.type" + data.type);
+		if(data.resultCode === '0000') {
+			if (data.type == 'booking') {
+				completeBookingPayNow(data);
+			}
+			// else {
+			//	completeStoreKakaoPay(data);
+			//}
+	    } else if(data.resultCode === 'KKP_SER_002') {
+	    	// X버튼 눌렀을때의 이벤트 처리 코드 등록
+	    } else {
+	    	messageBox(data.resultMsg);
+	    }
+
+		closeWindowPopup();
+	}
+
+	/* 페이나우 끝. */
+
+	/* 페이코 시작. */
+	function confirmPayco(data){
+
+		//alert("data.transNo" + data.transNo);
+		//alert("data.amount" + data.amount);
+
+		//alert("data.type: " + data.type);
+		//alert("data.amount:" + data.amount);
+		//alert("data.count :" + data.count);
+		//alert("data.memberName " + data.memberName);
+		//alert("data.mobileNo :" + data.mobileNo);
+		//alert("data.cinemaCode :" + data.cinemaCode);
+		//alert("data.screenCode :" + data.screenCode);
+
+		var width  = 727;
+		var height = 512;
+		var popupOptions = "toolbar=0,menubar=0,resizable=no,width="+width+",height="+height;
+		openWindowPopup('', 'payco', popupOptions);
+
+		$('#paycoForm').empty();
+
+		$.each(data, function(name){
+			var input = document.createElement('input');
+			input.type = "hidden";
+			input.name = name;
+			input.value = data[name];
+			document.paycoForm.appendChild(input);
+		});
+
+		//document.paynowForm.action = "https://" + hostname + "/pages/common/payco/jsp/easypay/pay2/index.jsp";
+		document.paycoForm.action = "http://" + hostname + "/pages/common/payco/jsp/easypay/pay2/payco_popup.jsp";
+		//document.paycoForm.action = "/pages/common/payco/jsp/easypay/pay2/payco_popup.jsp";
+
+		//document.paynowForm.action = "https://" + hostname + "/pages/common/paynow/sample_crossplatform.jsp";
+		document.paycoForm.target = "payco";
+		document.paycoForm.submit();
+	}
+
+	function completePayco(data){
+		//alert("data.type: " + data.type);
+		//alert("data.resultCode: " + data.resultCode);
+		//alert("data.reserveOrderNo: " + data.reserveOrderNo);
+		//alert("data.sellerOrderReferenceKey(transNo): " + data.sellerOrderReferenceKey);
+		//alert("data.resultMsg : " + data.resultMsg);
+		//alert("completePayco in footer.js");
+
+		if(data.resultCode === '0') {
+			if (data.type == 'booking') {
+				completeBookingPayco(data);
+			}
+			// else {
+			//	completeStoreKakaoPay(data);
+			//}
+	    } else if(data.resultCode === 'KKP_SER_002') {
+	    	// X버튼 눌렀을때의 이벤트 처리 코드 등록
+	    } else {
+	    	messageBox(data.resultMsg);
+	    }
+
+		closeWindowPopup();
+	}
+
+	/* 페이나우 끝. */
+
+
+	function openWindowPopup(url, target, popupOptions){
+		$('body').append('<div class="modal-backdrop fade windowPopup in" style="z-index:9999;background:url(http://image3.megabox.co.kr/mop/home/common/loader.gif) no-repeat 50% 50%;background-color: rgba(0,0,0,1);"></div>');
+
+		//alert("target:" + target);
+		_windowPop = window.open(url, target, popupOptions);
+		_windowTimer = setInterval(closeWindowTimer, 300);
+
+		if(_windowPop == undefined){
+			messageBox("브라우저 팝업차단을 해제해주십시오.");
+			return;
+		}else{
+			_windowPop.focus();
+		}
+	}
+
+	function closeWindowTimer(){
+		if (_windowPop.closed) {
+			clearInterval(_windowTimer);
+			$("div.modal-backdrop.fade.windowPopup.in").remove();
+		}
+	}
+
+	function closeWindowPopup(){
+		if (_windowPop != null)
+			_windowPop.close();
+	}
+
+	var menuId = 'main';
+	var storeP = '';
+	var storeP2 = '';
+	var majorCode = '';
+	var itemCode = '';
+	var _loginCd = null;
+
+	$(function(){
+
+		if (menuId == "store" && storeP == "detail" && storeP2 !=="") {
+	   		$("#storeDirectLink").click();
+		}
+
+		frontBannerShow();
+
+	});
+
+	function getStoreSummary(transNo)
+	{
+		var ajaxOptions={
+				url: getServerUrl(true) + '/DataProvider',
+				type: 'POST',
+				data: {
+					_command: 'Pay.getStoreSummary',
+					transNo: transNo
+				}
+			};
+
+		if(!lowBrowserVer)
+		{
+			ajaxOptions.crossDomain=true;
+			ajaxOptions.xhrFields={withCredentials : true};
+		}
+
+		$.ajax(ajaxOptions).success(function( data ) {
+			if (data.resultCode === '0000') {
+				if ($('#store_payment').css("display") == "block") {
+					$('#store_payment').modal('hide');
+				}
+
+				$("#itemNameView").html(data.info.itemName);
+				$("#itemDetailNameView").html(data.info.itemDetailName);
+				$("#storePayAmtView").html(numberWithCommas(data.info.storePrice)+'원');
+				$("#storeQuantityView").html(numberWithCommas(data.info.totalQuantity)+'개');
+				$("#storePayInfoView").html(data.info.payInfo);
+
+				if(data.info.itemImage){
+					var imageUrl="http://image2.megabox.co.kr/mop/store/";
+					imageUrl+=data.info.itemImageCategory+'/';
+					imageUrl+=data.info.itemImage.substring(0,2)+'/'+data.info.itemImage.substring(2,data.info.itemImage.length)+'.large';
+					imageUrl+='.'+data.info.itemImageExtension;
+
+					var imageHtml="<img src=\""+imageUrl+"\" alt=\""+data.detail.itemimage_alttext+"\" />";
+					$("#storeItemImage").html(imageHtml);
+				}
+
+				$('.modal').modal('hide');
+// 				$("#store_snack_detail").hide();
+				$(".modal-backdrop.store_snack_detail").hide();
+				customMessageBox('storeSummaryView');
+
+				if ("Y" == data.info.cardReceiptYn) {
+					$("#storeOpenReceiptPrintBtn").off('click').on('click',function(){
+						storeOpenReceiptPrint(transNo, data.coupons[0].seqNo);
+
+					}).show();
+				} else {
+					$("#storeOpenReceiptPrintBtn").off('click').hide();
+				}
+
+				var isShowFavCinema = ('99' == data.detail.SPECIAL_SCREENCODE) ? "Y":"N";
+				
+				var onlickHtml = '<button class="btn_yes" onclick="location.reload(true);"><span class="blind">확인</span></button>';
+				onlickHtml += '<button class="btn_print" id="storeOpenReceiptPrintBtn"><span class="blind">영수증 출력</span></button>';
+				onlickHtml += '<button class="btn_shopping_list" onclick="showMenu(\'mypage-shopping\');"><span class="blind">스토어 구매내역</span></button>';
+
+				/*
+				// 영화 지정 완료
+				if(data.detail.shortcuts_Movie != '0000' && data.detail.shortcuts_Movie != '000000'){
+					onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedMovie(\''+data.detail.shortcuts_Movie+'\');"><span class="blind">영화바로예매</span></button>';
+				}
+
+				// 영화관 지정 완료
+				if(data.detail.cinemaControlCode != '0000' && data.detail.cinemaControlCode.indexOf('C') == -1){
+					onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedCinema(\''+data.detail.cinemaControlCode+'\');"><span class="blind">영화바로예매</span></button>';
+				}
+
+				// 영화관 영화 모두 지정이 안되있을경우
+				if( (data.detail.shortcuts_Movie == '0000' || data.detail.shortcuts_Movie == '000000') && data.detail.cinemaControlCode == '0000' ){
+					onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPage2();"><span class="blind">영화바로예매</span></button>';
+				}
+
+				// 영화관 직영점일경우 영화관 안보이도록
+				if( (data.detail.shortcuts_Movie == '0000' || data.detail.shortcuts_Movie == '000000') && data.detail.cinemaControlCode.indexOf('C')  == 0 ){
+					onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedCinema(\''+data.detail.cinemaControlCode+'\');"><span class="blind">영화바로예매</span></button>';
+				}
+
+				if( data.detail.shortcuts_Movie != '0000' && data.detail.shortcuts_Movie != '000000' && data.detail.cinemaControlCode != '0000' && data.detail.cinemaControlCode.indexOf('C')  == -1 ){
+					onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedMovieCinema(\''+data.detail.shortcuts_Movie+'\', \'\', \''+data.detail.cinemaControlCode+'\');"><span class="blind">영화바로예매</span></button>';
+				}
+				*/
+				// 영화가 지정되어 있는 경우
+				if( data.detail.shortcuts_Movie != "0000" && data.detail.shortcuts_Movie != "000000" ){
+					//영화관이 지정되어 있는 경우
+					if (data.detail.cinemaControlCode != "0000" && data.detail.cinemaControlCode.indexOf('C')  == -1) {
+						onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedMovieCinema(\''+data.detail.shortcuts_Movie+'\', \'\', \''+data.detail.cinemaControlCode+'\');"><span class="blind">영화바로예매</span></button>';
+					}
+					//영화관이 지정되어 있지 않은 경우
+					else {
+						onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedMovie2(\''+data.detail.shortcuts_Movie+'\', \''+isShowFavCinema+'\');"><span class="blind">영화바로예매</span></button>';
+					}
+				}
+				// 영화가 지정되어 있지 않은 경우
+				else {
+					//영화관이 지정되어 있는 경우
+					if (data.detail.cinemaControlCode != "0000" && data.detail.cinemaControlCode.indexOf("C") == -1 ) {
+						onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPageSelectedCinema(\''+data.detail.cinemaControlCode+'\');"><span class="blind">영화바로예매</span></button>';
+					}
+					//영화관이 지정되어 있지 않은 경우
+					else {
+						onlickHtml += '<button class="btn_gotobook" onclick="Booking.showPage3(\''+isShowFavCinema+'\');"><span class="blind">영화바로예매</span></button>';
+					}
+				}
+
+				$('div#storeSummaryView div.custom_alert div.btn_box').html(onlickHtml);
+
+			} else {
+				messageBox(data.resultMessage);
+			}
+		});
+	}
+
+	function storeOpenReceiptPrint(transNo, seqNo)
+	{
+		var frm = document.getElementById('frm_ReceiptPrint');
+		frm.method = "post";
+		frm.target = "popupReceipt";
+		frm.action = "https://"+hostname+"/pages/common/Payment_ReceiptPrint.jsp";
+
+		var transNoInput = document.createElement("input");
+		transNoInput.setAttribute("type", "hidden");
+		transNoInput.setAttribute("name", "transNo");
+		transNoInput.setAttribute("id", "transNo");
+		transNoInput.setAttribute("value", transNo);
+
+		var seqNoInput = document.createElement("input");
+		seqNoInput.setAttribute("type", "hidden");
+		seqNoInput.setAttribute("name", "seqNo");
+		seqNoInput.setAttribute("id", "seqNo");
+		seqNoInput.setAttribute("value", seqNo);
+
+		var tranTypeInput = document.createElement("input");
+		tranTypeInput.setAttribute("type", "hidden");
+		tranTypeInput.setAttribute("name", "tranType");
+		tranTypeInput.setAttribute("id", "tranType");
+		tranTypeInput.setAttribute("value", "S");
+
+		frm.appendChild(transNoInput);
+		frm.appendChild(seqNoInput);
+		frm.appendChild(tranTypeInput);
+
+		var Receipt = window.open('about:blank', 'popupReceipt', 'scrollbars=no, width=404, height=710');
+		Receipt.focus();
+
+		frm.submit();
+	}
+
+	/**
+	 * 비밀번호 초기화
+	 */
+	function resetChangePwd()
+	{
+		var password 	= $('#passwordInitPopup input[name=password]').val();
+		var cPassword 	= $('#passwordInitPopup input[name=cPassword]').val();
+
+		if (password.trim()=="" || cPassword.trim()=="") {
+			messageBox('비밀번호 변경', '비밀번호를 입력해 주세요.');
+			return;
+		}
+
+		if (password !== cPassword) {
+			messageBox('비밀번호 변경', '비밀번호 재입력을 다시 확인해주세요.');
+			return;
+		}
+
+		if (!(/((?=.{10,})(?=.*[0-9])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[0-9]).*$)/g.test(password))) {
+
+			$('span#passwordMessage').html('영문, 숫자, 특수문자 중 2가지 이상 조합<br>10자리 이상으로 입력 해 주세요.');
+
+			return;
+		}
+
+		$.ajax({
+			url: getServerUrl(true) + '/DataProvider',
+			type: 'POST',
+			crossDomain: true,
+		      xhrFields: {
+		        withCredentials: true
+		      },
+			data: {_command: 'User.resetPassword', passwd: sha256_digest(password)}
+		}).success(function( data ) {
+			if (data.resultCode == '0000') {
+				closeMessageBox('passwordInitPopup', 'custom');
+				messageBox('비밀번호 변경완료', data.resultMessage, function() {
+
+					//logout();
+					completeLogin(function(){
+						loginUtil.executeCallBack();
+
+					});
+				});
+			} else {
+				closeMessageBox('passwordInitPopup', 'custom');
+				messageBox(data.resultMessage, function(){
+					customMessageBox('passwordInitPopup');
+				});
+			}
+		});
+
+	}
+	function oldSiteGo()
+	{
+		window.open("http://www.megabox.co.kr");
+	}
+
+	function oldSiteGoPopupClose()
+	{
+		$('#September_bk_Popup').hide();
+	}
+
+	function bookingRefresh() {
+		$('.modal').not('#reservation').modal('hide');
+	}
+
+	var webIdRegisterCode="";	//memberCode
+	var webIdRegisterCi="";		//iPinCi
+	var webIdRegisterMemberClass="";		// 국적 정보 - 메가박스 1:내국인, 2:외국인
+	var webIdDupIdCheck=false;	//id중복체크 flag
+	var webIdRegisterIsSaveCheck=false; //id저장여부 flag
+
+	/**
+	 * 웹아이디 변경시 flag 초기화
+	 */
+	$(function(){
+		$('#messageBox_IDregisterPopup input[name=webId]').change(function(){
+			webIdDupIdCheck=false;
+			webIdRegisterIsSaveCheck=false;
+		});
+	})
+
+	/**
+	 * 웹아이디 등록 팝업
+	 * @param registDate
+	 * @param code
+	 * @param ci
+	 */
+	function webIdRegisterAlert(registDate, code, ci, mc) {
+		$('#registerWebIdPopup .registDate').text('가입: ' + registDate);
+		customMessageBox('registerWebIdPopup');
+
+		$('#idRegBtn').off('click').on('click',function(){
+			closeMessageBox('registerWebIdPopup', 'custom');
+			webIdRegisterProc(code, ci, mc);
+		});
+	}
+
+	/**
+	 * 웹아이디 등록
+	 * @param memberCode
+	 * @param ci
+	 */
+	function webIdRegisterProc(memberCode, ci, mc) {
+		webIdRegisterCode=memberCode;
+		webIdRegisterCi=ci;
+		webIdRegisterMemberClass=mc;
+		customMessageBox('messageBox_IDregisterPopup');
+		$('#messageBox_IDregisterPopup').keyBlock();
+	}
+
+	/**
+	 * 웹아이디 중복 체크
+	 */
+	function webIdRegisterCheckDupId() {
+
+		var $webId = $('#messageBox_IDregisterPopup input[name=webId]');
+
+		if (webIdDupIdCheck) {
+			return;
+		}
+
+		if (!webIdRegisterValidation($webId)) {
+			return;
+		}
+
+		$.ajax({
+			url: '/DataProvider',
+			type: 'POST',
+			data: {_command: 'User.checkWebIdExists', web_Id: $webId.val()}
+		}).success(function( data ) {
+			if (data.resultCode == '0000') {
+				webIdDupIdCheck=true;
+
+				var alert = messageBox('아이디 중복체크 결과', data.resultMessage);
+				$(alert).on('click', 'button.ok', function(){
+					$('#mask:eq(0)').remove();
+				}).on('click', 'button.btn_ca_close', function(){
+					$('#mask:eq(0)').remove();
+				});
+			} else {
+				webIdDupIdCheck=false;
+
+				var alert = messageBox(data.resultMessage);
+				$(alert).on('click', 'button.ok', function(){
+					$('#mask:eq(0)').remove();
+				}).on('click', 'button.btn_ca_close', function(){
+					$('#mask:eq(0)').remove();
+				});
+			}
+		});
+	}
+	/**
+	 * 웹아이디 validation check
+	 * @param $webId
+	 */
+	function webIdRegisterValidation($webId) {
+		if ($.trim($webId.val()) == '') {
+			webIdDupIdCheck=false;
+
+			var alert = messageBox('ID를 입력해주세요.');
+			$(alert).on('click', 'button.ok', function(){
+				$('#mask:eq(0)').remove();
+			}).on('click', 'button.btn_ca_close', function(){
+				$('#mask:eq(0)').remove();
+			});
+			return false;
+		}
+
+		if (!/^[a-zA-Z0-9]{8,12}$/g.test($webId.val())) {
+			webIdDupIdCheck=false;
+
+			var alert = messageBox('아이디는 숫자, 영문포함 8자리 이상만 가능합니다.');
+			$(alert).on('click', 'button.ok', function(){
+				$('#mask:eq(0)').remove();
+			}).on('click', 'button.btn_ca_close', function(){
+				$('#mask:eq(0)').remove();
+			});
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * 웹아이디 등록
+	 */
+	function webIdRegisterSave()
+	{
+		if(webIdRegisterCode.trim()=="" || webIdRegisterCi.trim()=="" || webIdRegisterMemberClass.trim()=="")
+		{
+			messageBox('시스템 오류로 재인증이 다시 하셔야 됩니다.',function(){
+				location.reload(true);
+			});
+			return;
+		}
+
+		if(webIdRegisterIsSaveCheck) return;
+
+		if(validate('#messageBox_IDregisterPopup')) {
+
+			var $webId = $('#messageBox_IDregisterPopup input[name=webId]');
+			var $webPwd = $('#messageBox_IDregisterPopup input[name=webPassword]');
+			var $webPwd2 = $('#messageBox_IDregisterPopup input[name=webPassword2]');
+
+			if (!webIdRegisterValidation($webId)) {
+				webIdRegisterIsSaveCheck=false;
+				return;
+			} else {
+				if (!webIdDupIdCheck) {
+					var alert = messageBox('아이디 중복을 확인해주세요.');
+					$(alert).on('click', 'button.ok', function(){
+						$('#mask:eq(0)').remove();
+					}).on('click', 'button.btn_ca_close', function(){
+						$('#mask:eq(0)').remove();
+					});
+
+					webIdRegisterIsSaveCheck=false;
+					return;
+				}
+			}
+
+			if (!/((?=.{10,})(?=.*[0-9])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[0-9]).*$)/g.test($webPwd.val().trim())) {
+				var alert = messageBox( "영문, 숫자, 특수문자 중 2가지 이상 조합 10자리 이상으로 입력 해 주세요.");
+				$(alert).on('click', 'button.ok', function(){
+					$('#mask:eq(0)').remove();
+				}).on('click', 'button.btn_ca_close', function(){
+					$('#mask:eq(0)').remove();
+				});
+
+				$('#messageBox_IDregisterPopup input[name=webPassword]').val('');
+				$('#messageBox_IDregisterPopup input[name=webPassword2]').val('');
+				$('#messageBox_IDregisterPopup input[name=webPassword]').focus();
+				webIdRegisterIsSaveCheck=false;
+				return;
+			}
+
+			// 비밀번호 재입력확인
+			if ($webPwd.val().trim() != $webPwd2.val().trim()) {
+				var alert = messageBox( "비밀번호 재입력을 다시 확인해주세요.");
+				$(alert).on('click', 'button.ok', function(){
+					$('#mask:eq(0)').remove();
+				}).on('click', 'button.btn_ca_close', function(){
+					$('#mask:eq(0)').remove();
+				});
+
+				$('#messageBox_IDregisterPopup input[name=webPassword2]').val('');
+				$('#messageBox_IDregisterPopup input[name=webPassword2]').focus();
+				webIdRegisterIsSaveCheck=false;
+				return;
+			}
+
+			if ($webId.val().trim().indexOf($webPwd.val().trim()) > -1) {
+				var alert = messageBox( "비밀번호는 아이디와 동일한 문자가 포함될 수 없습니다.\n다른 비밀번호를 입력해주세요!");
+				$(alert).on('click', 'button.ok', function(){
+					$('#mask:eq(0)').remove();
+				}).on('click', 'button.btn_ca_close', function(){
+					$('#mask:eq(0)').remove();
+				});
+
+				$('#messageBox_IDregisterPopup input[name=webPassword]').val('');
+				$('#messageBox_IDregisterPopup input[name=webPassword2]').val('');
+				$('#messageBox_IDregisterPopup input[name=webPassword]').focus();
+				webIdRegisterIsSaveCheck=false;
+				return;
+			}
+
+			webIdRegisterIsSaveCheck=true;
+
+			var ajaxOptions={
+					url: getServerUrl(true) + '/DataProvider',
+					type: 'POST',
+					async: false,
+					data: {
+						_command: 'User.registerWebIdAndPassword',
+						memberCode: webIdRegisterCode,
+						iPinCi: webIdRegisterCi,
+						memberClass: webIdRegisterMemberClass,
+						orgwebid:'',
+						newWebId: $webId.val().trim(),
+						newAuthKey: sha256_digest($webPwd.val().trim()),
+						siteCode: '36'
+					}
+				};
+
+			if(!lowBrowserVer)
+			{
+				ajaxOptions.crossDomain=true;
+				ajaxOptions.xhrFields={withCredentials : true};
+			}
+
+			$.ajax(ajaxOptions).success(function( data ) {
+
+				if (data.resultCode == '0000') {
+					messageBox('등록이 완료 되었습니다.<br />등록하신 아이디로 로그인 하시기 바랍니다.',function(){
+						location.href="/";
+					});
+				} else {
+					webIdRegisterIsSaveCheck=false;
+					messageBox(data.resultMessage);
+				}
+			});
+		} else {
+			webIdRegisterIsSaveCheck=false;
+		}
+	}
+
+	function userModifySwitch(switchCode){
+		$.ajax({
+			url: '/pages/common/userModifySwitch.jsp',
+			type: 'POST',
+			data: {
+				switchCode : switchCode
+			}
+		}).success(function( data ) {
+
+		});
+	}
+	$(document).ready(function() {
+		//추가요~ 회원 재인증 안에 tab
+		var tab_ck = true;//클릭과 포커스 같이먹는거 차단
+		$("#messageBox_reAuthPopup .tab_d dt a").on("click focusin",function(){
+			if(tab_ck == false) return false;
+
+			tab_ck = false;
+			$("#messageBox_reAuthPopup .tab_d .tab_on").removeClass("tab_on").next("dd").hide();
+			$(this).parent("dt").addClass("tab_on").next("dd").show();
+			setTimeout(function(){tab_ck = true;},1000);
+		});
+		var loginCheck="NO";
+		var userModifyCheck="";
+		var modType="";
+		if(loginCheck=="YES" && userModifyCheck!='off' && !modType && menuId!='reterms')
+		{
+			// 개인정보변경안내 팝업호출
+			$.ajax({
+				url: getServerUrl(true) + '/DataProvider',
+				type: 'POST',
+				crossDomain: true,
+			      xhrFields: {
+			        withCredentials: true
+			      },
+				data: {
+					_command: 'User.getUserInfo'
+				}
+			}).success(function( data ) {
+				if (data.resultCode === '0000') {
+					var info = data.info;
+					if (info != null) {
+
+						var codes = '';
+						var text = '';
+
+						// 휴대폰번호변경대상
+						if (info.handphonePopYn == 'Y') {
+							codes += 'phone;';
+							text += '휴대폰,';
+						}
+
+						// 이메일변경대상
+						if (info.emailPopupYn == 'Y') {
+							codes += 'email;';
+							text += ' 이메일,';
+						}
+
+						// 생년월일변경대상
+						if (info.birthdayPopupYn == 'Y') {
+							codes += 'birthday;';
+							text += ' 생년월일,';
+						}
+
+						// 약관변경대상여부
+						if (info.ruleAgreePopupYn == 'Y') {
+ 							messageBox('회원 약관 동의!', '변경된 약관에 동의 하셔야<br />홈페이지 이용이 가능합니다.', function() {
+ 								location.href = '/?menuId=reterms';
+ 							}, function(){
+								userModifySwitch('off');
+							});
+ 							return;
+						}
+
+						if (codes != '') {
+							text = text.substring(0, text.length-1);
+							messageBox('회원 정보 수정', '고객님의 ' + text + '에 오류가 있습니다.<br />회원정보를 수정해 주세요.', function() {
+								location.href = '/?menuId=mypage-myinfo&modType='+codes;
+							}, function(){
+								userModifySwitch('off');
+							});
+							return;
+						}
+
+						function messageBox(title, message, yesfn, nofn) {
+							var msgBoxEl = 'messageBox';
+							var msgBoxElCnt = $('div[id^=messageBox]').length;
+
+							if (msgBoxElCnt > 0)
+								msgBoxEl = 'messageBox' + msgBoxElCnt;
+
+							var htmlTxt = "";
+							htmlTxt += "<div id=\"" + msgBoxEl + "\" class=\"custom_alert_wrap\" tabindex='0'>";
+							htmlTxt += "	<div class=\"custom_alert\"  tabindex='0'>";
+							htmlTxt += "		<div class=\"ca_header\">";
+							htmlTxt += "			<h6>" + title + "</h6>";
+							htmlTxt += "		</div>";
+							htmlTxt += "		<div class=\"ca_body\">";
+							htmlTxt += "			<p>" + message + "</p>";
+							htmlTxt += "		</div>";
+							htmlTxt += "		<div class=\"ca_footer\">";
+							htmlTxt += "			<button type=\"button\" class=\"img_btn booking btn_regst_lt\"\ onmousedown=\"if(event.preventDefault) event.preventDefault();\" onclick=\"closeMessageBox('"+msgBoxEl+"', 'custom', " + nofn + ")\">다음에 하기</button>";
+							htmlTxt += "			<button type=\"button\" class=\"img_btn booking btn_mod_go\"\ onmousedown=\"if(event.preventDefault) event.preventDefault();\">변경하러 가기</button>";
+							htmlTxt += "		</div>";
+							htmlTxt += "		<button type=\"button\" class=\"img_btn booking btn_ca_close\" onmousedown=\"if(event.preventDefault) event.preventDefault();\" onclick=\"closeMessageBox('"+msgBoxEl+"', 'custom')\">닫기</button>";
+							htmlTxt += "	</div>";
+							htmlTxt += "</div>";
+
+							$('body').append(htmlTxt);
+
+							$('#'+msgBoxEl+' button.img_btn.btn_mod_go').on('click', function() {
+								closeMessageBox(msgBoxEl, 'custom', yesfn);
+							});
+
+							customMessageBox(msgBoxEl);
+						}
+
+						function passwordInit() {
+							if (!(/((?=.{10,})(?=.*[0-9])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[0-9]).*$)/g.test(newPassword))) {
+								messageBox('비밀번호 변경', "비밀번호를 다시 확인해주세요.");
+								return;
+							}
+
+							if (newPassword !== cNewPassword) {
+								messageBox('비밀번호 변경', '비밀번호 재입력을 다시 확인해주세요.');
+								return;
+							}
+
+							$.ajax({
+								url: '/DataProvider',
+								type: 'POST',
+								data: {
+									_command: 'User.changePasswordInEdit',
+									pwd1: '',
+									pwd2: sha256_digest(oldPassword),
+									newPwd: sha256_digest(newPassword),
+									siteCode: '36'
+								}
+							}).success(function( data ) {
+								if (data.resultCode === '0000') {
+									messageBox('비밀번호 변경완료', '비밀번호가 변경되었습니다. 재 로그인 후 이용바랍니다', function() {
+										logout();
+									});
+
+								} else {
+									messageBox( data.resultMessage);
+								}
+							});
+						}
+					}
+				} else {
+					messageBox(data.resultMessage);
+				}
+			});
+		}
+		//nonMemberCancel();
+		$('.input_address').click(function(){
+			$(".nfind_zipcode #footer-address").val('');
+			$(".nfind_zipcode .scroll_txt").empty();
+			ZipCode.show();
+		});
+
+		$('.find_zipcode_lp_close, .find_zipcode_bg').click(function(){
+			ZipCode.close('.nfind_zipcode');
+		});
+
+		$('.find_zipcode_lp_close, .find_zipcode_bg_selected').click(function(){
+			ZipCode.close('.nfind_zipcode_selected');
+		});
+
+		$('select').selectpicker();
+
+		$('.nfind_zipcode input[name=search]').keyup(function(e){
+			if( e.which == 13){
+				ZipCode.search();
+	   		}
+		});
+		// 우편번호팝업 관련 End
+
+		// 로그인팝업 관련
+		$('#modal_login').keyBlock();
+
+		// 비회원로그인팝업 관련
+// 		$('#nonmemberBookingPopupSub').keyBlock();
+		$('#nonmemberBookingPopup').keyBlock();
+// 		$('input:radio').on('ifClicked', function(event){
+// 			if ($(this).val() === 'Y') {
+// 				$('#nonmemberBookingPopupSub').fadeIn();
+// 			} else {
+// 				$("#nonmemberBookingPopupSub").find("input").val("").end().fadeOut();
+// 			}
+// 		});
+// 		$('input:radio').on('keyup', function(event){
+// 			if ($(this).val() === 'Y') {
+// 				$('#nonmemberBookingPopupSub').fadeIn();
+// 			} else {
+// 				$("#nonmemberBookingPopupSub").find("input").val("").end().fadeOut();
+// 			}
+// 		});
+
+
+		//2015.01.14 김창현 추가
+		$('div#messageBox_reAuthPopup input:radio[name^=reAuthCheck_1]').on('ifClicked', function(event){
+			if ($(this).val() === '1') {
+				resetInput('messageBox_reAuthPopup');
+				$('li#reAuthTab1_mobile').show();
+				$('li#reAuthTab1_email').hide();
+			} else {
+				resetInput('messageBox_reAuthPopup');
+				$('li#reAuthTab1_mobile').hide();
+				$('li#reAuthTab1_email').show();
+			}
+		});
+
+
+	});
+
+	function MM_openBrWindow(url,title,scroll,width,height){
+		var pop=window.open(url,title,scroll,width,height);
+		pop.focus();
+	}
+
+	/**
+	 * 비밀번호 변경 함수
+	 */
+	function changePassword2() {
+		var password 	= $('#messageBox_changePassword2 input[name=password]').val();
+		var cPassword 	= $('#messageBox_changePassword2 input[name=cPassword]').val();
+		var memberCode 	= $('#messageBox_changePassword2 input[name=memberCode]').val();
+
+		if (password.trim()=="" || cPassword.trim()=="") {
+			messageBox('비밀번호 변경', '비밀번호를 입력해 주세요.');
+			return;
+		}
+
+		if (password !== cPassword) {
+			messageBox('비밀번호 변경', '비밀번호 재입력을 다시 확인해주세요.');
+			return;
+		}
+
+		var web_id = loginUtil.getLoginWebId();
+		if (web_id!="") {
+			if (password.indexOf(web_id)>-1) {
+				messageBox('비밀번호 변경', '비밀번호는 아이디와 동일한 문자가 포함될 수 없습니다.<br />다른 비밀번호를 입력해주세요!');
+				return;
+			}
+		}
+
+		if (!(/((?=.{10,})(?=.*[0-9])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[a-zA-Z]).*$)|((?=.{10,})(?=.*[!@#$%^&*+=-])(?=.*[0-9]).*$)/g.test(password))) {
+			$('span#passwordMessage2').html('영문, 숫자, 특수문자 중 2가지 이상 조합<br>10자리 이상으로 입력 해 주세요.');
+			return;
+		}
+
+		$.ajax({
+			url: getServerUrl(true) + '/DataProvider',
+			type: 'POST',
+			crossDomain: true,
+		      xhrFields: {
+		        withCredentials: true
+		      },
+			data: {
+				_command : 'User.changePassword',
+				memberCode : memberCode,
+				passwd : sha256_digest(password),
+				ipAddress : '54.224.117.28',
+				siteCode : '36'
+			}
+		}).success(function( data ) {
+			closeMessageBox('messageBox_changePassword2', 'custom');
+
+			if (data.resultCode == "0000") {
+				messageBox('비밀번호 변경완료', '비밀번호가 변경되었습니다. <br> 재 로그인 후 이용바랍니다.', function() {
+					location.reload(true);
+				});
+			} else {
+				messageBox(data.resultMessage);
+			}
+		});
+	}
+	/**
+	 * 예매취소시 http->https 전환 함수
+	 * @param resultMessage
+	 * @param cancelType
+	 */
+	function submitHttp(resultMessage, cancelType){
+
+		var userFindForm = document.bookingCancelHttpsForm;
+		userFindForm.method="POST";
+		userFindForm.action=getServerUrl(false) +"/pages/mypage/booking/MyPage_Booking_Cancel_Fee.jsp";
+		userFindForm.target="bookingCancelHttpsFrame";
+		userFindForm.innerHTML = "";
+
+		var oInput = document.createElement('input');
+		oInput.type = "text";
+		oInput.name = 'sendType';
+		oInput.value = "5";
+		userFindForm.appendChild(oInput);
+
+		oInput = document.createElement('input');
+		oInput.type = "text";
+		oInput.name = 'resultMessage';
+		oInput.value = resultMessage;
+		userFindForm.appendChild(oInput);
+
+		oInput = document.createElement('input');
+		oInput.type = "text";
+		oInput.name = 'cancelType';
+		oInput.value = cancelType;
+		userFindForm.appendChild(oInput);
+
+		userFindForm.submit();
+
+	}
+
+	/**
+	 * 전면배너 닫기 함수
+	 */
+	function closeFrontBanner(){
+		// 24시간 체크 여부 확인
+		// 체크되었을 경우
+		if($('#fbClose24').is(":checked")== true){
+			// 쿠키에 값 넣기.5초 설정
+			setCookie('fbClose24Yn', 'Y', 1);
+		}
+
+		$('#notice_popup').hide();
+	}
+
+	/**
+	 * 나의무비스토리 팝업 닫기 함수
+	 */
+	function closeMypageMovieNotice(){
+
+		// 닫기버튼 클릭했을 경우
+		setCookie('mypageMovieNoticeYn', 'Y', 365);
+		$('#tooltip_area').hide();
+	}
+
+	/**
+	 * 인증팝업 노출
+	 */
+	function showReAuthPopup(){
+		$('#reAuthTab1').find('#reAuth_phone1').trigger('ifClicked');
+		customMessageBox('messageBox_reAuthPopup');
+	}
+
+	/**
+	 * 무비포스터 로그인
+	 */
+	function moviepostLogin(){
+		loginProc('moviepost_modal_login', 'N', function(){
+			messageBox('로그인', '로그인 되었습니다.', function(){
+
+			});
+		});
+	}
+
+	/**
+	 * 무비포스터 로그인팝업 닫기 함수
+	 */
+	function closeMoviepostLoginPopup(){
+		customHideModal('#moviepost_modal_login');
+		$('.tempFocus').focus();
+		$('.tempFocus').removeClass(' tempFocus');
+	}
+
+
+	//2015.01.09 김창현 추가
+	/**
+	 * 스토어 로그인
+	 */
+	function storeLogin(){
+
+		loginProc('store_modal_login', 'N', function(){
+			messageBox('로그인', '로그인 되었습니다. 구매하기 버튼을 다시 클릭해 주세요.', function(){
+				$('li.tx_info3').find('button.btn_buy').focus();
+			});
+		});
+	}
+
+	/**
+	 * 스토어로그인팝업 닫기 함수
+	 */
+	function closeStoreLoginPopup(){
+
+		customHideModal('#store_modal_login');
+		$('.tempFocus').focus();
+		$('.tempFocus').removeClass(' tempFocus');
+
+	}
+
+	/**
+	 * 스토어 로그인
+	 */
+	function voteLogin(){
+		loginProc('vote_modal_login', 'N', function(){
+			messageBox('로그인', '로그인 되었습니다. 투표하기 버튼을 다시 클릭해 주세요.', function(){
+				$('li.tx_info3').find('button.btn_buy').focus();
+			});
+		});
+	}
+
+	/**
+	 * 스토어로그인팝업 닫기 함수
+	 */
+	function closeVoteLoginPopup(){
+
+		customHideModal('#vote_modal_login');
+		$('.tempFocus').focus();
+		$('.tempFocus').removeClass(' tempFocus');
+
+	}
+
+	//2016.02.07 김형진 추가
+	/**
+	 * 쿠폰북 로그인
+	 */
+  	function couponLogin(){
+		loginProc('coupon_modal_login', 'N', function(){
+			messageBox('로그인', '로그인 되었습니다.', function(){
+				var frm = document.getElementById('frm_vipZone');
+
+				frm.method="POST";
+				frm.action="./?menuId=membership#menu4";
+
+				var param = document.createElement("input");
+				param.setAttribute("type", "hidden");
+				param.setAttribute("name", "tabCode");
+				param.setAttribute("id", "tabCode");
+				param.setAttribute("value", "tab5");
+
+				frm.appendChild(param);
+				frm.submit();
+			});
+		});
+	}
+
+	/**
+	 * 쿠폰북로그인팝업 닫기 함수
+	 */
+ 	function closeCouponLoginPopup(){
+
+		customHideModal('#coupon_modal_login');
+		$('.tempFocus').focus();
+		$('.tempFocus').removeClass(' tempFocus');
+
+	}
+
+	/**
+	 * 빠른예매 로그인
+	 */
+	function login2() {
+		loginProc('modal_login', 'N', function(data){
+			// 예약화면이 없으면 화면 리프레쉬(공통로그인 팝업을 쓰다보니.. 조건문 추가)
+			if($('div#reservation').css('display') != 'block'){
+				location.reload();
+			} else {
+
+				Booking.loginFlag = 'Y';	// 예매 도중 로그인을 했는지 여부
+				if (BookingNonSeat.nonSeatYn=='Y') {
+					if(!BookingSeat.checkBlackList('')) return;
+					BookingNonSeat.transNo = BookingSeat.createTradeNo(BookingNonSeat.cinemaCode);
+					BookingNonSeat.holdNonselectionSeat(BookingNonSeat.cinemaCode, BookingNonSeat.screenCode, BookingNonSeat.playDate, BookingNonSeat.showSeq, BookingSeatType.seatType, BookingNonSeat.transNo, 'Y');
+				} else {
+					// 거래번호생성 및 좌석선점
+					BookingSeatDatas.nextStep2('');
+				}
+			}
+
+		});
+	}
+	/**
+	 * 로그인처리 함수
+	 * @param loginDiv
+	 * @param keepLogin
+	 * @param fn_callback
+	 */
+	function loginProc(loginDiv, keepLogin, fn_callback){
+
+		var inputId 	  = $('#' + loginDiv + ' input[name=userId]');
+		var inputPw 	  = $('#' + loginDiv + ' input[name=userPw]');
+		var userId 	 	  = $(inputId).val();
+		var userPw 	 	  = $(inputPw).val();
+
+		if (userId == "") {
+			messageBox('아이디를 입력하세요.', function(){
+				$(inputId).focus(function(){
+					return false;
+				});
+			});
+			return;
+		}
+
+		if (userPw == "") {
+			messageBox('비밀번호를 입력하세요.', function(){
+				$(inputPw).focus(function(){
+					return false;
+				});
+			});
+			return;
+		}
+
+		if (keepLogin != "Y") {
+			keepLogin = "N";
+		}
+
+		if (Modernizr.canvas) {
+			var ajaxOptions={
+					url: getServerUrl(true) + '/DataProvider',
+					type: 'POST',
+					data: {
+						_command: 'User.webIdLogin',
+						web_Id: userId,
+						pwd_Md5: '',
+						pwd_Sha256: sha256_digest(userPw),
+						keepLogin: keepLogin
+					}
+				};
+
+			if (!lowBrowserVer) {
+				ajaxOptions.crossDomain=true;
+				ajaxOptions.xhrFields={withCredentials : true};
+			}
+			$.ajax(ajaxOptions).success(function( data ) {
+
+				loginUtil.setLoginResultCode(data.resultCode);
+				loginUtil.setLoginJVipPopupYN(data.jVipPopupYN);
+				loginUtil.setCallBackFunc(fn_callback);
+
+				if (data.resultCode == '0000') {
+					customHideModal('#'+loginDiv);
+					if(BookingSeatDatas.movieData.movieCode) loginUtil.executeCallBack();
+					else checkJoongangVipPop(data.jVipPopupYN);
+				} else if (data.resultCode == '7001') {	//비밀번호5회오류
+					loginUtil.setLoginWebId(userId);
+					customHideModal('#'+loginDiv);
+					customMessageBox('messageBox_loginFail1');
+					return;
+				} else if (data.resultCode == '7002') {	//비밀번호변경 3개월초과
+					customHideModal('#'+loginDiv);
+					checkChangePassword(data.jVipPopupYN);
+					return;
+				} else if (data.resultCode == '8002') {	//비밀번호 초기화
+					customHideModal('#'+loginDiv);
+					customMessageBox('passwordInitPopup');
+					return;
+				} else if (data.resultCode == '8003') {	//장기미사용
+					customHideModal('#'+loginDiv);
+					customMessageBox('messageBox_loginFail2');
+					return;
+				} else if (data.resultCode == '8004') {	//마케팅 수신동의
+					customHideModal('#'+loginDiv);
+					checkMarketingAgree(data.jVipPopupYN);
+					return;
+				} else if (data.resultCode == '8009') {	//마케팅 수신 미동의
+					customHideModal('#'+loginDiv);
+					processMarketingNotAgree();
+					return;
+				} else if (data.resultCode == '0901') {
+					customHideModal('#'+loginDiv);
+					customMessageBox('no_symbol_popup');
+		 			return;
+				} else if (data.resultCode == '6150') { //휴면계정
+					confirmBox('로그인', data.resultMessage, function(){
+						checkDormantAccount();
+					});
+					return;
+				} else {
+					messageBox('로그인', data.resultMessage);
+		 			return;
+				}
+			});
+		} else {
+			var hostNameValue=location.hostname;
+			var message = userId + ';' + userPw + ';' + keepLogin + ';';
+			$('#loginForIE8Frame')[0].contentWindow.postMessage(message, 'https://'+hostNameValue);
+		}
+	}
+	/**
+	 * 로그인완료 함수
+	 */
+	function completeLogin(fn_callback){
+		$.ajax({
+			url: '/DataProvider',
+			type: 'POST',
+			data: {
+				_command: 'User.completeLogin'
+			}
+		}).success(function( data ) {
+			if (data.resultCode == "0000") {
+				if(fn_callback)
+					fn_callback();
+			} else {
+				messageBox(data.resultMessage);
+			}
+		});
+	}
+
+	function checkChangePassword(jVipPopupYN){
+		$.ajax({
+			url: getServerUrl(true) + '/DataProvider',
+			type: 'POST',
+			crossDomain: true,
+		      xhrFields: {
+		        withCredentials: true
+		      },
+			data: {
+				_command: 'User.getUserInfo'
+			}
+		}).success(function(response) {
+			if (response.resultCode == '0000') {
+				var info = response.info;
+				if (info != null) {
+					var changePwdDtm = info.changePwdDtm;
+						var changePwdDtmArr = changePwdDtm.split(' ');
+					$('#passwordChangePopup .changePasswordDate').text('비밀번호 변경일 : ' + info.changePwdDay + '일 전에 변경됨.(' + changePwdDtmArr[0] + ')');
+
+					password_chg();
+					$('#passwordChangePopup').on('click', 'button.no_chg', function(){
+						if(jVipPopupYN == "Y") {
+							checkJoongangVipPop(jVipPopupYN);
+						} else {
+							loginUtil.executeCallBack();
+						}
+					}).on('click', 'button.pop_close', function(){
+						if(jVipPopupYN == "Y") {
+							checkJoongangVipPop(jVipPopupYN);
+						} else {
+							loginUtil.executeCallBack();
+						}
+					});
+					return;
+				}
+			} else {
+				messageBox(response.resultMessage, function(){
+					location.href = "/";
+				});
+				return;
+			}
+		});
+	}
+
+	function checkMarketingAgree(jVipPopupYN){
+		$.ajax({
+			url: '/DataProvider',
+			type: 'POST',
+			data: {
+				_command: 'User.checkMarketingAgree'
+			}
+		}).success(function(response) {
+			if (response.resultCode == '0000') {
+				var receiveType = "";
+				var receiveDtm  = "";
+				if (response.smsReceiveYN == "Y" && response.smsReceiveDTM != null && response.smsReceiveDTM != undefined) {
+					receiveType = "SMS   : " + response.smsReceiveDTM;
+				}
+				if (response.mailingReceiveYN == "Y" && response.mailingReceiveDTM != null && response.mailingReceiveDTM != undefined) {
+					receiveDtm = "Email : " + response.mailingReceiveDTM;
+				}
+				$('#maketingChangePopup .marketingEmailSms').text(receiveType);
+				$('#maketingChangePopup .marketingDate').text(receiveDtm);
+
+				maketing_chg();
+				$('#maketingChangePopup').on('click', 'button.no_chg', function(){
+					if(jVipPopupYN == "Y") {
+						checkJoongangVipPop(jVipPopupYN);
+					} else {
+						loginUtil.executeCallBack();
+					}
+				}).on('click', 'button.pop_close', function(){
+					if(jVipPopupYN == "Y") {
+						checkJoongangVipPop(jVipPopupYN);
+					} else {
+						loginUtil.executeCallBack();
+					}
+				});
+
+			} else {
+				messageBox(response.resultMessage, function(){
+					location.href = "/";
+				});
+				return;
+			}
+		});
+	}
+
+	//마케팅 수신 미동의 유도 팝업 표시/비표시
+	function toggleMarketingNotAgreePopup(){
+		var win_h = $(window).height();//win_height
+		var idx = $("#maketingNotAtreePopup.ad_induce_pop");
+		if( idx.hasClass("open_pop") ){
+			$("body").removeClass("body_ovh");
+			idx.removeClass("open_pop").hide().css("visibility","hidden");
+		}else{
+			$("body").addClass("body_ovh");
+
+			idx.addClass("open_pop").show();
+
+			var pop_h = idx.find(".pop_con").height();//pop_con height
+			var css_mr_top = (win_h-pop_h)/2;
+			if( css_mr_top < 0 ) css_mr_top = 10;
+
+			idx.css("visibility","visible").find(".pop_con").css("marginTop",css_mr_top+"px");
+		}
+	}
+
+	function processMarketingNotAgree(){
+		//$.ajax({
+		//	url: '/DataProvider',
+		//	type: 'POST',
+		//	data: {
+		//		_command: 'User.checkMarketingAgree'
+		//	}
+		//}).success(function(response) {
+		//	if (response.resultCode == '0000') {
+		//		var receiveType = "";
+		//		if (response.smsReceiveYN == "Y") {
+		//			receiveType = "sms";
+		//		}
+		//		if (response.mailingReceiveYN == "Y") {
+		//			if (receiveType.length > 0) receiveType += ", email"
+		//			else 						receiveType = "email"
+		//		}
+
+				toggleMarketingNotAgreePopup()
+				$('#maketingNotAtreePopup').on('click', 'button.no_chg', function(){
+					loginUtil.executeCallBack();
+				}).on('click', 'button.pop_close', function(){
+					loginUtil.executeCallBack();
+				});
+
+		//	} else {
+		//		messageBox(response.resultMessage, function(){
+		//			location.href = "/";
+		//		});
+		//		return;
+		//	}
+		//});
+	}
+
+	function checkJoongangVipPop(jVipPopupYN){
+		if ("Y" != getCookie("joongangVip") && jVipPopupYN == "Y") {
+			joongangVipPop('Y');
+
+			$("#joongangVipPopup.joongang_popup_wrap").find('#joongangVip_close').bind("click", function(){
+				if ($("#joongangVipPopup.joongang_popup_wrap").find('#joongang_chk').is(":checked")) {
+					setCookie('joongangVip', 'Y', 7);
+				}
+				if(Booking.loginFlag != 'Y') loginUtil.executeCallBack();
+			});
+		} else {
+			if(Booking.loginFlag != 'Y') loginUtil.executeCallBack();
+		}
+	}
+
+	function joongangVipPop(resetYn){
+		var _pop = $('#joongangVipPopup');
+		if (_pop.hasClass('in')){
+			var resetYn = $('#joongangVipPopup').find('[name=resetYn]').val();
+			_pop.modal('hide');
+			if(resetYn && resetYn=='Y' && Booking.loginFlag != 'Y'){
+				loginUtil.executeCallBack();
+			}
+		} else {
+
+			if(resetYn && resetYn=='Y'){
+				_pop.find("#joongang_chk_wrap").show();
+			}else{
+				_pop.find("#joongang_chk_wrap").hide();
+			}
+			_pop.find(".icheckbox_minimal").removeClass("checked");
+			_pop.find(":checked").prop('checked', false);
+			_pop.find('[name=resetYn]').val(resetYn);
+			_pop.css("z-index", "2001");
+			_pop.modal('show');
+
+			$(".modal-backdrop.joongangVipPopup.in").css("z-index", "2000");
+		}
+	}
+
+	//2015.05.08 센트럴점 리뉴얼공사로 인해 임시로 팝업 노출 - kch
+	$(function(){
+		var region = "null";
+		var cinema = "null";
+
+		getCinemaPopup(region, cinema);
+	});
+
+</script>
+<script src="/js/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="/js/jquery.fileupload.js" type="text/javascript"></script>
+
+</div>
+	
+
+<script type="text/javascript">
+// 현재 URL 담기
+var URLSearch = location.search ? location.search : "/";
+var URLTitle = document.title;
+// GA 호출 및 셋팅
+megaboxLog.init();
+</script>
+</body>
+</html>

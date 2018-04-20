@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Nagios Plugins | The home of the official Nagios® Plugins</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://nagios-plugins.org/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://nagios-plugins.org/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Nagios Plugins &raquo; Feed" href="https://nagios-plugins.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Nagios Plugins &raquo; Comments Feed" href="https://nagios-plugins.org/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/nagios-plugins.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.5"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='crayon-css'  href='http://nagios-plugins.org/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='http://nagios-plugins.org/wp-content/themes/twentytwelve/style.css?ver=4.8.5' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='http://nagios-plugins.org/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://nagios-plugins.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://nagios-plugins.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/nagios-plugins.org\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://nagios-plugins.org/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<link rel='https://api.w.org/' href='https://nagios-plugins.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://nagios-plugins.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nagios-plugins.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.5" />
+<link rel="stylesheet" type="text/css" href="http://nagios-plugins.org/wp-content/plugins/wp-recaptcha/recaptcha.css" /></head>
+
+<body class="home blog custom-font-enabled">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="https://nagios-plugins.org/" title="Nagios Plugins" rel="home">Nagios Plugins</a></h1>
+			<h2 class="site-description">The home of the official Nagios® Plugins</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li class="current_page_item"><a href="https://nagios-plugins.org/">Home</a></li><li class="page_item page-item-12"><a href="https://nagios-plugins.org/downloads/">Downloads</a></li>
+<li class="page_item page-item-5"><a href="https://nagios-plugins.org/support/">Support</a></li>
+<li class="page_item page-item-53"><a href="https://nagios-plugins.org/documentation/">Documentation</a></li>
+<li class="page_item page-item-7"><a href="https://nagios-plugins.org/development/">Development</a></li>
+<li class="page_item page-item-10"><a href="https://nagios-plugins.org/team/">Team</a></li>
+<li class="page_item page-item-59"><a href="https://nagios-plugins.org/faq/">FAQ</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+		
+										
+	<article id="post-247" class="post-247 post type-post status-publish format-standard hentry category-releases category-site-news">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-2-1-released/" rel="bookmark">Nagios Plugins 2.2.1 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <a href="https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz">nagios-plugins 2.2.1</a> has been released and is available for <a href="https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz">download</a>.</p>
+<p><u><strong>Fixes:</strong></u></p>
+<ul>
+<li>check_users: not accepting zero as the threshold</li>
+<li>check_http: reports warning where it should report ok with -e</li>
+<li>check_snmp: does not work with -6 &#8211;ipv6 flags</li>
+<li>check_swap: threshold calculation in bytes requires subtracting 65</li>
+<li>check_uptime: fixed backward help text for thresholds</li>
+<li>check_http: Don’t prematurely report success when checking HTTP TLS cert validity</li>
+<li>check_http: fix parsing the last header</li>
+<li>check_mailq: Fix for Postfix and better Sudo Checking</li>
+<li>configure.ac: Fix spelling error</li>
+<li>check_ntp_peer: requires newline when there is a socket timeout (fix in netutils.c)</li>
+<li>check_users: segmentation fault if both thresholds are not provided</li>
+<li>check_dns: DNS CRITICAL &#8211; expected ‘{hostname}.’ but got &#8216;name = {hostname}.&#8217;</li>
+<li>check_mailq: Nullmailer Regex is not working for Ubuntu 16.04</li>
+<li>check_swap: Downstream Fedora patch: Prevent check_swap from returning OK, if no swap activated</li>
+<li>Building RPMs on Amazon Linux &#8211; Add &#8216;install-root&#8217; on line 165 of spec file</li>
+<li>check_http: Memory allocation error</li>
+</ul>
+<p><a href="https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz">Download Nagios-Plugins 2.2.1 here.</a></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-2-1-released/" title="4:21 pm" rel="bookmark"><time class="entry-date" datetime="2017-04-19T16:21:46+00:00">April 19, 2017</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/jfrickson/" title="View all posts by John Frickson" rel="author">John Frickson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-240" class="post-240 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-2-0-released/" rel="bookmark">Nagios Plugins 2.2.0 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <a href="https://nagios-plugins.org/download/nagios-plugins-2.2.0.tar.gz">nagios-plugins 2.2.0</a> has been released and is available for <a href="https://nagios-plugins.org/download/nagios-plugins-2.2.0.tar.gz">download</a>.</p>
+<p><u><strong>Enhancements:</strong></u></p>
+<ul>
+<li>check_flexlm: if <code>-F &lt;license file&gt;</code> is not specified, will use <code>LM_LICENSE_FILE</code> environment var</li>
+<li>check_load: Added per cpu load average message</li>
+<li>check_smtp: add -L flag to support LMTP (LHLO instead of HELO/EHLO)</li>
+</ul>
+<p><u><strong>Fixes:</strong></u></p>
+<ul>
+<li>check_http: -e breaks -f</li>
+<li>check_mrtg: Add state to status output</li>
+<li>check_ping: ping runs 30 times when host is down</li>
+<li>check_icmp: does not have the -p argument in the help</li>
+<li>check_dns: Segfaulting with timeout &gt; 26 sec</li>
+<li>check_disk: missing -lrt on Solaris</li>
+<li>check_http: segmentation fault</li>
+<li>check_http: help text update for virtual hosts</li>
+<li>check_snmp: Thresholds were being shown twice</li>
+<li>check_hpjd: some jd 610 cards have a false flag that printer is offline</li>
+<li>check_http: Handle reference redirect like //www.site.org/test</li>
+<li>check_disk: alerts issued too soon</li>
+<li>fix: Allocator sizeof operand mismatch</li>
+<li>fix: Dead assignment</li>
+<li>Shellcheck: fix most of the shellcheck warnings.</li>
+<li>check_ntp: touch ntp servers at most once every seconds</li>
+<li>check_dns: authoritative test (-A) is broken</li>
+<li>check_dns: reports TXT records incorrectly</li>
+<li>check_file_age: does not handle filenames WITHOUT space!</li>
+<li>de,fr.po: fix syntax errors end-of-line within string</li>
+<li>lib/parse_ini.c: fix gcc warning: implicit declaration of function ‘idpriv_temp_drop’ and &#8216;idpriv_temp_restore’</li>
+<li>add openssl 1.1 support</li>
+</ul>
+<p><a href="https://nagios-plugins.org/download/nagios-plugins-2.2.0.tar.gz">Download Nagios-Plugins 2.2.0 here.</a></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/uncategorized/" rel="category tag">Uncategorized</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-2-0-released/" title="4:28 pm" rel="bookmark"><time class="entry-date" datetime="2017-01-19T16:28:52+00:00">January 19, 2017</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/jfrickson/" title="View all posts by John Frickson" rel="author">John Frickson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-231" class="post-231 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-4-released/" rel="bookmark">Nagios Plugins 2.1.4 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz">nagios-plugins 2.1.4</a></strong> has been released and is available for <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz">download.</a></strong></p>
+<p><u><strong>Enhancements:</strong><br />
+</u>&#8211; SNI support in check_tcp (ddbilik)<br />
+&#8211; check_disk_smb.pl: add support for -k for kerberos authentication<br />
+&#8211; check_file_age.c: allow wildcard matching</p>
+<p><u><strong>Fixes:</strong></u><br />
+&#8211; check_http: Don&#8217;t include default Accept header if one is provided<br />
+&#8211; check_disk: added &#8220;fuse.gvfsd-fuse&#8221; to list of fs types to ignore<br />
+&#8211; check_http: Fixed non-text chunked-encoded decoding<br />
+&#8211; check_http: segmentation fault (FreeBSD)<br />
+&#8211; check_dns: Update IF_RECORD to not erase query_found<br />
+&#8211; check_http: SSL Certificate check returns 12:00:00AM &lt;local timezone&gt;<br />
+&#8211; check_http: -u is misleading. Changed help text<br />
+&#8211; check_file_age: does not handle filenames with space<br />
+&#8211; check_snmp: units label option outputs the label in the incorrect location<br />
+&#8211; plugins-root/check_dhcp.c: fix a potential segfault<br />
+&#8211; check_users: not correctly detecting thresholds</p>
+<p><strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz">Download Nagios-Plugins 2.1.4 here.</a></strong></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/uncategorized/" rel="category tag">Uncategorized</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-1-4-released/" title="5:33 pm" rel="bookmark"><time class="entry-date" datetime="2016-11-17T17:33:18+00:00">November 17, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/swilkerson/" title="View all posts by Scott Wilkerson" rel="author">Scott Wilkerson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-226" class="post-226 post type-post status-publish format-standard hentry category-site-news">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-3-released/" rel="bookmark">Nagios Plugins 2.1.3 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.3.tar.gz">nagios-plugins 2.1.3</a></strong> has been released and is available for <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.3.tar.gz">download.</a></strong></p>
+<p><u><strong>Enhancements:</strong><br />
+</u>&#8211; SNI support in check_tcp (ddbilik)<br />
+&#8211; check_disk_smb.pl: add support for -k for kerberos authentication<br />
+&#8211; check_file_age.c: allow wildcard matching</p>
+<p><u><strong>Fixes:</strong></u><br />
+&#8211; check_tcp.c: tools/build_perl_modules hardcodes the perl used<br />
+&#8211; check_game.c: reports ping as number of players (Jason Rivers)<br />
+&#8211; fix some gcc5 warnings (Mario Trangoni)<br />
+&#8211; check_cluster.c: Update wording in comments (Troy Lea)<br />
+&#8211; check_nagios.c: could not locate a running nagios process<br />
+&#8211; check_swap.c: does not accept threshold of zero<br />
+&#8211; check_swap.c: uses inconsistent checks on negative thresholds<br />
+&#8211; check_snmp.c: &#8211;offset does not appear to do anything (Troy Lea)<br />
+&#8211; sslutils.c: output has first line of &#8220;SSL Version: xxxxxx&#8221;<br />
+&#8211;   effects anything using sslutils including check_http, check_dhcp<br />
+&#8211; utils_cmd.c: when using ssh (or check-by-ssh) with ControlMaster/ControlPersist,<br />
+nagios times out the first time and one gets zombie processes (Gordon Messmer)</p>
+<p>&nbsp;</p>
+<p><strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.3.tar.gz">Download Nagios-Plugins 2.1.3 here.</a></strong></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-1-3-released/" title="3:53 pm" rel="bookmark"><time class="entry-date" datetime="2016-09-12T15:53:20+00:00">September 12, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/swilkerson/" title="View all posts by Scott Wilkerson" rel="author">Scott Wilkerson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-219" class="post-219 post type-post status-publish format-standard hentry category-releases">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-2-released/" rel="bookmark">Nagios Plugins 2.1.2 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz">nagios-plugins 2.1.2</a></strong> has been released and is available for <strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz">download.</a></strong></p>
+<p><u><strong>Enhancements:</strong><br />
+</u>&#8211; check_snmp&#8217;s performance data now also includes warning/critical thresholds<br />
+&#8211; New check_snmp &#8220;-N&#8221; option to specify SNMPv3 context name<br />
+&#8211; New check_nt &#8220;-l&#8221; parameters: seconds|minutes|hours|days<br />
+&#8211; New check_mailq -s option which tells the plugin to use sudo<br />
+&#8211; New -W/-C option for check_ldap to check number of entries<br />
+&#8211; The check_http -S/&#8211;ssl option now accepts the arguments &#8220;1.1&#8221; and &#8220;1.2&#8221; to force TLSv1.1 and TLSv1.2 connections, respectively<br />
+&#8211; The check_http -S/&#8211;ssl option now allows for specifying the desired protocol with a &#8220;+&#8221; suffix to also accept newer versions<br />
+&#8211; New check_disk &#8220;-v&#8221; option to show troubled partition in verbose mode<br />
+&#8211; Added a parameter -w (&#8211;max_warning) to check_log.sh defining upper value to return a warning code<br />
+&#8211; Add support for LDAP URIs in check_ldap<br />
+&#8211; Provide performance data in check_file_age<br />
+&#8211; Added &#8211;hostname support to check_by_ssh<br />
+&#8211; Add check_ifstatus option to ignore interfaces by name<br />
+&#8211; Introduce support for SNMPv3 context using &#8220;-N&#8221; option in check_snmp:<br />
+&#8211; Added IPv6 support to check_snmp.c<br />
+&#8211; Added support for checking SSL-Websites through Proxies to check_http</p>
+<p><u><strong>Fixes:</strong></u><br />
+&#8211; check_dig can now also use &#8220;drill&#8221; instead of &#8220;dig&#8221;<br />
+&#8211; check_dig now honors the -4 and -6 switches<br />
+&#8211; Fix check_jabber to work with Openfire servers<br />
+&#8211; Fix &#8220;-n&#8221; and &#8220;-u&#8221; options in ifstatus.pl to ignore if either is set, not just both<br />
+&#8211; Fix perfdata to comply with perfdata UOM definition in check_mrtgtraf<br />
+&#8211; Change warning to critical for protocal/version errors in check_ssh<br />
+&#8211; Make header_value() and chunked-encoding decoding more robust in check_http<br />
+&#8211; Fix Host header if explicitly set with -k in check_http<br />
+&#8211; Enable check_proc to monitor processes in PID name-spaced environments.<br />
+&#8211; Prevent large tide values from truncation in check_disk<br />
+&#8211; Timeticks are now being parsed correctly before performance data in check_snmp<br />
+&#8211; Fixed mailer names in check_mailq.pl<br />
+&#8211; Improved output when swap space has zero size incheck_swap<br />
+&#8211; Check if OpenSSL supports SSLv3<br />
+&#8211; Optimize output if SSL certificate expires in less then 24 hours<br />
+&#8211; Increased MAX_RE_SIZE from 256 to 2048 in check_http<br />
+&#8211; Changed the ps command to allow for longer output in check_procs<br />
+&#8211; Allow a server to reply using only &#8216;HTTP/1.x 200 OK&#8217; and a body, with no headers in check_http<br />
+&#8211; Other more minor fixes</p>
+<p>&nbsp;</p>
+<p><strong><a href="https://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz">Download Nagios-Plugins 2.1.2 here.</a></strong></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-1-2-released/" title="3:30 pm" rel="bookmark"><time class="entry-date" datetime="2016-08-01T15:30:23+00:00">August 1, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/swilkerson/" title="View all posts by Scott Wilkerson" rel="author">Scott Wilkerson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-202" class="post-202 post type-post status-publish format-standard hentry category-releases category-site-news">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-1-released/" rel="bookmark">Nagios Plugins 2.1.1 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz">nagios-plugins 2.1.1</a></strong> has been released and is available for <strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz">download.</a></strong></p>
+<p>Dang release gremlins.</p>
+<p><strong>FIXES</strong><br />
+lib/utils_cmd.c &#8211; Reverted to fix check_procs segfault (abrist)</p>
+<p><strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz">Download Nagios-Plugins 2.1.1 here.</a></strong></p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-1-1-released/" title="5:50 pm" rel="bookmark"><time class="entry-date" datetime="2015-07-31T17:50:52+00:00">July 31, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/abrist/" title="View all posts by Andy Brist" rel="author">Andy Brist</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-193" class="post-193 post type-post status-publish format-standard hentry category-releases category-site-news">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-0-released/" rel="bookmark">Nagios Plugins 2.1.0 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The <strong>Nagios Plugins Development Team</strong> is proud to announce that <strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">nagios-plugins 2.1.0</a></strong> has been released and is available for <strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">download.</a></strong></p>
+<p>As promised, both the findbin and timeout_state branches have included in this release. The nasty awk script for perl plugin paths has been removed and replaced with the functionality of FindBin.  Enhancements to the timeout (-t) switch were included in the timeout_state branch.  See below for details:</p>
+<p class="" style="padding-left: 30px;">-t &lt;interval&gt;:&lt;state&gt;</p>
+<p class="" style="padding-left: 30px;">Interval is a positive integer.<br />
+State is case insensitive and one of:<br />
+State name: ok/warning/critical/unknown<br />
+Or stateid: 0/1/2/3</p>
+<p class="" style="padding-left: 30px;">For example:<br />
+-t 5:0 = 5 seconds timeout with state ok<br />
+-t :warning = default timeout with state warning<br />
+-t 5 = 5 second timeout with default state</p>
+<p>Additionally, check_http now supports chunked-encoded pages, check_radius now supports the FreeRADIUS Client library, and  check_snmp now support IPv6.</p>
+<p>There were many other small fixes from coverity and our fantastic community, as well as a large number of smaller enhancements,  bug fixes, localization fixes, and typo corrections.</p>
+<p><strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">Download Nagios-Plugins 2.1.0 here.</a></strong></p>
+<p>A full list of included enhancements and fixes are listed below:</p>
+<p><strong>SECURITY FIXES</strong><br />
+ssl_utils.c &#8211; Disable SSLv3 &amp; SSLv2 autonegotiation by default to limit poodle and other weak cipher attacks (sreinhardt)</p>
+<p><strong>ENHANCEMENTS</strong><br />
+Timeout States Implemented &#8211; Plugins that support a timeout state will now also support specifying the exit state in case of timeout with the syntax -t &lt;timeout&gt;:&lt;state&gt; (abrist)<br />
+Perl plugins now use FindBin for path discovery, obsoleting the nasty AWK script (evgeni, abrist)<br />
+check_http.c &#8211; Added support for chunked transfer-encoding (koenwtje, dermoth, sreinhardt)<br />
+check_radius.c &#8211; Added support for the FreeRADIUS Client library (weiss)<br />
+check_snmp.c &#8211; Added thresholds to performance data (seemuellera)<br />
+check_snmp.c &#8211; Added new option (-N) for SNMPv3 context (Johannes Engel)<br />
+check_snmp.c &#8211; Added IPv6 support (abrist)<br />
+check_ldap.c &#8211; Added a new option (-U) for LDAP URI support (qris)<br />
+check_ifstatus.pl &#8211; Added new option (-n) to exclude interfaces (peelman, weiss)<br />
+check_file_age.pl &#8211; Performance data output added (hggh)<br />
+check_mailq.pl &#8211; Now supports sudo (Christopher Schultz, weiss)<br />
+check_log.sh &#8211; Added a new option (-w) defining upper value to return a warning code (arvanus)</p>
+<p><strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">Download Nagios-Plugins 2.1.0 here.</a></strong></p>
+<p><strong>FIXES</strong><br />
+check_by_ssh.c &#8211; Added &#8211;hostname support (sni)<br />
+check_dbi.c &#8211; Spelling corrections (sreinhardt)<br />
+check_dig.c &#8211; Fixed to work with dig/drill tools and ip version switch is now respected (abgandar)<br />
+check_disk.c &#8211; Fix for hanging filesystems (Gerhard Lausser)<br />
+check_disk.c &#8211; Partitions in problem state now reported in verbose mode (waja)<br />
+check_disk.c &#8211; Prevent large tide values from truncation (JesperForsberg)<br />
+check_dns.c &#8211; Server specific fixes and other cleanup (sreinhardt)<br />
+check_http.c &#8211; Some small changes for readability (koenwtje)<br />
+check_mrtgtraf.c &#8211; Added verbose output (sreinhardt)<br />
+check_mrtgtraf.c &#8211; Perfdata now complies with UOM definition (Bobzikwick)<br />
+check_ntp_peer.c &#8211; No longer uses uninitialized results for max state (sni)<br />
+check_procs.c &#8211; Rare race condition fixed (Mikael Falkvidd)<br />
+check_ssh.c &#8211; Now exits with CRITICAL when version/protocol string check fails to match (sni)<br />
+check_tcp.c &#8211; Help description of escape characters now correct (Sebastian Herbszt)<br />
+check_tcp.c &#8211; Fix to support Openfire servers with check_jabber (weiss)<br />
+check_ups.c &#8211; Spelling corrections (sreinhardt)<br />
+pst3.c &#8211; Fix for unclosed file handle in pst3 on Solaris (jwinkle01)<br />
+plugins-scripts/*.sh &#8211; Trusted path fixes (waja)<br />
+netutils.h &#8211; Decreased max path to 104 bytes to compensate for BSD paths (sreinhardt)<br />
+configure.ac &#8211; Fix for HP-UX ps command (Tontonitch)<br />
+lib/utils_cmd.c &#8211; Fix for potential segfault when ulimits are set to unlimited (nafets)<br />
+lib/parse_ini.c &#8211; Many small fixes from coverity scans and the community (sreinhardt, weiss)<br />
+lib/util_base.c &#8211; Code cleanup (sreinhardt)<br />
+lib/utils_base.c &#8211; Add EIUD to state retention path for multi-user permissions support (sreinhardt)<br />
+po/* &#8211; Spelling corrections (sreinhardt)<br />
+Multiple resource leaks fixed (sreinhardt)<br />
+Many other small fixes and cleanup caught by coverity (multiple contributors)</p>
+<p><strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">Download Nagios-Plugins 2.1.0 here.</a></strong></p>
+<p><strong>TESTS</strong><br />
+Many small fixes to tests (multiple contributors)</p>
+<p><strong>LOCALIZATION</strong><br />
+Many small fixes for locales and localizations (multiple contributors)</p>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our general support forum. Bug reports, feature requests, and additional comments are welcome and may be posted to our plugin development forum.</p>
+<p><strong><a href="http://www.nagios-plugins.org/download/nagios-plugins-2.1.0.tar.gz">Download Nagios-Plugins 2.1.0 here.</a></strong></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-1-0-released/" title="10:05 pm" rel="bookmark"><time class="entry-date" datetime="2015-07-30T22:05:53+00:00">July 30, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/jfrickson/" title="View all posts by John Frickson" rel="author">John Frickson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-171" class="post-171 post type-post status-publish format-standard hentry category-releases category-site-news tag-2-0-3 tag-awk-regex tag-awk-script tag-coverity tag-findbin tag-fix tag-github tag-mailq tag-nagios tag-nagios-plugins tag-release tag-security tag-suid tag-timeout_state tag-update">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-0-3-released/" rel="bookmark">Nagios Plugins 2.0.3 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The Nagios Plugins Development Team is proud to announce that <a title="download nagios-plugins 2.0.3" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.3%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">nagios-plugins 2.0.3</a> has been released and is available for <a title="download nagios-plugins 2.0.3" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.3%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">download</a>.</p>
+<p>This release is mostly small bug fixes and additional protections against the SUID vulnerability discovered by Dawid Golunski. As we are now using coverity to scan for small bugs, there will be a number of small commits in the near future.</p>
+<p>The mailq autodetection commits were reverted as there were issues with parsing performed by the awk script. We decided to use FindBin in lieu of shimming the awk regex. You can try out the proposed FindBin changes in the branch &#8220;findbin&#8221;.  Expect the branches <a title="View the findbin branch at the nagios-plugins GitHub" href="https://github.com/nagios-plugins/nagios-plugins/tree/findbin" target="_blank">findbin</a> and <a title="View the timeout_state branch at the nagios-plugins GitHub" href="https://github.com/nagios-plugins/nagios-plugins/tree/timeout_state" target="_blank">timeout_state</a> to be merged into the next major release (2.1.0).</p>
+<p>A full list of included enhancements and fixes are listed below:</p>
+<p><span style="text-decoration: underline;"><strong>SECURITY FIXES</strong></span></p>
+<ul>
+<li>parse_ini.c &#8211; Additional fixes for the SUID plugins vulnerabilities (sreinhardt)</li>
+<li>Added Gnulib module idpriv-droptemp (weiss)</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>FIXES</strong></span></p>
+<ul>
+<li>check_dns.c &#8211; Resolved issues with reverse lookup (sreinhardt)</li>
+<li>check_dns.c &#8211; Changed query types from ALL to ANY (sreinhardt)</li>
+<li>common.h &#8211; Include fixes for esoteric AIX compile issues (emislivec)</li>
+<li>negate.c &#8211; Small fixes from coverity (66479) (66480) (sreinhardt)</li>
+<li>check_dhcp.c &#8211; Small fix from coverity (66488) (sreinhardt)</li>
+<li>check_http.c &#8211; Potential memory leak and overflow fixed from coverity (66514) (sreinhardt)</li>
+<li>check_ntp.c &#8211; Small fix from coverity (66524) (sreinhardt)</li>
+<li>utils_cmd.c &#8211; Small file descriptor fix from coverity (66502) (sreinhardt)</li>
+<li>check_apt.c &#8211; Small fix for from coverity (66531) (sreinhardt)</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>REVERTS</strong></span></p>
+<ul>
+<li>check_mailq &#8211; Reverted autodetection commits to avoid awk parsing issues. Autodetection will return in version 2.1.0 as part of the changes in the FindBin branch (abrist)</li>
+</ul>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our <a title="Visit general support forum" href="http://support.nagios.com/forum/viewforum.php?f=7?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.3%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">general support forum</a>. Bug reports, feature requests, and additional comments are welcome and may be posted to our <a title="Visit plugin development forum" href="http://support.nagios.com/forum/viewforum.php?f=35?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.3%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">plugin development forum</a>.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> and tagged <a href="https://nagios-plugins.org/tag/2-0-3/" rel="tag">2.0.3</a>, <a href="https://nagios-plugins.org/tag/awk-regex/" rel="tag">awk regex</a>, <a href="https://nagios-plugins.org/tag/awk-script/" rel="tag">awk script</a>, <a href="https://nagios-plugins.org/tag/coverity/" rel="tag">coverity</a>, <a href="https://nagios-plugins.org/tag/findbin/" rel="tag">findbin</a>, <a href="https://nagios-plugins.org/tag/fix/" rel="tag">Fix</a>, <a href="https://nagios-plugins.org/tag/github/" rel="tag">GitHub</a>, <a href="https://nagios-plugins.org/tag/mailq/" rel="tag">mailq</a>, <a href="https://nagios-plugins.org/tag/nagios/" rel="tag">Nagios</a>, <a href="https://nagios-plugins.org/tag/nagios-plugins/" rel="tag">Nagios Plugins</a>, <a href="https://nagios-plugins.org/tag/release/" rel="tag">release</a>, <a href="https://nagios-plugins.org/tag/security/" rel="tag">Security</a>, <a href="https://nagios-plugins.org/tag/suid/" rel="tag">SUID</a>, <a href="https://nagios-plugins.org/tag/timeout_state/" rel="tag">timeout_state</a>, <a href="https://nagios-plugins.org/tag/update/" rel="tag">update</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-0-3-released/" title="4:56 pm" rel="bookmark"><time class="entry-date" datetime="2014-06-26T16:56:31+00:00">June 26, 2014</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/abrist/" title="View all posts by Andy Brist" rel="author">Andy Brist</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-161" class="post-161 post type-post status-publish format-standard hentry category-releases category-site-news tag-2-0-2 tag-nagios tag-nagios-plugins tag-release tag-update">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-0-2-released/" rel="bookmark">Nagios Plugins 2.0.2 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The Nagios Plugins Development Team is proud to announce that <a title="download nagios-plugins 2.0.2" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.2%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">nagios-plugins 2.0.2</a> has been released and is available for <a title="download nagios-plugins 2.0.2" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.2%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">download</a>.</p>
+<p>This release was prompted a bit earlier than originally expected by a newly discovered security vulnerability reported by Dawid Golunski on <a title="exploit-db" href="http://www.exploit-db.com/exploits/33387/" target="_blank">exploit-db</a>. It concerned an arbitrary file access vulnerability with the SUID binaries (check_icmp, check_dhcp) and the extra-opts configure flag (which is enabled by default).  Fixes were applied globally, so the new restrictions on fopen should apply to all plugins.</p>
+<p>Additionally, a few plugins were updated to successfully build on windows under cygwin, and some small changes were made to plugin output and verbosity.</p>
+<p>A full list of included enhancements and fixes are listed below:</p>
+<p><span style="text-decoration: underline;"><strong>SECURITY FIXES</strong></span></p>
+<ul>
+<li>Fixed file access vulnerability with SUID binaries (check_icmp, check_dhcp) and extra-opts.  Fixes were applied globally, so the new resrictions on fopen should apply to all plugins. Special thanks to Dawid Golunski for the submission. More information: <a title="exploit-db" href="http://www.exploit-db.com/exploits/33387/">http://www.exploit-db.com/exploits/33387/</a>  (sreinhardt) (emislivec)</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>ENHANCEMENTS</strong></span></p>
+<ul>
+<li>check_disk &#8211; Now compiles in cygwin on windows (Gunnar Beutner)</li>
+<li>check_ping &#8211; Now compiles in cygwin on windows (Gunnar Beutner)</li>
+<li>check_users &#8211; Now compiles in cygwin on windows (Gunnar Beutner)</li>
+<li>netutils.c &#8211; Connection error verbosity increased. C plugins will now differentiate file socket errors from connection errors (Davide Madrisan)</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>FIXES</strong></span></p>
+<ul>
+<li>check_nt.c &#8211; Changed &#8216;Mb&#8217; to &#8216;MB&#8217; in MEMUSE output for clarity (abrist)</li>
+</ul>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our <a title="Visit general support forum" href="http://support.nagios.com/forum/viewforum.php?f=7?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.2%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">general support forum</a>. Bug reports, feature requests, and additional comments are welcome and may be posted to our <a title="Visit plugin development forum" href="http://support.nagios.com/forum/viewforum.php?f=35?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.2%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">plugin development forum</a>.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> and tagged <a href="https://nagios-plugins.org/tag/2-0-2/" rel="tag">2.0.2</a>, <a href="https://nagios-plugins.org/tag/nagios/" rel="tag">Nagios</a>, <a href="https://nagios-plugins.org/tag/nagios-plugins/" rel="tag">Nagios Plugins</a>, <a href="https://nagios-plugins.org/tag/release/" rel="tag">release</a>, <a href="https://nagios-plugins.org/tag/update/" rel="tag">update</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-0-2-released/" title="7:20 pm" rel="bookmark"><time class="entry-date" datetime="2014-05-20T19:20:34+00:00">May 20, 2014</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/abrist/" title="View all posts by Andy Brist" rel="author">Andy Brist</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-147" class="post-147 post type-post status-publish format-standard hentry category-releases category-site-news tag-2-0-1 tag-check_dns tag-check_uptime tag-enhancements tag-fixes tag-nagios-plugins tag-release tag-update">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="https://nagios-plugins.org/nagios-plugins-2-0-1-released/" rel="bookmark">Nagios Plugins 2.0.1 Released</a>
+			</h1>
+								</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The Nagios Plugins Development Team is proud to announce that <a title="download nagios-plugins 2.0.1" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.1%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">nagios-plugins 2.0.1</a> has been released and is available for <a title="download nagios-plugins 2.0.1" href="http://nagios-plugins.org/downloads/?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.1%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">download</a>. This is mostly a maintenance release, focusing on check_dns stability and some bugs in the new check_uptime plugin. A full list of included enhancements and fixes are listed below:</p>
+<p><span style="text-decoration: underline;"><strong>ENHANCEMENTS</strong></span></p>
+<ul>
+<li>check_snmp.c &#8211; Added thresholds to performance data (jccomputing)</li>
+<li>check_http.c &#8211; Added */* MIME support (Alex Gottschalk)</li>
+<li>check_mailq.pl &#8211; Added autodetection for mailq implementation (evgeni)</li>
+<li>check_mailq.pl &#8211; Added autodetected version to output (evgeni)</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>FIXES</strong></span></p>
+<ul>
+<li>check_dns.c &#8211; Record type corrections for default check (sreinhardt)</li>
+<li>utils.c &#8211; Changed comment type &#8211; now supported by AIX and should no longer fail compile (hkpatv)</li>
+<li>check_uptime.c &#8211; Fixed timeout option (abrist)</li>
+<li>check_uptime.c &#8211; Fixed help output and updated verbose usage (abrist)</li>
+<li>check_uptime.c &#8211; Removed executable permissions on check_uptime.c (abrist)</li>
+<li>check_uptime.c &#8211; Removed old code (madrisian)</li>
+<li>check_pgsql.c &#8211; Fixed help output (weiss)</li>
+<li>lib/Makefile.am &#8211; Avoid deprecated includes (madrasian)</li>
+<li>lib/tests/Makefile.am &#8211; Avoid deprecated includes (madrasian)</li>
+<li>plugins/Makefile.am &#8211; Avoid deprecated includes (madrasian)</li>
+<li>check_apt.c &#8211; Removed the verbose flag suggestion (skottler)</li>
+<li>check_oracle.c &#8211; Changed regex to compensate for tns string match edge cases (waja)</li>
+<li>check_snmp.c &#8211; Always privides the security name when noAuthPriv is specified (catharsis)</li>
+</ul>
+<p>Thanks to all who have contributed toward this release. If you need assistance installing or using the plugins, please visit our <a title="visit general support forum" href="http://support.nagios.com/forum/viewforum.php?f=7?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.1%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">general support forum</a>. Bug reports, feature requests, and additional comments are welcome and may be posted to our <a title="visit plugin development forum" href="http://support.nagios.com/forum/viewforum.php?f=35?utm_source=nagios-plugins.org&amp;utm_medium=post&amp;utm_content=Nagios%20Plugins%202.0.1%20Released&amp;utm_campaign=Nagios%20Plugins" target="_blank">plugin development forum</a>.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="https://nagios-plugins.org/category/releases/" rel="category tag">Releases</a>, <a href="https://nagios-plugins.org/category/site-news/" rel="category tag">Site News</a> and tagged <a href="https://nagios-plugins.org/tag/2-0-1/" rel="tag">2.0.1</a>, <a href="https://nagios-plugins.org/tag/check_dns/" rel="tag">check_dns</a>, <a href="https://nagios-plugins.org/tag/check_uptime/" rel="tag">check_uptime</a>, <a href="https://nagios-plugins.org/tag/enhancements/" rel="tag">enhancements</a>, <a href="https://nagios-plugins.org/tag/fixes/" rel="tag">fixes</a>, <a href="https://nagios-plugins.org/tag/nagios-plugins/" rel="tag">Nagios Plugins</a>, <a href="https://nagios-plugins.org/tag/release/" rel="tag">release</a>, <a href="https://nagios-plugins.org/tag/update/" rel="tag">update</a> on <a href="https://nagios-plugins.org/nagios-plugins-2-0-1-released/" title="10:14 pm" rel="bookmark"><time class="entry-date" datetime="2014-04-15T22:14:59+00:00">April 15, 2014</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://nagios-plugins.org/author/sreinhardt/" title="View all posts by Spenser Reinhardt" rel="author">Spenser Reinhardt</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+			
+					<nav id="nav-below" class="navigation" role="navigation">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="https://nagios-plugins.org/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- .navigation -->
+	
+		
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://nagios-plugins.org/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="https://nagios-plugins.org/nagios-plugins-2-2-1-released/">Nagios Plugins 2.2.1 Released</a>
+						</li>
+					<li>
+				<a href="https://nagios-plugins.org/nagios-plugins-2-2-0-released/">Nagios Plugins 2.2.0 Released</a>
+						</li>
+					<li>
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-4-released/">Nagios Plugins 2.1.4 Released</a>
+						</li>
+					<li>
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-3-released/">Nagios Plugins 2.1.3 Released</a>
+						</li>
+					<li>
+				<a href="https://nagios-plugins.org/nagios-plugins-2-1-2-released/">Nagios Plugins 2.1.2 Released</a>
+						</li>
+				</ul>
+		</aside>		<aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='https://nagios-plugins.org/2017/04/'>April 2017</a></li>
+	<li><a href='https://nagios-plugins.org/2017/01/'>January 2017</a></li>
+	<li><a href='https://nagios-plugins.org/2016/11/'>November 2016</a></li>
+	<li><a href='https://nagios-plugins.org/2016/09/'>September 2016</a></li>
+	<li><a href='https://nagios-plugins.org/2016/08/'>August 2016</a></li>
+	<li><a href='https://nagios-plugins.org/2015/07/'>July 2015</a></li>
+	<li><a href='https://nagios-plugins.org/2014/06/'>June 2014</a></li>
+	<li><a href='https://nagios-plugins.org/2014/05/'>May 2014</a></li>
+	<li><a href='https://nagios-plugins.org/2014/04/'>April 2014</a></li>
+	<li><a href='https://nagios-plugins.org/2014/03/'>March 2014</a></li>
+	<li><a href='https://nagios-plugins.org/2014/01/'>January 2014</a></li>
+	<li><a href='https://nagios-plugins.org/2013/10/'>October 2013</a></li>
+		</ul>
+		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-6"><a href="https://nagios-plugins.org/category/development-2/" >Development</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://nagios-plugins.org/category/releases/" >Releases</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://nagios-plugins.org/category/site-news/" >Site News</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://nagios-plugins.org/category/team/" >Team</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://nagios-plugins.org/category/tutorials/" >Tutorials</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://nagios-plugins.org/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://nagios-plugins.org/category/videos/" >Videos</a>
+</li>
+		</ul>
+</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://nagios-plugins.org/wp-content/themes/twentytwelve/js/navigation.js?ver=20140711'></script>
+<script type='text/javascript' src='http://nagios-plugins.org/wp-includes/js/wp-embed.min.js?ver=4.8.5'></script>
+</body>
+</html>

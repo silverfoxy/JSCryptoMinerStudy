@@ -1,0 +1,430 @@
+
+ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="title" content="혼다 코리아" />
+    <meta name="description" content="혼다 코리아 입니다." />
+    <meta name="keyword" content="혼다,혼다코리아" />
+    <META NAME="ROBOTS" CONTENT="NODP,NOYDIR">
+    <link rel="canonical" href="https://www.hondakorea.co.kr" />
+    <title>혼다 코리아</title>
+    <link rel="stylesheet" type="text/css" href="/lib/css/modules/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/css/gate.css" />
+
+    <script src="/lib/js/1.9.1.jquery.js"></script>
+    <script src="/lib/js/common.js"></script>
+    <script src="/lib/js/hdk_common.js"></script>
+    
+    
+    <!-- <link rel="stylesheet" type="text/css" href="/lib/css/web/w_layout.css" /> -->
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	 
+	  ga('create', 'UA-101721574-1', 'auto');
+	  ga('send', 'pageview');
+	 
+	</script>
+
+
+	<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+	<script type="text/javascript">
+		  kakaoPixel('6645603419910158979').pageView('게이트');
+	</script>
+
+
+
+
+
+
+
+
+    <script>
+    $(document).ready(function(){
+    	
+        if($("#outer").val()=='mail'){
+        	fnConfirmBoxOpenPop("뉴스레터 수신을 원하지 않으신다면 해당내용을 입력해주세요.", updateNewsletter);
+        }
+else if($("#outer").val()=='character'){
+        	fnMsgBoxOpenPop("혼다코리아 사이트는 URL에 특수문자 입력을 금지합니다.");
+        }        $("#email2").prop("readonly", true);
+        $("#email3").val($("#email2").val());
+        if($("#email3").val() == "" && $("#email2").val() != "") {
+            $("#email3").val('direct');     
+        }
+        if($("#email3").val() == 'direct') {
+            $("#email2").prop("readonly", false);
+        }
+        
+        $(document).on('change', '#email3', function() {
+            if($("#email3").val() == 'direct') {
+                $("#email2").val("");
+                $("#email2").prop("readonly", false);
+            } else {
+                $("#email2").val($("#email3").val());
+                $("#email2").prop("readonly", true);
+            }
+        });
+        
+    });
+
+    function updateNewsletter(){
+    	var userName = $("#user_name").val();
+    	var email = $("#email1").val();
+        var emailAddr = $("#email2").val();
+        if(userName==''){
+        	alert("사용자 명을 입력해주세요.");
+        	location.reload();
+        	return false;
+        }
+        if(email=='' || emailAddr==''){
+        	alert("이메일 주소를 입력해주세요.");
+        	location.reload();
+        	return false;
+        }
+        $.ajax({
+            url: "/comm/updateNewsletter.json",
+            type: "POST",
+            data: JSON.stringify({w_email_1: email ,w_email_2: emailAddr}),
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            headers: {"Accept": "application/json"},
+            success: function(data, textStatus, jqXHR) {
+                    alert("뉴스레터 수신이 취소되었습니다.");
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("뉴스레터 수신이 취소가 실패하였습니다.");
+            }
+        });
+    }
+		
+    $(function(){
+        var win_w = $(window).width();
+        var win_h = $(window).height();
+        var web_h = $(window).height() - 225;
+        var foot_h = $("#footer").height();
+        var choice_box_w = $(".choice_box").width()-50;
+        var img_btn_w = $(".img_btn").width();
+        var con_h = win_h - foot_h;
+        
+        if(win_h < 850){
+            $("#footer").css({"position":"relative"});
+        }
+       
+
+        if(1023 < win_w && win_h < 768){
+            $("#container").css({"height":win_h+53+"px"});
+        }
+        
+        if(1023 < win_w && win_h < 1024){
+            $("#footer").css({"height":"225px;"});
+            $(".choice_box").css({"height":"172px"});
+            $("#container").find(".web").css({"height":con_h+"px"});
+        }else{
+            $("#container").find(".web").css({"height":con_h+"px"});
+        }
+        
+        if(win_h < 768 && win_w < 768 ){
+            $("#container").css({"height":"auto"});
+            $("#container").find(".web").css({"height":"100%"});
+        }
+        if( win_w < 1023 ){
+                $(".foot").show();
+            }
+        if(1023 < win_w){
+            $("#container").css({"height":con_h+"px"});
+            $("#container").find(".web").css({"height":"100%"});
+        }else{
+        
+        }
+        
+        
+      
+        $(window).resize(function(){
+            var win_w = $(window).width();
+            var win_h = $(window).height();
+            var foot_h = $("#footer").height();
+            var choice_box_w = $(".choice_box").width()-50;
+            var img_btn_w = $(".img_btn").width();
+            var con_h = win_h - foot_h +2;
+			
+            if(win_h < 850){
+                $("#footer").css({"position":"relative"});
+                $("#container").css({"height":"auto"});
+                var cont_h = $("#container").css({"height":"auto"});
+                $("#container").find(".web").css({"height":cont_h+"px"});
+            }
+			
+			if(1023 < win_w){
+             $("#footer").css({'display':'fixed'});
+				$("#container").css({"height":con_h+"px"});
+            $("#container").find(".web").css({"height":"100%"});
+        }else{
+        
+        }
+            
+            if(1023 < win_w && win_h < 1024){
+				$(".foot").hide();
+                $("#footer").css({"height":"225px;"});
+                $(".choice_box").css({"height":"172px"});
+                $("#container").find(".web").css({"height":con_h+"px"});
+            }else{
+            	$("#container").find(".web").css({"height":con_h+"px"});
+            }
+            
+            if(win_h < 768 && win_w < 768 ){
+                $("#container").css({"height":"auto"});
+                var cont_h = $("#container").css({"height":"auto"});
+                $("#container").find(".web").css({"height":cont_h+"px"});
+            }
+			 if( win_w < 1023 ){
+                $(".foot").show();
+            }
+			
+
+        });
+        
+		// footer 이벤트    
+ 		var prevPosition = 0;
+		$(window).on('scroll', function(event){
+			var initPosition = $(this).scrollTop();
+			if(1023 < win_w && win_h < 1024){
+				$(".foot").show();
+			prevPosition = initPosition
+			}
+		});
+ 		// footer 이벤트 e 
+
+    });
+
+    </script>
+	<script>
+		$(function () {
+			var footheight = $('#footer').height() - $('.foot').height();
+			$('.gate_visual').css({
+				'height': $(window).height() - footheight
+			});
+
+			var win_w = $(window).width();
+			var win_h = $(window).height();
+			var web_h = $(window).height() - 225;
+			var foot_h = $("#footer").height();
+			var choice_box_w = $(".choice_box").width() - 50;
+			var img_btn_w = $(".img_btn").width();
+			var con_h = win_h - foot_h;
+
+			if (win_w < 850) {
+				$('.gate_visual').css({
+					'height': 'auto'
+				});
+			}
+
+			var t_height = $('#footer').height() - $('.foot').height();
+			$('.t').css({
+				'height': $(window).height() - t_height
+			});
+
+			var m_height = $('#footer').height() - $('.foot').height();
+			$('.mobile.vimg').css({
+				'height': $(window).height() - t_height
+			});
+
+			$(window).resize(function () {
+				var footheight = $('#footer').height() - $('.foot').height();
+				$('.gate_visual').css({
+					'height': $(window).height() - footheight
+				});
+
+				var win_w = $(window).width();
+				var win_h = $(window).height();
+				var web_h = $(window).height() - 225;
+				var foot_h = $("#footer").height();
+				var choice_box_w = $(".choice_box").width() - 50;
+				var img_btn_w = $(".img_btn").width();
+				var con_h = win_h - foot_h;
+
+				if (win_w < 850) {
+					$('.gate_visual').css({
+						'height': 'auto'
+					});
+				}
+
+				var t_height = $('#footer').height() - $('.foot').height();
+				$('.t').css({
+					'height': $(window).height() - t_height
+				});
+
+				var m_height = $('#footer').height() - $('.foot').height();
+				$('.mobile.vimg').css({
+					'height': $(window).height() - t_height
+				});
+			});
+		})
+	</script>
+
+</head>
+<body style="min-height: inherit">
+
+    <!-- IE8사용사면서, 브라우저사이즈가 700미만 일때 (window.width < 700)만 노출 -->
+    <div class="ie8_w700" style="display:none">
+        SORRY, THIS PAGE IS NOT SUPPORTED BY YOUR BROWSER.
+    </div>
+    <!-- //IE8사용사면서, 브라우저사이즈가 700미만 일때 (window.width < 700)만 노출 -->
+
+    
+
+    <div id="wrap">
+        <div id="header">
+            <h1>
+                <img src="/lib/img//gate/gate_logo.png" alt="혼다 로고 이미지 HONDA The Power of Dreams" class="gate_logo" />
+            </h1>
+        </div>
+		<style>
+			@media screen and (min-width: 1024px) {
+				#container.contTest01{ min-height:400px !important; }
+				#container.contTest01 .gate_visual .web{display: block;min-height:400px !important;}
+			}
+			@media only screen and (max-width: 1023px) and (min-width: 768px) {
+				#container.contTest01{ min-height:400px !important; }
+				#container.contTest01 .gate_visual .t{display: block;min-height:400px !important;}
+			}
+			@media only screen and (max-width: 767px) {
+				#container.contTest01{ min-height:200px !important; }
+				#container.contTest01 .gate_visual .mobile{display: block;min-height:200px !important;}
+			}
+		</style>
+        <div id="container" class="contTest01">
+            
+            <div class="gate_visual">
+                <div class="web" style="background-image:url(/lib/img/gate/gate_visual.jpg); background-repeat:no-repeat; background-repeat:no-repeat; background-size: cover; background-position:center center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/lib/img/gate/gate_visual.jpg', sizingMethod='scale');"></div>
+                <div class="t" style="background-image:url(/lib/img/gate/gate_visual.jpg); background-repeat:no-repeat; background-repeat:no-repeat; background-size: cover; background-position:center center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/lib/img/gate/gate_visual.jpg', sizingMethod='scale');"></div>
+				 <div class="mobile vimg" style="background-image:url(/lib/img/gate/gate_visual.jpg); background-repeat:no-repeat; background-repeat:no-repeat; background-size: cover; background-position:center center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/lib/img/gate/gate_visual.jpg', sizingMethod='scale');"></div>
+            
+
+                <h2 class="gate_tit">
+                    <img src="/lib/img/gate/gate_tit.png" alt="DREAM OF HONDA" />
+                    <a href="https://hondakorea.co.kr/abouthonda/main/main.do" title="혼다코리아 메인" class="btn_gohk">
+                        <img src="/lib/img/gate/btn_hkgo.png" alt="혼다코리아 바로가기" />
+                    </a>
+                </h2>
+            </div>
+
+            
+
+        </div>
+        <!-- //#container -->
+
+        <div id="footer" style="position: relative">
+            <div class="choice">
+                <a href="https://hondakorea.co.kr/automobile/main/main.do" title="혼다 자동차 사이트" class="choice_box am">
+                    <div class="logo">
+                        <img src="/lib/img/gate/cc_car_ori.png" alt="혼다 자동차 로고" class="w_logo" />
+                        <img src="/lib/img/gate/m_logo01.gif" alt="혼다 자동차 로고" class="m_logo" />
+                    </div>
+                    <div class="img_btn">
+                        <div class="over" style="background-image:url(/lib/img/gate/over.png)">
+                            <span class="over_txt">혼다자동차 홈페이지 바로가기 &rang;</span>
+                        </div>
+                        <img src="/lib/img/gate/tri.png" alt="" class="arr left" />
+                    </div>
+                </a>
+                <a href="https://hondakorea.co.kr/motorcycle/main/main.do" title="혼다 모터사이클 사이트" class="choice_box mc">
+                    <div class="logo">
+                        <img src="/lib/img/gate/cc_motor_ori.png" alt="혼다 모터사이클 로고" class="w_logo" />
+                        <img src="/lib/img/gate/m_logo02.gif" alt="혼다 모터사이클 로고" class="m_logo" />
+                    </div>
+                    <div class="img_btn">
+                        <div class="over" style="background-image:url(/lib/img/gate/over.png)">
+                            <span class="over_txt">혼다 모터사이클 홈페이지 바로가기 &rang;</span>
+                        </div>
+                        <img src="/lib/img/gate/tri.png" alt="" class="arr no" />
+                        <img src="/lib/img/gate/tri_r.png" alt="" class="arr lang" />
+                    </div>
+                </a>
+            </div>
+			<div class="notice_wrap">
+				<div class="notice_tit"><span>대 고객 특별서비스</span></div>
+				<div class="notice_txt"><span>대 고객 특별 서비스 정보 안내</span><a href="https://www.hondakorea.co.kr/automobile/service/BigCustomerSpecialService.do" class="recall_more_btn"></a></div>
+			</div>
+			<div class="notice_wrap">
+				<div class="notice_tit"><span>에어백 리콜 안내</span></div>
+				<div class="notice_txt"><span>에어백 리콜에 대한 중요 정보 안내</span><a href="https://www.hondakorea.co.kr/automobile/service/RecallInfo.do" class="recall_more_btn"></a></div>
+			</div>
+            <div class="foot" style="display: none">
+                <div class="btn_hww">
+                    <a href="http://world.honda.com/" target="_blank" title="새창으로 이동">
+                    <img src="/lib/img/gate/btn_hww.png" alt="honda world wide" class="web" />
+                    <img src="/lib/img/gate/m_btn_hww.png" alt="honda world wide" class="mobile" />
+                    </a>
+                </div>
+                <div class="copy">
+                    <img src="/lib/img/gate/copy.png" alt="COPYRIGHT(C)2015 HONDA KOREA., ALL RIGHTS RESERVED." class="web" />
+                    <img src="/lib/img/gate/m_copy.png" alt="COPYRIGHT(C)2015 HONDA KOREA., ALL RIGHTS RESERVED." class="mobile" />
+                </div>
+            </div>
+        </div>
+        
+        <input type="hidden" id="outer" name="outer" value="null">
+        <div class="sub_container">
+        </div>
+	</div>
+	<div id="confirmBoxLayerPop" class="sub_pop default_layer" style="z-index:100;" >
+            <div class="pop_box">
+                <div class="desc">
+                    <img src="/lib/img/sub/common/pop_logo.png" alt="honda로고" />
+                    <p class="txt"></p>
+                    <br/>
+                    <br/>
+                    <table class="board_write input27" summary="제목,구분,회신방법,연락처,이메일,내용 항목으로 구성">
+                        <caption>이메일 수신거부 동의</caption>
+                        <colgroup>
+                            <col width="25%" />
+                            <col width="25%" />
+                            <col width="25%" />
+                            <col width="25%" />
+                        </colgroup>
+                        <tr height="35px">
+                            <th scope="row" class="required" align="right"><span title="필수입력">*</span>사용자</th>
+                            <td><input name="user_name" type="text" id="user_name" value="" width="100px"></td>
+                            <td></td><td></td>
+                        </tr>
+                        <tr height="35px" >
+                            <th scope="row" class="required" align="right" width="100px"><span title="필수입력">*</span>이메일</th>
+                            <td><input name="email1" title="이메일아이디" id="email1" type="text" value="">
+                                <label for="email2" class="hidden"></label>
+                            </td>
+                            <td>
+                                @&nbsp;&nbsp;<input name="email2" title="이메일 도메인" id="email2"type="text" value="" width="80px">
+                            </td>
+                            <td align="left">
+                                <label for="email3" class="hidden"></label>
+                                <select name="email3" id="email3" title="이메일 계정 선택">
+                                    <option value="">이메일선택</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="msn.com">msn.com</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="yahoo.com">yahoo.com</option>
+                                    <option value="direct">직접입력</option>
+                               </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="done">
+                        <a id="btnconfirmBoxConfirm" href="#" class="btn_done">뉴스레터 수신거부</a>
+                        <a id="btnconfirmBoxCancel" href="#" class="btn_cancel">취소</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

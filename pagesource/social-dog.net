@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SocialDog - スマートで効率的な Twitter アカウント運用ツール</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/reset.css?180205">
+    <link rel="stylesheet" href="/assets/css/general.css?180205">
+    <link rel="stylesheet" href="/assets/css/index.css?180205">
+    <link rel="stylesheet" href="/assets/css/plan.css?180205">
+    <link rel="stylesheet" href="/assets/css/notice.css?180205">
+
+    <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico?170605">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-96x96.png" sizes="96x96">
+
+    <meta name="description"
+          content="フォロワー管理, キーワードフォロー, フォロワーコピー, フォロー履歴, 自由自在のフィルタ, 分析, 投稿予約, 自動 DM 機能で Twitter マーケティングを強力サポート。">
+    <meta name="google-site-verification" content="KhkrLihP0YFrXMY3Re3iKiBklH-onIK-1LFT1mz5GLM"/>
+
+    <link rel="alternate" hreflang="ja" href="https://social-dog.net/"/>
+    <link rel="alternate" hreflang="en" href="https://social-dog.net/en"/>
+
+    <!--	TODO: ogp, twitter accounts, img url-->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@socialdog_jp"/>
+    <meta name="twitter:title" content="socialdog - スマートで効率的な Twitter アカウント運用ツール"/>
+    <meta name="twitter:creator" content="@socialdog_jp">
+    <meta name="twitter:description"
+          content="フォロワー管理, キーワードフォロー, フォロワーコピー, フォロー履歴, 自由自在のフィルタ, 分析, 投稿予約, 自動 DM 機能で Twitter マーケティングを強力サポート。"/>
+    <meta name="twitter:image" content="https://social-dog.net/assets/img/ogp.png"/>
+
+    <meta property="fb:app_id" content="562025787303367"/>
+    <meta property="og:url" content="https://social-dog.net/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="socialdog - スマートで効率的な Twitter アカウント運用ツール"/>
+    <meta property="og:description"
+          content="フォロワー管理, キーワードフォロー, フォロワーコピー, フォロー履歴, 自由自在のフィルタ, 分析, 投稿予約, 自動 DM 機能で Twitter マーケティングを強力サポート。"/>
+    <meta property="og:image" content="https://social-dog.net/assets/img/ogp.png"/>
+    <!-- User Heat Tag -->
+    <script type="text/javascript">
+      (function (add, cla) {
+        window['UserHeatTag'] = cla;
+        window[cla] = window[cla] || function () {
+          (window[cla].q = window[cla].q || []).push(arguments)
+        }, window[cla].l = 1 * new Date();
+        var ul = document.createElement('script');
+        var tag = document.getElementsByTagName('script')[0];
+        ul.async = 1;
+        ul.src = add;
+        tag.parentNode.insertBefore(ul, tag);
+      })('//uh.nakanohito.jp/uhj2/uh.js', '_uhtracker');
+      _uhtracker({id: 'uhUkhvOnue'});
+    </script>
+    <!-- End User Heat Tag -->
+</head>
+<body>
+
+<header id="global_header" class="s_container">
+    <a href="/ja" id="global_header_logo">
+        <img src="/assets/img/navi_logo.png" width="41.3" height="38">
+    </a>
+    <div id="sp_global_header_menu_open" class="hidden-sm">
+        <img src="/assets/img/sp/icon_menu.png" width="24" height="18">
+    </div>
+    <nav id="global_header_nav" class="hidden-xs">
+        <ul>
+            <li>
+                <a href="/ja">トップ</a>
+            </li>
+            <li>
+                <a href="/ja/plan">プラン</a>
+            </li>
+            <li>
+                <a class="open_login_popup"
+                   id="global_header_register_button">ログイン</a>
+
+                <a class="hide"
+                   href="https://web.social-dog.net/dashboard"
+                   id="global_header_dashboard_button">ダッシュボードを開く</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div id="sp_global_header_menu">
+
+    <div id="sp_global_header_menu_logo">
+        <img src="/assets/img/sp/image_menu_logo_white.png" alt=""
+             width="39" height="36">
+    </div>
+
+    <div id="sp_global_header_menu_close">
+        <img src="/assets/img/sp/icon_menu_close.png" width="20" height="20">
+    </div>
+    <ul>
+        <li><a href="/ja">トップ</a></li>
+        <li><a href="/ja/plan">プラン</a></li>
+        <li><a href="http://autoscale.jp/">会社概要</a></li>
+        <li><a href="https://web.social-dog.net/docs/tos">利用規約</a></li>
+        <li><a href="https://web.social-dog.net/docs/privacy">プライバシーポリシー</a></li>
+                    <li><a href="/ja/help">ヘルプ</a></li>
+            </ul>
+    <div id="sp_global_header_menu_language">
+        <a href="/en">English</a>
+    </div>
+
+    <div id="sp_global_header_menu_button">
+        <a class="open_login_popup">登録 / ログイン</a>
+    </div>
+
+    <div id="sp_global_header_menu_footer">
+        <a href="/">
+            <img src="/assets/img/footer_logo.png" width="60" height="13.5">
+        </a>
+        Copyright © AutoScale, Inc.
+    </div>
+
+</div>
+
+<div id="sp_fix_register_button" class="hidden-sm">
+    <a class="open_register_popup">無料ではじめる</a>
+</div>
+
+<div id="popup_overlay">
+    <div id="popup_login" class="popup">
+        <div class="popup_close">
+            <img src="/assets/img/icon_popup_close.png" width="20" height="20">
+        </div>
+        <div class="popup_logo">
+            <img src="/assets/img/img_popup_logo.png" alt="" width="70" height="65">
+        </div>
+        <form action="https://web.social-dog.net/login" method="post">
+            <input type="email" name="email" placeholder="メールアドレス"/>
+            <input type="password" name="password_plain" placeholder="パスワード"/>
+            <div id="popup_forgot_password">
+                <a href="https://web.social-dog.net/forgot_password">パスワードを忘れた方</a>
+            </div>
+            <button type="submit">ログイン</button>
+        </form>
+
+        <div id="popup_or">or</div>
+
+        <div class="popup_twitter_login">
+            <a href="https://web.social-dog.net/login_with_twitter" class="btn-twitter">
+                <img src="/assets/img/icon-btn-tw@2x.png" alt="" width="14" height="12">
+                Twitter でログイン            </a>
+        </div>
+        <div id="popup_change_kind" class="open_register_popup">
+            アカウントをお持ちでない方        </div>
+    </div>
+    <div id="popup_register" class="popup">
+        <div class="popup_close">
+            <img src="/assets/img/icon_popup_close.png" width="20" height="20">
+        </div>
+        <div class="popup_logo">
+            <img src="/assets/img/img_popup_logo.png" alt="" width="76" height="72">
+        </div>
+
+        <div class="popup_twitter_login">
+            <form action="https://web.social-dog.net/register_with_twitter" method="post">
+                <label class="circle_checkbox">
+                    <input type="checkbox" name="follow_official_twitter"/>
+                    <span class="follow-official-desc">SocialDog 公式 Twitter をフォローする</span>
+                </label>
+                <button type="submit" class="btn-twitter">
+                    <img src="/assets/img/icon-btn-tw@2x.png" alt="" width="14" height="12"> Twitter で無料登録                </button>
+            </form>
+        </div>
+
+        <div id="popup_safety">
+            許可のないツイート･フォローは行われません        </div>
+        <div class="login_link">
+            登録にあたり、<a href="https://web.social-dog.net/docs/tos" target="_blank">利用規約</a>、<a href="https://web.social-dog.net/docs/privacy" target="_blank">プライバシーポリシー</a>に同意したものとみなします。        </div>
+
+        <div id="popup_change_kind" class="open_login_popup">
+            アカウントをお持ちの方        </div>
+    </div>
+</div>
+<section id="index_top">
+    <div class="s_container">
+        <div id="index_top_catch">スマートで効率的な Twitter アカウント運用ツール</div>
+        <div id="index_top_logo">
+        </div>
+        <div id="index_top_big_catch">
+            <span id="index_top_big_catch_text">効率よくフォロワーを獲得</span><span id="index_top_caret">|</span>
+        </div>
+        <div id="index_top_button">
+            <a class="open_register_popup">無料ではじめる</a>
+        </div>
+    </div>
+
+    <div id="index_top_images_wrapper">
+        <div id="index_top_images_wrapper2">
+            <div id="index_top_image_overlay">
+                <div class="index_top_image left"></div>
+                <div class="index_top_image right"></div>
+            </div>
+            <div id="index_top_images">
+                                    <div class="index_top_image left" data-message="ソーシャルメディア分析をはじめよう">
+                        <img src="/assets/img/img_main_dashboard.png" alt="" width="100%"
+                             height="100%">
+                    </div>
+                                    <div class="index_top_image active" data-message="効率よくフォロワーを獲得">
+                        <img src="/assets/img/img_main_follow.png" alt="" width="100%"
+                             height="100%">
+                    </div>
+                                    <div class="index_top_image right" data-message="SNS運用を自動化しよう">
+                        <img src="/assets/img/img_main_thanks.png" alt="" width="100%"
+                             height="100%">
+                    </div>
+                                    <div class="index_top_image external_right" data-message="スマートなカスタマーコミュニケーションを">
+                        <img src="/assets/img/img_main_tweet.png" alt="" width="100%"
+                             height="100%">
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+<div id="index_arrow" class="hidden-sm">
+    <img src="/assets/img/icon-scroll-arrow.png" alt="" width="34" height="18">
+</div>
+
+<section id="index_sub_catch" class="s_container">
+    フォロワー管理, 分析, <br class="hidden-sm">投稿予約, 自動化機能で <br>Twitter マーケティングを強力サポート</section>
+
+    <section class="index_desc s_container even">
+        <div class="index_desc_image">
+            <img src="/assets/img/img_des_01.png" alt="" width="460">
+        </div>
+        <div class="index_desc_info">
+            <h2>Twitter アカウント運用を<br>快適にサポート</h2>
+            <div class="index_desc_description">
+                Twitter アカウントを連携するだけであなただけのダッシュボードを作成できます。フォロワーやツイートの分析、ウェルカムメッセージなど、多忙なマーケティング担当者に役立つ機能が揃っています。効率的なマーケティングをするなら今すぐはじめてみましょう！            </div>
+            <div class="index_desc_button">
+                <a class="open_register_popup">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+    <section class="index_desc s_container odd">
+        <div class="index_desc_image">
+            <img src="/assets/img/img_des_02.png" alt="" width="460">
+        </div>
+        <div class="index_desc_info">
+            <h2>エンゲージメント率を<br>高めたいあなたに</h2>
+            <div class="index_desc_description">
+                リプライやリツイートなどのエンゲージメントのお知らせ機能により、エンゲージメントを高く保つための Twitter 運用が可能になります。            </div>
+            <div class="index_desc_button">
+                <a class="open_register_popup">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+    <section class="index_desc s_container even">
+        <div class="index_desc_image">
+            <img src="/assets/img/img_des_03.png" alt="" width="460">
+        </div>
+        <div class="index_desc_info">
+            <h2>アクティブな <br>Twitter アカウントをつくる</h2>
+            <div class="index_desc_description">
+                フォロワーの増加・減少を見逃さず、コミュニケーションをとることで常にアクティブな Twitter アカウントに。フォロー解除を防止し、よりFF比率を高めましょう。            </div>
+            <div class="index_desc_button">
+                <a class="open_register_popup">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+    <section class="index_desc s_container odd">
+        <div class="index_desc_image">
+            <img src="/assets/img/img_des_04.png" alt="" width="460">
+        </div>
+        <div class="index_desc_info">
+            <h2>キーワード登録で<br>潜在フォロワーを見逃さない</h2>
+            <div class="index_desc_description">
+                サービス・ブランド名やURLなど、あらかじめ任意のキーワードを登録しておくことで潜在ターゲット層にリーチすることが可能です。あなたのTwitterアカウントに興味がありそうなユーザーに効率よくアプローチしましょう。            </div>
+            <div class="index_desc_button">
+                <a class="open_register_popup">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+    <section class="index_desc s_container even">
+        <div class="index_desc_image">
+            <img src="/assets/img/img_des_05.png" alt="" width="460">
+        </div>
+        <div class="index_desc_info">
+            <h2>日々のソーシャルメディア運用を<br>スムーズに</h2>
+            <div class="index_desc_description">
+                自動DM返信、投稿予約を利用して時間を効率的に使うことができます。また複数アカウントの管理やチーム管理も SocialDog にお任せ。忙しいマーケティング担当者を自動化ツールによりサポートします。            </div>
+            <div class="index_desc_button">
+                <a class="open_register_popup">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+
+<section id="index_features">
+    <div class="s_container">
+        <h1>機能</h1>
+        <ul id="index_features_list">
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_01.png" width="40">
+                    </div>
+                    <h2>フォロー返し/解除</h2>
+                    <div class="index_feature_description">
+                        フォロー・フォロー解除の通知により、FF 比を高く維持するアカウント管理が可能です。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_02.png" width="40">
+                    </div>
+                    <h2>キーワードフォロー</h2>
+                    <div class="index_feature_description">
+                        親和性の高いキーワードを指定して、効率よくフォロワーを増やせます。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_03.png" width="40">
+                    </div>
+                    <h2>ウェルカムメッセージ</h2>
+                    <div class="index_feature_description">
+                        DM 画面を開いた際に自動的に DM を送信することが可能です。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_04.png" width="40">
+                    </div>
+                    <h2>ツイート分析</h2>
+                    <div class="index_feature_description">
+                        ツイート別いいね数、リツイート数から効果的な投稿内容を分析します。CSVデータ出力も可能です。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_05.png" width="40">
+                    </div>
+                    <h2>デイリーレポート</h2>
+                    <div class="index_feature_description">
+                        フォロー・フォロワー数の増減を、一覧で分かりやすく表示します。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_06.png" width="40">
+                    </div>
+                    <h2>予約投稿</h2>
+                    <div class="index_feature_description">
+                        3ヶ月先まで無制限で、ツイート投稿の予約が可能です。画像や動画、曜日・時間での繰り返しにも対応。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_07.png" width="40">
+                    </div>
+                    <h2>フォロワーコピー</h2>
+                    <div class="index_feature_description">
+                        フォローバックの可能性が高い類似アカウントのフォロワーをコピーしてフォローできます。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_08.png" width="40">
+                    </div>
+                    <h2>フォロー履歴</h2>
+                    <div class="index_feature_description">
+                        フォローされたことがあるアカウントの履歴を一覧で表示します。フォロー解除されたアカウントを把握できます。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_09.png" width="40">
+                    </div>
+                    <h2>複数アカウント管理</h2>
+                    <div class="index_feature_description">
+                        複数の Twitter アカウントをまとめて管理できます。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_10.png" width="40">
+                    </div>
+                    <h2>チーム管理</h2>
+                    <div class="index_feature_description">
+                        担当者機能により複数人でも安全にアカウント管理が可能です。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_11.png" width="40">
+                    </div>
+                    <h2>フィルタ機能</h2>
+                    <div class="index_feature_description">
+                        フォロワー数、現在地など任意の項目でユーザーを自由に抽出できます。                    </div>
+                </li>
+                            <li>
+                    <div class="index_feature_icon">
+                        <img src="/assets/img/icon_feature_12.png" width="40">
+                    </div>
+                    <h2>ブラウザプッシュ通知</h2>
+                    <div class="index_feature_description">
+                        フォロワー増減などアカウントの動向をプッシュ 通知でお知らせします。<br>※PC, Androidのみ                    </div>
+                </li>
+                    </ul>
+        <div id="index_features_button">
+            <a href="/ja/plan">すべての機能を見る</a>
+        </div>
+    </div>
+</section>
+<section id="index_promise">
+    <div class="s_container">
+        <h1>3つの安心</h1>
+        <ul id="index_promise_list">
+            <li>
+                <div class="index_promise_icon">
+                    <img src="/assets/img/icon_promise_01.png" width="49">
+                </div>
+                <h2>Twitter 公式ルール100%準拠</h2>
+                <div class="index_promise_description">
+                    Twitter 公式「Twitter ルール」「自動化ルール」に完全準拠した機能のみを提供しています。                </div>
+            </li>
+            <li>
+                <div class="index_promise_icon">
+                    <img src="/assets/img/icon_promise_02.png" width="49">
+                </div>
+                <h2>万全なセキュリティ</h2>
+                <div class="index_promise_description">
+                    Twitter 公式「OAuth」を採用し、パスワード登録なしにご利用が可能です。                    アカウントの管理権限はお客様に帰属いたします。全ページ SSL/TLS 暗号化に対応。                </div>
+            </li>
+            <li>
+                <div class="index_promise_icon">
+                    <img src="/assets/img/icon_promise_03.png" width="49">
+                </div>
+                <h2>安心のアカウント連携</h2>
+                <div class="index_promise_description">
+                    アカウント連携による無許可でのツイート投稿やアカウントフォロー等は一切発生いたしません。                    ご安心してご利用ください。                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+    <section id="index_customers" class="s_container">
+        <h1>4万社以上のお客様にご利用いただいています</h1>
+        <div id="index_customers_logos">
+            <img src="/assets/img/customers.png?170810"
+                 width="828" height="259"/>
+        </div>
+        <div id="index_customers_button" class="hidden-xs">
+            <a class="open_register_popup">無料ではじめる</a>
+        </div>
+    </section>
+    <div id="index_cheetah_notice_link">
+        <a href="/cheetah">
+            Cheetah をご利用のみなさまへ（サービス名変更のお知らせ）
+        </a>
+    </div>
+
+<footer>
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/ja">トップ</a>
+                </li>
+                <li>
+                    <a href="/ja/plan">プラン</a>
+                </li>
+                                    <li>
+                        <a href="/ja/fs">Full Support Plan</a>
+                    </li>
+                                <li>
+                    <a href="http://autoscale.jp/">会社概要</a>
+                </li>
+                                <li>
+                    <a href="/ja/help/">ヘルプ</a>
+                </li>
+                                <li>
+                    <a href="https://web.social-dog.net/docs/tos">利用規約</a>
+                </li>
+                <li>
+                    <a href="https://web.social-dog.net/docs/privacy">プライバシーポリシー</a>
+                </li>
+                                    <li>
+                        <a href="https://web.social-dog.net/docs/asct">特商法に基づく表示</a>
+                    </li>
+                    <li>
+                        <a href="https://social-dog.net/ja/help/article/affiliate">アフィリエイト</a>
+                    </li>
+                            </ul>
+        </nav>
+        <div id="footer_language">
+                            <a href="/en">English</a>
+                    </div>
+        <div class="clearfix"></div>
+        <hr>
+        <div id="footer_social">
+			<span class="twitter hidden-xs">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+			</span>
+            <span class="twitter hidden-sm">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-size="small">Tweet</a>
+			</span>
+            <span class="facebook hidden-xs">
+				<div class="fb-like" data-href="https://www.facebook.com/SocialDogApp/" data-layout="button"
+                     data-action="like"
+                     data-size="large" data-show-faces="false" data-share="false">
+				</div>
+			</span>
+            <span class="facebook hidden-sm">
+				<div class="fb-like" data-href="https://www.facebook.com/SocialDogApp/" data-layout="button"
+                     data-action="like"
+                     data-size="small" data-show-faces="false" data-share="false">
+				</div>
+			</span>
+                            <span class="hatena hidden-xs">
+				<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                   data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
+                   data-hatena-bookmark-width="115" data-hatena-bookmark-height="26"
+                   title="このエントリーをはてなブックマークに追加"></a>
+			</span>
+                <span class="hatena hidden-sm">
+				<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+                   data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja"
+                   data-hatena-bookmark-width="115" data-hatena-bookmark-height="20"
+                   title="このエントリーをはてなブックマークに追加"></a>
+			</span>
+                    </div>
+
+        <div id="footer_logo_copyright">
+            <a href="">
+                <img src="/assets/img/footer_logo.png" width="80" height="18">
+            </a>
+            Copyright © AutoScale, Inc.
+        </div>
+
+    </div>
+</footer>
+
+<script>
+    var page_language = "ja";
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="/assets/js/general.js?180205"></script>
+
+<script>
+	(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src   = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-78968452-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8"
+        async="async"></script>
+
+<script type="text/javascript">
+	var page_language = "ja";
+	var utm_campaign = "";
+
+	$(function () {
+		var language = (window.navigator.languages && window.navigator.languages[0]) ||
+			window.navigator.language ||
+			window.navigator.userLanguage ||
+			window.navigator.browserLanguage;
+		if (language.indexOf(page_language) === -1) {
+			$('.different_language').removeClass('hide');
+		}
+	})
+</script>
+
+<!-- Twitter universal website tag code -->
+<script>
+	!function (e, t, n, s, u, a) {
+		e.twq || (s = e.twq = function () {
+			s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+		}, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = '//static.ads-twitter.com/uwt.js',
+			a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))
+	}(window, document, 'script');
+	// Insert Twitter Pixel ID and Standard Event data below
+	twq('init', 'nvm19');
+	twq('track', 'PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+
+<script>!function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+		if (!d.getElementById(id)) {
+			js     = d.createElement(s);
+			js.id  = id;
+			js.src = p + '://platform.twitter.com/widgets.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+	}(document, 'script', 'twitter-wjs');</script>
+
+
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId:   '562025787303367',
+			xfbml:   true,
+			version: 'v2.8'
+		});
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js     = d.createElement(s);
+		js.id  = id;
+		js.src = "//connect.facebook.net/ja_JP/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6833027641543340",
+        enable_page_level_ads: true
+    });
+</script>
+<script src="/assets/js/index.js"></script>

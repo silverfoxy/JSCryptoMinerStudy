@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Light pollution map</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="description" content="Interactive world light pollution map. The map uses NOAA/EOG VIIRS/DMSP (2010, 2013, 2014, 2015, 2016, 2017), World Atlas 2015 overlays and SQM overlay managed by users."/>
+    <meta name="keywords" content="svetlobno onesnaženje karta light pollution map 2010 2013 2014 2015 2016 2017 world atlas SQM"/>
+	<meta name="DC.Language" content="en" />
+	<meta name="DC.Description" content="Interactive world light pollution map. The map uses NOAA/EOG VIIRS/DMSP (2010, 2013, 2014, 2015, 2016, 2017), World Atlas 2015 overlays and SQM overlay managed by users." />
+	<meta id='viewport' content='width=device-width, initial-scale=1' name='viewport'/>
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+	
+	<link rel="stylesheet" href="css/LightPollutionMap2.css" type="text/css" />
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/RightMenuStyle.css">
+	<script src="lightpollutionmap.js" type="text/javascript"></script> 
+	
+	<link rel="stylesheet" href="css/ol.css" type="text/css">
+	<script src="lib/ol44.js" type="text/javascript"></script> 	
+	<script src="lib/ol-popup.js" type="text/javascript"></script> 
+	
+	
+	<script src="lib/jquery-3.1.1.min.js" type="text/javascript"></script>
+	
+	<script src="lib/jquery-ui.min.js" type="text/javascript"></script>
+	<link href="lib/jquery-ui.min.css" rel="stylesheet" type="text/css">
+	<script src="lib/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+	<script src="lib/jquery-ui-month-picker/MonthPicker.min.js"></script>
+	<link href="lib/jquery-ui-month-picker/MonthPicker.min.css" rel="stylesheet" type="text/css" />
+	<script src="lib/jquery-ui-month-picker/jquery.maskedinput.min.js"></script>
+	<script src="lib/js.cookie.js" type="text/javascript"></script>
+	<script src="lib/jqModal.js" type="text/javascript"></script>
+	<script src="lib/FileSaver.min.js" type="text/javascript"></script>
+	<script src="lib/meuusjs.1.0.3.min.js" type="text/javascript"></script>
+	<script src="lib/planet_phase.js" type="text/javascript"></script>
+	<script src="lib/moment.js" type="text/javascript"></script>
+	<script src="lib/moment-timezone-with-data.min.js" type="text/javascript"></script>
+  </head>
+  <body onload='init();'>
+	
+	<div id="map" class="map" title="">
+		
+		<div id="rightMenuButtonCont">
+			<div id="rightMenuButton" onclick="toggleRightMenu('toggle');" title="Toggle menu"></div>
+		</div>
+		<div id="RightMenu" style="position:absolute;right:-500px;top:0px;z-index:2000;cursor:default;">
+			<ul class="cd-accordion-menu animated">
+				<li class="has-children">
+					<input name="group-1" id="group-1" checked="checked" type="checkbox">
+					<label for="group-1">Base layers and overlays</label>			
+					<ul>
+						<li>
+							<div id="layerswitcher" style="position:relative;left:35px;width:260px;height:165px">
+								<div>Light pollution overlays</div>
+								<div id="layerswitcher_overlays" style="overflow-y:auto;overflow-x:hidden;width:225px;height:95px;" onscroll="$('.newLayer').css('display','none');">
+									<div style="float:left;margin-left:12px;width:120px;" title="VIIRS 2017 (March) Radiance"><div class="newLayer" style="top: 19px;">NEW</div><input id="LayerVIIRS2017" name="Radiance" type="radio" value="VIIRS2017" onclick="toggleRadianceLayers(this.value);"/> VIIRS 2017</div><div class="slider" id="viirs2017_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>								
+									<div style="float:left;margin-left:12px;width:120px;" title="VIIRS 2016 (March) Radiance"><input id="LayerVIIRS2016" name="Radiance" type="radio" value="VIIRS2016" onclick="toggleRadianceLayers(this.value);"/> VIIRS 2016</div><div class="slider" id="viirs2016_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>
+									<div style="float:left;margin-left:12px;width:120px;" title="World Atlas 2015 Zenith Brightness"><div class="newLayer" style="top: 56px;">NEW</div><input id="LayerWA2015" name="Radiance" type="radio" value="WA2015" onclick="toggleRadianceLayers(this.value);" checked="checked"/><span style="color:#e03f3f;"> ATLAS 2015</span></div><div class="slider" id="wa2015_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>
+									<div style="float:left;margin-left:12px;width:120px;" title="VIIRS 2015 (annual) Radiance"><input id="LayerVIIRS2015" name="Radiance" type="radio" value="VIIRS2015" onclick="toggleRadianceLayers(this.value);"/> VIIRS 2015</div><div class="slider" id="viirs2015_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>
+									<div style="float:left;margin-left:12px;width:120px;" title="VIIRS 2014 (March) Radiance"><input id="LayerVIIRS2014" name="Radiance" type="radio" value="VIIRS2014" onclick="toggleRadianceLayers(this.value);"/> VIIRS 2014</div><div class="slider" id="viirs2014_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>
+									<div style="float:left;margin-left:12px;width:120px;" title="VIIRS 2013 (March) Radiance"><input id="LayerVIIRS2013" name="Radiance" type="radio" value="VIIRS2013" onclick="toggleRadianceLayers(this.value);"/> VIIRS 2013</div><div class="slider" id="viirs2013_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>
+									<div style="float:left;margin-left:12px;width:120px;" title="DMSP 2010 Radiance"><input id="LayerDMSP2010" name="Radiance" type="radio" value="DMSP2010" onclick="toggleRadianceLayers(this.value);"/> DMSP 2010</div><div class="slider" id="dmsp2010_tran_slider" style="float:left;width:70px;height:10px;margin-top:5px;" title="Transparency slider"></div>							
+								</div>
+								<div style="float:left;width:200px;background-color: #7f9dc5;">Bing base layers</div>
+								<div style="float:left;margin-left:12px;width:200px;background-color: #7f9dc5;">
+									<div><input id="LayerBingRoad" name="BaseMap" type="radio" value="Road" checked="checked" onclick="toggleBaseMap(this.value);" /> Road</div>
+									<div><input id="LayerBingHybrid" name="BaseMap" type="radio" value="Hybrid"  onclick="toggleBaseMap(this.value);" /> Hybrid</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="has-children">
+					<input name="group-2" id="group-2" type="checkbox">
+					<label for="group-2" style="border-top: 1px solid #D3D3D3;">SQM/SQC overlay & filters</label>
+					<ul>
+						<li>
+							
+							<div id="SQMToolsCont" style="position:relative;left:0px;width:260px;height:120px;">
+								<div style="position:absolute;top:0px;left: 35px;">Overlay</div>
+								<div style="position:absolute;top: 15px;left: 0px;width:260px;">
+									<div style="position:relative;left:48px;"><input id="LayerSQM" name="LayerSQM" type="checkbox" onclick="toggleSQMLayer();" title="Show SQM overlay"></div>
+									<div style="position:relative;left:72px;top:2px;">SQM/SQC</div>
+									<div class="slider"  id="sqm_tran_slider" style="width:70px;height:10px;position:relative;left:167px;top: -10px;" title="Transparency slider"></div>
+								</div>															
+								<div style="position:absolute;top: 35px;left: 35px;">Filters</div>
+								<div style="position:absolute;top: 55px;left: 52px;">
+									Name<input id="SQMName" type="text" placeholder="Filter by name..." title="Wildcard string filter" style="margin-left: 5px;top: -5px;height: 18px;width: 141px;">
+								</div>
+								<div style="position:absolute;top: 75px;left: 51px;">
+									SQM<input id="typeSQM" name="SQM" type="checkbox" value="0" style="margin-left: 7px;top: -2px;" title="Wide angle SQM measurements" checked><div style="margin-left: 59px;margin-top: -14px;">SQM-L</div><input id="typeSQML" name="SQM_L" type="checkbox" value="1" style="margin-left: 113px;top: -2px;" title="Narrow angle SQM measurements" checked><div style="margin-left: 134px;margin-top: -14px;color:#e03f3f;">SQC</div><input id="typeSQC" name="SQC" type="checkbox" value="1" style="margin-left: 174px;top: -2px;" title="Sky Quality Camera" checked="">
+								</div>						
+								<div style="position:absolute;top: 95px;left: 52px;" title="Show measurements between entered dates">
+									Date<input id="SQMStartDate" type="text" style="margin-left: 13px;top: -4px;width: 60px;height: 18px;"><div style="margin-left: 111px;margin-top: -17px;">-</div><input id="SQMEndDate" type="text" style="margin-left: 125px;top: -4px;width: 60px;height: 18px;">
+								</div>																
+							</div>
+							
+						</li>
+					</ul>
+				</li>
+				<li class="has-children">
+					<input name="group-3" id="group-3" type="checkbox">
+					<label for="group-3" style="border-top: 1px solid #D3D3D3;">Overlay legend</label>
+					<ul>
+						<li><div id="legend"></div></li>
+					</ul>
+				</li>
+				<li class="has-children">
+					<input name="group-4" id="group-4" type="checkbox">
+					<label for="group-4" style="border-top: 1px solid #D3D3D3;">Support lightpollutionmap.info</label>
+					<ul>
+
+						<li><div style="padding-left: 12px;color: white;font-size: 13px;font-weight: bold;padding-bottom: 5px;">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="ZHP4XJWKMRFBU">
+								<table>
+								<tr><td><input type="hidden" name="on0" value="support by">support by</td></tr><tr><td><select name="os0">
+									<option value="contributing 2">contributing €2.00 EUR</option>
+									<option value="contributing 5">contributing €5.00 EUR</option>
+									<option value="contributing 10">contributing €10.00 EUR</option>
+									<option value="contributing 20">contributing €20.00 EUR</option>
+									<option value="contributing 100">contributing €100.00 EUR</option>
+								</select> </td></tr>
+								</table>
+								<input type="hidden" name="currency_code" value="EUR">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="padding: 7px;">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>					
+								<div style="font-weight:normal">By contributing you are helping me keep this website ad free and maintaing it.</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<!-- Sharing buttons		
+			Sharingbutton Facebook -->
+			<div id="socialButtons">
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<g>
+							<path d="M18.768,7.465H14.5V5.56c0-0.896,0.594-1.105,1.012-1.105s2.988,0,2.988,0V0.513L14.171,0.5C10.244,0.5,9.5,3.438,9.5,5.32 v2.145h-3v4h3c0,5.212,0,12,0,12h5c0,0,0-6.85,0-12h3.851L18.768,7.465z"></path>
+						</g>
+					</svg>
+					</div>
+				  </div>
+				</a>
+
+				<!-- Sharingbutton Twitter -->
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<g>
+							<path d="M23.444,4.834c-0.814,0.363-1.5,0.375-2.228,0.016c0.938-0.562,0.981-0.957,1.32-2.019c-0.878,0.521-1.851,0.9-2.886,1.104 C18.823,3.053,17.642,2.5,16.335,2.5c-2.51,0-4.544,2.036-4.544,4.544c0,0.356,0.04,0.703,0.117,1.036 C8.132,7.891,4.783,6.082,2.542,3.332C2.151,4.003,1.927,4.784,1.927,5.617c0,1.577,0.803,2.967,2.021,3.782 C3.203,9.375,2.503,9.171,1.891,8.831C1.89,8.85,1.89,8.868,1.89,8.888c0,2.202,1.566,4.038,3.646,4.456 c-0.666,0.181-1.368,0.209-2.053,0.079c0.579,1.804,2.257,3.118,4.245,3.155C5.783,18.102,3.372,18.737,1,18.459 C3.012,19.748,5.399,20.5,7.966,20.5c8.358,0,12.928-6.924,12.928-12.929c0-0.198-0.003-0.393-0.012-0.588 C21.769,6.343,22.835,5.746,23.444,4.834z"></path>
+						</g>
+					</svg>
+					</div>
+				  </div>
+				</a>
+
+				<!-- Sharingbutton Google+ -->
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--google resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<g>
+							<path d="M11.366,12.928c-0.729-0.516-1.393-1.273-1.404-1.505c0-0.425,0.038-0.627,0.988-1.368 c1.229-0.962,1.906-2.228,1.906-3.564c0-1.212-0.37-2.289-1.001-3.044h0.488c0.102,0,0.2-0.033,0.282-0.091l1.364-0.989 c0.169-0.121,0.24-0.338,0.176-0.536C14.102,1.635,13.918,1.5,13.709,1.5H7.608c-0.667,0-1.345,0.118-2.011,0.347 c-2.225,0.766-3.778,2.66-3.778,4.605c0,2.755,2.134,4.845,4.987,4.91c-0.056,0.22-0.084,0.434-0.084,0.645 c0,0.425,0.108,0.827,0.33,1.216c-0.026,0-0.051,0-0.079,0c-2.72,0-5.175,1.334-6.107,3.32C0.623,17.06,0.5,17.582,0.5,18.098 c0,0.501,0.129,0.984,0.382,1.438c0.585,1.046,1.843,1.861,3.544,2.289c0.877,0.223,1.82,0.335,2.8,0.335 c0.88,0,1.718-0.114,2.494-0.338c2.419-0.702,3.981-2.482,3.981-4.538C13.701,15.312,13.068,14.132,11.366,12.928z M3.66,17.443 c0-1.435,1.823-2.693,3.899-2.693h0.057c0.451,0.005,0.892,0.072,1.309,0.2c0.142,0.098,0.28,0.192,0.412,0.282 c0.962,0.656,1.597,1.088,1.774,1.783c0.041,0.175,0.063,0.35,0.063,0.519c0,1.787-1.333,2.693-3.961,2.693 C5.221,20.225,3.66,19.002,3.66,17.443z M5.551,3.89c0.324-0.371,0.75-0.566,1.227-0.566l0.055,0 c1.349,0.041,2.639,1.543,2.876,3.349c0.133,1.013-0.092,1.964-0.601,2.544C8.782,9.589,8.363,9.783,7.866,9.783H7.865H7.844 c-1.321-0.04-2.639-1.6-2.875-3.405C4.836,5.37,5.049,4.462,5.551,3.89z"></path>
+							<polygon points="23.5,9.5 20.5,9.5 20.5,6.5 18.5,6.5 18.5,9.5 15.5,9.5 15.5,11.5 18.5,11.5 18.5,14.5 20.5,14.5 20.5,11.5  23.5,11.5 	"></polygon>
+						</g>
+					</svg>
+					</div>
+				  </div>
+				</a>
+
+				<!-- Sharingbutton Tumblr -->
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<g>
+							<path d="M13.5,0.5v5h5v4h-5v5.515c0,5.028,3.52,4.427,6,2.798v4.433c-6.728,3.172-12-0.064-12-4.255V9.5h-3V6.668 c0.903-0.293,2.245-0.714,2.889-1.261c0.646-0.551,1.162-1.208,1.551-1.976C9.331,2.664,9.6,1.686,9.746,0.5H13.5z"></path>
+						</g>
+					</svg>
+					</div>
+				  </div>
+				</a>
+
+				<!-- Sharingbutton Pinterest -->
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<path d="M12.137,0.5C5.86,0.5,2.695,5,2.695,8.752c0,2.272,0.8 ,4.295,2.705,5.047c0.303,0.124,0.574,0.004,0.661-0.33 c0.062-0.231,0.206-0.816,0.271-1.061c0.088-0.331,0.055-0.446-0.19-0.736c-0.532-0.626-0.872-1.439-0.872-2.59 c0-3.339,2.498-6.328,6.505-6.328c3.548,0,5.497,2.168,5.497,5.063c0,3.809-1.687,7.024-4.189,7.024 c-1.382,0-2.416-1.142-2.085-2.545c0.397-1.675,1.167-3.479,1.167-4.688c0-1.081-0.58-1.983-1.782-1.983 c-1.413,0-2.548,1.461-2.548,3.42c0,1.247,0.422,2.09,0.422,2.09s-1.445,6.126-1.699,7.199c-0.505,2.137-0.076,4.756-0.04,5.02 c0.021,0.157,0.224,0.195,0.314,0.078c0.13-0.171,1.813-2.25,2.385-4.325c0.162-0.589,0.929-3.632,0.929-3.632 c0.459,0.876,1.801,1.646,3.228,1.646c4.247,0,7.128-3.871,7.128-9.053C20.5,4.15,17.182,0.5,12.137,0.5z"></path>
+					</svg>
+					</div>
+				  </div>
+				</a>
+
+				<!-- Sharingbutton LinkedIn -->
+				<a class="resp-sharing-button__link" href="#" target="_blank" aria-label="">
+				  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+					<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+						<g>
+							<path d="M6.527,21.5h-5v-13h5V21.5z M4.018,6.5H3.988C2.478,6.5,1.5,5.318,1.5,4.019c0-1.329,1.008-2.412,2.547-2.412 c1.541,0,2.488,1.118,2.519,2.447C6.565,5.354,5.588,6.5,4.018,6.5z M15.527,12.5c-1.105,0-2,0.896-2,2v7h-5c0,0,0.059-12,0-13h5 v1.485c0,0,1.548-1.443,3.938-1.443c2.962,0,5.062,2.144,5.062,6.304V21.5h-5v-7C17.527,13.396,16.632,12.5,15.527,12.5z"></path>
+						</g>
+					</svg>
+					</div>
+				  </div>
+				</a>
+			</div>
+		</div>
+		<div style="display:none;"><iframe src="/QueryRaster/Session.aspx"></iframe> </div>
+		<div class="olControlZoom toolBar">
+			<div id="geolocateButton" title="Go to your location"></div>
+			<div id="rulerButton" title="Measure distance" ></div>
+			<div id="printButton" title="Print map image"></div>
+			<div id="statisticsButton" title="Statistics per country"></div>
+			<div id="helpButton" title="Help" onclick="window.open('help.html');"></div>
+			<div id="extendedToolbarButton" title="Toggle extended toolbar"></div>
+		</div>
+		<div id="extendedToolbar">
+			<div id="pointInfoButton" title="Point information"></div>
+			<div id="areaInfoButton" title="Area (polygon) statistics and data export"></div>
+			<div id="areaInfoButton2" title="Area (circle) statistics and data export"></div>
+			<div id="addMarkerButton" title="Add a map marker"></div>
+			
+			<div id="addSQMButton" title="Add SQM light pollution measurement"></div>
+			<div id="blankButton"></div>
+			
+		</div>
+		
+		<div id="searchCont" style="position:absolute;left:90px;top:10px;z-index:2;width:350px;" title="Search places or enter coordinates in 'lat, lon' format.">        
+			<div class="ui-widget">
+				<input id="searchBox" type="search" placeholder="Search places..." style="padding-left:0.5em;padding-top:0.3em;" />
+			</div>
+			<div id="searchResult" class="ui-widget" style="margin-top: 1em;">
+			</div>
+		</div>
+				
+		<div id="coordinates" title="toggle decimal or deg/min/sec" ></div>
+				
+
+	</div>
+	<div class="jqmWindow" id="dialog" style='font-family:Arial;font-size:13px;color:#00000;'>
+		<div class="ol-popup-closer jqmClose"></div>
+		The light pollution map has two base layers (road and hybrid Bing maps), VIIRS/DMSP/World Atlas overlays and the user measurements overlay.<br/>
+		<br/>
+		Direct annual comparisons are to be avoided as there are too many factors involved.<br/>
+		<br/>
+		For more information view the <a href="help.html" target="_blank" >help</a>.<br/>
+		Send comments about the map to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#116;&#97;&#114;&#101;&#106;&#64;&#116;&#45;&#50;&#46;&#110;&#101;&#116;" target="_top">Jurij Stare</a>
+		<br/><br/>
+		This website uses cookies to ensure you get the best experience. 
+		<br/>
+		<div style="height: 20px; padding-top: 10px;">
+			<div style="right: 30px; margin-top: 3px; position: absolute;">Do not show this message at start again</div>
+			<div style="right: 0px; position: absolute;"><input type="checkbox" id="splashCheckbox" name="splashCheckbox" /><label for="splashCheckbox"><span></span></label></div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var sc_project=1431458; 
+		var sc_invisible=1; 
+		var sc_security="07ff4c3a"; 
+	</script>
+	<script type="text/javascript"
+	src="https://www.statcounter.com/counter/counter.js"></script>
+	<noscript>
+		<div class="statcounter"><a title="shopify analytics ecommerce tracking" href="https://statcounter.com/shopify/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/1431458/0/07ff4c3a/0/" alt="shopify analytics ecommerce tracking" /></a></div>
+	</noscript>
+  </body>
+</html>

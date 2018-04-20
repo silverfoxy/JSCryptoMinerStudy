@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+
+
+<meta name="google-site-verification" content="EMO4xI6YiTbbG_Q6k7m9sYa2hN77NMeayhvdaRw1Krk" />
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=216648,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+<!-- HOTJAR Tracking Code for natural-fertility-info.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:82293,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script> <!--END HOTJAR TRACKING CODE -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="show-menu-auto-arrows" content="1" />
+<meta name="show-menu-drop-shadows" content="0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+<title>How to Get Pregnant... Natural Fertility Info.com</title>
+
+<link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/NFInfo/css/colorbox.css" media="screen" type="text/css" />
+<link rel="pingback" href="http://natural-fertility-info.com/xmlrpc.php" />
+
+
+<!--[if IE 6]>
+    <script  type="text/javascript" src="http://natural-fertility-info.com/wp-content/themes/u-design/scripts/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script  type="text/javascript">
+    // <![CDATA[
+DD_belatedPNG.fix('.pngfix, img, #home-page-content li, #page-content li, #bottom li, #footer li, #recentcomments li span');
+    // ]]>
+    </script>
+<![endif]-->
+
+
+
+<!-- All in One SEO Pack 2.3.7 by Michael Torbert of Semper Fi Web Design[2507,2541] -->
+<meta name="description"  content="How To Get Pregnant - Natural fertility tips, answers, herbs, supplements, diet, progesterone, studies and videos all at one place. Find your natural fertility" />
+
+<meta name="keywords"  content="fertility, natural fertility, getting pregnant, infertility, how to get pregnant" />
+
+<!-- /all in one seo pack -->
+<link rel='dns-prefetch' href='//platform.twitter.com' />
+<link rel='dns-prefetch' href='//a.optnmstr.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Natural Fertility Info.com &raquo; Feed" href="http://natural-fertility-info.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="Natural Fertility Info.com &raquo; Comments Feed" href="http://natural-fertility-info.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="Natural Fertility Info.com &raquo; Homepage Comments Feed" href="http://natural-fertility-info.com/homepage/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/natural-fertility-info.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='tfg_style-css'  href='http://natural-fertility-info.com/wp-content/plugins/twitter-facebook-google-plusone-share/tfg_style.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='roster_slider_headcss-css'  href='http://natural-fertility-info.com/wp-content/plugins/roster-slider/css/skins/default/style.css?ver=1.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://natural-fertility-info.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-basic-css'  href='http://natural-fertility-info.com/wp-content/plugins/ubermenu/styles/basic.css?ver=2.1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-custom-css'  href='http://natural-fertility-info.com/wp-content/plugins/ubermenu/styles/custom.css?ver=2.1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='reset-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/styles/common-css/reset.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='text-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/styles/style1/css/text.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='grid-960-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/styles/common-css/960.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='superfish_menu-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/superfish-1.4.8/css/superfish.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='pretty_photo-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/prettyPhoto/css/prettyPhoto.css?ver=3.1.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='style-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/styles/style1/css/style.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='custom-style-css'  href='http://natural-fertility-info.com/wp-content/themes/u-design/styles/custom/custom_style.php?ver=4.9.4' type='text/css' media='screen' />
+<link rel='stylesheet' id='style-orig-css'  href='http://natural-fertility-info.com/wp-content/themes/NFInfo/style.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-ui-css'  href='http://natural-fertility-info.com/wp-content/plugins/wp-ui/wp-ui.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-light-css'  href='http://natural-fertility-info.com/wp-content/plugins/wp-ui/css/wpui-light.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-multiple-css'  href='http://natural-fertility-info.com/wp-content/plugins/wp-ui/css/css.php?styles=wpui-light%7Cwpui-blue%7Cwpui-red%7Cwpui-green%7Cwpui-dark%7Cwpui-quark%7Cwpui-alma%7Cwpui-macish%7Cwpui-redmond%7Cwpui-sevin&#038;ver=4.9.4' type='text/css' media='all' />
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/anti-spam/js/anti-spam.js?ver=2.1'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/roster-slider/js/jquery.cycle.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/roster-slider/js/jquery.easing.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/simple-content-reveal/js/swap-display.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/magic-action-box-pro/assets/js/actionbox-helper.js?ver=4.9.4'></script>
+<script type='text/javascript' data-cfasync="false" id="omapi-script" async="async" src='//a.optnmstr.com/app/js/api.min.js?ver=1.1.7'></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js?ver=1.8.21'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpUIOpts = {"wpUrl":"http:\/\/natural-fertility-info.com","pluginUrl":"http:\/\/natural-fertility-info.com\/wp-content\/plugins\/wp-ui\/","enableTabs":"on","enableAccordion":"on","enableSpoilers":"on","enableDialogs":"on","tabsEffect":"slide","effectSpeed":"400","accordEffect":"slide","alwaysRotate":"stop","tabsEvent":"click","collapsibleTabs":"off","accordEvent":"click","topNav":"","accordAutoHeight":"on","accordCollapsible":"off","accordEasing":"false","mouseWheelTabs":"false","bottomNav":"on","tabPrevText":"Prev","tabNextText":"Next","spoilerShowText":"Click to show","spoilerHideText":"Click to hide","cookies":"on","hashChange":"on","docWriteFix":"on","bleeding":"off","linking_history":"on","misc_options":"hashing_method=1\ntinymce_icon_row=3"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/wp-ui/js/wp-ui.js?ver=0.8.5'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/prettyPhoto/js/jquery.prettyPhoto.js?ver=3.1.3'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/superfish-1.4.8/js/superfish.combined.js?ver=1.0.0'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/script.js?ver=1.1'></script>
+<link rel='https://api.w.org/' href='http://natural-fertility-info.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://natural-fertility-info.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://natural-fertility-info.com/wp-includes/wlwmanifest.xml" /> 
+<link rel="canonical" href="http://natural-fertility-info.com/" />
+<link rel='shortlink' href='http://natural-fertility-info.com/' />
+<link rel="alternate" type="application/json+oembed" href="http://natural-fertility-info.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fnatural-fertility-info.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://natural-fertility-info.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fnatural-fertility-info.com%2F&#038;format=xml" />
+<!-- Pinterest Meta Tag added by Pinterest Verify Meta Tag Plugin v1.1: http://tutskid.com/pinterest-verify-meta-tag/ -->
+<meta name="p:domain_verify" content="b3ee2c53d4ef14129865fecf5fa0549c" />
+
+
+<!-- Facebook Like Thumbnail -->
+<link rel="image_src" href="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" />
+<!-- End Facebook Like Thumbnail -->
+
+<!-- All in one Favicon 4.3 --><link rel="shortcut icon" href="http://natural-fertility-info.com/wp-content/uploads/favicon1.ico" />
+<style type="text/css" media="all">
+/* <![CDATA[ */
+@import url("http://natural-fertility-info.com/wp-content/plugins/wp-table-reloaded/css/plugin.css?ver=1.9.4");
+@import url("http://natural-fertility-info.com/wp-content/plugins/wp-table-reloaded/css/datatables.css?ver=1.9.4");
+/* ]]> */
+</style><style type="text/css" media="screen">body{position:relative}#dynamic-to-top{display:none;overflow:hidden;width:auto;z-index:90;position:fixed;bottom:20px;right:20px;top:auto;left:auto;font-family:sans-serif;font-size:1em;color:#5c862c;text-decoration:none;font-weight:bold;padding:2px 5px;border:0px solid;background:;-webkit-background-origin:border;-moz-background-origin:border;-icab-background-origin:border;-khtml-background-origin:border;-o-background-origin:border;background-origin:border;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;-icab-background-clip:padding-box;-khtml-background-clip:padding-box;-o-background-clip:padding-box;background-clip:padding-box;-webkit-border-radius:0px;-moz-border-radius:0px;-icab-border-radius:0px;-khtml-border-radius:0px;border-radius:0px}#dynamic-to-top:hover{background:#4d4d4d;background:-webkit-gradient( linear, 0% 0%, 0% 100%, from( rgba( 255, 255, 255, .2 ) ), to( rgba( 0, 0, 0, 0 ) ) );background:-webkit-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:-khtml-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:-moz-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:-o-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:-ms-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:-icab-linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );background:linear-gradient( top, rgba( 255, 255, 255, .2 ), rgba( 0, 0, 0, 0 ) );cursor:pointer}#dynamic-to-top:active{background:;background:-webkit-gradient( linear, 0% 0%, 0% 100%, from( rgba( 0, 0, 0, .3 ) ), to( rgba( 0, 0, 0, 0 ) ) );background:-webkit-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:-moz-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:-khtml-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:-o-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:-ms-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:-icab-linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) );background:linear-gradient( top, rgba( 0, 0, 0, .1 ), rgba( 0, 0, 0, 0 ) )}#dynamic-to-top,#dynamic-to-top:active,#dynamic-to-top:focus,#dynamic-to-top:hover{outline:none}#dynamic-to-top span{display:block;overflow:hidden;width:14px;height:12px;background:url( http://natural-fertility-info.com/wp-content/plugins/dynamic-to-top/css/images/up.png )no-repeat center center}</style>
+<!-- UberMenu CSS - Controlled through UberMenu Options Panel 
+================================================================ -->
+<style type="text/css" id="ubermenu-style-generator-css">
+/* Custom Tweaks - UberMenu Style Configuration Settings */
+#megaMenu {
+background:none;
+background-color:none;
+}
+#megaMenu ul.megaMenu > li > a span.wpmega-link-title, #megaMenu ul.megaMenu > li > span.um-anchoremulator span.wpmega-link-title {
+text-transform:uppercase;
+color:white;
+font-family: "gotham_book";
+font-size: 11px;
+}
+#megaMenu .wpmega-link-title {
+padding:0 10px;
+}
+#megaMenu.megaMenuHorizontal ul.megaMenu > li:first-child > a, #megaMenu ul.megaMenu > li > a, #megaMenu ul.megaMenu > li > span.um-anchoremulator, .megaMenuToggle  {
+padding-top: 0;
+padding-bottom: 0;
+line-height: 35px;
+display: block;
+}
+#megaMenu.megaMenuHorizontal ul.megaMenu > li > a, #megaMenu.megaMenuHorizontal ul.megaMenu > li > span.um-anchoremulator {
+border-left:1px solid #A0C456;
+}
+
+#megaMenu .wpmega-link-title {
+line-height:inherit;
+}
+
+#megaMenu ul li.ss-nav-menu-mega {
+border-right:1px solid #4f7623;
+}
+
+ul.megaMenu > li > a, #megaMenu.megaMenuHorizontal ul.megaMenu > li > span.um-anchoremulator {
+border-left: 1px solid #A0C456;
+}
+
+#megaMenu ul.megaMenu > li:hover > a, #megaMenu ul.megaMenu > li > a:hover, #megaMenu ul.megaMenu > li.megaHover > a, #megaMenu ul.megaMenu > li:hover > span.um-anchoremulator, #megaMenu ul.megaMenu > li > span.um-anchoremulator:hover, #megaMenu ul.megaMenu > li.megaHover > span.um-anchoremulator {
+background-color: #5B862C !important;
+}
+
+
+#megaMenu ul.megaMenu > li.current-menu-item > a, #megaMenu ul.megaMenu > li.current-menu-parent > a, #megaMenu ul.megaMenu > li.current-menu-ancestor > a {
+background-color: #5B862C !important;
+}
+
+#megaMenu ul.megaMenu > li.ss-nav-menu-mega > ul.sub-menu-1, #megaMenu ul.megaMenu li.ss-nav-menu-reg ul.sub-menu {
+background:white;
+border: 1px solid #5B862C;
+box-shadow: 0 0px 12px #7D7D7D;
+}
+
+#megaMenu ul li.ss-nav-menu-mega ul ul.sub-menu li > a, #megaMenu ul li.ss-nav-menu-mega ul ul.sub-menu li > span.um-anchoremulator, #megaMenu ul ul.sub-menu li > a, #megaMenu ul ul.sub-menu li > span.um-anchoremulator {
+color:#333;
+}
+
+#megaMenu ul li.ss-nav-menu-mega ul ul.sub-menu li > a:hover, #megaMenu ul ul.sub-menu li > a:hover {
+color:#6f9434;
+}	
+</style>
+<!-- end UberMenu CSS -->
+		
+			
+<!--[if lte IE 9]>
+    <link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/u-design/styles/common-css/ie-all.css" media="screen" type="text/css" />
+<![endif]-->
+<!--[if lte IE 7]>
+    <link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/u-design/styles/common-css/ie6-7.css" media="screen" type="text/css" />
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/u-design/styles/common-css/ie6.css" media="screen" type="text/css" />
+    <style type="text/css">
+body{ behavior: url("http://natural-fertility-info.com/wp-content/themes/u-design/scripts/csshover3.htc"); }
+    </style>
+<![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12881786-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript" src="http://natural-fertility-info.com/wp-content/themes/NFInfo/js/colorbox.js"></script>
+
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '607789692636402']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(["track", "PixelInitialized", {}]);
+</script>
+<noscript><img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=607789692636402&amp;ev=NoScript" /></noscript>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/NFInfo/style.css?1504278467" type="text/css" media="screen, projection" />
+
+<script src="http://natural-fertility-info.com/wp-content/themes/NFInfo/js/jquery.mmenu.min.all.js"></script>
+<link rel="stylesheet" href="http://natural-fertility-info.com/wp-content/themes/NFInfo/css/jquery.mmenu.all.css"/>
+
+
+</head>
+<body class="home page-template page-template-homepage page-template-homepage-php page page-id-5">
+    <div id="mobile_menu" class="mobile_menu mobile">
+            <div class="menu-mobile-menu-container"><ul id="menu-mobile-menu" class="menu"><li id="menu-item-11120" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11120"><a href="http://natural-fertility-info.com/fertility-issues">Fertility Issues</a></li>
+<li id="menu-item-11121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11121"><a href="http://natural-fertility-info.com/fertility-therapies">Fertility Therapies</a></li>
+<li id="menu-item-11122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11122"><a href="/featured-articles">Popular Articles</a></li>
+<li id="menu-item-11123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11123"><a href="/prepare-for-conception">Fertility Cleansing</a></li>
+<li id="menu-item-11124" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11124"><a href="/fertility-diet">Fertility Diet</a></li>
+<li id="menu-item-11125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11125"><a href="/increase-egg-health">Egg Health</a></li>
+<li id="menu-item-11119" class="shop menu-item menu-item-type-custom menu-item-object-custom menu-item-11119"><a href="http://www.naturalfertilityshop.com/">Shop</a></li>
+<li id="menu-item-11127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11127"><a href="/new-success-stories">Success Stories</a></li>
+<li id="menu-item-11128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11128"><a href="/contact-us">Contact Us</a></li>
+<li id="menu-item-11126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11126"><a href="http://www.naturalfertilityshop.com">Fertility Products</a></li>
+<li id="menu-item-11129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11129"><a href="/fertility-newsletter">Newsletter</a></li>
+<li id="menu-item-11130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11130"><a href="/about-us">About Us</a></li>
+</ul></div>        </div>
+        <script>
+        jQuery(document).ready(function(){
+            jQuery("#mobile_menu").mmenu();
+            jQuery("#trigger-search a").click(function(){
+                jQuery("#search").slideToggle();
+            });
+            jQuery("#hide").click(function(){
+                jQuery("#header-subscribe").slideToggle();
+            });
+        });
+            
+        </script>
+    <div id="wrapper-1" class="pngfix">
+<div id="top-wrapper" class="mm-fixed-top">
+            <div id="top-elements" class="container_24">
+                    <div id="logo" class="grid_14">
+                            <h1><a title="Natural Fertility Info.com" class="pngfix" href="http://natural-fertility-info.com">Natural Fertility Info.com</a></h1>
+                    </div>
+
+                    <!-- end logo slogan -->
+                     <div id="trigger-search" class="mobile">
+            <a href="#" class="search-icon"><img src="http://natural-fertility-info.com/wp-content/themes/NFInfo/img/search-icon.png" width="35" height="35"> </a>
+                    </div>
+                        
+                        <div class="social-media-area grid_12 prefix_14">
+<div class="social_media_top widget_text substitute_widget_class">			<div class="textwidget"><p></div>
+		</div>                        </div><!-- end social-media-area -->
+
+                        <div id="search">
+                            <form action="http://natural-fertility-info.com/" method="get">
+                                <div class="search_box">
+                                    <div class="search_box_inner">
+                                        <input id="search_field" name="s" type="text" class="inputbox_focus blur pngfix" placeholder="I'm looking for..." />
+                                    </div>
+                                    <input type="submit"  value="&#xf002;" class="search-btn pngfix" />
+                                </div>
+                            </form>
+                        </div><!-- end search -->
+
+                        <div class="below_search_wrapper grid_12 prefix_14">			<div class="textwidget">Questions? Call us: <strong>1 (800) 851-7957&nbsp;&nbsp; |  &nbsp;&nbsp;<a href="http://www.naturalfertilityshop.com/"style="color: #786a61"><i>Shop Products</i></a></strong>&nbsp;&nbsp;&nbsp;
+
+
+</div>
+		</div>
+                        
+
+   </div>
+   <!-- end top-elements -->
+
+   <div class="tabnav_wrapper container_24">
+
+   </div>
+   
+            <div id="main-menu" class="pngfix notmobile">
+                <div id="dropdown-holder" class="container_24">
+<div id="megaMenu" class="megaMenuContainer megaMenu-nojs megaFullWidth megaMenuHorizontal megaMenuOnHover wpmega-withjs wpmega-noconflict"><ul id="menu-top-nav" class="megaMenu" data-theme-location="primary"><li id="menu-item-51" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mega-with-sub ss-nav-menu-item-0 ss-nav-menu-item-depth-0 ss-nav-menu-mega ss-nav-menu-mega-alignCenter ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-issues"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Issues</span></a>
+<ul class="sub-menu sub-menu-1">
+<li id="menu-item-137" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-83" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/how-to-get-your-period-back.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Absent Period</span></a></li><li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/blocked-fallopian-tubes"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Blocked Fallopian Tubes</span></a></li><li id="menu-item-9289" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/birth-control-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Birth Control Recovery</span></a></li><li id="menu-item-9290" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/5-natural-ways-to-increase-your-cervical-mucous.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Cervical Mucus</span></a></li><li id="menu-item-9291" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/ectopic-pregnancy.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Ectopic Pregnancy</span></a></li><li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/increase-egg-health"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Egg Health</span></a></li><li id="menu-item-100" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/endometriosis"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Endometriosis</span></a></li><li id="menu-item-99" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fsh-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">FSH Fertility</span></a></li><li id="menu-item-9298" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/restore-hormonal-balance-for-improved-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Hormone Balance</span></a></li>	</ul>
+</li><li id="menu-item-9299" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-10764" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/hypothyroidism-reproductive-health.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Hypothyroidism</span></a></li><li id="menu-item-98" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/increase-ivf-success/"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">IVF Preparation</span></a></li><li id="menu-item-9292" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/progesterone-fertility-guide/"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Low Progesterone</span></a></li><li id="menu-item-96" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/luteal-phase-defect.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Luteal Phase Defect</span></a></li><li id="menu-item-9297" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/preparing-for-conception-over-40.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">40+ Fertility</span></a></li><li id="menu-item-95" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/mens-fertility"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Men&#8217;s Fertility</span></a></li><li id="menu-item-9293" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/natural-menstrual-health.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Menstrual Health</span></a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/preventing-miscarriage"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Miscarriage</span></a></li><li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/ovarian-cyst-remedy"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Ovarian Cysts</span></a></li>	</ul>
+</li><li id="menu-item-138" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/pcos-fertility-diet"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">PCOS</span></a></li><li id="menu-item-9294" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/premature-ovarian-failure.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Premature Ovarian Failure</span></a></li><li id="menu-item-89" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/stress-and-your-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Stress &#038; Fertility</span></a></li><li id="menu-item-9295" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/tubal-ligation-removal-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Tubal Ligation Removal</span></a></li><li id="menu-item-87" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/unexplained-infertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Unexplained Infertility</span></a></li><li id="menu-item-86" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/the-best-natural-remedies-for-fibroids.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Uterine Fibroids</span></a></li><li id="menu-item-9296" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/uterine-health-for-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Uterine Health</span></a></li><li id="menu-item-12086" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://asdf"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title"> </span></a></li><li id="menu-item-12084" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/pregnancy-health"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Pregnancy Health</span></a></li>	</ul>
+</li></ul>
+</li><li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mega-with-sub ss-nav-menu-item-1 ss-nav-menu-item-depth-0 ss-nav-menu-mega ss-nav-menu-mega-alignCenter ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-therapies"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Therapies</span></a>
+<ul class="sub-menu sub-menu-1">
+<li id="menu-item-185" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-105" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/alternative-fertility-treatment-acupuncture-and-moxibustion.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Acupuncture</span></a></li><li id="menu-item-9300" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/antioxidants-and-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Antioxidants</span></a></li><li id="menu-item-9301" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/aromatherapy-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Aromatherapy</span></a></li><li id="menu-item-108" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/castor-oil-therapy"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Castor Oil Pack</span></a></li><li id="menu-item-9309" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/guide-to-fertility-charting.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Charting</span></a></li><li id="menu-item-109" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/estrogen-dominance"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">DIM</span></a></li><li id="menu-item-110" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/dong-quai-fertility-herb.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Donq Quai</span></a></li><li id="menu-item-9302" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/eft-fertility"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">EFT</span></a></li>	</ul>
+</li><li id="menu-item-9306" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-9303" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-evening-primrose-oil.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Evening Primrose Oil</span></a></li><li id="menu-item-9311" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/prepare-for-conception"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Cleansing</span></a></li><li id="menu-item-9310" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-diet"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Diet</span></a></li><li id="menu-item-114" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-herbs"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Herbs</span></a></li><li id="menu-item-9307" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-massage/"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Massage</span></a></li><li id="menu-item-115" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/multivitamin"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Multivitamin</span></a></li><li id="menu-item-116" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-smoothies.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Fertility Smoothies</span></a></li><li id="menu-item-117" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/maca"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Maca</span></a></li>	</ul>
+</li><li id="menu-item-186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children ss-nav-menu-item-depth-1 ss-nav-menu-with-img ss-nav-menu-notext ss-nav-menu-nolink">
+	<ul class="sub-menu sub-menu-2">
+<li id="menu-item-118" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/cod-liver-oil-essential-for-healthy-fertility-and-pregnancy.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Omega 3 EFA</span></a></li><li id="menu-item-119" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/progesterone-fertility-guide/"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Progesterone</span></a></li><li id="menu-item-9304" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/red-raspberry-leaf.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Raspberry Leaf</span></a></li><li id="menu-item-121" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/royal-jelly.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Royal Jelly</span></a></li><li id="menu-item-113" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-enzyme-therapy/"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Systemic Enzyme Therapy</span></a></li><li id="menu-item-122" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/tribulus-fertility.html"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Tribulus</span></a></li><li id="menu-item-123" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/vitex"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Vitex</span></a></li><li id="menu-item-9305" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-2 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/fertility-yoga"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Yoga</span></a></li>	</ul>
+</li></ul>
+</li><li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-2 ss-nav-menu-item-depth-0 ss-nav-menu-reg ss-nav-menu-with-img"><a href="http://www.naturalfertilityshop.com"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Shop</span></a></li><li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page ss-nav-menu-item-3 ss-nav-menu-item-depth-0 ss-nav-menu-reg ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/featured-articles"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Popular Articles</span></a></li><li id="menu-item-10479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mega-with-sub ss-nav-menu-item-4 ss-nav-menu-item-depth-0 ss-nav-menu-reg ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/new-success-stories"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Success Stories</span></a>
+<ul class="sub-menu sub-menu-1">
+<li id="menu-item-10480" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/new-success-stories"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Success Stories</span></a></li><li id="menu-item-12963" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/success-story-interviews"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Interviews</span></a></li><li id="menu-item-12962" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/success-stories-by-category"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">By Category</span></a></li><li id="menu-item-9592" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/share-success-story"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Share Your Story</span></a></li></ul>
+</li><li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mega-with-sub ss-nav-menu-item-5 ss-nav-menu-item-depth-0 ss-nav-menu-reg ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/about-us"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">About Us</span></a>
+<ul class="sub-menu sub-menu-1">
+<li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/about-us"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">About Us</span></a></li><li id="menu-item-9274" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/natural-fertility-expert"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Meet the Team</span></a></li><li id="menu-item-9288" class="menu-item menu-item-type-custom menu-item-object-custom ss-nav-menu-item-depth-1 ss-nav-menu-with-img"><a href="http://natural-fertility-info.com/contact-us"><img height="25" width="25" src="http://natural-fertility-info.com/wp-content/uploads/teamnlogo.png" alt="teamnlogo" title="teamnlogo" /><span class="wpmega-link-title">Contact Us</span></a></li></ul>
+</li></ul></div>                </div>
+                <!-- end dropdown-holder -->
+            </div>
+            <!-- end top-main-menu -->
+        <a href="#mobile_menu" id="mobile_menu_trigger" class="mobile"><i class="fa fa-bars"></i></a>
+        
+</div>
+<!-- end top-wrapper -->
+<p class="tel_wrapper mobile">Call us: <a href="tel:1-800-851-7957">1 (800) 851-7957</a></p>
+    <div class="header-subscribe-wrapper">
+        <div id="header-subscribe" class="notmobile container_24">
+               <div class="subscribe-title">
+                 Subscribe to The World's #1 Natural Fertility Website<span>†</span>
+               </div>
+               <div class="subscribe-boxs">
+               <!-- AWeber Web Form Generator 3.0 -->
+<style>
+ #_form_19_ { font-size:14px; line-height:1.6; z-index:1; font-family:arial, helvetica, sans-serif; margin:0; }
+ #_form_19_ * { outline:0; }
+ ._form_hide { display:none; visibility:hidden; }
+ ._form_show { display:block; visibility:visible; }
+ #_form_19_._form-top { top:0; }
+ #_form_19_._form-bottom { bottom:0; }
+ #_form_19_._form-left { left:0; }
+ #_form_19_._form-right { right:0; }
+ #_form_19_ input[type="text"],#_form_19_ input[type="date"],#_form_19_ textarea { padding:3px 6px; border:#7d7d7d 1px solid; font-size:13px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+ #_form_19_ textarea { resize:none; }
+ #_form_19_ ._submit { -webkit-appearance:none; cursor:pointer; font-family:arial, sans-serif; font-size:14px; text-align:center; background:#787878; border:0; color:#fff; padding:6px 8px; }
+ #_form_19_ ._close-icon { cursor:pointer; background-image:url('https://d226aj4ao1t61q.cloudfront.net/esfkyjh1u_forms-close-dark.png'); background-repeat:no-repeat; background-size:14.2px 14.2px; position:absolute; display:block; top:11px; right:9px; overflow:hidden; width:16.2px; height:16.2px; }
+ #_form_19_ ._close-icon:before { position:relative; }
+ #_form_19_ ._form-body { margin-bottom:30px; }
+ #_form_19_ ._form-image-left { width:150px; float:left; }
+ #_form_19_ ._form-content-right { margin-left:164px; }
+ #_form_19_ ._form-branding { color:#fff; font-size:10px; clear:both; text-align:left; margin-top:30px; font-weight:100; }
+ #_form_19_ ._form-branding ._logo { display:block; width:130px; height:14px; margin-top:6px; background-image:url('https://d226aj4ao1t61q.cloudfront.net/hh9ujqgv5_aclogo_li.png'); background-size:130px auto; background-repeat:no-repeat; }
+ #_form_19_ ._form-label,#_form_19_ ._form_element ._form-label { font-weight:bold; margin-bottom:5px; display:block; }
+ #_form_19_._dark ._form-branding { color:#333; }
+ #_form_19_._dark ._form-branding ._logo { background-image:url('https://d226aj4ao1t61q.cloudfront.net/jftq2c8s_aclogo_dk.png'); }
+ #_form_19_ ._form_element { position:relative; font-size:0; max-width:100%; }
+ #_form_19_ ._form_element * { font-size:14px; }
+ #_form_19_ ._form_element._clear { clear:both; width:100%; float:none; }
+ #_form_19_ ._form_element._clear:after { clear:left; }
+ #_form_19_ ._form_element._show-border:before { content:''; margin:0; padding:0; width:100%; height:100%; position:absolute; top:0; left:0; outline:2px solid #444; }
+ #_form_19_ ._form_element input[type="text"],#_form_19_ ._form_element input[type="date"],#_form_19_ ._form_element select,#_form_19_ ._form_element textarea:not(.g-recaptcha-response) { display:block; width:100%; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+ #_form_19_ ._inline-style { float:left; }
+ #_form_19_ ._inline-style input[type="text"] { width:150px; }
+ #_form_19_ ._inline-style:not(._clear) + ._inline-style:not(._clear) { margin-left:20px; }
+ #_form_19_ ._form_element img._form-image { max-width:100%; }
+ #_form_19_ ._clear-element { clear:left; }
+ #_form_19_ ._full_width { width:100%; }
+ #_form_19_ ._form_full_field { display:block; width:100%; margin-bottom:10px; }
+ #_form_19_ input[type="text"]._has_error,#_form_19_ textarea._has_error { border:#f37c7b 1px solid; }
+ #_form_19_ input[type="checkbox"]._has_error { outline:#f37c7b 1px solid; }
+ #_form_19_ ._error { display:block; position:absolute; font-size:13px; z-index:10000001; }
+ #_form_19_ ._error._above { padding-bottom:4px; top:-17px; right:0; }
+ #_form_19_ ._error._below { padding-top:4px; top:100%; right:0; }
+ #_form_19_ ._error._above ._error-arrow { bottom:0; right:15px; border-left:5px solid transparent; border-right:5px solid transparent; border-top:5px solid #f37c7b; }
+ #_form_19_ ._error._below ._error-arrow { top:0; right:15px; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:5px solid #f37c7b; }
+ #_form_19_ ._error-inner { padding:8px 12px; background-color:#f37c7b; font-size:13px; font-family:arial, sans-serif; color:#fff; text-align:center; text-decoration:none; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; }
+ #_form_19_ ._error-inner._form_error { margin-bottom:5px; position:absolute; text-align:left; }
+ #_form_19_ ._button-wrapper ._error-inner._form_error { position:static; }
+ #_form_19_ ._error-inner._no_arrow { margin-bottom:10px; }
+ #_form_19_ ._error-arrow { position:absolute; width:0; height:0; }
+ #_form_19_ ._error-html { margin-bottom:10px; }
+ .pika-single { z-index:10000001 !important; }
+ ._form-wrapper { z-index:9999999; }
+ @media all and (min-width:320px) and (max-width:667px) { ::-webkit-scrollbar { display:none; }
+ ._form-wrapper { position:fixed; top:0; bottom:0; right:0; left:0; height:100%; width:100%; overflow:hidden; overflow-y:scroll; overflow-y:-moz-scrollbars-none; -ms-overflow-style:none; }
+ #_form_19_ { margin:0; width:100%; min-width:100%; max-width:100%; box-sizing:border-box; }
+ #_form_19_ * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; font-size:1em; }
+ #_form_19_ ._form-content { margin:0; width:100%; }
+ #_form_19_ ._form-inner { display:block; min-width:100%; }
+ #_form_19_ ._form-title,#_form_19_ ._inline-style { margin-top:0; margin-right:0; margin-left:0; }
+ #_form_19_ ._form-title { font-size:1.2em; }
+ #_form_19_ ._form_element { margin:0 0 20px; padding:0; width:100%; }
+ #_form_19_ ._form-element,#_form_19_ ._inline-style,#_form_19_ input[type="text"],#_form_19_ label,#_form_19_ p,#_form_19_ textarea:not(.g-recaptcha-response) { float:none; display:block; width:100%; }
+ #_form_19_ ._row,#_form_19_ p,#_form_19_ label { margin-bottom:0.7em; }
+ #_form_19_ ._form-image { max-width:100%; height:auto; }
+ #_form_19_ input[type="text"] { padding-left:10px; padding-right:10px; line-height:1.3em; -webkit-appearance:none; }
+ #_form_19_ input[type="radio"],#_form_19_ input[type="checkbox"] { width:1.3em; height:1.3em; font-size:1em; margin:0 0.3em 0 0; }
+ #_form_19_ button[type="submit"] { padding:20px; font-size:1.5em; }
+ #_form_19_ ._inline-style { margin:20px 0 0 !important; }
+ }
+ #_form_19_ { position:relative; text-align:left;-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; *zoom:1; border:0px solid #b0b0b0; -moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px; color:#000; }
+ #_form_19_ ._form-title { font-size:22px; line-height:22px; font-weight:600; margin-bottom:0; }
+ #_form_19_:before,#_form_19_:after { content:" "; display:table; }
+ #_form_19_:after { clear:both; }
+ #_form_19_._inline-style { width:auto; display:inline-block; }
+ #_form_19_._inline-style input[type="text"],#_form_19_._inline-style input[type="date"] { padding:10px 12px; }
+ #_form_19_._inline-style button._inline-style { position:relative; top:27px; }
+ #_form_19_._inline-style p { margin:0; }
+ #_form_19_._inline-style ._button-wrapper { position:relative; margin:27px 12.5px 0 20px; }
+ #_form_19_ ._form-thank-you { position:absolute; top:0; left:0; text-align:center; margin:0 auto; padding:20px; font-size:18px; width:100%; box-sizing:border-box; }
+ @media all and (min-width:320px) and (max-width:667px) { #_form_19_._inline-form._inline-style ._inline-style._button-wrapper { margin-top:20px !important; margin-left:0 !important; }
+ }
+</style>
+<form method="POST" action="https://naturalfertility.activehosted.com/proc.php" id="_form_19_" class="_form _form_19 _inline-form  _dark" novalidate>
+  <input type="hidden" name="u" value="19" />
+  <input type="hidden" name="f" value="19" />
+  <input type="hidden" name="s" />
+  <input type="hidden" name="c" value="0" />
+  <input type="hidden" name="m" value="0" />
+  <input type="hidden" name="act" value="sub" />
+  <input type="hidden" name="v" value="2" />
+  <div class="_form-content">
+    <div class="_form_element _x52723414 _full_width " style="width:65%; margin-right:10px; float:left;" >
+      <input type="text" name="email" placeholder="Email" required/>
+    </div>
+    <div class="_button-wrapper _full_width">
+      <button id="_form_19_submit" class="_submit" type="submit">
+        Subscribe Now
+      </button>
+    </div>
+    <div class="_clear-element">
+    </div>
+  </div>
+  <div class="_form-thank-you" style="display:none;">
+  </div>
+</form><script type="text/javascript">
+window._show_thank_you = function(id, message, trackcmp_url) {
+  var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+  form.querySelector('._form-content').style.visibility = 'hidden';
+  thank_you.innerHTML = message;
+  thank_you.style.display = 'block';
+  if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+    // Site tracking URL to use after inline form submission.
+    _load_script(trackcmp_url);
+  }
+  if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+};
+window._show_error = function(id, message, html) {
+  var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button');
+  err.innerHTML = message;
+  err.className = '_error-inner _form_error _no_arrow';
+  var wrapper = document.createElement('div');
+  wrapper.className = '_form-inner';
+  wrapper.appendChild(err);
+  button.parentNode.insertBefore(wrapper, button);
+  if (html) {
+    var div = document.createElement('div');
+    div.className = '_error-html';
+    div.innerHTML = html;
+    err.appendChild(div);
+  }
+};
+window._load_script = function(url, callback) {
+    var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.src = url;
+    if (callback) {
+      script.onload = script.onreadystatechange = function() {
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+        }
+      };
+    }
+    head.appendChild(script);
+};
+(function() {
+  var getCookie = function(name) {
+    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+  var setCookie = function(name, value) {
+    var now = new Date();
+    var time = now.getTime();
+    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+    now.setTime(expireTime);
+    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+  }
+      var addEvent = function(element, event, func) {
+    if (element.addEventListener) {
+      element.addEventListener(event, func);
+    } else {
+      var oldFunc = element['on' + event];
+      element['on' + event] = function() {
+        oldFunc.apply(this, arguments);
+        func.apply(this, arguments);
+      };
+    }
+  }
+  var _removed = false;
+  var form_to_submit = document.getElementById('_form_19_');
+  var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+  var remove_tooltips = function() {
+    for (var i = 0; i < tooltips.length; i++) {
+      tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+    }
+      tooltips = [];
+  };
+  var remove_tooltip = function(elem) {
+    for (var i = 0; i < tooltips.length; i++) {
+      if (tooltips[i].elem === elem) {
+        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+        tooltips.splice(i, 1);
+        return;
+      }
+    }
+  };
+  var create_tooltip = function(elem, text) {
+    var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+    if (elem.type != 'radio' && elem.type != 'checkbox') {
+      tooltip.className = '_error';
+      arrow.className = '_error-arrow';
+      inner.className = '_error-inner';
+      inner.innerHTML = text;
+      tooltip.appendChild(arrow);
+      tooltip.appendChild(inner);
+      elem.parentNode.appendChild(tooltip);
+    } else {
+      tooltip.className = '_error-inner _no_arrow';
+      tooltip.innerHTML = text;
+      elem.parentNode.insertBefore(tooltip, elem);
+      new_tooltip.no_arrow = true;
+    }
+    new_tooltip.tip = tooltip;
+    new_tooltip.elem = elem;
+    tooltips.push(new_tooltip);
+    return new_tooltip;
+  };
+  var resize_tooltip = function(tooltip) {
+    var rect = tooltip.elem.getBoundingClientRect();
+    var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+    if (scrollPosition < 40) {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+    } else {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+    }
+  };
+  var resize_tooltips = function() {
+    if (_removed) return;
+    for (var i = 0; i < tooltips.length; i++) {
+      if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+    }
+  };
+  var validate_field = function(elem, remove) {
+    var tooltip = null, value = elem.value, no_error = true;
+    remove ? remove_tooltip(elem) : false;
+    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+    if (elem.getAttribute('required') !== null) {
+      if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+        var elems = form_to_submit.elements[elem.name];
+        no_error = false;
+        for (var i = 0; i < elems.length; i++) {
+          if (elems[i].checked) no_error = true;
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (elem.type =='checkbox') {
+        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+        no_error = true;
+        for (var i = 0; i < elems.length; i++) {
+          if (elems[i].getAttribute('required') === null) continue;
+          if (!found && elems[i] !== elem) return true;
+          found = true;
+          elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+          if (!elems[i].checked) {
+            no_error = false;
+            elems[i].className = elems[i].className + ' _has_error';
+            err.push("Checking %s is required".replace("%s", elems[i].value));
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, err.join('<br/>'));
+        }
+      } else if (elem.tagName == 'SELECT') {
+        var selected = true;
+        if (elem.multiple) {
+          selected = false;
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected) {
+              selected = true;
+              break;
+            }
+          }
+        } else {
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected && !elem.options[i].value) {
+              selected = false;
+            }
+          }
+        }
+        if (!selected) {
+          no_error = false;
+          tooltip = create_tooltip(elem, "Please select an option.");
+        }
+      } else if (value === undefined || value === null || value === '') {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "This field is required.");
+      }
+    }
+    if (no_error && elem.name == 'email') {
+      if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid email address.");
+      }
+    }
+    if (no_error && /date_field/.test(elem.className)) {
+      if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Enter a valid date.");
+      }
+    }
+    tooltip ? resize_tooltip(tooltip) : false;
+    return no_error;
+  };
+  var needs_validate = function(el) {
+    return el.name == 'email' || el.getAttribute('required') !== null;
+  };
+  var validate_form = function(e) {
+    var err = form_to_submit.querySelector('._form_error'), no_error = true;
+    err ? err.parentNode.removeChild(err) : false;
+    if (!submitted) {
+      submitted = true;
+      for (var i = 0, len = allInputs.length; i < len; i++) {
+        var input = allInputs[i];
+        if (needs_validate(input)) {
+          if (input.type == 'text') {
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'radio' || input.type == 'checkbox') {
+            (function(el) {
+              var radios = form_to_submit.elements[el.name];
+              for (var i = 0; i < radios.length; i++) {
+                addEvent(radios[i], 'click', function() {
+                  validate_field(el, true);
+                });
+              }
+            })(input);
+          } else if (input.tagName == 'SELECT') {
+            addEvent(input, 'change', function() {
+              validate_field(input, true);
+            });
+          }
+        }
+      }
+    }
+    remove_tooltips();
+    for (var i = 0, len = allInputs.length; i < len; i++) {
+      var elem = allInputs[i];
+      if (needs_validate(elem)) {
+        validate_field(elem) ? true : no_error = false;
+      }
+    }
+    if (!no_error && e) {
+      e.preventDefault();
+    }
+    resize_tooltips();
+    return no_error;
+  };
+  addEvent(window, 'resize', resize_tooltips);
+  addEvent(window, 'scroll', resize_tooltips);
+  var form_submit = function(e) {
+    e.preventDefault();
+    if (validate_form()) {
+            var serialized = _form_serialize(document.getElementById('_form_19_'));
+      _load_script('https://naturalfertility.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+    }
+    return false;
+  };
+  addEvent(form_to_submit, 'submit', form_submit);
+  window._old_serialize = null;
+  if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+  _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+    window._form_serialize = window.serialize;
+    if (window._old_serialize) window.serialize = window._old_serialize;
+  });
+})();
+</script>
+
+
+
+
+
+
+
+<!--end FORM-->
+<!-- /AWeber Web Form Generator 3.0 -->
+
+                </div>
+
+                <div id="hide">
+                    <i class="fa fa-times-circle"></i>
+                    <div class="hide-btn"></div>
+                </div>
+                  <div class="clear"></div>
+        </div>
+    </div>
+
+<div class="clear"></div>
+
+        
+
+
+   <div class="clear"></div>
+
+   <div id="home-page-content">
+
+
+<div id="content-container" class="container_24">
+        <div id="main-content" class="grid_18">
+	<div class="main-content-padding">
+
+
+            
+            
+            
+            <ul class="no_bullet recent_posts">
+                <h2 class="recent_posts home_recent_posts">CURRENT FERTILITY NEWS</h2>
+                                <li>
+                        <span class="custom-frame "><a href="http://natural-fertility-info.com/talias-supports-her-body-after-stopping-birth-control.html" title="Talia Supports Her Body After Stopping Birth Control"><img width="190" height="150" src="http://natural-fertility-info.com/wp-content/uploads/February-2018-15-1-e1521209871555-190x150.jpg" class="attachment-homepage-thumb size-homepage-thumb wp-post-image" alt="" /></a></span>                        <div class="recent_post_content">
+                            <a href="http://natural-fertility-info.com/talias-supports-her-body-after-stopping-birth-control.html">Talia Supports Her Body After Stopping Birth Control</a>
+                            <p class="post_meta" style="display:none">March 16, 2018</p>
+                            <p>I have been on and off various forms of birth control for over a decade... Form personally after my journey, I believe that birth control reeks havoc on the female body and should be avoided at all costs.</p>                            <a class="discover_more" href="http://natural-fertility-info.com/talias-supports-her-body-after-stopping-birth-control.html">Discover more <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </li>
+                               <li>
+                        <span class="custom-frame "><a href="http://natural-fertility-info.com/lycopene-found-to-influence-sperm-morphology.html" title="Lycopene Found to Influence Sperm Morphology"><img width="190" height="150" src="http://natural-fertility-info.com/wp-content/uploads/shutterstock_206494039-e1518125913792-190x150.jpg" class="attachment-homepage-thumb size-homepage-thumb wp-post-image" alt="" /></a></span>                        <div class="recent_post_content">
+                            <a href="http://natural-fertility-info.com/lycopene-found-to-influence-sperm-morphology.html">Lycopene Found to Influence Sperm Morphology</a>
+                            <p class="post_meta" style="display:none">March 15, 2018</p>
+                            <p>If low sperm count, poor sperm motility and morphology are your concerns, add lycpoene-rich fruits to your daily Male Fertility Diet.</p>                            <a class="discover_more" href="http://natural-fertility-info.com/lycopene-found-to-influence-sperm-morphology.html">Discover more <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </li>
+                               <li>
+                        <span class="custom-frame "><a href="http://natural-fertility-info.com/is-male-infertility-stressing-you-out.html" title="Is Male Infertility Stressing You Out?"><img width="190" height="150" src="http://natural-fertility-info.com/wp-content/uploads/man-with-his-dog-in-mountain-190x150.jpg" class="attachment-homepage-thumb size-homepage-thumb wp-post-image" alt="" /></a></span>                        <div class="recent_post_content">
+                            <a href="http://natural-fertility-info.com/is-male-infertility-stressing-you-out.html">Is Male Infertility Stressing You Out?</a>
+                            <p class="post_meta" style="display:none">March 13, 2018</p>
+                            <p>Like women, men have a lot to process as they work through a fertility issue. Here are a few tips for dealing with the stress of it all.</p>                            <a class="discover_more" href="http://natural-fertility-info.com/is-male-infertility-stressing-you-out.html">Discover more <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </li>
+                               <li>
+                        <span class="custom-frame "><a href="http://natural-fertility-info.com/diana-has-twins-naturally-after-8-years-of-trying-with-pcos.html" title="Diana Has Twins Naturally After 8 Years of Trying With PCOS"><img width="190" height="150" src="http://natural-fertility-info.com/wp-content/uploads/Diana-F-copy-190x150.jpg" class="attachment-homepage-thumb size-homepage-thumb wp-post-image" alt="" /></a></span>                        <div class="recent_post_content">
+                            <a href="http://natural-fertility-info.com/diana-has-twins-naturally-after-8-years-of-trying-with-pcos.html">Diana Has Twins Naturally After 8 Years of Trying With PCOS</a>
+                            <p class="post_meta" style="display:none">March 9, 2018</p>
+                            <p>Through PCOS, unsuccessful treatment with Clomid and an ectopic pregnancy, Diana perseveres with faith, naturally supports her body and achieves success.</p>                            <a class="discover_more" href="http://natural-fertility-info.com/diana-has-twins-naturally-after-8-years-of-trying-with-pcos.html">Discover more <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </li>
+                               <li>
+                        <span class="custom-frame "><a href="http://natural-fertility-info.com/video-top-male-fertility-herbs.html" title="Video: Top Male Fertility Herbs"><img width="190" height="150" src="http://natural-fertility-info.com/wp-content/uploads/Top-Male-Fertility-Herbs-thumbnail-190x150.jpg" class="attachment-homepage-thumb size-homepage-thumb wp-post-image" alt="" /></a></span>                        <div class="recent_post_content">
+                            <a href="http://natural-fertility-info.com/video-top-male-fertility-herbs.html">Video: Top Male Fertility Herbs</a>
+                            <p class="post_meta" style="display:none">March 9, 2018</p>
+                            <p>Natural Fertility Specialist, Hethir Rodriguez, shares how to support sperm health and where to start when wanting to prepare for conception using herbs.</p>                            <a class="discover_more" href="http://natural-fertility-info.com/video-top-male-fertility-herbs.html">Discover more <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </li>
+                           <p class="double_arrow"><a href="/recent-articles" class="double_arrow">Read more articles</a></p>
+            </ul>
+            
+            
+            <div class="after_cont_row_1 widget_text substitute_widget_class">			<div class="textwidget"><div class="notmobile"> <div class="grey_testimonial left_box">
+		<div class="left_box">
+		    <h2>SUCCESS STORY</h2>
+		    <a href="http://natural-fertility-info.com/new-success-stories" class="button small_green">READ MORE</a>
+		</div>
+		<p>I have wonderful news… After 3 hard years, this morning I took a pregnancy test and it was a strong +!!!!!!!!!!! It’s a miracle because doctors said that I am only able to conceive with IVF!! Thanks for your help, DVD, herbs and emails!</p>
+</div></div>
+<p></div>
+		</div>	    
+	    <div class="after_cont_row_2 widget_text substitute_widget_class">			<div class="textwidget"></div>
+		</div>
+	    
+	    
+
+            
+             <div class="content_ad_wrapper">			<div class="textwidget"><br>
+<a href="http://natural-fertility-info.com/preparing-for-conception-over-40.html?utm_source=Pages-Posts&utm_medium=banner&utm_content=over-40&utm_campaign=NFI-Ads" class="left"><img src="/wp-content/uploads/Ad-6-Over40_horizForHomepage_rev062414.jpg"/></a>
+
+<a href="http://natural-fertility-info.com/fertility-diet?utm_source=Pages-Posts&utm_medium=banner&utm_content=Fertility-Diet&utm_campaign=NFI-Ads"class="right">
+<img src="/wp-content/uploads/Ad-4-Diet_-horiz-340x115.jpg"/>
+</a></div>
+		</div>            
+	
+
+    </div><!-- end main-content-padding -->
+   
+    </div><!-- end main-content -->
+
+
+	<div id="sidebar" class="grid_6">
+	    <div id="sidebarSubnav">
+
+<div id="text-16" class="widget widget_text substitute_widget_class">			<div class="textwidget"><P><a href="https://www.naturalfertilityshop.com/SearchResults.asp?Cat=510" target="_blank"><img src="http://natural-fertility-info.com/wp-content/uploads/Mens-kits-Ad-promo-square.jpg"></a>
+<p>
+<div id="wp-tabs-1" class="wp-tabs wpui-light wpui-styles">
+  <h3 class="wp-tab-title"> POPULAR ARTICLES</h3>
+    <div class="wp-tab-content"><div class="wp-tab-content-wrapper"> 
+       <ul class="no_bullet menu">
+         <li><a href="http://natural-fertility-info.com/fertility-diet">The Natural Fertility Diet: How to Eat for Optimal Fertility</a></li>
+         <li><a href="http://natural-fertility-info.com/prepare-for-conception">Prepare for Conception with Fertility Cleansing</a></li>
+<li><a href="/fertility-herbs">Fertility Herbs Guide</a></li>
+<li><a href="http://natural-fertility-info.com/guide-to-fertility-charting.html">Guide to Fertility Charting</a></li>
+<li><a href="http://natural-fertility-info.com/progesterone-fertility-guide/">Progesterone Fertility Guide</a></li>
+<li><a href="http://natural-fertility-info.com/fertility-massage/">How to Do Self Fertility Massage™</a></li>
+      </ul>
+<p class="read_all"><a class="double_arrow" href="/featured-articles">See all articles</a></p>
+
+  </div></div><!-- end div.wp-tab-content --> 
+  <h3 class="wp-tab-title"> TOP PRODUCTS </h3>
+    <div class="wp-tab-content"><div class="wp-tab-content-wrapper"> <ul class="no_bullet menu">
+         <li><a href="http://www.naturalfertilityshop.com/ProductDetails.asp?ProductCode=HHFCKIT&utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+" target="_blank">Fertility Cleanse Kit</a></li>
+         <li><a href="http://www.naturalfertilityshop.com/Vitex-Capsules-p/104773.htm?utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+"target="_blank">Fertilica Vitex</a></li>
+<li><a href="http://www.naturalfertilityshop.com/Maca-Powder-p/5035.htm?utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+"target="_blank">Fertilica Maca</a></li>
+<li><a href="http://www.naturalfertilityshop.com/ProductDetails.asp?ProductCode=IEHKIT&utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+"target="_blank">OvaWise Egg Health Kit</a></li>
+<li><a href="http://naturalfertilityshop.com/ProductDetails.asp?ProductCode=102560&utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+" target="_blank">Fertilica Royal Jelly</a></li>
+<li><a href="http://naturalfertilityshop.com/ProductDetails.asp?ProductCode=SFM&utm_source=sidbar-tabbed-area&utm_medium=sidebar-NFI&utm_content=Top-Products&utm_campaign=Top-Products-Tab-NFI
+ "target="_blank">Self Fertility Massage</a></li></div></div><!-- end div.wp-tab-content -->
+  <h3 class="wp-tab-title"> MOST SHARED </h3>
+    <div class="wp-tab-content"><div class="wp-tab-content-wrapper">   <ul class="no_bullet menu">
+         <li><a href="http://natural-fertility-info.com/fertility-diet">The Natural Fertility Diet</a></li>
+         <li><a href="http://natural-fertility-info.com/progesterone-fertility-guide/">  Progesterone Fertility Guide</a></li>
+<li><a href="http://natural-fertility-info.com/ovarian-cyst-remedy">How to Help Ovarian Cysts Naturally</a></li>
+<li><a href="http://natural-fertility-info.com/aromatherapy-fertility.html">Aromatherapy for Fertility</a></li>
+<li><a href="http://natural-fertility-info.com/castor-oil-therapy">Castor Oil Therapy for Reproductive Health</a></li>
+<li><a href="http://natural-fertility-info.com/fertility-herbs">How to Use Fertility Herbs To Enhance Your Fertility Naturally</a></li>
+      </ul></div></div><!-- end div.wp-tab-content -->
+</div><!-- end div.wp-tabs --> </div>
+		</div><div id="text-15" class="widget widget_text substitute_widget_class">			<div class="textwidget"><div class="textborder">
+<h2 class=recent_posts home_recent_posts>About Us</h2><br><ul><li>At Natural Fertility Info YOU are our #1 priority. We want nothing more then to help you achieve your dream of pregnancy and motherhood!</li> </ul><p>
+<b>How We Can Help You:</b>
+<ul class="bullets"><li>Team of Certified Herbalists & Fertility Specialists on staff, ready to help you with over 56 years combined experience.</li>
+<li>Over 1000 highly researched articles and guides to help you get pregnant.</li>
+<li>The highest quality Fertility Specialist Formulated products available in our shop.</li>
+<li>Free weekly updates on the latest Fertility News and research.</li></ul> <br><a href="/natural-fertility-expert">Meet the Team...</a>
+</div><p></div>
+		</div><div id="text-25" class="widget widget_text substitute_widget_class">			<div class="textwidget"><div class="notmobile"><a href="http://natural-fertility-info.com/increase-egg-health?utm_source=Home-Pages&utm_medium=banner&utm_content=Egg-Health&utm_campaign=NFI-Ads"><img src="/wp-content/uploads/Ad-3-EggHealth_v2.jpg"></a></div>
+
+<p>
+</div>
+		</div>	    </div>
+	    <!-- end sidebarSubnav -->
+	</div>
+	<!-- end sidebar -->
+
+
+
+</div><!-- end content-container -->
+
+<div class="clear"></div>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+	$(".roster_slideri a").colorbox({iframe:true, innerWidth:425, innerHeight:344, opacity:0.7});
+    });
+</script>
+
+
+
+
+
+</div><!-- end page-content -->
+
+
+
+<div class="clear"></div>
+
+<div class="header-subscribe-wrapper footer-subscribe">
+        <div id="header-subscribe" class="container_24">
+               <div class="subscribe-title">
+                 Subscribe to The World's #1 Natural Fertility Website<span>†</span>
+               </div>
+               <div class="subscribe-boxs">
+
+
+<form method="POST" action="https://naturalfertility.activehosted.com/proc.php" id="_form_19_" class="_form _form_19 _inline-form  _dark" novalidate>
+  <input type="hidden" name="u" value="19" />
+  <input type="hidden" name="f" value="19" />
+  <input type="hidden" name="s" />
+  <input type="hidden" name="c" value="0" />
+  <input type="hidden" name="m" value="0" />
+  <input type="hidden" name="act" value="sub" />
+  <input type="hidden" name="v" value="2" />
+  <div class="_form-content">
+    <div class="_form_element _x52723414 _full_width " style="width:65%; margin-right:10px; float:left;" >
+      <input type="text" name="email" placeholder="Email" required/>
+    </div>
+    <div class="_button-wrapper _full_width">
+      <button id="_form_19_submit" class="_submit" type="submit">
+        Subscribe Now
+      </button>
+    </div>
+    <div class="_clear-element">
+    </div>
+  </div>
+  <div class="_form-thank-you" style="display:none;">
+  </div>
+</form>
+
+                </div><!--subscribebox-->
+
+
+                  <div class="clear"></div>
+        </div>
+</div>
+	<div class="above_footer_container">
+		<div class="container_24">
+			<div class="above_footer_wrapper"><h3 class="widgettitle">Proudly Supporting</h3>			<div class="textwidget"><a  target="_blank"href="http://abc.herbalgram.org/site/PageServer"><img src="/wp-content/uploads/abc.jpeg"/></a>
+
+<a  target="_blank"href="http://frank-mckinney.com/caring_project.aspx"><img src="/wp-content/uploads/carinhousefoundation.jpeg"/></a>
+
+<a  target="_blank"href="https://www.children.org/"><img src="/wp-content/uploads/childreninternational.jpeg"/></a>
+
+<a target="_blank" href="http://www.fistulafoundation.org/"><img src="/wp-content/uploads/fistula.jpeg"/></a>
+
+<a target="_blank" href="http://www.foodshare.com/"><img src="/wp-content/uploads/foodshare.jpeg"/></a>
+
+<a target="_blank" href="http://www.heifer.org/"><img src="/wp-content/uploads/heifer.jpeg"/></a>
+
+
+<a target="_blank"href="http://www.treesforthefuture.org/"><img src="/wp-content/uploads/treesforfuture.jpeg"/></a></div>
+		</div>		</div>
+	</div>
+
+	<div id="footer-bg">
+		<div id="footer" class="container_24 footer-top">
+		    <div id="footer_text" class="grid_12">
+		       <div class="grid_4 footer_menu">			<div class="textwidget">    <div class="grid_4 footer_menu">
+				<h3 class="footer_title">Fertility Resources</h3>
+				<ul>
+					<li><a href="http://natural-fertility-info.com/fertility-newsletter">Fertility Newsletter</a></li>	
+					<li><a href="http://www.naturalfertilityshop.com/Articles.asp?ID=337">Consultations</a></li>
+					<li><a href="http://www.youtube.com/user/hethir" target="_blank">	Videos</a></li>
+					<li><a href="http://www.naturalfertilityshop.com/">Fertility Shop</a></li>
+                                        <li><a href="/ovulation-calculator-2">Ovulation Calculator</a></li>
+					
+				</ul>
+			</div></div>
+		</div>		       <div class="grid_4 footer_menu">			<div class="textwidget">  <div class="grid_4 footer_menu">
+				<h3 class="footer_title">Fertility Products</h3>
+				<ul>
+					<li><a href="http://www.naturalfertilityshop.com/ProductDetails.asp?ProductCode=HHFCKIT">Fertility Cleanse</a></li>	
+					<li><a href="http://www.naturalfertilityshop.com/Fertility-Kits-s/67.htm">Fertility Kits</a></li>
+					<li><a href="http://www.naturalfertilityshop.com/Fertility-Herbs-s/493.htm">Fertility Herbs</a></li>
+					<li><a href="http://www.naturalfertilityshop.com/Women-s-Fertility-Supplements-s/64.htm">	Fertility Supplements</a></li>
+<li><a href="http://www.naturalfertilityshop.com/Fertility-Books-DVD-s-s/320.htm">	Fertility Tools</a></li>
+				</ul>
+			</div>
+</div>
+		</div>		       <div class="grid_4 footer_menu">			<div class="textwidget">		        <div class="grid_4 footer_menu">
+				<h3 class="footer_title">Company Info</h3>
+				<ul>
+					<li><a href="http://natural-fertility-info.com/about-us">About Us</a></li>	
+					<li><a href="http://natural-fertility-info.com/contact-us">Contact Us</a></li>
+					<li><a href="http://natural-fertility-info.com/fertility-newsletter">	Newsletter Signup</a></li>
+<li><a href="http://natural-fertility-info.com/privacy-policy-2">Privacy Policy</a></li>
+					<li><a href="http://natural-fertility-info.com/new-success-stories">Success Stories</a></li>
+					</ul>
+			</div></div>
+		</div>
+
+		    
+			<p>
+			</p>
+		    </div>
+	
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;"><symbol viewBox="0 0 4.9 8.3" id="svg-arrow-right"><path d="M4.8,4L0.9,0.1C0.8,0,0.8,0,0.7,0C0.6,0,0.6,0,0.5,0.1L0.1,0.5C0,0.6,0,0.6,0,0.7c0,0.1,0,0.1,0.1,0.2l3.3,3.3L0.1,7.5C0,7.5,0,7.5,0,7.6c0,0.1,0,0.1,0.1,0.2l0.4,0.4c0.1,0.1,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2-0.1l3.9-3.9c0.1-0.1,0.1-0.1,0.1-0.2C4.9,4.1,4.9,4,4.8,4L4.8,4z" /></symbol><symbol viewBox="0 0 21 17" id="svg-cart"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.9,9.6c0,0.2-0.1,0.4-0.1,0.6l-1.3,4.6c-0.4,1.3-1.8,2.2-3.1,2.2H5.8c-1.4,0-2.7-0.9-3.1-2.2l-1.2-4.6c0-0.2-0.1-0.3-0.1-0.5C0.6,9.5,0,8.8,0,7.9c0-1,0.8-1.8,1.7-1.8H4c0,0,0,0,0,0l3.2-5.5c0.3-0.5,1-0.7,1.6-0.4c0.5,0.3,0.7,1,0.4,1.5L6.7,6.1h7.4l-2.6-4.4c-0.3-0.5-0.1-1.2,0.4-1.5c0.5-0.3,1.2-0.1,1.6,0.4l3.2,5.5c0,0,0,0,0,0h2.6c0.9,0,1.7,0.8,1.7,1.8C21,8.7,20.5,9.4,19.9,9.6z M7.4,13.9l-1.1-3.7C6.2,9.8,5.7,9.5,5.2,9.6c-0.5,0.1-0.8,0.6-0.6,1l1.1,3.7c0.1,0.5,0.6,0.7,1.1,0.6C7.2,14.8,7.5,14.3,7.4,13.9z M11.4,10.4c0-0.5-0.4-0.8-0.9-0.8c-0.5,0-0.9,0.4-0.9,0.8v3.8c0,0.5,0.4,0.8,0.9,0.8c0.5,0,0.9-0.4,0.9-0.8V10.4z M14.3,14.9c0.5,0.1,1-0.1,1.1-0.6l1.1-3.7c0.1-0.5-0.2-0.9-0.6-1c-0.5-0.1-1,0.1-1.1,0.6l-1.1,3.7C13.6,14.3,13.9,14.8,14.3,14.9z" /></symbol><symbol viewBox="0 0 23 17" id="svg-chat"><path d="M0,16.2c0.7-1.4,1.5-3.3,1.5-4.7C0.5,10.3,0,8.9,0,7.3C0,3.1,4.2,0,8.9,0c4.7,0,8.9,3.1,8.9,7.3c0,4.4-5,8.6-11.9,6.9C4.7,15,2,15.8,0,16.2z M21.1,13.1c0.8-1.9,0.2-4.1-1.7-5.4c-0.4,3.6-3.2,7-7.7,8.4c1.8,1.1,4.5,1.3,7.2-0.3c1,0.2,2.9,0.2,4.2,0C22.2,15.1,21.3,14,21.1,13.1z" /></symbol><symbol viewBox="0 0 90 90" id="svg-close"><polygon fill-rule="evenodd" clip-rule="evenodd" points="90,4.6 85.4,0 45,40.4 4.6,0 0,4.6 40.4,45 0,85.4 4.6,90 45,49.6 85.4,90 90,85.4 49.6,45" /></symbol><symbol viewBox="0 0 7 11" id="svg-double-arrow"><path fill-rule="evenodd" clip-rule="evenodd" d="M7,5.5L7,5.5L7,5.5L5.1,0H3.1l1.9,5.5L3.1,11h1.9L7,5.5z M3.9,5.5L3.9,5.5L1.9,0H0l1.9,5.5L0,11h1.9L3.9,5.5L3.9,5.5z" /></symbol><symbol viewBox="0 0 15 15" id="svg-globe"><path d="M10.5,4.5c0,0.1-0.1,0.1-0.1,0.1c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.2,0c0,0,0,0,0,0c0,0-0.1-0.1-0.1,0c0,0-0.1,0-0.1,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0-0.1,0-0.1-0.1l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0,0,0l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0-0.1c0,0,0-0.1,0-0.1c0,0,0,0,0,0L10,4.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0c0.1,0,0.1,0.1,0.2,0.1C10.4,4.5,10.5,4.5,10.5,4.5z M15,7.5c0,4.1-3.4,7.5-7.5,7.5C3.4,15,0,11.6,0,7.5C0,3.4,3.4,0,7.5,0C11.6,0,15,3.4,15,7.5z M5.3,2.4C5.3,2.4,5.3,2.4,5.3,2.4C5.4,2.5,5.3,2.5,5.3,2.4C5.3,2.5,5.3,2.5,5.3,2.4C5.3,2.5,5.3,2.5,5.3,2.4c0,0.1,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0,0,0.1,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1-0.1,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0.1,0c0,0,0.6-0.1,1-0.4c0.1-0.1,0.2-0.2,0.3-0.2c-0.1,0-0.2,0-0.3,0c-0.4,0-0.8,0-1.2,0.1c0,0,0,0,0,0c0,0-0.1,0-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.2,0.1-0.2,0.1c0,0,0,0,0,0C5.8,1.9,5.7,2,5.7,2c0,0,0,0-0.1,0C5.6,2,5.6,2.1,5.5,2.1c0,0,0,0,0,0c0,0,0,0,0,0c-0.1,0-0.2,0.1-0.2,0.1c0,0,0,0,0,0c0,0,0,0,0,0C5.3,2.4,5.3,2.4,5.3,2.4C5.3,2.4,5.3,2.4,5.3,2.4z M7.2,3.7C7.2,3.7,7.2,3.7,7.2,3.7C7.2,3.7,7.2,3.7,7.2,3.7C7.3,3.7,7.3,3.7,7.2,3.7C7.3,3.7,7.3,3.7,7.2,3.7C7.3,3.7,7.3,3.7,7.2,3.7C7.3,3.7,7.3,3.7,7.2,3.7C7.3,3.7,7.3,3.6,7.2,3.7C7.3,3.6,7.3,3.6,7.2,3.7c0-0.1,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0-0.1,0l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0C7.2,3.8,7.2,3.8,7.2,3.7C7.2,3.8,7.2,3.8,7.2,3.7C7.2,3.8,7.2,3.8,7.2,3.7C7.2,3.8,7.2,3.8,7.2,3.7C7.2,3.8,7.3,3.8,7.2,3.7C7.3,3.8,7.3,3.8,7.2,3.7C7.3,3.8,7.3,3.8,7.2,3.7C7.3,3.8,7.2,3.7,7.2,3.7z M6.8,3.5C6.8,3.5,6.8,3.5,6.8,3.5C6.8,3.5,6.8,3.5,6.8,3.5C6.9,3.5,6.9,3.5,6.8,3.5c0.1-0.1,0-0.2,0-0.2c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0.1c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0,0,0C6.7,3.6,6.8,3.6,6.8,3.5C6.8,3.6,6.8,3.6,6.8,3.5C6.8,3.6,6.8,3.5,6.8,3.5z M3.6,9.7C3.6,9.5,3.1,9,3,8.9C2.9,8.9,2.8,8.9,2.8,8.9c0-0.1,0-0.1-0.1-0.2c0,0,0,0,0-0.1c0,0,0,0-0.1,0s-0.1,0-0.1,0h0c0-0.1,0-0.1,0-0.2c0-0.1,0,0,0-0.1c0-0.1-0.3-0.6-0.5-0.8c0,0,0,0,0,0c0,0-0.1-0.4-0.2-0.5c0,0,0,0,0,0c0,0,0-0.1,0-0.1c0,0,0-0.1,0-0.1c0,0,0-0.1-0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1-0.1-0.1-0.1-0.1c0,0,0,0,0,0c-0.1,0.3-0.1,0.7-0.1,1c0,1.6,0.6,3.1,1.6,4.1c0-0.1-0.1-0.2-0.1-0.2c0,0,0-0.1,0-0.1c0,0,0-0.1,0-0.1c-0.1-0.1,0.2-0.1,0.2-0.2c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0-0.1,0-0.1,0-0.1c0-0.1,0-0.4,0-0.4c0-0.1-0.1-0.2-0.1-0.2c0,0,0.1,0,0.1-0.1c0-0.1,0.1-0.2,0.2-0.3C3.6,9.8,3.6,9.8,3.6,9.7z M4.8,2.3C4.7,2.3,4.7,2.3,4.8,2.3C4.7,2.3,4.7,2.3,4.8,2.3C4.7,2.3,4.7,2.3,4.8,2.3C4.7,2.2,4.7,2.2,4.8,2.3C4.7,2.2,4.7,2.2,4.8,2.3C4.7,2.2,4.7,2.2,4.8,2.3C4.1,2.5,3.6,2.9,3.1,3.4c0,0,0,0,0,0c0.1,0,0.1,0,0.1-0.1c0,0,0.1-0.1,0.1-0.1c0,0,0.1,0,0.1,0c0,0,0.1,0,0.2,0c0,0,0,0,0,0c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1-0.2-0.1-0.2-0.1c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0.1,0,0.1,0,0.2,0c0,0,0,0,0,0c0.1-0.1,0.1-0.3,0.3-0.4c0,0,0,0,0,0C4.7,2.4,4.7,2.4,4.8,2.3C4.7,2.4,4.7,2.3,4.8,2.3C4.8,2.3,4.8,2.3,4.8,2.3z M13.3,5.9C13.3,5.9,13.3,5.9,13.3,5.9c-0.5-1.8-1.8-3.3-3.6-4c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0.1,0,0.1-0.1,0c0,0-0.1,0,0,0c0,0,0,0,0,0l0,0c0,0,0,0-0.1,0c0,0-0.1,0-0.1-0.1c0,0,0,0,0-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0-0.1-0.1-0.1c-0.1,0-0.2,0-0.3,0c-0.1,0-0.1,0-0.1-0.1c0,0,0,0,0,0l0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c-0.1,0-0.3,0.2-0.3,0.2c0,0,0,0,0,0s0,0-0.1,0.1c0,0,0,0.1-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0C8,2.6,8,2.7,7.7,2.8h0C7.7,2.9,7.6,2.9,7.6,3c0,0.1,0.1,0.2,0.1,0.2c0.1,0,0.1-0.1,0.2,0c0,0,0.1,0,0.1,0.1c0,0.1,0,0.1,0,0.1c0,0,0.1,0.1,0.1,0c0-0.1,0.1,0,0.1-0.1c0-0.1,0-0.1,0-0.2c0,0,0,0,0,0c0-0.1,0-0.1,0-0.2c0,0,0-0.1,0-0.2c0,0,0.1-0.1,0.1-0.1c0,0,0-0.1,0.1-0.2c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0.1,0,0.1,0,0.2C8.6,3,8.6,3,8.7,3c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0l0.1,0C8.9,3,8.9,3,9,3c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0C8.9,3.1,8.9,3,8.8,3c0,0-0.1,0-0.1,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0.1-0.1,0.1-0.1,0.1c-0.1,0-0.2,0-0.2,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.2,0,0-0.2c0,0,0,0,0,0c0,0,0,0,0-0.1c0,0,0-0.1,0-0.1c0,0,0,0,0,0C7.9,3.3,7.9,3.4,7.9,3.5c0,0.1,0,0.1-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c-0.1,0-0.1,0.1-0.1,0.1c0,0-0.1,0-0.1,0.1c0,0,0,0-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c-0.1,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0s0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0C6.9,4,6.8,4.1,6.8,4.1c0.1,0,0.1,0,0.1,0c0,0,0,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0-0.1,0c0,0-0.1,0-0.1,0c-0.2,0-0.3,0-0.3-0.1c0,0-0.1,0-0.1,0l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0.1,0,0.1,0,0.3c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0.1,0c0.1,0,0.1,0,0.2,0c0,0,0-0.1,0.1-0.1c0,0,0.1,0,0.1,0c0,0,0-0.1,0-0.1c0,0,0,0,0,0C7,5.1,7,5,7,5c0,0,0,0,0,0c0,0,0,0,0.1-0.1c0,0,0,0,0,0c0.1-0.1,0.2-0.1,0.3-0.1c0.1,0,0-0.2,0.1-0.2c0.1,0,0.1,0.1,0.2,0c0.1,0,0.2-0.1,0.2-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0.1c0.1,0.1,0.2,0.2,0.3,0.3c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0.1,0.1c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0C8.6,4.8,8.5,4.8,8.5,4.8c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0-0.1-0.1L8.2,4.4c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0l0.3,0.2c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0C8.9,5,9,5,9,5c0,0,0,0,0,0l0,0c0.1,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0v0c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0.1,0.1,0,0.2c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0.1c0.1,0.1,0.3,0.1,0.3,0.1c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0.1,0.1,0c0,0,0.1,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0.2,0.2,0.4,0,0.6c0,0,0,0-0.1,0c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.2,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0-0.1-0.1-0.3,0c0,0-0.1,0.1-0.1,0.1c0,0.3-0.4,0.1-0.4,0.1c0-0.1-0.1-0.1-0.2-0.1c-0.1,0-0.2-0.1-0.2-0.1c0,0-0.1,0-0.1,0c0,0,0,0,0-0.1C8,5.5,8.1,5.4,8,5.4C8,5.3,8,5.3,8,5.3c0,0,0,0,0,0c0,0,0,0-0.1,0c-0.8,0.1-1,0.1-1.2,0.2c0,0,0,0-0.1,0c0,0-0.1,0-0.1,0l0,0c-0.1,0-0.1,0-0.2,0L6.1,5.6c0,0-0.1,0-0.1,0.1c0,0.1,0,0.1,0,0.2c0,0.1-0.2,0.2-0.4,0.2c0,0,0,0,0,0l0,0c-0.1,0-0.1,0-0.4,0.5C5,6.8,5,6.8,5.1,6.8c0,0,0.1,0.1,0,0.3c0,0,0,0,0,0c0,0,0,0,0,0L5,7.5c0,0.1,0,0.2,0.1,0.3c0,0,0,0,0,0c0,0,0,0,0,0l0,0c0,0,0,0,0,0c0,0.1,0.1,0.4,0.2,0.5c0,0,0,0,0.1,0.1l0.3,0.3c0.1,0.1,0.2,0.1,0.2,0.1c0.2,0,0.4,0,0.6,0.1c0,0,0,0,0,0c0.2,0,0.4-0.2,0.7-0.2c0.1,0,0.2,0,0.2,0.2c0,0.1,0.2,0.1,0.3,0.1c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0.1,0,0.1,0,0.2v0c0,0,0,0,0,0l0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0.2,0,0.3-0.1,0.3c0,0,0,0,0,0C7.8,9.9,8,10,8,10c0,0,0.2,0.3,0.2,0.4c0,0.2,0,0.2,0,0.2c0.1,0.1,0,0.2,0,0.2c0,0,0,0,0,0c0,0,0,0,0,0c0,0-0.1,0.3-0.1,0.4c0,0,0,0,0,0c0,0.1,0.1,0.1,0.1,0.2l0.2,0.3c0,0,0,0,0,0c0.1,0.1,0,0.2,0,0.3c0,0,0.1,0.1,0.1,0.2c0,0,0.2,0.3,0.2,0.3c0,0,0,0,0,0c0,0,0.2,0.1,0.3,0.1c0.1,0,0.4-0.1,0.5-0.1c0.1,0,0.8-0.5,0.7-0.6c0,0,0,0,0,0c0,0,0,0,0,0c0.1-0.1,0.3-0.2,0.3-0.2c0,0,0,0,0,0c0-0.1,0-0.1,0-0.2c0-0.1,0.1-0.2,0.1-0.3c0.1-0.1,0.2-0.1,0.4-0.3c0.1-0.1,0.2-0.1,0.1-0.5c0-0.3-0.1-0.5-0.1-0.6c0-0.1,0-0.1,0-0.1c0.1-0.2,0.2-0.3,0.3-0.5c0.1-0.3,0.3-0.4,0.4-0.5c0,0,0,0,0,0C11.9,8.6,12,8.4,12,8.1c0,0,0-0.1,0-0.1c0,0,0-0.1,0-0.3c0,0,0-0.1,0-0.1c0-0.1,0,0-0.1,0c-0.1,0,0,0-0.1,0.1c0,0-0.2,0.1-0.2,0.1c0,0,0,0-0.1,0c-0.2,0-0.2,0-0.3,0c0,0-0.1-0.1-0.1-0.1c0,0,0-0.1-0.1-0.1c-0.2-0.2-0.5-0.3-0.6-0.7c0-0.1-0.5-0.8-0.6-0.9c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0.1,0.1,0.1,0.2c0,0,0,0,0,0c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0,0.1,0.1,0.1c0.1,0.1,0.1,0.2,0.2,0.3c0,0.1,0.1,0.1,0.1,0.1c0.1,0,0.1,0.1,0.2,0.3C10.9,7,11.1,7,11.2,7.2c0.1,0.1,0.1,0.3,0.2,0.5c0,0,0,0,0,0c0,0,0,0,0.1,0c0.1,0,0.3-0.2,0.3-0.2c0.1-0.1,0.1-0.1,0.2-0.2c0.1-0.1,0.1-0.1,0.1-0.2C12.1,7,12.2,7,12.2,7c0.1,0,0-0.1,0.1-0.1c0,0,0-0.1,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0-0.2,0.1-0.3-0.1-0.4c-0.1,0-0.1,0-0.2,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0.1c0,0,0,0,0,0c0,0,0,0-0.1,0.1c-0.1,0,0,0-0.1,0c0,0,0,0,0,0c-0.1,0-0.1,0-0.4-0.5c-0.1-0.1,0-0.2,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.2,0.2,0.3,0.3c0,0,0.2,0.1,0.2,0c0.1-0.2,0.1,0,0.2,0c0.1,0.1,0.2,0,0.3,0c0.1,0,0.1,0,0.3-0.1c0.1-0.1,0.2-0.1,0.3,0C13.2,5.7,13.3,5.8,13.3,5.9z M8.4,5.2C8.4,5.2,8.4,5.2,8.4,5.2C8.4,5.1,8.4,5.1,8.4,5.2C8.4,5.1,8.4,5.1,8.4,5.2C8.4,5.1,8.4,5.1,8.4,5.2C8.4,5.1,8.4,5.1,8.4,5.2C8.4,5.2,8.4,5.2,8.4,5.2C8.3,5.2,8.3,5.2,8.4,5.2c-0.1-0.1-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0C8.2,5.2,8.3,5.2,8.4,5.2C8.3,5.3,8.3,5.3,8.4,5.2C8.4,5.3,8.4,5.3,8.4,5.2C8.4,5.3,8.4,5.3,8.4,5.2C8.4,5.3,8.4,5.3,8.4,5.2C8.4,5.2,8.4,5.2,8.4,5.2z" /></symbol><symbol viewBox="0 0 100 77.1" id="svg-menu"><path fill-rule="evenodd" clip-rule="evenodd" d="M0,0v11h100V0H0z M0,44h100V33H0V44z M0,77.1h100v-11H0V77.1z" /></symbol><symbol viewBox="0 0 19 14" id="svg-phone"><path d="M0.6,8.1c0,0.4,0.2,0.8,0.6,1.2c0.4,0.4,1,0.8,1.8,1.1c0.2,0.1,0.3,0.1,0.5,0.2c0-0.4,0.1-1.1,0.3-1.5l2.1-5.6C6,3.2,6.4,2.9,6.6,2.9c0,0,0,0,0,0h7.1c0.3,0,0.7,0.3,0.8,0.6l2.1,5.6c0.1,0.4,0.3,1.1,0.3,1.5v2.7c0,0.3-0.2,0.6-0.5,0.6H4c-0.3,0-0.5-0.3-0.5-0.6v-2.1C2.3,11,1.4,10.5,0.8,9.9C0.3,9.4,0,8.8,0,8.1c0-0.7,0.3-1.2,0.8-1.7C1,6.2,1.2,6,1.5,5.8c-0.2-1,0-2,0.2-2.7C3,0.9,6.6,0,10.3,0c3.6,0,7.1,0.9,8.5,3.1C19,3.9,19.1,4.9,18.9,6c0,0-1.9,0-2.8,0l-1-2.7c-0.2-0.6-0.7-1-1.3-1H6.7c-0.5,0-1,0.4-1.3,1L4.4,6C3.9,6,3.2,6,2.6,6C2,6.3,1.5,6.6,1.2,6.9C0.8,7.4,0.6,7.8,0.6,8.1z M14,7.2c0-1.6-1.7-3-3.7-3c-2.1,0-3.7,1.3-3.7,3c0,1.6,1.7,3,3.7,3C12.3,10.2,14,8.9,14,7.2z M10.3,5.7c-1,0-1.8,0.6-1.8,1.4c0,0.8,0.8,1.4,1.8,1.4S12,7.9,12,7.1C12,6.3,11.2,5.7,10.3,5.7z" /></symbol><symbol viewBox="0 0 24 24" id="svg-search"><path d="M23.3,20.1l-5-5c1-1.5,1.5-3.3,1.5-5.3c0-5.4-4.4-9.8-9.9-9.8S0,4.4,0,9.8s4.4,9.8,9.9,9.8c1.8,0,3.6-0.5,5.1-1.4l5.1,5C22.2,25.4,25.5,22.2,23.3,20.1z M3.1,9.8C3.1,6.1,6.1,3,9.9,3s6.8,3,6.8,6.8c0,3.7-3.1,6.8-6.8,6.8S3.1,13.6,3.1,9.8z M5.1,8.1c2-4.6,8.7-4.1,10,0.7C12.5,5.8,8,5.5,5.1,8.1z" /></symbol><symbol viewBox="0 0 21 19" id="svg-shipping"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.7,7l-1.4,3.6l7.8,3.8l1.4-3.8L2.7,7z M12,14.5l-1.3-3.8L18.5,7l1.6,3.6L12,14.5z M2.7,7L0,4l7.9-4l2.5,3.2L2.7,7z M10.6,3.2L13.2,0L21,4l-2.5,3L10.6,3.2z M2.2,11.6l7,3.5l1.2-3V19l-8.2-3.7L2.2,11.6z M18.9,15.3L10.7,19v-6.9l1.1,3l7.1-3.4V15.3z" /></symbol><symbol viewBox="0 0 3.9 5" id="svg-slide-arrow-left"><path fill-rule="evenodd" fill="#668a32" clip-rule="evenodd" d="M0,2.5L3.9,0v5L0,2.5z" /></symbol><symbol viewBox="0 0 3.9 5" id="svg-slide-arrow-right"><path fill-rule="evenodd" fill="#668a32" clip-rule="evenodd" d="M3.9,2.5L0,0v5L3.9,2.5z" /></symbol><symbol viewBox="0 29.9 100.2 40.2" id="svg-ssl"><path d="M63.8,58l-0.2-0.2h-0.2h-1.1v1.5h1.1c0.2,0,0.2,0,0.2,0l0.2-0.2c0,0,0.2-0.2,0.2-0.3c0-0.2,0-0.2,0-0.3s0-0.2,0-0.3C63.9,58.2,63.9,58.2,63.8,58z M51.2,52.5c0.8,0,1.2-1.1,1.2-3.4c0-2.3-0.5-3.4-1.2-3.4c-0.8,0-1.2,1.1-1.2,3.4C50,51.4,50.5,52.5,51.2,52.5z M78,45.7c-0.8,0-1.2,1.1-1.2,3.4c0,2.3,0.5,3.4,1.2,3.4s1.2-1.1,1.2-3.4C79.3,46.9,78.9,45.7,78,45.7z M91,43.5L91,43.5c-0.5,0-0.9,0.5-0.9,1.1s0.5,1.1,0.9,1.1s0.9-0.5,0.9-1.1C92,44,91.5,43.5,91,43.5z M91.3,45.2c0,0,0-0.2-0.2-0.3c0-0.2-0.2-0.3-0.3-0.3h-0.2v0.6h-0.2v-1.4c0.2,0,0.2,0,0.3,0s0.3,0,0.5,0.2c0.2,0,0.2,0.2,0.2,0.3c0,0.2-0.2,0.3-0.3,0.3l0,0c0.2,0,0.2,0.2,0.2,0.3c0,0.2,0,0.3,0.2,0.3H91.3z M90.9,44C90.9,44,90.7,44,90.9,44l-0.2,0.5h0.2c0.2,0,0.3,0,0.3-0.3C91.2,44.1,91.2,44,90.9,44z M80.3,29.9H19.7C8.8,29.9,0,38.9,0,50s8.8,20.1,19.7,20.1h60.8c10.8,0,19.7-9,19.7-20.1C100,38.9,91.2,29.9,80.3,29.9z M49.1,45.5c0.5-0.9,1.2-1.4,2.2-1.4c0.9,0,1.5,0.5,2.2,1.4c0.5,0.9,0.8,2.2,0.8,3.7s-0.3,2.8-0.8,3.7c-0.5,0.9-1.2,1.4-2.2,1.4c-0.9,0-1.5-0.5-2.2-1.4c-0.5-0.9-0.8-2.2-0.8-3.7C48.3,47.5,48.6,46.3,49.1,45.5z M19.7,67c-9.1,0-16.6-7.6-16.6-17s7.4-17,16.6-17s16.6,7.6,16.6,17S28.8,67,19.7,67z M43.2,44.4l1.4,5.4l0,0l1.4-5.4h1.7L44.9,54h-0.5l-2.8-9.6H43.2z M45,61c-0.2,0.2-0.2,0.3-0.3,0.5c-0.2,0.2-0.3,0.2-0.5,0.3c-0.2,0-0.5,0-0.6,0c-0.3,0-0.6,0-0.9-0.2c-0.3-0.2-0.6-0.3-0.9-0.5l0.3-0.8l0.2,0.2c0.2,0,0.2,0.2,0.3,0.2s0.3,0.2,0.5,0.2s0.3,0,0.5,0c0.5,0,0.8-0.2,0.8-0.5c0-0.2,0-0.2-0.2-0.3c0,0-0.2-0.2-0.3-0.2c-0.2,0-0.2-0.2-0.3-0.2s-0.3-0.2-0.5-0.2c-0.2,0-0.5-0.2-0.6-0.2c-0.2,0-0.3-0.2-0.5-0.3c-0.2-0.2-0.2-0.2-0.3-0.3c0-0.2-0.2-0.3-0.2-0.5c0-0.3,0-0.5,0.2-0.6c0.2-0.2,0.2-0.3,0.3-0.5c0.2-0.2,0.3-0.2,0.5-0.3c0.2,0,0.5-0.2,0.6-0.2c0.3,0,0.6,0,0.9,0.2c0.3,0.2,0.5,0.2,0.6,0.3L44.3,58c0,0-0.2,0-0.2-0.2c-0.2,0-0.2-0.2-0.3-0.2s-0.3-0.2-0.3-0.2c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5,0-0.5,0.2c-0.2,0.2-0.2,0.2-0.2,0.3s0,0.2,0,0.3l0.2,0.2c0.2,0,0.2,0.2,0.3,0.2s0.3,0.2,0.5,0.2c0.2,0,0.5,0.2,0.6,0.2c0.2,0,0.3,0.2,0.5,0.3c0.2,0.2,0.2,0.2,0.3,0.3c0,0.2,0.2,0.3,0.2,0.5C45.2,60.7,45.2,60.8,45,61z M49.7,61.8h-3.1v-4.6h3.1v0.8h-2.2V59h1.9v0.8h-1.9V61h2.3v0.8H49.7z M54.5,61.1c-0.2,0.2-0.3,0.3-0.5,0.3c-0.2,0.2-0.3,0.2-0.5,0.2s-0.3,0-0.5,0c-0.3,0-0.6,0-0.9-0.2c-0.3-0.2-0.5-0.3-0.6-0.6c-0.3,0-0.5-0.3-0.5-0.6c-0.2-0.3-0.2-0.6-0.2-0.9c0-0.3,0-0.6,0.2-0.8c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.2,0.5-0.5,0.6-0.5c0.3-0.2,0.6-0.2,0.9-0.2c0.5,0,0.8,0.2,1.1,0.3c0.3,0.2,0.5,0.5,0.6,0.8l-0.6,0.5c0-0.2-0.2-0.3-0.2-0.3c-0.2-0.2-0.2-0.2-0.3-0.2c-0.2,0-0.2-0.2-0.3-0.2c-0.2,0-0.2,0-0.3,0c-0.2,0-0.5,0-0.6,0.2c-0.2,0.2-0.3,0.2-0.5,0.3c-0.2,0.2-0.2,0.3-0.3,0.5c0,0.2-0.2,0.3-0.2,0.6c0,0.2,0,0.5,0.2,0.6c0,0.2,0.2,0.3,0.3,0.5c0.2,0.2,0.3,0.3,0.5,0.3c0.2,0.2,0.3,0.2,0.5,0.2s0.2,0,0.3,0c0.2,0,0.2,0,0.3-0.2c0.2,0,0.2-0.2,0.3-0.2c0.2-0.2,0.2-0.2,0.2-0.3l0.8,0.5C54.6,60.8,54.6,61,54.5,61.1z M55.7,39.6h1.5v14.2h-1.5V39.6z M59.9,59.4c0,0.3,0,0.6-0.2,0.9c0,0.3-0.2,0.5-0.3,0.8c-0.2,0.2-0.3,0.3-0.6,0.5c-0.3,0.2-0.6,0.2-0.9,0.2c-0.3,0-0.6,0-0.9-0.2c-0.3-0.2-0.5-0.3-0.6-0.5C56.2,61,56,60.7,56,60.4c0-0.3-0.2-0.6-0.2-0.9v-2.3h0.9v2.3c0,0.2,0,0.3,0,0.6c0,0.2,0.2,0.3,0.2,0.5c0.2,0.2,0.2,0.3,0.3,0.3c0.2,0.2,0.3,0.2,0.5,0.2s0.3,0,0.5-0.2c0.2-0.2,0.3-0.2,0.3-0.3c0.2-0.2,0.2-0.3,0.2-0.5c0-0.2,0-0.3,0-0.6v-2.3h0.9v2.3H59.9z M59.8,53.3c-0.3-0.5-0.6-1.1-0.6-2v-6.8h1.5v6.8c0,0.9,0.3,1.4,0.9,1.4c0.3,0,0.6-0.2,0.9-0.5c0.3-0.3,0.3-0.5,0.3-0.6v-7.1h1.5v9.4h-1.5v-1.1l0,0c-0.5,0.8-0.9,1.2-1.7,1.2C60.7,54,60.2,53.7,59.8,53.3z M64.2,61.8l-0.9-1.5h-0.9v1.5h-0.9v-4.6h2c0.2,0,0.5,0,0.6,0.2s0.3,0.2,0.5,0.3c0.2,0.2,0.2,0.3,0.3,0.5c0,0.2,0.2,0.3,0.2,0.6s0,0.6-0.2,0.8c-0.2,0.3-0.3,0.5-0.6,0.5l1.1,1.7h-1.1V61.8z M69.5,61.8h-3.1v-4.6h3.1v0.8h-2.2V59h1.9v0.8h-1.9V61h2.3v0.8H69.5z M69.7,53.4c-0.5,0.5-0.9,0.6-1.5,0.6c-0.6,0-1.2-0.3-1.9-0.8v-1.7c0.6,0.6,1.1,1.1,1.5,1.1c0.2,0,0.5,0,0.6-0.2c0.2-0.2,0.3-0.3,0.3-0.6c0-0.5-0.3-1.1-0.9-2c-0.6-0.9-0.9-1.7-1.1-2c-0.2-0.5-0.3-0.9-0.3-1.2c0-0.6,0.2-1.2,0.6-1.5c0.3-0.5,0.8-0.6,1.4-0.6c0.5,0,1.1,0.2,1.5,0.6v1.5C69.5,46.1,69,46,68.6,46c-0.5,0-0.6,0.3-0.6,0.8s0.3,1.1,0.9,2c0.6,0.9,1.1,1.5,1.2,2c0.2,0.5,0.3,0.9,0.3,1.2C70.3,52.3,70,52.9,69.7,53.4z M72,40.9c0.2-0.2,0.5-0.3,0.8-0.3c0.3,0,0.5,0.2,0.6,0.3c0.2,0.2,0.3,0.5,0.3,0.6c0,0.3-0.2,0.5-0.3,0.6c-0.2,0.2-0.5,0.3-0.6,0.3c-0.3,0-0.5-0.2-0.6-0.3c-0.2-0.2-0.3-0.5-0.3-0.6C71.8,41.2,71.8,41,72,40.9z M71.8,44.4h1.5v9.4h-1.5V44.4z M76.3,61c-0.2,0.2-0.2,0.3-0.3,0.5c-0.2,0.2-0.3,0.2-0.5,0.3c-0.2,0-0.5,0-0.6,0c-0.3,0-0.6,0-0.9-0.2c-0.3-0.2-0.6-0.3-0.9-0.5l0.3-0.8l0.2,0.2c0.2,0,0.2,0.2,0.3,0.2s0.3,0.2,0.5,0.2c0.2,0,0.3,0,0.5,0c0.5,0,0.8-0.2,0.8-0.5c0-0.2,0-0.2-0.2-0.3c0,0-0.2-0.2-0.3-0.2c-0.2,0-0.2-0.2-0.3-0.2s-0.3-0.2-0.5-0.2c-0.2,0-0.5-0.2-0.6-0.2c-0.2,0-0.3-0.2-0.5-0.3c-0.2-0.2-0.2-0.2-0.3-0.3c0-0.2-0.2-0.3-0.2-0.5c0-0.3,0-0.5,0.2-0.6c0.2-0.2,0.2-0.3,0.3-0.5c0.2-0.2,0.3-0.2,0.5-0.3c0.2,0,0.5-0.2,0.6-0.2c0.3,0,0.6,0,0.9,0.2c0.3,0.2,0.5,0.2,0.6,0.3v1.1c0,0-0.2,0-0.2-0.2c-0.2,0-0.2-0.2-0.3-0.2c-0.2,0-0.3-0.2-0.3-0.2c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5,0-0.5,0.2C74,58.2,74,58.2,74,58.4c0,0.2,0,0.2,0,0.3l0.2,0.2c0.2,0,0.2,0.2,0.3,0.2c0.2,0,0.3,0.2,0.5,0.2c0.2,0,0.5,0.2,0.6,0.2s0.3,0.2,0.5,0.3c0.2,0.2,0.2,0.2,0.3,0.3c0,0.2,0.2,0.3,0.2,0.5C76.5,60.7,76.3,60.8,76.3,61z M78.6,61.8h-0.9v-4.6h0.9V61.8z M78,54c-0.9,0-1.5-0.5-2.2-1.4c-0.5-0.9-0.8-2.2-0.8-3.7c0-1.5,0.3-2.8,0.8-3.7c0.5-0.9,1.2-1.4,2.2-1.4c0.9,0,1.5,0.5,2.2,1.4c0.5,0.9,0.8,2.2,0.8,3.7c0,1.5-0.3,2.8-0.8,3.7C79.7,53.6,78.9,54,78,54z M83.6,57.9h-1.4v3.9h-0.9v-3.9h-1.4v-0.8h3.7V57.9z M88.1,61.8H85v-4.6h3.1v0.8h-2.2V59h1.9v0.8h-1.9V61h2.3v0.8H88.1z M88.1,53.9h-1.5v-6.8c0-0.9-0.3-1.4-0.9-1.4c-0.3,0-0.6,0.2-0.9,0.5c-0.3,0.3-0.5,0.6-0.5,0.6v7h-1.5v-9.3h1.5v0.9l0,0c0.5-0.8,1.1-1.2,1.7-1.2c0.6,0,1.1,0.3,1.4,0.8c0.3,0.5,0.6,1.2,0.6,2v7H88.1z M91,45.7c-0.6,0-1.2-0.5-1.2-1.2c0-0.6,0.5-1.2,1.2-1.2l0,0c0.6,0,1.2,0.5,1.2,1.2C92.1,45.2,91.6,45.7,91,45.7z M11.3,47.4C11.1,47.5,11,47.7,11,48c0,0.3,0.2,0.5,0.3,0.6c0.2,0.2,0.8,0.3,1.5,0.5c0.8,0.2,1.4,0.5,1.9,0.9s0.6,0.9,0.6,1.7c0,0.8-0.3,1.4-0.8,1.9c-0.6,0.5-1.2,0.8-2.2,0.8c-1.4,0-2.5-0.5-3.6-1.5l1.1-1.2c0.9,0.8,1.7,1.1,2.5,1.1c0.3,0,0.6,0,0.8-0.2s0.3-0.3,0.3-0.6s-0.2-0.5-0.3-0.6c-0.2-0.2-0.6-0.3-1.2-0.5c-0.9-0.3-1.7-0.6-2.2-0.9c-0.5-0.3-0.6-0.9-0.6-1.9c0-0.8,0.3-1.4,0.8-1.9c0.6-0.5,1.2-0.6,2.2-0.6c0.6,0,1.1,0.2,1.7,0.3c0.6,0.2,1.1,0.5,1.4,0.8L14.2,48c-0.8-0.6-1.4-0.8-2.2-0.8C11.8,47.2,11.6,47.4,11.3,47.4z M18.9,47.4c-0.2,0.2-0.3,0.3-0.3,0.6c0,0.3,0.2,0.5,0.3,0.6c0.2,0.2,0.8,0.3,1.5,0.5c0.8,0.2,1.4,0.5,1.9,0.9c0.5,0.5,0.6,0.9,0.6,1.7c0,0.8-0.3,1.4-0.8,1.9c-0.6,0.5-1.2,0.8-2.2,0.8c-1.4,0-2.5-0.5-3.6-1.5l1.1-1.4c0.9,0.8,1.7,1.2,2.5,1.2c0.3,0,0.6,0,0.8-0.2c0.2-0.2,0.3-0.3,0.3-0.6s-0.2-0.5-0.3-0.6c-0.2-0.2-0.6-0.3-1.2-0.5c-0.9-0.3-1.7-0.6-2.2-0.9s-0.6-0.9-0.6-1.9c0-0.8,0.3-1.4,0.8-1.9c0.6-0.5,1.2-0.6,2.2-0.6c0.6,0,1.1,0.2,1.7,0.3c0.6,0.2,1.1,0.5,1.4,0.8L21.8,48c-0.8-0.6-1.4-0.8-2.2-0.8C19.3,47.2,19.2,47.4,18.9,47.4z M24.8,54.3v-8.5h1.9v6.8h3.6v1.7C30.2,54.3,24.8,54.3,24.8,54.3z" /></symbol></svg>	
+<svg style="display:none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="amex-simple-light" viewBox="5 39.6 90 21.6"><path fill="#eeeeee" d="M95,39.6H81.5c-0.2,0-0.5,0.1-0.6,0.3c-1,1-2,2-3,3c-0.9-1-1.8-2-2.7-3c-0.2-0.2-0.4-0.3-0.7-0.3H43.7c-0.3,0-0.5,0.1-0.6,0.4l-2.3,5.1c-0.8-1.7-1.6-3.4-2.3-5c-0.2-0.4-0.4-0.5-0.8-0.5H15.5c-0.4,0-0.6,0.1-0.8,0.5L5,61.1h11.6c0.1,0,0.3-0.2,0.4-0.3c0.4-0.9,0.8-1.9,1.2-2.8c0.1-0.1,0.3-0.3,0.5-0.3h2.6c0.3,0,0.5,0.1,0.6,0.4c0.3,0.8,0.7,1.7,1.1,2.5c0.2,0.4,0.4,0.6,0.9,0.6c16.7,0,33.3,0,50,0c0.7,0,1.1-0.2,1.5-0.7c0.8-0.9,1.7-1.9,2.6-2.8c1,1,1.9,2.1,2.8,3.1c0.2,0.2,0.4,0.3,0.7,0.3h13.1c-3.4-3.6-6.8-7.2-10.1-10.7C87.9,46.9,95,39.6,95,39.6z M52,58.1h-3.9V46.3c0,0-3.8,7.8-5.5,11.4c-0.1,0.3-0.3,0.4-0.6,0.4h-2.5c-0.3,0-0.5-0.1-0.6-0.4l-5.5-11.5v11.9H26c-0.4,0-0.6-0.1-0.7-0.5c-0.4-0.9-0.8-1.8-1.2-2.7c-0.1-0.2-0.2-0.3-0.5-0.3c-2.4,0-4.9,0-7.3,0c-0.3,0-0.4,0.1-0.5,0.3c-0.4,0.9-0.8,1.9-1.2,2.8c-0.1,0.1-0.3,0.4-0.4,0.4c-1.3,0-2.6,0-4,0l6.7-15c0.1-0.3,0.3-0.4,0.7-0.4c1.6,0,3.2,0,4.8,0c0.4,0,0.5,0.1,0.7,0.4L29.5,57V42.7h5.9c0.3,0,0.5,0.1,0.6,0.4l4.9,10l4.5-10c0.1-0.1,0.2-0.4,0.4-0.4H52V58.1z M87.4,58.1h-4.2c-0.6,0-0.9-0.2-1.3-0.6c0,0-4.1-4.5-4.2-4.6c0,0-3.7,3.8-4.7,4.9c-0.1,0.1-0.4,0.3-0.6,0.3h-17V42.7h17.2c0.4,0,0.7,0.1,0.9,0.4c1.3,1.5,2.7,3.1,4.1,4.6l4.7-4.8c0.1-0.1,0.3-0.2,0.5-0.2c1.6,0,3.1,0,4.8,0c-2.6,2.6-5,5.2-7.5,7.7C82.6,53,85,55.6,87.4,58.1z M17.4,51.4h5.3L20,45.3L17.4,51.4z M68.4,43.4c0,0.8,0,2.5,0,2.5h-9.2v2.7h9.2v3.2h-9.2v3.1h9.2v2.3c2.3-2.3,4.5-4.6,6.7-6.8C72.9,48.1,70.7,45.7,68.4,43.4C68.4,43.4,68.5,43.4,68.4,43.4z" /></symbol><symbol id="discover-simple-light" viewBox="4.4 43.8 90.1 15.4"><path fill="#eeeeee" d="M8.6,44.2H4.4v14.4h4.1c2.2,0,3.8-0.5,5.2-1.7c1.6-1.4,2.6-3.4,2.6-5.5C16.3,47.2,13.1,44.2,8.6,44.2z M11.8,55c-0.9,0.8-2,1.1-3.9,1.1H7.2v-9.5H8c1.8,0,2.9,0.3,3.9,1.2s1.6,2.2,1.6,3.6C13.4,52.8,12.8,54.1,11.8,55z M17.6,58.6h2.8V44.2h-2.8V58.6z M27.3,49.7c-1.7-0.6-2.2-1-2.2-1.8c0-0.9,0.9-1.6,2.1-1.6c0.8,0,1.5,0.3,2.3,1.2l1.5-1.9c-1.2-1.1-2.7-1.6-4.2-1.6c-2.6,0-4.5,1.8-4.5,4.1c0,2,0.9,3,3.6,3.9c1.1,0.4,1.7,0.6,1.9,0.8c0.6,0.4,0.8,0.9,0.8,1.5c0,1.2-0.9,2-2.2,2c-1.3,0-2.4-0.7-3.1-1.9l-1.8,1.7c1.3,1.9,2.9,2.7,5,2.7c2.9,0,5-1.9,5-4.7C31.5,51.9,30.5,50.9,27.3,49.7z M32.3,51.4c0,4.2,3.3,7.5,7.6,7.5c1.2,0,2.3-0.2,3.5-0.8v-3.3c-1.1,1.1-2.1,1.6-3.4,1.6c-2.8,0-4.8-2.1-4.8-5c0-2.8,2.1-4.9,4.7-4.9c1.3,0,2.4,0.5,3.5,1.6v-3.3c-1.2-0.6-2.3-0.9-3.5-0.9C35.8,43.9,32.3,47.2,32.3,51.4z M65.8,53.9L62,44.2h-3.1L65,59h1.5l6.2-14.8h-3.1L65.8,53.9z M74,58.6h8v-2.4h-5.2v-3.9h5v-2.4h-5v-3.2H82v-2.4h-8V58.6z M89.9,52.5c2.1-0.4,3.3-1.9,3.3-4.1c0-2.7-1.9-4.3-5.1-4.3h-4.2v14.4h2.8v-5.8h0.4l3.9,5.8h3.5L89.9,52.5z M87.5,50.8h-0.8v-4.4h0.9c1.8,0,2.7,0.7,2.7,2.1C90.3,50,89.3,50.8,87.5,50.8z M52.1,43.8c-4.2,0-7.7,3.4-7.7,7.7c0,4.2,3.4,7.7,7.7,7.7c4.2,0,7.7-3.4,7.7-7.7S56.3,43.8,52.1,43.8z M52.2,56.9c-3,0-5.4-2.4-5.4-5.4c0-3,2.4-5.4,5.4-5.4c3,0,5.4,2.4,5.4,5.4C57.6,54.5,55.2,56.9,52.2,56.9z" /></symbol><symbol id="mc-simple-light" viewBox="4.2 43 90.6 15"><path fill="#eeeeee" d="M39.9,48.7h1.6l0.4-2.8h-1.5l0.3-1.8h-3.1c-0.1,0.1-1.8,10-1.8,11.2c0,1.8,1,2.6,2.4,2.6c1.1,0,2-0.3,2.3-0.4l0.4-2.6c-0.2,0-0.5,0.1-0.8,0.1c-1.1,0-1.2-0.6-1.1-1L39.9,48.7z M50.9,52.7c0,0,0.4-2,0.4-2.8c0-2-1-4.4-4.4-4.4c-3.1,0-5.4,3.3-5.4,7c0,4.3,2.9,5.3,5.3,5.3c2.2,0,3.2-0.5,3.2-0.5l0.5-2.9c0,0-1.7,0.7-3.3,0.7c-3.3,0-2.7-2.4-2.7-2.4S50.9,52.7,50.9,52.7z M46.9,48.3c1.7,0,1.4,1.9,1.4,2.1H45C45,50.1,45.3,48.3,46.9,48.3z M61.3,51.5c0-3.6,1.9-5.5,4-5.5c1.6,0,2.8,0.9,2.8,0.9l0.5-3.2c0,0-1.9-0.7-3.4-0.7c-3.5,0-7,3-7,8.7c0,3.8,1.9,6.3,5.5,6.3c1,0,2.7-0.4,2.7-0.4l0.5-3.3c0,0-1.5,0.7-2.5,0.7C62.2,54.9,61.3,53.2,61.3,51.5z M23.8,45.6c-2.1,0-3.7,0.7-3.7,0.7l-0.4,2.6c0,0,1.3-0.5,3.3-0.5c1.1,0,2,0.1,2,1c0,0.6-0.1,0.8-0.1,0.8s-0.9-0.1-1.3-0.1c-2.6,0-5.4,1.1-5.4,4.5c0,2.7,1.8,3.3,3,3.3c2.2,0,3.1-1.4,3.1-1.4l-0.1,1.2h2.7l1.2-8.3C28,45.7,24.8,45.6,23.8,45.6z M22.2,55.3c-1,0-1.2-0.7-1.2-1.1c0-0.8,0.5-1.8,2.7-1.8c0.5,0,0.6,0.1,0.7,0.1C24.5,52.9,24.1,55.3,22.2,55.3z M33.5,48.4c0.4,0,2.1,0.1,2.1,0.1l0.4-2.7c0,0-1.1-0.2-2.8-0.2c-2.3,0-4.6,0.9-4.6,4c0,3.5,3.8,3.1,3.8,4.6c0,1-1.1,1.1-1.9,1.1c-1.4,0-2.7-0.5-2.7-0.5l-0.4,2.6c0.1,0,0.9,0.4,3.4,0.4c0.7,0,4.6,0.2,4.6-3.9c0-3.8-3.7-3-3.7-4.5C31.8,48.6,32.4,48.4,33.5,48.4z M91.7,43.2l-0.7,4c0,0-1.2-1.6-3-1.6c-2.8,0-5.1,3.3-5.1,7.2c0,2.5,1.2,4.9,3.8,4.9c1.8,0,2.9-1.3,2.9-1.3l-0.1,1.1h3l2.3-14.4L91.7,43.2z M87.8,54.8c-1.1,0-1.6-0.9-1.6-2.4c0-2.3,1.1-3.9,2.4-3.9c1.1,0,1.7,0.7,1.7,2.5C90.3,52.7,89.5,54.8,87.8,54.8z M14.3,43.2l-3,8.8l-0.2-8.8H6.7L4.2,57.6h3L9,46.7l0.3,10.9h2.1l3.9-10.9l-1.7,10.9h3.1l2.4-14.4C19.1,43.2,14.3,43.2,14.3,43.2z M58.1,45.7c-1.4,0-2.4,1.9-2.4,1.9l0.3-1.7h-2.9l-1.9,11.7h3.1c0.9-5,1.1-9.1,3.2-8.3c0.4-1.9,0.7-2.7,1.1-3.5C58.7,45.8,58.5,45.7,58.1,45.7z M73.4,45.6c-2.1,0-3.7,0.7-3.7,0.7l-0.4,2.6c0,0,1.3-0.5,3.3-0.5c1.1,0,2,0.1,2,1c0,0.6-0.1,0.8-0.1,0.8s-0.9-0.1-1.3-0.1c-2.6,0-5.4,1.1-5.4,4.5c0,2.7,1.8,3.3,3,3.3c2.2,0,3.1-1.4,3.1-1.4l-0.1,1.2h2.7l1.2-8.3C77.6,45.7,74.5,45.6,73.4,45.6z M71.9,55.3c-1,0-1.2-0.7-1.2-1.1c0-0.8,0.5-1.8,2.7-1.8c0.5,0,0.6,0.1,0.7,0.1C74.1,52.9,73.7,55.3,71.9,55.3z M84.4,45.8c0,0-0.2,0-0.6,0c-1.4,0-2.4,1.9-2.4,1.9l0.3-1.7h-2.9l-1.9,11.7H80c0.9-5,1.1-9.1,3.2-8.3C83.6,47.3,84,46.6,84.4,45.8z" /></symbol><symbol id="paypal-simple-light" viewBox="5 39.6 90 23.8"><path fill="#eeeeee" d="M54.2,43.7c-0.6,0-3.2,0-3.2,0c-0.6,0-1.3,0.4-1.7,1c0,0-3.9,6.3-4.3,6.9c-0.2,0.3-0.4,0.1-0.5,0c0-0.2-1.2-6.8-1.2-6.8c-0.1-0.5-0.7-1-1.5-1h-2.4c-0.6,0-0.9,0.4-0.8,1c0,0,1.8,9.9,2.2,12.2c0.2,1.3,0,1.5,0,1.5l-2.4,3.9c-0.3,0.5-0.2,1,0.4,1h2.8c0.6,0,1.3-0.4,1.7-1l10.8-17.2C54.1,45.2,55.1,43.7,54.2,43.7z M22.8,42.1c-0.3-0.6-0.8-1.1-1.5-1.5s-1.4-0.7-2.3-0.8c-0.9-0.2-2-0.2-3.2-0.2h-5.6c-0.6,0-1.2,0.4-1.3,1L5,56.1c-0.1,0.5,0.2,1,0.8,1h2.7c0.6,0,1.2-0.4,1.3-1l0.9-3.8c0.1-0.5,0.7-1,1.3-1h0.8c3.3,0,5.9-0.6,7.7-1.9c1.8-1.3,2.8-3,2.8-5C23.3,43.5,23.1,42.7,22.8,42.1z M16.9,47.2C16.1,47.8,15,48,13.5,48h-0.7c-0.6,0-1-0.4-0.8-1l0.8-3.3c0.1-0.5,0.7-1,1.3-1H15c1,0,1.8,0.2,2.3,0.5s0.8,0.8,0.8,1.5C18.2,45.9,17.8,46.7,16.9,47.2z M35.8,44.3c-1-0.5-2.6-0.8-4.8-0.8c-1.1,0-2.2,0.1-3.3,0.2c-0.8,0.1-0.9,0.1-1.4,0.2c-1,0.2-1.2,1.2-1.2,1.2l-0.3,1.3c-0.2,0.8,0.3,0.8,0.5,0.7c0.4-0.1,0.7-0.3,1.6-0.5s1.8-0.3,2.5-0.3c1.1,0,1.9,0.1,2.4,0.3c0.5,0.2,0.8,0.6,0.8,1.2c0,0.1,0,0.3,0,0.4c0,0.1-0.1,0.2-0.4,0.2c-1.5,0.1-2.6,0.2-4,0.4c-1.3,0.2-2.5,0.5-3.4,0.9c-1,0.4-1.8,1-2.3,1.7s-0.8,1.6-0.8,2.7c0,1,0.4,1.8,1.1,2.4c0.7,0.6,1.7,0.9,2.8,0.9c0.7,0,1.3-0.1,1.7-0.1c0.4-0.1,0.8-0.2,1.3-0.4c0.3-0.1,0.7-0.3,1.1-0.6c0.4-0.2,0.7-0.4,1-0.6l0,0l-0.1,0.4l0,0l0,0c-0.1,0.5,0.2,0.9,0.7,1l0,0l0,0l0,0c0.3,0,1.5,0,2.1,0H34l0,0c0.5-0.1,1-0.5,1.2-1l2-8c0-0.2,0.1-0.4,0.1-0.7s0.1-0.5,0-0.6C37.3,45.7,36.8,44.9,35.8,44.3z M32,51.2c0,0.2-0.4,1.5-0.5,2.2c0,0.2-0.3,0.5-0.4,0.5c-0.3,0.2-0.7,0.4-1.1,0.5c-0.5,0.2-1,0.3-1.4,0.3c-0.7,0-1.2-0.1-1.5-0.3s-0.5-0.5-0.5-1s0.1-0.9,0.4-1.2s0.7-0.6,1.2-0.7c0.5-0.2,1.1-0.3,1.8-0.4c0.6-0.1,1.8-0.2,2-0.2C32,50.9,32.1,50.8,32,51.2z M84.8,44.4c-1-0.5-2.6-0.8-4.8-0.8c-1.1,0-2.2,0.1-3.3,0.2c-0.8,0.1-0.9,0.1-1.4,0.2c-1,0.2-1.2,1.2-1.2,1.2l-0.3,1.3c-0.2,0.8,0.3,0.8,0.5,0.7c0.4-0.1,0.7-0.3,1.6-0.4c0.9-0.2,1.8-0.3,2.5-0.3c1.1,0,1.9,0.1,2.4,0.3s0.8,0.6,0.8,1.2c0,0.1,0,0.3,0,0.4c0,0.1-0.1,0.2-0.4,0.2c-1.5,0.1-2.7,0.2-4,0.4s-2.5,0.5-3.4,0.9c-1,0.4-1.8,1-2.3,1.7s-0.8,1.6-0.8,2.7c0,1,0.4,1.8,1.1,2.4c0.7,0.6,1.7,0.9,2.8,0.9c0.7,0,1.3-0.1,1.7-0.1c0.4-0.1,0.8-0.2,1.3-0.4c0.3-0.1,0.7-0.3,1.1-0.6c0.4-0.2,0.7-0.4,1-0.6l0,0l-0.1,0.4l0,0l0,0c-0.1,0.5,0.2,0.9,0.7,1l0,0l0,0l0,0c0.3,0,1.5,0,2.1,0h0.4l0,0c0.5-0.1,1-0.5,1.2-1l2-8c0-0.2,0.1-0.4,0.1-0.7s0.1-0.5,0-0.6C86.4,45.7,85.9,44.9,84.8,44.4z M81,51.3c0,0.2-0.4,1.5-0.5,2.2c0,0.2-0.3,0.5-0.4,0.5c-0.3,0.2-0.7,0.4-1.1,0.5c-0.5,0.2-1,0.3-1.4,0.3c-0.7,0-1.2-0.1-1.5-0.3s-0.5-0.5-0.5-1s0.1-0.9,0.4-1.2s0.7-0.6,1.2-0.7c0.5-0.2,1.1-0.3,1.8-0.4c0.6-0.1,1.8-0.2,2-0.2C81,50.9,81.1,50.9,81,51.3z M71.8,42.2c-0.3-0.6-0.8-1.1-1.5-1.5S68.9,40,68,39.9s-2-0.2-3.2-0.2h-5.7c-0.6,0-1.2,0.4-1.3,1L54,56.3c-0.1,0.5,0.2,1,0.8,1h2.7c0.6,0,1.2-0.4,1.3-1l0.9-3.8c0.1-0.5,0.7-1,1.3-1h0.8c3.3,0,5.9-0.6,7.7-1.9c1.8-1.3,2.8-3,2.8-5.1C72.3,43.6,72.2,42.8,71.8,42.2z M66,47.3c-0.8,0.6-1.9,0.8-3.4,0.8h-0.7c-0.6,0-1-0.4-0.8-1l0.8-3.3c0.1-0.5,0.7-1,1.3-1h0.9c1,0,1.8,0.2,2.3,0.5s0.8,0.8,0.8,1.5C67.2,45.9,66.8,46.7,66,47.3z M94.2,39.8h-2.4l0,0l0,0c-0.6,0-1.1,0.4-1.3,0.9c0,0,0,0,0,0.1c0,0-0.1,0.2-0.2,0.7L87,55.6c-0.1,0.3-0.1,0.5-0.1,0.6l0,0c-0.1,0.5,0.2,0.9,0.7,1l0,0h2.5c0.5,0,1.1-0.4,1.3-0.9c0,0,0,0,0-0.1L95,40.7l0,0C95.1,40.2,94.7,39.8,94.2,39.8z" /></symbol><symbol id="visa-simple-light" viewBox="3.9 35.7 90 28.6"><path fill="#eeeeee" d="M35.6,63.8h7.3l4.6-27.5h-7.3L35.6,63.8z M62.1,47.3C59.6,46,58,45.2,58,43.9c0-1.1,1.3-2.4,4.2-2.4c2.4,0,4.1,0.5,5.5,1.1l0.7,0.3l1-6c-1.4-0.6-3.7-1.2-6.5-1.2c-7.2,0-12.3,3.7-12.3,9.1c0,4,3.6,6.2,6.4,7.5c2.8,1.3,3.8,2.2,3.8,3.4c0,1.8-2.3,2.7-4.4,2.7c-2.9,0-4.5-0.4-6.9-1.4l-0.9-0.4l-1,6.2c1.7,0.8,4.8,1.4,8.1,1.5c7.7,0,12.6-3.7,12.7-9.4C68.2,51.7,66.3,49.3,62.1,47.3z M88,36.3h-5.6c-1.7,0-3.1,0.5-3.8,2.3L67.7,63.8h7.7c0,0,1.2-3.4,1.5-4.1c0.8,0,8.3,0,9.3,0c0.2,1,0.9,4.1,0.9,4.1h6.8L88,36.3z M79,54c0.6-1.6,2.9-7.7,2.9-7.7c0,0.1,0.6-1.6,1-2.6l0.5,2.4c0,0,1.4,6.6,1.7,7.9C85.1,54,79,54,79,54z M29.5,36.3l-7.1,18.8l-0.8-3.8L19,38.6c-0.4-1.7-1.7-2.3-3.3-2.3H4l-0.1,0.6c2.9,0.7,5.4,1.7,7.7,3L18,63.8h7.7l11.5-27.5H29.5z" /></symbol><symbol id="facebook-square" viewBox="0 0 1024 1024"><path d="M0 0v1024h1024v-1024h-1024zM679.936 275.456c0 0-57.344 0-79.872 0-27.648 0-33.792 11.264-33.792 40.96 0 24.576 0 70.656 0 70.656h113.664l-11.264 122.88h-102.4v367.616h-146.432v-367.616h-76.8v-123.904h76.8c0 0 0-18.432 0-98.304 0-92.16 49.152-140.288 158.72-140.288 17.408 0 101.376 0 101.376 0v128z"></path></symbol><symbol id="instagram-square" viewBox="0 0 1024 1024"><path d="M789.504 248.832v73.728c0 12.288-9.216 21.504-21.504 21.504h-72.704c-12.288 0-21.504-9.216-21.504-21.504v-73.728c0-12.288 9.216-21.504 21.504-21.504h72.704c12.288 0 21.504 10.24 21.504 21.504zM512 613.376c54.272 0 98.304-44.032 98.304-98.304s-44.032-98.304-98.304-98.304c-54.272 0-98.304 44.032-98.304 98.304s44.032 98.304 98.304 98.304zM1024 0v1024h-1024v-1024h1024zM850.944 414.72h-197.632c20.48 28.672 31.744 62.464 31.744 100.352 0 95.232-77.824 173.056-173.056 173.056s-173.056-77.824-173.056-173.056c0-37.888 12.288-71.68 31.744-100.352h-197.632v304.128c0 73.728 60.416 134.144 134.144 134.144h409.6c73.728 0 134.144-60.416 134.144-134.144v-304.128zM512 648.192c73.728 0 133.12-59.392 133.12-133.12 0-39.936-17.408-75.776-46.080-100.352-10.24-8.192-20.48-15.36-32.768-21.504-16.384-7.168-35.84-12.288-55.296-12.288s-37.888 4.096-55.296 12.288c-12.288 5.12-23.552 12.288-32.768 21.504-27.648 24.576-46.080 60.416-46.080 100.352 1.024 73.728 61.44 133.12 135.168 133.12zM850.944 305.152c0-73.728-60.416-134.144-134.144-134.144h-366.592v168.96h-27.648v-167.936h-15.36c-1.024 0-2.048 0-3.072 0v168.96h-27.648v-165.888c-6.144 2.048-13.312 4.096-19.456 6.144v159.744h-27.648v-144.384c-33.792 24.576-56.32 64.512-56.32 109.568v88.064h215.040c31.744-31.744 74.752-52.224 123.904-52.224 48.128 0 92.16 19.456 123.904 52.224h216.064l-1.024-89.088z"></path></symbol><symbol id="pinterest-square" viewBox="0 0 1024 1024"><path d="M0 0v1024h1024v-1024h-1024zM577.536 686.080c-44.032 0-86.016-23.552-100.352-51.2 0 0-23.552 95.232-28.672 113.664-17.408 64.512-70.656 129.024-74.752 135.168-3.072 4.096-9.216 2.048-10.24-2.048-1.024-8.192-14.336-90.112 1.024-156.672 8.192-33.792 53.248-224.256 53.248-224.256s-13.312-26.624-13.312-65.536c0-61.44 35.84-106.496 79.872-106.496 37.888 0 55.296 27.648 55.296 61.44 0 37.888-23.552 94.208-36.864 146.432-10.24 44.032 21.504 78.848 64.512 78.848 77.824 0 130.048-100.352 130.048-219.136 0-90.112-60.416-157.696-171.008-157.696-124.928 0-202.752 93.184-202.752 197.632 0 35.84 10.24 61.44 27.648 80.896 7.168 9.216 8.192 12.288 6.144 22.528-2.048 7.168-6.144 25.6-8.192 32.768-3.072 10.24-11.264 14.336-20.48 10.24-57.344-23.552-83.968-86.016-83.968-157.696 0-116.736 98.304-257.024 293.888-257.024 157.696 0 261.12 113.664 261.12 235.52 0 162.816-90.112 282.624-222.208 282.624z"></path></symbol><symbol id="youtube-square" viewBox="0 0 1024 1024"><path d="M596.992 608.256c-13.312 0-23.552 8.192-31.744 18.432v-84.992h-36.864v263.168h36.864v-15.36c10.24 12.288 21.504 17.408 34.816 17.408 23.552 0 32.768-18.432 32.768-43.008v-106.496c-1.024-26.624-10.24-49.152-35.84-49.152zM594.944 759.808c0 6.144-1.024 10.24-3.072 13.312-4.096 5.12-13.312 5.12-18.432 2.048-3.072-1.024-5.12-4.096-8.192-7.168v-120.832c2.048-3.072 5.12-5.12 7.168-6.144 6.144-3.072 14.336-3.072 18.432 3.072 3.072 3.072 4.096 8.192 4.096 15.36v100.352zM456.704 611.328h35.84v194.56h-35.84v-21.504c-7.168 8.192-13.312 14.336-20.48 18.432-19.456 11.264-46.080 11.264-46.080-28.672v-162.816h35.84v148.48c0 8.192 2.048 13.312 9.216 13.312s16.384-9.216 21.504-14.336v-147.456zM390.144 579.584h-41.984v225.28h-40.96v-225.28h-41.984v-37.888h124.928v37.888zM473.088 377.856v-95.232c0-11.264 5.12-19.456 15.36-19.456 11.264 0 16.384 8.192 16.384 19.456v95.232c0 11.264-6.144 19.456-15.36 19.456-10.24 0-16.384-9.216-16.384-19.456zM0 0v1024h1024v-1024h-1024zM576.512 226.304h37.888v156.672c0 8.192 2.048 13.312 10.24 13.312 7.168 0 17.408-9.216 22.528-15.36v-154.624h37.888v203.776h-37.888v-22.528c-16.384 19.456-32.768 25.6-44.032 25.6-20.48 0-26.624-16.384-26.624-36.864v-169.984zM489.472 224.256c30.72 0 54.272 22.528 54.272 55.296v99.328c0 33.792-23.552 54.272-54.272 54.272-36.864 0-55.296-18.432-55.296-54.272v-100.352c0-31.744 21.504-54.272 55.296-54.272zM335.872 153.6l29.696 110.592 26.624-110.592h43.008l-50.176 164.864v112.64h-43.008v-112.64l-51.2-164.864h45.056zM822.272 783.36c0 48.128-38.912 87.040-87.040 87.040h-446.464c-48.128 0-87.040-38.912-87.040-87.040v-220.16c0-48.128 38.912-87.040 87.040-87.040h447.488c48.128 0 87.040 38.912 87.040 87.040v220.16zM713.728 606.208c-32.768 0-55.296 23.552-55.296 57.344v87.040c0 34.816 17.408 60.416 52.224 60.416 37.888 0 54.272-22.528 54.272-60.416v-14.336h-36.864v13.312c0 17.408-1.024 27.648-16.384 27.648-14.336 0-15.36-12.288-15.36-27.648v-36.864h68.608v-49.152c0-35.84-16.384-57.344-51.2-57.344zM728.064 683.008h-31.744v-19.456c0-13.312 3.072-22.528 16.384-22.528s15.36 9.216 15.36 22.528v19.456z"></path></symbol></defs></svg>
+
+	        <div class="grid_12">
+						<div class="textwidget">                        <div class="stay_connected">
+<a class="youtube" href="http://www.youtube.com/user/hethir">
+<svg class="icon">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#youtube-square"></use>
+                </svg>
+</a>
+<a class="fb" href="http://www.facebook.com/naturalfertilityinfo">
+<svg class="icon">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook-square"></use>
+                </svg>
+                            </a>
+                            <a  href="http://www.instagram.com/naturalfertilityinfo" class="tw social" target="_blank">
+<svg class="icon">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram-square"></use>
+                </svg>
+
+</a>
+<a class="pin" href="http://pinterest.com/hethirrodriguez/">
+   <svg class="icon">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pinterest-square"></use>
+                </svg>                        
+</a>
+<a class="rss" href="http://natural-fertility-info.com/feed"></a>
+                              </div>
+<div style="margin-top:10px;" class="community"><a href="http://natural-fertility-info.com/contact-us" target="_blank"><img src="/wp-content/uploads/NFI_footer_2015_2.jpg"/></a></div></div>
+		
+                    </div>
+		    <div class="grid_24">
+						<div class="textwidget"><div style="background-color:#e8e8e8; padding:15px; font-size:12px;">
+<strong>Disclaimer:</strong> The information on Natural Fertility Info.com is provided for educational purposes only and is not intended to treat, diagnose or prevent any disease. The information on this website is not intended to replace a one-on-one relationship with a qualified health care professional and is not intended as medical advice. It is intended as a sharing of knowledge and information from the research and experience of Hethir Rodriguez and her community. We encourage you to make your own health care decisions based upon your research and in partnership with a qualified health care professional.
+</div>
+<br/>
+<div style="background-color:white; padding:15px; font-size:12px;">
+* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease. If you are pregnant, nursing, taking medication, or have a medical condition, consult your physician before using this product.
+<br>
+<br>
+‡The World's #1 Natural Fertility Website claim is based upon Google search engine rankings.</div>
+<div align="center" style="padding:15px; font-size:12px;">Copyright ©2007-2015 The Natural Fertility Company. All Rights Reserved. </div></div>
+				    </div>
+
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<!-- Start Of Script Generated By Greg's Comment Length Limiter Plugin 1.6 -->
+<script type="text/javascript">
+<!--
+function gcllCounter(textarea) {
+if (textarea.value.length > 700)
+textarea.value = textarea.value.substring(0, 700);
+else
+document.getElementById('commentlen').value = 700 - textarea.value.length;
+}
+//-->
+</script>
+<!-- End of Script Generated By Greg's Comment Length Limiter Plugin 1.6 --><!-- This site is converting visitors into subscribers and customers with OptinMonster - http://optinmonster.com :: Campaign Title: NFI Tips Optin --><div id="om-hcxjjjkac7urjxl1-holder"></div><script>var hcxjjjkac7urjxl1,hcxjjjkac7urjxl1_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){hcxjjjkac7urjxl1_poll(function(){if(window['om_loaded']){if(!hcxjjjkac7urjxl1){hcxjjjkac7urjxl1=new OptinMonsterApp();return hcxjjjkac7urjxl1.init({"u":"16574.352997","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="//a.optnmstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;hcxjjjkac7urjxl1=new OptinMonsterApp();hcxjjjkac7urjxl1.init({"u":"16574.352997","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - http://optinmonster.com :: Campaign Title: Smoothie Challenge - Full Site --><div id="om-znkpax73y4hgzqxp-holder"></div><script>var znkpax73y4hgzqxp,znkpax73y4hgzqxp_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){znkpax73y4hgzqxp_poll(function(){if(window['om_loaded']){if(!znkpax73y4hgzqxp){znkpax73y4hgzqxp=new OptinMonsterApp();return znkpax73y4hgzqxp.init({"u":"16574.309010","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="//a.optnmstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;znkpax73y4hgzqxp=new OptinMonsterApp();znkpax73y4hgzqxp.init({"u":"16574.309010","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / OptinMonster -->	    <script type="text/javascript">var hcxjjjkac7urjxl1_shortcode = true;var znkpax73y4hgzqxp_shortcode = true;</script>
+	    <script type='text/javascript' src='http://platform.twitter.com/widgets.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/ubermenu/js/hoverIntent.js?ver=4.9.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uberMenuSettings = {"speed":"50","trigger":"hoverIntent","orientation":"horizontal","transition":"slide","hoverInterval":"20","hoverTimeout":"400","removeConflicts":"on","autoAlign":"off","noconflict":"off","fullWidthSubs":"off","androidClick":"off","loadGoogleMaps":"off","repositionOnLoad":"off"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/ubermenu/js/ubermenu.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.40.0-2013.08.13'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/natural-fertility-info.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.5.2'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/magic-action-box-pro/assets/js/responsive-videos.js?ver=2.15'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/dynamic-to-top/js/libs/jquery.easing.js?ver=1.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mv_dynamic_to_top = {"text":"To Top","version":"1","min":"300","speed":"200","easing":"easeInExpo","margin":"20"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/plugins/dynamic-to-top/js/dynamic.to.top.min.js?ver=3.4.2'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-content/themes/u-design/scripts/prettyPhoto/custom_params.js?ver=3.1.3'></script>
+<script type='text/javascript' src='http://natural-fertility-info.com/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+	    <script type="text/javascript">var omapi_localized = { ajax: 'http://natural-fertility-info.com/wp-admin/admin-ajax.php?optin-monster-ajax-route=1', nonce: 'e8a9926914' };</script>
+	        </div><!-- end wrapper-1 -->
+<!-- begin SnapEngage code -->
+
+
+<script type="text/javascript">
+(function() {
+if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|Android|IEMobile)/)) {
+var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+    se.src = '//commondatastorage.googleapis.com/code.snapengage.com/js/f169a8d3-85ee-47d6-a773-1ed7dd81e994.js';
+    var done = false;
+    se.onload = se.onreadystatechange = function() {
+      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+        done = true;
+        // Place your SnapEngage JS API code below
+        // SnapEngage.allowChatSound(true); // Example JS API: Enable sounds for Visitors. 
+      }
+    };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+}
+})();
+</script>
+
+<!-- end SnapEngage code -->
+<!-- Start Active Campaign code -->
+<script type="text/javascript">
+	var trackcmp_email = '';
+	var trackcmp = document.createElement("script");
+	trackcmp.async = true;
+	trackcmp.type = 'text/javascript';
+	trackcmp.src = '//trackcmp.net/visit?actid=25151360&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
+	var trackcmp_s = document.getElementsByTagName("script");
+	if (trackcmp_s.length) {
+		trackcmp_s[0].parentNode.appendChild(trackcmp);
+	} else {
+		var trackcmp_h = document.getElementsByTagName("head");
+		trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
+	}
+</script>
+<!-- end Active Campaign code -->
+<!-- BEGIN GROOVE WIDGET CODE -->
+<script id="grv-widget">
+  /*<![CDATA[*/
+  window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+  groove.widget('setWidgetId', '542ddad4-03e1-f21f-3289-14d7ecc01af3');
+  !function(g,r,v){var a,n,c=r.createElement("iframe");(c.frameElement||c).style.cssText="width: 0; height: 0; border: 0",c.title="",c.role="presentation",c.src="javascript:false",r.body.appendChild(c);try{a=c.contentWindow.document}catch(i){n=r.domain;var b=["javascript:document.write('<he","ad><scri","pt>document.domain=","\"",n,"\";</scri","pt></he","ad><bo","dy></bo","dy>')"];c.src=b.join(""),a=c.contentWindow.document}var d="https:"==r.location.protocol?"https://":"http://",s="http://groove-widget-production.s3.amazonaws.com".replace("http://",d);c.className="grv-widget-tag",a.open()._l=function(){n&&(this.domain=n);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=s+"/loader.js",this.body.appendChild(t)};var p=["<bo",'dy onload="document._l();">'];a.write(p.join("")),a.close()}(window,document)
+  /*]]>*/
+</script>
+<!-- END GROOVE WIDGET CODE -->
+</body>
+</html>

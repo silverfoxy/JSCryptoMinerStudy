@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>ORBIS日本保養品-無油保養品、臉部保養、美白保濕、身體保養、低卡代餐，免費配送，免費試用!</title>
+<meta name="viewport" content="width=1024" />
+<meta name="description" content="100%無油保養品、臉部保養、美白保濕、身體保養、低卡代餐、營養補助品，全方位守護您的美肌與健康。保養品致力於研發能提升肌膚自我復原能力的臉部保養、身體保養、護膚產品，菲堤低卡代餐系列，僅須改變一餐，即可達成纖體目標。ORBIS全系列保養品、臉部保養、美白保濕、身體保養、美體代餐食品通通有 100%無油保養, 免費配送, 免費試用!" />
+<meta name="keywords" content="卸妝,痘痘粉刺調理,控油,去角質產品,護髮產品" />
+<link rel="stylesheet" href="//www.orbis.com.tw/min/?b=assets/default/c&amp;f=normalize.css,layout.css,form.css,style.css,module/jquery.uniform.css,module/blockui.css,page/index.css&amp;170606105233" media="screen, projection, print" />
+<script src="//www.orbis.com.tw/min/?b=assets/default/j&amp;f=libs/jquery.min.js,libs/jquery-migrate.min.js,libs/jquery-ui.min.js,libs/jquery.uniform.min.js,libs/jquery.blockUI.js,libs/functions.js,yahoo.dr.pixels.js,libs/jquery.cycle.all.js,libs/jquery.jcarousellite.min.js&amp;170606105233"></script>
+<!--[if IE]>
+<script src="http://www.orbis.com.tw/min/?b=assets/default/j&amp;f=libs/html5shiv.min.js,libs/selectivizr.min.js&amp;20130909182500"></script>
+<![endif]-->
+</head>
+<body>
+
+<!--============================== header start ==============================-->
+<header>
+
+<section id="site-func">
+<div class="wrap clearfix">
+<h3>網站服務選單</h3>
+<ul>
+<li><a href="http://www.orbis.com.tw/allprod.php">商品全覽</a></li>
+<li><a href="http://www.orbis.com.tw/member/">會員專區</a></li>
+<li><a href="http://www.orbis.com.tw/infor/">優惠與資訊</a></li>
+<li><a href="http://www.orbis.com.tw/about/">關於ORBIS</a></li>
+<li><a href="http://www.orbis.com.tw/shop.php">店舖情報</a></li>
+<li><a href="http://www.orbis.com.tw/service/buy_order.php">客服中心</a></li>
+</ul>
+</div>
+</section>
+
+<div class="wrap clearfix">
+<section class="logo">
+<h3>網站logo</h3>
+<a href="http://www.orbis.com.tw/"><img src="//www.orbis.com.tw/assets/default/i/logo.jpg" alt="ORBIS日本保養品" /></a>
+</section>
+
+<section class="slogan">
+<h3>網站標語</h3>
+<img src="//www.orbis.com.tw/assets/default/i/slogan.png" alt="日本原裝進品。100%無油保養" /><br />
+<img src="//www.orbis.com.tw/assets/default/i/slogan_2.png" alt="日本No.1美妝通信販售品牌" />
+</section>
+
+<script>
+// <![CDATA[
+$(function() {
+    $('#search-bar .advance-form select').uniform();
+    $('#search-bar .btn-advanced-search').click(function () {
+        $('#search-bar .advance-form').slideDown();
+    });
+    $('body').click(function (e) {
+        if ($(e.target).is('#search-bar .advance-form *')) {
+            return;
+        } else {
+            $('#search-bar .advance-form').slideUp();
+        }
+    });
+    $('#search-bar .btn-advanced-search').click(function (e) {
+        e.stopPropagation();
+        return false;
+    });
+
+    //產生商品分類第二層
+    $('#search-bar .advance-form .category select').change(function(){
+        $('#categorySrh2').html('');
+        $('#categorySrh3').html('');
+        getSrhProductCategory($('#categorySrh1').val(), 'categorySrh2');
+        $('#categorySrhValue').val($(this).val());
+    });
+
+    //產生商品分類第三層
+     $('#search-bar .advance-form .categorySrh2').on('change', 'select', function(){
+        $('#categorySrh3').html('');
+        getSrhProductCategory($('#categorySrh2').val(), 'categorySrh3');
+        $('#categorySrhValue').val($(this).val());
+    });
+
+    //商品分類第三層選取塞值
+     $('#search-bar .advance-form .categorySrh3').on('change', 'select', function(){
+        $('#categorySrhValue').val($(this).val());
+    });
+
+    //產生目的第二層
+    $('#search-bar .advance-form .purpose select').change(function(){
+        $('#purposeSrh2').html('');
+        getSrhProductPurpose($('#purposeSrh1').val(), 'purposeSrh2');
+        $('#purposeSrhValue').val($(this).val());
+    });
+
+    //目的第二層選取塞值
+    $('#search-bar .advance-form .purpose .item').on('change', 'select', function(){
+        $('#purposeSrhValue').val($(this).val());
+    });
+});
+
+//取得商品分類
+function getSrhProductCategory(IDPath, target) {
+    $.ajax({
+        url: 'http://www.orbis.com.tw/search/async_get_productCategory.php',
+        type: 'POST',
+        data: 'IDPath=' + IDPath,
+        dataType: 'json',
+        cache: false,
+        success: function(result) {
+            if ('true' == result.status){
+                var selOption = '<select name="' + target + '" id="' + target + '">';
+                selOption += '<option value="">請選擇</option>';
+                $.each(result.option, function(key, value) {
+                    selOption = selOption + '<option value="' + value['ID'] + '">' + value['name'] + '</option>';
+                });
+                selOption += '</select>';
+                $('.' +target).html(selOption);
+            }
+        }
+    });
+}
+
+//取得商品目的
+function getSrhProductPurpose(IDPath, target) {
+    $.ajax({
+        url: 'http://www.orbis.com.tw/search/async_get_productPurpose.php',
+        type: 'POST',
+        data: 'IDPath=' + IDPath,
+        dataType: 'json',
+        cache: false,
+        success: function(result) {
+            if ('true' == result.status){
+                var selOption = '<select name="' + target + '" id="' + target + '">';
+                selOption += '<option value="">全部</option>';
+                $.each(result.option, function(key, value) {
+                    selOption = selOption + '<option value="' + value['ID'] + '">' + value['name'] + '</option>';
+                });
+                selOption += '</select>';
+                $('#search-bar .advance-form .purpose .item').html(selOption);
+            }
+        }
+    });
+}
+
+function checkSiteSearch(fm)
+{
+    fm.searchValue.value = $.trim(fm.searchValue.value);
+    if ('' === fm.searchValue.value) {
+        alert('請輸入商品編號或名稱！');
+        fm.searchValue.focus;
+        return false;
+    }
+    fm.submit();
+}
+
+function checkAdvanceSearch(fm, searchType)
+{
+    var searchValue;
+    var msg;
+    if (searchType == 3) {
+        searchValue = $.trim(fm.categorySrhValue.value);
+        msg = '請選擇商品分類！';
+    } else if (searchType == 4) {
+        searchValue = $.trim(fm.purposeSrhValue.value);
+        msg = '請選擇目的！';
+    } else {
+        searchValue = $.trim(fm.prod_searchValue.value);
+        msg = '請輸入商品編號或名稱！';
+    }
+    if ('' === searchValue) {
+        alert(msg);
+        return false;
+    }
+    document.advanceSearchHiddenForm.searchType.value = searchType;
+    document.advanceSearchHiddenForm.searchValue.value = searchValue;
+    document.advanceSearchHiddenForm.submit();
+}
+// ]]> -->
+</script>
+
+<section id="search-bar">
+<h3>站台搜尋</h3>
+<form name="siteSearchForm" id="siteSearchForm" method="get" action="/result.php">
+<input type="search" name="searchValue" id="searchValue" value="" placeholder="請輸入商品編號或名稱" autocomplete="off" class="search-txt" />
+<input type="hidden" name="searchType" value="5">
+<input type="button" value="搜尋" class="btn-search" onClick="checkSiteSearch(this.form);" />
+<a href="#" class="btn-advanced-search">進階搜尋</a>
+</form>
+
+<form name="advanceSearchHiddenForm" id="advanceSearchHiddenForm" method="get" action="/result.php">
+<input type="hidden" name="searchType" value="">
+<input type="hidden" name="searchValue" value="">
+</form>
+
+<div class="advance-form">
+<h3>進階搜尋</h3>
+<form name="advanceSearchForm" id="advanceSearchForm" method="get">
+<fieldset>
+<input type="text" name="prod_searchValue" id="prod_searchValue" value="" placeholder="請輸入商品編號或名稱" autocomplete="off" />
+<div class="category">
+<select name="categorySrh1" id="categorySrh1" size="1">
+<option value="">商品分類</option>
+<option value="201">系列商品</option>
+<option value="209">保養品</option>
+<option value="230">彩妝</option>
+<option value="243">營養補助食品</option>
+</select>
+<div class="categorySrh2"></div>
+<div class="categorySrh3 clear"></div>
+<input type="hidden" name="categorySrhValue" ID="categorySrhValue">
+<input type="button" value="確定" class="btn-category-confomr" onClick="checkAdvanceSearch(this.form, 3);" />
+</div>
+<input type="button" value="確定" class="btn-category-confomr" onClick="checkAdvanceSearch(this.form, 5);" />
+</fieldset>
+<fieldset>
+<div class="purpose">
+<select name="purposeSrh1" id="purposeSrh1" size="1">
+<option value="">目的</option>
+<option value="3">臉部</option>
+<option value="12">鈣質不足</option>
+<option value="13">排便順暢</option>
+<option value="14">喜好油膩食物</option>
+<option value="15">身體</option>
+<option value="34">容易疲勞</option>
+<option value="35">鐵質不足</option>
+<option value="36">偏食</option>
+<option value="37">美容養顏</option>
+<option value="38">體重控制</option>
+<option value="39">畏寒</option>
+<option value="40">舒緩身心</option>
+</select>
+<div class="item"></div>
+</div>
+<input type="hidden" name="purposeSrhValue" id="purposeSrhValue">
+<input type="button" value="確定" class="btn-category-confomr" onClick="checkAdvanceSearch(this.form, 4);" />
+<input type="hidden" name="searchType">
+<input type="hidden" name="searchValue">
+</fieldset>
+
+</form>
+<div class="hot-keyword">
+<h4>熱門關鍵字</h4>
+<ul>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=1">去角質</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=2">防曬</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=3">保濕</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=4">美白<br>淡斑</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=5">身體乳</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=6">抗痘<br>粉刺</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=7">抗老<br>緊實</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=8">眼部</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=9">遮瑕</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=10">沐浴乳</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=11">毛孔<br>控油</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=12">隔離<br>粉底</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=13">蜜粉<br>粉餅</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=14">止汗<br>除臭</a></li>
+<li><a href="http://www.orbis.com.tw/keyword_result.php?id=15">體重<br>控制</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="hot-keyword">
+<h3>熱門關鍵字：</h3>
+<p>
+<a href="http://www.orbis.com.tw/keyword_result.php?id=1">去角質</a>
+<a href="http://www.orbis.com.tw/keyword_result.php?id=2">防曬</a>
+<a href="http://www.orbis.com.tw/keyword_result.php?id=3">保濕</a>
+</p>
+</section>
+
+
+<script>
+// <![CDATA[
+$(function() {
+    $('#shopping-cart .wrapper').hover(function() {
+        $('#shopping-cart .mini-cart').stop(true, false).slideDown(300);
+    }, function() {
+        setTimeout(function() {
+            $('#shopping-cart .mini-cart').stop(true, false).slideUp(300);
+        }, 300);
+    });
+    $('#shopping-cart .mini-cart').hover(function() {
+        $(this).show();
+    }, function() {
+        setTimeout(function() {
+            $('#shopping-cart .mini-cart').stop(true, false).slideUp(300);
+        }, 300);
+    });
+    $('.add-cart-item').click(function() {
+        var pid = $(this).parent().find('input[name=productID]').val();
+        var qty = $(this).parent().find('select[name=qty]').val();
+        var pars = "action=A&pid=" + pid + "&qty=" + qty;
+        blockUI();
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.orbis.com.tw/cart/async_update_cartList.php',
+            data: pars,
+            dataType: 'json',
+            cache: false,
+            success: function (result) {
+                if ('true' == result.status) {
+                    $('#headerCartCount').html(result.count);
+                    $('#headerCartTotal').html('金額：NT$' + result.total);
+                    var cartItem = '<li><p class="product">商品</p>\n<p class="amount">數量</p></li>';
+                    $.each(result.items, function (index, value) {
+                        cartItem = cartItem + '<li><p class=\"product\">' + value['product'] + '</p><p class=\"amount\">' + value['amount'] + '</p></li>';
+                    });
+                    $('#headerCartItem').html(cartItem);
+                    $('#shopping-cart #cart-discount-msg').html('');
+                    if ('' != result.discountMsg) {
+                        $('#shopping-cart #cart-discount-msg').html("<p class=\"notice\">" + result.discountMsg + "</p>");
+                    }
+                    $.unblockUI();
+                } else {
+                    $.unblockUI();
+                    alert(result.returnMsg);
+                }
+            },
+            error: function(){
+                alert('請按正常程序操作！\n建議您將瀏覽器關閉後再重新進入本網站！');
+                $.unblockUI();
+            }
+        });
+        return false;
+    });
+    $('#content-main').on('click', '.simple-add-cart', function() {
+        var pid = $(this).data('pid');
+        var pars = "action=A&pid=" + pid + "&qty=1";
+        blockUI();
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.orbis.com.tw/cart/async_update_cartList.php',
+            data: pars,
+            dataType: 'json',
+            cache: false,
+            success: function (result) {
+                if ('true' == result.status) {
+                    $('#headerCartCount').html(result.count);
+                    $('#headerCartTotal').html('金額：NT$' + result.total);
+                    var cartItem = '<li><p class="product">商品</p>\n<p class="amount">數量</p></li>';
+                    $.each(result.items, function (index, value) {
+                        cartItem = cartItem + '<li><p class=\"product\">' + value['product'] + '</p><p class=\"amount\">' + value['amount'] + '</p></li>';
+                    });
+                    $('#headerCartItem').html(cartItem);
+                    $('#shopping-cart #cart-discount-msg').html('');
+                    if ('' != result.discountMsg) {
+                        $('#shopping-cart #cart-discount-msg').html("<p class=\"notice\">" + result.discountMsg + "</p>");
+                    }
+                    $.unblockUI();
+                } else {
+                    $.unblockUI();
+                    alert(result.returnMsg);
+                }
+            },
+             error: function(){
+                $.unblockUI();
+            }
+        });
+        return false;
+    });
+});
+function blockUI() {
+    $.blockUI({
+        message: '<img src="//www.orbis.com.tw/assets/default/i/icon-loading.gif" style="vertical-align: middle;" />  傳送中，請稍候...',
+        css: {
+            top: '30%',
+            left: (($(window).width() - 240) / 2) + 'px',
+            width: '240px',
+            padding: '10px',
+            fontSize: '13px',
+            color: '#666'
+        },
+        onOverlayClick: $.unblockUI
+    });
+}
+// ]]>
+</script>
+
+<section id="shopping-cart">
+<h3>購物車</h3>
+<img src="//www.orbis.com.tw/assets/default/i/first-buy.gif" alt="首購折100元" />
+<div class="wrapper">
+<p class="item" id="headerCartCount">0</p>
+<p id="headerCartTotal">金額：NT$0</p>
+<a href="http://www.orbis.com.tw/cart/">結帳</a>
+
+<div class="mini-cart">
+<ul id="headerCartItem">
+<li>
+<p class="product">商品</p>
+<p class="amount">數量</p>
+</li>
+</ul>
+<span id="cart-discount-msg"><p class="notice">首次購物享有單筆折扣<span>100元</span></p></span>
+<p class="btn"><a href="http://www.orbis.com.tw/cart/">前往結帳</a></p>
+</div>
+</div>
+</section></div>
+
+</header>
+<!--============================== header close ==============================-->
+
+<!--============================== content-wrapper start =====================-->
+<div id="content-wrapper" class="clearfix">
+
+<!--============================== content-main start ========================-->
+<div id="content-main">
+
+<div class="wrap">
+<script>
+// <![CDATA[
+$(function() {
+    $('#content-main .main-banner p.pager').html('');
+    $('#content-main .main-banner ul').cycle({ 
+        pager:  '.pager',
+        activePagerClass: 'active',
+        updateActivePagerLink: null,
+        pagerEvent: 'mouseover',
+        fx:      'fade',
+        speed:   1000,
+        timeout: 2000,
+        pause:   1,
+        cleartypeNoBg: true
+    });
+});
+// ]]>
+</script>
+
+<section class="main-banner">
+<h2>大banner</h2>
+<p class="pager">
+<a href="#" class="active">1</a>
+<a href="#">2</a>
+</p>
+
+<ul>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_1.htm" target="_self"><img src="/u/ad/2018/02/PC_201803_001.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_2.htm" target="_self"><img src="/u/ad/2018/02/PC_201803_002.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_3.php" target="_self"><img src="/u/ad/2018/02/PC_201803_003.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_4.php" target="_self"><img src="/u/ad/2018/02/201803_645x278_4.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/prod.php?pid=3104" target="_self"><img src="/u/ad/2018/02/201803_645x278_5.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/prod.php?cid=230&sid=236&pid=3674" target="_self"><img src="/u/ad/2018/02/201803_645x278_6.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/prod.php?pid=3345" target="_self"><img src="/u/ad/2018/02/201803_645x278_7.jpg" alt="" width="645" height="278" /></a></li>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_8.php" target="_self"><img src="/u/ad/2018/02/PC_201803_008.jpg" alt="" width="645" height="278" /></a></li>
+</ul>
+</section>
+
+<section class="banner">
+<h2>banner列表</h2>
+<ul>
+<li class="left"><a href="http://www.orbis.com.tw/prod.php?pid=3885">
+<img src="/u/ad/2018/03/201803_210x100_3.jpg" alt="" width="210" height="100" /></a></li>
+<li class="center"><a href="http://www.orbis.com.tw/prod.php?pid=3630" target="_blank">
+<img src="/u/ad/2018/02/201803_210x100_5.jpg" alt="" width="210" height="100" /></a></li>
+<li class="right"><a href="http://www.orbis.com.tw/prod.php?pid=3893">
+<img src="/u/ad/2018/02/201803_210x100_4.jpg" alt="" width="210" height="100" /></a></li>
+</ul>
+</section>
+
+<script>
+// <![CDATA[
+$(function() {
+    $('#latest-news ul').cycle({
+        fx:      'scrollUp',
+        speed:   1000,
+        timeout: 3000,
+        pause:   1,
+        cleartypeNoBg: true
+    });
+});
+// ]]>
+</script>
+
+<section id="latest-news">
+<h2>最新消息</h2>
+<ul>
+<li><a href="http://www.orbis.com.tw/news.php?id=815">《2018旺來開運百萬抽》得獎名單公布囉!</a></li>
+<li><a href="http://www.orbis.com.tw/news.php?id=814">公告：三月滿額贈調整</a></li>
+<li><a href="http://www.orbis.com.tw/news.php?id=809">【重要公告】請留意詐騙電話</a></li>
+<li><a href="http://www.orbis.com.tw/news.php?id=800">【重要】反詐騙公告</a></li>
+<li><a href="http://www.orbis.com.tw/news.php?id=798">玉山卡友獨享優惠！2018年刷卡滿額送百元購物金！</a></li>
+</ul>
+<a href="http://www.orbis.com.tw/newslist.php" class="more">More</a>
+</section>
+</div>
+
+
+<section id="member-bar">
+<h2>會員專區</h2>
+<ul>
+<li><a href="http://www.orbis.com.tw/member/add_member_provision.php" class="add-member">加入會員</a></li>
+<li><a href="https://www.orbis.com.tw/member/login_frm.php?url=http%3A%2F%2Fwww.orbis.com.tw%2F" class="member-login">會員登入</a></li>
+<li><a href="http://www.orbis.com.tw/service/first_commend.php" class="first-experience">首購體驗</a></li>
+<li><a href="http://www.orbis.com.tw/service/first_sample.php" class="ask-trial">索取試用包</a></li>
+<li><a href="http://www.orbis.com.tw/landing/2018/201803/201803_2.htm?adpcnt=7qA_Tsl">
+<img src="/u/ad/2018/02/142x130_uny.gif" alt="" /></a></li>
+<li><a href="http://www.orbis.com.tw/infor/present.php">
+<img src="/u/ad/2018/02/201803_142x130_1_1.jpg" alt="" /></a></li>
+</ul>
+</section>
+
+<script>
+// <![CDATA[
+$(function() {
+    $('#newest-product .content .list-wrap').jCarouselLite({
+        btnNext: '#newest-product .content .next',
+        btnPrev: '#newest-product .content .prev',
+        visible: 4
+    });
+    $('#newest-product').tabs();
+});
+// ]]>
+</script>
+
+<section id="newest-product" class="clear product-list">
+<h2>新品上市</h2>
+<ul class="tabs">
+<li class="ui-tabs-active"><a href="#new-product" class="new-product">新品上市</a></li>
+<li><a href="#preferential-product" class="preferential-product">優惠商品</a></li>
+</ul>
+
+<div id="new-product" class="content">
+<a href="#" class="prev">prev</a>
+<a href="#" class="next">next</a>
+<div class="list-wrap">
+<ul>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3630"><img src="/u/product/2017/02/66fa96e1ad6bbf4d52f8a2275dcb63e8.jpg" alt="極淨水原力限定組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3630">極淨水原力限定組</a></h3>
+<p>限量！特惠85折<BR>加贈神奇打皂網</p>
+<p class="price">特價：<span>2060</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="30090101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3885"><img src="/u/product/2017/10/5fab1f5ad20e6d41f583dc0a39c07cf2.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3885">透妍光肌隔離霜</a></h3>
+<p>相當一支$350<BR>擁抱偽素顏</p>
+<p class="price">特價：<span>700</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="3054">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3903"><img src="/u/product/2017/11/fcf3b59a71c0ceba7cace5b8d9057bfc.jpg" alt="自然純萃洗髮精" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3903">自然純萃洗髮精</a></h3>
+<p>植物力量有效洗淨<BR>髮膚一起升級變美</p>
+<p class="price">售價：<span>480</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9406">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3907"><img src="/u/product/2017/11/dc67ff3a8cbe1a063e6ddd86bfa8de09.jpg" alt="自然純萃潤髮乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3907">自然純萃潤髮乳</a></h3>
+<p>拯救扁塌細軟髮<BR>髮絲輕盈蓬鬆就有型</p>
+<p class="price">售價：<span>480</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9410">放入購物車</a>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3902"><img src="/u/product/2017/11/f8b87548826aa5f2e945743698ba1b68.jpg" alt="全能睛彩眼影底霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3902">全能睛彩眼影底霜</a></h3>
+<p>完美打底開啟動人眼色眼妝澄澈透明不暗沉</p>
+<p class="price">特價：<span>310</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3899"><img src="/u/product/2017/11/a3720e4e20e61962a64679023da9bd41.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3899">深邃睛采雙色眼影</a></h3>
+<p>微輕巧大地色系輕甜奶茶色最甘醇</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8167">放入購物車</a>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3886"><img src="/u/product/2017/11/309c0f7bedb671fff4db3400c28367d6.jpg" alt="澄淨卸妝露EX" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3886">澄淨卸妝露EX</a></h3>
+<p>2.5倍超大容量<BR>無油配方安心卸妝</p>
+<p class="price">售價：<span>1240</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3893"><img src="/u/product/2017/11/36e3c1b9104662d61923fba4065bfcbe.jpg" alt="好心情濾鏡輕唇膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3893">好心情濾鏡輕唇膏</a></h3>
+<p>自然發色更顯美唇展現活力的珊瑚裸橘色</p>
+<p class="price">售價：<span>600</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3905"><img src="/u/product/2017/11/59b15d8257dafab049ffbfb759a1c81e.jpg" alt="自然純萃潤髮乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3905">自然純萃潤髮乳</a></h3>
+<p>全新柔順型潤髮乳<BR>秀髮柔潤不糾結</p>
+<p class="price">售價：<span>480</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9408">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3867"><img src="/u/product/2017/10/e35b6dd1ab2861dfdb7b496879e48dbd.jpg" alt="流暢漸層眉妝盒" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3867">流暢漸層眉妝盒</a></h3>
+<p>全新!打造最適眉色<br>流暢漸層眉妝盒</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8160">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3866"><img src="/u/product/2017/10/bdaff48b051c1c25fc8bab1605b3b69d.jpg" alt="天生大眼豐盈睫毛膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3866">天生大眼豐盈睫毛膏</a></h3>
+<p>打造濃密捲翹美睫<br>冬季限定色玫瑰棕</p>
+<p class="price">售價：<span>480</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8159">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3869"><img src="/u/product/2017/10/e9cd4afc5cc65fe6ecd36a7695e44e39.jpg" alt="頂級精萃極緻青春乳霜（補充包）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3869">頂級精萃極緻青春乳霜（補充包）</a></h3>
+<p>奈米化抗老膠囊<br>回春膨潤實感130%</p>
+<p class="price">售價：<span>1150</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9190">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3868"><img src="/u/product/2017/10/879b672b4bfec6da81605d748ac48d6c.jpg" alt="頂級精萃極緻青春乳霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3868">頂級精萃極緻青春乳霜</a></h3>
+<p>奈米化抗老膠囊<br>回春膨潤實感130%</p>
+<p class="price">售價：<span>1300</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="91890101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3854"><img src="/u/product/2017/10/6331d3571e60e0d5b8a579c28e07fd1e.jpg" alt="水霧光粉底精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3854">水霧光粉底精華</a></h3>
+<p>美麗12小時不間斷<br>網美級水感無瑕美顏</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9705">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3852"><img src="/u/product/2017/10/af4169eb10d338409b00b3b7ff1af184.jpg" alt="輕紗光透蜜粉餅 （蕊心）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3852">輕紗光透蜜粉餅 （蕊心）</a></h3>
+<p>妝感自然再升級<br>補妝的美麗小確幸</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8858">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3850"><img src="/u/product/2017/10/f93ded51520614ce041932264636634e.jpg" alt="輕紗光透蜜粉（補充包）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3850">輕紗光透蜜粉（補充包）</a></h3>
+<p>將彩妝完美詮釋<br>實現不脫妝無瑕美顏</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8856">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3860"><img src="/u/product/2017/10/2ca9ed68942e4dcbeb90c4b512c0f94f.jpg" alt="輕紗光透蜜粉餅盒" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3860">輕紗光透蜜粉餅盒</a></h3>
+<p>高雅柔膚裸杏色<br>專用粉盒輕巧好攜帶</p>
+<p class="price">售價：<span>300</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9932">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3859"><img src="/u/product/2017/10/13fb4ada80a7dad57af749fe31eb5759.jpg" alt="輕紗光透蜜粉盒 (附彈性篩網．粉撲)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3859">輕紗光透蜜粉盒 (附彈性篩網．粉撲)</a></h3>
+<p>好評彈性篩網再升級<br>定妝變完美的小秘訣</p>
+<p class="price">售價：<span>300</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9918">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3853"><img src="/u/product/2017/10/46475bc6423a6dc7fd38ef1274147ddf.jpg" alt="輕紗光透蜜粉餅 （蕊心）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3853">輕紗光透蜜粉餅 （蕊心）</a></h3>
+<p>自備網美級補光燈<br>擺脫脫妝暗沉危肌</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8859">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3851"><img src="/u/product/2017/10/687e704aa80d579568f636d8f9fa28d9.jpg" alt="輕紗光透蜜粉（補充包）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3851">輕紗光透蜜粉（補充包）</a></h3>
+<p>保養系定妝蜜粉<br>如裸肌般的光暈美肌</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8857">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3858"><img src="/u/product/2017/10/496d9f4d3a3e87f0898535ae23e862e7.jpg" alt="水霧光粉底精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3858">水霧光粉底精華</a></h3>
+<p>美麗12小時不間斷<br>網美級水感無瑕美顏</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9709">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3857"><img src="/u/product/2017/10/fb322cc328a460c711846e4d46a7ea99.jpg" alt="水霧光粉底精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3857">水霧光粉底精華</a></h3>
+<p>美麗12小時不間斷<br>網美級水感無瑕美顏</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9708">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3856"><img src="/u/product/2017/10/4b5e1cc2678fe7d42824a42cd2c386c9.jpg" alt="水霧光粉底精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3856">水霧光粉底精華</a></h3>
+<p>美麗12小時不間斷<br>網美級水感無瑕美顏</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9707">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3855"><img src="/u/product/2017/10/964de412a74a69e6a7b39c52728b48ab.jpg" alt="水霧光粉底精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3855">水霧光粉底精華</a></h3>
+<p>美麗12小時不間斷<br>網美級水感無瑕美顏</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9706">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3813"><img src="/u/product/2017/07/ce9bdf906e5fd07af93c304c2d30595a.jpg" alt="悠白活顏傳明酸凝霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3813">悠白活顏傳明酸凝霜</a></h3>
+<p>美白×彈潤×抗老<br>肌膚逆齡水感凝霜</p>
+<p class="price">售價：<span>1300</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9218">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3828"><img src="/u/product/2017/08/458634475180fd578b9163de5344f063.jpg" alt="毛孔淨化緊緻凝膠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3828">毛孔淨化緊緻凝膠</a></h3>
+<p>溫柔告別草莓鼻<br>全新改版兩倍炭零柔珠</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="91690101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3827"><img src="/u/product/2017/08/1bc1453cdf85afdb0e8cfdbed7f1b328.jpg" alt="水凝緋紅唇膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3827">水凝緋紅唇膏</a></h3>
+<p>如甜點般誘人的雙唇<BR>想咬一口的甜蜜質感</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="88567">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3826"><img src="/u/product/2017/08/7464dac7d65410f241e3e941775494a1.jpg" alt="水凝緋紅唇膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3826">水凝緋紅唇膏</a></h3>
+<p>上唇彩同時護潤唇<br>大人系穩重質感典雅深紅</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="88566">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3776"><img src="/u/product/2017/05/a7ec57cd8ea249fe1aab9bbbbea51cf8.jpg" alt="極緻抗陽完美粉底液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3776">極緻抗陽完美粉底液</a></h3>
+<p>專為夏肌研發<BR>征服10小時不脫妝</p>
+<p class="price">售價：<span>680</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="88010101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3786"><img src="/u/product/2017/06/c03bc61169dacc4423893fced820e56e.jpg" alt="淨白美體水凝凍" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3786">淨白美體水凝凍</a></h3>
+<p>水感果凍般清爽<br>曬後肌膚美白保養</p>
+<p class="price">售價：<span>600</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9405">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3774"><img src="/u/product/2017/05/5ecb369acd4f839384d97791b8ea2545.jpg" alt="極緻抗陽蜜粉餅限定粉盒組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3774">極緻抗陽蜜粉餅限定粉盒組</a></h3>
+<p>肌膚透明清透超有感<br>高係數防曬補妝零技巧</p>
+<p class="price">售價：<span>980</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="3043">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3798"><img src="/u/product/2017/07/7467e5b73a71c277e90744eed6658b96.jpg" alt="Mr.型男 全效保濕液（瓶裝）" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3798">Mr.型男 全效保濕液（瓶裝）</a></h3>
+<p>遠離黏膩乾燥惡性循環<BR>讓滋潤清爽在肌膚共存</p>
+<p class="price">售價：<span>590</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="98020101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3797"><img src="/u/product/2017/07/da3e877640d276d435d9b7b8f62c7fda.jpg" alt="Mr.型男 炭泥潔面乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3797">Mr.型男 炭泥潔面乳</a></h3>
+<p>碳粉×摩洛哥溶岩泥解決男人油田問題</p>
+<p class="price">售價：<span>530</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="98010101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3759"><img src="/u/product/2017/04/06683d75de6eced84e0f384c8e1bc5b4.jpg" alt="菲堤小巧奶昔" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3759">菲堤小巧奶昔</a></h3>
+<p>口味再升級<br>新菲堤小巧奶昔誕生</p>
+<p class="price">售價：<span>580</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4788">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3733"><img src="/u/product/2017/04/44d803c248a9c5c18e4c8c3206df36ca.jpg" alt="大地香氛 濃密洗顏皂霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3733">大地香氛 濃密洗顏皂霜</a></h3>
+<p>大地x海洋的潔淨體驗<br>會牽絲的乳霜洗顏泡泡</p>
+<p class="price">售價：<span>670</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8053">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3682"><img src="/u/product/2017/02/d2ff5b18eee2abd610bd6705ae262235.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3682">透妍光肌隔離霜</a></h3>
+<p>粉嫩透亮的裸肌感<br>輕盈防曬SPF34PA+++</p>
+<p class="price">售價：<span>390</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8935">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3723"><img src="/u/product/2017/03/06bc7b89843c49c21006499346ea6421.jpg" alt="和漢淨肌身體噴霧" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3723">和漢淨肌身體噴霧</a></h3>
+<p>前胸後背油膩痘<br>調理淨痘化妝水</p>
+<p class="price">售價：<span>550</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9402">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3721"><img src="/u/product/2017/03/4ee7ed29f16203971a65a87c6e8ca7c7.png" alt="和漢淨肌潔體露" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3721">和漢淨肌潔體露</a></h3>
+<p>前胸後背粗糙悶痘豐盈泡泡洗淨油膩</p>
+<p class="price">售價：<span>380</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9400">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3767"><img src="/u/product/2017/04/99754494c66533eee207bebc8e94337f.jpg" alt="魔法光甲彩" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3767">魔法光甲彩</a></h3>
+<p>嗆辣感艷夏紅<br>夏季時尚感首選</p>
+<p class="price">售價：<span>230</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8785">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3766"><img src="/u/product/2017/04/9829b2af13dac044679185d5bd841898.jpg" alt="魔法光甲彩" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3766">魔法光甲彩</a></h3>
+<p>香濃甜膩的裸色光澤<br>大人系女子夏日甜點</p>
+<p class="price">售價：<span>230</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8784">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3763"><img src="/u/product/2017/04/dda542cecc39d0d5d702b859bdda256e.jpg" alt="菲堤小巧奶昔－迷你3入組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3763">菲堤小巧奶昔－迷你3入組</a></h3>
+<p>口味再升級<br>新菲堤小巧奶昔誕生</p>
+<p class="price">售價：<span>280</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4792">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3569"><img src="/u/product/2016/11/9c291570bbd9840d462efece7e7fc014.jpg" alt="蜜桃漸層色粉盒" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3569">蜜桃漸層色粉盒</a></h3>
+<p>甜美可愛的漸層粉紅專屬妳的浪漫粉盒</p>
+<p class="price">售價：<span>250</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9951">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3724"><img src="/u/product/2017/03/080c7e46ca4027a8ed1d6e724e140182.jpg" alt="美腿清新噴霧" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3724">美腿清新噴霧</a></h3>
+<p>痠腫鐵腿重獲新生一秒漫步在雲端</p>
+<p class="price">售價：<span>380</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9403">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3726"><img src="/u/product/2017/03/7d73281198cdabe7ac5b00dfacb607a8.jpg" alt="透妍柔膚防曬蜜粉限定組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3726">透妍柔膚防曬蜜粉限定組</a></h3>
+<p>SPF40 PA+++抗曬10hrs突破夏肌舒適極限</p>
+<p class="price">售價：<span>980</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9701">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3681"><img src="/u/product/2017/02/930b34dde059707395313bbc4690325a.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3681">透妍光肌隔離霜</a></h3>
+<p>提亮x透嫩x呵護<BR><br>空氣感素顏美肌</p>
+<p class="price">售價：<span>390</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8934">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3684"><img src="/u/product/2017/02/38d7f23fb4f97dd48c9835954f39d78c.jpg" alt="瞬效護髮美容液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3684">瞬效護髮美容液</a></h3>
+<p>為髮絲高度滋潤<BR>嚕嚕米聯名限定款</p>
+<p class="price">售價：<span>460</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9505">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3679"><img src="/u/product/2017/02/94714f7d1ff7c12b0b88502bf7040835.jpg" alt="粉紅棉花糖氣墊頰彩" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3679">粉紅棉花糖氣墊頰彩</a></h3>
+<p>將春天氣息拍上雙頰<BR>少女心最愛櫻花粉</p>
+<p class="price">售價：<span>650</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8035">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3630"><img src="/u/product/2017/02/66fa96e1ad6bbf4d52f8a2275dcb63e8.jpg" alt="極淨水原力限定組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3630">極淨水原力限定組</a></h3>
+<p>限量！特惠85折<BR>加贈神奇打皂網</p>
+<p class="price">特價：<span>2060</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="30090101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3656"><img src="/u/product/2017/02/6e7ae06fbab136a6e8cbd3115f3d7e31.jpg" alt="水原力潔面乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3656">水原力潔面乳</a></h3>
+<p>溫和清潔臉部污垢<BR>洗淨後光滑水潤！</p>
+<p class="price">特價：<span>490</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9380">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3657"><img src="/u/product/2017/02/ce36900520f45ec121006807daa68998.jpg" alt="水原力化妝水" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3657">水原力化妝水</a></h3>
+<p>實現水潤肌孕育理想膚質</p>
+<p class="price">特價：<span>570</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9381">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3661"><img src="/u/product/2017/02/d6d0371d77259466f733a1934397911f.jpg" alt="水原力保濕液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3661">水原力保濕液</a></h3>
+<p>上蓋水膜封存滋潤感<BR>調理出晶亮飽滿肌理</p>
+<p class="price">特價：<span>660</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9385">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3665"><img src="/u/product/2017/02/2c634035187b94d2bd345a258f9be5c6.jpg" alt="水原力三週體驗組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3665">水原力三週體驗組</a></h3>
+<p>滋養不安定的肌膚<BR>用水的力量孕育美肌</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9389">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3655"><img src="/u/product/2017/02/c06ef305fe3f3d382ebccc82e0ca8579.jpg" alt="精純A抗皺精華 N" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3655">精純A抗皺精華 N</a></h3>
+<p>3D彈力配方x左旋A醇<BR>夜間撫平歲月痕跡</p>
+<p class="price">售價：<span>1950</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9366">放入購物車</a>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3654"><img src="/u/product/2017/02/9b8c8c3dcbf4696ad3b444f0f6a55fec.jpg" alt="AID局部舒緩凝膠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3654">AID局部舒緩凝膠</a></h3>
+<p>換季過敏乾燥脫皮<BR>急救用保濕舒緩</p>
+<p class="price">售價：<span>500</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3651"><img src="/u/product/2017/02/c9f84c2bee5adeca96c46f40f6c0f97d.jpg" alt="琉光晶稜唇萃" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3651">琉光晶稜唇萃</a></h3>
+<p>無珠光的微溫可可色<br>充滿知性感實用裸膚色</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="83570101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3650"><img src="/u/product/2017/02/20649d3d7e89175e6f13d54718147e1d.jpg" alt="琉光晶稜唇萃" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3650">琉光晶稜唇萃</a></h3>
+<p>看一眼就淪陷的時尚紅唇<br>兼具鮮豔發色x透明感</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="83560101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3649"><img src="/u/product/2017/02/d9100614664ff9336a4bccfa2fa1f710.jpg" alt="大地香氛 鮮果精油唇蜜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3649">大地香氛 鮮果精油唇蜜</a></h3>
+<p>奢華的複方保濕精萃<BR>撫慰龜裂大地般的乾澀唇</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8052">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3639"><img src="/u/product/2017/02/ded049bf1d6fefec7ef456e4407b5576.jpg" alt="甜心草莓鐵錠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3639">甜心草莓鐵錠</a></h3>
+<p>準媽咪、生理期、成長發育<BR>鐵+葉酸助攻活力</p>
+<p class="price">售價：<span>230</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4641">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3674"><img src="/u/product/2017/02/d7f2412d84533f654a719c2d5f7acb39.jpg" alt="光感燦白BB霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3674">光感燦白BB霜</a></h3>
+<p>防曬潤色x持續嫩白<BR>SPF40 PA+++</p>
+<p class="price">特價：<span>850</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8898">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3672"><img src="/u/product/2017/02/a50f7ade0b2af352eb46e0c6a53eadc0.jpg" alt="美力充電穀物BAR" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3672">美力充電穀物BAR</a></h3>
+<p>15種超級食物<BR>輕食美味好棒棒</p>
+<p class="price">售價：<span>570</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4693">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3464"><img src="/u/product/2016/06/d4c0d7b9b7e95ead6331097055bedff9.jpg" alt="甜心萊姆C錠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3464">甜心萊姆C錠</a></h3>
+<p>2粒等於25顆檸檬<BR>酸酸甜甜補給維他命C</p>
+<p class="price">售價：<span>230</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4643">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3565"><img src="/u/product/2016/11/bfc313f3236bc0af8b92c42ca1c3870b.jpg" alt="大地香氛泰享受沐浴潔手禮盒" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3565">大地香氛泰享受沐浴潔手禮盒</a></h3>
+<p>泰國製奢華洗禮<BR>香氛甦活全身SPA</p>
+<p class="price">售價：<span>790</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8047">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3544"><img src="/u/product/2016/09/cadaf25384dcbd66de981ae87b72c245.jpg" alt="嫩手護髮2用精華乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3544">嫩手護髮2用精華乳</a></h3>
+<p>2way!柔順乾燥髮尾<BR>潤澤粗糙雙手精華乳</p>
+<p class="price">售價：<span>390</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9656">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3564"><img src="/u/product/2016/11/7c57845d857ee155c2d14352bfa944a5.jpg" alt="法式甜點3色唇彩繪本" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3564">法式甜點3色唇彩繪本</a></h3>
+<p>魔法3色唇彩繪本<BR>調出可口甜點美唇</p>
+<p class="price">售價：<span>790</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8034">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3554"><img src="/u/product/2016/10/4762689f13b90526ab94a392966b59d9.jpg" alt="熬夜掰掰水凝精華" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3554">熬夜掰掰水凝精華</a></h3>
+<p>拯救夜貓子疲憊肌<BR>肌過勞專用美肌精</p>
+<p class="price">售價：<span>940</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="99363">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3535"><img src="/u/product/2016/08/2e96b4d72487c84c70a1f8c0d9b709f2.jpg" alt="大地香氛 拜日能量全效潤色乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3535">大地香氛 拜日能量全效潤色乳</a></h3>
+<p>晨間3in1元氣潤色乳<BR>奢侈植卉精華x香氛</p>
+<p class="price">售價：<span>680</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8039">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3536"><img src="/u/product/2016/08/2d244885a495005a24b2365f0738b5d1.jpg" alt="魔法光甲彩" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3536">魔法光甲彩</a></h3>
+<p>萬聖節變裝樂趣<BR>小淘氣甜美活力橘</p>
+<p class="price">售價：<span>230</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8788">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3529"><img src="/u/product/2016/07/9d12521720d1b3da01f7ec0d12e43632.jpg" alt="水凝緋紅唇膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3529">水凝緋紅唇膏</a></h3>
+<p>大人女子的深李子紅<BR>率性潮流感十足</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="88562">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3528"><img src="/u/product/2016/07/b36c7013a41bff65f2bf53f0e57e9022.jpg" alt="水凝緋紅唇膏" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3528">水凝緋紅唇膏</a></h3>
+<p>甜漬無花果果醬<BR>鮮透水潤自然紅唇</p>
+<p class="price">售價：<span>450</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="88561">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3527"><img src="/u/product/2016/07/9c2ed7023c33cf19bde5870d54c93802.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3527">深邃睛采雙色眼影</a></h3>
+<p>香甜微醺楓糖橙色<BR>秋季氛圍漸層眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8781">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3526"><img src="/u/product/2016/07/06f10644d26333ab781696e2595cc55b.jpg" alt="大地香氛 冥想SPA兩用浴鹽" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3526">大地香氛 冥想SPA兩用浴鹽</a></h3>
+<p>薰衣草x柳橙療癒香氛<BR>居家奢侈泡湯SPA</p>
+<p class="price">售價：<span>620</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8050">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3530"><img src="/u/product/2016/07/edcc2a0d9a57b92ce39b04861ee9a0d6.jpg" alt="溫感舒壓美眼精華液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3530">溫感舒壓美眼精華液</a></h3>
+<p>溫感舒緩疲憊眼周<BR>攻破三大黑眼圈</p>
+<p class="price">售價：<span>750</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9362">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3497"><img src="/u/product/2016/06/1df9aed65dc5c16a363757878ea3e4e5.jpg" alt="新 美眉雨衣" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3497">新 美眉雨衣</a></h3>
+<p>上妝後輕鬆一塗<BR>擺脫眉毛脫妝困擾</p>
+<p class="price">售價：<span>380</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8473">放入購物車</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="preferential-product" class="content">
+<a href="#" class="prev">prev</a>
+<a href="#" class="next">next</a>
+<div class="list-wrap">
+<ul>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=2900"><img src="/u/product/2014/04/748012a3cd74170f2bb3bfe7a5af3303.jpg" alt="光采美人牛蒡茶" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2900">光采美人牛蒡茶</a></h3>
+<p>美妍飲品新選擇<br>光采美人牛蒡茶</p>
+<p class="price">特價：<span>430</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3936"><img src="/u/product/2018/02/a1bf39efa162a3b9e6838b84900dc636.jpg" alt="18917 光感燦白BB霜－自然膚色(迷你瓶)(期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3936">18917 光感燦白BB霜－自然膚色(迷你瓶)(期限品特賣-恕無提供退貨)</a></h3>
+<p></p>
+<p class="price">特價：<span>340</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18917">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=2320"><img src="/u/product/2012/04/3501a3c4cea8919cee6812c4c94596d1.jpg" alt="水感清肌凝膠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2320">水感清肌凝膠</a></h3>
+<p>是真的！立即看見<br>老廢角質搓出來了</p>
+<p class="price">特價：<span>610</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9898">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3675"><img src="/u/product/2017/02/ad4380112b82c2a6d5c81b8cb10485ef.jpg" alt="光感燦白BB霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3675">光感燦白BB霜</a></h3>
+<p>洋溢水霧晨光的美肌，6in1美白BB霜</p>
+<p class="price">特價：<span>850</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8899">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3399"><img src="/u/product/2016/02/20b505b0143620f8c554ccfbab16cfc2.jpg" alt="淨膚前導精華液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3399">淨膚前導精華液</a></h3>
+<p>不讓痘痘冒出頭<br>搶先深入肌底安撫</p>
+<p class="price">特價：<span>700</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9231">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3935"><img src="/u/product/2018/02/701afc419f48f45272d53593a364544c.jpg" alt="18916 光感燦白BB霜－ 明亮膚色(迷你瓶)(期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3935">18916 光感燦白BB霜－ 明亮膚色(迷你瓶)(期限品特賣-恕無提供退貨)</a></h3>
+<p></p>
+<p class="price">特價：<span>340</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18916">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3398"><img src="/u/product/2016/02/949ae89216bb973260834a32f55e8402.jpg" alt="淨膚前導精華液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3398">淨膚前導精華液</a></h3>
+<p>不讓痘痘冒出頭<br>搶先深入肌底安撫</p>
+<p class="price">特價：<span>780</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9230">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3674"><img src="/u/product/2017/02/d7f2412d84533f654a719c2d5f7acb39.jpg" alt="光感燦白BB霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3674">光感燦白BB霜</a></h3>
+<p>防曬潤色x持續嫩白<BR>SPF40 PA+++</p>
+<p class="price">特價：<span>850</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8898">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3448"><img src="/u/product/2016/05/5399bd0cd2c0f0ed2a7147c7b15001c0.jpg" alt="澄淨卸妝露EX" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3448">澄淨卸妝露EX</a></h3>
+<p>水感卸妝再進擊<br>環保補充包愛地球</p>
+<p class="price">特價：<span>460</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9332">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3447"><img src="/u/product/2016/05/89965e2a5bf78cb24e611bb23c7c75e9.jpg" alt="澄淨卸妝露EX" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3447">澄淨卸妝露EX</a></h3>
+<p>無油無慮清爽卸妝<br>回歸純淨透亮素顏</p>
+<p class="price">特價：<span>550</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9331">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3666"><img src="/u/product/2017/02/ef3abfd23165a60e6958eea0e304272a.jpg" alt="水原力三週體驗組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3666">水原力三週體驗組</a></h3>
+<p>輕巧攜帶三週體驗組<br>水潤浸透源源不絕</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9390">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3665"><img src="/u/product/2017/02/2c634035187b94d2bd345a258f9be5c6.jpg" alt="水原力三週體驗組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3665">水原力三週體驗組</a></h3>
+<p>滋養不安定的肌膚<BR>用水的力量孕育美肌</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9389">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3664"><img src="/u/product/2017/02/dd28b5708a945a067c6bf536e31d9f33.jpg" alt="水原力保濕液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3664">水原力保濕液</a></h3>
+<p>無油零負擔輕盈<br>長效守護的透氧保鮮膜</p>
+<p class="price">特價：<span>590</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9388">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3663"><img src="/u/product/2017/02/36e8fa17e57a36d2f5db0f810dd33db7.jpg" alt="水原力保濕液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3663">水原力保濕液</a></h3>
+<p>無油零負擔輕盈<br>長效守護的透氧保鮮膜</p>
+<p class="price">特價：<span>660</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9387">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3662"><img src="/u/product/2017/02/8de897d6f0707c44b9e9f906dae8dbe3.jpg" alt="水原力保濕液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3662">水原力保濕液</a></h3>
+<p>無油零負擔輕盈<br>長效守護的透氧保鮮膜</p>
+<p class="price">特價：<span>590</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9386">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3661"><img src="/u/product/2017/02/d6d0371d77259466f733a1934397911f.jpg" alt="水原力保濕液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3661">水原力保濕液</a></h3>
+<p>上蓋水膜封存滋潤感<BR>調理出晶亮飽滿肌理</p>
+<p class="price">特價：<span>660</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9385">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3660"><img src="/u/product/2017/02/e21f38dd712432031c122c5e52bd56e1.jpg" alt="水原力化妝水" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3660">水原力化妝水</a></h3>
+<p>實現水潤肌密<br>孕育理想膚質</p>
+<p class="price">特價：<span>500</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9384">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3659"><img src="/u/product/2017/02/d3ceaea7ab6151ad3f97848921e9b9d2.jpg" alt="水原力化妝水" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3659">水原力化妝水</a></h3>
+<p>實現水潤肌密<br>孕育理想膚質</p>
+<p class="price">特價：<span>570</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9383">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3658"><img src="/u/product/2017/02/a5cc99fc0ea20af4a100dadb8df1b83a.jpg" alt="水原力化妝水" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3658">水原力化妝水</a></h3>
+<p>從角質層滿溢滋潤<br>好膚質健康化妝水</p>
+<p class="price">特價：<span>500</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9382">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3657"><img src="/u/product/2017/02/ce36900520f45ec121006807daa68998.jpg" alt="水原力化妝水" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3657">水原力化妝水</a></h3>
+<p>實現水潤肌孕育理想膚質</p>
+<p class="price">特價：<span>570</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9381">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3656"><img src="/u/product/2017/02/6e7ae06fbab136a6e8cbd3115f3d7e31.jpg" alt="水原力潔面乳" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3656">水原力潔面乳</a></h3>
+<p>溫和清潔臉部污垢<BR>洗淨後光滑水潤！</p>
+<p class="price">特價：<span>490</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9380">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=1948"><img src="/u/product/2011/01/50371e4e401a3fd599f6d5e003f0aeef.jpg" alt="水原力潔面皂" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=1948">水原力潔面皂</a></h3>
+<p>水原力潔面皂<BR>給肌膚清爽洗淨感</p>
+<p class="price">特價：<span>290</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9239">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3915"><img src="/u/product/2017/12/c1dcf0e5749557b9e1411605d508e93f.jpg" alt="18848 光感晶透BB霜 - 自然膚色 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3915">18848 光感晶透BB霜 - 自然膚色 (期限品特賣-恕無提供退貨)</a></h3>
+<p>早上多賴床10分鐘<br>6效合一完美BB霜</p>
+<p class="price">特價：<span>660</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18848">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3631"><img src="/u/product/2017/02/dd8080119c9892a345a5cc9e715bdf25.jpg" alt="極淨水原力限定組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3631">極淨水原力限定組</a></h3>
+<p>超特惠85折限量<BR>加贈神奇打皂網</p>
+<p class="price">特價：<span>2060</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="30100101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3630"><img src="/u/product/2017/02/66fa96e1ad6bbf4d52f8a2275dcb63e8.jpg" alt="極淨水原力限定組" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3630">極淨水原力限定組</a></h3>
+<p>限量！特惠85折<BR>加贈神奇打皂網</p>
+<p class="price">特價：<span>2060</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="30090101">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3346"><img src="/u/product/2015/12/3843188da261acd588afee0039cf73e6.jpg" alt="絲緞雪膚沐浴露" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3346">絲緞雪膚沐浴露</a></h3>
+<p>蠶絲奢華綿密泡泡<br>膚觸猶如絲綢般柔緻</p>
+<p class="price">特價：<span>280</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9548">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3345"><img src="/u/product/2015/12/8b20cbcf88bfe1c2a1478c2a3f9f6b52.jpg" alt="絲緞雪膚沐浴露" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3345">絲緞雪膚沐浴露</a></h3>
+<p>蠶絲奢華綿密泡泡<BR>膚觸猶如絲綢般柔緻</p>
+<p class="price">特價：<span>340</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9547">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3910"><img src="/u/product/2017/12/7eb5b4141de4e17fdff3656a934ed0d0.jpg" alt="19397 紳士帥淨化妝水 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3910">19397 紳士帥淨化妝水 (期限品特賣-恕無提供退貨)</a></h3>
+<p>清爽不黏膩，保養優質男性肌膚</p>
+<p class="price">特價：<span>420</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19397">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=661"><img src="/u/product/2009/04/c354036a3f8f97fdddf0236f588ad899.jpg" alt="彈力亮眼美容液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=661">彈力亮眼美容液</a></h3>
+<p>有效預防眼周暗沉<br>緊緻眼部肌膚</p>
+<p class="price">特價：<span>760</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9859">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=660"><img src="/u/product/2009/04/d53d9133a294b665517f61dc974e7f35.jpg" alt="彈力亮眼美容液" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=660">彈力亮眼美容液</a></h3>
+<p>有效預防眼周暗沉<br>緊緻眼部肌膚</p>
+<p class="price">特價：<span>850</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9858">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3885"><img src="/u/product/2017/10/5fab1f5ad20e6d41f583dc0a39c07cf2.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3885">透妍光肌隔離霜</a></h3>
+<p>相當一支$350<BR>擁抱偽素顏</p>
+<p class="price">特價：<span>700</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="3054">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=2365"><img src="/u/product/2012/06/bf21f1686f7249adc3bbb05c641ebfe6.jpg" alt="19465 淨白美體凝膠(期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2365">19465 淨白美體凝膠(期限品特賣-恕無提供退貨)</a></h3>
+<p>與臉部保養同等級<br>七折特惠保養不手軟</p>
+<p class="price">特價：<span>420</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19465">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3884"><img src="/u/product/2017/10/4f7d568a6685c541a71811940f589093.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3884">透妍光肌隔離霜</a></h3>
+<p>粉嫩透亮的裸肌感<br>輕盈防曬SPF34PA+++</p>
+<p class="price">特價：<span>700</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="3053">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3883"><img src="/u/product/2017/10/76fc2c0d8b02d70c59b9ae805d9f851a.jpg" alt="透妍光肌隔離霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3883">透妍光肌隔離霜</a></h3>
+<p>提亮x透嫩x呵護<BR><br>空氣感素顏美肌</p>
+<p class="price">特價：<span>700</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="3052">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3527"><img src="/u/product/2016/07/9c2ed7023c33cf19bde5870d54c93802.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3527">深邃睛采雙色眼影</a></h3>
+<p>香甜微醺楓糖橙色<BR>秋季氛圍漸層眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8781">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3107"><img src="/u/product/2015/03/1ee9f401d3e9157899e28cb2fc0b5590.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3107">深邃睛采雙色眼影</a></h3>
+<p>簡單2步10秒完成<BR>深邃睛采雙色眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8780">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3106"><img src="/u/product/2015/03/98cc798fd279a6816911575e0a82882b.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3106">深邃睛采雙色眼影</a></h3>
+<p>簡單2步10秒完成<BR>深邃睛采雙色眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8779">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3105"><img src="/u/product/2015/03/d89749456ac50c57e37807a51468a8f8.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3105">深邃睛采雙色眼影</a></h3>
+<p>簡單2步10秒完成<BR>深邃睛采雙色眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8778">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3104"><img src="/u/product/2015/03/e3fd402aa85d4c9d7d7b399b89847d89.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3104">深邃睛采雙色眼影</a></h3>
+<p>簡單2步10秒完成<BR>深邃睛采雙色眼影</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8777">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3103"><img src="/u/product/2015/03/2c0a7d0cb78b704c9d765bb662606fcd.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3103">深邃睛采雙色眼影</a></h3>
+<p>簡單2步10秒完成<BR>大人女子純濃咖啡色</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8776">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3102"><img src="/u/product/2015/03/0274cf87597b4ad6177a8f8fcdf148cc.jpg" alt="全能睛采眼影底霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3102">全能睛采眼影底霜</a></h3>
+<p>提亮眼皮增加彩度<BR>全能睛采眼影底霜</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8775">放入購物車</a>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3902"><img src="/u/product/2017/11/f8b87548826aa5f2e945743698ba1b68.jpg" alt="全能睛彩眼影底霜" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3902">全能睛彩眼影底霜</a></h3>
+<p>完美打底開啟動人眼色眼妝澄澈透明不暗沉</p>
+<p class="price">特價：<span>310</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li class="sold-out">
+<a href="http://www.orbis.com.tw/prod.php?pid=3901"><img src="/u/product/2017/11/8fd183c0225f3a696776badae603d35f.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3901">深邃睛采雙色眼影</a></h3>
+<p>東方膚色意外適合<br>獨特春綠時尚感加分</p>
+<p class="price">特價：<span>310</span>元</p>
+<span class="cart">放入購物車</span>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3900"><img src="/u/product/2017/11/1c026cfe521db8539c22702a4d24a6cd.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3900">深邃睛采雙色眼影</a></h3>
+<p>可愛與氣質兼具<br>自然系的微醺甜美感</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8168">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3899"><img src="/u/product/2017/11/a3720e4e20e61962a64679023da9bd41.jpg" alt="深邃睛采雙色眼影" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3899">深邃睛采雙色眼影</a></h3>
+<p>微輕巧大地色系輕甜奶茶色最甘醇</p>
+<p class="price">特價：<span>310</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8167">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=2629"><img src="/u/product/2013/07/86bd6473a8020f72e41d5ec6b8e29a5d.jpg" alt="19437 淨肌噴霧 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2629">19437 淨肌噴霧 (期限品特賣-恕無提供退貨)</a></h3>
+<p>再現光滑前胸後背<br>七折下架品特賣</p>
+<p class="price">特價：<span>380</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19437">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3887"><img src="/u/product/2017/11/4c738b18a55b4178cf1be806a826197e.jpg" alt="18031 仙履奇緣繪本眼彩 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3887">18031 仙履奇緣繪本眼彩 (期限品特賣-恕無提供退貨)</a></h3>
+<p>限量色系眼彩妝<BR>展現柔美眼神</p>
+<p class="price">特價：<span>400</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18031">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3839"><img src="/u/product/2017/09/4b0ed914f3b99bc2904a3f14590aa42c.jpg" alt="19546 特潤美唇精華－科妮莓果色限定版 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3839">19546 特潤美唇精華－科妮莓果色限定版 (期限品特賣-恕無提供退貨)</a></h3>
+<p>零唇紋保養<br>護唇潤色一支完成！</p>
+<p class="price">特價：<span>280</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19546">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3838"><img src="/u/product/2017/09/44e0f0835dd1fff407593186419a8621.jpg" alt="19342 精萃活顏日用防護乳 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3838">19342 精萃活顏日用防護乳 (期限品特賣-恕無提供退貨)</a></h3>
+<p>暗沉蠟黃肌臉好臭?<BR>明亮好氣色同時提拉</p>
+<p class="price">特價：<span>840</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19342">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3810"><img src="/u/product/2017/07/8130ad6c90f2198647c0cc84b472bcda.jpg" alt="19246 水原力保濕液-L(清爽型)．補充包 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3810">19246 水原力保濕液-L(清爽型)．補充包 (期限品特賣-恕無提供退貨)</a></h3>
+<p>水原力保濕液<BR>創新鎖水膜保護肌膚</p>
+<p class="price">特價：<span>460</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19246">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3809"><img src="/u/product/2017/07/ea341452d93305d6f15ee1ba40be2213.jpg" alt="19245 水原力保濕液-L(清爽型)．瓶裝 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3809">19245 水原力保濕液-L(清爽型)．瓶裝 (期限品特賣-恕無提供退貨)</a></h3>
+<p>全新水原力保濕液<BR>創新鎖水膜保護肌膚</p>
+<p class="price">特價：<span>510</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="19245">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3789"><img src="/u/product/2017/06/1c75fdd330776233ab7edc1eb915af2a.jpg" alt="18411 C型吻唇膏 - 甜美肉桂 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3789">18411 C型吻唇膏 - 甜美肉桂 (期限品特賣-恕無提供退貨)</a></h3>
+<p>永遠不敗萬用色<br>變身第二眼氣質美女</p>
+<p class="price">特價：<span>420</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18411">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3874"><img src="/u/product/2017/10/506a44a704712488a6ec94af3d8c0f13.jpg" alt="18029 大地香氛 限量旅行組 (保濕凝凍+噴霧化妝水+護手霜) (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3874">18029 大地香氛 限量旅行組 (保濕凝凍+噴霧化妝水+護手霜) (期限品特賣-恕無提供退貨)</a></h3>
+<p>大地香氛旅行限定組<BR>天然香氛紓壓療癒</p>
+<p class="price">特價：<span>600</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18029">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3872"><img src="/u/product/2017/10/03d5afcd773f7c57c8a968ffd8ef5439.jpg" alt="17537 美唇精華雙色限定組 - 特潤美唇精華(一般版 + 科妮莓果色限定版) (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3872">17537 美唇精華雙色限定組 - 特潤美唇精華(一般版 + 科妮莓果色限定版) (期限品特賣-恕無提供退貨)</a></h3>
+<p>7折期限品省荷包<br>護唇潤色一支完成！</p>
+<p class="price">特價：<span>560</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="17537">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3455"><img src="/u/product/2016/05/0f8fbabcf40abbee342ea54456add741.jpg" alt="18698 玩色晶采修容餅-珊瑚 (下架品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3455">18698 玩色晶采修容餅-珊瑚 (下架品特賣-恕無提供退貨)</a></h3>
+<p>下架折扣超優惠<BR>襯映雙頰紅潤透亮</p>
+<p class="price">特價：<span>280</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18698">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3842"><img src="/u/product/2017/09/029d31d5c1c544cd5bc89e1385662a62.jpg" alt="199345 精萃活顏一週體驗組 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3842">199345 精萃活顏一週體驗組 (期限品特賣-恕無提供退貨)</a></h3>
+<p>頂級HSP保養套組<BR>完整一週抗齡體驗</p>
+<p class="price">特價：<span>300</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="199345">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3835"><img src="/u/product/2017/09/39834cd6b710d8a91483fcab775934f5.jpg" alt="18922 光影4重奏眼采盤 - 橄欖綠色調 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3835">18922 光影4重奏眼采盤 - 橄欖綠色調 (期限品特賣-恕無提供退貨)</a></h3>
+<p>大人系時尚橄欖綠<br>零失敗率高質感漸層</p>
+<p class="price">特價：<span>530</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18922">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3833"><img src="/u/product/2017/09/8e996087041eae9bdcee827f4b9fc051.jpg" alt="18920 光影4重奏眼采盤 - 蜜桃色調 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3833">18920 光影4重奏眼采盤 - 蜜桃色調 (期限品特賣-恕無提供退貨)</a></h3>
+<p>微甜蜜糖裸膚色眼影<br>手殘也能畫出完美漸層</p>
+<p class="price">特價：<span>530</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18920">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3834"><img src="/u/product/2017/09/67cedd4dc60ebdff5fb428d4a53844d3.jpg" alt="18921 光影4重奏眼采盤 - 大地色調 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3834">18921 光影4重奏眼采盤 - 大地色調 (期限品特賣-恕無提供退貨)</a></h3>
+<p>零技巧畫出專業漸層<br>純淨大地色深邃立體</p>
+<p class="price">特價：<span>530</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18921">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3325"><img src="/u/product/2015/11/f93ca010eab2a2ad8eeeb4d8e77b939d.jpg" alt="彈力膠原紅妍飲" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3325">彈力膠原紅妍飲</a></h3>
+<p>用喝的美肌精華液<BR>膠原蛋白高達6000mg</p>
+<p class="price">特價：<span>2350</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="7486">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3221"><img src="/u/product/2015/07/343c9f5048f065d7dfebf810c485d98d.jpg" alt="彈力膠原紅妍飲" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3221">彈力膠原紅妍飲</a></h3>
+<p>用喝的美肌精華液膠原蛋白高達6000mg</p>
+<p class="price">特價：<span>860</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="47058">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3492"><img src="/u/product/2016/06/38a0d59977b4e8a1667eda63e090f738.jpg" alt="甜心寡糖錠" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3492">甜心寡糖錠</a></h3>
+<p>體內順暢再升級<BR>超值特惠2入組</p>
+<p class="price">特價：<span>1200</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="7517">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3789"><img src="/u/product/2017/06/1c75fdd330776233ab7edc1eb915af2a.jpg" alt="18411 C型吻唇膏 - 甜美肉桂 (期限品特賣-恕無提供退貨)" width="150" height="150" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3789">18411 C型吻唇膏 - 甜美肉桂 (期限品特賣-恕無提供退貨)</a></h3>
+<p>永遠不敗萬用色<br>變身第二眼氣質美女</p>
+<p class="price">特價：<span>420</span>元</p>
+<a href="javascript:void(0);" class="cart simple-add-cart" data-pid="18411">放入購物車</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<script>
+// <![CDATA[
+$(function() {
+    $('#popular-ranking .content .list-wrap').jCarouselLite({
+        btnNext: '#popular-ranking .content .next',
+        btnPrev: '#popular-ranking .content .prev',
+        visible: 4,
+        circular: false
+    });
+    $('#popular-ranking').tabs();
+});
+// ]]>
+</script>
+
+<section id="popular-ranking" class="product-list">
+<h2>人氣排行</h2>
+<ul class="tabs">
+<li class="ui-tabs-active"><a href="#makeup" class="makeup">美妝保養</a></li>
+<li><a href="#nutrition" class="nutrition">營養補助</a></li>
+</ul>
+
+<div id="makeup" class="content">
+<a href="#" class="prev">prev</a>
+<a href="#" class="next">next</a>
+<div class="list-wrap">
+<ul>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3682"><img src="/u/product/2017/02/d2ff5b18eee2abd610bd6705ae262235.jpg" alt="透妍光肌隔離霜" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_01.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3682">透妍光肌隔離霜</a></h3>
+<p>粉嫩透亮的裸肌感<br>輕盈防曬SPF34PA+++</p>
+<p class="price">售價：<span>390</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8935">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=2544"><img src="/u/product/2013/05/77c1ad199262c81b1f6cef1648c6b954.jpg" alt="升級版．極緻抗陽防曬露" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_02.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2544">升級版．極緻抗陽防曬露</a></h3>
+<p>超強UV防衛隊<BR>SPF50＋</p>
+<p class="price">售價：<span>620</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8836">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3210"><img src="/u/product/2015/06/0d5c8c0a0bd3e2ec04d06389bef78e8e.jpg" alt="雙重酵素潔顏粉" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_03.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3210">雙重酵素潔顏粉</a></h3>
+<p>體驗零毛孔肌！<BR>洗淨暗沉粗糙感</p>
+<p class="price">售價：<span>500</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9233">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3160"><img src="/u/product/2015/04/ffe5fbdd7f5ddb0fda9a15d3c2b2b85a.jpg" alt="和漢淨肌潔面乳" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_04.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3160">和漢淨肌潔面乳</a></h3>
+<p>胺基酸系洗淨成分<BR>徹底洗淨肌膚皮脂污垢</p>
+<p class="price">售價：<span>550</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9320">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3443"><img src="/u/product/2016/04/49fde2f6fc131bfe5f09c704098c56f0.jpg" alt="和漢淨肌光暈隔離霜" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_05.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3443">和漢淨肌光暈隔離霜</a></h3>
+<p>防曬x潤色x淨痘痘肌小花臉最愛</p>
+<p class="price">售價：<span>480</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8896">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3422"><img src="/u/product/2016/03/297cedfc5e7107d3f66515b09274c7ad.jpg" alt="升級版 透妍淨化防曬露" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_06.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3422">升級版 透妍淨化防曬露</a></h3>
+<p>全家愛用水潤防曬<BR>SPF30．PA+++</p>
+<p class="price">售價：<span>500</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8897">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3447"><img src="/u/product/2016/05/89965e2a5bf78cb24e611bb23c7c75e9.jpg" alt="澄淨卸妝露EX" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_07.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3447">澄淨卸妝露EX</a></h3>
+<p>無油無慮清爽卸妝<br>回歸純淨透亮素顏</p>
+<p class="price">特價：<span>550</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9331">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3161"><img src="/u/product/2015/04/8085c4b6f000e68071566d44c959ad0b.jpg" alt="和漢淨肌化妝水" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_08.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3161">和漢淨肌化妝水</a></h3>
+<p>快速滲透力UP！ 直擊痘痘根本原因</p>
+<p class="price">售價：<span>630</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="9321">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3679"><img src="/u/product/2017/02/94714f7d1ff7c12b0b88502bf7040835.jpg" alt="粉紅棉花糖氣墊頰彩" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_pink_09.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3679">粉紅棉花糖氣墊頰彩</a></h3>
+<p>將春天氣息拍上雙頰<BR>少女心最愛櫻花粉</p>
+<p class="price">售價：<span>650</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="8035">放入購物車</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="nutrition" class="content">
+<a href="#" class="prev">prev</a>
+<a href="#" class="next">next</a>
+<div class="list-wrap">
+<ul>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3325"><img src="/u/product/2015/11/f93ca010eab2a2ad8eeeb4d8e77b939d.jpg" alt="彈力膠原紅妍飲" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_01.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3325">彈力膠原紅妍飲</a></h3>
+<p>用喝的美肌精華液<BR>膠原蛋白高達6000mg</p>
+<p class="price">特價：<span>2350</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="7486">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=2217"><img src="/u/product/2011/12/5066f44ca2d249f664ae6aaf42f09106.jpg" alt="比菲德士菌EX" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_02.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=2217">比菲德士菌EX</a></h3>
+<p>大量比菲德士益菌<br>每天維持清爽舒暢</p>
+<p class="price">售價：<span>1260</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4550">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3759"><img src="/u/product/2017/04/06683d75de6eced84e0f384c8e1bc5b4.jpg" alt="菲堤小巧奶昔" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_03.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3759">菲堤小巧奶昔</a></h3>
+<p>口味再升級<br>新菲堤小巧奶昔誕生</p>
+<p class="price">售價：<span>580</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4788">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3492"><img src="/u/product/2016/06/38a0d59977b4e8a1667eda63e090f738.jpg" alt="甜心寡糖錠" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_04.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3492">甜心寡糖錠</a></h3>
+<p>體內順暢再升級<BR>超值特惠2入組</p>
+<p class="price">特價：<span>1200</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="7517">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=3327"><img src="/u/product/2015/12/8f703f2d2ff2dcbf07fddd169b06a57d.jpg" alt="新高麗人蔘奶茶" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_05.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=3327">新高麗人蔘奶茶</a></h3>
+<p>養神補氣不畏寒<br>低咖啡因人蔘奶茶</p>
+<p class="price">售價：<span>420</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4665">放入購物車</a>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/prod.php?pid=1897"><img src="/u/product/2010/11/5c80f97cc974f28420fd82fac857270b.jpg" alt="菲堤巧達濃湯" width="150" height="150" /><img src="//www.orbis.com.tw/assets/default/i/ranking_06.png" class="watermark" /></a><h3><a href="http://www.orbis.com.tw/prod.php?pid=1897">菲堤巧達濃湯</a></h3>
+<p>美味飽足一次擁有<br>菲堤巧達濃湯</p>
+<p class="price">售價：<span>700</span>元</p><a href="javascript:void(0);" class="cart simple-add-cart" data-pid="4496">放入購物車</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="first-trial">
+<h2>首次體驗</h2>
+<ul>
+<li class="series-water"><a href="/prod_aqu.php">保濕水原力系列</a></li>
+<li class="anti-acne"><a href="/prod_cle.php">周期痘和漢淨肌系列</a></li>
+<li class="series-white"><a href="/prod_white.php">美白極淨澈白系列</a></li>
+<li class="series-u"><a href="/prod_u.php">輕齡抗老U系列</a></li>
+<li class="anti-old"><a href="/prod_uencore.php">抗老提拉U精萃活顏系列</a></li>
+<li class="advance-white"><a href="/prod_uwhite.php">美白進階版U悠白活顏系列</a></li>
+</ul>
+</section>
+<div id="fan-group" class="container">
+<section class="ad">
+<h2>廣告版位</h2>
+<ul>
+<li class="top"><a href="http://www.orbis.com.tw/prod.php?pid=660">
+<img src="/u/ad/2018/02/201803_338x88_1.jpg" alt="" /></a></li>
+<li class="bottom"><a href="http://www.orbis.com.tw/prod.php?pid=3345">
+<img src="/u/ad/2018/02/201803_338x88_2.jpg" alt="" /></a></li>
+</ul>
+</section>
+
+<section class="content">
+<h2>ORBIS應援團</h2>
+<p class="date">2016.04.29</p>
+<div class="wrapper">
+<img src="/u/product/2010/07/63296a18126e20a64abcb61b0b1d3f56.jpg" alt="澄淨卸妝露" width="125" height="125" />
+<div class="content-wrap">
+<h3><span>保養品</span><a href="http://www.orbis.com.tw/beauty/support.php?id=2843">澄淨卸妝露</a></h3>
+<p>之前都是用開架式卸妝油，直到用了ORBIS的澄淨卸妝露後就再也回不去了！讓每日都會上基本妝的我，能夠無負擔地把臉上底妝、髒空氣還有皮脂通通都清乾淨。常常看到澄淨卸妝露登上FG還有Urcosme…</p>
+<a href="http://www.orbis.com.tw/beauty/supportlist.php" class="more">more</a>
+</div>
+<p class="from">桃園市 &gt; 甘小姐 &gt; 38歲</p>
+</div>
+</section>
+</div>
+
+<div id="infor-note" class="container">
+<section  class="content">
+<a href="http://www.orbis.com.tw/lifestylelist.php?s_issue=172"><img src="/u/sale/information/2018/02/0d902caf78f9da753a7160cb404b59d5.jpg" width="134" alt="2018年3月號" /></a>
+<div class="wrapper">
+<h2>情報誌</h2>
+<a href="http://www.orbis.com.tw/lifestylelist.php?s_issue=172"><p class="issue">2018年3月號</p></a>
+<h3>一年之計在於春</h3>
+
+<ul>
+<li ><a href="javascript:void(0)" onClick='javascript:window.open("http://saas5.startialab.com/acti_books/373/3800/", "eM", "fullscreen=yes, toolbar=no, menubar=no, location=no, resizable=yes, top=10, left=10", "false")'>閱讀情報誌電子版</a></li><li><a href="https://www.orbis.com.tw/member/get_edm_frm.php">立即索取情報誌</a></li>
+<li><a href="https://www.orbis.com.tw/member/upd_member_frm.php">我要訂閱電子報</a></li>
+</ul>
+</div>
+</section>
+
+<section class="ad">
+<h2>廣告版位</h2>
+<a href="http://m.orbis.com.tw" target="_self"><img src="/u/ad/2015/06/201507_456185.jpg" alt="" /></a>
+</section>
+</div>
+
+<section id="beauty-station">
+<h2>美麗小站</h2>
+<ul>
+<li><iframe width="286" height="181" src="http://www.youtube.com/embed/mXGqXU8EsKs" allowfullscreen></iframe></li>
+<li>
+<a href="http://www.orbis.com.tw/beauty/kno.php?id=245&category=0">
+<img src="/u/ad/2018/02/201803_BT11577_02.jpg" alt="" /></a><h3><a href="http://www.orbis.com.tw/beauty/kno.php?id=245&category=0">
+愛護地球新連載！</a></h3>
+<p>落實ECO行動，持續15年的保育山林活動，帶你瞭解砍樹也很重要</p>
+</li>
+<li>
+<a href="http://www.orbis.com.tw/beauty/kno.php?id=244&category=">
+<img src="/u/ad/2018/02/201803_BT11577_01.jpg" alt="" /></a><h3><a href="http://www.orbis.com.tw/beauty/kno.php?id=244&category=">
+手作水果塔烘焙</a></h3>
+<p>親手作的美味甜點，連回憶中都帶著香甜的氣味！會員活動花絮……</p>
+</li>
+</ul>
+</section>
+
+</div>
+<!--============================== content-main close ========================-->
+
+<!--============================== aside start ===============================-->
+<aside>
+
+<section id="nav">
+<h3>網站主選單</h3>
+<ul class="recommend">
+<li><a href="/infor/month.php" class="month-Preferential">本月優惠</a></li>
+<li><a href="/infor/new.php" class="new-recommend">新品推薦</a></li>
+<li><a href="/prod_star.php" class="star-product">明星商品</a></li>
+</ul>
+<ul>
+<li class="open"><a href="/cat.php?cid=209" class="care-product">保養品</a>
+<ul>
+<li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=216">卸妝</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=224">潔顏</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=211">化妝水</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=217">保濕液</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=215">乳霜</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=218">面膜</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=223">精華液／美容液</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=258">身體防曬</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=214">身體清潔／保養</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=212">手部保養</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=213">足部保養</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=219">眼唇保養</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=210">BABY系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=222">Mr.型男</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=225">髮絲護理</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=209&sid=257">保養旅行組</a></li></ul>
+</li>
+<li><a href="/cat.php?cid=201" class="series-product">系列商品</a>
+<ul>
+<li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=202">U潤澤活顏系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=253">U精萃活顏系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=254">U悠白活顏系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=204">水原力系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=205">和漢淨肌系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=207">極淨澈白系列</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=208">大地香氛</a></li></ul>
+</li>
+<li><a href="/cat.php?cid=230" class="mackup">彩妝品</a>
+<ul>
+<li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=239">防曬／隔離霜</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=236">粉底液</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=231">遮瑕</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=237">粉餅／蜜粉</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=234">腮紅</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=232">唇彩</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=233">眼妝</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=235">指彩</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=230&sid=238">彩妝工具</a></li></ul>
+</li>
+<li><a href="/cat.php?cid=243" class="nutrition">營養補助食品</a>
+<ul>
+<li><a href="http://www.orbis.com.tw/cat_sub.php?cid=243&sid=249">低卡輕食</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=243&sid=246">美肌</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=243&sid=244">體內環保</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=243&sid=247">礦物質／維他命</a></li><li><a href="http://www.orbis.com.tw/cat_sub.php?cid=243&sid=248">養生調理</a></li></ul>
+</li>
+<li><a href="/refill.php" class="additional-package">補充包一覽</a></li>
+<li><a href="/beauty_cosme.php" class="use-step">使用步驟</a></li>
+<li><a href="/fastseek.php" class="func-search">功能快搜</a></li>
+<li><a href="/quickly.php" class="quick-order">快速訂購</a></li>
+</ul>
+</section>
+
+<section class="ad">
+<h3>廣告版位</h3>
+<a href="http://www.orbis.com.tw/news.php?id=809&adpcnt=7qA_TY6" target="_self"><img src="/u/ad/2017/12/Anti-fraud.gif" alt="" /></a>
+<a href="http://www.orbis.com.tw/cat_sub.php?cid=201&sid=208" target="_self"><img src="/u/ad/2015/06/recherrcher_150120_LIGHT.gif" alt="" /></a>
+<a href="http://www.orbis.com.tw/news.php?id=797&adpcnt=7qA_TL2" target="_self"><img src="/u/ad/2017/12/2018_Fubon_150x120.jpg" alt="" /></a>
+<a href="http://www.orbis.com.tw/news.php?id=796&adpcnt=7qA_TKw" target="_self"><img src="/u/ad/2017/12/2018chinatrust_150120.jpg" alt="" /></a>
+<a href="http://www.orbis.com.tw/news.php?id=798&adpcnt=7qA_TKz" target="_self"><img src="/u/ad/2017/12/2018esun_150120.jpg" alt="" /></a>
+</section>
+
+</aside>
+<!--============================== aside close ===============================-->
+<!--  Homepage tag -->
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+<script type="text/javascript">
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push(
+        { event: "setAccount", account: 28939 },
+        { event: "setHashedEmail", email: "" },
+        { event: "setSiteType", type: "d" },
+        { event: "viewHome" }
+);
+</script>
+</div>
+<!--============================== content-wrapper close =====================-->
+
+<!--============================== footer start ==============================-->
+<footer>
+<div class="container">
+<a href="#" class="go-top">Go to top</a>
+
+<div class="wrap">
+<section id="footer-service-center">
+<h3>客服中心</h3>
+<p>免付費訂購專線 0800-525-000</p>
+<img src="//www.orbis.com.tw/assets/default/i/service-desc.png" alt="30日滿意保證/免費配送/試用包貼心制度/滿1500二日宅配" />
+</section>
+
+<section id="footer-link">
+<h3>網站相關連結</h3>
+<div class="wrapper">
+<h4>訂購須知</h4>
+<ul>
+<li><a href="http://www.orbis.com.tw/service/buy_order.php">訂購方式</a></li>
+<li><a href="http://www.orbis.com.tw/service/purchase_pay.php">付款方式</a></li>
+<li><a href="http://www.orbis.com.tw/service/purchase_trans.php">商品配送</a></li>
+<li><a href="http://www.orbis.com.tw/service/returngoods.php">退貨退款說明</a></li>
+<li><a href="http://www.orbis.com.tw/service/cancelOrder.php">取消訂單</a></li>
+</ul>
+</div>
+
+<div class="wrapper">
+<h4>服務專區</h4>
+<ul>
+<li><a href="http://www.orbis.com.tw/service/qa-order.php">常見問題</a></li>
+<li><a href="http://www.orbis.com.tw/service/download.php">下載/索取</a></li>
+<li><a href="http://www.orbis.com.tw/service/service_contactus.php">客服信箱</a></li>
+<li><a href="http://www.orbis.com.tw/service/oversea.php">海外訂購</a></li>
+<li><a href="http://www.orbis.com.tw/service/b2b.php">企業服務</a></li>
+</ul>
+</div>
+
+<div class="wrapper">
+<h4>其他說明</h4>
+<ul>
+<li><a href="http://www.orbis.com.tw/shop.php">店舖情報</a></li>
+<li><a href="http://www.orbis.com.tw/service/private.php">隱私權聲明</a></li>
+<li><a href="http://www.orbis.com.tw/service/security.php">交易安全</a></li>
+<li><a href="http://www.orbis.com.tw/service/sitemap.php">網站地圖</a></li>
+</ul>
+</div>
+</section>
+
+<p class="copyright">ORBIS日本的專業保養品，提供高品質無油保養品、臉部保養、美白保濕、身體保養及營養食品。<br />
+食品業登錄字號：A-128206307-00000-6<br />
+※2016年 連續兩年No.1 <br />
+※日本媒體《通販新聞》調查結果 (銷售業績結算期間：2015年6月～2016年5月)<br />
+Copyright &copy; 2006-2018 TAIWAN ORBIS All Rights Reserved</p>
+</div>
+
+<div class="wrap">
+<section id="facebook-fans">
+<h3>ORBIS TAIWAN 粉絲團｜好友分享</h3>
+<div class="fb-like-box" data-href="https://www.facebook.com/ORBIS.TAIWAN" data-width="347px" data-height="195px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+</section>
+
+<section id="excellent-mark">
+<h3>優良標章列表</h3>
+<a class="sosa-info" href="http://www.sosa.org.tw/ec/ec_info.asp?markid=28206307" target="_blank"><img src="//www.orbis.com.tw/assets/default/i/excellent-mark01.gif" alt="SOSA優良電子商店" /></a>
+<a class="sosa-infotransparency" href="http://www.sosa.org.tw/ec/ec_infotransparency.asp?markid=28206307" target="_blank"><img src="//www.orbis.com.tw/assets/default/i/excellent-mark03.gif" alt="SOSA資訊透明化電子商店" /></a>
+<!--GlobalSign Seal code start -->
+<span id="___sitess__alt_img_wrapper">
+<a href="http://www.globalsign.com/" target=_blank><img
+alt="Globalsign SSL Site Seal" border=0 id="___sitess__alt_img"
+src="//seal.globalsign.com/SiteSeal/images/seal_noscript_en.gif" width="70"></a>
+</span>
+<script type="text/javascript" src="//seal.globalsign.com/SiteSeal/siteSeal.js" defer></script>
+<!--GlobalSign Seal code end -->
+
+<!--寰宇數位安全認證標章 start -->
+<script type="text/javascript" >
+var GDHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + GDHost + "seal.ssl.com.tw/gd/gd_seal.js' charset='utf-8' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+trustseal("","","vgif","m","CEOV1608310385",true,true,"","");
+</script>
+<!--寰宇數位安全認證標章 end -->
+</section>
+</div>
+
+</div>
+</footer>
+<!--============================== footer close ==============================-->
+<div id="blockui-block"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<!-- Google analyticstracking start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1100182-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Google analyticstracking end -->
+
+<!--DR pixel code start -->
+<script type="text/javascript">
+    g_YWA_funcs.doSiteRetargeting();
+</script>
+<!--DR pixel code end -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1706204636306080');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1706204636306080&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Pixel Code -->
+<!--<script>-->
+<!--!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?-->
+<!--n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;-->
+<!--n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;-->
+<!--t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,-->
+<!--document,'script','//connect.facebook.net/en_US/fbevents.js');-->
+<!---->
+<!--fbq('init', '853422654745975');-->
+<!--fbq('track', "PageView");</script>-->
+<!--<noscript><img height="1" width="1" style="display:none"-->
+<!--src="https://www.facebook.com/tr?id=853422654745975&ev=PageView&noscript=1"-->
+<!--/></noscript>-->
+<!-- End Facebook Pixel Code -->
+
+
+
+<!--Japan ADplan-->
+<SCRIPT LANGUAGE="JavaScript">
+var adp_header = "http" , adp_counter_domain = "c.p-advg.com" , adp_aid = "4883" , adp_pnm = "";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="http://c.p-advg.com/adpCnt/js/createUniteTag.js"></script>
+<NOSCRIPT>
+<img src="http://c.p-advg.com/adpCnt/d?aid=4883&pnm=&nos=1" width="1" height="1">
+</NOSCRIPT> 
+<!-- Advertiser '香港商陽獅銳奇媒體股份有限公司台灣分公司-台灣奧蜜思股份有限公司',  Include user in segment 'TW_zenith-orbis' - DO NOT MODIFY THIS PIXEL IN ANY WAY -->
+<img src="http://ad.yieldmanager.com/pixel?id=1808503&t=2" width="1" height="1" />
+<!-- End of segment tag -->
+
+
+
+
+
+
+<!-- Google Code for &#25152;&#26377;&#38913;&#38754; -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1010376719;
+var google_conversion_label = "dMrjCKGZ1gIQj8Dk4QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1010376719/?value=0&amp;label=dMrjCKGZ1gIQj8Dk4QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<script language="JavaScript" type="text/javascript" src="//o.advg.jp/ojs?aid=10037&pid=6&key=" charset="UTF-8">
+</script>
+<noscript>
+<iframe src="//o.advg.jp/oif?aid=10037&pid=6" width="1" height="1">
+</iframe>
+</noscript>
+
+<script type='text/javascript'>
+var tagtoo_advertiser_id = 107;
+var tagtoo_ga = document.createElement('script');
+tagtoo_ga.type = 'text/javascript';
+tagtoo_ga.async = true;
+tagtoo_ga.src = '//ad.tagtoo.co/media/ad/track.js';
+var tagtoo_s = document.getElementsByTagName('script')[0];
+tagtoo_s.parentNode.insertBefore(tagtoo_ga, tagtoo_s);
+</script>
+
+</body>
+</html>

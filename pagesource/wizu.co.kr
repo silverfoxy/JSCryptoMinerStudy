@@ -1,0 +1,2833 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-title" content="WIZU" />
+    <meta name="naver-site-verification" content="f0f3fa240a340044b4171667d244f914eeda8a20"/>
+    <meta name="google-site-verification" content="C6oriywouZLiAEbAYjbDXDQuAoYgDdfdk6s5Yw0D9C8" />
+    <meta name="title" content ="위쥬  " />
+    <meta name="description" content="위쥬, 온라인창업포털, 창업준비, 쇼핑몰창업, 쇼핑몰운영, 창업일기, 이커머스 정보" />
+    <meta name="keywords" content="위쥬,wizu,wizu.co.kr,창업커뮤니티,온라인창업 포털, 온라인창업, 쇼핑몰, 해외구매대행, 모바일, SEO, 창업뉴스, 온라인교육, 타오바오" />
+    <meta name="robots" content="index,follow,noarchive" />
+
+    <!-- BEGIN OPENGRAPH -->
+    <meta property="fb:app_id" content=""/>
+    <meta property="og:site_name" content="위쥬"/>
+    <meta property="og:locale" content="ko_KR"/>
+    <meta property="og:image" content="http://wizu.co.kr/_static/image/main/og.jpg"/>
+    <meta property="og:image:width" content="527"/>
+    <meta property="og:image:height" content="275"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://wizu.co.kr/">
+    <meta property="og:title" content="위쥬"/>
+    <meta property="og:description" content="위쥬, 온라인창업포털, 창업준비, 쇼핑몰창업, 쇼핑몰운영, 창업일기, 이커머스 정보" />
+    <!-- END OPENGRAPH -->
+
+    <!-- BEGIN TWITTERCARD -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="위쥬, 온라인창업포털, 창업준비, 쇼핑몰창업, 쇼핑몰운영, 창업일기, 이커머스 정보" >
+    <!-- END TWITTERCARD -->
+
+    <title>위쥬</title>
+    <link rel="canonical" href="http://wizu.co.kr/">
+    <link rel="shortcut icon" href="/_static/image/favicon.ico" sizes="64x64" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="/_static/css/v2/reset.css">
+    <link type="text/css" rel="stylesheet" href="/_static/css/v2/common.css?171211">
+    <link type="text/css" rel="stylesheet" href="/_static/css/v2/main.css">
+    <link type="text/css" rel="stylesheet" href="/_static/css/v2/promotion.css?171221">
+
+    <!-- 서비스 -->
+    
+    
+    
+    
+    
+    
+    
+    <!-- 이벤트 페이지 -->
+    
+    <!-- 프로모션 페이지 -->
+    
+    <!-- 검색 -->
+    
+    <!-- Global -->
+    
+    <script type="text/javascript" src="/_static/js/v2/jquery.min.js"></script>
+    <script type="text/javascript" src="/_static/js/v2/placeholders.min.js"></script>
+    <script type="text/javascript" src="/_static/js/v2/clipboard.min.js"></script>
+    <script type="text/javascript" src="/_static/js/v2/jquery.bxslider.js"></script>
+    <!-- 위쥬 UI 공통 스크립트 호출 -->
+    
+
+<script>
+    $(function(){
+
+        /* 공통 스크립트 시작 *****************************************************************/
+
+        /* 상단 메뉴 */
+        $('.gnb > ul > li').on({
+            'mouseover':function(){
+                $(this).find('.sub_menu').fadeIn('fast');
+                $(this).addClass('active');
+            },
+            'mouseleave':function(){
+                $(this).find('.sub_menu').stop(true,true).fadeOut('fast');
+                $(this).removeClass('active');
+            }
+        });
+
+		/* 검색 레이어 */
+		$(document).ready(function(){
+			$('.btn_search_box').on({
+				'click':function(){
+					$('.header_snb .search_box').fadeIn('fast');
+				}
+			});
+
+			$('.btn_search_box_close').on({
+				'click':function(){
+					$('.header_snb .search_box').fadeOut('fast');
+				}
+			});
+		});
+
+        /* 서비스 메인, 검색, 서비스 리스트 */
+        $('.main_list ul li, .search_list ul li, .c_list ul li').on({
+            'mouseover':function(){
+                //$(this).find('.list_box .img span').fadeOut(500);
+                $(this).animate({
+                    'top':'-5px'
+                },'fast');
+
+            },
+            'mouseleave':function(){
+                //$(this).find('.list_box .img span').stop(true,true).fadeIn(500);
+                $(this).stop(true,true).animate({
+                    'top':'0px'
+                },'fast');
+            }
+        });
+
+        /* 버튼 따라가기 메인,리스트*/
+        var btn_position = $('.btn_write, .btn_seller_write').css('bottom');
+        var wrap_height = $('#contents_wrap').height();
+        if(wrap_height < 1000){
+            $('.btn_write, .btn_seller_write').css('bottom','250px');
+        }
+
+        var btnPostion = function(){
+            var btnheight = ($(document).innerHeight() - $(window).innerHeight()) - $('#footer').innerHeight() - 100;
+            var winTop = $(window).scrollTop();
+            if(winTop >= (btnheight+20)) $('.btn_write, .btn_seller_write').css('bottom',winTop-btnheight);
+            else $('.btn_write, .btn_seller_write').css('bottom',btn_position);
+        }
+        $(window).scroll(btnPostion);
+        window.btnPostion = btnPostion;
+		
+
+		/* 탑버튼 */
+		var btn_position = $('.btn_top_box').css('bottom');
+		var btnPostion = function(){
+			var btnheight = ($(document).innerHeight() - $(window).innerHeight()) - $('#footer').innerHeight() - 20;
+			var winTop = $(window).scrollTop();
+			if(winTop >= (btnheight+20)) $('.btn_top_box').css('bottom',winTop-btnheight);
+			else $('.btn_top_box').css('bottom',btn_position);
+		}
+		$(window).scroll(btnPostion);
+		
+		$('.btn_top_box').on({
+			'click':function(){
+				$('html, body').animate({scrollTop : 0}, 400);	
+				return false;
+			}
+		});
+
+        /* 서비스 메인 스크립트 시작 *****************************************************************/
+        /* 레이어팝업 개인정보 취급방침 체크 */
+        $('.privacy_chk label').on({
+            'click':function(){
+                var pchk = $(this).parent().find('input').is(':checked');
+                if(!pchk) $(this).parent().find('.chk_label').addClass('active');
+                else $(this).parent().find('.chk_label').removeClass('active');
+            }
+        });
+        /* 레이어 팝업 정보 미입력 경고창 팝업 */
+        /*
+         $('.form_top, .letter_code_content, .write_cont').find('input, textarea').on({
+         'blur':function(){
+         var inputval = $(this).val();
+         if(!inputval || inputval == $(this).attr('placeholder')) $(this).parent().find('.layer_alert').fadeIn('fast');
+         else $(this).parent().find('.layer_alert').fadeOut('fast');
+         },
+         'focus':function(){
+         $(this).parent().find('.layer_alert').fadeOut('fast');
+         }
+         });
+         */
+
+
+        /* 서비스 리스트,뷰 스크립트 시작 *****************************************************************/
+
+        /* 서비스 리스트,뷰 공유 버튼 */
+        $('.share_box').find('.tit').on({
+            'click':function(){
+                if($(this).parent().find('.share_list').css('display') == 'none'){
+                    $(this).parent().find('.share_list').stop(true,true).fadeIn('fast');
+                    $(this).find('a').addClass('active');
+                    $('.share_box_wrap').show();
+                    $('.share_box_wrap').click(function(e){
+                        $('.share_list').stop(true,true).fadeOut('fast');
+                        e.preventDefault();
+                        $(this).hide();
+                        $('.share_box').find('.tit').find('a').removeClass('active');
+                    });
+                }else{
+                    $(this).parent().find('.share_list').stop(true,true).fadeOut('fast');
+                    $(this).find('a').removeClass('active');
+                }
+            }
+        });
+
+        /*$('.share_box').on({
+         'mouseenter':function(){
+         $(this).find('.share_list').fadeIn('fast');
+         $(this).find('.tit a').addClass('active');
+         },
+         'mouseleave':function(){
+         $(this).find('.share_list').stop(true,true).fadeOut('fast');
+         $(this).find('.tit a').removeClass('active');
+         },
+         });*/
+
+        /* 서비스 리스트,뷰 좋아요 버튼 */
+        $('.c_list_like').on({
+            'click':function(){
+                            }
+        });
+        /* 서비스 뷰 열기,닫기 버튼 */
+        $('.comment_top').on({
+            'click':function(){
+                if($('.comment_show_hide_box').css('display') =='none'){
+                    $(this).children().addClass('active');
+                    $('.comment_show_hide_box').slideDown();
+                    $('.view_middle_box .vmiddle').removeClass('voff');
+                }else{
+                    $(this).children().removeClass('active');
+                    $('.comment_show_hide_box').slideUp();
+                    $('.view_middle_box .vmiddle').addClass('voff');
+                }
+            }
+        });
+
+		/* 스타일 레이어 뷰 댓글 열기,닫기 버튼 */
+		$('.style_view_wrap .comment_top .style_comment_sh').on({
+			'click':function(){
+				var
+                    style_comment_show_hide_box = $(this).parent().siblings();
+
+				if(style_comment_show_hide_box.css('display') =='none'){
+					$(this).removeClass('active');
+					style_comment_show_hide_box.slideDown();
+					$('.view_middle_box .vmiddle').removeClass('voff');
+				}else{
+					$(this).addClass('active');
+					style_comment_show_hide_box.slideUp();
+					$('.view_middle_box .vmiddle').addClass('voff');
+				}
+			}
+		});
+
+        /* 셀러토픽 글쓰기 메뉴 */
+        $('.btn_seller_write .btn_seller_write_box').on({
+            'click':function(){
+			
+                                WIZU_COMMON.loginCheck();
+                
+                if($('.btn_seller_menu').css('display') =='none'){
+                    $('.btn_seller_menu').fadeIn('fast');
+                    $('.btn_seller_write_wrap').show();
+                    $('.btn_seller_write_wrap').click(function(e){
+                        $('.btn_seller_menu').stop(true,true).fadeOut('fast');
+                        e.preventDefault();
+                        $(this).hide();
+                    });
+                }else {
+                    $('.btn_seller_menu').stop(true,true).fadeOut('fast');
+                }
+            }
+        });
+
+        /* 셀러토픽 올리기 내리기 버튼 */
+        $('.btn_up, .btn_down').on({
+            'click':function(){
+                            }
+        });
+
+        /* 셀러토픽 올리기 내리기 오버시 레이어 */
+        $('.btn_up, .btn_down').on({
+            'mouseenter':function(){
+                $(this).find('.up_down_layer').stop(true,true).fadeIn('fast');
+            },
+            'mouseleave':function(){
+                $(this).find('.up_down_layer').stop(true,true).fadeOut('fast');
+            },
+        });
+
+        /* 셀러토픽 스크랩 버튼 */
+        $('.list_scrap').on({
+            'click':function(){
+                            }
+        });
+
+        /* 셀러토픽 글쓰기 탭 */
+        $('.selpic_layer_menu li').on({
+            'click':function(){
+                // 탭 타입 설정
+                var
+                    tabType = $(this).attr("class"), // 탭 선택 타입.
+                    boardType = $("#boardType").val().replace("write","text"); // 게시글 타입
+
+                tabType = tabType.split("_")[0];
+                $("#tabType").val(tabType);
+
+                // 게시글 수정시 게시글 타입 외 탭버튼 이동 방지
+                if(boardType){
+                    if(tabType != boardType){
+                        return;
+                    }
+                }
+
+                $('.selpic_layer_menu li h4').removeClass('active');
+                $(this).children().addClass('active');
+                $('.write_cont').hide();
+                $('.selpic_write_wrap .tab > .write_cont').eq($(this).index()).show();
+            }
+        });
+        /* 셀러토픽 투표 선택 */
+        $('.voting_box .vot_wrap').on({
+            'click':function(){
+                $(this).addClass('on').parent().siblings().children().removeClass('on');
+            }
+        });
+        /* 이미지 크게보기 버튼 */
+        $('.btn_zoom').on({
+            'click':function(){
+                event.stopPropagation();
+            }
+        });
+
+		//서비스 뷰 댓글 문자열 체크
+		$('.byteLimit').on({
+            'keyup':function(){
+				var
+                    thisObject = $(this),
+				    limit = thisObject.attr("limitbyte"), //제한byte를 가져온다.
+				    str = thisObject.val(),
+				    strLength = 0,
+				    strTitle = "",
+				    strPiece = "",
+				    check = false,
+				    strLengthnum = strLength;
+				
+				for (i = 0; i < str.length; i++){
+					var
+                        code = str.charCodeAt(i),
+					    ch = str.substr(i,1).toUpperCase();
+					//체크 하는 문자를 저장
+					strPiece = str.substr(i,1);
+					code = parseInt(code);
+					 
+					if ((ch < "0" || ch > "9") && (ch < "A" || ch > "Z") && ((code > 255) || (code < 0))){
+						strLength = strLength + 3; //UTF-8 3byte 로 계산
+					}else{
+						strLength = strLength + 1;
+					}
+					 
+					if(strLength>limit){ //제한 길이 확인
+						check = true;
+						break;
+					}else{
+						strTitle = strTitle+strPiece; //제한길이 보다 작으면 자른 문자를 붙여준다.
+					}
+				}
+				thisObject.parent().parent().find('.word_num span').html(strLength);
+				
+				if(check){
+					alert(limit+"byte 초과된 문자는 잘려서 입력 됩니다.");
+					thisObject.parent().parent().find('.word_num span').html(limit);
+				}
+				thisObject.val(strTitle);
+			}
+		});
+
+		/* 스타일 메인 아이템 오버 */
+		$("body").delegate('.grid-item',{
+			'mouseenter':function(){
+				var
+                    item_height = $(this).height(),
+				    cal_height = item_height-4;
+				
+				$(this).find('.hover_item_sec').show(150);
+				$(this).find('.grid_bg').css('height',cal_height);
+				$(this).find('.btn_view').css('height',cal_height);
+				$(this).find('.btn_view span').css('height',cal_height);
+			},
+			'mouseleave':function(){
+				$(this).find('.hover_item_sec').hide(150);
+			}
+		});
+
+		/* 스타일 메인 아이템 좋아요 버튼 */
+        $("body").delegate('.btn_like_it, .btn_view_sec .btn_zzim',{
+			'click':function(e){
+				e.stopPropagation();
+                			}
+		});
+
+        // 스타일 글쓰기
+        $('#btn_style_write').on({
+            'click':function(e){
+                e.stopPropagation();
+                                $(".file_input_textbox").removeClass("upload_warning");
+
+            }
+        });
+
+		
+		/* 질문과답변 스크립트 *******************************************************************/
+		/* 질문과 답변 탭 */
+		$('.qna_list_menu li').on({
+			'click':function(){
+				$('.qna_list_menu li').removeClass('active');
+				$(this).addClass('active');
+
+//				$('.qna_list').hide();
+//				$('.qna_list_sec > .qna_list').eq($(this).index()).show();
+			}
+		});
+
+		/* 질문과 답변 뷰 좋아요 버튼 */
+		$('li.q_like').on({
+			'click':function(){
+                			}
+		});
+
+		/* 질문과 답변 정보레이어 */
+		$('.question_btn li:first-child, .answer_btn li.q_like').on({
+			'mouseenter':function(){
+				$(this).parent().siblings('.like_layer').stop(true,true).fadeIn('fast');
+			},
+			'mouseleave':function(){
+				$(this).parent().siblings('.like_layer').stop(true,true).fadeOut('fast');
+			}
+		});
+
+		$('.answer_btn li.q_comt').on({
+			'mouseenter':function(){
+				$(this).parent().siblings('.comment_layer').stop(true,true).fadeIn('fast');
+			},
+			'mouseleave':function(){
+				$(this).parent().siblings('.comment_layer').stop(true,true).fadeOut('fast');
+			}
+		});
+
+		/* 질문과 답변 뷰 버튼 */
+		$('.btn_answer').on({
+			'click':function(){
+                if( WIZU_COMMON.loginCheck() === false ){
+                    return;
+                }
+
+				if($('.answer_write_box').css('display') == 'none'){
+					$('#answer_reply').slideDown('fast');
+					$(this).children().addClass('change');
+					$(this).children().text('답변취소');
+				}else{
+					$('#answer_reply').slideUp('fast');
+					$(this).children().removeClass('change');
+					$(this).children().text('답변하기');
+				}
+			}
+		});
+
+		/*$('.btn_answer_cancel').on({
+			'click':function(){
+				$('#answer_reply').slideUp('fast');
+			}
+		});*/
+
+		/* 질문과 답변 뷰 대답하기 열기/닫기 */
+		$('.answer_btn li.q_comt').on({
+			'click':function(){
+				var this_comment = $(this).parent().parent().siblings('.answer_con_box .view_middle_box');
+				if(this_comment.css('display') =='none'){
+					this_comment.slideDown();
+				}else{
+					this_comment.slideUp();
+				}
+			}
+		});
+
+		/* 창업레시피 스크립트 *******************************************************************/
+		/* 창업레시피 좋아요 버튼 */
+		$('.btn_like').on({
+			'click':function(e){
+				e.stopPropagation();
+				if(!$(this).hasClass('active')) $(this).addClass('active');
+				else $(this).removeClass('active');
+			}
+		});
+
+		/* 창업레시피 리스트,뷰 공유 버튼 */
+		$('.tip_share_box').find('.tit').on({
+			'click':function(){
+				if($(this).parent().find('.share_list').css('display') == 'none'){
+					$(this).parent().find('.share_list').stop(true,true).fadeIn('fast');
+					$(this).find('a').addClass('active');
+					$('.share_box_wrap').show();
+					$('.share_box_wrap').click(function(e){
+						$('.share_list').stop(true,true).fadeOut('fast');
+						e.preventDefault();
+						$(this).hide();
+						$('.share_box').find('.tit').find('a').removeClass('active');
+					});
+				}else{
+					$(this).parent().find('.share_list').stop(true,true).fadeOut('fast');
+					$(this).find('a').removeClass('active');
+				}
+			}
+		});
+
+
+		/* 창업레시피 뷰 추천해요 버튼 */
+		$('.view_like_zone a').on({
+			'click':function(){
+                			}
+		});
+
+		/* 창업레시피 뷰 추천해요 레이어 버튼 */
+		 $('.view_like_zone a').on({
+			'mouseenter':function(){
+				$(this).siblings('.like_layer').stop(true,true).fadeIn('fast');
+			},
+			'mouseleave':function(){
+				$(this).siblings('.like_layer').stop(true,true).fadeOut('fast');
+			}
+		});
+
+		 /* 창업레시피 탭 */
+		$('.left_menu_box li').on({
+			'click':function(e){
+				//e.preventDefault();
+				$('.left_menu_box li').removeClass('active');
+				$('.right_menu_box li').removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+
+		 /* 창업레시피 추가탭 */
+		$('.right_menu_box li').on({
+			'click':function(e){
+				//e.preventDefault();
+				$('.right_menu_box li').removeClass('active');
+				$('.left_menu_box li').removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+
+
+		/* 리뉴얼 기타 스크립트 *********************************************************/
+		/* 질문과 답변 탭 */
+		$('.mypage_list_menu li').on({
+			'click':function(){
+				// $('.mypage_list_menu li').removeClass('active');
+				// $(this).addClass('active');
+                //
+				// $('.mypage_zone').hide();
+				// $('.mypage_list_sec > .mypage_zone').eq($(this).index()).show();
+			}
+		});
+
+		/* 이용약관 탭 */
+		$('.agreement_middle_box li').on({
+			'click':function(){
+				$('.agreement_middle_box li').removeClass('active');
+				$(this).addClass('active');
+
+				$('.agreement_zone').hide();
+				$('.agreement_wrap > .agreement_zone').eq($(this).index()).show();
+			}
+		});
+
+		/* 교육정보 비용 탭 */
+		$('.cost_zone li').on({
+			'click':function(){
+				$('.cost_zone li').removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+
+		/* 교육정보 지역 탭 */
+		$('.region_zone td').on({
+			'click':function(){
+				$('.region_zone td').removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+
+		/* 메인 스크립트 *********************************************************/
+		/* 로그인 정보 */
+		$('.member_login .member_nick').on({
+			'click':function(){
+				$('.member_login_layer').toggle();
+			}
+		});
+
+		/* 창업레시피 뷰 페이지 상단 메뉴 */
+		$(window).scroll(function() {
+			if($(this).scrollTop() > 192){
+				$('.tip_gnb_fixed_box').fadeIn('fast');		
+			}else{
+				$('.tip_gnb_fixed_box').fadeOut('fast');
+			}
+		});
+
+		/* 창업레시피 뷰 페이지 상단 메뉴 좋아요 버튼 */
+		$('.snb_list li.like').on({
+			'click':function(){
+                			}
+		});
+
+		/* 창업레시피 뷰 페이지 상단 메뉴 공유하기 버튼 */
+		$('.snb_list').find('.tit').on({
+			'click':function(){
+				if($(this).parent().find('.share_list').css('display') == 'none'){
+					$(this).parent().find('.share_list').stop(true,true).fadeIn('fast');
+					// $(this).find('a').addClass('active');
+				}else{
+					$(this).parent().find('.share_list').fadeOut('fast');
+					// $(this).find('a').removeClass('active');
+				}
+			}
+		});
+
+		/* 창업레시피 뷰 페이지 상단 메뉴 댓글 위치로 가기 */
+		$('.snb_list li.comment').on({
+			'click':function(){
+				var offset = $('.view_middle_box').offset();
+				$('html, body').animate({scrollTop : offset.top - 70}, 400);	
+			}
+		});
+
+		/* 메인 이벤트 팝업 171107 */
+		$('.event_banner_box .event_banner_close').on({
+			'click':function(){
+			    var chkBtnYn = $(".event_txt_zone input").is(":checked");
+			    if(chkBtnYn === true){
+                    WIZU_COMMON.util.cookies.setCookie("wizu_popup","y",1);
+                }
+				$('.event_banner_box').hide();
+			}
+		});
+
+    });
+</script>
+
+    <!-- 공통함수 -->
+    <script>
+    // 위쥬 공통 스크립트 정의.
+    $(function(){
+        "use strict";
+        var WIZU_COMMON = {
+            init : function(){
+                this.addEventListener();
+            },
+            util : {
+                fileExtCheck : function (fileType) {
+                    if(fileType) {
+                        switch(fileType){
+                            case "image/jpg" :
+                            case "image/jpeg" :
+                            case "image/gif" :
+                            case "image/png" :
+                            case "image/bmp" :
+                                return true;
+                                break;
+                        }
+                    }
+                    return false;
+                },
+                strip_tags : function(input, allowed) {
+                    // 태그 제거
+                    allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
+                    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+                        commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+                    return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+                        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+                    });
+                },
+                htmlentities : {
+                    encode : function(str) {
+                        var buf = [];
+
+                        for (var i=str.length-1;i>=0;i--) {
+                            buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+                        }
+                        return buf.join('');
+                    },
+                    decode : function(str) {
+                        return str.replace(/&#(\d+);/g, function(match, dec) {
+                            return String.fromCharCode(dec);
+                        });
+                    }
+                },
+                cookies : {
+                    setCookie : function(cname, cvalue, exdays) {
+                        var d = new Date();
+                        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                        var expires = "expires="+d.toUTCString();
+                        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                    },
+                    getCookie : function(cname) {
+                        var name = cname + "=";
+                        var ca = document.cookie.split(';');
+                        for(var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') {
+                                c = c.substring(1);
+                            }
+                            if (c.indexOf(name) == 0) {
+                                return c.substring(name.length, c.length);
+                            }
+                        }
+                        return "";
+                    },
+                    delCookie : function(name) {
+                        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                    }
+                },
+                strValidCheck : function(search_txt){
+                    //  특수문자 제거
+                    var
+                        pattern_tag = /(<([^>]+)>)/ig,
+                        pattern_str = /[^ㄱ-ㅎ가-힣A-za-z0-9]/ig;
+
+
+                    search_txt =  search_txt.replace(pattern_tag, "");
+                    search_txt =  search_txt.replace(pattern_str, "");
+                    return search_txt;
+                }
+            },
+            validate : {
+                email : function(email){
+                    var atpos = email.indexOf("@");
+                    var dotpos = email.lastIndexOf(".");
+                    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+                        alert("이메일 형식이 잘못 입력 되었습니다.");
+                        return false;
+                    }
+                }
+            },
+            share : {
+                // SNS 공유
+                tw : function() {
+                    var data = this.getMeta();
+                    window.open('http://twitter.com/intent/tweet?text=' + encodeURIComponent(data.title) + '&url=' + encodeURIComponent(data.url),'twitter','width=500,height=500');
+                },
+                fb : function(){
+                    var data = this.getMeta();
+                    FB.ui(
+                        {
+                            method: 'share',
+                            href: data.url
+                        }, function(response){});
+                },
+                ks : function(){
+                    var data = this.getMeta();
+                    Kakao.Story.share({
+                        url: data.url,
+                        text: data.title
+                    });
+                },
+                getMeta : function(){
+                    var metaObj = new Object();
+                    metaObj.title = $('meta[property="og:title"]').attr('content');
+                    metaObj.url = $('meta[property="og:url"]').attr('content');
+                    metaObj.desc = $('meta[property="og:description"]').attr('content');
+                    metaObj.site = $('meta[property="og:site_name"]').attr('content');
+                    metaObj.image = $('meta[property="og:image"]').attr('content');
+                    return metaObj;
+                }
+            },
+            loginCheck : function(){
+                // 로그인 체크
+                                    location.href="/global/login.php";
+                    // WIZU_LAYER.render.login();
+                    return false;
+                                return;
+            },
+            promotion: {
+                cnt : '',
+                nowCnt : function(){
+                    var data = [],
+                        returnFlag = false;
+                    data.snsKey      = '';
+                    data.regType     = '';
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/ajax/common/ajax_promotion_cnt.php",
+                        data: data,
+                        async: false,
+                        success: function( cmtData ){
+                            if(cmtData != "noData"){
+                                var cmtObj = jQuery.parseJSON( cmtData );
+                                // 프로모션 추가 참여된 여부 판단
+                                if( WIZU_COMMON.promotion.cnt != cmtObj.promotionCnt ){
+                                    returnFlag = true;
+                                }else{
+                                    returnFlag = false;
+                                }
+                            }
+                        }
+                    });
+                    return returnFlag;
+                }
+            },
+            addEventListener : function(){
+
+                // 페이스북 공유
+                $(".sns_fb").on('click',function(){
+                    WIZU_COMMON.share.fb();
+                });
+                // 트위터 공유
+                $(".sns_tw").on('click',function(){
+                    WIZU_COMMON.share.tw();
+                });
+                // 카카오스토리 공유
+                $(".sns_ks").on('click',function(){
+                    WIZU_COMMON.share.ks();
+                });
+                // 주소복사
+                $(".clipboard").on('click',function(){
+                    new Clipboard(".clipboard");
+                    alert('복사 되었습니다.');
+                });
+
+                // 댓글 권한체크
+                $("body").on("click","#call_login_layer, .reply_text textarea",WIZU_COMMON.loginCheck);
+                // 작가회원
+                $("#authorMember").click(function(){
+                                            WIZU_COMMON.loginCheck();
+                                    });
+            }
+        }
+        WIZU_COMMON.init();
+        window.WIZU_COMMON = WIZU_COMMON;
+    })
+</script>
+    <!-- 레이어 관련 함수 -->
+    <script>
+    // 신규 위쥬 레이어 관련 스크립트 정의
+    $(function(){
+        "use strict";
+        var WIZU_LAYER = {
+            init : function(){
+                this.addEventLisenter();
+                this.checkLetterStatus();
+                this.openLetter();
+            },
+            common : {
+                // 레이어 팝업
+                layer_pop_open_close : function(){
+                    if($('.layer_pop').css('display') == 'none') {
+                        $('.layer_pop').fadeIn('fast');
+                        $('body').css({
+                            'overflow':'hidden',
+                            'margin-right':'17px',
+                        });
+						$('.btn_top_box').css('margin-right','-592px');
+                        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                        if (!isMobile) $('#header_warp, .top_middle_box').css('left','-8.5px');
+                        $('.btn_write').css('margin-right','-491.5px');
+                        $('.btn_seller_write').css('margin-right','-491.5px');
+                        $('.layer_pop .layer_layout_box .bg').css('opacity','0.01');
+                        $('.layer_pop .layer_layout_box').scrollTop(0);
+                        WIZU_LAYER.common.layer_position();
+                    }else{
+                        $('.layer_pop').fadeOut('fast',function(){
+							$('.btn_top_box').css('margin-right','-600px');
+                            $('body, #header_warp, .top_middle_box').removeAttr('style');
+                            $('.btn_write').css('margin-right','-500px');
+                            $('.btn_seller_write').css('margin-right','-500px');
+						
+                        });
+                    }
+                },
+                // window 창 사이즈보다 작을시 위치값 계산
+                layer_position : function(){
+                    var
+                        layer_content_height = $('.layer_pop .layer_content').innerHeight(),
+                        layer_content_width = $('.layer_pop .layer_content').innerWidth(),
+                        layer_pop_height = $(window).innerHeight(),
+                        layer_pop_content_top,
+                        layer_pop_content_margin;
+
+                    if(layer_content_height < layer_pop_height) {
+                        layer_pop_content_top = '50%';
+                        layer_pop_content_margin = layer_content_height/2;
+                        $('.layer_pop .layer_content_box').css('padding','0');
+                    } else {
+                        layer_pop_content_top = '0';
+                        layer_pop_content_margin = '0';
+                        $('.layer_pop .layer_content_box').css('padding','50px 0');
+                    }
+                    $('.layer_pop .layer_container_box').css({
+                        'top': layer_pop_content_top,
+                        'marginTop': '-'+layer_pop_content_margin+'px',
+                        'marginLeft':'-'+(layer_content_width/2)+'px'
+                    });
+                },
+                layer_set_template : function(layer_type){
+                    if(!layer_type){
+                        return;
+                    }
+                    layer_type = layer_type.replace("sellerTopic","sellertopic");
+                    $(".layer_template").hide();
+                    $("#template_"+layer_type).show();
+                }
+            },
+            render : {
+                // 로그인 레이어 오픈
+                login : function(){
+                    WIZU_LAYER.common.layer_set_template("login");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                // 닉네임 레이어 오픈
+                nickName : function(){
+                    WIZU_LAYER.common.layer_set_template("nickName");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                // 위쥬레터
+                wizuLetter : function(){
+                    /**
+                     * # letterStatus : 위쥬레터 신청 단계
+                     * @ login : 로그인한 상태
+                     * @ request : 위쥬레터 메일 발송 상태
+                     */
+                    var letterStatus = WIZU_COMMON.util.cookies.getCookie('letter_status');
+                    if( letterStatus == "request"){
+                        $("#letterStep1").hide();
+                        $("#letterStep3").show();
+                    }else{
+                        var isMember = '';
+                        if( isMember ){
+                            var isNewsLetterGetMail = '';
+                            if( isNewsLetterGetMail == "y"){
+                                alert('회원님은 현재 위쥬레터 구독중 입니다.');
+                                WIZU_COMMON.util.cookies.delCookie('letter_status');
+                                return;
+                            }else{
+                                WIZU_COMMON.util.cookies.setCookie('letter_status','login',1);
+                                $("#letterStep1").hide();
+                                $("#letterStep2").show();
+                            }
+                        }
+                    }
+                    WIZU_LAYER.common.layer_set_template("wizuLetter");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                styleView : function() {
+                    WIZU_LAYER.common.layer_set_template("styleView");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                styleRegist : function() {
+                    WIZU_LAYER.common.layer_set_template("styleRegist");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                qnaRegist : function() {
+                    WIZU_LAYER.common.layer_set_template("qnaRegist");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                qnaModify : function() {
+                    WIZU_LAYER.common.layer_set_template("qnaModify");
+                    WIZU_LAYER.common.layer_pop_open_close();
+                },
+                promotion : {
+                    regist: function(){
+                        WIZU_LAYER.common.layer_set_template("promotion_regist");
+                        WIZU_LAYER.common.layer_pop_open_close();
+                    },
+                    confirm: function(){
+                        WIZU_LAYER.common.layer_set_template("promotion_confirm");
+                        WIZU_LAYER.common.layer_pop_open_close();
+                    },
+                    end: function(){
+                        WIZU_LAYER.common.layer_set_template("promotion_end");
+                        WIZU_LAYER.common.layer_pop_open_close();
+                    }
+                }
+            },
+            openLetter : function(){
+                var letterMode = '';
+
+                if(letterMode == "op"){
+                    WIZU_COMMON.util.cookies.delCookie("letter_status");
+                    WIZU_LAYER.render.wizuLetter();
+                }
+            },
+            checkLetterStatus : function(){
+                var
+                    letterStatus = WIZU_COMMON.util.cookies.getCookie("letter_status"),
+                    path = window.location.pathname;
+                if(letterStatus != "" && path !="/global/agreement.php"){
+                    WIZU_LAYER.render.wizuLetter();
+                }
+            },
+            addEventLisenter : function(){
+                /** 공통 영역 */
+                //리사이즈시 해당 함수 호출
+                $(window).resize(WIZU_LAYER.common.layer_position);
+
+                //스크롤 이동시 팝업 해제영역이 따라다니도록 이동
+                $('.layer_pop .layer_layout_box').scroll(function(){
+                    var layer_top = $(this).scrollTop();
+                    var layer_content = $('.layer_content').innerHeight();
+                    var layer_bg_position =  layer_content - (layer_content - layer_top);
+                    $('.layer_layout_box .bg').css('top',layer_bg_position);
+                });
+
+                // 클릭 이벤트
+                $('.layer_pop .bg, .layer_pop .btn_x, .btn_layer_close').on('click',WIZU_LAYER.common.layer_pop_open_close);
+
+                // 로그인, 회원가입
+                $("#layer_login, #layer_regist, .layer_login").on('click',function() {
+                    /* 레이어 템플릿 설정 */
+                    var mode = $(this).attr("id").split("_")[1];
+                    if( mode == "login" ){
+                        location.href="/global/login.php";
+                    }else if( mode == "regist" ){
+                        location.href="/global/login.php?m=regist";
+                    }
+                });
+            }
+        }
+        WIZU_LAYER.init();
+        window.WIZU_LAYER = WIZU_LAYER;
+
+        // 휴면계정 -> 회원 전환처리값 체크.
+        var isDormant = "";
+        if(isDormant){
+            if(isDormant = "success"){
+                alert("반갑습니다! 휴면회원 처리가 해지되었습니다.");
+            }else if(isDormant = "fail"){
+                alert('휴면회원 해제 처리에 실패 하였습니다. 관리자에 문의해주세요.');
+            }
+                    }
+    })
+</script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+</head>
+<body>
+
+<script>
+    // 검색 유효값 체크.
+    function searchFormvalidate(){
+        var search_txt = $(".top_search .s_input input").val();
+        if(!search_txt){
+            alert('검색어를 입력해주세요.');
+            return false;
+        }
+        // XSS 대비 검색어 수정 (스크립트 제외)
+        search_txt = WIZU_COMMON.util.strValidCheck(search_txt);
+        $(".top_search .s_input input").val(search_txt);
+    }
+
+    $(function(){
+        $(".btn_scrap_box a").on("click", function(){
+            var isLogin = "" || "";
+            if(isLogin != "y"){
+                WIZU_COMMON.loginCheck();
+            }else{
+                location.href = "/sellertopic/sellertopic_myscrap.php";
+            }
+        });
+    })
+
+    $(function(){
+        "use strict";
+        var WIZU_HEADER = {
+            init: function(){
+                this.addEventListener();
+            },
+            validate: {
+                totalSearch: function(){
+                    var search_txt = $(".top_search .s_input input").val();
+                    if(!search_txt){
+                        alert('검색어를 입력해주세요.');
+                        return false;
+                    }
+                    document.getElementById('totalSearchForm').submit();
+                }
+            },
+            addEventListener: function(){
+                $("#totalSearch").on("click", WIZU_HEADER.validate.totalSearch);
+            }
+        }
+        WIZU_HEADER.init();
+        window.WIZU_HEADER = WIZU_HEADER;
+    })
+</script>
+
+
+<script src="/_static/js/wizu.conf.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script>
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1373684755997433',
+            cookie     : true,  // enable cookies to allow the server to access
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use version 2.9
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    (function($) {
+        "use strict";
+
+        var sns_login = {};
+
+        sns_login.facebook = {
+            "init" : function(){
+                // 페이스북 SDK 동적 로딩.
+                var head = document.getElementsByTagName('head')[0],
+                    facebookScript = document.createElement('script');
+                facebookScript.type = 'text/javascript';
+                facebookScript.src = '//connect.facebook.net/ko_KR/sdk.js';
+
+                head.appendChild(facebookScript);
+
+                facebookScript.onload = function(){
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId   : '1373684755997433',
+                            // enable cookies to allow the server to access
+                            cookie  : true,
+                            // parse social plugins on this page
+                            xfbml   : true,
+                            // use version 2.8
+                            version : 'v2.9'
+                        });
+                    };
+                }
+            },
+            "login" : function(){
+
+                var _this = this,
+                    sdk_url = "/me?fields=picture.width(100).height(100).type(square)"
+                        + ",id,name,email,permissions";
+                _this.init();
+
+                var FB_Init = setInterval(function(){
+                    try{
+                        if(typeof Object(FB) === "object"){
+                            clearInterval(FB_Init);
+                            FB.login(
+                                function(response) {
+                                    if (response.authResponse) {
+                                        FB.api(sdk_url, function(response) {
+                                            var data = {};
+                                            data.snsKey     = response.id;
+                                            data.device     = sns_login.checkDevice();
+                                            data.regType    = "facebook";
+                                            data.email      = response.email;
+                                            data.name       = response.name;
+                                            data.thumb_image = response.picture.data.url;
+
+                                            // 등록회원 여부 체크
+                                            sns_login.checkMember(data);
+                                            layerClose();
+                                        });
+                                    }
+                                },
+                                {scope:'email'}
+                            );
+                            FB.getLoginStatus(function (response) {
+                                _this.facebook_api_flag = true;
+                            });
+                        }
+                    }catch(e){}
+                }, 500);
+
+                // 페이스북 API 초기화 진행 시간 후 API 정상작동 여부 체크.
+                setTimeout(function (){
+                    if( _this.facebook_api_flag === false ){
+                        sns_login.social_api_validate("facebook");
+                    }
+                },5000);
+            }
+        }
+
+        sns_login.kakao = {
+            "init" : function(){
+                // 카카오 SDK 동적 로딩.
+                var
+                    head = document.getElementsByTagName('head')[0],
+                    kakaoScript = document.createElement('script');
+                    kakaoScript.type = 'text/javascript';
+                    kakaoScript.src= '//developers.kakao.com/sdk/js/kakao.min.js';
+
+                    head.appendChild(kakaoScript);
+
+                    kakaoScript.onload = function(){
+                        Kakao.init("2a46788fba91ac9aeb0ca483ae7ed41f");
+                    }
+            },
+            "login" : function(){
+                var _this = this;
+                _this.init();
+
+                // 카카오 SDK 모듈 로딩 후 실행.
+                var kakao_Init = setInterval(function(){
+                    try{
+                        if(typeof Object(Kakao) === "object"){
+                            clearInterval(kakao_Init);
+
+                            Kakao.Auth.login({
+                                success: function(authObj) {
+
+                                    var auth_rs = $.parseJSON( JSON.stringify(authObj) );
+
+                                    Kakao.API.request({
+                                        url: '/v1/user/me',
+                                        success: function(res) {
+                                            var rs = $.parseJSON( JSON.stringify(res) );
+                                            var data = {};
+                                            data.snsKey = rs.id;
+                                            data.device = sns_login.checkDevice();
+                                            data.regType = "kakao";
+                                            if (typeof rs.properties != 'undefined') {
+                                                data.nickNm = rs.properties.nickname;
+                                                data.profile_image = rs.properties.profile_image;
+                                                data.thumb_image = rs.properties.thumbnail_image;
+                                            }
+                                            data.access_token = auth_rs.access_token;
+
+                                            // 등록회원 여부 체크
+                                            sns_login.checkMember(data);
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }catch(e){}
+                }, 500);
+            }
+        }
+
+        sns_login.naver = {
+            "init" : function(){},
+            "login" : function(){
+                var
+                    client_id = "wqlSy1YKgNKsx8n88pA_",
+                    state = "61404b6c0d512c61230ce161d493e78f",
+                    redirect_uri = "http://wizu.co.kr/social_auth/naver_auth.php",
+                    url = "https://nid.naver.com/oauth2.0/authorize?"
+                        + "response_type=token&client_id="+client_id
+                        + "&redirect_uri="+redirect_uri
+                        + "&state="+state;
+                window.open(url,"login","width=500 height=500");
+                sns_login.social_api_validate("naver");
+            }
+        }
+
+        sns_login.payco = {
+            "init" : function(){},
+            "login" : function(){
+                var
+                    rtnUrl = "8d920d972d774c9db179b3fe21219fca",
+                    client_id = "3RDbOVy62ElWI_7UlI6R",
+                    redirect_uri = "http%3A%2F%2Fwizu.co.kr/social_auth/social_auth.php",
+                    url = "https://id.payco.com/oauth2.0/authorize"
+                        + "?response_type=code&client_id="+client_id
+                        + "&serviceProviderCode=FRIENDS"
+                        + "&redirect_uri="+redirect_uri+"?rtnUrl="+rtnUrl;
+                window.open(url,"login","width=500 height=500");
+                sns_login.social_api_validate("payco");
+            }
+        }
+
+        sns_login.logout = function(){
+            var regType = "naver";
+            if(regType == "kakao"){
+                Kakao.Auth.logout(function() {
+                    this.logout_process(regType);
+                });
+            }else{
+                this.logout_process(regType);
+            }
+        }
+
+        sns_login.logout_process = function(regType){
+            // 위쥬 세션 데이터 삭제 처리.
+            var url = "../social_auth/social_logout.php";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {regType:regType},
+                success: function (rs) {
+                    if(rs.indexOf("logout")>-1){
+                        location.replace('/');
+                    }
+                }
+            });
+        }
+
+        sns_login.social_api_validate = function(regType){
+            // 전달하는 타입의 앱키 유효성 체크
+            var url = "http://wizu.co.kr/social_auth/social_api_validate.php";
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {"snsType" : regType},
+                success: function(data){
+                    //console.log(data);
+                }
+            });
+        }
+
+        sns_login.checkDevice = function(){
+            // 접속 디바이스 PC,Mobile 구분
+            var
+                filter = "win16|win32|win64|mac",
+                device = "";
+
+            if (navigator.platform) {
+                if (0 > filter.indexOf(navigator.platform.toLowerCase())) {
+                    device = "mobile";
+                } else {
+                    device = "pc";
+                }
+            }
+            return device;
+        }
+
+        sns_login.checkMember = function(snsData){
+
+//            var ip = "<?//=$_SERVER['$_SERVER["REMOTE_ADDR"]']?>//";
+//            if(ip == "61.36.175.165"){
+//                console.log(data); return false;
+//            }
+
+            //return;
+            // 회원 중복체크
+
+            if(snsData) {
+                $.ajax({
+                    type: "POST",
+                    url: "../ajax/ajax_check_data.php",
+                    data: {snsData : JSON.stringify(snsData)},
+                    success: function (data) {
+                        var newsLetterCK = getCookie("letter_status") || "";
+
+                        if(newsLetterCK != ""){
+                            if(snsData.regType == "naver"){
+                                window.opener.location.href = "../social_auth/social_auth.php";
+                                self.close();
+                            }else{
+                                location.href = "../social_auth/social_auth.php";
+                            }
+                        }else{
+                            if(data.loginData.rsData.memberYn == "y"){
+                                if(snsData.regType == "naver"){
+                                    window.opener.location.href = "../social_auth/social_auth.php";
+                                    self.close();
+                                }else{
+                                    location.href = "../social_auth/social_auth.php";
+                                }
+                            }else{
+                                if(snsData.regType == "naver"){
+                                    window.opener.location.href = "../join.php";
+                                    self.close();
+                                }else{
+                                    location.href = "../join.php";
+                                }
+                            }
+                        }
+                    },
+                    dataType: "json"
+                });
+            }
+        }
+
+        window.SNS_LOGIN = sns_login;
+    })(jQuery);
+
+</script>
+
+<div id="wrap">
+    <div id="header_warp">
+        <div class="header_snb_wrap">
+            <div class="header_snb">
+                <div class="header_notice_box">
+                    <strong><a href="/global/notice_list.php">공지</a></strong>
+                    <p><a href="/global/notice_view.php?no=3312">위쥬에디터 2기 콘텐츠 모음</a>
+                                            </p>
+                </div>
+                <!-- //header_notice_box -->
+                <div class="header_snb_list">
+                    <ul>
+                        <!-- N:비로그인 일때 -->
+                                                <li><a href="javascript:;" id="layer_login">로그인</a></li>
+                                                <li><a href="/global/ask.php">에디터지원</a></li>
+                        <li class="top_letter"><a href="javascript:WIZU_LAYER.render.wizuLetter();">레터구독</a></li>
+						<li>
+							<span class="btn_search_box"><img src="/_static/image/v2/wizu_main/icon/icon_new_search.png" alt="검색"/></span>
+							<div class="search_box" style="display:none">
+								<span class="btn_search_box_close"><img src="/_static/image/v2/wizu_main/icon/icon_new_search_close.png" alt="검색닫기"/></span>
+								<form name="totalSearchForm" action="/global/search.php" method="get" id="totalSearchForm" onsubmit="return WIZU_HEADER.validate.totalSearch();">
+									<fieldset>
+										<legend>검색폼</legend>
+										<div class="top_search">
+										<span class="s_input">
+											<input type="text" id="" name="q"  placeholder="검색어를 입력해주세요" autocomplete="off" value="">
+										</span>
+											<span class="s_btn"><a href="javascript:;" id="totalSearch"><img src="/_static/image/v2/wizu_main/icon/icon_layer_search.png" alt="검색"></a></span>
+										</div>
+										<!-- //top_search_box -->
+									</fieldset>
+								</form>
+							</div>
+						</li>
+                    </ul>
+                </div>
+                <!-- //header_snb_list -->
+            </div>
+            <!-- //header_snb -->
+        </div>
+        <!-- //header_snb_wrap -->
+
+        <div id="header">
+            <h1><a href="/"><img src="/_static/image/v2/wizu_main/img/img_wizu_logo.png" alt="WIZU" title="WIZU" ></a></h1>
+            <div class="gnb">
+                <ul><!-- N:해당 페이지일 때 이미지명 끝부분에 '_on.jpg'를 넣어줍니다. -->
+                    <li><h2><a href="/sellertopic/sellertopic_main.php?code=110000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu01.jpg" alt="커뮤니티"/></a></h2>
+                                            </li>
+                    <li><h2><a href="/tip/tip_main.php?code=010000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu03.jpg" alt="창업콘텐츠"/></a></h2>
+                        <span>new</span>                    </li>
+					<li><h2><a href="/tip/real_start_main.php?code=010900"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu07.jpg" alt="리얼창업"/></a></h2>
+                        <span>new</span>                    </li>
+					<li><h2><a href="/tip/column_main.php?code=020000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu08.jpg" alt="전문가칼럼"/></a></h2>
+                                            </li>
+                    <li><h2><a href="/collection/collection_main.php?code=080000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu02.jpg" alt="서비스"/></a></h2>
+                                            </li>
+                    <li><h2><a href="/news_edu/edu_main.php?code=040000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu05.jpg" alt="교육모음"/></a></h2>
+                                            </li>
+                    <li><h2><a href="/qna/qna_main.php?code=050000"><img src="/_static/image/v2/wizu_main/img/img_gnb_menu04.jpg" alt="질문요청"/></a></h2>
+                                            </li>
+                </ul>
+            </div>
+            <!-- //gnb -->
+
+        </div>
+        <!-- //header -->
+    </div>
+    <!-- //header_warp -->
+
+<div id="container">
+	<div class="wizu_main_wrap">
+		<div class="main_top">
+			<div class="new_con_box">
+				<h3>새로 올라온글</h3>
+				<div class="new_con_sec first_con">
+					<div class="new_thumb_zone">
+						<span><a href="/tip/tip_view.php?code=800000&no=3584"><img src="/image_view_thumb.php?image=p55xy117ns10vr7.jpg&size=750" alt="새로올라온 글 썸네일"</a></span>
+						<p><a href="/tip/tip_view.php?code=800000&no=3584">[3월은 창업의 달] 창업다이어리 증정 이벤트</a></p>
+					</div>
+					<div class="new_con_list">
+						<ul>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010900"><strong>리얼창업</strong></a>
+									<p><a href="/tip/tip_view.php?code=010900&no=3618" target="">3개월만에 목표 매출액 달성한 비법!</a><span>[0]</span></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010600"><strong>마케팅</strong></a>
+									<p><a href="/tip/tip_view.php?code=010600&no=3622" target="">페이스북 팬페이지 거품을 빼고, 진짜 팬을 늘리기 위한 6가지 TIP</a><span>[0]</span></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010600"><strong>마케팅</strong></a>
+									<p><a href="/tip/tip_view.php?code=010600&no=3621" target="">진화하는 인스타그램에 대처하는 자세</a><span>[1]</span></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010900"><strong>리얼창업</strong></a>
+									<p><a href="/tip/tip_view.php?code=010900&no=3615" target="">실무 하다보면 지나치기 쉬운 페북 광고 용어 - 광고 캠페인(1)</a><span>[0]</span></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010600"><strong>마케팅</strong></a>
+									<p><a href="/tip/tip_view.php?code=010600&no=3620" target="">왜 커머스 서비스는 동영상 컨텐츠에 관심을 보일까</a><span>[0]</span></p>
+								</li>
+                            						</ul>
+					</div>
+					<!-- //new_con_list -->
+				</div>
+				<!-- //new_con_sec -->
+
+				<div class="new_con_sec">
+					<div class="new_thumb_zone">
+						<span><a href="/tip/tip_view.php?code=010600&no=3621"><img src="/image_view_thumb.php?image=p5xmi55emek1uli.jpg&size=750" alt="새로올라온 글 썸네일"</a></span>
+						<p><a href="/tip/tip_view.php?code=010600&no=3621">진화하는 인스타그램에 대처하는 자세</a></p>
+					</div>
+					<div class="new_con_list">
+						<ul>
+                            								<li>
+									<a href="/tip/tip_main.php?code=800000"><strong>이벤트</strong></a>
+									<p><a href="/tip/tip_view.php?code=800000&no=3584&cmtNo=5433">신랑과 창업 준비하는데 뭐부터 해야할지 막막하네여
+둘다 십년동안 회사에서 일하다 처음 창업을 하려니 기대감도 있지만...</a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=800000"><strong>이벤트</strong></a>
+									<p><a href="/tip/tip_view.php?code=800000&no=3584&cmtNo=5432">저번달부터 온라인타로샵을 운영중입니다 :) 신청합니다</a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=800000"><strong>이벤트</strong></a>
+									<p><a href="/tip/tip_view.php?code=800000&no=3584&cmtNo=5430">창업준비에 힘이 될것같습니다 
+꼭 받아보고싶습니다</a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=800000"><strong>이벤트</strong></a>
+									<p><a href="/tip/tip_view.php?code=800000&no=3584&cmtNo=5429">다이어리 신청 합니다. 창업 준비중인데 일정 관리를 위해서 꼭 필요한 다이어리라 생각들어 신청 합니다^^ </a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=800000"><strong>이벤트</strong></a>
+									<p><a href="/tip/tip_view.php?code=800000&no=3584&cmtNo=5428">전 이벤트당첨운이 꽝이라 어차피 안될거...그렇지만 이 귀한건 꼭 갖고싶어요. 어디가면 살 수 있나요?</a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010600"><strong>마케팅</strong></a>
+									<p><a href="/tip/tip_view.php?code=010600&no=3612&cmtNo=5427">네네 도움이되셨다니 기쁘고 반갑습니다 </a></p>
+								</li>
+                            								<li>
+									<a href="/tip/tip_main.php?code=010900"><strong>리얼창업</strong></a>
+									<p><a href="/tip/tip_view.php?code=010900&no=3586&cmtNo=5426">처음 시작할때 누구나 하는 고민인것같아요~~ 도움이 되었다니 기뻐요^^</a></p>
+								</li>
+                            						</ul>
+					</div>
+					<!-- //new_con_list -->
+				</div>
+				<!-- //new_con_sec -->
+
+				<div class="wiuz_banner_box">
+					<span><a href="javascript:WIZU_LAYER.render.wizuLetter();"><img src="/_static/image/v2/wizu_main/banner/banner_wizu.jpg" alt="쇼핑몰창업 및 운영에 관련된 소식을 월 2회 이메일로 보내드립니다. 위쥬레터 신청하기"/></a></span>
+				</div>
+				<!-- //wiuz_banner_box -->
+			</div>
+			<!-- //new_con_box -->
+
+			<div class="with_master_box">
+				<h3>함께하는 전문가</h3>
+				<div class="with_master_list">
+					<ul>
+                        							<li>
+								<span><a href="/tip/tip_search.php?expertNo=17&expertTitle=%EC%9D%B4%ED%9A%A8%EC%A0%95+%ED%8C%80%EC%9E%A5"><img src="/image_view_thumb.php?image=ogf2911ikukg1wiz.jpg&size=258" alt="전문가 사진" style="width:50px;"/></a></span>
+								<diV class="info">
+									<a href="/tip/tip_search.php?expertNo=17&expertTitle=%EC%9D%B4%ED%9A%A8%EC%A0%95+%ED%8C%80%EC%9E%A5"><strong>이효정 팀장</strong></a>
+									<em>파란팬 인스타그램 마케팅</em>
+								</div>
+							</li>
+                        							<li>
+								<span><a href="/tip/tip_search.php?expertNo=2&expertTitle=%EC%84%9C%EC%98%A5%ED%99%94+%EC%9D%B4%EC%82%AC"><img src="/image_view_thumb.php?image=p3ch229nghkg8t.png&size=258" alt="전문가 사진" style="width:50px;"/></a></span>
+								<diV class="info">
+									<a href="/tip/tip_search.php?expertNo=2&expertTitle=%EC%84%9C%EC%98%A5%ED%99%94+%EC%9D%B4%EC%82%AC"><strong>서옥화 이사</strong></a>
+									<em>디자인교과서 이사</em>
+								</div>
+							</li>
+                        							<li>
+								<span><a href="/tip/tip_search.php?expertNo=7&expertTitle=%EC%9C%A4%ED%98%95%EA%B7%BC+%EB%B3%80%EB%A6%AC%EC%82%AC"><img src="/image_view_thumb.php?image=of81lr18w9sw188z.png&size=258" alt="전문가 사진" style="width:50px;"/></a></span>
+								<diV class="info">
+									<a href="/tip/tip_search.php?expertNo=7&expertTitle=%EC%9C%A4%ED%98%95%EA%B7%BC+%EB%B3%80%EB%A6%AC%EC%82%AC"><strong>윤형근 변리사</strong></a>
+									<em>아이피즈국제특허법률사무소</em>
+								</div>
+							</li>
+                        					</ul>
+				</div>
+				<!-- //with_master_list -->
+				<p class="more"><a href="/tip/column_main.php?code=020000"><span>더보기</span>+</a></p>
+				<div class="wiuz_banner_box">
+					<!-- <span><a href="/tip/real_start_main.php?code=010900"><img src="/_static/image/v2/wizu_main/banner/banner_wizu2_171024.png" alt="위쥬콜렉션 쇼핑몰솔루션, 디자인폰트, 택배, 촬영모델 까지 쇼핑몰창업/운영 서비스가 한눈에!"/></a></span> -->
+					<span><a href="https://www.godo.co.kr/promotion/godomall5/VIPinvitation.gd" target="_blank"><img src="/_static/image/v2/wizu_main/banner/banner_main_vip_180308.png" alt="vip 지금 신청하는 누구나 고도몰5 pro 평생무료"/></a></span>
+				</div>
+			</div>
+			<!-- //with_master_box -->
+
+			<div class="recommend_con_box">
+				<h3>추천 콘텐츠</h3>
+				<div class="recommend_con_list">
+					<ul class="bxslider">
+                                                                                                                                                                                                      
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010900&no=3615"><img src="/image_view.php?image=p5vkga55frs1b7u.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>실무 하다보면 지나치기 쉬운 페북 광고 용어 - 광고 캠페인(1)</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010900&no=3615">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p3enawzwscs22ib.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>진민우</em>
+												<p>​
+
+출처 : 페이스북 광고관리자
+​
+페이스북 광고 전성시대, 수 많은 광고주들과 사업자, 마케터들이 이미 피드 안에서 자신의...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=020000&no=3605"><img src="/image_view.php?image=p59suczwksk1ea0.png" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>잘고른 키워드, 1년 매출이 바뀐다 : 5편 - 데이터분석</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=020000&no=3605">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=ogf2911ikukg1wiz.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>이효정 팀장</em>
+												<p>5. 데이터분석 어제는 매출이 잘 나왔는데 오늘은 왜?
+
+ 
+
+마케팅을 진행한다. 특히나 온라인 마케팅을 진행하는 경우 데이터에...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010900&no=3609"><img src="/image_view.php?image=p5tdlemhpow1kt2.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>쇼핑몰 운영에 있어서 개발 x 기획 x 영업 x 마케팅 중에 뭐가 가장 중요할까?</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010900&no=3609">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p325ejpq2kw2073.png') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>나박</em>
+												<p>사실 뭐 특정한 분야가 뛰어난 것 보다 모두가 각자의 역할을 잘 수행해 나가야 잘 되는 것이죠. 너무나 당연한 말입니다.
+
+하지만 저는...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010900&no=3604"><img src="/image_view.php?image=p58i8g1qfu81l3b.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>엄마가 내게 물었다. 너는 왜 힘든 길만 골라서 가니?</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010900&no=3604">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p5xf1zkagzog92.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>이쁘지언</em>
+												<p>안녕하세요! 피넛걸 주인언니 이쁘지언입니다. :-)
+
+지난 번 제가 띄운 편지는 잘 받으셨는지 궁금하네요. 
+
+ 
+
+창업 준비를...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010600&no=3614"><img src="/image_view.php?image=p5oeccsh53c11x3.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>사용성테스트로 알아본 2030모바일 쇼핑 패턴</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010600&no=3614">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p41dl9p9a6kflw.png') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>오픈애즈</em>
+												<p>사용성 테스트(Usability testing)는 실제 사용자가 서비스를 이용하는 과정을 관찰하고, 
+그 과정 속에서 문제점을 찾아내어...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010600&no=3613"><img src="/image_view.php?image=p5kha63ydxc9uo.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>내 고객을 파악하는 3가지 방법</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010600&no=3613">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p41dl9p9a6kflw.png') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>오픈애즈</em>
+												<p>지금은 온라인마케팅 채널들의 홍수가라고 해도 과언이 아닐 정도로 많은 마케팅 채널들이 존재하고 있다. 이렇게 많은 채널들을 가지고 마케팅을...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010600&no=3600"><img src="/image_view.php?image=p59ruucnvf41fi3.jpg" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>소셜미디어 통합운영을 위한 3가지 포인트</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010600&no=3600">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p2oh9cn8oak1ddc.png') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>더피알컨설팅 </em>
+												<p>
+
+요즘 소셜미디어의 위력이 점점 커지면서  기업에서  제2, 제 3의 또 다른 SNS채널을 확장하는 등 더욱 공격적으로 디지털홍보를...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                                                                                                                                            
+                                                                                        
+							<li class="slide">
+								<div class="recommend_zone">
+									<span><a href="/tip/tip_view.php?code=010600&no=3606"><img src="/image_view.php?image=p5ace7f616crsa.png" alt="추천 콘텐츠 이미지"/></a></span>
+									<div class="recommend_layer">
+										<div class="visible_layer">
+											<strong>인터넷쇼핑몰 마케팅 전략 - 입어보고 구매하세요</strong>
+										</div>
+										<div class="hidden_layer" style="visibility:hidden;">
+											<a href="/tip/tip_view.php?code=010600&no=3606">
+												<div class="recommend_profile_img">
+													<!-- <span class="radius_box"><img src="/pub/wizu/img/wizu_talk/bg/icon_radius_box_s40.png" alt="BOX"></span> -->
+													<span class="member_img" style="background:url('/image_view_thumb.php?image=p10jrl1ho7ho1sq6.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+												</div>
+												<em>민대영</em>
+												<p>#1 소비자 무엇을 고민할까?
+
+
+소비자들이 온라인에서 물건을 구매할 때 가장 크게 고민을 하는 것은 무엇일까요?
+무엇 때문에...</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+                        					</ul>
+				</div>
+				<!-- //recommend_con_list -->
+
+				<div class="btn_qna_paging">
+					<ul>
+						<li class="btn_prev"></li>
+						<li class="btn_next"></li>
+					</ul>
+				</div>
+				<!-- //btn_qna_paging -->
+			</div>
+			<!-- //recommend_con_box -->
+
+            		</div>
+		<!-- //main_top -->
+
+		<div class="main_middle">
+			<div class="keyword_con_box">
+				<h3>키워드 별 콘텐츠</h3>
+				<div class="keyword_con_list">
+					<ul>
+						<li class=""><a href="/tip/tip_main.php?code=010100"><span>쇼핑몰만들기</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=010400"><span>쇼핑몰디자인</span></a></li>
+						<li class="new"><a href="/tip/tip_main.php?code=010600"><span>마케팅</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=010800"><span>세무</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=010500"><span>법률</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=010300"><span>온라인판매채널</span></a></li><br>
+						<li class=""><a href="/tip/tip_main.php?code=010700"><span>글로벌판매</span></a></li>
+						<li class="new"><a href="/tip/tip_main.php?code=010900"><span>창업일기</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=011000"><span>성공인터뷰</span></a></li>
+						<li class=""><a href="/tip/tip_main.php?code=020000"><span>전문가칼럼</span></a></li>
+					</ul>
+				</div>
+				<!-- //keyword_con_list -->
+			</div>
+			<!-- //keyword_con_box -->
+		</div>
+		<!-- //main_middle -->
+
+		<div class="main_bottom">
+			<div class="wizu_editor_box">
+				<h3>위쥬에디터</h3><span>쇼핑몰창업, 운영을 주제로 경험 또는 정보를 공유하는 에디터를 소개합니다.</span>
+				<div class="wizu_editor_list">
+					<ul class="bxslider">
+                        							<li>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=61&expertTitle=yooobing">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=ot9iww1l35hs5yh.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=61&expertTitle=yooobing"><strong>yooobing</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=61&expertTitle=yooobing">아마존 코리아 직원이자 셀러</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=17&expertTitle=이효정 팀장">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ogf2911ikukg1wiz.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=17&expertTitle=이효정 팀장"><strong>이효정 팀장</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=17&expertTitle=이효정 팀장">파란팬 인스타그램 마케팅</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=24&expertTitle=e비즈북스">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=omu9591dzebgwx4.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=24&expertTitle=e비즈북스"><strong>e비즈북스</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=24&expertTitle=e비즈북스">인터넷 비즈니스 전문 출판사</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=68&expertTitle=고석균">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ouo3d6h4qxk1skn.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=68&expertTitle=고석균"><strong>고석균</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=68&expertTitle=고석균">HRD나 플랫폼관리 분야로 일을 준비중인 사회준비생</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=25&expertTitle=리얼패킹">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=okbuzypiw0kohy.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=25&expertTitle=리얼패킹"><strong>리얼패킹</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=25&expertTitle=리얼패킹">리얼패킹</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=14&expertTitle=이지샵 자동장부">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=og9gtozzm4o1nwn.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=14&expertTitle=이지샵 자동장부"><strong>이지샵 자동장부</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=14&expertTitle=이지샵 자동장부">인터넷 장부서비스 이지샵</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=81&expertTitle=진민우">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=p0hbzf2gm783oh.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=81&expertTitle=진민우"><strong>진민우</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=81&expertTitle=진민우">비주얼코드 마케팅팀장 </a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=89&expertTitle=더피알컨설팅 ">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=p2oh9cn8oak1ddc.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=89&expertTitle=더피알컨설팅 "><strong>더피알컨설팅 </strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=89&expertTitle=더피알컨설팅 ">더피알컨설팅(ThePR Consulting)은 전략과 디테일로 승부하는 PR전문회사입니다 </a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=79&expertTitle=NHN godo">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ox164cmk4yk1fgw.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=79&expertTitle=NHN godo"><strong>NHN godo</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=79&expertTitle=NHN godo">더 나은 이커머스 세상을 만듭니다.</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=2&expertTitle=서옥화 이사">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=p3ch229nghkg8t.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=2&expertTitle=서옥화 이사"><strong>서옥화 이사</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=2&expertTitle=서옥화 이사">디자인교과서 이사</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                							</li>
+                        							<li>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=6&expertTitle=구창환 국장">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of81jy1h2bj0mqm.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=6&expertTitle=구창환 국장"><strong>구창환 국장</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=6&expertTitle=구창환 국장">한국기업평판연구소 소장</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=11&expertTitle=박건수 대표">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of81teltalon4b.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=11&expertTitle=박건수 대표"><strong>박건수 대표</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=11&expertTitle=박건수 대표">AppWhole 대표</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=12&expertTitle=민경 대표">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of8anz6q3fk20vy.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=12&expertTitle=민경 대표"><strong>민경 대표</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=12&expertTitle=민경 대표">위드차이나 대표</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=5&expertTitle=손정일 대표">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of81il901tg8fe.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=5&expertTitle=손정일 대표"><strong>손정일 대표</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=5&expertTitle=손정일 대표">(주)소셜마스터 대표</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=83&expertTitle=민대영">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=p10jrl1ho7ho1sq6.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=83&expertTitle=민대영"><strong>민대영</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=83&expertTitle=민대영">온라인창업트렌드 연구소</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=19&expertTitle=온라인비즈">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ohc7rml17c41d37.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=19&expertTitle=온라인비즈"><strong>온라인비즈</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=19&expertTitle=온라인비즈">온라인비지니스를 위한 전략가이드</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=65&expertTitle=김현수">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ouifur17ilu8zsf.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=65&expertTitle=김현수"><strong>김현수</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=65&expertTitle=김현수">현 데어즈(www.darez.kr) 전략담당 이사</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=7&expertTitle=윤형근 변리사">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of81lr18w9sw188z.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=7&expertTitle=윤형근 변리사"><strong>윤형근 변리사</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=7&expertTitle=윤형근 변리사">아이피즈국제특허법률사무소</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=15&expertTitle=송지환 에디터">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=oggm4btnl0w1b4s.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=15&expertTitle=송지환 에디터"><strong>송지환 에디터</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=15&expertTitle=송지환 에디터">비즈니스 웹진 멘토스노트 운영자</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=39&expertTitle=NHN KCP">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=on7bc8vvzs0iyp.gif') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=39&expertTitle=NHN KCP"><strong>NHN KCP</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=39&expertTitle=NHN KCP">대한민국 대표 PG사</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                							</li>
+                        							<li>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=18&expertTitle=이미준">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=oggf3u1a4aogbcg.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=18&expertTitle=이미준"><strong>이미준</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=18&expertTitle=이미준">이커머스 UX기획자</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=8&expertTitle=김희철 세무사">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=of86oj162nmgs3n.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=8&expertTitle=김희철 세무사"><strong>김희철 세무사</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=8&expertTitle=김희철 세무사">세무법인 라온</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=21&expertTitle=매니아컨설팅">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ois7mazhcycjp0.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=21&expertTitle=매니아컨설팅"><strong>매니아컨설팅</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=21&expertTitle=매니아컨설팅">매니아컨설팅그룹</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=84&expertTitle=홀리머스">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=p2bhryxeo541ure.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=84&expertTitle=홀리머스"><strong>홀리머스</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=84&expertTitle=홀리머스">제로톤</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=16&expertTitle=버밀리온">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=og97a732ejc1ugw.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=16&expertTitle=버밀리온"><strong>버밀리온</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=16&expertTitle=버밀리온">경력10년 쇼핑몰제작</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                									<ul>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=27&expertTitle=그루비">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=owgdu6ckm4wbq6.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=27&expertTitle=그루비"><strong>그루비</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=27&expertTitle=그루비">시스포유아이앤씨 EC finder</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=26&expertTitle=고명환 경영지도사">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=p3chdo1bp8iwpq3.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=26&expertTitle=고명환 경영지도사"><strong>고명환 경영지도사</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=26&expertTitle=고명환 경영지도사">인사이트컨설팅 대표이사</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=64&expertTitle=장영진">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view_thumb.php?image=ougjul2saq416cf.jpg') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=64&expertTitle=장영진"><strong>장영진</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=64&expertTitle=장영진">기획자이자 디자이너</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                                                                                                                                                                                                                                                                    											<li>
+												<div class="master_profile">
+													<div class="master_profile_img">
+														<a href="/tip/tip_search.php?expertNo=9&expertTitle=정의장 대표">
+															<span class="radius_box"><img src="/_static/image/v2/bg/icon_radius_box_s90.png" alt="BOX"></span>
+															<span class="member_img" style="background:url('/image_view.php?image=of81pvnzceg1w1y.png') no-repeat 0 0; background-size:100% 100%;"></span>
+														</a>
+													</div>
+													<a href="/tip/tip_search.php?expertNo=9&expertTitle=정의장 대표"><strong>정의장 대표</strong></a>
+													<p><a href="/tip/tip_search.php?expertNo=9&expertTitle=정의장 대표">(주)마오랑</a></p>
+												</div>
+												<!-- //master_profile -->
+											</li>
+                                        									</ul>
+                                							</li>
+                        					</ul>
+				</div>
+				<!-- //wizu_editor_list -->
+				<div class="wiuz_banner_box">
+					<span><a href="/global/ask.php"><img src="/_static/image/v2/wizu_main/banner/banner_editer.jpg" alt="에디터 모집 온라인창업 준비/운영와 관련된 정보, 에피소드, 일기등을 진솔하게 써주실 에디터를 모집합니다. 위쥬는 여러분의 콘텐츠를 꼭 필요한 분들께 전달합니다. 지원하기"/></a></span>
+				</div>
+				<!-- //wiuz_banner_box -->
+			</div>
+			<!-- //wizu_editor_box -->
+		</div>
+		<!-- //main_bottom -->
+
+	</div>
+	<!-- //wizu_main_wrap -->
+</div>
+<!-- //container -->
+<!-- top 버튼 -->
+<!-- 따라다니는 배너 -->
+<!-- //따라다니는 배너 -->
+
+<div class="btn_ban_box">
+	<div class="btn_a">
+		<a href="https://www.godo.co.kr/promotion/godomall5/VIPinvitation.gd" target="_blank"><img src="/_static/image/v2/banner/banner_vip_fixed.png" alt="vip 고도몰5 pro 평생무료"></a>
+	</div>
+</div>
+
+<!-- top 버튼 -->
+<div class="btn_top_box">
+	<div class="btn_a"><a href="#">탑버튼</a></div>
+</div>
+<!-- //top 버튼 -->
+
+<!-- //top 버튼 -->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        "use strict";
+
+        var WIZU_MAIN = {
+            init : function(){
+                this.addEventListener();
+                this.slide();
+            },
+            slide : function(){
+                /* 메인 슬라이드 */
+                var main_slide = $('.recommend_con_list .bxslider').bxSlider({
+
+                    mode: 'horizontal',
+                    speed: 1000,
+                    auto: true,
+                    minSlides: 2,
+                    maxSlides: 3,
+                    moveSlides: 1,
+                    pager: false,
+                    infiniteLoop: true,
+                    slideMargin: 21,
+                    autoHover: true,
+                    controls: true,
+                    nextSelector: '.btn_next',
+                    prevSelector: '.btn_prev',
+                    onSlideAfter: function() {
+                        main_slide.startAuto();
+                    }
+                });
+
+                var main_slide2 = $('.wizu_editor_list .bxslider').bxSlider({
+
+                    auto: true,
+                    mode: 'fade',
+                    speed: 800,
+                    pager: true,
+                    controls: false,
+                    infiniteLoop: true,
+                    onSlideAfter: function() {
+                        main_slide2.startAuto();
+                    }
+                });
+            },
+            addEventListener : function(){
+            }
+        }
+        WIZU_MAIN.init();
+    })
+
+    $(window).load(function(){
+        $('.recommend_con_list .recommend_zone').on({
+            'mouseover':function(){
+                //$(this).find('.list_box .img span').fadeOut(500);
+                $(this).find('.visible_layer').hide();
+                $(this).find('.hidden_layer').css('visibility','visible');
+                $(this).find('.recommend_layer').animate({
+                    'bottom':'0'
+                }, 200);
+
+            },
+            'mouseleave':function(){
+                //$(this).find('.list_box .img span').stop(true,true).fadeIn(500);
+                $(this).find('.visible_layer').show();
+                $(this).find('.hidden_layer').css('visibility','hidden');
+                $(this).find('.recommend_layer').stop(true,true).animate({
+                    'bottom':'-160px'
+                }, 200);
+            }
+        });
+
+    });
+
+</script>
+
+    <!-- 캡차 기본 설정 -->
+    
+    <!-- 레이어 팝업 템플릿 -->
+    <div id="layer_pop" class="layer_pop">
+    <div class="layer_layout_box">
+        <div class="selpic_bg"></div>
+        <div class="layer_container_box">
+            <div class="layer_content_box">
+                <div class="layer_content">
+
+                    <div id="template_login" class="layer_template" style="display: none;">
+                            <div class="login_layer_wrap">
+        <h3>로그인</h3>
+        <strong>복잡한 절차 없이 SNS계정으로<br> 위쥬를 시작해보세요</strong>
+        <div class="sns_login_box">
+            <ul>
+                <li class="payco"><a href="javascript:SNS_LOGIN.payco.login();"><img src="/_static/image/v2/wizu_global/icon/icon_payco.png" alt="페이코 아이콘"/><span>페이코로 로그인</span></a></li>
+                <li class="facebook"><a href="javascript:SNS_LOGIN.facebook.login();"><img src="/_static/image/v2/wizu_global/icon/icon_facebook.png" alt="페이스북 아이콘"/><span>페이스북으로 로그인</span></a></li>
+                <li class="naver"><a href="javascript:SNS_LOGIN.naver.login();"><img src="/_static/image/v2/wizu_global/icon/icon_naver.png" alt="네이버 아이콘"/><span>네이버로 로그인</span></a></li>
+                <li class="kakao"><a href="javascript:SNS_LOGIN.kakao.login();"><img src="/_static/image/v2/wizu_global/icon/icon_kakao.png" alt="카카오톡 아이콘"/><span>카카오로 로그인</span></a></li>
+            </ul>
+        </div>
+        <!-- //sns_login_box -->
+        <span class="btn_layer_close"><img src="/_static/image/v2/wizu_global/icon/layer_x.png" alt="레이어 닫기"/></span>
+    </div>
+    <!-- //login_layer_wrap -->
+
+                    </div>
+                    <div id="template_regist" class="layer_template" style="display: none;">
+                        <div class="login_layer_wrap">
+    <h3>회원가입</h3>
+    <strong>복잡한 절차 없이 SNS계정으로<br> 위쥬를 시작해보세요</strong>
+    <div class="sns_login_box">
+        <ul>
+            <li class="payco"><a href="javascript:SNS_LOGIN.payco.login();"><img src="/_static/image/v2/wizu_global/icon/icon_payco.png" alt="페이코 아이콘"/><span>페이코로 회원가입</span></a></li>
+            <li class="facebook"><a href="javascript:SNS_LOGIN.facebook.login();"><img src="/_static/image/v2/wizu_global/icon/icon_facebook.png" alt="페이스북 아이콘"/><span>페이스북으로 회원가입</span></a></li>
+            <li class="naver"><a href="javascript:SNS_LOGIN.naver.login();"><img src="/_static/image/v2/wizu_global/icon/icon_naver.png" alt="네이버 아이콘"/><span>네이버로 회원가입</span></a></li>
+            <li class="kakao"><a href="javascript:SNS_LOGIN.kakao.login();"><img src="/_static/image/v2/wizu_global/icon/icon_kakao.png" alt="카카오톡 아이콘"/><span>카카오로 회원가입</span></a></li>
+        </ul>
+    </div>
+    <!-- //sns_login_box -->
+    <span class="btn_layer_close"><img src="/_static/image/v2/wizu_global/icon/layer_x.png" alt="레이어 닫기"/></span>
+</div>
+<!-- //login_layer_wrap -->
+
+                    </div>
+                    <div id="template_nickName" class="layer_template" style="display: none;">
+                        <div class="nickname_wrap">
+    <h3>닉네임 설정</h3>
+    <div>
+        <input type="text" placeholder="10자이내"/>
+        <button class="btn_overlap_check">중복확인</button>
+        <strong>이미 사용중인 닉네임입니다.</strong>
+        <strong style="display: none;">사용가능한 닉네임입니다.</strong>
+    </div>
+    <button class="btn_modify">수정하기</button>
+    <span class="btn_layer_close"><img src="/_static/image/v2/icon/icon_member_close.png" alt="레이어 닫기"/></span>
+</div>
+<!-- //nickname_wrap -->
+
+                    </div>
+
+                    <!-- 위쥬 레터 -->
+                    <div id="template_wizuLetter" class="layer_template" style="display: none;">
+                        <link type="text/css" rel="stylesheet" href="/_static/css/v2/global.css">
+<div class="letter_layer_wrap">
+	<h3>위쥬레터 구독하기</h3>
+	<div class="letter_login_box" id="letterStep1" style="display: block;">
+		<div class="letter_box">
+			<p>위쥬레터 신청 즉시 <br><strong>구독자 전용 콘텐츠</strong>를 보내드립니다</p>
+		</div>
+		<div class="sns_login_box">
+			<ul>
+				<li class="payco"><a href="javascript:;"><img src="/_static/image/v2/wizu_global/icon/icon_payco.png" alt="페이코 아이콘"><span>페이코로 로그인</span></a></li>
+				<li class="facebook"><a href="javascript:;"><img src="/_static/image/v2/wizu_global/icon/icon_facebook.png" alt="페이스북 아이콘"><span>페이스북으로 로그인</span></a></li>
+				<li class="naver"><a href="javascript:;"><img src="/_static/image/v2/wizu_global/icon/icon_naver.png" alt="네이버 아이콘"><span>네이버로 로그인</span></a></li>
+				<li class="kakao"><a href="javascript:;"><img src="/_static/image/v2/wizu_global/icon/icon_kakao.png" alt="카카오톡 아이콘"><span>카카오로 로그인</span></a></li>
+			</ul>
+		</div>
+		<span>SNS 로그인 후 신청할 수 있습니다</span>
+	</div>
+
+	<!-- 2.구독하기 -->
+	<div class="letter_input_box" id="letterStep2" style="display: none;">
+		<form name="newsLetterForm" action="/process/board_process.php" method="post">
+			<input type="hidden" name="category" value="newsLetter">
+			<input type="hidden" name="mode" value="regist">
+						<p>레터 구독을 위해 간편 회원가입을 해주세요</p>
+						<input type="text" value=""  id="newsLetterEmail" name="newsLetterEmail"  placeholder="레터를 받아보실 이메일을 입력하세요."/>
+						<div class="agree_box">
+				<!-- <div class="input_chk_agree"><input type="checkbox" id="chk_agree"/><label for="chk_agree">약관 모두동의</label></div> -->
+				<div class="select_check_box">
+					<label for="chk_agree" class="radio_label qna_chk">
+						<div class="radio_box">
+							<input type="checkbox" name="chkAgree" value="y" class="radio-origin" id="chk_agree">
+							<span class="radio-clone"></span>
+							<strong>약관 모두동의</strong>
+						</div>
+					</label>
+				</div>
+				<ul>
+					<li><a href="/global/agreement.php" target="_blank">이용약관</a></li>
+					<li><a href="/global/agreement.php?tab=info" target="_blank">개인정보 수집 및 이용</a></li>
+				</ul>
+			</div>
+						<!-- //agree_box -->
+			<button id="subscribe">구독하기</button>
+		</form>
+	</div>
+
+
+
+
+    
+	<span class="btn_layer_close letter_close"><!-- N:구독완료일때는 레이어 닫기를 없애주세요 -->
+			<img src="/_static/image/v2/wizu_global/icon/layer_x.png" alt="레이어 닫기">
+		</span>
+</div>
+
+<script>
+
+    var WIZU_LETTER = {
+        init : function(){
+            this.addEventListener();
+        },
+        status : {
+            step1 : function(){
+                WIZU_COMMON.util.cookies.setCookie('letter_status', "login");
+                var snsType = $(this).attr("class");
+                switch (snsType){
+                    case "payco" : SNS_LOGIN.payco.login(); break;
+                    case "facebook" : SNS_LOGIN.facebook.login(); break;
+                    case "naver" : SNS_LOGIN.naver.login(); break;
+                    case "kakao" : SNS_LOGIN.kakao.login(); break;
+                }
+            },
+            step2 : function(){
+                var
+					email = $("#newsLetterEmail").val(),
+					isCheck = $("#chk_agree").is(":checked");
+
+                                if(isCheck === false){
+                    alert('약관에 동의해주세요.');
+                    return false;
+				}
+				
+                if(email){
+                    var emailValid = WIZU_COMMON.validate.email(email);
+                    if(emailValid === false) return false;
+                    WIZU_COMMON.util.cookies.setCookie('letter_status', "request");
+                    document.newsLetterForm.submit();
+                }else{
+                    alert('이메일을 입력해주세요.');
+                    $("#newsLetterEmail").focus();
+                    return false;
+                }
+            },
+            end : function(){
+                WIZU_COMMON.util.cookies.delCookie('letter_status');
+            }
+        },
+        addEventListener : function(){
+            // 로그인
+            $(".letter_layer_wrap .sns_login_box li").on("click",WIZU_LETTER.status.step1);
+            // 레이어 닫기
+            $(".letter_close, .letter_complete_box .btn_ok").on("click", WIZU_LETTER.status.end);
+            // 구독신청
+            $("#subscribe").on("click",WIZU_LETTER.status.step2);
+            // 구독신청 완료
+            $(".btn_ok").on("click", function () {
+                WIZU_LAYER.common.layer_pop_open_close();
+            })
+        }
+    }
+    WIZU_LETTER.init();
+</script>
+
+                    </div>
+
+                    
+
+                    
+                    
+                    
+                    <!-- 위쥬 활성화 프로모션 -->
+                    <div id="template_promotion_regist" class="layer_template" style="display: none;">
+                        <div class="freebie_pop on">
+    <form action="/process/board_process.php" method="post" onsubmit="return validator();">
+        <input type="hidden" name="category" value="promotion">
+        <input type="hidden" name="mode" value="regist">
+    <h2>사은품이 팡팡</h2>
+    <p>사은품이 팡팡 이벤트 당첨 시 개별 안내를 위해 필요한 사항이며<br/>
+        이벤트 종료 후 즉각 삭제됩니다.</p>
+    <a href="javascript:;" class="ico_x btn_layer_close"><img src="/_static/image/v2/promotion/ico_x.png" alt="닫기"/></a>
+    <div class="text"><span class="c-gdred">*</span> 필수 입력 사항입니다.</div>
+    <div class="table_wrap">
+        <table>
+            <tr>
+                <th scope="col">신청자 이름 <span class="c-gdred">*</span></th>
+                <td><input type="text" name="name" class="input_name" id="text_name" value=""> </td>
+            </tr>
+            <tr>
+                <th scope="col">연락처 <span class="c-gdred">*</span></th>
+                <td>
+                    <select name="phone[]">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                    </select> -
+                    <input type="text" id="text_phone1" name="phone[]" value="" maxlength="4"> -
+                    <input type="text" id="text_phone2" name="phone[]" value="" maxlength="4">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <strong>개인정보 수집 및 이용 동의</strong>
+    <div class="select_check_box">
+        <label for="end_edu" class="radio_label qna_chk">
+            <input type="checkbox" name="agree" class="radio-origin" id="end_edu" value="y">
+            <span>개인정보 수집 및 이용에 대한 안내를 확인하였으며 동의합니다.</span>
+        </label>
+        <a href="javascript:;" class="btn_privacy">내용보기</a>
+        <div class="pop_privacy">
+            <ul>
+                <li>1. 개인정보 수집 및 이용 목적<br>
+                    &nbsp;&nbsp;&nbsp;전화번호를 이용한 당첨안내
+                </li>
+                <li>2. 수집하는 개인정보 항목<br>
+                    &nbsp;&nbsp;&nbsp;이름, 휴대폰번호
+                </li>
+                <li>3. 보유 및 이용 기간<br>
+                    &nbsp;&nbsp;&nbsp;수집, 이용 동의일로부터 이용 목적 달성 시까지
+                </li>
+            </ul>
+            <img src="//img.godo.co.kr/godomall/mall/pro/1708/privacy_arrow.png" class="privacy_arrow" alt="개인정보동의 아래 화살표">
+            <a href="javascript:;" class="ico_privacy_x"><img src="//img.godo.co.kr/godomall/mall/pro/1708/ico_privacy_x.png" alt="닫기"></a>
+        </div>
+
+    </div>
+    <button class="btn_modify">확인</button>
+    </form>
+</div>
+
+<script>
+    function validator(){
+        var
+            name = $("#text_name").val(),
+            phone1 = $("#text_phone1").val(),
+            phone2 = $("#text_phone2").val(),
+            isAgree = $("#end_edu").is(":checked");
+
+        if(name == ""){
+            alert("이름을 입력해주세요.");
+            $("#text_name").focus();
+            return false;
+        }
+        if(phone1 == ""){
+            alert("연락처를 입력해주세요.");
+            $("#text_phone1").focus();
+            return false;
+        }
+        if(phone2 == ""){
+            alert("연락처를 입력해주세요.");
+            $("#text_phone2").focus();
+            return false;
+        }
+        if(!isAgree){
+            alert("개인정보 수집 항목에 동의해주세요.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+
+                    </div>
+                    <div id="template_promotion_confirm" class="layer_template" style="display: none;">
+                        <div class="freebie_com_pop on">
+    <h2>사은품이 팡팡</h2>
+    <a href="javascript:;" class="ico_x"><img src="/_static/image/v2/promotion/ico_x.png" alt="닫기"/></a>
+    <img src="/_static/image/v2/promotion/img_freebie.png" alt="귀요미"/>
+    <p>위쥬 활동으로 이벤트에 자동 응모가 되었습니다.<br/>
+        더 많은 활동을 하시면 당첨 확률이 높아지니<br/>
+        도전해보세요!
+    </p>
+    <button class="btn_modify">확인</button>
+    <div class="view_wrap">
+        <a href="/global/mypage.php?tab=write">내 활동내역 보기</a>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        // 레이어 닫기
+        $(".freebie_com_pop .ico_x").on("click", function(){
+            WIZU_LAYER.common.layer_pop_open_close();
+        });
+        // 확인버튼
+        $(".freebie_com_pop .btn_modify").on("click", function(){
+            WIZU_LAYER.common.layer_pop_open_close();
+        });
+    })
+</script>
+                    </div>
+                    <div id="template_promotion_end" class="layer_template" style="display: none;">
+                        <div class="promotion_end">
+	<a href="/tip/tip_view.php?code=800000&no=3420"><img src="/_static/image/v2/promotion/event_end.png" alt="프로모션 종료"/></a>
+</div>
+
+                    </div>
+
+		<!-- 프로모션 종료팝업 -->
+		<div id="template_promotion_end" class="layer_template" style="display: none;">
+			<div class="promotion_end">
+	<a href="/tip/tip_view.php?code=800000&no=3420"><img src="/_static/image/v2/promotion/event_end.png" alt="프로모션 종료"/></a>
+</div>
+
+		</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="footer_wrap">
+		<div id="footer">
+			<div class="foot_info">
+				<ul>
+					<li><a href="/global/wizu_intro.php">서비스안내</a></li>
+					<li><a href="/global/ask.php">제휴/문의</a></li>
+					<li><a href="/global/agreement.php">이용약관</a></li>
+					<li><a href="/global/agreement.php?tab=info"><strong>개인정보처리방침</strong></a></li>
+				</ul>
+			</div>
+			<!-- //foot_info -->
+			<div class="foot_copyright">
+				<p><span><img src="/_static/image/v2/logo/ft_logo.gif" alt="WIZU" title="WIZU"></span>ⓒ NHN godo: corp. All rights Reserved.</p>
+			</div>
+			<!-- //foot_copyright -->
+			<div class="foot_sns">
+				<ul>
+					<li><a href="https://www.facebook.com/wizu.main" target="_blank"><img src="/_static/image/v2/wizu_main/icon/icon_footer_facebook.png" alt="페이스북"/></a></li>
+					<li><a href="http://pf.kakao.com/_wxlnqxl" target="_blank"><img src="/_static/image/v2/wizu_main/icon/icon_footer_plus.png" alt="플러스친구"/></a></li>
+				</ul>
+			</div>
+			<!-- //foot_sns -->
+		</div>
+		<!-- //footer -->
+	</div>
+	<!-- //footer_wrap -->
+</div>
+<!-- //wrap -->
+
+
+<!-- 각 카테고리별 공통 스크립트 호출 -->
+
+<!-- 외부 마케팅 및 통계 관련 스크립트 모음 -->
+<script>
+    $(function() {
+        "use strict";
+        var FOOTER_JS = {
+            init : function(){
+                this.addEventListener();
+                this.promotion.check();
+            },
+            promotion: {
+                check: function(){
+                    var promotionConfirm = '',
+                        isEnd = 'y';
+
+                    if(promotionConfirm != "" && isEnd == "n"){
+                                                WIZU_LAYER.render.promotion.confirm();
+                    }
+                }
+            },
+            addEventListener : function(){
+
+            }
+        }
+        FOOTER_JS.init();
+    })
+</script>
+
+<!-- 네이버 연관사이트 노출 Microdata 형식 start -->
+<span itemscope="" itemtype="http://schema.org/Organization">
+<link itemprop="url" href="http://wizu.co.kr">
+<a itemprop="sameAs" href="https://www.facebook.com/wizu.main"></a>
+</span>
+<!-- 네이버 연관사이트 노출 Microdata 형식 end -->
+
+<script>
+    <!-- Google Total Search -->
+    (function() {
+        var cx = '004222411824026960622:e58l6m4qytm';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
+</script>
+
+
+<!-- AceCounter Log Gathering Script V.7.5.2013010701 -->
+<script language='javascript'>
+    var _AceGID=(function(){var Inf=['gtp10.acecounter.com','8080','AH2A40876967929','AW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src =( location.protocol=="https:"?"https://"+Inf[0]:"http://"+Inf[0]+":"+Inf[1]) +'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
+    var _AceCounter=(function(){var G=_AceGID;if(G.o!=0){var _A=G.val[G.o-1];var _G=( _A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];	var _U=( _A[5]).replace(/\,/g,'_');var _S=((['<scr','ipt','type="text/javascr','ipt"></scr','ipt>']).join('')).replace('tt','t src="'+location.protocol+ '//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime())+'" t');document.writeln(_S); return _S;} })();
+</script>
+<noscript><img src='http://gtp10.acecounter.com:8080/?uid=AH2A40876967929&je=n&' border='0' width='0' height='0' alt=''></noscript>
+<!-- AceCounter Log Gathering Script End -->
+
+<script language='javascript' type='text/javascript'>
+    var mr_id = 'member';
+    var mr_ag = 0 ;
+    var mr_gd = '';
+    var mr_buy = 0;
+</script>
+<!-- AceClick WebSite Gathering Script V0.9.20131114 -->
+<script type="text/Javascript">
+    if(typeof(AMRS_GC)=='undefined'){
+        var AMRS_O=[];var AMRS_CK = new Image();var AMRS_GC='AG6A411416929';var AMRS_GD='mrsg.aceclick.co.kr';var AMRS_GP='8080';var AMRS_TI=(new Date()).getTime();
+        var AMRS_PR = location.protocol=="https:"?"https://"+AMRS_GD+":843":"http://"+AMRS_GD+":"+AMRS_GP; AMRS_CK.src = AMRS_PR+'/?cookie';
+        if(typeof(Array.prototype.push)!='undefined'){ AMRS_O.push(AMRS_CK);}
+        document.writeln("<scr"+"ipt type='text/Javascript' src='"+location.protocol+"//mrss.aceclick.co.kr/aceclick.js?rt="+AMRS_TI+"'></scr"+"ipt>");
+    }
+</script>
+<!-- AceClick WebSite Gathering Script End V0.9.20131114 -->
+
+
+<!-- Google 리마케팅 태그 코드 -->
+<!--------------------------------------------------
+리마케팅 태그를 개인식별정보와 연결하거나 민감한 카테고리와 관련된 페이지에 추가해서는 안 됩니다. 리마케팅 태그를 설정하는 방법에 대해 자세히 알아보려면 다음 페이지를 참조하세요. http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1012187661;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    var google_conversion_format = 3;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1012187661/?guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+<!-- WIDERPLANET  SCRIPT START 2017.1.20 -->
+<div id="wp_tg_cts" style="display:none;"></div>
+<script type="text/javascript">
+    var wptg_tagscript_vars = wptg_tagscript_vars || [];
+    wptg_tagscript_vars.push(
+        (function() {
+            return {
+                wp_hcuid:"",   /*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
+                 *주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+                ti:"33609",	/*광고주 코드*/
+                ty:"Home",	/*트래킹태그 타입*/
+                device:"web"	/*디바이스 종류 (web 또는 mobile)*/
+
+            };
+        }));
+</script>
+<script type="text/javascript" async src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+<!-- // WIDERPLANET  SCRIPT END 2017.1.20 -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics 2017.12.29-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105685287-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-105685287-1');
+</script>
+
+
+<!--AceCounter-Plus Log Gathering for AceTag Manager V.9.2.20170103-->
+<script type="text/javascript">
+    var _AceTM = (function (_j, _s, _b, _o, _y) {
+        var _uf='undefined',_pmt='',_lt=location;var _ap = String(typeof(_y.appid) != _uf ? _y.appid():(isNaN(window.name))?0:window.name);var _ai=(_ap.length!=6)?(_j!=0?_j:0):_ap;if(typeof(_y.em)==_uf&&_ai!=0){var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];
+            var _cn={tid:_ai+_s,hsn:_lt.hostname,hrf:(document.referrer.split('/')[2]),dvp:(typeof(window.orientation)!=_uf?(_ap!=0?2:1):0),tgp:'',tn1:_y.uWorth,tn2:0,tn3:0,tw1:'',tw2:'',tw3:'',tw4:'',tw5:'',tw6:'',tw7:_y.pSearch};_cn.hrf=(_cn.hsn!=_cn.hrf)?_cn.hrf:'in';for(var _aix in _y){var _ns=(_y[_aix])||{};
+                if(typeof(_ns)!='function'){_cn.tgp=String(_aix).length>=3?_aix:'';_cn.tn2=_ns.pPrice;_cn.tn3=_ns.bTotalPrice;_cn.tw1=_ns.bOrderNo;_cn.tw2=_ns.pCode;_cn.tw3=_ns.pName;_cn.tw4=_ns.pImageURl;_cn.tw5=_ns.pCategory;_cn.tw6=_ns.pLink;break;};};_cn.rnd=(new Date().getTime());for(var _alx in _cn){
+                var _ct=String(_cn[_alx]).substring(0,128);_pmt+=(_alx+"="+encodeURIComponent((_ct!=_uf)?_ct:'')+"&");};_y.acid=_ai;_y.atid=_cn.tid;_y.em=_cn.rnd;_sc.src=((_lt.protocol.indexOf('http')==0?_lt.protocol:'http:')+'//'+_b+'/'+_o)+'?'+_pmt+'py=0';_sm.parentNode.insertBefore(_sc,_sm);};return _y;
+    })(111817,'AY-20-A', 'atm.acecounter.com','ac.js',window._AceTM||{});
+</script>
+<!--AceCounter-Plus Log Gathering for AceTag Manager End -->
+
+
+
+
+</body>
+</html>

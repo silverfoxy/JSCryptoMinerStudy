@@ -1,0 +1,959 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Oman Airports
+</title><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" />
+    <link href="css/standard.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/tab_menu.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link href="css/EditorStyle.css" rel="stylesheet" />
+    <link href="css/FAQ.css" rel="stylesheet" />
+    <link href="cssnew1/style.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery-scrollTo.js"></script>
+    <link rel="stylesheet" href="jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            var location = "muscat";
+            // Specify the ZIP/location code and units (f or c)
+            var loc = 'MUXX0003'; // or e.g. SPXX0050
+            var u = 'c';
+
+            var query = "SELECT * FROM weather.forecast WHERE location='" + loc + "' AND u='" + u + "'";
+            var cacheBuster = Math.floor((new Date().getTime()) / 1200 / 1000);
+            var url = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent(query) + '&format=json&_nocache=' + cacheBuster;
+
+            window['wxCallback'] = function (data) {
+                var info = data.query.results.channel.item.condition;
+                var info1 = data.query.results.channel.atmosphere;
+
+                $('#wxIcon').css({
+                    backgroundPosition: '-' + (61 * info.code) + 'px 0'
+                }).attr({
+                    title: info.text
+                });
+                $('#wxIcon3').append('<img src="http://l.yimg.com/a/i/us/we/52/' + info.code + '.gif" width="34" height="34" title="' + info.text + '" />');
+
+                $('#wxTemp').html(info.temp + '&deg;' + (u.toUpperCase()));
+                $('#wxHumidity').html(info1.humidity);
+            };
+
+            $.ajax({
+                url: url,
+                dataType: 'jsonp',
+                cache: true,
+                jsonpCallback: 'wxCallback'
+            });
+
+            var ajax_call = function () {
+                var d = new Date();
+                $('#currentTime').html(d.getHours() + ":" + d.getMinutes());
+            };
+            setInterval(ajax_call, 1000);
+
+            var refreshIntervalId = null;
+            var refreshIntervalId1 = null;
+            var refreshIntervalId2 = null;
+            var refreshIntervalId3 = null;
+
+            if (location == "muscat") {
+                $.ajaxSetup({ cache: false });
+                $.get("FlightArrivalsHome.aspx", "", function (data) {
+                    $("#slider").html(data);
+                });
+            }
+
+
+            $('#FlightArrivals').click(function () {
+                if (location == "muscat") {
+                    $("#linktimming").attr("href", "/FlightArrivals.aspx?MID=8&SMID=55&Slide=True")
+                    clearInterval(refreshIntervalId1);
+                    clearInterval(refreshIntervalId2);
+                    clearInterval(refreshIntervalId3);
+                    refreshIntervalId = setInterval(function () {
+                        $.ajaxSetup({ cache: false });
+                        $.get("FlightArrivalsHome.aspx", "", function (data) {
+                            $("#slider").html(data);
+                        });
+                    }, 4000);
+                }
+                else {
+                    $("#linktimming").attr("href", "/FlightArrivals.aspx?MID=8&SMID=55&Salalah=Salalah&Slide=True")
+                    clearInterval(refreshIntervalId1);
+                    clearInterval(refreshIntervalId);
+                    clearInterval(refreshIntervalId3);
+                    refreshIntervalId2 = setInterval(function () {
+                        $.ajaxSetup({ cache: false });
+                        $.get("SalalahArrivalsHome.aspx", "", function (data) {
+                            $("#slider").html(data);
+                        });
+                    }, 4000);
+                }
+            });
+            $('#FlightDepartures').click(function () {
+                if (location == "muscat") {
+                    $("#linktimming").attr("href", "/FlightDepartures.aspx?MID=8&SMID=56&Slide=True")
+                    clearInterval(refreshIntervalId);
+                    clearInterval(refreshIntervalId2);
+                    clearInterval(refreshIntervalId3);
+                    refreshIntervalId1 = setInterval(function () {
+                        $.ajaxSetup({ cache: false });
+                        $.get("FlightDeparturesHome.aspx", "", function (data) {
+                            $("#slider").html(data);
+                        });
+                    }, 4000);
+                }
+                else {
+                    $("#linktimming").attr("href", "/FlightDepartures.aspx?MID=8&SMID=56&Salalah=Salalah&Slide=True")
+                    clearInterval(refreshIntervalId);
+                    clearInterval(refreshIntervalId2);
+                    clearInterval(refreshIntervalId1);
+                    refreshIntervalId3 = setInterval(function () {
+                        $.ajaxSetup({ cache: false });
+                        $.get("SalalahDeparturesHome.aspx", "", function (data) {
+                            $("#slider").html(data);
+                        });
+                    }, 4000);
+                }
+            });
+
+
+          $('#muscatLink').click(function () {
+                location = "muscat";
+                $("#linktimming").attr("href", "/FlightArrivals.aspx?MID=8&SMID=55&Slide=True")
+                $("#FlightArrivals").removeClass('active').addClass('inactive');
+                $("#FlightDepartures").removeClass('inactive').addClass('active');
+                $("#muscatLink").css('background-color', '#A7A0D4');
+                $("#salalahLink").css('background-color', '#d8d8d8');
+                clearInterval(refreshIntervalId);
+                clearInterval(refreshIntervalId1);
+                clearInterval(refreshIntervalId2);
+                clearInterval(refreshIntervalId3);
+
+                $.ajaxSetup({ cache: false });
+                $.get("FlightArrivalsHome.aspx", "", function (data) {
+                    $("#slider").html(data);
+                });
+
+            });
+
+            $('#salalahLink').click(function () {
+                location = "salalah";
+                $("#linktimming").attr("href", "/FlightArrivals.aspx?MID=8&SMID=55&Salalah=Salalah&Slide=True")
+                $("#salalahLink").css('background-color', '#A7A0D4');
+                $("#muscatLink").css('background-color', '#d8d8d8');
+                $("#FlightArrivals").removeClass('active').addClass('inactive');
+                $("#FlightDepartures").removeClass('inactive').addClass('active');
+                clearInterval(refreshIntervalId);
+                clearInterval(refreshIntervalId1);
+                clearInterval(refreshIntervalId2);
+                clearInterval(refreshIntervalId3);
+
+                $.ajaxSetup({ cache: false });
+                $.get("SalalahArrivalsHome.aspx", "", function (data) {
+                    $("#slider").html(data);
+                });
+            });
+          
+         
+         
+        });
+
+    </script>
+
+
+    <style type="text/css">
+        #wxTemp {
+            float: left;
+            color: #402b7a;
+            font-family: arialnarrow;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 3px;
+        }
+
+        #wxIcon2 {
+            display: inline-block;
+            height: 20px;
+            margin: 1px 3px 0 4px;
+            overflow: hidden;
+            float: left;
+            color: #402b7a;
+            font-family: arialnarrow;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #wxIcon3 {
+            display: inline-block;
+            float: left;
+            width: 34px;
+            height: 34px;
+            margin: 1px 2px 0 2px;
+            overflow: hidden;
+        }
+
+        #wxHumidity {
+            display: inline-block;
+            color: #402b7a;
+            font-family: arialnarrow;
+            font-size: 12px;
+            font-weight: bold;
+            height: 20px;
+            margin: 1px 3px 0 4px;
+            overflow: hidden;
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+    <form name="form1" method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="TUZ2h2rpqabYrVdATVMCezhMAysWNeH2qmiiDt7ri0OSSdJUKkEPiBn5klcQbwqwzi89H36vJJyyXSqDU60nJxWiGHbTVSt3HiWgHhsfgXs=" />
+
+
+<script src="/ScriptResource.axd?d=ouk2JPV28L2slzf9QdssQ-omGDiLDPSzddOZ-hOmj_vg7IM1y-2e7poHTjXKLgHsLKog415w6mur2FnKeUyUOEo0txsxUMEpPGUogcjqYImvMWfO5vB7SvjvnaxTNtZE0&amp;t=23c9c237" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+        
+
+        <script type="text/javascript" src="js/script.js"></script>
+
+
+        <script type="text/javascript" src="js/responsiveslides.js"></script>
+        <script>
+        $(document).ready(function () {
+            $(".expanded").animate({ marginRight: "0" }, 3);
+            $(".expandBtn").toggle(function () {
+                $(".expanded").animate({ marginRight: "0" }, 500);
+            }, function () {
+                $(".expanded").animate({ marginRight: "-437px" }, 500);
+            });
+            $('.expanded li').click(function () {
+                var number = $(this).index();
+                $('.expanded h2').slideUp(400).eq(number).slideDown(400);
+                $('.expanded p').slideUp(400).eq(number).slideDown(400);
+                $('.expanded li').removeClass('active').addClass('inactive');
+                $('.expanded li').not(this).removeClass('inactive').addClass('active');
+            });
+
+            $('.expanded h2').not(':first').hide();
+            $('.expanded p').not(':first').hide();
+
+            $('#TRAVELLERS').mouseover(function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+                $('#TRAVELLERS_DIV1').fadeIn(500);
+                $('html, body').animate({
+                    scrollTop: $("#TRAVELLERS_DIV1").offset().top - 70
+                }, 500);
+                $('#TRAVELLERS').attr("src", "images/arrow-d.png");
+                $('#TRAVELLERS2').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV1').on("mouseleave", function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+                $('#TRAVELLERS').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV1_Close').click(function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+            });
+
+
+
+            $('#TRAVELLERS2').mouseover(function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+                $('#TRAVELLERS_DIV2').fadeIn(500);
+                $('html, body').animate({
+                    scrollTop: $("#TRAVELLERS_DIV2").offset().top - 70
+                }, 500);
+                $('#TRAVELLERS2').attr("src", "images/arrow-d.png");
+                $('#TRAVELLERS').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV2').on("mouseleave", function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+                $('#TRAVELLERS2').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV2_Close').click(function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+            });
+        });
+        </script>
+        <script>
+        $(function () {
+            $(".rslides").responsiveSlides({ pager: true });
+        });
+        </script>
+        <script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+        <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
+
+
+
+        <div id="wrapper">
+            <div id="header" style="width: 100%; position: absolute; z-index: 1000;">
+                <div class="center-sctn">
+                    <div class="header">
+			
+                        <!-- header -->
+                        <h1 class="logon fl"><a href="/Default.aspx"></a></h1>
+			<div style="padding-top: 10px;padding-right: 12px;"><a href="ar/default.aspx" style="float:right">عــربــي</a></div>
+                        <div class="header-top">
+                            <!-- header-top -->
+                            <div class="header-col1">
+                                <!-- header-col1 -->
+
+
+                            </div>
+                            <!-- header-col1 ends -->
+
+                            <!-- header-col2 ends -->
+                        </div>
+                        <!-- header-top ends -->
+                    </div>
+                    <!-- header ends -->
+                    <div style="clear: both"></div>
+
+                    <!-----Nav Starts -------->
+
+                    <div class="center-sctn">
+                        <div id="TabbedPanels1" class="TabbedPanels" style="margin-top: -45px">
+                            <ul class="TabbedPanelsTabGroup">
+                                <li class="TabbedPanelsTab tab1" tabindex="0" style="background-color: #f1a900; width: 93px; border-radius: 10px 10px 0 0;">Passengers</li>
+
+                                <li class="TabbedPanelsTab tab3" tabindex="0" style="background-color: #008b94; width: 93px; border-radius: 10px 10px 0 0;">Corporate</li>
+                            </ul>
+
+
+                            <!--tab1 content start-->
+                            <div class="TabbedPanelsContentGroup">
+                                <div class="TabbedPanelsContent" style="height: 25px; background-color: #f1a900">
+                                   
+                                       
+                                   
+
+                                       <ul style="display: flex; list-style: none; margin-top: 0px; margin-bottom: 5px; margin-left: 578px;" class="makemenu navigation">
+
+                                
+                                    <li class='firstChild' ><a href="javascript:return false;" >Flight Information</a>
+                                        
+                                            <ul class="lvl1">
+                                            
+                                                <li><a href="FlightArrivals.aspx?MID=8" >Live Flight Information</a>
+                                                    
+                                                        <ul class='lvl2first'>
+                                                            
+                                                            <li><a href="FlightArrivals.aspx?MID=8&SMID=55&Slide=True" >Arrivals</a></li>
+                                                            
+                                                            <li><a href="FlightDepartures.aspx?MID=8&SMID=56&Slide=True" >Departures</a></li>
+                                                            
+                                                        </ul>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=57&PGID=4" >Cargo flights</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=10&PGID=5" >Mobile flight information</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=11&PGID=6" >Where we fly to</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=12&PGID=7" >Operating airlines</a>
+                                                    
+                                                </li>
+                                            
+                                            </ul>
+                                        
+                                    </li>
+                                
+                                    <li  ><a href="javascript:return false;" >Reach Airport</a>
+                                        
+                                            <ul class="lvl1">
+                                            
+                                                <li><a href="Page.aspx?MID=13&PGID=8" >Directions and map</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=14&PGID=9" >Pick up and drop off</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=15&PGID=10" >Parking</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=16&PGID=11" >Courtesy buses</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=17&PGID=11#link2" >Taxis</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=18&PGID=11#link3" >Public transport</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=19&PGID=11#link4" >Chauffeur</a>
+                                                    
+                                                </li>
+                                            
+                                            </ul>
+                                        
+                                    </li>
+                                
+                                    <li  ><a href="javascript:return false;" >Airport Services</a>
+                                        
+                                            <ul class="lvl1">
+                                            
+                                                <li><a href="Page.aspx?MID=20&PGID=12" >About the airport</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=21&PGID=13" >Checking in</a>
+                                                    
+                                                        <ul class='lvl2first'>
+                                                            
+                                                            <li><a href="Page.aspx?MID=21&SMID=58&Slide=True&PGID=13#link1" >Checking in at the airport</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=21&SMID=59&Slide=True&PGID=13#link2" >Online check in</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=21&SMID=60&Slide=True&PGID=13#link5" >First and business class check in - Oman Air </a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=21&SMID=62&Slide=True&PGID=13#link3" >Facilities before passport control</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=21&SMID=63&Slide=True&PGID=13#link6" >Baggage</a></li>
+                                                            
+                                                        </ul>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=22&PGID=14" >Security and immigration</a>
+                                                    
+                                                        <ul class='lvl2first'>
+                                                            
+                                                            <li><a href="Page.aspx?MID=22&SMID=64&Slide=True&PGID=14" >Airport security </a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=22&SMID=66&Slide=True&PGID=14#link1" >Customs - Prohibited and restricted items</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=22&SMID=67&Slide=True&PGID=14#link2" >Passport control</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=22&SMID=68&Slide=True&PGID=14#link3" >E-gates</a></li>
+                                                            
+                                                        </ul>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=23&PGID=23" >Transferring in Oman</a>
+                                                    
+                                                        <ul class='lvl2first'>
+                                                            
+                                                            <li><a href="Page.aspx?MID=23&SMID=69&Slide=True&PGID=23#link1" >International transfers</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=23&SMID=70&Slide=True&PGID=23#link2" >Domestic transfers</a></li>
+                                                            
+                                                        </ul>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=24&PGID=24" >Airport facilities and services</a>
+                                                    
+                                                        <ul class='lvl2first'>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=71&Slide=True&PGID=24#link1" >Staying in touch - phone and internet</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=72&Slide=True&PGID=24#link2" >Banking and currency</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=73&Slide=True&PGID=24#link3" >Information desk</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=74&Slide=True&PGID=24#link4" >Prayer rooms</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=75&Slide=True&PGID=24#link5" >Medical assistance</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=76&Slide=True&PGID=24#link6" >Toilets and showers</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=77&Slide=True&PGID=24#link7" >Porters and trolleys</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=78&Slide=True&PGID=24#link8" >Smoking Area</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=79&Slide=True&PGID=24#link9" >Baggage wrapping</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=80&Slide=True&PGID=24#link10" >Fast track services</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=81&Slide=True&PGID=24#linkl1" >Airport lounges</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=82&Slide=True&PGID=24#link12" >Airline offices</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=83&Slide=True&PGID=24#link13" >Travel Agencies</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=84&Slide=True&PGID=24#link14" >Visa deposit and collection</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=85&Slide=True&PGID=24#link15" >Car hire</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=86&Slide=True&PGID=24#link16" >Meet and greet services</a></li>
+                                                            
+                                                            <li><a href="Page.aspx?MID=24&SMID=87&Slide=True&PGID=24#link17" >Travelling with children</a></li>
+                                                            
+                                                        </ul>
+                                                    
+                                                </li>
+                                            
+                                            </ul>
+                                        
+                                    </li>
+                                
+                                    <li class='lastChild' ><a href="javascript:return false;" >Procedures</a>
+                                        
+                                            <ul class="lvl1">
+                                            
+                                                <li><a href="Page.aspx?MID=25&PGID=15" >What to expect when I arrive</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=26&PGID=67#link1" >Visas</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=27&PGID=15#link2" >Customs</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=28&PGID=15#link3" >Meet and greet lounge*</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=29&PGID=15#link4" >Information desk</a>
+                                                    
+                                                </li>
+                                            
+                                                <li><a href="Page.aspx?MID=30&PGID=15#link5" >Baggage services</a>
+                                                    
+                                                </li>
+                                            
+                                            </ul>
+                                        
+                                    </li>
+                                
+
+                                
+                            </ul>
+
+                                </div>
+                                <!--tab1 content end-->
+
+                                <!--tab2 content start-->
+
+                                <!--tab2 content end-->
+
+
+                                <!--tab3 content start-->
+
+                                <div class="TabbedPanelsContent tab_content3 last" style="height: 25px; background-color: #008b94">
+
+
+                                    <ul class="makemenu navigation1" style="display: flex; list-style: none; margin-top: 0px; margin-bottom: 5px; margin-left: 370px;font-family:'bukra';">
+                                        <li><a href="Page.aspx?MID=37&PGID=20" style="color: #FFFFFF;">Company information</a></li>                                        
+                                        <li><a href="Page.aspx?MID=41&PGID=26" style="color: #FFFFFF; ">Careers</a></li>
+                                        <li><a href="Page.aspx?MID=39&PGID=22" style="color: #FFFFFF; ">New Airport Development</a></li>
+                                        <li><a href="https://mail.omanairports.com/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.omanairports.com%2fowa%2f" style="color: #FFFFFF; ">Staff Email</a></li>
+                                         <li><a href="EServices.aspx" style="color: #FFFFFF; "> E-Services</a></li>                                        
+                                        <li style="border-right:none;"><a href="MediaCenterNew.aspx" style="color: #FFFFFF; ">Media Center</a></li>
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                            <!--tab2 content end-->
+                        </div>
+
+                    </div>
+
+                    <!----Nav Ends------------>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <script type="text/javascript" src="js/script.js"></script>
+
+
+            <script type="text/javascript" src="js/responsiveslides.js"></script>
+            <script>
+        $(document).ready(function () {
+            $(".expanded").animate({ marginRight: "0" }, 3);
+            $(".expandBtn").toggle(function () {
+                $(".expanded").animate({ marginRight: "0" }, 500);
+            }, function () {
+                $(".expanded").animate({ marginRight: "-437px" }, 500);
+            });
+            $('.expanded li').click(function () {
+                var number = $(this).index();
+                $('.expanded h2').slideUp(400).eq(number).slideDown(400);
+                $('.expanded p').slideUp(400).eq(number).slideDown(400);
+                $('.expanded li').removeClass('active').addClass('inactive');
+                $('.expanded li').not(this).removeClass('inactive').addClass('active');
+            });
+
+            $('.expanded h2').not(':first').hide();
+            $('.expanded p').not(':first').hide();
+
+            $('#TRAVELLERS').mouseover(function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+                $('#TRAVELLERS_DIV1').fadeIn(500);
+                $('html, body').animate({
+                    scrollTop: $("#TRAVELLERS_DIV1").offset().top - 70
+                }, 500);
+                $('#TRAVELLERS').attr("src", "images/arrow-d.png");
+                $('#TRAVELLERS2').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV1').on("mouseleave", function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+                $('#TRAVELLERS').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV1_Close').click(function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+            });
+
+
+
+            $('#TRAVELLERS2').mouseover(function () {
+                $('#TRAVELLERS_DIV1').fadeOut(500);
+                $('#TRAVELLERS_DIV2').fadeIn(500);
+                $('html, body').animate({
+                    scrollTop: $("#TRAVELLERS_DIV2").offset().top - 70
+                }, 500);
+                $('#TRAVELLERS2').attr("src", "images/arrow-d.png");
+                $('#TRAVELLERS').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV2').on("mouseleave", function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+                $('#TRAVELLERS2').attr("src", "images/arrow.png");
+            });
+            $('#TRAVELLERS_DIV2_Close').click(function () {
+                $('#TRAVELLERS_DIV2').fadeOut(500);
+            });
+        });
+            </script>
+            <script>
+        $(function () {
+            $(".roslides").responsiveSlides({ pager: true });
+        });
+            </script>
+            <script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+            <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+            <div id="banner" style="height: 760px; top: -47px;">
+                <!-- banner -->
+                <table class="patchTable" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="bannerPatch">&nbsp; </td>
+                        <td class="middlePatch" width="980">&nbsp;
+  				<div class="expanded" style="margin-top: 230px">
+                      <div id="navbar">
+                          <span class="expandBtn"></span>
+                          <ul style="float: left;">
+
+                              <li class="inactive" id="FlightArrivals"><a href="#" title="Projects" id="Projects">Arrivals <span class="notification">
+                                  <img src="images/arrivals_icon.png" width="34" height="32" /></span></a></li>
+                              <li class="active" id="FlightDepartures"><a href="#" title="Contacts" id="Contacts">Departures<span class="notification"><img src="images/Departures_icon.png" width="34" height="32" /></a></li>
+
+                          </ul>
+
+                          <div style="float: right;">
+                              <div style="width: 148px; font-size: 9px; color: rgb(0, 139, 148); font-family: 'bukra'; line-height: 10px; text-align: center; margin-top: 5px; cursor: pointer; height: 10px; vertical-align: central; padding-top: 8px; margin-right: 12px; padding-bottom: 5px; background-color: #f1f1f1; font-weight: normal;" id="muscatLink">MUSCAT INT. AIRPORT</div>
+                              <div style="width: 148px; font-size: 9px; color: #020001; font-family: 'bukra'; line-height: 10px; text-align: center; padding-top: 8px; cursor: pointer; height: 15px; vertical-align: central; font-weight: normal;display:none;" id="salalahLink">SALALAH INT. AIRPORT</div>
+                          </div>
+
+
+                      </div>
+                      <div id="slider" style="height: 160px; overflow-y: scroll;">
+                      </div>
+                      <span style="float: left; vertical-align: top; margin-left: 5px; color: rgb(241, 169, 0); font-family: arialnarrow; font-size: 12px;">Muscat Weather</span>
+                      <span id="wxTemp"></span>
+                      <span id="wxIcon3"></span>
+                      <span style="float: left; vertical-align: top; margin-left: 5px; color: rgb(241, 169, 0); font-family: arialnarrow; font-size: 12px; font-weight: bold; display: inline-block;">Humidity</span><span id="wxHumidity"></span>
+                      <span style="float: left; vertical-align: top; margin-left: 5px; color: rgb(241, 169, 0); font-family: arialnarrow; font-size: 12px;">Time :</span>
+                      <span id="currentTime" style="float: left; vertical-align: top; margin-left: 5px; color: rgb(241, 169, 0); font-family: arialnarrow; font-size: 12px; font-weight: bold;"></span>
+                      <a href="FlightArrivals.aspx?MID=8&SMID=55&Slide=True" id="linktimming" style="margin-right: 20px; text-decoration: none; color: rgb(241, 169, 0); font-family: arialnarrow; font-size: 12px; font-weight: bold;">more info.</a>
+
+                  </div>
+
+                        </td>
+                        <td class="bannerPatch">&nbsp; </td>
+                    </tr>
+                </table>
+                <ul class="roslides">
+
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/1.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/2.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/3.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/4.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/5.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+                    <li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/6.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+					<li>
+                        <div class="caption">
+                        </div>
+
+                        <img src='Banners/7.jpg' width="1369px" height="600px" alt="" />
+
+                    </li>
+                </ul>
+            </div>
+            <!-- banner ends -->
+            <!--tab start-->
+
+
+
+            <!--tab end-->
+
+            <!-- main-container ends -->
+
+            <script src="js/jquery.easy-ticker.js"></script>
+            <script>
+$(function(){
+	$('.demo1').easyTicker({
+		direction: 'up',
+		easing: 'swing',
+        height:'200px'
+    	});	
+    });
+            </script>
+
+            <script type="text/javascript">
+     
+
+         var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+            </script>
+
+
+
+            <script src="js/jquery-1.9.1.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+            <script>
+         var j = jQuery.noConflict();
+         j(function () {
+
+
+             j('div#thedialog').dialog({
+                 autoOpen: false,
+                 resizable: false,
+                 modal: true,
+                 width: "637px",
+                 position: ['top', 0],
+                 show: {
+                     effect: "fade",
+                     duration: 2000
+                 }, hide: {
+                     effect: "fade",
+                     duration: 1000
+                 },
+                 open: function () {
+                     j('.ui-widget-overlay').bind('click', function () {
+                         j('div#thedialog').dialog('close');
+                     })
+                 }
+             });
+
+             j("#closedg").click(function () {
+                 j('div#thedialog').dialog('close');
+             });
+
+
+         });
+
+            </script>
+
+
+
+
+
+
+
+            <div id="footer" style="margin-top: -48px">
+                <!-- footer -->
+                <div class="center-sctn">
+                    <div class="footer-section">
+                        <!-- footer-sctn -->
+                        <div class="col-section1">
+                            <img src="cssnew1/logonly.png" alt="" width="70px" height="70px">
+                        </div>
+                        <!-- col-section1 ends -->
+
+                        <div class="col-section2" style="margin-left: 0px; margin-top: 0px; border-left: 1px solid #f1f1f1;">
+
+                            <!-- col-section2 -->
+                            <h2 class="title">Oman Airports</h2>
+                            <p style="font-family: 'bukra' !important;font-size:9px;line-height: 20px;">Oman Airports is owned by the Government of the Sultanate of Oman, Oman Airports is responsible for the management and operation of Muscat International and Salalah Airports and for the future new airports of Ad Duqm, Sohar and Ras Al Hadd.</p>
+                        </div>
+                        <img src="cssnew1/awards.jpg" alt="" style="margin-top: 28px; padding-left: 12px">
+                        <!-- col-section2 ends -->
+                        <div class="col-section3" style="margin-top: 50px; background: none">
+                             <a href="https://www.facebook.com/pages/OAMC/403920866361151" target="_blank">
+                                    <img src="cssnew1/fb.png" alt="" width="25px" height="25px"/></a>
+                                <a href="http://www.youtube.com/OmanAirports" target="_blank">
+                                    <img src="cssnew1/yo.png" alt="" width="25px" height="25px"/></a>
+                                <a href="https://twitter.com/@OAMCmedia" target="_blank">
+                                    <img src="cssnew1/tw.png" alt="" width="25px" height="25px"/></a>
+                                <a href="http://www.linkedin.com/in/OAMCmedia" target="_blank">
+                                    <img src="cssnew1/li.png" alt="" width="25px" height="25px"/></a>
+                        </div>
+ <div style="font-size: 9px; float: right; padding: 5px;color:#5c5c5f;">
+                                <a href="ContactUsNew.aspx#form-1" style="padding-right: 20px;color:#5c5c5f;">Feedback Form</a>
+                                <a href="FPage.aspx?PGID=39" style="padding-right: 20px;color:#5c5c5f;">Privacy Policy</a>                                
+                               Oman Airports
+                            </div>
+                    </div>
+                    <!--  footer-sctn ends-->
+                    <div class="footer-below">
+                        <!-- footer-below -->
+                        <img src="cssnew1/pattern.jpg" alt="" width="980px" style="margin-top: -20px;">
+                    </div>
+                    <!-- footer-below ends -->
+                </div>
+            </div>
+            <!-- footer ends -->
+
+        </div>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+        <script>
+         var j = jQuery.noConflict();
+         j(function () {
+
+
+             j('div#thedialog').dialog({
+                 autoOpen: false,
+                 resizable: false,
+                 modal: true,
+                 width: "637px",
+                 position: ['top', 0],
+                 show: {
+                     effect: "fade",
+                     duration: 2000
+                 }, hide: {
+                     effect: "fade",
+                     duration: 1000
+                 },
+                 open: function () {
+                     j('.ui-widget-overlay').bind('click', function () {
+                         j('div#thedialog').dialog('close');
+                     })
+                 }
+             });
+
+             j("#closedg").click(function () {
+                 j('div#thedialog').dialog('close');
+             });
+
+
+         });
+
+        </script>   
+
+
+        <style>
+            .ui-widget-overlay {
+                opacity: 0.5;
+                filter: Alpha(Opacity=50);
+                background-color: black;
+                background: #AAA repeat-x scroll 50% 50%;
+                background-image: none;
+            }
+
+            .ui-dialog {
+                overflow: visible;
+            }
+
+            .ui-dialog-title {
+                display: none;
+            }
+
+            .ui-dialog-titlebar {
+                background: transparent;
+                border: none;
+                display: none;
+            }
+
+            .ui-dialog .ui-dialog-titlebar-close {
+                right: 0;
+            }
+
+            .ui-dialog-content {
+                padding: 0;
+            }
+        </style>
+
+
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+   
+     
+
+    </form>
+</body>
+</html>

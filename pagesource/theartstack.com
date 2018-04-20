@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://theartstack.com/shop">redirected</a>.</body></html>

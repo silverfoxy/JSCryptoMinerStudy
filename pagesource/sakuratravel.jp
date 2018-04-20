@@ -1,0 +1,1118 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="【さくらトラベル】LCCをはじめ国内全ての航空会社の格安航空券を一覧比較してカンタン予約！24時間365日！PC・スマホからいつでもお申込OK！">
+<meta name="keywords" content="格安航空券,国内格安航空券,飛行機,予約,激安">
+<link rel="canonical" href="https://www.sakuratravel.jp">
+<title>国内格安航空券【24時間365日】予約受付中！さくらトラベル</title>
+<link rel="stylesheet" media="all" href="/css/import.css" />
+<script src="/js/jquery-1.10.1.min.js"></script>
+<script src="/js/modernizr-2.0.6-development-only.js"></script>
+<!-- IE向けの設定 -->
+<!--[if IE]> 
+<script src="/js/html5.js"></script>
+<script src="/js/css3-mediaqueries.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/js/smoothScroll.js"></script>
+<script type="text/javascript" src="/js/smartRollover.js"></script>
+<!--//カレンダー//-->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script type="text/javascript" src="js/isHoliday.js"></script>
+<link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="js/calendar2.js"></script>
+<link type="text/css" href="/css/datepicker.css" rel="stylesheet" />
+<style type="text/css">
+<!--
+div.top1 ul.txtLink li {float:left; background:url(images/top/arrow04_gray.png) no-repeat left; margin-right:20px;}
+div.top1 ul.txtLink li a {color:#333; text-decoration:underline; padding:0 0 0 20px;}
+div.top1 ul.txtLink li a:hover {color:#333; text-decoration:none;}
+nav.topL li {padding-bottom:6px;}
+#ui-datepicker-div{
+    width:700px !important;
+}
+/* ========↓↓↓カレンダーサイズ変更↓↓↓======== */
+.ui-datepicker-calendar td a,
+.ui-datepicker-calendar td span {
+    width:37px;
+    height:35px;
+    padding:5px 3px 10px 3px;
+}
+.ui-datepicker-calendar td a[data-lowestfare] {
+ position:relative
+}
+.ui-datepicker-calendar td a[data-lowestfare]::after {
+ content:attr(data-lowestfare);
+ display:block;
+ padding:0 0 5px 0;
+ font-size:10px;
+ font-weight:400;
+ color:#aaa
+}
+.ui-datepicker-calendar td a[data-lowestfare].is-lowest::after {
+ color:#1c5db5
+}
+/* ========↑↑↑カレンダーサイズ変更↑↑↑======== */
+-->
+</style>
+<!-- 20170926 start select box correct -->
+    <script type="text/javascript">
+    $(function($) {
+        // 当日取得
+        var thisdate = new Date();
+        var thisyear = thisdate.getFullYear();
+        var thismonth = thisdate.getMonth() + 1;
+        var today = thisdate.getDate();
+        var initlastday = new Date(thisyear, thismonth, 0).getDate();
+        $("#d").empty();
+        for (var i=1; i <= initlastday; i++) {
+            var initday = new Date(thisyear,thismonth - 1,i).getDay();
+            var initdayStr = [ "日", "月", "火", "水", "木", "金", "土" ][initday];
+            if (i == today) {
+                $("#d").append($("<option selected>").val(i).text(i+'日('+ initdayStr +')'));
+            }else{
+                $("#d").append($("<option>").val(i).text(i+'日('+ initdayStr +')'));
+            }
+        }
+        $("#m").val(thismonth);
+        // 月選択
+        $("#m").change(function() {
+            var selectmonth = $("#m").val();
+            var selectday = $("#d").val();
+            if(selectmonth >= thismonth){
+                var selectyear =  thisyear;
+            }else{
+                var selectyear =  thisyear + 1;
+            }
+            var lastday = new Date(selectyear, selectmonth, 0).getDate();
+            //一旦要素削除
+            $("#d").empty();
+            for (var i=1; i <= lastday; i++) {
+                var dayOfWeek = new Date(selectyear,selectmonth - 1,i).getDay();
+                var dayOfWeekStr = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek];
+                if (i == selectday) {
+                    $("#d").append($("<option selected>").val(i).text(i+'日('+ dayOfWeekStr +')'));
+                }else{
+                    $("#d").append($("<option>").val(i).text(i+'日('+ dayOfWeekStr +')'));
+                }
+            }
+        });
+        // カレンダー画面からのデータ
+        $("#datepicker").bind("change", function() {
+            var data = $(this).val();
+            var caldata = data.split("/");
+            var calyear = caldata[0];
+            var calmonth = caldata[1];
+            var calday = caldata[2];
+            // 月設定
+            $("#m").val(calmonth);
+            var callastday = new Date(calyear, calmonth, 0).getDate();
+            //一旦要素削除
+            $("#d").empty();
+            for (var i=1; i <= callastday; i++) {
+                var caldayOfWeek = new Date(calyear,calmonth - 1,i).getDay();
+                var caldayOfWeekStr = [ "日", "月", "火", "水", "木", "金", "土" ][caldayOfWeek];
+                if (i == calday) {
+                    $("#d").append($("<option selected>").val(i).text(i+'日('+ caldayOfWeekStr +')'));
+                }else{
+                    $("#d").append($("<option>").val(i).text(i+'日('+ caldayOfWeekStr +')'));
+                }
+            }
+        })
+    });
+    </script>
+<!-- 20170926 end select box correct -->
+</head>
+<body>
+<div id="fb-root"></div>
+<script type="text/javascript" src="/js/facebook.js"></script>
+<!--// ヘッダー //-->
+<header id="pagetop" class="nophone">
+<h1>国内すべての航空会社の格安航空券を比較・予約</h1>
+<h2><a href=""><img src="/images/header/logo.gif" alt="格安航空券|さくらトラベル"></a></h2>
+<ul class="btns">
+<script type="text/javascript" src="/js/bookmark.js"></script>
+<li class="fb"><div class="fb-like" data-href="https://www.facebook.com/sakuratravel.jp?fref=ts" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>
+</ul>
+<div class="right">
+<h3><img src="/images/header/catch.gif" alt="全国どこでも！24時間365日航空会社を一括比較！"></h3>
+<ul>
+<li class="fleft0"><a href="faq/"><img src="/images/header/btn_faq.jpg" alt="お問合せの前によくある質問"></a></li>
+<li class="fright0"><a href="contact.html"><img src="/images/header/btn_contact.jpg" alt="お問い合わせ"></a></li>
+<li class="clear"><a href="attention/"><img src="/images/header/btn_attentionL.jpg" alt="メール・お電話でのお問い合わせのお客様へ【サポートセンター利用規定】"></a></li>
+</ul>
+</div><!-- right end -->
+</header>
+<!--// グローバルナビ //-->
+<nav id="gnavi">
+<ul>
+<li><a href=""><img src="/images/navi/navi1_off.gif" alt="格安航空券のさくらトラベル"></a></li>
+<li><a href="application.html"><img src="/images/navi/navi2_off.gif" alt="お申込方法"></a></li>
+<li><a href="payment.html"><img src="/images/navi/navi3_off.gif" alt="お支払方法"></a></li>
+<li><a href="receipt.html"><img src="/images/navi/navi4_off.gif" alt="お受取方法"></a></li>
+<li><a href="airport.html"><img src="/images/navi/navi5_off.gif" alt="空港カウンター案内"></a></li>
+<li><a href="cancel.html"><img src="/images/navi/navi6_off.gif" alt="キャンセル・払戻方法"></a></li>
+<li><a href="https://www.sakuratravel.jp/search/receipt.php"><img src="/images/navi/navi7_off.gif" alt="領収書発行"></a></li>
+</ul>
+</nav>
+<!--// コンテンツ //-->
+<div class="top_wrapper">
+<!--//上段/-->
+<div class="top1">
+<nav class="topL">
+<ul>
+<li><a href="uridashi.html"><img src="images/top/bn_uridashi20180314.jpg" alt="2018年10月27日(土)搭乗分まで受付中！※航空会社によって内容が異なりますので詳しくは詳細よりご確認ください。"></a></li>
+<!--<li><a href="https://www.sakuratravel.jp/news/topics/id-4456.html"><img src="images/top/bn20170809.jpg" alt="2018年3月24日まで受付開始！※航空会社によって内容が異なりますので詳しくは詳細よりご確認ください。"></a></li>-->
+<li><img src="images/top/bn20170802.png" alt="クレジット手数料0円！"></li>
+<li><img src="images/top/bn20180201lcc.png" alt="【キャンペーン中】LCC座席指定料0円！※スタンダードシートご利用時"></li>
+<li><img src="images/top/bn3_20170512.png" alt="全商品座席指定！"></li>
+<!--<li><a href="time/"><img src="images/top/201501/bnr1.jpg" alt="乗り継ぎ時間について"></a></li>
+<li><a href="wheather/"><img src="images/top/201501/bnr2.jpg" alt="悪天候時の対応について"></a></li>-->
+<!--<li class="txtLink" style="padding:0;"><a href="wheather/">悪天候時の対応について</a></li>-->
+</ul>
+</nav>
+<aside class="topform">
+<!--<h2><img src="images/top/topform/main_newyear.png" alt="年末年始も営業中！"></h2>-->
+<h2><img src="images/top/topform/main.png" alt="これは便利!!"></h2>
+<h3><img src="images/top/topform/ttl.jpg" alt="全国発着OK!いますぐ検索!ネットで簡単予約24時間受付中！"></h3>
+<!--//検索フォーム//-->
+<form name="kensaku" method="post" action="/search/search.php">
+<div class="wp_btn_reverse">
+<div id="btn_reverse"><img src="images/top/topform/reverse.png"></div>
+<p><img src="images/top/topform/sub2.gif" alt="出発地">
+<!-- 201708 CHANGE START-->
+<select name="s_from" class="airport" id="st_airplace">
+<!-- 201708 CHANGE END-->
+<option value="0">ご選択下さい</option>
+<optgroup label='主要空港------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FUK" >　福岡</option>
+<option value="OKA" >　沖縄/那覇</option>
+<optgroup label='北海道--------'>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="RIS" >　利尻</option>
+<option value="WKJ" >　稚内</option>
+<option value="MBE" >　紋別</option>
+<option value="MMB" >　女満別</option>
+<option value="AKJ" >　旭川</option>
+<option value="SHB" >　中標津</option>
+<option value="KUH" >　釧路</option>
+<option value="OBO" >　帯広</option>
+<option value="HKD" >　函館</option>
+<option value="OIR" >　奥尻</option>
+</optgroup>
+<optgroup label='東北----------'>
+<option value="AOJ" >　青森</option>
+<option value="MSJ" >　三沢</option>
+<option value="ONJ" >　大館能代</option>
+<option value="AXT" >　秋田</option>
+<option value="HNA" >　花巻</option>
+<option value="SYO" >　庄内</option>
+<option value="GAJ" >　山形</option>
+<option value="SDJ" >　仙台</option>
+<option value="FKS" >　福島</option>
+</optgroup>
+<optgroup label='関東----------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="IBR" >　茨城</option>
+<option value="OIM" >　大島</option>
+<option value="HAC" >　八丈島</option>
+</optgroup>
+<optgroup label='中部----------'>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FSZ" >　静岡</option>
+<option value="KIJ" >　新潟</option>
+<option value="MMJ" >　松本</option>
+<option value="TOY" >　富山</option>
+<option value="KMQ" >　小松</option>
+<option value="NTQ" >　能登</option>
+</optgroup>
+<optgroup label='近畿----------'>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="TJH" >　但馬</option>
+<option value="SHM" >　南紀白浜</option>
+</optgroup>
+<optgroup label='中国----------'>
+<option value="TTJ" >　鳥取</option>
+<option value="OKJ" >　岡山</option>
+<option value="YGJ" >　米子</option>
+<option value="IZO" >　出雲</option>
+<option value="OKI" >　隠岐</option>
+<option value="HIJ" >　広島</option>
+<option value="IWK">　岩国</option>
+<option value="IWJ" >　石見</option>
+<option value="UBJ" >　山口宇部</option>
+</optgroup>
+<optgroup label='四国----------'>
+<option value="TKS" >　徳島</option>
+<option value="TAK" >　高松</option>
+<option value="KCZ" >　高知</option>
+<option value="MYJ" >　松山</option>
+</optgroup>
+<optgroup label='九州----------'>
+<option value="FUK" >　福岡</option>
+<option value="KKJ" >　北九州</option>
+<option value="OIT" >　大分</option>
+<option value="HSG" >　佐賀</option>
+<option value="NGS" >　長崎</option>
+<option value="KMJ" >　熊本</option>
+<option value="AXJ">　天草</option>
+<option value="TSJ" >　対馬</option>
+<option value="IKI" >　壱岐</option>
+<option value="FUJ" >　五島福江</option>
+<option value="KMI" >　宮崎</option>
+<option value="KOJ" >　鹿児島</option>
+<option value="TNE" >　種子島</option>
+<option value="KUM" >　屋久島</option>
+<option value="KKX" >　喜界島</option>
+<option value="ASJ" >　奄美</option>
+<option value="TKN" >　徳之島</option>
+<option value="OKE" >　沖永良部</option>
+<option value="RNJ" >　与論</option>
+</optgroup>
+<optgroup label='沖縄----------'>
+<option value="OKA" >　沖縄/那覇</option>
+<option value="UEO" >　久米島</option>
+<option value="MMY" >　宮古</option>
+<option value="TRA" >　多良間</option>
+<option value="ISG" >　石垣</option>
+<option value="KTD" >　北大東</option>
+<option value="MMD" >　南大東</option>
+<option value="OGN" >　与那国</option>
+</optgroup>
+</select></p></div>
+<p><img src="images/top/topform/sub3.gif" alt="到着地">
+<!-- 201708 CHANGE START-->
+<span id="ar_airplace_pul">
+<select name="s_to" class="airport" id="ar_airplace">
+<!-- 201708 CHANGE END-->
+<option value="0">ご選択下さい</option>
+<optgroup label='主要空港--------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FUK" >　福岡</option>
+<option value="OKA" >　沖縄/那覇</option>
+<optgroup label='北海道--------'>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="RIS" >　利尻</option>
+<option value="WKJ" >　稚内</option>
+<option value="MBE" >　紋別</option>
+<option value="MMB" >　女満別</option>
+<option value="AKJ" >　旭川</option>
+<option value="SHB" >　中標津</option>
+<option value="KUH" >　釧路</option>
+<option value="OBO" >　帯広</option>
+<option value="HKD" >　函館</option>
+<option value="OIR" >　奥尻</option>
+</optgroup>
+<optgroup label='東北----------'>
+<option value="AOJ" >　青森</option>
+<option value="MSJ" >　三沢</option>
+<option value="ONJ" >　大館能代</option>
+<option value="AXT" >　秋田</option>
+<option value="HNA" >　花巻</option>
+<option value="SYO" >　庄内</option>
+<option value="GAJ" >　山形</option>
+<option value="SDJ" >　仙台</option>
+<option value="FKS" >　福島</option>
+</optgroup>
+<optgroup label='関東----------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="IBR" >　茨城</option>
+<option value="OIM" >　大島</option>
+<option value="HAC" >　八丈島</option>
+</optgroup>
+<optgroup label='中部----------'>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FSZ" >　静岡</option>
+<option value="KIJ" >　新潟</option>
+<option value="MMJ" >　松本</option>
+<option value="TOY" >　富山</option>
+<option value="KMQ" >　小松</option>
+<option value="NTQ" >　能登</option>
+</optgroup>
+<optgroup label='近畿----------'>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="TJH" >　但馬</option>
+<option value="SHM" >　南紀白浜</option>
+</optgroup>
+<optgroup label='中国----------'>
+<option value="TTJ" >　鳥取</option>
+<option value="OKJ" >　岡山</option>
+<option value="YGJ" >　米子</option>
+<option value="IZO" >　出雲</option>
+<option value="OKI" >　隠岐</option>
+<option value="HIJ" >　広島</option>
+<option value="IWK">　岩国</option>
+<option value="IWJ" >　石見</option>
+<option value="UBJ" >　山口宇部</option>
+</optgroup>
+<optgroup label='四国----------'>
+<option value="TKS" >　徳島</option>
+<option value="TAK" >　高松</option>
+<option value="KCZ" >　高知</option>
+<option value="MYJ" >　松山</option>
+</optgroup>
+<optgroup label='九州----------'>
+<option value="FUK" >　福岡</option>
+<option value="KKJ" >　北九州</option>
+<option value="OIT" >　大分</option>
+<option value="HSG" >　佐賀</option>
+<option value="NGS" >　長崎</option>
+<option value="KMJ" >　熊本</option>
+<option value="AXJ">　天草</option>
+<option value="TSJ" >　対馬</option>
+<option value="IKI" >　壱岐</option>
+<option value="FUJ" >　五島福江</option>
+<option value="KMI" >　宮崎</option>
+<option value="KOJ" >　鹿児島</option>
+<option value="TNE" >　種子島</option>
+<option value="KUM" >　屋久島</option>
+<option value="KKX" >　喜界島</option>
+<option value="ASJ" >　奄美</option>
+<option value="TKN" >　徳之島</option>
+<option value="OKE" >　沖永良部</option>
+<option value="RNJ" >　与論</option>
+</optgroup>
+<optgroup label='沖縄----------'>
+<option value="OKA" >　沖縄/那覇</option>
+<option value="UEO" >　久米島</option>
+<option value="MMY" >　宮古</option>
+<option value="TRA" >　多良間</option>
+<option value="ISG" >　石垣</option>
+<option value="KTD" >　北大東</option>
+<option value="MMD" >　南大東</option>
+<option value="OGN" >　与那国</option>
+</optgroup>
+</select>
+<!-- 201708 ADD START-->
+</span>
+<!-- 201708 ADD END-->
+</p>
+<p id="c"><img src="images/top/topform/sub1.gif" alt="出発日">
+<select name="s_month" size="1" id="m">
+<option value="1">1月</option>
+<option value="2">2月</option>
+<option value="3">3月</option>
+<option value="4">4月</option>
+<option value="5">5月</option>
+<option value="6">6月</option>
+<option value="7">7月</option>
+<option value="8">8月</option>
+<option value="9">9月</option>
+<option value="10">10月</option>
+<option value="11">11月</option>
+<option value="12">12月</option>
+</select>
+&nbsp;
+<select name="s_day" size="1" id="d">
+</select>
+&nbsp;
+<input type="text" id="datepicker" name="datepicker" style="display: none;"/></p>
+<ul class="person">
+<li class="l-m10">大人
+<select name="s_adult" size="1" class="w-m5">
+      <option value="1" selected>1名</option>
+      <option value="2">2名</option>
+      <option value="3">3名</option>
+      <option value="4">4名</option>
+      <option value="5">5名</option>
+      <option value="6">6名</option>
+</select><br><span style="font-size:0.8em;">(12歳以上) </span></li>
+<li>小児
+<select name="s_child" size="1" class="w-m5">
+      <option value="0" selected>0名</option>
+      <option value="1" >1名</option>
+      <option value="2">2名</option>
+      <option value="3">3名</option>
+      <option value="4">4名</option>
+      <option value="5">5名</option>    
+</select><br><span style="font-size:0.8em;">(2〜11歳) </span></li>
+<li>幼児
+<select name="s_infant" size="1" class="l-m5">
+      <option value="0" selected>0名</option>
+      <option value="1" >1名</option>
+      <option value="2">2名</option>   
+</select><br>
+<span style="font-size:0.8em;">(1歳以下) </span></li>
+<li class="lead">幼児含め最大6名様まで１度に確認可能です！<br>
+(6名様を超える場合は、複数回に分けてお手続きください)</li>
+</ul>
+<input type="image" src="images/top/topform/btn.jpg" value="submit" alt="いまスグ検索" class="btn"/>
+</form>
+<script type=text/javascript>
+<!--
+/* =======↓↓↓ 追加修正(20170809) ↓↓↓======= */
+var nowdate = new Date();
+year = nowdate.getFullYear();
+//month = nowdate.getMonth();
+//day = nowdate.getDate() - 1;
+month = nowdate.getMonth() + 1;
+day = nowdate.getDate();
+document.kensaku.s_month.selectedIndex = month - 1;
+document.kensaku.s_day.selectedIndex = day - 1;
+document.kensaku.datepicker.value = year + '/' + month + '/' + day;
+/* =======↑↑↑ 追加修正(20170809) ↑↑↑======= */
+$(function(){
+// 201708 CHANGE START
+//    var base_url = "http://192.168.100.4/kakuyasu/sakura-ticket/";
+    var base_url = "https://www.sakuratravel.jp/search/";
+    // 到着空港プルダウンチェンジ
+    $("#st_airplace").change( function(){
+        var selectVal = $("#st_airplace").val();
+        var selectVal2 = $("#ar_airplace").val();
+        $.ajax({
+            type: "POST",
+            data: "from_airplace=" + selectVal + "&to_airplace=" + selectVal2,
+            url: base_url + 'to_airplaces.php',
+            success: function(data){
+                kekka = data.split("#%%#");
+                if(kekka[1] == 'ok'){
+                    kekka[2] = kekka[2].replace(/<select /g,'<select class="airport" style="width:154px;"');
+                    $("#ar_airplace_pul").html(kekka[2]);
+                }
+            }
+        });
+    });
+    // 到着空港プルダウンチェンジ
+    $("#st_airplace2").change( function(){
+        var selectVal = $("#st_airplace2").val();
+        var selectVal2 = $("#ar_airplace2").val();
+        $.ajax({
+            type: "POST",
+            data: "from_airplace=" + selectVal + "&to_airplace=" + selectVal2,
+            url: base_url + 'to_airplaces.php',
+            success: function(data){
+                kekka = data.split("#%%#");
+                if(kekka[1] == 'ok'){
+                    kekka[2] = kekka[2].replace(/<select /g,'<select class="airport" style="width:154px;"');
+                    $("#ar_airplace_pul2").html(kekka[2]);
+                }
+            }
+        });
+    });
+    $("#btn_reverse").click(function(){
+        var s_from = $("[name='s_from']").val();
+        var s_to = $("[name='s_to']").val();
+        $("[name='s_from']").val(s_to);
+//        $("[name='s_to']").val(s_from);
+        var selectVal = $("#st_airplace").val();
+        var selectVal2 = "";
+        $.ajax({
+            type: "POST",
+            data: "from_airplace=" + selectVal + "&to_airplace=" + selectVal2,
+            url: base_url + 'to_airplaces.php',
+            success: function(data){
+                kekka = data.split("#%%#");
+                if(kekka[1] == 'ok'){
+                    kekka[2] = kekka[2].replace(/<select /g,'<select class="airport" style="width:154px;"');
+                    $("#ar_airplace_pul").html(kekka[2]);
+                    $("[name='s_to']").val(s_from);
+                }
+            }
+        });
+    });
+// 201708 CHANGE END
+});
+// -->
+</script>
+<div class="lead">
+<p class="lead">
+    国内すべての航空会社の格安航空券（価格や空席情報）を 一覧で比較検索することができます。各航空会社の格安価格を比較して簡単予約！これは便利！PC・スマホ・ケータイから24時間365日いつでもお申込OKです！</p>
+</div>
+</aside>
+<nav class="topR">
+<h2><img src="images/top/news/ttl.gif" alt="さくらトラベルからのお知らせ"></h2>
+<h3><img src="images/top/news/ttl_notes.gif" alt="ご利用にあたっての注意事項"><a href="news/notes/" class="more"><img src="images/top/news/btn_notes.gif" alt="一覧はこちら"></a></h3>
+<div id="scrollbar1">
+<ul class="newslist">
+<li><a href="https://www.sakuratravel.jp/news/notes/id-5985.html">・【重要】03/19（月）楽天銀行メンテナンスのお知らせ</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/notes/id-5977.html">【FDA】システムメンテナンス 03/14（水）21:00～03/15（木）06:00について</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/notes/id-5972.html">【重要】新燃岳噴火による火山灰の影響による欠航/遅延情報　03/07（水）10:00現在</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/notes/id-5970.html">【重要】03/03（土）16:00～03/04（日）01:00　Jetstarシステムメンテナンスについて</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/notes/id-5963.html">【重要】03/02（金）17:00～03/05（月）15:00　ダイナースカード決済システムメンテナンスについて</a>…</li>
+</ul>
+</div>
+<h3><img src="images/top/news/ttl_airlines.gif" alt="航空会社より特別なお知らせ"><a href="news/airlines/" class="more"><img src="images/top/news/btn_airlines.gif" alt="一覧はこちら"></a></h3>
+<div id="scrollbar2">
+<ul class="newslist">
+<li><a href="https://www.sakuratravel.jp/news/airlines/id-5981.html">【VanillaAir】東京/成田⇔大阪/関西線 運休のお知らせ</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/airlines/id-5980.html">【FDA】04/01（日）～発券分　燃油特別付加運賃について</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/airlines/id-5973.html">【重要】新燃岳噴火に伴うノーチャージ対象空港 03/07（水）09：30付</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5969.html">【重要】悪天候予報に伴うノーチャージ対象空港 03/02（金）09：00付</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5965.html">【重要】悪天候予報に伴うノーチャージ対象空港 03/01（木）18：00付</a>…</li>
+</ul>
+</div>
+<h3><img src="images/top/news/ttl_cancel.jpg" alt="航空会社からの欠航・遅延情報"><a href="news/cancel/" class="more"><img src="images/top/news/btn_cancel.jpg" alt="一覧はこちら"></a></h3>
+<div id="scrollbar3">
+<ul class="newslist">
+<li><a href="https://www.sakuratravel.jp/news/cancel/id-5913.html">【SFJ】本日02/03（土）ご搭乗分　羽田⇔北九州線（SFJ86・SFJ87）　機材整備に伴う欠航のお知らせ</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/cancel/id-5911.html">【Jetstar】本日02/02（金）ご搭乗分 降雪の影響に伴う欠航便のお知らせ</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/cancel/id-5902.html">【SFJ】本日01/30（火）ご搭乗分　羽田⇔北九州線（SFJ86・SFJ87）　機材整備および機材繰りに伴う欠航のお知らせ</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/cancel/id-5861.html">【SFJ】本日01/16（火）ご搭乗分　北九州空港の霧による運航への影響について</a>…</li>
+<li><a href="https://www.sakuratravel.jp/news/cancel/id-5857.html">【ORC】本日01/13（土）ご搭乗分　使用機不具合に伴う欠航便について</a>…</li>
+</ul>
+</div>
+<a href="news/maintenance/"><img src="images/top/news/bnr_maintenance.gif" alt="航空会社からのシステムメンテナンス情報はこちら"></a>
+</nav>
+<div class="clear"></div>
+<ul class="txtLink clearfix"><li style="padding:0;"><a href="time/">乗り継ぎ時間について</a></li><li style="padding:0;"><a href="wheather/">悪天候時の対応について</a></li></ul>
+</div><!-- top1 end -->
+<nav class="top2">
+<ul>
+<li><a href="lcc/sky/"><img src="images/top/lcc/sky.jpg" alt="SKYMARKをご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li><a href="lcc/peach/"><img src="images/top/lcc/peach.jpg" alt="Peachをご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li><a href="lcc/jetstar/"><img src="images/top/lcc/jetstar.jpg" alt="Jetstarをご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li><a href="lcc/vanilla/"><img src="images/top/lcc/vanilla.jpg" alt="VanillaAirをご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li><a href="lcc/spring/"><img src="images/top/lcc/spring.jpg" alt="春秋航空をご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li class="last"><a href="lcc/airasia/"><img src="images/top/lcc/airasia.jpg" alt="エアアジアをご利用のお客様は必ずご確認ください。" class="lcc_notice"></a></li>
+<li class="clear"><img src="images/top/airlines/logo.jpg" alt="取扱航空会社"></li>
+</ul>
+</nav>
+<!-- top yotpo-->
+<script type="text/javascript">
+(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/CFcUk5Z5Q1rUaA0sLkG7fqjPZWPlrterM4Fsa89u/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+</script>
+<link type="text/css" href="/css/yotpo_new.css" rel="stylesheet" />
+<!-- top yotpo end -->
+<div class="top_contents">
+<div class="btmL">
+<p class="b-m5 t-m10 l-m10"><img src="images/top/bnr_24h.jpg" alt="さくらトラベルは24時間365日やっています。"></p>
+<!-- 国内空港別特集 -->
+<section class="sec" id="sec-airport">
+    <h2 class="b-m10">国内空港別特集</h2>
+    <dl>
+        <dt><img src="images/top/airport/img_airport.jpg" alt="国内空港別特集"></dt>
+        <dd>
+            <h3>国内空港別特集</h3>
+            <p>国内出発空港から選ぶ格安航空券！<br>空港情報や、最安値、時刻表をご確認いただけます。</p>
+            <a href="/airport/">国内空港別特集</a>
+        </dd>
+    </dl>
+</section>
+<!-- 国内空港別特集 -->
+<!-- 国内線 格安航空券特集 -->
+<section class="sec" id="sec-career">
+    <h2 class="b-m10">格安航空券特集</h2>
+        <p class="b-m10">こちらのページは、日本国内を就航している各航空会社の特集ページになっております！<br>
+    JAL、ANA、SKY（スカイマーク）をはじめ、Peach（ピーチ）、Jetstar（ジェットスター）、VanillaAir（バニラエア）などLCCを含め各社の情報を分かりやすくまとめました！！<br>
+    各航空会社ページ内では主要路線の一発検索や、就航路線の確認（一部航空会社）、各航空会社の特徴などについて記載しております！<br>また、さくらトラベルの「取り扱い商品」や、各社の「座席指定」、「チェックイン」、「受託手荷物」、「お子様や妊娠中のお客様」、「乗り継ぎ」、「キャンセル料金」などについてまとめてありますので、ぜひ一度ご予約・ご搭乗の前にご確認してみて下さい！
+    </p>
+    <ul>
+        <li><a href="/carrier/jal/"><img src="images/top/career/btn_career_jal.gif" alt="JAL特集"></a></li>
+        <li><a href="/carrier/ana/"><img src="images/top/career/btn_career_ana.gif" alt="ANA特集"></a></li>
+        <li><a href="/carrier/peach/"><img src="images/top/career/btn_career_peach.gif" alt="Peach特集"></a></li>
+        <li><a href="/carrier/jetstar/"><img src="images/top/career/btn_career_jetstar.gif" alt="Jetstar特集"></a></li>
+        <li><a href="/carrier/vanilla-air/"><img src="images/top/career/btn_career_vanilla.gif" alt="Vanilla-Air特集"></a></li>
+        <li><a href="/carrier/ado/"><img src="images/top/career/btn_career_ado.gif" alt="AIR DO特集"></a></li>
+        <li><a href="/carrier/skymark/"><img src="images/top/career/btn_career_sky.gif" alt="SKY MARK特集"></a></li>
+        <li><a href="/carrier/sfj/"><img src="images/top/career/btn_career_sfj.gif" alt="StarFlyer特集"></a></li>
+        <li><a href="/carrier/fda/"><img src="images/top/career/btn_career_fda.gif" alt="FDA特集"></a></li>
+        <li><a href="/carrier/ibex/"><img src="images/top/career/btn_career_ibex.gif" alt="IBEX特集"></a></li>
+        <li><a href="/carrier/amx/"><img src="images/top/career/btn_career_amx.gif" alt="天草AIRLINES特集"></a></li>
+        <li><a href="/carrier/orc/"><img src="images/top/career/btn_career_orc.gif" alt="ORC特集"></a></li>
+        <li><a href="/carrier/sna/"><img src="images/top/career/btn_career_sna.gif" alt="Solaseed Air ソラシドエア特集"></a></li>
+        <li><a href="/carrier/ij/"><img src="images/top/career/btn_career_ij.gif" alt="Spring Japan（IJ）特集"></a></li>
+    </ul>
+    <div class="btn-career"><a href="/carrier/"><img src="images/top/career/btn_career_top.gif" alt="国内線 格安航空券特集へ"></a></div>
+</section>
+<!-- 国内線 格安航空券特集 -->
+<section class="top4">
+<h2><img src="images/top/ttl_topics.jpg" alt="お役立ち情報"><a href="news/topics/"><img src="images/top/btn_more.png" alt="一覧はこちら"></a></h2>
+<div class="b-m10"><p>
+    各新路線・発売開始日等のお得な情報等を随時お知らせいたします。</p>
+<p>
+    &nbsp;</p>
+</div>
+<div id="scrollbar4">
+<ul class="newslist2">
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5986.html">・【JAL】2018/03/25（日）～05/31（木）ご搭乗分 「徳島⇔福岡」線の増便　受付中!!</a>
+</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5984.html">【Peach】03/26（月）～10/27（土）ご搭乗分 「6周年#OOKINIセール 3週目」 明日03/15（木）00:00～受付開始！</a>
+…</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5983.html">【VanillaAir】07/01（日）～07/31（火）ご搭乗分 新路線就航記念「わくわくバニラ」　明日03/14（水）14:00～受付開始!!</a>
+…</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5982.html">【VanillaAir】新路線「成田⇔石垣」線・「那覇⇔石垣」線　明日03/14（水）14:00～受付開始!!</a>
+</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5979.html">【Spring Japan】03/25（日）～06/30（土）ご搭乗分「60時間限定 ホワイトデーセール」 明日03/12（月）12:00～受付開始!!</a>
+…</li>
+<li><a href="https://www.sakuratravel.jp/news/topics/id-5974.html">【VanillaAir】03/29（木）～06/30（土）ご搭乗分 「わくわくバニラ SALE」　03/09（金）18:00～受付開始!!</a>
+…</li>
+</ul>
+</div>
+</section>
+<section class="top5">
+<h2><img src="images/top/ttl_airlines.jpg" alt="航空会社運航状況"></h2>
+<p>
+    各航空会社の運行情報はこちらからご確認いただけます。</p>
+<p>
+    &nbsp;</p>
+<ul>
+<li><a href="http://www.ana.co.jp/fs/dom/jp/" rel="nofollow" target="_blank"><img src="images/top/airlines/ana.jpg" alt="ANA運航状況"></a></li>
+<li><a href="http://www.jal.co.jp/cms/other/ja/weather_info_dom.html" rel="nofollow" target="_blank"><img src="images/top/airlines/jal.jpg" alt="JAL運航状況"></a></li>
+<li class="last"><a href="http://www.res.skymark.co.jp/mercury/fis/flight_announce_i18n" rel="nofollow" target="_blank"><img src="images/top/airlines/sky.jpg" alt="SKY運航状況"></a></li>
+<li><a href="http://www.starflyer.jp/flight_info.html" rel="nofollow" target="_blank"><img src="images/top/airlines/sfj.jpg" alt="SFJ運航状況"></a></li>
+<li><a href="https://www.solaseedair.jp/prospect/" rel="nofollow" target="_blank"><img src="images/top/airlines/sna.jpg" alt="SNA運航状況"></a></li>
+<li class="last"><a href="http://www.airdo.jp/fli/index.html" rel="nofollow" target="_blank"><img src="images/top/airlines/airdo.jpg" alt="AIR DO運航状況"></a></li>
+<li><a href="http://www.fujidream.co.jp/flight_info/index.html" rel="nofollow" target="_blank"><img src="images/top/airlines/fda.jpg" alt="FDA運航状況"></a></li>
+<li><a href="http://www.ibexair.co.jp/" rel="nofollow" target="_blank"><img src="images/top/airlines/ibex.jpg" alt="IBEX運航状況"></a></li>
+<li class="last"><a href="http://www.amx.co.jp/time/unkou.php" rel="nofollow" target="_blank"><img src="images/top/airlines/amx.jpg" alt="天草運航状況"></a></li>
+<li><a href="http://www.orc-air.co.jp/air/" rel="nofollow" target="_blank"><img src="images/top/airlines/orc.jpg" alt="ORC運航状況"></a></li>
+<li><a href="http://www.flypeach.com/jp/flightStatus.aspx" rel="nofollow" target="_blank"><img src="images/top/airlines/peach.jpg" alt="Peach運航状況"></a></li>
+<li class="last"><a href="http://book.jetstar.com/flifosearch.aspx?culture=ja-jp" rel="nofollow" target="_blank"><img src="images/top/airlines/jetstar.jpg" alt="Jetstar運航状況"></a></li>
+<li><a href="http://www.vanilla-air.com/reservation/ibe/ibe/flifo?locale=ja" rel="nofollow" target="_blank"><img src="images/top/airlines/vanilla.jpg" alt="Vanilla Air運航状況"></a></li>
+<li><a href="http://j.springairlines.com/JP/Help/serviceguideflightdynamics" rel="nofollow" target="_blank"><img src="images/top/airlines/spring.jpg" alt="春秋航空日本運航状況"></a></li>
+<li class="last"><a href="https://selfservice.airasia.com/FlightStatus?culture=ja-JP" rel="nofollow" target="_blank"><img src="images/top/airlines/airasia.jpg" alt="エアアジア運航状況"></a></li>
+</ul>
+</section>
+<section class="top6">
+<h2><img src="/images/top/btmform/ttl.jpg" alt="これは便利"></h2>
+<h3><img src="/images/top/btmform/lead1.jpg" alt="ネットで簡単予約 24時間受付中！"></h3>
+<p><img src="/images/top/btmform/lead2.jpg" alt="全国発着OK!いますぐ検索!"></p>
+<!--//検索フォーム//-->
+<form name="kensaku2" method="post" action="/search/search.php">
+<p><img src="/images/top/btmform/sub1.gif" alt="出発日">
+<select name="s_month" size="1">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+&nbsp;月
+<select name="s_day" size="1">
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+<option value="5" >5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="8" >8</option>
+<option value="9" >9</option>
+<option value="10" >10</option>
+<option value="11" >11</option>
+<option value="12" >12</option>
+<option value="13" >13</option>
+<option value="14" >14</option>
+<option value="15" >15</option>
+<option value="16" >16</option>
+<option value="17" >17</option>
+<option value="18" >18</option>
+<option value="19" >19</option>
+<option value="20" >20</option>
+<option value="21">21</option>
+<option value="22" >22</option>
+<option value="23" >23</option>
+<option value="24" >24</option>
+<option value="25" >25</option>
+<option value="26" >26</option>
+<option value="27" >27</option>
+<option value="28" >28</option>
+<option value="29" >29</option>
+<option value="30" >30</option>
+<option value="31" >31</option>
+</select>
+&nbsp;日</p>
+<p><img src="/images/top/btmform/sub2.gif" alt="出発地">
+<!-- 201708 CHANGE START-->
+<select name="s_from" class="airport" id="st_airplace2">
+<!-- 201708 CHANGE END-->
+<option value="0">ご選択下さい</option>
+<optgroup label='主要空港------'>
+<option value="HND" >東京/羽田</option>
+<option value="NRT" >東京/成田</option>
+<option value="TYO" >東京(羽田・成田)</option>
+<option value="ITM" >大阪/伊丹</option>
+<option value="KIX" >大阪/関西</option>
+<option value="UKB" >大阪/神戸</option>
+<option value="OSA" >大阪(全て)</option>
+<option value="CTS" >札幌/新千歳</option>
+<option value="OKD" >札幌/丘珠</option>
+<option value="NGO" >名古屋/中部</option>
+<option value="NKM" >名古屋/小牧</option>
+<option value="FUK" >福岡</option>
+<option value="OKA" >沖縄/那覇</option>
+<optgroup label='北海道--------'>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="RIS" >　利尻</option>
+<option value="WKJ" >　稚内</option>
+<option value="MBE" >　紋別</option>
+<option value="MMB" >　女満別</option>
+<option value="AKJ" >　旭川</option>
+<option value="SHB" >　中標津</option>
+<option value="KUH" >　釧路</option>
+<option value="OBO" >　帯広</option>
+<option value="HKD" >　函館</option>
+<option value="OIR" >　奥尻</option>
+</optgroup>
+<optgroup label='東北----------'>
+<option value="AOJ" >　青森</option>
+<option value="MSJ" >　三沢</option>
+<option value="ONJ" >　大館能代</option>
+<option value="AXT" >　秋田</option>
+<option value="HNA" >　花巻</option>
+<option value="SYO" >　庄内</option>
+<option value="GAJ" >　山形</option>
+<option value="SDJ" >　仙台</option>
+<option value="FKS" >　福島</option>
+</optgroup>
+<optgroup label='関東----------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="IBR" >　茨城</option>
+<option value="OIM" >　大島</option>
+<option value="HAC" >　八丈島</option>
+</optgroup>
+<optgroup label='中部----------'>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FSZ" >　静岡</option>
+<option value="KIJ" >　新潟</option>
+<option value="MMJ" >　松本</option>
+<option value="TOY" >　富山</option>
+<option value="KMQ" >　小松</option>
+<option value="NTQ" >　能登</option>
+</optgroup>
+<optgroup label='近畿----------'>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="TJH" >　但馬</option>
+<option value="SHM" >　南紀白浜</option>
+</optgroup>
+<optgroup label='中国----------'>
+<option value="TTJ" >　鳥取</option>
+<option value="OKJ" >　岡山</option>
+<option value="YGJ" >　米子</option>
+<option value="IZO" >　出雲</option>
+<option value="OKI" >　隠岐</option>
+<option value="HIJ" >　広島</option>
+<option value="IWK">　岩国</option>
+<option value="IWJ" >　石見</option>
+<option value="UBJ" >　山口宇部</option>
+</optgroup>
+<optgroup label='四国----------'>
+<option value="TKS" >　徳島</option>
+<option value="TAK" >　高松</option>
+<option value="KCZ" >　高知</option>
+<option value="MYJ" >　松山</option>
+</optgroup>
+<optgroup label='九州----------'>
+<option value="FUK" >　福岡</option>
+<option value="KKJ" >　北九州</option>
+<option value="OIT" >　大分</option>
+<option value="HSG" >　佐賀</option>
+<option value="NGS" >　長崎</option>
+<option value="KMJ" >　熊本</option>
+<option value="AXJ">　天草</option>
+<option value="TSJ" >　対馬</option>
+<option value="IKI" >　壱岐</option>
+<option value="FUJ" >　五島福江</option>
+<option value="KMI" >　宮崎</option>
+<option value="KOJ" >　鹿児島</option>
+<option value="TNE" >　種子島</option>
+<option value="KUM" >　屋久島</option>
+<option value="KKX" >　喜界島</option>
+<option value="ASJ" >　奄美</option>
+<option value="TKN" >　徳之島</option>
+<option value="OKE" >　沖永良部</option>
+<option value="RNJ" >　与論</option>
+</optgroup>
+<optgroup label='沖縄----------'>
+<option value="OKA" >　沖縄/那覇</option>
+<option value="UEO" >　久米島</option>
+<option value="MMY" >　宮古</option>
+<option value="TRA" >　多良間</option>
+<option value="ISG" >　石垣</option>
+<option value="KTD" >　北大東</option>
+<option value="MMD" >　南大東</option>
+<option value="OGN" >　与那国</option>
+</optgroup>
+</select></p>
+<p><img src="/images/top/btmform/sub3.gif" alt="到着地">
+<!-- 201708 CHANGE START-->
+<span id="ar_airplace_pul2">
+<select name="s_to" class="airport" id="ar_airplace2">
+<!-- 201708 CHANGE END-->
+<option value="0">ご選択下さい</option>
+<optgroup label='主要空港------'>
+<option value="HND" >東京/羽田</option>
+<option value="NRT" >東京/成田</option>
+<option value="TYO" >東京(羽田・成田)</option>
+<option value="ITM" >大阪/伊丹</option>
+<option value="KIX" >大阪/関西</option>
+<option value="UKB" >大阪/神戸</option>
+<option value="OSA" >大阪(全て)</option>
+<option value="CTS" >札幌/新千歳</option>
+<option value="OKD" >札幌/丘珠</option>
+<option value="NGO" >名古屋/中部</option>
+<option value="NKM" >名古屋/小牧</option>
+<option value="FUK" >福岡</option>
+<option value="OKA" >沖縄/那覇</option>
+<optgroup label='北海道--------'>
+<option value="CTS" >　札幌/新千歳</option>
+<option value="OKD" >　札幌/丘珠</option>
+<option value="RIS" >　利尻</option>
+<option value="WKJ" >　稚内</option>
+<option value="MBE" >　紋別</option>
+<option value="MMB" >　女満別</option>
+<option value="AKJ" >　旭川</option>
+<option value="SHB" >　中標津</option>
+<option value="KUH" >　釧路</option>
+<option value="OBO" >　帯広</option>
+<option value="HKD" >　函館</option>
+<option value="OIR" >　奥尻</option>
+</optgroup>
+<optgroup label='東北----------'>
+<option value="AOJ" >　青森</option>
+<option value="MSJ" >　三沢</option>
+<option value="ONJ" >　大館能代</option>
+<option value="AXT" >　秋田</option>
+<option value="HNA" >　花巻</option>
+<option value="SYO" >　庄内</option>
+<option value="GAJ" >　山形</option>
+<option value="SDJ" >　仙台</option>
+<option value="FKS" >　福島</option>
+</optgroup>
+<optgroup label='関東----------'>
+<option value="HND" >　東京/羽田</option>
+<option value="NRT" >　東京/成田</option>
+<option value="TYO" >　東京(羽田・成田)</option>
+<option value="IBR" >　茨城</option>
+<option value="OIM" >　大島</option>
+<option value="HAC" >　八丈島</option>
+</optgroup>
+<optgroup label='中部----------'>
+<option value="NGO" >　名古屋/中部</option>
+<option value="NKM" >　名古屋/小牧</option>
+<option value="FSZ" >　静岡</option>
+<option value="KIJ" >　新潟</option>
+<option value="MMJ" >　松本</option>
+<option value="TOY" >　富山</option>
+<option value="KMQ" >　小松</option>
+<option value="NTQ" >　能登</option>
+</optgroup>
+<optgroup label='近畿----------'>
+<option value="ITM" >　大阪/伊丹</option>
+<option value="KIX" >　大阪/関西</option>
+<option value="UKB" >　大阪/神戸</option>
+<option value="OSA" >　大阪(全て)</option>
+<option value="TJH" >　但馬</option>
+<option value="SHM" >　南紀白浜</option>
+</optgroup>
+<optgroup label='中国----------'>
+<option value="TTJ" >　鳥取</option>
+<option value="OKJ" >　岡山</option>
+<option value="YGJ" >　米子</option>
+<option value="IZO" >　出雲</option>
+<option value="OKI" >　隠岐</option>
+<option value="HIJ" >　広島</option>
+<option value="IWK">　岩国</option>
+<option value="IWJ" >　石見</option>
+<option value="UBJ" >　山口宇部</option>
+</optgroup>
+<optgroup label='四国----------'>
+<option value="TKS" >　徳島</option>
+<option value="TAK" >　高松</option>
+<option value="KCZ" >　高知</option>
+<option value="MYJ" >　松山</option>
+</optgroup>
+<optgroup label='九州----------'>
+<option value="FUK" >　福岡</option>
+<option value="KKJ" >　北九州</option>
+<option value="OIT" >　大分</option>
+<option value="HSG" >　佐賀</option>
+<option value="NGS" >　長崎</option>
+<option value="KMJ" >　熊本</option>
+<option value="AXJ">　天草</option>
+<option value="TSJ" >　対馬</option>
+<option value="IKI" >　壱岐</option>
+<option value="FUJ" >　五島福江</option>
+<option value="KMI" >　宮崎</option>
+<option value="KOJ" >　鹿児島</option>
+<option value="TNE" >　種子島</option>
+<option value="KUM" >　屋久島</option>
+<option value="KKX" >　喜界島</option>
+<option value="ASJ" >　奄美</option>
+<option value="TKN" >　徳之島</option>
+<option value="OKE" >　沖永良部</option>
+<option value="RNJ" >　与論</option>
+</optgroup>
+<optgroup label='沖縄----------'>
+<option value="OKA" >　沖縄/那覇</option>
+<option value="UEO" >　久米島</option>
+<option value="MMY" >　宮古</option>
+<option value="TRA" >　多良間</option>
+<option value="ISG" >　石垣</option>
+<option value="KTD" >　北大東</option>
+<option value="MMD" >　南大東</option>
+<option value="OGN" >　与那国</option>
+</optgroup>
+</select>
+<!-- 201708 ADD START-->
+</span>
+<!-- 201708 ADD END-->
+</p>
+<input type="image" src="/images/top/btmform/btn.jpg" value="submit" alt="いまスグ検索" class="btn"/>
+</form>
+<script type=text/javascript>
+<!--
+var nowdate2 = new Date();
+month2 = nowdate2.getMonth();
+day2 = nowdate2.getDate() - 1;
+document.kensaku2.s_month.selectedIndex = month2;
+document.kensaku2.s_day.selectedIndex = day2;
+// -->
+</script>
+</section>
+<!--//Facebook//-->
+<section class="top7">
+<div id="box-fb">
+<h2><img src="images/top/ttl_fb_new.gif" alt="さくらトラベルFacebook"></h2>
+<div class="fb">
+<div class="fb-like-box" data-href="https://www.facebook.com/sakuratravel.jp?fref=ts" data-width="700" data-height="190" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+</div>
+</div>
+</section>
+<!--//さくらトラベルHP紹介文//-->
+<section class="top8">
+<div>
+<p>
+    <span style="font-size: 14px; margin: 0px; padding: 0px; border: 0px; outline: 0px; color: rgb(51, 51, 51);">いつも【さくらトラベル】をご利用頂きまして、ありがとうございます。当サイトは、<a href="/carrier/ana/" target="_blank">全日空</a>（ANA）、<a href="/carrier/jal/" target="_blank">日本航空</a>（JAL）、<a href="http://www.sakuratravel.jp/skymark/" target="_blank">スカイマーク</a>(skymark)をはじめ、LCC各社（<a href="http://www.sakuratravel.jp/peach/" target="_blank">ピーチ航空</a>、<a href="http://www.sakuratravel.jp/jetstar/" target="_blank">ジェットスター</a>、<a href="http://www.sakuratravel.jp/vanilla-air/" target="_blank">バニラエア</a>、<a href="/carrier/ij/" target="_blank">春秋航空日本</a>）などを「便利に」「カンタンで」「比較し」「予約」できるサイトでございます。国内旅行やご出張で飛行機をよく利用される方や効率よく格安航空券を予約したい方、また航空会社ごとの料金を比較したい方などにオススメです。</span></p>
+</div>
+</section>
+</div><!-- btmL end -->
+<!--//サイドナビ//-->
+<nav id="side">
+<div style="margin-top:10px;">
+<ul><li style="text-align:center;">
+<a href="http://www.trivago.jp/?iPathId=91304&cip=81010213040101&cip_tc=PC_Top_234x60" target="_blank">
+<img src="/images/side/201802trivago234x60.jpg" alt="ホテル最安値比較" class="bn_top_trivago">
+</a>
+</li></ul>
+</div>
+<div class="box">
+<ul>
+<li><a href="/journey/"><img src="2015/07/27/bnr_travelreport.jpg" alt="搭乗レポート"></a></li>
+<li><a href="support.html"><img src="images/side/bnr_support.jpg" alt="サポートダイヤル お電話でも承っております。"></a></li>
+<li><a href="notsend.html"><img src="images/side/bnr_mail.jpg" alt="メールが届かないお客様へ"></a></li>
+<li><a href="search/email.php"><img src="images/side/bnr_address.jpg" alt="ご予約済みお客様のアドレス連絡はこちら"></a></li>
+<!--<li><a href="mailto:address@sakuratravel.jp?subject=%e2%80%bb%e3%81%94%e6%90%ad%e4%b9%97%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98%e3%81%ae%e3%81%8a%e5%90%8d%e5%89%8d%e3%82%92%e3%81%94%e8%a8%98%e5%85%a5%e3%81%8f%e3%81%a0%e3%81%95%e3%81%84%e2%80%bb&amp;body=%0a%0a%e2%80%bb%e6%9c%ac%e3%83%a1%e3%83%bc%e3%83%ab%e3%81%af%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e9%80%81%e4%bf%a1%e5%b0%82%e7%94%a8%e3%81%a7%e3%81%99%e3%80%82%0a%e3%81%93%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%8b%e3%82%89%e3%81%8a%e5%95%8f%e5%90%88%e3%81%9b%e3%81%84%e3%81%9f%e3%81%a0%e3%81%84%e3%81%a6%e3%82%82%e3%81%94%e8%bf%94%e4%bf%a1%e3%81%a7%e3%81%8d%e3%81%be%e3%81%9b%e3%82%93%e3%81%ae%e3%81%a7%e3%80%81%e3%81%8a%e5%95%8f%e5%90%88%e3%81%9b%e3%81%af%e3%81%8a%e5%95%8f%e5%90%88%e3%81%9b%e3%83%9a%e3%83%bc%e3%82%b8%e3%81%8b%e3%82%89%e3%81%8a%e9%a1%98%e3%81%84%e8%87%b4%e3%81%97%e3%81%be%e3%81%99%e3%80%82%0a%0a%e3%81%95%e3%81%8f%e3%82%89%e3%83%88%e3%83%a9%e3%83%99%e3%83%ab%e3%83%8d%e3%83%83%e3%83%88%e4%ba%88%e7%b4%84%e8%aa%b2"><img src="images/side/bnr_address.jpg" alt="ご予約済みお客様のアドレス連絡はこちら"></a></li>-->
+<li><a href="payment.html"><img src="images/side/bnr_pay.jpg" alt="選べる！払える！決済方法"></a></li>
+</ul>
+<dl class="app">
+<dt><img src="images/side/ttl_app.png" alt="さくらトラベルアプリ"></dt>
+<dd><img src="images/side/txt_app.png" alt="ダウンロードはこちら"></dd>
+<dd><a href="https://itunes.apple.com/jp/app/id691124779?mt=8&amp;ign-mpt=uo%3D4" target="_blank"><img src="images/side/btn_apple.png" alt="App Store"></a></dd>
+<dd><a href="https://play.google.com/store/apps/details?id=jp.popplus.sakuratravel&amp;hl=ja" target="_blank"><img src="images/side/btn_google.png" alt="Google Play"></a></dd>
+</dl>
+<p class="b-m5"><img src="https://www.sakuratravel.jp/QRcode20160915.jpg" alt="スマートフォン各種携帯はこちらから24時間受付中"></p>
+<p class="b-m5"><a href="http://www.sakuraticket.co.jp/" target="_blank"><img src="/images/side/bnr_ticket.jpg" alt="ANA・SFJ・JAL・SNA・AIRDO株主優待券高価買取実施中！さくらチケット"></a></p>
+<!--
+<dl class="ticket">
+<dt><img src="images/side/ttl_ticket.png" alt="ANA・SFJ・JAL・SNA・AIRDO株主優待券高価買取実施中！"></dt>
+<dd><img src="images/side/sakuraticket.png" alt="さくらチケット"></dd>
+<dd><a href="http://www.sakuraticket.co.jp/" target="_blank"><img src="images/side/btn_ticket.png" alt="さくらチケットトップページへ"></a></dd>
+</dl>
+-->
+<p><a href="shop.html"><img src="images/side/bnr_shop.jpg" alt="さくらトラベルshop 営業時間9:00〜18:00（年中無休）"></a></p>
+</div><!-- box end -->
+</nav>
+<!-- top yotpo-->
+<div id="box-yotpo">
+<div class="yotpo yotpo-top yotpo-main-widget"
+     data-product-id="yotpo_site_reviews"
+     data-name="さくらトラベル"
+     data-url="https://www.sakuratravel.jp/yotpo.html"
+     data-description="さくらトラベル">
+</div>
+</div>
+<script type="text/javascript" src="/js/yotpo_new.js"></script>
+<!-- top yotpo end -->
+</div><!-- contents end -->
+</div><!-- wrapper end -->
+<!--//フッター//-->
+<nav id="fnavi">
+<ul>
+<li><a href="company.html">会社概要</a></li>
+<li><a href="shop.html">ショップ情報</a></li>
+<li><a href="recruit/">採用情報</a></li>
+<li><a href="stipulation/">旅行業約款・条件書</a></li>
+<li><a href="privacypolicy.html">個人情報保護方針</a></li>
+<li><a href="deal.html">特定商取引</a></li>
+<li class="last"><a href="sitemap.html">サイトマップ</a></li>
+</ul>
+</nav>
+<footer>
+<div class="footer">
+<a href="#pagetop" class="pagetop"><img src="images/footer/pagetop.gif" alt="ページトップへ"></a>
+<dl>
+<dt><img src="/images/footer/logo.gif" alt="さくらトラベル"></dt>
+<dd class="tel"><img src="/images/footer/icn.gif" alt=""></dd>
+<dd>TEL:0570-666-319</dd>
+<dd>FAX:03-3289-8821</dd>
+</dl>
+<p>株式会社 さくらトラベル</p>
+<p>本　　社：〒104-0061 東京都中央区銀座5丁目6番16号4F</p>
+<p class="b-m10">沖縄支社：〒900-0013 沖縄県那覇市牧志1丁目14番6号</p>
+<a href="contact.html"><img src="/images/footer/btn.jpg" alt="メールでのお問い合わせはこちら"></a>
+<p class="copy">Copyright&copy; <script
+type="text/javascript">myDate = new Date() ;myYear = myDate.getFullYear
+();document.write(myYear);</script> Sakura Travel. All Rights Reserved.</p>
+<img src="/images/footer/img.gif" class="img" alt="Sakura Travel" width="320px">
+</div><!-- footer end -->
+</footer>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-559JDV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript" src="/js/googletagmanager.js"></script>
+<noscript>
+<iframe src="//b.yjtag.jp/iframe?c=JnPsjbM" width="1" height="1" style="border:0;margin:0;padding:0;"></iframe>
+</noscript>
+</body>
+</html>

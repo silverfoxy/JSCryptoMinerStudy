@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html al-app="ely" lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        <title>Welcome! - Ely.by Skins System</title>
+        
+        
+        
+    <link rel="alternate" hreflang="x-default" href="http://ely.by/" />
+    <link rel="alternate" hreflang="be" href="http://ely.by/?lang=be" />
+    <link rel="alternate" hreflang="fr" href="http://ely.by/?lang=fr" />
+    <link rel="alternate" hreflang="id" href="http://ely.by/?lang=id" />
+    <link rel="alternate" hreflang="pt" href="http://ely.by/?lang=pt" />
+    <link rel="alternate" hreflang="ru" href="http://ely.by/?lang=ru" />
+    <link rel="alternate" hreflang="uk" href="http://ely.by/?lang=uk" />
+    <link rel="alternate" hreflang="vi" href="http://ely.by/?lang=vi" />
+
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=40" />
+	</head>
+	<body>
+        <audio id="mSound" preload="auto">
+            <source src="/audio/message.mp3" type="audio/mp3">
+            <source src="/audio/message.ogg" type="audio/ogg">
+            <source src="/audio/message.wav" type="audio/wav">
+        </audio>
+
+        <canvas id="snow" style="position: fixed"></canvas>
+
+        <div id="message-box"></div>
+<div id="chat-box">
+    <script class="hidden" type="text/x-template" id="mustache-chat-template" al-stop>
+        <div class="chat-box" id="chat-box-{{id}}">
+            <header>
+                <img src="{{skin.face_url}}" />
+                <span>{{nickname}}</span>
+                <div class="chat-box-controls">
+                    <div class="button red input-min icon" action="close"><div class="ico-close s26"></div></div>
+                </div>
+            </header>
+            <div class="chat-body">
+                <div class="chat-message-box">
+                            {{#messages}}
+                    <div class="chat-line"><b>{{author.nick}}</b>: {{text}}</div>
+                            {{/messages}}
+                        </div>
+                <form method="POST" action="/messages/add">
+                    <textarea class="black-style chat-message-input" placeholder="Enter your message here and press "Enter" to send" name="chatMessage" id="chatMessage"></textarea>
+                    <input type="hidden" value="{{id}}" id="chatId" name="chatId" />
+                </form>
+            </div>
+        </div>
+    </script>
+
+    <script class="hidden" type="text/x-template" id="mustache-chat-row-template" al-stop>
+        {{#messages}}
+        <div class="chat-line"><b>{{author.nickname}}</b>: {{text}}</div>
+        {{/messages}}
+    </script>
+</div>
+        <div id="page-loader">
+    <div class="max-middle">
+        <div class="loading">
+            <div class="cube cube1"></div>
+            <div class="cube cube2"></div>
+            <div class="cube cube3"></div>
+            <div class="cube cube4"></div>
+            <div class="cube cube5"></div>
+            <div class="cube cube6"></div>
+            <div class="cube cube7"></div>
+            <div class="cube cube8"></div>
+        </div>
+    </div>
+</div>
+        <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-45299905-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+
+        <script type="text/javascript" src="/js/vendor.js?v40"></script>
+<script type="text/javascript" src="/js/en.js?v40"></script>
+<script type="text/javascript" src="/js/app.js?v40"></script>
+
+        <div id="container">
+            
+<div id="user-bar" >
+    
+
+    
+    <div class="main-nav-trigger button green input-min icon"><div class="ico-menu s26"></div></div>
+    <span id="home-link"><a href="/">Ely.by</a></span>
+    <span class="search-box">
+        <input type="search" class="black-style" name="searchQuery" id="searchQuery" placeholder="Search users" /><span class="button small"><span class="ico-search"></span></span>
+        <span class="no-items">Nothing found</span>
+    </span>
+
+    
+        <div class="button-group right non-logged">
+        <a href="/authorization/login" class="button green no-ajax">Log in</a>
+        <a href="/authorization/login" class="button blue no-ajax">Sign up</a>
+    </div>
+        <div class="clear"></div>
+</div>
+            <nav class="main-nav">
+    <div class="main-nav__logo" title="Free skin system for Minecraft">
+        <span>Ely.by</span>
+    </div>
+    <div class="button-group-vertical justified">
+                    <a href="/" class="button home"><div class="ico-home"></div> Home</a>
+                        <a href="/skins" class="button skins"><div class="ico-man"></div> Skins</a>
+        <a href="/load" class="button load"><div class="ico-box-add"></div> Downloads</a>
+        <a href="/server-skins-system" class="button server-skins-system"><div class="ico-rocket"></div> For servers</a>
+        <a href="/site/faq" class="button faq"><div class="ico-help"></div> FAQ</a>
+            </div>
+</nav>
+
+            <div class="main-nav-pusher">
+                <div id="ajax-zone" class="wrapper" al-box>
+                    <div id="m-promo" al-controller="indexPromo">
+    <div id="main">
+        <a href="/authorization/login" class="button green input-min no-ajax" id="login-btn">Log in</a>
+
+        <h1 class="landing-ely-name">Ely.by</h1>
+        <h4 class="landing-ely-desc">Alternative Minecraft services</h4>
+
+        <div class="landing-delimiter"></div>
+
+        <h2 class="landing-huge-idea">Skin system and authorization</h2>
+        <div class="landing-grey-text">for solo players and server's owners</div>
+
+        <a href="/authorization/login" class="landing-register-button button green no-ajax">
+            Create account        </a>
+
+        <div id="flip-cards">
+            <div class="flipbox-container box-blue">
+                <div class="flipbox-flipper">
+                    <div class="flipbox-front">
+                        <div class="ico-man"></div>
+                        <div class="title">Ely for single-player</div>
+                    </div>
+                    <div class="flipbox-back">
+                        <h4>The easiest way to get skins</h4>
+                        <p>No more replacing of char.png, no more skins by nicknames. Now you can choose nickname and skin of your own. Ely.by supports all Minecraft versions and is easy to use.</p>
+                        <div class="button blue no-padding w100" al-click="goTo('#promo-t')">More</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flipbox-container box-orange">
+                <div class="flipbox-flipper">
+                    <div class="flipbox-front">
+                        <div class="ico-group"></div>
+                        <div class="title">Ely for multiplayer</div>
+                    </div>
+                    <div class="flipbox-back">
+                        <h4>Perfect solution for playing together with friends</h4>
+                        <p>Ely.by will work equally well with both official and unofficial skins. Thats why it is the best choice for playing with your friends, regardless of their Minecraft version!</p>
+                        <div class="button orange no-padding w100" al-click="goTo('#promo-t')">More</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flipbox-container box-lightviolet">
+                <div class="flipbox-flipper">
+                    <div class="flipbox-front">
+                        <div class="ico-diamond"></div>
+                        <div class="title">Ely for server owners</div>
+                    </div>
+                    <div class="flipbox-back">
+                        <h4>Ready to use on your Mincraft server</h4>
+                        <p>Ely.by will provide you with ready to use authorization service and skin system for your game server. It's totally free without any restrictions — just get it and use it! Provide your players with unified skin system.</p>
+                        <div class="button light_violet no-padding w100" al-click="goTo('#for-admins')">More</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-copyright" title="We have not found an original source of this picture, so we have just replaced an existing copyright with this text.">
+            Screenshot minecraft. 8-bit beauty
+        </div>
+    </div>
+
+    <div id="promo-t">
+        <h2>Why you should use Ely.by skins system?</h2>
+
+        <div class="block odd">
+            <div class="wrapper">
+                <div class="float">
+                    <img src="/images/lang/en/landing/how-it-work.png" alt="How the Ely.by Minecraft skins system works" />
+                </div>
+                <div class="content">
+                    <h3>Better than official services</h3>
+                    <p>Ely.by aims to create a worthy alternative to official Minecraft related services by providing more pleasant design and user-friendly interface. Probably we have already reached this goal but our mind flies faster than Mojang's one. That why Ely offers features, that you won't find in an official skin system.</p>
+                    <div class="tags">
+                        Бесплатная система скинов для minecraft,
+                        скины по никам minecraft,
+                        бесплатные скины minecraft,
+                        установить скин в minecraft
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="block even">
+            <div class="wrapper">
+                <div class="content">
+                    <h3>Rich Minecraft versions support</h3>
+                    <p>We have developed and will continue to develop patches for all major and popular versions of Minecraft (1.2.5 - 1.12). Nevertheless there are those who are playing on outdated versions or using different “not so easy” versions, e.g. 1.6.4 Forge with OptiFine. We always try to help those users and create specific patches, after receiving request in our feedback form.</p>
+                    <div class="tags">
+                        система скинов для minecraft 1.5.2,
+                        система скинов для minecraft 1.8,
+                        система скинов для minecraft 1.7.2,
+                        система скинов для minecraft 1.8.3,
+                        1.6.4, 1.4.7, 1.3.2, 1.2.5, 1.8.1
+                    </div>
+                </div>
+                <div class="float">
+                    <img src="/images/lang/en/landing/cool-versions-support.png" alt="authlib 1.7.9, 1.8.1, 1.8.3, forge 1.7.2, forge 1.6.4, 1.5.2" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="block odd">
+            <div class="wrapper">
+                <div class="float">
+                    <img src="/images/lang/en/landing/minecraft-skins.png" alt="Каталог скинов для Minecraft" />
+                </div>
+                <div class="content">
+                    <h3>Skins directory</h3>
+                    <p>Unlike the official <b>skins system</b>, Ely.by has it's own skins catalog, where you can find thousands of variable skins, uploaded by other users. All the skins can be filtered by various parameters such as color, type, popularity, tags etc. Moreover you can upload skin from other skin catalogs just by providing an URL. The rest of work will be done by our clever parser.</p>
+                    <div class="tags">
+                        скины для minecraft 1.8,
+                        бесплатные скины для minecraft,
+                        поставить скин в minecraft,
+                        каталог скинов minecraft
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="block even">
+            <div class="wrapper">
+                <div class="content">
+                    <h3>Openness and independence</h3>
+                    <p>Ely.by does not belong to any server or a big company — it is a project, developed by a small team of programmers, not knowing a thing about UI design principles, but doing their best to create the best product they can. We have tried very hard and hope, that you will like Ely.by. Moreover our project has full API documentation, that will help you with the integration of Ely.by into your project.</p>
+                </div>
+                <div class="float">
+                    <img src="/images/main/ely-so-cool.png" alt="Ely.by skin system is easy to use" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <h2>Ely.by user-friendly and beautiful skin system for Minecraft</h2>
+        <div class="infoHS sub-header">Easy to sign up, easy to use, works like a charm</div>
+        <div class="center reg-btn">
+            <a href="/authorization/login" class="button green no-ajax">
+                Create account            </a>
+        </div>
+    </div>
+
+    <div id="for-admins">
+        <h2>Ely.by for game server owners</h2>
+
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-1-2">
+                    <h3>Skin system for game servers</h3>
+                    <div class="ico-group"></div>
+                    <p>Ely.by provides free skins system service, that wraps official one to provide more capabilities than official skin system has. Our goal is to create an opportunity for players with official and unofficial clients to install skins they like and play together on any Minecraft server.</p>
+                    <p>Now you don't have to create yet another skin system of your own, since you can simply use the universal Ely.by skins system.</p>
+                    <p>This is system is free and NEVER will be chargeable!</p>
+                </div>
+
+                <div class="col-1-2">
+                    <h3>Authorization system for Minecraft server</h3>
+                    <div class="ico-lock"></div>
+                    <p>Moreover Ely.by offers an isomorphic authorization service. This will let your players to play on your server using their Ely.by accounts. You won't need to waste your time on implementing your own authorization system and your players won't be bored with another one registration or using authme plugin. They will simply use their Ely.by account for every server they want to play.</p>
+                    <p>In addition to server and launcher authorization we have an oAuth too, which will let your players log in to your website using their Ely.by accounts as they do with their social network's accounts (e.g. Facebook, Google, Twitter etc.).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="black-back">
+            <div class="wrapper">
+                <div class="infoH">Ely.by — one-stop replacement for Mojang services</div>
+                <div class="infoHS sub-header">Do not be afraid, just try it on your server!</div>
+
+                <div class="ico-diamond big-diamond"></div>
+
+                <div class="infoHS sub-header white">Look at our resources for developers:</div>
+                <div class="button-group">
+                    <a class="button dark_blue" href="http://docs.ely.by/skin-system.html">Skins system</a>
+                    <a class="button dark_blue" href="http://docs.ely.by/minecraft-auth.html">Auth for Minecraft</a>
+                    <a class="button dark_blue" href="http://docs.ely.by/oauth.html">oAuth for sites</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="center back-to-reg">
+        <div class="button link input-min" al-click="goTo('#main')"><div class="ico-arrow-up s26"></div> Go to registration</div>
+    </div>
+</div>
+
+<style>
+    #user-bar > *:not(.main-nav-trigger), #r-button, #footer-fix-block {
+        display: none!important;
+    }
+
+    #user-bar {
+        top: 10px;
+        left: 10px;
+        background: transparent;
+        width: auto;
+        min-width: 0;
+    }
+
+    .main-nav-pusher > .wrapper {
+        padding-top: 0!important;
+        width: 100%;
+    }
+
+    body {
+        background-color: #232323;
+    }
+</style>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+<div id="footer">
+    <div>
+        <div class="author-logo left">
+            <a href="/erickskrauch" title="Author of the project ErickSkrauch">
+                <img src="/images/author.svg" width="165" height="165" alt="ErickSkrauch project" id="e-logo" />
+            </a>
+                    </div>
+
+        <nav>
+            <h2>About the site:</h2>
+            <a href="/site/contact">Feedback</a>            <a href="/site/rules">Rules</a>        </nav>
+
+        <nav>
+            <h2>Community:</h2>
+            <a href="//twitter.com/erickskrauch">Twitter</a>
+            <a href="//www.youtube.com/c/ElyByOfficial">YouTube</a>
+            <a href="//vk.com/elyby">VKontakte (Ru)</a>
+            <a href="//github.com/elyby">GitHub</a>
+        </nav>
+
+        <nav>
+            <h2>Documentation:</h2>
+            <a href="http://docs.ely.by/skin-system.html">Skin system (Ru)</a>
+            <a href="http://docs.ely.by/minecraft-auth.html">Authorization for Minecraft (Ru)</a>
+            <a href="http://docs.ely.by/oauth.html">Authorization for sites (Ru)</a>
+        </nav>
+        <div class="right">
+            <a href="/">
+                <h1>Ely.by</h1>
+                <h3>Alternative Minecraft services</h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="md-overlay"></div>
+<style>
+    #userPostText:focus, .chat-message-input:focus {
+        border-color: #207e5c!important;
+    }
+
+    .chat-line b {
+        color: #207e5c;
+    }
+</style>
+
+        <script>
+                                                    
+            alight.service.currentUser = {"id":0,"nickname":"\u0413\u043e\u0441\u0442\u044c","href":"\/u0","gender":2,"group":0,"status":"guest","skin":{"id":0,"face_url":"http:\/\/ely.by\/minecraft\/skin_buffer\/faces\/default.png","render_url":"http:\/\/ely.by\/minecraft\/skin_buffer\/skins\/default.png"}};
+        </script>
+	</body>
+</html>

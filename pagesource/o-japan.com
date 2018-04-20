@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="sozai5/ojc.ico" rel="shortcut icon">
+<title>YouTube動画 o-japan</title>
+<link rel="stylesheet" href="sozai7/youtube73.css" type="text/css">
+<script src="sozai7/ajax73.js" type="text/JavaScript"></script>
+</head>
+<body>
+
+<a id='form' name='top'></a>
+
+<div class='header_footer'>
+<span class='logo'>o-japan</span> <a href='cd.php'>音楽CD</a>
+  <div class='fieldset'>
+ <div class='d_center'> 
+    <form action="" method="GET" class='m_form'>
+      <input class="textBox" type="text" size="40" name="q" value="">
+	 <div class='button'>&nbsp;<input class='button' type="submit" value="YouTube動画"></div>
+    </form>
+ </div>
+	
+	</div>
+
+</div>
+<div class='d_center'>
+<!-- admax -->
+<script type="text/javascript" src="http://adm.shinobi.jp/s/f9256c6c8e882b3e1d18123892284b99"></script>
+<!-- admax -->
+</div>
+
+<div class="header_footer"><div style="text-align:center;padding:10px;"><span class="fzi">歌手動画ランキング</span> (views/day)</div><table><tr><td><div class='float_R'>1位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("1");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/SX_ViT4Ra7k/default.jpg'></div><div id="top_main_url_ID1">米津玄師</div></a></td><td><div style='width:400px;background-color:#6fc19f;color:#555555'>&nbsp;1,513,023</div></td></tr><tr><td><div class='float_R'>2位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("2");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/SX_ViT4Ra7k/default.jpg'></div><div id="top_main_url_ID2">れもん</div></a></td><td><div style='width:397px;background-color:#6fc19f;color:#555555'>&nbsp;1,504,406</div></td></tr><tr><td><div class='float_R'>3位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("3");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/P4hk1jPRSrM/default.jpg'></div><div id="top_main_url_ID3">JUJU</div></a></td><td><div style='width:368px;background-color:#6fc19f;color:#555555'>&nbsp;1,394,403</div></td></tr><tr><td><div class='float_R'>4位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("4");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/pjTj-_55WZ8/default.jpg'></div><div id="top_main_url_ID4">DAYS</div></a></td><td><div style='width:322px;background-color:#6fc19f;color:#555555'>&nbsp;1,221,740</div></td></tr><tr><td><div class='float_R'>5位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("5");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/f0bbDFRYD_A/default.jpg'></div><div id="top_main_url_ID5">CHAGE</div></a></td><td><div style='width:289px;background-color:#6fc19f;color:#555555'>&nbsp;1,094,595</div></td></tr><tr><td><div class='float_R'>6位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("6");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/gCYcHz2k5x0/default.jpg'></div><div id="top_main_url_ID6">アニマルズ</div></a></td><td><div style='width:172px;background-color:#6fc19f;color:#555555'>&nbsp;654,100</div></td></tr><tr><td><div class='float_R'>7位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("7");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/XAwknzUtDrI/default.jpg'></div><div id="top_main_url_ID7">serial TV drama</div></a></td><td><div style='width:172px;background-color:#6fc19f;color:#555555'>&nbsp;653,830</div></td></tr><tr><td><div class='float_R'>8位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("8");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/YVckx89QcG8/default.jpg'></div><div id="top_main_url_ID8">dos</div></a></td><td><div style='width:160px;background-color:#6fc19f;color:#555555'>&nbsp;607,886</div></td></tr><tr><td><div class='float_R'>9位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("9");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/f0vs8J_hex0/default.jpg'></div><div id="top_main_url_ID9">Shade</div></a></td><td><div style='width:122px;background-color:#6fc19f;color:#555555'>&nbsp;461,884</div></td></tr><tr><td><div class='float_R'>10位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("10");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/ij_0p_6qTss/default.jpg'></div><div id="top_main_url_ID10">THE HEART</div></a></td><td><div style='width:121px;background-color:#6fc19f;color:#555555'>&nbsp;459,893</div></td></tr><tr><td><div class='float_R'>11位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("11");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/F2q9OevZh6Q/default.jpg'></div><div id="top_main_url_ID11">ONE OK ROCK</div></a></td><td><div style='width:115px;background-color:#6fc19f;color:#555555'>&nbsp;437,890</div></td></tr><tr><td><div class='float_R'>12位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("12");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/ypRTzt1KrF8/default.jpg'></div><div id="top_main_url_ID12">星野源</div></a></td><td><div style='width:102px;background-color:#6fc19f;color:#555555'>&nbsp;388,329</div></td></tr><tr><td><div class='float_R'>13位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("13");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/ypRTzt1KrF8/default.jpg'></div><div id="top_main_url_ID13">星野 源</div></a></td><td><div style='width:102px;background-color:#6fc19f;color:#555555'>&nbsp;387,702</div></td></tr><tr><td><div class='float_R'>14位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("14");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/XNiaaRXz2b0/default.jpg'></div><div id="top_main_url_ID14">山田孝之</div></a></td><td><div style='width:91px;background-color:#6fc19f;color:#555555'>&nbsp;347,082</div></td></tr><tr><td><div class='float_R'>15位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("15");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/PDSkFeMVNFs/default.jpg'></div><div id="top_main_url_ID15">RADWIMPS</div></a></td><td><div style='width:80px;background-color:#6fc19f;color:#555555'>&nbsp;304,653</div></td></tr><tr><td><div class='float_R'>16位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("16");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/Lxr9tvYUHcg/default.jpg'></div><div id="top_main_url_ID16">荻野目洋子</div></a></td><td><div style='width:73px;background-color:#6fc19f;color:#555555'>&nbsp;276,637</div></td></tr><tr><td><div class='float_R'>17位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("17");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/7-hHX70VNi0/default.jpg'></div><div id="top_main_url_ID17">GYM</div></a></td><td><div style='width:69px;background-color:#6fc19f;color:#555555'>&nbsp;263,286</div></td></tr><tr><td><div class='float_R'>18位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("18");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/c3wVtoYxCU4/default.jpg'></div><div id="top_main_url_ID18">LUNAR</div></a></td><td><div style='width:60px;background-color:#6fc19f;color:#555555'>&nbsp;229,698</div></td></tr><tr><td><div class='float_R'>19位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("19");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/enayEu-hN6g/default.jpg'></div><div id="top_main_url_ID19">TEE</div></a></td><td><div style='width:55px;background-color:#6fc19f;color:#555555'>&nbsp;210,046</div></td></tr><tr><td><div class='float_R'>20位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("20");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/xrUyFajnnhg/default.jpg'></div><div id="top_main_url_ID20">乃木坂46</div></a></td><td><div style='width:48px;background-color:#6fc19f;color:#555555'>&nbsp;184,960</div></td></tr><tr><td><div class='float_R'>21位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("21");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/Q5NAb_WFBLs/default.jpg'></div><div id="top_main_url_ID21">Linda</div></a></td><td><div style='width:45px;background-color:#6fc19f;color:#555555'>&nbsp;171,526</div></td></tr><tr><td><div class='float_R'>22位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("22");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/gfFySpNE2r0/default.jpg'></div><div id="top_main_url_ID22">初音ミク</div></a></td><td><div style='width:41px;background-color:#6fc19f;color:#555555'>&nbsp;158,532</div></td></tr><tr><td><div class='float_R'>23位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("23");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/249YdrcCL0Y/default.jpg'></div><div id="top_main_url_ID23">SEKAI NO OWARI</div></a></td><td><div style='width:41px;background-color:#6fc19f;color:#555555'>&nbsp;157,382</div></td></tr><tr><td><div class='float_R'>24位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("24");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/M2luZl5qacA/default.jpg'></div><div id="top_main_url_ID24">Issa</div></a></td><td><div style='width:39px;background-color:#6fc19f;color:#555555'>&nbsp;149,120</div></td></tr><tr><td><div class='float_R'>25位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("25");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/UbQgXeY_zi4/default.jpg'></div><div id="top_main_url_ID25">Caravan</div></a></td><td><div style='width:37px;background-color:#6fc19f;color:#555555'>&nbsp;140,928</div></td></tr><tr><td><div class='float_R'>26位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("26");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/JezE6iZUWxo/default.jpg'></div><div id="top_main_url_ID26">UVERworld</div></a></td><td><div style='width:35px;background-color:#6fc19f;color:#555555'>&nbsp;134,297</div></td></tr><tr><td><div class='float_R'>27位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("27");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/iAtFifxkrBk/default.jpg'></div><div id="top_main_url_ID27">MIE</div></a></td><td><div style='width:33px;background-color:#6fc19f;color:#555555'>&nbsp;128,119</div></td></tr><tr><td><div class='float_R'>28位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("28");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/fam6_3RfY_s/default.jpg'></div><div id="top_main_url_ID28">ゆうこ</div></a></td><td><div style='width:33px;background-color:#6fc19f;color:#555555'>&nbsp;125,526</div></td></tr><tr><td><div class='float_R'>29位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("29");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/PWgvGjAhvIw/default.jpg'></div><div id="top_main_url_ID29">アウトキャスト</div></a></td><td><div style='width:27px;background-color:#6fc19f;color:#555555'>&nbsp;104,429</div></td></tr><tr><td><div class='float_R'>30位</div></td><td><a class="top_main_singer"  href='javascript:url_top_main("30");'><div class='top_main_rank'><img alt='Thumbnail' src='http://i.ytimg.com/vi/s2xaXyrdQ2k/default.jpg'></div><div id="top_main_url_ID30">Exile</div></a></td><td><div style='width:27px;background-color:#6fc19f;color:#555555'>&nbsp;104,013</div></td></tr></table><div class='clear'>&nbsp;</div></div>
+
+<div style='padding:10px'>
+検索エンジンから訪れる上位ページ
+<div class='keywords'>
+ - <a class='vkey' href='?q=%E4%B8%96%E3%81%AB%E3%82%82%E5%A5%87%E5%A6%99%E3%81%AA%E7%89%A9%E8%AA%9E'>世にも奇妙な物語</a>
+ - <a class='vkey' href='?q=%E6%9C%AC%E5%BD%93%E3%81%AB%E3%81%82%E3%81%A3%E3%81%9F%E6%80%96%E3%81%84%E8%A9%B1'>本当にあった怖い話</a>
+ - <a class='vkey' href='?q=%E4%B8%89%E5%8E%9F%E9%A0%86%E5%AD%90'>三原順子</a>
+ - <a class='vkey' href='?q=%E3%82%A6%E3%83%AB%E3%83%88%E3%83%A9%E3%82%BB%E3%83%96%E3%83%B3'>ウルトラセブン</a>
+ - <a class='vkey' href='?q=%E7%A8%B2%E5%9E%A3%E6%BD%A4%E4%B8%80'>稲垣潤一</a>
+ - <a class='vkey' href='?q=%E5%80%8D%E8%B3%9E%E5%8D%83%E6%81%B5%E5%AD%90'>倍賞千恵子</a>
+ - <a class='vkey' href='?q=G%E3%83%A1%E3%83%B375'>Gメン75</a>
+ - <a class='vkey' href='?q=%E5%B1%B1%E5%B4%8E%E3%83%8F%E3%82%B3'>山崎ハコ</a>
+ - <a class='vkey' href='?q=%E4%BA%BA%E9%80%A0%E4%BA%BA%E9%96%93%E3%82%AD%E3%82%AB%E3%82%A4%E3%83%80%E3%83%BC'>人造人間キカイダー</a>
+ - <a class='vkey' href='?q=%E5%AE%87%E5%BE%B3%E6%95%AC%E5%AD%90'>宇徳敬子</a>
+ - <a class='vkey' href='?q=%E4%B8%96%E8%89%AF%E5%85%AC%E5%89%87'>世良公則</a>
+</div>
+</div>
+<div style='padding:10px'>
+<div class='keywords'>
+ - <a class='vkey' href='?q=%E6%A3%AE%E5%B1%B1%E8%89%AF%E5%AD%90'>森山良子</a>
+ - <a class='vkey' href='?q=%E6%B0%B4%E6%9B%9C%E3%81%A9%E3%81%86%E3%81%A7%E3%81%97%E3%82%87%E3%81%86'>水曜どうでしょう</a>
+ - <a class='vkey' href='?q=%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC%E4%BB%AE%E9%9D%A2'>シルバー仮面</a>
+ - <a class='vkey' href='?q=%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%BA%B7'>徳川家康</a>
+ - <a class='vkey' href='?q=%E7%8A%AC%E5%A4%9C%E5%8F%89'>犬夜叉</a>
+ - <a class='vkey' href='?q=%E3%81%84%E3%81%84%E6%97%A5%E6%97%85%E7%AB%8B%E3%81%A1'>いい日旅立ち</a>
+ - <a class='vkey' href='?q=Shakira'>Shakira</a>
+ - <a class='vkey' href='?q=%E9%A6%99%E5%9D%82%E3%81%BF%E3%82%86%E3%81%8D'>香坂みゆき</a>
+ - <a class='vkey' href='?q=%E4%BB%AE%E9%9D%A2%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC'>仮面ライダー</a> 
+ - <a class='vkey' href='?q=%E3%81%BE%E3%82%93%E3%81%8C%E6%97%A5%E6%9C%AC%E6%98%94%E3%81%B0%E3%81%AA%E3%81%97'>まんが日本昔ばなし</a> 
+- <a class='vkey' href='?q=%E4%B8%AD%E5%B3%B6%E3%81%BF%E3%82%86%E3%81%8D'>中島みゆき</a> 
+- <a class='vkey' href='?q=%E5%90%8D%E6%8E%A2%E5%81%B5%E3%82%B3%E3%83%8A%E3%83%B3'>名探偵コナン</a>
+- <a class='vkey' href='?q=%E5%B0%8F%E6%9F%B3%E3%83%AB%E3%83%9F%E5%AD%90'>小柳ルミ子</a>
+- <a class='vkey' href='?q=Katie+Melua'>Katie Melua</a>
+- <a class='vkey' href='?q=%E3%83%81%E3%82%A7%E3%83%AA%E3%83%83%E3%82%B7%E3%83%A5'>チェリッシュ</a>
+- <a class='vkey' href='?q=%E5%A4%A9%E9%87%8E%E6%BB%8B'>天野滋</a>
+- <a class='vkey' href='?q=back+number'>back number</a>
+- <a class='vkey' href='?q=%E3%83%A6%E3%83%8B%E3%82%B3%E3%83%BC%E3%83%B3'>ユニコーン</a>
+
+</div>
+</div>
+</body></html>

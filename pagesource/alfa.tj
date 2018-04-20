@@ -1,0 +1,2171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="https://alfa.tj/css/style.css" />
+<link rel="stylesheet" type="text/css" href="https://alfa.tj/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="https://alfa.tj/css/select.css"/>
+<link rel="stylesheet" type="text/css" href="https://alfa.tj/css/flexslider.css" />
+<link rel="stylesheet" type="text/css" href="https://alfa.tj/css/jquery.bxslider.css" />
+<script type="text/javascript"  src="https://alfa.tj/js/jquery-1.10.2.min.js" ></script>
+<script type="text/javascript"  src="https://alfa.tj/js/jquery-ui.js" ></script>
+<script type="text/javascript"  src="https://alfa.tj/js/jquery.flexslider.js" ></script>
+<script type="text/javascript"  src="https://alfa.tj/js/jqModal.js" ></script>
+<script type="text/javascript"  src="https://alfa.tj/js/jquery.bxslider.min.js" ></script>
+<script type="text/javascript"  src="https://alfa.tj/js/cookie.js" ></script>
+<script>
+function add_to_task(id)
+		{
+			var text = $.get('https://alfa.tj/index.php/main/add_task/'+id, function(data) {
+				if(data=="noauth")
+				{
+					alert("Вы не Авторизированы");
+				}
+				else if(data=="have")
+				{
+					alert("Этот фильм уже добавлен в очередь");
+				}
+				else
+				{
+					$("#task_count").html("Очередь ("+data+")");
+					alert("Добавлено");
+				}
+			})
+		};
+</script>
+<script>
+$(window).load(function() {
+	//Pop-ups
+	$('#modal_auth').jqm({modal: true, trigger: 'a#auth_user, #back_to_auth, #from_reg'})
+	$('#modal_reg').jqm({modal: true, trigger: 'a#reg_user, #from_auth'})
+	$('#for_got_pass').jqm({modal: true, trigger: 'a#for_get'})
+	
+	$( "#for_get, #from_auth" ).click(function() {
+		$('#modal_auth').jqmHide();
+	});
+	$( "#from_reg" ).click(function() {
+		$('#modal_reg').jqmHide();
+	});
+	$( "#back_to_auth" ).click(function() {
+		$('#for_got_pass').jqmHide();
+	});
+	
+	//Slider - now watching
+	$('.bxslider').bxSlider({
+		auto: true,
+		infiniteLoop: true,
+		hideControlOnEnd: true,
+		minSlides: 8,
+		maxSlides: 8,
+		slideWidth: 97,
+		ticker: true,
+		speed: 60000
+	});
+	
+  // The slider being synced must be initialized first
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: true,
+	slideshowSpeed: 8000,
+    itemWidth: 75,
+    itemMargin: 7,
+	directionNav: false,
+	pauseOnAction: false,           
+	pauseOnHover: false,
+    asNavFor: '#slider'
+  });
+   
+  $('#slider').flexslider({
+    animation: "fade",
+    controlNav: false,
+    animationLoop: true,
+    slideshow: true,
+	pauseOnAction: false,           
+	pauseOnHover: false,
+	slideshowSpeed: 8000, 
+    sync: "#carousel"
+  });
+  //More FUNC
+		$(function(){
+			var adjustheight = 105;
+			var moreText = "���������";
+			var lessText = "��������";
+			var maxheight = $(".more-block").height();
+			$(".more-block").each(function () {
+				if ($(this).height()> adjustheight) {
+					$(this).css('height', adjustheight).css('overflow', 'hidden');
+					$(this).parent('.more-less').append('<p class="more-link"><a class="adjust more">���������</a></p>');
+					$("a.adjust").text(moreText);
+					$(function(){
+						$('a.adjust').click(function(){
+							var iteration=$(this).data('iteration')||1
+							switch ( iteration) {
+								case 1:
+									$(this).parents("div:first").find(".more-block").animate({height:maxheight},350,"swing");
+									$(this).text(lessText);
+									break;
+								
+								case 2:
+									$(this).parents("div:first").find(".more-block").animate({height:adjustheight},350,"swing");
+									$(this).text(moreText);
+									break;
+							}
+							iteration++;
+							if (iteration>2) iteration=1
+							$(this).data('iteration',iteration)
+						})
+					})
+				};
+			});
+		});
+	
+	//Width of slider nav
+	var sl_outer = $('.sl_outer_er').width();
+	
+	if(sl_outer<=1440 && sl_outer>1366){
+		$('.flex-direction-nav a.flex-prev').css('left', '160px')
+		$('.flex-direction-nav a.flex-next').css('right', '160px')
+	}
+	if(sl_outer<=1366 && sl_outer>1280){
+		$('.flex-direction-nav a.flex-prev').css('left', '190px')
+		$('.flex-direction-nav a.flex-next').css('right', '190px')
+	}
+	if(sl_outer>1100 && sl_outer<=1280){
+		$('.flex-direction-nav a.flex-prev').css('left', '250px')
+		$('.flex-direction-nav a.flex-next').css('right', '250px')
+	}
+	if(sl_outer<1100 && sl_outer<1024){
+		$('.flex-direction-nav a.flex-prev').css('left', '350px')
+		$('.flex-direction-nav a.flex-next').css('right', '350px')
+	}
+	if(sl_outer<950){
+		$('.flex-direction-nav a.flex-prev').css('left', '400px')
+		$('.flex-direction-nav a.flex-next').css('right', '400px')
+	}
+});
+</script>
+<style>
+a.knopka {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+  position:fixed; left:0px; top: 77px;
+  z-index: 998;
+} 
+a.knopka:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+a.knopka:active { background: rgb(152,15,0); } /* при нажатии */
+
+
+a.knopka1 {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+  z-index: 998;
+} 
+a.knopka1:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+a.knopka1:active { background: rgb(152,15,0); } /* при нажатии */
+
+
+.div_poj
+{
+	position:fixed; left:0px; top: 77px;
+	height: 250px;
+	width: 380px;
+	background-color: #EEE;
+	display: none;
+	z-index: 999;
+}
+
+
+.div_no_resident
+{
+	position:fixed; 
+	right:10px; 
+	top: 77px;
+	height: 250px;
+	width: 350px;
+	background-color: #EEE;
+	z-index: 999;
+	
+		
+	
+	}
+.div_no_resident_text
+{
+	font-size: 17px;
+	padding: 15px;
+	text-align: justify;
+}
+.top-mess
+{
+	position: fixed;
+	width: 800px;
+	margin: auto;
+	top: 100px;
+	height: 400px;
+	background-color: white;
+	z-index: 9999;
+	padding: 25px;
+	font-size: 20px;
+	border-color: #EEE;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.popup {
+	  display: none;
+	  margin: 70px auto;
+	  padding: 20px;
+	  background: #fff;
+	  border-radius: 5px;
+	  width: 800px;
+	  transition: all 5s ease-in-out;
+	  background-color: white;
+	  z-index: 9999;
+	  height: 330px;
+	  left: 50%;
+	  right: 50%;
+	  position: fixed;
+	  border-color: #EEE;
+	  border-style: solid;
+	  border-width: 1px;
+}
+.popup p
+{
+	font-size: 20px;
+	padding-top: 15px;
+	padding: 10px;
+}
+.popup2
+{
+		display: none;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		background-color: black;
+		z-index: 9998;
+		opacity: 0.8;
+}
+.btn1
+{
+	border-width: 2px;
+	border-style: solid;
+	padding: 3px;
+}
+.knopka1
+{
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: rgb(212,75,56);
+  padding: .7em 1.5em;
+  outline: none;
+  font-size: 18px;
+  float: left;
+} 
+
+.knopka2
+{
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: rgb(255, 156, 8);
+  padding: .7em 1.5em;
+  outline: none;
+  font-size: 18px;
+  float: right;
+}
+.knopka3
+{
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: rgb(8, 95, 255);
+  padding: .7em 1.5em;
+  font-size: 18px;
+  outline: none;
+} 
+.knopka1:hover { background: rgb(232,95,76); } 
+.knopka1:active { background: rgb(152,15,0); }
+
+.knopka2:hover { background: rgb(255, 176, 8);} 
+.knopka2:active { background: rgb(255,155,0); }
+
+.knopka3:hover { background: rgb(20, 125, 255); } 
+.knopka3:active { background: rgb(5, 75, 255); }
+</style>
+<script>
+function zakritDiv()
+{
+	$("#div_no_resident").hide("slow");
+}
+function div_poj()
+{
+	$("#div_poj").show("slow");
+}
+function div_poj_cancel()
+{
+	$("#div_poj").hide("slow");
+}
+function div_poj_send()
+{
+	if($("#text_poj").val().length>3)
+	{
+		$.post( "/index.php/main/send_jaloba", { textmess: $("#text_poj").val(), textemail: $("#name_poj").val(), captcha :"" } );
+		$("#div_poj_place").html('<span><b>Жалоба отправлена на рассмотрение</b></span><br /><br /><br /><a href="javascript:div_poj_cancel();" class="knopka1">Закрыть</a>');
+	}
+	else
+	{
+		div_poj_cancel();
+	}
+}
+</script>
+<title>kino.delux.tj</title>
+</head>
+
+<body style="" class="start">
+
+	<a href="javascript:;" onclick="div_poj();" class="knopka">Пожаловаться</a>
+	<div id="div_poj" class="div_poj">
+		<div id="div_poj_place" style="padding: 20px;">
+			<span>Ваша почта (E-mail)</span><br />
+			<input type="text" name="name_poj" id="name_poj" style="width: 300px;"><br />
+			<span>Текст с описанием проблемы</span><br />
+			<textarea name="text_poj" id="text_poj" style="width: 300px;height: 130px;"></textarea><br /><br />
+			<a href="javascript:div_poj_cancel();" class="knopka1">Отмена</a> <a style="margin-left: 45px;" href="javascript:div_poj_send();" class="knopka1">Отправить</a>
+		</div>
+	</div>
+	
+	
+	<div id="div_no_resident" class="div_no_resident">
+		<div class="div_no_resident_text">
+			Этот сайт акцентирован для использования на территории Таджикистана, если Вы видете это сообщения значит 
+			Вы физический находитесь не в Таджикистане или же используете прокси сервер (отключите его). Если Вы считаете, 
+			что это сообщение ошибочное, пожалуйста напишите нам через раздел "<a href="javascript:div_poj();">пожаловаться</a>" указав свой обратный адрес (Email) <a style="float: right; color: red;" href="javascript:zakritDiv();">Закрыть</a>
+		</div>
+	</div>
+	<!--**********HEADER**********-->
+	<div class="header">
+        <div style=""  class="header-main">
+            <div itemscope itemtype="https://schema.org/Organization" class="logo">
+                <a itemprop="url" href="https://alfa.tj/" title="Перейти на главную страницу">
+                    <img itemprop="logo" src="https://alfa.tj/img/header/logo.png" alt="alfa.tj" />
+                </a>
+            </div>
+			<ul class="main-nav">
+				<li>
+						<span class="item">
+							 <a href="#" title="Кино онлайн">Фильмы</a>
+						</span>
+						
+					<div class="subitems-wrapper mega">
+						<ul> 
+							
+							<li><a href="https://alfa.tj/index.php/main/category/8">фантастика</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/9">боевик</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/10">триллер</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/29">мюзикл</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/12">комедия</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/13">криминал</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/14">мультфильм</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/15">фэнтези</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/16">семейный</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/17">приключения</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/18">драма</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/19">мелодрама</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/28">спорт</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/27">вестерн</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/26">биография</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/23">детектив</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/24">военный</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/25">история</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/30">ужасы</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/33">документальный</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/35">индийский</a></li>    
+							
+							<li><a href="https://alfa.tj/index.php/main/category/36">короткометражка</a></li>    
+							
+						</ul>
+					</div>
+				</li>
+				<li>
+					<span class="item">
+						<a href="#" title="Сериалы онлайн">Сериалы</a>
+					</span>
+					<div class="subitems-wrapper megaS">
+						<ul>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/1224">Лучшие враги</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/800">Клиника (сезон 1)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/585">Чародей: Страна Великого Дракона</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/584">Тысяча и одна ночь</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/528">Грань (Сезон 5)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/527">Грань (Сезон 4)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/518">Последователи (Сезон 1)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/392">Милые обманщицы (Сезон 3)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/324">Касл (Сезон 5)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/323">Касл (Сезон 4)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/322">Касл (Сезон 3)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/321">Касл (Сезон 2)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/320">Касл (Сезон 1)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/256">Милые обманщицы (Сезон 1)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/251">Правосудие Декстера (сезон 6)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/250">Мерлин (Сезон 5)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/248">Стрела</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/247">Дневники вампира (сезон 4)</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/161">Универ. Новая общага</a></li>
+							
+								<li><a href="https://alfa.tj/index.php/main/about/156">Теория большого взрыва (Сезон 6)</a></li>
+							
+						</ul>
+					</div>
+				</li> 
+				<li>
+					<span class="item">
+						<a href="#" title="Мультфильмы онлайн">Мультфильмы</a>
+					</span>
+					<div class="subitems-wrapper">
+						<ul>
+							
+							<li><a href="https://alfa.tj/index.php/main/category/14">мультфильм</a></li>    
+							           
+						</ul>
+					</div>
+				</li>
+				<li>
+					<span class="item">
+						<a href="#" title="Программы онлайн">Программы</a>
+					</span>
+					<div class="subitems-wrapper">
+						<ul>
+							
+							<li><a href="https://alfa.tj/index.php/main/category/34">Тв-Шоу</a></li>    
+							         
+						</ul>
+					</div>
+				</li> 
+				<li class="top">
+					<span class="item"><a href="" title="">ТОПы</a><span class="unshade"><span></span></span></span>
+					<ul>
+						<li><a href="https://alfa.tj/index.php/main/mrating">По версии Кинопоиска</a></li>
+						<li><a href="https://alfa.tj/index.php/main/mrating">По версии IMDb</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<span class="item">
+						<a href="https://hello.tj/" title="hello.tj"> hello.tj</a>
+					</span>
+				</li>
+
+			</ul>
+			<!--**********SEARCH FORMS*************-->
+			<style>
+			  .ui-autocomplete-loading {
+				background: white url("https://alfa.tj/ajax_loader.gif") right center no-repeat;
+			  }
+			 
+			  </style>
+  <script>
+  $(function() {
+    function log( message ) {
+		window.location.href="https://alfa.tj/index.php/main/search/?q="+encodeURIComponent(message)
+      // $( "<div>" ).text( message ).prependTo( "#log" );
+      // $( "#log" ).scrollTop( 0 );
+    }
+ 
+    $( "#search-input" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "https://alfa.tj/index.php/main/qjson",
+          dataType: "jsonp",
+          data: {
+            q: request.term
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      },
+      minLength: 3,
+      select: function( event, ui ) {
+        log( ui.item ?
+         ui.item.label :
+         this.value);
+      },
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  });
+  </script>
+	<div class="ui-widget" style="position:relative;z-index: 1003;">
+			<form class="search-form" id="search-form" action="https://alfa.tj/index.php/main/search/">
+				
+					
+					<input type="submit" id="search-but" name="" class="search-but" />
+					
+					<input type="text" id="search-input" name="q"  placeholder="Поиск..." class="search-input" />
+					
+			</form>
+		</div>
+			<!--*********REGISTRATON**************-->
+			<div class="auth-links">
+				<ul id="auth-nav" class="auth-nav">
+					<li>
+						<a href="https://alfa.tj/index.php/main/authf" class="jqModal1" id="auth_user1">Вход</a>
+					</li>
+					<li class="last">
+						<a href="https://alfa.tj/index.php/main/reg" class="jqModal1" id="reg_user1">Регистрация</a>
+					</li>
+				</ul>            
+			</div>
+        </div>
+    </div>
+	 <div id="page-wrapper">
+	
+		<!--*********CONTENT**************-->
+		
+			<!--*********SLIDER**************-->
+	<div class="sl_outer_er">
+		<div class="sl_outer">
+			
+		</div>	
+	</div>		<script>
+		var page = 1;
+		var page_popular = 1;
+		
+		function ShowMeMoreNew()
+		{
+			$("#ShowMeMoreNew").hide();
+			page++;
+			var text = $.get('https://alfa.tj/index.php/main/ajax_get_movie_new/'+page, function(data) {
+				$("#m_list").append(data);
+				});
+			$("#ShowMeMoreNew").show();
+		};
+		
+		
+		function ShowMeMorePopular()
+		{
+			$("#ShowMeMorePopular").hide();
+			page_popular++;
+			var text = $.get('https://alfa.tj/index.php/main/ajax_get_movie_popular/'+page_popular, function(data) {
+				$("#popular_m_list").append(data);
+				});
+			$("#ShowMeMorePopular").show();
+		};
+		</script>
+		<style>
+		.page-class a
+		{
+			padding: 5px;
+			font-size: 15px;
+		}
+		.paging_choos
+		{
+			color: #00a6ff;
+			padding: 5px;
+			font-size: 15px;
+		}
+		</style>
+		<div class="page-wrapper-inner">
+		<div class="content">
+				<div class="content-line">
+					<div class="main-col">
+						<!-- Блоки "Новое и популярное" -->
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- bottom_ads -->
+						<ins class="adsbygoogle"
+							 style="display:inline-block;width:980px;height:120px"
+							 data-ad-client="ca-pub-6839776015814748"
+							 data-ad-slot="8352020481"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+						<br /><br />
+						<div class="films-gallery-col">
+						
+							<span class="h2i">
+								<a href="#">Новое на KinoDelux</a>
+							</span>
+							<ul id="m_list" class="films-gallery">
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2969"><img src="https://alfa.tj/small_poster/843209.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Выбор</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2969" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2969)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.74</strong></li>
+													<li>IMDb: <strong>6.60</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16182">Росс Кац</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/1257">Бенджамин Уокер</a> <a href="https://alfa.tj/index.php/main/person/3107">Тереза Палмер</a> <a href="https://alfa.tj/index.php/main/person/1403">Мэгги Грэйс</a> <a href="https://alfa.tj/index.php/main/person/5946">Александра Даддарио</a> <a href="https://alfa.tj/index.php/main/person/4606">Том Уилкинсон</a> <a href="https://alfa.tj/index.php/main/person/16178">Том Уэллинг</a> <a href="https://alfa.tj/index.php/main/person/16179">Джесси Бойд</a> <a href="https://alfa.tj/index.php/main/person/16180">Брэд Джеймс</a> <a href="https://alfa.tj/index.php/main/person/16181">Нори Виктория</a> <a href="https://alfa.tj/index.php/main/person/14426">Анна Энгер</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Любовь? Серьезные отношения? Ответственность? Семья? Закоренелый холостяк Тревис Паркер считает, что все это не для него. У него есть отличная работа и верные друзья. Он увлекается охотой, рыбалкой, занимается экстремальными видами спорта — и избегает серьезных отношений. Но не родился еще на свет человек, которому удалось бы уйти от настоящей любв</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2969" title="Выбор">Выбор</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2968"><img src="https://alfa.tj/small_poster/577255.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Золото</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2968" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2968)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.82</strong></li>
+													<li>IMDb: <strong>6.70</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16177">Стивен Гейган</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/1137">Мэттью МакКонахи</a> <a href="https://alfa.tj/index.php/main/person/8217">Эдгар Рамирес</a> <a href="https://alfa.tj/index.php/main/person/9102">Брайс Даллас Ховард</a> <a href="https://alfa.tj/index.php/main/person/1470">Кори Столл</a> <a href="https://alfa.tj/index.php/main/person/4680">Тоби Кеббелл</a> <a href="https://alfa.tj/index.php/main/person/9992">Билл Кэмп</a> <a href="https://alfa.tj/index.php/main/person/16176">Джошуа Харто</a> <a href="https://alfa.tj/index.php/main/person/8566">Тимоти С. Саймонс</a> <a href="https://alfa.tj/index.php/main/person/5425">Крэйг Т. Нельсон</a> <a href="https://alfa.tj/index.php/main/person/11431">Мэйкон Блэр</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												История Кенни Уэллса — современного золотоискателя, хваткого дельца и мечтателя, который отчаянно ждёт шанса переломить судьбу. Оставшись без особых вариантов, Уэллс находит себе такого же неудачливого напарника — геолога, чтобы реализовать грандиозный план: найти золото в неизведанных индонезийских джунглях.м</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2968" title="Золото">Золото</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2967"><img src="https://alfa.tj/small_poster/678639.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Атлантида</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/30">ужасы</a>, <a href="https://alfa.tj/index.php/main/category/8">фантастика</a>, <a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2967" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2967)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>5.60</strong></li>
+													<li>IMDb: <strong>5.90</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/15510">Ксавье Жанс</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/1870">Рэй Стивенсон</a> <a href="https://alfa.tj/index.php/main/person/16168">Дэвид Оукс</a> <a href="https://alfa.tj/index.php/main/person/16169">Аура Гарридо</a> <a href="https://alfa.tj/index.php/main/person/16170">Уинслоу Иваки</a> <a href="https://alfa.tj/index.php/main/person/16171">Джон Бенфилд</a> <a href="https://alfa.tj/index.php/main/person/16172">Бен Темпле</a> <a href="https://alfa.tj/index.php/main/person/15507">Иван Гонсалес</a> <a href="https://alfa.tj/index.php/main/person/16173">Алехандро Род</a> <a href="https://alfa.tj/index.php/main/person/16174">Жюльен Блашке</a> <a href="https://alfa.tj/index.php/main/person/16175">Дамиан Монтесдеока</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												После длительного плавания молодой метеоролог Френд прибывает на затерянный в океане остров принять годичную вахту на метеостанции. На острове оказывается лишь суровый и немногословный смотритель маяка Грюнер. Френд довольно быстро понимает, что Грюнер что-то скрывает, старый метеоролог попал в какую-то передрягу, а остров кажется необитаемым тольк</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2967" title="Атлантида">Атлантида</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2966"><img src="https://alfa.tj/small_poster/688713.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Внеземное эхо</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/17">приключения</a>, <a href="https://alfa.tj/index.php/main/category/8">фантастика</a>, <a href="https://alfa.tj/index.php/main/category/16">семейный</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2966" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2966)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.10</strong></li>
+													<li>IMDb: <strong>5.80</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/8370">Дэйв Грин</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/8361">Тео Хальм</a> <a href="https://alfa.tj/index.php/main/person/8362">Астро</a> <a href="https://alfa.tj/index.php/main/person/8363">Риз Хартвиг</a> <a href="https://alfa.tj/index.php/main/person/8364">Элла Валестедт</a> <a href="https://alfa.tj/index.php/main/person/2279">Джейсон Грей-Стенфорд</a> <a href="https://alfa.tj/index.php/main/person/8365">Элджи Смит</a> <a href="https://alfa.tj/index.php/main/person/8366">Кассиус Клэй</a> <a href="https://alfa.tj/index.php/main/person/8367">Соня Лесли</a> <a href="https://alfa.tj/index.php/main/person/8368">Керри О’Мэлли</a> <a href="https://alfa.tj/index.php/main/person/8369">Вирджиния Луиз Смит</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Лучшие друзья Таск, Манч и Алекс начали получать странные закодированные послания на свои мобильные телефоны. Они убеждены, что это что-то да значит, но родители и власти не воспринимают их всерьез. Они решаются взломать код и следуют к источнику посланий. То, с чем они сталкиваются, не из нашего мира и оно нуждается в помощи.</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2966" title="Внеземное эхо">Внеземное эхо</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2965"><img src="https://alfa.tj/small_poster/390738.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Прости за любовь</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/19">мелодрама</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2965" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2965)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>7.66</strong></li>
+													<li>IMDb: <strong>6.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16167">Федерико Моччиа</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16158">Рауль Бова</a> <a href="https://alfa.tj/index.php/main/person/16159">Микела Кваттрочокке</a> <a href="https://alfa.tj/index.php/main/person/16160">Мишель Карпенте</a> <a href="https://alfa.tj/index.php/main/person/14848">Лука Анджелетти</a> <a href="https://alfa.tj/index.php/main/person/16161">Франческа Антонелли</a> <a href="https://alfa.tj/index.php/main/person/16162">Стефано Антонуччи</a> <a href="https://alfa.tj/index.php/main/person/16163">Франческо Аполлони</a> <a href="https://alfa.tj/index.php/main/person/16164">Фабрицио Буччи</a> <a href="https://alfa.tj/index.php/main/person/16165">Чечилия Дацци</a> <a href="https://alfa.tj/index.php/main/person/16166">Лоренцо Федеричи</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												37-летний красавец Алекс ведет себя как подросток и не желает взрослеть, он расстается со своей «вечной невестой» Еленой, «крутится» на работе и по жизни. Вскоре Алекс знакомится с не по годам развитой 17-летней Ники. Между ними завязывается дружба, вскоре перерастающая в любовь, от которой не в восторге абсолютно все родственники и друзья главных </div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2965" title="Прости за любовь">Прости за любовь</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2964"><img src="https://alfa.tj/small_poster/766533.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Альдабра. Путешествие к таинственному острову</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/16">семейный</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a>, <a href="https://alfa.tj/index.php/main/category/33">документальный</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2964" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2964)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.49</strong></li>
+													<li>IMDb: <strong>8.00</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16157">Стив Лихтаг</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/4786">Пирс Броснан</a> <a href="https://alfa.tj/index.php/main/person/16156">Ольдржих Кайзер</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Присоединяйтесь к полной приключений 3D экспедиции к берегам таинственного острова Альдабра, затерянного в водах Индийского океана. Этот атолл, куда редко ступает нога человека, до сих пор является домом для сообщества экзотических животных. Скрестя пальцы, вы будете наблюдать, как детеныши черепах выползают на смертоносные отмели, изобилующие акул</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2964" title="Альдабра. Путешествие к таинственному острову">Альдабра. Путешествие к таинственному острову</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2963"><img src="https://alfa.tj/small_poster/839232.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Я плюю на ваши могилы 3</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/30">ужасы</a>, <a href="https://alfa.tj/index.php/main/category/13">криминал</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2963" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2963)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>4.65</strong></li>
+													<li>IMDb: <strong>5.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16155">Р.Д. Браунштейн</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16133">Сара Батлер</a> <a href="https://alfa.tj/index.php/main/person/16146">Дженнифер Лэндон</a> <a href="https://alfa.tj/index.php/main/person/16147">Даг МакКиэн</a> <a href="https://alfa.tj/index.php/main/person/16148">Гэбриел Хоган</a> <a href="https://alfa.tj/index.php/main/person/16149">Харли Джейн Козак</a> <a href="https://alfa.tj/index.php/main/person/16150">Мишель Херд</a> <a href="https://alfa.tj/index.php/main/person/16151">Расселл Чарльз Питтс</a> <a href="https://alfa.tj/index.php/main/person/16152">Уолтер Перес</a> <a href="https://alfa.tj/index.php/main/person/16153">Карен Страссман</a> <a href="https://alfa.tj/index.php/main/person/16154">Кристофер Хоффман</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Главная героиня фильма, писательница Дженнифер Хиллз, начала новую жизнь. Она посещает психотерапевта и кризисную группу для жертв изнасилований. В группе она знакомится с бойкой и яркой девушкой, которая убеждает её, что месть — это и есть правосудие. Вместе они запугивают мужчину, который насилует свою падчерицу-подростка из их группы. А потом по</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2963" title="Я плюю на ваши могилы 3">Я плюю на ваши могилы 3</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2962"><img src="https://alfa.tj/small_poster/718228.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Я плюю на ваши могилы 2</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/30">ужасы</a>, <a href="https://alfa.tj/index.php/main/category/10">триллер</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2962" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2962)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>5.29</strong></li>
+													<li>IMDb: <strong>5.70</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/6792">Стивен Р. Монро</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16137">Джемма Даллендер</a> <a href="https://alfa.tj/index.php/main/person/16138">Джо Эбсолом</a> <a href="https://alfa.tj/index.php/main/person/16139">Явор Бахаров</a> <a href="https://alfa.tj/index.php/main/person/16140">Георг Златарев</a> <a href="https://alfa.tj/index.php/main/person/16141">Мэри Стокли</a> <a href="https://alfa.tj/index.php/main/person/16142">Валентин Пелка</a> <a href="https://alfa.tj/index.php/main/person/16143">Александр Алексеев</a> <a href="https://alfa.tj/index.php/main/person/16144">Питер Сильверлиф</a> <a href="https://alfa.tj/index.php/main/person/12930">Майкл Диксон</a> <a href="https://alfa.tj/index.php/main/person/16145">Кейси Барнфилд</a> <a href="https://alfa.tj/index.php/main/person/46"></a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Красавица Кэти только что переехала в Нью-Йорк, чтобы сделать карьеру модели. Но девичьи мечты о роскошной жизни разбиваются: ее насилуют, пытают, а вскоре похищают и увозят в непонятном направлении. Кэти оказывается одна в чужой стране, где ее почти что похоронят заживо. Чудом избежав смерти, девушка решает жестоко отомстить обидчикам… Рейтинг фил</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2962" title="Я плюю на ваши могилы 2">Я плюю на ваши могилы 2</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2961"><img src="https://alfa.tj/small_poster/417892.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Я плюю на ваши могилы</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/30">ужасы</a>, <a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/13">криминал</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2961" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2961)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.21</strong></li>
+													<li>IMDb: <strong>6.30</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/6792">Стивен Р. Монро</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16133">Сара Батлер</a> <a href="https://alfa.tj/index.php/main/person/16134">Джефф Брэнсон</a> <a href="https://alfa.tj/index.php/main/person/1359">Эндрю Ховард</a> <a href="https://alfa.tj/index.php/main/person/10594">Дэниел Фрэнзиси</a> <a href="https://alfa.tj/index.php/main/person/2069">Родни Истман</a> <a href="https://alfa.tj/index.php/main/person/2558">Чэд Линдберг</a> <a href="https://alfa.tj/index.php/main/person/2881">Трейси Уолтер</a> <a href="https://alfa.tj/index.php/main/person/16135">Молли Миллиган</a> <a href="https://alfa.tj/index.php/main/person/13542">Саксон Шарбино</a> <a href="https://alfa.tj/index.php/main/person/16136">Эмбер Даун Лэндрум</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Молодая писательница Дженнифер снимает домик в глухом лесу, чтобы в уединении написать роман. Но издатель не дождется нового бестселлера… Четверо местных отморозков жестоко насилуют девушку и обрекают ее на мучительную смерть. Но Дженнифер сумела выжить и теперь ее единственная цель — месть. И месть эта будет столь ужасной, что бывшие насильники пр</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2961" title="Я плюю на ваши могилы">Я плюю на ваши могилы</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2958"><img src="https://alfa.tj/small_poster/495017.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Лето. Одноклассники. Любовь</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2958" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2958)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>5.92</strong></li>
+													<li>IMDb: <strong>4.30</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16124">Лиза Азуэлос</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/6916">Майли Сайрус</a> <a href="https://alfa.tj/index.php/main/person/12356">Деми Мур</a> <a href="https://alfa.tj/index.php/main/person/6750">Дуглас Бут</a> <a href="https://alfa.tj/index.php/main/person/596">Эшли Грин</a> <a href="https://alfa.tj/index.php/main/person/16122">Эшли Хиншоу</a> <a href="https://alfa.tj/index.php/main/person/3840">Томас Джейн</a> <a href="https://alfa.tj/index.php/main/person/6575">Жан-Люк Билодо</a> <a href="https://alfa.tj/index.php/main/person/1141">Джина Гершон</a> <a href="https://alfa.tj/index.php/main/person/7465">Джей Эрнандес</a> <a href="https://alfa.tj/index.php/main/person/16123">Вивиан Ле Борн</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Лола, или Лол, как ее зовут друзья, живет в пригороде Чикаго, как и все, прогуливает занятия, чатится с подругами, устраивает вечеринки и мечтает о настоящей любви. Поездка в Париж — это шанс для Лолы и ее одноклассников оторваться по полной. Безудержный шопинг, бесконтрольные ночные вылазки и первое романтическое свидание — все это оказывается под</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2958" title="Лето. Одноклассники. Любовь">Лето. Одноклассники. Любовь</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2957"><img src="https://alfa.tj/small_poster/817580.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Самба</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2957" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2957)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.55</strong></li>
+													<li>IMDb: <strong>6.70</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/2699">Оливье Накаш</a> <a href="https://alfa.tj/index.php/main/person/2700">Эрик Толедано</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/2690">Омар Си</a> <a href="https://alfa.tj/index.php/main/person/6013">Шарлотта Генсбур</a> <a href="https://alfa.tj/index.php/main/person/16116">Тахар Рахим</a> <a href="https://alfa.tj/index.php/main/person/15755">Изиа Ижлен</a> <a href="https://alfa.tj/index.php/main/person/16117">Исака Савадого</a> <a href="https://alfa.tj/index.php/main/person/15081">Элен Венсан</a> <a href="https://alfa.tj/index.php/main/person/16118">Янгар Фолл</a> <a href="https://alfa.tj/index.php/main/person/16119">Кристиана Милле</a> <a href="https://alfa.tj/index.php/main/person/16120">Жаклин Жеаннеф</a> <a href="https://alfa.tj/index.php/main/person/16121">Лия Кебеде</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Самба — сенегалец, живущий во Франции десять лет, но неудачи все еще преследуют его — он не может устроиться на хорошее место работы. Элис — руководитель высшего звена, буквально «сгорела» на работе. Самба всеми силами пытается получить документы, чтобы трудоустроиться, а Алиса ищет спасения от пустоты собственной жизни. Каждый из них ищет выход из</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2957" title="Самба">Самба</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2956"><img src="https://alfa.tj/small_poster/743392.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Молода и прекрасна</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2956" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2956)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.67</strong></li>
+													<li>IMDb: <strong>6.80</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/12961">Франсуа Озон</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/12952">Марина Вакт</a> <a href="https://alfa.tj/index.php/main/person/16110">Жеральдин Пайя</a> <a href="https://alfa.tj/index.php/main/person/3627">Фредерик Пьеро</a> <a href="https://alfa.tj/index.php/main/person/1769">Шарлотта Рэмплинг</a> <a href="https://alfa.tj/index.php/main/person/16111">Фантен Рава</a> <a href="https://alfa.tj/index.php/main/person/16112">Йохан Лейзен</a> <a href="https://alfa.tj/index.php/main/person/16113">Натали Ришар</a> <a href="https://alfa.tj/index.php/main/person/4846">Джедже Апали</a> <a href="https://alfa.tj/index.php/main/person/16114">Люка Призор</a> <a href="https://alfa.tj/index.php/main/person/16115">Лорен Дельбек</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Семнадцатилетняя Изабель погружается в бездонный мир любви, в поиски себя. Не столько из-за денег, сколько ради удовольствия, она встречается с немолодыми клиентами в гостиничных номерах. Близкие Изабель не подозревают, чем одержима умная и тонкая девушка. Но однажды умирает один из ее постоянных клиентов…</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2956" title="Молода и прекрасна">Молода и прекрасна</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2955"><img src="https://alfa.tj/small_poster/448311.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Больше, чем друг</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2955" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2955)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.69</strong></li>
+													<li>IMDb: <strong>6.10</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/111">Джош Гордон</a> <a href="https://alfa.tj/index.php/main/person/112">Уилл Спек</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/2764">Джейсон Бейтман</a> <a href="https://alfa.tj/index.php/main/person/7168">Дженнифер Энистон</a> <a href="https://alfa.tj/index.php/main/person/4035">Джефф Голдблюм</a> <a href="https://alfa.tj/index.php/main/person/14160">Джульетт Льюис</a> <a href="https://alfa.tj/index.php/main/person/16106">Виктор Паган</a> <a href="https://alfa.tj/index.php/main/person/16107">Тодд Луисо</a> <a href="https://alfa.tj/index.php/main/person/16108">Скотт Элрод</a> <a href="https://alfa.tj/index.php/main/person/2181">Патрик Уилсон</a> <a href="https://alfa.tj/index.php/main/person/16109">Ребекка Наоми Джонс</a> <a href="https://alfa.tj/index.php/main/person/110">Келли Баррет</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Во всем Нью-Йорке не было ближе друзей, чем риэлтор-невротик Уолли и очаровательная Кэсси. Однако когда Кэсси решится на искусственное оплодотворение, донором она выберет надежного и женатого красавца Роланда… Лучшие друзья решают отметить это вечеринкой, где Уолли напивается до неприличия…  Через семь лет Кэсси возвращается в Нью-Йорк с 6-летним с</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2955" title="Больше, чем друг">Больше, чем друг</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2954"><img src="https://alfa.tj/small_poster/8178.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Совершенный мир</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/13">криминал</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2954" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2954)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>7.97</strong></li>
+													<li>IMDb: <strong>7.50</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/7479">Клинт Иствуд</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/5328">Кевин Костнер</a> <a href="https://alfa.tj/index.php/main/person/7479">Клинт Иствуд</a> <a href="https://alfa.tj/index.php/main/person/8915">Лора Дерн</a> <a href="https://alfa.tj/index.php/main/person/16102">Т. Дж. Лоузер</a> <a href="https://alfa.tj/index.php/main/person/1847">Кит Шарабайка</a> <a href="https://alfa.tj/index.php/main/person/13482">Лео Бёрместер</a> <a href="https://alfa.tj/index.php/main/person/16103">Пол Хьюит</a> <a href="https://alfa.tj/index.php/main/person/5929">Брэдли Уитфорд</a> <a href="https://alfa.tj/index.php/main/person/16104">Рэй МакКиннон</a> <a href="https://alfa.tj/index.php/main/person/16105">Дженнифер Гриффин</a> <a href="https://alfa.tj/index.php/main/person/46"></a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Батч Хейнс — закаленный жизнью преступник, бежавший вместе с юным заложником, видящим в Батче отца, которого у него никогда не было. Ред Гарнетт — хитрый техасский рейнджер, предводитель шерифов. Ему знакомы каждая тропинка и укрытие. И более того — ему знаком и неуловимый Хейнс, ведь их пути уже пересекались однажды.</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2954" title="Совершенный мир">Совершенный мир</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2960"><img src="https://alfa.tj/small_poster/997495.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Тигр жив</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/9">боевик</a>, <a href="https://alfa.tj/index.php/main/category/10">триллер</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2960" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2960)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>0.00</strong></li>
+													<li>IMDb: <strong>6.40</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16132">Али Аббас Зафар</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/7692">Салман Кхан</a> <a href="https://alfa.tj/index.php/main/person/16125">Катрина Каиф</a> <a href="https://alfa.tj/index.php/main/person/16126">Садджад Делафруз</a> <a href="https://alfa.tj/index.php/main/person/11339">Энгэд Беди</a> <a href="https://alfa.tj/index.php/main/person/2527">Пареш Раваль</a> <a href="https://alfa.tj/index.php/main/person/16127">Пареш Пахуджа</a> <a href="https://alfa.tj/index.php/main/person/16128">Кумуд Мишра</a> <a href="https://alfa.tj/index.php/main/person/16129">Gavie Chahal</a> <a href="https://alfa.tj/index.php/main/person/16130">Danish Bhatt</a> <a href="https://alfa.tj/index.php/main/person/16131">Anupriya Goenka</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Легендарный герой возвращается! Непобедимый Тигр вступит в главную схватку своей жизни. Он должен вернуться в большую игру, ведь на кону судьбы невинных людей, которых захватил в плен опаснейший террорист Абу Усман. Защитить их под силу лишь индийскому агенту Тигру и пакистанской шпионке Зое. Забыв о политических противоречиях между своими странами</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2960" title="Тигр жив">Тигр жив</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2953"><img src="https://alfa.tj/small_poster/840258.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Он – дракон</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/15">фэнтези</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2953" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2953)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.84</strong></li>
+													<li>IMDb: <strong>6.70</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/10728">Индар Джендубаев</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16094">Мария Поезжаева</a> <a href="https://alfa.tj/index.php/main/person/16095">Матвей Лыков</a> <a href="https://alfa.tj/index.php/main/person/16096">Станислав Любшин</a> <a href="https://alfa.tj/index.php/main/person/10693">Иева Андреевайте</a> <a href="https://alfa.tj/index.php/main/person/16097">Петр Романов</a> <a href="https://alfa.tj/index.php/main/person/16098">Андрей Лебединский</a> <a href="https://alfa.tj/index.php/main/person/12585">Марта Тимофеева</a> <a href="https://alfa.tj/index.php/main/person/16099">Иво Господинов</a> <a href="https://alfa.tj/index.php/main/person/16100">Егор Зубарчук</a> <a href="https://alfa.tj/index.php/main/person/16101">Виктория Рунцова</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												В разгар свадьбы княжну Мирославу похищает дракон, унося в свой замок на острове. В прошлом остались родные, жених, теперь только каменный плен в компании прекрасного Армана. Но кто он, и как оказался на острове? Мира поймет это слишком поздно: любовь к нему, человеку-дракону, откроет ей горькую истину — любить страшно.</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2953" title="Он – дракон">Он – дракон</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2952"><img src="https://alfa.tj/small_poster/45478.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Человек-амфибия</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/8">фантастика</a>, <a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2952" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2952)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>7.58</strong></li>
+													<li>IMDb: <strong>7.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/16092">Владимир Чеботарев</a> <a href="https://alfa.tj/index.php/main/person/16093">Геннадий Казанский</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/16082">Владимир Коренев</a> <a href="https://alfa.tj/index.php/main/person/16083">Анастасия Вертинская</a> <a href="https://alfa.tj/index.php/main/person/16084">Михаил Козаков</a> <a href="https://alfa.tj/index.php/main/person/16085">Николай Симонов</a> <a href="https://alfa.tj/index.php/main/person/16086">Анатолий Смиранин</a> <a href="https://alfa.tj/index.php/main/person/16087">Владлен Давыдов</a> <a href="https://alfa.tj/index.php/main/person/16088">Николай Кузьмин</a> <a href="https://alfa.tj/index.php/main/person/16089">Михаил Медведев</a> <a href="https://alfa.tj/index.php/main/person/16090">Юрий Медведев</a> <a href="https://alfa.tj/index.php/main/person/16091">Анна Никритина</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												Однажды талантливый учёный доктор Сальватор спас жизнь маленькому мальчику, пересадив ему жабры акулы. С этого дня Ихтиандр, так назвал своего приёмного сына учёный, мог плавать под водой, как рыба, нырять на любую глубину, но ему было тяжело подолгу находиться на суше…   Годы спустя по тихому морскому городу поползли слухи о странном существе, нав</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2952" title="Человек-амфибия">Человек-амфибия</a></strong>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2936"><img src="https://alfa.tj/small_poster/24724.jpg">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_978121">    
+											<h3>Змея в тени орла</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/9">боевик</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2936" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2936)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>7.70</strong></li>
+													<li>IMDb: <strong>7.50</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/3249">Юэнь Ву-Пин</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/3616">Джеки Чан</a> <a href="https://alfa.tj/index.php/main/person/16016">Юань Сяотянь</a> <a href="https://alfa.tj/index.php/main/person/5301">Янг Ли Хванг</a> <a href="https://alfa.tj/index.php/main/person/16017">Дин Шек</a> <a href="https://alfa.tj/index.php/main/person/16018">Рой Хоран</a> <a href="https://alfa.tj/index.php/main/person/14564">Фунг Харк-Он</a> <a href="https://alfa.tj/index.php/main/person/16019">Ланг Чан</a> <a href="https://alfa.tj/index.php/main/person/5303">Чен Тиен Лунг</a> <a href="https://alfa.tj/index.php/main/person/16020">Йао Лин Чен</a> <a href="https://alfa.tj/index.php/main/person/16021">Цзинь Цзян</a>        
+												</div>
+												<div class="text">
+												<b>Описание:</b>
+												 Китай времен династии Цин. Бедный сирота Чиен Фу случайно спасает жизнь мастеру кунг-фу Пай Чен-Ченю, последнему оставшемуся в живых представителю школы Змеиного Кулака, уничтоженной зловещим кланом Орлиного Когтя. Благородный мастер берет юношу в ученики, дабы передать ему секреты своего боевого стиля.  А ученик оказывается настолько талантлив, ч</div>
+											</div>
+											<span class="root"></span>
+										</div>
+									</div>
+									<strong><a href="https://alfa.tj/index.php/main/about/2936" title="Змея в тени орла">Змея в тени орла</a></strong>
+								</li>
+																
+							</ul>
+							<p class="page-class" style="width:100%;text-align:center;"><span class="paging_choos">1</span><a href="https://alfa.tj/index.php/main/category/0/2">2</a><a href="https://alfa.tj/index.php/main/category/0/3">3</a><a href="https://alfa.tj/index.php/main/category/0/4">4</a><a href="https://alfa.tj/index.php/main/category/0/5">5</a><a href="https://alfa.tj/index.php/main/category/0/6">6</a><a href="https://alfa.tj/index.php/main/category/0/7">7</a><a href="https://alfa.tj/index.php/main/category/0/8">8</a><a href="https://alfa.tj/index.php/main/category/0/9">9</a><a href="https://alfa.tj/index.php/main/category/0/10">10</a><a href="https://alfa.tj/index.php/main/category/0/144">>></a></p>
+							<p class="more"><a id="ShowMeMoreNew" href="javascript:ShowMeMoreNew()">Показать еще</a></p>
+						</div>
+						
+			
+					</div>
+					<!---****************EXTRA COLUMN (RIGHT SIDE)***************--->
+					
+					<div class="extra-col">
+					
+						<div class="sidecol-ad">	
+							<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+							<!-- reklama -->
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- left_alfa_tj -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6839776015814748"
+     data-ad-slot="4500276089"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+							<br /><br />
+						
+						</div>
+					</div>
+					
+				</div>
+				<!---******************CONTENT LINE2*****************
+				<div class="content-line">
+					<div class="description" itemprop="description">
+						<div class="expandable description-text">
+							<div class="content-wrapper contracted">
+								<h1 class="h0i">Бесплатный онлайн кинотеатр kino.delux.tj: фильмы в хорошем  качестве  всегда приносят настоящее удовольствие </h1>
+								<p>Случалось ли вам отказаться от  просмотра интересного фильма из-за того, что его показывали в  неудобное время?<br>
+								Приходилось ли искать в сети интернет,  где смотреть фильмы онлайн? А спорить с домашними из-за выбора кино для просмотра по ТВ?<br>
+								</p>
+								  <p>Мы не просто освобождаем вас от необходимости  идти в кинотеатр или изучать программу  телепередач — у посетителей нашего  ресурса гораздо больше возможностей.</p>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!---***************** CONTENT LINE3(RECOMENDED)*****************-->
+				<div class="content-line">
+					<div class="incut-line-wrapper">
+						<div class="incut-line films-recommend-wrapper">
+							<span class="h2i">Рекомендуем лично вам</span>
+							<ul class="films-recommend bordered">
+							
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/1943" class="view_link">
+										<img src="https://alfa.tj/small_poster/824437.jpg" alt="Меч короля Артура">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>Меч короля Артура</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/15">фэнтези</a>, <a href="https://alfa.tj/index.php/main/category/9">боевик</a>, <a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/1943" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(1943)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>7.33</strong></li>
+													<li>IMDb: <strong>7.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/337">Гай Ричи</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/3683">Чарли Ханнэм</a> <a href="https://alfa.tj/index.php/main/person/11857">Астрид Берже-Фрисби</a> <a href="https://alfa.tj/index.php/main/person/1076">Джуд Лоу</a> <a href="https://alfa.tj/index.php/main/person/1493">Джимон Хонсу</a> <a href="https://alfa.tj/index.php/main/person/5877">Эрик Бана</a> <a href="https://alfa.tj/index.php/main/person/11858">Эйдан Гиллен</a> <a href="https://alfa.tj/index.php/main/person/11859">Фредди Фокс</a> <a href="https://alfa.tj/index.php/main/person/11860">Крэйг МакГинли</a> <a href="https://alfa.tj/index.php/main/person/11861">Том Ву</a> <a href="https://alfa.tj/index.php/main/person/10722">Кингсли Бен-Адир</a> 
+												</div>
+												<div class="text"><b>Описание:</b> Молодой Артур живёт на задворках Лондиниума вместе со своей бандой. Он и понятия не имел о своём королевском происхождении, пока однажды не взял в руки меч Эскалибур. Меч начинает менять Артура. В результате он присоединяется к сопротивлению и таинственной молодой девушке по имени Гвиневра. Ему предстоит научиться понимать магическое оружие, которы...</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2275" class="view_link">
+										<img src="https://alfa.tj/small_poster/698518.jpg" alt="Обветшалый">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>Обветшалый</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/19">мелодрама</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a>, <a href="https://alfa.tj/index.php/main/category/31">музыка</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2275" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2275)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.00</strong></li>
+													<li>IMDb: <strong>6.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/12920">Шон Мьюшо</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/2435">Ребекка Холл</a> <a href="https://alfa.tj/index.php/main/person/4996">Джейсон Судейкис</a> <a href="https://alfa.tj/index.php/main/person/4482">Джо Манганьелло</a> <a href="https://alfa.tj/index.php/main/person/3108">Дианна Агрон</a> <a href="https://alfa.tj/index.php/main/person/3614">Блайт Даннер</a> <a href="https://alfa.tj/index.php/main/person/12916">Гриффин Данн</a> <a href="https://alfa.tj/index.php/main/person/12917">Ричард Мейсер</a> <a href="https://alfa.tj/index.php/main/person/6171">Мэгги Кастл</a> <a href="https://alfa.tj/index.php/main/person/12918">Марк Бузенски</a> <a href="https://alfa.tj/index.php/main/person/12919">Мередит Прунти</a> 
+												</div>
+												<div class="text"><b>Описание:</b> Сюжет фильма строится вокруг молодой вдовы из маленького городка в штате Мэн, которая влюбляется в нью-йоркского писателя, приехавшего расследовать смерть её мужа, известного фолк-музыканта....</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/573" class="view_link">
+										<img src="https://alfa.tj/small_poster/461784.jpg" alt="Счастливчик">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>Счастливчик</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/573" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(573)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.96</strong></li>
+													<li>IMDb: <strong>6.20</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/4172">Скотт Хикс</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/3329">Зак Эфрон</a> <a href="https://alfa.tj/index.php/main/person/4165">Тейлор Шиллинг</a> <a href="https://alfa.tj/index.php/main/person/3614">Блайт Даннер</a> <a href="https://alfa.tj/index.php/main/person/4166">Райли Стюарт</a> <a href="https://alfa.tj/index.php/main/person/4167">Джей Р. Фергюсон</a> <a href="https://alfa.tj/index.php/main/person/4168">Адам ЛеФевр</a> <a href="https://alfa.tj/index.php/main/person/4169">Роберт Хэйес</a> <a href="https://alfa.tj/index.php/main/person/4170">Джо Крест</a> <a href="https://alfa.tj/index.php/main/person/4171">Расселл Дархэм Комегис</a> <a href="https://alfa.tj/index.php/main/person/3013">Шэрон Моррис</a> 
+												</div>
+												<div class="text"><b>Описание:</b> Морской пехотинец Логан Тибо сумел остаться в живых после трех военных миссий в Ираке. Своим талисманом он считает фото, которое всегда носит с собой — на нем совершенно незнакомая ему женщина. По возвращении в Северную Каролину Тибо решает разыскать ее....</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2543" class="view_link">
+										<img src="https://alfa.tj/small_poster/103224.jpg" alt="Черепашки-ниндзя">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>Черепашки-ниндзя</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/14">мультфильм</a>, <a href="https://alfa.tj/index.php/main/category/8">фантастика</a>, <a href="https://alfa.tj/index.php/main/category/15">фэнтези</a>, <a href="https://alfa.tj/index.php/main/category/9">боевик</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a>, <a href="https://alfa.tj/index.php/main/category/16">семейный</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2543" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2543)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.74</strong></li>
+													<li>IMDb: <strong>6.30</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/9744">Кевин Манро</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/88">Крис Эванс</a> <a href="https://alfa.tj/index.php/main/person/14213">Сара Мишель Геллар</a> <a href="https://alfa.tj/index.php/main/person/14214">Мако</a> <a href="https://alfa.tj/index.php/main/person/7350">Кевин Смит</a> <a href="https://alfa.tj/index.php/main/person/5119">Патрик Стюарт</a> <a href="https://alfa.tj/index.php/main/person/10404">Чжан Цзыи</a> <a href="https://alfa.tj/index.php/main/person/1510">Лоренс Фишбёрн</a> <a href="https://alfa.tj/index.php/main/person/14215">Митчелл Уитфилд</a> <a href="https://alfa.tj/index.php/main/person/9738">Джеймс Арнольд Тейлор</a> <a href="https://alfa.tj/index.php/main/person/14216">Мики Келли</a> 
+												</div>
+												<div class="text"><b>Описание:</b> После поражения их старейшего врага Шредера, семья черепашек распалась. Кроме борьбы за единство семьи их сенсей Сплинтер обеспокоен еще и тем, что в Нью-Йорке происходит что-то странное. Техноиндустриалист Максимилиан Уинтерс готовит армию древних монстров, остановить которую сможет только суперкоманда бойцов ниндзя — Леонардо, Микеланджело, Донат...</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/1597" class="view_link">
+										<img src="https://alfa.tj/small_poster/756799.jpg" alt="Пит и его дракон">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>Пит и его дракон</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/15">фэнтези</a>, <a href="https://alfa.tj/index.php/main/category/17">приключения</a>, <a href="https://alfa.tj/index.php/main/category/16">семейный</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/1597" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(1597)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.81</strong></li>
+													<li>IMDb: <strong>7.00</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/10315">Дэвид Лоури</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/9102">Брайс Даллас Ховард</a> <a href="https://alfa.tj/index.php/main/person/7794">Роберт Редфорд</a> <a href="https://alfa.tj/index.php/main/person/10310">Оакс Фигли</a> <a href="https://alfa.tj/index.php/main/person/10194">Уна Лоуренс</a> <a href="https://alfa.tj/index.php/main/person/981">Уэс Бентли</a> <a href="https://alfa.tj/index.php/main/person/1607">Карл Урбан</a> <a href="https://alfa.tj/index.php/main/person/10311">Исайя Уитлок мл.</a> <a href="https://alfa.tj/index.php/main/person/10312">Маркус Хендерсон</a> <a href="https://alfa.tj/index.php/main/person/10313">Аарон Джексон</a> <a href="https://alfa.tj/index.php/main/person/10314">Филип Грив</a> 
+												</div>
+												<div class="text"><b>Описание:</b> В течение многих лет Мистер Мичем забавлял местных детишек сказочными историями о свирепом драконе, обитающим на севере, глубоко в лесах. Для его дочери Грейс все эти истории казались ничем иным как выдумкой, ровно до тех пор, пока она не встретила в лесу маленького мальчика по имени Пит. Пит уже долгое время живет в диком лесу, у него нет ни дома,...</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+								<li>
+									<div class="image">
+										<a href="https://alfa.tj/index.php/main/about/2445" class="view_link">
+										<img src="https://alfa.tj/small_poster/987151.jpg" alt="В гостях у Элис">
+										<span class="overlay"></span>
+										</a>
+										<div class="xinfo" id="xinfo_1023301">    
+											<h3>В гостях у Элис</h3>
+											<div class="tags">
+												<div class="tags"><a href="https://alfa.tj/index.php/main/category/18">драма</a>, <a href="https://alfa.tj/index.php/main/category/19">мелодрама</a>, <a href="https://alfa.tj/index.php/main/category/12">комедия</a></div>
+											</div>
+											<div class="action-button-wrapper">
+												<a href="https://alfa.tj/index.php/main/about/2445" class="action-button gradient icon-view button-view view_link">Смотреть</a>
+												<a href="javascript:add_to_task(2445)" class="action-button dim gradient icon-favorite button-favorite fav">В очередь</a>
+											</div>
+											<div class="rating-list">
+												<span class="h3i">Рейтинги:</span>
+												<ul>
+													<li>Кинопоиск: <strong>6.34</strong></li>
+													<li>IMDb: <strong>5.80</strong></li>
+													<li>Kino.delux: <strong>?</strong></li>
+												</ul>
+											</div>
+											<div class="wrap-text-xinfo">
+												<div class="directors">
+													<span class="h3i">Режиссер:</span>
+													<a href="https://alfa.tj/index.php/main/person/13755">Холли Мейерс-Шайер</a> </div>
+												<div class="actors">
+													<span class="h3i">Актеры:</span>
+													<a href="https://alfa.tj/index.php/main/person/7244">Риз Уизерспун</a> <a href="https://alfa.tj/index.php/main/person/1070">Майкл Шин</a> <a href="https://alfa.tj/index.php/main/person/5221">Лэйк Белл</a> <a href="https://alfa.tj/index.php/main/person/5640">Нат Вулф</a> <a href="https://alfa.tj/index.php/main/person/7220">Кэндис Берген</a> <a href="https://alfa.tj/index.php/main/person/8864">Кристин Вудс</a> <a href="https://alfa.tj/index.php/main/person/13751">Лола Флэнери</a> <a href="https://alfa.tj/index.php/main/person/13752">Пейдж Спара</a> <a href="https://alfa.tj/index.php/main/person/13753">Пико Александр</a> <a href="https://alfa.tj/index.php/main/person/13754">Рейд Скотт</a> 
+												</div>
+												<div class="text"><b>Описание:</b> Жизнь матери-одиночки из Лос-Анджелеса неожиданно меняется, когда она разрешает трем парням пожить у нее....</div>    
+											</div>
+											<span class="root"></span>
+										</div>
+								   </div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+		
+							<!--	<img src="img/ad_box.png" style="margin-top:26px;" /> -->
+				<!---******************CONTENT LINE4(WATCHING NOW)*****************-->
+			<!--	<div class="content-line marg-top">
+						<div class="incut-line-wrapper bright">
+							<div class="incut-line watching-now">
+								<span class="h2i">Сейчас смотрят на сайте</span>
+								<div class="bx-wrapper"><div class="bx-viewport"><ul class="films-watching-now bxslider" >
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2071" class="view_link">
+											<img src="https://alfa.tj/small_poster/737843.jpg" alt="Штамм (Сезон 1)">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2071" title="Штамм (Сезон 1)">Штамм (Сезон 1)</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2969" class="view_link">
+											<img src="https://alfa.tj/small_poster/843209.jpg" alt="Выбор">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2969" title="Выбор">Выбор</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/580" class="view_link">
+											<img src="https://alfa.tj/small_poster/464963.jpg" alt="Игра престолов (сезон 2)">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/580" title="Игра престолов (сезон 2)">Игра престолов (сезон 2)</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2952" class="view_link">
+											<img src="https://alfa.tj/small_poster/45478.jpg" alt="Человек-амфибия">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2952" title="Человек-амфибия">Человек-амфибия</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2966" class="view_link">
+											<img src="https://alfa.tj/small_poster/688713.jpg" alt="Внеземное эхо">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2966" title="Внеземное эхо">Внеземное эхо</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2953" class="view_link">
+											<img src="https://alfa.tj/small_poster/840258.jpg" alt="Он – дракон">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2953" title="Он – дракон">Он – дракон</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2954" class="view_link">
+											<img src="https://alfa.tj/small_poster/8178.jpg" alt="Совершенный мир">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2954" title="Совершенный мир">Совершенный мир</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/1123" class="view_link">
+											<img src="https://alfa.tj/small_poster/668.jpg" alt="Пункт назначения">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/1123" title="Пункт назначения">Пункт назначения</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/470" class="view_link">
+											<img src="https://alfa.tj/small_poster/71558489358258008613.jpg" alt="Лондон, Париж, Нью-Йорк">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/470" title="Лондон, Париж, Нью-Йорк">Лондон, Париж, Нью-Йорк</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2779" class="view_link">
+											<img src="https://alfa.tj/small_poster/705382.jpg" alt="Матильда">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2779" title="Матильда">Матильда</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2474" class="view_link">
+											<img src="https://alfa.tj/small_poster/49166.jpg" alt="Коралина в Стране Кошмаров">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2474" title="Коралина в Стране Кошмаров">Коралина в Стране Кошмаров</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2306" class="view_link">
+											<img src="https://alfa.tj/small_poster/1026935.jpg" alt="Рапунцель: Дорога к мечте">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2306" title="Рапунцель: Дорога к мечте">Рапунцель: Дорога к мечте</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2956" class="view_link">
+											<img src="https://alfa.tj/small_poster/743392.jpg" alt="Молода и прекрасна">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2956" title="Молода и прекрасна">Молода и прекрасна</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2933" class="view_link">
+											<img src="https://alfa.tj/small_poster/430672.jpg" alt="Мать и дитя">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2933" title="Мать и дитя">Мать и дитя</a>
+										</strong>
+									</li>
+									
+									<li>
+										<div class="image" onmouseover="">
+											<a href="https://alfa.tj/index.php/main/about/2871" class="view_link">
+											<img src="https://alfa.tj/small_poster/818144.jpg" alt="Фердинанд">
+											<span class="overlay"></span>
+											</a>
+									   </div>
+										<strong>
+											<a href="https://alfa.tj/index.php/main/about/2871" title="Фердинанд">Фердинанд</a>
+										</strong>
+									</li>
+									
+									</ul>
+									</div></div>
+							</div>
+						</div>
+</div> -->
+			
+					<br /><br />
+					<div class="content-line">
+						<div class="description" itemprop="description">
+							<div class="expandable description-text" id="seo-footer-text">
+								<div class="content-wrapper contracted" style="height: 144px;">
+									
+									<p> Каталог фильмов alfa.tj!</p><br />
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="footer">
+				<div class="col">
+
+				</div>
+				<div class="col">
+					<span class="h3i">В социальных сетях:</span>
+					<ul>
+						<li><a href="https://www.facebook.com/kinodeluxtj" onclick="window.open(this.href); return false;" class="facebook">Facebook</a></li>
+	</ul>
+				</div>
+
+				<div class="col">
+					<span class="h3i">О нас</span>
+					<ul>
+						<li><a href="https://alfa.tj/index.php/main/about_us">О проекте</a></li>
+						<li><a href="https://alfa.tj/index.php/main/advert">Размещение рекламы</a></li>
+						<li><a href="https://alfa.tj/index.php/main/partners">Подарочные сертификаты</a></li>
+						<li><a href="https://alfa.tj/index.php/main/partners">Наши партнеры</a></li>
+
+					</ul>
+				</div>
+
+				<div class="col">
+					<span class="h3i">Пользователям</span>
+					<ul>
+
+					</ul>
+				</div>
+
+				<div class="content-block">
+					<div class="copyright">© 2013-2016 Alfa.TJ</div>
+					<!-- <div class="social">
+						<span class="h3i">Присоединяйтесь:</span>
+						<ul>
+							<li><a href="https://www.facebook.com/kinodeluxtj" onclick="window.open(this.href); return false" class="facebook"></a></li>
+						</ul>
+					</div> -->
+				</div>  
+			</div>
+		
+		</div>	
+		 
+	<!--- Auth pop up -->
+	<div id="modal_auth" class="modal_window modal_auth jqmWindow">
+        <div class="modal-wrapper">
+            <span class="h2i">Вход на alfa.tj</span>
+                <ul class="aux-links">
+                    <li><a href="#" id="from_auth">Зарегистрироваться на alfa.tj</a></li>
+                </ul>
+            <form action="" method="post" id="user_login">
+				<input type="hidden" name="bok" value="bok" />
+                <ol>
+                    <li>
+                        <label for="email" class="block">E-mail</label>
+                        <input type="text" name="email" id="email" class="text">
+                        <div id="error_auth_email" class="error"></div>
+                    </li>
+                    <li>
+                        <label for="pass" class="block">Пароль</label>
+                        <input type="password" name="pass" id="pass" class="text">
+                        <div id="error_auth_password" class="error"></div>
+                    </li>
+                    <li class="distant last">
+                        <button type="submit" id="auth-button" class="action-button gradient">Войти</button>
+                        <ul class="aux-links">
+                            <li><a href="#" class="jqModal" id="for_get">Напомнить пароль</a></li>
+                        </ul>
+                    </li>
+                </ol>
+            </form>
+            <div class="socnet-auth">
+                Вы также можете воспользоваться своим логином на одном из популярных сайтов:
+                <ul>
+                    <li class="vkontakte">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="facebook">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="yandex last">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a class="link-close bright jqmClose"></a>
+    </div>
+  
+	<!--- Registration pop up -->
+	<div id="modal_reg" class="modal_window modal_reg jqmWindow">
+        <div class="modal-wrapper">
+            <span class="h2i">Регистрация на alfa.tj</span>
+                <ul class="aux-links">
+                    <li><a href="#" id="from_reg">У меня уже есть логин на alfa.tj</a></li>
+                </ul>
+
+            <form action="" method="post" id="register">
+                <input id="elem_reg_partner" type="hidden" name="partner" value="">
+                <ol>
+                    <li>
+                        <label for="login" class="block">Имя</label>
+                        <input type="text" name="login" id="login" class="text wide">
+                        <div id="error_reg_login" class="error"></div>
+                    </li>
+					<li>
+                        <label for="email" class="block">E-mail</label>
+                        <input type="text" name="email" id="email" class="text wide">
+                        <div id="error_reg_email" class="error"></div>
+                    </li>
+                   <li>
+                        <label for="pass" class="block">Пароль</label>
+                        <input type="password" name="pass" id="pass" class="text">
+                        <div id="error_auth_password" class="error"></div>
+                    </li>
+                    
+                    <li class="small-text">
+                        Нажимая кнопку «Зарегистрироваться», вы в полном объеме принимаете условия <a href="#" target="_blank">пользовательского соглашения</a> и <a href="#" target="_blank">политики конфиденциальности</a>.
+                    </li>
+                    <li class="distant last">
+                        <input type="hidden" id="self" name="reg_form" value="aHR0cDovL3d3dy5pdmkucnUv">
+                        <button type="submit" data-anchor="" id="register_button" class="action-button gradient">Зарегистрироваться</button>
+                    </li>
+                </ol>
+                <input type="hidden" name="redirect" id="register_redirect_url" value="">
+            </form>
+            <div class="socnet-auth">
+                Вы также можете воспользоваться своим логином на одном из популярных сайтов:
+                <ul>
+                    <li class="vkontakte">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="facebook">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                    <li class="yandex last">
+                        <a href="#" onclick="alert('еще не готово');"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a class="link-close bright jqmClose"></a>
+    </div>
+	
+	<!---For got password -->
+	<div id="for_got_pass" class="modal_window recover-password jqmWindow jqmID3">
+        <div class="modal-wrapper">
+            <form action="" method="post" id="pwrecover" class="form-usermodal">
+                <span class="h2i">Напомнить пароль</span>
+                <ol>
+                    <li>
+                        <label class="block" for="recover_email">
+                            Я забыл пароль, вышлите мне его на мой email:
+                        </label>
+                        <input type="text" id="recover_email" name="email" class="text" value="" tabindex="1">
+                        <div class="error" id="form_error_recover" style="display:none;"></div>
+                    </li>
+                    <li>
+                        <button type="submit" id="pwrecover_button" class="action-button gradient" onclick="submitRecover();return false;" tabindex="2">Выслать</button>
+                        <span class="back-link"><a href="#" id="back_to_auth">Назад</a></span>
+                    </li>
+                </ol>
+            </form>
+            <a class="link-close bright jqmClose"></a>
+        </div>
+    </div>
+  </div>
+  
+  <div id="popup" class="popup">
+	<h1>Вам нравиться Наш сайт?</h1>
+	<p>Нашему сайту уже более 5 лет. Раньше мы были известны как kino.delux.tj.</p>
+	<p>Каждый день мы тратим много сил и времени на поддержание сайта, добавление фильмов, все для того чтобы Вы имели возможность выбрать фильм на свой вкус.<br /> Если Вам нравится наш сайт, вы можете поддержать нас:</p>
+
+	<p><b>- Расскажите о нашем сайте друзьям и близким;<br />- Отправьте ссылку сайта в мессенджере (viber, telegram, skype) своим друзьям;<br />- Подпишитесь на нашу страницу в <a target="_blank" style="color: #ff0047" href="https://www.facebook.com/Kinodeluxtj">facebook</a>-е , <a href="https://vk.com/kino_delux_tj" target="_blank">vk.com</a>;</b></p>
+	<br />
+	<a class="knopka1" href="javascript:pomoguOk();">Я помогу!</a> <a class="knopka2" href="javascript:hidemes();">Может позже</a>
+</div>
+<div class="popup2" onclick="posje();" id="popup2">
+</div>
+<script>
+function topmess()
+{
+	
+	$("body").click(function(){
+	  posje();
+	});
+
+	// Prevent events from getting pass .popup
+	$("#popup").click(function(e){
+	  e.stopPropagation();
+	});
+	
+	// console.log("open dialog");
+	$('#popup').css({
+        'left' : '50%',
+        'top' : '50%',
+        'margin-left' : -$('#popup').width()/2,
+        'margin-top' : -$('#popup').height()/2
+    });
+	// $(".popup").center();
+	$("#popup2").show();
+	$("#popup").show();
+}
+
+function hidemes()
+{
+	$("#popup2").hide();
+	$("#popup").hide();
+	
+	
+}
+
+function actionToHelpSite()
+{
+	var helpToSite = getCookie('helpToSite');
+	if(helpToSite =="")
+	{
+		setCookie('helpToSite', 0, 1);
+		helpToSite = 0;
+	}
+	// else if(helpToSite!="thx")
+
+	if(helpToSite!="thx")
+	{
+		helpToSite = parseInt(helpToSite);
+		if(helpToSite<=5)
+		{
+			setCookie('helpToSite', helpToSite+1, 1);
+		}
+		else if(helpToSite>5)
+		{
+			topmess();
+			setCookie('helpToSite', 0, 1);
+		}
+		
+		// console.log("helpToSite: "+helpToSite);
+	}
+}
+
+function posje()
+{
+	hidemes();
+	setCookie('helpToSite', 0, 1);
+}
+
+function pomoguOk()
+{
+	hidemes();
+	setCookie('helpToSite', "thx", 999);
+	
+	$.get('/index.php/main/helptosite', function(data) {
+		
+	});
+}
+
+actionToHelpSite();
+
+
+
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter12656032 = new Ya.Metrika({id:12656032,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/12656032" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '334587190355504');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=334587190355504&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+</body>
+</html>

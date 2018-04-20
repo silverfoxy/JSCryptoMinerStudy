@@ -1,0 +1,1 @@
+<html><head><title></title><meta content="1; url=/c" http-equiv="refresh" /></head><body onload="javascript: location.replace('/c;jsessionid=38489b76653420745856c31245c1')"></body></html>

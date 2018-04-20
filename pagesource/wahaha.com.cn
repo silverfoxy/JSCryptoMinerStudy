@@ -1,0 +1,591 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javascript" src="http://www.wahaha.com.cn:80/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="http://www.wahaha.com.cn:80/js/jquery/tween.js"></script>
+<script type="text/javascript" src="http://www.wahaha.com.cn:80/js/png.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.wahaha.com.cn:80/css/aerla.css" />
+<link rel="stylesheet" type="text/css" href="http://www.wahaha.com.cn:80/css/main.css" />
+<script type="text/javascript">
+	function stopDefault(e) {
+		if (e && e.preventDefault) {//如果是FF下执行这个 
+			e.preventDefault();
+		} else {
+			window.event.returnValue = false;//如果是IE下执行这个 
+		}
+		return false;
+	}
+</script>
+</head>
+
+<html>
+	<head>
+		<title>娃哈哈官网</title>
+			<meta http-equiv="pragma" content="no-cache" />
+			<meta name="keywords" content="娃哈哈,娃哈哈集团,杭州娃哈哈集团有限公司,宗庆后,饮料,营养快线,启力,爽歪歪,八宝粥,非常可乐,激活" />
+			<meta name="description" content="娃哈哈创建于1987年，在创始人宗庆后的领导下，现已发展成为一家集产品研发、生产、销售为一体的大型食品饮料企业集团，为中国最大、全球领先的的饮料生产企业。公司产品涉及含乳饮料、瓶装水、碳酸饮料、茶饮料、果汁饮料、罐头食品、医药保健品、休闲食品、婴儿奶粉等九大类150多个品种。" />
+			<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+		
+
+
+	</head>
+	<body style="margin: 0;">
+		<div style="width: 100%;text-align: center;position: absolute;left:0px;top:24px;clear: both;" >
+			<div style="width: 922px;margin: auto;" >
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+<script type="text/javascript">
+	var submenu={};
+</script>
+
+<script type='text/javascript'>var o=[{'menuid':'9','description':'发展历程','url':'http://www.wahaha.com.cn:80/aboutus/devstep.htm','target':'_self' },{'menuid':'10','description':'今日娃哈哈','url':'http://www.wahaha.com.cn:80/aboutus/aboutustodaywhh.htm','target':'_self' },{'menuid':'11','description':'领导关怀','url':'http://www.wahaha.com.cn:80/aboutus/social_care.jsp','target':'_self' },{'menuid':'13','description':'国际市场','url':'http://www.wahaha.com.cn:80/aboutus/social_strategy.htm','target':'_self' },{'menuid':'64','description':'展望未来','url':'http://www.wahaha.com.cn/news/1229','target':'_self' }];submenu.menu2=o;var o=[{'menuid':'16','description':'集团新闻','url':'http://www.wahaha.com.cn:80/news/newList.jsp?nid=1','target':'_self' },{'menuid':'17','description':'产品动态','url':'http://www.wahaha.com.cn:80/news/newList.jsp?nid=2','target':'_self' },{'menuid':'18','description':'媒体报道','url':'http://www.wahaha.com.cn:80/news/newList.jsp?nid=3','target':'_self' }];submenu.menu7=o;var o=[{'menuid':'19','description':'慈善基金会','url':'http://www.wahaha.com.cn:80/socialResp/charity.htm','target':'_self' },{'menuid':'20','description':'企业公民','url':'http://www.wahaha.com.cn:80/socialResp/industry.htm','target':'_self' },{'menuid':'23','description':'家文化','url':'http://www.wahaha.com.cn:80/socialResp/family.htm','target':'_self' },{'menuid':'65','description':'产品质量安全','url':'http://www.wahaha.com.cn:80/socialResp/quality.htm','target':'_self' }];submenu.menu5=o;var o=[{'menuid':'26','description':'员工成长','url':'http://www.wahaha.com.cn:80/joinwhh/joinwhhjobopportunity.htm','target':'_self' },{'menuid':'25','description':'工作机会','url':'http://apply.wahaha.com.cn/zp/','target':'_blank' }];submenu.menu4=o;</script>
+<script type="text/javascript">
+	var menu=null;
+	$(function() {
+		$(".menu>a").click(function(event) {
+			var submenus=new Array();
+			if($(this).prop("href")=='#')
+				event.preventDefault();
+			if(menu!=null){
+				$(".submenu_d").css("display","none");
+				if(menu.prop('id')==$(this).prop('id')){
+					menu=null;
+					$.post("http://www.wahaha.com.cn:80/servlet/menuhhh", { "menuid" : null});
+					$(".submenu_d").remove();
+					$(".menu>br").remove();
+					event.preventDefault();
+					return;
+				}
+			}
+			menu=$(this);
+			submenus=submenu[menu.prop('id')];
+			$.post("http://www.wahaha.com.cn:80/servlet/menuhhh", { "menuid" : $(this).prop('id') , "scrollTop" : getScrollTop()});
+			var div="";
+			var height=0;
+			for( var key in submenus) {
+				var smenu=submenus[key];
+				
+				div+="<div class='submenu_d'><a id='submenu_"+smenu['menuid']+"' href='"+smenu['url']+"' target='"+smenu['target']+"'  class='submenu_a'>"+smenu['description']+"</a></div>";
+				//alert(div);
+				height+=20;
+			}
+			$(".submenu_d").remove();
+			$(".menu>br").remove();
+			menu.parent().append(div);
+			$(".submenu_d").fadeIn(1000);
+			$(".submenu_a").each(function(index) {
+				$(this).click(function(){
+					$.post("http://www.wahaha.com.cn:80/servlet/menuhhh", { "menuid" : menu.prop('id') , "scrollTop" : getScrollTop()});
+				});
+			  });
+			
+		}
+		);
+		
+	});
+	window.onload=function(){
+		var cmenu='null';
+		//alert($('#menu'+cmenu));
+		if(cmenu!=''&&cmenu!=null){
+			//alert(cmenu);
+			//alert(null);
+			document.body.scrollTop=null;
+			$('#menu'+cmenu).trigger('click');
+		}
+	}
+	
+	function getScrollTop()
+	{
+		var scrollTop=0;
+		if(document.documentElement&&document.documentElement.scrollTop)
+		{
+		scrollTop=document.documentElement.scrollTop;
+		}
+		else if(document.body)
+		{
+		scrollTop=document.body.scrollTop;
+		}
+		return scrollTop;
+	}
+</script>
+<div id="menu_bg">
+	<div id="hat">
+		<img src="http://www.wahaha.com.cn:80/images/menu02.png" />
+	</div>
+	<div class="menulist">
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/1.png');">
+			<a id='menu1' href=http://www.wahaha.com.cn:80/index.htm>首页</a>
+		</div>
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/2.png');">
+			<a id='menu2' href=http://www.wahaha.com.cn:80/aboutus/index.htm>关于我们</a>
+		</div>
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/3.png');">
+			<a id='menu7' href=http://www.wahaha.com.cn:80/news/newsindex.htm>新闻中心</a>
+		</div>
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/4.png');">
+			<a id='menu6' href=http://www.wahaha.com.cn:80/product/index.htm>品牌产品</a>
+		</div>
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/5.png');">
+			<a id='menu5' href=http://www.wahaha.com.cn:80/socialResp/index.htm>社会责任</a>
+		</div>
+		
+		<div class="menu" style=";background-image: url('http://www.wahaha.com.cn:80/images/icon/6.png');">
+			<a id='menu4' href=http://www.wahaha.com.cn:80/joinwhh/joinwhhwelcome.htm>加入娃哈哈</a>
+		</div>
+		
+		<br /><br /><br /><br />
+	</div>
+</div>
+			</div>
+		</div>
+		
+		<div class="screen">
+			<div>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+
+<div id="title">
+	<ul>
+		
+		<li class="zh"><a class='' target='_blank' href='/index.htm'>网站首页</a></li>
+		
+		<li class="zh"><a class='' target='_blank' href='/news/1'>联系我们</a></li>
+		
+		<li class="zh"><a class='' target='_blank' href='/news/3'>法律声明</a></li>
+		
+		<li ><a href="http://en.wahaha.com.cn" >English Version</a></li>
+		
+	</ul>
+</div>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+
+
+<div id="mainPic">
+	<div id="picplayer"></div>
+
+
+</div>
+<script>
+	var p = $('#picplayer');
+	var pics1=new Array();
+	pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20171117090715272372.jpg&file_name=30周年2.jpg',link:'javascript:void(0)',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20180110154223821814.jpg&file_name=苏打水官网.jpg',link:'javascript:void(0)',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20180110154450583762.jpg&file_name=大红枣-官网背景（尺寸&模板）.jpg',link:'javascript:void(0)',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20180110154835565717.jpg&file_name=钙多锌多官网背景.jpg',link:'javascript:void(0)',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170601100445628462.png&file_name=六一青春作伴-官网背景.png',link:'http://weibo.com/p/1008087f689b2d4e7df0af73f4e2697ccc950f?k=%E6%AF%8F%E5%A4%A9%E9%83%BD%E6%98%AF%E5%84%BF%E7%AB%A5%E8%8A%82',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170203143212734337.jpg&file_name=纯-奶酪酸奶官网背景.jpg',link:'http://www.wahaha.com.cn/news/986',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170829112244828436.png&file_name=jzsbj.png',link:'http://v.qq.com/live/p/topic/3384/preview.html ',time : 5000});pics1.push({url: 'http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170425081748235713.jpg&file_name=纯-乳酸菌官网背景（改字体）.jpg',link:'http://www.wahaha.com.cn/product/detail371',time : 5000});
+	initPicPlayer(pics1, p.css('width').split('px')[0], p.css('height').split(
+			'px')[0]);
+	// 
+	// 
+	function initPicPlayer(pics, w, h) {
+		//选中的图片 
+		var selectedItem;
+		//选中的按钮 
+		var selectedBtn;
+		//自动播放的id 
+		var playID;
+		//选中图片的索引 
+		var selectedIndex;
+		//容器 
+		var p = $('#picplayer');
+		p.text('');
+		p.append('<div id="piccontent"></div>');
+		var c = $('#piccontent');
+		for ( var i = 0; i < pics.length; i++) {
+			//添加图片到容器中 
+			c
+					.append('<a href="'+pics[i].link+'" target="_self"><img width="920px" height="460px" id="picitem'+i+'" style="display: none;z-index:'+i+'" src="'+pics[i].url+'" /></a>');
+		}
+		//按钮容器，绝对定位在右下角 
+		p
+				.append('<div id="picbtnHolder" style="position:relative;top:-440px;width:'
+						+ (w - 36) + 'px;height:20px;z-index:10000;left:40px;"></div>');
+		// 
+		var btnHolder = $('#picbtnHolder');
+		var htnwidth = pics.length*30;
+		btnHolder
+				.append('<div id="picbtns" style="width:'+htnwidth+'px;float:right; padding-right:1px;"></div>');
+		var btns = $('#picbtns');
+		// 
+		for ( var i = 0; i < pics.length; i++) {
+			//增加图片对应的按钮 
+			btns
+					.append('<div id="picbtn'
+							+ i
+							+ '" style="width:24px;height:17px;cursor:pointer;background-repeat: no-repeat;background-image:url(http://www.wahaha.com.cn:80/images/po2.png);float:left;"></div> ');
+			$('#picbtn' + i).data('index', i);
+			$('#picbtn' + i)
+					.click(
+							function(event) {
+								if (selectedItem.attr('src') == $(
+										'#picitem' + $(this).data('index'))
+										.attr('src')) {
+									return;
+								}
+								setSelectedItem($(this).data('index'));
+							});
+		}
+		btns.append(' ');
+		/// 
+		setSelectedItem(0);
+		//显示指定的图片index 
+		function setSelectedItem(index) {
+			selectedIndex = index;
+			clearInterval(playID);
+			//alert(index); 
+			if (selectedItem)
+				selectedItem.css('display', 'none');
+			selectedItem = $('#picitem' + index);
+			selectedItem.fadeIn(2000);
+			// 
+			if (selectedBtn) {
+				//selectedBtn.css('backgroundColor','#eee'); 
+				//selectedBtn.css('color','#000'); 
+				selectedBtn.css('background-image', 'url(http://www.wahaha.com.cn:80/images/po2.png)');
+			}
+			selectedBtn = $('#picbtn' + index);
+			selectedBtn.css('background-image', 'url(http://www.wahaha.com.cn:80/images/po1.png)');
+			//selectedBtn.css('backgroundColor','#000'); 
+			//selectedBtn.css('color','#fff'); 
+			//自动播放 
+			playID = setInterval(function() {
+				var index = selectedIndex + 1;
+				if (index > pics.length - 1)
+					index = 0;
+				setSelectedItem(index);
+			}, pics[index].time);
+		}
+	}
+</script>
+
+<script type="text/javascript">
+	function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6. 
+	{
+		var arVersion = navigator.appVersion.split("MSIE");
+		var version = parseFloat(arVersion[1]);
+		if ((version >= 5.5) && (document.body.filters)) {
+			for ( var j = 0; j < document.images.length; j++) {
+				var img = document.images[j];
+				var imgName = img.src.toUpperCase();
+				if (imgName.substring(imgName.length - 3, imgName.length) == "PNG") {
+					var imgID = (img.id) ? "id='" + img.id + "' " : "";
+					var imgClass = (img.className) ? "class='" + img.className
+							+ "' " : "";
+					var imgTitle = (img.title) ? "title='" + img.title + "' "
+							: "title='" + img.alt + "' ";
+					var imgStyle = "display:inline-block;" + img.style.cssText;
+					if (img.align == "left")
+						imgStyle = "float:left;" + imgStyle;
+					if (img.align == "right")
+						imgStyle = "float:right;" + imgStyle;
+					if (img.parentElement.href)
+						imgStyle = "cursor:hand;" + imgStyle;
+					var strNewHTML = "<span "
+							+ imgID
+							+ imgClass
+							+ imgTitle
+							+ " style=\""
+							+ "width:"
+							+ img.width
+							+ "px; height:"
+							+ img.height
+							+ "px;"
+							+ imgStyle
+							+ ";"
+							+ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+							+ "(src=\'" + img.src
+							+ "\', sizingMethod='scale');\"></span>";
+					img.outerHTML = strNewHTML;
+					j = j - 1;
+				}
+			}
+		}
+	}
+	window.attachEvent("onload", correctPNG);
+</script>
+			</div>
+			<div>
+				<div>
+					
+	<div class="main">
+		
+		<div class="zongcai">
+			<font class="biaoti01">欢迎辞</font><br><br>
+			<div  class="biaoti04"><div class="biaoti04">	<p>		你们好，欢迎来到娃哈哈集团官方网站，开启美妙的网上娃哈哈之旅！[<a href="/aboutus/aboutuswelcome.htm" target="_blank">详细</a>]</p>	<p style="text-align: right">		--娃哈哈集团董事长<br />		宗庆后</p>	<p>		<img alt="" src="http://www.wahaha.com.cn/FSDownloadServlet?file_key=20171017083501376339.png&amp;file_name=二维码.png" /></p></div><div class="biaoti04">	&nbsp;</div></div>
+			
+		
+		</div>
+
+		
+		<div class="newsAll">
+			
+			<div class="news">
+				<div class="imagebox">
+					<img width="160px"
+					src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170803093456013712.jpg&file_name=DSC_6619_副本xiao.jpg " />
+				</div>
+				<p class="biaoti03" style="width: 168px;" ><a class='' target='_blank' href='/news/1228'>杭州市工商联主席团成员莅临娃哈哈参观访问</a>
+				</p>
+				<p class="biaoti04" style="width: 168px;" >
+					<a class='' target='_blank' href='/news/1228'>8月2日上午，杭州市政协副主席、市工商联主席冯仁强，杭州市委统战部副部长、市工商联党组书记徐祖德带领工商联主席团40余位成员莅临娃哈哈下沙新基地，集团公司总经理宗庆后热情接待了主席团一行。</a></p>
+			</div>
+			
+			<div class="news">
+				<div class="imagebox">
+					<img width="160px"
+					src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20171118195632241962.jpg&file_name=3333.jpg " />
+				</div>
+				<p class="biaoti03" style="width: 168px;" ><a class='' target='_blank' href='/news/1278'>顾三十年斐然华章，扬新时代使命风帆</a>
+				</p>
+				<p class="biaoti04" style="width: 168px;" >
+					<a class='' target='_blank' href='/news/1278'>今日，杭州娃哈哈集团创立三十周年庆典在浙江大学紫金港校区体育馆举行。此次庆典以“不忘初心 继续前进 再创辉煌”为主题，系以庆贺娃哈哈集团创立三十周年，回顾过去斐然成绩，展望未来创新发展。</a></p>
+			</div>
+			
+			<div class="news">
+				<div class="imagebox">
+					<img width="160px"
+					src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20171129172128367507.jpg&file_name=xiaotu .jpg " />
+				</div>
+				<p class="biaoti03" style="width: 168px;" ><a class='' target='_blank' href='/news/1283'>娃哈哈：荣获“四个强省”领军企业 宗庆后说，我们也有机器人</a>
+				</p>
+				<p class="biaoti04" style="width: 168px;" >
+					<a class='' target='_blank' href='/news/1283'>11月29日上午，第四届世界浙商大会在杭州国际博览中心隆重开幕。浙江省委书记、省人大常委会主任车俊，中央统战部副部长、中华全国工商业联合会党组书记徐乐江出席大会，省长袁家军主持开幕仪式。娃哈哈、万向、正泰等企业荣获“四个强省”领军企业称号。</a></p>
+			</div>
+			
+			<div class="news">
+				<div class="imagebox">
+					<img width="160px"
+					src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20180111193604444602.jpg&file_name=DSC_7421_副本_副本.jpg " />
+				</div>
+				<p class="biaoti03" style="width: 168px;" ><a class='' target='_blank' href='/news/1301'>娃哈哈：8460万！十八年的春风行动，十八年的温暖坚守</a>
+				</p>
+				<p class="biaoti04" style="width: 168px;" >
+					<a class='' target='_blank' href='/news/1301'>1月11日下午，杭州市2018年“春风行动”启动仪式在市民中心举行。冬日的下午，阳光却正好，仿佛是为了契合仪式温暖与爱的主题，让仪式现场多了一丝难得的春意。</a></p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="img" style="position:absolute;z-index:999" onmouseover="stop();" onmouseout="start();"> 
+ 	<div><a href="http://www.wahaha.com.cn/zhaobiao/index.jsp" target="_blank">
+	<img src="http://www.wahaha.com.cn:80/images/zbgg.png" width="80px" border="1" ></a></div>
+	<div style="padding-left:20px;" onClick="javascript:closead();"><img src="http://www.wahaha.com.cn:80/images/close.gif" border="0" ></div>
+	<script type="text/javascript">
+<!--
+var xPos = 20;
+var yPos = document.body.clientHeight;
+var step = 1;
+var delay = 30; 
+var height = 0;
+var Hoffset = 0;
+var Woffset = 0;
+var yon = 0;
+var xon = 0;
+var pause = true;
+var interval;
+img.style.top = yPos;
+function changePos() {
+width = document.body.clientWidth;
+height = document.body.clientHeight;
+Hoffset = img.offsetHeight;
+Woffset = img.offsetWidth;
+img.style.left = xPos + document.body.scrollLeft;
+img.style.top = yPos + document.body.scrollTop;
+if (yon) {
+yPos = yPos + step;
+}
+else {
+yPos = yPos - step;
+}
+if (yPos < 0) {
+yon = 1;
+yPos = 0;
+}
+if (yPos >= (height - Hoffset)) {
+yon = 0;
+yPos = (height - Hoffset);
+}
+if (xon) {
+xPos = xPos + step;
+}
+else {
+xPos = xPos - step;
+}
+if (xPos < 0) {
+xon = 1;
+xPos = 0;
+}
+if (xPos >= (width - Woffset)) {
+xon = 0;
+xPos = (width - Woffset);
+   }
+}
+function start() {
+img.visibility = "visible";
+interval = setInterval('changePos()', delay);
+}
+function stop() {
+//interval = setInterval('changePos()', 100000000);
+clearInterval(interval);
+}
+function pause_resume() {
+if(pause) {
+clearInterval(interval);
+pause = false;
+}
+else {
+interval = setInterval('changePos()',delay);
+pause = true;
+   }
+}
+start();
+
+function closead() {
+	//alert();
+document.getElementById('img').style.display = "none";
+
+}
+//-->
+</script>
+</div>
+
+				</div>
+			</div>
+			<div>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+
+<body>
+	<div style="height: 30px; clear: both;"></div>
+	<div>
+		
+		<a  target=_blank href='http://www.wahaha.com.cn/aboutus/Industry_Tourism.htm' ><img title=""
+			src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170828085940130229.png&file_name=QQ图片20170828085816.png" /></a>
+		
+		<a  target=_blank href='http://www.welearningcenter.com.cn/' ><img title=""
+			src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20140620150210467380.jpg&file_name=娃哈哈未来城.jpg" /></a>
+		
+		<a  target=_blank href='http://www.wahaha.com.cn/zhaobiao/index.jsp' ><img title=""
+			src="http://www.wahaha.com.cn:80/FSDownloadServlet?file_key=20170913130905817533.jpg&file_name=未标题-1.jpg" /></a>
+		
+	</div>
+	<ul style="margin: 0px; padding: 0px; clear: both"></ul>
+
+	<div style="height: 20px; clear: both;"></div>
+	<div id="footer" style="padding-top: 15px;">
+		浙ICP备05039805号/3300001006315 @ 2018 杭州娃哈哈集团有限公司
+	</div>
+	
+	<div>
+	<script language='javaScript' src='http://zjnet.zjaic.gov.cn/bsjs/330000/33000000008190.js'></script>
+	</div>
+	
+</body>
+			</div>
+		</div>
+	</body>
+</html>

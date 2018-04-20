@@ -1,0 +1,1 @@
+<h1>Redirecting To <a href="http://www.lakmeindia.com/">lakmeindia.com</a> </h1>

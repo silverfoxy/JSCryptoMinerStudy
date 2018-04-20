@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	학술교육원
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="Pragma" content="no-cache" /><link rel="stylesheet" type="text/css" href="/_style/front.css" />
+	<script type="text/javascript" src="/_Script/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="/_Script/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="/_script/front.js"></script>
+	<script type="text/javascript" src="/_script/earticle_akc.js"></script>
+	<script type="text/javascript" src="/_script/earticle_login.js"></script>
+	<script type="text/javascript">
+	    function view_today(key) {
+	        if (key == "article") {
+	            $("div.todayView").css("display", "block");
+	            $("div.myDesk").css("display", "none");
+	            $("div.redirectArt div.tab a:eq(0)").attr("class", "article_on");
+	            $("div.redirectArt div.tab a:eq(1)").attr("class", "desk");
+	        }
+	        else {
+	        	$("div.todayView").css("display", "none");
+	        	$("div.myDesk").css("display", "block");
+	        	$("div.redirectArt div.tab a:eq(0)").attr("class", "article");
+	        	$("div.redirectArt div.tab a:eq(1)").attr("class", "desk_on");
+	        }
+	    }
+	    $(function () {
+	    	$("#quick").css("left", jQuery("#loginContainer").position().left + $("#loginContainer").width() + 10);
+	    	var top = jQuery("#loginContainer").position().top;
+
+	    	if ($("div.subMenuBox ul") != null) {
+	    		var subMenuLen = jQuery("div.subMenuBox ul li").length - 1;
+	    		$("div.subMenuBox ul li:eq(" + subMenuLen + ")").addClass("last");
+	    	}
+	    	$(window).resize(function () {
+	    		$("#quick").css("left", jQuery("#loginContainer").position().left + $("#loginContainer").width() + 10);
+	    	});
+	    });
+	</script>
+    
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			jQuery("div.tabMenu ul li a").bind("click", tabMenu_change);
+			jQuery("div.tabMenu ul li a:eq(0)").addClass("on");
+			jQuery("div.tabMenu ul li a").focus(function() { this.blur(); });
+			jQuery("#bestArticle .item").bind("mouseover", "over", button_mouserOver);
+			jQuery("#bestArticle .item").bind("mouseout", "over", button_mouserOut);
+			var bestArtLen = jQuery("#bestArticle .item").length -1;
+			jQuery("#bestArticle .item:eq(" + bestArtLen  + ")").addClass("last");
+		});
+		function tabMenu_change() {
+			jQuery("div.tabMenu ul li a").removeClass("on");
+			jQuery(this).addClass("on");
+			jQuery("div.newArticle").css("display", "none");
+			jQuery("#" + jQuery(this).parent().attr("class")).css("display", "block");
+		}
+		function dbcenter_more_click() {
+			if (jQuery("#recentUpdate").css("display") == "block") {
+				self.location = "/databasecenter/updateStatus.aspx";
+			}
+			else if (jQuery("#newJournal").css("display") == "block") {
+				self.location = "/databasecenter/updateJournal.aspx";
+			}
+			else if (jQuery("#bestArticle").css("display") =="block") {
+				self.location = "/databasecenter/bestArt.aspx";
+			}
+		}
+	</script>
+</head>
+<body onload="akc_set_location();" onresize="akc_set_location();">
+    <div id="wrapper">
+		<div id="header">
+			
+<script type="text/javascript">
+	function ht_search_valid() {
+		var val = jQuery("#AKCKwd").val().replace(/(^\s*)|(\s*$)/gi, "");
+		if (val == "") {
+			alert("검색어를 입력바랍니다.");
+			return false;
+		}
+		else if (val.length == 1 && /[\x20-\x7E]/.test(val)) {
+			alert("숫자,특수문자,영문자는 1자리 이상 입력해 주셔야 합니다.");
+			return false;
+		}
+		self.location = "/search/?kwd=" + encodeURIComponent(val);
+	}
+	function popular_search(str) {
+		$("#AKCKwd").val(str);
+		ht_search_valid();
+	}
+	function outLoginRequest(type) {
+		if (type == "guest") {
+			alert("기관회원 로그인 후 신청해 주시기 바랍니다.");
+		}
+		else if (type == "office") {
+			alert("기관회원 로그인 상태에서 개인회원으로 로그인해 주시기 바랍니다.\n개인회원 계정이 없으신 분은 회원가입 후 신청해 주시기 바랍니다.");
+		}
+	}
+
+	$(function () {
+		$("#btn_header_search").bind("mouseover", "searchBtnOver", addCssClass);
+		$("#btn_header_search").bind("mouseout", "searchBtnOver", removeCssClass);
+		$("#btn_header_lang").bind("mouseover", "langBtnOver", addCssClass);
+		$("#btn_header_lang").bind("mouseout", "langBtnOver", removeCssClass);
+		$("#AKCKwd").keydown(function (evt) {
+			if (evt.keyCode == 13)
+				ht_search_valid();
+		});
+
+		var hotnum = 0;
+		jQuery("div.hotlink a").each(function () {
+			if (hotnum > 0) {
+				jQuery("<span class='bar'>|</span>").insertBefore(jQuery(this));
+			}
+			hotnum++;
+		});
+		$("div.searchMenu a").bind("focus", function () { this.blur(); });
+	});
+</script>
+<h1 class="hidn"><a href="/">학술교육원</a></h1>
+<div class="logo">
+	<a href="/" title="학술교육원"><img src="/_images/common/header/logo.gif" alt="학술교육원" width="134" height="48" /></a>
+</div>
+<fieldset>
+	<legend class="hidn">전체 원문 검색</legend>
+	<div>
+		<div class="siteSearch">
+			<div class="searchBox">
+				<span class="box">
+					<input type="text" id="AKCKwd" name="kwd" style="width:400px;" class="txt" title="검색어 입력" />
+				</span>
+				<button type="button" id="btn_header_search" title="검색" onclick="ht_search_valid();" class="submit searchBtn"><span>원문 검색</span></button>
+				<button type="button" id="btn_header_lang" title="다국어 입력기" class="submit langBtn" onclick="OpenLanguage('AKCKwd');" ><span>다국어 입력기</span></button>
+			    
+			</div>
+		</div>
+		<div class="hotlink">
+			<label>Hot:</label>
+			<a id="ctl00_LayoutHeader1_rptHotLink_ctl00_hlnk" href="javascript:popular_search(&#39;아동복지&#39;);">아동복지</a><a id="ctl00_LayoutHeader1_rptHotLink_ctl01_hlnk" href="javascript:popular_search(&#39;중국&#39;);">중국</a><a id="ctl00_LayoutHeader1_rptHotLink_ctl02_hlnk" href="javascript:popular_search(&#39;종교&#39;);">종교</a><a id="ctl00_LayoutHeader1_rptHotLink_ctl03_hlnk" href="javascript:popular_search(&#39;무오성&#39;);">무오성</a><a id="ctl00_LayoutHeader1_rptHotLink_ctl04_hlnk" href="javascript:popular_search(&#39;social&#39;);">social</a>
+		</div>
+	</div>
+</fieldset>
+<hr class="hidn" />
+<div class="searchMenu">
+	<div>
+		<ul>
+			<li><a href="/search/power/" class="search1" title="상세검색">상세검색</a></li>
+			<li><a href="/search/category/" class="search2" title="분야별검색">분야별검색</a></li>
+			<li><a href="/search/journal/" class="search3" title="간행물검색">간행물검색</a></li>
+			<li class="last"><a href="/search/pub/" class="search4" title="발행기관목차">발행기관목차</a></li>
+		</ul>
+	</div>
+</div>
+<div class="topMenu">
+	<ul>
+		<li><a href="/" class="home" title="Home">Home</a></li>
+		<li><a href="/Board/NoticeList.aspx" class="cs" title="고객센터">고객센터</a></li>
+		<li><a href="/Guide/" class="artguide" title="원문이용안내">원문이용안내</a></li>
+		<li><a href="/Service/Journal.aspx" class="dbguide" title="DB구축안내">DB구축안내</a></li>
+		<li class="last"><a href="/DatabaseCenter/UpdateStatus.aspx" class="dbcenter" title="DB센터">DB센터</a></li>
+	</ul>
+	<div class="clear"></div>
+</div>
+<div class="guideMenu">
+	<ul>
+		<li><a id="ctl00_LayoutHeader1_hlnkOutLoginRequest" title="간편교외접속" class="outConn" href="javascript:outLoginRequest(&#39;guest&#39;);">간편교외접속</a></li>
+		<li><a href="javascript:OpenHelp();" class="guide1" title="도움말">도움말</a></li>
+		<li><a href="/Guide/" class="guide2" title="이용안내">이용안내</a></li>
+	</ul>
+</div>
+<hr class="hidn" />
+
+		</div>
+		<form name="aspnetForm" method="post" action="./" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAdSRd5LwaSXGVXQAzDoqRqFH1PGHAHXz3EF6Nm3cW0OgMiD5ptLd4bl8zotWz30Kb0dUw98gvGjJPwoiUl9KmEFnnH+ZW9s5HNDDZI9wcUU3SmAXN+zhD18zhdb2rZyeUPC5khb91trGWMCl/YxJIFRjkfsg9X86EMYTh97sFU+/boi7E5lvyrgmGG0QNh5D1s=" />
+		<div id="body" class="mainBody">
+			<div class="Focus"><input type="submit" name="ctl00$btn" value="" onclick="return false;" id="ctl00_btn" /></div>
+			<div id="loginContainer">
+				
+
+				<div class="loginBox">
+					
+					
+					
+					<div class="selectLogin">
+						<ul>
+							<li class="selected"><a href="#loginUserBox" title="개인회원">개인회원</a></li>
+							<li><a href="#loginGroupBox" title="기관회원">기관회원</a></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					
+					
+					<fieldset class="loginInput" id="loginGroupBox">
+						<legend>기관회원 로그인</legend>
+						<div class="loginInput userLoginSec">
+							<dl class="group">
+								<dt>소속기관</dt>
+								<dd id="loginGroupSelectArea"><input type="text" id="txtGroup" name="groupName" class="group" /><input type="hidden" id="txtGroupSn" name="groupSn" value="-1" /></dd>
+							</dl>
+							<dl class="id">
+								<dt>아이디</dt>
+								<dd><input type="text" id="txtGroupID" name="groupID" title="아이디" class="id" /></dd>
+							</dl>
+							<dl class="pass">
+								<dt>비밀번호</dt>
+								<dd><input type="password" id="txtGroupPass" name="groupPass" title="비밀번호" class="pass" /></dd>
+							</dl>
+							<button type="button" id="btnGroupLogin" class="groupLogin"  onclick="group_login_valid();" title="로그인"><span>로그인</span></button>
+							<p class="group_select_msg"></p>
+						</div>
+					</fieldset>
+					
+					
+					<fieldset class="loginInput" id="loginUserBox">
+						<legend>개인회원 로그인</legend>
+						<div class="loginInput userLoginSec">
+							<dl class="id">
+								<dt>아이디</dt>
+								<dd><input type="text" id="txtUserID" name="userID" class="id" /></dd>
+							</dl>
+							<dl class="pass">
+								<dt>비밀번호</dt>
+								<dd><input type="password" id="txtUserPass" name="userPass" class="pass" /></dd>
+							</dl>
+							<button type="button" id="btnUserLogin" class="userLogin" onclick="user_login_valid();" title="로그인"><span>로그인</span></button>
+							<p>
+								<a href="javascript:account_search_redirect();" title="ID/PW 찾기">IDㆍ비밀번호 찾기</a>
+								<span class="bar">|</span>
+								<a href="javascript:join_redirect();" title="회원가입">개인회원 가입</a>
+							</p>
+						</div>
+					</fieldset>
+					
+					
+					<div class="loginMsg">
+						<p id="ctl00_ucLoginBox_pMsgGroup">기관회원으로 로그인하시면 원문을 무료로 이용하실 수 있습니다.</p><p id="ctl00_ucLoginBox_pMsgUser">개인회원으로 로그인하시면 학술교육원의 개인화 서비스를 이용하실 수 있습니다.</p>
+					</div>
+					<div style="display:none;"><iframe id="LoginProcFrm" name="LoginProcFrm" src="about:blank"></iframe></div>
+					
+				</div>
+				<div class="ipInfo">
+					<label>IP정보</label>
+					<span>54.81.209.0</span>
+				</div>
+				<div class="quickMenu">
+					<img src="/_images/main/quicklink/left_contactus.gif" alt="050-5555-0470" />
+					<dl class="icon">
+						<dt class="quick1">원문이용안내</dt>
+						<dd>
+							<ul>
+								<li><a href="/Guide/" class="serviceInfo" title="이용안내">이용안내</a></li>
+								<li><a href="javascript:OpenArticleApplication();" class="serviceApp" title="이용신청">이용신청</a></li>
+								<li class="last"><a href="/Statistics" target="_blank" class="officelogin" title="도서관담당자로그인">도서관담당자로그인</a></li>
+							</ul>
+						</dd>
+					</dl>
+					<div class="clear"></div>
+					<dl class="icon">
+						<dt class="quick2">제작문의</dt>
+						<dd>
+							<ul>
+								<li><a href="/Service/Journal.aspx" class="db" title="전자저널">전자저널</a></li>
+								<li><a href="/Service/Homepage.aspx" class="hompage" title="홈페이지">홈페이지</a></li>
+								<li><a href="/Service/Cdrom.aspx" class="cdrom" title="CD-ROM">CD-ROM</a></li>
+								<li class="last"><a href="/Service/Publish.aspx" class="pub" title="출판">출판</a></li>
+							</ul>
+						</dd>
+					</dl>
+					<div class="clear"></div>
+					<dl class="txt">
+						<dt class="quick3">학회담당자</dt>
+						<dd>
+							<ul>
+								<li class="update"><a href="/Society/Update.aspx" title="업데이트파일등록">업데이트파일등록</a></li>
+								<li class="auth"><a href="/Society/Copyright.aspx" title="저작권료확인">저작권료확인</a></li>
+							</ul>
+						</dd>
+					</dl>
+					<dl class="txt">
+						<dt class="quick4">고객센터</dt>
+						<dd>
+							<ul>
+								<li class="qa"><a href="/Board/QnAList.aspx" title="Q&amp;A 질문과 답변">Q&amp;A 질문과 답변</a></li>
+								<li class="notice"><a href="/Board/NoticeList.aspx" title="공지사항">공지사항</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="contentsContainer">
+				
+	<div class="post">
+		<div class="dbcenter">
+			<div class="tabMenu">
+				<ul>
+					<li class="recentUpdate"><a href="javascript:;" title="최근업데이트">최근업데이트</a></li>
+					<li class="newJournal"><a href="javascript:;" title="신규간행물">신규간행물</a></li>
+					<li class="bestArticle"><a href="javascript:;" title="주간인기논문">주간인기논문</a></li>
+				</ul>
+				<div class="clear"></div>
+				<a href="javascript:dbcenter_more_click();" class="more" title="더보기">더보기</a>
+			</div>
+			
+
+			<div id="recentUpdate" class="newArticle">
+				<div class="inBox">
+					<h3>최근업데이트</h3>
+					
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl01_hlOpenPhoto" onclick="OpenPhoto(&#39;/FileCommon/Images/Journal/201803/636567277897807326.jpg&#39;);" href="javascript:;"><img src="/FileCommon/Images/Journal/201803/636567277897807326w85h120.jpg" /></a></div>
+								<ul class="info">
+									<li>권호사항 : 제41회 한중인문학회 국제학술대회</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl01_hlJouName" href="javascript:OpenOrgJouInfo(&#39;156&#39;);">한중인문학회 국제학술대회</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl01_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;156&#39;);">한중인문학회</a></li>
+									<li>발행연월 : 2017.11</li>
+									<li>업데이트 : 2018.03.15</li>
+									<li><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl01_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=119&amp;jour=156&amp;jour_vol=24172">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl02_hlOpenPhoto" onclick="OpenPhoto(&#39;/FileCommon/Images/Journal/201803/636567277418848479.jpg&#39;);" href="javascript:;"><img src="/FileCommon/Images/Journal/201803/636567277418848479w85h120.jpg" /></a></div>
+								<ul class="info">
+									<li>권호사항 : 제33집</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl02_hlJouName" href="javascript:OpenOrgJouInfo(&#39;447&#39;);">중국법연구</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl02_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;447&#39;);">한중법학회</a></li>
+									<li>발행연월 : 2018.02</li>
+									<li>업데이트 : 2018.03.15</li>
+									<li><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl02_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=334&amp;jour=447&amp;jour_vol=24171">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl03_hlOpenPhoto" onclick="OpenPhoto(&#39;/FileCommon/Images/Journal/201803/636567277121074432.jpg&#39;);" href="javascript:;"><img src="/FileCommon/Images/Journal/201803/636567277121074432w85h120.jpg" /></a></div>
+								<ul class="info">
+									<li>권호사항 : Vol.14 No.1</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl03_hlJouName" href="javascript:OpenOrgJouInfo(&#39;381&#39;);">한국차세대컴퓨팅학회 논문지</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl03_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;381&#39;);">한국차세대컴퓨팅학회</a></li>
+									<li>발행연월 : 2018.02</li>
+									<li>업데이트 : 2018.03.15</li>
+									<li><a id="ctl00_cphBase_Journal1_rptListUpdateState_ctl03_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=288&amp;jour=381&amp;jour_vol=24170">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+				</div>
+			</div>
+			<div id="newJournal" class="newArticle">
+				<div class="inBox">
+					<h3>신규간행물</h3>
+					
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl01_hlOpenPhoto"><img src="/_images/common/noImage.gif" width="85px" height="120px" /></a></div>
+								<ul class="info">
+									<li>권호사항 : 2018년 3월</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl01_hlJouName" href="javascript:OpenOrgJouInfo(&#39;968&#39;);">주택사업경기실사지수(HBSI)</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl01_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;968&#39;);">주택산업연구원</a></li>
+									<li>발행연월 : 2018.03</li>
+									<li>업데이트 : 2018.03.15</li>
+									<li><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl01_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=252&amp;jour=968&amp;jour_vol=24151">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl02_hlOpenPhoto"><img src="/_images/common/noImage.gif" width="85px" height="120px" /></a></div>
+								<ul class="info">
+									<li>권호사항 : 제1권 제1호</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl02_hlJouName" href="javascript:OpenOrgJouInfo(&#39;967&#39;);">유럽경찰연구</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl02_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;967&#39;);">한국유럽경찰학회</a></li>
+									<li>발행연월 : 2017.12</li>
+									<li>업데이트 : 2018.03.14</li>
+									<li><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl02_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=624&amp;jour=967&amp;jour_vol=24165">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+							<div class="jouItem">
+								<div class="img"><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl03_hlOpenPhoto" onclick="OpenPhoto(&#39;/FileCommon/Images/Journal/201801/636529156543648549.jpg&#39;);" href="javascript:;"><img src="/FileCommon/Images/Journal/201801/636529156543648549w85h120.jpg" /></a></div>
+								<ul class="info">
+									<li>권호사항 : 제31권 제4호</li>
+									<li>간행물명 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl03_hlJouName" href="javascript:OpenOrgJouInfo(&#39;950&#39;);">생산성논집(구 생산성연구)</a></li>
+									<li>발행기관 : <a id="ctl00_cphBase_Journal1_rptNewJouList_ctl03_hlOrgName" href="javascript:OpenOrgJouInfo(&#39;950&#39;);">한국생산성학회</a></li>
+									<li>발행연월 : 2017.12</li>
+									<li>업데이트 : 2018.02.11</li>
+									<li><a id="ctl00_cphBase_Journal1_rptNewJouList_ctl03_hlViewArticle" title="e-article 보기" class="earticle" href="/search/pub/default.aspx?org=616&amp;jour=950&amp;jour_vol=23952">e-article 보기</a></li>
+								</ul>
+								<div class="clear"></div>
+						</div>
+						
+				</div>
+			</div>
+			<div id="bestArticle" class="newArticle">
+				<div class="inBox">
+					<h3>주간인기논문</h3>
+					
+							<div class="item">
+								<div class="title"><a id="ctl00_cphBase_Journal1_rptBestArtList_ctl01_hlnkTitle" onclick="OpenArticle(133225)" href="javascript:;">뇌병변환자의 기능증진을 위한 집단작업치료의 효과 - 신체기능, 인지∙지각기능, 일상생활동작 중심으로</a></div>
+								<div class="info">
+									임연주;정원미;구정완<br />
+									대한작업치료학회지 /
+									pp.27-37 /
+									2010.12.31 /
+									대한작업치료학회 
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="title"><a id="ctl00_cphBase_Journal1_rptBestArtList_ctl02_hlnkTitle" onclick="OpenArticle(116810)" href="javascript:;">범죄학과 인간본성론 I : 다면적(多面的) 인간본성의 재발견</a></div>
+								<div class="info">
+									이창훈<br />
+									교정담론 /
+									pp.85-118 /
+									2009.12.30 /
+									아시아교정포럼 
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="title"><a id="ctl00_cphBase_Journal1_rptBestArtList_ctl03_hlnkTitle" onclick="OpenArticle(247648)" href="javascript:;">영상의 세기에 태어난 신인류, 덕후의 창작문화 - 자캐 커뮤니티를 중심으로</a></div>
+								<div class="info">
+									남정숙<br />
+									CONTENTS PLUS /
+									pp.37-59 /
+									2015.06.30 /
+									한국영상학회 
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="title"><a id="ctl00_cphBase_Journal1_rptBestArtList_ctl04_hlnkTitle" onclick="OpenArticle(289699)" href="javascript:;">대학생의 성지식,성태도 및 성행동(성폭력)의 관계에 대한 연구</a></div>
+								<div class="info">
+									김남희;박유진;정현숙<br />
+									심리행동연구 /
+									pp.17-42 /
+									2015.12.31 /
+									한국심리협회 
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="title"><a id="ctl00_cphBase_Journal1_rptBestArtList_ctl05_hlnkTitle" onclick="OpenArticle(258763)" href="javascript:;">한국ㆍ중국ㆍ일본ㆍ미국의 초등학교 수학과 교육과정 비교·분석 - 도형 영역을 중심으로 -</a></div>
+								<div class="info">
+									방정숙;이지영;이상미;박영은;김수경;최인영;선우진<br />
+									한국학교수학회논문집 /
+									pp.311-334 /
+									2015.09.30 /
+									한국학교수학회 
+								</div>
+							</div>
+						
+				</div>
+			</div>
+		</div>
+		<div class="notice">
+			<h3>공지사항</h3>
+			<a href="/Board/NoticeList.aspx" class="more" title="더보기">더보기</a>
+			<ul>
+						<li>
+							<span class="tit"><a id="ctl00_cphBase_rptNoticeList_ctl01_btnTitle" title="한국언어문화교육학회 제26차 전국학술대회 발표 신청 안내" href="javascript:__doPostBack(&#39;ctl00$cphBase$rptNoticeList$ctl01$btnTitle&#39;,&#39;&#39;)">한국언어문화교육학회 제26차 전국학술대회 발표 신청 안내</a></span>
+							<span class="date">2018.03.08</span>
+						</li>
+				
+						<li>
+							<span class="tit"><a id="ctl00_cphBase_rptNoticeList_ctl02_btnTitle" title="동아시아고대학회 봄 학술대회 발표자 추가 모집 안내드립니다." href="javascript:__doPostBack(&#39;ctl00$cphBase$rptNoticeList$ctl02$btnTitle&#39;,&#39;&#39;)">동아시아고대학회 봄 학술대회 발표자 추가 모집 안내드립니다.</a></span>
+							<span class="date">2018.03.08</span>
+						</li>
+				
+						<li>
+							<span class="tit"><a id="ctl00_cphBase_rptNoticeList_ctl03_btnTitle" title="[알코올과 건강행동학회] 알코올과 건강행동학회 춘계학술대회 및 2018년도 보건학종합학술대회 구두 및 포스터 발표 모집" href="javascript:__doPostBack(&#39;ctl00$cphBase$rptNoticeList$ctl03$btnTitle&#39;,&#39;&#39;)">[알코올과 건강행동학회] 알코올과 건강행동학회 춘계학술대회 및 2018년도 보건학종합학술대회 구두 및 포스터 발표 모집</a></span>
+							<span class="date">2018.03.08</span>
+						</li>
+				
+						<li>
+							<span class="tit"><a id="ctl00_cphBase_rptNoticeList_ctl04_btnTitle" title="[한국문화예술경영학회] 3월 월례포럼(23일, 금, 저녁7시~9시, 추계예술대학교) 안내드립니다." href="javascript:__doPostBack(&#39;ctl00$cphBase$rptNoticeList$ctl04$btnTitle&#39;,&#39;&#39;)">[한국문화예술경영학회] 3월 월례포럼(23일, 금, 저녁7시~9시, 추계예술대학교) 안내드립니다.</a></span>
+							<span class="date">2018.03.08</span>
+						</li>
+				
+						<li>
+							<span class="tit"><a id="ctl00_cphBase_rptNoticeList_ctl05_btnTitle" title="[한국예술심리치료학회]제 40회 월례세미나 및 사례발표회 안내입니다" href="javascript:__doPostBack(&#39;ctl00$cphBase$rptNoticeList$ctl05$btnTitle&#39;,&#39;&#39;)">[한국예술심리치료학회]제 40회 월례세미나 및 사례발표회 안내입니다</a></span>
+							<span class="date">2018.03.08</span>
+						</li>
+				</ul>
+		</div>
+	</div>
+	<div class="static">
+		<div class="article">
+			<h3 class="tit1">DB구축현황</h3>
+			
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#db_state_count_jou").addClass("db_state_count_jou_over");
+	
+	jQuery("div.db_state_count li label").bind("click", function(){
+		if(jQuery(this).attr("id") == "db_state_count_org")
+		{
+			jQuery("#db_state_count_org").addClass("db_state_count_org_over");
+			jQuery("#db_state_count_jou").removeClass("db_state_count_jou_over");
+			jQuery("#db_state_org").css("display", "block");
+			jQuery("#db_state_jou").css("display", "none");
+		}
+		else
+		{
+			jQuery("#db_state_count_org").removeClass("db_state_count_org_over");
+			jQuery("#db_state_count_jou").addClass("db_state_count_jou_over");
+			jQuery("#db_state_org").css("display", "none");
+			jQuery("#db_state_jou").css("display", "block");
+		}
+	});
+});
+</script>
+	<div class="db_state_count">
+		<ul>
+			<li class="jou"><label id="db_state_count_jou" class="db_state_count_jou"><span>간행물</span></label> <strong>871</strong></li>
+			<li class="org"><label id="db_state_count_org" class="db_state_count_org"><span>발행기관</span></label> <strong>590</strong></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="db_state_box" id="db_state_org" style="display:none;">
+		<table class="dbState">
+			<colgroup>
+				<col width="53px" />
+				<col width="*" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>분야</th>
+					<th>현황</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl00_hlnkName" href="/search/category/default.aspx?cate=1">인문학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:78.3551912568306%'>&nbsp;</span></span>
+							<span class="txt">166</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl01_hlnkName" href="/search/category/default.aspx?cate=2">사회과학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:97.7540983606557%'>&nbsp;</span></span>
+							<span class="txt">237</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl02_hlnkName" href="/search/category/default.aspx?cate=3">자연과학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:37.0983606557377%'>&nbsp;</span></span>
+							<span class="txt">15</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl03_hlnkName" href="/search/category/default.aspx?cate=9">공학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:44.2021857923497%'>&nbsp;</span></span>
+							<span class="txt">41</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl04_hlnkName" href="/search/category/default.aspx?cate=10">의약학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:42.0163934426229%'>&nbsp;</span></span>
+							<span class="txt">33</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl05_hlnkName" href="/search/category/default.aspx?cate=11">농수해양</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:39.0109289617486%'>&nbsp;</span></span>
+							<span class="txt">22</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl06_hlnkName" href="/search/category/default.aspx?cate=12">예술체육</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:49.6666666666667%'>&nbsp;</span></span>
+							<span class="txt">61</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListOrg_ctl07_hlnkName" href="/search/category/default.aspx?cate=13">복합학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:37.0983606557377%'>&nbsp;</span></span>
+							<span class="txt">15</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	<div class="db_state_box" id="db_state_jou">
+		<table class="dbState">
+			<colgroup>
+				<col width="53px" />
+				<col width="*" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>분야</th>
+					<th>현황</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl00_hlnkName" href="/search/category/default.aspx?cate=1">인문학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:70.8870673952641%'>&nbsp;</span></span>
+							<span class="txt">208</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl01_hlnkName" href="/search/category/default.aspx?cate=2">사회과학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:99.3023679417122%'>&nbsp;</span></span>
+							<span class="txt">364</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl02_hlnkName" href="/search/category/default.aspx?cate=3">자연과학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:37.9180327868852%'>&nbsp;</span></span>
+							<span class="txt">27</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl03_hlnkName" href="/search/category/default.aspx?cate=9">공학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:45.2040072859745%'>&nbsp;</span></span>
+							<span class="txt">67</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl04_hlnkName" href="/search/category/default.aspx?cate=10">의약학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:42.1074681238616%'>&nbsp;</span></span>
+							<span class="txt">50</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl05_hlnkName" href="/search/category/default.aspx?cate=11">농수해양</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:41.5610200364299%'>&nbsp;</span></span>
+							<span class="txt">47</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl06_hlnkName" href="/search/category/default.aspx?cate=12">예술체육</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:49.0291438979964%'>&nbsp;</span></span>
+							<span class="txt">88</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+					<tr>
+						<th><a id="ctl00_cphBase_DBState1_rptListJou_ctl07_hlnkName" href="/search/category/default.aspx?cate=13">복합학</a></th>
+						<td class="state">
+							<span class="bg"><span class='bar' style='width:36.6429872495446%'>&nbsp;</span></span>
+							<span class="txt">20</span>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+		</div>
+		<div class="bestTag">
+			<h3 class="tit2">실시간 인기검색어</h3>
+			
+
+<table class="popular">
+	<colgroup>
+		<col width="20px" />
+		<col width="*" />
+		<col width="45px" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>순위</th>
+			<th>키워드</th>
+			<th>변동사항</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+		<tr>
+			<td class="num"><span class="searchNum">1</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl00_hlnk" href="javascript:popular_search(&#39;아동복지&#39;);">아동복지</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl00_imgArrow" src="/_images/main/blackbar.gif" border="0" /><span class='up'>0</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">2</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl01_hlnk" href="javascript:popular_search(&#39;중국&#39;);">중국</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl01_imgArrow" src="/_images/main/arrow_up.gif" border="0" /><span class='up'>26</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">3</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl02_hlnk" href="javascript:popular_search(&#39;종교&#39;);">종교</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl02_imgArrow" src="/_images/main/arrow_up.gif" border="0" /><span class='up'>29</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">4</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl03_hlnk" href="javascript:popular_search(&#39;무오성&#39;);">무오성</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl03_imgArrow" src="/_images/main/arrow_up.gif" border="0" /><span class='up'>12</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">5</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl04_hlnk" href="javascript:popular_search(&#39;social&#39;);">social</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl04_imgArrow" src="/_images/main/arrow_up.gif" border="0" /><span class='up'>13</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">6</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl05_hlnk" href="javascript:popular_search(&#39;인성교육&#39;);">인성교육</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl05_imgArrow" src="/_images/main/arrow_up.gif" border="0" /><span class='up'>24</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">7</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl06_hlnk" href="javascript:popular_search(&#39;biology&#39;);">biology</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl06_imgArrow" src="/_images/main/arrow_down.gif" border="0" /><span class='down'>1</span></td>
+		</tr>
+		
+		<tr>
+			<td class="num"><span class="searchNum">8</span></td>
+			<td><a id="ctl00_cphBase_PopularKeyword1_rptList_ctl07_hlnk" href="javascript:popular_search(&#39;화재&#39;);">화재</a></td>
+			<td><img id="ctl00_cphBase_PopularKeyword1_rptList_ctl07_imgArrow" src="/_images/main/no_new.gif" border="0" /></td>
+		</tr>
+		
+	</tbody>
+</table>
+		</div>
+		<div class="banner">
+			<img src="/_images/main/bnn_knowledge.gif" alt="국가지식정보" title="국가지식정보" style="cursor:pointer;" onclick="self.location='/knowledge/';" /> 
+			<img src="/_images/common/bnr_mobile.gif" alt="모바일이용안내" title="모바일이용안내" style="cursor:pointer;" onclick="window.open('e-article_mobile_manual.pdf');" />
+		</div>
+	</div>
+	<div class="clear"></div>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+		</form>
+		<div id="footer">
+			
+
+<hr class="hidn" />
+<div class="link">
+	<ul>
+		<li><a href="/Company/Info.aspx" class="company" title="회사소개">회사소개</a></li>
+		<li><a href="/Board/NoticeList.aspx" class="board" title="게시판">게시판</a></li>
+		<li><a href="/Service/Journal.aspx" class="service" title="제작문의">제작문의</a></li>
+		<li><a href="/DatabaseCenter/UpdateStatus.aspx" class="dbcenter" title="DB센터">DB센터</a></li>
+		<li><a href="/Rule/Privacy.aspx" class="privacy" title="개인정보보호정책">개인정보보호정책</a></li>
+		<li><a href="javascript:OpenNoMail();" class="nomail" title="메일무단수집거부">메일무단수집거부</a></li>
+		<li><a href="/Company/Banner.aspx" class="banner" title="배너다운로드">배너다운로드</a></li>
+		<!--
+		<li><a href="/Guide/" class="guide" title="이용안내">이용안내</a></li>
+		<li><a href="/Society/Update.aspx" class="org" title="학회담당자">학회담당자</a></li>
+		<li><a href="/Statistics/" target="_blank" class="off" title="도서관담당자">도서관담당자</a></li>
+		-->
+		<li class="last"><a href="javascript:OpenMail();" class="send" title="메일보내기">메일보내기</a></li>
+	</ul>
+	<div class="download">
+		<a href="http://get.adobe.com/kr/reader/" target="_blank"><img src="/_images/common/footer/adobe.gif" alt="원문뷰어설치" /></a>
+	</div>
+</div>
+<hr class="hidn" />
+<address>
+	COPYRIGHT&copy;2006 학술교육원 ALL RIGHT RESERVED.<br />
+	상호 : 주식회사학술교육원 
+	대표 : 노방용 
+	사업자번호 : 122-81-88227 <br />
+	주소 : 우)21319 인천광역시 부평구 영성중로 50 미래타워 305호<br />
+	전화 : 050-5555-0740 
+	팩스 : 050-5555-0741 
+	이메일 : service@earticle.net <br />
+	통신판매업신고번호 : 제2008-인천부평-00176호 
+	고객정보관리 : 이두영 
+</address>
+
+
+		</div>
+		<!--------------------- 검색어 자동완성 레이어 선언부 --------------------->
+		<div id="AKCDiv" style="DISPLAY: none; Z-INDEX: 11; POSITION: absolute; ">
+			<iframe id="AKCIfrm" style="WIDTH:100%"; name="AKCIfrm" marginwidth="0" marginheight="0" src="/akc_earticle.html" frameborder="0" scrolling="no">
+			</iframe>
+		</div>
+
+		<img alt="자동완성" id="AKCArrow" style="VISIBILITY: hidden; CURSOR:pointer;POSITION:absolute;" src="/Images/button/btn_atcmp_down_on.gif"/>
+		<!--------------------- 검색어 자동완성 레이어 선언부 --------------------->
+
+    </div>
+	<form id="frmLocation" name="frmLocation" method="post" action="">
+		<input type="hidden" id="et_path" name="et_path" value="" />
+		<input type="hidden" id="et_query" name="et_query" value="" />
+	</form>
+	
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56981338-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	
+</body>
+</html>

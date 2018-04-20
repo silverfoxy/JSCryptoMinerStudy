@@ -1,0 +1,1 @@
+MySQL bağlantısı kurulamıyor... Lütfen ayar dosyasındaki veritabanı kullanıcı adı ve şifrenizin doğru olduğundan emin olunuz!

@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+
+    <link href="/Content/eBi/style.css" rel="stylesheet"/>
+
+    <link href="/Content/themes/eBiTheme/jquery.ui.core.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.resizable.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.selectable.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.accordion.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.autocomplete.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.button.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.dialog.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.slider.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.tabs.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.datepicker.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.progressbar.css" rel="stylesheet"/>
+<link href="/Content/themes/eBiTheme/jquery.ui.theme.css" rel="stylesheet"/>
+
+                           
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="/Scripts/jquery-1.8.2.js"></script>
+
+    <script src="/Scripts/jquery-ui-1.8.24.js"></script>
+
+    <script src="/Scripts/eBijs/tabmenu.js"></script>
+<script src="/Scripts/eBijs/eBi.js"></script>
+<script src="/Scripts/eBijs/eBijQuery.js"></script>
+
+
+    <script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
+
+    <script type="text/javascript">
+         $(document).ready(function () {
+             var strGubun = "HomeIndex";
+             //alert("strGubun : [" + strGubun + "]");
+             if (strGubun == "HomeIndex")
+             {
+                   //<!-- edit by keyboard 20140108 추가  _Head호출시 상대경로이므로 찾아가지 못함-->
+                 $("body").attr("background", "/Content/eBi/images/main/main_bg.gif")  
+                 
+                 $("body").attr("style", "background-repeat:repeat-x")
+             }
+             else 
+             {
+                 $("body").addClass("Sub_bg");
+             }
+             return true;
+        });
+    </script>
+
+    
+
+</head>
+<body>  <!--background="./Content/eBi/images/main/main_bg.gif" style="background-repeat:repeat-x;"-->
+<!--<body class="Sub_bg">-->
+
+    <!-- Header --> 
+    
+
+<style type="text/css">
+button.cart {
+    display: block;
+    margin: 10px 0 20px;
+    padding: 0;
+    background:white url(이미지경로) no-repeat 0 0; /* 이미지 스프라이트 사용 */
+    border: 0;
+    border-radius: 4px;
+    color: white;
+}
+button.cart strong {
+    background-color:white;
+    display: block;
+    margin: 0 0 0 40px;
+    padding:15px;
+}</style>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        //[전체검색]
+        $("#btnInfoSearh_Head").off("click").on("click", function (e, ui) {
+            if ($("#txtSEARCHTEXT_Head").isEmpty("전체검색어", true, true))
+            {
+                return false;
+            }//공백
+            else
+            {
+                var strSEARCHTEXT = $("#txtSEARCHTEXT_Head").val();
+                window.location.replace("/Search/InfoSearh/InfoSearh?mid='mid1'&midNo='1'&btnInfoSearh=InfoSearh&cboSEARCHTEXTGUBUN=1&txtSEARCHTEXT=" + strSEARCHTEXT);
+                //return Redirect("/Search/InfoSearh/InfoSearh?mid='mid1'&midNo='1'&cboSEARCHTEXTGUBUN=1&txtSEARCHTEXT="+strSEARCHTEXT);
+                return false;
+            }
+        });
+
+        //[내정보변경]
+        $("#_head_alink_MyInfo").off("click").on("click", function (e, ui) {
+
+            //[내정보변경] 로그인한 사용자가 관리자일때, 환사위사이트회원이 아닐때는 리턴
+            if ("NULL" == "1" || "NULL" == "0") {
+                alert("권한이 없습니다. \n관리자에게 문의 바랍니다.");
+                return false;
+            }
+
+            //[내정보변경] 로그인 않했을때 로그인페이지로 이동
+            if ("NULL" == "NULL" || "NULL" == "NULL") {
+
+                if (confirm("내정보변경을 하시려면 먼저 로그인을 하세요 \n(확인을 누르시면 로그인 페이지로 이동합니다.)")) {
+
+                } else {
+                    return false;
+                }
+            }
+        });
+
+        //[회원탈퇴]
+        $("#_head_alink_MemberLeave").off("click").on("click", function (e, ui) {
+
+            //alert("ss_EcaMngYes : " + NULL + ", ss_EcaMemYes" + NULL);
+            //[회원탈퇴] 로그인한 사용자가 관리자일때, 환사위사이트회원이 아닐때는 리턴
+            if ("NULL" == "1") {// 환사위사이트관리자여부_1/0: char(1)
+                alert("권한이 없습니다. \n관리자에게 문의 바랍니다.");
+                return false;
+            }
+
+            if ("NULL" != "1") {// 환사위사이트회원여부_1/0: char(1)
+                alert("권한이 없습니다. \n관리자에게 문의 바랍니다.");
+                return false;
+            }
+
+            //[회원탈퇴] 로그인 않했을때 로그인페이지로 이동
+            if ("NULL" == "NULL" || "NULL" == "NULL") {
+                if (confirm("회원탈퇴를 하시려면 먼저 로그인을 하세요 \n(확인을 누르시면 로그인 페이지로 이동합니다.)")) {
+
+                } else {
+                    return false;
+                }
+            }
+        });
+
+        //[회원가입]로그인 했을때 회원가입 리턴(탭메뉴)
+        $("#_head_alink_MemberReg").off("click").on("click", function (e, ui) {
+            //[회원가입]
+            var ss_EcaMngYes = "NULL";
+            var ss_EcaMemYes = "NULL";
+            //alert("ss_EcaMngYes:" + ss_EcaMngYes + "ss_EcaMemYes" + ss_EcaMemYes);
+            if (ss_EcaMngYes == "0") {
+                
+                alert("회원가입을 하시려면 먼저 로그아웃 하세요");
+                return false;
+            }
+
+            if (ss_EcaMemYes == "1") {
+                alert("회원가입을 하시려면 먼저 로그아웃 하세요");
+                return false;
+            }
+        });
+
+        //[_title_회원가입]로그인 했을때 회원가입 리턴(타이틀메뉴)
+        $("#_title_alink_MemberReg").off("click").on("click", function (e, ui) {
+            //[회원가입]
+            if ("NULL" == "1" || "NULL" == "0") {
+                alert("회원가입을 하시려면 먼저 로그아웃 하세요");
+                return false;
+            }
+        });
+
+        //[로그인]로그인 했을때 리턴
+        $("#_head_alink_Login").off("click").on("click", function (e, ui) {
+            
+            if ("NULL" == "1") {
+                alert("현재 로그인 상태입니다.");
+                return false;
+            }
+        });
+
+        //[아이디찾기]아이디찾기 했을때 리턴
+        $("#_head_alink_FindId").off("click").on("click", function (e, ui) {
+            
+            if ("NULL" == "1") {
+                alert("현재 로그인 상태입니다.");
+                return false;
+            }
+        });
+
+        //[비밀번호찾기]비밀번호찾기 했을때 리턴
+        $("#_head_alink_FindPassword").off("click").on("click", function (e, ui) {
+            
+            if ("NULL" == "1") {
+                alert("현재 로그인 상태입니다.");
+                return false;
+            }
+        });
+
+    });//$(function () {
+</script>
+<form action="/" method="post">    <!-- Header --> 
+    <!-- 2depth_1 -->
+    <!-- // 2depth_1 -->
+    <div id="LayoutHeader">
+    <div id="HeaderBx">
+    
+            <div class="Layoutbx1">
+
+
+                    <div class="top_m">
+					    <ul>
+                                    
+                                        <li><a href="/Login/Login/Login?mid='mid1'&midNo='1'"><img src="/Content/ebi/images/top/top_m1.gif" alt="로그인"/></a></li>
+                                    
+
+					    <li><a id="_title_alink_MemberReg" href="/Member/MemberReg/MemberReg?mid='mid1'&midNo='1'"><img src="/Content/ebi/images/top/top_m2.gif" alt="회원가입"/></a></li>
+					    
+					    <li><a href="/Search/InfoSearh/SiteMap?mid='mid1'&midNo='1'"><img src="/Content/ebi/images/top/top_m4.gif" alt="사이트맵"/></a></li>
+                        <li><a href="/Community/Board/Board?mid='mid2'&midNo='1'"><img src="/Content/ebi/images/top/top_m7.gif" alt="자유게시판"/></a></li>
+					    </ul>
+                    </div>
+            </div>
+        
+            <div class="Layoutbx2">
+                <P><a href="/Home/Index"><img src="/Content/ebi/images/top/logo.gif" alt="logo"/></a></P>
+                  <!-- navi --> 
+                  <div class="navi">
+                    <div class="navibx">
+                    <ul>
+                      <li class="m1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_showHideLayers('Layer1','','show','Layer2','','hide','Layer3','','hide')"><img src="/Content/ebi/images/top/top_navi1_off.gif" onMouseOver="this.src='/Content/eBi/images/top/top_navi1_on.gif'" onMouseOut="this.src='/Content/eBi/images/top/top_navi1_off.gif'" alt="고객센터"/></a></li>
+                      <li class="m1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_showHideLayers('Layer1','','hide','Layer2','','show','Layer3','','hide')"><img src="/Content/ebi/images/top/top_navi2_off.gif" onMouseOver="this.src='/Content/eBi/images/top/top_navi2_on.gif'" onMouseOut="this.src='/Content/eBi/images/top/top_navi2_off.gif'" alt="본당환경사목"/></a></li>
+                      <li class="m1"><a href="/Search/EcaData/EcaData?mid='mid1'&midNo='1'" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_showHideLayers('Layer1','','hide','Layer2','','hide','Layer3','','show')"><img src="/Content/ebi/images/top/top_navi3_off.gif" onMouseOver="this.src='/Content/eBi/images/top/top_navi3_on.gif'" onMouseOut="this.src='/Content/eBi/images/top/top_navi3_off.gif'" alt="자료실"/></a></li>
+                      <li class="m1"><a href="/Community/Notice/Notice?mid='mid1'&midNo='1'" ><img src="/Content/eBi/images/top/top_navi4_off.gif" onMouseOver="this.src='/Content/eBi/images/top/top_navi4_on.gif'" onMouseOut="this.src='/Content/eBi/images/top/top_navi4_off.gif'" alt="커뮤니티"/></a></li> 
+                    </ul> 
+                      <!-- 2depth 01 -->
+                      <div name="1" id="Layer1" style="position:absolute; left:0px; top:45px; width:155px; z-index:999; visibility: hidden;" onMouseOver="MM_showHideLayers('Layer1','','show');" onMouseOut="MM_showHideLayers('Layer1','','hide');">
+                        <div class="A_sm_ta">
+                              <div class="A_submenu">
+                                  <ul>
+                                    <li><a href="/Introduction/Introduction/Introduction?mid='mid1'&midNo='1'">환경사목위원회</a></li>
+                                  	<li><a href="/AcademyComm/AcademyIntro/AcademyIntro?mid='mid1'&midNo='1'">교육활동</a></li>
+                                  	<li><a href="/InfantComm/InfantInro/InfantInro?mid='mid1'&midNo='1'">유아생태교육</a></li>
+                                  	<li><a href="/YoungManComm/YoungReporterIntro/YoungReporterIntro?mid='mid1'&midNo='1'">청소년,청년환경활동</a></li>
+
+                                  </ul>
+                              </div>
+                        </div>
+                      </div>
+                      <!--// 2depth 01 -->
+
+                          <!-- 2depth 01 -->
+                          <div name="2" id="Layer2" style="position:absolute; left:110px; top:45px; width:155px; z-index:999; visibility: hidden;" onMouseOver="MM_showHideLayers('Layer2','','show');" onMouseOut="MM_showHideLayers('Layer2','','hide');">
+                            <div class="A_sm_ta">
+                                  <div class="A_submenu">
+                                      <ul>
+                                  	    <li><a href="/Bondang/Introduction/Introduction?mid='mid1'&midNo='1'">소개</a></li>
+                                  	    <li><a href="/Bondang/Introduction/Make?mid='mid2'&midNo='1'">환경분과,단체만들기</a></li>
+                                  	    <li><a href="/Bondang/Introduction/Activity?mid='mid3'&midNo='1'">본당환경활동안내</a></li>
+                                  	    <li><a href="/Bondang/Chorok/Chorok?mid='mid4'&midNo='1'">초록교회사례</a></li>
+                                      </ul>
+                                  </div>
+                            </div>
+                          </div>
+                          <!--// 2depth 01 -->
+                          <!-- 2depth 02 -->
+                          <div name="3" id="Layer3" style="position:absolute; left:210px; top:45px; width:155px; z-index:999; visibility: hidden;" onMouseOver="MM_showHideLayers('Layer3','','show');" onMouseOut="MM_showHideLayers('Layer3','','hide');">
+                            <div class="A_sm_ta">
+                                  <div class="A_submenu3">
+                                      <ul>
+                                  	    <li class="Smenu_3"><a href="/AcademyComm/AcademyData/AcademyData?mid='mid6'&midNo='1'">교육활동</a></li>
+                                  	    <li class="Smenu_3" style="height:18px;"><a href="#">유아생태교육</a></li>
+                                            <li class="Smenu_4"><a href="/InfantComm/InfantLecData/InfantLecData?mid='mid3'&midNo='1'">‧생태연수</a></li>
+                                            <li class="Smenu_4"><a href="/InfantComm/InfantCampData/InfantCampData?mid='mid4'&midNo='1'">‧생태캠프/탐방</a></li>
+                                            <li class="Smenu_4"><a href="/InfantComm/InfantSymData/InfantSymData?mid='mid5'&midNo='1'">‧심포지엄</a></li>
+                                            <li class="Smenu_4"><a href="/InfantComm/InfanEduData/InfanEduData?mid='mid6'&midNo='1'">‧기관장교육</a></li>
+                                            <li class="Smenu_4"><a href="/InfantComm/InfanExpData/InfanExpData?mid='mid7'&midNo='1'">‧생태체험</a></li>
+                                  	    <li class="Smenu_3" style="height:18px; padding-top:4px;"><a href="#">청소년,청년환경활동</a></li>
+                                            <li class="Smenu_4"><a href="/YoungManComm/YoungHanFirst/YoungHanFirst?mid='mid2'&midNo='2'">‧한처음</a></li>
+                                            <li class="Smenu_4"><a href="/YoungManComm/YoungChorok/YoungChorok?mid='mid3'&midNo='2'">‧초록이레</a></li>
+                                  	    
+                                          <li class="Smenu_3" style="padding-top:4px;"><a href="/Search/EcaData/EcaData?mid='mid1'&midNo='1'">통합자료실</a></li>
+                                      </ul>
+                                  </div>
+                            </div>
+                          </div>
+                          <!--// 2depth 02 -->
+                    </div> 
+                </div> 
+                <!-- // navi --> 
+                <div class="SearchBx">
+            	    <dl>
+                	    <dt><img src="/Content/ebi/images/top/tx1.gif" alt="search"/></dt>
+                        <dd>
+                            
+                            <input type="text" id="txtSEARCHTEXT_Head" name="txtSEARCHTEXT" value=""/>
+                            <button  type="submit" id="btnInfoSearh_Head"  name="btnInfoSearh" value="InfoSearh" class="cart" style="border:0px; padding:0px; margin:0px; float:right;"><img  src="/Content/ebi/images/top/btn_search.gif" alt="search"/></button>
+                            
+                          
+                        </dd>
+                     </dl>
+                </div>
+          </div>
+      
+    </div>
+    </div>
+    <!-- // Header -->
+</form>  <!-- edit by keyboard 20140108 추가 -->
+    <!-- // Header -->
+
+    <!-- layoutMiddle -->
+    
+
+
+<script src="/Scripts/eBijs/0094_jquery.banner.js"></script>
+<script src="/Scripts/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var url = '/Community/Popup/Popup';
+        //alert(url);
+        //window.open(url, '', 'width=610, height=861, resizable=no,  scrollbars=no');
+        //alert(arguments.callee.caller.toString());
+
+        var MainImgLen = "6";
+        //alert(MainImgLen);
+        //이미지 배너
+        $("#image_list_2").jQBanner({ nWidth: 677, nHeight: 338, nCount: MainImgLen, isActType: "left", nOrderNo: 1, isStartAct: "N", isStartDelay: "Y", nDelay: 3500, isBtnType: "li" });
+
+        
+
+        //아이디저장(쿠키)
+        var userId = $.cookie("userId");
+        //alert("userId : " + userId);
+
+        if (userId != null && userId != "") {
+
+            $("#LoginID").val(userId);					// email textbox에 쿠키값 출력
+
+            $("#idClientSave").attr("checked", "checked");		// 체크박스에 체크
+        }
+
+        $("#idClientSave").click(function () {
+
+            var chk = $("#idClientSave").is(':checked') ? true : false;
+
+            if (chk) {
+                alert(chk);
+                $.cookie("userId", $("#LoginID").val());	// 쿠키에 그 값을 저장하고
+            } else {
+                alert(chk);
+                $.cookie("userId", "");					// 아니면 쿠키 값을 없에고
+            }
+        });
+        // //아이디저장
+
+        //[내정보변경]
+        $("#_index_alink_MyInfo").off("click").on("click", function (e, ui) {
+
+            //[내정보변경] 로그인한 사용자가 관리자일때, 환사위사이트회원이 아닐때는 리턴
+            if ("NULL" == "1" || "NULL" == "0") {
+                alert("관리자 정보변경은 할 수 없습니다. \n관리자에게 문의 바랍니다.");
+                return false;
+            }
+        });
+        
+    });
+
+</script>
+
+<style>
+.Login_row .input1-1 {height:20px; padding:4px 0 0 3px; color:#777777; background:#fff; border-top:1px solid #c9c8c9; border-left:1px solid #c9c8c9; border-right:1px solid #c9c8c9; border-bottom:0px; width:143px;}/* edited by keyboard (20140203) : 로그인 박스**/
+.Login_row .input2-1 {height:20px; padding:4px 0 0 3px; color:#777777; background:#fff; border-top:1px solid #c9c8c9; border-left:1px solid #c9c8c9; border-right:1px solid #c9c8c9; border-bottom:1px solid #c9c8c9; width:143px;}/* edited by keyboard (20140203) : 패스워드 박스**/
+
+#jqb_object img{ 
+	border: none;
+}
+
+#jqb_object { 
+	position:relative;
+	width:677px; height:338px; 
+	overflow:hidden;
+    float:left;
+}
+#jqb_object .jqb_bar{
+	position:absolute;
+	height: 30px;
+	right:0px;
+	bottom:0px;
+	/*background:#000000;
+	opacity:0.7;
+	filter:alpha(opacity=0);
+	
+	color: #ffffff;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: -1px;*/
+}
+
+#jqb_object .jqb_slide{
+	position:absolute;
+	width:677px; height:250px; 
+	font-family: Arial, Verdana, Sans-Serif;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: -1px;
+	text-align: left;
+}
+
+    /*.numBtn {
+        width:19px; height:19px; background-color:white;  margin:0px 5px 0px 5px; float:left; border: 1px solid #c2c6c9;}*/
+/*.clsBannerButton {width:200px; cursor:pointer; }*/ /*20130618 수정*/
+.clsBannerButton {cursor:pointer; padding:0 10px 0px 0;}
+.clsBannerButton li { width:19px; height:19px; float:left; border: 1px solid #c2c6c9; margin:0px 5px 0px 5px; background-color:white;}
+.clsBannerButton li.fir {border-left:1px solid #e1e1e1; }
+
+.clsBannerButton li.labelOverClass {font-weight:bold; color:#296c2f; background-color:#e6f3e6;}
+
+</style>
+
+<!-- layoutMiddle -->
+<div id="LayoutMiddle">
+    <!-- 메인 컨텐츠영역 -->
+    <div class="ContentBx" style="float:left">
+    	
+
+        
+        
+        <div class="Layoutbx1_main">
+        	<div class="ImgLine1">
+                <div class="ImgBx">
+                    <!--::::: 베너 :::::::::::::::::::::::::::::::::::-->
+                    <div id="image_list_2">
+                        <div class="clsBannerScreen">
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=651">
+                                            <img src="/Files/AddFiles/bbsImg/2018eco-sprit(홈피용 수정).jpg" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=647">
+                                            <img src="/Files/AddFiles/bbsImg/eco29-hp.jpg" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=640">
+                                            <img src="/Files/AddFiles/bbsImg/photo6323509311321515980.jpg" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=638">
+                                            <img src="/Files/AddFiles/bbsImg/22792215_1554382021271384_8774486996274870121_o.jpg" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=584">
+                                            <img src="/Files/AddFiles/bbsImg/1704260잘가라 핵발전소.jpg" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                                
+                                    <div class="jqb_slide" title="" style="width:677px; width:338px;" >
+                                        <a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=583">
+                                            <img src="/Files/AddFiles/bbsImg/DSC_1774.JPG" style="width:677px; height:338px;" alt="event" onerror="this.src='/Files/AddFiles/bbsImg/none_banner.gif'"/>
+                                        </a>
+                                    </div>
+                                
+                        </div>
+                        
+                        <div style="position:relative; width:100%; top:-27px; height: 30px; right:0px;">
+	                        <div style="float:right;">
+                                <ul class="clsBannerButton" id="label_2">
+                                            
+                                            <li id="jeb_infoNum_1" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;1</span>
+                                            </li>
+                                            
+                                            
+                                            <li id="jeb_infoNum_2" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;2</span>
+                                            </li>
+                                            
+                                            
+                                            <li id="jeb_infoNum_3" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;3</span>
+                                            </li>
+                                            
+                                            
+                                            <li id="jeb_infoNum_4" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;4</span>
+                                            </li>
+                                            
+                                            
+                                            <li id="jeb_infoNum_5" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;5</span>
+                                            </li>
+                                            
+                                            
+                                            <li id="jeb_infoNum_6" class="numBtn" overclass="labelOverClass" outclass="" >
+                                                <span style="position:relative; top:2px; font-family:Arial; left:1.5px; " >&nbsp;6</span>
+                                            </li>
+                                            
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <!--::::: //베너 :::::::::::::::::::::::::::::::::::-->
+                </div>
+            </div>
+        </div>
+
+
+            
+    	<div class="Layoutbx2_main">
+<form action="/" method="post">                
+                    <!-- login -->
+           	    <div class="LoginBx">
+                	<p><img src="/Content/ebi/images/main/login_tx1.gif" alt="우리농로그인"/></p>
+                    <div class="Login_bt">
+                        <!--<a href="#"><img src="~/Content/ebi/images/main/btn_login.gif" alt="로그인"/></a>-->
+                        <!-- edit keyboard 20140203 : 디자인 Html태그를 레이져 구분으로 쓸수 있게 변경-->
+                        <button type="submit" name="btnLogin" value="Login" class="Login_bt" ><img src="/Content/ebi/images/main/btn_login.gif" alt="로그인"/></button>
+                    </div>
+                    <div class="Login_row">
+                        <!--<input type="text" id="LoginID" class="input1" style="width:143px;" />-->
+                        <!-- edit keyboard 20140203 : 디자인 Html태그를 레이져 구분으로 쓸수 있게 변경-->
+                        <input class="input1-1" id="LoginID" name="LoginID" type="text" value="" /></div>
+                    <div class="Login_row">
+                        <!--<input type="text" id="Password" class="input2" style="width:143px;" />-->
+                        <!-- edit keyboard 20140203 : 디자인 Html태그를 레이져 구분으로 쓸수 있게 변경-->
+                        <input class="input2-1" id="Password" name="Password" type="password" value="" />
+                    </div>
+                  	<div class="Login_bot"><input type="checkbox" id="idClientSave"/> ID저장&nbsp;&nbsp;&nbsp;
+                          <span><a id="_index_alink_MemberReg" href = "/Member/MemberReg/MemberReg?mid='mid1'&midNo='1'">회원가입</a></span>&nbsp;&nbsp;
+                          <a href ="/Login/FindId/FindId?mid='mid2'&midNo='1'">ID/PW 찾기</a></div>
+                </div>
+                <!-- // login -->
+                
+                <div class="BanBx"><a href ="/Support/SupportInfo/SupportInfo?mid='mid1'&midNo='1'"><img src="/Content/ebi/images/main/ban1.gif" alt="후원하기"/></a></div>
+                <div class="BanBx" style="padding-bottom:0px;"><a href="http://www.wrn.kr" target="_blank"><img src="/Content/ebi/images/main/ban2.gif" alt="우리농"/></a></div>
+</form>        </div>
+    	<div class="Layoutbx3_main">
+        	<div class="p_b25">
+            	<div class="ConBx1">
+		<!-- new&notice -->
+    	<div class="M_notice">
+        	<div class="M_noticeTxBx"> 
+            	<p><img src="/Content/ebi/images/main/m_tx1.gif" alt="news"/></p>
+                <div class="f_right p_t5_2">
+                        
+
+                                <a href="/Community/Notice/Notice?mid='mid1'&midNo='1'">
+                                    <img src="/Content/ebi/images/main/btn_more.gif" alt="more"/>
+                                </a>
+                                
+                </div>
+            </div>
+
+            <ul class="list">
+                        
+                        <li>
+                            <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=657">
+                                <div class="subj">
+                                    [태양광 미니발전소] 서울시 베란다형 ..
+                                        <img src="/Content/eBi/images/main/ico_n.gif" style="width:9px; height:10px;"/>
+                                </div>
+                                <div class="date">03.20</div>
+                            </a>
+                        </li> 
+                        
+                        
+                        <li>
+                            <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=656">
+                                <div class="subj">
+                                    
+                                    [태양광] 2018년도 한국에너지공단 신..
+                                </div>
+                                <div class="date">03.13</div>
+                            </a>
+                        </li> 
+                        
+                        
+                        <li>
+                            <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=655">
+                                <div class="subj">
+                                    [연대] 후쿠시마 핵발전소 사고 7주기 ..
+                                </div>
+                                <div class="date">03.09</div>
+                            </a>
+                        </li> 
+                        
+                        
+                        <li>
+                            <a href="/Community/Notice/NoticeView?mid='mid1'&midNo='1'&notIde=653">
+                                <div class="subj">
+                                    [홍보] 서울시 - 천주교 서울대교구 태..
+                                </div>
+                                <div class="date">03.09</div>
+                            </a>
+                        </li> 
+                        
+
+                
+            </ul>
+
+        </div>
+		<!-- // new&notice -->
+        <div class="p_t10">
+            <a href="/Community/Schedule/Schedule?mid='mid3'&midNo='1'">
+                <img src="/Content/ebi/images/main/main_link_ban9.gif" alt="이달의 일정"/>
+            </a>
+        </div>
+                </div>
+                
+                
+            	<div class="ConBx2">
+		<!-- 즐거운불편 -->
+    	<div class="M_notice">
+        	<div class="M_noticeTxBx" style="padding-bottom:15px;"> 
+            	<p><img src="/Content/ebi/images/main/m_tx2.gif" alt="news"/></p>
+                <div class="f_right p_t5_2"><a href ="/Community/Inconvenience/Inconvenience?mid='mid4'&midNo='1'"><img src="/Content/ebi/images/main/btn_more.gif" alt="more"/></a></div>
+            </div>
+
+                                <div class="ImgPd">
+            	                   <p>
+                                                    <a href="/Community/Inconvenience/InconvenienceView?mid='mid4'&midNo='1'&actIde=154">
+                                                        <img src="/Files/AddFiles/bbsImg/7월호 이미지.jpg" style="width:119px; height:108px;" alt="" onerror="this.src='/Files/AddFiles/bbsImg/none_more.gif'"/>
+                                                   </a>
+
+                                       
+            	                   </p>
+                                </div>
+                                <div class="TxBx1"><img src="/Content/ebi/images/main/m_tx3.gif" alt=""/></div>
+                                <div class="TxBx2">
+                                    <a href="/Community/Inconvenience/InconvenienceView?mid='mid4'&midNo='1'&actIde=154">
+                                        모기보다 무서운 모기약<br />
+                                    </a>
+                                </div>
+                                 
+
+        </div>
+		<!-- // 즐거운불편 -->
+                </div>
+            </div>
+                <!-- 교육활동 -->
+                <div class="ConBx3">
+                	<div class="TxBx1">
+                    	<div class="f_left"><img src="/Content/ebi/images/main/m_tx4.gif" alt=""/></div>
+                        <div class="f_right"><a href ="/AcademyComm/AcademyNews/AcademyNews?mid='mid2'&midNo='1'"><img src="/Content/ebi/images/main/btn_more.gif" alt="more"/></a></div>
+                    </div>
+                    <div class="ImgBx1" >
+                            
+                                <a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=651">
+                                    <img src="/Files/AddFiles/bbsImg/2018eco-sprit(홈피용 수정).jpg" style="width:147px; height:80px; border:1px solid #989898;" alt="" onerror="this.src='/Files/AddFiles/bbsImg/none_more2.gif'"/>
+                                </a>
+                               
+
+                    </div>
+                                    <ul>
+                    	                        <li><a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=651">[교육] 제2기 천주교 ..</a></li>
+                    	                        <li><a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=650">[교육] 2018년 본당 ..</a></li>
+                    	                        <li><a href="/AcademyComm/AcademyNews/AcademyNewsView?mid='mid2'&midNo='1'&notIde=647">[교육] 제29회 가톨릭..</a></li>
+                                    </ul>
+                </div>
+                <!-- //교육활동 -->
+                <!--유아생태교육-->
+                <div class="ConBx3">
+                	<div class="TxBx1">
+                    	<div class="f_left"><img src="/Content/ebi/images/main/m_tx5.gif" alt=""/></div>
+                        <div class="f_right"><a href =" /InfantComm/InfantInro/InfantNews?mid='mid2'&midNo='1'"><img src="/Content/ebi/images/main/btn_more.gif" alt="more"/></a></div>
+                    </div>
+                    
+                    <div class="ImgBx1" >
+                            
+                                <a href="/InfantComm/InfantInro/InfantNewsView?mid='mid2'&midNo='1'&notIde=523">
+                                    <img src="/Files/AddFiles/bbsImg/DSC_0035.JPG" style="width:147px; height:80px; border:1px solid #989898;" alt="" onerror="this.src='/Files/AddFiles/bbsImg/none_more2.gif'"/>
+                                </a>
+                               
+
+                    </div>
+                    <ul>
+                    	        <li><a href="/InfantComm/InfantInro/InfantNewsView?mid='mid2'&midNo='1'&notIde=523">&lt;평화신문&gt; 교황의 환..</a></li>
+                    	        <li><a href="/InfantComm/InfantInro/InfantNewsView?mid='mid2'&midNo='1'&notIde=515">2016년 가톨릭 유아생..</a></li>
+                    	        <li><a href="/InfantComm/InfantInro/InfantNewsView?mid='mid2'&midNo='1'&notIde=509">11월 28일 심화5강 수..</a></li>
+                    	
+                    </ul>
+                </div>
+                <!-- // 유아생태교육-->
+                <!-- 청소년, 청년 환경활동 -->
+                <div class="ConBx3">
+                	<div class="TxBx1">
+                    	<div class="f_left"><img src="/Content/ebi/images/main/m_tx6.gif" alt=""/></div>
+                        <div class="f_right"><a href ="/YoungManComm/YoungReporterIntro/YoungReporterNews?mid='mid2'&midNo='1'"><img src="/Content/ebi/images/main/btn_more.gif" alt="more"/></a></div>
+                    </div>
+                    
+                    <div class="ImgBx1" >
+                            
+                                <a href="/YoungManComm/YoungReporterIntro/YoungReporterNewsView?mid='mid2'&midNo='1'&notIde=578">
+                                    <img src="/Files/AddFiles/bbsImg/캡처_3.jpg" style="width:147px; height:80px; border:1px solid #989898;" alt="" onerror="this.src='/Files/AddFiles/bbsImg/none_more2.gif'"/>
+                                </a>
+                               
+
+                    </div>
+                    <ul>
+                    	        <li><a href="/YoungManComm/YoungReporterIntro/YoungReporterNewsView?mid='mid2'&midNo=''&notIde=578">[안내] 2017년 청소년..</a></li>
+                    	        <li><a href="/YoungManComm/YoungReporterIntro/YoungReporterNewsView?mid='mid2'&midNo=''&notIde=574">[모집]2017년 청소년 ..</a></li>
+                    	        <li><a href="/YoungManComm/YoungReporterIntro/YoungReporterNewsView?mid='mid2'&midNo=''&notIde=525">2016년 제13기 청소년..</a></li>
+                    	
+                    </ul>
+                </div>
+                <!-- //청소년, 청년 환경활동 -->
+                <!-- 농부학교 -->
+                <div class="ConBx3" style="padding-right:0px;">
+                	<div class="TxBx1">
+                    	<div class="f_left"><img src="/Content/ebi/images/main/m_tx7.gif" alt=""/></div>
+                        <div class="f_right"><a href ="/AcademyComm/AcademyDivinitySchool/AcademyDivinitySchool?mid='mid5'&midNo='1'"><img src="/Content/ebi/images/main/btn_more.gif" alt="more"/></a></div>
+                    </div>
+                    
+                    <div class="ImgBx1" >
+                            
+                                <a href="/AcademyComm/AcademyDivinitySchool/AcademyDivinitySchoolView?mid='mid5'&midNo='1'&page=1&actIde=162">
+                                    <img src="/Files/AddFiles/bbsImg/생태영성2018.jpg" style="width:147px; height:80px; border:1px solid #989898;" alt="" onerror="this.src='/Files/AddFiles/bbsImg/none_more2.gif'"/>
+                                </a>
+                               
+
+                    </div>
+                    <ul>
+                    	            <li><a href="/AcademyComm/AcademyDivinitySchool/AcademyDivinitySchoolView?mid='mid5'&midNo='1'&page=1&actIde=162">[교육] 제2기 천주교 ..</a></li>
+                    	            <li><a href="/AcademyComm/AcademyDivinitySchool/AcademyDivinitySchoolView?mid='mid5'&midNo='1'&page=1&actIde=161">[교육] 제1기 천주교 ..</a></li>
+                    	
+                        
+                    </ul>
+                </div>
+                <!-- //농부학교 -->
+      </div>
+        
+        
+<div class="Layoutbx4_main">
+        	<dl>
+            	<dd><img src="/Content/ebi/images/main/main_link_tx.gif" alt="연대사이트링크" border="0" usemap="#Map"/>
+                    <map name="Map" id="Map">
+                    <area shape="rect" coords="180,6,222,23" href="/Search/InfoSearh/RelationSite?mid='mid1'&midNo='1'" />
+                  </map>
+            	</dd>
+                <dd><a href="http://www.wrn.kr" target="_blank"><img src="/Content/ebi/images/main/main_link_ban10.gif" alt=""/></a></dd>
+            	<dd><a href="http://www.ccfm.or.kr" target="_blank"><img src="/Content/ebi/images/main/main_link_ban1.gif" alt=""/></a></dd>
+            	<dd><a href="http://www.cbck.or.kr" target="_blank"><img src="/Content/ebi/images/main/main_link_ban5.gif" alt=""/></a></dd>
+                <dd><a href="http://caritasseoul.or.kr" target="_blank"><img src="/Content/ebi/images/main/main_link_ban6.gif" alt=""/></a></dd>
+                <dd><a href="http://www.catholicinfant.or.kr" target="_blank"><img src="/Content/ebi/images/main/main_link_ban8.gif" alt=""/></a></dd>
+                <dd><a href="http://cafe.daum.net/nukefree" target="_blank"><img src="/Content/ebi/images/main/main_link_ban3.gif" alt=""/></a></dd>
+                <dd><a href="http://my765kvout.tistory.com" target="_blank"><img src="/Content/ebi/images/main/main_link_ban2.gif" alt=""/></a></dd>
+            	<dd><a href="http://cafe.daum.net/peacekj" target="_blank"><img src="/Content/ebi/images/main/main_link_ban4.gif" alt=""/></a></dd>
+            </dl>
+        </div>
+        
+    </div>  
+    <!-- // 메인 컨텐츠영역 -->
+</div>
+<!-- //layoutMiddle -->
+
+    <!-- //layoutMiddle -->
+
+    <!-- footer --> 
+    <div id="LayoutfooterBx">
+        <div class="footer_line"><img src="/Content/eBi/images/sub/footer.gif" usemap="#001" alt="footer"/></div>
+        <map name="001">
+            <area shape="rect" coords="413, 31, 456, 40" href="/Introduction/Introduction/Map?mid='mid6'&midNo='1'" />
+        </map>
+    </div>
+    <!-- // footer -->
+
+</body>
+   
+</html>

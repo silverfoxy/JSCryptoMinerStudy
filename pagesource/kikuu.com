@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="http://m.kikuu.com:80">http://m.kikuu.com:80</a></p>

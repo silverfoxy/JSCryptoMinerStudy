@@ -1,0 +1,15009 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	Indiarace.com - india's first & foremost horse racing portal
+</title>
+
+<style>
+.photobanner {
+	height: 78px;
+	width: 1500px;
+	//margin-bottom: 80px;
+}
+
+.photobanner img {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.photobanner img:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	cursor: pointer;
+
+	-webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
+
+/*keyframe animations*/
+.first {
+	-webkit-animation: bannermove 30s linear infinite;
+	-moz-animation: bannermove 30s linear infinite;
+	-ms-animation: bannermove 30s linear infinite;
+	animation: bannermove 30s linear infinite;
+}
+
+
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+//2125
+    margin-left: -705px;
+ }
+}
+
+
+
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -705px;
+ }
+}
+
+
+
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -705px;
+ }
+}
+
+
+
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -705px;
+ }
+}
+
+
+
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -705px;
+ }
+}
+</style>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+
+<!--script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+    googletag.cmd.push(function() {
+    googletag.defineSlot('/80186493/IR_Home_Left_160X600', [160, 600], 'div-gpt-ad-1482233364386-0').addService(googletag.pubads());
+    googletag.defineSlot('/80186493/IR_Home_Right_160X600', [160, 600], 'div-gpt-ad-1488396494309-0').addService(googletag.pubads());
+    googletag.defineSlot('/80186493/IR_Home_Left_Bottom_160X600', [160, 600], 'div-gpt-ad-1488396563254-0').addService(googletag.pubads());
+    googletag.defineSlot('/80186493/IR_Home_Right_Bottom_160X600', [160, 600], 'div-gpt-ad-1488396618725-0').addService(googletag.pubads());
+    googletag.defineSlot('/80186493/HomePage_728X90_Leaderboard', [728, 90], 'div-gpt-ad-1488206016784-0').addService(googletag.pubads());
+    googletag.defineSlot('/80186493/IR_Home_300X250', [300, 250], 'div-gpt-ad-1489575734450-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="google-site-verification" content="ga-OWbOhNABxNLCSFIWIFAJImFvC6pJxMSqeRflTp78" />
+
+    <!--link rel="stylesheet" type="text/css" href="css/w3.css" /-->
+    <link href="css/popup.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" type="text/css" href="css/commen.css" /><link rel="stylesheet" type="text/css" href="css/chromestyle.css" /><link href="css/popup/reg-main.css" rel="stylesheet" type="text/css" /><link href="News/css/style.css" rel="stylesheet" type="text/css" /><link type="text/css" rel="stylesheet" href="FlexBox/css/jquery.flexbox.css" />    
+
+    <!--JQuary plugins javascript-->
+    <!--, App_Web_2xbqdbo4-->
+    <script type="text/javascript" src="js/chrome.js"></script>
+    <script src="js/registration/modal-window.js" type="text/javascript"></script>
+    <script type="text/javascript" src="News/js/newsjs.js"></script>
+    <script src="News/js/jquery.ticker.js" type="text/javascript"></script>
+    <script src="FlexBox/js/jquery.flexbox.js" type="text/javascript"></script>
+    
+    <script language="javascript" type="text/javascript">
+        function searchlegth() {
+            var namestr = document.getElementById('ctl00_Horseid').value;
+            if (namestr == '') return false;
+            //alert(d);
+            return true;
+        }
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        var openMyModal = function(source) {
+            modalWindow.windowId = "myModal";
+            modalWindow.width = 480;
+            modalWindow.height = 405;
+            modalWindow.content = "<iframe width='480' height='405' frameborder='0' scrolling='no' allowtransparency='true' src='" + source + "'>&lt/iframe>";
+            modalWindow.open();
+        };	
+    </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24541127-1']);
+  _gaq.push(['_setDomainName', 'indiarace.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    
+</head>
+
+<body style="background: url(images/cgbg.gif); height: 100%;">
+<!-- class="w3-quarter"-->
+<!--div id='div-gpt-ad-1478710171837-0' style="position:absolute;z-index:999999;top:5px;left:0px;height:600px;width:160px;"-->
+<!--div id='div-gpt-ad-1478710171837-0' style="background:lightgray;position:absolute;z-index:999999;top:5px;right:10px;height:600px;width:160px;"-->
+
+<div style="position:absolute;width:100%;top:0px;z-index:-1;">
+
+<!--Below is for top left banner advertisment-->
+<!--div id='div-gpt-ad-1482233364386-0' style="position:absolute;z-index:999999; top:5px;left:0px;height:600px;width:160px;"-->
+<div id='div-gpt' style="position:absolute;z-index:999999; top:5px;left:0px;height:600px;width:160px;">
+	<a href="http://bit.ly/sexy_baccaratsignup"><img src="160 x 600_leftside_ad.jpg" alt="" /></a>
+	<!--script-->
+		<!--googletag.cmd.push(function() {googletag.display('div-gpt-ad-1482233364386-0');});-->
+	<!--script-->
+</div>
+
+<!--Below is for top right banner advertisment-->
+<!--div id='div-gpt-ad-1488396494309-0' style="z-index:999999; position:absolute;z-index:999999;top:5px;right:10px;height:600px;width:160px;"-->
+<div id='div-gpt1' style="z-index:999999; position:absolute;z-index:999999;top:5px;right:10px;height:600px;width:160px;">
+	<a href="http://bit.ly/rhs-welcomebonus"><img src="160 x 600_rightsidead.jpg" alt="" /></a>
+	<!--script-->
+		<!--googletag.cmd.push(function() {googletag.display('div-gpt-ad-1488396494309-0');});-->
+	<!--script-->
+</div>
+
+<!--Below is for bottom left banner advertisment-->
+<div id='div-gpt-ad-1488396563254-0' style="z-index:999999; position:absolute;z-index:999999; top:610px;left:0px;height:600px;width:160px;">
+	<!-- /80186493/IR_Home_Left_Bottom_160X600 -->
+	<script>
+		googletag.cmd.push(function() {googletag.display('div-gpt-ad-1488396563254-0');});
+	</script>
+</div>
+
+<!--Below is for bottom right banner advertisment-->
+<div id='div-gpt-ad-1488396618725-0' style="z-index:999999; position:absolute;z-index:999999;top:610px;right:10px;height:600px;width:160px;">
+	<!-- /80186493/IR_Home_Right_Bottom_160X600 -->
+	<script>
+		googletag.cmd.push(function() {googletag.display('div-gpt-ad-1488396618725-0');});
+	</script>
+</div>
+
+</div>
+
+    <form name="aspnetForm" method="post" action="default.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5NzE2ODU2ODUPZBYCZg9kFgICAw9kFgJmDxYCHgdWaXNpYmxlaGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFEGN0bDAwJHN1Ym1pdF9idG4SZwERsDNucTEMIiOJj159iCGaVw==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBALn1NqgCgKxxefPBwKV5scqAvzh3sQL4vCV7/Mt9nIXF7YovR29G9846CE=" />
+    <div id="page-content" style="padding: 0px; margin: auto; width: 1002px">
+        <div id="header-content" style="float: left; width: 1002px">
+            <div style="background-image: url(images/ir-topband-blank.jpg);
+                width: 100%; height: 97px">
+                <a href="Default.aspx" style="float: left; width: 320px; height: 97px;">
+                </a>
+		<!--a href="http://hellotv.in/play/livetv/At-The-Races_231099" target="_blank"-->
+		<!--a href="http://www.indiarace.com/livehorserace.aspx"-->
+		<a href="http://www.dsport.in">
+		<!--div style="background-image: url(iraceat/AtRaceBanner-new.jpg); float: right; width: 500px; height: 42px; position: absolute ; top: 59px; left:670px"-->
+		<div style="background-image: url(iraceat/AtRaceBanner-new.jpg); float: left; width: 500px; height: 42px; position: relative ; top: 52px; left:174px">
+		</div>
+		</a>
+            </div>
+            <div class="chromestyle" id="chromemenu">
+                <ul>
+                    <li style="padding-left: 5px"><a href="Default.aspx">HOME</a></li>
+                    <!--li class="master_ul"><a href="#" rel="dropmenu3">TRACKWORK</a></li-->
+                    <li><a href="#" rel="dropmenu11">STUD FARMS</a></li>
+                    <li><a href="#" rel="dropmenu10">ARCHIVES</a></li>
+		    <li><a href="Photo-Gallery-Home.aspx">PHOTOS</a></li>
+                    <!--li class="master_ul"><a href="#" rel="dropmenu10">ARCHIVES</a></li-->
+
+                    <li><a href="Glossary.aspx">GLOSSARY</a></li>
+
+                    <!--li class="master_ul"><a href="RacingStars.aspx">RACING STARS</a></li-->
+                    <li class="master_ul"><a href="RacingStars.aspx">RACING STARS</a></li>
+
+                    
+                    	<li><a href="popup-login.aspx?Logintype=classified" onclick="openMyModal('popup-login.aspx?Logintype=classified'); return false;" class="icoMr">CLASSIFIEDS</a></li>
+                    
+                    <li><a href="exnamesearch.aspx">EX-NAME SEARCH</a></li>
+		    <li><a href="equineworld.aspx">EQUINES</a></li>
+		    <li><a href="damsearch.aspx?id=0000">DAM</a></li>
+		    <li><a href="siresearch.aspx?id=0000">SIRE</a></li>
+                    <li><a href="Feedback.aspx" onclick="openMyModal('Feedback.aspx'); return false;" class="icoMr">FEEDBACK</a></li>
+                </ul>
+            </div>
+            <!--3td(Track Work) drop down menu -->
+            <div id="dropmenu3" class="dropmenudiv">
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Bangalore">Bangalore</a>
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Hyderabad">Hyderabad</a>
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Kolkata">Kolkata</a>
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Mumbai">Mumbai</a>
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Mysore">Mysore</a>
+                <a href="TracksWithDate.aspx?TrackWorkCenter=Pune">Pune</a>
+                            </div>
+            <!--10st drop down menu -->
+            <div id="dropmenu10" class="dropmenudiv" style="width:100px">
+                <a href="ResultArchives.aspx">Results</a>
+		<a href="Archives/Racingevents.aspx">Main Events</a>
+                <a href="Features.aspx">Features</a>
+                <a href="allarticles.aspx">Guest writer</a>
+                <a href="RacingStars.aspx">Racing Star</a>
+            </div>
+            <div id="dropmenu11" class="dropmenudiv">
+                <a href="StudFarm.aspx">listing</a>
+		<a href="AllStallions.aspx">Stallions</a>
+		<a href="Racing-Breeding-Statistics.aspx">Statistics</a>
+            </div>
+
+            <script type="text/javascript">
+////protect right click
+//                $(document).ready(function() {
+//                    $(document).bind("contextmenu", function(e) {
+//                        return false;
+//                    });
+//                });
+//                //end protect right click
+                cssdropdown.startchrome("chromemenu")
+                var src = "horse";
+                $(document).ready(function() {
+
+                    var varUserName = $('#hiddenUserName').val();
+                    if (varUserName.length > 0) {
+                        $('#guser').css('display', 'none');
+                    }
+                    else { $('#guser').css('display', 'inline'); }
+
+                    $('#ctl00_Category').change(function() {
+                        src = $('#ctl00_Category').val();
+                        $('#search_input').attr('altid', src);
+                        $('#ctl00_Horseid').val('')
+                    });
+                });
+
+                $(function() {
+                $('#search').flexbox('getdatapage.aspx', {
+                        showArrow: true,
+                        //minChars: 3,
+                        maxCacheBytes: 0,
+                        resultTemplate: '<div class="col2">{name}</div>',
+                        watermark: 'Type Horse Name...',
+                        width: 200,
+                        //autoCompleteFirstMatch: true,
+                        maxVisibleRows: 10,
+                        paging: false,
+                        onSelect: function() {
+                            var id = this.getAttribute('hiddenValue');
+                            document.getElementById('ctl00_Horseid').value = id;
+                            //alert(document.getElementById('Horseid').value);
+                        }
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#js-news').ticker();
+                    // hide the release history when the page loads
+                    $('#release-wrapper').css('margin-top', '-' + ($('#release-wrapper').height() + 20) + 'px');
+                    // show/hide the release history on click
+                    $('a[href="#release-history"]').toggle(function() {
+                        $('#release-wrapper').animate({
+                            marginTop: '0px'
+                        }, 600, 'linear');
+                    }, function() {
+                        $('#release-wrapper').animate({
+                            marginTop: '-' + ($('#release-wrapper').height() + 20) + 'px'
+                        }, 600, 'linear');
+                    });
+                });
+            </script>
+
+            <style type="text/css">
+               .icoMr{}
+                .style9
+                {
+                    color: #000000;
+                    font-weight: bold;
+                }
+                #MyDetails
+                {
+                    width: 997px;
+                    text-align: left;
+                    background-color: #ffffff;
+                    padding-left: 5px;
+                    font-size: 11px;
+                    font-family: Verdana;
+                    color: #000000;
+                    line-height: 23px;
+                    text-transform: uppercase;
+                }
+                #MyDetails a
+                {
+                    color: #000000;
+                    text-decoration: none;
+                }
+                #contestscore
+                {
+                    width: 810px;
+                    float: right;
+                    background-color: #ffffff;
+                    margin-left: 50px;
+                }
+                #contestscore a
+                {
+                    color: #000000;
+                    text-decoration: none;
+                    margin-left: 10px;
+                }
+                #contestscore a:hover
+                {
+                    background-color: #b31010;
+                }
+                #master
+                {
+                    background-color: #ffffff;
+                }
+                #master td
+                {
+                    background-color: #ffffff;
+                }
+                #master td a
+                {
+                    color: #000000;
+                    text-decoration: none;
+                    margin-left: 10px;
+                    background-color: #ffffff;
+                }
+            </style>
+            
+            <div style="width: 1002px; background-color: #b31010; height: 24px;">
+            <div style=" float:right;">
+                <div style="float:left;width: 600px;margin-left:30px;">
+                    <div style="float:left;">
+                        <div id="ticker-wrapper" style="width:600px">
+                            <ul id="js-news" class="js-hidden">
+                                <li style='text-transform:none'>Ruffina wins The Sprinters Cup (Gr.1)</li><li style='text-transform:none'>Azzurro wins The Dr M A M Ramaswamy Stayers Cup (Gr.1)</li><li style='text-transform:none'>whomakestherules wins The Maj P K Mehra Memorial Super Mile Cup (Gr.1)</li><li style='text-transform:none'>Kangra wins The Indian Turf Invitation Cup (Gr.1) in record timing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div style="float: left; width: 301px;" class="visiblityForSearchHstatistics">
+                    <div id="ctl00_MasterPanel">
+	
+                        <div style="float: left; width: 208px; padding-top: 1px">
+                            <div id="search">
+                            </div>
+                        </div>
+                        <div style="float: left; width: 75px; padding-top: 2px;  display:none;">
+                            <select name="ctl00$Category" id="ctl00_Category" style="width: 75px;">
+		<option selected="selected" value="horse">horse</option>
+	</select></div>
+                        <div style="float: right; padding-top: 2px">
+                            <input type="image" name="ctl00$submit_btn" id="ctl00_submit_btn" src="images/search1.png" onclick="return searchlegth();" border="0" /> </div>
+                    
+</div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="hiddenUserName" value='' />
+        <input name="ctl00$Horseid" type="hidden" id="ctl00_Horseid" />
+        <input type="hidden" id="categoryid" />
+        <div style="float: left; width: 1002px;background-color:#ffffff">
+            
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24541127-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('p')
+    .filter(function() {
+        return $.trim($(this).text()) === ''
+    })
+    .remove()
+
+            $('.master_ul').css('display', 'none');
+        });
+</script>
+<script>
+(function(a,b){if(/android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|e\-|e\/|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(di|rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|xda(\-|2|g)|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))window.location=b})(navigator.userAgent||navigator.vendor||window.opera,'http://m.indiarace.com/');
+</script>
+
+<script type="text/javascript">
+    var sURL = window.document.URL.toString();
+    if (sURL.indexOf("?") > 0)
+    {
+        var arrParams = sURL.split("?");
+        var arrURLParams = arrParams[1].split("&");
+        var arrParamNames = new Array(arrURLParams.length);
+        var arrParamValues = new Array(arrURLParams.length);
+
+        var i = 0;
+        for (i = 0; i<arrURLParams.length; i++)
+        {
+            var sParam =  arrURLParams[i].split("=");
+            arrParamNames[i] = sParam[0];
+            if (sParam[1] != "")
+                arrParamValues[i] = unescape(sParam[1]);
+            else
+                arrParamValues[i] = "No Value";
+        }
+
+        for (i=0; i<arrURLParams.length; i++)
+        {
+            if (arrParamNames[i] == paramName)
+            {
+                alert("Parameter:" + arrParamValues[i]);
+            }
+        }
+    }
+</script>
+
+    <style type="text/css">
+        .smaller{text-transform:lowercase;}
+        .mainDiv
+{
+width:770px; height:140px; font-family:Verdana; font-size:12px; overflow:scroll; overflow-y:scroll; overflow-x:hidden;
+}
+.lineDiv
+{
+width:750px; height:2px; background-color:#ececec;	
+}
+.InnerDiv
+{
+width:750px; height:38px;	
+}
+.moreDiv
+{
+	visibility:hidden;
+}
+.Left_bands{float:left;width:223px;padding-top:4px;}
+.bold_txt td{height:25px;}
+.inside_tbl td
+{
+	padding-left:15px;
+	height:25px !important;
+ vertical-align:bottom;
+               }
+                   .full_div{width:779px;height:180px;float:left;font-family:Verdana;font-size:12px;}
+    .full_div a{text-decoration:none;color:#000;}
+    .full_div a:hover{color:#0873CD;}
+    .dates_div{width:70px;float:left;height:150px;}
+    .Main_date{width:60px;float:left;font-size:17px;color:#b31010;padding:10px 2px 3px 10px;height:65px;border-right:solid 1px #b31010;font-weight:bold;}
+    .sub_dates{width:60px;float:left;padding:3px 2px 3px 10px;height:25px;}
+    .inner_contents{width:300px;height:65px;float:left;margin-left:30px;border-bottom:solid 1px #b31010;margin-top:10px;}
+    .inside_divs{width:350px;float:left;height:150px;border-right:solid 1px #b31010;}
+    .whole_left_inner_contents{width:140px;float:left;height:80px;}
+    .left_inner_contents{width:140px;float:left;}
+    .actual_contents{width:140px;float:left;height:30px;padding-left:5px;}
+    .middle_line{width:15px;border-left:solid 1px #b31010;height:50px;float:left;}
+    .need_hide{background-color: #ececec;height:25px;width:770px;padding-left:10px;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/marque.css" />
+    <link href="css/Default.css" rel="stylesheet" type="text/css" />
+   
+    <link href="css/tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="js/homeCenter.js" type="text/javascript"></script>
+             <div id="Whole">
+
+                    <div id="Leftcontent_div" >
+
+
+			<div style=" width:780px; float:left; background-color:#707070;">
+				<center>
+					<div id='div-gpt-ad-1488206016784-0' style='height:90px; width:728px;'>
+						<script>
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488206016784-0'); });
+						</script>
+					</div>
+
+					<!--div style=" width:780px; height:90px; "-->
+						<!--a href="https://www.hondacarindia.com/Accord/" target="_blank" style=" text-decoration:none;"-->
+							<!--img src="images/honda.jpg" style=" border:none" alt=""/-->
+						<!--/a-->
+					<!--/div-->
+				</center>
+				<!--div style=" width:195px; height:78px; float:left;">
+					<a href="http://www.nanolistud.com" target="_blank" style=" text-decoration:none;">
+						<img src="images/nanoli-ad.gif" style=" border:none" alt="Nanoli" />
+					</a>
+				</div>
+				
+				<div style=" width:195px; height:78px; float:left;">
+					<a href="http://www.manjristud.com/" target="_blank" style=" text-decoration:none;">
+						<img src="images/manjri.png" style=" border:none" alt="Manjri Stud" />
+					</a>
+				</div>
+                          
+				<div style=" width:195px; height:78px; float:left;">
+					<a href="http://www.poonawallagroup.com/pfarm/" target="_blank" style=" text-decoration:none;">
+						<img src="images/poonawalla-ad.gif" style=" border:none" alt="poonawalla" />
+					</a>
+				</div-->
+			</div>
+
+
+                        <a href="Photo-Gallery-Home.aspx" style="text-decoration: none; border: none">
+                            <div class="fadeout" style="float: left;cursor:hand" onclick="document.location='Photo-Gallery-Home.aspx'">
+                                <img alt="View Photo Gallery" style="display: block;" src="http://software.indiarace.com/FilesofIR/Indianphotos/1.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/2.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/3.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/4.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/5.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/6.jpg" />
+                                <img alt="View Photo Gallery" style="display: none;" src="http://software.indiarace.com/FilesofIR/Indianphotos/7.jpg" />
+                            </div>
+                        </a>
+                        <div id="home-main-article">
+                            <div id="home-main-internationalarticle-inner">
+                                <div class="home-main-article-topstory">
+                                    :: Top Stories ::</div>
+                                <div style="height: 6px; line-height: 24px">
+                                    <img src="images/redline.gif" alt="d" style="width: 460px; height: 1px" /></div>
+                                <div class="home-main-article-full">
+                                    <div class='home-main-article-heading'>SURAJ SHINES BRIGHT WITH FILLIES’ & COLTS’ DOUBLE</div><div class='home-main-article-heading-link'><a href='FullReview.aspx?ReviewId=5196'>Iron Age, Yellowstone & Tenerife Notch Up Maiden Wins</a></div><div class='home-main-article-writername'> By Mahendra Mallya</div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-article-heading'>HARTNELL LIFTS CALCUTTA ST LEGER</div><div class='home-main-article-heading-link'><a href='FullReview.aspx?ReviewId=5195'>Rutherford Alford notches up a well-backed double</a></div><div class='home-main-article-writername'> By Epsom Ace </div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-article-heading'>POSEIDON WINS GOVERNOR'S TROPHY IN STYLE </div><div class='home-main-article-heading-link'><a href='FullReview.aspx?ReviewId=5194'>Irfan Ghatala has a bad day at office </a></div><div class='home-main-article-writername'> By Ikram Khan</div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-article-heading'>SELFIE STAR BAGS RADHA SIGTIA TROPHY</div><div class='home-main-article-heading-link'><a href='FullReview.aspx?ReviewId=5193'>Forest Fairy Scores Second Successive Victory</a></div><div class='home-main-article-writername'> By Mahendra Mallya</div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-article-heading'>IN-FORM BOTSWANA BOLT WINS RACING PATRONS TROPHY</div><div class='home-main-article-heading-link'><a href='FullReview.aspx?ReviewId=5192'>Powerscourt drops biggest bombshell in final event</a></div><div class='home-main-article-writername'> By Ikram Khan</div>
+                                 
+                                    
+                                    <div style="color: #b31010; width:100px; float: right;margin-top:-10px;">
+                                        <a href="HomeArchive.aspx" style="color: #b31010; font-weight: bold; padding-left:30px;">
+                                        More &gt;&gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                 
+                    </div>
+                    <div id="Rightcondent_div" >
+                        <div id="Tv_div">
+                            <img alt="banner8" src="images/little_tv_24.png" />
+                            :: INDIARACE TV ::
+                        </div>
+                        <div>
+                        <!--object style="width:223px; height:165px;"><param name="movie" value="https://www.youtube.com/watch?v=3zvGbufpnC4&feature=player_detailpage"/><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="https://www.youtube.com/watch?v=3zvGbufpnC4&feature=player_detailpage" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"  width="223" height="165"/></object-->
+			<iframe src="https://www.youtube.com/embed/jNPSebdZ2pA" width="223px" height="165px" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                        <!--div style="width:223px; height:165px;background-image: url(iraceat/AtRacePlay.jpg); "-->  <!--disabled by ajit-->
+			
+			<!--a href="http://hellotv.in/play/livetv/At-The-Races_231099" target="_blank"-->
+			
+			<!--a href="http://www.indiarace.com/livehorserace.aspx"-->  <!--disabled by ajit-->
+				<!--img src="iraceat/AtRacePlay.jpg" width="223px" height="165px"-->  <!--disabled by ajit-->
+			<!--/a-->  <!--disabled by ajit-->
+                        <!--/div-->  <!--disabled by ajit-->
+
+                       
+                        <div id="Turfticker_div">
+                            <div align="center">
+                                <strong><font face="Verdana" size="2" color="#FFFFFF">:: TURF TICKER ::</font> </strong>
+                            </div>
+                        </div>
+                        <div id="marqueecontainer">
+                            <div id="vmarqueef">
+                                <iframe src="Text/AutoRefresh.aspx" width="200px" height="160px" frameborder="0"
+                                    scrolling="no"></iframe>
+                            </div>
+                        </div>
+                       
+                        </div>
+                    <div class="International_div" style=" background-color:#b31010;width:1002px;float:left;">
+                                                <strong><font face="Verdana" size="2" color="#FFFFFF" style="text-align: left">&nbsp; 
+                                                :: INDIAN RACING ::</font></strong> <strong style="margin-left:675px;"><font face="Verdana" size="2" color="#FFFFFF">:: LIVE CENTER ::</font> </strong>
+                    </div>
+                  
+                        <div id="Middle_left" style="vertical-align:top; ">
+                            
+          <div id="articles">
+<div>
+<ol id="toc">
+	<li><a class="inactive" href="#BANGALORE"><span>BANGALORE</span></a></li>
+	<li><a class="inactive" href="#MYSORE"><span>MYSORE</span></a></li>
+	<li><a class="inactive" href="#MUMBAI"><span>MUMBAI</span></a></li>
+	<!--li><a class="inactive" href="#PUNE"><span>PUNE</span></a></li-->
+	<li><a class="inactive" href="#HYDERABAD"><span>HYDERABAD</span></a></li>
+	<li><a class="inactive" href="#KOLKATA"><span>KOLKATA</span></a></li>
+	<li><a class="inactive" href="#CHENNAI"><span>CHENNAI</span></a></li>
+	<!--li><a class="inactive" href="#OOTY"><span>OOTY</span></a></li-->
+	<li><a class="inactive" href="#DELHI" ><span>DELHI</span></a></li>
+	<li><a class="inactive" href="#SRILANKA" ><span>SRILANKA</span></a></li>
+</ol>
+<div class="content inactive" id="BANGALORE">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			MAR 21</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			MAR 22</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			MAR 16</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="RaceCard.aspx?date=03/21/2018&amp;venue=bangalore"><span style="color:#ff0000;">RACE CARD</span></a><br />
+					<br />
+					<br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=bangalore">TRACK WORK</a><br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Acceptance.aspx?date=03/22/2018&amp;venue=bangalore"><span style="color:#ff0000;">ACCEPTANCES</span></a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/03/16&amp;Venue=BANGALORE">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<br />
+					<br />
+					<a href="fullvedio.aspx?venue=Bangalore&amp;date=03/16/2018">VIDEOS</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=bangalore" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=Bangalore&amp;season=BWS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Bangalore">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Bangalore" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Bangalore" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Bangalore" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Bangalore" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Bangalore2018.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<div class="content inactive" id="MYSORE">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			FEB 08</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			FEB 07</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			JAN 31</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2018/02/08&amp;Venue=MYSORE">RESULTS</a><br />
+					<br />
+					<a href="fullvedio.aspx?venue=Mysore&amp;date=2/08/2018">VIDEOS</a><br />
+					<br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Mysore">TRACK WORK</a></div>
+					<div class="actual_contents">
+						<span style="color:#ff0000;">&nbsp;</span><br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/02/07&amp;Venue=MYSORE">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/1/31&amp;Venue=MYSORE">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<a href="fullvedio.aspx?venue=Mysore&amp;date=2/07/2018">VIDEOS</a></div>
+				<div class="left_inner_contents">
+					<br />
+					<a href="fullvedio.aspx?venue=Mysore&amp;date=1/31/2018">VIDEOS</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Mysore" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=mysore&amp;season=YWS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Mysore">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Mysore" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Mysore" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Mysore" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Mysore" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/MYSPROSPETUS-2017.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<div class="content inactive" id="MUMBAI">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			MAR 23</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			MAR 25</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			MAR 18</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Handicaps.aspx?date=03/23/2018&amp;venue=mumbai"><span style="color:#ff0000;">HANDICAPS</span></a><br />
+					<br />
+					<br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Mumbai">TRACK WORK</a><br />
+						<br />
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor; border-image: none;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Handicaps.aspx?date=03/25/2018&amp;venue=mumbai"><span style="color:#ff0000;">HANDICAPS</span></a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/03/18&amp;Venue=MUMBAI">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<a href="fullvedio.aspx?venue=MUMBAI&amp;date=03/18/2018">VIDEOS</a><br />
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor; border-image: none;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Mumbai" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="horseratings.aspx?venue=MUMBAI&amp;season=MS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Mumbai">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Mumbai" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor; border-image: none;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Mumbai" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Mumbai" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Mumbai" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Mumbai2017.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<!--div class="content inactive" id="PUNE">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			OCT 29</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			OCT 28</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			OCT 15</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2017/10/29&amp;Venue=PUNE">RESULTS</a><br />
+					<br />
+					<a href="fullvedio.aspx?venue=Pune&amp;date=10/29/2017">VIDEOS</a><br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Pune">TRACK WORK</a></div>
+					<div class="actual_contents">
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2017/10/28&amp;Venue=PUNE">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2017/10/15&amp;Venue=PUNE">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<a href="fullvedio.aspx?venue=Pune&amp;date=10/28/2017">VIDEOS</a><br />
+					<br />
+					<a href="fullvedio.aspx?venue=Pune&amp;date=10/15/2017">VIDEOS</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Pune" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=Pune&amp;season=PMS2017" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Pune">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Pune" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Pune" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Pune" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Pune">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Pune2017.pdf">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div-->
+<div class="content inactive" id="HYDERABAD">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			MAR 02</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			MAR 01</div>
+		<div class="sub_dates">
+			FEB 26</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2018/03/02&amp;Venue=HYDERABAD">RESULTS</a><br />
+					<br />
+					<a href="fullvedio.aspx?venue=Hyderabad&amp;date=03/02/2018">VIDEOS</a><br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Hyderabad">TRACK WORK</a></div>
+					<div class="actual_contents">
+						<br />
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/03/01&amp;Venue=HYDERABAD">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/02/26&amp;Venue=HYDERABAD">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<a href="fullvedio.aspx?venue=Hyderabad&amp;date=03/01/2018">VIDEOS</a></div>
+				<div class="left_inner_contents">
+					<br />
+					<a href="fullvedio.aspx?venue=Hyderabad&amp;date=02/26/2018">VIDEOS</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor; border-image: none;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Hyderabad" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="horseratings.aspx?venue=HYDERABAD&amp;season=HWS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Hyderabad">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Hyderabad" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor; border-image: none;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Hyderabad" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Hyderabad" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Hyderabad">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Hyderabad2017.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<div class="content inactive" id="KOLKATA">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			MAR 20</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			MAR 17</div>
+		<div class="sub_dates">
+			MAR 10</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Racecard.aspx?date=03/20/2018&amp;venue=kolkata"><span style="color:#ff0000;">RACE CARD</span></a><br />
+					<br />
+					<a href="selection.aspx?date=03/20/2018&amp;venue=kolkata"><span style="color:#ff0000;">SELECTIONS</span></a><br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Kolkata">TRACK WORK</a></div>
+					<div class="actual_contents">
+						<a href="mediatips.aspx?date=03/20/2018&amp;venue=kolkata"><span style="color:#ff0000;">MEDIA TIPS</span></a><br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor; border-image: none;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/03/17&amp;Venue=KOLKATA">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/03/10&amp;Venue=KOLKATA">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<a href="fullvedio.aspx?venue=Kolkata&amp;date=03/17/2018">VIDEOS</a><br />
+					<br />
+					<a href="fullvedio.aspx?venue=Kolkata&amp;date=03/10/2018">VIDEOS</a><br />
+					<div class="actual_contents">
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor; border-image: none;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Kolkata" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="horseratings.aspx?venue=Kolkata&amp;season=LwS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Kolkata">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Kolkata" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor; border-image: none;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Kolkata" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Kolkata" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Kolkata">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Kolkata1718.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<div class="content inactive" id="CHENNAI">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			MAR 19</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			MAR 17</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			MAR 12</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2018/03/19&amp;Venue=CHENNAI">RESULTS</a><br />
+					<br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						TRACK WORK</div>
+					<div class="actual_contents">
+						<br />
+						<br />
+						<br />
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?date=03/17/2018&amp;venue=chennai">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?date=03/12/2018&amp;venue=chennai">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<br />
+					<br />
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Chennai" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=Chennai&amp;season=CSM1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Chennai">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Chennai" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Chennai" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Chennai" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Chennai" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Chennai1718.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<!--div class="content inactive" id="OOTY">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			JUN 16</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			JUN 15</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			JUN 09</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=16 ,JUN 2017&amp;Venue=OOTY">RESULTS</a><br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="TracksWithDate.aspx?TrackWorkCenter=Ooty">TRACK WORK</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=Jun 15, 2017&amp;Venue=OOTY">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=Jun 09, 2017&amp;Venue=OOTY">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<br />
+					<br />
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Ooty" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=Ooty&amp;season=Oot2017" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Ooty">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Ooty" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Ooty" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Ooty" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Ooty" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Ooty.pdf">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div-->
+<div class="content active" id="DELHI">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			FEB 06</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			FEB 01</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			JAN 30</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2018/02/06&amp;Venue=DELHI">RESULTS</a><br />
+					<br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="#">TRACK WORK</a></div>
+					<div class="actual_contents">
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/02/01&amp;Venue=DELHI">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2018/01/30&amp;Venue=DELHI">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<br />
+					<br />
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Delhi" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="http://indiarace.com/horseratings.aspx?venue=Delhi&amp;season=DS1718" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Delhi">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Delhi" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Delhi" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Delhi" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="#" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="#" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+<div class="content active" id="SRILANKA">
+  <div class="full_div">
+	<div class="dates_div">
+		<div class="Main_date">
+			SEP 17</div>
+		<div class="sub_dates" style="margin-top: 5px;">
+			AUG 20</div>
+		<div class="sub_dates" style="margin-top: 0px;">
+			APR 30</div>
+	</div>
+	<div class="inside_divs">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<a href="Results.aspx?Date=2016/09/17&amp;Venue=srilanka">RESULTS</a><br />
+					&nbsp;</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="#">TRACK WORK</a></div>
+					<div class="actual_contents">
+						&nbsp;</div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2016/08/20&amp;Venue=srilanka">RESULTS</a></div>
+					<div class="actual_contents">
+						<a href="Results.aspx?Date=2016/04/30&amp;Venue=srilanka">RESULTS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<br />
+					<br />
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="inside_divs" style="border: currentColor;">
+		<div class="whole_left_inner_contents">
+			<div class="inner_contents">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="RaceIncidents.aspx?RaceIncidentCenter=Srilanka" target="_parent">RACING INCIDENTS</a></div>
+					<div class="actual_contents">
+						<a href="horseratings.aspx?venue=srilanka&amp;season=slr2016" target="_parent">REVISED RATINGS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ResultArchiveWithVenue.aspx?ResultArchiveCenter=Chennai">RESULT ARCHIVE</a></div>
+					<div class="actual_contents">
+						<a href="Paternraces.aspx?venue=Chennai" target="_parent">MAJOR EVENTS</a></div>
+				</div>
+			</div>
+			<div class="inner_contents" style="border: currentColor;">
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="Jockey-Statistics.aspx?venue=Srilanka" target="_parent">JOCKEY STATISTICS</a></div>
+					<div class="actual_contents">
+						<a href="Trainer-Statistics.aspx?venue=Srilanka" target="_parent">TRAINER STATISTICS</a></div>
+				</div>
+				<div class="middle_line">
+					&nbsp;</div>
+				<div class="left_inner_contents">
+					<div class="actual_contents">
+						<a href="ReviewWithDate.aspx?ArticleCenter=Chennai" target="_parent">REVIEWS</a></div>
+					<div class="actual_contents">
+						<a href="prospectus/Chennaiporspectus.pdf" target="_parent">PROSPECTUS</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="need_hide">
+		<tbody>
+			<tr>
+				<td>
+					<span class="need_hide"><span style="color: rgb(179, 16, 16); font-family: verdana;">ALL INDIA</span> </span></td>
+				<td>
+					<a href="Calender.aspx" target="_parent">RACING FIXTURES</a></td>
+				<td>
+					<a href="MainRacingEvents.aspx" target="_parent">MAJOR EVENTS</a></td>
+				<td>
+					<a href="MoreHorseRating.aspx?venue=Mysore&amp;season=YRS11&amp;type=AllIndiaRating" target="_parent">RATINGS</a></td>
+				<td align="center" style="color: rgb(255, 240, 245); background-color: rgb(179, 16, 16);">
+					<a href="OddsCalculator.aspx" target="_parent"><span style="color: rgb(255, 240, 245);">BET CALCULATOR</span></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<link href="http://www.indiarace.com/css/center.css" rel="stylesheet" type="text/css" />
+</p>
+
+  </div>
+</div>
+
+<div id="container" style="overflow: hidden;width:780px; float:left;background: white;">
+    <div class="photobanner">
+    	<a href="#" target="_blank" style="text-decoration:none;"><img class="first" src="images/image-1.png" alt="" /></a>
+    	<!--a href="http://himalayanhorse.in/" target="_blank" style="text-decoration:none;"><img src="images/himalyan-horse-ad.gif" alt="" /></a-->
+    	<a href="http://www.nanolistud.com" target="_blank" style="text-decoration:none;"><img src="images/nanoli-ad.gif" alt="" /></a>
+    	<a href="http://www.manjristud.com/" target="_blank" style="text-decoration:none;"><img src="images/manjri.png" alt="" /></a>
+    	<a href="http://www.poonawallagroup.com/pfarm/" target="_blank" style="text-decoration:none;"><img src="images/poonawalla-ad.gif" alt="" /></a>
+    	<!--a href="http://www.rctconline.com/" target="_blank" style="text-decoration:none;"><img src="images/rctc-ad.gif" alt="rctconline" /></a-->
+    	<a href="http://www.kunigalstud.com" target="_blank" style="text-decoration:none;"><img src="images/kunigal-ad.gif" alt="" /></a>
+    	<!--a href="#"><img src="images/SSHG.jpg" alt="" /></a-->
+    	<!--a href="http://himalayanhorse.in/" target="_blank" style="text-decoration:none;"><img src="images/himalyan-horse-ad.gif" alt="" /></a-->
+    	<a href="http://www.nanolistud.com" target="_blank" style="text-decoration:none;"><img src="images/nanoli-ad.gif" alt="" /></a>
+    	<a href="http://www.manjristud.com/" target="_blank" style="text-decoration:none;"><img src="images/manjri.png" alt="" /></a>
+    	<a href="http://www.poonawallagroup.com/pfarm/" target="_blank" style="text-decoration:none;"><img src="images/poonawalla-ad.gif" alt="" /></a>
+    	<!--a href="http://www.rctconline.com/" target="_blank" style="text-decoration:none;"><img src="images/rctc-ad.gif" alt="rctconline" /></a-->
+    	<a href="http://www.kunigalstud.com" target="_blank" style="text-decoration:none;"><img src="images/kunigal-ad.gif" alt="" /></a>
+    	<a href="http://www.nanolistud.com" target="_blank" style="text-decoration:none;"><img src="images/nanoli-ad.gif" alt="" /></a>
+    	<!--img src="./Indiarace.com - india&#39;s first &amp; foremost horse racing portal_files/faf.jpg" alt="" /-->
+    	<!--img src="./Indiarace.com - india&#39;s first &amp; foremost horse racing portal_files/SSHG.jpg" alt="" /-->
+    </div>
+</div>
+
+</div>
+                    </div>
+                    <div id="Middle_right">
+                      <div id="Livecenter_contents" style="float:left;padding-top:10px;" >
+                            <div class="imagetext">
+                                <a class='style101' href='#'>Next Live Racing on 20th MARCH 2018 KOLKATA</a>
+                            </div>
+                        </div>
+                                              <div style="width: 223px; float:left;">
+                                            <div class="Left_bands">
+                                                <a href="http://horsetalk.indiarace.com/">
+                                                    <img style="border-style: none; width: 223px" alt="horsetalk" src="images/horse-talk.jpg" /></a></div>
+                                           
+                                          <div class="Left_bands">
+<a href="allarticles.aspx" style="text-decoration:none">
+<img src="images/guest-writer.jpg" alt="Guest Writer" style="border: none; text-decoration: none" /></a>
+</div>
+                                       
+
+<div class="Left_bands">
+
+<a href="SmsRegistration.aspx" class="icoMr" style="border: none; text-decoration: none">
+<img style="border-style: none; width: 223px" src="images/mobile.jpg" /></a>
+
+</div>
+
+                                            <div class="Left_bands">
+                                                  <div style=" width:50px; height:24px; float:left;margin-left:13px">
+                       <a href="https://www.facebook.com/indiaracedotcom" target="_blank" style=" text-decoration:none;">
+                     <img src="images/facebook.png" style=" border:none" alt="facebook" />
+                           </a>
+                        </div>
+                         <div style=" width:50px; height:24px; float:left;">
+                       <a href="https://twitter.com/indiaracedotcom" target="_blank" style=" text-decoration:none;">
+                     <img src="images/twitter.png" style=" border:none" alt="twitter" />
+                           </a>
+                        </div>
+                         <div style=" width:50px; height:24px; float:left;">
+                       <a href="http://www.youtube.com/indiaraceold" target="_blank" style=" text-decoration:none;">
+                     <img src="images/youtube.png" style=" border:none" alt="youtube" />
+                           </a>
+                        </div>
+                         <div style=" width:50px; height:24px; float:left;">
+                       <a href="https://www.instagram.com/indiaracedotcom" target="_blank" style=" text-decoration:none;">
+                     <img src="images/Instagram.png" style=" border:none" alt="Instagram" />
+                           </a>
+                        </div>
+                                                    </div>
+                                                   
+                                        </div>
+                    </div>
+                
+			<div class="International_div">
+				<strong><font face="Verdana" size="2" color="#FFFFFF" style="text-align: left">&nbsp;:: NEWS AROUND ::</font></strong>
+			</div>
+			<!--div id="Div1" style=" float:left; width:1002px; height: 143px;"-->
+			<div id="Div1" style=" float:left; width:1002px; height: 252px;overflow-y: hidden;overflow-x: hidden;">
+				<!--div style=" width:817px; float:left; height: 143px;"-->
+				<div style=" width:645px; float:left; height: 252px;">
+					
+<style type="text/css">
+    a:hover{text-decoration:none;color:#0873cd;}
+    #moreDiv
+    {
+    	font-family:Verdana;
+          padding-left:15px;    	
+        	color:Black;
+    	height:auto;
+    }
+.dontchangecolor
+{
+ background-color:#FFFFFF;	
+}
+.changecolor
+{
+ background-color:#fff;	
+}
+</style>
+<div class="mainDiv" style="width:645px;height:242px;">
+<div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv'>1. <a href='recentnews.aspx?Id=1183' style='color:#F8171D'>RWITC will be conducting four extra race day in April. The races will be conducted in the evening of April 21, 22, 28 and 29.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >2. <a href='recentnews.aspx?Id=1182'>The Stewards of Delhi Race Club have resolved to cancel the Delhi races scheduled to be held on Monday 19th March 2018 & Tuesday 20th March 2018, except the Royal Calcutta Turf Club Cup, the Indian Army Cup & the Master Racing Stud & Agri. Farm Cup which has been postponed to another date, which will be notified later.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >3. <a href='recentnews.aspx?Id=1181'>Mysore Race Club will be conducting IVB operations on all 7 races of Mumbai races on Thursday from 5 pm to 8:00pm.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >4. <a href='recentnews.aspx?Id=1180'>Bangalore races that was postponed from Friday 9th March will now be held on Wednesday 14th March 2018. The same card will hold good.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >5. <a href='recentnews.aspx?Id=1179'>Bangalore races are expected to be held as per schedule on Saturday, 10th March. The issues of the Tote employees are expected to be sorted out at a meeting that has been scheduled between Management and Tote operators.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >6. <a href='recentnews.aspx?Id=1178'>Friday's Bangalore races have been postponed. The fresh date will be announced in due course.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >7. <a href='recentnews.aspx?Id=1177'>The AGM of Madras Race Club that was scheduled for 19th March has been stayed by the National Law Tribunal, New Delhi</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >8. <a href='recentnews.aspx?Id=1176'>Fairytale ending for Juvenile Derby. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >9. <a href='recentnews.aspx?Id=1175'>Bookmakers to continue at Mysore Race Club: The Managing Committee of MyRC have decided to renew the contract with the bookmakers which had ended on 28th February.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >10. <a href='recentnews.aspx?Id=1174'>Serjeant At Arms finishes second to stablemate in first U.S. start. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >11. <a href='recentnews.aspx?Id=1173'>PBMM changed Indian racing. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >12. <a href='recentnews.aspx?Id=1172'>Glanders disease: HC says no horse races till further orders. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >13. <a href='recentnews.aspx?Id=1171'>RWITC to add 40 lacs to the Combined Jackpot Pool on PBMM day & the total expected pool to go upto over a crore!</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >14. <a href='recentnews.aspx?Id=1170'>There will be no inter venue betting at Mysore Race Club on Monday 19th and Tuesday 20th February 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >15. <a href='recentnews.aspx?Id=1168'>Madras Race Club will be conducting an extra race day on Wednesday, 28th February 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >16. <a href='recentnews.aspx?Id=1167'>Hyderabad Race Club will be conducting two extra days of racing on Thursday, 1st March 2018 and Friday, 2nd March 2018. Prospectus for the above two days will be published separately.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >17. <a href='recentnews.aspx?Id=1166'><a href="http://www.rctconline.com/cpannel/assets/uploads/slideshow-images/a372a-invitation-prospectus.pdf"><span style="color:#ff0000;">Indian Turf Invitation Cup weekend races will be held on March 3 and 4 at Kolkata. Click Here for Prospectus.... </span></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >18. <a href='recentnews.aspx?Id=1165'>Dr SC Jain Sprinters’ Trophy to be presented by governor. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >19. <a href='recentnews.aspx?Id=1164'>BTC will be conducting two extra days of racing on Wednesday, 21st march 2018 and Thursday, 22nd march 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >20. <a href='recentnews.aspx?Id=1163'>Rochester rules the roost. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >21. <a href='recentnews.aspx?Id=1162'>The Lady could take the Derby by storm. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >22. <a href='recentnews.aspx?Id=1161'>www.indiarace.com apologises for inconvenience. Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >23. <a href='recentnews.aspx?Id=1158'>Gun Runner (by Candy Ride (ARG) wins the Pegasus World Cup Invitational S. (G1) trained by Steven M. Asmussen and ridden by Florent Geroux. <a href="http://www.youtube.com/watch?v=4b2BsJWHUik">Click here for Video ....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >24. <a href='recentnews.aspx?Id=1157'>Due to bandh in Karnataka on Thursday 25th January 2018 the BTC and Mysore Race Club will not be conducting off-course betting on Mumbai races.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >25. <a href='recentnews.aspx?Id=1156'>Due to unsafe underfoot conditions the Steward’s of Delhi Race Club have resolved to postpone the remaining six races. The date will be notified in due course.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >26. <a href='recentnews.aspx?Id=1154'>Gallops has no rights to remain in race course’ Don’t Enter Premises: Arbitrator. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >27. <a href='recentnews.aspx?Id=1153'>The off course betting over Madras races at BTC have been cancelled due to a flash strike by the Tote operators.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >28. <a href='recentnews.aspx?Id=1152'>The High Court of Karnataka has ordered an interim Stay to the suspension awarded to trainer B Prithviraj by Mysore Race Club in respect to infringement of medication rules with regards to his charge Silver Ikon.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >29. <a href='recentnews.aspx?Id=1151'>The CM of Karnataka has okayed the monitoring committee of BTC and Racing will commence from Saturday 6th January. The Prospectus for   the first day has been released by BTC and the entries will take place today.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >30. <a href='recentnews.aspx?Id=1150'>BTC expects to commence offcourse betting operations on Friday with the winter season's first day of racing scheduled to start from Saturday.  BTC is confident about getting the licence today as apparently the CM has given his verbal consent & all that remains is to have the signed license “in hand”</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >31. <a href='recentnews.aspx?Id=1149'>Due to paucity of Acceptors. The Stewards of the Madras Race Club have resolved to Cancel the Eighteenth Day of Madras Races scheduled to be  held on Friday 5th January 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >32. <a href='recentnews.aspx?Id=1148'>Racing activity is finally set to commence at Bangalore. The committee as directed by the High Court to manage racing at Bangalore is almost finalised. Racing should start from the NEW YEAR once the 'Go Ahead' is given by the Chief Minister.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >33. <a href='recentnews.aspx?Id=1147'>The Appeals board of Mysore Race Club has rejected the appeal of trainer B Prithviraj in respect to infringement of medication rules with regard to his charge Silver Ikon. The suspension will now run from December 22, 2017 upto February 2, 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >34. <a href='recentnews.aspx?Id=1145'>Judge has directed license to be granted to BTC to conduct racing within 10 days. Read Order of the High Court of Karnataka...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >35. <a href='recentnews.aspx?Id=1143'>Advocate General proposed the body of Stewards be disbanded & replaced by 5 Govt. nominated Stewards to oversee racing. The BTC advocate said the board already had 3 Govt. nominated Stewards & the proposal was not acceptable. The judge then said that he would hear arguments for interim relief & pass orders on Thursday the 14th of Dec 2017.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >36. <a href='recentnews.aspx?Id=1141'>Government demands Rs 3 crore/month from DLF for MRC land. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >37. <a href='recentnews.aspx?Id=1140'>Kolkata Races scheduled to be held 9th December 2017 has been postponed due to inclement weather. The same has been now scheduled for 13th December Wednesday. The same Race Card will hold good.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >38. <a href='recentnews.aspx?Id=1139'>Mumbai races scheduled to be held on Sunday, 10th December 2017 has been cancelled.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >39. <a href='recentnews.aspx?Id=1138'>GST on race clubs: tax man eyes the jackpot. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >40. <a href='recentnews.aspx?Id=1137'>Mumbai races scheduled to be held on Thursday, 7th December 2017 has been cancelled due to incessant rains rendering the track inconducive for racing. Except The Royal Calcutta Turf Club Trophy, which will now be run on Sunday, 10th December 2017.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >41. <a href='recentnews.aspx?Id=1136'><a href="https://pbs.twimg.com/media/DQNfWtrUMAA1BnD.jpg">Order of the Karnataka High Court. Click here for view....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >42. <a href='recentnews.aspx?Id=1135'>The high court has asked the Karnataka government to consider appointing a committee to oversee the racing activities till the writ petition is disposed off. The court has intimated the government to respond before Dec 12 the next day fixed for hearing.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >43. <a href='recentnews.aspx?Id=1132'>The Writ of Mandamus filed by the BTC against the Government of Karnataka has been posted for hearing on Thursday, November 23, 2017.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >44. <a href='recentnews.aspx?Id=1130'>The resolution was defeated by a majority vote against giving 50 memberships to the Govt of Karnataka. The BTC shall be approaching the Hon’ble High Court & filing a Writ Petition on November 16, 2017 for restoring the license to race & maintaining status quo.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >45. <a href='recentnews.aspx?Id=1129'>TN govt. targets sports bodies. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >46. <a href='recentnews.aspx?Id=1128'>Trainer Manvendra Singh has been suspended from November 5th, 2017 to December 4th, 2017 by RCTC Stewards. Trainer Manvendra Singh has been fined a sum of Rs. 15000 for a drug offence in respect of his charge Fortune Express positive findings of PROCAINE.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >47. <a href='recentnews.aspx?Id=1127'>Madras races scheduled to be held on 15th and 18th November 2017 has been cancelled due to paucity of entries.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >48. <a href='recentnews.aspx?Id=1126'><a href="https://www.racingpost.com/results/297/flemington/2017-11-07/683547">Rekindling wins the Emirates Melbourne Cup (Gr.1) trained by Joseph Patrick O' Brien and ridden by Corey Brown. Joseph Patrick O' Brien became the youngest ever winning trainer in the race at age 24.Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >49. <a href='recentnews.aspx?Id=1123'>Breeders Cup 2017 Saturday Results. Click Here.....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >50. <a href='recentnews.aspx?Id=1122'>Breeders Cup 2017 Friday Results. Click Here.....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >51. <a href='recentnews.aspx?Id=1119'>Time running out, BTC must get off high horse. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >52. <a href='recentnews.aspx?Id=1118'>End of race for Bangalore Turf Club in November? read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >53. <a href='recentnews.aspx?Id=1117'>Qipco British Champions day series results Saturday, October 21st at Ascot Racecourse. Click here for full results....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >54. <a href='recentnews.aspx?Id=1116'>Fouaad Mirza does India proud. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >55. <a href='recentnews.aspx?Id=1115'>Question mark over winter races at Bangalore Turf Club. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >56. <a href='recentnews.aspx?Id=1114'>Redzel (by Snitzel (AUS) wins the World's Richest Race The Everest, trained by Peter & Paul Snowden & ridden by Kerrin McEvoy. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >57. <a href='recentnews.aspx?Id=1113'>Indian Sensation to Join Motion Barn. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >58. <a href='recentnews.aspx?Id=1106'>Classic-winning jockey Jimmy Fortune has decided to hang up his boots after a successful thirty-year career during which he also rode with considerable success in India winning the Indian Derby [Super Storm 2013 & Star Supreme 1998] and the Indian Turf Invitation Cup [Ministerial 1997]</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >59. <a href='recentnews.aspx?Id=1105'>Veteran trainer SM Shah passed away in Bangalore this morning, 6th October 2017. Indiarace offers it's condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >60. <a href='recentnews.aspx?Id=1100'><a href="https://www.racingpost.com/results/204/chantilly/2017-10-01/682788">Enable wins the Qatar Prix de l'Arc de Triomphe (Gr.1). Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >61. <a href='recentnews.aspx?Id=1099'>P. Trevor had his first winner at the Sunshine Coast in Australia on NO ANIMOSITY.<a href="https://www.youtube.com/watch?v=FBGtUIQIM5o&amp;feature=youtu.be"><span style="color:#ff0000;">Click here for videos.....</span></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >62. <a href='recentnews.aspx?Id=1098'>Mr V Harimohan Naidu has been elected Chairman of Bangalore Turf Club Ltd.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >63. <a href='recentnews.aspx?Id=1096'>Results of BTC Elections: Stewards - Mr. Mahendra Kugashankar  (175), Mr. V.Harimohan Naidu  (162), A.C.Satish Chandra  (159). Committee Members - Mr.T.H.R.Rajeev  (198), Mr. K.Jayaram (180).</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >64. <a href='recentnews.aspx?Id=1094'>Jockey RJ Hannam who had nasty fall in the first race at Hyderabad on Monday, has reportedly suffered a fracture of his ankle, will be out of action for about two months.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >65. <a href='recentnews.aspx?Id=1093'>Jockey A Sandesh sustained a fracture of the left shoulder earlier today after he had a fall during morning work at Pune. He will be operated tomorrow and is likely to be out of the saddle for about 3 months.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >66. <a href='recentnews.aspx?Id=1092'>Veteran Trainer B. Puttanna passed away in Bangalore on Thursday 14 September. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >67. <a href='recentnews.aspx?Id=1091'>RWITC 102nd AGM Committee Election Result. Click Here for full Results....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >68. <a href='recentnews.aspx?Id=1090'>Order of St George (IRE) (by Galileo (IRE)) wins the Irish St.Leger Gr.1 trained by Aiden O'Brien and ridden by Ryan More.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >69. <a href='recentnews.aspx?Id=1089'>Jockey P Trevor finished second on Star Poker in Australia. <a href="http://mediarq.skyracing.com.au/Race_Replay/2017/09/20170910SUNR01_V.mp4">Click here for the video&hellip;.</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >70. <a href='recentnews.aspx?Id=1088'><a href="https://www.racingpost.com/racecards/178/curragh/2017-09-10/677739">View the race card of Irish St. Leger (Gr.1) run at Currage (IRE) on September 10th, 2017. Click here for full card....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >71. <a href='recentnews.aspx?Id=1086'>All the managing committee members of BTC except the former Chairman Harinder Shetty and the Government nominees have resigned on the eve of the special general body meeting on Tuesday. The members of the club will now need to elect an interim Chairman tomorrow. BTC CEO Nirmal Prasad has also followed suit and resigned.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >72. <a href='recentnews.aspx?Id=1085'>Mr. G.Venkatesh has been elected Chairman of the Mysore Race Club. Results of the elections: Stewards -Mr. B.U. Chengappa and Dr. N. Nithyanda Rao Committee Members - Mr. Shankar Rao and Mr. K.N. Suresh  Kumar.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >73. <a href='recentnews.aspx?Id=1084'>Champion Indian jockey to spice up Queensland riding ranks. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >74. <a href='recentnews.aspx?Id=1081'><a href="https://www.racingpost.com/results/107/york/2017-08-25/678373">Marsha by Acclamation wins the Coolmore Nunthorpe Stakes (Gr.1) at York. Trained by Sir Mark Prescott Bt &amp; ridden by Luke Morris. click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >75. <a href='recentnews.aspx?Id=1080'>Jockey Trevor Patel completes riding his 1000th winner astride Turf Star in The K.T.Shamaiah Gowda Memorial Trophy at Mysore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >76. <a href='recentnews.aspx?Id=1079'><a href="https://www.racingpost.com/results/107/york/2017-08-24/678372">Enable by Nathaniel(IRE) wins the Darley Yorkshire Oaks (Gr.1) at York. Trained by John Gosden &amp; ridden by Frankie Dettori. Wonder filly Enable fifth straight victory in great style. click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >77. <a href='recentnews.aspx?Id=1078'><a href="https://www.racingpost.com/results/107/york/2017-08-23/678371">Ulysses (IRE) (by Galileo(IRE) wins the Juddmonte International Stakes (Gr.1) at York. Trained by Sir Michael Stoute &amp; ridden by Jim Crowley. Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >78. <a href='recentnews.aspx?Id=1076'>Jockey Yash Narredu wins at Selangor, Malaysia on Military Star. <a href="https://www.youtube.com/watch?v=_vaJBKzdJ4U&amp;feature=youtu.be">Watch the race....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >79. <a href='recentnews.aspx?Id=1075'>Jockey Yash Narredu to ride at Malaysia’s International Racing Carnival….read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >80. <a href='recentnews.aspx?Id=1074'>UK Trainer’s Racehorse Fails Dope Test After Embarrassing “Leak”. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >81. <a href='recentnews.aspx?Id=1073'>Punters seek relief from 28 per cent GST. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >82. <a href='recentnews.aspx?Id=1071'>Roderic O’Connor was declared Champion Sire in Brazil and his son Voador Magee was declared champion 3yo colt in Brazil.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >83. <a href='recentnews.aspx?Id=1070'><a href="https://www.racingpost.com/results/21/goodwood/2017-08-03/678367">Winter (IRE) (by Galileo (IRE) wins the Qatar Nassau Stakes (Gr.1) (British Champions Series)  Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >84. <a href='recentnews.aspx?Id=1069'><a href="https://www.racingpost.com/results/21/goodwood/2017-08-02/676080">Here Comes When by Danehill Dancer(IRE) wins the Qatar Sussex Stakes (Gr.1) (British Champions Series). Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >85. <a href='recentnews.aspx?Id=1068'><a href="https://www.racingpost.com/results/2/ascot/2017-07-29/677121">Enable by Nathaniel(IRE) wins the King George VI Queen Elizabeth Stakes Gr.1. Outstanding filly! Click here for full results</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >86. <a href='recentnews.aspx?Id=1067'>Desert God finishes 4th in the John Guest Jack Handicap at Ascot. <a href="https://www.youtube.com/watch?v=WEvk-0BiFxA">Watch the race here..... </a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >87. <a href='recentnews.aspx?Id=1063'>PRESS CONFERENCE - Pune Season 2017 Read more….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >88. <a href='recentnews.aspx?Id=1062'>Abel Tasman (by Quality Road) wins the Coaching Club American Oaks (Gr.1). Trained by Bob Baffert & ridden by Mike E. Smith. Abel Tasman third consecutive grade 1 victory in her career.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >89. <a href='recentnews.aspx?Id=1061'><a href="https://www.racingpost.com/results/219/saint-cloud/2017-07-14/680827">Shakeel (FR) by Dalakhani(IRE) wins the Juddmonte Grand Prix de Paris Gr.1 trained by A De Royer-Dupre &amp; ridden by Christophe Soumillon. click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >90. <a href='recentnews.aspx?Id=1060'><a href="https://www.racingpost.com/results/174/newmarket-july/2017-07-15/674179">Harry Angel (IRE) by Dark Angel(IRE)wins Darley July Cup Stakes (Gr.1) trained by Clive Cox &amp; ridden by Adam Kirby. Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >91. <a href='recentnews.aspx?Id=1059'><a href="https://www.racingpost.com/results/178/curragh/2017-07-15/662836">Enable by Nathaniel(IRE) wins Darley Irish Oaks (Gr.1) trained by John Gosden &amp; ridden by Frankie Dettori. Click here for full results....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >92. <a href='recentnews.aspx?Id=1057'>Legendary Trainer Mr. R.R. Byramji retires …. Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >93. <a href='recentnews.aspx?Id=1056'>Ulysses (IRE) (by Galileo (IRE)) wins the CORAL-ECLIPSE (G1) Trained by Sir Michael Stoute & ridden by Jim Crowley. <a href="https://www.racingpost.com/results/54/sandown/2017-07-08/674796">Click here for full results.....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >94. <a href='recentnews.aspx?Id=1055'>Zenon out of Indian champion mare Jacqueline wins again at Haydock (UK)</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >95. <a href='recentnews.aspx?Id=1054'>Tart doubly delighted as Princess crowns unforgettable day. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >96. <a href='recentnews.aspx?Id=1053'>State government issues racing licence to RWITC. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >97. <a href='recentnews.aspx?Id=1052'>PRESS CONFERENCE - Kolkata Monsoon Meeting 2017 Click Here....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >98. <a href='recentnews.aspx?Id=1051'>Capri (IRE) (by Galileo (IRE)) wins the DUBAI DUTY FREE IRISH DERBY (G1) Trained by Aiden O''Brien and ridden by Seamus Heffernan.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >99. <a href='recentnews.aspx?Id=1050'>Bangalore Turf Club struggles to solve GST puzzle. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >100. <a href='recentnews.aspx?Id=1049'>Clubs to implement GST under protest. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >101. <a href='recentnews.aspx?Id=1047'>Bangalore Turf Club Ltd., will be introducing the third horse pool, where the backers has to nominate the horse which finishes 3rd in that particular race. the above pool will come into force from Wednesday, 28th June 2017.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >102. <a href='recentnews.aspx?Id=1046'>Bangalore Summer Meeting Prospectus (upto Kingfisher Bangalore Derby) <a href="https://www.bangaloreraces.com/NoticeUpdatesView.aspx?nid=1131">Click Here</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >103. <a href='recentnews.aspx?Id=1045'>The Tin Man by Equiano (FR) wins the Diamond Jubilee Stakes Gr.1 at Royal Ascot. <a href="https://www.racingpost.com/results/2/ascot/2017-06-24/672882">Click here for full results.....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >104. <a href='recentnews.aspx?Id=1043'>View Royal Ascot Results 23rd June 2017 - Day-4. Click here for full results..... </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >105. <a href='recentnews.aspx?Id=1041'>Big Orange by Duke Of Marmalade (IRE) wins Gold Cup (Gr.1) at Royal Ascot. <a href="https://www.racingpost.com/results/2/ascot/2017-06-22/672879">Click here for full results.....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >106. <a href='recentnews.aspx?Id=1039'>Highland Reel by Galileo (IRE) wins the Prince Of Wales&#39;s Stakes (Gr.1) at Royal Ascot. <a href="https://www.racingpost.com/results/2/ascot/2017-06-21/672878">Click here for full results.....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >107. <a href='recentnews.aspx?Id=1037'>View Royal Ascot Results 20th June 2017 - Day-1. Click here for full results..... </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >108. <a href='recentnews.aspx?Id=1036'>28% GST on horse races to hit clubs. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >109. <a href='recentnews.aspx?Id=1035'>Former leading jockey “Barney” Woods passes away… Read more….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >110. <a href='recentnews.aspx?Id=1032'>Tapwrit (by Tapit) win the Belmont Stakes presented by NYRABets (Gr.1). Click here for full results....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >111. <a href='recentnews.aspx?Id=1030'>Champion Jacqueline's son ZENON by Galileo wins in England. Read more ….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >112. <a href='recentnews.aspx?Id=1029'>BTC has obtained License to conduct racing for the entire Summer Season till August.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >113. <a href='recentnews.aspx?Id=1028'>BTC has received the license to conduct inter venue betting over Mysore races on Wednesday 7th June.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >114. <a href='recentnews.aspx?Id=1023'>Wings of Eagles (FR) (by Pour Moi (IRE)) wins the Investec Derby (G1) trained by Aiden o'Brien and ridden by Padraig Beggy </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >115. <a href='recentnews.aspx?Id=1021'>Enable (Gb) (By Nathaniel (IRE) Wins The Investec Oaks (G1). click here for full results……</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >116. <a href='recentnews.aspx?Id=1020'>Bangalore races scheduled for Saturday June 3, 2017 and Sunday june 4, 2017 have been cancelled.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >117. <a href='recentnews.aspx?Id=1018'>Winter (IRE) (by Galileo (IRE) wins the Tattersalls Irish 1000 Guineas (G1) click here for full results……</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >118. <a href='recentnews.aspx?Id=1017'>Churchill (IRE) (by Galileo (IRE)) wins the Tattersalls Irish 2000 Guineas (Gr.1). Click here for full results......</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >119. <a href='recentnews.aspx?Id=1011'>Cloud Computing (by Maclean's Music) wins the Preakness S. (G1)....Click here for Results</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >120. <a href='recentnews.aspx?Id=1010'>GST may draw a finish line for Bangalore Turf Club   Read more ..... </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >121. <a href='recentnews.aspx?Id=1008'>PRESS CONFERENCE - BANGALORE SUMMER MEETING 2017 <a href="https://www.bangaloreraces.com/NoticeUpdatesView.aspx?nid=1035">Click Here</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >122. <a href='recentnews.aspx?Id=1007'>Always Dreaming (by Bodemeister) wins the Kentucky Derby Presented by Yum! Brands (G1), trained by Todd A. Pletcher and ridden by John R. Velazquez</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >123. <a href='recentnews.aspx?Id=1006'>Churchill (IRE) (by Galileo (IRE)) wins the QIPCO 2000 GUINEAS STAKES (G1), trained by Aidan O'Brien ridden by Ryan Moore</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >124. <a href='recentnews.aspx?Id=1004'>The following have been granted ‘A’ Trainer’s License under BTC Rules of Racing.   1.   NEIL B. DEVANEY 2.   PRAVEEN JESU 3.   DHEERAJ VENKATASWAMY 4.   M. RAJENDRA SINGH 5.   PARVATI BYRAMJI 6.   K.P.G. APPU</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >125. <a href='recentnews.aspx?Id=1003'>Mr Y Jagganath elected Chairman of BTC after the removal of Mr Harindra Shetty.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >126. <a href='recentnews.aspx?Id=1000'>Prospectus for Ooty Season 2017 <a href="http://www.madrasraceclub.com/mrc/NewsEventsView/155">Click Here</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >127. <a href='recentnews.aspx?Id=999'>The Board of Appeal of BTC has rejected the appeal of trainer R.V.Manohar as regards Drug Positive in respect of his charge Royal Rey and he remains a disqualified person from 1st April 2017 to 28th Feb. 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >128. <a href='recentnews.aspx?Id=998'>Arrogate, best horse in the world trained by Bob Baffert and ridden by Mike Smith, wins the $10-million Dubai World Cup in great style. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >129. <a href='recentnews.aspx?Id=997'>World’s best horse Arrogate, leads Dubai World Cup lineup. Read more...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >130. <a href='recentnews.aspx?Id=989'>Cherish Life, Swing To The Beatles &amp; Feel Good Too! <a href="http://indiarace.com/FullReview.aspx?ReviewId=4827">Read more....</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >131. <a href='recentnews.aspx?Id=985'>Dubai Horse Racing Carnival Enters The Final Leg. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >132. <a href='recentnews.aspx?Id=979'>The Champagne stakes at RCTC was marred by a nasty accident involving three top Jockeys. While David Allan escaped without injury, Zervan fractured his left leg and T S Jodha broke an arm.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >133. <a href='recentnews.aspx?Id=976'>Desert God: Destination Dubai-Part-2....<a href="https://www.youtube.com/watch?v=1Q5nxwpWi0c&feature=youtu.be">Click Here for Video</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >134. <a href='recentnews.aspx?Id=975'>View the Madras Race Club Auction Sale Catalogue 2017.....<a href="http://www.indiarace.com/Prospectus/Combined%20Madras%20Race%20Club.pdf">Click here</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >135. <a href='recentnews.aspx?Id=974'>Desert God: Destination Dubai....<a href="https://www.youtube.com/watch?v=5PxYanWZdNs">Click Here for Video</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >136. <a href='recentnews.aspx?Id=973'>Turf Authorities delegation meets Finance Minister. Read more …</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >137. <a href='recentnews.aspx?Id=966'>BTC issues Show Cause Notices to Jockeys. Read more .....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >138. <a href='recentnews.aspx?Id=964'>BTC issues Show Cause Notice to Jockey Y S Srinath. Read more ..... </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >139. <a href='recentnews.aspx?Id=962'>Jockey Y. S. Srinath has been suspended by the Stewards of BTC for his misconduct during the Stewards enquiry from 12th Dec. to 30th December 2016 and fined a sum of Rs. 25000.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >140. <a href='recentnews.aspx?Id=961'>Desert God heads to Dubai: The Champion Horse of the Indian Racing Circuit Desert God will be participating in the Dubai Racing Carnival this year on invitation.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >141. <a href='recentnews.aspx?Id=960'>The Appeal board of Mysore Race Club has rejected the appeals of trainer Vikram Appachu and jockey P. Kiran Rai. Their license now stands suspended from 26th Nov. 2016 upto 24th May 2017. Further the board has fined Vikram Appachu Rs. 30000 and Kiran Rai Rs. 15000.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >142. <a href='recentnews.aspx?Id=958'>The High Court of Karnataka has granted stay for 10 days to enable Mysore Race Club to file objections against the notice issued by the PWD department.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >143. <a href='recentnews.aspx?Id=957'>RWITC likely to allow betting through cards</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >144. <a href='recentnews.aspx?Id=950'>Highland Reel (IRE) wins the Longines Breeders' Cup Turf (Gr.1). Click here for full results…</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >145. <a href='recentnews.aspx?Id=949'>Arrogate (by Unbridled's Song) wins the Breeders' Cup Classic (Gr.1) trained by Bob Baffert & ridden by Mike E. Smith. Arrogate is the 5th Breeders Cup winner sired by Unbridled's Song. Jockey Mike Smith wins his 25th Breeders Cup race with Arrogate. California Chrome undefeated in six starts in 2016 including the Gr.1 Dubai World Cup finishes second one & half length behind the winner.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >146. <a href='recentnews.aspx?Id=946'>Trainer K Somashekar has been suspended from November 16, 2016 to January 15, 2017 by MYRC. Trainer B K Narendra has been fined a sum of Rs. 20000 for a drug offence in respect of his charge Zizzi.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >147. <a href='recentnews.aspx?Id=945'>The Licence of Trainer Vikram Appachu has been withdrawn till March 31, 2017 by MYRC for contravening Rule No. 114 & 202 (VI) in respect to Ireland in Race No. 120.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >148. <a href='recentnews.aspx?Id=944'>The Licence of Jockey P Kiran Rai has been withdrawn till March 31, 2017 by MYRC for contravening Rule No. 159 & 202 (VI) in respect to Ireland in Race No. 120.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >149. <a href='recentnews.aspx?Id=942'>Ms Patrizia Norelli-Bachelet, passes away. Read more ….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >150. <a href='recentnews.aspx?Id=939'>Trainer M.V.Narayana Rao passed away at Hyderabad on Sunday night. indiarace.com offers its heartfelt condolences to his bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >151. <a href='recentnews.aspx?Id=938'>Horse Power magazine now on sale at Hyderabad Race Club. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >152. <a href='recentnews.aspx?Id=935'>Mahalaxmi race course could soon gallop out of uncertainty. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >153. <a href='recentnews.aspx?Id=934'>Bangalore Turf Club Committee Elections 2016 Results. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >154. <a href='recentnews.aspx?Id=929'>RWITC has agreed to provide signals of its races for BTC and Mysore Race Club until the end of Pune season without any pre-condition. Negotiations will be continued to resolve the vexed issue of Royalty. A broad consensus appears to have been reached at the meeting held between the two clubs held at Mumbai on Friday. BTC is waiting for the letter form RWITC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >155. <a href='recentnews.aspx?Id=924'>Fall of Jockeys in Pune. Unfortunately Jockey Amyn Merchant has broken his shoulder and Jockey Yash Narredu has broken his wrist after today’s horrible accident. Jockey R Ajinkya and Kavraj Singh are reported to be out of danger and are under observation. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >156. <a href='recentnews.aspx?Id=921'>Mr. H.S. Dhillon passes away. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >157. <a href='recentnews.aspx?Id=919'>Rajasthan man buys a horse for Rs 1.11 crore. Buying a Jeep Cherokee? Neigh! Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >158. <a href='recentnews.aspx?Id=916'>Press note from RWITC LTD regarding royalty issue with BTC Ltd....Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >159. <a href='recentnews.aspx?Id=908'>Watch Chinese Racing Live on Neo Sports at 3pm. Read more...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >160. <a href='recentnews.aspx?Id=907'>Veteran Trainer B. Puttanna has decided to retire from training. Having started his career in 1971 he has saddled over 1200 winners. Indiarace wishes him a Happy retired life.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >161. <a href='recentnews.aspx?Id=906'>UK trainers targeted in
+$7m Indian sales scam. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >162. <a href='recentnews.aspx?Id=904'>BURDEN OF PROOF has passed away. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >163. <a href='recentnews.aspx?Id=894'>A &quot;must have&quot; book for every horse racing enthusiast. <a href="http://www.kunigalstud.com/Marq/FINAL%20-%20HORSE%20RACING%20IN%20INDIA-%20BROCHURE.pdf">Click here</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >164. <a href='recentnews.aspx?Id=893'>Harzand (IRE) (by Sea The Stars (IRE)) wins the Dubai Duty Free Irish Derby (Gr.1), trained by Weld Dermot & ridden by Patj Smullen.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >165. <a href='recentnews.aspx?Id=892'>Royal Ascot Results 17th June 2016 - Day 4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >166. <a href='recentnews.aspx?Id=891'>Royal Ascot Results 16th June 2016 - Day 3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >167. <a href='recentnews.aspx?Id=890'>Royal Ascot Results 15th June 2016 - Day 2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >168. <a href='recentnews.aspx?Id=889'>Royal Ascot Results 14th June 2016 - Day 1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >169. <a href='recentnews.aspx?Id=888'>EXCELLENT ART hits Gold! Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >170. <a href='recentnews.aspx?Id=887'>Creator the grey son of Tapit wins the Belmont Stakes Gr.1 by a nose. Trained by Steve Asmussen & ridden by Irad Ortiz, is Asmussen's first in the Belmont Stakes. <a href="https://www.youtube.com/watch?v=2HCCpwsJb7I">Click here for the video.</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >171. <a href='recentnews.aspx?Id=886'>View the results of the Investec Derby (Gr.1). Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >172. <a href='recentnews.aspx?Id=885'>Minding wins the Investec Oaks.Read more….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >173. <a href='recentnews.aspx?Id=883'>View the results of the 141st Preakness Stakes Gr.1 2016 Saturday 21st May 2016. Read more.... <a href="https://www.youtube.com/watch?v=OJF8qPoCV_Y">Click here for videos</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >174. <a href='recentnews.aspx?Id=882'>Jockey P Trevor who had a fall on Sheryl in the six race has reportedly suffered a wrist fracture, will be out of action for about two months.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >175. <a href='recentnews.aspx?Id=877'>Nyquist, three year old son of Uncle Mo, lands the Kentucky Derby Gr.1, trained by Doug F. O'Neill & ridden by Mario Gutierrez. <a href="https://www.youtube.com/watch?v=ZstnjDJjP0g">Click here for the video.</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >176. <a href='recentnews.aspx?Id=876'>View the results of Kentucky Oaks Gr.1 2016 Friday 6th May 2016. Read more....<a href="https://www.youtube.com/watch?v=ODGwNXPxsZ4">Click here for the video.</a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >177. <a href='recentnews.aspx?Id=875'>View the results of Qipco 1000 Guineas 2016 Sunday 1st May 2016. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >178. <a href='recentnews.aspx?Id=874'>View the results of Qipco 2000 Guineas 2016 Saturday 30th April 2016. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >179. <a href='recentnews.aspx?Id=872'>Gurdip Singh Sidhu passes away. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >180. <a href='recentnews.aspx?Id=871'>Nirmal Prasad, former Secretary, Bangalore Turf Club felicitated. Read more ….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >181. <a href='recentnews.aspx?Id=870'>Jockey Srikant Kamble who had a fall on Rising Concert in the sixth race of the day at Mumbai on Sunday has reportedly suffered a collar bone fracture. Veteran jockey I Pasha who had a fall on The Big Revival in the same race he is in critical condition & he is to undergo a major surgery this evening. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >182. <a href='recentnews.aspx?Id=869'>Kunigal Stud Magic Million with a Lankan twist. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >183. <a href='recentnews.aspx?Id=868'>California Chrome (by Lucky Pulpit), wins the Dubai World Cup 2016, trained by Art Sherman & ridden by Victor Espinoza. watch Dubai World Cup Video <a href="https://www.youtube.com/watch?v=R2ihAGhZ9K4">Click Here</a>  </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >184. <a href='recentnews.aspx?Id=866'>Jockey B Harish has been granted a stay by the court against his suspension by the Stewards of MRC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >185. <a href='recentnews.aspx?Id=864'>After finishing a gallant second in the Invitation Cup, Quasar now retires to take up Stallion duties at Ruia Stud.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >186. <a href='recentnews.aspx?Id=862'> 	Angel Dust has been declared winner of the 1000 Guineas at Bangalore, as Starlet has tested positive.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >187. <a href='recentnews.aspx?Id=861'>The appeal of jockey B.Harish has been considered by the Appeal Board of MRC and the suspension of one year has been reduced by six months.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >188. <a href='recentnews.aspx?Id=860'>The threshold limit of TDS on winnings from betting in racing has been increased from Rs.5000 to Rs. 10,000 in the Union Budget 2016.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >189. <a href='recentnews.aspx?Id=858'>Jockey Srikanth Kamble one year suspension has been reduced to six days for his riding on Vicious Circle by the appeal board of BTC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >190. <a href='recentnews.aspx?Id=856'>Medication Regulation the Hot Topic at NHBPA Convention's. Read more.....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >191. <a href='recentnews.aspx?Id=854'>Mehta's casting vote on Jadhav raises eyebrows. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >192. <a href='recentnews.aspx?Id=853'>BoA decision leaves Jadhav, Shah devastated. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >193. <a href='recentnews.aspx?Id=852'>RWITC’s zero tolerance policy remains hazy. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >194. <a href='recentnews.aspx?Id=850'>Jockey B Harish has been suspended for one year. 1st Feb 2016 to 2017 by the MRC Stewards, for his ride on Arrete. Jockey Afsar Khan's appeal has been rejected by MRC. The suspension will be with immediate effect. He was earlier suspended for one year.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >195. <a href='recentnews.aspx?Id=847'>Veteran Trainer SS Shah incurs 30 days suspension for Vicarious liability following his horse Soul Centric testing positive for banned substance.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >196. <a href='recentnews.aspx?Id=846'>Hong Kong Racehorse Drug Positives Due to Contaminated Feed Read More ….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >197. <a href='recentnews.aspx?Id=845'>Pesi Shroff’s case in High Court has been adjourned from 11 January to 29 January 2016.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >198. <a href='recentnews.aspx?Id=841'>Trainer P. Shroff has been granted a Stay by the Court in Mumbai against his suspension by the Stewards of RWITC. The matter has been posted for further arguments on Jan 11, 2016.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >199. <a href='recentnews.aspx?Id=840'>Trainer P. Shroff takes RWITC to Court. Read more ...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >200. <a href='recentnews.aspx?Id=839'>Jockey DK Aashish sustains fatal fall in Kolkata. Succumbs to severe injury to the brain after falling off his mount. Funeral will be at Fatima Nagar in Pune on 22nd. Indiarace offer their heartfelt condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >201. <a href='recentnews.aspx?Id=838'>Jockey DK Ashish who had a bad fall in the Kolkata Oaks, is in critical condition.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >202. <a href='recentnews.aspx?Id=837'>BOA rejects Shroff's appeal. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >203. <a href='recentnews.aspx?Id=836'>Trainer Shroff gets no relief from BOA. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >204. <a href='recentnews.aspx?Id=835'>Jockey Afsar Khan has been suspended for one year by the Stewards of MRC for his ride on storming home.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >205. <a href='recentnews.aspx?Id=834'>Appeal rejected.Trainer Pesi shroff’s suspension starts on 21st Dec. Appeal board gives him reprive for Rs 50000 fine but confirms 3 month suspension.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >206. <a href='recentnews.aspx?Id=833'>Mr Wayne Wood, Director of Racing, resigns from his post at the Bangalore Turf Club.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >207. <a href='recentnews.aspx?Id=832'>Jockey P Trevor keeps the Indian flag high in Mauritius rides ROVENTAS to victory.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >208. <a href='recentnews.aspx?Id=830'>Racing Baron Dr MAM Ramaswamy passed away on the evening of Wednesday December 2 after a brief illness, He was 84. Indiarace & its patrons offer their heartfelt condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >209. <a href='recentnews.aspx?Id=829'>Trainer Altamash's appeal partially allowed. Punishment reduced to 13 months from 17 months. Permitted to visit stables.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >210. <a href='recentnews.aspx?Id=828'>Trainer M K Jadhav's appeal against his suspension for 90 days has been rejected. Pesi's appeal deferred and will be heard on December 11.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >211. <a href='recentnews.aspx?Id=827'>Mallya Steps In To Save Indian Derby. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >212. <a href='recentnews.aspx?Id=824'>Starlet trained by S Dominic has tested positive for a category 3 drug in the Bangalore 1000 Guineas. The confirmatory sample is yet to be tested.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >213. <a href='recentnews.aspx?Id=823'>A LEGACY OF CHAMPIONS by Major Srinivas Nargolkar (Retd.) Read more …</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >214. <a href='recentnews.aspx?Id=822'>Trainer Altamaash A. Ahmed has been suspended for 17 months as three of his horses (Alaindair, An Acquired Taste and Astapi) tested  positive for Steroid. He can appeal against the suspension.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >215. <a href='recentnews.aspx?Id=821'>Racing Baron Dr. M.A.M. Ramaswamy has been hospitalised in Chennai for liver ailment. He has been shifted to I.C.U. in Fortis Malar Hospital.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >216. <a href='recentnews.aspx?Id=817'>Pat Eddery a former Champion Jockey in England has died at the age of 63. Read more …</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >217. <a href='recentnews.aspx?Id=812'>Trainer Mahmood Khan's ward Alvarez has come positive for category 1 substance in Mysore</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >218. <a href='recentnews.aspx?Id=808'>Prince Of Penzance (by Pentire) wins the Emirates Melbourne Cup (Gr.1) trained by Darren Weir & ridden by Michelle Payne. Michelle Payne becomes first female jockey to win Melbourne Cup in the 155-year history.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >219. <a href='recentnews.aspx?Id=807'>View the results of Breeders' Cup 2015 Saturday 31st October 2015.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >220. <a href='recentnews.aspx?Id=806'>View the results of Breeders' Cup 2015 Friday 30th October 2015.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >221. <a href='recentnews.aspx?Id=805'>Trainer's Pesi Shroff, M K Jadhav suspended for 90 days.  Read more ....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >222. <a href='recentnews.aspx?Id=804'>Internecine rivalry takes its toll on RWITC. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >223. <a href='recentnews.aspx?Id=803'>Connect with Kunigal Stud Farm on Social media Facebook (www.facebook.com/kunigalstudfarm & twitter (www.twitter.com/kunigalstudfarm)</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >224. <a href='recentnews.aspx?Id=799'>Nanoli Stud Farm withdraws Pune Derby sponsorship.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >225. <a href='recentnews.aspx?Id=798'>The Turf Authorities of India & RWITC, Mumbai to Host the 36th Edition of the Prestigious Asian Racing Conference (ARC) Read more….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >226. <a href='recentnews.aspx?Id=796'>Continental was euthanized after the fall in the Pune Derby.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >227. <a href='recentnews.aspx?Id=795'>Horse Power a bi-annual  Racing Journal published by Hyderabad Race Club. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >228. <a href='recentnews.aspx?Id=788'>STEINBECK DEAD. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >229. <a href='recentnews.aspx?Id=787'>Results of The Elections Held at HRC Read more……</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >230. <a href='recentnews.aspx?Id=783'>The RWITC Board of Appeal has referred the cases of trainers M K Jadhav & P Shroff back to the Stewards of the Club. The Stewards will now decide if the old Stewards body or the current one will conduct the hearing. It will also have to decide if it will be a fresh hearing.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >231. <a href='recentnews.aspx?Id=781'>Asian Racing Federation Trophy. Read more …</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >232. <a href='recentnews.aspx?Id=779'>Mr Feroz Vakil & Mr Milan Luthria are the nominated Stewards.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >233. <a href='recentnews.aspx?Id=778'>Mr Ghulam Vahanvati has been elected as Chairman of Stewards of RWITC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >234. <a href='recentnews.aspx?Id=777'>The Stewards of MRC have suspended Jockey Rajesh Kumar from October 02, 2015 to July 31, 2016 for his ride on Active Grey.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >235. <a href='recentnews.aspx?Id=776'>Mr Zavaray Poonawalla has been elected Chairman of RWITC,  Mr Ashwin Mehta elected Chairman of the Appeal Board. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >236. <a href='recentnews.aspx?Id=773'>Vivek Jain's group voted to power 5/4 in the Annual General Body Elections to the Managing Committee of Royal Western India Turf Club held on Tuesday September 2015. The following were elected to the Managing Committee:- Vivek Jain, Zavaray Poonawalla, Champaklal Jhaveri, Ghulam Vahanvaty, Geoffrey Nagpal are the members from Vivek Jain's group. K N Dhunjibhoy, Jaydev Mody, Shyam Ruia and Ram Shroff were elected from Dhunjibhoy's group.  Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >237. <a href='recentnews.aspx?Id=771'>Racing reels under credibility stress. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >238. <a href='recentnews.aspx?Id=769'>Trainers P. Shroff & MK Jadhav's Appeals adjourned. Read more ...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >239. <a href='recentnews.aspx?Id=768'>Hazara Stud Auction Sale of 2 yr olds in Kolkata on Saturday 12th Sept'15. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >240. <a href='recentnews.aspx?Id=767'>Former jockey Lindsay Charnock brother-in-law of trainer Richard Alford passed away in London at the age of 60 this morning due to illness. Charnock one of the leading jockeys in Northern England until he retired in the year 2000, rode in India during the 1970's and early 1980's.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >241. <a href='recentnews.aspx?Id=766'>The appeal of jockey D.Gnaneshwar has been rejected by the appeals board of MRC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >242. <a href='recentnews.aspx?Id=765'>Jockey B. Sreekanth responds to the article in Bangalore Mirror. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >243. <a href='recentnews.aspx?Id=763'>Jasim Akhthar, a riding boy working for trainer Irfan Ghatala was found murdered inside the premises of the BTC on Wednesday. Read more….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >244. <a href='recentnews.aspx?Id=760'>Delhi based Jockey Shadab Khan died in a road accident today August 22, 2015. Indiarace offers its heartfelt condolences.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >245. <a href='recentnews.aspx?Id=759'>Pleascach (IRE) (by Teofilo (IRE)) wins the Darley Yorkshire Oaks (G.1), trained by Jim Bolger & ridden by Kevin Manning</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >246. <a href='recentnews.aspx?Id=758'>Arabian Queen (IRE) (by Dubawi (IRE) wins the Juddmonte International Stakes (Gr.1), trained by David Elsworth & Ridden By Silvestre De Sousa.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >247. <a href='recentnews.aspx?Id=757'>The Pizza Man (by English Channel) wins the Arlington Million XXXIII S. (Gr.1), trained by Roger A. Brueggemann & ridden by Florent Geroux.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >248. <a href='recentnews.aspx?Id=755'>Politics tarnishes RWITC’s justice system. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >249. <a href='recentnews.aspx?Id=754'>Trainer Altamash Ahmed’s three wards namely Astapi, Alaindair and An Acquired Taste have tested positive for prohibited substance Stanazol on arrival to the Pune racecourse from a Japalu Stud Farm.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >250. <a href='recentnews.aspx?Id=753'>Jockey Suraj Narredu completes riding his 1500th winner astride Orla in The Potential Champion Trophy at Pune.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >251. <a href='recentnews.aspx?Id=751'>The Stewards of Mysore Race Club have suspended jockey D Gnaneshwar for 3 years for his ride on Naval Glory & Grace And Glory. 1st September 2015 to 31st August 2018.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >252. <a href='recentnews.aspx?Id=750'>BOA members, chairman in war of words. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >253. <a href='recentnews.aspx?Id=748'>Yet another controversy rages at RWITC. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >254. <a href='recentnews.aspx?Id=746'>CONTROVERSY - Shroff's appeal being sabotaged: BOA chief Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >255. <a href='recentnews.aspx?Id=741'>KTA President B. Puttanna denies having 'abused & threatened' Sharan Kumar of racingpulse.in though a minor altercation did take place between the two</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >256. <a href='recentnews.aspx?Id=740'>Government says no election parties at RWITC. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >257. <a href='recentnews.aspx?Id=738'>Postponed (IRE) by Dubawi (IRE) wins the King George VI And Queen Elizabeth Stakes (Gr.1), trained by Luca Cumani & ridden by Andrea Atzeni.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >258. <a href='recentnews.aspx?Id=734'>Be Safe after his defeat in St. Leger has left to Chettinad Stud Farm to rest and recuperate before his connections bring him back. In all probability he may miss competing in the Nizam’s and President’s events in Hyderabad.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >259. <a href='recentnews.aspx?Id=732'>Covert Love (IRE) (by Azamour (IRE)) wins the Darley Irish Oaks Gr.1, trained by Hugo Palmer & ridden by Pat Smullen.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >260. <a href='recentnews.aspx?Id=731'>RWITC trainers Bezan Chenoy and M P Jodha Horses test positive for Boldenone and Testostereone during random sampling.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >261. <a href='recentnews.aspx?Id=730'>Muhaarar (by Oasis Dream(GB), wins the Darley July Cup (Gr.1), trained by Charlie Hills & ridden by Paul Hanagan.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >262. <a href='recentnews.aspx?Id=729'>Amazing Maria (by Mastercraftsman (IRE)) wins the Qipco Falmouth Stakes (Group-1), trained by David O’Meara & ridden by James Doyle.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >263. <a href='recentnews.aspx?Id=728'>Force The Pass (by Speightstown), wins the Belmont Derby Invitational Stakes (Gr.1), trained by Alan Goldberg & ridden by Joel Rosario.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >264. <a href='recentnews.aspx?Id=727'>Bangalore Colts Championship winner PHOENIX TIGER injured itself and may not run in the Bangalore Kingfisher Derby Gr.1 to be held on Sunday, July 12.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >265. <a href='recentnews.aspx?Id=726'>Jack Hobbs (GB) (by Halling) wins the 150th Dubai Duty Free Irish Derby Gr.1, trained by John Gosden & ridden by William Buick. Colt Jack Hobbs became the first British-horse to win since Commander in Chief in 1993.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >266. <a href='recentnews.aspx?Id=725'>Dr. S.M. Karthikeyan takes over as Secretary of the Madras Race Club. Read more ….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >267. <a href='recentnews.aspx?Id=721'>Royal Ascot Results 20th June 2015 - Day 5</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >268. <a href='recentnews.aspx?Id=719'>Royal Ascot Results 19th June 2015 - Day 4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >269. <a href='recentnews.aspx?Id=717'>Royal Ascot Results 18th June 2015 - Day 3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >270. <a href='recentnews.aspx?Id=715'>Royal Ascot Results 17th June 2015 - Day 2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >271. <a href='recentnews.aspx?Id=714'>No reprieve for Patrick Quinn Suspension Stayed till May 2017.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >272. <a href='recentnews.aspx?Id=712'>Royal Ascot Results 16th June 2015 - Day 1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >273. <a href='recentnews.aspx?Id=707'>My son should not light my funeral pyre, says Chennai industrialist MAM Ramaswamy. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >274. <a href='recentnews.aspx?Id=706'>American Pharoah wins the Belmont Stakes (Gr.1), trained by Bob Baffert & ridden by Victor Espinoza. American Pharoah is only the 12th horse to win the US Triple Crown.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >275. <a href='recentnews.aspx?Id=705'>Golden Horn wins the Investec Epsom Derby (Gr.1) trained by John Gosden & ridden by Frankie Dettori.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >276. <a href='recentnews.aspx?Id=704'>Trainer P Shroff has been suspended for five months for vicarious liability following three of his horses testing positive for prohibited substance. He has also been given a further four months suspended sentence. P Shroff reserves the right to appeal.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >277. <a href='recentnews.aspx?Id=703'>Trainer Amit Caddy has been suspended for 45 days for breach of medication rules by the Stewards of Bangalore Turf Club.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >278. <a href='recentnews.aspx?Id=702'>RWITC Stewards of the Club hand trainer MK Jadhav a 5-months ban for breaching the club’s medication rules. Several horses from Jadhav’s yard had tested positive for Venlaflaxine and one for a pain-killer during the recently concluded Mumbai racing season. This punishment is subject to appeal.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >279. <a href='recentnews.aspx?Id=699'>Wayne Wood resigns from BTC as Chief Stipendiary Steward & Director of Racing.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >280. <a href='recentnews.aspx?Id=698'>Gleneagles (IRE) (by Galileo (IRE)) wins the TATTERSALLS IRISH 2,000 GUINEAS (gr. I) trained by Aiden O'brien and ridden by Ryan More.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >281. <a href='recentnews.aspx?Id=693'>Cops File Closure Report In Bullseye Doping Scandal.....Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >282. <a href='recentnews.aspx?Id=692'>American Pharoah (by Pioneerof the Nile) wins the Xpressbet.com Preakness Stakes (gr. I) trained by Bob Baffert & ridden by Victor Espinoza</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >283. <a href='recentnews.aspx?Id=689'>Doping Scandal: Pesi Shroff to contest 'A Summary' report. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >284. <a href='recentnews.aspx?Id=688'>Make Believe (by  Makfi) wins the Poule d'Essai des Poulains (Gr.1), trained by Andre Fabre & ridden by Olivier Peslier, winning the race for a second time.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >285. <a href='recentnews.aspx?Id=687'>Doping of Racing Horse: Cops find no Evidence of Suspects’ Involvement, File Report.....Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >286. <a href='recentnews.aspx?Id=686'>Legatissimo (IRE) (by Danehill Dancer (IRE)) wins the QIPCO 1000 Guineas Stakes (Gr.1), trained by David Wachman & ridden by Ryan Moore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >287. <a href='recentnews.aspx?Id=685'>American Pharoah (by Pioneerof the Nile) wins the Kentucky Derby Presented by Yum! Brands (gr. I), ridden by Victor Espinoza & trained by Bob Baffert. Victor Espinoza became the seventh jockey to win three Kentucky Derbys.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >288. <a href='recentnews.aspx?Id=684'>Gleneagles (by Galileo (IRE) wins Qipco 2,000 Guineas Stakes (British Champions Series) (Gr.1), trained by A P O'Brien & ridden by Ryan Moore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >289. <a href='recentnews.aspx?Id=683'>Lovely Maria (by Majesticperfection (USA), wins the Longines Kentucky Oaks (Gr.I), trained by J. Larry Jones & ridden by Kerwin D. Clark.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >290. <a href='recentnews.aspx?Id=679'>Dr MAM Ramaswamy retains jockey A Sandesh for one year.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >291. <a href='recentnews.aspx?Id=664'>RCTC is to honour their Champion DANDIFIED tomorrow during the races. Read more …. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >292. <a href='recentnews.aspx?Id=659'>RWITC Stewards issue clarification on Mr. Milan Luthria’s Resignation as a Steward …. Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >293. <a href='recentnews.aspx?Id=658'>JOCKEYS Suspension at BTC: Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >294. <a href='recentnews.aspx?Id=657'>Govt won’t budge, wants control of turf club land. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >295. <a href='recentnews.aspx?Id=654'>Mr Deepak Khaitan, Chairman RCTC passed away on the morning of Monday March 9, Indiarace & its patrons offer their heartfelt condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >296. <a href='recentnews.aspx?Id=653'>Dr. MAM Ramaswamy has removed all his horses from trainer Malesh Narredu’s stables. Read More...........</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >297. <a href='recentnews.aspx?Id=650'>An enquiry has been opened by the Stewards of RWITC into the running and riding of Be Safe in the Indian Turf Invitation Cup.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >298. <a href='recentnews.aspx?Id=649'>S. Chockalingam, Member Board of Appeal, BTC resigns in disgust. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >299. <a href='recentnews.aspx?Id=645'>As the jockeys have refused to ride Read more  Click Here....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >300. <a href='recentnews.aspx?Id=643'>Hon'ble Supreme Court of India proceedings ... Read more ...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >301. <a href='recentnews.aspx?Id=642'>Mr Harimohan Naidu, Chairman BTC Quotes.  Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >302. <a href='recentnews.aspx?Id=641'>Supreme Court favourable verdict for BTC. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >303. <a href='recentnews.aspx?Id=637'>"Mumbai Turf Club votes for an end to the year which shamed it”, James Underwood....Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >304. <a href='recentnews.aspx?Id=636'>"Indian Derby winner Be Safe looks international class”, James Underwood … Read more</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >305. <a href='recentnews.aspx?Id=635'>Trainer Pesi Shroff absolved of all charges by RWITC Board of Appeal in Bullseye case.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >306. <a href='recentnews.aspx?Id=634'>Trainer M Eshwer's ward Constantine has come positive for Testosterone in Bangalore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >307. <a href='recentnews.aspx?Id=633'>Trainer P Quinn's Ocean And Beyond has come positive for Stanazol in the Indian Champion Cup Gr.1 on 23rd January 2015 at Kolkata.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >308. <a href='recentnews.aspx?Id=632'>Lady Jane Cecil. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >309. <a href='recentnews.aspx?Id=631'>Housing Minister M.H. Ambareesh opposes shifting of BTC. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >310. <a href='recentnews.aspx?Id=628'>The Board of Appeal of BTC have withdrawn trainer J Babu Rao’s licence for a period of five years.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >311. <a href='recentnews.aspx?Id=627'>Jockey P Kiran Rai has been suspended for one year by the stewards of BTC, for his ride on Western Lady.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >312. <a href='recentnews.aspx?Id=626'>Dandified has come positive for category 3 drug. Used for epilisy in humans.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >313. <a href='recentnews.aspx?Id=625'>Govt. set to shift Turf Club to city outskirts,  Read More .....
+</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >314. <a href='recentnews.aspx?Id=620'>Vivek Jain responds to Deepak Popat's Press Note. Read More .....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >315. <a href='recentnews.aspx?Id=619'>BULLSEYE Conspiracy Tapes leaked. Listen in on Indiarace TV. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >316. <a href='recentnews.aspx?Id=617'>Pesi Shroff's horse Maisha has tested positive for Desmethylvenalfaxine. Trainer M K Jadhav's horse Mohegun Sun has also tested positive for the same drug.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >317. <a href='recentnews.aspx?Id=616'>RWITC to discuss Dhunjibhoy issue. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >318. <a href='recentnews.aspx?Id=615'>Jockey S.John’s appeal against his suspension has been rejected by the appeals board of HRC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >319. <a href='recentnews.aspx?Id=614'>Mumbai: The Rs 15-crore racecourse face-off. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >320. <a href='recentnews.aspx?Id=613'>Trainer M Shah has been Suspended by the RWITC from December 05, 2014 to October 30, 2015 in his Horse Tuscania Case. He has also been fined a sum of One Lakh.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >321. <a href='recentnews.aspx?Id=610'>Stewards order enquiry into riding of Sandesh atop Congressional.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >322. <a href='recentnews.aspx?Id=609'>Jockey S John has been suspended by HRC till October 2015 for his ride on Kohinoor Thunder.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >323. <a href='recentnews.aspx?Id=606'>Former Chairman of BTC Marilingiah passed away this morning (November 22, 2014), Indiarace offers its heartfelt condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >324. <a href='recentnews.aspx?Id=605'>Visit Horse Talk - personally petition the CM of Karnataka and post your Appeal. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >325. <a href='recentnews.aspx?Id=604'>Trainer Mansoor Shah's suspension has been reduced from two years to one year and further he has been fined Rs 1 lakh by the Stewards of RWITC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >326. <a href='recentnews.aspx?Id=603'>Jockey A Sandesh wins on Good Racing, trained by Craig Marshall. The Class 3 & 4 over 1500 metres on the sand track Friday night at Macau.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >327. <a href='recentnews.aspx?Id=599'>Following the Appeals of Trainer V Loknath and Jockey B L Paswan, the Appeal Board of MRC have reduced their suspensions as follows : V Loknath 6 Months, B L Paswan 8 Months (6 for Flame of Passion & 2 for Spanish Fly).</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >328. <a href='recentnews.aspx?Id=598'>Protectionist (by Monsun (GER)), wins the Melbourne Cup 2014 (Gr.1), trained by Andreas Wohler & ridden by Ryan Moore. Protectionist the first German horse to win the Melbourne Cup, but favourite Admiral Rakti collapsed and died after race.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >329. <a href='recentnews.aspx?Id=597'>BTC given 3-yr deadline to move by govt. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >330. <a href='recentnews.aspx?Id=594'>View yesterday's racing results of Breeders' Cup Day at Santa Anita (USA) on October 31st, 2014. Click Here…</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >331. <a href='recentnews.aspx?Id=593'>Pesi Shroff fined Rs 1 Lakh by Stewards of RWITC - 9 month suspension revoked.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >332. <a href='recentnews.aspx?Id=591'>Jockey Y S Srinath completes riding his 1000th winner astride Speed Hawk in The Royal Calcutta Turf Club Trophy at Mysore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >333. <a href='recentnews.aspx?Id=585'>RWITC dithers on employing Kader. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >334. <a href='recentnews.aspx?Id=584'>The Stewards of Hyderabad Race Club have suspended jockey Kuldeep Singh for a period six months (till March 31, 2015), for unsatisfactory riding on favourite Fruit Roll Up.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >335. <a href='recentnews.aspx?Id=581'>The Karnataka High Court today held that the Tax is not deductible at source on winnings by way of stake money payable to race horse owners. The Court further held that section 194 "B" which talks about games of any other sort does not apply to horse racing. The Court proceeded to QUASH the orders of the income tax department in this regard stated Mr. Ashok Raghavan, CA who played a vital role in preparing the cases for the KROA and the BTC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >336. <a href='recentnews.aspx?Id=580'>The Karnataka High Court is expected to prounounce its judgment on TDS case filed by Karnataka Trainers and Owners Association on Friday.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >337. <a href='recentnews.aspx?Id=577'>RWITC's rules of racing get new twist..........Read More</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >338. <a href='recentnews.aspx?Id=574'>Turf Club doping scandal suspect dies in mysterious circumstances. Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >339. <a href='recentnews.aspx?Id=573'>Trainer Pratap Kamath’s Appeal against his suspension has been rejected by the appeals board of the Mysore Race Club. The Six months suspension will commence from September 21, 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >340. <a href='recentnews.aspx?Id=572'>Trainer V Loknath & Jockey B L Paswan suspended.   Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >341. <a href='recentnews.aspx?Id=571'>The Stewards of RWITC have Deferred trainer P Shroff's case to October 28, 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >342. <a href='recentnews.aspx?Id=570'>Bullseye Case- All eyes on RWITC Stewards Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >343. <a href='recentnews.aspx?Id=567'>Doping scandal: Will RWITC stewards hit a 'Bullseye'? Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >344. <a href='recentnews.aspx?Id=565'>BOLDENONE CASE - Raj Connection hits Bullseye Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >345. <a href='recentnews.aspx?Id=564'>Goolam E. Vahanvati, former Solicitor General of India, racing enthusiast, prominent owner in Western India from an old  and established “racing family” and former Steward of RWITC passed away on September 2, 2014 at the age of 65 years. www.indiarace.com offers its heartfelt condolences  </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >346. <a href='recentnews.aspx?Id=563'>Justice shuttles between stewards’ body and BOA. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >347. <a href='recentnews.aspx?Id=561'>Ludhiana to have North India’s biggest turf club Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >348. <a href='recentnews.aspx?Id=560'>Dr Cyrus Poonawalla owned three year old filly Kenhope won the Listed Preis Der Stadtsparkase Dusseldorf over a mile at Germany on Sunday.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >349. <a href='recentnews.aspx?Id=559'>Ebor Festival of racing at York Results Day-4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >350. <a href='recentnews.aspx?Id=558'>Doping scandal: More trouble for Katrak as Popat the suspect sings Read more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >351. <a href='recentnews.aspx?Id=556'>Ebor Festival of racing at York Results Day-3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >352. <a href='recentnews.aspx?Id=555'>Race Card for the two principal events to be run at York August 22, 2014, Day-3. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >353. <a href='recentnews.aspx?Id=554'>Ebor Festival of racing at York Results Day-2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >354. <a href='recentnews.aspx?Id=553'>Race Card for the two principal events to be run at York August 21, 2014, Day-2. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >355. <a href='recentnews.aspx?Id=552'>Ebor Festival of racing at York Results Day-1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >356. <a href='recentnews.aspx?Id=551'>Jockeys call off their protest. The first two day's Mysore races 21st & 22nd August are as per schedule.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >357. <a href='recentnews.aspx?Id=550'>The Jockeys Association of India have decided not to accept rides from Thursday 21st August 2014 till their pending demands are met by the Turf Authority of India.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >358. <a href='recentnews.aspx?Id=549'>Boldenone controversy: RWITC forced to rethink rule &nbsp;&nbsp;&nbsp;&nbsp;Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >359. <a href='recentnews.aspx?Id=545'>The Stewards, RCTC have decided to postpone the Sixth Day of the Calcutta Monsoon Meeting 2014 from Tuesday, 12th August,2014 to Wednesday, 13th August 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >360. <a href='recentnews.aspx?Id=542'>Mr. Tehmul Todywalla father of Dallas Todywalla passed away last night. Indiarace offers its heartfelt condolences to the bereaved family.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >361. <a href='recentnews.aspx?Id=538'>Time for Cyrus Poonawalla to sort things out at Mumbai’s RWITC by James Underwood's Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >362. <a href='recentnews.aspx?Id=537'>Fresh Boldenone Case Stumps RWITC Stewards. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >363. <a href='recentnews.aspx?Id=536'>Dr. Cyrus Poonawalla’s 4-year-old Kendargent filly KENHOPE won the seven furlong 209y Du Coteau Stakes, at Clairefontaine (France) on August 01, 2014.  Trained by the H A Pantall & ridden by C P Lemaire.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >364. <a href='recentnews.aspx?Id=535'>Goodwood Results 1st August 2014 - Day  4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >365. <a href='recentnews.aspx?Id=534'>Goodwood Results 31st July 2014 - Day 3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >366. <a href='recentnews.aspx?Id=533'>Goodwood Results 30th July 2014 - Day 2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >367. <a href='recentnews.aspx?Id=532'>Goodwood Results 29th July 2014 - Day 1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >368. <a href='recentnews.aspx?Id=531'>Taghrooda (GB) (by Sea The Stars (IRE). Wins the King George Vi & Queen Elizabeth Stakes (Qipco) (Gr.1) at Ascot.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >369. <a href='recentnews.aspx?Id=530'>RWITC Stewards suspend trainer S Shaikh for a period of four years  i.e. from 25th July, 2014 to 24th July, 2018. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >370. <a href='recentnews.aspx?Id=529'>Jockey Bhanu Pratap Singh has been suspended for one year for stopping his mount TIME MATTERS in Mysore by the MRC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >371. <a href='recentnews.aspx?Id=528'>Trainer F.Rodrigues has been suspended for one year for his ward ROYAL HONOUR testing positive for Stanazol by RCTC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >372. <a href='recentnews.aspx?Id=527'>Bracelet (IRE) (by Montjeu (IRE) wins the Darley Irish Oaks (Gr. I), trained by Aidan O’Brien and ridden by Colm O’Donoghue.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >373. <a href='recentnews.aspx?Id=524'>Mr Berjis Minoo Desai & Mr Vijay B Shirke & Mr K N Dhunjibhoy's 3-year-old bay gelding Primogeniture (by Glory of Dancer – Jacqueline (IND), wins the Like Fairyhouse On Facebook Handicap at Fairyhouse Ireland on Sunday 13 July 2014. Trained by John M Oxx & ridden by Declan McDonogh.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >374. <a href='recentnews.aspx?Id=523'>The Special Leave Petition matter pertaining to BTC in Supreme Court has been postponed by three months. Next date of hearing awaited.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >375. <a href='recentnews.aspx?Id=520'>Australia (GB) (by Galileo (IRE)) wins the Dubai Duty Free Irish Derby (Gr.1), trained by Aiden O’Brien & ridden by Joshep O’Brien.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >376. <a href='recentnews.aspx?Id=519'>Bullseye Case, Deepak Popat has reportedly taken anticipatory bail at Session’s court in the case field by Pesi Shroff with the police. Deepak is said to be an assistant of a retired trainer of RWITC and had been questioned in the case relating to Knight N Day episode.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >377. <a href='recentnews.aspx?Id=517'>Martin Dwyer exposed .... Listen to his conversation with Paul Mulrennan on race fixing on indiarace TV / You Tube and read the entire transcript in Horse Talk [if you find it difficult to follow their accents]</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >378. <a href='recentnews.aspx?Id=516'>Trainer Amit Cady's suspension of six months for the running of Hatchet Harry has been set aside by the Appeal Board of Bangalore Turf Club. The suspension of jockey Raja Rao has been reduced from one year to end of summer season 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >379. <a href='recentnews.aspx?Id=513'>Royal Ascot Results 21st June 2014 -Day 5</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >380. <a href='recentnews.aspx?Id=512'>Royal Ascot Results 20th June 2014 -Day 4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >381. <a href='recentnews.aspx?Id=511'>Royal Ascot Results 19th June 2014 -Day 3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >382. <a href='recentnews.aspx?Id=510'>Royal Ascot Results 18th June 2014 -Day 2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >383. <a href='recentnews.aspx?Id=509'>Royal Ascot Results 17th June 2014 - Day 1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >384. <a href='recentnews.aspx?Id=507'>Avenir Certain (FR) (by Le Havre (IRE)) wins the Prix De Diane Longines (gr. I)</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >385. <a href='recentnews.aspx?Id=506'>Jockey R. Vaideeshwaran rides winner in New Zealand. Read more ....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >386. <a href='recentnews.aspx?Id=505'>Tonalist (by Tapit) wins the Belmont Stakes (gr. I) trained by Christophe Clement and ridden by Joel Rosario.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >387. <a href='recentnews.aspx?Id=504'>Australia (by Galileo (IRE) trained by A P O´Brien & ridden by Joseph O'Brien won the 2014 edition of the Investec Derby (Gr.1). Trainer A P O´Brien creates history, he wins the 3rd Investec Derby in a row. Joseph O’Brien piloted Australia in the race to take home his second Derby success after Camelot.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >388. <a href='recentnews.aspx?Id=503'>Trainer Amit Caddy has been suspended for a period of 6 months and Jockey K Raja Rao for one year following an enquiry into the running of Hatchet Harry on June 1st 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >389. <a href='recentnews.aspx?Id=502'>Taghrooda (by Sea The Stars (IRE) takes home the Investec Oaks (Gr.1), trained by John Gosden & ridden by Paul Hanagan. Jockey Paul Hanagan wins his first classic victory.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >390. <a href='recentnews.aspx?Id=498'>The Grey Gatsby (by Mastercraftsman (IRE) wins  The Prix du Jockey Club (Group 1), trained by Kevin Ryan and ridden by Ryan Moore at Chantilly. And The Grey Gatsby gives trainer Kevin Ryan a first Classic victory.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >391. <a href='recentnews.aspx?Id=495'>Marvellous wins the Etihad Airways Irish 1,000 Guineas (Gr.1), trained by A P O'Brien & ridden by Ryan Moore at Curragh, Ireland. <strong><a href="https://www.youtube.com/watch?v=UOtOYqStD68&list=UUJ1nVq7lHZMVaWz1FLrK3kA">Click Here</a></strong> to watch the Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >392. <a href='recentnews.aspx?Id=494'>Kingman (by Invincible Spirit (IRE) Wins The Tattersalls Irish 2,000 Guineas (Gr.1), trained by John Gosden & ridden by James Doyle at Curragh, Ireland.<strong><a href="http://www.youtube.com/watch?feature=player_detailpage&v=xeVcYvHvvTk">Click Here</a></strong> to watch the Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >393. <a href='recentnews.aspx?Id=491'>Support for Jockey Chandrasekhar from www.indiarace.com &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >394. <a href='recentnews.aspx?Id=490'>Rajesh Narredu, Imtiaz Khan, Nikhil P, K Thomas and Arvind Ganapathy have been cleared for the grant of provisional “A” licenses under the trainer category by the Stewards of the Bangalore Turf Club.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >395. <a href='recentnews.aspx?Id=489'>Trainer Pesi Shroff’s appeal. Considering a report of Animal Welfare Board of India as fresh evidence, the RWITC’s Board of Appeal has referred  trainer Pesi Shroff’s case back to the stewards of the club.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >396. <a href='recentnews.aspx?Id=488'>California Chrome wins the Preakness Stakes, Gr.1 &nbsp&nbsp&nbsp&nbspRead more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >397. <a href='recentnews.aspx?Id=487'>4YO Olympic Glory (by Choisir (AUS) wins JLT Lockinge Stakes (British Champions Series) (Gr.1), trained by Richard Hannon & ridden by Frankie Dettori.<strong><a href="https://www.youtube.com/watch?v=4WyAa8cFUU4&feature=player_detailpage">Click Here</a></strong> to watch the Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >398. <a href='recentnews.aspx?Id=486'>Jockey B Sreekanth meets with a serious accident during morning track work at Bangalore on Saturday. He has been rushed to hospital. Indiarace wishes him a speedy recovery.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >399. <a href='recentnews.aspx?Id=479'>Miss France (IRE) (by Dansili) wins The Qipco 1000 Guineas Stakes (The 201st Running) (British Champions Series) (Gr.1), trained by A Fabre & ridden by Maxime Guyon. <strong><a href="https://www.youtube.com/watch?v=zYYQ1WjsF0o">Click Here</a></strong> to watch 1000 Guineas Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >400. <a href='recentnews.aspx?Id=478'>California Chrome (by Lucky Pulpit), wins the Kentucky Derby Presented by Yum! Brands (Gr. I), trained by Art Sherman & ridden by Victor Espinoza. <strong><a href="https://www.youtube.com/watch?v=j1hZ7d-gLnw">Click Here</a></strong> to watch Kentucky Derby Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >401. <a href='recentnews.aspx?Id=477'>NIGHT OF THUNDER wins Qipco 2000 Guineas, Gr.1 Read More ....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >402. <a href='recentnews.aspx?Id=476'>Even money favourite UNTAPABLE (by Tapit), wins The Longines Kentucky Oaks (Gr.1), trained by Steven M. Asmussen & ridden by Rosie Napravnik. <strong><a href="http://www.anddownthestretchtheycome.com/videos/2014/5/2/5676774/2014-kentucky-oaks-video-replay
+">Click Here</a></strong> to watch Kentucky Oaks Video.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >403. <a href='recentnews.aspx?Id=472'>Trainer Narayan Gowda suspended. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >404. <a href='recentnews.aspx?Id=469'>The Confirmatory samples of Strike The Stars and Toroloco have reported Negative. &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >405. <a href='recentnews.aspx?Id=467'>Enquiry into the poor performance of “Tuscania” – in charge of trainer Mansoor Shah. &nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >406. <a href='recentnews.aspx?Id=466'>Anya Shroff wins on debut &nbsp&nbsp&nbsp&nbsp Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >407. <a href='recentnews.aspx?Id=464'>RWITC Wants To Bar Us From The Track – James Underwood. &nbsp&nbsp&nbsp&nbspRead more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >408. <a href='recentnews.aspx?Id=462'>Terms and Condition for visiting horses coming for the Bangalore Summer Meeting - 2014 &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >409. <a href='recentnews.aspx?Id=461'>Prakash Gosavi writes to RWITC Committee seeks clarification.  &nbsp&nbsp&nbsp&nbspRead more...</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >410. <a href='recentnews.aspx?Id=460'>Yet another Stanazol case. Trainer Farley Rodrigues horse Royal Honour tests positive for Stanazol in Kolkata.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >411. <a href='recentnews.aspx?Id=459'>One more horse tests positive for Stanazol in Bangalore. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >412. <a href='recentnews.aspx?Id=458'>Positive reports in respect of horses coming from M/S Nanoli Stud Farms for the presence of Anabolic Steroids. &nbsp&nbsp&nbsp Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >413. <a href='recentnews.aspx?Id=457'>Enquiry into the positive report in respect of “Montreal” – in charge of trainer C.D.Katrak. &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >414. <a href='recentnews.aspx?Id=456'>View Yesterday's racing results of Santa Anita Park Day at Santa Anita (USA) on April 05, 2014. Click Here…</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >415. <a href='recentnews.aspx?Id=455'>Trainer C D Katrak incurs accumulated suspension for 135 days for his ward Montreal having tested positive. The number of days includes previous suspended sentence of 90 days for similar offence earlier.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >416. <a href='recentnews.aspx?Id=453'>Appalling behaviour continues at RWITC, Mumbai – James Underwoods. &nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >417. <a href='recentnews.aspx?Id=452'>The Stewards order on the suspension of trainer Pesi Shroff on the positive finding of "Boldenone", a banned drug in "Bullseye" &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >418. <a href='recentnews.aspx?Id=451'>Brazilian Silvestre De Sousa scores on African Story in Dubai World Cup.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >419. <a href='recentnews.aspx?Id=450'>View Results of Dubai World Cup Saturday 29, March 2014 at Meydan Racecourse.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >420. <a href='recentnews.aspx?Id=449'>All 59 horses samples under the charge of Trainer P.Shroff, taken by the RWITC after the Bullseye case have tested negative &nbsp&nbsp&nbsp&nbspRead more....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >421. <a href='recentnews.aspx?Id=447'>Trainer Faraz Arshad's ward Toroloco and Trainer Ganapathy's ward Strike The Stars have tested positive for Steroid.The above Trainers have the option to send the samples for confirmatory analysis. </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >422. <a href='recentnews.aspx?Id=445'>Mumbai RWITC Needs A Resident Psychiatrist – James Underwoods  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRead More......</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >423. <a href='recentnews.aspx?Id=443'>Shroff's decision may be reviewed &nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >424. <a href='recentnews.aspx?Id=441'>Daniel David suspended From July 15-December 11. &nbsp&nbsp&nbsp&nbsp        Read More....      </a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >425. <a href='recentnews.aspx?Id=439'>Pesi Shroff places his defence in the Bulls Eye case before The RWITC stewards. Decision deferred to Friday, March 14th, 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >426. <a href='recentnews.aspx?Id=437'>The Mysore Race Club Ltd has been accorded independent Turf Authority status at the joint meeting of the Turf Authorities of India held at Hyderabad on Monday 3rd March 2014. Indiarace congratulates Mysore Race Club on becoming an independent Turf Authority.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >427. <a href='recentnews.aspx?Id=435'>The appeals filed by Irfan Ghatala and Tharun Thimmaiah in the Fioritta Case have been rejected by the Appeal Board of The Bangalore Turf Club.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >428. <a href='recentnews.aspx?Id=433'>Nanoli Stud Farm Issues Press Statement &nbsp&nbsp&nbsp&nbsp&nbsp&nbspRead More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >429. <a href='recentnews.aspx?Id=432'>4 Held For Doping Champ Bullseye&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >430. <a href='recentnews.aspx?Id=429'>The Stewards of BTC have suspended trainer Neil Darashah for a Period of six months for his ward TRIUMPHANT testing positive.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >431. <a href='recentnews.aspx?Id=428'>AIR SUPPORT (Smart Strike – Gaze by Danzig), the new stallion of Kunigal Stud Farm has arrived in India. He is in quarantine in Chennai.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >432. <a href='recentnews.aspx?Id=424'>After a detailed enquiry into the running  and riding of Fioritta,  the Stewards of The BTC have suspended trainer Tharun Thimmaiah for a period of seven months from 10th February 2014 to 30th September 2014.  For his involvement in the same matter, trainer Irfan Ghatala has been suspended from 10th February 2014 till 31th March 2015.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >433. <a href='recentnews.aspx?Id=421'>Jockey P S Chouhan gets relief from the Honourable High Court of A.P. The Court grants a stay on the suspension given by HRC for a period of four weeks (till 9th of February 2014)</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >434. <a href='recentnews.aspx?Id=420'>Jockey S Chandrashekar had a nasty fall in the 4th race at Mysore January 8th 2014. He has had a brain haemorrhage and now being operated. His condition is reported to be critical.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >435. <a href='recentnews.aspx?Id=419'>P S Chouhan's appeal against his suspension of one year has been rejected by the appeal board of HRC.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >436. <a href='recentnews.aspx?Id=417'>Bullseye tests positive for Boldenone. Further details awaited.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >437. <a href='recentnews.aspx?Id=413'>Javed Khan’s suspension reduced: Trainer Javed Khan’s suspension period has been reduced drastically by the appellate board of RCTC. Khan will now be suspended  till January 31, 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >438. <a href='recentnews.aspx?Id=410'>C Rajendra, having been licensed to train, starts working his horses. Likely to saddle his 1st runner by month end.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >439. <a href='recentnews.aspx?Id=409'>Kunigal Stud has acquired the multiple Group winner AIR SUPPORT........Read More </a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >440. <a href='recentnews.aspx?Id=405'>Trainer Javed Khan suspended........Read More</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >441. <a href='recentnews.aspx?Id=403'>Tejano (USA) passed away peacefully today at the age of 28y. He produced classic winners like Adolfito, Astrologica, Fleet Indian, Chilii girl, etc, Todays Conrod’s win is a perfect tribute to him.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >442. <a href='recentnews.aspx?Id=402'>RWITC issues show-cause notice to Dwyer, Mulrennan       Read More.......</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >443. <a href='recentnews.aspx?Id=400'>See the results of Breeders Cup - 2013 Saturday 2nd November 2013.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >444. <a href='recentnews.aspx?Id=399'>View the results of Breeders' Cup 2013 Friday 1st November 2013.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >445. <a href='recentnews.aspx?Id=398'>BTC SLP in Supreme Court adjourned to Jan 2014.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >446. <a href='recentnews.aspx?Id=392'>The Stewards of the Hyderabad Race Club have suspended jockey G.Sai Vamshi for a period of one year for not permitting his mount Pakat Pakat Pakat to run on merits in the ninth race on Monday.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >447. <a href='recentnews.aspx?Id=387'>View Yesterday's Racing results of British Champions Day at Ascot on October 19th, 2013. Click Here….</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >448. <a href='recentnews.aspx?Id=384'>English Jockey R Hughes completes 200 winners in a calendar year.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >449. <a href='recentnews.aspx?Id=383'>Watch Champions Day Live on Neo Sports on Saturday 19th October 2013 from 6 PM . Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >450. <a href='recentnews.aspx?Id=379'>Live UK Racing on Saturday on NEO Sports 6:00 PM onwards.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >451. <a href='recentnews.aspx?Id=378'>BHA not to reciprocate Martin Dwyer’s ban.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >452. <a href='recentnews.aspx?Id=377'>Treve wins the G1 Qatar Prix de l'Arc de Triomphe at Longchamp. Trained by Criquette Head-Maarek and ridden by Thierry Jarnet.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >453. <a href='recentnews.aspx?Id=375'>Shivalik Star wins The Mysore Dasara Sprint Championship (Gr.3) in record time of 1:09.15 seconds.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >454. <a href='recentnews.aspx?Id=369'>Watch Neo Sports live telecast of the Shadwell Mile from Newmarket from 6:00 PM today.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >455. <a href='recentnews.aspx?Id=368'>Leading sire Rebuttal was put down today due to complications arising from Laminitis.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >456. <a href='recentnews.aspx?Id=359'>Chris Hayes who rode with considerable success in India for the Mallya stable won his 2nd Group 1 race within a week while partnering Voleuse De Coeurs the 9-1 winner of The Irish St. Leger</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >457. <a href='recentnews.aspx?Id=358'>Leading Light wins the G1 St.Leger Stakes at Doncaster. Trained by Aidan O'Brien and ridden by Joseph O'Brien.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >458. <a href='recentnews.aspx?Id=341'>Trainer Daniel David & Trainer Jasbir Singh suspended</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >459. <a href='recentnews.aspx?Id=340'>Ebor Festival of racing at York Results Day-4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >460. <a href='recentnews.aspx?Id=338'>Ebor Festival of racing at York Results Day-3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >461. <a href='recentnews.aspx?Id=336'>Ebor Festival of racing at York Results Day-2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >462. <a href='recentnews.aspx?Id=334'>Ebor Festival of racing at York Results Day-1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >463. <a href='recentnews.aspx?Id=328'>Jockey P S Chouhan completes riding his 1000th winner astride Guts And Glory in The Set Alight Stakes Div-2 at Bangalore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >464. <a href='recentnews.aspx?Id=324'>Dr. Cyrus Poonawalla’s 4-year-old Galileo Colt DAVID LIVINGSTON won the 10 Furlong Betfred Rose of Lancaster Stakes, Gr.3 at Haydock on August 10, 2013. Read More ..........</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >465. <a href='recentnews.aspx?Id=323'>WHATSTHESCRIPT off the mark with first winner in USA. Read More...........</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >466. <a href='recentnews.aspx?Id=321'>On the request of Jockey C Alford who has waived his right to appeal, it is hereby notified that his dates of suspension for injudicious riding under the Rules of the RCTC will now be 6th & 14th August 2013.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >467. <a href='recentnews.aspx?Id=320'>2013 Glorious Goodwood Results - Day Five</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >468. <a href='recentnews.aspx?Id=319'>Kolkata:- For infringement of Medication Rules following horses have been withdrawn for the day Rno.1 Hno. 2-EROS, Rno.2 Hno.1 LAW LORD, Rno.3 Hno.3 ZOFFANY,Rno.4 Hno.7 GLORIOUS INVENTION, Rno.6 Hno.2 STAR OF ROSES,Hno.9 DON MAGNIFICO Hno.10 CIDER WITH ROSIE.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >469. <a href='recentnews.aspx?Id=318'>ADMIRALOFTHEFLEET – First runner first winner. Read More....</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >470. <a href='recentnews.aspx?Id=317'>2013 Glorious Goodwood Results - Day Four</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >471. <a href='recentnews.aspx?Id=316'>2013 Glorious Goodwood Results - Day Three</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >472. <a href='recentnews.aspx?Id=314'>2013 Glorious Goodwood Results - Day Two</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >473. <a href='recentnews.aspx?Id=312'>2013 Glorious Goodwood Results - Day One</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >474. <a href='recentnews.aspx?Id=309'>Jockey Imran Chisty Completes riding 1000 winners.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >475. <a href='recentnews.aspx?Id=308'>Strangles scare at Pune but no official confirmation as yet.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >476. <a href='recentnews.aspx?Id=305'>The BTC case in the Supreme Court has been posted for a further date.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >477. <a href='recentnews.aspx?Id=304'>Jockey Ramu has been suspended for one year, for not allowing his horse Pacific Blue to run on merit.Trainer Amith Caddy has been fined Rs.50,000/- and a suspended sentence of 6 months for his ward Pacific Blue.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >478. <a href='recentnews.aspx?Id=298'>Bangalore Turf Club comes under the Right to Information (RTI) Act.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >479. <a href='recentnews.aspx?Id=297'>Malakpet Stables Affected by an Epidemic.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >480. <a href='recentnews.aspx?Id=292'>Royal Ascot Results 22nd June 2013 - Day 5</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >481. <a href='recentnews.aspx?Id=291'>Royal Ascot Results 21st June 2013 - Day 4</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >482. <a href='recentnews.aspx?Id=290'>Royal Ascot Results 20th June 2013 - Day 3</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >483. <a href='recentnews.aspx?Id=289'>Royal Ascot Results 19th June 2013 - Day 2</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >484. <a href='recentnews.aspx?Id=288'>Royal Ascot Results 18th June 2013 - Day 1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >485. <a href='recentnews.aspx?Id=283'>The TDS case in the Karnataka High Court which was supposed to come up today 12th June has been adjourned to 19, 20, 21st June 2013, Status Quo to be maintained.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >486. <a href='recentnews.aspx?Id=282'>Sir Henry Cecil one of the greatest trainers of all time passed away this morning June 11, 2013. He was 70.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >487. <a href='recentnews.aspx?Id=281'>Ace Trainer J. S. Dhariwal Completes 2000 winners.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >488. <a href='recentnews.aspx?Id=277'>Ruler Of The World wins The Investec Epsom Derby (Gr.1) 2013 in record timing, trained by Aiden O'Brien & ridden by Ryan Moore.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >489. <a href='recentnews.aspx?Id=271'>The TDS case in the Karnataka High Court which was supposed to come up today 28 May has been adjourned to 6th June 2013, Status Quo to be maintained.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >490. <a href='recentnews.aspx?Id=269'>Just The Judge wins the Etihad Airways Irish 1000 Guineas (Gr.1), trained by Hills Charles & ridden by Jamie Spencer. Watch the Video <a href="http://www.youtube.com/watch?feature=player_embedded&v=0iGikVnRjDU"><img height="15" src="http://www.indiarace.com/Images/clickhere.gif" width="35" /></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >491. <a href='recentnews.aspx?Id=268'>Magician wins the Irish 2000 Guineas, trained by Aidan O'Brien and ridden by Joseph O'Brien. Watch the Video <a href="http://www.youtube.com/watch?v=itvpclXA6Go"><img height="15" src="http://www.indiarace.com/Images/clickhere.gif" width="35" /></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >492. <a href='recentnews.aspx?Id=266'>Oxbow wins the Preakness Stakes, trained by D Wayne Lukas and ridden by Gary Stevens.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >493. <a href='recentnews.aspx?Id=264'>Impasse between RWITC & BTC over royalty & signals resolved.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='dontchangecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >494. <a href='recentnews.aspx?Id=259'>Sky Lantern wins The Qipco 1000 Guineas, Ridden by Richard Hughes and Trained by Richard Hannon</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >495. <a href='recentnews.aspx?Id=258'>Orb wins the Kentucky Derby, Trained by Claude R McGaughey III and ridden by Joel Rosario.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >496. <a href='recentnews.aspx?Id=256'>Dawn Approach wins Qipco 2000 Guineas Stakes (205th Running) (British Champions Series) (Group.1), ridden by Kevin Manning & trained by J S Bolger. View The Video <a href="http://www.youtube.com/watch?v=igTXCWzGKWY&feature=player_detailpage"><img height="15" src="http://www.indiarace.com/Images/clickhere.gif" width="35" /></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >497. <a href='recentnews.aspx?Id=254'>The Royal Calcutta Turf Club has advertised for apprentice jockeys (15-17 years) at their Jockeys Training School for the next training course of 3 years duration. <a href="http://www.indiarace.com/Morefiles/advt.docx"><strong>Read More <<< </strong></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >498. <a href='recentnews.aspx?Id=248'>Animal Kingdom wins The Dubai World Cup, ridden by Joel Rosario &amp; trained by G. Motion. View The full Results of Dubai World Cup Races 2013.<a href="http://www.indiarace.com/morefiles/Results_9196_Dubai.pdf"><img src="http://www.indiarace.com/Images/clickhere.gif" width="35" height="15" /></a></a></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >499. <a href='recentnews.aspx?Id=243'>Martin Dwyer suspended from 6th April to 31st May 2013 for not permitting Ice Age to run on merits.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >500. <a href='recentnews.aspx?Id=241'>In The Spotlight finishes Third six & half length, Neck, behind the winner, Watch the Video <span style="color:#0000ff;"><a href="http://youtu.be/6jL7d-jK9ds"><img src="http://www.indiarace.com/Images/clickhere.gif" width="35" height="15" /></a></span></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >501. <a href='recentnews.aspx?Id=240'>A Track Consultant from Australia has arrived to assess & advise on ways to improve the Bangalore race track.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >502. <a href='recentnews.aspx?Id=235'>Mr R K Wadhawan removes all his horses from trainer C D Katrak.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >503. <a href='recentnews.aspx?Id=232'>Sans Craintes Stallion Mathematician was struck by lightning & killed last night.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >504. <a href='recentnews.aspx?Id=230'>Striking disqualified in The Smt.Teegala Sulochana Reddy Byerly Turk Million run on 6th January 2013.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >505. <a href='recentnews.aspx?Id=227'>Watch the video of In The Spotlight <span style="color:#0000ff;"><a href="http://www.youtube.com/watch?v=Yx1b8TY0ByM"><img src="http://www.indiarace.com/Images/clickhere.gif" width="35" height="15" border="1" /></a></span></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >506. <a href='recentnews.aspx?Id=225'>In The Spotlight Finishes sixth in her second run in Dubai. Star Empire Won the race.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >507. <a href='recentnews.aspx?Id=218'>Watch the video of In The Spotlight <strong><a href="http://www.youtube.com/watch?v=vuvtsEgpeiY">Click Here</a></strong></p></a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >508. <a href='recentnews.aspx?Id=209'>In The Spotlight not disgraced in defeat. She ran a mighty race & just lost on the post within 1 length of the winner & should come on from this run.</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >509. <a href='recentnews.aspx?Id=127'>Most Improved & Kieran Fallon win the St James's Palace Stakes Gr.1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >510. <a href='recentnews.aspx?Id=125'>Little Bridge wins the Kings Stand Stakes, Gr-1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >511. <a href='recentnews.aspx?Id=124'>Frankel wins the Queen Anne Stakes, Gr.1- recording his 11th win & remains unbeaten</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >512. <a href='recentnews.aspx?Id=116'>Union Rags wins Belmont Stakes Gr.1</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >513. <a href='recentnews.aspx?Id=115'>I'll Have Another is a non Starter in the Belmont Stakes</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >514. <a href='recentnews.aspx?Id=103'>Jockey A Imran Khan joins the 1000 club</a></div></td></tr></table></div><div class='lineDiv'></div><div class='changecolor'><table width='auto' border='0'><tr><td colspan='4'><div id='moreDiv' >515. <a href='recentnews.aspx?Id=41'>Jockey Ch K Chary found guilty of not permitting Hidden Power to run on merits at Hyderabad. He has been suspended for three years.</a></div></td></tr></table></div><div class='lineDiv'></div>
+<div class="ss" style=" font-family:Verdana; font-size:12px; text-align:right;"><a href="recentnews.aspx?Id=1183">More>></a></div>
+</div>
+				</div>
+				<!--div style=" width:232px; float:left; overflow-y: scroll; height:139px;"-->
+				<div style=" width:357px; float:right; overflow-y: scroll; height:252px;">
+					<!--div style=" color:#ffffff; width:210px; text-align:center; font-family:Verdana; font-weight:bold; font-size:11px;"-->
+					<!-/div-->
+					<div id='div-gpt-ad-1489575734450-0' style='height:250px; width:300px;overflow-y: hidden;overflow-x: hidden; float:right'>
+						<script>
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-1489575734450-0'); });
+						</script>
+					</div>
+				</div>                               
+			</div>
+
+			<div class="International_div">
+				<strong><font face="Verdana" size="2" color="#FFFFFF" style="text-align: left">&nbsp;:: INTERNATIONAL RACING ::</font></strong>
+			</div>
+			<div id="Bottom_left" style=" float:left; width:1002px;">
+				<div style=" width:300px; float:left;">
+					<img src="images/international-pic.jpg"  width="300px" height="158px" style="border:none" alt="international" />
+				</div>
+				<div id="home-main-internationalarticle" class="images_div" style=" float:left; width:472px;">
+					<div id="home-main-article-internationalarticle">
+						<div class="home-main-article-full">
+							<div class='home-main-internationalarticle-heading-link' style='line-height:30px;'><a href='FullReview.aspx?ReviewId=5077'>LONGINES HONG KONG INTERNATIONAL RACES</a></div><div style='font-size:10px;color:#4c4c4c;padding-bottom:1px;line-height:10px;'> By Anil Mukhi</div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-internationalarticle-heading-link' style='line-height:30px;'><a href='FullReview.aspx?ReviewId=5046'>BREEDERS CUP 2017 – SATURDAY PREVIEW</a></div><div style='font-size:10px;color:#4c4c4c;padding-bottom:1px;line-height:10px;'> By Anil Mukhi</div><div style='height:4px;'><img src='images/redline.gif' alt='d' style='width:460px;height:1px' /></div><div class='home-main-internationalarticle-heading-link'><a href='FullReview.aspx?ReviewId=5043'>BREEDERS CUP 2017 – FRIDAY PREVIEW</a></div><div style='font-size:10px;color:#4c4c4c;padding-bottom:1px;line-height:10px;'> By Anil Mukhi</div><div class='home-main-article-heading-link' style='float:right;margin-top:-15px'><a href='International-Articles.aspx'>More >></a></div>
+						</div>
+					</div>
+				</div>
+				<div style=" width:220px; float:right;"></div>
+			</div>
+                    	<div id="Bottom_right"></div>
+                </div>
+            <div style="width: 1002px; float: left;">
+                <table style="width: 100%; background-color: white" border="0" cellpadding="0" cellspacing="0">
+                    <tr style="background-color: #000000">
+                        <td colspan="3" style="height: 17px">
+                        </td>
+                    </tr>
+                    <tr style="background-color: #b30101">
+                        <td colspan="3" style="height: 6px">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+             <div id="bottom_div">
+        <span class="style9">Disclaimer</span> : The views expressed in Reviews and Analyses 
+                 depict the personal perspective of the authors only. Indiarace does not 
+                 subscribe to or endorse any of the same and is not responsible for adverse 
+                 consequences (if any). Every effort is made to provide accurate information, we 
+                 are not responsible for any discrepancies that are beyond our control.
+    </div>
+
+
+<script type="text/javascript">
+$(function()
+	{
+		$('.fadein img:gt(0)').hide();
+		setInterval(function() { $('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein'); }, 7000);
+		$('.fadeout img:gt(0)').hide();
+		setInterval(function() { $('.fadeout :first-child').fadeIn().next('img').fadeOut().end().appendTo('.fadeout'); }, 7000);
+	});
+</script>
+<script src="js/activatables.js" type="text/javascript"></script>
+<script type="text/javascript">
+    activatables('VENUE', ['BANGALORE', 'MYSORE', 'MUMBAI', 'HYDERABAD', 'KOLKATA', 'CHENNAI', 'DELHI', 'SRILANKA']);
+</script>
+
+        </div>
+        <div id="footer-content" style="width: 1002px; background-color: #ffffff; font-family: Verdana;
+            font-size: 10px">
+            <div style="padding: 10px 10px; text-align: justify">
+                <span class="style9"></span>
+            </div>
+            <div style="width: 1002px; text-transform:uppercase; float: left; background-color: #ffffff; line-height: 24px">
+                <div>&nbsp;
+                    <div style="float: left; text-transform:uppercase; padding-left: 5px">
+                        INDIARACE.COM</div>&nbsp;&nbsp;
+                    <div style="float: left; text-transform:uppercase; padding-left: 3px">
+                        No:101,Prestige center point,</div>&nbsp;&nbsp;
+                    <div style="float: left; text-transform:uppercase; padding-left: 3px">
+                        No:7,Edward Road Bangalore-560052</div>&nbsp;&nbsp;
+                         <div style="float: left; text-transform:uppercase; padding-left: 3px">
+                             e-mail: info@indiarace.com</div>&nbsp;&nbsp;
+                          <div style="float: left; text-transform:uppercase; padding-left: 6px">
+                             </div>&nbsp;
+ 				
+                </div>
+            </div>
+            <div style="width: 1002px; float: left;">
+                <table style="width: 100%; background-color: white" border="0" cellpadding="0" cellspacing="0">
+                    <tr style="background-color: #b30101">
+                        <td colspan="3" style="height: 6px">
+                        </td>
+                    </tr>
+                    <tr style="background-color: #000000">
+                        <td colspan="3" style="height: 17px">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

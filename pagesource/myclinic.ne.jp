@@ -1,0 +1,1563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- interest_match_relevant_zone_start -->
+<title>病院・医院検索のマイクリニック</title>
+<!-- interest_match_relevant_zone_end -->
+<meta name="robots" content="noydir,noodp,index,follow" />
+<meta name="keywords" content="病院,医院,医療機関,クリニック,医者,クチコミ,口コミ,検索,マイクリニック,myclinic" />
+<meta name="description" content="病院・医院検索のマイクリニック。病院・医院を地域や診療科目で検索! かかりつけの病院・医院・お医者さんを探してみましょう!" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="/common/css/common.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/common/css/ads.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/common/css/ad_adingo.css" type="text/css" media="all" />
+<script type="text/javascript" src="/common/js/ads.js"></script>
+<script type="text/javascript" src="http://contents05.adingo.jp.eimg.jp/0000000000000248/ach.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="/js/prototype.js"></script>
+<script type="text/javascript" src="/js/cookie.js"></script>
+<script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(
+    ['_setAccount', 'UA-8469720-2'],
+    ['_setDomainName', 'myclinic.ne.jp'],
+    ['_trackPageview'],
+    ['b._setAccount', 'UA-8469720-1'],
+    ['b._setDomainName', 'myclinic.ne.jp'],
+    ['b._trackPageview']
+  );
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+	<!--
+	jQuery(function() {
+		var setImg = '.slideShow';
+		var fadeSpeed = 1500;
+		var switchDelay = 5000;
+
+		jQuery(setImg).children('img').css({opacity:'0'});
+		jQuery(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
+		setInterval(function(){
+			jQuery(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
+		},switchDelay);
+	});
+	-->
+</script>
+
+</head>
+<body>
+<!-- interest_match_relevant_zone_start -->
+<div id="wrapper">
+	<!-- HEADER ///////////////////////////// START -->
+	<div id="header">
+		<h1>病院・医院検索のマイクリニック。病院・医院を地域や診療科目で検索! かかりつけの病院・医院・お医者さんを探してみましょう!</h1>
+		<div id="logo"><a href="http://www.myclinic.ne.jp"><img src="/common/images/header/logo.jpg" alt="病院・医院検索のマイクリニック" width="217" height="87"></a></div>
+				<div id="mobileNav">
+		  <ul>
+		    <li class="imode"><a href="http://support.myclinic.ne.jp/search/i/" target="_blank"><img src="/common/images/header/mobileNavImode.jpg" alt="i-mode版" width="63" height="16" /></a></li>
+		    <li class="ezweb"><a href="http://support.myclinic.ne.jp/search/ez/" target="_blank"><img src="/common/images/header/mobileNavEzweb.jpg" alt="EZweb版" width="67" height="16" /></a></li>
+                    <li class="ykeitai"><a href="http://support.myclinic.ne.jp/search/v/" target="_blank"><img src="/common/images/header/mobileNavYkeitai.jpg" alt="Y!Keitai版" width="70" height="16" /></a></li>
+                  </ul>
+		</div><!-- ▲ mobileNav -->
+				<div id="utilityNav">
+			<ul>
+				<li class="usage"><a href="http://support.myclinic.ne.jp/search/help.html" target="_blank"><img src="/common/images/header/utilityNavUsage.jpg" alt="このサイトの使い方" width="106" height="16" /></a></li>
+				<li class="sitemap"><a href="http://support.myclinic.ne.jp/search/sitemap.html" target="_blank"><img src="/common/images/header/utilityNavSitemap.jpg" alt="サイトマップ" width="74" height="16" /></a></li>
+			</ul>
+		</div><!-- ▲ utilityNav -->
+		<div id="subtitle">
+			<p><img src="/common/images/header/subtitle.jpg" alt="私のクリニックを探そう 地域と診療科目を指定してお近くのクリニックを探すことができます" width="344" height="29" /></p>
+		</div><!-- ▲ subtitle -->
+		<div id="forDoctor">
+			<p><a href="http://support.myclinic.ne.jp/search/buzz/info/gp" target="_blank"><img src="/common/images/header/btn_forDoctor.jpg" alt="医療機関のみなさまへ" width="251" height="55" /></a></p>
+		</div>
+		<!-- ▲ forDoctor -->
+                <div id="bookmark">
+			                        <p><img src="/common/images/header/bookmarkHeading.jpg" alt="ブックマークする：" width="82" height="16" /></p>
+			                        <ul>
+                                				                                <li class="hatena"><a href="http://b.hatena.ne.jp/append?http%3A%2F%2Fsupport.myclinic.ne.jp%2Findex.php%3Foption%3Dcom_adsmanager%26task%3Dupload%26tmpl%3Dcomponent" target="_blank"><img src="/common/images/header/append.gif" alt="はてなブックマークに登録" width="16" height="12" /></a></li>
+                                <li class="google"><a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http%3A%2F%2Fsupport.myclinic.ne.jp%2Findex.php%3Foption%3Dcom_adsmanager%26task%3Dupload%26tmpl%3Dcomponent&title=%E7%97%85%E9%99%A2%E3%83%BB%E5%8C%BB%E9%99%A2%E6%A4%9C%E7%B4%A2%E3%81%AE%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF" target="_blank"><img src="/common/images/icon_googleFavicon.gif" alt="Google Bookmarks に登録" width="16" height="16" /></a></li>
+				
+				<li class="applyLink"><a href="http://support.myclinic.ne.jp/link" target="_blank"><img src="/common/images/header/link_btn.gif" alt="リンク申込み(無料)" width="112" height="20" /></a></li>
+                        </ul>
+                </div><!-- ▲ bookmark -->
+	</div>
+	<!-- /HEADER ///////////////////////////// END -->
+	<!-- CONTENTS ///////////////////////////// START -->
+	<div id="contents" class="frameA">
+	<div id="contentsBg">
+<script type="text/javascript">
+	// indicate current ajax operation
+	var ajaxOperation = '';
+	// indicate ajax timer count, used for safety
+	var ajaxTimerCount = 0;
+	// indicate ajax request base action url
+	// TODO: WARNING: because of security of browser, the ajax action host need same as current host.
+	//      http://www.myclinic.ne.jp/search/ajax/{params}
+	//      http://support.myclinic.ne.jp/search/ajax/{params}
+	var ajaxBaseUrl = '/search/ajax/';
+
+	// show/hide ajax loading image
+	function ajaxLoading(display){
+		var img = document.getElementById('imgLoading');
+		img.style.visibility = display ? 'visible' : 'hidden';
+	}
+
+	// build and execute ajax request
+	function ajaxRequest(operation, parameter){
+			ajaxOperation = operation;
+			new Ajax.Updater(document.createElement('div'),
+							ajaxBaseUrl + ajaxOperation + '/' + parameter,
+							{asynchronous:true,
+								evalScripts:true,
+								/*onLoading:function(request){ajaxLoading(true);},*/
+								onComplete:function(request){/*ajaxLoading(false);*/ajaxComplete(ajaxOperation);},
+								requestHeaders:['X-Update', 'ajaxData ajaxErr']});
+	}
+
+	// ajax complete callback
+	function ajaxComplete(operation){
+		if (ajaxOperation == operation){
+			var ajaxData = document.getElementById('ajaxData');
+			var ajaxErr = document.getElementById('ajaxErr');
+
+			if ((ajaxErr.innerHTML == '') && (ajaxData.innerHTML == '')){
+				// safety code for exception loop
+				ajaxTimerCount++;
+				if (ajaxTimerCount > 100){ return; }
+				window.setTimeout(function(){ ajaxComplete(operation); }, 100);
+				return;
+			}
+
+			var rawData = ajaxData.innerHTML;
+			var errMsg = ajaxErr.innerHTML;
+			ajaxTimerCount = 0;
+			ajaxData.innerHTML = '';
+			ajaxErr.innerHTML = '';
+
+			if ((rawData == '') && (errMsg)){
+				alert(errMsg);
+				return;
+			}
+
+			switch (operation){
+				case 'rail_lines':
+					updateRailLines(rawData);
+					break;
+				case 'stations':
+					updateRailStations(rawData);
+					break;
+				case 'cities':
+					updateCities(rawData);
+					break;
+				case 'city_nfs':
+					updateCityNfs(rawData);
+					break;
+				default:
+					//alert('DEBUG: ' + operation + ' ' + rawData);
+					break;
+			}
+		}
+	}
+
+	// メニュー項目が選択された場合、「路線選択プルダウンメニュー」のメニュー項目を更新する。
+	function ssPrefChanged(pref_id){
+		// clear current rail lines
+		var line = document.getElementById('ssLine');
+		for (var i = line.options.length - 1; i > 0; i--){
+			line.remove(i);
+		}
+		line.disabled = true;
+		// clear current rail stations
+		var station = document.getElementById('ssStation');
+		for (var i = station.options.length - 1; i > 0; i--){
+			station.remove(i);
+		}
+		station.disabled = true;
+		// do ajax request
+		if (pref_id != ''){
+			ajaxRequest('rail_lines', pref_id);
+		}
+	}
+
+	// update rail lines select options
+	// rawData: rail_id,rail_name|...
+	function updateRailLines(rawData){
+		var line = document.getElementById('ssLine');
+		var lines = rawData.split('|');
+		for (var i = 0; i < lines.length; i++){
+			var id_name = lines[i].split(',');
+			if ((id_name.length > 1) && (id_name[0] != '') && (id_name[1] != '')){
+				var opt = new Option(id_name[1], id_name[0]);
+				line.options.add(opt);
+			}
+		}
+		line.disabled = (line.length == 1);
+	}
+
+	// メニュー項目が選択された場合、「駅選択プルダウンメニュー」のメニュー項目を更新する。
+	function ssLineChanged(rail_line_id){
+		// clear current rail stations
+		var station = document.getElementById('ssStation');
+		for (var i = station.options.length - 1; i > 0; i--){
+			station.remove(i);
+		}
+		station.disabled = true;
+		// do ajax request
+		if (rail_line_id != ''){
+			var pref = document.getElementById('ssPref');
+			if (pref.value != ''){
+				ajaxRequest('stations', rail_line_id + '/' + pref.value);
+			}
+		}
+	}
+
+	// update rail stations select options
+	// rawData: station_id,station_name|...
+	function updateRailStations(rawData){
+		var station = document.getElementById('ssStation');
+		var stations = rawData.split('|');
+		for (var i = 0; i < stations.length; i++){
+			var id_name = stations[i].split(',');
+			if ((id_name.length > 1) && (id_name[0] != '') && (id_name[1] != '')){
+				var opt = new Option(id_name[1], id_name[0]);
+				station.options.add(opt);
+			}
+		}
+		station.disabled = (station.length == 1);
+	}
+
+	// clear current city_nfs
+	function clearCityNfs(){
+		var dlCityNfs = document.getElementById('dlCityNfs');
+		dlCityNfs.style.display = 'none';
+		var ulCityNfs = document.getElementById('ulCityNfs');
+		ulCityNfs.innerHTML = '';
+	}
+
+	// メニュー項目が選択された場合、「市区町村選択プルダウンメニュー」のメニュー項目を更新する。
+	function sdPrefChanged(pref_id){
+		// clear current cities
+		var city = document.getElementById('sdCity');
+		for (var i = city.options.length - 1; i > 0; i--){
+			city.remove(i);
+		}
+		city.disabled = true;
+		if (pref_id == ''){
+			city.options[0].text = '市区町村を指定';
+		} else{
+			var pref = document.getElementById('sdPref');
+			city.options[0].text = '(' + pref.options[pref.selectedIndex].text + '全域)';
+		}
+		// clear current city_nfs
+		clearCityNfs();
+		// do ajax request
+		if (pref_id != ''){
+			ajaxRequest('cities', pref_id);
+		}
+	}
+
+	// update cities select options
+	// rawData: city_id,city_name_e,city_name|...
+	function updateCities(rawData){
+		var city = document.getElementById('sdCity');
+		var cities = rawData.split('|');
+		for (var i = 0; i < cities.length; i++){
+			var id_name = cities[i].split(',');
+			if ((id_name.length > 2) && (id_name[0] != '') && (id_name[1] != '') && (id_name[2] != '')){
+				var opt = new Option(id_name[2], id_name[0] + ',' + id_name[1]);
+				city.options.add(opt);
+			}
+		}
+		city.disabled = (city.length == 1);
+		if (city.length == 1){
+			city.options[0].text = '市区町村を指定';
+		} else{
+			var pref = document.getElementById('sdPref');
+			city.options[0].text = '(' + pref.options[pref.selectedIndex].text + '全域)';
+		}
+	}
+
+	// メニュー項目が選択された場合、「近くの市区町村チェックボックス群」を更新する。
+	function sdCityChanged(city_id_name){
+		// clear current city_nfs
+		clearCityNfs();
+		// do ajax request
+		if (city_id_name != ''){
+			var id_name = city_id_name.split(',');
+			if ((id_name.length > 0) && (id_name[0] != '')){
+				ajaxRequest('city_nfs', id_name[0]);
+			}
+		}
+		return false;
+	}
+
+	// update city_nfs check list
+	// rawData: city_id,city_name|...
+	function updateCityNfs(rawData){
+		var city_html = '';
+		var cities = rawData.split('|');
+		for (var i = 0; i < cities.length; i++){
+			var id_name = cities[i].split(',');
+			if ((id_name.length > 1) && (id_name[0] != '') && (id_name[1] != '')){
+				city_html += '<li><input id="city_nf_' + id_name[0] + '" type="checkbox" name="data[search][city_nf_ids][]" value="' + id_name[0] + '" /><label for="city_nf_' + id_name[0] + '">' + id_name[1] + '</label></li>';
+			}
+		}
+		if (city_html != ''){
+			var dlCityNfs = document.getElementById('dlCityNfs');
+			dlCityNfs.style.display = 'block';
+			var ulCityNfs = document.getElementById('ulCityNfs');
+			ulCityNfs.innerHTML = city_html;
+		}
+	}
+
+	// get station id
+	function getStationId(){
+		var pref = document.getElementById('ssPref');
+		if (pref.value == ''){
+			alert('都道府県を選択してください');
+			pref.focus();
+			return false;
+		}
+		var line = document.getElementById('ssLine');
+		if (line.value == ''){
+			alert('路線および駅を選択してください');
+			line.focus();
+			return false;
+		}
+		var station = document.getElementById('ssStation');
+		if (station.value == ''){
+			alert('路線および駅を選択してください');
+			station.focus();
+			return false;
+		}
+		return station.value;
+	}
+
+	// submit search station
+	function ssSubmit(){
+		// 駅で検索
+		var station_id = getStationId();
+		if (station_id == false){
+			return false;
+		} else{
+			location.href = 'http://support.myclinic.ne.jp/search/station/' + station_id;
+		}
+	}
+
+	// check cate group
+		var cate_group_ids = new Array(1,2,3,4,5,27,6,7,8,9,10,11,12,13,14,28,15,29,16,17,18,19,20,21,22,23,24,25,26);
+	function checkCateGroup(id_prefix, chkAll){
+		var allChk = document.getElementById(id_prefix + 'all');
+		if (chkAll == true){
+			for (var i = 0; i < cate_group_ids.length; i++){
+				var chk = document.getElementById(id_prefix + cate_group_ids[i]);
+				chk.checked = allChk.checked;
+			}
+		} else{
+			for (var i = 0; i < cate_group_ids.length; i++){
+				var chk = document.getElementById(id_prefix + cate_group_ids[i]);
+				if (chk.checked == false){
+					allChk.checked = false;
+					return;
+				}
+			}
+			allChk.checked = true;
+		}
+	}
+
+	// get checked cate group ids
+	function getCateGroupIds(id_prefix){
+		var checkedIds = '';
+		for (var i = 0; i < cate_group_ids.length; i++){
+			var chk = document.getElementById(id_prefix + cate_group_ids[i]);
+			if (chk.checked == true){
+				if (checkedIds == ''){
+					checkedIds = cate_group_ids[i];
+				} else{
+					checkedIds += ',' + cate_group_ids[i];
+				}
+			}
+		}
+		return checkedIds;
+	}
+
+	// get pref english name
+	function getPrefE(){
+		var pref = document.getElementById('sdPref');
+		if (pref.value == ''){
+			alert('都道府県を選択してください');
+			pref.focus();
+			return false;
+		}
+		return pref.value;
+	}
+
+	// get city english name
+	function getCityE(){
+		var city = document.getElementById('sdCity');
+/*
+		// TODO: whether allow empty city? (it means all cities)
+		if (city.value == ''){
+			alert('TODO: 市区町村選択');
+			city.focus();
+			return false;
+		}
+		var id_name = city.value.split(',');
+		if ((id_name.length < 1) || (id_name[1] == '')){
+			alert('City english name error.');
+			return false;
+		}
+*/
+		if (city.value == ''){
+			return '';
+		} else{
+			var id_name = city.value.split(',');
+			if ((id_name.length < 1) || (id_name[1] == '')){
+				alert('City english name error.');
+				return false;
+			}
+			return id_name[1];
+		}
+	}
+
+	// submit search detail
+	function sdSubmit(){
+		var obj = document.getElementById('searchPref');
+		if ((obj != null) && (obj.style.display != 'none')){
+			// 市区郡を指定
+			var pref_e = getPrefE();
+			if (pref_e == false){
+				return false;
+			}
+			pref_e += '/';
+			var city_e = getCityE();
+			if (city_e === false){
+				return false;
+			} else if (city_e != ''){
+				city_e += '/';
+			}
+			var url_params = pref_e + city_e;
+		} else{
+			// 駅で検索
+			var station_id = getStationId();
+			if (station_id == false){
+				return false;
+			}
+			var url_params = 'station/' + station_id + '/';
+		}
+
+		// 診療科目
+		var cateGroupIds = getCateGroupIds('cate_group_');
+
+		var f = document.getElementById('frmDetail');
+		f.action = 'http://support.myclinic.ne.jp/search/' + url_params + cateGroupIds;
+		f.method = 'POST';
+		f.submit();
+	}
+
+	// check 診療曜日
+	function checkTime(){
+		var disabled = true;
+		for (var i = 1; i < 8; i++){
+			var obj = document.getElementById('sdWeeks' + String(i));
+			if (obj.checked == true){
+				disabled = false;
+				break;
+			}
+		}
+		var time = document.getElementById('sdTime');
+		time.disabled = disabled;
+	}
+
+	var doubleClickFlag = 0;
+	// submit quick search
+	function quickSearch(cate_group_ids, order_type, page_number){
+		 doubleClickFlag++;
+		// cate group ids
+		if (cate_group_ids != null){
+			var cateGroupIds = cate_group_ids;
+		} else{
+			var cateGroupIds = getCateGroupIds('quick_cate_group_');
+		}
+		// order type
+		if (order_type != null){
+			var obj = document.getElementById('quickOrderType');
+			obj.value = order_type;
+		}
+		// page number
+		var obj = document.getElementById('quickPageNumber');
+		obj.value = page_number;
+
+		// retrieving map information. lon, lat, scale
+		obj = document.getElementById('quickLongitude');
+		obj.value = getMapLongitude();
+
+		obj = document.getElementById('quickLatitude');
+		obj.value = getMapLatitude();
+
+		obj = document.getElementById('quickScale');
+		obj.value = getMapScale();
+
+		var f = document.getElementById('frmQuick');
+
+		if (doubleClickFlag == 1) {
+			f.action = f.action + cateGroupIds;
+			f.method = 'POST';
+			f.submit();
+		} else {
+			alert('ただ今ページを表示しております。しばらくお待ちください');
+		}
+	}
+
+</script>
+<script type="text/javascript">
+// <![CDATA[
+
+	function checkGp(img, gp_id){
+
+		var newState = !isGpChecked(gp_id);
+		setGpCheckState( gp_id, newState );
+		img.src = newState ? '/common/images/icon_starOn.gif' : '/common/images/icon_starOff.gif';
+
+	}
+
+	function setGpCheckState(gp_id, state){
+
+		var s = getCookie('checked_gps');
+		var gp_ids = s != null ? s.split(',') : new Array();
+
+		var idx = gp_ids.indexOf(gp_id);
+		if( state && idx < 0 )
+			gp_ids.push(gp_id);
+		else if( !state && idx >= 0 )
+			delete gp_ids[idx];
+
+		setCookie('checked_gps', gp_ids.join(','), 2 * 365 * 24 * 60 * 60, '/', '.myclinic.ne.jp');
+
+	}
+
+	function isGpChecked(gp_id){
+		var checked = false;
+
+		var s = getCookie('checked_gps');
+		if (s != null){
+			var gp_ids = s.split(',');
+			for ( var idx in gp_ids ){
+				var theGpId = gp_ids[idx];
+				if (Number(theGpId) == Number(gp_id)){
+					checked = true;
+					break;
+				}
+			}
+		}
+		
+		return checked;
+	}
+
+// ]]>
+</script>
+<!-- ブレッドクラム  -->
+<div id="breadcrumbs" class="clearfix">
+	<ul class="clearfix">
+		<li><span>トップ</span></li>	</ul>
+	<div class="update">
+				<p><img src="/common/images/contents/icon_breadcrumbsUpdate.gif" alt="" width="22" height="22" /><span class="fwBold"><script type="text/javascript">
+// <![CDATA[
+        function readableTime() {
+                var lastupdate = 1521343943;
+                now = new Date();
+                diff = Math.floor(now.getTime() / 1000 - lastupdate);
+                var days = Math.floor(diff / 86400);
+                if (days) {
+                        return days + "日";
+                }
+                var hours = Math.floor((diff - days * 86400) / 3600);
+                if (hours) {
+                        return hours + "時間";
+                }
+                var minutes = Math.floor((diff - days * 86400 - hours * 3600) / 60);
+                return minutes + "分";
+        }
+  document.write(readableTime());
+// ]]>
+</script>前更新 (03/18 12:32)</span></p>
+			</div>
+</div>
+<!-- /ブレッドクラム -->
+<!-- アウターカラム  -->
+<div class="outerColumn">
+<div class="outerColumnBg clearfix">
+
+<!-- メインカラム  -->
+<div class="mainColumn">
+
+	<div id="topSearch">
+		<div id="topSearchTab">
+			<ul class="clearfix">
+				<li class="li1" id="topTabSwitchBtn01"><img src="/images/top_topSearchTab1_on0.gif" alt="エリアから探す" width="219" height="54" /></li>
+				<li class="li2" id="topTabSwitchBtn02"><img src="/images/top_topSearchTab2_off1.gif" alt="駅から探す" width="220" height="54" /></li>
+				<li class="li3" id="topTabSwitchBtn03"><img src="/images/top_topSearchTab3_off2.gif" alt="チェックした医療機関" width="220" height="54" /></li>
+			</ul>
+		</div>
+		<div class="map" id="topTabSwitch01">
+		<div class="mapBg">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td class="pt20 pl20" valign="top">
+						<table class="prefecture" border="0" cellspacing="0" cellpadding="0">
+							<caption><img src="/images/top_topSearchMapHeading.gif" alt="都道府県名か、日本地図の該当箇所をクリックしてください" width="325" height="14" /></caption>
+							<tr>
+								<th><img src="/common/images/icon_sphere1.gif" alt="" width="7" height="7" />北海道：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/hokkaido/">北海道</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere2.gif" alt="" width="7" height="7" />東北：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/aomori/">青森</a>/<a href="http://support.myclinic.ne.jp/search/iwate/">岩手</a>/<a href="http://support.myclinic.ne.jp/search/miyagi/">宮城</a>/<a href="http://support.myclinic.ne.jp/search/akita/">秋田</a>/<a href="http://support.myclinic.ne.jp/search/yamagata/">山形</a>/<a href="http://support.myclinic.ne.jp/search/fukushima/">福島</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere3.gif" alt="" width="7" height="7" />関東：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/ibaraki/">茨城</a>/<a href="http://support.myclinic.ne.jp/search/tochigi/">栃木</a>/<a href="http://support.myclinic.ne.jp/search/gunma/">群馬</a>/<a href="http://support.myclinic.ne.jp/search/saitama/">埼玉</a>/<a href="http://support.myclinic.ne.jp/search/chiba/">千葉</a>/<a href="http://support.myclinic.ne.jp/search/tokyo/">東京</a>/<a href="http://support.myclinic.ne.jp/search/kanagawa/">神奈川</a>/<a href="http://support.myclinic.ne.jp/search/yamanashi/">山梨</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere4.gif" alt="" width="7" height="7" />北陸・信越：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/niigata/">新潟</a>/<a href="http://support.myclinic.ne.jp/search/toyama/">富山</a>/<a href="http://support.myclinic.ne.jp/search/ishikawa/">石川</a>/<a href="http://support.myclinic.ne.jp/search/fukui/">福井</a>/<a href="http://support.myclinic.ne.jp/search/nagano/">長野</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere5.gif" alt="" width="7" height="7" />中部：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/gifu/">岐阜</a>/<a href="http://support.myclinic.ne.jp/search/shizuoka/">静岡</a>/<a href="http://support.myclinic.ne.jp/search/aichi/">愛知</a>/<a href="http://support.myclinic.ne.jp/search/mie/">三重</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere6.gif" alt="" width="7" height="7" />近畿：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/shiga/">滋賀</a>/<a href="http://support.myclinic.ne.jp/search/kyoto/">京都</a>/<a href="http://support.myclinic.ne.jp/search/osaka/">大阪</a>/<a href="http://support.myclinic.ne.jp/search/hyogo/">兵庫</a>/<a href="http://support.myclinic.ne.jp/search/nara/">奈良</a>/<a href="http://support.myclinic.ne.jp/search/wakayama/">和歌山</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere7.gif" alt="" width="7" height="7" />中国：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/tottori/">鳥取</a>/<a href="http://support.myclinic.ne.jp/search/shimane/">島根</a>/<a href="http://support.myclinic.ne.jp/search/okayama/">岡山</a>/<a href="http://support.myclinic.ne.jp/search/hiroshima/">広島</a>/<a href="http://support.myclinic.ne.jp/search/yamaguchi/">山口</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere8.gif" alt="" width="7" height="7" />四国：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/tokushima/">徳島</a>/<a href="http://support.myclinic.ne.jp/search/kagawa/">香川</a>/<a href="http://support.myclinic.ne.jp/search/ehime/">愛媛</a>/<a href="http://support.myclinic.ne.jp/search/kochi/">高知</a></td>
+							</tr>
+							<tr>
+								<th><img src="/common/images/icon_sphere9.gif" alt="" width="7" height="7" />九州：</th>
+								<td><a href="http://support.myclinic.ne.jp/search/fukuoka/">福岡</a>/<a href="http://support.myclinic.ne.jp/search/saga/">佐賀</a>/<a href="http://support.myclinic.ne.jp/search/nagasaki/">長崎</a>/<a href="http://support.myclinic.ne.jp/search/kumamoto/">熊本</a>/<a href="http://support.myclinic.ne.jp/search/oita/">大分</a>/<a href="http://support.myclinic.ne.jp/search/miyazaki/">宮崎</a>/<a href="http://support.myclinic.ne.jp/search/kagoshima/">鹿児島</a>/<a href="http://support.myclinic.ne.jp/search/okinawa/">沖縄</a></td>
+							</tr>
+						</table>
+					</td>
+					<td class="pt15" align="right" valign="bottom"><img class="vaBottom" src="/images/top_topSearchMap1.gif" alt="" width="300" height="211" border="0" usemap="#Map" />
+						<map name="Map" id="Map">
+							<area shape="poly" coords="155,1,156,41,134,48,134,63,173,63,173,57,285,56,284,30,263,30,195,1,155,2" href="http://support.myclinic.ne.jp/search/hokkaido/" alt="北海道" />
+							<area shape="poly" coords="133,70,133,95,223,95,223,87,205,77,203,65,182,65,182,77,162,77,161,71,133,69" href="http://support.myclinic.ne.jp/search/aomori/" alt="青森" />
+							<area shape="poly" coords="134,98,134,124,176,124,175,98,134,98" href="http://support.myclinic.ne.jp/search/akita/" alt="秋田" />
+							<area shape="poly" coords="179,98,180,124,213,124,224,120,223,98,178,98" href="http://support.myclinic.ne.jp/search/iwate/" alt="岩手" />
+							<area shape="poly" coords="133,127,134,141,140,141,140,154,176,154,176,127,133,127" href="http://support.myclinic.ne.jp/search/yamagata/" alt="山形" />
+							<area shape="poly" coords="179,127,179,154,216,154,216,127,179,127" href="http://support.myclinic.ne.jp/search/miyagi/" alt="宮城" />
+							<area shape="poly" coords="138,156,139,178,216,178,216,156,138,156" href="http://support.myclinic.ne.jp/search/fukushima/" alt="福島" />
+							<area shape="poly" coords="136,145,136,177,83,177,83,168,136,145" href="http://support.myclinic.ne.jp/search/niigata/" alt="新潟" />
+							<area shape="poly" coords="80,169,80,194,41,194,41,176,57,176,79,168" href="http://support.myclinic.ne.jp/search/toyama/" alt="富山" />
+							<area shape="poly" coords="38,170,38,197,1,197,16,188,16,170,38,170" href="http://support.myclinic.ne.jp/search/ishikawa/" alt="石川" />
+							<area shape="poly" coords="0,199,0,209,38,209,38,199,1,199" href="http://support.myclinic.ne.jp/search/fukui/" alt="福井" />
+							<area shape="poly" coords="41,196,41,209,66,209,66,196,41,196" href="http://support.myclinic.ne.jp/search/gifu/" alt="岐阜" />
+							<area shape="poly" coords="69,196,69,209,100,209,100,180,83,180,83,196,69,196" href="http://support.myclinic.ne.jp/search/nagano/" alt="長野" />
+							<area shape="poly" coords="103,180,103,201,142,201,142,180,103,180" href="http://support.myclinic.ne.jp/search/gunma/" alt="群馬" />
+							<area shape="poly" coords="145,180,145,200,183,201,183,180,145,180" href="http://support.myclinic.ne.jp/search/tochigi/" alt="栃木" />
+							<area shape="poly" coords="186,180,186,209,221,209,216,199,216,180,186,180" href="http://support.myclinic.ne.jp/search/ibaraki/" alt="茨城" />
+							<area shape="poly" coords="103,203,103,209,183,209,183,203,103,203" href="http://support.myclinic.ne.jp/search/saitama/" alt="埼玉" />
+						</map>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" valign="top"><img class="vaBottom" src="/images/top_topSearchMap2.gif" alt="" width="655" height="120" border="0" usemap="#Map2" />
+						<map name="Map2" id="Map2">
+							<area shape="poly" coords="329,1,329,6,393,6,393,1,329,1" href="http://support.myclinic.ne.jp/search/fukui/" alt="福井" />
+							<area shape="poly" coords="396,1,396,8,389,8,389,30,421,30,421,1,396,1" href="http://support.myclinic.ne.jp/search/gifu/" alt="岐阜" />
+							<area shape="poly" coords="424,1,424,30,449,30,449,7,455,7,455,1,424,1" href="http://support.myclinic.ne.jp/search/nagano/" alt="長野" />
+							<area shape="poly" coords="458,1,458,7,538,7,538,1,458,1" href="http://support.myclinic.ne.jp/search/saitama/" alt="埼玉" />
+							<area shape="poly" coords="541,1,577,1,577,2,541,2,541,1" href="http://support.myclinic.ne.jp/search/saitama/" alt="埼玉" />
+							<area shape="poly" coords="541,4,541,25,549,25,549,46,577,46,577,4,541,4" href="http://support.myclinic.ne.jp/search/chiba/" alt="千葉" />
+							<area shape="poly" coords="491,9,491,27,536,27,536,25,538,25,538,9,491,9" href="http://support.myclinic.ne.jp/search/tokyo/" alt="東京" />
+							<area shape="poly" coords="491,29,491,46,536,46,536,29,491,29" href="http://support.myclinic.ne.jp/search/kanagawa/" alt="神奈川" />
+							<area shape="poly" coords="452,9,452,30,488,30,488,9,452,9" href="http://support.myclinic.ne.jp/search/yamanashi/" alt="山梨" />
+							<area shape="poly" coords="433,32,433,55,448,55,466,50,479,50,479,59,498,59,498,49,488,49,488,32,433,32" href="http://support.myclinic.ne.jp/search/shizuoka/" alt="静岡" />
+							<area shape="poly" coords="430,32,430,55,396,55,396,44,389,44,389,32,430,32" href="http://support.myclinic.ne.jp/search/aichi/" alt="愛知" />
+							<area shape="poly" coords="386,8,386,25,355,25,355,8,386,8" href="http://support.myclinic.ne.jp/search/shiga/" alt="滋賀" />
+							<area shape="poly" coords="355,27,355,72,381,72,381,44,386,44,386,27,355,27" href="http://support.myclinic.ne.jp/search/mie/" alt="三重" />
+							<area shape="poly" coords="299,1,299,25,352,25,352,8,326,8,326,1,299,1" href="http://support.myclinic.ne.jp/search/kyoto/" alt="京都" />
+							<area shape="poly" coords="331,27,331,55,352,55,352,27,331,27" href="http://support.myclinic.ne.jp/search/nara/" alt="奈良" />
+							<area shape="poly" coords="304,53,304,72,352,72,352,57,328,57,328,53,304,53" href="http://support.myclinic.ne.jp/search/wakayama/" alt="和歌山" />
+							<area shape="poly" coords="299,27,299,37,304,37,304,50,328,50,328,27,299,27" href="http://support.myclinic.ne.jp/search/osaka/" alt="大阪" />
+							<area shape="poly" coords="270,1,270,37,296,37,296,1,270,1" href="http://support.myclinic.ne.jp/search/hyogo/" alt="兵庫" />
+							<area shape="poly" coords="235,2,235,17,267,17,267,1,235,2" href="http://support.myclinic.ne.jp/search/tottori/" alt="鳥取" />
+							<area shape="poly" coords="235,19,235,37,267,37,267,19,235,19" href="http://support.myclinic.ne.jp/search/okayama/" alt="岡山" />
+							<area shape="poly" coords="232,1,198,1,198,17,232,17,232,1" href="http://support.myclinic.ne.jp/search/shimane/" alt="島根" />
+							<area shape="poly" coords="198,19,198,37,232,37,232,19,198,19" href="http://support.myclinic.ne.jp/search/hiroshima/" alt="広島" />
+							<area shape="poly" coords="222,42,222,59,266,59,266,42,222,42" href="http://support.myclinic.ne.jp/search/kagawa/" alt="香川" />
+							<area shape="poly" coords="222,61,222,78,266,78,266,61,222,61" href="http://support.myclinic.ne.jp/search/tokushima/" alt="徳島" />
+							<area shape="poly" coords="166,80,166,99,194,99,204,96,232,96,243,99,266,99,266,80,166,80" href="http://support.myclinic.ne.jp/search/kochi/" alt="高知" />
+							<area shape="poly" coords="201,41,166,48,166,78,219,78,219,49,201,49,201,41" href="http://support.myclinic.ne.jp/search/ehime/" alt="愛媛" />
+							<area shape="poly" coords="195,1,165,13,165,37,195,37,195,1" href="http://support.myclinic.ne.jp/search/yamaguchi/" alt="山口" />
+							<area shape="poly" coords="129,26,129,56,158,56,158,41,129,26" href="http://support.myclinic.ne.jp/search/oita/" alt="大分" />
+							<area shape="poly" coords="101,26,101,47,96,47,96,52,126,52,126,26,101,26" href="http://support.myclinic.ne.jp/search/fukuoka/" alt="福岡" />
+							<area shape="poly" coords="126,54,126,80,87,80,87,76,96,72,96,54,126,54" href="http://support.myclinic.ne.jp/search/kumamoto/" alt="熊本" />
+							<area shape="poly" coords="129,59,129,86,150,86,150,65,158,61,158,59,129,59" href="http://support.myclinic.ne.jp/search/miyazaki/" alt="宮崎" />
+							<area shape="poly" coords="87,83,87,105,122,105,150,99,150,89,126,89,126,83,87,83" href="http://support.myclinic.ne.jp/search/kagoshima/" alt="鹿児島" />
+							<area shape="poly" coords="68,26,68,44,98,44,98,26,68,26" href="http://support.myclinic.ne.jp/search/saga/" alt="佐賀" />
+							<area shape="poly" coords="45,26,45,58,65,58,65,26,45,26" href="http://support.myclinic.ne.jp/search/nagasaki/" alt="長崎" />
+							<area shape="poly" coords="29,88,17,103,54,103,65,88,29,88" href="http://support.myclinic.ne.jp/search/okinawa/" alt="沖縄" />
+						</map>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		<!-- 駅から探す -->
+		<div class="map" id="topTabSwitch02">
+		<div class="mapBg">
+			<div class="p15">
+				<!--form action="http://support.myclinic.ne.jp/search/station/" method="POST"-->
+					<p><img src="/images/top_topSearchStationHeading.gif" alt="都道府県選択、路線名、駅名を選択して、検索ボタンをクリックしてください" width="454" height="14" /></p>
+					<div class="pt20">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr valign="top">
+								<td align="center">
+									<dl class="clearfix">
+										<dt class="floatL pt2"><span class="listImg1">都道府県選択</span></dt>
+										<dd class="floatL pl10">
+											<select name="ssPref" id="ssPref" onchange="ssPrefChanged(this.value);">
+												<option value="">都道府県を指定</option>
+																								<option value="1">北海道</option>
+																								<option value="2">青森県</option>
+																								<option value="3">岩手県</option>
+																								<option value="4">宮城県</option>
+																								<option value="5">秋田県</option>
+																								<option value="6">山形県</option>
+																								<option value="7">福島県</option>
+																								<option value="8">茨城県</option>
+																								<option value="9">栃木県</option>
+																								<option value="10">群馬県</option>
+																								<option value="11">埼玉県</option>
+																								<option value="12">千葉県</option>
+																								<option value="13">東京都</option>
+																								<option value="14">神奈川県</option>
+																								<option value="15">新潟県</option>
+																								<option value="16">富山県</option>
+																								<option value="17">石川県</option>
+																								<option value="18">福井県</option>
+																								<option value="19">山梨県</option>
+																								<option value="20">長野県</option>
+																								<option value="21">岐阜県</option>
+																								<option value="22">静岡県</option>
+																								<option value="23">愛知県</option>
+																								<option value="24">三重県</option>
+																								<option value="25">滋賀県</option>
+																								<option value="26">京都府</option>
+																								<option value="27">大阪府</option>
+																								<option value="28">兵庫県</option>
+																								<option value="29">奈良県</option>
+																								<option value="30">和歌山県</option>
+																								<option value="31">鳥取県</option>
+																								<option value="32">島根県</option>
+																								<option value="33">岡山県</option>
+																								<option value="34">広島県</option>
+																								<option value="35">山口県</option>
+																								<option value="36">徳島県</option>
+																								<option value="37">香川県</option>
+																								<option value="38">愛媛県</option>
+																								<option value="39">高知県</option>
+																								<option value="40">福岡県</option>
+																								<option value="41">佐賀県</option>
+																								<option value="42">長崎県</option>
+																								<option value="43">熊本県</option>
+																								<option value="44">大分県</option>
+																								<option value="45">宮崎県</option>
+																								<option value="46">鹿児島県</option>
+																								<option value="47">沖縄県</option>
+																							</select>
+										</dd>
+									</dl>
+								</td>
+								<td align="center">
+									<dl class="clearfix">
+										<dt class="floatL pt2"><span class="listImg1">路線名</span></dt>
+										<dd class="floatL pl10">
+											<select name="ssLine" id="ssLine" disabled onchange="ssLineChanged(this.value);">
+												<option value="">路線を指定</option>
+											</select>
+										</dd>
+									</dl>
+								</td>
+								<td align="center">
+									<dl class="clearfix">
+										<dt class="floatL pt2"><span class="listImg1">駅名</span></dt>
+										<dd class="floatL pl10">
+											<select name="ssStation" id="ssStation" disabled>
+												<option value="">駅を指定</option>
+											</select>
+										</dd>
+									</dl>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="pt20">
+						<p class="taCenter"><input type="image" src="/images/top_btn_search.gif" alt="検索" name="" onclick="ssSubmit();" /></p>
+					</div>
+				<!--/form-->
+			</div>
+		</div>
+		</div>
+		<!-- チェックした医療機関 -->
+		<div class="map" id="topTabSwitch03">
+		<div class="mapBg">
+			<div class="p15">
+				
+				<div style="padding:30px">チェックした医療機関はありません。</div>				
+			</div>
+		</div>
+		</div>
+		<div class="form">
+			<form name="frmDetail" id="frmDetail" action="" method="POST" onsubmit="return false;">
+				<dl id="searchPref" class="topBtmCities pb10 bbDotted1">
+					<dt class="floatL pt2" style="width:115px;"><span class="listImg1 fwBold">市区郡を指定</span></dt>
+					<dd class="floatL">
+						<select name="" id="sdPref" onchange="sdPrefChanged(this.value);">
+							<option value="">都道府県を指定</option>
+														<option value="hokkaido">北海道</option>
+														<option value="aomori">青森県</option>
+														<option value="iwate">岩手県</option>
+														<option value="miyagi">宮城県</option>
+														<option value="akita">秋田県</option>
+														<option value="yamagata">山形県</option>
+														<option value="fukushima">福島県</option>
+														<option value="ibaraki">茨城県</option>
+														<option value="tochigi">栃木県</option>
+														<option value="gunma">群馬県</option>
+														<option value="saitama">埼玉県</option>
+														<option value="chiba">千葉県</option>
+														<option value="tokyo">東京都</option>
+														<option value="kanagawa">神奈川県</option>
+														<option value="niigata">新潟県</option>
+														<option value="toyama">富山県</option>
+														<option value="ishikawa">石川県</option>
+														<option value="fukui">福井県</option>
+														<option value="yamanashi">山梨県</option>
+														<option value="nagano">長野県</option>
+														<option value="gifu">岐阜県</option>
+														<option value="shizuoka">静岡県</option>
+														<option value="aichi">愛知県</option>
+														<option value="mie">三重県</option>
+														<option value="shiga">滋賀県</option>
+														<option value="kyoto">京都府</option>
+														<option value="osaka">大阪府</option>
+														<option value="hyogo">兵庫県</option>
+														<option value="nara">奈良県</option>
+														<option value="wakayama">和歌山県</option>
+														<option value="tottori">鳥取県</option>
+														<option value="shimane">島根県</option>
+														<option value="okayama">岡山県</option>
+														<option value="hiroshima">広島県</option>
+														<option value="yamaguchi">山口県</option>
+														<option value="tokushima">徳島県</option>
+														<option value="kagawa">香川県</option>
+														<option value="ehime">愛媛県</option>
+														<option value="kochi">高知県</option>
+														<option value="fukuoka">福岡県</option>
+														<option value="saga">佐賀県</option>
+														<option value="nagasaki">長崎県</option>
+														<option value="kumamoto">熊本県</option>
+														<option value="oita">大分県</option>
+														<option value="miyazaki">宮崎県</option>
+														<option value="kagoshima">鹿児島県</option>
+														<option value="okinawa">沖縄県</option>
+													</select>
+					</dd>
+					<dd class="floatL pl10">
+						<select name="" id="sdCity" disabled onchange="sdCityChanged(this.value);">
+							<option value="">市区町村を指定</option>
+						</select>
+					</dd>
+					<dd class="clear pt5 pl15">
+						<dl class="clearfix" id="dlCityNfs" style="display:none">
+							<dt class="floatL pt8" style="width:100px;">近くの市区郡村</dt>
+							<dd class="floatR" style="width:516px;">
+								<div>
+									<ul class="inputRow clearfix" style="width:516px;" id="ulCityNfs">
+																			</ul>
+								</div>
+							</dd>
+						</dl>
+					</dd>
+				</dl>
+				<dl class="pt10 pb10 bbDotted1">
+					<dt><span class="listImg1 fwBold">診療科目</span></dt>
+					<dd>
+						<div class="pl15">
+							<ul class="inputRow clearfix">
+								<li><input id="cate_group_1" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_1">内科系</label></li>
+<li><input id="cate_group_2" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_2">心療系</label></li>
+<li><input id="cate_group_3" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_3">神経系</label></li>
+<li><input id="cate_group_4" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_4">呼吸器系</label></li>
+<li><input id="cate_group_5" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_5">消化器系</label></li>
+<li><input id="cate_group_27" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_27">こう門系</label></li>
+<li><input id="cate_group_6" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_6">循環器系</label></li>
+<li><input id="cate_group_7" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_7">アレルギー系</label></li>
+<li><input id="cate_group_8" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_8">リウマチ系</label></li>
+<li><input id="cate_group_9" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_9">リハビリ系</label></li>
+<li><input id="cate_group_10" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_10">皮膚系</label></li>
+<li><input id="cate_group_11" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_11">整形系</label></li>
+<li><input id="cate_group_12" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_12">小児系</label></li>
+<li><input id="cate_group_13" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_13">外科系</label></li>
+<li><input id="cate_group_14" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_14">美容系</label></li>
+<li><input id="cate_group_28" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_28">形成系</label></li>
+<li><input id="cate_group_15" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_15">泌尿器系</label></li>
+<li><input id="cate_group_29" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_29">透析系</label></li>
+<li><input id="cate_group_16" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_16">女性系</label></li>
+<li><input id="cate_group_17" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_17">眼科系</label></li>
+<li><input id="cate_group_18" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_18">耳鼻いんこう系</label></li>
+<li><input id="cate_group_19" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_19">放射線系</label></li>
+<li><input id="cate_group_20" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_20">病理診断科</label></li>
+<li><input id="cate_group_21" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_21">臨床検査科</label></li>
+<li><input id="cate_group_22" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_22">救急科</label></li>
+<li><input id="cate_group_23" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_23">麻酔科系</label></li>
+<li><input id="cate_group_24" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_24">歯科系</label></li>
+<li><input id="cate_group_25" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_25">調剤薬局</label></li>
+<li><input id="cate_group_26" type="checkbox" name="" value="" onclick="checkCateGroup('cate_group_', false);" /><label for="cate_group_26">一般薬局</label></li>
+<li><input id="cate_group_all" type="checkbox" name="cate_groups_all" value="1" onclick="checkCateGroup('cate_group_', true);" /><label for="cate_group_all">全て選択</label></li>
+							</ul>
+						</div>
+					</dd>
+				</dl>
+				<dl class="pt10 pb10 bbDotted1">
+					<dt><span class="listImg1 fwBold">診療日・時間</span></dt>
+					<dd>
+						<div class="pl15">
+							<ul class="inputRow clearfix">
+								<li><input id="searchOpening" type="checkbox" name="data[search][opening]" value="1" /><label for="searchOpening">現在診療中の医療機関</label></li>
+								<li><input id="searchNight" type="checkbox" name="data[search][night]" value="1" /><label for="searchNight">夜間診療を行っている医療機関</label></li>
+							</ul>
+						</div>
+						<div class="inputRow clearfix pl15">
+							<p style="padding-right:5px;">診療曜日：</p>
+							<ul>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks1" value="mon" onclick="checkTime();" /><label for="sdWeeks1">月</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks2" value="tue" onclick="checkTime();" /><label for="sdWeeks2">火</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks3" value="wed" onclick="checkTime();" /><label for="sdWeeks3">水</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks4" value="thr" onclick="checkTime();" /><label for="sdWeeks4">木</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks5" value="fri" onclick="checkTime();" /><label for="sdWeeks5">金</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks6" value="sat" onclick="checkTime();" /><label for="sdWeeks6">土</label></li>
+								<li><input type="checkbox" name="data[search][weeks][]" id="sdWeeks7" value="sun" onclick="checkTime();" /><label for="sdWeeks7">日</label></li>
+							</ul>
+						</div>
+						<div class="pl15">
+							<p class="pt8">上記選択曜日の
+							<select name="data[search][time]" id="sdTime" disabled>
+								<option value="">何時</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option>							</select>
+							に診療中の医療機関</p>
+						</div>
+					</dd>
+				</dl>
+				<dl class="pt10 pb10 bbDotted1">
+					<dt><span class="listImg1 fwBold">こだわり検索</span></dt>
+					<dd>
+						<div class="pl15">
+							<dl class="pt8 clearfix">
+								<dt class="floatL pt2" style="width:120px;"><label for="freewords">フリーワード検索：&nbsp;</label></dt>
+								<dd class="floatR" style="width:496px;">
+									<p><input id="freewords" style="width:300px;" type="text" name="data[search][freewords]" size="40" /></p>
+									<p class="mt5 small">「世田谷区 ○○医院」「内科 ○○クリニック」など。スペースを空けて複数入力可。<br />
+									病院・医院名はカタカナでも検索できます。</p>
+								</dd>
+							</dl>
+						</div>
+					</dd>
+				</dl>
+				<div class="pt15">
+					<p class="taCenter"><input type="image" src="/common/images/btn_search.gif" alt="検索" name="" onclick="sdSubmit();" /></p>
+				</div>
+			</form>
+		</div>
+		<div class="btm">
+			<p><img src="/images/top_topSearchDetailOpenBtn.gif" alt="詳細条件を指定" width="161" height="30" /></p>
+		</div>
+	</div><!-- ▲ topSearch -->
+
+	<!-- GoogleAdsenseLinkUnit -->
+<div class="pt10" style="text-align:center;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1202365274085176";
+/* 【myclinic】Top_linkunit */
+google_ad_slot = "0035323180";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<!-- ▲GoogleAdsenseLinkUnit -->
+	<div id="medicalInfo">
+	<h3><img src="/images/top_h2_medicalInfo.gif" alt="医療情報" width="659" height="53" /></h3>
+	<div class="clearfix">
+				<div class="col3_1">
+			<div class="inner">
+				<p class="heading">今月の医療情報特集<br>病院・医院・医療に関する情報</p>
+				<ul class="pt10 pb10">
+										<li><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/gsk/top_topic/topic_101/mdcl_info.html" target="_blank">認知症を正しく知ろう</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/gsk/top_topic/topic_100/mdcl_info.html" target="_blank">漢方薬で「冷え」を改善に導く</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/gsk/top_topic/topic_99/mdcl_info.html" target="_blank">10年20年先を見据えて始める「脂質異常症」ケア</a></span></li>
+									</ul>
+				<ul class="pt10 btDotted1">
+										<li class="small"><span class="pt2 pb4 listImg2"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/gsk/top_topic/index.html" target="_blank">過去の医療情報特集へ</a></span></li>
+									</ul>
+			</div>
+		</div>
+				<div class="col3_2">
+			<div class="inner">
+				<p class="heading">歯科医院、病院関係情報</p>
+				<ul class="pt10 pb10">
+										<li><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_oral/oral_09/mdcl_info.html" target="_blank">歯周病チェックリスト</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_oral/oral_08/mdcl_info.html" target="_blank">知られざる子供の虫歯原因</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_oral/oral_07/mdcl_info.html" target="_blank">大人のエチケット～口臭の原因と予防</a></span></li>
+									</ul>
+				<ul class="pt10 btDotted1">
+										<li class="small"><span class="pt2 pb4 listImg2"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_oral/index.html" target="_blank">「歯科関係情報」バックナンバー</a></span></li>
+									</ul>
+			</div>
+		</div>
+				<div class="col3_3">
+			<div class="inner">
+				<p class="heading">「内科系の病気」</p>
+				<ul class="pt10 pb10">
+										<li><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_naika/suzuken_naika_134/mdcl_info.html" target="_blank">治療抵抗性高コレステロール血症とは</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_naika/suzuken_naika_133/mdcl_info.html" target="_blank">甲状腺機能低下症【橋本病】のくすり</a></span></li>
+										<li class="pt5"><span class="listImg1"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_naika/suzuken_naika_132/mdcl_info.html" target="_blank">甲状腺機能低下症【橋本病】とは</a></span></li>
+									</ul>
+				<ul class="pt10 btDotted1">
+										<li class="small"><span class="pt2 pb4 listImg2"><a href="http://www.myclinic.ne.jp/imobile/contents/medicalinfo/top_naika/index.html" target="_blank">「内科系の病気」バックナンバー</a></span></li>
+									</ul>
+			</div>
+		</div>
+			</div>
+</div><!-- ▲ medicalInfo -->
+
+	<div class="pt10 btSolid1">
+	<p class="mt10"><a href="http://web.myclinic.ne.jp/oshiete/" target="_blank"><img src="/images/top_banner_main.gif" alt="教えて！ドクター" width="660" height="88" /></a></p>
+</div>
+
+	<!-- GoogleAdsense banner -->
+<div class="pt10 btSolid1" style="text-align:center;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1202365274085176";
+/* 【myclinic】Top_banner */
+google_ad_slot = "5191248018";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<!-- ▲GoogleAdsense banner -->
+	<div id="info">
+		<h3><img src="/images/top_h2_info.gif" alt="お知らせ" width="659" height="54" /></h3>
+		<div class="body">
+                        <dl class="clearfix">
+                                <dt>2016/04/20</dt>
+                                <dd>このたびの熊本県熊本地方を震源とする地震で被災されました皆さまに、心よりお見舞い申し上げます。<br/><br/>被災地域の施設情報は、災害発生以前の状況です。<br/><br/>施設をご利用される際には必ず事前確認をお願い致します。</dd>
+                        </dl>
+						<dl class="clearfix">
+				<dt>2017/06/05</dt>
+				<dd>[お知らせ]<br />このたび、サーバー拠点設備調整作業のため、以下のスケジュールにてメンテナンスを実施致します。<br /><br />【日時】<br />2017年6月14日(水) 午後10時から午後11時まで<br />【影響】<br />メンテナンス時間中、断続的にサービスが停止します。<br /><br />皆様にはご迷惑をおかけいたしますが、何卒ご理解の程よろしくお願いいたします。</dd>
+			</dl>
+						<dl class="clearfix">
+				<dt>2015/09/03</dt>
+				<dd>[お知らせ]<br />このたび、サーバー保守作業のため、以下のスケジュールにてメンテナンスを実施致します。<br /><br />【日時】<br />2015年9月17日(木) 午前1時から午前7時まで<br />【影響】<br />メンテナンス時間中、断続的にサービスが停止します。<br /><br />皆様にはご迷惑をおかけいたしますが、何卒ご理解の程よろしくお願いいたします。</dd>
+			</dl>
+						<dl class="clearfix">
+				<dt>2015/07/30</dt>
+				<dd>[お知らせ]<br />このたび、サーバー保守作業のため、以下のスケジュールにてメンテナンスを実施致します。<br /><br />【日時】<br />2015年8月13日(木) 午前3時から午前7時まで<br />【影響】<br />メンテナンス時間中、断続的にサービスが停止します。<br /><br />皆様にはご迷惑をおかけいたしますが、何卒ご理解の程よろしくお願いいたします。</dd>
+			</dl>
+					</div>
+		<div class="pt10 pb10">
+			<p class="taRight"><span class="listImg2"><a href="http://support.myclinic.ne.jp/search/info" target="_blank">以前のお知らせ</a></span></p>
+		</div>
+	</div><!-- ▲ info -->
+
+	<div id="relatedSite">
+                <div class="adbnr">
+                        <a class="first" href="http://haisha-yoyaku.jp/" target="_blank"><img src="/common/images/eparkshika320x50.png" width="320" height="50" alt="歯医者さんの検索・予約が出来る「EPARK歯科」"></a>
+                        <a href="http://karadadock.jp/" target="_blank"><img src="/common/images/bnr_sp_karadaDock320x50.png" width="320" height="50" alt="EPARK人間ドック"></a>
+                </div>
+                <div class="adbnr">
+                        <a class="first" href="http://karadarefre.jp/" target="_blank"><img src="/common/images/bnr_sp_karadaRefle320x50.png" width="320" height="50" alt="整骨・接骨・整体・あん摩・針灸・マッサージ・カイロプラクティック・リフレクソロジーを探すなら「EPARKからだリフレ」"></a>
+                        <a href="http://sweetsguide.jp/" target="_blank"><img src="/common/images/bnr_sp_sweetsGuide320x50.jpg" width="320" height="50" alt="人気のスイーツ店を探すなら「EPARKスイーツガイド」"></a>
+                </div>
+                <div class="adbnr" style="text-align: left;">
+                        <a class="first" href="http://petlife.asia/" target="_blank"><img src="/common/images/bnr_sp_petLife320x50.png" width="320" height="50" alt="EPARKペットライフ"></a>
+                </div>
+
+		<div class="clearfix">
+			<!--
+			<div class="col4_1">
+				<p class="small">医療機関・薬局で働くなら</p>
+				<p class="mt5"><a href="http://www.medicrew.jp/" target="_blank"><img src="/common/images/bnr_medicrew.gif" alt="医療機関・薬局で働く全ての人の求人サイト「メディクルー」" width="156" height="38" /></a></p>
+			</div>
+			<div class="col4_2">
+				<p class="small">健康情報・医療情報なら</p>
+				<p class="mt5"><a href="http://www.ihealth.co.jp/" target="_blank"><img src="/common/images/bnr_ihealth.gif" alt="iHealth" width="156" height="38" /></a></p>
+			</div>
+			<div class="col4_3">
+				<p class="small">患者さんのための情報サイト</p>
+				<p class="mt5"><a href="http://www.kanshin-hiroba.jp/" target="_blank"><img src="/common/images/bnr_kanshin.gif" alt="かんしん広場 患者さんのための情報サイト" width="156" height="38" /></a></p>
+			</div>
+			-->
+			<div class="col4_4">
+				<p class="small">病気や怪我のあなたを守る</p>
+				<p class="mt5"><a href="http://www.firstplace.co.jp/ltd/" target="_blank"><img src="/common/images/bnr_firstplace.gif" alt="長期所得保証保険" width="156" height="38" /></a></p>
+			</div>
+		</div>
+	</div><!-- ▲ relatedSite -->
+
+	<div id="extra" class="gray2 small">
+		<p>このページに掲載されているのは、 <a href="http://www.myclinic.ne.jp/support_info/pr/" target="_blank">MyClinicホームページ作成サービス(有料)</a> をご利用の病院・医院です。</p>
+		<!--
+		<p>このページに掲載されているのは、 <a href="http://www.myclinic.ne.jp/support_info/pr/" target="_blank">MyClinicホームページ作成サービス(有料)</a> をご利用の病院・医院です。<br />
+		“健康”についてのご相談は、 <a href="http://www.ihealth.co.jp/" target="_blank">無料でドクターに相談できる健康・情報サイト「アイヘルス」</a> をご利用ください。</p>
+		-->
+		<ul>
+			<li class="listImg1">
+				<p class="fwBold"><span>登録掲載について</span></p>
+				<p>このポータルサイトにあなたの病院・医院を載せる場合は、MyClinicホームページ作成サービス か リンク申込み へお申込みください。 </p>
+			</li>
+			<li class="listImg1 mt5">
+				<p class="fwBold"><span>お問い合せは</span></p>
+				<p>MyClinicは、病院や医院を探すみなさまのために <a href="http://www.empower-hc.com/" target="_blank">エンパワーヘルスケア株式会社</a> が提供しています。<br />
+				掲載情報の修正や新規登録などのお問い合わせは <a href="mailto:support@myclinic.ne.jp">support@myclinic.ne.jp</a> までお気軽に。<br />
+				※各病院・医院の詳しい情報や診療内容については、 それぞれの病院・医院様にお問い合わせくださいますよう、お願いいたします。</p>
+			</li>
+		</ul>
+				<p class="mt15">このページは
+		<span class="ml5"><img class="mr3 vaMiddle" src="http://b.hatena.ne.jp/images/append.gif" alt="はてなブックマーク" width="16" height="12" /><a href="http://b.hatena.ne.jp/append?http://www.myclinic.ne.jp/" target="_blank">はてなブックマーク</a></span>
+		<span class="ml5"><img class="mr3 vaBottom" src="/common/images/icon_googleFavicon.gif" alt="Google Bookmarks" width="16" height="16" /><a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http%3A%2F%2Fwww.myclinic.ne.jp%2F&title=%E7%97%85%E9%99%A2%E3%83%BB%E5%8C%BB%E9%99%A2%E6%A4%9C%E7%B4%A2%E3%81%AE%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF" target="_blank">Google Bookmarks</a></span>
+		にそれぞれ登録できます。</p>
+			</div><!-- ▲ extra -->
+
+	<div id="returnPageTop">
+		<p class="small"><span><a href="#header">ページトップへ</a></span></p>
+	</div><!-- ▲ returnPageTop -->
+
+</div>
+<!-- /メインカラム -->
+
+<!-- サイドカラム  -->
+<div class="sideColumn">
+
+	<div id="bnrArea">
+	<p><a href="http://www.myclinic.ne.jp/support_info/pr/" target="_blank"><img src="/common/images/contents/sideColumn/bnr_hpMake.gif" alt="病院・医院検索のマイクリニック" width="236" height="125" /></a></p>
+	<p class="pt5"><a href="http://www.myclinic.ne.jp/support_info/pr/info_mc/08_smartphone.html" target="_blank"><img src="/common/images/contents/sideColumn/top_banner_side.gif" alt="スマホ対応始めました！" width="236" height="125" /></a></p>
+	<p class="pt5"><img src="/common/images/contents/sideColumn/bnr_mobile.gif" alt="モバイル MyClinic" width="236" height="96" /></p>
+</div><!-- ▲ bnrArea -->
+
+	<div id="grapevine">
+		<div class="heading">
+			<p><img src="/common/images/contents/sideColumn/heading_grapevine.gif" alt="クチコミ投稿例" width="240" height="38" /></p>
+		</div>
+		<div class="body">
+			<div class="pt10 pb10 bbDotted1">掲載医院・病院に関する口コミ投稿</div>
+						<div class="pt10 pb10 bbDotted1">
+				<p><a href="http://support.myclinic.ne.jp/search/info/245818" target="_blank">立花歯科クリニック</a></p>
+				<div class="clearfix pt5">
+					<p class="addressArea">福岡県北九州市小倉南区</p>
+					<ul class="iconArea">
+						<li><img src="/common/images/icon_meritAsk.gif" alt="説明" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritTrust.gif" alt="信頼" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritStaff.gif" alt="感じ" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritClean.gif" alt="清潔" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritHard.gif" alt="機器" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritWomen.gif" alt="女性" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritAge.gif" alt="高齢" width="15" height="15" /></li>
+					</ul>
+				</div>
+								<div class="point">
+					<p class="fwBold">新規開院の歯医者さん</p>
+				</div>
+								<div class="clearfix">
+					<div class="photo80L">
+												<p><a href="http://support.myclinic.ne.jp/search/info/245818" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/s/s2629827.jpeg" alt="立花歯科クリニック" width="80" height="60" /></a></p>
+											</div>
+					<div class="photo80R">
+						<p class="small">ずっと他院で治療してきましたが、近くに歯医者がなく変え...</p>
+					</div>
+				</div>
+			</div>
+						<div class="pt10 pb10 bbDotted1">
+				<p><a href="http://support.myclinic.ne.jp/search/info/164569" target="_blank">丸藤歯科医院</a></p>
+				<div class="clearfix pt5">
+					<p class="addressArea">山形県酒田市</p>
+					<ul class="iconArea">
+						<li><img src="/common/images/icon_meritAsk.gif" alt="説明" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritTrust.gif" alt="信頼" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritStaff.gif" alt="感じ" width="15" height="15" /></li>
+					</ul>
+				</div>
+								<div class="point">
+					<p class="fwBold">歯周病のメインテナンス</p>
+				</div>
+								<div class="clearfix">
+					<div class="photo80L">
+												<p><a href="http://support.myclinic.ne.jp/search/info/164569" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/g/gandou.jpeg" alt="丸藤歯科医院" width="80" height="60" /></a></p>
+											</div>
+					<div class="photo80R">
+						<p class="small">歯周病のメインテナンスで通っています。毎回丁寧に治療し...</p>
+					</div>
+				</div>
+			</div>
+						<div class="pt10 pb10 bbDotted1">
+				<p><a href="http://support.myclinic.ne.jp/search/info/110394" target="_blank">ルミナス内科クリニック</a></p>
+				<div class="clearfix pt5">
+					<p class="addressArea">東京都足立区</p>
+					<ul class="iconArea">
+						<li><img src="/common/images/icon_meritStaff.gif" alt="感じ" width="15" height="15" /></li>
+<li><img src="/common/images/icon_meritAge.gif" alt="高齢" width="15" height="15" /></li>
+					</ul>
+				</div>
+								<div class="point">
+					<p class="fwBold">お年寄りのための病院</p>
+				</div>
+								<div class="clearfix">
+					<div class="photo80L">
+												<p><a href="http://support.myclinic.ne.jp/search/info/110394" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/l/luminous.jpeg" alt="ルミナス内科クリニック" width="80" height="60" /></a></p>
+											</div>
+					<div class="photo80R">
+						<p class="small">スタッフの感じがよい。</p>
+					</div>
+				</div>
+			</div>
+						<script type="text/javascript">
+	function searchComment(){
+		var pref = document.getElementById('sidePrefs');
+		if (pref.value == ''){
+			alert('都道府県を選択してください');
+			pref.focus();
+			return false;
+		}
+		var f=document.getElementById('frmComment');
+		f.submit();
+	}
+</script>
+<div class="recommend">
+	<div class="subheading">
+		<p><img src="/common/images/contents/sideColumn/subheading_grapevine.gif" alt="クチコミを投稿しよう" width="236" height="24" /></p>
+	</div>
+	<p class="pt10 pb10 small">あなたが投稿するクチコミが、同じような悩みを抱えている方々への手助けとなります。<br />
+	ぜひ、おすすめクチコミを投稿してください。</p>
+	<div>
+		<form id="frmComment" action="http://support.myclinic.ne.jp/search/query/buzz" method="GET" onsubmit="return searchComment();">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<th class="darkGreen small fwNormal taLeft vaBottom" style="width:119px;">都道府県を選択</th>
+					<th class="darkGreen small fwNormal taLeft vaBottom" style="width:142px; padding-left:11px;">病院・医院名、<br />
+					その他キーワードを入力</th>
+				</tr>
+				<tr>
+					<td class="pt5" style="width:83px;">
+						<select name="c" id="sidePrefs">
+							<option value="">都道府県を指定</option>
+														<option value="1000">北海道</option>
+														<option value="2000">青森県</option>
+														<option value="3000">岩手県</option>
+														<option value="4000">宮城県</option>
+														<option value="5000">秋田県</option>
+														<option value="6000">山形県</option>
+														<option value="7000">福島県</option>
+														<option value="8000">茨城県</option>
+														<option value="9000">栃木県</option>
+														<option value="10000">群馬県</option>
+														<option value="11000">埼玉県</option>
+														<option value="12000">千葉県</option>
+														<option value="13000">東京都</option>
+														<option value="14000">神奈川県</option>
+														<option value="15000">新潟県</option>
+														<option value="16000">富山県</option>
+														<option value="17000">石川県</option>
+														<option value="18000">福井県</option>
+														<option value="19000">山梨県</option>
+														<option value="20000">長野県</option>
+														<option value="21000">岐阜県</option>
+														<option value="22000">静岡県</option>
+														<option value="23000">愛知県</option>
+														<option value="24000">三重県</option>
+														<option value="25000">滋賀県</option>
+														<option value="26000">京都府</option>
+														<option value="27000">大阪府</option>
+														<option value="28000">兵庫県</option>
+														<option value="29000">奈良県</option>
+														<option value="30000">和歌山県</option>
+														<option value="31000">鳥取県</option>
+														<option value="32000">島根県</option>
+														<option value="33000">岡山県</option>
+														<option value="34000">広島県</option>
+														<option value="35000">山口県</option>
+														<option value="36000">徳島県</option>
+														<option value="37000">香川県</option>
+														<option value="38000">愛媛県</option>
+														<option value="39000">高知県</option>
+														<option value="40000">福岡県</option>
+														<option value="41000">佐賀県</option>
+														<option value="42000">長崎県</option>
+														<option value="43000">熊本県</option>
+														<option value="44000">大分県</option>
+														<option value="45000">宮崎県</option>
+														<option value="46000">鹿児島県</option>
+														<option value="47000">沖縄県</option>
+													</select>
+					</td>
+					<td class="pt5 pl5" style="width:112px;"><input style="width:106px;" type="text" name="q" size="18" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" class="pt10 darkGreen small fwNormal taLeft" style="width:236px;">クチコミしたい「おすすめポイント」は</th>
+				</tr>
+				<tr>
+					<td colspan="2" class="pt5 taCenter"><textarea style="width:226px; height:50px;" cols="10" rows="2" name="good"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="pt10 taCenter"><img src="/common/images/btn_next.gif" alt="次へ" style="cursor:pointer" onclick="searchComment()" /><!--input type="image" src="/common/images/btn_next.gif" alt="次へ" name="" /--></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="pt3 pb3">
+		<ul>
+			<li class="listImg2 pt2 pb2"><a href="http://support.myclinic.ne.jp/search/buzz/info/member" target="_blank">おすすめクチコミについて</a></li>
+			<li class="listImg2 pt2 pb2"><a href="http://support.myclinic.ne.jp/search/buzz/info/gp" target="_blank">医療機関のみなさまへ</a></li>
+			<li class="listImg2 pt2 pb2">
+				<div id="iconMeritMeaning">
+				<img class="vaTop" src="/common/images/icon_meritAsk.gif" alt="説明" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritTrust.gif" alt="信頼" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritStaff.gif" alt="感じ" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritClean.gif" alt="清潔" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritHard.gif" alt="機器" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritWomen.gif" alt="女性" width="15" height="15" />
+				<img class="vaTop" src="/common/images/icon_meritAge.gif" alt="高齢" width="15" height="15" />
+				は何？</div>
+				<div id="iconMeritExplain" class="mt5">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritAsk.gif" alt="説明" width="15" height="15" /></th>
+							<td class="pt5 pl5">医師がきちんと話を聞いてくれる、説明してくれる</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritTrust.gif" alt="信頼" width="15" height="15" /></th>
+							<td class="pt5 pl5">技術に信頼感がある</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritStaff.gif" alt="感じ" width="15" height="15" /></th>
+							<td class="pt5 pl5">スタッフの感じがよい</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritClean.gif" alt="清潔" width="15" height="15" /></th>
+							<td class="pt5 pl5">施設に清潔感がある</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritHard.gif" alt="機器" width="15" height="15" /></th>
+							<td class="pt5 pl5">機器が充実している</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritWomen.gif" alt="女性" width="15" height="15" /></th>
+							<td class="pt5 pl5">女性に配慮している</td>
+						</tr>
+						<tr valign="top">
+							<th class="pt5"><img src="/common/images/icon_meritAge.gif" alt="高齢" width="15" height="15" /></th>
+							<td class="pt5 pl5">お年寄りに配慮している</td>
+						</tr>
+					</table>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+		</div>
+	</div><!-- ▲ grapevine -->
+
+
+	
+		<div id="updatedHp">
+		<div class="heading">
+			<p><img src="/common/images/contents/sideColumn/heading_updatedHp.gif" alt="更新されたホームページ" width="240" height="38" /></p>
+		</div>
+		<div class="body">
+			<div class="clearfix pt10 pb10 bbDotted1">最近更新された病院・医院ホームページ</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/203263" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/gp/263/203263.jpeg" alt="高宮歯科医院" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/203263" target="_blank">高宮歯科医院</a></p>
+					<p class="pt3">岡山県赤磐市</p>
+					<p class="pt5 small">歯科,小児歯科,歯科口腔外科</p>
+					<p class="pt5 green small taRight"><span class="fwBold">2時間前更新 (03/18 12:32)</span></p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/200018" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/gp/018/200018.jpeg" alt="おばやしクリニック" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/200018" target="_blank">おばやしクリニック</a></p>
+					<p class="pt3">兵庫県神戸市西区</p>
+					<p class="pt5 small">内科,胃腸科,麻酔科</p>
+					<p class="pt5 green small taRight"><span class="fwBold">2時間前更新 (03/18 12:29)</span></p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/207833" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/gp/833/207833.jpeg" alt="すぎ歯科クリニック" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/207833" target="_blank">すぎ歯科クリニック</a></p>
+					<p class="pt3">兵庫県神戸市中央区</p>
+					<p class="pt5 small">歯科,小児歯科,矯正歯科</p>
+					<p class="pt5 green small taRight"><span class="fwBold">2時間前更新 (03/18 12:29)</span></p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/108681" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/gp/681/108681.jpeg" alt="上田歯科クリニック" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/108681" target="_blank">上田歯科クリニック</a></p>
+					<p class="pt3">京都府福知山市</p>
+					<p class="pt5 small">歯科,小児歯科</p>
+					<p class="pt5 green small taRight"><span class="fwBold">2時間前更新 (03/18 12:26)</span></p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/62100" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/gp/100/62100.jpeg" alt="明愛産婦人科" width="80" height="33" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/62100" target="_blank">明愛産婦人科</a></p>
+					<p class="pt3">滋賀県守山市</p>
+					<p class="pt5 small">産科,婦人科</p>
+					<p class="pt5 green small taRight"><span class="fwBold">2時間前更新 (03/18 12:26)</span></p>
+				</div>
+			</div>
+						<div class="pt10 pb10">
+				<p class="taRight"><span class="listImg2"><a href="http://support.myclinic.ne.jp/search/update/" >すべて表示</a></span></p>
+			</div>
+		</div>
+	</div><!-- ▲ updatedHp -->
+
+	<div id="newHp">
+		<div class="heading">
+			<p><img src="/common/images/contents/sideColumn/heading_newHp.gif" alt="新しく投稿されたホームページ" width="240" height="38" /></p>
+		</div>
+		<div class="body">
+			<div class="clearfix pt10 pb10 bbDotted1">新しく登録された病院・医院ホームページ</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/106019" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/m/monden.jpeg" alt="門田眼科医院" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/106019" target="_blank">門田眼科医院</a></p>
+					<p class="pt3">兵庫県加東市</p>
+					<p class="pt5 small">眼科</p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/258527" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/x/x2453889.jpeg" alt="吉田医院" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/258527" target="_blank">吉田医院</a></p>
+					<p class="pt3">愛知県東海市</p>
+					<p class="pt5 small">内科,神経内科,消化器内科,肛門外科</p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/258944" target="_blank">はたのクリニック</a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/258944" target="_blank">はたのクリニック</a></p>
+					<p class="pt3">東京都世田谷区</p>
+					<p class="pt5 small">耳鼻いんこう科,外科,内科</p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/100913" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/x/x9658359.jpeg" alt="わたなべ内科クリニック" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/100913" target="_blank">わたなべ内科クリニック</a></p>
+					<p class="pt3">愛知県名古屋市北区</p>
+					<p class="pt5 small">内科,胃腸科,リハビリテーション科</p>
+				</div>
+			</div>
+						<div class="clearfix pt10 pb10 bbDotted1">
+				<div class="photo80L">
+										<p><a href="http://support.myclinic.ne.jp/search/info/257537" target="_blank"><img src="http://support.myclinic.ne.jp/images/search/mc/s/s9564398.jpeg" alt="おおくまクリニック" width="80" height="60" /></a></p>
+									</div>
+				<div class="photo80R">
+					<p><a href="http://support.myclinic.ne.jp/search/info/257537" target="_blank">おおくまクリニック</a></p>
+					<p class="pt3">愛知県名古屋市名東区</p>
+					<p class="pt5 small">内科,循環器内科</p>
+				</div>
+			</div>
+						<div class="pt10 pb10">
+				<p class="taRight"><span class="listImg2"><a href="http://support.myclinic.ne.jp/search/new/" >すべて表示</a></span></p>
+			</div>
+		</div>
+	</div><!-- ▲ newHp -->
+	
+</div>
+<!-- /サイドカラム -->
+
+<div id="ajaxData" style="display:none"></div>
+<div id="ajaxErr" style="display:none"></div>
+		</div>
+		</div>
+		<!-- アウターカラム  -->
+	</div>
+	<div class="taCenter">
+	</div>
+	</div>
+	<!-- /CONTENTS ///////////////////////////// END -->
+<!-- interest_match_relevant_zone_end -->
+	<!-- FOOTER ///////////////////////////// START -->
+	<div id="footer">
+		<div id="copyright">
+			<p><img src="/common/images/footer/copyright.gif" alt="Copyright &copy; MyClinic, All rights reserved." width="207" height="12" /></p>
+		</div><!-- ▲ copyright -->
+		<div id="footerNav" class="small">
+			<ul>
+				<li class="first"><a href="http://support.myclinic.ne.jp/privacy/">プライバシー・ステートメント</a></li>
+				<li><a href="http://support.myclinic.ne.jp/search/company/">運営会社</a></li>
+				<li><a href="http://www.myclinic.ne.jp">病院・医院検索のマイクリニック</a></li>
+			</ul>
+		</div><!-- ▲ footerNav -->
+	</div>
+	<!-- /FOOTER ///////////////////////////// END -->
+</div>
+<cake:nocache>
+<img src="http://t7.aqtracker.com/cgi-bin/asp/tagx/h/JUJBZUK8LRF82KXRU8EA/2=%2F%2Fwww.myclinic.ne.jp%2Findex.php%3Foption%3Dcom_adsmanager%26task%3Dupload%26tmpl%3Dcomponent/blank.gif?guid=on"></cake:nocache>
+
+</body>
+</html>

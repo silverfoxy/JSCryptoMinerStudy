@@ -1,0 +1,1 @@
+<script type='text/javascript' src='/contenidos/include/js/movil.js'></script><Script Language="JavaScript">window.open("/webinicio/default.asp","_self");</Script>

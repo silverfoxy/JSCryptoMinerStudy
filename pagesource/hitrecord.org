@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <base href="/">
+  <meta charset="utf-8" />
+  <meta id="viewport" name="viewport"/>
+
+    <title ng-bind="getHeaderTitle()">HITRECORD</title>
+    <meta content="HITRECORD is an online social and collaborative production company founded by actor and director Joseph Gordon-Levitt. We have thousands of projects looking for musicians, artists, photographers, animators, editors and writers. Come join us." name="description">
+
+  <meta name="apple-itunes-app" content="app-id=984939409">
+
+  <link rel="stylesheet" media="all" href="https://assets.hitrecord.org/production/application-0ba18875fefcf5738b94827d54f04d9e6250179dbe0727e72ba74b9118d693d2.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+  <script src="https://assets.hitrecord.org/production/vendor/modernizr-b6835b1dadc1176b89780c53ee32bd1fa3cf526daff2f210b93d919f25cce750.js" crossorigin="anonymous"></script>
+<script src="https://assets.hitrecord.org/production/application-42b30d423354746e95c4f5d525cdd6e7f98e8bb1cac77e5616958dee650c5af2.js" crossorigin="anonymous"></script>
+  <script src="https://assets.hitrecord.org/production/packs/old_angular-999ee52348d29c0b661a.js"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="q8XZJhbmUxagFCBBQRDf4TDb8oFAI7+9ZgPe0kko5POPoMmKt3ezynBf/6bttzxJpdXDxXOnTtZ03/gsVlfWTg==" />
+  <script type="application/javascript">
+    $(function() {
+      var screenWidth = screen.width;
+      var initialScale = screenWidth <= 750 ? screenWidth / 750 : 1;
+      document.getElementById('viewport').setAttribute("content", "initial-scale=" + initialScale);
+    });
+
+    angular.module('app').service('userInitializer', function() {
+      return {
+        isMobile: false
+      };
+    });
+
+    //For twitter sharing button
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));
+
+      Honeybadger.setContext({
+        user_id: 'Logged Out User'
+      });
+
+  </script>
+
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-26846283-1', 'auto', {'legacyCookieDomain': '.hitrecord.org'});
+      ga('send', 'pageview');
+    </script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body ng-controller='MasterCtrl' ng-init="init()">
+
+  <!--FULL HEADER WITH 4+ COLUMNS-->
+  <header class="show-4 full-size" ng-hide="$state.current.name =='default.terms'">
+    <div class="content-wrapper" ng-cloak>
+      <ul class="col-1 nav-left">
+        <li class="logo-holder">
+          <a ui-sref="default.root" ui-sref-opts="{reload: true}"  class="col-1 logo">
+            <span ng-if="!$root.currentUser || !$root.currentUser.featured_count"><img src="https://assets.hitrecord.org/production/nav/logo-9f2cd6454b39e172aa6b1893beaaafb7e1287baab26ec68b711a0f1871f67806.png" alt="Logo" /></span>
+            <span ng-if="$root.currentUser && $root.currentUser.featured_count">
+              <img src="https://assets.hitrecord.org/production/nav/logo_badge-c71efc8f22c16e5787b45cd0b6771460634d3d6f46fe4c1ca05118fc659300a8.png" alt="Logo badge" />
+              <div ng-show="$root.currentUser.featured_count" class="featured-count">{{$root.currentUser.featured_count}}</div>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-middle" ng-class="{'dynamic-col-offset-1':showSignIn,'dynamic-col-offset-2':!showSignIn}">
+        <div class="sign-in" ng-if="!$root.username" ng-show="showSignIn">
+          <ul>
+            <li><a>Sign In with:</a></li>
+            <li>
+              <a href="/users/auth/facebook" target="_self"><i class="fa fa-facebook-square"></i></a>
+            </li>
+            <li>
+              <a href="/users/auth/twitter" target="_self"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="/users/auth/google_oauth2" target="_self"><i class="fa fa-google"></i></a>
+            </li>
+            <li><a >or</a></li>
+            <form class="login-form" action="/users/sign_in" method="post">
+              <ul class="sign-in-options">
+                <li><a href="/users/password/new">Forgot password?</a>&middot;</li>
+                <li><a href="/users/sign_up">Sign Up</a>&middot;</li>
+                <li><a href="#" class="sign-in-cancel" ng-click="$parent.showSignIn = false">Cancel</a></li>
+              </ul>
+              <input name="authenticity_token" type="hidden" value="QsIvTIWnY0dMwOqMhuy07h9fRFMiIldjTJkPXHTa7vZmpz/gJDaDm5yLNWsqS1dGilF1FxGmpgheRSmia6XcSw==" />
+              <input type="hidden" id="user_remember_me" name="user[remember_me]" value="1">
+              <li><a tabindex = "-1"><input ng-model="$root.userLogin" class="radius short" type="text" placeholder="Email or Username" id="user_login" name="user[login]" ></a></li>
+              <li><a tabindex = "-1"><input ng-model="$root.userPassword" class="radius short" type="password" placeholder="Password" id="user_password" name="user[password]" ></a></li>
+              <li><a tabindex = "-1" href="#" target="_self"><input class="button radius info small" id="login_go" name="commit" type="submit" value="Go"></a></li>
+            </form>
+          </ul>
+        </div>
+        <li ng-event-focus="click" event-focus-id="user_login" ng-if="!$root.currentUser" ng-click="$parent.showSignIn = true" ng-hide="showSignIn">
+          <a class="sign-in-link" href="#">SIGN IN</a>
+        </li>
+        <li ng-if="$root.currentUser" ng-hide="showSignIn" >
+          <a ui-sref="default.dashboard.index" ui-sref-opts="{reload: true}" ng-class="{'active':$state.current.name.match('dashboard')}" class="dashboard-link"><i class="hr hr-home"></i><span ng-show="$root.currentUser.dashboard_count" class="count round">{{$root.currentUser.dashboard_count}}</span>Dashboard</a>
+        </li>
+        <li ng-if="$root.currentUser" ng-hide="showSignIn" >
+          <a ui-sref="default.collaborate" ui-sref-opts="{reload: true}" ng-class="{'active':$state.current.name.match('collaborate')}" class="collaborate-link"><i class="hr hr-bookmark-short"></i><span ng-show="$root.currentUser.collaborate_counts.challenges + $root.currentUser.collaborate_counts.projects" class="count round">{{$root.currentUser.collaborate_counts.challenges + $root.currentUser.collaborate_counts.projects}}</span>Collaborate</a>
+        </li>
+        <li ng-hide="showSignIn" >
+          <a ui-sref="default.explore({type:undefined,sort:undefind,search:undefined,tagArray:undefined,challengeFilter:undefined})" ui-sref-opts="{reload: true}" ng-class="{'active':$state.current.name.match('explore')}" class="explore-link"><i class="hr hr-explore"></i>Explore</a>
+        </li>
+      </ul>
+
+      <ul ng-hide="showSignIn" class="col-1 no-margin nav-right">
+        <li ng-if="$root.currentUser">
+          <a ng-href="/records/new">
+            <div class="record-circle">
+              <div class="plus-symbol">+</div>
+            </div>
+          </a>
+        </li>
+        <li ng-if="!$root.currentUser">
+          <a href="/users/sign_up">
+            <div class="record-circle join">
+              <div class="join-text">JOIN</div>
+            </div>
+          </a>
+        </li>
+        <li ng-if="$root.currentUser">
+          <a class="crate-link" href="/crates"><i class="hr hr-crate"></i><div class="crate-count">{{$root.currentUser.crateCount | hideZero}}</div></a>
+        </li>
+        <li id="navigation-dropdown" ng-mouseover="overArrow=true" ng-mouseleave="overArrow=false" ng-click="overMenu = !overMenu" ng-if="$root.currentUser">
+          <a href="{{avatarUrl()}}" class="user-options">
+            <img ng-src="{{currentUser.portraitUrl}}" alt="{{currentUser.username}}" class="avatar-30 round"/>
+            <span ng-show="$root.currentUser.notification_counts.total > 0" class="count round">{{$root.currentUser.notification_counts.total | inThousands}}</span>
+          </a>
+          <ul class="header-dropdown down" ng-show="(overArrow || overMenu)" ng-mouseover="overMenu=true" ng-mouseleave="overMenu=false" ng-click="overMenu = !overMenu">
+            <li><a class="username" href="/users/{{$root.currentUser.username}}/records">{{$root.currentUser.username}}</a></li>
+            <li><a href="/users/{{$root.currentUser.username}}/records">All My Posts <span class="right">{{$root.currentUser.recordsCount | inThousands}}</span></a></li>
+            <li>
+              <a class="type-link" ng-href="/users/{{$root.currentUser.username}}/records?type={{type.value}}" ng-repeat="type in [{value:'documents',font:'hr hr-document'}, {value:'images',font:'hr hr-image'}, {value:'videos',font:'hr hr-video'}, {value:'audios',font:'hr hr-audio'}, {value:'albums',font:'hr hr-album'}, {value:'challenges',font:'hr hr-challenge'}, {value:'projects',font:'hr hr-project'}]">
+                <i class="{{type.font}}"></i>
+              </a>
+            </li>
+            <li><a href="/users/{{$root.currentUser.username}}/recommendations">My Recommends <span class="right">{{$root.currentUser.heartsCount | inThousands}}</span></a></li>
+
+            <li ng-show="$root.currentUser.notification_counts.total" class="notifications">
+              <a href="/notifications/all">New Notifications <strong class="right">{{$root.currentUser.notification_counts.total | inThousands}}</strong></a>
+              <div class="notifications-count-holder">
+                <span ng-show="$root.currentUser.notification_counts.remixes > 0" class="remix"><a href="/notifications/remixes">{{$root.currentUser.notification_counts.remixes}} <i class="hr hr-project"></i></a></span>
+                <span ng-show="$root.currentUser.notification_counts.messages > 0" class="message"><a href="/notifications/messages">{{$root.currentUser.notification_counts.messages}} <i class="fa fa-comment"></i></a></span>
+                <span ng-show="$root.currentUser.notification_counts.contributions > 0" class="contribution"><a href="/notifications/contributions">{{$root.currentUser.notification_counts.contributions}} <i class="hr hr-challenge"></i></a></span>
+                <span ng-show="$root.currentUser.notification_counts.hearts > 0" class="heart"><a href="/notifications/hearts">{{$root.currentUser.notification_counts.hearts}} <i class="fa fa-heart"></i></a></span>
+              </div>
+            </li>
+            <hr ng-hide="$root.currentUser.notification_counts.total" />
+            <li ng-hide="$root.currentUser.notification_counts.total"><a href="/notifications/all">New Notifications <span class="right">0</span></a></li>
+            <li><a href="/downloads" >My Downloads <span class="right">{{$root.currentUser.downloadsCount | inThousands}}</span></a></li>
+            <li><a href="/subscriptions" >My Subscriptions <span class="right">{{$root.currentUser.userFollowingsCount | inThousands}}</span></a></li>
+            <li><a href="/payments" >Payment Info</a></li>
+            <hr>
+            <li><a href="/settings" class="light"><i class="fa fa-gear"></i> &nbsp;Account Settings</a></li>
+            <li><a href="/help" class="light"><i class="fa fa-question-circle"></i> &nbsp;Help</a></li>
+            <li><a href="/users/sign_out" target="_self" class="light" rel="nofollow" data-method="delete"><i class="fa fa-power-off"></i> &nbsp;Log Out</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/help" class="help-link"><i class="fa fa-question-circle"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!--SHRUNKEN HEADER WITH 3 COLUMNS-->
+  <header class="hide-4 shrunk" ng-hide="$state.current.name =='default.terms'">
+    <div class="content-wrapper" ng-hide="showSignIn">
+      <ul class="col-1 nav-left">
+        <a class="hamburger" ng-click="$root.hamburgerMenu = !$root.hamburgerMenu"><i class="fa fa-bars"></i></a>
+      </ul>
+      <ul class="col-1 nav-middle">
+        <li ng-if="!$root.currentUser">
+          <a ng-href="users/sign_up">
+            <img src="https://assets.hitrecord.org/production/nav/logo-9f2cd6454b39e172aa6b1893beaaafb7e1287baab26ec68b711a0f1871f67806.png" alt="Logo" />
+          </a>
+        </li>
+        <li ng-if="$root.currentUser" class="shrunk-logo">
+          <a ng-href="/records/new">
+            <div class="record-circle">
+              <div class="plus-symbol">+</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-right col-1">
+        <a ui-sref="default.explore({type:undefined,sort:undefind,search:undefined,tagArray:undefined,challengeFilter:undefined})" ui-sref-opts="{reload: true}"><i class="hr hr-explore"></i></a>
+      </ul>
+    </div>
+
+    <!--When sign in clicked-->
+    <div class="content-wrapper fixed-3" ng-show="showSignIn">
+      <ul class="col-3">
+        <div class="sign-in" ng-if="!$root.username" ng-show="showSignIn">
+          <ul class="sign-in-options">
+            <li><a class="no-hover">Sign In with:</a></li>
+            <li>
+              <a href="/users/auth/facebook" target="_self"><i class="fa fa-facebook-square"></i></a>&middot;
+            </li>
+            <li>
+              <a href="/users/auth/twitter" target="_self"><i class="fa fa-twitter"></i></a>&middot;
+            </li>
+            <li>
+              <a href="/users/auth/google_oauth2" target="_self"><i class="fa fa-google"></i></a>&middot;
+            </li>
+            <li><a class="no-hover">or</a></li>
+
+            <li class="right"><a href="" class="sign-in-cancel" ng-click="$parent.showSignIn = false">Cancel</a></li>
+            <li class="right"><a href="/users/sign_up">Sign Up</a>&middot;</li>
+            <li class="right"><a href="/users/password/new">Forgot password?</a>&middot;</li>
+          </ul>
+          <ul>
+            <form class="login-form" action="/users/sign_in" method="post">
+              <input name="authenticity_token" type="hidden" value="3Ds4fNX3lARnRvM6vjWHDjp8vF339l2tmkNS6nglIfj4XijQdGZ02LcNLN0SkmSmr3KNGcRyrMaIn3QUZ1oTRQ==" />
+              <input type="hidden" name="user[remember_me]" value="1">
+              <li><a tabindex = "-1" href="#"><input ng-model="$root.userLogin" class="radius tall" type="text" placeholder="Email or Username" id="user_login_shrunk" name="user[login]" ></a></li>
+              <li><a tabindex = "-1" href="#"><input ng-model="$root.userPassword" class="radius tall" type="password" placeholder="Password" name="user[password]" ></a></li>
+              <li><a tabindex = "-1" href="#" target="_self"><input class="button radius info" name="commit" type="submit" value="Go"></a></li>
+            </form>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </header>
+  <div ng-cloak ng-if="!$root.currentUser" class="signed-out-bar hide-4">
+    <a href="#" ng-event-focus="click" event-focus-id="user_login_shrunk" ng-click="$parent.showSignIn = true" class="bar-sign-in">SIGN IN</a>
+    <a href="/users/sign_up" class="bar-join">JOIN US!</a>
+  </div>
+
+  <div class="vertical-nav hide-4" ng-class="{expanded: $root.hamburgerMenu}">
+    <ul ng-click="$root.hamburgerMenu = false" >
+      <li><a href="#" class="close" ng-click="$root.hamburgerMenu = false">╳</a></li>
+      <li><a href="/">Main <span ng-if="currentUser" ng-show="$root.currentUser.featured_count">({{$root.currentUser.featured_count}})</span></a></li>
+      <li ng-if="currentUser"><a ui-sref="default.dashboard.index" ui-sref-opts="{reload: true}">Dashboard <span ng-show="$root.currentUser.dashboard_count">({{$root.currentUser.dashboard_count}})</span></a></li>
+      <li ng-if="currentUser"><a ui-sref="default.collaborate" ui-sref-opts="{reload: true}">Collaborate <span ng-show="$root.currentUser.collaborate_counts.challenges + $root.currentUser.collaborate_counts.projects">({{$root.currentUser.collaborate_counts.challenges + $root.currentUser.collaborate_counts.projects}})</span></a></li>
+      <li><a href="/help">Info & Help</a></li>
+      <li ng-if="currentUser">
+        <a href="/crates" class="crates-link">
+          <i class="hr hr-crate">
+            <div class="line left-side"></div>
+            <span class="crate-count">{{$root.currentUser.crateCount | hideZero}}</span>
+            <div class="line right-side"></div>
+          </i>
+        </a>
+      </li>
+      <li ng-if="currentUser"><a href="/users/{{$root.currentUser.username}}/records">{{$root.currentUser.username}}</a></li>
+      <li ng-if="currentUser"><a href="/notifications/all">Notifications <span ng-show="$root.currentUser.notification_counts.total">({{$root.currentUser.notification_counts.total | inThousands}})</span></a></li>
+      <li ng-if="currentUser"><a href="/downloads">Downloads</a></li>
+      <li ng-if="currentUser"><a href="/users/{{$root.currentUser.username}}/subscriptions">Subscriptions</a></li>
+      <li ng-if="currentUser"><a href="/settings/payment">Payment Info</a></li>
+      <li ng-if="currentUser"><a href="/settings">Account Settings</a></li>
+      <li ng-if="currentUser"><a href="/users/sign_out" target="_self" class="light" rel="nofollow" data-method="delete">Log Out</a></li>
+    </ul>
+  </div>
+
+  <!--STOP MASQUERADE-->
+  <!--STOP MASQUERADE-->
+
+  <!-- FEEDBACK -->
+  <!-- FEEDBACK-->
+
+  <!--MAIN CONTENT-->
+  <section>
+    <div ui-view></div>
+    <div ui-view="default"></div>
+    
+  </section>
+
+  <!--THIS IS ONLY FOR THE RAILS FLASH-->
+
+  <script type="application/javascript">
+    $(function() {
+      setTimeout(function() {
+        $('.alert-box.disappear').remove();
+      }, 2500);
+
+      $('.alert-box').click(function() {
+        $(this).remove();
+      });
+    });
+  </script>
+
+</body>
+</html>

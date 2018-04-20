@@ -1,0 +1,1 @@
+<html><head><meta http-equiv="refresh" content="0;url=http://www.kaede-software.com/"></head><body></body></html>

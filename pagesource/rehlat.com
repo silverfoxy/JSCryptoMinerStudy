@@ -1,0 +1,1396 @@
+<!DOCTYPE html><html lang="en"><head><style> #popup_container { font-family: Verdana, Arial, Sans-Serif; font-size: 11px; min-width: 300px; max-width: 600px; background: #fff; border: 3px solid #1687CF; color: #000; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; top: 200px; left: 476px; } #popup_title { font-size: 11px; font-weight: 700; text-align: left; line-height: 1.75em; color: #fff; background: #1687CF top repeat-x; border: 1px solid #fff; cursor: default; padding: 6px 0 6px .5em; margin: 0; font: normal 14px/18px 'Open Sans', sans-serif; } #popup_message { /*padding-left: 48px;*/ padding-left: 6px; } @media only screen and (max-width: 768px) { #popup_container { left: 0 !important; } } </style> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> <link href="/Content/NewlayoutCDNcss?v=20u2UMGtUj4fwYKbzl2DpcJJY3VuQqKkd_zo3OtCohw1" rel="stylesheet"/>
+<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"80a8142962","applicationID":"25633319","transactionName":"NFYEYkZXXERZBRYPCg0cK2B3GXpYVQMhCQsXQQlaWFNAGHEIBgMd","queueTime":0,"applicationTime":312,"agent":"","atts":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUBVVdbDBACUVdRBAIGXw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, user-scalable=0" /><meta name="format-detection" content="telephone=no"><meta name="google-site-verification" content="uA4tPyM_4u757xIGDixthu6wroo_d0HfG--ZgAHf7x0" /> <meta name="p:domain_verify" content="a0fb2f7a85393ae6d36ef67147865a6a" /> <link rel="icon" href="https://images.rehlat.com/Content/images/favicon.ico" type="image/x-icon"> <title>Flight Booking, Airline Tickets, Hotels & Flight Deals - Rehlat</title>
+<meta name="description" content="Flights & hotels online booking at Rehlat with great deals and discounts. Lowest price guaranteed on over 1,000+ airlines, 100,000+ hotels worldwide." />
+<meta name="keywords" content="Rehlat, Rehlat Offers, Flights, Hotels, Deals, Book Flights, Airline Tickets, Flight Deals, Book Hotels, Air Tickets, Last Minute Deals, Flight Tickets" />
+        <meta name="robots" content="index, follow">
+        <meta name="robots" content="noodp, noydir">
+        <link rel="alternate" hreflang="ar" href="https://www.rehlat.com/ar/" />
+        <link rel="alternate" hreflang="en" href="https://www.rehlat.com/" />
+        <link rel="alternate" hreflang="ar-ae" href="https://www.rehlat.ae/ar/" />
+        <link rel="alternate" hreflang="en-ae" href="https://www.rehlat.ae/" />
+	<link rel="alternate" hreflang="ar-sa" href="https://www.rehlat.com.sa/" />
+        <link rel="alternate" hreflang="en-sa" href="https://www.rehlat.com.sa/en/" />
+        <link rel="alternate" hreflang="ar-eg" href="https://www.rehlat.com.eg/" />
+        <link rel="alternate" hreflang="en-eg" href="https://www.rehlat.com.eg/en/" />  
+        <meta name="distribution" content="Global" />
+        <meta name="language" content="English" />
+        <meta property="og:title" content="Flight Booking, Airline Tickets, Hotels & Flight Deals - Rehlat" />
+        <meta property="og:type" content="Website" />
+        <meta property="og:url" content="https://www.rehlat.com/" />
+        <meta property="og:description" content="Flights & hotels online booking at Rehlat with great deals and discounts. Lowest price guaranteed on over 1,000+ airlines, 100,000+ hotels worldwide." />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="ar_AR" />
+        <meta property="og:site_name" content="Rehlat.com" />
+        <link href="https://plus.google.com/116188733994537528317" rel="publisher" />
+        <meta name="msvalidate.01" content="9382CDF522044E6845A5C761178AD184" />
+        <meta name="google-site-verification" content="d6qthVD5yhMlzKz7ukIiTdfHb7dv1WtzG6mN7y-kCtQ" />
+        <link rel="canonical" href="https://www.rehlat.com/" />
+
+<script type="application/ld+json">
+				{
+		    	"@context" : "http://schema.org",
+		    	"@type" : "Organization",
+		    	"name" : "Rehlat",
+		    	"url": "https://www.rehlat.com/",
+		    	"logo": "https://images.rehlat.com/Content/images/logo.png"
+				}
+			</script><meta name="apple-itunes-app" content="app-id=1141857583, affiliate-data=myAffiliateData, app-argument=myURL"> <meta name="author" content="Download Rehlat App  <br/> Get flat 16 KWD off <br/> Coupon Code - TRAVEL"> <meta name="google-play-app" content="app-id=com.app.rehlat"> <meta name="msApplication-ID" content="App" /> <meta name="port" content="width=device-width, initial-scale=1.0"> <link href="/Content/smartbannercss?v=wUbSpa7aKNKYtpIkG-DWeuH4hmVPWxXbpVQ6aEZrgWo1" rel="stylesheet"/>
+<meta name="msapplication-TileImage" content="//store-images.s-microsoft.com/image/apps.24514.9007199266246590.00622cf5-f1da-43a1-a307-98c6bc7b088c.597ce205-1312-47f5-9247-144187518994?w=100&h=100&q=60" /> <link href="/Content/LayoutCss?v=2j5b_D5gidgbJlLEzD6e5EBY4XWjilVpevpOJAf94A81" rel="stylesheet"/>
+ <script type="text/javascript">
+(function (window) {
+if (window.location !== window.top.location) {
+window.top.location = window.location;
+}
+})(this);
+</script>  <script type="text/javascript">
+function changeLanguage() {
+if (window.location.href.indexOf('/en/') == -1) {
+if (window.location.href.indexOf('utm_campaign') > -1) {
+var arabicUrl = b2cBaseUrl + '/ar';
+window.location.href = window.location.href.replace(b2cBaseUrl, arabicUrl);
+}
+else {
+window.location.href = b2cBaseUrl + '/ar/';
+}
+}
+else {
+window.location.href = window.location.href.replace("/en/", "/ar/");
+}
+}
+var CouponAmount = '2';
+</script>    <script async src="https://www.googletagmanager.com/gtag/js?id=DC-5197399"></script>  <script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'DC-5197399');
+</script>  <script>
+gtag('event', 'conversion', {
+'allow_custom_scripts': true,
+'send_to': 'DC-5197399/vcorhlt/rhlthpen+standard'
+});
+</script>  <noscript> <img src="https://ad.doubleclick.net/ddm/activity/src=5197399;type=vcorhlt;cat=rhlthpen;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" alt="" /> </noscript> </head><body><div class="container-fluid myNavbarFixed" ng-app="rehlatApp" style="position:relative"><div class="container"><header><div class="row mylogoRow MWebLogoRow"><div class="container"><div class="myLogoHolder MWebLogoHolder"><div class="navbar-header"> <button type="button" onclick="openNav()" class="navbar-toggle MWebNavbar-Toggle" style="float:left;"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>  <a href="https://www.rehlat.com/en" class="hidden-xs"> <img src="https://images.rehlat.com/Content/images/logo.png" class="img-responsive hidden-xs" alt="cheap Flights" /> </a>  <a href="https://www.rehlat.com/en" class="hidden-sm hidden-md hidden-lg LogoonMobile"> <img src="https://images.rehlat.com/Content/images/logo.png" alt="cheap Flights" /> </a> </div></div><div ng-controller="NavBarController"><div id="mySidenav" class="sidenav" ng-if="$root.is_mobile"> <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <div class=""><ul class="nav navbar-nav main_navigation_new"> <li id="tabFlightNav"><a href="/en/cheap-flights/" style="cursor:pointer">Flights</a></li><li id="tabHotelNav"> <a href="/en/cheap-hotels/" style="cursor:pointer"><span class="NewReleased"> Hotels </span></a></li><li id="tabDealNav"><a href="/en/deals/" style="cursor:pointer">Deals</a></li></ul></div><div class="header_submenu"><ul class="nav navbar-nav navbar-right profile header_submenu"> <li class="dropdown hidden-xs visable-sm" id="tabLanguage"> <a onclick="changeLanguage();" class="Lang_Arb" style="cursor:pointer; font-size:15px;"><span>العربية</span></a></li><li class="dropdown hidden-sm hidden-md hidden-lg"> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash"> <b>Refer and Earn</b> </a></li><li class="dropdown clearfix hidden-sm hidden-md hidden-lg" style="border-bottom: 1px solid #C7C7C7; padding:10px 15px 10px 30px !important;"><span><a style="cursor: pointer; padding: 0px 0px 0px 0px !important; " onclick="WalletIconClicked()" id="" class="anchrgokaramfaq"><span class="pull-left" style="margin-top:2px"><span style="color:#525252;"><b style=" margin-top: 4px; display: inherit;">My Karam</b></span></span><span style="border: solid 0px red; padding:0px; " class="clearfix"><span class="wallet_info text-center" style="margin-left:0px;"><span class="header_wallet_box" style="margin-right: 0px; margin-top: 0px; padding-top:3px; background: #49a300; border: none; color: #fff; "><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/Mwallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></span></span></span></a></span></li><li class="dropdown" id="tabContactUs"> <a href="/en/call" class="dropdown-toggle"><span>Call Us</span></a></li><li class="dropdown" id="MyBooking"> <a data-toggle="modal" href="#mybooking_new"><span>My Booking</span></a></li><li class="dropdown mega-dropdown" id="tabCurrency" onmouseout="Hide_DomainNameFlag_new(); hide_mybooking_new();"> <a href="#" class="dropdown-toggle hidden-sm hidden-md hidden-lg" data-toggle="dropdown" ng-if="$root.is_mobile"><span class="crncyText"></span><span id="CurrencySymbol">&nbsp;KWD</span><i id="currencyDropDownSymbol"></i> </a> <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown" ng-if="!$root.is_mobile" onmouseover="show_Currency_new()"><span class="crncyText"></span><span id="CurrencySymbol">&nbsp;KWD</span><i id="currencyDropDownSymbol"></i> </a><ul class="dropdown-menu mega-dropdown-menu row width_460" id="currencydropdownmenu" onmouseover="show_Currency_new()" onmouseout="Hide_Currency_new()"><li class="col-sm-12"><ul><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="AED"><span class="currencyCode">AED</span>Emirati Dirham <i class="fa" id="chkICurrency_AED" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="BHD"><span class="currencyCode">BHD</span>Bahraini Dinar <i class="fa" id="chkICurrency_BHD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="EGP"><span class="currencyCode">EGP</span>Egyptian Pound <i class="fa" id="chkICurrency_EGP" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="EUR"><span class="currencyCode">EUR</span>Euro <i class="fa" id="chkICurrency_EUR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="INR"><span class="currencyCode">INR</span>Indian Rupee <i class="fa" id="chkICurrency_INR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="JOD"><span class="currencyCode">JOD</span>Jordanian Dinar <i class="fa" id="chkICurrency_JOD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="KWD"><span class="currencyCode">KWD</span>Kuwaiti Dinar<i class="fa fa-check" id="chkICurrency_KWD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="OMR"><span class="currencyCode">OMR</span>Omani Rial <i class="fa" id="chkICurrency_OMR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="QAR"><span class="currencyCode">QAR</span>Qatari Riyal <i class="fa" id="chkICurrency_QAR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="SAR"><span class="currencyCode">SAR</span>Saudi Arabian Riyal <i class="fa" id="chkICurrency_SAR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="USD"><span class="currencyCode">USD</span>US Dollar <i class="fa" id="chkICurrency_USD" aria-hidden="false"></i>  </a></li></ul></li></ul></li><li class="dropdown" onmouseout="hide_mybooking_new(); Hide_Currency_new();"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" onmouseover="show_DomainNameFlag_new()"> <span><img src="https://images.rehlat.com/content/images/kuwflag.jpg" alt="rehlat.com" title="kuwait" /></span></a><ul class="dropdown-menu" id="DomainNameFlag" onmouseover="show_DomainNameFlag_new()" onmouseout="Hide_DomainNameFlag_new()"> <li><a href="https://www.rehlat.ae/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/uaeflag.jpg" alt="rehlat.ae" title="united arab emirates" /> UNITED ARAB EMIRATES</a></li><li><a href="https://www.rehlat.com.sa/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/saflag.jpg" alt="rehlat.com.sa" title="saudi arabia" /> SAUDI ARABIA</a></li><li><a href="https://www.rehlat.com.eg/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/eg_flag.jpg" alt="rehlat.com.eg" title="egypt" /> EGYPT</a></li></ul></li><li class="dropdown hidden-xs" id="Loginpopup" onmouseout="Hide_DomainNameFlag_new(); "> <a data-toggle="modal" href="#signUp_new" id="anchrSignUp_new"> <i class="fa login-user-icon"></i><span>Account</span></a> </li></ul></div><ul class="nav navbar-nav hidden main_navigation_new hidden-sm hidden-md hidden-lg"><li id="tabDealNav"> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash" style="font-size:14px;" id=""><span style="cursor:pointer"><b>Refer and Earn</b></span></a></li><li id="tabDealNav"><div style="display: inline-grid; float:right;"> <a style="cursor:pointer;" onclick="WalletIconClicked()" id="" class="anchrgokaramfaq"><span style="font-size: 14px; font-size: 14px; padding-right: 5px; float: left; margin-top: 18px; font-size: 14px; margin-right: 36px;"> <b>My Karam</b></span><div class="wallet_info text-center"><div class="header_wallet_box" style="margin-right: 0px; background: #49a300; border: none; color: #fff; "><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/Mwallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></div></div></a></div></li></ul><div style="display: inline-grid; float: right;" class="hidden-xs">  <a style="cursor:pointer;" id="" onclick="WalletIconClicked()" class="anchrgokaramfaq"><div class="wallet_info text-center" style="display:inline-table; max-width:140px;"><div class="header_wallet_box"><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/wallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></div></div></a> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash" style="font-size:12px;" id="">Earn Karam Cash</a></div><style type="text/css"> @media only screen and (max-device-width: 480px) { .CurrencyStyle { color: white; background-color: transparent; } } </style> </div><div class="navbar-collapse collapse" ng-if="!$root.is_mobile"> <div class=""><ul class="nav navbar-nav main_navigation_new"> <li id="tabFlightNav"><a href="/en/cheap-flights/" style="cursor:pointer">Flights</a></li><li id="tabHotelNav"> <a href="/en/cheap-hotels/" style="cursor:pointer"><span class="NewReleased"> Hotels </span></a></li><li id="tabDealNav"><a href="/en/deals/" style="cursor:pointer">Deals</a></li></ul></div><div class="header_submenu"><ul class="nav navbar-nav navbar-right profile header_submenu"> <li class="dropdown hidden-xs visable-sm" id="tabLanguage"> <a onclick="changeLanguage();" class="Lang_Arb" style="cursor:pointer; font-size:15px;"><span>العربية</span></a></li><li class="dropdown hidden-sm hidden-md hidden-lg"> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash"> <b>Refer and Earn</b> </a></li><li class="dropdown clearfix hidden-sm hidden-md hidden-lg" style="border-bottom: 1px solid #C7C7C7; padding:10px 15px 10px 30px !important;"><span><a style="cursor: pointer; padding: 0px 0px 0px 0px !important; " onclick="WalletIconClicked()" id="" class="anchrgokaramfaq"><span class="pull-left" style="margin-top:2px"><span style="color:#525252;"><b style=" margin-top: 4px; display: inherit;">My Karam</b></span></span><span style="border: solid 0px red; padding:0px; " class="clearfix"><span class="wallet_info text-center" style="margin-left:0px;"><span class="header_wallet_box" style="margin-right: 0px; margin-top: 0px; padding-top:3px; background: #49a300; border: none; color: #fff; "><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/Mwallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></span></span></span></a></span></li><li class="dropdown" id="tabContactUs"> <a href="/en/call" class="dropdown-toggle"><span>Call Us</span></a></li><li class="dropdown" id="MyBooking"> <a data-toggle="modal" href="#mybooking_new"><span>My Booking</span></a></li><li class="dropdown mega-dropdown" id="tabCurrency" onmouseout="Hide_DomainNameFlag_new(); hide_mybooking_new();"> <a href="#" class="dropdown-toggle hidden-sm hidden-md hidden-lg" data-toggle="dropdown" ng-if="$root.is_mobile"><span class="crncyText"></span><span id="CurrencySymbol">&nbsp;KWD</span><i id="currencyDropDownSymbol"></i> </a> <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown" ng-if="!$root.is_mobile" onmouseover="show_Currency_new()"><span class="crncyText"></span><span id="CurrencySymbol">&nbsp;KWD</span><i id="currencyDropDownSymbol"></i> </a><ul class="dropdown-menu mega-dropdown-menu row width_460" id="currencydropdownmenu" onmouseover="show_Currency_new()" onmouseout="Hide_Currency_new()"><li class="col-sm-12"><ul><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="AED"><span class="currencyCode">AED</span>Emirati Dirham <i class="fa" id="chkICurrency_AED" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="BHD"><span class="currencyCode">BHD</span>Bahraini Dinar <i class="fa" id="chkICurrency_BHD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="EGP"><span class="currencyCode">EGP</span>Egyptian Pound <i class="fa" id="chkICurrency_EGP" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="EUR"><span class="currencyCode">EUR</span>Euro <i class="fa" id="chkICurrency_EUR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="INR"><span class="currencyCode">INR</span>Indian Rupee <i class="fa" id="chkICurrency_INR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="JOD"><span class="currencyCode">JOD</span>Jordanian Dinar <i class="fa" id="chkICurrency_JOD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="KWD"><span class="currencyCode">KWD</span>Kuwaiti Dinar<i class="fa fa-check" id="chkICurrency_KWD" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="OMR"><span class="currencyCode">OMR</span>Omani Rial <i class="fa" id="chkICurrency_OMR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="QAR"><span class="currencyCode">QAR</span>Qatari Riyal <i class="fa" id="chkICurrency_QAR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="SAR"><span class="currencyCode">SAR</span>Saudi Arabian Riyal <i class="fa" id="chkICurrency_SAR" aria-hidden="false"></i>  </a></li><li><a id="pound" class="rltCurrency CurrencyStyle" data-currency="USD"><span class="currencyCode">USD</span>US Dollar <i class="fa" id="chkICurrency_USD" aria-hidden="false"></i>  </a></li></ul></li></ul></li><li class="dropdown" onmouseout="hide_mybooking_new(); Hide_Currency_new();"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" onmouseover="show_DomainNameFlag_new()"> <span><img src="https://images.rehlat.com/content/images/kuwflag.jpg" alt="rehlat.com" title="kuwait" /></span></a><ul class="dropdown-menu" id="DomainNameFlag" onmouseover="show_DomainNameFlag_new()" onmouseout="Hide_DomainNameFlag_new()"> <li><a href="https://www.rehlat.ae/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/uaeflag.jpg" alt="rehlat.ae" title="united arab emirates" /> UNITED ARAB EMIRATES</a></li><li><a href="https://www.rehlat.com.sa/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/saflag.jpg" alt="rehlat.com.sa" title="saudi arabia" /> SAUDI ARABIA</a></li><li><a href="https://www.rehlat.com.eg/en/?redirect=false" target="_blank"><img src="https://images.rehlat.com/content/images/eg_flag.jpg" alt="rehlat.com.eg" title="egypt" /> EGYPT</a></li></ul></li><li class="dropdown hidden-xs" id="Loginpopup" onmouseout="Hide_DomainNameFlag_new(); "> <a data-toggle="modal" href="#signUp_new" id="anchrSignUp_new"> <i class="fa login-user-icon"></i><span>Account</span></a> </li></ul></div><ul class="nav navbar-nav hidden main_navigation_new hidden-sm hidden-md hidden-lg"><li id="tabDealNav"> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash" style="font-size:14px;" id=""><span style="cursor:pointer"><b>Refer and Earn</b></span></a></li><li id="tabDealNav"><div style="display: inline-grid; float:right;"> <a style="cursor:pointer;" onclick="WalletIconClicked()" id="" class="anchrgokaramfaq"><span style="font-size: 14px; font-size: 14px; padding-right: 5px; float: left; margin-top: 18px; font-size: 14px; margin-right: 36px;"> <b>My Karam</b></span><div class="wallet_info text-center"><div class="header_wallet_box" style="margin-right: 0px; background: #49a300; border: none; color: #fff; "><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/Mwallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></div></div></a></div></li></ul><div style="display: inline-grid; float: right;" class="hidden-xs">  <a style="cursor:pointer;" id="" onclick="WalletIconClicked()" class="anchrgokaramfaq"><div class="wallet_info text-center" style="display:inline-table; max-width:140px;"><div class="header_wallet_box"><span class="wallet_icon"><img src="https://images.rehlat.com/content/images/wallet_icon.png"></span><span class="wallet_amt" id="Idkaramcash"></span></div></div></a> <a href="https://www.rehlat.com/en/gokaramfaq" target="_blank" class="winfo guestUserEarnKarmCash" style="font-size:12px;" id="">Earn Karam Cash</a></div><style type="text/css"> @media only screen and (max-device-width: 480px) { .CurrencyStyle { color: white; background-color: transparent; } } </style> </div></div><div class="hidden-md hidden-lg hidden-sm visable-xs language" style="float: left; margin-top: 6px; margin-left: 10%; font: bold;"> <a onclick="changeLanguage()" class="Lang_Arb" style="cursor: pointer; font-size: 17px !important"><span style="font-weight:bold;" class="arabic">العربية</span></a></div><div class="loginIconHolder hidden-md hidden-lg hidden-sm visable-xs acount"> <a href="" data-toggle="modal" id="anchrMobLogin" data-target="#myModal_user"><i class="fa fa-user"></i></a> <div class="modal fade" id="myModal_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content MwebSignInpopup"><div style="display:table; background:#fff; width:100%; "> <a onclick=" SetEmailSubscribeCookie(); ga('set', 'nonInteraction', true); ga('send', 'event', 'PopupSubscribe', 'Closebutton'); " data-dismiss="modal" class="closeBtn"><span aria-hidden="true"><img src="https://images.rehlat.com/Content/images/close-icon.png"></span></a><div class="tabBlock tabBlock2" style="background:#fff;"><ul id="myTab" class="nav nav-tabs myD-M" style="margin-bottom:20px;"><li class="myCustomTab2 active" id="userSignInLayout"> <a href="#signInLayout" data-toggle="tab"> Sign in<div class="arrow-down"></div></a></li><li class="myCustomTab2"> <a href="#signUpLayout" data-toggle="tab"> Sign up<div class="arrow-down"></div></a></li></ul><div id="myTabContent3" class="tab-content"><div class="tab-pane fade in active" id="signInLayout"><div class="row"><div id="MWebLogin"> <form action="/MyAccount/Login" class="col-xs-12" id="signIN" method="post" role="form"><div class="col-sm-12"><div class="form-horizontal"><div class="row mySM-Txt form-horizontal" id="productForm"><div class="" style="padding-bottom:10px"><div class="form-group"> <label class="control-label col-xs-3" style="color:red" id="lblErrorMsg1"></label></div></div><div class=""><div class="form-group"> <label class="control-label col-xs-3"></label><div class="col-xs-12"><div class="floating-form"><div class="floating-label"> <input type="email" maxlength="50" placeholder=" " class="floating-input otpemaillwr Arbictxtrestrict" name="Email" id="mobileEmail" autocomplete="off" required><span class="highlight"></span><label>Email address</label></div></div></div></div></div><div class=""><div class="form-group"> <label class="control-label col-xs-3"></label><div class="col-xs-12"><div class="floating-form"><div class="floating-label"> <input type="password" maxlength="50" placeholder=" " class="floating-input otpemaillwr Arbictxtrestrict " name="Password" id="mobpassword" required><span class="highlight"></span><label>Password</label></div></div></div></div></div></div></div><div class="row"><div class=""> <button type="button" id="loginMobile" class="btn btn-primary submitButton1">Login</button><div style="margin-top: 12px;"> <a href="#" class="forgPassMob" onclick="MWebFrogotPasswordClick()">Forgot&nbsp;Password&nbsp;?</a></div></div></div><input type="hidden" name="WalletIconClickedLogin" id="mblWalletIconClickedLogin" /></div></form></div><div id="MWebChangePasswordAndLogin" style="display:none"> <form action="/MyAccount/Login" id="MWeblogin-form-passwordchange" method="post" role="form"><div class="floating-form"><div class="floating-label"> <input class="floating-input otpemaillwr" readonly type="text" id="MWebtxtResetEmailId"> <input type="hidden" name="Email" id="MWebtxthdnEmailId" class="MWebtxthdnEmailId" /><span class="highlight"></span><label>Email Address</label></div></div><div class="floating-form"><div class="floating-label"> <input class="floating-input otpemaillwr MWebtxtOTP" type="text" placeholder=" " onblur="ValiDateOTPMWeb()" onkeypress=" return isNumberKey(event)"><span class="highlight"></span><label class="col-sm-12 fltPAD"><span class="pull-left">OTP sent to email</span><span class="pull-right"><span style="display:none" class="MWebotpsuccessmsg"><i class="fa fa-check righttype" aria-hidden="true"></i></span></span></label><div style=" position: absolute; right: 0px; top: 6px;"> <a href="#" onclick="MWebResendOTP('home')" class="resends" style="color: #428bca;">Resend?</a></div><div class="otperror"><span class="MWebotpfailmsg"></span></div></div></div><div class="floating-form"><div class="floating-label"> <input type="password" name="Password" id="MWebPassword" class="floating-input otpemaillwr Arbictxtrestrict otpmwebPassword" placeholder=" " required onkeyup="checkStrength(this, 'otpmweb')" onblur="ValidatePassword(this, 'MWEB', 'otpmweb')" /><span class="MWebpasswordValidationMsg passwordValidationMsg" style="color: red;"></span><span class="passwordStrength hidden-lg hidden-md" style="color:black;"></span><span class="highlight"></span><span class="otpmwebShowPwd" style="position: absolute; right: 0; top: 6px;cursor:pointer;display:none;" onclick="PasswordHideShow('otpmweb')"><i class="fa fa-eye" aria-hidden="true"></i></span><span class="otpmwebHidePwd" style="position: absolute; right: 0; top: 6px;cursor:pointer; display:none;" onclick="PasswordHideShow('otpmweb')"><i class="fa fa-eye-slash" aria-hidden="true"></i></span><label>Set Password (Example: Abcd@123)</label></div><div class="floating-label"> <input type="password" name="ConfirmPassword" id="MWebConfirmPassword" class="floating-input otpemaillwr Arbictxtrestrict" required placeholder=" " /><span class="MWebconfrimpasswordValidationMsg" style="color: red;"></span><span class="highlight"></span><label>Confirm Password</label></div></div></form><button type="button" class="btn btn-primary submitButton1" onclick="MewbcheckandChangePassword()">LOGIN</button></div><div class="otperror"> <label class="MWeblblMyAccountErrorMsg" style="color:red; font-size:15px;" id="MWeblblMyAccountErrorMsg"></label></div></div><div><span style="color:#1687CF; width:100%; text-align:center; margin:5% 0 15px 0; display:inline-table;">------------------- Or -------------------</span><span style="color: #1687CF; width: 100%; text-align: center; margin: 0 0 9% 0; display: inline-table;">sign in with</span></div><div class="socialMedia"> <a class="btn btn-social-icon btn-sm btn-facebook" onclick="fbLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-facebook"></i></a> <a class="btn btn-social-icon btn-sm btn-twitter" onclick="tLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-twitter"></i></a> <a id="customBtn1" class="btn btn-social-icon btn-sm btn-google" data-onsuccess="onSignIn"><i class="fa fa-google"></i></a></div></div><div class="tab-pane fade in" id="signUpLayout"> <form action="/MyAccount/RegisterSuccess" class="col-xs-12" id="registerfrom-mobile" method="post" role="form"><div class="row"><div class="col-sm-12"><div class="form-horizontal"><div class="row mySM-Txt form-horizontal" id="productForm"><div class="form-group"> <div class="col-xs-12 myInputCheck " style="margin-top:0px; margin-bottom:30px;"><div class="checkbox checkbox-success homeCheckBox"> <input id="chkSubscriptionsActive" name="chkSubscriptionsActive" class="styled" checked="checked" onclick="setSubscription(); " type="checkbox"> <label for="chkSubscriptionsActive"></label> <input type="hidden" name="SubscriptionsActive" id="SubscriptionsActive" value="Active" /></div><span style="font-size: 12px;">Sign Up for Deals & Get 2&nbsp;KWD off</span></div></div><div class="floating-form"><div class="floating-label"> <label class="control-label col-xs-3" id="lblMessage" style="color:red"></label> <input type="text" autofocus="autofocus" class="floating-input otpemaillwr noSpaceFirstPosition Arbictxtrestrict NoSpeCharFirstName NoUnderscore disableRightClick disablePaste" placeholder=" " maxlength="50" id="mobFirstName1" name="FirstName" style='text-transform: uppercase' oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('First name is required for Sign up')" tabindex="1" required><span class="highlight"></span><label>First Name</label></div></div><div class="floating-form"><div class="floating-label"> <input type="text" class="floating-input otpemaillwr noSpaceFirstPosition NoSpeCharLastName NoUnderscore disableRightClick Arbictxtrestrict disablePaste" placeholder=" " maxlength="50" id="mobLastName1" name="LastName" onblur="checkFirstNameLastName()" style='text-transform: uppercase' oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Last name is required for Sign up')" tabindex="2" required><span class="highlight"></span><label>Last Name</label></div></div><div class="floating-form"><div class="floating-label"> <input type="email" class="floating-input otpemaillwr Arbictxtrestrict " maxlength="254" autocomplete="off" placeholder=" " name="Email" id="mobhomeEmail1" onblur="checkHomeEmailAddressIos()" tabindex="3" required><span id="confirmEmailios" style="color:red" class="confirmEmailMobile"></span><span class="highlight"></span><label>Email Address</label></div></div><div class="floating-form"><div class="floating-label"> <input type="password" id="mobhomePasswordMobile" maxlength="50" class="floating-input otpemaillwr mobhomePassword" placeholder=" " name="Password" oninput="setCustomValidity('')" oninvalid=" this.setCustomValidity('Password is required for Sign up')" tabindex="4" required onkeyup="checkStrength(this, 'mobhome')" onblur="ValidatePassword(this, 'MWEB', 'mobhome')"><span class="passwordValidationMsg" style="color: red;"></span><span class="passwordStrength hidden-lg hidden-md" style="color:black;"></span><span class="highlight"></span><span class="mobhomeShowPwd" style="position: absolute; right: 0; top: 6px;cursor:pointer;display:none;" onclick="PasswordHideShow('mobhome')"><i class="fa fa-eye" aria-hidden="true"></i></span><span class="mobhomeHidePwd" style="position: absolute; right: 0; top: 6px;cursor:pointer; display:none;" onclick="PasswordHideShow('mobhome')"><i class="fa fa-eye-slash" aria-hidden="true"></i></span><label>Password (Example: Abcd@123)</label></div></div><div class="floating-form"><div class="floating-label"> <input type="password" id="mobhomeConfirmPasswordMobile" maxlength="50" class="floating-input otpemaillwr" placeholder=" " name="ConfirmPassword" onblur="checkHomePasswordMobile('homePasswordMobile', 'homeConfirmPasswordMobile', 'confirmSpanMobile')" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Confirm password is required for Sign up')" tabindex="5" required><span id="confirmSpanMobile" style="color:red"></span><span class="highlight"></span><label>Re-Type Password</label></div></div><div class="floating-form"><div class="floating-label"> <input type="text" maxlength="6" class="floating-input otpemaillwr marginInput ReferralCodePage " placeholder=" " id="ReferralCodeM" name="ReferralCode" onblur="checkReferralCodeMobile()" oninput=" setCustomValidity('')" tabindex="6"><span id="ReferralCodeTextM" style="color:red"></span><span class="highlight"></span><label>Referral Code</label></div></div></div></div><div class="row"><div class=""> <button type="button" id="signUpIos" class="btn btn-primary submitButton1" tabindex="6">Sign up</button></div></div></div></div></form></div></div></div></div></div></div></div></div></div></div></header></div>
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ddcgmdgpeallpolppmilnjclnokilbmo"><link href="/Content/css/chromeextension.css" rel="stylesheet" /><div id="mainContainer" class="MwebMainContainer"><div class="row" style="margin:0;"><div class="col-sm-12" style="padding:0"> <div class="myContainer"><div class="myTabDev myBannerBlock"><div class="container"><div class="row myBannerArea"><div class="col-md-8 col-sm-12 myTabSearch"><div class="tabBlock"> <label class="tagLine dpNone">Start your journey</label><ul id="myTab" class="nav nav-tabs hidden-xs"><li id="liTabFlight" class="Mweb_nav_Tab_Hotel active"> <a id="tabFlight" onclick="SelectFlightOrHotel('1','COM')" href="#flights" data-toggle="tab"><figure class="bgIcon-Fli hidden-sm hidden-md hidden-lg"></figure><span class="MWeb-bgIcon-Text">Flights</span></a></li><li id="liTabHotel" class="Mweb_nav_Tab_Hotel" style="border-right:0!important;"> <a id="tabHotel" href="#Hotels" onclick="SelectFlightOrHotel('2', 'COM')" data-toggle="tab" class="NewReleased"><figure class="bgIcon-Hot hidden-sm hidden-md hidden-lg"></figure><span class="MWeb-bgIcon-Text">Hotels</span></a></li></ul><div id="myTabContent" class="tab-content mobmyTabContent"> <div class="tab-pane fade in active" id="flights" ng-controller="IndexFlightsController"> <form action="/en/cheap-flights/Search" class="form-horizontal" id="flightForm" method="post" role="form"> <input type="hidden" id="utm_source" name="utm_source" />  <input type="hidden" id="utm_medium" name="utm_medium" />  <input type="hidden" id="utm_campaign" name="utm_campaign" />  <input type="hidden" id="transaction_id" name="transaction_id" /> <div class="row inpRadioBlock mar-0-mob"><div class="plr15 p0_Mxs"><div class="wayButtonHolderWay"> <a href="javascript:void(0)" class="wayButtonWay" id="radio-1-1" onclick=" checkradio('radio-1-1') "> ONE WAY </a> <a href="javascript:void(0)" class="wayButtonWay" id="radio-1-2" onclick=" checkradio('radio-1-2') "> ROUND TRIP </a>  <a href="javascript:void(0)" class="wayButtonWay border-right-none-imp" id="radio-1-3" onclick=" checkradio('radio-1-3') "> MULTICITY<span class="hidden-xs"> / STOP OVER</span></a>  <input type="hidden" id="hdnTripType" name="TripType" value="RoundTrip"></div></div><div class="col-sm-4"></div></div><div id="OneRoundTripDiv"><div class="row myformRow"><div id="productForm" class="form-horizontal MwebSearchLabels"><div class="col-sm-5 col-xs-10"> <label for="inputCity" class="control-label hidden-xs">Flying From</label><div class="myFlyInput"><div class="MwebSelectDep"><div class="sectorName_mobile RobotoLight hidden-sm hidden-md hidden-lg"><span id="from_city_headFrom" ng-model="FlightMobile.pickCity"></span></div><span class="hidden-xs" ng-if="!$root.is_mobile"><div class="myFlyInput"> <input type="text" id="Flyingfrom1" class="form-control noSpaceFirstPosition tabClass mpd0 checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="Flyingfrom" class="form-control" placeholder="From" name="Segments[0].From" /> <input type="hidden" name="FlyingFromCityName" id="FlyingFromCityName" /> <input type="hidden" name="FlyingFromCityNameText" id="FlyingFromCityNameText" /></div></span><div ng-if="$root.is_mobile"><span class="hidden-md hidden-lg hidden-xs hidden-sm" id="tabFlyingFromDiv"><div class="myFlyInput"> <input type="text" id="Flyingfrom1" class="form-control noSpaceFirstPosition tabClass mpd0 checkValidCode" placeholder="From" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" data-errormessage="Departure city is required" required /> <input type="hidden" id="Flyingfrom" class="form-control" placeholder="From" name="Segments[0].From" /> <input type="hidden" name="FlyingFromCityName" id="FlyingFromCityName" /> <input type="hidden" name="FlyingFromCityNameText" id="FlyingFromCityNameText" /></div></span><span class="hidden-md hidden-md hidden-lg"><div class="myFlyInput"><div class="ui-widget"> <input type="text" id="FlyingFromMobile" class="form-control noSpaceFirstPosition tabClass mpd0 MwebFlyFrm dontAllowInput checkValidCode" ng-model="FlightMobile.FlyingFromMobile" placeholder="From" data-toggle="modal" data-target="#myModal_fromDesti" onclick=" this.setSelectionRange(0, this.value.length); " onfocus=" flyFrom(); " oninvalid=" this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" data-errormessage="Departure city is required" required /></div></div></span></div></div></div></div><div class="col-xs-2 col-sm-1 pl0 shuffleImg hidden-xs " id="arrowRotateD"> <label for="inputCity" class="control-label hidden-xs">&nbsp;</label> <img id="arrowRotateImgD" src="https://images.rehlat.com/Content/images/updownarrowIcon.png" class="shuffleImageNormal" /></div><div class="col-xs-2 col-sm-1 pl0 shuffleImg hidden-lg hidden-sm hidden-md" id="arrowRotateM"> <label for="inputCity" class="control-label hidden-xs">&nbsp;</label> <img id="arrowRotateImgM" src="https://images.rehlat.com/Content/images/updownarrowIcon.png" class="shuffleImageNormal" /></div><div class="col-sm-5 col-xs-10"> <label for="inputCity" class="control-label padding-Right-None inputToCity hidden-xs">Flying To</label><div class="myFlyInput"><div class="MwebSelectArr"><div class="sectorName_mobile RobotoLight hidden-sm hidden-md hidden-lg"><span id="from_city_headTo" ng-model="FlightMobile.pickCityA"></span></div><span class="hidden-xs" ng-if="!$root.is_mobile"><div class="myFlyInput"> <input type="text" id="Flyingto1" class="form-control noSpaceFirstPosition tabClass mpd0 checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="Flyingto" class="form-control" placeholder="To" name="Segments[0].To" /> <input type="hidden" name="FlyingToCityName" id="FlyingToCityName" /> <input type="hidden" name="FlyingToCityNameText" id="FlyingToCityNameText" /></div></span><div ng-if="$root.is_mobile"><span class="hidden-md hidden-lg hidden-xs hidden-sm" id="tabFlyingToDiv"><div class="myFlyInput"> <input type="text" id="Flyingto1" class="form-control noSpaceFirstPosition tabClass mpd0 checkValidCode" placeholder="To" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid=" this.setCustomValidity('Destination city is required')" oninput=" setCustomValidity('')" data-errormessage="Destination city is required" required /> <input type="hidden" id="Flyingto" class="form-control" placeholder="To" name="Segments[0].To" /> <input type="hidden" name="FlyingToCityName" id="FlyingToCityName" /> <input type="hidden" name="FlyingToCityNameText" id="FlyingToCityNameText" /></div></span><span class="hidden-sm hidden-md hidden-lg"><div class="myFlyInput"><div class="ui-widget"> <input type="text" id="FlyingToMobile" class="form-control noSpaceFirstPosition tabClass mpd0 MwebFlyFrm dontAllowInput checkValidCode" ng-model="FlightMobile.FlyingToMobile" placeholder="To" data-toggle="modal" data-target="#myModal_fromDesti" onclick=" this.setSelectionRange(0, this.value.length); " onfocus=" flyTo(); " oninvalid=" this.setCustomValidity('Destination city is required')" oninput=" setCustomValidity('')" data-errormessage="Destination city is required" required /></div></div></span></div></div></div></div></div></div><div ng-if="$root.is_mobile"> <div class="modal fade" id="myModal_fromDesti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog" style="margin: 0; width: 100% !important;"><div class="modal-content MwebSignInpopup" style="width: 100% !important;"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin: 8px 8px 1px 8px; display: none;"> &times;</button><div class="panel-body" style="padding: 0 15px;"><div class="form-group"><div class="col-xs-6 MwebFlyTab MwebFlyTabActive" id="dCity"><span>From</span><br /><strong><span id="pickCity" ng-model="FlightMobile.pickCity"></span></strong></div><div class="col-xs-6 MwebFlyTab" id="aCity"><span>To</span><br /><strong><span id="pickCityA" ng-model="FlightMobile.pickCityA"></span></strong></div><div class="col-xs-12 MwebTabSelected" id="FlyFromDiv"><div class="myFlyInput"><div class="ui-widget"> <input type="text" id="Flyingfrom11" ng-model="FlightMobile.FlyingFromMobile" onchange="CheckFlyingFromValue()" class="form-control noSpaceFirstPosition tabClass mpd0 popUpInput checkValidCode" placeholder="From" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="Flyingfrom0" class="form-control" placeholder="From" name="Segments[0].From" /> <input type="hidden" name="FlyingFromCityName" id="FlyingFromCityName0" /> <input type="hidden" name="FlyingFromCityNameText" id="FlyingFromCityNameText0" /></div></div></div><div class="col-xs-12 MwebTabSelected" id="FlyToDiv" style="display: none;"><div class="myFlyInput"><div class="ui-widget"> <input type="text" id="Flyingto11" ng-model="FlightMobile.FlyingToMobile" onchange="CheckFlyingToValue()" class="form-control noSpaceFirstPosition tabClass mpd0 popUpInput checkValidCode" placeholder="To" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Arrival city is required')" oninput=" setCustomValidity('')" required /> <input type="hidden" id="Flyingto0" class="form-control" placeholder="From" name="Segments[0].To" /> <input type="hidden" name="FlyingToCityName" id="FlyingToCityName0" /> <input type="hidden" name="FlyingToCityNameText" id="FlyingToCityNameText0" /></div></div></div></div></div></div></div></div> </div><div class="row myformRow mt15"><div id="productForm" class="form-horizontal input-daterange"><div class="col-sm-3 col-xs-6"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="FlyingFrom" name="Segments[0].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /></div></div><div class="col-sm-3 col-xs-6" id="FlyingToDiv"> <label for="inputCity" class="control-label hidden-xs">Return</label><div class="input-group date"> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon tabClass" id="FlyingTo" name="Segments[0].ReDate" data-date-start-date="0d" data-date-format="dd M yyyy" readonly onclick=" returningDate(); " /></div></div><div class="col-sm-2 col-xs-4 myplr10 forMob-widthInp"> <label for="inputCity" class="control-label">Adults<span class="ageGroup">&nbsp;(12+)</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementAdult" onclick=" minusAdult(); ">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueAdult" value="1">1</button> <a class="increment" id="incrementAdult" onclick=" plusAdult(); ">+</a> <input type="hidden" name="Adults" value="1" id="hdnAdults"></div></div><div class="col-sm-2 col-xs-4 myplr10 forMob-widthInp"> <label for="inputCity" class="control-label">Child<span class="ageGroup">&nbsp;(2-12)</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementChild" onclick=" minusChild(); ">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueChild" value="0">0</button> <a class="increment" id="decrementChild" onclick=" plusChild(); ">+</a> <input type="hidden" name="Children" value="0" id="hdnChildren"></div></div><div class="col-sm-2 col-xs-4 myplr10 forMob-widthInp"> <label for="inputCity" class="control-label">Infants<span class="ageGroup">&nbsp;(< 2 )</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementInfant" onclick=" minusInfant(); ">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueInfant" value="0">0</button> <a class="increment" id="decrementChild" onclick=" plusInfant(); ">+</a> <input type="hidden" name="Infant" value="0" id="hdnInfant"></div></div></div></div><div class="shomoreHome dpNone"> <a href="" id="showMore" class="tabClass">Show more options <i class="fa fa-angle-down"></i></a></div><div class="showMore" id="openMore"><div class="row myformRow moreOpt"><div class="col-sm-6 dpNone"><div class="form-group"> <label for="inputCity" class="control-label col-xs-3">Preferred Airline</label><div class="col-xs-12"> <input type="text" id="PreferredAirline1" class="form-control tabClass" placeholder="Preferred Airline" /> <input type="hidden" id="PreferredAirline" class="form-control" name="PreferredAirline" /></div></div></div></div><div class="row myformRow moreOpt"><div class="col-sm-7 myplr10 forMob-widthInp pr0"><div class="form-group"> <label for="inputCity" class="control-label col-xs-3">Class</label> <input type="hidden" id="hdnClass" name="Class" value="Y" /><div class="col-sm-12"><div class="wayButtonHolder"> <a class="wayButton active" id="economy" onclick=" setClass('Y') "><span class="economyIcon"></span><span class="classText">ECONOMY</span></a> <a class="wayButton" id="business" onclick=" setClass('C') "><span class="businessIcon"></span><span class="classText">BUSINESS</span></a> <a class="wayButton" id="first" onclick=" setClass('F') "><span class="firstIcon"></span><span class="classText">FIRST</span></a></div></div></div></div><div class="col-sm-2 dpNone" style="padding-right: 0"><div class="form-group"> <label for="inputCity" class="control-label col-xs-3 dpNone"> &nbsp;</label><div class="col-xs-12 myInputRadio myInputCheck" style="margin-top: 8px;"><div class="checkbox checkbox-success homeCheckBox"> <input id="checkboxnonstop" name="NonStop" class="styled" type="checkbox"> <label for="checkboxnonstop"></label></div><span>Nonstop</span></div></div></div><div class="col-sm-3 dpNone" style="padding-right: 0"><div class="form-group"> <label for="inputCity" class="control-label col-xs-3 dpNone"> &nbsp;</label><div class="col-xs-12 myInputRadio myInputCheck" style="margin-top: 8px;"><div class="checkbox checkbox-success homeCheckBox"> <input id="checkboxrefundable" name="Refundable" value="00" class="styled" type="checkbox"> <label for="checkboxrefundable"></label></div><span>Refundable</span></div></div></div></div></div><div class="row myformRow MwebSearchButton"><div class="col-sm-8 hidden-xs hidden-sm plr0"> <a href="https://play.google.com/store/apps/details?id=com.app.rehlat&hl=en" target="_blank" class="appLink pull-right" style="margin-top:10px;"><span class="glyphicon app-mobile-icon margin-right-8"></span><span style="position:relative; top:-4px"> Download Mobile App</span></a></div><div class="col-sm-4"> <button type="submit" id="btnFlightSearch" class="btn btn-primary submitButton pull-right tabClass"> <i class="fa fa-search" aria-hidden="true"></i>Search Now </button></div></div><div class="row"><div class="col-xs-12 hidden-sm hidden-md hidden-lg"><div class="M_Deals">Offers & Promotions</div><div class="M_DealsHD"> <a href="">Flights</a></div><a href="/en/deals/spring-holiday-sale" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1">Spring Holiday Sale</span><span class="M_DealText2">Use Coupon: SPRING &amp; Get Flat 12% Off on Flights. Check Details.</span><span class="M_DealText3">24 Apr 2018<span>Book Now</span></span></div></a> <a href="/en/deals/app-download-offer" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1">App Special - Download the App &amp; Get Flat 14% Off</span><span class="M_DealText2">Use Coupon: RABIAPP &amp; Get Flat 14% Off on Flights. Check Details.</span><span class="M_DealText3">26 Apr 2018<span>Book Now</span></span></div></a> <a href="/en/deals/visacheckout" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1">Applicable only on Visa Checkout</span><span class="M_DealText2">Get 15% off when you pay with your Visa Checkout account. Check Details</span><span class="M_DealText3">15 Apr 2018<span>Book Now</span></span></div></a> <a href="/en/deals/flight-booking-app" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1"> App Welcome Offer - Get 18 KWD OFF</span><span class="M_DealText2">Use Coupon: APP &amp; Get 18 KWD Off on all flight bookings. Check Details</span><span class="M_DealText3">23 Mar 2018<span>Book Now</span></span></div></a> <a href="/en/deals/philippine-airlines-anniversary-offer" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1">77th Anniversary Seat Sale</span><span class="M_DealText2">Manila is Calling. Fly direct at lowest fares ever. Limited seats. Check Details.</span><span class="M_DealText3">31 Mar 2018<span>Book Now</span></span></div></a> <div class="M_DealsHD"> <a href="">Hotels</a></div><a href="/en/hotel-deals/amazing-sale" class="MDealsLinkBlock"><div class="M_DealsBlock"><span class="M_DealText1">Amazing Sale</span><span class="M_DealText2">Save more with Amazing Sale ! Use coupon SAVEMORE to get upto 22 KWD off on Hotels</span><span class="M_DealText3">31 Mar 2018<span>Book Now</span></span></div></a> </div></div><input type="hidden" id="hdnUrlReferrer" name="UrlReferrer" value="Direct" /></div></form><form action="/en/multicity-flights" class="form-horizontal" id="flightFormMutiCity" method="post" role="form"><div id="multicityDiv" class="d_None"> <div id="multicityFlightDiv"><div id="multPAD1" class="multicity"><div class="multPAD"><div class="srp_multi_ttl hidden-lg hidden-sm">Flight 1</div><div class="col-sm-4 col-xs-12"> <label for="inputCity" class="control-label hidden-xs">Flying From</label> <input type="text" id="MultiFlyingfrom1" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="MultiFlyingfrom11" class="form-control" placeholder="From" name="Segments[0].From" /> <input type="hidden" name="FlyingFromCityName" id="MultiCityFlyingFromCityName" /> <input type="hidden" name="FlyingFromCityNameText" id="MultiCityFlyingFromCityNameText" /></div><div class="col-sm-4 col-xs-12"> <label class="control-label hidden-xs">Flying To</label> <input type="text" id="MultiFlyingto1" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="MultiFlyingto11" class="form-control" placeholder="To" name="Segments[0].To" /> <input type="hidden" name="FlyingToCityName" id="MultiCityFlyingToCityName1" /> <input type="hidden" name="FlyingToCityNameText" id="MultiCityFlyingToCityNameText1" /></div><div class="col-sm-4 col-xs-8"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="MultiFlyingDeptDate1" name="Segments[0].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /></div></div><input type="hidden" id="multicity1" value="Active"></div></div><div id="multPAD2" class="multicity"><div class="multPAD"><div class="srp_multi_ttl hidden-lg hidden-sm"><span>Flight 2</span><div class="removeLeg_Mob pull-right" style="cursor: pointer;"></div></div><div class="col-sm-4 col-xs-12"> <label for="inputCity" class="control-label hidden-xs">Flying From</label> <input type="text" id="MultiFlyingfrom2" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingfrom22" class="form-control" placeholder="From" name="Segments[1].From" /> <input type="hidden" name="FlyingFromCityName" id="MultiCityFlyingFromCityName2" /> <input type="hidden" name="FlyingFromCityNameText" id="MultiCityFlyingFromCityNameText2" /></div><div class="col-sm-4 col-xs-12"> <label class="control-label hidden-xs">Flying To</label> <input type="text" id="MultiFlyingto2" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" required /> <input type="hidden" id="MultiFlyingto22" class="form-control" placeholder="To" name="Segments[1].To" /> <input type="hidden" name="FlyingToCityName" id="MultiCityFlyingToCityName2" /> <input type="hidden" name="FlyingToCityNameText" id="MultiCityFlyingToCityNameText2" /></div><div class="col-sm-4 col-xs-8"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="MultiFlyingDeptDate2" name="Segments[1].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /></div></div><input type="hidden" id="multicity2" value="Active"></div></div><div id="multPAD3" class="multicity" style="display: none"><div class="multPAD"><div class="srp_multi_ttl hidden-lg hidden-sm"><span>Flight 3</span><div class="removeLeg_Mob pull-right" style="cursor: pointer;" onclick=" removemulticity(3); ">X</div></div><div class="col-sm-4 col-xs-12"> <label for="inputCity" class="control-label hidden-xs">Flying From</label> <input type="text" id="MultiFlyingfrom3" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingfrom33" class="form-control" placeholder="From" name="Segments[2].From" /> <input type="hidden" name="FlyingFromCityName" id="MultiCityFlyingFromCityName3" /> <input type="hidden" name="FlyingFromCityNameText" id="MultiCityFlyingFromCityNameText3" /></div><div class="col-sm-4 col-xs-12"> <label class="control-label hidden-xs">Flying To</label> <input type="text" id="MultiFlyingto3" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingto33" class="form-control" placeholder="To" name="Segments[2].To" /> <input type="hidden" name="FlyingToCityName" id="MultiCityFlyingToCityName3" /> <input type="hidden" name="FlyingToCityNameText" id="MultiCityFlyingToCityNameText3" /></div><div class="col-sm-4 col-xs-8"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="MultiFlyingDeptDate3" name="Segments[2].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /><div class="removeLeg hidden-xs hidden-md" style="cursor: pointer;" onclick=" removemulticity(3); ">X</div></div></div><input type="hidden" id="multicity3" value="InActive"></div></div><div id="multPAD4" class="multicity" style="display: none"><div class="multPAD"><div class="srp_multi_ttl hidden-lg hidden-sm"><span>Flight 4</span><div class="removeLeg_Mob pull-right" style="cursor: pointer;" onclick=" removemulticity(4); ">X</div></div><div class="col-sm-4 col-xs-12"> <label for="inputCity" class="control-label hidden-xs">Flying From</label> <input type="text" id="MultiFlyingfrom4" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingfrom44" class="form-control" placeholder="From" name="Segments[3].From" /> <input type="hidden" name="FlyingFromCityName" id="MultiCityFlyingFromCityName4" /> <input type="hidden" name="FlyingFromCityNameText" id="MultiCityFlyingFromCityNameText4" /></div><div class="col-sm-4 col-xs-12"> <label class="control-label hidden-xs">Flying To</label> <input type="text" id="MultiFlyingto4" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingto44" class="form-control" placeholder="To" name="Segments[3].To" /> <input type="hidden" name="FlyingToCityName" id="MultiCityFlyingToCityName4" /> <input type="hidden" name="FlyingToCityNameText" id="MultiCityFlyingToCityNameText4" /></div><div class="col-sm-4 col-xs-8"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="MultiFlyingDeptDate4" name="Segments[3].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /><div class="removeLeg hidden-xs hidden-md" style="cursor: pointer;" onclick=" removemulticity(4); ">X</div></div></div><input type="hidden" id="multicity4" value="InActive"></div></div><div id="multPAD5" class="multicity" style="display: none"><div class="multPAD"><div class="srp_multi_ttl hidden-lg hidden-sm"><span>Flight 5</span><div class="removeLeg_Mob pull-right" style="cursor: pointer;" onclick=" removemulticity(5); ">X</div></div><div class="col-sm-4 col-xs-12"> <label for="inputCity" class="control-label hidden-xs">Flying From</label> <input type="text" id="MultiFlyingfrom5" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Departure City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Departure city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingfrom55" class="form-control" placeholder="From" name="Segments[4].From" /> <input type="hidden" name="FlyingFromCityName" id="MultiCityFlyingFromCityName5" /> <input type="hidden" name="FlyingFromCityNameText" id="MultiCityFlyingFromCityNameText5" /></div><div class="col-sm-4 col-xs-12"> <label class="control-label hidden-xs">Flying To</label> <input type="text" id="MultiFlyingto5" class="form-control noSpaceFirstPosition tabClass mpd0 multiCitytxt checkValidCode" placeholder="Destination City / Airport" onclick=" this.setSelectionRange(0, this.value.length); " oninvalid="this.setCustomValidity('Destination city is required')" oninput="setCustomValidity('')" /> <input type="hidden" id="MultiFlyingto55" class="form-control" placeholder="To" name="Segments[4].To" /> <input type="hidden" name="FlyingToCityName" id="MultiCityFlyingToCityName5" /> <input type="hidden" name="FlyingToCityNameText" id="MultiCityFlyingToCityNameText5" /></div><div class="col-sm-4 col-xs-8"> <label class="control-label hidden-xs">Departure</label><div class='input-group date'> <input type='text' data-provide="datepicker" class="form-control dateInput myCal-Icon disableArrows tabClass" id="MultiFlyingDeptDate5" name="Segments[4].DeDate" data-date-start-date="0d" data-date-format="dd M yyyy" style="cursor: pointer;" readonly /><div class="removeLeg hidden-xs hidden-md" style="cursor: pointer;" onclick=" removemulticity(5); ">X</div></div></div><input type="hidden" id="multicity5" value="InActive"></div></div></div><div class="multPAD"><div class="col-sm-9 col-xs-12 pr0" id="addMultiCity"> <button type="button" onclick=" addMulticity();" class="btn adctyBTN pull-left"> <b style="font-size: 16px;">+</b> Add City</button> <span class="addFLT pull-left fs_medium13Mxs_imp ml15"> Maximum of 5 different flights can be added.</span></div></div><div class="multPAD"><div class="col-sm-6 myplr10 forMob-widthInp pr0"><div class="form-group"> <label for="inputCity" class="control-label col-xs-3">Class</label> <input type="hidden" id="hdnClassmulti" name="Class" value="Y"><div class="col-sm-12"><div class="wayButtonHolder"> <a class="wayButton active" id="economyMulticity" onclick="setMultiCityClass('Y')"><span class="economyIcon"></span><span class="classText">ECONOMY</span></a> <a class="wayButton" id="businessMulticity" onclick="setMultiCityClass('C')"><span class="businessIcon"></span><span class="classText">BUSINESS</span></a> <a class="wayButton" id="firstMulticity" onclick="setMultiCityClass('F')"><span class="firstIcon"></span><span class="classText">FIRST</span></a></div></div></div></div><div class="col-sm-2 col-xs-4 padd-left-10 paddingRightNone forMob-widthInp mt17"> <label for="inputCity" class="control-label">Adults<span class="ageGroup">&nbsp;(12+)</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementAdultForMulti" onclick="minusAdultForMulti();">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueAdultForMulti" value="1">1</button> <a class="increment" id="incrementMultiAdult" onclick="plusAdultForMulti();">+</a> <input type="hidden" name="Adults" value="1" id="hdnAdultsForMulti"></div></div><div class="col-sm-2 col-xs-4 padd-left-10 paddingRightNone forMob-widthInp mt17"> <label for="inputCity" class="control-label">Child<span class="ageGroup">&nbsp;(2-12)</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementChildForMulti" onclick="minusChildForMulti();">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueChildForMulti" value="0">0</button> <a class="increment" id="decrementChildForMulti" onclick="plusChildForMulti();">+</a> <input type="hidden" name="Children" value="0" id="hdnChildrenForMulti"></div></div><div class="col-sm-2 col-xs-4 padd-left-10 paddingRightNone forMob-widthInp mt17"> <label for="inputCity" class="control-label">Infants<span class="ageGroup">&nbsp;(< 2 )</span></label><div class="segmentControl unselectable"> <a class="decrement" id="decrementInfantForMulti" onclick="minusInfantForMulti();">–</a> <button type="button" class="incDecCount incDecBtn" id="inDeValueInfantForMulti" value="0">0</button> <a class="increment" id="decrementChildForMulti" onclick="plusInfantForMulti();">+</a> <input type="hidden" name="Infant" value="0" id="hdnInfantForMulti"></div></div></div><div class="row myformRow"><div class="col-sm-12" style="padding:0 10px;"><div class="row MwebSearchButton"> <button type="submit" id="btnFlightMultiSearch" class="btn btn-primary submitButton pull-right tabClass"><i class="fa fa-search" aria-hidden="true"></i>Search Now</button></div></div></div> <input type="hidden" id="hdnTripType" name="TripType" value="MultiCity"> <input type="hidden" id="hdnUrlReferrer" name="UrlReferrer" value="Direct" /></div></form></div></div></div></div><div class="col-sm-4 col-xs-12 mybutRow" id="homeBannerImage"><div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="cursor:default;"><ol class="carousel-indicators" id="olDealsIndicator"> <li data-target="#carousel-example-generic" data-slide-to='0' class="active"></li><li data-target="#carousel-example-generic" data-slide-to='1' class=""></li><li data-target="#carousel-example-generic" data-slide-to='2' class=""></li><li data-target="#carousel-example-generic" data-slide-to='3' class=""></li><li data-target="#carousel-example-generic" data-slide-to='4' class=""></li><li data-target="#carousel-example-generic" data-slide-to='5' class=""></li></ol><div class="carousel-inner" id="divDealsImages"> <div class="item active"> <a href=/en/deals/spring-holiday-sale  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/463_201803210701026423_HomeBannerImage.png" class="img-responsive"> </a></div><div class="item"> <a href=/en/deals/app-download-offer  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/465_201803220726273215_HomeBannerImage.png" class="img-responsive"> </a></div><div class="item"> <a href=/en/deals/visacheckout  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/452_201803141843436857_HomeBannerImage.jpg" class="img-responsive"> </a></div><div class="item"> <a href=/en/deals/flight-booking-app  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/450_201802201153007716_HomeBannerImage.png" class="img-responsive"> </a></div><div class="item"> <a href=/en/deals/philippine-airlines-anniversary-offer  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/459_201803160418172220_HomeBannerImage.png" class="img-responsive"> </a></div><div class="item"> <a href=/en/hotel-deals/amazing-sale  target="_blank"> <img src="https://www.rehlat.com/DynamicImages/DealsAndOffers/DealsPromos/442_201802090950510358_HomeBannerImage.jpg" class="img-responsive" alt="Amazing Sale" title="Amazing Sale"> </a></div></div></div></div></div></div></div></div><div id="myCarousel" class="carousel slide" style="width:100%; margin:0 auto"><div class="carousel-inner"><div class="item active "></div></div></div></div></div></div><div class="myContainer myContUnderline dpNone" ng-controller="HubPagesDynamicContent"><div class="signupBlockHolder"><div class="container"><div class="row signup_block"> <div class="col-sm-5 col-xs-12 signup_text"> <label>Sign Up for Deals & Get <strong>2&nbsp;KWD </strong> off </label></div><div class="col-sm-4 col-xs-12" style="padding-right: 3px;"><div class="input-group"> <input type="text" class="form-control" id="dealsEmail" placeholder="Email address"><span class="input-group-btn"> <button class="btn btn-default searchButton" type="button" onclick="saveUserSubacriptions('deals'); ">Sign up</button></span></div></div></div></div></div><div class="mySection" style="background:#fff;"><div class="container"><div id="divGreatDeal"> <div class="row whyReh"><div class="col-sm-12"><h3 style="margin:0"><label>Great Flight Deals</label></h3></div></div><div class="content"><span class="sliderHeading">From Kuwait:</span><div id="rg-gallery" class="rg-gallery"><div class="rg-thumbs"><div class="es-carousel-wrapper HomeCarouselSlider"><div class="es-nav"><span class="es-nav-prev" style="background-color:#fff;">Previous</span><span class="es-nav-next" style="background-color:#fff;">Next</span></div><div class="es-carousel"><ul><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-london/kwi-lhr/oneway/"><span class="homeSliderPrice">KWD&nbsp;77.270</span><label class="bookNowSliderFontSize"> London </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-london/kwi-lhr/oneway/';ga('send', 'event', 'Carousel', 'london', '1');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-barcelona/kwi-bcn/oneway/"><span class="homeSliderPrice">KWD&nbsp;43.044</span><label class="bookNowSliderFontSize"> Barcelona </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-barcelona/kwi-bcn/oneway/';ga('send', 'event', 'Carousel', 'barcelona', '2');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-zurich/kwi-zrh/oneway/"><span class="homeSliderPrice">KWD&nbsp;43.043</span><label class="bookNowSliderFontSize"> Zurich </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-zurich/kwi-zrh/oneway/';ga('send', 'event', 'Carousel', 'zurich', '3');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-dubai/kwi-dxb/oneway/"><span class="homeSliderPrice">KWD&nbsp;26.587</span><label class="bookNowSliderFontSize"> Dubai </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-dubai/kwi-dxb/oneway/';ga('send', 'event', 'Carousel', 'dubai', '4');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-dublin/kwi-dub/oneway/"><span class="homeSliderPrice">KWD&nbsp;102.493</span><label class="bookNowSliderFontSize"> Dublin </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-dublin/kwi-dub/oneway/';ga('send', 'event', 'Carousel', 'dublin', '5');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-male/kwi-mle/oneway/"><span class="homeSliderPrice">KWD&nbsp;64.320</span><label class="bookNowSliderFontSize"> Male </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-male/kwi-mle/oneway/';ga('send', 'event', 'Carousel', 'male', '6');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-mumbai/kwi-bom/oneway/"><span class="homeSliderPrice">KWD&nbsp;31.273</span><label class="bookNowSliderFontSize"> Mumbai </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-mumbai/kwi-bom/oneway/';ga('send', 'event', 'Carousel', 'mumbai', '7');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-san-diego/kwi-san/oneway/"><span class="homeSliderPrice">KWD&nbsp;208.340</span><label class="bookNowSliderFontSize"> San Diego </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-san-diego/kwi-san/oneway/';ga('send', 'event', 'Carousel', 'san-diego', '8');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-vancouver/kwi-yvr/oneway/"><span class="homeSliderPrice">KWD&nbsp;261.090</span><label class="bookNowSliderFontSize"> Vancouver </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-vancouver/kwi-yvr/oneway/';ga('send', 'event', 'Carousel', 'vancouver', '9');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-edinburgh/kwi-edi/oneway/"><span class="homeSliderPrice">KWD&nbsp;106.069</span><label class="bookNowSliderFontSize"> Edinburgh </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-edinburgh/kwi-edi/oneway/';ga('send', 'event', 'Carousel', 'edinburgh', '10');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-munich/kwi-muc/oneway/"><span class="homeSliderPrice">KWD&nbsp;43.045</span><label class="bookNowSliderFontSize"> Munich </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-munich/kwi-muc/oneway/';ga('send', 'event', 'Carousel', 'munich', '11');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-madrid/kwi-mad/oneway/"><span class="homeSliderPrice">KWD&nbsp;53.195</span><label class="bookNowSliderFontSize"> Madrid </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-madrid/kwi-mad/oneway/';ga('send', 'event', 'Carousel', 'madrid', '12');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-milan/kwi-mil/oneway/"><span class="homeSliderPrice">KWD&nbsp;51.163</span><label class="bookNowSliderFontSize"> Milan </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-milan/kwi-mil/oneway/';ga('send', 'event', 'Carousel', 'milan', '13');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-rome/kwi-rom/oneway/"><span class="homeSliderPrice">KWD&nbsp;42.900</span><label class="bookNowSliderFontSize"> Rome </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-rome/kwi-rom/oneway/';ga('send', 'event', 'Carousel', 'rome', '14');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-new-york/kwi-jfk/oneway/"><span class="homeSliderPrice">KWD&nbsp;119.285</span><label class="bookNowSliderFontSize"> New York </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-new-york/kwi-jfk/oneway/';ga('send', 'event', 'Carousel', 'new-york', '15');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-vienna/kwi-vie/oneway/"><span class="homeSliderPrice">KWD&nbsp;32.050</span><label class="bookNowSliderFontSize"> Vienna </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-vienna/kwi-vie/oneway/';ga('send', 'event', 'Carousel', 'vienna', '16');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-lisbon/kwi-lis/oneway/"><span class="homeSliderPrice">KWD&nbsp;124.245</span><label class="bookNowSliderFontSize"> Lisbon </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-lisbon/kwi-lis/oneway/';ga('send', 'event', 'Carousel', 'lisbon', '17');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-amsterdam/kwi-ams/oneway/"><span class="homeSliderPrice">KWD&nbsp;43.045</span><label class="bookNowSliderFontSize"> Amsterdam </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-amsterdam/kwi-ams/oneway/';ga('send', 'event', 'Carousel', 'amsterdam', '18');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-toronto/kwi-ytz/oneway/"><span class="homeSliderPrice">KWD&nbsp;179.025</span><label class="bookNowSliderFontSize"> Toronto </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-toronto/kwi-ytz/oneway/';ga('send', 'event', 'Carousel', 'toronto', '19');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-brussels/kwi-bru/oneway/"><span class="homeSliderPrice">KWD&nbsp;45.060</span><label class="bookNowSliderFontSize"> Brussels </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-brussels/kwi-bru/oneway/';ga('send', 'event', 'Carousel', 'brussels', '20');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-tokyo-bus-st/kwi-lmj/oneway/"><span class="homeSliderPrice">KWD&nbsp;103.659</span><label class="bookNowSliderFontSize"> Tokyo </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-tokyo-bus-st/kwi-lmj/oneway/';ga('send', 'event', 'Carousel', 'tokyo-bus-st', '21');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-alicante/kwi-alc/oneway/"><span class="homeSliderPrice">KWD&nbsp;127.385</span><label class="bookNowSliderFontSize"> Alicante </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-alicante/kwi-alc/oneway/';ga('send', 'event', 'Carousel', 'alicante', '22');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-dusseldorf/kwi-dus/oneway/"><span class="homeSliderPrice">KWD&nbsp;53.243</span><label class="bookNowSliderFontSize"> Dusseldorf </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-dusseldorf/kwi-dus/oneway/';ga('send', 'event', 'Carousel', 'dusseldorf', '23');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li><li class="bookNowSlider"> <a href="/en/cheap-flights/airfare/kuwait-to-mauritius/kwi-mru/oneway/"><span class="homeSliderPrice">KWD&nbsp;137.500</span><label class="bookNowSliderFontSize"> Mauritius </label>  <button type="submit" onclick="location.href='/en/cheap-flights/airfare/kuwait-to-mauritius/kwi-mru/oneway/';ga('send', 'event', 'Carousel', 'mauritius', '24');" class="btn btn-default booknowbutton HomeSliderButton">Book Now</button> </a></li></ul></div></div></div></div></div><div class="row myHeadingRow"><div class="col-sm-12 text-center"><h2 class="my_h2" style="margin: 0"> <u>Popular Deals Worldwide</u></h2></div></div><div class="row myHomeImage"><div class="col-sm-6 col-xs-12"><div class="popularCityHD1" style="margin-left: 0; margin-bottom: 12px;">Flights to Popular Destinations</div><div class="tabBlock mytabBlock myHomeTabBlock"><ul id="myTab" class="nav nav-tabs nav-justified"> <li class="myCustomTab1 active"><a href="#Country_1" tabindex="-1" data-toggle="tab">India</a></li><li class="myCustomTab1"><a href="#Country_5" data-toggle="tab">UAE</a></li><li class="myCustomTab1"><a href="#Country_6" data-toggle="tab">Saudi</a></li><li class="myCustomTab1"><a href="#Country_2" data-toggle="tab">Egypt</a></li></ul><div id="myTabContent1" class="tab-content" style="display:block;">  <div class='tab-pane fade in active' id='Country_1'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-chennai/kwi-maa/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Chennai');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_MAA.jpeg" width="100%" class="img-responsive" alt="Flights from Kuwait to Chennai" title="Kuwait to Chennai Flights" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Chennai Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-kochi/kwi-cok/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Kochi');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_COK.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Kochi" title="Kuwait to Kochi" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Kochi Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-delhi/kwi-del/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Delhi');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_DEL.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Delhi" title="Kuwait to Delhi" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Delhi Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-mumbai/kwi-bom/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Mumbai');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_BOM.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Mumbai" title="Kuwait to Mumbai" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Mumbai Flights</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_5'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-sharjah/kwi-shj/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Sharjah');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_SHJ.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Sharjah" title="Cheap Flights from Kuwait to Sharjah" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Sharjah Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-al-ain/kwi-aan/roundtrip/ onclick="ga('send', 'event', 'FlightDeals', 'Ras Al Khaimah');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_AAN.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Al Ain" title="Flights from Kuwait to Al Ain" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Al Ain Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-dubai/kwi-dxb/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Dubai');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_DXB.jpeg" width="100%" class="img-responsive" alt=" Cheap Flights from Kuwait to Dubai" title="Flights from Kuwait to Dubai" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Dubai Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-abu-dhabi/kwi-auh/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Abu Dhabi');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_AUH.jpeg" width="100%" class="img-responsive" alt="Kuwait to Abu Dhabi Flights" title="Kuwait to Abu Dhabi Flights" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Abu Dhabi Flights</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_6'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-jeddah/kwi-jed/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Jeddah');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_JED.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Jeddah " title="Kuwait to Jeddah Flights" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Jeddah Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-riyadh/kwi-ruh/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Riyadh');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_RUH.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Riyadh" title="Cheap Flights from Kuwait to Riyadh" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Riyadh Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-madinah/kwi-med/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Madinah');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_MED.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Madinah" title="Kuwait to Madinah Flights" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Madinah Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-dammam/kwi-dmm/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Dammam');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_DMM.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Dammam" title="Flights from Kuwait to Dammam" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Dammam Flights</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_2'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-cairo/kwi-cai/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Cairo');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_CAI.jpeg" width="100%" class="img-responsive" alt="Kuwait to Cairo " title="Kuwait to Cairo Flights" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Cairo Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-hurghada/kwi-hrg/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Hurghada');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_HRG.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Hurghada" title="Kuwait to Hurghada" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Hurghada Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-alexandria/kwi-aly/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Alexandria');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_ALY.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Alexandria" title="Kuwait to Alexandria" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Alexandria Flights</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-flights/airfare/kuwait-to-sharm-el-sheik/kwi-ssh/roundtrip/ onclick="ga('send', 'event', 'HomeDeals', 'Sharm El Sheik');; ga_rehlat(gaModel,'Flights to Popular Destinations')"> <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/KWI_SSH.jpeg" width="100%" class="img-responsive" alt="Cheap Flights from Kuwait to Sharm El Sheik" title="Kuwait to Sharm El Sheik" /> <span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuwait to Sharm El Sheik Flights</div></a></div></ul></div></div></div></div></div></div><div class="col-sm-6 col-xs-12"><div class="popularCityHD1" style="margin-left: 0; margin-bottom: 12px;">Hotels in Popular Destinations</div><div class="tabBlock mytabBlock myHomeTabBlock"><ul id="myTab" class="nav nav-tabs nav-justified"> <li class="myCustomTab1 active"><a href="#Country_8" tabindex="-1" data-toggle="tab">Middle East</a></li><li class="myCustomTab1"><a href="#Country_11" data-toggle="tab">Europe</a></li><li class="myCustomTab1"><a href="#Country_13" data-toggle="tab">Asia</a></li><li class="myCustomTab1"><a href="#Country_12" data-toggle="tab">USA</a></li></ul><div id="myTabContent1" class="tab-content" style="display:block;"> <div class='tab-pane fade in active' id='Country_8'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/cairo-cai/ onclick="ga('send', 'event', 'HomeDeals', 'CairoHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_CAI.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Cairo" title="Hotels in Cairo" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Cairo Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/dubai-dxb/ onclick="ga('send', 'event', 'HomeDeals', 'DubaiHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_DXB.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Dubai" title="hotels in Dubai" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Dubai Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/doha-doh/ onclick="ga('send', 'event', 'HomeDeals', 'DohaHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_DOH.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Doha" title="Hotels in Doha" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Doha Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/bahrain-bh1/ onclick="ga('send', 'event', 'HomeDeals', 'BahrainHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_BAH.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Bahrain" title="Hotels in Bahrain" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Bahrain Hotels</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_11'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/london-lon/ onclick="ga('send', 'event', 'HomeDeals', 'LondonHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_LON.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in London" title="Hotels in London" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">London Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/istanbul-ist/ onclick="ga('send', 'event', 'HomeDeals', 'IstanbulHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_IST.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Istanbul " title="Hotels in Istanbul " /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Istanbul Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/warsaw-waw/ onclick="ga('send', 'event', 'HomeDeals', 'WarsawHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_WAW.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Warsaw  " title="Hotels in Warsaw  " /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Warsaw Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/paris-par/ onclick="ga('send', 'event', 'HomeDeals', 'ParisHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_PAR.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Paris" title="Paris Hotels" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Paris Hotels</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_13'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/bali-bai/ onclick="ga('send', 'event', 'HomeDeals', 'BaliHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_BPN.jpeg" width="100%" class="img-responsive" alt="Hotels in Bali" title="Cheap Hotels in Bali" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Bali Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/kuala-lumpur-kul/ onclick="ga('send', 'event', 'HomeDeals', 'KualaLumpurHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_KUL.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Kuala Lumpur " title="Hotels in Kuala Lumpur " /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Kuala Lumpur Hotels </div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/singapore-sin/ onclick="ga('send', 'event', 'HomeDeals', 'SingaporeHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_SIN.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Singapore " title="Hotels in Singapore " /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Singapore Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/bangkok-bkk/ onclick="ga('send', 'event', 'HomeDeals', 'BangkokHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_BKK.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Bangkok " title="Hotels in Bangkok " /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Bangkok Hotels</div></a></div></ul></div></div></div><div class='tab-pane fade in' id='Country_12'><div class="row myformRow"><div id="productForm" class="form-horizontal"><ul class="countryTab forscroll"> <div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/new-york-area-ny-nyc/ onclick="ga('send', 'event', 'HomeDeals', 'NewYorkHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_NYC.jpeg" width="100%" class="img-responsive" alt="Hotels in New York" title="New York Hotels" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">New York Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/los-angeles-ca-lax/ onclick="ga('send', 'event', 'HomeDeals', 'LosAngelesHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_LAX.jpeg" width="100%" class="img-responsive" alt="Hotels in Los Angeles" title="Los Angeles Hotels" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Los Angeles Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/las-vegas-nv-lvs/ onclick="ga('send', 'event', 'HomeDeals', 'LasVegasHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_LAS.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Las Vegas" title="Las Vegas Hotels" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Las Vegas Hotels</div></a></div><div class="col-sm-6 col-xs-12 myDealsBlock"> <a href=https://www.rehlat.com/en/cheap-hotels/city/orlando-area-florida-fl-mco/ onclick="ga('send', 'event', 'HomeDeals', 'OrlandoHotels');;ga_rehlat(gaModel,'Hotels in Popular Destinations')">  <img src="https://www.rehlat.com/DynamicImages/FlightDestinations/_MCO.jpeg" width="100%" class="img-responsive" alt="Cheap Hotels in Orlando" title="Orlando Cheap Hotels" /><span class="HomeDealsBookNow">Book Now</span><div class="contentInvetry">Orlando Hotels</div></a></div></ul></div></div></div></div></div></div></div></div></div></div><div class="seoDynamicContent"><div class="container"><div></div></div></div><div class="myFooterArea myFooterAreaBackground"><div class="container"><div class="row whyReh"><div class="col-sm-12"><h3 style="margin:0"><label>Why Rehlat?</label></h3></div></div><div class="row myMediaContainer"><div class="col-sm-3"><div class="media myMediaBlock"><div class="media-left"> <a href="javascript:void(0)"> <i class="fa fa-phone pull-left" aria-hidden="true"></i> </a></div><div class="media-body myMediaBody"><h3 class="media-heading">Customer support</h3><p>Multilingual (English & Arabic) customer support service</p></div></div></div><div class="col-sm-3"><div class="media myMediaBlock"><div class="media-left"> <a href="javascript:void(0)"> <i class="fa fa-money pull-left" aria-hidden="true"></i> </a></div><div class="media-body myMediaBody"><h3 class="media-heading">Save more</h3><p>Save more with Rehlat, best deals across flights and hotels</p></div></div></div><div class="col-sm-3"><div class="media myMediaBlock"><div class="media-left"> <a href="javascript:void(0)"> <i class="fa fa-lock pull-left" aria-hidden="true"></i> </a></div><div class="media-body myMediaBody"><h3 class="media-heading">Safe and Secure</h3><p>100% safe and secure payments</p></div></div></div><div class="col-sm-3"><div class="media myMediaBlock"><div class="media-left"> <a href="javascript:void(0)"> <i class="fa fa-users pull-left" aria-hidden="true"></i> </a></div><div class="media-body myMediaBody"><h3 class="media-heading">Trusted by many</h3><p>Over 100,000+ satisfied customer bookings and counting</p></div></div></div></div></div></div><input type="hidden" id="hdnChkFlightDeal" name="hdnChkFlightDeal" /></div> <script type="application/json">
+{
+"@context" : "http://schema.org",
+"@type" : "WebSite",
+"name" : "Rehlat",
+"url" : "https://www.rehlat.com/",
+"description": "Flights & Hotels Booking Online",
+"sameAs" : [
+"https://www.facebook.com/RehlatOfficial/",
+"https://twitter.com/rehlat",
+"https://www.linkedin.com/company/rehlat",
+"https://www.pinterest.com/rehlat/",
+"https://www.instagram.com/rehlatcom/",
+"https://plus.google.com/+Rehlat"
+]
+}
+</script> <div id="popup_container" class="ui-widget-content ui-draggable fancy_popup" style="cursor: move; position: fixed; margin: 0, auto; z-index: 99999; font-size: 14px; text-align: center; margin:0 10px; left: 622.5px; display: none; box-shadow: 0px 3px 12px #2B2B2B; -webkit-box-shadow: 0px 3px 12px #2B2B2B; -moz-box-shadow: 0px 3px 12px #2B2B2B; background: #EFEFEF;"><div class="fancy_popup_header"><span><i class="zmdi zmdi-alert-triangle fS20Imp"></i></span>Message</div><div id="popup_content" class="pad15"><div id="popup_message" class="plr0"></div><div id="popup_panel" style="color: blue; text-align: right;"> <button class="confirmbutton btn-primary btn-md mt10 plr10 " type="button" id="popup_ok">Ok</button></div></div></div><a data-toggle="modal" data-target="#askEmailId" id="anchrAskEmailId"></a><div id="askEmailId" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" style="padding-top: 15%;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="padding: 15px;"><div>Hello , please provide your Email ID</div></div><div class="modal-body"><div><label class="control-label" style="font-weight: normal;">Email ID<span class="star">*</span></label> <input type="text" id="txtExternalEmailId" onblur=" checkHomeEmailAddress(); " class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched" /><br /></div><div style="padding: 20px 0px 40px 0px;"> <button class="btn btn-default pull-left" type="button" onclick=" addExternalUserEmailId(); ">Submit</button></div></div></div></div></div><div id="emailSubscribeSuccess" class="modal fade" role="dialog"><div class="modal-dialog myModel-lg-width"><div class="modal-content"><div class="modal-header" style="border-bottom: none; padding: 15px 0 0 0"> <a onclick=" SetEmailSubscribeSuccessCookie(); ga('set', 'nonInteraction', true); ga('send', 'event', 'PopupSubscribe', 'Closebutton'); " data-dismiss="modal" class="closeBtn"><span aria-hidden="true"><img src="https://images.rehlat.com/Content/images/close-icon.png"></span></a><div style="padding: 0 15px"><h4 class="modal-title" style="line-height: 15px;">&nbsp;</h4></div></div><div class="modal-body" style="padding-top: 0px;"><div class="row"> <div class="col-xs-12 col-sm-6"> <img src="https://images.rehlat.com/Content/images/Coupons/COM/pop-up-banner.jpg" class="offerPopupImage img-responsive" alt="" title=""></div><div class="col-xs-12 col-sm-6"><p style="color: #004b9c; font-weight: bold; ">SUBSCRIPTION SUCCESSFULL</p><p>You now have access to exclusive offers and travel inspirations</p><p style="font-weight: bold">Your Coupon Code is<span>: WELCOMEROS</span></p></div></div></div></div></div></div><div class="myFooterArea"><div class="newsAlert"><div class="container"><div class="row signup_block"><div class="col-sm-8 col-xs-12 myNewsAlert"><ul><li><a href="" id="myfooterItemsClick2" class="active" style="margin: 0 9px 0 0px; ">Airlines <img src="https://images.rehlat.com/Content/images/arrow_select2.png" class="arro-reset2" /></a></li><li><a href="" id="myfooterItemsClick1" style="margin: 0 9px 0 0px;">Flights <img src="https://images.rehlat.com/Content/images/arrow_select2.png" class="arro-reset2" /></a></li><li><a href="" id="myfooterItemsClick3" style="margin: 0 9px 0 0px; ">Hotels <img src="https://images.rehlat.com/Content/images/arrow_select2.png" class="arro-reset2" /></a></li><li><a href="" id="myfooterItemsClick4" style="margin: 0 9px 0 0px;">Airline Routes <img src="https://images.rehlat.com/Content/images/arrow_select2.png" class="arro-reset2" /></a></li><li><a href="" id="myfooterItemsClick5" style="margin: 0 9px 0 0px; ">About Rehlat <img src="https://images.rehlat.com/Content/images/arrow_select2.png" class="arro-reset2" /></a></li><li> <a href="https://www.rehlat.com/en/pressrelease" target="_blank" style="margin: 0 9px; color: #0f6da9;">Rehlat in Media</a> </li><li><a href="https://www.rehlat.com/BusinessTravel" target="_blank" style="margin: 0 9px; color: #0f6da9;">Rehlat for Business</a></li></ul></div><div class=" col-sm-4 text-right" style="line-height:27px;">  <a href="https://www.rehlat.ae/en/" target="_blank">Rehlat.ae<img src="https://images.rehlat.com/content/images/uaeflag.jpg" alt="Rehlat.ae" title="United Arab Emirates" style="margin-left:5px;" /></a>  <a href="https://www.rehlat.com.sa/en/" target="_blank" style="margin-left:10px;">Rehlat.com.sa<img src="https://images.rehlat.com/content/images/saflag.jpg" alt="Rehlat.com.sa" title="Saudi Arabia" style="margin-left:5px;" /></a>  <a href="https://www.rehlat.com.eg/en/" target="_blank" style="margin-left:10px;">Rehlat.com.eg<img src="https://images.rehlat.com/content/images/eg_flag.jpg" alt="Rehlat.com.eg" title="Egypt" style="margin-left:5px;" /></a> </div></div></div></div><div class="container"><div class="row" style="margin-left:3px;"><div class="col-md-9 col-sm-12"><ul><li class="row myFooterBlock" id="myFooterItemsToggle1"> <ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/egypt/flights-to-cairo/">Flights to Cairo</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/egypt/flights-to-sohag/">Flights to Sohag</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/egypt/flights-to-borg-el-arab/">Flights to Borg El Arab</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/egypt/flights-to-luxor/">Flights to Luxor</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/egypt/flights-to-assiut/">Flights to Assiut</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/uae/flights-to-abudhabi/">Flights to Abu Dhabi</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/uae/flights-to-dubai/">Flights to Dubai</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/turkey/flights-to-istanbul/">Flights to Istanbul </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/saudi-arabia/flights-to-jeddah/">Flights to Jeddah</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/lebanon/flights-to-beirut/">Flights to Beirut</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/jordan/flights-to-amman/">Flights to Amman</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/qatar/flights-to-doha/">Flights to Doha</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/united-kingdom/flights-to-manchester/">Flights to Manchester</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/georgia/flights-to-tbilisi/">Flights to Tbilisi</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/indonesia/flights-to-jakarta/">Flights to Jakarta</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-kochi/">Flights to Kochi</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-thiruvananthapuram/">Flights to Trivandrum</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-hyderabad/">Flights to Hyderabad</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-mumbai/">Flights to Mumbai</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-chennai/">Flights to Chennai</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-ahmedabad/">Flights to Ahmedabad</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/india/flights-to-delhi/">Flights to Delhi</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/france/flights-to-paris/">Flights to Paris</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/philippines/flights-to-manila/">Flights to Manila</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/canada/flights-to-calgary/">Flights to Calgary</a></li></ul></li><li class="row myFooterBlock" id="myFooterItemsToggle2"> <ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/airlines/kuwait/kuwait-airways-tickets-online-booking/">Kuwait Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/qatar/qatar-airways-tickets-online-booking/">Qatar Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/kuwait/jazeera-airways-tickets-online-booking/">Jazeera Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/uae/emirates-tickets-online-booking/">Emirates Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/oman/oman-air-tickets-online-booking/">Oman Air</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/airlines/india/jet-airways-tickets-online-booking/">Jet Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/bahrain/gulf-air-tickets-online-booking/">Gulf Air</a></li><li><a href="https://www.rehlat.com/en/airlines/uae/etihad-airways-tickets-online-booking/">Etihad Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/turkey/turkish-tickets-online-booking/">Turkish Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/sri-lanka/srilankan-tickets-online-booking/">SriLankan Airlines</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/airlines/egypt/egypt-air-tickets-online-booking/">Egyptair</a></li><li><a href="https://www.rehlat.com/en/airlines/india/air-india-tickets-online-booking/">Air India</a></li><li><a href="https://www.rehlat.com/en/airlines/united-kingdom/british-airways-tickets-online-booking/">British Airways</a></li><li><a href="https://www.rehlat.com/en/airlines/uae/flydubai-tickets-online-booking/">flydubai</a></li><li><a href="https://www.rehlat.com/en/airlines/philippines/philippine-airlines-tickets-online-booking/">Philippine Airlines</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/airlines/germany/lufthansa-airways-tickets-online-booking/">Lufthansa</a></li><li><a href="https://www.rehlat.com/en/airlines/egypt/nile-air-tickets-online-booking/">Nile Air</a></li><li><a href="https://www.rehlat.com/en/airlines/lebanon/middle-east-tickets-online-booking/">Middle East Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/india/spicejet-tickets-online-booking/">Spicejet</a></li><li><a href="https://www.rehlat.com/en/airlines/jordan/royal-jordanian-tickets-online-booking/">Royal Jordanian</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/airlines/saudi-arabia/flynas-tickets-online-booking/">Flynas</a></li><li><a href="https://www.rehlat.com/en/airlines/united-states/united-airlines-tickets-online-booking/">United Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/united-states/american-airlines-tickets-online-booking/">American Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/saudi-arabia/saudi-arabian-tickets-online-booking/">Saudi Airlines</a></li><li><a href="https://www.rehlat.com/en/airlines/singapore/singapore-tickets-online-booking/">Singapore Airlines</a></li></ul></li><li class="row myFooterBlock" id="myFooterItemsToggle3"><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-hotels/country/kuwait-kw/">Hotels in Kuwait</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/saudi-arabia-sa/">Hotels in Saudi Arabia</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/united-arab-emirates-ae/">Hotels in UAE</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/egypt-eg/">Hotels in Egypt</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/turkey-tr/">Hotels in Turkey</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-hotels/country/india-in/">Hotels in India</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/usa-us/">Hotels in USA</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/united-kingdom-uk/">Hotels in United Kingdom</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/france-fr/">Hotels in France</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/cyprus-cy/">Hotels in Cyprus</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-hotels/country/singapore-sg/">Hotels in Singapore</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/malaysia-my/">Hotels in Malaysia</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/thailand-th/">Hotels in Thailand</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/australia-au/">Hotels in Australia</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/country/sri-lanka-lk/">Hotels in Sri Lanka</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-hotels/city/dubai-dxb/">Hotels in Dubai</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/cairo-cai/">Hotels in Cairo</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/kuwait-kw/">Hotels in Kuwait</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/abu-dhabi-auh/">Hotels in Abu Dhabi</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/jeddah-jed/">Hotels in Jeddah</a></li></ul><ul class="myFooterItemsBlock col-md-15 col-sm-3 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-hotels/city/mumbai-bom/">Hotels in Mumbai</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/london-lon/">Hotels in London</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/new-york-area-ny-nyc/">Hotels in New York</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/paris-par/">Hotels in Paris</a></li><li><a href="https://www.rehlat.com/en/cheap-hotels/city/sydney-nsw-syd/">Hotels in Sydney</a></li></ul></li><li class="row myFooterBlock" id="myFooterItemsToggle5"><ul class="myFooterItemsBlock col-xs-12"><li><p style="font-size: 13px; text-align: justify;"> Rehlat, which means ‘Travel’ in Arabic, is an online travel agency catering to the Middle East. Rehlat is one of the fastest growing travel companies in the Middle East. At Rehlat, we are a team of experienced and passionate travelers who understand travel & e-commerce.</p><p style="font-size: 13px; text-align: justify;">At Rehlat, we strive for excellence and our focus is always to provide the best user experience. We understand the power of simplicity and pain in complexity; which is why we as a team constantly work on improvising the user journey. We are committed to make online travel a better experience for our consumers from the Middle East.</p><p style="font-size: 13px; text-align: justify;">Our aim is to give you the best travel services that the Middle East has to offer. The websites and our customer support cater in both Arabic plus English. The payment systems are also localized to offer the best possible experience. The payment settlement is available in (Kuwaiti Dinar, Emirati Dirham, Qatari Rial, Omani Rial, Bahraini Dinar, Saudi Riyal and Egyptian Pounds) which can be paid through Debit and Credit cards via Visa / Master card / Knet / CashU.</p><p style="font-size: 13px; text-align: justify;">Rehlat has its offices spread across Kuwait, UAE, India, and Egypt.</p></li></ul></li><li class="row myFooterBlock" id="myFooterItemsToggle4"> <ul class="myFooterItemsBlock col-sm-4 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-goa-in/kwi-goi/roundtrip/air-india-ai/">Kuwait To Goa Air India </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-london/kwi-lhr/roundtrip/british-airways-ba/">Kuwait To London British Airways</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-lucknow/kwi-lko/roundtrip/etihad-airways-ey/">Kuwait To Lucknow Etihad Airways </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-chittagong/kwi-cgp/roundtrip/fly-dubai-fz/ ">Kuwait To Chittagong Flydubai </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-hyderabad/kwi-hyd/roundtrip/gulf-air-gf/">Kuwait To Hyderabad Gulf Air </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-delhi/kwi-del/roundtrip/jet-airways-9w/">Kuwait To Delhi Jet Airways </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-trivandrum/kwi-trv/roundtrip/srilankan-airlines-ul/">Kuwait To Trivandrum Srilankan Airlines</a></li></ul><ul class="myFooterItemsBlock col-sm-4 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-kochi/kwi-cok/roundtrip/oman-air-wy/">Kuwait To Kochi Oman Air</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-chennai/kwi-maa/roundtrip/kuwait-airways-ku/">Kuwait To Chennai Kuwait Airways</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-ahmedabad/kwi-amd/roundtrip/qatar-airways-qr/">Kuwait To Ahmedabad Qatar Airways </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-kolkata/kwi-ccu/roundtrip/emirates-ek/">Kuwait To Kolkata Emirates</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-cairo/kwi-cai/roundtrip/kuwait-airways-ku/">Kuwait To Cairo Kuwait Airways</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-amman/kwi-amm/roundtrip/kuwait-airways-ku/">Kuwait To Amman Kuwait Airways</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-mumbai/kwi-bom/roundtrip/kuwait-airways-ku/">Kuwait To Mumbai Kuwait Airways</a></li></ul><ul class="myFooterItemsBlock col-sm-4 col-xs-6"><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-dubai/kwi-dxb/roundtrip/kuwait-airways-ku/">Kuwait To Dubai Kuwait Airways </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-luxor/kwi-lxr/roundtrip/egyptair-ms/">Kuwait To Luxor Egyptair</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-borg-el-arab/kwi-hbe/roundtrip/egyptair-ms/">Kuwait To Borg El Arab Egyptair</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/dubai-to-muharraq/dxb-bah/roundtrip/cathay-pacific-cx/">Dubai To Muharraq Cathay Pacific</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-colombo/kwi-cmb/roundtrip/srilankan-airlines-ul/">Kuwait To Colombo Srilankan Airlines</a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-manila/kwi-mnl/oneway/jet-airways-9w/">Kuwait To Manila Jet Airways </a></li><li><a href="https://www.rehlat.com/en/cheap-flights/schedules/kuwait-to-hyderabad/kwi-hyd/roundtrip/jazeera-airways-j9/">Kuwait to Hyderabad Jazeera Airways</a></li></ul></li></ul></div><div class="col-md-3 col-sm-12"><div class="row"><div class="col-sm-12 NewsLetterSignup"> <h5>Sign Up for Deals & Get 2&nbsp;KWD off</h5><small>Keep up to date with the latest flight and hotel deals from across over 100,000 locations.</small><div class="input-group"> <input type="text" class="form-control" placeholder="Email Address" id="newsEmail"><span class="input-group-btn"> <button class="btn btn-default searchButton" type="button" onclick=" saveUserSubacriptions('news'); ">Sign up</button></span></div></div></div></div></div><footer><div class="row bor_Bottom1px"><div class="col-sm-4 paySec2 mb10 " style="text-align:left; line-height:40px;"><span class="">We accept:</span><span><a href=""> </a>  <a href="javascript:void(0)"> <img src="https://images.rehlat.com/Content/images/payment_1a.png" alt="Knet" title="Knet"> </a> <a href="javascript:void(0)"> <img src="https://images.rehlat.com/Content/images/payment_3a.png" alt="Visa" title="Visa"> </a> <a href="javascript:void(0)"> <img src="https://images.rehlat.com/Content/images/payment_4a.png" alt="Master" title="Master"> </a></span></div><div class="col-sm-4 copyRights" style="text-align:center; line-height:40px;"> <a href="javascript:void(0)" class="MiddleLogoFooter" style="height:50px; width:25%;"> <img src="https://images.rehlat.com/Content/images/payment_6a.png" alt="100% Security Guarantee" title="100% Security Guarantee"> </a> <a href="javascript:void(0)" class="MiddleLogoFooter" style="height: 50px; width: 14%; padding: 0px 7px;"> <img src="https://images.rehlat.com/Content/images/payment_8a.png" alt="IATA" title="IATA"> </a> <a href="javascript:void(0)" class="MiddleLogoFooter" style="height: 50px; width: 40%;"> <img src="https://images.rehlat.com/Content/images/poweredbytripadvisor.png" alt="IATA" title="IATA"> </a></div><div class="col-sm-4"><div class="pull-right" style="text-align:center; line-height:20px; padding-top:6px;"><span class="followstext">Follow us</span><span><a href="https://www.instagram.com/rehlatcom/" rel="nofollow" target="_blank"><i class="fa fa-instagram" title="Instagram"></i></a> <a href="https://www.pinterest.com/rehlat/" rel="nofollow" target="_blank"><i class="fa fa-pinterest-square" title="Pinterest"></i></a> <a href="https://plus.google.com/+Rehlat" rel="nofollow" target="_blank"><i class="fa fa-google-plus-square" title="Google Plus"></i></a> <a href="https://www.linkedin.com/company/rehlat" rel="nofollow" target="_blank"><i class="fa fa-linkedin-square" title="Linked in"></i></a> <a href="https://twitter.com/Rehlat" rel="nofollow" target="_blank"><i class="fa fa-twitter-square" title="Twitter"></i></a> <a href="https://www.facebook.com/RehlatOfficial/" rel="nofollow" target="_blank"><i class="fa fa-facebook-square" title="Facebook"></i></a></span></div></div></div><div class="row"><div class="col-sm-6"> <label>© 2018 Rehlat Internet and Multimedia FZ-LLC. All Rights Reserved.</label></div><div class="col-sm-6 paySec2 mb10 mt15"><span class="faqLinks pull-right">  <a href="/en/faq" target="_blank">FAQs</a> | <a href="/en/call" target="_blank">Contact Us</a> | <a href="/en/privacy-policy" target="_blank">Privacy Policy</a> | <a href="https://www.rehlat.com/en/sitemap/" target="_blank">Sitemap</a> | <a href="/en/terms" target="_blank">Terms &amp; Conditions</a></span></div></div></footer></div></div><a class="scrollup" href="javascript:void(0);" id="anchrgotoTop">Scroll</a></div><div class="login_Wrapper "><div class="modal fade" id="signUp_new" role="dialog"><div class="modal-dialog"><div class="modal-content width_750"><div class="modal-header"> <button type="button" class="close1" data-dismiss="modal" style="padding-top: 8px;">&times;</button><h4 class="modal-title" style="padding-left:15px;height:auto; padding-top:4px; padding-bottom:4px;">Sign in or Register</h4></div><div class="row"><div class="col-lg-12 col-sm-12"><div class="modal-body"><div class="form-group"><div class="login-form-id-sigin"><div class="login_Window"><div class="col-sm-6" id="divloginChangePassword"><div id="divLoginhome"> <form action="/MyAccount/Login" id="form-login" method="post" role="form"><div class="floating-form"><div class="floating-label"> <input type="email" maxlength="254" class="floating-input otpemaillwr marginInput Arbictxtrestrict disablePaste1" name="Email" id="EmailAddress" placeholder=" " autocomplete="off" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Email is required for login')" tabindex="1" required><span class="highlight"></span><label>Email Address</label></div><div class="floating-label"> <input type="password" maxlength="50" class="floating-input otpemaillwr" placeholder=" " id="Password1" name="Password" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Password is required for login')" tabindex="2" required><span class="highlight"></span><label>Password</label><div class="col-sm-12" style="text-align:right; padding-top:6px; padding-bottom:16px;"> <a><span style="cursor:pointer" onclick="FrogotPasswordClick('home')">Forgot&nbsp;Password&nbsp;?</span></a></div></div></div><input type="hidden" name="WalletIconClickedLogin" id="txtWalletIconClicked" /> </form> <button type="button" class="btn_ros btn-register btn-block" id="Loginsubmit">LOGIN</button></div><div style="display:none" id="divResetPasswordhome"> <form action="/MyAccount/Login" id="login-form-passwordchange" method="post" role="form"><div class="floating-form"><div class="floating-label"> <input class="floating-input otpemaillwr" readonly type="text" id="txtResetEmailIdhome"> <input type="hidden" name="Email" class="txthdnEmailIdhome" /><span class="highlight"></span><label>Email Address</label></div></div><div class="floating-form"><div class="floating-label"> <input class="floating-input otpemaillwr txtOTPhome" type="text" placeholder=" " onblur="ValiDateOTP('home')" onkeypress="return isNumberKey(event)"><span class="highlight"></span><label class="col-sm-12 fltPAD"><span class="pull-left">OTP sent to email</span><span class="pull-right"><span style="display:none" class="otpsuccessmsghome"><i class="fa fa-check righttype" aria-hidden="true"></i></span></span></label><div style=" position: absolute; right: 0px; top: 6px;"> <a href="#" onclick="ResendOTP('home')">Resend?</a></div><div class="otperror"><span class="otpfailmsghome"></span></div></div></div><div class="floating-form"><div class="strengthPS" style="display:none;"><div style="margin-bottom: 4px;color:#8e8e8e; font-size:12px;"> Password Strength&nbsp;:&nbsp;<span class="pwdStrength"></span></div><div class="wsvprogress"><div class="wsvprogressRED pwdStrengthGraph"></div></div></div><div class="floating-label"> <input type="password" name="Password" id="Passwordhome" class="floating-input otpemaillwr" placeholder=" " required onkeyup="checkStrength(this, 'otphome')" onblur=" ValidatePassword(this, 'DSKTP', 'home')" /><span class="passwordValidationMsg" style="color: red;"></span><span class="highlight"></span><label>Set Password (Example: Abcd@123)</label><span class="otphomeShowPwd" style="position: absolute; right: 0; top: 6px;cursor:pointer;display:none;" onclick="PasswordHideShow('otphome')"><i class="fa fa-eye" aria-hidden="true"></i></span><span class="otphomeHidePwd" style="position: absolute; right: 0; top: 6px;cursor:pointer; display:none;" onclick="PasswordHideShow('otphome')"><i class="fa fa-eye-slash" aria-hidden="true"></i></span></div><div class="floating-label"> <input type="password" name="ConfirmPassword" id="ConfirmPasswordhome" class="floating-input otpemaillwr" required placeholder=" " /><span class="confrimpasswordValidationMsg" style="color: red;"></span><span class="highlight"></span><label>Confirm Password</label></div></div></form><button type="button" class="btn_ros btn-register btn-block" onclick="checkandChangePassword('home')">LOGIN</button></div><div class="otperror"> <label class="lblMyAccountErrorMsg" style="color: red; font-size: 12px; font-weight: 500;" id="lblMyAccountErrorMsghome"></label></div><div class="fltMN"><span>New to Rehlat?&nbsp;</span><a href="#" class="fltsgn" onclick="RegisterClick('home')">Register</a></div></div><div class="col-sm-6"> <form action="/MyAccount/RegisterSuccess" id="register-form" method="post" role="form" style="display:none;"><div class="col-sm-12"><div class="form-group"> <div class="myInputCheck offerCheckbox"><div class="checkbox checkbox-success homeCheckBox"> <input id="chkSubscriptionsActive" name="chkSubscriptionsActive" class="styled" checked="checked" onclick=" setSubscription(); " type="checkbox"> <label for="chkSubscriptionsActive"></label> <input type="hidden" name="SubscriptionsActive" id="SubscriptionsActive" value="Active" /></div><p style="margin-top:5px;">Sign Up for Deals & Get 2&nbsp;KWD off</p></div></div><div class="floating-form"><div class="floating-label"> <input type="text" autofocus="autofocus" class="floating-input otpemaillwr noSpaceFirstPosition Arbictxtrestrict NoSpeCharFirstName NoUnderscore marginInput disableRightClick disablePaste" placeholder=" " maxlength="50" id="FirstName_1" name="FirstName" style='text-transform: uppercase' oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('First name is required for Sign up')" tabindex="1" required><span class="highlight"></span><label>First Name</label></div></div><div class="floating-form"><div class="floating-label"> <input type="text" class="floating-input otpemaillwr noSpaceFirstPosition Arbictxtrestrict NoSpeCharLastName NoUnderscore marginInput disableRightClick disablePaste" maxlength="50" placeholder=" " id="LastName_1" name="LastName" onblur="checkFirstNameLastName()" style='text-transform: uppercase' oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Last name is required for Sign up')" tabindex="2" required><span class="highlight"></span><label>Last Name</label></div></div><div class="floating-form"><div class="floating-label"> <input type="email" tabindex="3" class="floating-input otpemaillwr homeEmail homeEmail4 marginInput Arbictxtrestrict disablePaste" maxlength="254" placeholder=" " autocomplete="off" name="Email" id="homeEmail" onblur="checkHomeEmailAddress()" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Email is required for Sign up')" required><span class="highlight"></span><label>Email Address</label><span id="confirmEmail" style="color:red" class="confirmEmail"></span></div></div><div class="floating-form"><div class="strengthPS" style="display:none;"><div style="margin-bottom: 4px;color:#8e8e8e; font-size:12px;"> Password Strength&nbsp;:&nbsp;<span class="pwdStrength"></span></div><div class="wsvprogress"><div class="wsvprogressRED pwdStrengthGraph"></div></div></div><div class="floating-label"> <input type="password" tabindex="4" id="homePassword" maxlength="50" class="floating-input otpemaillwr marginInput homePassword" placeholder=" " name="Password" oninput="setCustomValidity('')" oninvalid=" this.setCustomValidity('Password is required for Sign up')" required onkeyup=" checkStrength(this,'home')" onblur="ValidatePassword(this, 'DSKTP', 'home')" /><span class="passwordValidationMsg" style="color: red;"></span><span class="highlight"></span><span class="homeShowPwd" style="position: absolute; right: 0; top: 6px;cursor:pointer;display:none;" onclick="PasswordHideShow('home')"><i class="fa fa-eye" aria-hidden="true"></i></span><span class="homeHidePwd" style="position: absolute; right: 0; top: 6px;cursor:pointer; display:none;" onclick="PasswordHideShow('home')"><i class="fa fa-eye-slash" aria-hidden="true"></i></span><label class="col-sm-12 fltPAD"><span class="pull-left">Password (Example: Abcd@123)</span><span class="pull-right"></span></label></div></div><div class="floating-form"><div class="floating-label"> <input type="password" tabindex="5" id="homeConfirmPassword" maxlength="50" class="floating-input otpemaillwr marginInput" placeholder=" " name="ConfirmPassword" onblur="checkHomePassword('homePassword', 'homeConfirmPassword', 'confirmSpan')" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Confirm password is required for Sign up')" required><span class="highlight"></span><label>Confirm Password</label><span id="confirmSpan" style="color:red"></span></div></div><div class="floating-form"><div class="floating-label"> <input type="text" maxlength="6" class="floating-input otpemaillwr marginInput allowCopy ReferralCodePage" placeholder=" " id="ReferralCode" name="ReferralCode" onblur="ValidatePromoCode()" oninput=" setCustomValidity('')"><span class="highlight"></span><label>Referral Code</label><span id="ReferralCodeText" style="color:red"></span></div></div><div class="form-group"><div class="row"><div class="col-sm-5"> <button type="button" class="btn_ros btn-register" id="signUpBtn" tabindex="6">Sign Up</button> <button type="submit" id="btnSignUpValidate" style="display:none"></button></div></div></div><div class="fltMN"><span>Existing User&nbsp;?&nbsp;</span>&nbsp; <a href="#" class="fltsgn" onclick="LoginClick('home')">Login</a></div></div></form></div><div class="col-sm-1 hidden-xs"><div class="or_devider_small"></div></div><div class="col-sm-5 hidden-xs"><div class="socialSignup"> <a onclick="fbLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);" class="btn ros-social ros-btn ros-btn-mob ros-facebook cream-tooltip" style=" padding-top: 8px; padding-bottom: 0px;"> <i class="fa fa-facebook" style=" font-size: 25px; padding-right: 15px;"></i> <span>Login with Facebook</span></a> <a onclick="tLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);" class="btn ros-social ros-btn ros-btn-mob ros-twitter cream-tooltip" style="padding-top: 8px; padding-bottom: 0px;"> <i class="fa fa-twitter" style="font-size: 25px; padding-right:7px;"></i> <span>Login with Twitter</span></a> <a id="customBtn" class="btn ros-social ros-btn ros-btn-mob ros-google-plus cream-tooltip" data-onsuccess="onSignIn" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);" style="padding-top: 8px; padding-bottom: 0px;"> <i class="fa fa-google" style="font-size: 25px; padding-right: 15px;"></i> <span>Login with Google</span></a></div></div><div class="hidden-sm hidden-md hidden-lg"><span style="color:#1687CF; width:100%; text-align:center; margin:5% 0 15px 0; display:inline-table;">------------------- Or -------------------</span><span style="color: #1687CF; width: 100%; text-align: center; margin: 0 0 9% 0; display: inline-table;">sign in with</span></div><div class="socialMedia hidden-sm hidden-md hidden-lg"> <a class="btn btn-social-icon btn-sm btn-facebook" onclick="fbLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-facebook"></i></a> <a class="btn btn-social-icon btn-sm btn-twitter" onclick="tLogin(); _gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-sm']);"><i class="fa fa-twitter"></i></a> <a id="customBtn1" class="btn btn-social-icon btn-sm btn-google" data-onsuccess="onSignIn"><i class="fa fa-google"></i></a></div></div></div></div></div></div></div></div></div></div></div><div class="login_Wrapper "><div class="modal fade" id="mybooking_new" role="dialog"><div class="modal-dialog"><div class="modal-content width_640_Imp modelWidth300px_Imp"><div class="modal-header"> <button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">My Booking</h4><h3 class="modal-title hidden-xs">Glad to be your travel partner! Enter your Booking ID and Email/Phone to view booking details.</h3></div><div class="row"><div class="col-lg-12 col-sm-12"><div class="panel panel-login"> <div class="panel-heading"><div class="row"><div class="col-xs-12 bookingLinks"> <a href="#" class="active" id="flightChk">Flight</a> <a href="#" id="hotelChk">Hotel</a></div></div></div><div class="panel-body loginForm"><div class="row"> <form action="/MyAccount/ViewBooking" id="formBooking" method="post" role="form" style="display:block;"><div class="login_Window"> <input type="hidden" value="Flight" id="hdnSupplier" name="Supplier" /> <input type="hidden" value="en" name="urltype" /><div class="col-sm-6 plr_0_Mxs"><div class=" form-group"> <input id="bookingId" type="text" class="form-control allowCopy" name="ReferenceNumber" oninput="setCustomValidity('')" required placeholder="Booking ID"></div></div><div class="col-sm-6 plr_0_Mxs"><div class="form-group"> <input type="text" class="form-control allowCopy" style="text-transform:none !important" name="EmailOrPhone" placeholder="Email/Phone" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Email/Phone is Required')" data-errormessage="Email Or Phone No. is Required" required></div></div><div class="col-sm-12"> <button type="submit" class="btn_ros btn-register">View Booking</button></div></div></form></div></div></div></div></div></div></div></div></div><div id="browser" class="modal fade" role="dialog"><div class="modal-dialog myModel-lg-width"><div class="modal-content"><div class="modal-header" style="border-bottom: none; padding: 15px 0 0 0"> <a data-dismiss="modal" onclick=" SetVesionSubscribeCookie(); ga('set', 'nonInteraction', true); ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton'); " data-dismiss="modal" class="closeBtn"><span aria-hidden="true"><img src="https://images.rehlat.com/Content/images/close-icon.png"></span></a><div style="padding: 0 15px"><h4 class="modal-title" style="line-height: 15px;">&nbsp;</h4></div></div><div class="modal-body" style="padding-top: 0px;"><div class="row"><div class="col-xs-12"> <label class="tagLine" style="text-align:center; width:100%"> This website is best viewed in Chrome (26.0 and above); Safari (6.0);<br />Firefox (18.0); Internet explorer (10.0) </label><div class="" style="display:table;margin: 0 auto;"> <lable class="tagLine" style="width:100%; text-align:center; display:table; font-weight:bold;"> Download now:</lable> <a href="https://www.google.com/chrome/browser/desktop/index.html?utm_source=google&utm_medium=sem&utm_campaign=1001342%7cChromeWin10%7cIN%7cen%7cHybrid%7cText%7cBKWS~TopKWDS-Exact&brand=CHBD#" style=" display: inline-block; margin:10px;"> <img ng-src="https://images.rehlat.com/Content/images/chrome_browser.jpg" width="70px" title="Chrome" alt="" src="https://images.rehlat.com/Content/images/chrome_browser.jpg"><span style="width:100%; display:block; text-align:center;">Chrome</span></a> <a href="https://www.mozilla.org/en-US/firefox/new/?gclid=CjwKEAjwqJ67BRCzzJ7Hy-LYlFYSJABwp9PG2mZI0dRCtSm5nwhXYcdDVqggeSyudTwVPXp37nuBrRoC2pjw_wcB" style=" display: inline-block; margin:10px;"> <img ng-src="https://images.rehlat.com/Content/images/firefox_browser.jpg" width="70px" title="Firefox" alt="" src="https://images.rehlat.com/Content/images/firefox_browser.jpg"><span style="width: 100%; display: block; text-align: center;">Firefox</span></a> <a href="https://support.apple.com/en-in/HT204416" style=" display: inline-block; margin:10px;"> <img ng-src="https://images.rehlat.com/Content/images/safari_browser.jpg" width="70px" title="Safari" alt=" " src="https://images.rehlat.com/Content/images/safari_browser.jpg"><span style="width: 100%; display: block; text-align: center;">Safari</span></a> <a href="https://www.microsoft.com/en-in/download/details.aspx?id=39232" style="display: inline-block; margin:10px;"> <img ng-src="https://images.rehlat.com/Content/images/internet-explorer_browser.jpg" width="70px" title="IE" alt=" " src="https://images.rehlat.com/Content/images/internet-explorer_browser.jpg"><span style="width: 100%; display: block; text-align: center;">IE</span></a></div></div></div></div></div></div></div><link href="/Content/angular-slider-rzslider_CSS?v=31qyYq5o8i-eEpdqEm1kF61QoOPQKBRDYdPdharL_mE1" rel="stylesheet"/>
+<style> .bookNowSliderFontSize { font-size: 13px; } @media only screen and ( max-width:768px ) { .datepicker table { top: 0px; } } .bookNowSlider a { margin-top: 0px; } .acScndDiv { overflow-x: hidden; } @media only screen and (max-width:767px) { .formcontrol_bgn { background: transparent url(https://images.rehlat.com/Content/images/ar_Cal.png) no-repeat scroll 5px 7px !important; } .ui-menu .ui-menu-item { background: #fff; } .ui-widget-content { background: #fff; } } </style> <script>
+var b2cBaseUrl = 'https://www.rehlat.com';
+var facebookAppId = '';
+var facebookVersion = '';
+var facebookENJSSDK = '';
+var googleClientId = '';
+var googleJSSDK = '';
+var isValidOTP = false;
+</script> <script src="/Content/LayoutJs?v=JCLRmCWw9IwlDhEyBm8tfufps1PufAVK45oA8Lizpkg1"></script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1291922910818562'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1291922910818562&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+<script type="text/javascript">
+setTimeout(function(){ 
+ window._izq.push(["userProfile", { "add": { "Source": "" } }]);
+ window._izq.push(["userProfile", { "add": { "Browser": "Unknown" } }]);
+ window._izq.push(["userProfile", { "add": { "DeviceOS": "Windows" } }]);
+
+ }, 7000);
+
+</script>
+
+<!-- Visa Check out Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '541868219328250');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=541868219328250&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code --> <script> window._izq = window._izq || []; window._izq.push(["init"]);</script>  <script src="https://cdn.izooto.com/scripts/launchpad.1504.min.js"> </script>  <script>
+window._izq.push(['add_property', {
+name: 'subscriber_id',
+value: '20180322140212_9538542'
+}]);
+</script>  <script> window._izq.push(["userProfile", { "add": { "Language": "English" } }]);</script>  <script>
+if (localStorage.getItem("izootoCode") == null) {
+window._izq.push(["register_callback", function (obj) {
+localStorage.setItem("izootoCode", obj.statuscode);
+localStorage.setItem("izootoRs", obj.response);
+}]);
+};
+</script>  <script>
+function PasswordHideShow(pageName) {
+var ctrl;
+if (pageName == 'otphome') {
+ctrl = $("#Passwordhome");
+}
+else {
+ctrl = $("." + pageName + "Password");
+}
+if (ctrl.is('input:text')) {
+ctrl.attr('type', 'password');
+$("." + pageName + "HidePwd").hide();
+$("." + pageName + "ShowPwd").show();
+}
+else {
+ctrl.attr('type', 'text');
+$("." + pageName + "HidePwd").show();
+$("." + pageName + "ShowPwd").hide();
+}
+}
+function FrogotPasswordClick(pagename) {
+isValidOTP = false;
+if (pagename == 'home') {
+var email = $("#EmailAddress").val();
+}
+else {
+var email = $("#loginEmail").val();
+}
+if (validateEmail(email)) {
+$.ajax({
+url: "/en/MyAccount/ForgotPassword",
+data: { emailAddress: email },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'OTP sent') {
+$('#lblMyAccountErrorMsg' + pagename).text("Verification code sent to " + email);
+$('#lblMyAccountErrorMsg' + pagename).css("color", "blue");
+$("#divResetPassword" + pagename).show();
+$("#divLogin" + pagename).hide();
+$(".txthdnEmailId" + pagename).val(email);
+$("#txtResetEmailId" + pagename).val(email);
+}
+else if (result == "Email Not Found") {
+$('#lblMyAccountErrorMsg' + pagename).text("Please enter correct email");
+return false;
+}
+else {
+$('#lblMyAccountErrorMsg' + pagename).text("Some error occured Please try again later");
+return false;
+}
+}
+})
+}
+else {
+$('#lblMyAccountErrorMsg' + pagename).text("Please enter valid Email ID");
+}
+}
+function RegisterClick(pagename) {
+if (pagename == 'home') {
+$("#divloginChangePassword").hide();
+$("#register-form").show();
+}
+else {
+$("#login-form-walet").hide();
+$("#register-form-walet").show();
+}
+}
+function LoginClick(pagename) {
+if (pagename == 'home') {
+$("#divloginChangePassword").show();
+$("#register-form").hide();
+}
+else {
+$("#login-form-walet").show();
+$("#register-form-walet").hide();
+}
+}
+function ValiDateOTP(pagename) {
+var otp = $(".txtOTP" + pagename).val().trim();
+if (otp.length != 6 && otp.length > 1) {
+$(".otpfailmsg" + pagename).text("OTP is invalid or has expired.");
+}
+else if (otp != "") {
+$.ajax({
+url: "/MyAccount/ValiDateOTP",
+data: { emailAddress: $(".txthdnEmailId" + pagename).val(), OTP: otp },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'Valid OTP') {
+isValidOTP = true;
+$(".otpfailmsg" + pagename).text("");
+$(".otpsuccessmsg" + pagename).show();
+}
+else if (result == "Invalid OTP") {
+$(".otpfailmsg" + pagename).text("OTP is invalid or has expired.");
+return false;
+}
+else {
+return false;
+}
+}
+})
+}
+}
+function ResendOTP(pagename) {
+var email = $(".txthdnEmailId" + pagename).val();
+if (validateEmail(email)) {
+$.ajax({
+url: "/en/MyAccount/ForgotPassword",
+data: { emailAddress: email },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'OTP sent') {
+$('#lblMyAccountErrorMsg' + pagename).text("Verification code resent to " + email);
+$('#lblMyAccountErrorMsg' + pagename).css("color", "blue");
+}
+else if (result == "Email Not Found") {
+$('#lblMyAccountErrorMsg' + pagename).text("Please enter correct email");
+return false;
+}
+else {
+$('#lblMyAccountErrorMsg' + pagename).text("Some error occured Please try again later");
+return false;
+}
+}
+})
+}
+else {
+$('#lblMyAccountErrorMsg' + pagename).text("Please enter valid Email ID");
+}
+}
+function checkandChangePassword(pagename) {
+var pwd = $("#Password" + pagename).val();
+var confirmPwd = $("#ConfirmPassword" + pagename).val();
+if (!isValidOTP) {
+$(".otpfailmsg" + pagename).text("Please enter valid OTP.");
+return;
+}
+if (pwd == "") {
+$(".passwordValidationMsg").text("Please enter password");
+return false;
+}
+if (confirmPwd == "") {
+$(".confrimpasswordValidationMsg").text("Please enter Confirm password");
+return false;
+}
+if (confirmPwd !== "") {
+if (pwd !== confirmPwd) {
+$(".confrimpasswordValidationMsg").text("Password and confirm password does not match");
+return false;
+}
+}
+ouser = {
+OTP: $(".txtOTP" + pagename).val(),
+Password: $("#Password" + pagename).val(),
+Email: $(".txthdnEmailId" + pagename).val()
+}
+$.ajax({
+url: "/MyAccount/ChangePassWord",
+data: ouser,
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'invalidData') {
+$('#lblMyAccountErrorMsg' + pagename).text("The email or OTP is wrong");
+}
+else if (result == "Password changed successfully") {
+$("#lblMyAccountErrorMsg" + pagename).text = "Password changed successfully";
+if (pagename == "home") {
+$("#login-form-passwordchange").submit();
+}
+else {
+$("#login-form-passwordchangepaxpage").submit();
+}
+return false;
+}
+else if (result == "Password should not be same as previous password") {
+$('#lblMyAccountErrorMsg' + pagename).text("Password should not be same as previous password");
+return false;
+}
+}
+})
+}
+function ValiDateOTPMWeb() {
+var otp = $(".MWebtxtOTP").val();
+if (otp.length != 6 && otp.length > 1) {
+$(".MWebotpfailmsg").text("OTP is invalid or has expired.");
+}
+else {
+$.ajax({
+url: "/MyAccount/ValiDateOTP",
+data: { emailAddress: $(".MWebtxthdnEmailId").val(), OTP: otp },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'Valid OTP') {
+isValidOTP = true;
+$(".MWebotpfailmsg").text("");
+$(".MWebotpsuccessmsg").show();
+}
+else if (result == "Invalid OTP") {
+$(".MWebotpfailmsg").text("OTP is invalid or has expired.");
+return false;
+}
+else {
+return false;
+}
+}
+})
+}
+}
+function MWebFrogotPasswordClick() {
+var email = $("#mobileEmail").val();
+if (validateEmail(email)) {
+$.ajax({
+url: "/en/MyAccount/ForgotPassword",
+data: { emailAddress: email },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'OTP sent') {
+$('#MWeblblMyAccountErrorMsg').text("Verification code sent to " + email);
+$('#MWeblblMyAccountErrorMsg').css("color", "blue");
+$("#MWebChangePasswordAndLogin").show();
+$("#MWebLogin").hide();
+$("#MWebtxthdnEmailId").val(email);
+$("#MWebtxtResetEmailId").val(email);
+}
+else if (result == "Email Not Found") {
+$('#MWeblblMyAccountErrorMsg').text("Please enter correct email");
+return false;
+}
+else {
+$('#MWeblblMyAccountErrorMsg').text("Some error occured Please try again later");
+return false;
+}
+}
+})
+}
+else {
+$('.MWeblblMyAccountErrorMsg').text("Please enter valid Email ID");
+}
+}
+function MewbcheckandChangePassword() {
+var pwd = document.getElementById("MWebPassword");
+var confirmPwd = document.getElementById("MWebConfirmPassword");
+if (!isValidOTP) {
+$(".MWebotpfailmsg").text("Please enter valid OTP.");
+return;
+}
+if (pwd.value == "") {
+$(".MWebpasswordValidationMsg").text("Please enter password");
+return false;
+}
+if (confirmPwd.value == "") {
+$(".MWebconfrimpasswordValidationMsg").text("Please enter Confirm password");
+return false;
+}
+if (confirmPwd.value !== "") {
+if (pwd.value !== confirmPwd.value) {
+$(".MWebconfrimpasswordValidationMsg").text("Password and confirm password does not match");
+return false;
+}
+}
+confirmPwd.setCustomValidity("");
+ouser = {
+OTP: $(".MWebtxtOTP").val(),
+Password: $("#MWebPassword").val(),
+Email: $(".MWebtxthdnEmailId").val()
+}
+$.ajax({
+url: "/MyAccount/ChangePassWord",
+data: ouser,
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'invalidData') {
+$('#lblMyAccountErrorMsg').text("The email or OTP is wrong");
+}
+else if (result == "Password changed successfully") {
+$("#lblMyAccountErrorMsg").text = "Password changed successfully";
+$("#MWeblogin-form-passwordchange").submit();
+return false;
+}
+else if (result == "Password should not be same as previous password") {
+$('#lblMyAccountErrorMsg').text("Password should not be same as previous password");
+return false;
+}
+}
+})
+}
+function MWebResendOTP() {
+var email = $(".MWebtxthdnEmailId").val();
+if (validateEmail(email)) {
+$.ajax({
+url: "/en/MyAccount/ForgotPassword",
+data: { emailAddress: email },
+type: "POST",
+datatype: "json",
+success: function (result) {
+if (result == 'OTP sent') {
+$('#MWeblblMyAccountErrorMsg').text("Verification code resent to " + email);
+$('#MWeblblMyAccountErrorMsg').css("color", "blue");
+$("#MWebChangePasswordAndLogin").show();
+$("#MWebLogin").hide();
+}
+else if (result == "Email Not Found") {
+$('#MWeblblMyAccountErrorMsg').text("Please enter correct email");
+return false;
+}
+else {
+$('#MWeblblMyAccountErrorMsg').text("Some error occured Please try again later");
+return false;
+}
+}
+})
+}
+else {
+$('.MWeblblMyAccountErrorMsg').text("Please enter valid Email ID");
+}
+}
+$(function () {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+$(".guestUserEarnKarmCash").attr("href", "#")
+$(".guestUserEarnKarmCash").removeAttr('target');
+$('.guestUserEarnKarmCash').click(function () {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+$("#mblWalletIconClickedLogin").val("MblLoginReferandEarn");
+$("#myModal_user").modal('show');
+}
+});
+$(".loginUseEarnKarmCash").removeAttr('target');
+$(".loginUseEarnKarmCash").attr("href", "#")
+$('.loginUseEarnKarmCash').click(function () {
+localStorage.setItem("PreviousPageUrl", window.location.href);
+ShowMyProfile(3, '/en')
+});
+}
+if ('' == 'True') {
+$("#aWalletIcon").click();
+}
+if ('' == 'True') {
+localStorage.setItem("PreviousPageUrl", window.location.href);
+ShowMyProfile(2, '/en')
+}
+if ('' == 'True') {
+localStorage.setItem("PreviousPageUrl", window.location.href);
+ShowMyProfile(3, '/en')
+}
+$("#signUp_new").on("hidden.bs.modal", function () {
+isValidOTP = false;
+$("#divloginChangePassword").show();
+$("#register-form").hide();
+$('#lblMyAccountErrorMsghome').text("");
+$("#divResetPasswordhome").hide();
+$("#divLoginhome").show();
+});
+$("#myModal_user").on("hidden.bs.modal", function () {
+isValidOTP = false;
+$('#MWeblblMyAccountErrorMsg').text("");
+$("#MWebChangePasswordAndLogin").hide();
+$("#MWebLogin").show();
+});
+$("#signUp1").on("hidden.bs.modal", function () {
+isValidOTP = false;
+$("#login-form-walet").show();
+$("#register-form-walet").hide();
+$('#lblMyAccountErrorMsgpnrpax').text("");
+$("#divResetPasswordpnrpax").hide();
+$("#divLoginpnrpax").show();
+});
+$('#login-form-link-sigin').click(function (e) {
+$("#login-form-id-sigin").delay(100).fadeIn(100);
+$("#register-form").fadeOut(100);
+$('#register-form-link').removeClass('active');
+$(this).addClass('active');
+e.preventDefault();
+});
+$('#register-form-link').click(function (e) {
+$("#register-form").delay(100).fadeIn(100);
+$("#login-form-id-sigin").fadeOut(100);
+$('#login-form-link-sigin').removeClass('active');
+$(this).addClass('active');
+e.preventDefault();
+});
+});
+jQuery(document).on('click', '.mega-dropdown', function (e) {
+e.stopPropagation()
+})
+</script> <script>
+$(function () {
+$('#hotelChk').click(function (e) {
+$('#flightChk').removeClass('active');
+$(this).addClass('active');
+e.preventDefault();
+});
+$('#flightChk').click(function (e) {
+$(".bookingLinks a.active").removeClass("active");
+$('#hotelChk').removeClass('active');
+$(this).addClass('active');
+e.preventDefault();
+});
+});
+</script><script>
+var checkMeta = "";
+var CouponAmount = '2';
+var SubscriptionPath = '/Home/UserSubscriptions';
+var domain = 'COM';
+var PageLanguage = 'en';
+var PageLanguageActual = 'en';
+var IsArabicPage = 'true';
+var StartPageinWebConfg = 'en';
+var imageUrl = 'https://images.rehlat.com';
+var isGaModel = 'true';
+var isIzooto = 'true';
+var gaRehlatUrl = 'https://uj.rehlat.com/v1/Rehlat/userjourney/';
+var tempInvalidUserName = '';
+var nativeImage = '/DynamicImages/MobileApp/1_NativeApp_Img.png?timestamp=22020213';
+var nativeButton = 'DOWNLOAD';
+var utm_campaign = 'WebSmartBanner';
+var DaysOfNativeBanner = "1";
+$(document).ready(function () {
+$('input[type=email]').keydown(function (e) {
+if (e.ctrlKey && (e.keyCode == 88 || e.keyCode == 67 || e.keyCode == 86)) {
+return false;
+}
+});
+$('input[type=text]').keydown(function (e) {
+if ($(this).hasClass('allowCopy')) {
+if (e.ctrlKey && (e.keyCode == 88 || e.keyCode == 67 || e.keyCode == 86))
+return true;
+}
+else {
+if (e.ctrlKey && (e.keyCode == 88 || e.keyCode == 67 || e.keyCode == 86)) {
+return false;
+}
+}
+});
+if ('' != '') {
+$('#mybooking_new').modal('show');
+}
+$('.close').click(function () {
+try {
+if ($(this).next()[0].innerText == "My Booking") {
+$('.errorMessage').hide();
+$('#hdnSupplier').val('Flight');
+$('#hotelChk').removeClass("active");
+$('#flightChk').addClass("active");
+}
+} catch (e) { }
+});
+var cuCurrency = 'KWD';
+$("#chkICurrency_" + cuCurrency).addClass("fa-check");
+if (window.location.href.indexOf('cheap-hotels') > -1) {
+$("#anchrgotoTop").css("background", "url('https://images.rehlat.com/Content/images/gototop_icon.png') no-repeat scroll 0 0 transparent");
+}
+else {
+$("#anchrgotoTop").css("background", "url('https://images.rehlat.com/Content/images/icon_gototop.png') no-repeat scroll 0 0 transparent");
+}
+var expires = new Date();
+expires.setMinutes(expires.getMinutes() + 20);
+$("#VersionSubscribe").modal('hide');
+if ($.cookie("VersionSubscribe") != "close") {
+setTimeout(function () {
+var medium_utm = window.location.href;
+if (medium_utm.indexOf('utm_medium') == -1) {
+$('#VersionSubscribe').modal('show');
+}
+}, 0);
+}
+function SetVesionSubscribeCookie() {
+$("#VersionSubscribe").modal('hide');
+$.cookie("VersionSubscribe", "close", { expires: expires, path: '/', domain: 'localhost' });
+$.cookie("VersionSubscribe", "close", { expires: expires, path: '/', domain: 'localhost' });
+}
+function SetVersionSuccessCookie() {
+$("#VersionSubscribe").modal('hide');
+$.cookie("VersionSubscribe", "close", { expires: expires, path: '/', domain: 'localhost' });
+$.cookie("VersionSubscribe", "close", { expires: expires, path: '/', domain: 'localhost' });
+}
+$('input[type=text]').attr("autocomplete", "off");
+if ('' == 'email') {
+$("#emailSubscribe").modal('hide');
+}
+$(document).keyup(function (e) {
+if (e.keyCode == 27) {
+$("#emailSubscribe").modal('hide');
+SetEmailSubscribeCookie();
+ga('set', 'nonInteraction', true);
+ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton')
+$("#VersionSubscribe").modal('hide');
+SetVesionSubscribeCookie();
+}
+});
+$('#VersionSubscribe').on('hidden.bs.model', function () {
+$("#VersionSubscribe").modal('hide');
+SetVesionSubscribeCookie();
+ga('set', 'nonInteraction', true);
+ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton');
+});
+$('#emailSubscribe').on('hidden.bs.modal', function () {
+$("#emailSubscribe").modal('hide');
+SetEmailSubscribeCookie();
+ga('set', 'nonInteraction', true);
+ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton')
+});
+$('#Message').text('Booking ID');
+$('[name=ReferenceNumber]').get(0).setCustomValidity('PNR is Required.');
+$("#bookingId").attr("placeholder", "Booking ID");
+$("#bookingId").attr("data-errormessage", "Booking ID is Required");
+$('#flightChk').click(function () {
+$("#bookingId").removeAttr("placeholder");
+$("#bookingId").attr("placeholder", "Booking ID");
+$("#bookingId").removeAttr("data-errormessage");
+$("#bookingId").attr("data-errormessage", "Booking ID is Required");
+$('[name=Supplier]').val('Flight');
+$('#Message').text('Booking ID');
+$('#hotelChk').removeClass("active");
+$('#flightChk').addClass("active");
+$('[name=EmailOrPhone]').val("");
+$('[name=ReferenceNumber]').val("");
+$('[name=ReferenceNumber]').get(0).setCustomValidity('Booking ID is Required.');
+});
+$('#hotelChk').on("click", function () {
+$("#bookingId").removeAttr("placeholder");
+$("#bookingId").attr("placeholder", "Hotel/Rehlat Reference Number");
+$("#bookingId").removeAttr("data-errormessage");
+$("#bookingId").attr("data-errormessage", "Hotel/Rehlat Reference Number is Required");
+$('[name=Supplier]').val('Hotel');
+$('#Message').text('Booking ID');
+$('#flightChk').removeClass("active");
+$('#hotelChk').addClass("active");
+$('[name=EmailOrPhone]').val("");
+$('[name=ReferenceNumber]').val("");
+$('[name=ReferenceNumber]').get(0).setCustomValidity('Hotel/Rehlat Reference Number is Required.');
+});
+$("#EmailAddress").keyup(function () {
+var email = $("#EmailAddress").val();
+if (!validateEmail(email)) {
+$("#EmailAddress").focus();
+$("#EmailAddress").css("border-color", "red");
+}
+else {
+$("#EmailAddress").css("border-color", "#CCC");
+}
+});
+$("#homeEmail").keyup(function () {
+var email = $("#homeEmail").val();
+if (!validateEmail(email)) {
+$("#homeEmail").focus();
+$("#homeEmail").css("border-color", "red");
+}
+else {
+$("#homeEmail").css("border-color", "#CCC");
+}
+});
+$("#mobhomeEmail1").keyup(function () {
+var email = $("#mobhomeEmail1").val();
+if (!validateEmail(email)) {
+$("#mobhomeEmail1").focus();
+$("#mobhomeEmail1").css("border-color", "red");
+}
+else {
+$("#mobhomeEmail1").css("border-color", "#CCC");
+}
+});
+$("#mobileEmail").keyup(function () {
+var email = $("#mobileEmail").val();
+if (!validateEmail(email)) {
+$("#mobileEmail").focus();
+$("#mobileEmail").css("border-color", "red");
+}
+else {
+$("#mobileEmail").css("border-color", "#CCC");
+}
+});
+$("#anchrSignUp_new").click(function () {
+if (typeof gaModel !== 'undefined') {
+ga_rehlat(gaModel, 'Login Clicked');
+}
+});
+$("#anchrMobLogin").click(function () {
+if (typeof gaModel !== 'undefined') {
+ga_rehlat(gaModel, 'Login Clicked');
+}
+});
+$("#MyBooking").click(function () {
+if (typeof gaModel !== 'undefined') {
+ga_rehlat(gaModel, 'My Booking');
+}
+});
+});
+function checkFirstNameLastName() {
+var fName = $('#FirstName_1').val();
+var lName = $('#LastName_1').val();
+var fNameLenght = fName.length;
+var lNameLenght = lName.length;
+var flName = fNameLenght + lNameLenght;
+if (flName > 48) {
+$('#lblMessage').text('First Name and Last Name should not exceed 48 characters');
+setTimeout(function () {
+$("#lblMessage").hide("slow");
+}, 4000);
+$("#FirstName_1").val('');
+$('#LastName_1').val('');
+}
+}
+function checkReferralCode() {
+if ($("#ReferralCode").val().trim() != "") {
+var EmailAddress = $('#homeEmail').val();
+var promoCode = $('#ReferralCode').val();
+$.ajax({
+url: "/MyProfile/CheckReferrerPromoCode",
+type: "GET",
+dataType: "json",
+data: { UserEmail: EmailAddress, PromoCode: promoCode },
+success: function (data) {
+if (data.IsReferrerPromoCode === false) {
+$("#ReferralCode").val("");
+var loc = window.location.href;
+if (loc.indexOf("/ar/") >= 0) {
+$("#ReferralCodeText").text("رمز الكوبون غير صالح، يرجى محاولة رمز آخر").addClass("color", "red");;
+return false;
+}
+else {
+$("#ReferralCodeText").html("Promo Code is not valid. Please try another").addClass("color", "red");
+return false;
+}
+} else {
+$("#ReferralCodeText").html("");
+}
+}
+});
+}
+}
+function checkReferralCodeMobile() {
+if ($("#ReferralCodeM").val().trim() != "") {
+var EmailAddress = $('#homeEmail').val();
+var promoCode = $('#ReferralCodeM').val();
+$.ajax({
+url: "/MyProfile/CheckReferrerPromoCode",
+type: "GET",
+dataType: "json",
+data: { UserEmail: EmailAddress, PromoCode: promoCode },
+success: function (data) {
+if (data.IsReferrerPromoCode === false) {
+$("#ReferralCodeM").val("");
+var loc = window.location.href;
+if (loc.indexOf("/ar/") >= 0) {
+$("#ReferralCodeTextM").text("رمز الكوبون غير صالح، يرجى محاولة رمز آخر").addClass("color", "red");;
+return false;
+}
+else {
+$("#ReferralCodeTextM").html("Promo Code is not valid. Please try another").addClass("color", "red");
+return false;
+}
+} else {
+$("#ReferralCodeTextM").html("");
+}
+}
+});
+}
+}
+</script><script>
+$(document).ready(function () {
+if ('' == "Y") {
+$("#hotelChk").click();
+}
+if (tempInvalidUserName != "") {
+var errorMsg = "Invalid Email or Password.";
+if (window.innerWidth < 768) {
+$('.lblErrorMsg1').text(errorMsg);
+$("#anchrMobLogin").click();
+}
+else {
+$('.lblMyAccountErrorMsg').text(errorMsg);
+$('#anchrSignUp_new').click();
+}
+}
+$("#newsLetterEmail").keyup(function () {
+var email = $("#newsLetterEmail").val();
+if (!email == '' && !validateEmail(email)) {
+$("#newsLetterEmail").focus();
+$("#newsLetterEmail").css("border-color", "red");
+} else {
+$("#newsLetterEmail").css("border-color", "#CCC");
+}
+});
+$("#welcomeemail").keyup(function () {
+var email = $("#welcomeemail").val();
+if (!email == '' && !validateEmail(email)) {
+$("#welcomeemail").focus();
+$("#welcomeemail").css("border-color", "red");
+} else {
+$("#welcomeemail").css("border-color", "#CCC");
+}
+});
+$("#popup_container").draggable();
+$('input[type=text]').attr('spellcheck', false);
+$('input[type=email]').attr('spellcheck', false);
+$("#popup_ok").click(function () {
+$("#popup_container").hide();
+});
+$("body").keypress(function (e) {
+var code = e.keyCode || e.which;
+if (code == 13) {
+$("#popup_container").hide();
+}
+});
+$.fn.center = function () {
+this.css("position", "absolute");
+this.css("top", ($(window).height() - this.height()) / 2 + "px");
+this.css("left", ($(window).width() - this.width()) / 2 + "px");
+return this;
+}
+$("#Flyingfrom1").keypress(function (e) {
+$("#popup_container").hide();
+});
+$("#Flyingto1").keypress(function (e) {
+$("#popup_container").hide();
+});
+$("#cityname1").keypress(function (e) {
+$("#popup_container").hide();
+});
+if (navigator.userAgent.search("MSIE") >= 0 && $.browser.version > 9) {
+}
+else if (navigator.userAgent.search("Chrome") >= 0) {
+}
+else if (navigator.userAgent.search("Firefox") >= 0 && $.browser.version > 9) {
+}
+else if (navigator.userAgent.search("Safari") >= 0) {
+}
+else if (navigator.userAgent.search("Opera") >= 0) {
+}
+});
+function InvalidMsg(textbox) {
+if (textbox.value == '') {
+textbox.setCustomValidity('Email is required');
+}
+else if (textbox.validity.typeMismatch) {
+textbox.setCustomValidity('Please enter a valid email');
+}
+else {
+textbox.setCustomValidity('');
+}
+return true;
+}
+var siteUrl = 'https://www.rehlat.com';
+siteUrl = siteUrl.split(".");
+if (siteUrl.length > 1) {
+siteUrl = siteUrl[1];
+}
+else {
+siteUrl = 'https://www.rehlat.com';
+if (siteUrl.toLowerCase().indexOf("localhost") >= 0) {
+siteUrl = "localhost";
+}
+else {
+siteUrl = "192.168.1.9";
+}
+}
+var ua = navigator.userAgent.toLowerCase();
+if (ua.indexOf("safari/") !== -1 &&
+ua.indexOf("windows") !== -1 &&
+ua.indexOf("chrom") === -1
+) {
+var expires = new Date(); expires.setMinutes(expires.getMinutes() + 10);
+if ($.cookie("VersionSubscribe") != "close") {
+$("#browser").modal('show');
+}
+} else if (navigator.userAgent.search("Firefox") >= 0) {
+if ($.browser.version < 18.0) {
+var expires = new Date(); expires.setMinutes(expires.getMinutes() + 10);
+if ($.cookie("VersionSubscribe") != "close") {
+$("#browser").modal('show');
+}
+}
+}
+function setSubscription() {
+if ($('#chkSubscriptionsActive').is(':checked') == true) {
+$('#SubscriptionsActive').val("Active");
+} else {
+$('#SubscriptionsActive').val("InActive");
+}
+}
+function saveUserSubacriptions(type) {
+var emailAddress = "";
+var message = "";
+if (type == "news") {
+emailAddress = $("#newsEmail").val();
+message = "Newsletter";
+} else if (type == "deals") {
+emailAddress = $("#dealsEmail").val();
+message = "Deals";
+}
+else if (type == "welcome popup") {
+emailAddress = $("#welcomeemail").val();
+message = "Welcome";
+}
+$("#loadingimg").show();
+if (typeof gaModel !== 'undefined') {
+if (type == "deals") {
+gaModel.Action = 'Subscription Box';
+}
+else if (type == "news") {
+gaModel.Action = 'NewsLetter Box';
+}
+ga_rehlat(gaModel, '');
+}
+if (emailAddress != "") {
+if (validateEmail(emailAddress)) {
+$.post(SubscriptionPath, { email: emailAddress, type: type }, function (data) {
+if (data == false) {
+$("#loadingimg").hide();
+if (message != "Welcome") {
+$("#emailSubscribe").modal('hide');
+$("#popup_message").text("You are already subscribed to our exclusive Deals.");
+$("#popup_container").show();
+} else {
+$("#emailSubscribe").modal('hide');
+$("#popup_message").text("You are already subscribed to our exclusive Deals.");
+$("#popup_container").show();
+}
+} else {
+if (CouponAmount !== "" && CouponAmount != null) {
+$.cookie("emailSubscribe", "close");
+$("#loadingimg").hide();
+$("#emailSubscribe").modal('hide');
+$("#emailSubscribeSuccess").modal('show');
+} else {
+$("#popup_message").text("Thank you for subscribing with Rehlat.");
+$("#popup_container").show();
+}
+$("#dealsEmail").val('');
+}
+});
+} else {
+$("#loadingimg").hide();
+$("#popup_message").text("Please enter valid email.");
+$("#popup_container").show();
+$("#" + type + "Email").focus();
+}
+} else {
+$("#loadingimg").hide();
+$("#popup_message").text("Please enter the Email for Sign up.");
+$("#popup_container").show();
+$("#" + type + "Email").focus();
+}
+}
+function hideNativeBanner() {
+if (DaysOfNativeBanner != "" && parseInt(DaysOfNativeBanner) > 0) {
+$.cookie("HideNativeBanner", "true", { path: '/', expires: 5 });
+}
+}
+$.fn.center = function () {
+this.css("position", "absolute");
+this.css("top", ($(window).height() - this.height()) / 2 + "px");
+this.css("left", ($(window).width() - this.width()) / 2 + "px");
+return this;
+}
+</script><script>
+$(document).ready(function () {
+$(document).on('keypress', '.Arbictxtrestrict', function (e) {
+var key;
+if (window.event) key = window.event.keyCode;
+else key = e.which;
+if (key > 128) return false;
+else return true;
+});
+$("#Loginsubmit").click(function () {
+var email = $('#EmailAddress').val();
+var password = $('#Password1').val();
+if (email != null && password != null) {
+data = { email: email, password: password };
+$.ajax({
+url: '/MyAccount/LoginValidation',
+type: "POST",
+data: data,
+success: function (result) {
+if (result.toLowerCase() == 'true') {
+$("#form-login").submit();
+}
+else {
+$('#lblMyAccountErrorMsghome').text("Please enter correct email and password");
+return false;
+}
+}
+//login mesasage on hold
+//success: function (result) {
+//    if (result.Message.toLowerCase() == 'valid') {
+//        if (result.Data.Domain == "not required") {
+//            $("#form-login").submit();
+//        }
+//        else {
+//            var url = result.Data.Domain + "/?otherdomainlogin=" + result.Data.Email + "@" + result.Data.Password;
+//            window.location.href = url;
+//        }
+//    }
+//    else {
+//        $('#lblMyAccountErrorMsghome').text("Please enter correct email and password");
+//        return false;
+//    }
+//}
+});
+}
+})
+$("#loginMobile").click(function () {
+var email = $('#mobileEmail').val().trim();
+var password = $('#mobpassword').val().trim();
+if (email != '' && password != '') {
+data = { email: email, password: password };
+$.ajax({
+url: '/MyAccount/LoginValidation',
+type: "POST",
+data: data,
+success: function (result) {
+if (result.toLowerCase() == 'true') {
+$("#signIN").submit();
+}
+else {
+$('#lblErrorMsg1').text("Please enter correct email and password");
+return false;
+}
+}
+});
+}
+else if (email == '') {
+$('#mobileEmail').focus();
+return false;
+}
+else {
+$('#mobpassword').focus();
+return false;
+}
+});
+});
+</script> <script src="/Content/CatCompleteWidgetJS?v=zO_O7R1fZhYodDtvi9n-kpShEDi9lz1KOZOoEjVA2jg1"></script>
+<script src="/Content/browserSelectorJS?v=fcd0wt7JXE1avXHkxRpvjviPia4AVzCSRwcpbfO9QyM1"></script>
+<link href="/Content/selectizedefault_CSS?v=PqgsmuS-Rxqd3b3hLtZWi9p4Sij20ZyK8Y15QG9Tkkk1" rel="stylesheet"/>
+ <script>
+(function () {
+var loadScript = function (src, loadCallback) {
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.src = src;
+s.onload = loadCallback;
+document.body.appendChild(s);
+};
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+$('#RehLiveChat').click(function () {
+var isDisplay = $("#checkChartToggle").css("display");
+$("#checkChartToggle").toggle();
+if (isDisplay == "none") {
+$zopim.livechat.window.show();
+}
+else {
+$zopim.livechat.hideAll();
+}
+});
+})();
+</script> <script>
+function openNav() {
+$("#mySidenav").attr('style', 'width:250px');
+}
+function closeNav() {
+$("#mySidenav").removeAttr('style');
+}
+</script>  <script type="text/javascript">
+var CouponAmount = '2';
+var tempInvalidUserName = '';
+var tempResults = '';
+var viewbagId = '';
+var IsMobMultiCity = 'False';
+var urlForFlightDeal = '/Flights/GetTuesdayForFlightDeal';
+var checkInDate = '29 Mar 2018';
+var checkOutDate = '31 Mar 2018';
+var gaModel = {"IpAddress":"54.166.146.211","CountryName":"Kuwait","City":"Kuwait","RegionName":"Kuwait","Device":"Desktop","DeviceDetail":"http://commoncrawl.org/faq/","DeviceOS":"Windows","Url":"https://www.rehlat.com:443/","PageName":"Home","Category":"Flight","IsLogedIn":false,"Email":null,"SearchKey":"","SearchSession":"20180322140212_9538542","ChannelOfEntry":null,"Action":"","FromCity":"","ToCity":"","DepartureDateStr":"","DepartureDate":null,"ArrivalDateStr":"","ArrivalDate":null,"Adults":null,"Children":null,"Infant":null,"TotalPax":null,"TripType":null,"Class":null,"Name":null,"Gender":null,"PhoneNumber":null,"CustomerEmail":null,"Domain":"COM","PnrId":null,"SessionStartTime":null,"SessionEndTime":null,"CreatedOn":"2018-03-22T14:02:12.9538542+00:00","UpdatedOn":null,"UserId":"20180322140212_9538542","DeviceCategory":"Desktop","BaseCurrency":null,"MinAmount":null,"AirlineName":null,"Utm_Source":"Direct","Utm_Medium":"none","Channel":"Direct","Destination":null,"CheckInDateStr":"","CheckInDate":null,"CheckOutDateStr":"","CheckOutDate":null,"NoOfRooms":null,"RoomDescription":null,"RehlatBookingId":null,"IzootoStatusCode":null,"IzootoResponse":null,"CouponStatus":null,"BookingValue":null,"BookingStatus":null,"Attempt":null,"Lang":"en"};
+//  gaModel.ChannelOfEntry=$("#utm_source").val();
+var LangType="en";
+</script> <script src="/Content/HomeIndexJs?v=SNZvmIRDudlavGc6Mm9oN7rH0flh5IvYwBIgu0ciI6o1"></script>
+ <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"> </script>  <script type="text/javascript">
+var cookie = "crtg_dd";
+var days = 30;
+cr_readTracking();
+function cr_readTracking()
+{
+var url = window.location.href;
+var re = new RegExp("((.*)utm_source=(.*))|((.*)gclid=(.*))");
+if( re.test(url) ){
+var value = url.search(/[?|&]utm_source=([^&;]+?)?criteo(&|#|;|$)/i)!=-1?"1":"0";
+cr_createCookie(cookie,value,days);
+}
+}
+function cr_createCookie(cookie, value, days) {
+var d = new Date();
+d.setTime(d.getTime() + (days*24*60*60*1000));
+var expires = "expires="+d.toUTCString();
+document.cookie = cookie + "=" + value + "; " + expires + "; path=/";
+};
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push(
+{ event: "setAccount", account: "43279"},
+{ event: "setEmail", email: "" },
+{ event: "setSiteType", type: "d" },
+{ event: "viewHome" });
+</script>  <script type="text/javascript">
+$(document).ready(function () {
+if('' !=null && '' !=''){
+$('#signUp_new').modal('show');
+$("#divResetPasswordhome").show();
+$("#divLoginhome").hide();
+$(".txthdnEmailIdhome").val('');
+$("#txtResetEmailIdhome").val('');
+}
+//login mesasage on hold
+ga_rehlat(gaModel,'');
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|firefox/i.test(navigator.userAgent)) {
+if ($("#FlyingFromMobile").is(":hidden")) {
+$("#Flyingfrom11").removeAttr('required');
+$("#Flyingto11").removeAttr('required');
+$("#FlyingToMobile").removeAttr('required');
+$("#FlyingFromMobile").removeAttr('required');
+}
+else {
+$("#tabFlyingFromDiv").html('');
+$("#tabFlyingToDiv").html('');
+}
+}
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|firefox/i.test(navigator.userAgent)) {
+$('#from_city_headFrom').val("");
+$('#from_city_headTo').val("");
+if ($.browser.safari) {
+$.fn.center = function () {
+this.css("position", "absolute");
+this.css("top", ($(window).height() - this.height()) / 2 + "px");
+this.css("left", ($(window).width() - this.width()) / 2 + "px");
+return this;
+}
+$(".datepicker").center();
+$(window).resize(function () {
+$(".datepicker").center();
+});
+}
+$("#popup_container").center();
+$(window).resize(function () {
+});
+$(".datepicker").center();
+$(window).resize(function () {
+$(".datepicker").center();
+});
+}
+});
+</script> <script src="/Content/IndexFlightsController?v=Uxm77YtQ10rvIrq9tLMPoZj9tq6Fbalco81odTrLV9Q1"></script>
+ <script type="text/javascript"> window._izq = window._izq || []; window._izq.push(['add_tag', 'HomeHubs']); </script><script type="text/javascript">
+$("#ViewCoupon").val('');
+function successCallback() {
+window.alert('success');
+$("#Installbtnhide").hide();
+$("#Showcoupon").show();
+var Lang = "en";
+$.ajax({
+type: 'POST',
+dataType: 'json',
+url: '/Home/SuccessChrome',
+data: { Lang: Lang, isInstalled: false },
+success: function (CouponCode) {
+$("#Viewcoupon").text(CouponCode.CouponCode);
+},
+error: function (XMLHttpRequest, textStatus, errorThrown) {
+$("#Viewcoupon").text('');
+failureCallback();
+}
+});
+}
+function failureCallback() {
+window.alert('failure');
+window.location.href = '/en/FailureChrome/'
+}
+function checkRefresh()
+{
+$("#Showcoupon").show();
+var Lang = "en";
+$.ajax({
+type: 'POST',
+dataType: 'json',
+url: '/Home/SuccessChrome',
+data: { Lang: Lang, isInstalled: true },
+success: function (CouponCode) {
+$("#Viewcoupon").text(CouponCode.CouponCode);
+},
+error: function (XMLHttpRequest, textStatus, errorThrown) {
+$("#Viewcoupon").text('');
+}
+});
+}
+function ExtInstall() {
+if (chrome.app.isInstalled){
+alert("already installed!");
+$("#Installbtnhide").hide();
+$("#AlredyInstalledmsg").show();
+checkRefresh();
+}
+else
+{
+chrome.webstore.install('https://chrome.google.com/webstore/detail/ddcgmdgpeallpolppmilnjclnokilbmo', successCallback());
+}
+}
+$(document).ready(function () {
+$(".CloseChrome").click(function(){
+$("#Installbtnhide").hide();
+$("#Showcoupon").hide();
+});
+});
+</script> 
+<!-- Google Analytics Code in All Pages Except Booking Sucess Page -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-39920222-1', 'auto', {allowLinker: true});
+    ga('require', 'linker');
+    ga('linker:autoLink', ['rehlat.ae','rehlat.com.sa','rehlat.com.eg']);
+    ga('send', 'pageview');
+
+</script>
+
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+var google_tag_params = {
+flight_originid: '',
+flight_destid: '',
+flight_pagetype: 'home',
+flight_totalvalue: '' 
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 967754725;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/967754725/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+
+
+ 
+<!--   Pop Script  -->
+
+   <script type="text/javascript">
+     var expires = new Date();
+             expires.setMinutes(expires.getMinutes() + 720);
+          $("#emailSubscribe").modal('hide');
+         if ($.cookie("emailSubscribe") == "close") {
+setTimeout(function(){ 
+var medium_utm=window.location.href;
+if(medium_utm.indexOf('utm_medium=email') == -1){
+$('#emailSubscribe').modal('hide');
+}
+
+}, 0);
+}
+else
+{
+
+$('#emailSubscribe').modal('hide');
+}
+  $(document).keyup(function (e) {
+                if (e.keyCode == 27) {
+                $("#emailSubscribe").modal('hide');
+                SetEmailSubscribeCookie();
+                ga('set', 'nonInteraction', true);
+                ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton')
+
+                }
+            });
+            
+            $('#emailSubscribe').on('hidden.bs.modal', function () {
+                $("#emailSubscribe").modal('hide');
+                SetEmailSubscribeCookie();
+                ga('set', 'nonInteraction', true);
+                ga('send', 'event', 'Ar_PopupSubscribe', 'Ar_Closebutton')
+
+            })
+        function SetEmailSubscribeCookie() {
+             $("#emailSubscribe").modal('hide');
+             $.cookie("emailSubscribe", "close", {expires: expires,  path: '/', domain: 'rehlat.com' });
+         }
+         function SetEmailSubscribeSuccessCookie() {
+             $("#emailSubscribeSuccess").modal('hide');
+             $.cookie("emailSubscribe", "close", {expires: expires,  path: '/', domain: 'rehlat.com' });
+         }
+     </script>
+
+  <!-- Pop Script Ending  -->
+
+<!-- GSC Code -->
+<script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/85797/script.js');
+</script>
+<!--  GSC Code -->
+
+ <script>
+$('a #Idkaramcash').text('0 ' + 'KWD');
+$('a #Idkaramcashar').text('0 ' + englishToArabicString('KWD'));
+</script>  <script>
+if ('RehlatB2C.Web.App_Start.AppSettingsDb' != null) {
+facebookAppId = '164288493940068';
+facebookVersion = 'v2.5';
+facebookENJSSDK = '//connect.facebook.net/en_US/sdk.js';
+}
+if ('RehlatB2C.Web.App_Start.AppSettingsDb' != null) {
+googleClientId = '701836303462-hklpkocs0bfjusaglsqderetkif09047.apps.googleusercontent.com';
+googleJSSDK = 'https://apis.google.com/js/api:client.js';
+}
+</script>  <script src="/Content/js/owl.carousel.js"></script>  <script src="/Content/js/custom/sso.js"></script>  <script src="/Content/js/angularjs-slider-rzslider.min.js"></script> <script src="/Content/smartbanner_en_js?v=cAmVV_q5pej9mXwLDHhIcGHqvjj7rDDyTNzBm_rIeuE1"></script>
+ <script>
+$(function () {
+$.smartbanner({ daysHidden: 0, daysReminder: 0, title: 'Rehlat' });
+});
+</script>  <script>
+function show_Currency_new() {
+$('#currencydropdownmenu').show();
+}
+function Hide_Currency_new() {
+$('#currencydropdownmenu').hide();
+}
+</script> </body></html>

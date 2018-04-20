@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://sellektor.com/kobiety-home">redirected</a>.</body></html>

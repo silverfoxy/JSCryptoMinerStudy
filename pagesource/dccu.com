@@ -1,0 +1,3 @@
+<HEAD>
+<META HTTP-EQUIV="Refresh" CONTENT="0;URL=https://content.dccu.com">
+</HEAD>

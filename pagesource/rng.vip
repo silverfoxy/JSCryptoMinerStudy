@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="keywords" content="日本代购网站,日本海淘转运,日本手办代购,正版周边,J家偶像购物,日本二手商品代拍,偶像音乐CD销量,日本动漫游戏代购,同人代购,亚马逊日本,ACG,动漫游戏,手办模型,偶像商品,二手购物,海外购,全球购,网易考拉海购,FGO周边,偶像梦幻祭,玛沙多拉,玛莎多拉,魔法集市,次元仓,购买王,淘宝全球购,menggou,任你购">
+      <meta name="description" content="任你购浏览站是一款可直接从浏览原站内容到付款完成购买的工具网站，支持日本亚马逊,骏河屋,animate,mandarake等众多日本购物网站，如访问原站一般的浏览、购物体验，便捷的付款方式，新鲜、经济且高效的日本直送物流发货，开启海淘的新世界大门。">
+    <title>任你购</title>
+  <link rel="stylesheet" href="/common/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+  <link rel="stylesheet" href="/css/component.css">
+  <link rel="stylesheet" href="/css/frontend.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <script> document.domain = 'rng.vip'</script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100772244-1','auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <div id='rng-nav'>
+    <div class="nav-content" v-cloak v-show="!state.isFavoriteEdit">
+      <div class="nav-content-logo col-xs-4">
+        <a class="logo" href="http://rennigou.jp"></a>
+        <h1>任你购</h1>
+        <div class="nav-content-search-box text-align small">
+          <div class="nav-content-search">
+            <div id="rng-site-menu" @mouseenter="siteMenuToggle(true)" @mouseleave="siteMenuToggle(false)">
+              <button type="button" id="site-menu">
+                <img :src="'/img/'+state.siteImg+'.png'">
+                <i class="icon-bottom"></i>
+              </button>
+              <transition name="site-fade">
+                <div class="site-menu-list" v-show="isSiteMenu">
+                  <ul class="clearfix">
+                    <li class="isBtn pull-left" v-for="(data,index) in showSiteList"  @click="switch_site(data.proxy_name)" @mouseenter="menuSite = data.proxy_name" @mouseleave="menuSite = ''" :data-list="data.proxy_name">
+                      <a href="javascript:;">
+                      <img v-show="menuSite != data.proxy_name" :src="'/img/' + data.proxy_name + '.png'">
+                      <img v-show="menuSite == data.proxy_name" :src="'/img/' + data.proxy_name + '-h.png'">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </transition>
+            </div>
+            <input type="text" name="url" class="search-url" autocomplete="off" placeholder="请输入商品地址" :value="state.iframeUrl" @keyup.enter="redirect_url()" ref="urlInput">
+            <div class="search-box isBtn" @click="redirect_url()">
+              <i class="search-img"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-right col-xs-8">
+        <div class="content-uesr pull-right">
+          <div class="sign-in not-logged-on" v-show="!state.userInfo" @mouseenter="logoutMenuToggle(true)" @mouseleave="logoutMenuToggle(false)">
+            <button type="button" id="logout-menu" class="uesr-avatar">
+              <img src="/img/avatar.png">
+            </button>
+            <transition name="site-fade">
+              <div class="nav-menu-list clearfix" v-show="isLogoutMenu">
+                <ul class="nav-menu pull-right">
+                  <a class="button" href="https://user.rennigou.jp/register">
+                    <button class="register btn-press btn-red">注册</button>
+                  </a>
+                  <a class="button" :href="'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D'+state.pageUrl" onclick="ga('send', 'event', 'top', 'login', {transport: 'beacon'});">
+                    <button class="login btn-press">登录</button>
+                  </a>
+                  <li><a :href="'http://rennigou.jp' + '/pool'"><img src="/img/pool.png">拼团中心</a></li>
+                  <li><a :href="'http://rennigou.jp' + '/help/01_01'"><img src="/img/help.png">帮助中心</a></li>
+                </ul>
+                <div class="line pull-right"></div>
+                <p class="logout-exchange isBtn pull-right" @click="exchangeLog">汇率: {{exchange}}</p>
+              </div>
+            </transition>
+          </div>
+          <div class="sign-in" v-show="state.userInfo" @mouseenter="userMenuToggle(true)" @mouseleave="userMenuToggle(false)">
+            <button type="button" id="sign-in-menu" :style="state.userInfo.setImg" class="uesr-avatar" :class="{'sign' : state.userInfo.setImg}">
+              <img src="/img/avatar.png" v-if="!state.userInfo.setImg">
+            </button>
+            <transition name="site-fade">
+              <div class="nav-menu-list clearfix" v-show="isUserMenu">
+                <ul class="nav-menu pull-right">
+                  <li><a href="https://user.rennigou.jp/user/profile" onclick="ga('send', 'event', 'top', 'profile', {transport: 'beacon'});"><img src="/img/face.png">我的账户</a></li>
+                  <li><a href="/index/collect"><img src="/img/fav-nor.png">我的收藏</a></li>
+                  <li><a :href="'http://rennigou.jp' + '/help/01_01'"><img src="/img/help.png">帮助中心</a></li>
+                  <li :class="{'active':state.isNewNotice}" @click="notice_toggle"><a href="javascript:;"><img src="/img/notice.png">系统公告</a></li>
+                  <li><a :href="'https://user.rennigou.jp/service/logout?next_url=http%3A%2F%2Frennigou.jp%2Flogout%3Fredirect%3D'+state.pageUrl" onclick="ga('send', 'event', 'top', 'logout', {transport: 'beacon'});"><img src="/img/logout.png">退出登录</a></li>
+                </ul> 
+                <div class="nav-menu-details pull-left">
+                  <div class="left-side">
+                    <h5>我的订单</h5>
+                    <a :href="'http://rennigou.jp' + item.link" 
+                        v-for="item in menu" 
+                        target="_blank"
+                        @mouseenter="notice_icon = item.icon"
+                        @mouseleave="notice_icon = ''">
+                      <span>
+                        <img :src="notice_icon == item.icon ? '../img/' + item.icon + '-hig.png' : '../img/' + item.icon + '.png'">
+                        <i class="number-tip" v-if="item.amount > 0" :class="{'red' : item.notification}">{{item.amount}}</i>
+                        <i class="red-dot" v-if="item.notification && !item.amount"></i>
+                      </span>
+                      <b>{{item.name}}</b>
+                    </a>
+                    <div class="currency clearfix">
+                      <div class="currency-select-box">
+                        <span class="currency-icon"></span>
+                        <span class="currency-select need-exchange" :class="{'selected': state.isRMB}">
+                          中国（CN¥）
+                        </span>
+                        <span class="currency-select" :class="{'selected': !state.isRMB}">
+                          日本（JP¥）
+                        </span>
+                      </div>
+                      <span class="jpy-exchange pull-right" @click="exchangeLog" :class="{'hideit': !state.isRMB}">日元汇率: {{exchange}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+          </div>
+          <div class="user-name">
+            <span>欢迎回来!</span>
+            <p>{{state.userInfo ? state.userInfo.name : '谜之生物'}}</p>
+          </div>
+        </div>
+        <ul class="content-titlebar pull-right">  
+          <li class="pull-left app-box" @mouseenter="appToggle(true)" @mouseleave="appToggle(false)">
+            <a href="https://rennigou.jp/app">       
+              <i class="app"></i><br>
+              <b>APP</b>
+              <transition name="site-fade">
+                <div class="app-menu clearfix" v-show="isApp">
+                  <img src="//spcdn.030buy.net/2017.9.4.rngapp/cqcode.png" alt="APP">
+                </div>
+              </transition>
+            </a>
+          </li>
+          <li class="pull-left">
+            <a :href="'http://rennigou.jp' + '/pool'">            
+              <i class="pool"></i><br>
+              <b>拼团</b>
+            </a>
+          </li>
+          <li class="pull-left">
+            <a :href="'http://rennigou.jp' + '/auction?auction_type=bid'">
+              <span class="content-cart-number" 
+                :class="{empty : !user.header_notice.auction.notification}"
+                v-if="user.header_notice">{{user.header_notice.auction.amount}}</span>           
+              <i class="bid"></i><br>
+              <b>拍卖</b>
+            </a>
+          <li class="pull-left" @click="sidebar_change">
+            <a href="javascript:;">
+              <span class="content-cart-number" :class="{empty : !state.cartNumber}">{{state.cartNumber}}</span>
+              <i class="cart"></i><br>
+              <b>购物车</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <cart-sidebar></cart-sidebar>
+    <mall-sidebar v-if="state._sidebar == 'mall'"></mall-sidebar>
+    <transition name="modal-fade">
+    <div class="rng-menu-mask" v-show="isSiteMenu || isUserMenu || isLogoutMenu || isApp"></div>
+    </transition>
+  </div>
+  <div id="rng-header-popup" v-cloak>
+    <notice-popup :notice="'notice'" v-if="isNotice" @nc="isNotice_close"></notice-popup>
+    <transition name="notice-fade">
+      <div class="jmall_chart-popup" v-show="exchangeLog" @ex="exchangeLog_toogle">
+        <div id="jmall_chart"></div>
+        <div class="button">
+          <button class="btn-red btn-press" @click="exchangeLog_toogle">我知道了</button>
+        </div>
+      </div>
+    </transition>
+  </div>
+  <div id="omni-alert">
+  </div>
+  
+  <div class="app-download-top clearfix">
+    <div class="download-left">
+      <div class="download-close" onclick="$('.app-download-top').hide()"></div>
+      <div class="app-icon"></div>
+      <div class="app-download-tips">您现在访问的是任你购web版
+  下载 APP 享受流畅购物体验</div>
+    </div>
+    <a href="http://rennigou.jp/app" class="download-button gradient-button">
+      立即下载
+    </a>
+  </div>  <iframe id="iframe"></iframe>
+  <div id="rng-modal">
+    <div class="loading">
+    </div>
+    <button type="button" class="reload btn-red btn-press" onClick="location.reload()">刷新</button>
+  </div>  
+  <div id="rng-app" v-cloak>
+    <favorite-group-popup></favorite-group-popup>
+    <notice-popup :notice="notice" v-if="isNotice" @nc="isNotice_close"></notice-popup>
+    <div id="rng-buy">
+      <div class="rng-mall-btn rng-expand isBtn" @click.stop="bus.$emit('sidebar','mall')" v-if="state.seriesId != 0">
+        <img src="/img/hanger.png">
+      </div>
+      <div class="rng-expand isBtn" v-show="!isBuyMenu || !state.buyMenu" @click="isBuyMenu = true">
+        <img src="/img/expand.png">
+      </div>
+      <div class="expand-tips" v-show="(!isBuyMenu && state.buyMenu) || (!state.analysable && !state.buyMenu && !isBuyMenu)">（・∀・）这边可以{{state.analysable ? '购买' : '申请'}}哟~</div>
+      <div class="rng-favorit-expand isBtn" v-if="!state.isBanNode" v-show="!isBuyMenu || !state.buyMenu" @click="favoriteGroup_change"><i :class="{'favorite-sel-img': state.favoriteGroupPopup || state.is_favoriteInfo}"></i></div>
+      <div id="rng-buy-menu" v-show="isBuyMenu || (state.buyMenu && state.isbuyMenu)" :class="{'explain': isExplain && !state.analysable}">   
+        <div class="buy-menu-top">
+          <img src="/img/logo.png" alt="任你购" v-show="state.analysable">
+          <div class="heading" v-if="!state.analysable">
+            <span>来源：</span>
+            <h3>{{site_name}}</h3>
+          </div>
+          <div class="buy-close rng-close isBtn" @click.stop="buyMenuFalse">
+            <img src="/img/x.png" alt="">
+          </div>
+        </div>
+        <div class="details-list" v-if="buyMenu_inf.merchant_id && !buyMenu_inf.merchants">
+          <div class="tips">
+            <p>第三方商家</p>
+            <span>请前往商家列表页购买</span>
+          </div>
+        </div>
+        <div class="details-list" v-if="buyMenu_inf.anchor && state.buyMenu">
+          <div class="details-content">
+            <h3>当前商品</h3>
+            <div class="dropdown pull-left" id="infs-menu" :class="{open:isDropdown}">
+              <button type="button" @click.stop="dropdownToggle">
+                <span class="infs-group" v-if="state.infs[0]">{{infSelected || state.infs[0].name}}</span>
+                <i class="caret"></i>
+              </button>
+              <ul class="dropdown-menu infs-ul">
+                <li v-for="(data,index) in state.infs" @click.stop="detailsChange(data.anchor,index)">
+                  <div class="list-index">{{index + 1}}.</div>
+                  <span class="list-title">{{data.name}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <transition name="modal-fade">
+          <div class="buy-menu-explain" v-show="isExplain && !state.analysable">
+            <div class="buy-close rng-close isBtn" @click.stop="buyMenuFalse">
+              <img src="/img/x.png" alt="">
+            </div>
+            <div class="explain-content">
+              <h3>任你购代购说明</h3>
+              <span>本网站暂不支持自助购买，您可通过“加入购物车”并按提示完成购买。详细请参考<a :href="'http://rennigou.jp' + '/help/01_01'">购买流程</a>介绍哦。</span>
+              <span>如首次购买，请您一定阅读一下购物须知哟！非常感谢！</span>
+              <button class="btn-red btn-press" @click.stop="explain_close">我知道了</button>
+              <a href="javascript:;" @click="get_siteInf">代购须知</a>
+            </div>
+          </div>
+        </transition>
+        <div class="buy-menu-information" v-if="state.analysable" :class="{'list':!buyMenu_inf.merchants}">
+          <div class="menu-content">
+            <div class="menu-empty" v-show="!state.buyMenu">
+              <p>请先选择商品！</p>
+              <span>您选择的商品价格信息会显示在这里</span>
+            </div>
+            <div class="menu-details" v-show="state.buyMenu && buyMenu_inf.price">
+              <li v-if="buyMenu_inf.type">
+                <p class="pull-left">版本型号:</p>
+                <p class="pull-right describe">{{buyMenu_inf.type}}</p>
+              </li>
+              <li v-if="buyMenu_inf.inventory">
+                <p class="pull-left">库存情况:</p>
+                <p class="pull-right describe">{{buyMenu_inf.inventory}}</p>
+              </li>
+              <li>
+                <p class="pull-left">商品价格:</p>
+                <p class="pull-right describe">{{state.isRMB ? (buyMenu_inf.price || '-- ') + '元': buyMenu_inf.jp_price + '円'}}</p>
+              </li>
+              <li v-if="buyMenu_inf.complete_number">
+                <p class="pull-left">套装商品:</p>
+                <p class="pull-right describe warning">{{buyMenu_inf.complete_number}}个 / 组</p>
+              </li>
+              <li>
+                <p class="pull-left">代购手续费:</p>
+                <p class="pull-right describe" :class="{'del': buyMenu_inf.handling_fee == 0 && buyMenu_inf.handling_fee_original}">
+                  <b v-show="buyMenu_inf.handling_fee == 0 && buyMenu_inf.handling_fee_original">限免中 </b>
+                  <span>{{state.isRMB ? Math.ceil(buyMenu_inf.fee * Number(poi.exchange)) : buyMenu_inf.fee}}</span> {{state.isRMB ? '元': '円' }}
+                </p>
+              </li>
+              <li>
+                <p class="pull-left">日本国内运费:</p>
+                <p class="pull-right describe" :class="{'del': buyMenu_inf.ship_charge > 0 && buyMenu_inf.merchants != 'other'}">
+                  <b v-show="buyMenu_inf.ship_charge > 0 && buyMenu_inf.merchants != 'other'">限免中 </b>
+                  <span>{{state.isRMB ? buyMenu_inf.ship_charge : buyMenu_inf.jpy_ship}}</span> {{state.isRMB ? '元' : '円' }}
+                </p>
+              </li>
+              <li class="total">
+                <p class="pull-left">合计:</p>
+                <p class="pull-right describe">{{state.isRMB ? buyMenu_inf.total + '元' : buyMenu_inf.jpy_total + '円'}}</p>
+              </li>
+            </div>
+          </div>
+          <div class="hr" v-show="buyMenu_inf.price"></div>
+          <div class="menu-btn">
+            <button class="btn-pool-gradient buy-btn pull-left" :class="{'disable': !state.buyMenu}" :disabled="!state.buyMenu" v-if="buyMenu_inf.merchant_id && !buyMenu_inf.merchants" @click="to_gp">
+              <img src="/img/buy.png" class="pool-icon">商家列表
+            </button>
+            <button v-else class="btn-pool-gradient buy-btn pull-left" :class="{'disable': !state.buyMenu || buyMenu_inf.amount == 0 || !buyMenu_inf.amount}" :disabled="!state.buyMenu || !buyMenu_inf.amount || buyMenu_inf.amount == 0 || isAjax" @click="addCart">
+              <img :src="isAjax ? '/img/loading.svg': '/img/buy.png'" class="pool-icon">加入购物车
+            </button>
+          </div>
+        </div>
+        <div class="buy-menu-information" v-if="!state.analysable">
+          <requests-edit :requests="requests" class="buymenu-requests">
+            <div slot="top-right" @click="get_siteInf" class="requests-notice">代购须知</div>
+          </requests-edit>
+        </div>
+        <div class="buy-menu-bottom" v-if="!state.isBanNode">
+          <div class="favorite isBtn pull-left" @click="favoriteGroup_change">
+            <i class="favorite-img isBtn" :class="{'favorite-sel-img': state.favoriteGroupPopup || state.is_favoriteInfo}" ></i>
+            <span>喜欢</span>
+          </div>
+          <rng-jisthis></rng-jisthis>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/common/js/jquery-3.2.1.min.js?r=cd6b1c38"></script>
+<script src="/common/js/bootstrap.min.js?r=d5b8ee3a"></script>
+<script src="/common/js/core.js?r=c9c2b670"></script>
+<script src="/js/lodash.core.min.js?r=1c449c06"></script>
+<script src="/js/lodash.full.min.js?r=c3940128"></script>
+<script src="/js/vue.min.js?r=abca3740"></script>
+<script src="/js/echarts.min.js?r=296a691d"></script>
+<script src="/js/swiper-3.4.2.jquery.min.js?r=1d7ff1a0"></script>
+<script src="/js/base64.min.js?r=268ecca3"></script>
+<script async src="https://qiyukf.com/script/e6000bb5bbeca1ab34fd4d5a5107fa2e.js"></script>
+
+<script>
+  poi.consts = {"source_site":{"4":"tora","5":"cq","3":"surugaya","1":"amazon","99":"request"},"site_flag":{"1":"visible","2":"analysable","4":"entrance"},"fee_type":{"0":"商品费用","1":"日本国内运费","2":"快递费","4":"商品补款","6":"运单补款","10":"商品手续费","11":"快递手续费","20":"仓储保管费","50":"意向金","51":"大数量商品订单","52":"预约商品手续费","53":"支付转账手续费","54":"折扣","60":"其他","98":"活动优惠","99":"积分抵扣"},"list_type":{"1":"blacklist","2":"whitelist","3":"speciallist"}};
+  poi.exchange = '0.0615';
+  poi.corsUrl = 'http://rennigou.jp';
+  poi.blacklist_node = {"1":[{"site_id":"1","node_id":"465392","status":"3","flag":"6","message":"该页面无法直接浏览，请访问原站浏览","update_time":"0","type":"speciallist"},{"site_id":"1","node_id":"466306","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"492118","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"492124","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"499802","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"500080","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"500106","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"500162","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"500404","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"561466","status":"1","flag":"6","message":"很抱歉，无法提供该类别商品的运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"562934","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"575070","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"575126","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"602162","status":"1","flag":"6","message":"H是不行的喔 (*^ーﾟ )ﾉ","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"637666","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"775872","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"775874","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"896246","status":"1","flag":"6","message":"H是不行的哟～","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"927712","status":"1","flag":"6","message":"H是不行的哟~","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"927714","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3210981","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3371421","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3477381","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3477981","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3481981","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3483451","status":"1","flag":"6","message":"很抱歉，单体电池商品无法提供运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3523531","status":"1","flag":"6","message":"很抱歉，胶卷在通关安检过程中可能造成曝光，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3828871","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3895751","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3895761","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3895771","status":"1","flag":"6","message":"很抱歉厨房家电因为体积太大无法提供代购服务，若您需要购买符合尺寸的厨房家电请提供链接给客服审核。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3895791","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"4082811","status":"1","flag":"6","message":"此商品无法提供运输服务哦 Σ( ° △ °|||)","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"4082831","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"4082911","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"4083001","status":"1","flag":"6","message":"很抱歉，由于内含压缩机，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"4083091","status":"1","flag":"6","message":"很抱歉，由于商品体积问题无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"4142371","status":"1","flag":"6","message":"很抱歉，胶卷在通关安检过程中可能造成曝光，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10658411","status":"1","flag":"6","message":"很抱歉，胶卷在通关安检过程中可能造成曝光，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10658451","status":"1","flag":"6","message":"很抱歉，胶卷在通关安检过程中可能造成曝光，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10667101","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10667121","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10667161","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10667181","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10716671","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10805771","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"10805951","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"11071571","status":"1","flag":"6","message":"很抱歉，胶卷在通关安检过程中可能造成曝光，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"11071921","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12865311","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12865361","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12865421","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12866971","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12868051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12868611","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12869341","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12870591","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12872581","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12874101","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12901571","status":"1","flag":"6","message":"很抱歉,无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"12921251","status":"1","flag":"6","message":"很抱歉,无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13299531","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"13695621","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法代购；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13695711","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法使用代购服务；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13695891","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法代购；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13938481","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"13944721","status":"1","flag":"6","message":"很抱歉，无法提供刀具类的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13945081","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"13945161","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13945241","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13945771","status":"1","flag":"6","message":"非常抱歉，萌购无法提供该分类的商品的代购服务 > <","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13945781","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13945791","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"13946561","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"14304371","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"14315411","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"14315441","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"14315501","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"14315521","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"14917031","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15314301","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15314601","status":"1","flag":"6","message":"很抱歉无法提供该商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15314681","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15325661","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15325691","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15325701","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15325741","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15326401","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15326421","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15337751","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"15338891","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347691","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347701","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347711","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347751","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347821","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15347891","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348431","status":"1","flag":"6","message":"很抱歉，无法提供该类别商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348541","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348551","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348651","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348671","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15348681","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15685541","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15783931","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法使用代购服务；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15826441","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"15840361","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16046061","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16259791","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16286931","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16428011","status":"1","flag":"6","message":"太大太重消化不良...(⁰︻⁰) ","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16428161","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16428211","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"16462081","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"16462091","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"45732011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"46432011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52374051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"52909051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52913051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52920051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52926051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52940051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52943051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52949051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52950051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52951051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52955051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"52984051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"53048051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"53132051","status":"1","flag":"6","message":"很抱歉，液体和流质商品无法提供运输服务；若您选购的商品不属于上述类型，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"57239051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"70904051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"70927051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"70943051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"70993051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71041051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71078051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71188051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71198051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"71247051","status":"1","flag":"6","message":"很抱歉，大部分咖喱中包含肉类无法提供运输服务，若您需要购买的商品不包含肉类成分，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71250051","status":"1","flag":"6","message":"很抱歉，为避免腐坏，冷运食品无法提供代购服务；若您所选购的商品无需冷运，请咨询在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71258051","status":"1","flag":"6","message":"很抱歉，该类型食品无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71314051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"71327051","status":"1","flag":"6","message":"很抱歉，无法提供各种肉类加工品的代购服务，若您购买的不是肉类食品，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71344051","status":"1","flag":"6","message":"很抱歉，需冷藏保存的食品，无法提供代购服务；若您所选购的商品属于常温保存食品，请咨询在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71371051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71442051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"71456051","status":"1","flag":"6","message":"很抱歉，含气体的饮料无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"71588051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"76366051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"81807051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"84732051","status":"1","flag":"6","message":"很抱歉，无法提供电池类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"84822051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"85398051","status":"1","flag":"6","message":"很抱歉,无线电设备无法进行代购.","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"86254051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"86879011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"86888051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"86914051","status":"1","flag":"6","message":"很抱歉，根据海关相关规定，无法提供植物、花卉、种子类商品的代购服务，给您带来不便敬请谅解。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"87782051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"88747051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"89090051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"89101051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"89247051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"89253051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"89399051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"89437051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"100052011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"124048011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"128187011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"128191011","status":"1","flag":"6","message":"很抱歉，无法提供电池类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"160384011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"169644011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169649011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169667011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"169668011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169681011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169694011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169711011","status":"1","flag":"6","message":"很抱歉，无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169731011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169734011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169747011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169751011","status":"1","flag":"6","message":"很抱歉，该商品成分包含酒精无法提供运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169762011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"169764011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169770011","status":"1","flag":"6","message":"很抱歉，无法提供液体商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169772011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169808011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169810011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169859011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169874011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169875011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169889011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169896011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169899011","status":"1","flag":"6","message":"非常抱歉，萌购无法提供该分类的商品的代购服务 > <","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169910011","status":"1","flag":"6","message":"商品内可能包含电池或液体，如需购买请单独联系客服，或发送邮件至客服邮箱。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169911011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"169916011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"169940011","status":"1","flag":"6","message":"很抱歉，无法提供该类别商品的运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170040011","status":"1","flag":"6","message":"很抱歉，液体和流质商品无法提供运输服务！","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170191011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170192011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170229011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170230011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170248011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170267011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"170268011","status":"1","flag":"6","message":"很抱歉，液体流质类商品无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170277011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170287011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170289011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170303011","status":"1","flag":"6","message":"很抱歉，液体和流质商品无法提供运输服务；若您选购的商品不属于上述类型，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170356011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170365011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170390011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170391011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170415011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170432011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"170480011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。\r\n","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170494011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170495011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170497011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170499011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170563011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"170566011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170567011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170575011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170578011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170598011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170609011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170625011","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170627011","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170638011","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170646011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170647011","status":"1","flag":"6","message":"该商品可能产生高昂运费，如需购买请单独联系客服～","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170650011","status":"1","flag":"6","message":"该商品可能产生高昂运费，如需购买请单独联系客服～","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170652011","status":"1","flag":"6","message":"该商品可能产生高昂运费，如需购买请单独联系客服～","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170664011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170668011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170670011","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170671011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"170672011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"171288011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"171350011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"171355011","status":"1","flag":"6","message":"很抱歉,无线电设备无法进行代购.","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"238106011","status":"1","flag":"6","message":"很抱歉，医疗物品无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"255491011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"319211011","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"344024011","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"344929011","status":"1","flag":"6","message":"太大太重消化不良...(⁰︻⁰) ","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345119011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345142011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345900011","status":"1","flag":"6","message":"很抱歉，该类商品尺寸超限，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345931011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345936011","status":"1","flag":"6","message":"很抱歉，萌购娘暂时不育儿-0-","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345947011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"345966011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"346972011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"362594011","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"387483011","status":"1","flag":"6","message":"很抱歉，无法提供改类别商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392219011","status":"1","flag":"6","message":"太大太重消化不良...(⁰︻⁰) ","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392220011","status":"1","flag":"6","message":"太大太重消化不良...(⁰︻⁰) ","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392693011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392694011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392698011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"392699011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"405849011","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"490274011","status":"1","flag":"6","message":"很抱歉，无法提供刀具类的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"675633011","status":"1","flag":"6","message":"很抱歉，无法提供纯电池商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"680358011","status":"1","flag":"6","message":"很抱歉，根据相关政策法律该商品无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"1910002051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2016929051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2017304051","status":"1","flag":"6","message":"很抱歉，无法提供该类别商品的运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2031744051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2033796051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2038875051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2039399051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039484051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039505051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039509051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039516051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039554051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039555051","status":"1","flag":"6","message":"很抱歉，刀具属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039556051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2039650051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2039667051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2045049051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2045050051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2045118051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2045130051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2045197051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2123629051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2126214051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2127209051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2128134051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2129862051","status":"1","flag":"6","message":"该类商品为运输易损商品，若您需要购买请联系客服了解详情。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2130054051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2132900051","status":"1","flag":"6","message":"很抱歉，根据相关政策法规，改商品无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2132905051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2133982051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2145942051","status":"1","flag":"6","message":"很抱歉，液体无法提供运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2145974051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2146222051","status":"1","flag":"6","message":"很抱歉，无法提供电池类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2147360051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2151826051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2151891051","status":"1","flag":"6","message":"很抱歉，无法提供该类型商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2151894051","status":"1","flag":"6","message":"很抱歉，无法提供该类型商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2151900051","status":"1","flag":"6","message":"很抱歉，无法提供电池类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2151901051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2151950051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2151970051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2151982051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2151984051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2152000051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2152002051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2153210051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155179051","status":"1","flag":"6","message":"很抱歉，宠物食品为海关禁运商品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155182051","status":"1","flag":"6","message":"很抱歉，宠物食品为海关禁运商品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155204051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155205051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155207051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155218051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155231051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155232051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155236051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155240051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155255051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155307051","status":"1","flag":"6","message":"很抱歉，宠物食品属于海关禁运商品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155320051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155334051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155335051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155377051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155385051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155388051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155389051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155395051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155397051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155402051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155417051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155438051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155440051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155444051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155448051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155450051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155451051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155452051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155453051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155454051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155455051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155467051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2155497051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2188762051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2188968051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2189164051","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189277051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189341051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189357051","status":"1","flag":"6","message":"很抱歉，仿真枪械玩具无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189379051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189380051","status":"1","flag":"6","message":"液体无法提供运输服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189390051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189391051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189595051","status":"1","flag":"6","message":"很抱歉，无线电设备的附件多为电池组件，无法提供代购服务；若您所需要的商品不属于违禁品，请咨询在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189601051","status":"1","flag":"6","message":"很抱歉，该类型商品由于尺寸过大，运输风险较高，无法提供代购服务。若您确定该商品符合运输标准，请咨询在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189636051","status":"1","flag":"6","message":"很抱歉，该类型商品通常附带2颗以上测试电池，大量购买将超过直发电池数量限制；若您所选购的商品不含电池或电池数量未超过限制，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189674051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189676051","status":"1","flag":"6","message":"很抱歉，精密仪器无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189701051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2189709051","status":"1","flag":"6","message":"很抱歉，部分绘画工具可能含有油性液体或易燃材质，属于禁运品无法提供代购服务；若您所选购的商品符合运输标准，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189720051","status":"1","flag":"6","message":"很抱歉，部分绘画工具可能含有油性液体或易燃材质，属于禁运品无法提供代购服务；若您所选购的商品符合运输标准，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189725051","status":"1","flag":"6","message":"很抱歉，部分绘画工具可能含有油性液体或易燃材质，属于禁运品无法提供代购服务；若您所选购的商品符合运输标准，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189726051","status":"1","flag":"6","message":"很抱歉，部分绘画工具可能含有油性液体或易燃材质，属于禁运品无法提供代购服务；若您所选购的商品符合运输标准，请联系在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2189747051","status":"1","flag":"6","message":"此类商品属禁运商品无法提供代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2199930051","status":"2","flag":"6","message":"","update_time":"1498364025","type":"whitelist"},{"site_id":"1","node_id":"2201152051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2201422051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2221077051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2225594051","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法代购；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2227750051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2228451051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2230005051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2230006051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2230804051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2249554051","status":"1","flag":"6","message":"很抱歉，该分类下大部分商品属于违禁品，无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2277721051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2280002051","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法代购；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2280064051","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法代购；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2280076051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2280077051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2282834051","status":"1","flag":"6","message":"很抱歉，无法提供电池类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2284371051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2314095051","status":"1","flag":"6","message":"很抱歉,无法提供该类商品的代购服务.","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2317902051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2319890051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2351649051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2351652051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356799051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356815051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356824051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356869051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2356897051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356925051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356934051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356936051","status":"1","flag":"6","message":"很抱歉，不支持此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2356945051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2361364051","status":"1","flag":"6","message":"该商品可能产生高昂运费，如需购买请单独联系客服～","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2361405051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2371542051","status":"1","flag":"6","message":"很抱歉，不支持此类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2377348051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2378086051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2381130051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2389365051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2395001051","status":"1","flag":"6","message":"很抱歉，无线电设备的附件多为电池组件，无法提供代购服务；若您所需要的商品不属于违禁品，请咨询在线客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2395007051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2403642051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2416931051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2418829051","status":"1","flag":"6","message":"很抱歉，无法提供此类商品代购","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2418830051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2422738051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2427146051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2428662051","status":"1","flag":"6","message":"很抱歉,无法提供该类商品的代购服务.","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2439923051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2457910051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2459295051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2465855051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2465856051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2465857051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2486540051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2486541051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2486546051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2490442051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2494295051","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法使用代购服务；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2505532051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2510863051","status":"1","flag":"6","message":"虚拟商品暂时无法提供代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2538755051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"2541033051","status":"1","flag":"6","message":"很抱歉，移动电源、充电宝类型的商品无法使用代购服务；若您所选购的商品不属于上述类型，请联系客服。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2544551051","status":"1","flag":"6","message":"很抱歉，移动电源无法提供代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2549019051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2574417051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2624546051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2631898051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2637953051","status":"1","flag":"6","message":"很抱歉，无法提供该商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"2740580051","status":"1","flag":"6","message":"很抱歉，无法提供该类型商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3037451051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3054988051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3055011051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3093567051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3093569051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3217793051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3291655051","status":"1","flag":"6","message":"商品内可能包含电池或液体，如需购买请单独联系客服，或发送邮件至客服邮箱。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3291657051","status":"1","flag":"6","message":"商品内可能包含电池或液体，如需购买请单独联系客服，或发送邮件至客服邮箱。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3305008051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3333565051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3364474051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3378226051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3396823051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3396994051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3445393051","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务。","update_time":"0","type":"blacklist"},{"site_id":"1","node_id":"3450744051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3465736051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3501772051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3544106051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"3544982051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"4152300051","status":"2","flag":"6","message":"","update_time":"1498364523","type":"whitelist"},{"site_id":"1","node_id":"4520873051","status":"1","flag":"6","message":"很抱歉，无法提高该类商品的代购服务。","update_time":"0","type":"blacklist"}],"2":[{"site_id":"2","node_id":"3","status":"3","flag":"6","message":"该页面无法直接浏览，请访问原站浏览","update_time":"0","type":"speciallist"},{"site_id":"2","node_id":"7","status":"3","flag":"6","message":"该页面无法直接浏览，请访问原站浏览","update_time":"0","type":"speciallist"},{"site_id":"2","node_id":"11","status":"3","flag":"6","message":"该页面无法直接浏览，请访问原站浏览","update_time":"0","type":"speciallist"}],"3":[{"site_id":"3","node_id":"304","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"307","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"30102","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"30700","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"30701","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"30702","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"30703","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"31102","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"3070300","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"},{"site_id":"3","node_id":"3070301","status":"1","flag":"6","message":"很抱歉，无法提供该类商品的代购服务","update_time":"1499408967","type":"blacklist"}]};
+  //站点列表
+  poi.siteList = {"amazon":{"site_id":"1","protocol":"https","original_host":"www.amazon.co.jp","proxy_name":"amazon","name":"日本亚马逊","default_path":"\/b\/?node=2277721051","flag":"231","original_freight":"0","series_id":"0","path_replace":"{\"\\\\\\\/gp\\\\\\\/aw\\\\\\\/d\":\"\/dp\",\"\\\\\\\/gp\\\\\\\/aw\\\\\\\/ol\":\"\/gp\/offer-listing\"}","url":"https:\/\/www.amazon.co.jp\/b\/?node=2277721051","visible":1,"analysable":2,"entrance":4,"trans_map":{"\\\/gp\\\/aw\\\/d":"\/dp","\\\/gp\\\/aw\\\/ol":"\/gp\/offer-listing"},"iframeUrl":"http:\/\/amazon.proxy.rng.vip\/b\/?node=2277721051"},"surugaya":{"site_id":"3","protocol":"http","original_host":"www.suruga-ya.jp","proxy_name":"surugaya","name":"骏河屋","default_path":"\/hobby.html","flag":"231","original_freight":"309","series_id":"0","path_replace":"","url":"http:\/\/www.suruga-ya.jp\/hobby.html","visible":1,"analysable":2,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/surugaya.proxy.rng.vip\/hobby.html"},"toranoana":{"site_id":"4","protocol":"http","original_host":"www.toranoana.jp","proxy_name":"toranoana","name":"虎穴","default_path":"\/mailorder\/","flag":"74","original_freight":"520","series_id":"0","path_replace":"{\"\\\\\\\/esmart\\\\\\\/d\":\"\/mailorder\/article\"}","url":"http:\/\/www.toranoana.jp\/mailorder\/","visible":0,"analysable":2,"entrance":0,"trans_map":{"\\\/esmart\\\/d":"\/mailorder\/article"},"iframeUrl":"http:\/\/toranoana.proxy.rng.vip\/mailorder\/"},"cqueen":{"site_id":"5","protocol":"https","original_host":"www.c-queen.net","proxy_name":"cqueen","name":"CQUEEN","default_path":"","flag":"66","original_freight":"480","series_id":"0","path_replace":"","url":"https:\/\/www.c-queen.net","visible":0,"analysable":2,"entrance":0,"trans_map":null,"iframeUrl":"http:\/\/cqueen.proxy.rng.vip"},"animate":{"site_id":"6","protocol":"https","original_host":"www.animate-onlineshop.jp","proxy_name":"animate","name":"ANIMATE","default_path":"","flag":"231","original_freight":"412","series_id":"0","path_replace":"{\"\\\\\\\/sphone\":\"\"}","url":"https:\/\/www.animate-onlineshop.jp","visible":1,"analysable":2,"entrance":4,"trans_map":{"\\\/sphone":""},"iframeUrl":"http:\/\/animate.proxy.rng.vip"},"melonbooks":{"site_id":"7","protocol":"https","original_host":"www.melonbooks.co.jp","proxy_name":"melonbooks","name":"MELONBOOKS","default_path":"","flag":"66","original_freight":"540","series_id":"0","path_replace":"","url":"https:\/\/www.melonbooks.co.jp","visible":0,"analysable":2,"entrance":0,"trans_map":null,"iframeUrl":"http:\/\/melonbooks.proxy.rng.vip"},"booth":{"site_id":"8","protocol":"https","original_host":"booth.pm","proxy_name":"booth","name":"BOOTH","default_path":"\/ja","flag":"165","original_freight":"0","series_id":"0","path_replace":"","url":"https:\/\/booth.pm\/ja","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/booth.proxy.rng.vip\/ja"},"jikuchu":{"site_id":"9","protocol":"http","original_host":"www.jiku-chu.com","proxy_name":"jikuchu","name":"軸中心派","default_path":"","flag":"165","original_freight":"0","series_id":"0","path_replace":"","url":"http:\/\/www.jiku-chu.com","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/jikuchu.proxy.rng.vip"},"mandarake":{"site_id":"10","protocol":"http","original_host":"order.mandarake.co.jp","proxy_name":"mandarake","name":"MANDARAKE","default_path":"\/order\/","flag":"66","original_freight":"594","series_id":"0","path_replace":"","url":"http:\/\/order.mandarake.co.jp\/order\/","visible":0,"analysable":2,"entrance":0,"trans_map":null,"iframeUrl":"http:\/\/mandarake.proxy.rng.vip\/order\/"},"hmv":{"site_id":"11","protocol":"http","original_host":"www.hmv.co.jp","proxy_name":"hmv","name":"HMV","default_path":"","flag":"99","original_freight":"0","series_id":"0","path_replace":"","url":"http:\/\/www.hmv.co.jp","visible":1,"analysable":2,"entrance":0,"trans_map":null,"iframeUrl":"http:\/\/hmv.proxy.rng.vip"},"movic":{"site_id":"12","protocol":"http","original_host":"www.movic.jp","proxy_name":"movic","name":"MOVIC","default_path":"\/shop\/default.aspx","flag":"231","original_freight":"330","series_id":"0","path_replace":"","url":"http:\/\/www.movic.jp\/shop\/default.aspx","visible":1,"analysable":2,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/movic.proxy.rng.vip\/shop\/default.aspx"},"babyssb":{"site_id":"13","protocol":"http","original_host":"www.babyssb.co.jp","proxy_name":"babyssb","name":"babyssb","default_path":"","flag":"165","original_freight":"0","series_id":"686156","path_replace":"","url":"http:\/\/www.babyssb.co.jp","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/babyssb.proxy.rng.vip"},"angelicpretty":{"site_id":"14","protocol":"http","original_host":"angelicpretty-onlineshop.com","proxy_name":"angelicpretty","name":"angelicpretty","default_path":"","flag":"165","original_freight":"0","series_id":"619383","path_replace":"","url":"http:\/\/angelicpretty-onlineshop.com","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/angelicpretty.proxy.rng.vip"},"metamorphose":{"site_id":"15","protocol":"https","original_host":"www.metamorphose.gr.jp","proxy_name":"metamorphose","name":"metamorphose","default_path":"\/online-shop","flag":"165","original_freight":"0","series_id":"0","path_replace":"","url":"https:\/\/www.metamorphose.gr.jp\/online-shop","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/metamorphose.proxy.rng.vip\/online-shop"},"kerashop":{"site_id":"16","protocol":"http","original_host":"kerashop.jp","proxy_name":"kerashop","name":"kerashop","default_path":"","flag":"165","original_freight":"0","series_id":"0","path_replace":"","url":"http:\/\/kerashop.jp","visible":1,"analysable":0,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/kerashop.proxy.rng.vip"},"amiami":{"site_id":"17","protocol":"http","original_host":"www.amiami.jp","proxy_name":"amiami","name":"amiami","default_path":"","flag":"231","original_freight":"0","series_id":"0","path_replace":"","url":"http:\/\/www.amiami.jp","visible":1,"analysable":2,"entrance":4,"trans_map":null,"iframeUrl":"http:\/\/amiami.proxy.rng.vip"}};
+</script>
+<script type="text/x-template" id="rng-sidebar">
+  <transition name="modal-fade" @after-leave="popup_leave" @enter="popup_enter" appear>
+    <div class="sidebar-modal" v-show="isClose">
+      <div class="modal-dialog" @click.stop="sidebar_close">
+        <transition name="fade" appear>
+          <div class="sidebar-content" v-show="isClose" @click.stop>
+            <div class="close isBtn" @click.stop="sidebar_close" :class="{'up':close}">
+              <img src="/img/x.png" alt="">
+            </div>
+            <slot></slot>
+          </div>
+        </transition>
+      </div>
+    </div>
+  </transition>
+</script>
+
+<script>
+Vue.component('sidebar',{
+  template: '#rng-sidebar',
+  props:['showId','close'],
+  data:function(){
+    return {
+      state: vue_data.state,
+      isClose: true,
+    }
+  },
+  computed: {
+  },
+  methods: {
+    sidebar_close:function() {
+      this.isClose = false;
+      vue_data._sidebar_remarkToggle(false);
+    },
+    popup_enter: function() {     
+      var width = window.innerWidth - document.body.clientWidth;
+      if(width != 0) {
+        $('body').css({"overflow":"hidden","padding-right":width});
+        $("#rng-nav").css({"padding-right":width+24});
+      }
+    },
+    popup_leave: function() {
+      if($('#iframe').length <= 0) {
+        $('body').attr("style","")
+        $('#rng-nav').attr("style","")
+      }else {
+        if($('#iframe').css('display') == 'none'){
+          $('body').css({'overflow-y': 'auto', 'overflow-x': 'hidden',"padding-right":''})
+          $('#rng-nav').attr("style","")
+        };
+      }
+      //动画结束时关闭组件
+      bus.$emit('sidebar',this.showId);
+    },
+  }
+})
+</script><script type="text/x-template" id="rng-sidebar-remark">
+  <transition name="swing-fade" appear>
+    <div class="rng-remark-mask" v-show="show" @click.stop>
+      <slot></slot>
+    </div>
+  </transition>
+</script>
+
+<script>
+Vue.component('sidebar-remark',{
+  template: '#rng-sidebar-remark',
+  props:['show'],
+  data:function(){
+    return {
+    }
+  },
+  computed: {
+  },
+  methods: {
+  }
+})
+</script><script type="text/x-template" id="rng-sidebar-content">
+    <transition name="fade" appear>
+      <div class="sidebar-content" v-show="show" @click.stop>
+        <slot></slot>
+      </div>
+    </transition>
+</script>
+
+<script>
+Vue.component('sidebar-content',{
+  template: '#rng-sidebar-content',
+  props:['show'],
+  data:function(){
+    return {
+    }
+  },
+  computed: {
+  },
+  methods: {
+  }
+})
+</script><script type="text/x-template" id="rng-sidebar-box">
+  <div class="sidebar-box" @click.stop>
+    <div class="sidebar-box-content">
+      <slot></slot>
+    </div>
+  </div>
+</script>
+
+<script>
+Vue.component('sidebar-box',{
+  template: '#rng-sidebar-box',
+  data:function(){
+    return {
+    }
+  },
+  computed: {
+  },
+  methods: {
+  }
+})
+</script><script type="text/x-template" id="rng-button">
+  <button class="omni-button" type="button">
+    <slot></slot>
+  </button>
+</script>
+
+<script>
+Vue.component('rng-button',{
+  template: '#rng-button',
+  data:function(){
+    return {
+    }
+  },
+  computed: {
+  },
+  methods: {
+  }
+})
+</script><script type="text/x-template" id="rng-favorite-group-popup">
+    <transition name="modal-fade">
+      <div class="rng-model" id="rng-favorite-group-popup" v-show="state.favoriteGroupPopup && !state.is_favoriteInfo">
+        <div class="favorite-group-dialog rng-model-dialog" @click.stop="modalClose">
+          <transition name="popup-fade">
+            <div class="favorite-group-content" v-show="state.favoriteGroupPopup" @click.stop :class="{'favorite-group-new':isNewGroup}">
+              <p class="hint">将此页面收藏到:</p>
+              <div class="dropdown pull-left" id="favorite-group-menu" :class="{open:dropdown}">
+                <button type="button" id="group-menu" @click.stop="dropdownToggle">
+                  <span class="favorite-group">{{currentGroup}}</span>
+                  <i class="caret"></i>
+                </button>
+                <ul class="dropdown-menu favorite-ul">
+                  <li v-for="(data,index) in state.favoriteGroup" @click.stop="groupChange(index)">{{data.name}}</li>
+                  <li data-name="new" @click="newGroupToggle">新建分组</li>
+                </ul>
+              </div>
+              <input type="text" class="rng-favorite-input new-name" name="name" placeholder="新分组名称" v-model="groupName" v-show="isNewGroup">
+              <input type="text" class="rng-favorite-input" name="title" placeholder="页面名称" :class="{'favorite-title':!isNewGroup}" :value="state.favoriteTitle" ref="favoriteTitle">
+              <button type="button" class="favorite-btn btn-press favorite-menu-btn favorite-close pull-left" @click.stop="modalClose">取消</button>
+              <button type="button" class="favorite-btn btn-press favorite-menu-btn favorite-add pull-left" @click.stop="updateFavoriteGroup" v-show="isNewGroup && !isAjax">新建并添加</button>
+              <button type="button" class="favorite-btn btn-press favorite-menu-btn favorite-add pull-left" @click.stop="updateFavorite" v-show="!isNewGroup && !isAjax">添加</button>
+              <button v-if="isAjax" class="favorite-btn btn-press favorite-menu-btn favorite-add pull-left"><img src="/img/loading.svg"></button>
+            </div>
+          </transition>
+        </div>
+      </div>
+    </transition>
+</script>
+<script>
+$(function(){
+  Vue.component('favorite-group-popup',{
+    template: '#rng-favorite-group-popup',
+    data:function(){
+      return {
+        state: vue_data.state,
+        dropdown: false,
+        currentGroup: '未分组',
+        isNewGroup: false,
+        groupName: '',
+        groupId: '',
+        isAjax: false,
+      }
+    },
+    methods: {
+      modalClose: function () {
+        vue_data.favoriteGroupToggle();
+        this.dropdown = false;
+      },
+      dropdownToggle: function () {
+        this.dropdown = !this.dropdown;
+      },
+      newGroupToggle: function () {
+        this.isNewGroup = true;
+        this.dropdown = false;
+        this.currentGroup = '新建分组';
+      },
+      groupChange: function (i) {
+        var current = this.state.favoriteGroup[i];
+        this.currentGroup = current.name;
+        this.groupId = current.group_id;
+        this.isNewGroup = false;
+        this.dropdown = false;
+      },
+      updateFavorite: function () {
+        var _this = this;
+        _this.isAjax = true;
+        $.ajax({
+          url: poi.corsUrl + '/favorite/updateFavorite',
+          data: {
+            url: this.state.iframeUrl,
+            group_id: this.groupId?this.groupId:this.state.favoriteGroup[0].group_id,
+            title: this.$refs.favoriteTitle.value
+          },
+          success: function(data) {
+            poi.msg("收藏成功!","success");            
+            _this.modalClose();
+            vue_data.setFavoriteInfo(data.favorite_id);
+            _this.isAjax = false;
+          },
+          error: function() {
+            _this.isAjax = false;
+          }
+        })
+      },
+      updateFavoriteGroup: function () {
+        var _this = this;
+        $.ajax({
+          url: poi.corsUrl + '/favorite/updateFavoriteGroup',
+          data: {
+            url: this.state.iframeUrl,
+            name: this.groupName,
+            title: this.$refs.favoriteTitle.value,
+          },
+          success: function(data) {
+            poi.msg("收藏成功!","success");            
+            _this.modalClose();
+            vue_data.setFavoriteInfo(data.favorite_id);
+            _this.isAjax = false;
+          },
+          error: function() {
+            _this.isAjax = false;
+          }
+        })
+      },
+    },
+  })
+})
+</script><script type="text/x-template" id="rng-cart-sidebar">
+  <transition name="modal-fade" @after-leave="popup_leave" @enter="popup_enter">
+    <div class="cart-sidebar-modal" v-show="state.sidebar">
+      <div class="cart-modal-dialog" @click.stop="modalClose">  
+        <transition name="fade">
+          <div class="cart-sidebar-content" v-show="state.sidebar" @click.stop>
+            <transition name="modal-fade">
+              <div class="cart-mask" v-if="isWarning && !isInvalid">
+                <div class="warning-popup">
+                  <i class="rng-tips"></i>
+                  <p v-if="cartActive == 'goods'">确定要删除{{goods_total.goods_length}}件商品吗？</p>
+                  <p v-if="cartActive == 'requests'">确定要删除{{requestsCheck.length}}件商品吗？</p>
+                  <button type="button" class="btn-press popup-list-close" @click.stop="isWarning = false">取消</button>
+                  <button type="button" class="btn-press popup-list-confirm" @click.stop="cart_del()">确认删除</button>
+                </div>
+              </div>
+              <div class="cart-mask" v-if="isWarning && isInvalid">
+                <div class="warning-popup">
+                  <i class="rng-tips"></i>
+                  <p v-if="cartActive == 'goods'">确定要删除{{cart_results.goods_invalid.length}}件商品吗？</p>
+                  <p v-if="cartActive == 'requests'">确定要删除{{cart_results.requests_invalid.length}}件商品吗？</p>
+                  <button type="button" class="btn-press popup-list-close" @click.stop="isWarning = false">取消</button>
+                  <button type="button" class="btn-press popup-list-confirm" @click.stop="invalid_del()">确认删除</button>
+                </div>
+              </div>
+            </transition>
+            <div class="cart-sidebar-top">
+              <div class="cart-close isBtn" @click.stop="modalClose">
+                <img src="/img/x.png" alt="">
+              </div>
+              <div class="cart-select">
+                <span class="isBtn" @click="set_cartActive('goods')" :class="{'isActive' : cartActive == 'goods'}">
+                  代购商品
+                  <i class="content-cart-number" v-show="cart_results.goods_length > 0">{{cart_results.goods_length}}</i>    
+                </span>
+                <span class="isBtn" @click="set_cartActive('requests')" :class="{'isActive' : cartActive == 'requests'}">
+                  代购申请
+                  <i class="content-cart-number" v-show="cart_results.requests_amount > 0">{{cart_results.requests_amount}}</i>    
+                </span>
+                <div class="edit-box">
+                  <li class="pull-left isBtn" @click="checkedAll">全选</li>
+                  <li class="isBtn pull-right last" @click="isIinvalidToggle" v-show="emptyShow">清空失效{{cartActive == 'goods'?'商品':'申请'}}</li>
+                  <li class="isBtn pull-right" @click="isDel ? isWarning = true:false" :class="{'disabled': !isDel}" >删除</li>
+                </div>
+              </div>
+            </div>
+            <div class="cart-sidebar-middle clearfix">
+              <form :action="cart + '/checkout'" method="post" ref="cart">
+                <input type="hidden" name="from" value="cart">
+                <input type="hidden" name="_token" :value="state.userInfo._token">
+                <input type="text" v-show="false">
+                <div class="cart-items" v-for="(data,index) in cart_results.goods" v-if="cartActive == 'goods'">
+                  <li>
+                    <input :id="'_flag' + data.guid" class="detail-list-check" type="checkbox" :value="data.guid" v-model="goodsCheck">
+                    <input type="hidden" :value="data.cart_item_id" v-if="goodsCheck.indexOf(data.guid)!= -1" name="cart_item_ids[]">
+                    <label class="pull-left detail-list-checkbox checkHover" :for="'_flag' + data.guid" :class="{'checkSelected':goodsCheck.indexOf(data.guid)!=-1}" v-show="data.in_stock != '0' && data.limit > 0"></label>
+                    <div class="cart-item-img" :style="data.img" :class="{'through': data.in_stock == '0' || data.limit == '0'}"></div>
+                    <div class="cart-item-box">
+                      <a class="cart-item-title" :href="data.url" :class="{'through': data.in_stock == '0' || data.limit == '0'}">{{data.title}}</a>
+                      <span class="explain" v-show="data.variation" data-toggle="tooltip" data-placement="top" :title="data.variation">型号：{{data.variation}}</span>
+                      <i class="stock" v-show="data.in_stock == 4" data-toggle="tooltip" data-placement="top" :title="data.release_date">预</i> 
+                      <i class="condition_detail" v-show="data.condition == 2" data-toggle="tooltip" data-placement="top" :title="data.addition.condition_detail">古</i> 
+                      <i class="merchant" v-show="data.addition.merchant_name" data-toggle="tooltip" data-placement="top" :title="'商家：' + data.addition.merchant_name">他</i> 
+                      <div class='cart-item-edit' v-show="data.in_stock != '0'">
+                        <button type="button" @click="cart_amount('minus',data)"><img src="/img/minus.png"></button>
+                        <input type="text" :value="data.amount" @change="cart_input(data,$event)" @keyup="key_number($event)" @afterpaste="key_number($event)">
+                        <button type="button" @click="cart_amount('add',data)"><img src="/img/add.png"></button>
+                      </div>
+                    </div>
+                    <span class="cart-item-price" 
+                      v-show="data.in_stock != '0' && data.limit > 0"
+                      data-toggle="popover"
+                      data-trigger="hover"
+                      data-placement="left"
+                      data-html="true"
+                      :data-content="fees_content(data.fees)"
+                      >{{(state.isRMB ? data.price : data.jpy_price) | currency}} {{state.isRMB ? '元' : '円'}}</span>
+                    <span class="cart-item-price" v-show="data.in_stock == '0'">缺货</span>
+                    <span class="cart-item-price" v-show="data.limit == '0' && data.in_stock != 0">暂不接单</span>
+                  </li>
+                  <div class="through-mask" v-if="data.in_stock == '0' || data.limit == '0'">
+                  </div>
+                </div>
+              </form>
+              <form :action="cart + '/checkout'" method="post" ref="req">
+                <input type="text" v-show="false">
+                <input type="hidden" name="from" value="req_cart">
+                <input type="hidden" name="_token" :value="state.userInfo._token">
+                <div class="cart-items cart-requests" v-for="(data,index) in cart_results.requests" v-if="cartActive == 'requests'" :class="{'ban':data.status == 2}">
+                  <div class="requests-headline" :class="{'open':data.json}">
+                    <input type="hidden" :name="'cancel_all[' + data.site_id + ']'" :value="cancel_all.indexOf(data.site_id) != -1 ? '1' : '0'" v-if="req_site.indexOf(data.site_id) != -1">
+                    <input type="hidden" :name="'ship_safe[' + data.site_id + ']'" :value="ship_safe ? '1' : '0'" v-if="req_site.indexOf(data.site_id) != -1">
+                    <label class="pull-left detail-list-checkbox checkHover" :class="{'checkSelected':siteCheck.indexOf(data.site_id)!=-1}" @click="site_CheckAll(data)"></label>
+                    <b></b>
+                    <p class="pull-left">{{data.host}}</p>
+                    <span class="pull-right isBtn" @click="set_explain(data)">运费及物流说明</span>
+                    <div class="label" v-if="data.json">
+                      <b  v-for="(content, key) in data.json"
+                          v-if="cart_results.part_settings[key].show_tag && data.status != 2"
+                          :class="['label-' + (cart_results.part_settings[key].tag_class || 'danger')]"
+                          data-toggle="tooltip" data-placement="bottom" :title="toText(content)">{{key}}</b>
+                      <b  v-for="(content, key) in data.json"
+                          v-if="cart_results.part_settings[key].show_rejected && data.status == 2"
+                          :class="['label-' + (cart_results.part_settings[key].tag_class || 'danger')]"
+                          data-toggle="tooltip" data-placement="bottom" :title="toText(content)">{{key}}</b>
+                    </div>
+                  </div>
+                  <li class="requests-list" v-for="(_data,index) in data.requests">
+                    <input type="hidden" :value="_data.id" v-if="requestsCheck.indexOf(_data.guid) != -1" name="cart_req_ids[]">
+                    <input :id="'_flag' + _data.guid" class="detail-list-check" type="checkbox" :value="_data.guid" v-model="requestsCheck">
+                    <label class="pull-left detail-list-checkbox checkHover" :for="'_flag' + _data.guid" :class="{'checkSelected':requestsCheck.indexOf(_data.guid)!=-1}"></label>
+                    <b class="isBtn edit" @click="set_requests_edit(_data,data)"></b>
+                    <div class="cart-item-box">
+                      <requests-link class="cart-item-title" :link="{'url':_data.url,'title':_data.title}"></requests-link>
+                      <span class="explain" v-show="_data.variation" data-toggle="tooltip" data-placement="top" :title="_data.variation">型号：{{_data.variation}}</span>
+                      <span class="explain" v-show="_data.remark" data-toggle="tooltip" data-placement="top" :title="_data.remark">备注：{{_data.remark}}</span>
+                      <span class="cart-item-price" v-show="_data.unit_price != 0">{{_data.unit_price*_data.amount | currency}} 円</span>
+                      <span class="cart-item-price" v-show="_data.unit_price == 0">-- 円</span>
+                      <div class='cart-item-edit'>
+                        <button type="button" @click="cart_amount('minus',_data)"><img src="/img/minus.png" ></button>
+                        <input type="text" :value="_data.amount" @change="cart_input(_data,$event)" @keyup="key_number($event)" @afterpaste="key_number($event)">
+                        <button type="button" @click="cart_amount('add',_data)"><img src="/img/add.png"></button>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </form>
+            </div>
+            <div class="cart-sidebar-bottom">
+              <div class="cart-function" v-if="cartActive == 'goods'">
+                <b>合计&nbsp;&nbsp;({{goods_total.goods_length}}件)&nbsp;：</b>
+                <span class="cart-price-number">{{goods_total.price_total | currency}} {{state.isRMB ? '元' : '円'}}</span>
+                <button type="button" class="btn-pool-gradient cart-btn pull-right" @click="redirect_to_checkout" v-if="state.userInfo"><img src="/img/pay.png" class="pool-icon">去结算</button>
+                <button type="button" class="btn-pool-gradient cart-btn pull-right logout" @click="login" v-if="!state.userInfo"><img src="/img/right.png" class="pool-icon">请先登录</button>
+              </div>
+              <div class="cart-function cart-requests-function" v-if="cartActive == 'requests'">
+                <p class="request-tip" v-show="state.cart.request_tip">{{state.cart.request_tip}}</p>
+                <b>共生成申请单&nbsp;：</b>
+                <span class="cart-price-number"> {{req_site.length}} 份</span>
+                <span class="cart-results-number">合计 {{req_site.length}} 个网站，共 {{requestsCheck.length}} 件商品</span>
+                <button type="button" class="btn-pool-gradient cart-btn pull-right" 
+                                      v-if="state.userInfo" 
+                                      @click="setRequestsSubmit"
+                                      :class="{'no-price':requests_no_price}">
+                  <img src="/img/pay.png" class="pool-icon">
+                  去结算
+                  <span class="request-tip">含未出价商品<br>将以意向金结算</span>
+                </button>
+                <button type="button" class="btn-pool-gradient cart-btn pull-right logout" v-if="!state.userInfo" @click="login"><img src="/img/right.png" class="pool-icon">请先登录</button>
+              </div>
+            </div>
+            <transition name="fade">
+              <div class="edit-mask" v-show="RequestsEdit">
+                <div class="edit-top" v-if="RequestsEdit.parent">
+                  <div class="cart-close isBtn" @click.stop="RequestsEdit = false">
+                    <img src="/img/back.png">
+                  </div>
+                  <div class="edit-head">
+                    <span>来源：</span><br>
+                    <h3 :class="{'pass':RequestsEdit.parent.status == 1}">{{RequestsEdit.parent.host}}</h3>
+                  </div>
+                </div>
+                <requests-edit :requests="RequestsEdit.current" 
+                                v-if="RequestsEdit.current" 
+                                @ccc="RequestsEdit_close" 
+                                v-if="RequestsEdit.parent"
+                                :is-link="false"></requests-edit>
+              </div>
+            </transition>
+            <transition name="fade">
+              <div class="edit-mask" v-show="isRequestsSubmit">
+                <div class="edit-top">
+                  <div class="cart-close isBtn" @click.stop="isRequestsSubmit = false">
+                    <img src="/img/back.png">
+                  </div>
+                  <p>本次代购申请规则</p>
+                </div>
+                <div class="edit-choose">
+                    <li class="heading">
+                      <span class="title">若同一网站中，存在无法代购的商品时，对于该网站的其他申请商品：</span>
+                    </li>
+                    <li v-for="(data,index) in cart_results.requests" v-if="req_site.indexOf(data.site_id) != -1">
+                      <span class="title">{{data.host}}</span>
+                      <span class="tip" v-if="cancel_all.indexOf(data.site_id) != -1">全单取消</span>
+                      <span class="tip" v-else>仍然下单</span>
+                      <input type="checkbox" v-model="cancel_all" :value="data.site_id" :id="'_req' + data.site_id">
+                      <label class="req-checkbox" :for="'_req' + data.site_id" :class="{'req-selected':cancel_all.indexOf(data.site_id)!=-1}"></label>
+                    </li>
+                    <li class="heading ship">
+                      <span class="title">
+                        快递品质?
+                        <i class="ship-tip-icon" @mouseenter="show_ship_tip(true,$event)" @mouseleave="show_ship_tip(false,$event)"></i>
+                      </span>
+                      <span class="tip">{{ship_safe ? '优质快递' : '廉价快递'}}</span>
+                      <input type="checkbox" v-model="ship_safe" id="ship_safe_input">
+                      <label class="req-checkbox" for="ship_safe_input" :class="{'req-selected':ship_safe}"></label>
+                    </li>
+                </div>
+                <div class="prompt">
+                  <p>* 该偏好选项仅适用于本次购买,在审核完成之前仍可在“待审核”中进行修改</p>
+                </div>
+                <div class="ship-tip" v-show="is_ship_tip">
+                    <span>廉价快递：</span>
+                    <div class="tip-br"></div>
+                    <span>运费较低廉，送货周期长，无法追踪物流记录；若发生丢失或破损，将无法获赔，无安全保障。</span>
+                    <div class="tip-br"></div>
+                    <span>优质快递：</span>
+                    <div class="tip-br"></div>
+                    <span>运费较高昂，送货周期短，可以追踪物流记录；若发生丢失或破损，与廉价快递相比，相对有保障，安全。</span>
+                </div>
+                <button type="button" class="btn-pool-gradient req-edit-btn req-on-btn" @click="req_submit"><img src="/img/_done.png" class="pool-icon">确认提交</button>
+                <button type="button" class="req-edit-btn" @click="isRequestsSubmit = false">让我再考虑下</button>
+              </div>
+            </transition>
+            <div class="remark-box" @click.stop="modalClose">
+              <transition name="swing-fade">
+                <div class="remark-mask" v-show="explain.site_id" @click.stop>
+                  <div class="remark-top">
+                    <transition name="up-fade">
+                      <img src="/img/books.png" class="books" v-show="explain.site_id">
+                    </transition>
+                    <transition name="modal-fade">
+                      <p class="host" v-show="explain.site_id">{{explain.host}}</p>
+                    </transition>
+                    <transition name="modal-fade">
+                      <p v-show="explain.site_id">运费及物流说明</p>
+                    </transition>
+                  </div>
+                  <div class="remark-content" v-html="explain.remark">
+                  </div>
+                  <div class="remark-bottom">
+                    <button type="button" @click.stop="$set(explain,'site_id',false)">我知道了</button>
+                  </div>
+                </div>
+              </transition>
+            </div>
+          </div>
+        </transition>
+      </div>
+    </div>
+  </transition>
+</script>
+<script type="text/x-template" id="requests-edit-box">
+  <transition name="modal-fade">
+  <div class="edit-content">
+    <p v-show="requests.add && !requests.buyMenu" class="headline">代购申请信息</p>
+    <p v-show="!requests.buyMenu && isLink">网址</p>
+    <requests-link v-show="!requests.buyMenu && isLink" class="information url isBtn" :link="{'url':requests.url,'title':requests.url}"></requests-link>
+    <p>名称</p>
+    <slot name="top-right"></slot>
+    <input type="text" :value="requests.title" ref="requests_title" placeholder="商品名称" v-if="requests.title">
+    <div class="loading" v-else>
+      <img src="/img/loading.svg">
+      正在读取标题....
+    </div>
+    <p>规格</p>
+    <input type="text" placeholder="选填、型号/颜色/尺寸" ref="requests_variation" :value="requests.variation">
+    <div class="clearfix">
+      <div class="pull-left input-box">
+        <p>购买数量</p>
+        <input type="text" placeholder="<99" :value="requests.amount || 1" @afterpaste="key_number($event)" ref="amount" @keyup="key_number($event)">
+      </div>
+      <div class="pull-right input-box">
+        <p>出价<a class="help" href="http://rennigou.jp/help/prepay" target="_blank"></a></p>
+        <input type="number" placeholder="日元" :value="requests.unit_price" ref="unit_price">
+      </div>
+    </div>
+    <p>留言</p>
+    <textarea type="text" placeholder="选填任何需要下单员注意的内容" ref="requests_remark" :value="requests.remark"></textarea>
+    <button v-show="!requests.add" class="cancel" @click="$emit('ccc')">取消</button>
+    <button v-if="!requests.add && !isAjax" class="confirm" @click="confirm">确定</button>
+    <button v-if="!requests.add && isAjax" class="confirm"><img src="/img/loading.svg"></button>
+    <button v-show="requests.add && requests.title" type="button" @click="add_requests" class="btn-pool-gradient cart-btn pull-right"><img :src="isAjax ? '/img/loading.svg' : '/img/cart-add.png'" class="pool-icon" :disabled = "isAjax">加入购物车</button>
+  </div>
+  </transition>  
+</script>
+
+<script>
+Vue.component('requests-edit',{
+  template: '#requests-edit-box',
+  props: {
+    'requests': Object,
+    'isLink': {
+      type: Boolean,
+      default: true
+    }
+  },
+  data:function(){
+    return {
+      state: vue_data.state,
+      isAjax: false,
+    }
+  },
+  computed: {
+    favorite_img: function() {
+      if(this.state.is_favoriteInfo){
+        return '/img/fav-sel.png';
+      }else {
+        return '/img/fav-nor.png';
+      }
+    },
+  },
+  methods: {
+    key_number: function(e){
+      if(e.target.value > 99) e.target.value = 99;
+      if(e.target.value < 1) e.target.value = 1;
+      e.target.value = e.target.value.replace(/\D/g,'')
+      this.amount = e.target.value;
+    },
+    get_cart: function () {
+      $.ajax({
+        url: poi.corsUrl + '/cart/jsonCart',
+        success: function (data) {
+          vue_data.getCart(data);
+        }
+      })
+    },
+    confirm: function(){
+      var _this = this;
+      _this.isAjax = true;
+      $.ajax({
+        url: poi.corsUrl + "/cart/editRequest",
+        data: {
+          variation: this.$refs.requests_variation.value,
+          amount: this.$refs.amount.value,
+          remark: this.$refs.requests_remark.value,
+          title: this.$refs.requests_title.value,
+          guid: this.requests.guid,
+          unit_price: this.$refs.unit_price.value
+        },
+        success: function(data){
+          _this.get_cart();
+          _this.$emit('ccc');
+          _this.isAjax = false;
+        },
+        error: function() {
+          _this.isAjax = false;
+        }
+      })
+    },
+    add_requests: function() {
+      var _this = this;
+      _this.isAjax = true;
+      $.ajax({
+        url: poi.corsUrl + "/cart/addRequest",
+        data: {
+          variation: this.$refs.requests_variation.value,
+          amount: this.$refs.amount.value,
+          remark: this.$refs.requests_remark.value,
+          title: this.$refs.requests_title.value,
+          url: this.requests.url,
+          unit_price: this.$refs.unit_price.value
+        },
+        success: function(data){
+          vue_data.setCartNumber(data.badge + data.req_badge);
+          poi.msg("添加申请成功ヾ(Ő∀Ő๑)ﾉ")
+          _this.isAjax = false;
+        },
+        error: function() {
+          _this.isAjax = false;
+        }
+      })
+    },
+    get_favoriteGroup: function () {
+      $.ajax({
+        url: poi.corsUrl + '/favorite/listFavoriteGroup',
+        success: function(data) {
+          vue_data.getFavoriteGroup(data);
+        }
+      })
+    },
+    favoriteGroup_change: function () {
+      vue_data.favoriteGroupToggle();
+      this.get_favoriteGroup();
+    },
+    login: function() {
+      ga('send', 'event', 'edit_request', 'login', {transport: 'beacon'});
+      location.href = 'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D' + this.state.pageUrl;
+    },
+  }
+})
+</script><script type="text/x-template" id="requests-link-block">
+  <a :href="jump.url" :target="jump.blank"><span>{{link.title}}</span></a>
+</script>
+
+<script>
+Vue.component('requests-link',{
+  template: '#requests-link-block',
+  props: ['link'],
+  computed: {
+    jump: function(){
+      var pageurl = this.link.url,o = {};
+      o.url = pageurl;
+      o.blank = '_blank';
+      $.map(poi.siteList,function(e,i){
+        if(e.url.indexOf(poi.cutUrl(pageurl,2,3)) != -1){
+          o.url = "/" + i + "/" + poi.cutUrl(pageurl);
+          o.blank = '_self';
+        }
+      })
+      return o;
+    },
+  }
+})
+</script><script>
+$(function(){
+    Vue.component('cart-sidebar', {
+    template: '#rng-cart-sidebar',
+    data:function(){
+      return {
+        state: vue_data.state,
+        cartActive: "goods",
+        goodsCheck:[],
+        requestsCheck:[],
+        requests_no_price: false,
+        siteCheck:[],
+        cancel_all:[],
+        isInvalid:false,
+        explain:{},
+        isWarning: false,
+        isRequestsSubmit: false,
+        RequestsEdit: false,
+        cart: poi.corsUrl,
+        ship_safe: true,
+        is_ship_tip: false,
+        shipTipTrue: '',
+        shipTipFalse: '',
+      }
+    },
+    updated: function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="popover"]').popover();
+    },
+    computed: {
+      cart_results: {
+        get: function(){
+          var cart_data = {
+            goods:[],
+            requests:[],
+            goods_invalid: [],
+            requests_invalid: [],
+            price_total: 0,
+            goods_length: 0,
+            requests_length: 0,
+            site_length: 0,
+          },
+          price_total = 0,
+          goods_length = 0,
+          requests_length = 0,
+          requests_amount = 0,
+          proxy = '';
+          status = true;
+          if(this.state.cart.cart){
+            this.state.cart.cart.items.forEach(function(e,i){
+              cart_data.goods[i] = {};
+              cart_data.goods[i].addition = {};
+              cart_data.goods[i].price = e.price;
+              cart_data.goods[i].jpy_price = parseInt(e.jpy_price);
+              cart_data.goods[i].guid = e.guid;
+              cart_data.goods[i].title = e.product.title;
+              cart_data.goods[i].amount = e.amount;
+              cart_data.goods[i].variation = e.product.variation;
+              proxy = poi.proxyUrl(e.url);
+              cart_data.goods[i].url = proxy.path;
+              cart_data.goods[i].img = {
+                backgroundImage:'url(/img/' + proxy.site + '.png)',
+              };
+              cart_data.goods[i].in_stock = e.product.in_stock;
+              cart_data.goods[i].limit = e.limit;
+              cart_data.goods[i].condition = e.product.condition;
+              cart_data.goods[i].cart_item_id = e.cart_item_id;
+              cart_data.goods[i].fees = e.fees;
+              //发售日期
+              cart_data.goods[i].release_date = e.product.release_date > 0 ? '发行日期：' + poi.formatDate(new Date(e.product.release_date*1000)) : '未知';
+              //商品信息
+              if(e.addition){
+                cart_data.goods[i].addition.merchant_name = e.addition.merchant_name;
+                if(e.addition.condition) cart_data.goods[i].addition.condition_detail = '品相：' + e.addition.condition.condition_detail;
+              }
+              //失效商品
+              if(e.product.in_stock == 0 || e.limit == 0) {
+                cart_data.goods_invalid.push(e.guid);
+              }
+            })
+            //计算商品总数&总价
+            cart_data.goods.forEach(function(e,i){
+              if(e.in_stock != 0){
+                price_total = price_total+Number(e.price);
+              }
+              goods_length = goods_length+Number(e.amount);
+            })
+            cart_data.price_total = price_total;
+            cart_data.goods_length = goods_length;
+          }
+          if(this.state.cart.sites_requests){
+            cart_data.requests = this.state.cart.sites_requests;
+            cart_data.site_length = this.state.cart.sites_requests.length;
+            this.state.cart.sites_requests.forEach(function(e,i) {
+              requests_length = requests_length + e.requests.length;
+              status = e.status;
+              e.requests.forEach(function(e,i){
+                requests_amount = requests_amount + Number(e.amount);
+                //失效商品
+                if(status == 2) {
+                  cart_data.requests_invalid.push(e.guid);
+                }
+              })
+            });
+            cart_data.requests_length = requests_length;
+            cart_data.requests_amount = requests_amount;
+          }
+          cart_data.part_settings = this.state.cart.part_settings;
+          return cart_data;
+        }
+      },
+      goods_total: function () {
+        var o = {},_this = this;
+        o.goods_length = this.goodsCheck.length;
+        if(this.goodsCheck.length == 0) return o;
+        o.price_total = this.cart_results.goods.reduce(function (sum, item) {
+          if(_this.goodsCheck.indexOf(item.guid) != -1) {
+            return sum + Number(_this.state.isRMB ? item.price : item.jpy_price);
+          }else {
+            return sum;
+          }
+        }, 0);
+        return o;
+      },
+      req_site: function() {
+        var _this = this,a = [];
+        for(var i = 0; i < this.state.cart.sites_requests.length; ++i) {
+          for(var j = 0; j < this.state.cart.sites_requests[i].requests.length; ++j) {
+            var index = this.requestsCheck.indexOf(this.state.cart.sites_requests[i].requests[j].guid);
+            if(index !== -1) {
+              a.push(this.state.cart.sites_requests[i].site_id);
+              break;
+            }
+          }
+        }
+        return a;
+      },
+      isDel: function() {
+        var flag = false;
+        if(this.cartActive == 'goods'){
+          flag = this.goodsCheck.length > 0;
+        }else {
+          flag = this.requestsCheck.length > 0;
+        }
+        return flag;
+      },
+      emptyShow: function(){
+        var flag = false;
+        if(this.cartActive == 'goods'){
+          flag = this.cart_results.goods_invalid.length > 0;
+        }else {
+          flag = this.cart_results.requests_invalid.length > 0;
+        }
+        return flag;
+      },
+    },
+    watch: {
+      requestsCheck: function () {
+        //同站点全选
+        var _this = this,selected,has_no_price = false;
+        this.state.cart.sites_requests.forEach(function(e,i) {
+          $.each(e.requests,function(i,e){
+           selected = _this.requestsCheck.indexOf(e.guid) != -1;
+           if(!selected) return false;
+          })
+          if(selected){
+            if(_this.siteCheck.indexOf(e.site_id) == -1){
+              _this.siteCheck.push(e.site_id);
+            }
+          }else {
+            if($.inArray(e.site_id,_this.siteCheck) != -1){
+              _this.siteCheck.splice($.inArray(e.site_id,_this.siteCheck),1);
+            }       
+          }
+          $.each(e.requests,function(i,_e){
+            if($.inArray(_e.guid,_this.requestsCheck) != -1 && _e.unit_price == 0) has_no_price = true;
+            if(has_no_price) return false;
+          })
+          if(has_no_price){
+            _this.requests_no_price = true;
+          }else {
+            _this.requests_no_price = false;
+          }
+        })
+      }
+    },
+    methods: {
+      modalClose: function () {
+        vue_data.sidebarToggle();
+        Vue.set(this.explain,'site_id',false)
+      },
+      set_cartActive: function (val) {
+        this.cartActive = val;
+      },
+      cart_input: function(data,e) {
+        var number = e.target.value,
+          _this = this,
+          val = {};
+        if(number<1||number>99)return e.target.value=e.target._value;
+        val.guid = data.guid;
+        val.amount = number;
+        if(this.cartActive == 'goods'){
+          editInterface = "/cart/edit";
+        }else if(this.cartActive == 'requests') {
+          val.remark = data.remark;
+          val.title = data.title;
+          val.variation = data.variation;
+          editInterface = "/cart/editRequest";
+        }
+        $.ajax({
+          url: poi.corsUrl + editInterface,
+          data: val,
+          success: function(data){
+            _this.get_cart();
+          },
+          error: function(){
+            e.target.value = e.target._value;
+          }
+        })
+      },
+      cart_amount: function(edit,data) {
+        var _this = this,val = {},number = data.amount;
+        if(edit=='add'){
+          number++
+          if(number>99) return;
+        }else{
+          number--
+          if(number<1) return;          
+        }
+        val.guid = data.guid;
+        val.amount = number;
+        if(this.cartActive == 'goods'){
+          editInterface = "/cart/edit";
+        }else if(this.cartActive == 'requests') {
+          val.remark = data.remark;
+          val.title = data.title;
+          val.variation = data.variation;
+          val.unit_price = data.unit_price;
+          editInterface = "/cart/editRequest";
+        }
+        $.ajax({
+          url: poi.corsUrl + editInterface,
+          data: val,
+          success: function(data){
+            _this.get_cart();
+          }
+        })
+      },
+      get_cart: function () {
+        $.ajax({
+          url: poi.corsUrl + '/cart/jsonCart',
+          success: function (data) {
+            vue_data.getCart(data);
+          }
+        })
+      },
+      deleteOne: function(id) {
+        var _this = this,delInterface;
+        if(this.cartActive == 'goods'){
+          delInterface = "/cart/del";
+        }else if(_this.cartActive == 'requests'){
+          delInterface = "/cart/delRequest";
+        }
+        $.ajax({
+          url: poi.corsUrl + delInterface,
+          data:{
+            'guids[]': id,
+          },
+          success: function(data){
+            _this.get_cart();
+            poi.msg("删除成功");
+          }
+        })
+      },
+      cart_del: function(v) {
+        var _this = this,guidArr,delInterface;
+        if(_this.cartActive == 'goods'){
+          guidArr = this.goodsCheck;
+          delInterface = "/cart/del";
+        }else if(_this.cartActive == 'requests') {
+          guidArr = this.requestsCheck;
+          delInterface = "/cart/delRequest";
+        }
+        $.ajax({
+          url: poi.corsUrl + delInterface,
+          data:{
+            'guids': guidArr,
+          },
+          success: function(data){
+            _this.get_cart();
+            _this.isWarning = false;
+            _this.goodsCheck = [];
+            _this.requestsCheck = [];
+            poi.msg("删除成功");
+          }
+        })
+      },
+      site_del: function(d) {
+        var _this = this,guidArr = [];
+        d.requests.forEach(function(e,i) {
+          guidArr.push(e.guid);
+        });
+        $.ajax({
+          url: poi.corsUrl + "/cart/delRequest",
+          data:{
+            'guids': guidArr,
+          },
+          success: function(data){
+            _this.get_cart();
+            poi.msg("删除成功");
+          }
+        })
+      },
+      isIinvalidToggle:function(){
+        this.isInvalid = !this.isInvalid;
+        this.isWarning = !this.isWarning;
+      },
+      invalid_del: function(boolean){
+        var _this = this,guidArr,delInterface;
+        if(_this.cartActive == 'goods'){
+          guidArr = this.cart_results.goods_invalid;
+          delInterface = "/cart/del";
+        }else if(_this.cartActive == 'requests') {
+          guidArr = this.cart_results.requests_invalid;
+          delInterface = "/cart/delRequest";
+        }
+        $.ajax({
+          url: poi.corsUrl + delInterface,
+          data:{
+            'guids': guidArr,
+          },
+          success: function(data){
+            _this.get_cart();
+            _this.isWarning = false;
+            _this.isInvalid = false;
+            poi.msg("删除成功");
+          }
+        })
+      },
+      key_number: function(e){
+        if(e.target.value > 99) e.target.value = 99;
+        if(e.target.value < 1) e.target.value = 1;
+        e.target.value = e.target.value.replace(/\D/g,'')
+      },
+      popup_enter: function() {     
+        var width = window.innerWidth-document.body.scrollWidth;
+        if($('#iframe').length <= 0 || $('#iframe').css('display') == 'none') { 
+          $('body').css({"overflow":"hidden","padding-right":width});
+          $("#rng-nav").css({"padding-right":width+24});
+        }
+      },
+      popup_leave: function() {
+        if($('#iframe').length <= 0) {
+          $('body').attr("style","")
+          $('#rng-nav').attr("style","")
+        }else {
+          $('#iframe').css('display') == 'none' ? $('body').css({'overflow-y': 'auto', 'overflow-x': 'hidden'}) : false;
+        }
+      },
+      checkedAll: function () {
+        var _this = this;
+        if(this.cartActive == 'goods'){ 
+          //清空
+          var goodsArr = [];
+          this.cart_results.goods.forEach(function(e,i) {
+            if(e.in_stock != 0 && e.limit != 0) {
+              goodsArr.push(e.guid);
+            }
+          });
+          if (this.goodsCheck.length == goodsArr.length) {
+            this.goodsCheck = [];
+          //全选
+          }else{
+            this.goodsCheck = [];
+            this.cart_results.goods.forEach(function(e,i) {
+              if(e.in_stock != 0 && e.limit != 0) {
+                _this.goodsCheck.push(e.guid);
+              }
+            });
+          }
+        }else if(this.cartActive == 'requests') {
+          var reqArr = [];
+          this.cart_results.requests.forEach(function(e,i){
+            if(e.status != 2){
+              reqArr.push(e.site_id);
+            }
+          })
+          if(this.siteCheck.length == reqArr.length) {
+            this.requestsCheck = [];
+          }else {
+            this.cart_results.requests.forEach(function(e,i){
+              if(e.status != 2){
+                e.requests.forEach(function(_e,i){
+                  if($.inArray(_e.guid,_this.requestsCheck) == -1)
+                  _this.requestsCheck.push(_e.guid);
+                })
+              }
+            })
+          }
+        }
+      },
+      site_CheckAll: function (data,onlyCheckAll) {
+        var _this = this;
+        if(_this.siteCheck.indexOf(data.site_id) != -1 && onlyCheckAll === undefined) {
+          data.requests.forEach(function(e,i){
+            _this.requestsCheck.splice($.inArray(e.guid,_this.requestsCheck),1)
+          })
+        }else {
+          data.requests.forEach(function(e,i){
+            if($.inArray(e.guid,_this.requestsCheck) == -1)
+            _this.requestsCheck.push(e.guid);
+          })
+        }
+      },
+      RequestsEdit_close: function(){
+        this.RequestsEdit = false;
+      },
+      set_explain: function(data) {
+        Vue.set(this.explain,'site_id',data.site_id);
+        Vue.set(this.explain,'host',data.host);
+        Vue.set(this.explain,'remark',data.remark);
+      },
+      redirect_to_checkout: function() {
+        if(this.goodsCheck.length < 1) {
+          return poi.msg("请选择购物车商品","danger");
+        }
+        this.$refs.cart.submit();
+      },
+      setRequestsSubmit: function() {
+        if(this.requestsCheck.length < 1) {
+          return poi.msg("请选择代购申请","danger");
+        }
+        this.isRequestsSubmit = true;
+      },
+      req_submit: function() {
+        this.$refs.req.submit();
+      },
+      login: function() {
+        ga('send', 'event', 'cart', 'login', {transport: 'beacon'});
+        location.href = 'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D' + this.state.pageUrl;
+      },
+      toText: function(text) {
+        return (text || '').replace(/<.+?>/g, '');
+      },
+      set_requests_edit: function(current,parent) {
+        this.RequestsEdit = {
+          current:current,
+          parent:parent
+        }
+      },
+      show_ship_tip: function(boolean,ev) {
+        var _this = this;
+        if(boolean) {
+          clearTimeout(this.shipTipFlase);
+          this.shipTipTrue = setTimeout(function() {
+            _this.is_ship_tip = true;
+            var ship_tip_icon = $('.heading.ship').offset();
+            $('.ship-tip').css({'top':ship_tip_icon.top + 58,'left':56})
+          }, 200);
+        }else {
+          clearTimeout(this.shipTipTrue);
+          this.shipTipFlase = setTimeout(function() {
+            _this.is_ship_tip = false;
+          }, 200);
+        }
+      },
+      item_price: function(data) {
+        if(this.state.isRMB){
+          return data.price + '元'
+        }else {
+          return data.jpy_price + '円'
+        }
+      },
+      fees_content: function(fees) {
+        var content = [];
+        fees.forEach(function(e,i){
+          var str = poi.consts['fee_type'][e.fee_type] + ': ';
+          if(this.state.isRMB) {
+            str += e.rmb + ' 元';
+          } else {
+            str += e.sum + ' 円';
+          }
+          content.push(str);
+        },this);
+        return content.join('<br/>');
+      },
+    }
+  })
+})
+</script><script type="text/x-template" id="rng-mall-sidebar">
+  <sidebar :show-id="'mall'" :close="isPay" class="rng-mall-sidebar" v-if="state.seriesId" cloak>
+    <rng-button class="gray-button remark-button" @click.native="remarkToggle"><i class="arrow" :class="{open:state._sidebar_remark}"></i>商品详情</rng-button>
+    <sidebar-remark :show="state._sidebar_remark" :show-id="'mall'" class="mall-remark">
+      <div class="remark-title">
+        商品详情
+      </div>
+      <div class="line"></div>
+      <div class="remark-content" v-html="goods.info"></div>
+    </sidebar-remark>
+    <sidebar-box class="sidebar-goods-box">
+      <div class="title">
+        <p class="block">{{goods.title}}</p>
+        <span class="date">开始预约: {{goods.booking_date | date('.')}}</span>
+        <span class="date">预定入荷: {{goods.release_date | date('.')}}</span>
+        <span class="date">任你购截单: {{goods.deadline | date('.',true)}}时</span>
+      </div>
+      <div class="goods-img-list swiper-container" v-swiper="swiper">
+        <div class="swiper-wrapper">
+          <img :src="img" class="swiper-slide" v-for="img in goods.image">
+        </div>
+      </div>
+      <div class="goods-product clearfix">
+        <div v-if="goodsType.active_pid" class="goods-price">{{pids[goodsType.pid[pid_type]].price | currency}} 円</div>
+        <div class="type-list clearfix" v-for="(types, index) in product_type">
+          <div class="type mall-button-list">
+            <span class="type-name">{{types.key}}:</span>
+            <rng-button class="mall-button" 
+              v-for="(type,_index) in types.list" 
+              @click.native="type_switch(type.name,index,_index)"
+              :disabled="!type_disable(type.name,index)"
+              :class="{'active':type.name == goodsType.active[index],'number': type_number(type.name,index,_index) > 0}"
+              :title="type.name"
+              >
+              <span>{{type.name}}</span>
+              <i v-if="type_number(type.name,index,_index) > 0">{{type_number(type.name,index,_index)}}</i>
+            </rng-button>
+          </div>
+          <div class="rng-line" v-if="!goods.is_closed || index < product_type.length - 1"></div>
+        </div>
+        <div class="type-list clearfix" v-if="!goods.is_closed">
+          <div class="type no-magin">
+            <span class="type-name">购买</span>
+            <amount v-if="goodsType.active_pid && pids[goodsType.pid[pid_type]].in_stock > 0" 
+              :pid="goodsType.pid[pid_type]" 
+              v-model="amount" 
+              :number="pids[goodsType.pid[pid_type]] ? pids[goodsType.pid[pid_type]].amount : 0"></amount>
+             <span class="text-tip" v-else>{{goodsType.active_pid ? '此型号已截单' : '请先选择型号ヾ(･ω･`｡)'}}</span> 
+          </div>
+          <div class="rng-line"></div>
+        </div>
+        <div class="type-list clearfix" v-if="!goods.is_closed">
+          <div class="type">
+            <span class="type-name remark-type">备注</span>
+            <input class="remark" type="text" v-model="demand" placeholder="默认如有商品预约失败时，仍下单剩余商品，若有特殊需求，请在此进行备注">
+          </div>
+        </div>
+      </div> 
+    </sidebar-box>
+    <div class="goods-bottom clearfix">
+      <div class="bottom-price">
+        <span class="pull-left" v-if="!goods.is_closed">合计（ {{cart.amount || 0}} 件商品）:</span>
+        <span class="pull-right price" v-if="!goods.is_closed"> {{cart.total | currency}} 円</span>
+      </div>
+      <div class="rng-line" v-if="!goods.is_closed"></div>
+      <div class="protocol">
+        <p v-if="!goods.is_closed">
+          <input id="supplement" class="detail-list-check" v-model="allowSupplement" type="checkbox">
+          <label class="pull-left detail-list-checkbox checkHover" for="supplement" :class="{'checkSelected':allowSupplement}"></label>
+          接受增产份（增产期超过6个月时会另行通知）
+        </p>
+        <rng-button class="large gray-button order-button" v-if="goods.is_closed">
+          <span>已截单</span>
+        </rng-button>
+        <rng-button :disabled="cart.amount == 0" class="large gradient-button order-button" @click.native="isOrder = !isOrder" v-if="!goods.is_closed && state.userInfo">
+          <img class="omni-icon" src="/img/flag.png">
+          <span v-if="!state.userInfo">请先登录</span>
+          <span v-if="cart.amount == 0">请先添加商品</span>
+          <span v-else>去预约</span>
+        </rng-button>
+        <a :href="'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D'+state.pageUrl" v-if="!goods.is_closed && !state.userInfo">
+          <rng-button class="large gray-button order-button">
+            <span>请先登录</span>
+          </rng-button>
+        </a>
+      </div>
+    </div>
+    <sidebar-content :show="isOrder" class="mall-listing">
+      <div class="listing-top">
+        <div class="close back isBtn" @click.stop="isOrder = !isOrder">
+          <img src="/img/back.png">
+        </div>
+        您的预约商品清单
+      </div>
+      <div class="listing-box">
+        <sidebar-box class="listing-content">
+          <div class="title">
+            <p class="block">{{goods.title}}</p>
+            <span class="date">预定入荷期间: {{goods.release_date | date('.')}}</span>
+          </div>
+          <div class="rng-line"></div>
+          <div class="listing-table clearfix">
+            <div class="tr">
+              <div class="col-md-6">型号</div>
+              <div class="col-md-3 text-right">全款</div>
+              <div class="col-md-3 price text-right">预约金</div>
+            </div>
+            <div class="rng-line"></div>
+            <div class="td-box" v-for="(pid,key) in pids">
+              <div class="td" v-if="pid.amount > 0">
+                <div class="col-md-4 td-name" :title="goods.product_series[key][0] + '(' + goods.product_series[key][1] + ')'" v-if="goods.product_series[key].length > 1">{{goods.product_series[key][0] + "(" + goods.product_series[key][1] + ")"}}</div>
+                <div class="col-md-4 td-name" :title="goods.product_series[key][0]" v-else>{{goods.product_series[key][0]}}</div>
+                <div class="col-md-2 text-right">x {{pid.amount}}</div>
+                <div class="col-md-3 text-right">{{pid.amount * parseInt(pid.price) | currency}} 円</div>
+                <div class="col-md-3 price text-right">{{pid.amount * parseInt(pid.deposit) | currency}} 円</div>
+              </div>
+              <div class="rng-line" v-if="pid.amount > 0"></div>
+            </div>
+          </div>
+        </sidebar-box>
+        <sidebar-box class="listing-remark" v-if="demand">
+          <p>备注:</p>
+          <span>{{demand}}</span>
+        </sidebar-box>
+      </div>
+      <div class="order">
+        <p class="text-right">商品全款: <span class="price">{{cart.total | currency}} 円</span></p>
+        <p class="text-right">待支付预约金（约全款的 {{parseInt((cart.deposit/cart.total)*100)}}%）: <span class="price">{{cart.deposit | currency}} 円</span></p>
+        <div class="rng-line"></div>
+        <rng-button  class="large gradient-button pull-right" @click.native="order_submit"><img class="omni-icon" src="/img/_done.png">去预约</rng-button>
+        <rng-button  class="large gray-button pull-right" @click.native="isOrder = !isOrder">让我再考虑下</rng-button>
+      </div>
+    </sidebar-content>
+    <sidebar-content :show="isPay" class="mall-listing mall-pay">
+      <div class="listing-top">
+        您的预约商品清单
+      </div>
+      <div class="listing-box" v-if="tradeNo">
+        <sidebar-box class="listing-content">
+          <div class="title text-center">
+            <img src="/img/success.png" width="80px" height="80px">
+            <p class="block text-center">恭喜，您已成功预约！</p>
+            <p class="date text-center">预约日: {{items[0].create_time | date('.')}}</p>
+            <p class="date text-center">预约结果将由邮件另行通知</p>
+          </div>
+          <div class="rng-line"></div>
+          <div class="listing-table clearfix">
+            <div class="tr">
+              <div class="col-md-6">型号</div>
+              <div class="col-md-6 price text-right">顺位</div>
+            </div>
+            <div class="rng-line"></div>
+            <div class="td-box" v-for="(item,key) in items">
+              <div class="td">
+                <div class="col-md-6 td-name" :title="goods.product_series[item.pid][0] + '(' + goods.product_series[item.pid][1] + ')'" v-if="goods.product_series[item.pid].length > 1">{{goods.product_series[item.pid][0] + "(" + goods.product_series[item.pid][1] + ")"}}</div>
+                <div class="col-md-6 td-name" :title="goods.product_series[item.pid][0]" v-else>{{goods.product_series[item.pid][0]}}</div>
+                <div class="col-md-6 price text-right">第 {{item.addition.json.position}} 位</div>
+              </div>
+              <div class="rng-line"></div>
+            </div>
+          </div>
+        </sidebar-box>
+      </div>
+      <div class="tips">
+        <b class="price pull-left">* </b>
+        <div class="pull-left" v-if="!isPayAgain">
+          <p class="date">注意，如在5日内未成功支付预约金，将无法保留预约顺位。</p>
+        </div>
+        <a href="javascript:;" class="pull-right price"  @click.stop="isPayAgain = true" v-if="!isPayAgain">支付遇到问题？</a>
+        <div class="pull-left" v-if="isPayAgain">
+          <p class="date">注意，如在5日内未成功支付预约金，将无法保留预约顺位。</p>
+          <p class="date">请确认已成功支付预约金，如未成功支付，请点击下方按钮重新支付。</p>
+          <p class="date">如有任何疑问，都可点击右下角“客服”进行咨询哟！</p>
+        </div>
+        <a :href="poi.corsUrl + '/checkout/pay?trade_no=' + tradeNo" v-show="isPayAgain" target="_blank">
+          <rng-button class="large blue-button pull-right solid">重新支付</rng-button>
+        </a>
+      </div>
+    </sidebar-content>
+  </sidebar>
+</script>
+<script>
+Vue.directive('swiper', {
+  bind: function(el,binding){
+    $(el).data('swiper',new Swiper(el, binding.value));
+  },
+  update: function(el){
+    setTimeout(function() {
+      $(el).data('swiper').update(false);
+    },0)
+  }
+})
+Vue.component('mall-sidebar',{
+  template: '#rng-mall-sidebar',
+  data:function(){
+    return {
+      state: vue_data.state,
+      goods: {},
+      items:{},
+      tradeNo: '',
+      isOrder: false,
+      isPay: false,
+      isPayAgain: false,
+      swiper: {
+        slidesPerView: 'auto',
+        paginationClickable: true,
+        spaceBetween: 24,
+        scrollbarHide: true,
+      },
+      goodsType:{
+        list:[],
+        pid: {},
+        index: 0,
+        active: [],
+        active_pid: false
+      },
+      pid_type: false,
+      type_list: [],
+      pids:{},
+      amount: 0,
+      demand:'',
+      allowSupplement: false,
+    }
+  },
+  created: function() {
+    this.goods = this.state.seriesData;
+  },
+  watch:{
+    amount: function(){
+      if(!this.goodsType.pid[this.pid_type]) return;
+      Vue.set(this.pids[this.goodsType.pid[this.pid_type]],'amount',this.amount);
+    }
+  },
+  computed: {
+    product_type: function(){
+      var typeArr = [],_this = this,numArr = [].push(this.goodsType.list);
+      if(!this.goods.s_names) return typeArr;
+      this.goods.s_names.forEach(function(e,i) {
+        typeArr[i] = {};
+        typeArr[i].key = e;
+        typeArr[i].list = [];
+        _this.goods.s_map[e].forEach(function(_e,_i){
+          typeArr[i].list[_i] = {};
+          typeArr[i].list[_i].name = _e;
+        })
+      });
+      return typeArr;
+    },
+    cart: function(){
+      var o ={};
+      o.amount = 0;
+      o.total = 0;
+      o.deposit = 0;
+      for(pid in this.pids){
+        o.amount += Number(this.pids[pid].amount);
+        o.total += Number(this.pids[pid].amount) * Number(parseInt(this.pids[pid].price));
+        o.deposit += Number(this.pids[pid].amount) * (Number(parseInt(this.pids[pid].deposit)) || 0);
+      }
+      return o;
+    },
+
+  },
+  methods: {
+    remarkToggle:function() {
+      vue_data._sidebar_remarkToggle();
+    },
+    type_switch:function(type,index,_index) {
+      var _this = this,_pid,_list,activeList;
+      this.goodsType.index = index;
+      //判断当前层数
+      if(this.goodsType.list.length >= index + 1){
+        this.goodsType.list.splice(index ,this.goodsType.list.length);
+        this.goodsType.list.push(type);
+      }else {
+        this.goodsType.list.push(type);
+      }
+      //添加当层active
+      this.goodsType.active.splice(index,this.goodsType.active.length);
+      this.goodsType.active.push(type);
+      //判断是否存在下一层
+      if(_list = _.get(this.goods.series_products,this.goodsType.list)){
+        //判断是否存在pid
+        if(_pid = _list.pid){
+          Vue.set(_this.goodsType.pid, _this.goodsType.active[_this.goodsType.active.length - 2] + type,_pid);
+          //创建pids内对象
+          if(!_this.pids[_pid]){
+            Vue.set(_this.pids,_pid,{amount:0,price:_list.price || 0,deposit:_list.pagedata.deposit || 0,in_stock:_list.in_stock});
+          }
+          //防止当前type重名，记录当前+上一级type名称
+          _this.pid_type = _this.goodsType.active[_this.goodsType.active.length - 2]  + type;
+          _this.goodsType.active_pid = true;
+        }else {
+          _this.goodsType.active_pid = false;
+          this.type_list.splice(index ,this.type_list.length);
+          Vue.set(_this.type_list,index,_list)
+        }
+      }
+    },
+    type_disable: function(type,index) {
+      if(index - 1 < 0){
+        return true
+      }else {
+        return _.has(this.type_list[index-1],type);
+      }
+    },
+    type_number: function(type,index,_index) {
+      var num = 0,_goods,_this = this;
+      if(index - 1 < 0){
+        type_loop(this.goods.series_products,type);
+      }
+      if(_goods = _.get(this.goods.series_products,this.goodsType.active)){
+        if(_goods.pid){
+          //判断当前选择是否为最后一层
+          if(_goods.pid == _this.goodsType.pid[_this.pid_type] && _this.goodsType.active[_this.goodsType.active.length - 2] + type == _this.pid_type){
+            num += _this.pids[_goods.pid] ? _this.pids[_goods.pid].amount : 0;
+          }else {
+            num += _this.pids[_this.goodsType.pid[_this.goodsType.active[_this.goodsType.active.length - 2] + type]] ? _this.pids[_this.goodsType.pid[_this.goodsType.active[_this.goodsType.active.length - 2] + type]].amount : 0;
+          }
+          return num;
+        }else {
+          type_loop(_goods,type);
+        }
+      }
+      //递归增加数量
+      function type_loop (goods,i){
+        if(goods[i] && goods[i].pid){
+          var arr = [];
+          for(good in goods){
+            arr.push(goods[good].pid);
+          }
+          //判断是否属于当前层下层
+          if(arr.indexOf(_this.goodsType.pid[_this.goodsType.active[_this.goodsType.active.length - 1] + i]) != -1){
+            num += _this.pids[_this.goodsType.pid[_this.goodsType.active[_this.goodsType.active.length - 1] + i]] ? _this.pids[_this.goodsType.pid[_this.goodsType.active[_this.goodsType.active.length - 1] + i]].amount : 0;
+          }
+          return;
+        }
+        for (var good in goods[i]) {
+          if (goods[i][good].pid) {
+            if(_this.pids[goods[i][good].pid]){
+              num += (Number(_this.pids[goods[i][good].pid].amount) || 0);
+            }
+          } else {
+            type_loop(goods[i][good],i);
+          }
+        }
+      }
+      return num;
+    },
+    order_submit: function() {
+      var _this = this,val = {
+        "pids":[],
+        "amounts":{},
+        "url": location.href,
+        "demand": _this.demand,
+        "allow_supplement": _this.allowSupplement ? 1: 0
+      },form = window.open();
+      $.map(_this.pids,function(e,i){
+        if(e.amount > 0){
+          val.pids.push(i);
+          val.amounts[i] = e.amount;
+        }
+      })
+      $.ajax({
+        url: poi.corsUrl + "/checkout/checkoutSelfProduct",
+        data:val,
+        success: function(data){
+          _this.tradeNo = data.trade_no;
+          _this.items = data.items;
+          form.location = poi.corsUrl + "/checkout/pay?trade_no=" + _this.tradeNo;
+          _this.isPay = true;
+        }
+      })
+    },
+  },
+  components: {
+    'amount': {
+      template: '<div class="amount-input">' +
+                  '<button class="minus" type="button" @click="inner_amount > 0 ? inner_amount =  Number(inner_amount) - 1 : false"></button>' +
+                  '<input type="text" class="number" v-model="inner_amount">' +
+                  '<button class="plus" type="button" @click="inner_amount = Number(inner_amount) + 1"></button>' +
+                '</div>',
+      props: ['pid', 'number'],
+      data: function () {
+        return { inner_amount: 0};
+      },
+      created: function () {
+        this.inner_amount = this.number;
+      },
+      methods: {
+      },
+      watch: {
+        inner_amount: function () {
+          if(this.inner_amount > 99) this.inner_amount = 99;
+          this.$emit('input', isNaN(this.inner_amount) ? 0 : Number(this.inner_amount));
+        },
+        pid: function () {
+          this.inner_amount = this.number;
+        }
+      }
+    },
+  }
+})
+</script><script type="text/x-template" id="notice-box">
+  <transition name="notice-fade">
+    <div class="notice">
+      <h3 class="notice-title">{{_notice[noticeIndex].title}}</h3>
+      <h4 class="notice-subtitle">{{_notice[noticeIndex].subtitle}}</h4>
+      <div class="notice-content" v-html="_notice[noticeIndex].remark"></div>
+      <div class="notice-bottom">
+        <button class="btn-red btn-press" @click="$emit('nc')">我知道了</button>
+      </div>
+      <i class="left isBtn" @click="to('prev')" v-show="_notice.length > 1"></i>
+      <i class="right isBtn" @click="to('next')" v-show="_notice.length > 1"></i>
+    </div>
+  </transition>
+</script>
+
+<script>
+Vue.component('notice-popup',{
+  template: '#notice-box',
+  props: ['notice'],
+  data:function(){
+    return {
+      state: vue_data.state,
+      noticeIndex: 0,
+    }
+  },
+  computed: {
+    _notice:function() {
+      var o = [];
+      if(this.notice == 'notice'){
+        this.state.notice.forEach(function(e,i){
+          o[i]= {};
+          o[i].title = e.bulletin_title;
+          o[i].remark = e.bulletin_content.replace(/([^"])(https?:\/\/[^\s/$.?#].[^\s]*)/ig, '$1 <a href="$2" target="_blank">$2</a>');
+          o[i].subtitle = poi.formatDate(new Date(Number(e.update_time)*1000));
+        })
+      }else {
+        o.push(this.notice);
+      }
+      return o;
+    },
+  },
+  methods: {
+    to: function(v) {
+      var max = this._notice.length - 1;
+      if(v == 'next') {
+        this.noticeIndex >= max ? this.noticeIndex = 0 : this.noticeIndex++;
+      }else {
+        this.noticeIndex <= 0 ? this.noticeIndex++ : this.noticeIndex = 0;
+      }
+    }
+  }
+})
+</script><script type="text/x-template" id="requests-edit-box">
+  <transition name="modal-fade">
+  <div class="edit-content">
+    <p v-show="requests.add && !requests.buyMenu" class="headline">代购申请信息</p>
+    <p v-show="!requests.buyMenu && isLink">网址</p>
+    <requests-link v-show="!requests.buyMenu && isLink" class="information url isBtn" :link="{'url':requests.url,'title':requests.url}"></requests-link>
+    <p>名称</p>
+    <slot name="top-right"></slot>
+    <input type="text" :value="requests.title" ref="requests_title" placeholder="商品名称" v-if="requests.title">
+    <div class="loading" v-else>
+      <img src="/img/loading.svg">
+      正在读取标题....
+    </div>
+    <p>规格</p>
+    <input type="text" placeholder="选填、型号/颜色/尺寸" ref="requests_variation" :value="requests.variation">
+    <div class="clearfix">
+      <div class="pull-left input-box">
+        <p>购买数量</p>
+        <input type="text" placeholder="<99" :value="requests.amount || 1" @afterpaste="key_number($event)" ref="amount" @keyup="key_number($event)">
+      </div>
+      <div class="pull-right input-box">
+        <p>出价<a class="help" href="http://rennigou.jp/help/prepay" target="_blank"></a></p>
+        <input type="number" placeholder="日元" :value="requests.unit_price" ref="unit_price">
+      </div>
+    </div>
+    <p>留言</p>
+    <textarea type="text" placeholder="选填任何需要下单员注意的内容" ref="requests_remark" :value="requests.remark"></textarea>
+    <button v-show="!requests.add" class="cancel" @click="$emit('ccc')">取消</button>
+    <button v-if="!requests.add && !isAjax" class="confirm" @click="confirm">确定</button>
+    <button v-if="!requests.add && isAjax" class="confirm"><img src="/img/loading.svg"></button>
+    <button v-show="requests.add && requests.title" type="button" @click="add_requests" class="btn-pool-gradient cart-btn pull-right"><img :src="isAjax ? '/img/loading.svg' : '/img/cart-add.png'" class="pool-icon" :disabled = "isAjax">加入购物车</button>
+  </div>
+  </transition>  
+</script>
+
+<script>
+Vue.component('requests-edit',{
+  template: '#requests-edit-box',
+  props: {
+    'requests': Object,
+    'isLink': {
+      type: Boolean,
+      default: true
+    }
+  },
+  data:function(){
+    return {
+      state: vue_data.state,
+      isAjax: false,
+    }
+  },
+  computed: {
+    favorite_img: function() {
+      if(this.state.is_favoriteInfo){
+        return '/img/fav-sel.png';
+      }else {
+        return '/img/fav-nor.png';
+      }
+    },
+  },
+  methods: {
+    key_number: function(e){
+      if(e.target.value > 99) e.target.value = 99;
+      if(e.target.value < 1) e.target.value = 1;
+      e.target.value = e.target.value.replace(/\D/g,'')
+      this.amount = e.target.value;
+    },
+    get_cart: function () {
+      $.ajax({
+        url: poi.corsUrl + '/cart/jsonCart',
+        success: function (data) {
+          vue_data.getCart(data);
+        }
+      })
+    },
+    confirm: function(){
+      var _this = this;
+      _this.isAjax = true;
+      $.ajax({
+        url: poi.corsUrl + "/cart/editRequest",
+        data: {
+          variation: this.$refs.requests_variation.value,
+          amount: this.$refs.amount.value,
+          remark: this.$refs.requests_remark.value,
+          title: this.$refs.requests_title.value,
+          guid: this.requests.guid,
+          unit_price: this.$refs.unit_price.value
+        },
+        success: function(data){
+          _this.get_cart();
+          _this.$emit('ccc');
+          _this.isAjax = false;
+        },
+        error: function() {
+          _this.isAjax = false;
+        }
+      })
+    },
+    add_requests: function() {
+      var _this = this;
+      _this.isAjax = true;
+      $.ajax({
+        url: poi.corsUrl + "/cart/addRequest",
+        data: {
+          variation: this.$refs.requests_variation.value,
+          amount: this.$refs.amount.value,
+          remark: this.$refs.requests_remark.value,
+          title: this.$refs.requests_title.value,
+          url: this.requests.url,
+          unit_price: this.$refs.unit_price.value
+        },
+        success: function(data){
+          vue_data.setCartNumber(data.badge + data.req_badge);
+          poi.msg("添加申请成功ヾ(Ő∀Ő๑)ﾉ")
+          _this.isAjax = false;
+        },
+        error: function() {
+          _this.isAjax = false;
+        }
+      })
+    },
+    get_favoriteGroup: function () {
+      $.ajax({
+        url: poi.corsUrl + '/favorite/listFavoriteGroup',
+        success: function(data) {
+          vue_data.getFavoriteGroup(data);
+        }
+      })
+    },
+    favoriteGroup_change: function () {
+      vue_data.favoriteGroupToggle();
+      this.get_favoriteGroup();
+    },
+    login: function() {
+      ga('send', 'event', 'edit_request', 'login', {transport: 'beacon'});
+      location.href = 'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D' + this.state.pageUrl;
+    },
+  }
+})
+</script><script type="text/x-template" id="auction-request-box">
+  <transition name="modal-fade">
+  <form class="edit-content" :action="cart + '/checkout'" ref="cart">
+    <input type="hidden" name="from" value="yahoo_auction">
+    <input type="hidden" name="url" :value="auction.url">
+    <input type="hidden" name="_token" :value="state.userInfo._token">
+    <p style="color: #969bac;font-size: 12px;">来源:</p>
+    <requests-link class="information url isBtn legalize" :link="{'url':auction.url,'title': auction.site.host}"></requests-link>
+    <p>拍品名称</p>
+    <slot name="top-right"></slot>
+    <input type="text" :value="auction.title" name="title" placeholder="商品名称" v-if="auction.title">
+    <div class="loading" v-else>
+      <img src="/img/loading.svg">
+      正在读取....
+    </div>
+    <div v-if="auction.title">
+      <div class="clearfix">
+        <div class="pull-right input-box" v-show="isDecide">
+          <p>购买数量</p>
+          <input type="text" name="amount" placeholder="<99" @afterpaste="key_number($event)" @keyup="key_number($event)" v-model="amount">
+        </div>
+        <div class="input-box pull-left">
+          <p>出价</p>
+          <input type="text" :placeholder="'本次出价不可少于' + auction.price + '日元'" v-model="winPrice" :disabled="isDecide">
+          <input type="hidden" name="unit_price" :value="winPrice">
+        </div>
+        <div class="input-box pull-right" v-show="!isDecide">
+          <p>预约</p>
+          <div class="reservation">
+            结束前 10 分钟出价
+            <input type="checkbox" v-model="ship_safe" id="reservation_input">
+            <input type="hidden" name="reserve_flag" :value="ship_safe ? 1 : 0">
+            <label class="reservation-checkbox" for="reservation_input" :class="{'reservation-selected':ship_safe}"></label>
+          </div>
+        </div>
+      </div>
+      <p>留言</p>
+      <textarea type="text" name="remark" placeholder="选填任何需要下单员注意的内容" v-model="requests_remark"></textarea>
+    </div>
+    <!-- 拍卖按钮 -->
+    <button class="cart-btn pull-right decide" type="button" @click="set_decide" v-if="!auction.isClosed && auction.winPrice != 0 && auction.winPrice != auction.price">{{isDecide ? '拍卖模式' : '一口价'}}</button>
+    <button type="button" class="btn-pool-gradient cart-btn pull-right" v-if="auction.isClosed" style="opacity:0.5;"><img src="/img/bid.png" class="pool-icon" disabled>已结束</button>
+    <button type="button" 
+      class="btn-pool-gradient cart-btn pull-right" 
+      @click="auction_bid"
+      v-else
+      :disabled="isAjax"><img :src="isAjax ? '/img/loading.svg': '/img/bid.png'" class="pool-icon">出价竞拍</button>
+  </form>
+  </transition>  
+</script>
+
+<script>
+Vue.component('auction-request',{
+  template: '#auction-request-box',
+  props: {
+    'auction': Object,
+  },
+  data:function(){
+    return {
+      state: vue_data.state,
+      isDecide: false,
+      winPrice: '',
+      amount: 1,
+      requests_remark: '',
+      ship_safe: false,
+      cart: poi.corsUrl,
+      isAjax: false
+    }
+  },
+  created:function () {
+    //一口价模式
+    if(this.auction.winPrice == this.auction.price){
+      this.isDecide = true;
+      this.winPrice = this.auction.winPrice;
+    }
+  },
+  computed: {},
+  methods: {
+    key_number: function(e){
+      if(e.target.value > 99) e.target.value = 99;
+      if(e.target.value < 1) e.target.value = 1;
+      e.target.value = e.target.value.replace(/\D/g,'')
+      this.amount = e.target.value;
+    },
+    auction_bid:function() {
+      if((this.auction.winPrice != 0) && this.auction.winPrice <= this.winPrice && !this.isDecide) return poi.msg('竞拍出价需小于一口价:' + this.auction.winPrice + "円",'danger');
+      this.isAjax = true;
+      var _this = this,$form;
+      this.$nextTick(function(){
+        $form = $(_this.$refs.cart).serializeArray();
+        $.ajax({
+          url: poi.corsUrl + "/checkout",
+          data: $form,
+          success: function(data) {
+            $(_this.$refs.cart).submit();
+            _this.isAjax = false;
+          },
+          error: function() {
+            _this.isAjax = false;
+          }
+        })
+      })
+
+    },
+    set_decide:function() {
+      this.isDecide = !this.isDecide;
+      this.winPrice = this.auction.winPrice;
+    }
+  }
+})
+</script><script type="text/x-template" id="rng-ban">
+  <div class="rng-ban-show">
+    <div class="ban-box">
+      <div class="ban-banner clearfix">
+        <div class="ban-introduce">
+          <h3>{{information.proxy_name}} WEB SITE</h3>
+          <a :href="information.url || information.link" target="_blank" class="subtitle">{{information.link_text}}</a>
+          <p>{{information.explain}}</p>
+          <span>如需购买，请先按下方购买流程完成购买。</span>
+          <span>购买前建议阅读<a :href="'http://rennigou.jp' + '/help/01_01'" target="_blank">《商品申请购买流程介绍及注意事项》</a></span>
+        </div>
+      </div>
+      <div class="ban-content">
+        <h5>代购{{information.site_name}}商品</h5>
+        <div class="ban-explain clearfix">
+          请从<a :href="information.url || information.link" target="_blank"><img :src="'/img/' + state.siteImg + '-h.png'"></a>复制商品页面链接
+          <input type="text" ref="visible_url" :value="information.url" placeholder="请输入商品链接">
+          <button type="button" class="link-button btn-red" @click="get_items(false)" v-if="!isAjax" @gi="get_items">查看商品</button>
+          <button type="button" class="link-button btn-red"v-else :disabled="isAjax"><img src="/img/loading.svg"></button>
+        </div>
+        <div class="ban-information">
+          <div class="buy-menu-information">
+            <div class="menu-content">
+              <div class="menu-empty" v-if="!items">
+                <p>{{isAjax ? '载入中' : '请先输入商品链接！'}}</p>
+                <span v-show="!isAjax">您选择的商品价格信息会显示在这里</span>
+              </div>
+              <div class="menu-details" v-else>
+                <div class="details-content clearfix">
+                  <h3>当前商品</h3>
+                  <div class="dropdown pull-left" id="infs-menu" :class="{'open':isDropdown}">
+                    <button type="button" @click.stop="dropdownToggle">
+                      <span class="infs-group" v-if="items[0]">{{items[itemIndex].product.title}}</span>
+                      <i class="caret"></i>
+                    </button>
+                    <ul class="dropdown-menu infs-ul">
+                      <li v-for="(data,index) in items" @click.stop="dropdown_change(index)">
+                        <div class="list-index">{{index + 1}}.</div>
+                        <span class="list-title">{{data.product.title}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="price-list pull-left">
+                  <li>
+                    <p class="pull-left">库存情况:</p>
+                    <p class="pull-right describe">{{item.inventory}}</p>
+                  </li>
+                  <li>
+                    <p class="pull-left">商品价格:</p>
+                    <p class="pull-right describe">{{item.price || '-- '}} 元</p>
+                  </li>
+                  <li>
+                    <p class="pull-left">代购手续费:</p>
+                    <p class="pull-right describe" :class="{'del': item.handling_fee == 0 && item.handling_fee_original}">
+                      <b v-show="item.handling_fee == 0 && item.handling_fee_original">限免中 </b>
+                      <span>{{item.handling_fee ? item.handling_fee : item.handling_fee_original}}</span> 元
+                    </p>
+                  </li>
+                  <li>
+                    <p class="pull-left">日本国内运费:</p>
+                    <p class="pull-right describe" :class="{'del': item.ship_charge > 0}">
+                      <b v-show="item.ship_charge > 0">限免中 </b>
+                      <span>{{item.ship_charge}}</span> 元
+                    </p>
+                  </li>
+                  <li class="total">
+                    <p class="pull-left">合计:</p>
+                    <p class="pull-right describe">{{item.total}}元</p>
+                  </li>
+                </div>
+              </div>
+            </div>
+            <div class="hr" v-show="items"></div>
+            <div class="menu-btn" v-show="items">
+              <div class="ban-bottom">
+                <div class="favorite isBtn pull-left" @click="favoriteGroup_change" v-show="items">
+                  <i class="favorite-img isBtn" :class="{'favorite-sel-img': state.favoriteGroupPopup || state.is_favoriteInfo}" ></i>
+                  <span>喜欢</span>
+                </div>
+                <rng-jisthis v-show="items"></rng-jisthis>
+              </div>
+              <button class="btn-pool-gradient buy-btn pull-left" :class="{'disable': item.in_stock == 0 || !items}" :disabled="item.in_stock == 0 || isAjax || !items" @click="addCart">
+                <img :src="isAjax ? '/img/loading.svg': '/img/buy.png'" class="pool-icon">加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ban-background" :style="information.bg" v-show="information.bg"></div>
+    </div>
+  </div>
+</script>
+<script>
+  $(function(){
+    Vue.component('rng-ban-show',{
+      template:"#rng-ban",
+      data: function(){
+        return{
+          state: vue_data.state,
+          items: '',
+          itemIndex: 0,
+          isDropdown: false,
+          isAjax: false,
+        }
+      },
+      created: function(){
+        scrollTo(0,0);
+        $('body').css('overflow-x','hidden');
+        poi.replaceUrl("/" + this.state.siteImg + "/" + poi.cutUrl(this.state.iframeUrl),poi.cutUrl(this.state.iframeUrl));
+        //获取url
+        var o = {},_this = this;
+        o.site = poi.siteList[this.state.siteImg];
+        if("/" + poi.cutUrl(this.state.iframeUrl) != o.site.default_path && poi.cutUrl(this.state.iframeUrl)){
+          o.url = this.state.iframeUrl || poi.cutUrl(poi.siteList[o.site].url,'0',3) + "/" + poi.cutUrl(window.location.href,4);
+          this.get_items(o.url);
+        }
+        bus.$on('gi',function(v){
+          _this.get_items(v);
+        })
+      },
+      mounted: function() {
+        $('.ban-explain input').on('focus',function(){
+          $(this).select();
+        })
+      },
+      computed: {
+        item: function() {
+          var o = {},items = this.items[this.itemIndex];
+          if(!this.items) return o;
+          o.price = items.price;
+          o.handling_fee = 0;
+          $.each(items.fees,function(i,e){
+            if(e.fee_type == 10){
+              o.handling_fee = e.rmb;
+            }
+            if(e.fee_type == 0) {
+              o.price = e.rmb;
+            }
+          })
+          o.handling_fee_original = items.handling_fee_original;
+          o.inventory = items.product.stock_zh;
+          o.total = items.price;
+          o.in_stock = items.product.in_stock;
+          o.source_id = items.product.source_id;
+          if(/img18/.test(items.product.pagedata.imgUrl) || (poi.siteList[this.state.siteImg].visible != 0)){
+            o.img = '/img/r18.png';
+          }else {
+            o.img = items.product.pagedata.imgUrl;
+          }
+          if(poi.siteList[this.state.siteImg].original_freight){
+            o.ship_charge = Math.ceil(Number(poi.siteList[this.state.siteImg].original_freight) * poi.exchange);
+          }else {
+            o.ship_charge = 0;
+          }
+          return o;
+        },
+        information: function() {
+          var o = {};
+          o.url = this.state.iframeUrl;
+          o.link = this.state.iframeUrl;
+          o.link_text = poi.cutUrl(poi.siteList[this.state.siteImg].url,2,3);
+          o.site_name = poi.siteList[this.state.siteImg].name;
+          o.proxy_name = poi.siteList[this.state.siteImg].proxy_name.replace(/[a-z]/g, function(ch) {return ch.toUpperCase()});
+          //判断是否为不可展示页面
+          if(poi.siteList[this.state.siteImg].visible != 0) {
+            o.explain = '(/ω＼)';
+            o.bg = 'background-image:url(/img/r18-bg.png)';
+          }else {
+            o.explain = '正在入侵，占领指日可待哼╭(╯^╰)╮';
+            if(this.state.siteImg == 'toranoana'){
+              o.bg = 'background-image:url(/img/' + this.state.siteImg +'-bg.png)';
+            }else {
+              o.bg = 'background-image:url(/img/r18-bg.png)';
+            }
+          }
+          return o;
+        }
+      },
+      methods: {
+        get_items: function(v) {
+          if(this.$refs.visible_url){
+            if(!this.$refs.visible_url.value && !v) return poi.msg('请输入商品链接','danger');
+          }
+          var _this = this,_url = v || this.$refs.visible_url.value;
+          var proxy = poi.proxyUrl(_url);
+          if(proxy.site == 'amazon') {
+            return poi.msg('亚马逊不行哦~','danger');
+          }
+          if(poi.siteList[proxy.site] && poi.siteList[proxy.site].visible != 0 && !v){
+            location.href = proxy.path;
+            return false;
+          }
+          vue_data.setIframeUrl(_url);
+          _this.items = '';
+          this.isAjax = true;
+          $.ajax({
+            url: poi.corsUrl + '/index/crawl',
+            data: {
+              url: _url,
+            },
+            success: function(data) {
+              if(!data.items){
+                location.href = "/o?url=" + encodeURIComponent(poi.encrypt33(_url));
+              }
+              //修改页面信息
+              vue_data.setSiteImg(proxy.site);
+              //去除ajax效果
+              _this.isAjax = false;
+              _this.items = data.items;
+              vue_data.setFavoriteTitle(data.items[0].product.title);
+              poi.replaceUrl("/" + proxy.site + "/" + poi.cutUrl(_url),_url);
+              document.title = "任你购 - " + poi.siteList[proxy.site].name + " - " + data.items[0].product.title;
+              //获取收藏
+              $.ajax({
+                url: poi.corsUrl + '/cart/getFavoriteInfo',
+                data: {
+                  url:_url
+                },
+                success: function(data) {
+                  if(data.favorite_id) {
+                    vue_data.setFavoriteInfo(data.favorite_id);
+                  }else {
+                    vue_data.setFavoriteInfo(false);
+                  }
+                },
+                error: function() {
+                  vue_data.setFavoriteInfo(false);
+                }
+              })
+            },
+            error: function() {
+              _this.isAjax = false;
+            }
+          })
+        },
+        dropdownToggle: function() {
+          this.isDropdown = !this.isDropdown;
+        },
+        dropdown_change: function(i){
+          this.itemIndex = i;
+          vue_data.setFavoriteTitle(this.items[i].product.title);
+          document.title = "任你购 - " + poi.siteList[this.state.siteImg].name + " - " + this.items[i].product.title;
+          this.isDropdown = false;
+        },
+        addCart: function() {
+          var _this = this,cartInf={};
+          this.isAjax = true;
+          cartInf.url = this.$refs.visible_url.value || this.information.url;
+          cartInf.amount = ['1'];
+          cartInf.source_id = [this.item.source_id];
+          $.ajax({
+            url: poi.corsUrl + "/cart/add",
+            data: cartInf,
+            success: function(data) {
+              vue_data.setCartNumber(data.badge + data.req_badge);
+              poi.msg("添加商品成功ヾ(Ő∀Ő๑)ﾉ")
+              _this.isAjax = false;
+            },
+            error: function() {
+              _this.isAjax = false;
+            }
+          })
+        },
+        get_favoriteGroup: function () {
+          $.ajax({
+            url: poi.corsUrl + '/favorite/listFavoriteGroup',
+            success: function(data) {
+              vue_data.getFavoriteGroup(data);
+            }
+          })
+        },
+        favoriteGroup_change: function () {
+          if(!(this.information.url || this.$refs.visible_url.value)){
+            return poi.msg('请输入商品链接','danger');
+          }
+          if(!this.state.userInfo){
+            ga('send', 'event', 'top', 'login', {transport: 'beacon'});
+            location.href = 'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D' + this.state.pageUrl;
+            return false;
+          }
+          if(this.state.is_favoriteInfo) return false;
+          vue_data.favoriteGroupToggle();
+          this.get_favoriteGroup();
+        },
+      },
+    })
+  })
+</script><script src="/js/header.js?r=e63154f7"></script>  <script type="text/x-template" id="jisthis-content">
+  <div class="jisthis-box pull-right">
+    <a class="jisthis-img"
+      :href="getJiathisUrl(data.id)" 
+      target="_blank" 
+      v-for="(data,index) in jisthis">
+        <b :style="isHov != data.id ? 'background-image:url(/img/' + data.icon_id + '-def.png)': 'background-image:url(/img/' + data.icon_id + '.png)'" 
+          :title="data.text"
+          @mouseenter="isHov = data.id"
+          @mouseleave="isHov = false"></b>
+      </a>
+  </div>
+</script>
+<script>
+Vue.component('rng-jisthis',{
+  template: '#jisthis-content',
+  data: function() {
+    return {
+      jisthis: [
+        { id: 'tsina', icon_id: 'weibo', text: '新浪微博' },
+        // { id: 'weixin', icon_id: 'wechat', text: '微信' },
+        { id: 'cqq', icon_id: 'qq', text: 'QQ好友' },
+        // { id: 'tieba', icon_id: 'tieba', text: '百度贴吧' },
+        // { id: 'douban', icon_id: 'douban', text: '豆瓣' },
+        // { id: 'qzone', icon_id: 'qzone', text: 'QQ空间' },
+        // { id: 'email', icon_id: 'email', text: '电子邮件' },
+        //{ id: 'copy', icon_id: 'copy', text: '复制链接' },
+      ],
+      isHov: false,
+    }
+  },
+  methods: {
+    getJiathisUrl(id) {
+      var url = location.href;
+      var title = document.title;
+      var summary = ' 我在#任你购#上找到了个好东西，你快来看看！';
+      var pic = poi.cutUrl(location.href,'0',3) + '/img/jiathis-logo.png'
+      var uid = '5998919597';
+      if(id == 'weibo') {
+        title += ' #任你购值得买#'
+      }
+      return 'http://www.jiathis.com/send/?webid=' + encodeURIComponent(id) + '&ralateuid=' + uid + '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&summary=' + encodeURIComponent(summary) + '&pic=' + encodeURIComponent(pic)
+    },
+  }
+})
+</script>  <script src="/js/messengerjs.js?r=0f2332fd"></script>
+  <script src="/js/index.js?r=56238da3"></script>
+  <script>
+    $(function(){     
+      var rng_app = new Vue({
+        el:"#rng-app",
+        data: {
+          state: vue_data.state,
+          isBuyMenu: false,
+          isExplain: !localStorage["rng_isExplain"],
+          isDropdown: false,
+          isAjax: false,
+          infSelected: false,
+          isNotice: false,
+          notice:{
+            title:'网站购买须知',
+            subtitle:'',
+            remark:''
+          },
+        },
+        computed: {
+          requests: function(){
+            return {
+              url: this.state.iframeUrl,
+              add: true,
+              title: this.state.iframeTitle,
+              buyMenu: true,
+            }
+          },
+          favorite_img: function() {
+            if(this.state.buyMenu){
+              if(this.state.is_favoriteInfo) {
+                return '/img/fav-sel.png';
+              }
+              return '/img/fav-nor.png';
+            }else {
+              return '/img/fav-w.png';
+            }
+          },
+          buyMenu_inf: function() {
+            if(!this.state.buyMenu){
+              this.infSelected = false;
+            }
+            var o = JSON.parse(JSON.stringify(this.state.buyMenu));
+            o.jp_price = o.price;
+            o.price = Math.ceil(o.price * poi.exchange);
+            o.fee = o.handling_fee ? o.handling_fee : o.handling_fee_original;
+            o.total = o.handling_fee ? Number(o.price) + Math.ceil(Number(o.handling_fee) * Number(poi.exchange)) : Number(o.price);
+            o.jpy_total = o.handling_fee ? Number(o.jp_price) + Number(o.fee) : Number(o.jp_price);
+            if(poi.siteList[this.state.siteImg].original_freight){
+              if(o.merchants == 'other'){
+                o.jpy_ship = o.ship_charge;
+                o.ship_charge = Math.ceil(Number(o.ship_charge) * poi.exchange);
+                o.total += o.ship_charge;
+                o.jpy_total += Number(o.jpy_ship);
+              }else {
+                o.jpy_ship = Number(poi.siteList[this.state.siteImg].original_freight);
+                o.ship_charge = Math.ceil(Number(poi.siteList[this.state.siteImg].original_freight) * poi.exchange);
+              }
+            }
+            return o;
+          },
+          site_name: function() {
+            return poi.siteList[this.state.siteImg].name;
+          }
+        },
+        methods: { 
+          get_favoriteGroup: function () {
+            $.ajax({
+              url: poi.corsUrl + '/favorite/listFavoriteGroup',
+              success: function(data) {
+                vue_data.getFavoriteGroup(data);
+              }
+            })
+          },
+          favoriteGroup_change: function () {
+            if(!this.state.userInfo){
+              ga('send', 'event', 'fav_group', 'login', {transport: 'beacon'});
+              location.href = 'https://user.rennigou.jp/service/login?next_url=http%3A%2F%2Frennigou.jp%2Flogin%3Fredirect%3D' + this.state.pageUrl;
+              return false;
+            }
+            if(this.state.is_favoriteInfo) {
+              vue_data.del_favorite(this.state.is_favoriteInfo);
+              return false
+            };
+            vue_data.favoriteGroupToggle();
+            this.get_favoriteGroup();
+          },
+          explain_close: function() {
+            localStorage["rng_isExplain"] = true;
+            this.isExplain = false;
+          },
+          buyMenuFalse: function() {
+            this.isBuyMenu = false;
+            vue_data.isbuyMenuFalse();
+          },
+          to_gp: function() {
+            poi.iframeSend('toGp');
+          },
+          addCart: function() {
+            var cartInf = JSON.parse(JSON.stringify(this.state.buyMenu)),_this = this;
+            cartInf.url =  this.state.iframeUrl;
+            this.isAjax = true;
+            if(this.state.siteImg == 'amazon'){
+              $.ajax({
+                url: poi.corsUrl + "/cart/addAmazon",
+                data: cartInf,
+                success: function(data) {
+                  vue_data.setCartNumber(data.badge + data.req_badge);
+                  if(data.message) {
+                    poi.msg(data.message,'danger');
+                  }
+                  if(data.overload){
+                    poi.msg(data.overload_message,'danger');
+                  }else {
+                    poi.msg("添加商品成功ヾ(Ő∀Ő๑)ﾉ")
+                  }
+                  _this.isAjax = false;
+                },
+                error: function() {
+                  _this.isAjax = false;
+                }
+              })
+            }else {
+              cartInf.source_id = [cartInf.source_id];
+              cartInf.amount = [cartInf.amount];
+              $.ajax({
+                url: poi.corsUrl + "/cart/add",
+                data: cartInf,
+                success: function(data) {
+                  vue_data.setCartNumber(data.badge + data.req_badge);
+                  if(data.message) {
+                    poi.msg(data.message,'danger');
+                  }
+                  if(data.overload){
+                    poi.msg(data.overload_message,'danger');
+                  }else {
+                    poi.msg("添加商品成功ヾ(Ő∀Ő๑)ﾉ")
+                  }
+                  _this.isAjax = false;
+                },
+                error: function() {
+                  _this.isAjax = false;
+                }
+              })
+            }
+          },
+          dropdownToggle: function() {
+            this.isDropdown = !this.isDropdown;
+          },
+          detailsChange: function (v,i) {
+            if(this.state.infs[i].handling_fee){
+              vue_data.buyMenuToggle(this.state.infs[i]);
+              this.infSelected = this.state.infs[i].name;
+            }else {
+              vue_data.setBuyMenu({
+                site_id: poi.siteList[this.state.siteImg].site_id,
+                url: poi.cutUrl(poi.siteList[this.state.siteImg].url,'0',3) + "/" + poi.cutUrl(this.state.infs[i].url),
+                price: this.state.infs[i].price,
+                stock: this.state.infs[i].stock,
+              },this.state.infs,i)
+            }
+            poi.iframeSend('anchor',v);
+            this.isDropdown = false;
+          },
+          isNotice_close: function() {
+            this.isNotice = false;
+          },
+          get_siteInf: function() {
+            var _this = this;
+            $.ajax({
+              url: poi.corsUrl + '/index/crawl',
+              data: {
+                url: this.state.iframeUrl,
+              },
+              success: function(data) {
+                _this.notice.subtitle = data.site.host;
+                _this.notice.remark = data.site.remark;
+                _this.isNotice = true;
+              }
+            })
+          },
+        }
+      })
+      var _resize =  function () {
+        if($('.ban-background')[0]){
+          $('.ban-background')[0].style.zoom = (window.innerHeight / 1024) > 1 ? (window.innerHeight / 1024) : null;
+        }
+      };
+      _resize();
+      window.addEventListener('resize', _resize);
+    })
+  </script>
+<!--[if lte IE 9]>
+<div id="ie-alert">
+  <div class='logo'><img src="/img/logo-w.png"></div>
+  <img src="/img/ie.png" class="ie">
+  <h3>警告，检测到浏览器版本过低!</h3>
+  <div class="text">
+    <div class="pull-left">
+      <p>目前浏览器版本过低（IE9及以下），</p>
+      <p>推荐升级最新IE版本或下载其他最新版本浏览器。</p>
+    </div>
+    <a href="http://www.030buy.net/" class="pull-right">前往萌购首页<img src="/img/arrow.png"></a>
+  </div>
+</div>
+<script>
+  document.getElementById('ie-alert').style.overflow = 'auto';
+  document.getElementById('ie-alert').height = document.body.scrollHeight;
+  window.onresize = function () {
+    document.getElementById('ie-alert').height = document.body.scrollHeight;
+  }
+</script>
+<![endif]-->
+</body>
+</html>

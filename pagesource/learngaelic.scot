@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="description" content="LearnGaelic homepage, Cùrsaichean is goireasan do luchd-ionnsachaidh na Gàidhlig   || Courses and resources for Gaelic learners"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="initial-scale=1">
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+		
+		<title>LearnGaelic</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/lg.css" />
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<style>
+		
+			#content
+			{
+				padding-top: 2.5%;
+				/*padding-bottom: 2.5%;*/
+			}
+			@media only screen and (max-width: 480px) {
+				#txt_sm
+				{
+					width: 100%;
+				}
+			}
+		</style>
+		<!--[if IE 6]>
+		 <link rel="stylesheet" type="text/css" href="/css/lgie6.css"/>
+		<![endif]-->
+		<!--[if lte IE 8]> <style> #failte h1 { font-size: 60px; top: 10%; } </style><![endif]-->
+			
+			
+		
+		<!--[if lte IE 8]> <style>body { min-width: 940px } .jp-duration { right: 230px; } 	#nav > li > a {	font-size: 11px !important; }</style> <![endif]-->
+
+
+<!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+<![endif]-->
+<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/modernizr.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/svgeezy.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/URI.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/js.cookie-2.0.3.min.js" type="text/javascript" charset="uft-8"></script>
+
+<!--[if lt IE 9]>
+
+<script>
+	$(document).ready(function() {
+		$('#navlogo').empty();
+		$('#navlogo').append('<a href="/" title="home"><img src="/images/lghome.png" width="435" height="96" alt="Learn Gaelic logo"></a>');
+	});
+</script>
+
+<![endif]-->
+
+
+
+<script type="text/javascript">
+	$('html').addClass("js");
+	//determines page language
+	var LANG_COOKIE = 'LG_GAIDHLIG_PREFERRED';
+	var GD_TRUE = 'TRUE_1';
+	var GD_FALSE = 'FALSE_1';
+	var isGd = false;
+	var lang;
+	var engFormPlacehold = 'search the site...';
+	
+	$(document).ready ( function() {
+		
+		
+		
+		//store form input placeholder for future ref
+		engFormPlacehold = $('.forminput').attr('placeholder');
+		
+		// show and hide menu on smaller screens
+		$('#menutoggle').click(function(e) {
+		
+			$('.icon-menuhide').removeClass('sometimeshidden');
+			
+			if ($('#nav').hasClass('sometimeshidden')) {
+				$('#nav').removeClass('sometimeshidden');
+				//swap the menu icon from open to close (addclass/removeclass doesn't work on svgs)
+				$('.icon-menushow').attr('class','iconsvg icon-menushow sometimeshidden');
+				$('.icon-menuhide').attr('class','iconsvg icon-menuhide');
+			}
+			else  {
+				$('#nav').addClass('sometimeshidden');
+				
+				$('.icon-menuhide').attr('class','iconsvg icon-menuhide sometimeshidden');
+				$('.icon-menushow').attr('class','iconsvg icon-menushow');
+			}
+			
+			$('.hassub').removeClass('minusd');
+			$('.hassub').addClass('plusd');
+			if (e != null) e.preventDefault();
+		});
+			
+		
+		
+		$('.hassub').click(function(e) {
+			var submenu = $(this).parent().children('ul.submenu');
+			
+			if (submenu.is(':visible')) {
+				submenu.hide();
+				$(this).removeClass('minusd');
+				$(this).addClass('plusd');
+				
+				// let users go to the portal page if they want...
+				//but if they click the minus sign, close the menu
+				if (e!=null && e.target )
+				{ 
+					var isSpanEn = $(e.target).hasClass('en');
+					var isSpanGd = $(e.target).hasClass('gd');
+					if ( !isSpanEn && !isSpanGd)
+						e.preventDefault();
+				}
+				
+			} else {
+				submenu.show();
+				$(this).removeClass('plusd');
+				$(this).addClass('minusd');
+				if (e!=null) e.preventDefault();
+
+			}
+		});//hide submenu if we click outside it
+		$('ul.submenu').outside('click', function() {
+			
+		    $(this).hide();
+		});
+		
+		
+		
+		/**** ====== language switch code ================= *****/
+		//check if GET param exists, it overrides default to show English version
+		var uri = URI();
+		var langCookieVal = Cookies.get(LANG_COOKIE); //also check cookie
+		// check if parameter has a given value
+		if (uri.hasQuery("lang", "gd") === true) {
+			lang='gd';
+			toGd(null);
+		} else if(typeof langCookieVal != 'undefined') {
+			if (langCookieVal == GD_TRUE) {
+				lang='gd';
+				toGd(null);
+			}
+	 	 } 
+		 $('html').removeClass('js-fouc');
+
+		//handle click on swap languages button
+		$(".en_gd").click(function(event) {
+			if (!isGd) {
+				toGd(event);
+				Cookies.remove(LANG_COOKIE);
+				Cookies.set(LANG_COOKIE, GD_TRUE, { expires: 150 });
+			}
+			else {
+				toEn(event);
+				Cookies.remove(LANG_COOKIE);
+				Cookies.set(LANG_COOKIE, GD_FALSE, { expires: 150 });
+			}
+		});
+
+
+	});
+	
+	
+	
+	/**
+	 * Turn the page into Gaelic.
+	 */
+	function toGd(event)
+	{
+		// block or what?
+		$(".en").hide();
+		$(".gd").fadeIn("fast");
+
+		$('.forminput').attr('placeholder','lorg...');
+		$('#theTypeahead').attr('placeholder','lorg...');
+		$('#lookinput').attr('placeholder','lorg an seo...');
+		$('.smNav input:first-child').attr('placeholder','lorg an seo...');
+	
+		isGd = true;
+
+	
+		$("a").attr("href", 
+			function (index, href) 
+			{
+				if (!href) return;
+				if (href.length == 0) return;
+
+				if (href.indexOf("http:") != -1)
+					return href; //dont do external urls
+				if (href.indexOf("https:") != -1)
+					return href; //dont do external urls
+				if (href.indexOf("mailto:") != -1)
+					return href; // or emails
+				if (href.indexOf("javascript:") != -1)
+					return href; // or js
+				if (href.charAt(0) == "#")
+					return href; // or named internal links
+				
+
+				
+				var newHref = URI(href);
+				// set data map:
+				newHref.addSearch({ lang: "gd"});
+				return newHref.toString();
+			});
+	
+	
+		if (window.location.pathname.toString().indexOf("/thesaurus") != -1)
+				try { langChange(); } catch (err) {  } //ignore
+		if (event != null) event.preventDefault();
+	}
+
+	/**
+	 * Turn the page into English.
+	 */
+	function toEn(event)
+	{
+	
+		$(".gd").hide();
+		$(".en").fadeIn("fast");
+
+		$('.forminput').attr('placeholder',engFormPlacehold);
+		$('#theTypeahead').attr('placeholder','search...');
+		$('#lookinput').attr('placeholder','search in Look@LearnGaelic...');
+	
+
+		isGd = false;
+	
+		//change internal URLs, removing lang=gd parameter
+
+			$("a").attr("href", 
+				function (index, href) 
+				{
+					if (!href) return;
+					if (href.length == 0) return;
+					
+					if (href.indexOf("http:") != -1)
+						return href; //dont do external urls
+					if (href.indexOf("mailto:") !=-1)
+						return href;
+					if (href.indexOf("https://") != -1)
+						return href;
+					if (href.indexOf("javascript:") != -1)
+						return href;
+					var newHref = URI(href);
+					// set data map:
+					newHref.removeSearch('lang');
+					return newHref.toString();
+				});
+	
+		if (window.location.pathname.toString().indexOf("/thesaurus") != -1)
+				try { langChange(); } catch (err) { console.log(err); } //ignore
+		if (event != null) event.preventDefault();
+
+	}
+	
+	
+	
+
+	
+	
+	/* plugin to make the submenus vanish when you click off them */
+	(function($){
+	    $.fn.outside = function(ename, cb){
+	        return this.each(function(){
+	            var $this = $(this),
+	                self = this;
+
+	            $(document).bind(ename, function tempo(e){
+					
+					var li = $(e.target).parents('li');
+					var inLi = false;
+					
+					// we hide submenu if we're not clicking on it OR we're not
+					// clicking on its ancestor li element
+					if (li && li[0]) {
+						if($.contains(li[0], self)) inLi=true;
+					}
+					if(e.target !== self &&  !$.contains(self, e.target) && !inLi) {
+
+							cb.apply(self, [e]);
+							if(!self.parentNode) $(document.body).unbind(ename, tempo);
+							
+	                }
+	            });
+	        });
+	    };
+	}(jQuery));
+	
+	
+
+
+	
+		
+	//jQuery extension to get params from URL - 
+	// thanks to http://jquery-howto.blogspot.com/2009/09/get-url-parameters-values-with-jquery.html
+	/*$.extend({
+	  getUrlVars: function(){
+	    var vars = [], hash;
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	      hash = hashes[i].split('=');
+	      vars.push(hash[0]);
+	      vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	  },
+	  getUrlVar: function(name){
+	    return $.getUrlVars()[name];
+	  }
+	});*/
+	
+</script>
+
+<!-- GA tracking  -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-24635625-1', 'auto');
+		  ga('send', 'pageview');
+
+</script>
+
+<style>
+
+	#cookieconsent {
+
+	    position: absolute;
+	    z-index: 1000;
+	    width: 92%;
+	    padding: 2% 4%;
+	    background-color: #eeeeee;
+		background-color: rgba(238,238,238,0.9);
+	    border-bottom: 2px solid #bbb;
+
+	}
+
+	#cookieconsent button {
+		background-color: #1CB841;
+	    color: #FFF;
+	    border-radius: 4px;
+	    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+		padding: 0.5em 2em;
+		border: 0px none transparent;
+		text-decoration: none;
+		display: inline-block;
+		line-height: normal;
+		white-space: nowrap;
+		vertical-align: middle;
+		text-align: center;
+		cursor: pointer;
+		-moz-user-select: none;
+		box-sizing: border-box;
+		font-size: 1.1em;
+	}
+
+	#cookieconsent button:active {
+		box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 0px 6px rgba(0, 0, 0, 0.2) inset;	
+	}
+
+	#cookieconsent button:hover {
+		background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));	
+	}
+</style>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		// is there an "I accept cookies" cookie already set?
+		var impliedConsent = Cookies.get('LG_cc_seenbanner');
+		if (!impliedConsent) 
+		{
+			//console.log('no implied consent cookie');
+			// no implied consent cookie set, so we assume this is their first time 
+			// at this site and show the cookie banner (or it could be they reject
+			// cookies, in which case we should show them the banner too).
+			
+			$('body').prepend('<div id="cookieconsent"><b>LearnGaelic.scot uses cookies.</b> By continuing to use this site we assume you consent to this. You can read about exactly what cookies we use, and why we set them, on our <a href="/cookies.jsp" style="font-weight: bold; color: #4078C0;">cookies page</a>. This banner will not appear again, but you may read our cookie policy at any time by following the link at the bottom of all our pages.<div style="text-align: right;"><button>Got it</button></div> </div>');
+			
+			// now set a cookie so this banner won't appear again
+			Cookies.set('LG_cc_seenbanner','yes', {expires: 365 });
+		}
+
+
+		$('#cookieconsent button').click(function(e) {
+			$('#cookieconsent').fadeOut('fast');
+			if (e!=null) e.preventDefault();
+		});
+
+	});
+
+
+</script>
+
+
+
+		<!-- homepage-specific js -->
+		<script src="/js/debounce.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function() {
+				
+				var bgBg = $('.beginners_sm').css('background-color');
+				$('.beginners_txt a').hover(function() {
+					$('.beginners_sm').css('background-color','#bbacbf');
+				}, function() {
+					$('.beginners_sm').css('background-color',bgBg);
+				});
+				
+				$('.beginners_sm  a:first-child').hover(function() {
+					$('.beginners_sm').css('background-color','#bbacbf');
+				}, function() {
+					$('.beginners_sm').css('background-color',bgBg);
+				});
+				$('.beginners_txt a').click(function(e){
+			
+					$('.begreveal').show();
+					if (e != null) e.preventDefault();
+				});
+		
+				$('.beginners_sm').outside('click', function() {
+			
+				    $('.begreveal').hide();
+				});
+			
+			
+				var useBg = $('#txt_sm').css('background-color');
+				$('#use_txt a').hover(function() {
+					$('#txt_sm').css('background-color','#eaefba');
+				}, function() {
+					$('#txt_sm').css('background-color',useBg);
+				});
+				
+				$('#txt_sm a:last-child').hover(function() {
+					$('#txt_sm').css('background-color','#eaefba');
+				}, function() {
+					$('#txt_sm').css('background-color',useBg);
+				});
+			
+				$('#use_txt a').click(function(e){
+			
+					$('#usereveal').show();
+					if (e != null) e.preventDefault();
+				});
+		
+		
+				$('#use_txt').outside('click', function() {
+			
+				    $('#usereveal').hide();
+				});
+				
+				// set failte as big as reasonable
+				var cWidth = $('#failte').width();
+				var fontSize = ((cWidth/111)*2.35)-1;
+				$('#failte h1').css('font-size',fontSize+'rem');
+				
+				$(window).on("debouncedresize", function( event ) {
+				    // Your event handler code goes here.
+					// set failte as big as reasonable
+					var cWidth = $('#failte').width();
+					var fontSize = ((cWidth/111)*2.35)-1;
+					$('#failte h1').css('font-size',fontSize+'rem');
+				
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+	
+	
+			<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<defs>
+		<symbol id="icon-menushow" viewBox="0 0 1408 1024">
+			<title>menushow</title>
+			<path class="path1" d="M0 192h896v192h-896v-192zM0 448h896v192h-896v-192zM0 704h896v192h-896v-192z"></path>
+			<path class="path2" d="M992 448l192 192 192-192z"></path>
+		</symbol>
+		<symbol id="icon-menuhide" viewBox="0 0 1408 1024">
+			<title>menuhide</title>
+			<path class="path1" d="M0 192h896v192h-896v-192zM0 448h896v192h-896v-192zM0 704h896v192h-896v-192z"></path>
+			<path class="path2" d="M992 640l192-192 192 192z"></path>
+		</symbol>
+		</defs>
+		</svg>
+		
+
+<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 width="435px" height="96px" viewBox="0 0 435 96" >
+	 <defs><symbol id="lglogotxt" viewBox="0 0 435 96">
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="0.754" y="0" width="55.246" height="63.617"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<path clip-path="url(#SVGID_2_)" fill="#785C80" d="M28.399,22.877c-1.459-0.594-3.764-1.515-4.995-4.483
+			c-2.062-4.979,9.012-18.393,9.012-18.393s-1.877-0.145-16.049,12.363C0.223,26.612,0.37,40.838,0.924,45.421
+			c0.111,1.074,0.276,2.148,0.571,3.222c3.015,10.99,14.829,17.329,26.389,14.155c11.56-3.17,18.487-14.648,15.471-25.637
+			C41.359,29.878,35.488,24.66,28.399,22.877"/>
+	</g>
+	<g>
+		<defs>
+			<rect id="SVGID_3_" x="0.754" y="0" width="55.246" height="63.617"/>
+		</defs>
+		<clipPath id="SVGID_4_">
+			<use xlink:href="#SVGID_3_"  overflow="visible"/>
+		</clipPath>
+		<path clip-path="url(#SVGID_4_)" fill="#785C80" d="M47.297,21.713c0.748-0.098,2.066-0.111,3.201,0.692
+			c2.174,1.541,1.093,9.863,1.093,9.863s0.804-0.386,3.342-9.007c2.89-9.819-0.86-15.753-2.274-17.545
+			c-0.325-0.424-0.671-0.835-1.069-1.215c-4.082-3.893-10.545-3.743-14.44,0.337c-3.893,4.081-3.742,10.545,0.338,14.44
+			C40.193,21.859,43.939,22.651,47.297,21.713"/>
+	</g>
+</g>
+<g>
+	<rect x="51" y="48" fill="none" width="377" height="43"/>
+	<path fill="#785B7F" stroke="#785B7F" stroke-miterlimit="10" d="M65.742,89.265h14.301c2.855,0,4.672-0.324,5.45-0.977
+		c0.776-0.65,1.166-2.151,1.166-4.504l-0.126-0.883v-3.527l-0.189-2.331c0-0.041,0-0.126,0-0.252c0-1.344,0.315-2.017,0.945-2.017
+		c0.587,0,0.882,0.567,0.882,1.701v0.252l-0.189,2.457c-0.126,1.639-0.189,3.382-0.189,5.229c0,1.302,0.042,2.479,0.126,3.527
+		c0.042,0.505,0.063,0.945,0.063,1.323c0,0.882-0.179,1.408-0.536,1.575c-0.357,0.167-0.913,0.252-1.669,0.252h-0.882
+		c-0.672-0.054-1.996-0.135-3.969-0.243l-7.56-0.324h-6.741h-7.119c0.252,0-0.231,0.022-1.449,0.063
+		c-0.504,0-1.113,0.021-1.827,0.062l-1.575,0.126c-0.042,0-0.126,0-0.252,0c-1.176,0-1.764-0.293-1.764-0.882
+		c0-0.63,0.524-0.944,1.575-0.944c0.167,0,0.293,0.021,0.378,0.062l1.701,0.126c0.504,0.085,1.197,0.126,2.079,0.126
+		c1.26,0,2.057-0.462,2.394-1.386c0.167-0.419,0.252-1.428,0.252-3.024v-0.756c0-0.378,0-1.679,0-3.906v-4.535V54.3
+		c-0.042-1.638-0.284-2.761-0.725-3.37c-0.441-0.608-1.229-0.914-2.362-0.914c-0.294,0-0.945,0.043-1.953,0.126
+		c-0.504,0.043-1.03,0.063-1.575,0.063c-0.924,0-1.386-0.272-1.386-0.819c0-0.545,0.441-0.819,1.323-0.819h0.252l1.386,0.126
+		c0.545,0,1.396,0.063,2.551,0.189c1.155,0.126,2.005,0.188,2.552,0.188h1.764c0.126,0,1.26-0.083,3.402-0.251
+		c0.504-0.042,1.092-0.083,1.764-0.126l1.449-0.126h0.189c0.84,0,1.26,0.252,1.26,0.755c0,0.589-0.445,0.883-1.334,0.883
+		c-0.55,0-1.058-0.021-1.524-0.063c-0.975-0.083-1.652-0.126-2.032-0.126c-1.313,0-2.18,0.399-2.604,1.197
+		c-0.339,0.546-0.508,1.575-0.508,3.087v8.946v23.247c0,1.428,0.335,2.289,1.008,2.583C64.293,89.202,64.901,89.265,65.742,89.265z"
+		/>
+	<path fill="#785B7F" stroke="#785B7F" stroke-miterlimit="10" d="M120.362,73.137c0,0.882-0.2,1.408-0.599,1.575
+		c-0.4,0.168-1.019,0.252-1.858,0.252H95.603c-0.588,0-0.956,0.085-1.103,0.252c-0.147,0.168-0.22,0.589-0.22,1.26
+		c0,4.2,1.144,7.592,3.433,10.175c2.289,2.583,5.281,3.874,8.978,3.874c3.99,0,7.119-1.406,9.387-4.221
+		c0.882-1.092,1.512-2.288,1.89-3.591c0-0.126,0.104-0.65,0.315-1.575c0.167-0.714,0.482-1.071,0.945-1.071
+		c0.504,0,0.756,0.295,0.756,0.883c0,0.714-0.231,1.659-0.693,2.835c-1.008,2.52-2.614,4.483-4.819,5.891
+		c-2.205,1.406-4.778,2.11-7.718,2.11c-4.284,0-7.728-1.449-10.332-4.348c-2.604-2.897-3.906-6.719-3.906-11.466
+		c0-4.914,1.354-8.914,4.063-12.001s6.206-4.631,10.49-4.631c3.737,0,6.887,1.334,9.45,4.001
+		C119.081,66.008,120.362,69.273,120.362,73.137z M94.532,72.57c0,0.63,0.461,0.944,1.386,0.944h21.672
+		c0.713,0,1.071-0.336,1.071-1.008c0-2.688-0.924-5.25-2.772-7.686c-2.142-2.813-5.125-4.222-8.946-4.222
+		c-2.898,0-5.386,0.81-7.465,2.426c-2.079,1.617-3.56,3.896-4.441,6.836C94.699,70.953,94.532,71.856,94.532,72.57z"/>
+	<path fill="#785B7F" stroke="#785B7F" stroke-miterlimit="10" d="M148.019,85.106l-0.063-0.504l-0.251,0.441
+		c-0.545,0.924-1.32,1.89-2.324,2.897c-2.597,2.562-5.823,3.844-9.676,3.844c-3.016,0-5.466-0.799-7.35-2.395
+		c-1.885-1.596-2.827-3.675-2.827-6.236c0-2.143,0.675-3.99,2.027-5.545c1.352-1.553,3.147-2.561,5.385-3.023
+		c1.52-0.293,3.315-0.504,5.386-0.63c3.42-0.21,5.892-0.809,7.412-1.796c1.52-0.986,2.281-2.509,2.281-4.567
+		c0-2.1-0.825-3.79-2.474-5.071c-1.65-1.281-3.827-1.922-6.532-1.922c-2.833,0-5.17,0.609-7.009,1.827
+		c-1.84,1.219-2.759,2.751-2.759,4.599c0,0.673,0.189,1.009,0.567,1.009c0.084,0,0.21-0.084,0.378-0.252
+		c0-0.042,0.041-0.168,0.126-0.378c0.293-0.714,0.86-1.071,1.701-1.071c1.26,0,1.89,0.672,1.89,2.016
+		c0,0.715-0.284,1.334-0.851,1.858c-0.567,0.526-1.25,0.788-2.047,0.788c-0.967,0-1.795-0.367-2.488-1.103
+		c-0.693-0.734-1.04-1.606-1.04-2.614c0-2.269,1.081-4.158,3.244-5.671c2.163-1.512,4.861-2.268,8.096-2.268
+		c3.276,0,5.859,0.777,7.749,2.331c2.057,1.723,3.087,4.41,3.087,8.063v12.159v3.528c0.128,3.402,1.241,5.103,3.338,5.103
+		c2.311,0,3.466-1.553,3.466-4.661v-0.315v-2.772c-0.042-1.217,0.23-1.826,0.817-1.826c0.505,0,0.758,0.42,0.758,1.26v2.52
+		c-0.128,4.705-1.829,7.057-5.104,7.057c-3.063,0-4.7-1.848-4.913-5.544V85.106z M135.986,90.524c3.359,0,6.206-1.175,8.537-3.527
+		c2.331-2.352,3.496-5.187,3.496-8.505v-6.111c0-0.419-0.084-0.63-0.252-0.63c-0.042,0-0.273,0.252-0.693,0.756
+		c-1.345,1.638-4.326,2.604-8.946,2.898c-2.688,0.168-4.694,0.482-6.017,0.944c-1.323,0.463-2.426,1.239-3.308,2.331
+		c-1.008,1.219-1.512,2.73-1.512,4.536c0,2.101,0.819,3.843,2.457,5.229C131.387,89.832,133.466,90.524,135.986,90.524z"/>
+	<path fill="#785B7F" stroke="#785B7F" stroke-miterlimit="10" d="M168.935,65.388c2.31-4.032,5.607-6.048,9.891-6.048
+		c2.52,0,4.588,0.704,6.206,2.11c1.616,1.408,2.425,3.224,2.425,5.449c0,1.471-0.368,2.699-1.103,3.686
+		c-0.735,0.987-1.669,1.48-2.803,1.48c-1.512,0-2.268-0.692-2.268-2.078c0-1.261,0.63-1.891,1.89-1.891
+		c0.335,0,0.671,0.126,1.008,0.378c0.336,0.252,0.567,0.378,0.693,0.378c0.545,0,0.819-0.756,0.819-2.268
+		c0-1.764-0.652-3.202-1.953-4.315c-1.302-1.112-3.003-1.67-5.103-1.67c-3.613,0-6.237,1.345-7.875,4.032
+		c-1.219,2.016-1.827,5.125-1.827,9.324v5.354c0,4.914,0.167,7.875,0.504,8.883c0.336,1.009,1.302,1.513,2.898,1.513
+		c0.293,0,0.734,0,1.323,0c0.588,0,1.029,0,1.323,0h0.315c0.923,0,1.386,0.232,1.386,0.695c0,0.503-0.399,0.754-1.197,0.754h-0.189
+		l-2.205-0.189l-2.583-0.189h-1.89h-1.134h-1.827l-2.583,0.189l-2.205,0.189c-0.042,0-0.105,0-0.189,0
+		c-0.798,0-1.197-0.232-1.197-0.696c0-0.502,0.461-0.753,1.386-0.753h0.315c0.293,0,0.734,0,1.323,0c0.587,0,1.029,0,1.323,0
+		c1.638,0,2.625-0.504,2.961-1.513c0.336-1.008,0.504-3.969,0.504-8.883V69.42c0-3.024,0-4.347,0-3.969
+		c-0.085-2.184-0.4-3.443-0.945-3.78c-0.336-0.21-0.882-0.315-1.638-0.315c-0.252,0-0.945,0.043-2.079,0.126l-1.89,0.126
+		c-0.84,0-1.26-0.272-1.26-0.818s0.356-0.819,1.071-0.819c0.378,0,1.049,0.042,2.016,0.126c0.461,0.042,0.945,0.063,1.449,0.063
+		h0.945c0.461,0,1.134-0.048,2.016-0.142c0.083,0,0.189-0.017,0.315-0.048c0.167,0,0.272,0,0.315,0c0.882,0,1.323,0.457,1.323,1.37
+		V65.388z"/>
+	<path fill="#785B7F" stroke="#785B7F" stroke-miterlimit="10" d="M199.93,62.553v3.402c1.47-2.646,3.339-4.451,5.607-5.418
+		c1.932-0.798,3.927-1.197,5.985-1.197c3.024,0,5.501,0.661,7.433,1.984s3.15,3.182,3.654,5.575
+		c0.336,1.639,0.504,4.222,0.504,7.749v4.662c0,4.914,0.168,7.875,0.504,8.883c0.336,1.009,1.303,1.513,2.898,1.513
+		c0.293,0,0.746,0,1.355,0c0.607,0,1.059,0,1.354,0h0.314c0.924,0,1.387,0.232,1.387,0.695c0,0.503-0.4,0.754-1.197,0.754h-0.189
+		l-2.205-0.189l-2.645-0.189h-1.764h-1.197H219.9l-2.583,0.189l-2.205,0.189h-0.252c-0.756,0-1.134-0.232-1.134-0.696
+		c0-0.502,0.461-0.753,1.386-0.753h0.252c0.293,0,0.745,0,1.354,0c0.608,0,1.06,0,1.355,0c1.637,0,2.613-0.493,2.93-1.48
+		c0.314-0.986,0.473-3.958,0.473-8.915v-4.725c0-5.333-0.59-8.82-1.766-10.458c-1.68-2.352-4.494-3.528-8.441-3.528
+		c-4.831,0-8.212,1.912-10.143,5.733c-0.798,1.554-1.197,4.054-1.197,7.497v5.48c0,4.914,0.167,7.875,0.504,8.883
+		c0.336,1.009,1.302,1.513,2.898,1.513c0.293,0,0.734,0,1.323,0c0.588,0,1.029,0,1.323,0h0.315c0.923,0,1.386,0.232,1.386,0.695
+		c0,0.503-0.378,0.754-1.134,0.754c-0.211,0-0.294,0-0.252,0l-2.205-0.189l-2.583-0.189h-1.89h-1.134h-1.764l-2.646,0.189
+		l-2.205,0.189c-0.042,0-0.105,0-0.189,0c-0.798,0-1.197-0.232-1.197-0.696c0-0.502,0.461-0.753,1.386-0.753h0.315
+		c0.293,0,0.734,0,1.323,0c0.587,0,1.029,0,1.323,0c1.638,0,2.625-0.504,2.961-1.513c0.336-1.008,0.504-3.969,0.504-8.883V69.42
+		c0-3.024,0-4.347,0-3.969c-0.085-2.184-0.4-3.443-0.945-3.78c-0.336-0.21-0.882-0.315-1.638-0.315
+		c-0.252,0-0.945,0.043-2.079,0.126l-1.89,0.126c-0.84,0-1.26-0.272-1.26-0.818s0.378-0.819,1.134-0.819
+		c0.293,0,0.945,0.042,1.953,0.126c0.504,0.042,0.986,0.063,1.449,0.063h1.197c0.252,0,0.65-0.032,1.197-0.095
+		c0.545-0.063,0.945-0.095,1.197-0.095c0.587,0,0.955,0.147,1.103,0.441C199.856,60.705,199.93,61.419,199.93,62.553z"/>
+	<path fill="#785B7F" d="M251.274,47.685c4.41,0,8.085,1.491,11.024,4.473c0.379-2.479,1.639-3.717,3.78-3.717
+		c2.604,0,3.906,1.26,3.906,3.78c0,0.421-0.085,1.26-0.252,2.521c-0.252,1.89-0.378,3.171-0.378,3.843
+		c0,0.756,0.041,1.323,0.126,1.701c0.083,1.345,0.126,2.101,0.126,2.268c0,1.093-0.483,2.006-1.449,2.74
+		c-0.967,0.735-2.205,1.103-3.717,1.103c-2.437,0-3.906-1.196-4.41-3.591c-0.504-2.394-1.229-4.042-2.174-4.945
+		c-0.944-0.902-2.447-1.354-4.504-1.354c-2.73,0-4.842,1.271-6.332,3.812c-1.491,2.542-2.236,6.143-2.236,10.805
+		c0,3.948,0.725,7.024,2.174,9.229s3.454,3.308,6.017,3.308c1.638,0,2.992-0.473,4.063-1.418c1.07-0.945,1.606-2.131,1.606-3.56
+		c0-1.764-0.735-2.646-2.205-2.646c-0.085,0-0.211,0-0.378,0c-0.169,0.042-0.315,0.062-0.441,0.062
+		c-0.672,0.085-1.05,0.126-1.134,0.126c-0.841,0-1.555-0.367-2.142-1.103c-0.589-0.734-0.883-1.647-0.883-2.74
+		c0-1.26,0.42-2.268,1.261-3.024c0.839-0.756,1.931-1.134,3.275-1.134c0.882,0,2.215,0.116,4.001,0.347
+		c1.784,0.231,3.139,0.347,4.063,0.347c1.386,0,2.918-0.128,4.599-0.385c1.344-0.205,2.269-0.309,2.772-0.309
+		c1.344,0,2.425,0.403,3.244,1.211s1.229,1.894,1.229,3.261c0,1.2-0.294,2.204-0.882,3.012c-0.589,0.808-1.323,1.211-2.205,1.211
+		h-1.512c-1.135,0-1.701,0.953-1.701,2.858c0,0.806,0.021,1.653,0.062,2.542l0.126,2.731c0.042,0.933,0.063,1.822,0.063,2.669
+		c0,2.838-1.555,4.256-4.662,4.256c-2.94,0-4.41-1.029-4.41-3.087v-0.378c-2.897,2.311-6.195,3.465-9.891,3.465
+		c-3.235,0-6.279-0.851-9.135-2.552c-2.857-1.7-4.937-3.915-6.237-6.646c-1.681-3.485-2.521-7.538-2.521-12.158
+		c0-7.057,1.639-12.642,4.914-16.759C241.194,49.743,245.646,47.685,251.274,47.685z"/>
+	<path fill="#785B7F" d="M305.895,91.911c-3.444,0-5.755-1.387-6.93-4.158c-2.94,2.771-6.426,4.158-10.458,4.158
+		c-3.318,0-5.965-0.872-7.938-2.615c-1.975-1.742-2.961-4.063-2.961-6.961c0-4.41,1.911-7.266,5.733-8.568
+		c1.638-0.545,3.528-1.008,5.67-1.386c2.981-0.504,5.009-1.081,6.079-1.732c1.071-0.65,1.606-1.647,1.606-2.992
+		c0-0.966-0.409-1.774-1.229-2.426c-0.818-0.65-1.837-0.977-3.055-0.977c-1.387,0-2.079,0.441-2.079,1.323c0,0.294,0,0.588,0,0.882
+		v0.252c0,1.176-0.491,2.163-1.473,2.961s-2.203,1.197-3.664,1.197c-1.671,0-3.049-0.504-4.135-1.513
+		c-1.085-1.008-1.628-2.268-1.628-3.779c0-2.269,1.197-4.053,3.591-5.355c2.395-1.301,5.691-1.953,9.892-1.953
+		c4.536,0,7.916,0.693,10.143,2.079c2.395,1.512,3.591,4.326,3.591,8.442v13.041c0,1.345,0.336,2.016,1.009,2.016
+		c0.335,0,0.65,0,0.944,0c0.126,0,0.272,0,0.441,0c0.966,0,1.784,0.331,2.457,0.992c0.671,0.662,1.008,1.469,1.008,2.42
+		c0,1.364-0.62,2.481-1.858,3.35C309.412,91.476,307.826,91.911,305.895,91.911z M296.696,78.429v-1.386
+		c-0.292,0.168-2.127,0.693-5.505,1.575c-2.294,0.588-3.44,1.491-3.44,2.709c0,1.932,1.126,2.897,3.378,2.897
+		C294.84,84.225,296.696,82.294,296.696,78.429z"/>
+	<path fill="#785B7F" d="M345.08,72.381c0,1.764-0.221,2.94-0.661,3.528c-0.441,0.588-1.313,0.882-2.614,0.882h-15.372
+		c-0.757,0-1.229,0.073-1.418,0.221c-0.188,0.147-0.283,0.515-0.283,1.103c0,1.764,0.566,3.234,1.701,4.409
+		c1.134,1.177,2.561,1.765,4.283,1.765c1.765,0,3.569-0.966,5.418-2.898c1.261-1.344,2.646-2.016,4.158-2.016
+		c1.261,0,2.278,0.357,3.056,1.071c0.776,0.714,1.166,1.617,1.166,2.709c0,2.436-1.334,4.504-4.001,6.205
+		c-2.668,1.701-5.912,2.552-9.733,2.552c-4.999,0-8.988-1.513-11.97-4.536c-2.983-3.024-4.474-7.057-4.474-12.096
+		c0-5.082,1.48-9.188,4.441-12.317c2.961-3.128,6.836-4.693,11.624-4.693c4.451,0,8.011,1.282,10.679,3.844
+		C343.746,64.674,345.08,68.097,345.08,72.381z M325.046,69.23c0,0.252,0.063,0.463,0.189,0.631s0.567,0.252,1.323,0.252h7.056
+		c0.63,0,1.018-0.073,1.165-0.221c0.147-0.146,0.221-0.41,0.221-0.788c0-1.092-0.483-2.047-1.449-2.866s-2.101-1.229-3.401-1.229
+		c-1.681,0-3.046,0.651-4.095,1.953C325.382,67.804,325.046,68.56,325.046,69.23z"/>
+	<path fill="#785B7F" d="M361.586,48.441c1.175,0,1.764,0.779,1.764,2.334v29.853c0,2.104,0.42,3.156,1.26,3.156
+		c0.336,0,0.63-0.073,0.883-0.221c0.252-0.146,0.587-0.221,1.008-0.221c1.848,0,2.771,1.11,2.771,3.33
+		c0,2.946-1.26,4.419-3.779,4.419c-0.043,0-1.639-0.126-4.788-0.378c-0.967-0.084-1.996-0.126-3.087-0.126
+		c-0.925,0-1.912,0.062-2.962,0.188c-1.764,0.21-2.877,0.315-3.339,0.315c-1.134,0-2.058-0.388-2.771-1.165
+		c-0.715-0.777-1.071-1.796-1.071-3.056c0-2.352,1.028-3.528,3.087-3.528c0.252,0,0.599,0.074,1.04,0.221
+		c0.44,0.147,0.787,0.221,1.039,0.221c0.714,0,1.071-1.176,1.071-3.528V59.276c0-2.352-0.357-3.527-1.071-3.527
+		c-0.294,0-0.672,0.085-1.134,0.252c-0.252,0.085-0.589,0.126-1.008,0.126c-2.017,0-3.024-1.154-3.024-3.465
+		c0-1.302,0.356-2.331,1.071-3.088c0.714-0.755,1.679-1.133,2.897-1.133c0.336,0,1.05,0.063,2.143,0.189
+		c1.427,0.168,2.498,0.252,3.213,0.252c0.966,0,1.806-0.083,2.52-0.252C360.283,48.504,361.039,48.441,361.586,48.441z"/>
+	<path fill="#785B7F" d="M385.084,59.15c1.176,0,1.765,0.819,1.765,2.457v18.964c0,2.142,0.398,3.213,1.196,3.213
+		c0.168,0,0.473-0.073,0.914-0.221c0.44-0.146,0.808-0.221,1.103-0.221c1.764,0,2.646,1.11,2.646,3.33
+		c0,2.946-1.239,4.419-3.717,4.419c-0.42,0-1.597-0.105-3.528-0.315c-1.176-0.126-2.52-0.188-4.031-0.188
+		c-0.756,0-1.869,0.085-3.339,0.252c-1.471,0.167-2.562,0.252-3.276,0.252c-1.134,0-2.059-0.388-2.772-1.165s-1.07-1.774-1.07-2.993
+		c0-2.394,1.008-3.591,3.023-3.591l1.639,0.378c0.167,0.042,0.314,0.063,0.44,0.063c0.756,0,1.134-1.176,1.134-3.528V70.05
+		c0-2.394-0.357-3.591-1.07-3.591c-0.126,0-0.504,0.105-1.135,0.314c-0.42,0.085-0.756,0.126-1.008,0.126
+		c-2.016,0-3.023-1.175-3.023-3.527c0-1.26,0.356-2.278,1.07-3.056c0.714-0.776,1.659-1.166,2.835-1.166
+		c0.462,0,1.135,0.063,2.017,0.189c1.47,0.211,2.646,0.315,3.528,0.315c0.713,0,1.638-0.084,2.771-0.252
+		S384.958,59.15,385.084,59.15z M381.493,56.757c-1.554,0-2.897-0.567-4.032-1.701c-1.134-1.134-1.7-2.478-1.7-4.032
+		c0-1.596,0.556-2.95,1.669-4.063c1.112-1.112,2.467-1.669,4.063-1.669c1.596,0,2.95,0.557,4.063,1.669
+		c1.112,1.113,1.67,2.467,1.67,4.063c0,1.597-0.558,2.951-1.67,4.063C384.443,56.2,383.089,56.757,381.493,56.757z"/>
+	<path fill="#785B7F" d="M413.434,69.168c0-0.63,0.21-1.26,0.631-1.89c-0.967-0.672-2.038-1.009-3.214-1.009
+		c-1.849,0-3.35,0.768-4.504,2.3c-1.156,1.533-1.732,3.581-1.732,6.143c0,2.646,0.608,4.768,1.827,6.363
+		c1.217,1.597,2.835,2.394,4.851,2.394c2.058,0,3.569-1.112,4.536-3.339c0.588-1.386,1.092-2.268,1.512-2.646
+		c0.588-0.504,1.512-0.756,2.772-0.756c1.427,0,2.583,0.432,3.465,1.292c0.882,0.861,1.323,1.964,1.323,3.308
+		c0,2.856-1.387,5.334-4.158,7.434c-2.772,2.1-6.091,3.15-9.954,3.15c-4.956,0-8.904-1.522-11.844-4.567
+		c-2.94-3.045-4.41-7.129-4.41-12.254c0-5.166,1.512-9.261,4.536-12.285c3.023-3.023,7.097-4.536,12.222-4.536
+		c3.695,0,6.751,0.872,9.167,2.615c2.414,1.743,3.622,3.959,3.622,6.646c0,1.68-0.546,3.034-1.638,4.063
+		c-1.093,1.029-2.5,1.543-4.222,1.543c-1.428,0-2.583-0.367-3.465-1.103C413.875,71.3,413.434,70.344,413.434,69.168z"/>
+</g>
+</defs></symbol>
+</svg>
+
+	
+
+
+		
+
+	<div id="wrapper"> <!-- this div actually ends in the footer include and is used to keep the footer on the bottom -->
+<div id="topbar" class="clearfix">
+	<a href="#" class="en_gd"><span class="en">Gàidhlig</span><span class="gd">English</span></a>
+	
+	<div id="searchetc">
+		<form method="get" action="/search/search.jsp">
+			<input type="text" name="query" class="forminput" placeholder="search the site..."/>
+			<input type="hidden" value="relevance_desc" name="order"/>
+	<input type="hidden" value="index" name="main"/>
+			<button class="searchbutton" title="search the LearnGaelic site for a word or phrase" type="submit">
+
+				<img src="/images/search_ico.svg" alt="search"/>
+			</button>
+		</form>
+		
+		<a href="https://facebook.com/LearnGaelic" class="barico"><img src="/images/facebook_ico.svg" alt="facebook icon"/></a>
+		<a href="https://twitter.com/LearnGaelicScot" class="barico"><img src="/images/twitter_ico.svg" alt="twitter icon"/></a>
+		<a href="mailto:mairi@learngaelic.scot" class="barico"><img src="/images/email_ico.svg" alt="email icon"/></a>
+		
+	</div>
+</div>
+
+<nav>
+	<div id="midnav" class="clearfix">
+		<a href="#" class="en_gd"><span class="en">Gàidhlig</span><span class="gd">English</span></a>
+		<a href="/index.jsp" title="home" id="smhome"><svg><use xlink:href="#lglogotxt"></use></svg></a>
+		<a href="/sitemap.jsp" id="menutoggle">
+			<span>
+				<span class="en">Menu</span> 
+				<span class="gd">Clàr</span>
+			</span>
+			<svg class="iconsvg icon-menushow"><use xlink:href="#icon-menushow"></use></svg>
+			<svg class="iconsvg icon-menuhide sometimeshidden"><use xlink:href="#icon-menuhide"></use></svg>
+		</a>
+		<a href="mailto:mairi@learngaelic.scot" class="barico"><img src="/images/email_ico.svg" alt="email icon"/></a>
+	</div>
+
+	<ul id="nav" class="sometimeshidden">
+		
+		<li id="navlogo"><a href="/index.jsp" title="home"><svg><use xlink:href="#lglogotxt"></use></svg></a></li><li>
+			
+			<a href="/beginners/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/beginners_ico.svg" alt="" class="ico"/></div><span class="en">beginners</span> <span class="gd">tòiseachadh</span></a>
+			<ul class="submenu">
+				<li><a href="/beginners/index.jsp"><span class="en">beginners</span> <span class="gd">tòiseachadh</span></a></li>
+				<li><a href="/lg-beginners/index.jsp"><span class="en">Beginners' Course</span> <span class="gd">Cùrsa luchd-tòiseachaidh</span></a></li>
+	            <li><a href="/sol/episodes/1-18.jsp">Speaking our Language (1-18)</a></li>
+	            <li><a href="/fichead-facal/index.jsp"><span class="en">20 Words</span><span class="gd">Fichead Facal</span></a></li>
+		    <li><a href="/beginners/beagairbheag/index.jsp"><span class="en">Little by Little</span><span class="gd">Beag air Bheag (web)</span></a></li>
+			</ul>
+		</li><li>
+			<a href="/usegaelic/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/use_ico.svg" alt="" class="ico"/></div><span class="en">use gaelic</span> <span class="gd">cleachd gàidhlig</span></a>
+				<ul class="submenu">
+					<li><a href="/usegaelic/index.jsp"><span class="en">use gaelic</span> <span class="gd">cleachd gàidhlig</span></a></li>
+					<li><a href="/watch/index.jsp"><span class="en">Watch Gaelic</span><span class="gd">Coimhead Gàidhlig</span></a></li>
+					<li><a href="/litir/index.jsp">Litir do luchd-ionnsachaidh</a></li>
+					<li><a href="/litirbheag/index.jsp">An Litir Bheag</a></li> 
+					<li><a href="http://www.bbc.co.uk/programmes/b05mzzhr"><span class="en">Beag air Bheag (Radio)</span><span class="gd">Beag air Bheag (Rèidio)</span></a></li>
+					<li><a href="/sol/index.jsp">Speaking our Language</a></li>
+					<li><a href="/look/index.jsp">Look@LearnGaelic</a></li>
+					
+					<li><a href="/watch/news.jsp">LearnGaelic <span class="en">with</span> <span class="gd">leis</span> An Là</a></li>
+					
+				</ul>
+		</li><li>
+			<a href="/watch/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/watchd_ico.svg" alt="" class="ico"/></div><span class="en">watch gaelic</span> <span class="gd">coimhead gàidhlig</span></a>
+		<ul class="submenu">
+			<li><a href="/watch/index.jsp"><span class="en">Watch Gaelic</span><span class="gd">Coimhead Gàidhlig</span></a></li>
+			<li><a href="/sol/index.jsp">Speaking our Language</a></li>
+			<li><a href="/look/index.jsp">Look@LearnGaelic</a></li>
+			<li><a href="/watch/news.jsp">LearnGaelic <span class="en">with</span><span class="gd">leis</span> An Là</a></li>
+			
+		</ul>
+		
+		</li><li>
+			<a href="/grammar/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/grammar_ico.svg" alt="" class="ico"/></div><span class="en">grammar</span> <span class="gd">gràmar</span></a>
+		
+			<ul class="submenu">
+				<li><a href="/grammar/index.jsp"><span class="en">grammar</span> <span class="gd">gràmar</span></a></li>
+				<li><a href="/grammar/criomagan-canain.jsp"><span class="en">Grammar morsels</span><span class="gd">Criomagan Cànain</span></a></li>
+	            <li><a href="/look/index.jsp">Look@LearnGaelic</a></li>
+		    <li><a href="http://www.bbc.co.uk/programmes/articles/48lDCSnp6n5GdhXbtjXpyv6/gramar"><span class="en">Grammar Corner</span><span class="gd">Oisean a' Ghràmair</span></a></li>
+		    <li><a href="http://taic.me.uk/taic.htm">Taic</a></li>
+		    <li><a href="https://storlann.co.uk/mirean/">Mìrean</a></li>
+		    <li><a href="http://www.bbc.co.uk/education/topics/zq3v4wx">Bitesize</a></li>
+		    <li><a href="http://www.gaelicgrammar.org/~gaelic/mediawiki/index.php/Scottish_Gaelic_Grammar_Wiki">Scottish Gaelic Grammar Wiki</a></li>
+			</ul>
+		</li>
+			<li>
+			<a href="/resources.jsp"><div class="icoc"><img src="/images/journeys_ico.svg" alt="" class="ico"/></div><span class="en">resources</span><span class="gd">goireasan</span>
+			</a>
+
+
+			<!--<ul class="submenu">
+				<li><a href="/fios/index.jsp">course finder</a></li>
+				<li><a href="#">choose your path</a></li>
+				<li><a href="#">follow their footsteps</a></li>
+			</ul>
+			</li>--><li>
+			<a href="/tools/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/tools_ico.svg" alt="" class="ico"/></div><span class="en">tools</span> <span class="gd">innealan</span></a>
+			<ul class="submenu">
+				<li><a href="/tools/index.jsp"><span class="en">tools</span> <span class="gd">innealan</span></a></li>
+				<li><a href="/dictionary/index.jsp"><span class="en">Dictionary</span> <span class="gd">Faclair</span></a></li>
+                <li><a href="/thesaurus/index.jsp"><span class="en">Thesaurus</span> <span class="gd">Co-fhaclair</span></a></li>
+                <li><a href="/fios/index.jsp"><span class="en">Find a course</span> <span class="gd">Lorg Cùrsa</span></a></li>
+                <li><a href="/misc/typing.jsp"><span class="en">Typing in Gaelic</span><span class="gd">Taidhpeadh sa Ghàidhlig</span></a></li>
+			</ul>
+		</li><li>
+			<a href="/dictionary/index.jsp" class="hassub plusd"><div class="icoc"><img src="/images/dictionary_ico.svg" alt="" class="ico"/></div><span class="en">dictionary</span> <span class="gd">faclair</span></a>
+			<ul class="submenu">
+                <li><a href="/dictionary/index.jsp"><span class="en">Dictionary</span> <span class="gd">Faclair</span></a></li>
+                <li><a href="/thesaurus/index.jsp"><span class="en">Thesaurus</span> <span class="gd">Co-fhaclair</span></a></li>
+			</ul>
+		
+		</li><li>
+			<a href="/fios/index.jsp"><div class="icoc"><img src="/images/graduate_ico.svg" alt="" class="ico"/></div><span class="en">Find a course</span> <span class="gd">Lorg cùrsa</span></a>
+		</li><li id="smsearch">
+				<form method="get" action="/search/search.jsp">
+					<input type="text" name="query" class="forminput" placeholder="search the site..."/>
+					<input type="hidden" value="relevance_desc" name="order"/>
+			<input type="hidden" value="index" name="main"/>
+					<button class="searchbutton" title="search the LearnGaelic site for a word or phrase" type="submit">
+
+						<img src="/images/search_ico.svg" alt="search"/>
+					</button>
+				</form>
+		</li>
+			
+	</ul>
+	
+	<a href="/index.jsp" title="home" id="largerlghome"><svg><use xlink:href="#lglogotxt"></use></svg></a>
+</nav>
+
+<div id="content">
+	
+	<!-- BEGIN INDEXED CONTENT (PLEASE DO NOT REMOVE THIS COMMENT) -->
+	<div class="section group">
+		<div class="col span_4_of_8" id="mainimage">
+			<img src="/images/1440_1083/app_1.jpg" alt="The LearnGaelic beginner's course" />
+		</div>
+		<div class="col span_4_of_8">
+			<div class="section group">
+				<div class="col span_1_of_2" id="failte">
+					<h1><span class="gd">Fàilte!</span>
+					<span class="en">Fàilte!</span></h1>
+					
+				</div>
+				
+				<a class="col span_1_of_2" id="about" href="/about.jsp">
+					
+					<div>
+						<img src="/images/lg_logo.svg" alt="LearnGaelic"/>
+						<span class="aboutlgtext">
+							<span class="en">About LearnGaelic</span>
+							<span class="gd">Mu dheidhinn LearnGaelic</span>
+						</span>
+					</div>
+				</a>
+			</div>
+			<div class="section group">
+				<div class="col span_2_of_2" id="intro">
+					
+					<p>
+						<span class="gd">
+							Fàilte gu LearnGaelic, am prìomh àite air-loidhne airson a h-uile duine le ùidh ann a bhith ag ionnsachadh Gàidhlig. </span>
+						<span class="en">
+							Welcome to LearnGaelic, a first stop for everyone interested in learning Scottish Gaelic. 
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+	<div class="section group">
+		
+		<div class="col span_2_of_8 beginners_sm">
+			<a href="/beginners/index.jsp"><img src="/images/lesson_1_dorcha_360_360.jpg" alt=""/></a>
+			<div class="beginners_txt">
+				<a href="/beginners/index.jsp">
+					<img src="/images/plusl.svg" alt="plus sign" style="position: static"/>
+					<h3><span class="gd">Tòiseachadh </span><span class="en">Beginners</span></h3>
+				</a>
+			</div>
+			<div class="begreveal">
+				<div>
+					<h3>
+					<span class="gd">Tòiseachadh </span><span class="en">Beginners</span></h3>
+					<p><span class="gd">Cùrsaichean is goireasan airson luchd-tòiseachaidh </span><span class="en">Courses and resources for beginners</span></p>
+					<p><a href="/beginners/index.jsp"><span class="gd">Siuthad!</span><span class="en">Go on!</span></a></p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="col span_2_of_8" id="txt_sm">
+			<div id="use_txt">
+				<a href="/usegaelic/index.jsp">
+					<img src="/images/plusd.svg" alt="plus sign"/>
+					<h3><span class="gd">Cleachd Gàidhlig </span><span class="en">Use Gaelic</span></h3>
+				</a>
+			</div>
+
+			<div id="usereveal">
+				<div>
+					<h3>
+					<span class="gd">Cleachd Gàidhlig </span><span class="en">Use Gaelic</span></h3>
+					<p><span class="gd">Cùrsaichean is goireasan do dhaoine a tha airson na sgilean aca a leasachadh  </span><span class="en">Courses and resources for people who want to develop their Gaelic skills</span></p>
+					<p><a href="/usegaelic/index.jsp"><span class="gd">Siuthad!</span><span class="en">Go on!</a></span></p>
+				</div>
+			</div>
+
+
+		
+			<a href="/usegaelic/index.jsp"><img src="/images/ruairidh_360_360.jpg" alt="Ruairidh MacIlleathain" class="mainpimg"/></a>
+		</div>
+		
+		<a class="col span_1_of_8" id="watch" href="/watch/index.jsp">
+			<div id="watch_txt">
+				<img src="/images/watch_ico.svg" alt="watch player icon"/>
+				<h3><span class="gd">Coimhead</span> <span class="en">Watch</span></h3>
+			</div>
+		</a>
+		
+		<a class="col span_1_of_8" id="grammar" href="/grammar/index.jsp">
+			<div id="grammar_txt">
+				<img src="/images/grammar_ico.svg" alt="grammar icon"/>
+				<h3><span class="gd">Gràmar</span> <span class="en">Grammar</span></h3>
+			</div>
+		</a>
+		
+		<a class="col span_1_of_8" id="dictionary" href="/dictionary/index.jsp">
+			<div id="dic_txt">
+				<img src="/images/dictionary_ico.svg" alt="dictionary icon"/>
+				<h3><span class="gd">Faclair </span><span class="en">Dictionary</span></h3>
+			</div>
+		</a>
+
+		<a href="/fios" class="col span_1_of_8" id="course">
+			<div id="course_txt">
+				<img src="/images/graduate.svg" alt="coursefinder icon"/>
+				<h3><span class="gd">Lorg Cùrsa </span><span class="en">Find a Course</span></h3>
+			</div>
+		</a>
+		
+	</div>
+	
+	
+<!-- END INDEXED CONTENT (PLEASE DO NOT REMOVE THIS COMMENT) -->
+</div> <!-- end of content div opened at end of nav -->
+<div id="footer">
+	<div id="bottombar">
+		<a href="/about.jsp">
+			<span class="en">About LearnGaelic</span>
+			<span class="gd">Mu LearnGaelic</span>
+		</a> 
+	</div>
+
+	<!--[if lt IE 9]>
+	<div style="text-align: center; font-size: 12px; margin: 20px 0;">
+	<![endif]-->
+		
+		
+	<footer>
+			<a href="/cookies.jsp"><span class="en">About Cookies</span> <span class="gd">Mu Chriomagan</span></a> • 
+			 
+			<a href="/sitemap.jsp"><span class="en">Sitemap</span> <span class="gd">Mapa-làraich</span></a> <br/>
+		
+			&copy; LearnGaelic 2015. 
+			<span class="en">Design by </span><span class="gd">Dealbhadh le</span> <a href="http://www.canan.co.uk">Cànan</a>, 
+			<span class="en">development by</span> <span class="gd">leasachadh le</span> <a href="http://www.sealgar.co.uk">Sealgar</a>.
+	</footer>
+	<!--[if lt IE 9]>
+	</div>
+	<![endif]-->
+</div>
+</div> <!-- end of wrapper div opened in nav include -->
+
+<script>
+	//replace svg imgs with png equivalents on unsupported browsers
+	svgeezy.init(false, 'png'); 
+</script>
+	
+	
+<!--[if lt IE 9]>
+<script src="/js/rem.min.js" type="text/javascript" charset="utf-8"></script>
+<![endif]-->
+	
+	</body>
+</html>

@@ -1,0 +1,1 @@
+Redirecting to https://tutorcruncher.com/

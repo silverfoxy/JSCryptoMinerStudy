@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://www.church-footwear.com/it/it">redirected</a>.</body></html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Salidzini.lv - preču cenas interneta veikalos</title>
+	<meta name="description" content="Salidzini.lv - cenas interneta veikalos">
+	<link rel="search" type="application/opensearchdescription+xml" title="Salidzini.lv" href="https://www.salidzini.lv/search_plugin_ff.xml" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	<link rel="alternate" hreflang="lv" href="https://www.salidzini.lv/" />
+	<link rel="alternate" hreflang="ru" href="https://www.salidzini.lv/rus/" />
+	<link rel="alternate" hreflang="x-default" href="https://www.salidzini.lv/" />
+			<style>
+		html {background-color: #f1f1f1;}
+		body {padding:0; margin:0; background-color: #fff; min-width: 190px; }
+		body,input,textarea,select {font:15px arial,helvetica,sans-serif;line-height:1.2}
+		a {text-decoration: none; color: #6B74BE; color: #5555ff; }
+		a.underline:hover { text-decoration: underline; }
+		img { border: 0; }
+
+		.head1
+		{
+			margin: auto;
+			max-width: 1200px;
+			height: 65px;
+		}
+		.foot
+		{
+			margin: auto;
+			max-width: 1200px;
+			padding: 20px 10px 80px 10px;
+		}
+		.logo_frame
+		{
+			position: absolute;
+			z-index: 2;
+		}
+		#search_frame
+		{
+			position: relative;
+			margin-left: 230px;
+			margin-right: 65px;
+			padding-top: 12px;
+			min-width: 100px;
+			max-width: 450px;
+			background-color-: blue;
+		}
+		#q {
+			line-height: 33px;
+			height: 33px;
+			font-size: 17px;
+			padding: 0 40px 0 10px;
+			width: 100%;
+			background: #fff;
+			border-radius: 3px;
+			outline: none;
+			border: 1px solid #bfbfbf;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+		}
+		#q:hover, #q:focus {
+			box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+		}
+		#submit_button
+		{
+			position: absolute;
+			right: -52px;
+			top: 14px;
+			background-color: transparent;
+			background-image: url('/images/search_button.png');
+			background-position: -2px -3px;
+			border: none;
+			outline: none;
+			width: 32px;
+			height: 32px;
+			cursor: pointer;
+		}
+		#content
+		{
+			overflow: hidden;
+			float: left;
+			width: calc(100% - 190px);
+		}
+
+		.foot_links {display: inline-block; margin-right: 30px; color: #555555; font-size: 13px; }
+
+
+
+
+		@media (max-width: 600px) {  #logo { width: 180px; }  #search_frame { margin-left: 190px; padding-top: 8px; } #submit_button { top: 10px; }  .head1 { height: 53px; }  }
+		@media (max-width: 450px) {  .logo_frame { text-align: center; width: 100%;}  #search_frame { margin-left: 10px;  padding-top: 55px; }  #submit_button { top: 57px; }  .head1 { height: 100px; }  }
+				@media (max-width:  600px){  #AM_tower_div, #AM_scroll_row, #AM_fix_kvad {display: none !important; visibility: hidden !important;}  #content { width: 100%; }  }
+				@media (max-height:  700px){  #AM_scroll_row, #AM_fix_kvad {display: none !important; visibility: hidden !important;}  }
+				#AM_mobile_1 {display: none !important; visibility: hidden !important;}
+		@media (max-width:  500px){  #AM_giga {display: none !important; visibility: hidden !important;} #AM_mobile_1 {display: block !important; visibility: visible !important;}  }
+
+
+
+				.item_box_main { width: 20%; display: inline-block; vertical-align: top; }
+		.item_box_sub { border: 1px solid #cccccc; padding: 4px 5px; margin: 0px 6px 6px 0px; background-color: white; box-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+		.item_box_sub:hover { border: 1px solid #9f9f9f; box-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+		.item_shop_frame { font-size: 80%; height: 35px; position: relative; overflow: hidden; }
+		.item_shop_name_frame { float: left; width: 95px; border: 0px solid gray; color: green; }
+		.item_shop_name { width: 100px; overflow: hidden; white-space: nowrap; }
+		.item_image_frame_1 { text-align: center; position: relative; }
+		.item_image_frame_2 { width: 100%; max-width: 180px; display: inline-block; position: relative; }
+		.item_image { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+		.item_name { height: 32px; font-size: 14px; font-weight: normal; overflow: hidden; padding: 0; margin: 0; }
+		.item_category { color: #339900; height: 14px; font-size: 12px; overflow: hidden; }
+		.item_price { color: #d50000; height: 19px; font-size: 17px; font-weight: bold; overflow: hidden; }
+		.item_delivery_stock_frame { color: #777777; font-size: 12px; overflow: hidden; }
+		.item_delivery { cursor: help; text-decoration: underline; text-decoration-style: dotted; text-decoration-color: #aaaaaa; width: 107px; display: inline-block; }
+		.item_stock { float: right; width: 87px; text-align: right; }
+		.item_link:hover .item_name { text-decoration: underline; }
+		.item_link:visited .item_name { color: #46008c; }
+		@media (max-width:  1100px){  .item_box_main { width:  25.00%; }  }
+		@media (max-width:   920px){  .item_box_main { width:  33.33%; } .item_image_frame { max-width: 130px; }  }
+		@media (max-width:   740px){  .item_box_main { width:  50.00%; } .item_image_frame { max-width: 110px; }  }
+		@media (max-width:   600px){  .item_box_main { width:  33.33%; } .item_image_frame { max-width: 130px; }  }
+		@media (max-width:   520px){  .item_box_main { width:  50.00%; } .item_image_frame { max-width: 110px; }  }
+		@media (max-width:   330px){  .item_box_main { width: 100.00%; } .item_image_frame { max-width:  90px; }  }
+		.popup_list {position: absolute; display: none; border: 1px solid #c5c5c5; background-color: #fafafa; color: #555555; padding: 0px; z-index: 1; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);}
+		.popup_list a { display: block; padding: 4px 11px; }
+		.popup_list a:hover { background-color: #efefef; }
+		.page { display: inline-block; margin: 4px; padding: 3px 8px; vertical-align: top; border: 1px solid #cccccc; }
+
+
+
+				.top_item_box_main { display: inline-block; width: 16.65%; }
+		.top_item_box_sub  { border: 1px solid #dddddd; padding: 4px 5px; margin: 0px 6px 6px 0px; box-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+		.top_item_box_sub:hover { border: 1px solid #aaaaaa; }
+		@media (max-width:  1000px){  .top_item_box_main { width:   20.00%; }  }
+		@media (max-width:   860px){  .top_item_box_main { width:   25.00%; }  }
+		@media (max-width:   730px){  .top_item_box_main { width:   33.33%; }  }
+		@media (max-width:   600px){  .top_item_box_main { width:   25.00%; }  }
+		@media (max-width:   520px){  .top_item_box_main { width:   33.33%; }  }
+		@media (max-width:   380px){  .top_item_box_main { width:   50.00%; }  }
+		@media (max-width:   250px){  .top_item_box_main { width:  100.00%; }  }
+
+	</style>
+
+	<script src="//www.anymedia.lv/js/show_media.php?p=1" defer="defer"></script>	<script>
+		function E(id) { return document.getElementById(id); }
+		function BodyClicked()
+		{
+			var lists = document.getElementsByClassName('popup_list');
+			for (var i=0; i<lists.length; i++)
+				lists[i].style.display = 'none';
+		}
+		function PopupListToggle(event, id)
+		{
+			document.getElementById(id).style.display = document.getElementById(id).style.display !='block'  ? 'block' : 'none';
+			StopEvent(event);
+		}
+		function StopEvent(event)
+		{
+			var e = event || window.event;
+			if (e.stopPropagation)
+				e.stopPropagation();
+			else
+				e.cancelBubble = true;
+		}
+		var o='salidzini';
+		var oo = '<'+'a style="color: blue;" href="mailto:'+o+'@'+o+'.lv"'+'>'+o+'@'+o+'.lv'+'<'+'/'+'a'+'>';
+	</script>
+		<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"http://www.salidzini.lv/","potentialAction":{"@type":"SearchAction","target":"http://www.salidzini.lv/cena?q={search_term}","query-input":"required name=search_term"}}</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-445838-1"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-445838-1');</script>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-7361482841788999",enable_page_level_ads:true});</script>
+</head>
+<body>
+
+
+	<div style=" background-color: #f1f1f1; border-bottom: 1px solid #e4e4e4;">
+		<div class="head1">
+			<div class="logo_frame">
+				<a href="/"><img src="/images/logo.png" id="logo" alt="Salidzini.lv logo"></a>
+			</div>
+			<div id="search_frame">
+				<form action="/cena" method="get" style="" id="search_form">
+					<input id="q" type="text" name="q" maxlength="50" value="" autocomplete="off">
+					<input type="hidden" name="cn" id="price" disabled value="">
+					<input type="submit" value="" id="submit_button">
+				</form>
+			</div>
+		</div>
+	</div><div style="margin: auto; max-width: 1200px; padding: 4px;"><div id="AM_mobile_1" style="width: 100%; max-width: 500px; background-color: #cccccc; margin: 2px auto; overflow: hidden;">
+			<div id="AM_mobile_1_main" style="width: 100%; height: 0; position: relative; overflow: hidden; padding-bottom: 40%;  ">
+				<div id="AM_mobile_1_sub" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; overflow: hidden; -ms-transform-origin: 0 0; -moz-transform-origin: 0 0; -o-transform-origin: 0 0; -webkit-transform-origin: 0 0; transform-origin: 0 0;" >
+					<div id="media_place_79" style="width:500px; height:200px;"></div>
+				</div>
+			</div>
+		</div>
+				<script>
+			(function (win, doc) {
+				var BREAKPOINT = 500; // Below this point the scaling takes effect
+				var iframe = E('AM_mobile_1_sub');
+				var iframe_div = E('AM_mobile_1_main');
+
+				function ResizeMobile1()
+				{
+					// calculate scale for new width agains base with (breakpoint)
+					var scale = iframe_div.clientWidth/BREAKPOINT;
+					//console.log(scale);
+
+					// scaling ifram centents also scales its size, so it must be propotionaly resized bigger
+					// compensate width and height
+					iframe.style.width = (iframe_div.clientWidth/scale/scale)+'px';
+					iframe.style.height = (iframe_div.clientHeight/scale/scale)+'px';
+
+					if (window.navigator.userAgent.match(/Trident|MSIE/g) == false)
+						iframe.style['zoom'] = scale; // breaks IE9-IE11 so use only on other browsers
+					iframe.style['-ms-zoom'] = scale;
+					iframe.style['-ms-transform'] = 'scale('+scale+')';
+					iframe.style['-moz-transform'] = 'scale('+scale+')';
+					iframe.style['-o-transform'] = 'scale('+scale+')';
+					iframe.style['-webkit-transform'] = 'scale('+scale+')';
+					iframe.style['transform'] = 'scale('+scale+')';
+
+					return ResizeMobile1;
+			  }
+			  win.addEventListener('resize', ResizeMobile1(), false);
+			})(window.self, document);
+		</script>
+		<div id="AM_giga" style="width: 100%; max-width: 1200px; background-color: #cccccc; margin: 2px auto; overflow: hidden;">
+			<div id="AM_giga_main" style="width: 100%; height: 0; position: relative; overflow: hidden; padding-bottom: 12.50%;  ">
+				<div id="AM_giga_sub" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; overflow: hidden; -ms-transform-origin: 0 0; -moz-transform-origin: 0 0; -o-transform-origin: 0 0; -webkit-transform-origin: 0 0; transform-origin: 0 0;" >
+					<div id="media_place_36" style="width:1200px; height:150px;"></div>
+				</div>
+			</div>
+		</div>
+				<script>
+			(function (win, doc) {
+				var BREAKPOINT = 1200; // Below this point the scaling takes effect
+				var iframe = E('AM_giga_sub');
+				var iframe_div = E('AM_giga_main');
+
+				function ResizeGiga()
+				{
+					// calculate scale for new width agains base with (breakpoint)
+					var scale = iframe_div.clientWidth/BREAKPOINT;
+					//console.log(scale);
+
+					// scaling ifram centents also scales its size, so it must be propotionaly resized bigger
+					// compensate width and height
+					iframe.style.width = (iframe_div.clientWidth/scale/scale)+'px';
+					iframe.style.height = (iframe_div.clientHeight/scale/scale)+'px';
+
+					if (window.navigator.userAgent.match(/Trident|MSIE/g) == false)
+						iframe.style['zoom'] = scale; // breaks IE9-IE11 so use only on other browsers
+					iframe.style['-ms-zoom'] = scale;
+					iframe.style['-ms-transform'] = 'scale('+scale+')';
+					iframe.style['-moz-transform'] = 'scale('+scale+')';
+					iframe.style['-o-transform'] = 'scale('+scale+')';
+					iframe.style['-webkit-transform'] = 'scale('+scale+')';
+					iframe.style['transform'] = 'scale('+scale+')';
+
+					return ResizeGiga;
+			  }
+			  win.addEventListener('resize', ResizeGiga(), false);
+			})(window.self, document);
+		</script>
+		<div style="clear: both;"></div><div><div id="AM_tower_div" style="width: 190px; height-: 600px; background-color-: #cccccc; float: right;">
+				<div style="width: 190px; height: 600px; background-color: #cccccc; margin: 0 auto;">
+					<div id="media_place_40" style="width:190px; height:600px;"></div>
+				</div>
+								<div id="media_place_68" style="width:190px; height:200px; margin-top: 20px;"></div>
+			</div><div id="content"><style> body{ min-width: 900px !important; } </style><div style="margin: 3px;">	<script language="javascript" type="text/javascript" src="/js/ajax2.js" charset="utf-8"></script>
+	<style type="text/css">
+		.category
+		{
+			display: block;
+			width: 248px;
+			padding: 4px;
+			margin: 4px 0px;
+
+			border: 1px solid #dfdfdf;
+			text-decoration: none;
+			font-size: 18px;
+
+			cursor: pointer;
+		}
+		.category:hover
+		{
+			text-decoration: underline;
+			border: 1px solid #B2B2B2;
+		}
+		.category img
+		{
+			float: left;
+		}
+		.category span
+		{
+			display: table-cell;
+			height: 70px;
+			vertical-align: middle;
+			padding-left: 6px;
+		}
+	</style>
+	<style>
+			div.main_section_link_block
+			{
+				width: 25.00%;
+				display: inline-block;
+				text-align: center;
+			}
+			div.main_section_link_block a
+			{
+				color: #d90000;
+				margin-right: 10px;
+				border: 1px solid #bbbbbb;
+				font-size: 17px;
+				font-weight: bold;
+				display: block;
+				padding: 5px;
+			}
+			div.main_section_link_block a:hover
+			{
+				text-decoration: underline;
+			}
+		</style><div><div class="main_section_link_block"><a href="/octa.php">OCTA</a></div><div class="main_section_link_block"><a href="/kasko">KASKO</a></div><div class="main_section_link_block"><a href="/atrie-krediti">Ātrie kredīti</a></div><div class="main_section_link_block"><a href="/search_top.php">Tops</a></div></div><div style="display: inline-block; width: 33.33%; ">
+					<div style="margin: 5px; padding: 5px;">
+						<a class="category" href="/c/ziemas_riepas" style="width: 100%; ">
+							<img src="//static.salidzini.lv/img/catalog/nokian-nordman-wr-225-60r16.jpg" width="70" height="70" border="0" style="float: left;" alt="Ziemas riepas">
+							<span>Ziemas riepas</span>
+						</a>
+					</div>
+				</div><div style="display: inline-block; width: 33.33%; ">
+					<div style="margin: 5px; padding: 5px;">
+						<a class="category" href="/c/plansetdatori" style="width: 100%; ">
+							<img src="//static.salidzini.lv/img/catalog/samsung_p600_galaxy_note_white.jpg" width="70" height="70" border="0" style="float: left;" alt="Planšetdatori">
+							<span>Planšetdatori</span>
+						</a>
+					</div>
+				</div><div style="display: inline-block; width: 33.33%; ">
+					<div style="margin: 5px; padding: 5px;">
+						<a class="category" href="/c/portativie_datori" style="width: 100%; ">
+							<img src="//static.salidzini.lv/img/catalog/toshiba_c855_1qe.jpg" width="70" height="70" border="0" style="float: left;" alt="Portatīvie datori">
+							<span>Portatīvie datori</span>
+						</a>
+					</div>
+				</div><table cellspacing="1" cellpadding="1"><tr><table cellspacing="1" cellpadding="1"><tr><td width="127" valign="top" align="center">					<a href="/i/samsung-g950f-galaxy-s8">
+						<img id="img__samsung-g950f-galaxy-s8" src="//static.salidzini.lv/img/catalog/samsung-g950f-galaxy-s8.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Samsung G950F Galaxy S8</span>
+						<span style="color: red; font-size: 11px;">no 385.00&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/apple-iphone-8-64gb">
+						<img id="img__apple-iphone-8-64gb" src="//static.salidzini.lv/img/catalog/apple-iphone-8-64gb.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Apple iPhone 8 64GB</span>
+						<span style="color: red; font-size: 11px;">no 500.00&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/samsung-g935f-galaxy-s7-edge">
+						<img id="img__samsung-g935f-galaxy-s7-edge" src="//static.salidzini.lv/img/catalog/samsung-g935f-galaxy-s7-edge.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Samsung G935F Galaxy S7 Edge</span>
+						<span style="color: red; font-size: 11px;">no 215.00&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/apple-iphone-7-32gb">
+						<img id="img__apple-iphone-7-32gb" src="//static.salidzini.lv/img/catalog/apple-iphone-7-32gb.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Apple iPhone 7 32GB</span>
+						<span style="color: red; font-size: 11px;">no 420.00&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/apple_iphone_6_16gb">
+						<img id="img__apple_iphone_6_16gb" src="//static.salidzini.lv/img/catalog/apple_iphone_6_16gb.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Apple iPhone 6 16GB</span>
+						<span style="color: red; font-size: 11px;">no 160.00&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/samsung-a520f-galaxy-a5-2017">
+						<img id="img__samsung-a520f-galaxy-a5-2017" src="//static.salidzini.lv/img/catalog/samsung-a520f-galaxy-a5-2017.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Samsung A520F Galaxy A5 (2017)</span>
+						<span style="color: red; font-size: 11px;">no 234.55&nbsp;&euro;</span></span>
+					</a>
+				</td><td width="127" valign="top" align="center">					<a href="/i/sony_playstation_4">
+						<img id="img__sony_playstation_4" src="//static.salidzini.lv/img/catalog/sony_playstation_4.jpg" width="127" height="127">
+						<span style="display: block; font-size: 12px;">Sony Playstation 4</span>
+						<span style="color: red; font-size: 11px;">no 217.46&nbsp;&euro;</span></span>
+					</a>
+				</td></tr></table><div><div style="font-size: 15px;"></div><table border="0" width="100%" cellspacing="0" cellpadding="0"><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/mobilie_telefoni" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/htc_z560_one_s.jpg" width="70" height="70" border="0" style="float: left;" alt="Mobilie telefoni"><span>Mobilie telefoni</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/plansetdatori" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/samsung_p600_galaxy_note_white.jpg" width="70" height="70" border="0" style="float: left;" alt="Planšetdatori"><span>Planšetdatori</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/portativie_datori" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/toshiba_c855_1qe.jpg" width="70" height="70" border="0" style="float: left;" alt="Portatīvie datori"><span>Portatīvie datori</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/digitalas_fotokameras" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/panasonic_dmc_tz30_lumix_brown.jpg" width="70" height="70" border="0" style="float: left;" alt="Digitālās fotokameras"><span>Digitālās fotokameras</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/digitalas_spogulkameras" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/olympus_e_pm2_black.jpg" width="70" height="70" border="0" style="float: left;" alt="Digitālās spoguļkameras"><span>Digitālās spoguļkameras</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/televizori" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/lg_42la690s.jpg" width="70" height="70" border="0" style="float: left;" alt="Televizori"><span>Televizori</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/videokameras" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/panasonic_hx_wa3ep_w.jpg" width="70" height="70" border="0" style="float: left;" alt="Videokameras"><span>Videokameras</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/audio_un_video_tehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/apple_ipod_touch_32gb_4th_black.jpg" width="70" height="70" border="0" style="float: left;" alt="Audio un Video tehnika"><span>Audio un Video tehnika</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/auto_preces" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/nokian-ht-suv-235-70r16.jpg" width="70" height="70" border="0" style="float: left;" alt="Auto preces"><span>Auto preces</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/bernu_preces" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/recaro_babyzen_pink.jpg" width="70" height="70" border="0" style="float: left;" alt="Bērnu preces"><span>Bērnu preces</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/biroja_tehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/sony-icd-ux560b.jpg" width="70" height="70" border="0" style="float: left;" alt="Biroja tehnika"><span>Biroja tehnika</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/darza_preces" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/c_scope_cs1220r.jpg" width="70" height="70" border="0" style="float: left;" alt="Dārza preces"><span>Dārza preces</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/datortehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/logitech_g940_flight_system.jpg" width="70" height="70" border="0" style="float: left;" alt="Datortehnika"><span>Datortehnika</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/davanas" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/weekendbox_skaistums_un_veseliba_klasiskais.jpg" width="70" height="70" border="0" style="float: left;" alt="Dāvanas"><span>Dāvanas</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/fotoaparatu_piederumi" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/lexar_lcf32gctbeu800.jpg" width="70" height="70" border="0" style="float: left;" alt="Fotoaparātu piederumi"><span>Fotoaparātu piederumi</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/instrumenti" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/dewalt-d26500-qs.jpg" width="70" height="70" border="0" style="float: left;" alt="Instrumenti"><span>Instrumenti</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/klimata_kontrole" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/beurer-la-50.jpg" width="70" height="70" border="0" style="float: left;" alt="Klimata kontrole"><span>Klimata kontrole</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/maza_sadzives_tehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/philips_gc_6510_02.jpg" width="70" height="70" border="0" style="float: left;" alt="Mazā sadzīves tehnika"><span>Mazā sadzīves tehnika</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/mebeles" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/sekcija_wiki_a.jpg" width="70" height="70" border="0" style="float: left;" alt="Mēbeles"><span>Mēbeles</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/mobilo_telefonu_aksesuari" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/motorola_bx50.jpg" width="70" height="70" border="0" style="float: left;" alt="Mobilo telefonu aksesuāri"><span>Mobilo telefonu aksesuāri</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/muzikas_instrumenti" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/casio_ctk_3200k7.jpg" width="70" height="70" border="0" style="float: left;" alt="Mūzikas instrumenti"><span>Mūzikas instrumenti</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/pulksteni" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/suunto_x_lander.jpg" width="70" height="70" border="0" style="float: left;" alt="Pulksteņi"><span>Pulksteņi</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/sadzives_tehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/bosch_hba_43t350.jpg" width="70" height="70" border="0" style="float: left;" alt="Sadzīves tehnika"><span>Sadzīves tehnika</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/santehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/roltechnik_vanessa_neo_150x70.jpg" width="70" height="70" border="0" style="float: left;" alt="Santehnika"><span>Santehnika</span></a>
+				</div>
+			</div>
+		</td></tr><tr><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/skaistums_un_veseliba" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/babyliss-d413pe.jpg" width="70" height="70" border="0" style="float: left;" alt="Skaistums un veselība"><span>Skaistums un veselība</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/sports_un_turisms" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/bellelli_fish.jpg" width="70" height="70" border="0" style="float: left;" alt="Sports un tūrisms"><span>Sports un tūrisms</span></a>
+				</div>
+			</div>
+		</td><td width="33%">
+			<div style="display: inline-block; width: 100%; ">
+				<div style="margin: 0 5px; padding: 0 5px;">
+					<a class="category" href="/c/virtuves_tehnika" style="width: 100%; "><img src="//static.salidzini.lv/img/catalog/marta_mt_1964.jpg" width="70" height="70" border="0" style="float: left;" alt="Virtuves tehnika"><span>Virtuves tehnika</span></a>
+				</div>
+			</div>
+		</td></td></tr><tr><td width="33%"></td><td width="33%"></td><td width="33%"></td></tr></table></div></div></div><div style="clear: both;"></div></div></div><div id="AM_bottom" style="width: 100%; max-width: 728px; background-color: #cccccc; margin: 2px auto; overflow: hidden;">
+				<div id="AM_bottom_main" style="width: 100%; height: 0; position: relative; overflow: hidden; padding-bottom: 12.36%;  ">
+					<div id="AM_bottom_sub" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; overflow: hidden; -ms-transform-origin: 0 0; -moz-transform-origin: 0 0; -o-transform-origin: 0 0; -webkit-transform-origin: 0 0; transform-origin: 0 0;" >
+						<div id="media_place_26" style="width:728px; height:90px;"></div>
+					</div>
+				</div>
+			</div>
+						<script>
+				(function (win, doc) {
+					var BREAKPOINT = 728; // Below this point the scaling takes effect
+					var iframe = E('AM_bottom_sub');
+					var iframe_div = E('AM_bottom_main');
+
+					function ResizeBottom()
+					{
+						// calculate scale for new width agains base with (breakpoint)
+						var scale = iframe_div.clientWidth/BREAKPOINT;
+						//console.log(scale);
+
+						// scaling ifram centents also scales its size, so it must be propotionaly resized bigger
+						// compensate width and height
+						iframe.style.width = (iframe_div.clientWidth/scale/scale)+'px';
+						iframe.style.height = (iframe_div.clientHeight/scale/scale)+'px';
+
+						if (window.navigator.userAgent.match(/Trident|MSIE/g) == false)
+							iframe.style['zoom'] = scale; // breaks IE9-IE11 so use only on other browsers
+						iframe.style['-ms-zoom'] = scale;
+						iframe.style['-ms-transform'] = 'scale('+scale+')';
+						iframe.style['-moz-transform'] = 'scale('+scale+')';
+						iframe.style['-o-transform'] = 'scale('+scale+')';
+						iframe.style['-webkit-transform'] = 'scale('+scale+')';
+						iframe.style['transform'] = 'scale('+scale+')';
+
+						return ResizeBottom;
+				  }
+				  win.addEventListener('resize', ResizeBottom(), false);
+				})(window.self, document);
+			</script>
+				<div style="margin-top: 40px; background-color: #f1f1f1; border-top: 1px solid #e4e4e4;">
+		<div class="foot">
+			<a href="/info.php" class="foot_links">Par mums</a>
+			<a href="/reklama.php" class="foot_links">Reklāma</a>
+			<a href="/shops_info.php" class="foot_links">Veikaliem</a>
+			<a href="/octa.php" class="foot_links">OCTA</a>
+			<a href="/kasko" class="foot_links">KASKO</a>
+			<a href="/atrie-krediti" class="foot_links">Ātrie kredīti</a>
+			<a href="/search_top.php" class="foot_links">Tops</a>
+			<a href="/account.php" class="foot_links">Atsauksmes par veikalu</a>
+							<a href="/rus/" class="foot_links">На русском</a>
+					</div>
+	</div>
+
+
+	<div id="AM_scroll_row" style="overflow: hidden;"><div id="media_place_8" style="width:1000px; height:50px; display: none; z-index: 100;"></div></div>
+	<div id="AM_fix_kvad"><div id="media_place_29" style="width:220px; height:220px; display: none; z-index: 100;"></div></div>
+
+	<script>
+		document.body.onclick = BodyClicked;
+	</script>
+
+	<script>
+		if (document.cookie.indexOf("cookieconsent_dismissed") == -1){
+			document.write('<div id="cookie_info_window" style="position: absolute; top: 0px; left: 0px; width: 100%; background-color: #888888; color: white; padding: 8px; text-align: center;">Sīktdatnes nodrošina vietnes pienācīgu darbību &nbsp;&nbsp;<a style="color: #1AF0FF;" href="http://www.salidzini.lv/cookies.php">Vairāk</a> &nbsp;&nbsp;<button OnClick="this.parentElement.style.display=\'none\';document.cookie=\'cookieconsent_dismissed=true; max-age='+(60*60*24*365)+'\'; document.body.style.marginTop=0; ">Labi</button></div>');
+			document.body.style.marginTop = E('cookie_info_window').offsetHeight+'px';
+		}
+	</script>
+</body>
+</html>

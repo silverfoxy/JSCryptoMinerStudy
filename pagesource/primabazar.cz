@@ -1,0 +1,294 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs"><head>
+<title>Avízo inzerce</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="keywords" content="bazoš, bazar, inzerce, inzeráty zdarma, avízo, sbazar, hyperinzerce" />
+<meta name="description" content="primabazar je inzerce jako bazoš avízo sbazar " />
+<meta name="author" content="seznam autorů" />
+<meta name="robots" content="index, follow" />
+<meta name="viewport" content="width=device-width,initial-scale=0.9, maximum-scale=0.9,minimum-scale=0.9,user-scalable=no">
+<link  href="https://www.primabazar.cz/ " />
+<style type="text/css" media="screen, projection">@import "/web/styles/screen.css";</style> 
+<link rel="stylesheet" href="https://www.primabazar.cz/web/styles/print.css" type="text/css" media="print" />
+<link  rel="shortcut icon" type="image/x-icon" href="https://www.primabazar.cz/web/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="www.primabazar.cz - aktuální inzeráty" href="https://www.primabazar.cz/rss.xml" />
+<script defer src="https://www.primabazar.cz/js/formular.js" type="text/javascript"></script>
+<script src="https://www.primabazar.cz/js/jquery-1.11.0.min.js" type="text/javascript" ></script>
+<script src="https://www.primabazar.cz/js/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+<script defer src="https://www.primabazar.cz/js/eu.js" type="text/javascript"></script>
+<!-- psc autocomplete-->
+<link rel="stylesheet" href="https://www.primabazar.cz/web/styles/naseptavac.css" />
+<style type="text/css">
+  .ui-helper-hidden-accessible { position: absolute; left: -9999px; }
+</style> 
+</head>    
+<body>
+<div id="fb-root"></div>
+<div id="page">
+<div id="top"> 
+<p id="logo"><a href="http://www.primabazar.cz/" title="inzerce zdarma"><span></span></a></p>
+<p id="insert"><a href="/vlozit-inzerat/" >Podat inzerát bez registrace</a></p>
+<p id="myads"><a href="/moje-inzeraty/" >Moje inzeráty</a></p>
+<script>
+var prubehNacitani = function (cas, postup) {
+var animovat = function () {
+postup.style.transition = "width " + cas + "s";
+postup.style.width = "100%";
+};
+var vycistit = function () {
+postup.style.width = "0";
+postup.style.transition = "";
+};
+animovat();
+setTimeout(vycistit, cas * 1000);
+};
+</script>
+<script type="text/javascript">
+    $(function () {
+        var getData = function (request, response) {
+            $.getJSON(
+                "https://www.primabazar.cz/psc.php?psc=" + request.term,
+                function (data) {
+                    response(data);
+                    $('.psc').css({'background-color':'#fff'});
+                });
+        };
+
+        var selectItem = function (event, ui) {
+            $("#psc").val(ui.item.value);
+            $("#psc").val(ui.item.label);
+            $("#idpsc").val(ui.item.desc);
+            
+        }
+        $("#psc").autocomplete({
+            source: getData,
+            select: selectItem,
+            autoFocus: true,
+            minLength: 1, 
+        }) 
+            
+        $('.psc').click(function () { 
+            $('#ui-id-1').css({'display': 'block'});
+            $('#page').fadeTo("slow", 0.8);
+            $('.psc').fadeTo("slow", 1.0);
+             //$('#page').css ({'filter':'saturate(0.1)'});
+             //  $('#ui-id-1').css ({'filter':'saturate(1)'})
+             }); 
+          
+          $('.psc').focusout(function () {
+              $('#page').fadeTo("slow", 1.0); 
+             });
+             
+          $(".ui-menu").click(function () {
+             // $('#page').css ({'filter':'saturate(0.1)'});  
+            $('.psc').css({'background-color':'#91bf3a'});
+            $('.form-error').css({'display': 'none'});
+            //$('.select.error,input.error').css({'background-image': 'url(http://www.primabazar.cz/web/styles/uploadfile/02.png)','border-color':'#468847 !important', 'background-color':'#91bf3a'});
+            $('.ui-autocomplete-input').css({'border-color':'#468847 !important', 'background-color':'#91bf3a'});
+              // data-validation-allowing
+            // $('.ui-autocomplete-input').removeClass("ui-autocomplete-input input.valid error").addClass("ui-autocomplete-input input.valid valid");
+            // $('.has-error').removeClass("has-error").addClass("has-success");
+             $('#page').fadeTo("slow", 1.0);
+           // $( "#search" ).submit();
+           //  tahle funkce odesle formulář id-search, jenomže tento form je i u verze přidání inzerátu(vlozit-inzerat.php) a zlobí.
+            });
+         
+        //nize napsany kod je pro sarsi verzi pridavani inzeratu, pozdeji ho odmazat   $('#ui-id-2'... id2 -druhy policko v poradi od zavatku stranky
+        
+        var selectItem = function (event, ui) {
+            $("#psc2").val(ui.item.value);
+            $("#psc2").val(ui.item.label);
+            $("#idpsc2").val(ui.item.desc);
+
+        }
+            $("#psc2").autocomplete({
+            source: getData,
+            select: selectItem,
+            autoFocus: true,
+            minLength: 1,
+        })
+
+
+            $('#psc2').click(function () {
+            $('#ui-id-2').css({'display': 'block'});
+
+        });
+         
+
+
+        // dodelam si sam ... když neodkliknu výběr našeptávaného kraje tak použij to níže napsané, jiak to nepoužij.
+        //   $('#psc').blur(function () {
+        //   $('#ui-id-1').css({'display': 'block'});
+        //   });
+    });
+</script>
+
+<form  method="get" action="/vyhledavani/" id="search">
+          <p><input type="text" name="q" placeholder="Hledaný výraz..." id="searchinput" class="field" value="">
+          <input type="text" onkeyup="formatPrice(this,'')" name="from" placeholder="Cena od" id="from"
+          value="" class="price">
+          <input type="text" onkeyup="formatPrice(this,'')" name="to" placeholder="Cena do" id="to"
+          value="" class="price">
+         <select name="sub" size="1"
+        onchange="document.location.href='/vyhledavani/?q='+search.q.value+'&amp;sub='+this.value+'&amp;pod=0&amp;from='+search.from.value+'&amp;to='+search.to.value+'&amp;psc='+search.psc.value+'&amp;idpsc='+search.idpsc.value+'&amp;vzdalenost='+search.vzdalenost.value+'' ; prubehNacitani(2.5, document.getElementById('postupNacitani'))">
+        <option value="0" selected="selected">Kategorie:</option>
+        <option style="background: #E9CC20; color: #000" value="0">Nerozhoduje</option>
+<option value="autoinzerce">Autoinzerce</option><option value="deti">Děti</option><option value="dovolena">Dovolená</option><option value="dum-a-zahrada">Dům a zahrada</option><option value="elektro">Elektro</option><option value="hudba">Hudba</option><option value="knihy">Knihy</option><option value="mobily">Mobily</option><option value="motoinzerce">Motoinzerce</option><option value="nabytek">Nábytek</option><option value="obleceni-obuv">Oblečení, Obuv</option><option value="ostatni">Ostatní</option><option value="pc-konzole">PC/Konzole</option><option value="prace-brigada">Práce, brigáda</option><option value="reality">Reality</option><option value="sluzby">Služby</option><option value="sport">Sport</option><option value="starozitnosti">Starožitnosti</option><option value="stroje-pristroje">Stroje ,přístroje</option><option value="zdravi-a-krasa">Zdraví a krása</option><option value="zvirata">Zvířata</option> </select>        <select name="pod" size="1"
+         onchange="document.location.href='/vyhledavani/?q='+search.q.value+'&amp;sub='+search.sub.value+'&amp;pod='+this.value+'&amp;from='+search.from.value+'&amp;to='+search.to.value+'&amp;psc='+search.psc.value+'&amp;idpsc='+search.idpsc.value+'&amp;vzdalenost='+search.vzdalenost.value+'' ; prubehNacitani(2.5, document.getElementById('postupNacitani'))">
+        <option value="0" selected="selected">sekce:</option>
+        <option style="background: #E9CC20; color: #000" value="0">Nerozhoduje</option>
+            <option style="background: #E9CC20; color: #000" disabled="1"></option><option style="background: #E9CC20; color: #000" disabled=""></option></select>
+        <input type="text" placeholder="PSČ nebo obec" name="psc" id="psc" class="psc" value=""/>
+        <!-- skryty input, který předává id psč, podle výběru v psč inputu-->
+        <input type="hidden" name="idpsc" id="idpsc" value=""/>
+        Okolí:
+        <input type="text" name="vzdalenost" id="vzdalenost" class="km" value="20"/> km
+        <input type="submit" id="hledat" alt="Hledat" value="hledat" class="button"
+        onclick="prubehNacitani(2.5, document.getElementById('postupNacitani'))"/></p>
+</form><script type="text/javascript">
+$(document).ready(function(){
+  $('a#trigger').click(function (event) {
+    event.preventDefault();
+    $('#obchod').toggle(200);
+  });
+});
+</script> 
+<div><a class="tlacitkozlute" id="trigger" href="#" >Přihlášení</a></div>  
+<div id="obchod">
+<form method="post" action="" >
+<p>
+<strong>Email:</strong><input name="email" placeholder="Váš celý email" class="login-name-email" type="text"> 
+<strong>Heslo:</strong><input  name="heslo" placeholder="Vaše heslo"  class="login-name-email" type="password">
+<input alt="Přihlásit se" class="tlacitkozlute" name="userform" value="Přihlásit" type="submit">
+<p>&nbsp;&nbsp;</p>
+<a href="/registrace/" onmouseover='document.getElementById("prvek").style.opacity = "0.9";'onmouseout='document.getElementById("prvek").style.opacity = "0";'>
+<span class="user-login">Dobrovolná<strong> REGISTRACE </strong></a>
+<span style="transition: opacity 0.8s linear;opacity:0;" id="prvek"> Převedete své inzeráty pod účet (žádná hesla+výhody)</span>
+</span>   
+</p>                                                                                                                                                                            
+</form>
+</div>
+   
+<hr />
+</div>
+<div id="pagein"><div id="pagein2"><div id="postupNacitani" class="postupNacitani"></div>
+<div id="content" class="home">
+<div id="categories">
+
+<div class="item first"><a href="/autoinzerce/"><div class="hokus"><img src="/images/icon/icon-6.jpg" alt="Autoinzerce"></div></a>
+             <div class="hokusprava"><h1><a href="/autoinzerce/" title="Autoinzerce">Autoinzerce</a></h1>
+              <h3><a href="/autoinzerce/skoda/">Škoda</a>, <a href="/autoinzerce/hyundai/">Hyundai</a></h3> </div>
+              </div><div class="item"><a href="/deti/"><div class="hokus"><img src="/images/icon/icon-3.jpg" alt="Děti"></div></a>
+             <div class="hokusprava"><h1><a href="/deti/" title="Děti">Děti</a></h1>
+              <h3><a href="/deti/hracky/">Hračky</a>, <a href="/deti/kocarky/">Kočárky</a></h3> </div>
+              </div><div class="item"><a href="/dovolena/"><div class="hokus"><img src="/images/icon/icon-12.jpg" alt="Dovolená"></div></a>
+             <div class="hokusprava"><h1><a href="/dovolena/" title="Dovolená">Dovolená</a></h1>
+              <h3><a href="/dovolena/bulharsko/">Bulharsko</a>, <a href="/dovolena/ceska-republika/">Čechy</a></h3> </div>
+              </div><div class="item"><a href="/dum-a-zahrada/"><div class="hokus"><img src="/images/icon/icon-9.jpg" alt="Dům a zahrada"></div></a>
+             <div class="hokusprava"><h1><a href="/dum-a-zahrada/" title="Dům a zahrada">Dům a zahrada</a></h1>
+              <h3><a href="/dum-a-zahrada/naradi/">Nářadí</a>, <a href="/dum-a-zahrada/stavebni-material/">Materiál</a></h3> </div>
+              </div><div class="item first"><a href="/elektro/"><div class="hokus"><img src="/images/icon/icon-13.jpg" alt="Elektro"></div></a>
+             <div class="hokusprava"><h1><a href="/elektro/" title="Elektro">Elektro</a></h1>
+              <h3><a href="/elektro/pracky/">Pračky</a>, <a href="/elektro/sporaky/">Sporáky</a></h3> </div>
+              </div><div class="item"><a href="/hudba/"><div class="hokus"><img src="/images/icon/icon-15.jpg" alt="Hudba"></div></a>
+             <div class="hokusprava"><h1><a href="/hudba/" title="Hudba">Hudba</a></h1>
+              <h3><a href="/hudba/bici-nastroje/">Bicí</a>, <a href="/hudba/klavesove-nastroje/">Klávesy</a></h3> </div>
+              </div><div class="item"><a href="/knihy/"><div class="hokus"><img src="/images/icon/icon-16.jpg" alt="Knihy"></div></a>
+             <div class="hokusprava"><h1><a href="/knihy/" title="Knihy">Knihy</a></h1>
+              <h3><a href="/knihy/sci-fi-fantasy/">Sci-fi</a>, <a href="/knihy/kucharky/">Kuchařky</a></h3> </div>
+              </div><div class="item"><a href="/mobily/"><div class="hokus"><img src="/images/icon/icon-11.jpg" alt="Mobily"></div></a>
+             <div class="hokusprava"><h1><a href="/mobily/" title="Mobily">Mobily</a></h1>
+              <h3><a href="/mobily/apple/">Apple</a>, <a href="/mobily/samsung/">Samsung</a></h3> </div>
+              </div><div class="item first"><a href="/motoinzerce/"><div class="hokus"><img src="/images/icon/icon-7.jpg" alt="Motoinzerce"></div></a>
+             <div class="hokusprava"><h1><a href="/motoinzerce/" title="Motoinzerce">Motoinzerce</a></h1>
+              <h3><a href="/motoinzerce/chopper/">Chopper</a>, <a href="/motoinzerce/ctyrkolky/">Čtyřkolky</a></h3> </div>
+              </div><div class="item"><a href="/nabytek/"><div class="hokus"><img src="/images/icon/icon-17.jpg" alt="Nábytek"></div></a>
+             <div class="hokusprava"><h1><a href="/nabytek/" title="Nábytek">Nábytek</a></h1>
+              <h3><a href="/nabytek/postele-a-matrace/">Postele</a>, <a href="/nabytek/obyvaci-steny/">Obývák</a></h3> </div>
+              </div><div class="item"><a href="/obleceni-obuv/"><div class="hokus"><img src="/images/icon/icon-18.jpg" alt="Oblečení, Obuv"></div></a>
+             <div class="hokusprava"><h1><a href="/obleceni-obuv/" title="Oblečení, Obuv">Oblečení, Obuv</a></h1>
+              <h3><a href="/obleceni-obuv/kalhoty/">Kalhoty</a>, <a href="/obleceni-obuv/mikiny/">Mikiny</a></h3> </div>
+              </div><div class="item"><a href="/pc-konzole/"><div class="hokus"><img src="/images/icon/icon-10.jpg" alt="PC/Konzole"></div></a>
+             <div class="hokusprava"><h1><a href="/pc-konzole/" title="PC/Konzole">PC/Konzole</a></h1>
+              <h3><a href="/pc-konzole/notebooky-netbooky/">Notebooky</a>, <a href="/pc-konzole/software/">Software</a></h3> </div>
+              </div><div class="item first"><a href="/prace-brigada/"><div class="hokus"><img src="/images/icon/icon-23.jpg" alt="Práce, brigáda"></div></a>
+             <div class="hokusprava"><h1><a href="/prace-brigada/" title="Práce, brigáda">Práce, brigáda</a></h1>
+              <h3><a href="/prace-brigada/auto-moto/">Auto-moto</a>, <a href="/prace-brigada/doprava-a-zasobovani/">Doprava</a></h3> </div>
+              </div><div class="item"><a href="/reality/"><div class="hokus"><img src="/images/icon/icon-4.jpg" alt="Reality"></div></a>
+             <div class="hokusprava"><h1><a href="/reality/" title="Reality">Reality</a></h1>
+              <h3><a href="/reality/prodej-domy/">Domy</a>, <a href="/reality/prodej-pozemky/">Pozemky</a></h3> </div>
+              </div><div class="item"><a href="/sluzby/"><div class="hokus"><img src="/images/icon/icon-19.jpg" alt="Služby"></div></a>
+             <div class="hokusprava"><h1><a href="/sluzby/" title="Služby">Služby</a></h1>
+              <h3><a href="/sluzby/uklid/">Úklid</a>, <a href="/sluzby/vyuka-doucovani/">Doučování</a></h3> </div>
+              </div><div class="item"><a href="/sport/"><div class="hokus"><img src="/images/icon/icon-14.jpg" alt="Sport"></div></a>
+             <div class="hokusprava"><h1><a href="/sport/" title="Sport">Sport</a></h1>
+              <h3><a href="/sport/horska-kola/">Kola</a>, <a href="/sport/fotbal/">Fotbal</a></h3> </div>
+              </div><div class="item first"><a href="/starozitnosti/"><div class="hokus"><img src="/images/icon/icon-20.jpg" alt="Starožitnosti"></div></a>
+             <div class="hokusprava"><h1><a href="/starozitnosti/" title="Starožitnosti">Starožitnosti</a></h1>
+              <h3><a href="/starozitnosti/porcelan-keramika/">Porcelán</a>, <a href="/starozitnosti/filatelie-post-znamky/">Filatelie</a></h3> </div>
+              </div><div class="item"><a href="/stroje-pristroje/"><div class="hokus"><img src="/images/icon/icon-8.jpg" alt="Stroje ,přístroje"></div></a>
+             <div class="hokusprava"><h1><a href="/stroje-pristroje/" title="Stroje ,přístroje">Stroje ,přístroje</a></h1>
+              <h3><a href="/stroje-pristroje/vybaveni-provozoven/">Provozovny</a>, <a href="/stroje-pristroje/stavebni-stroje/">Stavba</a></h3> </div>
+              </div><div class="item"><a href="/zdravi-a-krasa/"><div class="hokus"><img src="/images/icon/icon-21.jpg" alt="Zdraví a krása"></div></a>
+             <div class="hokusprava"><h1><a href="/zdravi-a-krasa/" title="Zdraví a krása">Zdraví a krása</a></h1>
+              <h3><a href="/zdravi-a-krasa/drogerie/">Drogerie</a>, <a href="/zdravi-a-krasa/parfemy/">Parfémy</a></h3> </div>
+              </div><div class="item"><a href="/zvirata/"><div class="hokus"><img src="/images/icon/icon-2.jpg" alt="Zvířata"></div></a>
+             <div class="hokusprava"><h1><a href="/zvirata/" title="Zvířata">Zvířata</a></h1>
+              <h3><a href="/zvirata/psi/">Psi</a>, <a href="/zvirata/kocky/">Kočky</a></h3> </div>
+              </div><div class="item "><h1><a href="/ostatni/">Ostatní</a></h1>
+              <h3><a href="/ostatni/vse-do-100kc/">Do 100kč</a>, <a href="/ostatni/vouchery/">Vouchery</a></h3>
+              <a href="/ostatni/"><img src="/images/icon/icon-22.jpg" alt="Ostatní" /></a>
+              </div>  </div>
+<div class="cl"></div>
+  
+<hr />  
+
+<p>&nbsp;</p> 
+ <div><p style="color: #000;text-decoration:none;background-color: #E9cc20;padding: 2px 4px;border: 1px solid #C0C0C0;border-radius: 4px;width:100px;">Google Reklama:</p></div>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- primabazar-index-dole -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3489749970464939"
+     data-ad-slot="2673222208"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+ 
+ <p>&nbsp;</p> 
+
+ <div id="menu"><p
+class="first"><a href="/podminky/"rel="nofollow">Podmínky</a> &nbsp;•&nbsp;
+<a href="/zpetne-odkazy/">Výměna odkazů- Přátelské weby</a>&nbsp;•&nbsp;
+<a href="/registrace/">Vytvoření účtu</a>&nbsp;•&nbsp;
+<a href="/xml/rss.php"><img src="/web/images/rss2.gif" alt="rss webu"/></a>&nbsp;•&nbsp; 
+<a href="/kontakt/"rel="nofollow">Kontaktní informace</a> &nbsp;•&nbsp;
+</p></div>
+<div id="indexodkazy">
+
+<p>Přátelské weby: &nbsp;•&nbsp;
+Avízo od primabazaru <a href="http://www.obrazky.cz/?q=site%3Awww.primabazar.cz&amp;fulltext&amp;mm=2#utm_source=search.seznam.cz&amp;utm_medium=hint&amp;utm_term=site%3Awww.primabazar.cz&amp;utm_content=obrazky"  
+target="_blank" title="avízo inzerce">Obrázky inzerce</a>&nbsp;•&nbsp;
+<a href="http://www.inzerce.najducokoliv.cz" target="_blank" title="inzertní agregátor">Najducokoliv avízo</a>  &nbsp;•&nbsp;
+</p></div>
+<div class="popisky">
+<a href="https://www.seznam.cz" target="_blank"><img alt="portál seznam" src="/partners/seznam.jpg" style="width: 100px; height: 30px;" title="seznam.cz" /></a>&nbsp;&bull;&nbsp;
+<a href="https://www.centrum.cz" target="_blank"><img alt="portál centrum" src="/partners/centrum.jpg" style="width: 100px; height: 30px;" title="centrum.cz" /></a>&nbsp;&bull;&nbsp;
+<a href="https://www.google.cz" target="_blank"><img alt="vyhledávač stránek" src="/partners/google.jpg" style="width: 100px; height: 30px;" title="google.cz" /></a>&nbsp;&bull;&nbsp;
+<a href="https://www.csfd.cz" target="_blank"><img alt="československá filmová databáze" src="/partners/csfd.jpg" style="width: 100px; height: 30px;" title="csfd.cz" /></a>&nbsp;&bull;&nbsp;
+<a href="https://www.youtube.cz" target="_blank"><img alt="Největší videoportál" src="/partners/youtube.jpg" style="width: 100px; height: 30px;" title="youtube.cz" /></a>&nbsp;&bull;&nbsp;
+<a href="http://topstarclub.cz/" target="_blank"><img alt="největší diskotéka v liberci" src="/partners/topstar.png" style="width: 100px; height: 30px;" title="Topstarclub! Nejlepší diskotéka v liberci." /></a>&nbsp;&bull;&nbsp;
+<a href="https://www.tele3.cz" target="_blank"><img alt="hostingové služby" src="/partners/tele3.jpg" style="width: 100px; height: 30px;" title="kvalitní hostingové služby" /></a>&nbsp;&bull;&nbsp;
+</div><br /><span class="flr">2011-2018 &copy; Provozuje: <strong><a href="https://www.primabazar.cz/" title="primabazar.cz">primabazar.cz</a></strong></span><span class="cl"></span>
+<p>&nbsp;&nbsp;&nbsp;</p>
+<a href="https://www.toplist.cz/"><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<img src="https://toplist.cz/count.asp?id=1695602&logo=s&http='+escape(document.referrer)+'&t='+escape(document.title)+
+'" width="14" height="14" border=0 alt="TOPlist" />');
+//--></script><noscript><img src="https://toplist.cz/count.asp?id=1695602&logo=s" border="0"
+alt="TOPlist" width="14" height="14" /></noscript></a> 
+</body>
+</html>

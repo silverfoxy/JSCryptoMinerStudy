@@ -1,0 +1,962 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="all" />
+<meta name="Location" content="France" />
+<meta name="language" content="FR" />
+<meta http-equiv="Content-Language" content="fr" />
+<meta name="revisit-after" content="10 days" />
+<meta name="identifier-URL" content="https://maxichat.fr" />
+<meta name="category" content="rencontre, tchat, rencontres, chat gratuit, tchat gratuit, chat" />
+<meta name="description" content="maxichat est un site de rencontre video et d'echange totalement gratuit disposant de forum video personnalisable" />
+<meta name="keywords" content="rencontre video, site gratuit, rencontre live, webcam, chat webcam, echange contact, album photo, salon multicam, gratuit, tchat, chat, rencontre, gracieusement" />
+<meta name="msvalidate.01" content="54FDEF8202B86F2235C4D1DF73D5ECEB" />
+<link rel="stylesheet" media="screen" type="text/css" title="Design" href="/styles/accueil_new.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="https://maxichat.fr/img/facebook_img_01_800.jpg" rel="image_src"/>
+<link rel="apple-touch-icon" href="https://maxichat.fr/img/apple-touch-icon.png"/>
+<title>Site de rencontre gratuit avec forum tchat par webcam</title>
+<link rel="stylesheet" type="text/css" href="styles/cookies_consent.css"/>
+<script src="/js/cookies_consent.js" type="text/javascript"></script>
+<link rel="canonical" href="https://maxichat.fr" />
+<script type="text/javascript">
+<!--
+function addToFavorites(obj,title,url) 
+{	if (window.sidebar && window.sidebar.addPanel)
+	{ 	// Mozilla Firefox Bookmark
+		window.sidebar.addPanel(title,url,"");
+		//return true;
+	} 
+	else if (window.external && ('AddFavorite' in window.external))
+    { 	// IE Favorite
+		window.external.AddFavorite(url,title); 
+		//return true;
+	}	
+	else if(window.opera && window.print) 
+	{ 	// Opera Hotlist
+		this.title=document.title;
+		//return true;
+	}
+	else 
+	{	alert('Appuyez sur ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D pour mettre cette page dans vos favoris.');
+		//alert("Désolé! votre browser ne supporte pas cette fonction."); 
+		//return true;
+	} 
+}
+
+var cpt_aff=0;
+function clignotement(element)
+{	if (element!='')
+	{	if (cpt_aff>10)
+		{	document.getElementById(element).style.backgroundColor="#ABCBE7"; 
+			document.getElementById(element).style.visibility="visible"; 
+		}
+		else
+		{	document.getElementById(element).style.backgroundColor="#ffff00"; 
+			if ((cpt_aff & 1)==0)
+			{ document.getElementById(element).style.visibility="visible";  }
+			else
+			{ document.getElementById(element).style.visibility="hidden"; }
+			cpt_aff=cpt_aff+1;
+		}
+	}
+}
+setInterval("clignotement('')", 500);
+
+function donner_focus()
+{		document.getElementById('resolution_ecran').value= screen.width+'*'+screen.height;
+	document.getElementById('js_present').value="1";
+	document.getElementById('js_present_acces').value="1";
+}
+
+var group_sexe='';
+var pseudo='';
+var motdepasse='';
+var email='';
+var cgu=false;
+var jour='Jour';
+var mois='Mois';
+var annee="Année";
+function set_value() 
+{	group_sexe='';
+	var element = document.inscription.group_sexe;
+	for (i=0;i<element.length;i++)
+	{	if (element[i].checked)
+		{	group_sexe=element[i].value;
+			break;
+		}
+	}
+	pseudo=document.forms.inscription.pseudo.value;
+	motdepasse=document.forms.inscription.motdepasse.value;
+	email=document.forms.inscription.email.value;
+	if (document.forms.inscription.cgu.checked) cgu=true;
+	jour=document.forms.inscription.listejour.options[document.forms.inscription.listejour.selectedIndex].value;
+	mois=document.forms.inscription.listemois.options[document.forms.inscription.listemois.selectedIndex].value;
+	annee=document.forms.inscription.listeannee.options[document.forms.inscription.listeannee.selectedIndex].value;
+}
+function openPostData(page,data)
+{   var form = document.createElement('form');
+    form.setAttribute('action', page);
+    form.setAttribute('method', 'post');
+    for (var n in data)
+    {   var inputvar = document.createElement('input');
+        inputvar.setAttribute('type', 'hidden');
+        inputvar.setAttribute('name', n);
+        inputvar.setAttribute('value', data[n]);
+        form.appendChild(inputvar);
+    }
+    document.body.appendChild(form);
+    form.submit();
+}
+function get_pays(new_pays) 
+{	set_value();
+	var data = {};
+	data.listepays      = new_pays;
+	data.pseudo         = pseudo;
+	data.motdepasse     = motdepasse;
+	data.group_sexe     = group_sexe;
+	data.email			= email;
+	if (cgu) data.cgu	= true;
+	data.listejour		= jour;
+	data.listemois		= mois;
+	data.listeannee		= annee;
+	page				= 'maxichat.php';
+	openPostData(page,data);
+}
+function get_departement(new_departement) 
+{	set_value();
+	var data = {};
+	data.listedepartement	= new_departement;
+	data.pseudo         	= pseudo;
+	data.motdepasse     	= motdepasse;
+	data.group_sexe    	 	= group_sexe;
+	data.email				= email;
+	if (cgu) data.cgu		= true;
+	data.listejour			= jour;
+	data.listemois			= mois;
+	data.listeannee			= annee;
+	page					= 'maxichat.php';
+	openPostData(page,data);
+}
+function get_ville(new_ville) 
+{	set_value();
+	var data = {};
+	data.listeville 		= new_ville;
+	data.pseudo         	= pseudo;
+	data.motdepasse     	= motdepasse;
+	data.group_sexe    	 	= group_sexe;
+	data.email				= email;
+	if (cgu) data.cgu		= true;
+	data.listejour			= jour;
+	data.listemois			= mois;
+	data.listeannee			= annee;
+	page					= 'maxichat.php';
+	openPostData(page,data);
+}
+// -->
+</script>
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'fr'}
+</script>
+
+</head>
+<body onload="donner_focus()">
+<script type="text/javascript">
+tagAnalyticsCNIL.start('UA-17295289-1','maxichat.fr',true);
+</script><img style="position:absolute;left:0px;top:0px;width:100%;height:100%;" src="img/maxichat_fond_01.jpg" alt=""  title=""/>
+<div style="position:absolute;left:0px;top:0px;width:100%;height:100%;"> 
+<center>
+	<div id="content">
+	<div id="global">
+		<div id="entete"></div>
+		<div id="haut">
+			<div id="gauche">
+				<div id="pubtel">
+					<font style="font-size:20px;background-color:#000000;color:rgb(60,255,50);"><strong>maxichat par téléphone au 01 77 75 09 09<br />Les petites annonces au 08 26 88 71 71</strong></font>
+				</div>
+				<div id="image">
+					<img src="img/maxichat_img_01_370.jpg" alt="maxichat" title="maxichat" />
+				</div>
+				<div id="photos">
+					<table id="tbphotos">
+					<tr>
+					<td class="tdphotos"><a href="https://maxichat.fr/enmiky.html" target="_blank"><img src="/photos/20/57120_02_0002.jpeg" alt="rencontre avec enmiky" title="enmiky" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/aymino.html" target="_blank"><img src="/photos/26/57426_01_0001.jpeg" alt="rencontre avec aymino" title="aymino" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/benat31000.html" target="_blank"><img src="/photos/29/58929_04_0001.jpeg" alt="rencontre avec benat31000" title="benat31000" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/philous76.html" target="_blank"><img src="/photos/04/64304_05_0014.jpeg" alt="rencontre avec philous76" title="philous76" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/PATOUT59.html" target="_blank"><img src="/photos/12/67412_04_0001.jpeg" alt="rencontre avec PATOUT59" title="PATOUT59" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/nicolas-90.html" target="_blank"><img src="/photos/86/68486_05_0001.jpeg" alt="rencontre avec nicolas-90" title="nicolas-90" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/ridha1981.html" target="_blank"><img src="/photos/40/77240_01_0004.jpeg" alt="rencontre avec ridha1981" title="ridha1981" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/ludovico.html" target="_blank"><img src="/photos/95/81695_02_0001.jpeg" alt="rencontre avec ludovico" title="ludovico" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/poyot089.html" target="_blank"><img src="/photos/15/82715_01_0001.jpeg" alt="rencontre avec poyot089" title="poyot089" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/jean.jacques.html" target="_blank"><img src="/photos/40/93540_01_0003.jpeg" alt="rencontre avec jean.jacques" title="jean.jacques" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/moumou6921.html" target="_blank"><img src="/photos/81/95881_01_0004.jpeg" alt="rencontre avec moumou6921" title="moumou6921" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/papaours67.html" target="_blank"><img src="/photos/89/97889_01_0001.jpeg" alt="rencontre avec papaours67" title="papaours67" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/dodo122011.html" target="_blank"><img src="/photos/28/98928_01_0001.jpeg" alt="rencontre avec dodo122011" title="dodo122011" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/jorandall62.html" target="_blank"><img src="/photos/63/99463_04_0001.jpeg" alt="rencontre avec jorandall62" title="jorandall62" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/Eric03.html" target="_blank"><img src="/photos/47/107447_04_0001.jpeg" alt="rencontre avec Eric03" title="Eric03" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/xavhey.html" target="_blank"><img src="/photos/54/108154_01_0001.jpeg" alt="rencontre avec xavhey" title="xavhey" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/budleia.html" target="_blank"><img src="/photos/82/108782_01_0001.jpeg" alt="rencontre avec budleia" title="budleia" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/msiven_h.html" target="_blank"><img src="/photos/47/121847_01_0001.jpeg" alt="rencontre avec msiven_h" title="msiven_h" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/le-scorpion.html" target="_blank"><img src="/photos/22/123422_07_0004.jpeg" alt="rencontre avec le-scorpion" title="le-scorpion" width="140" height="120" border="0" align="middle" /></a></td><td class="tdphotos"><a href="https://maxichat.fr/fun4u.html" target="_blank"><img src="/photos/56/123456_01_0004.jpeg" alt="rencontre avec fun4u" title="fun4u" width="140" height="120" border="0" align="middle" /></a></td>					</tr>
+					</table>
+				</div>
+				<div id="gplusone">
+					<script type="text/javascript">
+					<!--
+					document.write('<g:plusone></g:plusone>');
+					//-->
+					</script>
+				</div>
+			</div>
+			<div id="droite">	
+				<div class="form">
+					<form method="post" action="">
+						<h2>Accès au site de rencontre</h2>
+						<p class="comment">Déjà inscrit compléter le formulaire ci dessous.</p>
+						<table>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_pseudo_acces" for="pseudo_acces">Votre pseudonyme :</label></span>
+								</td>
+								<td class="tdcontrole">
+									<span class="controle"><input type="text" class="text" id="pseudo_acces" name="pseudo_acces" value="" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_motdepasse_acces" for="motdepasse_acces">Votre mot de passe :</label></span>
+								</td>
+								<td class="tdcontrole">
+									<span class="controle"><input type="password" class="text" id="motdepasse_acces" name="motdepasse_acces" value="" /></span>
+								</td>
+							</tr>
+						</table>
+						<input type="hidden" name="js_present_acces" id="js_present_acces" value="0"/>
+						<input type="hidden" name="resolution_ecran" id="resolution_ecran" value=""/>
+						<fieldset>
+							<p class="submit">
+								<input type="submit" id="submit_acces" name="submit_acces" value="Accéder au site" />
+							</p>
+						</fieldset>
+					</form>
+					<div class="resultmessage">
+					<p id="resultmessage_acces" class="error" ></p>
+					</div>	
+					<p class="lien_oublie"><a href="identifiants-oublies.php" title="Vous avez oublié vos identifiants cliquez ici">Pseudo ou Mot de passe oublié ?</a></p>		
+					<p class="lien_oublie"><a href="https://funcontact.fr" title="Accéder à la version pour mobile et tablette du site cliquez ici">Accès version mobile et tablette</a></p>		
+				</div>	
+				<div class="form">
+					<form name="inscription" method="post" action="">
+						<h2>Inscription au site de rencontre</h2>
+						<p class="comment">Pour vous inscrire merci de compléter le formulaire ci dessous.</p>
+						<table>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_pseudo" for="pseudo">Votre pseudonyme :</label></span>
+								</td>
+								<td class="tdcontrole">
+									<span class="controle"><input type="text" class="text" id="pseudo" name="pseudo" value="" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_motdepasse" for="motdepasse">Votre mot de passe :</label></span>
+								</td>
+								<td class="tdcontrole">
+									<span class="controle"><input type="password" class="text" id="motdepasse" name="motdepasse" value="" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_sexe" for="group_sexe">Vous êtes :</label></span>
+								</td>
+								<td>
+									<div class="tdcontrole" id="group_sexe">
+										<input type="radio" name="group_sexe" value="Homme"  /> Homme
+										<input type="radio" name="group_sexe" value="Femme"  /> Femme
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_email" for="email">Votre adresse email :</label></span>
+								</td>
+								<td class="tdcontrole">
+									<span class="controle"><input type="text" class="text" id="email" name="email" value="" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label for="listepays">Votre pays :</label></span>
+								</td>
+								<td>
+									<div class="tdcontrole">
+										<select class="select" id="listepays" name="listepays" onchange="get_pays(listepays.options[listepays.selectedIndex].value)"> 
+										<option value="Afrique du Sud"> Afrique du Sud </option><option value="Albanie"> Albanie </option><option value="Algérie"> Algérie </option><option value="Allemagne"> Allemagne </option><option value="Andorre"> Andorre </option><option value="Angola"> Angola </option><option value="Antigua-et-Barbuda"> Antigua-et-Barbuda </option><option value="Antilles Néerlandaises"> Antilles Néerlandaises </option><option value="Arabie saoudite"> Arabie saoudite </option><option value="Argentine"> Argentine </option><option value="Arménie"> Arménie </option><option value="Aruba"> Aruba </option><option value="Australie"> Australie </option><option value="Autres"> Autres </option><option value="Autriche"> Autriche </option><option value="Azerbaïdjan"> Azerbaïdjan </option><option value="Bahamas"> Bahamas </option><option value="Bahreïn"> Bahreïn </option><option value="Bande de Gaza"> Bande de Gaza </option><option value="Bangladesh"> Bangladesh </option><option value="Barbade"> Barbade </option><option value="Belarus"> Belarus </option><option value="Belgique"> Belgique </option><option value="Belize"> Belize </option><option value="Bénin"> Bénin </option><option value="Bermudes"> Bermudes </option><option value="Bhoutan"> Bhoutan </option><option value="Birmanie"> Birmanie </option><option value="Bolivie"> Bolivie </option><option value="Bosnie-et-Herzégovine"> Bosnie-et-Herzégovine </option><option value="Botswana"> Botswana </option><option value="Brésil"> Brésil </option><option value="Brunei"> Brunei </option><option value="Brunei Darussalam"> Brunei Darussalam </option><option value="Bulgarie"> Bulgarie </option><option value="Burkina"> Burkina </option><option value="Burkina  Faso"> Burkina  Faso </option><option value="Burundi"> Burundi </option><option value="Cambodge"> Cambodge </option><option value="Cameroun"> Cameroun </option><option value="Canada"> Canada </option><option value="Cap-Vert"> Cap-Vert </option><option value="Chili"> Chili </option><option value="Chine"> Chine </option><option value="Chypre"> Chypre </option><option value="Cisjordanie"> Cisjordanie </option><option value="Colombie"> Colombie </option><option value="Comores"> Comores </option><option value="Congo"> Congo </option><option value="Congo"> Congo </option><option value="Corée du Nord"> Corée du Nord </option><option value="Corée du Sud"> Corée du Sud </option><option value="Costa Rica"> Costa Rica </option><option value="Côte d'Ivoire"> Côte d'Ivoire </option><option value="Croatie"> Croatie </option><option value="Cuba"> Cuba </option><option value="Danemark"> Danemark </option><option value="Djibouti"> Djibouti </option><option value="Dominique"> Dominique </option><option value="Égypte"> Égypte </option><option value="Émirats Arabes Unis"> Émirats Arabes Unis </option><option value="Équateur"> Équateur </option><option value="Érythrée"> Érythrée </option><option value="Espagne"> Espagne </option><option value="Estonie"> Estonie </option><option value="États-Unis"> États-Unis </option><option value="Éthiopie"> Éthiopie </option><option value="Fédération de Russie (OIT)"> Fédération de Russie (OIT) </option><option value="Fidji"> Fidji </option><option value="Finlande"> Finlande </option><option value="France" selected="selected" > France </option><option value="Gabon"> Gabon </option><option value="Gambie"> Gambie </option><option value="Géorgie"> Géorgie </option><option value="Ghana"> Ghana </option><option value="Gibraltar"> Gibraltar </option><option value="Grèce"> Grèce </option><option value="Grenade"> Grenade </option><option value="Groenland"> Groenland </option><option value="Guatemala"> Guatemala </option><option value="Guinée"> Guinée </option><option value="Guinée équatoriale"> Guinée équatoriale </option><option value="Guinée-Bissau"> Guinée-Bissau </option><option value="Haïti"> Haïti </option><option value="Honduras"> Honduras </option><option value="Hong-Kong"> Hong-Kong </option><option value="Hongrie"> Hongrie </option><option value="Iles Caiman"> Iles Caiman </option><option value="Iles Christmas"> Iles Christmas </option><option value="Iles Cocos"> Iles Cocos </option><option value="Iles Cook"> Iles Cook </option><option value="Iles de Man"> Iles de Man </option><option value="Iles Falkland"> Iles Falkland </option><option value="Iles Féroé"> Iles Féroé </option><option value="Iles Géorgie du Sud"> Iles Géorgie du Sud </option><option value="Iles Marshall"> Iles Marshall </option><option value="Iles Norfolk"> Iles Norfolk </option><option value="Iles Pitcairns"> Iles Pitcairns </option><option value="Iles Salomon"> Iles Salomon </option><option value="Iles Spratly"> Iles Spratly </option><option value="Iles Turks et Caicos"> Iles Turks et Caicos </option><option value="Iles Vierges"> Iles Vierges </option><option value="Inde"> Inde </option><option value="Indonésie"> Indonésie </option><option value="Irak"> Irak </option><option value="Iran"> Iran </option><option value="Irlande"> Irlande </option><option value="Islande"> Islande </option><option value="Israel"> Israel </option><option value="Italie"> Italie </option><option value="Jamaïque"> Jamaïque </option><option value="Japon"> Japon </option><option value="Jersey"> Jersey </option><option value="Jordanie"> Jordanie </option><option value="Kazakhstan"> Kazakhstan </option><option value="Kenya"> Kenya </option><option value="Kirghizistan"> Kirghizistan </option><option value="Kiribati"> Kiribati </option><option value="Koweït"> Koweït </option><option value="Laos"> Laos </option><option value="Lesotho"> Lesotho </option><option value="Lettonie"> Lettonie </option><option value="Liban"> Liban </option><option value="Liberia"> Liberia </option><option value="Libye"> Libye </option><option value="Liechtenstein"> Liechtenstein </option><option value="Lituanie"> Lituanie </option><option value="Luxembourg"> Luxembourg </option><option value="Macao"> Macao </option><option value="Macédoine"> Macédoine </option><option value="Madagascar"> Madagascar </option><option value="Malaisie"> Malaisie </option><option value="Malawi"> Malawi </option><option value="Maldives"> Maldives </option><option value="Mali"> Mali </option><option value="Malte"> Malte </option><option value="Maroc"> Maroc </option><option value="Maurice"> Maurice </option><option value="Mauritanie"> Mauritanie </option><option value="Mexique"> Mexique </option><option value="Micronésie"> Micronésie </option><option value="Moldavie"> Moldavie </option><option value="Monaco"> Monaco </option><option value="Mongolie"> Mongolie </option><option value="Monténégro"> Monténégro </option><option value="Mozambique"> Mozambique </option><option value="Namibie"> Namibie </option><option value="Nauru"> Nauru </option><option value="Népal"> Népal </option><option value="Nicaragua"> Nicaragua </option><option value="Niger"> Niger </option><option value="Nigeria"> Nigeria </option><option value="Niue"> Niue </option><option value="Norvège"> Norvège </option><option value="Nouvelle-Calédonie"> Nouvelle-Calédonie </option><option value="Nouvelle-Zélande"> Nouvelle-Zélande </option><option value="Oman"> Oman </option><option value="Ouganda"> Ouganda </option><option value="Ouzbékistan"> Ouzbékistan </option><option value="Pakistan"> Pakistan </option><option value="Palaos"> Palaos </option><option value="Panama"> Panama </option><option value="Papouasie-Nouvelle-Guinée"> Papouasie-Nouvelle-Guinée </option><option value="Paraguay"> Paraguay </option><option value="Pays-Bas"> Pays-Bas </option><option value="Pérou"> Pérou </option><option value="Philippines"> Philippines </option><option value="Pologne"> Pologne </option><option value="Porto-Rico"> Porto-Rico </option><option value="Portugal"> Portugal </option><option value="Qatar"> Qatar </option><option value="République Centrafricaine"> République Centrafricaine </option><option value="République Dominicaine"> République Dominicaine </option><option value="Roumanie"> Roumanie </option><option value="Royaume-Uni"> Royaume-Uni </option><option value="Russie (IGN, UE, INSEE, PR)"> Russie (IGN, UE, INSEE, PR) </option><option value="Rwanda"> Rwanda </option><option value="Sahara Occidental"> Sahara Occidental </option><option value="Saint Pierre-et-Miquelon"> Saint Pierre-et-Miquelon </option><option value="Saint-Christophe-et-Niévès"> Saint-Christophe-et-Niévès </option><option value="Saint-Kitts-et-Nevis"> Saint-Kitts-et-Nevis </option><option value="Saint-Marin"> Saint-Marin </option><option value="Saint-Vincent-et- Grenadines"> Saint-Vincent-et- Grenadines </option><option value="Sainte-Hélène"> Sainte-Hélène </option><option value="Sainte-Lucie"> Sainte-Lucie </option><option value="Salvador"> Salvador </option><option value="Samoa"> Samoa </option><option value="Sao Tomé-et-Principe"> Sao Tomé-et-Principe </option><option value="Sénégal"> Sénégal </option><option value="Serbie"> Serbie </option><option value="Seychelles"> Seychelles </option><option value="Sierra Leone"> Sierra Leone </option><option value="Singapour"> Singapour </option><option value="Slovaquie"> Slovaquie </option><option value="Slovaquie"> Slovaquie </option><option value="Slovénie"> Slovénie </option><option value="Somalie"> Somalie </option><option value="Soudan"> Soudan </option><option value="Sri Lanka"> Sri Lanka </option><option value="Suède"> Suède </option><option value="Suisse"> Suisse </option><option value="Suriname"> Suriname </option><option value="Svalbard"> Svalbard </option><option value="Swaziland"> Swaziland </option><option value="Syrie"> Syrie </option><option value="Tadjikistan"> Tadjikistan </option><option value="Taiwan"> Taiwan </option><option value="Tanzanie"> Tanzanie </option><option value="Tchad"> Tchad </option><option value="Tchèquie"> Tchèquie </option><option value="Terres Australes et Antartiques Françaises"> Terres Australes et Antartiques Françaises </option><option value="Thaïlande"> Thaïlande </option><option value="Timor oriental"> Timor oriental </option><option value="Togo"> Togo </option><option value="Tokelau"> Tokelau </option><option value="Tonga"> Tonga </option><option value="Trinité-et-Tobago"> Trinité-et-Tobago </option><option value="Tunisie"> Tunisie </option><option value="Turkménistan"> Turkménistan </option><option value="Turquie"> Turquie </option><option value="Tuvalu"> Tuvalu </option><option value="Ukraine"> Ukraine </option><option value="Uruguay"> Uruguay </option><option value="Vanuatu"> Vanuatu </option><option value="Venezuela"> Venezuela </option><option value="Vi'eat Nam"> Vi'eat Nam </option><option value="Villes Franches"> Villes Franches </option><option value="Yémen"> Yémen </option><option value="Zambie"> Zambie </option><option value="Zimbabwe"> Zimbabwe </option>										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label for="listedepartement">Votre departement :</label></span>
+								</td>
+								<td>
+									<div class="tdcontrole">
+										<select class="select" id="listedepartement" name="listedepartement" onchange="get_departement(listedepartement.options[listedepartement.selectedIndex].value)"> 
+										<option value="" selected="selected" >  </option>
+<option value="Ain"> Ain (01) </option>
+<option value="Aisne"> Aisne (02) </option>
+<option value="Allier"> Allier (03) </option>
+<option value="Alpes de Hautes-Provence"> Alpes de Hautes-Provence (04) </option>
+<option value="Hautes-Alpes"> Hautes-Alpes (05) </option>
+<option value="Alpes-Maritimes"> Alpes-Maritimes (06) </option>
+<option value="Ardèche"> Ardèche (07) </option>
+<option value="Ardennes"> Ardennes (08) </option>
+<option value="Ariège"> Ariège (09) </option>
+<option value="Aube"> Aube (10) </option>
+<option value="Aude"> Aude (11) </option>
+<option value="Aveyron"> Aveyron (12) </option>
+<option value="Bouches-du-Rhône"> Bouches-du-Rhône (13) </option>
+<option value="Calvados"> Calvados (14) </option>
+<option value="Cantal"> Cantal (15) </option>
+<option value="Charente"> Charente (16) </option>
+<option value="Charente-Maritime"> Charente-Maritime (17) </option>
+<option value="Cher"> Cher (18) </option>
+<option value="Corrèze"> Corrèze (19) </option>
+<option value="Côte-d'Or"> Côte-d'Or (21) </option>
+<option value="Côtes d'Armor"> Côtes d'Armor (22) </option>
+<option value="Creuse"> Creuse (23) </option>
+<option value="Dordogne"> Dordogne (24) </option>
+<option value="Doubs"> Doubs (25) </option>
+<option value="Drôme"> Drôme (26) </option>
+<option value="Eure"> Eure (27) </option>
+<option value="Eure-et-Loir"> Eure-et-Loir (28) </option>
+<option value="Finistère"> Finistère (29) </option>
+<option value="Corse-du-Sud"> Corse-du-Sud (2A) </option>
+<option value="Haute-Corse"> Haute-Corse (2B) </option>
+<option value="Gard"> Gard (30) </option>
+<option value="Haute-Garonne"> Haute-Garonne (31) </option>
+<option value="Gers"> Gers (32) </option>
+<option value="Gironde"> Gironde (33) </option>
+<option value="Hérault"> Hérault (34) </option>
+<option value="Ille-et-Vilaine"> Ille-et-Vilaine (35) </option>
+<option value="Indre"> Indre (36) </option>
+<option value="Indre-et-Loire"> Indre-et-Loire (37) </option>
+<option value="Isère"> Isère (38) </option>
+<option value="Jura"> Jura (39) </option>
+<option value="Landes"> Landes (40) </option>
+<option value="Loir-et-Cher"> Loir-et-Cher (41) </option>
+<option value="Loire"> Loire (42) </option>
+<option value="Haute-Loire"> Haute-Loire (43) </option>
+<option value="Loire-Atlantique"> Loire-Atlantique (44) </option>
+<option value="Loiret"> Loiret (45) </option>
+<option value="Lot"> Lot (46) </option>
+<option value="Lot-et-Garonne"> Lot-et-Garonne (47) </option>
+<option value="Lozère"> Lozère (48) </option>
+<option value="Maine-et-Loire"> Maine-et-Loire (49) </option>
+<option value="Manche"> Manche (50) </option>
+<option value="Marne"> Marne (51) </option>
+<option value="Haute-Marne"> Haute-Marne (52) </option>
+<option value="Mayenne"> Mayenne (53) </option>
+<option value="Meurthe-et-Moselle"> Meurthe-et-Moselle (54) </option>
+<option value="Meuse"> Meuse (55) </option>
+<option value="Morbihan"> Morbihan (56) </option>
+<option value="Moselle"> Moselle (57) </option>
+<option value="Nièvre"> Nièvre (58) </option>
+<option value="Nord"> Nord (59) </option>
+<option value="Oise"> Oise (60) </option>
+<option value="Orne"> Orne (61) </option>
+<option value="Pas-de-Calais"> Pas-de-Calais (62) </option>
+<option value="Puy-de-Dôme"> Puy-de-Dôme (63) </option>
+<option value="Pyrénées-Atlantiques"> Pyrénées-Atlantiques (64) </option>
+<option value="Hautes-Pyrénées"> Hautes-Pyrénées (65) </option>
+<option value="Pyrénées-Orientales"> Pyrénées-Orientales (66) </option>
+<option value="Bas-Rhin"> Bas-Rhin (67) </option>
+<option value="Haut-Rhin"> Haut-Rhin (68) </option>
+<option value="Rhône"> Rhône (69) </option>
+<option value="Haute-Saône"> Haute-Saône (70) </option>
+<option value="Saône-et-Loire"> Saône-et-Loire (71) </option>
+<option value="Sarthe"> Sarthe (72) </option>
+<option value="Savoie"> Savoie (73) </option>
+<option value="Haute-Savoie"> Haute-Savoie (74) </option>
+<option value="Paris"> Paris (75) </option>
+<option value="Seine-Maritime"> Seine-Maritime (76) </option>
+<option value="Seine-et-Marne"> Seine-et-Marne (77) </option>
+<option value="Yvelines"> Yvelines (78) </option>
+<option value="Deux-Sèvres"> Deux-Sèvres (79) </option>
+<option value="Somme"> Somme (80) </option>
+<option value="Tarn"> Tarn (81) </option>
+<option value="Tarn-et-Garonne"> Tarn-et-Garonne (82) </option>
+<option value="Var"> Var (83) </option>
+<option value="Vaucluse"> Vaucluse (84) </option>
+<option value="Vendée"> Vendée (85) </option>
+<option value="Vienne"> Vienne (86) </option>
+<option value="Haute-Vienne"> Haute-Vienne (87) </option>
+<option value="Vosges"> Vosges (88) </option>
+<option value="Yonne"> Yonne (89) </option>
+<option value="Territoire-de-Belfort"> Territoire-de-Belfort (90) </option>
+<option value="Essonne"> Essonne (91) </option>
+<option value="Hauts-de-Seine"> Hauts-de-Seine (92) </option>
+<option value="Seine-Saint-Denis"> Seine-Saint-Denis (93) </option>
+<option value="Val-de-Marne"> Val-de-Marne (94) </option>
+<option value="Val-d'Oise"> Val-d'Oise (95) </option>
+<option value="Guadeloupe"> Guadeloupe (971) </option>
+<option value="Martinique"> Martinique (972) </option>
+<option value="Guyane"> Guyane (973) </option>
+<option value="Réunion"> Réunion (974) </option>
+<option value="Saint-Pierre-et-Miquelon"> Saint-Pierre-et-Miquelon (975) </option>
+<option value="Mayotte"> Mayotte (976) </option>
+<option value="Saint-Barthélemy "> Saint-Barthélemy  (977) </option>
+<option value="Saint-Martin"> Saint-Martin (978) </option>
+<option value="Wallis-et-Futuna"> Wallis-et-Futuna (986) </option>
+<option value="Polynésie française"> Polynésie française (987) </option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label for="listeville">Votre ville :</label></span>
+								</td>
+								<td>
+									<div class="tdcontrole">
+										<select class="select" id="listeville" name="listeville" onchange="get_ville(listeville.options[listeville.selectedIndex].value)"> 
+										<option value="" selected="selected" >  </option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tdlabel">
+									<span class="label"><label id="label_age" for="age">Votre date de naissance :</label></span>
+								</td>
+								<td>
+									<table id="age">
+									<tr>
+									<td class="tdcontroleannee">
+									<div class="tdcontrole">
+									<select class="select" name="listeannee"> 
+									<option value="Année" selected="selected" > Année </option>
+<option value="2000"> 2000 </option>
+<option value="1999"> 1999 </option>
+<option value="1998"> 1998 </option>
+<option value="1997"> 1997 </option>
+<option value="1996"> 1996 </option>
+<option value="1995"> 1995 </option>
+<option value="1994"> 1994 </option>
+<option value="1993"> 1993 </option>
+<option value="1992"> 1992 </option>
+<option value="1991"> 1991 </option>
+<option value="1990"> 1990 </option>
+<option value="1989"> 1989 </option>
+<option value="1988"> 1988 </option>
+<option value="1987"> 1987 </option>
+<option value="1986"> 1986 </option>
+<option value="1985"> 1985 </option>
+<option value="1984"> 1984 </option>
+<option value="1983"> 1983 </option>
+<option value="1982"> 1982 </option>
+<option value="1981"> 1981 </option>
+<option value="1980"> 1980 </option>
+<option value="1979"> 1979 </option>
+<option value="1978"> 1978 </option>
+<option value="1977"> 1977 </option>
+<option value="1976"> 1976 </option>
+<option value="1975"> 1975 </option>
+<option value="1974"> 1974 </option>
+<option value="1973"> 1973 </option>
+<option value="1972"> 1972 </option>
+<option value="1971"> 1971 </option>
+<option value="1970"> 1970 </option>
+<option value="1969"> 1969 </option>
+<option value="1968"> 1968 </option>
+<option value="1967"> 1967 </option>
+<option value="1966"> 1966 </option>
+<option value="1965"> 1965 </option>
+<option value="1964"> 1964 </option>
+<option value="1963"> 1963 </option>
+<option value="1962"> 1962 </option>
+<option value="1961"> 1961 </option>
+<option value="1960"> 1960 </option>
+<option value="1959"> 1959 </option>
+<option value="1958"> 1958 </option>
+<option value="1957"> 1957 </option>
+<option value="1956"> 1956 </option>
+<option value="1955"> 1955 </option>
+<option value="1954"> 1954 </option>
+<option value="1953"> 1953 </option>
+<option value="1952"> 1952 </option>
+<option value="1951"> 1951 </option>
+<option value="1950"> 1950 </option>
+<option value="1949"> 1949 </option>
+<option value="1948"> 1948 </option>
+<option value="1947"> 1947 </option>
+<option value="1946"> 1946 </option>
+<option value="1945"> 1945 </option>
+<option value="1944"> 1944 </option>
+<option value="1943"> 1943 </option>
+<option value="1942"> 1942 </option>
+<option value="1941"> 1941 </option>
+<option value="1940"> 1940 </option>
+<option value="1939"> 1939 </option>
+<option value="1938"> 1938 </option>
+<option value="1937"> 1937 </option>
+<option value="1936"> 1936 </option>
+<option value="1935"> 1935 </option>
+<option value="1934"> 1934 </option>
+<option value="1933"> 1933 </option>
+<option value="1932"> 1932 </option>
+<option value="1931"> 1931 </option>
+<option value="1930"> 1930 </option>
+<option value="1929"> 1929 </option>
+<option value="1928"> 1928 </option>
+<option value="1927"> 1927 </option>
+<option value="1926"> 1926 </option>
+<option value="1925"> 1925 </option>
+<option value="1924"> 1924 </option>
+<option value="1923"> 1923 </option>
+<option value="1922"> 1922 </option>
+<option value="1921"> 1921 </option>
+<option value="1920"> 1920 </option>
+<option value="1919"> 1919 </option>
+<option value="1918"> 1918 </option>
+<option value="1917"> 1917 </option>
+<option value="1916"> 1916 </option>
+<option value="1915"> 1915 </option>
+<option value="1914"> 1914 </option>
+<option value="1913"> 1913 </option>
+<option value="1912"> 1912 </option>
+<option value="1911"> 1911 </option>
+<option value="1910"> 1910 </option>
+<option value="1909"> 1909 </option>
+<option value="1908"> 1908 </option>
+<option value="1907"> 1907 </option>
+<option value="1906"> 1906 </option>
+<option value="1905"> 1905 </option>
+<option value="1904"> 1904 </option>
+<option value="1903"> 1903 </option>
+<option value="1902"> 1902 </option>
+<option value="1901"> 1901 </option>
+<option value="1900"> 1900 </option>
+<option value="1899"> 1899 </option>
+<option value="1898"> 1898 </option>
+<option value="1897"> 1897 </option>
+<option value="1896"> 1896 </option>
+<option value="1895"> 1895 </option>
+<option value="1894"> 1894 </option>
+<option value="1893"> 1893 </option>
+<option value="1892"> 1892 </option>
+<option value="1891"> 1891 </option>
+									</select>
+									</div>
+									</td>
+									<td class="tdcontrolemois">
+									<div class="tdcontrole">
+									<select class="select" name="listemois"> 
+									<option value="Mois" selected="selected" > Mois </option>
+<option value="janvier"> janvier </option>
+<option value="février"> février </option>
+<option value="mars"> mars </option>
+<option value="avril"> avril </option>
+<option value="mai"> mai </option>
+<option value="juin"> juin </option>
+<option value="juillet"> juillet </option>
+<option value="aout"> aout </option>
+<option value="septembre"> septembre </option>
+<option value="octobre"> octobre </option>
+<option value="novembre"> novembre </option>
+<option value="décembre"> décembre </option>
+									</select>
+									</div>
+									</td>
+									<td class="tdcontrolejour">
+									<div class="tdcontrole">
+									<select class="select" name="listejour"> 
+									<option value="Jour" selected="selected" > Jour </option>
+<option value="01"> 01 </option>
+<option value="02"> 02 </option>
+<option value="03"> 03 </option>
+<option value="04"> 04 </option>
+<option value="05"> 05 </option>
+<option value="06"> 06 </option>
+<option value="07"> 07 </option>
+<option value="08"> 08 </option>
+<option value="09"> 09 </option>
+<option value="10"> 10 </option>
+<option value="11"> 11 </option>
+<option value="12"> 12 </option>
+<option value="13"> 13 </option>
+<option value="14"> 14 </option>
+<option value="15"> 15 </option>
+<option value="16"> 16 </option>
+<option value="17"> 17 </option>
+<option value="18"> 18 </option>
+<option value="19"> 19 </option>
+<option value="20"> 20 </option>
+<option value="21"> 21 </option>
+<option value="22"> 22 </option>
+<option value="23"> 23 </option>
+<option value="24"> 24 </option>
+<option value="25"> 25 </option>
+<option value="26"> 26 </option>
+<option value="27"> 27 </option>
+<option value="28"> 28 </option>
+<option value="29"> 29 </option>
+<option value="30"> 30 </option>
+<option value="31"> 31 </option>
+									</select>
+									</div>
+									</td>
+									</tr>			
+									</table>
+								</td>
+							</tr>
+						</table>
+						<fieldset>
+							<p class="confirm">
+							<span class="label">
+								<a href="cgu.html" target="_blank">Confirmer les Conditions Générales d'Utilisation</a>
+							</span>
+							<br />
+							<span class="controle" id="span_cgu">
+								<input type="checkbox" class="bouton" id="cgu" name="cgu"  /><label id="label_cgu" for="cgu">Je confirme avoir lu et accepté les Conditions Générales d'Utilisation du site et être majeur(e)</label>
+							</span>
+							</p>
+							<input type="hidden" name="js_present" id="js_present" value="0"/>
+							<p class="submit">
+								<input type="submit" id="submit" name="submit" value="Inscription au site" />
+							</p>
+						</fieldset>
+					</form>
+					<div class="resultmessages">
+						<p id="resultmessage" class="error" ></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="displayfb">
+			<div id="fb-root"></div>
+			<script type="text/javascript">(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {return;}
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			<script type="text/javascript">
+			<!--
+			document.write('<div class="fb-like" data-href="https://maxichat.fr" data-send="true" data-width="450" data-show-faces="true"></div>');
+			//-->
+			</script>
+		</div>
+		<div id="piedpage">
+	<div id="textmaxichat">
+		<h1 align="center"> Tchat cam et Rencontres webcam Gratuites </h1>
+		Maxichat.fr est un site de rencontre entre hommes et femmes et de tchat multi salon avec webcam.<br/>
+		Maxichat vous permet également de faire du cam to cam pour vous isoler en duo webcam avec un partenaire.<br/>
+		Maxichat est totalement gratuit et vous permet de contacter et de rencontrer des hommes et des femmes qui comme vous sont à la recherche de nouvelles amitiés.<br/>
+		Inscrivez vous et créez votre fiche, votre profil sera alors consultable sur le web.<br/>
+		Ajoutez jusqu’à 39 photos à votre profil pour améliorer vos chances de succès (une fiche avec photo est 10 fois plus consultée qu’une fiche sans photo).<br/>
+		N’hésitez pas à enregistrer une petite vidéo pour vous présenter et surtout n’oubliez pas de remplir votre description et de compléter votre profil pour rendre attractive votre fiche.<br/>
+		Le chat multi webcam  vous permettra de discuter avec les autres inscrits en live et vous pourrez créer votre propre salon multi webcam protégé par mot de passe pour y inviter tous vos amis.<br/>
+		N’hésitez pas à 
+		<script type="text/javascript">
+		<!--
+		title1 = "www.maxichat.fr - Site de tchat et rencontre 100% gratuit";
+		url1 = "https://maxichat.fr/";
+		if (window.sidebar) 
+		{  
+		document.write('<a href="javascript:addToFavorites(this,title1,url1);">mettre maxichat dans vos Marque-pages</a>');  
+		}
+		else  if (window.external) 
+		{  
+		document.write('<a href="javascript:addToFavorites(this,title1,url1);">mettre maxichat dans vos Favoris</a>');   
+		}
+		else if (window.opera && window.print) 
+		{
+		document.write('<a href="'); document.write(url1); document.write('" title="'); document.write(title1); document.write('" rel="sidebar">mettre maxichat dans vos signets</a>');
+		}
+		//-->
+		</script>
+		<noscript>
+		mettre maxichat dans vos Favoris
+		</noscript>
+		<!-- Fin code -->		
+		 pour vous connecter plus rapidement.<br/>
+		En cas de problème ou de difficulté pour accéder au site contactez nous <a href="nouscontacter.php">ici</a>.
+	</div>
+	<div id="pubmaxichat">
+		<center>
+					</center>
+	</div> 
+	<div class="divvignettes">
+		<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=C%C3%B4te-d%27Or&amp;ville_acces=Alise-Sainte-Reine&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/94/122494_04_0001.jpeg" alt="rencontre chantal.venel1" title="rencontre chantal.venel1" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/chantal.venel1-122494.html" target="_blank">chantal.venel1</a></h3>
+38 ans.<br />
+Alise-Sainte-Reine<br />
+Côte-d'Or<br />
+Bourgogne<br />
+</div>
+<div class="div-description-vignette-accueil">
+ Moi je me nomme Chantal  je suis d?origine Fran&ccedil;aise et  je suis c&eacute;libataire sans enfants physiquement je mesure 1m70  pour 67 kg yeux marron j'ai des cheveux blondes suis plus t&ocirc;t teint whit . Je suis a la recherche de l &acirc;me s?ur une relation amicale ou s&eacute;rieuse et sinc&egrave;re sans prise de t&ecirc;te avec un homme honn&ecirc;te.</div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-bourgogne-1R-1.html">rencontre  Bourgogne</a>
+ | <a href="https://maxichat.fr/rencontre-cote-d-or-1D-1.html">rencontre  Côte-d'Or</a>
+ | <a href="https://maxichat.fr/rencontre-alise-sainte-reine-21V-1.html"> Alise-Sainte-Reine</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Var&amp;ville_acces=Les+Arcs&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/13/140113_01_0001.jpeg" alt="rencontre betty0541" title="rencontre betty0541" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/betty0541-140113.html" target="_blank">betty0541</a></h3>
+33 ans.<br />
+Les Arcs<br />
+Var<br />
+Provence-Alpes-Côte d'Azur<br />
+</div>
+<div class="div-description-vignette-accueil">
+Je recherche une relation amoureuse vraiment sinc&egrave;re je ne recherche pas la homme id&eacute;ale,  mais plut&ocirc;t celui &agrave; qui je pourrai exprimer mon amour et avec qui je pourrai vivre dans la sinc&eacute;rit&eacute;, l?honn&ecirc;tet&eacute;, la fid&eacute;lit&eacute;, la v&eacute;rit&eacute;, le respect, la complicit&eacute; et la fraternit&eacute;,  je veux vivre heureuse sans prise de t&ecirc;te<br /></div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-provence-alpes-cote-d-azur-1R-1.html">rencontre  Provence-Alpes-Côte d'Azur</a>
+ | <a href="https://maxichat.fr/rencontre-var-1D-1.html">rencontre  Var</a>
+ | <a href="https://maxichat.fr/rencontre-les-arcs-83V-1.html"> Les Arcs</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Seine-Maritime&amp;ville_acces=Rouen&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/05/141005_04_0001.jpeg" alt="rencontre dg76" title="rencontre dg76" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/dg76-141005.html" target="_blank">dg76</a></h3>
+64 ans.<br />
+Rouen<br />
+Seine-Maritime<br />
+Haute-Normandie<br />
+</div>
+<div class="div-description-vignette-accueil">
+bon jour <br />je suis une femme marier je suis ici que pour le dial<br />alors pas besoin de me draguer car je suis fidele a mon mari<br />pas de duo non plus <br />et pas de pv <br />j'ai 60 ans et je suis maman de 8 enfants et mamie de 15 petits enfants <br />alors soyer gentil avec moi car je n'es pas l'abitude au pc <br />passer une belle jpurnee</div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-haute-normandie-1R-1.html">rencontre  Haute-Normandie</a>
+ | <a href="https://maxichat.fr/rencontre-seine-maritime-1D-1.html">rencontre  Seine-Maritime</a>
+ | <a href="https://maxichat.fr/rencontre-rouen-76V-1.html"> Rouen</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Var&amp;ville_acces=Toulon&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/94/177494_01_0001.jpeg" alt="rencontre jacqueline_01" title="rencontre jacqueline_01" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/jacqueline_01-177494.html" target="_blank">jacqueline_01</a></h3>
+39 ans.<br />
+Toulon<br />
+Var<br />
+Provence-Alpes-Côte d'Azur<br />
+</div>
+<div class="div-description-vignette-accueil">
+salut comment allez vous je me nomme jacqueline  S&eacute;pare avec une fille de 10ans je sir de Toulon dans la R&eacute;gion de var je sur commer&ccedil;nate de bijou je sur la pour retrouve un homme de ma vie pour que je puis mieux vivre avec ma vie et avec homme de ma vie sur une relation durable basse sur la confiance honnetete fidelite </div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-provence-alpes-cote-d-azur-1R-1.html">rencontre  Provence-Alpes-Côte d'Azur</a>
+ | <a href="https://maxichat.fr/rencontre-var-1D-1.html">rencontre  Var</a>
+ | <a href="https://maxichat.fr/rencontre-toulon-83V-1.html"> Toulon</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Allier&amp;ville_acces=Le+Breuil&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/10/65910_04_0001.jpeg" alt="rencontre cherry01" title="rencontre cherry01" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/cherry01-65910.html" target="_blank">cherry01</a></h3>
+39 ans.<br />
+Le Breuil<br />
+Allier<br />
+Auvergne<br />
+</div>
+<div class="div-description-vignette-accueil">
+Je cherche un homme un peu plus vieux que moi avec qui partager ma vie ...<br />Avec qui partager ... :<br />Un voyage au loin, un bon livre au coin d'une chemin&eacute;e, <br />Une balade main dans la main au bord d'une plage, un th&eacute; pour deux le soir tranquillement pour parler de notre journ&eacute;e, de nos projets, ...<br />Et tant d'autres choses ... </div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-auvergne-1R-1.html">rencontre  Auvergne</a>
+ | <a href="https://maxichat.fr/rencontre-allier-1D-1.html">rencontre  Allier</a>
+ | <a href="https://maxichat.fr/rencontre-le-breuil-03V-1.html"> Le Breuil</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Paris&amp;ville_acces=Paris&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/31/160331_01_0001.jpeg" alt="rencontre lootus" title="rencontre lootus" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/lootus-160331.html" target="_blank">lootus</a></h3>
+39 ans.<br />
+Paris<br />
+Paris<br />
+Ile-de-France<br />
+</div>
+<div class="div-description-vignette-accueil">
+Bonjour &agrave; vous, comme pour beaucoup je recherche par ici une relation sinc&egrave;re et durable bas&eacute;e sur la confiance la sinc&eacute;rit&eacute; et la complicit&eacute; surtout<br />Je recherche un homme pleine d'envie qui aimerait bien construire quelque chose de durables et ayant des projets pour l'avenir peu importe qu'il soit avec des enfants ou pas.<br /></div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-ile-de-france-1R-1.html">rencontre  Ile-de-France</a>
+ | <a href="https://maxichat.fr/rencontre-paris-1D-1.html">rencontre  Paris</a>
+ | <a href="https://maxichat.fr/rencontre-paris-75V-1.html"> Paris</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Alpes+de+Hautes-Provence&amp;ville_acces=Aubignosc&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/37/64537_04_0002.jpeg" alt="rencontre bellefemme90" title="rencontre bellefemme90" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/bellefemme90-64537.html" target="_blank">bellefemme90</a></h3>
+41 ans.<br />
+Aubignosc<br />
+Alpes de Hautes-Provence<br />
+Provence-Alpes-Côte d'Azur<br />
+</div>
+<div class="div-description-vignette-accueil">
+slt moi sais celestine je suis une fille calme respertuese sincer  <br />j'aime le cine les resto sortie balade mes loisir sons lecture  la nature<br />la raison pour la quelle je suis si ce site sais pour afire une belle rencontre bas&egrave;  sure la confiance la sincerit&egrave; et aussi la fidelit&egrave; je mesure 176 cm pour 58  kilos  merci a touce <br /></div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-provence-alpes-cote-d-azur-1R-1.html">rencontre  Provence-Alpes-Côte d'Azur</a>
+ | <a href="https://maxichat.fr/rencontre-alpes-de-hautes-provence-1D-1.html">rencontre  Alpes de Hautes-Provence</a>
+ | <a href="https://maxichat.fr/rencontre-aubignosc-04V-1.html"> Aubignosc</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Marne&amp;ville_acces=Reims-la-Br%C3%BBl%C3%A9e&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/97/160197_01_0001.jpeg" alt="rencontre Rolande_31" title="rencontre Rolande_31" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/Rolande_31-160197.html" target="_blank">Rolande_31</a></h3>
+41 ans.<br />
+Reims-la-Brûlée<br />
+Marne<br />
+Champagne-Ardenne<br />
+</div>
+<div class="div-description-vignette-accueil">
+Je suis dans un but  sp&eacute;ciale .. Un premier  temps  connaitre une personne , sympas , doux , sinc&egrave;re , compr&eacute;hensive et s&eacute;rieux  avec qui faire connaissance  . Dans  un deuxi&egrave;mes temps  prendre le temps  d&eacute;couvrir  mon royaume  ,  prendre  le temps de mieux se comprendre  , dans un troisi&egrave;mes temps  , pas de prise de t&ecirc;te    .</div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-champagne-ardenne-1R-1.html">rencontre  Champagne-Ardenne</a>
+ | <a href="https://maxichat.fr/rencontre-marne-1D-1.html">rencontre  Marne</a>
+ | <a href="https://maxichat.fr/rencontre-reims-la-brulee-51V-1.html"> Reims-la-Brûlée</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Indre&amp;ville_acces=Oulches&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/71/86971_01_0001.jpeg" alt="rencontre tichou36" title="rencontre tichou36" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/tichou36-86971.html" target="_blank">tichou36</a></h3>
+34 ans.<br />
+Oulches<br />
+Indre<br />
+Centre<br />
+</div>
+<div class="div-description-vignette-accueil">
+salut a tous et a toutes moi c anais femme celib je vis toute seule suis sur ce site  juste pour me faire de nouvelle connaissance et vois si aff.<br />suis une personnes pas compliquer suis plustot gentille, cool; adorable, franche etc... mais pas contre jaime pas les menteur et les pervers voila je vous attends tous kiss a bientot</div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-centre-1R-1.html">rencontre  Centre</a>
+ | <a href="https://maxichat.fr/rencontre-indre-1D-1.html">rencontre  Indre</a>
+ | <a href="https://maxichat.fr/rencontre-oulches-36V-1.html"> Oulches</a>
+</div>
+</div>
+<div class="div-vignette-accueil">
+<div class="div-photo-vignette-accueil">
+<a href="http://maxeechat.fr/?pays_acces=France&amp;departement_acces=Paris&amp;ville_acces=Paris-2e-arrondissement&amp;adresse_acces=&amp;zoom=6&amp;rencontre=femme">
+<img src="photos/56/62956_06_0003.jpeg" alt="rencontre dianna" title="rencontre dianna" class="photo-vignette-accueil" />
+</a>
+</div>
+<div class="div-detail-vignette-accueil">
+<h3><a href="https://maxichat.fr/dianna-62956.html" target="_blank">dianna</a></h3>
+37 ans.<br />
+Paris-2e-arrondissement<br />
+Paris<br />
+Ile-de-France<br />
+</div>
+<div class="div-description-vignette-accueil">
+salut moi c'est dianayai je suis pour une rencontre serieuse et durable avec un homme de bonne moralite pour une relation syncere <br />attach&eacute;e au respect des valeurs familiales telles que la fid&eacute;lit&eacute;,la tendresse et le sens de la famille,que cette femme soit simple,s&eacute;duisante,d&eacute;vou&eacute;e,motiv&eacute;e pour cr&eacute;er une union s&eacute;rieuse et heureuse.</div>
+<div class="div-link">
+<a href="https://maxichat.fr/rencontre-france-1P-1.html">rencontre  France</a>
+ | <a href="https://maxichat.fr/rencontre-ile-de-france-1R-1.html">rencontre  Ile-de-France</a>
+ | <a href="https://maxichat.fr/rencontre-paris-1D-1.html">rencontre  Paris</a>
+ | <a href="https://maxichat.fr/rencontre-paris-2e-arrondissement-75V-1.html"> Paris-2e-arrondissement</a>
+</div>
+</div>
+	</div>
+	<div id="liens_maxichat">
+		<a class="pub33" href="https://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+		<a class="pub33" href="https://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" /></a>
+		<a class="pub33" href="https://maxichat.fr/inviter.php" target="_blank" title="Invitez vos amis à vous rejoindre"><button class="button_link">Invitez vos amis</button></a>
+	</div>
+	<table class="tableliens">
+		<tr>
+			<td class="tdliens3">
+			<a href="autres_sites.php" title="Nos Autres Sites">Autres Sites</a>
+			</td>
+			<td class="tdliens3">
+			<a href="partenaire.php" title="Nos partenaires">Partenaires</a>
+			</td>
+			<td class="tdliens3">
+			<a href="/suppression_compte.php" title="Supprimer votre compte">Supprimer votre compte</a>
+			</td>
+		</tr>
+	</table>
+	<table class="tableliens">
+		<tr>
+			<td class="tdliens2">
+			<a href="rencontres-pays-tous" title="Rencontres par pays">Rencontres par pays</a>
+			</td>
+			<td class="tdliens2">
+			<a href="rencontres-pays-france" title="Rencontres en France">Rencontres en France</a>
+			</td>
+		</tr>		
+	</table>
+	<table class="tableliens">
+		<tr>
+			<td class="tdliens3">
+			<a href="rencontres-regions-toutes" title="Rencontres par région">Rencontres par région</a>
+			</td>
+			<td class="tdliens3">
+			<a href="rencontres-departements-tous" title="Rencontres par département">Rencontres par département</a>
+			</td>
+			<td class="tdliens3">
+			<a href="rencontres-villes-toutes" title="Rencontres par ville">Rencontres par ville</a>
+			</td>
+		</tr>		
+	</table>
+	<div>
+		<script type="text/javascript">
+		  (function() {
+			var cx = '006740845970818966385:7w1_hxiqs0k';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+				'//www.google.com/cse/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+</div>
+	
+	</div>
+	</div>
+</center>
+</div>
+</body>
+</html>

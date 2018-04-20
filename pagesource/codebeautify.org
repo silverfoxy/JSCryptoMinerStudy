@@ -1,0 +1,966 @@
+
+<!DOCTYPE html >
+<html prefix="og: http://ogp.me/ns#" lang="en-US">
+<head>
+<title>Free Online Tools For Developers - to Beautify, Validate, Minify, Analyse, Convert JSON, XML, JavaScript, CSS, HTML, Excel</title>
+<meta property="timecb" content="06:23:24 PM" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="/img/cb.png" rel="icon" />
+<meta name="msvalidate.01" content="084CD6E483AD51F958E3681A39B9165D" />
+<meta name="google-site-verification" content="vlLARRChVnQgehr8KorYtZVny9K7NQPzKNQ3A3g-42k" />
+<meta property="fb:app_id" content="" />
+<meta property="og:url" content="https://codebeautify.org/" />
+<meta name="description" content="Online Tools like Beautifiers, Editors, Viewers, Minifier, Validators, Converters for Developers: XML, JSON, CSS, JavaScript, Java, C#, MXML, SQL, CSV, Excel" />
+<meta name="author" content="Jimmy" />
+<meta name="Keywords" content="developer tools,developer utility,online tools, dev tools,code beautifier, code beautifier online, online beautifier,beautify online,code formatter,beautify code online,code formatter online,code beautify,code minify,data convert,developer utility,code parse,data parser" />
+<meta property="og:image" content="/img/logo.png " />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Free Online Tools For Developers - to Beautify, Validate, Minify, Analyse, Convert JSON, XML, JavaScript, CSS, HTML, Excel" />
+<meta name="twitter:description" content="Online Tools like Beautifiers, Editors, Viewers, Minifier, Validators, Converters for Developers: XML, JSON, CSS, JavaScript, Java, C#, MXML, SQL, CSV, Excel" />
+<meta name="twitter:image" content="https://codebeautify.org/img/cb/logo.png" />
+<meta name="twitter:url" content="https://codebeautify.org/">
+<meta name="twitter:creator" content="@codebeautify">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+<link href="https://plus.google.com/111146553686540738855" rel="publisher" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.min.css" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/img/cb.png" rel="icon" />
+<link href="/css/formatter.css" rel="stylesheet" type="text/css" />
+
+<input type="hidden" id="isFavTool" value="not-fav" />
+<script>
+//local use
+function loginWithSocial(provider,tempLogin) {
+	$("#logFail").text("");
+
+	if(tempLogin != true){
+			}
+
+	hello(provider).login({
+		display : 'page',
+		scope : 'email',
+		redirect_uri:'/codebeautify_redirect'
+	}).then(function() {
+	}, function(e) {
+		openErrorDialog('Signin error: ' + e.error.message);
+	});
+}
+ var online = function(session) {
+		var currentTime = (new Date()).getTime() / 1000;
+		return session && session.access_token && session.expires > currentTime;
+	};
+
+	function check_login() {
+		var provider = getProvider();
+		if (provider != null) {
+			getLogindata(provider);
+		} else {
+			 $("#loggedin").hide();
+			 $("#notloggedin").show();
+			$("#user_id").val("0");
+			createFavouriteImg();
+		}
+	}
+
+	function getProvider() {
+
+						// online
+				 hello.init({ 
+					 facebook :'1379987838916043',
+						google : '1029680282693-o1r44fbtem67h8op2l8g6kiq82cr679c.apps.googleusercontent.com',
+						github : '971a8d9e78fda16f9a30',
+				 });
+				 
+				
+		var provider = null;
+
+		var facebook = hello('facebook').getAuthResponse();
+		var google = hello('google').getAuthResponse();
+		var github = hello('github').getAuthResponse();
+
+		if (online(facebook)) {
+			provider = 'facebook';
+		} else if (online(google)) {
+			provider = 'google';
+		}else if(online(github)){
+			provider = 'github';
+		}
+
+		return provider;
+	}
+
+	function getLogindata(provider) {
+		hello(provider).api('me').then(function(json) {
+
+			if(json.email == null || json.email.length == 0){
+				openErrorDialog("Email id required for login,please try again");
+				return;
+			}
+			if(json.name == null || json.name.length == 0){
+				json.name = json.email;
+			}
+			
+			$.ajax({
+				url : "/service/saveLoginData",
+				dataType : "text",
+				type : "post",
+				data : {
+					name : json.name,
+					email : json.email,
+					provider : provider
+				},
+				success : function(response) {
+					window.location.href = "/codebeautify_redirect";
+				},
+				error : function(e, s, a) {
+					openErrorDialog("Failed to Login, Pls Try Again");
+
+				}
+			});
+		}, function(e) {
+			console.log('getLogindata ' + e.error.message);
+		});
+	}
+	// logout
+function logout() {
+		document.cookie = "loggedinuser=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+		if(getProvider() != null){
+			hello(getProvider()).logout().then(function() {
+			}, function(e) {
+			});
+		}
+		
+		$.ajax({
+			url : "/service/logout",
+			success : function(res) {
+				window.location.href = "/codebeautify_redirect";
+			}
+		});
+	}
+
+function createFavouriteImg(){
+
+	$("#favToolImg").remove();
+	
+	var isFav = $("#isFavTool").val();
+	
+
+	var favView = $("<i>");
+	favView.attr("id","favToolImg");
+	$(favView).css("cursor","pointer");
+	favView.attr("aria-hidden",true);
+
+	if(isFav == "fav"){
+		favView.addClass("fa fa-star");
+		favView.attr("title","make it not favourite");
+	}
+	else{
+		favView.addClass("fa fa-star-o");
+		favView.attr("title","make it favourite");
+
+		if(isFav.trim().length == 0){
+			$("#isFavTool").val("not-fav");
+		}
+	}
+
+	$(favView).click(function(){
+		if($("#notloggedin").is(':visible')){
+			login();
+		}
+		else{
+			saveMyfavourite();
+		}
+	});
+	$("#subTitle").append(favView);
+}
+
+function saveMyfavourite(){
+	$.ajax({
+		url : "/service/saveFavouriteTool",
+		dataType : "text",
+		type : "post",
+		data : {
+			view : $("#viewName").val(),
+			title : $("#subTitle").text(),
+			isFav : $("#isFavTool").val()
+		},
+		success : function(response) {
+			var msg = "This tool added to favourite.";
+			$("#favToolImg").attr("src","../img/icons/fav.png");
+			if($("#isFavTool").val() == "fav"){
+				msg = "This tool remove from favourite.";
+				$("#favToolImg").attr("src","../img/icons/not-fav.png");
+				$("#isFavTool").val("not-fav");
+			}
+			else{
+				$("#isFavTool").val("fav");
+			}
+				
+			$("#copy-note-msg").html(msg);
+		    $('#copy-note-msg').removeClass("hide");
+		    $('#copy-note-msg').fadeIn().delay(10000).fadeOut();
+		},
+		error : function(e, s, a) {
+			openErrorDialog("Failed to save favourite tool, Pls Try Again");
+		}
+	});
+}
+
+function isfavourite(){
+	$.ajax({
+		url : "/service/isFavouriteTool",
+		dataType : "text",
+		type : "post",
+		data : {
+			view : $("#viewName").val(),
+		},
+		success : function(response) {
+			$("#isFavTool").val(response);
+			createFavouriteImg();
+		},
+		error : function(e, s, a) {
+			console.log(e);
+		}
+	});
+}
+
+
+/* if ( typeof(window.google_jobrunner) === "undefined" ) {
+	$("#adBlock_dialog").removeClass("hide");
+	$( "#adBlock_dialog" ).dialog({
+		modal : true,
+		zIndex : 10000,
+		autoOpen : true,
+		width : '500',
+		resizable : false,
+		closeOnEscape: false
+	 });
+	$(".ui-dialog-titlebar-close").remove();
+}  */
+
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body id="cbBody">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51765955-1', 'codebeautify.org');
+  ga('send', 'pageview');
+
+</script> <div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container-fluid">
+<div class='mainheader'>
+<div class='logo'> 
+<a href="/" class="brand">
+<div class="cblogoimage" title="Code Beautify"></div>
+</a>
+</div>
+<div class='headerMenu'>
+<div class="nav-collapse collapse">
+<ul class="nav pull-right rightsidemenusitem li-right">
+<li id="notloggedin" class="dropdown pull-right liFirstChild">
+<a href="#" onclick="login()" class="dropdown-toggle firstchild" data-toggle="dropdown" rel="nofollow">Sign in</a>
+<a class="lastchield firstchild" href="#" onclick="ylogin()" title="Why Sign In?">(?)</a>
+</li>
+<li id="loggedin" class="dropdown pull-right" onclick="toggleOpenClass()">
+<a id="username" class="dropdown-toggle" data-toggle="dropdown">
+<b id="usernamelable"></b>
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu pull-right">
+<li><a href="https://codebeautify.org/userSaveLinkPage" class="leftText" rel="nofollow">My Links</a></li>
+<li><a href="https://codebeautify.org/userSaveOldLinkPage" class="leftText" rel="nofollow">My Archived Links</a></li>
+<li><a href="/profile" class="leftText" rel="nofollow">My Profile</a></li>
+<li><a href="/myFavouriteTools" class="leftText" rel="nofollow">My Favourite Tools</a></li>
+<li><a href="#logout" onclick="logout();" class='leftText' rel="nofollow">Logout</a></li>
+</ul>
+</li>
+<li class="dropdown pull-right" id="moreMenu">
+<a href='#' id='more'>More <b class="caret"></b></a>
+</li>
+<li class="dropdown pull-right">
+<a href="/code" class="dropdown-toggle" data-toggle="dropdown">Sample</a>
+</li>
+<li class="dropdown pull-right">
+<a href="/recentLinksPage">Recent Links</a>
+</li>
+<li class="dropdown pull-right">
+<a href="/search">Search</a>
+</li>
+<li class="dropdown pull-right">
+<a href="/ipcheck-weatherinfo-latestnews">&nbsp;My Ip</a>
+</li>
+<li class="dropdown pull-right margin-last-li">
+<a href="https://jsonformatter.org" target="_blank" title="JSON Formatter">&nbsp;JSON Formatter</a>
+</li>
+</ul>
+<div id="copy-note-msg" class="hide">
+Copied to Clipboard.
+</div>
+</div>
+</div>
+<div id="adBlock_dialog" title="Hi Coder" class="hide">
+<p><b>It looks like you're blocking ads.</b>
+Ads help me pay the bills. Can I ask that you <a href="http://www.wikihow.com/Disable-Adblock" target="_blank" style="color: #0088cc!important;">disable Adblocker just for this site</a>? I promise the ads aren't obnoxious.
+Please disable adBlocker and <a href="#" style="color: #0088cc!important;" onclick="javascript:document.location.reload(true);">refresh</a> page.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="some_other_box"></div>
+</div>
+<div id="superdiv" class='superDiv'></div>
+<script type="text/javascript">
+	$("#savebtn").hide();
+	</script>
+
+<div id="yloginsection" class='yLoginSection'>
+<div class="span7 yLoginDiv">
+<p>If you use Codebeautify regularly, registering for an account can be useful for some reasons.</p>
+<ul>
+<li>Your options are tied to your account, so you only have to change them once rather than every time you visit Codebeautify.</li>
+<li>All of your shared Code can be viewed in a <b>Saved Links</b> dialog, so you don't have to worry about losing the report URLs.</li>
+<li>You can also title your Codew reports when you save them, for more convenient organization.</li>
+</ul>
+<p>Registration only takes a minute and is of course perfectly free. We are also planning on adding more features to user accounts in the future, such as more advanced comparison options. Be sure to let us know if you have any feature suggestions using the Feedback link on the left side.</p>
+</div>
+</div>
+<div id="customLogin" class='customLogin'>
+<style>
+		.simple_login{
+			color: white!important;
+		}
+	</style>
+<div class="span7 loginDiv">
+<h3 class='loginDivTitle'>LOGIN <label class="close1 loginDivCloseButton">X</label></h3>
+<div class="center logindiv">
+<label class="span6 logFail" id="logFail"></label>
+<table id="signinDiv" class='center'>
+<tr>
+<td>
+<button onclick="loginWithSocial('facebook')" class="btn btn-success">Facebook</button>
+</td>
+</tr>
+<tr>
+<tr>
+<button onclick="loginWithSocial('google')" class="btn btn-success">Google</button>
+</td>
+</tr>
+<tr>
+<td class="simple_login">
+If you want to login with email id & passsword? <a class="simple_login" href="/cblogin">Click here</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="savedialog" class="hide">
+<input type="hidden" id="edit_link_id" value="" />
+<table>
+<tr>
+<td>Title</td>
+<td><input type="text" maxlength="60" id="save_link_title" value="" /></td>
+</tr>
+<tr>
+<td>Description</td>
+<td><textarea id="save_link_description" placeholder="optional"></textarea></td>
+</tr>
+<tr>
+<td>Tags</td>
+<td><textarea id="save_link_tags" placeholder="optional"></textarea></td>
+</tr>
+</table>
+</div>
+
+<input type="hidden" id="viewName" value="index">
+<input type="hidden" id="isLogin" value="">
+</div>
+<div class='mainSection'>
+<section id="content" class="section">
+<h3 class='newFunctionalityHead'>Popular Functionality</h3>
+<article id="Web_Viewer_Editors" class="active article">
+<div class="cnt">
+<a class="span3 buttons1" href="/jsonviewer" title="JSON Viewer">JSON Viewer</a>
+<a class="span3  buttons1" href="/jsonvalidator" title="JSON Validator">JSON Validator</a>
+<a class="span3  buttons1" href="/online-json-editor" title="JSON Editor">JSON Editor</a>
+<a class="span3  buttons1" href="/xmlviewer" title="XML Viewer">XML Viewer</a>
+<a class="span3  buttons1" href="/xmltojson" title="XML to JSON">XML to JSON</a>
+<a class="span3  buttons1" href="/htmlviewer/" title="HTML Viewer">HTML Viewer</a>
+<a class="span3  buttons1 small_font" href="/encrypt-decrypt">Encryption-Decryption</a>
+<a class="span3  buttons1" href="/excel-to-html" title="EXCEL TO HTML">EXCEL TO HTML</a>
+<a class="span3  buttons1" href="/cssvalidate" title="CSS VALIDATOR">CSS Validator</a>
+<a class="span3  buttons1" href="/xmlvalidator" title="XML VALIDATOR">XML Validator</a>
+<a class="span3  buttons1" href="/jsvalidate">JavaScript Validator</a>
+<a class="span3  buttons1" href="/css-beautify-minify">CSS Beautifier</a>
+<a class="span3  buttons1" href="/hex-decimal-converter">Hex to Decimal</a>
+<a class="span3  buttons1" href="/decimal-hex-converter">Decimal to Hex</a>
+<a class="span3  buttons1" href="/binary-decimal-converter">Binary to Decimal</a>
+<a class="span3  buttons1" href="/base64-decode">Base64 Decode</a>
+</div>
+<div style="text-align:center;" class="adsense">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4125058781634690" data-ad-slot="2203092761"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<h3 class='newFunctionalityHead'>New Functionality</h3>
+<div class="cnt">
+<a class="span3 buttons1" href="/hostname-to-ip" title="Hostname to IP">Hostname to IP</a>
+<a class="span3 buttons1" href="/ip-to-hostname" title="IP to Hostname">IP to Hostname</a>
+<a class="span3 buttons1" href="/dns-lookup" title="DNS Lookup">DNS Lookup</a>
+<a class="span3 buttons1" href="/mx-lookup" title="MX Lookup">MX Lookup</a>
+<a class="span3 buttons1" href="/name-server-lookup" title="name-server-lookup">Nameserver Lookup</a>
+<a class="span3 buttons1 small_font" href="/website-to-ip-address" title="Website to IP Address">Website to IP Address</a>
+<a class="span3 buttons1" href="/open-port-checker" title="Open Port Checker">Open Port Checker</a>
+<a class="span3  buttons1 small_font" href="/ntlm-hash-generator" title="Generate NTLM Hash">NTLM Hash Generator</a>
+<a class="span3  buttons1 small_font" href="/word-to-html-converter" title="Convert Word Doc to HTML">Word to HTML</a>
+<a class="span3  buttons1" href="/json-diff" title="Compare JSON">JSON Diff</a>
+<a class="span3  buttons1" href="/xml-diff" title="Compare XML">XML Diff</a>
+<a class="span3  buttons1" href="/json-to-java-converter" title="Convert JSON to JAVA">JSON to JAVA</a>
+<a class="span3  buttons1" href="/xml-to-java-converter" title="Convert XML to JAVA">XML to JAVA</a>
+<a class="span3 buttons1" href="https://codebeautify.org/text-reverser" id="firstchild3">Text Reverser</a>
+<a class="span3 buttons1" href="https://codebeautify.org/binary-to-text" id="firstchild3">Binary to Text</a>
+<a class="span3 buttons1" href="https://codebeautify.org/text-to-binary" id="firstchild3">Text to Binary</a>
+<a class="span3  buttons1" href="/minify-css" title="Minify CSS">Minify CSS</a>
+<a class="span3  buttons1" href="/jsonminifier" title="JSON Minifier">JSON Minifier</a>
+<a class="span3  buttons1" href="/jsonpath-tester" title="JSON Path Tester">JSON Path Tester</a>
+<a class="span3  buttons1" href="/json-to-excel-converter" title="JSON to Excel Converter">JSON to Excel</a>
+<a class="span3  buttons1" href="/xml-to-excel-converter" title="XML to Excel Converter">XML to Excel</a>
+<a class="span3  buttons1" href="/csv-to-excel-converter" title="CSV to Excel Converter">CSV to Excel</a>
+<a class="span3  buttons1" href="/yaml-to-excel-converter" title="YAML to Excel Converter">YAML to Excel</a>
+
+<a class="span3  buttons1" href="/text-to-html-converter" title="Text to HTML Converter">Text to HTML</a>
+<a class="span3  buttons1" href="/xml-formatter-beautifier" title="XML Formatter">XML Formatter</a>
+<a class="span3  buttons1" href="/html-formatter-beautifier" title="HTML Formatter">HTML Formatter</a>
+
+<a class="span3  buttons1 small_font1" href="/random-word-generator">Random Word Generator</a>
+<a class="span3  buttons1" href="/password-generator">Password Generator</a>
+<a class="span3  buttons1" href="/html-to-php-converter" title="HTML to PHP Converter">HTML to PHP</a>
+<a class="span3  buttons1 small_font1" href="/xml-xsl-transformation" title="XML-XSL Transform">XML-XSL Transformation</a>
+<a class="span3  buttons1" href="/text-to-html-converter" title="Text to HTML Converter">Text to HTML</a>
+<a class="span3  buttons1" href="/text-minifier" title="Text Minifier">Text Minifier</a>
+<a class="span3  buttons1" href="/hmac-generator" title="Hmac Generator">Hmac Generator</a>
+<a class="span3  buttons1" href="/excel-to-xml" title="Excel to XML">Excel to XML</a>
+<a class="span3  buttons1" href="/html-formatter-beautifier" title="HTML Formatter">HTML Formatter</a>
+<a class="span3  buttons1" href="/python-formatter-beautifier" title="Python Formatter">Python Formatter</a>
+<a class="span3  buttons1" href="/ruby-formatter-beautifier" title="Ruby Formatter">Ruby Formatter</a>
+<a class="span3  buttons1" href="/perl-formatter-beautifier" title="Perl Formatter">Perl Formatter</a>
+<a class="span3  buttons1" href="/c-formatter-beautifier" title="C Formatter">C Formatter</a>
+<a class="span3  buttons1" href="/cpp-formatter-beautifier" title="C++ Formatter">C++ Formatter</a>
+<a class="span3  buttons1" href="/base64-encode" title="Base64 Encode">Base64 Encode</a>
+<a class="span3  buttons1" href="/base64-decode" title="Base64 Decode">Base64 Decode</a>
+<a class="span3  buttons1" href="/share-link-generator" title="Sharelink Generator">Sharelink Generator</a>
+<a class="span3  buttons1 small_font" href="/html-escape-unescape" title="HTML Escape Unescape">HTML Escape Unescape</a>
+<a class="span3  buttons1 small_font" href="/xml-escape-unescape" title="XML Escape Unescape">XML Escape Unescape</a>
+<a class="span3  buttons1 small_font1" href="/java-escape-unescape" title="Java Escape Unescape">Java Escape Unescape</a>
+<a class="span3  buttons1 small_font1" href="/csharp-escape-unescape" title="C# Escape Unescape">C# Escape Unescape</a>
+<a class="span3  buttons1 " href="/javascript-escape-unescape" title="Javascript Escape Unescape">JS Escape Unescape</a>
+<a class="span3  buttons1 small_font1" href="/csv-escape-unescape" title="CSV Escape Unescape">CSV Escape Unescape</a>
+<a class="span3  buttons1 small_font1" href="/sql-escape-unescape" title="SQL Escape Unescape">SQL Escape Unescape</a>
+<a class="span3  buttons1 small_font1" href="/un-google-link" title="Un-Google Link">Un-Google Link</a>
+</div>
+<div style="text-align:center;" class="adsense">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4125058781634690" data-ad-slot="2203092761"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<h3 class='newFunctionalityHead'>Functionality</h3>
+<div class="cnt">
+<a class="span3 buttons1 firstchild" href="/ip-tools" " title="Best IP Tools">IP Tools</a>
+<a class="span3 buttons1 firstchild small_font" href="/image-converter-tools" " title="Best Image Converter Tools">Image Converter Tools</a>
+<a class="span3 buttons1 firstchild" href="/financial-tools" " title="Best Finance Tools">Finance Tools</a>
+<a class="span3 buttons1 firstchild" href="/tsv-tools" title="Best TSV tools">TSV Tools</a>
+<a class="span3 buttons1 firstchild" href="/json-tools" title="Best JSON tools">JSON Tools</a>
+<a class="span3 buttons1 firstchild" href="/xml-tools" title="Best XML tools">XML Tools</a>
+<a class="span3 buttons1 firstchild" href="/html-tools" title="Best HTML tools">HTML Tools</a>
+<a class="span3 buttons1 firstchild" href="/javascript-tools" title="Best Javascript tools">Javascript Tools</a>
+<a class="span3 buttons1 firstchild" href="/csv-tools" title="Best CSV tools">CSV Tools</a>
+<a class="span3 buttons1 firstchild" href="/sql-tools" title="Best SQL tools">SQL Tools</a>
+<a class="span3 buttons1 firstchild" href="/color-tools" title="Best Color tools">Color Tools</a>
+<a class="span3 buttons1 firstchild" href="/unit-tools" title="Best Unit tools">Unit Tools</a>
+<a class="span3 buttons1 firstchild" href="/number-tools" title="Best Number tools">Number Tools</a>
+<a class="span3 buttons1 firstchild" href="/string-functions" title="Best String tools">String Tools</a>
+</div>
+<h3 class='newFunctionalityHead'>Web Viewer</h3>
+<div class="cnt">
+<a class="span3 buttons1 firstchild" href="/jsonviewer" title="JSON Viewer">JSON Viewer</a>
+<a class="span3  buttons1" href="/xmlviewer" title="XML Viewer">XML Viewer</a>
+<a class="span3  buttons1" href="/mxmlviewer" title="MXML Viewer">MXML Viewer</a>
+<a class="span3  buttons1" href="/htmlviewer/" title="HTML Viewer">HTML Viewer</a>
+<a class="span3  buttons1" href="/css-beautify-minify" title="CSS Beautifier">CSS Beautifier</a>
+<a class="span3  buttons1" href="/jsviewer" title="JavaScript Viewer">JavaScript Viewer</a>
+<a class="span3  buttons1" href="/rssviewer" title="RSS Viewer">RSS Viewer</a>
+<a class="span3  buttons1" href="/javaviewer" title="JAVA Viewer">JAVA Viewer</a>
+<a class="span3  buttons1" href="/csharpviewer" title="C# Viewer">C# Viewer</a>
+<a class="span3  buttons1" href="/actionscript">Action Script </a>
+<a class="span3  buttons1" href="/sqlformatter" title="SQL Formatter">SQL Formatter</a>
+<a class="span3  buttons1" href="/alleditor">Online Editor </a>
+<a class="span3  buttons1" href="/source-code-viewer">Source Code Viewer </a>
+<a class="span3  buttons1" href="/send-snap-message">Send Snap Message</a>
+<a class="span3  buttons1" href="/cmyk-to-hex-converter">CMYK TO HEX</a>
+<a class="span3  buttons1" href="/cmyk-to-rgb-converter">CMYK TO RGB</a>
+<a class="span3  buttons1" href="/cmyk-to-hsv-converter">CMYK TO HSV</a>
+<a class="span3  buttons1" href="/hsv-to-hex-converter">HSV TO HEX</a>
+<a class="span3  buttons1" href="/hex-to-hsv-converter">HEX TO HSV</a>
+<a class="span3  buttons1" href="/hsv-to-rgb-converter">HSV TO RGB</a>
+<a class="span3  buttons1" href="/hsv-to-cmyk-converter">HSV TO CMYK</a>
+<a class="span3  buttons1" href="/rgb-to-hex-converter" title="RGB TO HEX Converter">RGB TO HEX</a>
+<a class="span3  buttons1" href="/rgb-to-hsv-converter" title="RGB TO HSV Converter">RGB TO HSV</a>
+<a class="span3  buttons1" href="/rgb-to-cmyk-converter" title="RGB TO CMYK Converter">RGB TO CMYK</a>
+<a class="span3  buttons1" href="/hex-to-rgb-converter" title="HEX TO RGB Converter">HEX TO RGB</a>
+<a class="span3  buttons1 small_font1" href="/online-xml-editor" title="XML Editor">ONLINE XML EDITOR</a>
+<a class="span3  buttons1 small_font1" href="/online-json-editor" title="JSON Editor">ONLINE JSON EDITOR</a>
+<a class="span3  buttons1 small_font1" href="/broken-link-checker">BROKEN LINK CHECKER</a>
+<a class="span3  buttons1" href="/yaml-validator">YAML VALIDATOR</a>
+<a class="span3  buttons1" href="/opmlviewer">OPML VIEWER</a>
+<a class="span3  buttons1" href="/opml-to-json-converter">OPML TO JSON</a>
+<a class="span3  buttons1 small_font2" href="/responsive-website-tester">Responsive Website Tester</a>
+<a class="span3  buttons1" href="/sql-to-csv-converter">SQL TO CSV</a>
+<a class="span3  buttons1" href="/sql-to-json-converter">SQL TO JSON</a>
+<a class="span3  buttons1" href="/sql-to-xml-converter">SQL TO XML</a>
+<a class="span3  buttons1" href="/sql-to-yaml-converter">SQL TO YAML</a>
+<a class="span3  buttons1" href="/sql-to-html-converter">SQL TO HTML</a>
+</div>
+</article>
+</section>
+</div>
+\
+<div class="container-fluid footerContainer">
+<div class="row-fluid footerpart">
+<div class="span12 footerh3">
+<div class="span4">
+<h3 class="footerh3">What is CodeBeautify ?</h3>
+<p class="footerh3p">CodeBeautify is an online code beautifier which
+allows you to beautify your source code</p>
+</div>
+<div class="span4">
+<h3 class="footerh3">How to use CodeBeautify ?</h3>
+<p class="footerh3p">Choose your Programming language, enter the
+source code ... and you are ready to go!</p>
+</div>
+<div class="span4">
+<h3 class="footerh3">Follow us . .</h3>
+
+<div class="span12 follow">
+<div>
+<span><a href="https://www.facebook.com/codebeautify" title="Facebook"><i class="fa fa-facebook-square"></i></a></span>
+<span>&nbsp;</span>
+<span><a href="https://twitter.com/Codebeautify" title="Twitter"><i class="fa fa-twitter-square"></i></a></span>
+<span>&nbsp;</span>
+<span><a href="https://plus.google.com/111146553686540738855" rel="publisher"><i class="fa fa-google-plus-square"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class='footer_container'>
+<div class='footer_map' id='footer_map'>
+<div class='footerhead'>
+<div class='footerheadimg'>
+<div class='logo'>
+<a href="/" class="brand">
+<div class="cblogoimage"></div>
+</a>
+</div>
+</div>
+</div>
+<div class='footersub1'>
+<h4>Unit Converter</h4>
+<ul>
+<li><a href="/length-converter">Length
+Converter</a></li>
+<li><a href="/weight-converter">Weight
+Converter</a></li>
+<li><a href="/volume-converter">Volume
+Converter</a></li>
+<li><a href="/area-converter">Area
+Converter</a>
+</li>
+<li><a href="/temperature-converter">Temperature
+Converter</a></li>
+<li><a href="/density-converter">Density
+Converter</a></li>
+<li><a href="/electric-current-converter">Electric
+Current Converter</a></li>
+<li><a href="/speed-converter">Speed
+Converter</a></li>
+<li><a href="/angle-converter">Angle
+Converter</a></li>
+<li><a href="/bytes-converter">Bytes/Bits
+Converter</a></li>
+<li><a href="/energy-converter">Energy
+Converter</a></li>
+<li><a href="/force-converter">Force
+Converter</a></li>
+<li><a href="/fuel-converter">Fuel
+Converter</a>
+</li>
+<li><a href="/mass-converter">Mass
+Converter</a>
+</li>
+<li><a href="/power-converter">Power
+Converter</a></li>
+<li><a href="/pressure-converter">Pressure
+Converter</a></li>
+<li><a href="/time-converter">Time
+Converter</a>
+</li>
+<li><a href="/astronomical-converter">Astronomical
+Converter</a></li>
+<li><a href="/frequency-converter">Frequency
+Converter</a></li>
+<li><a href="/unix-time-stamp-converter">Unix
+Timestamp Converter</a></li>
+</ul>
+</div>
+<div class='footersub1'>
+<h4>Converters</h4>
+<ul>
+<li><a href="/word-to-html-converter">Word to HTML Converter</a><span class='blink'>New</span>
+</li>
+<li><a href="/json-to-java-converter">JSON to JAVA Converter</a><span class='blink'>New</span>
+</li>
+<li><a href="/xml-to-java-converter">XML to JAVA Converter</a><span class='blink'>New</span>
+</li>
+<li><a href="/tableizer">Online Tableizer</a></li>
+<li><a href="/html-to-csv-converter">HTML to CSV Converter</a></li>
+<li><a href="/html-to-tsv-converter">HTML to TSV Converter</a></li>
+<li><a href="/html-to-php-converter">HTML to PHP Converter</a></li>
+<li><a href="/xml-xsl-transformation">XML-XSL Transform</a></li>
+<li><a href="/xmltojson">XML to JSON</a>
+</li>
+<li><a href="/jsontoxml">JSON to XML</a></li>
+<li><a href="/csv-to-xml-json">CSV to XML/JSON</a></li>
+<li><a href="/yaml-to-json-xml-csv">YAML Converter</a><span class='blink'>New</span>
+</li>
+<li><a href="/image-to-base64-converter">Image to
+Base64</a>
+</li>
+<li><a href="/base64-to-image-converter">Base64 to
+Image</a><span class='blink'>New</span></li>
+<li><a href="/date-time-calculater">Date
+Calculater</a>
+</li>
+<li><a href="/excel-to-html">EXCEL to HTML</a>
+</li>
+<li><a href="/excel-to-xml">EXCEL to XML</a>
+</li>
+<li><a href="/excel-to-json">EXCEL to JSON</a></li>
+<li><a href="/json-to-yaml">JSON to YAML</a><span class='blink'>New</span>
+</li>
+<li><a href="/xml-to-yaml">XML to YAML</a><span class='blink'>New</span>
+</li>
+<li><a href="/csv-to-xml-converter">CSV to XML</a><span class='blink'>New</span>
+</li>
+<li><a href="/csv-to-json-converter">CSV to JSON</a><span class='blink'>New</span>
+</li>
+<li><a href="/csv-to-html-converter">CSV to HTML</a><span class='blink'>New</span>
+</li>
+<li><a href="/json-to-csv">JSON to CSV</a><span class='blink'>New</span>
+<li><a href="/json-to-tsv-converter">JSON to TSV</a><span class='blink'>New</span>
+</li>
+<li><a href="/xml-to-csv-converter">XML to CSV</a><span class='blink'>New</span>
+</li>
+<li><a href="/html-to-csv-converter">HTML to CSV</a><span class='blink'>New</span>
+</li>
+<li><a href="/csv-to-multi-line-converter">CSV to
+MULTILINE DATA</a><span class='blink'>New</span>
+</li>
+<li><a href="/csv-to-sql-converter">CSV to SQL</a><span class='blink'>New</span>
+</li>
+<li><a href="/sql-to-csv-converter">SQL to CSV Converter</a><span class='blink'>New</span></li>
+<li><a href="/sql-to-json-converter">SQL to JSON
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/sql-to-xml-converter">SQL to XML Converter</a><span class='blink'>New</span></li>
+<li><a href="/sql-to-yaml-converter">SQL to YAML
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/sql-to-html-converter">SQL to HTML
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/opml-to-json-converter">OPML to JSON</a><span class='blink'>New</span>
+</li>
+<li><a href="/hex-to-pantone-converter">HEX to Pantone Converter</a><span class='blink'>New</span></li>
+<li><a href="/rgb-to-pantone-converter">RGB to Pantone Converter</a><span class='blink'>New</span></li>
+<li><a href="/hsv-to-pantone-converter">HSV to Pantone Converter</a><span class='blink'>New</span></li>
+<li><a href="/cmyk-to-pantone-converter">CMYK to Pantone Converter</a><span class='blink'>New</span></li>
+<li><a href="/cmyk-to-hex-converter">CMYK to HEX Converter</a><span class='blink'>New</span></li>
+<li><a href="/cmyk-to-rgb-converter">CMYK to RGB Converter</a><span class='blink'>New</span></li>
+<li><a href="/cmyk-to-hsv-converter">CMYK to HSV Converter</a><span class='blink'>New</span></li>
+<li><a href="/hsv-to-hex-converter">HSV to HEX Converter</a><span class='blink'>New</span></li>
+<li><a href="/hsv-to-rgb-converter">HSV to RGB Converter</a><span class='blink'>New</span></li>
+<li><a href="/hsv-to-cmyk-converter">HSV to CMYK Converter</a><span class='blink'>New</span></li>
+<li><a href="/hex-to-hsv-converter">HEX to HSV Converter</a><span class='blink'>New</span></li>
+<li><a href="/rgb-to-hex-converter">RGB to HEX Converter</a><span class='blink'>New</span></li>
+<li><a href="/rgb-to-hsv-converter">RGB to HSV Converter</a><span class='blink'>New</span></li>
+<li><a href="/rgb-to-cmyk-converter">RGB to CMYK
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/hex-to-rgb-converter">HEX to RGB Converter</a><span class='blink'>New</span></li>
+<li><a href="/hex-to-cmyk-converter">HEX to CMYK
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/json-to-html-converter">JSON to HTML</a><span class='blink'>New</span>
+</li>
+<li><a href="/xml-to-html-converter">XML to HTML</a><span class='blink'>New</span>
+</li>
+<li><a href="/json-to-excel-converter">JSON to Excel</a><span class='blink'>New</span></li>
+<li><a href="/xml-to-excel-converter">XML to Excel</a><span class='blink'>New</span></li>
+<li><a href="/csv-to-excel-converter">CSV to Excel</a><span class='blink'>New</span></li>
+<li><a href="/yaml-to-excel-converter">YAML to Excel</a><span class='blink'>New</span></li>
+</ul>
+</div>
+<div class='footersub1'>
+<h4>Web Viewer / Editor</h4>
+<ul>
+<li><a href="/jsonviewer" class="firstchild">JSON
+VIEWER</a>
+</li>
+<li><a href="/xmlviewer">XML VIEWER</a>
+</li>
+<li><a href="/mxmlviewer">MXML VIEWER</a>
+</li>
+<li><a href="/htmlviewer/">HTML VIEWER </a>
+</li>
+<li><a href="/css-beautify-minify">CSS BEAUTIFY AND MINIFY</a>
+</li>
+<li><a href="/jsviewer">JAVASCRIPT VIEWER</a>
+</li>
+<li><a href="/rssviewer">RSS VIEWER</a>
+</li>
+<li><a href="/source-code-viewer">SOURCE CODE
+VIEWER</a><span class='blink'>New</span>
+</li>
+<li><a href="/opmlviewer">OPML VIEWER</a><span class='blink'>New</span>
+</li>
+<li><a href="/collabe-code">Collabe On Code</a><span class='blink'>New</span>
+</li>
+</ul>
+<h4>Programming Editors</h4>
+<ul>
+<li><a href="/online-xml-editor">XML EDITOR</a><span class='blink'>New</span></li>
+<li><a href="/online-json-editor">JSON
+EDITOR</a><span class='blink'>New</span></li>
+<li><a href="/alleditor">ONLINE EDITOR</a>
+</li>
+<li><a href="/javaviewer">JAVA EDITOR</a></li>
+<li><a href="/csharpviewer">C# EDITOR</a></li>
+<li><a href="/actionscript">Action Script
+EDITOR</a></li>
+<li><a href="/sqlformatter">SQL EDITOR</a></li>
+</ul>
+<h4>Escape Unescape Tools</h4>
+<ul>
+<li><a href="/html-escape-unescape" title="HTML Escape Unescape">HTML Escape Unescape</a></li>
+<li><a href="/xml-escape-unescape" title="XML Escape Unescape">XML Escape Unescape</a></li>
+<li><a href="/java-escape-unescape" title="Java Escape Unescape">Java Escape Unescape</a></li>
+<li><a href="/csharp-escape-unescape" title="C# Escape Unescape">C# Escape Unescape</a></li>
+<li><a href="/javascript-escape-unescape" title="Javascript Escape Unescape">Javascript Escape Unescape</a></li>
+<li><a href="/csv-escape-unescape" title="CSV Escape Unescape">CSV Escape Unescape</a></li>
+<li><a href="/sql-escape-unescape" title="SQL Escape Unescape">SQL Escape Unescape</a></li>
+<li><a href="/un-google-link" title="Un-Google Link">Un-Google Link</a></li>
+</ul>
+<h4>CryptoGraphy Tools</h4>
+<ul>
+<li><a href="/encrypt-decrypt">Encryption-Decryption</a>
+</li>
+</ul>
+<h4>Other Tools</h4>
+<ul>
+
+<li><a href="/lorem-ipsum">Lorem-Ipsum</a></li>
+<li><a href="/share-link-generator">Sharelink
+Generator</a></li>
+<li><a href="/hostname-to-ip" title="Hostname to IP">Hostname to IP</a></li>
+<li><a href="/ip-to-hostname" title="IP to Hostname">IP to Hostname</a></li>
+<li><a href="/dns-lookup" title="DNS Lookup">DNS Lookup</a></li>
+<li><a href="/mx-lookup" title="MX Lookup">MX Lookup</a></li>
+<li><a href="/name-server-lookup" title="name-server-lookup">Nameserver Lookup</a></li>
+<li><a href="/website-to-ip-address" title="Website to IP Address">Website to IP Address</a><li>
+<li><a href="/open-port-checker" title="Open Port Checker">Open Port Checker</a><li>
+</ul>
+</div>
+<div class='footersub1'>
+<h4>Utility</h4>
+<ul>
+<li><a href="/send-snap-message">Send Snap
+Message</a><span class='blink'>New</span>
+</li>
+<li><a href="/responsive-website-tester">Responsive Website
+Tester</a><span class='blink'>New</span>
+</li>
+<li><a href="/credit-card-validate">Credit
+Card Validator</a><span class='blink'>New</span>
+</li>
+<li><a href="/credit-card-fake-number-generator">Credit
+Card Fake Number Generator</a><span class='blink'>New</span>
+</li>
+<li><a href="/Xpath-Tester">XPath Tester</a><span class='blink'>New</span>
+</li>
+<li><a href="/jsonpath-tester" title="Json Path Tester">Json Path Tester</a><span class='blink'>New</span>
+<li><a href="/jsonminifier" title="JSON Minifier">Json Minifier</a><span class='blink'>New</span>
+</li>
+<li><a href="/file-diff">File Difference</a><span class='blink'>New</span>
+</li>
+<li><a href="/json-diff">JSON Diff</a><span class='blink'>New</span>
+<li><a href="/xml-diff">XML Diff</a><span class='blink'>New</span>
+</li>
+<li><a href="/broken-link-checker">Broken
+Link Checker</a><span class='blink'>New</span>
+</li>
+</ul>
+<h4>String Utilities</h4>
+<ul>
+<li><a href="/random-word-generator">Random Word Generator</a><span class='blink'>New</span>
+</li>
+<li><a href="/ntlm-hash-generator">NTLM Hash Generator</a><span class='blink'>New</span>
+</li>
+<li><a href="/password-generator">Password Genrator</a><span class='blink'>New</span>
+</li>
+<li><a href="/string-builder">String Builder</a><span class='blink'>New</span>
+</li>
+<li><a href="/number-to-word-converter">NUMBER to WORD
+Converter</a><span class='blink'>New</span></li>
+<li><a href="/wordcounter">WORD COUNTER</a>
+</li>
+<li><a href="/reverse-string">Reverse String</a>
+</li>
+<li><a href="/html-encode-string">HTML Encode</a>
+</li>
+<li><a href="/html-decode-string">HTML Decode</a>
+</li>
+<li><a href="/base64-encode">Base64-Encode</a>
+</li>
+<li><a href="/base64-decode">Base64-Decode</a>
+</li>
+<li><a href="/url-encode-string">URL-Encode A
+String</a>
+</li>
+<li><a href="/url-decode-string">URL-Decode A
+String</a>
+</li>
+<li><a href="/string-hex-converter">String to Hex
+Converter</a>
+</li>
+<li><a href="/hex-string-converter">Hex to String
+Converter</a>
+</li>
+<li><a href="/string-binary-converter">String to	Binary Converter</a>
+</li>
+<li><a href="/binary-string-converter">Binary to String Converter</a>
+</li>
+<li><a href="/case-converter">Case Converter </a><span class='blink'>New</span></li>
+<li><a href="/delimited-text-extractor">Delimited Text Extractor </a><span class='blink'>New</span></li>
+<li><a href="/remove-accents">Remove Accents </a><span class='blink'>New</span></li>
+<li><a href="/remove-duplicate-lines">Remove Duplicate Lines</a><span class='blink'>New</span></li>
+<li><a href="/remove-empty-lines">Remove Empty Lines</a><span class='blink'>New</span></li>
+<li><a href="/remove-extra-spaces">Remove Extra Spaces </a><span class='blink'>New</span></li>
+<li><a href="/remove-line-breaks">Remove Line Breaks</a><span class='blink'>New</span></li>
+<li><a href="/remove-lines-containing">Remove Lines Containing</a><span class='blink'>New</span></li>
+<li><a href="/sort-text-lines">Sort Text Lines</a><span class='blink'>New</span></li>
+</ul>
+</div>
+<div class='footersub1'>
+<h4>Validators</h4>
+<ul>
+<li><a href="/cssvalidate">CSS VALIDATOR</a>
+</li>
+<li><a href="/jsvalidate">JAVASCRIPT
+VALIDATOR</a>
+<li><a href="/jsonvalidator">JSON VALIDATOR</a>
+<li><a href="/xmlvalidator">XML VALIDATOR</a>
+<li><a href="/credit-card-validate">CREDIT
+CARD VALIDATOR</a>
+</li>
+<li><a href="/api-test">API Test</a>
+</li>
+<li><a href="/yaml-validator">YAML VALIDATOR</a><span class='blink'>New</span>
+</li>
+</ul>
+<h4>Number Utilities</h4>
+<ul>
+<li><a href="/all-number-converter">All Numbers
+Converter</a>
+</li>
+<li><a href="/decimal-binary-converter">Decimal to
+Binary Converter</a>
+</li>
+<li><a href="/decimal-hex-converter">Decimal to Hexa	Converter</a>
+</li>
+<li><a href="/decimal-octal-converter">Decimal to Octal Converter</a>
+</li>
+<li><a href="/binary-decimal-converter">Binary to Decimal Converter</a>
+</li>
+<li><a href="/binary-hex-converter">Binary to Hex Converter</a>
+</li>
+<li><a href="/binary-octal-converter">Binary to Octal
+Converter</a>
+</li>
+<li><a href="/hex-decimal-converter">Hex to Decimal Converter</a>
+</li>
+<li><a href="/hex-binary-converter">Hex to Binary Converter</a>
+</li>
+<li><a href="/hex-octal-converter">Hex to Octal
+Converter</a>
+</li>
+<li><a href="/octal-decimal-converter">Octal to	Decimal Converter</a>
+</li>
+<li><a href="/octal-binary-converter">Octal to Binary
+Converter</a>
+</li>
+<li><a href="/octal-hex-converter"> Octal to Hex
+Converter </a>
+</li>
+</ul>
+<h4>Image Tools</h4>
+<ul>
+<li><a href="/jpg-to-png-converter">JPG to PNG Converter</a></li>
+<li><a href="/bmp-to-png-converter">BMP to PNG Converter</a></li>
+<li><a href="/gif-to-png-converter">GIF to PNG Converter</a></li>
+<li><a href="/png-to-jpg-converter">PNG to JPG Converter</a></li>
+<li><a href="/bmp-to-jpg-converter">BMP to JPG Converter</a></li>
+<li><a href="/gif-to-jpg-converter">GIF to JPG Converter</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="span12 footerLinkDiv">
+<div class='center'>
+<a class="footermenu1" href="https://goo.gl/1oWmPe" target="_blank" title="Buy us a Coffee">Buy us a Coffee</a>
+<a class="footermenu1" href="https://jsonformatter.org" target="_blank" title="JSON Formatter">JSON Formatter</a>
+<a class="footermenu1" href="/faq">FAQ</a>
+<a class="footermenu1" href="/aboutus">About</a>
+<a class="footermenu1" href="/contactus">Contact</a>
+<a class="footermenu1" href="/history">History</a>
+<a class="footermenu1" href="/sitemap">Sitemap</a>
+<a class="footermenu1" href="/where-am-i-right-now">My Current Location</a>
+<a class="footermenu1" href="https://codeblogmoney.com">Blog</a>
+</div>
+</div>
+</div>
+<p id="back-top">
+<a href="#top" title='Scroll to Top'><span></span>&nbsp;</a>
+</p>
+</div>
+<div id="openError" style="display: none"></div>
+<div id="loadUrlPathDiv" style="display: none">
+<input type="text" id="path" class='urlPath' placeholder="Paste your url">
+</div>
+</body>
+</html>

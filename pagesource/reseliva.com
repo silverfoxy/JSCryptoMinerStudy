@@ -1,0 +1,3 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script language="javascript1.2"> var adj= /^[\-]?\d+$/ ;var yi= /^[\-]?\d*\.?\d+$/;var xg= /^[a-zA-Z\.\- sSiIçÇüÜöÖgG ]*$/ ;var SP= /^.+$/ ;var PASSWORDNEW= /.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/ ;var kU="";var afx= /^(\d{1,2})\.(\d{1,2})\.(\d{4})$/;var yX= /^(\d{1,2})\:(\d{1,2})$/;var aek= /^[\w-\.]+\@[\w\.-]+\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,4})*$/;var adA= /^[\d\s\-]+$/; </script>

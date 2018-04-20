@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" id="oldDescriptionTag" content="EscortBabylon">
+    <meta id="viewportMetaTag" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <title>Escort Babylon</title>
+    <meta name="ero_verify" content="d3f508487df0c4f4b9a734093e472d9c" />
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <link rel="stylesheet" href='static/styles/style.css?v=1520454524' />
+    <link rel="stylesheet" href='static/styles/panels.css?v=1520454524' />
+</head>
+
+<body ng-app="eb" ng-init="loggedIn = false">
+
+    <div id="gradientBgContainerForComments">
+        <div id="gradientBgForComments">
+        </div>
+    </div>
+    <!-- <div id="pclicker"></div> -->
+    
+    <div ui-view></div>
+
+    <script src='/static/bower_components/jquery/jquery.min.js'></script>
+    <script src='/static/bower_components/js-cookie/src/js.cookie.js'></script>
+    <script src='/static/bower_components/angular/angular.min.js'></script>
+    <script src='/static/bower_components/angular-bootstrap/ui-bootstrap.min.js'></script>
+    <script src='/static/bower_components/angular-ui-router/release/angular-ui-router.min.js'></script>
+    <script src='/static/bower_components/angular-touch/angular-touch.min.js'></script>
+    <script src='/static/bower_components/angular-mocks/angular-mocks.js'></script>
+    <script src='/static/bower_components/angular-cookies/angular-cookies.min.js'></script>
+    <script src='/static/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'></script>
+    <script src='/static/bower_components/jasmine-core/lib/jasmine-core/jasmine.js'></script>
+    <script src='/static/bower_components/moment/min/moment.min.js'></script>
+    <script src='/static/bower_components/angulartics/dist/angulartics.min.js'></script>
+    <script src='/static/bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js'></script>
+    <script src='/static/app/custom-jquery.js?v=1520454524'></script>
+    <script src='/static/app/app.module.js?v=1520454524'></script>
+    <script src='/static/app/app.config.js?v=1520454524'></script>
+    <script src='/static/app/app.routes.js?v=1520454524'></script>
+    <script src='/static/app/app.controller.js?v=1520454524'></script>
+    <script src='/static/app/constants.js?v=1520454524'></script>
+
+    
+    <script>
+        angular
+            .module('eb')
+            .constant('lcdata', {
+                'pone_num': '',
+                'post_id': '',
+                'city_val': '',
+                'city_id': '',
+                'subdomain': ''
+            })
+            .constant('versionNumber', '1520454524')
+            .constant('authUrl', 'cloudthree.org')
+            .constant('defaultImagesUrl', '//lodef.net/imgs/')
+            .constant('prefiksForSmallImages', '_s.jpg')
+            .constant('prefiksForBigImages', '_f.jpg');
+        angular
+            .module('eb')
+            .factory('userModel', ['$rootScope', '$q', 'userService', function($rootScope, $q, userService) {
+                dataModel = {};
+                dataModel.appId = 1;
+                dataModel.authStatus = "";
+                dataModel.authData = "";
+                dataModel.userRoles = [];
+                dataModel.userEmail = "";
+                dataModel.userId = "";
+                dataModel.userName = "";
+                dataModel.token = "";
+                dataModel.potential_escort = "0";
+                dataModel.firstReview = false;
+
+                dataModel.subscribe = function(scope, callback) {
+                    var handler = $rootScope.$on('user-model-event', callback);
+                    scope.$on('$destroy', handler);
+                };
+
+                dataModel.notify = function() {
+                    $rootScope.$emit('user-model-event');
+                };
+                                   
+                dataModel.getFirstReview = function() {
+                    if (Cookies.get('firstReview')) {
+                        dataModel.firstReview = Cookies.get('firstReview');
+                        Cookies.remove('firstReview');
+                    }
+                    
+                    return dataModel.firstReview;
+                }
+                                   
+                dataModel.setFirstReview = function(bool) {
+                    Cookies.set('firstReview', bool);
+                    dataModel.firstReview = bool;             
+                }
+
+                dataModel.setAuthStatus = function(status) {
+                    dataModel.authStatus = status;
+                    dataModel.notify();
+                };
+
+                dataModel.setAuthData = function(data) {
+                    dataModel.authData = data;
+                    dataModel.notify();
+                };
+
+                dataModel.getAuthStatus = function() {
+                    return dataModel.authStatus;
+                };
+
+                dataModel.getAuthData = function() {
+                    return dataModel.authData;
+                };
+
+                dataModel.getUserId = function() {
+                    return dataModel.userId;
+                };
+
+                dataModel.getToken = function() {
+                    return dataModel.token;
+                };
+
+                dataModel.checkRole = function(role) {
+                    return dataModel.userRoles.indexOf(role) > -1;
+                };
+
+                dataModel.addRole = function(role) {
+                    dataModel.userRoles.push(role);
+                    dataModel.authData.role = role;
+                };
+
+                dataModel.showRoles = function() {
+                    console.dir(dataModel.userRoles);
+                };
+
+                dataModel.setUser = function(data) {
+                    dataModel.userId = data.user.id;
+                    dataModel.userName = data.user.name;
+                    dataModel.userRoles = data.roles;
+                    dataModel.notify();
+                }
+
+                dataModel.initUser = function() {
+                    //registration_auth_callback: exist  {"email": null, "session_key": "fa21f01178dbe2174d2eef1c931e4e40", 
+                    //"apps": [{"session_key": "fa21f01178dbe2174d2eef1c931e4e40", "user_id": 73736, "id": 65556, "app_id": 0}, 
+                    // {"session_key": "fa21f01178dbe2174d2eef1c931e4e40", "user_id": 73736, "id": 65555, "app_id": 1}], 
+                    // "id": 73736, "name": "test5"}
+
+                    var amodel = null;
+                    for (app in dataModel.authData.apps) {
+                        if (dataModel.authData.apps[app].app_id == dataModel.appId) {
+                            amodel = dataModel.authData.apps[app];
+                            break;
+                        }
+                    }
+
+                    if (amodel == null) {
+                        console.log("init user: app does not exist");
+                        return;
+                    }
+
+                    dataModel.sessionKey = amodel["session_key"];
+
+                    userService.getBySessionKey(dataModel.sessionKey).success(function(data) {
+                        console.log("get by session key");
+                        console.log(data);
+                        if (data.res) {
+                            dataModel.setUser(data);
+                        } else {
+                            console.log("Error: " + data.error);
+                        }
+                    });
+                };
+
+                dataModel.authCallback = function(status, data) {
+                    console.log("status: " + status + " data: " + data);
+                    dataModel.setAuthStatus(status);
+
+                    if (status == "error") {
+                        console.log("auth error: " + data);
+                    } else if (data != undefined) {
+                        var json_data = JSON.parse(data);
+                        dataModel.setAuthData(json_data);
+                    }
+
+                    console.log("Auth Status: " + dataModel.getAuthStatus());
+                    console.log(dataModel.getAuthData());
+                };
+
+                return dataModel;
+            }]);
+    </script>
+    <script src='/static/app/helpers/all-photos.service.js?v=1520454524'></script>
+    <script src='/static/app/helpers/navigation.service.js?v=1520454524'></script>
+    <script src='/static/app/helpers/post-escort.service.js?v=1520454524'></script>
+    <script>
+        var customPage = new customJquery();
+    </script>
+
+    <!-- New files for refactoring -->
+    <script src='/static/app/home/home.controller.js?v=1520454524'></script>
+    <script src='/static/app/home/home.service.js?v=1520454524'></script>
+    <script src='/static/app/auth/auth.service.js?v=1520454524'></script>
+    <script src='/static/app/comments/comment.service.js?v=1520454524'></script>
+    <script src='/static/app/comments/comments.controller.js?v=1520454524'></script>
+    <script src='/static/app/info/info.service.js?v=1520454524'></script>
+    <script src='/static/app/info/info.controller.js?v=1520454524'></script>
+    <script src='/static/app/pictures/picture.service.js?v=1520454524'></script>
+    <script src='/static/app/pictures/pictures.controller.js?v=1520454524'></script>
+    <script src='/static/app/pictures/picture-detail.controller.js?v=1520454524'></script>
+    <script src='/static/app/posts/post.service.js?v=1520454524'></script>
+    <script src='/static/app/posts/posts.controller.js?v=1520454524'></script>
+    <script src='/static/app/posts/post-detail.controller.js?v=1520454524'></script>
+    <script src='/static/app/reviews/review.service.js?v=1520454524'></script>
+    <script src='/static/app/reviews/reviews.controller.js?v=1520454524'></script>
+    <script src='/static/app/reviews/review-create.controller.js?v=1520454524'></script>
+    <script src='/static/app/reviews/review-confirm.controller.js?v=1520454524'></script>
+    <script src='/static/app/user/user.service.js?v=1520454524'></script>
+    <script src='/static/app/login/login.controller.js?v=1520454524'></script>
+    <script src='/static/app/registration/registration.controller.js?v=1520454524'></script>
+    <script src='/static/app/partials/footer.controller.js?v=1520454524'></script>
+    <script src='/static/app/partials/logged-in-popup.controller.js?v=1520454524'></script>
+
+    <script>
+        function authCallback(status, data) {
+            angular.element(document.body).injector().get('userModel').authCallback(status, data);
+        }
+    </script>
+        <!-- GA -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-85947709-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- end GA -->
+    
+        <!-- start popunder 
+    
+   <script type='text/javascript' src='/static/app/popunder-2.5.23.js?v=1520454524'></script>
+
+        <script type='text/javascript' src='/static/app/license.12.js?v=1520454524'></script> 
+    
+   
+     
+
+   <script type='text/javascript' src='/static/app/our_popunder.js?v=1520454524'></script> 
+
+    --->
+    <!-- end popunder -->
+    
+
+</body>
+
+
+</html>

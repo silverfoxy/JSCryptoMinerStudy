@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="./img/moatv.ico" type="image/x-icon"/>
+<link rel="Bookmark" href="./img/moatv.ico">
+<meta name="keywords" content="moatv,모아티비,moatv 다운로드,최신영화,한국드라마,한국예능,한국실시간,韩剧,韩国电视剧,韩国综艺,韩国电影,最新韩剧,好看的韩剧,经典韩剧,韩剧排行" />
+<meta name="description" content="moaTV는 TV BOX에 설치하여 TV로 최신영화,최신한국드라마,최신한국예능,한국실시간생방송을 시청하실수있는 TV앱 입니다. TV로 시청하기 편하게 인터넷 자원을 모아서 다시보기를 제공하고 있습니다 - www.moatv.cn" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<title>moaTV | TV의 새로운 세상을 열다</title>
+<link rel="stylesheet" href="http://moatv.cn/css/default.css">
+<link rel="stylesheet" href="http://moatv.cn/css/style.css">
+<!--[if lte IE 8]>
+<script src="http://moatv.cn/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "http://moatv.cn";
+var g5_bbs_url   = "http://moatv.cn/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+</script>
+<script src="http://moatv.cn/js/jquery-1.8.3.min.js"></script>
+<script src="http://moatv.cn/js/jquery.menu.js"></script>
+<script src="http://moatv.cn/js/common.js"></script>
+<script src="http://moatv.cn/js/wrest.js"></script>
+
+</head>
+<body>
+
+<!-- 상단 시작 { -->
+
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+<span class="sound_only">팝업레이어 알림이 없습니다.</span></div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 --><div id="header" style="width:100%;">
+	<div class="w">
+		<h1 class="logo"><a href="/"><span class="blind">MOATV</span></a></h1>
+		<div class="srch">
+			<fieldset id="hd_sch">
+				<legend>사이트 내 전체검색</legend>
+				<form name="fsearchbox" method="get" action="http://moatv.cn/bbs/search.php" onsubmit="return fsearchbox_submit(this);">
+				<input type="hidden" name="sfl" value="wr_subject||wr_content">
+				<input type="hidden" name="sop" value="and">
+				<label for="sch_stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+				<input type="text" name="stx" id="sch_stx" maxlength="20">
+				<input type="submit" id="sch_submit" value="검색">
+				</form>
+
+				<script>
+				function fsearchbox_submit(f)
+				{
+					if (f.stx.value.length < 2) {
+						alert("검색어는 두글자 이상 입력하십시오.");
+						f.stx.select();
+						f.stx.focus();
+						return false;
+					}
+
+					// 검색에 많은 부하가 걸리는 경우 이 주석을 제거하세요.
+					var cnt = 0;
+					for (var i=0; i<f.stx.value.length; i++) {
+						if (f.stx.value.charAt(i) == ' ')
+							cnt++;
+					}
+
+					if (cnt > 1) {
+						alert("빠른 검색을 위하여 검색어에 공백은 한개만 입력할 수 있습니다.");
+						f.stx.select();
+						f.stx.focus();
+						return false;
+					}
+
+					return true;
+				}
+				</script>
+			</fieldset>
+			<!--div id="text_size">
+				font_resize('엘리먼트id', '제거할 class', '추가할 class');
+				<button id="size_down" onclick="font_resize('container', 'ts_up ts_up2', '');"><img src="http://moatv.cn/img/ts01.gif" alt="기본"></button>
+				<button id="size_def" onclick="font_resize('container', 'ts_up ts_up2', 'ts_up');"><img src="http://moatv.cn/img/ts02.gif" alt="크게"></button>
+				<button id="size_up" onclick="font_resize('container', 'ts_up ts_up2', 'ts_up2');"><img src="http://moatv.cn/img/ts03.gif" alt="더크게"></button>
+			</div-->
+		</div>
+		<ul class="lnb fc">
+			<li><a href="../" class="on" >모아티비란?</a></li>
+						<li><a href="../gm_haiwai.php">제품보기</a></li>
+						<li><a href="../board.php" >게시판</a></li>
+
+<!--
+			<li><a href="/" class="on" >모아티비란?</a></li>
+			<li><a href="/gm.php">구매하기</a></li>
+			<li><a href="/board.php" >게시판</a></li>
+-->
+		</ul>
+	</div>
+</div>
+<!-- } 상단 끝 -->
+<hr>
+
+<!-- Metro Bootstrap -->
+<!-- Font Awesome -->
+<link href="./css/metro-bootstrap.min.css" rel="stylesheet">
+<!--
+<link rel="stylesheet" href="./css/www_index-f71e06ef1e.css">
+<script src="./js/www-74898cb259.js"></script>
+-->
+
+<!--<section class="index-banner">-->
+			<!--이미지게시판1-->
+			<!--latest("img"   <==\skin\latest\img 폴더이름     , 'image'  <==TABEL이름, 4  <==출력개수, 0);-->
+					<!--이미지게시판1 끝-->
+<!--
+        <div class="container">
+            <div class="row">
+                <div class="srcrod_dv">
+                    <h1>모아TV앱 다운로드</h1>
+						<li>Moa TV 버전: ( V2.0.0 )</li>
+                        <li><a class="btn btn-success btn-lg" href="http://www.moatv.cn/file/moa(2.0.0).apk">다운로드</a></li>
+                </div>
+            </div>
+        </div>
+ </section>
+ http://104.250.141.115/moa_2.0.0.apk
+ -->
+ <div class="content_moatv">
+<a href="http://moatv.cn/file/moalivev1.3.4.apk" target="_blank" style="margin-top:35px" title="최신 출시된  생방송,vod다시보기 통합버전 어플입니다. 셋톱박스에 설치후 무료테스트 가능합니다.  설치및 가입문의는 카톡아이디 moatv  위쳇아이디 moatvapp 로 해주세요.">모아라이브 (v1.3.4)</a>
+</div>
+	</div>
+</div>
+
+<!-- } 콘텐츠 끝 -->
+
+<hr>
+<!-- 하단 시작 { -->
+<div id="footer" valign="top" style="height:120px;background-color:#ECECEC;">
+<div style="width:100%;background-color:#ECECEC;z-index:9999;border-top:2px solid red;height:70px;">
+	<div  style="margin-left:auto;margin-right:auto;padding-right:20px;width:100%;position:relative;">
+	 <div style="position:absolute;left:30px;height:20px;top:30px;">
+		 <img src="./img/job/house.png">&nbsp;Office Hour&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/job/alarm.png">&nbsp;10:00~18:00 (korean time)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/job/email.png">&nbsp;<a href="mailto:moatvapp@naver.com">moatvapp@naver.com</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/phone_icon.png">&nbsp;070-8025-2775
+		 </div>
+		<ul class="fc">
+			<li><i class="kakao"></i>moatv	<div style="position:absolute;top:6px;left:660px;"><img src="./img/bottom_not.png"></div></li>
+			<li><i class="wechat"></i>moatvapp&nbsp;&nbsp;</li>
+		</ul>
+	</div>
+	</div>
+</div>
+<!--a href="" id="device_change">모바일 버전으로 보기</a-->
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+	// 폰트 리사이즈 쿠키있으면 실행
+	font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253273445'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1253273445' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

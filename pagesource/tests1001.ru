@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+
+		<title>Бесплатные онлайн тесты</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<style>
+		*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}input,textarea{margin:0}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}button[disabled],html input[disabled]{cursor:default}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1;background-color:#fff}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}:focus{outline:0}b,strong{font-weight:700}i,em{font-style:italic}sub{vertical-align:sub;font-size:smaller}sup{vertical-align:super;font-size:smaller}html,body{height:100%}body{font:16px Georgia,Arial,sans-serif;color:#333;background:#FFF;}#wrapper{position:relative;overflow:hidden;min-width:320px;min-height:100%}[class*="__center"]{position:relative;margin:auto;padding:0px;width:910px}[class*="__center"]:before,[class*="__center"]:after{content:"";display:block;clear:both}p,.text ul,.text ol,.text dl{margin:10px 0;line-height: 23px;}.text ul,.text ol,.text dd{padding-left:18px}.text ul{list-style-type:disc}.text ol{list-style-type:decimal} h1, h2:first-child {padding: 0 0 19px;} h1:after, h2:first-child:after {content: ""; position: absolute; bottom: -3px; left: 0; width: 70px; border-top: 3px solid #333;} h1,h2,h3,h4,h5,h6{margin:18px 0;} h1{margin:20px 0 20px 0px;position:relative;font:24px Georgia,Arial;font-weight:600;} h3{margin:18px 0 18px;font:18px Georgia,Arial;font-weight: 600;} h2{margin:20px 0 20px 0px;position:relative;font:24px Georgia,Arial;line-height:32px;font-weight:600;} h5{font-size:.83em}h6{font-size:.67em}a{color:#0068A4}a:hover{text-decoration:none}img{max-width:100%}textarea{padding:7px 9px 6px;border:1px solid #ced4d5;width:174px;max-width:100%;color:#2e2e2e}input:not([type="submit"]):not([type="button"]):not([type="image"]):hover,textarea:hover{border-color:#a8afb2}input:not([type="submit"]):not([type="button"]):not([type="image"]):focus,textarea:focus{border-color:#0068A4}textarea{height:176px;resize:none}.contform textarea{width:100%!important}.contform .imp{width:80%!important}.infofield{display:block;margin:0 0 8px}#wrapper .error_input{background:#ffeff3}::-webkit-input-placeholder{color:#4A4A4A}::-moz-placeholder{color:#4A4A4A;opacity:1}:-moz-placeholder{color:#4A4A4A;opacity:1}:-ms-input-placeholder{color:#4A4A4A}:focus::-webkit-input-placeholder{color:rgba(0,0,0,0)}:focus::-moz-placeholder{color:rgba(0,0,0,0)}:focus:-moz-placeholder{color:rgba(0,0,0,0)}:focus:-ms-input-placeholder{color:rgba(0,0,0,0)}.btn,a.btn,input[type="button"],input[type="submit"],input[type="reset"],button{cursor:pointer;display:inline-block;font:16px Georgia,Arial,sans-serif;border:0;padding:7px 16px;color:#fff;background-color:#0068A4;text-decoration:none;text-align:center}.btn:hover,input[type="button"]:hover,input[type="submit"]:hover,input[type="reset"]:hover,button:hover{opacity:.75}.selectbox{position:relative;margin:0 4px;vertical-align:top;cursor:pointer;color:#2e2e2e}.selectbox .select{border:1px solid #ced4d5;padding:7px 25px 6px 9px;line-height:20px;text-shadow:1px 1px #FFF;background:#fff}.selectbox .select:active{background:#fcfcfc}.selectbox.focused .select{border:1px solid #8ec63f}.selectbox .select .text{display:block;width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font:14px/20px Georgia,Arial}.selectbox .trigger{position:absolute;top:0;right:0;width:34px;height:100%}.selectbox .trigger .arrow{position:absolute;top:50%;right:9px;margin-top:-2px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #2e2e2e;width:0;height:0;overflow:hidden}.selectbox .dropdown{z-index:9;margin:-1px 0;padding:4px 6px;background:#FFF;border:1px solid #ced4d5}.selectbox .dropdown ul{list-style:none;padding:0;margin:0}.selectbox li{margin:0;border-top:1px solid #ecf0f1;padding:4px 0 3px;font:14px/20px Georgia,Arial}.selectbox li:first-child{border-top:0}.selectbox li.sel,.selectbox li.sel:hover{cursor:default;color:#a8afb2}.selectbox li:hover{color:#e31e25}.selectbox li.disabled{color:#AAA}.selectbox li.disabled:hover{background:none} .header{background:#0068a4;padding:12px 0;border-bottom: 1px solid #e0e0e0; left: 0; top: 0; width: 100%; z-index: 199;} .logo {font:16px Georgia,Arial;text-decoration: none; color: #fff;} .search{position:relative}.header .search{float:right;width:66.516853%}#wrapper .search__field{border:3px solid #ECECEC;padding:11px 20px;width:100%;font:15px/20px Georgia,Arial;color:#4A4A4A}#wrapper .search_head .search__field{padding:12px 130px 12px 62px}.search_dec{position:absolute;top:4px;left:4px;width:42px;height:42px;background:url(/img/tel_ico.png) no-repeat center center #FBEFB5}.search__submit{position:absolute;right:4px;top:4px} .nav{padding: 22px 0 0;} .nav a{display:inline-block;vertical-align:top;margin:0 48px 18px 0;width:150px;color:#000;font-size:15px;} .nav a:last-child{margin-right:0} .wrap{padding:15px 0px 10px 0px}.aside{float:left;padding:20px 0px 10px;width:268px;background:#fff;font-family: Kazimir-Medium, Georgia, Arial;} .content__in h1:first-child,.aside h2:first-child{margin-top:0}.links{overflow:hidden;margin:0 -13px 20px 0}.links li{position:relative;display:inline-block;vertical-align:top;margin:0 15px 2px 0}.links li:before{content:"•";position:absolute;left:-10px;top:0;color:#999} .footer ul.links{margin:0}.footer .links li:before{color:#4e4e4e} .content{float: right; margin: 0 0 0 -281px; padding: 0 0 0 281px; width: 100%;} dt{line-height: 20px;margin-bottom:8px;} .content__in{padding:20px 0px 15px 30px;background:#fff} .content__in a,h1 span{color:#0068A4}.inum{display:inline-block;vertical-align:top;margin:0 0 17px;width:264px}.inum__item{float:left;margin:0 1px 0 0;padding:4px;height:33px;min-width:22px;background:#008432;color:#fff;font:18px/24px Georgia,Arial;text-align:center}.inum__sep{float:left;padding:8px 9px 6px}.inum_tel .inum__sep{padding:5px 7px}.inum__info{clear:both;padding:12px 0 0;color:#6D6D6D}h1 + h3{letter-spacing:.21px;margin-bottom:15px}hr + h3{margin-top:24px}.tel-mobile.def-code,.tel-mobile.def-operator{width:130px}.itime{display:inline-block;margin:4px 10px 4px 1px;padding:2px 2px 2px 33px;background:url(/img/clock_ico.png) no-repeat 8px 7px #0068A4}.itime__in{display:block;padding:5px 11px 4px;background:#fff}.ibox{margin:26px 3px 26px 0;border:1px solid #C4C4C4;padding:0 18px 12px}.ibox__heading{display:block;margin:0 -18px 11px;padding:10px 18px;text-transform:uppercase;font-size:14px;font-weight:700;background:#0068A4;color:#fff;letter-spacing:.24px}p.tablewarn{color:#808080;font-size:12px;line-height:15px;padding-left:10px;text-indent:-8px}.ibox p{margin:11px 0}.ibox p:last-child{margin-bottom:0}.imap{margin:14px 3px 14px 0;background:center top;height:280px}.links-wrap{margin:24px 0 30px;letter-spacing:.4px;line-height:24px}table{margin:15px 0;width:100%;font:13px/20px Georgia,Arial}table tr{border-bottom:1px solid #BCBCBC}table tr:first-child{border-bottom:3px solid #BCBCBC;font-size:15px;font-style:italic}table tr:first-child td{padding-top:0;padding-bottom:4px;color:#676767}table td:first-child{padding-left:0}table td:last-child{padding-right:0}table td{padding:14px 6px}table.tbnum td:first-child{text-align:center}table.tbnum td{padding:4px 6px;text-align:left;line-height:15px}table#tcities td{padding:4px 6px;text-align:left;line-height:15px}table#tcities tr:first-child{border-bottom:1px solid #BCBCBC!important;font-size:inherit!important;font-style:inherit!important}table#tcities tr:first-child td{color:#000!important}.def{font-weight:700}.def span{margin-left:28px}.ibox__links{display:inline-block;vertical-align:top;margin:0 0 12px;padding-right:5px;width:160px;font-size:15px;line-height:24px}.ibox__links:last-child{padding-right:0;width:140px}#wrapper .search_content .search__submit{padding:11px 12px 6px;width:40px;height:39px;background:#ECECEC}#wrapper .search_content .search__submit:hover,#wrapper .search_content .search__field:focus + .search__submit{opacity:1;background:#0068A4}.loop-icon{display:inline-block;width:14px;height:14px;background:url(/img/loops.png) no-repeat 0 0}.search__submit:hover .loop-icon,.search__field:focus + .search__submit .loop-icon{background-position:0 -16px}.search_numb{margin:0 0 30px;width:140px}.search_content + h3{margin:25px 0 15px}.box-nav{font:bold 14px/20px Georgia,Arial;letter-spacing:2.3px}.box-nav a{text-decoration:none}.box-nav a:hover{text-decoration:underline}.cities{position:relative;margin:56px 0 0;border-top:1px solid #0068A4;padding:4px 0 0}.cities__heading{position:absolute;top:-40px;left:0;padding:10px 9px 9px 15px;height:40px;font:bold 18px/22px Georgia,Arial;color:#fff;background:#0068A4;text-transform:uppercase}.cities__heading:after{content:"";position:absolute;right:-24px;top:0;border-top:40px solid transparent;border-left:24px solid #0068A4}.cities__links{display:inline-block;vertical-align:top;margin:5px 0;padding-right:10px;width:180px;line-height:24px}.cities__links a{display:block;line-height:20px}.cities__links:nth-child(3n+4){width:162px}.cities + hr{margin:20px 0} .footer{padding:24px 0;background:#fff;border-top: 1px solid #e0e0e0;}.footer .logo{margin-right:38px}.footer__unit{overflow:hidden;padding:3px 0 0}.footer__copy{margin:0 0 7px;font-size:14px}.footer__info{margin:0 0 5px}.footer a{color:#0068A4}.counter{display:none}.btn,button{-webkit-transition:all .2s;-moz-transition:all .2s;-ms-transition:all .2s;-o-transition:all .2s;transition:all .2s}#toTop{background:url("/img/move-top.png") no-repeat;border:medium none;bottom:10px;height:22px;overflow:hidden;position:fixed;right:10px;text-decoration:none;text-indent:100%;width:40px;}@media (max-width: 990px){[class*="__center"]{padding:1px 20px;width:100%}.tbnum td:last-child{width:auto}.nav__center{padding:1px 0 1px 2%} .nav a{margin-right:0;width:24%}.nav a:first-child{margin-right:2%}}@media (max-width: 780px){.content{float:none;padding-left:0;margin:0 0 20px}.aside{width:auto;float:none;}table{display:block;overflow:hidden}tbody{display:block}.nav a{width:22%}.nav a:first-child{width:25%}}@media (max-width: 670px){.header{padding:14px 0px;}.header .search{float:none;margin:0 -20px 16px;width:auto}.nav__center{padding:1px 0 1px 3%}.nav a{margin-right:0;width:48.5%}.nav a:first-child{margin-right:0;width:48.5%}}@media (max-width: 560px){.tel-mobile.def-code{width:70px},.tel-mobile.def-operator{width:110px}}@media (max-width: 480px){[class*="__center"]{padding:1px 20px;width:100%}.header .search{margin:0 -10px 16px}.nav a{margin-right:4px}.nav a:nth-child(2n+2){margin-right:0} .content__in,.aside{padding-left:0%;padding-right:0%}.links{margin-right:0}.footer .logo{display:none}.ibox,.ibox__heading{padding-left:15px;padding-right:15px}.ibox__heading{margin-left:-15px;margin-right:-15px}.cities__links{width:100%}.links li{margin:0 11px 5px 0}.nav__center{padding:1px 0 1px 3%}.contform .imp{width:100%!important}}@media (max-width: 420px){.inum__item{font:16px/20px Georgia,Arial;height:27px;min-width:18px;}.inum_tel .inum__sep{padding:5px 3px;line-height:17px}.inum__info{font-size:12px}.nav a,.nav a:first-child{width:52%;margin-right:0}.nav a:nth-child(even){width:45%}}@media (max-width: 380px){[class*="__center"]{padding:1px 20px;width:100%}.header .search{margin:0 -10px 16px}#wrapper .search_head .search__field{padding-left:9px}.search_dec{display:none}table.tbnum{margin-left:-2%;margin-right:-2%;width:104%}table.tbnum td{padding:4px}table.tbnum td.def{min-width:90px}} .aside h3 span {background: #ffdb4d; padding: 2px 4px; font-weight: 600;} .aside h2 span {background: #ffdb4d; padding: 2px 4px; font-weight: 600;} img.right {padding: 0px 0px 5px 10px; float: right; width: 300px;} .link {padding:10px 0px 5px 0px;font:18px Georgia,Arial;font-weight: 600;} .header__center span {font-size:15px;} .header__center .index {width: 39.5%;display: inline-block;vertical-align: middle;text-align: left;} .header__center .right {width: 60%;display: inline-block;vertical-align: middle;text-align: right;} .header__center .right .phone {min-width:300px;margin-right: 25px;display: inline-block;vertical-align: middle;text-align: right; font-size: 15px;} .header__center .right .order {display: inline-block;vertical-align: middle;text-align: right;} @media (max-width: 900px) {.header__center .right {width: 55%; float: right;} .header__center .right .phone {text-align: left; min-width: 200px;} .header__center .right .phone span {display: block; width: 100%; margin: 5px 0;} .logo {margin-top: 20px;} .header__center .index {padding-top: 15px;}} @media (max-width: 767px) {.nobanner {display:none;} .header__center .index {text-align: center; width: 100%; padding-top: 0;} .header__center .right {width: 100%;} .header__center .right .phone {width: 100%; text-align: center;} .header__center .right .order {text-align: center; margin-top: 10px; width: 100%;} .header__center .right .phone span {text-align: center;} .wrap {padding-top: 10px;}}button[disabled], html input[disabled] {cursor: default;}input[type="submit"] {margin-top: 0 !important;}button, html input[type="button"], input[type="reset"], input[type="submit"] {-webkit-appearance: button; cursor: pointer;} .fassen {position: relative;}.fassen:before {content:''; display:block; background: white; width: 55px; height: 15px; position: absolute; right: 0px; top: 0px; z-index: 99;}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type='text/javascript' src='/js/jquery-migrate.min.js'></script>
+		<script type='text/javascript' src='/js/main.js'></script>
+		<!--[if lte IE 8]>
+			<script src="/js/html5shiv.js"></script>
+		<![endif]-->
+		<script>
+		if (navigator.userAgent.toLowerCase().indexOf('chrome')!=-1){
+		function ca(){return false;}document.ondragstart=ca;document.oncopy=ca;
+		}
+		else {
+		function ca(){return false;}document.ondragstart=ca;document.oncopy=ca;
+		}
+		function cb(e){e=e||window.event;if(e.ctrlKey){if((e.keyCode=='85')||(e.keyCode=='67')||(e.keyCode=='65')||(e.keyCode=='45'))return false;}}
+		document.onkeypress=cb;document.onkeydown=cb;
+		function cc(e){e=e||window.event;var el=e.srcElement||e.target;if(el.tagName=="A" && document.getSelection()=="")return true;return false;}
+		document.oncontextmenu=cc;
+		</script>	
+		<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-222423-ckrCo';</script>
+		<base href="http://tests1001.ru/">	
+  </head>
+<body>
+
+
+	<div id="wrapper">
+		<header class="header">
+			<div class="header__center">
+				
+				<div class="index">
+				<a href="/" class="logo">Бесплатные тесты</a>
+				</div>
+				
+			</div>
+		</header>
+		<div class="wrap">
+			<div class="wrap__center">
+				<div class="content" id="text">
+					<div class="content__in">
+
+
+
+			
+
+			<h1 class="entry-title">Онлайн тесты</h1>
+
+</ul><h3><a href="http://tests1001.ru/тест_на_диету/">Тест на диету</a></h3><ul class="links"><li><a href="http://tests1001.ru/тест_на_диету/1268/">Какие у вас отношения с едой? </a></li><li><a href="http://tests1001.ru/тест_на_диету/3/">Как выбрать диету?</a></li><li><a href="http://tests1001.ru/тест_на_диету/1487/">Ваша спортивная индивидуальность</a></li><li><a href="http://tests1001.ru/тест_на_диету/1198/">Правильна ли ваша диета? </a></li></ul><h3><a href="http://tests1001.ru/тесты_для_беременных/">Тесты для беременных</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_для_беременных/2/">А вы получаете удовольствие от беременности?</a></li><li><a href="http://tests1001.ru/тесты_для_беременных/2074/">Готовы ли вы к появлению ребенка</a></li><li><a href="http://tests1001.ru/тесты_для_беременных/3796/">Как понять, беременна ли я без теста?</a></li><li><a href="http://tests1001.ru/тесты_для_беременных/1/">Беременна ли я?</a></li></ul><h3><a href="http://tests1001.ru/тесты_на_искренность/">Тесты на искренность</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_искренность/2209/">Правдолюбие</a></li><li><a href="http://tests1001.ru/тесты_на_искренность/1889/">Ваша реакция на правду</a></li><li><a href="http://tests1001.ru/тесты_на_искренность/1218/">Истина всего дороже</a></li><li><a href="http://tests1001.ru/тесты_на_искренность/1238/">Умеете ли вы лгать? </a></li></ul><h3><a href="http://tests1001.ru/тесты_на_логику/">Тесты на логику</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_логику/4518/">Тест Беннета онлайн</a></li><li><a href="http://tests1001.ru/тесты_на_логику/1281/">Какой у вас склад ума? </a></li><li><a href="http://tests1001.ru/тесты_на_логику/3/">Тест на логику (М. Войнаровский)</a></li><li><a href="http://tests1001.ru/тесты_на_логику/3532/">Тест на гибкость мышления</a></li></ul><h3><a href="http://tests1001.ru/тесты_на_мотивацию/">Тесты на мотивацию</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_мотивацию/3/">Тест на мотивацию к успеху Т. Элерса</a></li><li><a href="http://tests1001.ru/тесты_на_мотивацию/1266/">Насколько вы амбициозны? </a></li><li><a href="http://tests1001.ru/тесты_на_мотивацию/1527/">Что вас мотивирует</a></li><li><a href="http://tests1001.ru/тесты_на_мотивацию/2301/">Насколько вы довольны скоростью достижения целей? </a></li></ul><h3><a href="http://tests1001.ru/тесты_на_оптимизм/">Тесты на оптимизм</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_оптимизм/2092/">Свойственно ли Вам чувство прекрасного? </a></li><li><a href="http://tests1001.ru/тесты_на_оптимизм/1815/">Склонны ли вы к сниженному настроению? </a></li><li><a href="http://tests1001.ru/тесты_на_оптимизм/3770/">Тест диспозиционного оптимизма</a></li><li><a href="http://tests1001.ru/тесты_на_оптимизм/1515/">В чем источник вашей радости? </a></li></ul><h3><a href="http://tests1001.ru/тесты_на_профессию/">Тесты на профессию</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_профессию/3948/">Тест для бухгалтера по зарплате</a></li><li><a href="http://tests1001.ru/тесты_на_профессию/2606/">Какой ты блогер? </a></li><li><a href="http://tests1001.ru/тесты_на_профессию/2452/">у вас есть шанс стать губернатором или министром? </a></li><li><a href="http://tests1001.ru/тесты_на_профессию/4028/">Тест на стрессоустойчивость при приеме на работу</a></li></ul><h3><a href="http://tests1001.ru/тесты_на_стервозность/">Тесты на стервозность</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_стервозность/3766/">Насколько ты стерва?</a></li><li><a href="http://tests1001.ru/тесты_на_стервозность/2084/">Можно ли считать Вас негодяем? </a></li><li><a href="http://tests1001.ru/тесты_на_стервозность/2362/">На сколько ты мажор (-ка)? </a></li><li><a href="http://tests1001.ru/тесты_на_стервозность/1/">Ты в отношениях: стервозность обнаружена?</a></li></ul><h3><a href="http://tests1001.ru/тесты_на_талант/">Тесты на талант</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_талант/3690/">Как открыть в себе талант?</a></li><li><a href="http://tests1001.ru/тесты_на_талант/1767/">Обладаете ли вы даром убеждения? </a></li><li><a href="http://tests1001.ru/тесты_на_талант/2367/">Можешь ли ты стать певицей (певцом)? </a></li><li><a href="http://tests1001.ru/тесты_на_талант/1854/">Талантлив ли Ваш ребенок? </a></li></ul><h3><a href="http://tests1001.ru/тесты_на_уверенность/">Тесты на уверенность</a></h3><ul class="links"><li><a href="http://tests1001.ru/тесты_на_уверенность/1616/">Насколько вы уверены в своей сексуальности? </a></li><li><a href="http://tests1001.ru/тесты_на_уверенность/3/">Тест на уверенность в себе</a></li><li><a href="http://tests1001.ru/тесты_на_уверенность/2/">Тест на уверенность в себе Райдаса</a></li><li><a href="http://tests1001.ru/тесты_на_уверенность/1533/">Как обрести уверенность в себе? </a></li>
+			
+			
+
+			</div>
+				</div>
+
+
+
+				<div class="aside">
+
+				<h2>Популярные</h2>
+				<h3>За месяц</h3>
+				
+				
+				<p><a href="http://tests1001.ru/тесты_на_тревожность/3554/">Проективный тест тревожности Дорки Амен</a></p><p><a href="http://tests1001.ru/тесты_кеттелла/2968/">Интеллектуальный тест Кеттелла</a></p><p><a href="http://tests1001.ru/тесты_как_ты_выглядишь/1732/">О чем расскажет ваш макияж? </a></p><p><a href="http://tests1001.ru/учебные_тесты/4187/">Онлайн тест по биологии 6 класс</a></p><p><a href="http://tests1001.ru/тесты_на_восприятие/1668/">Тест на Вашу приземлённость</a></p>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<!-- banner -->
+									<ins class="adsbygoogle fassen"
+										 style="display:inline-block;width:300px;height:250px"
+										 data-ad-client="ca-pub-5071880172855917"
+										 data-ad-slot="7987715559"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>
+				
+				</div>
+				
+
+				
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer__center">
+				<div class="footer__unit">
+					<div class="footer__copy">&copy; 2017, Все права защищены</div>
+					<div class="footer__info"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter34132700 = new Ya.Metrika({id:34132700, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true});} catch(e) {}}); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n);}; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false);} else { f();}})(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/34132700" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99307933-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--LiveInternet counter--><script type="text/javascript">new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) +  ";" +Math.random();</script><!--/LiveInternet-->
+	
+</body>
+</html>

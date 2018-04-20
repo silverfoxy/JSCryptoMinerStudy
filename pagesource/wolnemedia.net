@@ -1,0 +1,1183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl-PL">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title> Wolne Media</title>
+<link rel="stylesheet" href="https://wolnemedia.net/wp-content/themes/wm-bez-kolejki-obrazkow/style.css?ver=8" type="text/css" media="screen" />
+<link rel="pingback" href="" />
+
+ 
+
+<script type="text/javascript">
+wordpressAsync = (function(){
+    
+	var list      = [];
+	var isLoading = false;
+	var isReady   = false;
+    
+    
+	addEvent(window, "load", function(){
+
+		if (isReady === false) {
+
+			isReady = true;
+
+			setTimeout(function(){
+
+				lazyLoadBlock();
+				refresh();
+			}, 0);
+		}
+	});
+    
+                //"js", string
+                //"css", string, string
+                //"func", function
+    
+	return function(type, value, media){
+        
+		list.push({
+			"type"  : type,
+			"value" : value,
+			"media" : media
+		});
+
+		refresh();
+	};
+
+	function refresh() {
+		
+		if (isReady === false) {
+			return;
+		}
+
+		if (isLoading === true) {
+			return;
+		}
+
+		if (list.length < 1) {
+			return;
+		}
+
+		var elementLoad = list.shift();
+
+		if (elementLoad.type === "js") {
+
+			isLoading = true;
+
+			loadJs(elementLoad.value, function(){
+
+				isLoading = false;
+				setTimeout(refresh, 0);
+			});
+        
+        } else if (elementLoad.type === "css") {
+
+			loadCss(elementLoad.value, elementLoad.media, function(){
+
+				setTimeout(refresh, 0);
+			});
+
+        } else if (elementLoad.type === "func") {
+            
+			elementLoad.value();
+            setTimeout(refresh, 0);
+            
+		} else {
+            
+			throw Error("Nieznany typ");
+		}
+	}
+
+	function addEvent(element, event, callback) {
+
+        if (element.addEventListener)
+            element.addEventListener(event, callback, false);
+
+        else if (element.attachEvent)
+            element.attachEvent('on' + event, callback);
+
+        else
+            throw Error('nieprawidlowe odgalezienie');
+    }
+
+    function loadCss(src, media, callback) {
+
+		var node   = document.createElement('link');
+
+		node.type  = 'text/css';
+		node.rel   = 'stylesheet';
+		node.href  = src;
+		node.media = media;
+
+		head_add(node);
+		callback();
+    }
+
+    function loadJs(src, callback) {
+
+		var node    = document.createElement('script');
+		var exec    = false;
+
+		node.type   = 'text/javascript';
+		node.onload = callbackLoad;
+		node.src    = src;
+		node.async  = true;
+		node.defer  = true;
+
+		node.onreadystatechange = function () {
+		    
+		    if (node.readyState === 'loaded' || node.readyState === 'complete')
+		        callbackLoad();
+		    };
+
+		head_add(node);
+
+		function callbackLoad() {
+
+			if (exec === false) {
+				exec = true;
+				callback();
+			}
+		}
+    }
+
+    function head_add(node) {
+        
+        var head = document.getElementsByTagName('head');
+        
+        if (head.length !== 1)
+            throw Error('Expected to exactly one element "head" -> ' + head.length);
+        
+        head = head[0];
+        head.appendChild(node);
+    }
+
+    function lazyLoadBlock() {
+
+    	var list = document.querySelectorAll(".lazyLoadBlock");
+
+    	for (var i=0; i<list.length; i++) {
+			runBlock(list[i]);
+    	}
+
+    	function runBlock(block) {
+            
+            block.style.opacity = "0";
+            
+    		block.innerHTML = getText(block);
+            
+            var imgList = block.querySelectorAll("img");
+            
+            if (imgList.length > 0) {
+                
+                addEvent(imgList[0], "load", function(){
+
+                    block.style.opacity = "1";
+                });
+            
+            } else {
+            
+                block.style.opacity = "1";
+            }
+    	}
+    }
+    
+	function getText(node) {
+
+		var out = "";
+
+        if (typeof(node.textContent) === "string")
+        	return node.textContent;
+
+        for (node = node.firstChild; node; node = node.nextSibling)
+        	out += getText(node)
+
+	    return out
+	}
+
+}());
+</script>
+
+
+
+<!--......html out............-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- wp_head --><meta name="generator" content="WordPress 4.9.4">
+<script type="text/javascript">
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};a2a_localize = {
+	Share: "Podziel się",
+	Save: "Zapisz",
+	Subscribe: "Subskrybuj",
+	Email: "Email",
+	Bookmark: "Dodaj do ulubionych",
+	ShowAll: "Pokaż wszystko",
+	ShowLess: "Ukryj",
+	FindServices: "Wyszukaj",
+	FindAnyServiceToAddTo: "Wyszukaj",
+	PoweredBy: "Powered by",
+	ShareViaEmail: "Share via email",
+	SubscribeViaEmail: "Subscribe via email",
+	BookmarkInYourBrowser: "Dodaj do zakładek w przeglądarce",
+	BookmarkInstructions: "Press Ctrl+D or \u2318+D to bookmark this page",
+	AddToYourFavorites: "Dodaj do ulubionych",
+	SendFromWebOrProgram: "Send from any email address or email program",
+	EmailProgram: "Email program",
+	More: "More&#8230;"
+};
+
+</script><!-- wp_head end -->
+
+<!--......async header........-->
+
+<script type="text/javascript">wordpressAsync("css", "//s.w.org","all")</script>
+<script type="text/javascript">wordpressAsync("css", "https://wolnemedia.net/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0","all")</script>
+<script type="text/javascript">wordpressAsync("css", "https://wolnemedia.net/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.14","all")</script>
+<script type="text/javascript">wordpressAsync("js", "https://wolnemedia.net/wp-includes/js/jquery/jquery.js?ver=1.12.4")</script>
+<script type="text/javascript">wordpressAsync("js", "https://wolnemedia.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1")</script>
+<script type="text/javascript">wordpressAsync("js", "https://wolnemedia.net/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.0")</script>
+<script type="text/javascript">wordpressAsync("js", "https://wolnemedia.net/wp-content/plugins/wptextresizecontrols-mod//text.js?ver=4.9.4")</script>
+<script type="text/javascript">wordpressAsync("js", "https://static.addtoany.com/menu/page.js")</script>
+
+
+<!--......end process.........-->
+
+
+</head>
+<body class="home blog wptextresize">
+	<div id="wrap">
+	
+		<div id="header">
+			<div id="bar-menu">
+				<a id="portal_logo" href="/"></a>
+				<ul>
+					<li><a class="portal" href="/">Portal</a></li>
+					<li><a class="telewizja" href="//tv.wolnemedia.net/">Telewizja</a></li>
+					<li class="radio"><a class="radio" href="//radio.wolnemedia.net/">Radio</a></li>
+					<li><a class="forum" href="//blog.wolnemedia.net/">Blog</a></li>
+					<li><a class="toplinki" href="//szukaj.wolnemedia.net/">Szukaj</a></li>
+					<li class="czat"><a class="czat" href="/czat/">Czat</a></li>
+					<li class="pogoda"><a class="pogoda" href="/?page_id=19143">Pogoda</a></li>
+					<li class="search">
+						<form action="//wolnemedia.net">
+							<fieldset>
+							<input type="text" class="text" name="s" value="" size="18"/>
+							<input type="submit" class="submit" value="Szukaj"/>
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			
+			<div id="bar-second">
+				<div class="logo">
+					<a id="portal_logo2" href="/index.php"></a>
+					<p>Powiedz STOP<br/>Mediom Masowej Manipulacji!</p>
+				</div>
+				
+				<ul>
+					<li>
+						<a href="/komunikaty/wesprzyj-wm/" class="thumb"><img src="/obrazki/pieniadze-zlotowki.jpg" width="70" height="70" alt="thumb"/></a>
+						<div class="content">
+							<h3><a href="/komunikaty/wesprzyj-wm/">Wesprzyj portal WM</a></h3>
+							<p>Dołącz do stałej<br>grupy wsparcia WM!<br>
+Więcej informacji <a href="/komunikaty/wesprzyj-wm/">tutaj</a></p>
+						</div>
+					</li>
+					
+					<li>
+						<a href="//blog.wolnemedia.net/" class="thumb"><img src="//blog.wolnemedia.net/wp-content/uploads/2013/02/bloger-150x150.jpg" width="70" height="70" alt="thumb"/></a>
+						<div class="content">
+							<h3><a href="//blog.wolnemedia.net/">Bloguj z WM</a></h3>
+							<p>Załóż bloga i bloguj<br>bez opłat i reklam!<br>
+							Założysz go <a href="//blog.wolnemedia.net/">tutaj</a></p>
+						</div>
+					</li>
+					
+					<li class="last">
+						<a href="/pliki-coockies-w-wolnych-mediach/" class="thumb"><img src="/obrazki/cookies.jpg" width="70" height="70" alt="thumb"/></a>
+						<div class="content">
+							<h3><a href="/pliki-coockies-w-wolnych-mediach/">Stosujemy cookies</a></h3>
+							<p>Nie zgadzasz się?<br/>
+							Odznacz je w przeglądarce!<br> Więcej informacji <a href="/pliki-coockies-w-wolnych-mediach/">tutaj</a></p>
+						</div>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="main">
+			
+			    
+			<div id="sidebar-left">
+				<ul>
+
+					<li><h3>Dla użytkowników</h3>
+						<ul>
+							<li><a href="https://wolnemedia.net/pisz-kulturalnie/">Zaloguj się</a> </li>
+							<li></li>
+							<li><a href="/rejestracja/">Rejestracja</a></li>
+							<li><a href="/wp-admin/post-new.php">PUBLIKUJ</a></li>
+							<li><a href="/?page_id=11708">O nas</a></li>
+							<li><a href="/?page_id=1419">Regulamin</a></li>
+							<li><a href="/komunikaty/jak-pisac-i-publikowac-w-wolnych-mediach/">Poradnik dla autorów</a></li>
+							<li><a href="/?page_id=1417">Prawa autorskie</a></li>
+							<li><a href="/?page_id=1414">Kontakt z WM</a></li>
+							<li><a href="/?page_id=1416">Bannery</a></li>
+							<li><a href="/?page_id=1641">Statystyka</a></li>
+							<li><a href="/?cat=3">Komunikaty WM</a></li>
+							<li><a href="/odpowiedzi-na-problemy-techniczne/">Pomoc techniczna</a></li>
+
+						</ul>
+					</li>
+
+					<li><h3>Portal</h3>
+						<ul>
+							<li><a href="/?s=">WSZYSTKIE NOWOŚCI</a></li>
+							<li><a href="/category/publikacje-wm/">Publikacje WM</a></li>
+							<li><a href="/category/warto-przeczytac/">Warto przeczytać</a></li>
+							<li><a href="/category/akcje-spoleczne/">Akcje społeczne</a></li>
+							<li><a href="/category/audycje/">Audycje</a></li>
+							<li><a href="/category/biblioteka-pdf/">Biblioteka PDF</a></li>
+							<li><a href="/?cat=6">Edukacja</a></li>
+							<li><a href="/?cat=7">Ekologia i przyroda</a></li>
+							<li><a href="/?cat=13">Gospodarka</a></li>
+							<li><a href="/?cat=14">Historia</a></li>
+							<li><a href="/?cat=820">Komiksy</a></li>
+							<li><a href="/?cat=15">Kultura i sport</a></li>
+							<li><a href="/?cat=19">Media</a></li>
+							<li><a href="/?cat=20">Nauka i technika</a></li>
+							<li><a href="/?cat=22">Opowiadania</a></li>
+							<li><a href="/?cat=8">Paranauka</a></li>
+							<li><a href="/?cat=23">Polityka</a></li>
+							<li><a href="/?cat=24">Prawo</a></li>
+							<li><a href="/category/publicystyka/">Publicystyka</a></li>
+							<li><a href="/?cat=29">Seks</a></li>
+							<li><a href="/?cat=31">Społeczeństwo</a></li>
+							<li><a href="/?cat=32">Świat komputerów</a></li>
+							<li><a href="/?cat=33">Turystyka i podróże</a></li>
+							<li><a href="/?cat=35">Wiadomości z kraju</a></li>
+							<li><a href="/?cat=36">Wiadomości ze świata</a></li>
+							<li><a href="/category/wiadomosci-z-wszechswiata/">Wiadomości z wszechświata</a></li>
+							<li><a href="/?cat=26">Wierzenia</a></li>
+							<li><a href="/?cat=38">Zdrowie</a></li>
+						</ul>
+					</li>
+
+					<li><h3>Ważne tematy</h3>
+						<ul>
+							<li><a href="/tag/11-wrzesnia">11 września 2001</a></li>
+							<li><a href="/tag/cenzura-i-wolnosc-slowa/">Cenzura i wolność słowa</a></li>
+							<li><a href="/tag/codex-alimentarius">Codex Alimentarius</a></li>
+							<li><a href="/tag/edukacja-alternatywna">Edukacja alternatywna</a></li>
+							<li><a href="/tag/fukushima">Fukushima</a></li>
+							<li><a href="/tag/gmo">GMO - bioinżynieria</a></li>
+							<li><a href="/tag/inwigilacja">Inwigilacja</a></li>
+							<li><a href="/tag/kryzys-gospodarczy">Kryzys gospodarczy</a></li>
+							<li><a href="/tag/szczepionki">Niebezpieczne szczepionki</a></li>
+							<li><a href="/tag/nowy-porzadek-swiata">Nowy Porządek Świata</a></li>
+							<li><a href="/tag/panstwo-policyjne">Państwo policyjne</a></li>
+							<li><a href="/tag/prawa-czlowieka">Prawa człowieka</a></li>
+							<li><a href="/tag/psychiatria">Psychiatria</a></li>
+							<li><a href="/tag/smolensk-2010">Smoleńsk 2010</a></li>
+							<li><a href="/tag/teoria-rosnacej-ziemi/">Teoria rosnącej Ziemi</a></li>
+						</ul>
+					</li>
+				
+					<li><h3>Telewizja</h3>
+						<ul>
+							<li><a href="//tv.wolnemedia.net/category/filmy-animowane/">Animacja</a></li>
+							<li><a href="//tv.wolnemedia.net/category/filmy-dokumentalne/">Dokumenty</a></li>
+							<li><a href="//tv.wolnemedia.net/category/filmy-fabularne/">Filmy fabularne</a></li>
+							<li><a href="//tv.wolnemedia.net/category/opinie/">Opinie i dyskusje</a></li>
+							<li><a href="//tv.wolnemedia.net/category/muzyka/">Muzyka</a></li>
+							<li><a href="//tv.wolnemedia.net/category/teatr-i-kabaret/">Teatr i kabaret</a></li>
+							<li><a href="//tv.wolnemedia.net/category/telewizje/">Telewizje online</a></li>
+						</ul>
+					</li>
+				
+					<li><h3>Radio</h3>
+						<ul>
+							<li><a href="//radio.wolnemedia.net/">Informacje o radiu</a></li>
+							<li><a onclick="javascript:window.open('//radio.wolnemedia.net/program/00.php','okno','toolbar=no, height=620px, width=300px')" href="#" target="_self">Player radia on-line z 20 programami</a></li>
+						</ul>
+					</li>
+
+
+					<li><h3>Wybrane audycje</h3>
+						<ul>
+							<li><a href="/category/audycje/">WSZYSTKIE AUDYCJE</a></li>
+							<li><a href="/tag/7-dni-z-wolnymi-mediami/">7 dni z Wolnymi Mediami</a></li>
+							<li><a href="/tag/agentomasz/">AgenTomasz</a></li>
+							<li><a href="/tag/alan-watt/">Alan Watt</a></li>
+							<li><a href="/tag/bliskie-spotkania/">Bliskie spotkania</a></li>
+							<li><a href="/tag/cafe-de-flore/">Cafe de Flore</a></li>
+							<li><a href="/tag/ciekawostki-ze-szwajcarii/">Ciekawostki ze Szwajcarii</a></li>
+							<li><a href="/tag/cudowna-przyroda/">Cudowna przyroda</a></li>
+							<li><a href="/tag/dokladka/">Dokładka</a></li>
+							<li><a href="/tag/dziwna-sytuacja-w-radiu/">Dziwna sytuacja w radiu</a></li>
+							<li><a href="/tag/epicentrum/">Epicentrum</a></li>
+							<li><a href="/tag/etykieta-zastepcza/">Etykieta zastępcza</a></li>
+							<li><a href="/tag/gdzie-lezy-prawda/">Gdzie leży prawda?</a></li>
+							<li><a href="/tag/geopolityka/">Geopolityka</a></li>
+							<li><a href="/tag/goodmother/">Goodmother</a></li>
+							<li><a href="/tag/hiperprzestrzen/">Hiperprzestrzeń</a></li>
+							<li><a href="/tag/historia-mojej-emigracji/">Historia mojej emigracji</a></li>
+							<li><a href="/tag/horror-jugendamtow/">Horror Jugendamtów</a></li>
+							<li><a href="/tag/horyzont-zdarzen/">Horyzont zdarzeń</a></li>
+							<li><a href="/tag/inne-audycje/">Inne audycje</a></li>
+							<li><a href="/tag/infra/">Infra</a></li>
+							<li><a href="/tag/infra-fakty/">Infra Fakty</a></li>
+							<li><a href="/tag/japananimation/">Japananimation</a></li>
+							<li><a href="/tag/kontestacja/">Kontestacja</a></li>
+							<li><a href="/tag/lanie-wody-w-deszczu/">Lanie wody w deszczu</a></li>
+							<li><a href="/tag/na-podsluchu/">Na podsłuchu</a></li>
+							<li><a href="/tag/na-zdrowie/">Na zdrowie</a></li>
+							<li><a href="/tag/nasza-ziemia/">Nasza ziemia</a></li>
+							<li><a href="/tag/nauka-xxi-wieku/">Nauka XXI wieku</a></li>
+							<li><a href="/tag/niezalezna-telewizja/">Niezależna Telewizja</a></li>
+							<li><a href="/tag/ntns/">NTNŚ</a></li>
+							<li><a href="/tag/opowiadania-audio/">Opowiadania audio</a></li>
+							<li><a href="/tag/paralaksa/">Paralaksa</a></li>
+							<li><a href="/tag/podcast-o-piwie/">Podcast o piwie</a></li>
+							<li><a href="/tag/podnosnik/">podNośnik</a></li>
+							<li><a href="/tag/polskie-detroit/">Polskie Detroit</a></li>
+							<li><a href="/tag/poltergeist-audycja/">Poltergeist</a></li>
+							<li><a href="/tag/prison-planet/">Prison Planet</a></li>
+							<li><a href="/tag/przedzial-rozmow/">(Prze)dział rozmów</a></li>
+							<li><a href="/tag/riese-i-inne-tajemnice-iii-rzeszy/">Riese i inne tajemnice III Rzeszy</a></li>
+							<li><a href="/tag/rozmowy-poza-cialem/">Rozmowy poza ciałem</a></li>
+							<li><a href="/tag/rozmowy-w-deszczu/">Rozmowy w deszczu</a></li>
+							<li><a href="/tag/seans-spirytystyczny/">Seans spirytystyczny</a></li>
+							<li><a href="/tag/substancja/">Substancja</a></li>
+							<li><a href="/tag/synteza/">Synteza</a></li>
+							<li><a href="/tag/teoriachaosu/">tEoriA cHaoSu</a></li>
+							<li><a href="/tag/travelcast/">TravelCast</a></li>
+							<li><a href="/tag/what-the-fuzz/">What The Fuzz!</a></li>
+							<li><a href="/tag/wolna-kultura/">Wolna kultura</a></li>
+							<li><a href="/tag/z-altaju-widac-wiecej/">Z Ałtaju widać więcej</a></li>
+							<li><a href="/tag/zakazana-wiedza/">Zakazana wiedza</a></li>
+						</ul>
+					</li>
+
+					<li><h3>Komiksy</h3>
+						<ul>
+							<li><a href="/tag/ampersand/">Ampersand</a></li>
+							<li><a href="/tag/astronauci/">Astronauci</a></li>
+							<li><a href="/tag/bajka-o-rybaku-i-zlotej-rybce/">Bajka o rybaku i złotej rybce</a></li>
+							<li><a href="/tag/cudowny-gosc/">Cudowny gość</a></li>
+							<li><a href="/tag/dziadek-z-workiem/">Dziadek z workiem</a></li>
+							<li><a href="/tag/fluff/">Fluff</a></li>
+							<li><a href="/tag/krotkie-komiksy/">Inne komiksy</a></li>
+							<li><a href="/tag/jezus-i-mo/">Jezus i Mo</a></li>
+							<li><a href="/tag/kot-i-dziewczyna/">Kot i dziewczyna</a></li>
+							<li><a href="/tag/memy-wm/">Memy WM</a></li>
+							<li><a href="/tag/mimi-i-eunika/">Mimi i Eunika</a></li>
+							<li><a href="/tag/plurix/">Plurix</a></li>
+							<li><a href="/tag/przygody-juana-i-luisa/">Przygody Juana i Luisa</a></li>
+							<li><a href="/tag/przygody-niny/">Przygody Niny</a></li>
+							<li><a href="/tag/terry-kane/">Terry Kane</a></li>
+							<li><a href="/tag/ucieczka-z-militaryjska/">Ucieczka z Militaryjska</a></li>
+							<li><a href="/tag/znowu-hamlet/">Znowu Hamlet</a></li>
+						</ul>
+					</li>
+																		
+				</ul>
+
+			</div>
+
+			<div id="content">
+				<div class="column-left">
+						
+																		<h3><a href="https://wolnemedia.net/katastrofa-tunguska-wciaz-niewyjasniona/">Katastrofa tunguska wciąż niewyja...</a></h3>
+						<p>
+			<div style="width:295px">
+				<img src="//wolnemedia.net/obrazki/tung.jpg" width="295" height="226">
+				<br/>
+				<object style="display:block; width:200px;float:left;"
+					type="application/x-shockwave-flash"
+					data="//wolnemedia.net/zplayer.swf?mp3=https%3A%2F%2Farchive.org%2Fdownload%2FRwm-2018-03-18%2Fntv-katastrofa-tunguska-wciaz-niewyjasniona-agnieszka-zell.mp3&amp;c1=000000&amp;down=0&amp;autoplay=0"
+					width="200"
+					height="20" >
+		 				<param
+		 					name="movie"
+		 					value="" />
+		 		</object>
+		 		
+		 		<a style="width:95px; float:left; display:block;"
+		 			href="https://archive.org/download/Rwm-2018-03-18/ntv-katastrofa-tunguska-wciaz-niewyjasniona-agnieszka-zell.mp3"
+		 			border="0">
+                        <!--
+		 				<img
+		 					src="/pobierz.png"
+		 					width="95"
+		 					height="20"
+		 					>
+                        -->
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAAAUCAIAAABksXYNAAAACXBIWXMAAAsSAAALEgHS3X78AAADPUlEQVR42u1Wz0tiURjVzJQiJctFZZQtLA01IYgKCqNFBi1aSauSoASX/Qe6CCKMNlFQi4J+TrUJahFUipJiQfsWkVQKJVQLEbKaQ5cRufc9G3ozAwPvLOS95/m++93z/bhXIhEhQoQIEf8H2traPj4+stns6+trPB73+/2lpaWcTIfDEQqF0un08/Pz/v6+xWIp4A0A8+zsrKOjg+KMj4/jX0Lr6enhMyfY3d3lixZhHB4eNjU1sWHke3h7e4OJIHUaGxt1Oh1ixX5mZ2cpjlQqtdvt9/f3brdbr9c3Nzf7fL6bm5uGhgY+b7W1tQaDYWlp6eLiguKUlZUNDAwQmkKh4DMnqKys5CMgPRsbG4FAgN0UscWOqqurd3Z2jo6OBKmTe3W5XE9PTywtHA4vLCzkykqj0ZyenqLQOL1BTfIKuTnzZjQaOb9T5l8SkLPCdYEM3d3dtbS0CFIHKUJK8Wo2m9/f3ykOtACHtJJMJisqKsLD6Ojo9fV1Ya0nJycjkQjFgXl7eztoWJESgjLnizb3Ojc3d3l5ydIQZElJCX5jsdjMzMw3paHWKy4u3traOj4+pjiQDByVSoWNST+Bhbu6utD8nN729vZQzxgKyWSyr6+Pb1GlUsln/uMXuru7OQnb29srKytra2u9vb2sfyL62NgY2r+ioqJAMf6WOtPT01NTU/Pz80g1NSn51Ons7CyszsHBAYLzeDx/Qx1IjwfELPksRlYdrVaLnhoeHs6J9X11zs/Po9Ho5uYmOpnlkM6yWq2SvM4aGRn5srMmJiZYBf9UZ62vr19dXdXX13PuH5kOBoN4IC0mSJ38L+gvloapvLi4SGYT0evk5IRvKueSibMpk8mw3kwmU4GpzNYCRVCr1XK5vKamJpFIQCM2YJvNdnt7S4QTBLJeeXm5/BOQmc0DvvT396dSKZzoOCZxqHu9XkSGk5XTGzhVVVWoNTQXBhnFQUNhGBEaVuQzJ0A7swR4IA0+NDSE2nQ6nVR1YHQuLy/jqEF/ET+C1GFHAIvBwUHchnDHe3l5wbZbW1v5vJFr2OPj4+rqKhuZ8NtgfrSo6IeHh7q6unwaOLgE5vv5pjoiRIgQIeJf4yefQkJZ7VotOQAAAABJRU5ErkJggg=="
+                            width="95"
+		 					height="20"
+                            />
+		 		</a>
+		 		
+		 		<div style="clear:both; font-size:0;"></div>
+			</div>
+		</p>
+												<br/>
+						
+																									<h3><a href="https://wolnemedia.net/category/wiadomosci-z-kraju/">Wiadomości z kraju</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/zeby-wydalic-dyplomatow-trzeba-miec-powod/" class="thumb"><img src="//wolnemedia.net/obrazki/msz.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/zeby-wydalic-dyplomatow-trzeba-miec-powod/">Żeby wydalić dyplomatów, trzeba mieć powód</a></h4>
+										<p>Czy Polska wydali dyplomatów z Rosji dla Wielkiej Brytanii?</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/blinkmouse-moze-zastapic-mysz-komputerowa/" class="thumb"><img src="https://i.ytimg.com/vi/qR1MNBCLYxY/mqdefault.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/blinkmouse-moze-zastapic-mysz-komputerowa/">BlinkMouse może zastąpić mysz komputerową</a></h4>
+										<p>Czy w przyszłości będziemy mrugać zamiast klikać?</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/eksperymenty-szczepionkowe-na-bezdomnych/" class="thumb"><img src="//wolnemedia.net/obrazki/novartis.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/eksperymenty-szczepionkowe-na-bezdomnych/">Eksperymenty szczepionkowe Novartisu na&nbsp;bezdomnych</a></h4>
+										<p>7 lat temu zmarło kilku testerów z powodu łamania procedur.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/a-jednak-w-puszczy-boreckiej-strzelano-za-pieniadze/" class="thumb"><img src="//wolnemedia.net/obrazki/zubry.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/a-jednak-w-puszczy-boreckiej-strzelano-za-pieniadze/">A jednak&nbsp;strzelano za&nbsp;pieniądze</a></h4>
+										<p>Zabito dwa młode żubry bo "nie miały szans na przeżycie zimy...</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/zatrzymaj-aborcje-trafi-do-dalszych-prac/" class="thumb"><img src="//wolnemedia.net/obrazki/zatrzymac-aborcje.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/zatrzymaj-aborcje-trafi-do-dalszych-prac/">„Zatrzymaj aborcję” trafi do&nbsp;dalszych prac</a></h4>
+										<p>Debata w komisji przebiegała w skandalicznych warunkach.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+																								<h3><a href="/category/publicystyka/">Publicystyka</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/starozytne-imperium-hetyckie-i-forteca-hattusa/" class="thumb"><img src="//wolnemedia.net/obrazki/hetyci.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/starozytne-imperium-hetyckie-i-forteca-hattusa/">Starożytne Imperium Hetyckie i&nbsp;forteca Hattusa</a></h4>
+										<p>Starożytne miasto jest naturalnym muzeum historii starożytne...</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/jak-umarla-solidarnosc-ludzi-pracy/" class="thumb"><img src="//wolnemedia.net/obrazki/wyscig-szczurow.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/jak-umarla-solidarnosc-ludzi-pracy/">Jak umarła solidarność ludzi pracy</a></h4>
+										<p>Ludzi pracy najemnej jest u nas 16 milionów.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/cztery-interpretacje-prl/" class="thumb"><img src="//wolnemedia.net/obrazki/prl-kiosk-ruchu.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/cztery-interpretacje-prl/">Cztery interpretacje PRL</a></h4>
+										<p>Komunizm idealistyczny, liberalny, konserwatywny czy antykom...</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/rezim-czerwonych-khmerow/" class="thumb"><img src="//wolnemedia.net/obrazki/pol-pot-0.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/rezim-czerwonych-khmerow/">Reżim Czerwonych Khmerów</a></h4>
+										<p>Gdyby nie Amerykanie, pol Pot nie doszedłby do władzy.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/elon-musk-sprzedawca-technozludzen/" class="thumb"><img src="//wolnemedia.net/obrazki/tesla-kosmos.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">19 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/elon-musk-sprzedawca-technozludzen/">Elon Musk – sprzedawca technozłudzeń</a></h4>
+										<p>Niedawno cały świat przecierał ze zdumienia oczy.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/polska-stracila-w-ii-wojnie-swiatowej-18-populacji/" class="thumb"><img src="//wolnemedia.net/obrazki/ii-wojna-swiatowa.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">19 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/polska-stracila-w-ii-wojnie-swiatowej-18-populacji/">Polska straciła w&nbsp;II wojnie światowej 18% populacji</a></h4>
+										<p>Udział Polski w odszkodowaniach od Niemiec wyniósł 2%.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/raz-dwa-trzy-szpiegiem-bedziesz-ty/" class="thumb"><img src="//wolnemedia.net/obrazki/free-piskorski.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">19 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/raz-dwa-trzy-szpiegiem-bedziesz-ty/">Raz, dwa, trzy – szpiegiem będziesz ty!</a></h4>
+										<p>Już 2 lata siedzi w areszcie były poseł „Samoobrony”.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/szkola-dla-matola/" class="thumb"><img src="//wolnemedia.net/obrazki/nauczyciel.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">19 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/szkola-dla-matola/">Szkoła dla&nbsp;matoła</a></h4>
+										<p>Nowa podstawa programowa dla szkół średnich ma 344 strony.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+																								<h3><a href="/category/opowiadania/">Opowiadania</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/dziewczynka-i-lalka-2/" class="thumb"><img src="//wolnemedia.net/obrazki/stara-lalka.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">07 stycznia 2018</span>
+										<h4><a href="https://wolnemedia.net/dziewczynka-i-lalka-2/">Dziewczynka i&nbsp;lalka</a></h4>
+										<p>- Weź Aldonę, daję ci ją! - nie wierzyłam własnym uszom.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+																								<h3><a href="/category/publikacje-wm/">Publikacje WM</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/yanto-awerkion-skazany-za-poparcie-petycji/" class="thumb"><img src="//wolnemedia.net/obrazki/awerkion.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/yanto-awerkion-skazany-za-poparcie-petycji/">Yanto Awerkion skazany za&nbsp;poparcie petycji</a></h4>
+										<p>Petycja dotyczyła niepodległości Papui Zachodniej.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+											
+				</div>
+				<div class="column-right">
+				
+						
+            <h3>
+                <a href="//tv.wolnemedia.net/?p=5146">Technologia Obcych</a>
+            </h3>
+            
+            <div class="movie-player">
+                <a href="//tv.wolnemedia.net/?p=5146"></a>
+                <img src="https://i.ytimg.com/vi/0l6InfNfiiA/mqdefault.jpg" width="295" height="228" alt="Technologia Obcych"/>
+            </div>
+            						<br/>
+						
+																								<h3><a href="https://wolnemedia.net/category/wiadomosci-ze-swiata/">Wiadomości ze świata</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/skazenie-niemieckich-rzek-plastikiem/" class="thumb"><img src="//wolnemedia.net/obrazki/mikroplastik.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/skazenie-niemieckich-rzek-plastikiem/">Skażenie niemieckich rzek plastikiem</a></h4>
+										<p>Uniwersytet w Bayreuth zbadał próbki z 22 niemieckich rzek.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/zly-stan-uzebienia-wyzsze-ryzyko-cukrzycy/" class="thumb"><img src="//wolnemedia.net/obrazki/imigranci-dentysci.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/zly-stan-uzebienia-wyzsze-ryzyko-cukrzycy/">Zły stan uzębienia = wyższe ryzyko cukrzycy?</a></h4>
+										<p>Stan twoich zębów może ujawniać jednostkowe ryzyko cukrzycy.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/leczenie-kanalowe-przyczyna-raka/" class="thumb"><img src="//wolnemedia.net/obrazki/stomatologia.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/leczenie-kanalowe-przyczyna-raka/">Leczenie kanałowe przyczyną raka?</a></h4>
+										<p>93% kobiet z rakiem piersi miało leczenie kanałowe.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/chiny-chwala-sie-pierwszym-bezzalogowym-czolgiem/" class="thumb"><img src="//wolnemedia.net/obrazki/czolg-autonom.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/chiny-chwala-sie-pierwszym-bezzalogowym-czolgiem/">Chiny chwalą się pierwszym bezzałogowym czołgiem</a></h4>
+										<p> Być może rok 2018 będzie pod tym względem przełomowy.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/pierwsza-piesza-ofiara-samochodow-autonomicznych/" class="thumb"><img src="https://i.ytimg.com/vi/_ruM1N_w-zs/mqdefault.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/pierwsza-piesza-ofiara-samochodow-autonomicznych/">Pierwsza piesza ofiara samochodów autonomicznych</a></h4>
+										<p>Kobietę potrącił śmiertelnie autonomiczny samochód Ubera.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/turcja-prowadzi-wojne-hybrydowa-z-grecja/" class="thumb"><img src="//wolnemedia.net/obrazki/grecja.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/turcja-prowadzi-wojne-hybrydowa-z-grecja/">Turcja prowadzi wojnę hybrydową z&nbsp;Grecją?</a></h4>
+										<p>Znaczne pogorszenie stosunków między Grecją a Turcją.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/turcy-i-rebelianci-zajeli-afrin/" class="thumb"><img src="https://i.ytimg.com/vi/1-md0WClUDA/default.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/turcy-i-rebelianci-zajeli-afrin/">Turcy i&nbsp;„rebelianci” zajęli Afrin</a></h4>
+										<p>Zdobywcy miasta plądrują je i grabią własność prywatną.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/yanto-awerkion-skazany-za-poparcie-petycji/" class="thumb"><img src="//wolnemedia.net/obrazki/awerkion.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">20 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/yanto-awerkion-skazany-za-poparcie-petycji/">Yanto Awerkion skazany za&nbsp;poparcie petycji</a></h4>
+										<p>Petycja dotyczyła niepodległości Papui Zachodniej.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+																									<h3><a href="https://wolnemedia.net/category/wiadomosci-z-wszechswiata/">Wiadomości z wszechświata</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/odkryto-najjasniejszy-jak-dotad-szybki-rozblysk-radiowy/" class="thumb"><img src="//wolnemedia.net/obrazki/astronomia.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">18 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/odkryto-najjasniejszy-jak-dotad-szybki-rozblysk-radiowy/">Odkryto najjaśniejszy jak dotąd szybki rozbłysk radiowy</a></h4>
+										<p>Odkrycia dokonano w Obserwatorium Parkes w Australii.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/ceres-to-zywa-planeta-karlowata/" class="thumb"><img src="//wolnemedia.net/obrazki/ceres-swiatla.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">18 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/ceres-to-zywa-planeta-karlowata/">Ceres to „żywa&#8221; planeta karłowata</a></h4>
+										<p>Na jej powierzchni występują pory roku.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/strefa-zycia-w-kosmosie/" class="thumb"><img src="//wolnemedia.net/obrazki/planeta.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">17 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/strefa-zycia-w-kosmosie/">„Strefa życia&#8221; w&nbsp;kosmosie</a></h4>
+										<p>Astronomowie znaleźli planetę, na której możliwe jest życie.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+												
+																									<h3><a href="https://wolnemedia.net/category/komunikaty/">Komunikaty WM</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/nowe-audycje-w-rwm/" class="thumb"><img src="//wolnemedia.net/obrazki/rwm.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">18 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/nowe-audycje-w-rwm/">Program 3&nbsp;RWM &#8211; Najnowsza ramówka</a></h4>
+										<p>Nowa ramówka Programu 3&nbsp;Radia Wolne Media z&nbsp;18.03....</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/radio-wm-w-radiodbiornikach-internetowych/" class="thumb"><img src="//wolnemedia.net/obrazki/radio.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">18 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/radio-wm-w-radiodbiornikach-internetowych/">Radio WM w&nbsp;radiodbiornikach internetowych?</a></h4>
+										<p>To możliwe, ale potrzebna jest pomoc przy skrypcie.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+																<li>
+									<a href="https://wolnemedia.net/automatyczne-dzielenie-wyrazow-sylabami/" class="thumb"><img src="https://wolnemedia.net/obrazki/wm.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">14 marca 2018</span>
+										<h4><a href="https://wolnemedia.net/automatyczne-dzielenie-wyrazow-sylabami/">Automatyczne dzielenie wyrazów sylabami</a></h4>
+										<p>Mała zmiana techniczna a cieszy.</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+						
+																									<h3><a href="https://wolnemedia.net/category/akcje-spoleczne/">Akcje społeczne</a></h3>
+							<ul class="messages">
+																<li>
+									<a href="https://wolnemedia.net/nie-dla-filtrowania-internetu-w-ue/" class="thumb"><img src="//wolnemedia.net/obrazki/cenzura-internetu.jpg" alt="thumb" width="90" height="90"/></a>
+									<div class="content">
+										<span class="date">22 lutego 2018</span>
+										<h4><a href="https://wolnemedia.net/nie-dla-filtrowania-internetu-w-ue/">&#8222;Nie&#8221; dla&nbsp;filtrowania internetu w&nbsp;UE!</a></h4>
+										<p>Decyzja o cenzurze internetu zapadnie 26 lub 27 marca!</p>
+									</div>
+									<div class="clear"></div>
+								</li>
+															</ul>
+										</div>
+				
+												<div class="column-wide komiks">
+					<a href="https://wolnemedia.net/terry-kane-15/"><p><img src="//wolnemedia.net/komiks/terry-kane-15.jpg" width="600" border="0"><br />
+<center><a href="//wolnemedia.net/komiks/terry-kane-15.jpg" target="_blank"><img src="//wolnemedia.net/obrazki/lupa.png" width="600" height="25" border="0"></a></center></p>
+</a>
+				</div>
+				
+<div class="column-wide navigation">
+			<a href="/?s="><img src="https://wolnemedia.net/wp-content/themes/wm-bez-kolejki-obrazkow/images/prev.jpg" alt="prev"/></a>
+		</div>
+
+			</div>
+
+			<div id="sidebar-right">
+				<ul>
+
+
+
+						<li class="widget important-subjects"><h3><a href="/category/warto-przeczytac/"><font color="#295D82">Warto przeczytać</font></a></h3>
+						<a href="//wolnemedia.net/slowianscy-niewolnicy-zydowskich-kupcow/" target="_blank"><img src="/obrazki/superartykul.jpg" border="0"/></a>
+						</li>
+
+						<li class="widget authors"><h3>Publicyści</h3>
+												
+							<ul>
+
+																
+								<li>
+									<img src="/obrazki/damian-zuchowski.jpg" alt="avatar" class="thumb" width="57" height="62"/>
+									<div class="content">
+										<a href="https://wolnemedia.net/author/damian-zuchowski" class="name">Damian Żuchowski</a>										
+																															<a href="https://wolnemedia.net/yanto-awerkion-skazany-za-poparcie-petycji/" class="article">Yanto Awerkion skazany za&nbsp;poparcie petycji</a>
+																			</div>
+									<div class="clear"></div>
+								</li>	
+																
+								<li>
+									<img src="/obrazki/zawisza-niebieski.jpg" alt="avatar" class="thumb" width="57" height="62"/>
+									<div class="content">
+										<a href="https://wolnemedia.net/author/zawisza-niebieski" class="name">Zawisza Niebieski</a>										
+																															<a href="https://wolnemedia.net/polski-szmalcownik/" class="article">Polski szmalcownik</a>
+																			</div>
+									<div class="clear"></div>
+								</li>	
+																
+								<li>
+									<img src="/wp-content/uploads/Xebola.jpg" alt="avatar" class="thumb" width="57" height="62"/>
+									<div class="content">
+										<a href="https://wolnemedia.net/author/xebola" class="name">Xebola</a>										
+																															<a href="https://wolnemedia.net/zastapienie-wegla-energia-odnawialna-to-tylko-kwestia-czasu-twierdzi-najwiekszy-producent-tego-surowca-na-swiecie/" class="article">Zastąpienie węgla energią odnawialną to kwestia czasu</a>
+																			</div>
+									<div class="clear"></div>
+								</li>	
+															</ul>
+							<div class="clear"></div>
+						</li>
+
+					<li class="widget bullet">
+<font face="tahoma" size="2">
+<center><br><a href="//wolnemedia.net/komunikaty/wesprzyj-wm/"><b>CZY POMOŻESZ NAM PRZETRWAĆ KOLEJNY MIESIĄC?</b><br /><br>
+Zbiórka na kwiecień 2018 r.<br><br>
+<font color="green">Zebrano: 1388 zł </font><br>
+	<font color="red" size="3"><b>Brakuje: 632 zł</b></font><br><br>
+	
+<img src="//wolnemedia.net/obrazki/zbiorka-65-procent.jpg" width="152" height="5" border="0"><br><br>
+Wystarczy na 20 dni<br>
+Braknie na 10 dni<br>
+<font color="blue">
+	<SCRIPT LANGUAGE="JavaScript">
+<!-- // (c) Henryk Gajewski
+var urodz = new Date("April 1, 2018");
+var now = new Date();
+var ile = urodz.getTime() - now.getTime();
+var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
+if (dni > 1)
+   document.write("Koniec zbiórki za " + dni +" dni")
+else if (dni == 1)
+     document.write("Zbiórka zakończy się za 2 dni!")
+else if (dni == 0)
+     document.write("Jutro ostatni dzień zbiorki!")
+else
+    document.write("Dzisiaj ostatni dzień zbiórki!");
+// -->
+</SCRIPT>
+</font><br>
+1 dzień = 67 zł
+
+	<br><br>
+
+Hej! Przetrwanie naszego portalu zależy od Ciebie! Darowizny dają nam niezależność od nacisków sponsoringowych i motywują do dalszego działania<br><b>Więcej informacji</b></a>
+<br><br>
+<a href="//wolnemedia.net/wolne-media-od-10-lat-w-internecie/"><b>Nasza historia i misja</b></a><br /><br />
+
+<a href="https://blog.wolnemedia.net/darowizny-na-rzecz-wm-wplywy-i-rozliczenia/"><b>Rozliczenia</b></a><br /><br />
+
+<a href="//wolnemedia.net/wesprzyj-wm/#4a">
+		<img src="//wolnemedia.net/wm-bank-poczta-1.png" width="152" height="48" border="0" alt="bank poczta" />
+</a><br />
+	
+<a href="//wolnemedia.net/wesprzyj-wm/#4d">
+		<img src="//wolnemedia.net/wm-rokor1.png" width="152" height="48" border="0" alt="bank poczta" />
+</a><br />
+
+<a href="//wolnemedia.net/wesprzyj-wm/#4b">
+		<img src="//wolnemedia.net/wm-paypal-1.png" width="152" height="48" border="0" alt="paypal"/>
+</a><br />
+
+<a href="//wolnemedia.net/wesprzyj-wm/#4e">
+		<img src="//wolnemedia.net/wm-bitcoin-1.png" width="152" height="48" border="0" alt="bitcoin"/>
+</a><br />
+
+<a href="//wolnemedia.net/wesprzyj-wm/#yeti">
+		<img src="//wolnemedia.net/obrazki/wm-yetipay.png" width="152" height="48" border="0" alt="paypal"/>
+</a><br /><br />
+
+Chcesz nas wesprzeć inaczej lub zadać pytanie? <a href="//wolnemedia.net/?page_id=1414"><b>Napisz do nas!</b></a>
+</font>
+</center>
+
+					</li>
+					
+					<li class="widget text">
+						<a href="https://www.e-pity.pl/darmowy-program-online-epity-2016-2017-KRS-0000060003----http://www.rokor1.pl"><img src="//wolnemedia.net/obrazki/rokor1.png" border="0" alt="1% podatku" /><br><br><font color="blue">W 2017 r. 47 osób przekazało nam 1100 zł z 1% podatku, które dotarły do nas jesienią. Obniżyło to w 2018 r. comiesięczne zbiórki prawie o 100 zł. POMYŚL - a gdyby wsparło nas tak 16 000 osób, które polubiły nasz profil na "Facebooku"?</a></font>
+					</li>
+					
+					<li class="widget text">
+						<a onclick="javascript:window.open('//radio.wolnemedia.net/program/00.php','okno','toolbar=no, height=600px, width=287px')" href="#" target="_self"><img src="//wolnemedia.net/obrazki/rwm.png" border="0" alt="Radio Wolne Media" /></a>
+					</li>
+
+					<li class="widget bullet">
+<h3><a onclick="javascript:window.open('//radio.wolnemedia.net/program/03.php','okno','toolbar=no, height=600px, width=300px')" href="#" target="_self"><font color="#295D82">PROGRAM 3 RWM</font></a></h3>
+
+<table>
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">1.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Agentomasz: Wiesci pominiete 714</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">2.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Dziwna sytuacja w radiu: Kontakt z cywilizacja slaska</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">3.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Katastrofa tunguska wciaz niewyjasniona: Audycja Agnieszki Zell</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">4.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Kobiety nieziemskich obyczajow: Ilosc partnerow seksualnych - czy sie liczy?</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">5.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Agentomasz: Mikolaj Pisarski</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">6.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Horyzont zdarzen: 15.03.2018</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">7.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Wszechnica: Ile wymiarow ma wszechswiat?</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">8.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Sputnik: Poznaj Rosje: Sto lat temu Moskwa znow stala sie glownym miastem Rosji</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">9.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Sputnik: Poznaj Rosje: Che Guevara zaspiewal po rosyjsku</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">10.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Sputnik: A propos: Powitaj wiosne jaskrawo</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">11.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Sputnik: W polu widzenia: Czy czeka nas koncert mocarstw?</td>
+		</tr>
+		
+		<tr>
+		
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">12.</td>
+		<td style="font-family: Tahoma, Arial, FreeSans, Open Sans, sans-serif, Verdana, Helvetica;font-size:11.5px;line-height:14px; color:#000000; background-color:transparent;" valign="top">Sputnik: Prosto z mostu: Armia Czerwona to nie byli tylko Rosjanie</td>
+		</tr>
+		</table><br/>
+<b><a onclick="javascript:window.open('//radio.wolnemedia.net/program/03.php','okno','toolbar=no, height=600px, width=300px')" href="#" target="_self">Kliknij, aby posłuchać!</a></b>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="clear"></div>
+		</div>
+		
+		<div id="footer">
+			<div class="logo">
+				<a href="#"><img src="https://wolnemedia.net/wp-content/themes/wm-bez-kolejki-obrazkow/images/logo-s.jpg" alt="Wolne Media"/></a>
+				<p>wolnemedia.net</p>
+			</div>
+			<div class="content">
+				<p class="rss">
+
+					<a href="//wolnemedia.net/useronline/">
+						<img src="/obrazki/online.gif" alt="Teraz online" border="0" width="80" height="15" />
+					</a>
+
+					<a href="https://www.facebook.com/pages/Wolne-Media/121016507935996">
+						<img
+							alt="Facebook" border="0" width="80" height="15"
+							src="data:image/gif;base64,R0lGODlhUAAPAPcAADEAnDlanEJjpUpjpUprpVJrpVJrrVJzpVJzrVpzrVp7rWuEtXOMvYSUxoycxoylxpSlzsbO587W59be7+fn9+fv9+/v9/f3/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAUAAPAAAI9AABCBxIsKDBgwgTKlzIcCCGhxAjSpxIsaLFixgzCsRQIIDHjx87ghzpEQPJkyhTqlwZAMNGkgIaOFDAsmXNmzhVugRgciQECxgc1OyZs2jRnUQ/RqBwQMDQjxChJn0otWdUqSCpltya9eXHAQsmVFggciXRqVytck3L1qZbk0lLevW4ACiGC0JZntUacW1JvlfVvv17EilIsBLGltUJNWtbwY8j24zbcq5SCjjPOnbbcq9VrYSxtoX6kgCBAaYlUDj91Kjrm0gJLJg9O/FsAnpf6za7samA3wISKPi9GCXl3cgr88zIvLnz5xQbSp9OvbrBgAAAOw=="
+						/>
+					</a>
+
+					<a href="//wolnemedia.net/feed/">
+						<!--
+						<img src="/obrazki/rss-publikacje.gif" alt="RSS - Wszystko" border="0" width="80" height="15" />
+						-->
+						<img
+							alt="RSS - Wszystko" border="0" width="80" height="15"
+							src="data:image/gif;base64,R0lGODdhUAAPAKoAAImOef7+/mNjY/9jAP9rAGtrawAAAAAAACwAAAAAUAAPAAADwCi63P4wyklXuDjrzbv/YFgIwWCeaJoGQOu+cCzPdB0opaqrbO3/wNmNNCAQisijMnnqBZ9QIc6EQVWpF6qrx21hABrw1nsBZ8Tob2yYa1NXq3EaDet66XKxHe+dEqpHA1mBWVp3c2YvTmZOZXmOdIt9RIKVJoSXb4Jye4iKa4+ekmB+boKFpzmbWyyOamGHjJ+HXJCKUymBmSiEUb6/pERGSCq6VsDIQWw7S5m6o8nRtyQh1dbX2BwV29zd3gwjCQA7"
+						/>
+					</a>
+
+					<a href="//wolnemedia.net/feed/?cat=35%2C36%2C5910">
+						<!--
+						<img src="/obrazki/rss-informacje.png" alt="RSS - Wiadomości"  border="0" width="80" height="15" />
+						-->
+						<img
+							alt="RSS - Wiadomości"  border="0" width="80" height="15"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABNklEQVRIieVVsY7DIAx9qTLwn4gxUju0w93cDnfDVcroH2UiN0Coz5DIjdo01b0hsh/G+OEgN9Za/Ce0AIjo1WWshK7r2mg1brc4y0Dh+/r5oJKeiOP+7L1frnNTOB0uykgm2ABmNJTfzeDr50MZyQR7DH0YKAx9iG4iKUS+whTINy0M7gqbN2fK1YRV05adb4UfH/NAQRgZJaPH6XCJrcgGd8VqGTwfJo6YAhNskp4k2wAejdvNMYs0L9ilzKn5sZlgD+CmJ/3ARva8wtyD3Jx7N84n1OeUHcaoOanqQyajUTLi+HgwN2aO5zHKLSJMtDevTuVprLVEVKnejE2uuox5oznsnJseS0KeL0aRCHgT/BlLefDcUF7BJuewHukNV4eqHsf9+RHFrIEWgHPu1WWsAWMMgF9/Ld4cKA19ZgAAAABJRU5ErkJggg=="
+						/>
+					</a>
+
+					<a href="//wolnemedia.net/category/publicystyka/feed/">
+						<!-- <img src="/obrazki/rss-artykuly.png" alt="RSS - Publicystyka"  border="0" width="80" height="15" /> -->
+						<img
+							alt="RSS - Publicystyka"  border="0" width="80" height="15"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA20lEQVR42uWX3Q6DIAyFeVcu+wR7hN3skeca0Wl/TmFmyUbaVIJtBY8fYiw1mRU+nmmMiDbBSy2XnS+/P27/73yfB+GUgmn1+kk7t+D11pspgCqoIk3wslsbXXVQVlW+i92UHcrOgsaEglHnrNZd0vHc6DSIuCm3QFWirLOkBToSPP3I9wgrVao4vtzlOSB4pycYkgFrIopwTGmEsFWFwHbnOj8pn7AVE7/ASDCi5L6TXT4oNbLCI8LCKTyVqH++A1/apcn55HQ0zy04EElRZErBSWwTnMT4z4HbFzPlu8a08oMOAAAAAElFTkSuQmCC"
+						/>
+					</a>
+
+					<a href="//tv.wolnemedia.net/feed/">
+						<!-- <img src="/obrazki/rss-tv.gif" alt="RSS - TV"  color="red" border="0" width="80" height="15" /> -->
+						<img
+							alt="RSS - TV"  color="red" border="0" width="80" height="15"
+							src="data:image/gif;base64,R0lGODdhUAAPAKoAAImOef7+/mNjY/9jAP9rAGtrawAAAAAAACwAAAAAUAAPAAADvii63P4wyklXuDjrzbv/YFgIwWCeaJoGQOu+cCzPdB0opaqrbO3/wNmNNCAQisijMnnqBZ9QIc6EQVWpF6pLA8h0X96e+Mv1di+xYW5NXa1gTud3C26N5XIyHTwlVI8DWYBZWnV2aHOHY3MscWlnGHBTgZQmg5ZtgXB7doadjKB7jZx2fWyBhKg5mp5hkWZoiI2wi4mlRCmAmCiDUb6/XX1LKrpWwMdBajvDTIXIz1IkIdPU1dYcFdna29wMIwkAOw=="
+						/>
+					</a>
+
+					<a href="//wolnemedia.net/comments/feed/">
+						<!-- <img src="/obrazki/rss-komentarze.gif" border="0" alt="RSS - Komentarze" width="80" height="15" /> -->
+						<img
+							border="0" alt="RSS - Komentarze" width="80" height="15"
+							src="data:image/gif;base64,R0lGODdhUAAPAKoAAImOef7+/mNjY/9jAP9rAGtrawAAAAAAACwAAAAAUAAPAAADwii63P4wyklXuDjrzbv/YFgIwWCeaJoGQOu+cCzPdB0opaqrbO3/wNmNNCAQisijMnnqBZ9QIc6EQVWpF6qrx+VuARnwF9O6lM1gc7g8HeTeq9W4TFeznGm6eH/Xi/FsRARVR24lhVlaZ19/jWSOemFrXXhDcDlIbiaIio18e56RXp99oIBgU4NUWJhXboxdfndkTqNet3ZoqEQphZu9nVHCUZZFSyq+VsPLUMU6x0zBzNNSJCHX2NnaHBXd3t/gDCMJADs="
+						/>
+					</a>
+
+					<a href="//blog.wolnemedia.net/feed/">
+						<!-- <img src="/obrazki/rss-blog.png" border="0" alt="RSS - Komentarze" width="80" height="15" /> -->
+						<img alt="RSS"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAIAAAD8q9/YAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArklEQVR42uWX0Q2AIAxE2ZXPm8AR/HFktUGjtGBFoyjppRK9QOTlSozOG5OjazQjACvw5N3touX90P2/aJ97wiaBEcpfGdsGDltfJAIUpnBi4CnS5qTvFnOyCysBH93EtEpLC4YscMmcSi3NogPLM+/cSvgI+LOEWYZIgk2cZxOuCIx8S+sHuCRhxfz4DLOC+sijrnACX0k4/eScMLcNrEBCc5oENqIV2Ijoz4HGGQcHaoEtn6/JAAAAAElFTkSuQmCC"
+						/>
+					</a>
+                    </noscript></span>
+										
+					<!-- GoStats Simple HTML Based Code -->
+<a target="_blank" title="licznik kliknięć" href="http://gostats.pl"><img alt="licznik kliknięć" 
+src="http://c3.gostats.pl/bin/count/a_375606/t_6/i_51/counter.png" 
+style="border-width:0" /></a>
+<!-- End GoStats Simple HTML Based Code -->
+					
+				<br />
+				<p align="center">Serwer niekomercyjnego portalu "Wolne Media" znajduje się poza terytorium Rzeczypospolitej Polskiej</p>
+			</div>
+		</div>
+	</div>
+
+		
+	<!-- wp_footer -->
+	<script type="text/javascript" src="/counter.js"></script>
+	<script type="text/javascript" src="/blog.js"></script>
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/wolnemedia.net\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Potwierd\u017a, \u017ce nie jeste\u015b robotem."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://wolnemedia.net/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0'></script>
+<script type='text/javascript' src='https://wolnemedia.net/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+	
+	<!-- wp_footer end -->
+	
+
+
+</body>
+</html>
+<!-- *´¨)
+     ¸.•´¸.•*´¨) ¸.•*¨)
+     (¸.•´ (¸.•` ¤ Comet Cache is Fully Functional ¤ ´¨) -->
+
+<!-- Cache File Version Salt:       n/a -->
+
+<!-- Cache File URL:                https://wolnemedia.net/ -->
+<!-- Cache File Path:               /cache/comet-cache/cache/https/wolnemedia-net/index.html -->
+
+<!-- Cache File Generated Via:      HTTP request -->
+<!-- Cache File Generated On:       Mar 21st, 2018 @ 2:58 am UTC -->
+<!-- Cache File Generated In:       0.82083 seconds -->
+
+<!-- Cache File Expires On:         Mar 21st, 2018 @ 2:59 am UTC -->
+<!-- Cache File Auto-Rebuild On:    Mar 21st, 2018 @ 2:59 am UTC -->
+
+<!-- Loaded via Cache On:    Mar 21st, 2018 @ 2:59 am UTC -->
+<!-- Loaded via Cache In:    0.01861 seconds -->

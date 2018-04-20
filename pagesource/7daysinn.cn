@@ -1,0 +1,854 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7天连锁酒店官网</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta content="7天连锁酒店，酒店预订，分店预订，7天连锁经济型酒店" name="Keywords" />
+<meta content="7天连锁酒店集团酒店预订已建立覆盖全国家分店的经济型快捷连锁酒店网络，完善的酒店预订系统，让您预订酒店客房更加轻松快捷，是您出差、旅游好选择。" name="Description" />
+
+<script>
+	var str='<link href="/css/index_p.css?'+Math.random()+'" rel="stylesheet" type="text/css"/>';
+	document.write(str);
+	 document.write("\<script language=\"javascript\" type=\"text/javascript\" src=\"cache/ad_js/ad_js.js?"+Math.random()+"\"><\/script\>");  
+</script>
+ <script language="javascript" type="text/javascript" src="http://www.plateno.com/getCookies/getSvid"></script>
+<style type="text/css">
+.ac_odd, .ac_even, .ac_over{text-align:left;}
+.ac_results li {height:18px; line-height:18px;}
+.ac_odd{ background-color:#FFFFFF;}
+.ac_over{ background-color:#226399;}
+/*广告轮转图*/
+.slideshow_box{position:relative;overflow:hidden;width:328px;height:211px;}
+.slideshow_box .slideshow .slideshow_img{position:absolute}
+.input_n02{
+    background: url("/images/btn-1.png") no-repeat ;
+    border: medium none;
+    cursor: pointer;
+    height: 44px;
+    width: 125px;
+    padding:0px;
+    margin-top:3px;
+}
+.input_n03{
+    background: url("/images/btn-2.png") no-repeat;
+    border: medium none;
+    cursor: pointer;
+    height: 44px;
+    width: 125px;
+    padding:0px;
+    margin-top:3px;
+}
+</style>
+<script language="javascript">
+	var imgNum   = typeof(new_index_banner) != 'undefined' ? new_index_banner.length : 0;
+	var imgWidth = 540;
+	var oHead = document.getElementsByTagName('HEAD').item(0);
+	var oScript= document.createElement("script");
+    oScript.type = "text/javascript";
+    oScript.src="js/indexmergecp.js";
+	//同步加载
+	oScript.async="false";
+	//下载脚本但不立即处理
+	oScript.defer="true";
+    oHead.appendChild( oScript);
+
+	/* 广告图片切换 */
+	var slideshow_t = 0;
+	var slideshow_n = 0;
+	var slideshow_count = 0;
+	var titleswitch = 1;
+	function showAuto() {
+		slideshow_n = slideshow_n >=(slideshow_count - 1) ? 0 : ++slideshow_n;
+		$(".slideshow_box li").eq(slideshow_n).trigger('click');
+	};
+	
+	fo2();
+	
+/*点击easy引入下面文件*/	
+/*start*/
+	
+	var oScript2 = document.createElement("script");;
+	oScript2.type = "text/javascript";
+	oScript2.src="js/jquery-1.3.2.min.js";
+	
+	var oScript3 = document.createElement("script");
+	oScript3.type = "text/javascript";
+	oScript3.src="js/jquery-autocomplete/jquery.autocomplete.min.js";
+	
+	var link1 = document.createElement("link");
+	link1.rel = "stylesheet";
+	link1.href="js/jquery-autocomplete/jquery.autocomplete.css";
+	
+	var oScript4 = document.createElement("script");
+	oScript4.type = "text/javascript";
+	oScript4.src="js/index_easy.js";
+	
+/*end*/
+
+function fo2() {
+	try{
+		appendHour(8,22,"ddlReturnTime");
+	} catch(err){setTimeout("fo2()", 300); return;}
+	appendHour(8,22,"ddlFetchTime");
+	
+	//价格指数
+	var cp_f_date = '{$cp_f_date}';
+	var cp_t_date = '{$cp_t_date}';
+
+	//取用户登录后名字积分
+	$.getJSON("js_common.php", function(data){
+		if(data['is_login']){
+			$("#myinfo").html(data['MebType']+'：'+data['meb_nickname']+'&nbsp;&nbsp;&nbsp;'+data['MebCent']+'积分&nbsp;&nbsp;&nbsp;<a href="logout.php">退出</a>');
+		}else{
+			$.ajax({
+				url:'http://login.plateno.com/sso/token',
+					dataType:"jsonp",
+					type: "get",
+					jsonp:"callback",
+					timeout: 5000,
+					success:function(result){
+						var token = result;
+						if(token != 'failed'){
+							$.ajax({
+								url:'ajax/ajax_setToken.php?token='+token,
+								dataType:"json",
+								type: "post",
+								timeout: 5000,
+								success:function(json){
+									if(json.code == 1){
+										var data = json.data;
+										$("#myinfo").html(data['MebType']+'：'+data['meb_nickname']+'&nbsp;&nbsp;&nbsp;'+data['MebCent']+'积分&nbsp;&nbsp;&nbsp;<a href="logout.php">退出</a>');
+									}
+								}
+							});
+						}
+					}
+			});
+		}
+	});
+	
+	var today = new Date();
+	var endday = new Date();
+	endday.setDate(endday.getDate() + 1);
+	document.getElementById('dtStart').value = today.getFullYear() + "-" + (today.getMonth() + 1)+ "-" + today.getDate();
+	document.getElementById('dtEnd').value = endday.getFullYear() + "-" + (endday.getMonth() + 1)+ "-" + endday.getDate();
+	
+	
+	/*广告图片切换*/
+	clearInterval(slideshow_t);
+	slideshow_count=$(".slideshow .slideshow_img").length;
+	$(".slideshow .slideshow_img:not(:first-child)").hide();
+	if(titleswitch==1){
+		$(".h2_id .h2_text:not(:first-child)").hide();
+	}
+	$(".slideshow_box li").click(function() {
+		var slideshow_i = $(this).text() - 1;//获取Li元素内的值，即1，2
+		slideshow_n = slideshow_i;
+		if (slideshow_i >= slideshow_count) return;
+		$(".slideshow .slideshow_img").filter(":visible").fadeOut(1000).parent().children().eq(slideshow_i).fadeIn(1200);
+		if(titleswitch==1){
+			$(".h2_id .h2_text").filter(":visible").hide().parent().children().eq(slideshow_i).show();
+		}
+		$(this).toggleClass("on");
+		$(this).siblings().removeAttr("class");
+	});
+	slideshow_t = setInterval("showAuto()",6000);
+	$(".slideshow_box").hover(function(){clearInterval(slideshow_t)}, function(){slideshow_t = setInterval("showAuto()",6000);});
+	
+}
+
+function postSearch(){
+	var sid = '';
+	var cityName = $("#city").val();
+	var fromDate = $("#dtStart").val();
+	var toDate   = $("#dtEnd").val();
+	var hotel_name = $("#hotel_name").val();
+	if(hotel_name == '请输入关键词'){
+		hotel_name = '';
+	}
+	if(cityName == ''){
+		alert('请选择城市');
+		return false;
+	}
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_getLogin.php",
+		dataType:"json",
+		success: function(json){
+			if(json.code == 1){
+				$('#inn_form').submit();
+				return false;
+			}else{
+				sid = json.data;
+				$.ajax({
+					type:"POST",
+					url: "ajax/ajax_getCity.php?cityName="+escape(cityName),
+					dataType:"json",
+					success: function(json){
+						if(json.code == 0){
+							var BTH_URLS = "http://www.plateno.com/hotel/pg/search.html?cityId=1&fromDate="+fromDate+"&toDate="+toDate+"&from=7days&brands=1,2,3,4,5&keyWord="+encodeURI(hotel_name);
+						}else{
+							var BTH_URLS = "http://www.plateno.com/hotel/pg/search.html?cityId="+json.data.cityId+"&cityName="+encodeURI(json.data.cityName)+"&fromDate="+fromDate+"&toDate="+toDate+"&from=7days&brands=1,2,3,4,5&keyWord="+encodeURI(hotel_name);
+						}
+						if(sid != ''){
+							BTH_URLS += '&sid='+sid;
+						}
+						$("#bth_url").val(BTH_URLS);
+						popBTH();
+					}
+				});
+			}
+		}
+	});
+}
+
+function postFindHotel(){
+	var ordermsg='例如：广州 中大 地铁';
+	var LeaveMsg2=$("#wd").val();
+	LeaveMsg2=$.trim(LeaveMsg2);
+	var sid = '';
+	if(LeaveMsg2=="" || LeaveMsg2==ordermsg){
+		alert('请输入搜索关键字');
+		$("#wd").val('');
+		$("#wd").attr('style','color: rgb(51, 51, 51);');
+		$("#wd").focus();
+		return false;
+	}else{
+		$.ajax({
+			type:"POST",
+			url: "ajax/ajax_getLogin.php",
+			dataType:"json",
+			success: function(json){
+				sid = json.data;
+				if(json.code == 1){
+					$('#find_hotel').submit();
+					return false;
+				}else{
+					var BTH_URLS = "http://www.plateno.com/hotel/pg/search.html?from=7days&brands=1&keyWord="+encodeURI(LeaveMsg2);
+					if(sid != ''){
+						BTH_URLS += '&sid='+sid;
+					}
+					$("#bth_url").val(BTH_URLS);
+					popBTH();
+				}
+			}
+		});
+	}
+}
+
+function postMap(){
+	setMapUrl();
+}
+</script>
+<SCRIPT language=javascript type=text/javascript>
+var ordermsg='例如：广州 中大 地铁';
+function subFrm() {
+	var LeaveMsg2=$("#wd").val();
+	LeaveMsg2=$.trim(LeaveMsg2);
+	if(LeaveMsg2=="" || LeaveMsg2==ordermsg){
+		alert('请输入搜索关键字');
+		$("#wd").val('');
+		$("#wd").attr('style','color: rgb(51, 51, 51);');
+		$("#wd").focus();
+		return false
+	}else{
+		setFindHotelUrl(LeaveMsg2);
+		return false;
+		//$('#find_hotel').submit();
+	}	
+}
+
+function cleanLeaveMsg(value){
+	if(value==ordermsg){
+		$("#wd").attr("value","");
+		$("#wd").css({ color: "#333333" }); 
+	}
+}
+function setLeaveMsg(value){
+	var LeaveMsg2=$("#wd").val();
+	LeaveMsg2=$.trim(LeaveMsg2);
+	if(LeaveMsg2=="" || LeaveMsg2==ordermsg){
+		$("#wd").attr("value",ordermsg);
+		$("#wd").css({ color: "#cccccc" }); 
+	}
+}
+</SCRIPT>
+  <!-- Gridsum tracking code begin. -->
+<script type='text/javascript'>
+var _gsq = _gsq || [];
+    (function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = (location.protocol == 'https:' ? 'https://static.' : 'http://static.') + 'gridsumdissector.com/js/Clients/GWD-002473-75BC12/gs.js';
+        var    firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(s, firstScript);
+    })();
+</script>
+<!--Gridsum tracking code end. -->
+
+</head>
+<body>
+<div id="headet_info" class="headet_info"></div>
+
+<div class="content">
+<!-- 	<div class="robotScroll"><a href="http://www.plateno.com/html/robot3.html" target="_blank"><img src="http://pic1.plateno.com/image/robot.gif" border="0"></a></div>	 -->
+<div class="jiameng"></div>
+<div class="header">
+    <div class="header-wrap" style="overflow:hidden;">
+        <div class="logo"><a href="http://www.7daysinn.cn/"><img src="images/img/logo__00.png"></a></div>
+        <div class="slogan">
+	        <a href="http://www.7daysinn.cn/"><img src="images/img/logo__14.png"></a>
+	        <a href="http://www.7daysinn.cn/"><img src="images/img/logo__15.png"></a>
+	        <a href="http://www.7daysinn.cn/"><img src="images/img/logo__16.png"></a>
+	        <a href="http://www.7daysinn.cn/"><img src="images/img/logo__17.png"></a>
+        </div>
+        <p style="width:100%;overflow:hidden;height:25px;margin:0;padding:0;"></p>
+    </div><!--header-wrap-->    
+    <div style="clear:both"></div>
+    <!-- <div class="message">
+        <ul>
+            <li id="myinfo"></li>
+        </ul>
+    </div> -->
+    <!--message-->
+    <div style="clear:both"></div>
+    <div class="header-nav Effects">
+        <ul class="nav-wrap">
+            <li><a  href="http://www.plateno.com/orderList.html" target="_blank">我的铂涛</a></li>
+            <li><a  href="http://www.plateno.com/list.html" target="_blank">酒店预订</a></li>
+            <li><a  href="javascript:;" onclick="setBbsUrl();">铂涛会</a></li>
+            <li><a  href="product.php">7天酒店</a></li>
+            <li><a  href="youpin.html">7天优品</a></li>
+            <li><a  href="http://www.iuinns.com/" target="_blank">IU酒店</a></li>
+            <li><a  href="http://www.paihotels.cc/" target="_blank">派酒店</a></li>
+            <li><a  href="about_join.php">合作加盟</a></li>
+            <li><a  href="http://weibo.com/7daysinn?topnav=1&wvr=6&topsug=1" target="_blank">7天官博</a></li>
+            <li>|</li>
+                                                <!-- 注册链接更改 -->
+            <li><a href="http://www.plateno.com/register.html?regSourceId=112&sellerId=166" target="_blank">注册</a></li>
+            <li><a href="/">首页</a></li>
+        </ul>
+    </div><!--header-nav-->
+</div><!--header-->
+<!--top end-->
+
+	<!--top end-->
+<div class="ind_colcon" style="background-color:#FFF">
+	<div class="ind_colleft">
+		<div class="searchbox">
+			<div class="searchtent">
+                <a href="http://www.plateno.com/list.html" target="_blank" style="display:block;width:100%;"><img src="images/img/7days.jpg" alt="" /></a>
+            </div>
+</div>
+<div class="all_search_foot"></div>
+	<div class="zhishu_con">
+		<div class="tit">
+			<h2 class="h2_id" id="h2_id" style="height:24px;"></h2>
+		</div>
+		<script type="text/javascript">
+		if(new_index_left_bottom){if(new_index_left_bottom.length>1){for(var i=0;i<new_index_left_bottom.length;i++){if(i==0){document.getElementById('h2_id').innerHTML+='<span class="h2_text">'+new_index_left_bottom[i].title+'</span>'}else{document.getElementById('h2_id').innerHTML+='<span class="h2_text" style="display:none;">'+new_index_left_bottom[i].title+'</span>'}}}else{if(new_index_left_bottom[0]){document.getElementById('h2_id').innerHTML+='<span>'+new_index_left_bottom[0].title+'</span>'}}}
+		</script>
+		<div class="zstent">
+			<div class="slideshow_box" id="slideshow_box">
+				<div class="slideshow" id="slideshow"></div>
+				<ul style="display:none;" id="li_num"></ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			if(new_index_left_bottom){if(new_index_left_bottom.length>1){for(var i=0;i<new_index_left_bottom.length;i++){if(i==0){document.getElementById('slideshow').innerHTML+=('<div class="slideshow_img"><a href="'+new_index_left_bottom[i].img_link+'"><img src="'+new_index_left_bottom[i].img_src+'" border="0" height="211" width="328" /></a></div>');document.getElementById('li_num').innerHTML+=('<li class="on">'+(i+1)+'</li>')}else{document.getElementById('slideshow').innerHTML+=('<div class="slideshow_img" style="display:none;"><a href="'+new_index_left_bottom[i].img_link+'"><img src="'+new_index_left_bottom[i].img_src+'" border="0" height="211" width="328" /></a></div>');document.getElementById('li_num').innerHTML+=('<li>'+(i+1)+'</li>')}}}else{if(new_index_left_bottom[0]){document.getElementById('slideshow').innerHTML=('<a href="'+new_index_left_bottom[0].img_link+'"><img src="'+new_index_left_bottom[0].img_src+'" border="0" height="211" width="328" /></a>')}}}
+		</script>
+	</div>
+	
+	<div class="all_search_foot"></div>
+  </div>
+  
+  <div class="ind_colright">
+  	<div style="height:225px;">
+  	<div id="focus_change">
+    	<div  id="focus_change_list">
+			<ul>
+				<script type="text/javascript">
+					if(new_index_banner) {for (var i = 0; i < new_index_banner.length; i++) {document.write('<li><a  target="_blank" href="' + new_index_banner[i].img_link + '"><img src="' + new_index_banner[i].img_src + '" border="0" ></a></li>');}}
+				</script>
+			</ul>
+		</div>
+
+		<div id="focus_change_btn" >
+			<ul>
+				<script type="text/javascript">
+					if (new_index_banner) {for (var i = 0; i < new_index_banner.length; i++) {if(i == 0) {document.write('<li class="current">'+new_index_banner[i].title+'</li>');} else {document.write('<li>'+new_index_banner[i].title+'</li>');}}}
+				</script>
+			</ul>
+		</div>	
+	</div>
+	</div>	
+		
+<div class="about7ays">
+<script type="text/javascript">
+	if(new_index_center) {for (var i = 0; i < new_index_center.length; i++) {document.write('<a  target="_blank" href="' + new_index_center[i].img_link + '"><img src="' + new_index_center[i].img_src + '" border="0" ></a> ');}}
+</script>
+</div>
+<div class="news_infocon">
+<div class="newscont" style="height:250px !important; height:255px;">
+	<div class="news_title"  id="hotnews_caption">
+	<ul>
+	<li class="current" onclick="secBoard('hotnews_caption','list',1);"><div>7天快讯</div></li>
+	<li class="normal" onclick="secBoard('hotnews_caption','list',2);"><div>论坛聚焦</div></li>
+	<li class="normal" onclick="secBoard('hotnews_caption','list',3);"><div>品牌专区</div></li></ul>
+	<div class="clr"></div>
+	</div>
+	<div class="newstent">
+	<div class="top_bg"></div>
+	<div class="mid_bg" style=" height:205px !important; height:210px;" id="hotnews_content">
+	<div class="current" id="list_1">
+		<div class="newslist">
+		<ul>
+		<li><a href="news.php?id=3037">7天·优品Q+实验室 亮相铂涛2018新品时尚秀</a></li><li><a href="news.php?id=3036">7天X尼斯跨界“超燃之夜”收官 联名限量IP产品热..</a></li><li><a href="news.php?id=3035">7天X尼斯跨界“全球最燃天团”成都、上海开趴</a></li><li><a href="news.php?id=3034">7天X尼斯跨界强强联合 “全球最燃天团”首秀</a></li><li><a href="news.php?id=2999">7天尼斯合作发布会完美“燃”放 联合IP产品面世</a></li><li><a href="news.php?id=2995">7天X尼斯全球合作发布会即将上演 不燃不散</a></li><li><a href="news.php?id=2994">7天携手尼斯首登欧洲赛场 下月举行全球合作发布会</a></li>		<li style="text-align:right;position:absolute;top:197px;width:286px;border-bottom:0px;"><a href="news_more.php?cat_id=251" target="_blank">More >></a></li>
+		</ul>
+		</div>
+	</div>
+	<div class="normal" id="list_2">
+	<div class="newslist" id="clubnews">
+	<ul>
+		<li><a href="http://bbs.7daysinn.cn/detail/153023" class="r">积分兑换铂涛希望袋</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/148286" class="r">12.12铂涛千名会员嘉年华，吃吃喝喝还有拿</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/130049" class="r">IU酒店 100块就让你睡</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/123892" class="r">IU酒店</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/122257" class="r">激扬十年，逐梦远航！3月15日铂涛十周年庆典邀您共..</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/120715" class="r">速围观！7天彩虹希望小学“彩虹大使”名单已出炉！</a></li>
+		<li><a href="http://bbs.7daysinn.cn/detail/107259" class="r">会员进化论——感谢一路有你</a></li>
+		<li style="text-align:right;position:absolute;top:197px;width:286px;border-bottom:0px;"><a href="http://bbs.7daysinn.cn/" target="_blank">More >></a></li>
+	</ul>
+	</div>
+	</div>
+	<div class="normal" id="list_3">
+	<div class="newslist" id="clubnews">
+	<ul>
+		<li><a href="news.php?id=2866"><b>7天优品酒店， 用“品质感”造就美梦</b></a></li><li><a href="news.php?id=2794">IU酒店有哪些产品值得体验?</a></li><li><a href="news.php?id=2790">梦之声新星热辣出炉，7天引领营销模式升级之战</a></li><li><a href="news.php?id=2785">7天选择梦之声，共创红蓝美童话</a></li><li><a href="news.php?id=2783">7天牵手梦之声，小时代里品梦想</a></li><li><a href="news.php?id=2782">“色一”7天在魔都，畅享荧屏梦之声</a></li><li><a href="news.php?id=2781">巴适7天倾情奉上，麻辣梦之声三道菜</a></li>		<li style="text-align:right;position:absolute;top:197px;width:286px;border-bottom:0px;"><a href="news_more.php?cat_id=253" target="_blank">More >></a></li>
+	</ul>
+	</div>
+	</div>
+</div>
+<div class="foot_bg"></div>
+</div>
+</div>
+<div class="ggcont">
+<div>
+	<span id="index_ad_right_1">
+	<script type="text/javascript">
+		if(new_index_right_bottom[0]) {document.write( '<a target="_blank" href="'+new_index_right_bottom[0].img_link+'"><img src="'+new_index_right_bottom[0].img_src+'" border="0" width="190" height="118" class="adright" ></a>');}
+	</script>
+	</span>
+</div>
+<div class="blank5"></div>
+<div>
+	<span id="index_ad_right_2">
+	<script type="text/javascript">
+		if(new_index_right_bottom[1]) {document.write( '<a target="_blank" href="'+new_index_right_bottom[1].img_link+'"><img src="'+new_index_right_bottom[1].img_src+'" border="0" width="190" height="118" class="adright" ></a>');}
+	</script>
+	</span>
+</div>
+</div>
+<div class="clr"></div>
+</div>
+</div>
+<div class="clr"></div>
+</div>
+<div id='divCity' style='position: absolute;z-index:10;width:220;display:none;'></div>
+<!-- banner切换button自动获取长度 -->
+<script type="text/javascript">
+
+	var lis = document.getElementById("focus_change_btn").getElementsByTagName("li");
+	var lislen = lis.length;
+	var maxLength = 0;
+	switch (lislen){
+		case 1:
+			maxLength = '540px';
+			break;
+		case 2:
+			maxLength = '270px';
+			break;
+		case 3:
+			maxLength = '180px';
+			break;	
+		case 4:
+			maxLength = '135px';
+			break;
+		case 5:
+			maxLength = '108px';
+			break;	
+		case 6:
+			maxLength = '90px';
+			break;
+	}
+	for(var i=0; i<lislen; i++) {
+		lis[i].style.width = maxLength;
+	}
+
+</script>
+
+    <script>
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=")
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1
+                    c_end=document.cookie.indexOf(";",c_start)
+                    if (c_end==-1) c_end=document.cookie.length
+                    return unescape(document.cookie.substring(c_start,c_end))
+                }
+            }
+            return "";
+        }
+
+        function lhref(nSellerID,nInnID){
+            window.open("http://www.plateno.com/hotel/pg/"+nInnID+"/detail.html?sid="+nSellerID);
+        }
+        var nSellerID = getCookie("nSellerID");
+        var nInnID = getCookie("nInnID");
+        if(nSellerID != '' && nInnID!=''){
+            document.getElementById("icon").innerHTML = '<input class="input_n02" type="button" onclick="postSearch();" value=""><input class="input_n03" type="button" onclick="lhref('+nSellerID+','+nInnID+')" value="">';
+        }
+    </script>
+
+
+<script type="text/javascript">
+var randKey = '';
+
+var i = 0;
+
+var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+function generateMixed(n) {
+     var res = "";
+     for(var i = 0; i < n ; i ++) {
+         var id = Math.ceil(Math.random()*35);
+         res += chars[id];
+     }
+     return res;
+}
+
+function popBTH(){
+	var windowUrl = window.location.pathname;
+	if(windowUrl == '/'){
+		windowUrl = 'index.html';
+	}else{
+		windowUrl = windowUrl.substring(windowUrl.lastIndexOf('/')+1, windowUrl.length);
+	}
+	randKey = generateMixed(50);
+	var address = $("#bth_url").val();
+	$("#bth_div").css("display","block");
+	document.documentElement.scrollTop=0;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_Note.php?randKey="+randKey+"&action=note&fromUrl="+escape(windowUrl)+"&toUrl="+escape(address),
+		dataType:"json",
+		success: function(json){
+		}
+	});
+	i = 3;
+	intervalid= setInterval("djs()", 1000);
+}
+
+function NoPopBTH(){
+	var windowUrl = window.location.pathname;
+	if(windowUrl == '/'){
+		windowUrl = 'index.html';
+	}else{
+		windowUrl = windowUrl.substring(windowUrl.lastIndexOf('/')+1, windowUrl.length);
+	}
+	randKey = generateMixed(50);
+	var address = $("#bth_url").val();
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_Note.php?randKey="+randKey+"&action=notenew&fromUrl="+escape(windowUrl)+"&toUrl="+escape(address),
+		dataType:"json",
+		success: function(json){
+		}
+	});
+}
+
+function closeBTH(){
+	$("#bth_div").css("display","none");
+}
+
+function gotoBTH(){
+	$("#bth_div").css("display","none");
+	var address = $("#bth_url").val();
+	window.open(address);
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_Note.php?randKey="+randKey+"&action=up",
+		dataType:"json",
+		success: function(json){
+		}
+	});
+	return false;
+}
+
+function gotoBTH_six(){
+	var address = $("#bth_url").val();
+	$("#bth_div").css("display","none");
+	window.location.href=address;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_Note.php?randKey="+randKey+"&action=up",
+		dataType:"json",
+		success: function(json){
+		}
+	});
+	return false;
+}
+
+function checkMyInfo(){
+	var flag = 0;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_getLogin.php",
+		dataType:"json",
+		async:false,
+		success: function(json){
+			flag = json.code;
+		}
+	});
+	if(flag == 1){
+		window.location.href='my_msg.php?type=1';
+		return false;
+	}else{
+		var bookUrl = 'http://www.plateno.com/member2/pg/grzx/info.html';
+		$("#bth_url").val(bookUrl);
+		NoPopBTH();
+		window.open(bookUrl);
+		return false;
+	}
+}
+
+function setMapUrl(){
+	var flag = 0;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_getLogin.php",
+		dataType:"json",
+		async:false,
+		success: function(json){
+			flag = json.code;
+			data = json.data;
+		}
+	});
+	if(flag == 1){
+		window.location.href='innmap.html';
+		return false;
+	}else{
+		var mapAddress = 'http://www.plateno.com/hotel/pg/search.html?type=map&from=7days';
+		if(data != ''){
+			mapAddress += '&sid='+data;
+		}
+		$("#bth_url").val(mapAddress);
+		NoPopBTH();
+		window.open(mapAddress);
+		return false;
+	}
+}
+
+function setOrderUrl(){
+	var flag = 0;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_getLogin.php",
+		dataType:"json",
+		async:false,
+		success: function(json){
+			flag = json.code;
+		}
+	});
+	if(flag == 1){
+		window.location.href='my_order.php';
+		return false;
+	}else{
+		var orderUlr= 'http://www.plateno.com/member2/pg/wddd/info.html';
+		$("#bth_url").val(orderUlr);
+		NoPopBTH();
+		window.open(orderUlr);
+		return false;
+	}
+}
+
+function setBbsUrl(){
+	var bbsAddress = 'http://bbs.plateno.com/';
+	$("#bth_url").val(bbsAddress);
+	NoPopBTH();
+	window.open(bbsAddress);
+	return false;
+}
+
+function setFindHotelUrl(keyword){
+	var findHotelAddress = 'http://www.plateno.com/hotel/pg/search.html?keyword='+encodeURI(keyword)+'&from=7days&brands=1,2,3,4,5';
+	popBTH();
+	gotoBTH();
+}
+
+function setLoginUrl(){
+	var findHotelAddress = 'http://www.plateno.com/login.html?from=7days&sid=236515';
+	$("#bth_url").val(findHotelAddress);
+}
+
+function setBookUrl(cityId,cityName){
+	var flag = 0;
+	$.ajax({
+		type:"POST",
+		url: "ajax/ajax_getLogin.php",
+		dataType:"json",
+		async:false,
+		success: function(json){
+			flag = json.code;
+			data = json.data;
+		}
+	});
+	if(flag == 1){
+		var listUrl = 'inn_list.php?hotcity='+encodeURI(cityName);
+		window.location.href = listUrl;
+		return false;
+	}else{
+		var bookUrl = "http://www.plateno.com/hotel/pg/search.html?cityId="+cityId+'&from=7days';
+		if(data != ''){
+			bookUrl += '&sid='+data;
+		}
+		$("#bth_url").val(bookUrl);
+		NoPopBTH();
+		window.open(bookUrl);
+		return false;
+	}
+}
+
+function setRegUrl(){
+	var regUrl = 'http://www.plateno.com/member/registry.html?regSourceId=12&sellerId=166';
+	$("#bth_url").val(regUrl);
+	NoPopBTH();
+	window.open(regUrl);
+	return false;
+}
+
+function setInnListUrl(v){
+	var innListUrl = '';
+	if(v == 1){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=2&cityName=%E5%8C%97%E4%BA%AC&brands=1,2,3&type=map";
+	}else if (v == 2){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=1&cityName=%E5%B9%BF%E5%B7%9E&brands=1,2,3&type=map";
+	}else if (v == 3){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=3&cityName=%E4%B8%8A%E6%B5%B7&brands=1,2,3&type=map";
+	}else if (v == 4 ){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=17&cityName=%E6%B7%B1%E5%9C%B3&brands=1,2,3&type=map";
+	}else if (v == 5 ){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=8&cityName=%E6%88%90%E9%83%BD&brands=1,2,3&type=map";
+	}else if (v == 6 ){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=21&cityName=%E9%87%8D%E5%BA%86&brands=1,2,3&type=map";
+	}else if (v == 7 ){
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=20&cityName=%E6%AD%A6%E6%B1%89&brands=1,2,3&type=map";
+	}else{
+		innListUrl = "http://www.plateno.com/hotel/pg/search.html?cityId=7&cityName=%E9%95%BF%E6%B2%99&brands=1,2,3&type=map";
+	}
+	$("#bth_url").val(innListUrl);
+	NoPopBTH();
+	window.open(innListUrl);
+	return false;
+}
+
+function djs() {
+	if (i == 0) {
+		window.clearInterval(intervalid); 
+		if($("#bth_div").is(":visible")){
+			gotoBTH_six();
+			return false;
+		}
+	}
+	i--;
+}
+</script>
+<style type="text/css">
+#bth_div{
+	position:absolute;
+	width:880px;
+    height:435px;
+	top:170px; 
+	z-index:990;
+	display:none; 
+}
+#upgradeclose {
+	position:absolute; 
+	dispaly:block; 
+	width:38px; 
+	height:38px; 
+	right:50px; 
+	top:13px; 
+	cursor:pointer; 
+	z-index:992;
+}
+#upgrade{
+	position:relative; 
+	width:815px;
+	height:435px; 
+	margin-left:33px;z-index:991;
+	background-image: url(http://img1.7daysinn.cn/images/upgrade-20150511.png)!important; 
+	background-repeat: no-repeat; 
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img1.7daysinn.cn/images/upgrade-20150511.png'); 
+	_ background-image: none; 
+ }
+</style>
+
+<div id="bth_div">
+<div id="upgrade" style="cursor:pointer; " onclick="gotoBTH();return false"></div>
+<div id="upgradeclose" style="cursor:pointer; " onclick="closeBTH();return false"></div>
+<input type="hidden" name="bth_url" id="bth_url" value="" />
+</div><div style="width:1280px;height:40px;padding:10px 0;margin-left:-220px;">
+<iframe height="40px" src="http://www.plateno.cc/brands/brands.html" frameborder="0" scrolling="no" width="100%"></iframe>
+</div>
+<div>
+
+    <style>
+        .footer p{
+            height: 22px;
+            line-height: 22px;
+        }
+        .footer p a,.footer p span{
+            padding:0 5px;
+            display: inline-block;
+            float:none;
+        }
+        .footer .ab7dyas_n3{
+            color: #206399;
+        }
+        .footer .ab7dyas_n4{
+            color: #9f9f9e;
+            line-height: 20px;
+        }
+
+        .footer_sec_1{
+            margin-bottom: 15px;
+        }
+    </style>
+    
+    <div class="footer">
+
+        <div  class="footer_sec_1">
+            <div class="footer_sec_1_c">
+                <p class="ab7dyas_n2"><a href="http://www.plateno.cc/" target="_blank">铂涛集团</a> | <a href="about.php">关于7天</a> | <a href="http://www.7daysinn.cn/job.php" target="_blank">诚聘英才</a> | <a href="about_contact.html">联系我们</a> | <a href="about_link.html">友情链接</a></p>
+                <p class="ab7dyas_n3"><span>客服热线：4008740087</span> | <span>微信预订(搜“铂涛会”)</span></p>
+                <p class="ab7dyas_n4">七天酒店(深圳)有限公司版权所有 &copy;2005-2017<a href="http://www.miitbeian.gov.cn" traget="_blank" class="ab7dyas_n4">粤ICP备 05069521号</a></p>
+            </div>
+        </div>
+        <div class="footer_sec_2"><a target="_blank" href="http://guangzhou.cyberpolice.cn/netalarm/netalarm/Welcome.jsp?bano=4401050100071"><img height="53" border="0" width="40" galleryimg="no" title="点此查看备案情况" src="http://img1.7daysinn.cn//images/waicon.gif"></a>
+        </div>
+
+    </div>
+
+<!--footer end-->
+
+</div>
+<input type="hidden" name="et_MebID" id="et_MebID" value="">
+<div id="footet_info" style="overflow:hidden;margin:0 auto;text-align:left;width:880px;"></div></body>
+</html>

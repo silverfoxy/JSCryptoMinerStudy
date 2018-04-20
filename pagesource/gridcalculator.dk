@@ -1,0 +1,149 @@
+<!doctype html>  
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" /> 
+
+	<title>Grid Calculator by Nicolaj Kirkgaard Nielsen</title>
+	
+	<meta name="description" content="A simple tool for web and print designers to calculate your grids. Download your grid as illustrator or photoshop files with a pre-made guides ready to go">
+	<meta name="author" content="Nicolaj Kirkgaard Nielsen">
+	
+	<link rel="stylesheet" href="css/master.css" media="screen" />
+	<link rel="stylesheet" href="css/print.css" media="print" />
+	
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23133113-1'],['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.async = true; ga.src = 'http://stats.g.doubleclick.net/dc.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+	<!-- start Mixpanel -->
+	<script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+	typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+	b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+	mixpanel.init("6c0a954b80af00f9a424afa4d88ce56b");</script>
+	<!-- end Mixpanel -->
+</head>
+<body>
+
+<div id="header">
+	<h1>Grid calculator</h1>
+	<img id="printLogo" src="images/grid-calculator_print.png" alt="" />
+</div>
+	
+<div id="content"  class="clearfix">
+	<form action="" method="get" id="gridForm" autocomplete="off" class="clearfix">
+		<p class="tip on"><span><strong>April 2nd 2013:</strong> Spring cleaning! Arrow key navigation is now less intrusive, .png downloads are now transparent + small improvements.</span><a href="#" class="toggle">Hide tip</a></p>
+		<p style="margin: 0.5em 5px;"><small>Grid examples to get you started: <a href="#/960/12/20/10" class="gridLink">960.gs 12 col grid</a>, <a href="#/950/24/10/0" class="gridLink">Blueprint 24 col grid</a>, <a href="#/320/4/10/15" class="gridLink">Custom 4 col iPhone grid</a></small></p>
+		<div class="col first">
+			<label>Max width: 
+				<span class="input"><input type="text" size="4" name="maxWidth" id="input_width" value="960" /> px</span>
+			</label>
+			<label>Columns:
+				<span class="input"><input type="text" size="4" name="columns" id="input_columns" value="4" /> cols</span>
+			</label>
+		</div>
+		<div class="col">
+			<label>Gutter width: 
+				<span class="input"><input type="text" size="4" name="gutter" id="input_gutter" value="20" /> px</span>
+			</label>
+			<label>Margin width: 
+				<span class="input"><input type="text" size="4" name="margin" id="input_margin" value="20" /> px</span>
+			</label>
+		</div>
+		<div id="results" class="col"></div>
+	</form>
+
+	<div id="result"></div>
+
+	
+	
+	<form id="download" action="download.php" method="post">
+		<h3>Download grid for</h3>
+		<input type="hidden" name="pageWidth" id="download_page" />
+		<input type="hidden" name="columns" id="download_columns" />
+		<input type="hidden" name="colWidth" id="download_colwidth" />
+		<input type="hidden" name="gutter" id="download_gutter" />
+		<input type="hidden" name="margin" id="download_margin" />
+		
+		<input type="submit" class="downloadButton" name="type" value="Adobe Illustrator" title="A standard Illustrator .ai file with pre-made guides on a separate layer" />
+		<input type="submit" class="downloadButton" name="type" value="Adobe Photoshop" title="A .jsx script that uses magic (no, really) to place the guides for you. Just double click and start designing!" />
+		<input type="submit" class="downloadButton" name="type" value="Other (png image)" title="A grid image. Place it on a separate layer and reduce the opacity for the best effect." />
+	</form>
+</div>
+	
+</div><!-- /content -->
+
+
+
+<div id="footer">
+	<div style="float:left;" id="affLink">Need more control? Try <a href="https://www.designersbookshop.com/aff?w=gcb&p=gridcalculator.dk">Grid Calculator Pro Edition for Adobe InDesign</a></div>
+	<div id="byline">by <a href="http://nicolajkn.dk/" rel="nofollow">Nicolaj Kirkgaard Nielsen</a>&nbsp;&nbsp;<g:plusone size="small" href="http://gridcalculator.dk/"></g:plusone></div>
+	<script type="text/javascript">
+	(function() {
+	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
+	</script>	
+</div>
+
+
+<script type="text/template" id="tmp_visualize">
+	<div id="visualization" class="clearfix <%= pageClass %>" style="width:<%= pageWidth %>px;">
+		<% function isSelected(tag, c) { 
+			if (highlight==tag) { 
+				print( (!!c) ? ' '+c : ' selected' ); 
+			}
+		}; %>
+		<div class="page<% isSelected('maxWidth') %>" style="width:<%= pageWidth %>px;"><span><%= pageWidth %></span></div>
+		<div class="margin<% isSelected('margin') %>" style="width:<%= margin %>px;"><span><%= margin %></span></div>
+		<% _(columns-1).times(function() { %>
+			<div class="column<% isSelected('column');  %>" style="width:<%= colWidth %>px;"><span class="clearfix"><%= colWidth %></span></div>
+			<div class="gutter<% isSelected('gutter'); isSelected('columns','outline'); %>" style="width:<%= gutter %>px;"><span class="clearfix"><%= gutter %></span></div>
+		<% }); %>
+		<div class="column<% isSelected('column') %>" style="width:<%= colWidth %>px;"><span class="clearfix"><%= colWidth %></span></div>
+		<div class="margin<% isSelected('margin') %>" style="width:<%= margin %>px;"><span><%= margin %></span></div>
+		<div class="marginBottom"></div>
+	</div>
+</script>
+
+<script type="text/template" id="tmp_metrics">
+	<div class="metric">Page width: <b class="<%= pageClass %>"><%= pageWidth %> px</b></div>
+	<div class="metric">Column width: <b><%= colWidth %> px</b></div>
+</script>
+
+<script type="text/template" id="tmp_metrics_error">
+	<span class="error">Yikes! The numbers don't add up!<br /> Try to tweak the digits.</span>
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/plugins.min.js?v=1.05"></script>
+<script src="js/functions.min.js?v=1.05"></script>
+
+<script>
+// Keyword tracking
+(function(r) {
+  if (r.indexOf('google.')>-1 && r.indexOf('cd')>-1) {
+      var rank    = parseInt(r.match(/cd=(.*?)&/)[1]),
+          kw      = r.match(/q=(.*?)&/),
+          keyWord = (kw[1].length > 0) ? decodeURI(kw[1]) : "(not provided)",
+          p       = document.location.pathname;
+
+    _gaq.push(['_trackEvent', 'RankTracker', keyWord, p, rank, true]);
+  }
+})(document.referrer);
+</script>
+
+<script>
+mixpanel.track("Page loaded");
+</script>
+
+</body>
+</html>

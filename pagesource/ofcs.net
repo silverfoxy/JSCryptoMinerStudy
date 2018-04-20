@@ -1,0 +1,1066 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head id="ctl00_ctl00_Head1"><title>Home - Olmsted Falls City Schools</title><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="https://use.typekit.net/wlk6ygn.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+	
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="SI" content="/admin/districthome.aspx" />
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/admin/css/social-links.css" />
+
+
+<link href="http://cdn.schoolpointe.com/js/nivo-slider/nivo-slider.css" rel="stylesheet" type="text/css" />
+<link href="http://cdn.schoolpointe.com/jquery-ui/1.8.9/css/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<script src="http://cdn.schoolpointe.com/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/hoverIntent.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/superfish.1.7.js" type="text/javascript"></script>
+
+<link href="/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="http://cdn.schoolpointe.com/js/bootstrapAccessibility/css/bootstrap-accessibility.css" rel="stylesheet">
+<script src="/Scripts/bootstrap.min.js"></script>
+<script src="/js/Bootstrap.dropdown.Override.js"></script>
+<script src="http://cdn.schoolpointe.com/js/bootstrapAccessibility/js/bootstrap-accessibility.min.js"></script>
+
+<script src="http://cdn.schoolpointe.com/js/jquery.dropshadow.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/search/SearchEngine.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/jquery.guid.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/jquery.dotimeout.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/querystring.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/jquery.shadowon.min.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/nivo-slider/jquery.nivo.slider.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/menu-collapsed.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/menu.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="http://cdn.schoolpointe.com/jquery-ui/1.8.9/js/jquery-ui.min.js" type="text/javascript"></script>
+<!--[if IE]>
+    <script src="http://cdn.schoolpointe.com/js/html5-ie.js" type="text/javascript" language="javascript"></script>
+    <![endif]-->
+
+
+<link href="http://cdn.schoolpointe.com/js/video-js-5.11.7/video-js.min.css" rel="stylesheet">
+<script src="http://cdn.schoolpointe.com/js/video-js-5.11.7/video.min.js"></script>
+<style type="text/css">
+    .vjs-volume-menu-button.vjs-menu-button-inline .vjs-menu {
+        opacity: 1;
+    }
+</style>
+
+<script type="text/javascript">
+    function loadVideo(guid, playlist) {
+        videojs(guid, playlist, function () {
+            var origWidth = jQuery('#' + guid).parent().data('width');
+            var origHeight = jQuery('#' + guid).parent().data('height');
+
+            var actualWidth = jQuery('#' + guid).parent().width();
+            if (origWidth > actualWidth) {
+                this.height(origHeight * (actualWidth / origWidth));
+                this.width(actualWidth);
+
+                //Retroactively fixes an issue with resizing videos
+                //the style attribute shouldn't be on the parent
+                jQuery('#' + guid).parent().removeAttr('style');
+
+            } else {
+                this.height(origHeight);
+                this.width(origWidth);
+            }
+            if (playlist != '{}') {
+                this.on('ended', function () {
+                    this.playlist.next();
+                });
+            }
+
+            //fixes issue in IE when going full screen
+            //video would be behind other content on the page
+            this.on('enterFullWindow', function () {
+                $(this.el).parents().not('html,body').each(function () {
+                    $(this)
+                        .data('oldzindex', $(this).css('z-index'))
+                        .css('z-index', 99999)
+                        .addClass('forcedzindex');
+                });
+            });
+            this.on('exitFullWindow', function () {
+                $('.forcedzindex').each(function () {
+                    $(this)
+                        .css('z-index', $(this).data('oldzindex'))
+                        .removeClass('forcedzindex')
+                        .removeData('oldzindex');
+                });
+
+            });
+        });
+    }
+
+    jQuery(window).load(function () {
+
+        //Create the input element
+        var reCaptchinput = $('#recaptcha_response_field');
+        if (reCaptchinput != "") {
+            reCaptchinput.wrapAll("<label class=''  associatedcontrolid='recaptcha_response_field' text='recaptcha'>recaptcha </label>");
+        }
+
+
+        jQuery.browser = {}; (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0; if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true; jQuery.browser.version = RegExp.$1;
+            }
+        })();
+        if (jQuery.browser.msie && jQuery.browser.version <= 7) {
+            //we could do something else here...
+            console.log("You should really update your browser");
+        }
+
+        videojs.options.flash.iFrameMode = true;
+        jQuery('.videoplayer > .video-js').each(function () {
+            var guid = this.id;
+            var playlist = jQuery('#' + guid).parent().data('playlist');
+            if (playlist === undefined || playlist === null) {
+                playlist = '{}';
+                loadVideo(guid, playlist);
+            }
+        });
+    });
+</script>
+
+<!--IE 8 and below Bootstrapfix-->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+	<style tyoe="text/css">
+	    .quicklinks{ display: none !important;}
+	</style>
+<![endif]-->
+<!-- Bootstrap -->
+
+<script type="text/javascript">
+
+    // needed for jquery bbq, needs jQuery.browser that had been deprecated.
+
+    jQuery.browser = {};
+    (function () {
+        jQuery.browser.msie = false;
+        jQuery.browser.version = 0;
+        if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+            jQuery.browser.msie = true;
+            jQuery.browser.version = RegExp.$1;
+        }
+    })();
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="http://cdn.schoolpointe.com/js/datetimepicker/jquery.datetimepicker.css" />
+<script src="http://cdn.schoolpointe.com/js/datetimepicker/jquery.datetimepicker.js"></script>
+<script src="http://cdn.schoolpointe.com/js/jquery.blockUI.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://cdn.schoolpointe.com/js/jquery-frontier-cal-1.3.2/css/frontierCalendar/jquery-frontier-cal-1.3.2.css" />
+<link rel="stylesheet" type="text/css" href="http://cdn.schoolpointe.com/js/jquery-frontier-cal-1.3.2/css/colorpicker/colorpicker.css" />
+<link rel="Stylesheet" type="text/css" href="http://cdn.schoolpointe.com/css/CalendarPopupStyle.css" />
+<link href="http://cdn.schoolpointe.com/css/schoolpointe.css?version=1.2" rel="stylesheet" type="text/css" />
+<link href="http://cdn.schoolpointe.com/css/bully-report.css" rel="stylesheet" type="text/css" />
+
+
+
+<link rel="alternate" type="application/rss+xml" title='Olmsted Falls City Schools - News' href='/rssNews.ashx'>
+
+        <link rel="alternate" type="application/rss+xml" title='Olmsted Falls High School (Gr. 9-12) - News' href='/rssNews.ashx?schoolId=1'>
+    
+        <link rel="alternate" type="application/rss+xml" title='Olmsted Falls Middle School (Gr. 6-8) - News' href='/rssNews.ashx?schoolId=2'>
+    
+        <link rel="alternate" type="application/rss+xml" title='Olmsted Falls Intermediate School (Gr. 4-5) - News' href='/rssNews.ashx?schoolId=3'>
+    
+        <link rel="alternate" type="application/rss+xml" title='Falls-Lenox Primary School (Gr. 1-3) - News' href='/rssNews.ashx?schoolId=4'>
+    
+        <link rel="alternate" type="application/rss+xml" title='Early Childhood Center (Preschool & Kindergarten) - News' href='/rssNews.ashx?schoolId=5'>
+    
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-58503126-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script src="http://cdn.schoolpointe.com/HTML_CodeSniffer-2.0.7/build/HTMLCS.js"></script>
+<script>
+
+    if (!Array.prototype.indexOf)
+        Array.prototype.indexOf = function (searchValue, index) {
+            // In non-strict-mode, if the `this` variable is null
+            // or undefined, then it is set the the window object.
+            // Else, `this` is automaticly converted to an object.
+            var len = this.length >>> 0; // convert ot number or 0
+
+            index |= 0;              // rounds and NaN-checks
+            if (index < 0)             // check if negative start
+                index = Math.max(len - index, 0);
+            else if (index >= len) // else, check if too big
+                return -1;
+
+            if (searchValue === undefined)
+                // Because searchValue is undefined, keys that
+                // don't exist will have the same value as the
+                // searchValue, and thus do need to be checked.
+                do {
+                    if (index in this && this[index] === undefined)
+                        return index;
+                } while (++index !== len)
+            else
+                // Because searchValue is not undefined, there's no
+                // need to check if the current key is in the array
+                // because if the key isn't in the array, then it's
+                // undefined which is not equal to the searchValue.
+                do {
+                    if (this[index] === searchValue)
+                        return index;
+                } while (++index !== len)
+
+            // if nothing was found, then simply return -1
+            return -1;
+        };
+
+    window['HtmlCodeSniffer_Done'] = false;
+
+    $(document).ready(function () {
+        $('#goog-gt-tt .logo > img').attr('alt', 'Google tanslate icon');
+
+        var submitErrors = function () {
+            try {
+                var options = {
+                    path: "http://cdn.schoolpointe.com/HTML_CodeSniffer-2.0.7/build/"
+                };
+
+                HTMLCS.process("WCAG2AA", document,
+                    function (data) {
+                        var messages = HTMLCS.getMessages();
+                        var length = messages.length;
+
+                        if (length > 0) {
+                            messages = messages.filter(function (a) {
+                                return a.type == 1;
+                            });
+
+                            var filterOut = [
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.AlignAttr',
+                                'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail',
+                                'WCAG2AA.Principle4.Guideline4_1.4_1_1.F77',
+                                'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputHidden.Name',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.F68',
+                                'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail',
+                                'WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.Font',
+                                //'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent',
+                                //'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.EmptyNoId',
+                                'WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID',
+                                'WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.1',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.Center',
+                                'WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.1.EmptyTitle',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.Big',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H39.3.LayoutTable',
+                                'WCAG2AA.Principle1.Guideline1_1.1_1_1.H53,ARIA6',
+                                'WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.F92,ARIA4',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.Tt',
+                                'WCAG2AA.Principle1.Guideline1_3.1_3_1.H43,H63'
+                            ];
+
+                            messages = messages.filter(function (a) {
+                                return filterOut.indexOf(a.code) == -1;
+                            });
+
+                            var count = messages.length;
+
+                            console.log(messages);
+
+                            window['HtmlCodeSniffer_Errors'] = count;
+
+                            if (count > 0) {
+                                $("#AdaErrorCount").text("ADA errors: " + count);
+                            }
+                            else {
+                                $("#AdaErrorCount").remove();
+                            }
+
+                            var data = {
+                                districtId: "OH_OlmsteadFallsCitySchs",
+                                url: "/index.aspx",
+                                errorCount: count,
+                                value: parseInt("0", 10),
+                                forceUpdate: 'false' === 'true'
+                            };
+
+                            try {
+                                var methodUrl = "/admin/shared/AdaLog.asmx/RecordLog";
+                                $.ajax({
+                                    type: "POST",
+                                    url: methodUrl,
+                                    data: JSON.stringify(data),
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (msg) {
+                                        window['HtmlCodeSniffer_Done'] = true;
+                                    },
+                                    error: function (e) {
+                                        console.log(e);
+                                        window['HtmlCodeSniffer_Done'] = true;
+                                    }
+                                });
+                            } catch (ex) {
+                                window['HtmlCodeSniffer_Done'] = true;
+                            }
+
+                        }
+
+                    }, function (error) {
+                        console.log(error)
+                    });
+            } catch (ex) {
+                console.log(ex);
+            }
+        };
+
+        submitErrors();
+    });
+
+
+</script>
+
+    
+
+    
+    
+<link id="ctl00_ctl00_SiteCSS" rel="stylesheet" type="text/css" href="/siteCSS.aspx?&amp;intranet=0&amp;checksum=1504280179673" /></head>
+
+<body class="school-0 index">
+	<form name="aspnetForm" method="post" action="./" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwNDY5MjU5MjkPZBYCZg9kFgJmD2QWBGYPZBYEAgMPZBYCAgEPFgIeC18hSXRlbUNvdW50AgUWCmYPZBYCZg8VAiRPbG1zdGVkIEZhbGxzIEhpZ2ggU2Nob29sIChHci4gOS0xMikBMWQCAQ9kFgJmDxUCJU9sbXN0ZWQgRmFsbHMgTWlkZGxlIFNjaG9vbCAoR3IuIDYtOCkBMmQCAg9kFgJmDxUCK09sbXN0ZWQgRmFsbHMgSW50ZXJtZWRpYXRlIFNjaG9vbCAoR3IuIDQtNSkBM2QCAw9kFgJmDxUCJEZhbGxzLUxlbm94IFByaW1hcnkgU2Nob29sIChHci4gMS0zKQE0ZAIED2QWAmYPFQIxRWFybHkgQ2hpbGRob29kIENlbnRlciAoUHJlc2Nob29sICYgS2luZGVyZ2FydGVuKQE1ZAIFDxYCHgRocmVmBTAvc2l0ZUNTUy5hc3B4PyZpbnRyYW5ldD0wJmNoZWNrc3VtPTE1MDQyODAxNzk2NzNkAgEPZBYOAgEPZBYCAgMPZBYCAgIPZBYCZg8WAh4EVGV4dAUbPHVsIGNsYXNzPSdhbGVydExpc3QnPjwvdWw+ZAIDD2QWAgIBD2QWCAIBDw8WAh4LTmF2aWdhdGVVcmwFAS9kZAIDDw8WBB8DBQEvHwIFXjxkaXYgY2xhc3M9InNjaG9vbE5hbWVUb3AiPk9sbXN0ZWQgRmFsbHM8L2Rpdj48ZGl2IGNsYXNzPSJzY2hvb2xOYW1lQm90dG9tIj5DaXR5IFNjaG9vbHM8L2Rpdj5kZAIFD2QWAmYPFgIfAgWHLTx1bCBjbGFzcz0nbmF2IG5hdmJhci1uYXYgZGlzdHJpY3QtdG9wLW5hdi1saW5rcycgPjxsaSBjbGFzcz0nZHJvcGRvd24nPjxhIGhyZWY9JyMnIGNsYXNzPSdkcm9wZG93bi10b2dnbGUnIGRhdGEtdG9nZ2xlPSdkcm9wZG93bicgIHRpdGxlPSdBZG1pbmlzdHJhdGlvbi9EZXB0cy4nPkFkbWluaXN0cmF0aW9uL0RlcHRzLiAgPHN0cm9uZyBjbGFzcz0nY2FyZXQnPjwvc3Ryb25nPjwvYT48dWwgY2xhc3M9J2Ryb3Bkb3duLW1lbnUnPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnQvNjgnICB0aXRsZT0nQWxsIEFkbWluLi9EZXB0LiBDb250YWN0cyc+QWxsIEFkbWluLi9EZXB0LiBDb250YWN0czwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD0xNicgIHRpdGxlPSdTdXBlcmludGVuZGVudCc+U3VwZXJpbnRlbmRlbnQ8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9MzgnICB0aXRsZT0nQXNzaXN0YW50IFN1cGVyaW50ZW5kZW50Jz5Bc3Npc3RhbnQgU3VwZXJpbnRlbmRlbnQ8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9MjInICB0aXRsZT0nVHJlYXN1cmVyJz5UcmVhc3VyZXI8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9NDAnICB0aXRsZT0nQnVzaW5lc3MgQWZmYWlycyc+QnVzaW5lc3MgQWZmYWlyczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD0xOCcgIHRpdGxlPSdTdHVkZW50IFNlcnZpY2VzJz5TdHVkZW50IFNlcnZpY2VzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTQ0JyAgdGl0bGU9J0Zvb2QgJmFtcDsgTnV0cml0aW9uIFNlcnZpY2VzJz5Gb29kICYgTnV0cml0aW9uIFNlcnZpY2VzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTUwJyAgdGl0bGU9J1RyYW5zcG9ydGF0aW9uJz5UcmFuc3BvcnRhdGlvbjwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD00MicgIHRpdGxlPSdDb21tdW5pY2F0aW9ucyc+Q29tbXVuaWNhdGlvbnM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGlvbi81MicgIHRpdGxlPSdIdW1hbiBSZXNvdXJjZXMnPkh1bWFuIFJlc291cmNlczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD0yMCcgIHRpdGxlPSdUZWNobm9sb2d5Jz5UZWNobm9sb2d5PC9hPjwvbGk+PC91bD48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FsdW1uaUFzc29jaWF0aW9uLmFzcHgnICB0aXRsZT0nQWx1bW5pJz5BbHVtbmk8L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nQm9hcmQgb2YgRWR1Y2F0aW9uJz5Cb2FyZCBvZiBFZHVjYXRpb24gIDxzdHJvbmcgY2xhc3M9J2NhcmV0Jz48L3N0cm9uZz48L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51Jz48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9ib2FyZCcgIHRpdGxlPSdCb2FyZCBvZiBFZHVjYXRpb24gTWFpbiBQYWdlJz5Cb2FyZCBvZiBFZHVjYXRpb24gTWFpbiBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwOi8vd3d3LmJvYXJkZG9jcy5jb20vb2gvb2Zjcy9Cb2FyZC5uc2YvdnB1YmxpYycgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdCb2FyZERvY3PCriBpbmNsdWRpbmcgQm9hcmQgUG9saWN5Jz5Cb2FyZERvY3PCriBpbmNsdWRpbmcgQm9hcmQgUG9saWN5PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvZGlzdHJpY3RCb2FyZEVkLmFzcHgnICB0aXRsZT0nQm9hcmQgTWVldGluZ3MnPkJvYXJkIE1lZXRpbmdzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC8yNTYnICB0aXRsZT0nQm9hcmQgTWVtYmVycyc+Qm9hcmQgTWVtYmVyczwvYT48L2xpPjwvdWw+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nQnVpbGRpbmdzJz5CdWlsZGluZ3MgIDxzdHJvbmcgY2xhc3M9J2NhcmV0Jz48L3N0cm9uZz48L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51Jz48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xfaG9tZS5hc3B4P3NjaG9vbGlkPTEnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBIaWdoIFNjaG9vbCc+T2xtc3RlZCBGYWxscyBIaWdoIFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL3NjaG9vbF9ob21lLmFzcHg/c2Nob29saWQ9MicgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIE1pZGRsZSBTY2hvb2wnPk9sbXN0ZWQgRmFsbHMgTWlkZGxlIFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL3NjaG9vbF9ob21lLmFzcHg/c2Nob29saWQ9MycgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIEludGVybWVkaWF0ZSBTY2hvb2wnPk9sbXN0ZWQgRmFsbHMgSW50ZXJtZWRpYXRlIFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL3NjaG9vbF9ob21lLmFzcHg/c2Nob29saWQ9NCcgIHRpdGxlPSdGYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbCc+RmFsbHMtTGVub3ggUHJpbWFyeSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xfaG9tZS5hc3B4P3NjaG9vbGlkPTUnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBFYXJseSBDaGlsZGhvb2QgQ2VudGVyJz5PbG1zdGVkIEZhbGxzIEVhcmx5IENoaWxkaG9vZCBDZW50ZXI8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xzJyAgdGl0bGU9J0xpc3Qgb2YgQWxsIEJ1aWxkaW5ncyc+TGlzdCBvZiBBbGwgQnVpbGRpbmdzPC9hPjwvbGk+PC91bD48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL0Rpc3RyaWN0L0Zvcm1zJyAgdGl0bGU9J0luZm8uIERvd25sb2FkcyAmYW1wOyBGb3Jtcyc+SW5mby4gRG93bmxvYWRzICYgRm9ybXM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly93d3cuZ2VuZXJhbGFzcC5jb20vb2Zjcy9vbmxpbmVhcHAvZGVmYXVsdC5hc3B4JyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J0VtcGxveW1lbnQnPkVtcGxveW1lbnQ8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50L29maHNjb25zdHJ1Y3Rpb251cGRhdGUnICB0aXRsZT0nSFMgQ09OU1RSVUNUSU9OJz5IUyBDT05TVFJVQ1RJT048L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nTGlua3MnPkxpbmtzICA8c3Ryb25nIGNsYXNzPSdjYXJldCc+PC9zdHJvbmc+PC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudSc+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvRGlzdHJpY3QvTGlua3MnICB0aXRsZT0nT0ZDUyBEaXN0cmljdCBMaW5rcyBQYWdlJz5PRkNTIERpc3RyaWN0IExpbmtzIFBhZ2U8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy8xL0xpbmtzJyAgdGl0bGU9J09GSFMgTGlua3MgUGFnZSc+T0ZIUyBMaW5rcyBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvMi9MaW5rcycgIHRpdGxlPSdPRk1TIExpbmtzIFBhZ2UnPk9GTVMgTGlua3MgUGFnZTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nLzMvTGlua3MnICB0aXRsZT0nT0ZJUyBMaW5rcyBQYWdlJz5PRklTIExpbmtzIFBhZ2U8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy80L0xpbmtzJyAgdGl0bGU9J0ZhbGxzLUxlbm94IExpbmtzIFBhZ2UnPkZhbGxzLUxlbm94IExpbmtzIFBhZ2U8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy81L0xpbmtzJyAgdGl0bGU9J0VDQyBMaW5rcyBQYWdlJz5FQ0MgTGlua3MgUGFnZTwvYT48L2xpPjwvdWw+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly93d3cub2Zjcy5uZXQvTmV3cy8yMTYxNCNzdGhhc2guVnBkcWJFMDQuZHBicycgIHRpdGxlPSdRdWFsaXR5IFByb2ZpbGUnPlF1YWxpdHkgUHJvZmlsZTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnQvMjIyJyAgdGl0bGU9J1N0cmF0ZWdpYyBQbGFuJz5TdHJhdGVnaWMgUGxhbjwvYT48L2xpPjxsaSBjbGFzcz0nZHJvcGRvd24nPjxhIGhyZWY9JyMnIGNsYXNzPSdkcm9wZG93bi10b2dnbGUnIGRhdGEtdG9nZ2xlPSdkcm9wZG93bicgIHRpdGxlPSdUZWFjaGVyIFdlYnNpdGVzJz5UZWFjaGVyIFdlYnNpdGVzICA8c3Ryb25nIGNsYXNzPSdjYXJldCc+PC9zdHJvbmc+PC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudSc+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudF9wYWdlLmFzcHg/Y2lkPTE4MCZhbXA7c2Nob29sSUQ9MScgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIEhpZ2ggU2Nob29sJz5PbG1zdGVkIEZhbGxzIEhpZ2ggU2Nob29sPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudF9wYWdlLmFzcHg/Y2lkPTE3OCZhbXA7c2Nob29sSUQ9MicgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIE1pZGRsZSBTY2hvb2wnPk9sbXN0ZWQgRmFsbHMgTWlkZGxlIFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnRfcGFnZS5hc3B4P2NpZD0xODImYW1wO3NjaG9vbElEPTMnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBJbnRlcm1lZGlhdGUgU2Nob29sJz5PbG1zdGVkIEZhbGxzIEludGVybWVkaWF0ZSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50X3BhZ2UuYXNweD9jaWQ9MTg0JmFtcDtzY2hvb2xJRD00JyAgdGl0bGU9J0ZhbGxzLUxlbm94IFByaW1hcnkgU2Nob29sJz5GYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnRfcGFnZS5hc3B4P2NpZD0xODYmYW1wO3NjaG9vbElEPTUnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBFYXJseSBDaGlsZGhvb2QgQ2VudGVyJz5PbG1zdGVkIEZhbGxzIEVhcmx5IENoaWxkaG9vZCBDZW50ZXI8L2E+PC9saT48L3VsPjwvbGk+PC91bD5kAgcPZBYEZg8WAh8CBQtPdXIgTWlzc2lvbmQCAQ8WAh8CBdwBT2xtc3RlZCBGYWxscyBDaXR5IFNjaG9vbHMgcHJvdmlkZXMgZXhwZXJpZW5jZXMgdGhhdCBlbXBvd2VyIGl0cyBmdXR1cmUgZ3JhZHVhdGVzIHRvIGJlY29tZSBsaWZlLWxvbmcgbGVhcm5lcnMgd2hvIGhhdmUgZXhwbG9yZWQgY2FyZWVyIHBhdGh3YXlzIG9mIHRoZWlyIGludGVyZXN0IHNvIHRoYXQgdGhleSBjYW4gc3VjY2VlZCBhcyBjaXRpemVucyBpbiBhIGdsb2JhbCBzb2NpZXR5LmQCBw9kFgJmDxYCHwIFhy08dWwgY2xhc3M9J25hdiBuYXZiYXItbmF2IGRpc3RyaWN0LXRvcC1uYXYtbGlua3MnID48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nQWRtaW5pc3RyYXRpb24vRGVwdHMuJz5BZG1pbmlzdHJhdGlvbi9EZXB0cy4gIDxzdHJvbmcgY2xhc3M9J2NhcmV0Jz48L3N0cm9uZz48L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51Jz48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50LzY4JyAgdGl0bGU9J0FsbCBBZG1pbi4vRGVwdC4gQ29udGFjdHMnPkFsbCBBZG1pbi4vRGVwdC4gQ29udGFjdHM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9MTYnICB0aXRsZT0nU3VwZXJpbnRlbmRlbnQnPlN1cGVyaW50ZW5kZW50PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTM4JyAgdGl0bGU9J0Fzc2lzdGFudCBTdXBlcmludGVuZGVudCc+QXNzaXN0YW50IFN1cGVyaW50ZW5kZW50PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTIyJyAgdGl0bGU9J1RyZWFzdXJlcic+VHJlYXN1cmVyPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTQwJyAgdGl0bGU9J0J1c2luZXNzIEFmZmFpcnMnPkJ1c2luZXNzIEFmZmFpcnM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9MTgnICB0aXRsZT0nU3R1ZGVudCBTZXJ2aWNlcyc+U3R1ZGVudCBTZXJ2aWNlczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD00NCcgIHRpdGxlPSdGb29kICZhbXA7IE51dHJpdGlvbiBTZXJ2aWNlcyc+Rm9vZCAmIE51dHJpdGlvbiBTZXJ2aWNlczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD01MCcgIHRpdGxlPSdUcmFuc3BvcnRhdGlvbic+VHJhbnNwb3J0YXRpb248L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9NDInICB0aXRsZT0nQ29tbXVuaWNhdGlvbnMnPkNvbW11bmljYXRpb25zPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpb24vNTInICB0aXRsZT0nSHVtYW4gUmVzb3VyY2VzJz5IdW1hbiBSZXNvdXJjZXM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9MjAnICB0aXRsZT0nVGVjaG5vbG9neSc+VGVjaG5vbG9neTwvYT48L2xpPjwvdWw+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hbHVtbmlBc3NvY2lhdGlvbi5hc3B4JyAgdGl0bGU9J0FsdW1uaSc+QWx1bW5pPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0nIycgY2xhc3M9J2Ryb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyAgdGl0bGU9J0JvYXJkIG9mIEVkdWNhdGlvbic+Qm9hcmQgb2YgRWR1Y2F0aW9uICA8c3Ryb25nIGNsYXNzPSdjYXJldCc+PC9zdHJvbmc+PC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudSc+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYm9hcmQnICB0aXRsZT0nQm9hcmQgb2YgRWR1Y2F0aW9uIE1haW4gUGFnZSc+Qm9hcmQgb2YgRWR1Y2F0aW9uIE1haW4gUGFnZTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cDovL3d3dy5ib2FyZGRvY3MuY29tL29oL29mY3MvQm9hcmQubnNmL3ZwdWJsaWMnIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nQm9hcmREb2Nzwq4gaW5jbHVkaW5nIEJvYXJkIFBvbGljeSc+Qm9hcmREb2Nzwq4gaW5jbHVkaW5nIEJvYXJkIFBvbGljeTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2Rpc3RyaWN0Qm9hcmRFZC5hc3B4JyAgdGl0bGU9J0JvYXJkIE1lZXRpbmdzJz5Cb2FyZCBNZWV0aW5nczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnQvMjU2JyAgdGl0bGU9J0JvYXJkIE1lbWJlcnMnPkJvYXJkIE1lbWJlcnM8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0nIycgY2xhc3M9J2Ryb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyAgdGl0bGU9J0J1aWxkaW5ncyc+QnVpbGRpbmdzICA8c3Ryb25nIGNsYXNzPSdjYXJldCc+PC9zdHJvbmc+PC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudSc+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvc2Nob29sX2hvbWUuYXNweD9zY2hvb2xpZD0xJyAgdGl0bGU9J09sbXN0ZWQgRmFsbHMgSGlnaCBTY2hvb2wnPk9sbXN0ZWQgRmFsbHMgSGlnaCBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xfaG9tZS5hc3B4P3NjaG9vbGlkPTInICB0aXRsZT0nT2xtc3RlZCBGYWxscyBNaWRkbGUgU2Nob29sJz5PbG1zdGVkIEZhbGxzIE1pZGRsZSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xfaG9tZS5hc3B4P3NjaG9vbGlkPTMnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBJbnRlcm1lZGlhdGUgU2Nob29sJz5PbG1zdGVkIEZhbGxzIEludGVybWVkaWF0ZSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9zY2hvb2xfaG9tZS5hc3B4P3NjaG9vbGlkPTQnICB0aXRsZT0nRmFsbHMtTGVub3ggUHJpbWFyeSBTY2hvb2wnPkZhbGxzLUxlbm94IFByaW1hcnkgU2Nob29sPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvc2Nob29sX2hvbWUuYXNweD9zY2hvb2xpZD01JyAgdGl0bGU9J09sbXN0ZWQgRmFsbHMgRWFybHkgQ2hpbGRob29kIENlbnRlcic+T2xtc3RlZCBGYWxscyBFYXJseSBDaGlsZGhvb2QgQ2VudGVyPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvc2Nob29scycgIHRpdGxlPSdMaXN0IG9mIEFsbCBCdWlsZGluZ3MnPkxpc3Qgb2YgQWxsIEJ1aWxkaW5nczwvYT48L2xpPjwvdWw+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9EaXN0cmljdC9Gb3JtcycgIHRpdGxlPSdJbmZvLiBEb3dubG9hZHMgJmFtcDsgRm9ybXMnPkluZm8uIERvd25sb2FkcyAmIEZvcm1zPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwOi8vd3d3LmdlbmVyYWxhc3AuY29tL29mY3Mvb25saW5lYXBwL2RlZmF1bHQuYXNweCcgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdFbXBsb3ltZW50Jz5FbXBsb3ltZW50PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC9vZmhzY29uc3RydWN0aW9udXBkYXRlJyAgdGl0bGU9J0hTIENPTlNUUlVDVElPTic+SFMgQ09OU1RSVUNUSU9OPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0nIycgY2xhc3M9J2Ryb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyAgdGl0bGU9J0xpbmtzJz5MaW5rcyAgPHN0cm9uZyBjbGFzcz0nY2FyZXQnPjwvc3Ryb25nPjwvYT48dWwgY2xhc3M9J2Ryb3Bkb3duLW1lbnUnPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL0Rpc3RyaWN0L0xpbmtzJyAgdGl0bGU9J09GQ1MgRGlzdHJpY3QgTGlua3MgUGFnZSc+T0ZDUyBEaXN0cmljdCBMaW5rcyBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvMS9MaW5rcycgIHRpdGxlPSdPRkhTIExpbmtzIFBhZ2UnPk9GSFMgTGlua3MgUGFnZTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nLzIvTGlua3MnICB0aXRsZT0nT0ZNUyBMaW5rcyBQYWdlJz5PRk1TIExpbmtzIFBhZ2U8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy8zL0xpbmtzJyAgdGl0bGU9J09GSVMgTGlua3MgUGFnZSc+T0ZJUyBMaW5rcyBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvNC9MaW5rcycgIHRpdGxlPSdGYWxscy1MZW5veCBMaW5rcyBQYWdlJz5GYWxscy1MZW5veCBMaW5rcyBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvNS9MaW5rcycgIHRpdGxlPSdFQ0MgTGlua3MgUGFnZSc+RUNDIExpbmtzIFBhZ2U8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwOi8vd3d3Lm9mY3MubmV0L05ld3MvMjE2MTQjc3RoYXNoLlZwZHFiRTA0LmRwYnMnICB0aXRsZT0nUXVhbGl0eSBQcm9maWxlJz5RdWFsaXR5IFByb2ZpbGU8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50LzIyMicgIHRpdGxlPSdTdHJhdGVnaWMgUGxhbic+U3RyYXRlZ2ljIFBsYW48L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nVGVhY2hlciBXZWJzaXRlcyc+VGVhY2hlciBXZWJzaXRlcyAgPHN0cm9uZyBjbGFzcz0nY2FyZXQnPjwvc3Ryb25nPjwvYT48dWwgY2xhc3M9J2Ryb3Bkb3duLW1lbnUnPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnRfcGFnZS5hc3B4P2NpZD0xODAmYW1wO3NjaG9vbElEPTEnICB0aXRsZT0nT2xtc3RlZCBGYWxscyBIaWdoIFNjaG9vbCc+T2xtc3RlZCBGYWxscyBIaWdoIFNjaG9vbDwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnRfcGFnZS5hc3B4P2NpZD0xNzgmYW1wO3NjaG9vbElEPTInICB0aXRsZT0nT2xtc3RlZCBGYWxscyBNaWRkbGUgU2Nob29sJz5PbG1zdGVkIEZhbGxzIE1pZGRsZSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50X3BhZ2UuYXNweD9jaWQ9MTgyJmFtcDtzY2hvb2xJRD0zJyAgdGl0bGU9J09sbXN0ZWQgRmFsbHMgSW50ZXJtZWRpYXRlIFNjaG9vbCc+T2xtc3RlZCBGYWxscyBJbnRlcm1lZGlhdGUgU2Nob29sPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudF9wYWdlLmFzcHg/Y2lkPTE4NCZhbXA7c2Nob29sSUQ9NCcgIHRpdGxlPSdGYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbCc+RmFsbHMtTGVub3ggUHJpbWFyeSBTY2hvb2w8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50X3BhZ2UuYXNweD9jaWQ9MTg2JmFtcDtzY2hvb2xJRD01JyAgdGl0bGU9J09sbXN0ZWQgRmFsbHMgRWFybHkgQ2hpbGRob29kIENlbnRlcic+T2xtc3RlZCBGYWxscyBFYXJseSBDaGlsZGhvb2QgQ2VudGVyPC9hPjwvbGk+PC91bD48L2xpPjwvdWw+ZAIJD2QWAmYPFgIfAgXSHjx1bCBjbGFzcz0nbmF2IG5hdmJhci1uYXYgbGVmdC1uYXYtdG9wJyA+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC9raW5kZXJnYXJ0ZW5yZWdpc3RyYXRpb24nICB0aXRsZT0nMjAxOC0yMDE5IEtJTkRFUkdBUlRFTiBSRUdJU1RSQVRJT04gKipORVcgTElOSyoqJz4yMDE4LTIwMTkgS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiAqKk5FVyBMSU5LKio8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50LzI2MCcgIHRpdGxlPSdQUkVTQ0hPT0wvS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiBGT1IgMjAxNy0yMDE4Jz5QUkVTQ0hPT0wvS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiBGT1IgMjAxNy0yMDE4PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC8yNjQnICB0aXRsZT0nTkVXIFNUVURFTlQgUkVHSVNUUkFUSU9OIChHcmFkZXMgMSB0byAxMikgRk9SIDIwMTctMjAxOCc+TkVXIFNUVURFTlQgUkVHSVNUUkFUSU9OIChHcmFkZXMgMSB0byAxMikgRk9SIDIwMTctMjAxODwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cDovL3d3dy5vZmNzLm5ldC9OZXdzLzIxNjE0I3N0aGFzaC5WcGRxYkUwNC5kcGJzJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J09GQ1MgUVVBTElUWSBQUk9GSUxFICoqKk5FVyoqKic+T0ZDUyBRVUFMSVRZIFBST0ZJTEUgKioqTkVXKioqPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwOi8vb2ZhbGxzLndvcmRwcmVzcy5jb20nIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nQmxvZzogRGlzdHJpY3QgTmV3cyBVcGRhdGVzJz5CbG9nOiBEaXN0cmljdCBOZXdzIFVwZGF0ZXM8L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nQm9vc3RlciBPcmdhbml6YXRpb25zJz5Cb29zdGVyIE9yZ2FuaXphdGlvbnMgIDxzdHJvbmcgY2xhc3M9J2NhcmV0Jz48L3N0cm9uZz48L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51Jz48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly9vZmF0aGxldGljYm9vc3RlcnMub3JnLycgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIEF0aGxldGljIEJvb3N0ZXJzJz5PbG1zdGVkIEZhbGxzIEF0aGxldGljIEJvb3N0ZXJzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwczovL3d3dy5mYWNlYm9vay5jb20vZ3JvdXBzL29mbWExMScgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIE11c2ljIEFzc29jaWF0aW9uJz5PbG1zdGVkIEZhbGxzIE11c2ljIEFzc29jaWF0aW9uPC9hPjwvbGk+PC91bD48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9idWxsZG9nLXRlY2gtYnl0ZXMvJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J0J1bGxkb2cgVGVjaCBCeXRlcyc+QnVsbGRvZyBUZWNoIEJ5dGVzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudF9wYWdlLmFzcHg/Y2lkPTE5MCcgIHRpdGxlPSdDb21wYXNzIExlYXJuaW5nJz5Db21wYXNzIExlYXJuaW5nPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvQ29udGVudC8yNDInICB0aXRsZT0nQ29udGFjdCBJbmZvcm1hdGlvbic+Q29udGFjdCBJbmZvcm1hdGlvbjwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly93d3cuc3BzZXpwYXkuY29tL09sbXN0ZWQvZXpwYXkvTG9naW4uYXNweCcgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdFWlBheSc+RVpQYXk8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly9kaXN0cmljdC5zY2hvb2xudXRyaXRpb25hbmRmaXRuZXNzLmNvbS9vbG1zdGVhZGZhbGxzY3MnIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nRm9vZCAmYW1wOyBOdXRyaXRpb24gU2VydmljZXMnPkZvb2QgJiBOdXRyaXRpb24gU2VydmljZXM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9mb3Jtcy5hc3B4JyAgdGl0bGU9J0luZm9ybWF0aW9uICZhbXA7IEZvcm0gRG93bmxvYWRzIChEaXN0cmljdCknPkluZm9ybWF0aW9uICYgRm9ybSBEb3dubG9hZHMgKERpc3RyaWN0KTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL0dhbGxlcnknICB0aXRsZT0nUGhvdG8gR2FsbGVyeSc+UGhvdG8gR2FsbGVyeTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9wc29mLm5jY29oaW8ub3JnL3B1YmxpYy9ob21lLmh0bWwnIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nUG93ZXJTY2hvb2wnPlBvd2VyU2Nob29sPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTMwJyAgdGl0bGU9J1BUQSc+UFRBPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0nIycgY2xhc3M9J2Ryb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J1NjaG9vbCBIZWFsdGggQ2xpbmljJz5TY2hvb2wgSGVhbHRoIENsaW5pYyAgPHN0cm9uZyBjbGFzcz0nY2FyZXQnPjwvc3Ryb25nPjwvYT48dWwgY2xhc3M9J2Ryb3Bkb3duLW1lbnUnPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9vZmhlYWx0aGNsaW5pYy8nIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nSGVhbHRoIENsaW5pYyBIb21lIFBhZ2UnPkhlYWx0aCBDbGluaWMgSG9tZSBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwczovL3NpdGVzLmdvb2dsZS5jb20vYS9nLm9mY3MubmV0L29maGVhbHRoY2xpbmljL2hlYWx0aC1jb25kaXRpb25zJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J0hlYWx0aCBDb25kaXRpb25zL0hlYWx0aCBDYXJlIFBsYW5zJz5IZWFsdGggQ29uZGl0aW9ucy9IZWFsdGggQ2FyZSBQbGFuczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9vZmhlYWx0aGNsaW5pYy9mb3JtcycgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdJbW11bml6YXRpb24vTWVkaWNhdGlvbiBGb3Jtcyc+SW1tdW5pemF0aW9uL01lZGljYXRpb24gRm9ybXM8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvZGlzdHJpY3Rfc3RhZmYuYXNweCcgIHRpdGxlPSdTdGFmZiBEaXJlY3RvcnknPlN0YWZmIERpcmVjdG9yeTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnQvMjIyJyAgdGl0bGU9J1N0cmF0ZWdpYyBQbGFuJz5TdHJhdGVnaWMgUGxhbjwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD0xOCcgIHRpdGxlPSdTdHVkZW50IFNlcnZpY2VzJz5TdHVkZW50IFNlcnZpY2VzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvQ29udGVudC8yNDAnICB0aXRsZT0nU3VycGx1cyBBdWN0aW9uJz5TdXJwbHVzIEF1Y3Rpb248L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9NTAnICB0aXRsZT0nVHJhbnNwb3J0YXRpb24nPlRyYW5zcG9ydGF0aW9uPC9hPjwvbGk+PC91bD5kAgsPZBYCAgEPZBYCAgEPFgIfAAIEFghmD2QWAmYPFQMdTWVtYmVycyBvZiBPRk1TIEFjYWRlbWljIFRlYW0dTWVtYmVycyBvZiBPRk1TIEFjYWRlbWljIFRlYW07L3VzZXJmaWxlcy8yMDE2LTAzLzEyYTU5ODEyLTUwNGItNDZjMi04OWNlLTNhM2I0YzIzMjRkMC5qcGdkAgEPZBYCZg8VA0dHdWVzdCBSZWFkZXIgU3VwZXJpbnRlbmRlbnQgRHIuIEppbSBMbG95ZCBhdCBGYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbEdHdWVzdCBSZWFkZXIgU3VwZXJpbnRlbmRlbnQgRHIuIEppbSBMbG95ZCBhdCBGYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbDsvdXNlcmZpbGVzLzIwMTYtMDMvYmFlZWFiZTItYzY3Zi00YTAyLThmOGUtOGU3ZGZmMTdiMDlmLmpwZ2QCAg9kFgJmDxUDMFNpbHZlciBMaW5pbmdzIERheSBhdCBGYWxscy1MZW5veCBQcmltYXJ5IFNjaG9vbDBTaWx2ZXIgTGluaW5ncyBEYXkgYXQgRmFsbHMtTGVub3ggUHJpbWFyeSBTY2hvb2w7L3VzZXJmaWxlcy8yMDE2LTAzLzhkM2VkNDhjLTNlYzktNDlhYy1hZjhhLTBjZTM1NzcwMTViYS5qcGdkAgMPZBYCZg8VA4gBQm9hcmQgb2YgRWR1Y2F0aW9uIG1lbWJlcnMgYW5kIERpc3RyaWN0IGFkbWluaXN0cmF0b3JzIHRha2UgcGFydCBpbiBlbmdpbmVlcmluZyBjaGFsbGVuZ2UgZHVyaW5nIE9GTVMgUHJvamVjdCBMZWFkIHRoZSBXYXkgcHJlc2VudGF0aW9uLogBQm9hcmQgb2YgRWR1Y2F0aW9uIG1lbWJlcnMgYW5kIERpc3RyaWN0IGFkbWluaXN0cmF0b3JzIHRha2UgcGFydCBpbiBlbmdpbmVlcmluZyBjaGFsbGVuZ2UgZHVyaW5nIE9GTVMgUHJvamVjdCBMZWFkIHRoZSBXYXkgcHJlc2VudGF0aW9uLjsvdXNlcmZpbGVzLzIwMTYtMDMvMGNkMTg3MmYtY2NlOS00NDFiLWIxYjQtNGE5Y2EwOWRlNzg5LmpwZ2QCDw9kFggCAQ9kFgICAQ9kFgJmDxYCHwIFzh48dWwgY2xhc3M9J25hdiBuYXZiYXItbmF2IGxlZnQtbmF2JyA+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC9raW5kZXJnYXJ0ZW5yZWdpc3RyYXRpb24nICB0aXRsZT0nMjAxOC0yMDE5IEtJTkRFUkdBUlRFTiBSRUdJU1RSQVRJT04gKipORVcgTElOSyoqJz4yMDE4LTIwMTkgS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiAqKk5FVyBMSU5LKio8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9jb250ZW50LzI2MCcgIHRpdGxlPSdQUkVTQ0hPT0wvS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiBGT1IgMjAxNy0yMDE4Jz5QUkVTQ0hPT0wvS0lOREVSR0FSVEVOIFJFR0lTVFJBVElPTiBGT1IgMjAxNy0yMDE4PC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudC8yNjQnICB0aXRsZT0nTkVXIFNUVURFTlQgUkVHSVNUUkFUSU9OIChHcmFkZXMgMSB0byAxMikgRk9SIDIwMTctMjAxOCc+TkVXIFNUVURFTlQgUkVHSVNUUkFUSU9OIChHcmFkZXMgMSB0byAxMikgRk9SIDIwMTctMjAxODwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cDovL3d3dy5vZmNzLm5ldC9OZXdzLzIxNjE0I3N0aGFzaC5WcGRxYkUwNC5kcGJzJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J09GQ1MgUVVBTElUWSBQUk9GSUxFICoqKk5FVyoqKic+T0ZDUyBRVUFMSVRZIFBST0ZJTEUgKioqTkVXKioqPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwOi8vb2ZhbGxzLndvcmRwcmVzcy5jb20nIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nQmxvZzogRGlzdHJpY3QgTmV3cyBVcGRhdGVzJz5CbG9nOiBEaXN0cmljdCBOZXdzIFVwZGF0ZXM8L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPScjJyBjbGFzcz0nZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nICB0aXRsZT0nQm9vc3RlciBPcmdhbml6YXRpb25zJz5Cb29zdGVyIE9yZ2FuaXphdGlvbnMgIDxzdHJvbmcgY2xhc3M9J2NhcmV0Jz48L3N0cm9uZz48L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51Jz48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly9vZmF0aGxldGljYm9vc3RlcnMub3JnLycgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIEF0aGxldGljIEJvb3N0ZXJzJz5PbG1zdGVkIEZhbGxzIEF0aGxldGljIEJvb3N0ZXJzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwczovL3d3dy5mYWNlYm9vay5jb20vZ3JvdXBzL29mbWExMScgIHRpdGxlPSdPbG1zdGVkIEZhbGxzIE11c2ljIEFzc29jaWF0aW9uJz5PbG1zdGVkIEZhbGxzIE11c2ljIEFzc29jaWF0aW9uPC9hPjwvbGk+PC91bD48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9idWxsZG9nLXRlY2gtYnl0ZXMvJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J0J1bGxkb2cgVGVjaCBCeXRlcyc+QnVsbGRvZyBUZWNoIEJ5dGVzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvY29udGVudF9wYWdlLmFzcHg/Y2lkPTE5MCcgIHRpdGxlPSdDb21wYXNzIExlYXJuaW5nJz5Db21wYXNzIExlYXJuaW5nPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvQ29udGVudC8yNDInICB0aXRsZT0nQ29udGFjdCBJbmZvcm1hdGlvbic+Q29udGFjdCBJbmZvcm1hdGlvbjwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly93d3cuc3BzZXpwYXkuY29tL09sbXN0ZWQvZXpwYXkvTG9naW4uYXNweCcgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdFWlBheSc+RVpQYXk8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9J2h0dHA6Ly9kaXN0cmljdC5zY2hvb2xudXRyaXRpb25hbmRmaXRuZXNzLmNvbS9vbG1zdGVhZGZhbGxzY3MnIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nRm9vZCAmYW1wOyBOdXRyaXRpb24gU2VydmljZXMnPkZvb2QgJiBOdXRyaXRpb24gU2VydmljZXM8L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9mb3Jtcy5hc3B4JyAgdGl0bGU9J0luZm9ybWF0aW9uICZhbXA7IEZvcm0gRG93bmxvYWRzIChEaXN0cmljdCknPkluZm9ybWF0aW9uICYgRm9ybSBEb3dubG9hZHMgKERpc3RyaWN0KTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL0dhbGxlcnknICB0aXRsZT0nUGhvdG8gR2FsbGVyeSc+UGhvdG8gR2FsbGVyeTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9wc29mLm5jY29oaW8ub3JnL3B1YmxpYy9ob21lLmh0bWwnIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nUG93ZXJTY2hvb2wnPlBvd2VyU2Nob29sPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvYWRtaW5pc3RyYXRpdmVEZXBhcnRtZW50LmFzcHg/YWlkPTMwJyAgdGl0bGU9J1BUQSc+UFRBPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0nIycgY2xhc3M9J2Ryb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J1NjaG9vbCBIZWFsdGggQ2xpbmljJz5TY2hvb2wgSGVhbHRoIENsaW5pYyAgPHN0cm9uZyBjbGFzcz0nY2FyZXQnPjwvc3Ryb25nPjwvYT48dWwgY2xhc3M9J2Ryb3Bkb3duLW1lbnUnPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9vZmhlYWx0aGNsaW5pYy8nIHRhcmdldD0nX2JsYW5rJyB0aXRsZT0nSGVhbHRoIENsaW5pYyBIb21lIFBhZ2UnPkhlYWx0aCBDbGluaWMgSG9tZSBQYWdlPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPSdodHRwczovL3NpdGVzLmdvb2dsZS5jb20vYS9nLm9mY3MubmV0L29maGVhbHRoY2xpbmljL2hlYWx0aC1jb25kaXRpb25zJyB0YXJnZXQ9J19ibGFuaycgdGl0bGU9J0hlYWx0aCBDb25kaXRpb25zL0hlYWx0aCBDYXJlIFBsYW5zJz5IZWFsdGggQ29uZGl0aW9ucy9IZWFsdGggQ2FyZSBQbGFuczwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0naHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2EvZy5vZmNzLm5ldC9vZmhlYWx0aGNsaW5pYy9mb3JtcycgdGFyZ2V0PSdfYmxhbmsnIHRpdGxlPSdJbW11bml6YXRpb24vTWVkaWNhdGlvbiBGb3Jtcyc+SW1tdW5pemF0aW9uL01lZGljYXRpb24gRm9ybXM8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvZGlzdHJpY3Rfc3RhZmYuYXNweCcgIHRpdGxlPSdTdGFmZiBEaXJlY3RvcnknPlN0YWZmIERpcmVjdG9yeTwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2NvbnRlbnQvMjIyJyAgdGl0bGU9J1N0cmF0ZWdpYyBQbGFuJz5TdHJhdGVnaWMgUGxhbjwvYT48L2xpPjxsaSBjbGFzcz0nd2l0aG91dC1pbWFnZSc+PGEgaHJlZj0nL2FkbWluaXN0cmF0aXZlRGVwYXJ0bWVudC5hc3B4P2FpZD0xOCcgIHRpdGxlPSdTdHVkZW50IFNlcnZpY2VzJz5TdHVkZW50IFNlcnZpY2VzPC9hPjwvbGk+PGxpIGNsYXNzPSd3aXRob3V0LWltYWdlJz48YSBocmVmPScvQ29udGVudC8yNDAnICB0aXRsZT0nU3VycGx1cyBBdWN0aW9uJz5TdXJwbHVzIEF1Y3Rpb248L2E+PC9saT48bGkgY2xhc3M9J3dpdGhvdXQtaW1hZ2UnPjxhIGhyZWY9Jy9hZG1pbmlzdHJhdGl2ZURlcGFydG1lbnQuYXNweD9haWQ9NTAnICB0aXRsZT0nVHJhbnNwb3J0YXRpb24nPlRyYW5zcG9ydGF0aW9uPC9hPjwvbGk+PC91bD5kAgUPZBYCAgEPZBYCAgIPZBYEAgMPFgIeB1Zpc2libGVoZAIEDxYCHwACCGQCCQ9kFgYCAQ9kFgQCAQ88KwAKAQAPFggeDURheU5hbWVGb3JtYXQLKidTeXN0ZW0uV2ViLlVJLldlYkNvbnRyb2xzLkRheU5hbWVGb3JtYXQCHg1OZXh0TW9udGhUZXh0BS08c3BhbiBjbGFzcz0nb2JzY3VyZSc+R28gdG8gbmV4dCBtb250aDwvc3Bhbj4eDVByZXZNb250aFRleHQFMTxzcGFuIGNsYXNzPSdvYnNjdXJlJz5HbyB0byBwcmV2aW91cyBtb250aDwvc3Bhbj4eAlNEFgEGAID62oeP1QhkZAIDDw8WBh4GVGFyZ2V0BQZfYmxhbmsfAgUSVmlldyBGdWxsIENhbGVuZGFyHwMFJS9jYWxNb250aFZpZXcuYXNweD9zPTAmeT0yMDE4Jm09MyZ0PTBkZAIDD2QWAgIBDxYCHwACAhYEAgEPZBYGAgEPDxYCHwMFXS9kb2NzLy9kb2NzL2Rpc3RyaWN0LzIwMTctMjAxOCBhY2FkZW1pYyBjYWxlbmRhci1vbG1zdGVkIGZhbGxzLXVwZGF0ZWRfbWFyY2ggMjAxOC5wZGY/aWQ9NTQ4NmRkAgMPDxYCHwMFXS9kb2NzLy9kb2NzL2Rpc3RyaWN0LzIwMTctMjAxOCBhY2FkZW1pYyBjYWxlbmRhci1vbG1zdGVkIGZhbGxzLXVwZGF0ZWRfbWFyY2ggMjAxOC5wZGY/aWQ9NTQ4NmQWAmYPFQEgMjAxNy0yMDE4IE9GQ1MgRGlzdHJpY3QgQ2FsZW5kYXJkAgQPFQEzUHJpbnRhYmxlIEFjYWRlbWljIENhbGVuZGFyIGZvciBDVVJSRU5UIFNjaG9vbCBZZWFyZAICD2QWBgIBDw8WAh8DBUwvZG9jcy8vZGlzdHJpY3QvMjAxOC0yMDE5X3JldmlzZWRfY2FsZW5kYXJfYm9lX2FwcHJvdmVkXzExLTE2LTE3LnBkZj9pZD01MjgyZGQCAw8PFgIfAwVML2RvY3MvL2Rpc3RyaWN0LzIwMTgtMjAxOV9yZXZpc2VkX2NhbGVuZGFyX2JvZV9hcHByb3ZlZF8xMS0xNi0xNy5wZGY/aWQ9NTI4MmQWAmYPFQEoMjAxOC0yMDE5IFJFVklTRUQgT0ZDUyBEaXN0cmljdCBDYWxlbmRhcmQCBA8VAT9SZXZpc2VkIENhbGVuZGFyIGZvciBORVhUIFNjaG9vbCBZZWFyIChCb2FyZCBBcHByb3ZlZCAxMS8xNi8xNylkAgUPZBYGAgEPFgIfAAIGFgwCAQ9kFgJmDxUHBTE4ODMxWi9jYWxlbmRhcldlZWtWaWV3LmFzcHg/c2Nob29scz0xLDIsMyw0LDUsNiZzY2hvb2xpZD0wJnR5cGVzPSZldmVudElEPTE4ODMxJnZpZXdEYXRlPU1hciAyNhhTcHJpbmcgQnJlYWsgLSBOTyBTQ0hPT0wYU3ByaW5nIEJyZWFrIC0gTk8gU0NIT09MFDMvMjYvMjAxOCAtIDQvMi8yMDE4AABkAgIPZBYCZg8VBwUxODgzMlovY2FsZW5kYXJXZWVrVmlldy5hc3B4P3NjaG9vbHM9MSwyLDMsNCw1LDYmc2Nob29saWQ9MCZ0eXBlcz0mZXZlbnRJRD0xODgzMiZ2aWV3RGF0ZT1BcHIgMDMYUmV0dXJuIGZyb20gU3ByaW5nIEJyZWFrGFJldHVybiBmcm9tIFNwcmluZyBCcmVhaxFUdWVzZGF5LCA0LzMvMjAxOAAAZAIDD2QWAmYPFQcFMTg4NjJaL2NhbGVuZGFyV2Vla1ZpZXcuYXNweD9zY2hvb2xzPTEsMiwzLDQsNSw2JnNjaG9vbGlkPTAmdHlwZXM9JmV2ZW50SUQ9MTg4NjImdmlld0RhdGU9QXByIDE2JkJvYXJkIFdvcmsgU2Vzc2lvbiAtIEhpZ2ggU2Nob29sIC0gRzEwJkJvYXJkIFdvcmsgU2Vzc2lvbiAtIEhpZ2ggU2Nob29sIC0gRzEwEU1vbmRheSwgNC8xNi8yMDE4EEJlZ2lucyBAIDY6MDAgUE0AZAIED2QWAmYPFQcFMTg4NDFaL2NhbGVuZGFyV2Vla1ZpZXcuYXNweD9zY2hvb2xzPTEsMiwzLDQsNSw2JnNjaG9vbGlkPTAmdHlwZXM9JmV2ZW50SUQ9MTg4NDEmdmlld0RhdGU9QXByIDE5KkJvYXJkIE1lZXRpbmcgLSBNaWRkbGUgU2Nob29sIE1lZGlhIENlbnRlcipCb2FyZCBNZWV0aW5nIC0gTWlkZGxlIFNjaG9vbCBNZWRpYSBDZW50ZXITVGh1cnNkYXksIDQvMTkvMjAxOBBCZWdpbnMgQCA3OjAwIFBNAGQCBQ9kFgJmDxUHBTE4ODU0Wi9jYWxlbmRhcldlZWtWaWV3LmFzcHg/c2Nob29scz0xLDIsMyw0LDUsNiZzY2hvb2xpZD0wJnR5cGVzPSZldmVudElEPTE4ODU0JnZpZXdEYXRlPU1heSAwMydCb2FyZCBXb3JrIFNlc3Npb24gLSBCb2FyZCBvZiBFZHVjYXRpb24nQm9hcmQgV29yayBTZXNzaW9uIC0gQm9hcmQgb2YgRWR1Y2F0aW9uElRodXJzZGF5LCA1LzMvMjAxOBBCZWdpbnMgQCA3OjAwIFBNAGQCBg9kFgJmDxUHBTE4ODQyWi9jYWxlbmRhcldlZWtWaWV3LmFzcHg/c2Nob29scz0xLDIsMyw0LDUsNiZzY2hvb2xpZD0wJnR5cGVzPSZldmVudElEPTE4ODQyJnZpZXdEYXRlPU1heSAxNypCb2FyZCBNZWV0aW5nIC0gTWlkZGxlIFNjaG9vbCBNZWRpYSBDZW50ZXIqQm9hcmQgTWVldGluZyAtIE1pZGRsZSBTY2hvb2wgTWVkaWEgQ2VudGVyE1RodXJzZGF5LCA1LzE3LzIwMTgQQmVnaW5zIEAgNzowMCBQTQBkAgUPDxYCHwMFKC9jYWxNb250aFZpZXcuYXNweD9zY2hvb2xpZD0wJnk9MjAxOCZtPTNkZAIHDw8WBB8DBUUvY2FsZW5kYXJXZWVrVmlldy5hc3B4P3NjaG9vbHM9MCZzY2hvb2xpZD0wJnR5cGVzPSZ2aWV3RGF0ZT0zLzIyLzIwMTgfAgUIVmlldyBBbGxkZAILD2QWAgIBD2QWBGYPFgIfAgULT3VyIFNjaG9vbHNkAgEPFgIfAgX8BjxwPjxhIGhyZWY9Imh0dHA6Ly93d3cub2Zjcy5uZXQvMS9Ib21lIj48aW1nIGFsdD0iIiBzcmM9Ii91c2VyZmlsZXMvNjEzL215IGZpbGVzL2hzIHdpdGggdGl0bGUuanBnP2lkPTE1NDMmd2lkdGg9MjEwIiBzdHlsZT0id2lkdGg6IDIxMHB4OyBoZWlnaHQ6IDE0MHB4OyIgLz48L2E+Jm5ic3A7ICZuYnNwOzxhIGhyZWY9Imh0dHA6Ly93d3cub2Zjcy5uZXQvMi9Ib21lIj48aW1nIGFsdD0iIiBzcmM9Ii91c2VyZmlsZXMvNjEzL215IGZpbGVzL21zIHdpdGggdGl0bGUuanBnP2lkPTE1NDQmd2lkdGg9MjEwIiBzdHlsZT0id2lkdGg6IDIxMHB4OyBoZWlnaHQ6IDEzOXB4OyIgLz48L2E+Jm5ic3A7Jm5ic3A7Jm5ic3A7PGEgaHJlZj0iaHR0cDovL3d3dy5vZmNzLm5ldC8zL0hvbWUiPjxpbWcgYWx0PSIiIHNyYz0iL3VzZXJmaWxlcy82MTMvbXkgZmlsZXMvb2ZpcyB3IHRpdGxlLmpwZz9pZD0xNTQ4JndpZHRoPTIxMCIgc3R5bGU9IndpZHRoOiAyMTBweDsgaGVpZ2h0OiAxMzlweDsiIC8+PC9hPiZuYnNwOyAmbmJzcDs8YSBocmVmPSJodHRwOi8vd3d3Lm9mY3MubmV0LzQvSG9tZSI+PGltZyBhbHQ9IiIgc3JjPSIvdXNlcmZpbGVzLzYxMy9teSBmaWxlcy9mbCB3aXRoIHRpdGxlLmpwZz9pZD0xNTQ1JndpZHRoPTIxMCIgc3R5bGU9IndpZHRoOiAyMTBweDsgaGVpZ2h0OiAxMzlweDsiIC8+PC9hPiZuYnNwOyZuYnNwOyZuYnNwOzxhIGhyZWY9Imh0dHA6Ly93d3cub2Zjcy5uZXQvNS9Ib21lIj48aW1nIGFsdD0iIiBzcmM9Ii91c2VyZmlsZXMvNjEzL215IGZpbGVzL2VjYyB3aXRoIHRpdGxlLmpwZz9pZD0xNTQyJndpZHRoPTIxMCIgc3R5bGU9IndpZHRoOiAyMTBweDsgaGVpZ2h0OiAxMzlweDsiIC8+PC9hPiZuYnNwOyAmbmJzcDsgJm5ic3A7ICZuYnNwOyZuYnNwOzwvcD5kAhEPZBYMAgEPFgIeCWlubmVyaHRtbAUaT2xtc3RlZCBGYWxscyBDaXR5IFNjaG9vbHNkAgIPFgIfCgUtMjY5MzcgQmFnbGV5IFJvYWQ8YnIvPk9sbXN0ZWQgRmFsbHMsIE9IIDQ0MTM4ZAIEDxYCHwEFRmh0dHA6Ly9tYXBzLmdvb2dsZS5jb20vbWFwcz9xPTI2OTM3IEJhZ2xleSBSb2FkK09sbXN0ZWQgRmFsbHMrT0grNDQxMzhkAgYPZBYCZg8WAh8KBRVQaG9uZTogKDQ0MCkgNDI3LTYwMDBkAggPZBYCAgEPFgIfCgUTRmF4OiAoNDQwKSA0MjctNjAxMGQCCg9kFgJmDxYCHwACBRYKZg9kFgJmDxUFCy9sb2dpbi5hc3B4JE9sbXN0ZWQgRmFsbHMgQ2l0eSBTY2hvb2xzIENNUyBMb2dpbgVfc2VsZiY8c3BhbiBjbGFzcz0nb2JzY3VyZSc+Q01TIExvZ2luPC9zcGFuPg1mYSBmYS1zaWduLWluZAIBD2QWAmYPFQUUL2ludHJhbmV0X2xvZ2luLmFzcHgjT2xtc3RlZCBGYWxscyBDaXR5IFNjaG9vbHMgSW50cmFuZXQFX3NlbGYlPHNwYW4gY2xhc3M9J29ic2N1cmUnPkludHJhbmV0PC9zcGFuPg1mYSBmYS1zaXRlbWFwZAICD2QWAmYPFQUraHR0cDovL3d3dy5mYWNlYm9vay5jb20vb2xtc3RlZGZhbGxzc2Nob29scyNPbG1zdGVkIEZhbGxzIENpdHkgU2Nob29scyBGYWNlYm9vawZfYmxhbmslPHNwYW4gY2xhc3M9J29ic2N1cmUnPkZhY2Vib29rPC9zcGFuPg5mYSBmYS1mYWNlYm9va2QCAw9kFgJmDxUFG2h0dHA6Ly9vZmFsbHMud29yZHByZXNzLmNvbSRPbG1zdGVkIEZhbGxzIENpdHkgU2Nob29scyBXb3JkcHJlc3MGX2JsYW5rJjxzcGFuIGNsYXNzPSdvYnNjdXJlJz5Xb3JkcHJlc3M8L3NwYW4+D2ZhIGZhLXdvcmRwcmVzc2QCBA9kFgJmDxUFIGh0dHBzOi8vdHdpdHRlci5jb20vT0ZDU0Rpc3RyaWN0Ik9sbXN0ZWQgRmFsbHMgQ2l0eSBTY2hvb2xzIFR3aXR0ZXIGX2JsYW5rJDxzcGFuIGNsYXNzPSdvYnNjdXJlJz5Ud2l0dGVyPC9zcGFuPg1mYSBmYS10d2l0dGVyZGRZNBA7zgJBQyuejG2afmHNHVri8w==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=ciQs-AUcGllikzvJxOn4IY9qdpn5WXYfT_PMnTK91Xt8dksb258BJxYsmn4olEPTocq6JTsZH-_-9MV4tnJ7755rEvo1&amp;t=635875512900000000" type="text/javascript"></script>
+
+		
+
+<a id="skip-link" class="obscure" href="#start-content">Skip to main content</a>
+
+
+
+
+
+		<div class="headerspacer"></div>
+		<div class="headerback">
+			<header id="site-head" class="container">
+				<div class="row">
+					
+						
+
+<link rel="icon" href="/Customers/MT/OlmsteadFallsCitySchs/sysimages/custom/favicon.ico" type="image/x-icon">
+
+<div class="head-logo-container">
+	<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">
+		<div class="search">
+			<div>
+				<div valign="top" style="" class="searchPad">
+					<label for="txtSearch" class="obscure">Search site using Google</label><input id="txtSearch" placeholder="Search" class="inputSearch" type="text">
+				</div>
+				<div style="display: inline; float: right;" class="searchgo">
+					<a title="Search" class="bSearch glyphicon glyphicon-search"><span class="obscure">Search Site button</span></a>
+				</div>
+			</div>
+		</div>
+		<div id="google_translate_element">
+		</div>
+
+		<script type="text/javascript">
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+			}
+		</script>
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+		<a id="ctl00_ctl00_header_ctl00_lnkSchoolHome" class="logoImage" href="/"><span class="obscure">Olmstead Falls logo of bull dog link to home page</span></a>
+		<a id="ctl00_ctl00_header_ctl00_lnkSchoolHome2" class="schoolName" href="/"><div class="schoolNameTop">Olmsted Falls</div><div class="schoolNameBottom">City Schools</div></a>
+	</div>
+
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 header-content-right">
+		<ul class='nav navbar-nav district-top-nav-links' ><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Administration/Depts.'>Administration/Depts.  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/content/68'  title='All Admin./Dept. Contacts'>All Admin./Dept. Contacts</a></li><li class='without-image'><a href='/Administration/16'  title='Superintendent'>Superintendent</a></li><li class='without-image'><a href='/Administration/38'  title='Assistant Superintendent'>Assistant Superintendent</a></li><li class='without-image'><a href='/Administration/22'  title='Treasurer'>Treasurer</a></li><li class='without-image'><a href='/Administration/40'  title='Business Affairs'>Business Affairs</a></li><li class='without-image'><a href='/Administration/18'  title='Student Services'>Student Services</a></li><li class='without-image'><a href='/Administration/44'  title='Food &amp; Nutrition Services'>Food & Nutrition Services</a></li><li class='without-image'><a href='/Administration/50'  title='Transportation'>Transportation</a></li><li class='without-image'><a href='/Administration/42'  title='Communications'>Communications</a></li><li class='without-image'><a href='/administration/52'  title='Human Resources'>Human Resources</a></li><li class='without-image'><a href='/Administration/20'  title='Technology'>Technology</a></li></ul></li><li class='without-image'><a href='/alumniAssociation.aspx'  title='Alumni'>Alumni</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Board of Education'>Board of Education  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/board'  title='Board of Education Main Page'>Board of Education Main Page</a></li><li class='without-image'><a href='http://www.boarddocs.com/oh/ofcs/Board.nsf/vpublic' target='_blank' title='BoardDocs® including Board Policy'>BoardDocs® including Board Policy</a></li><li class='without-image'><a href='/districtBoardEd.aspx'  title='Board Meetings'>Board Meetings</a></li><li class='without-image'><a href='/content/256'  title='Board Members'>Board Members</a></li></ul></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Buildings'>Buildings  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/1/Home'  title='Olmsted Falls High School'>Olmsted Falls High School</a></li><li class='without-image'><a href='/2/Home'  title='Olmsted Falls Middle School'>Olmsted Falls Middle School</a></li><li class='without-image'><a href='/3/Home'  title='Olmsted Falls Intermediate School'>Olmsted Falls Intermediate School</a></li><li class='without-image'><a href='/4/Home'  title='Falls-Lenox Primary School'>Falls-Lenox Primary School</a></li><li class='without-image'><a href='/5/Home'  title='Olmsted Falls Early Childhood Center'>Olmsted Falls Early Childhood Center</a></li><li class='without-image'><a href='/schools'  title='List of All Buildings'>List of All Buildings</a></li></ul></li><li class='without-image'><a href='/District/Forms'  title='Info. Downloads &amp; Forms'>Info. Downloads & Forms</a></li><li class='without-image'><a href='http://www.generalasp.com/ofcs/onlineapp/default.aspx' target='_blank' title='Employment'>Employment</a></li><li class='without-image'><a href='/content/ofhsconstructionupdate'  title='HS CONSTRUCTION'>HS CONSTRUCTION</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Links'>Links  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/District/Links'  title='OFCS District Links Page'>OFCS District Links Page</a></li><li class='without-image'><a href='/1/Links'  title='OFHS Links Page'>OFHS Links Page</a></li><li class='without-image'><a href='/2/Links'  title='OFMS Links Page'>OFMS Links Page</a></li><li class='without-image'><a href='/3/Links'  title='OFIS Links Page'>OFIS Links Page</a></li><li class='without-image'><a href='/4/Links'  title='Falls-Lenox Links Page'>Falls-Lenox Links Page</a></li><li class='without-image'><a href='/5/Links'  title='ECC Links Page'>ECC Links Page</a></li></ul></li><li class='without-image'><a href='http://www.ofcs.net/News/21614#sthash.VpdqbE04.dpbs'  title='Quality Profile'>Quality Profile</a></li><li class='without-image'><a href='/content/222'  title='Strategic Plan'>Strategic Plan</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Teacher Websites'>Teacher Websites  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/1/Content/180'  title='Olmsted Falls High School'>Olmsted Falls High School</a></li><li class='without-image'><a href='/2/Content/178'  title='Olmsted Falls Middle School'>Olmsted Falls Middle School</a></li><li class='without-image'><a href='/3/Content/182'  title='Olmsted Falls Intermediate School'>Olmsted Falls Intermediate School</a></li><li class='without-image'><a href='/4/Content/184'  title='Falls-Lenox Primary School'>Falls-Lenox Primary School</a></li><li class='without-image'><a href='/5/Content/186'  title='Olmsted Falls Early Childhood Center'>Olmsted Falls Early Childhood Center</a></li></ul></li></ul>
+
+
+		<div class="mission-statement hidden-xs">
+			
+<div class="feature-content ">
+    
+    <h1 class="feature-content-title title">
+        Our Mission
+    </h1>
+    
+
+    <div class="feature-content-body content">
+        
+        <div class="feature-content-content">
+            Olmsted Falls City Schools provides experiences that empower its future graduates to become life-long learners who have explored career pathways of their interest so that they can succeed as citizens in a global society.
+        </div>
+        
+    </div>
+    <div style="clear: both;"></div>
+
+</div>
+
+		</div>
+	</div>
+</div>
+
+
+					
+				</div>
+			</header>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="NavBack hidden-sm hidden-md hidden-lg">
+					<div class="navigation">
+						<nav class="navbar navbar-default" role="navigation">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+								</button>
+
+								<a class="navbar-brand hidden-lg hidden-md " href="/">
+									<span id="ctl00_ctl00_schoolName"></span>
+								</a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<div class="collapsedLinks">
+									<ul class='nav navbar-nav district-top-nav-links' ><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Administration/Depts.'>Administration/Depts.  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/content/68'  title='All Admin./Dept. Contacts'>All Admin./Dept. Contacts</a></li><li class='without-image'><a href='/Administration/16'  title='Superintendent'>Superintendent</a></li><li class='without-image'><a href='/Administration/38'  title='Assistant Superintendent'>Assistant Superintendent</a></li><li class='without-image'><a href='/Administration/22'  title='Treasurer'>Treasurer</a></li><li class='without-image'><a href='/Administration/40'  title='Business Affairs'>Business Affairs</a></li><li class='without-image'><a href='/Administration/18'  title='Student Services'>Student Services</a></li><li class='without-image'><a href='/Administration/44'  title='Food &amp; Nutrition Services'>Food & Nutrition Services</a></li><li class='without-image'><a href='/Administration/50'  title='Transportation'>Transportation</a></li><li class='without-image'><a href='/Administration/42'  title='Communications'>Communications</a></li><li class='without-image'><a href='/administration/52'  title='Human Resources'>Human Resources</a></li><li class='without-image'><a href='/Administration/20'  title='Technology'>Technology</a></li></ul></li><li class='without-image'><a href='/alumniAssociation.aspx'  title='Alumni'>Alumni</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Board of Education'>Board of Education  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/board'  title='Board of Education Main Page'>Board of Education Main Page</a></li><li class='without-image'><a href='http://www.boarddocs.com/oh/ofcs/Board.nsf/vpublic' target='_blank' title='BoardDocs® including Board Policy'>BoardDocs® including Board Policy</a></li><li class='without-image'><a href='/districtBoardEd.aspx'  title='Board Meetings'>Board Meetings</a></li><li class='without-image'><a href='/content/256'  title='Board Members'>Board Members</a></li></ul></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Buildings'>Buildings  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/1/Home'  title='Olmsted Falls High School'>Olmsted Falls High School</a></li><li class='without-image'><a href='/2/Home'  title='Olmsted Falls Middle School'>Olmsted Falls Middle School</a></li><li class='without-image'><a href='/3/Home'  title='Olmsted Falls Intermediate School'>Olmsted Falls Intermediate School</a></li><li class='without-image'><a href='/4/Home'  title='Falls-Lenox Primary School'>Falls-Lenox Primary School</a></li><li class='without-image'><a href='/5/Home'  title='Olmsted Falls Early Childhood Center'>Olmsted Falls Early Childhood Center</a></li><li class='without-image'><a href='/schools'  title='List of All Buildings'>List of All Buildings</a></li></ul></li><li class='without-image'><a href='/District/Forms'  title='Info. Downloads &amp; Forms'>Info. Downloads & Forms</a></li><li class='without-image'><a href='http://www.generalasp.com/ofcs/onlineapp/default.aspx' target='_blank' title='Employment'>Employment</a></li><li class='without-image'><a href='/content/ofhsconstructionupdate'  title='HS CONSTRUCTION'>HS CONSTRUCTION</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Links'>Links  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/District/Links'  title='OFCS District Links Page'>OFCS District Links Page</a></li><li class='without-image'><a href='/1/Links'  title='OFHS Links Page'>OFHS Links Page</a></li><li class='without-image'><a href='/2/Links'  title='OFMS Links Page'>OFMS Links Page</a></li><li class='without-image'><a href='/3/Links'  title='OFIS Links Page'>OFIS Links Page</a></li><li class='without-image'><a href='/4/Links'  title='Falls-Lenox Links Page'>Falls-Lenox Links Page</a></li><li class='without-image'><a href='/5/Links'  title='ECC Links Page'>ECC Links Page</a></li></ul></li><li class='without-image'><a href='http://www.ofcs.net/News/21614#sthash.VpdqbE04.dpbs'  title='Quality Profile'>Quality Profile</a></li><li class='without-image'><a href='/content/222'  title='Strategic Plan'>Strategic Plan</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Teacher Websites'>Teacher Websites  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='/1/Content/180'  title='Olmsted Falls High School'>Olmsted Falls High School</a></li><li class='without-image'><a href='/2/Content/178'  title='Olmsted Falls Middle School'>Olmsted Falls Middle School</a></li><li class='without-image'><a href='/3/Content/182'  title='Olmsted Falls Intermediate School'>Olmsted Falls Intermediate School</a></li><li class='without-image'><a href='/4/Content/184'  title='Falls-Lenox Primary School'>Falls-Lenox Primary School</a></li><li class='without-image'><a href='/5/Content/186'  title='Olmsted Falls Early Childhood Center'>Olmsted Falls Early Childhood Center</a></li></ul></li></ul>
+
+									<ul class='nav navbar-nav left-nav-top' ><li class='without-image'><a href='/content/kindergartenregistration'  title='2018-2019 KINDERGARTEN REGISTRATION **NEW LINK**'>2018-2019 KINDERGARTEN REGISTRATION **NEW LINK**</a></li><li class='without-image'><a href='/content/260'  title='PRESCHOOL/KINDERGARTEN REGISTRATION FOR 2017-2018'>PRESCHOOL/KINDERGARTEN REGISTRATION FOR 2017-2018</a></li><li class='without-image'><a href='/content/264'  title='NEW STUDENT REGISTRATION (Grades 1 to 12) FOR 2017-2018'>NEW STUDENT REGISTRATION (Grades 1 to 12) FOR 2017-2018</a></li><li class='without-image'><a href='http://www.ofcs.net/News/21614#sthash.VpdqbE04.dpbs' target='_blank' title='OFCS QUALITY PROFILE ***NEW***'>OFCS QUALITY PROFILE ***NEW***</a></li><li class='without-image'><a href='http://ofalls.wordpress.com' target='_blank' title='Blog: District News Updates'>Blog: District News Updates</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Booster Organizations'>Booster Organizations  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='http://ofathleticboosters.org/'  title='Olmsted Falls Athletic Boosters'>Olmsted Falls Athletic Boosters</a></li><li class='without-image'><a href='https://www.facebook.com/groups/ofma11'  title='Olmsted Falls Music Association'>Olmsted Falls Music Association</a></li></ul></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/bulldog-tech-bytes/' target='_blank' title='Bulldog Tech Bytes'>Bulldog Tech Bytes</a></li><li class='without-image'><a href='/Content/190'  title='Compass Learning'>Compass Learning</a></li><li class='without-image'><a href='/Content/242'  title='Contact Information'>Contact Information</a></li><li class='without-image'><a href='https://www.spsezpay.com/Olmsted/ezpay/Login.aspx' target='_blank' title='EZPay'>EZPay</a></li><li class='without-image'><a href='http://district.schoolnutritionandfitness.com/olmsteadfallscs' target='_blank' title='Food &amp; Nutrition Services'>Food & Nutrition Services</a></li><li class='without-image'><a href='/District/Forms'  title='Information &amp; Form Downloads (District)'>Information & Form Downloads (District)</a></li><li class='without-image'><a href='/Gallery'  title='Photo Gallery'>Photo Gallery</a></li><li class='without-image'><a href='https://psof.nccohio.org/public/home.html' target='_blank' title='PowerSchool'>PowerSchool</a></li><li class='without-image'><a href='/Administration/30'  title='PTA'>PTA</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown' target='_blank' title='School Health Clinic'>School Health Clinic  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/' target='_blank' title='Health Clinic Home Page'>Health Clinic Home Page</a></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/health-conditions' target='_blank' title='Health Conditions/Health Care Plans'>Health Conditions/Health Care Plans</a></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/forms' target='_blank' title='Immunization/Medication Forms'>Immunization/Medication Forms</a></li></ul></li><li class='without-image'><a href='/Staff'  title='Staff Directory'>Staff Directory</a></li><li class='without-image'><a href='/content/222'  title='Strategic Plan'>Strategic Plan</a></li><li class='without-image'><a href='/Administration/18'  title='Student Services'>Student Services</a></li><li class='without-image'><a href='/Content/240'  title='Surplus Auction'>Surplus Auction</a></li><li class='without-image'><a href='/Administration/50'  title='Transportation'>Transportation</a></li></ul>
+
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#slideshow .slides').nivoSlider({ animSpeed: 500, effect: 'fold' });
+        });
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="columns col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="slideshow">
+                    <div class="slides">
+                        
+                                <img title='Members of OFMS Academic Team' alt='Members of OFMS Academic Team' src='/images/full//userfiles/2016-03/12a59812-504b-46c2-89ce-3a3b4c2324d0.jpg' />
+                            
+                                <img title='Guest Reader Superintendent Dr. Jim Lloyd at Falls-Lenox Primary School' alt='Guest Reader Superintendent Dr. Jim Lloyd at Falls-Lenox Primary School' src='/images/full//userfiles/2016-03/baeeabe2-c67f-4a02-8f8e-8e7dff17b09f.jpg' />
+                            
+                                <img title='Silver Linings Day at Falls-Lenox Primary School' alt='Silver Linings Day at Falls-Lenox Primary School' src='/images/full//userfiles/2016-03/8d3ed48c-3ec9-49ac-af8a-0ce3577015ba.jpg' />
+                            
+                                <img title='Board of Education members and District administrators take part in engineering challenge during OFMS Project Lead the Way presentation.' alt='Board of Education members and District administrators take part in engineering challenge during OFMS Project Lead the Way presentation.' src='/images/full//userfiles/2016-03/0cd1872f-cce9-441b-b1b4-4a9ca09de789.jpg' />
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+		<div class="content-wrapper">
+			
+			
+
+			<div class="body-content-container">
+				<div class="container">
+					<div class="masterC alignment-stretch">
+						<div class="row">
+							
+    <div class="hidden-xs col-sm-4 col-md-3 col-lg-3 backgroundcolor leftColumn">
+        <div class="clearfix panel content">
+            
+                <h1>Quick Links
+                </h1>
+                <ul class='nav navbar-nav left-nav' ><li class='without-image'><a href='/content/kindergartenregistration'  title='2018-2019 KINDERGARTEN REGISTRATION **NEW LINK**'>2018-2019 KINDERGARTEN REGISTRATION **NEW LINK**</a></li><li class='without-image'><a href='/content/260'  title='PRESCHOOL/KINDERGARTEN REGISTRATION FOR 2017-2018'>PRESCHOOL/KINDERGARTEN REGISTRATION FOR 2017-2018</a></li><li class='without-image'><a href='/content/264'  title='NEW STUDENT REGISTRATION (Grades 1 to 12) FOR 2017-2018'>NEW STUDENT REGISTRATION (Grades 1 to 12) FOR 2017-2018</a></li><li class='without-image'><a href='http://www.ofcs.net/News/21614#sthash.VpdqbE04.dpbs' target='_blank' title='OFCS QUALITY PROFILE ***NEW***'>OFCS QUALITY PROFILE ***NEW***</a></li><li class='without-image'><a href='http://ofalls.wordpress.com' target='_blank' title='Blog: District News Updates'>Blog: District News Updates</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'  title='Booster Organizations'>Booster Organizations  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='http://ofathleticboosters.org/'  title='Olmsted Falls Athletic Boosters'>Olmsted Falls Athletic Boosters</a></li><li class='without-image'><a href='https://www.facebook.com/groups/ofma11'  title='Olmsted Falls Music Association'>Olmsted Falls Music Association</a></li></ul></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/bulldog-tech-bytes/' target='_blank' title='Bulldog Tech Bytes'>Bulldog Tech Bytes</a></li><li class='without-image'><a href='/Content/190'  title='Compass Learning'>Compass Learning</a></li><li class='without-image'><a href='/Content/242'  title='Contact Information'>Contact Information</a></li><li class='without-image'><a href='https://www.spsezpay.com/Olmsted/ezpay/Login.aspx' target='_blank' title='EZPay'>EZPay</a></li><li class='without-image'><a href='http://district.schoolnutritionandfitness.com/olmsteadfallscs' target='_blank' title='Food &amp; Nutrition Services'>Food & Nutrition Services</a></li><li class='without-image'><a href='/District/Forms'  title='Information &amp; Form Downloads (District)'>Information & Form Downloads (District)</a></li><li class='without-image'><a href='/Gallery'  title='Photo Gallery'>Photo Gallery</a></li><li class='without-image'><a href='https://psof.nccohio.org/public/home.html' target='_blank' title='PowerSchool'>PowerSchool</a></li><li class='without-image'><a href='/Administration/30'  title='PTA'>PTA</a></li><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown' target='_blank' title='School Health Clinic'>School Health Clinic  <strong class='caret'></strong></a><ul class='dropdown-menu'><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/' target='_blank' title='Health Clinic Home Page'>Health Clinic Home Page</a></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/health-conditions' target='_blank' title='Health Conditions/Health Care Plans'>Health Conditions/Health Care Plans</a></li><li class='without-image'><a href='https://sites.google.com/a/g.ofcs.net/ofhealthclinic/forms' target='_blank' title='Immunization/Medication Forms'>Immunization/Medication Forms</a></li></ul></li><li class='without-image'><a href='/Staff'  title='Staff Directory'>Staff Directory</a></li><li class='without-image'><a href='/content/222'  title='Strategic Plan'>Strategic Plan</a></li><li class='without-image'><a href='/Administration/18'  title='Student Services'>Student Services</a></li><li class='without-image'><a href='/Content/240'  title='Surplus Auction'>Surplus Auction</a></li><li class='without-image'><a href='/Administration/50'  title='Transportation'>Transportation</a></li></ul>
+
+            
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-5 col-lg-5 backgroundcolor">
+        
+        
+
+        <div class="clearfix panel content">
+            
+    <div id="start-content"></div> <h1 id="middle3Column">School News</h1>
+    <div>
+        
+
+	<style type="text/css">
+		.rssNewsLink {
+			float: right;
+		}
+
+		.newsSearch {
+			text-align: right;
+		}
+
+		.newsSearch .searchText {
+			padding: 3px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			border-radius: 4px;
+			color: #333;
+			background-color: #fff;
+			border-color: #ccc;
+		}
+
+		.newsSearch .searchButton {
+			display: inline-block;
+			margin-bottom: 0;
+			font-weight: 400;
+			text-align: center;
+			vertical-align: middle;
+			background-image: none;
+			border: 1px solid transparent;
+			white-space: nowrap;
+			padding: 4px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			border-radius: 4px;
+			color: #333;
+			background-color: #fff;
+			border-color: #ccc;
+			-webkit-appearance: button;
+			cursor: pointer;
+		}
+
+		.newsSearch .searchButton:before {
+			content: "\f002";
+		}
+	</style>
+	
+			<section id="news-list">
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl01_lnkTitle" class="news-title" href="/News/21649">OFCS Information Regarding Weather Closures:  Guidelines, Procedures and Notifications </a>
+				
+				<span class="news-post-date">
+					Posted On: Wednesday, January 3, 2018</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl01_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl01_lnkViewAll" title="Click to read more about: OFCS Information Regarding Weather Closures:  Guidelines, Procedures and Notifications " class="view-all" href="/News/21649">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl02_lnkTitle" class="news-title" href="/News/21754">State of the Schools Event Draws Crowd In-Person and Online</a>
+				
+				<span class="news-post-date">
+					Posted On: Saturday, November 4, 2017</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl02_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl02_lnkViewAll" title="Click to read more about: State of the Schools Event Draws Crowd In-Person and Online" class="view-all" href="/News/21754">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl03_lnkTitle" class="news-title" href="/News/21749">Board Members Gather With OFHS Construction Team To Mark Project Milestone</a>
+				
+				<span class="news-post-date">
+					Posted On: Saturday, October 21, 2017</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl03_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl03_lnkViewAll" title="Click to read more about: Board Members Gather With OFHS Construction Team To Mark Project Milestone" class="view-all" href="/News/21749">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl04_lnkTitle" class="news-title" href="/News/QualityProfile">**NEW** OFCS Releases Latest Quality Profile; Additional In-Depth Success Metrics Being Compiled Online</a>
+				
+				<span class="news-post-date">
+					Posted On: Thursday, September 28, 2017</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl04_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl04_lnkViewAll" title="Click to read more about: **NEW** OFCS Releases Latest Quality Profile; Additional In-Depth Success Metrics Being Compiled Online" class="view-all" href="/News/QualityProfile">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl05_lnkTitle" class="news-title" href="/News/21741">**NEW** Olmsted Falls Board of Education Passes Resolution Regarding Commitment to Create an Engaged and Focused Learning Organization </a>
+				
+				<span class="news-post-date">
+					Posted On: Wednesday, September 20, 2017</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl05_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl05_lnkViewAll" title="Click to read more about: **NEW** Olmsted Falls Board of Education Passes Resolution Regarding Commitment to Create an Engaged and Focused Learning Organization " class="view-all" href="/News/21741">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl06_lnkTitle" class="news-title" href="/News/welcometoolmstedfallscityschools">Welcome To Olmsted Falls Schools Video</a>
+				
+				<span class="news-post-date">
+					Posted On: Monday, August 15, 2016</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl06_lblSummary" class="news-summary"><p>View The New OFCS Video Here</p></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl06_lnkViewAll" title="Click to read more about: Welcome To Olmsted Falls Schools Video" class="view-all" href="/News/welcometoolmstedfallscityschools">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl07_lnkTitle" class="news-title" href="/News/21710">OFCS Financial Prospectus Shares Financial Story of Great Value</a>
+				
+				<span class="news-post-date">
+					Posted On: Thursday, May 25, 2017</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl07_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl07_lnkViewAll" title="Click to read more about: OFCS Financial Prospectus Shares Financial Story of Great Value" class="view-all" href="/News/21710">Read More</a>
+				</div>
+			</div>
+		
+			<div class="article row">
+				<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl08_lnkTitle" class="news-title" href="/News/21605">Learn More About Olmsted Falls City School District's Strategic Plan - Click To Watch Latest Video from OFCS</a>
+				
+				<span class="news-post-date">
+					Posted On: Thursday, September 1, 2016</span>
+				<div class="news-summary-container">
+					<span id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl08_lblSummary" class="news-summary"></span>
+				</div>
+				<div class="view-all-link-container">
+					<a id="ctl00_ctl00_MasterContent_ContentColumnMiddle_ctl00_rep_news_ctl08_lnkViewAll" title="Click to read more about: Learn More About Olmsted Falls City School District&#39;s Strategic Plan - Click To Watch Latest Video from OFCS" class="view-all" href="/News/21605">Read More</a>
+				</div>
+			</div>
+		
+			<div class="clr">
+			</div>
+			</section>
+		
+
+    </div>
+    <div class="viewmorebuttondiv"><a class="buttonViewMore" href="/districtNewsArticles.aspx">View More</a></div>
+
+        </div>
+
+        
+
+    <div>
+        <img id="badge" src="/customers/OH/OlmsteadFallsCitySchs/sysimages/custom/badge.png" alt="Olmstead Vision, Mission, and Values" usemap="#Map" />
+        <map name="Map" id="Map">
+            <area alt="" title="" href="/content/230" shape="poly" coords="182,179,15,126,31,87,44,69,59,53,89,31,111,18,143,6,187,2" />
+            <area alt="" title="" href="/content/232" shape="poly" coords="196,180,194,0,227,3,252,10,279,21,297,32,317,47,337,68,349,82,361,104,373,134" />
+            <area alt="" title="" href="/content/234" shape="poly" coords="197,195,376,141,380,174,380,196,376,236,367,265,355,289,338,311,321,334,307,342" />
+            <area alt="" title="" href="/content/226" shape="poly" coords="191,209,292,352,258,369,226,377,186,378,159,376,140,374,128,369,98,352,82,344" />
+            <area alt="" title="" href="/content/228" shape="poly" coords="182,196,73,337,39,307,24,280,9,243,5,219,0,188,5,161,8,132" />
+        </map>
+    </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 backgroundcolor">
+        <div class="clearfix panel content calendar-panel">
+            
+    <h1>Calendar</h1>
+    <div class="events-text">
+        Click the calendar to view all upcoming events   
+    </div>
+
+    <h3 class="events-header"><a class="buttonViewMore buttonViewMoreCal" href="/calendarweekview.aspx">Upcoming Events</a></h3>
+    
+<section id="calendar">
+	<table id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl00_cal_events" class="calendar" cellspacing="0" cellpadding="2" title="Calendar" border="0" style="border-width:0px;border-collapse:collapse;">
+	<tr><td colspan="7" style="background-color:Silver;"><table class="calendar" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+		<tr><td style="width:15%;"><a href="javascript:__doPostBack('ctl00$ctl00$MasterContent$ContentColumnRight$ctl00$cal_events','V6606')" style="color:Black" title="Go to the previous month"><span class='obscure'>Go to previous month</span></a></td><td align="center" style="width:70%;">March 2018</td><td align="right" style="width:15%;"><a href="javascript:__doPostBack('ctl00$ctl00$MasterContent$ContentColumnRight$ctl00$cal_events','V6665')" style="color:Black" title="Go to the next month"><span class='obscure'>Go to next month</span></a></td></tr>
+	</table></td></tr><tr><th align="center" abbr="Sunday" scope="col">S</th><th align="center" abbr="Monday" scope="col">M</th><th align="center" abbr="Tuesday" scope="col">T</th><th align="center" abbr="Wednesday" scope="col">W</th><th align="center" abbr="Thursday" scope="col">T</th><th align="center" abbr="Friday" scope="col">F</th><th align="center" abbr="Saturday" scope="col">S</th></tr><tr><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=2/25/2018">25</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=2/26/2018">26</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=2/27/2018">27</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=2/28/2018">28</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/1/2018">1</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/2/2018">2</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/3/2018">3</a></td></tr><tr><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/4/2018">4</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/5/2018">5</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/6/2018">6</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/7/2018">7</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/8/2018">8</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/9/2018">9</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/10/2018">10</a></td></tr><tr><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/11/2018">11</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/12/2018">12</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/13/2018">13</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/14/2018">14</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/15/2018">15</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/16/2018">16</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/17/2018">17</a></td></tr><tr><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/18/2018">18</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/19/2018">19</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/20/2018">20</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/21/2018">21</a></td><td class=" today" align="center" style="color:White;background-color:Silver;width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/22/2018">22</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/23/2018">23</a></td><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/24/2018">24</a></td></tr><tr><td class=" this-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/25/2018">25</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/26/2018">26</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/27/2018">27</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/28/2018">28</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/29/2018">29</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/30/2018">30</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=3/31/2018">31</a></td></tr><tr><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/1/2018">1</a></td><td class=" with-event" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/2/2018">2</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/3/2018">3</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/4/2018">4</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/5/2018">5</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/6/2018">6</a></td><td class=" other-month" align="center" style="width:14%;"><a href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=1,2,24&amp;viewDate=4/7/2018">7</a></td></tr>
+</table>
+	<footer>
+		<a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl00_aCal" class="view-full-calendar" href="/calMonthView.aspx?s=0&amp;y=2018&amp;m=3&amp;t=0" target="_blank" style="padding-left: 10px;">View Full Calendar</a>
+	</footer>
+</section>
+
+    <div class="clr"></div>
+    <div class="viewmorebuttondiv"><a class="buttonViewMore buttonViewMoreCal" href="/Calendar">View More</a></div>
+    <div class="clr"></div>
+
+    
+<div>
+  
+    
+            <table width="100%" cellpadding="0" cellspacing="0">
+        
+            <tr>
+                <td class="content" align="center" style="text-align: center;">
+                    <a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl01_reptCalForms_ctl01_hlPDF" href="/docs//docs/district/2017-2018%20academic%20calendar-olmsted%20falls-updated_march%202018.pdf?id=5486"><img src="/Themes/Fafnir/sysimages/pdf.gif" alt="pdf file image" /></a>
+                    <a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl01_reptCalForms_ctl01_hlFileName" href="/docs//docs/district/2017-2018%20academic%20calendar-olmsted%20falls-updated_march%202018.pdf?id=5486">2017-2018 OFCS District Calendar</a><div style="font-size: 8pt;">
+                        Printable Academic Calendar for CURRENT School Year</div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td class="content" align="center" style="text-align: center;">
+                    <a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl01_reptCalForms_ctl02_hlPDF" href="/docs//district/2018-2019_revised_calendar_boe_approved_11-16-17.pdf?id=5282"><img src="/Themes/Fafnir/sysimages/pdf.gif" alt="pdf file image" /></a>
+                    <a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl01_reptCalForms_ctl02_hlFileName" href="/docs//district/2018-2019_revised_calendar_boe_approved_11-16-17.pdf?id=5282">2018-2019 REVISED OFCS District Calendar</a><div style="font-size: 8pt;">
+                        Revised Calendar for NEXT School Year (Board Approved 11/16/17)</div>
+                </td>
+            </tr>
+        
+            </table>
+        
+    
+        
+</div>
+    <br />
+    
+
+
+<style type="text/css">
+	section#upcoming-events .event-location {
+		display: none;
+	}
+</style>
+
+		<section id="upcoming-events">
+			<ul>
+	
+		<li class="upcoming-events-event event-18831">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18831&viewDate=Mar 26" title="Spring Break - NO SCHOOL">
+					Spring Break - NO SCHOOL
+				</a>
+			</span>
+			<span class="event-date">
+				3/26/2018 - 4/2/2018
+			</span>
+			<span class="event-time">
+				
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		<li class="upcoming-events-event event-18832">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18832&viewDate=Apr 03" title="Return from Spring Break">
+					Return from Spring Break
+				</a>
+			</span>
+			<span class="event-date">
+				Tuesday, 4/3/2018
+			</span>
+			<span class="event-time">
+				
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		<li class="upcoming-events-event event-18862">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18862&viewDate=Apr 16" title="Board Work Session - High School - G10">
+					Board Work Session - High School - G10
+				</a>
+			</span>
+			<span class="event-date">
+				Monday, 4/16/2018
+			</span>
+			<span class="event-time">
+				Begins @ 6:00 PM
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		<li class="upcoming-events-event event-18841">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18841&viewDate=Apr 19" title="Board Meeting - Middle School Media Center">
+					Board Meeting - Middle School Media Center
+				</a>
+			</span>
+			<span class="event-date">
+				Thursday, 4/19/2018
+			</span>
+			<span class="event-time">
+				Begins @ 7:00 PM
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		<li class="upcoming-events-event event-18854">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18854&viewDate=May 03" title="Board Work Session - Board of Education">
+					Board Work Session - Board of Education
+				</a>
+			</span>
+			<span class="event-date">
+				Thursday, 5/3/2018
+			</span>
+			<span class="event-time">
+				Begins @ 7:00 PM
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		<li class="upcoming-events-event event-18842">
+			<span class="event-link">
+				<a href="/calendarWeekView.aspx?schools=1,2,3,4,5,6&schoolid=0&types=&eventID=18842&viewDate=May 17" title="Board Meeting - Middle School Media Center">
+					Board Meeting - Middle School Media Center
+				</a>
+			</span>
+			<span class="event-date">
+				Thursday, 5/17/2018
+			</span>
+			<span class="event-time">
+				Begins @ 7:00 PM
+			</span>
+			<span class="event-location">
+				
+			</span>
+		</li>
+	
+		</ul> </section>
+	
+
+<footer>
+	
+	<a id="ctl00_ctl00_MasterContent_ContentColumnRight_ctl02_hl_viewAllEvents" class="view-all-events" href="/calendarWeekView.aspx?schools=0&amp;schoolid=0&amp;types=&amp;viewDate=3/22/2018">View All</a>
+</footer>
+
+        </div>
+    </div>
+
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 backgroundcolor">
+        <div class="clearfix panel content">
+            
+<div class="feature-content ">
+    
+    <h1 class="feature-content-title title">
+        Our Schools
+    </h1>
+    
+
+    <div class="feature-content-body content">
+        
+        <div class="feature-content-content">
+            <p><a href="http://www.ofcs.net/1/Home"><img alt="" src="/userfiles/613/my files/hs with title.jpg?id=1543&width=210" style="width: 210px; height: 140px;" /></a>&nbsp; &nbsp;<a href="http://www.ofcs.net/2/Home"><img alt="" src="/userfiles/613/my files/ms with title.jpg?id=1544&width=210" style="width: 210px; height: 139px;" /></a>&nbsp;&nbsp;&nbsp;<a href="http://www.ofcs.net/3/Home"><img alt="" src="/userfiles/613/my files/ofis w title.jpg?id=1548&width=210" style="width: 210px; height: 139px;" /></a>&nbsp; &nbsp;<a href="http://www.ofcs.net/4/Home"><img alt="" src="/userfiles/613/my files/fl with title.jpg?id=1545&width=210" style="width: 210px; height: 139px;" /></a>&nbsp;&nbsp;&nbsp;<a href="http://www.ofcs.net/5/Home"><img alt="" src="/userfiles/613/my files/ecc with title.jpg?id=1542&width=210" style="width: 210px; height: 139px;" /></a>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+        </div>
+        
+    </div>
+    <div style="clear: both;"></div>
+
+</div>
+
+        </div>
+    </div>
+
+
+    <div class="clr">
+    </div>
+
+						</div>
+						<div class="clr">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footerwrapper">
+			<footer id="site-foot">
+				
+
+<div class="container">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 schoolmap">
+        <h4>Contact Us</h4>
+        <div id="school-map" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <span id="ctl00_ctl00_ctl04_hName">Olmsted Falls City Schools</span><span id="ctl00_ctl00_ctl04_hAddress">26937 Bagley Road<br/>Olmsted Falls, OH 44138</span>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <span id="AddInfo"><a href="http://maps.google.com/maps?q=26937 Bagley Road+Olmsted Falls+OH+44138" id="ctl00_ctl00_ctl04_mapLink">
+                    <i class="fa fa-map-marker"></i>&nbsp;&nbsp;View Map & Directions</a></span>
+                <span id="AddInfo">
+                    <div id="ctl00_ctl00_ctl04_dphone">
+                        <a href="tel:(440) 427-6000">
+                            <i class="fa fa-phone"></i>&nbsp;&nbsp;<span id="ctl00_ctl00_ctl04_hPhone" style="display: inline;">Phone: (440) 427-6000</span></a>
+                    </div>
+                </span><span id="AddInfo">
+                    <div id="ctl00_ctl00_ctl04_dfax">
+                        <i class="fa fa-fax"></i>&nbsp;&nbsp;<span id="ctl00_ctl00_ctl04_hfax" style="display: inline;">Fax: (440) 427-6010</span>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 social-links">
+        <h4 id="social-links-header">Stay Connected</h4>
+        <div id="social-links-bottom">
+            <div id="social-links" >
+                
+        <a href='/login.aspx' title='Olmsted Falls City Schools CMS Login' target='_self'>
+            <span class='obscure'>CMS Login</span>
+            <i class='fa fa-sign-in'></i>
+        </a>
+    
+        <a href='/Login/Intranet' title='Olmsted Falls City Schools Intranet' target='_self'>
+            <span class='obscure'>Intranet</span>
+            <i class='fa fa-sitemap'></i>
+        </a>
+    
+        <a href='http://www.facebook.com/olmstedfallsschools' title='Olmsted Falls City Schools Facebook' target='_blank'>
+            <span class='obscure'>Facebook</span>
+            <i class='fa fa-facebook'></i>
+        </a>
+    
+        <a href='http://ofalls.wordpress.com' title='Olmsted Falls City Schools Wordpress' target='_blank'>
+            <span class='obscure'>Wordpress</span>
+            <i class='fa fa-wordpress'></i>
+        </a>
+    
+        <a href='https://twitter.com/OFCSDistrict' title='Olmsted Falls City Schools Twitter' target='_blank'>
+            <span class='obscure'>Twitter</span>
+            <i class='fa fa-twitter'></i>
+        </a>
+    
+
+                <div class="clr">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12">
+        <a href="http://www.schoolpointe.com" target="_blank" alt="Schoolpointe"
+            class="schoolpointe">
+            <img src="http://cdn.schoolpointe.com/images/new/SPblack.png" alt="School Pointe logo black" /></a>
+    </div>
+</div>
+
+
+
+<script>
+
+	if (typeof ga === "undefined")
+	{
+		(function (i, s, o, g, r, a, m)
+		{
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function ()
+			{
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	}
+
+	ga('create', 'UA-35237635-46', 'auto', { 'name': 'SchoolPointeTracker' });
+    ga('SchoolPointeTracker.send', 'pageview');
+
+    /**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+
+    var trackOutboundLink = function (url) {
+        ga('send', 'event', 'outbound', 'click', url, {
+            'transport': 'beacon',
+            'hitCallback': function () { document.location = url; }
+        });
+    }
+</script>
+
+
+			</footer>
+		</div>
+	
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAC1hfjAp46tsEM5vkaUfM3QI+gov2MAYQqKNBC54ZEstlJh1wHlHOQtRkO8VG++AQRUh9nDOFeca2vOr2xYrnT/WKoLLCc65aa7qkJx1PN97a6NEUG8UWdoCzAJqEumi9Ik3WJqZ8lCPZcL8vh5z6oMHf4D98p6Id9HgrGuzgS+6GutX2LF/36wWOcb3gUuDvaO1oWLPCMMaLBhe+RzX7YovqGFcftrpOwR1fqHuYrioM0q12Amvb0x+0S+mSrBINxi/m/NKQLU1pLtExWLm4kePEbCzUVK7KpuqXsoiBqzcH/MI2p5sT7g0ZFXUh2fHuGKnFEsojCQ4xaLQ3cK/ABAbsq1r5tTyxuvPTUBHFYfgSCzwMbXF8raVsny5zTSZIIQ88vi1Xatc26yRcL1aLzmyEJ3lmSbJw+yss8j7XhIi0Op6j+HGKvgXeA7hELv1atvb7LnlEHCgn2cxhca4okwpblsAEapw0zpvIqCJHaW7YPhmR1KxIyIhsm/4H4Bmr6mLtzm9tt5gVltk/805GLuEfQGCOBCkqSpHd1q+0cTi3tbwUPKVoY0UByJuO4BeUD/SLgaHZeyMCFmhGgnmcPSvpDlmLryF/jQooVKPZFXfWOXbBwOeyuh9QEKW465HKOFtBQDp90a0hKFDfvyLKPwomWenpoJk9NXVjxfBvOoKQiryuXRBhC3LJ+7MV8jm9idnhqPW59ML8L0Dq/8D6YKI03SiXr8q0z6ZU3AxYBEE3b20sAfGgBN7qXIpTYvdQg/7mhSv4FkEDyV5kW8IWPJzCJp4nLtMzJKdX4mt9RQ6e+Xk0bZd1sYOhsQHQqKW9iDPDgnpmD6Tig3bd4nxBSxUAoEJUwXRGMpRVvsIfplZoB2z27cU0ratM/6PyvYhTuSnUn6eJNyBEUMsQvph/NJJhWPcDrhBe5hF8L4kqZ2GZoYCraMJp54oRDuAwX3CEMF6/0HdmpVqkP9aqraEloAvwKJqtA==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cortex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="cortexImg/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        html {
+            font-size: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #000;
+            overflow-x: hidden;
+            font-size: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            /*background-image: url("");*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: -1;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000;
+            z-index: 999;
+        }
+
+        .logo {
+            display: block;
+            width: 0.6rem;
+            margin: 0.1rem 0.1rem;
+            position: absolute;
+        }
+
+        .menu li {
+            float: left;
+        }
+
+        .menu li a {
+            display: block;
+            padding: 0 15px;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .nav > li > a:focus {
+            outline: none;
+            color: #fff;
+            background: #000;
+        }
+
+        .nav > li > a:hover {
+            color: #000;
+            background: #fff;
+        }
+
+
+        .menu li.active a {
+            color: #000;
+            background: #fff;
+        }
+
+        .cortex {
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .box {
+            padding-top: 0.8rem;
+        }
+
+        .part {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            border-radius: 6px;
+        }
+
+        .part h1 {
+            margin: 0 0 50px;
+        }
+
+        .part-1 {
+            background: #050a22;
+            color: #aeb0ba;
+        }
+
+        .part-1 h1, .part-1 h2 {
+            color: #fff;
+        }
+
+        .part-2 {
+            background: #fff;
+            color: #898989;
+        }
+
+        .part-2 h1, .part-2 h3 {
+            color: #3b3b3b;
+        }
+
+        .item {
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .footer {
+            padding: 0.2rem 0;
+            text-align: center;
+            color: #fff;
+            background: url("cortexImg/footer.png");
+            background-size: 100% 100%;
+        }
+
+        .bg-left, .bg-right {
+            position: relative;
+            background: transparent;
+        }
+
+        .word {
+            position: relative;
+            z-index: 2;
+        }
+
+        .word img {
+            width: 40%;
+            display: block;
+            margin: 50px auto;
+        }
+
+        .word p {
+            padding: 0 10%;
+        }
+
+        .bg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: #050a22;
+        }
+
+        .bg-left .bg {
+            left: 0;
+            width: 0;
+        }
+
+        .bg-right .bg {
+            right: 0;
+            width: 0;
+        }
+
+        .bg-left:hover .bg, .bg-right:hover .bg {
+            width: 100%;
+            transition: width 0.5s;
+        }
+
+        .bg-left:hover, .bg-right:hover, .bg-left:hover h1, .bg-right:hover h1 {
+            color: #fff;
+            transition: color 0.5s;
+        }
+
+        .member {
+            padding-top: 5px;
+        }
+
+        .member div {
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .member h3, .member h4 {
+            margin-bottom: 30px;
+        }
+
+        .member p {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .member:hover div {
+            box-shadow: 0px 0px 5px #aaa;
+        }
+
+        .contact a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: url("cortexImg/contact.png") no-repeat;
+        }
+
+        .team .member span {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: url("cortexImg/team.png") no-repeat;
+        }
+
+        .advisors .member span {
+            display: block;
+            margin: 0 auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: url("cortexImg/advisor.png") no-repeat;
+        }
+
+        .partner span {
+            display: block;
+            margin: 0 auto 30px;
+            width: 100px;
+            height: 100px;
+            background: url("cortexImg/partner.png") no-repeat;
+        }
+
+        .investor .row div {
+            width: 20%;
+            float: left;
+        }
+
+        .investor .row span {
+            display: block;
+            margin: 0 auto 30px;
+            width: 150px;
+            height: 62px;
+            background: url("cortexImg/investor.png") no-repeat;
+        }
+
+        .china h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .route::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            .route::-webkit-scrollbar-track-piece {
+                display: none;
+            }
+
+            .route::-webkit-scrollbar-thumb {
+                background: #f0f0f0;
+                border-radius: 4px;
+            }
+
+            .route::-webkit-scrollbar-thumb:hover {
+                background: #aaa;
+            }
+        }
+
+        @media (max-width: 992px) {
+            body {
+                font-size: 14px;
+            }
+
+            .investor .row div {
+                width: 33.33%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .member div {
+                box-shadow: 0px 0px 5px #aaa;
+            }
+
+            .item p {
+                min-height: 3.5rem;
+            }
+
+            .investor .row div {
+                width: 50%;
+            }
+
+            .china h3 {
+                text-align: left;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#spy">
+<div id="particles-js"></div>
+<div class="china" style="display: none;position: absolute;top: 10%;width: 100%;line-height: 1.5em">
+    <div class="container" style="color: #fff">
+        <h3>NOTICE: For the reason of local policy of ICO, we DO NOT accept the investment from China.<br>Becareful,
+            person who claims as a middle man for this investment IS a SCAM!!!</h3>
+        <h3>注意：由于当地ICO政策的原因，我们不接受来自于中国的投资。<br>另外，任何宣称代投Cortex的项目均为骗局。请大家谨慎！</h3>
+        <br>
+        <br>
+        <h3 style="text-align: right">www.cortexlabs.ai</h3>
+        <br>
+        <br>
+        <h3 style="text-align: center">
+            <button class="sure" style="background: transparent;padding: 10px 15px;border-radius: 5px">I AGREE / 我同意
+            </button>
+        </h3>
+    </div>
+</div>
+<div class="notChina" style="display: none">
+    <div class="header">
+        <div class="container">
+            <a href="/" class="logo"><img src="cortexImg/logo.png" alt=""></a>
+            <div class="row route" style="overflow-x: auto;overflow-y: hidden;margin-left: 1.2rem;height: 0.8rem"
+                 id="spy">
+                <ul class="menu nav" style="width: 1000px;position: static" data-spy="affix">
+                    <li><a href="#top" onclick="menu('top')">Top</a></li>
+                    <li><a href="#introduction" onclick="menu('introduction')">Introduction</a></li>
+                    <li><a href="#solutions" onclick="menu('solutions')">Solutions</a></li>
+                    <li><a href="Cortex_AI_on_Blockchain_EN.pdf" target="_blank">Whitepaper</a></li>
+                    <li><a href="#team" onclick="menu('team')">Team</a></li>
+                    <li><a href="#advisors" onclick="menu('advisors')">Advisors</a></li>
+                    <li><a href="#partnerships" onclick="menu('partnerships')">Partnerships</a></li>
+                    <li><a href="#investors" onclick="menu('investors')">Investors</a></li>
+                    <li><a href="http://jd.cortexlabs.ai/joinus">Join Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cortex container" id="top">
+        <img src="cortexImg/logo-big.png" alt="" style="width: 2rem">
+        <br>
+        <br>
+        <img src="cortexImg/title.png" alt="" style="width: 40%">
+        <br>
+        <br>
+        <img src="cortexImg/title1.png" alt="" style="width: 60%">
+        <br>
+        <br>
+        <br>
+        <img src="cortexImg/arrow.gif" alt="" onclick="menu('introduction')"
+             style="width: 50px;cursor: pointer;opacity: 0.25">
+    </div>
+    <div class="box" id="introduction">
+        <div class="container part part-1" style="color: #aeb0ba;position: relative">
+            <h1 class="text-center">Cortex Inference Consensus Criteria</h1>
+            <div class="bg-line"></div>
+            <div class="col-sm-6">
+                <p>In Cortex, due to the nature of open source and competitive mechanisms, the best model as an
+                    intelligent agent will survive to enhance the intelligence level of the Blockchain network.</p>
+                <p>Cortex's main mission is to provide the state-of-the-art machine-learning models on the
+                    blockchain in which users can infer using smart contracts on the Cortex blockchain. One of
+                    Cortex's goals also includes implementing a machine-learning platform that allows users to post
+                    tasks on the platform, submit AI DApps (Artificial Intelligence Decentralized
+                    Applications).</p>
+            </div>
+            <div class="col-sm-6">
+                <img src="cortexImg/intro.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="container part part-2">
+            <div class="col-sm-6 bg-left">
+                <div class="bg"></div>
+                <div class="word">
+                    <img src="cortexImg/tech1.png" alt="">
+                    <h1 class="text-center">Smart AI Contract</h1>
+                    <p>Cortex allows users to write machine-learning programs on the blockchain and submit
+                        interactions that are dependent upon other contracts.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 bg-right">
+                <div class="bg"></div>
+                <div class="word">
+                    <img src="cortexImg/tech2.png" alt="">
+                    <h1 class="text-center">Cortex Virtual Machine</h1>
+                    <p>Cortex has its own Virtual Machine, called the Cortex Virtual Machine (CVM). The CVM
+                        instruction set is fully EVM compatible and has support for inference instructions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box" id="solutions">
+        <div class="container part part-1">
+            <div class="carousel slide" id="myCarousel" data-pause="hover" data-interval=3000 data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-md-4 col-sm-6">
+                            <h2>Cortex Inference Consensus Criteria</h2>
+                            <br>
+                            <p>When a user initiates a transaction to a contract, the full node needs to execute the
+                                code of
+                                the smart contract. The difference between Cortex and ordinary smart contracts is
+                                that
+                                intelligent contracts may involve inference instructions, and then all nodes need to
+                                agree
+                                on the result of this inferred result.</p>
+                        </div>
+                        <div class="col-md-8 col-sm-6"><img src="cortexImg/content1.png" alt=""></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-4 col-sm-6">
+                            <h2>Model Submission Framework</h2>
+                            <br>
+                            <p>Cortex also provides a submission interface for training off-chain, including the
+                                instruction-interpreting virtual machine for models. This will setup a bridge
+                                between
+                                computing
+                                power providers and algorithm providers for trading and collaboration.</p>
+                        </div>
+                        <div class="col-md-8 col-sm-6"><img src="cortexImg/content2.png" alt=""></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-4 col-sm-6">
+                            <h2>Cortex Intelligent Inference Framework</h2>
+                            <br>
+                            <p>Machine learning researchers around the world can upload well-trained corresponding
+                                data models
+                                to the storage layer. Other users who need this AI models can make inferences by
+                                using models
+                                and pay to their providers.</p>
+                        </div>
+                        <div class="col-md-8 col-sm-6"><img src="cortexImg/content3.png" alt=""></div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators" style="bottom: -50px">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="box" id="team">
+        <div class="container part part-2 team">
+            <h1 class="text-center">Team</h1>
+            <div class="col-sm-4 member">
+                <div>
+                    <span style="background-position: -320px 0"></span>
+                    <h3>Ziqi Chen</h3>
+                    <h4>CEO</h4>
+                    <p>
+                        M.S. University of California, Santa Cruz, Machine Learning. <br><br>
+                        M.S. Carnegie Mellon University, Civil Engineering. <br><br>
+                        B.E. Tsinghua University, Civil Engineering.<br><br>
+                        Co-founder of Waterhole.io.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 member">
+                <div>
+                    <span style="background-position: -160px 0"></span>
+                    <h3>Weiyang Wang </h3>
+                    <h4>CTO</h4>
+                    <p>
+                        M.S. University of Chicago, Statistics.<br><br>
+                        B.E. Tsinghua University, Aerospace Engineering and Economics.<br><br>
+                        MXNet Contributor, awesome project.<br><br>
+                        Deep Learning, and Cryptography.<br><br>
+                        Winner of Fintech Hackathon, Dorahacks 2017. <br><br>
+                        Certified Financial Risk Manager.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 member">
+                <div>
+                    <span style="background-position: 0 0"></span>
+                    <h3>Yang Yang</h3>
+                    <h4 class="yang">Blockchain Chief Engineer</h4>
+                    <p>
+                        M.S. Tsinghua University, Computer Science.<br><br>
+                        B.E. Dalian University of Technology, Computer Science.<br><br>
+                        Cryptocurrency and Blockchain.<br><br>
+                        Waterhole IM backend architect.<br><br>
+                        Co-founder of Waterhole.io.
+                    </p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-4 member">
+                <div>
+                    <span style="background-position: -160px -160px"></span>
+                    <h3>Xiao Yan </h3>
+                    <h4>Chief Deep Learning Engineer</h4>
+                    <p>
+                        Ph.D. Candidate .<br><br>
+                        B.E. Tsinghua University, Department of Computer Science.<br><br>
+                        AI & Blockchain researcher.<br><br>
+                        Quantum computing researcher.<br><br>
+                        Cryptocurrency quantitative trading. <br><br>
+                        Serial entrepreneurship.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 member">
+                <div>
+                    <span style="background-position: 0 -160px"></span>
+                    <h3>Amy Chen </h3>
+                    <h4>Operating Officer</h4>
+                    <p>
+                        M.S. Columbia University, Electrical Engineering.<br><br>
+                        B.S. Queen's University, Electrical Engineering.<br><br>
+                        B.A. Queens's University, Economics.<br><br>
+                        Organizer of Low Carbon Blockchain Forum - EcoMobility World Festival 2017.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box" id="advisors">
+        <div class="container part part-2 advisors">
+            <h1 class="text-center">Advisors</h1>
+            <div class="row">
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: 0 0"></span>
+                        <h3>Jia Tian</h3>
+                        <h4>Chief-Scientist</h4>
+                        <p>
+                            Investor of Bitfinex.<br>
+                            LP of Bitfund.<br>
+                            Venture Partner of Zhenfund.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: -130px 0"></span>
+                        <h3>Matt Branton</h3>
+                        <h4>Technical Advisor</h4>
+                        <p>
+                            Founding partner of World Financial Desk.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: -260px 0"></span>
+                        <h3>Prof. Whitfield Diffie</h3>
+                        <h4>Academic Advisor</h4>
+                        <p>
+                            Inventor of public key cryptography ( Diffie-Hellman ).<br>
+                            2015 Turing Award winner.
+                        </p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: -390px 0"></span>
+                        <h3>Vincent Zhou</h3>
+                        <h4>Strategic Advisor</h4>
+                        <p>
+                            Founder of FBG Capital.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: 0 -130px"></span>
+                        <h3>Yahui Zhou</h3>
+                        <h4>Business Advisor</h4>
+                        <p>
+                            CEO and Chairman of Beijing Kunlun Tech Co. (300418.SZ).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: -130px -130px"></span>
+                        <h3>Heting Shen</h3>
+                        <h4>Policy Advisor</h4>
+                        <p>
+                            Retired CEO and Chairman of China Metallurgical Group Corporation (601618.SH) and
+                            (01618.HK).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-12 member">
+                    <div>
+                        <span style="background-position: -260px -130px"></span>
+                        <h3>Guy Corem</h3>
+                        <h4>Mining Advisor</h4>
+                        <p>
+                            President of DAGlabs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box" id="partnerships">
+        <div class="container part part-1 partner">
+            <h1 class="text-center">Partnerships</h1>
+            <div class="col-sm-4 col-xs-6"><span style="background-position: 0 0"></span></div>
+            <div class="col-sm-4 col-xs-6"><span style="background-position: -110px 0"></span></div>
+            <div class="col-sm-4 col-xs-6"><span style="background-position: -220px 0"></span></div>
+        </div>
+    </div>
+    <div class="box" id="investors">
+        <div class="container part part-1 investor">
+            <h1 class="text-center">Investors</h1>
+            <div class="row">
+                <div><span style="background-position: -160px -216px"></span></div>
+                <div><span style="background-position: 0 0"></span></div>
+                <div><span style="background-position: -320px 0"></span></div>
+                <div><span style="background-position: 0 -72px"></span></div>
+                <div><span style="background-position: -160px -72px"></span></div>
+
+                <div><span style="background-position: -320px -72px"></span></div>
+                <div><span style="background-position: 0 -144px"></span></div>
+                <div><span style="background-position: -160px -144px"></span></div>
+                <div><span style="background-position: -320px -144px"></span></div>
+                <div><span style="background-position: 0 -216px"></span></div>
+
+                <div><span style="background-position: -160px 0"></span></div>
+                <div><span style="background-position: -320px -216px"></span></div>
+                <div><span style="background-position: 0 -288px"></span></div>
+                <div><span style="background-position: -160px -288px"></span></div>
+                <div><span style="background-position: -320px -288px"></span></div>
+
+                <div><span style="background-position: 0 -360px"></span></div>
+                <div><span style="background-position: -160px -360px"></span></div>
+                <div><span style="background-position: -320px -360px"></span></div>
+                <div><span style="background-position: 0 -432px"></span></div>
+                <div><span style="background-position: -160px -432px"></span></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="text-align: center;margin-top: 0.8rem">
+        <img src="cortexImg/logo.png" alt="" style="width: 0.8rem">
+        <p>©️ 2018 CortexLabs.ai. All rights reserved.</p>
+        <div class="contact">
+            <a href="https://twitter.com/CTXCBlockchain" target="_blank" style="background-position: 0 0"></a>
+            <a href="https://t.me/CortexBlockchain" target="_blank"
+               style="margin: 0 36px;background-position: -46px 0"></a>
+            <a href="mailto:help@cortexlabs.ai" style="background-position: -92px 0"></a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="particles.js"></script>
+<script>
+    function setFontSize() {
+        var winWidth = $(window).width();
+        var size = (winWidth / 750) * 100;
+        document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
+    }
+    window.onload = function () {
+        $(".cortex").css('height', $(window).height());
+        setFontSize();
+        if (localStorage.getItem('ifAgree') == 'true') {
+            $(".notChina").css('display', 'block');
+            setTimeout(function () {
+                scrollRuleTab();
+            }, 200)
+        } else {
+            $.ajax({
+                'url': 'http://api.ip138.com/query/',
+                'data': {            //默认自动添加callback参数
+                    'ip': '', //为空即为当前iP地址
+                    'oid': '14256,',
+                    'mid': '77200',
+                    'token': 'cafe5c577a6928459e132f33ee40ca21'  //不安全，请定期刷新token，建议进行文件压缩
+                },
+                'dataType': 'jsonp',
+                'success': function (json) {
+                    if (json.data[0] == '中国') {
+                        $('.china').css('display', 'block');
+                        $(".notChina").css('display', 'none');
+                    } else {
+                        $(".notChina").css('display', 'block');
+                        setTimeout(function () {
+                            scrollRuleTab();
+                        }, 200)
+                    }
+                }
+            });
+        }
+        $(".sure").click(function () {
+            $('.china').css('display', 'none');
+            $(".notChina").css('display', 'block');
+            setTimeout(function () {
+                scrollRuleTab();
+            }, 200);
+            localStorage.setItem('ifAgree', 'true');
+        });
+        bgmove();
+    };
+    $(window).resize(function () {
+        setFontSize();
+        $(".cortex").css('height', $(window).height());
+    });
+    function scrollRuleTab() {
+        var top = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        top = top + 3;
+        var introduction = $("#introduction").offset().top;
+        var techniques = $("#solutions").offset().top;
+        var team = $("#team").offset().top;
+        var advisors = $("#advisors").offset().top;
+        var partnerships = $("#partnerships").offset().top;
+        var investors = $("#investors").offset().top;
+        if (top < introduction) {
+            $(".menu li").eq(0).addClass("active").siblings().removeClass("active");
+        } else if (top >= introduction && top < techniques) {
+            $(".menu li").eq(1).addClass("active").siblings().removeClass("active");
+        } else if (top >= techniques && top < team) {
+            $(".menu li").eq(2).addClass("active").siblings().removeClass("active");
+        } else if (top >= team && top < advisors) {
+            $(".menu li").eq(4).addClass("active").siblings().removeClass("active");
+        } else if (top >= advisors && top < partnerships) {
+            $(".menu li").eq(5).addClass("active").siblings().removeClass("active");
+        } else if (top >= partnerships && top < investors) {
+            $(".menu li").eq(6).addClass("active").siblings().removeClass("active");
+        } else if (top >= investors) {
+            $(".menu li").eq(7).addClass("active").siblings().removeClass("active");
+        }
+        if ($(document).height() == $(window).height() + $(window).scrollTop()) {
+            $(".menu li").eq(7).addClass("active").siblings().removeClass("active");
+        }
+    }
+    function menu(id) {
+        var position = $("#" + id).offset().top;
+        $("body,html").animate({scrollTop: position + 3}, 500);
+    }
+    function bgmove() {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 200,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#293982"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "cortexImg/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#293982",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+</script>
+</html>

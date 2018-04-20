@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSC Internal Portal</title>
+    <link href="/Content/css/home.css" type="text/css" rel="stylesheet" />
+    <link href="/Content/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <script src="/Content/js/jquery-2.1.4.js" type="text/javascript"></script>
+    <link href="/Content/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap.modallery.css">
+    <script src="/Content/js/bootstrap.modallery.js" type="text/javascript"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link type="text/css" href="/Content/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Content/js/ie-emulation-modes-warning.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="js/html5shiv.min.js"></script>
+      <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            (function blink() {
+                $('.blink_text2').fadeOut(500).fadeIn(500, blink);
+            })();
+
+            $('.numeric_count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+                      
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Home/BindData',
+                type: "GET",
+                dataType: "JSON",
+                data: '{}',
+                async: false,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,
+                success: function (result) {
+                    var newhtml = '';
+                    $('#spanMarquee').html('');
+                    $('#UllatestNews').html('');
+                   // console.log(result)
+                    
+                  $.each(result.marquee, function (index, value) {
+                      newhtml = '<img src="/Content/img/new_icon.gif" width="55" /><span style="color:#fff; font-weight:normal; padding-left:5px;">'+value.MarqueeData+'</span>'
+                      $('#spanMarquee').append(newhtml);
+                  });
+                  $('#UllatestNews').append('<li>\
+                                    \<span><img src="/Content/img/new_icon.gif" width="55" /></span>\
+                                    \<a href="/Content/Revised Penalty.pdf" target="new">  UIDAI OM on revised Penalty</a>\
+                                </li>\
+                                <li>\
+                                    \<span><img src="/Content/img/new_icon.gif" width="55" /></span>\
+                                    \<a href="/Content/uidai.pdf" target="new"> new UIDAI OM Dated 4 Aug 2017</a>\
+                                </li>\
+                                <li>\
+                                    \<span><img src="/Content/img/new_icon.gif" width="55" /></span>\
+                                    \<a href="/Content/PAYMENT HOLD AGAINST NOT SUBMISSION OF DMS (6).pdf" target="new">  List of VLE whose Payment Hold against DMS</a>\
+                                </li>\
+                                <li>\
+                                    \<span><img src="/Content/img/new_icon.gif" width="55" /></span>\
+                                    \<a href="/Content/PAYMENT HOLD AS CSC ID NOT  AVAILABLE (4).pdf" target="new">  List of VLE whose Payment Hold as CSC ID not available.</a>\
+                                </li>');
+                  $.each(result.latestNews, function (index, value) {
+                      newhtml = '<li>\
+                                    <span><img src="/Content/img/new_icon.gif" width="55" /></span>' + value.LatestNews + '</li>';
+                      $('#UllatestNews').append(newhtml);
+                  });
+                 
+                
+
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <MARQUEE BGCOLOR=#001A66 BEHAVIOR=SCROLL scrollamount="10" style="display:block; padding:4px;"><img src="/Content/img/new_icon.gif" width="55" /><span style="color:#fff; font-weight:normal; padding-left:5px;">“For any  Grievances or queries kindly send your mail <a href="mailto:cscuid@digimail.in" style="color:#FFFF4D; text-decoration:underline;">cscuid@digimail.in</a>  from your digimail  id only </span><span id="spanMarquee"></span></MARQUEE>
+        <div class="clearfix"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="divLoading" style="display:none">
+                    <img src="../Content/giphy.gif" height="45" alt="Uploading, please wait" /><br /> <br /><span style="color:#fff;"><div id="errormsh"></div></span>
+                </div>
+                
+                <div class="col-lg-12 col-xs-12 col-xs-12 headholder">
+                    <div class="col-lg-2 col-xs-4">
+                        <img src="/Content/img/csc_logo.png" alt="CSC Logo" class="img-responsive" />
+                        
+                    </div>
+                    <div class="col-lg-8 col-xs-4 pright0 pleft0 mtop15">
+                        <nav class="navbar navbar-inverse">
+                            <div class="container-fluid mtop5">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        Menu
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-12">
+
+                                    <div class="collapse navbar-collapse" id="myNavbar">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <a href="/CSC/Index">HOME</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="/Home/AboutUs">ABOUT US</a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SERVICES </a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li>
+                                                        <a href="/Home/NewAadhaarEnroll">New Aadhaar Enrolment</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/EAdhaarPrint">E-Aadhaar Print</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/UCLs">UCL</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/AdvanceSearch">Advance Search</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/AadhaarDemographic">Aadhaar Demographic Data Updation</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/AadhaarBiometric">Aadhaar Biometric Data Updation</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Home/ChildEnroll">Child Enrolment</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <a href="/Home/Training">TRAINING</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/VlesGallery">PHOTOGALLERY</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/GRIEVANCES">GRIEVANCES</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/ContactUs">CONTACT</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-xs-4">
+                        <img src="/Content/img/digital_india_logo.png" alt="Digital India Logo" class="img-responsive pull-right" />
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div>
+        
+
+
+
+<form action="/" method="post">    <section>
+        <div class="col-lg-12 col-xs-12 pleft0 pright0 slide_hold">
+            <div class="col-lg-6 p0">
+                <div class="welcomecsc_box">
+				<table style="width:100%;">
+				<tbody>
+				<tr>
+				<td style="border-right: 1px solid #fff;">
+                    <div class="row">
+                        VLE’s UID
+                        <br /> Payment
+                        
+                    </div>
+                    <div class="row mtop10">
+                        <a href="/Admin/Index?LogType=UID" class="admin_btn"><i class="fa fa-user fa-fw"></i>LOGIN</a>
+                    </div>
+					</td>
+                    <td style="border-right: 1px solid #fff;">
+                        <div class="row text-center">
+                            VLE's UJALA
+                            <br /> Payment
+                        </div>
+                        <div class="row mtop10">
+                            <a href="/Admin/Index?LogType=UJALA" class="admin_btn"><i class="fa fa-user fa-fw"></i>LOGIN</a>
+                        </div>
+                    </td>
+					<td>
+					 <div class="row text-center">
+                        Apply for new
+                         <br /> PEC/UCL
+                    </div>
+                    <div class="row mtop10">
+                        <a href="https://registration.csc.gov.in/cscservices/" class="admin_btn" target="_blank"><i class="fa fa-user fa-fw"></i>Click Here</a>
+                    </div>
+					</td>
+                    
+					</tr>
+					</tbody>
+					</table>
+                </div>
+                <div class="vle_box">
+                    <div class="row">Latest News</div>
+                    <div class="row">
+                        
+                        <marquee direction="Up" scrolldelay="350" scrollamount="10" onmouseover="this.stop();" onmouseout="this.start();" class="imp-dates" style="font-size:11px; width:47rem; line-height:30px; height:93px;">
+                            <ul id="UllatestNews">
+                                
+                                <li>
+                                    <span><img src="/Content/img/new_icon.gif" width="55" /></span> Payment released for the Month of April 2017
+                                </li>
+                                <li>
+                                    <span><img src="/Content/img/new_icon.gif" width="55" /></span> CSC ID is mandatory kindly re-register your OMT.
+                                </li>
+                            </ul>
+                        </marquee>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 slidebg_rghtside pleft0 pright0" style="background-color:#fff;"></div>
+        </div>
+        <div class="col-lg-12 pleft0 pright0" style="padding-bottom: 0; background-color:#fff; margin-bottom: 0; max-height: 234px;">
+            <div class="count_box">
+                <div class="col-lg-3 col-xs-12 ptop5 count_bdr" style="height:102px;">
+                    <div style="display: inline;  padding: 0;  position: relative; bottom: 18px;">
+                        <i class="fa fa-dashboard fa-5x fa-fw"></i>
+                    </div>
+                    <div style="display:inline-block;">
+                        <span style="line-height:42px;">COUNT <br />STATUS</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-12 totalcount-box count_bdr">
+                    <input type="text" id="Ag" class="numeric_count" />
+                    <span class="hd subhd" style="color: #23527c;"><b>Aadhaar Generation</b> <br /><a href="/Home/agDetail"><i class="fa fa-hand-o-right fa-fw"></i>click here</a></span>
+
+                </div>
+                <div class="col-lg-3 col-xs-12 totalcount-box count_bdr">
+                    <input type="text" id="Pec" class="numeric_count" />
+                    <span class="hd subhd" style="color: #23527c;"><b>Permanent Enrollment Center </b><br /><a href="/Home/PecDetail"><i class="fa fa-hand-o-right fa-fw"></i>click here</a></span>
+                </div>
+                <div class="col-lg-3 col-xs-12 totalcount-box">
+                    <input type="text" id="UCl" class="numeric_count" />
+                    <span class="hd subhd" style="color: #23527c;"><b>Update Client Lite </b><br /><a href="/Home/UclDetail"><i class="fa fa-hand-o-right fa-fw"></i>click here</a></span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</form><script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.numeric_count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        debugger;
+        $.ajax({
+            url: '/Home/TotalCount',
+            type: "GET",
+            dataType: "JSON",
+            data: '{}',
+            async: false,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,
+            success: function (Object) {
+
+                $('#Ag').val(Object.Ag);
+                $('#Pec').val(Object.Pec);
+                $('#UCl').val(Object.UCL);
+
+
+            }
+        });
+
+    });
+   
+</script>
+
+
+
+    </div>
+    <footer>
+        <div class="col-lg-12 pleft0 pright0">
+            <div class="bottombg">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Training</a>
+                    </li>
+                    <li>
+                        <a href="#">Grievances</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+
+        <div class="col-lg-12 copyright_txt">Copyright © 2016 CSC E-Governance Services India Limited. All rights reserved.</div>
+    </footer>
+    <script src="/Content/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/Content/css/ie10-viewport-bug-workaround.css" type="text/css" rel="stylesheet" />
+    <script src="/Content/js/ie-emulation-modes-warning.js" type="text/javascript"></script>
+</body>
+
+</html>

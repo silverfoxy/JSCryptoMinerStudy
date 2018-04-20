@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+<head>
+    <title>中国工程科技知识中心_工程科技领域信息汇聚、数据挖掘和知识服务中心</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="Vgzw4Q6t8Y" />
+    <meta name="keywords"
+          content="工程科技,知识服务,工程知识应用,知识图谱,期刊,工程,工程数据,工程信息,工程院,博士论文,论文,电子图书馆,学术会议,学术文献,学术支撑,中国工程科技知识中心,农业,医药卫生,土木,水利,建筑化工,冶金,材料工程,信息与电子工程,工程院士,创新创业,一带一路">
+    <meta name="description"
+          content="中国工程科技知识中心向海内外用户提供中国工程科技领域的期刊杂志、文献、学位论文、科研成果、工程会议、行业标准、产业政策等各类资源综合检索、统一导航、在线阅读和下载服务，从而为科研、决策过程的提供知识服务。并通过行业数据挖掘、分析展现农业、医药卫生、土木、水利、建筑、化工、冶金、材料工程、信息与电子工程等领域发展趋势，更有行业专家和工程院士等智库的风采展现，为国家工程科技思想库提供基础信息保障，为国家工程科技进步与创新提供信息支撑">
+    
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+<script src="http://www.ckcest.cn/scripts/lib/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="http://www.ckcest.cn/scripts/lib/jquery.cookie.js" type="text/javascript"></script>
+<script src="http://www.ckcest.cn/scripts/lib/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://www.ckcest.cn/scripts/portal/plugins.js" type="text/javascript"></script>
+<script src="http://www.ckcest.cn/scripts/portal/headersearch.js" type="text/javascript"></script>
+<script src="http://www.ckcest.cn/scripts/portal/930/comunit.js" type="text/javascript"></script>
+<link href="http://www.ckcest.cn/static/portal/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+
+<link href="http://www.ckcest.cn/static/portal/930/css/uiStyle1.css" rel="stylesheet" type="text/css"/>
+<link href="http://www.ckcest.cn/static/portal/930/css/public.css" rel="stylesheet" type="text/css"/>
+
+<link href="http://www.ckcest.cn/static/portal/930/css/1.css" rel="stylesheet"/>
+<link href="http://www.ckcest.cn/static/portal/930/css/2.css" rel="stylesheet"/>
+<link href="http://www.ckcest.cn/static/portal/930/css/ckcest.css" rel="stylesheet"/>
+
+<link href="http://www.ckcest.cn/static/portal/css/tip-down.css" rel="stylesheet" type="text/css"/>
+
+<script>
+    if (!this.cekasp)cekasp = {};
+    (function (c) {
+        c.baseUrl = 'http://www.ckcest.cn';
+        c.jslib = 'http://www.ckcest.cn';
+        c.theme = 'http://www.ckcest.cn';
+        c.cdnpath = 'http://pic.ckcest.cn';
+        c.fav = '';
+    })(cekasp);
+    cekasp.fav = window.location.href;
+
+    /**
+     *添加收藏
+     * @param source
+     * @param title
+     * @param url
+     * @param callback
+     */
+    function addUserFav(data, callback) {
+        var p = "http://www.ckcest.cn/userfav/add";
+        if (data.source == undefined || data.source == "") {
+            data.source = "其他";
+        }
+        if (data.title == undefined && data.title == "") {
+            data.title = $("title").text();
+        }
+        if (data.url == undefined || data.url == "") {
+            data.url = window.location.href;
+        }
+
+        $.ajax({
+            url: p,
+            data: data,
+            type: "GET",
+            dataType: "json",
+            success: function (req) {
+                if (req.logIn == false) {
+                    common_util.windowOpen($("#top-login").attr("href"));
+                    return;
+                }
+                if (callback != null && callback != undefined) {
+                    callback(req);
+                }
+            }
+        });
+    }
+
+    /**
+     *获取收藏
+     */
+    function getUserFav(data, callback) {
+        var p = "http://www.ckcest.cn/userfav/getfavsfromurl";
+
+        if (data == null || data.length == 0) {
+            return;
+        }
+        $.ajax({
+            url: p,
+            data: {urls: data},
+            type: "GET",
+            dataType: "json",
+            success: function (req) {
+                if (req.logIn == false) {
+                    return;
+                }
+                if (callback != null && callback != undefined) {
+                    callback(req);
+                }
+            }
+        });
+    }
+
+    //注册通用收藏
+    function initAddUserFav() {
+        $("body a[userfav='true']").click(function () {
+            var $a = $(this);
+
+            var source = $a.attr("favsource");
+            var title = $a.attr("favtitle");
+            var url = $a.attr("favurl");
+
+            var data = {
+                source: source,
+                title: title,
+                url: url
+            }
+            addUserFav(data, function (e) {
+                if (e.obj == "del") {
+                    $a.removeClass("collec_on");
+                    $a.addClass("collec");
+                    $a.attr("title", "收藏");
+                }
+                if (e.obj == "add") {
+                    $a.removeClass("collec");
+                    $a.addClass("collec_on");
+                    $a.attr("title", "点击取消收藏");
+                }
+            });
+        });
+    }
+
+    //注册通用获取当前页面搜索功能
+    function initGetUserFav() {
+        var $as = $("body a[userfav='true']");
+        if ($as == null && $as.length == 0) {
+            return;
+        }
+        var urls = new Array();
+
+        for (var i = 0; i < $as.length; i++) {
+            var url = $($as[i]).attr("favurl");
+            if (url != null && url != "") {
+                urls.push(url);
+            }
+        }
+        if (urls.length == 0) {
+            return;
+        }
+        var _urls = urls.join(",");
+        getUserFav(_urls, function (data) {
+            var urls = data.obj;
+            if (urls == null || urls.length == 0) {
+                return;
+            }
+            for (var i = 0; i < urls.length; i++) {
+                for (var k = 0; k < $as.length; k++) {
+                    var $a = $($as[k]);
+                    if ($a.attr("favurl") == urls[i]) {
+                        $a.removeClass("collec");
+                        $a.addClass("collec_on");
+                        $a.attr("title", "点击取消收藏");
+                        break;
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+    <script src="http://www.ckcest.cn/scripts/portal/startMove.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/video-js.min.css">
+    <link rel="stylesheet" href="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/vsg-skin.css">
+    <link rel="stylesheet" href="http://www.ckcest.cn/static/portal/930/css/index1.css">
+
+    <script src="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/ie8/videojs-ie8.min.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/video.min.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/videojs-silverlight.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/lib/video-js-5.19.2/videojs-java.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/portal/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/portal/slide.main.js" type="text/javascript"></script>
+    <script src="http://www.ckcest.cn/scripts/portal/930/ckcest.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        $(function () {
+            $("#close-button-my").click(function () {
+                if (myPlayer) {
+                    myPlayer.pause();
+                }
+            });
+        });
+
+        var myPlayer = null;
+
+        function openIntro() {
+            $("#myLargeModal").modal({backdrop: 'static', keyboard: false});
+            if (myPlayer == null) {
+                var options = {
+                    techOrder: ['html5', 'flash', 'silverlight', 'java'],
+                    flash: {
+                        swf: 'http://www.ckcest.cn/scripts/lib//video-js-5.19.2/video-js.swf'
+                    },
+                    silverlight: {
+                        xap: 'http://www.ckcest.cn/scripts/lib/video-js-5.19.2/video-js.xap'
+                    },
+                    java: {
+                        jar: 'http://www.ckcest.cn/scripts/lib/video-js-5.19.2/video-js.jar'
+                    }
+                };
+
+                $("#intro_panel").empty();
+                var videoHtml = '<video id="vi_intro" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" src="http://120.27.26.22:8080/media/ckcest.mp4"></video>';
+                $("#intro_panel").append(videoHtml);
+                $('.video-js').width(640);
+                $('.video-js').height(360);
+                myPlayer = videojs('vi_intro', options);
+                if (myPlayer) {
+                    myPlayer.play();
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+
+
+
+
+
+
+<script src="http://www.ckcest.cn/scripts/lib/jquerysession.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //$.extend(cekasp, {username: '', permit: ''.split(',')});
+    //初始化方法，入口处
+    $(function () {
+//      var ChooseChEnInt= $("#ChooseChEn").val();
+        var ChooseChEnInt=  $.session.get('ChooseChEn');
+      //更改中英文字段(i=0中文，i=1英文)
+        changeChEnDiv(ChooseChEnInt);
+    });
+    var date = new Date();
+    var year = date.getFullYear();
+
+    //初始化中英文列表
+    var chineseList={
+        'hello':["您好","Hello"],
+        'welcome':["，欢迎来到中国工程科技知识中心！",",Welcome to China Engineering Science and technology center!"],
+        "login":["登录","LOGIN"],
+        'createAnAccount':["注册","CREATE AN ACCOUNT"],
+        'logout':["注销","Logout"],
+        'personalCenter':["个人中心","Personal Center"],
+        'app':["移动端","APP"],
+        'wechat':["订阅号","WeChat"],
+        'search':["搜索","SEARCH"],
+        'inputKeywordPlaceholder':["输入查询内容","Input Keyword"],
+        'ai':["人工智能","AI"],
+        "home":["首页","HOME"],
+        "knowledgeService":["专业平台","KNOWLEDGE"], //KNOWLEDGE SERVICE
+        "featuredService":["特色服务","FEATURED"],//Featured Service
+        "knowledgeApplication":["知识应用","APPLICATION"],//KNOWLEDGE APPLICATION
+        "globalThinktank":["全球智库","THINKTANK"],//GLOBAL THINKTANK
+        "academicianService":["院士服务","ACADEMICIAN"],//ACADEMICIAN SERVICE
+        "pushService":["主动推送","PUSH Service"],
+        "more1":["更多精彩","MORE"],
+        "more2":["更多","MORE"],
+        "more3":["查看更多专业知识服务","MORE"],
+        "industry":["业界","INDUSTRY"],
+        "intelligentMedical":["智能医疗","INTELLIGENT MEDICAL"],
+        "synthetical":["综合","Synthetical"],
+        "information":["信息技术","Information"],
+        "manufacturing1":["智能制造","Intelligent Manufacturing"],
+        "technologyForesight":["技术预见","Technology Foresight"],
+        "roadMap":["技术预见","Road Map"],
+        "onlineSurvey":["问卷","Online Survey"],
+        "mechanics":["机械","Information"],
+        "information":["信息","Information"],
+        "news":["最新资讯","NEWS"],
+        "internationalThinktank":["知领-国际智库","INTERNATIONAL THINKTANK"],
+        "strategicReport":["战略咨询报告","STRATEGIC"],//STRATEGIC REPORT
+        "highLevelConference":["高端会议","HIGH LEVEL CONFERENCE"],
+        "topJournals":["精选期刊","TOP JOURNALS"],
+        "engineering ":["工程科技期刊","ENGINEERING "],
+        "journalDiscovery":["期刊发现","JOURNAL DISCOVERY"],
+        "dataResources":["数据资源","RESOURCES"],//DATA RESOURCES
+        "view":["查看数据","View"],
+        "subCenerPKnowledge":["分中心专业知识服务","SUB CENER PROFESSIONAL KNOWLEDGE"],
+        "dynamics":["知识中心动态","DYNAMICS"],
+        "hotApplications":["热点应用","HOT APPLICATIONS"],
+        "manufacturing":["制造业","MANUFACTURING"],
+        "informationTechnology":["信息技术","INFORMATION TECHNOLOGY"],
+        "chemical":["化工","CHEMICAL"],
+        "metalMaterial":["金属材料","METAL MATERIAL"],
+        "metallurgy":["冶金","METALLURGY"],
+        "geological":["地质","GEOLOGICAL"],
+        "energy":["能源","ENERGY"],
+        "energy_lower":["能源","Energy"],
+        "environment":["环境工程","ENVIRONMENT"],
+        "meteorological":["气象","METEOROLOGICAL"],
+        "ocean":["海洋","OCEAN"],
+        "agricultural":["农业","AGRICULTURAL"],
+        "agricultural_lower":["农业","Agricultural"],
+        "forestry":["林业","FORESTRY"],
+        "geographicInformation":["地理信息","GEOGRAPHIC INFORMATION"],
+        "geographyREKnowledge":["地理资源与生态","GEOGRAPHY RESOURCES AND ECOLOGY KNOWLEDGE"],
+        "medicalKnowledge":["医药卫生","MEDICAL KNOWLEDGE"],
+        "medical":["医药卫生","Medical"],
+        "chineseHerbalMedicine":["中草药","CHINESE HERBAL MEDICINE"],
+        "academicJournals":["学术期刊","ACADEMIC JOURNALS"],
+        "strategicEmergingIndustries":["战略新兴产业","STRATEGIC EMERGING INDUSTRIES"],
+        "innovationDesign":["创新设计","INNOVATION DESIGN"],
+        "consultingResearch":["咨询研究","CONSULTING AND RESEARCH"],
+        "engineeringSELibrary":["工程科教图书","ENGINEERING SCIENCE AND EDUCATION LIBRARY"],
+        "strategicEmergingIndustry":["战略性新兴产业","STRATEGIC EMERGING INDUSTRY"],
+        "chinaGoodDesign":["中国好设计","CHINA GOOD DESIGN"],
+        "aminer":["Aminer","AMINER"],
+        "theBeltRoadInitiative":["一带一路","THE BELT AND ROAD INITIATIVE"],
+        "massEntrepreneurshipInnovation":["创新创业","MASS ENTREPRENEURSHIP INNOVATION"],
+        "academicianMuseum":["院士馆","ACADEMICIAN MUSEUM"],
+        "chinaEETank":["专家库","CHINA ENGINEERING EXPERT TANK"],
+        "intelligentSupport":["咨询服务","INTELLIGENT SUPPORT"],
+        "userinfo":["用户信息","USER INFO"],
+        "mySkyDrive":["我的网盘","MY SKYDRIVE"],
+        "referenceBook":["工具书","BOOK"],
+        "myFavorite":["我的收藏","MY FAVORITE"],
+        "backTop":["返回顶部","BACK TOP"],
+        "internationalCongress":["国际会议","INTERNATIONAL CONGRESS"],
+        "tide":["潮汐","TIDE"],
+
+        "copyright":["© 2012 CKCEST ICP备案号:京ICP备14021735号-2","Copyright © "+year+" Chinese Academy of Engineering Co., Ltd. All rights reserved."],
+        "technicalSupport":["技术支持：浪潮集团有限公司","Technical support: Inspur Technologies Co., Ltd."],
+        "legalStatement":["法律声明","LEGAL STATEMENT"],
+        "contactUs":["联系我们","CONTACT US"],
+        "aboutUs":["关于我们","ABOUT US"]
+    }
+
+    /**
+     * 更改中英文字段
+     * @param i i=0中文，i=1英文
+     */
+    function  changeChEnDiv(i) {
+        //设置cookie
+        $.session.set('ChooseChEn', i);
+        $("#ChooseChEn").val(i);
+        $("#chineseId").addClass("lanActive");
+        $("#englishId").removeClass("lanActive");
+
+        //top 页面
+        $("#hello").html(chineseList["hello"][i]);
+        $("#welcome").html(chineseList["welcome"][i]);
+
+        $("#top-login").html(chineseList["login"][i]);
+        $("#createAnAccount").html(chineseList["createAnAccount"][i]);
+        $("#logout").html(chineseList["logout"][i]);
+        $("#personalCenter").html(chineseList["personalCenter"][i]);
+
+        $("#app").html(chineseList["app"][i]);
+        $("#wechat").html(chineseList["wechat"][i]);
+        $("p[name='app']").html(chineseList["app"][i]);
+        $("p[name='wechat']").html(chineseList["wechat"][i]);
+        //header页面
+        $("#search").html(chineseList["search"][i]);
+        $("#header-search-keyword").attr("placeholder",chineseList["inputKeywordPlaceholder"][i]);
+
+        //首页
+        $("#home").html(chineseList["home"][i]);
+        //专业平台
+        $("#knowledgeService").html(chineseList["knowledgeService"][i]);
+        $("#manufacturing").html(chineseList["manufacturing"][i]);
+        $("#informationTechnology").html(chineseList["informationTechnology"][i]);
+        $("#chemical").html(chineseList["chemical"][i]);
+        $("#metalMaterial").html(chineseList["metalMaterial"][i]);
+        $("#metallurgy").html(chineseList["metallurgy"][i]);
+        $("#geological").html(chineseList["geological"][i]);
+        $("#energy").html(chineseList["energy"][i]);
+        $("#environment").html(chineseList["environment"][i]);
+        $("#meteorological").html(chineseList["meteorological"][i]);
+        $("#ocean").html(chineseList["ocean"][i]);
+        $("#agricultural").html(chineseList["agricultural"][i]);
+        $("#forestry").html(chineseList["forestry"][i]);
+        $("#geographicInformation").html(chineseList["geographicInformation"][i]);
+        $("#geographyREKnowledge").html(chineseList["geographyREKnowledge"][i]);
+        $("#medicalKnowledge").html(chineseList["medicalKnowledge"][i]);
+        $("#chineseHerbalMedicine").html(chineseList["chineseHerbalMedicine"][i]);
+        $("#academicJournals").html(chineseList["academicJournals"][i]);
+        $("#innovationDesign").html(chineseList["innovationDesign"][i]);
+        $("#strategicEmergingIndustries").html(chineseList["strategicEmergingIndustries"][i]);
+        $("#consultingResearch").html(chineseList["consultingResearch"][i]);
+        $("#engineeringSELibrary").html(chineseList["engineeringSELibrary"][i]);
+        $("#strategicEmergingIndustry").html(chineseList["strategicEmergingIndustry"][i]);
+        //特色服务
+        $("#featuredService").html(chineseList["featuredService"][i]);
+        $("#chinaGoodDesign").html(chineseList["chinaGoodDesign"][i]);
+        $("#aminer").html(chineseList["aminer"][i]);
+        $("#theBeltRoadInitiative").html(chineseList["theBeltRoadInitiative"][i]);
+        $("#massEntrepreneurshipInnovation").html(chineseList["massEntrepreneurshipInnovation"][i]);
+        $("#academicianMuseum").html(chineseList["academicianMuseum"][i]);
+        $("#chinaEETank").html(chineseList["chinaEETank"][i]);
+        $("#intelligentSupport").html(chineseList["intelligentSupport"][i]);
+        $("#internationalCongress_tab0").html(chineseList["internationalCongress"][i]);
+        $("#tide_tab0").html(chineseList["tide"][i]);
+
+        $("a[name='manufacturing1_a']").html(chineseList["manufacturing1"][i]);
+        $("a[name='technologyForesight_a']").html(chineseList["technologyForesight"][i]);
+        $("a[name='roadMap_a']").html(chineseList["roadMap"][i]);
+        $("a[name='onlineSurvey_a']").html(chineseList["onlineSurvey"][i]);
+        //知识应用
+        $("#knowledgeApplication").html(chineseList["knowledgeApplication"][i]);
+        //数据资源
+        $("#dataResources").html(chineseList["dataResources"][i]);
+        //全球智库
+        $("#globalThinktank").html(chineseList["globalThinktank"][i]);
+        //战略咨询报告
+        $("#strategicReport").html(chineseList["strategicReport"][i]);
+        //院士服务
+        $("#academicianService").html(chineseList["academicianService"][i]);
+        $("#pushService").html(chineseList["pushService"][i]);
+        //右侧边框提示
+        $("#userinfo").html(chineseList["userinfo"][i]);
+        $("#mySkyDrive").html(chineseList["mySkyDrive"][i]);
+        $("#referenceBook").html(chineseList["referenceBook"][i]);
+        $("#myFavorite").html(chineseList["myFavorite"][i]);
+        $("#backTop").html(chineseList["backTop"][i]);
+
+        //最新资讯+更多
+        $("li[name='synthetical_tab']").html(chineseList["synthetical"][i]);
+        $("li[name='newsTab_1002']").html(chineseList["information"][i]);
+        $("li[name='newsTab_1056']").html(chineseList["ai"][i]);
+        $("li[name='newsTab_1058']").html(chineseList["manufacturing1"][i]);
+        $("li[name='newsTab_1006']").html(chineseList["energy_lower"][i]);
+        $("li[name='newsTab_1009']").html(chineseList["agricultural_lower"][i]);
+        $("li[name='newsTab_1005']").html(chineseList["medical"][i]);
+
+        $("h4[name='news_tab']").html(chineseList["news"][i]);
+        $("a[name='more2']").html(chineseList["more2"][i]);
+        //全球智库+更多
+        $("h4[name='globalThinktank_tab']").html(chineseList["globalThinktank"][i]);
+        //战略咨询报告+更多
+        $("h4[name='strategicReport_tab']").html(chineseList["strategicReport"][i]);
+        //顶级期刊+更多
+        $("h4[name='topJournals_tab']").html(chineseList["topJournals"][i]);
+        //数据资源
+        $("h4[name='dataResources_tab']").html(chineseList["dataResources"][i]);
+        //热点应用 HOT APPLICATION
+        $("h4[name='hotApplications_tab']").html(chineseList["hotApplications"][i]);
+        // 知识中心动态
+        $("h4[name='dynamics_tab']").html(chineseList["dynamics"][i]);
+
+        <!--正文第一部分-->
+        $("a[name='chinaGoodDesign_tab']").html(chineseList["chinaGoodDesign"][i]);
+        $("a[name='intelligentSupport_tab']").html(chineseList["intelligentSupport"][i]);
+        $("a[name='academicianMuseum_tab']").html(chineseList["academicianMuseum"][i]);
+
+        $("p[name='internationalCongress_tab']").html(chineseList["internationalCongress"][i]);
+        $("p[name='theBeltRoadInitiative_tab']").html(chineseList["theBeltRoadInitiative"][i]);
+        $("p[name='massEntrepreneurshipInnovation_tab']").html(chineseList["massEntrepreneurshipInnovation"][i]);
+        $("p[name='chinaEETank_tab']").html(chineseList["chinaEETank"][i]);
+        $("p[name='tide_tab']").html(chineseList["tide"][i]);
+        //正文第二部分
+        $("a[name='manufacturing_tab']").html(chineseList["manufacturing"][i]);
+        $("a[name='forestry_tab']").html(chineseList["forestry"][i]);
+        $("a[name='geographyREKnowledge_tab']").html(chineseList["geographyREKnowledge"][i]);
+        $("a[name='medicalKnowledge_tab']").html(chineseList["medicalKnowledge"][i]);
+
+        $("a[name='informationTechnology_tab']").html(chineseList["informationTechnology"][i]);
+        $("a[name='chemical_tab']").html(chineseList["chemical"][i]);
+        $("a[name='metalMaterial_tab']").html(chineseList["metalMaterial"][i]);
+        $("h4[name='metallurgy_tab']").html(chineseList["metallurgy"][i]);
+        $("a[name='geological_tab']").html(chineseList["geological"][i]);
+        $("a[name='energy_tab']").html(chineseList["energy"][i]);
+        $("h4[name='environment_tab']").html(chineseList["environment"][i]);
+        $("a[name='meteorological_tab']").html(chineseList["meteorological"][i]);
+
+        $("a[name='ocean_tab']").html(chineseList["ocean"][i]);
+        $("h4[name='agricultural_tab']").html(chineseList["agricultural"][i]);
+        $("a[name='geographicInformation_tab']").html(chineseList["geographicInformation"][i]);
+        $("h4[name='chineseHerbalMedicine_tab']").html(chineseList["chineseHerbalMedicine"][i]);
+        $("a[name='academicJournals_tab']").html(chineseList["academicJournals"][i]);
+        $("a[name='innovationDesign_tab']").html(chineseList["innovationDesign"][i]);
+        $("a[name='consultingResearch_tab']").html(chineseList["consultingResearch"][i]);
+        $("a[name='engineeringSELibrary_tab']").html(chineseList["engineeringSELibrary"][i]);
+        $("a[name='strategicEmergingIndustry_tab']").html(chineseList["strategicEmergingIndustry"][i]);
+
+        //footer
+        $("span[name='copyright']").html(chineseList["copyright"][i]);
+        $("span[name='technicalSupport']").html(chineseList["technicalSupport"][i]);
+        $("a[name='legalStatement']").html(chineseList["legalStatement"][i]);
+        $("a[name='contactUs']").html(chineseList["contactUs"][i]);
+        $("a[name='aboutUs']").html(chineseList["aboutUs"][i]);
+    }
+
+</script>
+
+<!-- 侧边栏-s -->
+<div class="sidermenu" id="js-sidermenu">
+    <a href="#" class="opmenu"></a>
+
+    <div class="pt20 sidemenu-cont">
+        <div class="avatar pr">
+        </div>
+        <div class="tool1">
+            <ul class="toolist js-tip">
+                <li>
+                    <a target="_blank" href="http://www.ckcest.cn/profile/tonewuserdetail" ><i class="uicon ui5"></i></a>
+                    <a target="_blank" href="http://www.ckcest.cn/profile/tonewuserdetail" class="sys-ico">
+                        <label></label><span id="userinfo">用户信息</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://pan.ckcest.cn/rcweb/home/index.htm" ><i class="uicon ui6"></i></a>
+                    <a target="_blank" href="http://pan.ckcest.cn/rcweb/home/index.htm" class="sys-ico">
+                        <label></label><span id="mySkyDrive">我的网盘</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://refbook.ckcest.cn/index" ><i class="uicon ui7"></i></a>
+                    <a target="_blank" href="http://refbook.ckcest.cn/index" class="sys-ico">
+                        <label></label><span id="referenceBook">工具书</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tool2">
+            <ul class="toolist js-tip">
+                
+                <li>
+                    <a target="_blank" href="http://www.ckcest.cn/userfav/personfav"><i class="uicon ui10"></i></a>
+                    <a target="_blank" href="http://www.ckcest.cn/userfav/personfav" class="sys-ico">
+                        <label></label><span id="myFavorite">我的收藏</span>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="#" class="gotop"><i class="uicon ui12"></i></a>
+                    <a href="#" class="sys-ico">
+                        <label></label><span id="backTop">返回顶部</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="ChooseChEn"  value="0"/>
+<!-- 侧边栏-e -->
+<!-- 顶部mini导航-s -->
+<div class="topnav">
+    <div class="container">
+        <ul class="menulist pull-left" style="margin-top:10px;">
+            <li><span id="hello">您好</span><span id="welcome">，欢迎来到中国工程科技知识中心！</span></li>
+        </ul>
+        <ul class="pull-right menulist language">
+            <li>
+                <a href="javscript:void(0)" class="lanActive" onclick="changeChEnDiv(0);" id="chineseId">中文</a>
+            </li>
+            <li style="line-height: 36px;">
+                |
+            </li>
+            <li>
+                <a href="javscript:void(0)" onclick="changeChEnDiv(1);" id="englishId">English</a>
+            </li>
+        </ul>
+        <ul class="menulist pull-right">
+            
+                <li><a id="top-login" href="http://www.ckcest.cn/portal/login">登录</a></li>
+                <li><a id="createAnAccount" href="http://www.ckcest.cn/portal/register">注册</a></li>
+            
+            
+
+
+            <!--<li><a href="#"><i class="uicon ui1"></i>移动端</a></li>
+            <li><a href="#"><i class="uicon ui2"></i>服务号</a></li>-->
+            <li><a href="javascript:;" id="js-APP"><i class="uicon ui1"></i><span id="app">移动端</span><span class="APPcode"></span></a></li>
+            <li><a href="javascript:;" id="js-WX"><i class="uicon ui2"></i><span id="wechat">订阅号</span><span class="WXcode" ></span></a></li>
+            <!--<li><a href="#" id="js-QR"><i class="uicon ui3"></i>微信圈<span class="QRcode"></span></a></li>-->
+        </ul>
+    </div>
+</div>
+<!-- 顶部mini导航-e -->
+
+
+<!-- logo+搜索-s -->
+<div class="clearfix bgfff" style="">
+       
+       
+        <div class="container" style="position:relative;z-index:10;">
+        <a href="/default"><h1 class="logo pull-left">中国工程科技知识中心</h1></a>
+
+        <div class="search pull-right">
+            <ul id="header_search_type" class="keylist" style="display: none;">
+                <li class="active"><a href="#">全部</a></li>
+                <li><a href="#">网络资讯</a></li>
+                <li><a href="#">期刊论文</a></li>
+                <li><a href="#">学位论文</a></li>
+                <li><a href="#">会议论文</a></li>
+                <li><a href="#">专利</a></li>
+                <li><a href="#">标准</a></li>
+                <li><a href="#">产业政策</a></li>
+            </ul>
+            <div class="clearfix pt20">
+                <div class="searchbox pr pull-left ss_input" style="margin-top: 25px;">
+                    <input id="header-search-keyword" type="text" name="" placeholder="输入查询内容" value=""
+                           style="position: absolute;left: 0px;border-left: 0px;">
+
+                    <ul id="tip-down-menu" class="tip-down-menu" style="z-index: 100;width: 510px;display: none;">
+                        
+                    </ul>
+
+                    <a id="header-search-btn" class="searchbtn" href="javascript:void(0);">
+                        <i class="icon icon-search icon-white vm mr10"></i><span class="vm" id="search">搜索</span></a>
+
+                    <div class="dropdown pa pa-left" style="display: none;">
+                        <a id="header-search-keyword-type-dis" href="#" class="dropdown-toggle searchsel"
+                           data-toggle="dropdown">关键字<b class="caret"></b></a>
+                        <ul id="header-search-keyword-type-list" class="dropdown-menu">
+                            <li><a href="#">作者</a></li>
+                            <li><a href="#">名称</a></li>
+                            <li><a href="#">关键字</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- logo+搜索-e -->
+<!-- 导航-s -->
+<div class="menu">
+    <div class="container">
+        <ul class="menulist" id="js-menu">
+            <li class="classfixbtn">
+                <a href="http://www.ckcest.cn/index"><i class="uicon ui4 mr10"></i><span class="vm" id="home">首 页</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" id="knowledgeService">专业平台</a>
+
+                <div class="layerbox">
+                    <div class="con">
+                        <div class="container">
+                            <ul class="Smenulist">
+                                <li><a target="_blank" href="http://mkc.ckcest.cn/" accesslog='制造业' id="manufacturing">制造业</a>
+                                </li>
+                                <li><a target="_blank" href="http://it.ckcest.cn/portal.php"
+                                       id="informationTechnology">信息技术</a></li>
+                                <li><a target="_blank" href="http://chem.ckcest.cn/" accesslog='化工' id="chemical">化工</a>
+                                </li>
+                                <li><a target="_blank" href="http://metal.ckcest.cn/" accesslog='金属材料'
+                                       id="metalMaterial">金属材料</a></li>
+                                <li><a target="_blank" href="http://mi.ckcest.cn/" accesslog='冶金' id="metallurgy">冶金</a>
+                                </li>
+                                <li><a target="_blank" href="http://geol.ckcest.cn/" accesslog='地质'
+                                       id="geological">地质</a></li>
+                                <li><a target="_blank" href="http://energy.ckcest.cn/home" accesslog='能源'
+                                       id="energy">能源</a></li>
+                                <li><a target="_blank" href="http://envi.ckcest.cn/environment/" accesslog='环境工程'
+                                       id="environment">环境工程</a></li>
+                                <li><a target="_blank" href="http://meteor.ckcest.cn" accesslog='气象'
+                                       id="meteorological">气象</a></li>
+                                <li><a target="_blank" href="http://oce.ckcest.cn/" accesslog='海洋工程' id="ocean">海洋工程</a>
+                                </li>
+                                <li><a target="_blank" href="http://agri.ckcest.cn/" accesslog='农业'
+                                       id="agricultural">农业</a></li>
+                                <li><a target="_blank" href="http://forest.ckcest.cn" accesslog='林业'
+                                       id="forestry">林业</a></li>
+                                <li><a target="_blank" href="http://kmap.ckcest.cn" accesslog='地理信息'
+                                       id="geographicInformation">地理信息</a></li>
+                                <li><a target="_blank" href="http://geo.ckcest.cn/" accesslog='地理资源与生态'
+                                       id="geographyREKnowledge">地理资源与生态</a></li>
+                                <li><a target="_blank" href="http://med.ckcest.cn" accesslog='医药卫生'
+                                       id="medicalKnowledge">医药卫生</a></li>
+                                <li><a target="_blank" href="http://zcy.ckcest.cn/tcm/" accesslog='中草药'
+                                       id="chineseHerbalMedicine">中草药</a></li>
+                                <li><a target="_blank" href="http://engineering.ckcest.cn" accesslog='学术期刊'
+                                       id="academicJournals">学术期刊</a></li>
+                                <li><a target="_blank" href="http://dsgn.ckcest.cn/" accesslog='创新设计'
+                                       id="innovationDesign">创新设计</a></li>
+                                <li style="display: none;"><a target="_blank" href="http://sei.ckcest.cn/"
+                                                              accesslog='战略新兴产业'
+                                                              id="strategicEmergingIndustries">战略新兴产业</a>
+                                </li>
+                                <li><a target="_blank" href="http://zx.ckcest.cn/Main/Default.aspx" accesslog='咨询研究'
+                                       id="consultingResearch">咨询研究</a></li>
+                                <li><a target="_blank" href="http://ebs.ckcest.cn/Engineering/index.jsp"
+                                       accesslog='工程科教图书' id="engineeringSELibrary">工程科教图书</a></li>
+                                <li><a target="_blank" href="http://sei.ckcest.cn/"
+                                       accesslog='战略性新兴产业' id="strategicEmergingIndustry">战略性新兴产业</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0);" id="featuredService">特色服务</a>
+
+                <div class="layerbox">
+                    <div class="con">
+                        <div class="container">
+                            <ul class="Smenulist">
+                                <li><a target="_blank" href="http://cgd.ckcest.cn/" accesslog='中国好设计'
+                                       id="chinaGoodDesign">中国好设计</a></li>
+                                <li><a target="_blank" href="http://cn.aminer.org/" accesslog='Aminer' id="aminer">Aminer</a>
+                                </li>
+                                <li><a target="_blank" href="http://ydyl.ckcest.cn" accesslog='一带一路'
+                                       id="theBeltRoadInitiative">一带一路</a></li>
+                                <li><a target="_blank" href="http://ki.ckcest.cn" accesslog='创新创业'
+                                       id="massEntrepreneurshipInnovation">创新创业</a></li>
+                                <li><a target="_blank" href="http://ysg.ckcest.cn" accesslog='院士馆'
+                                       id="academicianMuseum">院士馆</a></li>
+                                <li><a target="_blank" href="http://expert.ckcest.cn" accesslog='专家库' id="chinaEETank">专家库</a>
+                                </li>
+                                <li><a target="_blank" href="http://114.215.19.137:8082/apscweb/" accesslog='咨询服务'
+                                       id="intelligentSupport">咨询服务</a></li>
+                                <li><a target="_blank" href="http://ieid.cae.cn" accesslog='国际会议'
+                                       id="internationalCongress_tab0">国际会议</a></li>
+                                <li><a target="_blank" href="http://139.129.194.27:5898/default?m=tide" accesslog='潮汐'
+                                       id="tide_tab0">潮汐</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="http://www.ckcest.cn/dsp/app/details/applist" id="knowledgeApplication" menu="applist,getappInfo">知识应用</a>
+            </li>
+            <li>
+                <a href="http://www.ckcest.cn/dsp/resource/details/resourcelist" id="dataResources" menu="resourcelist,searchrestableinfo,getresourceinfo">数据资源</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            <li>
+                
+                <a target="_blank" href="http://114.215.17.157:81/aps/" id="academicianService" title="主动推送">院士服务</a>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 导航-e -->
+<script>
+    //var header_search_url = "http://www.ckcest.cn/default/search";
+    var header_search_url = "http://www.ckcest.cn/default/searchpage";
+    var header_access_log = "http://www.ckcest.cn/dsp/resource/common/commonlog";
+
+    function addAccessLog() {
+        $("body a[accesslog]").click(function () {
+            var $a = $(this);
+            var resname = $a.attr("accesslog");
+            var href = this.href;
+            var data = {
+                resname: resname,
+                href: href
+            };
+            $.ajax({
+                url: header_access_log,
+                data: data,
+                type: "POST",
+                dataType: "json"
+                /*,
+                 success: function (req) {
+                 if (req.logIn == false) {
+                 common_util.windowOpen($("#top-login").attr("href"));
+                 return;
+                 }
+                 if (callback != null && callback != undefined) {
+                 callback(req);
+                 }
+                 }*/
+            });
+        });
+    }
+
+    function selectMenu() {
+        var url = window.location.pathname.split("/");
+        var a = url[url.length - 1];
+        if (a != "" && a != null) {
+            var menulist = $("#js-menu").find("a[menu]");
+            for (var i = 0; i < menulist.length; i++) {
+                var $a = $(menulist[i]);
+                var menus = $a.attr("menu").split(",").forEach(function (m) {
+                    if (m == a) {
+                        $("#js-menu").find(".classfixbtn").removeClass("classfixbtn");
+                        $a.parent().addClass("classfixbtn");
+                        return;
+                    }
+                });
+            }
+        }
+    }
+    //注册页面统一方法
+    $(function () {
+        initAddUserFav();
+        initGetUserFav();
+        addAccessLog();
+        selectMenu();
+    })
+
+
+</script>
+
+
+<!-- banner-s -->
+<div class="ag7-bannerslide">
+    <ul class="slidebox">
+        
+            
+               
+               
+        
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/zhouji_newZNZZ.png)"
+               href="http://www.ckcest.cn/portal/n/newsdetail?newId=8a237dd660e5840f0160ef1544990076" accesslog='周济院士：新一代智能制造'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/bannerThinktank.png)"
+               href="https://lib.zju.edu.cn/thinktank/" accesslog='全球智库排行榜单'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/bannerVectorMap.png)"
+               href="http://218.244.250.70:8881/otherSearch/result100W" accesslog='矢量地图数据'></a>
+        </li>
+
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner2.jpg)"
+               href="http://cgd.ckcest.cn" accesslog='中国好设计'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner_agriculture.png)"
+               href="http://agri.ckcest.cn/academiciantopic.html" accesslog='农业专题聚合'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner5.png)"
+               href="http://ydyl.ckcest.cn" accesslog='一带一路'></a>
+        </li>
+
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner_znzz.jpg)"
+               href="http://114.215.19.137:8082/immeeting/" accesslog='制造未来'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner_energy.png)"
+               href="http://gis.energy.ckcest.cn/system/" accesslog='新思维：基于空间研究能源'></a>
+        </li>
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner_rgzn.png)"
+               href="http://it.ckcest.cn/portal.php?mod=list&catid=308&hotw=人工智能" accesslog='人工智能'></a>
+        </li>
+
+        <li>
+            <a target="_blank"
+               style="background: url(http://www.ckcest.cn/static/portal/930/images/banner_scholar.png)"
+               href="https://cn.aminer.org/mostinfluentialscholar" accesslog='全球影响力学者排名'></a>
+        </li>
+        
+            
+               
+               
+        
+
+    </ul>
+    <div class="center_cc">
+        <div class="slideinfo">
+            <div class="arrow">
+                <a href="javascript:void(0);" class="l_arrow"></a>
+            </div>
+
+            <div class="slidelist">
+                <ul>
+                    
+                        
+                            
+
+                            
+                                
+                            
+                        
+                    
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/zhouji_newZNZZ_min.png" alt="">
+
+                            <p>
+                                周济院士：新一代智能制造
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/bannerThinktank_min.jpg" alt="">
+
+                            <p>
+                                全球智库排行榜单
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/bannerVectorMap_min.png" alt="">
+
+                            <p>
+                                矢量地图数据1:100万
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner2_min.png" alt="">
+
+                            <p>
+                                中国好设计
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner_agriculture@2x.png" alt="">
+
+                            <p>
+                                农业专题聚合
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner5_min.png" alt="">
+
+                            <p>
+                                一带一路成为国际贸易新引擎
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" class="active_on">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner_znzz_min.png" alt="">
+
+                            <p>
+                                制造未来
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner_energy@2x.png" alt="">
+
+                            <p>
+                                新思维：基于空间研究能源
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner_rgzn_min.png" alt="">
+
+                            <p>
+                                人工智能
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="http://www.ckcest.cn/static/portal/930/images/banner_scholar@2x.png" alt="">
+
+                            <p>
+                                全球影响力学者排名
+                            </p>
+                        </a>
+                    </li>
+                    
+                        
+                            
+
+                            
+                                
+                            
+                        
+                    
+                </ul>
+            </div>
+
+            <div class="arrow">
+                <a href="javascript:void(0);" class="r_arrow"></a>
+            </div>
+        </div>
+    </div>
+    <div class="introduce">
+        
+        <iframe id="iframe" src="http://121.42.166.120/reports/treemap" height="300" width="360"
+                style="background:transparent;border:none;top:80px;right:0px;position:absolute"></iframe>
+        
+    </div>
+</div>
+<!-- banner-e -->
+
+<div class="modularBox">
+    <!--正文第一部分 特色使用9个功能点-->
+    
+
+
+<div class="modular1 modular">
+    <div class="container">
+        <ul class="menu1">
+            <li class="menu1list menu1list1">
+                <div class="listcon1">
+                    <a target="_blank" href="https://cn.aminer.org"><img
+                            src="/static/portal/930/images/AMiner@2x.png" class="lf"/></a>
+                    <h4 class="lf"><a target="_blank" href="https://cn.aminer.org">AMiner</a></h4>
+                </div>
+                <div class="listcon2">
+                    <h4>KeyWords</h4>
+
+                    <p id="aminer-keywords-list">
+                    </p>
+                </div>
+                <ul id="aminer-box-list" class="listcon3">
+                    <li style="width:93px;">
+                        <span>127,514,719</span>
+                        <span>Researchers</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu1list menu1list2">
+                <div class="listcon1">
+                    <a target="_blank" href="http://cgd.ckcest.cn/"><img
+                            src="/static/portal/930/images/gooddesign.png" class="lf"/></a>
+                    <h4 class="lf"><a target="_blank" href="http://cgd.ckcest.cn/" name="chinaGoodDesign_tab">中国好设计</a></h4>
+                </div>
+                <div class="gdBox">
+                    <ul>
+                        <li>
+                            <a target="_blank" href="http://cgd.ckcest.cn/work/index.html?p=detail&i=8aad66535f68fe58015f6bff98080108" title="复兴号-中国标准动车组">
+                                <img src="/static/portal/930/images/ggd1.png"/>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a target="_blank" href="http://cgd.ckcest.cn/work/index.html?p=detail&i=8aad63fb5f69022f015f6bfdb9260124" title="翼龙II无人机" class="lf">
+                                <img src="/static/portal/930/images/ggd2.png" />
+                            </a>
+                            <a target="_blank" href="http://cgd.ckcest.cn/work/index.html?p=detail&i=8aad66535f68fe58015f6c013cea010b" title="天鲸号绞吸式挖泥船" class="lf">
+                                <img src="/static/portal/930/images/ggd3.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://cgd.ckcest.cn/work/index.html?p=detail&i=8aad63fb5e7fadcf015ea2061af90195" title="储能式轨道交通绿色设计">
+                                <img src="/static/portal/930/images/ggd4.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                        
+                            
+                               
+                                
+                            
+                        
+                        
+                            
+                               
+                                
+                            
+                        
+                    
+                    
+                        
+                            
+                               
+                                
+                            
+                        
+                        
+                            
+                               
+                                
+                            
+                        
+                    
+
+                </div>
+            </li>
+            <li class="menu1list menu1list3">
+                <div class="listcon1">
+                    <a target="_blank" href="http://114.215.19.137:8082/apscweb/"><img
+                            src="/static/portal/930/images/conservice.png" class="lf"/></a>
+                    <h4 class="lf"><a target="_blank" href="http://114.215.19.137:8082/apscweb/" name="intelligentSupport_tab">咨询服务</a></h4>
+                </div>
+                <div class="conserBox">
+                    <dl>
+                        <dt>
+                            <a target="_blank" href="http://114.215.19.137:8082/immeeting/">
+                                <img src="/static/portal/930/images/conservice1.png"/>
+                            </a>
+                        </dt>
+                        <dd>
+                            
+                            <a target="_blank" href="http://114.215.19.137:8082/immeeting/" name="manufacturing1_a">智能制造</a>
+                        </dd>
+                        
+                            
+                        
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/technology/list_detail.htm?active=2">
+                                <img src="/static/portal/930/images/conservice2.png"/>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/technology/list_detail.htm?active=2" name="technologyForesight_a">技术预见</a>
+                        </dd>
+                        
+                            
+                               
+                        
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/tools/toolmap/tools_line.htm?active=32">
+                                <img src="/static/portal/930/images/conservice3.png"/>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/tools/toolmap/tools_line.htm?active=32" name="roadMap_a">路线图</a>
+                        </dd>
+                        
+                            
+                               
+                        
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/quespecial/quespecial.htm?expid=1&active=12">
+                                <img src="/static/portal/930/images/conservice4.png"/>
+                            </a>
+                        </dt>
+                        <dd>
+                            <a target="_blank"
+                               href="http://114.215.19.137:8082/apscweb/quespecial/quespecial.htm?expid=1&active=12" name="onlineSurvey_a">问卷</a>
+                        </dd>
+                        
+                            
+                               
+                        
+                    </dl>
+                </div>
+            </li>
+            <li class="menu1list menu1list4">
+                <div class="listcon1">
+                    <a target="_blank" href="http://ysg.ckcest.cn/html/index.html"><img
+                            src="/static/portal/930/images/acade.png" class="lf"/></a>
+                    <h4 class="lf"><a target="_blank" href="http://ysg.ckcest.cn/html/index.html" name="academicianMuseum_tab">院士馆</a></h4>
+                </div>
+                <div class="adeBox">
+                    <ul>
+                        <li>
+                            <a target="_blank"
+                               href="http://ysg.ckcest.cn/cae/ysgDetailsAction.do?method=baseInfo&acInfoId=1961">
+                                <img src="/static/portal/930/images/acade1.png"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank"
+                               href="http://ysg.ckcest.cn/cae/ysgDetailsAction.do?method=baseInfo&acInfoId=1961">
+                                <img src="/static/portal/930/images/acade2.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li style="margin-right: 3px;">
+                            <a target="_blank" href="http://ysg.ckcest.cn/html/details/115/index.html">
+                                <img src="/static/portal/930/images/acade3.png"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank"
+                               href="http://ysg.ckcest.cn/cae/ysgDetailsAction.do?method=baseInfo&acInfoId=1804">
+                                <img src="/static/portal/930/images/acade4.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menu1list menu1list5">
+                <ul class="ml5Box">
+                    <li>
+                        <a target="_blank" href="http://ieid.cae.cn">
+                            <img src="/static/portal/930/images/IEID.png"/>
+
+                            <p name="internationalCongress_tab">
+                                国际会议
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://ydyl.ckcest.cn">
+                            <img src="/static/portal/930/images/yy.png"/>
+
+                            <p name="theBeltRoadInitiative_tab">
+                                一带一路
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://ki.ckcest.cn">
+                            <img src="/static/portal/930/images/CC.png"/>
+
+                            <p name="massEntrepreneurshipInnovation_tab">
+                                创新创业
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://expert.ckcest.cn">
+                            <img src="/static/portal/930/images/FE.png" style="margin-top: 25px;"/>
+
+                            <p name="chinaEETank_tab">
+                                专家库
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://139.129.194.27:5898/default?m=tide">
+                            <img src="/static/portal/930/images/tide.png" style="margin-top: 0;"/>
+
+                            <p name="tide_tab">
+                                潮汐
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+                <a class="moreWon" href="javascript:void(0);" style="display: none;">
+                    更多精彩
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    var aminer_json = '[{"siteId":"aminer","itemName":"CITATIONS","itemValue":"754201878"},{"siteId":"aminer","itemName":"CONCEPTS","itemValue":"8795084"},{"siteId":"aminer","itemName":"HOT_KEYWORDS","itemValue":[{"Keyword":"data mining","Url":"http://www.aminer.org/search?t=b&q=data mining"},{"Keyword":"machine learning","Url":"http://www.aminer.org/search?t=b&q=machine learning"},{"Keyword":"social network","Url":"http://www.aminer.org/search?t=b&q=social network"},{"Keyword":"deep learning","Url":"http://www.aminer.org/search?t=b&q=deep learning"},{"Keyword":"healthcare","Url":"http://www.aminer.org/search?t=b&q=healthcare"},{"Keyword":"organic light-emitting diodes","Url":"http://www.aminer.org/search?t=b&q=organic light-emitting diodes"},{"Keyword":"Tim Berners-Lee","Url":"http://www.aminer.org/profile/tim-berners-lee/5485f381dabfae9b40133a8b"},{"Keyword":"Jon Kleinberg","Url":"http://www.aminer.org/profile/jon-m-kleinberg/53f49f78dabfaec18e77c303"},{"Keyword":"Jiawei Han","Url":"http://www.aminer.org/profile/jiawei-han/53f42f36dabfaedce54dcd0c"},{"Keyword":"Geoffrey Hinton","Url":"http://www.aminer.org/profile/geoffrey-hinton/53f366a7dabfae4b3499c6fe"}]},{"siteId":"aminer","itemName":"PUBLICATIONS","itemValue":"232171962"},{"siteId":"aminer","itemName":"RESEARCHERS","itemValue":"127507595"}]';
+    $(function () {
+        var obj = eval(aminer_json);
+        var aminerbox = "";
+        var aminerkword = "";
+
+        for (var i = 0; i < obj.length; i++) {
+            var data = obj[i];
+            if (data.itemName.toUpperCase() == "HOT_KEYWORDS") {
+                for (var k = 0; k < data.itemValue.length; k++) {
+                    var url = data.itemValue[k];
+                    if(k==data.itemValue.length-1){
+                        aminerkword += "<a target='_blank' href='" + url.Url + "'>" + url.Keyword + " </a>";
+                    }else {
+                        aminerkword += "<a target='_blank' href='" + url.Url + "'>" + url.Keyword + ", </a>";
+                    }
+                }
+            }
+            else {
+                aminerbox += "<li style='width:93px;'><div>" + data.itemValue + "</div><div>" + data.itemName + "</div></li>";
+            }
+        }
+        $("#aminer-keywords-list").empty().append($(aminerkword));
+        $("#aminer-box-list").empty().append($(aminerbox));
+    })
+</script>
+
+    <!--正文第二部分 分中心-->
+    
+
+
+
+<div class="modular2 modular">
+    <div class="container">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <ul class="menu2">
+            <li class="menu2list1">
+                <div class="m2litop">
+                    <a target="_blank" href="http://mi.ckcest.cn" class="more2 rt" name="more2">
+                        更多
+                    </a>
+                    <h4 name="metallurgy_tab">冶金</h4>
+                </div>
+                <div class="m2libottom">
+                    <a target="_blank" href="http://mi.ckcest.cn">
+                        <img src="/static/portal/930/images/cimg1.png" class="mt5"/>
+                    </a>
+                </div>
+            </li>
+            <li class="menu2list2">
+                <div class="m2litop">
+                    <a target="_blank" href="http://envi.ckcest.cn/environment" class="more2 rt" name="more2">
+                        更多
+                    </a>
+                    <h4 name="environment_tab">环境工程</h4>
+                </div>
+                <div class="m2libottom m2libottom1 clearfix">
+                    <a target="_blank" href="http://envi.ckcest.cn/environment/eipsWeb">
+                        <img src="/static/portal/930/images/cimg2.png"/>
+                    </a>
+                </div>
+            </li>
+            <li class="menu2list3">
+                <div class="m2litop">
+                    <a target="_blank" href="http://agri.ckcest.cn" class="more2 rt" name="more2">
+                        更多
+                    </a>
+                    <h4 name="agricultural_tab">农业</h4>
+                </div>
+                <div class="m2libottom clearfix">
+                    <ul class="lf mt5">
+                        <li>
+                            <a target="_blank" href="http://yuqing.nais.net.cn/om/Index.action">
+                                <img src="/static/portal/930/images/cimg3.png"/>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="rt mt5">
+                        <li>
+                            <a target="_blank" href="http://agri.ckcest.cn/appcenter/proapp/1.html">
+                                <img src="/static/portal/930/images/cimg4.png"/>
+                            </a>
+                        </li>
+                        <li class="mt5">
+                            <a target="_blank" href="http://agri.ckcest.cn/economicstatistics.html">
+                                <img src="/static/portal/930/images/cimg5.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menu2list4">
+                <div class="m2litop">
+                    <a target="_blank" href="http://zcy.ckcest.cn/tcm" class="more2 rt" name="more2">
+                        更多
+                    </a>
+                    <h4 name="chineseHerbalMedicine_tab">中草药</h4>
+                </div>
+                <div class="m2libottom clearfix">
+                    <ul class="lf mt5">
+                        <li>
+                            <a target="_blank" href="http://zcy.ckcest.cn/tcm/auxiliary/home">
+                                <img src="/static/portal/930/images/cimg6.png"/>
+                            </a>
+                        </li>
+                        <li class="mt5">
+                            <a target="_blank" href="http://zcy.ckcest.cn/tcm/qaos/home">
+                                <img src="/static/portal/930/images/cimg7.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="rt mt5">
+                        <li>
+                            <a target="_blank" href="http://zcy.ckcest.cn/tcm/paper/home">
+                                <img src="/static/portal/930/images/cimg8.png"/>
+                            </a>
+                        </li>
+                        <li class="mt5">
+                            <a target="_blank" href="http://zcy.ckcest.cn/DocAssist/learning/read">
+                                <img src="/static/portal/930/images/cimg9.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="subCenterBox clearfix">
+            <li>
+                <a target="_blank" href="http://it.ckcest.cn/portal.php"
+                   accesslog="信息技术" name="informationTechnology_tab">
+                    信息技术
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://chem.ckcest.cn/" accesslog="化工" name="chemical_tab">
+                    化工
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://metal.ckcest.cn/" accesslog="金属材料" name="metalMaterial_tab">
+                    金属材料
+                </a>
+            </li>
+            <li>
+                
+                
+                
+                
+                <a target="_blank" href="http://mkc.ckcest.cn" accesslog="制造业" name="manufacturing_tab">
+                    制造业
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://geol.ckcest.cn/" accesslog="地质" name="geological_tab">
+                    地质
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://energy.ckcest.cn/home" accesslog="能源" name="energy_tab">
+                    能源
+                </a>
+            </li>
+            <li>
+                
+                
+                
+                <a target="_blank" href="http://meteor.ckcest.cn" accesslog="气象" name="meteorological_tab">
+                    气象
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://geo.ckcest.cn/" accesslog="地理资源与生态" name="geographyREKnowledge_tab">
+                    地理资源与生态
+                </a>
+                <i class="new"></i>
+            </li>
+            <li>
+                <a target="_blank" href="http://oce.ckcest.cn/" accesslog="海洋工程" name="ocean_tab">
+                    海洋工程
+                </a>
+            </li>
+            <li>
+                
+                
+                
+                <a target="_blank" href="http://forest.ckcest.cn" accesslog="林业" name="forestry_tab">
+                    林业
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://kmap.ckcest.cn/" accesslog="地理信息" name="geographicInformation_tab">
+                    地理信息
+                </a>
+                <i class="new"></i>
+            </li>
+            <li>
+                
+                
+                
+                <a target="_blank" href="http://med.ckcest.cn" accesslog="医药卫生" name="medicalKnowledge_tab">
+                    医药卫生
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://engineering.ckcest.cn/" accesslog="学术期刊" name="academicJournals_tab">
+                    学术期刊
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://dsgn.ckcest.cn/" accesslog="创新设计" name="innovationDesign_tab">
+                    创新设计
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://zx.ckcest.cn/Main/Default.aspx" accesslog="咨询研究"
+                   name="consultingResearch_tab">
+                    咨询研究
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://ebs.ckcest.cn/Engineering/index.jsp" accesslog="工程科教图书"
+                   name="engineeringSELibrary_tab">
+                    工程科教图书
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://sei.ckcest.cn/" accesslog="战略性新兴产业"
+                   name="strategicEmergingIndustry_tab">
+                    战略性新兴产业
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    /**
+     * 设置林业搜索链接跳转
+     * @param swName
+     */
+    function setSearchManufacturRul() {
+        //获取空气搜索text
+        var swSearchName = $("#txt_searchManufactur").val();
+        if (swSearchName != '') {
+            $("#txt_searchManufactur").attr("placeholder", swSearchName);
+            $("#a_searchManufactur").attr("href", "http://es.mkc.ckcest.cn/Tool/KeywordCloud?keyword=" + swSearchName);
+        } else {
+            $("#a_searchManufactur").attr("href", "http://es.mkc.ckcest.cn/Tool/KeywordCloud?keyword=人工智能");
+        }
+    }
+
+    /**
+     * 设置气象搜索链接跳转
+     * @param swName
+     */
+    function setSearchWeatherRul(typeName) {
+        //获取空气搜索text
+        var swSearchName = $("#txt_searchWeather").val();
+
+        switch (typeName) {
+            case 0:
+                if (swSearchName == "") {
+                    swSearchName = "大气科学";
+                }
+                $("#txt_searchWeather").attr("placeholder", "大气空气");
+                $("#a_searchWeather0").attr("href", "http://meteor.ckcest.cn/analysis/trend/?q=" + swSearchName);
+                break;
+            case 1:
+                var param = swSearchName.split(" ");
+                if (param <= 0) {
+                    $("#txt_searchWeather").attr("placeholder", "比较分析:至少输入2个词, 空格隔开！");
+                    $("#txt_searchWeather").focus();
+                } else {
+                    $("#txt_searchWeather").attr("placeholder", "大气空气");
+                    window.open("http://meteor.ckcest.cn/analysis/diff/?q=" + swSearchName);
+                }
+        }
+    }
+</script>
+    <!--正文第三部分 最新资讯-->
+    
+
+
+<script src="/scripts/portal/930/usersubtype.js" type="text/javascript"></script>
+<li id="apiurl"  style="display: none;">http://zl.ckcest.cn</li>
+<div class="modular3 modular">
+    <div class="container">
+        <!--左边-->
+        <div class="lf m3lf">
+            <div class="m3menuBox">
+                <div class="setBox rt">
+                    <a class="setIcon" title="订阅" href="javascript:void(0);"></a>
+                </div>
+                <div class="addBox clearfix">
+                    <div class="lf addBoxlf">
+                        <h6 class="channelTitle">
+                            已订阅领域
+                            <span style="color: #0093dd;" id="usrSelectHint">（最多只能订阅6个领域）</span>
+                        </h6>
+                        <span id="s_subscribedError" style="background-color: #0093dd;"></span>
+                        <ul id="ul_subscribedDiv" class="hasChannel clearfix">
+                            
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                        </ul>
+                    </div>
+                    <div class="rt addBoxrt">
+                        <h6 class="channelTitle">未订阅领域</h6>
+                        <ul id="ul_notSubscribedDiv" class="notChannel clearfix">
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+                <ul id="ul-user-tags" class="m3lful">
+                    
+                        
+                            
+                                
+                                    <li class="m3lfli2 boderBottom" typeId="1000" name="synthetical_tab"> 综合</li>
+                                
+                                
+                            
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1056" name="newsTab_1056">AI</li>
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1059" name="newsTab_1059">区块链</li>
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1005" name="newsTab_1005">医药生物</li>
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1002" name="newsTab_1002">信息技术</li>
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1006" name="newsTab_1006">能源</li>
+                            
+                        
+                    
+                        
+                            
+                            
+                                <li class="m3lfli2" typeId="1009" name="newsTab_1009">农业</li>
+                            
+                        
+                    
+                </ul>
+            </div>
+            <div class="m3lfBox" id="list-user-tags">
+                <!--业界-->
+                <div id="news-type-id-detail-1000" typeid="1000" class="m3lfBox1">
+                        <ul class="m3imgul1">
+                            
+                                <li class='m3lfimg405'>
+                                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b830161f5887ec219f2" newid="8a237e9961885b830161f5887ec219f2">
+                                        <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1520243141274.jpg"/>
+                                    </a>
+
+                                    <div class="zzc1 zzc">
+                                        <h4>
+                                                从2018年政府工作报告看中国科技
+                                        </h4>
+                                    </div>
+                                </li>
+                            
+                        </ul>
+                        <ul class="m3imgul2">
+                            
+                                <li class='m3lfimg200'>
+                                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd661094d6d0161275706810cdc" newid="8a237dd661094d6d0161275706810cdc">
+                                        <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1516786402077.jpg" />
+                                    </a>
+
+                                    <div class="zzc2 zzc">
+                                        <h6>
+                                                干勇院士：2050年氢能将形成10万亿元的产业规模
+                                        </h6>
+                                    </div>
+                                </li>
+                            
+                                <li class='m3lfimg200'>
+                                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9960df2ed10160e31fbd480395" newid="8a237e9960df2ed10160e31fbd480395">
+                                        <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1516786898162.jpg" />
+                                    </a>
+
+                                    <div class="zzc2 zzc">
+                                        <h6>
+                                                中国癌症大数据出来了！每年126万例癌症死亡本可避免…
+                                        </h6>
+                                    </div>
+                                </li>
+                            
+                        </ul>
+                        <ul class="m3imgul3">
+                            
+                                <li class='m3lfimg200'>
+                                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd660e322800160e33a69100018" newid="8a237dd660e322800160e33a69100018">
+                                        <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1516787229942.jpg" />
+                                    </a>
+
+                                    <div class="zzc2 zzc">
+                                        <h6>
+                                                无人机或成外卖新主力 利用北斗系统精确度提高
+                                        </h6>
+                                    </div>
+                                </li>
+                            
+                                <li class='m3lfimg200'>
+                                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd660e5840f0161088baa9a085e" newid="8a237dd660e5840f0161088baa9a085e">
+                                        <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1516788456532.jpg" />
+                                    </a>
+
+                                    <div class="zzc2 zzc">
+                                        <h6>
+                                                物联网学习干货：全面解析工业4.0和云计算、大数据
+                                        </h6>
+                                    </div>
+                                </li>
+                            
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <!--右边-->
+        <div class="rt m3rt">
+            <div class="m3rt1">
+                <a target="_blank"  href="portal/n/newslist?typeId=" class="rt more3" name="more2">
+                    更多
+                </a>
+                <h4 name="news_tab">最新资讯</h4>
+            </div>
+            <div id="user-tag-news-frist" class="m3rt2">
+                
+                    <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b8301625201e949432d" newsid="8a237e9961885b8301625201e949432d">
+                        
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1521794275822.jpg" class="lf" style="width: 120px;height: 120px;">
+                        
+                        
+                        <div class="lf" style="height: 120px;">
+                            <h5 class="title3">想忘的忘不了，该记的记不住？那是大脑趁你睡觉时“清内存”的结果</h5>
+
+                            <p class="subtitle3">电脑、手机用久了，“清内存”是常事。可你知道吗？“清内存”并不是电子产品的专属，大脑每天都在做。近日</p>
+                        </div>
+                    </a>
+                
+            </div>
+            <ul class="m3rt3">
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016251fb76f9432c" newsid="8a237e9961885b83016251fb76f9432c">
+                                睡前这样抬腿15分钟，全身气血都“通”了
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016251e1f18d4329" newsid="8a237e9961885b83016251e1f18d4329">
+                                行云运动与IPTChain泛娱链达成战略合作，IPT即将进入行云运动！
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd661881c54016251dee3a34c3b" newsid="8a237dd661881c54016251dee3a34c3b">
+                                拓扑链创始人焦光明：区块链技术将开辟游戏新天地
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016251dd66c44326" newsid="8a237e9961885b83016251dd66c44326">
+                                2018中英金融科技论坛：区块链将成为金融的核心底层技术
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b8301624c70fad74278" newsid="8a237e9961885b8301624c70fad74278">
+                                区块链行业的“全球网络人”-----Coin Plug 的尹浩成
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016251c159704323" newsid="8a237e9961885b83016251c159704323">
+                                18位医生联合发布“最不希望你做的一件事”
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd661881c54016251baf65a4c3a" newsid="8a237dd661881c54016251baf65a4c3a">
+                                健康中国建设渐入高潮
+                        </a>
+                    </li>
+                
+                    <li style="list-style: none;">
+                        <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016251b561104322" newsid="8a237e9961885b83016251b561104322">
+                                五谷杂粮对心肌缺血有好处么？
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+    <!--正文第四部分 全球智库,战略咨询报告-->
+    
+
+
+
+<div class="modular4 modular">
+    <script src="/scripts/portal/930/comunit.js" type="text/javascript"></script>
+    <div class="container">
+        <!--左边-->
+        <div class="lf m4lf">
+            <div class="m4lf1">
+                <a  target="_blank" href="/portal/n/thinktanklist?subjectId=" class="rt more2" name="more2">
+                    更多
+                </a>
+                <h4 name="globalThinktank_tab">
+                    全球智库
+                </h4>
+            </div>
+            <ul class="m4lf2_lf lf">
+                    
+                    
+                     
+                    <li>
+                        <a onclick="return false;" href="javascript:void(0);" title="Business & Economics" value="1039" class="boderBottom">
+                         Business & Economics
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                     
+                    
+                    <li>
+                        <a onclick="return false;" href="javascript:void(0);" title="Health" value="1040">
+                                Health
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                     
+                    
+                    <li>
+                        <a onclick="return false;" href="javascript:void(0);" title="Technology" value="1041">
+                                Technology
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                     
+                    
+                    <li>
+                        <a onclick="return false;" href="javascript:void(0);" title="Energy & Environment" value="1043">
+                                Energy & Environment
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                     
+                    
+                    <li>
+                        <a onclick="return false;" href="javascript:void(0);" title="Other" value="1042">
+                                Other
+                        </a>
+                    </li>
+                    
+                    
+                    
+            </ul>
+            <div class="m4lf2_rt lf">
+                <!--Health-->
+                <div>
+                    
+                    <ul class="thankBox">
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e1fee90093">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511417331489.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">Securitization in India: Managing Capital Constraints and Creating Liquidity to Fund Infrastructure Assets</dd>
+                                        <dd class="Tdd2">infrastructure,securitization,country’s,infrastructure investment</dd>
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e1f70d0074">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511684557201.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">Lao PDR: Accelerating Structural Transformation for Inclusive Growth - Country Diagnostic Study</dd>
+                                        <dd class="Tdd2">production,comprehensive analysis,diagnostic</dd>
+                                        
+                                            <dd class="Tdd3">20171110</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                
+                <div style="display: none;">
+                    
+                    <ul class="thankBox">
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e2027d00a0">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511610442398.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">Artificial Intelligence: A Policy-Oriented Introduction</dd>
+                                        <dd class="Tdd2">integration,Recognizing,Technological,technology,incorporating</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e202bf00a1">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511610780387.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">Zoonotic Diseases and the Possibilities with EBV Monitoring</dd>
+                                        <dd class="Tdd2">wildlife environments,pursuit,influenza,Commons Because,Charles Schwabe</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                
+                <div style="display: none;">
+                    
+                    <ul class="thankBox">
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=ff80808160b4c6ed0160b4c78e45003a">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1518154107902.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">云上转型报告：第四次计算革命孕育“数字经济体”</dd>
+                                        <dd class="Tdd2">报告,数字经济体,计算机革命</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171221</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=ff80808160b4c6ed0160b4c78fed003b">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1518154619502.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">世行专家：农村淘宝创造新就业 超过1/3是女性</dd>
+                                        <dd class="Tdd2">观点,淘宝村,世界银行</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171219</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <!--Business&Echnomics-->
+                <div style="display: none;">
+                    
+                    <ul class="thankBox">
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e1fa3b0081">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511412813823.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">Major U.S. Businesses Have Pledged to Act on Climate. Here's What That Looks Like.</dd>
+                                        <dd class="Tdd2">their,companies,emissions,energy,they</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e1fa1d0080">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511681045308.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">23 Terms to Know at COP23</dd>
+                                        <dd class="Tdd2">cop23</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171113</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <!--Energy&Environment-->
+                <div style="display: none;">
+                    <ul class="thankBox">
+                        
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e1f89f007a">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511355775034.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">There are no global solutions in education</dd>
+                                        <dd class="Tdd2">Educational,Accountability,Assessors,indicators ,Mauritania</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a  target="_blank" href="/portal/n/thinktankdetails?tankId=8a237dd65fe1640a015fe1e2039a00a4">
+                                    <dl class="clearfix">
+                                        
+                                            <dt class="lf"><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1511611036641.png" class="TankImg"/></dt>
+                                        
+                                        
+                                        <dd class="Tdd1">A Comparative Study: The Approach to Critical Infrastructure Protection in the U.S., E.U., and China</dd>
+                                        <dd class="Tdd2">technological innovation,Directive,addressing CIP-related,Infrastructure Protection,Infrastructure Security</dd>
+                                        
+                                        
+                                            <dd class="Tdd3">20171114</dd>
+                                        
+                                    </dl>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--右边-->
+        <div class="rt m4rt">
+            <div class="m4lf1">
+                <a target="_blank" href="portal/n/strategysub?years=2018" class="rt more2" name="more2">
+                    更多
+                </a>
+                <h4 name="strategicReport_tab">
+                    战略咨询报告
+                </h4>
+            </div>
+            <ul id="articles-tag-list" class="m4rt2">
+                
+                    
+                        
+                            <li class="boderBottom" title="设计竞争力研究" typeId="1027">设计竞争力研究</li>
+                        
+                        
+                    
+                
+                    
+                        
+                        
+                            <li title="我国再制造产业发展战略研究" typeId="1102">我国再制造产业发展战略研究</li>
+                        
+                    
+                
+                    
+                        
+                        
+                            <li title="重大慢性非传染性疾病防治的国际对比研究" typeId="1073">重大慢性非传染性疾病防治的国际对比研究</li>
+                        
+                    
+                
+                    
+                        
+                        
+                            <li title="养殖业十三五规划战略研究" typeId="1118">养殖业十三五规划战略研究</li>
+                        
+                    
+                
+            </ul>
+            <div id="articles-ul-list" class="m4rt3">
+                <ul id="articles-list-1027">
+                    
+                    
+                        <li>
+                            <a target="_blank" href="/portal/n/strategydetail?articleId=8a7ba1975e46b18a015e4b0698510021">
+                                    创新设计竞争力战略研究
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a target="_blank" href="/portal/n/strategydetail?articleId=8a7ba1975e46b18a015e4b080f660022">
+                                    城市设计竞争力评价体系研究
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a target="_blank" href="/portal/n/strategydetail?articleId=8a7ba1975e46b18a015e4aec43e90013">
+                                    设计的进化与价值
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    var year;
+    $(function () {
+        //左
+        $(".m4lf2_lf li").each(function(i){
+            $(".m4lf2_lf li").eq(i).hover(function(){
+                $index=$(this).index();
+                $(this).find("a").addClass("boderBottom").parent().siblings().find("a").removeClass("boderBottom");
+                $(".m4lf2_rt>div").eq($index).css("display","block").siblings().css("display","none");
+            })
+        });
+
+        //右
+        $("#articles-tag-list li").click(function () {
+            $(this).addClass("boderBottom").siblings().removeClass("boderBottom");
+
+            var typeId = $(this).attr("typeId");
+            var id = "articles-list-" + typeId;
+
+            $("#articles-ul-list ul").hide();
+            var ul = $("#" + id);
+            if (ul != null && ul.length == 1) {
+                ul.show();
+            }
+            else {
+                queryArticlesList(typeId);
+            }
+        });
+    });
+
+    function queryArticlesList(typeId) {
+        $.ajax({
+            url: cekasp.baseUrl + "/portal/n/queryarticlelist",
+            data: {subjectid: typeId},
+            success: function (result) {
+                queryArticlesListHtml(result, typeId);
+            }
+        });
+    }
+
+    function queryArticlesListHtml(result, typeId) {
+        var content = "<ul id='articles-list-" + typeId + "' typeid='" + typeId + "' class='m3lfBox1' >";
+        if (result == null || result == null || result.length == 0) {
+//            content += "<li>无数据</li>";
+            content+='<div class="errorBox"> <img src="/static/portal/930/images/error.png" class="errorImg"> <p class="errorTip">sorry,您访问的数据不存在！</p> </div>';
+        }
+        else {
+            for (var i = 0; i < result.length; i++) {
+                var data = result[i];
+                content += "<li>";
+                content += "<a target='_blank' href='/portal/n/strategydetail?articleId="+data.newsId+"' newsid='" + data.newsId + "'>" + data.title + "</a>";
+                content += "</li>"
+            }
+        }
+        content += "</ul>"
+
+        var $div = $(content);
+        $("#articles-ul-list").append($div);
+    }
+</script>
+    <!--正文第五部分 精选期刊-->
+    
+
+
+<div class="modular5 modular ">
+    <div class="container">
+        <div class="m61 clearfix">
+            <h4 class="m6title lf topJournal" name="topJournals_tab">
+                精选期刊
+            </h4>
+            <a target="_blank" href="/portal/n/journalbooks" class="rt more2">
+                更多
+            </a>
+        </div>
+        <ul class="journalBox clearfix">
+            
+                
+                
+                
+                    <li>
+                        <a  target="_blank" href="/portal/n/journalsub?journalId=297e8f7e5ee05347015ee053632d0000&journalName=Science">
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1507015676074.png"/>
+                        </a>
+                    </li>
+                
+                
+            
+                
+                
+                
+                    <li>
+                        <a  target="_blank" href="/portal/n/journalsub?journalId=32dff4eab17911e7adee7cd30abda8a0&journalName=Nature">
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1508055719686.jpg"/>
+                        </a>
+                    </li>
+                
+                
+            
+                
+                
+                
+                    <li>
+                        <a  target="_blank" href="/portal/n/journalsub?journalId=392a1c3db18511e7adee7cd30abda8a0&journalName=Cell">
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1508064051885.jpg"/>
+                        </a>
+                    </li>
+                
+                
+            
+                
+                
+                
+                    <li>
+                        <a  target="_blank" href="/portal/n/journalsub?journalId=8a7ba1975e40f2c9015e412e57780000&journalName=Engineering">
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1504331876134.jpg"/>
+                        </a>
+                    </li>
+                
+                
+            
+                
+                
+                    <li style="margin-right: 0;">
+                        <a  target="_blank" href="/portal/n/journalsub?journalId=8a7ba1975e40f2c9015e413258970001&journalName=中国工程科学">
+                            <img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1504332258349.jpg"/>
+                        </a>
+                    </li>
+                
+                
+                
+            
+            
+        </ul>
+    </div>
+</div>
+    <!--正文第六部分 数据资源-->
+    
+
+
+<div class="modular6 modular">
+  <div class="container">
+    <div class="m61">
+      <a target="_blank" href="/dsp/resource/details/resourcelist" class="rt more2" name="more2">
+        更多
+      </a>
+      <h4 class="m6title" name="dataResources_tab">
+        数据资源
+      </h4>
+    </div>
+    <ul class="m62">
+      <li>
+        <a href="javascript:void(0);">
+          <img src="/static/portal/930/images/usual1.png"/>
+
+          <p>气象数据</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0);">
+          <img src="/static/portal/930/images/usual2.png"/>
+
+          <p>农业数据</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0);">
+          <img src="/static/portal/930/images/usual3.png"/>
+
+          <p>地理数据</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0);">
+          <img src="/static/portal/930/images/usual4.png"/>
+
+          <p>环境数据</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0);">
+          <img src="/static/portal/930/images/usual5.png"/>
+
+          <p>林业数据</p>
+        </a>
+      </li>
+    </ul>
+    <div class="m63Box">
+      <!--气象数据-->
+      <div class="m63">
+        <div class="sj"></div>
+        <ul class="m63ul">
+          <li>
+            <img src="/static/portal/930/images/m61-1.png"/>
+            <p class="m63Boxlip">中国五百年旱涝等级数据集</p>
+            <a target="_blank" href="http://meteor.ckcest.cn/resources/detail/data/data-110" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m61-2.png"/>
+            <p class="m63Boxlip">中国暴雨洪涝灾害数据集</p>
+            <a target="_blank" href="http://meteor.ckcest.cn/resources/detail/data/data-103" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m61-3.png"/>
+            <p class="m63Boxlip">T639全球中期天气数值预报系统模式产品</p>
+            <a  target="_blank" href="http://meteor.ckcest.cn/resources/detail/data/data-2" class="scanData">
+              查看数据
+            </a>
+          </li>
+        </ul>
+        <p><a target="_blank" href="http://meteor.ckcest.cn/resources/search/data">数据资源来源于气象分中心</a></p>
+      </div>
+      <!--农业数据-->
+      <div class="m63">
+        <div class="sj"></div>
+        <ul class="m63ul">
+          <li>
+            <img src="/static/portal/930/images/m62-1.png"/>
+            <p class="m63Boxlip">湖泊资源与生态特征数据</p>
+            <a target="_blank" href="http://agri.ckcest.cn/specialtyresources/scientificinfo/detail/1/13051.html" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m62-2.png"/>
+            <p class="m63Boxlip">水库资源与生态特征数据</p>
+            <a target="_blank" href="http://agri.ckcest.cn/specialtyresources/scientificinfo/detail/1/13052.html" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m62-3.png"/>
+            <p class="m63Boxlip">河流资源与生态特征数据</p>
+            <a target="_blank" href="http://agri.ckcest.cn/specialtyresources/scientificinfo/detail/1/13053.html" class="scanData">
+              查看数据
+            </a>
+          </li>
+        </ul>
+        <p><a target="_blank" href="http://agri.ckcest.cn/specialtyresources/list7-1.html">数据资源来源于农业分中心</a></p>
+      </div>
+      <!--地理数据-->
+      <div class="m63">
+        <div class="sj"></div>
+        <ul class="m63ul">
+          <li>
+            <img src="/static/portal/930/images/m63-1.png"/>
+            <p class="m63Boxlip">甘肃省1km栅格土地利用未利用地类型数据</p>
+            <a target="_blank" href="http://geo.ckcest.cn/scientific/data/datadetails.html?dataguid=1888947&docid=3718" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m63-2.png"/>
+            <p class="m63Boxlip">中国1：400万土地利用图</p>
+            <a target="_blank" href="http://geo.ckcest.cn/scientific/data/datadetails.html?dataguid=4236345&docid=3352" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m63-3.png"/>
+            <p class="m63Boxlip">俄罗斯自然资源数据集</p>
+            <a target="_blank" href="http://geo.ckcest.cn/scientific/data/datadetails.html?dataguid=4441522&docid=946" class="scanData">
+              查看数据
+            </a>
+          </li>
+        </ul>
+        <p><a target="_blank" href="http://geo.ckcest.cn/scientific/Dataindex/">数据资源来源于地理分中心</a></p>
+      </div>
+      <!--环境数据-->
+      <div class="m63">
+        <div class="sj"></div>
+        <ul class="m63ul">
+          <li>
+            <img src="/static/portal/930/images/m64-1.png"/>
+            <p class="m63Boxlip">全国重点城市空气质量状况统计</p>
+            <a target="_blank" href="http://envi.ckcest.cn/environment/data_Integration/data_Integration.jsp" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m64-2.png"/>
+            <p class="m63Boxlip">全国地表水水质月报</p>
+            <a target="_blank" href="http://envi.ckcest.cn/environment/data_Integration/data_Integration.jsp" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m64-3.png"/>
+            <p class="m63Boxlip">全国大江大河实时水情</p>
+            <a target="_blank" href="http://envi.ckcest.cn/environment/data_Integration/data_Integration.jsp" class="scanData">
+              查看数据
+            </a>
+          </li>
+        </ul>
+        <p><a target="_blank" href="http://envi.ckcest.cn/environment/data_Integration/data_Integration.jsp">数据资源来源于环境分中心</a></p>
+      </div>
+      <!--林业数据-->
+      <div class="m63">
+        <div class="sj"></div>
+        <ul class="m63ul">
+          <li>
+            <img src="/static/portal/930/images/m65-1.png"/>
+            <p class="m63Boxlip">中国林产品贸易</p>
+            <a target="_blank" href="http://forest.ckcest.cn/lyzs/search/searchAction!detailSearch_open.action?label=sjzy&id=AV3ohufyUatYeX86qSFR&filename=hgsj1.pdf1507603284297" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m65-2.png"/>
+            <p class="m63Boxlip">中国石漠化数据</p>
+            <a target="_blank" href="http://forest.ckcest.cn/lyzs/search/searchAction!detailSearch_open.action?label=sjzy&id=AV3ohufyUatYeX86qSFf&filename=zgsmh1.pdf1508663440233" class="scanData">
+              查看数据
+            </a>
+          </li>
+          <li>
+            <img src="/static/portal/930/images/m65-3.png"/>
+            <p class="m63Boxlip">中国大熊猫数据</p>
+            <a target="_blank" href="http://forest.ckcest.cn/lyzs/search/searchAction!detailSearch_open.action?label=sjzy&id=AV3ohufyUatYeX86qSFg&filename=panda1.pdf1507603446772" class="scanData">
+              查看数据
+            </a>
+          </li>
+        </ul>
+        <p><a target="_blank" href="http://forest.ckcest.cn/lyzs/search/searchAction!list.action?label=sjzy">数据资源来源于林业分中心</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--正文第七部分 热点应用-->
+    <div class="modular7 modular">
+        <div class="container">
+            <div class="m71">
+                <a target="_blank" href="http://www.ckcest.cn/dsp/app/details/applist" class="rt more2" name="more2">
+                    更多
+                </a>
+                <h4 class="m7title" name="hotApplications_tab">
+                    热点应用
+                </h4>
+            </div>
+            <div class="layout layout-grid-0">
+                <!--row -->
+                <div class="grid-0">
+                    <!-- col -->
+                    <div class="col col-main">
+                        <div class="main-wrap J_Region">
+                            <!--module -->
+                            <div id="guid-414692" class="ckcest J_Module">
+                                <div class="module-wrap J_tb_lazyload dbl_tms_module_wrap">
+                                    <div class="slide-container y-row" id="slide-container" style="height: 348px;">
+                                        <div class="slide-body" id="slide-body" style="height: 348px;">
+                                            <ul class="slide-content" id="slide-content" style="width: 1200px; left:0;">
+                                                <li class="slide-item" data-code="ecommerce"
+                                                    style="width: 240px; height: 348px;">
+                                                    <a href="http://www.ckcest.cn/dsp/app/details/getappInfo?serviceId=8a21383254e18edb015708e41cec121b&serviceVersionId=8a21383254e18edb015708eae48f121c"
+                                                       target="_blank" style="display:block;">
+                                                        <img class="item-bg"
+                                                             src="http://www.ckcest.cn/static/portal/930/images/m71.png" alt="">
+                                                        <div class="mask">
+                                                            <div class="bg "></div>
+                                                            <div class="content">
+                                                                <div class="item-img-panel" style="height: 72px;">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon1@2x.png"
+                                                                         alt="" class="item-img">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon1@2x.png"
+                                                                         alt="" class="item-img-hover">
+                                                                </div>
+                                                                <p class="line-panel">
+                                                                    <i class="item-line"></i>
+                                                                </p>
+                                                                <h3 class="item-title">中国大百科</h3>
+                                                                <p class="item-desc">
+                                                                    为用户提供最好中文百科全书数据库产品,根据用户要求不断提升改进产品内容、功能...
+                                                                </p>
+                                                                <span class="item-link">查看详情</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="slide-item" data-code="app"
+                                                    style="width: 240px; height: 348px;">
+                                                    <a href="http://agri.ckcest.cn/specialtyresources/list1-1.html"
+                                                       target="_blank" style="display:block;">
+                                                        <img class="item-bg"
+                                                             src="http://www.ckcest.cn/static/portal/930/images/m72.png" alt="">
+                                                        <div class="mask">
+                                                            <div class="bg"></div>
+                                                            <div class="content">
+                                                                <div class="item-img-panel" style="height: 72px;">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon2@2x.png"
+                                                                         alt="" class="item-img">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon2@2x.png"
+                                                                         alt="" class="item-img-hover">
+                                                                </div>
+                                                                <p class="line-panel">
+                                                                    <i class="item-line"></i>
+                                                                </p>
+                                                                <h3 class="item-title">农业特色资源</h3>
+                                                                <p class="item-desc">
+                                                                    实现对FAO宏观经济统计、农业资源区划、畜禽饲料与遗传参数数据的检索、查看、分析和下载。
+                                                                </p>
+                                                                <span class="item-link">查看详情</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="slide-item" data-code="inance"
+                                                    style="width: 240px; height: 348px;">
+                                                    <a href="http://120.55.82.39:8080/map.html" target="_blank"
+                                                       style="display:block;">
+                                                        <img class="item-bg"
+                                                             src="http://www.ckcest.cn/static/portal/930/images/m73.png" alt="">
+                                                        <div class="mask">
+                                                            <div class="bg "></div>
+                                                            <div class="content">
+                                                                <div class="item-img-panel" style="height: 72px;">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon3@2x.png"
+                                                                         alt="" class="item-img">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon3@2x.png"
+                                                                         alt="" class="item-img-hover">
+                                                                </div>
+                                                                <p class="line-panel">
+                                                                    <i class="item-line"></i>
+                                                                </p>
+                                                                <h3 class="item-title">产品图谱</h3>
+                                                                <p class="item-desc">
+                                                                    用于分析商品分布图、商品关注度图谱，品牌数据，品牌关联图谱，持续更新中...
+                                                                </p>
+                                                                <span class="item-link">查看详情</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="slide-item" data-code="game"
+                                                    style="width: 240px; height: 348px;">
+                                                    <a href="http://gis.energy.ckcest.cn" target="_blank"
+                                                       style="display:block;">
+                                                        <img class="item-bg"
+                                                             src="http://www.ckcest.cn/static/portal/930/images/m75.png" alt="">
+                                                        <div class="mask">
+                                                            <div class="bg"></div>
+                                                            <div class="content">
+                                                                <div class="item-img-panel" style="height: 72px;">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon4@2x.png"
+                                                                         alt="" class="item-img">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon4@2x.png"
+                                                                         alt="" class="item-img-hover">
+                                                                </div>
+                                                                <p class="line-panel">
+                                                                    <i class="item-line"></i>
+                                                                </p>
+                                                                <h3 class="item-title">EnergGIS</h3>
+                                                                <p class="item-desc">
+                                                                    致力于汇聚详尽能源数据，为中国能源产业发展提供支持，通过能源GIS数据库,直观呈现中国能源分布情况。
+                                                                </p>
+                                                                <span class="item-link">查看详情</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="slide-item" data-code="healthcare"
+                                                    style="width: 240px; height: 348px;">
+                                                    <a href="http://www.ckcest.cn/dsp/app/details/getappInfo?serviceId=8a2138324e4de44c014ea0d42aa90023&serviceVersionId=8a2135df4f72ef50014f9df2be2a0082"
+                                                       target="_blank" style="display:block;">
+                                                        <img class="item-bg"
+                                                             src="http://www.ckcest.cn/static/portal/930/images/m74.png" alt="">
+                                                        <div class="mask">
+                                                            <div class="bg "></div>
+                                                            <div class="content">
+                                                                <div class="item-img-panel" style="height: 72px;">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon5@2x.png"
+                                                                         alt="" class="item-img">
+                                                                    <img src="http://www.ckcest.cn/static/portal/930/images/icon5@2x.png"
+                                                                         alt="" class="item-img-hover">
+                                                                </div>
+                                                                <p class="line-panel">
+                                                                    <i class="item-line"></i>
+                                                                </p>
+                                                                <h3 class="item-title">经方拾遗</h3>
+                                                                <p class="item-desc">
+                                                                    提供经方获取、经方分析服务，挖掘出经方之间的关系，提供经方查询服务，能够多角度地进行经方获取。
+                                                                </p>
+                                                                <span class="item-link">查看详情</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!--module -->
+                        </div>
+                    </div>
+                    <!--col -->
+                </div>
+                <!-- row -->
+            </div>
+        </div>
+    </div>
+    <!--正文第八部分-->
+    
+
+<div class="modular8 modular">
+  <div class="container">
+    <div class="m61 clearfix">
+      <h4 class="m6title lf" name="dynamics_tab">
+        知识中心动态
+      </h4>
+      <a target="_blank" class="rt more2" href="/portal/n/newslist?rulState=1" name="more2">
+        更多
+      </a>
+    </div>
+    <ul class="m8list clearfix">
+      
+        
+          <li >
+        
+        
+          <a target="_blank" href="/portal/n/newsdetail?newId=8a237e9961885b83016208d60aec3124">
+            <dl>
+                
+                <dt><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1520566661858.png"/></dt>
+                
+                
+              
+              <dd>【直播入口】《地球深部挥发物与能源环境》高端论坛将上海召开</dd>
+            </dl>
+          </a>
+        </li>
+      
+        
+          <li >
+        
+        
+          <a target="_blank" href="/portal/n/newsdetail?newId=8a237e99616a48e901616e444a9c0030">
+            <dl>
+                
+                <dt><img src="http://zl.cekasp.cn/8a049826458236b20145881f237d0005/picture_1517973419125.jpg"/></dt>
+                
+                
+              
+              <dd>人工智能检测细胞年龄</dd>
+            </dl>
+          </a>
+        </li>
+      
+        
+          <li >
+        
+        
+          <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd6616a4c0301616b0f22ff0011">
+            <dl>
+                
+                <dt><img src="http://zl.cekasp.cn/b183d6c2533c46e5a01a6a407aee1281/picture_1517919546918.png"/></dt>
+                
+                
+              
+              <dd>刘延东副总理调研中国工程院</dd>
+            </dl>
+          </a>
+        </li>
+      
+        
+        
+          <li  style="margin-right: 0;">
+        
+          <a target="_blank" href="/portal/n/newsdetail?newId=8a237dd661094d6d0161274f3d800cdb">
+            <dl>
+                
+                <dt><img src="http://zl.cekasp.cn/b183d6c2533c46e5a01a6a407aee1281/picture_1516782934402.png"/></dt>
+                
+                
+              
+              <dd>喜讯！又一本被SCI收录，中国工程院院刊“1+9”系列期刊已被收SCI录7本</dd>
+            </dl>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</div>
+<!--介绍视频---->
+<div class="modular9 mt10">
+    <div class="container">
+        <a href="javascript:void(0);" onclick="openIntro()">
+            <img src="http://www.ckcest.cn/static/portal/930/images/vedio9@2x.png" style="width: 1200px;height: 75px;">
+        </a>
+    </div>
+</div>
+<!--友情链接-->
+<div class="mt15 mb15">
+    <div class="container pt30 pb30 dropdown bgfff">
+        <ul class="linklist clearfix">
+            <li class="ml50">
+                <label class="linktitle"></label>
+            </li>
+            <li class="ml50">
+                <a target="_blank" href="http://www.ikcest.org" class="mr15 linkbtn" style="border:0px;"><img
+                        src="http://www.ckcest.cn/static/portal/images/link1.png"></a>
+            </li>
+            <li class="ml50">
+                <a target="_blank" href="http://www.cae.cn" class="mr15 linkbtn" style="border:0px;"><img
+                        src="http://www.ckcest.cn/static/portal/images/link2.png"></a>
+            </li>
+            <li class="ml50">
+                <a target="_blank" href="http://www.inspur.com/" class="mr15 linkbtn" style="border:0px;"><img
+                        src="http://www.ckcest.cn/static/portal/images/link9.png"></a>
+            </li>
+            <li style="display: none;">
+                <a target="_blank" href="http://elibrary.chinesecio.com/" class="mr15 linkbtn" style="border:0px;"><img
+                        src="http://www.ckcest.cn/static/portal/images/link3.png"></a>
+            </li>
+            <li style="display: none;">
+                <a target="_blank" href="https://www.tdata.cn/" class="mr15 linkbtn" style="border:0px;"><img
+                        src="http://www.ckcest.cn/static/portal/images/link10.png"></a>
+            </li>
+            <li class="dropdown pull-right" style="display: none;">
+                <a class="dropdown-toggle morelinkbtn" id="dLabel" role="button" data-toggle="dropdown" data-target="#"
+                   href="/page.html">
+                    其他友情链接
+                    <b class="caret"></b>
+                </a>
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" style="display: none; width: auto;" tabindex="-1" id="myLargeModal"
+     role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-button-my"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myLabel">知识中心介绍</h4>
+            </div>
+            <div class="modal-body" id="intro_panel">
+                <!--<script src="http://pub.smvp.cn/publishing/smvp.js?publisherId=596962705729691926&playerId=596962705729691943&videoId=732307939934622566&width=640&height=360"
+                        language="javascript" charset="utf-8"></script>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 友情链接-e -->
+<!-- 底部-s -->
+<div class="footbox">
+    <div class="container clearfix">
+        <div class="pull-left"><span name="copyright">© 2012 CKCEST ICP备案号:京ICP备14021735号-2</span></div>
+        <div class="pull-right"><span name="technicalSupport">技术支持：浪潮集团有限公司</span> <a href="/default/legalNotices"
+                                                                                      class="" name="legalStatement">法律声明</a>|<a
+                href="/serviceSupport" name="contactUs">联系我们</a>|<a href="/aboutUs/SubcenterMenu"
+                                                                    name="aboutUs">关于我们</a></div>
+    </div>
+</div>
+<!--二维码固定-->
+<div class="code">
+    <div class="code1">
+        <img src="http://www.ckcest.cn/static/portal/930/images/ckcestapp.png"/>
+        <p name="app">知领App</p>
+    </div>
+    <div class="code2">
+        <img src="http://www.ckcest.cn/static/portal/930/images/ckcestwx.png"/>
+        <p name="wechat">微信公众号</p>
+    </div>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?789fd650fa0be6a2a064d019d890b87f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+</script>
+<script type="text/javascript">
+    //    function browserRedirect() {
+    //        var sUserAgent = navigator.userAgent.toLowerCase();
+    //        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    //        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    //        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    //        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    //        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    //        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    //        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    //        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    //
+    //        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    ////            $("body").css("width", "1206px");
+    //            $(".layerbox").css("width", "1206px");
+    //
+    //            $("body").css({"width":"1206px","zoom": ($(window).width() / (1206))});
+    //        } else {
+    //            $("body").css("width", "100%");
+    //        }
+    //    }
+    //    window.onresize = function () {
+    //        browserRedirect();
+    //    }
+    //    browserRedirect();
+
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+
+            document.body.style.width = "1206px";
+            $("body").css({zoom: ($(window).width() / (1206))});
+            //春节添加，撤销需要删除
+//            $("#bgcj_div").addClass("bgcj_phone");
+
+        } else {
+            document.body.style.width = "100%";
+        }
+    }
+    window.onresize = function () {
+        browserRedirect();
+    }
+    browserRedirect();
+</script>
+<script src="http://www.ckcest.cn/scripts/portal/commonlog.js" type="text/javascript"></script>
+
+</body>
+</html>

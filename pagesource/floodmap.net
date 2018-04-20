@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="Flood Map shows the map of the area which could get flooded if the water level rises to a particular elevation. It may help flood risk assessment or flood management. Sea level rise map."/>
+<meta name="keywords" content="flood map, flood water level, elevation map, floodplain map, sea level rise"/>
+<link rel="image_src" href="img/preview.png" /> 
+<link rel="stylesheet" type="text/css" href="floodmap.css" media="screen"/>
+<title>Flood Map: Water Level Elevation Map</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAKRJh_gQBZY76ypMFSx0h4aCjQ_ACJre8"></script>
+<script type="text/javascript" src="polygon.js"></script>
+<script type="text/javascript" src="showcities.js"></script>
+<script type="text/javascript" >
+    var elev,resultElevation=0;
+    var floodOptions = {
+        getTileUrl: function(coord, zoom) {
+        //document.getElementById("elev").value=polyCount;  
+            return "getTile.aspx?" +
+            //return "http://174.36.227.69/getTile.aspx?" +
+    "zoom=" + zoom + "&x=" + coord.x + "&y=" + coord.y + "&elev=" + elev + "&poly=" + polyCount;
+        },
+        tileSize: new google.maps.Size(256, 256),
+        opacity: 0.5,
+        isPng: true
+    };
+
+    var floodMapType = new google.maps.ImageMapType(floodOptions);
+    var locationid,initZoom,center;
+    var map, marker, infowindow, latlng, elevator;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var lat,lng;
+        
+        var myOptions = {
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDoubleClickZoom:true
+        }
+        
+		if (navigator.geolocation) {
+        		navigator.geolocation.getCurrentPosition(
+			function(position) {
+    			lat=position.coords.latitude;
+            		lng=position.coords.longitude;
+            		initZoom=12;
+            		latlng = new google.maps.LatLng(lat,lng);
+			drawMap();
+  			},
+			function(){
+			lat=20;
+            		lng=-10;
+            		initZoom=3;
+            		latlng = new google.maps.LatLng(lat,lng);
+			drawMap();});
+    		} 
+		else {
+        		lat=20;
+            		lng=-10;
+            		initZoom=3;
+            		latlng = new google.maps.LatLng(lat,lng);
+			drawMap();
+    		}
+		
+            
+        
+function drawMap()
+{
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        elevator = new google.maps.ElevationService(); ;
+        if(initZoom<0||initZoom>21)
+            initZoom=12;
+        map.setZoom(initZoom);
+        map.setCenter(latlng);
+        infowindow = new google.maps.InfoWindow({ maxWidth: 200 }); 
+        marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            codeLatLng(marker.getPosition());
+        });
+        elev = document.getElementById("elev").value;
+        
+        document.getElementById("curElev").innerHTML = elev;
+        initPoly();
+        google.maps.event.addListener(map, 'rightclick', function(event) {
+            codeLatLng(event.latLng);
+        }
+        );
+        google.maps.event.addListener(map, 'bounds_changed', function(event) {
+            updateLink();
+        }
+        );
+        
+            codeLatLng(marker.getPosition(),true);
+        
+    }
+}
+    var elevFlag;
+    function setElev(elevS, flag) {
+        elevFlag = flag;
+        if(isNaN(elevS))
+        {
+            alert("Please enter only numeric value!");
+            return;
+        }
+        elevS=Math.round(elevS); 
+        if (elevS < 0 || elevS > 800)
+        {
+            alert("Water level should be from 0 to 800 meters only!");
+            return;
+        }
+        
+        document.getElementById("elev").value = elevS;
+        elev = elevS;
+        updateLink();
+        infowindow.close();
+        hideCities();
+        refresh();
+    }
+
+    function refresh() {
+        map.overlayMapTypes.setAt(0, floodMapType);
+        document.getElementById("curElev").innerHTML = elev; 
+    }
+
+    function codeAddress(address) {
+        geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            
+                var latlng = results[0].geometry.location;
+                map.setZoom(11);
+                map.panTo(latlng);
+                var name = document.getElementById("myinput").value;
+                marker.setPosition(latlng);
+                
+                var locations = [];
+                locations.push(latlng);
+                var positionalRequest = {
+                    'locations': locations
+                }
+                elevator.getElevationForLocations(positionalRequest, function(results, status) {
+                    if (status == google.maps.ElevationStatus.OK) {
+                        // Retrieve the first result
+
+                        var elevContent = '';
+                        if (results[0]) {
+                            elevContent = getElevContent(results[0]);
+                        }
+                        var content;
+                        content = "<h1>" + name + "</h1>" + "<p>" + elevContent + "</p>";
+
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+
+                    }
+                });
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+
+    function codeLatLng(latlng,setEl) {
+        geocoder.geocode({ 'latLng': latlng }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                //if (pan) {
+                //    map.setZoom(11);
+                //    map.panTo(latlng);
+                //}
+
+                var name;
+                if (results[1])
+                    name = results[1].formatted_address;
+                else
+                    name = "";
+                marker.setPosition(latlng);
+
+                var locations = [];
+                locations.push(latlng);
+                var positionalRequest = {
+                    'locations': locations
+                }
+                elevator.getElevationForLocations(positionalRequest, function(results, status) {
+                    if (status == google.maps.ElevationStatus.OK) {
+                        // Retrieve the first result
+
+                        var elevContent = '';
+                        if (results[0]) {
+                            elevContent = getElevContent(results[0]);
+                        }
+                        var content;
+                        content = "<h1>" + name + "</h1>" + "<p>" + elevContent + "</p>";
+
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+
+                        if (setEl) {
+                            if (resultElevation > 5 && resultElevation <= 800)
+                                setElev(resultElevation - 5);
+                            else if (resultElevation > 800)
+                                setElev(800);
+                            else
+                                setElev(0);
+                        }
+                    }
+                });
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+  </script>
+ <script type="text/javascript">
+    var xmlhttp,xmlhttpCities;
+    
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+            xmlhttpCities = new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttpCities = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    function getData(e, data) {
+        locationid = data.id;
+    }
+
+    function getLocation(id) {
+//        if (id != undefined) {
+//            var query = '{"extended":true,"query":{  "id":   "' + id + '",  "name": null,  "/common/topic/article": [{    "text": {      "maxlength": 250,      "chars":     null    }  }],  "/location/location/geolocation": {    "latitude":  null,   "longitude": null  },"/location/location/containedby":[],  "key": {    "namespace": "/wikipedia/en_id",    "value":     null  }}}';
+//            jQuery.getJSON("http://api.freebase.com/api/service/mqlread?callback=?",
+//		   { query: query },   // URL parameters
+//		   locate);                     // Callback function
+//        }
+//        else {
+            locate(null);
+//        }  
+	}
+	function locate(result) {
+	    locationid = "";
+	    var lat, lng, containedby="", name="";
+	    try {
+	        name = result.result.name;
+	        if (result.result['/location/location/containedby'][1])
+	            containedby = result.result['/location/location/containedby'][1] + "," + result.result['/location/location/containedby'][0];
+	        else if (result.result['/location/location/containedby'][0])
+	            containedby = result.result['/location/location/containedby'][0];
+
+	        lat = result.result['/location/location/geolocation'].latitude;
+	        lng = result.result['/location/location/geolocation'].longitude;
+	    
+	    
+	    latlng = new google.maps.LatLng(lat,lng);
+	    
+
+	    map.setZoom(11);
+	    map.panTo(latlng);
+	    
+	    marker.setPosition(latlng);
+
+	    var locations = [];
+	    locations.push(latlng);
+	    var positionalRequest = {
+	        'locations': locations
+	    }
+
+	    elevator.getElevationForLocations(positionalRequest, function(results, status) {
+	        if (status == google.maps.ElevationStatus.OK) {
+	            // Retrieve the first result
+
+	            var elevContent = '';
+	            if (results[0]) {
+	                elevContent=getElevContent(results[0]);
+	            }
+	            var content;
+	            if (containedby == "")
+	                content = "<h1>" + name + "</h1>";
+	            else
+	                content = "<h1>" + name + " (" + containedby + ")</h1>";
+
+	            content = content
+        + "<img style='padding-right:5px;float:left' src='http://api.freebase.com/api/trans/image_thumb" + result.result.id + "'/>"
+	    + "<p>" + result.result['/common/topic/article'][0].text.chars + "<br/><br/>"
+	    + "<a href='http://en.wikipedia.org/wiki/index.html?curid=" + result.result.key.value + "' target='_blank'>Wikipedia Article</a><br/>" + elevContent + "</p>";
+
+	            infowindow.setContent(content);
+	            infowindow.open(map, marker);
+
+	        }
+	    });
+	    
+	    
+	    
+	}
+	catch (ex) {
+	    if (name == "")
+	        codeAddress(document.getElementById("myinput").value); 
+	    else
+	        codeAddress(name + "," + containedby); 
+	}
+}
+function getElevContent(result) {
+    var elevContent = "";
+    resultElevation = Math.round(result.elevation);
+    if (elev > result.elevation)
+        elevContent = elevContent + "<span style='color:red'><b>Probable Water Level:" + Math.round(elev - result.elevation) + " meters.</b></span>";
+    else if (result.elevation - elev <= 5)
+        elevContent = elevContent + "<span style='color:orange'><b>Above Water Level:" + Math.round(result.elevation - elev) + " meters.</b></span>";
+    else if (result.elevation - elev > 5)
+        elevContent = elevContent + "<span style='color:green'><b>Above Water Level:" + Math.round(result.elevation - elev) + " meters.</b></span>";
+
+    elevContent = elevContent + "<br><b>Elevation:" + Math.round(result.elevation) + " meters + <input id='addElev' type='text' value='0' style='width:20px'/></b><input type='button' onclick='setElev(" + Math.round(result.elevation) + " + parseInt(document.getElementById(\"addElev\").value),true)' value='Set Water Level'/><br/>";
+    return elevContent;
+}
+
+function updateLink() {
+    center = map.getCenter();
+    document.getElementById("link").value = "http://www.floodmap.net/?ll=" + center.toUrlValue() + "&z=" + map.getZoom() + "&e=" + elev;
+}
+
+</script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-350192-13']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</head>
+
+<body onload="initialize()">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6549306531419697",
+    enable_page_level_ads: true
+  });
+</script>
+<div class="container">
+
+	<div class="main">
+
+		<div class="header">
+		
+			<div class="title">
+				<h1>Flood Map : Water Level Elevation Map (Beta)</h1>
+				<span style="margin-left:20px;color:#FFFFFF;font-size:10pt;"><b>Please support this site by sharing it with your friends and followers</b></span>
+				<iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="//platform.twitter.com/widgets/tweet_button.html?url=http://www.floodmap.net"
+        style="width:100px; height:20px;"></iframe>
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http://www.floodmap.net&layout=button_count"
+        scrolling="no" frameborder="0" allowTransparency="true"
+        style="border:none; width:80px; height:20px; color:White;"></iframe>
+        <g:plusone size="medium"></g:plusone>
+        <a style="color:#FFFFFF;font-size:10pt;" href="http://distancecalculator.globefeed.com/Country_Distance_Calculator.asp"><b>Distance Calculator</b></a>
+			</div>
+		</div>
+		<div class="content">
+	
+			<div class="item" style="height:500px;">
+<div id="map_canvas" style="float:left;width:100%;height:500px;"></div>
+<div id="citiesdiv" class="sidenav" style="display:none;float:right;width:19%;height:500px;"></div>
+			</div>
+	
+		</div>
+
+		<div class="sidenav">
+		<p><b>Locate City, Town, Village, Dam, Reservoir, River or Some Place:</b></p>
+		<ul>
+		<li><input class="styled" type="text" id="myinput" /><input type="button" value="Locate" onclick="getLocation(locationid);"/></li>
+</ul>
+		<p><b>Set Elevation /Height / Water Level (0-800 meters):</b></p>
+		<ul>
+
+<li><input class="styled" type="text" id="elev" size="8" />
+<input type="button" value="Set" onclick="setElev(document.getElementById('elev').value);"/>&nbsp;&nbsp;<b><span id="curElev"></span> meters.</b></li>
+</ul>
+<p><b>Get Link:</b></p>
+<ul>
+<li><input class="styled" type="text" id="link" style="width:95%"/></li>
+</ul>
+<p><b>Right click on the map to get/set the flood water level at the location.</b></p>
+<p>"<b>Flood Map</b> application is a small contribution using our programming skill towards the fight against natural disaster like flood & probably save a life."</p>
+<p><b>Select limited area to focus:</b></p>
+		<ul>
+
+<li><a href="javascript:" onclick="selectArea(this);">Select Area</a></li>
+<li><a href="javascript:" onclick="showCities(elev,0);">Show Affected Cities/Towns/villages</a></li>
+</ul>
+	</div>
+	
+		<div class="clearer"><span></span></div>
+	
+	</div>
+	<div class="item" style="padding-left:20px">
+	<p>
+	<span style="margin-left:20px;color:Blue;"><b>Please support this site by sharing it with your friends and followers</b></span>
+				<iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="//platform.twitter.com/widgets/tweet_button.html?url=http://www.floodmap.net"
+        style="width:100px; height:20px;"></iframe>
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http://www.floodmap.net&layout=button_count"
+        scrolling="no" frameborder="0" allowTransparency="true"
+        style="border:none; width:80px; height:20px; color:White;"></iframe>
+        <g:plusone size="medium"></g:plusone></p>
+	<p><b>Disclaimer: Please note that just this elevation flood map is not sufficient enough in full extent for the analysis since there are many other factors like surface runoff, flow diversion, land type etc. are also responsible for the flood coverage along with elevation. But we think this flood map should help in some extent in the following areas:</b></p>
+	<ul>
+	<li>Flood Map may be useful to some extent for flood risk assessment or in flood management, flood control etc.</li>
+	<li>Flood Map may help to provide flood alert/flood warning if flood water level at certain point is rising.</li>
+	<li>Flood Map can help to locate places at higher levels to escape from floods or in flood rescue/flood relief operation.</li>
+	<li>It can also provide floodplain map and floodline map for streams and rivers.</li>
+    <li>Effect of sea level rise or sea level change can be seen on the map. This could be helpful in coastal areas.</li>
+	<li>It can help to perform elevation analysis of an area for any purpose like city/town planning, new construction etc.</li>
+	<li>We also think that it can help in planning irrigation system and water management.</li>
+	</ul>
+<p>The elevation layered on the map is in meters and is from sea level. The elevation is zero for the sea level.</p>
+<p>Nasa's 90m resolution <a href="http://www2.jpl.nasa.gov/srtm/">SRTM data</a> is used for the application.</p>
+<p>User IP location by <a href="http://www.maxmind.com">www.maxmind.com</a></p>
+<p><b>Notes:</b>Before using this Flood Map application, please note that the application may have some bugs or inaccuracies because of various technical or non technical reasons.
+Also note that there might be some miss-alignment, so please consider +-100 meters tolerance to be on safer side. The water level displayed on right click is more accurate.
+The Flood Map coverage is about 60 degrees north & south. The SRTM data at some locations may not be correctly available.
+</p>
+<br />
+<h2>Elevation Maps of major Cities/Towns/Villages</h2>
+<p>Please select the country to get the elevation of Cities/Towns/Villages and elevation map.
+</p>
+<table style="font-size:1.2em">
+<tr><td><a title="Elevation Maps in US" href="/Elevation/CountryElevationMap/?ct=US">US</a></td><td><a title="Elevation Maps in Canada" href="/Elevation/CountryElevationMap/?ct=CA">Canada</a></td><td><a title="Elevation Maps in Japan" href="/Elevation/CountryElevationMap/?ct=JP">Japan</a></td><td><a title="Elevation Maps in France" href="/Elevation/CountryElevationMap/?ct=FR">France</a></td><td><a title="Elevation Maps in South Africa" href="/Elevation/CountryElevationMap/?ct=ZA">South Africa</a></td></tr><tr><td><a title="Elevation Maps in UK" href="/Elevation/CountryElevationMap/?ct=GB">UK</a></td><td><a title="Elevation Maps in Brazil" href="/Elevation/CountryElevationMap/?ct=BR">Brazil</a></td><td><a title="Elevation Maps in Germany" href="/Elevation/CountryElevationMap/?ct=DE">Germany</a></td><td><a title="Elevation Maps in Indonesia" href="/Elevation/CountryElevationMap/?ct=ID">Indonesia</a></td><td><a title="Elevation Maps in Poland" href="/Elevation/CountryElevationMap/?ct=PL">Poland</a></td><td><a title="Elevation Maps in Argentina" href="/Elevation/CountryElevationMap/?ct=AR">Argentina</a></td></tr><tr><td><a title="Elevation Maps in Iran" href="/Elevation/CountryElevationMap/?ct=IR">Iran</a></td><td><a title="Elevation Maps in Italy" href="/Elevation/CountryElevationMap/?ct=IT">Italy</a></td><td><a title="Elevation Maps in Mexico" href="/Elevation/CountryElevationMap/?ct=MX">Mexico</a></td><td><a title="Elevation Maps in Norway" href="/Elevation/CountryElevationMap/?ct=NO">Norway</a></td><td><a title="Elevation Maps in India" href="/Elevation/CountryElevationMap/?ct=IN">India</a></td><td><a title="Elevation Maps in New Zealand" href="/Elevation/CountryElevationMap/?ct=NZ">New Zealand</a></td></tr><tr><td><a title="Elevation Maps in Australia" href="/Elevation/CountryElevationMap/?ct=AU">Australia</a></td><td><a title="Elevation Maps in Russia" href="/Elevation/CountryElevationMap/?ct=RU">Russia</a></td><td><a title="Elevation Maps in China" href="/Elevation/CountryElevationMap/?ct=CN">China</a></td><td><a title="Elevation Maps in Turkey" href="/Elevation/CountryElevationMap/?ct=TR">Turkey</a></td><td><a title="Elevation Maps in Spain" href="/Elevation/CountryElevationMap/?ct=ES">Spain</a></td><td><a title="Elevation Maps in Sweden" href="/Elevation/CountryElevationMap/?ct=SE">Sweden</a></td></tr><tr><td><a title="Elevation Maps in Venezuela" href="/Elevation/CountryElevationMap/?ct=VE">Venezuela</a></td><td><a title="Elevation Maps in Chile" href="/Elevation/CountryElevationMap/?ct=CL">Chile</a></td><td><a title="Elevation Maps in Greece" href="/Elevation/CountryElevationMap/?ct=GR">Greece</a></td><td><a title="Elevation Maps in Lithuania" href="/Elevation/CountryElevationMap/?ct=LT">Lithuania</a></td><td><a title="Elevation Maps in Algeria" href="/Elevation/CountryElevationMap/?ct=DZ">Algeria</a></td><td><a title="Elevation Maps in Colombia" href="/Elevation/CountryElevationMap/?ct=CO">Colombia</a></td></tr><tr><td><a title="Elevation Maps in Puerto Rico" href="/Elevation/CountryElevationMap/?ct=PR">Puerto Rico</a></td><td><a title="Elevation Maps in Peru" href="/Elevation/CountryElevationMap/?ct=PE">Peru</a></td><td><a title="Elevation Maps in Philippines" href="/Elevation/CountryElevationMap/?ct=PH">Philippines</a></td><td><a title="Elevation Maps in Thailand" href="/Elevation/CountryElevationMap/?ct=TH">Thailand</a></td><td><a title="Elevation Maps in Bolivia" href="/Elevation/CountryElevationMap/?ct=BO">Bolivia</a></td><td><a title="Elevation Maps in Finland" href="/Elevation/CountryElevationMap/?ct=FI">Finland</a></td></tr><tr><td><a title="Elevation Maps in Saudi Arabia" href="/Elevation/CountryElevationMap/?ct=SA">Saudi Arabia</a></td><td><a title="Elevation Maps in Morocco" href="/Elevation/CountryElevationMap/?ct=MA">Morocco</a></td><td><a title="Elevation Maps in Taiwan" href="/Elevation/CountryElevationMap/?ct=TW">Taiwan</a></td><td><a title="Elevation Maps in Congo (Kinshasa)" href="/Elevation/CountryElevationMap/?ct=CD">Congo (Kinshasa)</a></td><td><a title="Elevation Maps in Latvia" href="/Elevation/CountryElevationMap/?ct=LV">Latvia</a></td><td><a title="Elevation Maps in Madagascar" href="/Elevation/CountryElevationMap/?ct=MG">Madagascar</a></td></tr><tr><td><a title="Elevation Maps in South Korea" href="/Elevation/CountryElevationMap/?ct=KR">South Korea</a></td><td><a title="Elevation Maps in Cuba" href="/Elevation/CountryElevationMap/?ct=CU">Cuba</a></td><td><a title="Elevation Maps in Malaysia" href="/Elevation/CountryElevationMap/?ct=MY">Malaysia</a></td><td><a title="Elevation Maps in Tanzania" href="/Elevation/CountryElevationMap/?ct=TZ">Tanzania</a></td><td><a title="Elevation Maps in Pakistan" href="/Elevation/CountryElevationMap/?ct=PK">Pakistan</a></td><td><a title="Elevation Maps in Belgium" href="/Elevation/CountryElevationMap/?ct=BE">Belgium</a></td></tr><tr><td><a title="Elevation Maps in Ecuador" href="/Elevation/CountryElevationMap/?ct=EC">Ecuador</a></td><td><a title="Elevation Maps in Kenya" href="/Elevation/CountryElevationMap/?ct=KE">Kenya</a></td><td><a title="Elevation Maps in Portugal" href="/Elevation/CountryElevationMap/?ct=PT">Portugal</a></td><td><a title="Elevation Maps in Denmark" href="/Elevation/CountryElevationMap/?ct=DK">Denmark</a></td><td><a title="Elevation Maps in Ethiopia" href="/Elevation/CountryElevationMap/?ct=ET">Ethiopia</a></td><td><a title="Elevation Maps in Nigeria" href="/Elevation/CountryElevationMap/?ct=NG">Nigeria</a></td></tr><tr><td><a title="Elevation Maps in Croatia" href="/Elevation/CountryElevationMap/?ct=HR">Croatia</a></td><td><a title="Elevation Maps in Egypt" href="/Elevation/CountryElevationMap/?ct=EG">Egypt</a></td><td><a title="Elevation Maps in Romania" href="/Elevation/CountryElevationMap/?ct=RO">Romania</a></td><td><a title="Elevation Maps in Sudan" href="/Elevation/CountryElevationMap/?ct=SD">Sudan</a></td><td><a title="Elevation Maps in Ukraine" href="/Elevation/CountryElevationMap/?ct=UA">Ukraine</a></td><td><a title="Elevation Maps in Uruguay" href="/Elevation/CountryElevationMap/?ct=UY">Uruguay</a></td></tr><tr><td><a title="Elevation Maps in Zambia" href="/Elevation/CountryElevationMap/?ct=ZM">Zambia</a></td><td><a title="Elevation Maps in Estonia" href="/Elevation/CountryElevationMap/?ct=EE">Estonia</a></td><td><a title="Elevation Maps in Netherlands" href="/Elevation/CountryElevationMap/?ct=NL">Netherlands</a></td><td><a title="Elevation Maps in Greenland" href="/Elevation/CountryElevationMap/?ct=GL">Greenland</a></td><td><a title="Elevation Maps in Mozambique" href="/Elevation/CountryElevationMap/?ct=MZ">Mozambique</a></td><td><a title="Elevation Maps in Gabon" href="/Elevation/CountryElevationMap/?ct=GA">Gabon</a></td></tr><tr><td><a title="Elevation Maps in Ivory Coast" href="/Elevation/CountryElevationMap/?ct=CI">Ivory Coast</a></td><td><a title="Elevation Maps in Marshall Islands" href="/Elevation/CountryElevationMap/?ct=MH">Marshall Islands</a></td><td><a title="Elevation Maps in Botswana" href="/Elevation/CountryElevationMap/?ct=BW">Botswana</a></td><td><a title="Elevation Maps in Central African Republic" href="/Elevation/CountryElevationMap/?ct=CF">Central African Republic</a></td><td><a title="Elevation Maps in Congo (Brazzaville)" href="/Elevation/CountryElevationMap/?ct=CG">Congo (Brazzaville)</a></td><td><a title="Elevation Maps in Tunisia" href="/Elevation/CountryElevationMap/?ct=TN">Tunisia</a></td></tr><tr><td><a title="Elevation Maps in Cameroon" href="/Elevation/CountryElevationMap/?ct=CM">Cameroon</a></td><td><a title="Elevation Maps in Fiji" href="/Elevation/CountryElevationMap/?ct=FJ">Fiji</a></td><td><a title="Elevation Maps in Hungary" href="/Elevation/CountryElevationMap/?ct=HU">Hungary</a></td><td><a title="Elevation Maps in Mauritania" href="/Elevation/CountryElevationMap/?ct=MR">Mauritania</a></td><td><a title="Elevation Maps in Micronesia" href="/Elevation/CountryElevationMap/?ct=FM">Micronesia</a></td><td><a title="Elevation Maps in Senegal" href="/Elevation/CountryElevationMap/?ct=SN">Senegal</a></td></tr><tr><td><a title="Elevation Maps in Zimbabwe" href="/Elevation/CountryElevationMap/?ct=ZW">Zimbabwe</a></td><td><a title="Elevation Maps in Austria" href="/Elevation/CountryElevationMap/?ct=AT">Austria</a></td><td><a title="Elevation Maps in Iceland" href="/Elevation/CountryElevationMap/?ct=IS">Iceland</a></td><td><a title="Elevation Maps in Kazakhstan" href="/Elevation/CountryElevationMap/?ct=KZ">Kazakhstan</a></td><td><a title="Elevation Maps in Yemen" href="/Elevation/CountryElevationMap/?ct=YE">Yemen</a></td><td><a title="Elevation Maps in Bangladesh" href="/Elevation/CountryElevationMap/?ct=BD">Bangladesh</a></td></tr><tr><td><a title="Elevation Maps in Chad" href="/Elevation/CountryElevationMap/?ct=TD">Chad</a></td><td><a title="Elevation Maps in Guatemala" href="/Elevation/CountryElevationMap/?ct=GT">Guatemala</a></td><td><a title="Elevation Maps in Mali" href="/Elevation/CountryElevationMap/?ct=ML">Mali</a></td><td><a title="Elevation Maps in Namibia" href="/Elevation/CountryElevationMap/?ct=NA">Namibia</a></td><td><a title="Elevation Maps in Nepal" href="/Elevation/CountryElevationMap/?ct=NP">Nepal</a></td><td><a title="Elevation Maps in Panama" href="/Elevation/CountryElevationMap/?ct=PA">Panama</a></td></tr><tr><td><a title="Elevation Maps in Uganda" href="/Elevation/CountryElevationMap/?ct=UG">Uganda</a></td><td><a title="Elevation Maps in Vietnam" href="/Elevation/CountryElevationMap/?ct=VN">Vietnam</a></td><td><a title="Elevation Maps in Afghanistan" href="/Elevation/CountryElevationMap/?ct=AF">Afghanistan</a></td><td><a title="Elevation Maps in Guinea" href="/Elevation/CountryElevationMap/?ct=GN">Guinea</a></td><td><a title="Elevation Maps in Israel" href="/Elevation/CountryElevationMap/?ct=IL">Israel</a></td><td><a title="Elevation Maps in Northern Mariana Islands" href="/Elevation/CountryElevationMap/?ct=MP">Northern Mariana Islands</a></td></tr><tr><td><a title="Elevation Maps in U.S. Virgin Islands" href="/Elevation/CountryElevationMap/?ct=VI">U.S. Virgin Islands</a></td><td><a title="Elevation Maps in Bahamas" href="/Elevation/CountryElevationMap/?ct=BS">Bahamas</a></td><td><a title="Elevation Maps in Dominican Republic" href="/Elevation/CountryElevationMap/?ct=DO">Dominican Republic</a></td><td><a title="Elevation Maps in French Polynesia" href="/Elevation/CountryElevationMap/?ct=PF">French Polynesia</a></td><td><a title="Elevation Maps in Honduras" href="/Elevation/CountryElevationMap/?ct=HN">Honduras</a></td></tr>
+</table>
+For more countries see <a href="Elevation/CountryList/"> Countries List for Eleveation of cities with Elevation Maps </a>
+</div>
+<!--
+<div id="comments" class="item">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'floodmap'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+-->
+	<div class="footer">
+		
+		<span class="left">&copy; 2018 <a href="http://www.floodmap.net">FloodMap.net</a>, Contact: sameer_swapna@yahoo.com | See also: <a href="http://www.indicatorslab.com">World Development Analysis Tool</a></span>
+		
+		<span class="right">Developed by Sameer Burle</span>
+
+		<div class="clearer"><span></span></div>
+
+	</div>
+
+</div>
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+</body>
+</html>

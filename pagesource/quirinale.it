@@ -1,0 +1,726 @@
+
+<!doctype html>
+<html class="no-js" lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Il sito ufficiale della Presidenza della Repubblica</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Description" content="il sito ufficiale del Presidente della Repubblica italiana -" />
+    <meta name="Keywords" content="Presidenza, Repubblica, Quirinale, Presidente, Segretariato, dichiarazioni, interventi, fotografie, immagini" />
+    <meta name="author" content="Segretariato generale della Presidenza della Repubblica - Servizio sistemi informatici" />
+    
+    <link href="/styles/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/pushy/pushy.css" type="text/css" rel="stylesheet" />
+    <link href="/styles/components-font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />
+    <link href="/styles/main.css" type="text/css" rel="stylesheet" />
+    <link href="/styles/menu_h.css" type="text/css" rel="stylesheet" />
+	<link href="/styles/Print_home_CSS.css" rel="stylesheet" type="text/css" media="print" /><!---->
+	<link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Quicksand:300,400,700" rel="stylesheet" type="text/css" />
+    
+    <!--[if lt IE 9]>      
+      <script src="/scripts/html5shiv.min.js" type="text/javascript" charset="utf-8" ></script>
+      <script src="/scripts/respond.min.js" type="text/javascript" charset="utf-8" ></script>
+    <![endif]-->
+     <link href="/styles/continua.css" type="text/css" rel="stylesheet" />
+    <!--
+     inserimento codice 30/09/2016 gestione chiamata ajax
+    
+     -->
+    <script language="javascript">
+	// Restituisce un Oggetto Ajax in modalità  cross browser
+        function GetAjObject() {
+            var oAjax = null;
+            var UserBrowser = navigator.userAgent.toUpperCase();
+
+            if (typeof (XMLHttpRequest) === "function" || typeof (XMLHttpRequest) === "object") {
+                oAjax = new XMLHttpRequest();
+            } else if (window.ActiveXObject && UserBrowser.indexOf("MSIE 4") < 0) {
+                if (UserBrowser.indexOf("MSIE 5") < 0) {
+                    oAjax = new ActiveXObject("Msxml2.XMLHTTP");
+                } else {
+                    oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+            
+          
+            return oAjax;
+        }
+
+        // Restituisce un TimeStamp: server per evitare che il Browser restituisca la risposta precedente in cash
+        // Cambiando ad ogni GET il Browser interpreta ogni chiamata come nuova e forza sul Server
+        function GetTimeStamp() {
+            var Digital = new Date();
+            var year = Digital.getFullYear();	
+			var month = Digital.getMonth();
+            var day = Digital.getDay();
+            var hours = Digital.getHours();
+            var minutes = Digital.getMinutes();
+            var seconds = Digital.getSeconds();
+            var ReturnValue = year + '-' + month + '-' + day + '-' + hours + '-' + minutes + '-' + seconds;
+            return ReturnValue;
+        }
+        var page = 0;
+        
+        function closeMe(){
+          page = 0;
+          document.getElementById('AltreNotizie').innerHTML = "";
+          document.getElementById('ricerca').focus();
+          document.getElementById('BtnChiudi').innerHTML = "Altre Notizie";
+          document.getElementById('linkChiudi').style.visibility = "collapse";
+        }
+        
+        function GetNotizieList(Path) {
+ 
+               
+            /*if(document.getElementById('NotizieStorico').innerHTML == "Mostra Meno Notizie"){
+             document.getElementById('AltreNotizie').innerHTML = "";
+             page = 0;
+             document.getElementById('NotizieStorico').innerHTML = "Mostra Altre Notizie"
+             document.getElementById('ricerca').focus();
+             document.getElementById("freccia").className = "fa fa-caret-down";
+            }
+            */
+            
+            //else{
+           
+            if(Path>0){
+            page++;
+            }
+            else{
+            if ((page-1)<= 0){ 
+              page = 1; 
+              }
+            else{
+            page--;
+            }
+            
+            }
+            document.getElementById('BtnChiudi').innerHTML = "<em class='fa fa-minus' id='meno'></em>";
+            document.getElementById('linkChiudi').style.visibility = "visible";
+            // Ottengo l'Oggeto Ajax
+            var oAjax = GetAjObject();
+
+            var URL = window.location.toString()
+            
+         
+            if (URL.indexOf('?') > -1) { URL = URL.substring(0, URL.indexOf('?')) }
+            URL = URL + '?Op=GetNotizieList&Path=' + Path + '&page='+ page +'&TimeStamp=' + GetTimeStamp();
+            
+            // Preparo la funzione destinata a gestire l'evento di ricezione
+            oAjax.onreadystatechange = function() {
+                if (oAjax.readyState == 4) {
+                    if (oAjax.status == 200) {
+                    
+                       
+                        if(oAjax.responseText!=""){
+                        document.getElementById('AltreNotizie').innerHTML += oAjax.responseText;
+                        }
+                        else{
+                       // document.getElementById('NotizieStorico').innerHTML = "Mostra Meno Notizie";
+                       // document.getElementById("freccia").className = "fa fa-caret-up";
+                       // page = 0;
+                            closeMe();
+                        }
+                        
+                    }
+                }
+            }
+
+            oAjax.open('get', URL, true);
+            oAjax.send(null);
+            
+           //}
+        }
+    
+        
+        function GetNotizieMove(Path) {
+
+            // Ottengo l'Oggeto Ajax
+            var oAjax = GetAjObject();
+            
+            if(Path>0){
+            page++;
+            }
+            else{
+            if ((page-1)<= 0){ 
+              page = 1; 
+              }
+            else{
+            page--;
+            }
+            
+            }
+         
+            
+            
+            var URL = window.location.toString()
+            if (URL.indexOf('?') > -1) { URL = URL.substring(0, URL.indexOf('?')) }
+            URL = URL + '?Op=GetNotizieMove&Path=' + Path + '&page='+page+'&TimeStamp=' + GetTimeStamp() ;
+          
+           
+               oAjax.onreadystatechange = function() {
+                if (oAjax.readyState == 4) {
+                    if (oAjax.status == 200) {
+                        document.getElementById('AltreNotizie').innerHTML = oAjax.responseText;
+                       
+                              
+                    }
+                }
+            }
+
+            oAjax.open('get', URL, true);
+            oAjax.send(null);
+        }
+	</script> 
+    <!-- Fine codice chiamate ajax -->
+
+  
+    <link rel="alternate" type="application/rss+xml" title="Comunicati e note della Presidenza della Repubblica" href="http://www.quirinale.it/Notizie.rss" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <meta property="og:site_name" content="Quirinale"/>
+	<meta property="og:title" content="Il sito ufficiale della Presidenza della Repubblica" />
+	<meta property="og:url" content="" />
+	<meta property="og:description" content="il sito ufficiale del Presidente della Repubblica italiana" />
+	<meta property="og:image" content="" />
+
+</head>
+
+<body>
+    
+    <!-- INIZIO barra di testata  -->
+	<header id="pr-header" class="container-fluid-limited">
+		<em class="menu-btn "><img src="/images/img_menu.png" class="img_menu" alt=""/></em>
+       
+		<!--<a href="/" title="home page" class="btn-link-bianco">-->
+		<h1 class="logo-presidenza"><span class="presidenza-della">Presidenza della</span><span class="repubblica"><strong>R</strong>epubblica</span></h1><!--</a>-->
+		<div class="pull-right">
+			<ul class="other">
+            	
+				<!--<li><a href="/qrnw/mappa/mappa.htm" class="link_header">english</a></li>-->
+                <li class="h-lan"><strong>IT</strong><span class="sep">&nbsp;|&nbsp;</span></li>
+				<li class="h-lan"><a href="../qrnw/presidente/lingue/en/en.html">EN</a><span class="sep">&nbsp;|&nbsp;</span></li>
+				<li class="scrivi"> <a href="https://servizi.quirinale.it/webmail/" title="scrivi alla Presidenza della Repubblica"><em class="fa fa-envelope"></em></a></li>
+				<li class="search">
+                
+					<form action="/elementi/Cerca.aspx" method="get" class="navbar-form">
+						<div class="input-group">
+							<label class="hidden" for="ricerca">Cerca</label>
+							<input id="ricerca" type="text" class="form-control" placeholder="Cerca" name="ricerca">
+							<div class="input-group-btn">
+								<button class="btn btn-default" type="submit"><em class="glyphicon glyphicon-search"></em></button>
+							</div>
+						</div>
+					</form>
+				</li>
+                
+				<li class="box-palazzo"><a href="http://palazzo.quirinale.it/palazzo.html" class="link_header button_eventi" title="il Palazzo del Quirinale e le residenze">Visite, Concerti, Mostre al Quirinale</a></li>				
+			</ul>        
+			
+		</div>
+	</header>
+	<!-- FINE barra di testata  -->
+
+    <!-- Menù di navigazione rapida -->
+	<nav id="nav-rapido" class="menu-rapido">
+		<h2 class="acc">Menù di navigazione rapida</h2>
+		<ul class="quickNavMenu">
+		    <li><a href="http://www.quirinale.it" accesskey="1">Vai al sito del Presidente (accesskey 1)</a></li>
+			<li><a href="http://palazzo.quirinale.it" accesskey="2">Vai alla home di Palazzo del Quirinale (accesskey 2)</a></li>
+			<li><a href="#side-nav" accesskey="3">Vai al menu principale (accesskey 3)</a></li>
+			<li><a href="#notizie" accesskey="4">Vai al contenuto della pagina (accesskey 4)</a></li>
+			<li><a href="#footer-map" accesskey="5">Vai al menù delle altre sezioni (accesskey 5)</a></li>
+		</ul>
+	</nav>
+	
+	<!-- INIZIO menu laterale a scomparsa  -->	
+  	<nav id="side-nav" class="pushy pushy-left">
+		<h2 class="acc">Menù principale</h2>	
+		<div class="clearfix menu-btn">
+			<a href="/" title="home page" class="btn-link-bianco"><p class="logo-presidenza logo_sx"><span class="presidenza-della">Presidenza della</span><span class="repubblica"><strong>R</strong>epubblica</span></p></a>
+		</div>
+        <ul>
+			<li class="search">
+				<form action="/elementi/Cerca.aspx" method="get" class="navbar-form">
+					<div class="input-group">
+						<label class="hidden" for="ricerca-menu">Cerca</label>
+						<input id="ricerca-menu" type="text" class="form-control" placeholder="Cerca" name="ricerca">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit"><em class="glyphicon glyphicon-search"></em></button>
+						</div>
+					</div>
+				</form>
+			</li>
+          </ul>
+          <ul class="scrivi-dx-home">
+          	 <li><a href="/qrnw/presidente/lingue/en/en.html" title="english" ><i class="fa fa-globe"></i>&nbsp;&nbsp;English</a></li>
+             <li><a href="https://servizi.quirinale.it/webmail/" title="scrivi alla Presidenza della Repubblica" ><i class="fa fa-envelope"></i>&nbsp;&nbsp;Scrivi</a></li>
+            
+         </ul>
+		<ul>
+		    <li>
+				<span class="primavoce_menu">Presidente della Repubblica</span>
+				<ul>
+					<li><a href="/qrnw/presidente/biografia.html">Biografia</a></li>
+					<li><a href="/qrnw/attivita/attivita.html">Funzioni e atti</a></li>
+					<li><a href="/elementi/Elenchi.aspx?tipo=Visita">Visite istituzionali</a></li>                    
+					<li><a href="/qrnw/attivita/patronati/patronati.html">Adesioni presidenziali</a></li>   
+                    <li><a href="/qrnw/simboli/simboli.html">Simboli</a></li>
+                     <li><a href="/elementi/onorificenze.aspx">Onorificenze</a></li>
+                    
+			  </ul>
+			</li>
+			<li>
+            <span class="primavoce_menu">Segretariato generale</span>
+				<ul>
+					<li><a href="/qrnw/amministrazione/amministrazione.html">Normativa e organizzazione</a></li>
+					
+					
+				</ul>
+             </li>
+             <li>
+				<span class="primavoce_menu">Documenti</span>
+				<ul>
+					<li><a href="/qrnw/costituzione/costituzione.html">Costituzione della Repubblica</a></li>
+					<li><a href="/qrnw/archiviostorico/archiviostorico.html">Archivio storico</a></li>
+					
+					
+				</ul>
+		  </li>
+			<li>
+				<span class="primavoce_menu">Stampa</span>
+				<ul>
+					<li><a href="/elementi/Elenchi.aspx?tipo=Discorso">Interventi</a></li>
+					<li><a href="/elementi/Elenchi.aspx?tipo=Comunicato">Comunicati e note</a></li>
+					<li><a href="/elementi/Elenchi.aspx?tipo=Video">Video</a></li>
+					<li><a href="/elementi/Elenchi.aspx?tipo=Foto">Fotografie</a></li>
+                    <!--<li><a href="/elementi/Elenchi.aspx?tipo=Diario">Diario</a></li>-->
+                    <li><a href="/elementi/Elenchi.aspx?tipo=Agenda">Agenda</a></li>
+                    <li><a href="/qrnw/stampa/contatti/contatti.html">Contatti e accrediti</a></li>
+				</ul>
+			</li>
+		    <li>
+				<span class="primavoce_menu">I Presidenti</span>
+				<ul>
+					<li><a href="http://presidenti.quirinale.it">Dal 1948 al 2015</a></li>
+				</ul>
+			</li>
+		</ul>
+		
+		
+		<div id="li_drop">   
+			<div class="btn-group">
+			
+				<button type="button" class="btn dropdown-toggle primavoce_menu primavoce_btn toggle expand" data-toggle="dropdown">
+					Palazzo e <br> residenze<span class="glyphicon glyphicon-chevron-down menu-arrow"></span>
+				</button> 
+				<ul class="dropdown-menu expand" role="menu">
+					<li><a href="http://palazzo.quirinale.it">Home</a></li>
+					<li><a href="http://palazzo.quirinale.it/Storia/storia.html">Storia</a></li>
+					<li><a href="http://palazzo.quirinale.it/luoghi/Giardini/giardini.html">Giardini</a></li>
+					<li><a href="http://palazzo.quirinale.it/collezioni/collezioni.html">Tesori del Quirinale</a></li>
+					<li><a href="http://palazzo.quirinale.it/corazzieri/corazzieri.html">Corazzieri</a></li>
+                    <li><a href="http://palazzo.quirinale.it/video/videoquir.html">Video</a></li>
+                    
+                    <li class="li-titolo">
+						<button type="button" class="btn dropdown-toggle primavoce_menu primavoce_btn toggle expand" data-toggle="dropdown">
+							Visita<span class="glyphicon glyphicon-chevron-down menu-arrow"></span>
+						</button>
+						
+						<ul class="expand" >
+							<li><a href="http://palazzo.quirinale.it/visitapalazzo/prenota.html">Prenota la visita</a></li>		
+							<li><a href="http://palazzo.quirinale.it/visitevirtuali/visitevirtuali.html">Visite virtuali</a></li>
+							
+						</ul>					
+					
+					</li>	
+
+					<li class="li-titolo">
+						<button type="button" class="btn dropdown-toggle primavoce_menu primavoce_btn toggle expand" data-toggle="dropdown">
+							Eventi<span class="glyphicon glyphicon-chevron-down menu-arrow"></span>
+						</button>
+						
+						<ul class="expand" >
+							<li><a href="http://palazzo.quirinale.it/mostre/mostre.html">Mostre</a></li>
+							<li><a href="http://palazzo.quirinale.it/concerti/concerti.html">Concerti</a></li>
+							
+						</ul>					
+					
+					</li>
+
+					<li class="li-titolo">
+						<button type="button" class="btn dropdown-toggle primavoce_menu primavoce_btn toggle expand" data-toggle="dropdown">
+							Residenze<span class="glyphicon glyphicon-chevron-down menu-arrow"></span>
+						</button>
+						
+						<ul class=" expand" >
+							<li><a href="http://palazzo.quirinale.it/residenze/c_porziano.html">Castelporziano</a></li>
+							<li><a href="http://palazzo.quirinale.it/residenze/v_rosebery.html">Villa Rosebery</a></li>	
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>		
+    </nav>  
+	
+	<div class="site-overlay"></div>
+	<!-- FINE menu laterale a scomparsa  -->
+    
+
+    <div class="menu-icon-container notizie-container container-fluid-limited">
+		<nav id="menu-icone" class="bis" >
+			<ul>
+				<li><a href="/elementi/Elenchi.aspx?tipo=Video"><em class="fa fa-video"><span>Video</span></em></a></li>
+				<li><a href="/elementi/Elenchi.aspx?tipo=Foto"><em class="fa fa-foto"><span>Foto</span></em></a></li>
+				<li><a href="/elementi/Elenchi.aspx?tipo=Discorso"><em class="fa fa-discorsi"><span>Discorsi</span></em></a></li>
+				<li><a href="/elementi/Elenchi.aspx?tipo=Comunicato"><em class="fa fa-comunicati"><span>Comunicati</span></em></a></li>
+				<li><a href="https://www.youtube.com/user/presidenzarepubblica"><em class="fa fa-youtube"><span>YouTube</span></em></a></li>
+				<li><a href="https://twitter.com/Quirinale"><em class="fa fa-twitter"><span>Twitter</span></em></a></li>
+                <li><a href="https://plus.google.com/115024618831794064790"><em class="fa fa-google-plus"><span>GooglePlus</span></em></a></li>
+                <li><a href="https://www.instagram.com/quirinale/"><em class="fa fa-instagram"><span>Instagram</span></em></a></li>
+                
+                
+			</ul>
+		</nav>
+    
+		<section id="hero" class="container-fluid-limited">
+		<h2 class="acc">Galleria immagini</h2>
+		<div id="carousel-quirinale" class="row carousel slide" data-ride="carousel" data-interval="0">
+		  
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-quirinale" data-slide-to="0"  class="active"></li>
+		    <li data-target="#carousel-quirinale" data-slide-to="1"></li>
+            <li data-target="#carousel-quirinale" data-slide-to="2"></li>
+             <li data-target="#carousel-quirinale" data-slide-to="3"></li>
+            <li data-target="#carousel-quirinale" data-slide-to="4"></li>
+            <li data-target="#carousel-quirinale" data-slide-to="5"></li>
+            <li data-target="#carousel-quirinale" data-slide-to="6"></li>
+            
+
+          </ol>
+		
+		  <!-- INIZIO CONTENITORE SLIDE -->
+		  <div class="carousel-inner" role="listbox">
+
+            
+            
+           <!--  INIZIO -->
+           
+           <div class="item  active">
+		      <div class="img-holder">
+		      	<img src="images/carosello/slide_05.jpg" alt="..." >
+		      </div>
+              </div>
+           
+              <div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_04.jpg" alt="..." >
+		      		</div>
+             	
+		    	</div>
+		      
+             
+              
+              <!--<div class="item">
+		      <div class="img-holder"> 
+              <img src="images/carosello/slide_32.jpg" alt="..." >
+	         </div>
+             <a href="../qrnw/eventi/2016/70_repubblica/2giugno1946-2016.html">
+                    <div class="carousel-caption q-ombra">
+                    2 giugno 1946 - 2016
+		      		</div></a>
+              </div>-->
+              <div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_38.jpg" alt="..." >
+		      		</div>
+              	
+		    	</div>
+              <div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_45.jpg" alt="..." >
+		      		</div>
+              	
+		    	</div>
+                <div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_44.jpg" alt="..." >
+		      		</div>
+              	
+		    	</div>
+               
+                
+              <div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_40.jpg" alt="..." >
+		      		</div>
+              	
+		    	</div>
+                 
+				<div class="item">
+		      		<div class="img-holder">
+		      			<img src="images/carosello/slide_46.jpg" alt="..." >
+		      		</div>
+             	
+		    	</div>
+           	
+		  </div>
+		  <!-- FINE CONTENITORE SLIDE -->
+		
+		  <a class="left carousel-control" href="#carousel-quirinale" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-quirinale" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</section>
+		<!-- INIZIO Sezione notizie  -->
+		<section id="notizie" class="container-fluid-limited">
+        
+     
+        
+			<h2 class="acc">Le notizie della prima pagina</h2>			
+			<div class='prima-notizia row'><div class='col-md-6 img-prima-notizia'><a id='fotohome_link' href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18101'><img id='fotohome' class='fotohome img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81564&amp;sezione=NOTIZIE&amp;ref=636568904940156569' alt='Mattarella a Via Fani' title='' /></a><div class='didascalia'></div><div class='veletta-titoletto'><h3 class='titoletto'>L'ANNIVERSARIO</h3></div></div><div class='col-md-6 testo-prima-notizia'><h2 class='titolo'><a class='titolo' href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81564'>Il Presidente Mattarella ha deposto una corona in Via Fani</a></h2><div class='testo-breve'><!-- Generated by XStandard version 3.0.0.0 on 2018-03-16T10:36:36 --><p>Il Presidente della Repubblica, Sergio Mattarella, nel 40° anniversario del rapimento di Aldo Moro, ha deposto una corona di fiori in via Mario Fani dove le Brigate Rosse sequestrarono il Presidente della Democrazia Cristiana uccidendo i cinque agenti della scorta. L'anniversario è stato celebrato con l'inaugurazione di un monumento commemorativo dedicato a Oreste Leonardi, Domenico Ricci, Raffaele Iozzino, Giulio Rivera e Francesco Zizzi.</p></div><div class='correlati'><ul><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=18087'>foto</a></li><li><a class='primopiano-continua-Video fa-video' href='/elementi/Continua.aspx?tipo=Video&amp;key=2605&amp;vKey=2335&amp;fVideo=7'>video</a></li></ul><ul></ul><a class='continua' href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81564'>continua <em class='fa fa-caret-right'></em></a></div></div></div>
+            
+			<div class="altre-notizie row">
+			    <div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><a href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18083'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81565&amp;sezione=NOTIZIE&amp;ref=636568904940624584' alt='Mattarella e Guterres' title='' /></a></div><div class='veletta-titoletto'><h3 class='titoletto'>LA VISITA</h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81565'>Il Presidente Mattarella ha ricevuto il Segretario Generale delle Nazioni Unite, António Guterres</a></h2></div><div class='correlati'><ul><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=18081'>foto</a></li><li><a class='primopiano-continua-Video fa-video' href='/elementi/Continua.aspx?tipo=Video&amp;key=2603&amp;vKey=2333&amp;fVideo=7'>video</a></li></ul><ul></ul></div></div><div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><a href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18079'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81566&amp;sezione=NOTIZIE&amp;ref=636568904941248604' alt='Mattarella con gli studenti delle scuole primarie' title='' /></a></div><div class='veletta-titoletto'><h3 class='titoletto'>L'INCONTRO CON LE SCUOLE</h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81566'>Mattarella ha incontrato una rappresentanza di studenti delle scuole primarie</a></h2></div><div class='correlati'><ul><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=18071'>foto</a></li></ul><ul></ul></div></div><div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><a href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18047'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81567&amp;sezione=NOTIZIE&amp;ref=636568904941560614' alt='Mattarella e gli Alfieri della Repubblica' title='' /></a></div><div class='veletta-titoletto'><h3 class='titoletto'>GLI ALFIERI DELLA REPUBBLICA</h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81567'>Mattarella ha consegnato gli Attestati d'onore ai nuovi "Alfieri della Repubblica"</a></h2></div><div class='correlati'><ul><li><a class='primopiano-continua-Link fa-link-esterno' href='http://www.quirinale.it/qrnw/onorificenze/tipo/alfiere/doc/insigniti/alfiere-2017.pdf'>I nuovi "Alfieri della Repubblica"</a></li><li><a class='primopiano-continua-Discorso fa-comunicati' href='/elementi/Continua.aspx?tipo=Discorso&amp;key=799'>discorso</a></li><li><a class='primopiano-continua-Video fa-video' href='/elementi/Continua.aspx?tipo=Video&amp;key=2599&amp;vKey=2329&amp;fVideo=7'>video</a></li><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=18047'>foto</a></li></ul><ul></ul></div></div><div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><a href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18011'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81568&amp;sezione=NOTIZIE&amp;ref=636568904942184634' alt='La giornata della donna al Quirinale' title='' /></a></div><div class='veletta-titoletto'><h3 class='titoletto'>8 MARZO </h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81568'>Mattarella: «Le donne sono state artefici della Repubblica. E sono oggi artefici del suo divenire»</a></h2></div><div class='correlati'><ul><li><a class='primopiano-continua-Discorso fa-comunicati' href='/elementi/Continua.aspx?tipo=Discorso&amp;key=797'>discorso</a></li><li><a class='primopiano-continua-Video fa-video' href='/elementi/Continua.aspx?tipo=Video&amp;key=2593&amp;vKey=2325&amp;fVideo=7'>video</a></li><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=17997'>foto</a></li></ul><ul></ul></div></div><div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><a href='http://www.quirinale.it/elementi/Continua.aspx?tipo=Foto&amp;key=18035'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81569&amp;sezione=NOTIZIE&amp;ref=636568904942808654' alt='Giuramento Vigano' title='' /></a></div><div class='veletta-titoletto'><h3 class='titoletto'>LA CERIMONIA</h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81569'>Giuramento del nuovo Giudice della Corte Costituzionale Francesco Viganò</a></h2></div><div class='correlati'><ul><li><a class='primopiano-continua-Foto fa-comunicati' href='/elementi/Continua.aspx?tipo=Foto&amp;key=18035'>foto</a></li><li><a class='primopiano-continua-Video fa-video' href='/elementi/Continua.aspx?tipo=Video&amp;key=2595&amp;vKey=2326&amp;fVideo=7'>video</a></li></ul><ul></ul></div></div><div class='col-md-4 col-sm-6 notizia'><div class='img-notizia'><img class='foto-francobollo img-responsive' src='/elementi/Generici/MostraImmagineFoto.aspx?key=81570&amp;sezione=NOTIZIE&amp;ref=636568904943276669' alt='Il Presidente Mattarella' title='' /></div><div class='veletta-titoletto'><h3 class='titoletto'>LA DICHIARAZIONE</h3></div><div class='veletta'><h2 class='titolo'><a href='/elementi/Continua.aspx?tipo=Notizia&amp;key=81570'>Mattarella: « La ricerca nell'ambito delle malattie rare va sostenuta e incoraggiata»</a></h2></div><div class='correlati'><ul></ul></div></div>
+				
+			</div>
+			  <div id="AltreNotizie" class="row"></div>
+		</section>
+		<!-- FINE Sezione notizie  -->
+		
+			
+		<!-- <div>
+			<a class="more-notizie" href="#" ><span>Mostra altre notizie</span> <em class="fa fa-caret-down"></em></a>
+		  
+		</div> -->
+	
+		
+	</div>
+
+	 <div class="container-fluid-limited" id="contenitore" style="background-color:#171165" > 
+		<!-- <div><a  class="notizie-storico"><span onclick="closeMe()"><em id="frecciasu" class="fa fa-caret-up"></em></span><span id="NotizieStorico"> Mostra  Notizie </span><em id="freccia" class="fa fa-caret-down" onclick="GetNotizieList(3)"></em></a></div>	
+		--> 
+		    <a class="notizie-storico" onClick="closeMe()" title="torna alla home page" style="visibility:collapse" id="linkChiudi"><em class="fa fa-caret-up" id="frecciasu"></em></a>
+		    <div onClick="closeMe()" ID="BtnChiudi">Altre Notizie</div>
+		    <span ID="BtnApri" Value="Altre Notizie" onClick="GetNotizieList(3)"><em class="fa fa-plus"></em></span>
+		    <a class="notizie-storico" onClick="GetNotizieList(3)" title="mostra altre notizie"><em class="fa fa-caret-down" id="freccia"></em></a>
+	 </div>
+	
+	
+		 <!-- aggiunta div altre notizie -->
+		
+	</div>
+	
+	<!-- INIZIO area stampa -->
+	<section id="area-stampa" class="bis container-fluid-limited reverse lg-pad">		
+		<h2>Area Stampa</h2>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12 itemContainer">
+				<h3><a href="/elementi/Elenchi.aspx?tipo=Comunicato">Comunicati e note</a></h3>				
+				<div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><span>16<br/>marzo</span></div><div class='col-xs-8 col-sm-9 titolo'><a class='didascalia' href='/elementi/Continua.aspx?tipo=Comunicato&amp;key=3621'>Il Presidente Mattarella ha ricevuto gli autori e i produttori del documentario “Pertini - Il Combattente”</a></div></div><div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><span>16<br/>marzo</span></div><div class='col-xs-8 col-sm-9 titolo'><a class='didascalia' href='/elementi/Continua.aspx?tipo=Comunicato&amp;key=3619'>Il Presidente Mattarella ha deposto una corona di fiori in via Fani nell'anniversario del rapimento di Aldo Moro</a></div></div>
+								
+				<div class="more">
+					<a href="/elementi/Elenchi.aspx?tipo=Comunicato" class="more-btn">Archivio comunicati e note <em class="fa fa-caret-right"></em></a>					
+				</div>				
+			</div>
+			
+			<div class="col-md-4 col-sm-6 col-xs-12 itemContainer">
+				<h3><a href="/elementi/Elenchi.aspx?tipo=Discorso">Interventi</a></h3>
+				<div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><span>12<br/>marzo</span></div><div class='col-xs-8 col-sm-9 titolo'><a class='didascalia' href='/elementi/Continua.aspx?tipo=Discorso&amp;key=799'>Intervento del Presidente della Repubblica Sergio Mattarella in occasione dell’incontro con i nuovi Alfieri della Repubblica per la consegna degli attestati e dei distintivi d’onore</a></div></div><div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><span>08<br/>marzo</span></div><div class='col-xs-8 col-sm-9 titolo'><a class='didascalia' href='/elementi/Continua.aspx?tipo=Discorso&amp;key=797'>Intervento del Presidente della Repubblica Sergio Mattarella alla Cerimonia della Giornata Internazionale della Donna</a></div></div>
+				
+				<div class="more">
+					<a href="/elementi/Elenchi.aspx?tipo=Discorso" class="more-btn">Archivio interventi <em class="fa fa-caret-right"></em></a>					
+				</div>				
+			</div>
+			
+			<div class="col-md-4 col-sm-12 col-xs-12 itemContainer">			
+				<h3><a href="/elementi/Elenchi.aspx?tipo=Agenda">Agenda</a></h3>				
+				<div id='myCarousel' class='carousel slide' data-ride='carousel'><!-- Indicators --><ol class='carousel-indicators'><li data-target='#myCarousel' data-slide-to='0' class='active'></li><li data-target='#myCarousel' data-slide-to='1'></li></ol><div class='carousel-inner' role='listbox'><div class='item active'><div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><h4>21<br/>marzo</h4></div><div class='col-xs-8 col-sm-9 titolo'><!-- Generated by XStandard version 3.0.0.0 on 2018-03-08T09:17:07 --><p>ore 11.00 - Quirinale - Cerimonia di presentazione dei candidati ai Premi &quot;David di Donatello&quot; per l'anno 2018</p></div></div><div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><h4>22<br/>marzo</h4></div><div class='col-xs-8 col-sm-9 titolo'><!-- Generated by XStandard version 3.0.0.0 on 2018-03-08T09:18:30 --><p>ore 18.00 - Mausoleo Ardeatino - Cerimonia commemorativa del 74° anniversario dell'eccidio delle Fosse Ardeatine</p></div></div></div><div class='item'><div class='item-stampa row'><div class='col-xs-4 col-sm-3 data'><h4>27<br/>marzo</h4></div><div class='col-xs-8 col-sm-9 titolo'><!-- Generated by XStandard version 3.0.0.0 on 2018-03-16T11:40:18 --><p>ore 11.00 - Quirinale - Cerimonia di restituzione della bandiera degli atleti italiani di ritorno dai Giochi Olimpici e Paralimpici invernali di PyeongChang 2018</p></div></div></div></div></div><div class='more'><a href='https://servizi.quirinale.it/AccreditiStampaWeb/' class='more'>Accrediti stampa <em class='fa fa-caret-right'></em></a></div>
+			</div>
+			
+		</div>		
+	</section>
+	<!-- FINE testo centrale -->
+	
+	
+	<!-- INZIO Sezione blocchi  -->
+    <section id="aree-home" class="bis container-fluid-limited">
+	    <h2 class="acc">Altre sezioni</h2>
+	    
+	    <div class="row">
+		    <!-- INZIO blocco 0  -->			
+		    <div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="../qrnw/onorificenze/desc/alfiere.html">
+			    <div class="area" id="alfieri">
+				    <h2>Alfiere della Repubblica</h2>
+			    </div></a>
+	        </div>
+		    <!-- FINE blocco 0  -->
+        <!-- INZIO blocco 1  -->			
+		    <div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="/qrnw/costituzione/costituzione.html">
+			    <div class="area" id="costituzione">
+				    <h2>La costituzione</h2>
+			    </div></a>
+	        </div>
+		    <!-- FINE blocco 1  -->
+		    <!-- INZIO blocco 2  -->
+            <div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="/qrnw/simboli/simboli.html">
+			    <div class="area" id="video">
+				    <h2>Simboli</h2>
+			    </div></a>
+		    </div>            
+		    
+		    <!-- FINE blocco 2  -->
+		    <!-- INZIO blocco 3  -->
+		     <div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="/elementi/Onorificenze.aspx">
+			    <div class="area" id="inno">
+				    <h2>Onorificenze</h2>
+			    </div></a>
+		    </div>
+		    <!-- FINE blocco 3  -->
+		    <!-- INZIO blocco 4  -->                
+	       <!--<div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="/elementi/Elenchi.aspx?tipo=Foto">
+			    <div class="area" id="fotografie">
+				    <h2>Galleria Foto</h2>
+			    </div></a>
+	      </div>-->
+		    <!-- FINE blocco 4  -->
+		    <!-- INZIO blocco 5  -->
+		    <div class="col-md-2 col-sm-4 col-xs-6">
+			    <a href="../qrnw/stampa/epub-app/ebookapp.html">
+			    <div class="area" id="mobile">
+				    <h2> e-Book <br> App &amp; Social </h2>
+			    </div>
+			    </a>
+		    </div>
+		    <!-- FINE blocco 5  -->
+		    <!-- INZIO blocco 6  -->                
+		     <div class="col-md-2 col-sm-4 col-xs-6">
+			    
+			    <div class="area" id="resoconti">
+				    <a href="/qrnw/amministrazione/amministrazione.html"><h2>Segretariato generale</h2></a>
+					
+                    <p class="txt_box"> <a href="/qrnw/amministrazione/amministrazione.html#concorsi" >Concorsi</a></p>
+                    <p class="txt_box"> <a href="../qrnw/amministrazione/bandigare/bandi_e_avvisi.html" >Procedure di gara</a></p>
+                     <p class="txt_box"> <a href="https://eprocurement.quirinale.it" title="apre portale eProcurement">Elenco fornitori</a></p>
+                   
+			    </div>
+	      </div>
+		    <!-- FINE blocco 6 -->
+							
+	    </div>	
+    </section>
+    <!-- FINE Sezione blocchi  -->
+
+
+    <!-- INIZIO menu a piè pagina  -->
+    <footer>
+	<div id="footer-map" class="container-fluid-limited">
+			<h2 class="acc">Mappa dei menù</h2>
+			<div class="row">	
+            				
+				<div class="col-md-3">					
+				  	<h2><strong>Il Presidente della Repubblica</strong></h2>
+					<ul>
+						<li><a href="/qrnw/presidente/biografia.html">Biografia</a></li>
+						<li><a href="/qrnw/attivita/attivita.html">Funzioni e atti</a></li>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Visita">Visite istituzionali</a></li>                       
+                        <li><a href="/qrnw/attivita/patronati/patronati.html">Adesioni presidenziali</a></li>
+                        <li><a href="/qrnw/simboli/simboli.html">Simboli</a></li>
+                         <li><a href="/elementi/onorificenze.aspx">Onorificenze</a></li>
+                    </ul>
+                    
+                </div>
+                	<div class="col-md-3">	
+                 	<h2><strong>Segretariato generale</strong></h2>
+					<ul>
+						<li><a href="/qrnw/amministrazione/amministrazione.html">Normativa e organizzazione</a></li>
+                        <li><a href="/qrnw/amministrazione/amministrazione.html#concorsi">Concorsi</a></li>
+                         <li><a href="../qrnw/amministrazione/bandigare/bandi_e_avvisi.html">Procedure di gara</a></li>
+                         <li><a href="/qrnw/amministrazione/amministrazione.html#pgara">Elenco fornitori</a></li>
+                    </ul>
+                    <h2><strong>Documenti</strong></h2>
+					<ul>
+						<li><a href="/qrnw/costituzione/costituzione.html">Costituzione della Repubblica</a></li>
+						<li><a href="/qrnw/archiviostorico/archiviostorico.html">Archivio storico</a></li>
+						<li><a href="/qrnw/biblioteca/bib_home.html">Biblioteca</a></li>
+                    </ul>
+				</div>
+                	<div class="col-md-3">	
+           	        <h2><strong>Stampa</strong></h2>
+                  	<ul>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Discorso">Interventi</a></li>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Comunicato">Comunicati e note</a></li>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Video">Video</a></li>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Foto">Fotografie</a></li>
+						<li><a href="/elementi/Elenchi.aspx?tipo=Diario">Diario</a></li>
+                        <li><a href="/elementi/Elenchi.aspx?tipo=Agenda">Agenda</a></li>
+                        <li><a href="/qrnw/stampa/contatti/contatti.html">Contatti e accrediti</a></li>
+                    </ul>
+                    <h2><strong>I Presidenti</strong></h2>
+					<ul>
+					<li><a href="http://presidenti.quirinale.it">Dal 1948 al 2015</a></li>
+                    </ul>
+
+                    </div>
+                    	<div class="col-md-3">	
+                    	<h2><strong>Il Palazzo e le Residenze</strong></h2>
+					<ul>
+					   <li><a href="http://palazzo.quirinale.it">Home</a></li>
+                       <li><a href="http://palazzo.quirinale.it/visitapalazzo/prenota.html">Prenota la visita</a></li>
+					   <li><a href="http://palazzo.quirinale.it/visitevirtuali/visitevirtuali.html">Visite virtuali</a></li> 
+                       <li><a href="http://palazzo.quirinale.it/luoghi/Giardini/giardini.html">Giardini</a></li>
+					   <li><a href="http://palazzo.quirinale.it/concerti/concerti.html">Concerti</a></li>
+                       <li><a href="http://palazzo.quirinale.it/mostre/mostre.html">Mostre</a></li>
+					   <li><a href="http://palazzo.quirinale.it/collezioni/collezioni.html">Tesori del Quirinale</a></li>
+					   <li><a href="http://palazzo.quirinale.it/corazzieri/corazzieri.html">Corazzieri</a></li>
+                       <li><a href="http://palazzo.quirinale.it/residenze/c_porziano.html">Castelporziano</a></li>
+                       <li><a href="http://palazzo.quirinale.it/residenze/v_rosebery.html">Villa Rosebery</a></li>                           
+                    </ul>		
+			  </div>	
+			</div>
+		</div>
+		<div id="closing" class="container-fluid-limited">
+			<div class="row">
+				<div class="col-xs-12 text-center txt_small">
+                <p><a href="/qrnw/guida/guida.html" class="btn-link-bianco">guida</a> - <a href="/qrnw/guida/guida.html#p4" class="btn-link-bianco">note legali</a></p>
+					 <a href="https://servizi.quirinale.it/webmail/" class="btn-link-bianco">Scrivi alla Presidenza della Repubblica</a><br>
+			    	<a href="\" class="btn-link-bianco">www.quirinale.it</a>
+                   <p class="small"><br>
+Palazzo del Quirinale, 00187 Roma - Piazza del Quirinale - <br>
+						Tel. 06.46991; Fax 06.46993125</p>
+
+                </div>
+			</div>
+		</div>
+</footer>
+    <!-- FINE menu a piè pagina  -->
+	
+	
+	<!-- include -->		
+    <script src="/scripts/jquery/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="/scripts/pushy/pushy.min.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="/scripts/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="/scripts/main.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="/scripts/froogaloop.min.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="/scripts/video.js" type="text/javascript" charset="utf-8" ></script>
+    
+    
+<!--    INIZIO codice cookye-->
+    <script src="/scripts/cookie.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="/scripts/cookieconsent.min.js" type="text/javascript" charset="utf-8" ></script>
+<!--	FINE CODICE COOKIE--> 
+
+</body>
+</html>

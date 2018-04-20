@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="az"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="az"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="az"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="az"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="az"><!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title></title>
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="tags for website">
+    <meta name="description" content="Project description goes here">
+    
+    <base href="https://migration.gov.az/">
+
+    <link rel="shortcut icon" href="https://migration.gov.az/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://migration.gov.az/favicon.ico" type="image/x-icon">
+
+
+    <!-- CSS -->
+    <link href="css/design.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/build/jquery-1.11.0.min.js"><\/script>')</script>
+
+    <!-- For map -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script defer src="js/build/script.min.js"></script>
+    <script defer src="js/build/jquery.chained.min.js"></script>
+
+
+    
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style>
+#map-canvas {
+    width: 100%;
+    height: 100%;
+}
+.pollContent{
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+}
+.pollContent h3 {
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+    float: left;
+    border-bottom: 2px solid #333;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 19px;
+}
+.pollContent ul{
+    list-style: none;
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+.pollContent ul li{
+    float: left;
+    padding-left: 15px;
+    font-size: 18px;
+}
+.pollContent input[type="submit"] {
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 3px;
+    padding: 10px 15px 10px 15px; 
+    background-color: #8E5D9F;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.pollContent a{
+    border: 2px #8E5D9F solid;;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 3px;
+    padding: 10px 15px 10px 15px; 
+    background-color: #8E5D9F;
+    text-decoration: none;
+    cursor: pointer;
+}
+.stmsg {
+   font-size: 20px;
+   font-weight: bold;
+   color: #FBBC05;
+}
+#container { text-align: center; margin: 20px; }
+h2 { color: #CCC; }
+a { text-decoration: none; color: #EC5C93; }
+
+.bar-main-container {
+  margin: 10px auto;
+  width: 300px;
+  height: 55px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #FFF;
+}
+
+.wrap { 
+  padding: 8px; 
+  text-align: center;
+}
+
+.bar-percentage {
+  float: left;
+  background: rgba(0,0,0,0.13);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 0px;
+  width: 18%;
+  height: 16px;
+  margin-top: -20px;
+}
+
+.bar-container {
+  float: right;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  height: 10px;
+  background: rgba(0,0,0,0.13);
+  width: 78%;
+  margin: 0px 0px;
+  overflow: hidden;
+}
+
+.bar-main-container .txt{
+    padding-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bar {
+  float: left;
+  background: #FFF;
+  height: 100%;
+  -webkit-border-radius: 10px 0px 0px 10px;
+  -moz-border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+
+.azure   { background: #00bcd4; }
+.emerald { background: #2CB299; }
+.violet  { background: #8E5D9F; }
+.yellow  { background: #EFC32F; }
+.red     { background: #E44C41; }
+
+.h3 {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    float: left;
+    border-bottom: 2px solid #333;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+</style>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+</head>
+
+
+
+<body lang="az">
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
+                <a href="https://migration.gov.az/" class="logo-box text-none">
+                    <p class="text-center img-box">
+                        <img src="img/dmx-logo.png" alt="Miqrasiya logo" class="img-responsive-inline"/>
+                    </p>
+                    <p class="text-ar">Azərbaycan Respublikası</p>
+                    <p class="text-dmx text-uppercase">Dövlət Mİqrasİya Xİdmətİ</p>
+                </a>
+            </div>
+            <!-- /.col-lg-3 -->
+            <div class="col-lg-8 col-md-9 col-sm-8 col-xs-12 col-lg-offset-1">
+                <div class="row">
+                    <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
+                        <nav class="navbar mq-navbar">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header visible-xs-block">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuNavbar" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#">
+                                        <img src="img/dmx-logo.png" alt="Logo" class="img-responsive-inline"/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="menuNavbar">
+                                    <ul class="nav navbar-nav menu-navbar">
+                                        <li class="menu-links active"><a href="https://migration.gov.az/" class="menu-text text-uppercase">Əsas Səhİfə</a></li>
+                    			                                        
+                        							    <li class="menu-links "><a href="cat.php?scatid=001" class="menu-text text-uppercase">Xidmət haqqında</a>
+                                            <ul class="submenu-list list-unstyled">
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=001" class="submenu-links text-none">Dövlət Miqrasiya Xidməti</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=534" class="submenu-links text-none">Naxçıvan MR DMX</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=005" class="submenu-links text-none">Struktur</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=009" class="submenu-links text-none">Rəhbər</a>
+                                                </li>
+                            		    					    </ul>
+					                            		                                        
+                        							    <li class="menu-links "><a href="cat.php?scatid=015" class="menu-text text-uppercase">Qanunvericilik</a>
+                                            <ul class="submenu-list list-unstyled">
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=012" class="submenu-links text-none">AR Konstitusiyası</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=055" class="submenu-links text-none"> Məcəllələr </a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=015" class="submenu-links text-none">AR Qanunları</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=018" class="submenu-links text-none">AR Prezidentinin Fərmanları</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=021" class="submenu-links text-none">AR Prezidentinin Sərəncamları</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=022" class="submenu-links text-none">AR Nazirlər Kabinetinin Qərarları</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=861" class="submenu-links text-none">AR DMX normativ hüquqi aktları</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=267" class="submenu-links text-none">Normativ hüquqi aktların layihələri</a>
+                                                </li>
+                            		    					    </ul>
+					                            		                                        
+                        							    <li class="menu-links "><a href="cat.php?scatid=041" class="menu-text text-uppercase">Mətbuat Mərkəzi</a>
+                                            <ul class="submenu-list list-unstyled">
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=041" class="submenu-links text-none">Xəbərlər</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=045" class="submenu-links text-none">Fotoalbom</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=047" class="submenu-links text-none">Video</a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=062" class="submenu-links text-none">Arxiv statistika </a>
+                                                </li>
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=458" class="submenu-links text-none">Məqalələr</a>
+                                                </li>
+                            		    					    </ul>
+					                            		                                        
+                        							    <li class="menu-links "><a href="cat.php?scatid=" class="menu-text text-uppercase">Əlaqə</a>
+                                            <ul class="submenu-list list-unstyled">
+                            		                                                    <li>
+                                                    <a href="cat.php?scatid=155" class="submenu-links text-none">Əlaqə</a>
+                                                </li>
+                            		    					    </ul>
+					                            		                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                    <!-- /.col-lg-10 -->
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                        <ul class="lang-list list-unstyled">
+                            <li class="active">
+                                <a href="" class="lang-icon-box">AZ
+                                    <!--<i class="pico pico-flag-aze"></i> -->
+                                </a>
+                            </li>
+                            <li >
+                                <a href="?lang=ru" class="lang-icon-box">RU
+                                    <!-- <i class="pico pico-flag-rus"></i> -->
+                                </a>
+                            </li>
+                            <li >
+                                <a href="?lang=en" class="lang-icon-box">EN
+                                    <!-- <i class="pico pico-flag-usa"></i>-->
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.lang-list -->
+                    </div>
+                    <!-- /.col-lg-2 -->
+                </div>
+                <!-- /.row -->
+                <div class="president-post-box pull-right hidden-xs hidden-sm" style="background-image: url('content/aliyev.png')">
+                    <div class="quote-box-az">
+                        <p class="president-quote">“Azərbaycan inkişaf etdikcə buraya gəlmək istəyən əcnəbilərin sayı artacaqdır. Bu dövlətimiz üçün müsbət amil sayıla bilər. Lakin biz istənilən halda öz xalqımızın, öz vətəndaşlarımızın, öz dövlətimizin mənafeyini üstün tutmalıyıq və həyata keçirilən miqrasiya siyasətinin prioritet istiqaməti də bu olmalıdır”.</p>
+                        <p class="quote-author">Azərbaycan Respublikasının Prezidenti<br/>cənab İlham Əliyev</p>
+                    </div>
+                    <!-- /.quote-box -->
+                </div>
+                <!-- /.president-post-box -->
+            </div>
+            <!-- /.col-lg-8 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="left-side-box">
+
+		                        <div style="line-height: 3em;"  class="electron-service clearfix">
+                        <!--<span class="pico pico-electron-logo pull-left"></span>
+                        Elektron Xidmət-->
+                        <a href="http://az.e.migration.gov.az/" target=_blank><img src="content/e-xidmet-az.png" alt="E-xidmet"/></a>
+                        <a href="https://onlinequeue.migration.gov.az/" target=_blank><img src="content/onlinenovbe-az.png" alt="onlinenovbe"/></a>
+                    </div>
+		    <!--<div class="electron-service clearfix">
+                        <a href="https://e-reg.migration.gov.az/DMXERegistrationApp"><img src="content/reg-az.png" alt=""/></a>
+                    </div><br />-->
+		    <div class="electron-service clearfix">
+                        <a href="https://migration.gov.az/cat.php?scatid=269&lang=az"><img src="content/cc-az.jpg" alt=""/></a>
+                    </div>
+                    <!-- /.electron-service -->
+
+                                        <div class="list-view-box">
+                        <h4 class="list-view-title title-bg text-right text-uppercase">Beynəlxalq Əməkdaşlıq</h4>
+                                                <ul id="listView1" class="list-view list-unstyled">
+			    
+                                                        <li >
+                                <a href="cat.php?scatid=023" class="list-view-links text-none font-muse100">İkitərəfli Əməkdaşlıq</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=027" class="list-view-links text-none font-muse100">Beynəlxalq əməkdaşlıq</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=025" class="list-view-links text-none font-muse100">Çoxtərəfli Əməkdaşlıq</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=432" class="list-view-links text-none font-muse100">Beynəlxalq layihələr</a>
+                            </li>
+                                                    </ul>
+                                            </div>
+                    <!-- /.list-view-box -->
+                                        <div class="list-view-box">
+                        <h4 class="list-view-title title-bg text-right text-uppercase">Faydalı məlumatlar</h4>
+                                                <ul id="listView2" class="list-view list-unstyled">
+			    
+                                                        <li >
+                                <a href="cat.php?scatid=459" class="list-view-links text-none font-muse100">Arxiv elan</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=061" class="list-view-links text-none font-muse100">Cari statistika</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=065" class="list-view-links text-none font-muse100">Sənədləşdirmə</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=067" class="list-view-links text-none font-muse100">Sual - Cavab</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=070" class="list-view-links text-none font-muse100">Dövlət rüsumları</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=111" class="list-view-links text-none font-muse100">Əcnəbinin yaddaş kitabçası</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=112" class="list-view-links text-none font-muse100">Miqrasiya orqanlarına qulluğa qəbul</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=128" class="list-view-links text-none font-muse100">Əmək miqrasiyası kvotası</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=145" class="list-view-links text-none font-muse100">Etik davranış</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=205" class="list-view-links text-none font-muse100">İnformasiya azadlığı</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=356" class="list-view-links text-none font-muse100">Apellyasiya Şurası</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=435" class="list-view-links text-none font-muse100">DMX yanında İctimai şura</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=454" class="list-view-links text-none font-muse100">Vətəndaşın müraciətinə dair qanunvericilik</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=455" class="list-view-links text-none font-muse100">Regional miqrasiya idarələri</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=433" class="list-view-links text-none font-muse100">Virtual kalkulyator</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=456" class="list-view-links text-none font-muse100">Müvəqqəti və daimi yaşamaq üçün icazələrin verilməsindən imtina edilmiş şəxslərin siyahısı</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=457" class="list-view-links text-none font-muse100">Müvəqqəti olma müddətinin uzadılması ilə bağlı müraciətlərinə imtina verilmiş şəxslərin siyahısı</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=460" class="list-view-links text-none font-muse100">Readmissiya</a>
+                            </li>
+                                                    </ul>
+                                            </div>
+                    <!-- /.list-view-box -->
+                                        <div class="list-view-box">
+                        <h4 class="list-view-title title-bg text-right text-uppercase">Sorğular</h4>
+                                                <ul id="listView3" class="list-view list-unstyled">
+			    
+                                                        <li >
+                                <a href="cat.php?scatid=354" class="list-view-links text-none font-muse100">Çağrı Mərkəzinin fəaliyyətinin qiymətləndirilməsi</a>
+                            </li>
+                                                        <li >
+                                <a href="cat.php?scatid=357" class="list-view-links text-none font-muse100">Xidmətin rəsmi saytının qiymətləndirilməsi</a>
+                            </li>
+                                                    </ul>
+                                            </div>
+                    <!-- /.list-view-box -->
+                    		    
+                    <div class="list-view-box">
+                        <h4 class="list-view-title title-bg text-right text-uppercase">DİGƏR KEÇİDLƏR</h4>
+                        <ul id="listView4" class="list-view list-unstyled">
+                            <li>
+                                <a href="https://www.e-gov.az/" target=_blank class="list-view-links text-none font-muse100">Elektron Hökumət Portalı</a>
+                            </li>
+                            <li>
+                                <a href="http://opengov.migration.gov.az/az/" target=_blank class="list-view-links text-none font-muse100">Açıq Hökumət Portalı</a>
+                            </li>
+			    <li>
+                                <a href="http://dxr.az/xidmetler/struktur/3590A0AF-9A7F-49FD-94B9-07C4667F0A80" target=_blank class="list-view-links text-none font-muse100">Dövlət Xidmətləri Portalı</a>
+                            </li>
+                        </ul>
+                    </div>
+		    
+                    <!-- /.list-view-box -->
+
+
+
+
+		                        <form class="search-box" action="cat.php" method=GET>
+			                        <div class="input-group">
+                            <input type="text" name=q class="form-control search-input" placeholder="Axtarış">
+                          <span class="input-group-btn">
+                            <button class="btn search-btn" type="button">
+                                <i class="pico pico-search-icon"></i>
+                            </button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </form>
+                    <!-- /.search-box -->
+                    <div class="map-side text-center hidden-xs">
+                        <a href="cat.php?scatid=326">
+                        <img src="content/aze-map.png" alt="Azerbaijan Map" class="img-responsive-inline"/>
+                        </a>
+                    </div>
+                    <!-- /.map-side -->
+
+                      <div style="background-color: #00BCD4; text-align: center; padding: 5px 10px; margin-top:10px;" class="alert alert-warning" role="alert">
+                    <p style="font-size: 17px;">
+                        <a target="_blank" style="color:#fff; " href="http://www.taxes.gov.az/modul.php?name=pages&page=230">Azərbaycan Respublikasında xarici investisiyalar üçün əlverişli vergi mühiti</a> 
+                    </p> 
+                    </div> 
+
+
+
+		                        <div class="sticker-box  section">
+                        <p class="sticker-title">Elanlar</p>
+                        <ul class="sticker-list list-unstyled">
+                                                        <li>
+                                <a href="post.php?pageid=5794&section=012&subsection=044" class="sticker-links">
+                                    <p class="list-titles">Əcnəbi və vətəndaşlığı olmayan şəxslərin nəzərinə!</p>
+                                    <p class="list-description font-muse700">Azərbaycan Respublikasında daimi yaşamaq icazəsinin alınması &uuml;&ccedil;&uuml;n m&uuml;raciət edən əcnəbilərin Azərbaycan Respublikasının qanunları..</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="post.php?pageid=7681&section=012&subsection=044" class="sticker-links">
+                                    <p class="list-titles">Azərbaycan vətəndaşlarının nəzərinə!</p>
+                                    <p class="list-description font-muse700">Qətər D&ouml;vlətinin Bakıdakı səfirliyi təmsil etdiyi &ouml;lkəyə gətirilməsi qadağan olunmuş t&uuml;t&uuml;n məhsulları və onun əvəzedicilərinin siy..</p>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="post.php?pageid=6106&section=012&subsection=044" class="sticker-links">
+                                    <p class="list-titles">Azərbaycan Respublikasında daimi yaşama&nbsp;icazəsi almaq istəyən əcnəbilərin&nbsp;
+N Ə Z Ə R İ N Ə !</p>
+                                    <p class="list-description font-muse700">Azərbaycan Respublikası D&ouml;vlət Miqrasiya Xidmətinin Təlim-tədris mərkəzi Azərbaycan Respublikasında yaşayan və daimi yaşama icazəsi almaq istəyən..</p>
+                                </a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- /.sticker-box hidden-xs -->
+			
+		    <div class="col-md-3 col-xs-3 col-sm-3"><a target="_blank" href="https://www.youtube.com/channel/UC-KFHgtonlThNm6b4j37NnQ"><img style="width: 50px; height: 50px;" src="content/youtube.png"></a></div>
+           <div class="col-md-3 col-xs-3 col-sm-3"><a target="_blank" href="https://twitter.com/MiqrasiyaAZ"><img style="width: 50px; height: 50px;" src="content/twitter.png"></a></div>
+           <div class="col-md-3 col-xs-3 col-sm-3"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.migration.zauribrahimov.dmxapplication"><img style="width: 50px; height: 50px;" src="content/gplay.png"></a></div>
+           <div class="col-md-3 col-xs-3 col-sm-3"><a target="_blank" href="http://www.iosappsgames.com/apps/details-ar-doevlet-miqrasiya-xidmeti-state-migration-service-1108781399"><img style="width: 50px; height: 50px;" src="content/ios.png"></a></div> <br><br>
+
+
+		
+                </div>
+                <!-- /.left-side-box -->
+            </div>
+            <!-- /.col-lg-3 -->
+            <div class="col-lg-8 col-md-9 col-sm-9 col-lg-offset-1">
+                <div class="main-slider">
+                    <div id="mainSlider" class="carousel news-slider slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+										                            	  <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+				  											                            	  <li data-target="#mainSlider" data-slide-to="1" ></li>
+				  											                            	  <li data-target="#mainSlider" data-slide-to="2" ></li>
+				  											                            	  <li data-target="#mainSlider" data-slide-to="3" ></li>
+				  							                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+										                            <div class="item active">
+                                <img src="https://migration.gov.az//images/pages/6b6b9c60f8a2b97ee516796b943b33e1_800.jpg" alt="Slider-1" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <!-- <h2 class="news-slider-title text-uppercase">D&ouml;vlət Miqrasiya Xidməti qarşıya qoyulan tapşırıqları&nbsp;uğurla yerinə yetirməyə qadirdir</h2>-->
+                                    <p class="news-slider-description">D&ouml;vlət Miqrasiya Xidməti qarşıya qoyulan tapşırıqları&nbsp;uğurla yerinə yetirməyə qadirdir</p>
+                                </div>
+                            </div>
+				  											                            <div class="item ">
+                                <img src="https://migration.gov.az//images/pages/c8bf84692c79f71f8cf3327d637519ab_800.jpg" alt="Slider-1" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <!-- <h2 class="news-slider-title text-uppercase">D&ouml;vlət Miqrasiya Xidmətinin rəisi Ukrayna Xarici İşlər Nazirliyi Konsulluq Xidməti Departamentinin direktoru ilə g&ouml;r&uuml;ş&uuml;b
+</h2>-->
+                                    <p class="news-slider-description">D&ouml;vlət Miqrasiya Xidmətinin rəisi Ukrayna Xarici İşlər Nazirliyi Konsulluq Xidməti Departamentinin direktoru ilə g&ouml;r&uuml;ş&uuml;b
+</p>
+                                </div>
+                            </div>
+				  											                            <div class="item ">
+                                <img src="https://migration.gov.az//images/pages/d3419cc39742e99a1ffd2c41c82e9ade_800.jpg" alt="Slider-1" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <!-- <h2 class="news-slider-title text-uppercase">&ldquo;D&ouml;vlət Miqrasiya Xidmətinin yaradılması tarixi, inkişaf mərhələsi və fəaliyyət&nbsp; istiqaməti&rdquo; m&ouml;vzusunda maarifləndirmə tədbiri ke&ccedil;irilib</h2>-->
+                                    <p class="news-slider-description">&ldquo;D&ouml;vlət Miqrasiya Xidmətinin yaradılması tarixi, inkişaf mərhələsi və fəaliyyət&nbsp; istiqaməti&rdquo; m&ouml;vzusunda maarifləndirmə tədbiri ke&ccedil;irilib</p>
+                                </div>
+                            </div>
+				  											                            <div class="item ">
+                                <img src="https://migration.gov.az//images/pages/0def45503060f993c33576e9c793dab9_800.jpg" alt="Slider-1" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <!-- <h2 class="news-slider-title text-uppercase">AZƏRBAYCAN RESPUBLİKASI&nbsp;D&Ouml;VLƏT MİQRASİYA XİDMƏTİNİN 2018-Cİ İLİN FEVRAL AYINA OLAN STATİSTİK MƏLUMATLARI</h2>-->
+                                    <p class="news-slider-description">AZƏRBAYCAN RESPUBLİKASI&nbsp;D&Ouml;VLƏT MİQRASİYA XİDMƏTİNİN 2018-Cİ İLİN FEVRAL AYINA OLAN STATİSTİK MƏLUMATLARI</p>
+                                </div>
+                            </div>
+				  							                        </div>
+
+                        <div class="carousel-setting-side">
+                            <div id="customOwl" class="owl-carousel owl-theme">
+							                                <div class="item"><img src="https://migration.gov.az//images/pages/6b6b9c60f8a2b97ee516796b943b33e1_800.jpg" alt="Slider-1" class="img-responsive"></div>
+											                                <div class="item"><img src="https://migration.gov.az//images/pages/c8bf84692c79f71f8cf3327d637519ab_800.jpg" alt="Slider-1" class="img-responsive"></div>
+											                                <div class="item"><img src="https://migration.gov.az//images/pages/d3419cc39742e99a1ffd2c41c82e9ade_800.jpg" alt="Slider-1" class="img-responsive"></div>
+											                                <div class="item"><img src="https://migration.gov.az//images/pages/0def45503060f993c33576e9c793dab9_800.jpg" alt="Slider-1" class="img-responsive"></div>
+							                            </div>
+                        </div>
+                        <!-- /.carousel-setting-side -->
+                    </div>
+                </div>
+                <!-- /.main-slider -->
+                <div class="info-contents-box">
+                    <div class="row">
+							                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="info-box simple-img-box">
+			                                    <a href="post.php?pageid=7980&009-041-7980" class="img-box text-none">
+                                    <img src="https://migration.gov.az//images/pages/6b6b9c60f8a2b97ee516796b943b33e1_800.jpg" onerror="this.src='content/info.jpg'" alt="Info" title="D&ouml;vlət Miqrasiya Xidməti qarşıya qoyulan tapşırıqları&nbsp;uğurla yerinə yetirməyə qadirdir" class="img-responsive"/>
+                                </a>
+                                <p class="info-description">D&ouml;vlət Miqrasiya Xidməti qarşıya qoy..</p>
+                                <p class="info-links-box clearfix">
+                                       <a href="post.php?pageid=7980" class="info-links pull-left">Ətraflı</a>
+                                    <span class="info-links pull-right">19 Mart 2018</span>
+                                </p>
+			                                </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col-lg-3 -->
+
+
+							                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="info-box simple-img-box">
+			                                    <a href="post.php?pageid=7975&009-041-7975" class="img-box text-none">
+                                    <img src="https://migration.gov.az//images/pages/c8bf84692c79f71f8cf3327d637519ab_800.jpg" onerror="this.src='content/info.jpg'" alt="Info" title="D&ouml;vlət Miqrasiya Xidmətinin rəisi Ukrayna Xarici İşlər Nazirliyi Konsulluq Xidməti Departamentinin direktoru ilə g&ouml;r&uuml;ş&uuml;b
+" class="img-responsive"/>
+                                </a>
+                                <p class="info-description">D&ouml;vlət Miqrasiya Xidmətinin rəisi Uk..</p>
+                                <p class="info-links-box clearfix">
+                                       <a href="post.php?pageid=7975" class="info-links pull-left">Ətraflı</a>
+                                    <span class="info-links pull-right">16 Mart 2018</span>
+                                </p>
+			                                </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col-lg-3 -->
+
+
+							                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="info-box simple-img-box">
+			                                    <a href="post.php?pageid=7969&009-041-7969" class="img-box text-none">
+                                    <img src="https://migration.gov.az//images/pages/d3419cc39742e99a1ffd2c41c82e9ade_800.jpg" onerror="this.src='content/info.jpg'" alt="Info" title="&ldquo;D&ouml;vlət Miqrasiya Xidmətinin yaradılması tarixi, inkişaf mərhələsi və fəaliyyət&nbsp; istiqaməti&rdquo; m&ouml;vzusunda maarifləndirmə tədbiri ke&ccedil;irilib" class="img-responsive"/>
+                                </a>
+                                <p class="info-description">&ldquo;D&ouml;vlət Miqrasiya Xidmətinin y..</p>
+                                <p class="info-links-box clearfix">
+                                       <a href="post.php?pageid=7969" class="info-links pull-left">Ətraflı</a>
+                                    <span class="info-links pull-right">15 Mart 2018</span>
+                                </p>
+			                                </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col-lg-3 -->
+
+
+							                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="info-box simple-img-box">
+			                                    <a href="post.php?pageid=7956&009-041-7956" class="img-box text-none">
+                                    <img src="https://migration.gov.az//images/pages/0def45503060f993c33576e9c793dab9_800.jpg" onerror="this.src='content/info.jpg'" alt="Info" title="AZƏRBAYCAN RESPUBLİKASI&nbsp;D&Ouml;VLƏT MİQRASİYA XİDMƏTİNİN 2018-Cİ İLİN FEVRAL AYINA OLAN STATİSTİK MƏLUMATLARI" class="img-responsive"/>
+                                </a>
+                                <p class="info-description">AZƏRBAYCAN RESPUBLİKASI&nbsp;D&Ouml;VLƏT Mİ..</p>
+                                <p class="info-links-box clearfix">
+                                       <a href="post.php?pageid=7956" class="info-links pull-left">Ətraflı</a>
+                                    <span class="info-links pull-right">14 Mart 2018</span>
+                                </p>
+			                                </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col-lg-3 -->
+
+
+			                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.info-contents-box -->
+                <div class="row">
+		                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="document-box">
+                            <!-- <h4 class="document-title">Qisa Basliq</h4> -->
+                            <p class="document-description font-muse500">Azərbaycan Respublikasına gələn&nbsp;əcnəbilərin və vətəndaşlığı olmayan şəxslərin&nbsp;olduğu yer &uuml;zrə qeydiyyatı..</p>
+                            <a href="post.php?pageid=4747" class="document-more">Daha ətraflı</a>
+                        </div>
+                        <!-- /.document-box -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+		                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="document-box">
+                            <!-- <h4 class="document-title">Qisa Basliq</h4> -->
+                            <p class="document-description font-muse500">Əcnəbilərə&nbsp; və&nbsp; vətəndaşlığı&nbsp; olmayan&nbsp; şəxslərə&nbsp; Azərbaycan Respublikasının&nbsp; ərazisində&nbsp; m&uuml;vəqqəti&nbsp; yaşamaq&nbsp; icazəsinin&nbsp; verilməsi (m&uuml;ddətin..</p>
+                            <a href="post.php?pageid=196" class="document-more">Daha ətraflı</a>
+                        </div>
+                        <!-- /.document-box -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+		                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="document-box">
+                            <!-- <h4 class="document-title">Qisa Basliq</h4> -->
+                            <p class="document-description font-muse500">Əcnəbilərə və vətəndaşlığı olmayan şəxslərə&nbsp;Azərbaycan Respublikası ərazisində haqqı &ouml;dənilən əmək fəaliyyəti ilə məşğul olmaları &uuml;&ccedil;&uuml;n iş icazəsinin verilməsi (m&uuml;ddətin..</p>
+                            <a href="post.php?pageid=650" class="document-more">Daha ətraflı</a>
+                        </div>
+                        <!-- /.document-box -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+		                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="document-box">
+                            <!-- <h4 class="document-title">Qisa Basliq</h4> -->
+                            <p class="document-description font-muse500">Azərbaycan Respublikasına gələn əcnəbilərin və vətəndaşlığı olmayan şəxslərin &ouml;lkədə m&uuml;vəqqəti olma m&uuml;ddətinin uzadılması&nbsp;&uuml;&ccedil;&uuml;n&nbsp;tələb olunan sənədlər..</p>
+                            <a href="post.php?pageid=239" class="document-more">Daha ətraflı</a>
+                        </div>
+                        <!-- /.document-box -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+		                    </div>
+                <!-- /.row -->
+                <div class="row section">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="cat.php?scatid=043" class="service-box clearfix text-none">
+                            <i class="pico pico-interview"></i>
+                            Müsahibələr
+                        </a>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="cat.php?scatid=069" class="service-box clearfix text-none">
+                            <i class="pico pico-calendar"></i>
+                            Qəbul günləri
+                        </a>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="cat.php?scatid=002" class="service-box clearfix text-none">
+                            <i class="pico pico-call-center"></i>
+                            Müraciətlər
+                        </a>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.col-lg-8 -->
+        </div>
+        <!-- /.row -->
+
+
+	        <div class="partner-content-box hidden-xs">
+            <ul class="partner-list list-unstyled clearfix">
+                <li>
+                    <a href="http://heydaraliyevcenter.az/#2_HeyderEliyev" class="partner-box" target=_blank>
+                        <img src="content/partner-1.png" alt="Partner-1" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.heydar-aliyev-foundation.org/az" class="partner-box" target=_blank>
+                        <img src="content/partner-2.png" alt="Partner-2" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.president.az/" class="partner-box" target=_blank>
+                        <img src="content/partner-3.png" alt="Partner-3" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <!--<li>
+                    <a href="http://www.mehriban-aliyeva.org/" class="partner-box" target=_blank>
+                        <img src="content/partner-4.png" alt="Partner-4" class="img-responsive-inline"/>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="http://www.azerbaijan.az/portal/index_a.html?lang=az" class="partner-box" target=_blank>
+                        <img src="content/partner-5.png" alt="Partner-5" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.mfa.gov.az/" class="partner-box" target=_blank>
+                        <img src="content/gerb.png" alt="Partner-6" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.mlspp.gov.az/" class="partner-box" target=_blank>
+                        <img src="content/mlspp.png" alt="Partner-6" class="img-responsive-inline"/>
+                    </a>
+                </li>
+		<!--
+                <li>
+                    <a href="http://www.mia.gov.az/" class="partner-box" target=_blank>
+                        <img src="content/partner-6.png" alt="Partner-6" class="img-responsive-inline"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.taxes.gov.az/" class="partner-box" target=_blank>
+                        <img src="content/partner-7.png" alt="Partner-7" class="img-responsive-inline"/>
+                    </a>
+                </li>
+		-->
+                <li>
+                    <a href="http://www.virtualkarabakh.az/" class="partner-box" target=_blank>
+                        <img src="content/partner-8.png" alt="Partner-8" class="img-responsive-inline"/>
+                    </a>
+                </li>
+		<li>
+                    <a href="http://www.justiceforkhojaly.org/" class="partner-box" target=_blank>
+                        <img src="content/partner-9.jpg" alt="Partner-9" class="img-responsive-inline"/>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.partner-list -->
+        </div>
+        <!-- /.partner-box -->
+
+
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.wrapper -->
+
+<footer>
+  <div class="container">
+    <div class="pull-left">
+      <div class="migration-box pull-left">Dövlət Miqrasiya Xidməti
+      </div>
+      <p class="copyright-text font-muse300 text-left">© 2018. Bütün hüquqları qorunur!.</p>
+    </div>
+
+    <!-- /.migration-box -->
+    <div class="footer-right-box pull-right" style="margin-right: 180px; margin-top: 20px;">
+
+    
+    </div>
+
+
+  </div>
+  <a href="#" id="back-to-top" title="Yuxarı"><img width="20" height="20" src="img/up-chevron.png" ></a>
+  <!-- /.container -->
+</footer>
+<!-- /footer -->
+
+<!-- livezilla.net code (PLEASE PLACE IN BODY TAG) -->
+<div id="livezilla_tracking" style="display:none"></div><script type="text/javascript">
+var script = document.createElement("script");script.async=true;script.type="text/javascript";var src = "https://migration.gov.az/chat/server.php?a=7607e&rqst=track&output=jcrpt&ovlc=IzAwYmNkNA__&ovloo=MQ__&nse="+Math.random();setTimeout("script.src=src;document.getElementById('livezilla_tracking').appendChild(script)",1);</script>
+<noscript><img src="https://migration.gov.az/chat/server.php?a=7607e&amp;rqst=track&amp;output=nojcrpt" width="0" height="0" style="visibility:hidden;" alt=""></noscript>
+<!-- http://www.livezilla.net -->
+
+
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-110782069-1', 'auto');
+  ga('send', 'pageview');
+
+
+//back to top code 
+if ($('#back-to-top').length) {
+    var scrollTrigger = 100, // px
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('#back-to-top').addClass('show');
+            } else {
+                $('#back-to-top').removeClass('show');
+            }
+        };
+    backToTop();
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
+}
+//back to  top code 
+
+</script>
+
+<style type="text/css">
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    left: 30px;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 39px;
+    background: #00BCD4;
+    color: #444;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+#back-to-top:hover {
+    background: #02ADC3;
+}
+#back-to-top.show {
+    opacity: 1;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> СП Помощник </title>
+    <meta name="description" content="СП Помощник - сервис который поможет вам: установить личный кабинет в вашу группу СП; собрать заказы из комментариев в альбомах; сформировать счета по закупкам; оповестить ваших клиентов о выставлении счета с помощью рассылки; отслеживать платежи ваших клиентов через ЛК; хранить историю закупок для Вас и ваших клиентов!">
+    <meta name="keywords" content="СП, ЛК, личный кабинет, установить личный кабинет, платежи, оповещение клиентов, заказы, закупки, рассылка, выставить счет, выставление счетов, социальная сеть, вконтакте, vkontakte, сайт скачать, помощник, совместые покупки, организатор, загрузчик, выкладка">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--Favicons-->
+    <link rel="apple-touch-icon" sizes="57x57"          href="/assets/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"          href="/assets/fav/apple-icon-60x60.png ">
+    <link rel="apple-touch-icon" sizes="72x72"          href="/assets/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"          href="/assets/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"        href="/assets/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"        href="/assets/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"        href="/assets/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"        href="/assets/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"        href="/assets/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"   href="/assets/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"     href="/assets/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"     href="/assets/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"     href="/assets/fav/favicon-16x16.png">
+    <link rel="manifest"                                href="/assets/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage"                content="/assets/fav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="/assets/css/font.css">
+    <link rel="stylesheet" href="/assets/css/roboto.css">
+    <link rel="stylesheet" href="/assets/css/md.css">
+    <link rel="stylesheet" href="/assets/css/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!--Scripts-->
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="/assets/js/scrollTo.js"></script>
+    <script type="text/javascript" src="/assets/js/md-lite.js"></script>
+    <script type="text/javascript" src="/assets/js/dialogPolyfill.js"></script>
+    <script type="text/javascript" src="/assets/js/scrolls.js"></script>
+    <script type="text/javascript" src="/assets/js/vkMessages.js"></script>
+    <script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter42199779 = new Ya.Metrika({ id:42199779, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42199779" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    
+    
+    <script src='/assets/js/imageViewer.js' type="text/javascript"></script>
+    
+    <script src='/assets/js/reviews.js' type="text/javascript"></script>
+    
+    <script src='/assets/js/sockjs.min.js' type="text/javascript"></script>
+    
+    <script src='/assets/js/eventbus.js' type="text/javascript"></script>
+    
+    <script src='/assets/js/sharedStatistic.js' type="text/javascript"></script>
+    
+    
+</head>
+
+<body class="notranslate">
+
+<div class="mdl-layout__container">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded">
+        <header class="mdl-layout__header is-casting-shadow">
+    <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">
+            <a href="/">
+                <img class="logo" src="assets/images/logo.png"/>СП Помощник
+            </a>
+        </span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="/#features">Возможности</a>
+            <a class="mdl-navigation__link" href="/#about">О сервисе</a>
+            <a class="mdl-navigation__link" href="/#cust-reviews">Отзывы</a>
+            <a class="mdl-navigation__link" href="/#price">Цены</a>
+        </nav>
+        <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai" class="mdl-button mdl-button--colored mdl-button--raised mdl-button--accent mdl-js-button block-center start-btn">
+            Попробовать
+        </a>
+    </div>
+</header>
+<div class="mdl-layout__drawer mdl-layout--small-screen-only side-menu">
+    <span class="mdl-layout-title">Меню</span>
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="/#features">Возможности</a>
+        <a class="mdl-navigation__link" href="/#about">О сервисе</a>
+        <a class="mdl-navigation__link" href="/#cust-reviews">Отзывы</a>
+        <a class="mdl-navigation__link" href="/#we-help">Мы помогли</a>
+        <a class="mdl-navigation__link" href="/#price">Цены</a>
+        <a class="mdl-navigation__link" href="/lk_install.html">Установка Личного Кабинета</a>
+        <a class="mdl-navigation__link" href="/user_agreement.html">Пользовательское соглашение</a>
+        <a class="mdl-navigation__link" href="/payment_info.html">Информация об оплате</a>
+    </nav>
+</div>
+
+<script>
+    function _checkhash(){
+        var hash = window.location.hash;
+        var pathname = window.location.pathname;
+        var a = $('.mdl-navigation a');
+        $('.mdl-navigation .active').removeClass('active');
+
+        if (hash){
+            a.each(function(){
+                var $this = $(this);
+                if ($this.prop('hash') === hash){
+                    $this.addClass('active');
+                }
+            });
+        } else if (pathname && pathname !== '/'){
+            a.each(function(){
+                var $this = $(this);
+                if ($this.prop('pathname') === pathname){
+                    $this.addClass('active');
+                }
+            });
+        }
+    }
+
+    $(function () {
+        $(window).bind('hashchange', _checkhash);
+        var currentHash = _checkhash();
+    });
+</script>
+        <main class="mdl-layout__content">
+            <div class="background">
+                <div class="spacer-small mdl-cell--hide-tablet mdl-cell--hide-desktop">
+                </div>
+                <div class="spacer-medium mdl-cell--hide-phone mdl-cell--hide-desktop">
+                </div>
+                <div class="spacer-large mdl-cell--hide-phone mdl-cell--hide-tablet">
+                </div>
+                <div class="slogan">
+                    <h1>Преврати свою группу СП<br> в интернет-магазин!</h1>
+                    <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai" class="mdl-button mdl-button--colored mdl-button--raised mdl-button--accent mdl-js-button block-center start-btn">
+                        Начать работу
+                    </a>
+                </div>
+                <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent to-features-button" href="#features" data-upgraded=",MaterialButton,MaterialRipple">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+            </div>
+            <div class="page-content">
+                <!--custom_js:-->
+<!-- - index-->
+<section id="features">
+    <div class="landing-section">
+        <h3 class="text-light text-center">Наш сервис поможет вам:</h3>
+        <div class="mdl-grid feature-list">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_1" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">account_circle</i>
+    <h6 class="content text-center">Установить личный кабинет в вашу группу СП</h6>
+</a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_2" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">question_answer</i>
+    <h6 class="content text-center">Собрать заказы из комментариев в альбомах</h6>
+</a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_3" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">receipt</i>
+    <h6 class="content text-center">Сформировать счета по закупкам</h6>
+</a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_4" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">send</i>
+    <h6 class="content text-center">Оповестить ваших клиентов о выставлении счета</h6>
+</a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_5" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">monetization_on</i>
+    <h6 class="content text-center">Отслеживать платежи клиентов через Личный Кабинет</h6>
+</a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone feature">
+                <a href="#about_step_6" class="link-no-style">
+    <i class="material-icons feature-icon text-primary text-center">history</i>
+    <h6 class="content text-center">Хранить историю закупок для вас и ваших клиентов</h6>
+</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="image-viewer">
+    <div class="landing-section">
+        <h3 class="text-light text-center">Как это работает:</h3>
+    </div>
+
+    <div class="landing-section">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/lJtmWbXXwxI" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div id="about_step_1">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">Для того, чтобы начать работу, вам необходимо установить Личный Кабинет в свою группу СП.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-right">
+                                Сделать это очень легко!
+                                <br/>
+                                Перейдите по <a href="/lk_install.html" target="_blank">ссылке</a> и начните установку.
+                                <br/>
+                                Этот процесс займет не более пяти минут.
+                                <br/>
+                                <br/>
+                                С помощью личного кабинета ваши клиенты смогут следить за статусом закупок, видеть свои заказы и комментарии, а так-же сообщать вам об оплате.
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">account_circle</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_1.1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  id="about_step_2" class="section-gray">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_2.png">
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">Следующий шаг - наполнить Личный Кабинет заказами ваших клиентов.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">question_answer</i>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-left">
+                                Все, что вам нужно - это создать закупку в <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai">органайзере</a>, и из комментариев выбранного альбома сформировать заказы.
+                                <br/>
+                                <br/>
+                                Наполнение кабинета происходит автоматически.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  id="about_step_3">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">После создания заказов будут сформированы счета по закупкам.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-right">
+                                Вы сможете изменить организационный сбор, округлить или изменить цену любой позиции, добавить сумму за офис всего лишь в несколько кликов!
+                                <br/>
+                                Перерасчет закупок произойдет моментально!
+                                <br/>
+                                <br/>
+                                Все сформированные счета экспортируются в Excel легко и просто!
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">receipt</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_3.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  id="about_step_4" class="section-gray">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_4.png">
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">Оповестите клиентов о выставлении счетов.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">send</i>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-left">
+                                Самый лучший способ оповестить клиента - это личные сообщения. <br/>Не секрет, что формирование и отправка сообщений вручную отнимает много сил и времени. Наш сервис позволяет Вам забыть об этой рутине и делать легко и просто!<br/><br/>Рассылка происходит с помощью сообщений вашего сообщества.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about_step_5">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">Отслеживайте платежи ваших клиентов.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-right">
+                                Клиенты смогут сообщать вам об оплате с помощью личного кабинета, заполнив специальную форму или прикрепив скриншот об оплате.
+                                <br/>
+                                Эта информация автоматически появится в <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai">активной закупке</a> и вы сможете подтвердить оплату быстро и легко!
+                                <br/>
+                                В случае форс мажоров вы сможете пополнять баланс клиента в ЛК и использовать его для дальнейших взаиморасчетов.
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">monetization_on</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_5.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  id="about_step_6" class="section-gray">
+        <div class="landing-section">
+            <div class="mdl-grid slide-content">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+                    <img class="image-with-screen mdl-cell--6-col block-center" src="assets/images/steps/step_6.png">
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6 class="text-center">Храните историю закупок для вас и ваших клиентов.</h6>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                            <i class="material-icons text-primary text-center icon">history</i>
+                        </div>
+                        <div class="mdl-cell mdl-cell--10-col  mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <p class="margin-std-top text-left">
+                                Все закупки и заказы, которые когда-либо были созданы в органайзере, будут доступны вам и вашим клиентам в любое время!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-section" id="quick-start">
+        <h3 class="text-light text-center">Органайзер, быстрый старт:</h3>
+    </div>
+
+    <div class="landing-section">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/_KMNHbHofSA" frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
+
+<section id="cust-reviews">
+    <div class="landing-section">
+        <h3 class="text-light text-center">Впечатления клиентов:</h3>
+    </div>
+
+    <div class="landing-section">
+        <div id="reviews" class="owl-carousel owl-theme">
+</div>
+    </div>
+</section>
+
+<section id="we-help" class="landing-section">
+    <h3 class="text-light text-center">Мы помогли:</h3>
+
+    <div id="spinner" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+
+    <div id="counters">
+        <div class="mdl-grid">
+            <div id="buyouts" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                <i class="material-icons feature-icon text-primary text-center">&#xE850;</i>
+                <h5 class="content text-light text-center">провести закупок:</h5>
+                <h3 class="content text-light text-center val"></h3>
+            </div>
+
+            <div id="orders" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                <i class="material-icons feature-icon text-primary text-center">&#xE8CC;</i>
+                <h5 class="content text-light text-center">создать заказов:</h5>
+                <h3 class="content text-light text-center val"></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai" class="mdl-button mdl-button--colored mdl-button--raised mdl-button--primary mdl-js-button block-center start-now">
+        <i class="material-icons">touch_app</i> Начать прямо сейчас!
+    </a>
+</section>
+
+<section id="price" class="section-color">
+    <div class="landing-section">
+        <h3 class="text-light text-center">Наши цены:</h3>
+
+        <div class="mdl-grid tariff-list">
+            <div class="mdl-cell mdl-cell--1-offset mdl-cell--5-col mdl-cell--2-offset-tablet mdl-cell--4-col-tablet mdl-cell--4-col-phone tariff">
+                <div class="demo-card-wide mdl-card mdl-shadow--6dp">
+    <div class="mdl-card__title mdl-card--expand">
+        <i class="material-icons feature-icon text-center">developer_board</i>
+        <h4>Органайзер</h4>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <ul class="tariff-features">
+            
+                <li>Выставление счетов</li>
+                <li>Отчет по клиентам</li>
+                <li>Отслеживание платежей</li>
+                <li>Оповещение клиентов</li>
+                <li>Личные сообщения</li>
+            
+        </ul>
+        <h4 class="free"><b>249 ₽ в месяц</b></h4>
+        <h5 class="price-info">с организатора</h5>
+        
+        <b>Первые 2 недели бесплатно!</b>
+        
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai/#/payment/new?type=org" target="_blank" class="mdl-button mdl-button--colored mdl-button--raised mdl-button--accent mdl-js-button">
+            Оплатить
+        </a>
+    </div>
+</div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--5-col mdl-cell--2-offset-tablet mdl-cell--4-col-tablet mdl-cell--4-col-phone tariff">
+                <div class="demo-card-wide mdl-card mdl-shadow--16dp">
+    <div class="mdl-card__title mdl-card--expand">
+        <i class="material-icons feature-icon text-center">account_circle</i>
+        <h4>Личный Кабинет</h4>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <ul class="tariff-features">
+            
+                <li>Просмотр счетов</li>
+                <li>Подтверждения оплаты</li>
+                <li>Баланс клиента</li>
+                <li>История заказов</li>
+                <li>История комментариев</li>
+            
+        </ul>
+        <h4 class="free"><b>299 ₽ в месяц</b></h4>
+        <h5 class="price-info">с группы</h5>
+        
+        <b>Первый месяц бесплатно!</b>
+        
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a href="https://органайзер.сп-помощник.рф/api/auth/start?redirectUri=https://xn--80aahkjl0afsh.xn----ptbggfebebr8g.xn--p1ai/#/payment/new?type=lk" target="_blank" class="mdl-button mdl-button--colored mdl-button--raised mdl-button--accent mdl-js-button">
+            Оплатить
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <div class="free-text text-center">
+            Если в вашей группе более 7 организаторов, <a href="https://vk.com/im?sel=-134681298" target="_blank">свяжитесь</a> с нами и мы предложим специальные условия!
+        </div>
+    </div>
+</section>
+            </div>
+            <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">
+            <a href="/">
+                <img class="logo" src="assets/images/logo.png"/>
+                СП Помощник 2017 <i class="material-icons copyright">copyright</i>
+            </a>
+        </div>
+        <ul class="mdl-mini-footer__link-list first">
+            <li><a href="/#features">Наши возможности</a></li>
+            <li><a href="/#about">Как это работает?</a></li>
+            <li><a href="/#price">Наши цены</a></li>
+            <li><a href="/lk_install.html">Установка ЛК</a></li>
+        </ul>
+        <ul class="mdl-mini-footer__link-list second">
+            <li><a href="/user_agreement.html">Пользовательское соглашение</a></li>
+            <li><a href="/payment_info.html">Информация об оплате</a></li>
+        </ul>
+    </div>
+    <div class="mdl-mini-footer__right-section">
+        <!--<div class="vk-social"><div class="vk"></div></div>-->
+        <div class="mail">
+            <a href="mailto:info@сп-помощник.рф?subject=Вопрос технической поддержке">
+                <i class="material-icons">mail_outline</i> info@сп-помощник.рф
+            </a>
+        </div>
+    </div>
+</footer>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

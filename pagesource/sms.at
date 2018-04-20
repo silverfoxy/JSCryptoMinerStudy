@@ -1,0 +1,961 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head><meta http-equiv="Expires" content="0" /><meta http-equiv="Last-Modified" content="Thu, 08 Mar 2018 15:13:47 +0100" />
+<link rel="SHORTCUT ICON" href="http://i.sms.at/favorites.ico" />
+<link rel="apple-touch-icon-precomposed" href="http://i.sms.at/global/apple-touch-icon.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Script-Type" content="javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="description" content="sms.at, das  Mobile Lifestyle Portal, bietet Kommunikation (gratis SMS, MMS, E-Mail), Mobile Entertainment (Klingelt&ouml;ne, Mp3, Games, MMS, Wallpaper, Themes, Spr&uuml;che) und Community (Freunde, Fotoalbum, Events, Gruppen, Blog)!" />
+<meta name="keywords" content="freunde, lifestyle, spr&uuml;che, gratis, sms, mms, games, mp3, klingelton, foto, chat" />
+<meta name="language" content="de-at" />
+<meta name="geo.region" content="AT" />
+
+
+<title>Gratis SMS, Gratis, Top Events, Handy Games, MP3 Realtones, MMS, Animierte Bilder, Hintergrundbilder, Handy Themes </title>
+<link rel="stylesheet" type="text/css" href="http://i.sms.at/css/main.css?1520521460" />
+<link rel="stylesheet" type="text/css" href="http://i.sms.at/css/main_addon.css?1520521460" />
+<!--[if lte IE 6]>
+		<link rel=stylesheet type="text/css" href="http://i.sms.at/css/ie.css?1520521460" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+		<link rel=stylesheet type="text/css" href="http://i.sms.at/css/ie7.css?1520521460" type="text/css" />
+<![endif]-->
+
+<link href="http://i.sms.at/css/extjs32-core-smsat.css?1520521460" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://i.sms.at/js/libs/extjs/v3_2/adapter/ext/ext-base.js?1520521506"></script>
+<script type="text/javascript" src="http://i.sms.at/js/libs/extjs/v3_2/ext-core-smsat.js?1520521507"></script>
+<script type="text/javascript">
+//<![CDATA[
+Ext.lib.Ajax.serializeForm = function(form) {
+            var fElements = form.elements || (document.forms[form] || Ext.getDom(form)).elements,
+                hasSubmit = false,
+                encoder = encodeURIComponent,
+                element,
+                options,
+                name,
+                val,
+                data = '',
+                type;
+
+            Ext.each(fElements, function(element) {
+                name = element.name;
+                type = element.type;
+
+                if (!element.disabled && name){
+                    if(/select-(one|multiple)/i.test(type)) {
+                        Ext.each(element.options, function(opt) {
+                            if (opt.selected) {
+                                data += String.format("{0}={1}&", encoder(name), encoder((opt.hasAttribute ? opt.hasAttribute('value') : opt.getAttributeNode('value').specified) ? opt.value : opt.text));
+                            }
+                        });
+                    } else if(!/file|undefined|reset|button/i.test(type)) {
+                            if(!(/radio|checkbox/i.test(type) && !element.checked) && !(type == 'submit' && hasSubmit)){
+
+                                data += encoder(name) + '=' + encoder(element.value) + '&';
+                                hasSubmit = /submit/i.test(type);
+                            }
+                    }
+                }
+            });
+            return data.substr(0, data.length - 1);
+        };
+/* createContextualFragment Bugfix. This is fixed in ExtJS 3.3.1?  IE9 doesnt know inconform createContextualFragment*/
+if ((typeof Range !== "undefined") && typeof Range.prototype.createContextualFragment == "undefined") {
+  Range.prototype.createContextualFragment = function (html) {
+    var doc = window.document;
+    var container = doc.createElement("div");
+    container.innerHTML = html;
+    var frag = doc.createDocumentFragment(), n;
+    while ((n = container.firstChild)) {
+      frag.appendChild(n);
+    }
+    return frag;
+  };
+}
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+  Ext.BLANK_IMAGE_URL = 'http://i.sms.at/b.gif';
+//]]>
+</script>
+<script type="text/javascript" src="http://i.sms.at/js/community/util.js?1520521501"></script>
+
+<script type="text/javascript" src="http://i.sms.at/js/framework/main.js?1520521500"></script>
+<script type="text/javascript" src="http://i.sms.at/js/framework/sse.js?1520521500"></script>
+
+  <!-- v1.3, see https://github.com/jamesallardice/Placeholders.js for description and updates -->
+  <script type="text/javascript" src="http://i.sms.at/js/polyfills/placeholders/placeholders.min.js?1520521500"></script>
+
+
+<script type="text/javascript">
+  // <![CDATA[
+  function box(view_src) {
+    var view_width = 400;
+    var view_height = 400;
+    var view_scroll = "yes";
+    var view_resize = 1;
+    var view_status = 0;
+    var view_border = 0;
+
+    view_win = window.open(view_src, "box","WIDTH="+view_width+",HEIGHT="+view_height+",RESIZEABLE="+view_resize+",BORDER="+view_border+",STATUS="+view_status+",SCROLLBARS="+view_scroll);
+    view_win.focus();
+      		}
+  function fotopage(view_src) {
+    var view_win = window.open(view_src, 'profil_sms_at');
+    view_win.focus();
+  }
+    function change_login() {
+	  if (document.loginform.https.value < 1) {
+	    if (document.loginform.secure_login.checked) {
+	      document.loginform.action = "https://" + window.location.hostname + "/login/";
+	    } else {
+	      document.loginform.action = "/login/";
+	    }
+	  }
+    }
+  function plf_play(type,id) {
+    var params = (id || id == '0') ? type + "," + id :  type;
+    var url = "/smartzone/player.fcgi?" + params;
+    if (document.getElementById) {
+      document.getElementById('plf').src = url;
+	    return false;
+    } else if (document.all) {
+	    document.all.plf.src = url;
+	    return false;
+	  } else if (document.layers) {
+	    document.layers.plf.src = url;
+	    return false;
+	  }
+	  return true;
+  }
+
+  function plf_stop() {
+    var url = "about:blank";
+    if (document.getElementById) {
+      document.getElementById('plf').src = url;
+	    return false;
+    } else if (document.all) {
+	    document.all.plf.src = url;
+	    return false;
+	  } else if (document.layers) {
+	    document.layers.plf.src = url;
+	    return false;
+	  }
+	  return true;
+  }
+
+var block=0;
+document.oncontextmenu=new Function("return !block");
+
+
+  	self.name = 'sms_at';
+	self.focus();
+
+    function fotopage(view_src) {
+    var view_win = window.open(view_src, 'profil_sms_at');
+    view_win.focus();
+  }
+
+    function card(view_src) {
+    var view_width = 300;
+    var view_height = 205;
+    var view_scroll = "no";
+    var view_resize = 0;
+    var view_status = 0;
+    var view_border = 0;
+
+    view_win = window.open(view_src,"card","WIDTH="+view_width+",HEIGHT="+view_height+",RESIZABLE="+view_resize+",BORDER="+view_border+",STATUS="+view_status+",SCROLLBARS="+view_scroll);
+    view_win.focus();
+      		}
+
+   function faq_view(faq) {
+ var prefix="faq_";
+ var view_width = 670;
+ var view_height = 470;
+ var view_scroll = "yes";
+ var view_resize = 0;
+ var view_status = 0;
+ var view_border = 0;
+
+ var tmp1=-1, tmp2=-1;
+
+ var tmp1=faq.search(/^0\./)
+ if(tmp1!=-1)faq=faq.replace(/^0\./,'0_')
+
+ var tmp2=faq.search(/\.+/g);
+ if(tmp2!=-1){faq=faq.replace(/[\.]/g,'_');prefix="fa_"}
+
+ var view_src = "/hilfesystem/index.html?"+prefix+faq+".html";
+ faq_win = window.open(view_src, "help","WIDTH="+view_width+",HEIGHT="+view_height+",RESIZABLE="+view_resize+",BORDER="+view_border+",STATUS="+view_status+",SCROLLBARS="+view_scroll);
+ faq_win.focus();
+}
+
+
+  // ]]>
+</script>
+</head>
+<body >
+
+<!-- yoondo top start -->
+<script type="text/javascript">
+  function yoondo_get_cookie(name){
+    var value = false;
+    if(cookie = document.cookie){
+      if(arrCookie = cookie.match( new RegExp( name + '=([^;]*)', 'g'))) {
+        value=RegExp.$1;
+      }
+    }
+    return value;
+  };
+
+  function yoondo_del_cookie(name){
+    if(document.cookie){
+      document.cookie = name + '=' + yoondo_get_cookie(name) + ';expires=Thu, 01-Jan-1970 00:00:01 GMT;';
+    }
+  };
+  try {
+    if (c = yoondo_get_cookie('YOONDO')) {
+      gba_yoondo = decodeURIComponent(c).split(',');
+    }
+
+    yoondo_del_cookie('YOONDO');
+  } catch(e) {}
+
+</script>
+<!-- yoondo top end -->
+
+<!-- GOLDBACH -->
+
+<!-- config scripts:  these scripts are required for loading all slot dependencies -->
+<script type="text/javascript">
+var gbucket = gbucket || {}; var setgbpartnertag964 = true; if(typeof(setgbtargetingobj) == 'undefined') {var setgbtargetingobj = {};}
+setgbtargetingobj["wsite"]="sms.at";
+setgbtargetingobj["yoondo"]="WERT";
+var gbuseSSL = 'https:' == document.location.protocol;
+var gbconfigdomain = (gbuseSSL ? 'https:' + "//gbucket.at/" : 'http:' + "//gbucket.at/");
+var gbadtagdomain = (gbuseSSL ? 'https:' + "//gbucket.at/" : 'http:' + "//gbucket.at/");
+document.write('<scr'+'ipt type="text/javascript" id="gbconfigscript" src="' + gbconfigdomain + 'config/config_desktop.js"></scr'+'ipt>');
+document.write('<scr'+'ipt type="text/javascript" id="gbadtag" src="' + gbadtagdomain + 'SMS_Mobile_Internet_Services/AT_Sms_EX/Home.js"></scr'+'ipt>');
+</script>
+<!-- GOLDBACH END-->
+
+<!-- OEWA VERSION="2.0" --><script type="text/javascript">
+          var OEWA = {
+            "s":"sms",
+            "cp":"Service/Homepage/Homepage/sms.at/1010"
+          };
+          var oewaq = oewaq || [];
+          oewaq.push(OEWA);
+          
+          (function() {
+            var scr = document.createElement('script');
+            scr.type = 'text/javascript'; scr.async = true;
+            scr.src = '//dispatcher.oewabox.at/oewa.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(scr, s);
+          })();
+        </script><!-- /OEWA --><script type="text/javascript">
+// <![CDATA[
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+// ]]></script><script type="text/javascript">
+// <![CDATA[
+var pageTracker;
+if (typeof _gat != "undefined") {
+  pageTracker = _gat._getTracker("UA-2683520-1");
+  pageTracker._setDomainName(".sms.at");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+}
+// ]]></script>
+<table>
+ <tr>
+   <td colspan="2" style="line-height:0px" align="left"><div id="bigsizebanner">
+<!-- 1x1,728x90, 468x60 -->
+<div id="gba_banner">
+<script type="text/javascript">
+gbcallslot964("gba_banner", "");
+</script>
+</div>
+
+</div></td>
+ </tr>
+</table>
+<div class="main_content_div">  
+<table class="header">
+   <tr>      
+    <td id="logo"><a href="/"><img src="http://i.sms.at/global/sms_logo.png" width="160" height="94" alt="www.sms.at" /></a></td>
+    <td id="banner" align="center">         
+	  
+<!-- 1x1,728x90, 468x60 -->
+<div id="gba_banner">
+<script type="text/javascript">
+gbcallslot964("gba_banner", "");
+</script>
+</div>
+
+
+      <noscript>
+        <img src="http://iads.sms.at/default/sms_at.gif" width="468" height="60" border="0" alt="" />         
+      </noscript>
+    </td>
+    <td style="padding-right:5px">
+      <table>
+        <tr>
+          <td align="right"></td>
+        </tr>
+      </table>
+	 </td>
+   </tr>
+</table>
+<table>
+  <tr>      
+    <td class="main_content_menu">
+<div class="color_frame_space_15">
+    <h2 class="color_header_navi"><a href="/messagebox/postfach/?st4EUXTaUXTEJ"><div class="icon_navi icon_navi_position_messagebox"></div></a><a style="text-decoration:none; color:#FFFFFF" href="/messagebox/postfach/?st4EUXTaUXTEJ">Messagebox</a></h2>
+    <div id="notify_layer" class="notify_layer" style="display:none"></div>
+    <div class="navigation">
+  
+      <div id="sublinks_send" class="navigation_collapsable collapsed">
+   			<a id="menu_01" href="/messagebox/sms_senden/" onclick="javascript:subcategory_links('sublinks_send')"><span class="navi_arrow_icon">SMS Senden</span><span id='menu_01_notify' style='display:none; background-image:none;'><img id='menu_01_notify_img' src='http://i.sms.at/mein_smsat/logbuch/gift_big.png' alt=''/></span></a>
+        <div class="subnavigation submenu"> 
+          <a id="menu_07" href="/tarife/"><span>SMS Tarife</span></a>
+				  <a href="/app/" ><span >SMS App</span></a>
+          <a id="menu_02" href="/messagebox/mms_senden/"><span>MMS Senden</span></a>
+          <a href="/smartzone/sms-sprueche/"><span>SMS Spr&uuml;che</span></a>
+          <a href="https://websms.at/?utm_source=sms_at&utm_medium=link&utm_term=menu&utm_campaign=smsat-redirects&cid=smsatmenu" target="_blank"><span>Business SMS</span></a>
+  			</div>
+      </div>
+  
+      <a id="menu_03" href="/messagebox/email_senden/"><span>E-Mail Senden</span></a>        
+      <a id="menu_04" href="/messagebox/postfach/"><span>Mein Postfach</span></a>
+      <a id="menu_05" href="/messagebox/telefonbuch/"><span>Meine Kontakte</span></a>	
+    </div>
+</div>
+
+<div class="color_frame_space_15">
+    <h2 class="color_header_navi"><a href="/smartzone/"><div class="icon_navi icon_navi_position_handyfun"></div></a><a style="text-decoration:none; color:#FFFFFF" href="/smartzone/">SmartZone</a></h2>
+    <div class="navigation">
+      <div id="sublinks_ringtones" class="navigation_collapsable collapsed">
+        <a href="/smartzone/klingeltoene-mp3/" onclick="javascript:subcategory_links('sublinks_ringtones')"><span class="navi_arrow_icon">Klingelt&ouml;ne</span></a>
+        <div class="subnavigation submenu"> 
+  			  <a id="menu_10" href="/smartzone/klingeltoene-mp3/"><span>MP3 Klingelt&ouml;ne</span></a> 
+  			  <a id="menu_11" href="/smartzone/klingeltoene-sms-toene/"><span>SMS T&ouml;ne</span></a> 
+  			  <a id="menu_12" href="/smartzone/klingeltoene-fun-sounds/"><span>Fun Sounds</span></a> 
+  			  <a id="menu_14" href="/smartzone/klingeltoene-nametones/"><span>Nametones</span></a> 	
+  			</div>
+      </div>
+      <a id="menu_09" href="/smartzone/spiele/" ><span>Spiele</span></a>
+      <a id="menu_54" href="/smartzone/bilder/" ><span>Bilder</span></a>
+      <a id="menu_41" href="/smartzone/apps/"><span>Apps</span></a> 
+      <a id="menu_23" href="/smartzone/museum/"><span>Museum</span></a>
+	  </div>
+</div>
+
+<div class="color_frame_space_15">
+    <h2 class="color_header_navi"><a href="/mein_smsat/"><div class="icon_navi icon_navi_position_community"></div></a><a style="text-decoration:none; color:#FFFFFF" href="/mein_smsat/">Community</a></h2>
+    <div class="navigation">
+
+      <div id="sublinks_mysmsat" class="navigation_collapsable collapsed">
+        <script type="text/javascript">
+          // <![CDATA[
+          if (cookie_exists())	{
+            document.write("<a id='menu_30' href='/mein_smsat/' onclick='javascript:subcategory_links(\"sublinks_mysmsat\")'><span class='navi_arrow_icon' >Mein sms.at</span><span id='menu_30_notify' style='display:none; background-image:none;'><img id='menu_30_notify_img' src='http://i.sms.at/menu/meine_seite_animation.gif' alt='' /></span></a>");
+          } else {	
+            document.write("<a id='menu_30' href='/mein_smsat/'><span class='navi_arrow_icon' >Mein sms.at</span><span id='menu_30_notify' style='display:none; background-image:none;'><img id='menu_30_notify_img' src='http://i.sms.at/menu/meine_seite_animation.gif' alt='' /></span></a>");
+          }
+          // ]]>
+        </script>
+      	<div class="subnavigation submenu"> 
+          <a href="javascript:void(0)" onclick="fotopage('http://my.sms.at/'+nick_lc()+'/');" ><span>Meine Seite</span></a>	  
+          
+          <a href="/mein_smsat/meine_fotos/"><span>Meine Fotos</span></a>
+          <a href="/mein_smsat/meine_events/"><span>Meine Events</span></a>
+          <a href="/mein_smsat/meine_gruppen/"><span>Meine Gruppen</span></a>
+          <a href="/mein_smsat/meine_links/"><span>Meine Links</span></a>
+          <a href="/mein_smsat/meine_freunde/einladen/"><span>Freunde einladen</span></a>
+          <a href="/mein_smsat/meine_seite_einrichten/" ><span>Seite einrichten</span></a>
+          <a href="/mein_smsat/privatsphaere/"><span>Privatsph&auml;re</span></a>
+          <a href="/mein_smsat/gemerkte_user/"><span>Gem. Personen</span></a>
+        </div>
+
+      </div>
+
+ 			<a id="menu_35" href="/community/mitteilungen/"><span>Mitteilungen</span></a>
+ 			<a id="menu_26" href="/mein_smsat/suche/"><span>Freunde finden</span></a>
+      <!--a id="menu_33" href="/events/"><span>Eventkalender</span></a-->
+      <a id="menu_34" href="/gruppen/"><span>Gruppen</span></a>
+      <a id="menu_31" href="/blogs/"><span>Blogs</span></a>
+      <a id="menu_32" href="/community/vorteilszone/"><span>Vorteilszone</span></a>
+    </div>
+
+</div>
+
+<div style="clear:both"></div>
+<script type="text/javascript">
+  // <![CDATA[
+  menu_toggle_url_control();
+  // ]]>
+</script>
+
+    </td>
+    <td class="main_content">
+ <!-- needed for Carousel and HTML5 Prelistening and StatusWorldTeaser -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+  
+  
+  
+  
+//]]>
+</script>
+
+<link href="http://i.sms.at/css/ext-ux-carousel.css?1520521460" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://i.sms.at/js/libs/extjs/v3_2/ux/Carousel.js?1520521506"></script>
+<script type="text/javascript" src="http://i.sms.at/js/index.js?1520521507"></script>
+
+<script src="http://i.sms.at/js/smartzone/prelistening.js?1520521500" type="text/javascript"></script>
+
+<script type="text/javascript">
+// <![CDATA[
+  
+// ]]>
+</script>
+<table class="upper_page_header" >
+  <tr style="vertical-align:baseline;">
+    <td class="upper_page_left">
+<div class="lower_page_header_box"></div>
+    </td>
+    <td  class="upper_page_right">
+      <script type="text/javascript">
+        // <![CDATA[
+        if(cookie_exists()){
+          document.write("<span class='card_box'><a href=\"/card/?1sQBzuZ43EtsXXuTq7SQBq7ts2T\"><span class='card_icon'>&nbsp;</span><span class='card_credit' id=\"card_credit\">&nbsp;&euro;&nbsp;" + card_credit() + "</span></a></span>&nbsp;&nbsp; <span ><a class='user_name' href=\"#\" onclick=\"toggleHeadMenu('user_menu')\" >" + cookie_nick() +"</a></span> <div class='user_menu' id='user_menu'><ul><li>" + cookie_handynr() + "</li><li><a href=\"javascript:void(0)\" onclick=\"fotopage('http://my.sms.at/'+nick_lc()+'/');\">Meine Seite</a></li><li><a href=\"/optionen/\">Optionen</a></li><li><a href=\"/logout/\" onClick=\"logout_confirm();return false;\">Logout</a></li></ul></div>");
+        } else {
+                    document.write('<div style="float:right" ><form action="/" method="post" name="loginform" id="loginform" ><input type="text" name="nick" id="nick" size="10" maxlength="15" placeholder="Benutzer" class="quick_login"/><input type="password" name="passwd" id="passwd" size="10" maxlength="15" placeholder="Passwort" class="quick_login pswd"/><input type="hidden" name="action" value="login" /><div class="button"><input type="submit" name="login" value="Login" /></div><div class="forgotten_pswd"><a href="/login/" title="Passwort vergessen?">?</a></div></form></div>');
+          document.loginform.nick.focus();
+          var AC_Nick = new SubmitFormOnEnter('nick');
+          var AC_PW = new SubmitFormOnEnter('passwd');
+
+        }
+        function logout_confirm() {
+          if (confirm("Wollen Sie sich wirklich ausloggen?\n\nFalls Sie die AutoLogin Funktion aktiviert haben, müssen Sie sich das nächste Mal neu einloggen!")) {
+            location.href="/logout/?X0v054qx8EJ";
+          }
+        }
+        // ]]>
+      </script>
+    </td>
+
+  </tr>
+	<tr>
+		<td colspan="2" style="text-align:right">
+		<div class="register_box" >
+	<script type="text/javascript">
+        // <![CDATA[
+          if(!cookie_exists()){
+					  document.write('<div class="register_link" ><a href="/anmeldung/" ><b>Registrieren</b></a></div>');
+				  }
+        // ]]>
+  </script>
+</div>
+
+		</td>
+	</tr>
+</table>
+
+
+
+<div class="index_main_frame">
+	<div class="page_frame_one">
+		<div class="index_frame_left_big"   ><div class="index_teaser_409">
+  <div id="carousel-teaser" style="width:409px; height:270px; float:left">
+       <div class="slide-item" style="height:270px">
+      <div>
+        <h1 class="headline_bar"  style="margin-bottom:0;">Klingelt&ouml;ne</h1>
+        <div class="slider_big" style="float:left; ">
+          <div class="item class_id_55">
+            <div class="item_img"> <a href="/smartzone/klingeltoene-mp3/ed-sheeran/perfect-i3592575/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/smart_ringtones/75/3592575.jpg" title="Ed Sheeran - Perfect" alt="Ed Sheeran - Perfect" class=" fix-square" /></a> <div class="listen preplayer" data-plf-player-params="rt,3592575">
+  
+  <div class="preplayer_buttons">
+    
+    <a class="preplayer_button_play" href="javascript:void(0);" style="display:block;" title="Perfect von Ed Sheeran anh&ouml;ren"></a>
+    
+    <a class="preplayer_button_wait" href="javascript:void(0);" style="display:none;" title="Perfect von Ed Sheeran anh&ouml;ren">
+      <div class="floatingCirclesG">
+        <div class="f_circleG frotateG_01"></div>
+        <div class="f_circleG frotateG_02"></div>
+        <div class="f_circleG frotateG_03"></div>
+        <div class="f_circleG frotateG_04"></div>
+        <div class="f_circleG frotateG_05"></div>
+        <div class="f_circleG frotateG_06"></div>
+        <div class="f_circleG frotateG_07"></div>
+        <div class="f_circleG frotateG_08"></div>
+      </div>
+    </a>
+    
+  	<a class="preplayer_button_stop" href="javascript:void(0);" style="display:none;" title="Perfect von Ed Sheeran anh&ouml;ren">&nbsp;</a>
+  	
+  </div>
+
+  <audio id="audio_3592575" preload="auto" autobuffer="autobuffer" style="display:none;" data-prelistening-url-1="/smartzone/prelistening/yVWy5QlHwy7yTqzCry1qBgqKyzTcXQrqRIyCq5VdykQ2JcWJcAccAbQcAV2.m4a" data-prelistening-mime-1="audio/mp4" data-prelistening-url-2="/smartzone/prelistening/yVWy5QlHwy7yTqzCry1qBgqKyzTcXQrqRIyCq5VdykQ2JcWJcAccAbQcAV2.ogg" data-prelistening-mime-2="audio/ogg" data-prelistening-url-3="/smartzone/prelistening/yVWy5QlHwy7yTqzCry1qBgqKyzTcXQrqRIyCq5VdykQ2JcWJcAccAbQcAV2.mp3" data-prelistening-mime-3="audio/mpeg"> 
+  </audio>
+  
+</div> </div>
+            <div class="item_text">  <a href="/smartzone/klingeltoene-mp3/ed-sheeran/perfect-i3592575/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Ed Sheeran</span><br />
+              Perfect </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_55">
+            <div class="item_img"> <a href="/smartzone/klingeltoene-mp3/roland-kaiser-maite-kelly/warum-hast-du-nicht-nein-gesagt-i3595590/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/smart_ringtones/90/3595590.jpg" title="Roland Kaiser &#x26; Maite Kelly - Warum hast du nicht nein gesagt" alt="Roland Kaiser &#x26; Maite Kelly - Warum hast du nicht nein gesagt" class=" fix-square" /></a> <div class="listen preplayer" data-plf-player-params="rt,3595590">
+  
+  <div class="preplayer_buttons">
+    
+    <a class="preplayer_button_play" href="javascript:void(0);" style="display:block;" title="Warum hast du nicht nein gesagt von Roland Kaiser &#x26; Maite Kelly anh&ouml;ren"></a>
+    
+    <a class="preplayer_button_wait" href="javascript:void(0);" style="display:none;" title="Warum hast du nicht nein gesagt von Roland Kaiser &#x26; Maite Kelly anh&ouml;ren">
+      <div class="floatingCirclesG">
+        <div class="f_circleG frotateG_01"></div>
+        <div class="f_circleG frotateG_02"></div>
+        <div class="f_circleG frotateG_03"></div>
+        <div class="f_circleG frotateG_04"></div>
+        <div class="f_circleG frotateG_05"></div>
+        <div class="f_circleG frotateG_06"></div>
+        <div class="f_circleG frotateG_07"></div>
+        <div class="f_circleG frotateG_08"></div>
+      </div>
+    </a>
+    
+  	<a class="preplayer_button_stop" href="javascript:void(0);" style="display:none;" title="Warum hast du nicht nein gesagt von Roland Kaiser &#x26; Maite Kelly anh&ouml;ren">&nbsp;</a>
+  	
+  </div>
+
+  <audio id="audio_3595590" preload="auto" autobuffer="autobuffer" style="display:none;" data-prelistening-url-1="/smartzone/prelistening/QIqgqdq9ytjy4QGQ5q2yZyAqILqTQfYeQBgRQ1YbQRQdaCYDqAJcWJcAccAbQcAV2.m4a" data-prelistening-mime-1="audio/mp4" data-prelistening-url-2="/smartzone/prelistening/QIqgqdq9ytjy4QGQ5q2yZyAqILqTQfYeQBgRQ1YbQRQdaCYDqAJcWJcAccAbQcAV2.ogg" data-prelistening-mime-2="audio/ogg" data-prelistening-url-3="/smartzone/prelistening/QIqgqdq9ytjy4QGQ5q2yZyAqILqTQfYeQBgRQ1YbQRQdaCYDqAJcWJcAccAbQcAV2.mp3" data-prelistening-mime-3="audio/mpeg"> 
+  </audio>
+  
+</div> </div>
+            <div class="item_text">  <a href="/smartzone/klingeltoene-mp3/roland-kaiser-maite-kelly/warum-hast-du-nicht-nein-gesagt-i3595590/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Roland Kaiser &#x26; Maite Kelly</span><br />
+              Warum hast du nicht nein gesagt </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="slider_big" style="float:right; ">
+          <div class="item class_id_55">
+            <div class="item_img"> <a href="/smartzone/klingeltoene-mp3/the-chainsmokers/sick-boy-i3595612/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/smart_ringtones/12/3595612.jpg" title="The Chainsmokers - Sick Boy" alt="The Chainsmokers - Sick Boy" class=" fix-square" /></a> <div class="listen preplayer" data-plf-player-params="rt,3595612">
+  
+  <div class="preplayer_buttons">
+    
+    <a class="preplayer_button_play" href="javascript:void(0);" style="display:block;" title="Sick Boy von The Chainsmokers anh&ouml;ren"></a>
+    
+    <a class="preplayer_button_wait" href="javascript:void(0);" style="display:none;" title="Sick Boy von The Chainsmokers anh&ouml;ren">
+      <div class="floatingCirclesG">
+        <div class="f_circleG frotateG_01"></div>
+        <div class="f_circleG frotateG_02"></div>
+        <div class="f_circleG frotateG_03"></div>
+        <div class="f_circleG frotateG_04"></div>
+        <div class="f_circleG frotateG_05"></div>
+        <div class="f_circleG frotateG_06"></div>
+        <div class="f_circleG frotateG_07"></div>
+        <div class="f_circleG frotateG_08"></div>
+      </div>
+    </a>
+    
+  	<a class="preplayer_button_stop" href="javascript:void(0);" style="display:none;" title="Sick Boy von The Chainsmokers anh&ouml;ren">&nbsp;</a>
+  	
+  </div>
+
+  <audio id="audio_3595612" preload="auto" autobuffer="autobuffer" style="display:none;" data-prelistening-url-1="/smartzone/prelistening/ZqmqVQQqlqgQIYAqoYeYAQHqmQJyDKQt2QEIqgyMQKqJycqaMyFJcWJcAccAbQcAV2.m4a" data-prelistening-mime-1="audio/mp4" data-prelistening-url-2="/smartzone/prelistening/ZqmqVQQqlqgQIYAqoYeYAQHqmQJyDKQt2QEIqgyMQKqJycqaMyFJcWJcAccAbQcAV2.ogg" data-prelistening-mime-2="audio/ogg" data-prelistening-url-3="/smartzone/prelistening/ZqmqVQQqlqgQIYAqoYeYAQHqmQJyDKQt2QEIqgyMQKqJycqaMyFJcWJcAccAbQcAV2.mp3" data-prelistening-mime-3="audio/mpeg"> 
+  </audio>
+  
+</div> </div>
+            <div class="item_text">  <a href="/smartzone/klingeltoene-mp3/the-chainsmokers/sick-boy-i3595612/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">The Chainsmokers</span><br />
+              Sick Boy </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_55">
+            <div class="item_img"> <a href="/smartzone/klingeltoene-mp3/justin-timberlake/filthy-i3595567/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/smart_ringtones/67/3595567.jpg" title="Justin Timberlake - Filthy" alt="Justin Timberlake - Filthy" class=" fix-square" /></a> <div class="listen preplayer" data-plf-player-params="rt,3595567">
+  
+  <div class="preplayer_buttons">
+    
+    <a class="preplayer_button_play" href="javascript:void(0);" style="display:block;" title="Filthy von Justin Timberlake anh&ouml;ren"></a>
+    
+    <a class="preplayer_button_wait" href="javascript:void(0);" style="display:none;" title="Filthy von Justin Timberlake anh&ouml;ren">
+      <div class="floatingCirclesG">
+        <div class="f_circleG frotateG_01"></div>
+        <div class="f_circleG frotateG_02"></div>
+        <div class="f_circleG frotateG_03"></div>
+        <div class="f_circleG frotateG_04"></div>
+        <div class="f_circleG frotateG_05"></div>
+        <div class="f_circleG frotateG_06"></div>
+        <div class="f_circleG frotateG_07"></div>
+        <div class="f_circleG frotateG_08"></div>
+      </div>
+    </a>
+    
+  	<a class="preplayer_button_stop" href="javascript:void(0);" style="display:none;" title="Filthy von Justin Timberlake anh&ouml;ren">&nbsp;</a>
+  	
+  </div>
+
+  <audio id="audio_3595567" preload="auto" autobuffer="autobuffer" style="display:none;" data-prelistening-url-1="/smartzone/prelistening/yny8q3yPyly5quyYQjyuy1QCq1YATyTYcQwYYKkTqFQxYfYE3KJcWJcAccAbQcAV2.m4a" data-prelistening-mime-1="audio/mp4" data-prelistening-url-2="/smartzone/prelistening/yny8q3yPyly5quyYQjyuy1QCq1YATyTYcQwYYKkTqFQxYfYE3KJcWJcAccAbQcAV2.ogg" data-prelistening-mime-2="audio/ogg" data-prelistening-url-3="/smartzone/prelistening/yny8q3yPyly5quyYQjyuy1QCq1YATyTYcQwYYKkTqFQxYfYE3KJcWJcAccAbQcAV2.mp3" data-prelistening-mime-3="audio/mpeg"> 
+  </audio>
+  
+</div> </div>
+            <div class="item_text">  <a href="/smartzone/klingeltoene-mp3/justin-timberlake/filthy-i3595567/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Justin Timberlake</span><br />
+              Filthy </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="arrow" style="position: relative; margin-top: 5px;right:10px; top:17px"><a  href="/smartzone/klingeltoene-mp3/">Mehr Klingelt&ouml;ne </a></div>
+      </div>
+    </div> 
+   
+    <div class="slide-item" style="height:270px">
+      <div>
+        <h1 class="headline_bar"  style="margin-bottom:0;">Spiele</h1>
+        <div class="slider_big" style="float:left; ">
+          <div class="item class_id_46">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/candy-thieves-3d-i7294/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/07294/preview.png" title="Candy Thieves 3D" alt="Candy Thieves 3D" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/candy-thieves-3d-i7294/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Candy Thieves 3D</span><br />
+              Ein dynamisches Abenteuer. Besch&#xFC;tze k&#xF6;stliche S&#xFC;&#xDF;igkeiten vor den unversch&#xE4;mten, diebischen Gnomen! </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_46">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/sweet-bubble-story-i7014/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/07014/preview.png" title="Sweet Bubble Story" alt="Sweet Bubble Story" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/sweet-bubble-story-i7014/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Sweet Bubble Story</span><br />
+              Fluffys Familie wurde vom b&#xF6;sen Don Villon gefangen genommen! Kannst du ihm helfen? </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="slider_big" style="float:right; ">
+          <div class="item class_id_46">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/the-light-inside-us-i7293/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/07293/preview.png" title="The Light Inside Us" alt="The Light Inside Us" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/the-light-inside-us-i7293/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">The Light Inside Us</span><br />
+              The Light Inside Us ist ein abstraktes Action / Strategiespiel in einer isometrischen Welt, in der Licht empfindungsf&#xE4;hig ist. </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_46">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/temple-rush-i7300/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/07300/preview.png" title="Temple Rush" alt="Temple Rush" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/spiele/temple-rush-i7300/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Temple Rush</span><br />
+              Laufe um dein Leben und umgehe Hindernisse. Sammle M&#xFC;nzen, steigere Power-ups und erf&#xFC;lle Aufgaben. </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="arrow" style="position: relative; margin-top: 5px;right:10px; top:17px"><a  href="/smartzone/spiele/">Mehr Spiele </a></div>
+      </div>
+    </div> 
+   
+    <div class="slide-item" style="height:270px">
+      <div>
+        <h1 class="headline_bar"  style="margin-bottom:0;">Live Wallpaper</h1>
+        <div class="slider_big" style="float:left; ">
+          <div class="item class_id_64">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/feurige-hand-i4811/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/04811/preview.png" title="Feurige Hand" alt="Feurige Hand" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/feurige-hand-i4811/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Feurige Hand</span><br />
+              Sind Sie mutig genug, die brennende Handy auf Ihrem Handybildschirm zu ber&#xFC;hren? Vorsicht, feurig! </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_64">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/valentine-design-06-i6271/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/06271/preview.jpg" title="Valentine Design 06" alt="Valentine Design 06" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/valentine-design-06-i6271/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Valentine Design 06</span><br />
+              Mit diesen tollen Live Wallpapern und den witzigen Effekt-Optionen kommst du schnell in Halloween-Stimmung. Features: - Animiertes Live Wallpaper. - &#xDC;ber 10 Effekte zu Personalisierung. - Zaubere bei Ber&#xFC;hrung Glanzeffekte aufs Display oder lasse es schne </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="slider_big" style="float:right; ">
+          <div class="item class_id_64">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/lion-roar-i5122/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/05122/preview.png" title="Lion Roar" alt="Lion Roar" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/lion-roar-i5122/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Lion Roar</span><br />
+              Erlebe wilde Tiere von ihrer aufregensten Seite mit den Live Wallpapern der Cool Animals Serie.
+
+Features: 
+- Animiertes Live Wallpaper
+- &#xDC;ber 10 Effekte zu Personalisierung
+- Zaubere bei Ber&#xFC;hrung Glanzeffekte aufs Display oder lasse es schneien
+-  </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_64">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/warm-nature-i5104/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/05104/preview.jpg" title="Warm Nature" alt="Warm Nature" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/bilder/android-live-hintergrund/warm-nature-i5104/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Warm Nature</span><br />
+              Mit diesen tollen Live Wallpapern und den witzigen Effekt-Optionen kommst du schnell in Sommer-Stimmung.  </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="arrow" style="position: relative; margin-top: 5px;right:10px; top:17px"><a  href="/smartzone/bilder/android-live-hintergrund/">Mehr Live Wallpaper </a></div>
+      </div>
+    </div> 
+    
+    <div class="slide-item" style="height:270px">
+      <div>
+        <h1 class="headline_bar"  style="margin-bottom:0;">Apps</h1>
+        <div class="slider_big" style="float:left; ">
+          <div class="item class_id_62">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/sms-at-smartzone-i4080/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/04080/preview.png" title="sms.at SmartZone" alt="sms.at SmartZone" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/sms-at-smartzone-i4080/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">sms.at SmartZone</span><br />
+              Einfach g&#x27;funden: ber die sms.at SmartZone jetzt schnell &#x26; bequem auf die besten Ringtones, Games &#x26; Apps sterreichweit zugreifen! </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_62">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/sms-at-mobile-die-sms-app-fuer-android-i3911/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/03911/preview.png" title="sms.at mobile - die SMS App f&#xFC;r Android" alt="sms.at mobile - die SMS App f&#xFC;r Android" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/sms-at-mobile-die-sms-app-fuer-android-i3911/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">sms.at mobile - die SMS App f&#xFC;r Android</span><br />
+              Einfach gschickt: lade dir JETZT sms.at mobile gratis auf dein Handy und teste mit 2,- Geschenk! </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="slider_big" style="float:right; ">
+          <div class="item class_id_62">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/fussball-bundesliga-i4451/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/04451/preview.png" title="Fu&#xDF;ball-Bundesliga" alt="Fu&#xDF;ball-Bundesliga" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/fussball-bundesliga-i4451/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Fu&#xDF;ball-Bundesliga</span><br />
+              Zum Start der neuen Bundesligasaison wurde die ehemalige Fussball Fieber App nicht nur namentlich sondern auch inhaltlich &#xFC;berarbeitet und erweitert. Mit News, Diashows, LIVE Tickern, Statistiken, einem kompletten Bereich zur Heute f&#xFC;r Morgen Erste Liga u </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+          <div class="item class_id_62">
+            <div class="item_img"> <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/unwetterzentrale-oesterreich-i4737/?02Tu2q73w4uE3XwTu2q7JJAeC" class="detail-url"><img src="http://i.sms.at/mi/04737/preview.png" title="Unwetterzentrale &#xD6;sterreich" alt="Unwetterzentrale &#xD6;sterreich" class="" /></a>  </div>
+            <div class="item_text">  <a href="/smartzone/samsung-s5830-galaxy-ace-d2144/apps/unwetterzentrale-oesterreich-i4737/?02Tu2q73w4uE3XwTu2q7JJAeC"> <span class="text_bold">Unwetterzentrale &#xD6;sterreich</span><br />
+              Ab jetzt k&#xF6;nnen Sie das Service der &#xD6;sterreichischen Unwetterzentrale (www.uwz.at) auch &#xFC;ber Ihr Android Smartphone nutzen. Mit dieser innovativen App sind Sie jetzt auch unterwegs immer bestens &#xFC;ber Unwetter informiert. </a> </div>
+            <hr />
+            <div class="dott_line_horizon"></div>
+          </div>
+        </div>
+        <div class="arrow" style="position: relative; margin-top: 5px;right:10px; top:17px"><a  href="/smartzone/apps/">Mehr Apps</a></div>
+      </div>
+    </div> 
+ 
+  </div>
+</div></div><!-- slider -->
+		<div class="index_frame_right_small"><div style="float:left; margin:0; height:260px;vertical-align:top; border:1px solid #ebebeb;position:relative">
+  <form action="http://www.sms.at/anmeldung/" method="post">
+    <div style="margin:10px;"><b>Kostenlos</b> registrieren &amp; <span style="color:#F48302; font-weight:bold;"> gratis SMS</span> verschicken
+      <div style="margin:10px 0 5px 0">Vorname</div>
+      <div>
+        <input style="width:100%; padding:6px 0" type="text" name="first_name" value=""/>
+      </div>
+      <div style="margin:10px 0 5px 0">Nachname</div>
+      <div>
+        <input style="width:100%; padding:6px 0" type="text" name="last_name" value=""/>
+      </div>
+      <div style="margin:10px 0 5px 0">E-Mail Adresse</div>
+      <div style="margin-bottom:8px">
+        <input style="width:100%; padding:6px 0" type="text" name="email" value=""/>
+      </div>
+      <div class="button" style="float:right; margin:0 0 0 0; position: absolute; bottom:2px;right:8px;">
+        <input  type="submit" value="Registrieren" style="background:none;"/>
+      </div> 
+      <hr />
+    </div>
+  </form>
+</div>
+<hr /></div><!-- registration -->
+    <hr />
+	</div>
+	<div class="page_frame_one">
+		<div class="index_frame_left" >
+<div id="cmm_ad_rectangle">
+  <div id="cmm_ad_rectangle_content">
+
+<!-- 1x1, 300x250 -->
+<div id="gba_rect">
+<script type="text/javascript">
+gbcallslot964("gba_rect", "");
+</script>
+</div>
+
+  </div>
+  <div id="cmm_ad_rectangle_footer" style="text-align:right;font-size:8pt;font-family:verdana;color:#666666;border-top:1px solid #999999;margin-top:5px;margin-bottom:23px;width:300px;">Bezahlte Werbung</div>
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+        if (typeof cmm_by_script === 'object' && cmm_by_script.length > 0) {
+                document.getElementById('cmm_ad_rectangle_footer').style.display = 'none';
+                document.getElementById('cmm_ad_rectangle').style.display = 'block';
+        }
+// ]]>
+</script>
+
+<!-- goldbach-fallback: cmm_1_ (called via /cmm/ script) --></div>
+		<div class="index_frame_right"><div style="border-style: none solid solid; border-color:#ebebeb;border-width: 0 1px 1px 1px; margin-bottom: 20px; height:270px;position:relative">
+	 <form name="smslight" action="/campaign/?JdqwW" method="post">
+  <h1 class="headline_bar">Einfach g'schickt</h1>
+  <div style="padding:00px 10px;">
+  	<div style="margin:10px 0 5px 0"><b>An:</b></div>
+    <div style="margin-bottom:20px"><input id="sms_recipient" name="sms_recipient" style="width:100%; padding:6px 0" maxlength="16" value="" ></input></div>
+    <div style="margin-bottom:5px"><b>Mein SMS Text:</b></div>
+  	<div>
+  	  <textarea id="sms_text" name="sms_text" rows="5" cols="22" style="width:100%; white-space:normal; height:90px;"></textarea>
+  	</div>
+  	<div class="button" style="position:absolute;bottom:2px;right:3px;"><input class="button" type="submit" name="submit" value="SMS senden" /></div>
+  </div>
+  </form>
+</div></div><!-- einfach gschickt -->
+    <hr />
+	</div>
+	<div class="page_frame_one">
+		<div class="index_frame_left_big"   ><script type="text/javascript">
+  Ext.ns("StatusNotesWorld");
+  StatusNotesWorld.param = {tplName:'template_latest_status_notes_line', maxAmount:6, renderTo: ['latest_status_notes_lines_left', 'latest_status_notes_lines_right']};
+</script>
+<div class="index_teaser_409 color_frame_space_15" >  
+  <h1 class="headline_bar" style="margin-bottom:0;">Community Mitteilungen</h1>
+  <div class="teaser_160_content_aug" style="height: 200px;overflow: hidden; margin:10px 5px 4px 5px ">
+    
+    <div id="latest_status_notes_div" style="position:relative;width:100%;height:540px;overflow:hidden;">
+    	<textarea title="template_latest_status_notes_line" class="template" rows="0" cols="0"><![CDATA[
+        <div style="overflow:hidden">
+          <div>
+            <div style=" float:left; text-align:center">
+              <div class="useronline_pic_teeny" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px;">
+              <div class="useronline_status_overlay_teeny" >
+    						<a href="{nickpageUrl}" target="profil_sms_at">
+    							<img src="http://i.sms.at/profil/global/online_micro_button.png" alt="Online" title="Online" />
+    						</a>
+    					</div>
+                <a href="{nickpageUrl}" target="profil_sms_at">
+                  <img src="http://i.sms.at/{coverPhotoPathSmall}" alt="{screenName}" title="{screenName}" />
+                </a>
+              </div>
+             </div>
+            <div style="float:left; overflow:hidden; width:115px">{statusText}</div>
+            <div style="clear:left "></div>
+          </div>
+          <div class="dott_line_horizon_topbottom5"></div>
+        </div>
+    	]]></textarea>
+      <div id="latest_status_notes_lines_left" style="float:left; width:190px"></div>
+      <div id="latest_status_notes_lines_right" style="float:right; width:190px"></div>
+      <hr />
+    </div>
+    </div>
+    <div class="arrow" style="text-align:right; width:395px;"><a href="/community/mitteilungen/">Mehr Mitteilungen</a></div>
+  
+  <div class="note_fade" style="top: -36px;"></div>
+</div>
+<script type="text/javascript" src="/js/community/latest_status_notes.js"></script></div><!-- status world -->
+		<div class="index_frame_right_small"></div><!-- gratis tickets -->
+    <hr />
+	</div>
+	<div class="page_frame_one"><div>
+  <div class="footer_teaser_frame_side" style="height:170px;position:relative;">
+      <div class="footer_teaser_vspace" style="text-align:center"><b>SMS SuperSMART</b></div>
+      <div class="footer_teaser_vspace"><a href="/tarife/"><img src="http://i.sms.at/teaser/89/11089/weltkarte.png" alt="" /></a></div>
+      <div class="footer_teaser_vspace footer_teaser_vspace_content" style="height:37px;">Monatlich weltweit verf&uuml;gbar - online &amp; mobil.</div>
+      <div style="position:absolute; bottom:3px;right:10px;"><a class="teaser_160_link_aug" href="/tarife/" style="margin-right:0;">SMS Tarife </a></div>
+  </div>
+  <div class="footer_teaser_space20">&nbsp;</div>
+  <div class="footer_teaser_frame_middle" style="height:170px;position:relative;">
+    <h2 class="footer_teaser_vspace" style="text-align:center"><b>SMS f&uuml;r Unternehmen</b></h2>
+    <div class="footer_teaser_vspace">
+      <div><a href="http://www.sms.at/campaign/?WWDqwW"><img src="http://i.sms.at/teaser/89/11089/137x80.jpg" alt="" width="137" height="80"/></a>
+        
+      </div>
+    </div>
+    <div class="footer_teaser_vspace footer_teaser_vspace_content" style="height:37px;">14 Tage unverbindlich testen.</div>
+    <div style="position:absolute; bottom:3px;right:10px;"><a class="teaser_160_link_aug" href="http://websms.at/?cid=smsat_startseite_unten" style="margin-right:0;" target="_blank" >Mehr Information</a></div>
+  </div>
+  <div class="footer_teaser_space20">&nbsp;</div>
+  <div class="footer_teaser_frame_side" style="height:170px;position:relative;">
+    <h2 class="footer_teaser_vspace" style="text-align:center"><b>sms.at am Smartphone </b></h2>
+    <div class="footer_teaser_vspace"><a href="/app/"><img src="http://i.sms.at/teaser/89/11089/mobile.png" alt="" width="173" height="80"/></a></div>
+    <div class="footer_teaser_vspace footer_teaser_vspace_content" style="height:37px;">SMS mobil versenden mit der sms.at mobile App. </div>
+    <div style="position:absolute; bottom:3px;right:10px;"><a class="teaser_160_link_aug" href="/app/" style="margin-right:0;">sms.at mobile </a></div>
+  </div>
+  <hr/>
+</div>
+</div><!-- fusszeile 3er-pack -->
+</div>
+<hr />
+
+<iframe title="Klingelton Prelistening Layer" id="plf" name="plf" frameborder="0" height="0" width="20"></iframe>
+
+    </td>
+	<td style="vertical-align:top;">
+      
+<!-- 1x1, 160x600, 160x601, 300x600 -->
+<div id="gba_sky_sb_hpa">
+<script type="text/javascript">
+gbcallslot964("gba_sky_sb_hpa", "");
+</script>
+</div>
+
+
+    </td>
+
+  </tr>
+</table>
+<table class="footer_box">
+   <tr>
+      <td class="footer"><a href="https://websms.at/unternehmen/ueber-uns?utm_source=sms_at&utm_medium=link&utm_term=footer&utm_campaign=smsat-redirects&cid=smsatcompany" target="_blank">&Uuml;ber sms.at</a> | <a href="/media/">Werben auf sms.at</a> | <a href="https://websms.at/?utm_source=sms_at&utm_medium=link&utm_term=footer&utm_campaign=smsat-redirects&cid=smsatfooter" target="_blank">SMS f&uuml;r Unternehmen</a><br />
+        <a href="http://wap.sms.at">Mobile Version</a> | <a href="javascript: onclick=help_view('/hilfesystem/?allgemein/agb_sms_at.html');">AGB</a> | <a href="javascript: onclick=help_view('/hilfesystem/?allgemein/impressum.html');">Impressum</a> | <a href="/hilfesystem/kundenservice/">Kundenservice/FAQ</a> | <a href="javascript: onclick=help_view('/hilfesystem/%3Fallgemein/allgemein.html');">Hilfe</a> |     <script type="text/javascript">// <![CDATA[
+	if (navigator.appName=='Microsoft Internet Explorer') {
+		document.write("<a href=\"#\" onClick=\"this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sms.at');return false;\" class=\"footer_link\">sms.at als Startseite</a>");
+	} else if (navigator.appName=='Netscape') {
+		document.write("<a href = \"/optionen/ns_fav.html\" class=\"footer_link\">sms.at als Startseite</a>");
+	}
+	// ]]>
+  </script></td>
+   </tr>
+    <tr>
+      <td class="footer">Copyright &copy; 2018 sms.at. Alle Rechte vorbehalten.</td>
+    </tr>
+</table>
+</div>
+<table>
+   <tr>
+      <td>
+        <iframe title="Notification Layer" id="notify" name="notify" src="/notify_check.html" scrolling="no" marginwidth="0" marginheight="0" width="1" height="1" frameborder="0"></iframe>
+      </td>
+   </tr>
+</table>
+<!-- notify begin -->
+<script type="text/javascript">
+// <![CDATA[
+  var cookie_domain = ".sms.at";
+// ]]>
+</script>
+<script type="text/javascript" src="http://i.sms.at/js/notify.js?1520521507"></script>
+<!-- notify end -->
+<script type="text/javascript">
+// <![CDATA[
+  SSE.init();
+// ]]>
+</script>
+  <script type="text/javascript">
+    // <![CDATA[
+    /* initialize placeholders (see http://i.sms.at/js/polyfills/placeholders/README.md?1520521500 for init options) */
+    Placeholders.init();
+    // ]]>
+  </script>
+
+<script type="text/javascript">
+if (typeof twyns === 'undefined' && document.location.protocol !== 'https:') {
+  twyns = { pubid : 154228, page : '' };
+  /* yoondo image sensor tag */
+  //document.write(unescape('%3Cimg src="' + document.location.protocol + '//et.twyn.com/sense?pubid=' + twyns.pubid + '&page=' + escape(twyns.page) + '" width="10" height="1" /%3E'));
+
+  /* yoondo cookie sensor tag */
+  document.write('<scr'+'ipt type="text/javascript" src="http://et.twyn.com/cookiesense.js?pubid=' + twyns.pubid + '&jsvar=YOONDO"><\/scr'+'ipt>');
+
+}
+</script>
+
+</body>
+</html>

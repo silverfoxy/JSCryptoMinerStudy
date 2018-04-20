@@ -1,0 +1,1 @@
+<h1>301 - Moved Permanently</h1><p><a href="https://www.stockingshq.com/">https://www.stockingshq.com/</a></p>

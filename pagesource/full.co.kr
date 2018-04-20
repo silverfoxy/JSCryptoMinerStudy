@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<title>풀티비</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="google-site-verification" content="L9BEbRvG8csvmhweDnX-52-Y5qJnoMb_huUpqjpexvU" />
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="풀티비">
+	<meta property="og:site_name" content="풀티비">
+	<meta property="og:description" content="PC/모바일 어디서도 즐기는 실시간 인터넷방송 풀티비, 모바일방송,개인방송,실시간라이브방송">
+	<meta property="og:image" content="http://icache.full.co.kr/apple-icon.png">
+	<meta property="og:url" content="http://www.full.co.kr">
+
+	<link rel="shortcut icon" href="http://icache.full.co.kr/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="http://icache.full.co.kr/apple-icon.png">
+	
+	<link rel="stylesheet" type="text/css" href="/resource/css/web/common.css?ver=20180317200" />
+	<link rel="stylesheet" type="text/css" href="/resource/plugin/sweetalert/sweetalert2.min.css?ver=20180317200">
+	<link rel="stylesheet" type="text/css" href="/resource/plugin/jqueryui/jquery-ui.min.css?ver=20180317200">
+	<link rel="stylesheet" type="text/css" href="/resource/plugin/loading/loading.min.css?ver=20180317200">
+	<link rel="stylesheet" type="text/css" href="/resource/plugin/magnific/magnific-popup.css?ver=20180317200">
+
+	<!--[if gte IE 9 ]>
+	<link rel="stylesheet" type="text/css" href="/resource/css/web/ie9.css?ver=20180317200" />
+	<![endif]-->
+
+	<script>
+		window.liveData = {};
+		window.liveData.device = {};
+		window.liveData.device.type = "webPc";
+		window.liveData.device.version = "1.0.0";
+
+		window.userInfo = {};
+					window.userInfo.isLogin = false;
+		
+		window.siteMode = {};
+		window.siteMode.showAdult = true;
+		window.siteMode.needAuth = false;
+	window.siteMode.showAdult = false;window.siteMode.needAuth = true;	</script>
+	
+	<script src="/resource/js/es6promise/es6-promise.auto.min.js?ver=20180317100"></script>
+	<script src="/resource/js/requirejs/require.js?ver=20180317100"></script>
+	<script src="/resource/js/requirejs/require-config.js?ver=20180317100"></script>
+	<script src="/resource/js/common.js?ver=20180317100"></script>
+
+	<script>
+		require(['jquery', 'web.media', 'func', 'jquery.ui', 'web.func', 'loading', 'jquery.magnific', 'web.GoUrl']);
+		require(['sweetalert'], function(_swal) {
+			window.swal = _swal;
+			window.swal.setDefaults({
+				confirmButtonText: '확인'
+				, cancelButtonText: '취소'
+				, confirmButtonColor:'#20C9B0'
+			});
+		});
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92415004-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', "UA-92415004-1");
+	</script>
+
+</head>
+<body id="site_full"><script>
+	require(['web.member']);
+</script>
+<!--S: Login Join -->
+<div id="login_modal_mask" style="display:none;" onclick="Member.close();"></div>
+<div class="login_modal_box" style="display:none;">
+	<!--S: TabBox -->
+	<h2 class="tabbox">
+		<div id="tablogin" class="st1 on" onclick="Member.loginTab('login');">로그인</div>
+		<div id="tabjoin" class="st2" onclick="Member.loginTab('join');">회원가입</div>
+		<span class="close_btn" style="cursor: pointer" onclick="Member.close();"></span>
+	</h2>
+				
+	<!--S: Login -->
+	<div class="login_area" style="display:block;">
+		<form id="form_login_modal">
+			<dl class="mlogin_box">
+				<dd>로그인 후 더 많은 서비스를 이용하실 수 있습니다.</dd>
+				<dd><input type="text" name="userId" class="input-st" placeholder="아이디" value=""></dd>
+				<dd><input type="password" name="userPw" class="input-st" placeholder="비밀번호"></dd>
+				<dd>
+					<p class="id_save">
+						<input type="checkbox" name="saveId" style="margin:0;" > 
+						<span class="txt">아이디 저장</span>
+					</p>	
+					<a href="/member/find" class="ip_search">아이디 &amp; 비밀번호 찾기</a>
+				</dd>
+				<dd><div class="login_btn" onclick="Member.loginSubmit(this);">로그인</div></dd>
+			</dl>
+		</form>
+	</div>
+	
+	<!--S: Join -->
+	<div class="join_area" style="display:none;">
+		<form id="form_join_modal">
+			<input type="hidden" name="session" value="full20180317131043502161" />
+			<input type="email" name="userId" placeholder="아이디 6~15자 이내의 영문/숫자" class="input-st"  errMsg="#form_join_modal .error_id" />
+			<span class="txt_hid error_id" style="display:none;"></span>
+			<input type="password" name="userPw" placeholder="비밀번호(6자리 이상의 문자와 숫자)" class="input-st" errMsg="#form_join_modal .error_pw" />
+			<span class="txt_hid error_pw" style="display:none;"></span>
+			<input type="password" name="userPw2" placeholder="비밀번호 확인" class="input-st" errMsg="#form_join_modal .error_pw2" />
+			<span class="txt_hid error_pw2" style="display:none;"></span>
+			<input type="text" name="userNick" placeholder="닉네임 2~12자 이내의 한글/영문/숫자" class="input-st" errMsg="#form_join_modal .error_nick" />
+			<span class="txt_hid error_nick" style="display:none;"></span>
+			<div class="foot_box">
+				<p>
+					<input type="checkbox" name="agree" class="left">
+					<span class="right">이용약관 및 개인정보취급방침에 모두 동의<br>합니다.</span>
+				</p>
+				<p class="info">
+					<a href="/policy/?D*4v=service" target="_blank">이용약관</a><a href="/policy/?D*4v=privacy" target="_blank">개인정보취급방침</a>
+				</p>
+			</div>
+
+			<div class="join_btn" onclick="javascript:Member.joinSubmit();">회원가입</div>
+		</form>
+	</div>
+
+</div>
+<!--E: Login Join -->
+
+<script>
+	require(['InputCheck'], function() {
+		InputCheck.next('#form_login_modal', ['userId', 'userPw'], '.login_btn');
+		InputCheck.next('#form_join_modal', ['userId', 'userPw', 'userPw2', 'userNick'], '.join_btn');
+	});
+</script><link rel="stylesheet" type="text/css" href="/resource/css/web/web.css?ver=20180317200" />
+<div id="header">
+	<div class="inner_t">
+		<div class="wrap layoutWrap">
+			<a href="/">
+				<div class="logo"></div>
+			</a>
+
+			<div class="top_notice" id="topNotice">
+				<span class="notice_ico webImg"></span>
+				<ul>
+									<li style="display:none;">
+						<span>BJ딸기우유님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>❥현ღ아❥꽁쥬영화방송국님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>은지§어흥§하연§낫투비님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>✿북파✿님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>ღ나는어때ღ님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>진라면매운맛님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>BJ삐야기♡님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>BJ애바모야님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>베이비♡구이구이님이 방송을 시작 하였습니다.</span>
+					</li>
+									<li style="display:none;">
+						<span>지윤ღOnlyღ환이님이 방송을 시작 하였습니다.</span>
+					</li>
+								</ul>
+
+				<script>
+					require(['web.func'], function(){ 
+						func.verticalRolling('#topNotice li');
+					});
+				</script>
+			</div>
+		
+			<div class="play_board">
+				<a href="/launcher/clientWin">
+					<span class="aFlashing webImg"></span>설치형 플레이어 방송보기(방송하기)				</a>
+			</div>
+
+			<div class="search_wrap">
+				<form name="frm_search" action="/live" method="post" onsubmit="return search()">
+				<input type="text" class="search_text" name="GY!ix5h!o" id="search_text" placeholder="검색어를 입력해주세요." value="">
+				<button class="search_submit" type="button" onclick="search();">
+					<span class="webImg"></span>
+				</button>
+				</form>
+				<script>
+					function search(){
+						if($('#search_text').val().length <= 1){				
+						//swal({title:'알림' ,  text: "검색어는 2자 이상 입력해 주세요"});
+						alert('검색어는 2자 이상 입력해 주세요');
+							return false;
+						}
+
+						document.frm_search.submit();
+						return true;
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+	
+	<div class="inner_b">
+		<div class="wrap layoutWrap">
+			<ul class="navi">
+				<li><a href="/live" class="">LIVE</a><span class="new_ico"></span></li>
+				<li><a href="/charge/heart" class="">하트 &amp; 아이템 구매</a></li>
+			</ul>
+			<ul class="menu_r">
+				<li><a href="/bbs/notice" class="">고객센터</a></li>
+				<li><a href="/guide/pc" class="">방송가이드</a></li>
+				<li><a href="/bbs/event" class="">이벤트</a></li>
+				
+							<li><a href="/member/join" class="">회원가입</a></li>
+				<li><a href="/member/login" class="logtxt">로그인</a></li>
+							
+				<li onclick="func.hideAnmiate('#detailMyInfo', 'blind'); func.toogleAnmiate('#AllMenu', 'blind');" class="mr0">
+					<a href="#" class="allmenu_ico"></a>
+				</li>
+			</ul>
+			
+			<!--S: My -->
+			<div class="my_wrap" style="display:none;" id="detailMyInfo">
+				<div class="my_arrow"></div>
+				<div class="my_box">
+					<div class="myinfo">
+						<div class="img">
+							<img src="" alt="imgProfile">
+						</div>
+						<div class="id">
+							<p class="txt"><span></span>님 반갑습니다.</p>
+							<p>오늘도 행복한 하루되세요.</p>
+							<p class="color">
+								하트 <span></span>개
+							</p>
+						</div>
+												<a href="/member/adultAuth/" class="auth19 btn">성인인증하기</a>
+										</div>
+					<select class="slt" onchange="window.open('/channel/'+this.value+'/');">
+						<option value="">내 즐겨찾기</option>
+										</select>						
+					<ul>
+						<li><a href="javascript:Media.goChannel('');" class="btn">방송국</a></li>
+						<li><a href="javascript:Media.goChannel('', 'mypage');" class="btn">내정보</a></li>
+						<li><a href="/bbs/qna" class="btn">1:1문의</a></li>
+						<li><a href="/member/logout" class="btn">로그아웃</a></li>
+					</ul>                            
+				</div>
+			</div>
+			<!--E: My -->
+			
+			<!--S: AllMenu -->
+			<div class="allmenu_wrap" style="display:none;" id="AllMenu">
+				<div class="allmenu_arrow"></div>
+				<div class="allmenu_box">
+					<div class="in_box01">
+						<p class="tt01">LIVE</p>
+						<ul>
+							<li><a href="/live">전체보기</a></li>
+							<li><a href="/live/ranking">BJ랭킹</a></li>
+						</ul>
+						<p class="tt_n01">고객센터</p>
+						<ul>
+							<li><a href="/bbs/notice">공지사항</a></li>
+							<li><a href="javascript:Member.loginHref('/bbs/qna');"> 1:1문의</a></li>
+							<li><a href="javascript:Member.loginHref('/bbs/proposal');">제안하기</a></li>
+							<li><a href="javascript:Member.loginHref('/bbs/report');">신고하기</a></li>
+						</ul>
+					</div>
+					<div class="in_box02">
+						<p class="tt02">이벤트</p>
+						<ul>
+							<li><a href="/bbs/event">이벤트</a></li>
+						</ul>
+						<p class="tt_n02">방송가이드</p>
+						<ul>
+							<li><a href="/guide/pc">PC</a></li>
+							<li><a href="/guide/mobile">모바일</a></li>
+						</ul>
+					</div>
+					<div class="in_box04">
+						<p class="tt04">하트&amp;아이템</p>
+						<ul>
+							<li><a href="/charge/heart">하트충전</a></li>
+							<li><a href="/charge/full">풀방입장권</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--E: AllMenu -->
+		</div>
+	</div>
+</div>
+
+<div id="aside">
+	<div class="wrap">
+		<div class="menu">
+			<ul class="menulist" style="position:absolute;">
+				<li>
+					<a href="javascript:Member.loginHref('/live/bookmark')" class=""><span class="like webImg"></span>즐겨찾기</a>
+				</li>
+				<li>
+					<a href="javascript:Member.loginHref('/live/watch')" class=""><span class="resen webImg"></span>최근본방송</a>
+				</li>
+				<li>
+					<a href="javascript:Member.loginHref('/live/gift')" class=""><span class="gift webImg"></span>내가선물한방송</a>
+				</li>
+				<li>
+					<a href="/live/ranking" class=""><span class="ranking webImg"></span>랭킹</a>
+				</li>
+				<li></li>
+				<li>
+					<a href="/live" class=""><span class="total webImg"></span>전체</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=ind" class=""><span class="personal webImg"></span>개인</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=mov" class=""><span class="mov webImg"></span>영화</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=music" class=""><span class="music webImg"></span>음악</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=game" class=""><span class="game webImg"></span>게임</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=etc" class=""><span class="etc webImg"></span>기타</a>
+				</li>
+				<li>
+					<a href="/live/?x!J2tlFE=sports" class=""><span class="sports webImg"></span>스포츠</a>
+				</li>
+							</ul>
+		</div>
+	</div>
+</div>
+
+<div id="contents">
+	<div id="container">
+			<div class="subcon" style="padding:30px 0 40px 15px;">
+				
+
+
+<link rel="stylesheet" type="text/css" href="/resource/plugin/slick/slick.css?ver=20180317200">
+<link rel="stylesheet" type="text/css" href="/resource/plugin/swiper/css/swiper.min.css?ver=20180317200">
+
+
+<div class="mconBox">
+	<!--S: mleftBox -->
+	<div class="mleftBox">
+		<!--S: LiveRank -->
+		<div class="liverank">
+			<input type="hidden" id="orderby" value="rankingLive1">
+			<div class="cbox">	
+				<div class="tabbar_wrap">
+					<ul class="ctab">
+						<li class="tab tabon" data-value="rankingLive1">시청자순</li>
+						<li class="tab taboff" data-value="rankingLive2">최신순</li>
+					</ul>
+				</div>
+					
+				<h2>핫이슈 LIVE</h2>
+			
+				<div class="control_box">
+					<a href="#" class="stop_bn"></a><a href="#" class="play_bn" style="display:none"></a>
+					<a href="#" class="prev_bn"></a><a href="#" class="next_bn"></a>
+				</div>
+			</div>
+			
+			<div class="listview rankingLive" style="height:185px; overflow:hidden;">
+				<ul class="viewslider" id="rankingLive">
+					
+				</ul>
+			</div>
+		</div>
+		<!--E: LiveRank -->
+		
+		<div class="ml_bottomArea">
+			<!--S: BjRank -->
+				<div class="bjrank">
+					<div class="cbox">	
+						<h2>BJ랭킹</h2>
+						<img class="more" src="http://icache.full.co.kr/common/icon_more2.png" onclick="location.href='/live/ranking';" />
+					</div>
+					<div class="listview" style="overflow:hidden;">
+						<ul class="viewslider">	
+													<li>
+								<div class="thum_box">
+									<a href="/channel/323308">
+										<span class="blbox"></span>
+										<span class="thumb"><img src="http://dcache.full.co.kr/user/da2c96447a2c7b37a84149180d88fc1accfe52e6/?ge=1"></span>		
+										<span class="info">
+											<span class="time">진리의베이비님의 방송국에 어서오세요.</span>
+										</span>
+										<span class="ranknum">1</span>
+										<span class="subject">
+																					</span>
+										<!--<span class="star">0</span>-->
+									</a>
+									<a href="javascript:Media.goChannel('323308')" class="nick">진리의베이비</a>
+								</div>
+							</li>
+													<li>
+								<div class="thum_box">
+									<a href="/channel/2436677">
+										<span class="blbox"></span>
+										<span class="thumb"><img src="http://dcache.full.co.kr/user/a5b0efe1a823047a667ef8fff596427d4ffbe1b3/?ge=1"></span>		
+										<span class="info">
+											<span class="time">세리예지님의 방송국에 어서오세요.</span>
+										</span>
+										<span class="ranknum">2</span>
+										<span class="subject">
+																					</span>
+										<!--<span class="star">0</span>-->
+									</a>
+									<a href="javascript:Media.goChannel('2436677')" class="nick">세리예지</a>
+								</div>
+							</li>
+													<li>
+								<div class="thum_box">
+									<a href="/channel/1187374">
+										<span class="blbox"></span>
+										<span class="thumb"><img src="http://dcache.full.co.kr/user/b1991f5a9c648330ae6afa4c47c476f67dde0f4b/?ge=1"></span>		
+										<span class="info">
+											<span class="time">열매찌이이이잉 ♥</span>
+										</span>
+										<span class="ranknum">3</span>
+										<span class="subject">
+																					</span>
+										<!--<span class="star">0</span>-->
+									</a>
+									<a href="javascript:Media.goChannel('1187374')" class="nick">열매찡♥</a>
+								</div>
+							</li>
+												</ul>
+					</div>
+				</div>
+				<!--E: BjRank -->
+				<!--S: Notice -->
+				<div class="notice">
+					<div class="cbox">
+						<h2>공지사항</h2>
+						<img class="more" src="http://icache.full.co.kr/common/icon_more2.png" onclick="location.href='/bbs/notice'">
+					</div>
+					<ul>
+											<li><a href="/bbs/notice/info/24387">[공지] 방송 준수사항 및 모니터링 강화 안내           </a></li>
+											<li><a href="/bbs/notice/info/18347">[이벤트] 2월 아직 끝이아니다!!</a></li>
+											<li><a href="/bbs/notice/info/18090">[필독]새해 첫 설 연휴 환전공지 안내</a></li>
+											<li><a href="/bbs/notice/info/15987">[이벤트] 2월 첫번째 상세이벤트 공지</a></li>
+											<li><a href="/bbs/notice/info/14427">새해인사</a></li>
+										</ul>
+				</div>
+				<!--E: Notice -->
+		</div>
+	</div>
+	<!--E: mleftBox -->
+
+	<!--S: mrightBox -->
+	<div class="mrightBox">
+		<!--S: Swiper -->
+		<div id="rightBanner" class="swiper-container" style="width:226px; height:424px; margin:30px auto 0;">
+			<div class="swiper-wrapper">
+							<div class="swiper-slide">
+					<a href="http://www.full.co.kr/bbs/event/info/12474/" style="display:block;"><img src="http://dcache.full.co.kr/board/b329290fa0d9a13f77d23fd43034095b456ad7cd" style="width:226px; height:424px;"></a>
+				</div>
+							<div class="swiper-slide">
+					<a href="http://www.full.co.kr/bbs/event/info/627/" style="display:block;"><img src="http://dcache.full.co.kr/board/4ab885b09f742a906f49a0ee71fcb1208ec0a5bd" style="width:226px; height:424px;"></a>
+				</div>
+							<div class="swiper-slide">
+					<a href="http://www.full.co.kr/bbs/event/info/313/" style="display:block;"><img src="http://dcache.full.co.kr/board/848f5bb550216e41d6db2b3265ac43b96d16b822" style="width:226px; height:424px;"></a>
+				</div>
+						</div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination">
+	
+		</div>
+		<!--E: Swiper -->
+	</div>
+	<!--E: mrightBox -->
+
+</div>
+
+
+<!--S: BroadList -->
+<div class="broad_list">
+	<div class="cbox">
+		<h2>전체</h2>
+		<a class="refresh_bn" id="mainLiveRefresh"></a>
+	</div>
+	<div class="listview" style="overflow:hidden;">
+		<ul class="viewslider" id="mainLive">	
+		
+		</ul>
+	</div>
+</div>
+<!--E: BroadList -->
+
+<textarea id="skin_item" style="display:none;">
+	<li>
+		<div class="thum_box">
+			<!-- THUMB_ADULT -->
+			<div class="left_icon">
+				<!-- STATE -->
+			</div>
+			<a onclick="<!-- SCRIPT -->">
+				<span class="blbox">
+					<span class="hover_play"></span>
+				</span>
+				<span class="thumb">
+					<img src="<!-- IMAGE -->" width="224" height="126">
+				</span>
+				<span class="info">
+					<span class="time"><!-- TIME --></span>
+				</span>
+				<span class="subject"><!-- TITLE --></span>	
+				<!-- COUNT -->
+			</a>
+			<a href="javascript:Media.goChannel(<!-- USERIDX -->)" class="nick"><!-- NICKNAME --></a>
+		</div>
+	</li>
+</textarea>
+
+<script>
+	var hotSlider = null;
+	require(['jquery', 'slick', 'sweetalert', 'WebApi', 'func'], function() {
+		loadCacheList('rankingLive1', {'width': 224, 'height': 126, 'limit':20});
+		loadCacheList('mainLive', {'width': 224, 'height': 126, 'limit':15, 'mod':5});
+
+		$( ".tab").click(function() {
+			$('#orderby').val($(this).attr("data-value"));
+			$('.tab').removeClass('tabon');
+			$(this).addClass('tabon');
+			
+			loadCacheList($('#orderby').val(), {'width': 224, 'height': 126, 'limit':20});
+		});
+
+		$( "#mainLiveRefresh" ).click(function() {
+			loadCacheList('mainLive', {'width': 224, 'height': 126, 'limit':15, 'mod':5});
+		})
+	});
+
+	var banner = null;
+	require(['swiper'], function() {
+		banner = new Swiper('#rightBanner', {
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			autoplay: 10500,
+			autoplayDisableOnInteraction: false ,
+			loop: true
+		});
+	});
+
+	function loadLiveList(type, options) {
+		options = options || {};
+		var _list = null;
+		var orderBy = '';
+		switch(type){
+			case 'rankingLive1': 
+				_list = $('#rankingLive');
+				orderBy = 'user';
+			break;
+			case 'rankingLive2': 
+				_list = $('#rankingLive');
+				orderBy = 'new';
+			break;
+			case 'mainLive':	
+				
+			break;	
+		}
+		WebApi.liveList({
+			offset: 0
+			, limit: options.limit
+			, orderby: orderBy
+			, success: function (json) {
+				if(!json.result) {
+					return;
+				}
+				var length = json.list.length;
+				if(length == 0) {
+					_list.html("목록이 없습니다.");
+					return;
+				}
+				if(options.mod && length > options.mod) {
+					length = length - (length%options.mod);
+				}
+				var contents = '';
+				for(var i=0;i<length;i++) {
+					contents += addItem('live', json.list[i]);
+				}
+				if(type == 'rankingLive1' || type == 'rankingLive2') {
+					//$('.rankingLive').css('visibility', 'hidden');					
+					if(hotSlider != null) {
+						$('#rankingLive').slick('unslick');
+						hotSlider = null;
+					}
+				}
+				_list.html(contents);
+				if(type == 'rankingLive1' || type == 'rankingLive2') {
+					//setTimeout(hotListSlider, 1);
+					hotListSlider();
+				}
+			}
+		});
+	}
+
+	function loadCacheList(type, options) {
+		if(type == 'rankingLive2') {
+			loadLiveList(type, options);
+			return;
+		}
+		options = options || {};
+		var _list = null;
+		switch(type){
+			case 'rankingLive1': 
+			case 'rankingLive2': 
+				_list = $('#rankingLive');
+			break;
+			case 'mainLive':	
+				_list = $('#mainLive');
+			break;	
+		}
+
+		WebApi.cacheList({
+			type: type
+			, width: options.width
+			, height: options.height
+			, limit: options.limit
+			, success: function (json) {
+				if(!json.result) {
+					return;
+				}
+
+				var length = json.list.length;
+				if(length == 0) {
+					_list.html("목록이 없습니다.");
+					return;
+				}
+				if(options.mod && length > options.mod) {
+					length = length - (length%options.mod);
+				}
+
+				var contents = '';
+				for(var i=0;i<length;i++) {
+					contents += addItem('hot', json.list[i]);
+				}
+				if(type == 'rankingLive1' || type == 'rankingLive2') {
+					//$('.rankingLive').css('visibility', 'hidden');					
+					if(hotSlider != null) {
+						$('#rankingLive').slick('unslick');
+						hotSlider = null;
+					}
+				}
+				_list.html(contents);
+				if(type == 'rankingLive1' || type == 'rankingLive2') {
+					//setTimeout(hotListSlider, 1);
+					hotListSlider();
+				}
+			}
+		});
+	}
+
+
+	function addItem(type, item){
+
+		if(type == 'hot') {
+			if(!item.media) return addItem2(type, item);
+			item = item.media;
+		}
+
+		var skinItem = func.getSkin('#skin_item');
+
+		var script = "";
+		var left_icon = "";
+
+		script = "Media.goLiveView('bj', '"+item.userIdx+"', "+item.isAdult+", '"+item.type+"', '"+item.heart+"', '"+item.browser+"', "+item.isPw+");";
+		if(parseInt(item.user) >= parseInt(item.userLimit)) {
+			skinItem = skinItem.replace('<!-- COUNT -->', "<span class='count'>FULL</span>");
+		} else {
+			skinItem = skinItem.replace('<!-- COUNT -->', "<span class='count'>"+item.user+"</span>");
+		}
+
+		if(item.liveType == 'live') {
+			left_icon += '<div class="air_type">LIVE</div>';
+		}
+
+		var title = $('<div/>').text(item.title).html();
+		if(item.browser == 'android' || item.browser == 'iPhone') {
+			title = "<img class='mobile' src='"+window.urlImg+"/common/icon_mobile.png' />"+title;
+		}
+
+		skinItem = skinItem.replace('<!-- USERIDX -->', item.userIdx);
+		skinItem = skinItem.replace('<!-- TITLE -->', title);
+		skinItem = skinItem.replace('<!-- IMAGE -->', item.thumbUrl);
+		skinItem = skinItem.replace('<!-- NICKNAME -->', item.userNick);
+		skinItem = skinItem.replace('<!-- TIME -->', item.startTime);
+		
+		
+		if(item.type == 'fan') {
+			left_icon += '<div class="cast_type">팬클럽</div>';
+		} else if(item.type == 'charge') {
+			left_icon += '<div class="cast_type">유료방</div>';
+		}
+
+		if(item.isPw) {
+			left_icon += '<div class="pw_room">비번방</div>';
+		}
+	
+		if(item.isAdult) {
+			skinItem = skinItem.replace('<!-- THUMB_ADULT -->', "<span class='adult_icon'>19</span>");
+		}
+		skinItem = skinItem.replace('<!-- STATE -->', left_icon);
+		skinItem = skinItem.replace('<!-- SCRIPT -->', script);
+		return skinItem;
+	}
+
+	function addItem2(type, item) {
+		var skinItem = func.getSkin('#skin_item');
+
+		var script = "";
+		var left_icon = "";
+
+		script = "Media.goChannel('"+item.userIdx+"');";
+		skinItem = skinItem.replace('<!-- COUNT -->', "<span class='count'>종료</span>");
+
+		skinItem = skinItem.replace('<!-- USERIDX -->', item.userIdx);
+		skinItem = skinItem.replace('<!-- TITLE -->', item.channelTitle);
+		skinItem = skinItem.replace('<!-- IMAGE -->', item.thumbUrl);
+		skinItem = skinItem.replace('<!-- NICKNAME -->', item.userNick);
+		skinItem = skinItem.replace('<!-- TIME -->', '종료된 방송입니다.');
+		
+		skinItem = skinItem.replace('<!-- STATE -->', left_icon);
+		skinItem = skinItem.replace('<!-- SCRIPT -->', script);
+		return skinItem;
+	}
+
+	function hotListSlider() {
+
+		if($('#rankingLive').find('li').length <= 4) {
+			$('.rankingLive').css('visibility', '');
+			return;
+		}
+
+		hotSlider = $('#rankingLive').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			arrows: false,
+		});	
+
+		$( '.prev_bn' ).on( 'click', function () {
+			hotSlider.slick('slickPrev');   //이전 슬라이드 배너로 이동
+			return false;              //<a>에 링크 차단
+		});
+
+		$( '.next_bn' ).on( 'click', function () {
+			hotSlider.slick('slickNext');  //다음 슬라이드 배너로 이동
+			return false;
+		 });
+	
+		 $( '.play_bn' ).on( 'click', function () {
+			hotSlider.slick('slickPlay');
+			$('.play_bn').hide();
+			$('.stop_bn').show();
+			 return false;
+		 });
+			
+		 $( '.stop_bn' ).on( 'click', function () {
+			hotSlider.slick('slickPause');
+			$('.play_bn').show();
+			$('.stop_bn').hide();
+			return false;
+		 });	
+		 
+
+		$('.rankingLive').css('visibility', '');
+	}
+</script>		</div>
+		</div>
+	
+	<!--S: FooterWrap -->
+	<div id="footer_wrap">
+		<div class="footer_box">		
+			<ul>
+				<li><a href="/policy/?D*4v=privacy">개인정보취급방침</a>&nbsp;&nbsp;&nbsp;l</li>
+				<li><a href="/policy/?D*4v=service">이용약관</a>&nbsp;&nbsp;&nbsp;l</li>
+				<li><a href="/policy/?D*4v=youth">청소년보호정책</a>&nbsp;&nbsp;&nbsp;l</li>
+				<li><a href="/policy/?D*4v=cast">방송기준안내</a>&nbsp;&nbsp;&nbsp;l</li>
+				<li><a href="/policy/?D*4v=play">시청기준안내</a>&nbsp;&nbsp;&nbsp;l</li>
+				<li><a href="/bbs/cp/make">광고/제휴문의</a></li>
+			</ul>
+					<a class="fsol" onclick="func.openIframeLayer('/bbs/solution');">솔루션문의</a>
+					<address>
+			서비스명:풀티비 I 회사명:주식회사 글로벌몬스터 I 사업자등록번호:511-87-00796 I 통신판매업 신고번호 :제 2017-경북구미-0442 호 I 대표:배철진<br>
+			주소: 경상북도 구미시 봉곡남로 102, 2층 (봉곡동,봉곡빌딩)<br>
+			개인정보 관리책임자:운영팀 I E-MAIL:help@full.co.kr I 대표번호:1800-0226 I 팩스:070-5173-8379<br>
+			Copyright©2017 globalmonster Corp.All rights reserved.
+			</address>
+		</div>	
+	</div>
+	<!--E: FooterWrap -->
+</div>
+
+<!--S: QuickBtn -->
+<div class="quick_btn">
+	<ul>
+		<li>
+			<a href="/">
+				<span class="q_home"></span>
+			</a>
+		</li>
+		<li>
+			<a href="/charge/heart">
+				<span class="q_heart"></span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:Member.loginHref('/live/bookmark')">
+				<span class="q_like"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#top">
+				<span class="q_top"></span>
+			</a>
+		</li>
+	</ul>
+</div>
+<!--E: QuickBtn -->
+
+
+<iframe src="/resource/advert/common" style="display:none;"></iframe>
+
+</body>
+</html>

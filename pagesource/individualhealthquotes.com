@@ -1,0 +1,39 @@
+<!DOCTYPE html><html data-app-name="cm-individual-health-quotes"><head><style>.async-hide { opacity: 0 !important}</style><script>
+        (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+        h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document.documentElement,'async-hide','dataLayer',4000,
+        {'GTM-KZVWD76':true});</script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-30637-33', 'auto');
+                ga('require', 'GTM-KZVWD76');
+        </script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-P2KLGFR');</script><script>
+            (function() {
+                (new MutationObserver(function() {
+                    dataLayer.push({'event': 'optimize.activate'});
+                })).observe(document.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            })();</script><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"/><title>Individual Health Insurance Quotes – View Plans and Apply Online at IndividualHealthQuotes.com</title><link rel="shortcut icon" href="//d3lph2spgmr3pz.cloudfront.net/individual-health-quotes/favicon.1502087720.ico"/><link rel="stylesheet" href="/static/styles.css"/><link rel="manifest" href="/manifest.json"/><script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script><script src="//insurance.mediaalpha.com/js/serve.js" async=""></script><script>config = {"consentManagerEnv":"production","boLeadsaveUrl":"https://www.brokeroffice.com/leads/leadSave.do","boDefaultLinkId":"3988","zipCodeServiceUrl":"https://www.gohealthinsurance.com/api/1/zipCode","mediaAlphaHost":"insurance.mediaalpha.com","referer":"DIRECT","clientIp":"107.22.2.109","userAgent":"CCBot/2.0 (http://commoncrawl.org/faq/)"}</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2KLGFR" height="0" width="0" style="display:none;visibility:hidden;"></iframe></noscript><div><div id="__next"><div data-reactroot="" data-reactid="1" data-react-checksum="-1856325264"><div class="page page--quote" data-reactid="2"><!-- react-empty: 3 --><div class="page__header" data-reactid="4"><div class="page__header-logo quote__logo" data-reactid="5"></div></div><div class="page__content" data-reactid="6"><div class="page__details" data-reactid="7"><div class="content__background" data-reactid="8"></div><h1 class="content__title" data-reactid="9">Compare Affordable Health Insurance Plans Right Now</h1><h2 class="content__subtitle" data-reactid="10">See how easy it is to explore your options...</h2><form class="zip-form" data-reactid="11"><div class="zip-form__label" data-reactid="12">ZIP Code</div><input value="" class="zip-form__input" maxlength="5" data-reactid="13"/><!-- react-text: 14 --> <!-- /react-text --><button class="zip-form__button" data-reactid="15">Continue</button></form><div class="content__info-block" data-reactid="16"><div data-reactid="17"><span class="page__highlight" data-reactid="18">Did You Know? </span><!-- react-text: 19 --> <!-- /react-text --><br data-reactid="20"/><!-- react-text: 21 -->You can find rates as low as <!-- /react-text --><span class="page__highlight" data-reactid="22">$2.33 per day</span><!-- react-text: 23 -->!*<!-- /react-text --></div></div></div><div class="page__carriers" data-reactid="24"><div class="page-carriers__all-logos" data-reactid="25"><div class="logo-popup" data-reactid="26"><div class="hidden-blue-cross-element" data-reactid="27"><p data-reactid="28">Blue Cross Blue Shield of AZ</p><p data-reactid="29">Blue Cross of CA</p><p data-reactid="30">Blue Shield of CA</p><p data-reactid="31">Anthem Blue Cross Blue Shield CO</p><p data-reactid="32">Anthem Blue Cross Blue Shield CT</p><p data-reactid="33">Blue Cross Blue Shield of GA</p><p data-reactid="34">Blue Cross of ID</p><p data-reactid="35">Blue Cross Blue Shield of IL</p><p data-reactid="36">Anthem Blue Cross Blue Shield IN</p><p data-reactid="37">Anthem Blue Cross Blue Shield KY</p><p data-reactid="38">Blue Cross Blue Shield of LA</p><p data-reactid="39">Blue Cross Blue Shield of MI</p><p data-reactid="40">Anthem Blue Cross Blue Shield MO</p><p data-reactid="41">Blue Cross Blue Shield of NM</p><p data-reactid="42">Anthem Blue Cross Blue Shield NV</p><p data-reactid="43">Anthem Blue Cross Blue Shield OH</p><p data-reactid="44">Blue Cross Blue Shield of TN</p><p data-reactid="45">Blue Cross Blue Shield of TX</p><p data-reactid="46">Anthem Blue Cross Blue Shield VA</p><p data-reactid="47">Anthem Blue Cross Blue Shield WI</p></div></div></div></div><div class="page__insurance-info" data-reactid="48"><div class="page__insurance-info--smaller" data-reactid="49"><p data-reactid="50">*Preferred rate for a 24-year old male living in Davis, CA for an Anthem BlueCross of California Silver 87 HMO plan, effective date 4/1/2017. Actual rate as of 6/23/2017 is $72.34.</p></div></div></div><div class="footer" data-reactid="51"><div class="footer__links" data-reactid="52"><a class="footer__link" href="/privacy.html" target="_blank" data-reactid="53">Privacy Policy</a><a class="footer__link" href="/terms.html" target="_blank" data-reactid="54">Terms and Conditions</a><a class="footer__link" href="/licensing-legal.html" target="_blank" data-reactid="55">Licensing and Legal</a><a class="footer__link" href="/about-us" target="_blank" data-reactid="56">About Us</a><a class="footer__link" href="/contact-us.html" target="_blank" data-reactid="57">Contact Us</a></div><div class="footer__bottom-links" data-reactid="58"><p data-reactid="59">214 W Huron St, Chicago IL 60654</p><p data-reactid="60">1-855-525-4543</p></div></div></div></div></div><div id="__next-error"></div></div><div><script>
+          __NEXT_DATA__ = {"props":{"zip":"","seniorTraffic":false,"listing":"bw","contentTitle":"Compare Affordable Health Insurance Plans Right Now","referer":"DIRECT","query":{},"pathname":"/"},"pathname":"/","query":{},"buildId":"8f10f984-1513-4530-8ab7-cd0eb6bac0a5","buildStats":{"app.js":{"hash":"523d7e6da7ced593e6e0801f13f11909"}},"assetPrefix":"","nextExport":false,"err":null,"chunks":[]}
+          module={}
+          __NEXT_LOADED_PAGES__ = []
+          __NEXT_LOADED_CHUNKS__ = []
+
+          __NEXT_REGISTER_PAGE = function (route, fn) {
+            __NEXT_LOADED_PAGES__.push({ route: route, fn: fn })
+          }
+
+          __NEXT_REGISTER_CHUNK = function (chunkName, fn) {
+            __NEXT_LOADED_CHUNKS__.push({ chunkName: chunkName, fn: fn })
+          }
+        </script><script async="" id="__NEXT_PAGE__/" type="text/javascript" src="/_next/8f10f984-1513-4530-8ab7-cd0eb6bac0a5/page/"></script><script async="" id="__NEXT_PAGE__/_error" type="text/javascript" src="/_next/8f10f984-1513-4530-8ab7-cd0eb6bac0a5/page/_error/index.js"></script><div></div><script type="text/javascript" src="/_next/523d7e6da7ced593e6e0801f13f11909/app.js" async=""></script></div></body></html>

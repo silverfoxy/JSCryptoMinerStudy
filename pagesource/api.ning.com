@@ -1,0 +1,1 @@
+{"_links":[{"rel":"ning:wiki:search=blobs+icons/appatar+resource","href":"https://origin-api.ning.com/icons/appatar"},{"rel":"ning:wiki:search=blobs+files+resource","href":"https://origin-api.ning.com/files"},{"rel":"ning:wiki:search=blobs+icons/profile+resource","href":"https://origin-api.ning.com/icons/profile"}]}

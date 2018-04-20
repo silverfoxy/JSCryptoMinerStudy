@@ -1,0 +1,1352 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta name="apple-itunes-app" content="app-id=1042048151, app-argument=myURL">
+	<meta name="google-play-app" content="app-id=pt.fyi.porto">
+            <meta http-equiv="refresh" content="420;URL=http://www.porto.pt/">
+    	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta property="fb:pages" content="681305151977125" />
+	<base href='http://www.porto.pt/' />
+						  
+						  <meta charset='utf-8' />
+						  
+						  <meta property='og:title' content='Portal de notícias do Porto. Ponto. ' />
+						  
+						  <meta name='description' 	content='O portal de notícias da Câmara Municipal do Porto pretende ser um canal de comunicação com o cidadão em geral e com os munícipes portuenses em particular.' />
+						  <meta property='og:description' content='O portal de notícias da Câmara Municipal do Porto pretende ser um canal de comunicação com o cidadão em geral e com os munícipes portuenses em particular.' />
+						  
+						  <meta name='Language' 	content='pt-pt' />
+						  <meta name='copyright' 	content='Portal de notícias do Porto. Ponto. ' />
+						  <meta name='Author' 		content='CMP' />
+						  <meta name='Distribution' content='Global' />
+						  
+						  <link href='shortcut icon' 			  rel='http://www.porto.pt/assets/misc/img/icons/fporto.png' />
+						  <link href='http://www.porto.pt/assets/misc/img/icons/fporto.png' rel='icon' type='image/png' />
+						  
+						  <link href='URL' 						rel='http://www.porto.pt/assets/misc/img/logos/portofb.png' />
+						  <meta property='og:image' 			content='http://www.porto.pt/assets/misc/img/logos/portofb.png' />
+						  <link href='http://www.porto.pt/assets/misc/img/logos/portofb.png' 	type='image/jpeg' />
+						  <link href='http://www.porto.pt/assets/misc/img/logos/portofb.png' 	rel='image_src' type='image/jpeg' /><link rel='alternate' type='application/rss+xml' title='Notícias Porto.' href='http://www.porto.pt/rss/1'><link rel='alternate' type='application/rss+xml' title='Facebook Instant Articles' href='http://www.porto.pt/rss/2'>    
+	<title>Portal de notícias do Porto. Ponto. </title>
+
+	<!-- REMOVE CACHE -->
+	<meta http-equiv="Cache-control" content="public">
+	<meta http-equiv="Cache-control" content="max-age=604800">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="http://www.porto.pt/assets/themes/cmp/css/jquery.smartbanner.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.porto.pt/assets/themes/cmp/font/font.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.porto.pt/assets/misc/compile.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.porto.pt/assets/themes/cmp/css/style.css?v=12" />
+	
+	<!-- JAVASCRIPTS -->
+	<script type="text/javascript">
+		var url_app = "http://www.porto.pt/";
+	</script>
+	<script type="text/javascript" charset="utf-8" src="http://maps.google.com/maps/api/js?key=AIzaSyCjkMkrc5JNv6Xnw15UUjPoP2NdtLuBig8&sensor=true"></script>
+	<script type="text/javascript" src="assets/themes/cmp/js/all.js" ></script>
+	<script src="http://www.porto.pt/assets/themes/cmp/js/jquery.smartbanner.js"></script>
+	<script type="text/javascript">
+		var width = 0, height = 0, $container = null, block_1 = 0, welcome = 0;
+
+		var id_user = 1
+        /*$(function()
+        {
+            if($("body").attr("id") == "home")
+            {
+                $(window).focus(function()
+                { 
+                    if(welcome == 1) 
+                    { 
+                        window.location.reload(); 
+                        welcome = 0;
+                    } 
+                });
+                
+                $(window).blur(function()
+                { 
+                    welcome = 1;
+                });
+            }
+        });*/
+		
+		function swipeMenu(swipeType)
+		{
+			delay(function()
+			{
+				if(swipeType =='swipeleft')
+				{
+					$('body').removeClass('swiperight').removeClass('overflowH').addClass('swipeleft').removeClass('search_mobile');
+					$('.menu_button').attr('onclick','swipeMenu("swiperight")');						
+				}
+				else
+				{
+					$('body').addClass('swiperight').addClass('overflowH').removeClass('swipeleft').removeClass('search_mobile');
+					$('.menu_button').attr('onclick','swipeMenu("swipeleft")');
+				}
+			}, 500);
+		}
+		
+		function search_toggle()
+		{
+			if($('body').hasClass('search_mobile'))
+			{
+				$('body').removeClass('search_mobile').removeClass('swiperight').removeClass('overflowH');
+				$('.cmp-search').animate({right:'-1000px'},500);
+				
+			}
+			else
+			{
+				$('body').addClass('search_mobile').removeClass('swiperight').removeClass('overflowH');
+				$('.cmp-search').animate({right:0},500);
+			}
+		}
+		
+		$(window).load(function()
+		{
+			$( ".cmp-header .menu" ).clone().appendTo( ".cmp-sidebar-left #sidebar" );
+			
+			width  = $("body").width();
+			height = $(window).height();
+			
+			//$('.bg_image').height(height);
+			
+			$('.map').addClass('noSwipe');
+			
+			$("img").lazyload(
+			{
+				threshold : 200
+			});
+			
+			//$("body").fadeIn("slow");
+
+			//body fade + google maps resize
+			setTimeout(function()
+			{
+				//$("body").fadeIn("slow");
+				
+				$('input, textarea').placeholder();
+				
+				//cookies
+				var cookieValue = $.cookie("cookie_ok");
+				if(cookieValue != 1 || 1 != 1 )
+				{
+					$('.cmp-cookies').show();
+					$("body").addClass("cmp-warnings-fullheader");
+				}
+				
+				$('.cmp-cookies a').click(function()
+				{
+					$('.cmp-warnings').hide();$("body").removeClass("cmp-warnings-fullheader")
+					$.cookie("cookie_ok", 1, {expires : 365});	
+					;				
+				});
+				
+				//footer + fix scroll sidebar content
+				if(width > 960)
+				{
+					var footer_left = ($(window).width() - 960) / 2;
+					//$(".wrapper-footer").css("margin-left", footer_left + "px");
+					
+					var sidebar_right_height = $("#wrapper-home .wrapper-home > .col2").actual("height") - ($(window).height() - $(".cmp-wrapper-overlay").actual("height"));
+					
+					$(window).scroll(function()
+					{
+						var s = $(window).scrollTop() + $(".cmp-wrapper-overlay").actual("height");
+						
+						if(s > sidebar_right_height)
+						{
+							$("#sidebar_content").css({'position':'fixed'});
+							if(document.body.id != 'agenda' )
+							{
+								if(width > 960)
+									var sidebar_right = ((width - 960) / 2) + $("#wrapper-home .wrapper-home > .col1").actual("width") - 22;
+								else
+									var sidebar_right = $("#wrapper-home .wrapper-home > .col1").actual("width");
+								$("#sidebar_content").css({'left':'50%', 'bottom':'40px'});
+							}
+						}
+						else
+						{
+							$("#sidebar_content").css({'position':'relative'});
+							$("#sidebar_content").css({'left':'auto', 'bottom':'auto'});
+						}
+					});
+				}
+				
+				//ajust images
+				var aux_width = $(this).width();
+				$(window).resize(function()
+				{
+					if($(this).width() != aux_width)
+					{
+						cmp_init_backgrounds("ppt");
+						aux_width = $(this).width();
+						
+						if($('#block_192').length > 0)
+							$('#block_192').adjust_images({resize:{mobile:'full',table:'full'}});
+						/*if($('#block_339').length > 0)
+							$('#block_339').adjust_images({resize:{type:'superAdjust',superAdjust:{dividir:4,max_height:500}},adjust:{type:'parent'}});*/
+						/*if($('#block_349').length > 0)
+							$('#block_349').adjust_images({resize:{mobile:'full',table:'full'}});
+						/*if($('#block_312').length > 0)
+							$('#block_312').adjust_images({resize:{mobile:'full',table:'full'}});*/
+						if($('#block_433').length > 0)
+							$('#block_433').adjust_images({resize:{mobile:'full',table:'full'}});
+						if($('#block_341').length > 0)
+							$('#block_341').adjust_images({resize:{mobile:'full',table:'full'}});
+						if($('#block_368').length > 0)
+							$('#block_368').adjust_images({resize:{mobile:'full',table:'full'}});
+					}
+				});
+				
+				if($('#block_192').length > 0)
+					$('#block_192').adjust_images({resize:{mobile:'full',table:'full'}});
+				if($('#block_342').length > 0)
+					$('#block_342').adjust_images({resize:{mobile:'full',table:'full'}});
+				if($('#block_368').length > 0)
+					$('#block_368').adjust_images({resize:{mobile:'full',table:'full'}});
+				if($('#block_341').length > 0)
+					$('#block_341').adjust_images({resize:{mobile:'full',table:'full'}});
+				/*if($('#block_349').length > 0)
+					$('#block_349').adjust_images({resize:{mobile:'full',table:'full'}});
+				/*if($('#block_312').length > 0)
+					$('#block_312').adjust_images({resize:{mobile:'full',table:'full'}});*/
+				if($('#block_433').length > 0)
+					$('#block_433').adjust_images({resize:{mobile:'full',table:'full'}});
+			}, 100);
+		});
+
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-54312408-7', 'auto');
+	  ga('set', 'language', 'pt-pt');
+	  ga('send', 'pageview');
+	</script>
+	<script src="//f1-eu.readspeaker.com/script/9870/webReader/webReader.js?pids=wr"></script>
+	<script type="text/javascript">
+		window.rsConf = {general: {usePost: true}, ui: {displayDownload: false, disableDetachment: true}};
+	</script>
+</head>
+<body id="home" class=" lang1">
+	<!-- SOCIAL -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&appId=876780112341403&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	
+	<!-- ADMIN -->
+	<div id="admin">
+			</div>
+	
+	<div class='bg_image'></div>
+	
+	<!-- THEME -->
+	<div id="wrapper">
+		<div id="wrapper-main">
+			<div class="cmp-warnings">
+				<div class="cmp-warnings-container">
+					<div class="cmp-cookies">
+						<span>Este website usa cookies. Ao continuar a navegar no nosso website está a consentir a utilização de cookies.</span>
+						<a href='javascript:void(0)'>Aceitar</a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- HEADER -->
+			<div class="cmp-wrapper-header">
+				<div class="cmp-header">
+					<div id='block_189' class=' image block cmp-logo'><a href='http://www.porto.pt/' >
+				<img alt='Portal de notícias do Porto. Ponto.' src='http://www.porto.pt/assets/misc/img/logos/porto.svg'   />
+			 </a></div><div id='block_311' class=' text block'>o portal de <strong>notícias do Porto.</strong></div><div id='block_310' class=' menu list'><ul><li class='link_454  active'>
+				<a href='http://www.porto.pt/diario' >
+					
+					<span>Diário</span>
+				</a>
+			</li><li class='link_241  active'>
+				<a href='http://www.porto.pt/paginas/porto.pt_2' >
+					
+					<span>Porto.pt</span>
+				</a>
+			</li><li class='link_242  active'>
+				<a href='http://www.cm-porto.pt/'  target='_blank' >
+					
+					<span>Câmara Municipal</span>
+				</a>
+			</li><li class='link_243  active'>
+				<a href='javascript:cmp_pop_newsletter()' >
+					
+					<span>Newsletter</span>
+				</a>
+			</li><li class='link_244  active'>
+				<a href='http://www.porto.pt/paginas/contactos_9' >
+					
+					<span>Contactos</span>
+				</a>
+			</li><li class='link_245  active'>
+				<a href='http://www.porto.pt/paginas/ficha-tecnica' >
+					
+					<span>Ficha técnica</span>
+				</a>
+			</li><li class='link_317  active'>
+				<a href='http://www.porto.pt/paginas/avisos-legais' >
+					
+					<span>Avisos Legais</span>
+				</a>
+			</li><li class='link_374 menu_hidden '>
+				<a href='https://www.facebook.com/CamaraMunicipaldoPorto'  target='_blank' >
+					
+					<span>Facebook</span>
+				</a>
+			</li><li class='link_375 menu_hidden '>
+				<a href='https://plus.google.com/+CamaraDoPortoPonto/posts'  target='_blank' >
+					
+					<span>Google +</span>
+				</a>
+			</li><li class='link_376 menu_hidden '>
+				<a href='https://www.youtube.com/user/CamaraDoPorto'  target='_blank' >
+					
+					<span>Youtube</span>
+				</a>
+			</li><li class='link_628  active'>
+				<a href='http://www.porto.pt/language/en-gb' >
+					<img alt='EN' src='http://www.porto.pt/assets/misc/img/EN.png' />
+					
+				</a>
+			</li></ul></div>﻿<div id='block_383' class='block objects cmp-ticker'>
+				<span>Destaques</span>
+				<div>
+				<ul id='ticker'><li class="object"><a href="http://www.porto.pt/noticias/municipio-fica-a-gerir-mais-parques-de-estacionamento-e-reduz-as-respetivas-tarifas">Município fica a gerir mais parques de estacionamento e reduz as respetivas tarifas</a></li><li class="object"><a href="http://www.porto.pt/noticias/a-danca-vem-para-a-rua-anunciar-o-regresso-do-ddd">A dança vem para a rua anunciar o regresso do DDD</a></li><li class="object"><a href="http://www.porto.pt/noticias/antonio-costa-quer-fechar-ate-junho-modelo-de-descentralizacao-em-areas-como-a-habitacao-transportes-e-financiamento-">António Costa quer fechar até junho modelo de descentralização em áreas como a habitação, transportes e financiamento </a></li><li class="object"><a href="http://www.porto.pt/noticias/assembleia-aprova-por-unanimidade-o-acordo-para-a-requalificacao-da-escola-alexandre-herculano">Assembleia aprova por unanimidade o acordo para a requalificação da Escola Alexandre Herculano</a></li><li class="object"><a href="http://www.porto.pt/noticias/procissao-das-endoencas-percorre-o-centro-historico-na-noite-de-28-de-marco_2">Procissão das Endoenças percorre o Centro Histórico na noite de 28 de março</a></li><li class="object"><a href="http://www.porto.pt/noticias/criador-do-conceito-de-inteligencia-emocional-abre-qsp-summit-nesta-quinta">Criador do conceito de inteligência emocional abre QSP Summit nesta quinta</a></li><li class="object"><a href="http://www.porto.pt/noticias/dia-nacional-dos-centros-historicos-incentiva-a-descoberta-do-patrimonio">Dia Nacional dos Centros Históricos incentiva a descoberta do património</a></li><li class="object"><a href="http://www.porto.pt/noticias/concerto-comentado-de-antonio-pinho-vargas-abre-cultura-em-expansao-2018">Concerto comentado de António Pinho Vargas abre Cultura em Expansão 2018</a></li><li class="object"><a href="http://www.porto.pt/noticias/presidente-da-republica-abriu-esta-manha-cimeira-sobre-a-descentralizacao-">Presidente da República abriu esta manhã cimeira sobre a descentralização </a></li><li class="object"><a href="http://www.porto.pt/noticias/capela-de-nossa-senhora-das-verdades-faz-a-historia-de-nova-sessao-de-um-objeto-e-seus-discursos">Capela de Nossa Senhora das Verdades faz a história de nova sessão de Um Objeto e Seus Discursos</a></li><li class="object"><a href="http://www.porto.pt/noticias/casa-da-musica-assinala-a-pascoa-com-dois-concertos">Casa da Música assinala a Páscoa com dois concertos</a></li><li class="object"><a href="http://www.porto.pt/noticias/adeporto-quer-capacitar-as-ipss-do-norte-para-a-eficiencia-energetica">AdEPorto quer capacitar as IPSS do Norte para a eficiência energética</a></li><li class="object"><a href="http://www.porto.pt/noticias/sapadores-bombeiros-destacam-se-em-sevilha-no-rescue-great-day-2018">Sapadores Bombeiros destacam-se em Sevilha no Rescue Great Day 2018</a></li><li class="object"><a href="http://www.porto.pt/noticias/quarteto-de-cordas-ingles-abre-amanha-o-12-o-festival-harmos-na-camara-do-porto">Quarteto de cordas inglês abre amanhã o 12.º Festival Harmos na Câmara do Porto</a></li><li class="object"><a href="http://www.porto.pt/noticias/olimpiadas-de-educacao-financeira-procuram-campeoes-da-poupanca">Olimpíadas de Educação Financeira procuram campeões da poupança</a></li></ul>
+			</div>
+				 <script type="text/javascript">
+					var flag_x = true; var w = 0;
+					$(function(){
+						$(window).load(function(){
+							setTimeout(function(){
+								$("#block_383 li").css({float:"left",padding:"0 5px"});
+							
+								
+								$("#block_383 li").each(function(){
+									w += $(this).outerWidth() ;
+								});
+								
+								$("#block_383 ul").css({position:"absolute",width:w+"px"});
+								 ticker_x();
+							},500);
+							
+						
+							
+							$("#block_383").hover(function(){
+								flag_x = false; 
+							},
+							function()
+							{
+								flag_x = true; 
+								ticker_x();
+							});
+						});
+					});
+					
+					function ticker_x()
+					{
+						$("#block_383 ul").animate({left:"-=5px"},100,"linear",function(){
+							if(parseInt($(this).css("left")) * -1 > $(this).width() )
+								$(this).remove();
+							else
+							{
+								if(parseInt($(this).css("left")) * -1 > ($(this).width() - $(this).parent().width()) && $("#block_383 ul").length == 1)
+								{
+									new_ul(this);
+								}
+								
+								$(this).stop();
+								if(flag_x == true)
+									ticker_x();
+							}
+						});
+
+					}
+					
+					function new_ul(thi)
+					{
+						
+						var ul = $("<ul></ul>");
+						ul.html($(thi).html());
+						ul.css({position:"absolute",width:w+"px",left:$(thi).parent().width()});
+						$("#block_383 div").append(ul);
+						
+					}
+				 </script>
+			 </div><div id="block_190" class=" search cmp-search cmp-focus">
+			<input 	type="text" id="cmp-search-text" name="cmp-search-text" placeholder="procure no Porto." 
+					onkeyup="cmp_search(this.value, event)" 
+					class="cmp-focus" />
+			<a href="javascript:void(0)" onclick="cmp_search_click()"></a>
+		</div>				</div>
+				<div id="cmp-search-results" class="cmp-search-results"></div>
+			</div>
+			
+			<!-- MENU -->
+			<div id="wrapper-menu">
+				 <div class="wrapper-menu-hidden"><div id='block_351' class=' forms cmp-newsletter'><form id='block_form_351' class='cmxform' method='post' action='http://www.porto.pt/forms/insert/351'>
+			<input type='hidden' name='csrf_test_name' value='89fef0cff83d2634fcc4f10fe50ff939' /><div class='fields_53'>
+							<label>Subscreva a nossa newsletter</label>
+						  </div><div class='fields_54'>
+								<input type='text' id='form_48' name='form_48' class='{validate:{required:true}}' placeholder='o seu email' value='' />			
+							  </div><div class='name'>
+							<input type='text' id='form_49' name='form_49' class='{validate:{required:true}}' placeholder='o seu nome' value='' />
+						  </div><div class='submit'>
+							<input type='submit' value='subscrever' style='display:none;' />
+							<a class='button' href='javascript:void(0);' onclick='submitform351()'>
+								<span>subscrever</span>
+							</a>
+						  </div>
+						  <div class='form_error_351 form_error'     style='display:none;'>Erro</div>
+						  <div class='form_success_351 form_success' style='display:none;'>Obrigado pela subscrição.</div>
+						  </form>
+						  <script type='text/javascript'>
+							function submitform351()
+							{	
+								var flag = true;
+									
+								if($('#form_48').val()=='')
+							  {
+									$('.fields_54').addClass('error');
+									flag = false;
+							  }
+							  else
+							  {
+									$('.fields_54').removeClass('error');
+							  }var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+							  if(pattern.test($('#form_48').val()) == false)
+							  {
+								  $('.fields_54').addClass('error');
+								  flag = false;
+							  }
+							  else
+							  {
+									$('.fields_54').removeClass('error');
+							  }if($('#form_49').val()=='')
+							  {
+									$('.name').addClass('error');
+									flag = false;
+							  }
+							  else
+							  {
+									$('.name').removeClass('error');
+							  }
+								
+								if(flag == false)
+								{	
+									//$('.form_error_351').show();
+								}
+								else
+								{
+									var options = {  beforeSubmit : form_pre_submit_351, success : form_post_submit_351};
+									$('#block_form_351').ajaxForm(options);
+									$('#block_form_351 .submit .button').hide();
+									$('#block_form_351').submit();
+								}
+							}
+							
+							function form_pre_submit_351(formData, jqForm, options)
+							{
+								var queryString = $.param(formData);
+								return true;
+							}
+							
+							function form_post_submit_351(responseText)
+							{
+								$('#block_form_351 .form_success').show();
+								setTimeout(function(){
+									cmp_pop_newsletter();
+								},2000);
+							}
+						  </script></form></div></div>				 				 <div class="clear"></div>
+			</div>
+			<a href='javascript:void(0)' class='search_button' onclick='search_toggle()'></a>
+			<a href='javascript:void(0)' class='menu_button' onclick='swipeMenu("swiperight");'></a>	
+			<div id='wrapper-content' class="cmp-sidebar-left">						
+				<div class='wrapper-content'>
+					<div id='sidebar' class='sidebar'>
+						<div id='block_352' class=' menu list'><ul><li class='link_256 noticias active'>
+				<a href='http://www.porto.pt/' >
+					
+					
+				</a>
+			</li><li class='link_316 transito '>
+				<a href='http://www.porto.pt/transito' >
+					
+					
+				</a>
+			</li><li class='link_261 videos '>
+				<a href='http://www.porto.pt/videos' >
+					
+					
+				</a>
+			</li><li class='link_612 teatro '>
+				<a href='http://www.porto.pt/teatro-municipal' >
+					
+					
+				</a>
+			</li><li class='link_258 press '>
+				<a href='http://www.porto.pt/press-release' >
+					
+					
+				</a>
+			</li><li class='link_613 uporto '>
+				<a href='http://www.porto.pt/up' >
+					
+					
+				</a>
+			</li><li class='link_260 agenda '>
+				<a href='http://www.porto.pt/agenda' >
+					
+					
+				</a>
+			</li></ul></div>					</div>						
+				</div>					
+			</div>
+			
+			<!-- HOME -->
+			<div id="wrapper-home">
+				<div class="wrapper-home">
+					<div class="col1">
+						<div class="noticia">
+							<div id='block_405' class=' image block'><a href='https://www.youtube.com/user/CamaraDoPorto' target='_new'>
+				<img src='http://www.porto.pt/assets/misc/img/social/youtube-01.svg'   />
+			 </a></div><div id='block_404' class=' image block'><a href='https://plus.google.com/+CamaraDoPortoPonto/posts/4C1JurLnecA' target='_new'>
+				<img src='http://www.porto.pt/assets/misc/img/social/google_plus-01.svg'   />
+			 </a></div><div id='block_403' class=' image block'><a href='https://www.facebook.com/CamaraMunicipaldoPorto' target='_new'>
+				<img src='http://www.porto.pt/assets/misc/img/social/facebook-01.svg'   />
+			 </a></div><div id='block_539' class=' image block'><a href='http://www.porto.pt/diario/' target='_new'>
+				<img src='http://www.porto.pt/assets/misc/img/social/diario-01.svg'   />
+			 </a></div><div id='block_358' class=' breadcrumb'><img alt='Notícias' src='http://www.porto.pt/assets/misc/img/icons/noticias_blue.svg' /><img class='breadcrumb_noticias_arrow' src='http://www.porto.pt/assets/misc/img/icons/arrow_filtro_blue.svg' onclick='toggle_caixa()' />
+				 <a class='breadcrumb_noticias_a' href:'javascript:void(0);' onclick='toggle_caixa()' >
+					<span class='breadcrumb_noticias_label'>Todas</span>
+				 </a>
+				 <img class='breadcrumb_noticias_icon' src='http://www.porto.pt/assets/misc/img/icons/filtro_blue.svg' />
+				 <ul class='breadcrumb_noticias_ddl'>
+					<li>
+							<a href="http://www.porto.pt/" >
+								<span>Todas</span>
+							</a>
+					   </li><li class='cate_133'>
+								<a href="http://www.porto.pt/noticias/cat/ambiente" >
+									<span>Ambiente</span>
+								</a>
+							</li><li class='cate_134'>
+								<a href="http://www.porto.pt/noticias/cat/animacao" >
+									<span>Animação</span>
+								</a>
+							</li><li class='cate_252'>
+								<a href="http://www.porto.pt/noticias/cat/assembleia-municipal" >
+									<span>Assembleia Municipal</span>
+								</a>
+							</li><li class='cate_29'>
+								<a href="http://www.porto.pt/noticias/cat/coesao-social" >
+									<span>Coesão Social</span>
+								</a>
+							</li><li class='cate_27'>
+								<a href="http://www.porto.pt/noticias/cat/cultura" >
+									<span>Cultura</span>
+								</a>
+							</li><li class='cate_140'>
+								<a href="http://www.porto.pt/noticias/cat/desporto" >
+									<span>Desporto</span>
+								</a>
+							</li><li class='cate_28'>
+								<a href="http://www.porto.pt/noticias/cat/economia-e-investimento" >
+									<span>Economia e Investimento</span>
+								</a>
+							</li><li class='cate_138'>
+								<a href="http://www.porto.pt/noticias/cat/educacao-e-juventude" >
+									<span>Educação e Juventude</span>
+								</a>
+							</li><li class='cate_86'>
+								<a href="http://www.porto.pt/noticias/cat/institucional" >
+									<span>Institucional</span>
+								</a>
+							</li><li class='cate_135'>
+								<a href="http://www.porto.pt/noticias/cat/mobilidade" >
+									<span>Mobilidade</span>
+								</a>
+							</li><li class='cate_136'>
+								<a href="http://www.porto.pt/noticias/cat/protecao-civil" >
+									<span>Proteção Civil</span>
+								</a>
+							</li><li class='cate_137'>
+								<a href="http://www.porto.pt/noticias/cat/turismo" >
+									<span>Turismo</span>
+								</a>
+							</li><li class='cate_139'>
+								<a href="http://www.porto.pt/noticias/cat/urbanismo" >
+									<span>Urbanismo</span>
+								</a>
+							</li><li>
+						<a href="http://www.porto.pt/noticias/cat/outros" >
+							<span>Outros</span>
+						</a>
+					</li>
+				 </ul><script type='text/javascript'>
+			function toggle_caixa()
+			{
+				if ($('.breadcrumb_noticias_ddl').is(':visible')) 
+				{
+					$('.breadcrumb_noticias_ddl').slideUp();
+				}
+				else
+				{
+					$('.breadcrumb_noticias_ddl').slideDown();
+				}
+			}
+		</script>
+		</div>﻿<div id='block_312' class='block objects cmp-simple'><div id="object_34402" class="object  background-b"><div class="name color-a"><a class="color-a" href="http://www.porto.pt/noticias/antonio-costa-quer-fechar-ate-junho-modelo-de-descentralizacao-em-areas-como-a-habitacao-transportes-e-financiamento-">António Costa quer fechar até junho modelo de descentralização em áreas como a habitação, transportes e financiamento </a></div><div class="image"><a href="http://www.porto.pt/noticias/antonio-costa-quer-fechar-ate-junho-modelo-de-descentralizacao-em-areas-como-a-habitacao-transportes-e-financiamento-">
+										<img alt="Ant&oacute;nio Costa quer fechar at&eacute; junho modelo de descentraliza&ccedil;&atilde;o em &aacute;reas como a habita&ccedil;&atilde;o, transportes e financiamento " src="http://www.porto.pt/assets/misc/img/noticias/INSTITUCIONAL/2018/Cimeira%20Descentralizacao/%23NNS_Cimeira_Descentralizacao_04.JPG" />
+									  </a></div>
+								 <div class="arrow arrow-top-b"></div><div class="date color-d">20-03-2018</div><div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/antonio-costa-quer-fechar-ate-junho-modelo-de-descentralizacao-em-areas-como-a-habitacao-transportes-e-financiamento-">A garantia do Primeiro-Ministro está dada: há mais três meses pela frente para fechar o processo da descentralização para algumas áreas estruturais. É esse o objetivo de António Costa, manifestado esta tarde na cimeira que reuniu os autarcas das Áreas Metropolitanas de Lisboa e do Porto, no Palácio de Queluz, em Sintra. Aliás, descentralização é mesmo a palavra do dia, que também fica marcado pela entrega em mãos ao Primeiro-Ministro do documento que sintetiza a proposta dos 35 presidentes de Câmara.</a></div></div></div>						</div>
+						<div class="noticias">﻿<div id='block_192' class='block objects cmp-chess'><div id="object_34412" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/a-danca-vem-para-a-rua-anunciar-o-regresso-do-ddd">
+										<img alt="A dan&ccedil;a vem para a rua anunciar o regresso do DDD" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/Festival_DDD/DDD_28abril_resumo/%23jca_DDD_28_04_09.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/a-danca-vem-para-a-rua-anunciar-o-regresso-do-ddd">Regresso do DDD é anunciado a dançar</a></div>
+											<div class="date color-b">20-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/a-danca-vem-para-a-rua-anunciar-o-regresso-do-ddd">A programação do Festival DDD - Dias da Dança, maior festival internacional de dança contemporânea do país, é revelada nesta quinta-feira, bem no centro da cidade.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34399" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/assembleia-aprova-por-unanimidade-o-acordo-para-a-requalificacao-da-escola-alexandre-herculano">
+										<img alt="Assembleia aprova por unanimidade o acordo para a requalifica&ccedil;&atilde;o da Escola Alexandre Herculano" src="http://www.porto.pt/assets/misc/img/noticias/EDUCA%C3%87%C3%83O-JUVENTUDE/2018/%23mno_liceu_Alexandre_Herculano_01.jpg" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/assembleia-aprova-por-unanimidade-o-acordo-para-a-requalificacao-da-escola-alexandre-herculano">AM unânime sobre o A. Herculano</a></div>
+											<div class="date color-d">20-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/assembleia-aprova-por-unanimidade-o-acordo-para-a-requalificacao-da-escola-alexandre-herculano">A decisão da transmissão da titularidade da obra do liceu Alexandre Herculano para Câmara do Porto foi ontem à noite aprovada por unanimidade em sessão extraordinária da Assembleia Municipal. Para este órgão autárquico, a cidade resolveu um problema há muito adiado pelo Estado central.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34391" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/procissao-das-endoencas-percorre-o-centro-historico-na-noite-de-28-de-marco_2">
+										<img alt="Prociss&atilde;o das Endoen&ccedil;as percorre o Centro Hist&oacute;rico na noite de 28 de mar&ccedil;o" src="http://www.porto.pt/assets/misc/img/noticias/ANIMA%C3%87%C3%83O/2018/Miseric%C3%B3rdia%20do%20Porto_prociss%C3%A3o_endoen%C3%A7as_2017.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/procissao-das-endoencas-percorre-o-centro-historico-na-noite-de-28-de-marco_2">Procissão das Endoenças</a></div>
+											<div class="date color-b">20-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/procissao-das-endoencas-percorre-o-centro-historico-na-noite-de-28-de-marco_2">Pelo segundo ano consecutivo, a Santa Casa da Misericórdia do Porto promove a realização da Procissão das Endoenças no Centro Histórico do Porto. O evento religioso terá lugar na noite de 28 de março, a partir das 21 horas.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34388" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/criador-do-conceito-de-inteligencia-emocional-abre-qsp-summit-nesta-quinta">
+										<img alt="Criador do conceito de intelig&ecirc;ncia emocional abre QSP Summit nesta quinta" src="http://www.porto.pt/assets/misc/img/noticias/ECONOMIA-EMPREGO/2018/%23fib_QSP_Summit_01.jpg" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/criador-do-conceito-de-inteligencia-emocional-abre-qsp-summit-nesta-quinta">Gestão emocional abre QSP Summit</a></div>
+											<div class="date color-d">20-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/criador-do-conceito-de-inteligencia-emocional-abre-qsp-summit-nesta-quinta">Daniel Goleman, considerado um dos dez mais influentes pensadores empresariais do mundo e criador do conceito de "inteligência emocional", abre, na quinta-feira, a 12.ª edição da QSP Summmit, na Exponor, uma das mais relevantes conferências de Marketing e Gestão da Europa.
+</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34384" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/concerto-comentado-de-antonio-pinho-vargas-abre-cultura-em-expansao-2018">
+										<img alt="Concerto comentado de Ant&oacute;nio Pinho Vargas abre Cultura em Expans&atilde;o 2018" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/2018/Cultura%20em%20Expansao%202018/%23DR_Antoni_Pinho_Vargas.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/concerto-comentado-de-antonio-pinho-vargas-abre-cultura-em-expansao-2018">Pinho Vargas atua em Campanhã</a></div>
+											<div class="date color-b">20-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/concerto-comentado-de-antonio-pinho-vargas-abre-cultura-em-expansao-2018">O Cultura em Expansão inicia o seu programa de 2018 no próximo sábado às 21,30 horas, no Auditório da Junta de Freguesia de Campanhã, com um concerto comentado, de entrada livre, de António Pinho Vargas, um dos mais importantes compositores e pianistas portugueses das últimas décadas. </a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34379" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/presidente-da-republica-abriu-esta-manha-cimeira-sobre-a-descentralizacao-">
+										<img alt="Presidente da Rep&uacute;blica abriu esta manh&atilde; cimeira sobre a descentraliza&ccedil;&atilde;o " src="http://www.porto.pt/assets/misc/img/noticias/INSTITUCIONAL/2018/Cimeira%20Descentralizacao/%23NNS_Foto_Grupo_Cimeira_Descentralizacao.jpg" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/presidente-da-republica-abriu-esta-manha-cimeira-sobre-a-descentralizacao-">PR abriu cimeira da descentralização</a></div>
+											<div class="date color-d">20-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/presidente-da-republica-abriu-esta-manha-cimeira-sobre-a-descentralizacao-">Começou esta manhã, em Queluz, a primeira cimeira das Áreas Metropolitanas de Lisboa e Porto, com a participação de muitos autarcas, do Primeiro-Ministro e do Presidente da República.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34376" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/capela-de-nossa-senhora-das-verdades-faz-a-historia-de-nova-sessao-de-um-objeto-e-seus-discursos">
+										<img alt="Capela de Nossa Senhora das Verdades faz a hist&oacute;ria de nova sess&atilde;o de Um Objeto e Seus Discursos" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/2018/Um%20Objeto%20e%20seus%20Discursos/%23fib_capela_senhora_verdades_03.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/capela-de-nossa-senhora-das-verdades-faz-a-historia-de-nova-sessao-de-um-objeto-e-seus-discursos">Abre-se a Capela  N. S. das Verdades</a></div>
+											<div class="date color-b">20-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/capela-de-nossa-senhora-das-verdades-faz-a-historia-de-nova-sessao-de-um-objeto-e-seus-discursos">A Capela de Nossa Senhora das Verdades recebe, no próximo sábado, a sessão do ciclo Um Objeto e seus Discursos por Semana.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34370" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/casa-da-musica-assinala-a-pascoa-com-dois-concertos">
+										<img alt="Casa da M&uacute;sica assinala a P&aacute;scoa com dois concertos" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/2018/Casa%20da%20Musica/%23mno_casa_da_musica.jpg" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/casa-da-musica-assinala-a-pascoa-com-dois-concertos">Páscoa em dois concertos na CdM</a></div>
+											<div class="date color-d">20-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/casa-da-musica-assinala-a-pascoa-com-dois-concertos">A Casa da Música assinala a Páscoa com dois concertos na Sala Suggia: o primeiro, "Ressurreição" de Mahler, é apresentado nesta terça-feira, 20 de março; o segundo, com obras de Händel e Bach, está agendado para o dia 28 de março.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34360" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/adeporto-quer-capacitar-as-ipss-do-norte-para-a-eficiencia-energetica">
+										<img alt="AdEPorto quer capacitar as IPSS do Norte para a efici&ecirc;ncia energ&eacute;tica" src="http://www.porto.pt/assets/misc/img/noticias/AMBIENT/2018/%23mno_iluminacao.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/adeporto-quer-capacitar-as-ipss-do-norte-para-a-eficiencia-energetica">AdEPorto ajuda as IPSS do Norte</a></div>
+											<div class="date color-b">19-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/adeporto-quer-capacitar-as-ipss-do-norte-para-a-eficiencia-energetica">A Agência de Energia do Porto (AdEPorto) pretende em abril ensinar as Instituições Particulares de Solidariedade Social (IPSS) a Norte do rio Douro a obter eficiência energética, num apoio que pode chegar aos fundos europeus e nacionais.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34359" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/municipio-fica-a-gerir-mais-parques-de-estacionamento-e-reduz-as-respetivas-tarifas">
+										<img alt="Munic&iacute;pio fica a gerir mais parques de estacionamento e reduz as respetivas tarifas" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/2017/European%20Design%20Awards/Abertura_Exp_Two_Pages/%23fib_abertura_exposicao_Two_Pages_03.jpg" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/municipio-fica-a-gerir-mais-parques-de-estacionamento-e-reduz-as-respetivas-tarifas">Gestão municipal do estacionamento</a></div>
+											<div class="date color-d">19-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/municipio-fica-a-gerir-mais-parques-de-estacionamento-e-reduz-as-respetivas-tarifas">Na próxima quarta-feira, em reunião de Executivo, vota-se a gestão municipal dos parques de estacionamento da Praça dos Poveiros e do Palácio de Cristal, após o final do período de ambas as concessões, que acontece em abril e maio, respetivamente. A proposta que acompanha este ponto da ordem de trabalhos prevê a revisão em baixa dos tarifários praticados não só nestes dois parques, mas também do preçário em vigor no parque de estacionamento Silo Auto.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34349" class="object  image-left ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/quarteto-de-cordas-ingles-abre-amanha-o-12-o-festival-harmos-na-camara-do-porto">
+										<img alt="Quarteto de cordas ingl&ecirc;s abre amanh&atilde; o 12.&ordm; Festival Harmos na C&acirc;mara do Porto" src="http://www.porto.pt/assets/misc/img/noticias/CULTURA/FESTIVAL%20HARMOS%202016/CONCERTO%20INAUGURAL%2008%20MAR/%23fib_harmos_concerto_inaugural_16.jpg" />
+									  </a></div>
+										
+										<div class="info background-a">
+											<div class="arrow arrow-left-a"></div>
+											<div class="name subtitle color-b"><a class="color-b" href="http://www.porto.pt/noticias/quarteto-de-cordas-ingles-abre-amanha-o-12-o-festival-harmos-na-camara-do-porto">Quarteto inglês dá   recital na Câmara</a></div>
+											<div class="date color-b">19-03-2018</div>
+											<div class="description color-b"><a class="color-b" href="http://www.porto.pt/noticias/quarteto-de-cordas-ingles-abre-amanha-o-12-o-festival-harmos-na-camara-do-porto">A 12.ª edição do Festival Harmos começa nesta terça-feira com um recital do Accendo Quartet no edifício dos Paços do Concelho, às 19 horas, com acesso livre.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div><div id="object_34348" class="object  image-right ">
+										<div class='image resize'><a href="http://www.porto.pt/noticias/sapadores-bombeiros-destacam-se-em-sevilha-no-rescue-great-day-2018">
+										<img alt="Sapadores Bombeiros destacam-se em Sevilha no Rescue Great Day 2018" src="http://www.porto.pt/assets/misc/img/noticias/PROTE%C3%87%C3%83O%20CIVIL/2018/BSB%20-%20Rescue%20Great%20Day%20-%20Sevilha/%23antonio_oliveira_rescue_great_day_25.JPG" />
+									  </a></div>
+										
+										<div class="info background-b">
+											<div class="arrow arrow-right-b"></div>
+											<div class="name subtitle color-a"><a class="color-a" href="http://www.porto.pt/noticias/sapadores-bombeiros-destacam-se-em-sevilha-no-rescue-great-day-2018">BSB no Rescue Day em Sevilha</a></div>
+											<div class="date color-d">19-03-2018</div>
+											<div class="description color-d"><a class="color-d" href="http://www.porto.pt/noticias/sapadores-bombeiros-destacam-se-em-sevilha-no-rescue-great-day-2018">O Batalhão de Sapadores Bombeiros do Porto destacou-se no Rescue Great Day 2018, uma competição de salvamento por cordas (Grande Ângulo) realizada em Sevilha. A equipa portuense conquistou o terceiro lugar geral e o primeiro na categoria Bombeiros.</a></div>
+											
+											
+											
+										</div>
+										<div class="downloads background-d">
+											<div class="title color-b">Downloads</div>
+											
+										</div>
+									 </div></div><script type="text/javascript">
+						var scroll = false;
+
+						setTimeout(function()
+						{
+							$(window).scroll(function() 
+							{
+								if (!scroll && $(window).scrollTop() >= ($(document).height() - $(window).height()) * 0.6)
+								{
+									scroll    = true;
+									var count = $("#block_192 .object").length + 0;
+									
+									var theme = "b";
+									if($("#block_192 .object").last().find(".info").hasClass("background-a"))
+										theme = "a";
+									
+									var last_id = $("#block_192 .object").last().attr("id").replace("object_","");
+
+
+									$.post("http://www.porto.pt/ajax/call/objects_api/cmp_chess/infinite/192", "last_id=" +last_id+ "&count=" + count + "&theme=" + theme + "&id_type=23&css_theme=b" , function(response)
+									{
+										$("#block_192").append(response);
+										
+										$("#block_192 .resize").adjust_images({resize:{mobile:"full", table:"full"}});
+										
+										$("#block_192 .image").removeClass("resize");
+										
+										scroll = false;
+									});
+								}
+							});
+						}, 250);
+					 </script></div>
+					</div>
+					<div id="sidebar_content" class="col2">
+						<div class="banner">
+							﻿
+<div id='block_540' class='cmp_porto_banner ' >
+	<div class='result'>
+		<div id="object_34208" class="object">
+							<div class="image">
+								<a href="http://www.porto.pt/noticias/porto-acolhe-simposio-sobre-ecoeficiencia-e-reabilitacao-de-edificios-antigos" target="_NEW"><img src="http://www.porto.pt/assets/misc/img/Banner/Banner_Enerpat.jpg" /></a>
+							</div>
+						</div><div id="object_33748" class="object" style="display:none;">
+							<div class="image">
+								<a href="http://www.100milarvores.pt/portosetemumjardim3" target="_NEW"><img src="http://www.porto.pt/assets/misc/img/Banner/banner-site-porto.pt.jpg" /></a>
+							</div>
+						</div><div id="object_33150" class="object" style="display:none;">
+							<div class="image">
+								<a href="http://www.cm-porto.pt/paginas/taxa-turistica_12" target="_NEW"><img src="http://www.porto.pt/assets/misc/img/Banner/AF_banner_920x262px.jpg" /></a>
+							</div>
+						</div>	</div>
+	<script>
+			$(function()
+			{
+				$('.cmp_porto_banner .result').css({'height':'142px'});
+				$('.cmp_porto_banner .result > div, .cmp_porto_banner .result .image, .cmp_porto_banner .result .image img').css({'height':'142px'});
+				if($('.cmp_porto_banner .result .object').length > 1)
+				{
+					$('.cmp_porto_banner .result .object').css({'position':'absolute','left':'0'});
+					$('.cmp_porto_banner .result .object:gt(0)').hide();
+					setInterval(function()
+					{
+						$('.cmp_porto_banner .result > div:first-child').fadeOut().next('div').fadeIn().end().appendTo('.cmp_porto_banner .result');
+					}, 5000);
+				}
+			});
+	</script>
+</div>
+
+						</div>
+						<div class="transito">
+							﻿<div class='breadcrumb'>
+				<img src='http://www.porto.pt/assets/misc/img/icons/transito_blue.svg' alt='Trânsito' style='height:15px;' />
+			</div>
+		    <div id='block_384' class='block objects cmp-transito background-b'><div id="object_33468" class="object ">
+						<div class="left"><span class="traffic_253"></span></div>
+						<div class="right">
+							<div class="name"><a href="http://www.porto.pt/transito/rua-do-rosario_10">Rua do Rosário</a></div>
+							<div class="date">&nbsp;atualizado a 19-03-2018 às 15:55h</div>
+							<div class="description"></div>
+						</div>
+						<div style="clear:both;"></div>
+					 </div><div id="object_34157" class="object ">
+						<div class="left"><span class="traffic_130"></span></div>
+						<div class="right">
+							<div class="name"><a href="http://www.porto.pt/transito/campo-de-vinte-e-quatro-de-agosto_5">Campo de Vinte e Quatro de Agosto</a></div>
+							<div class="date">&nbsp;atualizado a 12-03-2018 às 16:49h</div>
+							<div class="description"></div>
+						</div>
+						<div style="clear:both;"></div>
+					 </div><div id="object_31813" class="object ">
+						<div class="left"><span class="traffic_130"></span></div>
+						<div class="right">
+							<div class="name"><a href="http://www.porto.pt/transito/avenida-gustavo-eiffel-_4">Avenida Gustavo Eiffel </a></div>
+							<div class="date">&nbsp;atualizado a 01-03-2018 às 15:00h</div>
+							<div class="description"></div>
+						</div>
+						<div style="clear:both;"></div>
+					 </div><a href="http://www.porto.pt/transito">ver os principais condicionamentos</a><div style="clear:both;"></div></div>						</div>
+						<div class="video">
+							<div class='breadcrumb'>
+												<img alt='Vídeos' src='http://www.porto.pt/assets/misc/img/icons/videos_blue.svg' />
+											  </div>							<div id='block_363' class=' text block'><div class="background-a">
+						<div class="name color-b"><h1>Entrega do Prémio João de Almada e abertura da Exposição nos Paços do Concelho</h1></div>
+						<div class="video"><iframe title="Youtube Porto." width="100%" height="282px" src="https://www.youtube.com/embed/PX4EcWm52nY?controls=0&showinfo=0&rel=0&enablejsapi=1&wmode=transparent" wmode="transparent" frameborder="0"></iframe></div>
+					 </div></div>						</div>
+						<div class="cols">
+							<div class="col1"><div id='block_386' class=' image block'><img src='http://www.porto.pt/assets/misc/img/icons/mais_noticias_blue.svg'   /></div><div id='block_316' class=' text block'>Teatro Municipal.</div>﻿<div id='block_315' class='block objects cmp-simple'><div id="object_34378" class="object  background-b"><div class="name color-a"><a class="color-a" href="http://www.porto.pt/teatro-municipal">Esmerine no sub-palco do Rivoli </a></div><div class="date color-d">20-03-2018</div><div class="description color-d"><a class="color-d" href="http://www.porto.pt/teatro-municipal">Esmerine, a banda originária de Montreal, cujo estilo de música é em si um género musical, estará presente no sub-palco do Rivoli, dia 23 de março, em parceria com a Amplificasom, pelas 23 horas. A Decoder Magazine descreve os Esmerine como uma banda musical de estilo "neo-clássico, punk-drone-post rock".</a></div></div></div><div id='block_317' class=' text block'>Press Release.</div>﻿<div id='block_318' class='block objects cmp-simple'><div id="object_34371" class="object  background-b"><div class="name color-a"><a class="color-a" href="http://www.porto.pt/press-release">E-commerce em debate no Porto</a></div><div class="date color-d">20-03-2018</div><div class="description color-d"><a class="color-d" href="http://www.porto.pt/press-release">O primeiro evento nacional dedicado à gestão e implementação de lojas online reúne 9 oradores no dia 5 de Maio na Universidade Católica do Porto. Um painel de especialistas irá dar a conhecer casos práticos de sucesso de lojas online portuguesas, partindo das suas próprias experiências em cada uma das marcas que representam. O principal objetivo do evento é o de ajudar os participantes a implementar ou maximizar os resultados dos seus próprios projetos e lojas online.</a></div></div></div><div id='block_319' class=' text block'>U. Porto</div>﻿<div id='block_320' class='block objects cmp-simple'><div id="object_34374" class="object  background-b"><div class="name color-a"><a class="color-a" href="http://www.porto.pt/up">Prémio Cidadania Ativa da U. Porto</a></div><div class="date color-d">20-03-2018</div><div class="description color-d"><a class="color-d" href="http://www.porto.pt/up">O Prémio de Cidadania Ativa que a Universidade do Porto atribui, anualmente, está organizado em quatro categorias: Humanitária e/ou Solidária, Empreendedorismo, Pedagógica e Desportiva e/ou Ambiental. Cada vencedor recebe um prémio monetário no valor de 1000 euros, bem como um diploma individual comprovativo e ainda uma menção no suplemento ao diploma académico. O Prémio de Cidadania Ativa da U.Porto será entregue no dia 22 de março, no Salão Nobre da Reitoria, durante a cerimónia comemorativa do Dia da Universidade.</a></div></div></div></div>
+							<div class="col2"><div id='block_387' class=' image block'><img src='http://www.porto.pt/assets/misc/img/icons/ultimos_videos.svg'   /></div><div id='block_571' class=' text block'><div class="background-a">
+                                    <div class="name color-b">Há 15h.</div>
+                                    <div class="image">
+                                        <a href="https://www.youtube.com/watch?v=ybpKUw0AhPY" target="_blank">
+                                            <img src="http://img.youtube.com/vi/ybpKUw0AhPY/mqdefault.jpg" />
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                  </div><div class="background-a">
+                                    <div class="name color-b">Há 2 dias</div>
+                                    <div class="image">
+                                        <a href="https://www.youtube.com/watch?v=cKWQ2dA_XiI" target="_blank">
+                                            <img src="http://img.youtube.com/vi/cKWQ2dA_XiI/mqdefault.jpg" />
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                  </div><div class="background-a">
+                                    <div class="name color-b">Há 11 dias</div>
+                                    <div class="image">
+                                        <a href="https://www.youtube.com/watch?v=3qx5cAdIKzc" target="_blank">
+                                            <img src="http://img.youtube.com/vi/3qx5cAdIKzc/mqdefault.jpg" />
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                  </div><div class="background-a">
+                                    <div class="name color-b">Há 12 dias</div>
+                                    <div class="image">
+                                        <a href="https://www.youtube.com/watch?v=_207RgiPpAI" target="_blank">
+                                            <img src="http://img.youtube.com/vi/_207RgiPpAI/mqdefault.jpg" />
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                  </div></div>﻿</div>
+						</div>
+						<div class="weather">﻿
+<div id='block_582' class='block objects cmp_agenda'>
+	
+	<img src='http://www.porto.pt/assets/misc/img/agenda_do_porto.png'/>
+	
+	<div class='center_side'>
+	
+		<!-- 
+		LISTA DE CATEGORIAS
+		=============================================--
+		<div class='categories' >
+							<span cat='cultura'>Cultura</span>
+							<span cat='desporto'>Desporto</span>
+							<span cat='institucional'>Institucional</span>
+							<span cat='animacao'>Animação</span>
+							<span cat='ambiente'>Ambiente</span>
+							<span cat='outros'>Outros</span>
+							<span cat='assembleia'>Assembleia</span>
+					</div>--
+
+		<!-- 
+		AGENDA COM TODOS OS EVENTOS
+		=============================================-->
+		<div class='clndr-master'>
+	
+		</div>
+
+		<!--<span class='thisMonth'>este mês</span>
+		<span class='thisWeekend' >próximo fim de semana</span>-->
+	</div>
+
+	
+    <script src="http://www.porto.pt/assets/themes/cmp/js/underscore-min.js"></script>
+    <script src="http://www.porto.pt/assets/themes/cmp/js/moment.min.js"></script>
+    <script src="http://www.porto.pt/assets/themes/cmp/js/clndr.min.js"></script>
+
+    	<script type="text/javascript">
+
+		/*************************************************
+		* VARIAVEIS NECESSARIAS A FUNCIONALIDADE DO PLUGIN
+		*************************************************/
+		var day		= '2018-03-21';
+		var es 		= [{"start":"2017-05-27","end":"2017-11-25","id":"24337"},{"start":"2017-06-20","end":"2017-12-31","id":"25361"},{"start":"2017-09-01","end":"2017-11-12","id":"26484"},{"start":"2017-09-01","end":"2017-12-29","id":"28320"},{"start":"2017-09-15","end":"2018-01-07","id":"27280"},{"start":"2017-10-10","end":"2017-12-31","id":"27742"},{"start":"2017-10-17","end":"2018-04-29","id":"27844"},{"start":"2017-10-25","end":"2017-10-25","id":"27918"},{"start":"2017-10-26","end":"2017-11-25","id":"30690"},{"start":"2017-10-30","end":"2017-11-04","id":"28079"},{"start":"2017-10-30","end":"2017-12-18","id":"28081"},{"start":"2017-10-31","end":"2017-10-31","id":"28342"},{"start":"2017-10-31","end":"2017-10-31","id":"28099"},{"start":"2017-11-02","end":"2017-11-02","id":"28157"},{"start":"2017-11-04","end":"2017-11-05","id":"28164"},{"start":"2017-11-04","end":"2017-11-04","id":"28120"},{"start":"2017-11-04","end":"2017-11-04","id":"28082"},{"start":"2017-11-04","end":"2017-11-04","id":"28158"},{"start":"2017-11-05","end":"2017-11-11","id":"28108"},{"start":"2017-11-05","end":"2017-11-05","id":"28084"},{"start":"2017-11-06","end":"2017-11-12","id":"28142"},{"start":"2017-11-06","end":"2017-11-06","id":"28080"},{"start":"2017-11-06","end":"2017-11-06","id":"28093"},{"start":"2017-11-07","end":"2017-11-21","id":"28227"},{"start":"2017-11-09","end":"2017-11-09","id":"28244"},{"start":"2017-11-09","end":"2017-11-09","id":"28212"},{"start":"2017-11-10","end":"2017-11-12","id":"28311"},{"start":"2017-11-10","end":"2017-11-10","id":"28288"},{"start":"2017-11-11","end":"2017-11-11","id":"28226"},{"start":"2017-11-11","end":"2017-11-11","id":"28295"},{"start":"2017-11-14","end":"2017-11-14","id":"28343"},{"start":"2017-11-15","end":"2017-11-18","id":"27839"},{"start":"2017-11-15","end":"2018-01-19","id":"28354"},{"start":"2017-11-16","end":"2017-11-18","id":"28412"},{"start":"2017-11-16","end":"2017-11-30","id":"28418"},{"start":"2017-11-16","end":"2017-11-17","id":"28284"},{"start":"2017-11-16","end":"2017-12-09","id":"28413"},{"start":"2017-11-16","end":"2017-11-16","id":"28364"},{"start":"2017-11-16","end":"2017-11-16","id":"28352"},{"start":"2017-11-17","end":"2018-03-04","id":"30154"},{"start":"2017-11-17","end":"2017-11-19","id":"28730"},{"start":"2017-11-17","end":"2017-11-19","id":"28817"},{"start":"2017-11-17","end":"2017-11-17","id":"28369"},{"start":"2017-11-17","end":"2017-11-17","id":"28409"},{"start":"2017-11-18","end":"2017-11-18","id":"28410"},{"start":"2017-11-18","end":"2017-11-18","id":"28341"},{"start":"2017-11-18","end":"2017-11-18","id":"28134"},{"start":"2017-11-18","end":"2017-11-18","id":"28665"},{"start":"2017-11-19","end":"2017-11-19","id":"28669"},{"start":"2017-11-21","end":"2017-11-21","id":"30201"},{"start":"2017-11-21","end":"2017-11-21","id":"30442"},{"start":"2017-11-21","end":"2017-11-21","id":"30440"},{"start":"2017-11-22","end":"2017-11-22","id":"28119"},{"start":"2017-11-23","end":"2017-11-23","id":"27845"},{"start":"2017-11-23","end":"2017-11-25","id":"30115"},{"start":"2017-11-23","end":"2017-11-24","id":"28283"},{"start":"2017-11-23","end":"2017-11-23","id":"28818"},{"start":"2017-11-23","end":"2017-11-23","id":"28399"},{"start":"2017-11-23","end":"2017-11-23","id":"30967"},{"start":"2017-11-24","end":"2017-11-26","id":"30997"},{"start":"2017-11-24","end":"2018-03-31","id":"28411"},{"start":"2017-11-25","end":"2017-11-25","id":"30964"},{"start":"2017-11-25","end":"2017-11-25","id":"31025"},{"start":"2017-11-25","end":"2017-11-25","id":"30692"},{"start":"2017-11-27","end":"2017-12-03","id":"30153"},{"start":"2017-11-28","end":"2017-11-28","id":"31030"},{"start":"2017-11-30","end":"2017-11-30","id":"31165"},{"start":"2017-12-01","end":"2018-01-07","id":"31028"},{"start":"2017-12-01","end":"2017-12-31","id":"31193"},{"start":"2017-12-01","end":"2017-12-31","id":"30962"},{"start":"2017-12-01","end":"2018-07-31","id":"31027"},{"start":"2017-12-01","end":"2017-12-01","id":"28323"},{"start":"2017-12-02","end":"2017-12-02","id":"31160"},{"start":"2017-12-02","end":"2017-12-09","id":"28371"},{"start":"2017-12-04","end":"2017-12-04","id":"31116"},{"start":"2017-12-05","end":"2017-12-05","id":"31338"},{"start":"2017-12-06","end":"2017-12-07","id":"31365"},{"start":"2017-12-06","end":"2017-12-06","id":"31342"},{"start":"2017-12-08","end":"2017-12-08","id":"28296"},{"start":"2017-12-09","end":"2017-12-09","id":"31112"},{"start":"2017-12-11","end":"2017-12-11","id":"31419"},{"start":"2017-12-12","end":"2017-12-12","id":"31354"},{"start":"2017-12-13","end":"2017-12-13","id":"31640"},{"start":"2017-12-14","end":"2018-02-14","id":"31645"},{"start":"2017-12-14","end":"2017-12-14","id":"28285"},{"start":"2017-12-16","end":"2017-12-16","id":"31705"},{"start":"2017-12-16","end":"2017-12-16","id":"31704"},{"start":"2017-12-18","end":"2017-12-22","id":"31811"},{"start":"2017-12-18","end":"2017-12-18","id":"31620"},{"start":"2017-12-21","end":"2017-12-23","id":"31857"},{"start":"2017-12-21","end":"2017-12-21","id":"31621"},{"start":"2017-12-21","end":"2017-12-21","id":"31817"},{"start":"2017-12-30","end":"2018-01-01","id":"32060"},{"start":"2017-12-30","end":"2017-12-30","id":"31219"},{"start":"2017-12-30","end":"2018-01-01","id":"31144"},{"start":"2018-01-06","end":"2018-04-29","id":"32346"},{"start":"2018-01-06","end":"2018-01-06","id":"32357"},{"start":"2018-01-09","end":"2018-01-09","id":"32051"},{"start":"2018-01-10","end":"2018-03-31","id":"32507"},{"start":"2018-01-10","end":"2018-01-10","id":"32508"},{"start":"2018-01-11","end":"2018-01-11","id":"32501"},{"start":"2018-01-12","end":"2018-01-20","id":"32504"},{"start":"2018-01-13","end":"2018-01-13","id":"32460"},{"start":"2018-01-13","end":"2018-02-03","id":"32531"},{"start":"2018-01-13","end":"2018-01-13","id":"32467"},{"start":"2018-01-13","end":"2018-01-13","id":"32500"},{"start":"2018-01-13","end":"2018-01-13","id":"32458"},{"start":"2018-01-13","end":"2018-01-13","id":"32470"},{"start":"2018-01-17","end":"2018-01-17","id":"32685"},{"start":"2018-01-17","end":"2018-03-30","id":"32616"},{"start":"2018-01-18","end":"2018-01-18","id":"32688"},{"start":"2018-01-20","end":"2018-01-20","id":"32618"},{"start":"2018-01-22","end":"2018-01-22","id":"32797"},{"start":"2018-01-23","end":"2018-01-23","id":"32769"},{"start":"2018-01-23","end":"2018-01-23","id":"32875"},{"start":"2018-01-23","end":"2018-01-23","id":"32751"},{"start":"2018-01-24","end":"2018-01-24","id":"32874"},{"start":"2018-01-25","end":"2018-01-25","id":"32878"},{"start":"2018-01-25","end":"2018-01-28","id":"32932"},{"start":"2018-01-26","end":"2018-01-26","id":"32876"},{"start":"2018-01-29","end":"2018-01-29","id":"33003"},{"start":"2018-01-29","end":"2018-01-29","id":"32720"},{"start":"2018-01-30","end":"2018-02-04","id":"32693"},{"start":"2018-01-30","end":"2018-01-30","id":"33029"},{"start":"2018-01-31","end":"2018-01-31","id":"33040"},{"start":"2018-01-31","end":"2018-01-31","id":"33002"},{"start":"2018-02-01","end":"2018-02-01","id":"32960"},{"start":"2018-02-02","end":"2018-02-03","id":"28083"},{"start":"2018-02-03","end":"2018-02-03","id":"33169"},{"start":"2018-02-05","end":"2018-02-05","id":"33124"},{"start":"2018-02-05","end":"2018-02-05","id":"33077"},{"start":"2018-02-06","end":"2018-02-06","id":"33689"},{"start":"2018-02-06","end":"2018-02-06","id":"32972"},{"start":"2018-02-07","end":"2018-02-07","id":"33047"},{"start":"2018-02-08","end":"2018-02-08","id":"33257"},{"start":"2018-02-09","end":"2018-02-11","id":"33355"},{"start":"2018-02-10","end":"2018-02-10","id":"33227"},{"start":"2018-02-10","end":"2018-03-10","id":"33267"},{"start":"2018-02-12","end":"2018-02-12","id":"33384"},{"start":"2018-02-15","end":"2018-02-15","id":"33482"},{"start":"2018-02-16","end":"2018-02-16","id":"33480"},{"start":"2018-02-17","end":"2018-04-22","id":"33481"},{"start":"2018-02-19","end":"2018-02-19","id":"33170"},{"start":"2018-02-20","end":"2018-03-04","id":"32112"},{"start":"2018-02-20","end":"2018-02-27","id":"33356"},{"start":"2018-02-22","end":"2018-02-25","id":"32877"},{"start":"2018-02-22","end":"2018-02-22","id":"33549"},{"start":"2018-02-26","end":"2018-02-28","id":"33810"},{"start":"2018-02-26","end":"2018-02-26","id":"33487"},{"start":"2018-02-28","end":"2018-02-28","id":"33806"},{"start":"2018-02-28","end":"2018-03-22","id":"33811"},{"start":"2018-02-28","end":"2018-03-02","id":"33809"},{"start":"2018-03-01","end":"2018-03-04","id":"33838"},{"start":"2018-03-01","end":"2018-03-18","id":"33850"},{"start":"2018-03-02","end":"2018-03-12","id":"33852"},{"start":"2018-03-02","end":"2018-09-23","id":"33807"},{"start":"2018-03-03","end":"2018-03-04","id":"33427"},{"start":"2018-03-03","end":"2018-03-04","id":"33853"},{"start":"2018-03-06","end":"2018-03-06","id":"33855"},{"start":"2018-03-09","end":"2018-03-09","id":"34063"},{"start":"2018-03-10","end":"2018-03-10","id":"33979"},{"start":"2018-03-10","end":"2018-03-10","id":"34064"},{"start":"2018-03-10","end":"2018-11-24","id":"34005"},{"start":"2018-03-10","end":"2018-03-10","id":"34065"},{"start":"2018-03-13","end":"2019-05-31","id":"34140"},{"start":"2018-03-15","end":"2018-03-15","id":"34195"},{"start":"2018-03-15","end":"2018-03-15","id":"34249"},{"start":"2018-03-16","end":"2018-04-01","id":"34281"},{"start":"2018-03-16","end":"2018-03-16","id":"34141"},{"start":"2018-03-17","end":"2018-03-17","id":"34193"},{"start":"2018-03-17","end":"2018-03-17","id":"34220"},{"start":"2018-03-18","end":"2018-03-18","id":"33228"},{"start":"2018-03-19","end":"2018-03-19","id":"34143"},{"start":"2018-03-20","end":"2018-03-20","id":"34350"},{"start":"2018-03-21","end":"2018-03-21","id":"34066"},{"start":"2018-03-22","end":"2018-03-23","id":"34196"},{"start":"2018-03-22","end":"2018-03-22","id":"33229"},{"start":"2018-03-24","end":"2018-07-29","id":"34008"},{"start":"2018-03-24","end":"2018-03-24","id":"34347"},{"start":"2018-03-24","end":"2018-03-24","id":"34382"},{"start":"2018-03-24","end":"2018-03-24","id":"34387"},{"start":"2018-03-26","end":"2018-04-06","id":"34224"},{"start":"2018-03-28","end":"2018-03-28","id":"34192"},{"start":"2018-04-13","end":"2018-04-14","id":"33076"},{"start":"2018-05-18","end":"2018-05-19","id":"33991"},{"start":"2018-05-31","end":"2018-06-02","id":"28085"},{"start":"2018-06-07","end":"2018-06-09","id":"33357"},{"start":"2018-07-28","end":"2018-07-29","id":"32959"},{"start":"2018-11-01","end":"2018-11-03","id":"33004"}];
+		var scroll 	= false;
+		var start 	= '';
+		var end 	= '';
+
+		var calendar      = null;
+		var clndrTemplate = '<div class=\"clndr-controls\">' +
+                                '<div class=\"clndr-previous-button\"><</div>'+
+								'<div class=\"month\"><%= month %>&nbsp;<%= year %></div>'+
+                                '<div class=\"clndr-next-button\">></div>'+
+							 '</div>'+
+							 '<table class=\"clndr-table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
+								'<thead>'+
+									'<tr class=\"header-days\">'+
+										'<% for(var i = 0; i < daysOfTheWeek.length; i++) { %>'+
+											'<td class=\"header-day\"><%= daysOfTheWeek[i] %></td>'+
+										'<% } %>'+
+									'</tr>'+
+								'</thead>'+
+								'<tbody>'+
+									'<% for(var i = 0; i < numberOfRows; i++){ %>'+
+										'<tr>'+
+											'<% for(var j = 0; j < 7; j++){ %>'+
+												'<% var d = j + i * 7; %>'+
+													'<td class=\"<%= days[d].classes %>\"><div class=\"day-contents\"><%= days[d].day %></div>'+
+														'<% if(days[d].events.length > 0) { %>'+
+															'<div class=\"has-events\"></div>'+
+														'<% } %>'+
+													'</td>'+
+												'<% } %>'+
+										'</tr>'+
+									'<% } %>'+
+								'</tbody>'+
+							  '</table>';
+
+				moment.locale('pt', { months : 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_')  });		
+		
+		/*************************************************
+		* INICIAR AS ACÇÕES
+		*************************************************/
+		(function(){
+
+			var c = document.querySelectorAll('#block_582 .categories span');
+			for (var i = 0; i < c.length; i++)
+				c[i].onclick = function()
+				{
+					if(this.classList.contains('active'))
+						this.classList.remove('active');
+					else
+						this.classList.add('active');
+
+					get_list_off_events_by_categories();
+				}
+
+			inicialize_calender();
+		
+			document.querySelector('.thisWeekend').onclick 	= get_events_next_weekend;
+			document.querySelector('.thisMonth').onclick 	= get_events_this_month;
+
+		})();
+
+		/*************************************************
+		* INICIALIZAR O CALENDARIO COM OS EVENTOS
+		*************************************************/
+		function inicialize_calender()
+		{			
+			calendar = $('.clndr-master').clndr(
+			{
+				template: clndrTemplate,
+				events:   es,
+				clickEvents: 
+				{
+					click: function(target) 
+					{
+						day 	= target.date._i;	
+
+						cat = [];
+						var c = document.querySelectorAll('#block_582 .categories span.active');
+						for (var i = 0; i < c.length; i++)
+							cat.push(c[i].getAttribute('cat')); 
+
+						window.location = 'http://www.porto.pt/agenda?day='+day+'&cat='+cat;
+					}
+				},
+				multiDayEvents: { startDate: 'start', endDate:   'end' },
+				showAdjacentMonths: 	 true,
+				adjacentDaysChangeMonth: false,
+								daysOfTheWeek: [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+							});		
+		}
+
+		/*************************************************
+		* SELECIONAR PROXIMO FIM DE SENAMA
+		*************************************************/
+		function get_events_next_weekend()
+		{
+			start 	= '2018-03-23';
+			end 	= '2018-03-25';
+
+			cat = [];
+			var c = document.querySelectorAll('#block_582 .categories span.active');
+			for (var i = 0; i < c.length; i++)
+				cat.push(c[i].getAttribute('cat')); 
+
+			window.location = 'http://www.porto.pt/agenda?day='+start+','+end+'&cat='+cat;	
+		}
+
+		/*************************************************
+		* SELECIONAR ESTE MES
+		*************************************************/
+		function get_events_this_month()
+		{
+			start 	= '2018-03-01';
+			end 	= '2018-03-31';
+
+			cat = [];
+			var c = document.querySelectorAll('#block_582 .categories span.active');
+			for (var i = 0; i < c.length; i++)
+				cat.push(c[i].getAttribute('cat')); 
+
+
+			window.location = 'http://www.porto.pt/agenda?day='+start+','+end+'&cat='+cat;
+		}
+
+		/*************************************************
+		* OBTER EVENTOS POR CATEGORIA
+		*************************************************/
+		function get_list_off_events_by_categories( )
+		{
+			delay(function(){
+				cat = [];
+
+				var c = document.querySelectorAll('#block_582 .categories span.active');
+				for (var i = 0; i < c.length; i++)
+					cat.push(c[i].getAttribute('cat')); 
+
+				$.post(url_app + "ajax/call/objects_api/cmp_agenda/list_by_categories/582", "cat="+cat, function(response)
+	            {            	
+	            	calendar.setEvents(response);
+	            },'JSON');	
+			},1000);
+		}
+
+	</script>
+
+	<style type="text/css">
+		#block_582 { margin: 0px 0 10px; }
+	</style>
+
+</div>
+
+<div id='block_394' class=' image block'><img src='http://www.porto.pt/assets/misc/img/icons/otempo_blue.svg'   /></div><div id='block_350' class='block yweather'>
+            <div>
+                <div class='day'>hoje</div>
+                <img alt='Tempo Hoje' src='http://www.porto.pt/assets/misc/img/weather/ceu_limpo.png' />
+                <div class='temperature'>temperatura, 14º</div>
+            </div>
+            <div>
+                <div class='day'>amanhã</div>
+                <img alt='Tempo Amanha' src='http://www.porto.pt/assets/misc/img/weather/ceu_nublado.png' />
+                <div class='temperature'>temperatura, 12º</div>
+            </div>
+            <div>
+                <div class='day'>depois</div>
+                <img alt='Tempo Depois de Amanha' src='http://www.porto.pt/assets/misc/img/weather/periodos_nublados_chuva_fraca.png' />
+                <div class='temperature'>temperatura, 13º</div>
+            </div>
+        </div></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<!-- CONTENT -->
+			<div id="wrapper-content">
+				<div class="wrapper-content">
+					<div class="content">
+											</div>
+					<div class="sidebar">
+											</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<!-- FOOTER -->
+			<div id="wrapper-footer">
+				<div class="wrapper-footer">
+					<div class="wrapper-footer-show"><div id='block_346' class=' menu cmp-footer-menu'>
+			<ul><li class='link_255'>
+				<a href='http://www.porto.pt/'>
+					<span>Avisos Legais</span>
+				</a></li></ul>
+		 <script type='text/javascript'>
+			function cmp_open_newsletter()
+			{
+				$('#wrapper-footer .wrapper-footer-hidden').toggle();
+			}
+		 </script>
+		 </div><div id='block_347' class=' text block'><a href="http://www.cm-porto.pt/" target="_TOP">Câmara Municipal do Porto</a><a></a></div><div id='block_348' class=' link block'><a href='javascript:goTo(0)' >
+				Topo
+			 </a></div></div>					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="async"></script>
+        <script>
+            var OneSignal = OneSignal || [];
+            OneSignal.push(["init", 
+            {
+                appId: "86b1eece-ea7c-4310-a92f-3f78cf7a7853",
+                subdomainName: "porto",
+                autoRegister: true,
+                persistNotification: false,
+                safari_web_id: 'web.onesignal.auto.40767e72-dc1c-4bfb-b1c2-39a715222d63',
+                promptOptions: 
+                {
+                    siteName: "Porto",
+                    actionMessage: "Subscreva as notificações do Porto.pt para receber as últimas novidades!",
+                    exampleNotificationTitleDesktop: "Exemplo de uma Notificação",
+                    exampleNotificationMessageDesktop: "As Notificações apareceram assim",
+                    exampleNotificationTitleMobile: "Exemplo de uma Notificação",
+                    exampleNotificationMessageMobile: "As Notificações apareceram assim",
+                    exampleNotificationCaption: "Poderá cancelar as notifações a qualquer momento",
+                    acceptButtonText: "Subscrever",
+                    cancelButtonText: "Não, obrigado",
+                    showCredit: false
+                },
+                welcomeNotification:
+                {
+                    message: "Obrigado por subscrever!"
+                },
+                notifyButton:
+                {
+                    enable: true,
+                    colors: 
+                    {
+                      'circle.background': 'rgb(15,47,127)',
+                      'circle.foreground': 'white',
+                      'badge.background': 'rgb(15,47,127)',
+                      'badge.foreground': 'white',
+                      'badge.bordercolor': 'white',
+                      'pulse.color': 'white',
+                      'dialog.button.background.hovering': 'rgb(15,47,127)',
+                      'dialog.button.background.active': 'rgb(15,47,127)',
+                      'dialog.button.background': 'rgb(15,47,127)',
+                      'dialog.button.foreground': 'white'
+                    },
+                    size: "medium",
+                    position: "bottom-right",
+                    modalPrompt: false,
+                    prenotify: false,
+                    showCredit: false,
+                    text: 
+                    {
+                        'tip.state.unsubscribed': 'Subscreva as notificações do Porto.pt para receber as últimas novidades!',
+                        'tip.state.subscribed': 'Subscrição de notificações com sucesso.',
+                        'tip.state.blocked': 'Bloqueou as notificações do Porto.pt',
+                        'message.prenotify': 'Aceite para subscrever as notificações.',
+                        'message.action.subscribed': 'Obrigado por subcrever!',
+                        'message.action.resubscribed': 'Obrigado, acabou de subscrever as nossas notificações!',
+                        'message.action.unsubscribed': 'Não receberá mais notificações do Porto.pt',
+                        'dialog.main.title': 'Gestão das minhas notificações',
+                        'dialog.main.button.subscribe': 'Subscrever',
+                        'dialog.main.button.unsubscribe': 'Cancelar',
+                        'dialog.blocked.title': 'Desbloquear notificações',
+                        'dialog.blocked.message': 'Siga estas instruções para permitir notificações do Porto.pt:'
+                    }
+                }
+          }]);
+
+          /*OneSignal.push(["getUserId", function (userId) 
+          {
+                console.log(userId);
+          }]);*/
+          
+			OneSignal.push(function () 
+			{
+				/*OneSignal.isPushNotificationsEnabled(function (isEnabled) 
+				{
+					if (isEnabled) 
+					{
+						console.log('1');
+					}
+					else
+					{
+						console.log('2');
+					}
+				});*/
+
+				OneSignal.on("subscriptionChange", function (isSubscribed) 
+				{
+					//console.log("The user's subscription state is now:", isSubscribed);
+				});
+			});
+
+			function onesignalTags()
+			{
+				OneSignal.push(function() 
+				{
+					OneSignal.getTags(function(tags)
+					{
+						return tags;
+					});
+				});
+			}
+		  
+		  	function onesignalFollow(ido)
+		  	{
+				OneSignal.isPushNotificationsEnabled(function (isEnabled) 
+				{
+					if (isEnabled) 
+					{
+						OneSignal.push(["sendTag", "id_object", ido]);
+					}
+				});
+			}
+			
+			function onesignalUnfollow(ido)
+		  	{
+				OneSignal.isPushNotificationsEnabled(function (isEnabled) 
+				{
+					if (isEnabled) 
+					{
+						OneSignal.push(["deleteTag", "id_object"]);
+					}
+				});
+		  	}
+        </script>
+    </body>
+</html>

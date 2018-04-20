@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+    	<meta http-equiv="content-type" content="text/html" />
+    	<link rel="shortcut icon" href="http://interfutbol.uz/favicon.ico" type="image/x-icon">
+		<link rel="icon"  type="image/x-icon" href="http://interfutbol.uz/favicon.ico" >
+		<link rel="shortcut icon" href="http://interfutbol.uz/icon.png" type="image/png" sizes="32x32">
+        <meta charset="utf-8"/>
+        <meta name="description" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta name="abstract" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta name="robots" content="follow, index" />
+        <meta name="keywords" content="футбол, футбол хабарлари, олий лига, узбекистон миллий терма жамоаси, узбекистон, интерфутбол, пахтакор, нефтчи, локомотив, андижон, сугдиёна, бунёдкор, кизилкум, олмалик, навбахор" />
+        <meta name="news_keywords" content="futbol, interfutbol, inter, football, uzbekistan, oliy liga, futbol xabarlari, xabarlar, paxtakor, bunyodkor, neftchi, lokomotiv, navbahor" />
+        <meta name="rating" content="general" />
+        <link rel="canonical" href="http://interfutbol.uz/" />
+        <link rel="shortlink" href="http://interfutbol.uz/" />
+        <meta name="geo.placename" content="Dubai, UAE" />
+        <meta itemprop="name" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta itemprop="description" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta name="dcterms.title" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta name="dcterms.description" content="Интерфутбол газетаси расмий вебсайти" />
+        <meta name="dcterms.type" content="Text" />
+        <meta name="dcterms.format" content="text/html" />
+        <meta name="dcterms.identifier" content="http://interfutbol.uz/" />
+        
+        <title>ИнтерФУТБОЛ :: "ИнтерФУТБОЛ" газетасининг расмий сайти</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/bootstrap/css/style.css"/>
+        <script src="/bootstrap/js/jquery-1.12.1.min.js"></script>
+        <script src="/bootstrap/js/lotindan-kirillga.js"></script>
+		<script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/39786b42804a2d3a932c5f5d5e1f84a7_0.js" async></script>
+        <script type="text/javascript">
+    setInterval(checkNew, 3000);
+     function get_time() {
+        var time = new Date();
+        var Year = time.getFullYear();
+        var Month = Math.floor(+time.getMonth())+1;
+        var Day = time.getDate();
+        var Hours = time.getHours();
+        var Mins = time.getMinutes();
+        var Secs = time.getSeconds();
+        if (Month < 10) {Month = "0" + Month }
+        if (Day < 10) {Day = "0" + Day }
+        if (Hours < 10) {Hours = "0" + Hours }
+        if (Mins < 10) {Mins = "0" + Mins }
+        if (Secs < 10) {Secs = "0" + Secs }
+        var datetime = Year+'-'+Month+'-'+Day+' '+Hours+':'+Mins+':'+Secs;
+        return datetime;
+     }
+     sessionStorage.setItem("last_news", get_time());
+    function checkNew()
+    {
+        var fromTime = sessionStorage.getItem("last_news");
+        if( !fromTime ) {
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/main/ajax_post_count',
+            data: { from: fromTime,to: get_time(), r: Math.random() },
+            success: function(data){
+                if( data.status == 'ok' && data.count > 0 ) {
+                    var audio = new Audio();
+                        audio.src = "/uploads/goal.mp3";
+                        audio.play();
+                    $('#loadNewCount').empty();
+                    $('#loadNewCount').append(data.count);
+                    $('.loadNew').show();
+                    sessionStorage.setItem("last_news", get_time());
+                }
+            },
+            dataType: 'json'
+        });
+        return false;
+    }
+    function loadNew(){
+        var fromTime = sessionStorage.getItem("last_news");
+        $.post( "/main/ajax_post_content", { from: fromTime,to: get_time()}, function(data) {
+                        $('.loadNew').hide();
+                        $('#loadNewCount').empty();
+                        $('#loadNewCount').append(0);
+                        console.log(data);
+                        $.each(JSON.parse(data), function(k, v) {
+                            creation_date = v.creation_date;
+                            creation_date = creation_date.substr(11,5);
+                            if (v.is_protected==1) {
+                                $('<li id="newslist" style="font-weight: bold;"><a href="http://interfutbol.uz/news/detail/'+v.id+'" title="'+v.title+'" class=""><span class="newslist_time">'+creation_date+'</span> <span class="newslist_title">'+v.title+'<font color="#C71523">(0)</font></span></a></li>').insertAfter(".loadNew");
+                            }else{
+                                $('<li id="newslist" style="font-weight: bold;"><a href="http://interfutbol.uz/news/detail/'+v.id+'" title="'+v.title+'" class=""><span class="newslist_time">'+creation_date+'</span> <span class="newslist_title">'+v.title+'<font color="#C71523">(0)</font></span></a></li>').insertAfter(".loadNew");
+                            }
+                            sessionStorage.setItem("last_news", get_time());
+                        });
+                    });
+        return false;
+    }
+    </script>
+    </head>
+
+<body>
+	 <!-- Google Universal Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-93221515-1', 'interfutbol.uz');
+        ga('send', 'pageview');
+    </script>
+    <!-- End of Google Universal Analytics -->
+   
+    <div class="container">
+        <!-- navbar #1 !-->
+        <div class="row">
+            <!-- top logo !-->
+            <div class="col-xs-6 col-sm-3 col-md-3">
+                <a href="http://interfutbol.uz/" title="InterFUTBOL"><img src="/images/site/logo_if.png" class="navbar-logo"/></a>            </div>
+			<div class="col-xs-6 visible-xs-block text-right">
+				<a href="/ru/" class="btn btn-primary">Русская</a>
+			</div>
+            <!-- end of top logo !-->
+            <!-- top horizontal banner !-->
+            <div class="col-xs-12 col-sm-5 col-md-5">
+                <div style="width:100%;">
+                  <!-- Yandex.RTB R-A-245189-2 -->
+<div id="yandex_rtb_R-A-245189-2"></div>
+<script type="text/javascript">
+    (function(w, n) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-245189-2",
+                renderTo: "yandex_rtb_R-A-245189-2",
+                async: false
+            });
+        });
+        document.write('<sc'+'ript type="text/javascript" src="//an.yandex.ru/system/context.js"></sc'+'ript>');
+    })(this, "yandexContextSyncCallbacks");
+</script>
+                </div>
+            </div>
+            <!-- end of top horizontal banner !-->
+            <!-- social icons !-->
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                     <li><a href="https://t.me/interfutboluz" target="_blank"><img src="/images/site/telegram.png" style="width: 35px;height: 35px;"/></a></li>
+                    <li><a href="https://www.facebook.com/interfutbolofficial" target="_blank"><img src="/images/site/facebook.png"/></a></li>
+                    <li><a href="https://twitter.com/InterfutbolN" target="_blank"><img src="/images/site/twitter.png"/></a></li>
+                    <li><a href="/news/rss" target="_blank"><img src="/images/site/rss.png"/></a></li>
+                    <li><a href="/about/feedback"><img src="/images/site/email.png"/></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><img src="/images/site/search.png"/></a>
+                        <div class="dropdown-menu">
+                            <div class="input-group searchbar">
+                            <form action="http://interfutbol.uz/news/search" method="post" accept-charset="utf-8">
+                                <input type="text" name="q" class="form-control" placeholder="Қидириш"/>
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-default" value="Қидир"/>
+                                </form>
+                                </span>
+                            </div>
+                        </div> 
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><img src="/images/site/login.png"/></a>
+                        <div class="dropdown-menu">
+                                                    <div class="loginbar">
+                                <form action="http://interfutbol.uz/user/validate" class="form-horizontal" method="post" accept-charset="utf-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                        <input type="text" name="email" class="form-control" placeholder="Электрон почта"/>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                        <input type="password" name="password" class="form-control" placeholder="Пароль"/>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-xs-offset-1 col-xs-11">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="remember" value="1"/> Эслаб қолиш</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-xs-12">
+                                            <button type="submit" class="btn btn-primary btn-sm">Кириш</button>
+                                            <a href="http://interfutbol.uz/user/register" class="btn btn-success btn-sm">Қайднома</a>                                            <a href="http://interfutbol.uz/user/forgot_password" class="btn btn-warning btn-sm">Парол тиклаш</a>                                            
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                                </div>  
+                    </li>
+                </ul>
+            </div>
+            <!-- end of social icons !-->
+        </div>
+        
+        
+        <!-- end of navbar #1 !-->
+                    <div class="panel panel-default visible-xs-block">
+              <div class="panel-heading">
+                <h3 class="panel-title">Қайднома</h3>
+              </div>
+              <div class="panel-body">
+                <form action="http://interfutbol.uz/user/validate" class="form-horizontal" method="post" accept-charset="utf-8">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" name="email" class="form-control" placeholder="Электрон почта"/>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <input type="password" name="password" class="form-control" placeholder="Пароль"/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-xs-offset-1 col-xs-11">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="remember"/> Эслаб қолиш</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-sm">Кириш</button>
+                            <a href="http://interfutbol.uz/user/register" class="btn btn-success btn-sm">Қайднома</a>                            <a href="http://interfutbol.uz/user/forgot_password" class="btn btn-warning btn-sm">Парол тиклаш</a>                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+            
+		<div class="panel panel-default visible-xs-block">
+		  <div class="panel-heading">
+			<h3 class="panel-title">Қидирув</h3>
+		  </div>
+		  <div class="panel-body">
+			<div class="input-group searchbar">
+				<form action="http://interfutbol.uz/news/search" method="post" accept-charset="utf-8">
+					<input type="text" name="q" class="form-control" placeholder="Қидириш"/>
+					<span class="input-group-btn">
+						<input type="submit" class="btn btn-default" value="Қидир"/>
+					</span>
+				</form>
+			</div>
+			</div>
+		</div>
+        <!-- navbar #2 !-->
+        <div class="row">
+            <div class="col-xs-12">
+                
+                <nav role="navigation" class="navbar navbar-default navbar-static-top navbar-second">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" data-target="#navbarCollapse2" data-toggle="collapse" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collection of nav links, forms, and other content for toggling -->
+                    <div id="navbarCollapse2" class="collapse navbar-collapse">
+                        <!-- HORIZONTAL MENU !-->
+                    	                		
+                		<ul class="nav navbar-nav">
+                		                			<li><a href="http://interfutbol.uz/tournaments/tournament/oliyliga" title="Суперлига">Суперлига</a></li>
+                		                			<li><a href="http://interfutbol.uz/tournaments/tournament/fifa2018-osiyo-2-bosqich" title="ЖЧ-2018">ЖЧ-2018</a></li>
+                		                			<li class="dropdown"><a href="http://interfutbol.uz/#" title="Мақолалар" data-toggle="dropdown" class="dropdown-toggle">Мақолалар <b class="caret"></b></a>                				<ul role="menu" class="dropdown-menu">
+                					                						<li><a href="http://interfutbol.uz/news/sections/suhbat">Суҳбат</a></li>
+                					                						<li><a href="http://interfutbol.uz/news/sections/tahlil">Таҳлил</a></li>
+                					                						<li><a href="http://interfutbol.uz/news/sections/muloxaza">Мулоҳаза</a></li>
+                					                						<li><a href="http://interfutbol.uz/news/sections/bugunning-gapi">Бугуннинг гапи</a></li>
+                					                						<li><a href="http://interfutbol.uz/news/sections/matubingizni-oldik">Мактубингизни олдик</a></li>
+                					                						<li><a href="http://interfutbol.uz/news/archive">Архив</a></li>
+                					                				</ul>
+                			</li>
+                		                			<li class="dropdown"><a href="http://interfutbol.uz/#" title="Миллий" data-toggle="dropdown" class="dropdown-toggle">Миллий <b class="caret"></b></a>                				<ul role="menu" class="dropdown-menu">
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/oliyliga">Ўзбекистон</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/premier_league">Англия</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/la_liga">Испания</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/serie_a">Италия</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/bundesliga">Германия</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/1_division">Франция</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/rfpl">Россия</a></li>
+                					                				</ul>
+                			</li>
+                		                			<li class="dropdown"><a href="http://interfutbol.uz/#" title="Халқаро" data-toggle="dropdown" class="dropdown-toggle">Халқаро <b class="caret"></b></a>                				<ul role="menu" class="dropdown-menu">
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/uefa_champions_league">Европа ЧЛ</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/europe_league">Европа Лигаси</a></li>
+                					                						<li><a href="http://interfutbol.uz/tournaments/tournament/afc_champions_league">Осиё ЧЛ</a></li>
+                					                				</ul>
+                			</li>
+                		                			<li><a href="http://interfutbol.uz/blogs" title="Блоглар">Блоглар</a></li>
+                		                			<li><a href="http://interfutbol.uz/online" title="Трансляциялар">Трансляциялар</a></li>
+                		                			<li class="dropdown"><a href="http://interfutbol.uz/#" title="Медиа" data-toggle="dropdown" class="dropdown-toggle">Медиа <b class="caret"></b></a>                				<ul role="menu" class="dropdown-menu">
+                					                						<li><a href="http://interfutbol.uz/gallery">Фото галерея</a></li>
+                					                						<li><a href="http://interfutbol.uz/video">Видео бўлим</a></li>
+                					                				</ul>
+                			</li>
+                		                		</ul>
+                        <!-- END OF HORIZONTAL MENU !-->    
+                        
+                        <ul class="nav navbar-nav navbar-langbar">
+                            <li><a onclick="lotindanKirillgaTugma()" style="cursor:pointer;color: #fff;font-size: 12px;"><script type="text/javascript">trs()</script></a></li>
+                            <li><a href="/ru/" style="font-size: 12px;"><lat>Русская</lat></a></li>
+                        </ul>
+                        
+                        
+                    </div>
+                </nav>        
+                
+            </div>
+        </div>
+        <!-- end of navbar #2 !-->
+        
+        <!-- anons !-->
+		        <div class="row anons">
+            <div class="col-xs-12 col-md-12">
+            <ul class="nav nav-pills anons_tabs" role="tablist">
+                                <li class="active"><a data-toggle="tab" href="#kecha">Кеча</a></li>
+                            </ul>
+            <div class="tab-content anons_content">
+                                <!--Begin anons kecha-->
+                <div id="kecha" class="tab-pane active">
+                
+                    <div class="row">
+                                                <h5 class="col-xs-12 col-sm-12 col-md-12 anons_tournament_title">«А» СЕРИЯСИ 2017/18</h5>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 anons_game">
+                            <a href="/tournaments/game/27903">
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center anons_game_date">00:45</span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-right">
+                                    Лацио                                </span>
+                                <span class="col-xs-2 col-sm-2 col-md-2 text-center anons_game_result">    
+                                     1:1 
+                                </span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-left">
+                                     Болонья                                </span>
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center">
+                                                                    </span>
+                            </a>
+                            
+                        </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4 anons_game">
+                            <a href="/tournaments/game/27904">
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center anons_game_date">00:45</span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-right">
+                                    Наполи                                </span>
+                                <span class="col-xs-2 col-sm-2 col-md-2 text-center anons_game_result">    
+                                     1:0 
+                                </span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-left">
+                                     Женоа                                </span>
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center">
+                                                                    </span>
+                            </a>
+                            
+                        </div>
+                                                </div>
+                                                <h5 class="col-xs-12 col-sm-12 col-md-12 anons_tournament_title">ЛА ЛИГА</h5>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 anons_game">
+                            <a href="/tournaments/game/27909">
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center anons_game_date">00:45</span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-right">
+                                    Реал Мадрид                                </span>
+                                <span class="col-xs-2 col-sm-2 col-md-2 text-center anons_game_result">    
+                                     6:3 
+                                </span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-left">
+                                     Жирона                                </span>
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center">
+                                                                    </span>
+                            </a>
+                            
+                        </div>
+                                                </div>
+                                                <h5 class="col-xs-12 col-sm-12 col-md-12 anons_tournament_title">1-дивизион 2017/18</h5>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 anons_game">
+                            <a href="/tournaments/game/27893">
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center anons_game_date">01:00</span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-right">
+                                    Марсель                                </span>
+                                <span class="col-xs-2 col-sm-2 col-md-2 text-center anons_game_result">    
+                                     2:3 
+                                </span>
+                                <span class="col-xs-4 col-sm-4 col-md-4 text-left">
+                                     Лион                                </span>
+                                <span class="col-xs-1 col-sm-1 col-md-1 text-center">
+                                                                    </span>
+                            </a>
+                            
+                        </div>
+                                                </div>
+                                            </div>
+                </div>
+                <!--End anons kecha-->
+                                </div>
+            </div>
+        </div>
+                <!-- end of anons !-->
+        
+        
+        <div class="row">
+            <div class="col-xs-12 col-md-9">
+                        		    <div class="row">
+    		<div class="col-xs-12 col-md-6 main_page_big">
+            <img src="/uploads/news/umid_navb.jpg" alt="Футболимиз бағрига шамол тегади"/>
+            <h2 style="text-transform: uppercase;">МУЛОҲАЗА</h2><h3>20.03.2018. 06:29</h3>
+            <h1><a href="http://interfutbol.uz/news/detail/75955" title="Футболимиз бағрига шамол тегади">Футболимиз бағрига шамол тегади</a></h1>
+        </div>
+        <hr class="visible-xs-block"/>
+        <div class="clearfix visible-md-block"></div>
+   	    <div class="col-xs-12 col-md-6 main_page_big">
+            <img src="/uploads/news/Pique-Neymar.jpg" alt="Неймар: «Жароҳат сабаб футболдан кетишим ҳам мумкин эди»"/>
+            <h2 style="text-transform: uppercase;">СУҲБАТ</h2><h3>20.03.2018. 03:37</h3>
+			<h1><a href="http://interfutbol.uz/news/detail/75954">Неймар: «Жароҳат сабаб футболдан кетишим ҳам мумкин эди»</a></h1>
+        </div>
+    
+    </div>	
+	<!-- end of newsslider !-->
+	
+	
+	<!--taxlillar !-->
+	<div class="frame">
+		<h1 class="frame_title">Таҳлиллар</h1>
+				
+		<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/AFC.jpg"/>
+                <p class="article_date">Киритилган сана: 20.03.2018 00:23</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75956">ОЧЛ. Гуруҳ босқичи 4-тур: фактлар, рақамлар, статистик кўрсаткичлар</a></h1>
+    			
+			</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/paktakor.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 00:26</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75896">«Пахтакор» ҳам рекордчи</a></h1>
+    			
+			</div>
+		<div class="clearfix visible-sm-block"></div>			<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/bafetimbi-gomis.jpg"/>
+                <p class="article_date">Киритилган сана: 18.03.2018 02:06</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75882">Бир бўлим орқали ёхуд Бафетимби Гомис ижросидаги намунали ўйин ҳақида</a></h1>
+    			
+			</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>		</div>
+<a href="/news/sections/tahlil" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>	
+</div>
+	<!-- end of taxlillar !-->
+
+    <!--suhbatlar !-->
+	<div class="frame">
+		<h1 class="frame_title">Суҳбатлар</h1>
+				
+		<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/Pique-Neymar.jpg"/>
+                <p class="article_date">Киритилган сана: 20.03.2018 03:37</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75954">Неймар: «Жароҳат сабаб футболдан кетишим ҳам мумкин эди»</a></h1>
+    		</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/xenrik_larsson.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 03:37</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75894">Хенрик Ларссон: «Терма мураббийи бўлишга ёшлик қиламан</a></h1>
+    		</div>
+		<div class="clearfix visible-sm-block"></div>			<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/Emre_Can.jpg"/>
+                <p class="article_date">Киритилган сана: 18.03.2018 03:41</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75836">Эмре Жан: «ЕЧЛда ғолиб чиқмоқчимиз»</a></h1>
+    		</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>		</div>
+<a href="/news/sections/suhbat" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>
+	</div>
+	<!-- end of suhbatlar !-->
+<!-- reklama baneri-->
+<div class="frame">
+<!--<a href="http://zakovat.uz" target="_blank">
+<img src="http://interfutbol.uz/uploads/banner_zakovatuz.png" style="width: 100%">
+</a>-->
+<!-- Yandex.RTB R-A-245189-1 -->
+<div id="yandex_rtb_R-A-245189-1"></div>
+<script type="text/javascript">
+    (function(w, n) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-245189-1",
+                renderTo: "yandex_rtb_R-A-245189-1",
+                async: false
+            });
+        });
+        document.write('<sc'+'ript type="text/javascript" src="//an.yandex.ru/system/context.js"></sc'+'ript>');
+    })(this, "yandexContextSyncCallbacks");
+</script>
+</div>
+<!-- end of reklama baneri-->
+    <!--mulohazalar !-->
+	<div class="frame">
+		<h1 class="frame_title">Мулоҳаза</h1>
+				
+		<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/umid_navb.jpg"/>
+                <p class="article_date">Киритилган сана: 20.03.2018 06:29</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75955">Футболимиз бағрига шамол тегади</a></h1>
+    			
+			</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/al_duhail.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 06:29</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75895">Қўшалоқ мағлубият қайғуси</a></h1>
+    			
+			</div>
+		<div class="clearfix visible-sm-block"></div>			<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/Eintracht-Frankfurt.jpg"/>
+                <p class="article_date">Киритилган сана: 18.03.2018 06:29</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75837">Тежамкорликнинг олий намунаси ёхуд ЕЧЛни мўлжаллаётган «Айнтрахт» ҳақида гаплашамиз</a></h1>
+    			
+			</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>		</div>
+<a href="/news/sections/muloxaza" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>
+	</div>
+	<!-- end of mulohazalar !-->
+    
+    <!--bugunning gapi !-->
+	<div class="frame">
+		<h1 class="frame_title">Бугуннинг гапи</h1>
+				
+		<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/AIP_6771.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 17:22</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75959">Умид Аҳмаджонов ҳакамлар маоши ва футбол мухлислари ҳақида гапирди</a></h1>
+    		</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/navb1.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 15:51</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75936">Суперлига 3-тур: фактлар, қаҳрамонлар, иқтибослар ва бошқа турли кўрсатгичлар</a></h1>
+    		</div>
+		<div class="clearfix visible-sm-block"></div>			<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/Superliga_2018.jpg"/>
+                <p class="article_date">Киритилган сана: 19.03.2018 14:28</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75937">Суперлига 3-тур: энг яхшилар ва тур рамзий терма жамоаси билан танишинг!</a></h1>
+    		</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>		</div>
+<a href="/news/sections/bugunning-gapi" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>
+	</div>
+	<!-- end of bugunning gapi !-->
+   
+    <!--bugunning gapi !-->
+	<div class="frame">
+		<h1 class="frame_title">Мактубингизни олдик</h1>
+				
+		<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/ravshan.jpg"/>
+                <p class="article_date">Киритилган сана: 14.03.2018 21:06</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75681">Бу охирги олтин медаль эмас!</a></h1>
+    		</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/neftci.jpg"/>
+                <p class="article_date">Киритилган сана: 03.03.2018 14:44</p>
+                <h1><a href="http://interfutbol.uz/news/detail/75101">Водий футболи</a></h1>
+    		</div>
+		<div class="clearfix visible-sm-block"></div>			<div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+                <img src="/uploads/news/lokomotiv2.jpg"/>
+                <p class="article_date">Киритилган сана: 18.02.2018 17:41</p>
+                <h1><a href="http://interfutbol.uz/news/detail/74281">Бу бошланиши, ҳаммаси олдинда</a></h1>
+    		</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>		</div>
+<a href="/news/sections/matubingizni-oldik" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>
+	</div>
+	<!-- end of bugunning gapi !-->
+    
+	
+    <div class="frame">
+		<h1 class="frame_title">Блоглар</h1>
+		<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="http://interfutbol.uz/uploads/news/intervyu.jpg"/>
+				<h1>Камолиддин Алимов</h1>
+				<p><a href="http://interfutbol.uz/blogs/author/kamolalimov">Интервьюлар олами</a> </p>
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="http://interfutbol.uz/uploads/news/no-translate-detected_318-47154.jpg"/>
+				<h1>Зафар Қосимов</h1>
+				<p><a href="http://interfutbol.uz/blogs/author/zafarqosimov">Таҳлилий мақолалар</a> </p>
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="http://interfutbol.uz/uploads/news/photo_2017-05-04_17-05-52.jpg"/>
+				<h1>Жалолиддин Қобилжонов</h1>
+				<p><a href="http://interfutbol.uz/blogs/author/Jalolkhan">ПФЛ</a> </p>
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="http://interfutbol.uz/uploads/news/491_m.jpg"/>
+				<h1> Абдураҳмонхўжа Аҳмедов</h1>
+				<p><a href="http://interfutbol.uz/blogs/author/aahmedov">«Пахтакор-79» - қалбимизда</a> </p>
+			</div>
+			       	</div>
+        <a href="http://interfutbol.uz/blogs" class="btn btn-primary btn-sm">Барча блоглар &raquo;</a>	</div>
+    
+    
+
+
+    
+	
+	<!-- photo gallery !-->
+	<div class="frame">
+		<h1 class="frame_title">Фотогалерея</h3>
+        <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+            <img src="/uploads/gallery/эл_килассикоо.jpg"/>
+            <h1><a href="http://interfutbol.uz/gallery/show/gallery/78">«Эл-классико» «Реал Мадрит» 0-3 «Барселона»</a></h1>
+        </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+            <img src="/uploads/gallery/photo_2017-12-10_12-24-12.jpg"/>
+            <h1><a href="http://interfutbol.uz/gallery/show/gallery/77">"Реал" - "Севилья" 5:0</a></h1>
+        </div>
+        <div class="clearfix visible-sm-block"></div>        <div class="col-xs-12 col-sm-6 col-md-4 articles_list">
+            <img src="/uploads/gallery/vilyarreal-barselona-prognoz-na-match-la-ligi-image.jpg"/>
+            <h1><a href="http://interfutbol.uz/gallery/show/gallery/76">«Вильярреал»га қарши учрашув олдидан «Барселона» машғулотлари жараёни</a></h1>
+        </div>
+        <div class="clearfix visible-md-block visible-lg-block"></div>        </div>
+<a href="/gallery" class="btn btn-primary btn-sm">&#1041;&#1072;&#1088;&#1095;&#1072;&#1089;&#1080; &raquo;</a>
+	</div>
+    <!-- end of photo gallery !-->
+ <!-- video gallery !-->
+    <div class="frame">
+		<h1 class="frame_title">Видеогалерея</h1>
+		<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="/uploads/news/насаф.jpg"/>
+				<h1><a href="/video/detail/74">Nasaf's top-10 goals for 2017</a></h1>
+				
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="/uploads/news/2017_2067.jpg"/>
+				<h1><a href="/video/detail/73">Футбол юлдузлари 50 йилдан сўнг</a></h1>
+				
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="/uploads/news/роналдо_трюк.jpg"/>
+				<h1><a href="/video/detail/72">Фантастик трюклар</a></h1>
+				
+			</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 articles_list">
+				<img src="/uploads/news/mderbi.jpg"/>
+				<h1><a href="/video/detail/71">The Manchester Derby 2017-2018</a></h1>
+				
+			</div>
+			       	</div>
+        <a href="http://interfutbol.uz/video" class="btn btn-primary btn-sm">Барчаси &raquo;</a>	</div>
+ <!-- end of video gallery !-->
+            </div>
+            <div class="col-xs-12 col-md-3">
+                
+                                
+                    
+                <!-- muhim xabarlar lentasi !-->
+    			                <div class="frame">
+    			<h1 class="frame_title">Хабарингиз борми</h1>
+                
+                <ul class="newslist">
+    			    			<li class="newslist_chislo" id="newlist">
+    				20 МАРТ    			</li>
+                
+                <div class="ajax-tools loadNew" onclick="loadNew()" style="display: none;margin-top: 15px;text-align: center;padding: 20px 0 10px 0;">
+                    <a class="orange load-news-new" href="javascript:;" style="color: #eb6a3e;border-color: #eb6a3e;display: inline-block;vertical-align: top;color: #666;padding: 6px 40px;border: 1px solid #666;border-radius: 4px;">Яна янгиликлар (+<span id="loadNewCount">0</span>)</a>
+                </div>
+                	
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75964" title="Бразилия терма жамоасининг янги либослари тақдим этилди (фото)" class=""><span class='newslist_time'>08:54</span> <span class='newslist_title'>Бразилия терма жамоасининг янги либослари тақдим этилди (фото) <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75963" title="Поль Погба яна имижини ўзгартирди (фото)" class=""><span class='newslist_time'>07:21</span> <span class='newslist_title'>Поль Погба яна имижини ўзгартирди (фото) <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75955" title="Футболимиз бағрига шамол тегади" class="important"><span class='newslist_time'>06:29</span> <span class='newslist_title'>Футболимиз бағрига шамол тегади <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75962" title="«Ювентус» етакчиси «Реал»га қарши ўйинамаслиги мумкин" class=""><span class='newslist_time'>05:51</span> <span class='newslist_title'>«Ювентус» етакчиси «Реал»га қарши ўйинамаслиги мумкин <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75954" title="Неймар: «Жароҳат сабаб футболдан кетишим ҳам мумкин эди»" class="important"><span class='newslist_time'>03:37</span> <span class='newslist_title'>Неймар: «Жароҳат сабаб футболдан кетишим ҳам мумкин эди» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75956" title="ОЧЛ. Гуруҳ босқичи 4-тур: фактлар, рақамлар, статистик кўрсаткичлар" class="important"><span class='newslist_time'>00:23</span> <span class='newslist_title'>ОЧЛ. Гуруҳ босқичи 4-тур: фактлар, рақамлар, статистик кўрсаткичлар <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    			<li class="newslist_chislo" >
+    				19 МАРТ    			</li>
+                	
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75961" title="«Фиорентина» машғулот базаси Асторининг номи билан аталади" class="important"><span class='newslist_time'>22:51</span> <span class='newslist_title'>«Фиорентина» машғулот базаси Асторининг номи билан аталади <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75960" title="«Реал Сосьедад» бош муарббийи истеъфога чиқарилди" class="important"><span class='newslist_time'>22:05</span> <span class='newslist_title'>«Реал Сосьедад» бош муарббийи истеъфога чиқарилди <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75948" title="«ПСЖ» ёзда Эмерининг ўрнига Аллегрини олиб келмоқчи" class=""><span class='newslist_time'>20:41</span> <span class='newslist_title'>«ПСЖ» ёзда Эмерининг ўрнига Аллегрини олиб келмоқчи <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75946" title="Анчелотти - Италия термасини бошқариш ҳақида: «Илтимос, бу ҳақда мендан сўраманг»" class="important"><span class='newslist_time'>19:27</span> <span class='newslist_title'>Анчелотти - Италия термасини бошқариш ҳақида: «Илтимос, бу ҳақда мендан сўраманг» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75940" title="Зинедин Зидан: «Ҳимоя борасида ишлашимиз лозим»" class=""><span class='newslist_time'>18:51</span> <span class='newslist_title'>Зинедин Зидан: «Ҳимоя борасида ишлашимиз лозим» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75939" title="Марк Андре тер Штеген «Барселона» дарвозабонлари рекордини ўрнатди" class="important"><span class='newslist_time'>18:25</span> <span class='newslist_title'>Марк Андре тер Штеген «Барселона» дарвозабонлари рекордини ўрнатди <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75949" title="Лукас Васкес: «Ўз ишимизни яхши бажарсак, бари жойида бўлади»" class="important"><span class='newslist_time'>17:58</span> <span class='newslist_title'>Лукас Васкес: «Ўз ишимизни яхши бажарсак, бари жойида бўлади» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75958" title="Рўзиқул Бердиев: «Қизилқум» жуда тажрибали жамоа»" class="important"><span class='newslist_time'>17:44</span> <span class='newslist_title'>Рўзиқул Бердиев: «Қизилқум» жуда тажрибали жамоа» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75947" title="Зинедин Зидан: «Ювентус» билан имкониятларимиз 50га 50»" class=""><span class='newslist_time'>17:26</span> <span class='newslist_title'>Зинедин Зидан: «Ювентус» билан имкониятларимиз 50га 50» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75959" title="Умид Аҳмаджонов ҳакамлар маоши ва футбол мухлислари ҳақида гапирди" class="important"><span class='newslist_time'>17:22</span> <span class='newslist_title'>Умид Аҳмаджонов ҳакамлар маоши ва футбол мухлислари ҳақида гапирди <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75957" title="«Қизилқум» мураббийи истеъфога чиққанини тасдиқлади" class="important"><span class='newslist_time'>17:11</span> <span class='newslist_title'>«Қизилқум» мураббийи истеъфога чиққанини тасдиқлади <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75945" title="Лерой Сане: «Ман Сити»да ЕЧЛда ғалаба қозониш учун яхши имконият бор»" class=""><span class='newslist_time'>16:58</span> <span class='newslist_title'>Лерой Сане: «Ман Сити»да ЕЧЛда ғалаба қозониш учун яхши имконият бор» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75944" title="Жанлуижи Буффон: «Реал» билан ўйинда дадилроқ жамоа ғалаба қозонади»" class="important"><span class='newslist_time'>16:41</span> <span class='newslist_title'>Жанлуижи Буффон: «Реал» билан ўйинда дадилроқ жамоа ғалаба қозонади» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75943" title="Марко Ройс жароҳат сабаб терма жамоага жалб этилмаган" class="important"><span class='newslist_time'>16:27</span> <span class='newslist_title'>Марко Ройс жароҳат сабаб терма жамоага жалб этилмаган <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75942" title="«Реал» ва «ПСЖ» Дибалага кўз тикишмоқда" class="important"><span class='newslist_time'>16:13</span> <span class='newslist_title'>«Реал» ва «ПСЖ» Дибалага кўз тикишмоқда <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75936" title="Суперлига 3-тур: фактлар, қаҳрамонлар, иқтибослар ва бошқа турли кўрсатгичлар" class="important"><span class='newslist_time'>15:51</span> <span class='newslist_title'>Суперлига 3-тур: фактлар, қаҳрамонлар, иқтибослар ва бошқа турли кўрсатгичлар <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75941" title="Эрнесто Вальверде: «Рома»?Ҳар қандай рақиб ўзига хос ўийинчилик туғдиради»" class="important"><span class='newslist_time'>15:38</span> <span class='newslist_title'>Эрнесто Вальверде: «Рома»?Ҳар қандай рақиб ўзига хос ўийинчилик туғдиради» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li  style="font-weight: bold;" id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75952" title="Бобир Абдухолиқов: «Ғалабани мухлисларимизга бағишлаймиз»" class=""><span class='newslist_time'>15:23</span> <span class='newslist_title'>Бобир Абдухолиқов: «Ғалабани мухлисларимизга бағишлаймиз» <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    				<li   id="newslist">
+    				<a href="http://interfutbol.uz/news/detail/75915" title="Икарди энг яхши натижасини қайд этди" class="important"><span class='newslist_time'>15:03</span> <span class='newslist_title'>Икарди энг яхши натижасини қайд этди <font color='#C71523'>(0)</font></span></a>    				</li>
+    			    			</ul>
+    			</div>
+                                <!-- end of muhim xabarlar lentasi !-->
+                
+    	      <!--Begin ads-->
+             <div class="frame">
+		<!-- Yandex.RTB R-A-245189-3 -->
+<div id="yandex_rtb_R-A-245189-3"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-245189-3",
+                renderTo: "yandex_rtb_R-A-245189-3",
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script>
+             <img src="http://interfutbol.uz/uploads/right_banner-min.png" style="width:100%;height:auto;"> 
+             </div>
+              <!--End of ads-->
+               
+                                        
+    			<div class="frame" id="parserclass">
+    				<h1 class="frame_title">Чемпионатлар</h1>
+                             
+                    <!--Begin chempionatlar-->
+<select id="tournament_seasons" class="form-control">
+	<option value="78:0" >Испания. ЛА ЛИГА</option>
+    
+	<option value="108:0" >Ўзбекистон. СУПЕРЛИГА</option>
+    
+	<option value="119:0" >Россия. РФПЛ 2017/18</option>
+    
+	<option value="120:0" >Франция. 1-дивизион 2017/18</option>
+    
+	<option value="122:0" >Германия. БУНДЕСЛИГА 2017/18</option>
+    
+	<option value="123:0" >Италия. «А» СЕРИЯСИ 2017/18</option>
+    
+	<option value="124:0" >Англия. ПРЕМЬЕР-ЛИГА 2017/18</option>
+    
+</select>
+
+<div id="standings_place">
+	<table class="table table-striped">
+	<thead>
+        <tr>
+		<th style="width:20px;">№</th>
+		<th style="text-align:left; width:140px;">Жамоа</th>
+		<th style="text-align:center; width:35px;">Ў</th>
+		<th style="text-align:center; width:35px;">О</th>
+        </tr>
+	</thead>	
+    <tbody>
+		
+    </tbody>
+    </table>
+
+	<a href="http://interfutbol.uz/tournaments/tournament" class="btn btn-primary btn-sm">тўлиқ маълумот &raquo;</a>    <hr />
+<!--End chempionatlar-->                            
+                </div></div>
+    			                 
+                <!-- kun fotosi !-->
+                                <!-- end of kun fotosi !-->   
+                 
+                <!-- surovnoma !-->
+            	<div class="frame">
+                    <div class="polls">
+					<ul class="list-unstyled">
+				<form action="http://interfutbol.uz/polls/vote/444" method="post" accept-charset="utf-8">
+				<li><h1>ЎФФ ва ПФЛнинг янги раҳбарияти олиб бораётган ислоҳотларга қандай баҳо берасиз?</h1></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2922" id="2922"/></span><label for="2922">Олқишга сазовор;</label></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2923" id="2923"/></span><label for="2923">Ижобий;</label></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2924" id="2924"/></span><label for="2924">Қониқарли;</label></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2925" id="2925"/></span><label for="2925">Чидаса бўлади;</label></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2926" id="2926"/></span><label for="2926">Салбий;</label></li>
+								<li><span class="checkbox_col"><input type="checkbox" name="answer[]" value="2927" id="2927"/></span><label for="2927">Танқидий...</label></li>
+								<li>
+						<div class="polls_total_votes"><input type="submit" value="Овоз беринг!" class="btn btn-primary btn-sm"/></div>
+                        <div class="polls_archive"><a href="http://interfutbol.uz/polls/archive">Архив</a></div>
+				</li>
+                </form>
+				
+			</ul>
+		</div>            	</div>
+                <!-- end of surovnoma !-->
+
+                 <!-- Sayt statistikasi !-->
+                <div class="frame">
+                                    </div>
+                <!-- end of Sayt statistikasi !-->
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-xs-12 col-md-12">
+            <hr />
+            </div>
+            <div class="col-xs-12 col-md-9">
+                &copy; "Interfutbol.UZ". &copy; 2006-2018. <a href="http://m.interfutbol.uz">&#1052;&#1086;&#1073;&#1080;&#1083; &#1074;&#1077;&#1088;&#1089;&#1080;&#1103;</a>
+<br/>
+        		Сайт материалларидан тўлиқ ёки қисман фойдаланилганда веб-сайт манзили кўрсатилиши шарт!<br/>
+        		Барча ҳуқуқлар амалдаги қонунчиликка биноан ҳимояланган.<br/>
+            </div>
+            
+            <div class="col-xs-12 col-md-3">
+                
+              <!-- MyCounter v.2.0 -->
+              <div style="display:none;">
+<script type="text/javascript"><!--
+my_id = 162633;
+my_width = 88;
+my_height = 61;
+my_alt = "MyCounter - счётчик и статистика";
+//--></script>
+<script type="text/javascript"
+  src="https://get.mycounter.ua/counter2.0.js">
+</script><noscript>
+<a target="_blank" href="http://mycounter.ua/"><img
+src="https://get.mycounter.ua/counter.php?id=162633"
+title="MyCounter - счётчик и статистика"
+alt="MyCounter - счётчик и статистика"
+width="88" height="61" border="0" /></a></noscript>
+</div>
+<!--/ MyCounter -->
+                
+                <script language="javascript" type="text/javascript">
+                        <!--
+        top_js = "1.0";
+                        top_r = "id=1269&r=" + escape(document.referrer) + "&pg=" +
+                                escape(window.location.href);
+                        document.cookie = "smart_top=1; path=/";
+                        top_r += "&c=" + (document.cookie ? "Y" : "N")
+                        //-->
+                        </script>         <script language="javascript1.1" type="text/javascript">
+                        <!--
+        top_js = "1.1";
+                        top_r += "&j=" + (navigator.javaEnabled() ? "Y" : "N")
+                        //-->
+                        </script>         <script language="javascript1.2" type="text/javascript">
+                        <!--
+        top_js = "1.2";
+                        top_r += "&wh=" + screen.width + 'x' + screen.height + "&px=" +
+                                (((navigator.appName.substring(0, 3) == "Mic")) ?
+                                        screen.colorDepth : screen.pixelDepth)
+                        //-->
+                        </script>         <script language="javascript1.3" type="text/javascript">
+                        <!--
+        top_js = "1.3";
+                        //-->
+                        </script>         <script language="Javascript">
+                        <!--
+        top_rat = "&col=0063AF&t=ffffff&p=DD7900";
+                        top_r += "&js=" + top_js + "";
+                        document.write('<a href="http://www.uz/rus/toprating/cmd/stat/id/1269" target=_top><img src="http://www.uz/plugins/top_rating/count/cnt.png?' + top_r + top_rat + '" width=88 height=31 border=0 alt="Топ рейтинг www.uz"><\/a>')
+                        //-->
+                        </script>         <NOscript>
+                        <a href="http://www.uz/rus/toprating/cmd/stat/id/1269" target=_top><IMG height=31 src="http://www.uz/plugins/top_rating/count/nojs_cnt.png?id=1269&col=0063AF&t=ffffff&p=DD7900" width=88 border=0 alt="Топ рейтинг www.uz"></a>
+                        </NOscript><!--/ www.uz -->
+                            
+<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter45244389 = new Ya.Metrika({ id:45244389, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/45244389" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+    
+    
+    <!-- Bootstrap JS !-->
+   
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/global.js"></script>
+    <!-- Bootstrap JS !-->
+<!--Hisoblagichlar-->
+<div style="display:none">
+<!-- UzRating -->
+
+<!-- /UzRating -->
+<!--End Hisoblagichlar-->
+</body>
+</html>

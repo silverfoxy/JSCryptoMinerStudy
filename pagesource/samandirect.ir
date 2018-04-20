@@ -1,0 +1,339 @@
+
+<!--
+Name: Travis.TravelInfo
+Code: Travis.OB.001
+Description: صفحه ابتدایی ورود اطلاعات پیش نیاز بیمه مسافرتی
+-->
+
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="بیمه سامان, خرید بیمه نامه, استعلام بیمه, بیمه آتش سوزی, بیمه مسافرتی, بیمه حوادث انفرادی, بیمه اشخاص, بیمه درمان, محاسبه آنلاین بیمه,  نرخ حق بیمه, بیمه نامه گروهی, خرید بیمه نامه گروهی, بیمه مسافرتی سامان, نرخ بیمه" />
+    <meta name="keywords" content="بیمه سامان, خرید بیمه نامه, استعلام بیمه, بیمه آتش سوزی, بیمه مسافرتی, بیمه حوادث انفرادی, بیمه اشخاص, بیمه درمان, محاسبه آنلاین بیمه,  نرخ حق بیمه, بیمه نامه گروهی, خرید بیمه نامه گروهی, بیمه مسافرتی سامان, نرخ بیمه" />
+    <meta name="description" content="فروش، استعلام و خدمات بیمه نامه های مسافرتی، حوادث انفرادی و آتش سوزی به صورت آنلاین" />
+    <meta name="theme-color" content="#035954"> 
+    <title>سایت رسمی فروش آنلاین بیمه سامان | بیمه مسافرتی</title>
+    <link href="/Content/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/Styles/Site.css" rel="stylesheet" />
+
+    <script src="/Content/Scripts/jquery.min.js"></script>
+    <script src="/Content/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="/Content/Scripts/Site.js"></script>
+    <script src="/Content/Scripts/Cookies.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$('body').css("background", "#59DAB4 url('" + sourceAddressURL + "/Content/img/family1.jpg') no-repeat center top");
+            $('link[rel="shortcut icon"]').attr('href', sourceAddressURL + 'favicon.ico');
+            var userKey = getCookie('SamanDirectUserToken');
+            /**/
+            /**/
+            /**/
+            var displayName = '';
+            /**/
+            /**/
+            /**/
+            if (userKey != undefined && userKey.length > 20 && displayName.length > 2) {
+                cookieRenewTime('SamanDirectUserToken', 1);
+                $("#menuUserPanel").show();
+                $("#menuUserLogin").hide();
+                $("#userPanelDisplayName").html(displayName + ' عزیز خوش آمدید');
+            }
+            else {
+                $("#menuUserPanel").hide();
+                $("#menuUserLogin").show();
+                deletecookie('SamanDirectUserToken');
+            }
+
+            /**/
+            /**/
+            /**/
+            sourceAddressURL = 'https://samandirect.ir/';
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            uniformBaseApiAddress = 'https://samandirect.ir/api/internal/';
+            /**/
+            /**/
+            /**/
+
+            localStorage.removeItem("referralCode");
+            localStorage.removeItem("buildingInfo");
+            localStorage.removeItem("accidentInfo");
+        });
+
+        function logOut() {
+            deletecookie('SamanDirectUserToken');
+            location.href = sourceAddressURL + 'Page/LogOut';
+        }
+    </script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-83220450-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106013474-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments) };
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106013474-2');
+    </script>
+
+</head>
+
+
+<body>
+    <nav class="user-top-nav">
+        <ul class="nav navbar-nav navbar-left" id="menuUserPanel">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span id="userPanelDisplayName"></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="background-color:#ffffff">
+                    <li><a href="/Page/Load?Name=TravelPolicies">بیمه نامه های مسافرتی من</a></li>
+                    <li><a href="/Page/Load?Name=UserFirePolicies">بیمه نامه های ساختمان من</a></li>
+                    <li><a href="/Page/Load?Name=UserAccidentPolicies">بیمه نامه های حوادث انفرادی من</a></li>
+                    <li><a href="#" onclick="logOut()">خروج</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left" id="menuUserLogin">
+            <li><a href="/Page/Load?Name=Register"><span class="glyphicon glyphicon-user"></span> عضویت</a>&nbsp;|&nbsp;<a href="/Page/Load?Name=UserLogin"><span class="glyphicon glyphicon-log-in"></span> ورود</a></li>
+        </ul>
+    </nav>
+    <nav class="primary-nav">
+        <a href="http://si24.ir" target="_blank"><span class="si-logo"></span></a>
+        <span class="nav-icon">
+            <i class="bar"></i>
+            <i class="bar"></i>
+            <i class="bar"></i>
+        </span>
+        <ul class="menu-items">
+            <li>
+                <a href="/">خانه</a>
+            </li>
+            <li>
+                <a href="#customers-support">خدمات مشتریان</a>
+            </li>
+            <li>
+                <a href="#IndexFAQ">سوالات متداول</a>
+            </li>
+            
+            <li>
+                <a href="#intro-AboutUs">درباره ما</a>
+            </li>
+            <li>
+                <a href="/Page/Load?Name=ContactUs">تماس با ما</a>
+            </li>
+        </ul>
+        
+    </nav>
+
+    <section class="greetings">
+        <h3>
+            محصول بیمه‌ای خود را انتخاب نمایید و آنلاین خرید کنید
+        </h3>
+    </section>
+    <section class="products">
+        <div class="parent-product">
+            <a href="/Page/Load?Name=TravelInfo">
+                <div class="product">
+                    <span class="icon mosaferati">
+
+                    </span>
+                </div>
+                <h4>بیمه مسافرتی </h4>
+            </a>
+            
+        </div>
+        <div class="parent-product">
+            <a href="/Page/Load?Name=FireInsurance_BuldingInformation">
+                <div class="product">
+                    <span class="icon atashsoozi">
+
+                    </span>
+                </div>
+                <div>
+                    <h4>بیمه ساختمان </h4>
+                    
+                </div>
+            </a>
+            <span class="atashsoozi-description">( زلزله و آتش سوزی )</span>
+        </div>
+        <div class="parent-product">
+            <a href="/Page/Load?Name=PersonalAccident_SelectJob">
+                <div class="product">
+                    <span class="icon havades">
+
+                    </span>
+                </div>
+                <h4>بیمه حوادث انفرادی</h4>
+            </a>
+        </div>
+    </section>
+    <section class="customers-support" id="customers-support">
+        <h3>خدمات مشتریان بیمه سامان</h3>
+        <section class="services">
+            
+            <a href="/Page/Load?Name=FAQ">
+                <div class="parent-service">
+                    <div class="service">
+
+                        <span class="icon question">
+                        </span>
+
+                    </div>
+                    <h5 class="qustion-h">سوالات متداول</h5>
+                </div>
+            </a>
+            <a href="/Page/Load?Name=Complaint">
+                <div class="parent-service">
+                    <div class="service">
+                        <span class="icon complaint">
+
+                        </span>
+                    </div>
+                    <h5 class="qustion-h">طرح شکایت</h5>
+                </div>
+            </a>
+            <a href="/Page/Load?Name=ContactUs">
+                <div class="parent-service">
+                    <div class="service">
+                        <span class="icon callcenter">
+
+                        </span>
+                    </div>
+                    <h5 class="qustion-h">مرکز تماس</h5>
+                </div>
+            </a>
+            <a href="/Page/Load?Name=Terms">
+                <div class="parent-service">
+                    <div class="service">
+                        <span class="icon rules">
+
+                        </span>
+                    </div>
+                    <h5 class="qustion-h">قوانین مقررات</h5>
+                </div>
+            </a>
+        </section>
+    </section>
+    <section class="intro" id="intro-AboutUs">
+        <h3>
+            سامان دایرکت راهی است برای دسترسی ساده و سریع متقاضیان دریافت خدمات و سرویس‌های بیمه‌ای
+        </h3>
+        <p class="container intro-text">
+            شركت بيمه سامان در تاریخ 1383/11/27 به منظور ارائه خدمات بیمه های بازرگانی در رشته بيمه‌هاي اموال، مسئوليت و اشخاص با سرمايه 200 ميليارد ريالي منقسم به 200 ميليون سهم با ارزش اسمي يك هزار ريالي در سازمان ثبت شرکتها با شماره ثبت 241059 ثبت شد و در تاریخ 1383/12/11مجوز فعاليت خود را در رشته های زندگی ، غیر زندگی و بیمه های اتكايي از بيمه مركزي دریافت نمود و به عنوان ششمين عضو گروه مالی سامان فعاليت خود را آغاز کرد.  <br />سامان دایرکت بیمه سامان به عنوان اولین بیمه گر ارائه خدمات بیمه ای آنلاین در کشور فعالیت خود در این حوزه را با ارائه بیمه نامه مسافرتی آغاز نموده است و در حال حاضر محصولات بیمه ای دیگری به منظور ارائه از طریق اینترنت تهیه نموده است. برند سامان دایرکت (Saman Direct)محل عرضه و فروش خدمات بیمه اینترنتی بیمه سامان میباشد که با هدف سهولت دسترسی و کاهش هزینه و جلب رضایت مشتریان در این حوزه فعالیت خود را آغاز نموده است.
+        </p>
+    </section>
+    <section class="faq" id="IndexFAQ">
+        <h2>سوالات متداول</h2>
+        <div class="container">
+            <div class="question">
+                <h5>آیا این سایت وابسته به بیمه سامان است ؟</h5>
+                <p class="answer">
+                    بله این سایت کانال فروش اینترنتی سایت رسمی فروش محصولات بیمه سامان بصورت اینترنتی میباشد و صرفا محصولات شرکت بیمه سامان از طریق این سایت به فروش میرسد. وجود لینک های ارتباطی در سایت si24.ir تاییدکننده این موضوع میباشد.
+                </p>
+            </div>
+            <div class="question">
+                <h5>چگونه بیمه مسافرتی بخریم ؟</h5>
+                <p class="answer">
+                    در صفحه اصلی سایت محصول بیمه مسافرتی را انتخاب نمایید و اطلاعات سفر را وارد نمایید.سپس بسته های بیمه ای متناسب با سفر به شما پیشنهاد میشود که حاوی لیست پوشش ها و قیمت طرحها میباشد. طرح مورد نظر اطلاعات مسافر را وارد نمایید . چنانچه قبلا از بیمه سامان خرید کرده باشید احتمالا با وارد کردن کد ملی اطلاعات شما نمایش داده خواهد شد. همچنین اگر در این سفر افرادی شما را همراهی میکنند میتوانید آنها را به لیست مسافران اضافه نمایید. در نهایت هزینه قابل پرداخت را از طریق درگاه بانک پرداخت نمایید و بیمه نامه های خود را از سایت دانلود و در صورت نیاز چاپ کنید .
+                </p>
+            </div>
+            <div class="question">
+                <h5>	چه نوع واحدهایی میتوانند بیمه آتش سوزی و زلزله را آنلاین تهیه نمایند؟</h5>
+                <p class="answer">
+                    صاحبان یا مستاجرین ساختمان ها و واحدهای اداری و مسکونی میتوانند بیمه زلزله و آتش سوزی ارائه شده در این سایت را خریداری نمایند. واحدهای تجاری یا فروشگاه ها برای خرید بیمه نامه می¬بایست به نمایندگی¬های سامان مراجعه نمایند.
+                </p>
+            </div>
+            <div class="question">
+                <h5>در صورت نیاز به راهنمایی با چه شماره ای تماس برقرار کنیم ؟</h5>
+                <p class="answer">
+                    مرکز تماس بیمه سامان در روزهای شنبه تا چهارشنبه از ساعت 8 الی 17 و پنج شنبه از ساعت 8 الی 13 پاسخگوی سوالات احتمالی شما در خصوص خدمات و شکایات و خسارت میباشد. شماره تماس بیمه سامان 8943-021 میباشد.
+                </p>
+            </div>
+        </div>
+        <a class="archive-button" href="/Page/Load?Name=FAQ">آرشیو سؤالات متداول</a>
+    </section>
+    <section class="photo-section saman-insurance"></section>
+
+    <section class="footer-menu">
+        <div class="footer-container">
+            <div class="contact-ways">
+                <h5>آدرس:‌تهران - میدان ونک - خیابان شیخ بهائی جنوبی - بن‌بست چهارم - پلاک ۵</h5>
+                <h5>تلفن: ۸۹۳۰۲۲۰۰ | تلفن مرکز پشتیبانی: ۸۹۴۳</h5>
+                <h5>فکس: ۸۹۳۰۲۲۴۵</h5>
+                <h5>پست الکترونیکی:‌ info@samandirect.ir</h5>
+            </div>
+            <div class="menu-cols-container">
+                <div class="menu-col">
+                    <ul>
+                        <li>
+                            <a href="#intro-AboutUs">درباره ما</a>
+                        </li>
+                        <li>
+                            <a href="/">محصولات</a>
+                        </li>
+                        <li>
+                            <a href="/Page/Load?Name=Complaint">طرح شکایت</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-col">
+                    <ul>
+                        <li>
+                            <a href="/Page/Load?Name=Terms">قوانین و مقررات</a>
+                        </li>
+                        <li>
+                            <a href="/Page/Load?Name=FAQ">سؤالات متداول</a>
+                        </li>
+
+                        <li>
+                            <a href="#customers-support">خدمات مشتریان</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="enamad-container">
+            <div class="logo">
+                <img id='hwlargvlsguihwlanbpe' style='cursor:pointer;background-color:#ffffff;border-radius:8px' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=45042&p=odshyncrdrfsodshwkyn", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")' alt='' src='https://trustseal.enamad.ir/logo.aspx?id=45042&p=aodsfujygthvaodsqesg' />
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <h6 class="noyan-copyright">
+            Copyright Saman Insurance. Allrights reserved. Powered by Saman Insurance © 2016
+        </h6>
+        <div class="social-icons">
+            <a href="#" class="linkedin"></a>
+            <a href="#" class="google-plus"></a>
+            <a href="#" class="facebook"></a>
+            <a href="#" class="instagram"></a>
+            <a href="#" class="telegram"></a>
+        </div>
+    </section>
+
+</body>
+</html>

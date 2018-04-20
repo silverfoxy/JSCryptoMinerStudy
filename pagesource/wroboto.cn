@@ -1,0 +1,1698 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="keyword" content=" WRO|WRO赛事|WRO绿色城市|绿色城市|WRO足球赛|机器人足球赛|常规赛|创意赛|机器人|机器人教育|机器人竞赛|素质教育|机器人教材" />
+    <meta name="description" content=" 国际奥林匹克机器人大赛(WRO,World Robot Olympiad)其中机器人世界杯系列活动是一项综合教育与科技的国际性活动,亦是学术成分最高的赛事.机器人世界杯的概念是于1993年提的,经过2年的可行性考察,于1995年8月,组织委员会正式宣布将举行世界性的机器人交流和机器人足球赛" />
+    <meta name="goole" content=" WRO|WRO赛事|WRO绿色城市|绿色城市|WRO足球赛|机器人足球赛|常规赛|创意赛|机器人|机器人教育|机器人竞赛|素质教育|机器人教材" />
+    <link href="css/module.css" rel="stylesheet" /><link href="css/public.css" rel="stylesheet" /><link href="css/nav.css" rel="stylesheet" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.nav li').hover(function () {
+                $(this).children('ul').stop(true, true).show('10');
+            }, function () {
+                $(this).children('ul').stop(true, true).hide('10');
+            });
+        });
+        $(document).ready(function () {
+            $(".arrowxl").mouseover(function () {
+                $(".headnav_xl").slideDown('fast');
+            });
+            $(".yhm_xlcd").mouseleave(function () {
+                $(".headnav_xl").slideUp();
+            });
+            $(".arrowxl1").mouseover(function () {
+                $(".headnav_xl1").slideDown();
+            });
+            $(".yhm_xlcd1").mouseleave(function () {
+                $(".headnav_xl1").slideUp();
+            });
+        });
+
+        function logout() {
+            $.post("/logout.aspx", {}, function (data) {
+                window.location = data;
+            });
+        }       
+    </script>
+    
+    <title>WRO赛事网</title>
+    <script type="text/javascript">
+        function codesearch() {
+            var ct = document.getElementById("codetable");
+            var tel = document.getElementById("telnum");
+            var types = document.getElementById("typeid");
+            var idnum = document.getElementById("idnum");
+            if (idnum.value != "" || tel.value != "") {
+                
+                if (tel.value != "") {
+                    var reg = /([0-9]{3,}-[0-9]{6,8})|(1[3-9][0-9]{9})/;
+                    if (tel.value.match(reg) == null)//!reg.test(neirong.value)
+                    {
+                        alert("您输入的电话格式不正确！");
+                        return false;
+                    }
+                }
+
+                if (idnum.value != "") {
+                    if (types.value == "1") {
+                        var reg = /(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$)/;
+                        if (idnum.value.match(reg) == null)//!reg.test(neirong.value)
+                        {
+                            alert("您输入的身份证格式不正确！");
+                            return false;
+                        }
+                    }
+                    //else { }
+                }
+                $.post("search.aspx?type=code", { tel: "" + tel.value + "", idcard: "" + idnum.value + "" },
+                    function (data) {
+                        if (data != "") {
+                            $("body").append("<div id='mask'></div>");
+                            $("#mask").addClass("mask").fadeIn("fast");
+                            $("#codelist").fadeIn("fast");
+                            ct.innerHTML = "<tr><th>组队码</th><th>赛季</th> <th>状态</th><th>姓名</th><th>性别</th><th>身份证号</th><th>电话</th><th>Email</th></tr>";
+                            var aa = jQuery.parseJSON(data);
+                            for (var i = 0; i < aa.length; i++) {
+                                ct.innerHTML += "<tr><td>" + aa[i]["TeacherVerCode"] + "</td><td>" + aa[i]["SaiJiName"] + "</td><td>" + aa[i]["IfUse"] + "</td><td>" + aa[i]["Name"] + "</td><td>" + aa[i]["Sex"] + "</td><td>" + aa[i]["IdNum"] + "</td><td>" + aa[i]["TelNum"] + "</td><td>" + aa[i]["Email"] + "</td></tr>";
+                                //ct.innerHTML += "<td>" + aa[i]["Sex"] + "</td><td>" + aa[i]["IdNum"] + "</td><td>" + aa[i]["TelNum"] + "</td><td>" + aa[i]["Email"] + "</td></tr>";
+                            }
+                        }
+                        else { alert("没有您要查询的信息。"); }
+                    });
+            }
+            else {
+                idnum.focus();
+            }
+        }
+
+        function orgsearch() {
+            var ct = document.getElementById("orgtable");
+            var org = document.getElementById("orgname");
+            var p = document.getElementById("ctl00_Texts_aprovince");
+            var c = document.getElementById("ctl00_Texts_acity");
+            var a = document.getElementById("ctl00_Texts_aarea");
+            //alert(p.value); alert(c.value); alert(a.value);
+            if (org.value != ""||p.value!=""||c.value!=""||a.value!="") {
+
+                $.post("search.aspx?type=org", { name: "" + org.value + "",pid:""+p.value+"",cid:""+c.value+"",aid:""+a.value+"" },
+                    function (data) {
+                        if (data != "") {
+                            $("body").append("<div id='mask'></div>");
+                            $("#mask").addClass("mask").fadeIn("fast");
+                            $("#orglist").fadeIn("fast");
+                            ct.innerHTML = "<tr><th>省市</th><th>单位名称</th></tr>";
+                            var aa = jQuery.parseJSON(data);
+                            for (var i = 0; i < aa.length; i++) {
+                                ct.innerHTML += "<tr><td>" + aa[i]["Pname"]+"-"+aa[i]["Cname"] + "</td><td>" + aa[i]["Name"] + "</td></tr>";
+                                //ct.innerHTML += "<td>" + aa[i]["Sex"] + "</td><td>" + aa[i]["IdNum"] + "</td><td>" + aa[i]["TelNum"] + "</td><td>" + aa[i]["Email"] + "</td></tr>";
+                            }
+                        }
+                        else { alert("没有您要查询的信息。"); }
+                    });
+            }
+            else {
+                org.focus();
+            }
+        }
+        function closeCode() {
+            $("#codelist").fadeOut("fast");
+            $("#mask").css({ display: 'none' });
+        }
+        function closeOrg() {
+            $("#orglist").fadeOut("fast");
+            $("#mask").css({ display: 'none' });
+        }
+    </script>
+<title>
+
+</title></head>
+<body>
+    <form name="aspnetForm" method="post" action="" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTYwMjk3MTQyNg9kFgJmD2QWAgIDD2QWCAIBDxYCHgdWaXNpYmxlaGQCAw8WAh8AaGQCCQ9kFgICAQ9kFgICAQ8WAh4EVGV4dAWgCjxsaT48YSBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD0xIj7lhbPkuo5XUk88L2E+PC9saT48bGk+PGEgaHJlZj0iLi4vQWJvdXRXUk8uYXNweD90eXBlaWQ9OCI+6LWb5LqL6KeE5YiZPC9hPiA8dWwgY2xhc3M9InNlY29uZC1tZW51IiBpZD0ic3ViTXVzaWMiPjxsaT48YSBjbGFzcz0iYXJyb3ciICBocmVmPSIjIj4yMDE46LWb5a2jPC9hPjx1bCBjbGFzcz0idGhpcmQtbWVudSI+PGxpPjxhIGNsYXNzPSJhcnJvdyIgIGhyZWY9IiMiPuW4uOinhOi1mzwvYT48dWwgY2xhc3M9InRoaXJkLW1lbnUiPjxsaT48YSAgaHJlZj0iLi4vQWJvdXRXUk8uYXNweD90eXBlaWQ9OCZpZD02NCI+5bCP5a2m57uEPC9hPjxsaT48YSAgaHJlZj0iLi4vQWJvdXRXUk8uYXNweD90eXBlaWQ9OCZpZD02NSI+5Yid5Lit57uEPC9hPjxsaT48YSAgaHJlZj0iLi4vQWJvdXRXUk8uYXNweD90eXBlaWQ9OCZpZD02NiI+6auY5Lit57uEPC9hPjwvdWw+PGxpPjxhICBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD04JmlkPTUwIj7lt6XnqIvotZs8L2E+PGxpPjxhICBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD04JmlkPTQ5Ij7liJvmhI/otZs8L2E+PGxpPjxhICBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD04JmlkPTU1Ij7otrPnkIPkuJbnlYzmna88L2E+PGxpPjxhICBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD04JmlkPTU2Ij7ph5HlsZ7mnLrlmajkurrotrPnkIM8L2E+PGxpPjxhICBocmVmPSIuLi9BYm91dFdSTy5hc3B4P3R5cGVpZD04JmlkPTYyIj5XZURvMi4wIOeCueeQg+i1mzwvYT48L3VsPjwvdWw+PC9saT48bGk+PGEgaHJlZj0iLi4vUmVnV1JPLmFzcHg/dHlwZWlkPTE1Ij7nu4TpmJ/miqXlkI08L2E+IDx1bCBjbGFzcz0ic2Vjb25kLW1lbnUiIGlkPSJzdWJNdXNpYyI+PGxpPjxhICBocmVmPSIuLi9SZWdXUk8uYXNweD90eXBlaWQ9MTUmaWQ9MTYiPueZu+W9lTwvYT48bGk+PGEgIGhyZWY9Ii4uL1JlZ1dSTy5hc3B4P3R5cGVpZD0xNSZpZD0xOSI+57uE6Zif5oql5ZCNPC9hPjxsaT48YSAgaHJlZj0iTXlUZWFtcy5hc3B4P3R5cGVpZD0xNSZpZD0yMCIgdGFyZ2V0PSJfYmxhbmsiID7pmJ/kvI3nrqHnkIY8L2E+PC91bD48L2xpPjxsaT48YSBocmVmPSIuLi9RdWVzdGlvbnNoZWFkLmFzcHg/dHlwZWlkPTIzIj7pl67popjop6PnrZQ8L2E+PC9saT48bGk+PGEgaHJlZj0iP3R5cGVpZD01MiI+6LWb5a2j5oC75YiZPC9hPiA8dWwgY2xhc3M9InNlY29uZC1tZW51IiBpZD0ic3ViTXVzaWMiPjxsaT48YSAgaHJlZj0iP3R5cGVpZD01MiZpZD01NCI+5oC75YiZPC9hPjwvdWw+PC9saT5kAgsPZBYSAgEPFgIfAQX4ATxpbWcgc3JjPScvQWQvNjM2NTI0Nzg0NDk5NDUzNzUwLmpwZycgYWx0PScnIHRpdGxlPSIjYnRpdGxlMSI+PGltZyBzcmM9Jy9BZC82MzU3MDI0MTc4NjEzNTQwODYuanBnJyBhbHQ9JycgdGl0bGU9IiNidGl0bGUyIj48aW1nIHNyYz0nL0FkLzYzNTcwMjQzNDc1Nzc4MzEyMC5qcGcnIGFsdD0nJyB0aXRsZT0iI2J0aXRsZTMiPjxpbWcgc3JjPScvQWQvNjM1NzAyNDM1MjU2NDA4NzgwLmpwZycgYWx0PScnIHRpdGxlPSIjYnRpdGxlNCI+ZAIDDxYCHwEF2gIgPGRpdiBpZD0nYnRpdGxlMScgY2xhc3M9Im5pdm8taHRtbC1jYXB0aW9uIj48c3Bhbj4yMDE4IOi1m+Wto+S4u+mimDwvc3Bhbj48YSBocmVmPScjJz48L2E+PC9kaXY+IDxkaXYgaWQ9J2J0aXRsZTInIGNsYXNzPSJuaXZvLWh0bWwtY2FwdGlvbiI+PHNwYW4+V1JPPC9zcGFuPjxhIGhyZWY9JyMnPjwvYT48L2Rpdj4gPGRpdiBpZD0nYnRpdGxlMycgY2xhc3M9Im5pdm8taHRtbC1jYXB0aW9uIj48c3Bhbj5XUk88L3NwYW4+PGEgaHJlZj0nIyc+PC9hPjwvZGl2PiA8ZGl2IGlkPSdidGl0bGU0JyBjbGFzcz0ibml2by1odG1sLWNhcHRpb24iPjxzcGFuPldSTzwvc3Bhbj48YSBocmVmPScjJz48L2E+PC9kaXY+ZAIFDxYCHgtfIUl0ZW1Db3VudAIGFgxmD2QWAmYPFQMKMjAxNy0xMC0wOQMxOTgl5LmQ6auY5rS75Yqo5Lit5b+DU1RFTeaKgOiDveengC1XZS4uLmQCAQ9kFgJmDxUDCjIwMTctMDgtMjEDMTk1EzIwMTdXUkPotZvkuovphZLlupdkAgIPZBYCZg8VAwoyMDE3LTA4LTE1AzE5MyVSb2JvY29t5Zu96ZmF5YWs5byA6LWb5Y+C6LWb6Zif5LyNLi4uZAIDD2QWAmYPFQMKMjAxNy0wNy0yMAMxOTIjMjAxNyBXUk/kuJbnlYzpnZLlsJHlubTmnLrlmajkurouLi5kAgQPZBYCZg8VAwoyMDE3LTA3LTE4AzE5MSXph43opoHpmYTku7bvvJoyMDE3V1JP5LiW55WM6Z2S5bCRLi4uZAIFD2QWAmYPFQMKMjAxNy0wNy0xNwMxOTAlMjAxN1dST+W4uOinhOi1m+Wwj+Wtpue7hOihpeWFhemHjS4uLmQCBw8WAh8CAgYWDGYPZBYCZg8VAwoyMDE3LTEwLTMxAzIwMCXkuZDpq5jmtLvliqjkuK3lv4NTVEVN5oqA6IO956eALVdlLi4uZAIBD2QWAmYPFQMKMjAxNy0wOS0wNwMxOTcNMjAxN1dSQ+aIkOe7qWQCAg9kFgJmDxUDCjIwMTctMDktMDcDMTk2GTIwMTdXUk/mrabmsYnmiJDnu6nlhaznpLpkAgMPZBYCZg8VAwoyMDE2LTA4LTIzAzE3NR0yMDE2IFdSTyDkuK3lm73mgLvlhrPotZtXZS4uLmQCBA9kFgJmDxUDCjIwMTYtMDgtMjIDMTc0ITIwMTYgV1JPIOS4reWbveaAu+WGs+i1m+aIkOe7qS4uLmQCBQ9kFgJmDxUDCjIwMTYtMDgtMDkDMTcwHzIwMTYgV1JPIOS4nOWNl+WMui3npo/lt57nq5kuLi5kAgkPFgIfAgIGFgxmD2QWAmYPFQMKMjAxNy0xMS0xMwMyMTMc5Zu+6KejMjAxN1dST+WbvemZhei1m+ernui1m2QCAQ9kFgJmDxUDCjIwMTctMTEtMTMDMjA1K+mpu+WTpeaWr+i+vum7juWKoOWkp+S9v+axpOaBkuWHuuW4rTIwMTcuLi5kAgIPZBYCZg8VAwoyMDE3LTExLTEzAzIwMyTkuJbnlYzmnLrlmajkurrlpaXmnpfljLnlhYvotZvlvIDluZVkAgMPZBYCZg8VAwoyMDE3LTA2LTA0AzE3NyVXUk8yMDE35ZCE6LWb6LWb6aG56Kej5Yaz5pa55qGI6LWELi4uZAIED2QWAmYPFQMKMjAxNy0wMi0wNwMxNzYcMjAxNldST+WbvemZhei1m+i1m+S6i+aKpemBk2QCBQ9kFgJmDxUDCjIwMTUtMDgtMDQDMTI0IzIwMTXlubRXUk/ljY7ljZfljLot6KGh6Ziz56uZ54GrLi4uZAILDxYCHwICAxYGZg9kFgJmDxUDIemHkeegluWbveWutumdkuWwkeW5tOWIm+WuouWkp+i1mwzkupHljZfmmIbmmI4KMjAxNy0wOC0xOGQCAQ9kFgJmDxUDFTIwMTcgV1JPIDUrMuS4k+mhuei1myHmuZbljZfplb/mspnkuJbnuqrph5HmupDlpKfphZLlupcKMjAxNy0wNy0xNWQCAg9kFgJmDxUDGjIwMTcgV1JP5Y2O5Lit5Yy66YCJ5ouU6LWbGOa5luWNl+esrOS4gOW4iOiMg+WtpumZogoyMDE3LTA3LTA4ZAINDxYCHwICkAEWoAJmD2QWAmYPFQIw5rex5Zyz5biC5ben6aKX57KS5pWZ6IKy5ZKo6K+i566h55CG5pyJ6ZmQ5YWs5Y+4Mua3seWcs+m+meWNjuWMuuingua+nOWNmuW8uui3r+aHv+iKseWbrUM55ZWG6ZO6RDM2ZAIBD2QWAmYPFQIk5p2t5bee5qKm5rqQ5pWZ6IKy56eR5oqA5pyJ6ZmQ5YWs5Y+4MeadreW3nuW4guS7k+WJjeihl+mBk+aZr+WFtOi3rzk5OeWPtzbmoIsyMDktMS04OThkAgIPZBYCZg8VAiTlub/lt57ntKvmm6bmlZnogrLlj5HlsZXmnInpmZDlhazlj7g15bm/5bee5biC55Wq56a65Yy65YW05Y2X5aSn6YGTMzPlj7fmoaXlhbTlpKfljqY2MjHlrqRkAgMPZBYCZg8VAifkvZvlsbHluILmtanpuY/mlofljJbkvKDmkq3mnInpmZDlhazlj7hb5bm/5Lic5L2b5bGx5LiJ5rC06KW/5Y2X5pWZ6IKy5Lic6LevMTHlj7fkuJzmtbfljZfmub4xM+W6pzExNeWPt++8iOW3puWyuOWFrOWbreato+Wvuemdou+8iWQCBA9kFgJmDxUCJ+WTiOWwlOa7qOWuieW+t+iJvuenkeenkeaKgOaciemZkOWFrOWPuCrlk4jlsJTmu6jnjovlupzkupXotK3niankuK3lv4PkuInmpbwwMDflj7dkAgUPZBYCZg8VAh7msrPljJflpJrliJvnp5HmioDmnInpmZDlhazlj7g05rKz5YyX55yB6YKi5Y+w5biC5qGl5Lic5Yy65aSp5LiA5Z+O5aSn5rSL55m+6LSnQeW6p2QCBg9kFgJmDxUCMeeIseW+l+mdkuWwkeW5tOWIm+Wuoua0u+WKqOS4reW/gy3nlJ/mgIHln47moKHljLpE5aSp5rSl5biC5ruo5rW35paw5Yy65Lit5paw55Sf5oCB5Z+O5a6c5ZKM5rGH77yI576O6YC45bm/5Zy677yJNS0yMDNkAgcPZBYCZg8VAiTliJvmhI/mmbrog73mlofljJbkvKDmkq3mnInpmZDlhazlj7hP5rex5Zyz5biC6b6Z5bKX5Yy65Lit5b+D5Z+O5a625ZKM55ub5LiW5LiA5pyf5ZWG6ZO65LiA5qW8MTMyLTEzM+WIm+aEj+acuuWZqOS6umQCCA9kFgJmDxUCKua3seWcs+W4guS5kOaitei+vuaWh+WMluS8oOaSreaciemZkOWFrOWPuEDmt7HlnLPlrp3lronljLrlhbTkuJrot68zMDA05Y+35LiD5ben5Zu95YS/56ul5Z+O56Kn5rW35bqX5Zub5qW8ZAIJD2QWAmYPFQIq6KGh6Ziz5biC6Laj546p5ZCn5paH5YyW5Lyg5pKt5pyJ6ZmQ5YWs5Y+4NuihoemYs+W4guWNjuaWsOW8gOWPkeWMuueZveS6kei3r+S4juWbnumbgei3r+S6pOaxh+WkhGQCCg9kFgJmDxUCLeS4iua1t+i2heWzsOaWh+WMluS8oOaSreWFrOWPuOWQiOiCpeWIhuWFrOWPuEPlkIjogqXluILmlL/liqHljLrljZfkuoznjq/ot68zODE45Y+35aSp6bmF5rmW5LiH6L6+5YaZ5a2X5qW8NzA45a6kZAILD2QWAmYPFQIn54+g5rW35biC5aWl5YuS5pWZ6IKy5oqV6LWE5pyJ6ZmQ5YWs5Y+4P+ePoOa1t+W4gummmea0suWMuuS4iuWNjui3r+S6jOWPt+S4reePoOS5neaCpuWVhuS4muS4reW/g+S6jOalvGQCDA9kFgJmDxUCJ+a3seWcs+S5kOWQr+WPkeaWh+WMluS8oOaSreaciemZkOWFrOWPuCfmt7HlnLPluILpvpnljY7mlrDljLrlubjnpo/mnqvmma/lsI/ljLpkAg0PZBYCZg8VAiTlub/lt57lppnmm7zmlofljJbkvKDmkq3mnInpmZDlhazlj7g/5bm/5bee5biC5aKe5Z+O5Yy65paw5aGY56Kn5qGC5Zut5Yek5Yew6YWS5bqX5aaZ5pu86Im65L2T5Lit5b+DZAIOD2QWAmYPFQIt6ZmV6KW/5a6J5bq35biC5pm656ul5pWZ6IKy5ZKo6K+i5pyJ6ZmQ5YWs5Y+4KOWuieW6t+W4gumVv+WFtOWbvemZheWVhuS4muihlzTlj7fllYbpk7pkAg8PZBYCZg8VAifmt7HlnLPnibnnkZ7mma7mlofljJbkvKDmkq3mnInpmZDlhazlj7g75rex5Zyz5biC5a6d5a6J6KW/5Lmh5qGD5rqQ5bGFMTTljLrpgqblvrfln7norq3kuK3lv4PkuIDmpbxkAhAPZBYCZg8VAirkvZvlsbHluILmiJDplb/moJHmlofljJbkvKDmkq3mnInpmZDlhazlj7g55bm/5Lic55yB5L2b5bGx5biC6aG65b635Yy65aSn6Imv5aSq6Imu6Lev5rW35oKm5paw5Z+OMTU4ZAIRD2QWAmYPFQIk6ZW/5rKZ5LmQ5YaJ5pWZ6IKy5ZKo6K+i5pyJ6ZmQ5YWs5Y+4M+mVv+aymeW4gumbqOiKseWMuuiMguWNjuWbvemZhea5mEIxN+agizEwNe+8leWVhumTumQCEg9kFgJmDxUCHuWNk+WHoeaVmeiCsuWSqOivouaciemZkOWFrOWPuC3muZbljZfmuZjmva3luILlsrPloZjljLrph5HkvqjkuJbnuqroi5HlsI/ljLpkAhMPZBYCZg8VAiHmrabmsYnniLHlirHlm73pmYXmlZnogrLkv7HkuZDpg6gn5q2m5rGJ5biC5rSq5bGx5Yy65qWa5rKz5rGJ6KGX5LiJ6KGX5Yy6ZAIUD2QWAmYPFQIk5rKz5Y2X6LaF5Yib5pWZ6IKy56eR5oqA5pyJ6ZmQ5YWs5Y+4ROmDkeW3nuW4gumHkeawtOWMuuWuj+Wbvuihl+S4juiBmua6kOi3r+S6pOWPieWPo+WQkeilvzUw57Gz6Lev5Y2XIMKgZAIVD2QWAmYPFQIn5rex5Zyz5biC6Iux5p2w5Zu96ZmF5pWZ6IKy5pyJ6ZmQ5YWs5Y+4Mea3seWcs+W4guWkp+m5j+aWsOWMuuWkp+m5j+ihl+mBk+S4reWxsei3rzcx5Y+3LTNkAhYPZBYCZg8VAiTlpKfov57kuIfpvI7llYbkuJrnrqHnkIbmnInpmZDlhazlj7hJ6L695a6B55yB5aSn6L+e5biC55SY5LqV5a2Q5Yy65ZGo5rC05a2Q5bm/5Zy65LiH56eR6JOd5bGx5ZWG5Lia5YaF6KGXNuWPt2QCFw9kFgJmDxUCJsKg5piG5bGx5pet5pmf5LyB5Lia566h55CG5pyJ6ZmQ5YWs5Y+4SOS4iua1t+W4guaYhuWxseW4gueOieWxsemVh+S6uuawkeWNl+i3rzExODjlj7fmmIbln47lub/lnLox5Y+35qW8M+alvDMwOGQCGA9kFgJmDxUCM+axleWktOW4gua+hOa1t+WMuuWSjOaWsOmhuuS/oeaBr+aKgOacr+aciemZkOWFrOWPuELlub/kuJznnIHmsZXlpLTluILmvoTmtbfljLrnjonmva3ot6/ot5/mloflhqDot6/kuqTnlYzlpITkuZDoibpOKzFkAhkPZBYCZg8VAjDllJDln47ljaHlt7TvvIjljJfkuqzvvInmlZnogrLnp5HmioDmnInpmZDlhazlj7gq5YyX5Lqs5biC5rW35reA5Yy65Lqs6aKQ56eR5oqA5aSn5Y6m5LiJ5bGCZAIaD2QWAmYPFQI26Im+6L+q5rKD5YWL5Zu96ZmF5pWZ6IKy56eR5oqA77yI5YyX5Lqs77yJ5pyJ6ZmQ5YWs5Y+4MeWMl+S6rOW4guaIv+WxseiJr+S5oeWNjuWGoOi0reeJqeS4reW/g+ilv+S+pzPlsYJkAhsPZBYCZg8VAjDmmI7lvrfkvJjlsJrvvIjlkInmnpfvvInmlZnogrLnp5HmioDmnInpmZDlhazlj7hj5ZCJ5p6X55yB6ZW/5pil5biC5LqM6YGT5Yy65YyX546v5Z+O6Lev5Lul5YyX44CB6YeR6ZKx6Lev5Lul6KW/5Yqb5pe65bq35Z+O56ys5LqM5Y2B5LiJ5qCLMTA15Y+35oi/ZAIcD2QWAmYPFQIn5a6J6Ziz5biC5ZOy5piT5pWZ6IKy5ZKo6K+i5pyJ6ZmQ5YWs5Y+4R+ays+WNl+ecgeWuiemYs+W4guaWh+WzsOWMuuS5ieS5jOWbvemZheWVhui0uOWfjjEtMuWPt+alvDHljZXlhYMxOC0y5Y+3ZAIdD2QWAmYPFQJF54Gr5pif5Lq66KeG6YeO77yI5YyX5Lqs77yJ5pWZ6IKy56eR5oqA5pyJ6ZmQ5YWs5Y+477yI5YW06J6N5Lit5b+D77yJQeWMl+S6rOW4guilv+WfjuWMuumXueW4guWPo+Wkp+ihlzHlj7fplb/lronlhbTono3kuK3lv4Mz5Y+35qW8ODE0ZAIeD2QWAmYPFQI56KW/5a6J5LiH56eR5ZWG5Lia6L+Q6JCl566h55CG5pyJ6ZmQ5YWs5Y+456ys5LiJ5YiG5YWs5Y+4Tuilv+WuieW4gumVv+WuieWMuumDreadnOihl+WKnuiMheWdoeadkeilv+S+p+S4h+enkeWfjuekvuWMuuacjeWKoeS4reW/g+S4gOWxgmQCHw9kFgJmDxUCKuaDoOW3nuW4gui0neaAneS5kOaVmeiCsuWSqOivouaciemZkOWFrOWPuFLlub/kuJzmg6Dlt57luILmg6DpmLPmt6HmsLTkuJzljY7lpKfpgZPkuK3oi7HkuYvnmofllYbkuJrmlofljJbkuK3lv4My5Y+35qW8My005bGCZAIgD2QWAmYPFQIw5rex5Zyz5biC5LmQ6auY5LmQ5pWZ6IKy5oqV6LWE5Y+R5bGV5pyJ6ZmQ5YWs5Y+4Oua3seWcs+W4guemj+eUsOWMuuefs+WOpuaWsOWkqeWcsOS4lue6quWVhuWKoeS4reW/g0Lluqc3MTFkAiEPZBYCZg8VAh7msojpmLPms7Dovr7llYbotLjmnInpmZDlhazlj7gl5rKI6Ziz5biC5ZKM5bmz5Yy65LqR6ZuG6KGXNDjlj7cyLTQtMWQCIg9kFgJmDxUCKua3ruWuieW4guaAneWKm+WIm+aZuuiDveenkeaKgOaciemZkOWFrOWPuDTmsZ/oi4/nnIHmt67lronluILnu4/mtY7mioDmnK/lvIDlj5HljLrmtbflj6Pot6855Y+3ZAIjD2QWAmYPFQIw5rW35a6B5biC5rW35rSy6KGX6YGT5ZaE5pm65paH5L2T562W5YiS5bel5L2c5a6kJea1meaxn+a1t+WugeW4gumSseaxn+ilv+i3rzEwNy0xMDnlj7dkAiQPZBYCZg8VAifljqbpl6jmmbrlpJrlpJrmlZnogrLnp5HmioDmnInpmZDlhazlj7g15Y6m6Zeo5biC5oCd5piO5Yy66I6y5YmN5Lic6LevNDA55Y+36IGU5Liw5aSn5Y6mMTDmpbxkAiUPZBYCZg8VAiTmiJDpg73mlY/liqjmlofljJbkvKDmkq3mnInpmZDlhazlj7hG5oiQ6YO95biC5aSp5bqc5paw5Yy65aSp5bqc5aSn6YGT5Y2X5q61MjAzOeWPt+WkqeW6nOiPgeiTieWkp+WOpjHvvI00M2QCJg9kFgJmDxUCJOa1juWNl+W5v+eIseaWh+WMluS8oOaSreaciemZkOWFrOWPuCbmtY7ljZfluILljobkuIvljLrmmI7muZbkuJzot683ODfvvI0yM2QCJw9kFgJmDxUCLeW5v+W3nueUsOeUsOiLkeaWh+WMlua0u+WKqOetluWIkuaciemZkOWFrOWPuDXlub/lt57luILnlarnprrljLrpm4XlsYXkuZDlsI/ljLroirHlt7fllYbkuJrooZcxNeWPt2QCKA9kFgJmDxUCUOW5v+W3nuW4guaipuetkeaVmeiCsuS/oeaBr+WSqOivouaciemZkOWFrOWPuCjlub/lt57nmb3kupHml7bku6PnjqvnkbDlm63kuK3lv4MpPuW5v+W3nuW4gueZveS6keWMuum7hOi+ueWMl+i3r+WQkeiNo+ihlzI4OOWPt++8iDgy5Y+35ZWG6ZO677yJZAIpD2QWAmYPFQJH5bm/5bee5biC5qKm562R5pWZ6IKy5L+h5oGv5ZKo6K+i5pyJ6ZmQ5YWs5Y+4KOW5v+W3nueZveS6keWyreWNl+S4reW/gylH5bm/5bee5biC55m95LqR5Yy655m95LqR5aSn6YGT5YyX5bKt5Y2X5paw5LiW55WM6ZuG5L+K6KGXNzDlj7cxMTHllYbpk7pkAioPZBYCZg8VAjPkuIrmtbfotoXls7DmlofljJbkvKDmkq3mnInpmZDlhazlj7jplb/mspnliIblhazlj7gy6ZW/5rKZ5biC6L2m56uZ5YyX6LevMjI45Y+3546L5bqc6Iqx5ZutMTDmoIs4MDLlrqRkAisPZBYCZg8VAjPkuIrmtbfotoXls7DmlofljJbkvKDmkq3mnInpmZDlhazlj7jlub/lt57liIblhazlj7gu5bm/5bee5biC55Wq56a65Yy65Li95rGf6Iqx5Zut5paw5a6J6KGXN+WPt+mTumQCLA9kFgJmDxUCJOS4iua1t+i2heWzsOaWh+WMluS8oOaSreaciemZkOWFrOWPuD/kuIrmtbfmtabkuJzmlrDljLrplb/muIXot685MuWPt+aWsOi3r+i+vumVv+mdkuekvuWMuuS6jOalvE3ljLpkAi0PZBYCZg8VAijmu6jlt57ogrLlhbbkuZDmlZnogrLoo4XlpIfmnInpmZDlhazlj7ggVuWxseS4nOecgeS4nOiQpeW4guilv+WfjuWMuuilv+S4iei3r+WkqeaIkOaBkuS/oeenkeaKgOWkp+WOpkLluqcz5qW85py65Zmo5Lq65L+x5LmQ6YOoZAIuD2QWAmYPFQIn5bm/5bee6L+q5pm65bC85paH5YyW5Lyg5pKt5pyJ6ZmQ5YWs5Y+4KuW5v+W3nuW4gueZveS6keWMuum7hOi+ueWMl+i3rzYz5Y+3NOagizIwOGQCLw9kFgJmDxUCSOWGheiSmeWPpOaWsOWKv+iDveacuuWZqOS6uuaVmeiCsuenkeaKgOaciemZkOWFrOWPuO+8iOmEguWwlOWkmuaWr+W6l++8iT7phILlsJTlpJrmlq/luILkuJzog5zljLrkvIrph5HpnI3mtJvkuJzooZc35Y+35YW05rOw5aSn5Y6mM+WxgmQCMA9kFgJmDxUCJOadreW3nuaYn+aDs+aVmeiCsuenkeaKgOaciemZkOWFrOWPuDnmna3lt57luILokKflsbHljLrln47ljqLooZfpgZPljJflubLkuIDoi5Hm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" />
+
+
+<script src="/ScriptResource.axd?d=PPSpsFuJF5B9eNDLVn4e53X8fXnkmlOg49XCXQERib9ZR08uM4dzAma8vV3weDhKtzGOatthQOyOLDbz3Sw8EN-qKj3yGPg_GNAfma_l0DM1&amp;t=5f011aa5" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+        <div id="container">
+            <div id="warpper">
+                <div id="header">
+                    <div class="head_r">
+                        <div class="head_rlin">
+                            <ul class="removefloat headnav">
+                                
+                                
+                                
+                                <li id="ctl00_v2" class="yhm_xlcd">
+                                    <a href="javascript:void(0)" id="example">登录
+                                    </a>
+                                    <i>|</i>
+                                    <a href="http://www.semia.com/Service/Register.aspx">注册
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.semia.com/">Semia官网
+                                    </a>
+                                </li>
+                                <li id="ctl00_Li1" class="yhm_xlcd1">
+                                    <a class="arrowxl1" href="#">其他赛事
+                                    </a>
+                                    <ul class="headnav_xl1" style="display: none;">
+                                        <li><a href="http://www.firstchina.org.cn/JrFLL/" target="_blank">JR.FLL</a></li>
+                                        <li><a href="http://www.firstchina.org.cn/FLL/" target="_blank">FLL</a></li>
+                                        <li><a href="http://www.firstchina.org.cn/FTC/" target="_blank">FTC</a></li>
+                                        <li><a href="http://www.firstchina.org.cn/FRC/" target="_blank">FRC</a></li>
+                                        <li><a href="http://brick4stem.semia.com/" target="_blank">小手拼出大世界</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+    
+<div class="head_middle">
+    <div class="head_sy">
+        <div class="head_logo">
+            <a href="###">
+                <img src="images/wro/wro_logo.png" />
+            </a>
+        </div>
+        <div class="nav">
+            <ul id="webmenu" class="first-menu">
+                <li><a href="Index.aspx">首页</a>
+
+                </li>
+                <li><a href="../AboutWRO.aspx?typeid=1">关于WRO</a></li><li><a href="../AboutWRO.aspx?typeid=8">赛事规则</a> <ul class="second-menu" id="subMusic"><li><a class="arrow"  href="#">2018赛季</a><ul class="third-menu"><li><a class="arrow"  href="#">常规赛</a><ul class="third-menu"><li><a  href="../AboutWRO.aspx?typeid=8&id=64">小学组</a><li><a  href="../AboutWRO.aspx?typeid=8&id=65">初中组</a><li><a  href="../AboutWRO.aspx?typeid=8&id=66">高中组</a></ul><li><a  href="../AboutWRO.aspx?typeid=8&id=50">工程赛</a><li><a  href="../AboutWRO.aspx?typeid=8&id=49">创意赛</a><li><a  href="../AboutWRO.aspx?typeid=8&id=55">足球世界杯</a><li><a  href="../AboutWRO.aspx?typeid=8&id=56">金属机器人足球</a><li><a  href="../AboutWRO.aspx?typeid=8&id=62">WeDo2.0 点球赛</a></ul></ul></li><li><a href="../RegWRO.aspx?typeid=15">组队报名</a> <ul class="second-menu" id="subMusic"><li><a  href="../RegWRO.aspx?typeid=15&id=16">登录</a><li><a  href="../RegWRO.aspx?typeid=15&id=19">组队报名</a><li><a  href="MyTeams.aspx?typeid=15&id=20" target="_blank" >队伍管理</a></ul></li><li><a href="../Questionshead.aspx?typeid=23">问题解答</a></li><li><a href="?typeid=52">赛季总则</a> <ul class="second-menu" id="subMusic"><li><a  href="?typeid=52&id=54">总则</a></ul></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                
+    <div id="banner">
+        <!--banner开始-->
+        <div class="firstbanner">
+            
+            <div id="slider" class="zbanner">
+                <img src='/Ad/636524784499453750.jpg' alt='' title="#btitle1"><img src='/Ad/635702417861354086.jpg' alt='' title="#btitle2"><img src='/Ad/635702434757783120.jpg' alt='' title="#btitle3"><img src='/Ad/635702435256408780.jpg' alt='' title="#btitle4">
+            </div>
+             <div id='btitle1' class="nivo-html-caption"><span>2018 赛季主题</span><a href='#'></a></div> <div id='btitle2' class="nivo-html-caption"><span>WRO</span><a href='#'></a></div> <div id='btitle3' class="nivo-html-caption"><span>WRO</span><a href='#'></a></div> <div id='btitle4' class="nivo-html-caption"><span>WRO</span><a href='#'></a></div>
+        </div>
+
+        <!--banner结束-->
+        <!--新闻这块开始-->
+        <div class="banner_r">
+            <!--最新通知开始-->
+            <div class="banner_tx">
+                <div class="jrftx_bar">
+                    <span class="fgdd">
+                        <a href="WROList.aspx?type=1&ntype=1">+查看更多</a>
+                    </span>
+                    <h3>最新通知</h3>
+                </div>
+                <ul>
+                    
+                    
+                            <li>
+                                <span class="sj">2017-10-09</span>
+                                <a href="WRONews.aspx?id=198">乐高活动中心STEM技能秀-We... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-08-21</span>
+                                <a href="WRONews.aspx?id=195">2017WRC赛事酒店 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-08-15</span>
+                                <a href="WRONews.aspx?id=193">Robocom国际公开赛参赛队伍... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-07-20</span>
+                                <a href="WRONews.aspx?id=192">2017 WRO世界青少年机器人... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-07-18</span>
+                                <a href="WRONews.aspx?id=191">重要附件：2017WRO世界青少... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-07-17</span>
+                                <a href="WRONews.aspx?id=190">2017WRO常规赛小学组补充重... 
+                                </a>
+                            </li>
+                        
+                </ul>
+            </div>
+            <!--最新通知结束-->
+            <!--成绩公示开始-->
+            <div class="banner_tx">
+                <div class="jrftx_bar">
+                    <span class="fgdd">
+                        <a href="WROList.aspx?type=1&ntype=2">+查看更多
+                        </a>
+                    </span>
+                    <h3>成绩公示</h3>
+                </div>
+                <ul>
+                    
+                            <li>
+                                <span class="sj">2017-10-31</span>
+                                <a href="WRONews.aspx?id=200">乐高活动中心STEM技能秀-We... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-09-07</span>
+                                <a href="WRONews.aspx?id=197">2017WRC成绩 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-09-07</span>
+                                <a href="WRONews.aspx?id=196">2017WRO武汉成绩公示 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2016-08-23</span>
+                                <a href="WRONews.aspx?id=175">2016 WRO 中国总决赛We... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2016-08-22</span>
+                                <a href="WRONews.aspx?id=174">2016 WRO 中国总决赛成绩... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2016-08-09</span>
+                                <a href="WRONews.aspx?id=170">2016 WRO 东南区-福州站... 
+                                </a>
+                            </li>
+                        
+                </ul>
+            </div>
+            <!--成绩公示结束-->
+            <!--新闻动态开始-->
+            <div class="banner_tx" style="margin-right: 0px;">
+                <div class="jrftx_bar">
+                    <span class="fgdd">
+                        <a href="WROList.aspx?type=1&ntype=3">+查看更多
+                        </a>
+                    </span>
+                    <h3>新闻动态</h3>
+                </div>
+                <ul>
+                    
+                            <li>
+                                <span class="sj">2017-11-13</span>
+                                <a href="WRONews.aspx?id=213">图解2017WRO国际赛竞赛 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-11-13</span>
+                                <a href="WRONews.aspx?id=205">驻哥斯达黎加大使汤恒出席2017... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-11-13</span>
+                                <a href="WRONews.aspx?id=203">世界机器人奥林匹克赛开幕 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-06-04</span>
+                                <a href="WRONews.aspx?id=177">WRO2017各赛赛项解决方案资... 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2017-02-07</span>
+                                <a href="WRONews.aspx?id=176">2016WRO国际赛赛事报道 
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <span class="sj">2015-08-04</span>
+                                <a href="WRONews.aspx?id=124">2015年WRO华南区-衡阳站火... 
+                                </a>
+                            </li>
+                        
+                </ul>
+            </div>
+            <!--新闻动态结束-->
+        </div>
+        <!--新闻这块结束-->
+    </div>
+    <div class="zwhcx">
+        <div class="zwhcx_left">
+            <!--滚动这块开始-->
+            <div class="firstcop">
+                <div class="first_zwhs">
+                    <img src="images/wro/zwhs.png" />
+                </div>
+                <div class="firstlistc">
+                    <table class="tablist">
+                        <caption>组委会已批准赛区</caption>
+                        <tr>
+                            <th width="225">赛事名称</th>
+                            <th width="135">赛事地点</th>
+                            <th width="90">赛事时间</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div id="dome">
+                                    <div id="dome1">
+                                        <table id="osb">
+
+                                            
+                                                    <tr>
+                                                        <td width="225">金砖国家青少年创客大赛</td>
+                                                        <td width="135">云南昆明</td>
+                                                        <td width="90">2017-08-18</td>
+                                                    </tr>
+                                                
+                                                    <tr>
+                                                        <td width="225">2017 WRO 5+2专项赛</td>
+                                                        <td width="135">湖南长沙世纪金源大酒店</td>
+                                                        <td width="90">2017-07-15</td>
+                                                    </tr>
+                                                
+                                                    <tr>
+                                                        <td width="225">2017 WRO华中区选拔赛</td>
+                                                        <td width="135">湖南第一师范学院</td>
+                                                        <td width="90">2017-07-08</td>
+                                                    </tr>
+                                                
+                                        </table>
+                                    </div>
+                                    <div id="dome2"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--滚动这块结束-->
+        <div class="zwhcx_right">
+            <table class="cszzdw">
+                <caption>参赛组织单位</caption>
+                <tr>
+                    
+                    <th width="171px">单位名称</th>
+                    <th width="171px">地址</th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="gd">
+                            <div id="gd1">
+                                <table id="osbgd">
+
+                                    
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市巧颗粒教育咨询管理有限公司</td>
+                                                <td width="171px">深圳龙华区观澜博强路懿花园C9商铺D36</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">杭州梦源教育科技有限公司</td>
+                                                <td width="171px">杭州市仓前街道景兴路999号6栋209-1-898</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州紫曦教育发展有限公司</td>
+                                                <td width="171px">广州市番禺区兴南大道33号桥兴大厦621室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">佛山市浩鹏文化传播有限公司</td>
+                                                <td width="171px">广东佛山三水西南教育东路11号东海南湾13座115号（左岸公园正对面）</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">哈尔滨安德艾科科技有限公司</td>
+                                                <td width="171px">哈尔滨王府井购物中心三楼007号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">河北多创科技有限公司</td>
+                                                <td width="171px">河北省邢台市桥东区天一城大洋百货A座</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">爱得青少年创客活动中心-生态城校区</td>
+                                                <td width="171px">天津市滨海新区中新生态城宜和汇（美逸广场）5-203</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">创意智能文化传播有限公司</td>
+                                                <td width="171px">深圳市龙岗区中心城家和盛世一期商铺一楼132-133创意机器人</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市乐梵达文化传播有限公司</td>
+                                                <td width="171px">深圳宝安区兴业路3004号七巧国儿童城碧海店四楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">衡阳市趣玩吧文化传播有限公司</td>
+                                                <td width="171px">衡阳市华新开发区白云路与回雁路交汇处</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海超峰文化传播公司合肥分公司</td>
+                                                <td width="171px">合肥市政务区南二环路3818号天鹅湖万达写字楼708室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">珠海市奥勒教育投资有限公司</td>
+                                                <td width="171px">珠海市香洲区上华路二号中珠九悦商业中心二楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳乐启发文化传播有限公司</td>
+                                                <td width="171px">深圳市龙华新区幸福枫景小区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州妙曼文化传播有限公司</td>
+                                                <td width="171px">广州市增城区新塘碧桂园凤凰酒店妙曼艺体中心</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">陕西安康市智童教育咨询有限公司</td>
+                                                <td width="171px">安康市长兴国际商业街4号商铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳特瑞普文化传播有限公司</td>
+                                                <td width="171px">深圳市宝安西乡桃源居14区邦德培训中心一楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">佛山市成长树文化传播有限公司</td>
+                                                <td width="171px">广东省佛山市顺德区大良太艮路海悦新城158</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">长沙乐冉教育咨询有限公司</td>
+                                                <td width="171px">长沙市雨花区茂华国际湘B17栋105５商铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">卓凡教育咨询有限公司</td>
+                                                <td width="171px">湖南湘潭市岳塘区金侨世纪苑小区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">武汉爱励国际教育俱乐部</td>
+                                                <td width="171px">武汉市洪山区楚河汉街三街区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">河南超创教育科技有限公司</td>
+                                                <td width="171px">郑州市金水区宏图街与聚源路交叉口向西50米路南  </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市英杰国际教育有限公司</td>
+                                                <td width="171px">深圳市大鹏新区大鹏街道中山路71号-3</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">大连万鼎商业管理有限公司</td>
+                                                <td width="171px">辽宁省大连市甘井子区周水子广场万科蓝山商业内街6号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px"> 昆山旭晟企业管理有限公司</td>
+                                                <td width="171px">上海市昆山市玉山镇人民南路1188号昆城广场1号楼3楼308</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">汕头市澄海区和新顺信息技术有限公司</td>
+                                                <td width="171px">广东省汕头市澄海区玉潭路跟文冠路交界处乐艺N+1</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">唐城卡巴（北京）教育科技有限公司</td>
+                                                <td width="171px">北京市海淀区京颐科技大厦三层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">艾迪沃克国际教育科技（北京）有限公司</td>
+                                                <td width="171px">北京市房山良乡华冠购物中心西侧3层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">明德优尚（吉林）教育科技有限公司</td>
+                                                <td width="171px">吉林省长春市二道区北环城路以北、金钱路以西力旺康城第二十三栋105号房</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">安阳市哲易教育咨询有限公司</td>
+                                                <td width="171px">河南省安阳市文峰区义乌国际商贸城1-2号楼1单元18-2号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">火星人视野（北京）教育科技有限公司（兴融中心）</td>
+                                                <td width="171px">北京市西城区闹市口大街1号长安兴融中心3号楼814</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">西安万科商业运营管理有限公司第三分公司</td>
+                                                <td width="171px">西安市长安区郭杜街办茅坡村西侧万科城社区服务中心一层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">惠州市贝思乐教育咨询有限公司</td>
+                                                <td width="171px">广东惠州市惠阳淡水东华大道中英之皇商业文化中心2号楼3-4层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市乐高乐教育投资发展有限公司</td>
+                                                <td width="171px">深圳市福田区石厦新天地世纪商务中心B座711</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">沈阳泰达商贸有限公司</td>
+                                                <td width="171px">沈阳市和平区云集街48号2-4-1</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">淮安市思力创智能科技有限公司</td>
+                                                <td width="171px">江苏省淮安市经济技术开发区海口路9号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">海宁市海洲街道善智文体策划工作室</td>
+                                                <td width="171px">浙江海宁市钱江西路107-109号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">厦门智多多教育科技有限公司</td>
+                                                <td width="171px">厦门市思明区莲前东路409号联丰大厦10楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">成都敏动文化传播有限公司</td>
+                                                <td width="171px">成都市天府新区天府大道南段2039号天府菁蓉大厦1－43</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">济南广爱文化传播有限公司</td>
+                                                <td width="171px">济南市历下区明湖东路787－23</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州田田苑文化活动策划有限公司</td>
+                                                <td width="171px">广州市番禺区雅居乐小区花巷商业街15号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州市梦筑教育信息咨询有限公司(广州白云时代玫瑰园中心)</td>
+                                                <td width="171px">广州市白云区黄边北路向荣街288号（82号商铺）</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州市梦筑教育信息咨询有限公司(广州白云岭南中心)</td>
+                                                <td width="171px">广州市白云区白云大道北岭南新世界集俊街70号111商铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海超峰文化传播有限公司长沙分公司</td>
+                                                <td width="171px">长沙市车站北路228号王府花园10栋802室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海超峰文化传播有限公司广州分公司</td>
+                                                <td width="171px">广州市番禺区丽江花园新安街7号铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海超峰文化传播有限公司</td>
+                                                <td width="171px">上海浦东新区长清路92号新路达长青社区二楼M区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">滨州育其乐教育装备有限公司 </td>
+                                                <td width="171px">山东省东营市西城区西三路天成恒信科技大厦B座3楼机器人俱乐部</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州迪智尼文化传播有限公司</td>
+                                                <td width="171px">广州市白云区黄边北路63号4栋208</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">内蒙古新势能机器人教育科技有限公司（鄂尔多斯店）</td>
+                                                <td width="171px">鄂尔多斯市东胜区伊金霍洛东街7号兴泰大厦3层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">杭州星想教育科技有限公司</td>
+                                                <td width="171px">杭州市萧山区城厢街道北干一苑明日幼儿园</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">火星人视野（北京）教育科技有限公司</td>
+                                                <td width="171px">北京市西城区西什库大街31号院</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">沈阳市新城子区虎石台光明综合商店</td>
+                                                <td width="171px">沈阳市沈北新区虎石台镇兴明街15-7号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">青岛达内软件科技有限公司</td>
+                                                <td width="171px">青岛市市北区延吉路76号中海大厦1602室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京童程童美科技有限公司万寿路校区</td>
+                                                <td width="171px">北京市海淀区复兴路47号天行建商务大厦1106</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京童程童美科技有限公司广渠门校区</td>
+                                                <td width="171px">北京市东城区广渠家园25号启达大厦4层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京童程童美科技有限公司望京校区</td>
+                                                <td width="171px">北京市朝阳区广顺北大街19号六佰本南区4层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市奥贝优文化传播发展有限公司</td>
+                                                <td width="171px">深圳市龙岗中心城欧景花园三期11号楼商场010号铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">百变创享国际儿童创意中心(福田区委中心)</td>
+                                                <td width="171px">广东省深圳市福田区石厦北二街89号石厦新港商城3楼313号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">百变创享国际儿童创意中心(龙岗万科中心)</td>
+                                                <td width="171px">广东省深圳市龙岗区龙翔大道7188号万科广场4楼03-04号铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">百变创享国际儿童创意中心(宝安海雅中心)</td>
+                                                <td width="171px">广东省深圳市宝安区前进一路99号海雅缤纷城3楼L3-069</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">信阳市羊山区新区机器人俱乐部</td>
+                                                <td width="171px">信阳市羊山新区新三路外国语小学西60米路南 </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">苏州乐科文化信息咨询有限公司</td>
+                                                <td width="171px">江苏省苏州市苏州园区中新大道西229号万科美好广场L212</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美郑州金水路校区</td>
+                                                <td width="171px">河南省郑州市金水区文化路9号永和国际3层达内会计中心</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美昆明旗舰校区</td>
+                                                <td width="171px">昆明市五华区如安街如安3号商务楼5楼童程童美</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美天津和平校区</td>
+                                                <td width="171px">天津市和平区贵州路18号君悦大厦A座5层502室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美深圳南山校区</td>
+                                                <td width="171px">深圳市南山区南山大道1175号新绿岛大厦6楼A</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美上海徐汇校区</td>
+                                                <td width="171px">上海市浦东新区浦东南路1088号1楼18号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美陕西西安百盛校区</td>
+                                                <td width="171px">西安市碑林区长安北路14号西安国际奥林匹克中心广场B座第3幢15层11501室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美广西南宁校区</td>
+                                                <td width="171px">广西南宁市青秀区东葛路118号青秀万达西2栋35楼3501-3511号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美北京万寿路校区</td>
+                                                <td width="171px">北京市海淀区复兴路天行健商务大厦1106</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美北京金源校区</td>
+                                                <td width="171px">北京市海淀区远大路1号金源购物中心6层青苗荟6001</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京市东城区广渠家园25号启达大厦</td>
+                                                <td width="171px">达内童程童美北京广渠门校区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京市东城区广渠家园25号启达大厦</td>
+                                                <td width="171px">达内童程童美北京广渠门校区</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美北京望京校区</td>
+                                                <td width="171px">北京市朝阳区望京陆百本商业街南区4层达内童程童美</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美北京回龙观校区</td>
+                                                <td width="171px">北京市昌平区回龙观西大街龙冠置业大厦11层南侧</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">中山市颗粒教育科技有限公司</td>
+                                                <td width="171px">中山市石岐区恒基花园1-3栋13卡</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳智乐高文化传播有限公司</td>
+                                                <td width="171px">深圳市宝安区宝安中心宏发领域商铺A31智乐高机器人</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">乐启机器人</td>
+                                                <td width="171px">郑州市棉纺路66号鑫苑国际城市花园三楼12号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">比特橙子（广州）教育科技有限公司</td>
+                                                <td width="171px">广州市番禺区汉溪大道东万达广场综合楼5楼501房-5006</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">哲思文化传媒（深圳）有限公司</td>
+                                                <td width="171px">深圳市后海滨路澳城花园156号铺</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">杭州爱高创客科技服务有限公司</td>
+                                                <td width="171px">杭州市滨江区江南大道4342号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">天津童程童美科技有限公司</td>
+                                                <td width="171px">天津市南开区白堤路与航天道交口农科大厦16层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">杭州爱禾达文化艺术有限公司</td>
+                                                <td width="171px">杭州市余杭区东湖街道超峰西路6号3幢1层1-1号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">石家庄达内软件科技有限公司</td>
+                                                <td width="171px">河北省石家庄市体育大街与谈南路交叉口睿和中心2309</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">张家港沃本思维拓展培训有限公司</td>
+                                                <td width="171px">张家港市吾悦商业广场</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">武汉童程童美科技有限公司</td>
+                                                <td width="171px">武汉市东西湖区常青花园地铁站汇和城二层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市九叠文化创意有限公司</td>
+                                                <td width="171px">深圳市坪山区招商花园城北区S1216</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">蚌埠市柚子创拼教育咨询有限公司</td>
+                                                <td width="171px">安徽省蚌埠市凤凰大厦A座1712室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">天津市北辰区智酷砌砖科技信息咨询中心</td>
+                                                <td width="171px">天津市北辰区瑞景街宝翠瞰景园9-1</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">中山乐上教育科技有限公司</td>
+                                                <td width="171px">中山市东区博爱六路28号远洋广场5幢5区201卡之二</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">摩比思创（北京）教育科技有限公司</td>
+                                                <td width="171px">北京市海淀区中关村大街18号（中关村科技发展大厦）20层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">扬州乐橙希文化传播有限公司</td>
+                                                <td width="171px">扬州市宝应县五洲国际三楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">厦门市开普洛教育咨询有限公司</td>
+                                                <td width="171px">厦门市湖里区嘉禾路388号永同昌大厦1楼A1</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">营口玖月教育咨询有限公司</td>
+                                                <td width="171px">辽宁省营口市站前区永江城市花园20-37号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市乐敦文化发展有限公司</td>
+                                                <td width="171px">深圳市龙岗区龙岗大道2999号麟恒中心广场一期三楼L301</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市宝安区达内软件职业培训中心</td>
+                                                <td width="171px">深圳市南山区新绿岛大厦6A达内教育</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广东饶教授文化教育科技有限公司</td>
+                                                <td width="171px">广州天河车陂西路21号801房</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市耀中管理咨询有限公司</td>
+                                                <td width="171px">深圳市福田区福田街道福华三路星河国际花园D2栋首层101室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">合肥达内软件有限公司第三分公司</td>
+                                                <td width="171px">安徽省合肥市蜀山区长江西路长丰路交口环球金融广场B座8楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州圆智方科技有限公司</td>
+                                                <td width="171px">广州市天河区兴盛路12号316号、321-328号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">台州市慧露教育科技有限公司</td>
+                                                <td width="171px">浙江省台州市黄岩区西城街道劳动南路273号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广东梅沙教育发展有限公司</td>
+                                                <td width="171px">广东省佛山市南海区南海万科广场16楼梅沙教育公司</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">盘锦大洼区乐玩玩具销售中心</td>
+                                                <td width="171px">辽宁省盘锦市兴隆台区双兴南路163号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">青岛乐源教育咨询有限公司</td>
+                                                <td width="171px">青岛市黄岛区（胶南）灵山湾路1798号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">湖南省茁研教育科技有限公司</td>
+                                                <td width="171px">湖南省衡阳市蒸湘区红湘北路76号都市村庄8-1号楼201室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">寰烁科技股份有限公司</td>
+                                                <td width="171px">北京市朝阳区常通路3号院1号楼24层1单元2801</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">宜宾南博电子科技有限公司</td>
+                                                <td width="171px">四川省自贡市自流井区南湖路666号南湖公园西侧华商国际城5号楼时尚体验馆二楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">相城区太平魔法积木玩具体验中心</td>
+                                                <td width="171px">苏州相城区太平邻里家三楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">宜昌欲学科技有限公司</td>
+                                                <td width="171px">宜昌市伍家岗区夷陵大道190-72</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">内蒙古恩睿教育传播有限公司</td>
+                                                <td width="171px">内蒙古鄂尔多斯市东胜区东环路3号街坊万正商城9号楼5层5024</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">莆田市爱动教育科技有限公司</td>
+                                                <td width="171px">福建省莆田市荔城区延寿路问道教育大厦六楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">江苏童创教育科技有限公司</td>
+                                                <td width="171px">江苏省连云港市海州区瀛洲路东16号桂菊苑A9号写字楼6层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳市贝贝乐教育科技有限公司</td>
+                                                <td width="171px">深圳市龙岗区阳光天健城1栋025</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">宁波乐禾教育科技有限公司</td>
+                                                <td width="171px">浙江省宁波市江北区长兴路689弄21号10幢112室托管1432</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">陕西奇璟科技有限公司</td>
+                                                <td width="171px">西安市大唐西市六格三层6F3110/3109</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海云煦投资有限公司</td>
+                                                <td width="171px">上海市浦东三林路128号6幢6501</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">乔恩米特机器人盟校 </td>
+                                                <td width="171px">郑州市金水区国基路与丰华北路西南角</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">达内童程童美四川成都锦江校区</td>
+                                                <td width="171px">成都锦江区芷泉段229号东方广场C座303</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">百变创享国际儿童创意中心(南山万花筒中心)</td>
+                                                <td width="171px">广东省深圳市南山区桃园路167号万花筒购物概念街4楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">湖南好小子机器人科技有限公司河西郡原店</td>
+                                                <td width="171px">长沙市岳麓区金星中路468号郡原广场3-103</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">湖南好小子机器人科技有限公司富兴校区店</td>
+                                                <td width="171px">天心区友谊路与万芙路交汇处富兴嘉城中央金街8栋二层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">湖南好小子机器人科技有限公司省图书馆店</td>
+                                                <td width="171px">芙蓉区韶山北路湖南省图书馆培训楼4楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广州奥博教育咨询有限公司</td>
+                                                <td width="171px">广州市越秀区寺右新马路汇景大厦408</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">丽水市莲都区努比创客艺术培训中心</td>
+                                                <td width="171px">浙江省丽水市莲都区城东路158号2楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">西安润科企业管理咨询有限公司</td>
+                                                <td width="171px">西安市碑林区雁塔北路李家村万达广场2栋1单元1104</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">西安晟文婴童用品有限公司</td>
+                                                <td width="171px">西安市新城区长缨路华东万和城1栋30803号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">广东佛山南海百变天才儿童创意科技中心</td>
+                                                <td width="171px">佛山南海桂城保利水城3楼3A013</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京童程童美科技有限公司大钟寺校区</td>
+                                                <td width="171px">北京市海淀区北三环西路甲18号中坤广场E座10层10017</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">青岛怡文科技咨询有限公司</td>
+                                                <td width="171px">青岛市崂山区秦岭路18号会展中心三期1号楼2层216</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳科技园乐高活动中心</td>
+                                                <td width="171px">深圳市南山区科兴路科技园科兴路汇景豪苑群楼科技园文化广场二楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">深圳福田乐高活动中心</td>
+                                                <td width="171px">深圳市福田区景田北路妇儿大厦主楼9楼901</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">苏州水上乐园乐高活动中心</td>
+                                                <td width="171px">江苏省苏州市高新区玉山路166号水上世界商业广场B区三楼乐高活动中心</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">南京龙江乐高活动中心</td>
+                                                <td width="171px">南京中海环宇城3楼L325，L327</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">南京凤凰书城乐高活动中心</td>
+                                                <td width="171px">南京湖南路1号凤凰书城五楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海八佰伴乐高活动中心</td>
+                                                <td width="171px">上海张杨路501号第一八佰伴8楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海龙柏乐高活动中心</td>
+                                                <td width="171px">上海市闵行区虹井路288号乐虹坊3楼319-320室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海五角场乐高活动中心</td>
+                                                <td width="171px">上海市杨浦区政立路150号江湾体育场环廊118-120号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海梅陇乐高活动中心</td>
+                                                <td width="171px">上海市莲花南路1500弄麦多广场11号楼103室</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">上海雁荡路乐高活动中心</td>
+                                                <td width="171px">上海市雁荡路100号5号楼3楼</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">青岛妇儿中心乐高活动中心</td>
+                                                <td width="171px">青岛市妇女儿童活动中心妇儿之家东门，负一层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京西山万科乐高活动中心</td>
+                                                <td width="171px">北京市海淀区肖家河天秀路万科西山庭院西山会二层</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京回龙观乐高活动中心</td>
+                                                <td width="171px">北京市昌平区回龙观龙跃苑四区2号楼底商9-10号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">北京知春路乐高活动中心</td>
+                                                <td width="171px">北京市海淀区知春路甲48号盈都大厦C座二单元10B</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">成都知仪文化传播有限公司</td>
+                                                <td width="171px">成都市新都区毗河东路双河鹭岛25栋1单元2号</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                               
+                                                <td width="171px">榆林学优教育培训管理有限公司</td>
+                                                <td width="171px">榆林市保宁西路福安西巷东3排1号</td>
+                                            </tr>
+                                        
+                                </table>
+                            </div>
+                            <div id="gd2"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="con_t">
+        <div class="cont_wro">
+            
+            <div class="cxjsp">
+                <a href="WROList.aspx?type=2">
+                    <img src="images/wro/sp.jpg" />
+                </a>
+            </div>
+            <div class="cxjsp" style="margin-right: 0px;">
+                <div class="cxjsp_bar">
+                    <h3>参赛组织单位</h3>
+                </div>
+                <div class="cxjsp_cont">
+                    <div class="zcx">
+                        <div class="wrozcx_q">
+                            所在地区：
+                        </div>
+                        <div class="wroptextw">
+                            
+                            <div id="ctl00_Texts_UpdatePanel1">
+	
+                                    
+                                    <select name="ctl00$Texts$aprovince" id="ctl00_Texts_aprovince" class="wrozjs">
+		<option selected="selected" value="">省份</option>
+		<option value="1">北京市</option>
+		<option value="2">上海市</option>
+		<option value="3">天津市</option>
+		<option value="4">重庆市</option>
+		<option value="5">山东省</option>
+		<option value="6">河北省</option>
+		<option value="7">山西省</option>
+		<option value="8">内蒙古</option>
+		<option value="9">辽宁省</option>
+		<option value="10">吉林省</option>
+		<option value="11">黑龙江省</option>
+		<option value="12">江苏省</option>
+		<option value="13">浙江省</option>
+		<option value="14">安徽省</option>
+		<option value="15">福建省</option>
+		<option value="16">江西省</option>
+		<option value="17">河南省</option>
+		<option value="18">湖北省</option>
+		<option value="19">湖南省</option>
+		<option value="20">广东省</option>
+		<option value="21">广西省</option>
+		<option value="22">四川省</option>
+		<option value="23">贵州省</option>
+		<option value="24">云南省</option>
+		<option value="25">西藏自治区</option>
+		<option value="26">陕西省</option>
+		<option value="27">甘肃省</option>
+		<option value="28">青海省</option>
+		<option value="29">宁夏自治区</option>
+		<option value="30">新疆自治区</option>
+		<option value="31">香港特区</option>
+		<option value="32">台湾省</option>
+		<option value="33">澳门特区</option>
+		<option value="34">海南省</option>
+
+	</select>
+                                    <select name="ctl00$Texts$acity" id="ctl00_Texts_acity" class="wrozjs">
+		<option selected="selected" value="">城市</option>
+
+	</select>
+                                    <select name="ctl00$Texts$aarea" id="ctl00_Texts_aarea" class="wrozjs">
+		<option value="">县区</option>
+
+	</select>
+                                
+</div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="zcx">
+                        <div class="wrozcx_q">
+                            单位名称：
+                        </div>
+                        <div class="wroptextw">
+                            <input class="y_tex" name="" type="text" id="orgname" />
+                        </div>
+                    </div>
+                    <div class="zcx">
+                        <div class="wrozcx_q">
+                            &nbsp;
+                        </div>
+                        <div class="wroptextw">
+                            <input class="wropbut" type="button" value="查询" onclick="orgsearch()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="content_r">
+                <div class="xce">
+                    <div class="xce_bar">
+                        <span class="fgd">
+                            <a href="#">
+                            </a>
+                        </span>
+                        <h3>瞬间风采</h3>
+                    </div>
+                    <center>
+								<div id="demoLeft">
+        <div class="indemo">
+            <div id="demo1">
+
+                
+                        <a href="#">
+                	        <img src="/Focus/635363798171372212.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635369721421281093.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635369724073781093.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423268381631250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276243662500.jpeg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423258792100000.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423267128037500.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423267806787500.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423268132100000.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276002412500.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276114912500.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276397100000.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276633506250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423277825381250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276940068750.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423277569756250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423276829131250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423277036006250.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635423277155693750.jpg" />
+                        </a> 
+                    
+                        <a href="#">
+                	        <img src="/Focus/635369715870499843.jpg" />
+                        </a> 
+                    
+            </div>
+            <div id="demo2">
+            </div>
+        </div>
+    </div>
+                            </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/rolling.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/jquery.nivo.slider.pack.js"></script>
+
+    <div class="popupmain popupmain_cs" style="width: 700px;" id="codelist">
+        <div class="popuptit">
+            <div class="guanbi">
+                <a href="javascript:void(0)" onclick="closeCode()"></a>
+            </div>
+            <h1>组队码查询</h1>
+        </div>
+        <div class="popupcont popupcont_cszz" style="width: 666px">
+            <div class="hdk" style="width: 666px;">
+                <table class="csdwlist" id="codetable">
+                    <tr>
+                        <th>组队码</th>
+                        <th>赛季</th>
+                        <th>使用状态</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>身份证号</th>
+                        <th>电话</th>
+                        <th>Email</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="popupmain popupmain_cs" style="" id="orglist">
+        <div class="popuptit">
+            <div class="guanbi">
+                <a href="javascript:void(0)" onclick="closeOrg()"></a>
+            </div>
+            <h1>参赛组织单位</h1>
+        </div>
+        <div class="popupcont popupcont_cszz">
+            <div class="hdk">
+                <table class="csdwlist" id="orgtable">
+                    <tr>
+                        <th>省市</th>
+                        <th>单位名称</th>
+                    </tr>
+                    <tr>
+                        <td>河北省保定市</td>
+                        <td>光中易信达科技有限公司</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+                <div id="z_c">
+                </div>
+                <div id="footer">
+                    <div class="jzw">
+                        <div class="zlink">
+                            <a class="j1" href="http://semia.com/" target="_blank">
+                                <img src="images/wro/semia.png" />
+                                <strong>西觅亚<br />
+                                    China</strong>
+                            </a>
+                            <a class="j2" href="http://www.semia.com/hk/" target="_blank">
+                                <img src="images/wro/semia.png" />
+                                <strong>西觅亚<br />
+                                    HongKong</strong>
+                            </a>
+                            <a class="j3" href="http://www.semia.com.cn/" target="_blank">
+                                <img src="images/wro/xmyjy.png" />
+                                <strong>西觅亚<br />
+                                    Education</strong>
+                            </a>
+                            <a class="j4" href="http://www.stemtalent.org.cn/" target="_blank">
+                                <img src="images/wro/rcw.png" />
+                                <strong>中国STEM<br />
+                                    人才资源网</strong>
+                            </a>
+                            <a class="j5" href="http://www.firstchina.org.cn/" target="_blank">
+                                <img src="images/wro/first.png" />
+                                <strong>FIRST<br />
+                                    China</strong>
+                            </a>
+                            <a class="j6" href="http://www.wroboto.cn/" target="_blank">
+                                <img src="images/wro/wro.png" />
+                                <strong>WRO<br />
+                                    China</strong>
+                            </a>
+                            <a class="j7" href="http://svr.semia.com/" target="_blank">
+                                <img src="images/wro/svr.png" />
+                                <strong>西觅亚<br />
+                                    虚拟机器人</strong>
+                            </a>
+                            <a class="j8" href="http://volunteer.semia.com/" target="_blank">
+                                <img src="images/wro/moe.png" />
+                                <strong>中国青少年<br />
+                                    机器人志愿者</strong>
+                            </a>
+                            <a class="j9" href="http://www.icaf.com.cn/" target="_blank">
+                                <img src="images/wro/gdz.png" />
+                                <strong>中社国际关怀<br />
+                                    孤独症儿童基金</strong>
+                            </a>
+
+
+                        </div>
+                    </div>
+                    
+
+                    <div class="bq">
+                        Copyright  2009 SEMIA. All Rights Reserved. 北京西觅亚科技有限公司 版权所有 
+京ICP备11008629号-1 技术支持：系统集成部
+                         <script src="http://s16.cnzz.com/stat.php?id=2784215&web_id=2784215&show=pic1" language="JavaScript"></script>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="popupmain" id="LoginBox">
+            <div class="popuptit">
+                <div class="guanbi">
+                    <a href="javascript:void(0)" title="关闭窗口" id="closeBtn"></a>
+                </div>
+                <h1>用户登录</h1>
+            </div>
+            <div class="popupcont login_tc">
+
+                <div class="line">
+                    <label class="pop_lable" for="signup-realname">用户名</label>
+                    <input name="ctl00$userguid" type="hidden" id="ctl00_userguid" />
+                    <div class="textbox_ui">
+                        <input name="ctl00$account" type="text" id="ctl00_account" class="p_text " />
+                        <div class="focus_text" style="display: none" id="div1">请输入用户名</div>
+                        <div class="required">
+                            <span id="ctl00_nouser"><font color="Red"></font></span>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <label class="pop_lable" for="signup_password">密码</label>
+                    <div class="textbox_ui">
+                        <input name="ctl00$pwd" type="password" id="ctl00_pwd" class="p_text" />
+                        <div style="display: none;" class="focus_text" id="div2">请输入密码</div>
+                        <div class="required">
+                            
+                            
+                            <span id="ctl00_nopwd"><font color="Red"></font></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line" style="height: 40px;">
+                    <label class="pop_lable" for="signup_hashcode_confirm">验证码</label>
+                    <div class="textbox_ui">
+                        <input name="ctl00$vcode" type="text" id="ctl00_vcode" class="p_textx" />
+                        <img src="/Manager/verifier.aspx" id="ctl00_safecode" alt="点击更换验证码" onclick="javascript:this.src=&#39;/Manager/verifier.aspx?id=&#39; + Math.random();" />
+                        <div style="display: none;" class="focus_text"></div>
+                        <div class="required" id="yanzheng">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sign_but">
+                    <input type="submit" name="ctl00$login" value="登录" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$login&quot;, &quot;&quot;, true, &quot;mlogin&quot;, &quot;&quot;, false, false))" id="ctl00_login" />
+                    
+                </div>
+                <div class="popup_tip">
+                    <span class="popup_zr">还没有账号？请先去<a class="myzc" href="http://www.semia.com/Service/Register.aspx" target="_blank">注册</a>
+                    </span>
+                    <a class="wjmm" href="http://www.semia.com/Service/BackPwd.aspx">忘记密码？</a>
+                </div>
+
+            </div>
+        </div>
+        <script type="text/javascript">
+            $("#example").click(function () {
+                $("body").append("<div id='mask'></div>");
+                $("#mask").addClass("mask").fadeIn("fast");
+                $("#LoginBox").fadeIn("fast");
+            });
+            $("#closeBtn").click(function () {
+                $("#LoginBox").fadeOut("fast");
+                $("#mask").css({ display: 'none' });
+            });
+        </script>
+    </form>
+</body>
+</html>

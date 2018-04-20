@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="description" content="Храните фото и документы, слушайте аудио и смотрите видео онлайн. FEX.NET - безопасный доступ к вашим файлам в любой точке мира.">
+    <meta id="mobileViewport" name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/lib/images/fav32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/lib/images/fav16.png" sizes="16x16" />
+    <script src='/lib/doT.min.js'></script>
+    <meta name="apple-itunes-app" content="app-id=1281961720">
+    <meta name="google-play-app" content="app-id=com.labracode.fex_android">
+    <script src='/lib/jquery-3.1.1.min.js'></script>
+    <script>
+        function detectTarget() {
+            var target_regex = /\?target_.+/gi;
+            var target_clear = /\?----/gi;
+            var targetMatch = target_regex.exec(location.href);
+            var clearTargetMatch = target_clear.exec(location.href);
+            if (targetMatch) {
+                localStorage.setItem(targetMatch[0].substring(1), '1');
+                window.history.replaceState({}, null, "/");
+                location.reload(true);
+            }
+            if (clearTargetMatch) {
+                Object.keys(localStorage).forEach(function (x) {
+                    if (x.startsWith('target_')) {
+                        localStorage.removeItem(x);
+                    }
+                });
+                window.history.replaceState({}, null, "/");
+                location.reload(true);
+            }
+            window.build = Object.keys(localStorage).find(function (x) {
+                return x.startsWith('target_');
+            });
+
+            if (!build) {
+                if (location.hostname === 'dev.fex.net') {
+                    build = 'target_local';
+                } else {
+                    build = "target_public";
+                }
+            }
+        }
+        window.onhashchange = detectTarget;
+        detectTarget();
+
+        function add(e, attrs) {
+            var deferred = $.Deferred();
+            var element = document.createElement(e);
+            Object.keys(attrs).forEach(function (key) {
+                element.setAttribute(key, attrs[key]);
+            })
+            element.onload = function () {
+                deferred.resolve();
+            }
+            element.onerror = function (err) {
+                console.error('Failed to load artifact');
+                throw err;
+            }
+            document.head.appendChild(element);
+            return deferred;
+        }
+        loadBuild = $.ajax({
+            url: '/d.json',
+            cache: false
+        }).then(function (d) {
+            bundlePath = d[build];
+            add('link', { rel: 'stylesheet', href: bundlePath + 'css/index.css' });
+            add('link', { rel: 'stylesheet', href: bundlePath + 'css/mobile.css', id: 'mobileStylesLink'});
+            return add('script', { src: bundlePath + 'js/index.js' });
+        });
+    </script>
+    <script src='/lib/flow.min.js'></script>
+    <script type="text/javascript" src="/lib/jquery.dotdotdot.min.js"></script>
+    <script type="text/javascript" src="/lib/clipboard.min.js?171017"></script>
+    <script src='/lib/moment-with-locales.js'></script>
+    <script type="text/javascript" src="/lib/clamp.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/jq-ui/jquery-ui.min.css?171017">
+    <script src="/lib/jq-ui/jquery-ui.min.js?171017"></script>
+    <script src="/lib/particleslider.js"></script>
+    <script src="/lib/selection-polyfill.js"></script>
+    <script src="/lib/cookie.js?3000010"></script>
+    <script src="/lib/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="/lib/jquery.mousewheel.min.js"></script>
+    <script src="/lib/qrcode.min.js"></script>
+    <script src="/lib/underscore.js"></script>
+    <script src="/lib/store.modern.min.js"></script>
+    <script src="/lib/slick.min.js?171017"></script>
+    <script src="/lib/intlTelInput.min.js"></script>
+    <script src="/lib/intlTelInput.utils.js"></script>
+    <script src="/lib/jquery.smartbanner.js"></script>
+    <script src="/lib/raven.min.js"></script>
+    <script src='/lib/current-device.min.js'></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title data-lang-text="file_exchange_service_fex">FEX.NET - облачный сервис хранения и передачи файлов</title>
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+    {'gtm.start': new Date().getTime(),event:'gtm.js'}
+    );var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MD3NK5R');</script> -->
+    <!-- End Google Tag Manager -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-96756671-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <script>
+        loadBuild.then(function () {
+            $.get(bundlePath + 'body.html').then(function (result) {
+                $(document.body).append(result);
+            });
+        });
+    </script>
+</body>
+
+</html>

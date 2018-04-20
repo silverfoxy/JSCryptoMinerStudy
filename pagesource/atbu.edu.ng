@@ -1,0 +1,410 @@
+<!-- This website is build using the angular framework. angular-1.3.8 -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ATBU Official Website</title>
+		<link rel="icon" href="app/assets/image/atbulogo.png" type="shortcut-icon">
+		<link type="text/css" rel="stylesheet" href="app/assets/css/sms.css">
+		<link type="text/css" rel="stylesheet" href="app/assets/lib/semantic/semantic.min.css" /> 
+		<link type="text/css" rel="stylesheet" href="app/assets/lib/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.css" /> 
+		<link rel="stylesheet" type="text/css" href="app/assets/lib/loadingbar/loading-bar.min.css" />
+		<link rel="stylesheet" type="text/css" href="app/assets/lib/tabmenu/widgets.css" />
+		<link rel="stylesheet" type="text/css" href="app/assets/lib/angular-toastr/angular-toastr.min.css" />
+		<link rel="stylesheet" type="text/css" href="app/assets/lib/datepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" type="text/css" href="app/assets/lib/datepicker2/jquery.datepick.css" />
+		<script type="text/javascript" src="app/assets/lib/jquery/jquery-1.9.1.min.js"></script>
+	</head>
+<body ng-controller="indexController">
+	<!-- Beginning of header  -->
+    <div id="header_bg"></div>
+	<div class="ui stackable three column fluid grid" style="padding-bottom:0.5rem">
+        <div class="one wide column" style="">
+            <a href="index.html"><img src="app/assets/image/atbulogosmall.png" style="float:left; margin: 0.3em;" /></a>
+        </div>
+		<div class="ten wide column" style="margin-left:1em; margin-top: 1em">
+			<img src="app/assets/image/name.png" />
+		</div>     
+		<div class="right floated right aligned four wide column" style="padding-top: 2em;">
+			<a href="https://mail.google.com/a/atbu.edu.ng" target="_blank" style="margin:1em" >
+				<i class="mail link icon"></i>My E-Mail	
+			</a>
+
+            <a href="#/admin/dashboard" style="margin-right: 1em">
+            	<i class="grid layout icon"></i>My Dashboard
+            </a>
+		</div>
+	</div>
+    <!-- end of header -->
+	<!-- This is the menu section -->
+    <div id="ddmenuMst"  style="position: relative; z-index: 1100;">
+		<ul>
+			<li class="no-sub">
+				<a href="#/" class="top-heading no-sub"><i class="home icon"></i>Home</a>
+			</li>
+			<li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="info icon"></i>About Us</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <h4>My ATBU</h4>
+                            <ul>
+                                <li><a href="#/aboutus/myatbu">Our Vision</a></li>
+                                <li><a href="#/aboutus/myatbu">Our Mission</a></li>
+                                <li><a href="#/aboutus/myatbu">Our Philosophy</a></li>
+                                <li><a href="#/aboutus/atbuhistory">Our History</a></li>
+                            </ul>
+                        </div> <!--
+                        <div class="column">
+                            <h4>Campuses</h4>
+                            <ul>
+                                <li><a href="#/aboutus/yelwacampus">Yelwa Campus</a></li>
+                                <li><a href="#/aboutus/gubicampus">Gubi Campus</a></li>
+                            </ul>
+                        </div> -->
+                        <div class="column">
+                            <h4>Contact Us</h4>
+                            <ul>
+                            	<li><a>The Registrar, ATBU Bauchi.</a></li>
+                                <li><a ><i class="mail icon"></i>registrar@atbu.edu.ng</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /cbp-hrsub-inner -->
+                </div><!-- /cbp-hrsub -->
+            </li>
+			<li class="full-width" tabindex="0" style="z-index: 1;">
+                <span  class="top-heading" aria-haspopup="true"><i class="briefcase icon"></i>Administration</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <h4>Vice Chancellor</h4>
+                              <a href="#/staff/staffprofile/{{vc}}" class="ui image" style="color: white; text-decoration: none; margin-bottom:0.5em">
+		                      	<div class="ui stacked segment" style="padding: 0.25em; width:165px; margin: 0em auto 0.5em"><img src="app/assets/image/vc.png" style="height: 180px;width: 160px" /></div>
+		                      	<h3 style="color: white; margin-bottom: 0px;margin-top: 0px; font-size:1.2em;text-align:center">Prof. Saminu Abdulrahman Ibrahim</h3>
+		                      </a>
+		                    <h3 style="margin-top: 0em; margin-bottom:0em;">
+		                    	<a href="#/vcspeech/vcspeech" style="color: white; text-decoration: none; font-size:0.9em;text-align:center">VC's Speech</a>
+		                    </h3>
+                        </div>
+                        <div class="column">
+                            <h4>Administrators</h4>
+                            <ul>
+                                <li><a href="#/administrators/administrators/{{visitor}}">The Visitor</a></li>
+                                <li><a href="#/administrators/administrators/{{chancellor}}">The Chancellor</a></li>
+                                <li><a href="#/administrators/administrators/{{prochancellor}}">The Pro-Chancellor</a></li>
+                                <li ng-if="vc != 0"><a href="#/staff/staffprofile/{{vc}}">The Vice Chancellor</a></li>
+                                <li><a href="#/administrators/councilmembers">The Council Members</a></li>
+                                <li><a href="app/assets/files/ATBU Organogram.pdf" target="_blank">University Organogram</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Other Principal Officers</h4>
+                            <ul>
+                                <li ng-if="dvcacad != 0"><a href="#/staff/staffprofile/{{dvcacad}}">DVC Academics</a></li>
+                                <li ng-if="dvcadmin != 0"><a href="#/staff/staffprofile/{{dvcadmin}}">DVC Administration</a></li>
+                                <li ng-if="registrar != 0"><a href="#/staff/staffprofile/{{registrar}}">The Registrar</a></li>
+                                <li ng-if="bursar != 0"><a href="#/staff/staffprofile/{{bursar}}">The Bursar</a></li>
+                                <li ng-if="librarian != 0"><a href="#/staff/staffprofile/{{librarian}}">The University Librarian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="student icon"></i>Academics</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner">
+                        <div class="column">
+                            <h4>Faculties</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/7">Faculty of Agriculture and Agricultural Technology</a></li>
+                                <li><a href="#/office/officepage/19">Faculty of Engineering and Engineering Technology</a></li>
+                                <li><a href="#/office/officepage/10">Faculty of Environmental Technology</a></li>
+                                <li><a href="#/office/officepage/29">Faculty of Management Technology</a></li>
+                                <li><a href="#/office/officepage/32">Faculty of Technology Education</a></li>
+                                <li><a href="#/office/officepage/1">Faculty of Science</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Academic Support Units</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/85">Directorate for Remedial and Basic Studies</a></li>
+                                <!-- <li><a href="#/office/officepage/1">Long Vacation Training (LVT)</a></li> -->
+                                <li><a href="#/office/officepage/84">General studies Directorate</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>School of Postgraduate Studies</h4>
+							<ul>
+                                <li><a href="#/office/officepage/115">School of Postgraduate Studies</a></li>
+                            </ul>
+                        </div>
+                       <!--  <div class="column">
+                            <h4>Affiliated Institutions</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/1">Directorate of Degree Programme, College of Education, Ankpa, Kogi State.</a></li>
+                                <li><a href="#/office/officepage/1">Directorate of Degree Programme, College of Education, Bichi, Kano State.</a></li>
+                                <li><a href="#/office/officepage/1">Directorate of Degree Programme, Federal College of Education, Gombe. </a></li>
+                            </ul>
+                        </div> -->
+                        <div class="column">
+							<h4>College of Medicine</h4>
+							<ul>
+								<li><a href="#/office/officepage/109">College of Medicine</a></li>
+							</ul>
+						</div> 
+                    </div>
+                </div>
+            </li>
+			<li class="no-sub">
+				<a href="http://atbu.edu.ng/library" class="top-heading no-sub"><i class="book icon"></i>Library</a>
+			</li>
+            <!-- <li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="book icon"></i>Library</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <div class="ui stacked segment" style="padding:0.5em; margin: 2em 1em">
+                            	<img src="app/assets/image/library.jpg" style="width:210px" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <h4>University Library</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/87">Library</a></li>
+                                <li><a href="#/office/officepage/87">e-Library</a></li>
+                                <!-- <li><a href="#/library/applyforaccess">Apply for Access</a></li>
+                            </ul>
+						</div>
+                        <div class="column">
+                            <h4>Journals</h4>
+                            <ul>
+                                <li><a href="http://www.sciencedirect.com">Science Direct</a></li>
+                                <li><a href="http://www.scopus.com">Scopus</a></li>
+                            </ul>
+						</div>
+                    </div>
+                </div>
+            </li> -->
+            <li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="university icon"></i>Units/Centres</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <h4>Centers</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/111">Center for Industrial Studies</a></li>
+                                <li><a href="#/office/officepage/118">University Medical Centre</a></li>
+                                <li><a href="#/office/officepage/117">Centre for Zeri Emmission Research Initiative</a></li>
+                                <li><a href="#/office/officepage/128">National Centre for Petroleum Research and Development</a></li>
+                                <li><a href="#/office/officepage/112">Equipment Maintenance Centre</a></li>
+                                <li><a href="#/office/officepage/129">Centre for Entrepreneurship Studies</a></li>
+                                <li><a href="#/office/officepage/125">Agrometrological Centre</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Directorates</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/70">Directorate of Academic Planning and Quality Assurance</a></li>
+                                <li><a href="#/office/officepage/71">Directorate of Human Resource Development</a></li>
+                                <li><a href="#/office/officepage/72">Directorate of Linkages</a></li>
+                                <!-- <li><a href="#/office/officepage/1">Directorate of Environment</a></li> -->
+                                <li><a href="#/office/officepage/73">Directorate of Endowment</a></li>
+                                <li><a href="#/office/officepage/78">Directorate of Information and Communication Technology</a></li>
+                                <li><a href="#/office/officepage/84">Directorate of General Studies</a></li>
+                                <li><a href="#/office/officepage/85">Directorate of Basic and Remedial Studies</a></li>
+                                <li><a href="#/office/officepage/77">Directorate of Works and Services</a></li>
+                                <li><a href="#/office/officepage/123">Directorate of Research and Innovation</a></li>
+                            </ul>
+						</div>
+                        <div class="column">
+                            <h4>Units</h4>
+                            <ul>
+								<li><a href="#/office/officepage/107">Industrial Training Coordinating Unit</a></li>
+                                <li><a href="#/office/officepage/130">Security Unit</a></li>
+                                <li><a href="#/office/officepage/131">Public Relations Unit</a></li>
+                                <li><a href="#/office/officepage/132">Sports Unit</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/103">Abubakar Tafawa Balewa Trust and Investment Limited (ATIL)</a></li>
+                                <li><a href="#/office/officepage/105">University Printing Press</a></li>
+                                <li><a href="#/office/officepage/126">University Guest Inn</a></li>
+                                <li><a href="#/office/officepage/110">University Farms</a></li>
+                                <li><a href="#/office/officepage/">ATBU Micro Finance Bank</a></li>
+                                <li><a href="http://servicom.atbu.edu.ng/" target="_blank">ATBU Servicom</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+			<li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="building icon"></i>Admissions</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <h4>HRDD Admissions</h4>
+                            <ul>
+                                <li style="color:white;"><a style="display:inline" href="hrdd/index.php">Apply for LVT</a> | <a style="display:inline" href="portal/index.php?formtype=LVT">LVT List</a></li>
+                                <li style="color:white;"><a style="display:inline" href="hrdd/index.php">Apply for Diploma</a> | <a style="display:inline" href="portal/index.php?formtype=ND">Diploma List</a></li>
+                                <li style="color:white;"><a style="display:inline" href="hrdd/index.php">Apply for Higher Diploma</a> | <a style="display:inline" href="portal/index.php?formtype=HND">High Diploma List</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Remedials/IJMB Admissions</h4>
+                            <ul>
+                                <li style="color:white;"><a style="display:inline" href="portal/index.php?formtype=RFD">Apply for Remedials</a> | <a style="display:inline" href="portal/index.php?formtype=RAD">Remedials List</a></li>
+                                <li><a href="ijmb/index.php">IJMB Admissions</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Undergraduate Admissions</h4>
+                            <ul>
+                                <li><a href="#/ug/checkshortlistedlist">Shortlisted List</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Postgraduate Admissions</h4>
+                            <ul>
+                                <li><a href="http://pgsch.atbu.edu.ng">Apply Now</a></li>
+                                <li><a href="http://pgsch.atbu.edu.ng">Admissions List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+			<li class="no-sub" style="float:right;background:green;color:white;font-weight:bold" >
+				<a href="app/assets/files/CISCO ADVERT 1.jpg" class="top-heading no-sub"><i class="white file image outline icon"></i>Cisco Training</a>
+			</li>
+			<li class="no-sub" style="float:right;background:green;color:white;font-weight:bold;margin-right:4px" >
+				<a href="https://youtu.be/TYoKzq8kUZk" target="_blank" class="top-heading no-sub"><i class="white video outline icon"></i>ATBU Profile</a>
+			</li>
+			<li class="no-sub" style="float:right;background:red;color:white;font-weight:bold;margin-right:4px" >
+				<a href="/#/publications/allpub" target="_blank" class="top-heading no-sub"><i class="white briefcase outline icon"></i>OER</a>
+			</li>
+			<li class="no-sub" style="float:right;background:blue;color:white;font-weight:bold;margin-right:4px" >
+				<a href="http://www.jomatech.net" target="_blank" class="top-heading no-sub"><i class="white file image outline icon"></i>Jomatech</a>
+			</li>
+			<li class="no-sub" style="float:right;background:blue;color:white;font-weight:bold;margin-right:4px" >
+				<a href="#/office/officepage/122" target="_blank" class="top-heading no-sub"><i class="white users image outline icon"></i>ATBU Alumni</a>
+			</li>
+<!--			<li class="no-sub">
+				<a href="#/news/news" class="top-heading no-sub"><i class="announcement icon"></i>News and Events</a>
+			</li>   
+        <li class="full-width" tabindex="0" style="z-index: 1;">
+                <span class="top-heading" aria-haspopup="true"><i class="building icon"></i>Communities</span>
+				<i class="caret"></i>
+                <div class="dropdown" style="z-index: 2; top: 44px;">
+                    <div class="dd-inner"> 
+                        <div class="column">
+                            <h4>Religious Communities</h4>
+                            <ul>
+                                <li><a href="">Joint Christian Campus Fellowship</a></li>
+                                <li><a href="">Muslim Students Society of Nigeria</a></li>
+                                <li><a href="">University Chapel</a></li>
+                                <li><a href="">University Mosque</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Unions</h4>
+                            <ul>
+                                <li><a href="">Academic Staff Union of Universities (ASUU)</a></li>
+                                <li><a href="">Senior Staff Assosication of Nigeria (SSANU)</a></li>
+                                <li><a href="">Non-Academic Staff Union (NASU)</a></li>
+                                <li><a href="">Students Union Government (SUG)</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>ATBU Staff Schools</h4>
+                            <ul>
+                                <li><a href="#/office/officepage/120">Staff Primary School</a></li>
+                                <li><a href="#/office/officepage/121">International Secondary School</a></li>
+                                <li><a href="">ATBU Women Society Nursery School</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li> -->
+			<!--<li class="no-sub" style="float:right;margin-right:10px;padding-right:1em;padding-left:1em" ><a style="color:green" href="#/recruitment/recpage"><i class="green user icon"></i>e-Recruitment</a></li>
+			<li class="no-sub" style="float:right;margin-right:0px;padding-right:1em;padding-left:1em" ><a style="color:red" href="#/conference/comted2015"><i class="red university icon"></i>COMTED Conference</a></li>-->
+		</ul>
+	</div>
+
+	<!-- end of menu section -->
+    <!-- beginning of main page content -->
+    <div id="mainpage-content" ng-view></div>
+    <!-- end of main page content -->
+    <!-- beginning of footer grid -->
+    <div id="footer_link">
+        <div class="ui six column stackable grid">
+            <div class="column" style="margin-left:1em">
+                <a class="ui centered popmission fluid">Mission</a>
+                <p class="ui custome popup mission"><b>OUR MISSION</b><br />To provide relevant and high quality education and prepare individuals for work, leadership and meaningful life, through promotion of research, teaching, development and testing of ideas in order to advance understanding and quality life.</p>
+            </div>
+            <div class="column">
+                <a class="ui centered popvision fluid">Vision</a>
+                <p class="ui custome popup vision"><b><font face="arial black">OUR VISION</font></b> <br />To become a centre of excellence for the creation, transfer and application of scientific knowledge for the advancement of mankind in a friendly, interactive and multi-cultural environment.</p>
+            </div>
+            <div class="column">
+                <a class="ui centered popphilosophy fluid">Philosophy</a>
+                <p class="ui custome popup philosophy"><b><font face="arial black">OUR PHILOSOPHY</font></b> <br />We are committed to academic freedom, tolerance, probity, equal opportunity and respect for cultural diversity.</p>
+           </div>
+            <div class="column">
+                <a class="ui centered poplinks fluid">Other Links</a>
+                <div class="ui custome popup links" id="otherlinks"><b><font face="arial black">OTHER LINKS</font></b> <br />
+                    <div class="ui item"><a href="www.atbu.edu.ng/registration">Register</a></div>
+                    <div class="ui item"><a href="www.atbu.edu.ng/registration">Register</a></div>
+                </div>
+           </div>
+            <div class="column">
+                <a class="ui centered popcomment fluid">Comment/Complain Form</a>
+                <div class="ui segment modal comment" id="comment_form">
+                    <i class="close icon"></i>
+                     <div class="header">Comment / Complain Form</div>
+                    <div class="content">
+                        <div class="ui form segment">
+                        <div class="field">
+                          <div class="ui input">
+                            <label>TYPE</label>
+                            <select>
+                                <option></option>
+                                <option>Comment</option>
+                                <option>Complain</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui input">
+                            <label>ID (Optional)</label><input type="text" placeholder="Enter ID">
+                            
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui input">
+                              <label>Comment/Complain</label><input type="text" placeholder="Enter Comment or Complain">
+                          </div>
+                        </div>
+                        <div class="ui blue submit button">Submit</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="center aligned sixteen wide column" style="margin-top: 1em;font-size: 0.7em;">
+            <div class="ui transparent centered small header" style="padding-bottom: 2em; padding-top: 1em">&copy;2015 Abubakar Tafawa Balewa University Bauchi. &nbsp;&nbsp; <a href="www.atbu.edu.ng/privacypolicy">Privacy Policy</a></div>
+        </div>
+    </div><!-- end of footer grid -->
+<!-- end of body grid -->
+    <script data-main="app/main.js" src="app/assets/lib/requirejs/require-2.1.16.js"></script>
+    <script src="app/assets/lib/tabmenu/widgets.js"></script>
+</body>
+</html>

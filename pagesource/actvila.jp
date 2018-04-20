@@ -1,0 +1,1413 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=100" />
+<meta NAME="ROBOTS" CONTENT="INDEX,FOLLOW,ARCHIVE">
+<script type="text/javascript" src="/js/ga.js"></script>
+<script type="text/javascript" src="/top/contents/js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="/common/js/common.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/style.css" type="text/css" rel="stylesheet" />
+<link href="/css/left_menu.css" rel="stylesheet" type="text/css" />
+<title>アクトビラ l 見逃したテレビ番組、映画、アニメなどを動画配信！無料動画も！</title>
+<meta name="description" content="動画みるならアクトビラ！アクトビラはNHKや民放の番組の見逃し配信や映画、ドラマ、アニメ、ドキュメンタリー、グラビアなどを好きな時に視聴できる動画配信サービスです。無料で楽しめる作品も多数！ネットをテレビにつなぐだけで今すぐ動画を楽しめます。月額利用料や機器レンタルも不要！" />
+<style>
+#list_box{
+	width:560px;
+	height:266px;
+	display:inline-block;
+	margin-bottom:10px;
+	overflow:hidden;}
+#main_list{
+	width:3920px;
+	display: inline-block;
+	position:relative;
+	top:0;
+	left:0;
+	clear:both;}
+#main_list img{
+	width:560px;}
+#thum_list{
+	width:560px;
+	height:75px;
+	}
+.thum{
+	float:left;
+	display:inline-block;
+	width:85px;
+	margin-right:10px;}
+.thum img{
+	width:85px;
+	float:none;}
+.rool_thum_bar{
+	width:85px;
+	height:4px;
+	margin-top:10px;
+	margin-bottom:10px;
+	background-color:#2a2a2a;
+	clear:both;
+	float:none;
+	}
+	
+/*overray*/
+#overray_bg{
+	width:100%;
+	height:100%;
+	opacity:0.8;
+	background-color:#000000;
+	position:fixed;
+	top:0;
+	left:0;
+	display:none;}
+#overray_top{
+	position:absolute;
+	background-color:#4d4d4d;
+	overflow:hidden;
+	display:none;}
+#overray_header,#overray_middle{
+	width:92.4528301886792%;
+	position:relative;
+	overflow:hidden;
+	}
+#overray_logo{
+	float:left;}
+#overray_close{
+	float:right;
+	}
+#overray_middle_slider{
+	position:relative;
+	}
+#overray_middle_slider img{
+	width:100%;}
+#overray_bottom{
+	width:100%;
+	text-align:center;}
+
+#overray_change_back{
+	position:absolute;
+	display:inline-block;
+	float:left;
+	display:none;
+}
+#overray_change_next{
+	float:right;
+		position:absolute;
+	display:inline-block;
+}
+#echo {
+	position:fixed;
+	top:0;
+	left:0;}
+#leftMenu_feel{
+	display:none;}
+#overray_middle_slider div{
+	float:left;}
+.div4Img,#close_right_bt,#close_left_bt,#div4text{
+	position:absolute;
+	}
+#close_right_bt img,#close_left_bt img{
+	cursor:pointer;
+	width:100%;
+	height:100%;}
+.div4Img img{
+width:100%;
+margin-bottom:3px;}
+.div4Img p{
+	width:100%;
+	text-align:center;
+	color:#222222;
+	font-size:11px;}
+#div4Img_copyright{
+	color:#666666;
+	position:absolute;}
+#div4Img_copyright p{
+	width:100%;
+	font-size:9px;
+	color:#666666;
+	word-wrap: break-word;
+	line-height:1em;
+}
+#overray_bg_movie{
+	width:100%;
+	height:100%;
+	z-index:1000000;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:#000000;
+	opacity:0.75;
+	display:none;}
+#movie{
+	position:fixed;
+	margin:0 auto;
+	z-index:100000000;
+	top:0;
+	display:none;}
+#movie p{
+	width:900px;
+	text-align:right;}
+.contAuto{
+	height: auto !important;
+	padding-bottom:15px;
+	margin-top:20px;
+	
+}
+</style>
+<script type="text/javascript" src="/top/contents/js/jquery.js" charset="utf-8"></script>
+<script>
+var main_left = -560;
+var move_count = 1;
+var move_count_0 ;
+var setInterval_log;
+var count_image =0;
+var data_count=0;
+var roop_count = 6;
+var thum_count=0;
+var r_first_image="";
+$(window).ready(function(e) {
+	
+	setInterval_log = setInterval(function(){main_move();
+		},6000);
+		
+		if(localStorage.getItem("top_overray") =="hidden"){
+	}else{
+	$("#overray_bg,#overray_top").css("display","block");
+	overray_size(); 
+	}
+		
+}).resize(function(){
+		overray_size();
+}).scroll(function(){
+		overray_size();
+});
+
+function load_comp(){
+	
+	
+				$(".thum:eq(0) img").css({"opacity":1});
+				$(".thum:eq(0)").css({"background-color":"#000000"});
+				
+					
+					
+
+	}
+
+
+function main_move(){
+	if(roop_count>1){
+		main_left = -560 *move_count;
+		
+		
+		
+		$("#main_list").animate({"left":main_left},{duration:1000,complete: function(){
+			if(move_count==roop_count){move_count = 1;
+			$("#main_list").css({"left":0});
+		}else{move_count++;
+		
+		}
+		}});
+		$(".thum .rool_thum_bar").css({"background-color":"#2a2a2a"});
+		if(move_count==roop_count){
+		$(".thum:eq(0) .rool_thum_bar").css({"background-color":"#0180cd"});
+		}else{
+		$(".thum:eq("+move_count+")  .rool_thum_bar").css({"background-color":"#0180cd"});
+		}
+		
+	}
+		}
+
+
+var move_flag=0;
+function thum_target_move(no){
+	
+	move_count_0 = no;
+	if(move_count==roop_count+1 && move_count_0==0){}else{
+	clearInterval(setInterval_log);
+	move_count = move_count_0;
+	main_left = -560*move_count;
+	$("#main_list").stop().animate({"left":main_left},500);
+
+	$(".thum .rool_thum_bar").css({"background-color":"#2a2a2a"});
+	$(".thum:eq("+move_count+")  .rool_thum_bar").css({"background-color":"#0180cd"});
+		move_count++;
+	setInterval_log = setInterval(function(){main_move();
+		},6000);}
+	
+	}
+function thum_target_move_flag(){
+	move_flag=1;
+	
+	}
+
+
+//overray
+	var overray_topposition = 0;
+	var overray_move_count = 0;
+	var overray_top_ratio_w =0.650943396226415; 
+	var overray_top_ratio_h =1.536231884057971; 
+	var overray_top_ratio_margin =0.018867924528302; 
+	var overray_top_ratio_header_img_h =0.041666666666666667; 
+	var overray_top_ratio_bottom_img_w =0.3138888888888888889; 
+	var overray_top_ratio_change_img_w =0.056481481481481; 
+	var overray_top_ratio_dv4Img_w =0.244897959183673; 
+	var overray_top_ratio_dv4Img_box_w =0.306122448979592; 
+	var overray_top_ratio_dv4Img_box_top_second =0.260612244897959; 
+	var overray_top_ratio_dv4Img_box_margin_w =0.020408163265306; 
+	var overray_top_ratio_dv4Img_box_margin_h =0.11734693877551; 
+	var overray_top_ratio_dv4Img_text_margin_h =0.235714285714286; 
+	
+	var overray_top_ratio_close_bt_w =0.345918367346939; 
+	var overray_top_ratio_close_bt_h =0.070408163265306; 
+	
+	var close_flg ="";
+	
+function overray_next(){
+	overray_move_count++;
+	if(overray_move_count >3){
+		overray_move_count =3;
+		}
+	overray_middle_slider_move();
+	}
+function overray_back(){
+	overray_move_count--;
+	if(overray_move_count <0){
+		overray_move_count =0;
+		}
+	overray_middle_slider_move();
+	}
+function overray_middle_slider_move(){
+	if(close_flg==""){
+	$("#overray_middle_slider").stop().animate({"left":overray_move_count*$("#overray_middle").width()*-1},600,function(){
+		if(overray_move_count<=0){
+			$("#overray_change_back").css("display","none");
+			$("#overray_change_next").css("display","block");
+		}else if(overray_move_count>=3){
+			$("#overray_change_next").css("display","none");
+			$("#overray_change_back").css("display","block");
+		}else{
+			$("#overray_change_back").css("display","block");
+			$("#overray_change_next").css("display","block");
+		}
+		})
+	}else{
+		$("#overray_middle_slider").stop().css({"left":4*$("#overray_middle").width()*-1});
+		$("#overray_close,#overray_change,#overray_bottom").css({"display":"none"});
+	}
+	}	
+function overray_close(){
+	close_flg =1;
+	$("#overray_change_back").css("display","none");
+	$("#overray_change_next").css("display","none");
+	overray_middle_slider_move();
+	/*var Conf = confirm("次回以降表示しない");
+		if(Conf){
+			try{
+			localStorage.setItem("top_overray","hidden");
+			}catch(e){
+			}
+		}
+	$("#overray_bg,#overray_top").animate({"opacity":"0"},500,function(){$("#overray_bg,#overray_top").css("display","none")});
+	*/
+	}
+	
+	function overray_close_end(stat){
+		if(stat == 1){
+		try{
+			localStorage.setItem("top_overray","hidden");
+			}catch(e){
+			}
+		}
+		$("#overray_bg,#overray_top").animate({"opacity":"0"},500,function(){$("#overray_bg,#overray_top").css("display","none")});
+		}
+	
+function overray_size(){
+	
+	if($("#overray_bg").css("display") != "none"){
+	var w_width = $(window).width();
+	var w_height = $(window).height();
+	
+	if(w_width >=1060 && w_height >= 690){
+		
+	$("#overray_top").css({
+							"top":(w_height - 690)/2+$(window).scrollTop(),
+							"left":(w_width - 1060)/2+$(window).scrollLeft(),
+							"width":"1060px",
+							"height":"690px"
+	});	
+		
+		
+	}else if((w_width>w_height) && w_height>520){
+		var left = (w_width -w_height*overray_top_ratio_h)/2+$(window).scrollLeft();
+		
+		if(w_width -(w_height*overray_top_ratio_h)<0){
+					if($(window).scrollLeft()>(w_height*overray_top_ratio_h)-w_width){left = $(window).scrollLeft()-(w_height*overray_top_ratio_h-w_width);}else{
+					left = 0;
+		}
+		}
+	$("#overray_top").css({
+							"top":$(window).scrollTop(),
+							"left":left,
+							"width":w_height*overray_top_ratio_h,
+							"height":w_height
+	});	
+	}else if((w_width<w_height) && w_width>800){
+	var top = (w_height -w_width*overray_top_ratio_w)/2+$(window).scrollTop();
+	if(w_height -w_width*overray_top_ratio_w<0){
+					if($(window).scrollTop()>(w_width*overray_top_ratio_w)-w_height){top = $(window).scrollTop()-(w_width*overray_top_ratio_w-w_height);}else{
+					top = 0;
+		}
+		}
+	
+	$("#overray_top").css({
+							"top":top,
+							"left":$(window).scrollLeft(),
+							"width":w_width,
+							"height":w_width*overray_top_ratio_w
+	});	
+	}else{
+		
+		var top = (w_height -520)/2+$(window).scrollTop();
+	if(w_height -w_width*overray_top_ratio_w<0){
+					if($(window).scrollTop()>520-w_height){top = $(window).scrollTop()-(520-w_height);}else{
+					top = 0;
+		}
+		}
+		var left = (w_width -800)/2+$(window).scrollLeft();
+		
+		if(w_width -800<0){
+					if($(window).scrollLeft()>800-w_width){left = $(window).scrollLeft()-(800-w_width);}else{
+					left = 0;
+		}
+		}
+	$("#overray_top").css({
+							"top":top,
+							"left":left,
+							"width":"800px",
+							"height":"520px"
+	});	
+	}
+	
+	$("#overray_header").css({"width":$("#overray_top").width()-($("#overray_top").width()*overray_top_ratio_margin*2),"padding":$("#overray_top").width()*overray_top_ratio_margin});
+	$("#overray_header img").css({"height":$("#overray_top").width()*overray_top_ratio_header_img_h});
+	$("#overray_middle").css({"height":$("#overray_middle").width()*0.508163265306122,"margin-left":($("#overray_top").width()-$("#overray_middle").width())/2});
+	$("#overray_middle_slider").css({"width":$("#overray_middle").width()*5});
+	$("#overray_middle_slider img").css({"width":$("#overray_middle").width()});
+	$("#overray_bottom").css({"margin-top":$("#overray_top").width()*overray_top_ratio_margin});
+	$("#overray_bottom img").css({"width":$("#overray_top").width()*overray_top_ratio_bottom_img_w});
+	$("#overray_bottom img").eq(0).css({"margin-right":$("#overray_top").width()*overray_top_ratio_margin});
+	$("#overray_change_back img,#overray_change_next img").css({"width":$("#overray_top").width()*overray_top_ratio_change_img_w});
+	$(".div4Img").css({"width":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_w});
+	$("#div4Img0").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w,"left":$("#overray_middle").width()*3+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w});
+	$("#div4Img1").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w,"left":$("#overray_middle").width()*3+$(".div4Img").width()+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w*2});
+	$("#div4Img2").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w,"left":$("#overray_middle").width()*3+$(".div4Img").width()*2+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w*3});
+	
+	$("#div4Img3").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_top_second,"left":$("#overray_middle").width()*3+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w});
+	$("#div4Img4").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_top_second,"left":$("#overray_middle").width()*3+$(".div4Img").width()+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w*2});
+	$("#div4Img5").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_top_second,"left":$("#overray_middle").width()*3+$(".div4Img").width()*2+$("#overray_middle").width()*overray_top_ratio_dv4Img_box_margin_w*3});
+	
+	$("#div4Img_copyright").css({"top":$("#overray_middle").width()*0.48,"width":$("#overray_middle").width()*0.96,"left":$("#overray_middle").width()*3+$("#overray_middle").width()*0.02});
+	$(".div4Img img").css({"width":$("#overray_middle").width()*overray_top_ratio_dv4Img_w});
+	$("#div4text").css({"top":$("#overray_middle").width()*overray_top_ratio_dv4Img_text_margin_h});
+	$("#close_right_bt,#close_left_bt").css({"width":$("#overray_middle").width()*overray_top_ratio_close_bt_w,"height":$("#overray_middle").width()*overray_top_ratio_close_bt_h,"top":$("#overray_middle").width()*0.3});
+	$("#close_left_bt").css({"left":$("#overray_middle").width()*4+$("#overray_middle").width()*0.119387755102041});
+	$("#close_right_bt").css({"left":$("#overray_middle").width()*4+$("#overray_middle").width()*0.539795918367347});
+	
+	var bt_height="";
+	if($("#overray_change_back").css("display") == "block"){
+		bt_height =$("#overray_change_back img").height();
+		bt_width =$("#overray_change_back img").width();
+		}else{
+		bt_height =$("#overray_change_next img").height();
+		bt_width =$("#overray_change_next img").width();
+	}
+	$("#overray_change_back").css({"top":($("#overray_top").height()-bt_height)/2}).css({"left":$("#overray_top").width()*overray_top_ratio_margin/2});
+	$("#overray_change_next").css({"top":($("#overray_top").height()-bt_height)/2}).css({"left":$("#overray_top").width()-bt_width-($("#overray_top").width()*overray_top_ratio_margin/2)});
+	overray_middle_slider_move();
+	}
+	if($("#movie").css("display") != "none"){
+		$("#movie").css({"left":($(window).width()-900)/2,"top":($(window).height()-554)/2});
+}
+}
+
+function movie_open(){
+	$("#movie,#overray_bg_movie").css({"display":"block"});
+	overray_size();
+	}
+function movie_close(){
+	$("#movie,#overray_bg_movie").css({"display":"none"});
+	overray_size();
+	}
+	
+function leftSearch_select(src){
+	if(src==1){
+		$("#leftMenu_search").css("display","block");
+		$("#leftMenu_feel").css("display","none");
+		}else{
+		$("#leftMenu_search").css("display","none");
+		$("#leftMenu_feel").css("display","block");
+		}
+	}
+function set_feel(){
+	
+	if($('#id_age option:selected').val() !=""){
+				
+	location.href="/top/contents/genre/index_list/0/0/0/0/0/0/0/0/0/0/"+$('#id_age option:selected').val()+$('#id_age option:selected').html()+"/";
+	}
+}
+</script>
+
+</head>
+
+<body>
+<div id="wapper">
+  
+<div id="header" >
+    <div id="logo">
+    	<div id="logoImage"><a href="/"><img src="/image/logo.jpg" /></a></div>
+        <div id="headerMenu">
+                    <a href="/contact-u/index.php"><img src="/image/contact.jpg" /></a>
+            <a href="/business/"><img src="/image/service.jpg" /></a>
+               	</div>
+    </div>
+    
+  </div>
+  <div id="global_box">
+   <div id="global">
+
+<script type="text/javascript">
+function search_keydown(no){
+
+       if(event.keyCode == 13){
+       switch(no){
+	   case 1:
+	   headersearch();
+	   break;
+	   case 2:
+	   LeftMenu_search_genre();
+	   break;
+	   case 3:
+	   top_leftsearch();
+	   break;
+	   }
+	   }
+}
+ function headersearch(){
+					var input_text = $("#keywords").val();
+					if(input_text ==""){
+						$("#keywords").attr("placeholder","キーワードを入力してください");
+						return false;
+					}else{
+						location.href="/top/contents/genre/index_list/0/0/0/0/0/0/0/1/"+input_text+"/";
+					
+					}
+					
+				}
+ function top_leftsearch(){
+					var input_text = $("#keywords2").val();
+					if(input_text ==""){
+						$("#keywords2").attr("placeholder","キーワードを入力してください");
+						return false;
+					}else{
+						location.href="/top/contents/genre/index_list/0/0/0/0/0/0/0/1/"+input_text+"/";
+					
+					}
+					
+				}
+
+</script>
+
+   <form id="search_head" onSubmit="return false" >
+                <input name="keywords" id="keywords" placeholder="作品タイトル・監督・キャスト" value="" onKeyDown="search_keydown(1)" type="text" maxlength="100"/>
+                <a href="javascript:void();" onClick="headersearch()"> <img src="/image/btn2.jpg" id="searchBtn" /></a>
+     </form>
+      <ul>
+        <li id="global01"><a href="/" title="HOME"><img src="/image/menuBtn1_in.jpg" /></a></li>
+        <li id="global02"><a href="/top/contents/ranking/" title="ランキング"><img src="/image/menuBtn2.jpg" /></a></li>
+        <li id="global03"><a href="/top/contents/genre/" title="ジャンル"><img src="/image/menuBtn3.jpg" /></a></li>
+        <li id="global04"><a href="/top/contents/monthly/" title="月額見放題"><img src="/image/menuBtn4.jpg" /></a></li>
+        <li id="global05"><a href="/guide/" title="ご利用ガイド"><img src="/image/menuBtn5.jpg" /></a></li>
+        <li id="global06"><a href="/support/" title="よくあるご質問"><img src="/image/menuBtn6.jpg" /></a></li>
+      </ul>
+    </div>
+   </div>
+      
+ 
+  <div id="content">
+    <div class="contentOuter contentInner">
+      <div class="contentInner">
+      <div class="contentInner_inner">
+        <div class="contentL cont">
+         
+          <div class="content1">
+          
+                    <div class="contT1"> <a href="/guide/about_member.php">
+          <div class="link_area" style="padding:0; border:none;">
+          <div class="floatLeft"><img src="/image/15.jpg" /></div>
+             
+              <div class="titleLineH marigin-left floatLeft">会員登録</div>
+              <div class="arrowR"><img src="/image/arrow.png" /></div>
+              </div>
+              </a>
+              <div class="lineL" style="clear: both;"></div>
+              <div style="margin-top:15px;">会員登録でアクトビラがもっと便利に！</div>
+              <div class="twin_bt" style="text-align:center;">
+              <a href="/guide/about_member.php"><img src="/image/top_mypage_btn1.png" /></a>
+              </div>
+            </div>
+                    </div>
+          
+          <div class="content1 contAuto contentTop">
+            <div class="contT1">
+              <div class="floatLeft"><img src="/image/search.png" /></div>
+              <div class="titleLineH marigin-left floatLeft">作品をさがす・購入する</div>
+              <div class="lineL" style="clear: both;"></div>
+              <div id="searchform2">
+              <div class="inputRadio">
+                <label style="cursor:pointer;"><input type="radio" name="feel_edit"  value="キーワード" onchange="leftSearch_select(1)" checked />キーワード</label>　<label style="cursor:pointer;"><input type="radio" name="feel_edit"  value="気分" onchange="leftSearch_select(2)" />気分</label>
+               </div>
+				<span id="leftMenu_search">
+                <input name="keywords2" id="keywords2" placeholder="作品タイトル・監督・キャスト" value="" type="text"  onKeyDown="search_keydown(3)" maxlength="100"/>
+                <input type="image" src="/image/btn2.jpg" alt="検索" name="searchBtn2" id="searchBtn2" onclick="top_leftsearch()"/>
+                </span>
+                <span id="leftMenu_feel">
+               				<select id="id_age" name="feel_item" onChange="set_feel()"> 
+                <option value="">今の気分は？</option>
+                                <option value="001000200004,001000100004/0/" >アジアのエンターテインメントを堪能</option>
+                                <option value="001001000007,001001000008,001001000018/0/" >健康やダイエットが気になる</option>
+                                <option value="001001400005,001001000004/0/" >マニアックな車を楽しみたい</option>
+                                <option value="001001400003,001001400002,001001400009,001001400007,001000800005/0/" >スポーツでスカッとしたい</option>
+                                <option value="001000600008,001001000014/0/" >豆知識を増やしたい</option>
+                                <option value="001000100007,001000100011,001000100008/0/" >ハラハラ・ドキドキしたい</option>
+                                <option value="001000400009,001000500005,001000500006,001000300006,001000300005/0/" >子供と一緒に楽しみたい☆</option>
+                                <option value="001000800002,001000800004/0/" >知的好奇心を刺激したい</option>
+                                <option value="001000100013,001000600001/0/" >お腹の底から笑いたい</option>
+                                <option value="001000600007,001001000017/0/" >芸能を楽しみたい</option>
+                                <option value="001000700001/0/" >お気に入りのアイドルを見つけたい</option>
+                               </select> 
+                </span>
+              </div>
+             
+            </div>
+          </div>
+		 <!--
+         <a href="/movie/">
+          <div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+            <div class="floatLeft"><img src="/image/1.jpg" /></div>
+            <div class="titleLineOtherH marigin-left floatLeft">今月のアクトビラ動画</div>
+            <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+		  -->
+          <a href="/top/contents/genre/index_list/001001300000/無料作品/001001399999/全ての作品/0/0/0/0/0/">
+          <div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+            <div class="floatLeft"><img src="/image/18.jpg" /></div>
+            <div class="titleLineOtherH marigin-left floatLeft">無料動画</div>
+            <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+          <a href="/top/contents/genre/index_list_device/">
+          <div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+            <div class="floatLeft"><img src="/image/23.png" /></div>
+            <div class="titleLineOtherH marigin-left floatLeft">スマホ/PC視聴OKの動画</div>
+            <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+          <div id="leftMenu">
+<div class="content1 contentTop cont4">
+            <div class="contT1"><a href="/top/contents/ranking/">
+            <div class="link_area" style="padding:0; border:none;">
+              <div class="floatLeft"><img src="/image/2.jpg" /></div>
+              <div class="titleLineH marigin-left floatLeft" style="width:100px;">ランキング</div>
+              <div class="arrowR"><img src="/image/arrow.png" /></div>
+              </div></a>
+              <div class="lineL" style="clear:both;"></div>
+              
+              <div class="rankBox">
+                <div class="rankText">
+                  <div class="rank">
+                  	<img src="/image/top1.jpg" />1位
+                  </div>
+                 <a href="/top/contents/genre/detail/0100022010136356/"> <div class="rankDescription">アンナチュラル【TBSオンデマンド】</a></div>
+                </div>
+                <div class="rankImage"><a href="/top/contents/genre/detail/0100022010136356/"><img src="http://portal.actvila.tv/video/thumbnail/010/0100022010136356_m.jpg"></a></div>
+                
+              </div>
+              
+              
+              <div class="rankBox">
+                <div class="rankText">
+                  <div class="rank">
+                  	<img src="/image/top2.jpg" />2位
+                  </div>
+                  <a href="/top/contents/genre/detail/0100022010135939/"><div class="rankDescription">99.9 －刑事専門弁護士－ SEASONII【TBSオンデマンド】</a></div>
+                </div>
+                <div class="rankImage"><a href="/top/contents/genre/detail/0100022010135939/"><img src="http://portal.actvila.tv/video/thumbnail/010/0100022010135939_m.jpg"></a></div>
+                
+              </div>
+              
+              
+            
+              <div class="rankBox">
+                <div class="rankText">
+                  <div class="rank">
+                  	<img src="/image/top3.jpg" />3位
+                  </div>
+                  <a href="/top/contents/genre/detail/0100022082000203/"> <div class="rankDescription">三度目の殺人</a></div>
+                </div>
+                <div class="rankImage"><a href="/top/contents/genre/detail/0100022082000203/"><img src="http://portal.actvila.tv/video/thumbnail/082/0100022082000203_m.jpg"></a></div>
+                 
+              </div>
+             
+              
+              
+              <div class="rankBox">
+                <div class="rankText">
+                  <div class="rank">
+                  	<img src="/image/top4.jpg" />4位
+                  </div>
+                 <a href="/top/contents/genre/detail/0100022106000164/"> <div class="rankDescription">散歩する侵略者</a></div>
+                </div>
+                <div class="rankImage"><a href="/top/contents/genre/detail/0100022106000164/"><img src="http://portal.actvila.tv/video/thumbnail/106/0100022106000164_m.jpg"></a></div>
+              </div>
+              
+              
+              
+              <div class="rankBox noneLine">
+                <div class="rankText">
+                  <div class="rank">
+                  	<img src="/image/top4.jpg" />5位
+                  </div>
+                  <a href="/top/contents/genre/detail/0100022010136347/"><div class="rankDescription">アンナチュラル【TBSオンデマンド】</a></div>
+                </div>
+                <div class="rankImage"><a href="/top/contents/genre/detail/0100022010136347/"><img src="http://portal.actvila.tv/video/thumbnail/010/0100022010136347_m.jpg"></a></div>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+                    <div class="content1 contentTop cont5">
+            <div class="contT1"><a href="/howto/"><div class="link_area" style="padding:0; border:none;">
+              <div class="floatLeft"><img src="/image/3.jpg" /></div>
+              <div class="titleLineH marigin-left floatLeft">はじめての方へ</div>
+              <div class="arrowR"><img src="/image/arrow.png" />
+              </div></div></a>
+              <div class="lineL" style="clear:both;"></div>
+              <div class="exposition">アクトビラってどんなサービス？楽しみ方は？</div>
+              <div class="botton"><a href="/howto/"> <img src="/image/Detailed.jpg" /></a></div>
+            </div>
+          </div>
+                    <div class="content1 contentOther">
+            <div class="contT1"><a href="/guide/product.php"><div class="link_area" style="padding:0; border:none;">
+              <div class="floatLeft"><img src="/image/4.jpg" /></div>
+              <div class="titleLineH marigin-left floatLeft">対応機器をチェック</div>
+              <div class="arrowR"><img src="/image/arrow.png" /></div></div></a>
+              <div class="lineL" style="clear:both;"></div>
+              <div class="exposition">おうちのテレビでアクトビラが楽しめるかチェック！</div>
+              <div class="botton botton2"><a href="/guide/product.php"><img src="/image/Detailed.jpg" /></a></div>
+            </div>
+          </div>
+          <div class="content1 contentOther">
+            <div class="contT1"><a href="/guide/useful.php">
+            <div class="link_area" style="padding:0; border:none;">
+              <div class="floatLeft"><img src="/image/5.jpg" /></div>
+              <div class="titleLineH marigin-left floatLeft">もっと便利な楽しみ方</div>
+              <div class="arrowR"><img src="/image/arrow.png" /></div></div></a>
+              <div class="lineL" style="clear:both;"></div>
+              <div class="exposition">スマホとの連動機能など、便利な使い方をご紹介！</div>
+              <div class="botton"><a href="/guide/useful.php"><img src="/image/Detailed.jpg" /></a></div>
+            </div>
+          </div>
+  </div>          <a href="/ps/index.php"><div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+              <div class="floatLeft"><img src="/image/6.jpg" /></div>
+              <div class="titleLineOtherH marigin-left floatLeft" style="width: 125px;">作品提供者一覧</div>
+              <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+
+		  <!--
+          <a href="/ps/list.php">
+          <div class="content1 contentOther cont7">
+            <div class="contT1 contT2">
+              <div class="floatLeft"><img src="/image/7.jpg" /></div>
+              <div class="titleLineOtherH marigin-left floatLeft" style="width: 165px;">パートナーサイト一覧</div>
+              <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+         </a>
+         -->
+
+        </div>
+        <div class="contentM cont">
+        	<!--
+        	<div style="border:1px solid #FFF;padding:10px;margin-bottom:20px;"><p><a href="/whatsnew/201512/maintenance.php" style="text-decoration:underline;">12/24（木）アクトビラサービス臨時メンテナンスのお知らせ</a></p></div>
+        	-->
+
+		  		  <div style="display:inline-block; margin-bottom:20px;"><a href="/guide/#pc_link"><img src="/image/static/bnr_top_pcappexplain.jpg" style="width:100%;" alt="PCで動画を視聴・購入するにはアクトビラPCアプリ（無料）のダウンロードが必要です！！"></a></div>
+                  	  
+        	  
+          <div class="content1 contMW contMH">
+            <div class="conT2" style="padding-top:10px;"> 
+            
+            <div id="list_box">
+				<div id="main_list">
+					<a href='/top/contents/genre/index_list/0/0/0/0/000106000038/ちはやふる/'><img src='//actvila.jp/special/jptop_img/center/1609_chihayaburu_560x266.jpg' alt=''></a><a href='/top/contents/genre/detail/0100022109000497/0/'><img src='//actvila.jp/special/jptop_img/center/1801_kimisui_560x266.jpg' alt='君の膵臓をたべたい'></a><a href='/top/contents/genre/detail/0100022125000936/0/'><img src='//actvila.jp/special/jptop_img/center/1802_baahubali_560x266.jpg' alt='バーフバリ　伝説誕生'></a><a href='/top/contents/genre/index_list/0/0/0/0/0/0/0/1/水曜どうでしょう/'><img src='//actvila.jp/special/jptop_img/center/1712_suidou_560x266.jpg' alt='水曜どうでしょう'></a><a href='/top/contents/genre/index_list/0/0/0/0/000033001448/西郷どん/'><img src='//actvila.jp/special/jptop_img/center/1712_segodon_560x266.jpg' alt='西郷どん'></a><a href='/top/contents/genre/index_list/0/0/0/0/000033001578/わろてんか/'><img src='//actvila.jp/special/jptop_img/center/1710_warotenka_560x266.jpg' alt='わろてんか'></a><a href='/top/contents/genre/index_list/0/0/0/0/000106000038/ちはやふる/'><img src='//actvila.jp/special/jptop_img/center/1609_chihayaburu_560x266.jpg' alt=''></a>				</div>
+			</div>
+			<div id="thum_list">
+					<div class='thum'><a href='javascript:void()' onclick='thum_target_move(0)'><img src='//actvila.jp/special/jptop_img/center/1609_chihayaburu_85x53.jpg'></a><div class='rool_thum_bar'></div></div><div class='thum'><a href='javascript:void()' onclick='thum_target_move(1)'><img src='//actvila.jp/special/jptop_img/center/1801_kimisui_85x53.jpg'></a><div class='rool_thum_bar'></div></div><div class='thum'><a href='javascript:void()' onclick='thum_target_move(2)'><img src='//actvila.jp/special/jptop_img/center/1802_baahubali_85x53.jpg'></a><div class='rool_thum_bar'></div></div><div class='thum'><a href='javascript:void()' onclick='thum_target_move(3)'><img src='//actvila.jp/special/jptop_img/center/1712_suidou_85x53.jpg'></a><div class='rool_thum_bar'></div></div><div class='thum'><a href='javascript:void()' onclick='thum_target_move(4)'><img src='//actvila.jp/special/jptop_img/center/1712_segodon_85x53.jpg'></a><div class='rool_thum_bar'></div></div><div class='thum' style='margin-right:0px'><a href='javascript:void()' onclick='thum_target_move(5)'><img src='//actvila.jp/special/jptop_img/center/1710_warotenka_85x53.jpg'></a><div class='rool_thum_bar'></div></div>			</div>
+            </div>
+          </div>
+
+
+		          <!--<div class="content1 contMW contMH2">-->
+		  <div class="content1 contMW contMH3">
+            <div class="conT2"> 
+                <div class="floatLeft"><img src="/image/13.jpg" /></div>
+                <a href="/whatsnew/">
+                <div class="titleLineH marigin-left floatLeft" style="width:80px;">お知らせ</div>
+                <div class="arrowR" style="width:80px;"><img src="/image/arrow_text.png" /><img src="/image/arrow.png" /></div>
+                </a>
+                <div class="lineM" style="clear: both;"></div>
+
+                <div class="date boderBottom">
+                	<div class="floatLeft">2018/03/05</div>
+                    <div class="spanText"><a href="/whatsnew/201803/oshirase0305.php">
+<span>アクトビラPC、スマホサイト復旧のお知らせ</span>
+</a></div></div>
+                <div class="date boderBottom">
+                	<div class="floatLeft">2018/02/20</div>
+                    <div class="spanText"><a href="/whatsnew/201802/mente0220.php">【重要】2018/2/26（月）～2018/2/28（水）決済機能メンテナンスのお知らせ</a></div></div>
+                <div class="date clear">
+                		<div class="floatLeft">2018/02/09</div>
+                    <div class="spanText"><a href="/whatsnew/201802/olympic0209.php">NHK ピョンチャンオリンピック 4K による放送同時配信サービスを提供</a></div></div>
+            </div>
+          </div>
+
+
+
+          <div class="content1 contMW contMH3">
+                <div class="conT2"> 
+                    <div class="floatLeft"><img src="/image/9.jpg" /></div>
+                    <div class="titleLineH marigin-left floatLeft" style="width:110px;">オススメ作品</div>
+                    <div class="lineM" style="clear:both;"></div>
+                    <div class="recommendContOuter boderBottom">
+                        <div class="recommendCont">
+                            <a class="no_border" href="/top/contents/genre/index_list/0/0/0/0/0/0/0/new/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:50px;">新着</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/index_list/0/0/0/0/000033001455/スニッファー嗅覚捜査官/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/033/N201607374900000_m.jpg" />
+                            	<h1>スニッファー嗅覚捜査官</h1>
+                                <p>優れた嗅覚を持つ捜査官・華岡と人情派刑事・達郎の痛快バディが…</p>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="recommendCont">
+                        	<a class="no_border" href="/top/contents/genre/index_list/001000100000/映画/0/すべて/0/0/0/0/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:50px;">映画</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/detail/0100022108000094/0/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/108/0100022108000094_m.jpg" />
+                            	<h1>チア☆ダン 女子高生がチアダンスで全米制覇しちゃったホントの話</h1>
+                                <p>広瀬すずがヘソ出し披露！チアダンス部のサクセスストーリー！</p>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="recommendCont" style="margin-right:0px;">
+	                        <a class="no_border" href="/top/contents/genre/index_list/001000200000/ドラマ/0/すべて/0/0/0/0/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:60px;">ドラマ</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/index_list/0/0/0/0/000135000083/バイプレイヤーズ ～もしも名脇役がテレ東朝ドラで無人島生活したら～/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/135/0100022135000942_m.jpg" />
+                            	<h1>バイプレイヤーズ ～もしも名脇役がテレ東朝ドラで無人島生活したら～</h1>
+                                <p>あのバイプレイヤーズが帰ってくる！テレ東朝ドラロケのはずが、…</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendContOuter">
+                        <div class="recommendCont">
+                        	<a class="no_border" href="/top/contents/genre/index_list/001000500000/アニメ・特撮/0/すべて/0/0/0/0/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:60px;">アニメ</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/index_list/0/0/0/0/000033001364/カードキャプターさくら　クリアカード編/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/033/N201708408000000_m.jpg" />
+                            	<h1>カードキャプターさくら　クリアカード編</h1>
+                                <p>最新話は毎週日曜日配信開始！</p>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="recommendCont">
+                            <a class="no_border" href="/top/contents/genre/index_list/001000800000/ドキュメンタリー/0/すべて/0/0/0/0/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:140px;">ドキュメンタリー</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/index_list/0/0/0/0/000033001482/Ｎスペ　ＡＩに聞いてみた　どうすんのよ！？ニッポン/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/033/N201708016100000_m.jpg" />
+                            	<h1>Ｎスペ　ＡＩに聞いてみた　どうすんのよ！？ニッポン</h1>
+                                <p>日本社会に横たわる様々な問題をＡＩひろしが斬る！</p>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="recommendCont" style="margin-right:0px;">
+                            <a class="no_border" href="/top/contents/genre/index_list/001000700000/アイドル・グラビア/0/すべて/0/0/0/0/0/">
+                                <div class="floatLeft"><img src="/image/list.jpg" /></div>
+                                <div class="titleLineH marigin-left floatLeft" style="width:145px;">アイドル・グラビア</div>
+                                <div class="arrow"><img src="/image/arrow.png" /></div>
+                            </a>
+                            <a href="/top/contents/genre/index_list/0/0/0/0/000085000055/桃色つるべ～お次の方どうぞ～/">
+                            <div>
+                             <img src="http://portal.actvila.tv/video/thumbnail/085/0100022085000687_m.jpg" />
+                            	<h1>桃色つるべ～お次の方どうぞ～</h1>
+                                <p>笑福亭鶴瓶×ももいろクローバーＺが異色の初タッグ！！</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                
+                   
+                </div>
+          </div>
+          <div class="content1 contMW contMH3">
+                <div class="conT2"> 
+                    <div class="floatLeft"><img src="/image/10.jpg" /></div>
+                    <a href="/top/contents/monthly/">
+                        <div class="titleLineH marigin-left floatLeft" style="width:80px;">月額商品</div>
+                        <div class="arrowR" style="width:80px;"><img src="/image/arrow_text.png" /><img src="/image/arrow.png" /></div>
+                    </a>
+                    <div class="lineM" style="clear:both;"></div>
+                    <div class="contentTop contentPadding top_montly">
+                       <a href='/top/contents/monthly/index_list/200033000000/900103300000/NHKオンデマンド　見逃し見放題パック　【月額見放題】'><img src='http://portal.actvila.tv/app/monthly/img/200033000000.jpg' alt='NHKオンデマンド　見逃し見放題パック'/></a><a href='/top/contents/monthly/index_list/200033003000/900203300000/NHKオンデマンド　特選見放題パック　【月額見放題】'><img src='http://portal.actvila.tv/app/monthly/img/200033003000.jpg' alt='NHKオンデマンド　特選見放題パック　【月額見放題】'/></a><a href='/top/contents/monthly/index_list/200059000000/900105900000/カラオケJOYSOUND歌い放題パック　【月額見放題】'><img src='//portal.actvila.tv/app/monthly/img/200059000000.jpg' alt='カラオケJOYSOUND歌い放題パック　【月額見放題】'/></a><a href='/top/contents/monthly/index_list/200136000118/900113600000/ディスカバリー見放題１００　【月額見放題】'><img src='http://portal.actvila.tv/app/monthly/img/200136000118.jpg' alt='ディスカバリー見放題１００　【月額見放題】'/></a>                    </div>
+                </div>
+          </div>
+
+		<!--
+        <div class="content1 contMW contMH3" style="padding-bottom:20px">
+
+		<div class="conT2">
+              <div class="floatLeft"><img src="/image/17.jpg" /></div>
+              <div class="titleLineOtherH marigin-left floatLeft" style="width: 165px;">PR</div>
+              <div class="lineL" style="clear: both; display:inline-block; margin-bottom:15px;"></div>
+              		</div>
+
+    </div>
+		-->
+        </div>
+
+
+        <div class="contentR cont">
+
+		        <div class="cont8"><a href="http://actvila.jp/top/contents/monthly/monthly_free/" alt="加入月無料キャンペーン"><img src="/special/jptop_img/camp/2013_1219-monthly_free_280x280.jpg" /></a></div>           <div class="content1 cont9 ">
+                <div class="contT1">
+                  <div class="floatLeft"><img src="/image/21.jpg" /></div>
+                  <div class="titleLineH marigin-left floatLeft" style="margin-left: 10px;">キャンペーン一覧</div>
+                  <div class="lineL" style="clear: both;"></div>
+                  <a href="/top/contents/monthly/monthly_free/"><div class="link_area_bottom"><div class="lineH floatLeft">1ヶ月分得しちゃおう！加入月無料キャンペーン</div><div class="arrowR"><img src="/image/arrow1.png" /></div></div></a>                </div>
+          </div>
+		  
+          <a href="/guide/camp.php">
+          <div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+            <div class="floatLeft"><img src="/image/19.jpg" /></div>
+            <div class="titleLineOtherH marigin-left floatLeft">キャンペーンポイント</div>
+            <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+
+		          <a href="/premium/">
+          <div class="content1 contentTop cont7">
+            <div class="contT1 contT2">
+            <div class="floatLeft"><img src="/image/12.jpg" /></div>
+            <div class="titleLineOtherH marigin-left floatLeft">プレミアムサービス</div>
+            <div class="arrowR"><img src="/image/arrow3.png" /></div>
+            </div>
+          </div>
+          </a>
+		  
+		          <div class="content1 contentTop cont9">
+                <div class="contT1">
+                  <div class="floatLeft"><img src="/image/11.jpg" /></div>
+                  <div class="titleLineH marigin-left floatLeft" style="margin-left: 10px;">おすすめリンク</div>
+                  <div class="lineL" style="clear: both;"></div>
+                  <a href="http://actvila.jp/special/4k/"><div class="link_area"><div class="lineH floatLeft">４Ｋアクトビラ</div><div class="arrowR"><img src="/image/arrow1.png" /></div></div></a><a href="https://www.facebook.com/actvila/"><div class="link_area"><div class="lineH floatLeft">アクトビラ公式 Facebook</div><div class="arrowR"><img src="/image/arrow1.png" /></div></div></a><a href="http://twitter.com/acTVila"><div class="link_area"><div class="lineH floatLeft">twitter＠acTVila</div><div class="arrowR"><img src="/image/arrow1.png" /></div></div></a><a href="http://living.joysound.com/tv/actvila/songs/index.htm"><div class="link_area_bottom"><div class="lineH floatLeft">カラオケJOYSOUND for アクトビラ　カラオケ全曲リスト[PDF]</div><div class="arrowR"><img src="/image/arrow1.png" /></div></div></a>                  
+                </div>
+          </div>
+		  
+
+<!-- ★★Facebookエリア -->
+<div class="content1 contentTop cont10" style="">
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Factvila&amp;width=285&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:285px; height:558px;margin-left:-3px;" allowTransparency="true"></iframe>
+</div>
+<!-- / ★★Facebookエリア -->
+
+<!-- ★★Twitterエリア -->
+<div class="content1 contentTop cont11" id="twitter"><a class="twitter-timeline" href="https://twitter.com/acTVila" data-widget-id="382807454850879488">@acTVila からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<!-- / ★★Twitterエリア -->
+
+		<!-- メールニュース -->
+		<div class="content1 contentTop cont7">
+			<div class="contT1 contT2">
+				<div class="floatLeft"><img src="/image/20.jpg" /></div>
+				<a href="/mailnews/">
+					<div class="titleLineOtherH marigin-left floatLeft" style="width: 140px;">メールニュース</div>
+					<div class="arrowR"><img src="/image/arrow3.png" /></div>
+				</a>
+			</div>
+		</div>
+		<!-- / メールニュース -->
+
+		<!-- Group Banner & PR Banner -->
+		<div class="content1 contentTop cont7">
+			<div style="margin-bottom:0.5em;">
+				<a href="http://www.wowow.co.jp/" target="_blank">
+					<img src="/image/static/group_logo/wowow282x53.jpg" /></a>
+			</div>
+			<div style="margin-bottom:0.5em;">
+				<a href="http://www.cinefilwowow.com/" target="_blank">
+					<img src="/image/static/group_logo/cinefilwowow282x53.jpg" /></a>
+			</div>
+			<div style="margin-bottom:0.4em;">
+				<a href="http://www.kayopops.jp/" target="_blank">
+					<img src="/image/static/group_logo/kayoupopsch282x53.jpg" /></a>
+			</div>
+
+			<div>
+				<a href="http://living.joysound.com/tv/actvila/songs/index.htm" target="_blank">
+					<img src="/image/static/pr_banner/2013_1101-joysound.gif" /></a>
+			</div>
+		</div>
+		<!-- /Group Banner & PR Banner -->
+
+
+		</div>
+
+
+      </div>
+      </div>
+    </div>
+    
+    
+    <style>
+#footer a, #footer a:link, #footer a:active, #footer a:visited, #footer a:hover {
+	text-decoration: underline !important;
+}
+#footer_table {
+	width: 100%;
+	border: none;
+}
+#footer_table th {
+	text-align: left;
+	vertical-align: middle;
+	background-color: transparent;
+	border: none;
+	width: auto;
+	padding: 0;
+	font-size: 14px;
+}
+#footer_table tr td {
+	height: 2em;
+	padding-left: 10px;
+}
+#footer_table tr.footer_table_margin td {
+	height: 0em;
+}
+#footer_table tr td a {
+	font-size: 12px;
+}
+.footer_table_margin {
+}
+#footer_table th img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+</style>
+<script>
+function page_topScroll(){
+	$('html,body').animate({ scrollTop: 0 }, 'slow');
+	}
+</script>
+<div id="footer">
+<div id="footerInner">
+  <div id="toTopbtn"><a href="javascript:void()" onclick="page_topScroll()"><img src="/image/toTopBtn.jpg" /></a></div>
+   <table id="footer_table">
+    <tr>
+      <th  style="width:100px"><img src="/image/list.jpg"/><a href="/">HOME</a></th>
+      <th style="width:155px"><img src="/image/list.jpg"/><a href="/top/contents/ranking/">ランキング</a></th>
+      <th  style="width:145px"><img src="/image/list.jpg"/><a href="/top/contents/genre/">ジャンル</a></th>
+      <th style="width:120px"><img src="/image/list.jpg"/><a href="/top/contents/monthly/">月額見放題</a></th>
+      <th style="width:210px"><a href="/guide/"><img src="/image/list.jpg"/>ご利用ガイド</a></th>
+      <th style="width:160px"><img src="/image/list.jpg"/><a href="/howto/">はじめての方へ</a></th>
+      <th class="pin"><img src="/image/list.jpg"/><a href="/corporate/">会社概要</a></th>
+      <th  style="width:120px"><img src="/image/list.jpg"/><a href="/support/">よくあるご質問</a></th>
+    </tr>
+    <tr class="footer_table_margin">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000000000/総合/">+ 総合</a></td>
+      <td><a href="/top/contents/genre/index_list/0/0/0/0/0/0/0/new/0/0/0/0/0/0/">+ 新着</a></td>
+      <td></td>
+      <td><a href="/guide/">+ ご利用ガイド</a></td>
+      <td><a href="/howto/">+ はじめての方へ</a></td>
+      <td><a href="/corporate/">+ 会社概要</a></td>
+      <th><img src="/image/list_min.jpg"/><a href="/contact-u/index.php">お問い合わせ</a></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000100000/映画/">+ 映画</a></td>
+      <td><a href="/top/contents/genre/index_list_device/">+ スマホ/PC視聴OK</a></td>
+      <td></td>
+      <td><a href="/guide/product.php">+ アクトビラ対応機器</a></td>
+      <td><a href="/guide/product.php">+ アクトビラ対応機器</a></td>
+      <td><a href="/corporate/conduct.php">+ 企業行動規範</a><!--<a href="/corporate/message.php">+ 社長メッセージ</a>--></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000200000/ドラマ/">+ ドラマ</a></td>
+      <td><a href="/top/contents/genre/index_list/001000100000/映画/0/すべて/0/0/0/0/0/0/">+ 映画</a></td>
+      <td></td>
+      <td><a href="/guide/smapho_tablet.php">+ スマホ・タブレット対応端末</a></td>
+      <td><a href="/service/index.php">+ サービスのご紹介</a></td>
+      <td><a href="/corporate/executives.php">+ 役員一覧</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000500000/アニメ・特撮/">+ アニメ・特撮</a></td>
+      <td><a href="/top/contents/genre/index_list/001000200000/ドラマ/0/すべて/0/0/0/0/0/0/">+ ドラマ</a></td>
+      <td></td>
+      <td><a href="/guide/link.php">+ 接続方法</a></td>
+      <td><a href="/guide/link.php">+ 接続方法</a></td>
+      <td><a href="/corporate/press/">+ 報道発表</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000700000/アイドル・グラビア/">+ アイドル・グラビア</a></td>
+      <td><a href="/top/contents/genre/index_list/001000300000/教養・教育/0/すべて/0/0/0/0/0/0/">+ 教養・教育</a></td>
+      <td></td>
+      <td><a href="/guide/settlement.php">+ 決済方法</a></td>
+      <td><!--<a href="/howto/shop.php">+ 体験できるお店</a>--></td>
+      <td><a href="/corporate/c_name.php">+ “アクトビラ”のネーミングの由来</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001000800000/ドキュメンタリー/">+ ドキュメンタリー</a></td>
+      <td><a href="/top/contents/genre/index_list/001000400000/音楽/0/すべて/0/0/0/0/0/0/">+ 音楽</a></td>
+      <td></td>
+      <td><a href="/guide/useful.php">+ もっと便利な楽しみ方</a></td>
+      <td></td>
+      <td><a href="/business/">+ 法人向けサービス</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="/top/contents/ranking/index_list/001001000000/趣味・実用・情報/">+ 趣味・実用・情報</a></td>
+      <td><a href="/top/contents/genre/index_list/001000500000/アニメ・特撮/0/すべて/0/0/0/0/0/0/">+ アニメ・特撮</a></td>
+      <td></td>
+      <td><a href="/guide/about_member.php">+ アクトビラ会員とは？</a></td>
+      <td></td>
+      <td><a href="/corporate/access.php">+ アクセス</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001000600000/バラエティ/0/すべて/0/0/0/0/0/0/">+ バラエティ</a></td>
+      <td></td>
+      <td><a href="/service/">+ サービスのご紹介</a></td>
+      <td></td>
+      <td>&nbsp;</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001000700000/アイドル・グラビア/0/すべて/0/0/0/0/0/0/">+ アイドル・グラビア</a></td>
+      <td></td>
+      <td><a href="/ps/">+ 作品提供者一覧</a></td>
+      <td></td>
+      <td>&nbsp;</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001000800000/ドキュメンタリー/0/すべて/0/0/0/0/0/0/">+ ドキュメンタリー</a></td>
+      <td></td>
+      <td><!--<a href="/howto/shop.php">+ 体験できるお店</a>--></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001000900000/ニュース/0/すべて/0/0/0/0/0/0/">+ ニュース</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001001000000/趣味・実用・情報/0/すべて/0/0/0/0/0/0/">+ 趣味・実用・情報</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001001200000/カラオケ/0/すべて/0/0/0/0/0/0/">+ カラオケ</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001001300000/無料作品/0/すべて/0/0/0/0/0/0/">+ 無料作品</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/top/contents/genre/index_list/001001400000/スポーツ/0/すべて/0/0/0/0/0/0/">+ スポーツ</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="/ps/index.php">+ 作品提供者別</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href="javascript:void()" onclick="return adult_chk('001001600000','/top/contents/genre/index_list/001001600000/Ｒ指定作品/0/すべて/0/0/0/0/0/0/');">+ Ｒ指定作品</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+    <div class="footerInline">
+    <ul class="clear inline" id="footer_link">
+      <li><a href="/corporate/rules.php">アクトビラ利用規約</a></li>
+      |
+      <li><a href="/corporate/privacy.php">個人情報保護方針</a></li>
+      |
+      <li><a href="/corporate/privacy_kouhyou.php">個人情報保護法に基づく公表事項</a></li>
+      |
+      <li><a href="/corporate/privacy_kaiji.php">個人情報開示などに関するご案内</a></li>
+      |
+      <li><a href="/corporate/privacy_seikyuu.php">請求手続きについて</a></li>
+      |
+      <li><a href="/corporate/notation.php">特定商取引表示</a></li>
+      |
+      <li><a href="/browser/">推奨環境</a></li>
+    </ul>
+	<br />
+    <div id="copyRight">
+      <div class="floatLeft" id="footer_copyright"> (C)NHK　(C)2017 映画「チア☆ダン」製作委員会　（C）「バイプレイヤーズ2018」製作委員会　(C)CLAMP・ST／講談社・NEP・NHK　(C)NHK　（C）関西テレビ　(C)NHK　(C)NHK　(C) Discovery Communications, Inc.　 </div>
+      <div class="floatRight" id="footer_contact"><img src="/image/footerLogo.jpg" /></div>
+    </div>
+  </div>
+</div>
+<div id="over_bg_r18" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:#000000; opacity:0.5;"></div>
+<div id="over_bg_r18_box" style="color:#e6e6e6; width:870px; height:405px; padding:20px; background-color:#434343;display:none; position:fixed; top:0; left:0; opacity:0;">
+  <h1 id="headline" style="font-size:24px; color:#e6e6e6;"><img src="/image/static/caption_head.jpg" />年齢確認</h1>
+  <hr id="headline_bar" />
+  <p style="padding:20px 0 20px 0;">この先は、18歳未満の方はご覧になれません。</p>
+  <div class="over_bg_r18_img" style="width:100%; text-align:center"><img src="/image/r18alert/image.png" /></div>
+  <div id="btn"> <a href="javascript:void()" onclick="$('#over_bg_r18,#over_bg_r18_box').css('display','none');"><img src="/image/r18alert/btn_no.png" /></a>　<a href="javascript:void()" onclick="goto_next_r18()"><img src="/image/r18alert/btn_ok.png" /></a> </div>
+</div>
+<script>
+var goto_url_r18 = "";
+var data_box="";
+$(window).ready(function(e) {
+    $.getJSON("/data/r18.json", function(i_data){
+		data_box = i_data;
+		
+		});
+});
+function adult_chk(genre_id,url,type) {
+	goto_url_r18 = url;
+	var flg = "";
+	var ps_flg = 0;
+	if(type == "ps"){
+		
+        for(var i in data_box){
+			if(url.indexOf(data_box[i].id) != -1){
+				ps_flg++;
+				}		
+            }
+		}else{
+		for(var i in data_box){
+			if(genre_id.indexOf(data_box[i].id) != -1){
+				ps_flg++;
+				}
+            }	
+		}
+		
+		
+		if(ps_flg !=0 && flg !="1"){
+		$("#over_bg_r18,#over_bg_r18_box").css({"display":"block"});
+		r18_size();
+		$("#over_bg_r18_box").css({"opacity":"1"});
+	} else {
+		location.href=url;
+	}
+		
+}
+function goto_next_r18(){
+	document.cookie = "r_flg=1;";
+	location.href=goto_url_r18;
+	}
+function r18_size(){
+	if($("#over_bg_r18_box").css("display") == "block"){
+		$("#over_bg_r18_box").css({"left":($(window).width()-870)/2,
+												"top":($(window).height()-405)/2});
+	}
+}
+$(window).resize(function(e) {
+    r18_size();
+});
+
+
+</script>
+<style>
+#headline_bar{
+	margin-top:15px;
+	border:#0080cc solid 1px;
+	
+	}
+#btn{
+	width: 512px;
+	margin: 38px auto;
+}
+</style>
+  </div>
+</div>
+
+<div id="overray_bg" ></div>
+<div id="overray_top">
+
+	<div id="overray_header">
+		<div id="overray_logo"><img src="/image/top_overray/logo.png" /></div>
+		<div id="overray_close"><a href="javascript:void()" onclick="overray_close()"><img src="/image/top_overray/close.png" /></a></div>
+      </div>
+	<div id="overray_middle">
+		<div id="overray_middle_slider"><div><img src="/image/top_overray/s1.jpg" /></div><div><img src="/image/top_overray/s2.jpg" /></div><div><img src="/image/top_overray/s3.jpg" /></div><div><div id="div4Img0" class="div4Img"><a href="/top/contents/genre/index_list/0/0/0/0/000033001455/スニッファー嗅覚捜査官/"><p><img src="http://portal.actvila.tv/video/thumbnail/033/N201607374900000_m.jpg" /><br />スニッファー嗅覚捜査官</p></a></div><div id="div4Img1" class="div4Img"><a href="/top/contents/genre/detail/0100022108000094/0/"><p><img src="http://portal.actvila.tv/video/thumbnail/108/0100022108000094_m.jpg" /><br />チア☆ダン 女子高生がチアダンスで全米制覇しちゃったホントの話</p></a></div><div id="div4Img2" class="div4Img"><a href="/top/contents/genre/index_list/0/0/0/0/000135000083/バイプレイヤーズ ～もしも名脇役がテレ東朝ドラで無人島生活したら～/"><p><img src="http://portal.actvila.tv/video/thumbnail/135/0100022135000942_m.jpg" /><br />バイプレイヤーズ ～もしも名脇役がテレ東朝ドラで無人島生活したら～</p></a></div><div id="div4text"><a href="/guide/"><img src="/image/top_overray/s4_text.png" /></a></div><div id="div4Img3" class="div4Img"><a href="/top/contents/genre/index_list/0/0/0/0/000033001364/カードキャプターさくら　クリアカード編/"><p><img src="http://portal.actvila.tv/video/thumbnail/033/N201708408000000_m.jpg" /><br />カードキャプターさくら　クリアカード編</p></a></div><div id="div4Img4" class="div4Img"><a href="/top/contents/genre/index_list/0/0/0/0/000033001482/Ｎスペ　ＡＩに聞いてみた　どうすんのよ！？ニッポン/"><p><img src="http://portal.actvila.tv/video/thumbnail/033/N201708016100000_m.jpg" /><br />Ｎスペ　ＡＩに聞いてみた　どうすんのよ！？ニッポン</p></a></div><div id="div4Img5" class="div4Img"><a href="/top/contents/genre/index_list/0/0/0/0/000085000055/桃色つるべ～お次の方どうぞ～/"><p><img src="http://portal.actvila.tv/video/thumbnail/085/0100022085000687_m.jpg" /><br />桃色つるべ～お次の方どうぞ～</p></a></div><div id="div4Img_copyright"><p>(C)NHK　(C)2017 映画「チア☆ダン」製作委員会　（C）「バイプレイヤーズ2018」製作委員会　(C)CLAMP・ST／講談社・NEP・NHK　(C)NHK　（C）関西テレビ　</p></div><img src="/image/top_overray/s4.jpg" /></div><div><div id="close_left_bt" onclick="overray_close_end()"><img src="/image/top_overray/bt_tra.png" /></div><div id="close_right_bt" onclick="overray_close_end(1)"><img src="/image/top_overray/bt_tra.png" /></div><img src="/image/top_overray/s5.jpg" /></div></div>
+    </div>
+    
+		<div id="overray_change_back"><a href="javascript:void()" onclick="overray_back()"><img src="/image/top_overray/back.png" /></a></div>
+		<div id="overray_change_next"><a href="javascript:void()" onclick="overray_next()"><img src="/image/top_overray/next.png" /></a></div>
+    
+    <p id="overray_bottom">
+<a href="/guide/"><img src="/image/top_overray/right_bt_over.png" /></a></p>
+</div>
+<div id="overray_bg_movie" ></div>
+<div id="movie">
+<script type="text/javascript" charset="utf-8" src="//www2.uliza.jp/IF/RequestPlayerJS.aspx?clientid=889&playerid=3495&episodeid=0100025001000258&videoid=0100025001000258-Android"></script>
+<p style="text-align:center; margin-top:5px;"><a href="javascript:void()" onclick="movie_close()"><img src="/image/top_overray/close_movie.png" /></a></p></div>
+<div id="echo"></div>
+<script type="text/javascript">
+
+/* <![CDATA[ */
+
+var google_conversion_id = 967430857;
+
+var google_custom_params = window.google_tag_params;
+
+var google_remarketing_only = true;
+
+/* ]]> */
+
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
+</script>
+
+<noscript>
+
+<div style="display:inline;">
+
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/967430857/?value=0&amp;guid=ON&amp;script=0"/>
+
+</div>
+
+</noscript>
+</body>
+</html>

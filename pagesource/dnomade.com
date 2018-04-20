@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0; url=/web/m_intro.php">

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Refining Linux</title>
+    <meta name="author" content="Janek Bevendorff">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Tips and tricks for taking your Linux to the next level." />
+        <meta name="keywords" content="linux, refinining, finetuning, solving problems, free software, blog, tips, tricks, opensource, open source" />
+<link rel="pingback" href="http://www.refining-linux.org/serendipity_xmlrpc.php" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.refining-linux.org/serendipity_xmlrpc.php?xsd=true" />
+
+    
+    <link rel="publisher" href="https://plus.google.com/103909259633844166957/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="Refining Linux Atom feed (Feedburner)" href="/feeds/atom10.xml">
+    
+    
+    <link rel="stylesheet" href="/templates/reflinux-2012/style.v201403301820.css">
+    <!--[if lte IE 8]><link rel="stylesheet" href="/templates/reflinux-2012/ie-lte-8.v201403301715.css"><![endif]-->
+    
+    <script src="/templates/reflinux-2012/js/modernizr.custom.04922.js"></script>
+</head>
+<body>
+    <!-- Page start -->
+    <section id="Page">
+        <!--[if lte IE 8]>
+        <div id="OldBrowser" class="error">
+            <h1>You're using a <![endif]--><!--[if lte IE 6]><del><![endif]-->
+            <!--[if lte IE 8]>very<![endif]--><!--[if lte IE 7]>, very<![endif]--><!--[if lte IE 6]></del>
+            <ins>extremely</ins><![endif]--><!--[if lte IE 8]> old browser!</h1>
+            <p>Excuse me, but your browser is extremely outdated. That's not necessarily your fault.
+            Maybe you can't use another browser but you should. Using an up-to-date browser gives
+            you a much nicer web experience due to better display of modern websites, more speed
+            and more security. So please download a current version of your browser or think about
+            switching to another one to view this website (and indeed many others) in its full beauty.
+            Thank you!</p><p>To download a current version of Internet Explorer go to the
+            <a href="http://www.microsoft.com/windows/internet-explorer/">Internet Explorer Homepage</a>
+            or use a Webkit based browser like <a href="http://www.google.com/chrome/">Chrome</a> /
+            <a href="http://dev.chromium.org/Home/">Chromium</a> or a current
+            <a href="http://www.getfirefox.com/">Firefox</a> or <a href="http://www.opera.com/">Opera</a>.
+        </div>
+        <![endif]-->
+        
+        <header id="Header" role="banner">
+            <div id="PaintingTux">
+                <div id="PageTitle"><a href="/">Refining <span>Linux</span></a></div>
+                <a href="/">
+                    <img src="/templates/reflinux-2012/img/design/tux_painting-fs8.png" height="229" width="335" alt="Tux is painting the wall">
+                </a>
+            </div>
+            <nav id="MainNavigation">
+                <ul id="MainNavigationLinks">
+                                            <li class="default current"><a href="/">Blog</a>
+                        <li class="about"><a href="/about/">About</a>
+                        <li class="contact"><a href="/contact/">Contact</a>
+                                    </ul>
+            </nav>
+        </header>
+        
+        <!-- MainWrapper start -->
+        <div id="MainWrapper">
+            <section id="Content" role="main">
+                <div id="InnerContentWrapper">
+                    <div>
+                        <div id="ArticlesWrapper">
+                                                            <!-- Content start -->
+
+
+<!-- Entries start -->            <article>
+            <header>
+                <h1><a href="/archives/66/Performing-push-backups-Part-2-rsnapshot/" rel="bookmark">Performing push backups – Part 2: rsnapshot</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2013-04-03 17:04+0200"><span>on </span><i class="date">03 Apr</i> at <i class="time">05:04 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (3)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>After I discussed a possible backup solution using <code>rdiff-backup</code> in <a href="/archives/65/Performing-push-backups-Part-1-rdiff-backup/">the last part of this series</a> I want to show you the second tool which is <code>rsnapshot</code>.</p>
+
+<p>As I already pointed out, I'm not using <code>rdiff-backup</code> anymore. The reason is mainly that it is simply too slow. I'm using a Raspberry Pi as my NAS and it is absolutely not capable of handling larger backups with <code>rdiff-backup</code>. It works for smaller backup sizes, but not for my entire home directory. Even when I pushed the initial full backup directly to the backup disk (not using my Raspberry), all future incremental backups were still unbearably slow. Even when no files changed at all, it took hours over hours for simply comparing all the files I had in my home directory to those on the NAS, whereas a full comparison using <code>rsnapshot</code> is done within five to ten minutes. Now keep this in mind and look at the fact that incomplete backups made with <code>rdiff-backup</code> can't be resumed. You could imagine that in the end you wouldn't have any backup at all. Basically all <code>rdiff-backup</code> would do is to compare and push your files over the day and abort in the evening when you shut down your workstation. And then the next day it would spend all the time reverting the incomplete backup and running another one which might not finish either.</p>
+
+<p>So this is the main reason I stopped my experiments with <code>rdiff-backup</code>. It was a nice time, but I finally moved on. Therefore say hello to our new precious star: <code>rsnapshot</code>!</p>
+                    <p><a href="/archives/66/Performing-push-backups-Part-2-rsnapshot/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/65/Performing-push-backups-Part-1-rdiff-backup/" rel="bookmark">Performing push backups – Part 1: rdiff-backup</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2013-03-26 16:14+0100"><span>on </span><i class="date">26 Mar</i> at <i class="time">04:14 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (2)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>Backups are a very vital part of every computer system, be it a corporate PC network or simply your local workstation. Unfortunately, they are often neglected, although everyone knows how important they are. The “I haven't had any bad incidences yet, but I know I really should… guess what… I'll do it next week” attitude is only too well known by everybody, including myself.</p>
+
+<p>Performing backups is a tedious process if done wrong. Thus backups need to done automatically in the background without any user intervention. As soon as someone feels the need to do something in order to get his stuff backed up, he will ultimately end up with no backup at all (and probably a bad conscience he only forgets too fast).</p>
+
+<p>In this little two-part article series I will present two tools I've been playing around with a lot and I'll show you how you can use them to set up your own personal NAS with a spare piece of hardware such as a <a href="http://www.raspberrypi.org/">Raspberry Pi</a>. No need for any expensive special storage system.</p>
+                    <p><a href="/archives/65/Performing-push-backups-Part-1-rdiff-backup/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/64/Programmatically-limit-CPU-usage-of-certain-processes/" rel="bookmark">Programmatically limit CPU usage of certain processes</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2013-03-05 15:27+0100"><span>on </span><i class="date">05 Mar</i> at <i class="time">03:27 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (3)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>With KDE 4.10 the file indexer has undergone some major changes which made it pretty usable so I decided to switch it on again. It turned out that the first stage indexing works exceptionally well. It indexed about 60,000 files in my home directory in the blink of an eye.
+
+<p>Unfortunately, I had to realize that the second level indexing does not work so well. I remember Virtuoso often eating up all my CPU in the past. Now Virtuoso keeps quiet, but <code>nepomukindexer</code> let's my workstation fly. It only starts indexing when my PC is idle, but for bigger files it keeps the CPU busy at a level of 100%, which is a pretty bad thing. There is already a <a href="https://bugs.kde.org/show_bug.cgi?id=316075">Bug report</a> about <code>nepomukindexer</code> consuming too much CPU time on larger files, but I didn't want to wait for a fix.
+
+<p>Long story short: I thought of ways to automatically limit the CPU usage of certain processes (not necessarily only Nepomuk).
+                    <p><a href="/archives/64/Programmatically-limit-CPU-usage-of-certain-processes/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/63/Goodbye-Feedburner-please-check-your-subscription/" rel="bookmark">Goodbye Feedburner - please check your subscription</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2012-09-23 16:34+0200"><span>on </span><i class="date">23 Sep</i> at <i class="time">04:34 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (0)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>Google is <a href="https://developers.google.com/feedburner/">shutting down their Feedburner API</a> and I am shutting down Feedburner and will continue with my own self-hosted feed from now on.</p>
+
+<p>Those of you who have been using the RSS feed don't have to do anything, but as an Atom feed subscriber this means you should check your subscription (most people use the Atom feed). Please make sure the feed URL you have saved to your feed reader is <a href="http://www.refining-linux.org/feeds/atom10.xml/">http://www.refining-linux.org/feeds/atom10.xml/</a> (you may also use HTTPS). Until now that URL was redirecting to <em>http://feeds.feedburner.com/RefiningLinux</em> which has now been deprecated.
+
+<p>The old Feedburner URL will redirect to my Atom feed for the next 30 days and then deliver an error 404, so please make sure you update your subscription within that time.
+
+<p>Thank you and please accept my apologies for the trouble.
+                    <p><a href="/archives/63/Goodbye-Feedburner-please-check-your-subscription/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/62/Hacking-embedded-systems/" rel="bookmark">Hacking embedded systems</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2012-05-30 20:16+0200"><span>on </span><i class="date">30 May</i> at <i class="time">08:16 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comment (1)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>Linux is everywhere, not just on desktops. It's on phones, ebook readers, on public terminals, on routers, on electricity meters and many more devices. The key to Linux' success is it's diversity. It is possible to run Linux on nearly every technical device that has a CPU. Many of these are closed systems, so often you don't even notice that Linux is running on that particular device, but there is always a way to gain access to its internals and modify it the way you want. But often you have the problem that heavy modifications might void your warranty or make updates to a more recent firmware version impossible. In this article I want to show you a simple but powerful way to modify such systems in a non-destructive way.
+                    <p><a href="/archives/62/Hacking-embedded-systems/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/61/A-new-appearance/" rel="bookmark">A new appearance</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2012-01-20 02:08+0100"><span>on </span><i class="date">20 Jan</i> at <i class="time">02:08 AM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (2)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>Yay, Refining Linux got a face-lift!
+
+<p>This blog has now been up for a good one and a half year and nothing has changed much since it started. Now it's time to give it a redesign (if you ask me, this was long overdue). While the main appearance stays the same, the details have changed significantly. Let me walk you through the new goodies.
+                    <p><a href="/archives/61/A-new-appearance/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/60/SOPA-blackout/" rel="bookmark">SOPA blackout</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2012-01-17 14:12+0100"><span>on </span><i class="date">17 Jan</i> at <i class="time">02:12 PM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (0)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <p>Tomorrow this blog will be blacked out for 12 hours starting at 1400 CET (1300 UTC or 8 AM EST).
+<p>With this initiative Refining Linux is following the <a href="http://americancensorship.org/">protests</a> against the <b>Stop Online Piracy Act</b> (SOPA) and the <b>PROTECT IP Act</b> (PIPA) proposed by US legislators and the media industry. Many huge Internet companies and organizations such as <a href="http://blog.reddit.com/2012/01/stopped-they-must-be-on-this-all.html">Reddit</a> and <a href="http://wikimediafoundation.org/wiki/English_Wikipedia_anti-SOPA_blackout">Wikipedia</a>  participate in these protests. Also companies such as Google, Amazon, Facebook and of course non-profit organizations such as Mozilla and many smaller groups support the protests against SOPA and PIPA.
+                    <p><a href="/archives/60/SOPA-blackout/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/59/ZSH-Gem-24-ZSH-frameworks/" rel="bookmark">ZSH Gem #24: ZSH frameworks</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2011-12-24 00:00+0100"><span>on </span><i class="date">24 Dec</i> at <i class="time">12:00 AM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (7)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <aside class="advent">This article is part of the 2011 Advent calendar series “24 Outstanding ZSH Gems”. Each day between December 1st and December 24th an article will be published as part of this series showing one awesome feature of the Z Shell. Some of the features can of course also be found in other shells such as Bash, but the ZSH implementation is often superior.</aside>
+
+<p>I have shown you many things about ZSH throughout this series, but there is much more you can do with it than I could cover here. And of course there is also much more to configure, many more options I couldn't tell you about, many more tips and tricks, tweaks and optimizations.</p>
+
+<p>Generally, it's a long way to go before you have your shell set up as you like. Especially ZSH needs a lot of configuration before it becomes very user-friendly. You can do all this configuration by hand or you can use a framework for that. Yes, there are frameworks for ZSH (and for Bash as well, in case you didn't know) and as a completion of this Advent series I'll show you two of them.</p>
+                    <p><a href="/archives/59/ZSH-Gem-24-ZSH-frameworks/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/58/ZSH-Gem-23-Working-with-extended-regular-expressions/" rel="bookmark">ZSH Gem #23: Working with extended regular expressions</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2011-12-23 00:00+0100"><span>on </span><i class="date">23 Dec</i> at <i class="time">12:00 AM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comments (0)                        | Trackback (1)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <aside class="advent">This article is part of the 2011 Advent calendar series “24 Outstanding ZSH Gems”. Each day between December 1st and December 24th an article will be published as part of this series showing one awesome feature of the Z Shell. Some of the features can of course also be found in other shells such as Bash, but the ZSH implementation is often superior.</aside>
+
+<p>There are two ZSH modules which allow you to easily work with POSIX extended regular expressions (POSIX ERE) or with Perl compatible regular expressions (PCRE) which are even more advanced than POSIX ERE. These two modules are <code>zsh/regex</code> and <code>zsh/pcre</code>. You can use either one of them or both at the same time. That's entirely up to you. I'll show you both.</p>
+                    <p><a href="/archives/58/ZSH-Gem-23-Working-with-extended-regular-expressions/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+                <article>
+            <header>
+                <h1><a href="/archives/57/ZSH-Gem-22-Accessing-and-editing-files-with-mapfile/" rel="bookmark">ZSH Gem #22: Accessing and editing files with mapfile</a></h1>
+                <div class="authorInfo">
+                    Posted <time pubdate datetime="2011-12-22 00:00+0100"><span>on </span><i class="date">22 Dec</i> at <i class="time">12:00 AM</i></time> by <a href="http://www.refining-linux.org/authors/1/Janek-Bevendorff/" rel="author" title="Posted by Janek Bevendorff">Janek Bevendorff</a>
+                                            | Comment (1)                        | Trackbacks (0)                                                            </div>
+            </header>
+            
+            
+                            <div class="excerpt">
+                    <aside class="advent">This article is part of the 2011 Advent calendar series “24 Outstanding ZSH Gems”. Each day between December 1st and December 24th an article will be published as part of this series showing one awesome feature of the Z Shell. Some of the features can of course also be found in other shells such as Bash, but the ZSH implementation is often superior.</aside>
+<p>Working on the shell is often working with files and sometimes you need to read or edit their contents. Normally you'd do that with the command line editor of your choice (e.g. nano, vi, vim or emacs), but sometimes you need to write the output of a command or a pipe to a file or feed programs with contents from the hard disk. That's usually done by using the input and output redirection operators, but ZSH gives you one more tool which can sometimes make things easier. This module is called <code>mapfile</code>.</p>
+                    <p><a href="/archives/57/ZSH-Gem-22-Accessing-and-editing-files-with-mapfile/" rel="bookmark">Read more…</a>
+                </div>
+                        
+                        
+        </article>
+    
+    <div id="ArticlesPagination">
+                            (Page 1 of 7, totaling 65 entries)
+                            <a href="http://www.refining-linux.org/archives/P2.html" rel="next">&raquo; next page</a>
+            </div>
+    
+    <!-- Entries end -->
+
+
+<!-- Content end -->
+                                                    </div>
+                        <div id="TopAnchor"><a href="#">↑ Go to top</a></div>
+                        <footer id="ContentFooter" role="contentinfo">
+                            <small id="BlogCopyInfo">Design and Code Copyright &copy; 2010-2018 Janek Bevendorff</small>
+                            <small id="License">Content on this site is published under the terms of the <a href="http://www.gnu.org/copyleft/fdl.html" rel="license">GNU Free Documentation License (GFDL)</a>. You may redistribute content only in compliance with these terms.</small>
+                            <img src="http://www.refining-linux.org/index.php?/plugin/gtweetback.png" width="1" height="1" class="serendipity_tweetback_check" alt="tweetbackcheck"/>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <aside id="Sidebar">
+                <div id="InnerSidebarWrapper">
+                    <div>
+                        <div id="SocialLinks">
+                            <div>Follow me!</div>
+                            
+                            <!-- Thanks to Nathan Brown (http://wegraphics.net/downloads/icons-downloads/free-stained-and-faded-social-media-icons-vol-2/) for this beautiful social icon set! -->
+                            <a href="https://plus.google.com/+Refining-linuxOrg/" title="Follow me on Google+!" class="smButton"><img src="/templates/reflinux-2012/img/icons/googleplus-icon.png" alt="Google+" height="48" width="48"></a>
+                            <a href="https://twitter.com/reflinux" title="Follow me on Twitter!" class="smButton"><img src="/templates/reflinux-2012/img/icons/twitter-icon.png" alt="Twitter" height="48" width="48"></a>
+                            <a href="http://www.refining-linux.org/feeds/atom10.xml" title="Subscribe to my Atom feed!" class="smButton"><img src="/templates/reflinux-2012/img/icons/rss-icon.png" alt="Feedburner" height="48" width="48"></a>
+                        </div>
+                        <div id="SearchBox" role="search">
+                            <form method="get" action="/index.php">
+                                <div>
+                                    <label for="serendipityQuickSearchTermField">Search the Blog:</label>
+                                    <div id="SearchControls">
+                                        <div>
+                                            <input type="search" title="Enter your search term" placeholder="Search…" size="13" name="serendipity[searchTerm]" id="serendipityQuickSearchTermField">
+                                        </div>
+                                        <input type="image" src="/templates/reflinux-2012/img/icons/magnifier.png" title="Go!" name="serendipity[searchButton]" alt="Go!">
+                                    </div>
+                                    <input type="hidden" value="search" name="serendipity[action]">
+                                </div>
+                            </form>
+                        </div>
+                        <div id="SidebarModules">
+            <div id="SidebarModules-serendipity_archives_plugin">
+            <h1>Archives</h1>            <ul class="plainList">
+<li><a href="/archives/2018/03.html" title="March 2018">March 2018 (0)</a></li>
+<li><a href="/archives/2018/02.html" title="February 2018">February 2018 (0)</a></li>
+<li><a href="/archives/2018/01.html" title="January 2018">January 2018 (0)</a></li>
+<li><a href="/index.php?frontpage">Recent...</a></li>
+<li><a href="http://www.refining-linux.org/archive">Older...</a></li>
+</ul>
+
+        </div>
+            <div id="SidebarModules-serendipity_categories_plugin">
+            <h1>Categories</h1>            <form id="serendipity_category_form" action="http://www.refining-linux.org/index.php?frontpage" method="post">
+    <div>
+    <ul>
+                                <li class="category_depth category_10">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="10">
+                                                <a href="/categories/10/Advent-calendar-2010/" title="Advent calendar series “24 Short Linux Hints“">Advent calendar 2010 (24)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_13">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="13">
+                                                <a href="/categories/13/Advent-calendar-2011/" title="Advent calendar series “24 Outstanding ZSH Gems”">Advent calendar 2011 (24)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_8">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="8">
+                                                <a href="/categories/8/Bootloader/" title="">Bootloader (1)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_14">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="14">
+                                                <a href="/categories/14/Embedded-systems/" title="Fun with the little systems">Embedded systems (1)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_5">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="5">
+                                                <a href="/categories/5/Howto/" title="General Howtos">Howto (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_1">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="1">
+                                                <a href="/categories/1/Kernel/" title="Kernel related stuff">Kernel (2)</a>
+                
+                                                                    <ul>
+                                        <li class="category_depth category_3">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="3">
+                                                <a href="/categories/3/File-systems/" title="Articles about file systems">File systems (2)</a>
+                
+                                                                    </li></ul></li>                                        <li class="category_depth category_2">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="2">
+                                                <a href="/categories/2/Userland/" title="Userland related stuff">Userland (5)</a>
+                
+                                                                    <ul>
+                                        <li class="category_depth category_15">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="15">
+                                                <a href="/categories/15/Backup-solutions/" title="">Backup solutions (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_7">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="7">
+                                                <a href="/categories/7/Configuration/" title="">Configuration (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_6">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="6">
+                                                <a href="/categories/6/Console/" title="">Console (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_4">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="4">
+                                                <a href="/categories/4/KDE/" title="Articles about KDE and KDE related programs">KDE (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_12">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="12">
+                                                <a href="/categories/12/Shell-tricks/" title="Little tips and tricks for your daily shell use">Shell tricks (2)</a>
+                
+                                                                    </li>
+                                        <li class="category_depth category_11">
+                    
+                    <input type="checkbox" name="serendipity[multiCat][]" value="11">
+                                                <a href="/categories/11/Tools/" title="Useful little tools console uses should be aware of">Tools (2)</a>
+                
+                            </li>
+        </ul></li>    </ul>
+    <div class="category_submit">
+        <input type="submit" name="serendipity[isMultiCat]" value="Go!"> |
+        <a href="http://www.refining-linux.org/index.php?frontpage?frontpage" title="All categories">All categories</a>
+    </div>
+
+    </div>
+</form>
+
+        </div>
+            <div id="SidebarModules-serendipity_syndication_plugin">
+            <h1>Syndicate this Blog</h1>            <ul class="plainList">        <li>
+            <a class="serendipity_xml_icon" href="/feeds/index.rss"><img src="/templates/reflinux-2012/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/feeds/index.rss">RSS 0.91 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/feeds/index.rss1"><img src="/templates/reflinux-2012/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/feeds/index.rss1">RSS 1.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/feeds/index.rss2"><img src="/templates/reflinux-2012/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/feeds/index.rss2">RSS 2.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/feeds/atom03.xml"><img src="/templates/reflinux-2012/img/xml.gif" alt="ATOM/XML" style="border: 0px" /></a>
+            <a href="/feeds/atom03.xml">ATOM 0.3 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/feeds/atom10.xml"><img src="/templates/reflinux-2012/img/xml.gif" alt="ATOM/XML" style="border: 0px" /></a>
+            <a href="/feeds/atom10.xml">ATOM 1.0 feed</a>
+        </li>
+        <li>
+            <a class="serendipity_xml_icon" href="/feeds/comments.rss2"><img src="/templates/reflinux-2012/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/feeds/comments.rss2"><span style="white-space: nowrap">RSS 2.0 Comments</span></a>
+        </li>
+</ul>
+        </div>
+            <div id="SidebarModules-serendipity_plugin_freetag">
+            <h1>Tag cloud</h1>            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+
+
+<ul id="TagCloud">
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/adobe" class="tag weight1">adobe</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/advent+calendar" class="tag weight8">advent calendar</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/auto+complete" class="tag weight1">auto complete</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/backup" class="tag weight1">backup</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/bash" class="tag weight1">bash</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/configuration" class="tag weight1">configuration</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/console" class="tag weight4">console</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/ext" class="tag weight1">ext</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/ext2" class="tag weight1">ext2</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/ext3" class="tag weight1">ext3</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/ext4" class="tag weight1">ext4</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/fifo" class="tag weight1">fifo</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/file+system" class="tag weight2">file system</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/flash" class="tag weight1">flash</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/function" class="tag weight1">function</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/grep" class="tag weight1">grep</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/history" class="tag weight1">history</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/howto" class="tag weight1">howto</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/kde" class="tag weight1">kde</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/kernel" class="tag weight1">kernel</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/manpage" class="tag weight1">manpage</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/nas" class="tag weight1">nas</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/output+redirection" class="tag weight1">output redirection</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/parameter+expansion" class="tag weight1">parameter expansion</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/process" class="tag weight2">process</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/rdiff-backup" class="tag weight1">rdiff-backup</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/regular+expression" class="tag weight2">regular expression</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/rsnapshot" class="tag weight1">rsnapshot</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/server" class="tag weight1">server</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/shell" class="tag weight5">shell</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/shell+trick" class="tag weight5">shell trick</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/short+hint" class="tag weight5">short hint</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/vim" class="tag weight1">vim</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/zsh" class="tag weight4">zsh</a>
+    
+    <li><a href="http://www.refining-linux.org/plugin/tag/zsh+gem" class="tag weight4">zsh gem</a>
+</ul>
+        </div>
+            <div id="SidebarModules-serendipity_plugin_spamblock_bee">
+            <h1>Comment Spam Report</h1>            <b>Today:</b> <br>Honeypot: 3<br>Hidden Captcha: 1<br>Trackback IP validation: 52<br>Empty Session Hash: 1<br>Total: 109<br><b>The last 7 days:</b><br>Honeypot: 108<br>Hidden Captcha: 5<br>Trackback IP validation: 1954<br>Empty Session Hash: 1<br>Total: 4022<br><b>The last 30 days:</b><br>Honeypot: 641<br>Hidden Captcha: 52<br>Trackback IP validation: 8638<br>Empty Session Hash: 1<br>Total: 17970<br>
+        </div>
+    </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <!-- MainWrapper end -->
+        
+        <ul id="PageMetaLinks">
+            <li><a href="/about/">About</a> –
+            <li><a href="/contact/">Imprint</a> –
+            <li><a href="/privacy/">Privacy</a>
+        </ul>
+    </section>
+    <!-- Page end -->
+    
+    <!--
+        Load JavaScript, including:
+        - jQuery - jquery.com                                   | MIT/GPL jquery.org/license
+        - TagCanvas - www.goat1000.com/tagcanvas.php            | LGPL http://www.gnu.org/licenses/
+        - FancyBox - fancyapps.com/fancybox/                    | CC-By-NC http://fancyapps.com/fancybox/#license
+        - Highlight.js - softwaremaniacs.org/soft/highlight/en/ | Copyright (c) 2006, Ivan Sagalaev
+    -->
+    <script>var basePath = '/';</script>
+    <script src="/js/script.v201403301819.js" defer></script>
+    
+    <!-- Prompt IE6, 7 and 8 users to install Chrome Frame -->
+    <!--[if lte IE 8]>
+    <script src="/js/cf-install.min.js"></script>
+    <script>//window.attachEvent('onload', function(){ CFInstall.check({mode:'overlay'}); })</script>
+    <![endif]-->
+    
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://tracking.jbev.net/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+    <noscript><div id="PiwikPixel"><img src="https://tracking.jbev.net/piwik.php?idsite=1&amp;rec=1" height="1" width="1" alt=""></div></noscript>
+    <!-- End Piwik Code -->
+</body>
+</html>

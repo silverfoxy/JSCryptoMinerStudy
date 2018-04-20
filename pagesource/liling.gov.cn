@@ -1,0 +1,1161 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+		<title>醴陵市政府</title>
+		<script type="text/javascript" src="/zzcms/front/ui/jquery/jquery.js"></script><link type="text/css" rel="stylesheet" href="/zzcms/front/ui/page/info.css"/><link type="text/css" rel="stylesheet" href="/zzcms/front/ui/page/channel.css"/><script type="text/javascript" src="/zzcms/front/ui/visit/visit.js?s=4"></script>
+		<link href="/zzcms/DFS//template/247//images/2016ll_global.css" rel="stylesheet" type="text/css">
+		<link href="/zzcms/DFS//template/247//images/2016ll_index.css" rel="stylesheet" type="text/css">
+      	<link href="/zzcms/DFS//template/247//images/index_queries.css" rel="stylesheet" type="text/css">
+      	<link rel="stylesheet" type="text/css" href="/HJVoice/Hj.easyRead.css" />
+		<script type="text/javascript" src="/zzcms/DFS//template/247//images/jquery.SuperSlide.2.1.1.js"></script>
+		<script type="text/javascript">
+			function onSearch(type) {
+				if(type == "0") {
+					//智能
+					$("#searchForm input[name='interface_code']").val("JMLLX");
+					$("#searchForm input[name='search_model']").val("0");
+					$("#searchForm input[name='innerSiteId']").val("3f628865e3b34e9b8f34a4c2b54a814f");
+					$("#searchForm input[name='searchContent']").val($("#searchForm input[name='keyword_0']").val());
+				} else if(type == "1") {
+					//站内
+					$("#searchForm input[name='interface_code']").val("JM001");
+					$("#searchForm input[name='search_model']").val("2");
+					$("#searchForm input[name='innerSiteId']").val("3f628865e3b34e9b8f34a4c2b54a814f");
+					$("#searchForm input[name='searchContent']").val($("#searchForm input[name='keyword_1']").val());
+				} else if(type == "2") {
+					//全站
+					$("#searchForm input[name='interface_code']").val("JM001");
+					$("#searchForm input[name='search_model']").val("1");
+					$("#searchForm input[name='innerSiteId']").val("3f628865e3b34e9b8f34a4c2b54a814f");
+					$("#searchForm input[name='searchContent']").val($("#searchForm input[name='keyword_2']").val());
+				} else {
+					$("#searchForm input[name='interface_code']").val("JM002");
+					$("#searchForm input[name='search_model']").val("1");
+					$("#searchForm input[name='innerSiteId']").val("3f628865e3b34e9b8f34a4c2b54a814f");
+					$("#searchForm input[name='searchContent']").val("");
+				}
+
+				$("#searchForm").submit();
+			}
+
+			function createMailList() {
+				$.ajax({
+					async: true,
+					url: "/zzcms/front/datacall/transact/fresh.do?iid=4&etype=101&siteid=4&state=2",
+					method: "post",
+					data: {},
+					dataType: "text",
+					success: function(data) {
+						data = $.trim(data);
+						if(data.substring(data.length - 1) == ",") {
+							data = data.substring(0, data.length - 1);
+						}
+						data = "[" + data + "]";
+						var json = eval("(" + data + ")");
+						var html = "";
+						var i = 0;
+						for(i = 0; i < json.length; i++) {
+							//显示行数据控制
+							if(i >= 6) {
+								break;
+							}
+
+							html += "<li>";
+							html += ("	<a href=\"" + json[i].url + "\" target=\"_blank\">" + json[i].name + "</a>");
+							html += ("	<span>[" + json[i].createtime + "]</span>");
+							html += "</li>";
+
+						}
+						$("#mailList").html(html);
+					}
+				});
+			}
+
+			function scroll(p) {
+				var d = document,
+					dd = d.documentElement,
+					db = d.body,
+					w = window,
+					o = d.getElementById(p.id),
+					ie = /msie/i.test(navigator.userAgent),
+					style, timer;
+				if(o) {
+					//ie8下position:fixed下top left失效
+					o.style.cssText += ";position:" + (p.f && !ie ? 'fixed' : 'absolute') + ";" + (p.l == undefined ? 'right:0;' : 'left:' + p.l + 'px;') + (p.t != undefined ? 'top:' + p.t + 'px' : 'bottom:0');
+					if(p.f && ie) {
+						o.style.cssText += ';left:expression(body.scrollLeft + ' + (p.l == undefined ? db.clientWidth - o.offsetWidth : p.l) + ' + "px");top:expression(body.scrollTop +' + (p.t == undefined ? db.clientHeight - o.offsetHeight : p.t) + '+ "px" );'
+						db.style.cssText += ";background-image:url(about:blank);background-attachment:fixed;"
+					} else {
+						if(!p.f) {
+							w.onresize = w.onscroll = function() {
+								clearInterval(timer);
+								timer = setInterval(function() {
+									var st = db.scrollTop,
+										c;
+									c = st - o.offsetTop + (p.t != undefined ? p.t : (w.innerHeight || db.clientHeight) - o.offsetHeight);
+									if(c != 0) {
+										o.style.top = o.offsetTop + Math.ceil(Math.abs(c) / 10) * (c < 0 ? -1 : 1) + 'px';
+									} else {
+										clearInterval(timer);
+									}
+								}, 10)
+							}
+						}
+					}
+				}
+			}
+
+			$(function() {
+				jQuery(".bg_slide").slide({
+					mainCell: "ul",
+					autoPlay: true,
+					effect: "fold",
+					interTime: 5000,
+					autoPage: true
+				});
+				jQuery(".slideBox").slide({
+					titCell: ".hd ul",
+					mainCell: ".bd ul",
+					autoPlay: true,
+					effect: "fold",
+					interTime: 5000,
+					autoPage: true
+				});
+				jQuery(".newstab").slide({
+					titCell: ".title li",
+					mainCell: ".conWrap",
+					targetCell: ".more a",
+					delayTime: 0,
+					triggerTime: 0
+				});
+				jQuery(".ztzl").slide({
+					
+                  mainCell: ".bd ul",
+					autoPlay: true,
+					effect: "fold",
+					interTime: 3500,
+					autoPage: true
+				});
+				jQuery(".xxgkdh").slide({
+					titCell: ".hd li",
+					mainCell: ".bd",
+					delayTime: 0,
+					triggerTime: 0
+				});
+
+				scroll({
+					id: 'myDiv',
+					l: 1250,
+					t: 200,
+					f: 1
+				});
+              
+              	 $(".hylItem").hover(function(){
+					$(this).next(".hylCell").slideToggle()
+				})
+			});
+		</script>
+      <style>
+        .zttl a{ width:1140px; height:100px; margin-top:20px; float:left; display:block;}
+        
+        .hyl{ width: 48px; position:fixed; left:50%; margin-left:580px; bottom:200px; text-align:center; z-index:99999;}
+			.hyl ul li{ position: relative; width: 48px; height: 47px; margin-bottom: 5px;}
+			.hyl .hylItem{ display: block; width: 48px; height: 47px; line-height: 47px; background: #7491AB; color: #fff;}
+			.hyl .hylItem:hover{ text-decoration: none;}
+			.hyl .hylCell{ position: absolute; top:0; left:-95px; border:1px solid #ccc; background: #fff; width: 80px; padding: 5px; font-size:12px; line-height: 16px; display: none;}
+			.hyl .hylCell img{ display: block; width: 80px; height: 80px;}
+			.hyl .hylApp{ top: -100px;}
+      </style>
+	</head>
+
+	<body>
+      	<div class="hyl">
+			<ul>
+				<li>
+					<a href="javascript:;" class="hylItem">微信</a>
+					<div class="hylCell">
+						<img src="/zzcms/DFS//template/247//images/2017_hngov_icon01.png" />
+						湖南省政务微信
+						<img src="/zzcms/DFS//template/247//images/ewm.jpg" />
+						醴陵政务微信
+					</div>
+				</li>
+				<li>
+					<a href="javascript:;" class="hylItem">APP</a>
+					<div class="hylCell hylApp">			
+						<img src="/zzcms/DFS//template/247//images/2017_hngov_icon02.png">湖南省政务APP(IOS)
+          				<img src="/zzcms/DFS//template/247//images/2017_hngov_icon03.png">湖南省政务APP(Android)
+                        <img src="/zzcms/DFS//template/247//images/www_liling_gov_cn_apk.png" />
+						醴陵政务APP
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="bg_slide">
+			<ul>
+				<li style="background-image:url(/zzcms/DFS//template/247//images/2016ll_body_bg01.png);"></li>
+				<li style="background-image:url(/zzcms/DFS//template/247//images/2016ll_body_bg02.png);"></li>
+				<li style="background-image:url(/zzcms/DFS//template/247//images/2016ll_body_bg03.png);"></li>
+			</ul>
+		</div>
+
+		<div class="wrapper">
+			<div class="top">
+				<div class="top_main">
+					<div class="t_m_l">
+						<!--<a href="/c4046" target="_blank">市委</a>/
+						<a href="/c4042" target="_blank">市人大</a>/
+						<a href="/c4048" target="_blank">市政协</a>-->
+					</div>
+					<p>欢迎访问株洲醴陵市人民政府！</p>
+					<p class="wzall">
+						
+						<a href="http://weibo.com/lilingyuqing?is_all=1" target="_blank"> 进入醴陵官方微博</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="header">
+				<div class="logo">
+					<a href="/"><img src="/zzcms/DFS//template/247//images/2016ll_logo.png" width="386" height="76" /></a>
+				</div>
+				<div class="date">
+					<p id="lanrenzhijia1">
+						<script language="JavaScript">
+							var enabled = 0;
+							today = new Date();
+							var day;
+							var date;
+							if(today.getDay() == 0) day = " 星期日"
+							if(today.getDay() == 1) day = " 星期一"
+							if(today.getDay() == 2) day = " 星期二"
+							if(today.getDay() == 3) day = " 星期三"
+							if(today.getDay() == 4) day = " 星期四"
+							if(today.getDay() == 5) day = " 星期五"
+							if(today.getDay() == 6) day = " 星期六"
+							document.fgColor = "66666";
+							date = "今天是" + (today.getFullYear()) + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日" + day + "";
+							document.write(date);
+						</script>
+					</p>
+					<div class="weather">
+						<iframe src="http://www.thinkpage.cn/weather/weather.aspx?uid=U405655157&cid=CHHN020200&l=zh-CHS&p=SMART&a=0&u=C&s=1&m=0&x=1&d=0&fc=005391&bgc=&bc=&ti=0&in=0&li=" frameborder="0" scrolling="no" width="160" height="100" allowTransparency="true"></iframe>
+					</div>
+				</div>
+			</div>
+
+			<ul class="nav">
+				<li class="current">
+					<a href="/">首页</a>
+				</li>
+						<li>
+							<a href="http://www.liling.gov.cn/c1007/index.html">市情</a>
+						</li>
+						<li>
+							<a href="http://www.liling.gov.cn/c1009/index.html">政务</a>
+						</li>
+						<li>
+							<a href="http://www.liling.gov.cn/c1010/index.html">服务</a>
+						</li>
+						<li>
+							<a href="http://www.liling.gov.cn/c1011/index.html">问政</a>
+						</li>
+              <!--
+						<li>
+							<a href="http://www.liling.gov.cn/c1037/index.html">专题</a>
+						</li>
+-->
+			</ul>
+			<script language="javascript">
+				function codefans() {
+					var box = document.getElementById("myDiv");
+					box.style.display = "none";
+				}
+				setTimeout("codefans()", 99999999); //15秒，可以改动
+			</script>
+
+			<div class="main">
+				<div id="slideBox" class="slideBox">
+					<div class="hd">
+						<ul></ul>
+					</div>
+					<div class="bd">
+						<ul>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/20180227/i628665.html" target="_blank">
+											<img src="/zzcms/DFS//file/2018/03/01/20180301090001823sle887.jpg" />
+											<p>醴陵市委常委班子召开2017年度民主生活会</p>
+										</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/20180202/i621978.html" target="_blank">
+											<img src="/zzcms/DFS//2018/02/02/20180202163810601ecibi7.jpg" />
+											<p>新年第一签：25个项目总投资86余亿元</p>
+										</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/20180112/i617396.html" target="_blank">
+											<img src="/zzcms/DFS//2018/01/15/20180115093131970gtvh8e.jpg" />
+											<p>醴陵市第十六届人民代表大会第三次会议隆重开幕</p>
+										</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/20180112/i617392.html" target="_blank">
+											<img src="/zzcms/DFS//2018/01/15/201801150930266729fglnx.jpg" />
+											<p>政协醴陵市第十四届委员会第三次会议于1月10日隆重...</p>
+										</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/20180104/i615596.html" target="_blank">
+											<img src="/zzcms/DFS//2018/01/04/20180104095453040qvddme.png" />
+											<p>市委十二届四次全体（扩大）会议暨市委经济工作会议召...</p>
+										</a>
+									</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="news newstab">
+					<div class="title">
+						<ul>
+									<li>
+										<a href="http://www.liling.gov.cn/c1051/index.html" target="_blank">时政要闻</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1052/index.html" target="_blank">工作动态</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1053/index.html" target="_blank">基层动态</a>
+									</li>
+							<li>
+								<a href="http://www.gov.cn/pushinfo/v150203/index.htm" target="_blank">央网推荐</a>
+							</li>
+							<li>
+								<a href="http://www.hunan.gov.cn/szf/zfhyjtj/" target="_blank">省网转载</a>
+							</li>
+						</ul>
+						<!--<span class="more">
+		                            <a href="http://www.liling.gov.cn/c1051/index.html" target="_blank">更多></a>
+		                            <a href="http://www.liling.gov.cn/c1052/index.html" target="_blank">更多></a>
+		                            <a href="http://www.liling.gov.cn/c1053/index.html" target="_blank">更多></a>
+		                            <a href="http://www.liling.gov.cn/c1050/index.html" target="_blank">更多></a>
+						</span>-->
+					</div>
+
+					<div class="list">
+								<h2><img src="/zzcms/DFS//template/247//images/2016ll_index_yw.png" width="42" height="23" /><a href="http://www.liling.gov.cn/c1051/20180315/i637552.html" target="_blank">市领导深入企业开展走访帮扶</a></h2>
+								<p>3月12日上午，市人大副主任、文联主席唐青柏率市文联深入科发窑炉热工设备有限公司，开展"五个一"企业帮扶走访调研活动。唐...
+									<a href="http://www.liling.gov.cn/c1051/20180315/i637552.html" target="_blank">【查看详情】</a>
+								</p>
+						<div class="conWrap">
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180314/i637375.html" target="_blank">市领导赴孙家湾镇开展企业帮扶调研</a>
+												<span>2018-03-14</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180305/i633485.html" target="_blank">胡湘之调研指导左权镇旅游开发</a>
+												<span>2018-03-05</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180301/i629942.html" target="_blank">重点划好了！醴陵接下来10个月这样干！</a>
+												<span>2018-03-01</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180227/i628698.html" target="_blank">醴陵市人大党组召开2017年度民主生活会</a>
+												<span>2018-02-27</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180227/i628697.html" target="_blank">醴陵市政府党组召开2017年度民主生活会</a>
+												<span>2018-02-27</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1051/20180227/i628665.html" target="_blank">醴陵市委常委班子召开2017年度民主生活会</a>
+												<span>2018-02-27</span>
+											</li>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i638101.html" target="_blank">产教融合,校企共育技能精英（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i638084.html" target="_blank">株洲市天元区督学团来醴陵考察学习挂牌督导工作（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i638024.html" target="_blank">醴陵市供销社与办事处联手走访帮扶企业</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i638021.html" target="_blank">省粮食局来我市调研超标稻谷处置情况（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i637998.html" target="_blank">醴陵市人防办开展企业帮扶第一轮走访问题收集</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1052/20180315/i637947.html" target="_blank">心系基层企业 共建幸福醴陵 ——醴陵市文体广新局深入开展企业帮扶活动...</a>
+												<span>2018-03-15</span>
+											</li>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180316/i638105.html" target="_blank">王仙镇：打好交通扶贫仗，铺就群众致富路（图）</a>
+												<span>2018-03-16</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180315/i638082.html" target="_blank">泗汾镇：市委组织部部长刘华章一行莅临泗汾调研班子建设工作（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180315/i637910.html" target="_blank">阳三石：“3·15”国际消费者权益日  我们在行动（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180315/i637843.html" target="_blank">国瓷街道：充电！为了陶子湖拆迁</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180315/i637821.html" target="_blank">孙家湾镇：学习贯彻落实全市卫生计生工作会议精神（图）</a>
+												<span>2018-03-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1053/20180314/i637542.html" target="_blank">李荣佳率办点单位到东富镇调度2018年工作（图）</a>
+												<span>2018-03-14</span>
+											</li>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+                                <!--
+								<li><a href="http://www.gov.cn/xinwen/2017-07/28/content_5214141.htm" target="_blank">国际机构纷纷上调我国经济增速预期彰显经济发展底气</a></li>
+								<li><a href="http://www.gov.cn/xinwen/2017-07/27/content_5214190.htm" target="_blank">财经观察：中国将继续发挥全球经济“稳定器”作用</a></li>
+-->
+									<script type="text/javascript" src="/zzinfo/getYW.jsp?l=40&s=6&t=true"></script>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+									<script type="text/javascript" src="/zzinfo/getSW.jsp?l=40&s=6&t=true"></script>
+								</ul>
+							</div>
+						</div>
+						<!--<div class="ywtj">
+							<a href="http://www.gov.cn/pushinfo/v150203/index.htm" target="_blank">央网推荐</a>
+							<a href="http://www.hunan.gov.cn/zw/hnyw/zfhy_59077/" target="_blank">省网转载</a>
+						</div>-->
+					</div>
+				</div>
+
+				<div class="ztzl">
+                  <div class="bd">
+						<ul>
+									<li>
+										<a href="javascript:;" target="_blank">
+											<img src="/zzcms/DFS//file/2018/03/07/20180307111331151izl6t2.jpg" />
+										</a>
+									</li>
+						</ul>
+					</div>
+					
+				</div>
+
+				<div class="xxgkdh">
+					<div class="hd">
+						<ul>
+							<li>政府信息公开导航</li>
+							<li>重点领域信息公开</li>
+						</ul>
+					</div>
+					<div class="bd">
+						<div class="xxgk">
+
+									<a class="xxgk01" href="http://www.liling.gov.cn/c1014/index.html" target="_blank">政府信息公开规定</a>
+									<a class="xxgk02" href="http://www.liling.gov.cn/c1015/index.html" target="_blank">政府信息公开指南</a>
+									<a class="xxgk03" href="http://www.liling.gov.cn/c1016/index.html" target="_blank">政府信息公开年报</a>
+									<a class="xxgk04" href="http://www.liling.gov.cn/c1017/index.html" target="_blank">政府信息公开目录</a>
+									<a class="xxgk05" href="http://www.liling.gov.cn/c1018/index.html" target="_blank">依申请公开</a>
+						</div>
+						<div class="zdly">
+									<a class="zdly01" href="http://www.liling.gov.cn/c1030/index.html" target="_blank">行政权力</a>
+									<a class="zdly02" href="http://www.liling.gov.cn/c1031/index.html" target="_blank">财政资金</a>
+									<a class="zdly03" href="http://www.liling.gov.cn/c1032/index.html" target="_blank">公共资源配置</a>
+									<a class="zdly04" href="http://www.liling.gov.cn/c1033/index.html" target="_blank">重大项目建设</a>
+									<a class="zdly05" href="http://www.liling.gov.cn/c1034/index.html" target="_blank">公共服务</a>
+									<a class="zdly06" href="http://www.liling.gov.cn/c1035/index.html" target="_blank">公共监管</a>
+									<a class="zdly07" href="http://www.liling.gov.cn/c1036/index.html" target="_blank">社会组织、中介机构</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="swwj newstab">
+					<div class="title">
+						<ul>
+									<li>
+										<a href="http://www.liling.gov.cn/c1046/index.html" target="_blank">政府文件</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c3812/index.html" target="_blank">部门文件</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1050/index.html" target="_blank">通知公告</a>
+									</li>
+									<li>
+										<a href="http://rsj.liling.gov.cn/c4999/index.html" target="_blank">招考录用</a>
+									</li>
+						</ul>
+						<span class="more">
+									<a href="http://www.liling.gov.cn/c1046/index.html" target="_blank">更多></a>
+									<a href="http://www.liling.gov.cn/c3812/index.html" target="_blank">更多></a>
+									<a href="http://www.liling.gov.cn/c1050/index.html" target="_blank">更多></a>
+									<a href="http://rsj.liling.gov.cn/c4999/index.html" target="_blank">更多></a>
+						</span>
+					</div>
+					<div class="list">
+						<div class="conWrap">
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180302/i630674.html" target="_blank">醴陵市人民政府关于清理规范65项市政府部门行政审批中介服务事项的通知</a>
+												<span>2018-03-01</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180301/i629924.html" target="_blank">醴陵市人民政府 关于进一步加强和规范村级财务管理工作的 若干意见</a>
+												<span>2018-02-27</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180126/i620365.html" target="_blank">醴陵市人民政府办公室关于印发《醴陵市供气系统突发性事故应急预案》的通知</a>
+												<span>2018-01-26</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180115/i617510.html" target="_blank">醴陵市人民政府办公室 关于印发《醴陵市土壤污染防治工作方案》的通知</a>
+												<span>2018-01-11</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180115/i617516.html" target="_blank">醴陵市人民政府办公室 关于印发《醴陵市突发性地质灾害应急预案》的通知</a>
+												<span>2018-01-11</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20180111/i617163.html" target="_blank">醴陵市人民政府办公室 关于印发《醴陵市全面治理拖欠农民工 工资问题实施办法》的通...</a>
+												<span>2018-01-10</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1046/20171229/i614496.html" target="_blank">醴陵市人民政府办公室 关于印发《醴陵市非煤矿山安全生产事故 应急预案》的通知</a>
+												<span>2017-12-29</span>
+											</li>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20180305/i632588.html" target="_blank">醴陵市残疾人联合会 醴陵市卫生和计划生育局 醴陵市财政局关于印发《醴陵市残疾人证...</a>
+												<span>2018-02-01</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171201/i587771.html" target="_blank">醴陵市食品安全委员会办公室 关于印发《醴陵市食品安全“护老行动” 工作方案》的通...</a>
+												<span>2017-12-01</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171128/i586408.html" target="_blank">醴陵市城市管理和行政执法局 关于规范城区人行道车辆停放秩序的通告</a>
+												<span>2017-11-24</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171024/i571200.html" target="_blank">醴陵市农业机械管理局 关于对优等现代农机合作社进行扶持奖励的 通 知</a>
+												<span>2017-10-24</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171024/i571197.html" target="_blank">醴陵市农业机械管理局 关于印发《醴陵市现代农机合作社建设目标管理考核实施方案》的...</a>
+												<span>2017-10-24</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171030/i574380.html" target="_blank">醴陵市农业局 关于印发《醴陵市农业局行政处罚自由裁量权适用规定（种植业）》的通知</a>
+												<span>2017-09-29</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c3812/20171019/i570171.html" target="_blank">醴陵市畜牧局 关于印发《醴陵市畜牧兽医水产局行政处罚自由裁量权基准制度适用办法（...</a>
+												<span>2017-08-04</span>
+											</li>
+								</ul>
+							</div>
+							<div class="con">
+								<ul>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180316/i638460.html" target="_blank">关于副市长王吉祥接听“12345”市长热线的公告</a>
+												<span>2018-03-16</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180209/i625577.html" target="_blank">醴陵市卫生和计划生育局关于实施基本公共卫生服务项目单位的公示</a>
+												<span>2018-02-09</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180205/i622060.html" target="_blank">市委管理干部任前公示公告</a>
+												<span>2018-02-05</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180131/i621247.html" target="_blank">醴陵市2018年第一批三星级脱贫之星候选人公示</a>
+												<span>2018-01-31</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180129/i620799.html" target="_blank">醴陵市政府网站工作年度报表（2017年度）</a>
+												<span>2018-01-29</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180212/i626278.html" target="_blank">2017年醴陵市“农村危房改造工程”情况公示</a>
+												<span>2018-01-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c1050/20180112/i617291.html" target="_blank">醴陵市法律援助中心2017年第四季度法律援助办案补贴发放及办案表公示</a>
+												<span>2018-01-11</span>
+											</li>
+								</ul>
+							</div>
+                          <div class="con">
+								<ul>
+											<li>
+												<a href="http://rsj.liling.gov.cn/c4999/20171204/i590681.html" target="_blank">2017年醴陵市燃气管理办公室 公开选调工作人员公告</a>
+												<span>2017-12-04</span>
+											</li>
+											<li>
+												<a href="http://rsj.liling.gov.cn/c4999/20171204/i590692.html" target="_blank">2017年醴陵市民兵训练基地公开选调工作人员公告</a>
+												<span>2017-12-04</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c7616/20170823/i554747.html" target="_blank">醴陵市人武部招聘合同制工作人员实施方案</a>
+												<span>2017-08-22</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c7616/20170822/i554264.html" target="_blank">2017年醴陵市统计局公开招聘编外聘用人员面试成绩、综合成绩及入围体检名单公布</a>
+												<span>2017-08-22</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c7616/20170815/i551245.html" target="_blank">2017年醴陵市统计局公开招聘编外聘用人员笔试成绩及入围面试人员公布</a>
+												<span>2017-08-15</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c7616/20170804/i549310.html" target="_blank">2017年醴陵市政务服务中心 公开招聘第二期编外聘用人员拟聘用人员公示</a>
+												<span>2017-08-04</span>
+											</li>
+											<li>
+												<a href="http://www.liling.gov.cn/c7616/20170803/i549078.html" target="_blank">中共醴陵市纪委中共醴陵市委组织部关于公开选调市纪委派驻纪检组、市委巡察组工作人员...</a>
+												<span>2017-08-03</span>
+											</li>
+								</ul>
+							</div>
+                           <div class="con">
+								<ul>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+              
+                <div class="lhbd" style="float:left;width:1140px;height:100px; margin-top:20px;">
+                  <a href="http://zt.voc.com.cn/Topic/wlxsd/" target="_blank"><img src="/zzcms/DFS//template/248/images/2017zz_lhbd.jpg" width="1140" height="100" /></a>
+                </div>
+              
+				<form id="searchForm" name="searchForm" action="/search-robot/jump.do" method="post" target="_blank">
+					<input type="hidden" name="innerSiteId" value="" />
+					<input type="hidden" name="interface_code" value="" />
+					<input type="hidden" name="searchContent" value="" />
+					<input type="hidden" name="search_model" value="" />
+					<div class="search_bar">
+						<div class="ssxzs"><img src="/zzcms/DFS//template/247//images/2016ls_index_ssxzs.png" width="202" height="77" /></div>
+						<div class="search">
+							<div class="znwd">
+								<h4>知识库</h4>
+								<input type="text" name="keyword_0" class="txt" value="请输入您想了解的内容" onfocus="if (value =='请输入您想了解的内容'){value =''}" onblur="if (value ==''){value='请输入您想了解的内容'}" />
+								<input type="button" class="btn" onclick="onSearch('0');" />
+							</div>
+							<div class="znjs">
+								<h4>站内检索</h4>
+								<input type="text" name="keyword_1" class="txt" value="请输入关键字检索”株洲醴陵市”门户网站" onfocus="if (value =='请输入关键字检索”株洲醴陵市”门户网站'){value =''}" onblur="if (value ==''){value='请输入关键字检索”株洲醴陵市”门户网站'}" />
+								<input type="button" class="btn" onclick="onSearch('1');" />
+							</div>
+							<div class="qwjs">
+								<h4>全网检索</h4>
+								<input type="text" name="keyword_2" class="txt" value="请输入关键字检索株洲市政府网站群内容" onfocus="if (value =='请输入关键字检索株洲市政府网站群内容'){value =''}" onblur="if (value ==''){value='请输入关键字检索株洲市政府网站群内容'}" />
+								<input type="button" class="btn" onclick="onSearch('2');" />
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="zttl">
+								<a href="http://www.liling.gov.cn/c9196/index.html" target="_blank"><img src="/zzcms/DFS//template/248/images/zttl.png"></a>
+          </div>
+          <div class="clear">
+            </div>
+				<div class="zdfw">
+					<div class="title">
+						<ul>
+							<li class="on">
+								<a href="http://www.liling.gov.cn/c10344/index.html">重点服务</a>
+							</li>
+						</ul>
+					</div>
+					<div class="zdfw_main">
+						<ul>
+									<li>
+										<a class="zdfw01" href="http://www.liling.gov.cn/c10619/index.html" target="_blank">身份证办理</a>
+									</li>
+									<li>
+										<a class="zdfw02" href="http://www.liling.gov.cn/c10618/index.html" target="_blank">户籍办理</a>
+									</li>
+									<li>
+										<a class="zdfw04" href="http://www.liling.gov.cn/c10620/index.html" target="_blank">生育服务证办理</a>
+									</li>
+									<li>
+										<a class="zdfw08" href="http://www.liling.gov.cn/c10621/index.html" target="_blank">老年人福利待遇</a>
+									</li>
+									<li>
+										<a class="zdfw03" href="http://www.liling.gov.cn/c10622/index.html" target="_blank">残疾人服务</a>
+									</li>
+                          
+									<li>
+										<a class="zdfw01" href="http://www.liling.gov.cn/c10623/index.html" target="_blank">居住证办理</a>
+									</li>
+									<li>
+										<a class="zdfw01" href="http://www.liling.gov.cn/c10624/index.html" target="_blank">随迁子女入学服务</a>
+									</li>
+									<li>
+										<a class="zdfw01" href="http://www.liling.gov.cn/c10625/index.html" target="_blank">毕业生创业就业服务</a>
+									</li>
+						</ul>
+						<div class="grfw">
+							<a href="http://wsbs.hunan.gov.cn/virtualhall/index.jsp?areaCode=430281999000" target="_blank">个人办事</a>
+							<a href="http://wsbs.hunan.gov.cn/virtualhall/index.jsp?areaCode=430281999000" target="_blank">企业办事</a>
+							<a href="http://wsbs.hunan.gov.cn/virtualhall/index.jsp?areaCode=430281999000" target="_blank">部门办事</a>
+						</div>
+						<a href="/c1010" target="_blank" class="zwdt" style="align:center;">政府办事服务</a>
+					</div>
+				</div>
+
+				<div class="szxx newstab">
+					<div class="title">	
+                         <ul>
+			 
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/index.html" target="_blank">政策解读</a>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1122/index.html" target="_blank">网上调查</a>
+									</li>
+						</ul>
+						<span class="more">							
+									<a href="http://www.liling.gov.cn/c1049/index.html" target="_blank">更多></a>
+									<a href="http://www.liling.gov.cn/c1122/index.html" target="_blank">更多></a>
+						</span>
+					</div>
+					<div class="list conWrap">
+                      	<ul>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171204/i590123.html" target="_blank">醴陵市安全生产监督管理局 关于转发《湖南省安监局关于认真贯彻实施&lt;国家安全...</a>
+										<span>2017-12-04</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581020.html" target="_blank">不依法履职就要追责——聚焦《消防安全责任制实施办法》发布</a>
+										<span>2017-11-13</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581007.html" target="_blank">国务院法制办、国家发展改革委负责人 就《机关团体建设楼堂馆所管理条例》答记者问</a>
+										<span>2017-10-10</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581028.html" target="_blank">三部门解读《关于切实做好就业扶贫工作的实施意见》</a>
+										<span>2017-09-25</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581018.html" target="_blank">中共中央办公厅 国务院办公厅印发《关于深化教育体制机制改革的意见》</a>
+										<span>2017-09-25</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581010.html" target="_blank">《湖南省“十三五”人口发展规划》解读</a>
+										<span>2017-09-13</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581022.html" target="_blank">国务院办公厅印发《关于加快推进农业供给侧结构性改革大力发展粮食产业经济的意见》</a>
+										<span>2017-09-11</span>
+									</li>
+									<li>
+										<a href="http://www.liling.gov.cn/c1049/20171115/i581030.html" target="_blank">环保税这样影响我们生活</a>
+										<span>2017-09-05</span>
+									</li>
+						</ul>
+                        <ul>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/zzcms/front/expand/survey/form.do?iid=81" target="_blank">陶瓷市场调查问卷</a>
+										<span>2017-07-12</span>
+									</li>
+									<li>
+										<a href="https://www.wenjuan.com/s/Zv2IRn/" target="_blank">醴陵市部门服务满意度评议表</a>
+										<span>2017-06-22</span>
+									</li>
+									<li>
+										<a href="http://www.zzx.gov.cn/zzcms/front/expand/survey/result.do?iid=46" target="_blank">垃圾分类调查问卷</a>
+										<span>2017-06-09</span>
+									</li>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/zzcms/front/expand/survey/form.do?iid=80" target="_blank">2016年及2017年春节期间烟花爆竹行业情况问卷调查</a>
+										<span>2017-04-07</span>
+									</li>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/zzcms/front/expand/survey/form.do?iid=65" target="_blank">居民就医情况调查</a>
+										<span>2017-03-31</span>
+									</li>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/zzcms/front/expand/survey/form.do?iid=64" target="_blank">人民群众满意度评价调查问卷</a>
+										<span>2017-03-22</span>
+									</li>
+									<li>
+										<a href="/zzcms/front/expand/survey/form.do?iid=8" target="_blank">环保意识调查</a>
+										<span>2016-11-15</span>
+									</li>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/zzcms/front/expand/survey/form.do?iid=40" target="_blank">醴陵市政府门户网站改版调查</a>
+										<span>2016-10-01</span>
+									</li>
+						</ul>
+                    </div>
+					<a href="http://12345.zhuzhou.gov.cn:8066/12345/front/email/action.jsp" target="_blank" class="wyxx">我要写信</a>
+				</div>
+
+				<div class="hdjl">
+							<a class="hd01" href="http://12345.zhuzhou.gov.cn:8066/12345/front/index.do" target="_blank">市长信箱</a>
+							<a class="hd02" href="http://12345.zhuzhou.gov.cn:8066/12345/front/index.do" target="_blank">12345政府服务直通车</a>
+							<a class="hd03" href="http://wsxf.hunan.gov.cn/index.cmd?xzqhdm=430281&djjgdm=43028100000000499" target="_blank">网上信访</a>
+					<a class="hd04" href="http://www.creditchina.gov.cn/" target="_blank">信用中国</a>
+				</div>
+
+				<div class="yqlj newstab">
+					<div class="title">
+						<ul>
+							<li>
+								<a href="javascript:void(0);">省级政府</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">省会城市</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">省内市州</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">县市区</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">部门和单位</a>
+							</li>                          
+						</ul>
+					</div>
+					<div class="list conWrap">
+						<ul>
+							<!--baginblock id=省级政府 -->
+									<li>
+										<a href="http://www.tj.gov.cn/" target="_blank">天 津 市</a>
+									</li>
+									<li>
+										<a href="http://www.xinjiang.gov.cn/" target="_blank">新 疆</a>
+									</li>
+									<li>
+										<a href="http://www.nx.gov.cn/" target="_blank">宁 夏</a>
+									</li>
+									<li>
+										<a href="http://www.jiangxi.gov.cn/" target="_blank">江 西 省</a>
+									</li>
+									<li>
+										<a href="http://www.gansu.gov.cn/" target="_blank">甘 肃 省</a>
+									</li>
+									<li>
+										<a href="http://www.shaanxi.gov.cn/" target="_blank">陕 西 省</a>
+									</li>
+									<li>
+										<a href="http://www.xizang.gov.cn/" target="_blank">西 藏</a>
+									</li>
+									<li>
+										<a href="http://www.yn.gov.cn/" target="_blank">云 南 省</a>
+									</li>
+									<li>
+										<a href="http://www.gzgov.gov.cn/" target="_blank">贵 州 省</a>
+									</li>
+									<li>
+										<a href="http://www.sc.gov.cn/" target="_blank">四 川 省</a>
+									</li>
+									<li>
+										<a href="http://www.cq.gov.cn/" target="_blank">重 庆 市</a>
+									</li>
+									<li>
+										<a href="http://www.hainan.gov.cn/" target="_blank">海 南 省</a>
+									</li>
+									<li>
+										<a href="http://www.gxzf.gov.cn/" target="_blank">广 西 省</a>
+									</li>
+									<li>
+										<a href="http://www.gd.gov.cn/" target="_blank">广 东 省</a>
+									</li>
+									<li>
+										<a href="http://www.hunan.gov.cn/" target="_blank">湖 南 省</a>
+									</li>
+									<li>
+										<a href="http://www.hubei.gov.cn" target="_blank">湖 北 省</a>
+									</li>
+									<li>
+										<a href="http://www.henan.gov.cn/" target="_blank">河 南 省</a>
+									</li>
+									<li>
+										<a href="http://www.shandong.gov.cn/           " target="_blank">山 东 省</a>
+									</li>
+									<li>
+										<a href="http://www.fujian.gov.cn/" target="_blank">福 建 省</a>
+									</li>
+									<li>
+										<a href="http://www.ah.gov.cn/" target="_blank">安 徽 省</a>
+									</li>
+									<li>
+										<a href="http://www.zj.gov.cn/gb/zjnew/index.html " target="_blank">浙 江 省</a>
+									</li>
+									<li>
+										<a href="http://www.jiangsu.gov.cn/            " target="_blank">江 苏 省</a>
+									</li>
+									<li>
+										<a href="http://www.hlj.gov.cn/" target="_blank">黑龙江 省</a>
+									</li>
+									<li>
+										<a href="http://www.jl.gov.cn/" target="_blank">吉 林 省</a>
+									</li>
+									<li>
+										<a href="http://www.ln.gov.cn/" target="_blank">辽 宁 省</a>
+									</li>
+									<li>
+										<a href="http://www.nmg.gov.cn/" target="_blank">内蒙古自治区</a>
+									</li>
+									<li>
+										<a href="http://www.shanxi.gov.cn/ " target="_blank">山 西 省</a>
+									</li>
+									<li>
+										<a href="http://www.hebei.gov.cn/" target="_blank">河 北 省</a>
+									</li>
+									<li>
+										<a href="http://www.shanghai.gov.cn/" target="_blank">上 海 市</a>
+									</li>
+									<li>
+										<a href="http://www.beijing.gov.cn/" target="_blank">北 京 市</a>
+									</li>
+							<!--endblock -->
+						</ul>
+						<ul>
+							<!--baginblock id=省会城市 -->
+									<li>
+										<a href="http://www.changsha.gov.cn/" target="_blank">长沙</a>
+									</li>
+									<li>
+										<a href="http://www.nc.gov.cn" target="_blank">南昌</a>
+									</li>
+									<li>
+										<a href="http://www.chengdu.gov.cn" target="_blank">成都</a>
+									</li>
+									<li>
+										<a href="http://www.xian.gov.cn/" target="_blank">西安</a>
+									</li>
+									<li>
+										<a href="http://www.taiyuan.gov.cn" target="_blank">太原</a>
+									</li>
+									<li>
+										<a href="http://www.shenyang.gov.cn" target="_blank">沈阳</a>
+									</li>
+									<li>
+										<a href="http://www.changchun.gov.cn" target="_blank">长春</a>
+									</li>
+									<li>
+										<a href="http://www.harbin.gov.cn" target="_blank">哈尔滨</a>
+									</li>
+									<li>
+										<a href="http://www.nanjing.gov.cn" target="_blank">南京</a>
+									</li>
+									<li>
+										<a href="http://www.hangzhou.gov.cn" target="_blank">杭州</a>
+									</li>
+									<li>
+										<a href="http://www.hefei.gov.cn" target="_blank">合肥</a>
+									</li>
+									<li>
+										<a href="http://www.hohhot.gov.cn" target="_blank">呼和浩特</a>
+									</li>
+									<li>
+										<a href="http://www.lasa.gov.cn/" target="_blank">拉萨</a>
+									</li>
+									<li>
+										<a href="http://www.jinan.gov.cn" target="_blank">济南</a>
+									</li>
+									<li>
+										<a href="http://www.zhengzhou.gov.cn" target="_blank">郑州</a>
+									</li>
+									<li>
+										<a href="http://www.wh.gov.cn" target="_blank">武汉</a>
+									</li>
+									<li>
+										<a href="http://www.gz.gov.cn" target="_blank">广州</a>
+									</li>
+									<li>
+										<a href="http://www.haikou.gov.cn" target="_blank">海口</a>
+									</li>
+									<li>
+										<a href="http://www.fuzhou.gov.cn" target="_blank">福州</a>
+									</li>
+									<li>
+										<a href="http://www.gygov.gov.cn" target="_blank">贵阳</a>
+									</li>
+									<li>
+										<a href="http://www.km.gov.cn/" target="_blank">昆明</a>
+									</li>
+									<li>
+										<a href="http://www.lz.gansu.gov.cn" target="_blank">兰州</a>
+									</li>
+									<li>
+										<a href="http://www.xining.gov.cn" target="_blank">西宁</a>
+									</li>
+									<li>
+										<a href="http://www.urumqi.gov.cn" target="_blank">乌鲁木齐</a>
+									</li>
+									<li>
+										<a href="http://www.yinchuan.gov.cn" target="_blank">银川</a>
+									</li>
+									<li>
+										<a href="http://www.nanning.gov.cn/" target="_blank">南宁</a>
+									</li>
+							<!--endblock -->
+						</ul>
+						<ul>
+							<!--baginblock id=省内市州 -->
+									<li>
+										<a href="http://www.xxz.gov.cn/" target="_blank">湘西自治州&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.hengyang.gov.cn/" target="_blank">衡阳市</a>
+									</li>
+									<li>
+										<a href="http://www.yiyang.gov.cn/yiyang/index.htm" target="_blank">益阳市</a>
+									</li>
+									<li>
+										<a href="http://www.yueyang.gov.cn/index.html" target="_blank">岳阳市&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.shaoyang.gov.cn/" target="_blank">邵阳市&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.czs.gov.cn" target="_blank">郴州市&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.hnloudi.gov.cn/" target="_blank">娄底市&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.yzcity.gov.cn/" target="_blank">永州市&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.huaihua.gov.cn/web/index.htm" target="_blank">怀化市 </a>
+									</li>
+									<li>
+										<a href="http://www.zjj.gov.cn/" target="_blank">张家界&nbsp;</a>
+									</li>
+									<li>
+										<a href="http://www.xiangtan.gov.cn/" target="_blank">湘潭市</a>
+									</li>
+									<li>
+										<a href="http://www.changde.gov.cn/" target="_blank">常德市</a>
+									</li>
+									<li>
+										<a href="http://www.zhuzhou.gov.cn/" target="_blank">株洲市</a>
+									</li>
+									<li>
+										<a href="http://www.changsha.gov.cn/" target="_blank">长沙市</a>
+									</li>
+							<!--endblock -->
+						</ul>
+						<ul>
+							<!--baginblock id=县市区 -->
+									<li>
+										<a href="http://www.liling.gov.cn/" target="_blank">醴陵市</a>
+									</li>
+									<li>
+										<a href="http://www.hnyx.gov.cn/" target="_blank">攸 县</a>
+									</li>
+									<li>
+										<a href="http://www.chaling.gov.cn/" target="_blank">茶陵县</a>
+									</li>
+									<li>
+										<a href="http://www.hnyanling.gov.cn/" target="_blank">炎陵县</a>
+									</li>
+									<li>
+										<a href="http://www.zzx.gov.cn/" target="_blank">株洲县</a>
+									</li>
+									<li>
+										<a href="http://www.zzty.gov.cn/" target="_blank">高新区（天元区）</a>
+									</li>
+									<li>
+										<a href="http://www.lusong.gov.cn/" target="_blank">芦淞区</a>
+									</li>
+									<li>
+										<a href="http://www.hetang.gov.cn/" target="_blank">荷塘区</a>
+									</li>
+									<li>
+										<a href="http://www.shifeng.gov.cn/" target="_blank">石峰区</a>
+									</li>
+									<li>
+										<a href="http://www.zzyunlong.gov.cn/" target="_blank">云龙示范区</a>
+									</li>
+							<!--endblock -->
+						</ul>
+						<ul>
+							<!--baginblock id=部门和单位 -->
+									<li>
+										<a href="http://edu.liling.gov.cn" target="_blank">教育局</a>
+									</li>
+									<li>
+										<a href="http://jkxj.liling.gov.cn/" target="_blank">经科信局</a>
+									</li>
+									<li>
+										<a href="http://llcz.liling.gov.cn/" target="_blank">财政局</a>
+									</li>
+									<li>
+										<a href="http://rsj.liling.gov.cn/" target="_blank">人社局</a>
+									</li>
+									<li>
+										<a href="http://llnyj.liling.gov.cn/" target="_blank">农业局</a>
+									</li>
+									<li>
+										<a href="http://wjj.liling.gov.cn" target="_blank">卫计局</a>
+									</li>
+									<li>
+										<a href="http://ajj.liling.gov.cn" target="_blank">安监局</a>
+									</li>
+									<li>
+										<a href="http://tjj.liling.gov.cn/" target="_blank">统计局</a>
+									</li>
+									<li>
+										<a href="http://lyj.liling.gov.cn/" target="_blank">林业局</a>
+									</li>
+									<li>
+										<a href="http://gtj.liling.gov.cn" target="_blank">国土资源局</a>
+									</li>
+							<!--endblock -->
+						</ul>                      
+					</div>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+			<script type="text/javascript" src="/zzcms/DFS//template/248/images/footer.js"></script>
+		</div>
+      
+      	<script type="text/javascript" src="/HJVoice/require.js"></script>
+	</body>
+</html>

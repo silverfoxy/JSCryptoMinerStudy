@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href='//fonts.googleapis.com/css?family=Fira+Sans:400,500italic' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: 'Fira Sans';
+        text-align: center;
+        font-size: 5vmin;
+        background: hsl(35, 100%, 95%);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+      }
+      h1 {
+        font-weight: 500;
+        margin-bottom: 1em;
+      }
+      em {
+        position: relative;
+        top: .1em;
+      }
+      img {
+        vertical-align: middle;
+        width: 35vmin;
+      }
+      h2 {
+        margin: 2vmin 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #0095DD;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <a href="https://www.mozilla.org" title="Mozilla home"><img src="Dino.svg" alt="Mozilla"></a>
+      <em>on</em>
+	  <a href="https://wiki.mozilla.org/Github" title="Mozilla on github"><img src="GitHub-Mark.svg" alt="GitHub"></a>
+    </h1>
+    <h2>Project Lists</h2>
+    <ul>
+      <li><a href="https://mozilla.github.io/webdev">Web Development</a></li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Sakarya Büyükşehir Belediye</title>
+    <meta name="description" />
+    <meta name="keywords" />
+    <meta name="author" content="http://www.playback.com.tr" />
+    <link rel="image_src" />
+
+    <!--FONT CDN -->
+    
+    <!-- CSS DOSYALARI -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/application.css" rel="stylesheet" />
+    <link href="/assets/css/jquery-ui.css" rel="stylesheet" />
+
+    <!-- JS DOSYALARI -->
+    <script type="text/javascript" src="/assets/js/jquery-1.8.2.min.js"></script>
+    <script src="/assets/js/lang.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="/assets/js/application.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.corner.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.ui.autocomplete.js"></script>
+    <link href="/assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="/assets/css/owl.theme.css" rel="stylesheet" />
+    <script src="/assets/js/owl.carousel.js"></script>
+    <script>
+        env.lang_prefix = 'tr';
+    </script>
+    <!-- PLUGIN DOSYALARI -->
+    <!-- funcybox-->
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="/assets/plugins/funcybox/source/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/funcybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+    <!-- Add Button helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/funcybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+    <script type="text/javascript" src="/assets/plugins/funcybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+    <!-- Add Thumbnail helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/funcybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+    <script type="text/javascript" src="/assets/plugins/funcybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+    <!-- Add Media helper (this is optional) -->
+    <script type="text/javascript" src="/assets/plugins/funcybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        window.onload = function () {
+            var pagerYanContUlUz = $('.pager-yan-cont > ul').width();
+            $('.pager-yan-cont > ul').css('left', (734 - pagerYanContUlUz) / 2);
+            $('.db-pager > ul').css('left', (480 - pagerYanContUlUz) / 2);
+
+            var tdSolHeight = $('.td_sol').height();
+            var tdSagHeight = $('.td_sag').height();
+            if (tdSolHeight > tdSagHeight)
+                $('.td_sag').height(tdSolHeight);
+            else
+                $('.td_sol').height(tdSagHeight);
+        }
+
+        $(document).ready(function () {
+            var scrollTop = $(document).scrollTop();
+            var isFixed = 0;
+            var sayfaWidth = $(window).width();
+            var sayfaHeight = $(window).height();
+            var leftAltFix = 0;
+            var leftMenuHeight = $('.left-menu-cont').height();
+
+
+            console.log('left menu yukseklik' + leftMenuHeight);
+            $(document).scroll(function () {
+                //üst ve yan fixed menüyü ayarlama.
+                var sctionsYukseklik = $('.sctions').height();
+                var leftBotter = $('.sctions').height() + 170;
+                scrollTop = $(document).scrollTop();
+
+                if (scrollTop > 300 && isFixed == 0) {
+                    isFixed = 1;
+                    $('.menu-conts').addClass('menu-cont-active');
+                    $('.left-menu-cont').addClass('left-menu-fixed');
+                }
+                else if (scrollTop < 300 && isFixed == 1) {
+                    isFixed = 0;
+                    $('.menu-conts').removeClass('menu-cont-active');
+                    $('.left-menu-cont').removeClass('left-menu-fixed');
+                }
+                var altsinir = leftBotter - leftMenuHeight;
+                //console.log('scroll top...:' + scrollTop);
+                //console.log('alt sini...:' + altsinir);
+                if (scrollTop > altsinir && leftAltFix == 0) {
+                    console.log('scroll top alt sınırı geçti.');
+                    $('.left-menu-cont').removeClass('left-menu-fixed');
+                    $('.left-menu-cont').addClass('left-menu-bottom');
+                    leftAltFix = 1;
+                }
+                else if (scrollTop <= altsinir && leftAltFix == 1) {
+                    console.log('scroll top alt sınırı geri geldi.');
+                    $('.left-menu-cont').removeClass('left-menu-bottom');
+                    $('.left-menu-cont').addClass('left-menu-fixed');
+                    leftAltFix = 0;
+                }
+            });
+
+            //top-menu açılır menü----------------------------
+            $(window).resize(function () {
+                top_menu_boyut();
+            });
+
+            function top_menu_boyut() {
+                sayfaWidth = $(window).width();
+                sayfaHeight = $(window).height();
+
+                var leftSabit = -((sayfaWidth - 1210) / 2 + 347);
+                $('.top-menu-detay').width(sayfaWidth);
+                $('ul.top-menu>li').eq(0).children('.top-menu-detay').css({ 'left': (leftSabit) });
+                $('ul.top-menu>li').eq(1).children('.top-menu-detay').css({ 'left': (leftSabit - 152) });
+                $('ul.top-menu>li').eq(2).children('.top-menu-detay').css({ 'left': (leftSabit - 291) });
+                $('ul.top-menu>li').eq(3).children('.top-menu-detay').css({ 'left': (leftSabit - 437) });
+                $('ul.top-menu>li').eq(4).children('.top-menu-detay').css({ 'left': (leftSabit - 610) });
+                $('ul.top-menu>li').eq(5).children('.top-menu-detay').css({ 'left': (leftSabit - 744) });
+
+                $('.ilet-modal-strec').width(sayfaWidth);
+                $('.ilet-modal-strec').height(sayfaHeight);
+            }
+            top_menu_boyut();
+
+
+            //alt menu gösterme---------------
+            //rev 11.03.2014 start
+            $('ul.top-menu>li').hover(function () {
+                $(this).children('.top-menu-detay').css('display', 'block');
+            }, function () {
+                $(this).children('.top-menu-detay').css('display', 'none');
+            });
+            //rev 11.03.2014 end
+
+
+            //
+            $('.top-menu-cont').hover(function () {
+                if ($.browser.msie) {
+                    if ($.browser.version == "8.0") {
+                        $(this).parent().parent().css('z-index', 500);
+                    }
+                }
+                else {
+                    $(this).parent().parent().css('z-index', 3);
+                }
+
+            }, function () {
+                $(this).parent().parent().css('z-index', 1);
+            });
+
+            //akordiyon menü açılıp kapatma
+            $('.akr-list').css('display', 'block');
+            $('.akr-list>li').children('div').slideUp();
+            //$('.akr-list>li>nav').click(function () {
+            //    $('.ilceler').css('display', 'none');
+            //    $(this).children('h1').toggleClass('h1-opened');
+            //    $(this).parent().children('div').slideToggle();
+            //    //$(this).parent().children('.li-detay').slideDown();
+            //});
+
+            //akordiyon menü açılıp kapatma
+            $('.akr-list1').css('display', 'block');
+            $('.akr-list1>li').children('div').slideUp();
+            $('.akr-list1>li>nav').click(function () {
+                $(this).children('h1').toggleClass('h1-opened');
+                $(this).parent().children('div').slideToggle();
+                //$(this).parent().children('.li-detay').slideDown();
+            });
+
+
+            //arama sonuç aç
+            $('.ara-wrap input[type="text"]').focusin(function () {
+                $(this).parent().parent().children('.ara-acilir').fadeIn();
+            });
+
+            $('.ara-wrap input[type="text"]').focusout(function () {
+                $(this).parent().parent().children('.ara-acilir').fadeOut();
+            });
+            $('.ara-close').click(function () {
+                $('.ara-acilir').fadeOut();
+            });
+
+
+
+            //harf süzme açılır
+
+            $('.harf-list').slideUp();
+            $('.muht-pager-cont > section').click(function () {
+                $(this).children('.harf-list').slideToggle();
+            })
+
+
+            //iletişim modal açılış
+            $('.list-cont > ul > li,.flip-open').click(function () {
+                $('html').css('overflow', 'hidden');
+                $('.sctions').addClass('sctions-modal');
+                top_menu_boyut();
+                $('.ilet-modal-strec').fadeIn();
+            });
+
+            $('.mdl-close').click(function () {
+                $('html').css('overflow', 'auto');
+                $('.sctions').removeClass('sctions-modal');
+                top_menu_boyut();
+                $('.ilet-modal-strec').fadeOut();
+            });
+            //ieft menu cont.
+
+            //place holder.........................
+            if ($.browser.msie) { //brovser versiyon kontrol.
+                if ($.browser.version == "9.0" || $.browser.version == "8.0") {
+                    $('select').css('background-image', 'none');
+                    $('[placeholder]').focus(function () {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                            input.removeClass('placeholder');
+                        }
+                    }).blur(function () {
+                        var input = $(this);
+                        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                            input.addClass('placeholder');
+                            input.val(input.attr('placeholder'));
+                        }
+                    }).blur();
+                }
+            }
+
+            if ($.browser.msie) {
+                if ($.browser.version == "8.0") {
+                    $('#ie8css').attr('href', '/assets/css/ie8.css');
+                    $('#ie8js').attr('src', '/assets/js/html5shiv.js');
+                }
+                $('label').click(function () {
+                    $(this).children('span').toggleClass('togl-chk');
+                    if ($(this).parent().children('input').attr('checked') == false) {
+                        $(this).parent().children('input').attr('checked') = false;
+                    }
+                    else
+                        $(this).parent().children('input').attr('checked') = true;
+
+                });
+
+            }
+
+            //--------------------------baskanlik section
+            var aktifSc = 0;
+            $('.bsk-dt-list').height($('.bsk-dt-list>li').eq(aktifSc).height() + 20);
+
+            $('ul.baskan-list > li').click(function () {
+                var mn_index = $(this).index();
+                if (mn_index != 2) {
+                    $('ul.bsk-dt-list > li').eq(aktifSc).fadeOut();
+                    aktifSc = mn_index;
+                    $('ul.bsk-dt-list > li').eq(aktifSc).fadeIn();
+                    $('.bsk-dt-list').height($('.bsk-dt-list>li').eq(aktifSc).height() + 20);
+                }
+            });
+
+            //etkinlik takvimi resim değişimi
+            var yol;
+            $('.etk-menu > li').hover(function () {
+                yol = $(this).children('a').children('img').attr('src');
+                var dosyaAdi = yol.split('/')[6];
+                var yeniYol = '/assets/img/icons/etkinlikt/h/' + dosyaAdi;
+                $(this).children('a').children('img').attr('src', yeniYol);
+                console.log(dosyaAdi);
+
+            }, function () {
+                $(this).children('a').children('img').attr('src', yol);
+            });
+
+            //ulaşım resim değişimi
+
+            var yolOto;
+            $('.otobus-nav-cont > li').hover(function () {
+                if (!$(this).hasClass('on-active')) {
+                    $(this).children('.img-n').fadeOut();
+                    $(this).children('.img-h').fadeIn();
+                }
+
+            }, function () {
+                if (!$(this).hasClass('on-active')) {
+                    $(this).children('.img-n').fadeIn();
+                    $(this).children('.img-h').fadeOut();
+                }
+            });
+
+            $('.fancybox').fancybox();
+
+            //if ($.browser.webkit) {
+            //    $('body').css('text-shadow', '0px 0px 1px rgba(150, 150, 150, 0.59)');
+            //}
+
+            // aramadaki listenini içeriğini imputa basar.
+            $('.otobus-acilir-list > li').click(function () {
+                $(this).parent().parent().parent().children('.ulasim_ara').children('input').val($(this).children('p').html());
+            });
+
+            $('.hatarama-list > li').click(function () {
+                $(this).parent().parent().parent().children('.hat_arama_cn').children('input').val($(this).children('p').html());
+            });
+
+
+            //otobussaatleri tıklayarak section açma
+            var aktifOsTab = 0
+            $('ul.otobus-nav-cont > li').eq(aktifOsTab).addClass('on-active');
+            $('.oto-saat-cont>div').eq(aktifOsTab).fadeIn(100, function () {
+                $('.oto-saat-cont').height($('.oto-saat-cont>div').eq(aktifOsTab).height() + 20);
+            });
+
+
+            $('ul.otobus-nav-cont > li').click(function () {
+                $('ul.otobus-nav-cont > li').eq(aktifOsTab).removeClass('on-active');
+                $('.oto-saat-cont>div').eq(aktifOsTab).fadeOut();
+                aktifOsTab = $(this).index();
+                $('ul.otobus-nav-cont > li').eq(aktifOsTab).addClass('on-active');
+                $('.oto-saat-cont>div').eq(aktifOsTab).fadeIn();
+                $('.oto-saat-cont').height($('.oto-saat-cont>div').eq(aktifOsTab).height() + 20);
+            });
+
+            //otobussaatleri tıklayarak section açma
+            var aktifDbTab = 0
+            $('.db-right>div').eq(aktifDbTab).fadeIn(100, function () {
+                $('.db-right').height($('.db-right>div').eq(aktifDbTab).height() + 40);
+            });
+
+
+            //$('ul.db-mn-list> li').click(function () {
+            //    $('.db-right>div').eq(aktifDbTab).fadeOut();
+            //    aktifDbTab = $(this).index();
+            //    $('.db-right>div').eq(aktifDbTab).fadeIn();
+            //    $('.db-right').height($('.db-right>div').eq(aktifDbTab).height() + 40);
+            //});
+
+        });
+    </script>
+    <script type="text/javascript">
+        $.getJSON("http://graph.facebook.com/sakaryabuyuksehirbelediyesi", function (veri) {
+            $(".facebook-like-count").append(' <span>' + veri.likes + '</span>');
+        });
+    </script>
+    <script>
+        
+
+
+
+        $(document).ready(function () {
+            $('.newsletter-click').click(function () {
+                var val = $('.newsletter-value').val();
+                $.ajax({
+                    url: "/tr/Service/Newsletter",
+                    type: "POST",
+                    dataType: "json",
+                    data: { id: val },
+                    success: function (data) {
+                        alert(data);
+                    }
+                })
+
+            });
+        });
+    </script>
+    
+    <script type="text/javascript" src="/assets/js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="/assets/js/default.js"></script>
+    <link rel="stylesheet" href="/assets/css/nivo-default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/nivo-slider.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/assets/js/jquery.nivo.slider.pack.js"></script>
+    <style>
+        .logo-cont {
+            background: url(/assets/img/baskan_ve_logo_kismi.png) no-repeat center !important;
+        }
+
+        .ms-online-cozum {
+            display: block;
+        }
+
+        .baskan-mn {
+            display:block;
+        }
+
+        .sc-sabit-bg {
+            height:492px !important;
+        }
+
+        .df-ust-cont {
+            -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.07);
+            -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.07);
+            box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.07);
+        }
+
+        .logo-cont {
+         height: 691px !important;
+        }
+
+        .home-ilet-img {
+            display:none !important;
+        }
+
+        #calendar-tooltip{
+
+        }
+    </style>
+
+    <style>
+        .mun-ez {
+            width: 270px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="df-cont ust-sosyal-cont">
+            <div class="logo-cont">
+                <div class="logo">
+                        <a href="/tr" title="ana sayfa">
+                            <img src="/assets/img/logo_bel.png" height="178" width="178" title="ana sayfa" alt="ana sayfa">
+                        </a>
+                </div>
+                <div class="clearfix"></div>
+                <a href="/tr/HizmetRehberi" class="ms-online-cozum" title="HİZMET REHBERİ">
+                    HİZMET REHBERİ
+                </a>
+                <div class="baskan-mn">
+                    <div class="clearfix"></div>
+                    <ul>
+                        <li style="width: 107px;">
+                            <div></div>
+                            <a href="/tr/Baskanlik/Baskan">ZEKİ TO&#199;OĞLU</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="ust-sosyal-block">
+                <li>
+                        <a href="/tr/Base/ChangeCulture?lang=2&amp;returnUrl=%2F">EN</a>
+                </li>
+                <li>
+                    <a href="https://play.google.com/store/apps/details?id=com.spexco.flexcoder2.sakarya.activities&hl=tr" title="twitter" target="_blank">
+                        <img src="/assets/img/android.png" title="Android" alt="Android" width="35" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://itunes.apple.com/us/app/sbb-mobil/id927836513?mt=8" title="IOS" target="_blank">
+                        <img src="/assets/img/ios.png" title="IOS" alt="IOS" width="35" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/sbbzekitocoglu" title="twitter" target="_blank">
+                        <img src="/assets/img/twitter.png" title="twitter" alt="twitter" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/sakaryabld" title="facebook" target="_blank">
+                        <img src="/assets/img/facebook.png" title="facebook" alt="facebook" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="sc-sabit-bg">
+    </div>
+    <div class="menu-conts">
+        <div class="df-cont">
+            <a href="/" class="logo_kucuk">
+                
+            </a>
+            <div class="top-menu-cont">
+                <ul class="top-menu">
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/Baskanlik/Baskan">
+                            <p>BELEDİYE</p>
+                        </a>
+                        <div class="top-menu-detay">
+                            <div class="df-cont dfc-ez">
+                                <ul class="list-menu-detay">
+                                    <li>
+                                        <ul>
+                                            <li>
+                                                <a href="/tr/Baskanlik/Baskan">
+                                                    <h1>Başkanlık</h1>
+                                                </a>
+                                            </li>
+                                            
+                                            <li><a href="/tr/Baskanlik-Kisi/ozel-kalem-muduru/229">&#214;zel Kalem M&#252;d&#252;r&#252;</a></li>
+                                            <li><a href="/tr/Baskanlik-Kisi/saski/63">SASKİ</a></li>
+                                            <li><a href="/tr/Kisiler/ic-denetciler/32">İ&#231; Denet&#231;iler</a></li>
+                                            
+                                            <li><a href="/tr/Baskanlik-Kisi/hukuk-musaviri/84">Hukuk M&#252;şaviri</a></li>
+                                            <li><a href="/tr/Baskanlik-Kisi/teftis-kurulu-baskani/233">Teftiş Kurulu Başkanı</a></li>
+                                            
+                                            <li><a href="/tr/Kisiler/baskan-danismani/38">Başkan Danışmanı</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li>
+                                                <a href="/tr/Kisiler-Kategori/meclis/11">
+                                                    <h1>Meclis</h1>
+                                                </a>
+                                            </li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-adapazari-main-district/12">Adapazarı</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-akyazi-district/13">Akyazı</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-arifiye-district/14">Arifiye</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-erenler-district/15">Erenler</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-ferizli-district/16">Ferizli</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-hendek-district/17">Hendek</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-karapurcek-district/18">Karap&#252;r&#231;ek</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-sapanca-district/19">Sapanca </a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-serdivan-district/20">Serdivan</a></li>
+                                                    <li><a href="/tr/Kisiler/council-members-of-sakarya-metropolitan-municipality-for-sogutlu-district/21">S&#246;ğ&#252;tl&#252;</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li>
+                                                <a href="/tr/Belediye/DaireBaskanliklari/1">
+                                                    <h1>Daire Başkanlıkları</h1>
+                                                </a>
+                                            </li>
+                                                    <li><a href="/tr/Daire-Baskanligi/bilgi-islem-dairesi-baskanligi/3">Bilgi İşlem</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/cevre-koruma-ve-kontrol-dairesi-baskanligi/4">&#199;evre Koruma ve Kontrol</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/destek-hizmetleri-dairesi-baskanligi/5">Destek Hizmetleri</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/fen-isleri-dairesi-baskanligi/6">Fen İşleri</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/genclik-ve-spor-hizmetleri-dairesi-baskanligi/135">Gen&#231;lik ve Spor Hizmetleri</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/imar-ve-sehircilik-dairesi-baskanligi/7">İmar ve Şehircilik</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/insan-kaynaklari-ve-egitim-dairesi-baskanligi/8">İnsan Kaynakları ve Eğitim</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/itfaiye-dairesi-baskanligi/9">İtfaiye</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/kultur-ve-sosyal-isler-dairesi-baskanligi/10">K&#252;lt&#252;r ve Sosyal İşler</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/saglik-isleri-dairesi-baskanligi/12">Sağlık İşleri</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/sosyal-hizmetler-dairesi-baskanligi/13">Sosyal Hizmetler</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/strateji-gelistirme-dairesi-baskanligi/11">Strateji Geliştirme</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/tarimsal-hizmetler-ve-muhtarlik-isleri-dairesi-baskanligi/132">Tarımsal Hiz. ve Muhtarlık</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/ulasim-dairesi-baskanligi/14">Ulaşım</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/yol-bakim-ve-altyapi-koordinasyon-dairesi-baskanligi/134">Yol Bakım ve Altyapı Koor.</a></li>
+                                                    <li><a href="/tr/Daire-Baskanligi/zabita-dairesi-baskanligi/15">Zabıta</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="mun-ez">
+                                            <li>
+                                                <a href="/tr/Kisiler/encumen/23">
+                                                    <h1>Enc&#252;men</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/Kisiler/genel-sekreterlik/22">
+                                                    <h1>Genel Sekreterlik</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/Mudurluklerimiz/1">
+                                                    <h1>M&#252;d&#252;rl&#252;kler</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/Onceki-Baskanlarimiz">
+                                                    <h1>&#214;nceki Başkanlar</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/OrganizasyonSemasi">
+                                                    
+                                                    <h1>Organizasyon Şeması</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/GorevYetkilerimiz">
+                                                    <h1>G&#246;rev ve Yetkilerimiz</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/Sayfa/misyon-vizyon/9 ">
+                                                    <h1>Misyon ve Vizyon</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/uploads/amblemlerimiz/amblemlerimiz.zip">
+                                                    <!--doğrudan pdf indir. -->
+                                                    <h1>Amblemimiz</h1>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/tr/Sayfa/estetik-komisyonu/21">                                                    
+                                                    <h1>Estetik Komisyonu</h1>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/Proje-Kategoriler">
+                            <p>HİZMETLER</p>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/Haberler/1">
+                            <p>HABERLER</p>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/KulturSanat">
+                            <p>K&#220;LT&#220;R SANAT</p>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/Sayfa/sakarya-rehberi/1">
+                            <p>SAKARYA</p>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <div class="li-bg"></div>
+                        <a href="/tr/Iletisim">
+                            
+                            <p>İLETİŞİM</p>
+                        </a>
+                        
+                    </li>
+                    <li></li>
+                </ul>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+    <section class="sctions">
+        
+
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            effect: 'random', //'fold,fade,sliceDown'
+            slices: 5, //anmimasyon parça sayısı
+            boxCols: 8, //anmimasyon kolon sayısı
+            boxRows: 4, //anmimasyon sütün sayısı
+            animSpeed: 50, //anmimasyon hızı
+            pauseTime: 5000, //ekranda durma süresi
+            startSlide: 0, //sliderın başlangıç indexi (0 index)
+            directionNav: true, //ileri geri düğmesi
+            directionNavHide: true, //sadece üzerine gelince göster
+            controlNav: false, //1,2,3... kontrol tuşları
+            controlNavThumbs: false, //kontrol tuşu olarak küçük resim (thumbnail) kullan
+            keyboardNav: true, //sağ sol klavye tuşları
+            pauseOnHover: true, //resmin üzerine gelince dur
+            manualAdvance: false, //elle geçişe zorla
+            captionOpacity: 0.8, //başlık saydamlığı
+            prevText: ' ', //geri tuşu açklaması
+            nextText: ' ', //ileri tuşu açklaması
+            randomStart: true, //rastegele başlat
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#sub-spot-slider').cycle({
+            fx: 'scrollHorz', //fade
+            speed: 1500,
+            timeout: 8500,
+            autoplay: false,
+            next: '#sub-spot-nav .sub-next',
+            prev: '#sub-spot-nav .sub-prev',
+            cleartypeNoBg: true
+        });
+    });
+
+    $(document).ready(function () {
+        $('.answer').click(function () {
+            var val = $(this).attr('c');
+            var survey_id = $('#survey_id').val();
+            $.getJSON("/tr/Service/SurveyVote/" + val + "/" + survey_id, function (data) {
+                alert(data);
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.tipitip-trigger').hover(function () {
+            $('#calendar-tooltip').html('');
+            var val = $(this).attr('id');
+            $.getJSON("/tr/Service/CalendarByDay/" + val, function (data) {
+                $('.tipitip').html(data);
+                console.log(data);
+                //$.each(data, function (i, item) {
+                //    //$('#calendar-tooltip').html('');
+                //    //$('#calendar-tooltip').html(data);
+
+                //});
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="/assets/js/tipitip.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/tipitip.css" />
+<div class="sayfa-cont" style="background: none !important;">
+    <div class="df-cont df-ust-cont" style="height: 480px;">
+        <div class="df-banner-cont">
+            <div class="df-banner">
+                        <div class="bn-item">
+                            <a href="/tr/Haber/sehrin-tanitimina-katki-sunuyor/13226">
+                                <img src="/uploads/haber/cRcTWwy3lr.jpg" height="430" width="862" alt="“Şehrin tanıtımına katkı sunuyor”" title="“Şehrin tanıtımına katkı sunuyor”" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/sehrin-tanitimina-katki-sunuyor/13226">
+                                <h1 style="color: #fff !important;">“Şehrin tanıtımına katkı sunuyor”</h1>
+                            </a>
+
+                        </div>
+                        <div class="bn-item">
+                            <a href="/tr/Haber/sehrimiz-is-dunyamiz-ile-birlikte-buyuyor/13224">
+                                <img src="/uploads/haber/pJkftrFXne.jpg" height="430" width="862" alt="Şehrimiz iş d&#252;nyamız ile birlikte b&#252;y&#252;yor" title="Şehrimiz iş d&#252;nyamız ile birlikte b&#252;y&#252;yor" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/sehrimiz-is-dunyamiz-ile-birlikte-buyuyor/13224">
+                                <h1 style="color: #fff !important;">Şehrimiz iş d&#252;nyamız ile birlikte b&#252;y&#252;yor</h1>
+                            </a>
+
+                        </div>
+                        <div class="bn-item">
+                            <a href="/tr/Haber/sakarya-basketbolu-cok-sevdi/13221">
+                                <img src="/uploads/haber/C04GlgfHhF.jpg" height="430" width="862" alt="“Sakarya basketbolu &#231;ok sevdi”" title="“Sakarya basketbolu &#231;ok sevdi”" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/sakarya-basketbolu-cok-sevdi/13221">
+                                <h1 style="color: #fff !important;">“Sakarya basketbolu &#231;ok sevdi”</h1>
+                            </a>
+
+                        </div>
+                        <div class="bn-item">
+                            <a href="/tr/Haber/artik-denizlerimize-atiksu-karismiyor/13220">
+                                <img src="/uploads/haber/fQqxm5Ssz7.jpg" height="430" width="862" alt="“Artık denizlerimize atıksu karışmıyor”" title="“Artık denizlerimize atıksu karışmıyor”" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/artik-denizlerimize-atiksu-karismiyor/13220">
+                                <h1 style="color: #fff !important;">“Artık denizlerimize atıksu karışmıyor”</h1>
+                            </a>
+
+                        </div>
+                        <div class="bn-item">
+                            <a href="/tr/Haber/su-icin-once-cevreyi-koruyoruz/13225">
+                                <img src="/uploads/haber/CjpTwtUzaP.jpg" height="430" width="862" alt="Su i&#231;in &#246;nce &#231;evreyi koruyoruz" title="Su i&#231;in &#246;nce &#231;evreyi koruyoruz" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/su-icin-once-cevreyi-koruyoruz/13225">
+                                <h1 style="color: #fff !important;">Su i&#231;in &#246;nce &#231;evreyi koruyoruz</h1>
+                            </a>
+
+                        </div>
+                        <div class="bn-item">
+                            <a href="/tr/Haber/yaslilar-haftasinda-anlamli-bulusma/13219">
+                                <img src="/uploads/haber/IlIrAxUnrO.jpg" height="430" width="862" alt="Yaşlılar Haftası’nda anlamlı buluşma" title="Yaşlılar Haftası’nda anlamlı buluşma" style="width:862px !important; height:430px !important;" />
+                            </a>
+                            <a href="/tr/Haber/yaslilar-haftasinda-anlamli-bulusma/13219">
+                                <h1 style="color: #fff !important;">Yaşlılar Haftası’nda anlamlı buluşma</h1>
+                            </a>
+
+                        </div>
+            </div>
+            <div class="pagination">
+            </div>
+            <div class="nav-arrow">
+                <a href="#" class="sub-prev"></a>
+                <a href="#" class="sub-next"></a>
+            </div>
+        </div>
+        <div class="df-haber" style="float: right;">
+            <div class="df-haber-cont" style="width: 798px; margin-left: auto; margin-right: auto;">
+                <div id="sub-spot-slider">
+                    <ul class="unstyled" style="padding: 0 !important;">
+                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/siyah-guzeldir-bir-akimin-adidir/13223">
+                                        <span>
+                                            <b>
+                                                
+                                                “Siyah G&#252;zeldir bir akımın adıdır”
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            B&#252;y&#252;kşehir Belediyesi Mart K&#252;lt&#252;r Sanat Etkinlikleri Muhammed Berdibek’in ‘Siyah G&#252;zeldir’ isimli kitabının s&#246;yleşisi ve imza g&#252;n&#252; ile devam etti. Berdibek, “Siyah G&#252;zeldir’ aslında bir akımın adıdır. Ben de siyahı bir metafor olarak alıp d&#252;nyadaki ve T&#252;rkiye’deki başka insanlara uygulamaya &#231;alıştım” dedi.
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/minik-ogrenciler-tomurcukla-tanisti/13222">
+                                        <span>
+                                            <b>
+                                                
+                                                Minik &#246;ğrenciler Tomurcukla tanıştı
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            B&#252;y&#252;kşehir Belediyesi tarafından ilkokul &#246;ğrencilerine &#231;evre bilinci kazandırmak amacıyla hazırlanan ‘&#199;evre Dostu &#199;ocuk Tomurcuk’ projesi Fevzi &#199;akmak İlkokulu, Hacı Emine Oba İlkokulu, Şehit Fethi Sekin İlkokulu ve Kazımpaşa İlkokulu’nda &#246;ğrencilerle buluştu.
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/siir-bize-merhem-olur/13218">
+                                        <span>
+                                            <b>
+                                                
+                                                “Şiir bize merhem olur”
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            Mart K&#252;lt&#252;r Sanat Etkinlikleri Mustafa Akar’ın Berhayat kitabının s&#246;yleşi ve imza g&#252;n&#252; ile devam etti. Mustafa Akar, “Hayatımızın i&#231;inde bizleri farkında olmadan yakalayan, bize &#246;zel bir alan a&#231;an, rahatlamamızı veya sıkılmamızı sağlayan ama en &#246;nemlisi i&#231;inden &#231;ıkılmaz anlarda bize merhem gibi mesajlar veren duygu; şiirdir” dedi
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+</ul><ul class="unstyled">                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/o-yol-genisletme-calismalari-icin-trafige-kapaniyor/13215">
+                                        <span>
+                                            <b>
+                                                
+                                                O yol genişletme &#231;alışmaları i&#231;in trafiğe kapanıyor
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            B&#252;y&#252;kşehir’den yapılan a&#231;ıklamada, “21 Mart &#199;arşamba g&#252;n&#252; Pekşenler Kavşağı’ndan T&#252;rk Trakt&#246;r Fabrikası’nın hemen ardında bulunan otoban k&#246;pr&#252;s&#252; arasındaki kısımda ger&#231;ekleştirilecek altyapı ve &#252;styapı &#231;alışmaları nedeniyle ulaşım alternatif g&#252;zergahlardan sağlanacaktır. Kamuoyuna saygıyla duyurulur” denildi.
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/okumak-yazarligin-bedelidir/13209">
+                                        <span>
+                                            <b>
+                                                
+                                                “Okumak Yazarlığın Bedelidir”
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            Mart K&#252;lt&#252;r Sanat Etkinlikleri Bet&#252;l Nurata’nın Y&#252;z&#252;m&#252; Tanı kitabının s&#246;yleşi ve imza g&#252;n&#252; ile devam etti. Nurata, “Daha &#231;ok okumak, hayata daha &#231;ok dahil olmak veya daha &#231;ok &#231;ekilmek yazar olmanın bedelidir. Var olmaya &#231;alıyoruz. İnsan &#252;rettiğiyle vardır. Bedelini &#246;dediği şeyler insanı var eder” dedi.
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sub-spot-item">
+                                    <a href="/tr/Haber/aticilikta-bir-sampiyonluk-daha/13207">
+                                        <span>
+                                            <b>
+                                                
+                                                Atıcılıkta bir şampiyonluk daha
+                                                
+                                            </b>
+                                        </span>
+                                        <br />
+                                        <span>
+                                            
+                                            B&#252;y&#252;kşehir Atıcılık ve Avcılık Takımı sporcusu Furkan Esad &#214;zdin, Samsun’da ger&#231;ekleştirilen şampiyonada T&#252;rkiye rekoru kırarak şampiyon oldu.
+                                            }
+                                            
+                                        </span>
+                                    </a>
+                                </li>
+                    </ul>
+                </div>
+                <div id="sub-spot-nav" style="display: block !important;">
+                    <a class="sub-prev" href="javascript:void();">
+                        
+                    </a>
+                    <a class="sub-next" href="javascript:void();">
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div style="width: 100%; margin-top: 32px;">
+    <div class="df-cont df-orta-cont">
+        <div class="df-takvim">
+            <div class="df-tk-baslik">
+                <p>ETKİNLİK TAKVİMİ</p>
+                <a href="/tr/EtkinlikTakvimi">T&#252;m&#252;</a>
+            </div>
+            <div class="etk-line"></div>
+            
+                <div style="background-color: #EEEEEE; width: 341px; height: 170px; padding-left:14px;">
+                    <div class="expire_month">Mart</div>
+                    <ul class="expire_events" style="position: absolute; margin-left: 35px; margin-top: 20px; margin-bottom: 10px;">
+                        <li>
+                            <h3>Pt</h3>
+                        </li>
+                        <li>
+                            <h3>S</h3>
+                        </li>
+                        <li>
+                            <h3>Ç</h3>
+                        </li>
+                        <li>
+                            <h3>Pş</h3>
+                        </li>
+                        <li>
+                            <h3>C</h3>
+                        </li>
+                        <li>
+                            <h3>Ct</h3>
+                        </li>
+                        <li>
+                            <h3>P</h3>
+                        </li>
+                        <li><a href="javascript:void();" class="tipitip-trigger"></a><li><a href="javascript:void();" class="tipitip-trigger"></a><li><a href="javascript:void();" class="tipitip-trigger"></a><li><a href="/tr/Bugunku-Etkinlikler/1/3/2018" id="1"data-position="north">1</a></li><li><a href="/tr/Bugunku-Etkinlikler/2/3/2018" id="2"data-position="north">2</a></li><li><a href="/tr/Bugunku-Etkinlikler/3/3/2018" id="3"data-position="north">3</a></li><li><a href="/tr/Bugunku-Etkinlikler/4/3/2018" id="4"data-position="north">4</a></li><li><a href="/tr/Bugunku-Etkinlikler/5/3/2018" id="5"data-position="north">5</a></li><li><a href="/tr/Bugunku-Etkinlikler/6/3/2018" id="6"class="tipitip-trigger is_event"data-position="north">6</a></li><li><a href="/tr/Bugunku-Etkinlikler/7/3/2018" id="7"data-position="north">7</a></li><li><a href="/tr/Bugunku-Etkinlikler/8/3/2018" id="8"class="tipitip-trigger is_event"data-position="north">8</a></li><li><a href="/tr/Bugunku-Etkinlikler/9/3/2018" id="9"class="tipitip-trigger is_event"data-position="north">9</a></li><li><a href="/tr/Bugunku-Etkinlikler/10/3/2018" id="10"data-position="north">10</a></li><li><a href="/tr/Bugunku-Etkinlikler/11/3/2018" id="11"data-position="north">11</a></li><li><a href="/tr/Bugunku-Etkinlikler/12/3/2018" id="12"class="tipitip-trigger is_event"data-position="north">12</a></li><li><a href="/tr/Bugunku-Etkinlikler/13/3/2018" id="13"class="tipitip-trigger is_event"data-position="north">13</a></li><li><a href="/tr/Bugunku-Etkinlikler/14/3/2018" id="14"data-position="north">14</a></li><li><a href="/tr/Bugunku-Etkinlikler/15/3/2018" id="15"class="tipitip-trigger is_event"data-position="north">15</a></li><li><a href="/tr/Bugunku-Etkinlikler/16/3/2018" id="16"class="tipitip-trigger is_event"data-position="north">16</a></li><li><a href="/tr/Bugunku-Etkinlikler/17/3/2018" id="17"class="tipitip-trigger is_event"data-position="north">17</a></li><li><a href="/tr/Bugunku-Etkinlikler/18/3/2018" id="18"class="tipitip-trigger is_event"data-position="north">18</a></li><li><a href="/tr/Bugunku-Etkinlikler/19/3/2018" id="19"class="tipitip-trigger is_event"data-position="north">19</a></li><li><a href="/tr/Bugunku-Etkinlikler/20/3/2018" id="20"class="tipitip-trigger is_event"data-position="north">20</a></li><li><a href="/tr/Bugunku-Etkinlikler/21/3/2018" id="21"class="tipitip-trigger is_event"data-position="north">21</a></li><li><a href="/tr/Bugunku-Etkinlikler/22/3/2018" id="22"data-position="north">22</a></li><li><a href="/tr/Bugunku-Etkinlikler/23/3/2018" id="23"class="tipitip-trigger is_event"data-position="north">23</a></li><li><a href="/tr/Bugunku-Etkinlikler/24/3/2018" id="24"data-position="north">24</a></li><li><a href="/tr/Bugunku-Etkinlikler/25/3/2018" id="25"data-position="north">25</a></li><li><a href="/tr/Bugunku-Etkinlikler/26/3/2018" id="26"class="tipitip-trigger is_event"data-position="north">26</a></li><li><a href="/tr/Bugunku-Etkinlikler/27/3/2018" id="27"class="tipitip-trigger is_event"data-position="north">27</a></li><li><a href="/tr/Bugunku-Etkinlikler/28/3/2018" id="28"data-position="north">28</a></li><li><a href="/tr/Bugunku-Etkinlikler/29/3/2018" id="29"class="tipitip-trigger is_event"data-position="north">29</a></li><li><a href="/tr/Bugunku-Etkinlikler/30/3/2018" id="30"class="tipitip-trigger is_event"data-position="north">30</a></li><li><a href="/tr/Bugunku-Etkinlikler/31/3/2018" id="31"data-position="north">31</a></li>
+                    </ul>
+                </div>
+                <div id="calendar-tooltip"></div>
+        </div>
+        <div class="df-haber" style="width: 842px; margin-left: 13px;margin-top:-25px;">
+            <ul class="df-home-images">
+                
+                <li class="img-1"><a href="/tr/CozumMasasi/CozumDetay/13"></a></li>
+                
+                <li class="img-2"><a href="http://www.sakarya.bel.tr/tr/Haberler-Kategori/64/1" ></a></li>
+                <li class="img-3"><a href="https://www.sakarya-saski.gov.tr/Default.aspx" target="_blank"></a></li>
+                <li class="img-4"><a href="/tr/Ulasim" ></a></li>
+                <li class="img-5"><a href="http://sgm.sakarya.bel.tr/" target="_blank"></a></li>
+            </ul>
+            <div class="clearfix"></div>
+            
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+            <div class="mt10"></div>
+            <div id="slider" class="sizin_icin">
+                    <a href="/uploads/files/MART 2018 KSE.pdf" target="_blank">
+                        <img src="/uploads/banner/jOGL4839Ib.jpg" />
+                    </a>
+            </div>
+
+    <div class="df-ebelediye-cont">
+        <div class="df-cont" style="width:1212px;">
+            <div class="ebelediye-head">
+                <div class="clearfix"></div>
+                <h1>E-BELEDİYE</h1>
+            </div>
+            <ul class="ebelediye-list" style="margin-left:1px;">
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/Haberler-Kategori/81/1" target="_blank">
+                        <span></span>
+                        <p>DUYURULAR</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="http://webtv.sakarya.bel.tr/" target="_blank">
+                        <span></span>
+                        <p>WEB<br>TV</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/EBelediye/NobetciEczaneler" target="_blank">
+                        <span></span>
+                        <p>NÖBETÇİ<br> ECZANELER</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/Iletisim/BilgiEdinme">
+                        <span></span>
+                        <p>BİLGİ<br>EDİNME</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/EBelediye/BasvuruEkle">
+                        <span></span>
+                        <p>İSTEK<br>ŞİKAYET</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/EBelediye/BasvuruSorgula">
+                        <span></span>
+                        <p>İSTEK<br>ŞİKAYET<br>TAKİP</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    
+					<a href="https://webportal.sakarya.bel.tr/DIGIKENTEBELEDIYE/faces/page/"  target="_blank">
+                        <span></span>
+                        <p>BORÇ<br>ÖDEME <br> (E-MAKBUZ)</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="http://88.255.170.70/LabSonuc/Login.aspx">
+                        <span></span>
+                        <p>TAHLİL<br>SONUÇLARI</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/HizmetRehberi">
+                        <span></span>
+                        <p>HİZMET<br>REHBERİ</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/IhaleDuyurulari">
+                        <span></span>
+                        <p>İHALE<br>DUYURULARI</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    <a href="/tr/EBelediye/MeclisKararlari">
+                        <span></span>
+                        <p>MECLİS GÜNDEM<br>VE<br>KARARLARI</p>
+                    </a>
+                </li>
+                <li>
+                    <div class="li-bg3"></div>
+                    
+                    <a href="/tr/EBelediye/VefatEdenler">
+                        <span></span>
+                        <p>BUGÜN<br>VEFAT<br> EDENLER</p>
+                    </a>
+                </li>
+
+
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="df-cont df-linkler-cont" style="width:1214px; padding-left:3px;">
+        <ul class="footer-images">
+            <li><a href="http://www.sakarya.com.tr/" target="_blank"></a></li>
+            <li><a href="http://sakus.sakarya.bel.tr/" target="_blank"></a></li>
+            <li><a href="http://kurumsal.sakarya.bel.tr:83/PG_EMOS/login.aspx" target="_blank"></a></li>
+            <li><a href="http://www.sakarya.bel.tr/tr/Sayfa/yasayarak-ogrenme-macera-parki/17" ></a></li>
+            <li><a href="/tr/StratejikPlanlama"></a></li>
+            <li><a href="/tr/Anasayfa/Galeri" ></a></li>
+            <li><a href="http://sacobis.sakarya.bel.tr/mbs" target="_blank"></a></li>
+            <li><a href="http://kurumsal.sakarya.bel.tr:83/PG_SAYPORT/Login.aspx" target="_blank"></a></li>
+            
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+    </section>
+    <footer class="footer-cont">
+        <div class="footer-df">
+            <div class="footer-icerik">
+                <div class="footer-sol">
+                    <table>
+                        <tr>
+                            <td>
+                                    <img src="/assets/img/logo_footer.png" height="119" width="119" title="logo footer" alt="logo footer" />
+                            </td>
+                            <td style="width: 156px !important">
+                                <p>Kavaklar; Cd. No:7 54100 Adapazarı SAKARYA</p>
+                                <h3 style="margin: 0px !important; font-size: 20px;">44 44 054</h3>
+                                <p style="margin-top: 0px !important">&#199;&#246;z&#252;m Masası: 153</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+
+                                <div class="newsletter">
+                                    <span style="margin-left:50px;font-size:10px;">Haberin Olsun</span>
+                                    <p style="position: relative; top: -4px;">
+                                        <span style="float:left;">
+                                            <img src="/assets/img/newsletter-icon.png" />
+                                        </span>
+                                        <div style="position: relative; top: -14px;">
+                                                <input type="text" class="newsletter-value" style="width: 102px; background-color: #0098D7; font-size: 10px; color: #fff; height: 16px; border-color: #fff; margin-top: 5px; position: relative; padding-right: 74px; " placeholder="E-Posta Adresiniz" />
+                                                <a href="javascript:void();" class="newsletter-click" style="position: absolute; right: 62px; top: 8px;"><img src="/assets/img/newsletter-submit.png" /></a>
+                                        </div>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="sos-face" class="sos-sayac">
+                                    <ul>
+                                        <li></li>
+                                        <li class="facebook-like-count"></li>
+                                        <li></li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="sos-tw" class="sos-sayac">
+                                    <ul>
+                                        <li></li>
+                                        <li>45,013</li>
+                                        <li></li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="footer-sag">
+                    <ul>
+                        <li>
+                            <a href="javascript:void();">
+                                <h3>Kurumsal</h3>
+                            </a>
+                        </li>
+                        <li><a href="/tr/Baskanlik/Baskan">Başkanlık</a></li>
+                        <li><a href="/tr/Kisiler-Kategori/meclis/11">Meclis</a></li>
+                        <li><a href="/tr/Kisiler/encumen/23">Enc&#252;men</a></li>
+                        <li><a href="/tr/Kisiler/genel-sekreterlik/22">Genel Sekreterlik</a></li>
+                        <li><a href="/tr/Belediye/DaireBaskanliklari/1">Daire Başkanlıkları</a></li>
+                        <li><a href="/tr/Mudurluklerimiz/1">M&#252;d&#252;rl&#252;kler</a></li>
+                        <li><a href="/tr/Onceki-Baskanlarimiz ">&#214;nceki Başkanlar</a></li>
+                        <li><a href="/tr/OrganizasyonSemasi"> Organizasyon Şeması</a></li>
+                        
+                        <li><a href="/tr/GorevYetkilerimiz">G&#246;rev ve Yetkilerimiz</a></li>
+                        <li><a href="/tr/Sayfa/misyon-vizyon/9">Misyon ve Vizyon</a></li>
+                        <li><a href="/uploads/amblemlerimiz/amblemlerimiz.zip">Amblemimiz</a></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="/tr/Haberler/1">
+                                <h3>Haberler</h3>
+                            </a>
+                        </li>
+                        <li><a href="/tr/Haberler/1">T&#252;m Haberler</a></li>
+                        
+                        <li><a href="/tr/EBelediye/MeclisKararlari">Meclis G&#252;ndem ve Kararları</a></li>
+                        <li><a href="/tr/EBelediye/EncumenKararlari">Enc&#252;men Kararları</a></li>
+                        <li><a href="/tr/IhaleDuyurulari">İhale Duyuruları</a></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="/tr/KulturSanat">
+                                <h3>K&#252;lt&#252;r Sanat</h3>
+                            </a>
+                        </li>
+                        <li><a href="/tr/EtkinlikTakvimi">Etkinlik Takvimi</a></li>
+                        <li><a href="/tr/Merkezler">Sinema</a></li>
+                        <li><a href="/tr/Yayinlarimiz-Kategoriler">Yayınlarımız</a></li>
+                        <li><a href="/tr/KulturSanat/SergiSalonlari">Sergi Salonları</a></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="javascript:void();">
+                                <h3>Bilgi Hattı</h3>
+                            </a>
+                        </li>
+                        <li><a href="/tr/Belediyelerimiz">Belediyelerimiz</a></li>
+                        <li><a href="/tr/Muhtarliklar/0">Muhtarlıklar</a></li>
+                        <li><a href="/tr/Ulasim">Ulaşım</a></li>
+                        <li><a href="/tr/Linkler">Linkler</a></li>
+                        <li><a href="/tr/Harita">Haritalar</a></li>
+                        <li><a href="/tr/StratejikPlanlama">B&#252;t&#231;e ve Stratejik Y&#246;netim</a></li>
+                        <li><a href="/tr/HalFiyatlari">Hal Fiyatları</a></li>
+                        <li><a href="/tr/HizmetRehberi/Detail/110">Kanun ve Y&#246;netmelikler</a></li>
+                        <li>
+                            <a href="/tr/Sayfa/estetik-ve-sanat-kurulu/15">Estetik ve Sanat Kurulu</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/uploads/stratejik/IAJF4N6mzj.pdf">2018 Yılı Gelir Tarifeleri</a>
+                        </li>
+                    </ul>
+                    <ul style="margin-top: -90px;">
+                        <li>
+                            <a href="/tr/Sayfa/sakarya-rehberi/1">
+                                <h3>Sakarya</h3>
+                            </a>
+                        </li>
+                        <li><a href="http://www.sakarya.com.tr/#/Panoramik " target="_blank">360* Sanal Tur</a></li>
+                        <li><a href="/tr/Sayfa/sakarya-rehberi/1">Sakarya Rehberi</a></li>
+                        <li><a href="/tr/Sayfa/sakarya-haritasi/4">Sakarya Haritası</a></li>
+                    </ul>
+                    <ul style="margin-top: -85px; margin-left: 118px;">
+                        <li>
+                            <a href="/tr/Proje-Kategoriler">
+                                <h3 style="line-height:30px !important;">Hizmetler</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=/tr/Iletisim>
+                                
+                                <h3 style="line-height:30px !important;">İletişim</h3>
+                            </a>
+                        </li>
+                        <li><a href="http://mail.sakarya.bel.tr/webmail/" target="_blank"><h3 style="line-height:30px !important;">Kurumsal Mail Servisi</h3></a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="crt">
+                <p>© 2018, SAKARYA B&#220;Y&#220;KŞEHİR BELEDİYESİ</p>
+              
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-3063145-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

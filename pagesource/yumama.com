@@ -1,0 +1,1564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+	<head>
+		<base href="https://www.yumama.com/" />
+		<meta charset="utf-8" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo</title>
+		
+        <meta name="generator" content="Vivvo 4.1" />
+        <meta name="generation-time" content="4s" />
+		<meta property="fb:app_id" content="264140957108487" />
+		<meta property="og:site_name" content="Yumama.com" />
+		<meta property="og:url" content="https://www.yumama.com/" />
+		<meta property="og:title" content="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" />
+        
+		
+        <link rel="search" type="application/opensearchdescription+xml" href="opensearch" title="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" />
+        <link rel="shortcut icon" href="https://www.yumama.com/favicon.ico" />
+        
+		<meta name="Description" content="MAMA - prvi sajt u oblasti roditeljstva u Srbiji. Saznajte sve što vas interesuje o začeću, trudnoći, odrastanju deteta i roditeljstvu uopšte." />
+		<meta name="Keywords" content="mama, yumama, trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" />
+		<link rel="alternate" type="application/rss+xml" title="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" href="https://www.yumama.com/feed/index.1.rss" />
+
+		<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/bootstrap.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/bootstrap-datetimepicker.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/ie10-viewport-bug-workaround.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/navbar-fixed-top.css?v=0.85" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/slick.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/slick-theme.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="https://www.yumama.com/themes/yumama_responsive/css/partner_logo.css?v=0.3" media="screen"/>
+
+
+		<!-- (C)2000-2014 Gemius SA - gemiusAudience / yumama.com / Home Page >  -->
+		<script>var androidWebview = false ;</script>
+		<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+		var pp_gemius_identifier = 'ctTr24eTgKGvdxtICpXZEqQ_zUTiTcN_2ymbwf5vMnL.P7';
+	if (!(androidWebview)) {
+		// lines below shouldn't be edited
+		function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+		gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+		(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':''); gt.setAttribute('async','async');
+		gt.setAttribute('defer','defer'); gt.src=l+'://gars.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+	}
+		//--><!]]>
+</script>
+
+		<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.www.yumama.com"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.adriamediacontent.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//piwik.adriamediacontent.com/piwik.php?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+		
+        <script type="text/javascript" src="https://www.yumama.com/js/jquery.min.js"> </script>
+		<script type="text/javascript" src="https://www.yumama.com/js/bootstrap.js"> </script>
+		<script type="text/javascript" src="https://www.yumama.com/js/slick.js"> </script>
+		<script type="text/javascript" src="https://www.yumama.com/js/moment.js"> </script>
+		<script type="text/javascript" src="https://www.yumama.com/js/bootstrap-datetimepicker.min.js"> </script>
+
+		<!-- Generated by Revive Adserver v3.2.4 -->
+		<script type="text/javascript" src="//ads.kurir-info.rs/www/delivery/spcjs.php?id=16"> </script>
+
+		<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+	</head>
+
+	<body>
+
+			<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=264140957108487";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<script async defer src="//assets.pinterest.com/js/pinit.js" data-pin-custom="true"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- scripts for notifications -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""> </script>
+<script>
+	var OneSignal = window.OneSignal || [];
+	OneSignal.push(function() {
+		OneSignal.init({
+			appId: "67411331-9084-497b-9205-39b3049fc378",
+		});
+	});
+</script>
+
+        
+		
+    	<div id="wallLeft" style="text-align:right;position:fixed;width:464px;height:1500px;top:0px;left:50%;margin-left:-963px;">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id187] Left brending */
+    OA_show(187);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=0d5c015'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=187&amp;n=0d5c015' /></a></noscript>
+</div>
+<div id="wallRight" style="text-align:left;position:fixed;width:464px;height:1500px;top:0px;right:50%;margin-right:-963px;">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id188] Right brending */
+    OA_show(188);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=8ddca12'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=188&amp;n=8ddca12' /></a></noscript>
+</div>
+		<div class="container mobile-container">
+			<header>
+				<div class="banner1">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id173] yumama.com - ID 1 */
+    OA_show(173);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=0562b8f'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=173&amp;n=0562b8f' /></a></noscript>
+</div>
+				<div class="logo left"><a href="https://www.yumama.com/"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/logo.png" alt="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" title="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" /></a></div>
+				<div class="margin-bar"> </div>
+				<nav class="navbar navbar-default">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+				    		<span class="icon-bar"> </span>
+				    		<span class="icon-bar"> </span>
+				    		<span class="icon-bar"> </span>
+				    	</button>
+				  	</div>
+					
+					<div id="navbar" class="navbar-collapse collapse">
+					
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-home.png" /></a></li>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="zelim-bebu/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Želim bebu</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="zelim-bebu/priprema-za-trudnocu/index.1.html">Priprema za trudnoću</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="zelim-bebu/problemi/index.1.html">Problemi</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="trudnoca/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trudnoća</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="trudnoca/trimestar1/index.1.html">1. trimestar</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/trimestar2/index.1.html">2. trimestar</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/trimestar3/index.1.html">3. trimestar</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/pregledi-u-trudnoci/index.1.html">Pregledi</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/ishrana-u-trudnoci/index.1.html">Ishrana</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/prakticni-saveti/index.1.html">Saveti</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/zdravlje-trudnica/index.1.html">Zdravlje i nega</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/porodjaj/index.1.html">Porođaj</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/posle-porodjaja/index.1.html">Posle porođaja</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="trudnoca/pitanja-i-odgovori/index.1.html">Pitanja i odgovori</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="beba/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beba</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="beba/0-3-meseca/index.1.html">0 - 3 meseca</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="beba/4-8-meseci/index.1.html">4 - 8 meseci</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="beba/9-12-meseci/index.1.html">9 - 12 meseci</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="beba/nega-bebe/index.1.html">Nega</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="beba/zdravlje-beba/index.1.html">Zdravlje i ishrana</a>
+																<ul></ul>
+															</li>
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="dete/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dete</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="dete/1-3-godine/index.1.html">1 - 3. godine</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/4-5-godine/index.1.html">4 - 5. godine</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/6-7-godine/index.1.html">6 - 7. godine</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/ishrana-dece/index.1.html">Ishrana</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/vaspitanje/index.1.html">Vaspitanje</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/igre-i-zabava/index.1.html">Igre i zabava</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="dete/zdravlje2/index.1.html">Zdravlje</a>
+																<ul></ul>
+															</li>
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="skolsko-dete/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Školsko dete</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="skolsko-dete/hobi-rekreacija/index.1.html">Hobi i rekreacija</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="skolsko-dete/razvoj-vaspitanje/index.1.html">Razvoj i vaspitanje</a>
+																<ul></ul>
+															</li>
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="porodica/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Porodica</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="porodica/kutak-za-mame/index.1.html">Kutak za mame</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/kutak-za-tate/index.1.html">Kutak za tate</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/zivot-porodice/index.1.html">Život porodice</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/putovanja/index.1.html">Putovanja</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/index.1.html">Blog stručnjaka</a>
+																<ul>
+													
+														
+															<li><a href="porodica/blog-strucnjaka/snezana-milanovic/index.1.html">Snežana Milanović, fizioterapeut</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/dr-natasa-d-cabarkapa/index.1.html">Dr Nataša D. Čabarkapa, logoped</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/dr-biljana-kostic-pedijatar/index.1.html">Dr Biljana Kostić, pedijatar</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/marko-aleksandric-profesor-sporta/index.1.html">Marko Aleksandrić, lični trener</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/dr-sci-med-natasa-pejcic-stomatolog/index.1.html">Dr sc. med. Nataša Pejčić, stomatolog</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/mr-sc-sandra-ilankovic-defektolog/index.1.html">Mr sc Sandra Ilanković, defektolog</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/kristina-miladinovic/index.1.html">Kristina Miladinović, pedagog</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+													
+														
+															<li><a href="porodica/blog-strucnjaka/dr-katarina-kulic-ginekolog/index.1.html">Dr Katarina Kulić, ginekolog</a>
+																<ul></ul>
+															</li>
+														
+													
+												</ul>
+															</li>
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							<li>
+									
+                                    
+                                        	<a href="zdravlje-i-ishrana/index.1.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zdravlje i ishrana</a>
+										
+                                    
+										<ul class="dropdown-menu">
+                                        	
+													
+														
+															<li><a href="zdravlje-i-ishrana/zdravlje/index.1.html">Zdravlje</a>
+																<ul></ul>
+															</li>
+														
+													
+														
+															<li><a href="zdravlje-i-ishrana/ishrana-i-recepti/index.1.html">Ishrana i recepti</a>
+																<ul></ul>
+															</li>
+														
+													
+												
+										</ul>
+									
+							</li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+						
+						<ul class="nav navbar-nav navbar-right">
+					    	<li class="link-blue"><a href="https://www.yumama.com/majcinstvo-iz-prve-ruke/index.1.html">Mama ♥ Mami</a></li>
+					    	<li class="link-green"><a href="https://www.yumama.com/vesti">Vesti</a></li>
+							<li class="link-pink"><a href="https://www.yumama.com/video">Video</a></li>
+					    	<li class="link-search hide">
+								<a onclick="showHideEl('form-search-desktop');"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-search.png" width="17" height="18" /></a>
+								<div class="form-search-desktop">
+									<form action="search.html" method="post" name="search">
+										<input type="hidden" name="search_do_advanced" />
+										<input type="text" id="search_query" name="search_query" class="search-input-field" value="" />
+										<input type="submit" class="search_submit btn btn-lg btn-primary" value="Traži" name="search" />
+									</form>
+								</div>
+							</li>
+					    </ul>
+						<div class="clearfix"> </div>
+						<ul class="nav navbar-nav subnav-holder">
+                        	<li class="link-themes link-tema-kalendar-trudnoce"><a href="https://www.yumama.com/trudnoca-po-nedeljama"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-kalendar-trudnoce.png" />Kalendar trudnoće</a></li>
+							<li class="link-themes link-tema-vesti"><a href="https://www.yumama.com/recepti"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-recepti.png" />Recepti</a></li>
+							<li class="link-themes link-tema-vasa-prica"><a href="https://www.yumama.com/vasa-prica"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-vasa-prica.png" />Vaša priča</a></li>
+							<li class="link-themes link-tema-imena-beba"><a href="https://www.yumama.com/imena-beba"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-imena-beba.png" />Imena beba</a></li>
+							<li class="link-themes link-tema-forum"><a href="https://www.yumama.com/forum" target="_blank"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/icon-forum.png" />Forum</a></li>
+						</ul>
+					</div>
+
+				</nav>
+				<div class="clearfix"> </div>
+			</header>
+		</div>
+		<div class="clearfix"> </div>
+
+
+        <div class="banner2">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id174] yumama.com - ID 2 */
+    OA_show(174);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=fb70df4'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=174&amp;n=fb70df4' /></a></noscript>
+</div>
+
+		<div class="container content-container">
+
+			<!-- prvi paket -->
+
+        	<div class="col-xs-12 col-md-8">
+
+				<!-- kalendar trudnoce -->
+
+				
+            <div style="height:76px; overflow:hidden;">
+				<div id="pos">
+					<div class="kalendar-kat">
+	                	<div class="slide-over">
+							<span id="show-kalendar-kat">zelim bebu</span>
+						</div>
+					</div>
+					<div class="kalendar">
+	                	<div class="slide-button slide-cat-1" title="Želim bebu"><a href="https://www.yumama.com/zelim-bebu">Želim bebu</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/13-1-nedelja-trudnoce.html">1. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/14-2-nedelja-trudnoce.html">2. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/389-3-nedelja-trudnoce.html">3. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/390-4-nedelja-trudnoce.html">4. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/391-5-nedelja-trudnoce.html">5. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/392-6-nedelja-trudnoce.html">6. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/393-7-nedelja-trudnoce.html">7. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/394-8-nedelja-trudnoce.html">8. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/395-9-nedelja-trudnoce.html">9. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/396-10-nedelja-trudnoce.html">10. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/397-11-nedelja-trudnoce.html">11. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/398-12-nedelja-trudnoce.html">12. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - I trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-1/2657-13-nedelja-trudnoce.html">13. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/399-14-nedelja-trudnoce.html">14. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/400-15-nedelja-trudnoce.html">15. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/401-16-nedelja-trudnoce.html">16. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/402-17-nedelja-trudnoce.html">17. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/403-18-nedelja-trudnoce.html">18. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/404-19-nedelja-trudnoce.html">19. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/405-20-nedelja-trudnoce.html">20. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/406-21-nedelja-trudnoce.html">21. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/407-22-nedelja-trudnoce.html">22. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/408-23-nedelja-trudnoce.html">23. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/409-24-nedelja-trudnoce.html">24. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/16-25-nedelja-trudnoce.html">25. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/410-26-nedelja-trudnoce.html">26. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - II trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-2/411-27-nedelja-trudnoce.html">27. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/412-28-nedelja-trudnoce.html">28. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/413-29-nedelja-trudnoce.html">29. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/414-30-nedelja-trudnoce.html">30. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/415-31-nedelja-trudnoce.html">31. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/416-32-nedelja-trudnoce.html">32. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/417-33-nedelja-trudnoce.html">33. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/418-34-nedelja-trudnoce.html">34. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/419-35-nedelja-trudnoce.html">35. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/420-36-nedelja-trudnoce.html">36. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/421-37-nedelja-trudnoce.html">37. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/422-38-nedelja-trudnoce.html">38. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/423-39-nedelja-trudnoce.html">39. nedelja</a></div>
+						<div class="slide-button slide-cat-2" title="Trudnoća - III trimestar"><a href="https://www.yumama.com/trudnoca-po-nedeljama/trimestar-3/539-40-nedelja-trudnoce.html">40. nedelja</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/0-3-meseca/3393-prvi-bebin-mesec.html">1. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/0-3-meseca/3660-bebin-drugi-mesec.html">2. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/0-3-meseca/3823-bebin-treci-mesec.html">3. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/4-8-meseci/3926-bebin-cetvrti-mesec.html">4. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/4-8-meseci/4037-bebin-peti-mesec.html">5. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/4-8-meseci/4137-bebin-sesti-mesec.html">6. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/4-8-meseci/4284-bebin-sedmi-mesec.html">7. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/4-8-meseci/4455-bebin-osmi-mesec.html">8. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/9-12-meseci/4661-bebin-deveti-mesec.html">9. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/9-12-meseci/4780-bebin-deseti-mesec.html">10. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/9-12-meseci/4891-bebin-jedanaesti-mesec.html">11. mesec</a></div>
+						<div class="slide-button slide-cat-3" title="Beba"><a href="https://www.yumama.com/beba/9-12-meseci/4968-bebin-dvanaesti-mesec.html">12. mesec</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/1-3-godine/index.1.html">1+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/1-3-godine/index.1.html">2+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/1-3-godine/index.1.html">3+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/4-5-godine/index.1.html">4+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/4-5-godine/index.1.html">5+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/6-7-godine/index.1.html">6+ godina</a></div>
+						<div class="slide-button slide-cat-4" title="Dete"><a href="https://www.yumama.com/dete/6-7-godine/index.1.html">7+ godina</a></div>
+                        <div class="slide-button-empty">&nbsp;</div>
+                        <div class="slide-button-empty">&nbsp;</div>
+                        <div class="slide-button-empty">&nbsp;</div>
+                        <div class="slide-button-empty">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+
+
+				<!-- tri glavne vesti - main headline -->
+
+				
+	
+			<div id="pos1" class="col-xs-12 col-md-10 right">
+				
+					
+						<div class="box box2">
+							
+								<a href="zdravlje-i-ishrana/zdravlje/25913-13-stvari-koje-muce-svaku-mamu-kada-je-cela-porodica-prehladjena.html"><img src="/files/2018/02/13_stvari_koji_muce_svaku_mamu_kada_je_cela_porodica_porehladjena_940479077.jpg" alt="13 stvari koje muče svaku mamu kada je cela porodica prehlađena" title="13 stvari koje muče svaku mamu kada je cela porodica prehlađena" /></a>
+							
+							<div class="headline-title-box">
+	                        	<!--div class="path">&amp;amp;nbsp;</div-->
+								<h1><a href="zdravlje-i-ishrana/zdravlje/25913-13-stvari-koje-muce-svaku-mamu-kada-je-cela-porodica-prehladjena.html">13 stvari koje muče svaku mamu kada je cela porodica prehlađena</a></h1>
+								<h2><a href="zdravlje-i-ishrana/zdravlje/25913-13-stvari-koje-muce-svaku-mamu-kada-je-cela-porodica-prehladjena.html">Kada ste prehlađeni imate validan razlog da ostanete u krevetu i date sebi malo oduška, međutim kada je cela porodica bolesna situacija je malo...</a></h2>
+							</div>
+						</div>
+                          	
+					
+				
+					
+                              <div class="box box3">
+							
+								<a href="zdravlje-i-ishrana/ishrana-i-recepti/26105-uskrsnji-dezert-3-originalne-ideje-za-ukrasavanje-mafina.html"><img class="img-139" src="https://www.yumama.com/thumbnail.php?file=2018/03/uskrsnji_dezert_3_ideje_za_ukrasavanje_mafina_aps_162670366.jpg&amp;size=summary_medium" alt="Uskršnji dezert: 3 originalne ideje za ukrašavanje mafina" title="Uskršnji dezert: 3 originalne ideje za ukrašavanje mafina" align="left" /></a>
+	                    	
+                			<div class="path"><a href="zdravlje-i-ishrana/ishrana-i-recepti/index.1.html">Ishrana i recepti</a></div>
+							<h2><a href="zdravlje-i-ishrana/ishrana-i-recepti/26105-uskrsnji-dezert-3-originalne-ideje-za-ukrasavanje-mafina.html">Uskršnji dezert: 3 originalne ideje za ukrašavanje mafina</a></h2>
+						</div>
+						
+				
+					
+                              <div class="box box3">
+							
+								<a href="porodica/zivot-porodice/26121-boja-koja-ce-oplemeniti-enterijer-i-uneti-dasak-proleca-u-vas-do.html"><img class="img-139" src="https://www.yumama.com/thumbnail.php?file=2018/03/boja_koja_ce_oplemeniti_enterijer3_716873238.jpg&amp;size=summary_medium" alt="FOTO INSPIRACIJA: Boja koja će oplemeniti enterijer i uneti dašak proleća u vaš dom" title="FOTO INSPIRACIJA: Boja koja će oplemeniti enterijer i uneti dašak proleća u vaš dom" align="left" /></a>
+	                    	
+                			<div class="path"><a href="porodica/zivot-porodice/index.1.html">Život porodice</a></div>
+							<h2><a href="porodica/zivot-porodice/26121-boja-koja-ce-oplemeniti-enterijer-i-uneti-dasak-proleca-u-vas-do.html">FOTO INSPIRACIJA: Boja koja će oplemeniti enterijer i uneti dašak proleća u vaš dom</a></h2>
+						</div>
+						
+				
+			</div>
+		
+
+
+				<!-- tri sporedne vesti -->
+
+				
+	
+        	<div id="pos3" class="col-xs-12 col-md-2 left">
+				
+                	<div class="box box1">
+						
+                    		<a href="vesti/26075-zelene-liske-pune-zdravlja-povrce-koje-sprecava-razvoj-kancera-j.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/zelene_liske_pune_zdravlja_povrce_koje_sprecava_razvoj_kancera_467330717.jpg&amp;size=summary_medium" alt="Zelene liske pune 'zdravlja': Povrće koje sprečava razvoj kancera, jača kosti i reguliše krvni pritisak" title="Zelene liske pune 'zdravlja': Povrće koje sprečava razvoj kancera, jača kosti i reguliše krvni pritisak" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/index.1.html">Vesti</a></div>
+						<h2><a href="vesti/26075-zelene-liske-pune-zdravlja-povrce-koje-sprecava-razvoj-kancera-j.html">Zelene liske pune 'zdravlja': Povrće koje sprečava razvoj kancera, jača kosti i reguliše krvni pritisak</a></h2>
+					</div>
+				
+                	<div class="box box1">
+						
+                    		<a href="zdravlje-i-ishrana/ishrana-i-recepti/26147-uspesno-mrsavljenje-namirnice-koje-teraju-telo-da-trosi-kalorije.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/uspesno_mrsavljenje_namirnice_koje_podsticu_telo_da_trosi_kalorije_741189511.jpg&amp;size=summary_medium" alt="Uspešno mršavljenje: Namirnice koje podstiču telo da troši kalorije" title="Uspešno mršavljenje: Namirnice koje podstiču telo da troši kalorije" align="left" /></a>
+						
+                		<div class="path"><a href="zdravlje-i-ishrana/ishrana-i-recepti/index.1.html">Ishrana i recepti</a></div>
+						<h2><a href="zdravlje-i-ishrana/ishrana-i-recepti/26147-uspesno-mrsavljenje-namirnice-koje-teraju-telo-da-trosi-kalorije.html">Uspešno mršavljenje: Namirnice koje podstiču telo da troši kalorije</a></h2>
+					</div>
+				
+                	<div class="box box1">
+						
+                    		<a href="vesti/26141-princeza-danica-o-trudnoci-i-porodjaju-filipova-ljubav-i-epidura.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/danica_i_filip_karadjordjevic_aps_348465093.jpg&amp;size=summary_medium" alt="Princeza Danica o trudnoći i porođaju: Filipova ljubav i epidural pomogli su mi da ne osetim bol" title="Princeza Danica o trudnoći i porođaju: Filipova ljubav i epidural pomogli su mi da ne osetim bol" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/index.1.html">Vesti</a></div>
+						<h2><a href="vesti/26141-princeza-danica-o-trudnoci-i-porodjaju-filipova-ljubav-i-epidura.html">Princeza Danica o trudnoći i porođaju: Filipova ljubav i epidural pomogli su mi da ne osetim bol</a></h2>
+					</div>
+				
+			</div> 
+		
+
+
+				<!-- banner 468x60 -->
+
+				<div id="pos2" class="col-xs-12 col-md-12 box-no-shadow text-center banner5">
+
+					<div>
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id177] yumama.com - ID 5 */
+    OA_show(177);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=2d06d16'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=177&amp;n=2d06d16' /></a></noscript>
+</div>
+
+				</div>
+
+			</div>
+
+			<!-- banner 300x250 -->
+
+			<div id="pos4" class="col-xs-12 col-md-4">
+
+				<div class="banner3 box">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id175] yumama.com - ID 3 */
+    OA_show(175);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=7baa5ee'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=175&amp;n=7baa5ee' /></a></noscript>
+</div>
+
+			</div>
+
+			<!-- najnovije i najcitanije -->
+
+			<div id="pos5" class="col-xs-12 col-md-4">
+
+				<div class="box">
+	<div id="najTab">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#tabC1" data-toggle="tab">Najnovije</a></li>
+			<li><a href="#tabC2" data-toggle="tab">Najčitanije</a></li>
+		</ul>
+		<div class="tab-content clearfix">
+        	
+					<div class="tab-pane  active" id="tabC1">
+                        
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="vesti/kultura/26145-pet-prijatelja-na-ostrvu-s-blagom-inid-blajton.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/pet_prijatelja_na_ostrvu_s_blagom_538489923.jpg&amp;size=summary_small" alt="Pet prijatelja: Na ostrvu s blagom- Inid Blajton" title="Pet prijatelja: Na ostrvu s blagom- Inid Blajton" /></a></div>
+	
+	<h2><a href="vesti/kultura/26145-pet-prijatelja-na-ostrvu-s-blagom-inid-blajton.html">Pet prijatelja: Na ostrvu s blagom- Inid Blajton</a></h2>
+</div>
+								
+							
+						
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="recepti/torte-i-kolaci/26149-recept-za-hrskavu-posnu-pitu-sa-visnjama-i-grizom.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/recept_za_hrskavu_posnu_pitu_sa_visnjama_350653748.jpg&amp;size=summary_small" alt="Recept za hrskavu, posnu pitu sa višnjama i grizom" title="Recept za hrskavu, posnu pitu sa višnjama i grizom" /></a></div>
+	
+	<h2><a href="recepti/torte-i-kolaci/26149-recept-za-hrskavu-posnu-pitu-sa-visnjama-i-grizom.html">Recept za hrskavu, posnu pitu sa višnjama i grizom</a></h2>
+</div>
+								
+							
+						
+							
+                                	<div class="box5 no-border">
+	
+		<div class="window left"><a href="dete/vaspitanje/26139-3-zlatna-saveta-o-zivotu-koja-je-svojoj-deci-dao-stiven-hoking.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/3_zlatna_savet_koja_je_stiven_hoking_dao_deci_606275144.jpg&amp;size=summary_small" alt="3 zlatna saveta o životu koja je svojoj deci dao Stiven Hoking" title="3 zlatna saveta o životu koja je svojoj deci dao Stiven Hoking" /></a></div>
+	
+	<h2><a href="dete/vaspitanje/26139-3-zlatna-saveta-o-zivotu-koja-je-svojoj-deci-dao-stiven-hoking.html">3 zlatna saveta o životu koja je svojoj deci dao Stiven Hoking</a></h2>
+</div>
+								
+						
+					</div>
+				
+			
+					<div class="tab-pane" id="tabC2">
+                        
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="trudnoca/trimestar2/1288-7-nedoumica-trudnica-odgovori-na-najcesca-pitanja-o-seksu-u-trud.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/7_nedoumica_trudnica_seks_u_trudnoci_200167515.jpg&amp;size=summary_small" alt="7 nedoumica trudnica: Odgovori na najčešća pitanja o seksu u trudnoći" title="7 nedoumica trudnica: Odgovori na najčešća pitanja o seksu u trudnoći" /></a></div>
+	
+	<h2><a href="trudnoca/trimestar2/1288-7-nedoumica-trudnica-odgovori-na-najcesca-pitanja-o-seksu-u-trud.html">7 nedoumica trudnica: Odgovori na najčešća pitanja o seksu u trudnoći</a></h2>
+</div>
+								
+							
+						
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="porodica/zivot-porodice/509-stimulativno-odrastanje-saveti-za-uredjenje-montesori-decje-sobe.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/montesori_decija_soba_773714229.jpg&amp;size=summary_small" alt="Stimulativno odrastanje: Saveti za uređenje Montesori dečje sobe" title="Stimulativno odrastanje: Saveti za uređenje Montesori dečje sobe" /></a></div>
+	
+	<h2><a href="porodica/zivot-porodice/509-stimulativno-odrastanje-saveti-za-uredjenje-montesori-decje-sobe.html">Stimulativno odrastanje: Saveti za uređenje Montesori dečje sobe</a></h2>
+</div>
+								
+							
+						
+							
+                                	<div class="box5 no-border">
+	
+		<div class="window left"><a href="trudnoca/trimestar2/25809-iz-iskustva-majke-petoro-malisana-po-cemu-je-trudnoca-kada-nosit.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/02/Informacije_iz_prve_ruke_280855142.jpg&amp;size=summary_small" alt="Iz iskustva majke petoro mališana: Po čemu je trudnoća kada nosite dečaka drugačija?" title="Iz iskustva majke petoro mališana: Po čemu je trudnoća kada nosite dečaka drugačija?" /></a></div>
+	
+	<h2><a href="trudnoca/trimestar2/25809-iz-iskustva-majke-petoro-malisana-po-cemu-je-trudnoca-kada-nosit.html">Iz iskustva majke petoro mališana: Po čemu je trudnoća kada nosite dečaka drugačija?</a></h2>
+</div>
+								
+						
+					</div>
+				
+		</div>
+	</div>
+</div>
+
+			</div>
+
+			<!-- social box -->
+
+			<div id="pos8" class="col-xs-12 col-md-4">
+
+				<div class="box">
+	<div id="socialBox">
+    	<div class="social-header">
+        	<div class="social-button" title="social-fb-content"><div class="circle social-fb"> </div></div>
+			<div class="social-button" title="social-tw-content"><div class="circle social-tw"> </div></div>
+			<div class="social-button" title="social-pn-content"><div class="circle social-pn"> </div></div>
+			<div class="social-button" title="social-gp-content"><div class="circle social-gp"> </div></div>
+			<div class="social-button" title="social-ln-content"><div class="circle social-ln"> </div></div>
+			<div class="social-button" title="social-em-content"><div class="circle social-em"> </div></div>
+			<div class="clear"> </div>
+		</div>
+		<div class="social-content">
+			<div class="social-bar social-fb-content active social-bar-active">
+				<div class="left">Pratite nas&nbsp;&nbsp;&nbsp;</div><div class="left" style="height:20px;"><div class="fb-like" data-href="https://www.facebook.com/YuMamaPortal" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"> </div></div><div class="clear"> </div>
+			</div>
+			<div class="social-bar social-tw-content active">
+				<div class="left">Pratite nas&nbsp;&nbsp;&nbsp;</div><div class="left" style="height:20px;"><a href="https://twitter.com/yumamaportal" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @yumamaportal</a></div><div class="clear"> </div>
+			</div>
+			<div class="social-bar social-pn-content active">
+				<div class="left">Pratite nas&nbsp;&nbsp;&nbsp;</div><div class="left" style="height:20px;"><a data-pin-do="buttonFollow" href="https://www.pinterest.com/yumamasrbija/">Yumama&nbsp;Srbija</a></div><div class="clear"> </div>
+			</div>
+			<div class="social-bar social-gp-content active">
+				<div class="left">Pratite nas&nbsp;&nbsp;&nbsp;</div><div class="g-follow left" data-annotation="bubble" data-height="20" data-href="//plus.google.com/100215112850107295885" data-rel="publisher"> </div><div class="clear"> </div>
+			</div>
+			<div class="social-bar social-ln-content active"> </div>
+			<div class="social-bar social-em-content active">
+				Pišite nam&nbsp;&nbsp;&nbsp;<a href="mailto:redakcija@yumama.com">redakcija@yumama.com</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+			</div>
+
+        	<!-- kalendar ovulacije -->
+
+            <div id="pos9" class="col-xs-12 col-md-4">
+
+				<div class="box">
+	<div id="kalendarOvulacije">
+		<form id="ovulacija_form" action="kalendar_ovulacije.html?p=1" method="post">
+			<div class="ovulacija-header">
+				Kalendar ovulacije
+				<button type="submit" class="btn btn-xs" name="izracunaj">Izračunaj</button>
+			</div>
+			<div class="ovulacija-content">
+				<div>Prvi dan prošlog ciklusa</div>
+				<div class="col-md-6">
+					<div class="input-group date" id="odabir-datuma">
+						<input type="text" class="form-control" id="OVULATION_firstday" name="OVULATION_firstday" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"> </span>
+						</span>
+						<input id="OVULATION_day" type="hidden" name="OVULATION_day" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="OVULATION_length">dana</label>
+						<div class="col-xs-4">
+							<select class="form-control" id="OVULATION_length" name="OVULATION_length">
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+							</select>
+						</div>
+						<label for="OVULATION_length">Ciklus:</label>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</form>
+	</div>
+</div>
+
+			</div>
+
+
+
+
+
+
+
+			<!-- ostale vesti -->
+
+			<div id="pos6" class="col-xs-12 col-md-8 left">
+
+				
+	
+				
+					<div class="box box4">
+						
+							<a href="zdravlje-i-ishrana/ishrana-i-recepti/26137-jednostavna-a-zanimljiva-ideja-cipkasti-dezen-na-uskrsnjim-jajim.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/cipkasti_dezen_na_uskrsnjim_jajima_155888690.jpg&amp;size=summary_medium" alt="Jednostavna, a zanimljiva ideja: Čipkasti dezen na uskršnjim jajima od papirnog podmetača za tortu" title="Jednostavna, a zanimljiva ideja: Čipkasti dezen na uskršnjim jajima od papirnog podmetača za tortu" align="left" /></a>
+						
+                		<div class="path"><a href="zdravlje-i-ishrana/ishrana-i-recepti/index.1.html">Ishrana i recepti</a></div>
+	                    <h3><a href="zdravlje-i-ishrana/ishrana-i-recepti/26137-jednostavna-a-zanimljiva-ideja-cipkasti-dezen-na-uskrsnjim-jajim.html">Jednostavna, a zanimljiva ideja: Čipkasti dezen na uskršnjim jajima od papirnog podmetača za tortu</a></h3>
+						<h2><a href="zdravlje-i-ishrana/ishrana-i-recepti/26137-jednostavna-a-zanimljiva-ideja-cipkasti-dezen-na-uskrsnjim-jajim.html">Postupak je jednostavan, šara efektna, a materijal jeftin.</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="porodica/zivot-porodice/26127-za-laksi-zivot-viseclanih-porodica-u-srbiji-personalizovane-kart.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/ponosna_kartica_cena_minus_za_tri_plus_aps_639348637.jpg&amp;size=summary_medium" alt="Za lakši život višečlanih porodica u Srbiji: Personalizovane kartice za majke troje i više dece" title="Za lakši život višečlanih porodica u Srbiji: Personalizovane kartice za majke troje i više dece" align="left" /></a>
+						
+                		<div class="path"><a href="porodica/zivot-porodice/index.1.html">Život porodice</a></div>
+	                    <h3><a href="porodica/zivot-porodice/26127-za-laksi-zivot-viseclanih-porodica-u-srbiji-personalizovane-kart.html">Za lakši život višečlanih porodica u Srbiji: Personalizovane kartice za majke troje i više dece</a></h3>
+						<h2><a href="porodica/zivot-porodice/26127-za-laksi-zivot-viseclanih-porodica-u-srbiji-personalizovane-kart.html">Na koji način porodicama sa troje dece pomaže Ponosna kartica 'Cena minus za 3+', ko i gde može da je koristi, ali i o radu Pokreta "Tri plus", za Yumamu...</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="vesti/26135-moj-sin-ce-znati-da-podrzi-i-postuje-jake-zene-eva-longorija-o-t.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/eva_longoria_o_trudnoci_i_vaspitanju_156034073.jpg&amp;size=summary_medium" alt="'Moj sin će znati da podrži i poštuje jake žene': Eva Longorija o trudnoći i vaspitanju (FOTO)" title="'Moj sin će znati da podrži i poštuje jake žene': Eva Longorija o trudnoći i vaspitanju (FOTO)" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/index.1.html">Vesti</a></div>
+	                    <h3><a href="vesti/26135-moj-sin-ce-znati-da-podrzi-i-postuje-jake-zene-eva-longorija-o-t.html">'Moj sin će znati da podrži i poštuje jake žene': Eva Longorija o trudnoći i vaspitanju (FOTO)</a></h3>
+						<h2><a href="vesti/26135-moj-sin-ce-znati-da-podrzi-i-postuje-jake-zene-eva-longorija-o-t.html">Buduća mama Eva Longoria otkrila je kako će vaspitavati sina, ali i kako se oseća i da li radi u trudnoći.</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="vesti/kultura/26109-moja-prva-enciklopedija-sa-vinijem-puom-i-prijateljima-sisari.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/sisari_679601057.jpg&amp;size=summary_medium" alt="Moja prva enciklopedija sa Vinijem Puom i prijateljima: Sisari" title="Moja prva enciklopedija sa Vinijem Puom i prijateljima: Sisari" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/kultura/index.1.html">Kultura</a></div>
+	                    <h3><a href="vesti/kultura/26109-moja-prva-enciklopedija-sa-vinijem-puom-i-prijateljima-sisari.html">Moja prva enciklopedija sa Vinijem Puom i prijateljima: Sisari</a></h3>
+						<h2><a href="vesti/kultura/26109-moja-prva-enciklopedija-sa-vinijem-puom-i-prijateljima-sisari.html">Najpozntiji medvedić na svetu i njegova družina na zabavan i prijemčiv način vode decu i roditelje kroz različite teme otkrivajući nam mnoge tajne planete...</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="vesti/zanimljivosti/26081-zbog-imena-koje-zele-da-daju-detetu-roditelji-dospeli-na-sud.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/roditelji_zavrsili_na_sudu_zbog_imena_koje_zele_da_daju_bebi_831457033.jpg&amp;size=summary_medium" alt="Zbog imena koje žele da daju detetu - roditelji dospeli na sud!" title="Zbog imena koje žele da daju detetu - roditelji dospeli na sud!" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/zanimljivosti/index.1.html">Zanimljivosti</a></div>
+	                    <h3><a href="vesti/zanimljivosti/26081-zbog-imena-koje-zele-da-daju-detetu-roditelji-dospeli-na-sud.html">Zbog imena koje žele da daju detetu - roditelji dospeli na sud!</a></h3>
+						<h2><a href="vesti/zanimljivosti/26081-zbog-imena-koje-zele-da-daju-detetu-roditelji-dospeli-na-sud.html">Kako kažu nadležni - u interesu deteta je da se odabere drugo ime jer bi ovo moglo da šteti socijalnim odnosima deteta u budućnosti.</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="vesti/26131-preminulo-novorodjence-cija-je-majka-obolela-od-malih-boginja.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/preminula_beba_cija_je_majka_obolela_od_malih_boginja_712113398.jpg&amp;size=summary_medium" alt="Preminulo novorođenče čija je majka obolela od malih boginja" title="Preminulo novorođenče čija je majka obolela od malih boginja" align="left" /></a>
+						
+                		<div class="path"><a href="vesti/index.1.html">Vesti</a></div>
+	                    <h3><a href="vesti/26131-preminulo-novorodjence-cija-je-majka-obolela-od-malih-boginja.html">Preminulo novorođenče čija je majka obolela od malih boginja</a></h3>
+						<h2><a href="vesti/26131-preminulo-novorodjence-cija-je-majka-obolela-od-malih-boginja.html">Beba koja je 7. februara prevremeno rođena jer joj je majka obolela od morbila, preminula je sinoć na Dečjoj internoj klinici.</a></h2>
+					</div>
+				
+					<div class="box box4">
+						
+							<a href="porodica/blog-strucnjaka/kristina-miladinovic/26125-porodicni-konflikti-da-li-je-dozvoljeno-svadjati-se-pred-decom.html"><img src="https://www.yumama.com/thumbnail.php?file=2018/03/porodicni_konflikti_da_li_je_dozvoljena_svadja_pred_decom_352800350.jpg&amp;size=summary_medium" alt="Porodični konflikti: Da li je dozvoljeno svađati se pred decom?" title="Porodični konflikti: Da li je dozvoljeno svađati se pred decom?" align="left" /></a>
+						
+                		<div class="path"><a href="porodica/blog-strucnjaka/kristina-miladinovic/index.1.html">Kristina Miladinović, pedagog</a></div>
+	                    <h3><a href="porodica/blog-strucnjaka/kristina-miladinovic/26125-porodicni-konflikti-da-li-je-dozvoljeno-svadjati-se-pred-decom.html">Porodični konflikti: Da li je dozvoljeno svađati se pred decom?</a></h3>
+						<h2><a href="porodica/blog-strucnjaka/kristina-miladinovic/26125-porodicni-konflikti-da-li-je-dozvoljeno-svadjati-se-pred-decom.html">Deca su svedoci porodičnih konflikta, ali i učesnici. Veoma je važno doći do "zlatne sredine" u svađama tako da se problemi "ne guraju pod tepih", ali i da...</a></h2>
+					</div>
+				   
+		
+
+
+			</div>
+
+			<!-- banner 300x250 -->
+
+			<div id="pos10" class="col-xs-12 col-md-4 left">
+
+				<div class="banner3 box">
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id176] yumama.com - ID 4 */
+    OA_show(176);
+// ]]> --></script><noscript><a target='_blank' href='//ads.kurir-info.rs/www/delivery/ck.php?n=c4b4749'><img border='0' alt='' src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=176&amp;n=c4b4749' /></a></noscript>
+</div>
+
+			</div>
+
+			<div id="pos11" class="col-xs-12 col-md-4" style="margin-top:15px;">
+
+            	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FYuMamaPortal&amp;width=300&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=false&amp;appId=264140957108487" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:215px;" allowTransparency="true"> </iframe>
+
+			</div>
+
+			<!-- recepti i galerije -->
+
+			<div id="pos11" class="col-xs-12 col-md-4">
+
+				<div class="box">
+	<div id="najTab2">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#tabC3" data-toggle="tab">Recepti</a></li>
+			<li><a href="#tabC4" data-toggle="tab">Galerije</a></li>
+		</ul>
+		<div class="tab-content clearfix">
+        	
+					<div class="tab-pane active" id="tabC3">
+                        
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="recepti/salate/10605-grcka-salata-od-plavog-patlidzana.html"><img src="https://www.yumama.com/thumbnail.php?file=2014/09/grcka_salata_sa_patlidzanom_409071935.jpg&amp;size=summary_small" alt="Grčka salata od plavog patlidžana" title="Grčka salata od plavog patlidžana" /></a></div>
+	
+	<h2><a href="recepti/salate/10605-grcka-salata-od-plavog-patlidzana.html">Grčka salata od plavog patlidžana</a></h2>
+</div>
+								
+							
+						
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="recepti/predjela/24451-recept-za-savrseno-predjelo-slana-torta-sa-pecenim-paprikama-vid.html"><img src="https://www.yumama.com/thumbnail.php?file=2017/11/slana_torta_sa_paprikama_707060832.jpg&amp;size=summary_small" alt="Recept uspešne domaćice: Slana torta sa pečenim paprikama (VIDEO)" title="Recept uspešne domaćice: Slana torta sa pečenim paprikama (VIDEO)" /></a></div>
+	
+	<h2><a href="recepti/predjela/24451-recept-za-savrseno-predjelo-slana-torta-sa-pecenim-paprikama-vid.html">Recept uspešne domaćice: Slana torta sa pečenim paprikama (VIDEO)</a></h2>
+</div>
+								
+							
+						
+							
+                                	<div class="box5 no-border">
+	
+		<div class="window left"><a href="recepti/torte-i-kolaci/19913-nepecene-poslastice-kremasti-kolac-sa-bananom-i-keksom.html"><img src="https://www.yumama.com/thumbnail.php?file=2017/01/nepecene_poslastice_kremasti_kolac_sa_bananom_i_keksom_106749015.jpg&amp;size=summary_small" alt="Nepečene poslastice: Kremasti kolač sa bananom i keksom" title="Nepečene poslastice: Kremasti kolač sa bananom i keksom" /></a></div>
+	
+	<h2><a href="recepti/torte-i-kolaci/19913-nepecene-poslastice-kremasti-kolac-sa-bananom-i-keksom.html">Nepečene poslastice: Kremasti kolač sa bananom i keksom</a></h2>
+</div>
+								
+						
+					</div>
+				
+			
+					<div class="tab-pane" id="tabC4">
+                        
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="skolsko-dete/hobi-rekreacija/5624-pticicama-s-ljubavlju.html"><img src="https://www.yumama.com/thumbnail.php?file=2012/11/pticicama_s_ljubavlju_255536829.jpg&amp;size=summary_small" alt="Ptičicama s ljubavlju" title="Ptičicama s ljubavlju" /></a></div>
+	
+	<h2><a href="skolsko-dete/hobi-rekreacija/5624-pticicama-s-ljubavlju.html">Ptičicama s ljubavlju</a></h2>
+</div>
+								
+							
+						
+							
+								<div class="box5">
+	
+		<div class="window left"><a href="porodica/kutak-za-mame/4579-kako-se-resiti-suvisnih-kilograma.html"><img src="https://www.yumama.com/thumbnail.php?file=2012/03/kako_se_resiti_suvisnih_kilograma_844029593.jpg&amp;size=summary_small" alt="Kako se rešiti suvišnih kilograma?" title="Kako se rešiti suvišnih kilograma?" /></a></div>
+	
+	<h2><a href="porodica/kutak-za-mame/4579-kako-se-resiti-suvisnih-kilograma.html">Kako se rešiti suvišnih kilograma?</a></h2>
+</div>
+								
+							
+						
+							
+                                	<div class="box5 no-border">
+	
+		<div class="window left"><a href="zdravlje-i-ishrana/zdravlje/9762-sveze-letnje-namirnice-koje-poboljsavaju-zdravlje-i-izgled.html"><img src="https://www.yumama.com/thumbnail.php?file=2014/06/sveze_letnje_namirnice_koje_poboljsavaju_zdravlje_i_izgled_aps_949927562.jpg&amp;size=summary_small" alt="Sveže letnje namirnice koje poboljšavaju zdravlje i izgled" title="Sveže letnje namirnice koje poboljšavaju zdravlje i izgled" /></a></div>
+	
+	<h2><a href="zdravlje-i-ishrana/zdravlje/9762-sveze-letnje-namirnice-koje-poboljsavaju-zdravlje-i-izgled.html">Sveže letnje namirnice koje poboljšavaju zdravlje i izgled</a></h2>
+</div>
+								
+						
+					</div>
+				
+		</div>
+	</div>
+</div>
+
+			</div>
+
+			<!-- forum -->
+
+            <!--div id="pos15" class="col-xs-12 col-md-4">
+
+				<vte:include file="templates/yumama_responsive/boxes/forum_box.tpl" />
+
+			</div-->
+
+
+
+
+
+
+
+			<!-- video -->
+
+			<div id="video-list-holder" class="left">
+
+				<div id="sirina_za_player" class="section-title-homepage">Video</div>
+
+					<div id="pos6" class="col-xs-12 col-md-8 left">
+		    <div class="box box6">
+			<a href="/video/porodica/yumamino-savetovaliste-koliko-grama-bi-beba-trebalo-da-dobije-iz-meseca-u-mesec_95984.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_yu-mama-prilog-3-ispravljen_15115446497.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/yumamino-savetovaliste-koliko-grama-bi-beba-trebalo-da-dobije-iz-meseca-u-mesec_95984.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Yumamino savetovalište: Koliko grama bi beba trebalo da dobije iz meseca u mesec?" title="Yumamino savetovalište: Koliko grama bi beba trebalo da dobije iz meseca u mesec?" /></a></div>
+	        <h3><a href="/video/porodica/yumamino-savetovaliste-koliko-grama-bi-beba-trebalo-da-dobije-iz-meseca-u-mesec_95984.html">Yumamino savetovalište: Koliko grama bi beba trebalo da dobije iz meseca u mesec?</a></h3>
+			<h2><a href="/video/porodica/yumamino-savetovaliste-koliko-grama-bi-beba-trebalo-da-dobije-iz-meseca-u-mesec_95984.html"><b style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">Kako izgleda pravilan razvoj u prvoj godini? Da li beba dovoljno napreduje? Kada se uvodi nemlečna hrana? Na ova pitanja odgovara dr Biljana Kostić, stručna saradnica sajta Yumama.&nbsp;&nbsp;</b></a></h2>
+		</div>
+   			    <div class="box box6">
+			<a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-ekcem-kod-bebe_95107.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_yu-mama-prilog-2-ispravljen_15078114322.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-ekcem-kod-bebe_95107.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Yumamino savetovalište: Kako se leči ekcem kod bebe?" title="Yumamino savetovalište: Kako se leči ekcem kod bebe?" /></a></div>
+	        <h3><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-ekcem-kod-bebe_95107.html">Yumamino savetovalište: Kako se leči ekcem kod bebe?</a></h3>
+			<h2><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-ekcem-kod-bebe_95107.html">Pedijatar dr Biljana Kostić savetuje kako da negujete nežnu bebinu kožu, ukoliko se pojavi ekcem.</a></h2>
+		</div>
+   			    <div class="box box6">
+			<a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-temenjaca-kod-bebe_94709.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_yu-mama-prilog-1-ispravljen_15060111804.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-temenjaca-kod-bebe_94709.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Yumamino savetovalište: Kako se leči temenjača kod bebe?" title="Yumamino savetovalište: Kako se leči temenjača kod bebe?" /></a></div>
+	        <h3><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-temenjaca-kod-bebe_94709.html">Yumamino savetovalište: Kako se leči temenjača kod bebe?</a></h3>
+			<h2><a href="/video/porodica/yumamino-savetovaliste-kako-se-leci-temenjaca-kod-bebe_94709.html">Na koji način je potrebno negovati kožu bebine glave, ukoliko se pojave žućkaste naslage (temenjača), savetuje pedijatar dr Biljana Kostić.</a></h2>
+		</div>
+   			    <div class="box box6">
+			<a href="/video/porodica/prakticni-vodic-za-uspesno-privikavanje-na-nosu_93707.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_vreme-je-za-nosu-final_15012474866.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/prakticni-vodic-za-uspesno-privikavanje-na-nosu_93707.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Praktični vodič za uspešno privikavanje na nošu" title="Praktični vodič za uspešno privikavanje na nošu" /></a></div>
+	        <h3><a href="/video/porodica/prakticni-vodic-za-uspesno-privikavanje-na-nosu_93707.html">Praktični vodič za uspešno privikavanje na nošu</a></h3>
+			<h2><a href="/video/porodica/prakticni-vodic-za-uspesno-privikavanje-na-nosu_93707.html">Odvikavanje od pelena ne mora da bude komplikovan zadatak. Evo nekoliko korisnih saveta...</a></h2>
+		</div>
+   			    <div class="box box6">
+			<a href="/video/porodica/svet-u-bebinim-ocima-kako-se-razvija-vid-kod-dece_93011.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_beba-vid-prilog-ispravka_14981351750.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/svet-u-bebinim-ocima-kako-se-razvija-vid-kod-dece_93011.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Svet u bebinim očima: Kako se razvija vid kod dece?" title="Svet u bebinim očima: Kako se razvija vid kod dece?" /></a></div>
+	        <h3><a href="/video/porodica/svet-u-bebinim-ocima-kako-se-razvija-vid-kod-dece_93011.html">Svet u bebinim očima: Kako se razvija vid kod dece?</a></h3>
+			<h2><a href="/video/porodica/svet-u-bebinim-ocima-kako-se-razvija-vid-kod-dece_93011.html">Novorođenče vidi samo jake kontraste, ali ne i naša lica. Pogledajte kako se odvija razvoj vida kod dece i do kada traje.&nbsp;</a></h2>
+		</div>
+   			    <div class="box box6">
+			<a href="/video/porodica/neadekvatno-roditeljstvo-sta-kada-mama-i-tata-imaju-razlicite-pristupe-u-vaspitanju_92811.html"><div class="video_play"><img class="img-original" src="/themes/yumama_responsive/img/play.png" width="34" height="34" /></div></a>
+			<div class="video_image_holder" style="background:url('//www.adriamedia.tv/images/v_slika-4s_14973432187.jpg') no-repeat center center;background-size:cover"><a href="/video/porodica/neadekvatno-roditeljstvo-sta-kada-mama-i-tata-imaju-razlicite-pristupe-u-vaspitanju_92811.html"><img src="/themes/yumama_responsive/img/space.png" width="100%" height="100%" alt="Neadekvatno roditeljstvo: Šta kada mama i tata imaju različite pristupe u vaspitanju" title="Neadekvatno roditeljstvo: Šta kada mama i tata imaju različite pristupe u vaspitanju" /></a></div>
+	        <h3><a href="/video/porodica/neadekvatno-roditeljstvo-sta-kada-mama-i-tata-imaju-razlicite-pristupe-u-vaspitanju_92811.html">Neadekvatno roditeljstvo: Šta kada mama i tata imaju različite pristupe u vaspitanju</a></h3>
+			<h2><a href="/video/porodica/neadekvatno-roditeljstvo-sta-kada-mama-i-tata-imaju-razlicite-pristupe-u-vaspitanju_92811.html">Zbog čega dete ima bolji odnos sa jednim roditeljem i gde to grešimo u vaspitanju, otkriva naš sagovornik Tomislav Kuljiš, osnivač Centra za prirodno roditeljstvo.</a></h2>
+		</div>
+   			</div>
+
+			</div>
+
+			<!-- banner 300x250 -->
+
+			<div id="pos13" class="col-xs-12 col-md-4">
+
+				<div class="banner3 box">
+<!--/*
+  *
+  * Revive Adserver Javascript Tag
+  * - Generated with Revive Adserver v3.2.4
+  *
+  */-->
+
+<!--/*
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://ads.kurir-info.rs/www/delivery/...'
+  * to
+  *   'https://ads.kurir-info.rs/www/delivery/...'
+  *
+  * This noscript section of this tag only shows image banners. There
+  * is no width or height in these banners, so if you want these tags to
+  * allocate space for the ad before it shows, you will need to add this
+  * information to the <img> tag.
+  *
+  * If you do not want to deal with the intricities of the noscript
+  * section, delete the tag (from <noscript>... to </noscript>). On
+  * average, the noscript tag is called from less than 1% of internet
+  * users.
+  */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.kurir-info.rs/www/delivery/ajs.php':'http://ads.kurir-info.rs/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=212");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='//ads.kurir-info.rs/www/delivery/ck.php?n=a968241b&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='//ads.kurir-info.rs/www/delivery/avw.php?zoneid=212&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a968241b' border='0' alt='' /></a></noscript>
+</div>
+
+			</div>
+
+			<!-- preporuke adria media -->
+
+			<div id="pos13" class="col-xs-12 col-md-4" style="padding-top:15px;">
+
+            	<iframe id="add618c7" name="add618c7" src="//delivery.adriamediacontent.com/www/delivery/afr.php?zoneid=59&amp;cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="600"><a href="//delivery.adriamediacontent.com/www/delivery/ck.php?n=aa5794d4&amp;cb=INSERT_RANDOM_NUMBER_HERE" target="_blank"><img src="//delivery.adriamediacontent.com/www/delivery/avw.php?zoneid=59&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aa5794d4" border="0" alt="" /></a></iframe>
+
+			</div>
+
+        	<script>
+//alert($( window ).width());
+function showHideEl(what) {
+	$('.'+what).toggle();
+}
+if($(window).width()<=768) {
+   	$("#pos5").addClass('right');
+}
+if($(window).width()==640) {
+	$(".box5 > .window").hide();
+} else {
+	//$("#pos8").show();
+	$(".box5 > .window").show();
+}
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+	$('.kalendar').slick({
+		infinite: false,
+		//centerMode: true,
+		centerPadding: 10,
+		slidesToShow: 5,
+		slidesToScroll: 5,
+		focusOnSelect: true,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 3,
+	        slidesToScroll: 3
+	      }
+	    }]
+	});
+
+	setTimeout(function() {
+		$('.social-bar').removeClass('active');
+    	$('.social-bar-active').addClass('active');
+	}, 2500);
+
+});
+
+
+
+
+
+$('.social-button').mouseover(function() {
+          $('.social-bar').removeClass('active');
+	el = $(this).attr('title');
+      	$('.'+el).addClass('active');
+});
+function showCat(el) {
+	alert($(el).attr('title'));
+	$('.slide-over').text(el.attr('title'));
+}
+$('.kalendar').on('afterChange', function(slick, direction){
+	//console.log(direction);
+	// left
+             //alert($('.kalendar').slick('slickCurrentSlide'));
+	//alert($('.slick-current').attr('title'))
+	$('.slide-over span').text($('.slick-current').attr('title'));
+});
+
+$('#odabir-datuma').datetimepicker({
+   	viewMode: 'days',
+        format: 'DD.MM.YYYY.'
+});
+//$('#odabir-datuma').on('changeDate', function (ev) {
+$('#odabir-datuma').on('dp.change', function (ev) {
+    //$('OVULATION_day').val();
+});
+
+
+</script>
+
+			<script>
+if($(window).width()<=768) {
+	$("#pos9").insertBefore("#pos10");
+	$("#pos11").insertBefore("#pos10");
+}
+if($(window).width()<=700 && $(window).width()!=640) {
+	//$("#pos2").insertBefore("#pos3");
+	$("#pos5").insertBefore("#pos7");
+	$("#pos8").insertBefore("#pos5");
+}
+if($(window).width()<=640) {
+	$("#pos9").insertBefore("#pos8");
+	$("#pos5").insertBefore("#pos8");
+}
+if($(window).width()<=500) {
+	$(".imgleft").attr('align','left');
+}
+$(document).ready(function(){
+	/* Zakrpa za banner 300x250 I */
+	var visina_bannera = $('#pos4');
+	if ( 320 < visina_bannera.height() ) {
+		$("#pos5").insertBefore("#pos10");
+	}
+	var visina_bannera_2 = $('#pos10');
+	if ( 320 < visina_bannera_2.height() ) {
+		$("#pos11").insertBefore("#pos13");
+	}
+});
+</script>
+<style>
+#pos5 {
+  float: right;
+  margin-right:15px;
+}
+</style>
+
+
+
+
+
+
+
+		</div> <!-- /container -->
+
+
+
+        
+		<div class="container content-container">
+			<footer>
+			
+			<div class="col-xs-12 col-md-12">
+				<div style="text-align: center; padding: 5px;">
+					<a href="https://www.yumama.com/"><img class="img-original" src="https://www.yumama.com/themes/yumama_responsive/img/logo.png" alt="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" title="MAMA - Trudnoca, beba, dete, porodica, zdravlje, ishrana, roditeljstvo" /></a>
+				</div>
+				<div class="copyright"><a href="//www.adriamediagroup.com" target="_blank">&copy; Adria Media Group d.o.o.</a> Sva prava zadržana. | <a href="https://www.yumama.com/kontakt.html">Kontakt</a> | <a href="https://www.yumama.com/uslovi-koriscenja-i-privatnost-podataka.html">Uslovi kori&scaron;&#263;enja</a> | <a href="https://www.yumama.com/strucni-saradnici.html">Stru&#269;ni saradnici</a> | <a href="https://www.yumama.com/advertising.html">Oglasite se kod nas</a> </div>
+	
+                <div class="partner_logos">
+				<img class="back" src="https://www.yumama.com/themes/yumama_responsive/img/partner-logos-mama_1.png" alt="Yumama parnteri" />
+				<ul>
+					<li class="pl_kurir"><a href="//www.kurir.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Kurir</a></li>
+					<li class="pl_story"><a href="//glossy.espreso.rs/?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Story</a></li>
+					<li class="pl_stil"><a href="//stil.kurir.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Stil</a></li>
+					<li class="pl_adriamedia"><a href="//www.adriamedia.tv?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Adriamedia tv</a></li>
+					<li class="pl_elle"><a href="//www.elle.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Elle</a></li>
+					<li class="pl_cosmopolitan"><a href="//www.cosmopolitan.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Cosmopolitan</a></li>
+					<li class="pl_espreso"><a href="//www.espreso.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Espreso</a></li>
+					<li class="pl_newsweek"><a href="//www.newsweek.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Newsweek</a></li>
+					<li class="pl_sensa"><a href="//www.lovesensa.rs/" target="_blank">Sensa</a></li>
+					<li class="pl_lisa"><a href="//www.lepaisrecna.rs/?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Lisa</a></li>
+					<li class="pl_ngsrbia"><a href="//www.nationalgeographic.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">National Geographic</a></li>
+					<li class="pl_menshealth"><a href="//www.menshealth.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Men's health</a></li>
+					<li class="pl_stvarukusa"><a href="//stvarukusa.rs?utm_campaign=header_link&amp;utm_source=yumama" target="_blank">Stvar ukusa</a></li>
+				</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+			</footer>
+		</div>
+		<div class="clearfix"> </div>
+<style>
+@media (max-width: 500px) {
+.post-related-box a {
+	width: 48%;
+    overflow: hidden;
+    float: left;
+    margin-right: 2%;
+}
+.box1 h2, .post-related-box h2 { padding:10px; }
+}
+
+@media (max-width: 370px) {
+.box1 h2, .post-related-box h2 { padding:2px; }
+}
+</style>
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter33686634 = new Ya.Metrika({
+                    id:33686634,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/33686634" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="text/javascript">
+/*  */
+(function() {
+  var d=document,
+  h=d.getElementsByTagName('head')[0],
+  s=d.createElement('script');
+  s.type='text/javascript';
+  s.async=true;
+  s.src=document.location.protocol + '//test-script.dotmetrics.net/door.js?id=1396';
+  h.appendChild(s);
+}());
+/*  */
+</script>
+<script src="/js/ads.js" type="text/javascript"> </script>
+<script type="text/javascript">
+var blockerValue = 'inactive';
+if( window.canRunAds === undefined ){
+    blockerValue = 'active';
+} else {
+	blockerValue = 'inactive';
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5350287-6', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'event', 'Adblocker', blockerValue, {nonInteraction: true});
+  ga('set', 'dimension1', blockerValue);
+  ga('send', 'pageview');
+</script>
+<script src="/js/advanced-ga.min.js?v=0.2" type="text/javascript"> </script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+fbq('init', '499157100223731');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=499157100223731&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->
+<script type="text/javascript">
+var _sf_async_config={};
+// CONFIGURATION START
+_sf_async_config.uid = 54177;
+_sf_async_config.domain = 'yumama.com';
+_sf_async_config.useCanonical = true;
+
+		_sf_async_config.sections = '';  //CHANGE THIS
+		_sf_async_config.authors = 'Yumama';    //CHANGE THIS
+	
+// CONFIGURATION END
+(function(){
+function loadChartbeat() {
+window._sf_endpt=(new Date()).getTime();
+var e = document.createElement('script');
+e.setAttribute('language', 'javascript');
+e.setAttribute('type', 'text/javascript');
+e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+document.body.appendChild(e);
+}
+var oldonload = window.onload;
+window.onload = (typeof window.onload != 'function') ?
+loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+</script>
+<script>
+	if (!(androidWebview)) {
+		// ispucan gemius
+	}else {
+		$(".copyright").css("background-color" , "#fcc");
+	}
+</script>
+
+
+	</body>
+
+</html>

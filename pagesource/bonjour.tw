@@ -1,0 +1,815 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	舒適好穿女鞋- Bonjour女鞋
+</title><meta name="keywords" content="高跟鞋,平底鞋,懶人鞋,工作鞋,空姐鞋,Bonjour女鞋" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link rel="icon" href="favicon.ico" type="image/x-icon" /><link rel="canonical" href="http://www.bonjour.tw/" /><meta name="description" content="穿搭推薦Bonjour職場上班必備好穿靜音高跟鞋，休閒百搭小白鞋好走又舒適，銷售萬雙紀錄好評防磨腳懶人鞋，各種風格都能輕鬆駕馭，老師傅手工製作Bonjour讓妳每一步都舒適！" /><meta name="google-site-verification" content="CF8JuVH9juTCB4QEdIPCWUD10Tvgv3Kzhqx25Xem1Gc" /><meta name="msvalidate.01" content="C1D6E09399E5BCD84E6B66C5F75FD99A" /><meta http-equiv="content-language" content="zh-tw" />
+    <script type="text/javascript" src="js/1.4/jquery.min.js"></script>
+    <link href="css/css.css" rel="stylesheet" type="text/css" /><link href="css/main-template.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.innerfade.js"></script>
+    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function imgBlock(obj, imglink) {
+            obj.setAttribute("src", imglink);
+        }
+
+        $(document).ready(function () {
+            var autoPlayTime = 4500;
+            autoPlayTimer = setInterval(autoPlay, autoPlayTime);
+            function autoPlay() {
+                Slidebox('next');
+            }
+
+            $('#slidebox').hover(function () {
+                //
+                $('#slidebox .previous').show();
+                $('#slidebox .next').show();
+            }, function () {
+                //
+                $('#slidebox .previous').hide();
+                $('#slidebox .next').hide();
+            });
+            $('#slidebox .next').click(function () {
+                Slidebox('next', 'stop');
+            });
+            $('#slidebox .previous').click(function () {
+                Slidebox('previous', 'stop');
+            });
+            var yPosition = ($('#slidebox').height() - $('#slidebox .next').height()) / 2;
+            $('#slidebox .next').css('top', yPosition);
+            $('#slidebox .previous').css('top', yPosition);
+            $('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+            $("#slidebox .content").each(function (i) {
+                slideboxTotalContent = i * $('#slidebox').width();
+                $('#slidebox .container').css("width", slideboxTotalContent + $('#slidebox').width());
+            });
+            //            var w = $('#slidebox').width();
+            //            var cw = $('#slidebox .thumbs').width();
+            //            $('#slidebox .thumbs').css("left", (w - cw) / 2 + "px");
+        });
+
+        function Slidebox(slideTo, autoPlay) {
+            var animSpeed = 1000; //animation speed
+            var easeType = 'easeInOutExpo'; //easing type
+            var sliderWidth = $('#slidebox').width();
+            var leftPosition = $('#slidebox .container').css("left").replace("px", "");
+            if (!$("#slidebox .container").is(":animated")) {
+                if (slideTo == 'next') { //next
+                    if (autoPlay == 'stop') {
+                        clearInterval(autoPlayTimer);
+                        setTimeout("Slidebox('next');", 8000);
+                    }
+                    if (leftPosition == -slideboxTotalContent) {
+                        $('#slidebox .container').animate({ left: 0 }, animSpeed, easeType); //reset
+                        $('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+                        $('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+                    } else {
+                        $('#slidebox .container').animate({ left: '-=' + sliderWidth }, animSpeed, easeType); //next
+                        $('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+                        $('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+                    }
+                } else if (slideTo == 'previous') { //previous
+                    if (autoPlay == 'stop') {
+                        clearInterval(autoPlayTimer);
+                        setTimeout("Slidebox('previous');", 8000);
+                    }
+                    if (leftPosition == '0' || leftPosition == 'auto') {
+                        $('#slidebox .container').animate({ left: '-' + slideboxTotalContent }, animSpeed, easeType); //reset
+                        $('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+                        $('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+                    } else {
+                        $('#slidebox .container').animate({ left: '+=' + sliderWidth }, animSpeed, easeType); //previous
+                        $('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+                        $('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+                    }
+                } else {
+                    var slide2 = (slideTo - 1) * sliderWidth;
+                    if (leftPosition != -slide2) {
+                        clearInterval(autoPlayTimer);
+                        $('#slidebox .container').animate({ left: -slide2 }, animSpeed, easeType); //go to number
+                        $('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+                        var selThumb = $('#slidebox .thumbs a').eq((slideTo - 1));
+                        selThumb.removeClass('thumb').addClass('selected_thumb');
+                    }
+                }
+            }
+        }
+
+        var sliderwidth = "523px";
+        var sliderheight = "145px";
+        var slidespeed = "1";
+        var slidebgcolor = "#ffffff";
+
+        var leftarrowimage = "images/leftb.png";
+        var rightarrowimage = "images/rightb.png";
+
+        var leftrightslide = new Array()
+        var finalslide = ''
+
+        var imagegap = ""
+        var slideshowgap = 0
+
+        var copyspeed = slidespeed;
+        var iedom = document.all || document.getElementById;
+        var righttime, lefttime;
+        var stop = 1;
+
+        function slideleft() {
+            var a = $('div.real-data-content').width() - $('div.data-area').width();
+            var position = $('div.real-data-content').position();
+            var l = position.left;
+//            console.log(a + ' ' + l + ' ' + stop);
+            if (stop == 0) {
+                if (l < 0 ) {
+                    l += copyspeed;
+                    $('div.real-data-content').css({ left: l });
+                }
+                else stop = 1;
+            }
+            else {
+                clearInterval(lefttime);
+            }
+        }
+
+        function slideright() {
+            var a = $('div.real-data-content').width() - $('div.data-area').width();
+            var position = $('div.real-data-content').position();
+            var l = position.left;
+//            console.log(a + ' ' + l + ' ' + stop);
+            if (stop == 0) {
+                if (l > a * (-1)) {
+                    l -= copyspeed;
+                    $('div.real-data-content').css({ left: l });
+                }
+                else stop = 1;
+            }
+            else {
+                clearInterval(righttime);
+            }
+        }
+
+        function right() {
+            if (stop == 0) {
+                clearInterval(lefttime);
+                clearInterval(righttime);
+                righttime = setInterval("slideright()", 30);
+            }
+        }
+
+        function left() {
+            if (stop == 0) {
+                clearInterval(lefttime);
+                clearInterval(righttime);
+                lefttime = setInterval("slideleft()", 30);
+            }
+        }
+
+        $(document).ready(function () {
+            $('div.data-go-right').hover(function () {
+                stop = 0;
+                right(); copyspeed = 4;
+            }, function () {
+                copyspeed = 1;
+                stop = 1;
+            });
+
+            $('div.data-go-left').hover(function () {
+                stop = 0;
+                left(); copyspeed = 4;
+            }, function () {
+                copyspeed = 1;
+                stop = 1;
+            });
+        });
+    </script>
+
+    <!-- Google Tag Manager -->
+<script>    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TDTX88Z');</script>
+<!-- End Google Tag Manager -->
+
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDTX88Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <form method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+
+<script src="/ScriptResource.axd?d=v-JGZW6xJvvDcXfm_E77vUwx70Dqnc5qcUiENey5rQGYyz_pBxnsDswlI0LeAoUMk2wZ4lxpqarxgyQi7RFkM7ji2cKxtYZl3YsktoRpJJ4vt1n2zK3SgRMZuIcDp1XiBrw9XmXS7qssq_xBjE2e_g2&amp;t=3a1336b1" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax 用戶端架構無法載入。');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=z55YMjCGuS3l3PZyOJMvW8uWZ1Evhni0C51fjtVJVR22ynxNbVoTrNxS9_d8QrDsq7cDEcbguO1SqZWEgci-SSY5M2poxzBfXWA9R7TxruE8OqWjnNkfq8PJ7XXV5eNMnv-uq6FQcRhTTB7e1LRgHQ2&amp;t=3a1336b1" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=0AxAuGC82S05f-XQNdqNYPfJs9vW5e6mVnI3-ezRJWuQnWVm82XJMBCF70I_HApSG5EQ8Vl5iGGba1XqGwYVB8XxJGmrUx64ZG6JTEkvDE2u222KTITwrH0KHqf-3hX86srbWC9r08lduuTXXbeqv711ujl4x6FUm0p9rw7mdpc1&amp;t=3a1336b1" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=FBhfhxYWnljb7NqN1tNjCHbl5ZFxxQkSMhoCkT0B2xJapim_8GcWpS4zjo5iJj1kPj8bdTRq5TsFwCUkiVeiu3igIN6965T0wEgh2vbNySKfPvp_RvcSrcaJyioYKrskQTzdl9UzYcFanG5G9G910H6wF4pILpWwlBhrU03t7L41&amp;t=3a1336b1" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6ED89312" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="wymG5VZWm89RmtmHCN2LhHgYkijYoofPZv7UjT8x8kDMnkkkEy5EMiHpFVMo7IodaMcLXUCWSX8Qn1x/ABd+UsF877W06sjPD7zTt1Ll36K05of8DgrCZH3BW+eS8jBDgPCydxcX/FZImnZZBh3c361EnHEoS5TSa7LrnOLMJZB4FtDeFa7OIBsP2EPs2n2WEtCHK8Ce/QTa02rn9SBJAw==" />
+    <!--表首-->
+  
+    
+
+<script type="text/javascript">
+//    $(function () {
+//        $('#activitymsg').cycle({ fx: 'scrollDown', timeout: 3500, speed: 400 });
+//    });
+
+</script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-64678773-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript">
+        window.___gcfg = { lang: 'zh-TW' };
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+</script>
+
+<style type="text/css">
+    .g-plusone
+    {
+        width:60px;
+        
+    }
+</style>
+
+
+
+<div id="cattopbar">
+    <div class="cattopbar-content">
+        <div id="cattopleft">
+            <a id="TopMenu1_HyperLink7" href="http://line.naver.jp/ti/p/vICDBhoMOe"><img id="TopMenu1_Image2" title="線上客服" src="http://zzz.bonjour.tw/images/WebData/icon_comstomerservice.png" /></a> 
+        </div>
+        <div id="catlogo">
+            <a id="TopMenu1_HyperLinkLogo" href="./"><img id="TopMenu1_Image1" title="高跟鞋平底鞋陪妳舒服走過每一天 - Bonjour" src="http://zzz.bonjour.tw/images/WebData/logo.jpg" border="0" /></a>
+            
+        </div>
+        <div id="cattopbarright">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin-top:15px;">
+                <tr>
+                    <td colspan="3" style=" text-align:right; line-height:20px; font-size:13px; padding-right:5px;"><h1>Bonjour高跟鞋平底鞋舒服走過每一天!</h1></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style=" float:right;">
+                            
+                        </div>
+                    </td>
+                    <td style=" padding-left:10px; width:80px;">
+                        
+                    </td>
+                    <td style=" width:250px;">
+                        <ul>
+                            <li class="mem"><img id="TopMenu1_Image3" title="會員中心" src="images/icon_membercenter.png" />
+                                <div id="login-area" class="login-area" style=" display:none; position:absolute; width:230px; margin-left:-188px; z-index:2;  ">
+                                    <div style="border:1px solid black; margin-top:10px; width:196px; background-color:White; line-height:50px; padding-left:12px; padding-right:12px; font-size:15px; letter-spacing:1px; font-weight:bold;">
+                                        <div style=" border-bottom:1px dotted black; padding-left:25px;">
+                                            <a id="TopMenu1_LinkButtonLogin" title="會員登入" href="javascript:__doPostBack(&#39;TopMenu1$LinkButtonLogin&#39;,&#39;&#39;)">會員登入 <span style="-webkit-transform : scale(0.75);font-size:8px; display:inline-block;">LOG IN</span></a>
+                                            
+                                        </div>
+                                        <div style="padding-left:25px; width:230px;">
+                                            <a id="TopMenu1_HyperLinkRegister" title="加入會員" href="MEM/Register.aspx">加入會員 <span style="-webkit-transform : scale(0.75);font-size:8px; display:inline-block;">REGISTER</span></a>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="display:none;">
+                                </li>
+                            <li><a id="TopMenu1_HyperLink6" href="MEM/Trail.aspx"><img id="TopMenu1_Image4" title="追蹤清單" src="images/icon_trail.png" /></a></li>
+                            <li><a id="TopMenu1_HyperLink1" href="MEM/ShoppingCar.aspx"><img id="TopMenu1_ImageCart" title="購物車" src="images/icon_cart.png?a=QQ" /></a></li>  
+                            <li><a id="TopMenu1_HyperLink2" href="http://instagram.com/bonjour.shoes/" target="_blank"><img id="TopMenu1_Image6" title="bonjour相簿" src="images/icon_ig.png" /></a></li>
+                            <li><a id="TopMenu1_HyperLink3" href="https://zh-tw.facebook.com/bonjour.shoes" target="_blank"><img id="TopMenu1_Image7" title="bonjour粉絲團" src="images/icon_fb.png" /></a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div id="header">
+    <div class="header-content">
+        <div id="navigation">
+            
+                     <ul class="cssmenu">
+                        
+                    <li><a>促銷活動Sale<img id="TopMenu1_ListViewCatalog_Image8_0" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>ON SALE
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_0_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=35&amp;scid=63">現貨!快速出貨</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                    <li><a>新品New<img id="TopMenu1_ListViewCatalog_Image8_1" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>NEW ARRIVAL
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_1_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=1&amp;scid=18">本週新品</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_1_ListViewCatalogItem_0_HyperLink4_1" href="Catalog.aspx?cid=1&amp;scid=116">小編日本JP代購</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                    <li><a>主題企劃<img id="TopMenu1_ListViewCatalog_Image8_2" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>風格搜尋
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=40&amp;scid=120">BONJOUR熱搜排行</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_1" href="Catalog.aspx?cid=40&amp;scid=140">2way真皮休閒鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_2" href="Catalog.aspx?cid=40&amp;scid=112">冬季暖呼呼單品</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_3" href="Catalog.aspx?cid=40&amp;scid=139">可水洗系列</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_4" href="Catalog.aspx?cid=40&amp;scid=73">防磨腳萊卡懶人鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_5" href="Catalog.aspx?cid=40&amp;scid=74">百搭懶人休閒鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_6" href="Catalog.aspx?cid=40&amp;scid=79">專利靜音高跟鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_7" href="Catalog.aspx?cid=40&amp;scid=88">MIT台灣製手工鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_8" href="Catalog.aspx?cid=40&amp;scid=138">輕量舒適好走鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_9" href="Catalog.aspx?cid=40&amp;scid=78">MERRY夢幻婚鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_10" href="Catalog.aspx?cid=40&amp;scid=122">享受旅行健走鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_11" href="Catalog.aspx?cid=40&amp;scid=124">氣質OL上班工作鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_12" href="Catalog.aspx?cid=40&amp;scid=123">民族風莫卡辛</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_13" href="Catalog.aspx?cid=40&amp;scid=109">萊卡減壓手工鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_0_HyperLink4_14" href="Catalog.aspx?cid=40&amp;scid=76">大尺碼鞋35-42</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                <li>跟高搜尋
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_0" href="Catalog.aspx?cid=85&amp;scid=125">2公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_1" href="Catalog.aspx?cid=85&amp;scid=127">3公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_2" href="Catalog.aspx?cid=85&amp;scid=128">4公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_3" href="Catalog.aspx?cid=85&amp;scid=131">5公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_4" href="Catalog.aspx?cid=85&amp;scid=132">6公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_5" href="Catalog.aspx?cid=85&amp;scid=133">7公分</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_2_ListViewCatalogItem_1_HyperLink4_6" href="Catalog.aspx?cid=85&amp;scid=134">8公分</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                    <li><a>Bonjour Shoes<img id="TopMenu1_ListViewCatalog_Image8_3" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>Bonjour鞋全系列
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=15&amp;scid=24">真皮豆豆鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_1" href="Catalog.aspx?cid=15&amp;scid=23">百搭平底鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_2" href="Catalog.aspx?cid=15&amp;scid=121">坡跟楔型鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_3" href="Catalog.aspx?cid=15&amp;scid=28">舒適好穿跟鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_4" href="Catalog.aspx?cid=15&amp;scid=136">百搭厚底鞋</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_3_ListViewCatalogItem_0_HyperLink4_5" href="Catalog.aspx?cid=15&amp;scid=27">心機內增高</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                    <li><a>鞋材Acc<img id="TopMenu1_ListViewCatalog_Image8_4" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>鞋材全系列
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_4_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=11&amp;scid=32">鞋墊</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_4_ListViewCatalogItem_0_HyperLink4_1" href="Catalog.aspx?cid=11&amp;scid=90">Bonjour訂製</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_4_ListViewCatalogItem_0_HyperLink4_2" href="Catalog.aspx?cid=11&amp;scid=31">保養</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_4_ListViewCatalogItem_0_HyperLink4_3" href="Catalog.aspx?cid=11&amp;scid=35">收納</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_4_ListViewCatalogItem_0_HyperLink4_4" href="Catalog.aspx?cid=11&amp;scid=57">配件/美足保養</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                    <li><a>襪品Socks<img id="TopMenu1_ListViewCatalog_Image8_5" src="images/icon_menu_downtriangle.png" /></a>
+                        
+                                <ul class="sub-menu" style=" display:none;">
+                                    
+                                <li>襪款全系列
+                                    <ul class="menu-level3">
+                                        
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_5_ListViewCatalogItem_0_HyperLink4_0" href="Catalog.aspx?cid=53&amp;scid=84">短襪/隱形襪</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_5_ListViewCatalogItem_0_HyperLink4_1" href="Catalog.aspx?cid=53&amp;scid=83">絲襪/褲襪</a></li>
+                                            
+                                                <li>
+                                                    <a id="TopMenu1_ListViewCatalog_ListViewSubCatalog_5_ListViewCatalogItem_0_HyperLink4_2" href="Catalog.aspx?cid=53&amp;scid=85">日本進口</a></li>
+                                            
+                                    </ul>
+                                </li>
+                            
+                                </ul>
+                            
+                    </li>
+                
+                     </ul>
+                
+            
+        </div>
+        <div id="header-split"></div>
+        <div id="header-right">
+            <div class="search_form" id="search_form">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td><input name="TopMenu1$TextBoxKeyWord" type="text" id="TopMenu1_TextBoxKeyWord" border="0" /></td>
+                        <td><input type="image" name="TopMenu1$ImageButtonSearch" id="TopMenu1_ImageButtonSearch" class="submit_button" src="images/btn_search.jpg" border="0" /></td>
+                    </tr>
+                </table>
+                <input type="hidden" name="TopMenu1$TextBoxWatermarkExtender1_ClientState" id="TopMenu1_TextBoxWatermarkExtender1_ClientState" />
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="menu-block" style="width:100%; height:100%; left:0px; top:0px; background-color:#ffffff; z-index:5; display:none; position:fixed; filter:Alpha(Opacity=60, FinishOpacity=60, Style=2); -moz-opacity:0.5; opacity:0.5;"></div>
+<script type="text/javascript">
+    $(function () {
+        $('ul.cssmenu>li').hover(function () {
+            var _this = $(this),
+				_subnav = _this.children('ul');
+            var w = _this.width();
+            //            var position = $('#header').position();
+            var position = _this.offset();
+            _subnav.css('width', (w + 10) + 'px');
+            _subnav.css('display', 'block');
+            $('#menu-block').css('top', (position.top + 41) + 'px');
+            $('#menu-block').show();
+        }, function () {
+            $(this).children('ul').css('display', 'none');
+            $('#menu-block').hide();
+        });
+        var timdId;
+        $('ul >li.mem').hover(function () {
+            clearTimeout(timdId);
+            $('#login-area').slideDown();
+        }, function () {
+            timdId = setTimeout("hideArea()", 400);
+        });
+
+        $.browser.chrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
+        if ($.browser.chrome) {
+            $('#menu-trackOrder').css('margin-left', '-7px');
+            $('#menu-mCenter').css('margin-left', '-10px');
+        }
+    });
+
+    function hideArea() {
+        $('#login-area').slideUp();
+    }
+</script>
+
+<span id="TopMenu1_LabelJs"></span>
+
+<script type="text/javascript">
+    function changeCartNum(num) {
+       
+        var img = document.getElementById('TopMenu1_ImageCart');
+        var str = img.src;
+
+        if (num > 0 && num <= 9)
+            img.src = str.substring(0, str.indexOf("images/") + "images/".length) + "icon_cart" + num + ".jpg";
+        else if (num > 9)
+            img.src = str.substring(0, str.indexOf("images/") + "images/".length) + "icon_cart" + "10.jpg";
+        else {
+            img.src = str.substring(0, str.indexOf("images/") + "images/".length) + "icon_cart.png";
+        }
+    }
+</script>
+
+
+     <div id="container">
+        
+        <div id="main">
+            <div id="slidebox">
+                <div class="next"></div>
+                <div class="previous"></div>
+                <div class="thumbs">
+                    
+                    <a href="#" onclick="Slidebox('1');return false" class="thumb"></a><a href="#" onclick="Slidebox('2');return false" class="thumb"></a><a href="#" onclick="Slidebox('3');return false" class="thumb"></a><a href="#" onclick="Slidebox('4');return false" class="thumb"></a><a href="#" onclick="Slidebox('5');return false" class="thumb"></a>
+                </div>
+                <div class="container">
+                    
+                    <div class="content"><div><a href="http://www.bonjour.tw/Catalog.aspx?cid=40&scid=120"><img src="http://zzz.bonjour.tw/images/IndexData/IndexBanner_3_20180226120230699.jpg" width="1200" height="573" /></a></div></div><a href="#" onclick="Slidebox('1');return false" class="thumb"></a><div class="content"><div><a href="http://www.bonjour.tw/Catalog.aspx?cid=40&scid=120"><img src="http://zzz.bonjour.tw/images/IndexData/IndexBanner_2_20180309085900601.gif" width="1200" height="573" /></a></div></div><a href="#" onclick="Slidebox('2');return false" class="thumb"></a><div class="content"><div><a href="http://www.bonjour.tw/Product.aspx?pid=17076&c=907&cid=1&scid=18"><img src="http://zzz.bonjour.tw/images/IndexData/IndexBanner_4_20180309142801443.jpg" width="1200" height="573" /></a></div></div><a href="#" onclick="Slidebox('3');return false" class="thumb"></a><div class="content"><div><a href="http://www.bonjour.tw/Product.aspx?pid=17073&c=871&cid=1&scid=18"><img src="http://zzz.bonjour.tw/images/IndexData/IndexBanner_3_20180207184351163.jpg" width="1200" height="573" /></a></div></div><a href="#" onclick="Slidebox('4');return false" class="thumb"></a><div class="content"><div><a href="http://www.bonjour.tw/Product.aspx?pid=17069&c=907&cid=15&scid=23"><img src="http://zzz.bonjour.tw/images/IndexData/IndexBanner_4_20180305091819177.jpg" width="1200" height="573" /></a></div></div><a href="#" onclick="Slidebox('5');return false" class="thumb"></a>
+                </div>
+            </div>
+        
+            <div class="banner-zone">
+                <table>
+                    <tr>
+                        <td><a href="http://www.bonjour.tw/Product.aspx?pid=17061&c=925&cid=15&scid=23"><img src="http://zzz.bonjour.tw/images/IndexData/LeftImg_20180221113438011.jpg" width="395" alt="0"></a></td>
+                        <td align="center"><a href="http://www.bonjour.tw/Catalog.aspx?cid=40&scid=140"><img src="http://zzz.bonjour.tw/images/IndexData/MidImg_20171127100943232.gif" width="395" alt="0"></a></td>
+                        <td align="right"><a href="http://www.bonjour.tw/Catalog.aspx?cid=40&scid=78"><img src="http://zzz.bonjour.tw/images/IndexData/RightImg_20180221033558169.jpg" width="395" alt="0"></a></td>
+                    </tr>
+                </table>
+                
+            </div>
+
+            <div class="media-zone">
+                <div class="left-media"><a href="http://www.bonjour.tw/Product.aspx?pid=16113&c=563&cid=15&scid=28"><img src="http://zzz.bonjour.tw/images/IndexData/MediaImg_20180221113439278.jpg" width="550" height="360" alt="0"></a></div>
+                <div class="right-media"><iframe width="640" height="360" src="https://www.youtube.com/embed/nDqwfIUrCqc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="top-area">
+                <div class="top-title"><img id="ImageTopShoes" src="http://zzz.bonjour.tw/images/WebData/img_index_topshoes.jpg" /></div>
+                <div class="top-shoes">
+                    <div class="data-go-left"></div>
+                    <div class="data-area">
+                        <div class="real-data-content">
+                            <table class="show-top-10">    <tr><td>NO.1</td><td>NO.2</td><td>NO.3</td><td>NO.4</td><td>NO.5</td><td>NO.6</td><td>NO.7</td><td>NO.8</td><td>NO.9</td><td>NO.10</td>    </tr><tr><td><a href="Product.aspx?pid=16912"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000798-907M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=17061"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000946-545M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16682"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000576-912M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=17067"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000952-925M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16113"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000007-563M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16849"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000739-925M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16129"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000023-321M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=17059"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000944-542M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16917"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000803-464M.jpg" width="150" /></a></td><td><a href="Product.aspx?pid=16991"><img src="http://zzz.bonjour.tw/images/Product/MainPic/11000876-542M.jpg" width="150" /></a></td> </tr></table>
+                            
+                        </div>
+                    </div>
+                    <div class="data-go-right"></div>
+                </div>
+                <div class="clear"></div> 
+            </div>
+            <div class="clear"></div> 
+            <iframe id="myframe" width="1" height="1" style=" display:none;"></iframe>
+        </div>
+
+        <br />
+        
+                <table width="1200" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="294" scope="row"><a href="http://www.bonjour.tw/Catalog.aspx?cid=15&scid=28&s=3"><img src="http://zzz.bonjour.tw/images/WebData/OF1070221-294X294a.jpg" width="294" height="294" /></a></th>
+    <td width="8">&nbsp;</td>
+    <td width="294"><a href=" http://www.bonjour.tw/Catalog.aspx?cid=15&scid=23"><img src="http://zzz.bonjour.tw/images/WebData/OF1070221-294X294b.jpg" /></a></td>
+    <td width="8">&nbsp;</td>
+    <td  ><a href="http://www.bonjour.tw/Catalog.aspx?cid=15&scid=24&s=1"><img src="http://zzz.bonjour.tw/images/WebData/OF1070221-294X294c.jpg" /></a></td>
+    <td width="8">&nbsp;</td>
+    <td ><a href="http://www.bonjour.tw/Catalog.aspx?cid=15&scid=136"><img src="http://zzz.bonjour.tw/images/WebData/OF1070221-294X294d.jpg" /></a></td>
+  </tr>
+</table>
+
+
+        <span id="LabelJs"></span>
+    </div>
+
+    <!--表尾-->
+    
+<div id="footer">
+    <div id="footer-content">
+        <ul class="footer-item">
+            <li><a id="Fotter1_HyperLink1" href="Footer/AboutUs.aspx">關於BONJOUR</a><div class="split"></div></li>
+            <li><a id="Fotter1_HyperLink2" href="Footer/Service.aspx">客戶服務</a><div class="split"></div></li>
+            <li><a id="Fotter1_HyperLink3" href="Footer/AddMember.aspx">購買說明</a><div class="split"></div></li>
+           
+            <li><a id="Fotter1_HyperLink5" href="Footer/News.aspx">最新消息</a></li>
+           
+        </ul>
+    </div>
+    <div id="footer-copyright"></div>
+</div>
+
+<!-- Facebook Pixel Code 2015.09.09-->
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ?
+n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }; if (!f._fbq) f._fbq = n;
+        n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    } (window,
+document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '125642641119316');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=125642641119316&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code 2015.09.09-->
+
+    <!--漂浮視窗-->
+    
+<script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+        var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+        hideHelpMsg();
+    }
+    function MM_preloadImages() { //v3.0
+        var d = document; if (d.images) {
+            if (!d.MM_p) d.MM_p = new Array();
+            var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; } 
+        }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+        var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+            d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+        }
+        if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+        for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+        if (!x && d.getElementById) x = d.getElementById(n); return x;
+    }
+
+    function MM_swapImage(msg, height) { //v3.0
+        var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i =2; i < (a.length - 2); i += 3)
+            if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+//        showHelpMsg(msg, height);
+    }
+
+    function showHelpMsg(msg, height) {
+        var test = document.getElementById("spanHelpMsg");
+        test.innerHTML = msg;
+        test.style.top = height;
+        test.style.display = "";
+    }
+
+    function hideHelpMsg() {
+        var test = document.getElementById("spanHelpMsg");
+        test.style.display = "none";
+        test.innerHTML ="";
+    }
+</script>
+<style type="text/css">
+img.sidebarIcon
+{
+    max-width:150px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+</style>
+<div id="div_float" style="position:fixed;top:200px;">
+    
+    <span id="spanHelpMsg" style=" position:absolute; border:solid 1px #333; background-color:White; font-size:12px; color:#999; padding:4px; display:none; right:40px;"></span>
+</div>
+    <script type="text/javascript">
+        var winW = 600;
+        if (document.body && document.body.offsetWidth) {
+            winW = document.body.offsetWidth;
+        }
+        if (document.compatMode == 'CSS1Compat' && document.documentElement && document.documentElement.offsetWidth) {
+            winW = document.documentElement.offsetWidth;
+        }
+        if (window.innerWidth && window.innerHeight) {
+            winW = window.innerWidth;
+        }
+        var maxWidth = 0;
+
+//        $('#sidebarIcons img').each(function () {
+//            if ($(this).width() > maxWidth)
+//                maxWidth = $(this).width();
+//        });
+        var posX = (winW - 950) / 2 - 90;
+        //var posX = (winW - 950) / 2 - 45;
+        document.getElementById('div_float').style.right = posX + 'px';
+    </script>
+
+    <div> 
+        <span id="Label1"></span>
+     
+       
+    
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TextBoxWatermarkBehavior, {"ClientStateFieldID":"TopMenu1_TextBoxWatermarkExtender1_ClientState","WatermarkText":"Search...","id":"TopMenu1_TextBoxWatermarkExtender1"}, null, null, $get("TopMenu1_TextBoxKeyWord"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8" />
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="http://istat.co.jp/files/favicon/favicon.ico" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://istat.co.jp/files/favicon/favicon.ico" />
+<title>統計分析研究所（データ入力集計、分析、統計ソフト） :: 株式会社アイスタット｜統計分析研究所</title>
+<meta name="description" content="株式会社アイスタットは統計解析の専門企業として、市場調査、データ集計、分析・報告書作成から、マルチ予測・マルチ回帰などの統計ソフトウェア販売、統計解析・アンケート調査・予測入門セミナーの開催まで幅広く扱っております。
+
+また統計解析のExcelアドインソフト（マルチ回帰、マルチ予測、マルチ多変量）が、好評発売中です。見出した宝をお届けすることをお約束いたします。" />
+<meta name="keywords" content="アイスタット,istat,統計,解析,分析,アンケート,調査,予測,セミナー,多変量,市場調査,統計ソフト,入門" />
+<script type="text/javascript" src="http://istat.co.jp/index.php/flint/flint_config/view" charset="UTF-8"></script>
+<script type="text/javascript" src="http://istat.co.jp/js/flint.dev2.min.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css" href="http://istat.co.jp/blocks/textcontent/view.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://istat.co.jp/blocks/area_splitter/view.css" media="all" />
+
+    <!-- Bootstrap -->
+    <link href="http://istat.co.jp/templates/istat_top/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+     	<script type="text/javascript" src="js/jwuery.backgroundSize.jp"></script>
+        <script>
+			$(function() {
+				$(".event-date-widget").css( "background-size", "px" );
+			});
+        </script>
+
+    <![endif]-->
+
+
+    <link href="http://istat.co.jp/templates/istat_top/css/style.css" rel="stylesheet">
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-23976430-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="istat">
+  	<header>
+    	<div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-8"><a href="http://istat.co.jp/"><img src="http://istat.co.jp/templates/istat_top/img/logo.png"></a></div>
+                    <div class="col-sm-4 col-md-3 hidden-xs">
+                        <form action="http://www.google.com/search" id="searchform">
+                            <div>
+                            	<input type="hidden" value="istat.co.jp" name="as_sitesearch" />
+                                <input type="text" name="q" class="input">
+                                <input type="submit" name="btnG" class="button" value="検索">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-3 hidden-sm hidden-xs"><a href="http://istat.co.jp/freesoft_free" class="btn_free">フリーソフトのダウンロード</a></div>
+                    <div class="col-sm-3 text-right hidden-sm hidden-xs"><a href="http://istat.co.jp/contact"><img src="http://istat.co.jp/templates/istat_top/img/top_contact.png" class="top_contact_bottom"></a></div>
+                    <div class="col-sm-2 visible-sm visible-xs pull-right text-right"><a><img src="http://istat.co.jp/templates/istat_top/img/top_contact_sp.png"></a></div>
+                    <div class="col-sm-3 visible-sm visible-xs  pull-right"><a href="http://istat.co.jp/freesoft_free" class="btn_free">フリーソフトの<br class="hidden-xs">ダウンロード</a></div>
+                </div>
+            </div>
+        </div>
+        <nav id="nav_back" class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="http://istat.co.jp/">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析メニュー<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                                <li><a href="http://istat.co.jp/methods/questionnaire">アンケート</a></li>
+                                <li><a href="http://istat.co.jp/methods/multivariate">多変量解析</a></li>
+                                <li><a href="http://istat.co.jp/methods/prediction">予測</a></li>
+                                <li><a href="http://istat.co.jp/methods/jud">母集団有意差検定</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">調査・集計・解析・コンサル<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                                <li><a href="http://istat.co.jp/business/investigation">調査（実査</a></li>
+                                <li><a href="http://istat.co.jp/business/datainput">データ入力・集計</a></li>
+                                <li><a href="http://istat.co.jp/business/data">データ解析</a></li>
+                                <li><a href="http://istat.co.jp/business/analysis">分析・報告書作成</a></li>
+                                <li><a href="http://istat.co.jp/business/consulting">コンサルティング</a></li>
+                                <li><a href="http://istat.co.jp/business/output">アウトプットイメージ</a></li>
+                                <li><a href="http://istat.co.jp/business/price">料金表</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">セミナー<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="http://istat.co.jp/seminar">セミナー情報一覧</a></li>
+                        <li><a href="http://istat.co.jp/seminar/statistics">統計解析入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/questionnaire">アンケートの調査票作成・集計解析入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/multivariate">多変量解析入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/prediction">予測入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/statistial_difference">アンケートデータの検定入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/marketing">マーケティング統計入門</a></li>
+                        <li><a href="http://istat.co.jp/seminar/coaching">活用！使えるコーチング実践講座</a></li>
+                        <li><a href="http://istat.co.jp/seminar/teacher">講師一覧</a></li>
+                        <li><a href="http://istat.co.jp/seminar/lecturer">外部セミナー・講師のご依頼</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">ソフトウェア<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="http://istat.co.jp/software">ソフトウェア商品一覧</a></li>
+                        <li><a href="http://istat.co.jp/software/01">マルチ多変量</a></li>
+                        <li><a href="http://istat.co.jp/software/02">マルチ予測</a></li>
+                        <li><a href="http://istat.co.jp/software/03">マルチ回帰</a></li>
+                        <li><a href="http://istat.co.jp/software/trial">お試しキャンペーンお申し込み</a></li>
+                        <li><a href="http://istat.co.jp/freesoft_free">フリーソフトのダウンロード</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">書籍<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="http://istat.co.jp/book">書籍情報</a></li>
+                        <li><a href="http://istat.co.jp/book/basis">統計学の基礎</a></li>
+                        <li><a href="http://istat.co.jp/book/analysis">多変量解析</a></li>
+                        <li><a href="http://istat.co.jp/book/questionnaire">アンケート分析</a></li>
+                        <li><a href="http://istat.co.jp/book/prediction">予測</a></li>
+                        <li><a href="http://istat.co.jp/book/else">実験計画法・経時データ分析</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">統計講座<b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                        	<li>
+		                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">統計講座</a>
+                            	<ul class="dropdown-menu02">
+	                            	<li><a href="http://istat.co.jp/stprimer">統計学入門講座</a></li>
+	                            	<li><a href="http://istat.co.jp/sk_commentary">相関・検定の講座</a></li>
+	                            	<li><a href="http://istat.co.jp/ta_commentary">多変量解析の講座</a></li>
+	                            	<li><a href="http://istat.co.jp/ji_commentary">時系列予測の講座</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="http://istat.co.jp/special">統計探偵物語</a></li>
+                            <li><a href="http://istat.co.jp/survey">解析事例</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://istat.co.jp/investigation">自主調査</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">会社概要<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="http://istat.co.jp/aboutus">会社概要一覧</a></li>
+                        <li><a href="http://istat.co.jp/aboutus/philosophy">ご挨拶・企業理念</a></li>
+                        <li><a href="http://istat.co.jp/aboutus/profile">概要・取引先</a></li>
+                        <li><a href="http://istat.co.jp/aboutus/location">アクセス</a></li>
+                        <li><a href="http://istat.co.jp/aboutus/recruit">採用情報</a></li>
+                      </ul>
+                    </li>
+                    <!--
+                    <li class="btn">
+                      <a href="http://istat.co.jp/freesoft_free" class="btn_free">フリーソフトのダウンロード</a>
+                    </li>
+                    -->
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <div id="slideshow">
+                    <div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                  	<p>＜解析サービス＞</p>
+                                    <h2>アンケート調査</h2>
+                                  	<p>&nbsp;</p>
+                                    <a href="http://istat.co.jp/methods/questionnaire" class="btnr">サービス紹介</a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                  	<p>＜解析サービス＞</p>
+                                    <h2>多変量解析</h2>
+                                  	<p>&nbsp;</p>
+                                    <a href="http://istat.co.jp/methods/multivariate" class="btnr">サービス紹介</a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                  	<p>＜解析サービス＞</p>
+                                    <h2>予測</h2>
+                                  	<p>&nbsp;</p>
+                                    <a href="http://istat.co.jp/methods/prediction" class="btnr">サービス紹介</a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                  	<p>＜解析サービス＞</p>
+                                    <h2>母集団有意差検定</h2>
+                                  	<p>&nbsp;</p>
+                                    <a href="http://istat.co.jp/methods/jud" class="btnr">サービス紹介</a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                    <h2>多数の手法を搭載している<br>最強の解析ソフト無料貸出し中！</h2>
+                                    <p>時系列データ、アンケートデータの解析多変量解析手法を多数搭載したソフトまでを期間限定で貸出ししています。</p>
+                                    <a href="http://istat.co.jp/software/rent" class="btnr">お申し込み</a>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="slide_img">
+                        	<div class="tabs-container">
+                            	<article>
+                                    <h2>オーム社統計書籍で紹介しているフリーソフトダウンロード</h2>
+                                    <p>統計解析、多変量解析、EPA法、実験計画法などのフリーソフトのダウンロードは弊社サイトより可能です。</p>
+                                    <a href="http://istat.co.jp/freesoft_free" class="btnr">ダウンロード</a>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="top_menu">
+                        <ul class="container">
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1"><h2>アンケート調査</h2></a></li>
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1"><h2>多変量解析</h2></a></li>
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1"><h2>予測</h2></a></li>
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1"><h2>母集団有意差検定</h2></a></li>
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1"><h2>ソフト無料貸出し</h2></a></li>
+                            <li><a href="javascript:void(0)" class="01 col-xs-6 top_menu1 top_menu2"><h2>フリーソフトダウンロード</h2></a></li>
+                        </ul>
+                     </div>
+    </div>
+    <div id="top_banner" class="container">
+    	<div class="sz-content">
+<div style="text-align: center;"><div><font size="4">アルバイト・パート採用情報は<b style=""><a href="http://istat.co.jp/aboutus/recruit"><font color="#0000ff">こちら</font></a></b>から</font></div><div><br />
+</div></div><div style="text-align: center;"><br />
+</div>
+</div>
+<div class="sz_file_block">
+<a href="http://istat.co.jp/seminar/questionnaire20180403">
+	<img src="http://istat.co.jp/files/ab53312d3a6cb6a8f55fc6f8862b03b0.jpg" alt="" /></a>
+
+</div>    </div>
+    <div class="container" id="main">
+    	<div class="row">
+        	<div class="col-sm-8" id="new">
+            	<div id="hot">
+                	<h2>近日開催セミナー情報</h2>
+                    <div class="row">
+                        <div class="col-sm-6"><div class="sz_file_block">
+<a href="http://istat.co.jp/seminar/multivariate">
+	<img src="http://istat.co.jp/files/dab79d5e7db4196a939773ce36022393.png" alt="" /></a>
+
+</div></div>
+                        <div class="col-sm-6"><div class="sz-content">
+<h4><a href="http://istat.co.jp/seminar/questionnaire20180403"><font color="#0000ff">2018年4月3日(火）<br />
+アンケート調査票の作成・集計解析入門</font></a></h4>
+</div>
+<div class="sz-content">
+<a href="http://istat.co.jp/seminar/questionnaire">調査票の作成方法、アンケートデータの集計方法、集計結果の見方・活用方法を学びます。 クロス集計については基本から応用、裏ワザまで徹底学習します。</a>
+</div>
+</div>
+                    </div>
+                </div>
+            	<div class="row">
+                	<div class="col-sm-6" id="info">
+						<h3 >INFORMATION</h3><div class="sz-content">
+<div style="text-align: right;"><a target="_blank" href="http://rssc.dokoda.jp/r/ae3586de35ea3ca7895ab98fc89d0544/http/istat.co.jp/news"><img src="http://istat.co.jp/files/a4c7d94b66b8986a19a585f85f112798.gif">&nbsp;RSS</a></div>
+</div>
+<div class="sz-content">
+<div style="text-align: right;"><br />
+</div><div style="text-align: right;"><a href="http://istat.co.jp/news">新着情報一覧を見る</a></div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:30%;">
+	<div class="sz_file_block">
+<img src="http://istat.co.jp/files/d96d2aad9141714fa20609fd59effacd.jpg" alt="" />
+</div></div>
+<div class="sz_as_contents" style="width:70%;">
+	<div class="sz-content">
+<a href="http://istat.co.jp/investigation/2018_3"><font color="#0000ff"><b>2018年3月</b></font></a><div><a href="http://istat.co.jp/investigation/2018_3"><font color="#0000ff">
+<b>
+<br />
+
+</b>
+</font>
+</a>
+</div>
+<div><a href="http://istat.co.jp/investigation/2018_3"><font color="#0000ff">
+<b>定点調査・健康記念日～花粉症記念の日（3月7日）
+</b>
+</font>
+</a>
+</div>
+<div>
+<br />
+花粉症の症状や日常生活への影響、花粉症の治療薬の服用・使用状況などを明らかにします。
+</div>
+
+</div>
+</div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:30%;">
+	<div class="sz_file_block">
+<img src="http://istat.co.jp/files/f2a14d430e3e952fdfc5400437d8f036.jpg" alt="" />
+</div></div>
+<div class="sz_as_contents" style="width:70%;">
+	<div class="sz-content">
+<div><b><a href="http://istat.co.jp/seminar"><font color="#0000ff">2018年2月</font></a></b></div><div><div><b><a href="http://istat.co.jp/seminar"><font color="#0000ff"><br />
+</font></a></b></div><div><b><a href="http://istat.co.jp/seminar"><font color="#0000ff">ご好評につき開催回を増加しました</font></a></b></div><div><br />
+</div><div>特にご要望の多くある下記セミナーの開催回数を増加いたしました。</div><div><br />
+</div><div>・<font color="#999999">【満席御礼】3月27日（火）統計解析入門</font></div><div>・4月3日（火）アンケート調査票の作成・集計解析入門</div></div>
+</div>
+</div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:30%;">
+	<div class="sz_file_block">
+<img src="http://istat.co.jp/files/fb3773cbf4bb81666940b06de6c06260.jpg" alt="" />
+</div></div>
+<div class="sz_as_contents" style="width:70%;">
+	<div class="sz-content">
+<div><b><a target="_blank" href="http://www.carenet.com/series/istat/cg001314_004_25.html"><font color="#0000ff">2018年2月</font></a></b></div><div><b><a target="_blank" href="http://www.carenet.com/series/istat/cg001314_004_25.html"><font color="#0000ff"><br />
+</font></a></b></div><div><b><a target="_blank" href="http://www.carenet.com/series/istat/cg001314_004_25.html"><font color="#0000ff">医療ポータルサイト：ケアネットドットコム『質問25　F検定とは？』</font></a></b></div><div><b><br />
+</b></div><div>※サイトの閲覧には会員登録が必要になります。</div>
+</div>
+</div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:30%;">
+	<div class="sz_file_block">
+<a href="http://istat.co.jp/software/01">
+	<img src="http://istat.co.jp/files/d65dfe92db929476be00a967ac235028.png" alt="" /></a>
+
+</div></div>
+<div class="sz_as_contents" style="width:70%;">
+	<div class="sz-content">
+<a href="http://istat.co.jp/software/01/2017_6"><b><font color="#0000ff">2017年6月</font></b></a><div><a href="http://istat.co.jp/software/01/2017_6"><b><font color="#0000ff"><br />
+</font></b></a></div><div><a href="http://istat.co.jp/software/01/2017_6"><b><font color="#0000ff">マルチ多変量バグ修正のご連絡および無償交換のご案内</font></b></a></div><div><br />
+</div><div>2016年10月～2017年5月までに販売した『マルチ多変量』ソフトの一部機能に不具合がありました。</div><div>詳細につきましては、<a href="http://istat.co.jp/software/01/2017_6">こちら</a>をご参照ください。</div>
+</div>
+</div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<div style="text-align: center;"><a href="http://istat.co.jp/news" class="btnr">一覧を見る</a></div>
+</div>
+<div class="sz-content">
+<div><b><br />
+</b></div><b><div><b><br />
+</b></div><font color="#0000ff"><a href="http://istat.co.jp/attention">当社名等を詐称したメールにご注意ください</a></font></b><div><b><br />
+</b></div><div><b><br />
+</b></div>
+</div>
+                    </div>
+                	<div class="col-sm-6" id="event">
+						<h3 >EVENT&amp;SEMINAR</h3><div class="sz-content">
+<div style="text-align: right;"><a target="_blank" href="http://rssc.dokoda.jp/r/10607c6f899f2c94285d3fe6543480b0/http/istat.co.jp/seminar"><img src="http://istat.co.jp/files/a4c7d94b66b8986a19a585f85f112798.gif">&nbsp;RSS</a></div>
+</div>
+<div class="sz-content">
+<div style="text-align: right;"><br />
+</div><div style="text-align: right;"><font color="#0000ff"><a href="http://istat.co.jp/seminar">セミナー情報一覧を見る</a></font></div>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<h4><a href="http://istat.co.jp/seminar/prediction"><font color="#0000ff">2018年4月10日(火）<br />
+予測入門</font></a></h4>
+</div>
+<div class="sz-content">
+<a href="http://istat.co.jp/seminar/prediction"><span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, arial; font-size: 14px;">予測のための基礎知識、予測の仕方、予測解析手法の活用法・結果の見方を学びます。 売上予測の実例を紹介します。&nbsp;</span><span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, arial; font-size: 14px;">&nbsp;ソフトウェア「マルチ予測」で売上予測の演習をします</span></a>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<h4><a target="_blank" href="https://istat.co.jp/js/seminar/marketing"><font color="#0000ff">2018年4月17日(火）<br />
+マーケティング統計入門</font></a></h4>
+</div>
+<div class="sz-content">
+<a href="http://istat.co.jp/seminar/marketing">本セミナーでは、マーケティングプランニングの基本的な概念、スキルとその第一歩、基盤となるマーケティングリサーチを学ぶ上での基礎・基本から調査のステップ、機能までをわかりやすく解説しています。&nbsp;</a>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<h4><a href="http://istat.co.jp/seminar/statistics"><font color="#0000ff">2018年5月15日(火）<br />
+統計解析入門</font></a></h4>
+</div>
+<div class="sz-content">
+<span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, arial; font-size: 14px;"><a href="http://istat.co.jp/seminar/statistics">統計学・解析手法の役割から種類、概要までを学びます。 具体例や実例に基づき結果の見方や活用法を学びます。</a></span>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<h4><a href="http://istat.co.jp/seminar/multivariate"><font color="#0000ff">2018年6月12日(火）<br />
+多変量解析入門</font></a></h4>
+</div>
+<div class="sz-content">
+<span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, arial; font-size: 14px;"><a href="http://istat.co.jp/seminar/multivariate">多変量解析とは何か。多変量解析の活用法・結果の見方を学びます。 因果関係、予測、セグメンテーション、ポジショニングを把握するために、どのような多変量解析を適用し、活用するかを学びます。&nbsp;</a></span>
+</div>
+<div class="sz-content">
+<hr id="null">
+</div>
+<div class="sz-content">
+<h4><a href="http://istat.co.jp/seminar/statistial_difference"><font color="#0000ff">2018年6月19日(火）<br />
+アンケートデータの検定入門</font></a></h4>
+</div>
+<div class="sz-content">
+<a href="http://istat.co.jp/seminar/statistial_difference">母集団において違い（効果）があるという仮説を検証するためにアンケート調査を行います。調査データに統計的手法を用いてこの仮説が正しいかを確認します。確認する方法を母集団仮説検定といいます。
+母集団仮説検定の種類、概要、仕方、手順について学びます。</a>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4" id="book">
+				<div class="sz-content">
+<div><br />
+</div>
+</div>
+<div class="sz_file_block">
+<a href="http://istat.co.jp/mailmagazine">
+	<img src="http://istat.co.jp/files/9bb898a9097a859083482460342876d3.jpg" onmouseover="this.src='http://istat.co.jp/files/9bb898a9097a859083482460342876d3.jpg';" onmouseout="this.src='http://istat.co.jp/files/9bb898a9097a859083482460342876d3.jpg';" alt="" /></a>
+
+</div><div class="sz-content">
+<div><br />
+</div>
+</div>
+<div class="sz_file_block">
+<a href="http://www.statistics.co.jp/certification/certify_frame2.htm">
+	<img src="http://istat.co.jp/files/a38e9be27b721746a61aea99d217cce8.jpg" alt="" /></a>
+
+</div><div class="sz-content">
+<div style="text-align: center;"><hr id="null"></div><div style="text-align: center;"><b><font color="#ff0000" size="2">【マルチ多変量ソフト不具合のお知らせ】</font></b></div><div style="text-align: center;"><font size="2"><br />
+</font></div><div style="text-align: left;"><font size="2">2016年10月～2017年5月までに販売されたマルチ多変量ソフトウェアの一部機能の内部処理に不具合がありました。</font></div><div style="text-align: left;"><font size="2">対象の製品をお買い上げのお客様には、修正版ソフトウェアをご希望される配送先ご住所に発送いたします。</font></div><div style="text-align: left;"><font size="2">不具合の詳細と対象商品の交換につきましては<a href="http://istat.co.jp/software/01/2017_6"><font color="#0000ff"><b>こちら</b></font></a>をご参照ください。</font></div><div style="text-align: center;"><hr id="null"></div>
+</div>
+<h2 >書籍情報</h2><div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:25%;">
+	<div class="sz_file_block">
+<img src="http://istat.co.jp/files/4aedbb6caa8fdad484c49dc85911476e.jpg" alt="" />
+</div></div>
+<div class="sz_as_contents" style="width:75%;">
+	<div class="sz-content">
+<a href="http://istat.co.jp/book/analysis/no9"><font color="#0000ff"><b>例題とExcel演習で学ぶ多変量解析　因子分析・コレスポンデンス分析・クラスター分析 編</b></font></a>
+</div>
+</div>
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:25%;">
+	<div class="sz_file_block">
+<a href="http://istat.co.jp/book/analysis/no8">
+	<img src="http://istat.co.jp/files/eb756a86fa731b09ca028ffcda9cee16.jpg" alt="" /></a>
+
+</div></div>
+<div class="sz_as_contents" style="width:75%;">
+	<div class="sz-content">
+<div style="text-align: left;"><a href="http://istat.co.jp/book/analysis/no8"><b><font color="#0000ff"><u>例題とExcel演習で学ぶ</u><u>多変量解析～生存時間解析・ロジスティック回帰分析・時系列分析編</u></font></b></a></div><div><a href="http://istat.co.jp/book/analysis/no8"></a></div><div><br />
+</div>
+</div>
+</div>
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:25%;">
+	<div class="sz_file_block">
+<a href="http://istat.co.jp/book/analysis/no7">
+	<img src="http://istat.co.jp/files/0815e21677c03d3609d96fe7a7684dd2.jpg" alt="" /></a>
+
+</div></div>
+<div class="sz_as_contents" style="width:75%;">
+	<div class="sz-content">
+<div style="text-align: left;"><div style="text-align: left;"><div style="text-align: left;"><div><b><a href="http://istat.co.jp/book/analysis/no7"><font color="#0000ff">例題とExcel演習で学ぶ多変量解析～回帰分析・判別分析・コンジョイント分析 編</font></a></b></div><div><a href="http://istat.co.jp/book/analysis/no7"></a></div></div></div></div>
+</div>
+</div>
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:25%;">
+	<div class="sz_file_block">
+<a href="http://istat.co.jp/book/else/no3">
+	<img src="http://istat.co.jp/files/a3db7137d9e1dbb4a47c3e9ebcbb0525.jpg" alt="" /></a>
+
+</div></div>
+<div class="sz_as_contents" style="width:75%;">
+	<div class="sz-content">
+<b><a href="http://istat.co.jp/book/else/no3"><font color="#0000ff">例題とExcel演習で学ぶ 実験計画法とタグチメソッド</font></a></b><div><a href="http://istat.co.jp/book/else/no3"></a></div>
+</div>
+</div>
+</div>
+<div class="sz_area_splitter_wrapper">
+<div class="sz_as_contents" style="width:25%;">
+	<div class="sz_file_block">
+<a href="http://istat.co.jp/book/prediction/no1">
+	<img src="http://istat.co.jp/files/df03d1dfdb4f2917c1f512497e7c8062.jpg" alt="Excelで学ぶ統計的予測" /></a>
+
+</div></div>
+<div class="sz_as_contents" style="width:75%;">
+	<div class="sz-content">
+<div><a href="http://istat.co.jp/book/prediction/no1"><b><font color="#0000ff">Excelで学ぶ統計的予測</font></b></a></div><div><a href="http://istat.co.jp/book/prediction/no1"></a></div>
+</div>
+</div>
+</div>
+<h4 ><span id="fb"></a></h4>                <div id="facebookLikeBox">
+  					<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%A2%E3%82%A4%E3%82%B9%E3%82%BF%E3%83%83%E3%83%88-%E7%B5%B1%E8%A8%88%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80/565509426891459" data-width="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%A2%E3%82%A4%E3%82%B9%E3%82%BF%E3%83%83%E3%83%88-%E7%B5%B1%E8%A8%88%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80/565509426891459"><a href="https://www.facebook.com/pages/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%A2%E3%82%A4%E3%82%B9%E3%82%BF%E3%83%83%E3%83%88-%E7%B5%B1%E8%A8%88%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80/565509426891459">株式会社アイスタット　　　　　　（統計分析研究所）</a></blockquote></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="top_bottom">
+    	<div class="sz-content">
+<h3>データに光あり、解析力でデータの中の宝を探す</h3>
+</div>
+        <div id="top_bottom_img">
+			<div class="sz_file_block">
+<a href="http://istat.co.jp/aboutus">
+	<img src="http://istat.co.jp/files/fcf681fe2d8ee3814687db0c0151a702.png" alt="8つのコアサービス" /></a>
+
+</div>        </div>
+        <div id="top_bottom_text">
+			<div class="sz-content">
+株式会社アイスタットという社名は&nbsp;<div>統計分析研究所<font color="#ff0000"> I</font>nstitute of <font color="#ff0000">Stat</font>istical Analyses, Inc.&nbsp;</div><div><br />
+</div><div>&nbsp;統計分析研究所の英語表記から創った社名で 「アイ」は統計を愛するという思いを込め「愛」の意味も併せ 持っています。</div><div><br />
+</div><div><b>&nbsp;"データーに光あり、解析力でデータの中の宝を探す”
+それが私たちのモットーです。</b>&nbsp;
+</div><div>アイスタットは統計分析研究所を由来とする社名ですが、研究所は統計の研究をするところではありません。 人間の研究をするところです。お客様の心を研究し、お客様が求める将来価値をみつけるのが最重要の仕事と考えています。
+
+　&nbsp;</div><div><br />
+</div><div>一見無機質に感じる統計学をもっと身近に 感じていただき 人間力と重ね合わせていくことで、人間味あふれる、そして 愛情のある新しい価値を生み出したいと思っています。</div>
+</div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div id="blur-top">
+                <a href="#" id="link-back-top">Back to Top</a>
+            </div>
+            <div id="slogan-footer">
+                <h4 >データに光あり、解析力でデータの中の宝を探す</h4>            </div>        
+        </div>
+        <div id="page_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4" id="footer_nav">
+                        <h3>Quick Navigation</h3>
+						<div class="sz-content">
+<ul><li><a href="http://istat.co.jp/news">新着情報一覧</a></li><li><a href="http://istat.co.jp/business">サービス一覧</a></li><li><a href="http://istat.co.jp/seminar">セミナー情報一覧</a></li><li><a href="http://istat.co.jp/software">ソフトウェア商品一覧</a></li><li><a href="http://istat.co.jp/freesoft_free">フリーソフトお申し込み</a></li><li><a href="http://istat.co.jp/book">書籍一覧</a></li><li><a href="http://istat.co.jp/aboutus">会社概要</a></li><li><a href="http://istat.co.jp/aboutus/location">アクセス</a></li><li><a href="http://istat.co.jp/QA">よくある質問</a></li><li><a href="http://istat.co.jp/contact">お問い合わせ</a></li><li><a href="http://istat.co.jp/browse">サイトを快適に閲覧いただくために</a></li></ul>
+</div>
+                    </div>
+                    <div class="col-sm-4" id="footer_map">
+                        <h3>Location</h3>
+						<div class="sz_file_block">
+<a href="https://www.google.co.jp/maps/preview?q=東京都杉並区梅里１丁目-22-26&amp;hl=ja&amp;ie=UTF8&amp;sll=35.69658,139.650251&amp;sspn=0.007816,0.016512&amp;brcurrent=3,0x6018f28a958059e3:0x52f1d5a64a327cfb,0&amp;hnear;=東京都杉並区梅里１丁目２２−２６&amp;t=m&amp;z=18">
+	<img src="http://istat.co.jp/files/7954b1c5af6a1ab76074cda43a85e936.jpg" alt="東京都杉並区梅里1-22-26 YTビル3F" /></a>
+
+</div>                    </div>
+                    <div class="col-sm-4" id="footer-address">
+                        <h3><span>Contact Us</span></h3>
+                        <p><b>〒166-0011<br>東京都杉並区梅里1-22-26<br>パラドール東高円寺3F（旧 YTビル）</b></p>
+                        TEL:03-3315-7637/FAX:03-3315-7660&nbsp;<div><br><div>メールアドレス：somu@istat.jp</div><div><br></div></div>
+                        <iframe src="//www.facebook.com/plugins/like.php?href=https://www.facebook.com/pages/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%A2%E3%82%A4%E3%82%B9%E3%82%BF%E3%83%83%E3%83%88-%E7%B5%B1%E8%A8%88%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80/565509426891459&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:20px;" allowtransparency="true"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="footer-copyright">
+        <div class="container">
+        	<div class="row">
+            	<div class="col-sm-3">
+					<img src="http://istat.co.jp/templates/istat_top/img/footer_logo.png" />
+                </div>
+            	<div class="col-sm-6">
+                    <ul>
+                        <li><a href="http://istat.co.jp/">Home</a></li>
+                        <li><a href="http://istat.co.jp/privacypolicy">個人情報保護方針</a></li>
+                        <li><a href="http://istat.co.jp/aboutus">会社概要</a></li>
+                        <li><a href="http://istat.co.jp/contact">お問い合わせ</a></li>
+                        <li><a href="http://istat.co.jp/site_map">サイトマップ</a></li>
+                    </ul>
+                </div>
+            	<div class="col-sm-3" id="text-copyright">
+                	Copyright &copy; iStat, Inc. 2014. All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://istat.co.jp/templates/istat_top/js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://istat.co.jp/templates/istat_top/js/bootstrap.min.js"></script>
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://istat.co.jp/templates/istat_top/js/html5shiv.js"></script>
+      <script src="http://istat.co.jp/templates/istat_top/js/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript" src="http://istat.co.jp/templates/istat_top/js/slideshow.js" charset="UTF-8"></script>
+
+
+<!-- リマーケティング タグの Google コード -->
+<!--------------------------------------------------
+リマーケティング タグは、個人を特定できる情報と関連付けることも、デリケートなカテゴリに属するページに設置することも許可されません。タグの設定方法については、こちらのページをご覧ください。
+http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 992537049;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/992537049/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+	
+  </body></html>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>NHKオンデマンド</title>
+<meta name="author" content="NHK" />
+<meta name="copyright" content="Copyright NHK（Japan Broadcasting Corporation）All rights reserved." />
+<meta name="keywords" content="NHKオンデマンド,オンデマンド,NHK,nod,ondemand,見逃し,特選,番組,配信,見放題,ニュース,vod,動画,アーカイブス" />
+<meta name="description" content="「ＮＨＫオンデマンドは、ＮＨＫの番組をあなたの見たいときにいつでも見られるサービスです。" />
+<link rel="shortcut icon" href="/material/disp/screen/template/img/fbt002/favicon.ico" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!-- ▼ 共通ヘッダ ▼ -->
+<!-- 読み込まない -->
+<!-- ▲ 共通ヘッダ ▲ -->
+<meta property="og:image" content="http://www.nhk-ondemand.jp/css/ph65/img/sns/fb.png">
+<link rel="mixi-check-image" type="image/png" href="http://www.nhk-ondemand.jp/css/ph65/img/sns/fb.png">
+<link rel="shortcut icon" href="http://www.nhk-ondemand.jp/css/ph65/img/common/favicon.ico">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ph2017/css/nod.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ph2017/css/header.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ph2017/css/promo.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ph2017/css/pc_home.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/ph2017/css/swiper.min.css">
+<script type="text/javascript" src="/js/ph2017/library/vue.min.js"></script>
+<script type="text/javascript" src="/js/ph2017/library/jquery.js"></script>
+<script type="text/javascript" src="/js/ph2017/library/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="//www.nhk.or.jp/common/sp/nol_SmartPhone.js"></script>
+<script src="/js/ph2017/custom/nod.js"></script>
+<script src="/js/ph2017/custom/menu_all.js"></script>
+<script src="/js/ph2017/custom/top2017.js"></script>
+</head>
+<body id="home" class="pcHome init">
+<!-- ▼ ログイン1 ▼ -->
+<script type="text/javascript">
+<!--
+try{ window.nod_util.showCommonHeader(); } catch(e){}
+var g_user = g_user || {};
+g_user.islogin=0;
+g_user.registUrl='https://www.nhk-ondemand.jp/regist/entry/index.html';
+setUUID();
+//-->
+</script>
+<div style="display: none;">
+</div>
+<div id="header">
+	<div class="inner clear">
+		<div class="">
+			<h1><a href="/"><img src="/css/ph2017/img/top/logo_ph72.png" width="271" height="19" alt="NHKオンデマンド"></a></h1>
+			<div id="pankuzu">
+				<div class="inner">
+					<p>
+						<span>ホーム</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="LoginPanel">
+			<p id="UserName" v-if="islogin">こんにちは、{{username}}さん</p>
+			<ul class="textlink">
+				<li v-if="islogin" class="active"><a href="/preLogout/index.html">ログアウト</a></li>
+				<li v-else class="active"><a href="/login/index.html" accesskey="i">ログイン</a></li>
+				<li v-if="islogin" class="active"><a href="/user/availableList/index.html">マイページ</a></li>
+				<li v-else><a href="/regist/entry/index.html" accesskey="r">新規会員登録</a></li>
+				<li><a href="/share/enjoy/">初めての方へ</a></li>
+				<li><a href="/share/calendar/">配信予定</a></li>
+			</ul>
+		</div>
+		<div class="searchR" id="SearchPanel">
+			<ul class="radioGroup">
+				<li>
+					<div class="radioItem">
+						<input type="radio" id="pro" name="searchOption" checked="true">
+						<label for="pro">番組名</label>
+					</div>
+				</li>
+				<li>
+					<div class="radioItem">
+						<input type="radio" id="per" name="searchOption">
+						<label for="per">出演者</label>
+					</div>
+				</li>
+			</ul>
+			<a class="useLink" href="/share/hint/">[使い方]</a>
+			<div class="searchNew clear">
+				<form action="#" name="searchForm" id="searchForm">
+					<p class="searchNewG">
+						<input type="text" id="serchBox" maxlength="2047" size="20" class="key imeon searchW" name="key" value="">
+						<input type="submit" class="button sBtn" name="searchButton" id="searchButton" value="番組をさがす">
+					</p>
+				</form>
+			</div>
+			<!--search end-->
+		</div>
+	</div>
+</div><!-- ▲ ログイン1 ▲ -->
+
+<!--menuGlobal-->
+<div id="menuGlobal" class="clear">
+	<div class="innerMenu posUn">
+		<ul id="menuMain" class="menuMainTop menuMainTopJs clear">
+			<li class="activeGray active"><a href="/share/group/taiga.html">大河ドラマ</a></li>
+			<li class="activeGray active"><a href="/share/group/asadora.html">連続テレビ小説</a></li>
+			<li class="activeGray active"><a href="/share/group/nsp.html">NHKスペシャル</a></li>
+			<li class=""><a href="/share/genre/category01.html#/n/1/0/">ドラマ</a></li>
+			<li class=""><a href="/share/genre/category02.html#/n/1/0/">エンタメ</a></li>
+			<li class=""><a href="/share/genre/category03.html#/n/1/0/" accesskey="n">ドキュメンタリー</a></li>
+			<li class=""><a href="/share/news/" accesskey="n">ニュース</a></li>
+			<li class=""><a href="#" class="subMenuT">すべて<i class="icnMenu"></i></a>
+				<div class="js-menu"></div>
+			</li>
+			<li class=""><a href="/share/missed/" accesskey="l" class="colorOrange">見逃し番組</a></li>
+			<li class=""><a href="/share/library/" accesskey="l" class="colorCyan">特選ライブラリー</a></li>
+			<li class=""><a href="/share/free/" class="colorGreen">無料番組</a></li>
+		</ul>
+	</div>
+</div>
+<!-- <div class="urgent_notice js-emergencyinfo" v-if="hasIssue"> -->
+<div class="js-emergencyinfo" v-if="hasIssue" v-html="text">
+<!-- 	<p v-html="text"></p> -->
+</div>
+<!--/menuGlobal-->
+<div id="promo_top">
+	<div class="slide_wrap">
+		<div class="slide_wrap">
+			<div class="slide_main landscape js-toprecommend"></div>
+		</div>
+		<div class="slide_side" style="width:1000px; left:-1032px;"></div>
+		<div class="slide_side" style="width:1000px; left: 1032px;"></div>
+		<div class="slide_backbtn slide_arrow swiper-button-prev" style="background:none;"><img src="/css/ph2017/img/top/icn_arr_prev.png" alt=""/></div>
+		<div class="slide_nextbtn slide_arrow swiper-button-next" style="background:none;"><img src="/css/ph2017/img/top/icn_arr_next.png" alt=""/></div>
+		<!-- /.slide_wrap -->
+	</div>
+</div>
+<!-- /#promo_top -->
+
+<!-- ▼ 緊急お知らせ用ティッカースペース ▼ -->
+<!-- ▲ 緊急お知らせ用ティッカースペース ▲ -->
+
+
+<!--information-->
+<div class="information">
+	<div class="inner">
+		<ul class="infor_group clear">
+			<li class="item-notice infor_contain">
+				<div class="infor_contain_inner clear">
+					<p class="fLeft infor_label newItem-notice-js notice-close">
+						<span class="infoHeadTitle">お知らせ</span>
+						<span class="icnOpenP">
+							<img src="/css/ph2017/img/top/icn_line.png" alt=""/>
+						</span>
+					</p>
+					<div class="fLeft infor_block js-topinfo">
+						<div class="list_infor swiper-container">
+							<div class="swiper-wrapper">
+								<p class="swiper-slide inbox" :class="ti.Class" v-for="ti in topinfos">
+									<a v-if="ti.isBlog" target="_blank" :href="ti.Uri" v-html="ti.TitleShort"></a>
+									<a v-else class="info_popup" href="#" v-html="ti.TitleShort" :data-title="ti.Title" :data-body="ti.Body"></a>
+									<img v-if="ti.isBlog" src="/css/ph2017/img/top/external-link.png" alt="">
+								</p>
+							</div>
+						</div>
+
+						<div class="list_full">
+							<ul class="ul_full">
+								<li :class="ti.Class" v-for="ti in topinfos">
+									<a v-if="ti.isBlog" target="_blank" :href="ti.Uri" v-html="ti.Title"></a>
+									<a v-else class="info_popup" href="#" v-html="ti.TitleShort" :data-title="ti.Title" :data-body="ti.Body"></a>
+									<img v-if="ti.isBlog" src="/css/ph2017/img/top/external-link.png" alt="">
+								</li>
+							</ul>
+						</div>
+
+						<div class="bottom">
+							<div class="item-bottom bottom-close">
+								<p class="close-item close-item-js">閉じる</p>
+							</div>
+							<div class="item-bottom bottom-link">
+								<a href="http://blog.nhk-ondemand.jp/">NHKオンデマンドお知らせ一覧</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="banner">
+				<ul class="clear js-upper-banner">
+					<li v-for="bn in banners">
+						<a :href="bn.Uri">
+							<div class="banner_info">
+								<p><img :src="bn.Image" height="68" width="68" alt=""/></p>
+								<p v-html="bn.Text"></p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--/information-->
+<!--popup-->
+<div class="overlay" id="overlay"></div>
+<div class="popupTop" id="popup1">
+	<div class="popup-inner">
+		<p class="popup-title"><!-- Title here --></p>
+		<div class="popup-content short_content"><!-- Data here --></div>
+		<p class="icn-popup-close-js popup-close">×閉じる</p>
+	</div>
+</div>
+<!--/popup-->
+
+<!--content-->
+<div id="content">
+	<div class="inner">
+		<!-- new content -->
+		<div class="contents-order js-contents-order">
+			<div class="area_block" v-for="cl in contlist" :id="cl.contp2id">
+				<div v-if="cl.normal" class="area_title_block"
+					 :class="[{mb10:cl.ismb10,area_title_border:cl.isBorder,clear:cl.isClear}]">
+					<ul>
+						<li class="area_title" :class="cl.colorClass">{{cl.Title}}</li>
+						<li class="tBold area_count_program" v-if="cl.subLead">{{cl.subLead}}</li>
+						<li class="area_lead" v-if="cl.Lead">{{cl.Lead}}</li>
+					</ul>
+				</div>
+				<div v-if="cl.mycontent" class="spec_area_title_block clear mb10">
+					<p class="spec_area_title tBold area_title">{{cl.Title}}</p>
+					<a v-if="cl.needMypage" href="/user/availableList/index.html" class="purProgramLink">マイページ</a>
+				</div>
+				<div class="area_list_program swiper-container" :id="cl.contpid">
+					<div :data-index="cl.index" :id="cl.contid" class="thumblist-loading"><img src="/css/ph2017/img/top/loading.gif" alt=""></div>
+				</div>
+				<div class="slide_backbtn slide_arrow swiper-button-prev swiper-button-disabled"><img src="/css/ph2017/img/top/icn_arr_prev.png" alt=""/></div>
+				<div class="slide_nextbtn slide_arrow swiper-button-next swiper-button-disabled"><img src="/css/ph2017/img/top/icn_arr_next.png" alt=""/></div>
+			</div>
+		</div>
+		<div>
+			<div class="area_title_block area_title_border mb10">
+				<p class="infoTitle">インフォメーション</p>
+			</div>
+			<ul class="banner_side js-lower-banner">
+				<li v-for="bn in banners"><a :href="bn.Uri"><img :src="bn.Image" alt=""/></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--/content-->
+
+<!--news-->
+<div id="news" style="display:none;">
+<!-- ニュース -->
+<script type="text/javascript">
+window.newsMetaData = [
+{}
+	,{
+	viewDate:"3月18日（日）",
+	unitProgramName:"正午のニュース",
+	newsProgramId:"02",
+	showDate:"20180318",
+	chapterList:[""
+		,"ロシア大統領選　投票進む"
+		,"英　スパイ事件で“再報復”検討"
+		,"ホテルで照明落下　６人けが"
+		,"マンション１０階出火２人けが"
+		,"クロカン混合リレー　日本４位"
+	]}
+	,{
+	viewDate:"3月18日（日）",
+	unitProgramName:"おはよう日本",
+	newsProgramId:"01",
+	showDate:"20180318",
+	chapterList:[""
+		,"オープニング"
+		,"日韓外相“非核化へ圧力堅持”"
+		,"森友　価格交渉日の全記述削除"
+		,"テニス　大坂なおみ　決勝へ"
+		,"スポーツ"
+	]}
+	,{
+	viewDate:"3月17日（土）",
+	unitProgramName:"ニュース７",
+	newsProgramId:"04",
+	showDate:"20180317",
+	chapterList:[""
+		,"オープニング"
+		,"森友　価格交渉の日の記述削除"
+		,"中国習国家主席満場一致で再選"
+		,"テニス大坂なおみ　初の決勝へ"
+		,"パラ新田　家族とつかんだ金"
+	]}
+	,{
+	viewDate:"3月16日（金）",
+	unitProgramName:"ニュースウオッチ９",
+	newsProgramId:"05",
+	showDate:"20180316",
+	chapterList:[""
+		,"書き換え問題　職員自殺なぜ？"
+		,"“佐川氏は知っていた”"
+		,"国交省“５日に官邸へ報告”"
+		,"麻生大臣「職責果たす」"
+		,"文科省が異例調査　中学校は？"
+	]}
+];
+</script>
+</div>
+<!--/news-->
+
+<script type="text/javascript">
+var g_myCont = g_myCont || [];
+</script>
+
+<!-- top extra -->
+<div id="extra">
+<div class="inner">
+<ul class="related">
+<li><a target="_blank" href="http://twitter.com/nhk_ondemand"><img src="/css/ph65/img/home/bn_twitter.png" alt="NHKオンデマンド[公式]ツイッター" /></a></li>
+</ul>
+<ul class="license">
+<li class="item1"><img src="/css/ph65/img/home/logo_license_jasrac.png" width="31" height="31" alt="JASRAC" /><span>JASRAC許諾番号<br />9011332004Y45038</span></li><li class="item1"><img src="/css/ph65/img/home/logo_license_nextone.png"  width="31" height="31" alt="NexTone" /><span>NexTone許諾番号<br />ID000003154</span></li><!-- <li class="item3"><img src="/css/ph65/img/home/logo_license_elicense.png" width="87" height="31" alt="eLicense" /><span>eLicense許諾番号<br />ID09897</span></li> --><li class="item4"><img src="/css/ph65/img/home/logo_license_riaj.png" width="31" height="31" alt="エルマーク" /><span>このエルマークは、レコード会社・映像製作会社が提供するコンテンツを示す登録商標です<br />RIAJ60022001</span></li>
+</ul>
+</div>
+</div>
+
+<div id="topicPath">
+<div class="inner">
+<p>
+ホーム
+</p>
+</div>
+</div>
+
+
+<!-- ▼ 共通フッタ ▼ -->
+<!--outline-->
+<div id="outline">
+<div class="inner">
+<ul class="item1">
+<li><a href="/share/enjoy/">初めての方へ</a></li>
+<li><a href="/share/purchase/">購入方法</a></li>
+<li><a href="/share/faq/">お問い合わせ・よくある質問・配信ご希望番組</a></li>
+<li><a href="/share/enjoy/#chk">動作環境の確認</a></li>
+<li><a href="/share/name/#/all/a/1/">番組名一覧</a></li>
+<li><a href="/share/sitemap/" accesskey="t">サイトマップ</a></li>
+</ul>
+<ul class="item2">
+<li><a href="/share/kiyaku/kiyaku.html">利用規約</a></li>
+<li><a href="http://www.nhk.or.jp/privacy/download/kitei.pdf" target="_blank">ＮＨＫ個人情報保護規程</a></li>
+<li><a href="/share/price/">基準料金表</a></li>
+<li><a href="/share/tokusho/">「特定商取引に関する法律」に基づく表示</a></li>
+<li><a href="/share/about/#jisshi">実施基準に関する情報</a></li>
+<li><a href="/share/about/#kiyaku">動画配信事業者向けサービスの利用規約</a></li>
+</ul>
+<ul class="item3">
+<li><a href="/share/howto/tv.html">テレビなどでの利用方法</a></li>
+<li><a href="/share/pr/nod4k.html">４Ｋ配信について</a></li>
+<li><a href="/share/text/">テキスト版について</a></li>
+</ul>
+</div>
+</div>
+<!--outline end-->
+<!--switchView-->
+<p id="switchView"></p>
+<!--switchView end-->
+<!--footer-->
+<script type="text/javascript">window.nod_util.showCommonFooter();</script>
+<!--footer end-->
+<!-- sc -->
+<script src="/js/ph65/s_code_201604.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">//<![CDATA[
+if(window.omniVars){
+	s.pageName=omniVars.pageName;
+	s.prop6=omniVars.prop6;
+	s.pageType=omniVars.pageType;
+}
+s.t();
+//]]></script>
+<script type="text/javascript" src="/js/ph65/am_nod-nol.js"></script>
+<script type="text/javascript">
+s_omni_nolnod.t();
+</script>
+<!-- sc end -->
+<!-- ▲ 共通フッタ ▲ -->
+<script type="text/javascript">nol_showCmnFooter({smpMode: false});</script>
+
+<div class="l-loader">
+	<div class="loader-wrapper">
+		<div class="loader-logo">
+			<span class="NODlogo_01-min"></span>
+			<span class="NODlogo_02-min"></span>
+			<span class="NODlogo_03-min"></span>
+			<span class="NODlogo_04-min"></span>
+			<span class="NODlogo_05-min"></span>
+			<span class="NODlogo_06-min"></span>
+			<span class="NODlogo_07-min"></span>
+			<span class="NODlogo_08-min"></span>
+			<span class="NODlogo_09-min"></span>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

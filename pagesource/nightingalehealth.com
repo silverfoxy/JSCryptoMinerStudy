@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://nightingalehealth.com/">https://nightingalehealth.com/</a></p>

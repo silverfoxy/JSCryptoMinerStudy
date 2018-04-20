@@ -1,0 +1,1 @@
+<html><script src="/cdn-cgi/apps/head/ldB_BbUSVlL70R0jh2qRzUeqCMs.js"></script><body>You are being <a href="https://www.igdb.com/discover">redirected</a>.</body></html>

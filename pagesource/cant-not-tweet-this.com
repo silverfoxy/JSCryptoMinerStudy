@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Can't Not Tweet This </title>
+
+        <!-- META -->
+        <meta property="og:title" content="Can't Not Tweet This" />
+        <meta property="og:image" content="http://cant-not-tweet-this.com/img/og.png" />
+        <meta property="og:description" content="Taking annoying social media spamming to the next level." />
+        <meta itemprop="name" content="Can't Not Tweet This">
+        <meta itemprop="description" content="Taking annoying social media spamming to the next level.">
+        <meta itemprop="image" content="http://cant-not-tweet-this.com/img/og.png">
+
+        <!-- CSS -->
+        <link href='./css/styles.css' rel='stylesheet'>
+    </head>
+    <body>
+
+    	<!--
+    		Can't not tweet this, by Tim Holman (http://tholman.com).
+
+			I got a bit sick of seeing randomy share popup crap, websites may as well start doing this.
+
+    		Open source (in case you find any bugs) @ http://github.com/tholman/cant-not-tweet-this
+    	 -->
+
+    	<div class="the-button">
+    		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Taking annoying social media spamming to the next level -" data-via="twholman">Tweet</a>
+    	</div>
+
+    	<div class="background">
+    		<span>This</span>
+    		<span>Can't</span>
+    		<span>Not</span>
+    		<span>Tweet</span>
+    	</div>
+		
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
+        <script src='js/cant-not-tweet-this.js'></script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-53014402-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+    </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="本邦唯一の事故物件公示サイトです。これらの物件を取引する際には注意しましょう。" name="description" />
+<meta content="大島てる,事故物件,訳あり物件,いわく付き物件,不動産" name="Keywords" />
+<meta property="og:title" content="大島てる CAVEAT EMPTOR: 事故物件公示サイト" />
+<meta property="og:type" content="company" />
+<meta property="og:image" content="http://www.oshimaland.co.jp/images/logo.gif" />
+
+<meta property="og:description" content="本邦唯一の事故物件公示サイトです。これらの物件を取引する際には注意しましょう。" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<title>大島てる CAVEAT EMPTOR: 事故物件公示サイト</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/yui.css">
+<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/top_all.css?1517300566" media="screen" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?language=ja&key=AIzaSyBjbCCL7lcFrhVklXWfQJ7ZWRvu0AQC6gI"></script>
+<script src="/javascripts/top_all.js?1517300552" type="text/javascript"></script>
+<script id="infoTemplate" type="text/template">
+  <div id="propertyDetail">
+    <div id="propertyDetailLinks">
+      <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.oshimaland.co.jp%2F%3Fp%3D{{=key}}&amp;lang=ja&amp;count=none" style="width:70px; height:20px;vertical-align:top;"></iframe>
+      <iframe allowtransparency="true" frameborder="0" scrolling="no" src="//www.facebook.com/v2.3/plugins/like.php?locale=ja_JP&amp;href=http%3A%2F%2Fwww.oshimaland.co.jp%2F%3Fp%3D{{=key}}&amp;layout=button" style="border: none; overflow: hidden; width: 71px; height: 21px;"></iframe>
+      <input readonly="readonly" type="text" value="http://www.oshimaland.co.jp/?p={{=key}}" class="permalink"/>
+    </div>
+    <ul id="propertyDetailInfo">
+      <li><span class="sprite fire-icon"></span> {{-dt}}</li>
+      <li id='propertyDetailAddress' style="white-space: nowrap;">{{-ad}}　</li>
+      <li id='propertyDetailInfoText'>{{=info}}　</li>
+      {{ _.each( links, function( lnk ){  }}
+      <li><a href="{{=lnk.uri}}" target="_blank" class="navi">{{-lnk.title}}</a></li>
+      {{  });  }}
+    </ul>
+    <a href="#comment" id="comment" class="navi">写真・コメントの投稿・閲覧</a>
+    <a href="#zoomin" id="zoomin" class="navi">ズームイン</a>
+    <iframe src="http://oshimaland-files.appspot.com/count.html?key={{=key}}" scrolling="no" frameborder="0" style="margin-left: 0.3em;width: 6em;height: 1.1em;" ></iframe>
+    {{if (cr){  }}
+    <div id="propertyWarning">ユーザーによる投稿: {{-cr}}</div>
+    {{  }  }}
+    <div id="propertyDetaiPhotos">
+      {{if (images.length > 1){   }}
+      <div class="photoSwitchList">
+        {{ var cls='photoSwitch photoSwitchSelected'; _.each(images, function(img, index){  }}
+        <span class="{{=cls}}" target-id="photo{{=index+1}}">写真{{=index+1}}</span>
+        {{  cls='photoSwitch'; });  }}
+      </div>
+      {{  }  }}
+
+      {{if (images.length > 0){  }}
+      <div style="width:{{=width}}px;height:{{=height}}px">
+        {{ var cls='photoImg photoShow'; _.each(images, function(img, index){  }}
+        <div id="photo{{=index+1}}" class="{{=cls}}">
+          <img src="http://static.oshimaland.co.jp/photos/{{-img.name}}" width="{{=img.width}}" height="{{=img.height}}"/>
+        </div>
+        {{  cls='photoImg'; });  }}
+      </div>
+      {{  }  }}
+    </div>
+</script>
+<script id="commentTemplate" type="text/template">
+<iframe id="commentFrame" src="/comment/{{=key}}" frameborder="0" style="height:{{=frameHeight}}px" />
+</script>
+<script type="text/javascript">
+var microadCompass = microadCompass || {};
+microadCompass.queue = microadCompass.queue || [];
+</script>
+<script type="text/javascript" charset="UTF-8" src="//j.microad.net/js/compass.js" onload="new microadCompass.AdInitializer().initialize();" async></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10781833-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<div id="hd">
+<div class="yui3-u" id="logo"><a href="/"><div id="logo-img" class="sprite"></div></a>
+<div id="languages">
+<div><div id="flag-jp-img" class="sprite"></div>日本語</div>
+<div><div id="flag-us-img" class="sprite"></div><a href="http://www.oshimaland.com/" style="text-decoration: none;">English</a></div>
+</div>
+</div>
+<div id="top-right" class="yui3-u">
+<div id="a141e3044a06eb75a5c46dc31fb86b4a">
+<script type="text/javascript">
+		microadCompass.queue.push({
+			"spot": "a141e3044a06eb75a5c46dc31fb86b4a",
+			"url": "${COMPASS_EXT_URL}",
+			"referrer": "${COMPASS_EXT_REF}"
+		});
+	</script>
+</div>
+</div>
+<!--[if lte IE 8 ]>
+  <div id="ie6-alert"><div style="font-size: 250%;"><img alt="alert" src="http://static.oshimaland.co.jp/images/fire.gif" />このページはIE8以下には対応していません。</div>
+  最新のブラウザをお使いいただくか、スマートフォンでご覧ください。
+  </div>
+  <![endif]-->
+<div id="globalnav" class="clearfix">
+<ul><li id="area-list" menu-id="menu-area" class="tab-selected"><h1>事故物件</h1> <b class="caret"></b></li><li id="blog-list" menu-id="menu-blog">ブログ <b class="caret"></b></li><li id="link-list" menu-id="menu-link">大島てるリンク <b class="caret"></b></li></ul>
+<a id="notification" href="#">投稿・コメント方法</a>
+<div>
+<a href="http://b.hatena.ne.jp/entry/http://www.oshimaland.co.jp/" class="hatena-bookmark-button" data-hatena-bookmark-title="大島てる CAVEAT EMPTOR: 事故物件公示サイト" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.oshimaland.co.jp%2F&amp;lang=ja" style="width:75px; height:20px;"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//www.facebook.com/v2.3/plugins/like.php?href=http%3A%2F%2Fwww.oshimaland.co.jp%2F&amp;layout=button_count&amp;show_faces=true&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=21" style="border: none; overflow: hidden; width: 115px; height: 21px;"></iframe>
+<div id="plusone-holder"><div class="g-plusone" data-size="medium" data-href="http://www.oshimaland.co.jp/"></div></div>
+</div>
+</div>
+</div>
+<div class="yui3-g" id="layout">
+<div class="yui3-u" id="left">
+<div id="map" class="toggle-on-load"></div>
+<div id="loading" class="toggle-on-load loading-full"><img alt="" src="http://static.oshimaland.co.jp/images/loading.gif" /> Now Loading...</div>
+<div id="commentArea">
+<a id="backToMap" href="/" class="navi">« 地図に戻る</a>
+<div id="commentHolder"></div>
+</div>
+<div id="menu-area" class="menu-content">
+<a id="region-1" href="#region-1">北海道</a><br />
+<a id="region-2" href="#region-2">東北</a><br />
+<a id="region-3" href="#region-3">関東</a><br />
+<a id="region-4" href="#region-4">中部</a><br />
+<a id="region-5" href="#region-5">近畿</a><br />
+<a id="region-6" href="#region-6">中国</a><br />
+<a id="region-7" href="#region-7">四国</a><br />
+<a id="region-8" href="#region-8">九州</a><br />
+<hr />
+<a id="region-africa" href="#region-africa">アフリカ</a><br />
+<a id="region-asia" href="#region-asia">アジア</a><br />
+<a id="region-australia" href="#region-australia">オセアニア</a><br />
+<a id="region-europe" href="#region-europe">欧州</a><br />
+<a id="region-north-america" href="#region-north-america">北米</a><br />
+<a id="region-south-america" href="#region-south-america">南米</a>
+<hr />
+<a id="city-newyork" href="#city-newyork">ニューヨーク</a><br />
+<a id="city-paris" href="#city-paris">パリ</a><br />
+<a id="city-london" href="#city-london">ロンドン</a>
+</div>
+<div id="menu-blog" class="menu-content">
+<a target="_blank" href="http://www.diamondblog.jp/official/oshimaland/" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.diamondblog.jp/official/oshimaland/');">ダイヤモンドブログ</a><br />
+<a target="_blank" href="http://ameblo.jp/oshima-teru" onclick="ga('send', 'event', 'outbound', 'click', 'http://ameblo.jp/oshima-teru');">アメブロ</a><br />
+</div>
+<div id="menu-link" class="menu-content">
+<a target="_blank" href="https://twitter.com/oshimaland">Twitter</a><br />
+<a target="_blank" href="https://facebook.com/oshimaland">Facebook</a><br />
+<a href="pr.html">黒川高一の乱</a><br />
+<a target="_blank" href="http://www.diamondblog.jp/official/oshimaland/offer/">お仕事依頼</a><br />
+</div>
+<div style="display: none;">
+<form id="geocoder">
+<input id="geocoder-text" type="text" />
+<input id="geocoder-btn" type="submit" value="住所検索" />
+</form>
+<div id="dialog-notification">
+<div>
+<h3>物件投稿</h3>
+<span id="notification-contextmenu-img" class="sprite"></span>
+地図上の投稿したい場所で<strong>右クリック（またはCtrl+左クリック）</strong>し，<br />「事故物件の新規作成」を選択してください。<br />
+物件投稿フォームが表示されます。
+</div>
+<div><br />
+<h3>コメント</h3>
+<span id="notification-comment-img" class="sprite"></span>
+事故物件詳細のポップアップで，<br />「コメント・写真の投稿」をクリックしてください。<br />
+コメント画面が表示されます。<br />
+物件の写真を投稿することもできます。</div>
+</div>
+</div>
+<div class="clearfix">
+<div id="twitarea" class="column">
+<ul id="twit">
+<li>3月18日 <a href='http://www.oshimaland.co.jp/?p=4x0xoz2t'>北海道中川郡幕別町札内桂町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=q99il6hq'>北海道広尾郡広尾町錦通北二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=jdgzt185'>宮城県仙台市泉区八乙女中央1丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=z1679ww8'>埼玉県久喜市鷲宮四丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=61qvasvk'>千葉県市原市東五所の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=ow3y7k14'>神奈川県横浜市港北区高田東四丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=901netig'>埼玉県久喜市鷲宮一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=31zzw397'>京都府京都市西京区桂千代原町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月18日 <a href='http://www.oshimaland.co.jp/?p=43w0q3xj'>千葉県木更津市吾妻一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=dxbiiw72'>京都府京都市西京区樫原塚ノ本町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=70nmtiel'>埼玉県朝霞市栄町三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=m2ru221z'>東京都あきる野市野辺の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=4gxcidmc'>愛知県名古屋市北区上飯田通二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=6gwm2nqz'>神奈川県横浜市南区大岡一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=046ro2l5'>愛知県安城市安城町馬池の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=6ofb7gtq'>東京都西東京市南町六丁目三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=hgkgz1c8'>東京都小金井市東町三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=nj6drz9y'>群馬県邑楽郡大泉町城之内一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=mgdos46a'>神奈川県横浜市保土ケ谷区天王町一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=95ufafhm'>兵庫県伊丹市西台一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=xjdqcyfz'>大分県竹田市会々の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=h0biz47s'>千葉県柏市増尾二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=6nct25gn'>新潟県村上市佐々木の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=h6xf3h4e'>東京都世田谷区下馬三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=58pvdcq1'>兵庫県神戸市垂水区学が丘七丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.sunward-t.co.jp/seminar/2018/04/14_2/' target='_blank'>大島てる氏の「本当にあった怖い投資談話」｜サンワード貿易株式会社</a></li><li>3月17日 <a href='http://www.loft-prj.co.jp/schedule/plusone/83933' target='_blank'>大島てるがやって来る!! 事故物件ナイトvol.19</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=z38yt9oz'>福岡県福岡市西区拾六町5丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=dxktnqlx'>広島県福山市南手城町四丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=zblyq9y9'>東京都多摩市諏訪二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=trfhey0q'>青森県青森市港町三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=d6hfyq1g'>神奈川県川崎市宮前区菅生二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=f6o8c3vx'>岩手県盛岡市松尾町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=8y3ni9k4'>大阪府大阪市中央区高津三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月17日 <a href='http://www.oshimaland.co.jp/?p=txjhpg8v'>栃木県佐野市高萩町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=thgmxoxk'>大阪府大阪市中央区西心斎橋二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=l8ltxo1b'>大阪府大阪市浪速区恵美須西一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=ieh0f30n'>大阪府大阪市浪速区日本橋西一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=f9ks41c6'>大阪府大阪市浪速区難波中二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=e3i7p1sf'>大阪府大阪市中央区日本橋二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.com/?p=mqtymf7h'>Stigmatized Property in Greenland Posted</a></li><li>3月16日 <a href='http://www.oshimaland.com/?p=1f7a2web'>Stigmatized Property in Antarctica Posted</a></li><li>3月16日 <a href='http://www.oshimaland.com/?p=n23xa4rd'>Stigmatized Property in Japan Posted</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=x4hw3umw'>北海道十勝郡浦幌町上厚内の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=7h9n6h78'>神奈川県横浜市保土ケ谷区狩場町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=s7822uep'>神奈川県座間市入谷三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=8rgglwbz'>京都府福知山市前田の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=2li6se6b'>埼玉県さいたま市見沼区風渡野の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 RT @OYSRECORDS: ※立ち見ですが当日券出します！</li><li>3月16日 RT @miya_8_: 大島てるさんとぁみさんと匠平さんに1度に会えるとか、、、、！！
+北海道1人は無理があるよね(；；)</li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=d2ziy7wr'>福岡県糟屋郡須恵町旅石の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=d4x8f0fy'>福島県郡山市富田町菱内の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 RT @OYSRECORDS: [きょうのOYS]
+※聞き手として店長も出ます！
+「Pump Up!!～大島てるトークショー～」
+＠大須OYS
+(名古屋市中区大須1-35-31 B1F)
+開場19:00/開演19:30
+前売2500円/当日3000円 (+1D別)
+[出…</li><li>3月16日 <a href='https://twitter.com/oysrecords/status/974545762695573506' target='_blank'>RT @aotama16: これ行きたかった‼️
+当日券出るそうなので行ける人はぜひ‼️(๑&amp;gt;◡&amp;lt;๑)‼️
+大島てるトークショー
+@ 大須OYS</a></li><li>3月16日 <a href='https://tiget.net/events/22955' target='_blank'>RT @yst15924432: 間に合いそうやで
+3月16日(金) 「Pump Up!!～大島てるトークショー～」 | イベント情報、予約購入はこちら</a></li><li>3月16日 <a href='https://tiget.net/events/22955' target='_blank'>当日券あります！3月16日(金) 「Pump Up!!～大島てるトークショー～」 | イベント情報、予約購入はこちら</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=vd9h40cf'>新潟県新潟市東区中山八丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=45gwjuaz'>新潟県上越市頸城区松橋の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=63pypq7y'>新潟県新潟市中央区西大畑町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=r3gv9fu2'>新潟県新潟市中央区南長潟の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=45fjv800'>静岡県浜松市北区三ヶ日町上尾奈の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=vtvtoz21'>宮城県仙台市若林区堰場一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=spau7883'>群馬県太田市六千石町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 RT @OYSRECORDS: ※当日券も可能な限り出しますので、ご来場迷ってる方は是非ともお越しください！</li><li>3月16日 <a href='https://tiget.net/events/22955' target='_blank'>RT @Oshimaland: 明日です！3月16日(金) 「Pump Up!!～大島てるトークショー～」 | イベント情報、予約購入はこちら</a></li><li>3月16日 RT @1shouhei1: 【イベント告知】
+4月15日 最恐劇場のチケットが発売開始されました！
+今、怪談界でもっとも勢いのある
+怪談家 ぁみ
+事故物件のエキスパート
+大島てる
+この二人の共演は見逃せないっ！
+不安の種の中山先生と俺も出ますよ♪
+皆様、是非とも遊びに来て…</li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=zdoefck8'>東京都世田谷区弦巻五丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=4rbm16k9'>北海道小樽市星野町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=2znertwi'>東京都新宿区新宿二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=mqn0flbx'>東京都新宿区上落合三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=wdu05c44'>和歌山県岩出市紀泉台の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=1d1xrcln'>滋賀県大津市唐崎一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=klrbmh61'>東京都三鷹市上連雀九丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='https://tiget.net/events/22955' target='_blank'>3月16日(金) 「Pump Up!!～大島てるトークショー～」 | イベント情報、予約購入はこちら</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=pyguup90'>福岡県春日市日の出町五丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=zf8i0wzm'>神奈川県横須賀市追浜東町一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=4so2lrwy'>埼玉県比企郡川島町上伊草の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=n8wtqgv9'>福岡県糟屋郡宇美町宇美五丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=2czbmuni'>兵庫県西宮市甲風園一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=smyn6k07'>千葉県市川市福栄三丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=6qaxopvr'>秋田県能代市二ツ井町飛根前田の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=x6x2tamv'>秋田県能代市扇田三丁樋の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=lm70oa4y'>秋田県能代市寿域長根の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=i7epfdfa'>鹿児島県南九州市頴娃町郡の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=6tsp2l5f'>鹿児島県南九州市頴娃町牧之内の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=140xp2ik'>鹿児島県指宿市池田喫茶やすらぎの物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=2kxzox7j'>大分県別府市内竈（大字）の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=uq5xzg2n'>大分県別府市新港町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=rt67byxy'>大分県別府市上人ケ浜町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=ca2tzkte'>大分県別府市桜ケ丘の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=tg94mpz9'>大分県大分市敷戸北町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=g35ifwq8'>大分県大分市大在浜一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月16日 <a href='http://www.oshimaland.co.jp/?p=0yc7z7x1'>愛媛県西条市大町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=lydydiey'>東京都練馬区関町北一丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=8f7fbtbr'>愛媛県松山市竹原二丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=f6pc6b28'>愛媛県四国中央市豊岡町大町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=dow51seb'>京都府京都市中京区桜之町ホテルグレイスリー京都三条北館の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=gvvse7qk'>京都府京都市中京区東側町の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li><li>3月15日 RT @OYSRECORDS: [明日です！]
+2018年3月16日(金) ＠大須OYS
+「Pump Up!!～大島てるトークショー～」
+開場19:00/開演19:30
+前売2500円/当日3000円
+(共に+1D500円別)
+[出演]
+・大島てる（事故物件公示サイト…</li><li>3月15日 <a href='http://www.oshimaland.co.jp/?p=aout0onn'>徳島県徳島市北矢三町2丁目の物件が投稿されました。殺害予告犯福寿洋輔容疑者が逮捕されました</a></li>
+</ul>
+</div>
+</div>
+<div id="ft" class="yui3-u"><div style="display: inline-block;margin-right:8px;margin-bottom:4px;">
+<div id="a18c0ce7fa314f10c1efe6fe283cd496">
+<script type="text/javascript">
+		microadCompass.queue.push({
+			"spot": "a18c0ce7fa314f10c1efe6fe283cd496",
+			"url": "${COMPASS_EXT_URL}",
+			"referrer": "${COMPASS_EXT_REF}"
+		});
+	</script>
+</div>
+</div><div style="display: inline-block;">
+<div id="f691d8fa1281cf5612ea5488e0911d12">
+<script type="text/javascript">
+		microadCompass.queue.push({
+			"spot": "f691d8fa1281cf5612ea5488e0911d12",
+			"url": "${COMPASS_EXT_URL}",
+			"referrer": "${COMPASS_EXT_REF}"
+		});
+	</script>
+</div>
+</div>
+<div id="oshimaland-books">
+<h2>好評発売中</h2>
+<hr />
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51xvsoXO9-L._SL100_.jpg" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22" target="_blank">大島てるが案内人 事故物件めぐりをしてきました</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4072919489/oshimaland-22" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51RcrddVJSL._SL100_.jpg" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4072919489/oshimaland-22" target="_blank">大島てるの絶対に借りてはいけない物件</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22" target="_blank"><img src="http://static.oshimaland.co.jp/static/shimada-syuhei.png" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22" target="_blank">島田秀平の事故物件×心霊スポット 壱巻</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22" target="_blank"><img src="http://static.oshimaland.co.jp/static/shimada-syuhei2.png" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22" target="_blank">島田秀平の事故物件×心霊スポット 弐巻</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01CZMQR3E/oshimaland-22" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51ec+xeRxDL._SL100_.jpg" /></a></div>
+<div class="book-title"><a href="https://www.youtube.com/watch?v=iT695pSF_S8" target="_blank">残穢―住んではいけない部屋―</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4309024769/oshimaland-22" target="_blank"><img src="http://ecx.images-amazon.com/images/I/91yAWS-a1QL._SL100_.jpg" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4309024769/oshimaland-22" target="_blank">実話怪談 出没地帯</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4087754316/oshimaland-22" target="_blank"><img src="http://ecx.images-amazon.com/images/I/61aLmKD81sL._SL100_.jpg" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4087754316/oshimaland-22" target="_blank">失踪.com 東京ロンダリング</a></div>
+</div>
+<div class="book">
+<div class="book-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4122064147/oshimaland-22" target="_blank"><img src="http://static.oshimaland.co.jp/static/kowaimono_s.jpg" /></a></div>
+<div class="book-title"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4122064147/oshimaland-22" target="_blank">どこの家にも怖いものはいる</a></div>
+</div></div></div>
+</div>
+<div class="yui3-u" id="right">
+<div id="right-container"><div>
+<div id="462cb76213a5f1b06ca9dd7990eb88a9">
+<script type="text/javascript">
+		microadCompass.queue.push({
+			"spot": "462cb76213a5f1b06ca9dd7990eb88a9",
+			"url": "${COMPASS_EXT_URL}",
+			"referrer": "${COMPASS_EXT_REF}"
+		});
+	</script>
+</div>
+</div>
+<div style="margin-top:0.8em;"><h2>お仕事依頼</h2><a target="_blank" href="http://www.diamondblog.jp/official/oshimaland/offer/">オファー用フォーム</a></div>
+<div style="margin-top:0.8em;"><h2>メディア掲載</h2><a target="_blank" href="http://tocana.jp/2017/11/post_15073.html" onclick="ga('send', 'event', 'outbound', 'click', 'http://tocana.jp/2017/11/post_15073.html');">「大島てる」管理人を殺害予告した犯人逮捕!! </a></div>
+<div id="oshimaland-links">
+<h2>イベント情報</h2>
+<ul style="margin-bottom: 0.8em;position:relative;">
+
+<li>3月22日 <a target="_blank" href="http://www.loft-prj.co.jp/schedule/plusone/83370" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.loft-prj.co.jp/schedule/plusone/83370');">東京 クイズ夜会トークライブ 夜のアングラ勉強会Vol.4</a><span style="color:#FF5B5B;margin-left:0.5em;">好評発売中</span></li>
+<li>4月3日 <a target="_blank" href="http://www.loft-prj.co.jp/schedule/plusone/83933" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.loft-prj.co.jp/schedule/plusone/83933');">東京 大島てるがやって来る!! 事故物件ナイト vol.19</a><span style="color:#FF5B5B;margin-left:0.5em;">残りわずか</span></li>
+<li>4月4日 <a target="_blank" href="http://www.loft-prj.co.jp/schedule/plusone/84059" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.loft-prj.co.jp/schedule/plusone/84059');">東京 デスカルチャー・サミット vol.7</a><span style="color:#FF5B5B;margin-left:0.5em;">好評発売中</span></li>
+<li>4月5日 <a target="_blank" href="http://www.loft-prj.co.jp/schedule/west/81368" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.loft-prj.co.jp/schedule/west/81368');">大阪 事故物件ナイト</a><span style="color:#FF5B5B;margin-left:0.5em;">当日券あり</span></li>
+<li>4月14日 <a target="_blank" href="http://www.sunward-t.co.jp/seminar/2018/04/14_2/" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.sunward-t.co.jp/seminar/2018/04/14_2/');">さいたま セミナー</a><span style="color:#FF5B5B;margin-left:0.5em;">無料</span></li>
+<li>4月15日 <a target="_blank" href="http://twipla.jp/events/303822" onclick="ga('send', 'event', 'outbound', 'click', 'http://twipla.jp/events/303822');">札幌 最恐劇場ホラーストーリーズ‏</a><span style="color:#FF5B5B;margin-left:0.5em;">好評発売中</span></li>
+<li>5月13日 <a target="_blank" href="https://twitter.com/kuro_no_usagi/status/972447457249394690" onclick="ga('send', 'event', 'outbound', 'click', 'https://twitter.com/kuro_no_usagi/status/972447457249394690');">東京 三月ウサギとサブカル茶パーティー‏</a><span style="color:#FF5B5B;margin-left:0.5em;">好評発売中</span></li>
+</ul>
+</div>
+<h2></h2>
+<table id="new-books">
+<tr>
+<td style="padding-right: 6px;padding-bottom: 3px;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22" target="_blank" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22');"><img src="http://ecx.images-amazon.com/images/I/51xvsoXO9-L._SL100_.jpg" /></a>
+</td>
+<td style="padding-right: 6px;padding-bottom: 3px;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WD1GWJY/oshimaland-22" target="_blank" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22');"><img src="http://static.oshimaland.co.jp/static/meguri.png" /></a>
+</td>
+<td valign="top" style="padding-top: 0.5em;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22" target="_blank" class="new-books-title" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/4801301401/oshimaland-22');">大島てるが案内人 事故物件めぐりをしてきました</a>
+
+</td>
+</tr>
+<tr>
+<td style="padding-right: 6px;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22" target="_blank" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22');"><img src="http://static.oshimaland.co.jp/static/shimada-syuhei.png" alt="島田秀平の事故物件×心霊スポット 壱巻" /></a>
+</td>
+<td style="padding-right: 6px;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22" target="_blank" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22');"><img src="http://static.oshimaland.co.jp/static/shimada-syuhei2.png" alt="島田秀平の事故物件×心霊スポット 弐巻" /></a>
+</td>
+<td valign="top" style="padding-top: 0.5em;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22" target="_blank" class="new-books-title" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMQT8/oshimaland-22');">島田秀平の事故物件×心霊スポット 壱巻・</a>
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22" target="_blank" class="new-books-title" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/B013FGMNQ4/oshimaland-22');">弐巻</a>
+</td>
+</tr>
+<tr>
+<td style="padding-right: 6px;padding-top: 3px;">
+<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01CZMQR3E/oshimaland-22" target="_blank" onclick="ga('send', 'event', 'outbound', 'click', 'http://www.amazon.co.jp/exec/obidos/ASIN/B01CZMQR3E/oshimaland-22');"><img src="http://ecx.images-amazon.com/images/I/51ec+xeRxDL._SL100_.jpg" /></a>
+</td>
+<td colspan="2" valign="top" style="padding-top: 0.5em;">
+<a href="https://www.youtube.com/watch?v=iT695pSF_S8" target="_blank" class="new-books-title" onclick="ga('send', 'event', 'outbound', 'click', 'https://www.youtube.com/watch?v=iT695pSF_S8');">残穢―住んではいけない部屋―</a>
+</td>
+</tr>
+</table>
+<div id="recent-comments">
+<h2>最近のコメント</h2>
+<script type="text/javascript" src="http://oshimaland.disqus.com/combination_widget.js?num_items=30&hide_mods=0&color=grey&default_tab=recent&excerpt_length=200"></script>
+</div>
+<div>
+<script type="text/javascript">
+var adstir_vars = {
+  ver    : "4.0",
+  app_id : "MEDIA-ea72c5ea",
+  ad_spot: 5,
+  center : false
+};
+</script>
+<script type="text/javascript" src="https://js.ad-stir.com/js/adstir.js?20130527"></script>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  window.___gcfg = {lang: 'ja'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button_wo_al.js" charset="utf-8" async="async"></script>
+</body>
+</html>

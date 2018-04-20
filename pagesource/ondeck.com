@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+	<head><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+		<title>Small Business Loans and Small Business Lines of Credit from OnDeck</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="alternate" hreflang="en-CA" href="https://en-ca.ondeck.com/" />
+		<link rel="alternate" hreflang="en-AU" href="https://www.ondeck.com.au/" />
+		<link rel="alternate" hreflang="en-US" href="https://www.ondeck.com/" />
+		<link rel="dns-prefetch" href="//tags.tiqcdn.com">
+
+<!-- This site is optimized with the Yoast SEO plugin v5.9.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="OnDeck offers small business loans in the U.S. issuing over $8 billion dollars in loans, providing business loans, lines of credit, and equipment financing."/>
+<link rel="canonical" href="https://www.ondeck.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Small Business Loans and Small Business Lines of Credit from OnDeck" />
+<meta property="og:description" content="OnDeck offers small business loans in the U.S. issuing over $8 billion dollars in loans, providing business loans, lines of credit, and equipment financing." />
+<meta property="og:url" content="https://www.ondeck.com/" />
+<meta property="og:site_name" content="OnDeck" />
+<meta property="og:image" content="https://www.ondeck.com/wp-content/uploads/2017/06/hero-home.jpg" />
+<meta property="og:image:secure_url" content="https://www.ondeck.com/wp-content/uploads/2017/06/hero-home.jpg" />
+<meta property="og:image:width" content="1305" />
+<meta property="og:image:height" content="618" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="OnDeck offers small business loans in the U.S. issuing over $8 billion dollars in loans, providing business loans, lines of credit, and equipment financing." />
+<meta name="twitter:title" content="Small Business Loans and Small Business Lines of Credit from OnDeck" />
+<meta name="twitter:image" content="https://www.ondeck.com/wp-content/uploads/2017/06/hero-home.jpg" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.ondeck.com\/","name":"OnDeck","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.ondeck.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/www.ondeck.com\/","sameAs":[],"@id":"#organization","name":"OnDeck Capital","logo":""}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//www.ondeck.com' />
+<link rel='dns-prefetch' href='//tag.bounceexchange.com' />
+<link rel='dns-prefetch' href='//www.youtube.com' />
+<link rel='dns-prefetch' href='//player.vimeo.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<script type="text/javascript">
+var utag_data = {
+    "site_name": "OnDeck",
+    "site_description": "OnDeck is the largest online small business lender in the U.S. issuing over $6 billion dollars in loans and trusted by over 60,000 small businesses providing them business loans an lines of credit.",
+    "page_type": "page",
+    "post_title": "Home",
+    "post_author": "sudar",
+    "post_date": "2017\/06\/15"
+};
+</script>
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.ondeck.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.2"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='ondeck-css'  href='https://www.ondeck.com/wp-content/themes/ondeck/assets/css/ondeck.min.css?ver=0.1.22' type='text/css' media='all' />
+<link rel='stylesheet' id='ondeck_us-css'  href='https://www.ondeck.com/wp-content/themes/ondeck-us/assets/css/ondeck-us.min.css?ver=1.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-css'  href='https://www.ondeck.com/wp-content/themes/ondeck/assets/js/vendor/swiper/dist/css/swiper.min.css?ver=0.1.22' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.ondeck.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='//tag.bounceexchange.com/1615/i.js?ver=0.1.22'></script>
+<link rel='https://api.w.org/' href='https://www.ondeck.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.ondeck.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.ondeck.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.2" />
+<link rel='shortlink' href='https://www.ondeck.com/' />
+<link rel="alternate" type="application/json+oembed" href="https://www.ondeck.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ondeck.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.ondeck.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ondeck.com%2F&#038;format=xml" />
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End Trustbox script -->
+    	<!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+			0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+			for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+		mixpanel.init('131312ce67923818800f21775e932f7d');</script><!-- end Mixpanel -->
+<link rel="icon" href="https://www.ondeck.com/wp-content/uploads/2017/07/cropped-favicon-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.ondeck.com/wp-content/uploads/2017/07/cropped-favicon-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.ondeck.com/wp-content/uploads/2017/07/cropped-favicon-300x300.png" />
+<meta name="msapplication-TileImage" content="https://www.ondeck.com/wp-content/uploads/2017/07/cropped-favicon-300x300.png" />
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+ (function(a,b,c,d){
+ a='//tags.tiqcdn.com/utag/ondeckcapital/main/prod/utag.js';
+ b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+ a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+ })();
+</script>
+<!-- END: T-WP -->
+	</head>
+	<body class="home page-template-default page page-id-165641 page-home">
+
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;visibility:hidden">
+	<defs>
+		<symbol viewBox="0 0 12 20" id="svg-arrow">
+			<title>Arrow</title>
+			<path d="M10 10a.283.283 0 0 0-.08-.197L2.492 2.087A.284.284 0 0 0 2 2.286c0 .077.03.146.08.197L9.317 10 2.08 17.516a.285.285 0 1 0 .41.395h.002L9.92 10.2c.05-.052.08-.12.08-.198" stroke-width="3" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 24 24" id="svg-checkmark">
+			<title>Checkmark</title>
+			<g transform="translate(1 1)" fill="none" fill-rule="evenodd"><circle stroke="currentcolor" stroke-width="1.5" cx="11" cy="11" r="11"></circle><path d="M15.435 6l-6.262 6.667L6.565 9.89 5 11.555l2.608 2.777L9.173 16 17 7.667 15.436 6z" fill="currentcolor"></path></g>
+		</symbol>
+		<symbol viewBox="0 0 28 26" id="svg-quote">
+			<title>Quotation Mark</title>
+			<g fill-rule="evenodd" fill="currentcolor"><path d="M11.186 25.63V13.504H5.99c0-1.942.368-3.582 1.102-4.92.735-1.34 2.1-2.35 4.094-3.032V.357C9.56.567 8.05 1.053 6.66 1.814a12.806 12.806 0 0 0-3.582 2.873C2.08 5.842 1.306 7.18.755 8.702c-.551 1.523-.8 3.15-.748 4.882v12.045h11.18zM27.956 25.63V13.504H22.76c0-1.942.367-3.582 1.102-4.92.735-1.34 2.1-2.35 4.094-3.032V.357c-1.627.21-3.136.696-4.527 1.457a12.806 12.806 0 0 0-3.582 2.873c-.998 1.155-1.772 2.493-2.323 4.015-.551 1.523-.8 3.15-.748 4.882v12.045h11.18z"></path></g>
+		</symbol>
+		<symbol viewBox="-438 248 82 66" id="svg-api">
+			<title>API</title>
+			<path d="M-382.1 287.4l-.1-.2-.1-.2-8.7-7.7-.4-.2-.2-.1h-.2c-.3 0-.6.1-.9.3-.2.2-.4.6-.4 1v.2l.2.4.1.2 7.5 6.7-9.3 8.3h2.6v-1l-.9-.4-.1.2-.1.2v.2c0 .4.2.7.4 1 .2.2.6.3.9.3h.2l.4-.1-.3-.9v1h.4l10.7-9.5h-2.6v1l.9.4.1-.2-1.8-.9-.1.2-.7 1.4h1.6v-1l-.7-.7-8.4 7.5.7.7v-1h-.2l-.4.1.3.9v-1 .7l.4-.5c-.1-.1-.3-.2-.4-.2v.7l.4-.5-.5.6h.7c0-.2-.1-.5-.3-.6l-.5.6h.7-1l.9.4.1-.2.7-1.4h-1.6v1l.7.7 9-8-8.9-7.9-.9.4h1-.7l.5.6c.1-.1.3-.3.3-.6h-.7l.5.6-.4-.5v.7c.1 0 .3 0 .4-.2l-.4-.5v.7-1l-.3.9h.1l8.1 7.2 1.7-.8zM-411 288.2l8.1-7.2h.1l-.3-.9v1-.7l-.4.5c.1.1.3.2.4.2v-.7l-.4.5.5-.6h-.7c0 .2.1.5.3.6l.5-.6h-.7 1l-.9-.4-8.9 7.9 9 8 .7-.7v-1h-1.6l.8 1.6.9-.4h-1 .7l-.5-.6c-.1.1-.3.3-.3.6h.7l-.5-.6.4.5v-.7c-.1 0-.3 0-.4.2l.4.5v-.7 1l.3-.9-.2-.1-.2-.1h-.2v1l.7-.7-8.3-7.4-1.8.8.1.2.1.2 8.9 7.9H-403.4l.2.1h.2c.3 0 .6-.1.9-.3.2-.2.4-.6.4-1v-.2l-.2-.4-.9.4v1h2.6l-9.3-8.3 7.5-6.7.2-.4.1-.2v-.2c0-.4-.2-.7-.4-1-.3-.2-.6-.3-.9-.3h-.2l-.4.1-.2.1-8.7 7.7-.2.4 1.7 1z" fill="currentcolor"></path>
+			<path d="M-433 248v2h71.6c.8 0 1.6.3 2.1.9.5.5.9 1.3.9 2.1v56c0 .8-.3 1.6-.9 2.1-.5.5-1.3.9-2.1.9H-433c-.8 0-1.6-.3-2.1-.9-.5-.5-.9-1.3-.9-2.1v-56c0-.8.3-1.6.9-2.1.5-.5 1.3-.9 2.1-.9v-4c-3.9 0-7 3.1-7 7v56c0 3.9 3.1 7 7 7h71.6c3.9 0 7-3.1 7-7v-56c0-3.9-3.1-7-7-7H-433v2z" fill="currentcolor"></path>
+			<path d="M-437.8 265.5h80.8v-2h-80.8" fill="currentcolor"></path>
+			<ellipse class="st0" cx="-429.7" cy="257.2" rx="1.5" ry="1.5" fill="currentcolor"></ellipse>
+			<path d="M-429.7 255.8v.5c.5 0 1 .4 1 1 0 .5-.4 1-1 1-.5 0-1-.4-1-1 0-.5.4-1 1-1v-1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2v.5z" fill="currentcolor"></path>
+			<ellipse class="st0" cx="-424.8" cy="257.2" rx="1.5" ry="1.5" fill="currentcolor"></ellipse>
+			<path d="M-424.8 255.8v.5c.5 0 1 .4 1 1 0 .5-.4 1-1 1-.5 0-1-.4-1-1 0-.5.4-1 1-1v-1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2v.5z" fill="currentcolor"></path>
+			<ellipse class="st0" cx="-419.9" cy="257.2" rx="1.5" ry="1.5" fill="currentcolor"></ellipse>
+			<path d="M-419.9 255.8v.5c.5 0 1 .4 1 1 0 .5-.4 1-1 1-.5 0-1-.4-1-1 0-.5.4-1 1-1v-1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2v.5z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 15 23" id="svg-bulb">
+			<title>Lightbulb</title>
+			<path d="M9.771 19.197H5.198a.728.728 0 0 0-.732.724c0 .4.328.725.732.725H9.77a.728.728 0 0 0 .732-.725c0-.4-.328-.724-.732-.724M9.04 21.37H5.93a.728.728 0 0 0-.732.725c0 .4.328.724.732.724h3.11a.728.728 0 0 0 .731-.724c0-.4-.328-.725-.732-.725M12.677 2.122a.737.737 0 0 0-1.034.03.72.72 0 0 0 .03 1.024c1.123 1.05 1.741 2.446 1.741 3.931a5.346 5.346 0 0 1-1.448 3.638c-.106.112-2.588 2.775-2.588 5.772 0 .15-.005.258-.013.337h-3.76a3.656 3.656 0 0 1-.013-.336c0-2.998-2.482-5.661-2.583-5.769a5.35 5.35 0 0 1-1.453-3.642c0-3.062 2.66-5.554 5.93-5.554.782 0 1.542.14 2.26.418a.735.735 0 0 0 .947-.411.722.722 0 0 0-.416-.939A7.716 7.716 0 0 0 7.485.104C3.41.104.092 3.246.092 7.107c0 1.703.653 3.345 1.843 4.627.022.023 2.194 2.351 2.194 4.784 0 1.475.628 1.785 1.155 1.785h4.402c.527 0 1.155-.31 1.155-1.785 0-2.42 2.172-4.761 2.198-4.789 1.186-1.277 1.839-2.919 1.839-4.622 0-1.888-.782-3.659-2.2-4.985" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 30 30" id="svg-calendar">
+			<title>Calendar</title>
+			<g stroke-width="0.6" fill-rule="evenodd">
+				<g transform="translate(-664.000000, -13855.000000)">
+					<g transform="translate(-170.000000, 12026.000000)">
+						<path d="M851,1846 L853,1846 L853,1848 L851,1848 L851,1846 Z M850,1849 L854,1849 L854,1845 L850,1845 L850,1849 Z M845,1840 L847,1840 L847,1842 L845,1842 L845,1840 Z M844,1843 L848,1843 L848,1839 L844,1839 L844,1843 Z M851,1853 L853,1853 L853,1855 L851,1855 L851,1853 Z M850,1856 L854,1856 L854,1852 L850,1852 L850,1856 Z M845,1846 L847,1846 L847,1848 L845,1848 L845,1846 Z M844,1849 L848,1849 L848,1845 L844,1845 L844,1849 Z M845,1853 L847,1853 L847,1855 L845,1855 L845,1853 Z M844,1856 L848,1856 L848,1852 L844,1852 L844,1856 Z M863,1835 L835,1835 L835,1833 L838.769231,1833 L838.769231,1834 L839.846154,1834 L839.846154,1833 L858.153846,1833 L858.153846,1834 L859.230769,1834 L859.230769,1833 L863,1833 L863,1835 L863,1835 Z M835,1837 L863,1837 L863,1858 L835,1858 L835,1837 Z M859.178571,1832.21429 L859.178571,1829 L858.107143,1829 L858.107143,1832.21429 L839.892857,1832.21429 L839.892857,1829 L838.821429,1829 L838.821429,1832.21429 L834,1832.21429 L834,1859 L864,1859 L864,1832.21429 L859.178571,1832.21429 L859.178571,1832.21429 Z M838,1853 L840,1853 L840,1855 L838,1855 L838,1853 Z M837,1856 L841,1856 L841,1852 L837,1852 L837,1856 Z M838,1846 L840,1846 L840,1848 L838,1848 L838,1846 Z M837,1849 L841,1849 L841,1845 L837,1845 L837,1849 Z M851,1840 L853,1840 L853,1842 L851,1842 L851,1840 Z M850,1843 L854,1843 L854,1839 L850,1839 L850,1843 Z M858,1846 L860,1846 L860,1848 L858,1848 L858,1846 Z M857,1849 L861,1849 L861,1845 L857,1845 L857,1849 Z M858,1840 L860,1840 L860,1842 L858,1842 L858,1840 Z M857,1843 L861,1843 L861,1839 L857,1839 L857,1843 Z"  fill="currentcolor"></path>
+					</g>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 22 21" id="svg-chat">
+			<title>Chat</title>
+			<path d="M19.712 4.28a.735.735 0 0 0-1.167.893c1.053 1.375 1.61 2.984 1.61 4.654 0 4.558-4.162 8.266-9.278 8.266a10.27 10.27 0 0 1-3.152-.49l-.037-.007a.718.718 0 0 0-.431.017c-.013.004-.026.006-.04.012L3.762 19.06l.538-2.942v-.004a.74.74 0 0 0 .003-.218c-.003-.023-.004-.045-.009-.067-.005-.026-.015-.05-.023-.074-.007-.02-.012-.042-.02-.063-.013-.027-.029-.053-.044-.078-.011-.019-.02-.037-.033-.055a.74.74 0 0 0-.087-.102l-.002-.002C2.482 13.921 1.6 11.922 1.6 9.827c0-4.559 4.162-8.267 9.277-8.267 2.191 0 4.318.694 5.988 1.954a.735.735 0 0 0 .885-1.174C15.826.89 13.385.09 10.877.09 4.952.09.131 4.458.131 9.827c0 2.37.94 4.63 2.653 6.404l-.711 3.894c-.003.016-.003.033-.005.05-.003.029-.007.058-.007.088 0 .025.005.049.007.073.003.024.004.047.009.07.006.03.016.06.027.09.005.014.007.029.013.043l.003.006.015.03c.015.03.03.058.048.085l.023.033a.698.698 0 0 0 .06.071c.009.01.017.019.027.027.03.029.06.055.095.077l.01.007c.035.022.07.04.108.056l.037.014a.712.712 0 0 0 .1.029c.007.001.013.005.02.006h.011c.04.008.08.012.122.012H2.8a.74.74 0 0 0 .131-.013c.012-.002.024-.007.036-.01a.696.696 0 0 0 .097-.03l.013-.003 4.462-1.854c1.075.318 2.196.48 3.338.48 5.926 0 10.747-4.367 10.747-9.735 0-1.996-.661-3.914-1.912-5.547"  fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 57 57" id="svg-chat2">
+			<title>Chat 2</title>
+			<g stroke="none" stroke-width="1" fill-rule="evenodd">
+				<circle id="svg-chat2_Oval-13" fill="currentcolor" cx="28.5" cy="28.5" r="28.5"></circle>
+				<path d="M32.5087589,34.8294173 C24.2956646,34.8294173 17.8626738,30.0786353 17.8626738,24.010591 C17.8626738,23.0748309 18.0332701,22.1750616 18.3226359,21.3184812 C13.6618308,22.6069508 10.3636364,25.7669407 10.3636364,29.4667921 C10.3636364,31.7270127 11.6060378,33.7856849 13.6272796,35.3404863 L12.4179897,39.7745495 C12.3200948,40.1416554 12.5101261,40.2928166 12.8412412,40.1200609 L17.8713116,37.4855363 C19.4304319,37.9678127 21.150071,38.2341444 22.9654456,38.2341444 C27.0266444,38.2341444 30.6257217,36.8880895 32.9284113,34.815021 C32.7880473,34.815021 32.6498428,34.8294173 32.5087589,34.8294173 L32.5087589,34.8294173 Z M43.3153484,33.7137033 C43.4132433,34.0736111 43.223212,34.2247723 42.8971356,34.0520166 L37.9376071,31.4534828 C36.4008011,31.928561 34.7027564,32.1948927 32.9125754,32.1948927 C26.0498548,32.1948927 20.4856813,28.3222856 20.4856813,23.5499091 C20.4856813,18.7703344 26.0498548,14.8977273 32.9125754,14.8977273 C39.7767356,14.8977273 45.3409091,18.7703344 45.3409091,23.5499091 C45.3409091,25.781337 44.1157832,27.8040184 42.1211745,29.3372254 L43.3153484,33.7137033 L43.3153484,33.7137033 Z" id="svg-chat2_Fill-356" fill="#FFFFFF" transform="translate(27.852273, 27.544544) scale(-1, 1) translate(-27.852273, -27.544544) "></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 26 21" id="svg-check">
+			<title>Check</title>
+			<path d="M9.863 20.071c-.363 0-.725-.138-1.002-.414L.415 11.224A1.407 1.407 0 0 1 0 10.222c0-.38.147-.735.414-1.003l3.347-3.346a1.42 1.42 0 0 1 2.005 0l4.09 4.091 9.55-9.55A1.408 1.408 0 0 1 20.41 0c.379 0 .735.147 1.002.414l2.01 2.011a.735.735 0 1 1-1.038 1.04L20.409 1.49l-9.55 9.55a1.42 1.42 0 0 1-2.005 0l-4.09-4.09L1.49 10.22l8.372 8.36L24.201 4.244a.735.735 0 0 1 1.04 1.039L10.865 19.656c-.276.277-.64.415-1.003.415" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 25 24" id="svg-checkbox">
+			<title>Rounded Square Check</title>
+			<path d="M17.672 8.143a.432.432 0 0 0-.305.124l-6.591 6.557L6.77 10.84a.432.432 0 0 0-.61.608l4.311 4.286a.432.432 0 0 0 .305.124.432.432 0 0 0 .304-.124l6.897-6.857a.43.43 0 0 0-.305-.733zm5.604 5.447c0 7.166-2.402 9.553-9.606 9.553h-3.202c-7.205 0-9.606-2.387-9.606-9.553v-3.18c0-7.166 2.401-9.553 9.606-9.553h3.202c7.204 0 9.606 2.387 9.606 9.553v3.18zM13.793 0h-3.448C2.586 0 0 2.571 0 10.286v3.428C0 21.43 2.586 24 10.345 24h3.448c7.758 0 10.345-2.571 10.345-10.286v-3.428C24.138 2.57 21.55 0 13.793 0z" fill="currentcolor"></path>
+		</symbol>
+
+		<symbol viewBox="0 0 27 27" id="svg-clock">
+			<title>Clock</title>
+			<path d="M18.6 1c-1.6-.7-3.4-1-5.1-1C6 0 0 6 0 13.5S6 27 13.5 27 27 21 27 13.5c0-4.1-1.8-7.9-4.9-10.4-.4-.4-1.1-.3-1.4.1-.4.4-.3 1.1.1 1.4C23.5 6.8 25 10 25 13.5 25 19.9 19.9 25 13.5 25S2 19.9 2 13.5 7.1 2 13.5 2c1.5 0 3 .3 4.4.9.5.2 1.1 0 1.3-.5s0-1.2-.6-1.4zm-4.2 13.8l6.5-3.2c.5-.2.7-.8.5-1.3s-.8-.7-1.3-.5L13.5 13c-.5.3-.7.9-.4 1.3.2.5.8.7 1.3.5zM6 8.2l7.3 6.5c.4.4 1 .3 1.4-.1.4-.4.3-1-.1-1.4L7.3 6.7c-.4-.4-1-.3-1.4.1-.4.4-.3 1 .1 1.4z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 25 21" id="svg-computer">
+			<title>Computer</title>
+			<path d="M21.9 14.7H2.3c-.3 0-.6-.3-.6-.7v-1.9h20.9V14c0 .4-.3.7-.7.7m-7 3.9H9.3c.6-.7 1-1.5 1.2-2.4h3.3c.2.8.6 1.6 1.1 2.4m8.4-16c-.4 0-.7.3-.7.7v7.3h-21V2.2c0-.4.3-.7.6-.7h21c.4 0 .7-.3.7-.7.1-.5-.2-.8-.6-.8h-21C1.1 0 .2 1 .2 2.2V14c0 1.2 1 2.2 2.1 2.2h6.6c-.3.9-.9 1.7-1.7 2.4H6c-.4 0-.7.3-.7.7 0 .4.3.7.7.7h12.1c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7H17c-.8-.7-1.4-1.5-1.7-2.4h6.6c1.1 0 2.1-1 2.1-2.2V3.3c0-.4-.3-.7-.7-.7M12.2 12.7c-.4 0-.8.3-.8.7 0 .4.3.8.7.8h.1c.4 0 .7-.4.7-.8s-.3-.7-.7-.7" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 28 28" id="svg-config">
+			<title>Configuration</title>
+			<path d="M15.393 21.429h.928v4.642h-.928V21.43zm1.857 1.857v-1.857a.93.93 0 0 0-.929-.929h-.928a.93.93 0 0 0-.929.929v1.857h-13a.465.465 0 0 0 0 .928h13v1.857c0 .511.416.929.929.929h.928a.93.93 0 0 0 .929-.929v-1.857h9.286a.465.465 0 0 0 0-.928H17.25zM6.107 11.679h.929v4.642h-.929V11.68zm20.429 1.857H7.964v-1.857a.93.93 0 0 0-.928-.929h-.929a.93.93 0 0 0-.928.929v1.857H1.464a.465.465 0 0 0 0 .928H5.18v1.857c0 .511.416.929.928.929h.929a.93.93 0 0 0 .928-.929v-1.857h18.572a.465.465 0 0 0 0-.928zM20.964 1.929h.929V6.57h-.929V1.93zm-.928 2.785v1.857c0 .511.416.929.928.929h.929a.93.93 0 0 0 .928-.929V4.714h3.715a.465.465 0 0 0 0-.928H22.82V1.929A.93.93 0 0 0 21.893 1h-.929a.93.93 0 0 0-.928.929v1.857H1.464a.465.465 0 0 0 0 .928h18.572z" stroke-width=".5" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 52 38" id="svg-customers">
+			<title>Customers</title>
+			<path d="M45.8960218,23.0175439 C43.7534579,21.5789474 42.8503864,21.7587719 42.8503864,19.870614 C42.8503864,15.4649123 44.6690225,16.7236842 44.6690225,12.3179825 C44.6690225,5.39473684 40.1840053,5.39473684 39.5593511,5.39473684 C38.9346969,5.39473684 33.9205083,5.39473684 33.9205083,12.3179825 C33.9205083,16.7236842 35.7391444,15.4649123 35.7391444,19.870614 C35.7391444,21.3721491 35.5401474,21.4620614 34.5308847,22.4061404 C35.396477,22.6309211 35.5330085,22.7747807 36.2950866,23.0445175 C37.0384252,22.4780702 37.5238707,21.6239035 37.5238707,19.870614 C37.5238707,17.3710526 37.0402099,17.1642544 36.3878924,16.0673246 C35.9916832,15.4019737 35.7052346,14.0263158 35.7052346,12.3179825 C35.7052346,9.98026316 36.9036783,7.19298246 39.5593511,7.19298246 C42.2150238,7.19298246 42.8842962,9.98026316 42.8842962,12.3179825 C42.8842962,14.0263158 42.4854099,15.4019737 42.0892006,16.0673246 C41.4368832,17.1642544 41.0656601,17.3710526 41.0656601,19.870614 C41.0656601,22.3072368 42.3372776,23.0714912 43.4946726,23.691886 C43.9051596,23.9076754 44.3727579,24.1594298 44.9046064,24.5100877 C45.3186629,24.7888158 45.712195,25.0405702 46.0843105,25.2743421 C47.8654673,26.4072368 47.8244186,26.9467105 48.105513,28.7719298 L43.9265764,28.7719298 C44.2603202,29.3383772 44.5565847,29.9317982 44.7894915,30.5701754 L50,30.5701754 C50,25.5350877 48.9264871,25.0495614 45.8960218,23.0175439 L45.8960218,23.0175439 Z M8.09105674,34.1666667 C8.42658528,29.6800439 10.1907872,28.7989035 14.18322,26.7848684 C16.0018561,25.8677632 17.3520016,25.4002193 18.4380075,25.0315789 C20.4297621,24.3392544 22.3090789,23.691886 22.3090789,20.6798246 C22.3090789,17.0383772 21.4631186,15.6177632 20.7162107,14.3589912 C20.1102961,13.3429825 19.6319894,12.5427632 19.6319894,9.89035088 C19.6319894,2.8502193 22.9872749,1.79824561 24.9861684,1.79824561 C26.9859542,1.79824561 30.3403473,2.8502193 30.3403473,9.89035088 C30.3403473,12.5427632 29.8620407,13.3429825 29.2561261,14.3589912 C28.5092181,15.6177632 27.6632578,17.0383772 27.6632578,20.6798246 C27.6632578,23.691886 29.5425746,24.3392544 31.5343292,25.0315789 C32.6203352,25.4002193 33.9704806,25.8677632 35.7882244,26.7848684 C39.7815495,28.7989035 41.5457515,29.6800439 41.88128,34.1666667 L8.09105674,34.1666667 L8.09105674,34.1666667 Z M36.5868894,25.1754386 C31.2327105,22.4780702 29.4479842,23.377193 29.4479842,20.6798246 C29.4479842,14.3859649 32.1250736,16.1842105 32.1250736,9.89035088 C32.1250736,0 25.8785315,0 24.9861684,0 C24.0938052,0 17.8472631,0 17.8472631,9.89035088 C17.8472631,16.1842105 20.5243526,14.3859649 20.5243526,20.6798246 C20.5243526,23.377193 18.7396263,22.4780702 13.3854473,25.1754386 C8.73177348,27.5221491 6.24654209,28.7719298 6.24654209,35.9649123 L43.7257946,35.9649123 C43.7257946,28.7719298 41.2405633,27.5221491 36.5868894,25.1754386 L36.5868894,25.1754386 Z M3.91658189,25.2743421 C4.28869733,25.0405702 4.68222948,24.7888158 5.09539362,24.5100877 C5.62813443,24.1594298 6.09484036,23.9076754 6.50621977,23.691886 C7.66272242,23.0714912 8.93523228,22.3072368 8.93523228,19.870614 C8.93523228,17.3710526 8.56311685,17.1642544 7.91079938,16.0673246 C7.51459014,15.4019737 7.11748853,14.0263158 7.11748853,12.3179825 C7.11748853,9.98026316 7.78586854,7.19298246 10.4406489,7.19298246 C13.0963217,7.19298246 14.2947654,9.98026316 14.2947654,12.3179825 C14.2947654,14.0263158 14.0083168,15.4019737 13.6121076,16.0673246 C12.9597901,17.1642544 12.4761293,17.3710526 12.4761293,19.870614 C12.4761293,21.6239035 12.9615748,22.4780702 13.7049134,23.0445175 C14.4669915,22.7747807 14.603523,22.6309211 15.4691153,22.4061404 C14.4598526,21.4620614 14.2608556,21.3721491 14.2608556,19.870614 C14.2608556,15.4649123 16.0794917,16.7236842 16.0794917,12.3179825 C16.0794917,5.39473684 11.0653031,5.39473684 10.4406489,5.39473684 C9.81599472,5.39473684 5.33186986,5.39473684 5.33186986,12.3179825 C5.33186986,16.7236842 7.15050597,15.4649123 7.15050597,19.870614 C7.15050597,21.7587719 6.24654209,21.5789474 4.10576288,23.0175439 C1.07351288,25.0495614 0,25.5350877 0,30.5701754 L5.21050847,30.5701754 C5.44430762,29.9317982 5.74057218,29.3383772 6.074316,28.7719298 L1.89448698,28.7719298 C2.17558137,26.9467105 2.13542503,26.4072368 3.91658189,25.2743421 L3.91658189,25.2743421 Z" stroke="currentcolor"></path>
+		</symbol>
+
+		<symbol viewBox="0 0 50 71" id="svg-document">
+			<title>Document</title>
+			<path fill="currentcolor" d="m 8.75,55.245 32.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.255 0,-0.691 -0.55875,-1.256 -1.25,-1.256 l -32.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.256 0,0.69 0.55875,1.255 1.25,1.255 l 0,0 z m 0,-7.533 32.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.69 -0.55875,-1.255 -1.25,-1.255 l -32.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.255 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z m 0,15.067 25,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.69 -0.55875,-1.255 -1.25,-1.255 l -25,0 c -0.69125,0 -1.25,0.565 -1.25,1.255 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z m 0,-30.134 32.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.69 -0.55875,-1.255 -1.25,-1.255 l -32.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.255 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z M 2.5,2.511 l 45,0 0,65.29 -45,0 0,-65.29 z M 47.5,0 2.5,0 C 1.11875,0 0,1.13 0,2.511 l 0,65.29 c 0,1.381 1.11875,2.511 2.5,2.511 l 45,0 c 1.38,0 2.5,-1.13 2.5,-2.511 L 50,2.511 C 50,1.13 48.88,0 47.5,0 l 0,0 z m -38.75,40.179 32.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.691 -0.55875,-1.256 -1.25,-1.256 l -32.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.256 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z M 30,10.045 l 10,0 0,12.555 -10,0 0,-12.555 z m -1.25,15.067 12.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 l 0,-15.067 c 0,-0.691 -0.55875,-1.256 -1.25,-1.256 l -12.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.256 l 0,15.067 c 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z m -20,0 12.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.691 -0.55875,-1.256 -1.25,-1.256 l -12.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.256 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z m 0,-15.067 12.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.691 -0.55875,-1.256 -1.25,-1.256 l -12.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.256 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z m 0,7.533 12.5,0 c 0.69125,0 1.25,-0.565 1.25,-1.256 0,-0.69 -0.55875,-1.255 -1.25,-1.255 l -12.5,0 c -0.69125,0 -1.25,0.565 -1.25,1.255 0,0.691 0.55875,1.256 1.25,1.256 l 0,0 z"></path>
+		</symbol>
+		<symbol viewBox="0 0 44 45" id="svg-facebook">
+			<title>Facebook</title>
+			<path d="M41.3 44.188H30.235V27.376h5.644l.845-6.552h-6.489v-4.182c0-1.897.528-3.19 3.248-3.19l3.47-.002V7.59c-.601-.08-2.66-.259-5.056-.259-5.002 0-8.427 3.054-8.427 8.661v4.832h-5.657v6.552h5.657v16.812H2.678a2.396 2.396 0 0 1-2.396-2.395V3.17A2.396 2.396 0 0 1 2.678.775h38.621a2.396 2.396 0 0 1 2.396 2.396v38.622a2.396 2.396 0 0 1-2.396 2.395z" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 46 23" id="svg-flagaustralia">
+			<title>Australian Flag</title>
+			<g fill="none" fill-rule="evenodd"><path fill="#00008B" d="M0 0h46v23H0z"></path><path d="M11.5 13.8l.665 2.069 2.032-.77-1.202 1.81 1.869 1.109-2.165.188.298 2.152-1.497-1.575-1.497 1.575.298-2.152-2.165-.188 1.87-1.11L8.802 15.1l2.032.77zM34.5 17.524l.317.985.967-.367-.572.862.89.528-1.031.09.142 1.025-.713-.75-.713.75.142-1.025-1.03-.09.89-.528-.573-.862.967.367zM28.75 8.42l.317.985.967-.367-.572.862.89.528-1.031.09.142 1.025-.713-.75-.713.75.142-1.025-1.03-.09.89-.528-.573-.862.967.367zM34.5 2.19l.317.985.967-.366-.572.862.89.528-1.031.09.142 1.024-.713-.75-.713.75.142-1.024-1.03-.09.89-.528-.573-.862.967.366zM39.611 6.886l.317.985.968-.366-.573.862.89.528-1.031.09.142 1.024-.713-.75-.713.75.142-1.025-1.03-.09.89-.527-.573-.862.967.366zM36.8 11.5l.25.614.661.048-.506.428.158.644-.563-.35-.563.35.158-.644-.506-.428.66-.048zM9.583 0h3.834v3.833H23v3.834h-9.583V11.5H9.583V7.667H0V3.833h9.583z" fill="#FFF"></path><path fill="#FFF" d="M0 0h2.571L23 10.214V11.5h-2.571L0 1.286z"></path><path d="M23 0h-2.571L0 10.214V11.5h2.571L23 1.286z" fill="#FFF"></path><path fill="#F00" d="M10.35 0h2.3v4.6H23v2.3H12.65v4.6h-2.3V6.9H0V4.6h10.35z"></path><path d="M0 0l7.667 3.833H5.952L0 .857V0zm23 0h-1.714l-7.667 3.833h1.714L23 0zM23 11.5l-7.667-3.833h1.715L23 10.643v.857zm-23 0h1.714l7.667-3.833H7.667L0 11.5z" fill="#F00"></path></g>
+		</symbol>
+		<symbol viewBox="0 0 46 23" id="svg-flagcanada">
+			<title>Canadian Flag</title>
+			<g fill="none" fill-rule="evenodd"><path fill="#F00" d="M0 0h46v23H0z"></path><path fill="#FFF" d="M11.5 0h23v23h-23z"></path><path d="M23 2.156l-1.57 2.927c-.178.318-.497.289-.816.11l-1.136-.587.847 4.495c.178.821-.393.821-.675.466l-1.983-2.22-.322 1.128c-.037.148-.2.303-.445.266l-2.507-.527.659 2.394c.14.533.25.754-.143.894l-.893.42 4.315 3.506c.171.132.258.37.197.587l-.378 1.24c1.486-.172 2.817-.43 4.304-.588.131-.014.351.202.35.354l-.197 4.541h.723l-.114-4.531c0-.152.199-.378.33-.364 1.487.158 2.818.416 4.304.587l-.378-1.24a.565.565 0 0 1 .197-.586l4.315-3.506-.893-.42c-.393-.14-.284-.361-.143-.894l.659-2.394-2.507.527c-.245.037-.408-.118-.445-.266l-.322-1.127-1.983 2.22c-.282.354-.853.354-.675-.467l.847-4.495-1.136.588c-.32.178-.638.207-.816-.111" fill="#F00"></path></g>
+		</symbol>
+		<symbol viewBox="0 0 1235 650" id="svg-flagunitedstates">
+			<title>US Flag</title>
+			<path fill="#ffffff" d="M0 0h1235v650H0z"></path><path fill="#b22234" d="M0 0h1235v50H0z"></path><path fill="#b22234" d="M0 100h1235v50H0z"></path><path fill="#b22234" d="M0 200h1235v50H0z"></path><path fill="#b22234" d="M0 300h1235v50H0z"></path><path fill="#b22234" d="M0 400h1235v50H0z"></path><path fill="#b22234" d="M0 500h1235v50H0z"></path><path fill="#b22234" d="M0 600h1235v50H0z"></path><path fill="#3c3b6e" d="M0 0h494v350H0z"></path><path fill="#ffffff" d="M35.7 229.3l6.5-20 6.6 20z"></path><path fill="#ffffff" d="M117.6 229.3l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M199.5 229.3l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M281.4 229.3l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M363.3 229.3l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M445.2 229.3l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M76.7 264.4l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M158.6 264.4l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M240.5 264.4l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M322.4 264.4l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M404.3 264.4l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M35.7 299.5l6.5-20 6.6 20z"></path><path fill="#ffffff" d="M117.6 299.5l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M199.5 299.5l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M281.4 299.5l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M363.3 299.5l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M445.2 299.5l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M35.7 155.7l6.5-20.1 6.6 20.1z"></path><path fill="#ffffff" d="M117.6 155.7l6.6-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M199.5 155.7l6.6-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M281.4 155.7l6.6-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M363.3 155.7l6.6-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M445.2 155.7l6.6-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M76.7 190.8l6.5-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M158.6 190.8l6.5-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M240.5 190.8l6.5-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M322.4 190.8l6.5-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M404.3 190.8l6.5-20.1 6.5 20.1z"></path><path fill="#ffffff" d="M35.7 38.6l6.5-20 6.6 20z"></path><path fill="#ffffff" d="M117.6 38.6l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M199.5 38.6l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M281.4 38.6l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M363.3 38.6l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M445.2 38.6l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M76.7 73.7l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M158.6 73.7l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M240.5 73.7l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M322.4 73.7l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M404.3 73.7l6.5-20 6.5 20z"></path><path fill="#ffffff" d="M35.7 108.8l6.5-20 6.6 20z"></path><path fill="#ffffff" d="M117.6 108.8l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M199.5 108.8l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M281.4 108.8l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M363.3 108.8l6.6-20 6.5 20z"></path><path fill="#ffffff" d="M445.2 108.8l6.6-20 6.5 20z"></path>
+		</symbol>
+		<symbol viewBox="0 0 56 56" id="svg-gear">
+			<title>Gear</title>
+			<path d="M54 30.246l-7.532 2.152a18.862 18.862 0 0 1-2.301 5.548l3.806 6.851-3.176 3.176-6.852-3.806a18.87 18.87 0 0 1-5.393 2.262L30.318 54h-4.636l-2.233-7.571a18.873 18.873 0 0 1-5.261-2.181l-6.934 3.776-3.277-3.278 3.775-6.934a18.879 18.879 0 0 1-2.181-5.26L2 30.318v-4.636l7.571-2.233a18.854 18.854 0 0 1 2.181-5.26l-3.775-6.934 3.277-3.278 6.934 3.775a18.866 18.866 0 0 1 5.414-2.22L25.754 2h4.492l2.151 7.532a18.841 18.841 0 0 1 5.548 2.302l6.852-3.807 3.176 3.176-3.806 6.852a18.85 18.85 0 0 1 2.301 5.548L54 25.755v4.491zm1.27-6.191l.004-.016-7.168-2.049a20.957 20.957 0 0 0-1.649-3.941l3.631-6.533-.016-.009a.987.987 0 0 0-.152-1.185L45.678 6.08a.987.987 0 0 0-1.185-.152l-.008-.015-6.528 3.627a20.885 20.885 0 0 0-3.949-1.653L31.962.726l-.017.004A.988.988 0 0 0 31 0h-6a.988.988 0 0 0-.945.73l-.017-.004-2.045 7.159a20.77 20.77 0 0 0-3.753 1.55l-6.635-3.613-.008.015a1.014 1.014 0 0 0-1.206.175l-4.379 4.379a1.012 1.012 0 0 0-.175 1.206l-.015.008 3.614 6.639a21.037 21.037 0 0 0-1.479 3.534L.726 23.911l.003.017a1.012 1.012 0 0 0-.729.975v6.194c0 .471.311.852.729.976l-.003.017 7.231 2.133a21.107 21.107 0 0 0 1.479 3.534l-3.614 6.638.015.008c-.208.383-.159.873.175 1.206l4.379 4.38c.333.333.823.382 1.206.174l.008.015 6.626-3.608a20.828 20.828 0 0 0 3.552 1.492l2.127 7.212.018-.003c.123.418.504.729.975.729h6.194c.471 0 .852-.311.975-.729l.017.003 2.128-7.211a20.905 20.905 0 0 0 3.748-1.598l6.52 3.623.008-.015a.99.99 0 0 0 1.185-.152l4.242-4.243a.987.987 0 0 0 .152-1.185l.016-.008-3.63-6.533a21.03 21.03 0 0 0 1.648-3.942l7.168-2.048-.004-.017A.986.986 0 0 0 56 31v-6a.987.987 0 0 0-.73-.945zM28 36a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-18c-5.523 0-10 4.478-10 10 0 5.523 4.477 10 10 10 5.522 0 10-4.477 10-10 0-5.522-4.478-10-10-10z" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 41 26" id="svg-googleplus">
+			<title>Google+</title>
+			<path d="M12.848 10.517v5.085s4.924-.007 6.929-.007c-1.086 3.297-2.774 5.092-6.929 5.092-4.205 0-7.487-3.415-7.487-7.628 0-4.212 3.282-7.627 7.487-7.627 2.223 0 3.659.783 4.976 1.874 1.054-1.056.966-1.207 3.648-3.745A12.757 12.757 0 0 0 12.848.22C5.77.22.031 5.968.031 13.059s5.739 12.84 12.817 12.84c10.58 0 13.166-9.229 12.309-15.382H12.848zm23.095.254V6.322h-3.172v4.449h-4.569v3.178h4.569v4.577h3.172v-4.577h4.441v-3.178h-4.441z" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 23 20" id="svg-hand">
+			<title>Hand</title>
+			<path d="M22.412 11.76c0-1.016-.691-1.87-1.627-2.126a2.207 2.207 0 0 0-2.047-3.018h-6.455L13.1 2.85A2.32 2.32 0 0 0 11.372.067C10.328-.177 9.31.263 8.839 1.162l-.002.006-.003.004-3.396 6.73H2.756A2.759 2.759 0 0 0 0 10.657v5.695a.735.735 0 0 0 1.47 0v-5.695c0-.709.576-1.285 1.286-1.285H5.89a.735.735 0 0 0 .656-.404l3.596-7.125c.191-.364.587-.417.895-.345a.85.85 0 0 1 .63 1.029l-.995 4.58a.734.734 0 0 0-.012.196c-.001.016-.005.031-.005.048 0 .406.329.735.735.735h7.348a.736.736 0 0 1 0 1.47h-3.674a.735.735 0 0 0 0 1.469h5.143a.736.736 0 0 1 0 1.47h-5.143a.735.735 0 0 0 0 1.47h4.592a.736.736 0 0 1 0 1.469h-4.592a.735.735 0 0 0 0 1.47h2.939a.736.736 0 0 1 0 1.47H.735a.735.735 0 0 0 0 1.469h17.268a2.207 2.207 0 0 0 2.204-2.205 2.19 2.19 0 0 0-.143-.774 2.207 2.207 0 0 0 1.797-2.165c0-.431-.126-.832-.341-1.172a2.2 2.2 0 0 0 .892-1.767" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 26 23" id="svg-heart">
+			<title>Heart</title>
+			<path d="M23.6 5.5c.3.7.4 1.5.4 2.3 0 1.3-.4 2.5-1.1 3.6-.9 1.4-7.5 7.3-9.9 9.3 0 0-9-8-9.9-9.3C2.4 10.3 2 9.1 2 7.8 2 4.6 4.3 2 7 2c2 0 4.1 1.3 5.1 3.3.4.7 1.4.7 1.8 0C14.9 3.3 17 2 19 2c1.2 0 2.4.5 3.3 1.4.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4C22.4.7 20.8 0 19 0c-2.7 0-6 3-6 3-2.9-3.1-3.3-3-6-3-3.9 0-7 3.5-7 7.8 0 1.7.5 3.3 1.4 4.7 1.1 1.6 8.4 8.4 11 10.4.4.3.8.3 1.2 0 2.6-2 9.9-8.8 11-10.4.9-1.3 1.4-3 1.4-4.7 0-1-.2-2-.5-2.9-.2-.5-.8-.8-1.3-.6-.5.1-.8.7-.6 1.2z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 14 20" id="svg-hourglass">
+			<title>Hourglass</title>
+			<path d="M10.5 10.7l-.1-.1c-.1-.1-.3-.2-.4-.3-.5-.3-.7-.4-.7-.7 0-.2.1-.4.6-.7.1-.1.2-.2.4-.3.6-.4 2.6-1.9 3.3-5.3.1-.3-.2-.7-.6-.8-.4-.1-.8.2-.9.6-.6 2.8-2.2 4-2.7 4.4l-.1.1s-.1.1-.2.1c-.5.3-1.2.9-1.2 1.9 0 1.1.8 1.7 1.4 2 .1.1.2.1.3.2l.1.1c1.5 1.1 2.4 3.1 2.6 5.2 0 .3-.1.5-.2.6-.1.1-.2.1-.2.1h-10s-.1 0-.2-.1-.2-.4-.2-.6c.2-2.1 1.2-4.1 2.7-5.2l.1-.1.1-.1c.1-.1.2-.1.3-.2.5-.3 1.2-.8 1.2-1.9 0-1.1-.9-1.7-1.4-2-.1-.1-.1-.2-.2-.2l-.1-.1c-1.4-1.1-2.4-3-2.6-5.2 0-.2 0-.4.1-.5.1-.1.2-.1.3-.1h11.2c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7H2C1.5.1 1 .3.6.7c-.4.4-.6 1-.5 1.6.2 2.5 1.4 4.9 3.2 6.2l.1.1c.1.1.2.1.3.2.4.3.8.5.8.8 0 .3-.1.4-.6.7-.1.1-.3.2-.4.3-.1 0-.1.1-.1.1h-.1C1.5 12 .4 14.4.1 16.9c0 .6.2 1.2.5 1.7.4.4.8.6 1.3.6h9.9c.5 0 .9-.2 1.3-.6.4-.4.6-1.1.5-1.7-.1-2.5-1.3-4.8-3.1-6.2M2.7 16c0 .4.3.7.7.7h7c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7h-7c-.4-.1-.8.3-.7.7m6.6-3.1H4.7c-.4 0-.7.4-.7.8s.3.7.7.7h4.6c.4 0 .7-.3.7-.7 0-.5-.3-.8-.7-.8" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 105 107" id="svg-inventory">
+			<title>Inventory</title>
+			<g stroke-width="4" fill="none" fill-rule="evenodd">
+				<path d="M103.005 90H4.995a3.004 3.004 0 0 0-2.953 3.502c-.028.163-.042.33-.042.501v7.994A3.005 3.005 0 0 0 5.01 105h.98c1.66 0 3.01-1.345 3.01-3.003V96h40v5.997A3.005 3.005 0 0 0 52.01 105h.98c1.66 0 3.01-1.345 3.01-3.003V96h40v5.001A3.004 3.004 0 0 0 99.01 104h.98c1.66 0 3.01-1.343 3.01-2.999V96" stroke-linecap="round" stroke-linejoin="round" stroke="currentcolor"></path>
+				<path d="M10 58h33v25H10z" stroke="currentcolor"></path>
+				<path d="M47 51.38v4.621A2 2 0 0 1 44.995 58H8.005A2.002 2.002 0 0 1 6 55.997v-8.994C6 45.897 6.894 45 8.005 45H47" stroke-linecap="round" stroke-linejoin="round" stroke="currentcolor"></path>
+				<path d="M62 58h33v25H62z" stroke="currentcolor"></path>
+				<path d="M99 51.38v4.621A2 2 0 0 1 96.995 58h-36.99A2.002 2.002 0 0 1 58 55.997v-8.994c0-1.106.894-2.003 2.005-2.003H99" stroke-linecap="round" stroke-linejoin="round" stroke="currentcolor"></path>
+				<g>
+					<path d="M36 15h33v25H36z" stroke="currentcolor"></path>
+					<path d="M73 8.38v4.621A2 2 0 0 1 70.995 15h-36.99A2.002 2.002 0 0 1 32 12.997V4.003C32 2.897 32.894 2 34.005 2H73" stroke-linecap="round" stroke-linejoin="round" stroke="currentcolor"></path>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 58 45" id="svg-laptop">
+			<title>Laptop</title>
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-209.000000, -716.000000)" fill="currentcolor">
+					<path d="M211.584848,758.954545 L213.502141,754.505682 C214.01335,754.730682 214.57599,754.863636 215.171543,754.863636 L260.429529,754.863636 C261.025083,754.863636 261.587722,754.730682 262.098931,754.505682 L264.016224,758.954545 L211.584848,758.954545 L211.584848,758.954545 Z M213.114362,720.090909 C213.114362,718.965909 214.035979,718.045455 215.171543,718.045455 L260.429529,718.045455 C261.565093,718.045455 262.48671,718.965909 262.48671,720.090909 L262.48671,750.772727 C262.48671,751.897727 261.565093,752.818182 260.429529,752.818182 L215.171543,752.818182 C214.035979,752.818182 213.114362,751.897727 213.114362,750.772727 L213.114362,720.090909 L213.114362,720.090909 Z M266.535242,759.660227 L266.547585,759.65 L266.523928,759.598864 C266.518785,759.588636 266.514671,759.578409 266.508499,759.557955 L263.751876,753.165909 C264.244571,752.490909 264.543891,751.672727 264.543891,750.772727 L264.543891,720.090909 C264.543891,717.830682 262.701685,716 260.429529,716 L215.171543,716 C212.899387,716 211.057181,717.830682 211.057181,720.090909 L211.057181,750.772727 C211.057181,751.672727 211.356501,752.490909 211.848167,753.165909 L209.092573,759.557955 C209.08743,759.578409 209.082287,759.588636 209.077144,759.598864 L209.053487,759.65 L209.064801,759.660227 C209.029829,759.7625 209,759.864773 209,759.977273 C209,760.539773 209.45978,761 210.028591,761 L265.572482,761 C266.141292,761 266.601072,760.539773 266.601072,759.977273 C266.601072,759.864773 266.571243,759.7625 266.535242,759.660227 L266.535242,759.660227 Z"></path>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 15 13" id="svg-linkedin">
+			<title>LinkedIn</title>
+			<path d="M.357 4.454h2.76V13H.358V4.454zm10.303-.082c-1.581 0-2.572.837-2.755 1.423V4.454H4.804c.04.712 0 8.546 0 8.546h3.1V8.375c0-.257-.012-.514.068-.698.213-.514.671-1.047 1.495-1.047 1.077 0 1.566.79 1.566 1.948V13h3.13V8.248c0-2.647-1.54-3.876-3.503-3.876zM1.686.42C.666.42 0 1.06 0 1.903c0 .829.648 1.482 1.647 1.482h.02c1.038 0 1.684-.656 1.684-1.484C3.331 1.058 2.705.42 1.686.42z" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 96.5 121" id="svg-lock">
+			<title>Lock</title>
+			<path fill="currentcolor" d="M48.3,102c-2.2,0-4-1.8-4-4V80c0-2.2,1.8-4,4-4s4,1.8,4,4v18C52.3,100.2,50.5,102,48.3,102z"/>
+			<path fill="currentcolor" d="M92.5,121H4c-2.2,0-4-1.8-4-4s1.8-4,4-4h84.5V58h-80v46c0,2.2-1.8,4-4,4s-4-1.8-4-4V54c0-2.2,1.8-4,4-4h88 c2.2,0,4,1.8,4,4v63C96.5,119.2,94.7,121,92.5,121z"/>
+			<path fill="currentcolor" d="M77.3,55.7c-2.2,0-4-1.8-4-4V34.1c0-18-13-26.2-25.1-26.2C36,7.9,23.7,16,23.7,34.1v3.7c0,2.2-1.8,4-4,4 s-4-1.8-4-4v-3.7c0-23.5,16.9-34.2,32.6-34.2c16.4,0,33.1,11.7,33.1,34.2v17.6C81.3,53.9,79.6,55.7,77.3,55.7z"/>
+			<circle fill="currentcolor" cx="48.3" cy="79" r="8"/>
+		</symbol>
+		<symbol viewBox="0 0 28 28" id="svg-magnifyingglass">
+			<title>Magnifying Glass</title>
+			<g fill-rule="evenodd" fill="currentcolor">
+				<path d="M23.144 2.674C19.19-.246 13.662.137 10.16 3.638c-3.896 3.896-3.887 10.22.018 14.124 3.905 3.905 10.228 3.914 14.124.019 3.436-3.437 3.874-8.838 1.108-12.783a1 1 0 0 0-1.637 1.148c2.211 3.155 1.861 7.474-.886 10.22-3.113 3.114-8.17 3.107-11.295-.018s-3.132-8.182-.018-11.295c2.798-2.798 7.22-3.105 10.38-.77a1 1 0 1 0 1.189-1.609z"></path>
+				<path d="M17.213 3.728c-3.865 0-7 3.126-7 6.983a1 1 0 1 0 2 0c0-2.752 2.238-4.983 5-4.983a1 1 0 1 0 0-2zM11.86 18.102L4.201 25.76c-.007.007-.005.007-.01.002l-1.71-1.71s0-.008.002-.01l7.658-7.657a1 1 0 0 0-1.414-1.414L1.07 22.628a2.01 2.01 0 0 0-.002 2.838l1.71 1.71a2 2 0 0 0 2.838-.002l7.658-7.658a1 1 0 0 0-1.415-1.414z"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 30 20" id="svg-mail">
+			<title>Mail</title>
+			<path d="M27.974 4.976v13.42H1V1h27.086L14.621 12.125 4.4 3.983" stroke="currentcolor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
+		</symbol>
+		<symbol viewBox="0 0 30 45" id="svg-mobilephone">
+			<title>Mobilephone</title>
+			<g stroke-width="1" fill="none">
+				<g transform="translate(2, 2)" fill-rule="evenodd">
+					<path d="M13.2116761,33.4785214 C12.4595738,33.4785214 11.8500868,34.0868775 11.8500868,34.8375613 C11.8500868,35.5880651 12.4595738,36.1964212 13.2116761,36.1964212 C13.9637783,36.1964212 14.5732653,35.5880651 14.5732653,34.8375613 C14.5732653,34.0868775 13.9637783,33.4785214 13.2116761,33.4785214" fill="none"></path>
+					<path d="M21.7609698,0.0828222395 L2.48920317,0.0828222395 C1.12024034,0.0828222395 0,1.13723422 0,2.5068902 L0,38.2057532 C0,39.5755891 1.12024034,40.7478577 2.48920317,40.7478577 L23.9476775,40.7478577 C25.3166403,40.7478577 26.4368807,39.5755891 26.4368807,38.2057532 L26.4368807,0.0828222395" stroke="currentcolor" stroke-width="3" stroke-linecap="round"></path>
+					<path d="M1.07728062,29 L25.3607245,29" stroke="currentcolor" stroke-width="3" stroke-linecap="round"></path>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 20 20" id="svg-money">
+			<title>Money</title>
+			<path d="M7.3 7.2c0-.2.1-.7.6-1.1.3-.3.8-.4 1.3-.5V9c-2-.5-1.9-1.3-1.9-1.8zm3.4 3.7c1.6.5 1.7 1 1.7 1.8 0 .4-.1.9-1 1.3-.2.1-.5.2-.7.2v-3.3zm-.8 6.6c.4 0 .7-.3.7-.7v-1c.4-.1.8-.2 1.3-.4 1.2-.5 1.8-1.4 1.9-2.6.1-2.2-1.3-3-3.2-3.4V5.8c1.2.3 1.6 1.1 1.6 1.1.1.4.6.6.9.4.4-.1.6-.6.4-.9 0-.1-.7-1.7-3-2.1v-1c0-.4-.3-.7-.7-.7-.4 0-.7.3-.7.7v.9c-1 .1-1.7.5-2.1.8-.7.6-1.1 1.3-1.2 2.2-.1 1.7 1 2.9 3.4 3.4v3.8c-1.3-.2-2-.9-2.4-1.4-.2-.3-.7-.4-1-.1-.3.2-.4.7-.1 1 .5.7 1.6 1.8 3.6 2v.9c-.1.3.2.7.6.7zm7.8-13.4c-.2-.3-.7-.4-1-.2-.3.2-.4.7-.2 1 1.1 1.4 1.6 3.1 1.6 4.9 0 4.6-3.7 8.3-8.3 8.3s-8.3-3.7-8.3-8.3 3.7-8.3 8.3-8.3c1.8 0 3.6.6 5.1 1.7.3.2.8.2 1-.1.2-.3.2-.8-.1-1C14.1.8 12 .1 9.9.1 4.5.1.1 4.5.1 9.9s4.4 9.8 9.8 9.8 9.8-4.4 9.8-9.8c0-2.1-.7-4.1-2-5.8" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 26 34" id="svg-newdownload">
+			<title>New Download</title>
+			<path d="M23.857 10.143H16.43a.572.572 0 0 0 0 1.143h7.428v20.571H2.143V11.286H9.57a.571.571 0 1 0 0-1.143H2.143c-.632 0-1.143.511-1.143 1.143v20.571C1 32.488 1.511 33 2.143 33h21.714c.631 0 1.143-.512 1.143-1.143V11.286c0-.632-.512-1.143-1.143-1.143zM8.43 15.857a.572.572 0 0 0-.404.976l4.571 4.571a.567.567 0 0 0 .808 0l4.571-4.571a.57.57 0 0 0-.404-.976.57.57 0 0 0-.404.168l-3.596 3.596V1.57a.572.572 0 0 0-1.142 0v18.05l-3.596-3.596a.57.57 0 0 0-.404-.168z" stroke="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 75 16" id="svg-ondecklogo">
+			<title>OnDeck</title>
+			<path class="svg-ondecklogo__on" d="M12.07 10.294c0 3.424-2.588 5.635-6 5.635-3.4 0-5.964-2.2-5.964-5.6 0-3.423 2.588-5.635 6-5.635 3.4 0 5.965 2.2 5.965 5.6zM6.06 13.071c1.6 0 2.73-1.177 2.73-2.777s-1.095-2.73-2.695-2.73c-1.6 0-2.73 1.177-2.73 2.777.012 1.6 1.095 2.73 2.695 2.73zM16.87 15.659h-3.188V4.976h3.189v1.212A4.375 4.375 0 0 1 20.2 4.694c2.482 0 3.87 1.67 3.87 4.506v6.447h-3.188V9.706c0-1.365-.764-2.2-2.011-2.2-1.236 0-2.012.835-2.012 2.176v5.977h.012z"></path>
+			<path class="svg-ondecklogo__deck" d="M34.224 14.4c-.765.965-1.906 1.541-3.377 1.541-3.165 0-5.13-2.459-5.13-5.623 0-3.165 2.048-5.624 5.212-5.624 1.447 0 2.542.53 3.295 1.447V.06h3.188v15.588h-3.188V14.4zm-2.612-1.282c1.623 0 2.73-1.212 2.73-2.836 0-1.576-1.071-2.753-2.648-2.753-1.623 0-2.718 1.177-2.718 2.8.012 1.565 1.06 2.789 2.636 2.789zM39.024 10.318c0-3.377 2.482-5.624 5.811-5.624 3.2 0 5.553 2.259 5.553 5.388 0 .365-.023.753-.047 1.094h-8.035c.341 1.212 1.341 2.048 2.753 2.048 1.023 0 1.835-.389 2.565-1.212l1.964 1.917c-1.259 1.389-2.823 2.012-4.682 2.012-3.365 0-5.882-2.247-5.882-5.623zm3.329-1.212h4.718c-.26-1.047-1.177-1.753-2.33-1.753-1.235 0-2.059.718-2.388 1.753zM57.541 13.047c1 0 1.835-.53 2.459-1.341l2.153 1.918c-1.153 1.447-2.73 2.305-4.659 2.305-3.376 0-5.894-2.247-5.894-5.623 0-3.377 2.518-5.624 5.894-5.624 1.906 0 3.53.789 4.659 2.26L60 8.928c-.6-.811-1.447-1.34-2.459-1.34-1.576 0-2.67 1.152-2.67 2.729 0 1.576 1.094 2.73 2.67 2.73zM67.93 11.07l-1.306.871v3.718h-3.189V.059h3.189v8.565l6.752-4.577h.13v3.53l-2.824 1.882 3.565 6.07v.13h-3.635z" fill="#000082"></path>
+		</symbol>
+		<symbol viewBox="0 0 75 16" id="svg-ondecklogowhite">
+			<title>OnDeck</title>
+			<g class="svg-ondecklogo__on">
+				<path class="svg-ondecklogo__on" d="M12.07 10.294c0 3.424-2.588 5.635-6 5.635-3.4 0-5.964-2.2-5.964-5.6 0-3.423 2.588-5.635 6-5.635 3.4 0 5.965 2.2 5.965 5.6zM6.06 13.071c1.6 0 2.73-1.177 2.73-2.777s-1.095-2.73-2.695-2.73c-1.6 0-2.73 1.177-2.73 2.777.012 1.6 1.095 2.73 2.695 2.73zM16.87 15.659h-3.188V4.976h3.189v1.212A4.375 4.375 0 0 1 20.2 4.694c2.482 0 3.87 1.67 3.87 4.506v6.447h-3.188V9.706c0-1.365-.764-2.2-2.011-2.2-1.236 0-2.012.835-2.012 2.176v5.977h.012z" fill="currentColor"></path>
+			</g>
+			<g class="svg-ondecklogo__deck">
+				<path class="svg-ondecklogo__deck" d="M34.224 14.4c-.765.965-1.906 1.541-3.377 1.541-3.165 0-5.13-2.459-5.13-5.623 0-3.165 2.048-5.624 5.212-5.624 1.447 0 2.542.53 3.295 1.447V.06h3.188v15.588h-3.188V14.4zm-2.612-1.282c1.623 0 2.73-1.212 2.73-2.836 0-1.576-1.071-2.753-2.648-2.753-1.623 0-2.718 1.177-2.718 2.8.012 1.565 1.06 2.789 2.636 2.789zM39.024 10.318c0-3.377 2.482-5.624 5.811-5.624 3.2 0 5.553 2.259 5.553 5.388 0 .365-.023.753-.047 1.094h-8.035c.341 1.212 1.341 2.048 2.753 2.048 1.023 0 1.835-.389 2.565-1.212l1.964 1.917c-1.259 1.389-2.823 2.012-4.682 2.012-3.365 0-5.882-2.247-5.882-5.623zm3.329-1.212h4.718c-.26-1.047-1.177-1.753-2.33-1.753-1.235 0-2.059.718-2.388 1.753zM57.541 13.047c1 0 1.835-.53 2.459-1.341l2.153 1.918c-1.153 1.447-2.73 2.305-4.659 2.305-3.376 0-5.894-2.247-5.894-5.623 0-3.377 2.518-5.624 5.894-5.624 1.906 0 3.53.789 4.659 2.26L60 8.928c-.6-.811-1.447-1.34-2.459-1.34-1.576 0-2.67 1.152-2.67 2.729 0 1.576 1.094 2.73 2.67 2.73zM67.93 11.07l-1.306.871v3.718h-3.189V.059h3.189v8.565l6.752-4.577h.13v3.53l-2.824 1.882 3.565 6.07v.13h-3.635z" fill="currentColor"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 83 60" id="svg-people">
+			<title>People</title>
+			<path d="M75.54 38.102c-3.479-2.319-4.946-2.029-4.946-5.072 0-7.102 2.954-5.073 2.954-12.174 0-11.16-7.284-11.16-8.299-11.16-1.014 0-9.158 0-9.158 11.16 0 7.101 2.954 5.072 2.954 12.174 0 2.42-.323 2.565-1.963 4.087 1.406.362 1.628.594 2.866 1.029 1.207-.913 1.995-2.29 1.995-5.116 0-4.03-.785-4.363-1.845-6.13-.643-1.073-1.108-3.29-1.108-6.044 0-3.769 1.946-8.262 6.26-8.262 4.312 0 5.4 4.493 5.4 8.262 0 2.753-.648 4.97-1.292 6.043-1.06 1.768-1.662 2.102-1.662 6.13 0 3.928 2.065 5.16 3.945 6.16.666.348 1.426.754 2.29 1.32.672.448 1.311.854 1.916 1.231 2.892 1.826 2.826 2.696 3.282 5.638h-6.787c.542.913 1.023 1.87 1.402 2.898h8.462c0-8.116-1.743-8.898-6.665-12.174zm-61.4 17.972c.546-7.232 3.411-8.653 9.895-11.9 2.954-1.477 5.147-2.231 6.91-2.825 3.235-1.116 6.288-2.16 6.288-7.015 0-5.87-1.374-8.16-2.587-10.189-.984-1.637-1.761-2.927-1.761-7.203 0-11.348 5.45-13.043 8.696-13.043 3.248 0 8.695 1.695 8.695 13.043 0 4.276-.776 5.566-1.76 7.203-1.213 2.03-2.587 4.32-2.587 10.19 0 4.854 3.052 5.898 6.287 7.014 1.763.594 3.956 1.348 6.909 2.826 6.485 3.246 9.35 4.667 9.895 11.899H14.14zM60.423 41.58c-8.696-4.348-11.595-2.899-11.595-7.247 0-10.145 4.348-7.246 4.348-17.392C53.175 1 43.03 1 41.581 1c-1.45 0-11.595 0-11.595 15.942 0 10.146 4.348 7.247 4.348 17.392 0 4.348-2.899 2.899-11.594 7.247-7.559 3.782-11.595 5.797-11.595 17.391h60.871c0-11.594-4.036-13.609-11.594-17.391zm-53.061.16a69.433 69.433 0 0 0 1.915-1.233 25.716 25.716 0 0 1 2.29-1.319c1.88-1 3.946-2.232 3.946-6.16 0-4.028-.604-4.362-1.664-6.13-.643-1.072-1.288-3.29-1.288-6.043 0-3.769 1.085-8.262 5.397-8.262 4.313 0 6.26 4.493 6.26 8.262 0 2.753-.466 4.97-1.11 6.043-1.059 1.768-1.844 2.102-1.844 6.13 0 2.827.788 4.204 1.995 5.117 1.238-.435 1.46-.667 2.866-1.03-1.64-1.521-1.963-1.666-1.963-4.086 0-7.102 2.954-5.073 2.954-12.174 0-11.16-8.144-11.16-9.158-11.16-1.015 0-8.297 0-8.297 11.16 0 7.101 2.953 5.072 2.953 12.174 0 3.043-1.468 2.753-4.945 5.072C2.744 41.378 1 42.16 1 50.276h8.463c.38-1.029.86-1.985 1.402-2.898H4.077c.456-2.942.391-3.812 3.284-5.638z" stroke="currentcolor" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 23 21" id="svg-percentage">
+			<title>Percentage</title>
+			<text transform="translate(-5 -18)" fill-rule="evenodd" fill="currentcolor" font-size="29" font-weight="400"><tspan x="4" y="38">%</tspan></text>
+		</symbol>
+		<symbol viewBox="0 0 23 26" id="svg-person">
+			<title>Person</title>
+			<path d="M0 25c0-.1.1-1.3.2-1.9.7-3.9 3.2-7.5 6.7-9-1.9-1.4-3-3.7-3-6.2C3.9 3.5 7.3 0 11.6 0c4.3 0 7.7 3.5 7.7 7.8 0 2.5-1.2 4.8-3.1 6.2 3.5 1.6 6 5.2 6.7 9 .1.8-.1 1.5-.5 2-.4.7-1.2 1-2.3 1H3.9c-.5 0-1-.4-1-1s.4-1 1-1h16.2c.6 0 .8-.2.9-.2.1-.1.1-.3.1-.4-.6-3.8-3.6-7.4-7.4-8.2-.4-.1-.8-.5-.8-.9s.3-.9.7-1c2.3-.8 3.9-3 3.9-5.5 0-3.2-2.6-5.8-5.8-5.8-3.3 0-5.8 2.6-5.8 5.8 0 2.5 1.6 4.7 3.9 5.5.4.1.7.6.7 1s-.4.8-.8.9c-3.8.8-6.8 4.3-7.5 8.2-.1.4-.2 1.3-.2 1.6 0 .5-.5 1-1 1-.6 0-1-.5-1-1z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 30 26" id="svg-person2">
+			<title>Person 2</title>
+			<g stroke-width="1" fill-rule="evenodd">
+				<g transform="translate(-664.000000, -13808.000000)">
+					<g transform="translate(-170.000000, 12026.000000)">
+						<path d="M862.913571,1806.64286 L835.071429,1806.64286 L835.071429,1804.5 C835.071429,1804.07893 836.644286,1802.02179 844.336071,1799.655 L844.390179,1799.63518 C845.643214,1799.09786 846.399107,1798.32589 846.635893,1797.33964 C847.039821,1795.65696 845.718214,1794.04607 845.631429,1793.94536 C845.6175,1793.93036 844.178571,1792.41161 844.178571,1788.96429 C844.178571,1784.77929 845.575179,1783.07143 849,1783.07143 C852.424821,1783.07143 853.821429,1784.77929 853.821429,1788.96429 C853.821429,1792.41161 852.383036,1793.93036 852.338571,1793.97857 C852.282321,1794.04607 850.960714,1795.65696 851.364643,1797.33964 C851.600893,1798.32589 852.356786,1799.09786 853.609821,1799.63518 L853.663929,1799.655 C861.35625,1802.02179 862.928571,1804.07893 862.928571,1804.5 L862.913571,1806.64286 L862.913571,1806.64286 Z M854.007321,1798.63929 C853.098214,1798.245 852.560357,1797.72536 852.407143,1797.09375 C852.129107,1795.94732 853.133036,1794.70018 853.129286,1794.70018 C853.204821,1794.62411 854.892857,1792.88679 854.892857,1788.96429 C854.892857,1785.975 854.282143,1782 849,1782 C843.718393,1782 843.107143,1785.975 843.107143,1788.96429 C843.107143,1792.89107 844.798929,1794.62839 844.838036,1794.66482 C844.84875,1794.67714 845.869286,1795.9425 845.593929,1797.08946 C845.44125,1797.72268 844.903929,1798.24393 843.993214,1798.63929 C837.828214,1800.53946 834,1802.78464 834,1804.5 L834,1806.64286 C834,1807.33875 834.551786,1807.71429 835.071429,1807.71429 L862.928571,1807.71429 C863.448214,1807.71429 864,1807.33875 864,1806.64286 L864,1804.5 C864,1802.78464 860.17125,1800.53946 854.007321,1798.63929 L854.007321,1798.63929 Z" fill="currentcolor"></path>
+					</g>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 137 86" id="svg-person-x-2">
+			<title>Person x2</title>
+			<g fill-rule="evenodd" fill="currentcolor">
+				<path d="M69.003 82.827c.017-.383.171-3.799.485-5.646 1.918-11.261 9.452-21.867 19.628-26.4a22.793 22.793 0 0 1-8.853-18.048C80.263 20.2 90.4 10 102.867 10c12.463 0 22.604 10.2 22.604 22.733 0 7.273-3.43 13.931-8.978 18.15 10.076 4.58 17.616 15.165 19.505 26.354.375 2.223-.16 4.388-1.473 5.946-1.5 1.782-3.831 2.687-6.927 2.687H80.263a2.911 2.911 0 0 1-2.907-2.918 2.911 2.911 0 0 1 2.907-2.917h47.335c1.826 0 2.366-.473 2.488-.619.236-.283.245-.826.18-1.205-1.894-11.22-10.643-21.47-21.705-23.848a2.915 2.915 0 0 1-2.29-2.684 2.918 2.918 0 0 1 1.97-2.932c6.827-2.32 11.417-8.755 11.417-16.014 0-9.318-7.534-16.898-16.791-16.898-9.26 0-16.791 7.58-16.791 16.898 0 7.203 4.543 13.625 11.303 15.976a2.918 2.918 0 0 1 1.95 2.944 2.913 2.913 0 0 1-2.31 2.67c-11.144 2.313-19.881 12.56-21.802 23.844-.215 1.258-.366 3.971-.404 4.91a2.912 2.912 0 0 1-2.904 2.793c-1.73-.07-2.973-1.433-2.906-3.043zM.003 72.827c.017-.383.171-3.799.485-5.646 1.918-11.261 9.452-21.867 19.628-26.4a22.793 22.793 0 0 1-8.853-18.048C11.263 10.2 21.4 0 33.867 0 46.33 0 56.47 10.2 56.47 22.733c0 7.273-3.43 13.931-8.978 18.15 10.076 4.58 17.616 15.165 19.505 26.354.375 2.223-.16 4.388-1.473 5.946-1.5 1.782-3.831 2.687-6.927 2.687H11.263a2.911 2.911 0 0 1-2.907-2.918 2.911 2.911 0 0 1 2.907-2.917h47.335c1.826 0 2.366-.473 2.488-.619.236-.283.245-.826.18-1.205-1.894-11.22-10.643-21.47-21.705-23.848a2.915 2.915 0 0 1-2.29-2.684 2.918 2.918 0 0 1 1.97-2.932c6.827-2.32 11.417-8.755 11.417-16.014 0-9.318-7.534-16.898-16.791-16.898-9.26 0-16.791 7.58-16.791 16.898 0 7.203 4.543 13.625 11.303 15.976a2.918 2.918 0 0 1 1.95 2.944 2.913 2.913 0 0 1-2.31 2.67C16.875 46.635 8.138 56.882 6.217 68.166c-.215 1.258-.366 3.971-.404 4.91a2.912 2.912 0 0 1-2.904 2.793C1.18 75.8-.064 74.437.003 72.827z"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 13 13" id="svg-phone">
+			<title>Phone</title>
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-558.000000, -491.000000)" fill="currentcolor">
+					<g transform="translate(542.000000, 488.000000)">
+						<g transform="translate(16.000000, 3.000000)">
+							<path d="M0.452291667,1.28526667 C-0.0195,1.87351667 -1.066,4.67501667 3.417375,9.26130833 C8.14125,14.0946 11.188125,13.0600167 11.7124583,12.5161833 L8.55508333,9.3626 C8.11308333,9.802975 7.544875,9.41135 6.45395833,8.52355833 C5.73354167,7.93639167 4.90208333,7.14718333 4.18166667,6.2556 C3.67629167,5.63105833 3.22941667,4.9751 3.69091667,4.51414167 L0.452291667,1.28526667 Z" id="svg-phone_Fill-1"></path>
+							<path d="M12.8542917,11.3875667 C13.0590417,11.182275 13.0384583,10.8713583 12.852125,10.6839417 L12.852125,10.6806917 C12.852125,10.6806917 10.3880833,8.22531667 10.387,8.22423333 C10.192,8.029775 9.88,8.03410833 9.68608333,8.22531667 L8.792875,9.11960833 L11.9589167,12.2802333 C11.9589167,12.2802333 12.8532083,11.3897333 12.852125,11.38865 L12.8542917,11.3875667 Z" id="svg-phone_Fill-3"></path>
+							<path d="M4.8290125,3.3778875 C5.0337625,3.17259583 5.01480417,2.86167917 4.8290125,2.67534583 L4.8290125,2.67209583 C4.8290125,2.67209583 2.2940125,0.1457625 2.29292917,0.144679167 C2.0973875,-0.0508625 1.7853875,-0.0454458333 1.5920125,0.1457625 L0.6982625,1.04005417 L3.9352625,4.27055417 C3.9352625,4.27055417 4.8290125,3.3811375 4.8290125,3.38005417 L4.8290125,3.3778875 Z" id="svg-phone_Fill-5"></path>
+						</g>
+					</g>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 107.82 108.15" id="svg-phone2">
+			<title>Phone 2</title>
+			<g fill="currentcolor">
+				<path class="cls-1" d="M80.33,51.14a4,4,0,0,1-4-4A15.67,15.67,0,0,0,60.68,31.49a4,4,0,0,1,0-8A23.68,23.68,0,0,1,84.33,47.14,4,4,0,0,1,80.33,51.14Z"/>
+				<path class="cls-1" d="M103.82,56.19a4,4,0,0,1-4-4A44.24,44.24,0,0,0,55.63,8a4,4,0,0,1,0-8,52.25,52.25,0,0,1,52.19,52.19A4,4,0,0,1,103.82,56.19Z"/>
+				<path class="cls-1" d="M101.17,81.87c-.58-.36-1.15-.74-1.72-1.12L94,77.13,80.92,68.48a6.72,6.72,0,0,0-5.51-1.17,24.75,24.75,0,0,0-5,1.8c-2.31,1.17-4.56,2.49-6.74,3.77l-.82.48c-.53-.42-1.07-.83-1.61-1.23-.89-.67-1.73-1.31-2.54-2a172.54,172.54,0,0,1-15.52-15c-1.72-1.89-3.37-3.93-5-5.91-.73-.9-1.46-1.8-2.21-2.72.95-1.53,1.7-2.84,2.35-4.1l.52-1c1-1.9,2-3.87,2.86-5.91a7.22,7.22,0,0,0-.75-6.9l-1.59-2.41c-3.88-5.89-7.9-12-11.92-17.94a7.34,7.34,0,0,0-3-2.48A8.5,8.5,0,0,0,15.8,6.8C13.94,8.13,12,9.64,9.63,11.7a45,45,0,0,0-7.94,8.46A7.6,7.6,0,0,0,0,25.3a35.17,35.17,0,0,0,1.63,9.27c2.08,6.72,5.48,13.19,11,21A175.91,175.91,0,0,0,34.45,80.3c9.72,9.39,17.85,15.85,26.34,21a60.17,60.17,0,0,0,14.68,6.64c2.57.58,4.55.19,5.32-1.56s1-4.55-2.8-5.57c-.58-.15-1.06-.32-1.51-.48-1.36-.44-2.59-.93-3.66-1.39C65.54,95.79,58.6,91.3,50.3,84.33A191.48,191.48,0,0,1,21.17,54.23,78.55,78.55,0,0,1,9.73,34.75a32,32,0,0,1-2.05-8.3A3,3,0,0,1,8.35,24a58.15,58.15,0,0,1,4.42-4.82c1.75-1.63,3.65-3.19,5.5-4.7l1-.82a2.82,2.82,0,0,1,1.66-.85,1.29,1.29,0,0,1,.38.06.85.85,0,0,1,.2.11c3.87,5.82,8.42,12.68,12.84,19.48a1.56,1.56,0,0,1,0,.79,7,7,0,0,1-.77,2c-1.82,3.29-3.73,6.68-5.68,10.06a2.63,2.63,0,0,0,.15,3.14c.73,1,1.44,1.93,2.15,2.9,1.48,2,3,4.09,4.68,6a167.33,167.33,0,0,0,20,19.54c1.29,1.06,2.66,2,4,2.94.74.51,1.48,1,2.2,1.56a2.53,2.53,0,0,0,3,.1q5.05-2.9,10.14-5.74a11.73,11.73,0,0,1,1.55-.67,1.76,1.76,0,0,1,1.82.26q6.86,4.63,13.77,9.2l4.73,3.14c.68.45.68.68.36,1.3a12.62,12.62,0,0,1-1.37,2,79.09,79.09,0,0,1-6.92,7.76l-.55.57c-2.14,2.14-3.15,3.8-1.63,5.92,1.37,1.92,3.7,1.87,5.94.37a66.53,66.53,0,0,0,10.45-11.73,12.33,12.33,0,0,0,1.81-4.34A7.38,7.38,0,0,0,101.17,81.87Z"/>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 91 91" id="svg-play">
+			<title>Play</title>
+			<path d="M45.5 91C70.629 91 91 70.629 91 45.5S70.629 0 45.5 0 0 20.371 0 45.5 20.371 91 45.5 91zm16.028-49.605c2.997 2.443 3.002 6.4 0 8.848L40.815 67.131c-2.997 2.444-5.426 1.282-5.426-2.571V27.078c0-3.864 2.424-5.02 5.426-2.572l20.713 16.889z" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 35 52" id="svg-power">
+			<title>Power</title>
+			<path d="M7.602 50.355a1.642 1.642 0 0 1-.41-1.25l2.264-19.81h-6.85a1.643 1.643 0 0 1-1.57-1.984L5.613 7.723A1.633 1.633 0 0 1 8.43 6.696c.45.47.576 1.165.324 1.766l-4.112 17.6h6.62a1.642 1.642 0 0 1 1.603 1.798l-1.863 16.346 16.823-19.76h-6.478a1.635 1.635 0 0 1-1.37-.805 1.643 1.643 0 0 1-.043-1.59l9.756-17.814H8.67A1.64 1.64 0 0 1 7.3 2.618c0-.803.58-1.487 1.37-1.618h23.734c.564.014 1.08.318 1.368.805.287.486.304 1.087.044 1.59l-9.756 17.81h7.248c.62.017 1.178.386 1.438.95.26.567.178 1.23-.21 1.716L10.012 50.33c-.312.35-.76.55-1.227.547-.446.02-.88-.178-1.184-.52z" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 31 31" id="svg-ratingstar">
+			<title>Rating Star</title>
+			<rect fill="currentcolor" x="0" y="0" width="31" height="31" rx="5"></rect>
+			<polygon fill="#FFFFFF" points="16 21.27 22.18 25 20.54 17.97 26 13.24 18.81 12.63 16 6 13.19 12.63 6 13.24 11.46 17.97 9.82 25"></polygon>
+		</symbol>
+		<symbol viewBox="0 0 32 45" id="svg-resume">
+			<title>Resume</title>
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-237.000000, -2740.000000)" fill="currentcolor">
+					<path d="M242.6,2775.35714 L263.4,2775.35714 C263.8424,2775.35714 264.2,2774.99554 264.2,2774.55357 C264.2,2774.11161 263.8424,2773.75 263.4,2773.75 L242.6,2773.75 C242.1576,2773.75 241.8,2774.11161 241.8,2774.55357 C241.8,2774.99554 242.1576,2775.35714 242.6,2775.35714 L242.6,2775.35714 Z M242.6,2770.53571 L263.4,2770.53571 C263.8424,2770.53571 264.2,2770.17411 264.2,2769.73214 C264.2,2769.29018 263.8424,2768.92857 263.4,2768.92857 L242.6,2768.92857 C242.1576,2768.92857 241.8,2769.29018 241.8,2769.73214 C241.8,2770.17411 242.1576,2770.53571 242.6,2770.53571 L242.6,2770.53571 Z M242.6,2780.17857 L258.6,2780.17857 C259.0424,2780.17857 259.4,2779.81696 259.4,2779.375 C259.4,2778.93304 259.0424,2778.57143 258.6,2778.57143 L242.6,2778.57143 C242.1576,2778.57143 241.8,2778.93304 241.8,2779.375 C241.8,2779.81696 242.1576,2780.17857 242.6,2780.17857 L242.6,2780.17857 Z M242.6,2760.89286 L263.4,2760.89286 C263.8424,2760.89286 264.2,2760.53125 264.2,2760.08929 C264.2,2759.64732 263.8424,2759.28571 263.4,2759.28571 L242.6,2759.28571 C242.1576,2759.28571 241.8,2759.64732 241.8,2760.08929 C241.8,2760.53125 242.1576,2760.89286 242.6,2760.89286 L242.6,2760.89286 Z M238.6,2741.60714 L267.4,2741.60714 L267.4,2783.39286 L238.6,2783.39286 L238.6,2741.60714 Z M267.4,2740 L238.6,2740 C237.716,2740 237,2740.72321 237,2741.60714 L237,2783.39286 C237,2784.27679 237.716,2785 238.6,2785 L267.4,2785 C268.2832,2785 269,2784.27679 269,2783.39286 L269,2741.60714 C269,2740.72321 268.2832,2740 267.4,2740 L267.4,2740 Z M242.6,2765.71429 L263.4,2765.71429 C263.8424,2765.71429 264.2,2765.35268 264.2,2764.91071 C264.2,2764.46875 263.8424,2764.10714 263.4,2764.10714 L242.6,2764.10714 C242.1576,2764.10714 241.8,2764.46875 241.8,2764.91071 C241.8,2765.35268 242.1576,2765.71429 242.6,2765.71429 L242.6,2765.71429 Z M256.2,2746.42857 L262.6,2746.42857 L262.6,2754.46429 L256.2,2754.46429 L256.2,2746.42857 Z M255.4,2756.07143 L263.4,2756.07143 C263.8424,2756.07143 264.2,2755.70982 264.2,2755.26786 L264.2,2745.625 C264.2,2745.18304 263.8424,2744.82143 263.4,2744.82143 L255.4,2744.82143 C254.9576,2744.82143 254.6,2745.18304 254.6,2745.625 L254.6,2755.26786 C254.6,2755.70982 254.9576,2756.07143 255.4,2756.07143 L255.4,2756.07143 Z M242.6,2756.07143 L250.6,2756.07143 C251.0424,2756.07143 251.4,2755.70982 251.4,2755.26786 C251.4,2754.82589 251.0424,2754.46429 250.6,2754.46429 L242.6,2754.46429 C242.1576,2754.46429 241.8,2754.82589 241.8,2755.26786 C241.8,2755.70982 242.1576,2756.07143 242.6,2756.07143 L242.6,2756.07143 Z M242.6,2746.42857 L250.6,2746.42857 C251.0424,2746.42857 251.4,2746.06696 251.4,2745.625 C251.4,2745.18304 251.0424,2744.82143 250.6,2744.82143 L242.6,2744.82143 C242.1576,2744.82143 241.8,2745.18304 241.8,2745.625 C241.8,2746.06696 242.1576,2746.42857 242.6,2746.42857 L242.6,2746.42857 Z M242.6,2751.25 L250.6,2751.25 C251.0424,2751.25 251.4,2750.88839 251.4,2750.44643 C251.4,2750.00446 251.0424,2749.64286 250.6,2749.64286 L242.6,2749.64286 C242.1576,2749.64286 241.8,2750.00446 241.8,2750.44643 C241.8,2750.88839 242.1576,2751.25 242.6,2751.25 L242.6,2751.25 Z"></path>
+				</g>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 37 36" id="svg-rocket">
+			<title>Rocket</title>
+			<g stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="transparent" stroke="currentcolor">
+				<path d="M32.1 12.9c-4.5 4.4-9 8.8-13.4 13.3l-.9.9M25.6 14c-.6.6-1.6.6-2.2 0-.6-.6-.6-1.5 0-2.1.6-.6 1.6-.6 2.2 0 .6.6.6 1.6 0 2.1m0 0c-.6.6-1.6.6-2.2 0-.6-.6-.6-1.5 0-2.1.6-.6 1.6-.6 2.2 0 .6.6.6 1.6 0 2.1zm-1-9.2L18.2 11H9.5m8.3 16l-7.5-8.2-8.3.3L9.5 11m8.3 16.1v7.6m7.8-15.4L26 27m0 0l-8.2 7.7M3.5 32.9l6.4-3.4 1.5 3.7 2.2-5.4-4.3-4.1m-5.8 9.2L7.3 27l-3.8-1.5 5.9-1.8M32.8 1.9c2.4-.1 2.8 2.3 2.7 4.2-.1 1.2-.4 2.3-.9 3.3C33.9 10.7 33 12 32 13m-7.4-8.2s1.7-2 4.3-3M18.2 11l-7.9 7.9"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 30 30" id="svg-share-email">
+			<title>Share with Email</title>
+			<g fill-rule="evenodd" fill="currentcolor">
+				<ellipse cx="15" cy="15" rx="15" ry="15"></ellipse>
+				<path d="M21.857 20.143v-6.857c-.187.214-.393.41-.616.589a122.481 122.481 0 0 0-3.803 3.018c-.67.562-1.5 1.25-2.43 1.25h-.017c-.928 0-1.759-.688-2.428-1.25a122.481 122.481 0 0 0-3.804-3.018 4.807 4.807 0 0 1-.616-.59v6.858c0 .152.134.286.286.286H21.57a.294.294 0 0 0 .286-.286zm0-9.384c0-.223.054-.616-.286-.616H8.43a.294.294 0 0 0-.286.286c0 1.017.509 1.901 1.312 2.535 1.197.938 2.393 1.884 3.58 2.83.474.385 1.331 1.206 1.956 1.206h.018c.625 0 1.482-.821 1.955-1.205a553.632 553.632 0 0 1 3.58-2.83c.581-.456 1.313-1.447 1.313-2.206zm1.143-.33v9.714c0 .786-.643 1.428-1.429 1.428H8.43A1.433 1.433 0 0 1 7 20.143v-9.714C7 9.643 7.643 9 8.429 9H21.57C22.357 9 23 9.643 23 10.429z" fill="#fff" stroke="#fff" stroke-width=".5"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 30 30" id="svg-share-linkedin">
+			<title>Share on Linkedin</title>
+			<path d="M22.5 21.17h-3.216v-5.176c0-1.3-.465-2.188-1.629-2.188-.888 0-1.418.6-1.65 1.177-.085.208-.106.493-.106.784v5.402h-3.215s.042-8.766 0-9.672H15.9v1.37c.428-.661 1.192-1.597 2.898-1.597 2.115 0 3.703 1.38 3.703 4.353v5.546zM9.297 10.174h-.021c-1.079 0-1.776-.743-1.776-1.672 0-.948.72-1.671 1.818-1.671 1.1 0 1.778.723 1.798 1.671 0 .929-.698 1.672-1.819 1.672zM7.69 21.169h3.217v-9.672H7.689v9.672zM15 0C6.715 0 0 6.716 0 15c0 8.286 6.715 15 15 15 8.284 0 15-6.714 15-15 0-8.284-6.716-15-15-15z" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 30 30" id="svg-share-twitter">
+			<title>Share on Twitter</title><path d="M20.964 11.942c.007.132.01.264.01.397 0 4.067-3.096 8.757-8.757 8.757A8.706 8.706 0 0 1 7.5 19.713c.242.028.487.042.734.042 1.443 0 2.768-.49 3.821-1.316a3.08 3.08 0 0 1-2.873-2.137 3.105 3.105 0 0 0 1.388-.053 3.082 3.082 0 0 1-2.467-3.018v-.038c.415.23.89.368 1.394.385a3.076 3.076 0 0 1-1.369-2.562c0-.564.152-1.094.416-1.547a8.732 8.732 0 0 0 6.343 3.214 3.08 3.08 0 0 1 5.245-2.806c.7-.137 1.36-.394 1.955-.748a3.087 3.087 0 0 1-1.354 1.704 6.136 6.136 0 0 0 1.767-.484 6.233 6.233 0 0 1-1.536 1.593zM0 15c0 8.286 6.716 15 15 15 8.284 0 15-6.714 15-15 0-8.284-6.716-15-15-15C6.716 0 0 6.716 0 15z" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 38 34" id="svg-shop">
+			<title>Shop</title>
+			<path d="M35.7 13h-1.3c-1.3 0-1.3 1.3-2.6 1.3S30.5 13 29.2 13H28c-1.3 0-1.3 1.3-2.6 1.3S24.1 13 22.9 13h-1.3c-1.3 0-1.3 1.3-2.6 1.3S17.7 13 16.4 13h-1.3c-1.3 0-1.3 1.3-2.6 1.3S11.3 13 10 13H8.7c-1.3 0-1.3 1.3-2.6 1.3S4.9 13 3.6 13H2.3v-1.3h33.4V13zM9.6 5h18.8l6.2 5.3H3.4L9.6 5zm.4-2.7h18v1.3H10V2.3zm26.8 8.2L29.3 4V1.7c0-.4-.3-.7-.7-.7H9.4c-.4 0-.7.3-.7.7V4l-7.5 6.5c-.1.1-.2.3-.2.5v2.7c0 .4.3.7.6.7h1.9c.6 0 1.3 1.3 2.6 1.3s1.9-1.3 2.6-1.3H10c.6 0 1.3 1.3 2.6 1.3s1.9-1.3 2.6-1.3h1.3c.6 0 1.3 1.3 2.6 1.3s1.9-1.3 2.6-1.3H23c.6 0 1.3 1.3 2.6 1.3s1.9-1.3 2.6-1.3h1.3c.6 0 1.3 1.3 2.6 1.3s1.9-1.3 2.6-1.3h1.9c.4 0 .6-.3.6-.7V11c-.2-.2-.3-.4-.4-.5zm-3.7 21.2H4.9v-3L9.6 25h18.9l4.7 3.7v3h-.1zm0-4.7L29 23.8c-.1-.1-.2-.1-.4-.1H9.4c-.1 0-.3.1-.4.1L4.9 27V17H3.6v14.7c0 .7.6 1.3 1.3 1.3h28.3c.7 0 1.3-.6 1.3-1.3V17h-1.3v10h-.1z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 68 52" id="svg-speedometer">
+			<title>Speedometer</title>
+			<g transform="translate(2, 2)">
+				<path d="M59.8057806,48.5132705 C62.7474929,43.7047138 64.441083,38.0620873 64.441083,32.0275 C64.441083,24.9502071 62.1116211,18.4122447 58.1713635,13.1260967" stroke="currentcolor" stroke-width="3" stroke-linecap="round" fill="none"></path>
+				<path d="M51.8064182,6.71442753 C46.4040134,2.62261258 39.6530356,0.191840786 32.3294152,0.191840786 C14.5944383,0.191840786 0.21753257,14.4453037 0.21753257,32.0274763 C0.21753257,38.0620636 1.91112276,43.7046902 4.85307361,48.5132469" stroke="currentcolor" stroke-width="3" stroke-linecap="round" fill="none"></path>
+				<path d="M32.2300378,31.9757432 L48.8769939,15.4719949" stroke="currentcolor" stroke-width="3" stroke-linecap="round"></path>
+				<ellipse cx="10.5671481" cy="40.7732274" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+				<ellipse cx="10.5671481" cy="22.8727861" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+				<ellipse cx="23.398685" cy="10.4419241" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+				<ellipse cx="41.2621973" cy="10.6905413" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+				<ellipse cx="53.8421355" cy="23.1214033" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+				<ellipse cx="53.8421355" cy="41.0218446" rx="2.51598764" ry="2.4861724" stroke="currentcolor" fill="currentcolor"></ellipse>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 24 23" id="svg-star">
+			<title>Star</title>
+			<path d="M18.908 22.95a.821.821 0 0 1-.483-.157L12 18.124l-6.425 4.669a.822.822 0 0 1-1.265-.92l1.784-5.49a.821.821 0 1 1 1.564.508l-1.003 3.084 4.862-3.532a.822.822 0 0 1 .966 0l4.864 3.534-1.86-5.74a.822.822 0 0 1 .298-.917l4.872-3.555h-6.018a.822.822 0 0 1-.782-.568L12 3.482l-1.857 5.715a.822.822 0 0 1-.782.568H3.344l4.871 3.555a.822.822 0 1 1-.97 1.328L.339 9.608A.822.822 0 0 1 .822 8.12h7.942L11.218.568a.822.822 0 0 1 1.564 0l2.454 7.553h7.942a.822.822 0 0 1 .484 1.486l-6.427 4.69 2.455 7.577a.822.822 0 0 1-.782 1.076" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 17 16" id="svg-star2">
+			<title>Star 2</title>
+			<path d="M16.7,6.2c0-0.3-0.3-0.4-0.6-0.5l-4.9-0.4L9,0.8C8.8,0.2,8.6,0,8.4,0C8.1,0,8,0.2,7.9,0.4L5.6,5  l-5,0.7C0.3,5.8,0,5.9,0,6.2c0,0.2,0.1,0.4,0.3,0.5l3.7,3.6l-0.9,5c0,0.1,0,0.1,0,0.2c0,0.3,0.1,0.5,0.4,0.5c0.1,0,0.3-0.1,0.4-0.1  l4.5-2.4l4.5,2.4c0.1,0.1,0.3,0.1,0.4,0.1c0.3,0,0.4-0.2,0.4-0.5c0-0.1,0-0.1,0-0.2l-0.9-5l3.6-3.6C16.6,6.5,16.7,6.4,16.7,6.2z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 9 16" id="svg-star2-half">
+			<title>Star 2 Half</title>
+			<path d="M8.4,0C8.1,0,8,0.2,7.9,0.4L5.6,5l-5,0.7C0.3,5.8,0,5.9,0,6.2c0,0.2,0.1,0.4,0.3,0.5l3.7,3.6  l-0.9,5c0,0.1,0,0.1,0,0.2c0,0.3,0.1,0.5,0.4,0.5c0.1,0,0.3-0.1,0.4-0.1l4.5-2.4V0z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 30 30" id="svg-support">
+			<title>Support</title>
+			<path d="M14.8,29.1c-1.7,0-3-1.2-3-2.9s1.3-3,3-3h2.5c1.2,0,2.2,0.7,2.7,1.7c1.6-0.9,2.8-2.3,3.4-3.9c-0.5-0.3-0.6-0.8-0.6-1.1v-8  c0-0.4,0.2-1.1,1-1.2c-0.1-4.7-4-8.5-8.7-8.5S6.5,6,6.4,10.7c0.8,0.1,1,0.8,1,1.2v8c0,0.4-0.3,1.2-1.2,1.2H5c-2.3,0-4.2-1.9-4.2-4.2  v-2c0-2.3,1.8-4.1,4-4.2c0.1-5.5,4.7-10,10.2-10c5.6,0,10.1,4.5,10.2,10c2.2,0.1,4,2,4,4.2v2c0,2.3-1.9,4.2-4.2,4.2h-0.1  c-0.7,2.2-2.4,4.1-4.7,5.3c-0.1,1.5-1.4,2.7-3,2.7H14.8L14.8,29.1z M14.8,24.8c-0.8,0-1.4,0.7-1.4,1.4c0,0.4,0.1,0.8,0.4,1.1  c0.3,0.3,0.6,0.5,1,0.5h2.5c0.8,0,1.4-0.7,1.4-1.4c0-0.4-0.1-0.8-0.4-1.1c-0.3-0.3-0.6-0.5-1-0.5H14.8z M25,19.8  c0.7,0.1,1.5-0.3,2-0.8c0.7-0.7,0.8-1.5,0.8-2.5c0-1,0.1-2-0.4-2.9C27,12.7,26,12.2,25,12.2c0,0-0.8,0-0.8,0v7.5  C24.2,19.7,25,19.8,25,19.8z M5,12.2c-1.5,0-2.8,1.2-2.8,2.8v2c0,1.5,1.2,2.8,2.8,2.8h0.8v-7.5L5,12.2z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 25 29" id="svg-telephone">
+			<title>Telephone</title>
+			<path d="M14.988 27.059c1.465.568 2.797.785 3.777.452 3.388-1.15 4.738-3.302 4.696-5.165-1.1-1.514-5.68-4.024-5.68-4.024l-3.726 2.707s-2.22-.874-4.916-4.585c-2.554-3.585-2.693-5.875-2.693-5.875l3.725-2.706S9.199 2.73 8.099 1.217C6.341.6 3.877 1.22 1.736 4.087-.405 6.952 2.55 16.023 5.18 19.643c2.63 3.62 4.635 4.715 7.075 6.185" stroke-width="2" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 52 40" id="svg-twitter">
+			<title>Twitter</title>
+			<path d="M47.507 2.374a17.735 17.735 0 0 1-5.715 2.234 8.867 8.867 0 0 0-6.564-2.91c-4.963 0-8.99 4.129-8.99 9.221 0 .724.077 1.426.232 2.101-7.475-.385-14.1-4.053-18.539-9.638a9.385 9.385 0 0 0-1.217 4.64c0 3.198 1.587 6.022 4.002 7.676a8.83 8.83 0 0 1-4.077-1.15v.113c0 4.47 3.1 8.198 7.218 9.043a8.617 8.617 0 0 1-2.37.324c-.58 0-1.144-.055-1.692-.164 1.144 3.662 4.464 6.33 8.4 6.401-3.077 2.475-6.957 3.95-11.17 3.95-.725 0-1.443-.042-2.145-.126 3.98 2.612 8.71 4.14 13.787 4.14 16.543 0 25.587-14.051 25.587-26.238 0-.401-.007-.803-.022-1.196a18.45 18.45 0 0 0 4.484-4.773 17.543 17.543 0 0 1-5.164 1.451 9.205 9.205 0 0 0 3.955-5.099" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 65 15" id="svg-two-arrows">
+			<title>Bi-directional arrow</title>
+			<g fill="none" fill-rule="evenodd">
+				<path fill="currentcolor" d="M15 0v15L0 7.5zM50 15V0l15 7.5z"></path>
+				<path d="M11.5 7.5h43.012" stroke="currentcolor" stroke-width="3" stroke-linecap="square"></path>
+			</g>
+		</symbol>
+		<symbol viewBox="0 0 16 24" id="svg-up-arrow">
+			<title>Up Arrow</title>
+			<path d="M11.557 23.514H5.275c-.876 0-1.645-.71-1.645-1.55V10.942c0-.063-.01-.097-.019-.102H1.196c-.51 0-.906-.22-1.094-.604-.187-.383-.114-.833.198-1.234L6.896.538A1.368 1.368 0 0 1 7.986 0h.001c.418 0 .815.185 1.089.536l6.607 8.473c.312.402.384.847.197 1.23-.188.384-.588.6-1.097.6h-2.425c-.046 0-.094.06-.094.102v9.266a.735.735 0 0 1-1.47 0v-9.266a1.58 1.58 0 0 1 1.564-1.572h1.748L7.987 1.514l-6.11 7.855h1.739c.847 0 1.484.69 1.484 1.572v11.024c0 .022.098.08.175.08h6.282a.735.735 0 0 1 0 1.47" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 69 69" id="svg-user">
+			<title>User</title>
+			<path d="M57.158 57.148c-5.298-4.715-11.486-6.764-12.861-7.174-3.904-3.272-2.323-6.918.53-12.073.43-.781.851-1.544 1.22-2.28 2.115-4.227 1.744-6.902 1.426-7.98.823-3.039 1.553-11.479-2.706-16.077-2.535-2.74-6.251-3.532-11.063-2.369-5.071.031-8.76 1.601-10.97 4.665-3.81 5.285-1.805 13.194-1.255 15.052-1.072 3.809 1.111 6.444 1.57 6.946.52.718 6.328 9.049 1.464 14.2l-1.66.736c-5.025 2.221-8.501 3.774-11.373 5.956-5.572-5.765-9.016-13.6-9.016-22.25 0-17.692 14.344-32.036 32.036-32.036S66.536 16.808 66.536 34.5c0 8.844-3.583 16.85-9.378 22.648zM34.5 0C15.446 0 0 15.446 0 34.5 0 53.554 15.446 69 34.5 69 53.554 69 69 53.554 69 34.5 69 15.446 53.554 0 34.5 0zm0 66.536c-8.15 0-15.567-3.068-21.221-8.082 2.563-1.86 5.769-3.284 10.57-5.405l2.093-.927.16-.163c6.837-6.838-.79-17.192-1.118-17.628l-.114-.132c-.02-.02-1.914-1.96-.936-4.9l.131-.39-.13-.389c-.026-.082-2.71-8.36.804-13.225 1.741-2.412 4.808-3.635 9.117-3.635l.298-.037c3.94-.983 6.901-.443 8.805 1.614 3.477 3.757 2.875 11.573 2.05 14.05l-.137.48.19.433c.009.021.878 2.123-1.219 6.32-.352.706-.759 1.438-1.173 2.187-2.447 4.427-5.797 10.487.273 15.344l.2.159.247.067c.091.024 6.512 1.839 11.926 6.545-5.602 4.798-12.863 7.714-20.816 7.714z" fill="currentcolor" fill-rule="evenodd"></path>
+		</symbol>
+		<symbol viewBox="0 0 23 23" id="svg-wrench">
+			<title>Wrench</title>
+			<path d="M22.462 8.317c.001-.017.005-.033.005-.05V4.04a.735.735 0 0 0-.734-.734.725.725 0 0 0-.197.03.727.727 0 0 0-.414.205L18.3 6.362v.001a1.554 1.554 0 0 1-1.107.458c-.418 0-.81-.162-1.106-.458a1.554 1.554 0 0 1-.459-1.106c0-.418.163-.811.459-1.107l2.821-2.821a.733.733 0 0 0 .165-.255.724.724 0 0 0 .087-.34.735.735 0 0 0-.735-.734H14.2c-.023 0-.045.005-.067.007a.731.731 0 0 0-.59.208L10.3 3.46a.733.733 0 0 0-.215.52l-.039 4.134-9.159 9.16a3.038 3.038 0 0 0 0 4.29 3.025 3.025 0 0 0 2.146.888c.777 0 1.554-.296 2.145-.888a.735.735 0 0 0-1.039-1.039 1.554 1.554 0 0 1-1.106.458c-.418 0-.811-.162-1.106-.458a1.555 1.555 0 0 1-.459-1.106c0-.418.163-.811.459-1.107l9.247-9.247a.756.756 0 0 0 .34-.621l.038-4.157 2.816-2.816h2.322L15.048 3.11a3.015 3.015 0 0 0-.888 2.146c0 .81.315 1.572.888 2.145a3.015 3.015 0 0 0 2.146.889 3.014 3.014 0 0 0 2.145-.889l1.659-1.658v2.322l-2.845 2.845-3.963.046a.733.733 0 0 0-.68.196l-7.553 7.553a.735.735 0 0 0 1.04 1.04l7.257-7.258 4.224-.077a.728.728 0 0 0 .597-.344l3.177-3.177a.73.73 0 0 0 .21-.573" fill-rule="evenodd" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 38 32" id="svg-twopeople">
+			<title>Two People</title>
+			<path d="M37.024 28.693c-.062-3.485-2.676-4.675-4.584-5.544-.526-.24-1.023-.467-1.374-.702a16.473 16.473 0 0 0-.93-.57c-1.135-.661-1.604-.934-1.604-2.862 0-2.436 1.985-4.014 2.003-4.029l.125-.095.069-.141c.677-1.396.372-2.583.139-3.148 1.453-3.296-.304-6.025-.708-6.586-.981-2.825-3.067-3.421-4.654-3.421-1.868 0-3.529.824-3.548.837-.025.01-.044.024-.068.034.135.274.268.552.38.854.062.093.137.212.216.342l.017-.009c.014-.007 1.446-.718 3.003-.718 1.724 0 2.845.854 3.427 2.611l.038.113.072.092c.081.103 1.972 2.575.492 5.554l-.159.336.187.314c.023.038.528.915.027 2.08-.53.456-2.39 2.255-2.39 4.98 0 2.702 1.053 3.314 2.271 4.022.264.154.55.32.857.526.441.296.987.544 1.564.808 1.598.728 3.39 1.544 3.74 3.664h-6.014c.211.407.385.853.518 1.34h6.899l-.011-.682zM1.36 30.677c.401-3.442 3.92-4.6 5.862-5.238l.263-.087c1.969-.656 4.42-1.474 4.42-5.257 0-3.247-2.277-5.304-2.805-5.737-.142-.255-.562-1.205.094-2.575l.134-.279-.128-.28c-.014-.032-1.453-3.255-.358-5.983.549-1.365 1.662-2.391 3.358-3.072.017-.009 1.726-.846 3.562-.846 2.07 0 3.416 1.016 4.113 3.109l.037.112.074.092c.024.03 2.36 3.017.586 6.565l-.166.333.197.316c.008.01.667 1.089.026 2.538-.577.488-2.772 2.555-2.772 5.707 0 2.92.985 3.638 2.594 4.567.31.179.648.373 1.007.613.508.338 1.14.625 1.811.929 1.93.873 4.097 1.854 4.458 4.473H1.36zM23.815 25c-.62-.281-1.205-.546-1.623-.824-.386-.258-.747-.466-1.08-.659-1.327-.766-1.933-1.116-1.933-3.42 0-2.887 2.364-4.75 2.387-4.766l.123-.096.07-.14c.791-1.62.404-2.986.14-3.602 1.723-3.82-.362-6.98-.805-7.583C19.972.68 17.58 0 15.762 0c-2.156 0-4.072.946-4.103.963-1.995.798-3.356 2.072-4.043 3.786-1.112 2.766-.104 5.806.261 6.739-.894 2.161.137 3.638.184 3.703l.139.142c.023.017 2.382 1.84 2.382 4.762 0 2.83-1.551 3.348-3.516 4.002l-.257.085C4.599 24.91 0 26.422 0 31.339V32h29.112l-.012-.673c-.07-3.968-3.085-5.332-5.285-6.328z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 313 121" id="svg-smartbox">
+			<title>Smartbox</title>
+			<g fill-rule="evenodd" fill="currentcolor">
+				<path d="M112.217 85.858v25.872H10.246V9.759h101.971v25.774h9.27V.489H.976V121h120.511V85.858h-9.27"></path>
+				<path d="M32.641 70.597l4.581-5.469c2.927 2.332 6.191 3.562 9.626 3.562 2.206 0 3.393-.764 3.393-2.035v-.086c0-1.23-.976-1.907-5.004-2.841-6.318-1.44-11.196-3.223-11.196-9.329v-.085c0-5.512 4.368-9.497 11.493-9.497 5.045 0 8.989 1.355 12.213 3.942l-4.114 5.808c-2.714-1.907-5.682-2.924-8.312-2.924-1.992 0-2.968.849-2.968 1.909v.082c0 1.359 1.017 1.953 5.131 2.886 6.828 1.484 11.069 3.688 11.069 9.243v.086c0 6.062-4.793 9.669-12.002 9.669-5.258 0-10.262-1.654-13.91-4.921M64.229 45.324h8.692l7.082 11.491 7.081-11.491h8.693v29.684h-8.183V57.961L80.003 69.58h-.17l-7.549-11.533v16.961h-8.055V45.324M120.194 63.303l-3.307-8.437-3.351 8.437h6.658zm-7.21-18.192h7.931l12.636 29.897h-8.819l-2.163-5.301h-11.45l-2.12 5.301h-8.652l12.637-29.897zM151.777 59.574c2.798 0 4.411-1.359 4.411-3.521v-.086c0-2.333-1.697-3.52-4.454-3.52h-5.384v7.127h5.427zm-13.653-14.25h14.034c4.538 0 7.677 1.187 9.669 3.222 1.74 1.699 2.63 3.987 2.63 6.914v.084c0 4.537-2.417 7.548-6.108 9.118l7.082 10.346h-9.499l-5.978-8.991h-3.604v8.991h-8.226V45.324zM177.552 52.533h-8.903v-7.209h26.036v7.209h-8.905v22.475h-8.228V52.533M222.316 66.726c0-3.267-2.714-5.131-7.888-5.131h-9.372v10.473h9.965c4.495 0 7.295-1.993 7.295-5.342zm-1.654-13.443c0-2.97-2.333-4.877-6.574-4.877h-9.032v10.219h8.778c4.028 0 6.828-1.824 6.828-5.342zm3.392-.467c0 3.902-2.375 5.895-4.708 6.912 3.521 1.061 6.361 3.097 6.361 7.209 0 5.131-4.281 8.142-10.769 8.142h-13.19V45.395h12.637c5.854 0 9.669 2.884 9.669 7.421zM246.991 47.982c-6.785 0-11.619 5.428-11.619 12.213 0 6.785 4.918 12.297 11.703 12.297 6.785 0 11.62-5.428 11.62-12.213 0-6.785-4.919-12.297-11.704-12.297zm0 27.606c-9.032 0-15.096-7.081-15.096-15.309 0-8.226 6.148-15.394 15.18-15.394s15.097 7.084 15.097 15.31-6.148 15.393-15.181 15.393zM288.581 75.079l-9.499-12.764-9.499 12.764h-3.858l11.406-15.138-10.982-14.546h3.944l9.118 12.129 9.032-12.129h3.901l-10.983 14.503 11.407 15.181h-3.987M301.878 52.227h-.781v-6.116h-2.291v-.712h5.365v.712h-2.293v6.116M309.284 50.352h-.039l-2.487-3.647v5.522h-.751v-6.828h.78l2.486 3.725 2.489-3.725h.78v6.828h-.772v-5.53l-2.486 3.655"></path>
+			</g>
+		</symbol>
+
+		<symbol viewBox="0 0 2048 2048" id="shape-search">
+			<title>Search Icon</title>
+			<path d="M1344 960q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="84.3 32.3 47.4 81.3" id="shape-angle-left">
+			<title>angle-left</title>
+			<path d="M98.9,73l32-32c0.5-0.5,0.8-1.2,0.8-1.9s-0.3-1.3-0.8-1.9l-4.1-4.1c-0.5-0.5-1.2-0.8-1.9-0.8c-0.7,0-1.3,0.3-1.9,0.8l-38,38 c-0.5,0.5-0.8,1.2-0.8,1.9s0.3,1.3,0.8,1.9l38,38c0.5,0.5,1.2,0.8,1.9,0.8c0.7,0,1.3-0.3,1.9-0.8l4.1-4.1c0.5-0.5,0.8-1.2,0.8-1.9 c0-0.7-0.3-1.3-0.8-1.9L98.9,73z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="717 589 582 998" id="shape-angle-right">
+			<title>angle-right</title>
+			<path d="M1299,1088c0,8.7-3.3,16.3-10,23l-466,466c-6.7,6.7-14.3,10-23,10s-16.3-3.3-23-10l-50-50c-6.7-6.7-10-14.3-10-23 s3.3-16.3,10-23l393-393L727,695c-6.7-6.7-10-14.3-10-23s3.3-16.3,10-23l50-50c6.7-6.7,14.3-10,23-10s16.3,3.3,23,10l466,466 C1295.7,1071.7,1299,1079.3,1299,1088z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 2048 2048" id="shape-comment-o">
+			<title>comment-o</title>
+			<path d="M1024 512q-204 0-381.5 69.5t-282 187.5-104.5 255q0 112 71.5 213.5t201.5 175.5l87 50-27 96q-24 91-70 172 152-63 275-171l43-38 57 6q69 8 130 8 204 0 381.5-69.5t282-187.5 104.5-255-104.5-255-282-187.5-381.5-69.5zm896 512q0 174-120 321.5t-326 233-450 85.5q-70 0-145-8-198 175-460 242-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10 4.5-9.5l6-9 7-8.5 8-9q7-8 31-34.5t34.5-38 31-39.5 32.5-51 27-59 26-76q-157-89-247.5-220t-90.5-281q0-174 120-321.5t326-233 450-85.5 450 85.5 326 233 120 321.5z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 44 45" id="shape-facebook">
+			<title>Facebook</title>
+			<path d="M41.3 44.188H30.235V27.376h5.644l.845-6.552h-6.489v-4.182c0-1.897.528-3.19 3.248-3.19l3.47-.002V7.59c-.601-.08-2.66-.259-5.056-.259-5.002 0-8.427 3.054-8.427 8.661v4.832h-5.657v6.552h5.657v16.812H2.678a2.396 2.396 0 0 1-2.396-2.395V3.17A2.396 2.396 0 0 1 2.678.775h38.621a2.396 2.396 0 0 1 2.396 2.396v38.622a2.396 2.396 0 0 1-2.396 2.395z" fill="currentcolor"></path>
+		</symbol>
+		<symbol width="15" height="13" viewBox="0 0 15 13" id="shape-linkedin">
+			<title>LinkedIn</title>
+			<path d="M.357 4.454h2.76V13H.358V4.454zm10.303-.082c-1.581 0-2.572.837-2.755 1.423V4.454H4.804c.04.712 0 8.546 0 8.546h3.1V8.375c0-.257-.012-.514.068-.698.213-.514.671-1.047 1.495-1.047 1.077 0 1.566.79 1.566 1.948V13h3.13V8.248c0-2.647-1.54-3.876-3.503-3.876zM1.686.42C.666.42 0 1.06 0 1.903c0 .829.648 1.482 1.647 1.482h.02c1.038 0 1.684-.656 1.684-1.484C3.331 1.058 2.705.42 1.686.42z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 2048 2048" id="shape-share">
+			<title>Share</title>
+			<path d="M1920 768q0 26-19 45l-512 512q-19 19-45 19t-45-19-19-45v-256h-224q-98 0-175.5 6t-154 21.5-133 42.5-105.5 69.5-80 101-48.5 138.5-17.5 181q0 55 5 123 0 6 2.5 23.5t2.5 26.5q0 15-8.5 25t-23.5 10q-16 0-28-17-7-9-13-22t-13.5-30-10.5-24q-127-285-127-451 0-199 53-333 162-403 875-403h224v-256q0-26 19-45t45-19 45 19l512 512q19 19 19 45z" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 52 40" id="shape-twitter">
+			<title>Twitter</title>
+			<path d="M47.507 2.374a17.735 17.735 0 0 1-5.715 2.234 8.867 8.867 0 0 0-6.564-2.91c-4.963 0-8.99 4.129-8.99 9.221 0 .724.077 1.426.232 2.101-7.475-.385-14.1-4.053-18.539-9.638a9.385 9.385 0 0 0-1.217 4.64c0 3.198 1.587 6.022 4.002 7.676a8.83 8.83 0 0 1-4.077-1.15v.113c0 4.47 3.1 8.198 7.218 9.043a8.617 8.617 0 0 1-2.37.324c-.58 0-1.144-.055-1.692-.164 1.144 3.662 4.464 6.33 8.4 6.401-3.077 2.475-6.957 3.95-11.17 3.95-.725 0-1.443-.042-2.145-.126 3.98 2.612 8.71 4.14 13.787 4.14 16.543 0 25.587-14.051 25.587-26.238 0-.401-.007-.803-.022-1.196a18.45 18.45 0 0 0 4.484-4.773 17.543 17.543 0 0 1-5.164 1.451 9.205 9.205 0 0 0 3.955-5.099" fill="currentcolor"></path>
+		</symbol>
+		<symbol viewBox="0 0 24 24" id="shape-close">
+			<title>Close</title>
+			<line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+			<line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+		</symbol>
+
+		<symbol viewBox="0 0 512 512" id="svg-share-print">
+			<path d="M464 192h-16V81.941a24 24 0 0 0-7.029-16.97L383.029 7.029A24 24 0 0 0 366.059 0H88C74.745 0 64 10.745 64 24v168H48c-26.51 0-48 21.49-48 48v132c0 6.627 5.373 12 12 12h52v104c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V384h52c6.627 0 12-5.373 12-12V240c0-26.51-21.49-48-48-48zm-80 256H128v-96h256v96zM128 224V64h192v40c0 13.2 10.8 24 24 24h40v96H128zm304 72c-13.254 0-24-10.746-24-24s10.746-24 24-24 24 10.746 24 24-10.746 24-24 24z"/>
+		</symbol>
+
+		<symbol id="svg-share-facebook" viewBox="0 0 264 512">
+			<path d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229"/>
+		</symbol>
+
+		<symbol viewBox="0 0 512 512" id="svg-share-envelope">
+			<path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/>
+		</symbol>
+
+		<symbol viewBox="0 0 59.34 59.34" id="sharing-email">
+			<title>Email</title>
+			<path d="M54.14 0H5.2A5.22 5.22 0 0 0 0 5.2v48.94a5.22 5.22 0 0 0 5.2 5.2h48.94a5.22 5.22 0 0 0 5.2-5.2V5.2a5.22 5.22 0 0 0-5.2-5.2zm-4.79 43H11.11V24.79l.29.14L30 34.18a.44.44 0 0 0 .44 0l18.67-9.28.24-.11zm-.19-22.48l-18.72 9.41a.42.42 0 0 1-.42 0L11.3 20.57c-.11-.06-.2-.1-.2-.27v-3.91a.82.82 0 0 1 0-.1h38.25v3.96a.31.31 0 0 1-.19.32z" />
+		</symbol>
+
+		<symbol viewBox="0 0 59.36 59.36" id="sharing-facebook">
+			<title>Facebook</title>
+			<path d="M29.64 27.21h-7.36v7.42h7.37v24.71H5.55A5.56 5.56 0 0 1 0 54.59a4.88 4.88 0 0 1 0-.66V5.25A5.38 5.38 0 0 1 5 0h48.64A5.55 5.55 0 0 1 59 3.48a6.63 6.63 0 0 1 .39 2.1v48.24a5.51 5.51 0 0 1-4.44 5.45 5.06 5.06 0 0 1-1 .06H39.63V34.64h8.62l1.24-7.41h-9.9v-.48-5.07a4.28 4.28 0 0 1 4.36-4.35h3A3.5 3.5 0 0 0 47 17v-6.66c0-.29-.05-.42-.38-.42-2.82 0-5.64 0-8.46.07a9.1 9.1 0 0 0-5.72 2 7.49 7.49 0 0 0-2.5 4.72 21 21 0 0 0-.25 3.11v7.1c-.03.08-.04.16-.05.29z" />
+		</symbol>
+
+		<symbol viewBox="0 0 59.34 59.34" id="sharing-linkedin">
+			<title>LinkedIn</title>
+			<path d="M54.14 0H5.2A5.22 5.22 0 0 0 0 5.2v48.94a5.22 5.22 0 0 0 5.2 5.2h48.94a5.22 5.22 0 0 0 5.2-5.2V5.2a5.22 5.22 0 0 0-5.2-5.2zM17.57 36.85v13.44c0 .78 0 .78-.79.78H9.32c-.51 0-.68-.13-.68-.66V23.24c0-.48.13-.67.64-.67h7.64c.55 0 .66.22.66.72-.01 4.52-.01 9.04-.01 13.56zm-4.52-17.92a5.21 5.21 0 1 1 5.27-5.15 5.21 5.21 0 0 1-5.27 5.15zm36.76 32.14h-7.52c-.53 0-.68-.15-.68-.68V36.3a18.26 18.26 0 0 0-.23-2.73c-.45-2.85-2.42-4.22-5.27-3.72-2.48.44-3.82 2-4.09 4.78-.08.85-.13 1.71-.13 2.56v13.08c0 .79 0 .79-.79.79h-7.46c-.52 0-.68-.14-.68-.67V23.28c0-.54.15-.73.71-.72h7.16c.55 0 .74.18.72.73v3.16a9 9 0 0 1 5.57-4.17 12.44 12.44 0 0 1 8 .53c2.92 1.2 4.32 3.62 5 6.56a28.59 28.59 0 0 1 .58 6.34v14.51c-.07.85-.07.85-.89.85z" />
+		</symbol>
+
+		<symbol viewBox="0 0 59.34 59.34" id="sharing-print">
+			<title>Print</title>
+			<path class="cls-1" d="M19.78 20.56h19.76v-8.22H19.78zM19.79 45.31h19.75V33.79H19.79zM44.5 23.88a1.64 1.64 0 0 0-1.64 1.63 1.65 1.65 0 1 0 3.29 0 1.64 1.64 0 0 0-1.65-1.63z"/>
+			<path class="cls-1" d="M54.14 0H5.2A5.22 5.22 0 0 0 0 5.2v48.94a5.22 5.22 0 0 0 5.2 5.2h48.94a5.22 5.22 0 0 0 5.2-5.2V5.2a5.22 5.22 0 0 0-5.2-5.2zm-6.4 42h-4.87v6.6H16.48V42h-5a1.62 1.62 0 0 1-1.63-1.63V22.24a1.62 1.62 0 0 1 1.68-1.68h4.91V9.06h26.41v11.52h4.84a1.66 1.66 0 0 1 1.77 1.78v17.93A1.64 1.64 0 0 1 47.74 42z"/>
+			<path class="cls-1" d="M19.79 33.79h19.75v11.52H19.79zM19.78 20.56v-8.22h19.76v8.22zM46.16 25.54a1.65 1.65 0 1 1-3.29 0 1.65 1.65 0 0 1 3.29 0z"/>
+		</symbol>
+
+		<symbol viewBox="0 0 59.34 59.34" id="sharing-twitter">
+			<title>Twitter</title>
+			<path d="M54.14 0H5.2A5.22 5.22 0 0 0 0 5.2v48.94a5.22 5.22 0 0 0 5.2 5.2h48.94a5.22 5.22 0 0 0 5.2-5.2V5.2a5.22 5.22 0 0 0-5.2-5.2zm-2.49 16.21a18 18 0 0 1-4.1 4.23.51.51 0 0 0-.24.48 26.28 26.28 0 0 1-3.56 14 24.93 24.93 0 0 1-9.17 9.36 24.46 24.46 0 0 1-8.42 3 27.88 27.88 0 0 1-5.3.39 25.66 25.66 0 0 1-13.05-3.85l-.3-.19a18.54 18.54 0 0 0 13.41-3.75 9.29 9.29 0 0 1-8.5-6.36 9.1 9.1 0 0 0 4-.15 9.2 9.2 0 0 1-5.16-3.23 9 9 0 0 1-2-5.81 9.17 9.17 0 0 0 4.07 1.12 9.16 9.16 0 0 1-2.78-12.12 26 26 0 0 0 18.74 9.51c-.06-.45-.14-.84-.16-1.24a8.82 8.82 0 0 1 4.5-8.72 9 9 0 0 1 11 1.49.35.35 0 0 0 .38.11 18.73 18.73 0 0 0 5.31-2l.26-.13a9.53 9.53 0 0 1-3.88 5c.43-.07.86-.13 1.28-.21s.85-.18 1.27-.3.85-.26 1.27-.4.81-.3 1.28-.49z" />
+		</symbol>
+
+		<symbol viewBox="0 0 93.61 124.74" id="icon-articles">
+			<path d="M89.61 124.74H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h85.61a4 4 0 0 1 0 8H8v108.74h77.61V18.88a4 4 0 1 1 8 0v101.86a4 4 0 0 1-4 4z"/>
+			<path  d="M70.68 59.35H22.93a4 4 0 1 1 0-8h47.75a4 4 0 0 1 0 8zM49.68 41.35H22.93a4 4 0 1 1 0-8h26.75a4 4 0 0 1 0 8zM70.68 77.17H22.93a4 4 0 1 1 0-8h47.75a4 4 0 0 1 0 8zM70.68 95.3H22.93a4 4 0 1 1 0-8h47.75a4 4 0 0 1 0 8z"/>
+		</symbol>
+
+		<symbol viewBox="0 0 93.61 124.74" id="icon-guides">
+			<path d="M73.87 39.93H52.12a4 4 0 0 1 0-8h21.75a4 4 0 1 1 0 8zM73.87 67.76H52.12a4 4 0 0 1 0-8h21.75a4 4 0 0 1 0 8zM28.43 46.61a4 4 0 0 1-2.83-1.17L18 37.81a4 4 0 0 1 5.66-5.66l4.8 4.8 12-12a4 4 0 0 1 5.66 5.66L31.26 45.44a4 4 0 0 1-2.83 1.17zM28.43 73.11a4 4 0 0 1-2.83-1.17L18 64.31a4 4 0 0 1 5.66-5.66l4.8 4.8 12-12a4 4 0 0 1 5.66 5.66L31.26 71.94a4 4 0 0 1-2.83 1.17zM73.87 95.06H52.12a4 4 0 0 1 0-8h21.75a4 4 0 0 1 0 8zM28.43 100.42a4 4 0 0 1-2.83-1.17L18 91.62A4 4 0 0 1 23.63 86l4.8 4.8 12-12a4 4 0 0 1 5.66 5.66L31.26 99.25a4 4 0 0 1-2.83 1.17z"/>
+			<path d="M89.61 124.74H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h85.61a4 4 0 0 1 0 8H8v108.74h77.61V18.88a4 4 0 1 1 8 0v101.86a4 4 0 0 1-4 4z"/>
+		</symbol>
+
+		<symbol viewBox="0 0 116 114.49" id="icon-infographics">
+			<path d="M55.57 114.49a55.57 55.57 0 1 1 0-111.15 4 4 0 0 1 4 4v49.35h47.53a4 4 0 0 1 0 8H55.57a4 4 0 0 1-4-4V11.51a47.57 47.57 0 1 0 48.24 64.92q.3-.75.57-1.52a4 4 0 1 1 7.53 2.69q-.32.89-.67 1.77a55.28 55.28 0 0 1-51.67 35.12z"/>
+			<path d="M112 50H71.38a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4A44.67 44.67 0 0 1 116 44.62v1.54a4 4 0 0 1-4 3.84zm-36.62-8h32.53A36.69 36.69 0 0 0 75.38 8.22z"/>
+		</symbol>
+
+		<symbol viewBox="0 0 130 109" id="icon-webinars">
+			<path d="M126 14c-2.2 0-4 1.8-4 4v40H8V11.9c0-2 1.5-3.7 3.5-3.9H126c2.2 0 4-1.8 4-4s-1.8-4-4-4H11.5C5.2 0 0 5.4 0 11.9v64.4C0 82.6 5.1 87.8 11.5 88h36c-1.8 5.1-5 9.6-9.2 13H32c-2.2 0-4 1.8-4 4s1.8 4 4 4h66c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6.3c-4.2-3.4-7.4-7.9-9.2-13h36c6.4-.2 11.5-5.4 11.5-11.8V18c0-2.2-1.8-4-4-4m-45.6 87H49.5c3-3.8 5.2-8.3 6.5-13h18c1.2 4.7 3.4 9.2 6.4 13m38.1-21h-107c-2-.1-3.5-1.8-3.5-3.8V66h114v10.2c0 2-1.5 3.7-3.5 3.8" />
+		</symbol>
+
+		<symbol viewBox="0 0 106.7 106.7" id="icon-videos">
+			<path d="M96.2 21.7c-1.4-1.7-3.9-2-5.6-.6-1.6 1.3-2 3.6-.8 5.4 14.9 20.1 10.6 48.5-9.5 63.4s-48.5 10.6-63.4-9.5-10.6-48.6 9.5-63.5c16.2-12 38.4-11.8 54.4.4 1.8 1.3 4.3 1 5.6-.8s1-4.3-.8-5.6C76.4 3.8 65 0 53.3 0 23.9 0 0 23.9 0 53.3s23.9 53.3 53.3 53.3 53.3-23.9 53.3-53.3c.1-11.4-3.6-22.5-10.4-31.6"/>
+			<path d="M45.1 85.1c-1.9 0-3.5-1.6-3.5-3.5l.3-56.6c0-1.9 1.6-3.5 3.5-3.5.9 0 1.8.4 2.5 1.1L76 50.7c1.4 1.4 1.4 3.6 0 4.9L47.6 84.1c-.7.6-1.5 1-2.5 1zm3.8-51.6l-.2 39.7 19.9-19.9-19.7-19.8z"/>
+		</symbol>
+
+	</defs>
+</svg>
+
+	<div class="skip-links">
+	<a href="#main">Skip to Content</a>
+	<a href="#main-footer">Skip to Footer</a>
+</div>
+	<header class="site-header" id="main-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+		<div class="site-header__wrapper">
+							<h1 class="site-title" itemscope itemtype="http://schema.org/Organization">
+					<svg class="stickyheader__logoWhite" width="102" height="22" viewBox="0 0 75 16" aria-labelledby="ondecklogowhite-site-title">
+						<title id="ondecklogowhite-site-title">OnDeck</title>
+						<path class="svg-ondecklogo__on" d="M12.07 10.294c0 3.424-2.588 5.635-6 5.635-3.4 0-5.964-2.2-5.964-5.6 0-3.423 2.588-5.635 6-5.635 3.4 0 5.965 2.2 5.965 5.6zM6.06 13.071c1.6 0 2.73-1.177 2.73-2.777s-1.095-2.73-2.695-2.73c-1.6 0-2.73 1.177-2.73 2.777.012 1.6 1.095 2.73 2.695 2.73zM16.87 15.659h-3.188V4.976h3.189v1.212A4.375 4.375 0 0 1 20.2 4.694c2.482 0 3.87 1.67 3.87 4.506v6.447h-3.188V9.706c0-1.365-.764-2.2-2.011-2.2-1.236 0-2.012.835-2.012 2.176v5.977h.012z" fill="currentColor"></path>
+						<path class="svg-ondecklogo__deck" d="M34.224 14.4c-.765.965-1.906 1.541-3.377 1.541-3.165 0-5.13-2.459-5.13-5.623 0-3.165 2.048-5.624 5.212-5.624 1.447 0 2.542.53 3.295 1.447V.06h3.188v15.588h-3.188V14.4zm-2.612-1.282c1.623 0 2.73-1.212 2.73-2.836 0-1.576-1.071-2.753-2.648-2.753-1.623 0-2.718 1.177-2.718 2.8.012 1.565 1.06 2.789 2.636 2.789zM39.024 10.318c0-3.377 2.482-5.624 5.811-5.624 3.2 0 5.553 2.259 5.553 5.388 0 .365-.023.753-.047 1.094h-8.035c.341 1.212 1.341 2.048 2.753 2.048 1.023 0 1.835-.389 2.565-1.212l1.964 1.917c-1.259 1.389-2.823 2.012-4.682 2.012-3.365 0-5.882-2.247-5.882-5.623zm3.329-1.212h4.718c-.26-1.047-1.177-1.753-2.33-1.753-1.235 0-2.059.718-2.388 1.753zM57.541 13.047c1 0 1.835-.53 2.459-1.341l2.153 1.918c-1.153 1.447-2.73 2.305-4.659 2.305-3.376 0-5.894-2.247-5.894-5.623 0-3.377 2.518-5.624 5.894-5.624 1.906 0 3.53.789 4.659 2.26L60 8.928c-.6-.811-1.447-1.34-2.459-1.34-1.576 0-2.67 1.152-2.67 2.729 0 1.576 1.094 2.73 2.67 2.73zM67.93 11.07l-1.306.871v3.718h-3.189V.059h3.189v8.565l6.752-4.577h.13v3.53l-2.824 1.882 3.565 6.07v.13h-3.635z" fill="currentColor"></path>
+					</svg>
+				</h1>
+			
+			<nav class="site-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+
+				<a href="#primary-menu" id="js-menu-toggle" class="site-menu-toggle">
+					<span class="screen-reader-text">
+						Primary Menu					</span>
+					<span aria-hidden="true">☰</span>
+				</a>
+
+				<ul id="menu-primary-navigation" class="primary-nav"><li id="menu-item-170317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-170317 menu-item"><a href="https://www.ondeck.com/business-loans">Business Loans</a>
+<ul class="sub-menu">
+	<li id="menu-item-168404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-168404 menu-item"><a href="https://www.ondeck.com/business-loans">Overview</a></li>
+	<li id="menu-item-166124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166124 menu-item"><a href="https://www.ondeck.com/term-loans">Term Loans</a></li>
+	<li id="menu-item-166762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166762 menu-item"><a href="https://www.ondeck.com/lines-of-credit">Lines of Credit</a></li>
+	<li id="menu-item-167293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167293 menu-item"><a href="https://www.ondeck.com/loan-qualifications">Loan Qualifications</a></li>
+	<li id="menu-item-166764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166764 menu-item"><a href="https://www.ondeck.com/restricted-industries">Restricted Industries</a></li>
+</ul>
+</li>
+<li id="menu-item-170318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-170318 menu-item"><a href="https://www.ondeck.com/why-ondeck">Why OnDeck</a>
+<ul class="sub-menu">
+	<li id="menu-item-166589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166589 menu-item"><a href="https://www.ondeck.com/why-ondeck">Overview</a></li>
+	<li id="menu-item-167361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167361 menu-item"><a href="https://www.ondeck.com/success-stories">Success Stories</a></li>
+	<li id="menu-item-166765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166765 menu-item"><a href="https://www.ondeck.com/reviews">Reviews</a></li>
+</ul>
+</li>
+<li id="menu-item-170319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-170319 menu-item"><a href="https://www.ondeck.com/company">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-166097" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166097 menu-item"><a href="https://www.ondeck.com/company">Overview</a></li>
+	<li id="menu-item-166890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166890 menu-item"><a href="https://www.ondeck.com/ondeck-core-principles">Core Principles</a></li>
+	<li id="menu-item-166891" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166891 menu-item"><a href="https://www.ondeck.com/in-the-news">In The News</a></li>
+	<li id="menu-item-170140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-170140 menu-item"><a href="https://www.ondeck.com/careers">Careers</a></li>
+</ul>
+</li>
+<li id="menu-item-170320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-170320 menu-item"><a href="https://www.ondeck.com/partner">Partner</a>
+<ul class="sub-menu">
+	<li id="menu-item-166096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166096 menu-item"><a href="https://www.ondeck.com/partner">Overview</a></li>
+	<li id="menu-item-166126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166126 menu-item"><a href="https://www.ondeck.com/partner/enterprise">Enterprise Platform</a></li>
+	<li id="menu-item-166127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166127 menu-item"><a href="https://www.ondeck.com/partner/referral">Referral Program</a></li>
+	<li id="menu-item-167316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167316 menu-item"><a href="https://www.ondeck.com/partner/affiliate">Affiliates</a></li>
+</ul>
+</li>
+<li id="menu-item-166128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-166128 menu-item"><a href="http://www.ondeck.com/resources/">Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-166592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-166592 menu-item"><a href="http://www.ondeck.com/resources/">Small Business Center</a></li>
+	<li id="menu-item-171072" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-171072 menu-item"><a href="https://www.ondeck.com/resources/guides-small-business-loans">Guide to Small Business Loans</a></li>
+	<li id="menu-item-172975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-172975 menu-item"><a href="https://www.ondeck.com/share-your-best-business-advice">Your Best Business Advice</a></li>
+</ul>
+</li>
+</ul>			</nav>
+
+			<nav class="utility-nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+				<ul id="menu-secondary-navigation" class="menu"><li id="menu-item-165802" class="svg-lock menu-item menu-item-type-custom menu-item-object-custom menu-item-165802 menu-item"><a href="https://online.ondeck.com/login">Sign In</a></li>
+<li id="menu-item-165817" class="svg-phone menu-item menu-item-type-custom menu-item-object-custom menu-item-165817 menu-item"><a href="tel:8882694246">(888) 269-4246</a></li>
+<li id="menu-item-165822" class="button menu-item menu-item-type-custom menu-item-object-custom menu-item-165822 menu-item"><a href="https://online.ondeck.com/">Apply Now</a></li>
+</ul>			</nav>
+		</div>
+	</header>
+
+	
+	
+	
+		
+			<section class="hero" style="background-image: url( https://www.ondeck.com/wp-content/uploads/2017/06/hero-home.jpg)">
+				<header class="hero__wrapper">
+										<h1>
+						OnDeck business loans help<br>
+						<span id="js-typer" class="typer"></span>
+					</h1>
+																<a href="https://online.ondeck.com" class="button button--l button--arrow">
+							Apply Now						</a>
+													<p>Decision in minutes - no obligation</p>
+															</header>
+			</section>
+
+		
+	
+
+
+	<div class="wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+							
+					
+		<section class="three-col noline ">
+			<div class="three-col__wrapper">
+				
+				<div class="three-col__content-body">
+					<div class="left ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-star"></use>
+								</svg>
+							
+															<div class="content">
+							
+															<h3 class="three-col__title">A+ Rating</h3>
+							
+							<p>With the Better Business Bureau</p>
+							
+															</div>
+													</div>
+					</div>
+
+					<div class="middle ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-money"></use>
+								</svg>
+							
+															<div class="content">
+							
+															<h3 class="three-col__title">$8 Billion</h3>
+							
+							<p>Delivered to Businesses Globally </p>
+							
+															</div>
+													</div>
+					</div>
+
+					<div class="right ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-hand"></use>
+								</svg>
+							
+															<div class="content">
+							
+															<h3 class="three-col__title">9.6/10</h3>
+							
+							<p>Customer Ratings on TrustPilot</p>
+							
+															</div>
+													</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+
+		<section class="two-col solid-boxes light-grey-bg ">
+			<div class="two-col__wrapper">
+
+									<h2 class="two-col__content-title">
+						<br />
+Two Flexible Financing Options					</h2>
+				
+				<div class="two-col__content-body">
+					<div class="left light-blue-bg">
+						<div class="body">
+
+							
+															<h3 class="two-col__title">Term Loans</h3>
+							
+							<h2 style="text-align: center">Up to $500,000</h2><h4 style="text-align: center">Rates as low as 9.99&#037; AIR</h4>
+															<a href="http://www.ondeck.com/term-loans" class="two-col__text-link">Learn more about term loans</a>
+													</div>
+					</div>
+
+					<div class="right dark-blue-bg">
+						<div class="body">
+
+							
+															<h3 class="two-col__title">Lines of Credit</h3>
+							
+							<h2 style="text-align: center">Up to $100,000</h2><h4 style="text-align: center">Rates as low as 13.99&#037; APR</h4>
+															<a href="https://www.ondeck.com/lines-of-credit/" class="two-col__text-link">Learn more about lines of credit</a>
+													</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+
+		<section class="text-block light-grey-bg " style="">
+			<div class="text-block__wrapper">
+
+				
+				
+				<div class="text-block__content">
+									</div>
+			</div>
+		</section>
+
+		
+
+		<section class="three-col steps ">
+			<div class="three-col__wrapper">
+									<h2 class="three-col__content-title">
+						Decision in Minutes - No Obligation
+											</h2>
+				
+				<div class="three-col__content-body">
+					<div class="left ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-computer"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">Step 1</h3>
+							
+							<p><a href="https://online.ondeck.com/">Apply online</a> in just a few minutes or call us directly at <a href="tel:(888) 269-4246">(888) 269-4246</a> (M-F 8AM - 9PM)</p>
+							
+													</div>
+					</div>
+
+					<div class="middle ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-checkmark"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">Step 2</h3>
+							
+							<p>Our system evaluates your business and typically provides a decision in minutes</p>
+							
+													</div>
+					</div>
+
+					<div class="right ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-money"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">Step 3</h3>
+							
+							<section id="" class="section background--white"><div class="section__contentWrapper "><div class="section__content "><div id="" class=""><div class="layout layout--3col "><div class="layout__col "><div class="iconbox2 "><div class="iconbox2__content "><p class="p seventyFivePercentWidthAboveStego margin--topMinus1 color--typographyFontColor">Sign your contract and receive money in as fast as 24 hours</p></div></div></div></div></div></div></div></section><section id="" class="section section--light-grey noPadding"><div class="section__contentWrapper section__contentWrapper--noWidth noPadding "> </div></section>
+							
+													</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+		<section
+				class="vertical-block adviser adviser--twocol mint-green-bg">
+			<div class="vertical-block__wrapper">
+				<div class="vertical-block__top">
+											<svg width="65" height="65">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink"
+								 xlink:href="#svg-chat"></use>
+						</svg>
+																<h3>Highly Skilled Advisors, Dedicated to Serving You</h3>
+																<p>Yes, we provide fast, efficient funding. But more than that, you also benefit from ongoing support from a knowledgeable advisor. Give us a call at (888) 269-4246 (M-F 8AM - 9PM ET, SAT 9AM - 5PM ET) or email support@ondeck.com anytime.</p>
+									</div>
+				<div class="vertical-block__bottom">
+											<img width="512" height="513" src="https://www.ondeck.com/wp-content/uploads/2017/06/nate.png" class="attachment-full size-full" alt="Max smiling!" srcset="https://www.ondeck.com/wp-content/uploads/2017/06/nate.png 512w, https://www.ondeck.com/wp-content/uploads/2017/06/nate-150x150.png 150w, https://www.ondeck.com/wp-content/uploads/2017/06/nate-300x300.png 300w" sizes="(max-width: 512px) 100vw, 512px" />										<div class="description">
+													<strong>Max M</strong><br>
+																			Loan Specialist<br>
+																			Denver, CO											</div>
+				</div>
+			</div>
+		</section>
+		
+<p>&nbsp;</p>
+
+		<section class="three-col line-separated-boxes ">
+			<div class="three-col__wrapper">
+				
+				<div class="three-col__content-body">
+					<div class="left ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-check"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">Expertly Trained</h3>
+							
+							<p>Our intensive training equips your advisor with the knowledge they need to assess your unique business. </p>
+							
+													</div>
+					</div>
+
+					<div class="middle ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-chat"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">We're Here for You</h3>
+							
+							<p>Here and happy to serve you, your advisor swiftly responds to calls and emails, so you never have to wait long.</p>
+							
+													</div>
+					</div>
+
+					<div class="right ">
+						<div class="body">
+
+															<svg width="74" height="74">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									     xlink:href="#svg-power"></use>
+								</svg>
+							
+							
+															<h3 class="three-col__title">Ready for Anything</h3>
+							
+							<p>Your advisor is prepared to work with over 700 different industries.  No company is too niche for OnDeck.</p>
+							
+													</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+<p>&nbsp;</p>
+		<section class="single-block testimonial  width-half">
+			<div class="testimonial__wrapper">
+				<div class="single-block__image" style="background-image:url('https://www.ondeck.com/wp-content/uploads/2017/07/ana_ono-25.jpg');">
+					<img width="150" height="150" src="https://www.ondeck.com/wp-content/uploads/2017/07/ana_ono-25-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" />				</div>
+				<div class="single-block__body sunset-orange-bg">
+					<div class="content">
+						<blockquote>
+							&#8220;I remember the process being smooth and straightforward, it can be incredibly stressful; fortunately, OnDeck had quick questions and quick responses. I could see how much financing I was approved for and what that meant [regarding payback]. I had the opportunity to review everything before I took the loan. The speed and efficiency of the process were incredible. I was able to introduce my RecoveryWear line and increase sales 4X over.&#8221;</p>
+<p>						</blockquote>
+
+													<cite itemscope="" itemtype="http://schema.org/Person">
+								<strong itemprop="name">Dana Donofree</strong>
+								<br>
+								<span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+																			<span itemprop="streetAddress">Ana Ono Intimates</span>
+										<br>
+									
+																			<span itemprop="addressLocality">Philadelphia, </span>
+									
+																			<span itemprop="addressRegion">PA</span>
+																	</span>
+								<br>
+
+															</cite>
+											</div>
+				</div>
+			</div>
+		</section>
+
+		
+		<section class="single-block testimonial right-align width-half">
+			<div class="testimonial__wrapper">
+				<div class="single-block__image" style="background-image:url('https://www.ondeck.com/wp-content/uploads/2017/07/offset-comp-285644.jpg');">
+					<img width="150" height="150" src="https://www.ondeck.com/wp-content/uploads/2017/07/offset-comp-285644-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" srcset="https://www.ondeck.com/wp-content/uploads/2017/07/offset-comp-285644-150x150.jpg 150w, https://www.ondeck.com/wp-content/uploads/2017/07/offset-comp-285644-300x298.jpg 300w, https://www.ondeck.com/wp-content/uploads/2017/07/offset-comp-285644.jpg 653w" sizes="(max-width: 150px) 100vw, 150px" />				</div>
+				<div class="single-block__body light-blue-bg">
+					<div class="content">
+						<blockquote>
+							</p>
+<h3>Our simple, secure web platform and mobile app make it easy to access your OnDeck account anywhere, anytime.</h3>
+<p>						</blockquote>
+
+											</div>
+				</div>
+			</div>
+		</section>
+
+		
+
+		<section class="text-block  " style="">
+			<div class="text-block__wrapper">
+
+				
+				
+				<div class="text-block__content">
+					<p style="text-align: center"><span style="color: #000000">OnDeck’s privacy policy and practices have been reviewed by TRUSTe® for compliance with its standards on transparency, accountability, and choice regarding the collection and use of personal information.</span></p>				</div>
+			</div>
+		</section>
+
+		
+<p><img class="alignnone wp-image-165861 aligncenter" src="http://www.ondeck.com/wp-content/uploads/2017/07/truste@3x-300x83.png" alt="" width="231" height="64" srcset="https://www.ondeck.com/wp-content/uploads/2017/07/truste@3x-300x83.png 300w, https://www.ondeck.com/wp-content/uploads/2017/07/truste@3x.png 759w" sizes="(max-width: 231px) 100vw, 231px" /></p>
+<p>&nbsp;</p>
+		<section class="cta full-width basic  dark-blue-bg text-white">
+			<div class="container">
+									<h2 class="title">Ready to unlock opportunity?</h2>
+								<a class="button button--xl" href="https://online.ondeck.com/">
+					Apply Now
+									</a>
+			</div>
+		</section>
+
+
+		
+
+									</main>
+	</div>
+</div>
+
+<footer id="main-footer" class="global-footer">
+	<div class="global-footer__wrap">
+		<nav class="footer-nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			<ul id="menu-footer-navigation" class="menu"><li id="menu-item-170148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-170148 menu-item"><a href="https://www.ondeck.com/careers">Careers</a></li>
+<li id="menu-item-166331" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-166331 menu-item"><a href="https://investors.ondeck.com">Investors</a></li>
+<li id="menu-item-166422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166422 menu-item"><a href="https://www.ondeck.com/privacy">Privacy Policy</a></li>
+<li id="menu-item-166421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166421 menu-item"><a href="https://www.ondeck.com/security-policy">Security Policy</a></li>
+<li id="menu-item-167338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167338 menu-item"><a href="https://www.ondeck.com/support">Support</a></li>
+</ul>		</nav>
+
+		<nav class="social-nav">
+			<ul id="menu-footer-social" class="social-share social-share--footer"><li id="menu-item-165856" class="svg-share-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-165856 menu-item"><a href="https://www.facebook.com/OnDeckCapital/">Facebook</a></li>
+<li id="menu-item-165869" class="svg-share-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-165869 menu-item"><a href="https://twitter.com/OnDeckCapital/">Twitter</a></li>
+<li id="menu-item-165895" class="svg-share-linkedin menu-item menu-item-type-custom menu-item-object-custom menu-item-165895 menu-item"><a href="https://www.linkedin.com/company/ondeck/">Linkedin</a></li>
+</ul>		</nav>
+
+		<div class="regions">
+			<ul id="menu-footer-regions" class="menu"><li id="menu-item-165897" class="svg-usa menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-165641 current_page_item menu-item-165897 menu-item"><a href="https://www.ondeck.com/">USA</a></li>
+<li id="menu-item-165898" class="svg-can menu-item menu-item-type-custom menu-item-object-custom menu-item-165898 menu-item"><a href="https://en-ca.ondeck.com/">Canada</a></li>
+<li id="menu-item-166336" class="svg-aus menu-item menu-item-type-custom menu-item-object-custom menu-item-166336 menu-item"><a href="https://www.ondeck.com.au/">Australia</a></li>
+</ul>		</div>
+
+		<div class="copyright">
+						<p>Loans Subject to Lender Approval. Depending on the state where your business is located and other attributes of the loan, your business loan may be issued by Celtic Bank, a Utah-Chartered Industrial Bank, Member FDIC. Your loan agreement will identify the loan issuer prior to your signing.<br />
+<br />
+			OnDeck® is a Registered Trademark. All rights reserved.<br />
+<br />
+			1400 Broadway, New York, New York.</p>
+							<img src="https://www.ondeck.com/wp-content/themes/ondeck/assets/images/logo-made-in-ny.png" srcset="https://www.ondeck.com/wp-content/themes/ondeck/assets/images/logo-made-in-ny.png 1x, https://www.ondeck.com/wp-content/themes/ondeck/assets/images/logo-made-in-ny@2x.png 2x, https://www.ondeck.com/wp-content/themes/ondeck/assets/images/logo-made-in-ny@3x.png 3x" alt="Made in NY" width="48" height="48">
+					</div>
+	</div>
+</footer>
+
+<div class="skip-links footer">
+	<a href="#main">Back to Content</a>
+	<a href="#main-header">Back to Header</a>
+</div>
+<div class="modal modal--fade modal--in modal--redirect">
+	<div class="modal__dialog">
+		<div class="modal__content">
+			<div class="modal__header">
+				<button type="button" class="modal__close" aria-label="Close">
+					<svg class="icon">
+						<use xlink:href="#shape-close"></use>
+					</svg>
+				</button>
+				<h4 class="modal__title">Is your business based in <span class="country"></span>?</h4>
+			</div>
+			<div class="modal__body">
+				<p>If so, please visit our <span class="country2"></span> website.</p>
+				<a href="" class="button do-redirect" role="button">Take me to the <span class="country2"></span> website</a>
+				<p>or</p>
+				<a href="https://www.ondeck.com" class="no-redirect">Continue to the US website</a>
+			</div>
+			<div class="modal__footer"></div>
+		</div>
+	</div>
+</div>
+<script>window.lpTag=window.lpTag||{};if(typeof window.lpTag._tagCount==='undefined'){window.lpTag={site:'1643695'||'',section:lpTag.section||'',autoStart:lpTag.autoStart===false?false:true,ovr:lpTag.ovr||{},_v:'1.5.1',_tagCount:1,protocol:location.protocol,events:{bind:function(app,ev,fn){lpTag.defer(function(){lpTag.events.bind(app,ev,fn);},0);},trigger:function(app,ev,json){lpTag.defer(function(){lpTag.events.trigger(app,ev,json);},1);}},defer:function(fn,fnType){if(fnType==0){this._defB=this._defB||[];this._defB.push(fn);}else if(fnType==1){this._defT=this._defT||[];this._defT.push(fn);}else{this._defL=this._defL||[];this._defL.push(fn);}},load:function(src,chr,id){var t=this;setTimeout(function(){t._load(src,chr,id);},0);},_load:function(src,chr,id){var url=src;if(!src){url=this.protocol+'//'+((this.ovr&&this.ovr.domain)?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site;}var s=document.createElement('script');s.setAttribute('charset',chr?chr:'UTF-8');if(id){s.setAttribute('id',id);}s.setAttribute('src',url);document.getElementsByTagName('head').item(0).appendChild(s);},init:function(){this._timing=this._timing||{};this._timing.start=(new Date()).getTime();var that=this;if(window.attachEvent){window.attachEvent('onload',function(){that._domReady('domReady');});}else{window.addEventListener('DOMContentLoaded',function(){that._domReady('contReady');},false);window.addEventListener('load',function(){that._domReady('domReady');},false);}if(typeof(window._lptStop)=='undefined'){this.load();}},start:function(){this.autoStart=true;},_domReady:function(n){if(!this.isDom){this.isDom=true;this.events.trigger('LPT','DOM_READY',{t:n});}this._timing[n]=(new Date()).getTime();},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],ev:lpTag.ev||[]};lpTag.init();}else{window.lpTag._tagCount+=1;}</script>	<!-- hidden div required by liveperson chat -->
+	<div id="LP_DIV_1477333915988"></div> <script type='text/javascript'>
+/* <![CDATA[ */
+var ONDLocationConfig = {"locationAPI":"\/\/freegeoip.net\/json\/","cookieDomain":".ondeck.com","canadaUrl":"https:\/\/en-ca.ondeck.com","australiaUrl":"https:\/\/www.ondeck.com.au"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-content/themes/ondeck-us/assets/js/ondeck-us.min.js?ver=1.0.2'></script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-content/themes/ondeck/assets/js/vendor/swiper/dist/js/swiper.min.js?ver=0.1.22'></script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-content/themes/ondeck/assets/js/vendor/jquery-selectability/jquery.selectability.js?ver=0.1.22'></script>
+<script type='text/javascript' src='https://www.youtube.com/iframe_api?ver=0.1.22'></script>
+<script type='text/javascript' src='https://player.vimeo.com/api/player.js?ver=0.1.22'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ONDTrackingConfig = {"cookieDomain":".ondeck.com"};
+var ONDJSVars = {"ajaxurl":"https:\/\/www.ondeck.com\/wp-admin\/admin-ajax.php"};
+var ONDi18n = {"resourceHeroHeading":"OnDeck\u2019s Top Picks","resourceLoadMore":"Load More","resourceHeroSubheading":"Showing %1$s tagged to %2$s.","resourceAllTopics":"all topics","articles":"Read the article","ebook":"Read the ebook","infographics":"See the results","videos":"Watch the video","webinars":"Join the webinar","guides":"Read the guide"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-content/themes/ondeck/assets/js/ondeck.min.js?ver=0.1.22'></script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-includes/js/wp-embed.min.js?ver=4.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ondeckTypedPhrases = ["manage your cashflow","hire more employees","purchase inventory","upgrade your space"];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.ondeck.com/wp-content/themes/ondeck/assets/js/vendor/typed.js/dist/typed.min.js?ver=0.1.22'></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8dc9f667bf","applicationID":"61354487","transactionName":"NgdWZkEAXEtZVBcLCg9NdVFHCF1WF14NBgAZ","queueTime":0,"applicationTime":85,"atts":"GkBVEAkaT0U=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

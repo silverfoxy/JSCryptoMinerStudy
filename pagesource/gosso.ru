@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://www.gosso.ru/">redirected</a>.</body></html>

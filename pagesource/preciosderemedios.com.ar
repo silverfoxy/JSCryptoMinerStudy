@@ -1,0 +1,175 @@
+<html>
+<head>
+	<title>Precios de Remedios | Precios de Medicamentos</title>
+	
+	<meta name="description" content="Precios de Remedios y Medicamentos de Argentina constantemente actualizados." />
+	<meta name="keywords" content="precios, costo, remedios, medicamentos, drogas, principios activos, laboratorios" />
+	
+	<meta charset="utf-8" />
+	
+	<script type="text/javascript"  src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	
+	<!-- Para autocompletar -->
+	<script type='text/javascript' src='js/jquery.autocomplete/jquery.bgiframe.min.js'></script>
+	<script type='text/javascript' src='js/jquery.autocomplete/jquery.ajaxQueue.js'></script>
+	<script type='text/javascript' src='js/jquery.autocomplete/thickbox-compressed.js'></script>
+	<script type='text/javascript' src='js/jquery.autocomplete/jquery.autocomplete.js'></script>
+	
+	<link rel='stylesheet' type='text/css' href='js/jquery.autocomplete/jquery.autocomplete.css' />
+	<link rel='stylesheet' type='text/css' href='js/jquery.autocomplete/thickbox.css' />
+
+	
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			
+			$('input[name="pattern"]').autocomplete('search_pattern_autocomplete.php', {
+				width: 325,
+				delay: 800,
+				multiple: false,
+				max: 20,
+				minLength: 3,
+				matchContains: true,
+				formatItem: formatItem,
+				formatResult: formatResult,
+				extraParams: {item: function(){ return($('input[name="item"]:checked').val())} }
+			});
+			
+			$('input[name="pattern"]').result(function(event, data, formatted) {
+				
+				// En data tengo lo siguiente
+				// [0] - La descripcion
+				// [1] - Id del patron seleccionado
+				var hidden= $('input[name="id_pattern_select"]') ;
+				// Esto si se busca solo una clave
+				hidden.val(data[1]) ;
+				
+				// Esto va si es multiple
+				// hidden.val( (hidden.val() ? hidden.val() + ";" : hidden.val()) + data[1]);
+			});
+			
+		})
+		
+		function formatItem(row) {
+			/*return row[0] + " (<strong>id: " + row[1] + "</strong>)" ;*/
+			return row[0];
+		}
+		function formatResult(row) {
+			return row[0].replace(/(<.+?>)/gi, '');
+		}
+		
+		function check(sTagInput) {
+		
+			var sPattern= $('input[name="'+sTagInput+'"]').val() ;
+			
+			if ( sPattern=='' ) {
+				alert('Ingresar un patron de b&uacute;squeda') ;
+				return(false) ;
+			}
+			else {
+				// sPattern= urlencode(sPattern) ;
+				// $('input[name="'+sTagInput+'"]').val(sPattern) ;
+			}
+			return(true) ;
+		}
+		
+	</script>
+	
+</head>
+<body>
+
+<img src="logo_pdr.png" width="133" height="123" alt="Precios de Remedios">
+<br><br>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6298130090516978";
+/* precreme */
+google_ad_slot = "5591992007";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br><br>
+
+<div class="buscar">
+<form name="form_search" method="get" action="resultado_busq.php" onSubmit="return check();"> 
+<table class="form_search">
+        <tr>
+<td colspan="5" align="center" height="70"><input type="text" name="pattern" tabindex="1" class="input" /><input type="submit" value="" tabindex="6" class="form_button"></td>
+        </tr>
+		<tr height="30" valign="top">
+		    <td width="156" align="center"><input type="radio" name="item" value="product" tabindex="2" /> Producto</td>
+			<td width="107" align="left"><input type="radio" name="item" value="drug" checked tabindex="3" /> Droga</td>
+			<!--<td width="161" align="left"><input type="radio" name="item" value="barcode" tabindex="4" /> C&oacute;digo Barra</td>-->
+			<td width="157" align="left"><input type="radio" name="item" value="laboratory" tabindex="5" /> Laboratorio</td>
+	        <td width="95" align="center">&nbsp;</td>
+	  </tr>
+	</table>
+</form>
+<br/><br/><br/>
+<div class="lista"><p>Puede buscar:</p>
+<ul>
+	<li>Por producto: <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=hemofer&item=product">hemofer</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=nutrigen-l&item=product">nutrigen-l</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=midazolam&item=product">midazolam</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=reduprost&item=product">reduprost</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=klorane&item=product">klorane</a></li>
+	<li>Por droga: <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=dutasterida&item=drug">dutasterida</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=sulfametoxazol&item=drug">sulfametoxazol</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=nebivolol&item=drug">nebivolol</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=aprotinina&item=drug">aprotinina</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=betametasona&item=drug">betametasona</a></li>
+	<li>Por laboratorio: <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=donato&item=laboratory">donato</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=rontag&item=laboratory">rontag</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=mallinckrodt&item=laboratory">mallinckrodt</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=formulab&item=laboratory">formulab</a>, <a href="http://www.preciosderemedios.com.ar/resultado_busq.php?pattern=bacon&item=laboratory">bacon</a></li>
+</ul>
+</div><!--fin de lista-->
+<br><br>
+<
+<script type="text/javascript">
+	google_ad_client = "ca-pub-6298130090516978";
+	google_ad_slot = "3697705784";
+	google_ad_width = 336;
+	google_ad_height = 280;
+</script>
+<!-- 336 x 280 -->
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<script type="text/javascript">
+	google_ad_client = "ca-pub-6298130090516978";
+	google_ad_slot = "3697705784";
+	google_ad_width = 336;
+	google_ad_height = 280;
+</script>
+<!-- 336 x 280 -->
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<br><br>
+<table><B>Preciosderemedios.com.ar es un cat&aacute;logo de precios y presentaciones de los medicamentos que se comercializan en la Rep&uacute;blica Argentina.
+Este medio est&aacute; destinado a la consulta y se exime de toda responsabilidad en cuanto a las decisiones o acciones que puedan realizarse en base a la informaci&oacute;n que provee.
+Los precios son actualizados regularmente en distintos per&iacute;odos a lo largo del a&ntilde;o, no garantizamos la absoluta correspondencia de los precios al d&iacute;a de la fecha.
+Preciosderemedios.com.ar no est&aacute; asociado a la venta o comercializaci&oacute;n de productos farmac&eacute;uticos, su fin es exclusivamente informativo y orientativo.
+</b>
+</table>
+<br>
+<table> 
+	
+	<b>NUEVO!: </b> <a href="http://www.preciosderemedios.cl">Precios de remedios de Chile</a> | <a href="http://www.preciosderemedios.mx">Precios de remedios de M&eacute;xico</a> | <a href="http://www.preciosderemedios.pe">Precios de remedios de Per&uacute;</a>
+	
+	
+</table>
+
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); 
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js'  type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try { 
+	var pageTracker = _gat._getTracker("UA-16196743-1"); 
+	pageTracker._trackPageview(); 
+} catch(err) {}
+</script>
+
+</body>
+</html>

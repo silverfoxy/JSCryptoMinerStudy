@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible"  content="IE=edge" />
+  <title>wiseGEEK: clear answers for common questions</title>  <link rel="stylesheet" type="text/css" href="http://www.wisegeekhealth.com/res/default-nocustom-lu/compiled/indexCSS_default-nocustom-lu.css?v20" />    <script type="text/javascript" src="http://www.wisegeekhealth.com/res/common/compiled/framework.js?v118"></script>
+<script type="text/javascript" src="http://www.wisegeekhealth.com/res/default-nocustom-lu/compiled/indexJS_default-nocustom-lu.js?v20"></script>
+  <meta name="description" content="wiseGEEK: clear answers for common questions" />
+  <meta property="fb:page_id" content="210552350553"/>
+  <meta property="og:site_name" content="wiseGEEK"/>
+  <meta property="og:description" content="wiseGEEK: clear answers for common questions"/>
+  <meta property="og:url" content="http://www.wisegeekhealth.com/"/>
+  <META HTTP-EQUIV="imagetoolbar" CONTENT="no" />
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.wisegeekhealth.com/" >
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:900italic' rel='stylesheet' type='text/css'>
+  <link rel="canonical" href="http://www.wisegeekhealth.com" />
+
+<style type="text/css">
+#dyk-title {
+  display:none;
+  background-color:#646464;
+  border-bottom:1px solid black;
+  height:18px;
+  font-family: 'Droid Sans', Arial, sans-serif;
+  color:white;
+  font-weight: bold;
+  font-size: 11pt;
+  }
+
+#lb {
+  display:none;
+  border: 2px solid black;
+  position:relative;
+  margin: auto;
+  width: 250px;
+}
+
+</style>
+
+  <script type="text/javascript">
+      var _qevents = _qevents || [];
+      (function() {
+          var elem = document.createElement('script');
+          elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge")
+                      + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName('script')[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+      })();
+  </script>
+  <script type="application/ld+json">
+  {
+     "@context": "http://schema.org",
+     "@type": "WebSite",
+     "url": "http://www.wisegeekhealth.com/",
+     "potentialAction": {
+       "@type": "SearchAction",
+       "target": "http://s.wisegeekhealth.com/s/?q={search_term_string}&cx=001721306601487571258:xvwilsw1lpg&cof=FORID:10&ie=ISO-8859-1&sa",
+       "query-input": "required name=search_term_string"
+     }
+  }
+  </script>
+</head>
+<body>
+
+<table cellpadding="0" cellspacing="0" border="0" class="screen1">
+<tr><td class="header">
+
+    <div class="header_main">
+
+      <div class="wrapHeader">
+        <a href="http://www.wisegeekhealth.com" class="logo">
+          <span class="part1">wise</span><span class="part2">GEEK</span><br />
+          <span class="caption">clear answers for common questions</span>
+        </a>
+          <div class="search">
+                            <form action="http://s.wisegeekhealth.com/s/" id="cse-search-box">
+    <input type="hidden" name="cx" value="001721306601487571258:xvwilsw1lpg" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input id="sHead" type="text" name="q" class="text" />
+    <input type="submit" value="" name="sa" class="but search_but" />
+</form>
+                      </div>
+      </div>
+
+    </div>
+
+<tr><td class="middle">
+         <div id="lb">
+            <div id="dyk-title">Did You Know?</div>
+         </div>
+</td></tr>
+
+
+<tr><td class="footer">
+
+  <table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="f_first"></td>
+    <td width="80px" height="21px">
+      <iframe src="//www.facebook.com/plugins/like.php?locale=en_US&amp;href=https%3A%2F%2Fwww.facebook.com%2FwiseGEEK&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=115218921845642" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+    </td>
+    <td width="44px"></td>
+    <td width="30px">
+          <td width="44px"></td>
+    <td width="66px">
+    	    		<a id="cat_btn" href="#categories">categories</a>
+    	    </td>
+    <td width="44px"></td>
+    <td width="50px">
+          <td width="44px"></td>
+    <td width="80px" height="21px">
+        <!-- Place this tag where you want the +1 button to render -->
+        <g:plusone size="medium" href="http://www.wisegeek.com"></g:plusone>
+
+        <!-- Place this render call where appropriate -->
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+    </td>
+    <td class="f_last"></td>
+  </tr>
+  </table>
+
+</td></tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="screen2" border="0">
+<tr><td>
+  <div class="screen2_data_holder">
+    <div class="h1" id="cat"><a name="categories">wiseGEEK Categories</a></div>
+
+    <div class="screen2_left">
+
+      
+      <h2><a name="business" href="business.htm">Business and Economy</a></h2>
+      <p>Business, economics and other questions related to money.</p>
+
+      
+      <h2><a name="health" href="health.htm">Health and Wellness</a></h2>
+      <p>Diseases, conditions, symptoms and other health-related matters.</p>
+
+      
+      <h2><a name="fitness" href="fitness.htm">Diet, Fitness and Nutrition</a></h2>
+      <p>Preventative health care via exercise, an active lifestyle, and healthy eating.</p>
+
+      
+    </div>
+    <div class="screen2_right">
+      
+      <h2><a name="anatomy" href="anatomy.htm">Anatomy and Physiology</a></h2>
+      <p>Everything about the parts, processes and functioning of the human body.</p>
+
+      
+      <h2><a name="medicine" href="medicine.htm">Medicine and Treatments</a></h2>
+      <p>Medications, treatments, therapies and remedies to medical illnesses, disorders and syndromes.</p>
+
+          </div>
+    <div class="clear"></div>
+
+  
+    <br /><br />
+
+  </div>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/res/common/js/plugins/flashcanvas/flashcanvas.js"></script>
+<![endif]-->
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-176713-20']);
+  _gaq.push(['_setDomainName', '.wisegeekhealth.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!-- Start Quantcast tag -->
+<script type="text/javascript">
+      _qevents.push( { qacct:"p-e39qsVhukR7DA"} );
+  </script>
+  <noscript>
+      <div style="display: none;">
+          <img src="//pixel.quantserve.com/pixel/p-e39qsVhukR7DA.gif" height="1" width="1" alt="Quantcast"/>
+      </div>
+  </noscript>
+<!-- End Quantcast tag -->
+
+
+</td></tr>
+</table>
+
+<div class="wrapFooter">
+  <div style="clear:both;"></div>
+  <div class="footer">
+
+    <div  class="logo">
+      <span class="part1">wise</span><span class="part2">GEEK</span><br />
+      <span class="caption">clear answers for common questions</span>
+    </div>
+
+    <div class="rightLinks">
+      <a href="http://www.wisegeekhealth.com/faq.htm">FAQ</a><br />
+      <a href="http://www.wisegeekhealth.com/who-is-wisegeek.htm">About Us</a><br />
+      <a href="http://www.wisegeekhealth.com/how-can-i-contact-wisegeek.htm">Contact Us</a><br />
+      <a href="http://www.wisegeekhealth.com/testimonials.htm">Testimonials</a><br />
+      <a href="http://www.wisegeekhealth.com/what-is-the-wisegeek-privacy-policy.htm">Privacy Policy</a><br />
+      <a href="http://www.wisegeekhealth.com/what-are-wisegeeks-terms-and-conditions.htm">Terms and Conditions</a><br />
+      <br /><span property="dc:rights">
+      Copyright &copy; 2003 - 2018</span>
+      <span property="dc:publisher">
+      Conjecture Corporation
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<div class="lb2" style="display:none;">
+     <a href="http://images.wisegeek.com/images/dyk/06-dolphins-sleep-with-one-eye-open.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/20-sun-comprises-99-percent-of-solar-system-mass.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/05-black-cats-bad-luck-good-luck.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/18-the-diameter-of-the-moon-is-less-than-the-distance-from-la-to-ny.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/14-supertanker-takes-20-minutes-to-stop.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/28-women-blink-twice-as-often-as-men.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/38-the-ipad-3-would-have-been-the-worlds-fastest-computer-in-1986.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/35-the-largest-animal-that-ever-lived-is-currently-living.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/17-vanilla-makes-up-almost-one-third-of-ice-cream-sales.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/45-the-world-consumes-two-liters-of-oil-per-person-per-day.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/19-people-dont-sneeze-when-theyre-asleep.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/39-your-heart-beats-more-than-100000-times-per-day.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/02-there-are-more-chickens-than-people-in-the-world.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/09-a-flea-can-jump-130-times-its-own-height.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/08-turtles-can-breathe-through-their-rear-ends.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/24-the-average-american-consumes-120-apples-per-year.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/13-bullfrogs-do-not-sleep.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/32-flamingos-get-their-distinctive-color-from-the-foods-they-eat.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/42-the-total-weight-of-all-the-worlds-ants.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/44-eight-of-the-ten-costliest-disasters-in-us-history-have-been-hurricanes.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/30-seventy-percent-of-the-red-meat-eaten-worldwide-is-goat-meat.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/36-us-tap-water-costs-250-10000-times-less-than-bottled-water.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/26-polar-bear-hair-is-transparent.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/21-the-eiffel-tower-gets-about-six-inches-taller-in-the-heat-of-summer.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/11-australias-kangaroo-population.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/41-only-20-percent-of-americans-have-passports.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/34-chinas-gdp.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/15-china-produces-more-pigs-than-all-other-countries-combined.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/33-silent-and-listen-use-the-same-letters.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/12-about-11-percent-of-earths-land-surface-is-used-to-grow-crops.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/22-about-ten-percent-of-the-worlds-population-lives-in-the-southern-hemisphere.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/25-the-average-person-walks-around-the-earth-four-times.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/27-twelve-people-have-walked-on-the-moon.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/04-calories-burned-per-mile.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/31-a-pineapple-isnt-a-single-fruit.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/03-butterflies-taste-with-their-feet.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/10-the-brain-requires-20-percent-of-the-bodies-oxygen-and-calories.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/37-rubiks-cube-can-be-solved-in-20-moves-or-less.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/01-lightning-strikes-earth-8-million-times-a-day.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/07-humans-are-born-with-300-bones.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/46-spent-fifty-three-billion-on-lottery-tickets-but-won-only-thirty-three-in-prizes.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/29-average-depth-of-the-ocean.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/23-almost-half-the-people-in-manhattan-live-alone.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/16-about-97-percent-of-the-water-on-earth-is-undrinkable.jpg" class = "lightbox2"> </a>
+       <a href="http://images.wisegeek.com/images/dyk/40-if-you-properly-shuffle-a-deck-of-cards.jpg" class = "lightbox2"> </a>
+     </div>
+  <script language="javascript" type="text/javascript"> new ControlsManager();
+(function(){ var c = ControlsManager.getInstance();  c.addControl('2b009311674b10597e63cc20c03ce032',new Page({"__id":"2b009311674b10597e63cc20c03ce032","__name":"PageIndex","__childControls":{"search":"2d809feb8b5a415de16c30dac751a33c"},"__parentControlId":null}));
+  c.addControl('2d809feb8b5a415de16c30dac751a33c',new ControlCustomSearch({"tpl":"default-nocustom-lu","crossDomain":false,"wgDomain":"wisegeekhealth.com","__id":"2d809feb8b5a415de16c30dac751a33c","__name":"search","__childControls":[],"__parentControlId":"2b009311674b10597e63cc20c03ce032"}));
+})();</script>
+</body>
+</html>

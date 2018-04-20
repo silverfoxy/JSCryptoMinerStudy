@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>babelfish.de - Kostenlose Übersetzung und Wörterbuch</title>
+<meta name="description" content="babelfish.de durchsucht Millionen Übersetzungen von professionellen Übersetzern, Webseiten und Wörterbüchern." />
+<meta name="robots" content="index,follow" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/keyboard.css" type="text/css" rel="stylesheet" />
+<link href="js/chosen/chosen/chosen.css" type="text/css" rel="stylesheet" />
+<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css/styleIE.css" title="style" /><![endif]-->
+<style type="text/css">
+</style>
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/animatedcollapse.js"></script>
+<script type="text/javascript" src="js/jquery.autoresize.js"></script>
+<script type="text/javascript">var vki_def_lang = 'Deutsch';</script>
+<script type="text/javascript" src="js/keyboard.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/chosen/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="js/jquery.qtip-1.0.0-rc3.min.js"></script>
+
+
+<script language="javascript">
+
+var lang_name = [];
+
+lang_name['ar'] = 'Arabisch';
+lang_name['bg'] = 'Bulgarisch';
+lang_name['zh-TW'] = 'Chinesisch_(traditionell)';
+lang_name['zh-CN'] = 'Chinesisch_(vereinfacht)';
+lang_name['da'] = 'Daenisch';
+lang_name['de'] = 'Deutsch';
+lang_name['en'] = 'Englisch';
+lang_name['et'] = 'Estnisch';
+lang_name['fi'] = 'Finnisch';
+lang_name['fr'] = 'Franzoesisch';
+lang_name['el'] = 'Griechisch';
+lang_name['he'] = 'Hebraeisch';
+lang_name['id'] = 'Indonesisch';
+lang_name['it'] = 'Italienisch';
+lang_name['ja'] = 'Japanisch';
+lang_name['ca'] = 'Katalanisch';
+lang_name['lv'] = 'Lettisch';
+lang_name['lt'] = 'Litauisch';
+lang_name['nl'] = 'Niederlaendisch';
+lang_name['no'] = 'Norwegisch';
+lang_name['pl'] = 'Polnisch';
+lang_name['pt'] = 'Portugiesisch';
+lang_name['ro'] = 'Rumaenisch';
+lang_name['ru'] = 'Russisch';
+lang_name['sv'] = 'Schwedisch';
+lang_name['sk'] = 'Slowakisch';
+lang_name['sl'] = 'Slowenisch';
+lang_name['es'] = 'Spanisch';
+lang_name['th'] = 'Thailaendisch';
+lang_name['cs'] = 'Tschechisch';
+lang_name['tr'] = 'Tuerkisch';
+lang_name['uk'] = 'Ukrainisch';
+lang_name['hu'] = 'Ungarisch';
+lang_name['vi'] = 'Vietnamesisch';
+
+animatedcollapse.addDiv('add_entry', 'fade=1');
+
+animatedcollapse.ontoggle=function($, divobj, state){
+
+if (state=="block") {
+
+$("#add_translation_icon").attr("src", "img/collapse.jpg");
+
+} else {
+
+$("#add_translation_icon").attr("src", "img/expand.jpg");
+
+}
+
+}
+animatedcollapse.init()
+
+$(document).ready(function() {
+
+$(".lang-select").chosen({allow_single_deselect:true, disable_search: true}); 
+
+$("#toggle_insertform").click(function(){
+
+animatedcollapse.toggle('add_entry');
+//document.form_insert.transladd.focus();
+});
+
+$("#submit_entry").click(function() {  
+
+var source = $("#new_source").val();
+var translation = $("#new_translation").val();
+var src_lang = $("#src_lang").val();
+var dst_lang = $("#dst_lang").val();
+
+
+var dataString = 'source='+ source + '&translation=' + translation + '&src_lang=' + src_lang + '&dst_lang=' + dst_lang;  
+ 
+$.ajax({  
+  type: "POST",  
+  url: "add_entry.php",  
+  data: dataString,  
+  success: function() {  
+    $("#new_source").val('');
+    $("#new_translation").val('');
+//    $('#add_entry_success').html("<p>Vielen Dank für deinen Eintrag!</p>");  
+    $('#add_entry_success').html();  
+  }  
+});  
+
+});
+
+});
+
+function css_callback() {
+
+$(".keyboardInputInitiator").css("left", $("#txtSource").width() - 16);
+$(".keyboardInputInitiator").css("top", $("#txtSource").height() - 16);
+
+/*$(".keyboardInputInitiator").qtip({
+   content: "Virtuelle Tastatur anzeigen",
+    position: {
+         corner: {
+                  target: 'topLeft',
+                  tooltip: 'topLeft'
+         },
+         adjust: {
+         	x: 2,
+         	y: -50
+         	}
+      },
+   
+   show: { delay: 0 },
+   style: { 
+   name: 'defstyle',
+      width: 200
+   }
+});*/
+		
+}
+
+$(function(){
+
+$("#txtSource").autoResize({
+	onAfterResize: function(){
+	//alert($(".keyboardInputInitiator").width());
+		$(".keyboardInputInitiator").css("left", $("#txtSource").width() - 16);
+		$(".keyboardInputInitiator").css("top", $("#txtSource").height() - 16);
+		/*$(".keyboardInputInitiator").css("left", $("#txtSource").width() - $(".keyboardInputInitiator:first").width());
+		$(".keyboardInputInitiator").css("top", $("#txtSource").height() - $(".keyboardInputInitiator:first").height());*/
+	}
+	});
+
+
+$("#txtSource").keyup(function() {
+
+//alert(document.getElementById("txtSource").clientWidth);
+
+//$("#keyboard_icon").css("left", document.getElementById("txtSource").clientWidth - $("#keyboard_icon").width());
+//$("#keyboard_icon").css("top",  document.getElementById("txtSource").clientHeight - $("#keyboard_icon").height());
+
+});
+
+/*$("#searchDict").submit(function() {
+
+alert($("#src_lang").val());
+alert($(this.src_lang.value));
+
+ location.href = '/Woerterbuch/'+lang_name[$("#src").val()];
+ 
+ return false;
+
+});*/
+
+/*$('#src_chzn').simpletip({fixed: true,
+   position: [0, -40]});*/
+   
+$.fn.qtip.styles.defstyle =   { 
+      name: 'cream',
+      /*width: 150,*/
+      padding: 8,
+      color: 'black',
+      fontWeight: 'bold',
+      fontSize: '0.9em',
+      textAlign: 'center',
+      zIndex: -100,
+      whiteSpace: 'nowrap',
+      tip: 'bottomLeft'
+   }
+
+/*$("#src_chosen").qtip({
+   content: "Ausgangssprache",
+    position: {
+         corner: {
+                  target: 'topLeft',
+                  tooltip: 'topLeft'
+         },
+         adjust: {
+         	x: 2,
+         	y: -50
+         	}
+      },
+   
+   show: { delay: 0 },
+   style: 'defstyle'
+});
+
+$("#dst_chosen").qtip({
+   content: "Zielsprache",
+    position: {
+         corner: {
+                  target: 'topLeft',
+                  tooltip: 'topLeft'
+         },
+         adjust: {
+         	x: 2,
+         	y: -50
+         	}
+      },
+   
+   show: { delay: 0 },
+   style: { 
+   name: 'defstyle'
+   }
+});*/
+
+
+/*$(".swap_icon").qtip({
+   content: false,
+    position: {
+         corner: {
+                  target: 'topLeft',
+                  tooltip: 'topLeft'
+         },
+         adjust: {
+         	x: 2,
+         	y: -50
+         	}
+      },
+   
+   show: { delay: 0 },
+   style: { 
+   name: 'defstyle',
+      width: 150
+   }
+});*/
+
+    $(".swap_icon")
+        .mouseover(function() { 
+            $(this).attr("src", 'img/icon_swap_hover.png');
+        })
+        .mouseout(function() {
+            $(this).attr("src", 'img/icon_swap.png');
+        });
+
+});
+
+
+
+function EvalSound(text, lang) {
+  var thissound=document.getElementById('audio1');
+  thissound.src = "speaker.php?text="+text+"&lang="+lang;
+  thissound.load();
+  thissound.play();
+}
+
+function swapLangs(field1, field2) {
+
+if ($('#'+field1).val() != 'auto') {
+var tmp = $('#'+field1).val();
+$('#'+field1).val($('#'+field2).val());
+$('#'+field2).val(tmp);
+$('#'+field1).trigger("liszt:updated");
+$('#'+field2).trigger("liszt:updated");
+}
+
+}
+</script>
+</head>
+<body onload="document.dict.query.focus();">
+<div id="header">
+<div id="logo">
+<a href="http://www.babelfish.de"><img src="img/logo.png" width="271" height="56" border="0"></a>
+</div>
+
+</div>
+
+<div id="wrapper">
+<div id="content">
+<div id="main-content">
+
+
+
+
+
+
+
+
+<div class="text-form">
+<div class="inner-box">
+<h1>Text oder Begriff übersetzen</h1>
+<form id="searchDict" name="dict" method="GET" action="dict" style="margin: 0">
+<div id="input-wrapper">
+<textarea id="txtSource" name="query" cols="25" wrap="virtual" rows="8" class="keyboardInput"></textarea>
+</div>
+<br />
+<div style="margin-top: 15px; margin-bottom: 5px">
+	
+	<!--<div class="wrapper-lang-select" title="Ausgangssprache">-->
+	<select name="src" id="src" class="lang-select" style="width: 195px" title="Ausgangssprache">
+	<option value="auto">Automatische Erkennung</option>
+	
+	<option value="ar">Arabisch</option>
+	
+	<option value="bg">Bulgarisch</option>
+	
+	<option value="zh-TW">Chinesisch (traditionell)</option>
+	
+	<option value="zh-CN">Chinesisch (vereinfacht)</option>
+	
+	<option value="de">Deutsch</option>
+	
+	<option value="da">Dänisch</option>
+	
+	<option value="en">Englisch</option>
+	
+	<option value="et">Estnisch</option>
+	
+	<option value="fi">Finnisch</option>
+	
+	<option value="fr">Französisch</option>
+	
+	<option value="el">Griechisch</option>
+	
+	<option value="he">Hebräisch</option>
+	
+	<option value="id">Indonesisch</option>
+	
+	<option value="it">Italienisch</option>
+	
+	<option value="ja">Japanisch</option>
+	
+	<option value="ca">Katalanisch</option>
+	
+	<option value="lv">Lettisch</option>
+	
+	<option value="lt">Litauisch</option>
+	
+	<option value="nl">Niederländisch</option>
+	
+	<option value="no">Norwegisch</option>
+	
+	<option value="pl">Polnisch</option>
+	
+	<option value="pt">Portugiesisch</option>
+	
+	<option value="ro">Rumänisch</option>
+	
+	<option value="ru">Russisch</option>
+	
+	<option value="sv">Schwedisch</option>
+	
+	<option value="sk">Slowakisch</option>
+	
+	<option value="sl">Slowenisch</option>
+	
+	<option value="es">Spanisch</option>
+	
+	<option value="th">Thailändisch</option>
+	
+	<option value="cs">Tschechisch</option>
+	
+	<option value="tr">Türkisch</option>
+	
+	<option value="uk">Ukrainisch</option>
+	
+	<option value="hu">Ungarisch</option>
+	
+	<option value="vi">Vietnamesisch</option>
+	
+	</select>
+	<!--</div>-->
+
+	&nbsp;<span style="font-size:14px"><a href="javascript:swapLangs('src', 'dst');"><img class="swap_icon" src="img/icon_swap.png" width="14" height="13" border="0"></a></span>&nbsp;
+	<select name="dst" id="dst" class="lang-select" data-placeholder="Zielsprache wählen" style="width: 195px" title="Zielsprache">
+	<option value=""></option>
+	
+	<option value="ar">Arabisch</option>
+	
+	<option value="bg">Bulgarisch</option>
+	
+	<option value="zh-TW">Chinesisch (traditionell)</option>
+	
+	<option value="zh-CN">Chinesisch (vereinfacht)</option>
+	
+	<option value="de" selected=selected>Deutsch</option>
+	
+	<option value="da">Dänisch</option>
+	
+	<option value="en">Englisch</option>
+	
+	<option value="et">Estnisch</option>
+	
+	<option value="fi">Finnisch</option>
+	
+	<option value="fr">Französisch</option>
+	
+	<option value="el">Griechisch</option>
+	
+	<option value="he">Hebräisch</option>
+	
+	<option value="id">Indonesisch</option>
+	
+	<option value="it">Italienisch</option>
+	
+	<option value="ja">Japanisch</option>
+	
+	<option value="ca">Katalanisch</option>
+	
+	<option value="lv">Lettisch</option>
+	
+	<option value="lt">Litauisch</option>
+	
+	<option value="nl">Niederländisch</option>
+	
+	<option value="no">Norwegisch</option>
+	
+	<option value="pl">Polnisch</option>
+	
+	<option value="pt">Portugiesisch</option>
+	
+	<option value="ro">Rumänisch</option>
+	
+	<option value="ru">Russisch</option>
+	
+	<option value="sv">Schwedisch</option>
+	
+	<option value="sk">Slowakisch</option>
+	
+	<option value="sl">Slowenisch</option>
+	
+	<option value="es">Spanisch</option>
+	
+	<option value="th">Thailändisch</option>
+	
+	<option value="cs">Tschechisch</option>
+	
+	<option value="tr">Türkisch</option>
+	
+	<option value="uk">Ukrainisch</option>
+	
+	<option value="hu">Ungarisch</option>
+	
+	<option value="vi">Vietnamesisch</option>
+	
+	</select>
+	 
+	<input type="submit" name="submit" value="übersetzen" class="submit">
+	</div>
+</form>
+</div>
+</div>
+
+
+
+
+<div class="info-form">
+<div class="inner-box">
+
+<strong>babelfish.de</strong> durchsucht Millionen Übersetzungen von professionellen Übersetzern, Webseiten und Wörterbüchern.
+
+</div>
+</div>
+<div id="footer" style="position: relative">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style " addthis:url="http://www.babelfish.de" style="position: absolute; right: 0; width: 122px;">
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_google"></a>
+<a class="addthis_button_print"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f06ff3d69053ce6"></script>
+<!-- AddThis Button END -->
+&copy; 2018 babelfish - <a href="about.php">Impressum</a>
+</div>
+</div>
+
+<div id="skyscraper">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1411074771348646";
+/* 160x600, Erstellt 27.07.10 */
+google_ad_slot = "1054146116";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+</div>
+</div>
+<p>&nbsp;</p>
+</body>
+</html>

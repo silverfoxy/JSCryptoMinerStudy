@@ -1,0 +1,972 @@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+<title>메인 | 통신요금정보포털 스마트초이스</title>
+<!-- 공통적용헤더정보 -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- 17-09-04 og 적용 -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="통신요금 정보포털"/>
+<meta property="og:description" content="요금제추천, 단말기지원금조회, 미환급액조회 등 다양한 서비스를 제공합니다."/>
+<meta property="og:image" content="http://www.smartchoice.or.kr/smc/resources/imagesNew/og/main.png"/>
+<meta property="og:url" content="http://www.smartchoice.or.kr" />
+<!-- 공통적용헤더정보 NEW -->
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/resources/cssNew/scCss.css?v=170830" /><!-- ?v=170515 --> 
+<script type="text/javascript" src="/resources/js/jquery_api.js"></script>
+<!-- 공통적용헤더정보  OLD-->
+<script type="text/javascript" src="/resources/js/mainUseGuide.js?v=170829"></script>
+
+<script type="text/javascript">
+/* if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)) {
+	location.href='http://m.smartchoice.or.kr/smc/m';
+}*/
+
+var popup_Seq = 0;
+var eventPageNum = 0;                                       // 통신사 이벤트 현재 페이지
+var eventPageSize = '9';         // 통신사 이벤트 마지막 페이지
+
+jQuery(document).ready(function(){
+	//getCookie("popMain");
+	getCookie("popMain171124");
+	getCookie("slidepopwrap");
+	
+	var mobileKeyWords = "Mobile";
+	if(navigator.userAgent.match(mobileKeyWords)!=null) {
+		var html = "<div id='mobilePageUrl'><a href='/smc/m'>모바일 버전으로 보기 ▶</a></div>";
+		jQuery("#footer").after(html);
+	}
+	
+	fn_eventPageing('next');
+});
+
+//팝업관련스크립트
+function closeLayer() {
+	jQuery(".popMain").each(function(){
+		jQuery(this).css("display","none");
+	});
+	jQuery(".popMain171124").each(function(){
+		jQuery(this).css("display","none");
+	});
+}
+function setCookie( name, value, expiredays ) { 
+	var todayDate = new Date(); 
+	todayDate.setDate( todayDate.getDate() + expiredays ); 
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+} 
+function closePop() { 
+//	setCookie("popMain", "no" , 1); 
+	setCookie("popMain171124", "no" , 1); 
+	closeLayer();
+} 
+function getCookie(name) { 
+	var Found = false; 
+	var start, end;
+	var i = 0;
+
+	// cookie 문자열 전체를 검색 
+	while(i <= document.cookie.length) { 
+		start = i;
+		end = start + name.length;
+	// name과 동일한 문자가 있다면 
+		if(document.cookie.substring(start, end) == name) { 
+			Found = true;
+			break;
+		} 
+		i++;
+	}
+	// name 문자열을 cookie에서 찾았다면 
+	if(Found == true) { 
+		start = end + 1;
+		end = document.cookie.indexOf(";", start);
+		// 마지막 부분이라는 것을 의미(마지막에는 ";"가 없다) 
+		if(end < start) 
+			end = document.cookie.length;
+		// name에 해당하는 value값을 추출하여 리턴한다. 
+		closeLayer();
+		closePopupLayer();
+	}
+	// 찾지 못했다면 
+	else {
+		if(name != "slidepopwrap") jQuery(".popMain171124").css("display","");
+		if(popup_Seq>0) jQuery(".slidepopwrap").css("display","");
+	}
+}
+
+//파워노트관련
+function viewMove(boardType, seq){
+	location.href="/smc/smartreport/"+boardType+"view.do?sm_Seq="+seq;
+}
+//2015-06-29 레이어팝업관련
+function closePopup() { 
+	var todayVal = document.getElementById("todayclosechk").checked;
+	if(todayVal==true)
+		setCookie("slidepopwrap", "no" , 1); 
+	closePopupLayer();
+}
+function closePopupLayer() {
+	jQuery(".slidepopwrap").each(function(){
+		jQuery(this).css("display","none");
+		//jQuery(this).slideUp();
+	});
+}
+
+//퀵메뉴		
+$(window).bind('scroll', function() {
+	var curTop = $(this).scrollTop();
+	if(curTop > 132) {
+		$(".quick").css({"position": "fixed", "top": "0px"}); // height 232px 아래로 이동시 위치
+	}
+	else {
+		$(".quick").css({"position": "absolute", "top": "142px"});// default 위치
+	}
+});
+// 통신사이벤트 페이징
+function fn_eventPageing(val) {
+	if (val == "prev" && eventPageNum > 1) {	// 이전
+		$(".dev_event > div").hide();
+		eventPageNum--;
+		$(".dev_event > div:nth-child("+eventPageNum+")").show();
+		$(".dev_eventPaging").text(eventPageNum+"/"+eventPageSize);
+	} else if (val == "next" && eventPageNum < eventPageSize) {	// 다음
+		$(".dev_event > div").hide();
+		eventPageNum++;
+		$(".dev_event > div:nth-child("+eventPageNum+")").show();
+		$(".dev_eventPaging").text(eventPageNum+"/"+eventPageSize);
+	}
+}					
+// 인기검색어 링크
+function searchRecommand(recommandKwd){
+	searchForm.kwd.value=recommandKwd;		
+	recommandMSubmit();
+}
+
+function recommandMSubmit(){
+	searchForm.submit();
+}	
+//2017-08-17 add END
+</script>
+
+</head>
+<body id="main">
+<!-- 2015-07-07 상단팝업 수정 -->
+
+<!-- 2015-07-07 상단팝업 수정 end -->
+<dl class="skipnavi">
+	<dt>메뉴 건너띄기</dt>
+	<dd>
+		<!-- <a href="#wrap">팝업 건너띄기</a>
+		<a href="#topmenu">상단메뉴 바로가기</a>
+		<a href="#maincontents">메인 본문 바로가기</a> -->
+		<!-- <a href="javascript:skipNavi('2')">메인 본문 바로가기</a>2016-03-11 수정 -->
+		<a href="#focusBody">메인 본문 바로가기</a><!-- 2017-03-14 수정 -->
+		<a href="javascript:skipNavi('1')">주메뉴 바로가기</a><!-- 2016-03-11 수정 -->
+	</dd>
+</dl>
+
+<input type="hidden" id="depth_1" value="0" />
+<script type="text/javascript" src="/resources/js/menu_array.js?v=150331"></script><!-- 2105-03-31 수정 --> 
+
+<div id="wrap">	
+	<!-- S: toparea -->
+	<div class="toparea">
+
+<!-- 2015-01-27 에이스카운터 로그스크립트 -->
+<!-- AceCounter Log Gathering Script V.72.2012013001 -->
+<script type="text/javascript">
+if(typeof _GUL == 'undefined'){
+var _GUL = 'gtb9.acecounter.com';var _GPT='8080'; var _AIMG = new Image(); var _bn=navigator.appName; var _PR = location.protocol=="https:"?"https://"+_GUL:"http://"+_GUL+":"+_GPT;if( _bn.indexOf("Netscape") > -1 || _bn=="Mozilla"){ setTimeout("_AIMG.src = _PR+'/?cookie';",1); } else{ _AIMG.src = _PR+'/?cookie'; };
+document.writeln("<scr"+"ipt language='javascript' src='/smc/resources/js/template/acecounter_V70.js'></scr"+"ipt>");
+}
+</script>
+<noscript><img src='http://gtb9.acecounter.com:8080/?uid=AI1A37625752248&amp;je=n&amp;' border="0" width="0" height="0" alt="" /></noscript>
+<!-- AceCounter Log Gathering Script End -->
+
+
+<script type="text/javascript" src="/resources/js/zoom.js"></script><!-- 화면 확대/축소 -->
+<!-- <script type="text/javascript" src="/resources/js/zeroclip/jquery.zclip.js"></script> URL복사 2015-03-22 주석처리 -->
+<script>
+/* 2015-03-22 번수 추가 */
+var pageUrl = location.href;
+</script>
+	
+	<div class="innerwrap">
+		<h1><a href="/smc/index.do" title="스마트 초이스 메인 바로가기"><img src="/smc/resources/images/common/logo.png" alt="스마트 초이스" /></a></h1>
+		<ul class="gnb">
+			
+				
+				
+					<li><a href="/smc/member/loginPage.do">로그인</a></li>
+					<li><a href="/smc/member/join01.do">회원가입</a></li>
+				
+			
+			<li><a href="/smc/etc/siteMap.do">사이트맵</a></li>
+		</ul>
+		<form name="topForm" action="/smc/searchNewView.do" method="post">
+			<fieldset>
+				<legend>검색</legend>
+				<p><input type="text" name="kwd" value="" class="txt" title="검색어를 입력하세요" /><button type="button" class="btn_topsch" onclick="topForm.submit();">검색</button></p>
+			</fieldset>
+		</form>		
+		<div class="cvtool">
+			<button type="button" class="btn_cv_print" onclick="window.print();">출력</button>
+			<button type="button" class="btn_cv_fontlarge" onclick="zoomOut();">글씨 크게</button>
+			<button type="button" class="btn_cv_fontsmall" onclick="zoomIn();">글씨 작게</button>
+			<!-- <button type="button" id="copy-button">url복사</button> -->
+			<button type="button" class="btn_cv_urlcopy" onclick="urlCopy(pageUrl)">url복사</button> <!-- 2015-03-22 url복사 함수 변경 -->
+		</div>
+	</div>
+	<ul class="topmenu" id="topmenu">
+		<li class="menu_0">
+			<h2><a href="#">스마트 가이드</a></h2>
+			<div class="submenubox">
+				<div class="innerwrap">
+					<dl>
+						<dt><a href="/smc/smartguide/recomend_search03_2_1.do">이동전화 요금제 추천</a></dt><!-- 2017-11-29 -->
+						<dd>
+							<!-- <a href="/smc/smartguide/recomend_search03_2_1.do">이용패턴 기반 요금제 추천</a>
+							<a href="/smc/smartguide/feeBillNew.do">사용량 기반 요금제 추천</a>
+							<a href="/smc/smartguide/catalog.do">요금제 간편비교</a> -->
+							<!-- <a href="/smc/smartguide/prepay01.do">선불 요금제</a> 2017-08-29 하단 별도 분리 -->
+							<!-- 2017-10-31 추가 EDENIT 2017-11-29 수정 -->
+							<a href="/smc/smartguide/recomend_search03_2_1.do">이용패턴 기반 요금제 추천</a>
+							<!-- <a href="/smc/smartguide/recomend_search03_2_2.do">알뜰폰 요금제 추천(개발)</a> -->
+							<a href="/smc/smartguide/feeBillNew_2.do">사용량 기반 요금제 추천</a>
+							<!-- <a href="/smc/scrap/myScrapNew.do">MY 스크랩(개발)</a> -->
+							<a href="/smc/smartguide/catalogNew.do">요금제 간편비교</a>
+						</dd>
+					</dl>
+					<dl> <!-- 2015-03-26 유무선결합상품추천 hide 풀고, 메뉴 생성 -->
+						<dt><a href="/smc/smartguide/planExpantionBillTest3.do">유·무선 결합상품 추천</a></dt>
+						<dd><a href="/smc/smartguide/planExpantionBillTest3.do">유무선 결합상품 추천</a><a href="/smc/smartguide/planExpantionBillNew2.do">인터넷·TV·집전화 요금제 추천</a></dd>
+					</dl>
+					<!-- 2015-07-22 추가 -->
+					<dl>
+						<dt><a href="/smc/smartguide/teleMerit01.do">통신 혜택 누리기</a></dt>
+						<dd>
+							<a href="/smc/smartguide/teleMerit01.do">장기가입 혜택</a>
+							<a href="/smc/smartguide/teleMerit02.do">멤버십 혜택</a><!-- 2016-10-04 추가 -->
+							<!-- <a href="/smc/smartguide/teleMerit02.do">복지감면 혜택</a> 컨텐츠없어 주석 -->
+						</dd>
+					</dl>
+					<dl><!-- 2017-08-29 메뉴 분리 -->
+						<dt><a href="/smc/smartguide/prepay01.do">선불 요금제</a></dt>
+						<dd><a href="/smc/smartguide/prepay01.do">선불 요금제</a></dd>
+					</dl>
+					<!-- 2015-07-22 추가 -->
+					<dl>
+						<dt><a href="/smc/smartguide/internationalInfo.do">국제전화·로밍 안내</a></dt>
+						<dd><a href="/smc/smartguide/internationalInfo.do">국제전화 안내</a><a href="/smc/smartguide/roaming.do">로밍 안내</a></dd>
+					</dl>
+					 
+					
+					<dl>
+						<dt><a href="/smc/smartguide/mobile01.do">단말기 자급제·약관 가이드</a></dt>
+						<dd>
+							<a href="/smc/smartguide/mobile01.do">단말기 자급제란?</a>
+							<a href="/smc/smartguide/mobile02.do">달라지는 점</a>
+							<a href="/smc/smartguide/mobile03.do">자급 단말기 구입시 유의사항</a>
+							<a href="/smc/smartguide/mobile041.do" style="display:none">자급단말기 구입처</a>
+							<a href="/smc/smartguide/termsMain.do">약관 가이드</a>
+						</dd><!-- 2017-08-29 약관가이드 이동 -->
+						<!-- <a href="/smc/smartguide/mobile041.do">자급단말기 구입처</a> 2016-02-19 주석 -->
+					</dl>
+					
+					<dl>
+						<dt><a href="/smc/smartguide/traffic.do">통신사 트래픽 관리 정보</a></dt>
+						<dd>
+							<a href="/smc/smartguide/traffic.do">관리기준 전문보기</a>
+							<a href="/smc/smartguide/trafficFaq.do">트래픽관리 Q&amp;A</a>
+							<a href="/smc/smartguide/traffic.do?page=KT">KT</a>
+							<a href="/smc/smartguide/traffic.do?page=SKT">SKT</a>
+							<a href="/smc/smartguide/traffic.do?page=LG">LG U+</a>
+							<a href="/smc/smartguide/traffic.do?page=SKB">SK브로드밴드</a>
+						</dd>
+					</dl>
+					<button type="button" class="btn_layerclose" onclick="submenuClose('0')">닫기</button>
+				</div>
+			</div>
+		</li>
+		<li class="menu_1">
+			<h2><a href="#">스마트 라이프</a></h2>
+			<div class="submenubox">
+				<div class="innerwrap">
+					<dl>
+						<dt><a href="/smc/smartlife/dantongList.do">단말기 지원금 조회</a></dt>
+						<dd><a href="/smc/smartlife/dantongList.do">단말기 기준으로 조회하기</a><a href="/smc/smartlife/dantongTelList.do">통신사 기준으로 조회하기</a><a href="/smc/smartlife/monthlyPayment.do">월납부액 계산하기</a></dd><!-- 2016-12-26 내용 추가 -->
+					</dl>
+					<!-- 2016-06-17 추가 -->
+					<dl>
+						<dt><a href="/smc/smartlife/find_discount02.do">25%요금할인 대상단말기 조회</a></dt><!-- 2017-09-12 20% > 25% 변경 -->
+						<dd><a href="/smc/smartlife/find_discount.do">서비스안내</a><a href="/smc/smartlife/find_discount02.do">25%요금할인 대상단말기조회</a><!--  2016-06-30 테스트후해제 --></dd>
+					</dl>
+					<!-- //2016-06-17 추가 -->
+					<dl>
+						<dt><a href="/smc/smartlife/refund.do">통신 미환급액 조회</a></dt>
+						<dd>
+							<a href="/smc/smartlife/refund01.do">서비스 개요</a>
+							<a href="/smc/smartlife/refund02.do">서비스 안내</a>
+							<a href="/smc/smartlife/refund03.do">개통이력조회 안내</a>
+							<a href="/smc/smartlife/refund.do">미환급액조회하기</a>
+							<a href="/smc/smartlife/refund_05.do">환급신청 결과조회</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/smartlife/tvrefund.do">유료방송 미환급액조회</a></dt>
+						<dd><a href="/smc/smartlife/tvrefund.do">유료방송 미환급액조회</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/smartlife/steal_check.do">명의도용 조회</a></dt>
+						<dd><a href="/smc/smartlife/steal_check.do">명의도용 조회</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/smartlife/killswitch.do">분실·도난 조회</a></dt>
+						<dd class="findphone">
+							<a href="/smc/smartlife/killswitch.do">도난방지 기능안내</a>
+							<a href="/smc/smartlife/find_guide.do">분실·도난폰 여부 조회</a>
+							<a href="/smc/smartlife/find_phone.do">분실 휴대폰 찾기</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/smartlife/mobile01.do">모바일 상품권 조회</a></dt>
+						<dd><a href="/smc/smartlife/mobile01.do">모바일 상품권 조회</a>
+						<a href="/smc/smartlife/giftFaq.do">자주 묻는 질문</a></dd>
+					</dl>
+					<button type="button" class="btn_layerclose" onclick="submenuClose('1')">닫기</button>
+				</div>
+			</div>
+		</li>
+		<li class="menu_2">
+			<h2><a href="#">스마트 리포트</a></h2>
+			<div class="submenubox">
+				<div class="innerwrap">
+					
+					<dl>
+						<dt><a href="/smc/smartreport/smarttalk.do">파워노트</a></dt>
+						<dd>
+							<a href="/smc/smartreport/ahha.do">아하! 그렇구나</a>
+							<a href="/smc/smartreport/smarttalk.do">스마트 토크</a>
+							<a href="/smc/smartreport/comparisonService.do">통신서비스 현장체험</a>
+							<!-- a href="/smc/smartreport/match.do">구 파워통신 컨테츠보기(스마트매치)</a>
+							<a href="/smc/smartreport/talk.do">구 파워통신 컨테츠보기(3색토크)</a -->
+						</dd>
+					</dl>
+					<!-- <dl>
+						<dt><a href="/smc/smartreport/ringSeason3.do">알뜰 서포터즈</a></dt>
+						<dd><a href="/smc/smartreport/ringSeason3.do">알뜰 서포터즈</a></dd>
+					</dl> -->
+					<!-- 2015-07-13 -->
+					<dl>
+						<dt><a href="/smc/smartreport/telNews.do">뉴스와 리포트</a></dt>
+						<dd><a href="/smc/smartreport/telNews.do">통신 뉴스</a><a href="/smc/smartreport/service_01_client.do">통신 서비스 리포트</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/smartreport/ringSeason4.do">5분 통신 레시피</a></dt>
+						<dd><a href="/smc/smartreport/ringSeason4.do">5분 통신 레시피</a></dd>
+					</dl>
+					<!-- //2015-07-13 -->
+					<dl>
+						<dt><a href="/smc/smartreport/webtoonMain.do">초이스 웹툰</a></dt>
+						<dd><a href="/smc/smartreport/webtoonMain.do">초이스 웹툰</a></dd>
+					</dl>
+					<!-- 2015-12-08 삭제 
+					<dl>
+						<dt><a href="/smc/smartreport/evaluatePage.do">미래부 통신서비스 품질평가</a></dt>
+						<dd>
+							<a href="/smc/smartreport/evaluatePage.do">서비스 품질평가 결과</a>
+							<a href="/smc/smartreport/evaluateMethod.do">서비스 품질평가 측정방법</a>
+							<a href="/smc/smartreport/evaluateDownload.do">관련자료 다운로드</a>
+						</dd>
+					</dl> -->
+					<!-- 2015-12-08 추가 --> 
+					<dl>
+						<dt><a href="/smc/smartreport/evaluateComparison.do">통신서비스 품질평가</a></dt>
+						<dd>
+							<a href="/smc/smartreport/evaluateComparison.do">국내vs해외 품질비교</a><!-- qualityComparison.jsp -->
+							<a href="/smc/smartreport/evaluatePage.do">국내 품질평가 결과</a>
+							<a href="/smc/smartreport/evaluateForeignPage.do">해외 품질평가 결과</a><!-- qualityEvaluationResult.jsp  -->
+						</dd>
+					</dl>
+					<!--// 2015-12-08 추가 --> 
+					<!-- 2016-07-11 추가 --> 
+					<dl>
+						<dt><a href="/smc/smartreport/evaluateComparison.do">통신서비스 커버리지</a></dt>
+						<dd>
+							<a href="/smc/smartreport/serviceCoverage.do">통신서비스 커버리지</a>
+						</dd>
+					</dl>
+					<!--// 2016-07-11추가 --> 
+					<button type="button" class="btn_layerclose" onclick="submenuClose('2')">닫기</button>
+				</div>
+			</div>
+		</li>
+		<li class="menu_3">
+			<h2><a href="#">고객센터</a></h2>
+			<div class="submenubox">
+				<div class="innerwrap">
+					<dl>
+						<dt><a href="/smc/customer/notice.do">공지사항</a></dt>
+						<dd><a href="/smc/customer/notice.do">공지사항</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/customer/faq.do">자주 묻는 질문</a></dt>
+						<dd><a href="/smc/customer/faq.do">자주 묻는 질문</a></dd>
+					</dl>
+					<button type="button" class="btn_layerclose" onclick="submenuClose('3')">닫기</button>
+				</div>
+			</div>
+		</li>
+		<li class="menu_4">
+			<h2><a href="#">이벤트</a></h2>
+			<div class="submenubox">
+				<div class="innerwrap">
+					<dl>
+						<dt><a href="/smc/event/eventMain.do">스초 이벤트</a></dt>
+						<dd><a href="/smc/event/eventMain.do">스초 이벤트</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="/smc/event/eventTele.do">통신사 이벤트</a></dt>
+						<dd><a href="/smc/event/eventTele.do">전체</a>
+						<a href="/smc/event/eventTeleView.do?pg=1&searchType=event_sk&tabNum=2">SKT</a>
+						<a href="/smc/event/eventTeleView.do?pg=1&searchType=event_kt&tabNum=1">KT</a>
+						<a href="/smc/event/eventTeleView.do?pg=1&searchType=event_lg&tabNum=3">LG U+</a></dd>
+					</dl>
+					<button type="button" class="btn_layerclose" onclick="submenuClose('4')">닫기</button>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+	<!-- //E: toparea -->
+	
+	<!-- S: container -->
+	<div class="container">
+		<div class="maincontents" id="maincontents">
+			<div class="mainvisual" id="focusBody"><!-- 2017-03-14 수정 -->
+				<h2 class="hide">메인 비쥬얼 컨텐츠</h2>
+				<ul>
+					
+					
+						
+							
+							
+								<li class="on"><p><a href="http://www.smartchoice.or.kr/smc/smartlife/dantongList.do" target="_self"><img src="/smc/resources/upload/2017/9/13/111.jpg" width="636" height="210" alt="무엇이 유리할까? 단말기 지원금 vs 25% 요금할인. 선택한 단말기를 기준으로 각 통신사별 대표 요금제에 대해 지원금과 요금할인 금액을 비교해보세요!" /></a></p></li>
+							
+						
+						
+					
+					
+						
+						
+							
+							
+								<li><p><a href="http://www.smartchoice.or.kr/smc/etc/danPage.do" target="_blank"><img src="/smc/resources/upload/2017/9/13/222.jpg"  width="636" height="210" alt="나도 25% 요금 할인을 받을 수 있을까? 25% 요금 할인에 대해 더 자세히 알아보세요." /></a></p></li>
+							
+						
+					
+					
+						
+						
+							
+							
+								<li><p><a href="http://me2.do/5touHa45" target="_blank"><img src="/smc/resources/upload/2017/8/23/bn_main03.jpg"  width="636" height="210" alt="가계통신비 절감을 위한 합리적인 선택! 다양한 알뜰폰 상품 한눈에 비교하고 나에게 꼭 맞는 알뜰폰을 찾아보세요! 알뜰폰Hub 맞춤요금제 상품검색Go!!!" /></a></p></li>
+							
+						
+					
+					
+				</ul>
+				<p class="btnset">
+					<button type="button" class="btn_stop" onclick="rollstop()">멈춤</button>
+					<button type="button" class="btn_play" onclick="rollstart()">재생</button>
+					<button type="button" class="btn_prev" onclick="arrprev()">이전</button>
+					<button type="button" class="btn_next" onclick="arrnext()">다음</button>
+				</p>						
+				<div class="noticebox">
+					<!-- 2017-08-23 class 수정 -->
+					<h2>공지사항</h2>
+					<!-- <a href="#" class="title">단통법 시행과 관련하여 안내드립니다.</a> -->
+					
+						
+							<a href="/smc/customer/noticeview.do?sm_Seq=8210" class="title">서비스 점검 안내 (2/10)</a>
+						
+					
+					<span class="more"><a href="/smc/customer/notice.do">더보기 +</a></span>
+				</div>
+			</div>
+			<!-- // 2017-08-17 add START -->
+			<ul class="r_box">
+				
+				
+				<li>
+					<a href="http://www.smartchoice.or.kr/smc/smartreport/ahhaview.do?sm_Seq=8263&searchType=tc&searchKeyword=&pg=1" target="_self">
+						<dl>
+							<dt>[아하!그렇구나]</dt>
+							<dd><font size=3>무선으로 파일 공유하기</font></dd>
+							<dd style="font-size:12px;line-height:15px;">파일을 USB 케이블 연결 없이<br>무선으로 공유하세요.</dd>	<!-- 2017-08-24 배너 설명 추가 -->
+							<dd class="img"><img src="/smc/resources/upload/2018/3/6/1.jpg" alt="[아하!그렇구나]" width="120" height="80" /></dd>
+						</dl>
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://www.smartchoice.or.kr/smc/smartreport/ringSeason4view.do?sm_Seq=4941&searchType=tc&searchKeyword=&pg=2" target="_self">
+						<dl>
+							<dt>[5분통신레시피]</dt>
+							<dd><font size=3>개인정보 보호 안전수칙</font></dd>
+							<dd style="font-size:12px;line-height:15px;">내손으로 지키는<br>스마트폰 속 개인정보</dd>	<!-- 2017-08-24 배너 설명 추가 -->
+							<dd class="img"><img src="/smc/resources/upload/2018/3/6/1110_컨텐츠01.png" alt="[5분통신레시피]" width="120" height="80" /></dd>
+						</dl>
+					</a>
+				</li>
+				
+				<!-- test 
+				<li>
+					<a href="#">
+						<dl>
+							<dt>배너1_1[아하!그렇구나]</dt>
+							<dd>이동통신사 3사,<br />데이터로밍 요금제</dd>
+							<dd class="img"><img src="/smc/resources/imagesNew/newmain/bn01.png" width="120" height="80" alt="" /></dd>
+						</dl>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<dl>
+							<dt>배너1_2[단말기 자급제]</dt>
+							<dd>구입 따로!  가입 따로! </dd>
+							<dd class="img"><img src="/smc/resources/imagesNew/newmain/bn02.png" width="120" height="80" alt="" /></dd>
+						</dl>
+					</a>
+				</li>-->
+				
+			</ul>
+		</div> 
+		<div class="mid_area">
+			<ul>
+				<li>
+					<strong>이동전화 요금제 추천</strong>
+					통신요금 절약하고 싶으세요?<br />가장 적합한 요금제를 선택하세요!
+					<span>
+						<a href="/smc/smartguide/recomend_search03_2_1.do">요금제 추천받기</a><!-- 2017-11-29 -->
+						<a href="/smc/smartguide/catalogNew.do">요금제 간편비교</a>
+					</span>
+				</li>
+				<li>
+					<strong>단말기 지원금<br />vs 25%요금할인</strong><!-- 2017-09-12 20% > 25% 변경 -->
+					단말기 구입시 더 유리한 지원방식을 선택하세요! 
+					<span>
+						<a href="/smc/smartlife/dantongList.do">단말기 지원금 조회</a>
+						<a href="/smc/smartlife/monthlyPayment.do">월납부액 계산하기</a>
+					</span>
+				</li>
+				<li>
+					<strong>통신 미환급액 조회</strong>
+					해지 또는 번호이동을 하셨어요?<br />미환급액을 꼭 확인해보세요! 
+					<span>
+						<a href="/smc/smartlife/refund.do">통신 미환급액 조회</a>
+						<a href="/smc/smartlife/refund_05.do">환급신청 결과조회</a>
+					</span>
+				</li>
+			</ul>
+		</div>
+	
+		<div class="mid_area2">
+			<ul>
+				<li><a href="/smc/smartguide/planExpantionBillTest3.do"><img src="/smc/resources/imagesNew/newmain/bn_mid01.png" alt="유·무선 결합상품 추천" /></a></li>
+				<li><a href="/smc/smartlife/find_discount02.do"><img src="/smc/resources/imagesNew/newmain/bn_mid02.png" alt="25% 요금할인대상단말기 조회" /></a></li><!-- 2017-09-12 20% > 25% 변경 -->
+				<li><a href="/smc/smartlife/steal_check.do"><img src="/smc/resources/imagesNew/newmain/bn_mid03.png" alt="명의도용조회" /></a></li>
+				<li><a href="/smc/smartlife/find_guide.do"><img src="/smc/resources/imagesNew/newmain/bn_mid04.png" alt="분실·도난폰여부 조회" /></a></li>
+				<li><a href="/smc/smartlife/find_phone.do"><img src="/smc/resources/imagesNew/newmain/bn_mid05.png" alt="분실 휴대폰찾기" /></a></li>
+				<li><a href="/smc/smartlife/mobile01.do"><img src="/smc/resources/imagesNew/newmain/bn_mid06.png" alt="모바일 상품권조회" /></a></li>
+				<li><a href="/smc/smartlife/tvrefund.do"><img src="/smc/resources/imagesNew/newmain/bn_mid07.png" alt="유료방송 미환급액조회" /></a></li>
+			</ul>
+		</div>
+	
+		<div class="mid_area3">
+			<div class="mid_area3_1">
+				<!-- 2017-08-23 쿼리 수정 -->
+				<h2>통신뉴스</h2>
+				
+					<!-- 첫번째 data -->
+				<img src="/smc/resources/upload/2018/3/16/[re][re]340.jpg" alt="SKT, 수험생·부모님 겨냥 ‘LG폴더’ ..." style="width:180px;height:120px;"/>
+					
+				
+				
+				<ul>
+				
+					<li><a href="/smc/smartreport/telNewsview.do?sm_Seq=8326">SKT, 수험생·부모님 겨냥 ‘LG폴더’ ...</a></li>
+				
+					<li><a href="/smc/smartreport/telNewsview.do?sm_Seq=8325">LG유플러스 제22기 정기 주주총회 ...</a></li>
+				
+					<li><a href="/smc/smartreport/telNewsview.do?sm_Seq=8324">KT, 제1회 관광포럼 ‘괜찮아 한국이...</a></li>
+				
+					<li><a href="/smc/smartreport/telNewsview.do?sm_Seq=8323">SK텔레콤-부산교통공사, IoT 기술 ...</a></li>
+				
+					<li><a href="/smc/smartreport/telNewsview.do?sm_Seq=8320">대학생 대외활동 ‘유플러스 대학생 ...</a></li>
+				
+				</ul>
+				<a href="/smc/smartreport/telNews.do">더보기+</a>
+			</div>
+			<div class="mid_area3_2">
+				<h2>통신사 이벤트</h2>			
+				<ul class="tab">
+					<li><a href="/smc/event/eventTele.do" class="selected">전체보기</a></li>
+					<!-- 
+					<li><a href="#tab2">SKT</a></li>
+					<li><a href="#tab3">KT</a></li>
+					<li><a href="#tab4">LG U+</a></li>
+					 -->
+					<li><a href="/smc/event/eventTeleView.do?pg=1&searchType=event_sk&tabNum=1">SKT</a></li>
+					<li><a href="/smc/event/eventTeleView.do?pg=1&searchType=event_kt&tabNum=2">KT</a></li>
+					<li><a href="/smc/event/eventTeleView.do?pg=1&searchType=event_lg&tabNum=3">LG U+</a></li>
+				</ul>
+				
+				<ul class="panel">
+					<li id="tab1" class="dev_event">
+						
+						<div style="display:none;">
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000582&viewId=V_EVEN0033&userIdntId="  target="_blank"><img src="/smc/resources/upload/2018/3/2/1.jpg" alt="신라인터넷면세점-단 3일! 최대 10% 추가할인! " style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							[SKT]
+							
+							
+							
+							
+							</strong>
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000582&viewId=V_EVEN0033&userIdntId="  target="_blank" style="font-size: 14px;">신라인터넷면세점-단 3일! 최대 10% 추가할인! </a>
+							<span>2018-03-01 ~ 2018-03-28</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10312"  target="_blank"><img src="/smc/resources/upload/2018/3/16/3.jpg" alt="최신 LTE egg+로 바꾸고, 해외여행 떠나세요! " style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							[KT]
+							
+							
+							
+							</strong>
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10312"  target="_blank" style="font-size: 14px;">최신 LTE egg+로 바꾸고, 해외여행 떠나세요! </a>
+							<span>2018-03-14 ~ 2018-04-30</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="http://www.uplus.co.kr:80/evt/evnt/evin/RetrieveUbEvIngElDetail.hpi?evntsrlno=260910"  target="_blank"><img src="/smc/resources/upload/2018/3/12/4.jpg" alt="고마워, 나에게 와줘서 - 영상보고 기부 릴레이에 동참하세요" style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							
+							[LG U+]
+							
+							
+							</strong>
+							<a href="http://www.uplus.co.kr:80/evt/evnt/evin/RetrieveUbEvIngElDetail.hpi?evntsrlno=260910"  target="_blank" style="font-size: 14px;">고마워, 나에게 와줘서 - 영상보고 기부 릴레이에 동참하세요</a>
+							<span>2018-02-23 ~ 2018-03-31</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000575&viewId=V_EVEN0033&userIdntId="  target="_blank"><img src="/smc/resources/upload/2018/2/23/1.jpg" alt="제주신화월드 최대 55% 할인 혜택! " style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							[SKT]
+							
+							
+							
+							
+							</strong>
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000575&viewId=V_EVEN0033&userIdntId="  target="_blank" style="font-size: 14px;">제주신화월드 최대 55% 할인 혜택! </a>
+							<span>2018-02-13 ~ 2018-03-31</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10310"  target="_blank"><img src="/smc/resources/upload/2018/3/16/2.jpg" alt="멤버십 포인트로 단말 할인" style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							[KT]
+							
+							
+							
+							</strong>
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10310"  target="_blank" style="font-size: 14px;">멤버십 포인트로 단말 할인</a>
+							<span>2018-03-12 ~ 2018-12-31</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="http://www.uplusiotshop.com/MMall/app/event/openEvent/action.do?eventSeq=81&WEB_BANNER_ID=EVENTLIST_260812"  target="_blank"><img src="/smc/resources/upload/2018/3/12/3.jpg" alt="IoT패키지 변경 이벤트 (클로바 프렌즈+스피커무료증정)" style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							
+							[LG U+]
+							
+							
+							</strong>
+							<a href="http://www.uplusiotshop.com/MMall/app/event/openEvent/action.do?eventSeq=81&WEB_BANNER_ID=EVENTLIST_260812"  target="_blank" style="font-size: 14px;">IoT패키지 변경 이벤트 (클로바 프렌즈+스피커무료증정)</a>
+							<span>2018-03-02 ~ 2018-03-31</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000287&viewId=V_EVEN0033&userIdntId="  target="_blank"><img src="/smc/resources/upload/2018/2/6/[re]2.jpg" alt="T 멤버십 고객 메가박스 총 5천원 무료혜택!" style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							[SKT]
+							
+							
+							
+							
+							</strong>
+							<a href="http://tevent.tworld.co.kr/eventservlet.do?PR_NM=&GUBUN=START&GIFT_FLAG=&SHOWGUBUN=thumbnail&PR_NM_DISP=&serviceId=S_EVEN0011&LoginFlag=Y&CURR_PAGE=1&COMMAND=DETAIL2&LIST_CNT=10&PR_NUM=TW000000287&viewId=V_EVEN0033&userIdntId="  target="_blank" style="font-size: 14px;">T 멤버십 고객 메가박스 총 5천원 무료혜택!</a>
+							<span>2018-02-01 ~ 2019-01-31</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10309"  target="_blank"><img src="/smc/resources/upload/2018/3/16/1.jpg" alt="7년의 밤 예매권 이벤트" style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							[KT]
+							
+							
+							
+							</strong>
+							<a href="https://event.kt.com/html/event/ongoing_event_view.html?page=1&searchCtg=ALL&sort=&pcEvtNo=10309"  target="_blank" style="font-size: 14px;">7년의 밤 예매권 이벤트</a>
+							<span>2018-03-12 ~ 2018-03-25</span>
+						</div>
+						
+						<div style="display:none;">
+							<a href="http://www.uplus.co.kr/evt/evnt/evin/RetrieveUbEvIngElDetail.hpi?evntsrlno=260811"  target="_blank"><img src="/smc/resources/upload/2018/3/2/[re]4.jpg" alt="이제 걱정없이 데이터 쓰세요! " style="width:225px;height:75px;" /></a>
+							<strong>
+							
+							
+							
+							[LG U+]
+							
+							
+							</strong>
+							<a href="http://www.uplus.co.kr/evt/evnt/evin/RetrieveUbEvIngElDetail.hpi?evntsrlno=260811"  target="_blank" style="font-size: 14px;">이제 걱정없이 데이터 쓰세요! </a>
+							<span>2018-03-02 ~ 2018-03-31</span>
+						</div>
+						
+						
+						<span class="pageing">
+							<a href="javascript:fn_eventPageing('prev');" class="bt_left"><img src="/smc/resources/imagesNew/newmain/bt_left.png" alt="이전" /></a>
+							<span class="dev_eventPaging">1/5</span>
+							<a href="javascript:fn_eventPageing('next');" class="bt_right"><img src="/smc/resources/imagesNew/newmain/bt_right.png" alt="다음" /></a>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+			<!-- // 2017-08-17 add END -->
+	</div>
+	<!-- //E: container -->
+	
+	<!-- // 2017-08-17 add START -->
+	<!-- quick -->
+
+<form name="searchForm" action="/smc/searchNewView.do" method="post">
+<input type="hidden" name="kwd" id="kwd" value=""/>
+</form>
+	<div class="quick">
+		<h2>인기검색어</h2>
+		<ul>
+		
+			<li>
+				<a href="javascript:searchRecommand('미환급액조회')"
+				
+				class="on"
+				
+				><span>1</span>미환급액조회</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('25%요금할인')"
+				
+				><span>2</span>25%요금할인</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('요금제추천')"
+				
+				><span>3</span>요금제추천</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('단말기지원금')"
+				
+				><span>4</span>단말기지원금</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('25%')"
+				
+				><span>5</span>25%</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('월납부액계산하기')"
+				
+				><span>6</span>월납부액계산하기</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('장기가입')"
+				
+				><span>7</span>장기가입</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('결합상품')"
+				
+				><span>8</span>결합상품</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('멤버십')"
+				
+				><span>9</span>멤버십</a>
+			</li>
+		
+			<li>
+				<a href="javascript:searchRecommand('분실')"
+				
+				><span>10</span>분실</a>
+			</li>
+		
+		</ul>
+		<a href="https://www.mvnohub.kr" target="_blank"><img src="/smc/resources/imagesNew/newmain/quick01.png" alt="알뜰폰에 대해 더 알고 싶다면 알뜰폰 허브를 방문해 보세요!" /></a>
+		
+		
+	</div>
+	<!-- // 2017-08-17 add END -->
+			
+			
+			<div class="popMain171124" style="display:none;">
+				<div class="popBody24">
+					<p class="title">25%요금할인 안내</p>
+					<span class="closeBtn"><a href="javascript:" onclick="closeLayer()"><img src="/smc/resources/images/popup/btn_popClose.gif" alt="닫기" /></a></span>
+					<div class="popTxt">
+						<a href="/smc/etc/danPage.do" target="_blank"><img src="/smc/resources/images/popup/popup_171124.jpg" width="600" alt="더 높아진 요금할인율, 당신만의 합리적인 통신 생활을 펼쳐보세요! 25% 요금할인" /></a>
+					</div>
+					<div class="windowClose">
+						<label for="" class="cupo"><input type="checkbox" class="checkbox" onchange="closePop()" /> 오늘 하루 이 창을 열지 않음</label> 
+					</div>
+				</div>
+			</div>
+			<!-- 2017-11-24 팝업 추가 end  -->
+
+	<!-- S: bottomarea -->
+	<div class="bottomarea">
+		<ul class="bmenu">
+			<li><a href="/smc/etc/introduce.do">사이트 소개</a></li>
+			<li><a href="/smc/etc/useRule.do">이용약관</a></li>
+			<li><a href="/smc/etc/privateRule.do">개인정보처리방침</a></li><!-- 2015-08-04 개인정보 취급 방침 -->
+			<li><a href="/smc/etc/emailReject.do">이메일 무단수집 거부</a></li>
+			<li><a href="/smc/etc/rightsRule.do">저작권 보호 정책</a></li>
+			<li><a href="/smc/etc/viewerDownload.do">뷰어 다운로드</a></li>
+			<li><a href="/smc/etc/lawGuide.do">책임의 한계와 법적고지</a></li>
+			<!--  <li><a href="#">제휴광고 안내</a></li> -->
+			<li><strong><a href="/smc/openapi/openapiguide_01.do">개발자</a></strong></li><!-- 2015-06-23 수정 -->
+		</ul>
+		<div class="bottomcontents"><!-- 2015-02-12 주소수정 -->
+			<p class="contactus" tabindex="0">사이트 이용 문의 및 안내 : 스마트초이스 센터 T.02-2015-9163  / <a href="mailto:info@mail.smartchoice.or.kr" title="문의 메일 보내기">info@mail.smartchoice.or.kr</a></p>
+			<p class="address">(06097) 서울특별시 강남구 봉은사로 435   ©KTOA </p><!-- 2015-08-04 135-868 수정 -->
+			<span class="webwatch"><a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110"
+			 target="_blank"><img src="/smc/resources/images/common/logo_webwatch.gif" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" /></a></span><!-- 2017-03-27 링크추가 -->
+			<span class="ktoa"><button type="button" onclick="window.open('http://www.ktoa.or.kr')" title="KTOA 새창 바로가기">KTOA 바로가기</button></span>
+			<ul class="visitorsbox">
+				<li><strong>TODAY</strong> <span><em id="today">0000</em>명</span></li>
+				<li><strong>TOTAL</strong> <span><em id="total">0000</em>명</span></li>
+			</ul>
+		</div>
+		
+		<!-- 2015-03-18 스크롤 따라다니는 버튼 이동
+		<p class="fixedbtn">
+			<button type="button" class="btn_gohome" title="메인으로 가기" onclick="location.href='/smc/index.do'">메인으로 가기</button>
+			<button type="button" class="btn_gotop" title="위로 가기" onclick="window.scrollTo(0, 0)">위로 가기</button>
+		</p> -->
+		<!-- 2015-11-18 스크롤 따라다니는 버튼 이동 -->
+		<p class="fixedbtn">
+			<button type="button" class="btn_gohome" title="메인으로 가기" onclick="location.href='/smc/index.do'">메인으로 가기</button>
+			<button type="button" class="btn_gotop" title="위로 가기" onclick="window.scrollTo(0, 0)">위로 가기</button>
+			<button type="button" class="btn_pageup" title="페이지업">페이지업</button>
+			<button type="button" class="btn_pageDown" title="페이지다운">페이지다운</button>
+		</p>	
+		
+		<script>
+			jQuery(document).ready(function(){
+				//하단 방문자수
+				$.ajax({
+					url : '/smc/counter/getCount.do',
+					dataType : "text",
+					type : 'POST',
+					contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+					dataType : 'html',
+					data : {
+						timeCount : 0
+					},
+					success : function(edata) {
+						var countNum = edata.split("//");
+						$("#today").html(countNum[0]);
+						$("#total").html(countNum[1]);
+					}
+				});
+				
+				jQuery(".fixedbtn button.btn_pageup").click(function(){
+					jQuery('body,html').stop().animate({scrollTop : jQuery(window).scrollTop() - 700}, 300)/* 2016-02-02 200 > 700 */
+				});	
+
+				jQuery(".fixedbtn button.btn_pageDown").click(function(){
+					jQuery('body,html').stop().animate({scrollTop : jQuery(window).scrollTop() + 700}, 300)/* 2016-02-02 200 > 700 */
+				});	
+			});
+		</script>
+		<!-- //2015-11-18 스크롤 따라다니는 버튼 이동 --></div>
+	<!-- //E: bottomarea -->
+</div>
+
+<script type="text/javascript">
+var mvList = $(".mainvisual ul li").length-1;
+var mvIdx = 0;
+function arrnext(){
+	$(".mainvisual ul li").removeClass("on");
+	if(mvIdx < mvList){mvIdx++;}else{mvIdx = 0;}
+	$(".mainvisual ul li:eq("+mvIdx+")").addClass("on");
+}
+function arrprev(){
+	$(".mainvisual ul li").removeClass("on");
+	if(mvIdx > 0){mvIdx--;}else{mvIdx = mvList;}
+	$(".mainvisual ul li:eq("+mvIdx+")").addClass("on");
+}
+rollstart();
+function rollstart(){rollgo = setInterval(rollauto,5000);}
+function rollstop(){clearInterval(rollgo);}
+function rollauto(){arrnext();}
+function skipNavi(skipNum){
+	if(skipNum == "1"){
+		window.scrollTo(0, 92);
+		$("#topmenu li.menu_0").addClass("on");
+		$("#topmenu li.menu_0 .submenubox").show();
+		$("#topmenu li.menu_0 h2 a").focus();
+	}else if(skipNum == "2"){
+		window.scrollTo(0, 142);
+		$("#maincontents .mainvisual li:eq(0) a").focus();
+	}
+}
+</script>
+<script type="text/javascript" src="/resources/js/common_ui.js?v=170829"></script><!-- 2105-07-24 버전 수정 -->
+</body>
+</html>

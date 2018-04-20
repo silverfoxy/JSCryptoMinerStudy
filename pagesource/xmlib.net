@@ -1,0 +1,966 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>厦门市图书馆</title>
+<link href="./images/15xmtsg_style.css" rel="stylesheet" type="text/css" />
+<link href="./images/chosen.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./images/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./images/iealert.js"></script>
+<script type="text/javascript" src="./images/fullPage.min.js"></script>
+<script type="text/javascript" src="./images/md5.js"></script>
+<script type="text/javascript" src="./images/2015-common.js"></script>
+<script type="text/javascript" src="./headnfoot_1212.js"></script>
+<script type="text/javascript" src="./images/piaofu.js"></script>
+<script type="text/javascript" src="./images/chosen.jquery.js"></script>
+<script type="text/javascript" src="./images/jquery.SuperSlide.2.1.1.js"></script>
+
+<style>
+html { overflow: hidden;}
+#l-map{height:100%;width:100%;}
+.bot{position:fixed;bottom:0;width:100%;z-index:88;}
+
+
+</style>
+<script>
+function submitFunction(){
+	if(searchform.keywords.value == "请输入关键字" ||  searchform.keywords.value == ""){
+			alert("'请输入关键字'");
+			searchform.keywords.focus();
+			return false;
+		}
+		searchform.action="http://www.xmlib.net/search/search.asp";
+		searchform.submit();
+                return false;
+	}
+document.onkeydown = keyDown; 
+function keyDown(e) 
+{  
+	var e = (typeof event!="undefined") ? window.event : e;   
+	if(e.keyCode==13){
+          return submitFunction();     
+	}
+}
+function submitValue(){
+	if(searchValue.q.value=="这里可以进行书目检索" || searchValue.q.value==""){
+		alert("请输入书目检索词！");
+		searchValue.q.focus();
+		return false;
+	}
+}
+$(function(){
+	$("body").iealert();
+	if($('#tit_yugao').find('li').length>1){
+         $('#tit_yugao').textSlider({line:0.1,speed:500,timer:3000});
+	}
+	$('.tage').each(function(m) {
+		$(this).find('.show_txt').css('top', '-180px');
+		$(this).hover(function() {
+			$(this).find('.show_txt').stop().animate({
+				'top': '0'
+			}, 200)
+		}, function() {
+			$(this).find('.show_txt').stop().animate({
+				'top': '0'
+			}, {
+				duration: 200,
+				complete: function() {
+					$(this).css('top', '-180px')
+				}
+			})
+		})
+	});
+	contentPosition();
+
+});
+function contentPosition(){
+	var con_height =$(window).height(); //获取页面可见高度
+	var con_height_half=(con_height-114-32-498)/2+114;
+	if (con_height <= 700){
+	   $('.content').css('top',con_height_half+'px').css('margin-top','0');		   
+	}else{		   
+	   $('.content').css('top','50%').css('margin-top','-234px');
+	}
+}
+$(window).resize(function() {
+	contentPosition();
+ }) 
+</script>
+
+<body>
+<!-----飘动的图片开始---->
+
+
+
+
+
+<!-----飘动的图片结束---->
+
+<!--统一认证平台登录框-->
+<div id="topBox" class="topBox">
+<div class="topOp"></div>
+</div>
+<div id="topNav" class="topNav">
+  <div class="login_m">
+    <div class="cl_log"><a href="javascript:hideDL()">关闭</a></div>
+    <div class="clear"></div>
+    <div class="login_logo">统一认证平台</div>
+    <div class="login_boder">
+      <div class="login_padding" id="login_model">
+      <form name="loginForm" action="http://szzy.xmlib.net/interlibSSO/main/ReaderLogin" get="post" method="post" onSubmit="javascript:" target="_blank">
+        <input type="hidden" name="cmdACT" value="login" />
+        <input type="hidden" name="furl" value="" />
+        <h2>证号</h2>
+        <label>
+          <input type="text" class="txt_input txt_input2" onFocus="if (value =='社保卡（或临时卡）卡号'){value =''}" onBlur="if (value ==''){value='社保卡（或临时卡）卡号'}" value="社保卡（或临时卡）卡号" name="loginid" onKeyPress="javascript:if(event.keyCode==13){rdpasswd.focus();return false;}" />
+        </label>
+        <h2>密码</h2>
+        <label>
+          <input type="password" name="rdpasswd" class="txt_input" onFocus="if (value =='******'){value =''}" onBlur="if (value ==''){value='******'}" value="******" onKeyPress="javascript:if(event.keyCode==13){doSubmit();;return false;}" />
+        </label>
+        <p class="forgot"><a id="iforget" href="./dzzn/jysm/201512/t20151218_108064.htm" target="_blank">说明?</a></p>
+        
+        <div class="rem_sub">
+          <div class="rem_sub_l">
+            <input type="button" class="sub_button" value="登录" style="opacity: 0.7;" onclick="javascript:doSubmit();" />
+          </div>
+          <label>
+            <input type="button" class="sub_button" value="网上办证" style="opacity: 0.7;" onClick="window.open('http://interweb.xmlib.net/opac/reader/register')" />
+          </label>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--统一认证平台登录框end-->
+
+<div class="head_bg" style="position:fixed;width:100%;z-index:999;top:0;">
+  <div class="w1239">
+      <div class="logo"><img src="./images/15xmtsg_logo.png" /></div>
+        <div class="twhite1">
+          <ul id="navBar">
+              <li data-menuanchor="page1"><a href="#page1"><img src="./images/15xmtsg_menu_icon1.png" /><br>资源检索</a></li>
+              <li data-menuanchor="page2"><a href="#page2"><img src="./images/15xmtsg_menu_icon2.png" /><br>数字图书馆</a></li>
+              <li data-menuanchor="page3"><a href="#page3"><img src="./images/15xmtsg_menu_icon8.png" /><br>读者指南</a></li>
+              <li data-menuanchor="page4"><a href="#page4"><img src="./images/15xmtsg_menu_icon4.png" /><br>读者活动</a></li>
+              <li data-menuanchor="page5"><a href="#page5"><img src="./images/15xmtsg_menu_icon5.png" /><br>阅读推荐</a></li>
+              <li data-menuanchor="page6"><a href="#page6"><img src="./images/15xmtsg_menu_icon6.png" /><br>服务网点</a></li>
+              <li data-menuanchor="page7"><a href="#page7"><img src="./images/15xmtsg_menu_icon7.png" /><br>厦图学会</a></li>              
+              <li data-menuanchor="page8"><a href="#page8"><img src="./images/15xmtsg_menu_icon3.png" /><br>专题信息</a></li>
+              <li data-menuanchor="page9"><a href="#page9"><img src="./images/15xmtsg_menu_icon10.png" /><br>服务数据</a></li>
+              <li data-menuanchor="page10"><a href="#page10"><img src="./images/15xmtsg_menu_icon9.png" /><br>厦图动态</a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="pageContain">
+	<div class="page page1 bg1">
+	  <div class="section section1">
+		<!--<div class="t1"><img src="./images/15xmtsg_t1_1.png" /></div>-->
+		<div class="con16_t"></div>
+		<div class="con16">		
+			<div class="t">
+				<a id="td_11" href="javascript:void(0);" class="on" onmousedown="UtilFunction.changeAdvFunc(1,2,this,'','on','')">书目检索</a>
+				<a id="td_12" href="javascript:void(0);" onmousedown="UtilFunction.changeAdvFunc(1,2,this,'','on','')">站内检索</a>
+                <a href="javascript:showDL();">统一认证登陆</a>
+			</div>
+			<div id="table_11" class="ss mar_t15">
+              
+              <form name="searchValue" id="searchValue" action="http://interweb.xmlib.net/opac/search" method="get" target="_blank" onSubmit="return submitValue()">
+              	  <div class="search">
+                    <select id="choose">
+                      <option value="">任意词</option>
+                      <option value="title">题名</option>
+                      <option value="title200a">正题名</option>
+                      <option value="isbn">ISBN/ISSN</option>
+                      <option value="author">著者</option>
+                      <option value="subject">主题词</option>
+                      <option value="class">分类号</option>
+                      <option value="ctrlno">控制号</option>
+                      <option value="orderno">订购号</option>
+                      <option value="publisher">出版社</option>
+                      <option value="callno">索书号</option>
+                    </select>
+                    <input id="q" name="q" class="select_inp" type="text" value="这里可以进行书目检索" onFocus="this.value == '这里可以进行书目检索'? this.value='':this.select();" onBlur="this.value == ''? this.value='这里可以进行书目检索':this.select();" />
+                  </div>
+                  <script type="text/javascript" src="./images/select.js"></script>
+                  <input type="image" src="./images/15xmtsg_btn1.png" name="searchButton" value="查询" />
+              </form>
+            </div>
+            <div id="table_12" class="ss mar_t15" style="display:none">
+              <!--<form action="http://http://124.72.48.37:9595/search" method="get"  name="searchform" target="_blank"> 
+                  <input name="keywords" type="text" class="inp" value=" 请输入关键字" onFocus="this.value == ' 请输入关键字'? this.value='':this.select();" onBlur="this.value == ''? this.value=' 请输入关键字':this.select();" /><input type="image" src="./images/15xmtsg_btn.png" value="查询" onClick="submitFunction();" />
+              </form>-->
+              <form action="qt/index_1242.htm" method="get" id="allsitesearch"  name="searchform" target="_blank" onSubmit="return submit_search()"> 
+              	  <input type="hidden" name="channelid" value="275124" />
+			      <input type="hidden" name="searchword" id="site_searchword1" value />
+                  <input id="site_keywords" type="text" class="inp" value=" 请输入关键字" onFocus="this.value == ' 请输入关键字'? this.value='':this.select();" onBlur="this.value == ''? this.value=' 请输入关键字':this.select();" /><input type="image" src="./images/15xmtsg_btn1.png" value="查询" />
+                  
+              </form>
+              <script>
+			  function submit_search()
+				{
+						var site_form = document.getElementById("allsitesearch");
+						var doctitle =  site_form.site_keywords.value;
+						var searchword = '';
+						doctitle= doctitle.replace(new RegExp('，',"gm"),''); 
+						doctitle= doctitle.replace(new RegExp(' ',"gm"),''); 
+						if(doctitle.indexOf("+")>=0){
+						alert("搜索词中不能含有关键字'+'");
+						return false;
+						}else if(doctitle.indexOf("*")>=0){
+						alert("搜索词中不能含有关键字'*'");
+						return false;
+						}
+						if(doctitle.length ==0 || doctitle=="请输入关键字"){
+						alert("请输入关键字！");
+						return false;
+						}
+								
+						if(doctitle.length > 0)	{
+						searchword +=doctitle;
+						}				
+						document.getElementById("site_searchword1").value = searchword;
+				}
+			  </script>
+            </div>	
+			<div class="tit">
+				<span class="tb f_l" style="display:inline-block;width:80px;"><a href="./xtdt/xxgg/" target="_blank">信息公告</a>：</span>
+                <div class="txtMarquee-top">
+                    <div class="bd">
+                       <ul>
+                         
+                            <li>·<a href="./xtdt/xxgg/201802/t20180209_1040114.htm" target="_blank" title="厦门市图书馆2018年春节假期开放时间安排">厦门市图书馆2018年春节假期开放时间安排</a></li>
+                         
+                            <li>·<a href="./xtdt/xxgg/201802/t20180205_1038967.htm" target="_blank" title="厦门市图书馆关于撤销高殿分馆并停止开放的通知">厦门市图书馆关于撤销高殿分馆并停止开放的通知</a></li>
+                         
+                            <li>·<a href="./xtdt/xxgg/201712/t20171227_1037289.htm" target="_blank" title="2018年元旦假期开放时间安排">2018年元旦假期开放时间安排</a></li>
+                         
+                       </ul>
+                    </div> 
+                </div>
+                <script language="javascript">jQuery(".txtMarquee-top").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",vis:1,interTime:100,trigger:"click"});</script>
+			</div>
+		</div>
+		<div class="con16_b"></div>
+	  </div>
+      <div class="con1 twhite1" id="sy_pfcon">
+    <div class="con1_1">
+    	<ul>
+        	<li><a href="http://www.xmlib.net/" class="icon1" title="首页"></a></li>
+            <li class="ic2">
+            	<a href="javascript:void(0)" class="icon2" onMouseOver="document.getElementById('wx_con1').style.display='block'" onmouseout="document.getElementById('wx_con1').style.display='none'" title="厦门图书馆微信"></a>
+                <div id="wx_con1">
+                 	<img src="./images/wx.jpg" width="160" />
+                </div>
+            </li>
+            <li class="ic3">
+            	<a href="javascript:void(0)" class="icon3" onMouseOver="document.getElementById('sj_con1').style.display='block'" onmouseout="document.getElementById('sj_con1').style.display='none'" title="厦门图书馆app"></a>
+                <div id="sj_con1">
+                 	<img src="./images/app.png" width="160" />
+                </div>
+            	
+            </li>
+            <li><a href="http://weibo.com/xiamenlib?sudaref=www.baidu.com" class="icon4" title="厦门图书馆微博" target="_blank"></a></li>
+            <li><a href="./dzzn/zxwd/" class="icon5" title="咨询问答" target="_blank"></a></li>
+            <li class="ic2">
+            	<a href="javascript:void(0)" onMouseOver="document.getElementById('gzxx').style.display='block'" onmouseout="document.getElementById('gzxx').style.display='none'" class="icon6" title="馆长信箱"></a>
+                <div id="gzxx" style="display:none">
+                	<p>馆长信箱请发送至tsg@xmlib.net</p>
+                </div>
+            </li>
+            <style>
+			.ic2 #gzxx{position:absolute;left:-170px;top:-70px;color:#555555;background-color:#FFF;width:400px;}
+			</style>
+            <li><a href="javascript:showDL();" class="icon7" title="统一认证平台"></a></li>
+            <li><a href="http://www.xmlib.net/English/" class="icon8" target="_blank" title="英文版"></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+	</div>
+	<div class="page page2">
+	  <div class="section section2">
+        <div class="content">  
+          <div class="tit1"><span><a href="./sztsg/" target="_blank">更多>></a></span>数字图书馆</div>
+            <div class="clear"></div>
+            <div class="conh1_1l">
+              <div id="slide2" class="slide2">
+              	<div id="slide2_box" class="slide2_box">
+                  <ul>
+                    
+                    <li>                      
+                        <a href="http://www.ndlib.cn/2018wlsxgdn/" target="_blank"><img src="./sztsg/201801/W020180125362786174803.png" alt="2018年网络书香过大年通栏窗口.png" width='357px' height='218px'/></a>
+                        <div id="slide2_txt" class="slide2_txt">
+                          <dl>
+                            <dt><a href="http://www.ndlib.cn/2018wlsxgdn/" target="_blank" title="2018年“网络书香过大年”活动">2018年“网络书香过大年”活动</a></dt>
+                            <dd>    为响应党的十九大报告精神，弘扬年俗等传统文化，使数字图书馆服务惠及更广泛的社会公众，2018年1月24日-3月4日，国家图书馆联合全国各级图书馆开展2018年“网络书香过大年”活动，内容包括九州圆梦在线摄影征集、有声电子贺卡、趣味闯关答题等。</dd>
+                          </dl>                           
+                        </div>
+                    </li> 
+                             
+                  </ul>
+                </div>
+                <div id="slide2id" class="slide2id">
+                  <ul>
+                  	
+                    <li name="1038436"></li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+			  jQuery("#slide2").slide( { mainCell:"#slide2_box ul",titCell:"#slide2id li",effect:"fade",autoPlay:true,interTime:4000,delayTime:1000,trigger:"mouseover",easing:"swing",mouseOverStop:true,pnLoop:true });
+			</script>
+            <div class="conh1_r twhite1">
+              	<ul>
+
+        					<li class="hd_bg2"><a href="./sztsg/dzqk/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>电子期刊</a></li>
+        					<li class="hd_bg1">
+                            	<a href="./sztsg/dzts/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>电子图书</a>
+                            </li>
+                            <li class="hd_bg5"><a href="./sztsg/ysp/"><p><img src="./images/15xmtsg_hd_icon5.png" /></p>音视频</a></li>
+                            <li class="hd_bg3 last"><a href="./sztsg/qt/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>综合学科</a></li>
+         					<li class="hd_bg7"><a href="./sztsg/zjsjk/"><p><img src="./images/15xmtsg_hd_icon6.png" /></p>自建数据库</a> 					
+        					<li class="hd_bg8"><a href="./sztsg/sysjk/" target="_blank"><p><img src="./images/15xmtsg_hd_icon8.png" /></p>试用数据库</a></li>
+        					<li class="hd_bg6"><a href="./sztsg/gtszzy/"><p><img src="./images/15xmtsg_hd_icon6.png" /></p>国图数字资源</a></li>
+                            <!--<div class="show_txt" style="width:143px;"> <a href="http://www.xmlib.net/xmjy" target="_blank">"厦门记忆"资源数据库是"厦门市图书馆馆藏文献资源开发计划"重点开发项目，集中了各类厦门地方文献资源，按内容分为小城春秋、图说厦门、厦门人物、文献索引、厦门文献、闽南戏曲等数据库。</a></div>
+                            <div class="show_con"><p><img src="./images/15xmtsg_hd_icon7.png" /></p>厦门记忆</div>-->
+                            </li>
+
+                            <li class="hd_bg4 last"><a href="./sztsg/stszzy/" target="_blank"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>省图数字资源</a></li> 
+        				</ul>
+				        <div class="clear"></div>
+            </div>
+            <div class="clear"></div>	      
+		    </div>
+    </div>
+	</div>
+	<div class="page page3">
+	  <div class="section section3">
+		<div class="content">
+          <div class="tit1"><span><a href="./dzzn/" target="_blank">更多>></a></span>读者指南</div>
+          <div class="clear"></div>
+          <div class="conh5_r f_r">
+         	 <h3>厦门图书馆简介</h3>
+             <p>
+             
+               <br/>　　厦门市图书馆创办于1919年，有着九十多年的历史。原馆舍位于公园南路2号，由旅居香港的老读者杨贻瑶先生捐资兴建。2007年3月1日迁入厦门文化艺术中心新馆。新馆建筑面积25732平方米（不含共享使用面积），拥有上、下两层各六千平方米的“藏、借、阅、检、咨一体化”的开放式阅览空间。现有文献415.47万册，以闽南地方文献为收藏特色。<br/>　　厦门市图书馆以“全方位开放、全公益服务、全社会共享”为服务方针，以社会化办馆为理念，以人性化的平等、免费、便捷服务为原则，形成在建筑设施、馆藏资源、读者工作等要素上实行全方位开放的办馆模式，为读者提供多层次、多元化、多形式的服务，最大限度地满足读者各种层次的信息需求。全年365天开放，并实行免费服务，日均接待读者1.2万人次。馆内可无线上网，并配置了触摸屏导读系统和阅报系统、自助...
+             
+             <span class="tred1">[<a href="./dzzn/xtjj/" target="_blank">详情>></a>]</span></p>      
+          </div>
+          <div class="conh5_l f_l twhite1">
+            <ul>
+              <li class="hd_bg1"><a href="./dzzn/wzjt/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>位置交通</a></li>
+              <li class="hd_bg2"><a href="./dzzn/jysm/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>借阅说明</a></li>
+              <li class="hd_bg3 last"><a href="./dzzn/dzsz/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>读者守则</a></li>
+              <li class="hd_bg4"><a href="./dzzn/kfsj/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>开放时间</a></li>
+              <li class="hd_bg5"><a href="./dzzn/bzxz/"><p><img src="./images/15xmtsg_hd_icon5.png" /></p>办证须知</a></li>
+              <li class="hd_bg6 last"><a href="./dzzn/cjwt/"><p><img src="./images/15xmtsg_hd_icon6.png" /></p>常见问题</a></li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+	</div>
+	<div class="page page4">
+	  <div class="section section4">
+		<div class="content">
+            <div class="tit1"><span><a href="./dzhd/" target="_blank">更多>></a></span>读者活动</div>
+              <div class="clear"></div>
+              <div class="conh1_l">
+              	<div id="calendarBody">
+                	<div style="margin-top: 150px; margin-left: 60px;"><img src="./images/loading.gif" width="60" height="60" />数据加载中......</div>
+                </div>
+				<!--展览日历end-->
+				<div class="layer">
+					<div class="topOp"></div>
+				</div>
+				<div class="dv" id="dv_if" style="display:none">
+				    <div class="dv_1">
+				        <img src="./images/15xmtsg_logo1.png" alt="" class="ly_1" />
+				        <img src="./images/ly.png" alt="" class="ly_2" />
+				        <span id="layer_dv_span">2015-12-2</span>
+		    		</div>
+					<ul class="dv_2" id="layer_dv_2">
+						<img src="./images/loading.gif" width="60" height="60" />数据加载中......
+					</ul>
+					<a href="javascript:void(0);" id="layer" onclick="$('.layer').fadeOut('slow'); $('.dv').fadeOut('slow');"><img src="./images/close.png" alt="" class="close2" /></a>
+				</div>
+              </div>            
+			  <script type="text/javascript" src="./images/hover.js"></script>
+              <!--展览日历end-->
+              <script type="text/javascript">
+                $(function(){
+                    calFn({});
+                });
+                function calDate(_date){
+                    $.ajax({
+                        url : "http://www.xmlib.net/function/calendar_by_date.xhtml?t=" + new Date().getTime(),
+                        type : "GET",
+                        data : {'d':_date},
+                        dataType : "html",
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        },
+                        success : function(data, textStatus, jqXHR){
+                            $("#layer_dv_2").html(data);
+                        }
+                    });
+                }
+                function calFn(params){
+                    $.ajax({
+                        url : "http://www.xmlib.net/function/calendar.xhtml?t=" + new Date().getTime(),
+                        type : "GET",
+                        data : params,
+                        dataType : "html",
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        },
+                        success : function(data, textStatus, jqXHR){
+                            $("#calendarBody").html(data);
+                            $(".calendar .bg").hover(function(){AFed.calendar(this)},function(){});
+                            $(".calendar .bg").find('a').click(function(){
+                                $('#layer_dv_span').html($(this).attr('_date'));
+                                calDate($(this).attr('_date'));
+                                $('.layer').fadeIn('slow'); $('.dv').fadeIn('slow');
+                            })
+                        }
+                    });
+                }
+            </script>
+              <div class="conh1_r twhite1">
+                <ul>
+                    <li class="hd_bg1"><a href="./dzhd/zsjz/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>知识讲座</a></li>
+                      <li class="hd_bg2"><a href="./dzhd/whzl/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>文化展览</a></li>
+                      <li class="hd_bg3"><a href="./dzhd/sehd/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>少儿活动</a></li>
+                      <li class="hd_bg4 last"><a href="./dzhd/dzbl/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>读者部落</a></li>
+                      <li class="hd_bg5"><a href="./dzhd/zthd/"><p><img src="./images/15xmtsg_hd_icon5.png" /></p>主题活动</a></li>
+                      <li class="hd_bg6"><a href="./dzhd/gypx/"><p><img src="./images/15xmtsg_hd_icon6.png" /></p>公益培训</a></li>
+                      <li class="hd_bg7"><a href="./dzhd/zmdy/"><p><img src="./images/15xmtsg_hd_icon7.png" /></p>周末电影</a></li>
+                      <li class="hd_bg8 last"><a href="./dzhd/fghd/"><p><img src="./images/15xmtsg_hd_icon8.png" /></p>分馆活动</a></li>
+                  </ul>
+                  <div class="clear"></div>
+              </div>
+              <div class="clear"></div>
+          </div>		
+	  </div>
+	</div>
+	<div class="page page5">
+	  <div class="section section5">
+		<div class="content">	
+          <div class="tit1"><span><a href="./ydtj/" target="_blank">更多>></a></span>阅读推荐</div>
+            <div class="clear"></div>
+            <div class="conh3_r f_l">
+              <ul class="readbook">
+                
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040410.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224548732984987.jpg" alt="味觉钢琴.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040410.htm" target="_blank" title="味觉钢琴">味觉钢琴</a></p>
+                </li>
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040407.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224548063285791.jpg" alt="逆风无畏：旅美华人船王赵锡成白手起家的传奇人生与智慧.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040407.htm" target="_blank" title="逆风无畏：旅美华人船王赵锡成白手起家的传奇人生与智慧">逆风无畏：旅美华...</a></p>
+                </li>
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040408.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224548332032252.jpg" alt="建水记.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040408.htm" target="_blank" title="建水记">建水记</a></p>
+                </li>
+                
+                
+                <li class="last">
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040409.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224548527973330.jpg" alt="学习力：如何成为一个有价值的知识变现者.jpg" width='128px' height='150px'/></a></div>
+
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040409.htm" target="_blank" title="学习力：如何成为一个有价值的知识变现者">学习力：如何成为...</a></p>
+                </li>
+                
+                
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040404.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224547489216949.jpg" alt="爵士乐时代的故事.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040404.htm" target="_blank" title="爵士乐时代的故事">爵士乐时代的故事</a></p>
+                </li>
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040405.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224547698122912.jpg" alt="约见资本人：58家上市公司创始人亲述创业之路.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040405.htm" target="_blank" title="约见资本人：58家上市公司创始人亲述创业之路">约见资本人：58家...</a></p>
+                </li>
+                
+                <li>
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040406.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224547881401845.jpg" alt="南极探险记.jpg" width='128px' height='150px'/></a></div>
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040406.htm" target="_blank" title="南极探险记">南极探险记</a></p>
+                </li>
+                
+                
+                <li class="last">
+                  <div class="bookimg"><a href="./ydtj/hstj/201802/t20180224_1040402.htm" target="_blank"><img src="./ydtj/hstj/201802/W020180224547089836304.jpg" alt="爱与生的苦恼.jpg" width='128px' height='150px'/></a></div>
+
+                  <p class="booktxt"><a href="./ydtj/hstj/201802/t20180224_1040402.htm" target="_blank" title="爱与生的苦恼">爱与生的苦恼</a></p>
+                </li>
+                
+                
+              </ul>
+            </div>
+            <div class="conh3_l f_r twhite1">
+              <ul>
+                  <li class="hd_bg2"><a href="./ydtj/jyphb/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>排行榜</a></li>
+                  <li class="hd_bg3 last"><a href="./ydtj/ztsj/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>主题书架</a></li>
+                  <li class="hd_bg4"><a href="./ydtj/hstj/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>好书推荐</a></li>
+                  <li class="hd_bg5 last"><a href="./ydtj/xstb/"><p><img src="./images/15xmtsg_hd_icon5.png" /></p>新书通报</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>	
+        </div>
+      </div>
+	</div>
+    <div class="page page6">
+	  <div class="section section6">
+		<div class="content">
+          <div class="tit1"><span><a href="./fwwd/" target="_blank">更多>></a></span>服务网点</div>
+          <div class="clear"></div>
+          <div class="conh3_r f_r">
+          	<a href="./qt/dt/" target="_blank"><img src="./images/16xmfwwddt.png" width="711" height="378" /></a>
+            <!--<div id="l-map">               
+            </div>-->
+          </div>
+          <div class="conh3_l f_l twhite1">
+            <ul>
+              <li class="hd_bg1"><a href="./fwwd/lmg/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>联盟馆</a></li>
+              <li class="hd_bg2 last"><a href="./fwwd/xtfg/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>厦图分馆</a></li>
+              <li class="hd_bg3"><a href="./fwwd/qctsg/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>汽车图书馆</a></li>
+              <li class="hd_bg4 last"><a href="./fwwd/jqtsg/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>24小时街区图书馆</a></li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>	
+        </div>
+      </div>
+	</div>
+    <div class="page page7">
+	  <div class="section section7">
+		<div class="content">
+          <div class="tit1"><span><a href="./xtxh/" target="_blank">更多>></a></span>厦图学会</div>
+          <div class="clear"></div>
+          <div class="conh5_r f_r" style="width:598px;">
+         	 <h3>厦图学会</h3>
+             <p>
+             
+               <br/>　　厦门市图书馆学会是厦门市图书情报事业的群众性学术团体。创建于1984年8月，时称福建省图书馆学会厦门分会, 是福建省图书馆学会的第一个分会。1990年3月更名为厦门市图书馆学会。<br/>　　学会创办二十多年来，坚持抓好组织建设工作，健全组织机构，发展会员队伍。目前，学会理事会下设秘书处、学术委员会，并设立厦图、厦大、集大、理工、少图、区公共馆、中小学馆、专业馆 8个学组，会员四百多人。<br/>　　学会本着团结、务实、协作的精神，带领全市广大图书情报工作者，积极开展学术研究、业务交流和继续教育等工作，通过举办年会、青年学术沙龙、学术讲座、系列报告会、业务研讨会和培训班，编辑出版学会刊物《图书馆探索》，组织全市图书馆评估、全民科普阅读活动、图书资料业务技能竞赛，参与厦门市社科联社科普及周等活动，推广图书馆学研究的新成果、新知识、新技术，提高图书馆从业人员的理论水平...
+             
+             <span class="tred1">[<a href="./xtxh/xhjs/xhjj/" target="_blank">详情>></a>]</span></p>      
+          </div>
+          <div class="conh5_l f_l twhite1" style="width:394px;padding:0 10px;">
+<!--            <ul>
+              <li class="hd_bg1"><a href="./xtxh/xhjs/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>学会介绍</a></li>
+              <li class="hd_bg2"><a href="./xtxh/xhdt/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>学会动态</a></li>
+              <li class="hd_bg3 last"><a href="./xtxh/pxjl/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>培训交流</a></li>
+              <li class="hd_bg4"><a href="./xtxh/hyyd/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>会员园地</a></li>
+              <li class="hd_bg5"><a href="./xtxh/tsgts/"><p><img src="./images/15xmtsg_hd_icon5.png" /></p>图书馆探索</a></li>
+              <li class="hd_bg6 last"><a href="javascript:void(0);" onClick="alert('理事长信箱请发邮件至xmstsgxh@163.com')"><p><img src="./images/15xmtsg_hd_icon6.png" /></p>理事长信箱</a></li>
+            </ul>
+            <div class="clear"></div>-->
+            <div class="">
+              <img src="./images/15xmtsg_xh_tu1.png" alt="" border="0" usemap="#Map" />
+              <map name="Map">
+                <area shape="poly" coords="129,0,193,36,193,108,132,145,67,108,67,37" href="./xtxh/xhjs/">
+                <area shape="poly" coords="201,37,261,4,325,37,326,108,263,145,201,108" href="./xtxh/xhdt/">
+                <area shape="poly" coords="329,117,392,152,391,226,332,261,269,226,267,153" href="./xtxh/tsgts/">
+                <area shape="poly" coords="325,267,326,338,263,373,202,339,200,268,263,232" href="./xtxh/fwlhtnb/">
+                <area shape="poly" coords="128,231,192,266,192,337,129,373,66,339,67,265" href="javascript:void(0);" onClick="alert('理事长信箱请发邮件至xmstsgxh@163.com')">
+                <area shape="poly" coords="63,115,125,151,126,222,64,260,2,224,1,150" href="./xtxh/pxjl/">
+                <area shape="poly" coords="196,117,258,153,258,223,196,260,134,224,133,152" href="./xtxh/hyyd/">
+              </map>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+	</div>
+	<div class="page page8">
+	  <div class="section section8">
+        <div class="content">
+          <div class="tit3">专题信息</div>
+          <div class="clear"></div>
+          <div class="conh3_r f_r">
+          	  <div class="c6_list">
+              	<ul>
+                    <li id="td_41" class="on" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(4,3,this,'./ztxx/whxx/','on','')">文化信息</li>
+                	<li id="td_42" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(4,3,this,'./ztxx/whzyfw/','on','')">文化志愿服务</li>
+                    <li id="td_43" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(4,3,this,'./ztxx/gjbh/','on','')">古籍保护</li>
+                </ul>
+                <span><a id="more_4" href="./ztxx/whxx/lhxxck/" target="_blank">更多>></a></span>
+              </div>
+              <div class="c6_tit">
+              	<ul id="table_41">
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171227432831018113.pdf" target="_blank" title="2018年“两会”信息参考（合订本）">2018年“两会”信息参考（合订本）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226599918675919.pdf" target="_blank" title="2017年厦门市“两会”委员之声">2017年厦门市“两会”委员之声</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226599776177256.pdf" target="_blank" title="2017年厦门市“两会”代表之声">2017年厦门市“两会”代表之声</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226580637678201.pdf" target="_blank" title="自由贸易港建设（2018）">自由贸易港建设（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226580462358145.pdf" target="_blank" title="养老服务（2018）">养老服务（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226580305329220.pdf" target="_blank" title="新时代人民政协协商民主（2018）">新时代人民政协协商民主（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171227529918733307.pdf" target="_blank" title="网络综合治理体系（2018）">网络综合治理体系（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226579671568741.pdf" target="_blank" title="生态文明建设（2018）">生态文明建设（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226579508121653.pdf" target="_blank" title="媒体看厦门（2018）">媒体看厦门（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226579335780690.pdf" target="_blank" title="聚焦共享经济（2018）">聚焦共享经济（2018）</a></li>
+                  
+                  	<li><span>[2017-12-26]</span>· <a href="./ztxx/whxx/lhxxck/201712/P020171226579150004299.pdf" target="_blank" title="地方立法法规解读与各地实践（2018）">地方立法法规解读与各地实践（2018）</a></li>
+                  
+                </ul>
+              	<ul id="table_42" style="display:none">
+                  
+                  	<li><span>[2018-02-12]</span>· <a href="./ztxx/whzyfw/fwdt/201802/t20180212_1040337.htm" target="_blank" title="我馆开展扶贫慰问志愿服务活动">我馆开展扶贫慰问志愿服务活动</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./ztxx/whzyfw/fwdt/201802/t20180212_1040336.htm" target="_blank" title="“先锋护书志愿服务队”在集美区党群活动服务中心分馆成立">“先锋护书志愿服务队”在集美区党群活动服务中心分馆成立</a></li>
+                  
+                  	<li><span>[2018-01-10]</span>· <a href="./ztxx/whzyfw/gzzd/201801/P020180110367477171511.pdf" target="_blank" title="志愿服务条例">志愿服务条例</a></li>
+                  
+                  	<li><span>[2017-12-29]</span>· <a href="./ztxx/whzyfw/fwdt/201801/t20180109_1037503.htm" target="_blank" title="厦门市馆服务宣讲团荣获“厦门市工会品牌志愿服务队”">厦门市馆服务宣讲团荣获“厦门市工会品牌志愿服务队”</a></li>
+                  
+                  	<li><span>[2017-12-29]</span>· <a href="./ztxx/whzyfw/fwdt/201801/t20180109_1037505.htm" target="_blank" title="我馆在“国际助残人日”开展助盲讲电影活动">我馆在“国际助残人日”开展助盲讲电影活动</a></li>
+                  
+                  	<li><span>[2017-12-25]</span>· <a href="./ztxx/whzyfw/fwdt/201801/t20180109_1037507.htm" target="_blank" title="发展当先锋 服务我先行——厦门市图书馆第一党支部积极参与第五届青年学术沙龙志愿活动">发展当先锋 服务我先行——厦门市图书馆第一党支部积极参与第五...</a></li>
+                  
+                  	<li><span>[2017-12-08]</span>· <a href="./ztxx/whzyfw/fwdt/201712/t20171213_1035587.htm" target="_blank" title="我馆第三党支部组织党员志愿者下社区参加宪法日宣传活动">我馆第三党支部组织党员志愿者下社区参加宪法日宣传活动</a></li>
+                  
+                  	<li><span>[2017-11-08]</span>· <a href="./ztxx/whzyfw/gzzd/201711/t20171108_1031238.htm" target="_blank" title="厦门市图书馆志愿者管理制度">厦门市图书馆志愿者管理制度</a></li>
+                  
+                  	<li><span>[2017-11-08]</span>· <a href="./ztxx/whzyfw/fwxm/201711/t20171108_1031237.htm" target="_blank" title="厦门市图书馆志愿者管理制度">厦门市图书馆志愿者管理制度</a></li>
+                  
+                  	<li><span>[2017-09-07]</span>· <a href="./ztxx/whzyfw/fwdt/201711/t20171117_1032858.htm" target="_blank" title="我馆组织志愿者走进中山路商圈推广亲子阅读">我馆组织志愿者走进中山路商圈推广亲子阅读</a></li>
+                  
+                  	<li><span>[2017-08-15]</span>· <a href="./ztxx/whzyfw/fwdt/201708/t20170815_1027092.htm" target="_blank" title="我馆举办亲子扶残助残志愿服务培训活动">我馆举办亲子扶残助残志愿服务培训活动</a></li>
+                  
+                </ul>
+                <ul id="table_43" style="display:none">
+                  
+                  	<li><span>[2017-08-22]</span>· <a href="./ztxx/gjbh/dtxw/201711/t20171108_1031259.htm" target="_blank" title="我馆举办“何丙仲先生碑志拓片捐赠仪式”等系列活动">我馆举办“何丙仲先生碑志拓片捐赠仪式”等系列活动</a></li>
+                  
+                  	<li><span>[2017-06-02]</span>· <a href="./ztxx/gjbh/dtxw/201711/t20171108_1031257.htm" target="_blank" title="宋碑明刻习拓技 传业授道有名师——我馆派员参加“第三期全国传拓技术培训班暨第一期福建省传拓培训班”">宋碑明刻习拓技 传业授道有名师——我馆派员参加“第三期全国传...</a></li>
+                  
+                  	<li><span>[2016-08-05]</span>· <a href="./xtdt/xtjx/201608/t20160805_885166.htm" target="_blank" title="我馆举办“厦门市图书馆馆藏闽台族谱展”">我馆举办“厦门市图书馆馆藏闽台族谱展”</a></li>
+                  
+                  	<li><span>[2016-07-06]</span>· <a href="./ztxx/gjbh/dtxw/201607/t20160712_830879.htm" target="_blank" title="国图优质讲座走进厦门市图书馆">国图优质讲座走进厦门市图书馆</a></li>
+                  
+                  	<li><span>[2016-07-06]</span>· <a href="./ztxx/gjbh/dtxw/201607/t20160712_830878.htm" target="_blank" title="我馆荣获“全省古籍保护工作先进单位”称号">我馆荣获“全省古籍保护工作先进单位”称号</a></li>
+                  
+                  	<li><span>[2014-06-26]</span>· <a href="./xtdt/xtjx/201601/t20160104_111698.htm" target="_blank" title="薪火相传 弘扬中华传统文化">薪火相传 弘扬中华传统文化</a></li>
+                  
+                  	<li><span>[2014-01-14]</span>· <a href="./xtdt/xtjx/201601/t20160104_111599.htm" target="_blank" title="我馆派员参加全国“普查文物登录规范骨干培训班”">我馆派员参加全国“普查文物登录规范骨干培训班”</a></li>
+                  
+                  	<li><span>[2013-12-11]</span>· <a href="./xtdt/xtjx/201601/t20160104_111581.htm" target="_blank" title="我馆派员参加民国时期文献普查工作培训班">我馆派员参加民国时期文献普查工作培训班</a></li>
+                  
+                  	<li><span>[2013-09-10]</span>· <a href="./xtdt/xtjx/201601/t20160104_111539.htm" target="_blank" title="我馆派员参加厦门市第一次可移动文物普查首期培训班">我馆派员参加厦门市第一次可移动文物普查首期培训班</a></li>
+                  
+                  	<li><span>[2013-05-16]</span>· <a href="./ztxx/gjbh/gjpc/zggjml/201512/t20151218_107933.htm" target="_blank" title="厦门市入选第四批《国家珍贵古籍名录》书目">厦门市入选第四批《国家珍贵古籍名录》书目</a></li>
+                  
+                  	<li><span>[2013-05-16]</span>· <a href="./ztxx/gjbh/gjpc/zggjml/201512/t20151218_107932.htm" target="_blank" title="厦门市入选第三批《国家表贵古籍名录》书目">厦门市入选第三批《国家表贵古籍名录》书目</a></li>
+                  
+                </ul>
+              </div>
+            
+          </div>
+          <div class="conh3_l f_l twhite1">
+            <ul>
+              <li class="hd_bg2"><a href="./ztxx/sjqnwmh/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>青年文明号</a></li>
+              <li class="hd_bg3 last"><a href="./ztxx/jlwmh/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>敬老文明号</a></li>
+              <li class="hd_bg4"><a href="./ztxx/jgwmg/"><p><img src="./images/15xmtsg_hd_icon4.png" /></p>全国巾帼文明岗</a></li>
+              <li class="hd_bg5 last"><a href="./ztxx/swmxfyjzbk/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>树文明新风</a></li>
+            </ul>
+            </ul>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>	
+        </div>     
+      </div>
+    </div>
+    <div class="page page9">
+	  <div class="section section9">
+		<div class="content">
+          <div class="tit1"><span><a href="./fwsj/" target="_blank">更多>></a></span>服务数据</div>
+          <div class="clear"></div>
+          <div class="conh3_r f_l">
+            <div id="demo2" class="demo2">
+              <div id="demo2_box" class="demo2_box">
+                  <ul>
+                    
+                      <li>                      
+                        <a href="./fwsj/ydsj/201801/t20180108_1037499.htm" target="_blank"><img src="./fwsj/ydsj/201801/W020180108528268026809.jpg" alt="4.jpg" height='378px' width='711px' border='0'/></a>
+                        <div id="demo2_txt" class="demo2_txt"></div>
+                      </li>
+                    
+                      <li>                      
+                        <a href="./fwsj/ydsj/201712/t20171208_1035566.htm" target="_blank"><img src="./fwsj/ydsj/201712/W020180108421472774426.jpg" alt="3.jpg" height='378px' width='711px' border='0'/></a>
+                        <div id="demo2_txt" class="demo2_txt"></div>
+                      </li>
+                    
+                      <li>                      
+                        <a href="./fwsj/ydsj/201711/t20171110_1031364.htm" target="_blank"><img src="./fwsj/ydsj/201711/W020171110434014592947.jpg" alt="2.jpg" height='378px' width='711px' border='0'/></a>
+                        <div id="demo2_txt" class="demo2_txt"></div>
+                      </li>
+                    
+                      <li>                      
+                        <a href="./fwsj/ydsj/201710/t20171011_1029120.htm" target="_blank"><img src="./fwsj/ydsj/201710/W020180108623370637148.jpg" alt="1.jpg" height='378px' width='711px' border='0'/></a>
+                        <div id="demo2_txt" class="demo2_txt"></div>
+                      </li>
+                    
+                      <li>                      
+                        <a href="./fwsj/ydsj/201709/t20170911_1028142.htm" target="_blank"><img src="./fwsj/ydsj/201709/W020171110421185365637.jpg" alt="QQ截图20171011082505.jpg" height='378px' width='711px' border='0'/></a>
+                        <div id="demo2_txt" class="demo2_txt"></div>
+                      </li>
+                    
+                  </ul>
+              </div>
+              <div id="demo2id" class="demo2id">
+                  <ul>
+                    
+                      <li></li>
+                    
+                      <li></li>
+                    
+                      <li></li>
+                    
+                      <li></li>
+                    
+                      <li></li>
+                    
+                  </ul>
+              </div>
+            </div>
+            <script language="javascript">
+            jQuery("#demo2").slide( { mainCell:"#demo2_box ul",titCell:"#demo2id li",effect:"fade",autoPlay:true,interTime:4000,delayTime:1000,trigger:"mouseover",easing:"swing",mouseOverStop:true,pnLoop:true });
+            </script>
+          </div>
+          <div class="conh3_l f_r twhite1">
+            <ul>
+              <li class="hd_bg4">
+               <a href="./fwsj/gzjh/"><p><img src="./images/17_plan_icon.png" /></p>工作计划</a>
+              </li>
+              <li class="hd_bg1 last"><a href="./fwsj/lnnb/"><p><img src="./images/15xmtsg_hd_icon1.png" /></p>历年年报</a></li>
+              <li class="hd_bg2"><a href="./fwsj/ydsj/"><p><img src="./images/15xmtsg_hd_icon2.png" /></p>月度数据</a></li>
+              <li class="hd_bg3 last"><a href="./fwsj/jyph/"><p><img src="./images/15xmtsg_hd_icon3.png" /></p>借阅排行</a></li>
+              
+            </ul>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>	
+        </div>
+      </div>
+	</div>
+    <div class="page page10">
+	  <div class="section section10">
+		<div class="content">
+          <div class="tit3">厦图动态</div>
+          <div class="clear"></div>
+          <div class="conh6">
+          	<div class="conh6_l">
+              <div id="demo3" class="demo3">
+                <div id="demo3_box" class="demo3_box">
+                    <ul>
+                      
+                        <li>                      
+                          <a href="./xtdt/xtjx/201802/t20180212_1040335.htm" target="_blank"><img src="./xtdt/xtjx/201802/W020180212369050986422.jpg" alt="钟斌_09_副本.jpg" height='376px' width='500px' border='0'/></a>
+                          <div id="demo3_txt" class="demo3_txt"><a href="./xtdt/xtjx/201802/t20180212_1040335.htm" target="_blank" title="我馆2018年首场“名师课堂”受欢迎">我馆2018年首场“名师课堂”受欢迎</a></div>
+                        </li>
+                      
+                        <li>                      
+                          <a href="./xtdt/xtjx/201802/t20180212_1040142.htm" target="_blank"><img src="./xtdt/xtjx/201802/W020180212332792670120.jpg" alt="QQ截图20180212091442.jpg" height='376px' width='500px' border='0'/></a>
+                          <div id="demo3_txt" class="demo3_txt"><a href="./xtdt/xtjx/201802/t20180212_1040142.htm" target="_blank" title="我馆开展扶贫慰问志愿服务活动">我馆开展扶贫慰问志愿服务活动</a></div>
+                        </li>
+                      
+                        <li>                      
+                          <a href="./xtdt/xtjx/201802/t20180209_1040120.htm" target="_blank"><img src="./xtdt/xtjx/201802/W020180209614566275106.jpg" alt="2.4“春之声”诗歌朗诵_副本1.jpg" height='376px' width='500px' border='0'/></a>
+                          <div id="demo3_txt" class="demo3_txt"><a href="./xtdt/xtjx/201802/t20180209_1040120.htm" target="_blank" title="我馆首次使用朗读亭举办诗歌创作与朗读沙龙活动">我馆首次使用朗读亭举办诗歌创作与朗读沙龙...</a></div>
+                        </li>
+                      
+                        <li>                      
+                          <a href="./xtdt/xtjx/201802/t20180209_1040119.htm" target="_blank"><img src="./xtdt/xtjx/201802/W020180209613004854909.jpg" alt="新春对联欢乐送 (1)_副本.jpg" height='376px' width='500px' border='0'/></a>
+                          <div id="demo3_txt" class="demo3_txt"><a href="./xtdt/xtjx/201802/t20180209_1040119.htm" target="_blank" title="砚墨凝书香 名家送祝福——我馆开展“新春对联欢乐送”活动">砚墨凝书香 名家送祝福——我馆开展“新春...</a></div>
+                        </li>
+                      
+                        <li>                      
+                          <a href="./xtdt/xtjx/201802/t20180209_1040117.htm" target="_blank"><img src="./xtdt/xtjx/201802/W020180209589578733629.jpg" alt="IMG_0846.JPG" height='376px' width='500px' border='0'/></a>
+                          <div id="demo3_txt" class="demo3_txt"><a href="./xtdt/xtjx/201802/t20180209_1040117.htm" target="_blank" title="我馆获市“服务厦门会晤立功竞赛先进单位”和“五一劳动奖状”">我馆获市“服务厦门会晤立功竞赛先进单位”...</a></div>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <div id="demo3id" class="demo3id">
+                    <ul>
+                      
+                        <li></li>
+                      
+                        <li></li>
+                      
+                        <li></li>
+                      
+                        <li></li>
+                      
+                        <li></li>
+                      
+                    </ul>
+                </div>
+              </div>
+              <script language="javascript">
+              jQuery("#demo3").slide( { mainCell:"#demo3_box ul",titCell:"#demo3id li",effect:"fade",autoPlay:true,interTime:4000,delayTime:1000,trigger:"mouseover",easing:"swing",mouseOverStop:true,pnLoop:true });
+              </script>
+            </div>
+            <div class="conh6_r">
+              <div class="c6_list">
+              	<ul>
+                	<li id="td_31" class="on" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(3,3,this,'./xtdt/xxgg/','on','')">信息公告</li>
+                    <li id="td_32" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(3,3,this,'./xtdt/xtjx/','on','')">厦图简讯</li>
+                    <li id="td_33" style="cursor:pointer" onMouseOver="UtilFunction.changeAdvFunc(3,3,this,'./xtdt/mtbd/','on','')">媒体报道</li>
+                </ul>
+                <span><a id="more_3" href="./xtdt/xxgg/" target="_blank">更多>></a></span>
+              </div>
+              <div class="c6_tit">
+              	<ul id="table_31">
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xxgg/201802/t20180209_1040114.htm" target="_blank" title="厦门市图书馆2018年春节假期开放时间安排">厦门市图书馆2018年春节假期开放时间安排</a></li>
+                  
+                  	<li><span>[2018-02-05]</span>· <a href="./xtdt/xxgg/201802/t20180205_1038967.htm" target="_blank" title="厦门市图书馆关于撤销高殿分馆并停止开放的通知">厦门市图书馆关于撤销高殿分馆并停止开放的通知</a></li>
+                  
+                  	<li><span>[2017-12-27]</span>· <a href="./xtdt/xxgg/201712/t20171227_1037289.htm" target="_blank" title="2018年元旦假期开放时间安排">2018年元旦假期开放时间安排</a></li>
+                  
+                  	<li><span>[2017-12-22]</span>· <a href="./xtdt/xxgg/201712/t20171222_1036894.htm" target="_blank" title="关于中航紫金广场分馆（厦门市图书馆契舍城市悦读空间）试开馆的通知">关于中航紫金广场分馆（厦门市图书馆契舍城市悦...</a></li>
+                  
+                  	<li><span>[2017-12-13]</span>· <a href="./xtdt/xxgg/201712/t20171213_1035584.htm" target="_blank" title="讲座变更通知">讲座变更通知</a></li>
+                  
+                  	<li><span>[2017-12-08]</span>· <a href="./xtdt/xxgg/201712/t20171208_1035570.htm" target="_blank" title="总馆12月30日、31日电影更改通知">总馆12月30日、31日电影更改通知</a></li>
+                  
+                  	<li><span>[2017-11-30]</span>· <a href="./xtdt/xxgg/201711/t20171130_1035340.htm" target="_blank" title="厦门华人华侨主题沙龙活动暂停通知">厦门华人华侨主题沙龙活动暂停通知</a></li>
+                  
+                  	<li><span>[2017-11-22]</span>· <a href="./xtdt/xxgg/201711/t20171122_1034297.htm" target="_blank" title="关于2017书香鹭岛书市举办的通知">关于2017书香鹭岛书市举办的通知</a></li>
+                  
+                  	<li><span>[2017-11-13]</span>· <a href="./xtdt/xxgg/201711/t20171113_1031397.htm" target="_blank" title="关于飞鸽服务恢复的公告">关于飞鸽服务恢复的公告</a></li>
+                  
+                  	<li><span>[2017-11-10]</span>· <a href="./xtdt/xxgg/201711/t20171110_1031365.htm" target="_blank" title="关于暂停提供飞鸽服务的公告">关于暂停提供飞鸽服务的公告</a></li>
+                  
+                  	<li><span>[2017-10-20]</span>· <a href="./xtdt/xxgg/201710/t20171020_1030378.htm" target="_blank" title="关于汽车图书馆服务点恢复服务的通知">关于汽车图书馆服务点恢复服务的通知</a></li>
+                  
+                </ul>
+                <ul id="table_32" style="display:none">
+                  
+                  	<li><span>[2018-03-08]</span>· <a href="./xtdt/xtjx/201803/t20180308_1044332.htm" target="_blank" title="微展十年读者缘，且看一片服务心">微展十年读者缘，且看一片服务心</a></li>
+                  
+                  	<li><span>[2018-02-14]</span>· <a href="./xtdt/xtjx/201802/t20180214_1040339.htm" target="_blank" title="我馆“让我，做你的眼睛”助盲阅读志愿服务入选文化部文化志愿服务活动典型案例">我馆“让我，做你的眼睛”助盲阅读志愿服务入选...</a></li>
+                  
+                  	<li><span>[2018-02-12]</span>· <a href="./xtdt/xtjx/201802/t20180212_1040335.htm" target="_blank" title="我馆2018年首场“名师课堂”受欢迎">我馆2018年首场“名师课堂”受欢迎</a></li>
+                  
+                  	<li><span>[2018-02-12]</span>· <a href="./xtdt/xtjx/201802/t20180212_1040142.htm" target="_blank" title="我馆开展扶贫慰问志愿服务活动">我馆开展扶贫慰问志愿服务活动</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040120.htm" target="_blank" title="我馆首次使用朗读亭举办诗歌创作与朗读沙龙活动">我馆首次使用朗读亭举办诗歌创作与朗读沙龙活动</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040119.htm" target="_blank" title="砚墨凝书香 名家送祝福——我馆开展“新春对联欢乐送”活动">砚墨凝书香 名家送祝福——我馆开展“新春对联...</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040117.htm" target="_blank" title="我馆获市“服务厦门会晤立功竞赛先进单位”和“五一劳动奖状”">我馆获市“服务厦门会晤立功竞赛先进单位”和“...</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040116.htm" target="_blank" title="我馆参加2018年厦门市文化科技卫生“三下乡”活动">我馆参加2018年厦门市文化科技卫生“三下乡”活动</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040100.htm" target="_blank" title="新年首场华侨华人主题沙龙受欢迎">新年首场华侨华人主题沙龙受欢迎</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040099.htm" target="_blank" title="我馆“这拾年·我和厦图的故事”系列活动受社会关注">我馆“这拾年·我和厦图的故事”系列活动受社会...</a></li>
+                  
+                  	<li><span>[2018-02-09]</span>· <a href="./xtdt/xtjx/201802/t20180209_1040098.htm" target="_blank" title="我馆举办“心理伴阅谈”心理辅导沙龙">我馆举办“心理伴阅谈”心理辅导沙龙</a></li>
+                  
+                </ul>
+                <ul id="table_33" style="display:none">
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037425.htm" target="_blank" title="“鹭江讲坛”讲座预告（2017年12月22日《厦门晚报》A2）">“鹭江讲坛”讲座预告（2017年12月22日《厦门晚...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037424.htm" target="_blank" title="“鹭江讲坛”讲座预告（2017年12月21日《厦门晚报》A2）">“鹭江讲坛”讲座预告（2017年12月21日《厦门晚...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037423.htm" target="_blank" title="“鹭江讲坛”讲座预告（2017年12月16日《厦门晚报》A2）">“鹭江讲坛”讲座预告（2017年12月16日《厦门晚...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037422.htm" target="_blank" title="“鹭江讲坛”讲座预告（2017年12月15日《厦门晚报》A2）">“鹭江讲坛”讲座预告（2017年12月15日《厦门晚...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037421.htm" target="_blank" title="新“孔雀公主”杨舞现身厦门（2017年12月11日《海峡导报》07）">新“孔雀公主”杨舞现身厦门（2017年12月11日《...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037420.htm" target="_blank" title="免费电影《天才捕手》放映（2017年12月8日《海峡导报》10）">免费电影《天才捕手》放映（2017年12月8日《海...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037419.htm" target="_blank" title="公益讲座“遇见更美好的未来”（2017年12月8日《海峡导报》10）">公益讲座“遇见更美好的未来”（2017年12月8日...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037418.htm" target="_blank" title="关于我市2015-2017年度省级文明村镇、文明单位、文明校园、文明家庭候选名单的公示（2017年12月5日《厦门日报》A07）">关于我市2015-2017年度省级文明村镇、文明单位...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037417.htm" target="_blank" title="方便！厦门市民卡App上线了（2017年12月2日《海西晨报》A3）">方便！厦门市民卡App上线了（2017年12月2日《海...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037416.htm" target="_blank" title="办张“市民卡” 告别“N张卡”（2017年12月2日《海峡导报》04）">办张“市民卡” 告别“N张卡”（2017年12月2日...</a></li>
+                  
+                  	<li><span>[2018-01-05]</span>· <a href="./xtdt/mtbd/201801/t20180105_1037415.htm" target="_blank" title="厦门市民卡上线啦（2017年12月2日《厦门日报》A03）">厦门市民卡上线啦（2017年12月2日《厦门日报》A...</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	</div>
+</div>
+
+<script language="javascript">site.footer();</script>
+<script>
+var indexUrl=window.location.href;
+var itemIndex=0;
+if(indexUrl.indexOf("#page")!=-1){
+	var pageID=indexUrl.substring(indexUrl.lastIndexOf('#page')+5,indexUrl.length);
+	pageID=parseInt(pageID)-1;
+	if(pageID<10){
+		itemIndex=pageID;
+		if(pageID > 1){
+			$('.pf_con').show();
+		}else{
+			$('.pf_con').hide();
+		}		
+	}	
+}
+var runPage;
+runPage = new FullPage({
+	id: 'pageContain',
+	slideTime: 800,
+	effect: {
+		transform: {
+			translate : 'Y',          // 'X'|'Y'|'XY'|'none'
+ 		    scale : [.1, 1],           // [scalefrom, scaleto]
+      		rotate : [0, 0]
+		},
+		opacity: [0, 1]
+	},
+	pageNow:itemIndex,
+	callback:function(index){
+		if(index >= 1){
+			$('#sy_pfcon').animate({bottom:'-114px'},1000);
+			$('#sy_pfcon').css('z-index','10');
+			$('.pf_con').show();
+		}else{
+			$('#sy_pfcon').animate({bottom:'32px'},1000);
+			$('.pf_con').hide();
+		}
+	},
+  	continuous:true,
+	mode: 'wheel, touch, nav:navBar',
+	easing: 'ease'
+});
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<html>
+<head>
+<title>
+Redirection</title>
+</head>
+<body>
+<H1>Redirection</H1>This document can be found<A HREF="http://epuap.gov.pl/wps/portal">elsewhere.</A><P>You see this message because your browser does not support automatic redirection handling. <P><HR><ADDRESS><A HREF="/">Back to home</A></ADDRESS></body>
+</html>

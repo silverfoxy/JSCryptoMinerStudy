@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Python-xy.GitHub.io by python-xy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body>
+        
+        
+        <div class="row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img src="images/logo.png" class="img-responsive">
+            </div>
+            <div class = "col-md-6" >
+                <h2 class = "page-header">Python(x,y) - the scientific Python distribution.</h2>
+            </div>
+            <div class = "col-md-2">
+                <a href="downloads.html">
+                <img src="images/dl_icon.png"></a>
+                <p><small>Download Python-xy</small></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <p>Python(x,y) is a free scientific and engineering development software for numerical computations, data analysis and data visualization based on Python programming language, Qt graphical user interfaces and Spyder interactive scientific development environment.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-10" >
+                <table align="center">
+                    <tbody>
+                        <tr> 
+                            <td width="50" align="center">
+                                <a href="http://www.python.org/" rel="nofollow">
+                                <img src="http://pythonxy.googlecode.com/files/python-logo.png"></a>
+                            </td> 
+                            <td width="140">
+                                <a href="http://www.python.org" rel="nofollow">Python</a> programming language
+                            </td>
+                            <td width="10">
+                            </td>  
+                            <td width="50" align="center">
+                                <a href="http://www.trolltech.com/" rel="nofollow"><img src="http://pythonxy.googlecode.com/files/qt-logo.png"></a>
+                            </td>
+                            <td width="160">
+                                <a href="http://www.trolltech.com" rel="nofollow">Qt</a> Application Development Framework
+                            </td>
+                            <td width="10">
+                            </td>  
+                            <td width="50" align="center">
+                                <a href="http://spyderlib.googlecode.com/" rel="nofollow"><img src="http://pythonxy.googlecode.com/files/spyder-logo.png"></a>
+                            </td> 
+                            <td width="170">
+                                <a href="http://spyderlib.googlecode.com/" rel="nofollow">Spyder</a> Interactive Scientific Development Environment
+                            </td>  
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <p>With Python(x,y), one can do: </p>
+            </div>
+        </div>    
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <ul>
+                    <li>interactive calculations including for example 2D and 3D plotting or symbolic maths, </li>
+                    <li>simple functionnal programming (with MATLAB-like syntax) as well as powerful object-oriented programming, </li>
+                    <li>scientific projects development from the simplest script to the most sophisticated application thanks to Qt development framework and Spyder development environment, </li>
+                    <li>parallel computing on multicore/processors computers or even clusters (with Parallel Python),</li>
+                </ul>
+            </div>
+        </div> 
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <p>And A lot more... </p>
+            </div>
+        </div>        
+        <div class="row">
+            <div class = "col-md-10  " >
+                <p align="center"> 
+                    <img src="images/welcome1_tn.png" >
+                    <img src="images/welcome2_tn.png" > 
+                    <img src="images/welcome3_tn.png" >
+                </p>
+            </div>
+        </div>  
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <h3>What is exactly Python(x,y)?</h3>
+            </div>
+        </div>            
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <p>Python(x,y) is a scientific-oriented Python Distribution based on Qt and Spyder - see the Plugins page. Its purpose is to help scientific programmers used to  interpreted languages (such as MATLAB or IDL) or compiled languages (C/C++ or  Fortran) to switch to Python. C/C++ or Fortran programmers should appreciate to  reuse their code "as is" by wrapping it so it can be called directly from Python scripts. </p>
+            </div>
+        </div>    
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <p>(MATLAB<sup>®</sup> is a registered trademark of The MathWorks. IDL<sup>®</sup> is a registered trademark of ITT Visual Information Solutions.) </p>
+            </div>
+        </div>    
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-3 " >
+                <img src="images/pythonxy_2117.png" class="img-responsive">
+            </div>
+        </div>    
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <h3>Main features</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-10 col-md-offset-2 " >
+                <p>Python(x,y) has five main features: </p>
+            </div>
+        </div>    
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <ul>
+                    <li>collecting scientific-oriented Python libraries and development environment tools ; </li>
+                    <li>collecting almost all free related documentation ; </li>
+                    <li>providing a quick guide to get started in Python / Qt / Spyder ; </li>
+                    <li>providing an all-in-one setup program, so the user can install or uninstall all these packages and features by clicking on one button only. </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <h3>Why Python?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <p>In many ways, Python is far more superior to other scientific languages: it's a  general-purpose language (e.g. with powerful GUI, I/O, internet, and database  libraries), it's free and open-source, fundamentally object-oriented,  very portable, extensible and embeddable, and so on. However, Python libraries  generally suffer from a lack of documentation, even if the growing community  contributes everyday with detailed tutorials on many topics. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <h3>Why a Python distribution for scientists?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <p>Because testing all libraries, choosing the right one for the right usage,  and grabbing all the free documentation on the internet takes time. Moreover,  one needs some perspective to elaborate its own coherent development framework  (i.e. Python libraries and development environment). </p>
+                <p>Python(x,y) was created for : </p>
+                <ul>
+                    <li>rapid prototyping, using the enhanced Python shell known as IPython ; </li>
+                    <li>small/big projects (application-like) development, using Spyder - a powerful and interactive cross-platform Integrated Development Environment (IDE) ; </li>
+                    <li>scientific purpose: scientific computing, numerical simulations, signal processing, image processing, physics (experiments and modeling), engineering, ... </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <h3>Why Qt?</h3>
+                <p>We strongly recommend using  <a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro" rel="nofollow">PyQt</a>
+                    for Graphical  User Interface (GUI) development, since it is a very powerful and easy-to-use
+                    library – Mark Summerfield’s book is the best way to get started with <a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro" rel="nofollow">PyQt</a> (it is also a  very good, very effective introduction to the Python language).  For scientific programs, note that matplotlib figures (mainly 2D graphics) can  be embedded in <a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro" rel="nofollow">PyQt</a>
+                    applications window, almost as easily as in MATLAB. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <h3>History</h3>
+                <p><b>Python(x, y)</b> was concieved, developed and maintained by <em>Pierre Raybaut</em> since 2008 with the above
+                    goals. <em>Gabi Davar</em> joined the project as a maintainer since 2011. Pierre moved to work on other
+                    projects since 2013 leaving Gabi as the primary maintainer.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8 col-md-offset-2 " >
+                <br>
+                <p class="text-right "><em>Pierre Raybaut<br>March 2008</em> </p>
+                <p class="text-right "><em>Gabi Davar<br>November 2015</em> </p>
+            </div>
+        </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-21485889-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+  
+    </body>
+</html>

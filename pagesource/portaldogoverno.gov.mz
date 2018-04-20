@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="unsupported-ie ie" lang="en-US"><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US"><!--<![endif]-->
+<head>
+<style type="text/css">
+.limitdisplay-user { display: none; }.limitdisplay-user-10 { display: inline; }.limitdisplay-user-block-10 { display: block; }</style>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Início - Portal do Governo de Moçambique</title>
+
+    
+    
+                <meta name="Content-Type" content="text/html; charset=utf-8" />
+
+            <meta name="Content-language" content="en-US" />
+
+                    <meta name="author" content="eZ Systems" />
+    
+                <meta name="copyright" content="eZ Systems" />
+    
+                <meta name="description" content="Content Management System" />
+    
+                <meta name="keywords" content="cms, publish, e-commerce, content management, development framework" />
+    
+    
+    <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+    <meta name="generator" content="eZ Publish" />
+        
+<link rel="Home" href="/por" title="Portal do Governo de Moçambique front page" />
+<link rel="Index" href="/por" />
+<link rel="Top"  href="/por" title="Início - Portal do Governo de Moçambique" />
+<link rel="Search" href="/por/content/advancedsearch" title="Search Portal do Governo de Moçambique" />
+<link rel="Shortcut icon" href="/extension/mzbwebin/design/mzbwebin/images/favicon.ico" type="image/x-icon" />
+<link rel="Copyright" href="/por/ezinfo/copyright" />
+<link rel="Author" href="/por/ezinfo/about" />
+<link rel="Alternate" type="application/rss+xml" title="RSS" href="/por/rss/feed/my_feed" />
+
+<script type="text/javascript">
+(function() {
+    var head = document.getElementsByTagName('head')[0];
+    var printNode = document.createElement('link');
+    printNode.rel = 'Alternate';
+    printNode.href = "/por/layout/set/print" + document.location.search;
+    printNode.media = 'print';
+    printNode.title = "Printable version";
+    head.appendChild(printNode);
+})();
+</script>      <link rel="stylesheet" type="text/css" href="/var/ezdemo_site/cache/public/stylesheets/34d7c4b4692761e959879890abadf548_all.css" />
+<link rel="stylesheet" type="text/css" href="/extension/ezdemo/design/ezdemo/stylesheets/print.css" media="print" />
+<!-- IE conditional comments; for bug fixes for different IE versions -->
+<!--[if IE 8]>     <style type="text/css"> @import url(/extension/mzbwebin/design/mzbwebin/stylesheets/browsers/ie8.css);    </style> <![endif]-->
+
+<script type="text/javascript" src="/var/ezdemo_site/cache/public/javascript/97beabab8c6992d54572954ca043e6cc.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="/extension/ezjscore/design/standard/javascript/jquery-1.10.2.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+(function($) {
+    var _rootUrl = '/por/', _serverUrl = _rootUrl + 'ezjscore/', _seperator = '@SEPERATOR$',
+        _prefUrl = _rootUrl + 'user/preferences';
+
+    // FIX: Ajax is broken on IE8 / IE7 on jQuery 1.4.x as it's trying to use the broken window.XMLHttpRequest object
+    if ( window.XMLHttpRequest && window.ActiveXObject )
+        $.ajaxSettings.xhr = function() { try { return new window.ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {} };
+
+    // (static) jQuery.ez() uses jQuery.post() (Or jQuery.get() if post paramer is false)
+    //
+    // @param string callArgs
+    // @param object|array|string|false post Optional post values, uses get request if false or undefined
+    // @param function Optional callBack
+    function _ez( callArgs, post, callBack )
+    {
+        callArgs = callArgs.join !== undefined ? callArgs.join( _seperator ) : callArgs;
+        var url = _serverUrl + 'call/';
+        if ( post )
+        {
+            var _token = '', _tokenNode = document.getElementById('ezxform_token_js');
+            if ( _tokenNode ) _token = _tokenNode.getAttribute('title');
+            if ( post.join !== undefined )// support serializeArray() format
+            {
+                post.push( { 'name': 'ezjscServer_function_arguments', 'value': callArgs } );
+                post.push( { 'name': 'ezxform_token', 'value': _token } );
+            }
+            else if ( typeof(post) === 'string' )// string
+            {
+                post += ( post ? '&' : '' ) + 'ezjscServer_function_arguments=' + callArgs + '&ezxform_token=' + _token;
+            }
+            else // object
+            {
+                post['ezjscServer_function_arguments'] = callArgs;
+                post['ezxform_token'] = _token;
+            }
+            return $.post( url, post, callBack, 'json' );
+        }
+        return $.get( url + encodeURIComponent( callArgs ), {}, callBack, 'json' );
+    };
+    _ez.url = _serverUrl;
+    _ez.root_url = _rootUrl;
+    _ez.seperator = _seperator;
+    $.ez = _ez;
+
+    $.ez.setPreference = function( name, value )
+    {
+        var param = {'Function': 'set_and_exit', 'Key': name, 'Value': value};
+            _tokenNode = document.getElementById( 'ezxform_token_js' );
+        if ( _tokenNode )
+            param.ezxform_token = _tokenNode.getAttribute( 'title' );
+
+        return $.post( _prefUrl, param );
+    };
+
+    // Method version, for loading response into elements
+    // NB: Does not use json (not possible with .load), so ezjscore/call will return string
+    function _ezLoad( callArgs, post, selector, callBack )
+    {
+        callArgs = callArgs.join !== undefined ? callArgs.join( _seperator ) : callArgs;
+        var url = _serverUrl + 'call/';
+        if ( post )
+        {
+            post['ezjscServer_function_arguments'] = callArgs;
+            post['ezxform_token'] = jQuery('#ezxform_token_js').attr('title');
+        }
+        else
+            url += encodeURIComponent( callArgs );
+
+        return this.load( url + ( selector ? ' ' + selector : '' ), post, callBack );
+    };
+    $.fn.ez = _ezLoad;
+})(jQuery);
+        
+</script>
+<script type="text/javascript" src="/extension/mzbwebin/design/mzbwebin/javascript/main.js" charset="utf-8"></script>
+<script type="text/javascript" src="/extension/mzbbootstrapcarousel/design/mzbwebin/javascript/bootstrap.min.js" charset="utf-8"></script>
+ 
+
+<!--[if lt IE 9]>
+<script>
+    document.createElement("abbr");
+    document.createElement("article");
+    document.createElement("aside");
+    document.createElement("canvas");
+    document.createElement("datalist");
+    document.createElement("details");
+    document.createElement("figure");
+    document.createElement("footer");
+    document.createElement("header");
+    document.createElement("hgroup");
+    document.createElement("mark");
+    document.createElement("menu");
+    document.createElement("meter");
+    document.createElement("nav");
+    document.createElement("output");
+    document.createElement("progress");
+    document.createElement("section");
+    document.createElement("time");
+    document.createElement("video");
+    document.createElement("figcaption");
+</script>
+<![endif]-->
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new
+                    Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-75665337-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+<body>
+<!-- Complete page area: START -->
+
+
+<div id="page" class=" section_id_1 subtree_level_0_node_id_2  home">
+
+    
+    <!-- Header area: START -->
+    <header>
+    <div class="navbar extra-navi">
+        <div class="container">
+           
+                <div class="fontsize">
+                    <span>
+                        <a href="#" title="plus" class="plus">A+</a>
+                        <a href="#" title="minus" class="minus">A-</a>
+                    </span>
+                    <a href="#" title="lang"><img src="/extension/mzbwebin/design/mzbwebin/images/flag.png" alt="Moçambique" class="flag"></a>
+                </div>
+                
+                <div id="lang-selector" class="transition-showed">    </div>
+                    <div class="pull-right toolbar-top-links">
+        <ul><li class="toolbar-item first">
+<a href="">Intranet</a>&nbsp;
+</li><li class="toolbar-item last">
+<a href="https://webmail.govnet.gov.mz/webmail">Webmail</a>&nbsp;
+</li></ul>    </div>
+                
+                <div class="choices">
+                    <a href="#" class="trigger">+ Links úteis</a>
+                    <div class="menu">
+                        <ul>
+                            
+                            <li><a href="http://www.presidencia.gov.mz" target="_blank" title="Presidência da República de Moçambique">Presidência da República de Moçambique</a></li>
+                            <li><a href="http://www.parlamento.mz/" target="_blank" title="Parlamento">Parlamento</a></li>
+                            <li><a href="http://www.cconstitucional.org.mz/" target="_blank" title="Presidência da República de Moçambique">Conselho Constitucional</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+    <a href="/por" title="Portal do Governo de Moçambique" class="logo"><img src="/extension/mzbwebin/design/mzbwebin/images/logo.png" alt="Portal do Governo de Moçambique" /></a>
+    <div id="title-container">
+        <div id="title-site">Portal do Governo</div>
+        <div id="subtite-site">de Moçambique</div>
+    </div>
+
+</div>
+
+            
+        </div>
+    </div>
+</header>
+    <!-- Header area: END -->
+
+    
+    <div class="navbar main-navi">
+        <!-- Top menu area: START -->
+                     
+<div class="navbar-inner">
+    <div class="container">
+
+        <a class="btn btn-navbar" data-action="toggleclass" data-class="nav-collapse" data-target=".main-navi .nav-collapse">Menu</a>
+
+        <div class="nav-collapse">
+
+            <ul class="nav">
+                
+                                                                                    
+                                                
+                                                                                                                                                    
+                                                    <li id="node_id_821"   class="dropdown firstli"><a href="http://www.portaldogoverno.gov.mz/" target="_self" title=""  menu-item-link" rel="/por/Inicio">Início</a></li>
+                                                                                                
+                                                
+                                                                                                
+                                                    <li id="node_id_125" class="dropdown">
+                                                                    <a href="/por/Mocambique">Moçambique</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_126" class="firstli"><a href="/por/Mocambique/Informacao-Geral">Informação Geral</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_127"><a href="/por/Mocambique/Historia-de-Mocambique">História de Mocambique</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_128"><a href="/por/Mocambique/Geografia-de-Mocambique">Geografia de Moçambique</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_129"><a href="/por/Mocambique/Populacao">População </a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_130"><a href="/por/Mocambique/Politica">Política</a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_131"><a href="/por/Mocambique/Economia">Economia </a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_132"><a href="/por/Mocambique/Cultura">Cultura</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_133"><a href="/por/Mocambique/Turismo">Turismo</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_134"><a href="/por/Mocambique/Estatisticas">Estatísticas</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_135" class="lastli"><a href="/por/Mocambique/Embaixadas-e-Consulados-Mocambicanos">Embaixadas e Consulados Moçambicanos</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                
+                                                    <li id="node_id_136" class="dropdown">
+                                                                    <a href="/por/Presidencia-da-Republica">Presidência da República</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_7469" class="firstli"><a href="/por/Presidencia-da-Republica/Pagina-Oficial-da-Presidencia">Página Oficial da Presidência</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_7344"><a href="/por/Presidencia-da-Republica/Noticias">Notícias</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_7310"><a href="/por/Presidencia-da-Republica/Mensagens">Mensagens </a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_7309"><a href="/por/Presidencia-da-Republica/Discursos">Discursos</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_7308"><a href="/por/Presidencia-da-Republica/Comunicados">Comunicados</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_7307" class="lastli"><a href="/por/Presidencia-da-Republica/Competencias-Gerais-do-Presidente-da-Republica2">Competências Gerais do Presidente da República</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                
+                                                    <li id="node_id_137" class="dropdown">
+                                                                    <a href="/por/Governo">Governo</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_138" class="firstli"><a href="/por/Governo/Gabinete-do-Primeiro-Ministro">Gabinete do Primeiro-Ministro</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_146"><a href="/por/Governo/Conselho-de-Ministros">Conselho de Ministros</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_139"><a href="/por/Governo/Ministerios">Ministérios</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_140"><a href="/por/Governo/Governos-Provinciais">Governos Provinciais</a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_141"><a href="/por/Governo/Governos-Distritais">Governos Distritais</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_143"><a href="/por/Governo/Funcao-Publica">Função Pública</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_144"><a href="/por/Governo/Documentos">Documentos</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_145" class="lastli"><a href="/por/Governo/Legislacao">Legislação</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                
+                                                    <li id="node_id_147" class="dropdown">
+                                                                    <a href="/por/Cidadao">Cidadão</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_148" class="firstli"><a href="/por/Cidadao/Balcao-de-Atendimento-Unico">Balcão de Atendimento Único</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_149"><a href="/por/Cidadao/Saude">Saúde</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_150"><a href="/por/Cidadao/Educacao">Educação</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_151"><a href="/por/Cidadao/Emprego">Emprego</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_152"><a href="/por/Cidadao/Informacao">Informação</a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_153"><a href="/por/Cidadao/Cidadao-Nao-Residente">Cidadão Não Residente</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_154"><a href="/por/Cidadao/Formularios">Formulários</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_155"><a href="/por/Cidadao/Portal-do-Cidadao">Portal do Cidadão</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_921" class="lastli"><a href="/por/Cidadao/Servicos">Serviços</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                
+                                                    <li id="node_id_156" class="dropdown">
+                                                                    <a href="/por/Empresas">Empresas</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_1241" class="firstli"><a href="/por/Empresas/Registos">Registos</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_158"><a href="/por/Empresas/Licenciamentos">Licenciamentos</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_159"><a href="/por/Empresas/Impostos-e-Taxas">Impostos  e Taxas</a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_160"><a href="/por/Empresas/Sectores-de-Actividades">Sectores de Actividades</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_161"><a href="/por/Empresas/Comercio-Externo">Comércio Externo</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_162" class="lastli"><a href="/por/Empresas/Formularios">Formulários</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                                                                    
+                                                    <li id="node_id_163" class="dropdown beforelastli">
+                                                                    <a href="/por/Imprensa">Imprensa</a>
+                                    <ul class="dropdown-menu multi-column columns-2" id="">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                        
+                                                    
+                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_1155" class="firstli"><a href="/por/Imprensa/Jornal-Mocambique">Jornal Moçambique</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_165"><a href="/por/Imprensa/Noticias">Notícias </a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_166"><a href="/por/Imprensa/Newsletters">Newsletters</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_167"><a href="/por/Imprensa/Comunicados">Comunicados</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_169"><a href="/por/Imprensa/Briefings">Briefings</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_170"><a href="/por/Imprensa/Eventos">Eventos</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_171"><a href="/por/Imprensa/Galeria-de-Fotos">Galeria de Fotos</a></li>
+                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                    <li id="node_id_172"><a href="/por/Imprensa/Balcao-Unico">Balcão Único </a></li>
+                                                            
+                                                                                                                                                                    </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="multi-column-dropdown">
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_173"><a href="/por/Imprensa/Boletins-Informativos">Boletins Informativos</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_174"><a href="/por/Imprensa/Concursos-Publicos">Concursos Públicos</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_175"><a href="/por/Imprensa/Lei-de-Imprensa">Lei de Imprensa</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_176"><a href="/por/Imprensa/Simbolos-Oficiais">Símbolos Oficiais</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_2140"><a href="/por/Imprensa/Portal-da-Imprensa-Nacional">Portal da Imprensa Nacional</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                    <li id="node_id_6852"><a href="/por/Imprensa/LTE">LTE</a></li>
+                                                            
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                    <li id="node_id_7023" class="lastli"><a href="/por/Imprensa/Anuncios-de-Concurso">Anuncios de Concurso</a></li>
+                                                            
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </ul>
+
+                                                            </li>
+                                                                                            
+                                                
+                                                                                                                                                    
+                                                    <li id="node_id_2876"   class="dropdown lastli"><a href="/por/Contactos/Contactos" title=""  menu-item-link" rel="/por/Contactos2">Contactos</a></li>
+                                                                            </ul>
+        </div>
+
+    </div>
+</div>
+
+                <!-- Top menu area: END -->
+
+        <!-- Path area: START -->
+                <!-- Path area: END -->
+    </div>
+
+    <!-- Toolbar area: START -->
+        <!-- Toolbar area: END -->
+
+    <!-- Columns area: START -->
+    <div class="container">
+        <div class="row">
+            
+                    <!-- Main area: START -->
+            <div class="span12 main-content">
+    <!-- Main area content: START -->
+    <div class="content-view-full">
+    <div class="class-landing-page">
+
+    <div class="attribute-page">
+            <div class="zone-layout-5zoneslayout1 row">
+    <div class="span12">
+        <section class="content-view-block">
+                                                
+    <div id="address-7092f3ac9ffbc650041419220fc2d8b2-0235e796c52a189c9fb7a3f55259cfb1">
+     
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+         $('#myCarousel').carousel({
+            interval: 5000
+        });
+    });
+    
+</script>
+
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Carousel indicators -->
+  <ol class="carousel-indicators">
+      
+                    
+                        
+        <li data-target="#myCarousel" data-slide-to=0  class="active"></li>
+                    
+        
+        <li data-target="#myCarousel" data-slide-to=1 ></li>
+                    
+        
+        <li data-target="#myCarousel" data-slide-to=2 ></li>
+                    
+        
+        <li data-target="#myCarousel" data-slide-to=3 ></li>
+      </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+                    
+                                
+        <div  class="item active">    
+
+<div class="attribute-image">
+                        <a href="/por/Imprensa/Noticias/ONU-Maioria-dos-mocambicanos-vive-em-zonas-de-risco-de-desastres-naturais">
+                <img src="/var/ezdemo_site/storage/images/corousel/onu-maioria-dos-mocambicanos-vive-em-zonas-de-risco-de-desastres-naturais/68136-1-por-MZ/ONU-Maioria-dos-mocambicanos-vive-em-zonas-de-risco-de-desastres-naturais.jpg" alt="" border="0" width="960" height="300" />
+            </a>
+            <figcaption class="carousel-caption">
+                <h2>ONU: Maioria dos moçambicanos vive em zonas de risco de desastres naturais</h2>
+               <a href="/por/Imprensa/Noticias/ONU-Maioria-dos-mocambicanos-vive-em-zonas-de-risco-de-desastres-naturais">Saiba mais aqui</a>
+                
+
+            </figcaption>
+            </div>
+</div>
+                    
+                
+        <div  class="item">    
+
+<div class="attribute-image">
+                        <a href="/por/Imprensa/Noticias/Ponte-Maputo-KaTembe-podera-ser-concluida-em-Junho">
+                <img src="/var/ezdemo_site/storage/images/corousel/ponte-maputo-katembe-podera-ser-concluida-em-junho/68088-1-por-MZ/Ponte-Maputo-KaTembe-podera-ser-concluida-em-Junho.jpg" alt="" border="0" width="960" height="300" />
+            </a>
+            <figcaption class="carousel-caption">
+                <h2>Ponte Maputo-KaTembe poderá ser concluída em Junho</h2>
+               <a href="/por/Imprensa/Noticias/Ponte-Maputo-KaTembe-podera-ser-concluida-em-Junho">Saiba mais aqui</a>
+                
+
+            </figcaption>
+            </div>
+</div>
+                    
+                
+        <div  class="item">    
+
+<div class="attribute-image">
+                        <a href="/por/Imprensa/Noticias/Chicualacuala-em-campanha-para-combater-cancro">
+                <img src="/var/ezdemo_site/storage/images/corousel/chicualacuala-em-campanha-para-combater-cancro/68024-1-por-MZ/Chicualacuala-em-campanha-para-combater-cancro.jpg" alt="" border="0" width="960" height="300" />
+            </a>
+            <figcaption class="carousel-caption">
+                <h2>Chicualacuala em campanha para combater cancro</h2>
+               <a href="/por/Imprensa/Noticias/Chicualacuala-em-campanha-para-combater-cancro">Saiba mais aqui</a>
+                
+
+            </figcaption>
+            </div>
+</div>
+                    
+                
+        <div  class="item">    
+
+<div class="attribute-image">
+                        <a href="/por/Governo/Legislacao/Boletins-da-Republica/Boletins-da-Republica-2015/Prova-de-Vida-Diploma-Ministerial">
+                <img src="/var/ezdemo_site/storage/images/corousel/prova-de-vida/48812-1-por-MZ/Prova-de-Vida.jpg" alt="" border="0" width="960" height="300" />
+            </a>
+            <figcaption class="carousel-caption">
+                <h2>Prova de Vida</h2>
+               <a href="/por/Governo/Legislacao/Boletins-da-Republica/Boletins-da-Republica-2015/Prova-de-Vida-Diploma-Ministerial">Saiba mais aqui</a>
+                
+
+            </figcaption>
+            </div>
+</div>
+      </div>
+  <!-- Carousel nav-->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+                </div>
+    <div class="block-separator"></div>
+                                    </section>
+    </div>
+
+    <div class="span8">
+        <div class="row">
+            <div class="span8">
+                <section class="content-view-block">
+                                                                        
+    <div id="address-5e7797ce72e1d80840515c89a543e994-2d7c3ad8b0d278c1bf45fd3b3085e53a">
+    
+<div class="block-type-content-grid block-view-3_columns_1_row">
+
+        <div class="attribute-header">
+        <h2><a href="/por/Imprensa/Noticias">Notícias</a></h2>
+    </div>
+    
+    <div class="row">
+            <div class="span3">
+        <article>
+
+
+            <a href="/por/Imprensa/Noticias/Alimentos-nao-fortificados-retirados-do-mercado-este-mes" class="teaser-link">
+            <div class="attribute-image">
+                
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/imprensa/noticias/alimentos-nao-fortificados-retirados-do-mercado-este-mes/68229-1-por-MZ/Alimentos-nao-fortificados-retirados-do-mercado-este-mes_contentgrid.jpg" width="300" height="130"  style="border: 0px  ;" alt="Alimentos não fortificados retirados do mercado este mês" title="Alimentos não fortificados retirados do mercado este mês" />
+            
+    
+    
+                </div>
+        </a>
+
+        <span class="date">
+        
+        16/03/2018 10:05
+    </span>
+    <div class="attribute-header">
+        <p class="title"> <a href="/por/Imprensa/Noticias/Alimentos-nao-fortificados-retirados-do-mercado-este-mes">Alimentos não fortificados retirados do mercado este mês</a></p>
+    </div>
+
+
+    <div class="attribute-short">
+        
+<p>O Comité Nacional de Fortificação de Alimentos (CONFAM) vai iniciar, no final deste mês a fiscalização da fortificação obrigatória de alimentos.</p>    </div>
+
+</article>
+        </div>
+            <div class="span3">
+        <article>
+
+
+            <a href="/por/Imprensa/Noticias/Tragedia-de-Hulena-Familias-transferidas-para-Marracuene" class="teaser-link">
+            <div class="attribute-image">
+                
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/imprensa/noticias/tragedia-de-hulena-familias-transferidas-para-marracuene/68218-1-por-MZ/Tragedia-de-Hulena-Familias-transferidas-para-Marracuene_contentgrid.jpg" width="300" height="130"  style="border: 0px  ;" alt="Tragédia de Hulena: Famílias transferidas para Marracuene" title="Tragédia de Hulena: Famílias transferidas para Marracuene" />
+            
+    
+    
+                </div>
+        </a>
+
+        <span class="date">
+        
+        16/03/2018 09:47
+    </span>
+    <div class="attribute-header">
+        <p class="title"> <a href="/por/Imprensa/Noticias/Tragedia-de-Hulena-Familias-transferidas-para-Marracuene">Tragédia de Hulena: Famílias transferidas para Marracuene</a></p>
+    </div>
+
+
+    <div class="attribute-short">
+        
+<p>Equipas do Ministério da Terra, Ambiente e Desenvolvimento Rural (MITADER), Conselho Municipal da cidade de Maputo e do Governo do Distrito de Marracune já estão a trabalhar no parcelamento para acomodar as 312 famílias vítimas do deslizamento de resíduos sólidos da lixeira de Hulene.</p>    </div>
+
+</article>
+        </div>
+            <div class="span3">
+        <article>
+
+
+            <a href="/por/Imprensa/Noticias/Analise-anual-do-FMI-a-Mocambique-mostra-que-nao-vai-haver-ajuda-financeira" class="teaser-link">
+            <div class="attribute-image">
+                
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/imprensa/noticias/analise-anual-do-fmi-a-mocambique-mostra-que-nao-vai-haver-ajuda-financeira/68160-1-por-MZ/Analise-anual-do-FMI-a-Mocambique-mostra-que-nao-vai-haver-ajuda-financeira_contentgrid.jpg" width="300" height="130"  style="border: 0px  ;" alt="Análise anual do FMI a Moçambique mostra que não vai haver ajuda financeira" title="Análise anual do FMI a Moçambique mostra que não vai haver ajuda financeira" />
+            
+    
+    
+                </div>
+        </a>
+
+        <span class="date">
+        
+        15/03/2018 15:42
+    </span>
+    <div class="attribute-header">
+        <p class="title"> <a href="/por/Imprensa/Noticias/Analise-anual-do-FMI-a-Mocambique-mostra-que-nao-vai-haver-ajuda-financeira">Análise anual do FMI a Moçambique mostra que não vai haver ajuda financeira</a></p>
+    </div>
+
+
+    <div class="attribute-short">
+        
+<p>A Economist Intelligence Unit (EIU) considerou hoje que as conclusões da análise anual do Fundo Monetário Internacional (FMI) à economia moçambicana indiciam que o país não deve ter um programa de assistência financeira até 2022.</p>    </div>
+
+</article>
+        </div>
+        
+        <a href="/por/Imprensa/Noticias" class="vermais pull-right">Ver mais notícias &gt;</a>
+
+    </div>
+    
+
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                    
+    <div id="address-5e7797ce72e1d80840515c89a543e994-8715b31431d1fb22850ea6e0a697cfe8">
+    
+
+
+<script>
+    _V_.options.flash.swf = "/extension/ezdemo/design/ezdemo/flash/video-js.swf"
+</script>
+
+<div class="block-type-video">
+        <div class="attribute-header">
+        <h2>Governo de Moçambique</h2>
+    </div>
+        <article>
+        <div class="attribute-header">
+            <h3>Pedra-a-Pedra Construindo Moçambique</h3>
+        </div>
+        <div class="attribute-video">
+            
+            <video id="video_8715b31431d1fb22850ea6e0a697cfe8" class="video-js vjs-default-skin" controls preload="auto" width="330" height="264" poster="" data-setup="{}">
+              <source src="http://www.portaldogoverno.gov.mz/por/content/download/2996/24090/Pedra-a-Pedra Construindo Moçambique.mp4" type="video/mp4" />
+            </video>
+        </div>
+
+        
+
+        <div class="attribute-short">
+            
+        </div>
+    </article>
+</div>    </div>
+    <div class="block-separator"></div>
+                                                    
+
+                                                            </section>
+            </div>
+            <div class="span8">
+                <section class="content-view-block">
+                                            <ul id="myTab" class="nav nav-tabs">
+                                                            
+    
+    <li class="active">
+      <a href="#address-91fe8196252a8a3c926b4e2656d02599-c35adea03a165f1dd8e6d9117f1cd96a" data-toggle="tab">Comunicados do Governo</a>
+   </li>
+
+                                                            
+    
+    <li >
+      <a href="#address-91fe8196252a8a3c926b4e2656d02599-8faf0e432dec302df95c2a72e73b1d6f" data-toggle="tab">Boletins da República</a>
+   </li>
+
+                                                            
+    
+    <li >
+      <a href="#address-91fe8196252a8a3c926b4e2656d02599-34c440686a04d30d0da64ae81d6bdf8a" data-toggle="tab">Anúncios de Concurso</a>
+   </li>
+
+                                                            
+    
+    <li >
+      <a href="#address-91fe8196252a8a3c926b4e2656d02599-60f0ffe040cda8ef6757d353bec77aa5" data-toggle="tab">Como faço para?</a>
+   </li>
+
+                                                    </ul>
+                        <div id="myTabContent" class="tab-content">
+                                                            
+    <div id="address-91fe8196252a8a3c926b4e2656d02599-c35adea03a165f1dd8e6d9117f1cd96a" class="active tab-pane">
+    
+<div class="block-type-itemlist item-list-how">
+    <article>
+        <div class="pull-left">
+            
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/comunicado-do-conselho-de-ministros/cm-do-conselho-de-ministros/36924-4-por-MZ/CM-do-Conselho-de-Ministros_highlighted.jpg" width="200" height="150"  style="border: 0px  ;" alt="CM do Conselho de Ministros" title="CM do Conselho de Ministros" />
+            
+    
+    
+            </div>
+        <ul>
+                            <li>
+                                            <a href="/por/content/download/8906/68152/version/1/file/COMUNICADO+DA+8.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 8.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/8877/67902/version/1/file/COMUNICADO+DA+7.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 7.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/8851/67661/version/1/file/COMUNICADO+DA+6.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 6.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/8808/67272/version/1/file/COMUNICADO+DA+5.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 5.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/8790/67119/version/1/file/COMUNICADO+DA+4.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 4.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/8754/66807/version/1/file/COMUNICADO+DA+3.%C2%AA+SOCM-2018.pdf" >COMUNICADO DA 3.ª SOCM-2018</a>
+                                    </li>
+                            <li>
+                                            <a href="http://www.portaldogoverno.gov.mz/por/Imprensa/Comunicados/Comunicados-do-Conselho-de-Ministros">Ler Comunicados anteriores</a>
+                                    </li>
+                    </ul>
+    </article>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                            
+    <div id="address-91fe8196252a8a3c926b4e2656d02599-8faf0e432dec302df95c2a72e73b1d6f" class=" tab-pane">
+    
+<div class="block-type-itemlist item-list-how">
+    <article>
+        <div class="pull-left">
+            
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/boletins-da-republica/boletins-da-republica/16763-10-por-MZ/Boletins-da-Republica_highlighted.png" width="200" height="150"  style="border: 0px  ;" alt="Boletins da República" title="Boletins da República" />
+            
+    
+    
+            </div>
+        <ul>
+                            <li>
+                                            <a href="/por/content/download/6960/51007/version/2/file/BR_40_III_SERIE_2017.pdf" >BR 40 III SÉRIE 2017</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/6953/50939/version/2/file/BR+39_III_SERIE_2017.pdf" >BR 39 III SÉRIE 2017</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/6952/50934/version/2/file/BR_38_III_SERIE_2017.pdf" >BR 38 III SÉRIE 2017</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/6941/50837/version/2/file/BR_37_III_SERIE_2017.pdf" >BR 37 III SÉRIE 2017</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/6929/50720/version/2/file/BR_36_III_SERIE_2017.pdf" >BR 36 III SÉRIE 2017</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/6715/48807/version/2/file/Prova+de+vida_Diploma+Ministerial.pdf" >Prova de Vida Diploma Ministerial</a>
+                                    </li>
+                            <li>
+                                            <a href="http://www.portaldogoverno.gov.mz/por/Governo/Legislacao/Boletins-da-Republica">Veja aquí outros Boletins da República</a>
+                                    </li>
+                    </ul>
+    </article>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                            
+    <div id="address-91fe8196252a8a3c926b4e2656d02599-34c440686a04d30d0da64ae81d6bdf8a" class=" tab-pane">
+    
+<div class="block-type-itemlist item-list-how">
+    <article>
+        <div class="pull-left">
+            
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/alerta/alerta/53807-1-por-MZ/Alerta_highlighted.jpg" width="200" height="150"  style="border: 0px  ;" alt="Alerta" title="Alerta" />
+            
+    
+    
+            </div>
+        <ul>
+                            <li>
+                                            <a href="/por/Alerta/Mensagem-de-ALERTA-aos-internautas">Mensagem de ALERTA aos internautas</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/7245/53606/version/3/file/INGLES+-+ANUNCIO+DO+CONCURSO+DO+BI.pdf" >Concession for the Establishment, Provision of Systems for Production of Identification Cards, Travel Documents, Entry Visas as well as Management...</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/content/download/7243/53596/version/3/file/PORTUGUES+-+ANUNCIO+DO+CONCURSO+DO+BI-1.pdf" >Concessão para a Instalação e Fornecimento de Sistemas de Produção de Documentos de Identificação Civil, de Viagem, Vistos e de Controlo do Movimen...</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/Imprensa/Anuncios-de-Concurso">Veja aqui outros anúncios </a>
+                                    </li>
+                    </ul>
+    </article>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                            
+    <div id="address-91fe8196252a8a3c926b4e2656d02599-60f0ffe040cda8ef6757d353bec77aa5" class=" tab-pane">
+    
+<div class="block-type-itemlist item-list-how">
+    <article>
+        <div class="pull-left">
+            
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/como-faco/10686-6-por-MZ/Como-faco_highlighted.jpg" width="210" height="133"  style="border: 0px  ;" alt="Como faço" title="Como faço" />
+            
+    
+    
+            </div>
+        <ul>
+                            <li>
+                                            <a href="/por/Cidadao/Cidadao-Nao-Residente/Migracao">Obter visto de entrada para Moçambique</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/Cidadao/Servicos/Identificacao-Civil/Bilhete-de-Identidade">Obter Bilhete de Identidade</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/Cidadao/Servicos/Identificacao-Civil/Carta-de-Conducao">Obter Carta de Condução</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/Empresas/Licenciamentos/Actividade-Comercial">Tratar licença para actividades comerciais</a>
+                                    </li>
+                            <li>
+                                            <a href="/por/Como-faco-para/Obter-reconhecimento-de-graus-academicos">Obter reconhecimento de graus académicos</a>
+                                    </li>
+                    </ul>
+    </article>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                    </div>
+                                    </section>
+            </div>
+            <div class="span8">
+                <section class="content-view-block">
+                                                                        
+    <div id="address-46ed45ab681829d5cefed1f606c895e8-5ed0a94085e0bd7c5706524dd846d555">
+    
+<!-- BLOCK: START -->
+<div class="block-type-newsletter-custom">
+    <div class="row">
+        <div class="inner_newsletter">
+
+            <div class="span3">
+                <span class="newsletter_title">Já leu a  <span>
+<p>newsletter do Governo?</p></span></span>
+
+                <div class="attribute-short">
+                    
+<p><a href="/por/Imprensa/Jornal-Mocambique" target="_self">Aceda aqui à última edição&nbsp;do Jornal Moçambique</a></p>                </div>
+            </div>
+            <div class="span5">
+                <div class="subscribe">
+                                            <div class="attribute-header">
+                            <h3>Subscrever Online</h3>
+                        </div>
+                    
+                        
+
+                    <div class="attribute-short">
+                        
+<p>Para receber as últimas notícias e actualizações, insira o seu e-mail.</p>                    </div>
+
+                    <form action="/por/content/action" method="post">
+
+                        <div class="attribute-email">       
+                            
+                                                        
+                            <input type="text"  name="ContentObjectAttribute_data_text_10743" class="box" placeholder="Insira o seu email">
+                        </div>
+
+                        <div class="content-action">
+                            <input type="submit" class="defaultbutton" name="ActionCollectInformation" value="Subscrever" />
+                            <input type="hidden" name="ContentNodeID" value="1201" />
+                            <input type="hidden" name="ContentObjectID" value="1254" />
+                            <input type="hidden" name="ViewMode" value="full" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BLOCK: END -->
+    </div>
+    <div class="block-separator"></div>
+                                                            </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="span4">
+        <aside>
+            <section class="content-view-block content-view-aside">
+                                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-c398c0aca02c1751497f820dad4bc484">
+    <div class="block-type-searchbox">
+            <div class="attribute-header">
+            <h2>Pesquisa</h2>
+        </div>
+        <form class=" form-search" method="get" action="/por/content/search" id="site-wide-search">
+        
+            <span class="hidden">Search</span>
+                            <input class="search-query " type="search" name="SearchText" id="site-wide-search-field" placeholder="Procure aqui o que precisa" />
+                <input type="submit" value="">
+                                   
+    </form>
+    <a href="/por/content/advancedsearch" class="pesq_avancada">Pesquisa avançada</a>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-98be90a18459e6db2adeda77d5180269">
+    
+<div class="block-type-content-grid block-view-default">
+
+        <div class="attribute-header">
+        <h2>Lei de Transacções Electrónicas</h2>
+    </div>
+    
+            <article>
+
+    <a href="/por/Imprensa/Entrou-em-vigor-dia-10.04.2017" class="teaser-link">
+            <div class="attribute-image">
+            
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/imprensa/entrou-em-vigor-dia-10.04.2017/51895-2-por-MZ/Entrou-em-vigor-dia-10.04.2017_contentgrid.png" width="242" height="160"  style="border: 0px  ;" alt="Entrou em vigor dia 10.04.2017 " title="Entrou em vigor dia 10.04.2017 " />
+            
+    
+    
+            </div>
+            <div class="attribute-header">
+            <h3>Entrou em vigor dia 10.04.2017 </h3>
+        </div>
+    </a>
+
+    <div class="attribute-short">
+        
+<p><a href="/por/Media/Files/Lei-de-Transaccoes-Electronicas" target="_self">Clique Aqui para baixar a Lei de Transacções Electrónicas</a></p>    </div>
+
+</article>
+    
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-729ef5f4c64cccafd34fb425566ae939">
+    <script type="text/javascript" src="/extension/ezjscore/design/standard/javascript/jquery-1.10.2.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+(function($) {
+    var _rootUrl = '/por/', _serverUrl = _rootUrl + 'ezjscore/', _seperator = '@SEPERATOR$',
+        _prefUrl = _rootUrl + 'user/preferences';
+
+    // FIX: Ajax is broken on IE8 / IE7 on jQuery 1.4.x as it's trying to use the broken window.XMLHttpRequest object
+    if ( window.XMLHttpRequest && window.ActiveXObject )
+        $.ajaxSettings.xhr = function() { try { return new window.ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {} };
+
+    // (static) jQuery.ez() uses jQuery.post() (Or jQuery.get() if post paramer is false)
+    //
+    // @param string callArgs
+    // @param object|array|string|false post Optional post values, uses get request if false or undefined
+    // @param function Optional callBack
+    function _ez( callArgs, post, callBack )
+    {
+        callArgs = callArgs.join !== undefined ? callArgs.join( _seperator ) : callArgs;
+        var url = _serverUrl + 'call/';
+        if ( post )
+        {
+            var _token = '', _tokenNode = document.getElementById('ezxform_token_js');
+            if ( _tokenNode ) _token = _tokenNode.getAttribute('title');
+            if ( post.join !== undefined )// support serializeArray() format
+            {
+                post.push( { 'name': 'ezjscServer_function_arguments', 'value': callArgs } );
+                post.push( { 'name': 'ezxform_token', 'value': _token } );
+            }
+            else if ( typeof(post) === 'string' )// string
+            {
+                post += ( post ? '&' : '' ) + 'ezjscServer_function_arguments=' + callArgs + '&ezxform_token=' + _token;
+            }
+            else // object
+            {
+                post['ezjscServer_function_arguments'] = callArgs;
+                post['ezxform_token'] = _token;
+            }
+            return $.post( url, post, callBack, 'json' );
+        }
+        return $.get( url + encodeURIComponent( callArgs ), {}, callBack, 'json' );
+    };
+    _ez.url = _serverUrl;
+    _ez.root_url = _rootUrl;
+    _ez.seperator = _seperator;
+    $.ez = _ez;
+
+    $.ez.setPreference = function( name, value )
+    {
+        var param = {'Function': 'set_and_exit', 'Key': name, 'Value': value};
+            _tokenNode = document.getElementById( 'ezxform_token_js' );
+        if ( _tokenNode )
+            param.ezxform_token = _tokenNode.getAttribute( 'title' );
+
+        return $.post( _prefUrl, param );
+    };
+
+    // Method version, for loading response into elements
+    // NB: Does not use json (not possible with .load), so ezjscore/call will return string
+    function _ezLoad( callArgs, post, selector, callBack )
+    {
+        callArgs = callArgs.join !== undefined ? callArgs.join( _seperator ) : callArgs;
+        var url = _serverUrl + 'call/';
+        if ( post )
+        {
+            post['ezjscServer_function_arguments'] = callArgs;
+            post['ezxform_token'] = jQuery('#ezxform_token_js').attr('title');
+        }
+        else
+            url += encodeURIComponent( callArgs );
+
+        return this.load( url + ( selector ? ' ' + selector : '' ), post, callBack );
+    };
+    $.fn.ez = _ezLoad;
+})(jQuery);
+        
+</script>
+
+    
+<div class="block-type-calendar">
+ <div class="class-event-calendar event-calendar-calendarview">
+
+<div class="attribute-header">
+    <h1>Calendário</h1>
+</div>
+
+<div id="ezagenda_calendar_left">
+<div id="ezagenda_calendar_container">
+
+<table cellspacing="0" cellpadding="0" border="0" summary="Event Calendar">
+<thead>
+    
+<tr class="calendar_heading">
+    <th class="calendar_heading_prev first_col"><a href="/por/(month)/2/(year)/2018" title=" Previous month "></a></th>
+    <th class="calendar_heading_date" colspan="5">March&nbsp;2018</th>
+    <th class="calendar_heading_next last_col"><a href="/por/(month)/4/(year)/2018" title=" Next Month "></a></th>
+</tr>
+<tr class="calendar_heading_days">
+    <th class="first_col">Mon</th>
+    <th>Tue</th>
+    <th>Wed</th>
+    <th>Thu</th>
+    <th>Fri</th>
+    <th>Sat</th>
+    <th class="last_col">Sun</th>
+</tr>
+</thead>
+<tbody>
+                    <tr class="days first_row">
+                                            <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            <td class=" ">
+            1
+        </td>
+                            <td class=" ">
+            2
+        </td>
+                            <td class=" ">
+            3
+        </td>
+                                        <td class="  last_col">
+            4
+        </td>
+                </tr>
+                        <tr class="days">
+                    <td class="  first_col">
+            5
+        </td>
+                            <td class=" ">
+            6
+        </td>
+                            <td class=" ">
+            7
+        </td>
+                            <td class=" ">
+            8
+        </td>
+                            <td class=" ">
+            9
+        </td>
+                            <td class=" ">
+            10
+        </td>
+                                        <td class="  last_col">
+            11
+        </td>
+                </tr>
+                        <tr class="days">
+                    <td class="  first_col">
+            12
+        </td>
+                            <td class=" ">
+            13
+        </td>
+                            <td class=" ">
+            14
+        </td>
+                            <td class=" ">
+            15
+        </td>
+                            <td class="ezagenda_selected ezagenda_current">
+            16
+        </td>
+                            <td class=" ">
+            17
+        </td>
+                                        <td class="  last_col">
+            18
+        </td>
+                </tr>
+                        <tr class="days">
+                    <td class="  first_col">
+            19
+        </td>
+                            <td class=" ">
+            20
+        </td>
+                            <td class=" ">
+            21
+        </td>
+                            <td class=" ">
+            22
+        </td>
+                            <td class=" ">
+            23
+        </td>
+                            <td class=" ">
+            24
+        </td>
+                                        <td class="  last_col">
+            25
+        </td>
+                </tr>
+                        <tr class="days last_row">
+                    <td class="  first_col">
+            26
+        </td>
+                            <td class=" ">
+            27
+        </td>
+                            <td class=" ">
+            28
+        </td>
+                            <td class=" ">
+            29
+        </td>
+                            <td class=" ">
+            30
+        </td>
+                            <td class=" ">
+            31
+        </td>
+                                                                                    <td class=" last_col">&nbsp;</td>
+                                    </tr>
+        </tbody>
+</table>
+
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-c45d31675d1473d1710d9ad69e86e099">
+    <div class="block-type-feedback-form block-type-feedback-form-description">
+        <article>
+       <div class="attribute-short">
+                
+<p>Para sugestões, reclamações ou denúncias, contacte:</p><a name="eztoc10734_0_0_1" id="eztoc10734_0_0_1"></a><h4>258 – 21&nbsp;<b>302241</b></h4><p><a href="mailto:egov@intic.gov.mz" target="_self">egov@gov.mz</a></p>        </div>
+    </article>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-f93035448a9e1a5221e681aa08937101">
+    
+<div class="block-type-itemlist item-list block-type-itemlist-link">
+
+        <article>
+        
+                   <a href="/por/Test" class="usefull" title="Links Úteis">Links Úteis</a>
+                   <a href="/por" class="usefull" title="Perguntas Frequentes">Perguntas Frequentes</a>
+                
+    </article>
+
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-39286fe8fdf2c8c2d47922a336f9c9ec">
+    <article class="block-type-mainstory block-type-mainstory-custom">
+            <div class="attribute-header">
+            <h2>Prémios e Distinções</h2>
+        </div>
+        <div class="attribute-short">
+            </div>
+
+    <div class="attribute-image">
+        
+
+    
+        
+    
+                                                                                                                                            <img src="/var/ezdemo_site/storage/images/media/premios/premio-qualidade-de-mocambique/23172-2-por-MZ/Premio-Qualidade-de-Mocambique_highlighted.jpg" width="264" height="300"  style="border: 0px  ;" alt="Prémio Qualidade de Moçambique" title="Prémio Qualidade de Moçambique" />
+            
+    
+    
+        </div>
+
+
+
+</article>    </div>
+    <div class="block-separator"></div>
+                                            
+    <div id="address-b1013ed7a77d28083ccf6f0311386b94-d538f8e00c76882d339d0d73bd80a17d">
+    <div class="block-type-social-network">
+            <div class="attribute-header">
+            <h2>Fique a par das novidades nas redes sociais:</h2>
+        </div>
+      <a href="https://www.facebook.com/govdigitalmz" target="_blank" class="facebook">Siga-nos no Facebook</a>
+  <a href="https://twitter.com/govdigitalmz" target="_blank" class="twitter">Siga-nos no Twitter</a>
+</div>
+    </div>
+    <div class="block-separator"></div>
+                                                </section>
+        </aside>
+    </div>
+</div>
+
+    </div>
+
+    </div>
+</div>
+    <!-- Main area content: END -->
+</div>
+            <!-- Main area: END -->
+            
+            <!-- Side menu area: START -->
+                        <!-- Side menu area: END -->
+            
+            <!-- Extra area: START -->
+                        <!-- Extra area: END -->
+        </div>
+    </div>
+    <!-- Columns area: END -->
+
+    <!-- Footer area: START -->
+    
+
+<!-- Footer area: START -->
+<footer>
+    
+
+
+
+<div class="content-view-sitemap">
+
+    <!--
+    <div class="attribute-header">
+        <h1 class="long">Site map </h1>
+    </div>
+    -->
+    <div class="container inner_footer">
+        <img src="/extension/mzbwebin/design/mzbwebin/images/footer_logo.png"  alt="Portal do Governo de Moçambique" class="footer_logo">
+        <span class="follow">Siga-nos nas redes sociais</span>
+        <a href="https://www.facebook.com/governo.mocambique" target="_blank" class="facebook">Siga-nos no Facebook</a>
+        <a href="https://twitter.com/PortaldoGoverno" target="_blank" class="twitter">Siga-nos no Twitter</a>
+
+
+        <table width="100%" cellspacing="0" cellpadding="4" class='listas'>
+            <tr>
+
+                                    <td>
+                        <h3>
+                            
+                                                            <a href="http://www.portaldogoverno.gov.mz/">Início</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Mocambique">Moçambique</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Mocambique/Informacao-Geral">Informação Geral</a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Historia-de-Mocambique">História de Mocambique</a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Geografia-de-Mocambique">Geografia de Moçambique</a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Populacao">População </a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Politica">Política</a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Economia">Economia </a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Cultura">Cultura</a></li>
+                                
+                                                                                                <li><a href="/por/Mocambique/Turismo">Turismo</a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Presidencia-da-Republica">Presidência da República</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Presidente-da-republica-efectua-visita-a-provincia-de-sofala">Presidente da república efectua visita à província de sofala</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Presidente-da-Republica-felicita-Paul-Kagame-pela-reeleicao">Presidente da República felicita Paul Kagame pela reeleição</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Governo-mobiliza-fundos-para-agua-no-Inchope">Governo mobiliza fundos para água no Inchope</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Presidente-da-Republica-mantem-encontro-com-o-Presidente-da-Renamo">Presidente da República mantém encontro com o Presidente da Renamo</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Deve-se-tomar-medidas-energicas-contra-a-corrupcao-Presidente-da-Republica">“Deve se tomar medidas enérgicas contra a corrupção” – Presidente da República</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Esta-e-mais-uma-vitoria-para-o-povo-mocambicano-Presidente-da-Republica">“Esta é mais uma vitória para o povo moçambicano” – Presidente da República</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/Temos-que-estar-atentos-para-impedir-desinformacao-PR">“Temos que estar atentos para impedir desinformação” - PR</a></li>
+                                
+                                                                                                <li><a href="/por/Presidencia-da-Republica/PR-efectua-visita-presidencial-a-Manica">PR efectua visita presidencial à Manica</a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Governo">Governo</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Governo/Gabinete-do-Primeiro-Ministro">Gabinete do Primeiro-Ministro</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Conselho-de-Ministros">Conselho de Ministros</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Ministerios">Ministérios</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Governos-Provinciais">Governos Provinciais</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Governos-Distritais">Governos Distritais</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Funcao-Publica">Função Pública</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Documentos">Documentos</a></li>
+                                
+                                                                                                <li><a href="/por/Governo/Legislacao">Legislação</a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Cidadao">Cidadão</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Cidadao/Balcao-de-Atendimento-Unico">Balcão de Atendimento Único</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Saude">Saúde</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Educacao">Educação</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Emprego">Emprego</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Informacao">Informação</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Cidadao-Nao-Residente">Cidadão Não Residente</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Formularios">Formulários</a></li>
+                                
+                                                                                                <li><a href="/por/Cidadao/Portal-do-Cidadao">Portal do Cidadão</a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Empresas">Empresas</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Empresas/Registos">Registos</a></li>
+                                
+                                                                                                <li><a href="/por/Empresas/Licenciamentos">Licenciamentos</a></li>
+                                
+                                                                                                <li><a href="/por/Empresas/Impostos-e-Taxas">Impostos  e Taxas</a></li>
+                                
+                                                                                                <li><a href="/por/Empresas/Sectores-de-Actividades">Sectores de Actividades</a></li>
+                                
+                                                                                                <li><a href="/por/Empresas/Comercio-Externo">Comércio Externo</a></li>
+                                
+                                                                                                <li><a href="/por/Empresas/Formularios">Formulários</a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Imprensa">Imprensa</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                                                                <li><a href="/por/Imprensa/Jornal-Mocambique">Jornal Moçambique</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Noticias">Notícias </a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Newsletters">Newsletters</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Comunicados">Comunicados</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Briefings">Briefings</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Eventos">Eventos</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Galeria-de-Fotos">Galeria de Fotos</a></li>
+                                
+                                                                                                <li><a href="/por/Imprensa/Balcao-Unico">Balcão Único </a></li>
+                                
+                                                    </ul>
+                    </td>
+                                                        <td class="separator"></td>
+                                        <td>
+                        <h3>
+                            
+                                                            <a href="/por/Contactos/Contactos">Contactos</a>
+                                
+                        </h3>
+                                                                                                    <ul>
+                                                    </ul>
+                    </td>
+                                                </tr>
+        </table>
+    </div>
+</div>
+
+    <div class="claim-wrapper">
+        <div class="container">
+            <div class="">
+                <div class="pull-left">
+                   Copyright &copy; 2015 Portal do Governo de Moçambique
+                </div>
+
+                <div class="pull-right">
+                    Desenvolvido por INTIC
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+<!-- Footer area: END -->
+    <!-- Footer area: END -->
+
+</div>
+<!-- Complete page area: END -->
+
+<!-- Footer script area: START -->
+<!-- Footer script area: END -->
+
+
+
+</body>
+</html>

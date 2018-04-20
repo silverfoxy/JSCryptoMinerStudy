@@ -1,0 +1,1373 @@
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca" lang="ca">
+    <head>
+                <title>Lloguer i venda de pisos i cases - API portal immobiliari professional</title>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+        
+                        <meta name="robots" content="index, follow" />
+                    
+	<link rel="alternate" href="/es/" hreflang="es" />
+
+	<link rel="alternate" href="/en/" hreflang="en" />
+	
+	<link rel="alternate" href="/ru/" hreflang="ru" />
+	
+	<link rel="alternate" href="/de/" hreflang="de" />
+
+	<link rel="alternate" href="/ch/" hreflang="ch" />
+	
+	<link rel="alternate" href="/ar/" hreflang="ar" />
+
+	<link rel="alternate" href="/fr/" hreflang="fr" />
+	
+        <meta name="description" content="Venda i lloguer de cases i pisos en exclusiva a Catalunya. Compra pisos, cases, obra nova, pisos de bancs al portal dels professionals immobiliaris."/>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta name="facebookexternalhit" content="noindex">
+
+        
+
+        <link rel="shortcut icon" href="https://www.api.cat/images/favicon.ico" />
+<!--<link rel="stylesheet" href="https://www.api.cat/css/jquery-ui.css">-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://www.api.cat/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/css/full-slider.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/css/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/js/select2/css/select2.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/js/bootstrap-dialog/bootstrap-dialog.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/css/simple-sidebar.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/css/bootstrap-switch.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.api.cat/css/my_style.min.css" type="text/css" />
+
+<script type="text/javascript" src="https://www.api.cat/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/jfunctions_g.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/select2/js/select2.full.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/bootstrap-dialog/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="https://www.api.cat/js/bootstrap-switch.min.js"></script>
+
+
+
+    <!-- mapa index -->
+    <!--<link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing&key=AIzaSyDQJ0ARepkHVn-RH2QzlyzUMMKK5MASRUU"></script>
+    <script type="text/javascript" src="https://www.api.cat/js/mapa/maps.google.polygon.containsLatLng.js"></script>
+    <script type="text/javascript" src="https://www.api.cat/js/mapa/maps.google.apicat.searchmap.min.js"></script>
+
+	<script type="text/javascript">
+	//generados en cercador.php
+	var prov_33 = new Array();
+	var prov_34 = new Array();
+	var prov_35 = new Array();
+	var prov_36 = new Array();
+
+	function submit_cercadorNou(fromMapa) {
+				var missatge = "";
+		var operacio = "";
+		var tipus = "";
+		var provincia = "";
+		var localitat = "";
+		var zona = "";
+		var domain = "www.api.cat";
+		var location = "";
+		var idioma = "ca";
+		var seo_idioma = "";
+		operacio = $('#operacio-cerca').val();
+		tipus = $('#supertipus-cerca').val();
+
+                if ( $("#cerca_paraules").hasClass('inactive') ) {
+                    var  x = $("#donde").attr('alt').split(',');
+                    provincia = x[2];
+                    localitat = x[1];
+					zona = x[0];
+                } else {
+                    provincia = $("#provincia-cerca").val();
+                    localitat = $('#localitat-cerca').val();
+                }
+
+       		if (operacio == undefined) {
+			missatge = missatge + "Ha de seleccionar el tipus d'operació (compra/lloguer/obra nova).\n";
+		}
+
+		if (tipus == undefined) {
+			missatge = missatge + "\n";
+		}
+
+		if (provincia == "") {
+			missatge = missatge + "Has d'indicar una localització (A on?)\n";
+		}
+
+		if (missatge != "")
+		{
+			alert(missatge);
+			return false;
+		}
+		else
+		{
+			location = seo_idioma + "/" + operacio + "/" + tipus + "/" + provincia;
+
+			if (localitat != undefined && localitat != "" && zona == "") {
+				location = location + "/" + localitat;
+
+				if (!fromMapa) {
+					switch ( provincia ) {
+						case 'barcelona':
+							if ( prov_33.length > 0 ) { for (var i=0; i < prov_33.length; i++) { if ( prov_33[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'girona':
+							if ( prov_34.length > 0 ) { for (var i=0; i < prov_34.length; i++) { if ( prov_34[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'lleida':
+							if ( prov_35.length > 0 ) { for (var i=0; i < prov_35.length; i++) { if ( prov_35[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'tarragona':
+							if ( prov_36.length > 0 ) { for (var i=0; i < prov_36.length; i++) { if ( prov_36[i] == localitat ) location+='-mapa'; } }
+							break;
+					}
+
+				}
+			}
+
+			if (zona != undefined && zona != "") {
+				location = location + "/" + localitat + "/" + zona;
+			}
+
+			if(fromMapa){
+				var d = ""; coma = "";
+				$(".resultats_hidden").each(function(){
+					d=d+coma+$(this).val();
+					coma=",";
+				});
+				$.ajax({
+					type: 'POST',
+            		url: WEBSITE_URL + '/ajax/set_map_ids.php',
+            		data: 'datos=' + d,
+            		datatype: 'text',
+            		success: function(data) {
+                		window.location = "http://" + domain + location + '/mapa/';
+            		}
+        		});
+
+			}else{
+
+				window.location = "http://" + domain + location;
+			}
+
+		}
+	}
+
+	function submit_cercadorNou_m(fromMapa) {
+				var missatge = "";
+		var operacio = "";
+		var tipus = "";
+		var provincia = "";
+		var localitat = "";
+		var zona = "";
+		var domain = "www.api.cat";
+		var location = "";
+		var idioma = "ca";
+		var seo_idioma = "";
+		operacio = $('#operacio-cerca-m').val();
+		tipus = $('#supertipus-cerca-m').val();
+
+                if ( $("#cerca_paraules").hasClass('inactive') ) {
+                    var  x = $("#donde").attr('alt').split(',');
+                    provincia = x[2];
+                    localitat = x[1];
+					zona = x[0];
+                } else {
+                    provincia = $("#provincia-cerca-m").val();
+                    localitat = $('#localitat-cerca-m').val();
+                }
+
+       		if (operacio == undefined) {
+			missatge = missatge + "Ha de seleccionar el tipus d'operació (compra/lloguer/obra nova).\n";
+		}
+
+		if (tipus == undefined) {
+			missatge = missatge + "\n";
+		}
+
+		if (provincia == "") {
+			missatge = missatge + "Has d'indicar una localització (A on?)\n";
+		}
+
+		if (missatge != "")
+		{
+			alert(missatge);
+			return false;
+		}
+		else
+		{
+			location = seo_idioma + "/" + operacio + "/" + tipus + "/" + provincia;
+
+			if (localitat != undefined && localitat != "" && zona == "") {
+				location = location + "/" + localitat;
+
+				if (!fromMapa) {
+					switch ( provincia ) {
+						case 'barcelona':
+							if ( prov_33.length > 0 ) { for (var i=0; i < prov_33.length; i++) { if ( prov_33[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'girona':
+							if ( prov_34.length > 0 ) { for (var i=0; i < prov_34.length; i++) { if ( prov_34[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'lleida':
+							if ( prov_35.length > 0 ) { for (var i=0; i < prov_35.length; i++) { if ( prov_35[i] == localitat ) location+='-mapa'; } }
+							break;
+
+						case 'tarragona':
+							if ( prov_36.length > 0 ) { for (var i=0; i < prov_36.length; i++) { if ( prov_36[i] == localitat ) location+='-mapa'; } }
+							break;
+					}
+
+				}
+			}
+
+			if (zona != undefined && zona != "") {
+				location = location + "/" + localitat + "/" + zona;
+			}
+
+			if (fromMapa) {
+				var d = ""; coma = "";
+				$(".resultats_hidden").each(function(){
+					d=d+coma+$(this).val();
+					coma=",";
+				});
+				$.ajax({
+					type: 'POST',
+            		url: WEBSITE_URL + '/ajax/set_map_ids.php',
+            		data: 'datos=' + d,
+            		datatype: 'text',
+            		success: function(data) {
+                		window.location = "http://" + domain + location + '/mapa/';
+            		}
+        		});
+
+			} else {
+
+				window.location = "http://" + domain + location;
+			}
+
+		}
+	}
+
+	 function submit_cercadorInterior(fromMapa)
+	 {
+	 			var missatge = "";
+		var operacio = "";
+		var tipus = "";
+		var provincia = "";
+		var localitat = "";
+		var zona = "";
+		var domain = "www.api.cat";
+		var location = "";
+		var idioma = "ca";
+		var seo_idioma = "";
+
+		operacio = all_params.operacio;
+		tipus = all_params.tipus;
+
+		provincia = all_params.provincia;
+		localitat = all_params.localitat;
+
+		if (operacio == undefined) {
+			missatge = missatge + "Ha de seleccionar el tipus d'operació (compra/lloguer/obra nova).\n";
+		}
+
+		if (tipus == undefined) {
+			missatge = missatge + "\n";
+		}
+
+		if (provincia == "") {
+			missatge = missatge + "Has d'indicar una localització (A on?)\n";
+		}
+
+		if (missatge != "")
+		{
+			return false;
+		}
+		else
+		{
+			location = seo_idioma + "/" + operacio + "/" + tipus + "/" + provincia;
+
+			if (localitat != undefined && localitat != "") {
+				location = location + "/" + localitat;
+			}
+
+			if (fromMapa) {
+				$('#form_resultats').attr('action', "http://" + domain + location + '/mapa/');
+				$('#form_resultats').submit();
+			} else {
+				window.location = "http://" + domain + location + '/';
+			}
+		}
+	}
+</script>
+    </head>
+    <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PRSMXR"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PRSMXR');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '736493426520559'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript>
+	<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=736493426520559&ev=PageView&noscript=1"/>
+</noscript>        <div id="mensaje_cookie">
+            <span>Aquest web utilitza cookies pròpies i de tercers per oferir-te una millor experiència i servei. En navegar o utilitzar el nostre portal, acceptes l'ús que fem de les 'cookies'. Pots canviar la configuració de cookies en qualsevol moment.</span>
+			<span id="botones_cookie">
+					<a id="acepto_mensaje_cookie" class="boton_cookie btn btn-default btn-xs">Accepto</a>
+			</span>
+        </div>
+    <div id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <!--<div id="logo" onclick="window.location.href = 'https://www.api.cat'"></div>-->
+                <img class="imagen_logo img-responsive" src="/images/logo.png" alt="" title="" onclick="window.location.href = 'https://www.api.cat'">
+            </div>
+
+
+            <div class="hidden-xs col-sm-8 col-md-6 col-lg-6">
+                <div class="panel panel-default no-border-bigdata">
+                    <div class="panel-body">
+                                                    <h1 class='hidden-xs subheader'>El portal immobiliari professional de confiança: pisos i cases, lloguer i venda                            </h1>
+                                            </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-2 col-md-4 col-lg-4" style="margin-top:22px;">
+            <div class="pull-right">
+                                            <div class="btn-group hidden-sm hidden-xs">
+                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" style="background-color:#2F598B;" title="Accés usuaris" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span> <span class="title">accés usuaris</span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a rel="nofollow" href="https://www.api.cat/login-particulares">
+                                        <span class="fa fa-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<span class="title">particulars</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a rel="nofollow" href="https://www.api.cat/login-profesionales">
+                                        <i class="fa fa-tachometer"></i> <span class="title">&nbsp;&nbsp;&nbsp;professionals</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="inicio-sesion" class="btn-group hidden-md hidden-lg">
+                            <button type="button" class="btn btn-primary dropdown-toggle"  style="background-color:#2F598B;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Accés usuaris">
+                                <span class="glyphicon glyphicon-user color-white" aria-hidden="true"></span>
+                            </button>
+                            <ul class="dropdown-menu  dropdown-sm">
+                                <li>
+                                    <a href="https://www.api.cat/login-particulares">
+                                        <span class="fa fa-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<span class="title">particulars</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://www.api.cat/login-profesionales">
+                                        <i class="fa fa-tachometer"></i>&nbsp;&nbsp;&nbsp;<span class="title">professionals</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                                        <div id="languages" class="btn-group">
+                        <button type="button" class="hidden-xs hidden-sm btn btn-primary btn-sm dropdown-toggle"  style="background-color:#2F598B;" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-globe" ></span> <span>Idiomes</span> <span class="caret"></span>
+                        </button>
+                        <button type="button" class="hidden-md hidden-lg btn btn-primary dropdown-toggle"  style="background-color:#2F598B;padding:6px 12px;" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-globe" ></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-sm">
+                            <li><a href="https://www.api.cat" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/cat.png" alt="Català"/><span class="item-idioma-texto"> Catalá</span></a></li>
+                            <li><a href="https://www.api.cat/es" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/es.png" alt="Castellano"/><span class="item-idioma-texto"> Castellano</span></a></li>
+                            <li><a href="https://www.api.cat/en" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/en.png" alt="English"/><span class="item-idioma-texto"> English</span></a></li>
+                            <li><a href="https://www.api.cat/ru" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/ru.png" alt="русский"/><span class="item-idioma-texto"> русский</span></a></li>
+                            <li><a href="https://www.api.cat/fr" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/fra.png" alt="Français"/><span class="item-idioma-texto"> Français</span></a></li>
+                            <li><a href="https://www.api.cat/de" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/ger.png" alt="Deutsch"/><span class="item-idioma-texto"> Deutsch</span></a></li>
+                            <li><a href="https://www.api.cat/ch" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/chi.png" alt="中國"/><span class="item-idioma-texto"> 中國</span></a></li>
+                            <li><a href="https://www.api.cat/ar" class="item-idioma" rel="nofollow"><img src="https://www.api.cat/images/arb.png" alt="العربي"/><span class="item-idioma-texto"> العربي</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>    <div class="no-padding">
+        <script type="text/javascript">
+	idioma = "ca";
+	var localize_provincia = '';
+	var geocoder;
+
+	function find_provincia() {
+		if ( (localize_provincia.toUpperCase() == 'BARCELONA') || (localize_provincia.toUpperCase() == 'TARRAGONA') || (localize_provincia.toUpperCase() == 'LLEIDA') || (localize_provincia.toUpperCase() == 'GIRONA') ) {
+			$("#provincia-cerca option").each(function(){
+				if ( $(this).text().toUpperCase() == localize_provincia.toUpperCase() ) { $(this).prop('selected', true); $("#provincia-cerca").change(); }
+			});
+		}
+	}
+
+	if (navigator.geolocation) {
+    	navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+	}
+
+	//Get the latitude and the longitude;
+	function successFunction(position) {
+		var lat = position.coords.latitude;
+		var lng = position.coords.longitude;
+		codeLatLng(lat, lng);
+	}
+	function errorFunction(){
+		//alert("Geocoder failed");
+	}
+	function initialize_city_location() {
+		geocoder = new google.maps.Geocoder();
+	}
+	function codeLatLng(lat, lng) {
+		localize_provincia = '';
+		var latlng = new google.maps.LatLng(lat, lng);
+		geocoder.geocode({'latLng': latlng}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0].address_components[4].long_name) {
+					localize_provincia = results[0].address_components[4].long_name;
+				}
+				//city data
+				if ( localize_provincia != '') { find_provincia(); }
+		  } else {
+			//alert("Geocoder failed due to: " + status);
+		  }
+		});
+	}
+	initialize_city_location();
+
+	/* Cercador antiguo*/
+	$(document).ready(function() {
+		var localitat = $("#localitat-cerca").val();
+		$('#localidad_hidden').val(localitat);
+
+		$('.tabs .tab-links a').on('click', function(e)  {
+			var currentAttrValue = $(this).attr('href');
+			if(currentAttrValue == "#tabs1")
+			{
+				$("#tab2").removeClass("boton_yellow");
+				$("#tab1").addClass("boton_yellow");
+				$("#tab2").addClass("boton_grey_noactive");
+				$("#tab1").removeClass("boton_grey_noactive");
+				$("#tabs1").fadeIn(400).siblings().show();
+				$("#tabs1").addClass("active");
+				$("#tabs2").fadeIn(400).siblings().hide();
+				$("#tabs2").removeClass("active");
+			}
+			if(currentAttrValue == "#tabs2")
+			{
+				$("#tab2").removeClass("boton_grey_noactive");
+				$("#tab2").addClass("boton_yellow");
+				$("#tab1").removeClass("boton_yellow");
+				$("#tab1").addClass("boton_grey_noactive");
+				$("#tabs1").fadeIn(400).siblings().hide();
+				$("#tabs1").removeClass("active");
+				$("#tabs2").fadeIn(400).siblings().show();
+				$("#tabs2").addClass("active");
+			}
+
+			e.preventDefault();
+		});
+	});
+
+	/* Map Drawing */
+	function validate_search_map() {
+        if( $('#donde').val() == '') {
+			alert('Introdueixi el nom de ciutat o població per cercar per mapa.');
+		} else {
+			veure_mapa( $('#donde').val() );
+		}
+    }
+
+	function veure_mapa(on) {
+		$("#comptador").hide();
+			$("div#mapa").slideDown("slow", function() {
+			initializeMap();
+			$("#explicacio_mapa").slideDown("slow");
+			$("div#instruccions").slideDown("slow");
+		});
+	}
+
+	function refrescar_mapa() {
+		$("div#mapa").html("");
+		$("#comptador").hide();
+		initializeMap();
+	}
+
+</script>
+<div class="hidden-xs" id="slider" style="background-image:url(https://www.api.cat/images/slides/1.jpg); background-position:cover; background-size:100%; background-repeat:no-repeat;" alt="Api.cat;">
+	</div>
+<div class="hidden-sm hidden-md hidden-lg" id="slider" style="background-image:url(https://www.api.cat/images/slides/mobile_3.jpg); background-position:cover; background-size:100%; background-repeat:no-repeat;" alt="Api.cat;">
+	</div>
+<script>prov_33.push('barcelona');</script><script>prov_33.push('hospitalet-de-llobregat-l');</script><script>prov_34.push('girona');</script><style>
+    .ui-autocomplete-loading {
+        background: white url('https://www.api.cat/js/ui-lightness/images/animated-loading.gif') right center no-repeat;
+        background-size:20px 20px;
+    }
+</style>
+<div class="container">
+	<!-- INICIO: Buscador PC -->
+    <div id="buscador" class="row hidden-xs">
+        <div class="col-sm-3">
+			<input type="hidden" id="session_operacio" name="session_operacio" value="">
+			<input type="hidden" id="session_provincia" name="session_provincia" value="">
+			<input type="hidden" id="session_localitat" name="session_localitat" value="">
+			<input type="hidden" id="session_supertipus" name="session_supertipus" value="">
+            <form id="autocomplete">
+                <input type="hidden" id="supertipus_hidden" name="supertipus_hidden" value=""/>
+                <input type="hidden" id="provincia_hidden" name="provincia_hidden" value=""/>
+                <input type="hidden" id="localidad_hidden" name="localidad_hidden" value=""/>
+                <input type="hidden" id="zona_hidden" name="zona_hidden" value=""/>
+                <input type="hidden" id="operacio_hidden" name="operacio_hidden" value=""/>
+			</form>
+            <fieldset id="step2">
+                <select id="operacio-cerca" name="operacio" class="form-control select-buscador no-overflow" size="8">
+                  <option value="compra" selected="selected">Compra</option>
+                  <option value="lloguer">Lloguer</option>
+                  <option value="obra-nova">Obra nova</option>
+                  <option value="pisos-bancs">de Bancs i Caixes</option>
+                  <option value="lloguer-temporada">Lloguer temporada</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="col-sm-3">
+            <select id="supertipus-cerca" name="supertipus-cerca" size="8" class="form-control select-buscador">
+                    <option value="habitatges" selected="selected"  >Pisos i cases</option><option value="oficines"   >Oficines</option><option value="locals"   >Locals</option><option value="garatges"   >Garatges</option><option value="edificis"   >Edificis</option><option value="terrenys"   >Terrenys</option><option value="industrial"   >Industrial</option><option value="hotel"   >Hotel</option><option value="altres-immobles"   >Altres</option>            </select>
+        </div>		
+        <div class="col-sm-3">
+            <select id="provincia-cerca" size="8" name="provincia-cerca" class="form-control select-buscador">
+                     <option value="barcelona" selected="selected"  >Barcelona</option><option value="girona"   >Girona</option><option value="lleida"   >Lleida</option><option value="tarragona"   >Tarragona</option><option class="disabled" disabled="disabled"></option><option value="albacete"   >Albacete</option><option value="alicante"   >Alicante</option><option value="almeria"   >Almería</option><option value="andorra"   >Andorra</option><option value="asturias"   >Asturias</option><option value="badajoz"   >Badajoz</option><option value="burgos"   >Burgos</option><option value="caceres"   >Cáceres</option><option value="cantabria"   >Cantabria</option><option value="castellon"   >Castellón</option><option value="ciudad-real"   >Ciudad real</option><option value="granada"   >Granada</option><option value="guadalajara"   >Guadalajara</option><option value="guipuzcoa"   >Guipúzcoa</option><option value="huelva"   >Huelva</option><option value="huesca"   >Huesca</option><option value="islas-baleares"   >Islas baleares</option><option value="jaen"   >Jaén</option><option value="las-palmas"   >Las palmas</option><option value="lugo"   >Lugo</option><option value="madrid"   >Madrid</option><option value="malaga"   >Málaga</option><option value="navarra"   >Navarra</option><option value="ourense"   >Ourense</option><option value="sevilla"   >Sevilla</option><option value="teruel"   >Teruel</option><option value="toledo"   >Toledo</option><option value="valencia"   >Valencia</option><option value="valladolid"   >Valladolid</option><option value="zaragoza"   >Zaragoza</option>                              
+            </select>
+        </div>
+        <div class="col-sm-3">
+			<div id="loading-select-pc" class="spinner spinner-select"><div class="txt_loading txt_loading-select">API.CAT</div></div>
+            <select id="localitat-cerca" name="localitat-cerca" size="8" class="form-control select-buscador">
+				<option class="">&nbsp;</option>
+			</select>
+        </div>
+    </div>
+	<!-- FIN: Buscador PC -->
+	<!-- INICIO: Buscador Movil -->
+    <div id="buscador" class="row hidden-sm hidden-md hidden-lg">
+        <div class="col-sm-3">
+            <form id="autocomplete">
+                <input type="hidden" id="supertipus_m_hidden" name="supertipus_m_hidden" value=""/>
+                <input type="hidden" id="provincia_m_hidden" name="provincia_m_hidden" value=""/>
+                <input type="hidden" id="localidad_m_hidden" name="localidad_m_hidden" value=""/>
+                <input type="hidden" id="zona_m_hidden" name="zona_m_hidden" value=""/>
+                <input type="hidden" id="operacio_m_hidden" name="operacio_m_hidden" value=""/>
+			</form>
+            <fieldset id="step2">
+                <select id="operacio-cerca-m" name="operacio" class="form-control selectpicker select-buscador no-overflow" size="1">
+                  <option value="compra" checked>Compra</option>
+                  <option value="lloguer">Lloguer</option>
+                  <option value="obra-nova">Obra nova</option>
+                  <option value="pisos-bancs">de Bancs i Caixes</option>
+                  <option value="lloguer-temporada">Lloguer temporada</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="col-sm-3">
+            <select id="supertipus-cerca-m" name="supertipus-cerca" size="1" class="form-control select-buscador">
+                    <option value="habitatges" selected="selected"  >Pisos i cases</option><option value="oficines"   >Oficines</option><option value="locals"   >Locals</option><option value="garatges"   >Garatges</option><option value="edificis"   >Edificis</option><option value="terrenys"   >Terrenys</option><option value="industrial"   >Industrial</option><option value="hotel"   >Hotel</option><option value="altres-immobles"   >Altres</option>            </select>
+        </div>		
+        <div class="col-sm-3">
+            <select id="provincia-cerca-m" size="1" name="provincia-cerca" class="form-control select-buscador">
+                     <option value="barcelona" selected="selected"  >Barcelona</option><option value="girona"   >Girona</option><option value="lleida"   >Lleida</option><option value="tarragona"   >Tarragona</option><option value="albacete"   >Albacete</option><option value="alicante"   >Alicante</option><option value="almeria"   >Almería</option><option value="andorra"   >Andorra</option><option value="asturias"   >Asturias</option><option value="badajoz"   >Badajoz</option><option value="burgos"   >Burgos</option><option value="caceres"   >Cáceres</option><option value="cantabria"   >Cantabria</option><option value="castellon"   >Castellón</option><option value="ciudad-real"   >Ciudad real</option><option value="granada"   >Granada</option><option value="guadalajara"   >Guadalajara</option><option value="guipuzcoa"   >Guipúzcoa</option><option value="huelva"   >Huelva</option><option value="huesca"   >Huesca</option><option value="islas-baleares"   >Islas baleares</option><option value="jaen"   >Jaén</option><option value="las-palmas"   >Las palmas</option><option value="lugo"   >Lugo</option><option value="madrid"   >Madrid</option><option value="malaga"   >Málaga</option><option value="navarra"   >Navarra</option><option value="ourense"   >Ourense</option><option value="sevilla"   >Sevilla</option><option value="teruel"   >Teruel</option><option value="toledo"   >Toledo</option><option value="valencia"   >Valencia</option><option value="valladolid"   >Valladolid</option><option value="zaragoza"   >Zaragoza</option>            </select>
+        </div>
+        <div class="col-sm-3">
+			<div id="loading-select-mobile" class="spinner spinner-select-m"></div>
+            <select id="localitat-cerca-m" name="localitat-cerca" size="1" class="form-control select-buscador">
+				<option class="">&nbsp;</option>
+			</select>
+        </div>
+    </div>
+	<!-- FIN: Buscador Movil -->
+</div>
+<script>
+var locked_changing = true;
+var WEBSITE_URL = 'https://www.api.cat';
+
+var primera_vez_provincia = true;
+
+var primera_vez_localidad = true;
+
+$("#donde").click(function() {
+    $("div#mapa").hide();
+    $("#explicacio_mapa").hide();
+    $("div#instruccions").hide();
+    $("#localidad_hidden").val("");
+    $("#zona-cerca option").remove();
+    $("#localitat-cerca").get(0).selectedIndex = 0;
+});
+    
+$("#map_refresh_trigger").click(function(e){
+    e.preventDefault();
+    refrescar_mapa();
+});
+
+    
+$('#autocomplete').submit(function() {
+    return false;
+});
+
+/*cercador*/
+$("#cerca_paraules").click(function(e){
+    e.preventDefault();
+    $(this).addClass("inactive");
+    $("#cerca_classica").removeClass("inactive");
+    $("#classica").hide();
+    $("div.field").show();
+});
+$("#cerca_classica").click(function(e){
+    e.preventDefault();
+    $(this).addClass("inactive");
+    $("#cerca_paraules").removeClass("inactive");
+    $("div.field").hide();
+    $("#classica").show();
+});
+$('#provincia-cerca').change(function() {
+	/* INICIO: Mostrar cargando en Select Localidad al cambiar los otros selects anidados */
+	$("#localitat-cerca").html('<option class="">&nbsp;</option>');
+	$("#loading-select-pc").show();
+	/* FIN: Mostrar cargando en Select Localidad al cambiar los otros selects anidados */
+	if ($("#session_operacio").val() == ''){ /* Solo entra en la 1 busqueda. */
+		locked_changing = true;
+		$("#cerca_button").css({"background":"#F1F1F1 url(../images/search.png) no-repeat 5px 5px"});
+		$('#localitat-cerca').load(WEBSITE_URL + '/ajax/get_poblacions_cerca.php', {'provincia': $(this).val(), 'operacion': $('#operacio-cerca').val(), 'supertipus': $('#supertipus-cerca').val()}, function(response, status, xhr) {
+			if (primera_vez_localidad) $("#localitat-cerca")[0].selectedIndex = 0;
+			$("#localitat-cerca").change();
+			$("#localitat-cerca").html(response);
+			locked_changing = false;
+			$("#localitat-cerca")[0].selectedIndex = 0;
+			$("#cerca_button").css({"background":"#a5048e url(../images/search.png) no-repeat 5px 5px"});
+			$("#loading-select-pc").hide();
+		});
+	}
+});
+
+$('#provincia-cerca-m').change(function() {
+	/* INICIO: Mostrar cargando en Select Localidad al cambiar los otros selects anidados */
+	$("#localitat-cerca-m").html('<option class="">&nbsp;</option>');
+	$("#loading-select-mobile").show();
+	/* FIN: Mostrar cargando en Select Localidad al cambiar los otros selects anidados */
+	if ($("#session_operacio").val() == ''){ /* Solo entra en la 1 busqueda. */
+		$('#localitat-cerca-m').load(WEBSITE_URL + '/ajax/get_poblacions_cerca.php', {'provincia': $(this).val(), 'operacion': $('#operacio-cerca-m').val(), 'supertipus': $('#supertipus-cerca-m').val()}, function(response, status, xhr) {
+			if (primera_vez_localidad) $("#localitat-cerca-m")[0].selectedIndex = 0;
+			$("#localitat-cerca-m").change();
+			$("#localitat-cerca-m").html(response);
+			locked_changing = false;
+			$("#localitat-cerca-m")[0].selectedIndex = 0;
+			$("#cerca_button").css({"background":"#a5048e url(../images/search.png) no-repeat 5px 5px"});
+			$("#loading-select-mobile").hide();
+		});
+	}
+});
+
+$('#localitat-cerca').change(function() {
+    if ($("div#mapa").is(':visible'))  refrescar_mapa();
+    $("#explicacio_mapa #nomlocalitat").text($(this).val());	
+});
+
+$('#supertipus-cerca').change(function() {
+    $("#provincia-cerca").change();
+});
+
+$('#supertipus-cerca-m').change(function() {
+    $("#provincia-cerca-m").change();
+});	
+
+
+$('#operacio-cerca').click(function() {
+    $("#provincia-cerca").change();
+});
+$('#operacio-cerca-m').click(function() {
+    $("#provincia-cerca-m").change();
+});
+
+$(document).ready(function() {
+    $("#donde").val("");
+    $("div#mapa").hide();
+    $("#comptador").hide();
+    $("#explicacio_mapa").hide();
+    $("div#instruccions").hide();
+    $('#operacio_hidden').val($('#operacio-cerca').val());
+	$('#operacio_m_hidden').val($('#operacio-cerca-m').val());
+    $('#supertipus_hidden').val($('#supertipus-cerca').val());
+	$('#supertipus_m_hidden').val($('#supertipus-cerca').val());
+    
+    if (primera_vez_provincia) $("#operacio-cerca")[0].selectedIndex = 0;
+    if (primera_vez_provincia) $("#provincia-cerca")[0].selectedIndex = 0;
+    if (primera_vez_provincia) $("#supertipus-cerca")[0].selectedIndex = 0;
+    $("select#provincia-cerca").change();
+    $("select#localitat-cerca").change();
+	
+	/* INICIO: para recargar valores en el buscador de la home (Versión PC) */
+	if ($("#session_operacio").val() != ''){
+		$('#operacio-cerca > option[value="' + $("#session_operacio").val() + '"]').attr('selected', 'selected');
+		$('#provincia-cerca > option[value="' + $("#session_provincia").val() + '"]').attr('selected', 'selected');
+		$('#supertipus-cerca > option[value="' + $("#session_supertipus").val() + '"]').attr('selected', 'selected');
+		$('#localitat-cerca').load(WEBSITE_URL + '/ajax/get_poblacions_cerca.php', {'provincia': $("#session_provincia").val() , 'operacion': $("#session_operacio").val() , 'supertipus': $("#session_supertipus").val() }, function(response, status, xhr) {
+			locked_changing = false;
+			$("#cerca_button").css({"background":"#a5048e url(../images/search.png) no-repeat 5px 5px"});
+			$("#loading-select-pc").hide();
+			$('#localitat-cerca > option[value="' + $("#session_localitat").val() + '"]').attr('selected', 'selected');
+			$("#explicacio_mapa #nomlocalitat").text($('select[id=localitat-cerca]').val());
+		});
+		
+	}
+	/* FIN: para recargar valores en el buscador de la home (Versión PC)*/
+	
+    if (primera_vez_provincia) $("#operacio-cerca-m")[0].selectedIndex = 0;
+    if (primera_vez_provincia) $("#provincia-cerca-m")[0].selectedIndex = 0;
+    if (primera_vez_provincia) $("#supertipus-cerca-m")[0].selectedIndex = 0;
+    $("select#provincia-cerca-m").change();
+    $("select#localitat-cerca-m").change();
+	
+	/* INICIO: para recargar valores en el buscador de la home (Versión Movil) */
+	if ($("#session_operacio").val() != ''){
+		$('#operacio-cerca-m > option[value="' + $("#session_operacio").val() + '"]').attr('selected', 'selected');
+		$('#provincia-cerca-m > option[value="' + $("#session_provincia").val() + '"]').attr('selected', 'selected');
+		$('#supertipus-cerca-m > option[value="' + $("#session_supertipus").val() + '"]').attr('selected', 'selected');
+		$('#localitat-cerca-m').load(WEBSITE_URL + '/ajax/get_poblacions_cerca.php', {'provincia': $("#session_provincia").val() , 'operacion': $("#session_operacio").val() , 'supertipus': $("#session_supertipus").val() }, function(response, status, xhr) {
+			locked_changing = false;
+			$("#cerca_button").css({"background":"#a5048e url(../images/search.png) no-repeat 5px 5px"});
+			$("#loading-select-mobile").hide();
+			$('#localitat-cerca-m > option[value="' + $("#session_localitat").val() + '"]').attr('selected', 'selected');
+		});
+		$("#session_operacio").val('');//Una vez recargados los datos inicializamos a '' para hacer uso normal del buscador.
+		
+	}
+	/* FIN: para recargar valores en el buscador de la home (Versión Movil)*/	
+});
+</script><!-- FI CERCADOR -->
+<div class="container">
+	<div class="row">
+		<div class="hidden-xs col-sm-9 col-md-9">
+			<div id="total-properties" class="panel panel-default panel-mapa">
+    			<div class="panel-body">
+								   <div class="col-md-6">
+						<span class="text-total-properties">
+							Tens disponibles un total de <span class='text-total-properties-bg color-yellow'>43.716</span> pisos i cases de lloguer i venda avui							, i nous d'ahir són <span class='text-total-properties-bg color-yellow'>252</span>						</span>
+					</div>
+									<div class="col-md-1 col-md-offset-2 hidden-sm hidden-sm hidden-xs">
+						<span class="glyphicon glyphicon-globe color-yellow icon-bg" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-3 hidden-sm hidden-sm hidden-xs">
+						<form id="dibuixamapa">
+							<label for="donde">Cercar immobles al mapa </label>
+							<input type="button" onclick="validate_search_map();" value="DIBUIXAR" class="btn btn-default boton_dibuxar">
+						</form>
+					</div>
+								</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-md-3 hidden-xs">
+			<button type="button" class="btn btn-default boton_cercar" value="Cercar" onclick="if (! locked_changing) { submit_cercadorNou(0); }">CERCAR</button>
+		</div>
+		<div class="col-sm-3 col-md-3 hidden-sm hidden-md hidden-sl hidden-lg">
+			<button type="button" class="btn btn-default boton_cercar" value="Cercar" onclick="if (! locked_changing) { submit_cercadorNou_m(0); }">CERCAR</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="hidden-xs col-sm-12 col-md-12">
+			<p id="explicacio_mapa" style='display:none;'> Dibuixa una area dins el mapa de la població que has escollit: <span id="nomlocalitat"></span></p>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="hidden-xs col-sm-9 col-md-9">
+			<div id="mapa" style='display:none;'><div class="spinner"><div class="txt_loading">API.CAT</div></div></div>
+		</div>
+		<div class="hidden-xs col-sm-3 col-md-3">
+			<div id="instruccions" style='display:none;'>
+				<h3><span>Com</span> funciona</h3>
+				<p>
+					<a href="#" id="map_draw_trigger" title="" class="color-yellow effect-pop"><span class="glyphicon glyphicon-pencil color-yellow icon-instruccions"></span>Dibuixar</a>
+				</p>
+				<p>
+					<a href="#" id="map_move_trigger" title="" class="color-yellow effect-pop"><span class="glyphicon glyphicon-move color-yellow icon-instruccions"></span>Moure</a>
+				</p>
+				<p>
+					<a href="#" id="map_clear_trigger" title="" class="color-yellow effect-pop"><span class="glyphicon glyphicon-trash color-yellow icon-instruccions"></span>Esborrar el dibuix</a>
+				</p>
+				<p>
+					<a href="#" id="map_refresh_trigger"  title="" class="color-yellow effect-pop"><span class="glyphicon glyphicon-refresh color-yellow icon-instruccions"></span>Reiniciar mapa</a>
+				</p>
+				<form id="form_resultats" name="form_resultats" method="post">
+					<fieldset>
+						<p>
+							<input type="button" value="Veure Resultats" class="btn btn-default boton_yellow" onclick="submit_cercadorNou(1);" >
+						</p>
+					</fieldset>
+				</form>
+				<p id="comptador" style="color: #FFC82F;"><strong>Immobles:&nbsp;<span id="trobats-mapa">0</span></strong></p>
+				<div id="llegenda">
+					<h3>Llegenda</h3>
+					<ul>
+						<li>Pisos i cases</li>
+						<li>Oficines</li>
+						<li>Locals</li>
+						<li>Pàrkings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-body no-padding">
+		<div class="row">
+			<div class="col-sm-12"><h2 class="color-blue">IMMOBLES DESTACATS</h2></div>
+		</div>
+		<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785/ticket/1eY0zHg1dzIq2guklKefuxkUSYKTwFO4sYOwDR10zxQ=" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes1.api.cat/images/portal/bolsa_colegiados//fotos30/604785/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">lloguer</span><span class="precio"> 950 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785/ticket/1eY0zHg1dzIq2guklKefuxkUSYKTwFO4sYOwDR10zxQ=" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona."><span class="zona_loc">Badalona</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/compra/habitatges/barcelona/torello/883246/ticket/LKKKKSKKSwnr1TiK2fUp1D6MHQhLwvKKKKSKKSREVXpqaB26ZCHDQGCXc=" title="Unifamiliar adossada en venda de 165.00 m2  a Calle C/. ROCAPREVERA Torelló Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes2.api.cat/images/portal/bolsa_colegiados//fotos44/883246/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">venda</span><span class="precio"> 150.000 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/compra/habitatges/barcelona/torello/883246/ticket/LKKKKSKKSwnr1TiK2fUp1D6MHQhLwvKKKKSKKSREVXpqaB26ZCHDQGCXc=" title="Unifamiliar adossada en venda de 165.00 m2  a Calle C/. ROCAPREVERA Torelló Barcelona."><span class="zona_loc">Torelló</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Unifamiliar adossada en venda de 165.00 m2  a Calle C/. ROCAPREVERA Torelló Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/obra-nova/habitatges/girona/tossa-de-mar/883249/ticket/4BcGD6K6jWJBGWjMZ1sPRXOzucRJeAMvYlzvOCsIQQo=" title="Unifamiliar adossada en obra nova de 180.00 m2  a Calle Tarull, 7 Tossa de Mar Girona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes3.api.cat/images/portal/bolsa_colegiados//fotos44/883249/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">GIRONA</span>
+							<div class="burbuja_precio"><span class="operacion">obra nova</span><span class="precio"> 270.000 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/obra-nova/habitatges/girona/tossa-de-mar/883249/ticket/4BcGD6K6jWJBGWjMZ1sPRXOzucRJeAMvYlzvOCsIQQo=" title="Unifamiliar adossada en obra nova de 180.00 m2  a Calle Tarull, 7 Tossa de Mar Girona."><span class="zona_loc">Tossa de Mar</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Unifamiliar adossada en obra nova de 180.00 m2  a Calle Tarull, 7 Tossa de Mar Girona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/obra-nova/habitatges/barcelona/castellar-del-valles/604292/ticket/wyJBvwRSbYfxbWes5WKBo3H1ySwOM4XKKKKSKKSV6TTTTTKKSgIS7tCXw=" title="Xalet / Torre en obra nova de 500.00 m2  a Calle Comagrosa Castellar del Vallès Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes4.api.cat/images/portal/bolsa_colegiados//fotos30/604292/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">obra nova</span><span class="precio"> 480.000 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/obra-nova/habitatges/barcelona/castellar-del-valles/604292/ticket/wyJBvwRSbYfxbWes5WKBo3H1ySwOM4XKKKKSKKSV6TTTTTKKSgIS7tCXw=" title="Xalet / Torre en obra nova de 500.00 m2  a Calle Comagrosa Castellar del Vallès Barcelona."><span class="zona_loc">Castellar del Vallès</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Xalet / Torre en obra nova de 500.00 m2  a Calle Comagrosa Castellar del Vallès Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/esplugues-de-llobregat/883996/ticket/KKKKSKKSz78BqigBEWKai1yxTTTTTKKS9afo9WKKKKSKKSEwXmsnH9y1hoPSrKKKKSKKSkE=" title="Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes1.api.cat/images/portal/bolsa_colegiados//fotos44/883996/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">lloguer</span><span class="precio"> 1.600 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/esplugues-de-llobregat/883996/ticket/KKKKSKKSz78BqigBEWKai1yxTTTTTKKS9afo9WKKKKSKKSEwXmsnH9y1hoPSrKKKKSKKSkE=" title="Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona."><span class="zona_loc">Esplugues de Llobregat</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/compra/garatges/barcelona/barcelona/648808/ticket/UrCfNM2vcA1giTTTTTKKS9z3lffug3M8zIPA6YXqhvYb5jictE=" title="Plaça d'aparcament en venda de 12.00 m2  a Plaza de Castella, 4 Barcelona Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes2.api.cat/images/portal/bolsa_colegiados//fotos32/648808/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">venda</span><span class="precio"> 12.000 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/compra/garatges/barcelona/barcelona/648808/ticket/UrCfNM2vcA1giTTTTTKKS9z3lffug3M8zIPA6YXqhvYb5jictE=" title="Plaça d'aparcament en venda de 12.00 m2  a Plaza de Castella, 4 Barcelona Barcelona."><span class="zona_loc">Barcelona - Ciutat Vella</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Plaça d'aparcament en venda de 12.00 m2  a Plaza de Castella, 4 Barcelona Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785/ticket/1eY0zHg1dzIq2guklKefuxkUSYKTwFO4sYOwDR10zxQ=" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes3.api.cat/images/portal/bolsa_colegiados//fotos30/604785/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">lloguer</span><span class="precio"> 950 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785/ticket/1eY0zHg1dzIq2guklKefuxkUSYKTwFO4sYOwDR10zxQ=" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona."><span class="zona_loc">Badalona</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.</small></p>
+				</div>
+								<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 effect-more">
+					<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/esplugues-de-llobregat/883996/ticket/KKKKSKKSz78BqigBEWKai1yxTTTTTKKS9afo9WKKKKSKKSEwXmsnH9y1hoPSrKKKKSKKSkE=" title="Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona.">
+						<div class="col-sm-12 imagen_destacats effect-more-item-wrapper clearfix" style="background:url(https://imagenes4.api.cat/images/portal/bolsa_colegiados//fotos44/883996/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+							<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+							<span class="cartel_provincia">BARCELONA</span>
+							<div class="burbuja_precio"><span class="operacion">lloguer</span><span class="precio"> 1.600 €</span></div>
+						</div>
+					</a>
+						<a rel="nofollow" href="https://www.api.cat/lloguer/locals/barcelona/esplugues-de-llobregat/883996/ticket/KKKKSKKSz78BqigBEWKai1yxTTTTTKKS9afo9WKKKKSKKSEwXmsnH9y1hoPSrKKKKSKKSkE=" title="Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona."><span class="zona_loc">Esplugues de Llobregat</span></a>
+						<p class="color-blue descripcion height_destacats"></small>Local comercial en lloguer de 550.00 m2  a Calle Sant Josep, 13 Esplugues de Llobregat Barcelona.</small></p>
+				</div>
+						</div>
+	</div>
+</div>
+</div>
+<!-- ÚLTIMES PUBLICACIONS -->
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-body no-padding">
+	<div class="row">
+		<div class="col-sm-12 title"><h2 class="color-blue">úLTIMES PUBLICACIONS</h2></div>
+	</div>
+	<div class="row">
+			
+			<div class="col-xs-12 col-sm-6 col-md-3 effect-more">
+				<a href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.">
+					<div class="col-sm-12 imagen_destacats effect-more-item-wrapper" style="background:url(https://imagenes1.api.cat/images/portal/bolsa_colegiados//fotos30/604785/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+						<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+						<span class="cartel_provincia">BARCELONA</span>
+						<div class="burbuja_precio"><span class="operacion">lloguer</span><span class="precio"> 950 €</span></div>
+					</div>
+				</a>
+				<div class="col-sm-12 no-padding" >
+					<a href="https://www.api.cat/lloguer/locals/barcelona/badalona/604785" title="Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona."><span class="zona_loc">Badalona</span></a>
+				</div>
+				<div class="col-sm-12 no-padding">
+					<p class="color-blue descripcion">Local comercial en lloguer de 340.00 m2  a Calle C/. BALMES Badalona Barcelona.</p>
+				</div>
+			</div>
+					
+			<div class="col-xs-12 col-sm-6 col-md-3 effect-more">
+				<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360361" title="Xalet / Torre en venda de 500.00 m2  a Calle Carrer Can Coll Torrelles de Llobregat Barcelona.">
+					<div class="col-sm-12 imagen_destacats effect-more-item-wrapper" style="background:url(https://imagenes2.api.cat/images/portal/bolsa_colegiados//fotos18/360361/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+						<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+						<span class="cartel_provincia">BARCELONA</span>
+						<div class="burbuja_precio"><span class="operacion">venda</span><span class="precio"> 1.170.000 €</span></div>
+					</div>
+				</a>
+				<div class="col-sm-12 no-padding" >
+					<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360361" title="Xalet / Torre en venda de 500.00 m2  a Calle Carrer Can Coll Torrelles de Llobregat Barcelona."><span class="zona_loc">Torrelles de Llobregat</span></a>
+				</div>
+				<div class="col-sm-12 no-padding">
+					<p class="color-blue descripcion">Xalet / Torre en venda de 500.00 m2  a Calle Carrer Can Coll Torrelles de Llobregat Barcelona.</p>
+				</div>
+			</div>
+					
+			<div class="col-xs-12 col-sm-6 col-md-3 effect-more">
+				<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360700" title="Xalet / Torre en venda de 175.00 m2  a Urbanización Urb. CAN GUELL , 1-13 Torrelles de Llobregat Barcelona.">
+					<div class="col-sm-12 imagen_destacats effect-more-item-wrapper" style="background:url(https://imagenes3.api.cat/images/portal/bolsa_colegiados//fotos18/360700/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+						<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+						<span class="cartel_provincia">BARCELONA</span>
+						<div class="burbuja_precio"><span class="operacion">venda</span><span class="precio"> 620.000 €</span></div>
+					</div>
+				</a>
+				<div class="col-sm-12 no-padding" >
+					<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360700" title="Xalet / Torre en venda de 175.00 m2  a Urbanización Urb. CAN GUELL , 1-13 Torrelles de Llobregat Barcelona."><span class="zona_loc">Torrelles de Llobregat</span></a>
+				</div>
+				<div class="col-sm-12 no-padding">
+					<p class="color-blue descripcion">Xalet / Torre en venda de 175.00 m2  a Urbanización Urb. CAN GUELL , 1-13 Torrelles de Llobregat Barcelona.</p>
+				</div>
+			</div>
+					
+			<div class="col-xs-12 col-sm-6 col-md-3 effect-more">
+				<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360703" title="Xalet / Torre en venda de 300.00 m2  a  Av. DOLÇA DE PROVENÇA  Torrelles de Llobregat Barcelona.">
+					<div class="col-sm-12 imagen_destacats effect-more-item-wrapper" style="background:url(https://imagenes4.api.cat/images/portal/bolsa_colegiados//fotos18/360703/foto_1.jpg); background-repeat:no-repeat; background-position:center; background-size:100%;">
+						<div class="effect-more-item-button"><span class="glyphicon glyphicon-chevron-right"></span></div>
+						<span class="cartel_provincia">BARCELONA</span>
+						<div class="burbuja_precio"><span class="operacion">venda</span><span class="precio"> 741.600 €</span></div>
+					</div>
+				</a>
+				<div class="col-sm-12 no-padding" >
+					<a href="https://www.api.cat/compra/habitatges/barcelona/torrelles-de-llobregat/360703" title="Xalet / Torre en venda de 300.00 m2  a  Av. DOLÇA DE PROVENÇA  Torrelles de Llobregat Barcelona."><span class="zona_loc">Torrelles de Llobregat</span></a>
+				</div>
+				<div class="col-sm-12 no-padding">
+					<p class="color-blue descripcion">Xalet / Torre en venda de 300.00 m2  a  Av. DOLÇA DE PROVENÇA  Torrelles de Llobregat Barcelona.</p>
+				</div>
+			</div>
+				</div>
+	</div>
+</div>
+</div>
+<div class="container" >
+<div id="banners" class="panel panel-default">
+    <div class="panel-body no-padding">
+        <div class="row" id="els_banners">
+            	<div class="col-sm-3">
+            		<div class="banner-square">
+                        <a rel="follow" href="http://products.inmorealservices.com/marketing_services/index.phtml" target="_blank" onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=banner_irs_home'); " class="thumbnail">
+            			<img src="https://banners.api.cat/images/portal/banners/banner_irs_220x217px.gif" alt="InmoRealServices - Servicios de marketing" title="InmoRealServices - Servicios de marketing"/></a>
+                    </div>
+            	</div>
+                                <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="http://www.immoscopia.com/" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=146'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/immoscopia-banner-260-x-217.jpg" alt="Banner 146" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="http://www.emsossl.com/" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=127'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/7689emsos.gif" alt="Banner 127" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="http://www.mutuadepropietarios.es" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=34'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/1526Mutua-de-Propietarios-banner-260-x--217_2.jpg" alt="Banner 34" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="https://www.bancsabadell.com/cs/Satellite/COPBS351134_SabAtl/Associacio-d'Agents-Immobiliaris-de-Catalunya-(AIC)/2000008513649/es/" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=25'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/professional-pro_351133_260x217_estatico_cat.gif" alt="Banner 25" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="http://www.marsh.es" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=37'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/1481Marsh-banner-260-x-108-px.gif" alt="Banner 37" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="http://www.ramongrafic.com/" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=145'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/20160324-ramon_grafic.jpg" alt="Banner 145" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="https://www.nnseguros.es/ads/descuentos2?token=7hj5GF2s" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=174'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/banner_nn.png" alt="Banner 174" />
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-sm-3">
+                        <div class="banner-square">
+                            <a rel="nofollow" href="https://www.arag.es/apis/?utm_source=APIS&utm_medium=BANNER&utm_campaign=other-advertising&utm_content=300x280" target="_blank"
+                               onClick=" jQuery.get('https://www.api.cat/ajax/count_clicks_banners.php?id=175'); "
+                               class="thumbnail">
+                                <img src="https://banners.api.cat/images/portal/banners/300X280-Arag.gif" alt="Banner 175" />
+                            </a>
+                        </div>
+                    </div>
+                        </div>
+    </div>
+</div>
+</div><div class="container">
+<div class="panel panel-default">
+  <div class="panel-body">
+		<div class="row">
+			<article id="seo_home">
+				<div class="tabs">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 margin_top">
+							<ul class="tab-links list-inline">
+								<li><a href="#tabs1" id="tab1" class="btn btn-default boton_yellow">compra</a></li>
+								<li><a href="#tabs2" id="tab2" class="btn btn-default boton_grey_noactive">lloguer</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="tab-content">
+						<div id="tabs1" class="tab active">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="panel panel-default">
+									  <div class="panel-heading no-padding">
+									    <h3 class="color-blue">PIS</h3>
+									  </div>
+									  <div class="panel-body no-padding">
+									    <div class="featured_list_seo">
+											<div class="list_seo"><ul id="quad"><li class='color-blue'><strong>Barcelona</strong></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/badalona/pisos' class='color-blue'>Badalona</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/barcelona/pisos' class='color-blue'>Barcelona</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/castelldefels/pisos' class='color-blue'>Castelldefels</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/cornella-de-llobregat/pisos' class='color-blue'>Cornellà de Llobregat</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/gava/pisos' class='color-blue'>Gavà</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/granollers/pisos' class='color-blue'>Granollers</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/hospitalet-de-llobregat-l/pisos' class='color-blue'>Hospitalet de Llobregat, l </a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/igualada/pisos' class='color-blue'>Igualada</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/manresa/pisos' class='color-blue'>Manresa</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/mataro/pisos' class='color-blue'>Mataró</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/mollet-del-valles/pisos' class='color-blue'>Mollet del Valles</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/rubi/pisos' class='color-blue'>Rubí</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sabadell/pisos' class='color-blue'>Sabadell</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sant-cugat-del-valles/pisos' class='color-blue'>Sant Cugat del Vallès</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sitges/pisos' class='color-blue'>Sitges</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/terrassa/pisos' class='color-blue'>Terrassa</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/vic/pisos' class='color-blue'>Vic</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/viladecans/pisos' class='color-blue'>Viladecans</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/vilanova-i-la-geltru/pisos' class='color-blue'>Vilanova i la Geltrú</a></li><li class='color-blue'><strong>Girona</strong></li><li><a href='https://www.api.cat/compra/habitatges/girona/blanes/pisos' class='color-blue'>Blanes</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/figueres/pisos' class='color-blue'>Figueres</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/girona/pisos' class='color-blue'>Girona</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/lloret-de-mar/pisos' class='color-blue'>Lloret de Mar</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/olot/pisos' class='color-blue'>Olot</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/palamos/pisos' class='color-blue'>Palamos</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/platja-d-aro-la/pisos' class='color-blue'>Platja d Aro, La</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/roses/pisos' class='color-blue'>Roses</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/salt/pisos' class='color-blue'>Salt</a></li><li class='color-blue'><strong>Lleida</strong></li><li><a href='https://www.api.cat/compra/habitatges/lleida/alcarras/pisos' class='color-blue'>Alcarràs</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/cervera/pisos' class='color-blue'>Cervera</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/lleida/pisos' class='color-blue'>Lleida</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/mollerussa/pisos' class='color-blue'>Mollerussa</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/tarrega/pisos' class='color-blue'>Tàrrega</a></li><li class='color-blue'><strong>Tarragona</strong></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/amposta/pisos' class='color-blue'>Amposta</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/calafell/pisos' class='color-blue'>Calafell</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/cambrils/pisos' class='color-blue'>Cambrils</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/reus/pisos' class='color-blue'>Reus</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/salou/pisos' class='color-blue'>Salou</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/tarragona/pisos' class='color-blue'>Tarragona</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/vendrell-el/pisos' class='color-blue'>Vendrell, El</a></li></ul></div>
+										</div>
+									  </div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="panel panel-default">
+									  <div class="panel-heading no-padding">
+									    <h3 class="color-blue">CASA</h3>
+									  </div>
+									  <div class="panel-body no-padding">
+									    <div class="featured_list_seo">
+											<div class="list_seo"><ul id="quad"><li class='color-blue'><strong>Barcelona</strong></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/badalona/cases' class='color-blue'>Badalona</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/barcelona/cases' class='color-blue'>Barcelona</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/castelldefels/cases' class='color-blue'>Castelldefels</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/cornella-de-llobregat/cases' class='color-blue'>Cornellà de Llobregat</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/gava/cases' class='color-blue'>Gavà</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/granollers/cases' class='color-blue'>Granollers</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/hospitalet-de-llobregat-l/cases' class='color-blue'>Hospitalet de Llobregat, l </a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/igualada/cases' class='color-blue'>Igualada</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/manresa/cases' class='color-blue'>Manresa</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/mataro/cases' class='color-blue'>Mataró</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/mollet-del-valles/cases' class='color-blue'>Mollet del Valles</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/rubi/cases' class='color-blue'>Rubí</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sabadell/cases' class='color-blue'>Sabadell</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sant-cugat-del-valles/cases' class='color-blue'>Sant Cugat del Vallès</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/sitges/cases' class='color-blue'>Sitges</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/terrassa/cases' class='color-blue'>Terrassa</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/vic/cases' class='color-blue'>Vic</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/viladecans/cases' class='color-blue'>Viladecans</a></li><li><a href='https://www.api.cat/compra/habitatges/barcelona/vilanova-i-la-geltru/cases' class='color-blue'>Vilanova i la Geltrú</a></li><li class='color-blue'><strong>Girona</strong></li><li><a href='https://www.api.cat/compra/habitatges/girona/blanes/cases' class='color-blue'>Blanes</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/figueres/cases' class='color-blue'>Figueres</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/girona/cases' class='color-blue'>Girona</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/lloret-de-mar/cases' class='color-blue'>Lloret de Mar</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/olot/cases' class='color-blue'>Olot</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/palamos/cases' class='color-blue'>Palamos</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/platja-d-aro-la/cases' class='color-blue'>Platja d Aro, La</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/roses/cases' class='color-blue'>Roses</a></li><li><a href='https://www.api.cat/compra/habitatges/girona/salt/cases' class='color-blue'>Salt</a></li><li class='color-blue'><strong>Lleida</strong></li><li><a href='https://www.api.cat/compra/habitatges/lleida/alcarras/cases' class='color-blue'>Alcarràs</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/cervera/cases' class='color-blue'>Cervera</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/lleida/cases' class='color-blue'>Lleida</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/mollerussa/cases' class='color-blue'>Mollerussa</a></li><li><a href='https://www.api.cat/compra/habitatges/lleida/tarrega/cases' class='color-blue'>Tàrrega</a></li><li class='color-blue'><strong>Tarragona</strong></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/amposta/cases' class='color-blue'>Amposta</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/calafell/cases' class='color-blue'>Calafell</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/cambrils/cases' class='color-blue'>Cambrils</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/reus/cases' class='color-blue'>Reus</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/salou/cases' class='color-blue'>Salou</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/tarragona/cases' class='color-blue'>Tarragona</a></li><li><a href='https://www.api.cat/compra/habitatges/tarragona/vendrell-el/cases' class='color-blue'>Vendrell, El</a></li></ul></div>
+										</div>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tabs2" class="tab">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="panel panel-default">
+									  <div class="panel-heading no-padding">
+									    <h3 class="color-blue">PIS</h3>
+									  </div>
+									  <div class="panel-body no-padding">
+									    <div class="featured_list_seo">
+											<div class="list_seo"><ul id="quad"><li class='color-blue'><strong>Barcelona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/badalona/pisos' class='color-blue'>Badalona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/barcelona/pisos' class='color-blue'>Barcelona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/castelldefels/pisos' class='color-blue'>Castelldefels</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/cornella-de-llobregat/pisos' class='color-blue'>Cornellà de Llobregat</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/gava/pisos' class='color-blue'>Gavà</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/granollers/pisos' class='color-blue'>Granollers</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/hospitalet-de-llobregat-l/pisos' class='color-blue'>Hospitalet de Llobregat, l </a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/igualada/pisos' class='color-blue'>Igualada</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/manresa/pisos' class='color-blue'>Manresa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/mataro/pisos' class='color-blue'>Mataró</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/mollet-del-valles/pisos' class='color-blue'>Mollet del Valles</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/rubi/pisos' class='color-blue'>Rubí</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sabadell/pisos' class='color-blue'>Sabadell</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sant-cugat-del-valles/pisos' class='color-blue'>Sant Cugat del Vallès</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sitges/pisos' class='color-blue'>Sitges</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/terrassa/pisos' class='color-blue'>Terrassa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/vic/pisos' class='color-blue'>Vic</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/viladecans/pisos' class='color-blue'>Viladecans</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/vilanova-i-la-geltru/pisos' class='color-blue'>Vilanova i la Geltrú</a></li><li class='color-blue'><strong>Girona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/blanes/pisos' class='color-blue'>Blanes</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/figueres/pisos' class='color-blue'>Figueres</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/girona/pisos' class='color-blue'>Girona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/lloret-de-mar/pisos' class='color-blue'>Lloret de Mar</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/olot/pisos' class='color-blue'>Olot</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/palamos/pisos' class='color-blue'>Palamos</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/platja-d-aro-la/pisos' class='color-blue'>Platja d Aro, La</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/roses/pisos' class='color-blue'>Roses</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/salt/pisos' class='color-blue'>Salt</a></li><li class='color-blue'><strong>Lleida</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/alcarras/pisos' class='color-blue'>Alcarràs</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/cervera/pisos' class='color-blue'>Cervera</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/lleida/pisos' class='color-blue'>Lleida</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/mollerussa/pisos' class='color-blue'>Mollerussa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/tarrega/pisos' class='color-blue'>Tàrrega</a></li><li class='color-blue'><strong>Tarragona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/amposta/pisos' class='color-blue'>Amposta</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/calafell/pisos' class='color-blue'>Calafell</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/cambrils/pisos' class='color-blue'>Cambrils</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/reus/pisos' class='color-blue'>Reus</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/salou/pisos' class='color-blue'>Salou</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/tarragona/pisos' class='color-blue'>Tarragona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/vendrell-el/pisos' class='color-blue'>Vendrell, El</a></li></ul></div>
+										</div>
+									  </div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+								<div class="panel panel-default">
+								  <div class="panel-heading no-padding">
+								    <h3 class="color-blue">CASA</h3>
+								  </div>
+								  <div class="panel-body no-padding">
+								    <div class="featured_list_seo">
+										<div class="list_seo"><ul id="quad"><li class='color-blue'><strong>Barcelona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/badalona/cases' class='color-blue'>Badalona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/barcelona/cases' class='color-blue'>Barcelona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/castelldefels/cases' class='color-blue'>Castelldefels</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/cornella-de-llobregat/cases' class='color-blue'>Cornellà de Llobregat</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/gava/cases' class='color-blue'>Gavà</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/granollers/cases' class='color-blue'>Granollers</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/hospitalet-de-llobregat-l/cases' class='color-blue'>Hospitalet de Llobregat, l </a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/igualada/cases' class='color-blue'>Igualada</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/manresa/cases' class='color-blue'>Manresa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/mataro/cases' class='color-blue'>Mataró</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/mollet-del-valles/cases' class='color-blue'>Mollet del Valles</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/rubi/cases' class='color-blue'>Rubí</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sabadell/cases' class='color-blue'>Sabadell</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sant-cugat-del-valles/cases' class='color-blue'>Sant Cugat del Vallès</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/sitges/cases' class='color-blue'>Sitges</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/terrassa/cases' class='color-blue'>Terrassa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/vic/cases' class='color-blue'>Vic</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/viladecans/cases' class='color-blue'>Viladecans</a></li><li><a href='https://www.api.cat/lloguer/habitatges/barcelona/vilanova-i-la-geltru/cases' class='color-blue'>Vilanova i la Geltrú</a></li><li class='color-blue'><strong>Girona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/blanes/cases' class='color-blue'>Blanes</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/figueres/cases' class='color-blue'>Figueres</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/girona/cases' class='color-blue'>Girona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/lloret-de-mar/cases' class='color-blue'>Lloret de Mar</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/olot/cases' class='color-blue'>Olot</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/palamos/cases' class='color-blue'>Palamos</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/platja-d-aro-la/cases' class='color-blue'>Platja d Aro, La</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/roses/cases' class='color-blue'>Roses</a></li><li><a href='https://www.api.cat/lloguer/habitatges/girona/salt/cases' class='color-blue'>Salt</a></li><li class='color-blue'><strong>Lleida</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/alcarras/cases' class='color-blue'>Alcarràs</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/cervera/cases' class='color-blue'>Cervera</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/lleida/cases' class='color-blue'>Lleida</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/mollerussa/cases' class='color-blue'>Mollerussa</a></li><li><a href='https://www.api.cat/lloguer/habitatges/lleida/tarrega/cases' class='color-blue'>Tàrrega</a></li><li class='color-blue'><strong>Tarragona</strong></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/amposta/cases' class='color-blue'>Amposta</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/calafell/cases' class='color-blue'>Calafell</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/cambrils/cases' class='color-blue'>Cambrils</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/reus/cases' class='color-blue'>Reus</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/salou/cases' class='color-blue'>Salou</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/tarragona/cases' class='color-blue'>Tarragona</a></li><li><a href='https://www.api.cat/lloguer/habitatges/tarragona/vendrell-el/cases' class='color-blue'>Vendrell, El</a></li></ul></div>
+									</div>
+								  </div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+    <br style="clear:both;" />
+    <!-- FI CERCA RAPIDA -->
+</div>
+    <div class="clear"></div>    </div> <!-- contenidorPagina -->
+
+    <script>
+
+	$(document).ready(function(){
+		$('#newsletter_footer_success').hide();
+		$('#newsletter_footer_success_2').hide();
+		$('#Rebre_novetats_footer').removeClass("border-error");
+	});
+
+	function add_list_mailchimp_footer(){
+		//Add list mailchimp
+		var email = $('#Rebre_novetats_footer').val();
+
+		if (email == ''){
+			$('#Rebre_novetats_footer').addClass("border-error");
+			$('#newsletter_footer_success_2').show();
+			$('#newsletter_footer_success').hide();
+			$('#error-x-mail-footer').css("display","block");
+            $('#ok-v-mail-footer').css("display","none");
+		} else {
+			$('#Rebre_novetats_footer').removeClass("border-error");
+			$('#newsletter_footer_success_2').hide();
+            $('#error-x-mail-footer').css("display","none");
+            $('#ok-v-mail-footer').css("display","block");
+			if ($('#botemiel').val() == '') {
+				$.ajax({
+					url: 'ajax/add_mailchimp.php',
+					data: {email: email},
+					type: 'POST',
+					success: function(data){
+						$('#newsletter_footer_success').html('<span class="glyphicon glyphicon-thumbs-up"></span> '+ data );
+						$('#newsletter_footer_success').show();
+					},
+					error: function(){
+						$('#newsletter_footer_success').html('<span class="glyphicon glyphicon-thumbs-up"></span> '+ data );
+						$('#newsletter_footer_success').show();
+					}
+				});
+			}
+		}
+	}
+</script>
+<div class="container">
+    </div>
+
+<div class="col-xs-12 margin-top-20" style="background-color: #FFFFFF;">
+    <p class="text-center color-blue">Segueix-nos a</p>
+</div>
+
+<div class="col-xs-12" style="background-color: #FFBE38;">
+    <div id="footer-rrss-div">
+        <ul id="footer-rrss-ul">
+            <li class="footer-rrss-li"><a rel="nofollow" href="http://www.facebook.com/portalapi.cat/" target="_blank" class="pull-left"><img class=" img-responsive" src="https://www.api.cat/images/facebook_banner_footer.png" alt="Facebook" title="Follow us on Facebook" width="50px;"/></a></li>
+            <li class="footer-rrss-li"><a rel="nofollow" href="https://twitter.com/portalapi_cat" target="_blank" class="pull-left" style="margin-left:13px;"><img class="img-responsive" src="https://www.api.cat/images/twitter_banner_footer.png" alt="Twitter" title="Follow us on Twitter" width="50px;"/></a></li>
+            <li class="footer-rrss-li"><a rel="nofollow" href="https://plus.google.com/+ApiCat" target="_blank" class="pull-left" style="margin-left:13px;" rel="publisher" ><img class=" img-responsive" src="https://www.api.cat/images/google_banner_footer.png" alt="Google Plus" title="Follow us on Google +" width="50px;"/></a></li>
+            <li class="footer-rrss-li"><a rel="nofollow" href="https://es.linkedin.com/company/col-legi-i-associaci-d%27agents-immobiliaris-de-catalunya" target="_blank" class="pull-left margin-left" style="margin-left:13px;"><img class="img-responsive" src="https://www.api.cat/images/linkedin_banner_footer.png" alt="Linkedin" title="Follow us on Linkedin" width="50px;"/></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-xs-12" style="background-color: #2F598B;">
+    <div id="new_peu" style="background-color: #2F598B;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div id="sobre" class="margin-top-20">
+                        <p class="color-white text-bold text-capitalize"><strong>sobre api.cat</strong></p>
+                        <ul id="sobre-links" class="no-padding">
+                            <li><a class="color-white" rel="nofollow" href="https://www.api.cat/que-es-api" title="Què és api.cat?">Què és api.cat?</a></li>
+                            <li><a class="color-white" rel="nofollow" href="https://www.api.cat/faq" title="Preguntes freqüents">Preguntes freqüents</a></li>
+                            <li><a class="color-white" rel="nofollow" href="https://www.api.cat/queixes" title="Queixes o suggeriments">Queixes o suggeriments</a></li>
+                        </ul>
+                    </div>
+                    <div id="inform" class="margin-top-20">
+                        <p class="color-white text-bold text-capitalize"><strong>Informació</strong></p>
+                        <ul id="inform-links"  class="no-padding">
+                                                            <li> <a  class="color-white" rel="nofollow" href="https://www.api.cat/registro" title="Registra't a api.cat">Registra't a api.cat</a></li>
+                                                            <li> <a class="color-white"  rel="nofollow" title="Vols contractar publicitat?" href="https://www.api.cat/publicitat">Vols contractar publicitat?</a></li>
+                            <li> <a  class="color-white" rel="nofollow" href="https://www.api.cat/contacte" title="Contacte">Contacte</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 margin-top-20">
+                    <p class="color-white text-bold text-capitalize"><strong>Informació Profesional</strong></p>
+                    <ul id="inform-prof-links" class="no-padding">
+                                                    <li> <a class="color-white"  rel="follow" title="Top búsquedas" href="https://www.api.cat/top-busquedas">Top búsquedas</a></li>
+                                                <li> <a class="color-white"  rel="follow" title="Lloguer Pisos  a  Catalunya" href="https://www.api.cat/lloguer/habitatges/cataluna">Lloguer Pisos  a  Catalunya</a></li>
+                        <li> <a class="color-white"  rel="follow" title="Compra Pisos  a  Catalunya" href="https://www.api.cat/compra/habitatges/cataluna">Compra Pisos  a  Catalunya</a></li>
+                        <li> <a class="color-white"  rel="nofollow" href="https://www.api.cat/noticias/" title="Notícies api.cat" target="_blank">Notícies api.cat</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-sm-6 margin-top-20">
+                    <span class="color-white text-capitalize"><strong>Otros idiomas:</strong></span>
+                                        <span class="item-idioma-texto color-white"> Catalá</span>
+                                                            <a href="https://www.api.cat/es" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [Castellano]</span></a>
+                                                            <a href="https://www.api.cat/en" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [English]</span></a>
+                                                            <a href="https://www.api.cat/ru" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [русский]</span></a>
+                                                            <a href="https://www.api.cat/fr" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [Français]</span></a>
+                                                            <a href="https://www.api.cat/de" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [Deutsch]</span></a>
+                                                            <a href="https://www.api.cat/ch" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [中國]</span></a>
+                                                            <a href="https://www.api.cat/ar" class="item-idioma color-white" rel="nofollow"><span class="item-idioma-texto"> [العربي]</span></a>
+                                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3 margin-top-20">
+                    <a rel="nofollow" href="https://www.api.cat" target="_blank"><img class=" img-responsive" src="https://www.api.cat/images/logo_footer.png" alt="Api.cat" title="Api.cat"/></a>
+                    <ul id="direccio"   class="no-padding">
+                    <li class="color-white">Gran Vía Corts Catalanes, 622 Pral 1ª</li><li class="color-white">Barcelona - 08007</li>
+                    <li class="color-white"><a href="Tel:933175482" title="933 17 54 62" class="color-white">Tel: 933 17 54 62</a></li>
+                    <li class="color-white"><span class="glyphicon glyphicon-envelope color-white" aria-hidden="true"></span> info@api.cat</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-5 margin-top-20" id="avisolegal">
+                    <div id="avis_politica" class="text-center color-white avisolegal-child">
+                        <a rel="nofollow" class="color-white" title="Avís Legal" href="https://www.api.cat/avis_legal">Avís Legal</a>
+                         -
+                        <a rel="nofollow" class="color-white" title="política de privacitat" href="https://www.api.cat/politica">Política de privacitat</a>
+                    </div>
+                </div>
+
+                <div class="hidden-xs col-sm-6 col-md-4 margin-top-20">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="color-white text-capitalize"><strong>La teva llar més a prop que mai! </strong></span>
+                            <p class="color-white text-bold text-capitalize">Descarrega't la nostra app</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-4 col-xs-5" >
+                            <a href="https://itunes.apple.com/es/app/api.cat-venta-y-alquiler-pisos/id1111276893"><img class="img-responsive logoAA" src="/images/download-apple.png" class="no-padding"></a>
+                        </div>
+                        <div class="col-md-5 col-sm-4 col-xs-5">
+                            <a href="https://play.google.com/store/apps/details?id=cat.api.api"><img class="img-responsive logoAA" src="/images/get-android.png" class="no-padding" height="45"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Google Code for Etiqueta de remarketing: -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 989244228;
+var google_conversion_label = "zxyLCNyf6gQQxNba1wM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<div style="display: none;">
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+</div>
+<noscript><div style="display:inline;"> <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/989244228/?value=0&amp;label=zxyLCNyf6gQQxNba1wM&amp;guid=ON&amp;script=0"/> </div></noscript>
+
+
+    </body>
+    </html>

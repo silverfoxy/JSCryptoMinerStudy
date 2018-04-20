@@ -1,0 +1,392 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>开放获取期刊研究中心</title>
+<link href="/css/oajrc.css" rel="stylesheet" type="text/css">
+<script src="/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="/js/all.js" type="text/javascript"></script>
+</head>
+ 
+<body>
+ <!--head 代码开始-->
+ 
+    <link href="/images/favicon.ico" type="image/x-icon"  rel="icon"/>
+<link href="/images/favicon.ico" type="image/x-icon"  rel="shortcut icon"/>
+<link href="/css/oajrc.css" rel="stylesheet" type="text/css">
+ <div class="head">
+   <div class="logo">
+    <a href="/"><img  src="/FileUpload/MagazineImgFile/6ed48e579d5a4020aa53346a7e1ef50b.jpg"></a>
+   </div> 
+   
+   <div class="qksear">
+       <p style="padding-bottom: 6px;  text-align: right;">
+     欢迎来到OAJRC平台！  </p>
+
+    <div class="hotline" style="margin-bottom: 8px; ">ijcr@oajrc.org</div>
+    <form action="/magazine/contriution/list/" method="get"  name="search">
+    <div class="search">
+      <div class="search-field">
+      <div class="select">
+       <select id="select_type" name="select_type"  class="scxz">
+       <option  value = "0">标题搜索</option>
+        <option  value = "1">关键词搜索</option>
+        <option  value = "2">作者搜索</option>
+        <option  value = "3">期刊搜索</option>
+       </select>
+       </div>
+       <input type="text" class="searchbt"  id="keywords" name="keywords"  placeholder="输入文献标题、期刊、作者、关键词等开始搜索...">
+      </div>
+      <input class="search-submit" value="Submit" type="submit">
+    </div>
+    </form>
+   </div>
+       
+ </div>
+ <!--head 代码结束-->
+ 
+ <!--nav 代码开始-->
+ <div class="nav">
+   <ul class="navlist">
+    <li><a href="http://www.oajrc.org/">平台首页</a></li>
+ <li  class='on'><a  href="http://">期刊首页</a></li>
+    <li ><a href="/magazine/gy_qkjs">期刊介绍</a></li>
+   <li ><a href="/magazine/gy_zztg">作者投稿</a></li>
+   <li ><a href="/magazine/gy_bwxx">编委信息</a></li>
+   
+   <li style="display:none" ><a href="/magazine/gy_gghz">广告合作</a></li>
+   <li ><a href="/magazine/gy_xksm">许可声明</a></li>
+   <li ><a href="/magazine/gy_aboutus">关于我们</a></li>
+   <li style="display:none" ><a href="/magazine/gy_contactus">联系我们</a></li>
+   </ul>
+ </div>
+<!--end nav-->
+ <link rel="stylesheet" href="/css/boxy,jquery.fancybox-1.3.4.css" />
+  <script src="/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="/js/boxy,jquery.fancybox.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+    function Login() {
+
+        $.fancybox({
+            'width': 600,
+            'height': 320,
+            'margin': 0,
+            'padding': 14,
+            'autoScale': true,
+            'centerOnScroll': true,
+            'hideOnOverlayClick': false,
+            'showCloseButton': true,
+            'autoDimensions': false,
+            'type': 'iframe',
+            'autoScale': true,
+            'scrolling': 'auto',
+            'href': '/magazine/OnLogin'
+
+        });
+    }
+    function alt() {
+        alert("即将推出！敬请期待");
+    }
+ </script>
+ <!--nav 代码结束-->
+ 
+ <script>
+     window.onload = function () {
+         var userNameValue = getCookieValue("AutoLoginUserName");
+         var passwordValue = getCookieValue("AutoLoginPwd");
+
+         if ($("#chk1").attr("checked")) {
+             if (userNameValue != '') {
+                 $("#username").val(userNameValue);
+             }
+             if (passwordValue != '') {
+                 $("#password_text").val(passwordValue);
+             }
+         }
+
+         var hidtype = document.getElementById("hidtype");
+         var li1 = document.getElementById("li1");
+         var li2 = document.getElementById("li2");
+         var li3 = document.getElementById("li3");
+         $("#li1").bind("click", function () {
+             li2.className = "";
+             li3.className = "";
+             li1.className = "cur";
+             hidtype.value = 1;
+         });
+         $("#li2").bind("click", function () {
+             li1.className = "";
+             li3.className = "";
+             li2.className = "cur";
+             hidtype.value = 2;
+         });
+         $("#li3").bind("click", function () {
+             li1.className = "";
+             li2.className = "";
+             li3.className = "cur";
+             hidtype.value = 3;
+         });
+     }
+
+     function onLogin() {
+         var u = $("#username").val();
+         var p = $("#password_text").val();
+         var hidtype = $("#hidtype").val();
+         if (u == "" || u == "请输入用户名") {
+             alert("请输入用户名!");
+             return;
+         }
+         if (p == "" || p == "请输入密码") {
+             alert("请输入密码!");
+             return;
+         }
+
+         if (u != "" && p != "") {
+             $.post("/ajax/login", { 'username': u, 'password': p, 'type': hidtype }, function (data) {
+                 if (data.success) {
+                     if ($("#chk1").attr("checked")) {
+                         setCookie("AutoLoginUserName", u, 168, "/");
+                         setCookie("AutoLoginPwd", p, 168, "/");
+                     }
+                     else {
+                         deleteCookie("AutoLoginUserName", "/");
+                         deleteCookie("AutoLoginPwd", "/")
+                     }
+                     window.location.href = data.url;
+                 } else {
+                     alert(data.msg);
+                     //$.m.alert(data.msg);
+                 }
+             }, "json")
+         }
+     }
+     function Register() {
+         window.open("http://www.oajrc.org/signup");
+     }
+     function Retrieve() {
+         window.open("http://www.oajrc.org/retrieve");
+     }
+</script>
+   
+  <!--qkym 代码开始--> 
+  <div class="qkym">
+    <div class="qksyjs">     
+     <div class="qksysm">
+      <div class="qksyimg"><img src="/FileUpload/MagazineImgFile/4e558b172b294a81a79f5b58cfe17dfd.jpg"></div>
+      <div class="qksynr">
+        <h3>国际临床研究杂志</h3>
+                <div class="qkms" title="《国际临床研究杂志》（下称杂志）由国际开放获取期刊研究中心（OAJRC）主办，国际科学大数据系统（ScidataS）协办，大牛智慧学术平台提供技术支持，是国际公开发行的综合性医药卫生临床类学术期刊，主要反映医学临床及有关领域的新进展、新动态、新成果与新方法，是开展国际学术交流的重要园地。本刊辟有临床研究、经验交流、技术与方法、调查研究、综述、护理园地、病例报告等栏目，欢迎广大作者踊跃投稿。本刊对稿件实行严格的“三审”制度，依据学术质量取舍稿件。对获国家级和省部级科研基金资助项目的论文和获奖成果的论文，经审稿通过将优先发表。">《国际临床研究杂志》（下称杂志）由国际开放获取期刊研究中心（OAJRC）主办，国际科学大数据系统（ScidataS）协办，大牛智慧学术平台提供技术支持，是国际公开发行的综合性医药卫生临床类学术期刊，主要反映医学临床及有关领域的新进展、新动态、新成果与新方法，是开展国际学术交流的重要园地。本刊辟有临床研究、经验交流、技术与方法、调查研究、综述、护理园地、病例报告..<a style=" color:#3175d2" href="/magazine/gy_qkjs">详情介绍 &gt;&gt;</a></div>       
+      <div class="fhyz">
+       <div class="yzxx" style="min-width:280px"> 
+        <div class="category">
+        <span>所属分类：</span> 医药卫生
+        </div>        
+        <ul class="affect">
+	 	
+        <li>目标影响因子：<span>2-3分</span></li>
+	   </ul>
+       </div>
+       <!--yzxx 代码结束-->
+       <div class="tgdy tgdyx">
+       <a href="#" onclick="Register()" >加入编委</a>
+       </div>       
+       <!--tgdy 代码结束-->
+       
+      </div> 
+      <!--fhyz 代码结束-->
+      
+      </div>
+      <!--qkxqnr 代码结束-->
+     
+     </div>
+     <!--qksysm 代码结束--> 
+    
+         
+ <div class="logins" id="tab">
+  <div class="tabList">
+	<ul>
+		<li id="li1" class="cur">作者投稿</li>
+		<li id="li2">专家审稿</li>
+		<li id="li3">远程办公</li>
+	</ul>
+  </div>
+  
+   <div class="tabCon">
+	 <div class="cur">
+     <form>
+      <p><span>用户名：</span><input type="text" id="username" placeholder="请输入用户名"></p>
+     <p><span style="word-spacing:10px;">密 码：</span><input  id="password_text" type="password" placeholder="请输入密码"></p>         
+    
+     <p class="jz_60" ><input class="jzmm" id="chk1" name="chk1" type="checkbox">记住密码 <a href="#" onclick="Retrieve()">忘记密码？</a></p>     
+
+     <p class="jz_60" style="margin-bottom:20px;"><input type="button" onclick="onLogin()" class="dlbt" value="登 录"></p>    
+     <input type="hidden" id="hidtype" value="1" name = "type" /> 
+     </form>
+     
+    <p class="zchy"><label>如未注册，投稿前请先注册</label> <a href="#" onclick="Register()" class="zcbt">注册</a> </p>
+    
+    </div>
+    
+  </div>
+</div>
+    
+    </div>
+
+    <div class="cbnr">
+      <ul class="after-clear">
+		 <li><span>主管单位：</span>Open Access Journal Research Center</li>
+		 <li><span>主办单位：</span>Open Access Journal Research Center</li>
+		 <li><span>ISSN：</span>2515-6977</li>
+         <li><span>出版地：</span>英国伦敦圣保罗区圣马丁大道16号开放获取期刊研究中心</li>
+		
+		 <li><span>检索信息：</span>中国知网(CNKI Scholar)、Google Scholar</li>
+         
+		 <li><span>发行周期：</span>动态出刊</li>
+         
+		 
+		</ul>
+    </div>
+
+    <!--qkxq 代码结束-->     
+     
+    <!--bkwzbw 代码开始-->      
+
+    <div class="bkwzbw">     
+      <div class="zxwz">
+       <ul  class="qksub">
+        <li class="sub"><a href="/magazine/contriution/list/">最新文章</a></li> 
+
+        </ul>
+        
+      <ul class="wzlb">
+       <li>
+        
+        <div class="wzjx">
+    
+         <h2><a target="_blank"  href="/magazine/contriution/4006">The effect of amiodarone on patients with acute myocardial infarction complicated with malignant ventricular arrhythmia.[急性心肌梗死伴恶性室性心律失常患者急诊使用胺碘酮的效果]</a></h2>
+       
+         <p> <span>浏览量：757</span> <span>全文下载：<a target="_blank" href="/FileUpload/PdfFile/20170919085959.pdf">【PDF】</a><span style="color:#f00;">     </span> </p>
+        </div>
+       </li>
+        
+        <div class="wzjx">
+    
+         <h2><a target="_blank"  href="/magazine/contriution/4007">Mosapride combined with ziprasidone in the treatment of functional dyspepsia clinical observation of adverse effects associated with depression.[莫沙必利结合齐拉西酮治疗功能性消化不良伴抑郁的临床效果观察]</a></h2>
+       
+         <p> <span>浏览量：775</span> <span>全文下载：<a target="_blank" href="/FileUpload/PdfFile/20170919081636.pdf">【PDF】</a><span style="color:#f00;">     </span> </p>
+        </div>
+       </li>
+        
+       
+       <li> <a class="more" href="/magazine/contriution/list/">  READ MORE > </a></li>       
+      </ul> 
+       
+      </div>
+      <!--zxwz 代码结束-->
+      
+      <!--tjbw 代码开始--> 
+      <div class="tjbw">
+       <h3>本刊编委</h3>
+       <ul>
+
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/38/"><h2> 陈晓岗 </h2></a> 
+        <p>中南大学湘雅二医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/91/"><h2> 赵世华 </h2></a> 
+        <p>中国医学科学院阜外心血管病医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/92/"><h2> 冯旰珠 </h2></a> 
+        <p>南京医科大学第二附属医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/14/"><h2> 张继如 </h2></a> 
+        <p>江南大学附属医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/122/"><h2> 陈丹玲 </h2></a> 
+        <p>广东省妇幼保健院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/40/"><h2> Chunyu Liu </h2></a> 
+        <p>美国伊州大学</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/43/"><h2> Ken He Young </h2></a> 
+        <p>美国德克萨斯大学</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/46/"><h2> 张国平 </h2></a> 
+        <p>中南大学湘雅医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/47/"><h2> 冯丽娟 </h2></a> 
+        <p>中南大学湘雅医院</p>  
+        </div> </li>
+        
+        <li> <div class='xjxx'> 
+        <a target="_blank" href = "/magazine/editordetail/48/"><h2> 程春霞 </h2></a> 
+        <p>中南大学湘雅三医院</p>  
+        </div> </li>
+        
+
+
+      
+
+
+
+
+        
+
+       </ul>
+      </div> 
+      <!--bkwzbw tjbw-->
+     
+     </div>
+     
+    <!--bkwzbw 代码结束-->   
+  </div>
+  <!--qkym 代码结束-->
+  
+
+
+ 
+ <!--yqlj 代码开始-->
+ <div class="yqlj">
+   <ul>
+    <li class="tit"><span>友情链接</span><img src="/images/sanjiao_ico.jpg" width="13" height="14"></li>
+    <li><a target="_blank"  href="http://www.qingpengguoji.com/">湖南青鹏国际</a></li>
+    <li><a target="_blank"  href="http://www.sunwisdom.cn/">北京盛程聚智</a></li>
+    <li><a target="_blank"  href="http://www.qingres.com/">Qingres</a></li>
+    <li><a  target="_blank" href="http://www.dnzh.org/">大牛智慧网</a></li>
+    <li><a target="_blank"  href="http://www.xy3yy.com/">中南大学湘雅三医院</a></li>
+     <li><a target="_blank"  href="http://www.scidatas.com/">ScidataS</a></li>
+   </ul>
+ </div> 
+ <!--yqlj 代码结束-->
+ 
+ <div class="footer">
+  <div class="ftnr">
+   <p>Copyright © 2017 开放获取期刊研究中心 版权所有 京ICP备 技术支持 湖南青鹏国际信息科技有限公司</p>
+   <h2>
+    <a href="#">法律声明</a>
+    <span>|</span>
+    <a href="#">经营许可</a></h2>
+  </div>
+ </div>
+</body>
+</html>

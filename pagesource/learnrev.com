@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="http://www.ift.world">http://www.ift.world</a></p>

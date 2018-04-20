@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" class="splash">
+<head>
+    <meta name="flattr:id" content="mezy22">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/resources/css/HereNow.css">
+	<script src='resources/js/datetime.js' async defer></script>
+	<title>Here Now</title>
+</head>
+<body>
+	<div class="splash">
+		<div class="container">
+			<div class="spacey-quote">
+				<div class="line">&#8220;And the future never comes.</div>
+				<div class="line line-right">What comes is always here now.&#8221;</div>
+				<div class="line-right">-Osho</div>
+			</div>
+			<form method="post" action="/" id="loginForm">
+				<label class="singleLined">u: <input type="text" name="username" autofocus /></label>
+				<label class="singleLined">p: <input type="password" name="password" onfocus="formInUse = true;" /></label>
+				<button type="submit" class="border button g-recaptcha"
+					data-sitekey="6LduHjEUAAAAALQZpICmAtjpboL3ZfISVFItJIXs"
+					data-callback="recaptchaSubmit">One now</button>
+				<p><a href="/recover.php">Recover</a></p>
+				<img src="/resources/img/bg_1366.png" />
+				<input type="hidden" name="loginKey" value="eaaab46342f1">
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+var recaptchaSubmit = function (){
+	document.getElementById('loginForm').submit();
+};
+
+(function timeToLogin(){
+	var reportBackNode = document.querySelector('[data-timeToLogin]');
+	
+	if(!reportBackNode) return;
+	
+	document.querySelector('#loginForm input[type=submit]');
+	
+	var nowInSecs = new Date().getTime() / 1000;
+	var loginOKInSecs = +reportBackNode.getAttribute('data-timeToLogin');
+	var whenLogin = (nowInSecs + loginOKInSecs + 1) * 1000;
+	
+	var loginCountDown = function (){
+		var now = new Date().getTime();
+		var loginIn = whenLogin - now;
+		if(loginIn > 0){
+			var timeLeft = new Date(loginIn);
+			var reportTimeLeft = 'in ';
+			var parseString = '';
+			if(timeLeft.getUTCDate() > 1){
+				reportTimeLeft += (timeLeft.getUTCDate() - 1) + 'd';
+			}
+			parseString += 'H\\h';
+			parseString += 'i\\ms\\s';
+			// reportTimeLeft += timeLeft.getMinutes() + 'h';
+			reportTimeLeft += parse_datetime_format(parseString, timeLeft.getTime() + (timeLeft.getTimezoneOffset() * 60000));
+			reportBackNode.textContent = reportTimeLeft;
+		}else{
+			clearInterval(countDown);
+			reportBackNode.parentNode.innerHTML = 'Reload the page and try again.';
+		}
+	};
+	
+	var countDown = setInterval(loginCountDown, 1000);
+	loginCountDown();
+	
+})()
+
+</script>
+</body>
+</html>

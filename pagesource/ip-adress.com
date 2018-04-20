@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="canonical" href="https://www.ip-adress.com/"/>
+<title>What Is My IP Address? Find Your IP, Whois And More On IP-Adress.com</title>
+<meta name="description" content="Find out what your IP address is or use free website tools like our Whois lookup, proxy checker, and services to trace or verify an email.">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="shortcut icon" href="https://www.ip-adress.com/favicon.ico">
+<link rel="icon" sizes="16x16 32x32 64x64" href="https://www.ip-adress.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="196x196" href="https://www.ip-adress.com/favicons/favicon-192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="https://www.ip-adress.com/favicons/favicon-160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://www.ip-adress.com/favicons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="https://www.ip-adress.com/favicons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.ip-adress.com/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.ip-adress.com/favicons/favicon-16.png">
+<link rel="apple-touch-icon" href="https://www.ip-adress.com/favicons/favicon-57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.ip-adress.com/favicons/favicon-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://www.ip-adress.com/favicons/favicon-72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://www.ip-adress.com/favicons/favicon-144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://www.ip-adress.com/favicons/favicon-60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.ip-adress.com/favicons/favicon-120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.ip-adress.com/favicons/favicon-76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://www.ip-adress.com/favicons/favicon-152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.ip-adress.com/favicons/favicon-180.png">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="https://www.ip-adress.com/favicons/favicon-144.png">
+<meta name="msapplication-config" content="https://www.ip-adress.com/favicons/browserconfig.xml">
+<script>if(top.location!=location)top.location.href=document.location.href</script>
+<style>
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;src:local('Work Sans'),local('WorkSans-Regular'),url(https://fonts.gstatic.com/s/worksans/v2/WB2LNay3rHMH1zU8UJnUHIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;src:local('Work Sans'),local('WorkSans-Regular'),url(https://fonts.gstatic.com/s/worksans/v2/ElUAY9q6T0Ayx4zWzW63VJBw1xU1rKptJj_0jans920.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215}
+*,*::before,*::after{box-sizing:border-box}
+body,html{margin:0;padding:0}
+html{overflow-y:scroll}
+body{background-color:#fff;color:#000;font-family:"Work Sans",Arial,sans-serif;font-size:16px;-moz-text-size-adjust:none;-ms-text-size-adjust:none;-webkit-text-size-adjust:none;text-size-adjust:none;padding-top:84px}
+a{text-decoration:none}
+abbr{cursor:help}
+form *[role="alert"]{color:#f95959;margin-top:0.3em !important}
+form[role="search"] input{background-color:#fff;border:1px solid #999;color:#000;font-size:16px;height:30px;line-height:30px;padding:5px}
+form[role="search"] button{background:#f95959 url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0MxNS40MSAxMi41OSAxNiAxMS4xMSAxNiA5LjUgMTYgNS45MSAxMy4wOSAzIDkuNSAzUzMgNS45MSAzIDkuNSA1LjkxIDE2IDkuNSAxNmMxLjYxIDAgMy4wOS0uNTkgNC4yMy0xLjU3bC4yNy4yOHYuNzlsNSA0Ljk5TDIwLjQ5IDE5bC00Ljk5LTV6bS02IDBDNy4wMSAxNCA1IDExLjk5IDUgOS41UzcuMDEgNSA5LjUgNSAxNCA3LjAxIDE0IDkuNSAxMS45OSAxNCA5LjUgMTR6Ii8+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==") no-repeat center center/80%;border:0 none;color:transparent;cursor:pointer;height:30px;width:30px;overflow:hidden;vertical-align:top}
+form[role="search"] button:hover{}
+ul.plain{list-style-type:none;padding-left:0}
+ul.comma-separated{list-style-type:none;padding-left:0}
+ul.comma-separated>li{display:inline}
+ul.comma-separated>li::after{content:","}
+ul.comma-separated>li:last-of-type::after{content:""}
+.ad{display:block;margin:32px 0}
+.ad.desktop,.ad.mobile,.ad>.adsbygoogle{display:none}
+.ad.desktop{margin:32px 0}
+.ad.link{margin:32px 0}
+.ad.link>.adsbygoogle{display:block}
+.ad.mobile{margin:16px 0}
+.ad::before{color:#7f7f7f;content:"Advertisements";font-size:12px}
+.ad.no-label::before{content:""}
+header{background-color:#fff;border-bottom:2px solid #000;height:32px;left:0;position:fixed;top:0;width:100%;z-index:10}
+header>nav{position:relative}
+header .logo{color:#000;font-size:24px;font-weight:700;height:30px;line-height:30px;text-transform:uppercase}
+header .logo>del,header .logo>span{color:#f95959}
+header .nav-toggle{display:none}
+header form[role="search"]{}
+header form[role="search"] input{border:0 none;padding-right:35px;width:100%}
+header form[role="search"] button{position:absolute;right:0;top:0}
+main{}
+main>*:last-child{margin-bottom:0}
+main a{color:#33f}
+main a:hover{text-decoration:underline}
+main form[role="form"]{max-width:600px}
+main form[role="form"][data-required="true"]::after{content:"* Required Fields";display:block;font-size:12px;margin-top:1em;opacity:0.5}
+main form[role="form"] button{background-color:#f95959;border:0 none;border-radius:30px;color:#fff;cursor:pointer;display:inline-block;font-family:inherit;font-size:16px;font-weight:400;padding:8px 20px;transition:all 0.5s ease 0s;white-space:nowrap}
+main form[role="form"] button:hover{background-color:#fa7272}
+main form[role="form"] input[type="text"],main form[role="form"] select,main form[role="form"] textarea{border:2px solid rgba(0,0,0,0.1);border-radius:4px;color:#555;font-family:inherit;font-size:18px;padding:5px 10px;transition:border-color 0.15s ease-in-out 0s;width:100%}
+main form.single[role="form"] input[type="text"],main form.single[role="form"] select,main form.single[role="form"] textarea{width:auto}
+main form[role="form"] input[type="text"]:focus,main form[role="form"] select:focus,main form[role="form"] textarea:focus{border-color:rgba(0,0,0,0.5)}
+main form[role="form"] label{display:block;margin-bottom:0.2em}
+main form.single[role="form"] label{display:inline-block;font-weight:bold;margin-bottom:0}
+main form[role="form"] label[required]{font-weight:bold}
+main form[role="form"] label[required]::after{content:"*"}
+main form[role="form"] small{display:block;margin-top:1em;text-align:justify}
+main form[role="form"]>div+div{margin-top:1em}
+main form[role="form"]>div.flex{display:flex}
+main form[role="form"]>div.flex>div{flex-grow:1;margin:0 0.5em}
+main form[role="form"]>div.flex>div.align-end{align-self:flex-end}
+main form[role="form"]>div.flex>div.no-grow{flex-grow:0;margin-left:0}
+main form[role="form"]>div.flex>div:first-of-type{margin-left:0}
+main form[role="form"]>div.flex>div:last-of-type{margin-right:0}
+main form[role="search"]{}
+main form[role="search"]>span{display:block;max-width:585px;position:relative}
+main form[role="search"] input{width:100%}
+main form[role="search"] button{position:absolute;right:0;top:0}
+main h1,main h2,main h3{font-weight:normal;margin:1.5em 0 0.5em 0}
+main h1{font-size:32px}
+main>h1:first-child{margin-top:0}
+main h2{font-size:24px}
+main h3{font-size:20px}
+main ol,main ul{padding:0 0 0 1em}
+main ol>li,main ul>li{line-height:150%}
+main p{line-height:150%;text-align:justify}
+main pre{white-space:pre-wrap}
+main h1+ol,main h1+p,main h1+ul,main h2+ol,main h2+p,main h2+ul,main h3+ol,main h3+p,main h3+ul{margin-top:0}
+main table{border-collapse:collapse;border-spacing:0;width:100%}
+main td,main th{padding:8px;vertical-align:top}
+main td:first-child,main th:first-child{padding-left:0}
+main td>ul{margin:0}
+main th{text-align:left}
+main tr~tr>td,main tr~tr>th,main thead+tbody>tr>td,main thead+tbody>tr>th,main tbody+tbody>tr>td,main tbody+tbody>tr>th{border-top:1px dotted #000}
+main ul{list-style-type:square}
+.activity-indicator::before{background:url("data:image/gif;base64,R0lGODlhIAAgAPMLAMTExLOzs9bW1uHh4bq6uoGBgTQ0NAEBARsbG1RUVJeXl////wAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFBQALACwAAAAAIAAgAEAE5nDJSak6quoajMlTgiCFNgTTQASsIBVwDG/0wt4BMUhn4E6Alo0lue1qlRECJTk4JysfcqLwMKeLH1YgxEZzx1o0fKMEr9NAieI8mInYiWG0bhdZYVrC40lokTg6cYNDgXmEFX8aZywEU1wpX4oVUT9lEpWEA4orjohTCAcIiYc1AyMJbE88jYQFIwYTdlmtiAFKO3ZcAQAUu2FVfUwACCA1jLwaAXt8cbuTJmufFQAKMjOEODcE1dfS04+Dz6ZfnljIvRO7YBMBpbvpEgIrpRQ9TJe75s61hSmXcVjE8+erniZBcSIAACH5BAUFAAsALAAAAAAYABcAAARycMlJKwo162mQqYWyiRRiUsZxaMZXnpKiImxLTCYtIWqhKa0EDlaYbRaJFim3EKgOpE3LxUyoXM1C4YbCUmSACUGrFUgEBsyREiCHBuuNwO2Lb8aFsP2o3vvjAwQBg4R/C4KEhX+BiYOGj5CRkpNHensRACH5BAUFAAsALAEAAAAdAA4AAARycMlJZzA1672SSVnATQJRGSiVIMgoFYU4oZgUsPUIF8KcSgaWS0LY+XK4oUQBMy1oiwELIZsMNgLjM1VggSaFw0ExCBB6E2ZM01oixAdeYE64RguAEcAAP9QAc3N5Sn1UFAMEgU4uYXFYc2hDCZFYShwRACH5BAUFAAsALAcAAAAZABEAAARpcMm5QAE0662Kyt+2DEJWnJlhiEGATWdBqeLSBgOMSokaaoIWQSdbKFSJ2oLQKi1iEtVKObhJoAtaBoEIUABNTcDgHHMRYmctcUYklZv2lOKFG7l2eCGX7/s1B4GCCD99gocHfwuIB4QRACH5BAUFAAsALA4AAAASABgAAARlUCixqr04KLwI5YsiXkpRgOFYCeYJilvVEihcES2axu33jgFTrKIwGFCAwsCSMBqGIIrzqKtME7Sq9anter8VhHhM1Y3PiCoaYQiAvQVft3A4uLr1OgKKNOQPZVUKCHl3WnQHbhEAIfkEBQUACwAsDgAAABIAHgAABIBwkLGqvZgEggG+QQgqyleFwUWmJmoFpNeKC0CW5uIud36KNgWrQigUBCbBUGA0cnwDRbOA802PPgvAmcUMu+CsYUxOfD/ktEGsToTfFspbgUDA63XDOZnAI9wmBQcyAQZ4JgkHB2sXhiYDigdVXYIHdm8IigVvAZFwBopyYVQmEQAh+QQFBQALACwPAAEAEQAfAAAEe3DJucSgGIMQsh8c4WUEJ4yUEKIUF1xsxQEpB1P3MpQmu7k0lCtAyHlUgVNMolw6PYWoVBGESq+oa5T67DoDBoPCGQ4nnmXDSIGgJMpjSgGBOE/G6sVhL6EjOh57BxN0eRmCEwZ0I4iEi4d8EwmPGI0tHggHbU4KB3FLEQAh+QQFBQALACwIAA4AGAASAAAEbHDJSesKOJNh+8wg4Xkgto1oigYqChSF2FpwLczUoNSFMgeG20LAky0Ah0LHYKgQYMKF4XBILBBYCbM5UlAPHCxComBaPQiq8pqVJJg+GnUsEVO2nfQhzqZPmB1UXHVtE3wVOxUGCIM4H34qEQAh+QQFBQALACwCABIAHQAOAAAEeHDJSatd4lKRtBVBkF3FcRQeRYQBMVABYpopBbABIBnzYegeQOG1GKxCgpIJoZAImJZAodCcCFYDhQk1SSAQKINYMi2MLMRJ7LsbLwjl2sTAbhsmiilBvvje7VZxNXQIAXNuEnlcKV8dh38TBGcehhUJBo58cpA1EQAh+QQFBQALACwAAA8AGQARAAAEZ1ChQ+u6OOtb+9lgJnlfaJ7oORQpiiBKCxrvK2dJjSSoEGw1w+8i3PgCgEzApjEYLoXoJUAdoJzPRZS1OBJOCWdMK70QqIKQwsmDlhcD6nCWdXMvAGrIqdlqBFZqGgoFYzcaAAVJGxEAIfkEBQUACwAsAQAIABEAGAAABFwwnFOWvfiWeZDK4GJwhwGEmIKQaLZRbSZUcW3feK7vqGIYNkLi96sRgYKW75e4DAon0O9zURQKgUVgi5pdLdts6FoggLkgAvkSHl+TZ7ELi2mDBHILIWC+DQgDEQAh+QQFBQALACwAAAIADgAdAAAEcnDJuVSheJ5jMt5H4E3FhowTsl2oAgppRxlbkiKIIS7AwUoJHC4B8wQMwhNqgVMsF4PnMpAwWK+Zq1ZGoW650vAORSgUACOBee2xrBVRTNmsQEsC8YW6QKAAAgFFHgOAYx4EgIIZAoB9ZIB5RgF2KAOKEQA7") no-repeat left center/24px;content:"processing...";display:block;height:24px;line-height:24px;padding-left:28px}
+.activity-indicator.done::before{display:none}
+main .breadcrumb>*::before{color:#000;content:"»";padding:0 0.3em}
+main .breadcrumb>*:first-child::before{content:"";padding:0}
+main .breadcrumb>*:last-child>*{font-weight:600}
+main .flex{display:flex}
+main .flex>*{flex-grow:1;margin:0 0.5em}
+main .flex>*:first-child{margin-left:0}
+main .flex>*:last-child{margin-right:0}
+main>aside.share{margin-top:2em}
+main>aside.share>*{vertical-align:top}
+footer{background-color:#efefef;padding:2em 0 1em 0;margin:32px 0 0 0}
+footer a{color:#7f7f7f}
+footer a:hover{text-decoration:underline}
+footer>section>div{overflow:hidden}
+footer>section>div>h2{font-weight:normal}
+footer>section>div>a{display:block;white-space:nowrap}
+footer>section>div>a+a{margin-top:0.5em}
+footer>div{border-top:1px solid #7f7f7f;color:#7f7f7f;margin-top:2em;padding-top:1em;text-align:center}
+.oea>ins{display:none}
+.ofcd>*{display:none}
+#gtt{display:none}
+@media(max-width:479px){
+.ad{margin:16px 0}
+.ad.mobile{display:block}
+.ad.mobile>.adsbygoogle{display:block;height:250px;width:300px}
+main form[role="form"]>div.flex{display:block}
+main form[role="form"]>div.flex>div{margin:0}
+main form[role="form"]>div.flex>div+div{margin-top:1em}
+main table.vtable,main table.vtable>tbody,main table.vtable>tbody>tr{display:block}
+main table.vtable>tbody>tr{padding:0.5em 0}
+main table.vtable>tbody>tr:first-of-type{padding-top:0}
+main table.vtable>tbody>tr:last-of-type{padding-bottom:0}
+main table.vtable>tbody>tr+tr{border-top:1px dotted #000}
+main table.vtable td,main table.vtable th{border-top:0;display:inline;padding:0}
+main table.vtable th{margin-right:0.5em}
+main table.vtable th::after{content:":";}}
+@media(min-width:480px){
+.ad.desktop{display:block}
+.ad.desktop>.adsbygoogle{display:block;height:280px;max-width:1200px;width:100%;}
+main table.vtable th{white-space:nowrap}
+}
+@media(max-width:767px){
+html.nav-visible{height:100%;overflow-y:hidden}
+html.nav-visible body{overflow:hidden;position:absolute;width:100%}
+html.nav-visible body::after{background-color:#000;bottom:0;content:"";left:0;opacity:0.7;position:fixed;right:0;top:0;z-index:100}
+header>nav,main,footer{padding-left:10px;padding-right:10px}
+header{z-index:110}
+html.nav-visible header::after{background-color:#000;content:"";height:32px;left:0;opacity:0.7;position:fixed;right:0;top:0}
+header .nav-toggle{display:block;height:30px;padding:4px 12.5px;position:absolute;right:0;top:0;width:50px}
+header .nav-toggle>span{background-color:#000;display:block;height:2px;position:relative;top:10px}
+header .nav-toggle>span::before,header .nav-toggle>span::after{background:#000;content:"";height:2px;left:0;position:absolute;transition: all 0.2s ease-out 0s;width:100%}
+header .nav-toggle>span::before{top:-7px}
+header .nav-toggle:hover>span::before{top:-10px}
+header .nav-toggle>span::after{bottom:-7px}
+header .nav-toggle:hover>span::after{bottom:-10px}
+header>nav>span{background:#000;bottom:0;display:block;margin:0;overflow-y:auto;padding:75px 40px 40px;position:fixed;right:0;top:0;transform:translateX(270px);transition:transform 0.5s ease 0s;width:270px;z-index:120}
+html.nav-visible header>nav>span{transform:translateX(0)}
+header>nav>span>ins{color:#fff;cursor:pointer;font-size:40px;font-weight:100;opacity:0.5;position:absolute;right:10px;text-decoration:none;top:0;transition:opacity 0.5s ease 0s}
+header>nav>span>ins::after{content:"×"}
+header>nav>span>ins:hover{opacity:1}
+header>nav>span a{color:#fff;display:block;opacity:0.5;padding:5px 0;transition:opacity 0.5s ease 0s}
+header>nav>span a:hover{opacity:0.8}
+header>nav>span a.active{opacity:1}
+header>nav>span>form[role="search"]{margin-top:1em;position:relative}
+main table.htable,main table.htable>tbody,main table.htable>tbody>tr{display:block}
+main table.htable>thead{display:none}
+main table.htable>tbody>tr{padding:0.5em 0}
+main table.htable>tbody>tr:first-of-type{padding-top:0}
+main table.htable>tbody>tr:last-of-type{padding-bottom:0}
+main table.htable>tbody>tr+tr{border-top:1px dotted #000}
+main table.htable>tbody+tbody>tr:first-child{border-top:1px dotted #000;margin-top:0.5em;padding-top:0.5em}
+main table.htable td{border-top:0;display:block;padding:0}
+main table.htable td::before{display:inline-block;font-weight:bold;margin-right:0.5em}
+main table.htable td+td{margin-top:0.5em}
+main .flex{display:initial}
+main .flex>*{margin:0;}}
+@media(min-width:768px){
+header>nav,header .sub-nav,main,body>nav>ul,footer>*{margin:0 auto;width:750px}
+header{border-bottom-width:25px;height:55px}
+header>nav{margin:0 auto;width:750px}
+header>nav>span{padding-right:150px;position:absolute;right:0;top:0}
+header>nav>span>a{color:#000;display:inline-block;font-size:15px;height:30px;line-height:30px;opacity:0.7;padding:0 10px;position:relative;transition:opacity 0.5s ease 0s}
+header>nav>span>a:hover,header>nav>span>a.active{opacity:1}
+header>nav>span>a:hover::after,header>nav>span>a.active::after{background-color:#000;bottom:4px;content:"";height:2px;left:10px;position:absolute;width:20px}
+header>nav>span>a.active::after{background-color:#f95959}
+header form[role="search"]{position:absolute;right:0;top:0}
+header form[role="search"] input{border-left:1px solid #999;height:30px;line-height:30px;padding-right:35px;width:150px}
+header form[role="search"] input:focus{width:500px}
+header form[role="search"] button{height:30px;width:30px}
+header>nav>span>span{display:none}
+header .sub-nav{display:block;overflow:hidden;position:absolute;right:0;top:30px;white-space:nowrap}
+header .sub-nav>a{color:#fff;display:inline-block;font-size:12px;height:25px;line-height:25px;opacity:0.7;padding:0 10px;transition:opacity 0.5s ease 0s}
+header .sub-nav>a:first-of-type{padding-left:0}
+header .sub-nav>a:hover,header .sub-nav>a.active{opacity:1}
+footer>section{display:flex}
+footer>section>div{flex-shrink:0;width:30%}
+footer>section>div:nth-of-type(2){margin:0 5%;}}
+@media(min-width:992px){
+header>nav,header .sub-nav,main,body>nav>ul,footer>*{width:970px}
+header>nav>span{padding-right:400px}
+header form[role="search"] input,header form[role="search"] input:focus{width:400px;}}
+@media(min-width:1200px){
+header>nav,header .sub-nav,main,body>nav>ul,footer>*{width:1170px}
+#gtt{background-color:rgba(0,0,0,0.5);border-radius:4px;bottom:20px;color:#fff;cursor:pointer;display:table;height:50px;left:610px;margin:0 50%;opacity:0;position:fixed;text-align:center;visibility:hidden;width:50px}
+#gtt::after{content:"∧";display:table-cell;vertical-align:middle;}}
+</style>
+<script>if((document.referrer.length>0)&&(document.images)&&(document.referrer.toLowerCase().indexOf('ip-adress.com')<0)){im=new Image(1,1);im.src="https://wh.ip-adress.com/r1,129?r="+escape(document.referrer);}</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-1917917-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script>
+var googletag=googletag||{};
+googletag.cmd=googletag.cmd||[];
+googletag.cmd.push(function(){
+googletag.defineSlot('/22152718/ip-adress_in-content_bottom_multisize_SNS',[[336,280],[310,260],[728,90],[300,250],[1,1],[728,200]],'div-gpt-ad-1474035201745-0').addService(googletag.pubads());
+googletag.defineSlot('/22152718/ip-adress_in-content_bottom_multisize',[[300,250],[728,90],[1,1]],'div-gpt-ad-1473697339559-0').addService(googletag.pubads());
+googletag.defineSlot('/22152718/ip-adress_ATF_multisize_SNS',[[728,90],[728,200],[1,1],[300,250],[970,250],[336,280],[310,260]],'div-gpt-ad-1474298973081-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.pubads().collapseEmptyDivs();
+googletag.enableServices();
+});
+</script>
+<style>
+.map{background-image:url(https://www.ip-adress.com/maps/1f33a9404f1aea541c7561508cbae67b8c74c6761c43554d.png);background-position:center center;background-size:cover;height:250px;margin-top:1em;width:100%}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){
+.map{background-image:url(https://www.ip-adress.com/maps/8823178f7c67c991a1f58e8b3aeb3b61b8d3ab58e028c582.png)}
+}
+@media(min-width:480px){
+.map{background-image:url(https://www.ip-adress.com/maps/34a8d5552d17cb5942a93dfe90555dc55dc77807078e223c.png);height:400px}
+}
+@media only screen and (min-width:768px),only screen and (-webkit-min-device-pixel-ratio:2) and (min-width:480px),only screen and (min--moz-device-pixel-ratio:2) and (min-width:480px),only screen and (-o-min-device-pixel-ratio:2/1) and (min-width:480px),only screen and (min-device-pixel-ratio:2) and (min-width:480px),only screen and (min-resolution:192dpi) and (min-width:480px),only screen and (min-resolution:2dppx) and (min-width:480px){
+.map{background-image:url(https://www.ip-adress.com/maps/41fb668897c04844fd980836fb8574e0cadf5d48da63ba95.png)}
+}
+@media(min-width:768px){
+.map{height:480px}
+}
+</style>
+</head>
+<body class="home">
+<header>
+<nav>
+<a href="https://www.ip-adress.com/" class="logo">ip-a<del>d</del>dress<span>.</span>com</a>
+<a href="https://www.ip-adress.com/sitemap" class="nav-toggle"><span></span></a>
+<span>
+<a href="https://www.ip-adress.com/" class="active">Home</a>
+<a href="https://www.ip-adress.com/what-is-my-ip-address">My IP</a>
+<a href="https://www.ip-adress.com/speedtest/">Speedtest</a>
+<a href="https://www.ip-adress.com/sitemap">Sitemap</a>
+<span class="sub-nav">
+<a href="https://www.ip-adress.com/proxy-checker">Proxy Checker</a>
+<a href="https://www.ip-adress.com/proxy-list">Proxy List</a>
+<a href="https://www.ip-adress.com/verify-email-address">Verify Email Address</a>
+<a href="https://www.ip-adress.com/trace-email-address">Trace Email Address</a>
+<a href="https://www.ip-adress.com/ip-to-zip-code">IP to Zip Code</a>
+<a href="https://www.ip-adress.com/ip-address-distance">IP Address Distance</a>
+</span>
+<span>
+<a href="https://ipaddress.ip-adress.com/">IP Tracer</a>
+<a href="https://www.ip-adress.com/reverse-ip-lookup">Reverse IP Lookup</a>
+<a href="https://whois.ip-adress.com/">WHOIS Lookup</a>
+<a href="https://www.ip-adress.com/about">About Us</a>
+<a href="https://www.ip-adress.com/advertising">Advertising</a>
+<a href="https://www.ip-adress.com/privacy-policy">Privacy Policy</a>
+<a href="https://www.ip-adress.com/service/ip-location-api">IP Location API</a>
+<a href="https://www.ip-adress.com/service/ip-location-database">IP Location Database</a>
+<a href="https://www.ip-adress.com/glossary/">Glossary</a>
+<a href="https://www.ip-adress.com/contact">Contact Us</a>
+<a href="https://www.ip-adress.com/legal-notice">Legal Notice</a>
+</span>
+<form action="https://www.ip-adress.com/search" method="post" role="search"><input name="q" type="text" maxlength="255" placeholder="Search Website, Domain, Host, or IP address" autocapitalize="off" autocorrect="off"><button type="submit">search</button></form>
+<ins></ins>
+</span>
+</nav>
+<img src="https://wh.ip-adress.com/c1,129" width="1" height="1">
+</header>
+<main>
+
+<h1>What Is My IP Address? Your IP address is: <strong>54.81.77.114</strong></h1>
+<p>Welcome to IP-Adress.com, where you can quickly and easily determine your IP address or find out more about a domain or hostname.<br />Your IP address location is <em>Ashburn, Virginia, United States of America</em> and the ISP of your IP address is <em>Amazon.com</em>. Find out more about your IP address on the <a href="https://www.ip-adress.com/what-is-my-ip-address">My IP</a> page...</p>
+
+<aside class="ad top mobile">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- IP-Adress.com Frontpage -->
+<ins class="adsbygoogle"
+data-ad-client="ca-pub-1452210452390883"
+data-ad-slot="5609553179"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</aside>
+<aside class="ad top desktop">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- IP-Adress.com Frontpage -->
+<ins class="adsbygoogle"
+data-ad-client="ca-pub-1452210452390883"
+data-ad-slot="5609553179"
+data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside>
+
+<div class="map"></div>
+
+<p>An IP address (Internet Protocol address) is a logical address of a network adapter, and each and every network device has one. An IP address is a unique series of numbers that identifies computers on a network, so an IP address can easily be used to determine the location of a device or origin of an internet message.</p>
+<p>On IP-Adress.com you can find out what your own IP address is or use our <a href="https://www.ip-adress.com/search">search tool</a> to discover the information of another IP address, website, domain, or host. But that’s not all, we have more tools you can put to work!</p>
+<p>You can check any proxy with our <a href="https://www.ip-adress.com/proxy-checker">proxy checker</a> or view fresh working proxies on our <a href="https://www.ip-adress.com/proxy-list">proxy list</a>. Or use our email tools that are the best you can find anywhere. <a href="https://www.ip-adress.com/trace-email-address">Trace an email address</a> or <a href="https://www.ip-adress.com/verify-email-address">verify an email address</a> and even run a <a href="https://www.ip-adress.com/speedtest/">Internet speed tes</a>t to determine your bandwidth speed.</p>
+
+<h2>What is my IP Address? You’re at the right place to find out!</h2>
+<p>We have so much to offer. If you ever find yourself wondering what your IP Address is, then think of it like this, your IP Address is your personal phone number to the Internet.</p>
+<p>Your IP is the network protocol in the background that helps you communicate online using websites, sending email, chatting on Facebook, and everything else requiring an Internet connection. An IP Address is required to connect to the Internet, and IP-Adress.com gives you the tools that can help you.</p>
+
+<h2>What Will You Explore Next?</h2>
+<p>Simply enter a domain, IP Address, or host below to get accurate and reliable results.</p>
+<form action="https://www.ip-adress.com/search" method="post" role="search"><span><input name="q" type="text" maxlength="255" placeholder="Website, Domain, or IP address"><button type="submit">search</button></span></form>
+
+<aside class="share">
+<div class="fb-like" data-href="https://www.ip-adress.com/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.ip-adress.com/" data-size="large">Tweet</a>
+<div class="g-plus" data-action="share" data-height="24" data-href="https://www.ip-adress.com/"></div>
+<div class="g-plusone" data-href="https://www.ip-adress.com/"></div>
+</aside>
+<aside class="ad link no-label">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- IP-Adress.com Linkblock -->
+<ins class="adsbygoogle"
+data-ad-client="ca-pub-1452210452390883"
+data-ad-slot="7101034247"
+data-ad-format="link"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</aside>
+</main>
+<footer>
+<section>
+<div>
+<h2>Quick Links</h2>
+<a href="https://www.ip-adress.com/what-is-my-ip-address">What is My IP?</a>
+<a href="https://www.ip-adress.com/about">About Us</a>
+<a href="https://www.ip-adress.com/advertising">Advertising</a>
+<a href="https://www.ip-adress.com/privacy-policy">Privacy Policy</a>
+<a href="https://www.ip-adress.com/glossary/">Glossary</a>
+<a href="https://www.ip-adress.com/sitemap">Sitemap</a>
+<a href="https://www.ip-adress.com/contact">Contact Us</a>
+<a href="https://www.ip-adress.com/legal-notice">Legal Notice</a>
+</div>
+<div>
+<h2>Recent Queries</h2>
+<a href="http://thuthuatwp.com.ip-adress.com/">thuthuatwp.com</a>
+<a href="http://pkfinance.info.ip-adress.com/">pkfinance.info</a>
+<a href="http://alphabooks.vn.ip-adress.com/">alphabooks.vn</a>
+<a href="http://musicbox-records.com.ip-adress.com/">musicbox-records.com</a>
+<a href="http://fresnel.fr.ip-adress.com/">fresnel.fr</a>
+<a href="http://203.207.55.10.ip-adress.com/">203.207.55.10</a>
+<a href="http://23.236.62.147.ip-adress.com/">23.236.62.147</a>
+<a href="http://100.117.89.134.ip-adress.com/">100.117.89.134</a>
+<a href="http://192.168.0.94.ip-adress.com/">192.168.0.94</a>
+</div>
+<div>
+<h2>IP-adress.com Fanpage</h2>
+<div class="fb-page" data-href="https://www.facebook.com/whoisip" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/whoisip" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/whoisip">IP-Adress.com</a></blockquote></div>
+</div>
+</section>
+<div>&copy; 2004-2018 <a href="https://www.ip-adress.com/">ip-adress.com</a>. All Rights Reserved.</div>
+</footer>
+<span id="gtt" title="back to top"></span>
+<script>!function(){"use strict";function e(e){!e&&n||t.classList.remove("nav-visible"),n=!1}var t=document.getElementsByTagName("html")[0],n=!1;document.querySelector("header .nav-toggle").addEventListener("click",function(e){t.classList.toggle("nav-visible"),e.stopPropagation(),e.preventDefault()}),document.querySelector("header>nav>span").addEventListener("click",function(e){n=!0}),document.querySelector("header>nav>span").addEventListener("touchstart",function(e){n=!0}),document.querySelector("header>nav>span>ins").addEventListener("click",function(t){e(!0)}),document.body.addEventListener("click",function(t){e(!1)}),document.body.addEventListener("touchstart",function(t){e(!1)}),window.addEventListener("scroll",function(){var e=0;"number"==typeof window.pageYOffset?e=window.pageYOffset:document.body&&document.body.scrollTop?e=document.body.scrollTop:document.documentElement&&document.documentElement.scrollTop&&(e=document.documentElement.scrollTop);var t=document.getElementById("gtt");t.style.opacity=Math.min(1,Math.max(0,e-100)/200),t.style.visibility=e?"visible":"hidden"}),document.getElementById("gtt").addEventListener("click",function(){window.scrollTo(0,0)})}();</script>
+<div id="fb-root"></div>
+<script>(function(d,s,id){
+var js,fjs=d.getElementsByTagName(s)[0];
+if(d.getElementById(id))return;
+js=d.createElement(s);js.id=id;
+js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+fjs.parentNode.insertBefore(js,fjs);
+}(document,'script','facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+</html>

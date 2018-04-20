@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://www.republik.ch/">https://www.republik.ch/</a></p>

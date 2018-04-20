@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns#"><head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCLS42');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<title>静岡情報のTNC｜TOKAIネットワーククラブ</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--<meta name="viewport" content="width=1200">-->
+<meta name="keywords" content="TNC,TOKAI,トーカイ,静岡,プロバイダ,ポータル,ブロードバンド,ADSL,フレッツ,光ファイバー">
+<meta name="description" content="静岡県の観光、おでかけ、グルメ情報満載のインターネットプロバイダのTOKAIネットワーククラブがお届けする地域ポータルサイト。静岡・愛知の観光スポットや浜松、伊豆、焼津など地域密着ネタやクーポンなど。">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+<meta property="og:type" content="">
+<meta property="og:site_name" content="">
+<meta property="og:site_url" content="">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/page.css"> 
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+    
+<!--<script type="text/javascript" src="assets/js/plugin/tnc_top_2012.js"></script>
+<script type="text/javascript" src="assets/js/plugin/search_2012.js"></script>
+<script type="text/javascript" src="assets/js/plugin/swfobject_2012.js"></script>
+<script type="text/javascript" src="assets/js/plugin/setstartpage/setstartpage_2014.js"></script>
+<script type="text/javascript" src="assets/js/plugin/rss_docwrite.js"></script>-->
+    
+<!--<script src="assets/js/lib/jquery.min.js"></script>-->
+<script>
+window.jQuery || document.write('<script src="http://www.tnc.ne.jp/shared/js/jquery.js"><\/script>')
+</script>
+<script src="assets/js/common.js"></script>
+    
+<script>
+
+function truncate( str , len ){
+	var txt = str;
+	var suffix = '…';
+	var b = 0;
+	for(var i = 3; i < txt.length; i++) {
+		b += txt.charCodeAt(i) <= 255 ? 0.5 : 1;
+		if (b > len) {
+			txt = txt.substr(0, i) + suffix;
+			break;
+		}
+	}
+	return txt;
+}
+    /*
+    	for(var i = 10; i < txt.length; i++) {
+             　　　　↑ここの数字を変えるとテキストの数がかわります
+    
+    */
+
+function replaceAll(expression, org, dest){  
+    return expression.split(org).join(dest);  
+}
+
+function showContents(data) {
+		
+	var maxStrLen = 25;
+	var maxStrLen4pic = 10;
+	var maxItems        = 10;
+	var mainTopics = data.topTopics;
+	
+	var target = "";
+	var tag    = "";
+	var tmplateImage  = '<dt><span><a href="===URL==="><img width="100" src="===IMGSRC===" alt="" class="===IMGCLS==="></a></span></dt><dd><a href="===URL===">===IMGTITLE===</a></dd>';
+	var tmplateImage4p = '<dt><span><a href="===URL==="><img src="===IMGSRC===" alt="" class="===IMGCLS==="></a></span></dt><dd><a href="===URL===">===IMGTITLE===</a></dd>';
+	
+	var tmplateImage2 = '<dl class="===DLCLS==="><dt><span><a href="===URL==="><img src="===IMGSRC===" alt=""></a></span></dt><dd><a href="===URL===">===IMGTITLE===</a></dd></dl>';
+	var tmplateImage3 = '<dl class="===DLCLS==="><dt><span><a href="===URL==="><img src="===IMGSRC===" width="100" alt=""></a></span></dt><dd><a href="===URL===">===IMGTITLE===</a></dd></dl>';
+	var templateKiji1 = '<li><a href="===URL===">===TITLE===</a></li>';
+	var templateKiji2 = '<dd><a href="===URL===">===TITLE===</a></dd>';
+	
+	var tmplateImage4entame = '<dt><a href="===URL==="><span class="entame-photo" style="background-image: url(' + "'" + '===IMGSRC===' + "'" + ')"></span></a></dt><dd><a href="===URL===">===IMGTITLE===</a></dd>';
+	var tmplateImage4entame2 = '<dl class="===DLCLS==="><dt><a href="===URL==="><span class="entame-photo" style="background-image: url(' + "'" + '===IMGSRC===' + "'" + ')"></span></a></dt><dd><a href="===URL===">===IMGTITLE===</a></dd></dl>';
+	
+	// トップトピックス(画像)
+	if( data.photo ) {
+		if( data.photo.length >= 1 ) {
+			// photo-01
+			d = data.photo[0];
+			target = "#phoArea01DL-1";
+			d.title = truncate( d.title , maxStrLen4pic );
+			tag = tmplateImage4p;
+			cls = "";
+			tag = replaceAll( tag , "===URL==="    , d.url );
+			tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+			tag = replaceAll( tag , "===IMGCLS===" , cls );
+			tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+			$(target).append(tag);
+		}
+	}
+	
+	if( data.entame ) {
+		if( data.entame.length >= 1 ) {
+			// photo-02
+			d = data.entame[0];
+			target = "#phoArea02DL-1";
+			d.title = truncate( d.title , maxStrLen4pic );
+			//tag = tmplateImage;
+			tag = tmplateImage4entame;
+			cls = "entaphoto";
+			tag = replaceAll( tag , "===URL==="    , d.url );
+			tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+			tag = replaceAll( tag , "===IMGCLS===" , cls );
+			tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+			$(target).append(tag);
+		}
+		if( data.entame.length >= 2 ) {
+			// photo-02
+			d = data.entame[1];
+			target = "#phoArea02DL-2";
+			d.title = truncate( d.title , maxStrLen4pic );
+			//tag = tmplateImage;
+			tag = tmplateImage4entame;
+			cls = "entaphoto";
+			tag = replaceAll( tag , "===URL==="    , d.url );
+			tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+			tag = replaceAll( tag , "===IMGCLS===" , cls );
+			tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+			$(target).append(tag);
+		} 
+		if( data.entame.length >= 3 ) {
+			// photo-02
+			d = data.entame[2];
+			target = "#phoArea02DL-3";
+			d.title = truncate( d.title , maxStrLen4pic );
+			//tag = tmplateImage;
+			tag = tmplateImage4entame;
+			cls = "entaphoto";
+			tag = replaceAll( tag , "===URL==="    , d.url );
+			tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+			tag = replaceAll( tag , "===IMGCLS===" , cls );
+			tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+			$(target).append(tag);
+		} 
+	}
+	
+	// トップトピックス
+	for( var i in mainTopics ) {
+		if( i >= 6 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji1;
+		tag = replaceAll( tag , "===URL==="    , d.url );
+		tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#kijiListUL-1").append(tag);
+	}
+	
+	// 静岡ニュース
+	mainTopics = data.shizuoka;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji1; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#kijiListShizuoka-DL").append(tag);
+	}
+	
+	// 静岡ジモティーズ
+	mainTopics = data.s_jimoties;
+	for( var i in mainTopics ) {
+		if( i >= 1 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji1; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#kijiListShizuoka-DL").append(tag);
+	}
+	
+	// 社会
+	mainTopics = data.social;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji1; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#socialAreaUL").append(tag);
+	}
+	
+	// スポーツ
+	mainTopics = data.sports;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji1; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#sportsAreaUL").append(tag);
+	}
+	
+	// 写真
+	mainTopics = data.photo;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d = mainTopics[i];
+		target = "#pictureArea";
+		d.title = truncate( d.title , maxStrLen4pic );
+		tag = tmplateImage2;
+		cls = "";
+		if( i == 7 ) cls = "last";
+		tag = replaceAll( tag , "===URL==="    , d.url );
+		tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+		tag = replaceAll( tag , "===DLCLS===" , cls );
+		tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+		$(target).append(tag);
+	}
+	
+	// 芸能
+	mainTopics = data.entame;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d = mainTopics[i];
+		target = "#entameArea";
+		d.title = truncate( d.title , maxStrLen4pic );
+		//tag = tmplateImage2;
+		tag = tmplateImage4entame2;
+		cls = "";
+		if( i == 7 ) cls = "last";
+		tag = replaceAll( tag , "===URL==="    , d.url );
+		tag = replaceAll( tag , "===IMGSRC===" , d.thumbnail2 );
+		tag = replaceAll( tag , "===DLCLS===" , cls );
+		tag = replaceAll( tag , "===IMGTITLE==="  , d.title );
+		$(target).append(tag);
+	}
+	
+	// 政治
+	mainTopics = data.politics;
+	for( var i in mainTopics ) {
+		if( i >= 3 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji2; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#seijiArea").append(tag);
+	}
+	
+	// 経済
+	mainTopics = data.economy;
+	for( var i in mainTopics ) {
+		if( i >= 8 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji2; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#keizaiArea").append(tag);
+	}
+	
+	// 国際
+	mainTopics = data.international;
+	for( var i in mainTopics ) {
+		if( i >= 3 ) break;
+		d   = mainTopics[i];
+		d.title = truncate( d.title , maxStrLen );
+		tag = templateKiji2; tag = replaceAll( tag , "===URL===" , d.url );tag = replaceAll( tag , "===TITLE==="  , d.title );
+		$("#kokusaiArea").append(tag);
+	}
+	
+}
+
+
+$(document).ready(function () {
+	$.ajax({
+		url : 'http://news.tnc.ne.jp/assets/parts/news_topics4tnc.json?callback=?',
+			dataType : 'jsonp',
+			jsonpCallback: "newsCb",
+			success : function(data)
+		{
+			showContents(data);
+		},
+		error : function(data)
+		{
+		},
+		complete : function(data)
+		{
+		}
+	});
+});
+</script>
+    
+    
+<!--■占い（ここから）-->
+<script type="text/javascript">
+$.ajax({
+	url: 'http://www.tnc.ne.jp/fortune/sidepart.php',
+	dataType: 'script',
+	cache: true
+}).done(function (data, textStatus, jqXHR) {
+	//console.log( '$.ajax:' + textStatus );
+}).fail(function (jqXHR, textStatus, errorThrown) {
+	console.log( '$.ajax:' + jqXHR.statusText );
+});
+</script>
+<!--占い（ここまで）-->
+    
+<!-- DFP Start -->
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/5015593/ToppageFooterBottom728x90', [728, 90], 'div-gpt-ad-1360730381033-0').addService(googletag.pubads());
+googletag.defineSlot('/5015593/ToppageHeaderTop160x50', [160, 50], 'div-gpt-ad-1360730381033-1').addService(googletag.pubads());
+googletag.defineSlot('/5015593/ToppageRightTop300x250', [300, 250], 'div-gpt-ad-1360730381033-2').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<!-- DFP End -->  
+
+<!-- Info Start -->
+<script src="assets/js/plugin/jquery.zrssfeed.info.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#infoRssFeed').inforssfeed('http://cs.tnc.ne.jp/info/?feed=rss2&'+Math.floor((new Date()).getTime()/900000),
+	{
+		important: '<img src="http://cs.tnc.ne.jp/info/wp-content/themes/tnc/images/important.gif" alt="重要" width="26" height="13" /> ',
+		limit: 8,
+		header: false,
+		bodystart: '',
+		bodyend: '',
+		linestart: '<li>',
+		lineend: '</li>',
+		date: false,
+		titlestart: '',
+		titleend: '',
+		content: false,
+		category:'topPage'
+	});
+});
+</script>
+<!-- Info End -->    
+    
+<!-- Present Start -->
+<script src="assets/js/plugin/jquery.zrssfeed.present_2012.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  var d = new Date();
+  var dq = d.getMonth() + "" + d.getDate() + "" + d.getHours();
+$('#rssfeed').rssfeed('https://cs.tnc.ne.jp/present/wp/?feed=rss2&' + dq, {
+    ssl: true,
+    limit: 10,
+    header: false,
+    date: false,
+    beforetag: '<li>',
+    aftertag: '</li>',
+    linkattr: 'class="linkNB"',
+    content: false
+  });
+});
+</script>
+<!-- Present End -->
+
+    
+</head>
+
+<body id="top">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCLS42"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- =================================================== -->
+    
+    <header class="head">
+        <div class="head-sp">
+            <div  class="head-start">
+                <div class="head__inner">
+                    <p><a href="setstartpage/">このページをスタートページに設定する</a></p>
+                </div>
+            </div>
+            
+            <div class="head-main">
+                <section class="head__inner">
+                    <h1 class="head-logo"><a href="http://www.tnc.ne.jp/"><img src="assets/img/head_logo.png" alt="TNC"></a></h1>
+
+                    <div class="head-search">
+                        <ul class="search">
+                            <li class="search__item active">ウェブ</li>
+                            <li class="search__item"><a href="/sitemap/">TNC内</a></li>
+                        </ul>
+                        <div class="searchArea">
+                            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+                            <!--form method="get" action="http://www.google.co.jp/search"-->
+                                <div>
+                                    <input type="hidden" name="cx" value="partner-pub-4904783287628756:5483649925" />
+                                    <input type="hidden" name="ie" value="UTF-8" />
+                                    <input type="text" name="q" size="55" class="searchTxt" />
+                                    <input type="image" src="assets/img/search_btn.png" class="search-btn" value="検索">
+                                </div>
+                            </form>
+                            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+                        </div>
+                    </div>
+                    <!-- 2018.03.08 <div class="head-tel"><img src="assets/img/head_tel.png" alt="入会相談 0120-696927"></div> -->
+                    <div class="head-new-btn"><p><a href="http://www.tnc.ne.jp/welcome/"><span>新規<br>お申し込み</span></a></p></div>
+                </section>
+
+            <div class="head-site-nav sp-view">
+                 <div class="humberger">
+                     <a href="javascript:void(0)" class="menu-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                 </div>
+
+                <div class="head__inner">
+                    <div class="site-tab small">
+                        <div class="site-tab__item tab-01"><p>キャンペーン・割引</p>
+                            <div class="tab tab--camp">
+                                <div class="tab__inner">
+                                    <div class="tab-icon">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_camp.png" alt=""></p>
+                                        <p class="tab-icon--txt">キャンペーン・割引</p>
+                                    </div>
+
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">キャンペーン</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/camp/iten/">お引越しキャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/shokai/">お友達ご紹介キャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/camp/ispnorikae/">プロバイダをTNCに乗り換えよう</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/arisan.html">アリさんでらくらくお引越しキャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/kuroneko.html">クロネコであんしんお引越しキャンペーン</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">割引</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/libmo/">SIM×光セット割</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hikari/">安心TO快適スタート割</a></li>                                                    
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/">TOKAI SAFE 最大6ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rescue/">TNC ネットPC レスキュー隊 最大2ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tos/">TNC オンラインセキュリティ 最大2ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/pocket/">TNC ポケット 最大3ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/sokuwari15/">年契約割引「ソク割15」</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/syogai/">障がい者割引制度</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">プレゼント</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="https://cs.tnc.ne.jp/present/">プレゼント一覧</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="site-tab__item tab-02"><p>接続サービス</p>
+                            <div class="tab">
+                                <div class="tab__inner">
+                                    <a class="tab-icon" href="http://www.tnc.ne.jp/welcome/">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_conect.png" alt=""></p>
+                                        <p class="tab-icon--txt">接続サービス</p>
+                                    </a>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">光インターネット</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tnchikari/">TNCヒカリ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/hikari/">フレッツ光対応サービス</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cable/">TNCケーブルヒカリ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/dreamwave/">TNCヒカリdeネット対応サービス</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/commufa/">コミュファ光対応サービス</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/docomohikari/">ドコモ光</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/sbhikari/">TNC ver Softbank光</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">高速モバイル</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/libmo/" target="_blank">LIBMO（リブモ）</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">ADSL</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/adsl/">ADSLパワーライン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/adsl/">フレッツ・ADSL</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="site-tab__item tab-03"><p>オプションサービス</p>
+                            <div class="tab">
+                                <div class="tab__inner">
+                                    <a class="tab-icon" href="http://www.tnc.ne.jp/option/">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_option.png" alt=""></p>
+                                        <p class="tab-icon--txt">オプションサービス</p>
+                                    </a>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/mail/">メール</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/address_addition/">メールアドレス追加</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/mailbox/">メールスペック変更</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/webmail/">WebMail（ウェブメール）</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/transmission/">メール転送</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/filter/">メールフィルタリング</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/spam/">かんたん迷惑メール対策</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/viruscheck/">メールウィルスチェック</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/virusguard/">メールウィルスガード</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/security/">セキュリティ</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/">TOKAISAFE</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tos/">TNCオンラインセキュリティ</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">IP電話・固定IPアドレス</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/ttphone/">TT-PHONE</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/staticip/">固定IPサービス</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">ホームページ関連</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cocolog/">ココログ with TNC</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/form/hp_kojin.html">個人向けホームページ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hvc/">ホームページウィルスチェック</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hfs/">ホームページフィルタ</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/mail/">その他のサービス</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/pocket/">TNCポケット</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rescue/">ネットPCレスキュー隊</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="site-tab__item tab-04"><p>会員サポート</p>
+                            <div class="tab">
+                                <div class="tab__inner">
+                                    <a class="tab-icon" href="http://www.tnc.ne.jp/support/">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_member.png" alt=""></p>
+                                        <p class="tab-icon--txt">会員サポート</p>
+                                    </a>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/form/">各種手続き・確認</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm">ご契約内容を確認する・各種お手続き</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html">利用料金を確認する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/plan/">プランを変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/">お引越しの手続き</a></li>
+                                                     <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/saihakkou.html">ID・パスワードを忘れた</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html">支払い方法を変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/address_change/">メールアドレスを変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/form/pw.html">パスワードを変更する</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/stop/">トラブル・メンテナンス情報</a></p></li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">設定マニュアル</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/settei/mail/">メールの設定とトラブル</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/hikari/hf_06.html">フレッツ光の設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/commufa/hc_05.html">コミュファ光の設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rakuraku/ap/index.html">アクセスポイント/モバイル接続</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/wlan/">無線LANの設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/help.html">TOKAI SAFEインストール/設定マニュアル</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/ipv6/">IPv6接続対応</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/4g/4g_03.html">モバイル4Gの設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/adsl/support/guide/modem.html">ADSLモデム情報</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://qa.tnc.ne.jp/">よくあるご質問（Q&amp;A）</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/448">接続サービスについて</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/686">メールについて</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/697">セキュリティについて</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/420">料金・各種手続きについて</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/444">接続設定等について</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/428">オプション・コンテンツについて</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/yakkan/">約款・規約</a></p></li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/support/contact/">お問い合わせ</a></p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="site-tab__item tab-05"><p>コンテンツ</p>
+                            <div class="tab">
+                                <div class="tab__inner">
+                                <div class="tab-icon">
+                                    <a href="http://www.tnc.ne.jp/enjoy/">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_content.png" alt=""></p>
+                                        <p class="tab-icon--txt">コンテンツ</p>
+                                    </a>
+                                    <ul class="tab-sub__icon">
+                                        <li class="tab-sub__icon__item"><a href="http://link.tnc.ne.jp/">
+                                                <p class="icon"><img src="assets/img/icon_teibansite.jpg" alt=""></p>
+                                                <p class="text">定番サイト</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://local.tnc.ne.jp/movies/">
+                                                <p class="icon"><img src="assets/img/icon_movie.jpg" alt=""></p>
+                                                <p class="text">映画</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://local.tnc.ne.jp/events/">
+                                                <p class="icon"><img src="assets/img/icon_event.jpg" alt=""></p>
+                                                <p class="text">イベント</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://cs.tnc.ne.jp/gourmet/">
+                                                <p class="icon"><img src="assets/img/icon_gourmet.jpg" alt=""></p>
+                                                <p class="text">グルメ</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://rabico.cocolog-tnc.com/gmt/">
+                                                <p class="icon"><img src="assets/img/icon_jimoto.jpg" alt=""></p>
+                                                <p class="text">ジモティーズ</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://coupons.tnc.ne.jp/">
+                                                <p class="icon"><img src="assets/img/icon_coupon.jpg" alt=""></p>
+                                                <p class="text">クーポン</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="https://cs.tnc.ne.jp/present/">
+                                                <p class="icon"><img src="assets/img/icon_present.jpg" alt=""></p>
+                                                <p class="text">プレゼント</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://www.tnc.ne.jp/fortune/">
+                                                <p class="icon"><img src="assets/img/icon_fortune.jpg" alt=""></p>
+                                                <p class="text">星座占い</p>
+                                            </a></li>
+                                    </ul>
+                                </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">買う</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="https://books.rakuten.co.jp/tnc/">[本・DVD・ゲーム]TNC楽天ブックス</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">知る</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/">[TNCおすすめ]定番サイト一覧</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/zenrin/">[住宅地図]ゼンリン住宅地図サービス</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">楽しむ</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="https://www.showtime.jp/isp/tnc/">[映像]showtime@TNC(ショウタイム)</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/fortune/">[今日の運勢]12星座占い</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://wwwa.pandanet.co.jp/a/tnc/">[ネット対局囲碁]パンダネット</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/special/index.php">[グルメ・観光・おでかけ]静岡地域特集</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/special/tocochan/index.html">[静岡のおでかけスポット]おとなの遠足</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://rabico.cocolog-tnc.com/gmt/">[静岡地元ネタブログ]静岡ジモティーズ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/oasobi/">[モノづくり&amp;オモチャ]おアソビ探偵団</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">暮らす</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://coupons.tnc.ne.jp/">[おでかけ情報&amp;クーポン検索]TNCクーポン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://local.tnc.ne.jp/movies/">[どこ行く？]映画</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://local.tnc.ne.jp/events/">[どこ行く？]イベント</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://cs.tnc.ne.jp/gourmet/">[どこ行く？]グルメpowerd by ぐるなび</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://recipe.tnc.ne.jp/">[レシピ]しずおかキッチン</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">集まる</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cocolog/">[ブログ]ココログ with TNC</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/memberspage/">[会員ホームページ]らび☆コレ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://vote.tnc.ne.jp/">[みんな集まれ！]TNC投票</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="https://cs.tnc.ne.jp/present/">プレゼント</a></p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://link.tnc.ne.jp/">定番サイト</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C001">ポータル・検索</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C002">ニュース・新聞</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C015">政治・社会</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C003">テレビ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C004">PC・ネット</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C005">スポーツ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C006">交通・旅行</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C007">ショッピング</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C008">エンタメ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C010">生活・実用</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C011">グルメ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C012">健康・美容</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        
+        <div class="head-else-nav">
+            <div class="head-search">
+                <ul class="search">
+                    <li class="search__item active">ウェブ</li>
+                    <li class="search__item"><a href="/sitemap/">TNC内</a></li>
+                </ul>
+                <div class="searchArea">
+                    <form action="http://www.google.co.jp/cse" id="cse-search-box-sp" target="_blank">
+                    <!--form method="get" action="http://www.google.co.jp/search"-->
+                        <div>
+                            <input type="hidden" name="cx" value="partner-pub-4904783287628756:5483649925" />
+                            <input type="hidden" name="ie" value="UTF-8" />
+                            <input type="text" name="q" size="55" class="searchTxt" />
+                            <input type="image" src="assets/img/search_btn.png" class="search-btn" value="検索">
+                        </div>
+                    </form>
+                    <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+                </div>
+            </div>
+            
+            <div class="head-else-nav-list pc-view">
+                <ul class="head-else-nav-list__inner">
+                    <li class="head-else-nav-list__item"><a href="http://link.tnc.ne.jp/shizuoka/index.html">静岡</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://www.yahoo.co.jp/" target="_blank">Yahoo!</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://www.google.co.jp/" target="_blank">Google</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://www.rakuten.co.jp/?scid=af_pc_etc&sc2id=af_115_0_10000418" target="_blank">楽天市場</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://www.amazon.co.jp/" target="_blank">Amazon</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
+                    <li class="head-else-nav-list__item"><a href="http://www.nicovideo.jp/video_top" target="_blank">ニコニコ動画</a></li>
+                    <li class="head-else-nav-list__item"><a href="http://kakaku.com/" target="_blank">価格.com</a></li>
+                    <li class="head-else-nav-list__item"><a href="https://cookpad.com/" target="_blank">クックパッド</a></li>
+                </ul>
+            </div>
+            
+            <section class="side-box side-box--login sp-view">
+                <h2 class="side-tit"><span class="side-tit--txt">ログイン</span></h2>
+                <div class="side-box__inner">
+                    <ul class="login-item">
+                        <li class="login-item__item"><a href="https://webmail.tnc.ne.jp/" class="webmail">Webメール</a></li>
+                        <li class="login-item__item"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm" class="check">契約内容の確認</a></li>
+                        <li class="login-item__item"><a href="http://www.tnc.ne.jp/cocolog/" class="kokolog">ココログ</a></li>
+                        <li class="login-item__item"><a href="https://pocket.tnc.ne.jp/login.html" class="pocket">ポケット</a></li>
+                    </ul>                
+                </div>
+            </section>
+            
+            
+        </div>
+        
+        <!-- ▼緊急時のお知らせ（ここから） <div class="head-emergency">
+            <div class="head__inner">
+                <p>【緊急】yyyy/mm/dd　　お知らせお知らせお知らせお知らせお知らせお知らせお知らせお知らせお知らせ</p>
+            </div>            
+        </div> ▲緊急時のお知らせ（ここまで） -->
+        
+        <div class="head-site-nav pc-view">
+            
+            <div class="head__inner">
+                <div class="site-tab big">
+                    <div class="site-tab__item tab-01"><p><span class="tab-icon"><img src="assets/img/head-tab-icon_camp.png" alt=""></span><span class="tab-text">キャンペーン・割引</span></p>
+                        <div class="tab tab--camp">
+                            <div class="tab__inner">
+                                <div class="tab-icon">
+                                    <p class="tab-icon--img"><img src="assets/img/head-tab-icon_camp.png" alt=""></p>
+                                    <p class="tab-icon--txt">キャンペーン・割引</p>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">キャンペーン</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/camp/iten/">お引越しキャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/shokai/">お友達ご紹介キャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/camp/ispnorikae/">プロバイダをTNCに乗り換えよう</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/arisan.html">アリさんでらくらくお引越しキャンペーン</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/kuroneko.html">クロネコであんしんお引越しキャンペーン</a></li>
+                                                </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">割引</p>
+                                            <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/libmo/">SIM×光セット割</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hikari/">安心TO快適スタート割</a></li>                                                    
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/">TOKAI SAFE 最大6ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rescue/">TNC ネットPC レスキュー隊 最大2ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tos/">TNC オンラインセキュリティ 最大2ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/pocket/">TNC ポケット 最大3ヶ月0円</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/sokuwari15/">年契約割引「ソク割15」</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/syogai/">障がい者割引制度</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">プレゼント</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="https://cs.tnc.ne.jp/present/">プレゼント一覧</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="site-tab__item tab-02"><p><span class="tab-icon"><img src="assets/img/head-tab-icon_conect.png" alt=""></span><span class="tab-text">接続サービス</span></p>
+                        <div class="tab">
+                            <div class="tab__inner">
+                                <a class="tab-icon" href="http://www.tnc.ne.jp/welcome/">
+                                    <p class="tab-icon--img"><img src="assets/img/head-tab-icon_conect.png" alt=""></p>
+                                    <p class="tab-icon--txt">接続サービス</p>
+                                </a>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">光インターネット</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tnchikari/">TNCヒカリ</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/hikari/">フレッツ光対応サービス</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cable/">TNCケーブルヒカリ</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/dreamwave/">TNCヒカリdeネット対応サービス</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/commufa/">コミュファ光対応サービス</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/docomohikari/">ドコモ光</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/sbhikari/">TNC ver Softbank光</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">高速モバイル</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/libmo/" target="_blank">LIBMO（リブモ）</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">ADSL</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/adsl/">ADSLパワーライン</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/adsl/">フレッツ・ADSL</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="site-tab__item tab-03"><p><span class="tab-icon"><img src="assets/img/head-tab-icon_option.png" alt=""></span><span class="tab-text">オプションサービス</span></p>
+                        <div class="tab">
+                            <div class="tab__inner">
+                                <a class="tab-icon" href="http://www.tnc.ne.jp/option/">
+                                    <p class="tab-icon--img"><img src="assets/img/head-tab-icon_option.png" alt=""></p>
+                                    <p class="tab-icon--txt">オプションサービス</p>
+                                </a>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/mail/">メール</a></p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/address_addition/">メールアドレス追加</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/mailbox/">メールスペック変更</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/webmail/">WebMail（ウェブメール）</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/transmission/">メール転送</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/filter/">メールフィルタリング</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/spam/">かんたん迷惑メール対策</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/viruscheck/">メールウィルスチェック</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/virusguard/">メールウィルスガード</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/security/">セキュリティ</a></p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/">TOKAISAFE</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tos/">TNCオンラインセキュリティ</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">IP電話・固定IPアドレス</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/ttphone/">TT-PHONE</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/staticip/">固定IPサービス</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit">ホームページ関連</p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cocolog/">ココログ with TNC</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/form/hp_kojin.html">個人向けホームページ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hvc/">ホームページウィルスチェック</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/hfs/">ホームページフィルタ</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/mail/">その他のサービス</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/pocket/">TNCポケット</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rescue/">ネットPCレスキュー隊</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="site-tab__item tab-04"><p><span class="tab-icon"><img src="assets/img/head-tab-icon_member.png" alt=""></span><span class="tab-text">会員サポート</span></p>
+                        <div class="tab">
+                            <div class="tab__inner">
+                                <a class="tab-icon" href="http://www.tnc.ne.jp/support/">
+                                    <p class="tab-icon--img"><img src="assets/img/head-tab-icon_member.png" alt=""></p>
+                                    <p class="tab-icon--txt">会員サポート</p>
+                                </a>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/form/">各種手続き・確認</a></p>
+                                            <ul class="tab-cont__child">
+                                                     <li class="tab-cont__child__item"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm">ご契約内容を確認する・各種お手続き</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html">利用料金を確認する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/plan/">プランを変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/move/">お引越しの手続き</a></li>
+                                                     <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/saihakkou.html">ID・パスワードを忘れた</a></li>
+                                                    <li class="tab-cont__child__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html">支払い方法を変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/mail/address_change/">メールアドレスを変更する</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/form/pw.html">パスワードを変更する</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/stop/">トラブル・メンテナンス情報</a></p></li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">設定マニュアル</p>
+                                            <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/settei/mail/">メールの設定とトラブル</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/flets/hikari/hf_06.html">フレッツ光の設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/commufa/hc_05.html">コミュファ光の設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/rakuraku/ap/index.html">アクセスポイント/モバイル接続</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/wlan/">無線LANの設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/tokaisafe/help.html">TOKAI SAFEインストール/設定マニュアル</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/support/ipv6/">IPv6接続対応</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/4g/4g_03.html">モバイル4Gの設定</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/adsl/support/guide/modem.html">ADSLモデム情報</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://qa.tnc.ne.jp/">よくあるご質問（Q&amp;A）</a></p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/448">接続サービスについて</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/686">メールについて</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/697">セキュリティについて</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/420">料金・各種手続きについて</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/444">接続設定等について</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://qa.tnc.ne.jp/category/show/428">オプション・コンテンツについて</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/yakkan/">約款・規約</a></p></li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://www.tnc.ne.jp/support/contact/">お問い合わせ</a></p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="site-tab__item tab-05"><p><span class="tab-icon"><img src="assets/img/head-tab-icon_content.png" alt=""></span><span class="tab-text">コンテンツ</span></p>
+                        <div class="tab">
+                            <div class="tab__inner">
+                                <div class="tab-icon">
+                                    <a href="http://www.tnc.ne.jp/enjoy/">
+                                        <p class="tab-icon--img"><img src="assets/img/head-tab-icon_content.png" alt=""></p>
+                                        <p class="tab-icon--txt">コンテンツ</p>
+                                    </a>
+                                    <ul class="tab-sub__icon">
+                                        <li class="tab-sub__icon__item"><a href="http://link.tnc.ne.jp/">
+                                                <p class="icon"><img src="assets/img/icon_teibansite.jpg" alt=""></p>
+                                                <p class="text">定番サイト</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://local.tnc.ne.jp/movies/">
+                                                <p class="icon"><img src="assets/img/icon_movie.jpg" alt=""></p>
+                                                <p class="text">映画</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://local.tnc.ne.jp/events/">
+                                                <p class="icon"><img src="assets/img/icon_event.jpg" alt=""></p>
+                                                <p class="text">イベント</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://cs.tnc.ne.jp/gourmet/">
+                                                <p class="icon"><img src="assets/img/icon_gourmet.jpg" alt=""></p>
+                                                <p class="text">グルメ</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://rabico.cocolog-tnc.com/gmt/">
+                                                <p class="icon"><img src="assets/img/icon_jimoto.jpg" alt=""></p>
+                                                <p class="text">ジモティーズ</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://coupons.tnc.ne.jp/">
+                                                <p class="icon"><img src="assets/img/icon_coupon.jpg" alt=""></p>
+                                                <p class="text">クーポン</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="https://cs.tnc.ne.jp/present/">
+                                                <p class="icon"><img src="assets/img/icon_present.jpg" alt=""></p>
+                                                <p class="text">プレゼント</p>
+                                            </a></li>
+                                        <li class="tab-sub__icon__item"><a href="http://www.tnc.ne.jp/fortune/">
+                                                <p class="icon"><img src="assets/img/icon_fortune.jpg" alt=""></p>
+                                                <p class="text">星座占い</p>
+                                            </a></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">買う</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="https://books.rakuten.co.jp/tnc/">[本・DVD・ゲーム]TNC楽天ブックス</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">知る</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/">[TNCおすすめ]定番サイト一覧</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/zenrin/">[住宅地図]ゼンリン住宅地図サービス</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">楽しむ</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="https://www.showtime.jp/isp/tnc/">[映像]showtime@TNC(ショウタイム)</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/fortune/">[今日の運勢]12星座占い</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://wwwa.pandanet.co.jp/a/tnc/">[ネット対局囲碁]パンダネット</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/special/index.php">[グルメ・観光・おでかけ]静岡地域特集</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/special/tocochan/index.html">[静岡のおでかけスポット]おとなの遠足</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://rabico.cocolog-tnc.com/gmt/">[静岡地元ネタブログ]静岡ジモティーズ</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/oasobi/">[モノづくり&amp;オモチャ]おアソビ探偵団</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-box">
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">暮らす</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://coupons.tnc.ne.jp/">[おでかけ情報&amp;クーポン検索]TNCクーポン</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://local.tnc.ne.jp/movies/">[どこ行く？]映画</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://local.tnc.ne.jp/events/">[どこ行く？]イベント</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://cs.tnc.ne.jp/gourmet/">[どこ行く？]グルメpowerd by ぐるなび</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://recipe.tnc.ne.jp/">[レシピ]しずおかキッチン</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit">集まる</p>
+                                            <ul class="tab-cont__child">
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/cocolog/">[ブログ]ココログ with TNC</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://www.tnc.ne.jp/memberspage/">[会員ホームページ]らび☆コレ</a></li>
+                                                <li class="tab-cont__child__item"><a href="http://vote.tnc.ne.jp/">[みんな集まれ！]TNC投票</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-cont">
+                                        <li class="tab-cont__item"><p class="tab-cont__tit"><a href="https://cs.tnc.ne.jp/present/">プレゼント</a></p></li>
+                                    </ul>
+                                    </div>
+                                    <div class="tab-box">
+                                        <ul class="tab-cont">
+                                            <li class="tab-cont__item"><p class="tab-cont__tit"><a href="http://link.tnc.ne.jp/">定番サイト</a></p>
+                                                <ul class="tab-cont__child">
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C001">ポータル・検索</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C002">ニュース・新聞</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C015">政治・社会</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C003">テレビ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C004">PC・ネット</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C005">スポーツ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C006">交通・旅行</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C007">ショッピング</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C008">エンタメ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C010">生活・実用</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C011">グルメ</a></li>
+                                                    <li class="tab-cont__child__item"><a href="http://link.tnc.ne.jp/list.php?CAT=C012">健康・美容</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>        
+    </header>
+    
+    <div class="body">
+        <div class="body-cont">
+            <div class="cont cont--slide">
+                <ul class="slide-list">
+                    <li class="slide-list__item"><a href="http://www.tnc.ne.jp/support/move/"><img src="assets/img/top/slide01.jpg" alt=""></a></li>
+                    <li class="slide-list__item"><a href="http://www.tnc.ne.jp/libmo/"><img src="assets/img/top/slide02.png" alt=""></a></li>
+                    <li class="slide-list__item"><a href="https://reg3.tok.tnc.ne.jp/isp/apl/lot/lot_cover.cfm"><img src="assets/img/top/slide03.png" alt=""></a></li>
+                    <li class="slide-list__item"><a href="http://www.tnc.ne.jp/tokaisafe/"><img src="assets/img/top/slide04.png" alt=""></a></li>
+                    <li class="slide-list__item"><a href="http://www.tnc.ne.jp/hikari/"><img src="assets/img/top/slide05.png" alt=""></a></li>
+                </ul>
+            </div>
+
+            
+            <div class="tab_set cont cont--topic tab_set">
+                <div class="menu tab">
+                    <ul class="topic-tab">
+                        <li class="topic-tab__item is-active" id="tab1"><a href="javascript:seltab('box', 'link', 6, 1)" id="link1">全国新着</a></li>
+                        <li class="topic-tab__item" id="tab2"><a href="javascript:seltab('box', 'link', 6, 2)" id="link2">静岡</a></li>
+                        <li class="topic-tab__item" id="tab3"><a href="javascript:seltab('box', 'link', 6, 2)" id="link3">社会</a></li>
+                        <li class="topic-tab__item" id="tab4"><a href="javascript:seltab('box', 'link', 6, 3)" id="link4">経済</a></li>
+                        <li class="topic-tab__item" id="tab5"><a href="javascript:seltab('box', 'link', 6, 3)" id="link5">スポーツ</a></li>
+                        <li class="topic-tab__item" id="tab6"><a href="javascript:seltab('box', 'link', 6, 4)" id="link6">写真</a></li>
+                        <li class="topic-tab__item" id="tab7"><a href="javascript:seltab('box', 'link', 6, 5)" id="link7">エンタメ</a></li>
+                    </ul>
+                </div>
+
+                <div class="tab-cont">
+                    <div class="tab-cont__inner" id="box1">
+                        <div id="news">
+                            <div class="top-topic kijiList">
+                                <ul class="top-topic-list" id="kijiListUL-1">
+                                </ul>
+                                <div class="top-topic-box phoArea01">
+                                    <dl id="phoArea01DL-1" class="top-topic--top">
+                                    </dl>
+                                </div>
+                            </div>
+                            
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/">一覧を見る</a></div>
+                    
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                            <div class="top-topic-img phoArea02">
+                                <dl id="phoArea02DL-1" class="top-topic-img__item">
+                                </dl>
+                                <dl id="phoArea02DL-2" class="top-topic-img__item">
+                                </dl>
+                                <dl id="phoArea02DL-3" class="last top-topic-img__item">
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box2">
+                        <div id="news">
+                            <div class="top-topic">
+                                <ul class="top-topic-list" id="kijiListShizuoka-DL">
+                                </ul>
+                                <div class="top-topic-box phoArea01">
+                                </div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/shizuoka/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box3">
+                        <div id="news">
+                            <div class="top-topic">
+                                <ul class="top-topic-list" id="socialAreaUL">
+                                </ul>
+                                <div class="top-topic-box phoArea01">
+                                </div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/social/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box4">
+                        <div id="news">
+                            <div class="top-topic">
+                                <dl id="keizaiArea" class="top-topic-list">
+                                </dl>
+                                <div class="top-topic-box phoArea01">
+                                </div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/economy/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box5">
+                        <div id="news">
+                            <div class="top-topic">
+                                <ul class="top-topic-list" id="sportsAreaUL">
+                                </ul>
+                                <div class="top-topic-box phoArea01">
+                                </div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/sports/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box6">
+                        <div id="news">
+                            <div class="top-topic">
+                                <div id="pictureArea"></div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/photo/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>
+
+                    <div class="tab-cont__inner hide" id="box7">
+                        <div id="news">
+                            <div class="top-topic">
+                                <div id="entameArea"></div>
+                            </div>
+                            <div class="top-topic--btn newslink"><a href="http://news.tnc.ne.jp/entame/">一覧を見る</a></div>
+
+                            <!--■PR（ここから）-->
+                            <div id="pr" style="margin: 0 0.5rem 0; padding: 0 0 0 5px;">
+                                <dl class="clearfix">
+                                    <dt>PR</dt>
+                                    <dd><a href="https://www.tnc.ne.jp/shokai/" target="_blank">TNCをお友達に紹介して最大15,000円分商品券をもらっちゃおう♪</a></dd>
+                                </dl>
+                            </div>
+                            <!--PR（ここまで）-->
+                    
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            
+            
+            
+            
+            <ul class="cont cont--btn-nav">
+                <li class="btn-nav__item btn-nav__item--change">
+                    <a href="https://www.tnc.ne.jp/all/kouza_card.html?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon01.jpg" alt=""></p>
+                        <p class="text">支払い方法を<br>登録/変更したい</p>
+                    </a>
+                </li>
+                
+                <li class="btn-nav__item btn-nav__item--trouble">
+                    <a href="http://www.tnc.ne.jp/mail/spam/?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon02.jpg" alt=""></p>
+                        <p class="text">迷惑メール<br>対策をしたい</p>
+                    </a>
+                </li>
+                
+                <li class="btn-nav__item btn-nav__item--sim">
+                    <a href="http://www.tnc.ne.jp/libmo/?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon03.jpg" alt=""></p>
+                        <p class="text">格安SIMを<br>使いたい</p>
+                    </a>
+                </li>
+                
+                <li class="btn-nav__item btn-nav__item--move">
+                    <a href="http://www.tnc.ne.jp/support/move/?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon04.jpg" alt=""></p>
+                        <p class="text">引っ越しを<br>したい</p>
+                    </a>
+                </li>
+                
+                <li class="btn-nav__item btn-nav__item--info">
+                    <a href="http://www.tnc.ne.jp/tokaisafe/?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon05.jpg" alt=""></p>
+                        <p class="text">パソコンの<br>情報を守りたい</p>
+                    </a>
+                </li>
+                
+                <li class="btn-nav__item btn-nav__item--block">
+                    <a href="http://www.tnc.ne.jp/rescue/?tnctop">
+                        <p class="icon"><img src="assets/img/top/btn_nav_icon06.jpg" alt=""></p>
+                        <p class="text">訪問サポート<br>をうけたい</p>
+                    </a>
+                </li>
+            </ul>
+            
+            
+            <div class="cont cont--list">                
+                <div class="pickup_block new">
+                    <a href="http://rabico.cocolog-tnc.com/gmt/" target="_blank"><img src="assets/img/top/list_thumb03.jpg" alt=""></a>
+                        <p class="list-txt">
+                            <span class="list-tit"><a href="http://rabico.cocolog-tnc.com/gmt/" target="_blank">静岡ジモティーズ</a></span>
+                            <span class="list-cont">まもなくシラス漁が解禁！ 用宗港のカフェレストランへ</span>
+                            <span class="list-about">2018.03.15 更新</span>
+                        </p>
+                </div>
+                
+                <div class="pickup_block">
+                    <a href="http://coupons.tnc.ne.jp/special/artmuseum/" target="_blank"><img src="assets/img/top/list_thumb04.jpg" alt=""></a>
+                        <p class="list-txt">
+                            <span class="list-tit"><a href="http://coupons.tnc.ne.jp/" target="_blank">TNCクーポンズ</a></span>
+                            <span class="list-cont">美の世界を訪れる、心を癒す美術館めぐりへ</span>
+                            <span class="list-about">2017.11.20 更新</span>
+                        </p>
+                </div>
+                
+                <!-- 特集 -->    
+                <script src="http://www.tnc.ne.jp/special/js/tnc_special.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                <!--
+                document.write(sp_list_tnctop);
+                //-->
+                </script>    
+                <!-- /特集 -->
+                
+            </div>
+            
+            <section class="cont cont--news">
+                <h2 class="news-tit"><span class="news-tit--txt">TOKAIネットワーククラブからのお知らせ</span><span class="news-tit--btn"><a href="http://cs.tnc.ne.jp/info/">一覧を見る</a></span></h2>
+                <ul class="news-list" id="infoRssFeed">
+                </ul>
+                
+                <!-- start （お知らせRSS） code 
+                <script type="text/javascript" src="http://www.tnc.ne.jp/shared/js/rss_info.js"></script>
+                <div style="font-size:9px; text-align:right; width:500px; "><a href="http://feed.mikle.com/" target="_blank" style="color:#ccc;">RSS Feed Widget</a></div>
+                 end （お知らせRSS） code -->
+
+            </section>
+        </div>
+    
+        
+        <div class="body-side">
+            <!--■広告バナー-->
+            <!-- ToppageRightTop300x250 -->
+            <div id='div-gpt-ad-1360730381033-2' style='width:300px; height:250px;' class="pc-view">
+                <script type='text/javascript'>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1360730381033-2'); });
+                </script>
+            </div>
+            <!--広告バナー（ここまで）-->
+            
+            <section class="side-box side-box--login pc-view">
+                <h2 class="side-tit"><span class="side-tit--txt">ログイン</span></h2>
+                <div class="side-box__inner">
+                    <ul class="login-item">
+                        <li class="login-item__item"><a href="https://webmail.tnc.ne.jp/" class="webmail">Webメール</a></li>
+                        <li class="login-item__item"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm" class="check">契約内容の確認</a></li>
+                        <li class="login-item__item"><a href="http://www.tnc.ne.jp/cocolog/" class="kokolog">ココログ</a></li>
+                        <li class="login-item__item"><a href="https://pocket.tnc.ne.jp/login.html" class="pocket">ポケット</a></li>
+                    </ul>                
+                </div>
+            </section>
+            
+            <section class="side-box side-box--qa pc-view">
+                <h2 class="side-tit"><a class="side-tit--txt" href="http://qa.tnc.ne.jp/" target="_blank">よくあるご質問</a><a href="http://qa.tnc.ne.jp/" target="_blank" class="side-tit--btn">一覧</a></h2>
+                <div class="side-box__inner">
+                    <ul class="qa-item">
+                        <li class="qa-item__item"><a href="http://www.tnc.ne.jp/support/contact/service/list/index.html?tnctop#confusion" target="_blank">電話窓口がつながりづらい</a></li>
+                        <li class="qa-item__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html?tnctop" target="_blank">支払口座やカードを登録&#47;変更したい</a></li>
+                        <li class="qa-item__item"><a href="http://www.tnc.ne.jp/support/move/?tnctop" target="_blank">引越しの手続きをしたい</a></li>
+                        <li class="qa-item__item"><a href="https://www.tnc.ne.jp/all/saihakkou.html?tnctop" target="_blank">「登録完了のお知らせ」を紛失してしまった</a></li>
+                        <li class="qa-item__item"><a href="http://www.tnc.ne.jp/pocket/pt_05.html?tnctop" target="_blank">TNCポケットの契約確認&#47;手続きをしたい</a></li>
+                        <li class="qa-item__item"><a href="https://www.tnc.ne.jp/all/rescue.html?tnctop" target="_blank">ネットPCレスキュー隊の手続きをしたい</a></li>
+                    </ul>                
+                </div>
+            </section>
+            
+            <section class="side-box side-box--weather weather">
+                <h2 class="side-tit"><a class="side-tit--txt" href="http://weather.tnc.ne.jp/">お天気</a><a href="http://weather.tnc.ne.jp/" class="side-tit--btn">一覧</a></h2>
+                <!--■お天気（ここから）-->
+                <!--■お天気JS版（ここから）-->
+                <div class="side-box__inner">
+                    <div id="externalFlash">
+                        <script src="http://weather.tnc.ne.jp/parts/weather.js" type="text/javascript"></script>
+                        <div id="weatherArea"></div>
+                    </div>
+                    <!--■お天気JS版（ここまで）-->
+                    <ul class="areaList">
+                        <li><a href="http://weather.tnc.ne.jp/area/06tokai.html">東海</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0084.html">静岡</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0085.html">浜松</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0089.html">石廊崎</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0087.html">三島</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0088.html">網代</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/area_details/d0086.html">御前崎</a></li>
+                        <li><a href="http://weather.tnc.ne.jp/">その他地域</a></li>
+                    </ul>
+                </div>
+                <!--お天気（ここまで）-->     
+            </section>
+            
+            
+            <!--■占い（ここから）-->
+            <div class="side-box side-box--horo">
+                <div id="fortune_sidepart">
+                </div>
+            </div>
+            <!--占い（ここまで）-->                
+
+            
+            <div class="side-box side-box--bnr pc-view">
+                <div class="side-box__inner">
+                    <ul class="side-bnr">
+                        <li class="side-bnr__item"><a href="https://tlc.tokai.jp/tkplus/about/index.html" target="_blank"><img src="assets/img/side_bnr_kasatoku.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <section class="side-box side-box--present pc-view">
+                <h2 class="side-tit"><a class="side-tit--txt" href="https://cs.tnc.ne.jp/present/">プレゼント</a><a href="https://cs.tnc.ne.jp/present/" class="side-tit--btn">一覧</a></h2> 
+                <div class="side-box__inner">
+                    <ul id="rssfeed" class="present-item"></ul>
+                    <!--<ul class="present-item">
+                        <li class="present-item__item"><a href="https://cs.tnc.ne.jp/present/?p=4342">JA静岡市Presents 美味しい野菜「旬の贈り物」</a></li>
+                        <li class="present-item__item"><a href="">静響「第九コンサート」ペアチケット</a></li>
+                    </ul>  -->              
+                </div>
+            </section>
+            
+            
+            <div class="side-box side-box--facebook">
+                <div class="side-box__inner">
+                    <div class="fb-page" data-href="https://www.facebook.com/TOKAINETWORKCLUB" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TOKAINETWORKCLUB" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TOKAINETWORKCLUB">TNC</a></blockquote></div>
+                </div>
+            </div>
+            
+            
+            <section class="side-box side-box--tokai-group pc-view">
+                <h2 class="side-tit"><span class="side-tit--txt">TOKAIグループ</span></h2>
+                <div class="side-box__inner">
+                    <ul class="group">
+                        <li class="group__item"><a href="http://tocochan.tv/?rt=tnc_grp" target="_blank"><img src="assets/img/side_tokai_bnr_tokochan.jpg" alt=""><br>ケーブルテレビ</a></li>
+                        <li class="group__item"><a href="https://tlc.tokai.jp/?rt=tnc_grp" target="_blank"><img src="assets/img/side_tokai_bnr_tlc.jpg" alt=""><br>TLC会員サービス</a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            
+            <div class="side-box side-box--bnr pc-view">
+                <div class="side-box__inner">
+                    <ul class="side-bnr">
+                        <li class="side-bnr__item"><a href="http://shop.aterm.jp/shop_direct/tokai/index_2.html" target="_blank"><img src="assets/img/side_bnr_aterm.gif" alt="shopAterm"></a></li>
+                        <li class="side-bnr__item"><a href="http://www.tnc.ne.jp/job/"><img src="assets/img/side_bnr_staff.jpg" alt="スタッフ募集"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <footer class="foot">
+        <div class="foot-network-club pc-view">
+            <div class="foot__inner">
+                
+                <section class="foot-box pc-view">
+                    <h2 class="network-club--tit">TOKAI NETWORK CLUB</h2>
+                    <ul class="network-club--btn">
+                        <li class="network-club--btn__item network-club--btn__item--new"><a href="http://www.tnc.ne.jp/welcome/">新規お申し込み</a></li>
+                        <li class="network-club--btn__item network-club--btn__item--change"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm">契約内容の変更</a></li>
+                    </ul>
+                </section>
+                
+                <ul class="network-club">
+                    <li class="network-club__item">
+                        <p class="tit">キャンペーン・割引</p>
+                        <div class="toggle-item">
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/camp/iten/">お引越しキャンペーン</a></li>
+                                <li class="network-club--child__item"><a href="https://www.tnc.ne.jp/shokai/">お友達ご紹介キャンペーン</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/camp/ispnorikae/">プロバイダをTNCに乗り換えよう</a></li>
+                                 <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/support/move/arisan.html">アリさんでらくらくお引越しキャンペーン</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/support/move/kuroneko.html">クロネコであんしんお引越しキャンペーン</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/libmo/">SIM×光セット割</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/hikari/">安心TO快適スタート割</a></li>
+                            </ul>
+                        </div>
+                        
+                        <p class="tit"><a href="http://www.tnc.ne.jp/welcome/">接続サービス</a></p>
+                        <div class="toggle-item">
+                            <p class="tit-sub">[光インターネット]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/tnchikari/">TNCヒカリ</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/flets/hikari/">フレッツ光対応サービス</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/cable/">TNCケーブルひかり</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/dreamwave/">TNCひかりdeネット対応サービス</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/commufa/">コミュファ光対応サービス</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/docomohikari/">ドコモ光</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/sbhikari/">TNC ver SoftBank光</a></li>
+                            </ul>
+                            <p class="tit-sub">[高速モバイル]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/libmo/">LIBMO</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/4g/">モバイル4G</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/4gd/">モバイル4G/D</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/compad/">ComPadサービス</a></li>
+                            </ul>
+                            <p class="tit-sub">[ADSL・ダイヤルアップ]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/adsl/">ADSLパワーライン</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/flets/adsl/">フレッツ・ADSL対応サービス</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/rakuraku/">ダイヤルアップ接続サービス</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="network-club__item">
+                        <p class="tit"><a href="http://www.tnc.ne.jp/option/">オプションサービス</a></p>
+                        <div class="toggle-item">
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/address_addition/">メールアドレス追加</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/mailbox/">メールスペック変更</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/webmail/">WebMail（ウェブメール）</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/transmission/">メール転送</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/filter/">メールフィルタリング</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/spam/">かんたん迷惑メール対策</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/viruscheck/">メールウィルスチェック</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/virusguard/">メールウィルスガード</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[セキュリティ]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/tokaisafe/">TOKAISAFE</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/tos/">TNCオンラインセキュリティ</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[IP電話・固定IPサービス]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/ttphone/">TT-PHONE</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/flets/staticip/index.html">固定IPサービス</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[ホームページ関連]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/cocolog/">ココログ with TNC</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/form/hp_kojin.html">個人向けホームページ</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/hvc/">ホームページウィルスチェック</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/hfs/">ホームページフィルタ</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[その他]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/pocket/">TNCポケット</a></li>
+                                <li class="network-club--child__item"><a href="http://ene.tokai.jp/" target="_blank">エネレポ</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/rescue/">ネットPCレスキュー隊</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="network-club__item">
+                        <p class="tit"><a href="http://www.tnc.ne.jp/support/">会員サポート</a></p>
+                        <div class="toggle-item">
+                            <p class="tit-sub"><a href="http://www.tnc.ne.jp/form/">[各種手続き・確認]</a></p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="https://reg2.tok.tnc.ne.jp/isp/apl_member/contract/login_forlist.cfm">ご契約内容を確認する</a></li>
+                                <li class="network-club--child__item">
+                                    <form method="post" action="https://reg2.tok.tnc.ne.jp/isp/apl_member/login_forsvc.cfm" name="f1">
+                                        <input type="hidden" name="frmtyp_flg" value="10">
+                                        <input type="submit" name="b1" value="利用料金を確認する">
+                                    </form></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/support/plan/">プランを変更する</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/support/move/">お引越しの手続き</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/sokuwari15/">ソク割15（年契約割引制度）</a></li>
+                                <li class="network-club--child__item"><a href="https://www.tnc.ne.jp/all/saihakkou.html">ID・パスワードを忘れた</a></li>
+                                <li class="network-club--child__item"><a href="https://www.tnc.ne.jp/all/kouza_card.html">支払方法を変更する</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/address_change/">メールアドレスを変更する</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/mail/password_change/">パスワードを変更する</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/syogai/">障がい者割引制度</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[設定マニュアル]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/settei/mail/">メールの設定とトラブル</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/flets/hikari/hf_06.html">フレッツ光の設定</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/commufa/hc_05.html">コミュファ光の設定</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/4g/4g_03.html">モバイル4Gの設定</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/adsl/support/guide/modem.html">ADSLモデム情報</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/rakuraku/ap/index.html">アクセスポイント/モバイル接続</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/support/wlan/">無線LANの設定</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub"><a href="http://www.tnc.ne.jp/stop/">[トラブル・メンテナンス情報]</a></p>
+                            
+                            <p class="tit-sub"><a href="http://qa.tnc.ne.jp/">[よくあるご質問（Q&amp;A）]</a></p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/448">接続サービスについて</a></li>
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/686">メールについて</a></li>
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/697">セキュリティについて</a></li>
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/420">料金・各種手続きについて</a></li>
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/444">接続設定等について</a></li>
+                                <li class="network-club--child__item"><a href="http://qa.tnc.ne.jp/category/show/428">オプション・コンテンツについて</a></li>
+                            </ul>
+                            <p class="tit-sub"><a href="http://www.tnc.ne.jp/support/contact/">[お問い合わせ]</a></p>
+                        </div>
+                    </li>
+                    
+                    <li class="network-club__item">
+                        <p class="tit"><a href="http://www.tnc.ne.jp/enjoy/">コンテンツ</a></p>
+                        <div class="toggle-item">
+                            <p class="tit-sub">[買う]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="https://books.rakuten.co.jp/tnc/">TNC楽天ブックス</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[知る]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://link.tnc.ne.jp/" target="_blank">定番サイト一覧</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/zenrin/">ゼンリン住宅地図サービス</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[楽しむ]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="https://www.showtime.jp/isp/tnc/">ShowTime@TNC（ショウタイム）</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/fortune/">12星座占い</a></li>
+                                <li class="network-club--child__item"><a href="http://wwwa.pandanet.co.jp/a/tnc/">パンダネット</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/shizuoka/">静岡地域特集</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/special/tocochan/index.html">おとなの遠足</a></li>
+                                <li class="network-club--child__item"><a href="http://rabico.cocolog-tnc.com/gmt/" target="_blank">静岡ジモティーズ</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/oasobi/">おアソビ探偵団</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[暮らす]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://coupons.tnc.ne.jp/" target="_blank">TNCクーポン</a></li>
+                                <li class="network-club--child__item"><a href="http://local.tnc.ne.jp/movies" target="_blank">映画</a></li>
+                                <li class="network-club--child__item"><a href="http://local.tnc.ne.jp/events">イベント</a></li>
+                                <li class="network-club--child__item"><a href="http://cs.tnc.ne.jp/gourmet/" target="_blank">グルメ powered by ぐるなび</a></li>
+                                <li class="network-club--child__item"><a href="http://recipe.tnc.ne.jp/">しずおかキッチン</a></li>
+                            </ul>
+                            
+                            <p class="tit-sub">[集まる]</p>
+                            <ul class="network-club--child">
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/cocolog/index.html">ココログ with TNC</a></li>
+                                <li class="network-club--child__item"><a href="http://www.tnc.ne.jp/memberspage/">らび☆コレ</a></li>
+                                <li class="network-club--child__item"><a href="http://vote.tnc.ne.jp/">TNC投票</a></li>
+                            </ul>
+                            <p class="tit-sub"><a href="https://cs.tnc.ne.jp/present/">[プレゼント]</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+        
+        <ul class="foot-page-nav pc-view">
+            <li class="foot-page-nav__item"><a href="http://www.tokaiholdings.co.jp/">TOKAIホールディングス</a></li>
+            <li class="foot-page-nav__item"><a href="http://www.tokai-com.co.jp/">TOKAIコミュニケーションズ</a></li>
+            <li class="foot-page-nav__item"><a href="http://mb.tokai.jp/">携帯ショップ</a></li>
+            <li class="foot-page-nav__item"><a href="http://aqua.tokai.jp/">おいしい水の宅配便</a></li>
+            <li class="foot-page-nav__item"><a href="http://www.tokaicard.jp/">TOKAIカード</a></li>
+        </ul>
+        
+        
+        <!--広告バナー（ここから）-->
+        <div align="center" class="foot-adve">
+        <!-- ToppageFooterBottom728x90 -->
+            <div id='div-gpt-ad-1360730381033-0' style='height:90px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1360730381033-0'); });
+                </script>
+            </div>
+        </div>
+        <!--広告バナー（ここまで）-->
+        
+        
+        <div class="foot-foot">
+            <div class="foot__inner">
+                <div class="foot-copy">
+                    <p class="foot-copy--name">TOKAIネットワーククラブ</p>
+                    <p class="foot-copy--copy">Copyright(C)TOKAI Communications Corporation. All rights reserved.</p>
+                </div>
+                
+                <div class="foot-about">
+                    <ul class="foot-about-nav">
+                        <li class="foot-about-nav__item"><a href="http://www.tnc.ne.jp/policy.html">個人情報保護</a></li>
+                        <li class="foot-about-nav__item"><a href="http://www.tnc.ne.jp/sitemap/">サイトマップ</a></li>
+                        <li class="foot-about-nav__item"><a href="http://www.tnc.ne.jp/ad/">広告掲載</a></li>
+                        <li class="foot-about-nav__item"><a href="http://www.tnc.ne.jp/job/">スタッフ募集</a></li>
+                        <li class="foot-about-nav__item"><a href="http://www.tnc.ne.jp/about/">このサイトについて</a></li>
+                    </ul>
+                    <div class="foot-about--logo"><a href="http://www.tnc.ne.jp/anzen_anshin/index.html"><img src="assets/img/foot-about-logo.jpg" alt=""></a></div>
+                </div>
+                
+                <div class="page-top"><a href="#top"><img src="assets/img/page-top.png" alt="TOP"></a></div>
+            </div>
+        </div>
+    </footer>
+    
+
+<!-- =================================================== -->
+    
+<link rel="stylesheet" href="assets/js/plugin/slick/slick.css">
+<script src="assets/js/plugin/slick/slick.min.js"></script>    
+<script src="assets/js/top.js"></script>    
+
+<!-- XDMP＆KARTEのタグ（170201） -->
+<script src="//adcdn.goo.ne.jp/images/pix/0tmqggqun4.js" type="text/javascript"></script>
+
+    <!-- facebook -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.11';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- /facebook -->
+
+<!-- ショーケース・ティービー(170213) -->
+<script type="text/javascript" charset="UTF-8"src="//navicast.jp/NavicastApi.js?tnc-tokai"></script>
+
+
+</body>
+</html>

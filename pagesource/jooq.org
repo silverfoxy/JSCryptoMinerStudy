@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 9]>      <html lang="en-us" class="too-old">    <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-us" class="">       <!--<![endif]-->
+    <head>
+        <title>jOOQ: The easiest way to write SQL in Java</title>
+<!-- 
+ __    __                           _ _     _     _      _             
+/ / /\ \ \___    __ _ _ __ ___ _ __( ) |_  | |__ (_)_ __(_)_ __   __ _ 
+\ \/  \/ / _ \  / _` | '__/ _ \ '_ \/| __| | '_ \| | '__| | '_ \ / _` |
+ \  /\  /  __/ | (_| | | |  __/ | | || |_  | | | | | |  | | | | | (_| |
+  \/  \/ \___|  \__,_|_|  \___|_| |_| \__| |_| |_|_|_|  |_|_| |_|\__, |
+                                                                 |___/     
+
+But thanks for checking - we're flattered!
+-->
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <meta property="og:title" content="jOOQ" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.jooq.org" />
+        <meta property="og:image" content="http://www.jooq.org/img/jooq-logo-white-750x750-padded.png" />
+        <meta property="og:site_name" content="jOOQ" />
+        <meta property="fb:admins" content="649865547" />
+
+        <meta name="description" content="jOOQ, a fluent API for typesafe SQL query construction and execution."/>
+        <meta name="author" content="Data Geekery GmbH"/>
+        <meta name="keywords" content="JDBC, SQL builder, Java SQL builder, Java SQL, Java SQL API, Typesafe SQL, Java stored procedures, Java JDBC, Java PL/SQL, code generation, SQL, stored procedures, stored functions, UDT, UDF, fluent API"/>
+		<meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#000000">
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+        <link href="/css/jooq.css" type="text/css" rel="stylesheet" />
+        <link href="/css/jquery.modal.css" type="text/css" rel="stylesheet" />
+        <link href="/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
+        
+        <link rel="icon" href="/apple-touch-icon-57x57.png" />
+		<link rel="icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+		<link rel="icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+        <link rel="icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" href="/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+
+            </head>
+    <body onload="prettyPrint()">
+                    <div class="header">
+                <div class="nav">
+                    <div class="logo" style="display: none">
+                        <a href="/" title="To Home Page">
+                            <img src="/img/jooq-logo-white.png" height="45" alt="jOOQ Logo"/></a></div>
+                    <ul>
+                        <li class=""><a href="/learn" title="Learn about jOOQ">Learn</a></li>
+                        <li class=""><a href="/download" title="Download jOOQ">Download / Pricing</a></li>
+                        <li class=""><a href="/support" title="Get professional support for jOOQ">Support</a></li>
+                        <li class=""><a href="/community" title="Community activities and contributions">Community</a></li>
+                                                <li class=""><a href="https://blog.jooq.org" title="Read the jOOQ Blog">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="registration" style="display: none; width: 800px">
+                <div>
+                    <sup>All information from this page will be kept strictly confidential</sup>
+                </div>
+
+                <div id="email">
+                    <h3>Tell us a little bit about yourself and join our newsletter <a href="/news/#newsletters" onclick="$.modal.close();">(examples)</a></h3>
+                    <br/><br/>
+                    <form id="registration-email-form" name="registration-email" class="registration-email-form" action="#" method="POST">
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">E-Mail</div>
+    <div class="reg-col reg-col-2"><input class="input" name="email" type="email"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Phone number</div>
+    <div class="reg-col reg-col-2"><input class="input" name="phone" type="tel"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Company Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="company_name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Newsletter</div>
+    <div class="reg-col reg-col-2">
+		<input type="hidden" id="newsletter" name="newsletter" value="1"/>
+		<input type="checkbox" value="1" checked="checked" disabled="disabled" />
+		<label for="newsletter">Receive our monthly newsletter</label></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">
+        Anything else you'd like to tell us?<br/>
+        How did you hear from jOOQ?<br/>
+        What made you try jOOQ?<br/>
+        What are your expectations?
+    </div>
+    <div class="reg-col reg-col-2"><textarea name="comments"></textarea></div>
+</div>
+
+<div class="reg-row">
+    <div class="reg-col reg-col-1">&#160;</div>
+    <div class="reg-col reg-col-1">
+        <button class="save">
+            Save
+        </button>
+    </div>
+	<!--
+    <div class="reg-col reg-col-1">
+        <button class="no-thanks" data-cookie="jooq-registration-email" data-fade="email">
+            No thanks
+        </button>    
+    </div>
+	-->
+</div>
+
+<input type="hidden" id="registered-by" name="registered-by" value="newsletter-popup"/>
+</form>                </div>
+            </div>
+
+            
+<div id="theme" class="section theme">
+	<img class="theme-background" src="/img/main-img.jpg"/>
+	<div class="caption-container">
+	<div id="index-caption" class="main-img">
+		<div class="caption">
+			<img id="logo" align="left" src="/img/jooq-logo-white.png"/>
+			<!--
+			<h1>Get Back in Control of Your SQL</h1>
+			-->
+			<h1 style="font-size: 2.2em">
+                                jOOQ generates Java code from your database and lets you build type safe SQL queries through its fluent API.
+			</h1>
+
+            
+            <a href="/download">
+                <button>
+                    Start your free jOOQ trial now!
+                </button>
+            </a>
+
+            		</div>
+	</div>
+	</div>
+</div>
+
+            <div id="content" style="">
+                <!--[if lt IE 9]>
+                <div class="too-old-disclaimer" style="display: none">
+                    You're using an old browser. While we try to support your browser, some pages may not be rendered appropriately. Please <a href="mailto:contact@datageekery.com">contact us</a> to report any badly rendered pages, so we can improve your experience.
+                </div>
+                <![endif]-->
+
+            	
+<div class="section" id="usp">
+	<div class="row col col-100 col-white headline">
+		<h2>Great Reasons for Using jOOQ</h2>
+        <p>
+            Our customers spend most time on <em>their</em> business-logic.<br/>
+            Because jOOQ takes care of all their Java/SQL infrastructure problems.
+        </p>
+	</div>
+	
+	<div id="usp-all" class="action-default">
+		<div class="dashed">
+			<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-database-first">
+			<div class="row-300 col col-25 col-darkgrey hoverable">
+				<h2>Database First</h2>
+				<p>
+					Tired of ORMs driving your database model?
+				</p>
+				<p>
+					Whether you design a new application or integrate with your legacy,
+					your database holds your most important asset: your data.
+				</p>
+				<p>
+					jOOQ is SQL-centric. Your database comes "first".
+				</p>
+			</div>
+			</div>
+			
+			<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-typesafe-sql">
+			<div class="row-300 col col-25 col-green hoverable">
+				<h2>Typesafe SQL</h2>
+				<p>
+					Fed up with detecting SQL syntax errors in production?
+				</p>
+				<p>
+					SQL is a highly expressive and type safe language with a rich syntax.
+					jOOQ models SQL as an internal DSL and uses the Java compiler to compile 
+					your SQL syntax, metadata and data types.
+				</p>
+			</div>
+			</div>
+			
+			<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-code-generation">
+			<div class="row-300 col col-25 col-lightgrey hoverable">
+				<h2>Code Generation</h2>
+				<p>
+					Bored with renaming table and column names in your Java code?
+				</p>
+				<p>
+					jOOQ generates Java classes from your database metadata.
+					Your Java compiler will tell you when your code is out of
+					sync with your schema.
+				</p>
+			</div>
+			</div>
+			
+			<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-active-records">
+			<div class="row-300 col col-25 col-red hoverable">
+				<h2>Active Records</h2>
+				<p>
+					Annoyed by the amount of SQL you write for CRUD?
+				</p>
+				<p>
+					jOOQ lets you perform CRUD and POJO mapping directly on Active Records, which are also generated from the code generator.
+				</p>
+			</div>
+			</div>
+		</div>
+		
+		<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-multi-tenancy">
+		<div class="row-300 col col-25 col-darkgrey hoverable">
+			<h2>Multi-Tenancy</h2>
+			<p>
+				Worried about multi-schema or shared-schema multi-tenancy?
+			</p>
+			<p>
+				jOOQ lets you configure database schema and table overrides at runtime
+				and also supports row-level security.
+			</p>
+		</div>
+		</div>
+		
+		<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-standardisation">
+		<div class="row-300 col col-25 col-green hoverable">
+			<h2>Standardisation</h2>
+			<p>
+				Overwhelmed by the subtle differences in SQL dialects?
+			</p>
+			<p>
+				jOOQ performs SQL transformation to transform common SQL expressions into 
+				your database's closest match. Write SQL that works on all your databases.
+			</p>
+		</div>
+		</div>
+
+		<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-query-lifecycle">
+		<div class="row-300 col col-25 col-lightgrey hoverable">
+			<h2>Query Lifecycle</h2>
+			<p>
+				Irritated by your ORM's mysterious SQL generation? 
+			</p>
+			<p>
+				jOOQ lets you hook into its SQL generation lifecycle, for logging,
+				transaction handling, ID generation, SQL transformation and much more.
+			</p>
+		</div>
+		</div>
+		
+		<div class="action action-switch" data-switch="usp-all" data-switch-with="usp-procedures">
+		<div class="row-300 col col-25 col-red hoverable">
+			<h2>Procedures</h2>
+			<p>
+				Surprised by your ORM's lack of support for stored procedures?
+			</p>
+			<p>
+				Stored Procedures are an essential feature of modern SQL databases. 
+				jOOQ lets you embed stored function calls into your SQL statements.
+			</p>
+		</div>
+		</div>
+	</div>
+	
+	
+	
+	<div id="usp-database-first" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-darkgrey hoverable text">
+			<div class="row-450">
+				<h2>Database First</h2>
+				<p>
+					Your data is your most important asset. 
+				</p>
+				<p>
+					You have made a well-informed decision, when you chose a relational database
+					management system to store your data. You are used to writing SQL to query and
+					manipulate your data. Now, you're looking for a professional tool to help you
+					write your SQL in Java.
+				</p>
+				<p>
+					With jOOQ, your database and your data come first. You want to be able to use every
+					feature your database offers, using the language that is used to interact with
+					databases: SQL. jOOQ will let you do precisely that.
+				</p>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/preface">jOOQ's mission statement</a></li>
+					<li><a href="/doc/3.10/manual/getting-started/use-cases">Different use cases for jOOQ</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-database-first.png" alt="Database First" width="450"/>
+			</p>
+		</div>
+	</div>
+	
+	<div id="usp-typesafe-sql" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-green hoverable text">
+			<div class="row-450">
+				<h2>Typesafe SQL</h2>
+				<p>
+					SQL is a very unique and rich language, optimally designed to express complex
+					queries in a simple, declarative form. When writing SQL, you will focus on
+					what data you want to fetch, not how you want to fetch it.
+				</p>
+				<p>
+					jOOQ treats SQL like what it is in the first place: A language. Through its unique
+					and modern fluent API design techniques, jOOQ embeds SQL as an internal domain-specific
+					language directly in Java, making it easy for developers to write and read code
+					that almost feels like actual SQL.
+				</p>
+				<p>
+					As an internal domain-specific language, jOOQ can leverage the powerful Java compiler
+					and Java's generics for
+				</p>
+				<ul>
+					<li>Column type checks</li>
+					<li>Row value expression type checks</li>
+					<li>SQL syntax checks</li>
+				</ul>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/sql-building/sql-statements/dsl-and-non-dsl">jOOQ's DSL and model APIs</a></li>
+					<li><a href="/doc/3.10/manual/sql-building/sql-statements/select-statement/select-lexical-vs-logical-order">Lexical and logical SQL clause ordering</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-typesafe-sql.png" alt="Typesafe SQL" width="450"/>
+			</p>
+		</div>
+	</div>
+		
+	<div id="usp-code-generation" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-lightgrey hoverable text">
+			<div class="row-450">
+				<h2>Code Generation</h2>
+				<p>
+					SQL meta data is an essential part of your code base. It is where you define
+					table and column types, which can be used in your SQL statements in a type safe
+					manner.
+				</p>
+				<p>
+					During development, SQL meta data are in constant flux. 
+					Developers add, rename, remove tables, columns, procedures, parameters all the time.
+				</p>
+				<p>
+					Using jOOQ's code generator, your Java code will not only compile against your
+					actual SQL meta data, it will also immediately take notice of the
+					changes performed to SQL meta data. This will help prevent syntax errors due to
+					improperly changed meta data in an early phase of your development or deployment
+					cycle.
+				</p>
+				<p>
+					No more productive surprises due to changed meta data!
+				</p>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/getting-started/use-cases/jooq-as-a-sql-builder-with-code-generation">Using jOOQ with the code generator</a></li>
+					<li><a href="/doc/3.10/manual/code-generation">The section about code generation</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-code-generation.png" alt="Code Generation" width="450"/>
+			</p>
+		</div>
+	</div>
+
+	<div id="usp-active-records" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-red hoverable text">
+			<div class="row-450">
+				<h2>Active Records</h2>
+				<p>
+					Much of your daily work with SQL is repetitive CRUD: Creating, Reading, Updating, 
+					Deleting of database records.
+				</p>
+				<p>
+					jOOQ incorporates the popular Active Record paradigm by modelling each database
+					table as a typesafe record, which is capable of storing, deleting and refreshing
+					itself through an intuitive API.
+				</p>
+				<p>
+					Apart from the above operations, jOOQ's Active Records are also capable of
+				</p>
+				<ul>
+					<li>Optimistic locking</li>
+					<li>Foreign key navigation</li>
+					<li>Mapping themselves from / to your custom POJO types</li>
+				</ul>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/sql-execution/fetching/record-vs-tablerecord">Weakly and strongly typed records</a></li>
+					<li><a href="/doc/3.10/manual/sql-execution/crud-with-updatablerecords/simple-crud">CRUD with jOOQ</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-active-records.png" alt="Active Records" width="450"/>
+			</p>
+		</div>
+	</div>
+	
+	<div id="usp-multi-tenancy" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-darkgrey hoverable text">
+			<div class="row-450">
+				<h2>Multi-Tenancy</h2>
+				<p>
+					You have established a well-defined development process. You're probably using
+				</p>
+				<ul>
+					<li>Development databases (maybe even one per developer)</li>
+					<li>Test databases</li>
+					<li>Staging databases</li>
+					<li>Production databases</li>
+				</ul>
+				<p>
+					jOOQ lets you configure your environment easily, allowing you to rewrite generated
+					SQL schema and table names.
+				</p>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/code-generation/schema-mapping">Schema and table rewriting at code-generation time</a></li>
+					<li><a href="/doc/3.10/manual/sql-building/dsl-context/runtime-schema-mapping">Schema and table rewriting at runtime</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-multi-tenancy.png" alt="Multi Tenancy" width="450"/>
+			</p>
+		</div>
+	</div>
+	
+	<div id="usp-standardisation" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-green hoverable text">
+			<div class="row-450">
+				<h2>Standardisation</h2>
+				<p>
+					Each SQL dialect is different in various obvious and subtle ways.
+					These differences include things like:
+				</p>
+				<ul>
+					<li>SQL statements (e.g. MERGE vs. ON DUPLICATE KEY UPDATE)</li>
+					<li>SQL clauses (e.g. Oracle CONNECT BY vs. hierarchical CTE)</li>
+					<li>Built-in functions (e.g. NVL, COALESCE, IFNULL, CASE .. END)</li>
+					<li>Pseudo elements (e.g. DUAL, SYS.DUMMY, SYSIBM.DUAL, ...)</li>
+					<li>Syntax elements (e.g. derived column lists)</li>
+				</ul>
+				<p>
+					Popular SQL database vendors have put a lot of effort into their most innovative
+					and useful SQL clauses and functions and with jOOQ, you can use them very easily.
+				</p>
+				<p>
+					jOOQ produces an AST from your queries, which can be transformed into equivalent
+					SQL expressions, should you chose a syntax element, which is not natively supported
+					by your database.
+				</p>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/sql-building/dsl-context/sql-dialects">SQL Dialect management</a></li>
+					<li><a href="/doc/3.10/manual/sql-building/sql-statements/select-statement/limit-clause">Standardising LIMIT, OFFSET, TOP</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-standardisation.png" alt="Standardisation" width="450"/>
+			</p>
+		</div>
+	</div>
+	
+	<div id="usp-query-lifecycle" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-lightgrey hoverable text">
+			<div class="row-450">
+				<h2>Query Lifecycle</h2>
+				<p>
+					The Java to SQL integration is at the core of your business. It interfaces your two
+					most important assets:
+				</p>
+				<ul>
+					<li>Your data</li>
+					<li>Your business logic</li>
+				</ul>
+				<p>
+					You want to stay in full control of this interface, influencing SQL rendering,
+					variable binding, query execution and other query operation lifecycles.
+				</p>
+				<p>
+					jOOQ provides you with a rich SPI to inject custom behaviour, in order to manage:
+				</p>
+				<ul>
+					<li>Custom logging</li>
+					<li>Transaction management</li>
+					<li>Event triggers</li>
+					<li>SQL transformation</li>
+				</ul>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/sql-execution/execute-listeners">Manual sections about ExecuteListeners</a></li>
+					<li><a href="http://www.jooq.org/javadoc/latest/org/jooq/ExecuteListener.html">Javadoc sections about ExecuteListeners</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-query-lifecycle.png" alt="Query Lifecycle" width="450"/>
+			</p>
+		</div>
+	</div>
+	
+	<div id="usp-procedures" class="hide action action-switch" data-switch-with="usp-all">
+		<div class="row-600 col col-50 col-red hoverable text">
+			<div class="row-450">
+				<h2>Procedures</h2>
+				<p>
+					More and more SQL databases implement some sort of procedural language for
+					in-database data processing and bulk operations. You may even chose to move
+					critical business logic into the database for performance, security or other reasons.
+				</p>
+				<p>
+					With jOOQ, stored procedures and stored functions are first-class citizens, if 
+					you chose them to be.
+					The jOOQ code generator will generate a callable method for every routine. Stored
+					functions can be embedded typesafely into your SQL statements.
+				</p>
+			</div>
+			<div class="row-150">
+				<p>
+					More details can be seen in the manual:
+				</p>
+				<ul>
+					<li><a href="/doc/3.10/manual/sql-execution/stored-procedures">Stored procedures and functions in jOOQ</a></li>
+					<li><a href="/doc/3.10/manual/code-generation/codegen-procedures">Generated artefacts from stored procedures and functions</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-600 col col-50 col-white hoverable illustration">
+			<p>
+				<img src="/img/story/usp-procedures.png" alt="Procedures" width="450"/>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="section" id="social-proof">
+		<div class="row col col-100 col-white headline">
+		<h2>Some of our customers</h2>
+		<style>
+			#customers {
+				overflow-x: hidden;
+				text-align: justify;
+			}
+			#customers img {
+				padding: 6px;
+				height: 60px;
+				border: 0;
+			}
+		</style>
+		<p id="customers">
+			<br/>
+									<a href="http://atos.net" target="_blank"><img src="/img/customers/atos.net.png"/></a>
+												<a href="http://bedag.ch" target="_blank"><img src="/img/customers/bedag.ch.png"/></a>
+												<a href="http://crealogix.com" target="_blank"><img src="/img/customers/crealogix.com.png"/></a>
+												<a href="http://disney.com" target="_blank"><img src="/img/customers/disney.com.png"/></a>
+												<a href="http://ec.europa.eu" target="_blank"><img src="/img/customers/ec.europa.eu.png"/></a>
+												<a href="http://ergon.ch" target="_blank"><img src="/img/customers/ergon.ch.png"/></a>
+												<a href="http://finnova.com" target="_blank"><img src="/img/customers/finnova.com.png"/></a>
+												<a href="http://freddiemac.com" target="_blank"><img src="/img/customers/freddiemac.com.png"/></a>
+												<a href="http://gehealthcare.com" target="_blank"><img src="/img/customers/gehealthcare.com.png"/></a>
+												<a href="http://hsbc.co.uk" target="_blank"><img src="/img/customers/hsbc.co.uk.png"/></a>
+												<a href="http://infor.com" target="_blank"><img src="/img/customers/infor.com.png"/></a>
+												<a href="http://iso.org" target="_blank"><img src="/img/customers/iso.org.png"/></a>
+												<a href="http://microsoft.com" target="_blank"><img src="/img/customers/microsoft.com.png"/></a>
+												<a href="http://pfizer.com" target="_blank"><img src="/img/customers/pfizer.com.png"/></a>
+												<a href="http://pitneybowes.com" target="_blank"><img src="/img/customers/pitneybowes.com.png"/></a>
+												<a href="http://postfinance.ch" target="_blank"><img src="/img/customers/postfinance.ch.png"/></a>
+												<a href="http://raiffeisen.ch" target="_blank"><img src="/img/customers/raiffeisen.ch.png"/></a>
+												<a href="http://roche.pol" target="_blank"><img src="/img/customers/roche.pol.png"/></a>
+												<a href="http://sap.com" target="_blank"><img src="/img/customers/sap.com.png"/></a>
+												<a href="http://sbb.ch" target="_blank"><img src="/img/customers/sbb.ch.png"/></a>
+												<a href="http://sberbank.ru" target="_blank"><img src="/img/customers/sberbank.ru.png"/></a>
+												<a href="http://sc.com" target="_blank"><img src="/img/customers/sc.com.png"/></a>
+												<a href="http://thomsonreuters.com" target="_blank"><img src="/img/customers/thomsonreuters.com.png"/></a>
+												<a href="http://www.vaudoise.ch" target="_blank"><img src="/img/customers/www.vaudoise.ch.png"/></a>
+												<a href="http://wellsfargo.com" target="_blank"><img src="/img/customers/wellsfargo.com.png"/></a>
+								</p>
+
+		<p>
+			<a href="/customers">More customers</a>
+		</p>
+	</div>
+	
+	<div class="row col col-100 col-white headline">
+		<h2>Testimonials</h2>
+        <p>
+            Thousands of happy jOOQ users aren't just <em>using</em> jOOQ. They <em>love</em> jOOQ.<br/> With jOOQ, writing SQL in Java is fun and productive. Here's what some of our users say:
+        </p>
+	</div>
+
+
+
+    <div class="row col col-25 col-white"></div>
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            Using jOOQ has been a joy, it's made life much easier for us.
+        </p>
+        <p class="left">
+            <strong>
+                Ilkka Halila - Boomlagoon Ltd.
+            </strong>
+        </p>
+    </div>
+    <div class="row col col-100 col-white"></div>
+
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            The level of support from the jOOQ team was nothing short of excellent. They were extremely easy to talk to, and had my problem solved in less than an hour on Skype. I would recommend jOOQ support services to anyone.
+        </p>
+        <p class="left">
+            <strong>
+                Paul Woodland - ABC Information Solutions Pty Ltd
+            </strong>
+        </p>
+    </div>
+    <div class="row col col-25 col-white"></div>
+    <div class="row col col-100 col-white"></div>
+
+    <div class="row col col-25 col-white"></div>
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            Thanks to jOOQ we are in control of our SQL which helps to be in control of our project.
+        </p>
+        <p class="left">
+            <strong>
+                Marco Dubacher - Ergon Informatik AG
+            </strong>
+        </p>
+    </div>
+    <div class="row col col-100 col-white"></div>
+
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            The ability to trivially add SQL functions in a single line of a single method is fantastic! Honestly, we’ve gotten away using your documentation, examples, and source and never had to bug you guys with “How do I …?” You blog, manual, etc, all combine together with a simple library to make a great product that let’s us do some insane SQL <strong>*really really easily*</strong>.
+        </p>
+        <p class="left">
+            <strong>
+                Daniel Owens - DanielSecurities
+            </strong>
+        </p>
+    </div>
+    <div class="row col col-25 col-white"></div>
+    <div class="row col col-100 col-white"></div>
+
+    <div class="row col col-25 col-white"></div>
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            We successfully deploy jOOQ in a range of projects with clients from various sectors, such as construction companies, telecom or security services companies: jOOQ offers us the necessary flexibility to satisfy their different requirements.
+        </p>
+        <p class="left">
+            <strong>
+                Gabrio Rivera - OneOverZero GmbH
+            </strong>
+        </p>
+    </div>
+
+	</div>
+
+
+    <div class="section" id="examples">
+        <div class="row col col-100 col-white headline">
+            <h2>Examples</h2>
+            <p>
+                With the jOOQ DSL, SQL looks almost as if it were
+                natively supported by Java.
+            </p>
+        </div>
+
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-sql">  SELECT * FROM BOOK
+   WHERE BOOK.PUBLISHED_IN = 2011
+ORDER BY BOOK.TITLE</pre>
+        </div>
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-java">create.selectFrom(BOOK)
+      .where(BOOK.PUBLISHED_IN.eq(2011))
+      .orderBy(BOOK.TITLE)</pre>
+        </div>
+
+        <div class="row col col-100 col-white emphasis">
+            <p>
+                jOOQ also supports more complex SQL statements. get all authors'
+                first and last names, and the number of books they've written in
+                German, if they have written more than five books in German in the last
+                three years (from 2011), and sort those authors by last names limiting
+                results to the second and third row
+            </p>
+        </div>
+
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-sql">
+  SELECT AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, COUNT(*)
+    FROM AUTHOR
+    JOIN BOOK ON AUTHOR.ID = BOOK.AUTHOR_ID
+   WHERE BOOK.LANGUAGE = 'DE'
+     AND BOOK.PUBLISHED &gt; DATE '2008-01-01'
+GROUP BY AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME
+  HAVING COUNT(*) &gt; 5
+ORDER BY AUTHOR.LAST_NAME ASC NULLS FIRST
+   LIMIT 2
+  OFFSET 1</pre>
+        </div>
+
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-java">
+create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
+      .from(AUTHOR)
+      .join(BOOK).on(AUTHOR.ID.equal(BOOK.AUTHOR_ID))
+      .where(BOOK.LANGUAGE.eq("DE"))
+      .and(BOOK.PUBLISHED.gt(date("2008-01-01")))
+      .groupBy(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME)
+      .having(count().gt(5))
+      .orderBy(AUTHOR.LAST_NAME.asc().nullsFirst())
+      .limit(2)
+      .offset(1)</pre>
+        </div>
+
+        <div class="row col col-100 col-white headline">
+            <h2>Typesafety Examples</h2>
+            <p>
+                SQL is a very type safe language. So is jOOQ. jOOQ uniquely respects
+                SQL's row value expression typesafety. jOOQ will use your Java compiler
+                to type-check the following:
+            </p>
+        </div>
+
+        <div class="row-150 col col-50 col-green">
+            <h2>Predicates</h2>
+            <p>
+                jOOQ type-checks simple comparison predicates and
+                predicates with subqueries.
+            </p>
+        </div>
+
+        <div class="row-150 col col-50 col-black">
+		<pre class="prettyprint lang-java">
+select().from(t).where(t.a.eq(select(t2.x).from(t2));
+// Type-check here: ---------------> ^^^^
+select().from(t).where(t.a.eq(any(select(t2.x).from(t2)));
+// Type-check here: -------------------> ^^^^
+select().from(t).where(t.a.in(select(t2.x).from(t2));
+// Type-check here: ---------------> ^^^^</pre>
+        </div>
+
+
+        <div class="row-150 col col-50 col-green">
+            <h2>Set Operations</h2>
+            <p>
+                jOOQ type-checks degree and data types of union
+                subselects.
+            </p>
+        </div>
+
+        <div class="row-150 col col-50 col-black">
+		<pre class="prettyprint lang-java">
+select(t1.a).from(t1).unionAll(select(t2.a).from(t2));
+// Type-check here: ----------------> ^^^^
+select(t1.a, t1.b).from(t1).union(select(t2.a, t2.b).from(t2));
+// Type-check here: -------------------> ^^^^^^^^^^</pre>
+        </div>
+
+
+        <div class="row col col-100 col-white headline">
+            <p>
+                Some more sophisticated examples show type-checks on row value expressions:
+            </p>
+        </div>
+
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-sql">
+SELECT * FROM t WHERE (t.a, t.b) = (1, 2)
+
+SELECT * FROM t WHERE (t.a, t.b) OVERLAPS (date1, date2)
+
+SELECT * FROM t WHERE (t.a, t.b) IN (SELECT x, y)
+
+UPDATE t SET (a, b) = (SELECT x, y FROM t2 WHERE ...)
+
+INSERT INTO t (a, b) VALUES (1, 2)
+&nbsp;
+</pre>
+        </div>
+
+        <div class="row col col-50 col-black">
+		<pre class="prettyprint lang-java">
+select().from(t).where(row(t.a, t.b).eq(1, 2));
+// Type-check here: ----------------->  ^^^^
+select().from(t).where(row(t.a, t.b).overlaps(date1, date2));
+// Type-check here: ------------------------> ^^^^^^^^^^^^
+select().from(t).where(row(t.a, t.b).in(select(t2.x, t2.y)));
+// Type-check here: -------------------------> ^^^^^^^^^^
+update(t).set(row(t.a, t.b), select(t2.x, t2.y).where(...));
+// Type-check here: --------------> ^^^^^^^^^^
+insertInto(t, t.a, t.b).values(1, 2);
+// Type-check here: ---------> ^^^^
+</pre>
+        </div>
+    </div>
+
+<div class="section" id="note-from-ceo">
+    <div class="row col col-100 col-white headline">
+        <h2>A short note from Lukas</h2>
+        <p>(Founder and CEO of Data Geekery)</p>
+    </div>
+
+    <div class="row col col-25 col-white">
+        <a href="https://twitter.com/lukaseder"><img src="/img/team/lukas.jpg" width="200" align="left" style="border: 2px solid black"/></a>
+        <div class="arrow-left-note"></div>
+    </div>
+    <div class="row col col-75 col-lightgrey emphasis">
+        <p>
+            Hi there!
+        </p>
+
+        <p>
+            You're probably asking yourself why we need yet another database abstraction software in Java. Fair question.
+        </p>
+
+        <p>
+            In our experience when writing applications against large and complex Oracle databases, Hibernate was not a good fit because we wanted to stay close to SQL:2008 and to Oracle's extensions.
+        </p>
+
+        <p>
+            JDBC, on the other hand is verbose and causes a lot of quality and security headaches.
+        </p>
+
+        <p>
+            So we rolled our own tailor-made little SQL builder. In fact, every company I have ever met rolled their own tailor-made SQL builder.
+        </p>
+
+        <p>
+            But our business was not to write SQL builders, our business was to write brokerage logic. E-Banking workflows. Customer relationship management. We didn't care about infrastructure, really.
+        </p>
+
+        <p>
+            And because we didn't really care about the SQL parts, no one maintained those SQL builders. We were overwhelmed.
+        </p>
+
+        <p>
+            That's why I created jOOQ.
+        </p>
+
+        <p>
+            jOOQ is a simple way to integrate the SQL language into Java in a way that allows for developers to write safe and quality SQL fast and directly in Java such that they can again focus on their business.
+        </p>
+
+        <p>
+            Today, I'm happy to say that jOOQ is the product that I was wishing for when I started to really understand SQL. And I'm also proud to say that thousands of happy jOOQ users agree.
+        </p>
+
+        <p>
+            Why don't you give jOOQ a free try. If you don't like it you don't pay.
+        </p>
+
+        <p>
+            Cheers, Lukas
+        </p>
+    </div>
+</div>
+
+
+<div class="section" id="download">
+    <div class="row col col-100 col-white headline">
+        <h2>DOWNLOAD</h2>
+    </div>
+    <div class="row col col-100 col-black headline">
+        <p>
+            <a href="/download">
+                <button class="teaser-button">
+                    Start your free jOOQ trial now!
+                </button>
+            </a>
+        </p>
+	</div>
+</div>
+
+                <div style="float: left; padding: 20px"></div>
+            </div>
+            <div class="footer">
+                <div class="col-darkgrey">
+                <div class="row-225 non-wide">
+                <div class="col-25">
+                        <h2>Community</h2>
+                        <ul>
+                            <li><a href="/customers">Our customers</a></li>
+                            <li><a href="https://groups.google.com/d/forum/jooq-user">User Groups</a></li>
+                            <li><a href="https://blog.jooq.org">Blog</a>
+                            <li><a href="https://github.com/jOOQ/jOOQ">GitHub</a></li>
+                            <li><a href="https://stackoverflow.com/questions/tagged/jooq">Stack Overflow</a></li>
+                            <li><a href="/community">Activities</a></li>
+                            <li><a href="/tuesdays">jOOQ Tuesdays</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-25">
+                        <h2>Support</h2>
+                        <ul>
+                            <li><a href="/support#a=support-community">Community Support</a></li>
+                            <li><a href="/support#a=support-commercial">Commercial Support</a></li>
+                            <li><a href="/training">Trainings</a></li>
+                            <li><a href="/support#a=support-custom-engineering">Custom Engineering</a></li>
+                            <li><a href="mailto:contact@datageekery.com">Contact</a></li>
+                            <li><a href="javascript:void(0);" class="newsletterbutton">Newsletter</a></li>
+                            <li><a href="/donate">Donations</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-25">
+                        <h2>Legal</h2>
+                        <ul>
+                            <li><a href="/legal/notice">Site Notice</a></li>
+                            <li><a href="/legal/licensing">Licenses</a></li>
+                            <li><a href="/legal/privacy">Privacy Policy</a></li>
+                            <li><a href="/legal/terms">Terms of Service</a></li>
+                            <li><a href="/legal/contributions">Contributor Agreement</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-25">
+                        <h2>Documentation</h2>
+                        <ul>
+                            <li><a href="/doc/3.10/manual/getting-started/tutorials/jooq-in-7-steps">Tutorial</a></li>
+                            <li><a href="/doc/3.10/manual-single-page">The manual (single page)</a></li>
+                            <li><a href="/doc/3.10/manual">The manual (multi page)</a></li>
+                            <li><a href="/doc/3.10/manual-pdf/jOOQ-manual-3.10.pdf">The manual (PDF)</a></li>
+                            <li><a href="/javadoc/latest/">Javadoc</a></li>
+							<li><a href="/java-sql-simple">Using SQL in Java is simple!</a></li>
+							<li><a href="/why-jOOQ.pdf">Convince your manager!</a></li>
+                            <li><a href="/products">Our other products</a></li>
+                            <li><a href="/translate">Translate SQL between databases</a></li>
+                            <li><a href="/how-to-pronounce-jooq">How to pronounce jOOQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-black">
+                <div class="row-75 non-wide">
+                    <div class="col-100" id="copyright">
+                        <p class="center">
+                            &copy; 2009 - 2018 by
+                            <a href="http://www.datageekery.com">Data Geekery&trade; GmbH</a>. All rights reserved.
+                            <br/>
+                            jOOQ&trade; is a trademark of Data Geekery GmbH. All other trademarks and copyrights are the property of their respective owners.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+                        <div class="license-box" id="oss-license" style="display: none; width: 800px">
+                <h3>
+                    Registration (optional)
+                </h3>
+
+                <form id="registration-email-form" name="registration-email" class="registration-email-form" action="#" method="POST">
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">E-Mail</div>
+    <div class="reg-col reg-col-2"><input class="input" name="email" type="email"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Phone number</div>
+    <div class="reg-col reg-col-2"><input class="input" name="phone" type="tel"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Company Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="company_name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Newsletter</div>
+    <div class="reg-col reg-col-2">
+		<input type="hidden" id="newsletter" name="newsletter" value="1"/>
+		<input type="checkbox" value="1" checked="checked"  />
+		<label for="newsletter">Receive our monthly newsletter</label></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">
+        Anything else you'd like to tell us?<br/>
+        How did you hear from jOOQ?<br/>
+        What made you try jOOQ?<br/>
+        What are your expectations?
+    </div>
+    <div class="reg-col reg-col-2"><textarea name="comments"></textarea></div>
+</div>
+
+
+<input type="hidden" id="registered-by" name="registered-by" value="oss-license"/>
+</form>
+                <h3>
+                    License agreement
+                </h3>
+                <p>
+                    By downloading the jOOQ Community Edition, you confirm to have read and that you agree to the terms of the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache Software License 2.0</a>.
+                </p>
+                <div class="buttons">
+                    <button class="disagree">I do not agree</button>
+                    <button class="agree save">I agree</button>
+                </div>
+            </div>
+            <div class="license-box" id="trial-license" style="display: none; width: 800px">
+                <h3>
+                    Registration (optional)
+                </h3>
+
+                <form id="registration-email-form" name="registration-email" class="registration-email-form" action="#" method="POST">
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">E-Mail</div>
+    <div class="reg-col reg-col-2"><input class="input" name="email" type="email"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Phone number</div>
+    <div class="reg-col reg-col-2"><input class="input" name="phone" type="tel"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Company Name</div>
+    <div class="reg-col reg-col-2"><input class="input" name="company_name"/></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">Newsletter</div>
+    <div class="reg-col reg-col-2">
+		<input type="hidden" id="newsletter" name="newsletter" value="1"/>
+		<input type="checkbox" value="1" checked="checked"  />
+		<label for="newsletter">Receive our monthly newsletter</label></div>
+</div>
+<div class="reg-row">
+    <div class="reg-col reg-col-1">
+        Anything else you'd like to tell us?<br/>
+        How did you hear from jOOQ?<br/>
+        What made you try jOOQ?<br/>
+        What are your expectations?
+    </div>
+    <div class="reg-col reg-col-2"><textarea name="comments"></textarea></div>
+</div>
+
+
+<input type="hidden" id="registered-by" name="registered-by" value="trial-license"/>
+</form>
+                <h3>
+                    License agreement
+                </h3>
+                <p>
+                    By downloading a 30 day trial license for the jOOQ Professional Edition or the jOOQ Enterprise Edition, you confirm to have read and that you agree to the terms of
+                    the <a class="agree-link" data-read="license" href="/legal/180228_jOOQ_License_and_Maintenance_Agreement.pdf" target="_blank">jOOQ License</a>.
+                </p>
+                <p>
+                    The free trial requires Java 8. If you would like to try jOOQ with Java 6, please contact <a href="mailto:sales@datageekery.com">sales@datageekery.com</a>.
+                </p>
+                <div class="buttons">
+                    <button class="disagree">I do not agree</button>
+                    <button class="agree save">I agree</button>
+                </div>
+            </div>
+            <div class="license-box" id="full-license" style="display: none; width: 800px">
+                <h3>
+                    License agreement
+                </h3>
+                <p>
+                    By purchasing the jOOQ Express Edition, the Professional Edition, or the jOOQ Enterprise Edition, you confirm to have read and that you agree to the terms of
+                    the <a class="agree-link" data-read="license" href="/legal/180228_jOOQ_License_and_Maintenance_Agreement.pdf" target="_blank">jOOQ License</a>
+                </p>
+                <div class="buttons">
+                    <button class="disagree">I do not agree</button>
+                    <button class="agree save">I agree</button>
+                </div>
+            </div>
+                    </div>
+
+        <div id="registration-teaser" class="row-75" style="display: none;">
+            <button id="registration-teaser-ok">Sign up for our newsletter</button>
+            <button id="registration-teaser-no">Maybe later</button>
+        </div>
+        
+        <div style="display: none">
+            <img src="/img/jooq-logo-white-750x750-padded.png" alt="The jOOQ Logo" title="jOOQ Logo"/>
+        </div>
+
+        <div id="manual-code-tooltip" style="display: none" class="tooltip">
+            <a href="/doc/latest/manual/getting-started/the-manual" title="More info about how to read this manual"><img src="/img/ico/warning.circle.png" align="left" alt="More info about how to read this manual" width="40"/></a>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.modal.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.ba-bbq.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="/js/prettify/prettify.js"></script>
+        <script type="text/javascript" src="/js/prettify/lang-sql.js"></script>
+
+                    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-30716479-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+                <script type="text/javascript" src="/js/jooq.js"></script>
+    </body>
+</html>

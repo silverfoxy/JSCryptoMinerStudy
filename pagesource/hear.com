@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" class='no-js'>
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2016 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+
+<link rel="shortcut icon" href="/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/USA/favicon.ico" type="image/x-icon">
+<title>Hearing aid specialist in the USA | Risk-free trial | hear.com</title>
+<meta name="generator" content="TYPO3 CMS">
+<meta name="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="google-site-verification" content="W8F2ZotBffW7EiYvusn32TmDkYAQobQ-LfwjMqF7pOU">
+<meta name="description" content="Hearing aids from all leading manufacturers ✔ Free consultation with hearing aid experts ✔ Individualized support in your local area ✔ Risk-free trial">
+
+
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/audtemplate/Resources/Public/Css/Extensions/audibene_search/audibene_search.css?1521643596" media="all">
+
+
+
+
+
+
+<style type="text/css">.csc-header-alignment-center{text-align:center}.csc-header-alignment-right{text-align:right}.csc-header-alignment-left{text-align:left}div.csc-textpic-responsive,div.csc-textpic-responsive *{box-sizing:border-box}div.csc-textpic,div.csc-textpic div.csc-textpic-imagerow,ul.csc-uploads li{overflow:hidden}div.csc-textpic .csc-textpic-imagewrap table{border-collapse:collapse;border-spacing:0}div.csc-textpic .csc-textpic-imagewrap table tr td{padding:0;vertical-align:top}div.csc-textpic .csc-textpic-imagewrap figure,div.csc-textpic figure.csc-textpic-imagewrap{margin:0;display:table}figcaption.csc-textpic-caption{display:table-caption}.csc-textpic-caption{text-align:left;caption-side:bottom}div.csc-textpic-caption-c .csc-textpic-caption,.csc-textpic-imagewrap .csc-textpic-caption-c{text-align:center}div.csc-textpic-caption-r .csc-textpic-caption,.csc-textpic-imagewrap .csc-textpic-caption-r{text-align:right}div.csc-textpic-caption-l .csc-textpic-caption,.csc-textpic-imagewrap .csc-textpic-caption-l{text-align:left}div.csc-textpic div.csc-textpic-imagecolumn{float:left}div.csc-textpic-border div.csc-textpic-imagewrap img{border:2px solid black;padding:0}div.csc-textpic .csc-textpic-imagewrap img{border:none;display:block}div.csc-textpic .csc-textpic-imagewrap .csc-textpic-image{margin-bottom:10px}div.csc-textpic .csc-textpic-imagewrap .csc-textpic-imagerow-last .csc-textpic-image{margin-bottom:0}div.csc-textpic-imagecolumn,td.csc-textpic-imagecolumn .csc-textpic-image{margin-right:10px}div.csc-textpic-imagecolumn.csc-textpic-lastcol,td.csc-textpic-imagecolumn.csc-textpic-lastcol .csc-textpic-image{margin-right:0}div.csc-textpic-intext-left .csc-textpic-imagewrap,div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap{margin-right:10px}div.csc-textpic-intext-right .csc-textpic-imagewrap,div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap{margin-left:10px}div.csc-textpic-center .csc-textpic-imagewrap,div.csc-textpic-center figure.csc-textpic-imagewrap{overflow:hidden}div.csc-textpic-center .csc-textpic-center-outer{position:relative;float:right;right:50%}div.csc-textpic-center .csc-textpic-center-inner{position:relative;float:right;right:-50%}div.csc-textpic-right .csc-textpic-imagewrap{float:right}div.csc-textpic-right div.csc-textpic-text{clear:right}div.csc-textpic-left .csc-textpic-imagewrap{float:left}div.csc-textpic-left div.csc-textpic-text{clear:left}div.csc-textpic-intext-left .csc-textpic-imagewrap{float:left}div.csc-textpic-intext-right .csc-textpic-imagewrap{float:right}div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap{float:right}div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap{float:left}div.csc-textpic div.csc-textpic-imagerow-last,div.csc-textpic div.csc-textpic-imagerow-none div.csc-textpic-last{margin-bottom:0}.csc-textpic-intext-left ol,.csc-textpic-intext-left ul{padding-left:40px;overflow:auto}ul.csc-uploads{padding:0}ul.csc-uploads li{list-style:none outside none;margin:1em 0}ul.csc-uploads img{float:left;margin-right:1em;vertical-align:top}ul.csc-uploads span{display:block}ul.csc-uploads span.csc-uploads-fileName{text-decoration:underline}table.contenttable-color-1{background-color:#EDEBF1}table.contenttable-color-2{background-color:#F5FFAA}table.contenttable-color-240{background-color:black}table.contenttable-color-241{background-color:white}table.contenttable-color-242{background-color:#333333}table.contenttable-color-243{background-color:gray}table.contenttable-color-244{background-color:silver}/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:inherit;font-weight:bold;line-height:1.1;color:#0c2c53}h1 small,h1 .small,h2 small,h2 .small,h3 small,h3 .small,h4 small,h4 .small,h5 small,h5 .small,h6 small,h6 .small,.h1 small,.h1 .small,.h2 small,.h2 .small,.h3 small,.h3 .small,.h4 small,.h4 .small,.h5 small,.h5 .small,.h6 small,.h6 .small{font-weight:normal;line-height:1}h1,.h1,h2,.h2,h3,.h3{margin-top:22px;margin-bottom:11px}h1 small,h1 .small,.h1 small,.h1 .small,h2 small,h2 .small,.h2 small,.h2 .small,h3 small,h3 .small,.h3 small,.h3 .small{font-size:65%}h4,.h4,h5,.h5,h6,.h6{margin-top:11px;margin-bottom:11px}h4 small,h4 .small,.h4 small,.h4 .small,h5 small,h5 .small,.h5 small,.h5 .small,h6 small,h6 .small,.h6 small,.h6 .small{font-size:75%}h1,.h1{font-size:23px}h2,.h2{font-size:18px}h3,.h3{font-size:14px}h4,.h4{font-size:14px}h5,.h5{font-size:14px}h6,.h6{font-size:12px}p{margin:0 0 11px}small,.small{font-size:85%}.text-left{text-align:left}.text-right{text-align:right}.text-center{text-align:center}.text-justify{text-align:justify}.text-nowrap{white-space:nowrap}.text-lowercase{text-transform:lowercase}.text-uppercase{text-transform:uppercase}.text-capitalize{text-transform:capitalize}ul,ol{margin-top:0;margin-bottom:11px}ul ul,ul ol,ol ul,ol ol{margin-bottom:0}.list-unstyled,.list-inline{padding-left:0;list-style:none}.list-inline{margin-left:-5px}.list-inline>li{display:inline-block;padding-left:5px;padding-right:5px}div.csc-textpic-intext-left .csc-textpic-imagewrap,div.csc-textpic-intext-right .csc-textpic-imagewrap{max-width:41.6666667%}@media screen and (min-width: 320px) and (max-width: 479px){div.csc-textpic-intext-left .csc-textpic-imagewrap,div.csc-textpic-intext-right .csc-textpic-imagewrap{width:100%}}div.csc-textpic-border div.csc-textpic-imagewrap img{border:1px solid #ccc;border-radius:4px;overflow:hidden}.mainContent p a p a{text-decoration:underline}.mainContent p a p a:hover{text-decoration:none}figcaption.csc-textpic-caption{font-size:12px;margin-top:20px;margin-bottom:12px}.csc-textpic-border figcaption.csc-textpic-caption{border-top:none;margin-top:0px}.ondemand{background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/loading.gif") no-repeat center;background-size:30px}.ondemand img{opacity:0;transition:opacity .3s ease-in}.ondemand.activate{background:none}.ondemand.activate img{opacity:1}.align-center{text-align:center}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.pull-right{float:right !important}.pull-left{float:left !important}.hide{display:none !important}.show{display:block !important}.invisible{visibility:hidden}.hidden{display:none !important;visibility:hidden !important}*,*:before,*:after{box-sizing:border-box}html{font-size:16px;-webkit-tap-highlight-color:transparent}body{font-family:"Arial",sans-serif;font-size:16px;line-height:1.628571;color:#3a3a3a}input,button,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#265da5;text-decoration:none}a:hover,a:focus{color:#0c2c53;text-decoration:underline}figure{margin:0}img{vertical-align:middle}.img-responsive{display:block;max-width:100%;height:auto}hr{margin-top:22px;margin-bottom:22px;border:0;border-top:1px solid #ccc}@-ms-viewport{width:device-width}.visible-xs,.visible-sm,.visible-md,.visible-lg{display:none !important}@media (max-width: 479px){.visible-xs{display:block !important}}@media (min-width: 480px) and (max-width: 749px){.visible-sm{display:block !important}}@media (min-width: 750px) and (max-width: 959px){.visible-md{display:block !important}}@media (min-width: 960px){.visible-lg{display:block !important}}@media (max-width: 479px){.hidden-xs{display:none !important}}@media (min-width: 480px) and (max-width: 749px){.hidden-sm{display:none !important}}@media (min-width: 750px) and (max-width: 959px){.hidden-md{display:none !important}}@media (min-width: 960px){.hidden-lg{display:none !important}}.border-grey-1{border:1px solid #ccc}body{margin-top:15px}figcaption.csc-textpic-caption{padding:8px 0;border-top:1px dotted #ccc}.csc-textpic .img-responsive{width:100%}.check-grey{list-style:none;margin:0;padding:0}.check-grey li{background-image:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Ayu/Root/Audibene/check-grey.png");background-repeat:no-repeat;padding-left:22px;line-height:17px;background-position:left 2px;list-style:none;margin:0 0 8px 0;min-height:17px;list-style:none !important}span.header{font-family:Arial,Sans-Serif;line-height:1.1em;color:#1F4175;font-size:14px;margin:0 0 13px;padding-top:0;display:block}.mainContent hr{border-top:1px dotted #ccc}.vertical-align{text-align:center;display:table-cell;vertical-align:middle;position:relative}.align-right{text-align:right}.align-justify{text-align:justify}ul.effectBoxList .effectBoxInner li{list-style-type:disc;margin-left:0px}.radio,.checkbox{padding-left:20px}.background-grey{background:#f0f0f0}.no-padding{padding-left:0;padding-right:0}.border{border:1px solid #ccc}.border-left-right{border-left:1px solid #ccc;border-right:1px solid #ccc}.content-wrapper{margin-left:auto;margin-right:auto;max-width:960px}.trustbar--home{margin:0 auto 12px;display:block}@media screen and (min-width: 750px){.no-flexbox.no-flexboxlegacy .row-flex{display:table}.no-flexbox.no-flexboxlegacy .row-flex>div{display:table-cell;vertical-align:middle;float:none}.no-flexbox.no-flexboxlegacy .row-flex .flex-bottom{vertical-align:bottom}.no-flexbox.no-flexboxlegacy .row-flex .flex-top{vertical-align:top}}.flexbox .row-flex,.flexboxlegacy .row-flex{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}.flexbox .row-flex:after,.flexbox .row-flex:before,.flexboxlegacy .row-flex:after,.flexboxlegacy .row-flex:before{content:none}.flexbox .row-flex .flex-bottom,.flexboxlegacy .row-flex .flex-bottom{-webkit-align-self:flex-end;-ms-flex-item-align:end;align-self:flex-end}.flexbox .row-flex .flex-center,.flexboxlegacy .row-flex .flex-center{-webkit-align-self:center;-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}.flexbox .row-flex .flex-top,.flexboxlegacy .row-flex .flex-top{-webkit-order:0;-ms-flex-order:0;order:0;-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start}.flexbox .row-flex .flex-end,.flexboxlegacy .row-flex .flex-end{-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}.flexbox .row-flex.flex-center,.flexboxlegacy .row-flex.flex-center{-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}@media (max-width: 749px){.flexbox .row-flex.reverse,.flexboxlegacy .row-flex.reverse{-webkit-flex-direction:column-reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}}.container{margin-right:auto;margin-left:auto;padding-left:5px;padding-right:5px}.container:before,.container:after{content:" ";display:table}.container:after{clear:both}@media (min-width: 480px){.container{width:490px}}@media (min-width: 750px){.container{width:760px}}@media (min-width: 960px){.container{width:970px}}.container-fluid{margin-right:auto;margin-left:auto;padding-left:5px;padding-right:5px}.container-fluid:before,.container-fluid:after{content:" ";display:table}.container-fluid:after{clear:both}.row{margin-left:-5px;margin-right:-5px}.row:before,.row:after{content:" ";display:table}.row:after{clear:both}.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12{position:relative;min-height:1px;padding-left:5px;padding-right:5px}.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{float:left}.col-xs-1{width:8.333333%}.col-xs-2{width:16.666667%}.col-xs-3{width:25%}.col-xs-4{width:33.333333%}.col-xs-5{width:41.666667%}.col-xs-6{width:50%}.col-xs-7{width:58.333333%}.col-xs-8{width:66.666667%}.col-xs-9{width:75%}.col-xs-10{width:83.333333%}.col-xs-11{width:91.666667%}.col-xs-12{width:100%}@media (min-width: 480px){.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{float:left}.col-sm-1{width:8.333333%}.col-sm-2{width:16.666667%}.col-sm-3{width:25%}.col-sm-4{width:33.333333%}.col-sm-5{width:41.666667%}.col-sm-6{width:50%}.col-sm-7{width:58.333333%}.col-sm-8{width:66.666667%}.col-sm-9{width:75%}.col-sm-10{width:83.333333%}.col-sm-11{width:91.666667%}.col-sm-12{width:100%}}@media (min-width: 750px){.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{float:left}.col-md-1{width:8.333333%}.col-md-2{width:16.666667%}.col-md-3{width:25%}.col-md-4{width:33.333333%}.col-md-5{width:41.666667%}.col-md-6{width:50%}.col-md-7{width:58.333333%}.col-md-8{width:66.666667%}.col-md-9{width:75%}.col-md-10{width:83.333333%}.col-md-11{width:91.666667%}.col-md-12{width:100%}}@media (min-width: 960px){.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{float:left}.col-lg-1{width:8.333333%}.col-lg-2{width:16.666667%}.col-lg-3{width:25%}.col-lg-4{width:33.333333%}.col-lg-5{width:41.666667%}.col-lg-6{width:50%}.col-lg-7{width:58.333333%}.col-lg-8{width:66.666667%}.col-lg-9{width:75%}.col-lg-10{width:83.333333%}.col-lg-11{width:91.666667%}.col-lg-12{width:100%}}.row.gutter-small{margin-right:-5px;margin-left:-5px}.row.gutter-small>[class^="col-"],.row.gutter-small>[class*=" col-"]{padding-right:5px;padding-left:5px}.row.gutter-no{margin-right:0px;margin-left:0px}.row.gutter-no>[class^="col-"],.row.gutter-no>[class*=" col-"]{padding-right:0px;padding-left:0px}.csc-space-after-1{padding-bottom:1px}.csc-space-before-1{padding-top:1px}.csc-space-after-2{padding-bottom:2px}.csc-space-before-2{padding-top:2px}.csc-space-after-3{padding-bottom:3px}.csc-space-before-3{padding-top:3px}.csc-space-after-4{padding-bottom:4px}.csc-space-before-4{padding-top:4px}.csc-space-after-5{padding-bottom:5px}.csc-space-before-5{padding-top:5px}.csc-space-after-6{padding-bottom:6px}.csc-space-before-6{padding-top:6px}.csc-space-after-7{padding-bottom:7px}.csc-space-before-7{padding-top:7px}.csc-space-after-8{padding-bottom:8px}.csc-space-before-8{padding-top:8px}.csc-space-after-9{padding-bottom:9px}.csc-space-before-9{padding-top:9px}.csc-space-after-10{padding-bottom:10px}.csc-space-before-10{padding-top:10px}.csc-space-after-11{padding-bottom:11px}.csc-space-before-11{padding-top:11px}.csc-space-after-12{padding-bottom:12px}.csc-space-before-12{padding-top:12px}.csc-space-after-13{padding-bottom:13px}.csc-space-before-13{padding-top:13px}.csc-space-after-14{padding-bottom:14px}.csc-space-before-14{padding-top:14px}.csc-space-after-15{padding-bottom:15px}.csc-space-before-15{padding-top:15px}.csc-space-after-16{padding-bottom:16px}.csc-space-before-16{padding-top:16px}.csc-space-after-17{padding-bottom:17px}.csc-space-before-17{padding-top:17px}.csc-space-after-18{padding-bottom:18px}.csc-space-before-18{padding-top:18px}.csc-space-after-19{padding-bottom:19px}.csc-space-before-19{padding-top:19px}.csc-space-after-20{padding-bottom:20px}.csc-space-before-20{padding-top:20px}.csc-space-after-21{padding-bottom:21px}.csc-space-before-21{padding-top:21px}.csc-space-after-22{padding-bottom:22px}.csc-space-before-22{padding-top:22px}.csc-space-after-23{padding-bottom:23px}.csc-space-before-23{padding-top:23px}.csc-space-after-24{padding-bottom:24px}.csc-space-before-24{padding-top:24px}.csc-space-after-25{padding-bottom:25px}.csc-space-before-25{padding-top:25px}.csc-space-after-26{padding-bottom:26px}.csc-space-before-26{padding-top:26px}.csc-space-after-27{padding-bottom:27px}.csc-space-before-27{padding-top:27px}.csc-space-after-28{padding-bottom:28px}.csc-space-before-28{padding-top:28px}.csc-space-after-29{padding-bottom:29px}.csc-space-before-29{padding-top:29px}.csc-space-after-30{padding-bottom:30px}.csc-space-before-30{padding-top:30px}.csc-space-after-31{padding-bottom:31px}.csc-space-before-31{padding-top:31px}.csc-space-after-32{padding-bottom:32px}.csc-space-before-32{padding-top:32px}.csc-space-after-33{padding-bottom:33px}.csc-space-before-33{padding-top:33px}.csc-space-after-34{padding-bottom:34px}.csc-space-before-34{padding-top:34px}.csc-space-after-35{padding-bottom:35px}.csc-space-before-35{padding-top:35px}.csc-space-after-36{padding-bottom:36px}.csc-space-before-36{padding-top:36px}.csc-space-after-37{padding-bottom:37px}.csc-space-before-37{padding-top:37px}.csc-space-after-38{padding-bottom:38px}.csc-space-before-38{padding-top:38px}.csc-space-after-39{padding-bottom:39px}.csc-space-before-39{padding-top:39px}.csc-space-after-40{padding-bottom:40px}.csc-space-before-40{padding-top:40px}.csc-space-after-41{padding-bottom:41px}.csc-space-before-41{padding-top:41px}.csc-space-after-42{padding-bottom:42px}.csc-space-before-42{padding-top:42px}.csc-space-after-43{padding-bottom:43px}.csc-space-before-43{padding-top:43px}.csc-space-after-44{padding-bottom:44px}.csc-space-before-44{padding-top:44px}.csc-space-after-45{padding-bottom:45px}.csc-space-before-45{padding-top:45px}.csc-space-after-46{padding-bottom:46px}.csc-space-before-46{padding-top:46px}.csc-space-after-47{padding-bottom:47px}.csc-space-before-47{padding-top:47px}.csc-space-after-48{padding-bottom:48px}.csc-space-before-48{padding-top:48px}.csc-space-after-49{padding-bottom:49px}.csc-space-before-49{padding-top:49px}.csc-space-after-50{padding-bottom:50px}.csc-space-before-50{padding-top:50px}.csc-space-after-51{padding-bottom:51px}.csc-space-before-51{padding-top:51px}.csc-space-after-52{padding-bottom:52px}.csc-space-before-52{padding-top:52px}.csc-space-after-53{padding-bottom:53px}.csc-space-before-53{padding-top:53px}.csc-space-after-54{padding-bottom:54px}.csc-space-before-54{padding-top:54px}.csc-space-after-55{padding-bottom:55px}.csc-space-before-55{padding-top:55px}.csc-space-after-56{padding-bottom:56px}.csc-space-before-56{padding-top:56px}.csc-space-after-57{padding-bottom:57px}.csc-space-before-57{padding-top:57px}.csc-space-after-58{padding-bottom:58px}.csc-space-before-58{padding-top:58px}.csc-space-after-59{padding-bottom:59px}.csc-space-before-59{padding-top:59px}.csc-space-after-60{padding-bottom:60px}.csc-space-before-60{padding-top:60px}.csc-space-after-61{padding-bottom:61px}.csc-space-before-61{padding-top:61px}.csc-space-after-62{padding-bottom:62px}.csc-space-before-62{padding-top:62px}.csc-space-after-63{padding-bottom:63px}.csc-space-before-63{padding-top:63px}.csc-space-after-64{padding-bottom:64px}.csc-space-before-64{padding-top:64px}.csc-space-after-65{padding-bottom:65px}.csc-space-before-65{padding-top:65px}.csc-space-after-66{padding-bottom:66px}.csc-space-before-66{padding-top:66px}.csc-space-after-67{padding-bottom:67px}.csc-space-before-67{padding-top:67px}.csc-space-after-68{padding-bottom:68px}.csc-space-before-68{padding-top:68px}.csc-space-after-69{padding-bottom:69px}.csc-space-before-69{padding-top:69px}.csc-space-after-70{padding-bottom:70px}.csc-space-before-70{padding-top:70px}.csc-space-after-71{padding-bottom:71px}.csc-space-before-71{padding-top:71px}.csc-space-after-72{padding-bottom:72px}.csc-space-before-72{padding-top:72px}.csc-space-after-73{padding-bottom:73px}.csc-space-before-73{padding-top:73px}.csc-space-after-74{padding-bottom:74px}.csc-space-before-74{padding-top:74px}.csc-space-after-75{padding-bottom:75px}.csc-space-before-75{padding-top:75px}.csc-space-after-76{padding-bottom:76px}.csc-space-before-76{padding-top:76px}.csc-space-after-77{padding-bottom:77px}.csc-space-before-77{padding-top:77px}.csc-space-after-78{padding-bottom:78px}.csc-space-before-78{padding-top:78px}.csc-space-after-79{padding-bottom:79px}.csc-space-before-79{padding-top:79px}.csc-space-after-80{padding-bottom:80px}.csc-space-before-80{padding-top:80px}.csc-space-after-81{padding-bottom:81px}.csc-space-before-81{padding-top:81px}.csc-space-after-82{padding-bottom:82px}.csc-space-before-82{padding-top:82px}.csc-space-after-83{padding-bottom:83px}.csc-space-before-83{padding-top:83px}.csc-space-after-84{padding-bottom:84px}.csc-space-before-84{padding-top:84px}.csc-space-after-85{padding-bottom:85px}.csc-space-before-85{padding-top:85px}.csc-space-after-86{padding-bottom:86px}.csc-space-before-86{padding-top:86px}.csc-space-after-87{padding-bottom:87px}.csc-space-before-87{padding-top:87px}.csc-space-after-88{padding-bottom:88px}.csc-space-before-88{padding-top:88px}.csc-space-after-89{padding-bottom:89px}.csc-space-before-89{padding-top:89px}.csc-space-after-90{padding-bottom:90px}.csc-space-before-90{padding-top:90px}.csc-space-after-91{padding-bottom:91px}.csc-space-before-91{padding-top:91px}.csc-space-after-92{padding-bottom:92px}.csc-space-before-92{padding-top:92px}.csc-space-after-93{padding-bottom:93px}.csc-space-before-93{padding-top:93px}.csc-space-after-94{padding-bottom:94px}.csc-space-before-94{padding-top:94px}.csc-space-after-95{padding-bottom:95px}.csc-space-before-95{padding-top:95px}.csc-space-after-96{padding-bottom:96px}.csc-space-before-96{padding-top:96px}.csc-space-after-97{padding-bottom:97px}.csc-space-before-97{padding-top:97px}.csc-space-after-98{padding-bottom:98px}.csc-space-before-98{padding-top:98px}.csc-space-after-99{padding-bottom:99px}.csc-space-before-99{padding-top:99px}.csc-space-after-100{padding-bottom:100px}.csc-space-before-100{padding-top:100px}.csc-space-after-101{padding-bottom:101px}.csc-space-before-101{padding-top:101px}.csc-space-after-102{padding-bottom:102px}.csc-space-before-102{padding-top:102px}.csc-space-after-103{padding-bottom:103px}.csc-space-before-103{padding-top:103px}.csc-space-after-104{padding-bottom:104px}.csc-space-before-104{padding-top:104px}.csc-space-after-105{padding-bottom:105px}.csc-space-before-105{padding-top:105px}.csc-space-after-106{padding-bottom:106px}.csc-space-before-106{padding-top:106px}.csc-space-after-107{padding-bottom:107px}.csc-space-before-107{padding-top:107px}.csc-space-after-108{padding-bottom:108px}.csc-space-before-108{padding-top:108px}.csc-space-after-109{padding-bottom:109px}.csc-space-before-109{padding-top:109px}.csc-space-after-110{padding-bottom:110px}.csc-space-before-110{padding-top:110px}.csc-space-after-111{padding-bottom:111px}.csc-space-before-111{padding-top:111px}.csc-space-after-112{padding-bottom:112px}.csc-space-before-112{padding-top:112px}.csc-space-after-113{padding-bottom:113px}.csc-space-before-113{padding-top:113px}.csc-space-after-114{padding-bottom:114px}.csc-space-before-114{padding-top:114px}.csc-space-after-115{padding-bottom:115px}.csc-space-before-115{padding-top:115px}.csc-space-after-116{padding-bottom:116px}.csc-space-before-116{padding-top:116px}.csc-space-after-117{padding-bottom:117px}.csc-space-before-117{padding-top:117px}.csc-space-after-118{padding-bottom:118px}.csc-space-before-118{padding-top:118px}.csc-space-after-119{padding-bottom:119px}.csc-space-before-119{padding-top:119px}.csc-space-after-120{padding-bottom:120px}.csc-space-before-120{padding-top:120px}.csc-space-after-121{padding-bottom:121px}.csc-space-before-121{padding-top:121px}.csc-space-after-122{padding-bottom:122px}.csc-space-before-122{padding-top:122px}.csc-space-after-123{padding-bottom:123px}.csc-space-before-123{padding-top:123px}.csc-space-after-124{padding-bottom:124px}.csc-space-before-124{padding-top:124px}.csc-space-after-125{padding-bottom:125px}.csc-space-before-125{padding-top:125px}.csc-space-after-126{padding-bottom:126px}.csc-space-before-126{padding-top:126px}.csc-space-after-127{padding-bottom:127px}.csc-space-before-127{padding-top:127px}.csc-space-after-128{padding-bottom:128px}.csc-space-before-128{padding-top:128px}.csc-space-after-129{padding-bottom:129px}.csc-space-before-129{padding-top:129px}.csc-space-after-130{padding-bottom:130px}.csc-space-before-130{padding-top:130px}.csc-space-after-131{padding-bottom:131px}.csc-space-before-131{padding-top:131px}.csc-space-after-132{padding-bottom:132px}.csc-space-before-132{padding-top:132px}.csc-space-after-133{padding-bottom:133px}.csc-space-before-133{padding-top:133px}.csc-space-after-134{padding-bottom:134px}.csc-space-before-134{padding-top:134px}.csc-space-after-135{padding-bottom:135px}.csc-space-before-135{padding-top:135px}.csc-space-after-136{padding-bottom:136px}.csc-space-before-136{padding-top:136px}.csc-space-after-137{padding-bottom:137px}.csc-space-before-137{padding-top:137px}.csc-space-after-138{padding-bottom:138px}.csc-space-before-138{padding-top:138px}.csc-space-after-139{padding-bottom:139px}.csc-space-before-139{padding-top:139px}.csc-space-after-140{padding-bottom:140px}.csc-space-before-140{padding-top:140px}.csc-space-after-141{padding-bottom:141px}.csc-space-before-141{padding-top:141px}.csc-space-after-142{padding-bottom:142px}.csc-space-before-142{padding-top:142px}.csc-space-after-143{padding-bottom:143px}.csc-space-before-143{padding-top:143px}.csc-space-after-144{padding-bottom:144px}.csc-space-before-144{padding-top:144px}.csc-space-after-145{padding-bottom:145px}.csc-space-before-145{padding-top:145px}.csc-space-after-146{padding-bottom:146px}.csc-space-before-146{padding-top:146px}.csc-space-after-147{padding-bottom:147px}.csc-space-before-147{padding-top:147px}.csc-space-after-148{padding-bottom:148px}.csc-space-before-148{padding-top:148px}.csc-space-after-149{padding-bottom:149px}.csc-space-before-149{padding-top:149px}.csc-space-after-150{padding-bottom:150px}.csc-space-before-150{padding-top:150px}.csc-space-after-151{padding-bottom:151px}.csc-space-before-151{padding-top:151px}.csc-space-after-152{padding-bottom:152px}.csc-space-before-152{padding-top:152px}.csc-space-after-153{padding-bottom:153px}.csc-space-before-153{padding-top:153px}.csc-space-after-154{padding-bottom:154px}.csc-space-before-154{padding-top:154px}.csc-space-after-155{padding-bottom:155px}.csc-space-before-155{padding-top:155px}.csc-space-after-156{padding-bottom:156px}.csc-space-before-156{padding-top:156px}.csc-space-after-157{padding-bottom:157px}.csc-space-before-157{padding-top:157px}.csc-space-after-158{padding-bottom:158px}.csc-space-before-158{padding-top:158px}.csc-space-after-159{padding-bottom:159px}.csc-space-before-159{padding-top:159px}.csc-space-after-160{padding-bottom:160px}.csc-space-before-160{padding-top:160px}.csc-space-after-161{padding-bottom:161px}.csc-space-before-161{padding-top:161px}.csc-space-after-162{padding-bottom:162px}.csc-space-before-162{padding-top:162px}.csc-space-after-163{padding-bottom:163px}.csc-space-before-163{padding-top:163px}.csc-space-after-164{padding-bottom:164px}.csc-space-before-164{padding-top:164px}.csc-space-after-165{padding-bottom:165px}.csc-space-before-165{padding-top:165px}.csc-space-after-166{padding-bottom:166px}.csc-space-before-166{padding-top:166px}.csc-space-after-167{padding-bottom:167px}.csc-space-before-167{padding-top:167px}.csc-space-after-168{padding-bottom:168px}.csc-space-before-168{padding-top:168px}.csc-space-after-169{padding-bottom:169px}.csc-space-before-169{padding-top:169px}.csc-space-after-170{padding-bottom:170px}.csc-space-before-170{padding-top:170px}.csc-space-after-171{padding-bottom:171px}.csc-space-before-171{padding-top:171px}.csc-space-after-172{padding-bottom:172px}.csc-space-before-172{padding-top:172px}.csc-space-after-173{padding-bottom:173px}.csc-space-before-173{padding-top:173px}.csc-space-after-174{padding-bottom:174px}.csc-space-before-174{padding-top:174px}.csc-space-after-175{padding-bottom:175px}.csc-space-before-175{padding-top:175px}.csc-space-after-176{padding-bottom:176px}.csc-space-before-176{padding-top:176px}.csc-space-after-177{padding-bottom:177px}.csc-space-before-177{padding-top:177px}.csc-space-after-178{padding-bottom:178px}.csc-space-before-178{padding-top:178px}.csc-space-after-179{padding-bottom:179px}.csc-space-before-179{padding-top:179px}.csc-space-after-180{padding-bottom:180px}.csc-space-before-180{padding-top:180px}.csc-space-after-181{padding-bottom:181px}.csc-space-before-181{padding-top:181px}.csc-space-after-182{padding-bottom:182px}.csc-space-before-182{padding-top:182px}.csc-space-after-183{padding-bottom:183px}.csc-space-before-183{padding-top:183px}.csc-space-after-184{padding-bottom:184px}.csc-space-before-184{padding-top:184px}.csc-space-after-185{padding-bottom:185px}.csc-space-before-185{padding-top:185px}.csc-space-after-186{padding-bottom:186px}.csc-space-before-186{padding-top:186px}.csc-space-after-187{padding-bottom:187px}.csc-space-before-187{padding-top:187px}.csc-space-after-188{padding-bottom:188px}.csc-space-before-188{padding-top:188px}.csc-space-after-189{padding-bottom:189px}.csc-space-before-189{padding-top:189px}.csc-space-after-190{padding-bottom:190px}.csc-space-before-190{padding-top:190px}.csc-space-after-191{padding-bottom:191px}.csc-space-before-191{padding-top:191px}.csc-space-after-192{padding-bottom:192px}.csc-space-before-192{padding-top:192px}.csc-space-after-193{padding-bottom:193px}.csc-space-before-193{padding-top:193px}.csc-space-after-194{padding-bottom:194px}.csc-space-before-194{padding-top:194px}.csc-space-after-195{padding-bottom:195px}.csc-space-before-195{padding-top:195px}.csc-space-after-196{padding-bottom:196px}.csc-space-before-196{padding-top:196px}.csc-space-after-197{padding-bottom:197px}.csc-space-before-197{padding-top:197px}.csc-space-after-198{padding-bottom:198px}.csc-space-before-198{padding-top:198px}.csc-space-after-199{padding-bottom:199px}.csc-space-before-199{padding-top:199px}.csc-space-after-200{padding-bottom:200px}.csc-space-before-200{padding-top:200px}.csc-space-after-201{padding-bottom:201px}.csc-space-before-201{padding-top:201px}.csc-space-after-202{padding-bottom:202px}.csc-space-before-202{padding-top:202px}.csc-space-after-203{padding-bottom:203px}.csc-space-before-203{padding-top:203px}.csc-space-after-204{padding-bottom:204px}.csc-space-before-204{padding-top:204px}.csc-space-after-205{padding-bottom:205px}.csc-space-before-205{padding-top:205px}.csc-space-after-206{padding-bottom:206px}.csc-space-before-206{padding-top:206px}.csc-space-after-207{padding-bottom:207px}.csc-space-before-207{padding-top:207px}.csc-space-after-208{padding-bottom:208px}.csc-space-before-208{padding-top:208px}.csc-space-after-209{padding-bottom:209px}.csc-space-before-209{padding-top:209px}.csc-space-after-210{padding-bottom:210px}.csc-space-before-210{padding-top:210px}.csc-space-after-211{padding-bottom:211px}.csc-space-before-211{padding-top:211px}.csc-space-after-212{padding-bottom:212px}.csc-space-before-212{padding-top:212px}.csc-space-after-213{padding-bottom:213px}.csc-space-before-213{padding-top:213px}.csc-space-after-214{padding-bottom:214px}.csc-space-before-214{padding-top:214px}.csc-space-after-215{padding-bottom:215px}.csc-space-before-215{padding-top:215px}.csc-space-after-216{padding-bottom:216px}.csc-space-before-216{padding-top:216px}.csc-space-after-217{padding-bottom:217px}.csc-space-before-217{padding-top:217px}.csc-space-after-218{padding-bottom:218px}.csc-space-before-218{padding-top:218px}.csc-space-after-219{padding-bottom:219px}.csc-space-before-219{padding-top:219px}.csc-space-after-220{padding-bottom:220px}.csc-space-before-220{padding-top:220px}.csc-space-after-221{padding-bottom:221px}.csc-space-before-221{padding-top:221px}.csc-space-after-222{padding-bottom:222px}.csc-space-before-222{padding-top:222px}.csc-space-after-223{padding-bottom:223px}.csc-space-before-223{padding-top:223px}.csc-space-after-224{padding-bottom:224px}.csc-space-before-224{padding-top:224px}.csc-space-after-225{padding-bottom:225px}.csc-space-before-225{padding-top:225px}.csc-space-after-226{padding-bottom:226px}.csc-space-before-226{padding-top:226px}.csc-space-after-227{padding-bottom:227px}.csc-space-before-227{padding-top:227px}.csc-space-after-228{padding-bottom:228px}.csc-space-before-228{padding-top:228px}.csc-space-after-229{padding-bottom:229px}.csc-space-before-229{padding-top:229px}.csc-space-after-230{padding-bottom:230px}.csc-space-before-230{padding-top:230px}.csc-space-after-231{padding-bottom:231px}.csc-space-before-231{padding-top:231px}.csc-space-after-232{padding-bottom:232px}.csc-space-before-232{padding-top:232px}.csc-space-after-233{padding-bottom:233px}.csc-space-before-233{padding-top:233px}.csc-space-after-234{padding-bottom:234px}.csc-space-before-234{padding-top:234px}.csc-space-after-235{padding-bottom:235px}.csc-space-before-235{padding-top:235px}.csc-space-after-236{padding-bottom:236px}.csc-space-before-236{padding-top:236px}.csc-space-after-237{padding-bottom:237px}.csc-space-before-237{padding-top:237px}.csc-space-after-238{padding-bottom:238px}.csc-space-before-238{padding-top:238px}.csc-space-after-239{padding-bottom:239px}.csc-space-before-239{padding-top:239px}.csc-space-after-240{padding-bottom:240px}.csc-space-before-240{padding-top:240px}.csc-space-after-241{padding-bottom:241px}.csc-space-before-241{padding-top:241px}.csc-space-after-242{padding-bottom:242px}.csc-space-before-242{padding-top:242px}.csc-space-after-243{padding-bottom:243px}.csc-space-before-243{padding-top:243px}.csc-space-after-244{padding-bottom:244px}.csc-space-before-244{padding-top:244px}.csc-space-after-245{padding-bottom:245px}.csc-space-before-245{padding-top:245px}.csc-space-after-246{padding-bottom:246px}.csc-space-before-246{padding-top:246px}.csc-space-after-247{padding-bottom:247px}.csc-space-before-247{padding-top:247px}.csc-space-after-248{padding-bottom:248px}.csc-space-before-248{padding-top:248px}.csc-space-after-249{padding-bottom:249px}.csc-space-before-249{padding-top:249px}.csc-space-after-250{padding-bottom:250px}.csc-space-before-250{padding-top:250px}.csc-space-after-251{padding-bottom:251px}.csc-space-before-251{padding-top:251px}.csc-space-after-252{padding-bottom:252px}.csc-space-before-252{padding-top:252px}.csc-space-after-253{padding-bottom:253px}.csc-space-before-253{padding-top:253px}.csc-space-after-254{padding-bottom:254px}.csc-space-before-254{padding-top:254px}.csc-space-after-255{padding-bottom:255px}.csc-space-before-255{padding-top:255px}.csc-space-after-256{padding-bottom:256px}.csc-space-before-256{padding-top:256px}.csc-space-after-257{padding-bottom:257px}.csc-space-before-257{padding-top:257px}.csc-space-after-258{padding-bottom:258px}.csc-space-before-258{padding-top:258px}.csc-space-after-259{padding-bottom:259px}.csc-space-before-259{padding-top:259px}.csc-space-after-260{padding-bottom:260px}.csc-space-before-260{padding-top:260px}.csc-space-after-261{padding-bottom:261px}.csc-space-before-261{padding-top:261px}.csc-space-after-262{padding-bottom:262px}.csc-space-before-262{padding-top:262px}.csc-space-after-263{padding-bottom:263px}.csc-space-before-263{padding-top:263px}.csc-space-after-264{padding-bottom:264px}.csc-space-before-264{padding-top:264px}.csc-space-after-265{padding-bottom:265px}.csc-space-before-265{padding-top:265px}.csc-space-after-266{padding-bottom:266px}.csc-space-before-266{padding-top:266px}.csc-space-after-267{padding-bottom:267px}.csc-space-before-267{padding-top:267px}.csc-space-after-268{padding-bottom:268px}.csc-space-before-268{padding-top:268px}.csc-space-after-269{padding-bottom:269px}.csc-space-before-269{padding-top:269px}.csc-space-after-270{padding-bottom:270px}.csc-space-before-270{padding-top:270px}.csc-space-after-271{padding-bottom:271px}.csc-space-before-271{padding-top:271px}.csc-space-after-272{padding-bottom:272px}.csc-space-before-272{padding-top:272px}.csc-space-after-273{padding-bottom:273px}.csc-space-before-273{padding-top:273px}.csc-space-after-274{padding-bottom:274px}.csc-space-before-274{padding-top:274px}.csc-space-after-275{padding-bottom:275px}.csc-space-before-275{padding-top:275px}.csc-space-after-276{padding-bottom:276px}.csc-space-before-276{padding-top:276px}.csc-space-after-277{padding-bottom:277px}.csc-space-before-277{padding-top:277px}.csc-space-after-278{padding-bottom:278px}.csc-space-before-278{padding-top:278px}.csc-space-after-279{padding-bottom:279px}.csc-space-before-279{padding-top:279px}.csc-space-after-280{padding-bottom:280px}.csc-space-before-280{padding-top:280px}.csc-space-after-281{padding-bottom:281px}.csc-space-before-281{padding-top:281px}.csc-space-after-282{padding-bottom:282px}.csc-space-before-282{padding-top:282px}.csc-space-after-283{padding-bottom:283px}.csc-space-before-283{padding-top:283px}.csc-space-after-284{padding-bottom:284px}.csc-space-before-284{padding-top:284px}.csc-space-after-285{padding-bottom:285px}.csc-space-before-285{padding-top:285px}.csc-space-after-286{padding-bottom:286px}.csc-space-before-286{padding-top:286px}.csc-space-after-287{padding-bottom:287px}.csc-space-before-287{padding-top:287px}.csc-space-after-288{padding-bottom:288px}.csc-space-before-288{padding-top:288px}.csc-space-after-289{padding-bottom:289px}.csc-space-before-289{padding-top:289px}.csc-space-after-290{padding-bottom:290px}.csc-space-before-290{padding-top:290px}.csc-space-after-291{padding-bottom:291px}.csc-space-before-291{padding-top:291px}.csc-space-after-292{padding-bottom:292px}.csc-space-before-292{padding-top:292px}.csc-space-after-293{padding-bottom:293px}.csc-space-before-293{padding-top:293px}.csc-space-after-294{padding-bottom:294px}.csc-space-before-294{padding-top:294px}.csc-space-after-295{padding-bottom:295px}.csc-space-before-295{padding-top:295px}.csc-space-after-296{padding-bottom:296px}.csc-space-before-296{padding-top:296px}.csc-space-after-297{padding-bottom:297px}.csc-space-before-297{padding-top:297px}.csc-space-after-298{padding-bottom:298px}.csc-space-before-298{padding-top:298px}.csc-space-after-299{padding-bottom:299px}.csc-space-before-299{padding-top:299px}.csc-space-after-300{padding-bottom:300px}.csc-space-before-300{padding-top:300px}.hidden-lgcsc-space-after-1{padding-bottom:1px}.hidden-lgcsc-space-before-1{padding-top:1px}.hidden-lgcsc-space-after-2{padding-bottom:2px}.hidden-lgcsc-space-before-2{padding-top:2px}.hidden-lgcsc-space-after-3{padding-bottom:3px}.hidden-lgcsc-space-before-3{padding-top:3px}.hidden-lgcsc-space-after-4{padding-bottom:4px}.hidden-lgcsc-space-before-4{padding-top:4px}.hidden-lgcsc-space-after-5{padding-bottom:5px}.hidden-lgcsc-space-before-5{padding-top:5px}.hidden-lgcsc-space-after-6{padding-bottom:6px}.hidden-lgcsc-space-before-6{padding-top:6px}.hidden-lgcsc-space-after-7{padding-bottom:7px}.hidden-lgcsc-space-before-7{padding-top:7px}.hidden-lgcsc-space-after-8{padding-bottom:8px}.hidden-lgcsc-space-before-8{padding-top:8px}.hidden-lgcsc-space-after-9{padding-bottom:9px}.hidden-lgcsc-space-before-9{padding-top:9px}.hidden-lgcsc-space-after-10{padding-bottom:10px}.hidden-lgcsc-space-before-10{padding-top:10px}.hidden-lgcsc-space-after-11{padding-bottom:11px}.hidden-lgcsc-space-before-11{padding-top:11px}.hidden-lgcsc-space-after-12{padding-bottom:12px}.hidden-lgcsc-space-before-12{padding-top:12px}.hidden-lgcsc-space-after-13{padding-bottom:13px}.hidden-lgcsc-space-before-13{padding-top:13px}.hidden-lgcsc-space-after-14{padding-bottom:14px}.hidden-lgcsc-space-before-14{padding-top:14px}.hidden-lgcsc-space-after-15{padding-bottom:15px}.hidden-lgcsc-space-before-15{padding-top:15px}.hidden-lgcsc-space-after-16{padding-bottom:16px}.hidden-lgcsc-space-before-16{padding-top:16px}.hidden-lgcsc-space-after-17{padding-bottom:17px}.hidden-lgcsc-space-before-17{padding-top:17px}.hidden-lgcsc-space-after-18{padding-bottom:18px}.hidden-lgcsc-space-before-18{padding-top:18px}.hidden-lgcsc-space-after-19{padding-bottom:19px}.hidden-lgcsc-space-before-19{padding-top:19px}.hidden-lgcsc-space-after-20{padding-bottom:20px}.hidden-lgcsc-space-before-20{padding-top:20px}.hidden-lgcsc-space-after-21{padding-bottom:21px}.hidden-lgcsc-space-before-21{padding-top:21px}.hidden-lgcsc-space-after-22{padding-bottom:22px}.hidden-lgcsc-space-before-22{padding-top:22px}.hidden-lgcsc-space-after-23{padding-bottom:23px}.hidden-lgcsc-space-before-23{padding-top:23px}.hidden-lgcsc-space-after-24{padding-bottom:24px}.hidden-lgcsc-space-before-24{padding-top:24px}.hidden-lgcsc-space-after-25{padding-bottom:25px}.hidden-lgcsc-space-before-25{padding-top:25px}.hidden-lgcsc-space-after-26{padding-bottom:26px}.hidden-lgcsc-space-before-26{padding-top:26px}.hidden-lgcsc-space-after-27{padding-bottom:27px}.hidden-lgcsc-space-before-27{padding-top:27px}.hidden-lgcsc-space-after-28{padding-bottom:28px}.hidden-lgcsc-space-before-28{padding-top:28px}.hidden-lgcsc-space-after-29{padding-bottom:29px}.hidden-lgcsc-space-before-29{padding-top:29px}.hidden-lgcsc-space-after-30{padding-bottom:30px}.hidden-lgcsc-space-before-30{padding-top:30px}.hidden-lgcsc-space-after-31{padding-bottom:31px}.hidden-lgcsc-space-before-31{padding-top:31px}.hidden-lgcsc-space-after-32{padding-bottom:32px}.hidden-lgcsc-space-before-32{padding-top:32px}.hidden-lgcsc-space-after-33{padding-bottom:33px}.hidden-lgcsc-space-before-33{padding-top:33px}.hidden-lgcsc-space-after-34{padding-bottom:34px}.hidden-lgcsc-space-before-34{padding-top:34px}.hidden-lgcsc-space-after-35{padding-bottom:35px}.hidden-lgcsc-space-before-35{padding-top:35px}.hidden-lgcsc-space-after-36{padding-bottom:36px}.hidden-lgcsc-space-before-36{padding-top:36px}.hidden-lgcsc-space-after-37{padding-bottom:37px}.hidden-lgcsc-space-before-37{padding-top:37px}.hidden-lgcsc-space-after-38{padding-bottom:38px}.hidden-lgcsc-space-before-38{padding-top:38px}.hidden-lgcsc-space-after-39{padding-bottom:39px}.hidden-lgcsc-space-before-39{padding-top:39px}.hidden-lgcsc-space-after-40{padding-bottom:40px}.hidden-lgcsc-space-before-40{padding-top:40px}.hidden-lgcsc-space-after-41{padding-bottom:41px}.hidden-lgcsc-space-before-41{padding-top:41px}.hidden-lgcsc-space-after-42{padding-bottom:42px}.hidden-lgcsc-space-before-42{padding-top:42px}.hidden-lgcsc-space-after-43{padding-bottom:43px}.hidden-lgcsc-space-before-43{padding-top:43px}.hidden-lgcsc-space-after-44{padding-bottom:44px}.hidden-lgcsc-space-before-44{padding-top:44px}.hidden-lgcsc-space-after-45{padding-bottom:45px}.hidden-lgcsc-space-before-45{padding-top:45px}.hidden-lgcsc-space-after-46{padding-bottom:46px}.hidden-lgcsc-space-before-46{padding-top:46px}.hidden-lgcsc-space-after-47{padding-bottom:47px}.hidden-lgcsc-space-before-47{padding-top:47px}.hidden-lgcsc-space-after-48{padding-bottom:48px}.hidden-lgcsc-space-before-48{padding-top:48px}.hidden-lgcsc-space-after-49{padding-bottom:49px}.hidden-lgcsc-space-before-49{padding-top:49px}.hidden-lgcsc-space-after-50{padding-bottom:50px}.hidden-lgcsc-space-before-50{padding-top:50px}.hidden-lgcsc-space-after-51{padding-bottom:51px}.hidden-lgcsc-space-before-51{padding-top:51px}.hidden-lgcsc-space-after-52{padding-bottom:52px}.hidden-lgcsc-space-before-52{padding-top:52px}.hidden-lgcsc-space-after-53{padding-bottom:53px}.hidden-lgcsc-space-before-53{padding-top:53px}.hidden-lgcsc-space-after-54{padding-bottom:54px}.hidden-lgcsc-space-before-54{padding-top:54px}.hidden-lgcsc-space-after-55{padding-bottom:55px}.hidden-lgcsc-space-before-55{padding-top:55px}.hidden-lgcsc-space-after-56{padding-bottom:56px}.hidden-lgcsc-space-before-56{padding-top:56px}.hidden-lgcsc-space-after-57{padding-bottom:57px}.hidden-lgcsc-space-before-57{padding-top:57px}.hidden-lgcsc-space-after-58{padding-bottom:58px}.hidden-lgcsc-space-before-58{padding-top:58px}.hidden-lgcsc-space-after-59{padding-bottom:59px}.hidden-lgcsc-space-before-59{padding-top:59px}.hidden-lgcsc-space-after-60{padding-bottom:60px}.hidden-lgcsc-space-before-60{padding-top:60px}.hidden-lgcsc-space-after-61{padding-bottom:61px}.hidden-lgcsc-space-before-61{padding-top:61px}.hidden-lgcsc-space-after-62{padding-bottom:62px}.hidden-lgcsc-space-before-62{padding-top:62px}.hidden-lgcsc-space-after-63{padding-bottom:63px}.hidden-lgcsc-space-before-63{padding-top:63px}.hidden-lgcsc-space-after-64{padding-bottom:64px}.hidden-lgcsc-space-before-64{padding-top:64px}.hidden-lgcsc-space-after-65{padding-bottom:65px}.hidden-lgcsc-space-before-65{padding-top:65px}.hidden-lgcsc-space-after-66{padding-bottom:66px}.hidden-lgcsc-space-before-66{padding-top:66px}.hidden-lgcsc-space-after-67{padding-bottom:67px}.hidden-lgcsc-space-before-67{padding-top:67px}.hidden-lgcsc-space-after-68{padding-bottom:68px}.hidden-lgcsc-space-before-68{padding-top:68px}.hidden-lgcsc-space-after-69{padding-bottom:69px}.hidden-lgcsc-space-before-69{padding-top:69px}.hidden-lgcsc-space-after-70{padding-bottom:70px}.hidden-lgcsc-space-before-70{padding-top:70px}.hidden-lgcsc-space-after-71{padding-bottom:71px}.hidden-lgcsc-space-before-71{padding-top:71px}.hidden-lgcsc-space-after-72{padding-bottom:72px}.hidden-lgcsc-space-before-72{padding-top:72px}.hidden-lgcsc-space-after-73{padding-bottom:73px}.hidden-lgcsc-space-before-73{padding-top:73px}.hidden-lgcsc-space-after-74{padding-bottom:74px}.hidden-lgcsc-space-before-74{padding-top:74px}.hidden-lgcsc-space-after-75{padding-bottom:75px}.hidden-lgcsc-space-before-75{padding-top:75px}.hidden-lgcsc-space-after-76{padding-bottom:76px}.hidden-lgcsc-space-before-76{padding-top:76px}.hidden-lgcsc-space-after-77{padding-bottom:77px}.hidden-lgcsc-space-before-77{padding-top:77px}.hidden-lgcsc-space-after-78{padding-bottom:78px}.hidden-lgcsc-space-before-78{padding-top:78px}.hidden-lgcsc-space-after-79{padding-bottom:79px}.hidden-lgcsc-space-before-79{padding-top:79px}.hidden-lgcsc-space-after-80{padding-bottom:80px}.hidden-lgcsc-space-before-80{padding-top:80px}.hidden-lgcsc-space-after-81{padding-bottom:81px}.hidden-lgcsc-space-before-81{padding-top:81px}.hidden-lgcsc-space-after-82{padding-bottom:82px}.hidden-lgcsc-space-before-82{padding-top:82px}.hidden-lgcsc-space-after-83{padding-bottom:83px}.hidden-lgcsc-space-before-83{padding-top:83px}.hidden-lgcsc-space-after-84{padding-bottom:84px}.hidden-lgcsc-space-before-84{padding-top:84px}.hidden-lgcsc-space-after-85{padding-bottom:85px}.hidden-lgcsc-space-before-85{padding-top:85px}.hidden-lgcsc-space-after-86{padding-bottom:86px}.hidden-lgcsc-space-before-86{padding-top:86px}.hidden-lgcsc-space-after-87{padding-bottom:87px}.hidden-lgcsc-space-before-87{padding-top:87px}.hidden-lgcsc-space-after-88{padding-bottom:88px}.hidden-lgcsc-space-before-88{padding-top:88px}.hidden-lgcsc-space-after-89{padding-bottom:89px}.hidden-lgcsc-space-before-89{padding-top:89px}.hidden-lgcsc-space-after-90{padding-bottom:90px}.hidden-lgcsc-space-before-90{padding-top:90px}.hidden-lgcsc-space-after-91{padding-bottom:91px}.hidden-lgcsc-space-before-91{padding-top:91px}.hidden-lgcsc-space-after-92{padding-bottom:92px}.hidden-lgcsc-space-before-92{padding-top:92px}.hidden-lgcsc-space-after-93{padding-bottom:93px}.hidden-lgcsc-space-before-93{padding-top:93px}.hidden-lgcsc-space-after-94{padding-bottom:94px}.hidden-lgcsc-space-before-94{padding-top:94px}.hidden-lgcsc-space-after-95{padding-bottom:95px}.hidden-lgcsc-space-before-95{padding-top:95px}.hidden-lgcsc-space-after-96{padding-bottom:96px}.hidden-lgcsc-space-before-96{padding-top:96px}.hidden-lgcsc-space-after-97{padding-bottom:97px}.hidden-lgcsc-space-before-97{padding-top:97px}.hidden-lgcsc-space-after-98{padding-bottom:98px}.hidden-lgcsc-space-before-98{padding-top:98px}.hidden-lgcsc-space-after-99{padding-bottom:99px}.hidden-lgcsc-space-before-99{padding-top:99px}.hidden-lgcsc-space-after-100{padding-bottom:100px}.hidden-lgcsc-space-before-100{padding-top:100px}.csc-bulletlist{margin-left:5px;margin-right:5px;padding:0}.csc-bulletlist li{list-style-type:none;padding-left:10px;padding-right:10px}.csc-bulletlist li p{padding:0}.csc-bulletlist.icon-style3 .number{display:inline-block;font-size:40px;border-radius:50%;border:1px solid #3a3a3a;line-height:1;width:45px;height:45px;text-align:center;margin-top:5px}.csc-bulletlist.icon-style3 .number p{margin-bottom:0;padding-top:2px}.csc-bulletlist.icon-style3 .step-info{display:inline-block;padding-left:10px;width:calc(100% - 55px);vertical-align:top}.csc-bulletlist.icon-style3 .step-info .title{font-size:22px}@media screen and (min-width: 750px){.csc-bulletlist.icon-style3 .step-info .title{font-size:32px}}.csc-bulletlist.icon-style3 .step-info .title p{margin-bottom:0}.csc-bulletlist.icon-style3 .step-info .description{font-size:16px}@media screen and (min-width: 750px){.csc-bulletlist.icon-style3 .step-info .description{font-size:21px}}.align-center{text-align:center}.p-nospace p{margin:0}h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{margin-top:0}.nav-main{background:#265da5}.nav-main .nav{font-size:16px;width:100%;padding:0;margin:0}.nav-main .nav:before,.nav-main .nav:after{content:' ';display:table}.nav-main .nav>li{display:inline-block;text-align:center;position:relative;z-index:100000}.nav-main .nav>li[class*='item']{display:none}@media screen and (min-width: 750px){.nav-main .nav>li[class*='item']{display:inline-block}}.nav-main .nav>li:hover .dropdown-menu{display:block}@media screen and (min-width: 750px){.nav-main .nav>li.nav-toggle-menu{display:none}}.nav-main .nav>li>a,.nav-main .nav>li.nav-toggle-menu{line-height:45px;padding:0 10px}.nav-main .nav>li.home--icon-home{font-size:0}@media screen and (min-width: 750px){.nav-main .nav>li.home--icon-home{width:16%;font-size:inherit}}.nav-main .nav>li.home--icon-home i{display:none;font-size:24px;line-height:36px;vertical-align:middle;float:left}.nav-main .nav>li.nav-toggle-menu{float:right;color:#fff;cursor:pointer}.nav-main .nav>li.nav-toggle-menu button{padding:0;background:none;border:none}.nav-main .nav>li a{white-space:nowrap;letter-spacing:0.2px;color:#fff;display:block}.nav-main .nav>li a:hover,.nav-main .nav>li a:focus{text-decoration:none}.nav-main .nav>li>a,.nav-main .nav>li.nav-toggle-menu{line-height:36px;padding:0 10px}.nav-main .nav>li.items2{width:84%}.nav-main .nav>li.items3{width:42%}.nav-main .nav>li.items4{width:28%}.nav-main .nav>li.items5{width:21%}.nav-main .nav>li.items6{width:16.8%}.nav-main .nav>li.items7{width:14%}.nav-main .nav>li.items8{width:12%}.nav-main .nav>li.items9{width:10.5%}.nav-main .nav>li.items10{width:9.333333%}.nav-main .dropdown-menu{display:none}.page--header{margin-bottom:14px}.ko_KR .page--header,.en_US .page--header,.en_GB .page--header,.en_CA .page--header{margin-bottom:17px}.header--trust-wrap{list-style:none;padding-top:0}.header--trust-wrap li{display:inline-block}.header--trust-wrap li img{max-width:104px;max-height:74px}@media (max-width: 850px) and (min-width: 750px){.header--trust-wrap li img{max-width:72px;max-height:74px}}.header--trust{margin:0 10px 0 0}.phone-wrapper{font-size:.75rem;padding-top:4px}@media screen and (min-width: 420px){.phone-wrapper{font-size:1rem}}.header--hours{color:#3a3a3a;font-size:.875em;line-height:130%;display:block}.ko_KR .header--hours{font-size:1em}.header--phonenumber{color:#f07700;font-weight:bold;font-size:1.625em;letter-spacing:0;white-space:nowrap;line-height:100%}@media screen and (min-width: 960px){.header--phonenumber{font-size:30px}}.header--phonenumber .header--icon-phone{font-size:.85em}@media screen and (min-width: 960px){.ko_KR .header--phonenumber{font-size:35px}}.header--phonenumber img{height:34px;position:relative;bottom:4px}.header--phone-hours-wrap:hover{text-decoration:none}a:hover .header--phonenumber{text-decoration:underline}a:hover .header--hours{text-decoration:underline}.btn.direktAnrufBtn{min-width:initial;font-size:13px;text-align:left;padding:10px 20px}.btn.direktAnrufBtn span{padding-top:3px;display:inline-block}.btn.direktAnrufBtn .header--icon-phone{font-size:26px;float:left;margin-right:10px}.btn.direktAnrufBtn .telefonImg{float:left;margin-right:15px;width:17px}.nav-main{position:relative;z-index:999}.nav-main.nav-fixed{top:0;z-index:100;position:fixed;width:100%}.nav-main .desktop ul.level-1{display:block;height:40px;margin-bottom:0;padding-left:0}.nav-main .desktop ul.level-1 li.level-1{display:inline-block;border-right:1px solid rgba(255,255,255,0.22);line-height:39px;text-align:center;width:160px;float:left}.nav-main .desktop ul.level-1 li.level-1:not(.first):hover{background-color:#265da5}.nav-main .desktop ul.level-1 li.level-1:not(.first):hover .flyout-container{display:block;text-align:left}.nav-main .desktop ul.level-1 li.level-1 a{font-size:16px;color:#fff}.nav-main .desktop ul.level-1 .flyout-container{background-color:#fff;border-bottom:1px solid #ccc;box-shadow:inset 0px 5px 5px rgba(0,0,0,0.3);display:none;padding:40px 0;position:absolute;left:0;width:100%}.nav-main .desktop ul.level-1 .flyout-container .flyout-description{color:#3a3a3a;border-right:1px solid #265da5;padding-right:30px}.nav-main .desktop ul.level-1 .flyout-container .flyout-description h2{color:#265da5;font-size:22px;padding-bottom:10px}.nav-main .desktop ul.level-1 .flyout-container .flyout-description p{font-size:16px;line-height:22px}.nav-main .desktop ul.level-1 .flyout-container .flyout.level-2{color:#3a3a3a}.nav-main .desktop ul.level-1 .flyout-container .flyout.level-2 ul{list-style:none;float:left}.nav-main .desktop ul.level-1 .flyout-container .flyout.level-2 ul li a{color:#3a3a3a}.nav-main .mobile{height:50px}.nav-main .mobile .logo-container{display:inline-block}.nav-main .mobile .logo-container a{height:40px;width:200px;display:inline-block;margin-top:5px}.nav-main .mobile ul{margin:0;padding:0;list-style:none}.nav-main .mobile li.level-1{background-color:#fff}.nav-main .mobile li.level-1.last .menu-item{border-bottom:none}.nav-main .mobile li.level-1.last .level-2 ul.last li:last-child{border-bottom:none}.nav-main .mobile li.level-1 .flyout-container{display:none}.nav-main .mobile li.level-1:hover{background-color:#265da5;color:#fff}.nav-main .mobile li.level-1:hover .menu-item{border-bottom:none}.nav-main .mobile li.level-1:hover .menu-item>a{color:#fff}.nav-main .mobile li.level-1:hover .menu-item::after{background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/Malaysia/Navigation/arrow-opened.svg") no-repeat center center;-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.nav-main .mobile li.level-1 .menu-item{padding:10px;border-bottom:1px solid #ccc;margin:0 15px}.nav-main .mobile li.level-1 .menu-item::after{content:'';background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/Malaysia/Navigation/arrow-closed.svg") no-repeat center center;width:20px;height:16px;position:absolute;right:10px;margin-top:3px}.nav-main .mobile .level-2 ul{background-color:#f0f0f0}.nav-main .mobile .level-2 ul li{padding:10px 0 10px 25px;border-bottom:1px solid #ccc;margin:0 15px}.nav-main .mobile .level-2 ul li a{display:inline-block;width:100%;text-decoration:underline}.nav-main .mobile .burger-menu{float:right;margin-right:20px;margin-top:8px}.nav-main .mobile .burger-menu .label{color:#fff;border:1px solid #fff;border-radius:1px;padding:4px 8px 2px 8px;font-size:16px;cursor:pointer}.nav-main .mobile .burger-menu .label .burger-icon{float:right;margin-top:3px;margin-left:6px}.nav-main .mobile .burger-menu .label .burger-icon .bar{background-color:#fff;width:20px;height:2px;margin:3px 0}.nav-main .mobile .burger-menu .menu-container{display:none;width:80%;position:absolute;right:0;top:50px;z-index:900}.nav-main .mobile .burger-menu .overlay-container{display:none;position:fixed;background-color:rgba(0,0,0,0.4);top:50px;left:0;right:0;bottom:0;z-index:100}.nav-main .mobile .burger-menu ul.level-1{display:block}.layout-default .nav-spacer{height:80px}.sidebar--nav-conversion-item{line-height:50px}.sidebar--nav-conversion-item i{color:#265da5;font-size:26px;vertical-align:middle;float:left;top:13px}.sidebar--nav-conversion-item a{margin-left:37px;margin-right:20px}.sidebar--nav-item-title:after,.sidebar--navisub-wrap:after,.sidebar--nav-conversion-item:after{content:"";background:linear-gradient(to right, rgba(168,168,168,0.65) 0%, rgba(178,178,178,0) 100%);width:100%;display:block;height:2px;margin:0}.sidebar--nav-conversion-item.last:after{display:none}.sidebar--nav{list-style:none;margin:0;padding:0}.sidebar--navisub{margin:10px 0}.sidebar--nav-item{line-height:22px}.sidebar--anker{color:#0c2c53;display:block;text-decoration:none}.sidebar--title{color:#265da5;font-size:120%}.sidebar--nav li a:hover{color:#0c2c53;text-decoration:underline}.sidebar--nav li a:active,.sidebar--nav li a:focus{text-decoration:none}.sidebar--nav>.sidebar-brand{height:65px;line-height:60px;font-size:18px}.sidebar--nav>.sidebar-brand a{color:#999999}.sidebar--nav>.sidebar-brand a:hover{color:#fff;background:none}.sidebar--navi-subsub-item{list-style-type:disc;margin-left:20px}.content-header{height:65px;line-height:65px}.content-header h1{margin:0;margin-left:20px;line-height:65px;display:inline-block}#menu-toggle{display:none}.inset{padding:20px}.sidebar--navi-subsubsub-item{margin-left:20px}.language_switch{list-style-type:none;padding:0;margin:0;font-size:14px;color:#3a3a3a}@media screen and (min-width: 750px){.language_switch{padding-top:3px}}.language_switch li{display:inline-block}.custom-header{padding:8px 0 8px 15px;position:relative}.custom-header>span{font-weight:700;display:block;line-height:1.1}.custom-header.style1{background:#0c2c53;padding:15px 0 13px 15px}.custom-header.style1.border{border:1px solid #ccc;border-bottom:0}.custom-header.style1:after{z-index:100;top:100%;left:15%;border:solid transparent;content:" ";height:0;width:0;position:absolute;border-top:25px solid #0c2c53;border-left:35px solid transparent;border-right:35px solid transparent}.custom-header.style1>span{color:#fff}.custom-header.style1 .headline{font-size:28px}.custom-header.style1 .subheadline{font-size:20px;padding-top:5px}.custom-header.style2{background:#f0f0f0;background:linear-gradient(to bottom, #f0f0f0 75%, #ccc 100%)}.custom-header.style2.border{border:1px solid #ccc;border-bottom:0}.custom-header.style2>span{color:#0c2c53;font-size:19px}.tx-audhomebox--layout-1 .tx-audhomebox--box,.tx-audhomebox--layout-3 .tx-audhomebox--box{border:1px solid #ccc;border-radius:3px;margin-left:5%;overflow:hidden;width:100%;height:10.2em}.tx-audhomebox--layout-1 .tx-audhomebox--box:first-child,.tx-audhomebox--layout-3 .tx-audhomebox--box:first-child{margin-left:0}.tx-audhomebox--layout-1 .tx-audhomebox--title,.tx-audhomebox--layout-3 .tx-audhomebox--title{font-size:.8em}.tx-audhomebox--layout-1 .tx-audhomebox--bodytext,.tx-audhomebox--layout-3 .tx-audhomebox--bodytext{font-size:.6em;color:#3a3a3a;line-height:140%;display:none}@media screen and (min-width: 750px){.tx-audhomebox--layout-1 .tx-audhomebox--bodytext,.tx-audhomebox--layout-3 .tx-audhomebox--bodytext{display:block}}.tx-audhomebox--layout-1 .box-image,.tx-audhomebox--layout-3 .box-image{width:auto;width:auto \9;max-width:100%;height:auto;height:auto \9;display:block;margin:0 auto}.tx-audhomebox--layout-1 a,.tx-audhomebox--layout-3 a{display:block;width:100%;height:100%;position:absolute;top:0}.tx-audhomebox{margin-bottom:10px}.tx-audhomebox a{text-decoration:none;font-size:14px;font-weight:bold;color:#0c2c53}.tx-audhomebox a:hover{color:#265da5;text-decoration:underline}.tx-audhomebox ul{list-style:none;padding:0}.tx-audhomebox .tx-audhomebox--box{position:relative;border:1px solid #ccc;border-radius:3px;overflow:hidden;padding:10px}.tx-audhomebox .tx-audmanuov--glyphicon{font-size:.85em;margin:0 0 0 3px}.tx-audhomebox .tx-audhomebox--title{color:#0c2c53;font-weight:bold}.boxwrapper{height:100%;z-index:10;position:relative;width:100%}span.tx-audhomebox--ankertext{text-decoration:underline;font-size:14px;font-weight:700;display:inline-block;position:absolute;bottom:0;left:0;z-index:20;letter-spacing:-.5px;text-shadow:1px 1px 5px #FFffff}.tx-audhomebox--layout-1{font-size:18px}@media screen and (min-width: 430px){.tx-audhomebox--layout-1{font-size:25px}}@media screen and (min-width: 750px) and (max-width: 959px){.tx-audhomebox--layout-1{font-size:20px}}@media screen and (min-width: 480px) and (max-width: 749px){.tx-audhomebox--layout-1{font-size:25px}}@media screen and (min-width: 960px){.tx-audhomebox--layout-1{font-size:25px}}.tx-audhomebox--layout-1 .boxwrapper{float:left}@media screen and (min-width: 750px){.tx-audhomebox--layout-1 .boxwrapper{float:none}}.tx-audhomebox--layout-1 .box-image{position:absolute;float:none;bottom:0;right:0;max-height:80%}@media screen and (min-width: 480px){.tx-audhomebox--layout-1 .box-image{max-height:100%}}.tx-audhomebox--layout-1 .visible-text-sm{margin-top:10px}@media screen and (min-width: 750px){.tx-audhomebox--layout-1 .visible-text-sm{margin-top:0}}.tx-audhomebox--layout-1 .visible-text-sm .tx-audhomebox--bodytext{display:block !important}.tx-audhomebox--layout-1 .visible-text-sm .box-image{max-height:100%}.tx-audhomebox--layout-1 a:hover{text-decoration:none}.tx-audhomebox--layout-1 a:hover .tx-audhomebox--title{color:#265da5;text-decoration:none}.tx-audhomebox--layout-1 a:hover .tx-audhomebox--ankertext{text-decoration:none}@media screen and (min-width: 750px){.tx-audhomebox--layout-2 .tx-audhomebox--box{padding:25px 15px 10px 35px}}.tx-audhomebox--layout-2 .tx-audhomebox--title{font-size:25px;line-height:30px}.tx-audhomebox--layout-2 ul{list-style-type:none;padding-left:0;margin-left:45px}.tx-audhomebox--layout-2 ul li{line-height:22px;margin-bottom:10px}.tx-audhomebox--layout-2 ul li:before{margin-top:6px;content:"\e013";display:block;width:0px;left:-45px;font-size:30px;float:left;font-family:Glyphicons Halflings;color:#0c2c53;position:relative}.tx-audhomebox--layout-2 ul li{margin:0 0 10px}.tx-audhomebox--layout-2 a{text-decoration:none}.tx-audhomebox--layout-3{font-size:20px}.tx-audhomebox--layout-3 .tx-audhomebox--title{margin-bottom:5px;min-height:33px}.tx-audhomebox--layout-3 .box-image{max-height:120px}.tx-audhomebox--layout-3 .tx-audhomebox--title{font-size:.7em}.tx-audhomebox--layout-3 .tx-audhomebox--ankertext{text-align:center;width:100%}.bx-wrapper{position:relative;margin:0 auto 60px;padding:0;*zoom:1}.bx-wrapper img{max-width:100%;display:block;margin:auto}.bx-wrapper .bx-viewport{left:-5px;background:#fff}.bx-wrapper .bx-pager,.bx-wrapper .bx-controls-auto{position:absolute;bottom:-30px;width:100%}.bx-wrapper .bx-loading{min-height:50px;height:100%;width:100%;position:absolute;top:0;left:0;z-index:2000}.bx-wrapper .bx-pager{text-align:center;font-size:.85em;font-family:Arial;font-weight:bold;color:#666;padding-top:20px}.bx-wrapper .bx-pager .bx-pager-item,.bx-wrapper .bx-controls-auto .bx-controls-auto-item{display:inline-block;*zoom:1;*display:inline}.bx-wrapper .bx-pager.bx-default-pager a{background:#666;text-indent:-9999px;display:block;width:10px;height:10px;margin:0 5px;outline:0;border-radius:5px}.bx-wrapper .bx-pager.bx-default-pager a:hover,.bx-wrapper .bx-pager.bx-default-pager a.active{background:#000}.bx-wrapper .bx-prev{left:-20px;background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Ayu/Root/Audibene/Extensions/audmanuov/pfeile.jpg") no-repeat 0 0}.bx-wrapper .bx-next{right:-20px;background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Ayu/Root/Audibene/Extensions/audmanuov/pfeile.jpg") no-repeat -21px 0px}.bx-wrapper .bx-prev:hover{background-position:0 -40px}.bx-wrapper .bx-next:hover{background-position:-21px -41px}.bx-wrapper .bx-controls-direction a{position:absolute;top:47%;margin-top:-16px;outline:0;width:26px;height:37px;text-indent:-9999px;z-index:88}.bx-wrapper .bx-controls-direction a.disabled{display:none}.bx-wrapper .bx-controls-auto{text-align:center}.bx-wrapper .bx-controls-auto .bx-start{display:block;text-indent:-9999px;width:10px;height:11px;outline:0;background:url(images/controls.png) -86px -11px no-repeat;margin:0 3px}.bx-wrapper .bx-controls-auto .bx-start:hover,.bx-wrapper .bx-controls-auto .bx-start.active{background-position:-86px 0}.bx-wrapper .bx-controls-auto .bx-stop{display:block;text-indent:-9999px;width:9px;height:11px;outline:0;background:url(images/controls.png) -86px -44px no-repeat;margin:0 3px}.bx-wrapper .bx-controls-auto .bx-stop:hover,.bx-wrapper .bx-controls-auto .bx-stop.active{background-position:-86px -33px}.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager{text-align:left;width:80%}.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto{right:0;width:35px}.bx-wrapper .bx-caption{position:absolute;bottom:0;left:0;background:#666 \9;background:rgba(80,80,80,0.75);width:100%}.bx-wrapper .bx-caption span{color:#fff;font-family:Arial;display:block;font-size:.85em;padding:10px}.bx-wrapper li img{-webkit-filter:grayscale(100%) contrast(0%);filter:grayscale(100%) contrast(0%)}.bx-wrapper li img:hover{-webkit-filter:none;filter:none}.tx-audmanuov--layout-1-style1-link--slider{width:184px;height:74px;display:table}.tx-audmanuov--layout-1-style1-wrap--slider{display:table-cell !important;vertical-align:middle;float:none;width:184px}.fullsize-container{width:100%;background-size:cover;background-position:center 100%;position:relative}.fullsize-container .content-wrapper{padding:0 5px}.fullsize-container .fullsize-header{font-size:24px;font-weight:normal}.fullsize-container .fullsize-subheader{font-size:14px;font-weight:bold}.flexbox .row-flex,.flexboxlegacy .row-flex{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}@media screen and (min-width: 750px){.flexbox .row-flex,.flexboxlegacy .row-flex{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row}}.nav-row>.col-xs-12{padding:0}.nav-row .nav-main{margin-bottom:0;border-radius:0;background:#0c2c53}.nav-row .nav-main .nav>li{border-right:1px solid #fff}.nav-row .nav-main .nav>li.home--icon-home i{display:none}@media screen and (min-width: 750px){.language_switch{padding-top:0}}body{color:#3a3a3a;margin-top:0}@media screen and (min-width: 750px){body{margin-top:15px}}body h1,body h2,body h3,body h4,body h5,body h6,body .h1,body .h2,body .h3,body .h4,body .h5,body .h6{color:#3a3a3a}body figcaption.csc-textpic-caption{text-align:center;font-size:16px;border:none;padding:0;margin-top:30px}body figcaption.csc-textpic-caption h2,body figcaption.csc-textpic-caption .h2{font-size:21px;font-weight:normal;margin-bottom:20px}.header--phonenumber{font-weight:normal}.header--trust-wrap{padding-top:17px}.phone-wrapper{padding-top:28px}.nav-main .mobile .logo-container a{background:url("/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/hear/Navigation/hear-com-white.svg") no-repeat 20px center}
+
+/*# sourceMappingURL=style_top_hear.css.map */
+</style>				<script src="https://cdn.optimizely.com/js/3097040103.js"></script>
+				<script type="text/javascript">window['optimizely'] = window['optimizely'] || [];</script>				<script>
+				var _prum = [['id', '57602de3abe53d5b5f5b22ac'],
+				['mark', 'firstbyte', (new Date()).getTime()]];
+				(function()
+				{ var s = document.getElementsByTagName('script')[0] , p = document.createElement('script'); p.async = 'async'; p.src = '//rum-static.pingdom.net/prum.min.js'; s.parentNode.insertBefore(p, s); })();
+				</script>				<script>
+					(function(h,o,t,j,a,r){
+					h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+					h._hjSettings={hjid:495945,hjsv:5};
+					a=o.getElementsByTagName('head')[0];
+					r=o.createElement('script');r.async=1;
+					r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+					a.appendChild(r);
+					})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+				</script>			<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "Organization",
+				"name": "hear.com",
+				"url": "https://www.hear.com",
+				"logo": "https://www.hear.com/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/USA/Header/Logo.svg",
+				"sameAs": ["https://www.facebook.com/hearcom/", "https://www.youtube.com/channel/UCrmfqt_VsrS8SJY089jTvSw", "https://plus.google.com/103213620459197237437", "https://www.instagram.com/hearcom_us/"],
+				"contactPoint": [
+				{ "@type": "ContactPoint",
+					"telephone": "+1-786-574-3799",
+					"contactType": "customer service",
+					"areaServed": "US"}],
+				"address": [
+				{"@type": "PostalAddress",
+				"addressCountry": "US"}],
+				"foundingDate": "2015",
+				"founders": [
+					{"@type": "person",
+					"name": "Dr. Marco Vietor"},
+					{"@type": "person",
+					"name": "Paul Crusius"}
+				]
+			}
+			</script>                <script> window._izq = window._izq || []; window._izq.push(["init"]); </script>
+                <script src="https://cdn.izooto.com/scripts/7f3b9d3d49031af15a0a7f73d17f87b6c36147b0.js"></script><meta name="msvalidate.01" content="3DD1C255386477205FAF4B2556DED32C" /><meta property="og:title" itemprop="name" content="Hearing aid specialist in the USA | Risk-free trial | hear.com"><meta property="og:type" content="website">			<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+			  <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			  <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+			<![endif]-->
+<link rel="alternate" hreflang="de-ch" href="https://www.audibene.ch/" />
+<link rel="alternate" hreflang="de-de" href="https://www.audibene.de/" />
+<link rel="alternate" hreflang="en-ca" href="https://www.hear.com/ca/" />
+<link rel="alternate" hreflang="en-gb" href="https://www.hear.com/uk/" />
+<link rel="alternate" hreflang="en-in" href="https://www.hear.com/in/" />
+<link rel="alternate" hreflang="en-my" href="https://www.hear.com/my/" />
+<link rel="alternate" hreflang="en-us" href="https://www.hear.com/" />
+<link rel="alternate" hreflang="fr-ch" href="https://www.audibene.ch/fr/" />
+<link rel="alternate" hreflang="fr-fr" href="https://www.audibene.fr/" />
+<link rel="alternate" hreflang="ja-jp" href="https://www.audibene.jp/" />
+<link rel="alternate" hreflang="nl-nl" href="https://www.audibene.nl/" />
+<link rel="canonical" href="https://www.hear.com/" /><script src="https://session.cdn.audibene.net/sessionLayer.js" id="SessionLayer" data-locale='en_US' data-gtmid='GTM-TD2WTW7'></script>
+
+
+
+</head>
+<body class="pid7656 en_US layout-redesign-test" data-country="en_US" data-uid="7656">
+<script type="text/javascript" >var Core;!function(e){var t=function(){function t(){}return t.getInstance=function(){return e.Ajax._instance||(e.Ajax._instance=new e.Ajax)},t.prototype.ajaxCall=function(e,t,n,o){var r=this;void 0===n&&(n=null),void 0===o&&(o="POST");try{var i=new(XMLHttpRequest||ActiveXObject)("MSXML2.XMLHTTP.3.0");i.open(o,t,1),i.setRequestHeader("X-Requested-With","XMLHttpRequest"),i.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=UTF-8"),i.onreadystatechange=function(){if(i.readyState>3&&200==i.status&&e){if(r.isJsonString(i.responseText))return void e(JSON.parse(i.responseText),i);e(i.responseText,i)}},i.send(this.serializeData(n))}catch(a){window.console&&console.log(a)}},t.prototype.serializeData=function(e){var t=new Array;for(var n in e)e.hasOwnProperty(n)&&e[n]&&t.push(n+"="+e[n]);return t.join("&")},t.prototype.isJsonString=function(e){try{JSON.parse(e)}catch(t){return!1}return!0},t}();e.Ajax=t}(Core||(Core={}));var Core;!function(e){var t=function(){function t(){}return t.getInstance=function(){return e.Events._instance||(e.Events._instance=new e.Events)},t.prototype.addEventsToMultipleElements=function(e,t,n,o){void 0===o&&(o=!1),Array.prototype.forEach.call(e,function(e){return"undefined"!=typeof e&&e?void t.split(" ").forEach(function(t){e.addEventListener(t,n,!1)}):!1})},t.prototype.addEventsToElement=function(e,t,n,o){return void 0===o&&(o=!1),"undefined"!=typeof e&&e?void t.split(" ").forEach(function(t){e.addEventListener(t,n,!1)}):!1},t.prototype.addEventsToSelectedElements=function(e,t,n,o,r){void 0===r&&(r=!1);var i=e.querySelectorAll(t);this.addEventsToMultipleElements(i,n,o,r)},t.prototype.fireCustomEvent=function(e,t,n){var o=document.createEvent("CustomEvent");o.initCustomEvent(t,!1,!1,n),e.dispatchEvent(o)},t}();e.Events=t}(Core||(Core={}));
+//# sourceMappingURL=core_top.js.map
+</script>
+
+
+
+
+<div class="container-fluid pageContainer website">
+	<div class="content-wrapper">
+		
+    
+
+
+
+	
+    <div class="row page--header page--header-simple">
+        <div class="col-xs-5 col-sm-5 col-md-4">
+            
+                    <a href="/">
+                        <img class="header--logo img-responsive" alt="www.hear.com" src="/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/USA/Header/Logo.svg" width="234" />
+                    </a>
+                
+        </div>
+        <div class="hidden-xs hidden-sm col-md-4 text-right">
+            <div class="header--trust-wrap hidden-xs hidden-sm">
+                
+                        <img src="/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/USA/Header/USA_trust_head.png" width="345" height="70"  class="header--trust"  alt="trust" >
+                    
+            </div>
+        </div>
+        <div class="col-xs-7 col-sm-7 col-md-4 text-right phone-wrapper">
+            
+                    <div class="visible-md visible-lg">
+                        
+    
+        <ul class="language_switch">
+            
+                
+            
+        </ul>
+    
+
+                    </div>
+                
+            
+	<span class="header--phonenumber">
+        <img src="/typo3conf/ext/audtemplate/Resources/Public/Images/Dante/Sites/Malaysia/Header/icon_phone.svg" alt="phone">
+		<span data-add-audlayer="phonenumber"></span>
+        <script>
+           (function() {
+               window.sessionLayer.contentReplacer.init().then(function (data) {
+
+                   //use getFromObject will return null if the property is not found
+
+                   var phone = window.sessionLayer.contentReplacer.getFromObject('site.phoneNumber', data);
+                   if (phone) {
+                       $(".header--phonenumber [data-add-audlayer='phonenumber']").html(phone);
+                   }
+
+                   var act = window.sessionLayer.contentReplacer.getFromObject('campaign.act', data);
+                   if (act){
+                       $('body').attr('data-act', act);
+                   }
+               });
+           })();
+        </script>
+	</span>
+	<span class="header--hours">
+        Mon. - Fri.: 8am - 8pm, Sat.: 8am - 6pm<br />
+        
+	</span>
+
+        </div>
+    </div>
+
+
+	</div>
+
+    
+    <div class="row nav-row">
+        <div class="col-xs-12">
+            <nav class="nav-main">
+                <div class="content-wrapper">
+                    
+	
+		
+            <div class="visible-md visible-lg desktop">
+	<ul class="level-1">
+		
+			
+				<li class="level-1 first">
+					<a title="Home" href="/"><span class="icon-before "></span>Home</a>
+					
+					
+	
+		
+			
+				<div class="flyout-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="flyout-description"><h2>Home</h2><p></p></div>
+                            </div>
+                            <div class="col-xs-8">
+                                
+                                    
+                                        <div class="flyout level-2">
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Home" href="/">»Home</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            
+                                        
+                                        </div>
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			
+		
+	
+
+				</li>
+		
+			
+				<li class="level-1 ">
+					<a title="Hearing aids" href="/hearing-aids/"><span class="icon-before "></span>Hearing aids</a>
+					
+					
+	
+		
+			
+				<div class="flyout-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="flyout-description"><h2>Hearing aids</h2><p> We carry the top rated hearing aids from the leading manufacturers in the industry. Click on the links to see an overview of the latest technology and prices. </p></div>
+                            </div>
+                            <div class="col-xs-8">
+                                
+                                    
+                                        <div class="flyout level-2">
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Hearing aids" href="/hearing-aids/">»Hearing aids</a></li>
+                                                    
+                                                        <li><a title="»Hearing aid prices" href="/hearing-aids/prices/">»Hearing aid prices</a></li>
+                                                    
+                                                        <li><a title="»Technology" href="/hearing-aids/technology/">»Technology</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Innovations 2018" href="/hearing-aids/innovations-2018/">»Innovations 2018</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                        </div>
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			
+		
+	
+
+				</li>
+		
+			
+				<li class="level-1 ">
+					<a title="Hearing loss" href="/hearing-loss/"><span class="icon-before "></span>Hearing loss</a>
+					
+					
+	
+		
+			
+				<div class="flyout-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="flyout-description"><h2>Hearing loss</h2><p> We only work with the most knowledgeable experts in the industry. The pages to the right provide information about hearing loss and how hearing aids can help. </p></div>
+                            </div>
+                            <div class="col-xs-8">
+                                
+                                    
+                                        <div class="flyout level-2">
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Hearing loss" href="/hearing-loss/">»Hearing loss</a></li>
+                                                    
+                                                        <li><a title="»Sudden hearing loss" href="/hearing-loss/sudden/">»Sudden hearing loss</a></li>
+                                                    
+                                                        <li><a title="»Tinnitus" href="/hearing-loss/tinnitus/">»Tinnitus</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Your ears and your health" href="/your-ears-and-your-health/">»Your ears and your health</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                        </div>
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			
+		
+	
+
+				</li>
+		
+			
+				<li class="level-1 ">
+					<a title="About us" href="/about-us/"><span class="icon-before "></span>About us</a>
+					
+					
+	
+		
+			
+				<div class="flyout-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="flyout-description"><h2>About us</h2><p>hear.com is an innovative provider of high-quality hearing aids at reasonable prices. Our mission is to provide you with expert, independent advice.</p></div>
+                            </div>
+                            <div class="col-xs-8">
+                                
+                                    
+                                        <div class="flyout level-2">
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»About us" href="/about-us/">»About us</a></li>
+                                                    
+                                                        <li><a title="»How it works" href="/about-us/how-it-works/">»How it works</a></li>
+                                                    
+                                                        <li><a title="»Why hear.com is #1" href="/why-hear/">»Why hear.com is #1</a></li>
+                                                    
+                                                        <li><a title="»Find hearing aids near you" href="/about-us/network/">»Find hearing aids near you</a></li>
+                                                    
+                                                        <li><a title="»Customer voices" href="/about-us/customer-voices/">»Customer voices</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            
+                                                <ul>
+                                                    
+                                                        <li><a title="»Jobs" href="/jobs/">»Jobs</a></li>
+                                                    
+                                                        <li><a title="»Press" href="/press/">»Press</a></li>
+                                                    
+                                                        <li><a title="»For hearing professionals" href="/partners/">»For hearing professionals</a></li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                        </div>
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			
+		
+	
+
+				</li>
+		
+	</ul>
+</div>
+            <div class="visible-xs visible-sm mobile">
+    <div class="logo-container"><a href="/"> </a></div>
+    <div class="burger-menu">
+        <div class="label">Menu
+            <div class="burger-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="menu-container">
+            <ul class="level-1">
+                
+                    
+                    <li class="level-1 ">
+                        <div class="menu-item">Home</div>
+                        
+                        
+    
+        
+            
+                <div class="flyout-container">
+                    
+                        
+                            <div class="flyout level-2">
+                            
+                                
+                                    <ul class="">
+                                        
+                                            <li><a title="»Home" href="/">»Home</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                                
+                            
+                            </div>
+                        
+                    
+                </div>
+            
+        
+    
+
+                    </li>
+                
+                    
+                    <li class="level-1 ">
+                        <div class="menu-item">Hearing aids</div>
+                        
+                        
+    
+        
+            
+                <div class="flyout-container">
+                    
+                        
+                            <div class="flyout level-2">
+                            
+                                
+                                    <ul class="">
+                                        
+                                            <li><a title="»Hearing aids" href="/hearing-aids/">»Hearing aids</a></li>
+                                        
+                                            <li><a title="»Hearing aid prices" href="/hearing-aids/prices/">»Hearing aid prices</a></li>
+                                        
+                                            <li><a title="»Technology" href="/hearing-aids/technology/">»Technology</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                                
+                                    <ul class="last">
+                                        
+                                            <li><a title="»Innovations 2018" href="/hearing-aids/innovations-2018/">»Innovations 2018</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                            </div>
+                        
+                    
+                </div>
+            
+        
+    
+
+                    </li>
+                
+                    
+                    <li class="level-1 ">
+                        <div class="menu-item">Hearing loss</div>
+                        
+                        
+    
+        
+            
+                <div class="flyout-container">
+                    
+                        
+                            <div class="flyout level-2">
+                            
+                                
+                                    <ul class="">
+                                        
+                                            <li><a title="»Hearing loss" href="/hearing-loss/">»Hearing loss</a></li>
+                                        
+                                            <li><a title="»Sudden hearing loss" href="/hearing-loss/sudden/">»Sudden hearing loss</a></li>
+                                        
+                                            <li><a title="»Tinnitus" href="/hearing-loss/tinnitus/">»Tinnitus</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                                
+                                    <ul class="last">
+                                        
+                                            <li><a title="»Your ears and your health" href="/your-ears-and-your-health/">»Your ears and your health</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                            </div>
+                        
+                    
+                </div>
+            
+        
+    
+
+                    </li>
+                
+                    
+                    <li class="level-1 last">
+                        <div class="menu-item">About us</div>
+                        
+                        
+    
+        
+            
+                <div class="flyout-container">
+                    
+                        
+                            <div class="flyout level-2">
+                            
+                                
+                                    <ul class="">
+                                        
+                                            <li><a title="»About us" href="/about-us/">»About us</a></li>
+                                        
+                                            <li><a title="»How it works" href="/about-us/how-it-works/">»How it works</a></li>
+                                        
+                                            <li><a title="»Why hear.com is #1" href="/why-hear/">»Why hear.com is #1</a></li>
+                                        
+                                            <li><a title="»Find hearing aids near you" href="/about-us/network/">»Find hearing aids near you</a></li>
+                                        
+                                            <li><a title="»Customer voices" href="/about-us/customer-voices/">»Customer voices</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                                
+                                    <ul class="last">
+                                        
+                                            <li><a title="»Jobs" href="/jobs/">»Jobs</a></li>
+                                        
+                                            <li><a title="»Press" href="/press/">»Press</a></li>
+                                        
+                                            <li><a title="»For hearing professionals" href="/partners/">»For hearing professionals</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                            </div>
+                        
+                    
+                </div>
+            
+        
+    
+
+                    </li>
+                
+            </ul>
+        </div>
+        <div class="overlay-container"></div>
+    </div>
+</div>
+		
+	
+
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="nav-spacer hidden-lg hidden-md"></div>
+
+    <div class="content-wrapper main-wrapper">
+        <div class="mainContent">
+            
+    
+    <div class="row row-1">
+		<div class="t3col-3 t3col"><div id="c146629" class="hidden-xs hidden-sm hidden-md visible-lg"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/images/desktop-image-color-bg-450.jpg');"><div class="content-wrapper"><div id="c146628"><div class="row"><div class="  col-md-7 col-lg-7  "><div id="c146625" class="csc-space-before-40"><h2><span style="font-size: 38px;">Invisible technology needs</br>top-notch care.</span></h2><p><span style="font-size: 22px; ">At hear.com, you get both.</span></p></div><div id="c146626" class="csc-space-before-39"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:515px; height:239px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/images/finger.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/images/finger.png" alt=""/></noscript></figure></div></div></div><div id="c146686" class="visible-md visible-lg csc-space-before-20"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:486px; height:100px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/trust-homepage-us.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/trust-homepage-us.png" alt=""/></noscript></figure></div></div></div></div><div class="  col-md-5 col-lg-5  "><div id="c146624" class="csc-space-before-45"><div style="height:573px;">
+  <script src="https://formclient.cdn.audibene.net/js/app.js" class="ClientInjector" data-id="c27db2a8-f722-4954-a9a0-36e8cd1d494d" data-cl="v2" data-offer-type="generic" ></script>
+</div> 
+</div></div></div></div></div></div></div><div id="c146642" class="hidden-xs hidden-sm visible-md hidden-lg"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/images/desktop-image-color-bg-450.jpg');"><div class="content-wrapper"><div id="c146641"><div class="row"><div class="  col-md-7 col-lg-7  "><div id="c146638" class="csc-space-before-60"><h2><span style="font-size: 35px;">Invisible technology needs</br>top-notch care.</span></h2><p><span style="font-size: 22px; ">At hear.com, you get both.<br /></span></p></div><div id="c146639" class="csc-space-before-80"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:480px; height:223px;'><img class="img-responsive"  data-src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" alt=""/></noscript></figure></div></div></div><div id="c147447" class="visible-md visible-lg csc-space-before-21"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:486px; height:100px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/trust-homepage-us.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/trust-homepage-us.png" alt=""/></noscript></figure></div></div></div></div><div class="  col-md-5 col-lg-5  "><div id="c146637" class="csc-space-before-30"><div style="height:573px;">
+  <script src="https://formclient.cdn.audibene.net/js/app.js" class="ClientInjector" data-id="c27db2a8-f722-4954-a9a0-36e8cd1d494d" data-cl="v2" data-offer-type="generic" ></script>
+</div> </div></div></div></div></div></div></div><div id="c146653" class="hidden-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/images/m-bg-color-2.jpg');"><div class="content-wrapper"><div id="c146652"><div class="fullsize-container"><div class="content-wrapper"><div id="c146645" class="csc-space-before-80"><h2 class="csc-header-alignment-center"><span style="font-size: 24px; white-space: nowrap; overflow: hidden; font-weight:700;">Invisible technology needs</br>top-notch care.</span</h2><div style="text-align: center; font-size: 22px; "><p>At hear.com, you get both.</p></div></div><div id="c146646" class="csc-space-before-15"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:480px; height:223px;'><img class="img-responsive"  data-src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" alt=""/></noscript></figure></div></div></div><div id="c146647"><script src="https://formclient.cdn.audibene.net/js/app.js" class="ClientInjector" data-id="c27db2a8-f722-4954-a9a0-36e8cd1d494d" data-cl="v2" data-offer-type="generic" ></script> </div></div></div></div><div id="c147448" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-30"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:486px; height:100px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/trust-homepage-us.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/trust-homepage-us.png" alt=""/></noscript></figure></div></div></div></div></div></div><div id="c146663" class="visible-xs hidden-sm hidden-md hidden-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c146661"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/images/m-bg-color-2.jpg');"><div class="content-wrapper"><div id="c146655" class="csc-space-before-80"><h2 class="csc-header-alignment-center"><span style="font-size: 24px; white-space: nowrap; overflow: hidden;">Invisible technology needs</br>top-notch care.</span></h2><div style="text-align: center; font-size: 20px; "><p>At hear.com, you get both.</p></div></div><div id="c146656" class="csc-space-before-15"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:480px; height:223px;'><img class="img-responsive"  data-src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/_processed_/a/5/csm_finger_49b8ef1050.png" alt=""/></noscript></figure></div></div></div><div id="c146657"><script src="https://formclient.cdn.audibene.net/js/app.js" class="ClientInjector" data-id="c27db2a8-f722-4954-a9a0-36e8cd1d494d" data-cl="v2" data-offer-type="generic" ></script> </div></div></div></div><div id="c147449" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-30"><div class="csc-textpic csc-textpic-responsive csc-textpic-left csc-textpic-above"><div class="csc-textpic-imagewrap"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:486px; height:100px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/trust-homepage-us.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/trust-homepage-us.png" alt=""/></noscript></figure></div></div></div></div></div></div><div class="visible-xs hidden-sm hidden-md hidden-lg"><div class="divider"><hr></div></div><div id="c87876" class="csc-space-before-60"><div class="fullsize-container"><div class="content-wrapper"><div id="c87865" class="visible-xs visible-sm hidden-md hidden-lg csc-space-after-20"><h2 class="csc-header-alignment-center">Your advantages</h2></div><div id="c87870" class="visible-md visible-lg"><div class="row"><div class="col-xs-6 col-sm-6 col-md-3 col-lg-3  "><div id="c87869"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP01a.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP01a.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">The best hearing aids </p>Choose hearing aids from the leading manufacturers at the best prices.<br>
+</figcaption></figure></div></div></div></div></div></div><div class="col-xs-6 col-sm-6 col-md-3 col-lg-3  "><div id="c87868"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP02.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP02.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Risk-free trial</p>Your 45-day hearing aid trial includes a full refund if you're not satisfied.</figcaption></figure></div></div></div></div></div></div><div class="col-xs-6 col-sm-6 col-md-3 col-lg-3  "><div id="c87866"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP03_usV2.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt="USA graphic"></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP03_usV2.png" alt="USA graphic"/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Nationwide service</p>Visit one of our 1,600 trusted Partner Providers at a</br>location near you.</figcaption></figure></div></div></div></div></div></div><div class="col-xs-6 col-sm-6 col-md-3 col-lg-3  "><div id="c87867"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP04.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP04.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Satisfaction guaranteed</p>Your hearing success is our main focus – satisfaction guaranteed.</figcaption></figure></div></div></div></div></div></div></div></div><div id="c137161" class="visible-xs visible-sm"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6   "><div id="c137158"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP01_my.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP01_my.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">The best <br>hearing aids</p></figcaption></figure></div></div></div></div></div></div><div class="col-xs-6 col-sm-6 col-md-6   "><div id="c137159"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP02.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP02.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Risk-free trial</p></figcaption></figure></div></div></div></div></div></div></div></div><div id="c137162" class="visible-xs visible-sm"><div class="row"><div class="col-xs-6  col-md-6   "><div id="c137160"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP03_usV2.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt="USA graphic"></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP03_usV2.png" alt="USA graphic"/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Nationwide service</p></figcaption></figure></div></div></div></div></div></div><div class="col-xs-6 col-sm-6 col-md-6   "><div id="c137157"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:230px; height:110px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/icon_USP04a.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/icon_USP04a.png" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">Satisfaction guaranteed</p></figcaption></figure></div></div></div></div></div></div></div></div></div></div></div><div class="visible-xs visible-sm visible-md visible-lg"><div class="divider"><hr></div></div><div id="c152770"><div class="fullsize-container"><div class="content-wrapper"><div id="c152766" class="csc-space-before-50"><h2 class="csc-header-alignment-center">David Hasselhoff, brand ambassador</h2><div class="csc-textpic-text"><div style="text-align: center"><p>We at hear.com are proud to present our new brand ambassador, David Hasselhoff! With The Hoff's help, our goal is to get the word out on how easy and efficient it is to treat hearing loss with hear.com's comprehensive process. But most importantly, we want to help you experience a better quality of life today.</p></div></div></div><div id="c152767"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:1200px; height:627px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/DH15-prof-david-ambassador-1200x627.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt="David Hasselhoff, Markenbotschafter"></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/DH15-prof-david-ambassador-1200x627.jpg" alt="David Hasselhoff, Markenbotschafter"/></noscript></figure></div></div></div></div></div><div id="c152769"><div class="row"><div class="  col-md-4   "></div><div class="  col-md-4   "><div id="c152768" class="csc-space-before-30 csc-space-after-30"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/press/david-hasselhoff-ambassador/">Learn more »</a>
+</div>
+</div></div><div class="  col-md-4   "></div></div></div></div></div></div><div class="visible-xs visible-sm visible-md visible-lg"><div class="divider"><hr></div></div><div id="c87862" class="visible-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87861" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-50"><h2 class="csc-header-alignment-center">The hearing aid of the future is here</h2><div style="text-align: center"><p><span style="font-size: 22px; ">Fight hearing loss with the smallest and  most powerful weapon.</span></p></div></div><div id="c87860"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:544px; height:400px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/preview_m_ca_campaign_img.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/preview_m_ca_campaign_img.jpg" alt=""/></noscript></figure></div></div></div></div></div><div id="c87859" class="csc-space-after-70"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/product-primax2/">Learn more »</a>
+</div>
+</div></div></div></div><div id="c87858" class="hidden-xs hidden-sm visible-md visible-lg csc-space-before-80"><div class="fullsize-container"><div class="content-wrapper"><div id="c87852" class="csc-space-after-70"><h2 class="csc-header-alignment-center">3 steps to better hearing</h2></div><div id="c87857"><div class="row"><div class="  col-md-4   "><div id="c87856"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/desktop_steps01.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/desktop_steps01.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">1. Personal consultation</p>One of our experts will speak with you about your hearing situation and discuss your options on the phone.<br>
+</figcaption></figure></div></div></div></div></div></div><div class="  col-md-4   "><div id="c87854"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/desktop_steps02.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/desktop_steps02.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">2. Risk-free trial</p>Our Partner Provider will adjust your hearing aids to your specific needs, so you can try them wherever you go.<br>
+</figcaption></figure></div></div></div></div></div><div id="c87855" class="csc-space-before-30"><div class="btn-link-wrapper btn-alternative">
+	<a class="btn aud-btn-link" href="/about-us/how-it-works/">How hear.com works »</a>
+</div>
+</div></div><div class="  col-md-4   "><div id="c87853"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/desktop_steps03.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/desktop_steps03.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><p class="h2">3. Enjoy better hearing</p>Keep your hearing aids when you are 100% satisfied and experience a higher quality of life.</figcaption></figure></div></div></div></div></div></div></div></div></div></div></div><div><div class="divider"><hr></div></div><div id="c87849" class="visible-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87845" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-50 csc-space-after-15"><h2 class="csc-header-alignment-center">3 steps to better hearing</h2></div><div id="c87846"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:749px; height:506px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/m_steps_img.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/m_steps_img.jpg" alt=""/></noscript></figure></div></div></div></div></div><div id="c87847" class="csc-space-before-20 csc-space-after-20">
+<ul class="csc-bulletlist icon-style3">
+	
+		<li class="odd">
+		<div class="number">1</div> <div class="step-info"><div class="title" ><p>Personal consultation</p></div><div class="description"><p>Get expert advice over the phone</p></div></div><p>&nbsp;</p></li>
+	
+		<li class="even">
+		<div class="number">2</div> <div class="step-info"><div class="title" ><p>Risk-free trial</p></div><div class="description"><p>Test your hearing aids anywhere</p></div></div><p>&nbsp;</p></li>
+	
+		<li class="odd">
+		<div class="number">3</div> <div class="step-info"><div class="title" ><p>Enjoy better hearing</p></div><div class="description"><p>Experience a better quality of life!</p></div></div></li>
+	
+</ul></div><div id="c87848" class="csc-space-after-50"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/about-us/how-it-works/">How it works »</a>
+</div>
+</div></div></div></div><div id="c87843" class="hidden-xs hidden-sm visible-md visible-lg"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/1366x493_campaign_img.jpg');"><div class="content-wrapper"><div id="c87839" class="csc-space-before-100"><h2>The hearing aid of the future is here</h2></div><div id="c87842"><div class="row"><div class="  col-md-5 col-lg-5  "><div id="c87840" class="csc-space-before-50 csc-space-after-50"><p><span style="font-size: 30px; ">Fight hearing loss with the smallest and  most powerful weapon</span></p></div><div id="c87841" class="csc-space-after-30"><div class="btn-link-wrapper btn-alternative">
+	<a class="btn aud-btn-link" href="/product-primax2/">Learn more »</a>
+</div>
+</div></div><div class="  col-md-7 col-lg-7  "></div></div></div></div></div></div><div><div class="divider"><hr></div></div><div id="c87836" class="visible-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87835" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-50 csc-space-after-15"><h2 class="csc-header-alignment-center">What our customers say</h2></div><div id="c87834"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:749px; height:468px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/m_user_voice_img.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/m_user_voice_img.jpg" alt=""/></noscript></figure></div></div></div></div></div><div id="c87833" class="csc-space-before-20 csc-space-after-30"><div style="text-align: center;"><p><i>&quot;With my new hearing aids, I don't need people to repeat themselves anymore.&quot; </i></p>
+<p>Tim | age 66</p></div></div><div id="c87830" class="csc-space-after-50"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/about-us/customer-voices/">Read more reviews</a>
+</div>
+</div></div></div></div><div id="c87829" class="hidden-xs hidden-sm visible-md visible-lg csc-space-before-80"><div class="fullsize-container"><div class="content-wrapper"><div id="c87823" class="csc-space-after-70"><h2 class="csc-header-alignment-center">What our customers have to say</h2></div><div id="c87828"><div class="row"><div class="  col-md-4   "><div id="c87827"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/testimonial_01.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/testimonial_01.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><i>"With my new hearing aids, I don't need people to repeat themselves anymore."</i><br>
+Tim | age 66 <br>
+</figcaption></figure></div></div></div></div></div></div><div class="  col-md-4   "><div id="c87825"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/testimonial_02.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/testimonial_02.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><i>"Life is so much better with my hearing aids! I hear better, and I feel better!”</i><br>
+Janice | age 52</figcaption></figure></div></div></div></div></div><div id="c87826" class="csc-space-before-30"><div class="btn-link-wrapper btn-alternative">
+	<a class="btn aud-btn-link" href="/about-us/customer-voices/">Read more reviews »</a>
+</div>
+</div></div><div class="  col-md-4   "><div id="c87824"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:286px; height:200px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/testimonial_03.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/testimonial_03.jpg" alt=""/></noscript><figcaption class="csc-textpic-caption"><i>"No matter where I go, I can hear everything clearly.”</i><br>
+Michael | age 57<br>
+</figcaption></figure></div></div></div></div></div></div></div></div></div></div></div><div><div class="divider"><hr></div></div><div id="c87820" class="visible-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87819" class="visible-xs visible-sm hidden-md hidden-lg csc-space-before-50 csc-space-after-50"><h2 class="csc-header-alignment-center">Our strong network for better hearing</h2></div><div id="c87818" class="csc-space-after-30"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:537px; height:318px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/USA_map.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/USA_map.png" alt=""/></noscript></figure></div></div></div></div></div><div id="c87817" class="csc-space-after-70"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/about-us/network/">Learn more »</a>
+</div>
+</div></div></div></div><div id="c87816" class="hidden-xs hidden-sm visible-md visible-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87815" class="csc-space-before-70"><div class="row"><div class="  col-md-10 col-lg-6  "><div id="c87812" class="csc-space-before-50"><h1>Our strong network for better hearing</h1><div class="indent"><p><span style="font-size: 16px; ">To ensure you get the best care possible, we work with over 1,600 of the licensed Partner Providers across the U.S. They use state-of-the-art equipment to test your hearing and adjust your devices according to your needs. </span></p></div></div><div id="c87814" class="csc-space-before-30 csc-space-after-10"><div class="btn-link-wrapper btn-alternative">
+	<a class="btn aud-btn-link" href="/about-us/network/">Learn more »</a>
+</div>
+</div></div><div class="  col-md-2 col-lg-6  "><div id="c87813" class="csc-space-before-50"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:537px; height:318px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/USA_map.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/USA_map.png" alt=""/></noscript></figure></div></div></div></div></div></div></div></div></div></div></div><div class="hidden-xs hidden-sm"><div class="divider"><hr></div></div><div id="c87809" class="hidden-xs hidden-sm visible-md visible-lg"><div class="fullsize-container"><div class="content-wrapper"><div id="c87805" class="csc-space-before-100 csc-space-after-20"><h2>hear.com, the #1 source for better hearing!</h2></div><div id="c87808"><div class="row"><div class="  col-md-8 col-lg-8  "><div id="c87807" class="csc-space-before-20"><p><span style="font-size: 16px; ">We at hear.com are in the business of improving lives with <a href="/hearing-aids/">modern hearing aids</a>. Our nation-wide network of trusted hearing specialists and audiologists will work together with you to find the perfect <a href="/hearing-loss/">hearing loss</a> solution. Whether you suffer from <a href="/hearing-loss/tinnitus/">tinnitus</a> or age-related hearing loss, a free hearing aid consultation with one of our hearing professionals is the first step towards an improved quality of life. We will work closely with you and your local audiologist to find hearing aids that are the best fit for your lifestyle and budget. So, why wait? Start your journey to better hearing today!</span></p></div></div><div class="  col-md-4 col-lg-4  "><div id="c87806"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:269px; height:232px;'><img class="img-responsive"  data-src="/fileadmin/user_upload/my_siemens_comparison.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/user_upload/my_siemens_comparison.jpg" alt=""/></noscript></figure></div></div></div></div></div></div></div></div><div id="c148277"><div class="row"><div class="  col-md-4   "></div><div class="  col-md-4   "><div id="c143965" class="csc-space-before-50"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/hearing-aids-consultation/request/">Sign up for your risk-free trial now »</a>
+</div>
+</div></div><div class="  col-md-4   "></div></div></div></div></div></div><div id="c137392" class="visible-xs visible-sm hidden-md hidden-lg"><div class="fullsize-container" style="background-image: url('/fileadmin/user_upload/footer-marco.jpg');"><div class="content-wrapper"><div id="c137391"><p><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /></p></div></div></div></div><div id="c137393" class="visible-xs visible-sm"><div class="fullsize-container"><div class="content-wrapper"><div id="c137148" class="csc-space-before-10"><h3 class="csc-header-alignment-center"><span style="color: #265da5; font-size: 22px;">“Hear better now!”</span></h3></div><div id="c137149" class="csc-space-after-25"><p style="text-align: center; font-size: 22px;">Dr. Marco Vietor</p>
+<p style="text-align: center; font-size: 16px;">Founder and CEO of hear.com</p></div><div id="c137152" class="csc-space-after-30"><div class="btn-link-wrapper btn-normal">
+	<a class="btn aud-btn-link" href="/hearing-aids-consultation/request/">Contact us now »</a>
+</div>
+</div></div></div></div></div>
+	</div>
+	<div class="row row-2">
+		
+	</div>
+	<div class="row row-3">
+		
+	</div>
+	<div class="row row-4">
+		
+	</div>
+	<div class="row row-5">
+		
+	</div>
+	<div class="row row-6">
+		
+	</div>
+	<div class="row row-7">
+		
+	</div>
+	<div class="row row-8">
+		
+	</div>
+	<div class="row row-9">
+		
+	</div>
+	<div class="row row-10">
+		
+	</div>
+	<div class="row row-11">
+		
+	</div>
+	<div class="row row-12">
+		
+	</div>
+
+        </div>
+
+        
+    <div class="row nav-row">
+        <div class="col-xs-12">
+            <nav class="nav-main">
+                <div class="content-wrapper">
+                    
+	
+
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    </div>
+
+	
+    
+	<div class="footer-default">
+		<div class="spacer">
+		</div>
+		<div class="page--footer-wrap page--footer-wrap-default">
+			<div class="content-wrapper page--footer">
+				<div id="c94297"><div class="fullsize-container"><div class="content-wrapper"><div id="c137473" class="visible-xs visible-sm visible-md hidden-lg"><div align="center">
+<div id="c89955"><div class="row"><div class=" col-sm-12 col-md-3   "><nav id="c89953"><ul class="csc-menu csc-menu-def"><li><a href="/imprint/" title="Imprint">Imprint</a></li><li><a href="/privacy-policy/" title="Privacy policy">Privacy Policy</a></li><li><a href="/jobs/" title="jobs">Jobs</a></li><li>Tel.:<a href="tel:1-786-574-3799" title="phone">1-786-574-3799</a></li></ul></nav></div><div class=" col-sm-12 col-md-3   "><nav id="c107454"><ul class="csc-menu csc-menu-def"></ul></nav>
+</div></div></div></div></div><div id="c87935" class="visible-xs visible-sm visible-md visible-lg"><div class="row"><div class="  col-md-4   "><nav id="c87933" class="hidden-xs hidden-sm hidden-md visible-lg"><ul class="csc-menu csc-menu-def"><li><a href="/imprint/" title="Imprint | hear.com">»Imprint</a></li><li><a href="/privacy-policy/" title="Privacy Policy | hear.com">»Privacy Policy</a></li><li><a href="/jobs/" title="Jobs at hear.com | Become part of the team. Find our open vacancies, apply for your dream job and grow with the US hearing aid leader! hear.com USA
+">»Jobs</a></li><li><a href="/referral-terms-and-conditions/" title="Referral terms &amp; conditions | hear.com">»Referral terms &amp; conditions</a></li></ul></nav><div id="c87928" class="hidden-xs hidden-sm hidden-md"><div class="tx-audibene-social">
+    
+  
+    <ul class="social list-unstyled">
+      
+        <li>
+          <a target="_blank" href="https://www.facebook.com/hearcom">
+            
+              
+                <i class="glyphicon glyphicon-aud-facebook"></i>
+              
+              
+              
+              
+            
+          </a>
+        </li>
+      
+        <li>
+          <a target="_blank" href="https://twitter.com/hear">
+            
+              
+              
+                <i class="glyphicon glyphicon-aud-twitter"></i>
+              
+              
+              
+            
+          </a>
+        </li>
+      
+        <li>
+          <a target="_blank" href="https://www.instagram.com/hearcom_us/">
+            
+              
+              
+              
+              
+                <i class="glyphicon glyphicon-aud-instagram"></i>
+              
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+
+</div>
+</div><div class="visible-xs visible-sm hidden-md hidden-lg"><div class="divider"><hr></div></div></div><div class="  col-md-4   "><div id="c87926">
+
+<div class="tx-audibene-rating">
+    <p class="headline">
+        Rate this page
+    </p>
+    <ul>
+        
+            <li>
+                <i class="glyphicon glyphicon-star-full"></i>
+            </li>
+        
+            <li>
+                <i class="glyphicon glyphicon-star-full"></i>
+            </li>
+        
+            <li>
+                <i class="glyphicon glyphicon-star-full"></i>
+            </li>
+        
+            <li>
+                <i class="glyphicon glyphicon-star-full"></i>
+            </li>
+        
+            <li>
+                <i class="glyphicon glyphicon-star-full"></i>
+            </li>
+        
+    </ul>
+    <p class="aggregateRating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <span class='ratingCount' itemprop='ratingCount'>157</span> ratings with <span class='ratingValue' itemprop='ratingValue'>4.34</span> between <span class='worstRating' itemprop='worstRating'>1</span> to <span class='bestRating' itemprop='bestRating'>5</span> stars
+    </p>
+</div>
+</div></div><div class="  col-md-4   "><div id="c138954" class="hidden-xs hidden-sm visible-md visible-lg"><p>hear.com/ audibene international:</p></div><div id="c87930" class="hidden-xs hidden-sm visible-md visible-lg"><div class="tx-audibene-flag clearfix">
+    
+    <span></span>
+    
+        <ul>
+            
+                
+                    <li>
+                        
+                                <img src="/fileadmin/user_upload/flag_usa.jpg" width="33" height="33" alt="" />
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.audibene.de">
+                                    <img src="/fileadmin/user_upload/flag_germany.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.audibene.ch">
+                                    <img src="/fileadmin/user_upload/flag_switzerland.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.audibene.nl">
+                                    <img src="/fileadmin/user_upload/flag_netherlands.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.audibene.fr">
+                                    <img src="/fileadmin/user_upload/flag_france.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.hear.com/ca">
+                                    <img src="/fileadmin/user_upload/flag_canada.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.hear.com/kr">
+                                    <img src="/fileadmin/user_upload/flag_south_korea.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.hear.com/my">
+                                    <img src="/fileadmin/user_upload/flag_malaysia.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+                
+                    <li>
+                        
+                                <a rel="nofollow" target="_self" href="https://www.hear.com/in">
+                                    <img src="/fileadmin/user_upload/IN_flag.jpg" width="33" height="33" alt="" />
+                                </a>
+                            
+                    </li>
+                
+            
+        </ul>
+    
+
+</div>
+</div></div></div></div><div><div class="divider"><hr></div></div><div id="c95638"><div class="csc-textpic csc-textpic-responsive csc-textpic-center csc-textpic-above"><div class="csc-textpic-imagewrap"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last">                    <div class="ondemand" style='width:345px; height:70px;'><img class="img-responsive"  data-src="/fileadmin/media/usa/USA_trust_head.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"   alt=""></div>
+                    <noscript><img class="img-responsive" src="/fileadmin/media/usa/USA_trust_head.png" alt=""/></noscript></figure></div></div></div></div></div><div class="hidden-lg"><div class="divider"><hr></div></div></div></div></div>
+			</div>
+		</div>
+        <div class="footer-small">
+            <div class="container">
+                
+            </div>
+        </div>
+	</div>
+
+
+</div>
+<link rel="stylesheet" property="stylesheet" type="text/css" href="/typo3conf/ext/audtemplate/Resources/Public/Css/Dante/style_bottom.css?1521643596" media="all">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script src="/typo3conf/ext/audtemplate/Resources/Public/Js/Extensions/audibene_search/audibene_search.js?1521643596" type="text/javascript"></script>
+<script src="/typo3conf/ext/audtemplate/Resources/Public/Js/core/core_bottom.js?1521643597" type="text/javascript"></script>
+<script src="/typo3conf/ext/audtemplate/Resources/Public/Js/Library/Library.js?1521643596" type="text/javascript"></script>
+<!--[if IE]><script src="/typo3conf/ext/audtemplate/Resources/Public/Js/Root/ie9Fixes/jquery.html5-placeholder-shim.js?1521643596" type="text/javascript"></script><![endif]-->
+<!--[if lt IE 9]><script src="/typo3conf/ext/audtemplate/Resources/Public/Js/Root/ie9Fixes/ie9fixes.js?1521643596" type="text/javascript"></script><![endif]-->
+<script src="/typo3conf/ext/audtemplate/Resources/Private/Js/Dante/navigation.js?1521643595" type="text/javascript"></script>
+
+
+<link rel="stylesheet" href="/typo3temp/vhs-assets-dante_backendLayout_fullsizeimages.css?1521725580" />
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://bridgeathletic.com/">https://bridgeathletic.com/</a></p>

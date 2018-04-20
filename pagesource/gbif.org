@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+
+<!--[if !IE]> -->
+<html lang="en" class="not_ie" ng-app="portal">
+<!-- <![endif]-->
+<!--[if IE]>
+<html lang="en" class="ie" ng-app="portal">
+<![endif]-->
+
+<head ng-controller="headCtrl as head">
+    
+<title ng-bind="head.getTitle('GBIF')">GBIF</title>
+
+
+<meta property="fb:app_id" content="1534726343485342" />
+
+    <meta property="og:title" content="GBIF" />
+
+
+
+    <meta property="og:url" content="https://www.gbif.org/" />
+
+
+
+    <meta property="og:description" content="Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data." />
+
+
+
+
+
+<meta charset="UTF-8">
+
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#4c9e45">
+
+<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v=1520955489467">
+
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v=1520955489467">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+
+<!--[if !IE]> -->
+<!-- <![endif]-->
+
+<!--[if IE]>
+
+<![endif]-->
+
+<!--[if lt IE 9]>
+
+<![endif]-->
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-42057855-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<noscript>
+    <style>
+        body {display: block !important}
+        .no-js-enabled {display: block !important}
+        .no-js-enabled {position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(120,181,120,0.99);color:#fff;z-index:9999;text-align:center}
+        .no-js-enabled span{position:relative;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);}
+    </style>
+</noscript>
+
+
+    
+    
+</head>
+<body class="hasTransparentMenu"
+    ng-init="portal.urlPrefix='';BUILD_VERSION=1520955489467"
+    ng-class="{'hasDrawer': portal.getDrawer()}"
+    ng-controller="portalCtrl as portal">
+
+<div class="no-js-enabled" style="display: none"><span>We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.</span></div>
+<div class="ie-splash" style="display:none"><span>Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.</span></div>
+
+
+    <div class="stickyNav"
+     ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
+     ng-controller="navCtrl as nav">
+    <div class="stickyNav__container">
+        <a href="/" id="block-logo" class="gbif-logo">
+            <svg viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
+                <path class="gbif-logo-svg"
+                      d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"/>
+                <path class="gbif-logo-svg" d="M534.3,731c24.4,0,43.2-3.5,62.4-10.5c0-71-42.4-121.8-117.2-158.4c-57.2-28.7-127.7-43.6-192.1-43.6
+	c28.2-84.6,7.6-189.7-19.7-247.4c-30.3,60.4-49.2,164-20.1,248.3c-57.1,4.2-102.4,29.1-121.6,61.9c-1.4,2.5-4.4,7.8-2.6,8.8
+	c1.4,0.7,3.6-1.5,4.9-2.7c20.6-19.1,47.9-28.4,74.2-28.4c60.7,0,103.4,50.3,133.7,80.5C401.3,704.3,464.8,731.2,534.3,731"/>
+            </svg>
+        </a>
+
+        <div class="stickyNav__actions">
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat ng-cloak" ng-href="{{ portal.urlPrefix }}/health" ng-if="nav.notifications.count == 0"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()" ng-class="{'stickyNav__actions__action--notification': nav.commentCount}"></a>
+            <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()" ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>
+            <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
+                <span class="service-menu__button hoverBox">
+                    <div class="inline-block">
+                        <span class="ng-cloak">{{nav.loginGreeting}}</span>
+                    </div>
+                </span>
+            </a>
+        </div>
+        <div class="mainNavigation" ng-class="{'isActive': nav.mobileMenuActive}">
+            <nav class="mainMenu" click-outside="nav.toggleMenu()">
+                <ul>
+                    
+                        
+                            <li class="mainMenu--hasChild mainMenu__firstLevel"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'get'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('get')">Get data</a>
+                                <ul class="mainMenu__childGroup">
+                                    <li class="mainMenu__columns">
+                                        <nav><h2></h2>
+                                            <ul class="mainMenu__childItem">
+                                                
+                                                    <li>
+                                                        <a href="/occurrence/search">Occurrences
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/species/search">Species
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/dataset/search">Datasets
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/publisher/search">Publishers
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/analytics/global">Trends
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/citation-guidelines">Citation guidance
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        </nav>
+                                    </li>
+                                </ul>
+                            </li>
+                        
+                        
+                    
+                        
+                            <li class="mainMenu--hasChild mainMenu__firstLevel"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'share'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('share')">Share</a>
+                                <ul class="mainMenu__childGroup">
+                                    <li class="mainMenu__columns">
+                                        <nav><h2></h2>
+                                            <ul class="mainMenu__childItem">
+                                                
+                                                    <li>
+                                                        <a href="/publishing-data">Publishing data
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/dataset-classes">Dataset classes
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/become-a-publisher">Become a publisher
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/standards">Standards
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/data-papers">Data papers
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/citizen-science">Citizen science
+                                                            
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        </nav>
+                                    </li>
+                                </ul>
+                            </li>
+                        
+                        
+                    
+                        
+                        
+                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'tools'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('tools')">Tools</a>
+                                <ul class="mainMenu__childGroup">
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>Publishers</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/ipt">IPT
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/tools/data-validator">Data validator
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/suggest-dataset">Suggest a dataset
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li  ng-if='nav.hasRole([&quot;DATA_REPO_USER&quot;])' >
+                                                            <a href="/data-repository">Data repository
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>Users</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/developer/summary">GBIF API
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/data-processing">Data processing
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/tool/81747">rgbif
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/tool/81279">MAXENT
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/resource/search?contentType=tool">Tools catalogue
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>GBIF Labs</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/tools/species-lookup">Species matching
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/tools/name-parser">Name Parser
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/tools/observation-trends">Relative observation trends
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="http://gbif.blogspot.com">Developers blog
+                                                                
+                                                                    <span class="gb-icon-link"></span>
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                        
+                        
+                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'inside'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('inside')">Inside GBIF</a>
+                                <ul class="mainMenu__childGroup">
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>About</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/what-is-gbif">What is GBIF?
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/the-gbif-network">The GBIF Network
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/become-member">Become a member
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/governance">Governance
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/funders">Funders
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/strategic-plan"> Strategic plan
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/contact-us">Contacts
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>News &amp; Outreach</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/resource/search?contentType=news">News
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/resource/search?contentType=dataUse">Featured data use
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/resource/search?contentType=event">Events
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/newsletters">Newsletters and lists
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/awards">Awards
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="http://community.gbif.org">Community site
+                                                                
+                                                                    <span class="gb-icon-link"></span>
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>Programmes &amp; projects</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    
+                                                        <li >
+                                                            <a href="/programme/82219/capacity-enhancement-support-programme">Capacity enhancement
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/programme/82243/bid-biodiversity-information-for-development">BID: Biodiversity Information for Development
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/programme/82629/bifa-biodiversity-information-fund-for-asia">BIFA: Biodiversity Information Fund for Asia
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li >
+                                                            <a href="/programme/82953/living-atlases">Living Atlases
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                    
+                        
+                           
+                    
+                    
+                        
+                    
+                    <li class="mainMenu__firstLevel hide-on-laptop">
+                        <a class="mainMenu__parentItem" href="/user/profile">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="site-wrapper" class="site-wrapper">
+    
+        
+    <div feedback></div>
+
+        
+    <div notifications></div>
+
+        
+	<div user-menu></div>
+
+        
+	<div menu-search></div>
+
+    
+
+    <main id="main" class="main" role="main" ui-view>
+        <div class="site-content">
+            
+            
+            <div class="site-content__page">
+                <div>
+                    
+    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
+        <div class="home__header" style="background-image: url('//api.gbif.org/v1/image/unsafe/1500x750/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F1TC1K2VJ2kUMis26WioKyW%2F259f438743d92951c08d11359f1e0230%2FNerita_picea.jpeg')">
+            <div>
+                <div class="container--desktop">
+                    <div class="home__header__hero-text">
+                        <div class="home__header__name">
+                            GBIF | Global Biodiversity Information Facility
+                        </div>
+                        <h1>
+                            Free and open access to biodiversity data
+                        </h1>
+                        <div class="home__searchFilters">
+                            <a href="/occurrence/search" class="inherit noUnderline" ng-href="/occurrence/search?q={{ home.freeTextQuery }}">Occurrences</a>
+                            <a href="/species/search" class="inherit noUnderline" ng-href="/species/search?q={{ home.freeTextQuery }}">Species</a>
+                            <a href="/dataset/search" class="inherit noUnderline" ng-href="/dataset/search?q={{ home.freeTextQuery }}">Datasets</a>
+                            <a href="/publisher/search" class="inherit noUnderline" ng-href="/publisher/search?q={{ home.freeTextQuery }}">Publishers</a>
+                            <a href="/resource/search" class="inherit noUnderline" ng-href="/resource/search?q={{ home.freeTextQuery }}">Resources</a>
+                        </div>
+                        <div class="home__header__search-bar search-box">
+                            <form action="/search"
+                                  ng-submit="home.updateSearch()">
+                                <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off"
+                                       value=""
+                                       ng-init="home.freeTextQuery == ''"
+                                       ng-model="home.freeTextQuery"
+                                       aria-invalid="false"
+                                       focus-me="true">
+                                <a class="search-box__submit gb-icon-search2 inherit noUnderline"
+                                   ng-href="/search?q={{ home.freeTextQuery }}" type="submit">
+                                    <span class="sr-only">search</span>
+                                </a>
+                            </form>
+                        </div>
+                        <div class="home__quicklinks">
+                            <a href="/what-is-gbif" class="gb-button--brand--transparent">What is GBIF?</a>
+                            <a ng-href="/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <a href="/occurrence/1807292423">Black nerite (<i>Nerita picea</i>)</a> by Tina Costanzo via iNaturalist. Photo licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe light-background p-t-05">
+            <div class="container--desktop">
+                <div class="home__counts">
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
+                            <h3 class="discreet">Occurrence records</h3>
+                            <div count="{{ portal.dataApi }}occurrence/search">850,000,000</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
+                            <h3 class="discreet">Datasets</h3>
+                            <div count="{{ portal.dataApi }}dataset/search">36,000</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
+                            <h3 class="discreet">Publishing institutions</h3>
+                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">1,100</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+
+
+                        <a ng-href="/about-species-counts" class="inherit noUnderline">
+                        
+                            <h3 class="discreet">Species</h3>
+                            
+                            <p>Learn more about the number of species covered by data in GBIF.org.</p>
+                        </a>
+                    </article>
+                </div>
+
+                
+                    <div class="home__news">
+                        <div class="articles">
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/news/2W274u835u4UAoQqEOyIIA/2018-gbif-ebbe-nielsen-challenge-to-open-on-9-may-2018" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2FL6lRFOvdQG4M4yY0k0Cei%2Fad53f85a57368b017fecb8907393d32a%2Febbe-2018.png"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/news/2W274u835u4UAoQqEOyIIA/2018-gbif-ebbe-nielsen-challenge-to-open-on-9-may-2018" class="inherit">2018 GBIF Ebbe Nielsen Challenge to open on 9 May 2018</a>
+                    </h4>
+                    <span class="article-box__footer">13 February 2018</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/dataUse/7CfzyyDzrigask4ecAOMAy/identifying-amazonian-ferns-using-a-new-online-key" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5RE6iqXJxCei8uMsaGiIGo%2F8d06dc0eb39abdb0a60a400afb504510%2Ffern.jpg"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/dataUse/7CfzyyDzrigask4ecAOMAy/identifying-amazonian-ferns-using-a-new-online-key" class="inherit">Identifying Amazonian ferns using a new online key</a>
+                    </h4>
+                    <span class="article-box__footer">14 March 2018</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="https://www.gbif.org/news/5uADI7GJY4amKs88Q4Ug4I" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F1qR5AqVYnmymyWygqiqk2I%2F5e4fcf7a35ceb9713b009c3f2ac8ef31%2FiNat-western-fence-lizard.jpg"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="https://www.gbif.org/news/5uADI7GJY4amKs88Q4Ug4I" class="inherit">Call for nominations opens for 2018 GBIF Young Researchers Award</a>
+                    </h4>
+                    <span class="article-box__footer">Deadline: 15 June 2018</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/the-gbif-network" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F1DOkVqCKre2awaEkmeOsi8%2F528ea6ba46a03c2a0e89daf4bf03be77%2Fgbif-network2.png"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/the-gbif-network" class="inherit">The GBIF network</a>
+                    </h4>
+                    <span class="article-box__footer">Dozens of countries and organizations working together to make species data  findable, accessible, interoperable and reusable.</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/data-papers" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5SithJUWqs8QWeWYu6ci0o%2F2b02ececdb678e3559af46a535507dfa%2Fgulls.png"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/data-papers" class="inherit">Learn all about data papers</a>
+                    </h4>
+                    <span class="article-box__footer">A data paper is a peer reviewed document describing a dataset, published in a peer reviewed journal. </span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/mobilization-priorities-2017" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F61MIjX3HoIYUIYAqqSQkEe%2F8f879c77f29e216a076e367af4878cae%2FOecophylla_smaragdina2.jpg"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/mobilization-priorities-2017" class="inherit">GBIF Content Mobilization Priorities</a>
+                    </h4>
+                    <span class="article-box__footer">Current priorities for guiding investment and effort to digitize and mobilize biodiversity data</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/sampling-event-data" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F3HMdxqWm9GUoios28IOuQY%2F64782b4ef3383f7f7393785d5f136e70%2F13997897920_d2f01113ed_o.jpg"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/sampling-event-data" class="inherit">Introduction to sampling-event data</a>
+                    </h4>
+                    <span class="article-box__footer">What is sampling-event data and why is it important?</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                            
+                                
+    
+        <article class="card card--flexible article-box hoverBox">
+            
+            
+                <a href="/news/4a5wk5LoFykeeOEuqygm6W" class="card__stripe">
+                    <img src="//api.gbif.org/v1/image/unsafe/600x300/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F1V3UnUw9mUsYEACS4YOW8C%2Fcfceacb751d1e313a53d91142951de14%2Fcactus2.jpg"
+                         alt="" class="article-thumb">
+                </a>
+            
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="/news/4a5wk5LoFykeeOEuqygm6W" class="inherit">A look back at GBIF in 2017</a>
+                    </h4>
+                    <span class="article-box__footer">11 January 2018</span>
+                </div>
+            </div>
+        </article>
+    
+
+                            
+                        
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        
+            
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+        
+        <div class="horizontal-stripe--paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">
+            <span class="relative-anchor-offset"><a href="" id="map"></a></span>
+            <div style="position:absolute;top:0;bottom:0;left:0;right:0;">
+                <map-widget filter="home.mapFilter" map-style="{forceSelect: 'CLASSIC'}" class="fitSize"></map-widget>
+            </div>
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+        
+    <footer class="site-footer wrapper-horizontal-stripes">
+        <div class="horizontal-stripe light-background site-footer__upper">
+            <div class="container--normal">
+                <nav class="site-footer__menu">
+                    <div>
+                        <a href="/what-is-gbif">What is GBIF?</a>
+                        <a href="/developer/summary">API</a>
+                        <a href="/faq">FAQ</a>
+                        <a href="/newsletters">Newsletter</a>
+                        <a href="/terms/privacy-policy">Privacy</a>
+                        <a href="/terms">Terms and agreements</a>
+                        <a href="/citation-guidelines">Citation</a>
+                        <a href="/acknowledgements">Acknowledgements</a>
+                    </div>
+                    <div>
+                        <a href="/contact-us">Contact</a>
+                        <span>
+                            <span href=""><span>GBIF Secretariat </span>Universitetsparken 15</span>
+                            <span href="">DK-2100 Copenhagen Ø</span>
+                            <span href="">Denmark</span>
+                        </span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="horizontal-stripe site-footer__lower">
+            <div class="container--normal text-center">
+                <img src="/img/full_logo_white.svg">
+                <div class="site-footer__social">
+                    <a href="https://www.facebook.com/gbifnews" class="btn btn-lg btn-circle"><i class="gb-icon-facebook"></i></a>
+                    <a href="https://twitter.com/GBIF" class="btn btn-lg btn-circle"><i class="gb-icon-twitter"></i></a>
+                    <a href="https://www.linkedin.com/groups/GBIF-55171" class="btn btn-lg btn-circle"><i class="gb-icon-linkedin"></i></a>
+                    <a href="https://www.youtube.com/user/GBIFvideo" class="btn btn-lg btn-circle"><i class="gb-icon-youtube"></i></a>
+                    <a href="https://vimeo.com/gbif" class="btn btn-lg btn-circle"><i class="gb-icon-vimeo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    
+
+    
+    <div terms></div>
+</div>
+<div gb-help-overlay></div>
+
+<script>
+    window.gb = window.gb || {};
+    window.gb.locale = 'en';
+    
+    window.gb.urlPrefix = '';
+    window.gb.buildVersion = '1520955489467';
+
+</script>
+
+<script src="/js/environment.js?v=1520955489467"></script> 
+<script src="/js/base/vendor.js?v=1520955489467"></script>
+<script src="/js/base/custom.js?v=1520955489467"></script>
+
+
+    <script src="/js/base/pages/home.js?v=1520955489467"></script>
+
+
+</body>
+</html>

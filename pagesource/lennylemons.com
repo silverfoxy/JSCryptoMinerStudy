@@ -1,0 +1,2867 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+
+<!--[if IE 9 ]><html class="no-js csscalc no-flexbox ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js csscalc flexbox"><!--<![endif]-->
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WFSW9GV');</script>
+<!-- End Google Tag Manager -->
+    <meta name="google-site-verification" content="mIcy_qhh3muOnz0lCUwglWFfrgPL2Drx_1eemiZbKAQ" />
+    
+    <meta name="msvalidate.01" content="A6493F2D35E74565159AEC91A9785B14" />
+
+    <script>
+      
+      window.bogo_product_ids = [];
+    </script>
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+
+    <script  src='//d1liekpayvooaz.cloudfront.net/apps/customizery/customizery.js?shop=lenny-lemons.myshopify.com'></script>
+
+    <title>
+      Trendy Baby + Toddler Clothes Online | Newborn Clothing Stores &ndash; Lenny Lemons
+    </title>
+
+    
+      <meta name="description" content="Lenny Lemons is one of the leading baby clothing stores offering a wide selection of trendy clothes, shoes &amp; more for newborn baby boys &amp; girls. Shop now!">
+    
+    
+    <link rel="canonical" href="https://www.lennylemons.com/">
+
+    
+    <link rel="preconnect" href="//cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+    
+      <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/favicon.png?11524334227760560921" type="image/png">
+    
+
+    
+
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trendy Baby + Toddler Clothes Online | Newborn Clothing Stores">
+
+  
+    <meta property="og:image" content="http://cdn.shopify.com/s/files/1/1237/1732/t/61/assets/logo.png?11524334227760560921">
+    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/1237/1732/t/61/assets/logo.png?11524334227760560921">
+  
+
+
+
+  <meta property="og:description" content="Lenny Lemons is one of the leading baby clothing stores offering a wide selection of trendy clothes, shoes &amp; more for newborn baby boys &amp; girls. Shop now!">
+
+
+<meta property="og:url" content="https://www.lennylemons.com/">
+<meta property="og:site_name" content="Lenny Lemons">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+<noscript id="deferred-styles">
+     <link href="//fonts.googleapis.com/css?family=Old+Standard+TT:700|Montserrat:700" rel="stylesheet" type="text/css" media="all" />
+    </noscript>
+    <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script>
+
+
+    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/12371732/digital_wallets/dialog">
+<meta name="shopify-checkout-api-token" content="69296171391d9e80b3f8ad5809660236">
+<style media="all">.additional-checkout-button{border:0 !important;border-radius:5px !important;display:inline-block;margin:0 0 10px;padding:0 24px !important;max-width:100%;min-width:150px !important;line-height:44px !important;text-align:center !important}.additional-checkout-button+.additional-checkout-button{margin-left:10px}.additional-checkout-button:last-child{margin-bottom:0}.additional-checkout-button span{font-size:14px !important}.additional-checkout-button img{display:inline-block !important;height:1.3em !important;margin:0 !important;vertical-align:middle !important;width:auto !important}@media (max-width: 500px){.additional-checkout-button{display:block;margin-left:0 !important;padding:0 10px !important;width:100%}}.additional-checkout-button--apple-pay{background-color:#000 !important;color:#fff !important;display:none;font-family:-apple-system, &#39;Helvetica Neue&#39;, sans-serif !important;min-width:150px !important;white-space:nowrap !important}.additional-checkout-button--apple-pay:hover,.additional-checkout-button--apple-pay:active,.additional-checkout-button--apple-pay:visited{color:#fff !important;text-decoration:none !important}.additional-checkout-button--apple-pay .additional-checkout-button__text{display:inline-block !important;margin-right:0.5em !important}.additional-checkout-button--apple-pay .additional-checkout-button__logo{background:-webkit-named-image(apple-pay-logo-white) center center no-repeat !important;background-size:auto 100% !important;display:inline-block !important;vertical-align:middle !important;width:3em !important;height:1.3em !important}@media (max-width: 500px){.additional-checkout-button--apple-pay{display:none}}.additional-checkout-button--google-pay{line-height:0 !important;padding:0 !important;border-radius:unset !important;width:80px !important}@media (max-width: 500px){.additional-checkout-button--google-pay{width:100% !important}}.gpay-iframe{height:44px !important;width:100%  !important;cursor:pointer;vertical-align:middle !important}.additional-checkout-button--paypal-express{background-color:#ffc439 !important}.additional-checkout-button--paypal{vertical-align:top;line-height:0 !important;padding:0 !important}.additional-checkout-button--amazon{background-color:#fad676 !important;position:relative !important}.additional-checkout-button--amazon .additional-checkout-button__logo{-webkit-transform:translateY(4px) !important;transform:translateY(4px) !important}.additional-checkout-button--amazon .alt-payment-list-amazon-button-image{max-height:none !important;opacity:0 !important;position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important}.additional-checkout-button-visually-hidden{border:0 !important;clip:rect(0, 0, 0, 0) !important;clip:rect(0 0 0 0) !important;width:1px !important;height:1px !important;margin:-2px !important;overflow:hidden !important;padding:0 !important;position:absolute !important}
+</style>
+<script id="apple-pay-shop-capabilities" type="application/json">{"shopId":12371732,"countryCode":"US","currencyCode":"USD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/12371732","merchantName":"Lenny Lemons","requiredBillingContactFields":["postalAddress","email"],"requiredShippingContactFields":["postalAddress","email"],"shippingType":"shipping","supportedNetworks":["visa","masterCard","amex","discover"],"total":{"type":"pending","label":"Lenny Lemons","amount":"1.00"}}</script>
+<script>var Shopify = Shopify || {};
+Shopify.shop = "lenny-lemons.myshopify.com";
+Shopify.theme = {"name":"Piper V3 9March New Navigation Filters","id":13072695343,"theme_store_id":null,"role":"main"};
+Shopify.theme.handle = "null";
+Shopify.theme.style = {"id":null,"handle":null};
+</script>
+<script>(function() {
+  function asyncLoad() {
+    var urls = ["https:\/\/wdsapp.com\/APPS\/shopify\/loginwithsocialmedia\/assets\/scripts\/custom\/demo.js?shop=lenny-lemons.myshopify.com","https:\/\/wheelio-a62f3.firebaseapp.com\/scripttag.js?shop=lenny-lemons.myshopify.com","https:\/\/api.carts.guru\/6464b088-3d66-4765-8de9-c355fd50f098\/shopify\/scripttag?v=1509106146000\u0026shop=lenny-lemons.myshopify.com","https:\/\/hurrifyme.com\/shopify\/app\/counter\/counter_app.js?shop=lenny-lemons.myshopify.com","https:\/\/cdn.shopifycloud.com\/messenger_commerce\/assets\/new_message_us?version=1517349788\u0026page_id=1664347147170997\u0026color=\u0026size=\u0026position_horizontal=\u0026position_vertical=\u0026messenger_app_id=1163199097047119\u0026shop=lenny-lemons.myshopify.com","https:\/\/acp-magento.appspot.com\/js\/acp-magento.js?v=2\u0026mode=shopify\u0026UUID=34e4109c-2952-4717-8a84-4c2a0c393f66\u0026store=12371732\u0026shop=lenny-lemons.myshopify.com","https:\/\/cdn.shopmsg.me\/platform\/shopify\/v1519239581\/1664347147170997\/shopmessage_platform.js?shop=lenny-lemons.myshopify.com","\/\/d1liekpayvooaz.cloudfront.net\/apps\/customizery\/customizery.js?shop=lenny-lemons.myshopify.com","https:\/\/shopify.retargetapp.com\/pixel.js?key=bGVubnktbGVtb25zLm15c2hvcGlmeS5jb20=\u0026shop=lenny-lemons.myshopify.com"];
+    for (var i = 0; i < urls.length; i++) {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = urls[i];
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+  };
+  if(window.attachEvent) {
+    window.attachEvent('onload', asyncLoad);
+  } else {
+    window.addEventListener('load', asyncLoad, false);
+  }
+})();
+</script>
+<script id="__st">var __st={"a":12371732,"offset":-36000,"reqid":"ece54220-f074-4852-9323-5c2232918354","pageurl":"www.lennylemons.com\/","u":"d6b4af411921","p":"home"};</script>
+<script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+<script>window.Shopify = window.Shopify || {};
+window.Shopify.Checkout = window.Shopify.Checkout || {};
+window.Shopify.Checkout.apiHost = "lenny-lemons.myshopify.com";
+window.Shopify.Checkout.requestHost = "www.lennylemons.com"
+window.Shopify.Checkout.rememberMeHost = "pay.shopify.com";
+window.Shopify.Checkout.rememberMeAccessToken = "eU5GZWF6dEkvb1NNaFp4SE8ybFJocTYrMjAxeHVQNDBxWDN1RDJNcTczVU5VSktZNjlqaUpSRFJnbG51WXhnay0tZVhIRnFUL0NnM1RYNFhMTG5iTHVFUT09--94e61be2ef142a1f667f21e6d6064ba649d601ae";
+window.Shopify.Checkout.sheetStyleSheetUrl = "\/\/cdn.shopify.com\/s\/assets\/shared\/sheet\/main-c150bd783aa9b2c6b0c41ded3880c45a0848a9914354d4222628be6c924200a3.css";
+window.ShopifyPay = window.ShopifyPay || {};
+window.ShopifyPay.acceleratedFlowIncontext = false;
+</script>
+<script>
+      window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+      window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+      window.ShopifyAnalytics.meta.currency = 'USD';
+      var meta = {"page":{"pageType":"home"}};
+      for (var attr in meta) {
+        window.ShopifyAnalytics.meta[attr] = meta[attr];
+      }
+    </script>
+<script>window.ShopifyAnalytics.merchantGoogleAnalytics = function() {
+  2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+var pSettings = {
+/* ConversionPirate.com */
+progressBg:  '#23468c',
+progressBg2: '#d9e3f7',
+progressTextColor: '',
+ 
+highDemandText: "An item you ordered is in high demand. No worries, we have reserved your order.",
+discountText: "Enter your discount code here",
+ 
+whyUsImg1: 'https://cdn.shopify.com/s/files/1/1319/2435/t/4/assets/money-back.png?10594759000770376227',
+whyUsTitle1: "60-day Satisfaction guarantee with Money Back",
+whyUsText1:  "If you're not satisfied with your products we will issue a full refund, no questions asked.",
+ 
+whyUsImg2: 'https://cdn.shopify.com/s/files/1/1319/2435/t/4/assets/mail-truck.png?3650548956285548521',
+whyUsTitle2: "Over 34.245 successfully shipped orders",
+whyUsText2:  "We made as much happy customers as many orders we shipped. You simply have to join our big family.",
+}
+ 
+function crC(e,t,s){if(s){var n=new Date;n.setTime(n.getTime()+60*s*1e3);var i="; expires="+n.toUTCString()}else i="";document.cookie=e+"="+t+i+"; path=/"}function rdC(e){for(var t=e+"=",s=document.cookie.split(";"),n=0;n<s.length;n++){for(var i=s[n];" "==i.charAt(0);)i=i.substring(1,i.length);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return null}function eSC(e){crC(e,"",-1)}function stTM(e,t,s){var n,i,d;function a(){n=t-((Date.now()-e)/1e3|0),d=n%60|0,i=(i=n/60|0)<10?"0"+i:i,d=d<10?"0"+d:d,s.textContent=i+":"+d,n<=0&&(clearInterval(c),document.getElementById("countdownhere").innerHTML="Order reservation ended.",e=Date.now()+1e3)}a();var c=setInterval(a,1e3)}var wnd=window.location.href,chksvg='<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';wnd.indexOf("checkout")>-1&&(window.onload=function(){if(wnd.indexOf("checkout")>-1&&(document.body.insertAdjacentHTML("afterbegin",'<div class="content progressholder"><div class="wrap"><div class="arrow-steps clearfix"><div id="step1" class="step current"><span id="span1s">1.Customer</span></div><div id="step2" class="step"><span id="span2s">2.Shipping</span></div><div id="step3" class="step"><span id="span3s">3.Payment</span> </div></div></div></div>'),-1===wnd.indexOf("thank_you"))){document.getElementsByClassName("main__content")[0].insertAdjacentHTML("afterbegin",'<div class="countdownholder"><div id="countdownhere" style="display:block;background:#fff5d2;padding:10px 20px;border:1px solid #fac444;font-size:14px;color:#2c2c2c;font-weight:bold;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; margin:5px 0px 20px 0px">Your order is reserved for <span id="time"></span> minutes!</div></div>');var e=600,t=Date.now(),s=rdC("pRtC");s?t<s?e=(s-t)/1e3:(eSC("pRtC"),crC("pRtC",Date.now()+1e3*e,e+1)):crC("pRtC",Date.now()+1e3*e,e+1),display=document.querySelector("#time"),stTM(t,e,display),document.getElementsByClassName("main__content")[0].insertAdjacentHTML("afterbegin",'<div style="width:100%;display:table"><div style="display:table-cell;vertical-align:middle"><img src="https://cdn.shopify.com/s/files/1/1319/2435/t/4/assets/flame_24.png?10413921915994220473"></div><div style="font-weight:bold;padding-left:5px">'+pSettings.highDemandText+"</div></div>"),""!=pSettings.discountText&&document.getElementById("checkout_reduction_code").setAttribute("placeholder",pSettings.discountText),document.getElementsByClassName("step__footer")[0].insertAdjacentHTML("afterend",'<div style="width:100%;display:block;padding-top:10px"><span style="font-size:11px;line-height:12px;font-style=italic;float:right;width:100%;text-align:right">Guaranteed safe and secure checkout!</span><img src="https://cdn.shopify.com/s/files/1/1319/2435/t/4/assets/paybadges.jpg?3951984682182620639" style="max-width:250px;float: right;margin-top: 5px;"></div>'),document.getElementsByClassName("order-summary__sections")[0].insertAdjacentHTML("beforeend",'<div style="position:relative;padding:10px 0px"><div class="wyustit" style="position:relative;z-index:1;text-align:center"><span style="background:#fafafa;padding:0 15px">Why choose us?</span></div><div style="display:table;vertical-align:middle;width:100%;border-spacing:0px 20px"><div class="wyuscs"><div class="wyuscs1"><img src="'+pSettings.whyUsImg1+'"></div><div class="wyuscs2"><span>'+pSettings.whyUsTitle1+"</span><p>"+pSettings.whyUsText1+'</p></div></div><div class="wyuscs"><div class="wyuscs1"><img src="'+pSettings.whyUsImg2+'"></div><div class="wyuscs2"><span>'+pSettings.whyUsTitle2+"</span><p>"+pSettings.whyUsText2+"</p></div></div></div></div>")}wnd.indexOf("previous_step=contact_information")>-1&&(document.getElementById("step1").className="step current",document.getElementById("span1s").insertAdjacentHTML("afterbegin",chksvg)),wnd.indexOf("previous_step=shipping_method")>-1&&(document.getElementById("step1").className="step current",document.getElementById("step2").className="step current",document.getElementById("span1s").insertAdjacentHTML("afterbegin",chksvg),document.getElementById("span2s").insertAdjacentHTML("afterbegin",chksvg)),wnd.indexOf("thank_you")>-1&&(document.getElementById("step1").className="step current",document.getElementById("step2").className="step current",document.getElementById("step3").className="step current",document.getElementById("span1s").insertAdjacentHTML("afterbegin",chksvg),document.getElementById("span2s").insertAdjacentHTML("afterbegin",chksvg),document.getElementById("span3s").insertAdjacentHTML("afterbegin",chksvg))});var b7=document.createElement("style");b7.type="text/css";b7.innerHTML=`.main ul.breadcrumb{display:none!important}.content.progressholder{padding:8px 0}.arrow-steps{width:100%}.arrow-steps .step{font-size:14px;text-align:center;color:#fff;cursor:default;margin:0 3px;padding:9px 10px 9px 30px;float:left;position:relative;background-color:`+ pSettings.progressBg2+ `;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:all 2s ease;width:20%}.arrow-steps .step:after,.arrow-steps .step:before{content:" ";position:absolute;top:0;right:-17px;width:0;height:0;border-top:19px solid transparent;border-bottom:17px solid transparent;border-left:17px solid `+ pSettings.progressBg2+ `;z-index:2;transition:border-color .2s ease}.arrow-steps .step:before{right:auto;left:0;border-left:17px solid #fff;z-index:0}.arrow-steps .step:first-child:before{border:none}.arrow-steps .step:first-child{margin-left:0;border-top-left-radius:4px;border-bottom-left-radius:4px}.arrow-steps .step span{position:relative}.arrow-steps .step.current{color:#fff;background-color:`+ pSettings.progressBg+ `}.arrow-steps .step.current:after{border-left:17px solid `+ pSettings.progressBg+ `}.arrow-steps .step svg{position:absolute;left:-17px;top:2px}.arrow-steps .step:first-child svg{left:-16px}.wyustit:before{border-top:1px solid #dfdfdf;content:"";margin:0 auto;position:absolute;top:50%;left:0;right:0;bottom:0;width:100%;z-index:-1}.wyuscs{display:table-row;padding-bottom:20px}.wyuscs1,.wyuscs2{display:table-cell;vertical-align:middle}.wyuscs1{width:20%;font-size:15px}.wyuscs2{width:80%}.wyuscs2 span{font-size:14px;font-weight:700;color:#666}.wyuscs2 p{font-size:12px;color:#777}@media(min-width:450px){.arrow-steps .step{min-width:29%}.arrow-steps .step svg{position:relative!important;top:2px!important;left:-10px!important}}@media(max-width:750px){.arrow-steps .step{font-size:11px}.arrow-steps .step:first-child{padding-left:20px}}`;document.body.appendChild(b7);
+};
+</script>
+<script class="analytics">(window.gaDevIds=window.gaDevIds||[]).push('BwiEti');
+
+
+(function () {
+  var customDocumentWrite = function(content) {
+    var jquery = null;
+
+    if (window.jQuery) {
+      jquery = window.jQuery;
+    } else if (window.Checkout && window.Checkout.$) {
+      jquery = window.Checkout.$;
+    }
+
+    if (jquery) {
+      jquery('body').append(content);
+    }
+  };
+
+  var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+  if (trekkie.integrations) {
+    return;
+  }
+  trekkie.methods = [
+    'identify',
+    'page',
+    'ready',
+    'track',
+    'trackForm',
+    'trackLink'
+  ];
+  trekkie.factory = function(method) {
+    return function() {
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      trekkie.push(args);
+      return trekkie;
+    };
+  };
+  for (var i = 0; i < trekkie.methods.length; i++) {
+    var key = trekkie.methods[i];
+    trekkie[key] = trekkie.factory(key);
+  }
+  trekkie.load = function(config) {
+    trekkie.config = config;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onerror = function(e) {
+      (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load';
+    };
+    script.async = true;
+    script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2017.09.05.1';
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  };
+  trekkie.load(
+    {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":12371732,"isMerchantRequest":null,"themeId":13072695343,"themeCityHash":15842563915713160545}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1.0},"Google Analytics":{"trackingId":"UA-88375764-1","domain":"auto","siteSpeedSampleRate":"10","enhancedEcommerce":true,"doubleClick":true,"includeSearch":true},"Facebook Pixel":{"pixelIds":["562727450595670"],"agent":"plshopify1.2"},"Session Attribution":{}}
+  );
+
+  var loaded = false;
+  trekkie.ready(function() {
+    if (loaded) return;
+    loaded = true;
+
+    window.ShopifyAnalytics.lib = window.trekkie;
+    
+      ga('require', 'linker');
+      function addListener(element, type, callback) {
+        if (element.addEventListener) {
+          element.addEventListener(type, callback);
+        }
+        else if (element.attachEvent) {
+          element.attachEvent('on' + type, callback);
+        }
+      }
+      function decorate(event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
+          ga(function (tracker) {
+            var linkerParam = tracker.get('linkerParam');
+            document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
+          });
+        }
+      }
+      addListener(window, 'load', function(){
+        for (var i=0; i < document.forms.length; i++) {
+          var action = document.forms[i].getAttribute('action');
+          if(action && action.indexOf('/cart') >= 0) {
+            addListener(document.forms[i], 'submit', decorate);
+          }
+        }
+        for (var i=0; i < document.links.length; i++) {
+          var href = document.links[i].getAttribute('href');
+          if(href && href.indexOf('/checkout') >= 0) {
+            addListener(document.links[i], 'click', decorate);
+          }
+        }
+      });
+    
+
+    var originalDocumentWrite = document.write;
+    document.write = customDocumentWrite;
+    try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+    document.write = originalDocumentWrite;
+
+    
+        window.ShopifyAnalytics.lib.page(
+          null,
+          {"pageType":"home"}
+        );
+      
+    
+  });
+
+  
+      var eventsListenerScript = document.createElement('script');
+      eventsListenerScript.async = true;
+      eventsListenerScript.src = "//cdn.shopify.com/s/assets/shop_events_listener-f2c5800305098f0ebebdfa7d980c9abf56514c46d5305e97a7c476f7c9116163.js";
+      document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+    
+})();
+</script>
+<script src="https://cdn.shopify.com/s/files/1/1237/1732/t/53/assets/olark.js?11452501134346986528&amp;shop=lenny-lemons.myshopify.com"></script>
+<script defer="defer" integrity="sha256-3igvyAQspxPXvvCO4dejA0hpfvfOL7D6yRYWGvByptM=" crossorigin="anonymous" src="//cdn.shopify.com/s/assets/storefront/express_buttons-de282fc8042ca713d7bef08ee1d7a30348697ef7ce2fb0fac916161af072a6d3.js"></script>
+<script defer="defer" src="//cdn.shopify.com/s/assets/themes_support/ga_urchin_forms-68ca1924c495cfc55dac65f4853e0c9a395387ffedc8fe58e0f2e677f95d7f23.js"></script>
+
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+    
+
+    <link href="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/theme.scss.css?11524334227760560921" rel="stylesheet" type="text/css" media="all" />
+   
+    
+    <script>
+      // This allows to expose several variables to the global scope, to be used in scripts
+      window.shop = {
+        template: "index",
+        currentPage: 1,
+        shopCurrency: "USD",
+        moneyFormat: "\u003cspan class=money\u003e$ {{amount}}\u003c\/span\u003e",
+        moneyWithCurrencyFormat: "\u003cspan class=money\u003e$ {{amount}} USD\u003c\/span\u003e",
+        collectionSortBy: null
+      };
+
+      window.features = {
+        searchMode: "products"
+      };
+    </script>  
+    
+<!-- TruConversion for piperloucollection.com -->
+<script type="text/javascript">
+    var _tip = _tip || [];
+    (function(d,s,id){
+        var js, tjs = d.getElementsByTagName(s)[0];
+        if(d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.async = true;
+        js.src = d.location.protocol + '//app.truconversion.com/ti-js/8612/e316a.js';
+        tjs.parentNode.insertBefore(js, tjs);
+    }(document, 'script', 'ti-js'));
+</script>
+         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' />
+       <meta name="p:domain_verify" content="b04f13c512a746928ddc7fda8e4f3926"/>
+       
+    <script type="text/javascript">
+!function(e){if(!window.pintrk){window.pintrk=function()
+{window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+n=window.pintrk;n.queue=[],n.version="3.0";var
+t=document.createElement("script");t.async=!0,t.src=e;var
+r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}
+("https://s.pinimg.com/ct/core.js"); 
+
+pintrk('load','2616217545615', { em: '', }); 
+                                
+pintrk('page');
+</script> 
+<noscript> 
+<img height="1" width="1" style="display:none;" alt=""
+src="https://ct.pinterest.com/v3/?tid=2616217545615&noscript=1" /> 
+</noscript>
+
+  </head>
+
+  
+
+  <body itemscope itemtype="//schema.org/WebPage" class="focal focal--v4 template-index ">
+    
+
+<svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon-amazon-payments" viewBox="0 0 1634 1024">
+      <title>amazon-payments</title>
+      <path class="path1" d="M329.195 657.054c-8.192 0-15.438 0.946-23.315 3.467v100.825c7.875 3.779 14.179 5.355 22.683 5.355 30.563 0 48.835-21.107 48.835-56.083 0-33.714-17.96-53.563-48.203-53.563zM946.118 657.054c-18.906 0-32.768 16.384-34.343 40.014h65.851c-1.259-20.48-11.342-40.014-31.507-40.014zM447.661 721.33c-7.563 3.779-11.659 11.027-11.659 20.163 0 15.438 9.451 25.203 24.259 25.203 16.699 0 29.299-11.027 37.491-19.534v-32.139l-23.315 0.627c-11.971 0.627-20.163 2.203-26.779 5.672zM436.319 376.004c-20.48 0-42.535 4.411-42.535 28.672 0 12.288 6.299 20.795 17.33 20.795 7.875 0 15.123-5.042 19.851-12.915 5.672-9.768 5.355-19.219 5.355-30.247v-6.299zM1070.884 322.444c-21.107 0-22.371 28.672-22.371 46.631s-0.315 56.083 22.055 56.083c22.055 0 23.315-30.875 23.315-49.779 0-12.288-0.627-27.098-4.411-38.755-3.15-10.083-9.768-14.179-18.587-14.179zM767.781 404.992c0 12.288 6.299 20.795 17.33 20.795 7.875 0 15.123-5.042 19.851-12.915 5.672-9.768 5.355-19.219 5.355-30.247v-6.299c-20.48-0.315-42.535 4.096-42.535 28.672zM1374.621 140.643h-1115.375c-52.931 0-96.099 48.203-96.099 107.443v604.317c0 59.547 43.163 107.443 96.099 107.443h1115.375c52.931 0 96.099-48.203 96.099-107.443v-604.317c0-59.235-42.851-107.443-96.099-107.443zM879.947 422.002c0-3.467 0-9.138 3.467-14.491l56.395-80.659h-49.152c-2.835 0-5.355-2.203-5.355-5.355v-20.795c0-3.15 2.522-5.355 5.355-5.355h93.891c2.835 0 5.355 2.203 5.355 5.355v17.96c0 2.835-2.522 6.931-6.931 13.234l-48.523 69.315c17.96-0.315 37.179 2.203 53.563 11.342 3.779 2.203 4.723 5.042 5.042 8.192v22.371c0 3.15-3.467 6.618-6.931 4.723-28.987-15.123-67.111-16.699-99.251 0.315-3.15 1.574-6.618-1.891-6.618-4.723v-21.426zM882.785 473.677c30.563-21.426 80.975-15.438 86.643-8.192 5.987 7.246-1.574 57.659-30.247 81.603-4.411 3.779-8.507 1.574-6.618-3.15 6.618-16.067 21.107-52.299 14.179-61.123s-45.371-4.096-62.699-2.203c-5.355 0.946-5.987-3.779-1.259-6.931zM806.853 328.743c-3.467-5.355-10.083-7.563-16.067-7.563-11.027 0-20.48 5.672-23.002 17.33-0.627 2.522-2.522 5.042-5.042 5.355l-27.726-2.835c-2.203-0.627-5.042-2.522-4.411-5.987 6.299-33.714 36.547-43.795 63.961-43.795 13.864 0 32.139 3.779 42.851 14.179 13.864 12.915 12.603 30.247 12.603 49.152v44.427c0 13.234 5.672 19.219 10.714 26.467 1.891 2.522 2.203 5.672 0 7.563-5.987 5.042-16.067 13.864-22.055 18.906v0c-1.891 1.574-4.723 1.891-6.618 0.627-9.451-7.875-11.027-11.659-16.384-18.906-15.755 16.067-26.779 20.795-46.947 20.795-23.947 0-42.851-14.81-42.851-44.427 0-23.315 12.603-39.067 30.563-46.631 15.438-6.931 37.179-8.192 53.563-9.768v-3.779c0.315-7.246 0.946-15.123-3.15-21.107zM509.417 301.017c0-2.835 2.522-5.355 5.355-5.355h26.467c2.835 0 5.042 2.203 5.355 5.042v19.219h0.627c6.931-18.587 19.851-27.098 37.491-27.098 17.96 0 28.987 8.507 36.864 27.098 6.931-18.587 22.683-27.098 39.385-27.098 11.971 0 25.203 5.042 33.083 16.067 9.138 12.288 7.246 30.247 7.246 46.002v92.315c0 2.835-2.522 5.355-5.672 5.355h-28.355c-2.835-0.315-5.042-2.522-5.042-5.355v-77.825c0-6.299 0.627-21.426-0.627-27.411-2.203-9.768-8.507-12.603-16.699-12.603-6.931 0-14.179 4.723-17.011 11.971s-2.522 19.851-2.522 28.043v77.507c0 2.835-2.522 5.355-5.355 5.355h-28.672c-2.835-0.315-5.042-2.522-5.042-5.355v-77.507c0-16.384 2.522-40.331-17.643-40.331-20.48 0-19.851 23.315-19.851 40.331v77.507c0 2.835-2.522 5.355-5.355 5.355h-28.672c-2.835-0.315-5.042-2.203-5.042-4.723v-146.51zM731.861 533.861c59.547 0 124.774-12.288 184.636-37.81 9.138-3.779 16.699 5.987 7.875 12.603-53.563 39.385-131.39 60.491-198.183 60.491-93.891 0-178.332-34.659-241.98-92.315-5.042-4.411-0.627-10.714 5.355-7.246 69.003 40.014 154.074 64.275 242.292 64.275zM432.853 328.743c-3.467-5.355-10.083-7.563-16.067-7.563-11.027 0-20.48 5.672-23.002 17.33-0.315 2.522-2.203 5.042-5.042 5.355l-27.726-2.835c-2.203-0.627-5.042-2.522-4.411-5.987 6.299-33.714 36.547-43.795 63.961-43.795 13.864 0 32.139 3.779 42.851 14.179 13.864 12.915 12.603 30.247 12.603 49.152v44.427c0 13.234 5.672 19.219 10.714 26.467 1.891 2.522 2.203 5.672 0 7.563-5.987 5.042-16.067 13.864-22.055 18.906v0c-1.891 1.574-4.723 1.891-6.618 0.627-9.451-7.875-11.027-11.659-16.384-18.906-15.755 16.067-26.779 20.795-46.947 20.795-23.947 0-42.851-14.81-42.851-44.427 0-23.315 12.603-39.067 30.563-46.631 15.438-6.931 37.179-8.192 53.563-9.768v-3.779c0.315-7.246 0.627-15.123-3.15-21.107zM328.563 787.18c-7.563 0-15.438-1.574-22.683-4.096v66.795c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-201.651c0-1.259 0.946-2.522 1.891-2.835 13.864-5.355 29.299-8.192 43.163-8.192 44.11 0 70.579 27.726 70.579 74.355 0.315 44.427-28.987 75.619-71.207 75.619zM504.689 784.345c-1.574 0-2.835-0.946-3.15-2.522l-2.203-11.027c-12.288 11.027-25.835 16.384-40.014 16.384-27.098 0-46.002-18.587-46.002-45.056 0-18.275 8.819-32.451 25.203-40.014 9.768-4.411 20.48-5.672 34.971-6.299l24.576-0.627v-7.246c0-19.534-9.768-30.247-27.726-30.247-16.699 0-27.098 5.355-36.864 11.342-0.627 0.627-1.574 0.627-2.522 0.315s-1.574-0.627-1.891-1.574l-6.618-11.971c-0.946-1.574-0.315-3.467 0.946-4.411 18.275-11.971 35.918-14.491 47.577-14.491 31.193 0 49.152 17.643 49.152 48.523v43.481c0 28.043 0.946 43.795 2.835 51.043 0.315 0.946 0 1.891-0.627 2.835-0.627 0.627-1.574 1.259-2.522 1.259h-15.123zM656.874 644.451l-50.727 150.926c-17.33 50.727-39.385 57.659-60.491 57.659-9.138 0-15.438-1.259-22.683-4.096-1.574-0.627-2.203-2.203-1.891-3.779l3.467-13.547c0.315-0.946 0.946-1.574 1.574-2.203 0.946-0.315 1.891-0.315 2.522 0 5.355 2.203 11.027 3.15 17.011 3.15 19.219 0 32.768-15.755 42.535-49.779l-59.865-138.006c-0.315-0.946-0.315-2.203 0.315-3.15s1.574-1.574 2.522-1.574h17.643c1.259 0 2.522 0.627 2.835 1.891l46.631 109.646 35.603-109.334c0.315-1.259 1.574-2.203 3.15-2.203h16.699c0.946 0 1.891 0.627 2.522 1.259 0.627 1.259 0.946 2.203 0.627 3.15zM867.347 780.879c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-87.591c0-25.203-6.618-35.603-22.371-35.603-16.067 0-31.193 11.342-42.851 21.739 0.315 2.835 0.315 5.672 0.315 8.507v93.263c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-87.591c0-25.203-6.618-35.603-22.371-35.603s-29.931 10.395-42.851 21.739v101.771c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-137.374c0-1.891 1.574-3.15 3.15-3.15h12.915c1.574 0 2.835 1.259 3.15 2.835l1.574 12.915c16.067-12.915 30.875-18.906 46.002-18.906 16.384 0 29.299 8.192 36.235 22.371 17.33-14.81 34.343-22.371 50.411-22.371 20.163 0 41.906 13.234 41.906 50.727v92.315zM1001.252 713.452c0 1.891-1.574 3.15-3.15 3.15h-86.331c1.259 23.63 13.547 50.098 45.371 50.098 13.234 0 24.576-4.723 31.822-8.819 0.627-0.315 1.574-0.627 2.522-0.315s1.574 0.946 1.891 1.574l5.355 11.342c0.627 1.574 0.315 3.15-1.259 4.096-11.342 7.563-28.355 12.603-43.481 12.603-39.699 0-65.219-30.247-65.219-77.195 0-42.851 23.63-72.779 57.343-72.779 34.027 0 55.139 27.726 55.139 72.779v3.467zM1134.847 780.879c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-87.591c0-32.139-13.234-35.603-23.315-35.603-15.755 0-29.931 10.395-42.851 21.739v101.771c0 1.891-1.574 3.15-3.15 3.15h-15.438c-1.891 0-3.15-1.574-3.15-3.15v-137.374c0-1.891 1.574-3.15 3.15-3.15h12.915c1.574 0 2.835 1.259 3.15 2.835l1.574 12.915c16.067-12.915 30.875-18.906 46.002-18.906 20.795 0 42.851 13.234 42.851 50.727v92.633zM1070.572 455.405c-41.587 0-64.275-36.547-64.275-81.603 0-45.683 23.002-80.975 64.275-80.975 42.219 0 65.219 36.235 65.219 82.547 0 44.427-25.203 80.027-65.219 80.027zM1238.189 774.26c-7.875 5.987-20.48 12.915-34.027 12.915-19.534 0-30.247-11.659-30.247-33.083v-93.891h-19.219c-1.891 0-3.15-1.574-3.15-3.15v-13.234c0-1.891 1.574-3.15 3.15-3.15h19.219v-27.726c0-1.259 0.946-2.522 2.203-3.15l15.438-5.355c0.946-0.315 2.203-0.315 2.835 0.315 0.946 0.627 1.259 1.574 1.259 2.522v33.083h37.491c0.946 0 2.203 0.627 2.522 1.259 0.627 0.946 0.627 1.891 0.315 2.835l-5.355 13.234c-0.627 1.259-1.574 1.891-3.15 1.891h-32.139v92.633c0 12.603 6.299 13.864 11.342 13.864 8.192 0 16.384-4.723 22.371-9.138 0.627-0.627 1.891-0.627 2.522-0.315 0.946 0.315 1.574 0.946 2.203 1.891l5.355 11.342c0.627 1.891 0 3.467-0.946 4.411zM1235.041 447.527v-79.399c0-16.067 1.891-39.385-17.96-39.385-6.931 0-13.234 4.723-16.384 11.659-4.096 8.819-4.411 17.96-4.411 27.726v78.771c0 2.835-2.522 5.355-5.672 5.355h-28.355c-2.835-0.315-5.042-2.522-5.042-5.355v-146.51c0.315-2.522 2.522-4.723 5.355-4.723h26.467c2.522 0 4.411 1.891 5.042 4.096v22.371h0.627c7.875-20.163 19.219-29.618 38.755-29.618 12.915 0 25.203 4.723 33.395 17.33 7.563 11.659 7.563 31.507 7.563 45.683v92.315c-0.315 2.522-2.522 4.723-5.355 4.723h-28.672c-2.835-0.627-5.042-2.522-5.355-5.042zM1290.493 787.18c-18.587 0-32.451-7.246-39.067-11.659-1.259-0.946-1.891-2.522-1.259-3.779l5.355-12.603c0.315-0.946 0.946-1.574 1.891-1.891s1.891-0.315 2.522 0.315c6.299 3.779 15.755 9.138 31.507 9.138 8.507 0 28.355-2.203 28.355-21.739 0-13.234-11.971-18.587-26.151-24.891l-2.522-1.259c-15.755-7.246-35.603-16.067-35.603-42.535 0-19.534 14.491-39.385 46.947-39.385 13.864 0 25.522 3.467 32.768 6.618 1.259 0.627 1.891 1.574 1.891 2.835v14.179c0 0.946-0.627 2.203-1.574 2.522-0.946 0.627-2.203 0.627-3.15 0.315-7.246-3.467-16.699-6.618-29.618-6.618-17.33 0-26.151 5.987-26.151 17.96 0 12.288 10.395 17.96 26.151 25.203l1.891 0.946c9.768 4.411 19.534 9.138 26.779 16.699 6.618 6.931 9.768 15.755 9.768 26.779 0.946 26.151-19.219 42.851-50.727 42.851z"></path>
+    </symbol>
+    <symbol id="icon-amex" viewBox="0 0 1024 1024">
+      <title>amex</title>
+      <path class="path1" d="M428.714 428.714v-23.552h-90.454v112.98h90.452v-23.212h-63.488v-22.528h61.782v-23.212h-61.782v-20.48zM556.032 435.542c0-12.63-5.12-20.14-13.654-24.918-8.876-5.12-18.774-5.462-32.768-5.462h-62.122v113.322h26.964v-41.3h29.012c9.898 0 15.7 1.024 19.796 4.778 4.778 5.462 4.438 15.36 4.438 22.188v14.336h27.308v-22.188c0-10.24-0.682-15.020-4.438-20.822-2.39-3.414-7.51-7.168-13.312-9.558 6.826-3.072 18.774-12.288 18.774-30.38zM520.534 451.584c-3.754 2.39-8.192 2.39-13.312 2.39h-32.768v-25.26h33.452c4.778 0 9.558 0.342 12.972 2.048s5.802 5.12 5.802 9.9c-0.342 5.12-2.39 8.876-6.144 10.924zM66.218 493.228h56.32l10.24 25.26h54.954v-88.748l39.252 88.748h23.894l39.254-88.748v88.748h27.648v-113.322h-44.714l-32.426 76.8-35.498-76.8h-44.032v107.178l-46.080-107.178h-40.278l-45.396 105.812v7.168h26.284l10.58-24.918zM94.208 424.276l18.432 45.056h-36.864l18.432-45.056zM668.672 429.398h25.6v-24.236h-26.284c-18.774 0-32.428 4.096-40.96 13.312-11.606 12.288-14.678 27.308-14.678 44.374 0 20.48 4.778 33.452 14.336 43.348 7.51 10.24 21.164 13.996 39.254 12.63h31.744l10.24-25.26h56.32l10.582 25.26h54.956v-84.992l51.2 84.992h38.23v-113.322h-27.648v78.848l-47.446-78.848h-41.302v107.178l-45.74-107.178h-40.278l-38.23 89.088h-12.288c-7.168 0-14.678-1.366-18.774-5.802-5.12-5.802-7.51-14.336-7.51-26.624 0-11.948 3.072-20.822 7.85-25.6 5.462-5.802 10.924-7.168 20.822-7.168zM736.256 424.276l18.774 45.056h-37.206l18.432-45.056zM571.732 405.162h27.648v113.322h-27.648v-113.322zM672.086 630.442c0-12.972-5.462-20.14-13.996-25.26-8.876-4.778-18.774-5.462-32.428-5.462h-62.464v113.322h27.308v-41.302h29.014c9.9 0 16.044 1.024 19.798 5.12 5.12 5.12 4.438 15.36 4.438 22.188v13.996h27.308v-22.528c0-9.9-0.682-15.020-4.438-20.822-2.39-3.414-7.168-7.168-13.312-9.558 6.486-2.39 18.774-11.606 18.774-29.696zM636.586 646.484c-3.754 2.048-8.192 2.39-13.312 2.39h-32.768v-25.26h33.452c4.778 0 9.558 0 12.972 2.048 3.414 1.706 5.462 5.462 5.462 10.24s-2.39 8.534-5.802 10.582zM504.832 600.064h-86.356l-34.476 37.206-33.452-37.206h-108.544v113.322h107.178l34.476-37.548 33.452 37.548h52.564v-37.888h33.792c23.552 0 47.104-6.486 47.104-37.888-0.342-31.744-24.236-37.548-45.738-37.548zM335.19 689.494h-66.218v-22.528h59.392v-23.212h-59.392v-20.48h67.926l29.696 33.11-31.404 33.11zM442.71 702.806l-41.642-46.080 41.644-44.716v90.794zM504.49 652.288h-34.816v-28.672h35.156c9.898 0 16.384 4.096 16.384 13.996 0 9.558-6.486 14.678-16.726 14.678zM777.216 623.274v-23.212h-90.112v112.98h90.112v-23.552h-63.148v-22.528h61.78v-23.212h-61.78v-20.48zM988.5 656.384v0c-0.682-1.024-1.366-2.048-2.39-2.73-6.144-6.144-16.044-8.876-30.72-9.216l-14.678-0.342c-4.438 0-7.51-0.342-10.582-1.366-3.414-1.366-5.802-4.096-5.802-8.534 0-3.754 1.024-6.144 4.096-8.192 2.73-1.706 6.144-2.048 10.924-2.048h49.152v-24.236h-53.932c-28.332 0-38.912 17.408-38.912 33.792 0 35.84 31.744 34.134 57.004 35.158 4.778 0 7.51 0.682 9.558 2.39s3.414 4.096 3.414 7.51c0 3.072-1.366 5.462-3.072 7.51-2.048 2.048-5.802 2.73-10.924 2.73h-51.884v24.236h52.224c17.408 0 30.038-4.778 36.864-14.336v0 0c3.754-5.462 5.802-12.63 5.802-21.164-0.342-9.9-2.39-16.044-6.144-21.164zM948.908 735.232h-69.972v-10.24c-8.192 6.486-22.87 10.24-36.864 10.24h-220.842v-36.524c0-4.438-0.342-4.778-4.778-4.778h-3.414v41.302h-72.704v-42.668c-12.288 5.12-25.942 5.802-37.548 5.462h-8.534v37.548h-88.064l-21.846-24.576-22.87 24.576h-144.044v-158.038h145.75l20.822 24.236 22.188-24.236h97.62c11.264 0 29.696 1.024 38.23 9.216v-9.216h87.38c8.192 0 25.942 1.706 36.524 9.216v-9.216h132.096v9.216c6.486-6.144 20.48-9.216 32.428-9.216h74.068v9.216c7.85-5.462 18.774-9.216 33.792-9.216h50.176v-525.996h-959.148v398.336l29.356-67.242h70.656l9.216 18.774v-18.774h82.604l18.092 40.618 17.75-40.62h262.486c11.948 0 22.528 2.39 30.38 9.216v-9.216h72.020v9.216c12.288-6.826 27.648-9.216 45.056-9.216h104.106l9.558 18.774v-18.774h77.14l10.582 18.774v-18.774h75.092v157.696h-75.776l-14.336-23.894v23.894h-94.89l-10.24-25.26h-23.212l-10.582 25.26h-49.152c-19.456 0-33.792-4.438-43.35-9.558v9.558h-116.736v-35.84c0-5.12-1.024-5.462-4.096-5.462h-4.438v41.302h-225.962v-19.456l-8.192 19.456h-47.104l-8.192-19.456v19.116h-90.796l-10.24-25.26h-23.21l-10.582 25.26h-43.008v476.844h958.804v-289.452c-10.582 5.802-24.918 7.85-39.254 7.85zM845.824 688.81h-52.564v24.236h52.566c27.308 0 42.326-11.264 42.326-35.84 0-11.606-2.73-18.432-8.192-23.894-6.144-6.144-16.044-8.876-31.062-9.216l-14.678-0.342c-4.438 0-7.51-0.342-10.582-1.366-3.414-1.366-5.802-4.096-5.802-8.534 0-3.754 1.024-6.144 4.096-8.192 2.73-1.706 5.802-2.048 10.924-2.048h49.494v-24.236h-54.272c-28.332 0-38.572 17.408-38.572 33.792 0 35.84 31.744 34.134 57.004 35.158 4.778 0 7.51 0.682 9.558 2.39 1.706 1.706 3.414 4.096 3.414 7.51 0 3.072-1.366 5.462-3.072 7.51-1.706 2.39-5.462 3.072-10.582 3.072z"></path>
+    </symbol>
+    <symbol id="icon-bitcoin" viewBox="0 0 2506 1024">
+      <title>bitcoin</title>
+      <path class="path1" d="M349 236.8q96 0 177.5 46.5t129 127 47.5 175.5q0 96-46.5 177.5t-127 129.5-175.5 48q-96 0-177.5-46.5t-129-127-47.5-176.5 46.5-177.5 127-129 175.5-47.5zM356 740.8q49 13 85 1.5t51-53.5q22-63-35-93 43-10 50-57 9-59-77-89l16-64-39-9-15 61q-6-1-16.5-3.5t-14.5-3.5l15-62-38-10-16 63q-9-1-25-5v-1l-53-13-10 41 28 7q19 5 17 23l-18 72-26 101q-3 13-17 10l-28-8-20 45 51 12q9 3 27 7l-16 65 38 9 16-63q25 7 31 8l-16 63 39 10zM902 510.8q9-4 23-8 12-3 24-3 28 0 47 10 20 9 33 26 11 14 20 38 6 22 6 48 0 40-15 74-13 34-39 61-24 25-59 41-34 15-74 15-1 0-7-0.5t-11-0.5q-7 0-29-2-22-4-35-7-21-5-35-13l99-412 87-13zM1261 412.8q0 10-5 22-4 9-13 18-7 8-18 12-9 5-23 5-18 0-31-10-15-10-15-33 0-10 5-22 4-9 13-18 8-7 18-12 12-5 23-5 16 0 32 11 14 11 14 32zM2142 459.8q-14-10-14-33 0-13 5-22 5-10 12-18 10-8 19-12 12-5 22-5 16 0 32 11 14 11 14 32 0 10-5 22-4 11-12 18-10 8-19 12-9 5-22 5-19 0-32-10zM1385 505.8h95l-17 69h-94l-25 105q-4 18-4 24-1 11 3 20 3 9 12 13 8 4 25 4 9 0 27-2 8-2 26-8l6 65q-24 8-37 11-17 4-47 4-40 0-61-11-21-12-30-32-10-18-8-46 0-25 8-55l55-235 88-14zM350 476.8q2 0 6 1 12 3 19.5 5t21 7 20.5 10.5 12 15.5 2 22q-2 9-7.5 15t-14 8-15.5 3-18.5-0.5-17-2.5-16-4-11.5-3zM1714 581.8q-13-5-23-8-11-4-30-4-43 0-67 28-24 30-24 78 0 29 12 47 13 18 46 18 17 0 32-3 22-7 27-9l6 68q-17 7-34 11-22 5-47 5-34 0-59-11-22-8-41-27-17-20-22-41-8-24-8-48 0-36 13-73 12-34 36-60 21-24 56-40 33-15 74-15 23 0 46 5 15 3 36 13zM1997 532.8q14 16 22 39 7 21 7 49 0 37-10 68-13 38-32 62-21 27-53 44-32 18-73 18-31 0-52-10-24-10-36-25-14-16-22-39-8-24-8-50 0-33 12-68 11-34 32-61t53-44q31-18 71-18 29 0 52 9 21 8 37 26zM2278 519.8q2-1 5-1.5t5.5-1.5 5.5-2 5-2l26-6q15-3 33-6 12-1 40-1 69 0 92 38 25 39 9 106l-39 161h-84l37-158q4-21 5-29 3-13 0-24-1-10-10-17-11-7-26-7-11 0-33 4l-55 231h-85zM1148 505.8h85l-72 299h-83zM2120 505.8h84l-71 299h-84zM261 545.8l4 1q-2 0-4-1zM847 740.8q5 0 6 1h6q2 1 6 1h11q20 0 37-10 17-9 30-26 12-14 21-36 7-24 7-43 0-27-9-42-9-16-34-16-8 0-20 3t-23 12zM1938 666.8q4-17 4-37 0-28-9-45-9-15-33-15-19 0-33 11t-23 27q-11 17-15 36-5 22-5 37 0 29 9 45 10 15 33 15 19 0 33-11 15-10 24-26.5t15-36.5zM321 592.8q2 0 9.5 2t12 3l13.5 3t14 4.5 14 6 13 6.5 10.5 8 8 10 4 12-1.5 14q-2 10-8.5 16.5t-16.5 8.5-18.5 3-22-1-20-3-19.5-4.5-14-3.5z"></path>
+    </symbol>
+    <symbol id="icon-cirrus" viewBox="0 0 1190 1024">
+      <title>cirrus</title>
+      <path class="path1" d="M716 697.8q-29 95-101 164 98 79 223 79 95 0 176.5-47t128.5-128.5 47-176.5q0-71-28-136.5t-75-112.5-112.5-75-136.5-28q-125 0-223 79 72 69 101 164h-28q-27-82-93-146-66 63-92 146h-29q27-93 99-164-99-79-221-79-95 0-176.5 47t-128.5 128.5-47 176.5 47 176.5 128.5 128.5 176.5 47q122 0 221-79-72-71-99-164h29q26 83 92 146 66-64 93-146h28zM369 483.8q-2 14-8 37-48-22-84 0-32 25-29 70 3 22 24 33 31 10 71-8-1 6-3 14.5t-3.5 15-3.5 11.5q-47 14-87 1-20-7-34.5-24.5t-15.5-37.5q-4-21 1.5-42t19.5-38.5 34-27.5q49-24 118-4zM551 554.8q-5-1-10 0.5t-9.5 4.5-8 7-5.5 9q-4 9-7 21.5t-5 21.5-5 23.5-4 21.5h-53l2-10q3-15 14-63.5t15-74.5h45q0 1-3 23l7.5-7.5t11.5-10 14.5-5.5 23.5-1l-15 42zM673 556.8l-8-2q-18-3-32 21-5 9-8.5 21.5t-5 21.5-4.5 23.5-4 21.5h-53l3-10q3-15 9-43.5t10.5-51.5 7.5-43h46q1 9-3 23l8-8t11.5-10 15-5.5 23.5-0.5zM864 630.8q24 6 46 6 28 0 28-13 0-6-4-9t-19-9q-39-13-39-42 0-11 4-19.5t13-15.5 24-11 36-4q32 0 46 3l-8 34q-13-1-36-1-26 0-26 11 0 6 4 9t20 8q36 13 36 42 0 50-79 50-6 0-28-2-11 0-14-1l-9-1h-3zM442 515.8l-30 148h-51l30-148h51zM838 625.8l-6 38h-47l4-24q-25 28-57 28-22 0-34.5-14.5t-12.5-36.5q0-1 4-31l14-69h50l-14 69q0 2-2 9.5t-2 12.5q0 7 6.5 12.5t15.5 4.5q31 0 39-40l14-68h52z"></path>
+    </symbol>
+    <symbol id="icon-discover" viewBox="0 0 2680 1024">
+      <title>discover</title>
+      <path class="path1" d="M1157 786.8q-56 25-104 25-95 0-160-64.5t-65-159.5q0-92 66.5-157.5t160.5-65.5q53 0 102 26v98q-49-48-104-48-59 0-99.5 43t-40.5 104q0 65 40.5 106t103.5 41q54 0 100-46v98zM743 471.8q-30-34-68-34-27 0-44.5 13.5t-17.5 33.5q0 17 13.5 28.5t50.5 24.5q72 26 98 54.5t26 79.5q0 62-41.5 101t-106.5 39q-93 0-148-81l54-52q30 57 91 57 28 0 46.5-17t18.5-43q0-27-25-44-14-9-58-24-58-22-81.5-48t-23.5-71q0-52 38.5-87t94.5-35q71 0 126 49zM1417 366.8q96 0 161.5 64.5t65.5 157.5-66 158-161 65q-98 0-163.5-64t-65.5-161q0-92 67-156t162-64zM122 373.8q101 0 165.5 60t64.5 154q0 47-20 90.5t-57 74.5q-62 50-153 50h-122v-429h122zM390 373.8h84v429h-84v-429zM1948 373.8h91l-186 439h-44l-181-439h90l114 288zM2076 373.8h237v73h-153v95h147v72h-147v116h153v73h-237v-429zM2492 373.8q72 0 111 33t39 94q0 49-24.5 80t-71.5 41l134 181h-102l-116-174h-10v174h-84v-429h124zM2476 570.8q81 0 81-66 0-63-81-63h-24v129h24zM107 729.8q76 0 113-34 22-20 34.5-48.5t12.5-59.5q0-65-47-106-38-35-113-35h-23v283h23z"></path>
+    </symbol>
+    <symbol id="icon-fancy" viewBox="0 0 752 1024">
+      <title>fancy</title>
+      <path class="path1" d="M685.29 373.98q0-107.858-91.040-183.822t-218.616-75.964-218.036 75.964-90.462 183.822v346.77q0 20.876 19.136 36.532t45.81 15.656h168.166v168.166q0 26.674 22.036 45.23t53.348 18.556 53.93-18.556 22.616-45.23v-168.166h169.326q26.674 0 45.23-15.656t18.556-36.532v-346.77z"></path>
+    </symbol>
+    <symbol id="icon-google-wallet" viewBox="0 0 2804 1024">
+      <title>google-wallet</title>
+      <path class="path1" d="M709.794 223.49q38.88 81 61.56 175.77 21.060 93.15 21.060 190.35 0 98.010-21.87 191.16-11.34 43.74-12.15 47.79-21.87 79.38-50.22 130.41-11.34 20.25-31.59 32.4t-44.55 12.15q-20.25 0-36.45-8.1-38.070-19.44-46.17-59.13-2.43-6.48-2.43-20.25v-29.97q0-140.13-63.99-260.82-8.91 132.030-76.95 246.24-7.29 12.15-18.63 21.060t-24.704 13.77-27.134 4.86q-6.48 0-24.3-4.050-3.24-0.81-19.44-8.1-34.020-20.25-38.070-63.18v-2.43q-8.1-100.44-59.94-182.654t-136.89-128.384q-29.97-15.39-39.284-46.17t6.884-59.94q21.060-41.31 68.85-41.31 19.44 0 36.45 9.72 115.020 61.56 187.11 162-9.72-84.24-51.030-153.090-21.87-31.59-7.29-70.47 4.050-12.96 18.63-29.97 9.72-10.53 29.16-18.63 13.77-5.67 29.97-5.67 23.49 0 44.55 12.96 0 0.81 0.404 1.216l0.404 0.404 2.43 1.62q146.61 91.53 231.66 228.42 0 3.24 0.81 4.86-13.77-116.64-62.37-220.32-15.39-32.4-3.644-66.014t44.144-49.816q16.2-8.1 37.26-8.1 25.11 0 46.17 13.366t31.59 36.044zM2466.684 706.25q0 12.96 2.026 18.63t6.886 8.1 16.2 3.24q3.24 0.81 7.696 1.216t8.1 0.404 8.1 0.404 7.696 1.216l-23.49 13.77h-108.54q1.62-3.24 4.86-7.29t4.050-5.67 2.836-4.050 2.43-3.644 1.216-3.24 0.81-4.050v-104.894q0-93.96 3.24-180.63 0-17.82 1.62-55.89t1.62-42.93h-48.6l46.98-22.68h87.48q-14.58 8.1-19.844 14.58t-7.696 21.87q-5.67 47.79-5.67 209.79v141.75zM1298.664 617.96h123.12l-14.58 13.77q-5.67 4.050-7.29 10.53l-0.81 26.73v70.47l-82.62 19.44q-66.42 9.72-94.77 9.72-46.17 0-83.836-12.96t-62.37-34.020-41.714-48.6-24.3-55.89-7.29-57.51q0-42.12 16.2-81t44.954-68.85 73.71-47.79 98.414-17.82q44.55 0 87.48 11.34 41.31 12.15 76.14 35.64l-47.79 46.17-20.25 4.86 14.58-23.49q-11.34-10.53-19.036-16.606t-23.49-16.2-36.046-15.39-44.55-5.264q-68.85 0-114.21 47.384t-45.36 121.904q0 55.080 24.3 102.87t71.684 78.164 108.134 30.376q34.83 0 72.9-14.58v-93.15l-87.48 4.86zM1598.366 465.68q65.61 0 106.516 43.74t40.904 102.060q0 37.26-17.414 70.876t-54.27 56.294-84.644 22.68q-68.85 0-109.35-44.144t-40.5-100.846q0-62.37 44.954-106.514t113.806-44.144zM1926.414 465.68q64.8 0 105.704 43.74t40.906 102.060q0 59.13-42.526 104.49t-112.994 45.36q-68.85 0-109.756-44.144t-40.904-100.846q0-62.37 45.36-106.514t114.21-44.144zM2570.364 607.43q12.15 57.51 46.98 89.91t80.19 32.4q36.45 0 75.33-21.060l-33.21 30.78q-1.62 0.81-8.91 5.264t-11.34 6.076q-23.49 11.34-59.94 11.34-49.41 0-81.81-24.3-30.78-21.87-46.574-56.7t-15.796-72.090q0-45.36 22.68-79.38t53.864-49.004 64.394-14.986q34.020 0 63.18 17.82 29.97 21.060 43.74 61.56l-144.99 57.51zM2337.086 496.46h-38.88q11.34 9.72 18.63 17.010t16.606 26.324 9.316 40.096-8.91 38.88-17.82 26.73-25.92 21.87q-17.010 15.39-17.010 29.97 0 12.96 15.39 26.73l23.49 16.2q17.82 15.39 26.324 24.3t16.606 25.92 8.1 36.45q0 46.98-43.336 81.81t-118.664 34.83q-42.93 0-73.71-12.554t-44.954-32.4-14.176-43.336q0-19.44 11.34-39.69t36.45-34.83q38.88-23.49 118.26-28.35-6.48-8.1-9.316-12.15t-6.074-12.554-3.24-17.414q0-9.72 5.67-24.3-12.96 1.62-19.44 1.62-46.98 0-74.52-29.16t-27.54-68.040q0-50.22 38.88-81.81 40.5-34.020 110.97-34.020h126.36zM1666.404 711.92q18.63-24.3 18.63-68.85 0-22.68-5.67-48.196t-16.606-51.030-31.994-42.12-47.79-16.606q-31.59 0-55.89 21.87-28.35 24.3-28.35 74.52 0 24.3 6.076 51.030t18.224 52.246 33.21 41.716 47.79 16.2q17.82 0 35.234-8.1t27.134-22.68zM1994.454 711.92q17.82-25.92 17.82-68.85 0-22.68-5.67-48.196t-16.606-51.030-31.994-42.12-47.79-16.606q-31.59 0-55.080 21.87-28.35 24.3-28.35 74.52 0 24.3 6.076 51.030t17.82 52.246 32.806 41.716 47.79 16.2q17.82 0 35.234-8.1t27.944-22.68zM2682.954 556.4q0.81 0 1.62-0.81 5.67-2.43 8.506-4.050t4.86-4.454 2.026-6.884q0-19.44-18.63-36.45t-42.93-17.010q-7.29 0-16.2 2.43t-18.63 8.91-17.414 15.796-12.96 24.704-5.264 34.020q0 9.72 1.62 32.4zM2273.094 652.79q14.58-15.39 14.58-44.55 0-23.49-8.506-49.004t-26.73-45.36-41.716-19.846q-26.73 0-43.74 21.060-13.77 17.010-13.77 45.36 0 22.68 7.696 46.98t26.324 43.336 42.93 19.034q23.49 0 42.93-17.010zM2321.696 852.050q0-15.39-8.1-28.754t-20.656-24.3-38.474-29.566q-4.86-0.81-13.77-0.81-34.83 0-64.8 11.34-53.46 17.82-53.46 62.37 0 33.21 29.97 54.27t78.57 21.060q42.93 0 66.824-18.226t23.894-47.384zM552.654 885.26v0z"></path>
+    </symbol>
+    <symbol id="icon-interact" viewBox="0 0 1018 1024">
+      <title>interact</title>
+      <path class="path1" d="M883.4 72.96q34.2 0 58.5 24.75t24.3 58.95v754.2q0 34.2-24.3 58.95t-58.5 24.75h-748.8q-34.2 0-58.95-24.75t-24.75-58.95v-754.2q0-34.2 24.75-58.95t58.95-24.75h748.8zM948.2 156.66q0-27-18.9-46.35t-45.9-19.35h-748.8q-27 0-46.35 19.35t-19.35 46.35v754.2q0 27 19.35 46.35t46.35 19.35h748.8q27 0 45.9-19.35t18.9-46.35v-754.2zM867.2 261.96q-2.7-9-6.3-12.6-3.6-0.9-11.7 0-9.9 2.7-15.3 13.5-6.3 9.9-6.3 30.6 0 17.1 6.3 24.3 5.4 8.1 15.3 3.6 6.3-2.7 11.7-9 4.5-4.5 8.1-18l35.1-5.4q-0.9 13.5-9 29.7-7.2 16.2-17.1 23.4-12.6 10.8-27 14.4-19.8 5.4-26.1 3.6-12.6-1.8-18-7.2-8.1-7.2-12.6-18-3.6-14.4-3.6-31.5 0-21.6 5.4-37.8 1.8-7.2 10.8-21.6 7.2-12.6 12.6-16.2 8.1-8.1 28.8-14.4 23.4-8.1 36.9 0.9 12.6 8.1 18 29.7zM772.7 347.46q0 11.7 0.9 16.2 0 5.4 4.5 12.6l-36.9 10.8-1.8-7.2q-1.8-5.4-1.8-8.1-8.1 13.5-15.3 18-9 9-22.5 13.5-18.9 4.5-27-2.7-9.9-11.7-9.9-27t7.2-27.9q5.4-10.8 24.3-21.6 24.3-15.3 27-18 9-4.5 14.4-9.9 0-9-2.7-13.5-3.6-3.6-10.8-0.9-7.2 1.8-14.4 9-3.6 7.2-5.4 14.4l-36 5.4q2.7-14.4 6.3-22.5 1.8-7.2 9.9-17.1 9-7.2 15.3-10.8l19.8-8.1q19.8-4.5 27-4.5 9.9 0 18 5.4 4.5 4.5 7.2 13.5 2.7 10.8 2.7 20.7v60.3zM356.9 597.66q2.7 3.6 10.8 13.050t13.95 16.2 13.95 17.1 13.95 18.45 11.25 17.55 8.1 17.1 2.7 13.95v261h-155.7q-5.4-13.5-24.3-37.35t-18.9-40.95v-242.1q-8.1 3.6-44.55 15.75t-46.35 13.95q-2.7 0-8.55 0.45t-11.25-4.050-5.4-12.6v-298.8q0-17.1 18.9-25.2 89.1-36 196.2-70.2 10.8-2.7 18 1.8t7.2 16.2v308.7zM616.1 308.76q4.5-14.4 10.8-23.4 3.6-7.2 13.5-9.9 7.2-2.7 18 1.8l-10.8 41.4q-9.9-1.8-11.7-0.9-7.2 2.7-11.7 12.6-5.4 15.3-5.4 46.8v46.8l-37.8 10.8v-137.7l35.1-10.8v22.5zM346.1 295.26q0-3.6-0.9-6.75t-4.5-5.4-9-1.35l-118.8 41.4v324q13.5-4.5 19.8-8.1v-67.5q0-9.9 12.6-20.25t26.1-10.35q5.4 0 11.25 1.35t12.15 4.5 10.8 9.9 4.5 14.85v169.2h6.3v-134.1q29.7-8.1 29.7-20.7v-79.2l-37.8 11.7v-75.6q0-13.5-3.6-18.9-4.5-4.5-10.8-1.8-4.5 0.9-10.8 9.9-3.6 9.9-3.6 27.9v66.6l-37.8 11.7v-137.7l35.1-11.7v22.5q10.8-19.8 15.3-24.3 7.2-9 20.7-11.7 15.3-5.4 23.4 5.4 9.9 9 9.9 37.8v-123.3zM413.6 434.76q0 10.8 0.9 12.6 4.5 2.7 8.1 1.8 5.4-1.8 10.8-6.3l2.7 36q-15.3 8.1-26.1 11.7-15.3 4.5-20.7 1.8-6.3-3.6-9-12.6-4.5-9-4.5-33.3v-49.5l-13.5 5.4v-39.6l13.5-4.5v-25.2l37.8-37.8v52.2l21.6-6.3v38.7l-21.6 6.3v48.6zM560.3 405.96q-8.1 23.4-20.7 36.9-11.7 11.7-34.2 18.9-18 4.5-31.5 1.8-11.7-6.3-17.1-18.9-9-15.3-9-38.7 0-30.6 15.3-56.7 13.5-22.5 41.4-33.3 22.5-6.3 33.3-0.9 11.7 5.4 18 21.6 7.2 16.2 7.2 42.3v6.3l-76.5 22.5q1.8 14.4 4.5 17.1 7.2 9 15.3 4.5 6.3-1.8 10.8-7.2 2.7-2.7 6.3-9.9zM735.8 323.16q-0.9 0.9-7.2 5.4t-9.9 6.3q-12.6 9.9-14.4 12.6-2.7 5.4-2.7 9.9 0 8.1 2.7 10.8t9 0.9q4.5-0.9 12.6-7.2 5.4-8.1 8.1-13.5 1.8-9 1.8-17.1v-8.1zM166.1 341.16q-1.8 0.9-7.2 2.7t-8.55 3.15-7.65 3.15-7.2 3.6-5.4 4.050-4.050 4.95-1.35 6.3v294.3q0 10.8 12.6 10.8 9.9 0 28.8-10.8v-322.2zM523.4 371.76q0-14.4-5.4-21.6-4.5-4.5-12.6-2.7-7.2 2.7-14.4 15.3-3.6 7.2-3.6 19.8zM226.4 726.36q-4.5 0.9-19.35 5.85t-18.45 4.95q-13.5 0-21.15-10.35t-7.65-23.85q0-11.7 10.8-19.35t32.4-13.95 23.4-7.2v63.9zM226.4 788.46q-3.6 0.9-12.6 4.5t-15.3 5.4-9.9 1.8q-13.5 0-19.8-9.9t-6.3-18.9q0-10.8 8.1-18t15.75-9.45 22.95-5.4 17.1-3.15v53.1zM226.4 850.56q-21.6 11.7-30.6 11.7-33.3 0-33.3-31.5 0-4.5 2.25-8.55t5.85-6.75 8.55-4.95 9.9-4.050 10.8-3.15 10.35-1.8 9-1.35 7.2-1.8v52.2z"></path>
+    </symbol>
+    <symbol id="icon-jcb" viewBox="0 0 1614 1024">
+      <title>jcb</title>
+      <path class="path1" d="M1035 490.8q-76-40-157-46-85-7-133 31.5t-48 112.5 48 112.5 133 31.5q79-6 157-46v89q-84 21-165 25-80 3-142.5-7t-101.5-29.5-64.5-48-35.5-60-10-67.5q0-46 17-83.5t55.5-69.5 110.5-47.5 171-11.5q36 2 77 8t65 12l23 5v89zM293 388.8h180v242q0 171-259 171-53 0-106.5-6.5t-80.5-12.5l-27-7v-89q97 46 180 46 53 0 83-28t30-74v-242zM1494 583.8q53 5 86.5 31.5t33.5 69.5q0 31-17.5 55t-47.5 36.5-68 12.5h-388v-400h380q51 2 83.5 28t32.5 70q0 36-25 62.5t-70 33.5v1zM1259 551.8h110q10 0 12-1 18-3 30-16.5t12-33.5q0-19-12-32.5t-30-16.5q-4-2-12-2h-110v102zM1380 723.8q11 0 13-1 19-3 31-17.5t12-35.5q0-14-5.5-25.5t-15-18.5-22.5-10l-13-1h-121v109h121z"></path>
+    </symbol>
+    <symbol id="icon-mastercard" viewBox="0 0 1198 1024">
+      <title>mastercard</title>
+      <path class="path1" d="M901.208 615.078c-27.87 0-33.446 12.342-33.446 22.696 0 5.176 3.186 14.334 14.73 14.334 22.696 0 27.472-29.862 26.676-36.232-0.798 0-1.592-0.798-7.962-0.798zM574.32 564.512c-20.704 0-24.688 23.49-24.688 25.88h42.204c-0.398-1.99 3.584-25.88-17.52-25.88zM287.646 615.078c-27.87 0-33.446 12.342-33.446 22.696 0 5.176 3.186 14.334 14.732 14.334 22.696 0 27.474-29.862 26.676-36.232-0.798 0-1.592-0.798-7.964-0.798zM1089.142 568.492c-16.722 0-29.862 19.51-29.862 48.576 0 17.918 6.372 29.464 19.908 29.464 20.704 0 30.26-26.676 30.26-46.584 0.398-21.9-6.768-31.454-20.308-31.454zM845.068 240.81c-86.4 0-165.634 31.854-226.552 84.012 44.99 42.602 78.834 96.354 97.548 156.874h-16.722c-18.314-56.14-50.566-106.308-92.77-146.122-42.204 39.816-74.456 89.586-92.77 146.122h-16.724c19.51-62.91 55.742-119.048 103.522-162.050-62.51-54.15-143.736-86.8-232.524-86.8-196.69 0-355.954 159.264-355.954 355.952s159.264 355.952 355.954 355.952c88.79 0 170.014-32.65 232.524-86.4-43.002-39.020-76.448-87.992-97.152-143.336h17.122c19.112 48.576 48.576 91.974 86.002 127.012 37.428-35.038 66.89-78.438 86.002-127.012h17.12c-19.51 52.954-50.966 99.938-91.178 137.764 60.918 52.158 140.152 84.010 226.552 84.010 191.912 0 347.99-156.080 347.99-347.99s-156.078-347.99-347.99-347.99zM162.226 681.174l21.502-135.774-48.576 135.774h-25.88l-3.186-135.774-23.094 135.774h-36.632l30.26-180.366h55.342l1.592 110.688 37.426-110.688h59.724l-29.862 180.366h-38.622zM291.63 681.174l1.196-14.334c-0.798 0-11.944 17.52-39.020 17.52-13.934 0-36.632-7.564-36.632-40.612 0-42.204 34.242-56.14 67.288-56.14 5.178 0 16.324 0.798 16.324 0.798s1.196-2.39 1.196-9.556c0-11.548-10.352-13.138-24.288-13.138-24.688 0-41.408 6.768-41.408 6.768l5.574-32.65c0 0 19.908-8.362 45.788-8.362 13.538 0 52.158 1.592 52.158 45.788l-14.732 104.318h-33.446zM432.178 634.986c0 50.168-48.576 48.178-57.334 48.178-31.854 0-41.408-4.38-42.602-4.778l5.176-33.048c0-0.398 15.928 5.574 33.446 5.574 10.352 0 23.49-0.798 23.49-13.138 0-18.316-47.38-13.936-47.38-57.336 0-38.222 28.27-49.37 56.538-49.37 21.5 0 35.038 2.788 35.038 2.788l-4.778 33.446c0 0-20.704-1.592-25.88-1.592-13.536 0-20.704 2.788-20.704 12.344 0 19.51 44.99 9.954 44.99 56.936zM487.522 570.484l-10.75 65.696c-0.798 5.178 0.798 12.342 13.936 12.342 3.186 0 7.166-1.192 9.556-1.192l-4.778 32.25c-3.98 1.192-14.732 4.778-28.27 4.778-17.52 0-30.26-9.954-30.26-32.25 0-15.13 21.5-138.558 22.298-139.356h37.824l-3.98 22.298h18.712l-4.778 35.436h-19.51zM579.496 650.914c19.112 0 40.212-9.158 40.212-9.158l-6.77 36.63c0 0-12.342 6.37-39.816 6.37-30.26 0-65.298-12.74-65.298-66.096 0-46.188 28.27-87.198 66.092-87.198 41.408 0 54.15 30.26 54.15 55.344 0 9.952-4.778 34.64-4.778 34.64h-77.244c0-0.798-7.168 29.464 33.446 29.464zM705.314 577.252c-26.278-9.156-28.27 41.408-39.418 104.318h-39.020l23.49-146.522h35.436l-3.186 21.102c0 0 12.74-23.092 29.464-23.092 4.778 0 7.168 0.398 7.168 0.398-4.778 10.352-9.556 19.51-13.936 43.798zM814.012 679.18c0 0-20.308 5.178-33.048 5.178-44.99 0-68.086-31.058-68.086-78.438 0-71.27 42.602-109.096 86.4-109.096 19.51 0 42.602 9.158 42.602 9.158l-6.37 40.212c0 0-15.528-10.75-34.64-10.75-25.88 0-48.972 24.688-48.972 69.28 0 21.898 10.75 42.602 37.428 42.602 12.74 0 31.454-9.158 31.454-9.158l-6.768 41.010zM905.19 681.174l1.192-14.334c-0.798 0-11.944 17.52-39.020 17.52-13.936 0-36.63-7.564-36.63-40.612 0-42.204 34.242-56.14 67.288-56.14 5.178 0 16.324 0.798 16.324 0.798s1.192-2.39 1.192-9.556c0-11.548-10.352-13.138-24.288-13.138-24.688 0-41.408 6.768-41.408 6.768l5.574-32.65c0 0 19.908-8.362 45.788-8.362 13.538 0 52.158 1.592 52.158 45.788l-14.732 104.318c-0.398-0.398-33.446-0.398-33.446-0.398zM983.626 681.57h-39.020l23.49-146.522h35.436l-3.186 21.1c0 0 12.74-23.092 29.464-23.092 4.778 0 7.166 0.398 7.166 0.398-5.176 10.352-9.556 19.51-13.934 43.798-26.278-9.158-28.27 41.808-39.418 104.318zM1099.492 681.174l1.592-13.538c0 0-12.74 15.928-35.436 15.928-31.454 0-46.982-30.26-46.982-61.318 0-48.178 29.066-89.984 63.704-89.984 22.298 0 36.632 19.51 36.632 19.51l8.36-50.566h37.824l-29.066 179.968h-36.632zM1170.364 680.376c-1.99 1.192-3.582 1.592-5.574 1.592s-3.98-0.398-5.574-1.592c-1.99-1.192-3.186-2.39-4.378-4.38-1.196-1.99-1.592-3.584-1.592-5.574s0.398-3.98 1.592-5.574c1.192-1.99 2.388-3.186 4.378-4.38s3.582-1.592 5.574-1.592c1.99 0 3.98 0.398 5.574 1.592 1.99 0.798 3.186 2.39 4.38 4.38s1.592 3.582 1.592 5.574c0 1.99-0.398 3.98-1.592 5.574-1.196 1.99-2.788 3.582-4.38 4.38zM1169.17 662.060c-1.592-0.798-3.186-1.192-4.778-1.192s-3.186 0.398-4.778 1.192c-1.592 0.798-2.788 1.99-3.584 3.582s-1.192 3.186-1.192 4.778 0.398 3.186 1.192 4.778c0.798 1.592 1.99 2.788 3.584 3.584s3.186 1.192 4.778 1.192c1.592 0 3.186-0.398 4.778-1.192 1.592-0.798 2.788-1.99 3.582-3.584s1.192-3.186 1.192-4.778-0.398-3.186-1.192-4.778c-0.798-1.592-1.99-2.788-3.582-3.582zM1167.576 676.794l-1.196-1.99c-0.798-1.592-1.592-2.39-1.99-2.788s-0.798-0.398-1.592-0.398h-1.192v5.176h-1.99v-12.342h4.38c1.592 0 2.388 0 3.186 0.398s1.192 0.798 1.592 1.192c0.398 0.398 0.398 1.192 0.398 1.99s-0.398 1.592-0.798 2.39c-0.798 0.798-1.592 1.192-2.388 1.192 0.398 0 0.798 0.398 1.192 0.798s1.192 1.192 1.99 2.39l1.592 2.39h-3.186zM1166.78 668.032c0-0.398 0-0.798-0.398-0.798-0.398-0.398-0.398-0.398-0.798-0.798-0.398 0-1.192-0.398-1.99-0.398h-2.388v3.584h2.388c1.192 0 1.99 0 2.388-0.398 0.798-0.398 0.798-0.798 0.798-1.192z"></path>
+    </symbol>
+    <symbol id="icon-paypal" viewBox="0 0 1828 1024">
+      <title>paypal</title>
+      <path class="path1" d="M1725 404h103l-85 384h-102zM273 405q47 0 79.5 34.5t19.5 95.5q-12 59-54.5 92.5t-100.5 33.5h-79l-28 127h-110l84-383h189zM1253 405q47 0 80 34.5t20 95.5q-8 39-30.5 68t-55 43.5-71.5 14.5h-78l-27 127h-110l84-383h188zM411 502q5-1 21.5-5t27.5-6.5 29-5 35-2.5q28-1 52.5 4t45 16 29 33 1.5 52l-42 200h-101l7-30q-21 21-53 30t-60.5 4.5-45.5-31.5-9-71q11-52 62.5-74.5t140.5-22.5q3-15-3-24t-18-12.5-32-2.5q-26 1-56 8t-40 13zM1393 502q6-1 17.5-4t21.5-5.5 22.5-4.5 26-3.5 27.5-1.5q29-1 53.5 4t45 16 29.5 33 2 52l-43 200h-102l7-30q-21 21-53.5 30t-61.5 4.5-46-31.5-9-71q7-36 35-57.5t69-30.5 101-9q5-23-8.5-31.5t-44.5-7.5q-18 0-39 4t-36.5 8.5-23.5 8.5zM205 588q14 0 27.5-7t23-19 12.5-27q6-22-5-37t-32-15h-53l-24 105h51zM1186 588q21 0 40-15.5t24-37.5-6.5-37-31.5-15h-56l-22 105h52zM698 489l41 301-74 126h113l240-427h-104l-100 178-16-178h-100zM532 688q0-10 5-27h-26q-47 0-60 25-10 18-0.5 30t27.5 12q44-2 54-40zM1515 688q2-17 6-27h-25q-50 0-61 25-10 18-0.5 30t27.5 12q45-2 53-40z"></path>
+    </symbol>
+    <symbol id="icon-stripe" viewBox="0 0 1408 1024">
+      <title>stripe</title>
+      <path class="path1" d="M736 412.8q24 0 40-16.5t16-39.5-16-39.5-40-16.5q-15 0-28 7.5t-20 20.5-7 28q0 23 16 39.5t39 16.5zM439 680.8q-2 0-8.5 1t-12 2-11.5 1.5-8 0.5q-10 0-14.5-5.5t-4.5-20.5v-138h45l14-71h-59v-94l-97 24-15 70h-42v71h42v159q0 18 3.5 32t9 23.5 13.5 16 15.5 10 17.5 5.5 16.5 2.5 15.5 0.5q40 0 80-10v-80zM137 566.8q-13-6-17-8t-7.5-6.5-3.5-10.5q0-16 24-16 33 0 70 13v-79q-39-14-82-14-23 0-43 4.5t-38.5 15-29 31.5-10.5 51q0 61 64 91l14 7q15 6 21 11t6 13q0 19-31 19-25 0-70-15v82q51 15 91 15 120 0 120-107 0-21-6-37t-17-26.5-20.5-16-22.5-11.5zM575 549.8q20-10 37-10 21 0 41 6v-94q-8-6-34-6-40 0-50 36l-17-31h-89v314h112v-215zM952 763.8q26 7 40 7 12 0 20-0.5t22-4 23.5-9.5 21-18 18.5-29 12-44 5-60q0-43-6.5-73.5t-15.5-47-23.5-25.5-26.5-11.5-28-2.5q-39 0-67 26l-16-21h-91v426h112v-113zM1407 645.8v-37q0-89-32.5-126t-91.5-37q-139 0-139 163 0 43 10 74.5t24 48 37 26 41 11.5 44 2q47 0 92-16v-82q-74 13-92 13-15 0-24-2.5t-14.5-12-5.5-25.5h151zM793 764.8v-314h-112v314h112zM1256 584.8v-12t0.5-12 0.5-11 1-10.5 2-8.5 3-7.5 5-5.5 6.5-4 8.5-1q7 0 11.5 4.5t6 16.5 2 21.5 0.5 29.5h-47zM952 537.8q14-10 26-10 15 0 20 14t5 64q0 49-8 67.5t-24 18.5q-10 0-19-3v-151z"></path>
+    </symbol>
+    <symbol id="icon-twitter" viewBox="0 0 1018 1024">
+      <title>twitter</title>
+      <path class="path1" d="M1000.994 253.864q-41.73 61.552-100.154 104.326 0 4.174 1.044 13.040t1.044 13.040q0 81.376-23.996 162.75t-73.028 155.448-116.326 131.452-161.706 91.808-202.916 34.428q-169.010 0-308.808-90.764 29.212 2.086 47.99 2.086 140.842 0 251.428-85.548-65.726-1.044-117.368-40.166t-72.508-100.674q17.736 4.174 38.6 4.174 28.168 0 53.206-8.346-69.9-14.606-115.802-69.9t-45.904-127.278v-2.086q39.646 20.866 90.764 22.952-40.686-27.126-64.684-71.464t-23.996-95.46q0-52.164 26.082-102.24 76.16 94.938 184.138 149.71t234.214 61.032q-7.302-26.082-7.302-45.904 0-83.462 59.468-142.406t145.014-58.944q41.73 0 80.332 16.692t65.726 46.948q68.856-13.562 128.322-49.034-21.908 70.942-88.678 111.63 63.64-8.346 115.802-31.298z"></path>
+    </symbol>
+    <symbol id="icon-visa" viewBox="0 0 1386 1024">
+      <title>visa</title>
+      <path class="path1" d="M981 471.8q-40-18-83-17-31 0-47.5 11.5t-16.5 26 14.5 26 48.5 28.5q95 43 94 117 0 68-53 108.5t-142 40.5q-74-1-125-23l15-98 14 8q57 23 106 23 27 0 47-11.5t21-32.5q0-14-13-25.5t-47-28.5q-19-10-33.5-19t-30.5-23.5-25-34-9-41.5q1-63 54.5-102.5t136.5-39.5q53 0 100 17l-14 95zM513 372.8l-177 434h-118l-92-346q48 19 87.5 58t56.5 85q-62-171-270-223l1-8h181q42 0 51 35l39 200 13 60 109-295h119zM671 372.8l-70 434h-112l70-434h112zM1385 806.8h-105q-8-51-12-65l-144-1-23 66h-119l167-399q15-35 59-35h86zM1217 488.8q-3 8-7 18.5t-6.5 17.5-1.5 6q-36 96-45 122h91l-24-126z"></path>
+    </symbol>
+    <symbol id="icon-diners-club" viewBox="0 0 888 1024">
+      <title>diners-club</title>
+      <path class="path1" d="M520 236.8q97 0 180.5 44t135.5 126.5 52 183.5q0 94-51.5 175t-136.5 127.5-180 46.5h-166q-95 0-177-46.5t-129.5-127.5-47.5-175q0-102 48-183.5t128.5-126 177.5-44.5h166zM355 909.8q88 0 162-43t117-117 43-162q0-87-43-161t-117-117-162-43q-87 0-161 43t-117 117-43 161q0 88 43 162t117 117 161 43zM282 777.8q-58-22-94-74t-37-116q1-64 37.5-116.5t93.5-73.5v380zM429 397.8q57 21 93.5 73.5t36.5 116.5-36.5 116-93.5 74v-380z"></path>
+    </symbol>
+    <symbol id="icon-dankort" viewBox="0 0 1122 1024">
+      <title>dankort</title>
+      <path class="path1" d="M107 308.8q-21 2-51 20-26 16-41 43t-14 58q1 0 1-2h368q35 3 67 13 35 10 61.5 42t34.5 68q1-18 2-38.5t2-45.5 2-39h213q-3 20-5 45t-4 51.5-4 45.5q37-43 109-131 2-2 6-7t6-6h257q1-32-15-59.5t-44-42.5q-16-10-39.5-13t-44.5-1.5-45-0.5h-822zM1120 429.8l1 2 1-2h-2zM1117 430.8h-1q-13 10-26.5 23t-22.5 21.5-25 25.5-21 22-24.5 26.5-21.5 23.5l-2 2q8 10 23 29.5t23.5 31.5 22.5 29.5 25 31 24 29 26 28.5v-323zM205 632.8q10-1 36.5 0.5t43.5-1 30-12.5q22-19 21-38-4-14-14-22.5t-25-11-28-3-31 0-26 0.5zM737 585.8q-6 81-9 174-142-1-210 0 2-17 10-140-17 41-28 57-43 69-139 83h-360q0 24 8 45 12 29 39 49.5t57 21.5h892q31 0 52-11 31-13 50.5-43.5t17.5-63.5h-254.5t-5-1-5.5-3.5-3-6.5z"></path>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 1024 1024">
+      <title>facebook</title>
+      <path class="path1" d="M924.166 79.936q22.482 0 38.094 15.614t15.612 38.094v851.802q0 22.482-15.614 38.094t-38.094 15.614h-242.3v-369.698h123.648l17.486-146.13h-141.134v-93.674q0-33.722 14.988-51.208t54.956-17.486h76.188v-129.894q-49.96-4.996-111.158-4.996-83.682 0-134.89 49.334t-51.208 139.26v108.66h-123.648v146.13h123.648v369.698h-458.374q-22.482 0-38.094-15.614t-15.612-38.094v-851.802q0-22.482 15.612-38.094t38.094-15.614h851.802z"></path>
+    </symbol>
+    <symbol id="icon-google-plus" viewBox="0 0 1024 1024">
+      <title>google-plus</title>
+      <path class="path1" d="M537.142 848.114q0-12-2.57-23.144t-5.428-20.572-10-19.714-12-17.428-15.144-16.856-15.714-14.572-18.286-14.572-17.714-13.144-18.858-13.144-17.428-12q-9.714-1.144-28.572-1.144-30.856 0-60.572 4t-61.714 14.286-56 26.286-39.43 42.856-15.43 61.144q0 38.858 20.288 69.428t53.144 48 68.858 26 72.572 8.57q33.714 0 64.286-7.144t57.43-22.286 42.572-42 15.714-62.856zM468.572 355.542q0-34.286-9.428-72.856t-26.856-74.572-48-59.428-68.286-23.428q-53.142 0-82.286 39.428t-29.144 94.286q0 26.856 6.57 56.57t20.288 59.428 32 53.428 44.572 38.572 55.428 14.856q55.428 0 80.286-34.572t24.858-91.714zM393.714 84.114h249.714l-77.144 45.142h-77.144q40.572 25.712 62.856 72t22.286 96.572q0 42.286-13.144 75.142t-32 52.856-37.714 36.856-32 34.856-13.142 38.572q0 14.856 9.428 29.144t24.572 27.428 33.428 27.428 36.572 31.716 33.428 37.714 24.572 48.572 9.428 60.856q0 91.428-80 161.144-86.856 74.856-240 74.856-33.714 0-68.286-5.714t-69.714-19.144-62.002-33.144-44-50.856-17.142-69.428q0-34.856 21.144-77.144 18.286-36.572 54.858-63.144t82.856-40.572 88.57-20.572 85.714-7.714q-36.57-47.428-36.57-85.144 0-6.856 1.142-13.428t2.856-11.144 4.572-12.286 4-12.286q-22.858 2.858-40 2.858-85.144 0-146-56t-60.856-140.572q0-80 54.286-143.144t133.714-80.858q53.714-11.43 106.856-11.43zM987.428 230.4v73.142h-146.286v146.286h-73.142v-146.286h-146.286v-73.142h146.286v-146.286h73.142v146.286h146.286z"></path>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 1020 1024">
+      <title>instagram</title>
+      <path class="path1" d="M625.986 384.686q-58.702-41.216-131.142-41.216t-131.142 41.216h-350.962v-66.196q0-98.668 69.942-168.612t168.612-69.942h477.108q99.918 0 169.86 69.942t69.942 168.612v66.196h-342.218zM689.684 307.25q0 9.992 8.118 17.486t19.36 7.494h82.432q9.992 0 17.486-7.494t7.494-17.486v-82.432q0-11.24-7.494-19.36t-17.486-8.118h-82.432q-11.24 0-19.36 8.118t-8.118 19.36v82.432zM290.012 473.362q-22.482 48.71-22.482 94.922 0 94.922 66.82 161.742t160.494 66.82 160.494-66.82 66.82-161.742q0-48.71-21.232-94.922h267.282v327.232q0 98.668-70.566 168.612t-169.236 69.942h-477.108q-98.668 0-168.612-69.942t-69.942-168.612v-327.232h277.274zM588.518 568.284q0 39.968-27.476 67.444t-66.196 27.476-66.196-27.476-27.476-67.444q0-38.718 27.476-66.196t66.196-27.476 66.196 27.476 27.476 66.196z"></path>
+    </symbol>
+    <symbol id="icon-maestro" viewBox="0 0 1190 1024">
+      <title>maestro</title>
+      <path class="path1" d="M716 479.8q-29-95-101-164 98-79 223-79 95 0 176 47t128.5 128.5 47.5 176.5-47.5 176.5-128.5 128.5-176 47q-125 0-223-79 72-69 101-164h-29q-28 83-92 146-65-62-93-146h-29q28 94 100 164-100 79-221 79-95 0-176.5-47t-128.5-128.5-47-176.5 47-176.5 128.5-128.5 176.5-47q121 0 221 79-72 70-100 164h29q28-84 93-146 64 63 92 146h29zM322 669.8l35-178h-70l-48 110-3-110h-68l-34 178h40l26-136 7 136h40l59-137-27 137h43zM812 635.8q-3 1-11 1-15 0-15-10 0-3 1-7l11-60h22l6-34h-22l6-34h-43l-21 110-1 12-2 14q-2 8-2 13 0 32 35 32 10 0 30-5zM476 592.8q4-21 4-29 0-10-3.5-18t-11-13.5-18-8.5-23.5-3-53 9l-6 32 4-1 7-2q18-4 35-4 28 0 28 14 0 1-0.5 4t-0.5 6q-7-2-18-2-37 0-57 15t-20 41q0 18 11 28.5t29 10.5q30 0 45-18v16h36v-4l1-6 1-7 2-9zM613 630.8q-21 8-46 8-37 0-37-25v-5h86q6-21 6-35 0-24-15.5-38.5t-43.5-14.5q-33 0-54.5 24.5t-21.5 61.5q0 65 74 65 25 0 45-5zM1067 603.8q1-8 1-17 0-29-18-47.5t-51-18.5q-38 0-61 24t-23 62q0 66 68 66 74 0 84-69zM739 524.8q-33-3-39-3-23 0-38 7t-21.5 17.5-6.5 24.5q0 27 34 39 1 1 3 2 9 4 12 5.5t4.5 4 1.5 5.5q0 13-26 13-14 0-39-5l-6 33h2l8 2q1 0 5 0.5t7 0.5q6 0 14 0.5t10 0.5q68 0 68-48 0-28-32-41-14-6-17-8t-3-6q0-13 22-13 7 0 31 2zM864 669.8q11-66 19-85.5t24-19.5h5l5 3 16-41q-4-2-6-2h-8q-19 0-37 22l4-21h-40l-26 144h44zM534 579.8q7-26 29-26 20 0 20 19 0 2-0.5 4t-0.5 3h-48zM999 555.8q23 0 23 30 0 3-0.5 8.5t-0.5 7.5q-2 11-8 19.5t-13 12.5-12 4q-25 0-25-33 0-18 10-33.5t26-15.5zM386 626.8q0-23 37-23 1 0 3.5 0.5t5.5 0.5q0 11-4 19t-11 12.5-16 4.5q-15 0-15-14z"></path>
+    </symbol>
+    <symbol id="icon-pinterest" viewBox="0 0 1024 1024">
+      <title>pinterest</title>
+      <path class="path1" d="M509.834 79.936q97.42 0 186.098 38.094t153 102.416 102.416 153 38.094 186.098q0 129.894-64.322 240.428t-174.856 174.856-240.428 64.322q-71.192 0-136.14-18.736 36.22-58.702 48.71-103.666l33.724-131.142q12.488 23.73 46.212 41.842t71.192 18.11q74.938 0 134.264-43.090t91.8-118.028 32.474-168.612q0-111.158-85.554-192.966t-217.948-81.808q-81.184 0-148.628 27.476t-108.66 71.816-63.074 96.172-21.856 104.288q0 64.946 24.354 113.656t73.066 68.694q8.742 3.748 14.988 0.624t8.742-11.866q8.742-31.224 9.992-38.72 4.996-13.738-6.246-26.228-32.474-36.22-32.474-93.674 0-94.922 65.572-162.99t171.736-68.068q93.674 0 146.13 51.208t52.456 133.64q0 68.694-18.736 126.77t-53.706 93.048-79.934 34.972q-37.47 0-61.2-27.476t-14.988-64.948q4.996-17.486 13.116-44.962t13.738-46.838 10.616-41.842 4.996-37.468q0-31.224-16.236-51.208t-47.462-19.982q-38.718 0-64.948 35.596t-26.228 89.302q0 19.982 3.122 38.718t6.87 27.476l3.748 8.742q-51.208 222.318-62.45 261.036-9.992 47.462-7.494 111.158-128.646-57.452-207.956-176.106t-79.31-263.534q0-198.588 140.51-339.096t339.096-140.51z"></path>
+    </symbol>
+    <symbol id="icon-rss" viewBox="0 0 1024 1024">
+      <title>rss</title>
+      <path class="path1" d="M302.244 887.603c0 70.387-57.059 127.447-127.447 127.447s-127.447-57.059-127.447-127.447c0-70.387 57.059-127.447 127.447-127.447s127.447 57.059 127.447 127.447zM663.344 1015.051h-180.551c0-240.026-195.419-435.443-435.443-435.443v0-180.551c339.858 0 615.996 276.134 615.996 615.996zM790.791 1015.051c0-411.018-332.423-743.442-743.442-743.442v-185.86c512.976 0 929.3 416.326 929.3 929.3h-185.86z"></path>
+    </symbol>
+    <symbol id="icon-tumblr" viewBox="0 0 1024 1024">
+      <title>tumblr</title>
+      <path class="path1" d="M223.91 480.708h96.716v327.588q0 59.278 13.26 97.498 14.822 35.1 46.018 62.4 30.418 28.078 80.336 46.018 47.578 16.38 108.414 16.38 53.038 0 99.056-11.7 39.778-7.798 103.736-38.22v-146.634q-64.736 44.458-134.154 44.458-34.318 0-68.638-17.94-20.28-13.26-30.418-36.662-7.798-25.738-7.798-103.736v-239.452h210.592v-146.634h-210.592v-234.77h-126.356q-6.24 66.298-30.418 117.778-24.178 49.918-60.838 79.558-38.22 35.88-88.918 51.476v132.592z"></path>
+    </symbol>
+    <symbol id="icon-vimeo" viewBox="0 0 1030 1024">
+      <title>vimeo</title>
+      <path class="path1" d="M10.988 387.258l46.018 61.618q63.958-47.578 77.218-47.578 50.698 0 94.378 161.456 11.7 44.46 38.22 144.684t41.338 154.044q57.718 161.456 145.074 161.456 138.836 0 336.946-266.75 194.212-253.49 201.232-400.904v-17.158q0-179.394-143.514-184.072h-10.918q-192.654 0-265.19 236.332 42.12-17.94 73.316-17.94 66.298 0 66.298 68.638 0 8.58-0.78 17.94-4.68 55.38-65.518 151.314-62.4 100.616-92.816 100.616-40.558 0-71.756-152.874-9.36-35.88-39.778-231.652-13.26-84.236-49.138-124.796-31.198-35.098-77.998-35.88-6.24 0-13.26 0.78-49.138 4.68-145.854 89.696-49.918 46.798-143.514 131.036z"></path>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 1066 1024">
+      <title>youtube</title>
+      <path class="path1" d="M-10.032 847.538q0 63 41.58 107.096t101.216 44.1h765.21q59.64 0 101.216-44.1t41.578-107.096v-608.976q0-63-42-108.356t-100.794-45.36h-765.21q-58.796 0-100.796 45.36t-42 108.356v608.976zM372.156 737.506v-388.906q0-5.88 3.36-9.24 2.52-0.84 4.2-0.84l4.2 0.84 366.224 194.872q3.36 3.36 3.36 8.4 0 3.36-3.36 6.72l-366.224 194.872q-1.678 1.678-3.36 1.678-3.36 0-5.040-1.678-3.36-3.36-3.36-6.72z"></path>
+    </symbol>
+    <symbol id="icon-arrow-bottom" viewBox="0 0 1024 1024">
+      <title>arrow-bottom</title>
+      <path class="path1" d="M886 234c-12-12-30-12-42 0l-332 360-332-360c-12-12-30-12-42 0s-12 30 0 42c0 0 350 386 352 386 6 8 14 10 22 10s16-2 22-10c2 0 352-386 352-386 12-12 12-30 0-42z"></path>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 1024 1024">
+      <title>arrow-right</title>
+      <path class="path1" d="M726 426c0-2-386-352-386-352-12-12-32-12-42 0-12 12-12 30 0 42l360 332-360 332c-12 12-12 30 0 42s30 12 42 0c0 0 386-350 386-352 8-6 10-14 10-22s-2-16-10-22z"></path>
+    </symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 1024 1024">
+      <title>arrow-left</title>
+      <path class="path1" d="M396 446l362-332c12-12 12-30 0-42s-30-12-42 0c0 0-388 350-388 352-8 6-10 14-10 24 0 8 2 16 10 22 0 2 388 352 388 352 12 12 30 12 42 0s12-30 0-42z"></path>
+    </symbol>
+    <symbol id="icon-arrow-top" viewBox="0 0 1024 1024">
+      <title>arrow-top</title>
+      <path class="path1" d="M854 620c0 0-350-386-352-386-6-8-14-10-22-10s-16 2-22 10c-2 0-352 386-352 386-12 12-12 30 0 42s30 12 42 0l332-360 332 360c12 12 30 12 42 0s12-30 0-42z"></path>
+    </symbol>
+    <symbol id="icon-cross" viewBox="0 0 1024 1024">
+      <title>cross</title>
+      <path class="path1" d="M948 176l-14-44c0-14-14-30-28-30-16 0-16 0-30 16l-364 334-364-350c-14 0-14 0-30 0-14 0-28 16-28 30l-14 44 364 348-364 350 14 58c0 16 14 30 28 30 16 0 16 0 30-14l364-350 364 350c14 14 14 14 30 14 14 0 28-14 28-30l14-58-364-350z"></path>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 1024 1024">
+      <title>search</title>
+      <path class="path1" d="M1002.391 914.56l-306.624-308.385c44.384-62.752 70.751-139.294 70.751-222.175 0.002-212.063-170.942-384-381.789-384-210.849 0-381.792 171.937-381.792 384s170.943 384 381.792 384c82.4 0 158.496-26.525 220.897-71.165l306.624 308.381c12.447 12.512 28.768 18.784 45.088 18.784 16.324 0 32.64-6.272 45.056-18.784 24.893-25.023 24.893-65.634-0.003-90.656zM592.087 531.969l-25.024 35.39-35.199 25.184c-43.393 31.040-94.273 47.457-147.135 47.457-140.352 0-254.528-114.849-254.528-256 0-141.153 114.175-256 254.528-256s254.529 114.847 254.529 256c0.028 53.151-16.29 104.32-47.171 147.969z"></path>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 1024 1024">
+      <title>user</title>
+      <path class="path1" d="M638.656 578.496c0-55.36 46.144-37.312 66.368-138.816 8.448-42.112 49.216-0.704 57.024-96.768 0-38.336-22.272-47.872-22.272-47.872s11.328-56.64 15.744-100.288c5.504-54.336-33.856-194.752-243.52-194.752s-249.024 140.416-243.52 194.752c4.48 43.712 15.744 100.288 15.744 100.288s-22.208 9.6-22.208 47.872c7.744 96.064 48.512 54.656 56.96 96.768 20.288 101.504 66.368 83.456 66.368 138.816 0 92.288-48.256 135.424-199.296 186.496-151.616 51.328-186.048 103.552-186.048 139.264 0 14.784 0 37.952 0 59.968 0 33.024 28.608 59.776 64 59.776h896c35.392 0 64-26.752 64-59.84 0-22.016 0-45.12 0-59.968 0-35.712-34.432-87.936-185.984-139.264-151.104-51.008-199.36-94.144-199.36-186.432z"></path>
+    </symbol>
+    <symbol id="icon-cart" viewBox="0 0 1170 1024">
+      <title>cart</title>
+      <path class="path1" d="M1154.779 393.874c-13.824-17.774-35.035-28.16-57.637-28.16h-219.429v-292.571c0-40.448-32.695-73.143-73.143-73.143h-438.857c-40.448 0-73.143 32.695-73.143 73.143v292.571h-219.429c-22.601 0-43.813 10.386-57.637 28.16-13.897 17.701-18.798 40.814-13.385 62.683l146.286 512c8.192 32.622 37.449 55.442 71.022 55.442h731.429c33.573 0 62.83-22.821 71.022-55.442l146.286-512c5.413-21.87 0.512-44.983-13.385-62.683zM438.857 146.286h292.571v219.429h-292.571v-219.429z"></path>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 1024 1024">
+      <title>minus</title>
+      <path class="path1" d="M220.16 528.384h614.4v25.6h-614.4v-25.6z"></path>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 1024 1024">
+      <title>plus</title>
+      <path class="path1" d="M821.248 528.384h-294.912v-296.96h-25.6v296.96h-296.96v25.6h296.96v296.96h25.6v-296.96h296.96v-25.6z"></path>
+    </symbol>
+    <symbol id="icon-arrow-right-2" viewBox="0 0 1229 1024">
+      <title>arrow-right-2</title>
+      <path class="path1" d="M51.195 614.441h817.48l-239.797 247.783c-19.352 20.171-19.352 53.038 0 73.209l70.035 73.413c19.249 20.171 50.581 20.171 70.035 0l445.395-461.368c19.249-20.376 19.249-53.243 0-73.413l-442.529-458.706c-19.352-20.376-50.785-20.376-70.035 0l-70.035 73.311c-19.352 20.171-19.352 53.14 0 73.311l239.694 247.681h-820.244c-28.26 0-51.195 22.833-51.195 51.195v102.39c0 28.157 22.935 51.195 51.195 51.195z"></path>
+    </symbol>
+    <symbol id="icon-comment" viewBox="0 0 1024 1024">
+      <title>comment</title>
+      <path class="path1" d="M832 0h-640c-106.048 0-192 85.952-192 192v416c0 105.984 85.952 160 192 160h384l256 256v-256c105.984 0 192-54.016 192-160v-416c0-106.048-86.016-192-192-192zM960 608c0 70.656-57.344 96-128 96h-64v160l-160-160h-416c-70.656 0-128-25.344-128-96v-416c0-70.72 57.344-128 128-128h640c70.656 0 128 57.28 128 128v416z"></path>
+    </symbol>
+  </defs>
+</svg>
+
+
+    <div class="page__overlay"></div>
+
+    <div class="page__container">
+      
+        <section class="top-bar">
+  <div class="top-bar__container container">
+   
+    <span class="top-bar__message">
+      
+      
+      
+      
+    
+      
+      ORDERS OVER <span style='background-color:red;margin:5px;'>$100 </span> SHIP FREE ANYWHERE IN THE USA
+      
+      
+      
+       
+    
+    
+    </span>
+    
+
+    <div class="top-bar__contact">
+      
+
+      
+    </div>
+  </div>
+</section>
+      
+
+      
+      <nav class="header__mobile-nav">
+  <ul class="header__mobile-tabs list--unstyled">
+    <li class="header__mobile-tab ">
+      <a href="#" class="header__mobile-icon" data-has-menu="true">
+        <div class="hamburger">
+          <span>Open menu</span>
+        </div>
+        <span class="menu-text">Menu</span>
+      </a>
+
+      <div class="header__mobile-content header__mobile-menu mobile-menu">
+        
+  <nav class="menu menu--mobile">
+    
+
+
+  <ul class="menu__links menu__links--level-0  list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/apparel" class="menu__link">
+          New Apparel
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-boy-bestsellers" class="menu__link">
+          Best Sellers
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/rompers" class="menu__link">
+          Rompers
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-girl-bestsellers" class="menu__link">
+          Baby Girl
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-boy-bestsellers" class="menu__link">
+          Baby Boy
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/toddler-boy-bestseller" class="menu__link">
+          Toddler Boy
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/toddler-girl-bestsellers" class="menu__link">
+          Toddler Girl
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby" class="menu__link">
+          Baby
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-girl" class="menu__link">
+          Baby Girl
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-2 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/rompers" class="menu__link">
+          Rompers
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/beanie" class="menu__link">
+          Beanies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/onesies" class="menu__link">
+          Onesies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-girl-sets" class="menu__link">
+          Sets
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/footwear" class="menu__link">
+          Footwear
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-boy" class="menu__link">
+          Baby Boy
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-2 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/onesies/Baby-Boy" class="menu__link">
+          Onesies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/beanie" class="menu__link">
+          Beanies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-boy-sets" class="menu__link">
+          Sets
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/boys-footwear" class="menu__link">
+          Footwear
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/boys" class="menu__link">
+          Toddler
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/girls" class="menu__link">
+          Girls
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/boys" class="menu__link">
+          Boys
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/moms" class="menu__link">
+          Moms
+
+          
+            <div class="menu__icon-container">
+              <svg class="icon icon-plus">
+  <use xlink:href="#icon-plus">
+    
+  </use>
+</svg>
+              <svg class="icon icon-minus">
+  <use xlink:href="#icon-minus">
+    
+  </use>
+</svg>
+            </div>
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/mom-apparel" class="menu__link">
+          Apparel
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/hats" class="menu__link">
+          Hats
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/v-necks" class="menu__link">
+          V-Necks
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/dads" class="menu__link">
+          Dads
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+
+    
+  </ul>
+
+  </nav>
+
+
+      </div>
+    </li>
+
+     <li class="header__mobile-tab mobile-logo">
+       <a href="https://www.lennylemons.com">  <img src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/logo.png?11524334227760560921" class='logohome' /> </a>
+  
+    </li>
+    <!--li class="header__mobile-tab">
+      <a href="/search" class="header__mobile-icon searchmob" data-has-menu="true">
+       Finder
+      </a>
+
+      <div class="header__mobile-content header__mobile-search mobile-search">
+        <form action="/search" method="get" class="mobile-search__form" role="search">
+          
+            <input type="hidden" name="type" value="product">
+          
+
+          <input type="search" class="mobile-search__input" name="q" placeholder="Find Your Favorite Design Here!" value="" autofocus="autofocus" autocorrect="off" autocomplete="off">
+          <button type='submit' class='searchbtnmob'>Find</button>
+        </form>
+      </div>
+    </li-->
+    <li class="header__mobile-tab">
+      <a href="/cart" class="header__mobile-icon" data-has-menu="false" data-cart-view="data-cart-view">
+        <i class="fa fa-shopping-cart carticob" aria-hidden="true"></i>
+        <span class="header__cart-count" rv-show="cart.item_count | gt 0" style="display: none" rv-text="cart.item_count">0</span>
+      </a>
+    </li>
+
+    
+  </ul>
+</nav>
+<div class='headbarcol12'> 
+     <div class="header__mobile-search mobile-search">
+        <form action="/search" method="get" class="mobile-search__form" role="search">
+          
+          <input type="hidden" name="type" value="product">
+          
+
+          <input type="search" class="mobile-search__input" name="q" placeholder="Find Your Favorite Design Here!" value="" autofocus="autofocus" autocorrect="off" autocomplete="off">
+          <button type='submit' class='searchbtnmob'>Search</button>
+        </form>
+      </div>
+    </div>
+<div class='headerbar'>
+  <div class='container'> 
+
+    <div class='headbarcol1'> 
+
+      <a href="https://www.lennylemons.com">  <img src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/logo.png?11524334227760560921" class='logohome' /> </a>
+    </div>
+    <div class='headbarcol2'> 
+
+      <form class="searchhome" action="/pages/search-results">
+        <input type="text" placeholder="Search: romper, swimsuit, dresses, etc." name="q" class='searchinputhead' value=""  />
+        <button class='submithead' type="submit"> Search</button>
+      </form>
+
+    </div>
+  <div class='headbarcol3'>  
+<div class="header__actions-item carthead" data-cart-view="data-cart-view">
+        <a href="/cart">
+          <span class="counter">0</span>
+          
+          <i class="fa fa-shopping-cart carticob" aria-hidden="true"></i>
+          
+        
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class='headerbarmenu'>
+  <div class='container'> 
+
+    
+  <nav class="menu menu--desktop">
+    
+
+
+  <ul class="menu__links menu__links--level-0  list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/apparel" class="menu__link">
+          New Apparel
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-boy-bestsellers" class="menu__link">
+          Best Sellers
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/rompers" class="menu__link">
+          Rompers
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-girl-bestsellers" class="menu__link">
+          Baby Girl
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-boy-bestsellers" class="menu__link">
+          Baby Boy
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/toddler-boy-bestseller" class="menu__link">
+          Toddler Boy
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/toddler-girl-bestsellers" class="menu__link">
+          Toddler Girl
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby" class="menu__link">
+          Baby
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-girl" class="menu__link">
+          Baby Girl
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-2 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/rompers" class="menu__link">
+          Rompers
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/beanie" class="menu__link">
+          Beanies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/onesies" class="menu__link">
+          Onesies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-girl-sets" class="menu__link">
+          Sets
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/footwear" class="menu__link">
+          Footwear
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/baby-boy" class="menu__link">
+          Baby Boy
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-2 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/onesies/Baby-Boy" class="menu__link">
+          Onesies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/beanie" class="menu__link">
+          Beanies
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/baby-boy-sets" class="menu__link">
+          Sets
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/boys-footwear" class="menu__link">
+          Footwear
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/boys" class="menu__link">
+          Toddler
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/girls" class="menu__link">
+          Girls
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/boys" class="menu__link">
+          Boys
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  menu__item--has-submenu">
+        <a href="/collections/moms" class="menu__link">
+          Moms
+
+          
+        </a>
+
+        
+          
+
+          
+            
+
+
+  <ul class="menu__links menu__links--level-1 menu__links--nested list--unstyled">
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/mom-apparel" class="menu__link">
+          Apparel
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/hats" class="menu__link">
+          Hats
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/v-necks" class="menu__link">
+          V-Necks
+
+          
+        </a>
+
+        
+      </li>
+    
+      
+
+      
+      
+
+      
+        
+      
+
+      <li class="menu__item  ">
+        <a href="/collections/dads" class="menu__link">
+          Dads
+
+          
+        </a>
+
+        
+      </li>
+    
+
+    
+  </ul>
+
+          
+
+          
+        
+      </li>
+    
+
+    
+      <li style='display:none;' class="menu__item">
+        <a href="/search" class="menu__link" data-action="open-mega-search" title="Search"><svg class="icon icon-search">
+  <use xlink:href="#icon-search">
+    
+  </use>
+</svg></a>
+      </li>
+    
+  </ul>
+
+  </nav>
+
+
+   <div class='headbarcol5'> 
+    
+    <ul class="cartmenu">
+      
+      <li><i class="fa fa-phone" aria-hidden="true"></i> 800-931-2558 </li>
+      
+      
+   
+      
+      <li> 
+      
+        <i class="fa fa-envelope" aria-hidden="true"></i> <a id="header_mail" href="mailto:help@lennylemons.com"> help@lennylemons.com </a>
+       
+      </li>
+	
+     </ul>
+    </div>
+  </div>
+
+</div>
+
+  
+<style>
+  
+  
+.headerbarmenu {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    color: #000000;
+    border-bottom: 1px solid #e4e4e4;
+    border: 1px solid #e4e4e4;
+}
+
+ul.cartmenu {
+    text-align: left;
+    color: #000000;
+} 
+  
+#header_mail, .fa.fa-envelope
+  {
+    
+  display: inline-block;
+  }
+  i.fa.fa-shopping-cart.carticob
+  {
+    color: #000000;
+    font-size: 34px;
+  }
+.headbarcol1 {
+    float: left;
+    width: 30%;
+   
+   padding:2% 0;
+}
+.headbarcol1 a
+  {
+    line-height: 0;
+    display: table;
+  }
+.headbarcol2 {
+    float: left;
+    width: 65%;
+   
+   position:relative;
+    padding:2%;
+}
+
+.headbarcol3 {
+        float: left;
+    width: 5%;
+    padding: 2% 10px;
+    position: relative;
+    text-align: right;
+}
+  .header__actions-item {
+    display: block;
+    margin-top: 13px;
+}
+  .headbarcol5 {
+    position: absolute;
+    right: 16px;
+    top: -12px;
+        width: 228px;
+}
+span.counter {
+   position: absolute;
+    background: #000000;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    right: -9px;
+    border-radius: 12px;
+    bottom: 49px;
+    font-size: 14px;
+    color:#fff;
+}
+img.logohome {
+    width: 100%;
+      max-width:250px;
+}
+
+form.searchhome {
+   // max-width: 449px;
+    position: relative;
+    margin: 0px auto;
+    width: 100%;
+   margin-top:2%;
+}
+button.submithead
+  {
+    width: 90px;
+    background: #6accb0;
+    border: 0px !important;
+    color: black;
+    text-transform: uppercase;
+  }
+ul.cartmenu li {
+    display: block;
+   // position: relative;
+    font-size:17px;
+    font-weight: bold;
+    padding-right:1%;
+    
+}
+
+ul.cartmenu {
+   // margin-top:3%;
+}
+
+ul.cartmenu {
+    
+   /* text-align: left;
+    color:#ffffff; */
+}
+
+/*
+.headerbarmenu {
+    float: left;
+    width: 100%;
+    padding:15px; 
+   background:#3b5998;
+   color:white;
+  text-shadow: 1px 1px 1px black;
+ 
+}
+  */
+.headerbarmenu .container
+  {
+    position:relative;
+  }
+  button.searchbtnmob {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 43px;
+    width: 60px;
+    /*background:#3b5998;*/
+    background:#6accb0;
+    border: 0px;
+    color: #000;
+}
+
+.mobile-logo a
+  {
+        display: grid;
+  }
+.searchmob {
+    font-weight: bold;
+    border-bottom: 2px solid;
+    padding: 0px;
+    max-width: 54px;
+    margin: 0px auto;
+    line-height: 15px;
+} 
+input.searchinputhead::-webkit-input-placeholder , .mobile-search__form input[type="search"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #717171;
+}
+input.searchinputhead::-moz-placeholder , .mobile-search__form input[type="search"]::-moz-placeholder  { /* Firefox 19+ */
+  color: #717171;
+}
+input.searchinputhead:-ms-input-placeholder , .mobile-search__form input[type="search"]:-ms-input-placeholder { /* IE 10+ */
+  color: #717171;
+}
+input.searchinputhead:-moz-placeholder , .mobile-search__form input[type="search"]:-moz-placeholder  { /* Firefox 18- */
+  color:#717171;
+}
+ @media (min-width: 992px) and (max-width: 1024px)
+    {
+      .headbarcol5 {
+    position: absolute;
+    right: 16px;
+    top: -12px;
+}
+    }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .headbarcol5 {
+    position: relative;
+    right: 0;
+    top: 0;
+      width:100%;
+    }
+   ul.cartmenu {
+    text-align: center;
+    
+}
+      
+  }
+.headbarcol12 {
+    display: none;
+}
+  @media(max-width:767px)
+    {
+ .headbarcol1  
+      {
+            text-align: center;
+      }
+ .headerbarmenu {
+    display: none !important;
+}
+    .headerbar, .headbarcol3,.headbarcol2 {
+    display: none !important;
+}
+     .headbarcol12 {
+    display:block;
+    float: left;
+    width: 100% !important;
+   // padding: 4% !important;
+    box-sizing: border-box;
+}
+      .mobile-logo
+      {
+            padding:10px;
+         width: 50%;
+        border-right: 1px solid #191919;
+        border-left: 1px solid #191919;
+      }
+ img.logohome {
+    width: 100%;
+    //  max-width:  100%;
+   margin: 0 auto;
+} 
+    .headbarcol3,.headbarcol2 {
+    display: none !important;
+}
+  .headbarcol1 {
+    float: left;
+    width: 100% !important;
+    padding: 4% !important;
+    box-sizing: border-box;
+}
+    
+    span.header__cart-count {
+    background:#000000 !important;
+    color: white;
+}
+  i.fa.fa-shopping-cart.carticob
+      {
+            font-size: 26px;
+        color:#000000;
+        
+      }
+      
+    }
+  
+ input[type="text"]::-webkit-input-placeholder {
+  color: blue;
+}  
+
+  
+</style>
+      
+      
+
+      <main class="main" role="main">
+        
+
+
+  
+  
+
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="slideshow slideshow--cropped">
+  <div class="slideshow__slides">
+    
+    
+
+    
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="slideshow__slide" style="background-image: url('//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/slideshow_slide_1_image.jpg?11524334227760560921'); ">
+        
+
+        <img class="slideshow__image"
+             src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/slideshow_slide_1_image.jpg?11524334227760560921"
+             srcset="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/slideshow_slide_1_image_grande.jpg?11524334227760560921 600w, //cdn.shopify.com/s/files/1/1237/1732/t/61/assets/slideshow_slide_1_image_1024x1024.jpg?11524334227760560921 1024w, //cdn.shopify.com/s/files/1/1237/1732/t/61/assets/slideshow_slide_1_image.jpg?11524334227760560921"
+             alt="">
+
+        <div class="slideshow__cover" style="text-align: center">
+          <div class="slideshow__cover-wrapper">
+            <div class="container">
+              
+
+              
+
+              
+            </div>
+          </div>
+        </div>
+
+        
+        
+        
+        
+      </div>
+    
+  
+    
+
+    
+  
+    
+
+    
+  
+    
+
+    
+  
+    
+
+    
+  
+    
+
+    
+  
+  </div>
+
+  <div class="slideshow__arrows">
+    <div class="container">
+      <a href="#" class="slideshow__arrow slideshow__prev" rel="prev"><svg class="icon icon-arrow-left">
+  <use xlink:href="#icon-arrow-left">
+    
+  </use>
+</svg></a>
+      <a href="#" class="slideshow__arrow slideshow__next" rel="next"><svg class="icon icon-arrow-right">
+  <use xlink:href="#icon-arrow-right">
+    
+  </use>
+</svg></a>
+    </div>
+  </div>
+</section>
+    
+
+  
+  
+
+  
+      
+
+<section class="marketing-module container">
+  <div class="marketing-module__wrapper">
+    
+
+        
+
+        <div class="marketing-module__column">
+          
+    
+      <a href="/collections/baby-girl" class="marketing-module__item marketing-module__link">
+        <img class="marketing-module__image" src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/marketing_module_image_1.jpg?11524334227760560921" alt="">
+      </a>
+    
+  
+        </div>
+
+        <div class="marketing-module__column">
+          
+    
+      <a href="/collections/girls" class="marketing-module__item marketing-module__link">
+        <img class="marketing-module__image" src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/marketing_module_image_2.jpg?11524334227760560921" alt="">
+      </a>
+    
+  
+        </div>
+
+        <div class="marketing-module__column">
+          
+    
+      <a href="/collections/baby-boy" class="marketing-module__item marketing-module__link">
+        <img class="marketing-module__image" src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/marketing_module_image_3.jpg?11524334227760560921" alt="">
+      </a>
+    
+  
+        </div>
+    
+        <div class="marketing-module__column">
+          
+    
+      <a href="/collections/boys" class="marketing-module__item marketing-module__link">
+        <img class="marketing-module__image" src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/marketing_module_image_4.jpg?11524334227760560921" alt="">
+      </a>
+    
+  
+        </div>
+    	
+    	
+
+      
+  </div>
+</section>
+    
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+ <section class="index-module index-module__instagram">
+        <div class="inner">
+
+          <h2 class="index-module__title">
+            <svg class="icon icon-instagram">
+  <use xlink:href="#icon-instagram">
+    
+  </use>
+</svg>
+            Instagram feed
+          </h2>
+<script src="//foursixty.com/media/scripts/fs.embed.v2.5.js" data-feed-id="lenny-lemons_1" data-theme="lookbook_v2_5"></script><style>.fs-has-links::after {  padding: 5px 7.5px; background-color: #fff; color: rgba(0,0,0,0.8); content: "SHOP IT";  }.fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title{font-family:Times New Roman, serif;font-style:italic;font-weight:normal;}div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text{font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-style:normal;font-weight:bold;}.fs-wrapper div.fs-text-container * {color:#fff}.fs-wrapper div.fs-text-container {background-color:rgba(0,0,0,0.8); margin: 0px}div.fs-entry-date{display:none}div.fs-entry-title{display:none}.fs-wrapper div.fs-timeline-entry{ margin: 1px }</style>
+
+   </div>
+</section>
+      </main>
+   
+      <footer class="footer " role="contentinfo">
+  <div class="container">
+    
+
+    
+
+    
+      <div class="footer__row">
+        
+      
+        <section class="footer__module footer__module--centered">
+          
+           
+              <img class="footer__logo" src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/logo.png?11524334227760560921" alt="Lenny Lemons">
+            
+          
+        </section>
+      
+
+      
+
+      
+
+      
+        
+        <section class="footer__module">
+          <h3 class="footer__title">Helpful Information</h3>
+
+          <ul class="footer__linklist list--unstyled">
+            
+              <li>
+                <a href="/pages/about-us">About us</a>
+              </li>
+            
+              <li>
+                <a href="/pages/returns">Refund + Returns</a>
+              </li>
+            
+              <li>
+                <a href="/pages/faqs">FAQs</a>
+              </li>
+            
+              <li>
+                <a href="/pages/terms-of-services">Terms Of Services</a>
+              </li>
+            
+              <li>
+                <a href="/pages/why-buy-from-us">Why buy from us?</a>
+              </li>
+            
+              <li>
+                <a href="/pages/track-order-status">Track order status</a>
+              </li>
+            
+              <li>
+                <a href="/pages/contact-us">Contact Us</a>
+              </li>
+            
+              <li>
+                <a href="/pages/privacy-policy">Privacy Policy</a>
+              </li>
+            
+              <li>
+                <a href="/pages/sizing-chart">Sizing Chart</a>
+              </li>
+            
+              <li>
+                <a href="/blogs/news">Blog</a>
+              </li>
+            
+            
+              
+ 
+          </ul>
+        </section>
+        
+      
+    
+      </div>
+    
+
+    
+      <div class="footer__row">
+        
+      
+
+      
+        <section class="footer__module">
+          <h3 class="footer__title">Contact us</h3>
+
+          
+          <p><b>Call Us Toll Free At: </b>  800-931-2558</p>
+          
+
+          
+            <p>
+              <b> E-Mail Us At: </b> <a id="footer_mail" href="mailto:help@lennylemons.com">help@lennylemons.com</a>
+            </p>
+          
+          <p><b>Address:</b> 130 Circuit, Unit B, Sparks, Nevada, 89441</p>
+        </section>
+      
+
+      
+        <section class="footer__module">
+          <h3 class="footer__title">Enter Your EMail To Receive A 10% OFF Coupon Immediately </h3>
+
+        
+         <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /> 
+           <input type="hidden" value="customer" name="form_type"><input type="hidden" name="utf8" value="✓">
+                  
+                  
+           <input type="hidden" name="contact[tags]" value="newsletter">
+            <input class="footer__input" type="email" name="contact[email]" placeholder="Your email">
+            <input class="footer__submit" type="submit" value="GIVE ME 10% OFF">
+           
+          </form>
+          
+          
+        </section>
+      
+    
+      </div>
+    
+
+    <div class="footer__misc">
+      <p class="footer__copyright">
+        Lenny Lemons / Powered by Shopify
+      </p>
+
+      <ul class="payment-methods list--unstyled">
+      <li> <img src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/trust.png?11524334227760560921" class="trustcheck" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+   
+    </div>
+
+    
+    <div class="mega-search" style="display: none">
+  <svg class="icon icon-cross">
+  <use xlink:href="#icon-cross">
+    
+  </use>
+</svg>
+
+  <form action="/search" method="get" class="mega-search__form" role="search">
+    
+      <input type="hidden" name="type" value="product">
+    
+
+    <input type="search" class="mega-search__input" name="q" placeholder="Search..." value="" autofocus="autofocus" autocorrect="off" autocomplete="off">
+
+    <div rv-show="loading" class="mega-search__spinner spinner">
+      <div class="spinner__bounce1"></div>
+      <div class="spinner__bounce2"></div>
+    </div>
+  </form>
+
+  <ul class="mega-search__suggestions list--unstyled">
+    <li class="mega-search__suggestion autocomplete-suggestion" rv-data-url="suggestion.url" rv-each-suggestion="suggestions">
+      <!-- Product result -->
+      <div rv-if="suggestion.object_type | eq 'product'">
+        <img class="mega-search__image" rv-src="suggestion.image">
+
+        <div class="mega-search__info">
+          <span class="mega-search__item-title" rv-html="suggestion.title"></span>
+          <span class="mega-search__item-subtitle">Starting at <span rv-html="suggestion.price_min | money"></span></span>
+        </div>
+      </div>
+
+      
+
+      <!-- All results -->
+      <div rv-if="suggestion.object_type | eq 'all_results'">
+        <span class="mega-search__all-results">See all results ({ suggestion.results_count })</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+     
+    
+    <script src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/modernizr.min.js?11524334227760560921" type="text/javascript"></script>
+
+    
+
+    
+
+    <script src="//cdn.shopify.com/s/assets/themes_support/option_selection-ea4f4a242e299f2227b2b8038152223f741e90780c0c766883939e8902542bda.js" type="text/javascript"></script>
+   
+    <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=String.prototype.trim,Element.prototype.placeholder,Object.keys,Array.prototype.map,Array.prototype.forEach" ></script>
+    <script src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/libs.js?11524334227760560921" type="text/javascript"></script>
+    
+    
+    <script src="//cdn.shopify.com/s/files/1/1237/1732/t/61/assets/script.js?11524334227760560921" type="text/javascript"></script>
+    
+
+    <script>
+      CartJS.init({"token":"49eded0b6eadb6d07683cd3f0b20d16b","note":null,"attributes":{},"original_total_price":0,"total_price":0,"total_discount":0,"total_weight":0,"item_count":0,"items":[],"requires_shipping":false}, {
+        currency: "USD",
+        moneyFormat: "\u003cspan class=money\u003e$ {{amount}}\u003c\/span\u003e",
+        moneyWithCurrencyFormat: "\u003cspan class=money\u003e$ {{amount}} USD\u003c\/span\u003e",
+        rivetsModels: {
+          shipping: {
+            is_submitting: false,
+            has_rates: false,
+            has_errors: false,
+            errors: [],
+            rates: [],
+            first_price: 0
+          }
+        }
+      });
+    </script>
+
+   
+   
+    <script type="text/javascript">
+  var _learnq = _learnq || [];
+
+  _learnq.push(['account', 'xfatwt']);
+
+  (function () {
+  var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+  b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+  var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+  })();
+</script>
+<!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com --><script>var om59c2f4c982a1c,om59c2f4c982a1c_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){om59c2f4c982a1c_poll(function(){if(window['om_loaded']){if(!om59c2f4c982a1c){om59c2f4c982a1c=new OptinMonsterApp();return om59c2f4c982a1c.init({"s":"37032.59c2f4c982a1c","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="https://a.optnmstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;om59c2f4c982a1c=new OptinMonsterApp();om59c2f4c982a1c.init({"s":"37032.59c2f4c982a1c","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / OptinMonster -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFSW9GV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- CRITEO START -->
+
+
+
+
+
+<script type="text/javascript">
+(function(){
+
+function priceFromCents(cents) {
+    if (typeof(cents) != "number")
+        return;
+
+    return (cents / 100);
+}
+
+var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push(
+  { event: "setAccount", account: 45858 },
+  { event: "setEmail", email: "" },
+  { event: "setSiteType", type: deviceType },
+  { event: "viewHome" }
+  
+);
+
+function isRelevantCartUpdate(settings) {
+    function dataContains(term) {
+        return settings.data && settings.data.indexOf && settings.data.indexOf(term) > -1;
+    }
+
+    return (settings.url == "/cart/add.js" || settings.url == "/cart/update.js")
+      && (
+        dataContains('attributes[prod') ||
+        (dataContains('id=') && dataContains('quantity='))
+      );
+}
+
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    if (isRelevantCartUpdate(settings)) {
+        $.getJSON("/cart.js", function(data) {
+            var basketData = [];
+            var item;
+
+            if (!data.items || !data.items.length)
+                return;
+
+            for (var i = 0; i < data.items.length; i++) {
+                item = data.items[i];
+
+                basketData.push({
+                    id: "shopify_US_" + item.product_id + "_" + item.variant_id,
+                    price: priceFromCents(item.price),
+                    quantity: item.quantity
+                });
+            }
+
+            window.criteo_q.push({
+                event: "viewBasket",
+                product: basketData
+            });
+        });
+    }
+});
+})();
+</script>
+
+
+<!-- CRITEO END -->
+ <script>
+      
+    /*  $(".menu--mobile .menu__item--has-submenu").click(function(){
+      
+    $(this).find("ul.menu__links--level-1").toggle();
+    $(this).find(".icon").toggle();
+      });*/
+    
+    
+    $('form.contact-form').submit( function(){
+  $('p.error, p.success').remove();
+  if($(this).find('input[type="email"]').val() !== ''){
+    var data = $(this).serialize();
+    $.ajax({  
+      type: "POST",  
+      url: "/contact",  
+      data: data,  
+      success: function() {
+        
+        $(".footer__input").hide();
+        $(".footer__submit").hide();
+        
+        $('.contact-form').append("<p class='success'>Thanks for signing up! Here is your Coupon code:<B style='color:red;'> W10 </B></p>");
+      },
+      error: function() {
+        $('.contact-form').append('<p class="errror">Too Many Request.</p>');
+      }    
+    }); 
+  }
+  else {
+    $(this).append('<p class="error">Please fill in your email address.</p>');  
+  }
+  return false;
+});
+  
+    
+    </script>
+     <script>
+  $(document).ready(function(){ 
+    $( "input[name*='q']" ).focus(function() { 
+      $(this).attr("placeholder",""); 
+    }); 
+    $( "input[name*='q']" ).focusout(function() { 
+      $(this).attr("placeholder","Search: romper, swimsuit, dresses, etc."); 
+    }); 
+  });
+</script>
+
+<script> var shopappurl="lenny-lemons.myshopify.com";</script> 
+
+
+      
+
+
+
+
+
+
+  </body>
+</html>

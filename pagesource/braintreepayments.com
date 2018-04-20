@@ -1,0 +1,1488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="vFON0Wga-luQ_6VzKxCNLqFMYb49GWhusn2yncPzvuA" />
+  <meta name="msvalidate.01" content="BB72AE67A2508DF5A032AF96318E4319">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <link rel="alternate" hreflang="en-ad" href="https://www.braintreepayments.com/en-ad"/>
+    <link rel="alternate" hreflang="en-at" href="https://www.braintreepayments.com/en-at"/>
+    <link rel="alternate" hreflang="en-au" href="https://www.braintreepayments.com/en-au"/>
+    <link rel="alternate" hreflang="en-be" href="https://www.braintreepayments.com/en-be"/>
+    <link rel="alternate" hreflang="en-bg" href="https://www.braintreepayments.com/en-bg"/>
+    <link rel="alternate" hreflang="en-ca" href="https://www.braintreepayments.com/en-ca"/>
+    <link rel="alternate" hreflang="en-ch" href="https://www.braintreepayments.com/en-ch"/>
+    <link rel="alternate" hreflang="en-cy" href="https://www.braintreepayments.com/en-cy"/>
+    <link rel="alternate" hreflang="en-cz" href="https://www.braintreepayments.com/en-cz"/>
+    <link rel="alternate" hreflang="en-de" href="https://www.braintreepayments.com/en-de"/>
+    <link rel="alternate" hreflang="en-dk" href="https://www.braintreepayments.com/en-dk"/>
+    <link rel="alternate" hreflang="en-ee" href="https://www.braintreepayments.com/en-ee"/>
+    <link rel="alternate" hreflang="en-us" href="https://www.braintreepayments.com"/>
+    <link rel="alternate" hreflang="en-es" href="https://www.braintreepayments.com/en-es"/>
+    <link rel="alternate" hreflang="en-fi" href="https://www.braintreepayments.com/en-fi"/>
+    <link rel="alternate" hreflang="en-fr" href="https://www.braintreepayments.com/en-fr"/>
+    <link rel="alternate" hreflang="en-gb" href="https://www.braintreepayments.com/en-gb"/>
+    <link rel="alternate" hreflang="en-gg" href="https://www.braintreepayments.com/en-gg"/>
+    <link rel="alternate" hreflang="en-gi" href="https://www.braintreepayments.com/en-gi"/>
+    <link rel="alternate" hreflang="en-gr" href="https://www.braintreepayments.com/en-gr"/>
+    <link rel="alternate" hreflang="en-he" href="https://www.braintreepayments.com/en-he"/>
+    <link rel="alternate" hreflang="en-hk" href="https://www.braintreepayments.com/en-hk"/>
+    <link rel="alternate" hreflang="en-hr" href="https://www.braintreepayments.com/en-hr"/>
+    <link rel="alternate" hreflang="en-hu" href="https://www.braintreepayments.com/en-hu"/>
+    <link rel="alternate" hreflang="en-ie" href="https://www.braintreepayments.com/en-ie"/>
+    <link rel="alternate" hreflang="en-im" href="https://www.braintreepayments.com/en-im"/>
+    <link rel="alternate" hreflang="en-is" href="https://www.braintreepayments.com/en-is"/>
+    <link rel="alternate" hreflang="en-it" href="https://www.braintreepayments.com/en-it"/>
+    <link rel="alternate" hreflang="en-je" href="https://www.braintreepayments.com/en-je"/>
+    <link rel="alternate" hreflang="en-li" href="https://www.braintreepayments.com/en-li"/>
+    <link rel="alternate" hreflang="en-lt" href="https://www.braintreepayments.com/en-lt"/>
+    <link rel="alternate" hreflang="en-lu" href="https://www.braintreepayments.com/en-lu"/>
+    <link rel="alternate" hreflang="en-lv" href="https://www.braintreepayments.com/en-lv"/>
+    <link rel="alternate" hreflang="en-mc" href="https://www.braintreepayments.com/en-mc"/>
+    <link rel="alternate" hreflang="en-mt" href="https://www.braintreepayments.com/en-mt"/>
+    <link rel="alternate" hreflang="en-my" href="https://www.braintreepayments.com/en-my"/>
+    <link rel="alternate" hreflang="en-nl" href="https://www.braintreepayments.com/en-nl"/>
+    <link rel="alternate" hreflang="en-no" href="https://www.braintreepayments.com/en-no"/>
+    <link rel="alternate" hreflang="en-nz" href="https://www.braintreepayments.com/en-nz"/>
+    <link rel="alternate" hreflang="en-pl" href="https://www.braintreepayments.com/en-pl"/>
+    <link rel="alternate" hreflang="en-pt" href="https://www.braintreepayments.com/en-pt"/>
+    <link rel="alternate" hreflang="en-ro" href="https://www.braintreepayments.com/en-ro"/>
+    <link rel="alternate" hreflang="en-se" href="https://www.braintreepayments.com/en-se"/>
+    <link rel="alternate" hreflang="en-sg" href="https://www.braintreepayments.com/en-sg"/>
+    <link rel="alternate" hreflang="en-si" href="https://www.braintreepayments.com/en-si"/>
+    <link rel="alternate" hreflang="en-sk" href="https://www.braintreepayments.com/en-sk"/>
+    <link rel="alternate" hreflang="en-sm" href="https://www.braintreepayments.com/en-sm"/>
+    <link rel="alternate" hreflang="en-tr" href="https://www.braintreepayments.com/en-tr"/>
+
+  <title>Braintree Payments</title>
+  <meta name="description" content="An all-in-one solution to accept, process, and split payments in your mobile app or online -- from small business to large enterprise.">
+  <meta name="keywords" content="">
+
+  <script>
+    window.braintreeConstants = Object.freeze({
+      supportedLocales: ["en-ad","en-at","en-au","en-be","en-bg","en-ca","en-ch","en-cy","en-cz","en-de","en-dk","en-ee","en-us","en-es","en-fi","en-fr","en-gb","en-gg","en-gi","en-gr","en-he","en-hk","en-hr","en-hu","en-ie","en-im","en-is","en-it","en-je","en-li","en-lt","en-lu","en-lv","en-mc","en-mt","en-my","en-nl","en-no","en-nz","en-pl","en-pt","en-ro","en-se","en-sg","en-si","en-sk","en-sm","en-tr"],
+      loadTimestamp: Date.now()
+    });
+  </script>
+
+  <script type="text/javascript">
+  var optimizelyScript = document.createElement('script');
+
+  optimizelyScript.setAttribute('src', 'https://cdn.optimizely.com/js/6388910444.js');
+
+  document.head.appendChild(optimizelyScript);
+</script>
+
+  <script type="text/javascript">
+  var NR_ID = window.location.hostname === "www.braintreepayments.com" ? "23320209" : "23319918";
+</script>
+<script type="text/javascript">
+window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(13),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(14),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(7),t(6),"addEventListener"in window&&t(4),c.xhrWrappable&&t(8),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(7),s=t(6);t("loader").features.stn=!0,t(5);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],4:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(15)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],5:[function(t,e,n){var r=t("ee").get("history"),o=t(15)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],6:[function(t,e,n){var r=t("ee").get("raf"),o=t(15)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],7:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(15)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],8:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(4);var f=t("ee"),u=f.get("xhr"),d=t(15)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],9:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(10),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(12),m=window.XMLHttpRequest;s.features.xhr=!0,t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],10:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],11:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(13),a=t(14);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],12:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],13:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],14:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],15:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(14),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(13),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(13),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(11);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-943.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,9,3]);
+;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"b6805ada04",applicationID:NR_ID,sa:1}
+</script>
+
+
+
+  <link href="/stylesheets/main-6abf8de9.css" rel="stylesheet" />
+
+  <link href="/images/favicon-99f15055.png" rel="icon" type="image/png">
+
+  <script>
+  var targetLocale = window.location.href.match(/locale=(.{5})/) ? window.location.href.match(/locale=(.{5})/)[1] : null;
+
+  if (targetLocale) {
+    window.localStorage.setItem('locale', targetLocale);
+  }
+
+  var storedLocale = window.localStorage.getItem('locale');
+  var currentLocale = 'en-us';
+
+  function localizedPathFor(locale) {
+    var path = window.location.pathname.slice(1);
+    var segments = path.split('/');
+    var nonLocalizedSegments = segments.filter(function (segment) { return !segment.match(/^\w{2}-\w{2}$/); });
+    var nonLocalizedPath = nonLocalizedSegments.join('/');
+    var localizedSegments = [];
+
+    if (locale !== 'en-us') {
+      localizedSegments.push(locale);
+    }
+
+    if (nonLocalizedPath && window.braintreeConstants.supportedLocales.indexOf(storedLocale) !== -1) {
+      localizedSegments.push(nonLocalizedPath);
+    }
+
+    return '/' + localizedSegments.join('/');
+  }
+
+  if (storedLocale && storedLocale !== currentLocale && true) {
+    path = localizedPathFor(storedLocale);
+
+    if (window.location.search) {
+      path += window.location.search;
+    }
+
+    if ('referrer' in document && document.referrer && !document.referrer.match(/braintreepayments\.com/)) {
+      path += window.location.search ? '&' : '?';
+      path += 'referrer=' + encodeURIComponent(document.referrer);
+    }
+
+    if (window.location.hash) {
+      path += window.location.hash;
+    }
+
+    window.location = path
+  }
+</script>
+
+</head>
+
+
+  <body class="index ">
+      <a class="skip-main" href="#main-section">Skip to main content</a>
+
+<div class="geo-ip-notification util--hidden">
+  <div class="page-container">
+    You are viewing content for <span class="geo-ip-notification__country-name"></span>.
+    <a href="/country-selection" class="geo-ip-notification__link link">View content for other locations.</a>
+  </div>
+  <div class="geo-ip-notification__dismiss">&times;</div>
+</div>
+
+
+<header class="header-container">
+  <div class="search" id="nav_search_bar">
+  <div class="search__header">
+    <div class="search__header-content">
+<a href="/" class="search__header-logo-link">        <h1 class="search__header-logo">Braintree Payments Homepage</h1>
+</a>      <div class="search__input-group">
+        <img class="search__icon--search" src="images/search/icon--search-glass-34dcaca6.svg">
+        <input aria-label="Search" type="text" placeholder="Search" id="searchInput" class="search__input"/>
+      </div>
+      <div class="search__close">
+        <p class="search__close-message">Hit <span>ESC</span> to close</p>
+        <button class="search__button--close" aria-label="Press enter or hit escape to close" data-track-event-properties="project=marketing&journey,action=click,type=button,intent=close search,origin=b_marketing&b_search">
+          <div class="search__icon--close"><em></em></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="search__panels">
+    <div class="search__panel-container search__panel-container--left">
+      <div class="search__panel search__panel--half search__panel--marketing">
+        <div class="search__panel-header hidden">
+          <img class="search__icon--header" src="images/search/icon--marketing-008b4fe5.svg">
+          <h2>From this site</h2>
+        </div>
+        <div class="search__hits"></div>
+      </div>
+    </div>
+    <div class="search__panel-container search__panel-container--right">
+      <div class="search__panel search__panel--developers">
+        <div class="search__panel-header hidden">
+          <img class="search__icon--header" src="images/search/icon--developers-7240a3b1.svg">
+          <h2>Developer Docs</h2>
+          <div class="search__tooltip">
+            <button class="search__button--tooltip" aria-label="what are developer docs?">
+              <img src="images/search/icon--tooltip-8e8d5b2e.svg">
+            </button>
+            <div class="search__tooltip__text" aria-label="tooltip" role="alert">
+              <h3>What are Developer Docs?</h3>
+              <p>See detailed integration guides and API reference documentation for Braintree's SDKs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="search__tooltip"></div>
+        <div class="search__hits"></div>
+        <a class="search__switch hidden" href="http://developers.braintreepayments.com" data-track-event-properties="project=marketing&journey,action=click,type=button,descriptor=more in developer docs,intent=switch to developer docs search,origin=b_marketing&b_search">More in Developer Docs</a>
+      </div>
+      <div class="search__panel search__panel--articles">
+        <div class="search__panel-header hidden">
+          <img class="search__icon--header" src="images/search/icon--articles-6bc2af49.svg">
+          <h2>Support Articles</h2>
+          <div class="search__tooltip">
+            <button class="search__button--tooltip" aria-label="what are support articles?">
+              <img src="images/search/icon--tooltip-8e8d5b2e.svg">
+            </button>
+            <div class="search__tooltip__text" aria-label="tooltip" role="alert">
+              <h3>What are Support Articles?</h3>
+              <p>Learn the basics of payments, how to best use Braintree features for your business, and what you can do to keep payments secure.</p>
+            </div>
+          </div>
+        </div>
+        <div class="search__tooltip"></div>
+        <div class="search__hits"></div>
+        <a class="search__switch hidden" href="http://articles.braintreepayments.com" data-track-event-properties="project=marketing&journey,action=click,type=button,descriptor=more in support articles,intent=switch to support articles search,origin=b_marketing&b_search">More in Support Articles</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="main-header__primary-bar  " data-mouseleave-remove=".main-header__submenu-trigger">
+  <div class="page-container">
+    <nav class="main-header__primary-nav">
+<a href="/" class="main-header__logo-link js-main-header__link">        <h1 class="main-header__logo">Braintree Payments Homepage</h1>
+</a>
+      <ul class="main-header__list main-header__list--primary">
+        <li class="js-main-header__list-item" data-mouseenter-add="#products-header-link" data-mouseenter-remove="#features-header-link">
+          <span id="products-header-link" class="main-header__link main-header__submenu-trigger js-main-header__link" tabindex="0">
+            Products
+          </span>
+
+          <div class="main-header__submenu util--inverted">
+            <div class="page-container">
+              <div class="grid grid--three grid--gutters grid--overflow-spacing-small">
+                <div class="grid-item">
+<a href="/products/braintree-direct" class="link js-link--sub layout--mbs">                    <h3 class="heading--article">Braintree Direct</h3>
+                    <span class="text--small text--muted">Accept payments for a product or service.</span>
+</a>
+<a href="/products/braintree-auth" class="link js-link--sub">                    <h3 class="heading--article">Braintree Auth</h3>
+                    <span class="text--small text--muted">Connect and give permission to trusted third parties.</span>
+</a>                </div>
+
+                <div class="grid-item">
+<a href="/products/braintree-marketplace" class="link js-link--sub layout--mbs">                    <h3 class="heading--article">Braintree Marketplace</h3>
+                    <span class="text--small text--muted">Scale with flexibility and control.</span>
+</a>
+<a href="/products/contextual-commerce" class="link js-link--sub">                    <h3 class="heading--article">Contextual Commerce</h3>
+                    <span class="text--small text--muted">Create connected commerce experiences.</span>
+</a>                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="js-main-header__list-item" data-mouseenter-add="#features-header-link" data-mouseenter-remove="#products-header-link">
+          <a href="/features" id="features-header-link" class="main-header__link main-header__submenu-trigger js-main-header__link">Features</a>
+
+          <div class="main-header__submenu util--inverted">
+            <div class="page-container">
+              <div class="grid grid--two grid--gutters grid--overflow-spacing-small">
+                <div class="grid-item">
+                  <div class="heading--article text--muted layout--mbxs">For your business</div>
+                  <ul class="list list--padded-small text--small layout--two-columns">
+                    <li>
+                      <a href="/features/global" class="link link--sub js-link--sub">Globally Available</a>
+                    </li>
+                    <li>
+                      <a href="/features/seamless-checkout" class="link link--sub js-link--sub">Seamless Checkout</a>
+                    </li>
+                    <li>
+                      <a href="/features/seamless-checkout/drop-in-ui" class="link link--sub link--sub-two js-link--sub">Drop-in UI</a>
+                    </li>
+                    <li>
+                      <a href="/features/seamless-checkout/custom-ui" class="link link--sub link--sub-two js-link--sub">Custom UI</a>
+                    </li>
+                    <li>
+                      <a href="/features/data-security" class="link link--sub js-link--sub">Data Security</a>
+                    </li>
+                    <li>
+                      <a href="/features/fraud-protection" class="link link--sub js-link--sub">Fraud Protection</a>
+                    </li>
+                    <li>
+                      <a href="/features/support" class="link link--sub js-link--sub">White-Glove Support</a>
+                    </li>
+                    <li>
+                      <a href="/features/reporting" class="link link--sub js-link--sub">Reporting</a>
+                    </li>
+                    <li>
+                      <a href="/features/recurring-billing" class="link link--sub js-link--sub">Recurring Billing</a>
+                    </li>
+                    <li>
+                      <a href="/features/3d-secure" class="link link--sub js-link--sub">3D Secure</a>
+                    </li>
+                    <li>
+                      <a href="/features/account-updater" class="link link--sub js-link--sub">Account Updater</a>
+                    </li>
+                    <li>
+                      <a href="/features/third-party-integrations" class="link link--sub js-link--sub">Third-Party Integrations</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="grid-item">
+                  <div class="heading--article text--muted layout--mbxs">For your customers</div>
+                  <ul class="list list--padded-small text--small layout--two-columns">
+                    <li>
+                      <a href="/features/credit-cards" class="link link--sub js-link--sub">Credit/Debit Cards</a>
+                    </li>
+                    <li>
+                      <a href="/features/ach-direct-debit" class="link link--sub js-link--sub">ACH Direct Debit</a>
+                    </li>
+                    <li>
+                      <a href="/features/paypal" class="link link--sub js-link--sub">PayPal</a>
+                    </li>
+                    <li>
+                      <a href="/features/paypal#paypal-one-touch" class="link link--sub link--sub-two js-link--sub">PayPal One Touch</a>
+                    </li>
+                      <li>
+                        <a href="/features/paypal#paypal-credit" class="link link--sub link--sub-two js-link--sub">PayPal Credit</a>
+                      </li>
+                    <li>
+                      <a href="/features/venmo" class="link link--sub js-link--sub">Venmo</a>
+                    </li>
+                    <li>
+                      <a href="/features/apple-pay" class="link link--sub js-link--sub">Apple Pay</a>
+                    </li>
+                    <li>
+                      <a href="/features/google-pay" class="link link--sub js-link--sub">Google Pay</a>
+                    </li>
+                    <li>
+                      <a href="/features/android-pay" class="link link--sub js-link--sub">Android Pay</a>
+                    </li>
+                    <li>
+                      <a href="/features/visa-checkout" class="link link--sub js-link--sub">Visa Checkout</a>
+                    </li>
+                    <li>
+                      <a href="/features/masterpass" class="link link--sub js-link--sub">Masterpass</a>
+                    </li>
+                    <li>
+                      <a href="/features/amex-express-checkout" class="link link--sub js-link--sub">Amex Express Checkout</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="js-main-header__list-item" data-mouseenter-remove=".main-header__submenu-trigger">
+          <a href="/braintree-pricing" class="main-header__link js-main-header__link">Pricing</a>
+        </li>
+
+        <li class="js-main-header__list-item" data-mouseenter-remove=".main-header__submenu-trigger">
+          <a href="/braintree-for-enterprises" class="main-header__link js-main-header__link">Enterprise</a>
+        </li>
+
+        # Link to resources does not have the '.js-main-header__list-item' class since the active nav state is handled separately
+        <li data-mouseenter-remove=".main-header__submenu-trigger">
+          <a href="/resources" class="main-header__link js-main-header__link" id="resourcesLink">Resources</a>
+        </li>
+      </ul>
+
+      <ul class="main-header__list main-header__list--secondary" data-mouseenter-remove=".main-header__submenu-trigger">
+        <li class="ab-search-variation-desktop">
+          <button id="desktopSearchOpenTrigger" class="search__trigger main-header__link js-main-header__link" aria-label="Hit enter to search" data-track-event-properties="project=marketing&journey,action=click,type=button,intent=open search,origin=b_marketing&b_search">
+            <svg viewBox="0 0 24 24"  class="icon--svg search__trigger-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <title>Search magnifying glass</title>
+              <path class="search__trigger-icon-path" d="M14.8,13.3A6.71,6.71,0,0,0,16,9.5,6.5,6.5,0,1,0,9.5,16a6.71,6.71,0,0,0,3.8-1.2L19,20.49,20.49,19ZM9.5,14A4.5,4.5,0,1,1,14,9.5,4.49,4.49,0,0,1,9.5,14Z"/>
+              <path fill="none" d="M0,0H24V24H0Z"/>
+            </svg>
+          </button>
+        </li>
+          <li>
+            <a href="https://developers.braintreepayments.com/" class="main-header__link js-main-header__link js-tracking" onclick="mixpanel.journey.track('link to docs', {'source': 'navbar', 'origin': 'b_marketing', 'ab': 'a'});">Docs</a>
+          </li>
+
+          <li class="js-main-header__list-item" data-mouseenter-add="#support-header-link" data-mouseleave-remove="#support-header-link">
+            <span id="support-header-link" class="main-header__link js-main-header__link main-header__submenu-trigger" tabindex="0">
+              Support
+            </span>
+            <ul class="main-header__submenu main-header__submenu--secondary util--inverted">
+              <li class="main-header__submenu-link">
+<a href="https://articles.braintreepayments.com/" class="link js-link--sub" onclick="mixpanel.journey.track('link to articles', {'source': 'navbar', 'origin': 'b_marketing'});">                  <div class="heading--article">Support Articles</div>
+                  <span class="text--small text--muted">Learn how to best use Braintree for your business.</span>
+</a>              </li>
+
+              <li class="main-header__submenu-link">
+<a href="/contact" class="link js-link--sub" onclick="mixpanel.journey.track('link to contact', {'source': 'navbar', 'origin': 'b_marketing'});">                  <div class="heading--article">Contact Support</div>
+                  <span class="text--small text--muted">Available in a number of ways, any time you need us.</span>
+</a>              </li>
+            </ul>
+          </li>
+
+          <li data-mouseenter-add="#login-header-link" data-mouseleave-remove="#login-header-link">
+            <span id="login-header-link" class="main-header__link js-main-header__link main-header__submenu-trigger" tabindex="0">
+              Log in
+            </span>
+            <ul class="main-header__submenu main-header__submenu--secondary util--inverted">
+              <li class="main-header__submenu-link">
+<a href="https://www.braintreegateway.com/login" class="link js-link--sub" onclick="mixpanel.journey.track('link to production login', {'source': 'navbar', 'origin': 'b_marketing'});">                  <div class="heading--article">Production</div>
+</a>              </li>
+
+              <li class="main-header__submenu-link">
+<a href="https://sandbox.braintreegateway.com/login" class="link js-link--sub" onclick="mixpanel.journey.track('link to sandbox login', {'source': 'navbar', 'origin': 'b_marketing'});">                  <div class="heading--article">Sandbox</div>
+</a>              </li>
+            </ul>
+          </li>
+
+
+          <li>
+            <a href="https://apply.braintreegateway.com/signup/us" id="signup-link" class="button button--primary button--small js-tracking js-main-header__link" data-refer="true" data-track-event-properties="project=journey&amp;marketing,action=click,type=button,intent=apply for a braintree merchant account,descriptor=sign up">Sign up</a>
+          </li>
+
+        <li class="country-selection">
+<a href="/country-selection" class="main-footer__country-select country-link text--menu js-main-header__link" data-analytics-action="Country Select - Nav" data-analytics-label="us:/">            <span class="country-link__flag country-flag country-flag--us"></span>
+</a>        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+  <div class="mobile-header__primary-bar">
+<a href="/" class="main-header__logo-link" title="Braintree Payments Homepage">    <h1 class="main-header__logo">Braintree Payments Homepage</h1>
+</a>
+  <div class="mobile-header__menu-toggle" data-click-toggle=".mobile-header__primary-bar"><em></em></div>
+
+  <nav class="mobile-header__nav">
+    <ul class="mobile-header__nav-section mobile-header__signin">
+      <li class="mobile-header__nav-item ab-search-variation-mobile">
+        <button id="mobileSearchOpenTrigger" class="search__trigger" aria-label="Search Braintree" data-track-event-properties="project=marketing&journey,action=click,type=button,intent=open search,origin=b_marketing&b_search">
+          <svg viewBox="0 0 24 24"  class="icon--svg search__trigger-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <title>Search magnifying glass</title>
+            <path class="search__trigger-icon-path" d="M14.8,13.3A6.71,6.71,0,0,0,16,9.5,6.5,6.5,0,1,0,9.5,16a6.71,6.71,0,0,0,3.8-1.2L19,20.49,20.49,19ZM9.5,14A4.5,4.5,0,1,1,14,9.5,4.49,4.49,0,0,1,9.5,14Z"/>
+            <path fill="none" d="M0,0H24V24H0Z"/>
+          </svg>
+          Search Braintree
+        </button>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="https://www.braintreegateway.com/login" class="mobile-header__link">Log into production</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="https://sandbox.braintreegateway.com/login" class="mobile-header__link">Log into sandbox</a>
+      </li>
+      <li class="mobile-header__nav-item country-selection">
+<a href="/country-selection" class="main-footer__country-select country-link text--menu" data-analytics-action="Country Select - Nav" data-analytics-label="us:/">            <span class="country-link__flag country-flag country-flag--us"></span>
+            <span class="country-link__name">United States</span>
+</a>      </li>
+      <li class="mobile-header__nav-item">
+        <a href="https://apply.braintreegateway.com/signup/us" class="button button--primary" data-refer="true" data-track-event-properties="project=journey&amp;marketing,action=click,type=button,intent=apply for a braintree merchant account,descriptor=sign up">Sign up</a>
+      </li>
+    </ul>
+
+    <ul class="mobile-header__nav-section">
+      <li class="mobile-header__nav-item">
+        <h4 class="mobile-header__link" data-click-toggle=".mobile-header__products">Products &#8595;</h4>
+        <ul class="mobile-header__products mobile-header__secondary js--toggled">
+          <li class="mobile-header__nav-item">
+            <a href="/products/braintree-direct" class="mobile-header__link mobile-header__link--secondary">Braintree Direct</a>
+          </li>
+          <li class="mobile-header__nav-item">
+            <a href="/products/braintree-auth" class="mobile-header__link mobile-header__link--secondary">Braintree Auth</a>
+          </li>
+          <li class="mobile-header__nav-item">
+            <a href="/products/braintree-marketplace" class="mobile-header__link mobile-header__link--secondary">Braintree Marketplace</a>
+          </li>
+          <li class="mobile-header__nav-item">
+            <a href="/products/contextual-commerce" class="mobile-header__link mobile-header__link--secondary">Contextual Commerce</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="/features" class="mobile-header__link">Features</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="/braintree-pricing" class="mobile-header__link">Pricing</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="/braintree-for-enterprises" class="mobile-header__link">Enterprise</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="/resources" class="mobile-header__link">Resources</a>
+      </li>
+    </ul>
+    <ul class="mobile-header__nav-section">
+      <li class="mobile-header__nav-item">
+        <a href="https://developers.braintreepayments.com/" class="mobile-header__link">Docs</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="https://articles.braintreepayments.com/" class="mobile-header__link">Support Articles</a>
+      </li>
+      <li class="mobile-header__nav-item">
+        <a href="/contact" class="mobile-header__link">Contact us</a>
+      </li>
+    </ul>
+
+  </nav>
+</div>
+
+</header>
+
+
+    <section id="main-section" class="main-section">
+        <header class="marquee marquee--inverted" >
+          <div class="page-container">
+              <div class="marquee__content-container marquee__content-container--height-large layout--pvm grid medium--grid--golden grid--align-center">
+    <div class="content content--default-spacing grid-item grid-item--primary">
+
+      <h1 class="heading--masthead">
+        Powering More</br>Than Just Payments
+      </h1>
+
+      <div class="button-group layout--mbm">
+        <a href="https://apply.braintreegateway.com/signup/us" class="button button--primary button--signup" data-tracking="" data-analytics-action="Signup - Marquee" data-analytics-label="us:/" data-refer="true" data-track-event-properties="project=journey&amp;marketing,action=click,type=button,intent=apply for a braintree merchant account,descriptor=start your application">Sign up now</a>
+
+        <a href="/sandbox" class="button button--light" data-analytics-action="Sandbox - Marquee" data-analytics-label="us:/">Try the sandbox</a>
+      </div>
+        <span class="announce-tag layout--mbxs">
+          Android Pay is upgrading to <a href="/features/google-pay" class="link">Google Pay</a> for apps and mobile web.
+        </span>
+        <span class="announce-tag">
+          <a href="/features/venmo" class="link">Venmo</a> now available on mobile web in addition to native iOS and Android apps.
+        </span>
+    </div>
+  </div>
+
+          </div>
+
+            <div class="marquee__video-container">
+              <video class="marquee__video" autoplay muted loop playsinline poster="/images/homepage-marquee-jet-5ec19999.jpg" width="1280" height="720">
+                <source type="video/mp4" src="/videos/homepage-marquee-jet.mp4">
+              </video>
+              <div class="marquee__video-overlay"></div>
+            </div>
+        </header>
+
+      
+
+
+<div class="row row--alternate layout--pvs">
+  <div class="page-container">
+    <div class="grid grid--two medium--grid--three large--grid--six grid--gutters grid--align-center grid--overflow-spacing">
+
+        <div class="grid-item"><img src="/images/logos/black/stubhub-logo-51604eb4.svg" class="logo--stubhub layout--align-center" alt="Stubhub logo" /></div>
+        <div class="grid-item"><img src="/images/logos/black/dropbox-logo-f782bbd7.svg" class="logo--dropbox layout--align-center" alt="Dropbox logo" /></div>
+        <div class="grid-item"><img src="/images/logos/black/github-logo-d475c844.svg" class="logo--github layout--align-center" alt="Github logo" /></div>
+        <div class="grid-item"><img src="/images/logos/black/messenger-logo-de31cf6d.svg" class="logo--messenger layout--align-center" alt="Messenger logo" /></div>
+        <div class="grid-item"><img src="/images/logos/black/uber-logo-c631d9b2.svg" class="logo--uber layout--align-center" alt="Uber logo" /></div>
+        <div class="grid-item"><img src="/images/logos/black/yelp-logo-58fac09e.svg" class="logo--yelp layout--align-center" alt="Yelp logo" /></div>
+    </div>
+  </div>
+</div>
+
+<div class="row layout--pv">
+  <div class="page-container">
+    <div class="grid large--grid--two grid--gutters grid--align-center grid--overflow-spacing">
+      <div class="grid-item grid-item--primary large--grid-item--order-2">
+        <figure class="layout--align-center">
+          <style>
+  #homepage-platform-asset .phone__viewport {
+    overflow: hidden;
+    height: 355px;
+    width: 200px;
+  }
+
+  #homepage-platform-asset.phone {
+    z-index: initial;
+  }
+
+  #homepage-platform-asset .phone__image {
+    width: 950px;
+    max-width: inherit;
+  }
+
+  #homepage-platform-asset.js-animation--on .phone__image,
+  #homepage-platform-asset.js-animation--on .phone__image--outside {
+    -webkit-animation: 10s carousel ease-in-out;
+            animation: 10s carousel ease-in-out;
+  }
+
+  #homepage-platform-asset .phone__code {
+    color: rgba(0,0,0,0.2);
+    z-index: -2;
+    width: 300px;
+    word-break: break-word;
+  }
+
+  #homepage-platform-asset .accent {
+    display: block;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 2;
+  }
+  #homepage-platform-asset .accent.medium {
+    height: 30px;
+    width: 30px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+    -webkit-animation: float 4s infinite ease-in-out;
+            animation: float 4s infinite ease-in-out;
+  }
+  #homepage-platform-asset .accent.large {
+    height: 40px;
+    width: 40px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.15);
+    -webkit-animation: float 5s infinite ease-in-out;
+            animation: float 5s infinite ease-in-out;
+  }
+  #homepage-platform-asset .accent.paypal {
+    background: -webkit-linear-gradient(315deg, #008ad0 0%, #002e87 100%);
+    background: linear-gradient(135deg, #008ad0 0%, #002e87 100%);
+    left: 320px;
+    top: -40px;
+  }
+  #homepage-platform-asset .accent.paypal img {
+    display: block;
+    width: auto;
+    margin: 9px auto;
+  }
+  #homepage-platform-asset .accent.flag {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/346994/flags_animation.jpg);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: 0 -1080px;
+    left: 440px;
+    bottom: -60px;
+  }
+  #homepage-platform-asset .accent.flag2 {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/346994/flags_animation.jpg);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 0 -180px;
+    left: 270px;
+    bottom: 0;
+  }
+
+  .outside--screen {
+    position: absolute;
+    width: 950px;
+    height: 355px;
+    top: 56px;
+    z-index: -1;
+    left: 0;
+    overflow: hidden;
+  }
+
+  @-webkit-keyframes carousel {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    20% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    25% {
+      -webkit-transform: translate(-250px, 0);
+              transform: translate(-250px, 0);
+    }
+    45% {
+      -webkit-transform: translate(-250px, 0);
+              transform: translate(-250px, 0);
+    }
+    50% {
+      -webkit-transform: translate(-500px, 0);
+              transform: translate(-500px, 0);
+    }
+    70% {
+      -webkit-transform: translate(-500px, 0);
+              transform: translate(-500px, 0);
+    }
+    75% {
+      -webkit-transform: translate(-750px, 0);
+              transform: translate(-750px, 0);
+    }
+    95% {
+      -webkit-transform: translate(-750px, 0);
+              transform: translate(-750px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+  }
+
+  @keyframes carousel {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    20% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    25% {
+      -webkit-transform: translate(-250px, 0);
+              transform: translate(-250px, 0);
+    }
+    45% {
+      -webkit-transform: translate(-250px, 0);
+              transform: translate(-250px, 0);
+    }
+    50% {
+      -webkit-transform: translate(-500px, 0);
+              transform: translate(-500px, 0);
+    }
+    70% {
+      -webkit-transform: translate(-500px, 0);
+              transform: translate(-500px, 0);
+    }
+    75% {
+      -webkit-transform: translate(-750px, 0);
+              transform: translate(-750px, 0);
+    }
+    95% {
+      -webkit-transform: translate(-750px, 0);
+              transform: translate(-750px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+  }
+</style>
+
+<!-- start exclude from search -->
+<div id="homepage-platform-asset" class="phone phone--fixed layout--align-center js-animation">
+  <div class="phone__viewport">
+    <img src="/images/platform-sprite@2x-cdc275cc.jpg" class="phone__image" alt="Platform sprite@2x" />
+  </div>
+
+  <div class="phone__code js-typewriter">
+    &lt;script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"&gt;&lt;/script&gt;
+    <br><br>
+    &lt;script src="https://js.braintreegateway.com/web/3.6.3/js/hosted-fields.min.js"&gt;&lt;/script&gt;
+    <br><br>
+    &lt;script&gt;
+    <br>
+    var authorization = 'eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiO';
+    <br>
+    var submit = document.querySelector('input[type="submit"]');
+    <br>
+    &lt;/script&gt;
+  </div>
+
+  <div class="outside--screen">
+    <img src="/images/platform-sprite@2x-cdc275cc.jpg" class="phone__image--outside" alt="Platform sprite@2x" />
+  </div>
+
+  <div class="accent large paypal">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346994/pp_white.svg" alt="PayPal logo">
+  </div>
+</div>
+<!-- end exclude from search -->
+
+        </figure>
+      </div>
+
+      <div class="grid-item grid-item--secondary large--grid-item--order-1 large--layout--prm">
+        <h2 class="heading--display layout--mbs">
+          An all-in-one payments partner
+        </h2>
+
+        <p class="text--large">
+            Braintree helps businesses of all sizes, from small to <a href="/braintree-for-enterprises" class="link">large enterprises</a>, accept and process payments to help maximize business opportunities and revenue growth. Companies around the world benefit from the technology and support of Braintree coupled with the scale, backing, and confidence of partnering with a PayPal service.
+        </p>
+      </div>
+    </div>
+
+    <hr class="rule layout--mv">
+
+    <div class="grid medium--grid--two large--grid--three grid--gutters grid--overflow-spacing">
+      <div class="grid-item">
+        <div class="content content--checked">
+          <h2 class="heading--article layout--mbxs">
+            Seamless checkout experience
+          </h2>
+          <p>
+            From Hosted Fields to our Drop-in UI, Braintree offers the tools you need to give your customers a seamless user experience. <a href="/features/seamless-checkout" class="link">Learn more about creating a seamless checkout</a>.
+          </p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="content content--checked">
+          <h2 class="heading--article layout--mbxs">
+            White-glove support
+          </h2>
+          <p>
+            Get your questions answered quickly by a real person. <a href="/features/support" class="link">Learn more about support</a>.
+          </p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="content content--checked">
+          <h2 class="heading--article layout--mbxs">
+            Advanced fraud protection
+          </h2>
+          <p>
+            Our sophisticated fraud tools can help you manage risk and fight current and next-gen fraudsters. <a href="/features/fraud-protection" class="link">Learn more about fraud protection</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row--alternate layout--pv">
+  <div class="page-container">
+    <div class="layout--text-center layout--align-center layout--pb medium--layout--phm">
+      <h2 class="heading--display-small">Which solution fits your business?</h2>
+    </div>
+
+    <div class="grid medium--grid--two large--grid--four grid--gutters grid--overflow-spacing">
+<a href="/products/braintree-direct" class="grid-item card">        <img src="/images/thumb-direct@2x-fcd9e0a2.jpg" alt="Thumb direct@2x" />
+        <div class="content layout--ps">
+          <h3 class="heading--article layout--mbxs">Braintree Direct</h3>
+          <p class="layout--mbxs">
+            For businesses selling a product or service to customers or accepting donations.
+          </p>
+          <p class="link">
+            Learn more
+          </p>
+        </div>
+</a>
+<a href="/products/braintree-marketplace" class="grid-item card">        <img src="/images/thumb-marketplace@2x-e90e6f1c.jpg" alt="Thumb marketplace@2x" />
+        <div class="content layout--ps">
+          <h3 class="heading--article layout--mbxs">Braintree Marketplace</h3>
+          <p class="layout--mbxs">
+            For marketplace businesses looking to process payments and scale with flexibility and control.
+          </p>
+          <p class="link">
+            Learn more
+          </p>
+        </div>
+</a>
+<a href="/products/braintree-auth" class="grid-item card">        <img src="/images/thumb-auth@2x-6cfd3f71.jpg" alt="Thumb auth@2x" />
+        <div class="content layout--ps">
+          <h3 class="heading--article layout--mbxs">Braintree Auth</h3>
+          <p class="layout--mbxs">
+            For providers that need to connect with their merchants or take action on their behalf.
+          </p>
+          <p class="link">
+            Learn more
+          </p>
+        </div>
+</a>
+<a href="/products/contextual-commerce" class="grid-item card">        <img src="/images/thumb-contextual@2x-40e9c266.jpg" alt="Thumb contextual@2x" />
+        <div class="content layout--ps">
+          <h3 class="heading--article layout--mbxs">Contextual Commerce</h3>
+          <p class="layout--mbxs">
+            For businesses looking for innovative ways to partner together and unlock new revenue opportunities.
+          </p>
+          <p class="link">
+            Learn more
+          </p>
+        </div>
+</a>    </div>
+  </div>
+</div>
+
+<div class="row layout--pv">
+  <div class="page-container">
+    <div class="grid large--grid--two grid--gutters grid--overflow-spacing">
+      <div class="grid-item grid-item--primary">
+        <div class="content content--default-spacing small--layout--ps">
+          <figure>
+            <style>
+  .partnership--circles {
+    height: 70px;
+    position: relative;
+  }
+
+  .paypal--circle {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    opacity: .9;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.15);
+    -webkit-animation: 15s rotate1 .3s ease-in-out infinite;
+            animation: 15s rotate1 .3s ease-in-out infinite;
+  }
+
+  .braintree--circle {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-animation: 15s rotate2 .3s ease-in-out infinite;
+            animation: 15s rotate2 .3s ease-in-out infinite;
+  }
+
+  @-webkit-keyframes rotate1 {
+    0%     {-webkit-transform: translateX(50px);transform: translateX(50px);}
+    50%    {-webkit-transform: translateX(0px);transform: translateX(0px);}
+    100%   {-webkit-transform: translateX(50px);transform: translateX(50px);}
+  }
+
+  @keyframes rotate1 {
+    0%     {-webkit-transform: translateX(50px);transform: translateX(50px);}
+    50%    {-webkit-transform: translateX(0px);transform: translateX(0px);}
+    100%   {-webkit-transform: translateX(50px);transform: translateX(50px);}
+  }
+
+  @-webkit-keyframes rotate2 {
+    0%     {-webkit-transform: translateX(0px);transform: translateX(0px);}
+    50%    {-webkit-transform: translateX(50px);transform: translateX(50px);}
+    100%   {-webkit-transform: translateX(0px);transform: translateX(0px);}
+  }
+
+  @keyframes rotate2 {
+    0%     {-webkit-transform: translateX(0px);transform: translateX(0px);}
+    50%    {-webkit-transform: translateX(50px);transform: translateX(50px);}
+    100%   {-webkit-transform: translateX(0px);transform: translateX(0px);}
+  }
+</style>
+
+<!-- start exclude from search -->
+<div class="partnership--circles layout--mbs">
+  <div class="braintree--circle">
+    <svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <circle id="path-1" cx="35" cy="35" r="35"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <mask id="mask-2" fill="white">
+    <use xlink:href="#path-1"></use>
+    </mask>
+    <use id="Oval-2" fill="#000000" xlink:href="#path-1"></use>
+    <text id="B" mask="url(#mask-2)" font-family="bt_mono-Bold, bt_mono" font-size="30" font-weight="bold" fill="#FFFFFF">
+    <tspan x="26.3" y="44">B</tspan>
+    </text>
+    </g>
+    </svg>
+  </div>
+  <div class="paypal--circle">
+    <svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+    <stop stop-color="#008AD0" offset="0%"></stop>
+    <stop stop-color="#002E87" offset="100%"></stop>
+    </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group-26">
+    <circle id="Oval-2-Copy" fill="url(#linearGradient-1)" cx="35" cy="35" r="35"></circle>
+    <g id="Page-1" transform="translate(25.000000, 24.000000)" fill="#FFFFFF">
+    <g id="Group-3" transform="translate(0.000000, 0.067941)" opacity="0.799999952">
+    <path d="M16.9461648,5.67054579 C17.2168132,3.95045004 16.9442308,2.77990795 16.0106813,1.71983073 C14.9828462,0.552541158 13.1259011,0.0524979151 10.750022,0.0524979151 L3.85362637,0.0524979151 C3.36817582,0.0524979151 2.95476923,0.404612201 2.8790989,0.882610656 L0.00737362637,19.0298076 C-0.0493186813,19.387945 0.228461538,19.7117504 0.592186813,19.7117504 L4.84967033,19.7117504 L4.55569231,21.568813 C4.50625275,21.8820176 4.7490989,22.1652269 5.06737363,22.1652269 L8.65591209,22.1652269 C9.08068132,22.1652269 9.44223077,21.8572022 9.50847253,21.439074 L9.54364835,21.2574153 L10.2197253,16.9851836 L10.2633626,16.749196 C10.3294835,16.3310678 10.6911538,16.0230431 11.1159231,16.0230431 L11.6527473,16.0230431 C15.1292308,16.0230431 17.8514286,14.6154292 18.6469341,10.5447327 C18.9792308,8.84367012 18.8074615,7.42388942 17.9285495,6.42573035 C17.6626154,6.12384927 17.3318901,5.8741288 16.9461648,5.67054579 L16.9461648,5.67054579" id="Fill-1"></path>
+    </g>
+    <g id="Group-6" transform="translate(0.000000, 0.067941)" fill-opacity="0.599999964">
+    <path d="M16.9461648,5.67054579 C17.2168132,3.95045004 16.9442308,2.77990795 16.0106813,1.71983073 C14.9828462,0.552541158 13.1259011,0.0524979151 10.750022,0.0524979151 L3.85362637,0.0524979151 C3.36817582,0.0524979151 2.95476923,0.404612201 2.8790989,0.882610656 L0.00737362637,19.0298076 C-0.0493186813,19.387945 0.228461538,19.7117504 0.592186813,19.7117504 L4.84967033,19.7117504 L5.91908791,12.9533968 L5.88596703,13.1652917 C5.96163736,12.6874137 6.37153846,12.3352995 6.85710989,12.3352995 L8.88050549,12.3352995 C12.8546484,12.3352995 15.9664396,10.7262709 16.8756923,6.07301375 C16.9025275,5.93520371 16.9254945,5.80173035 16.9461648,5.67054579" id="Fill-4"></path>
+    </g>
+    <path d="M7.06795934,5.761339 C7.11340989,5.47379305 7.2985967,5.23840772 7.54797033,5.11938996 C7.66123407,5.06518147 7.78779451,5.0351861 7.92051978,5.0351861 L13.3264758,5.0351861 C13.9668934,5.0351861 14.5639154,5.07686641 15.1099264,5.16456371 C15.2658604,5.18962008 15.4176846,5.21829035 15.5651571,5.25093591 C15.7126297,5.28358147 15.8557505,5.31996139 15.9943989,5.36043707 C16.0636626,5.38055444 16.1318385,5.40175598 16.1988055,5.42392124 C16.4669154,5.51258224 16.7165308,5.61726486 16.9462011,5.73845097 C17.2168495,4.01835521 16.944267,2.84781313 16.0107176,1.78773591 C14.9828824,0.620446332 13.1259374,0.120523552 10.7500582,0.120523552 L3.85366264,0.120523552 C3.36809121,0.120523552 2.95468462,0.472517375 2.87901429,0.95051583 L0.00740989011,19.0978332 C-0.0492824176,19.4558502 0.228376923,19.7796556 0.592102198,19.7796556 L4.84958571,19.7796556 L5.91912418,13.0214224 L7.06795934,5.761339 Z" id="Fill-7"></path>
+    </g>
+    </g>
+    </g>
+    </svg>
+  </div>
+</div>
+<!-- end exclude from search -->
+
+          </figure>
+          <h3 class="heading--article">Braintree & PayPal</h3>
+          <p>
+            Braintree is a PayPal service, meaning you get Braintree’s innovative technology and white-glove support backed by one of the world’s most trusted and established fintech brands.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-item grid-item--primary">
+        <div class="content content--default-spacing small--layout--ps">
+          <figure>
+            <style>
+  .small--globe {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.15);
+    background: #fff;
+  }
+
+  .small--globe svg {
+    -webkit-animation: 30s spin linear infinite;
+            animation: 30s spin linear infinite;
+    height: 80px;
+    left: 0;
+    position: absolute;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: translateX(20px);
+              transform: translateX(20px);
+    }
+    100% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      -webkit-transform: translateX(20px);
+              transform: translateX(20px);
+    }
+    100% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+    }
+  }
+</style>
+
+<!-- start exclude from search -->
+<div class="small--globe layout--mbs">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 48 37.5" xml:space="preserve"><g transform="translate(-484 -1460)"><g xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect x="492" y="1465" width="1" height="1"/><rect x="493" y="1466" width="1" height="1"/><rect x="497" y="1466" width="1" height="1"/><g><path d="M502,1463h-1l-2,1h-4l-1,1v1h1v1h1v-1h1l1-1h1l1,1v1l1,2h1v-2l2-1v-1L502,1463z"/></g><rect x="498" y="1467" width="1" height="1"/><rect x="503" y="1467" width="1" height="1"/><rect x="507" y="1463" width="2" height="1"/><rect x="505" y="1469" width="1" height="1"/><rect x="513" y="1465" width="1" height="1"/><rect x="514" y="1464" width="1" height="1"/><polygon points="523,1472 523,1473 525,1473 525,1470 524,1470 524,1472   "/><rect x="521" y="1475" width="1" height="2"/><rect x="520" y="1478" width="1" height="1"/><rect x="521" y="1479" width="1" height="1"/><rect x="522" y="1478" width="1" height="1"/><rect x="524" y="1478" width="3" height="1"/><g><path d="M526,1480h-2l-2,1l1,3l2-1l2,1l1-2L526,1480z"/></g><rect x="529" y="1484" width="1" height="1"/><rect x="530" y="1483" width="1" height="1"/><rect x="512" y="1479" width="1" height="2"/><rect x="491" y="1466" width="1" height="1"/><path d="M498,1476v-1h-3v-1h2l2-2l1-1v-1l-2-1l-1,1h-1l-1-1l2-1l-2-1l-1,1l-3-1h-4l-1,1l1,2l1-1l2,1l1,1v2l2,2l2,1l2,1l-2,2l1,2    l1,1v3v2h1l2-4h1l1-3v-1l-6-3H498z"/><g><path d="M523,1466l-2-1l-1-1l-8,3l-3-1l-2,2v1l-1,1v1h-1v2l-1,1v2l1,1h2v3l2,2h1l1-2v-2l2-2l1-1v-1h1l1,2h1v-1l1-1l1,2l1,1v-2     l2-1v-2h1l1-2v-1h2v1h1v-1l2-1v-2H523z"/></g><rect x="527" y="1479" width="1" height="1"/><rect x="523" y="1474" width="1" height="1"/></g></g></svg>
+</div>
+<!-- end exclude from search -->
+
+          </figure>
+          <h3 class="heading--article">Go global with ease</h3>
+          <p>
+            Almost anywhere in the world your buyers are located, we’ve got you covered with the tools you need to <a href="/features/global" class="link">grow internationally</a>. With one simple integration, your business can accept online and mobile payments in 130+ currencies and over 45 countries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<div class="row layout--pv">
+  <div class="page-container">
+    <div class="content layout--text-center layout--align-center">
+      <h2 class="heading--section layout--pb">Learn more about Braintree &amp; payments</h2>
+    </div>
+
+    <div class="grid large--grid--three medium--grid--two grid--overflow-spacing grid--gutters">
+      <div class="grid-item">
+<a href="/resources">          <img src="/images/resources-74d8db62.jpg" class="layout--mbs util--hover-grow" alt="Resources" />
+</a>        <h3 class="heading--article layout--mbxs">Resources</h3>
+        <p>Industry-leading content to keep you ahead of the payments curve.</p>
+      </div>
+
+      <div class="grid-item">
+<a href="/learn/braintree-merchants">            <img src="/images/merchants-645aedfe.jpg" class="layout--mbs util--hover-grow" alt="Merchants" />
+</a>        <h3 class="heading--article layout--mbxs">Merchant stories</h3>
+        <p>Why businesses choose to partner with Braintree.</p>
+      </div>
+
+
+      <div class="grid-item">
+<a href="/blog">          <img src="/images/blog-3839f960.jpg" class="layout--mbs util--hover-grow" alt="Blog" />
+</a>        <h3 class="heading--article layout--mbxs">Blog</h3>
+        <p>A collection of facts, tidbits, and musings about our world.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="information" class="row layout--pb util--negative-padding">
+  <div class="page-container">
+    <div class="content layout--align-center">
+      <div class="card card--alternate content layout--align-center layout--ps">
+        <h3 class="heading--article layout--text-center layout--pbs">Interested in learning more?</h3>
+        <p class="medium--layout--ph layout--text-center layout--mbs">
+          <a href="/contact/sales" class="link">Connect with our Sales team</a> to talk about how we can help your business process at scale, or sign up for more info:
+        </p>
+        
+<form id="homepage_lead_form" class="form" action="/api/contact" method="post" data-redirect="/thank-you/contact" data-tracking novalidate>
+  <input type="hidden" name="lead_source" id="homepage_lead_form_lead_source" value="Web: Marketing updates">
+  <input type="hidden" name="record_type" id="homepage_lead_form_record_type" value="01280000000UKWG">
+  <input type="hidden" name="target_product" id="homepage_lead_form_target_product" value="BT DCC">
+  <input type="hidden" name="country" id="homepage_lead_form_country" value="United States">
+
+  <div class="form__row">
+    
+<div class="form-field form-field--input form-field--column-6" data-field="first_name"  >
+    <label for="homepage_lead_form_first_name" class="form-field__label">Full name</label>
+
+  <input
+    id="homepage_lead_form_first_name"
+    class="form-field__input form-field__input--text"
+    name="first_name"
+    type="text"
+      placeholder="First name"
+      required
+  >
+
+  <div class="form-field__input-state-container">
+    <div class="form-field__error form-field__error--required">Required</div>
+
+
+
+
+  </div>
+
+</div>
+
+
+    
+<div class="form-field form-field--input form-field--column-6" data-field="last_name"  >
+
+  <input
+    id="homepage_lead_form_last_name"
+    class="form-field__input form-field__input--text"
+    name="last_name"
+    type="text"
+      placeholder="Last name"
+      required
+      aria-labelledby="Last name"
+  >
+
+  <div class="form-field__input-state-container">
+    <div class="form-field__error form-field__error--required">Required</div>
+
+
+
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="form__row">
+    
+<div class="form-field form-field--input form-field--column-6" data-field="company"  >
+    <label for="homepage_lead_form_company" class="form-field__label">Company name</label>
+
+  <input
+    id="homepage_lead_form_company"
+    class="form-field__input form-field__input--text form-field__input--word-required"
+    name="company"
+    type="text"
+      placeholder="Example Company"
+      required
+  >
+
+  <div class="form-field__input-state-container">
+    <div class="form-field__error form-field__error--required">Required</div>
+
+
+      <div class="form-field__error form-field__error--word">Invalid Company name</div>
+
+
+  </div>
+
+</div>
+
+
+    
+<div class="form-field form-field--input form-field--column-6" data-field="email"  >
+    <label for="homepage_lead_form_email" class="form-field__label">Email address</label>
+
+  <input
+    id="homepage_lead_form_email"
+    class="form-field__input form-field__input--email"
+    name="email"
+    type="email"
+      placeholder="me@example.com"
+      required
+  >
+
+  <div class="form-field__input-state-container">
+    <div class="form-field__error form-field__error--required">Required</div>
+
+      <div class="form-field__error form-field__error--email">Invalid Email</div>
+
+
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="form__actions">
+    <input type="checkbox" class="form__fktos" name="accept_tos" id="accept-tos" value="checked">
+    <button class="form__button form__submit button button--primary button--large">
+      <span class="button__text">Submit</span>
+      <img src="/images/icon-loading-b87fedbe.svg" class="button__loading-icon" alt="Icon loading" />
+    </button>
+    <div class="form__error form__error--request"></div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='https://www.google.com/recaptcha/api.js?render=explicit"' async defer></script>
+
+    </section>
+
+      <footer class="main-footer util--inverted">
+  <div class="page-container">
+    <div class="main-footer__signup">
+      <div class="grid large--grid--fluid grid--gutters grid--align-center">
+        <div class="grid-item large--layout--pr">
+          <span class="heading--display">Scale your business with Braintree.</span>
+        </div>
+
+        <div class="grid-item main-footer__signup-buttons">
+          <div class="button-group">
+              <a href="https://apply.braintreegateway.com/signup/us" class="button button--primary" data-track-event-properties="project=journey&amp;marketing,action=click,type=button,intent=apply for a braintree merchant account,descriptor=sign up">Sign up</a>
+            <a href="/sandbox" class="button button--secondary">Try the sandbox</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-footer__sitemap">
+      <div class="grid small--grid--two medium--grid--three large--grid--four xlarge--grid--fluid grid--gutters grid--overflow-spacing-small">
+
+        <div class="grid-item">
+          <div class="heading--article layout--mbxs">Products</div>
+          <ul class="list list--padded-small list--grouped text--small">
+            <li>
+              <a href="/products/braintree-direct" class="link">Braintree Direct</a>
+            </li>
+            <li>
+              <a href="/products/braintree-marketplace" class="link">Braintree Marketplace</a>
+            </li>
+            <li>
+              <a href="/products/braintree-auth" class="link">Braintree Auth</a>
+            </li>
+            <li>
+              <a href="/products/contextual-commerce" class="link">Contextual Commerce</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-item">
+          <div class="heading--article layout--mbxs">Platform</div>
+          <ul class="list list--padded-small list--grouped text--small">
+            <li>
+              <a href="/features" class="link">Features</a>
+            </li>
+            <li>
+              <a href="/braintree-pricing" class="link">Pricing</a>
+            </li>
+            <li>
+              <a href="/braintree-for-enterprises" class="link">Enterprise</a>
+            </li>
+            <li>
+              <a href="/sandbox" class="link">Sandbox</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-item">
+          <div class="heading--article layout--mbxs">Payment Methods</div>
+          <ul class="list list--padded-small list--grouped text--small">
+            <li>
+              <a href="/features/credit-cards" class="link">Credit/Debit Cards</a>
+            </li>
+            <li>
+              <a href="/features/ach-direct-debit" class="link">ACH Direct Debit</a>
+            </li>
+            <li>
+              <a href="/features/paypal" class="link">PayPal</a>
+            </li>
+            <li>
+              <a href="/features/paypal#paypal-one-touch" class="link">PayPal One Touch</a>
+            </li>
+              <li>
+                <a href="/features/paypal#paypal-credit" class="link">PayPal Credit</a>
+              </li>
+            <li>
+              <a href="/features/venmo" class="link">Venmo</a>
+            </li>
+            <li>
+              <a href="/features/apple-pay" class="link">Apple Pay</a>
+            </li>
+            <li>
+            <a href="/features/google-pay" class="link">Google Pay</a>
+            </li>
+            <li>
+              <a href="/features/android-pay" class="link">Android Pay</a>
+            </li>
+            <li>
+              <a href="/features/visa-checkout" class="link">Visa Checkout</a>
+            </li>
+            <li>
+              <a href="/features/masterpass" class="link">Masterpass</a>
+            </li>
+            <li>
+              <a href="/features/amex-express-checkout" class="link">Amex Express Checkout</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-item">
+          <div class="heading--article layout--mbxs">Company</div>
+          <ul class="list list--padded-small list--grouped text--small">
+            <li>
+              <a href="/about-braintree" class="link">About</a>
+            </li>
+            <li>
+              <a href="/blog" class="link">Blog</a>
+            </li>
+            <li>
+              <a href="/learn/braintree-merchants" class="link">Merchant Stories</a>
+            </li>
+            <li>
+              <a href="/press" class="link">Press</a>
+            </li>
+            <li>
+              <a href="/careers" class="link">Careers</a>
+            </li>
+            <li>
+              <a href="/resources" class="link">Resources</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-item">
+          <div class="heading--article layout--mbxs">Help</div>
+          <ul class="list list--padded-small list--grouped text--small">
+            <li>
+              <a href="/contact" class="link">Contact Us</a>
+            </li>
+            <li>
+              <a href="/faq" class="link">FAQ</a>
+            </li>
+            <li>
+              <a href="https://articles.braintreepayments.com" class="link">Support Articles</a>
+            </li>
+            <li>
+              <a href="https://developers.braintreepayments.com" class="link">Developer Docs</a>
+            </li>
+            <li>
+              <a href="https://status.braintreepayments.com/" class="link">API Status</a>
+            </li>
+            <li>
+              <a href="/site-map" class="link">Site Map</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-footer__subsection text--menu grid large--grid--fluid">
+      <div class="main-footer__social grid-item">
+<a href="https://www.instagram.com/braintree" class="link">          <img src="/images/social/instagram-79de1405.svg" alt="Instagram" />
+</a>
+<a href="https://twitter.com/braintree" class="link">          <img src="/images/social/twitter-c13b64b5.svg" alt="Twitter" />
+</a>
+<a href="https://www.facebook.com/braintree/" class="link">          <img src="/images/social/facebook-cb77bb15.svg" alt="Facebook" />
+</a>      </div>
+
+      <div class="main-footer__legal grid-item text--small">
+        Braintree is a service of PayPal. &copy; 2018 PayPal
+        <a href="https://www.paypal.com/webapps/mpp/ua/privacy-full" class="link">Privacy Policy</a> | <a href="/legal" class="link">Legal</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- DATA LAYER -->
+<!-- Google Tag Manager -->
+<script>
+  dataLayer = [{
+    'gtm.blacklist': []
+  }];
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- ANALYTICS -->
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KX4LMH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KX4LMH');</script>
+<!-- End Google Tag Manager -->
+
+<!-- ADWORDS -->
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2QMX6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2QMX6');</script>
+<!-- End Google Tag Manager -->
+
+<div class="squash">
+  <div style="display:none;">
+    <script src="https://www.googleadservices.com/pagead/conversion.js"></script>
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/952085453/?value=0&amp;label=VwXeCOOYqgQQzdf-xQM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/5710.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+<script type="text/javascript">
+  var _elqQ = _elqQ || [];
+  _elqQ.push(['elqSetSiteId', '94483084']);
+  _elqQ.push(['elqTrackPageView']);
+
+  (function () {
+    function async_load() {
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+      s.src = '//img.en25.com/i/elqCfg.min.js';
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    }
+    if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+    else if (window.attachEvent) window.attachEvent('onload', async_load);
+  })();
+</script>
+
+<!-- start Contently -->
+<script type="text/javascript">
+  (function(){
+    function initInsights() {
+      if (!window._contently) {
+        var _contently = { siteId: "0ea4157115e885e9aa0e48323afc3c14" };
+        _contently.insights = new ContentlyInsights({site_id: _contently.siteId});
+        window._contently = _contently;
+      }
+    }
+
+    var s = document.createElement('script');
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('async', 'async');
+    s.setAttribute('src', '//assets.contently.com/insights/insights.js');
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initInsights();
+      }
+    };
+    s.onload = initInsights;
+    document.body.appendChild(s);
+  })();
+</script>
+<!-- end Contently -->
+
+<!-- start Eloqua -->
+<script type="text/javascript">
+  var _elqQ = _elqQ || [];
+  _elqQ.push(['elqSetSiteId', '94483084']);
+  _elqQ.push(['elqTrackPageView']);
+
+  (function () {
+    function async_load() {
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+      s.src = '//img.en25.com/i/elqCfg.min.js';
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    }
+    if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+    else if (window.attachEvent) window.attachEvent('onload', async_load);
+  })();
+</script>
+<!-- end Eloqua -->
+
+
+<script src="/javascripts/main-6c2c9268.js"></script>
+
+  </body>
+</html>

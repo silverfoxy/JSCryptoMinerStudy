@@ -1,0 +1,2524 @@
+<!doctype html>
+<html lang="ru">
+<head>
+
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+
+    <script type="text/javascript">
+        VK.init({apiId: 4654177, onlyWidgets: true});
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ByCard - продажа билетов в кино, на концерты, в театры</title>
+        <meta name="description"
+          content="ByCard - cамый удобный сервис по покупке билетов. У нас вы сможете легко приобрести билеты в кино, на спектакли, концерты и другие мероприятия.">
+    <meta property="og:image" content="http://www.bycard.by/images/bycard_logo.jpg">
+    <link rel="shortcut icon" href="/favicon.ico?2">
+	
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48 256x256">
+	<link rel="icon" type="image/png" href="/images/sidebar_logo.svg" sizes="192x192">
+	
+    <meta name="viewport" content="width=1184">
+<meta name="copyright" content="Все права принадлежат  bycard.by">
+<meta name="author" content="bycard.by">
+<meta name="mailru-verification" content="6c2e3629195fb34f" />
+    <link rel="stylesheet" href="http://static.bycard.by/resources/css/header.css?v=76?53"/>
+    <link rel="stylesheet" href="http://static.bycard.by/resources/css/bootstrap.css?v=3?53"/>
+    <link rel="stylesheet" href="http://static.bycard.by/resources/css/footer.css?v=4?53"/>
+    <link rel="stylesheet" href="http://static.bycard.by/resources/css/reveal.css?v=1?53"/>
+    <link rel="stylesheet" href="http://static.bycard.by/resources/css/new/styles.css?53"/>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/jquery.min.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/jquery.reveal.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/jquery.search.js?1?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/jquery.cookie.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/jquery.slides.min.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/static.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/bootstrap.min.js?12"></script>
+    <script type="text/javascript" src="http://static.bycard.by/resources/js/new_design.js?12"></script>
+
+
+
+
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
+
+                <link rel="stylesheet" type="text/css" href="/css/stylesrd.css?39">
+        <link rel="stylesheet" type="text/css" href="/css/new/new.css?39">
+    
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:700&subset=latin,cyrillic" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" type="text/css" href="/css/styleswide.css?31"
+          xmlns="http://www.w3.org/1999/html">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
+                <script type="text/javascript" src="/js/main.js?14"></script>
+    
+    <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-css-transform.js"></script>
+    <script type="text/javascript" src="/js/rotate3Di.js"></script>
+    <script type="text/javascript">
+        function switchLists(show, hide) {
+            $('#' + hide).removeClass('active');
+            $('#' + show).addClass('active');
+            $('.events_list.' + hide).hide();
+            $('.events_list.' + show).show();
+            return false;
+        }
+        function switchTop(x) {
+            var cur = $('.top-event li.active');
+            cur.removeClass('active');
+            var curId = cur.find('a').attr('id');
+            $('#' + curId + '-container').hide();
+
+            x = $('#' + x.getAttribute('id'));
+            x.parent().addClass('active');
+            curId = x.attr('id');
+            $('#' + curId + '-container').show();
+            return false;
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.rating .action.active').on('click', function () {
+                var obj = $(this);
+                $.ajax({
+                    type: "post",
+                    dataType: 'jsonp',
+                    url: "http://order.bycard.by/updateRating/" + obj.attr('comment-id') + "/" + obj.attr('action-id'),
+                    success: function (response) {
+                        var resp = JSON.parse(response);
+                        $('.rating.comment-' + resp.comment_id + ' .counter').html(resp.rating);
+                    }
+                })
+            });
+
+            $('.social-block .share').hover(function () {
+
+                if ($(this).hasClass('init') || $(this).find('a:first').hasClass('init'))
+                    return false;
+
+                var button = $(this);
+                button.addClass('init');
+                new Ya.share({
+                    element: '' + button.attr('share-id'),
+                    elementStyle: {
+                        'type': 'none',
+                        'border': false,
+                        'quickServices': ['twitter', 'vkontakte', 'facebook', 'gplus', 'odnoklassniki']
+                    },
+                    link: "" + button.attr('share-link'),
+                    title: '' + button.attr('share-text'),
+                    image: "" + button.attr('share-image'),
+                    popupStyle: {
+                        blocks: {
+                            'Поделись-ка!': ['twitter', 'vkontakte', 'facebook', 'gplus', 'odnoklassniki'],
+                        },
+                        copyPasteField: true
+                    },
+                    serviceSpecific: {
+                        twitter: {
+                            title: '#Bycard ' + button.attr('share-text')
+                        }
+                    }
+                });
+            });
+
+
+            var c = $('#list-bonuses .face').length;
+            var flip = function () {
+                var isProbablyVisible = function ($face) {
+                    return $faceFirst.offset().top + 250 > $face.offset().top;
+                };
+                var $faces = $('#list-bonuses .face');
+                var $faceFirst = $faces.eq(0);
+                do {
+                    var r = Math.floor(Math.random() * c);
+                    var $div = $faces.eq(r);
+                } while (!isProbablyVisible($div));
+                do {
+                    var to = Math.floor(Math.random() * c);
+                    var $div2 = $faces.eq(to);
+                } while (isProbablyVisible($div2));
+                var $divClone = $div.clone();
+                var $divClone2 = $div.clone();
+                var changePartner = function () {
+                    var html = $div2.html();
+                    $div.html(html);
+                    $divClone.html(html);
+                };
+                var changePartnerComplete = function () {
+                    $divClone.insertAfter($div);
+                    $div.remove();
+                    $div2.html($divClone2.html());
+                };
+                $div.rotate3Di(180, 500, {
+                    sideChange: changePartner,
+                    complete: changePartnerComplete
+                });
+                return false;
+            };
+
+            $(window).load(function () {
+                setInterval(flip, 1000);
+            });
+
+//            var checkAdriverBannerAndInitBlock = function (attempt) {
+//                if ($('#adriver-banner img').length > 0 || $('.adv').height() > 0) {
+//                    $('#top-event-small').css('z-index', 0);
+//                    $('.top-newsbig2.no-adv').remove();
+//                    return;
+//                }
+//                if (attempt < 3) {
+ //                   setTimeout(function () {
+ //                       checkAdriverBannerAndInitBlock(attempt + 1)
+ //                   }, 1000);
+ //               } else {
+ //                   $('.top-newsbig2.adv').remove();
+ //                   $('.top-newsbig2.no-adv').css('display', 'inline-block');
+  //              }
+  //          };
+  //          checkAdriverBannerAndInitBlock(0);
+        });
+    </script>
+
+    </head>
+
+<body class="nh-body v5-fixed">
+<div id="bigwrap">
+    <aside id="main_aside">
+        <div class="page_sidebar"><a href="http://bycard.by" class="page_sidebar__logo"></a><div class="site_header__region" style="margin: 16px 33px;"><a href="#" class="region site_header__region_link"><span>Минск</span></a></div><nav><ul class="page_sidebar__nav"><li   class="have-submenu page_sidebar__nav_item menu_ticket page_sidebar__nav_item--active active1"><a href="http://kino.bycard.by/" class="title js-open"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Билеты</span></a><ul class="page_sidebar__nav_submenu"><li class="page_sidebar__nav_submenu_item "><a href="http://kino.bycard.by/" ><span>Кино</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/koncerty/" ><span>Концерты</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/spektakli/?limit=50" ><span>Театр</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/balet/" ><span>Балет</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/sport/" ><span>Спорт</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/vecherinki/" ><span>Вечеринки</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/treningi/" ><span>Тренинги</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/vystavki/" ><span>Выставки</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/Cirk/" ><span>Цирк</span></a></li><hr style="margin-bottom: 14px;width: 86px; opacity: 0.2; "></hr><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/detyam/" ><span>Детям</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://quests.bycard.by/" ><span>Квесты</span></a></li><li class="page_sidebar__nav_submenu_item "><a href="http://afisha.bycard.by/kvizy/" ><span>Квизы</span></a></li></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item menu_gift "><a href="http://gifts.bycard.by/" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Подарки</span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item menu_teatr-kv "><a href="http://afisha.bycard.by/theatr-quest " class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Театральный<br><span style="padding-left:10px"> квест<span></span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item menu_rail "><a href="http://poezd.bycard.by/" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Билеты на поезд </span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item menu_akva "><a href="http://afisha.bycard.by/aquapark" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Аквапарк</span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item menu_promo "><a href="http://www.bycard.by/coupons" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;"></span></a><ul class="page_sidebar__nav_submenu"></ul></li><hr style="margin-top: 21px"><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item bottom_menu_top "><a href="http://www.bycard.by/info/cashplaces" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Кассы</span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item bottom_menu "><a href="http://www.bycard.by/info/howtobuy" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Как купить</span></a><ul class="page_sidebar__nav_submenu"></ul></li><li   style="margin-top: 20px;" class="have-submenu page_sidebar__nav_item bottom_menu "><a href="http://pass.bycard.by/order/" class="title"><small style="margin-left: -10px;"></small><span style="margin-left: 4px;">Поиск заказа</span></a><ul class="page_sidebar__nav_submenu"></ul></li></ul></nav><div><!--<hr class="page_sidebar__menu" style="width: 75%; margin-left: 25px; margin-bottom: 80px; overflow: hidden;"><a href="http://www.bycard.by/info/cashplaces" class="page_sidebar__menu" style="height: 60px"><span class="page_sidebar__menu_kassy">Кассы</span></a><a href="http://www.bycard.by/info/howtobuy" class="page_sidebar__menu" style="height: 35px"><span class="page_sidebar__menu_buy">Как купить</span></a><a href="http://pass.bycard.by/order/" class="page_sidebar__menu" style="height: 10px"><span class="page_sidebar__menu_search">Поиск заказа</span></a><a href="tel:+375333650000" class="page_sidebar__phone"><span class="page_sidebar__phone_number">+375 33 365-00-00</span><span class="page_sidebar__phone_time">с 9:00 — 22:00</span></a>--></div></div>
+    </aside>
+	<div id="content_wrap">
+	                                <link rel="stylesheet" type="text/css" href="http://www.bycard.by/rss/css/styles.css"><script type="text/javascript" src="http://www.bycard.by/rss/js/blockadblock.js?14"></script><!-- BD-289 --><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N959HRV');</script><!-- End Google Tag Manager --><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N959HRV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) --></script><div class="adb"><div id="block-adb-enabled" class="blocked-adb-msg" style = "display:none"><div class="blocked-adb-msg-w"><span class="close-btn">x</span><p>Пожалуйста, отключите блокировщик рекламы, чтобы не пропустить новые мероприятия в Афише и свежие статьи в Журнале ByCard</p></div></div></div><script>
+			function adBlockDetected() {
+				$('#block-adb-enabled').show();
+			}
+			function adBlockNotDetected() {
+				$('#block-adb-enabled').hide();
+			}
+			
+			if(typeof blockAdBlock === 'undefined') {
+				adBlockDetected();
+			} else {
+				blockAdBlock.setOption({ debug: true });
+				blockAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+			}
+			closeBtn = $('.close-btn');
+			closeOnClick();
+
+			function closeOnClick() {
+				closeBtn.on('click', function () {
+					$(this).parent().remove();
+				});
+			}
+		</script><style type="text/css">
+            body {background:  url("http://www.bycard.by/uploads/branding/stand-up_брендирование-сайта.jpg") center 0px fixed repeat !important;}
+                    </style><iframe id='a14cd431' name='a14cd431' src='http://i.bycard.by/www/delivery/afr.php?zoneid=6&amp;cb=7777777' frameborder='0' scrolling='no' width='990' height='90'><a href='http://i.bycard.by/www/delivery/ck.php?n=ac8cae94&amp;cb=7777777' target='_blank'><img src='http://i.bycard.by/www/delivery/avw.php?zoneid=6&amp;cb=7777777&amp;n=ac8cae94' border='0' alt='' /></a></iframe><header class="nh site_header site_header--no_title"><div class="search-block site_header__search"><a href="#" class="search-icon site_header__search_icon" onclick="initSearch(); return false;"></a><input type="text" class="site_header__search_input"/><a href="#" class="search-button site_header__search_button" onclick="initSearch(); return false;">Найти!</a><div class="search-results" id="search-results"></div></div><div class="site_header__links"><!--
+                <a href="#">Покупка по безналу</a>
+             --></div><div class="site_header__right"><div class="site_header__region"><a href="#" class="region site_header__region_link"><span>Минск</span></a></div><div class="site_header__user"><div data-toggle="modal" data-target="#login" class="site_header__user_button login-button"
+                         style="cursor: pointer"><i></i><span>Войти</span></div></div></div></header><div class="region-menu"><div class="header-part"><i></i><span>Выберите область</span><a href="#" class="close-select-region">Закрыть</a></div><div class="list-part"><ul><li>Минская область</li><li  class="active"><a data-id="1"
+                                                                                    href="#">Минск</a></li><li>Брестская область</li><li ><a data-id="10"
+                                                                                    href="#">Барановичи</a></li><li ><a data-id="2"
+                                                                                    href="#">Брест</a></li><li ><a data-id="18"
+                                                                                    href="#">Лунинец</a></li><li ><a data-id="11"
+                                                                                    href="#">Пинск</a></li><li ><a data-id="21"
+                                                                                    href="#">Столин</a></li><li>Витебская область</li><li ><a data-id="3"
+                                                                                    href="#">Витебск</a></li><li ><a data-id="12"
+                                                                                    href="#">Орша</a></li><li ><a data-id="16"
+                                                                                    href="#">Полоцк</a></li><li ><a data-id="13"
+                                                                                    href="#">Толочин</a></li><li ><a data-id="15"
+                                                                                    href="#">Городок</a></li><li>Гомельская область</li><li ><a data-id="4"
+                                                                                    href="#">Гомель</a></li><li ><a data-id="23"
+                                                                                    href="#">Житковичи</a></li><li ><a data-id="17"
+                                                                                    href="#">Жлобин</a></li><li ><a data-id="8"
+                                                                                    href="#">Мозырь</a></li><li ><a data-id="14"
+                                                                                    href="#">Калинковичи</a></li><li ><a data-id="7"
+                                                                                    href="#">Речица</a></li><li ><a data-id="9"
+                                                                                    href="#">Рогачев</a></li><li ><a data-id="22"
+                                                                                    href="#">Чирковичи</a></li><li>Гродненская область</li><li ><a data-id="5"
+                                                                                    href="#">Гродно</a></li><li ><a data-id="24"
+                                                                                    href="#">Щучин</a></li><li>Могилевская область</li><li ><a data-id="6"
+                                                                                    href="#">Могилев</a></li><li ><a data-id="20"
+                                                                                    href="#">Осиповичи</a></li></ul></div></div>
+<script type="text/javascript">
+    var cur_width = 1000;
+
+    $(window).resize(function () {
+        var x = $(document).width();
+        var y = 1000;
+        if (x >= 1162)
+            y = 1162;
+        if (x >= 1324)
+            y = 1324;
+        if (y != cur_width) {
+            cur_width = y;
+            $('body.wide .header4 .full-width').css('width', y + 'px');
+            $('body.wide .footer .main3footer').css('max-width', y + 'px');
+        }
+    });
+
+    $(document).ready(function () {
+        $('.selected-region').on('click tap', function () {
+            if ($('ul.dropdown-menu.sr').css('display') == 'block') {
+                $('ul.dropdown-menu.sr').hide();
+                return false;
+            }
+            $('ul.dropdown-menu.uc').hide();
+            $('ul.dropdown-menu.sr').show();
+            return false;
+        });
+
+                $('.dropdown.usercab .username').on('click tap', function () {
+            if ($('ul.dropdown-menu.uc').css('display') == 'block') {
+                $('ul.dropdown-menu.uc').hide();
+                return false;
+            }
+            $('ul.dropdown-menu.sr').hide();
+            $('ul.dropdown-menu.uc').show();
+            return false;
+        });
+
+        $('.list-part a').on('click tap', function () {
+            var new_id = $(this).data('id');
+            var old_id = $.cookie('region');
+            if (old_id != new_id || true) {
+                $.cookie('region', new_id, {
+                    expires: 365,
+                    path: '/',
+                    domain: "bycard.by"
+                });
+                window.location.reload();
+            }
+            return false;
+        });
+
+        $('body').on("click", function (event) {
+            $('.search-block input').val('');
+            $('#search-results').hide();
+        });
+
+        initSearch();
+    });
+
+    $(document).click(function (event) {
+        if (!$(event.target).closest('ul.dropdown-menu.sr').length)
+            $('ul.dropdown-menu.sr').hide();
+        if (!$(event.target).closest('ul.dropdown-menu.uc').length)
+            $('ul.dropdown-menu.uc').hide();
+        event.stopPropagation();
+    });
+
+    $(".close-select-region").on('click tap', function () {
+        $(".region-menu").removeClass('active');
+        return false;
+    });
+    $(".region").on('click tap', function () {
+        showReg();
+    });
+
+    function showReg() {
+        $(".region-menu").addClass('active');
+        return false;
+    }
+
+    function initSearch() {
+        $('.search-block input').focus(function () {
+            $('.search-block').search();
+        });
+    }
+
+    </script>
+<script type="text/javascript">
+    $(document).on('click', function (e) {
+        if (e.toElement && (($(e.toElement).get(0) && $(e.toElement).get(0).tagName == "BODY") || (e.toElement.lastChild && $(e.toElement.lastChild).get(0) && $(e.toElement.lastChild).get(0).tagName == "BODY"))) {
+//            var href = $('#top-banner-adriver a').attr('href');
+
+//            if (href) {
+//                window.open(href, '_blank');
+//            }
+        }
+    });
+</script>
+
+         <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-close" onclick="$('#login').modal('hide'); return false;"></div><div class="modal-dialog"><div class="modal-content"><div class="new-popup-content forms modal-width"><div class="cross" data-dismiss="modal"></div><div class="forms" ><div class="form-text-h2"><span class="s1">Войдите</span><span class="s2"> Или </span><span class="s3">зарегистрируйтесь</span></div><div class="login-form"><form class="forms_login" id="forms_login" enctype="application/x-www-form-urlencoded" method="POST" action="http://pass.bycard.by/login/submit"><div class="items"><div class="item"><label for="Forms_Login[username]"></label><input name="Forms_Login[username]" type="text" value=""
+                                                   data-isvalid="undefined" placeholder="Имя пользователя или @"
+                                                   autocomplete="on"></div><div class="item"><label for="Forms_Login[password]"></label><input type="password" value="" name="Forms_Login[password]"
+                                                   data-isvalid="undefined" placeholder="Пароль""></div><div class="f-pass"><a href="#" data-dismiss="modal" class="forget-button" style="cursor:pointer;" onclick="return false;">Забыли пароль?</a><script>
+                                                $(document).ready(function(){
+                                                    $('.forget-button').on('click tap',function() {$('#login').modal('hide');
+                                                        setTimeout(function () {
+                                                            $('#forget').modal('show');
+                                                        }, 500);
+                                                    });
+                                                })
+                                            </script></div><input type="hidden" value="http://www.bycard.by/" name="Forms_Login[success_url]"
+                                               data-isvalid="undefined"><input type="hidden" value="http://www.bycard.by/" name="Forms_Login[failed_url]"
+                                               data-isvalid="undefined"><input type="submit" style="width:0;height:0;padding: 0;margin:0;border:none;"/></div><div class="enter-popup"><input type="submit" style="display:none;"><a href="#" class="enter-button-login" onclick="$('#forms_login').submit();$('#login').modal('hide'); return false;" style="cursor:pointer;">Войти</a></div></form></div><div class="register-form"><form class="forms_registration" enctype="application/x-www-form-urlencoded" method="POST" action="http://pass.bycard.by/register/submit" id="register_form"><div class="items"><div class="item"><label for="Forms_Registration[username]"></label><input type="text" value=""
+                                                   name="Forms_Registration[username]"
+                                                   data-isvalid="undefined" error="" id="FormsRegister_username" placeholder="Имя пользователя"
+                                                   autocomplete="off"></div><div class="item"><label for="Forms_Registration[email]"></label><input type="text" value=""
+                                                                                                       name="Forms_Registration[email]" data-isvalid="undefined"
+                                                   placeholder="Электронная почта" autocomplete="off"></div><div class="item"><label for="Forms_Registration[password]"></label><input type="password" value=""
+                                                     name="Forms_Registration[password]"
+                                                   data-isvalid="undefined" placeholder="Пароль" autocomplete="off"></div><input type="hidden" value="http://www.bycard.by/" name="Forms_Registration[success_url]"
+                                               data-isvalid="undefined"><input type="hidden" value="http://www.bycard.by/" name="Forms_Registration[failed_url]"
+                                               data-isvalid="undefined"></div><div class="enter-popup"><input type="submit" style="display:none;"><a class="enter-button-register" href="#" onclick="$('#register_form').submit(); $('#login').modal('hide'); return false;">Зарегистрироваться</a></div></form></div><div style="text-align: center;margin-top: 20px;">Нажимая кнопку "Войти" или "Зарегистрироваться" вы соглашаетесь с<br><a class="siterules" href="http://www.bycard.by/info/siterules" target="_blank">Условиями использования сайта</a></div></div><div class="social-auth-text"> Или авторизируйтесь через социальные сети:</div><div class="social-links soclogin"><a class="vk" style="cursor:pointer;"></a><a class="tw" style="cursor:pointer;"></a><a class="od" style="cursor:pointer;"></a></div><script type="text/javascript">
+	function iOS_isiOSDevice()	{	return navigator.userAgent.indexOf("iPhone") > -1 || navigator.userAgent.indexOf("iPod") > -1 || navigator.userAgent.indexOf("iPad") > -1;	}
+
+	if (iOS_isiOSDevice()) {
+		$(document).ready(function() {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			var token = false;
+			for (var i=0;i<vars.length;i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == 'token') 
+					token = pair[1];
+			}	
+			var return_url = 'http://www.bycard.by/';
+			if (return_url.search('token=') >= 0) {
+				var i = 0;
+				var s = '';
+				var j = return_url.search('token=');
+				s += return_url.substr(i, j);
+				return_url = return_url.substr(j);
+				var i = return_url.search('&');
+				if (i >= 0)
+					s += return_url.substr(i);
+				return_url = s;
+			}
+			if (token)
+				window.location = 'http://pass.bycard.by/social/submit?token=' + token + '&return_url=' + return_url;
+		});
+
+		$('.soclogin .vk').live('click', function() {
+			var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/vk' + '?return_url=' + window.location;
+			var url = 'https://oauth.vk.com/authorize?client_id=3762379&scope=0&display=page&v=5.4&response_type=code&redirect_uri=' + redirect_uri;
+			window.location = url;
+			return false;
+		});				
+
+		$('.soclogin .tw').live('click', function() {
+			var url = 'http://pass.bycard.by/soclogin/tw' + '?return_url=' + window.location;
+			window.location = url;
+			return false;
+		});
+
+		$('.soclogin .fb').live('click', function() {
+	    	var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/fb/';
+		    $.cookie("fb_returnUrl", window.location, {
+		    	path: "/",
+	    		domain: ".bycard.by"
+		    });
+			var url = 'https://www.facebook.com/dialog/oauth?client_id=606562532714275&response_type=code&redirect_uri=' + redirect_uri;
+			window.location = url;
+			return false;
+		});
+
+		$('.soclogin .od').live('click', function() {
+		    var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/od' + '?return_url=' + window.location;
+			var url = 'http://www.odnoklassniki.ru/oauth/authorize?client_id=203635968&response_type=code&redirect_uri=' + redirect_uri;
+			window.location = url;
+			return false;
+		});
+
+	} else {
+		var win = null;
+		var pattern = '1123';
+
+		$('.soclogin .vk').live('click', function() {
+			var win_loc = window.location.toString();
+			if (win_loc.search('#') >= 0) {
+				win_loc = win_loc.substr(0, win_loc.search('#'));
+			}
+
+			var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/vk' + '?return_url=' + win_loc;
+			var x = win_loc;
+			x = x.replace('\?', '\\?');
+			pattern = new RegExp(x + '(.*)');
+			var url = 'https://oauth.vk.com/authorize?client_id=3762379&scope=0&display=popup&v=5.4&response_type=code&redirect_uri=' + encodeURIComponent(redirect_uri);
+			if (win)
+				win.close();
+			var left = (screen.width / 2) - 300;
+			var top = (screen.height / 2) - 200;
+			win = window.open(url, 'VkLogin', "width=600,height=400,left=" + left + ",top=" + top);
+			return false;
+		});
+
+		$('.soclogin .tw').live('click', function() {
+			var win_loc = window.location.toString();
+			if (win_loc.search('#') >= 0) {
+				win_loc = win_loc.substr(0, win_loc.search('#'));
+			}
+			var x = win_loc;
+			x = x.replace('\?', '\\?');
+		    pattern = new RegExp(x + '(.*)');
+			var url = 'http://pass.bycard.by/soclogin/tw' + '?return_url=' + win_loc;
+			if (win)
+				win.close();
+			var left = (screen.width / 2) - 350;
+			var top = (screen.height / 2) - 400;
+			win = window.open(url, 'TwLogin', "width=700,height=800,left=" + left + ",top=" + top);
+			return false;
+		});
+
+		$('.soclogin .fb').live('click', function() {
+			var win_loc = window.location.toString();
+			if (win_loc.search('#') >= 0) {
+				win_loc = win_loc.substr(0, win_loc.search('#'));
+			}
+			var x = win_loc;
+			x = x.replace('\?', '\\?');
+		    pattern = new RegExp(x + '(.*)');
+	    	var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/fb/';
+		    $.cookie("fb_returnUrl", win_loc, {
+		    	path: "/",
+	    		domain: ".bycard.by"
+		    });
+			var url = 'https://www.facebook.com/dialog/oauth?display=popup&client_id=606562532714275&response_type=code&redirect_uri=' + redirect_uri;
+			if (win)
+				win.close();
+			var left = (screen.width / 2) - 300;
+			var top = (screen.height / 2) - 200;
+			win = window.open(url, 'FbLogin', "width=600,height=400,left=" + left + ",top=" + top);
+			return false;
+		});
+
+		$('.soclogin .od').live('click', function() {
+			var win_loc = window.location.toString();
+			if (win_loc.search('#') >= 0) {
+				win_loc = win_loc.substr(0, win_loc.search('#'));
+			}
+			var x = win_loc;
+			x = x.replace('\?', '\\?');
+	    	pattern = new RegExp(x + '(.*)');
+		    var redirect_uri = 'http://pass.bycard.by/' + 'soclogin/od' + '?return_url=' + win_loc;
+			var url = 'http://www.odnoklassniki.ru/oauth/authorize?client_id=203635968&response_type=code&redirect_uri=' + encodeURIComponent(redirect_uri);
+			if (win)
+				win.close();
+			var left = (screen.width / 2) - 350;
+			var top = (screen.height / 2) - 200;
+			win = window.open(url, 'OdLogin', "width=700,height=400,left=" + left + ",top=" + top);
+			return false;
+		});
+
+		var watch_timer = setInterval(function () {
+			try {
+				if (pattern.test(win.location)) {
+					clearInterval(watch_timer);
+					setTimeout(function () {
+						var query = win.location.search.substring(1);
+						var vars = query.split("&");
+						var token = 'error';
+						for (var i=0;i<vars.length;i++) {
+							var pair = vars[i].split("=");
+							if (pair[0] == 'token')
+								token = pair[1];
+						}
+						win.close();
+
+						var url = 'http://pass.bycard.by/social/submit?token=' + token + '&return_url=http://www.bycard.by/';
+						if($('#login form').data('ajax-enabled')) {
+							$.ajax({
+								url: url + (url.indexOf('?') == -1 ? '?' : '&') + 'ajax=1',
+								dataType: "jsonp",
+								success: function(data){
+									if(data.success) {
+										var $newEl = $('<div>' + data.header + '</div>').find('.header6');
+										var $oldEl = $('.header6');
+
+										$('#login').modal('hide');
+										$oldEl.replaceWith($newEl);
+
+										if (typeof Order !== 'undefined') {
+											Order.ChangeLogoutReturnUrl();
+										}
+
+										if(typeof Order !== 'undefined' && window.afterLogin){
+											Order.Pay.Submit($('.pay-btn'), window.afterLogin == 'reserve');
+										}
+										delete window.afterLogin;
+									}else{
+										if(typeof Notify !== 'undefined'){
+											msg = 'Произошла ошибка во время авторизации';
+											Notify.Error(msg);
+										}
+									}
+								}
+							});
+						}else{
+							window.location = url;
+						}
+					}, 500);
+				}
+			} catch (e) {
+			}
+		}, 100);
+	}
+</script></div></div></div></div>
+         <script type="text/javascript">
+		    $(document).on('submit', '#login form', function(){
+			    var $form = $(this);
+                var service = '';
+                if(typeof Order !== 'undefined') {
+                    service = Order.service;
+                }
+			    if($(this).data('ajax-enabled')){
+				    $.ajax({
+					    url: $(this).attr('action') + '?ajax=1&service='+service,
+					    dataType: "jsonp",
+					    data: $(this).serialize(),
+					    success: function(data){
+						    $form.find('input').removeClass('error');
+						    if(data.success) {
+							    var $newEl = $('<div>' + data.header + '</div>').find('.header6');
+							    var $oldEl = $('.header6');
+
+							    $('#login').modal('hide');
+							    $oldEl.replaceWith($newEl);
+
+							    if(typeof Order !== 'undefined') {
+								    Order.ChangeLogoutReturnUrl();
+								    if (window.afterLogin) {
+									    Order.Pay.Submit($('.pay-btn'), window.afterLogin == 'reserve');
+								    }
+							    }
+							    delete window.afterLogin;
+						    }else{
+							    if(typeof Notify !== 'undefined'){
+								    for(i in data.info.errorFields){
+									    if(data.info.errorFields.hasOwnProperty(i)) {
+										    el = data.info.errorFields[i];
+										    $form.find('input[name$="[' + el + ']"]').addClass('error');
+									    }
+								    }
+								    for(i in data.info.messages){
+									    if(data.info.messages.hasOwnProperty(i)) {
+										    msg = data.info.messages[i].message;
+										    Notify.Error(msg);
+									    }
+								    }
+							    }
+						    }
+					    }
+				    });
+
+				    return false;
+			    }
+		    });
+	    </script>
+     <div class="modal fade" id="forget" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-close" onclick="$('#forget').modal('hide'); return false;"></div>
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="cross" data-dismiss="modal"></div>
+            <div class="new-popup-content only modal-width">
+            <h3>Восстановление пароля</h3>
+            <form enctype="application/x-www-form-urlencoded" method="POST" action="http://pass.bycard.by/forget/getlink" class="forms_forgetpassword" id="forgot_form">
+                <div class="item">
+
+                                            <label for="email">Введите email</label>
+                        <input type="email" id="recoveryEmail"  value=""  name="email" data-isvalid="undefined" placeholder="">
+                        <p class="error_message"></p>
+                        <div class="enter-popup">
+                            <input type="submit" style="display:none;">
+                            <a class="enter-button-forget" href="#" onclick="checkEmail();/* $('#forgot_form').submit();*/return false;">Подтвердить</a>
+                        </div>
+                                        <p class="success_message" style="text-align: center;" ></p>
+                </div>
+                <input type="hidden" value="http://www.bycard.by/" name="return_url" data-isvalid="undefined">
+            </form>
+        </div>
+
+        
+		<script type="text/javascript">
+			function checkEmail(){
+				var email = $('#recoveryEmail').val();
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				if (re.test(email))
+				    $('#forgot_form').submit();
+				else
+				    $('.error_message').html('Введите правильный адрес электронной почты');
+				return false;
+			}
+		</script>
+    </div>
+</div>
+    </div>
+
+         <div class="new-popup reveal-modal" id="question-window"  style="width:500px;">
+        <a class="cross" onclick="$('#question-window').trigger('reveal:close');return false;"></a>
+        <div class="new-popup-content only center">
+            <h3>Вход в личный кабинет</h3>
+            <img src="http://static.bycard.by/resources/img/door.png">
+            <p>Вы впервые пользуетесь сервисами bycard.by<br/>или у Вас уже есть аккаунт?</p>
+            <div class="button-container">
+                <a href="#" onclick="$('#new-user-window').reveal();">Я новый пользователь</a>
+                <a href="#" onclick="$('#old-user-window').reveal();" class="greenbut">У меня уже есть аккаунт</a>
+            </div>
+        </div>
+    </div>
+
+         <div class="new-popup reveal-modal" id="new-user-window" style="width:520px;">
+        <a class="cross" onclick="$('#new-user-window').trigger('reveal:close');return false;"></a>
+        <div class="new-popup-content only center">
+            <h3>Создание аккаунта</h3>
+            <img src="http://static.bycard.by/resources/img/plus.png">
+            <p style="font-size:14px;">Укажите любую удобную Вам почту, на которую<br/>мы сможем присылать уведомления о Ваших заказах.</p>
+            <p style="font-size:14px;">Что бы зайти в Личный кабинет в следующий раз,<br/>нажать кнопку входа через соцсеть будет достаточно!</p>
+            <form class="forms_getemail" action="http://pass.bycard.by/social/setemail" method="POST" enctype="application/x-www-form-urlencoded" id="getemail_form">
+                <div class="item">
+                    <label style="text-align:left">Введите email</label>
+                    <input type="email" autocomplete="off" error=""
+                           id="FormsGetEmail_email" class=""
+                           data-isvalid="undefined" name="Forms_GetEmail[email]" value="">
+                    <p class="error_message" style="text-align:left;"></p>
+                </div>
+                <input type="hidden" data-isvalid="undefined" name="Forms_GetEmail[return_url]" value="http://www.bycard.by/">
+                <div class="enter-popup">
+                    <input type="submit" style="display:none;">
+                    <a class="enter-button" href="#" onclick="$('#getemail_form').submit();return false;" style="width:180px;">Создать аккаунт</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+         <div class="new-popup reveal-modal" id="old-user-window" style="width:480px;">
+        <a class="cross" onclick="$('#old-user-window').trigger('reveal:close');return false;"></a>
+        <div class="new-popup-content only center">
+            <h3>Связывание аккаунтов</h3>
+            <img src="http://static.bycard.by/resources/img/clip.png">
+            <p style="font-size:14px;">Введите Вашу почту и пароль от личного кабинета.</p>
+            <form class="forms_unionaccounts" action="http://pass.bycard.by/social/unionaccounts" method="POST" enctype="application/x-www-form-urlencoded" id="unionaccounts_form">
+                <div class="item">
+                    <label style="text-align:left">Адрес электронной почты</label>
+                    <input type="text" autocomplete="off" id="FormsUnionAccounts_username"
+                           error=""
+                           class=""
+                           data-isvalid="undefined" name="Forms_UnionAccounts[username]"
+                           value="">
+                    <p class="error_message" style="text-align:left"></p>
+                </div>
+                <div class="item">
+                    <label style="text-align:left">Пароль</label>
+                    <input type="password" class=""
+                           data-isvalid="undefined" name="Forms_UnionAccounts[password]" value="">
+                    <p class="error_message" style="text-align:left"></p>
+                </div>
+                <input type="hidden" data-isvalid="undefined" name="Forms_UnionAccounts[return_url]" value="http://www.bycard.by/">
+                <div class="enter-popup">
+                    <input type="submit" style="display:none;">
+                    <a class="enter-button" href="#" onclick="$('#unionaccounts_form').submit();return false;" style="width:180px;">Создать аккаунт</a>
+                </div>
+            </form>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var activate = $('#FormsUnionAccounts_username').attr('error');
+                if (activate) {
+                    $('#old-user-window').reveal();
+                }
+
+                var activate = $('#FormsGetEmail_email').attr('error');
+                if (activate) {
+                    $('#new-user-window').reveal();
+                }
+
+	                        });
+            $.cookie('err_ref',false, { expires: -100, path: '/', domain: "bycard.by" });
+        </script>
+    </div>
+
+                                    
+        <div class="v5-wrap-main v5-fixed-wrap-main">
+            	<section class="events_section events_section--pink" style="width:100%;height:55px;background:#ffffff;border-bottom:0px solid #e2e2e2">
+		<header class="events_section__header" style="padding: 23px 30px 24px 10px">
+			<h2 class="events_section__header_title">Журнал ByCard</h2>
+				<div class="events_section__header_tabs">
+						<a href="//bycard.by/category/3" class="red-small-button events_section__header_tab">КИНОГИД.</a> 
+						<a href="//bycard.by/category/6" class="red-small-button events_section__header_tab">СЦЕНА</a> 
+						<a href="//bycard.by/category/5" class="red-small-button events_section__header_tab">МЕСТА</a> 
+						<!--<a href="//bycard.by/category/7" class="red-small-button events_section__header_tab">НА ОБОЧИНЕ</a>--> 
+						<a href="//bycard.by/category/1" class="red-small-button events_section__header_tab">НОВОСТИ</a> 
+				</div>
+				
+		</header>
+		<div style="float: left;margin: -56px 751px;"><a href="http://www.bycard.by/samsungpay#utm_source=mainpage" ><img src="/pages/sampay.png" style="
+    height: 32px;
+"></a> </div>
+	</section>
+
+    <section class="home_news">
+        <div class="home_news__advertisement">
+            <!--
+            <a href="http://quests.bycard.by" target="_blank">
+                <img src="/css/images/quest_serlok.jpg">
+            </a>
+            -->
+            <div id="adriver-banner" class="adriver-banner" style="z-index: 1; position: relative">
+                <!--/*
+  *Боковой баннер
+  */-->
+
+<iframe id='a548076c' name='a548076c' src='http://i.bycard.by/www/delivery/afr.php?zoneid=7&amp;target=_blank&amp;cb=1408365225' frameborder='0' scrolling='no' width='240' height='400'><a href='http://i.bycard.by/www/delivery/ck.php?n=a4e8b009&amp;cb=1408365225' target='_blank'><img src='http://i.bycard.by/www/delivery/avw.php?zoneid=7&amp;cb=1408365225&amp;n=a4e8b009' border='0' alt='' /></a></iframe>
+
+
+            </div>
+        </div>
+        <div class="home_news__list movie-list news">
+                                                                        <div class="top-newsbig">
+                            <a href="/news/3126/clipy-9">
+                                <h2>Невидимая Тейлор Свифт и ещё четыре новых клипа недели</h2>
+                                                                                                                                    <div class="shadowbig"></div>
+																	<img src="http://www.bycard.by/cache/main_485x199/uploads/e9/248.jpg?1">
+								                                
+                            </a>
+                            <div class="social-block">
+                                                                <div class="share">
+                                    <a href="#" class="share" share-id="share-1-3126" share-text="Невидимая Тейлор Свифт и ещё четыре новых клипа недели"
+                                       share-image="http://www.bycard.by/uploads/e9/248.jpg"
+                                       share-link="http://www.bycard.by/news/3126/clipy-9"></a>
+                                    <span id="share-1-3126"></span>
+                                </div>
+                            </div>
+                        </div>
+                                                                                                            <div class="top-news">
+                            <a href="/news/3130/idi-i-smotri">
+                                <h2>Отреставрированную версию «Иди и смотри» покажут в «Доме Кино»</h2>
+                                                                                                                                    <div class="shadowbig"></div>
+																	<img src="http://www.bycard.by/cache/main_197x199/uploads/82/97d.jpg?1" style = "height: 229px">								
+								                                
+                            </a>
+                            <div class="social-block">
+                                                                <div class="share">
+                                    <a href="#" class="share" share-id="share-1-3130" share-text="Отреставрированную версию «Иди и смотри» покажут в «Доме Кино»"
+                                       share-image="http://www.bycard.by/uploads/82/97d.jpg"
+                                       share-link="http://www.bycard.by/news/3130/idi-i-smotri"></a>
+                                    <span id="share-1-3130"></span>
+                                </div>
+                            </div>
+                        </div>
+                                                                                                            <div class="top-news">
+                            <a href="/news/3128/sukmanov-japan">
+                                <h2>Кинокритик Игорь Сукманов прочитает лекцию о японском кинематографе</h2>
+                                                                                                                                    <div class="shadowbig"></div>
+																	<img src="http://www.bycard.by/cache/main_197x199/uploads/f6/7fc.jpg?1" style = "height: 229px">								
+								                                
+                            </a>
+                            <div class="social-block">
+                                                                <div class="share">
+                                    <a href="#" class="share" share-id="share-1-3128" share-text="Кинокритик Игорь Сукманов прочитает лекцию о японском кинематографе"
+                                       share-image="http://www.bycard.by/uploads/f6/7fc.jpg"
+                                       share-link="http://www.bycard.by/news/3128/sukmanov-japan"></a>
+                                    <span id="share-1-3128"></span>
+                                </div>
+                            </div>
+                        </div>
+                                                                                                            <div class="top-news">
+                            <a href="/news/3121/tomb-raider-facts">
+                                <h2>К премьере нового «Tomb Raider»: всё, что вы могли не знать о Ларе Крофт</h2>
+                                                                                                                                    <div class="shadowbig"></div>
+																	<img src="http://www.bycard.by/cache/main_197x199/uploads/72/c13.jpg?1" style = "height: 229px">								
+								                                
+                            </a>
+                            <div class="social-block">
+                                                                <div class="share">
+                                    <a href="#" class="share" share-id="share-1-3121" share-text="К премьере нового «Tomb Raider»: всё, что вы могли не знать о Ларе Крофт"
+                                       share-image="http://www.bycard.by/uploads/72/c13.jpg"
+                                       share-link="http://www.bycard.by/news/3121/tomb-raider-facts"></a>
+                                    <span id="share-1-3121"></span>
+                                </div>
+                            </div>
+                        </div>
+                                                                                                            <div class="top-news">
+                            <a href="/news/3124/top-hudeyu">
+                                <h2>ТОП фильмов на ByCard: я худею, Оксана Соколова</h2>
+                                                                                                                                    <div class="shadowbig"></div>
+																	<img src="http://www.bycard.by/cache/main_197x199/uploads/65/d68.jpg?1" style = "height: 229px">								
+								                                
+                            </a>
+                            <div class="social-block">
+                                                                <div class="share">
+                                    <a href="#" class="share" share-id="share-1-3124" share-text="ТОП фильмов на ByCard: я худею, Оксана Соколова"
+                                       share-image="http://www.bycard.by/uploads/65/d68.jpg"
+                                       share-link="http://www.bycard.by/news/3124/top-hudeyu"></a>
+                                    <span id="share-1-3124"></span>
+                                </div>
+                            </div>
+                        </div>
+                                                                                                            <div class="top-newsbig2 no-adv">
+                            <div>
+                                <a href="http://quests.bycard.by" target="_blank">
+                                    <img src="/css/images/quest_serlok.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div style="" id="top-event-small" class="top-newsbig2 adv">
+
+                        </div>
+                                                                                    </div>
+    </section>
+            <section class="events_section events_section--pink">
+            <header class="events_section__header">
+                <footer class="events_section__footer">
+                    <a href="http://kino.bycard.by">Показать все фильмы</a>
+                </footer>
+                <h2 class="events_section__header_title">Билеты в кино: <a style="text-decoration: underline; cursor: pointer" onclick="showReg();">Минск</a></h2>
+                <div class="events_section__header_tabs">
+                    <a href="#" onclick="switchLists('movie_popular', 'movie_soon'); return false;" id="movie_popular"
+                       class="red-small-button events_section__header_tab active">Популярные</a>
+                    <a href="#" onclick="switchLists('movie_soon', 'movie_popular'); return false;" id="movie_soon"
+                       class="red-small-button events_section__header_tab">Ближайшие</a>
+                </div>
+            </header>
+            <div class="events_list movie_popular" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">по 11 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/Tomb_Raider_lara_kroft" target="_blank" title="Tomb Raider: Лара Крофт">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1521180293lara_12plus.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Tomb Raider: Лара Крофт">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/Tomb_Raider_lara_kroft" target="_blank"
+                       title="Tomb Raider: Лара Крофт">Tomb Raider: Лара Крофт</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/Tomb_Raider_lara_kroft" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 28 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/ograblenie_v_uragan" target="_blank" title="Ограбление в ураган">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518164107ograblenie_v_uragan.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Ограбление в ураган">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/ograblenie_v_uragan" target="_blank"
+                       title="Ограбление в ураган">Ограбление в ураган</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/ograblenie_v_uragan" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 28 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/ledi_berd" target="_blank" title="Леди Бёрд">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518165815Lady_Bird.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Леди Бёрд">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/ledi_berd" target="_blank"
+                       title="Леди Бёрд">Леди Бёрд</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/ledi_berd" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 1 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/sherlok_gnoms" target="_blank" title="Шерлок Гномс">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518169190Sherlock_Gnomes.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Шерлок Гномс">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/sherlok_gnoms" target="_blank"
+                       title="Шерлок Гномс">Шерлок Гномс</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/sherlok_gnoms" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 21 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/proekt_florida" target="_blank" title="Проект «Флорида»">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1520487188proekt_florida.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Проект «Флорида»">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/proekt_florida" target="_blank"
+                       title="Проект «Флорида»">Проект «Флорида»</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/proekt_florida" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">по 28 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/nu_zdravstvuy_oksana_sokolova" target="_blank" title="Ну, здравствуй, Оксана Соколова!">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518098735Nu_zdravstvuy_Oksana_Sokolova.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Ну, здравствуй, Оксана Соколова!">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/nu_zdravstvuy_oksana_sokolova" target="_blank"
+                       title="Ну, здравствуй, Оксана Соколова!">Ну, здравствуй, Оксана Соколова!</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/nu_zdravstvuy_oksana_sokolova" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 21 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/passaghir" target="_blank" title="Пассажир">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518160734Passazhir.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Пассажир">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/passaghir" target="_blank"
+                       title="Пассажир">Пассажир</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/passaghir" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 28 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/ya_hudeyu" target="_blank" title="Я худею">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518157324Ya_hudeyu.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Я худею">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/ya_hudeyu" target="_blank"
+                       title="Я худею">Я худею</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/ya_hudeyu" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 21 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/mahnem_na_lunu" target="_blank" title="Махнем на Луну!">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1520403333mahnem_na_lunu.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Махнем на Луну!">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/mahnem_na_lunu" target="_blank"
+                       title="Махнем на Луну!">Махнем на Луну!</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/mahnem_na_lunu" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">по 4 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/izlom_vremeni" target="_blank" title="Излом времени">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518157030izlom_vremeni.jpg&w=150&h=225&q=80&zc=1&a=c" alt="Излом времени">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/izlom_vremeni" target="_blank"
+                       title="Излом времени">Излом времени</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/izlom_vremeni" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+            <div class="events_list movie_soon" style="display: none;" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">с 20 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/RSC_dvenadcataya_nochy_spektakly" target="_blank" title="TheatreHD: RSC: Двенадцатая ночь (спек...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518589626RSC_12-ya_noch.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: RSC: Двенадцатая ночь (спек...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/RSC_dvenadcataya_nochy_spektakly" target="_blank"
+                       title="TheatreHD: RSC: Двенадцатая ночь (спек...">TheatreHD: RSC: Двенадцатая ночь (спек...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/RSC_dvenadcataya_nochy_spektakly" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 24 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/trubadur" target="_blank" title="TheatreHD: Трубадур">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1443534170trubadur.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Трубадур">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/trubadur" target="_blank"
+                       title="TheatreHD: Трубадур">TheatreHD: Трубадур</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/trubadur" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 27 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/koshka_na_raskalennoy_kryshe_spektakly" target="_blank" title="TheatreHD: Кошка на раскалённой крыше ...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518590496koshka_na_raskalennoy_krishe.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Кошка на раскалённой крыше ...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/koshka_na_raskalennoy_kryshe_spektakly" target="_blank"
+                       title="TheatreHD: Кошка на раскалённой крыше ...">TheatreHD: Кошка на раскалённой крыше ...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/koshka_na_raskalennoy_kryshe_spektakly" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 31 марта</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/tak_postupayut_vse_ghenschinyopera" target="_blank" title="TheatreHD: Так поступают все женщины (...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518591357tak_postupayut_vse_zhens4ini.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Так поступают все женщины (...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/tak_postupayut_vse_ghenschinyopera" target="_blank"
+                       title="TheatreHD: Так поступают все женщины (...">TheatreHD: Так поступают все женщины (...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/tak_postupayut_vse_ghenschinyopera" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 1 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/vikingi_v_britanskom_muzee_filym_vystavka" target="_blank" title="TheatreHD: Викинги в Британском музее ...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518593104vikingi_b_Britanskom_musee.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Викинги в Британском музее ...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/vikingi_v_britanskom_muzee_filym_vystavka" target="_blank"
+                       title="TheatreHD: Викинги в Британском музее ...">TheatreHD: Викинги в Британском музее ...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/vikingi_v_britanskom_muzee_filym_vystavka" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">с 8 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/TheatreHD_ghizely" target="_blank" title="TheatreHD: Жизель (балет)">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518593552zhizel.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Жизель (балет)">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/TheatreHD_ghizely" target="_blank"
+                       title="TheatreHD: Жизель (балет)">TheatreHD: Жизель (балет)</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/TheatreHD_ghizely" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 10 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/komedi_fransez_ispravlennyy_schegolyspektakly" target="_blank" title="TheatreHD: Комеди Франсез: Исправленны...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518598129ispravlenniy_schegol.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Комеди Франсез: Исправленны...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/komedi_fransez_ispravlennyy_schegolyspektakly" target="_blank"
+                       title="TheatreHD: Комеди Франсез: Исправленны...">TheatreHD: Комеди Франсез: Исправленны...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/komedi_fransez_ispravlennyy_schegolyspektakly" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 14 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/luiza_miller_opera" target="_blank" title="TheatreHD: Луиза Миллер (опера)">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518598439Luiza_Miller.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Луиза Миллер (опера)">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/luiza_miller_opera" target="_blank"
+                       title="TheatreHD: Луиза Миллер (опера)">TheatreHD: Луиза Миллер (опера)</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/luiza_miller_opera" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 22 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/devid_hokni_popart_v_korolevskoy_akademii_hudoghestv_filymvystavka" target="_blank" title="TheatreHD: Дэвид Хокни. Поп-арт в Коро...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518599917devid_hokni.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Дэвид Хокни. Поп-арт в Коро...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/devid_hokni_popart_v_korolevskoy_akademii_hudoghestv_filymvystavka" target="_blank"
+                       title="TheatreHD: Дэвид Хокни. Поп-арт в Коро...">TheatreHD: Дэвид Хокни. Поп-арт в Коро...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/devid_hokni_popart_v_korolevskoy_akademii_hudoghestv_filymvystavka" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">с 24 апреля</time>
+                <div class="event_item__image">
+                    <a href="http://kino.bycard.by/movie/veer_ledi_uindermir_spektakly" target="_blank" title="TheatreHD: Веер леди Уиндермир (спекта...">
+                        <img src="http://kino.bycard.by/public/timthumb.php?src=/public/images/1518601611veer_ledi_uindermir.jpg&w=150&h=225&q=80&zc=1&a=c" alt="TheatreHD: Веер леди Уиндермир (спекта...">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://kino.bycard.by/movie/veer_ledi_uindermir_spektakly" target="_blank"
+                       title="TheatreHD: Веер леди Уиндермир (спекта...">TheatreHD: Веер леди Уиндермир (спекта...</a>
+                </div>
+
+                
+                                    <div class="event_item__buy">
+                        <a href="http://kino.bycard.by/movie/veer_ledi_uindermir_spektakly" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+        </section>
+    
+                        <section class="events_section events_section--blue">
+                <header class="events_section__header">
+                <footer class="events_section__footer">
+                    <a href="http://afisha.bycard.by/koncerty#mode=tile&amp;type=1">Показать все концерты</a>
+                </footer>
+                    <h2 class="events_section__header_title">Билеты на концерты: <a style="text-decoration: underline; cursor: pointer" onclick="showReg();">Минск</a></h2>
+                    <div class="events_section__header_tabs">
+                                                    <a href="#" onclick="switchLists('concerts_popular', 'concerts_today'); return false;"
+                               id="concerts_popular"
+                               class="red-small-button events_section__header_tab active">Популярные</a>
+                                                                            <a href="#" onclick="switchLists('concerts_today', 'concerts_popular'); return false;"
+                               id="concerts_today"
+                               class="red-small-button events_section__header_tab ">Ближайшие</a>
+                                            </div>
+                </header>
+                <div class="events_list concerts_popular" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">31.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_bi2_minsk" target="_blank" title="Би-2">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1510906120bi2.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Би-2">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_bi2_minsk" target="_blank"
+                       title="Би-2">Би-2</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Минск-арена.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_bi2_minsk" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">10.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_sergey_lazarev_minskarena" target="_blank" title="Сергей Лазарев ">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518696216laz.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Сергей Лазарев ">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_sergey_lazarev_minskarena" target="_blank"
+                       title="Сергей Лазарев ">Сергей Лазарев </a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Минск-арена.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_sergey_lazarev_minskarena" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_Brutto_12" target="_blank" title="Brutto">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1512024875BRUTTO__2018_bycard_270x405.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Brutto">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_Brutto_12" target="_blank"
+                       title="Brutto">Brutto</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Дворец спорта.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_Brutto_12" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">25.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/diskoteka_sssr_programma_na_belom_pokryvale_yanvarya" target="_blank" title="Дискотека СССР">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518178226sssr.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Дискотека СССР">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/diskoteka_sssr_programma_na_belom_pokryvale_yanvarya" target="_blank"
+                       title="Дискотека СССР">Дискотека СССР</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">К/З Минск (Большой зал)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/diskoteka_sssr_programma_na_belom_pokryvale_yanvarya" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">24.11.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/muzykalynyy_spektakly_vysockiy_roghdenie_legendy" target="_blank" title="Высоцкий. Рождение легенды">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519824560bycard_270x405 (11).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Высоцкий. Рождение легенды">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/muzykalynyy_spektakly_vysockiy_roghdenie_legendy" target="_blank"
+                       title="Высоцкий. Рождение легенды">Высоцкий. Рождение легенды</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Дворец Республики.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/muzykalynyy_spektakly_vysockiy_roghdenie_legendy" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">11.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_Starset" target="_blank" title="Starset">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1521023910bycard_270x405 (15).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Starset">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_Starset" target="_blank"
+                       title="Starset">Starset</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Prime Hall.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_Starset" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">08.07.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/Stereo_Weekend_s_novym_radio_6" target="_blank" title="Stereo Weekend с Новым Радио">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1520845317Poster_Web.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Stereo Weekend с Новым Радио">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/Stereo_Weekend_s_novym_radio_6" target="_blank"
+                       title="Stereo Weekend с Новым Радио">Stereo Weekend с Новым Радио</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Центральный ботанический сад НАН Беларуси</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/Stereo_Weekend_s_novym_radio_6" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">30.05.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_dima_bilan" target="_blank" title="Дима Билан">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1521023861bycard_270x405 (13).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Дима Билан">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_dima_bilan" target="_blank"
+                       title="Дима Билан">Дима Билан</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Дворец Республики.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_dima_bilan" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">29.05.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/vecher_vladimira_poznera" target="_blank" title="Владимир Познер">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518157315bycard_270x405 (8).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Владимир Познер">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/vecher_vladimira_poznera" target="_blank"
+                       title="Владимир Познер">Владимир Познер</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Дворец Республики.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/vecher_vladimira_poznera" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_nochnye_snaypery" target="_blank" title="Ночные снайперы">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1516774928bycard_270x405 (3).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Ночные снайперы">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_nochnye_snaypery" target="_blank"
+                       title="Ночные снайперы">Ночные снайперы</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Prime Hall.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_nochnye_snaypery" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+                <div class="events_list concerts_today" style="display: none;" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" target="_blank" title="Спектакль "Крестовыйпоходдетей"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519886424krest.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Спектакль "Крестовыйпоходдетей"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" target="_blank"
+                       title="Спектакль "Крестовыйпоходдетей"">Спектакль "Крестовыйпоходдетей"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Ok16 (Artcorporation)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">20.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/yubileynyy_koncert_allyur_15_let" target="_blank" title="Аллюр. 15 лет">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1520837772all.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Аллюр. 15 лет">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/yubileynyy_koncert_allyur_15_let" target="_blank"
+                       title="Аллюр. 15 лет">Аллюр. 15 лет</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">К/з Минск.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/yubileynyy_koncert_allyur_15_let" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_cvetnye_sny_ghenschiny_v_iskusstve" target="_blank" title="Цветные сны. Женщины в искусстве">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518691985278.png&w=150&h=225&q=100&zc=1&a=c" alt="Цветные сны. Женщины в искусстве">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_cvetnye_sny_ghenschiny_v_iskusstve" target="_blank"
+                       title="Цветные сны. Женщины в искусстве">Цветные сны. Женщины в искусстве</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">К/з "Верхний город"</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_cvetnye_sny_ghenschiny_v_iskusstve" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_fartepyannaya_muzyka_m_yaleck_6" target="_blank" title="Концерт "Фартэпіянная музыка: М. Ялецкі" (6+)">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/151868208021.03.1.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Концерт "Фартэпіянная музыка: М. Ялецкі" (6+)">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_fartepyannaya_muzyka_m_yaleck_6" target="_blank"
+                       title="Концерт "Фартэпіянная музыка: М. Ялецкі" (6+)">Концерт "Фартэпіянная музыка: М. Ялецкі" (6+)</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Белорусская государственная филармония</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_fartepyannaya_muzyka_m_yaleck_6" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_Rhythm__Jazz_Transformer_proekt" target="_blank" title="Rhythm & Jazz">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1520856386550-800 (2).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Rhythm & Jazz">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_Rhythm__Jazz_Transformer_proekt" target="_blank"
+                       title="Rhythm & Jazz">Rhythm & Jazz</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Дом Москвы.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_Rhythm__Jazz_Transformer_proekt" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">22.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_skazki_i_legendy_proizvedeniya_dlya_fortepiano_v_4_ruki_" target="_blank" title="Концерт "Сказки и легенды" произведения для фортепиано в 4 руки ">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1517394834piano-duo-550x800-date-22-03-2018.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Концерт "Сказки и легенды" произведения для фортепиано в 4 руки ">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_skazki_i_legendy_proizvedeniya_dlya_fortepiano_v_4_ruki_" target="_blank"
+                       title="Концерт "Сказки и легенды" произведения для фортепиано в 4 руки ">Концерт "Сказки и легенды" произведения для фортепиано в 4 руки </a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">К/з "Верхний город"</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_skazki_i_legendy_proizvedeniya_dlya_fortepiano_v_4_ruki_" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">22.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_THE_SUPERBULLZ_u_dzeny_sv_patryka" target="_blank" title="THE SUPERBULLZ">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1521104443the_superbullz_u_dzen_sv_patryka__1703__3776__.jpg&w=150&h=225&q=100&zc=1&a=c" alt="THE SUPERBULLZ">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_THE_SUPERBULLZ_u_dzeny_sv_patryka" target="_blank"
+                       title="THE SUPERBULLZ">THE SUPERBULLZ</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Клуб Граффити</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_THE_SUPERBULLZ_u_dzeny_sv_patryka" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">22.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_po_zayavkam_na_volnah_radio_nostalygiya_" target="_blank" title="Ностальгия">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519109850nostal.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Ностальгия">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_po_zayavkam_na_volnah_radio_nostalygiya_" target="_blank"
+                       title="Ностальгия">Ностальгия</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр эстрады</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_po_zayavkam_na_volnah_radio_nostalygiya_" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">22.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/aneghevec_v_koncerte_vechnosty_i_otvaga_" target="_blank" title="А.Нежевец в концерте "Вечность и отвага" ">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1515573717mtzz.jpg&w=150&h=225&q=100&zc=1&a=c" alt="А.Нежевец в концерте "Вечность и отвага" ">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/aneghevec_v_koncerte_vechnosty_i_otvaga_" target="_blank"
+                       title="А.Нежевец в концерте "Вечность и отвага" ">А.Нежевец в концерте "Вечность и отвага" </a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">ДК МТЗ</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/aneghevec_v_koncerte_vechnosty_i_otvaga_" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">22.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/vesenniy_koncert_muzykalynyy_teatr" target="_blank" title="Весенние краски">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1487163412belmuz.jpeg&w=150&h=225&q=100&zc=1&a=c" alt="Весенние краски">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/vesenniy_koncert_muzykalynyy_teatr" target="_blank"
+                       title="Весенние краски">Весенние краски</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Бел. академический музыкальный театр.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/vesenniy_koncert_muzykalynyy_teatr" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+            </section>
+                            <section class="events_section events_section--pink">
+                <header class="events_section__header">
+                <footer class="events_section__footer">
+                    <a href="http://afisha.bycard.by/spektakli#mode=list&amp;type=2">Показать все спектакли</a>
+                </footer>
+                    <h2 class="events_section__header_title">Билеты в театр: <a style="text-decoration: underline; cursor: pointer" onclick="showReg();">Минск</a></h2>
+                    <div class="events_section__header_tabs">
+                                                    <a href="#" onclick="switchLists('shows_popular', 'shows_today'); return false;"
+                               id="shows_popular"
+                               class="red-small-button events_section__header_tab active">Популярные</a>
+                                                                            <a href="#" onclick="switchLists('shows_today', 'shows_popular'); return false;"
+                               id="shows_today"
+                               class="red-small-button events_section__header_tab ">Ближайшие</a>
+                                            </div>
+                </header>
+                <div class="events_list shows_popular" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">20.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bog_schekotki_artprostranstvo_verh" target="_blank" title="Спектакль "Бог щекотки"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519649438240х400.png&w=150&h=225&q=100&zc=1&a=c" alt="Спектакль "Бог щекотки"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bog_schekotki_artprostranstvo_verh" target="_blank"
+                       title="Спектакль "Бог щекотки"">Спектакль "Бог щекотки"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Галерея "Сталоўка XYZ"</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_bog_schekotki_artprostranstvo_verh" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">30.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/brachnyy_dogovor" target="_blank" title="Брачный договор">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1501696657brach(240х400).jpg&w=150&h=225&q=100&zc=1&a=c" alt="Брачный договор">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/brachnyy_dogovor" target="_blank"
+                       title="Брачный договор">Брачный договор</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">ТриТформат.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/brachnyy_dogovor" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">24.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_freken_bok_vozvraschaetsya" target="_blank" title="Фрекен Бок возвращается">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519987899fr.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Фрекен Бок возвращается">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_freken_bok_vozvraschaetsya" target="_blank"
+                       title="Фрекен Бок возвращается">Фрекен Бок возвращается</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр «Талент»</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_freken_bok_vozvraschaetsya" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">21.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/veronika_reshaet_umerety" target="_blank" title="Спектакль "Вероника решает умереть"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1470308156вероника слои верт270.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Спектакль "Вероника решает умереть"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/veronika_reshaet_umerety" target="_blank"
+                       title="Спектакль "Вероника решает умереть"">Спектакль "Вероника решает умереть"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театральная мастерская Наталии Башевой.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/veronika_reshaet_umerety" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" target="_blank" title="Страсти по Тилю">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1498655710270 страсти.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Страсти по Тилю">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" target="_blank"
+                       title="Страсти по Тилю">Страсти по Тилю</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр Геннадия Гладкова (дк Профсоюзов)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">29.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_raskrytie" target="_blank" title="Раскрытие">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518681204raskr.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Раскрытие">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_raskrytie" target="_blank"
+                       title="Раскрытие">Раскрытие</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Ok16</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_raskrytie" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">04.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bespridannica" target="_blank" title="Бесприданница">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1509632579bespridannica.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Бесприданница">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bespridannica" target="_blank"
+                       title="Бесприданница">Бесприданница</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Бел. государственный молодежный театр.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_bespridannica" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">25.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/sobaka_na_sene" target="_blank" title="Собака на сене">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1501578731байкард 240х400-8.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Собака на сене">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/sobaka_na_sene" target="_blank"
+                       title="Собака на сене">Собака на сене</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр Геннадия Гладкова (дк Профсоюзов)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/sobaka_na_sene" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">07.04.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bonusnyy_seans_psihoanaliza" target="_blank" title="Бонусный сеанс психоанализа">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/14774787111313-250x380.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Бонусный сеанс психоанализа">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_bonusnyy_seans_psihoanaliza" target="_blank"
+                       title="Бонусный сеанс психоанализа">Бонусный сеанс психоанализа</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Новый драматический театр</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_bonusnyy_seans_psihoanaliza" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">24.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_praz_stagoddz_yagen_fnkelyshteyn_g_maskva_pavel_kuhta_6" target="_blank" title="Концерт «Праз стагоддзі»: Яўген Фінкельштэйн (г. Масква), Павел Кухта. (6+)">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/151859101024.03.1.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Концерт «Праз стагоддзі»: Яўген Фінкельштэйн (г. Масква), Павел Кухта. (6+)">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_praz_stagoddz_yagen_fnkelyshteyn_g_maskva_pavel_kuhta_6" target="_blank"
+                       title="Концерт «Праз стагоддзі»: Яўген Фінкельштэйн (г. Масква), Павел Кухта. (6+)">Концерт «Праз стагоддзі»: Яўген Фінкельштэйн (г. Масква), Павел Кухта. (6+)</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Белорусская государственная филармония</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_praz_stagoddz_yagen_fnkelyshteyn_g_maskva_pavel_kuhta_6" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+                <div class="events_list shows_today" style="display: none;" >
+                                        <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" target="_blank" title="Страсти по Тилю">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1498655710270 страсти.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Страсти по Тилю">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" target="_blank"
+                       title="Страсти по Тилю">Страсти по Тилю</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр Геннадия Гладкова (дк Профсоюзов)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/strasti_po_tilyu" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_ne_praklnay_shto_ya_lyublyu" target="_blank" title="Концерт "Не праклінай, што я люблю"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1515152509den-lyutera-k-500-letiyu-reformacii-k-500-letiyu-belorusskoy-biblii-i-knigopechataniya-849650.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Концерт "Не праклінай, што я люблю"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_ne_praklnay_shto_ya_lyublyu" target="_blank"
+                       title="Концерт "Не праклінай, што я люблю"">Концерт "Не праклінай, што я люблю"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Красный костел (Минск).</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_ne_praklnay_shto_ya_lyublyu" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/koncert_anel_ahounk" target="_blank" title="Концерт "Анёл Ахоунік"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1515151890den-lyutera-k-500-letiyu-reformacii-k-500-letiyu-belorusskoy-biblii-i-knigopechataniya-849650.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Концерт "Анёл Ахоунік"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/koncert_anel_ahounk" target="_blank"
+                       title="Концерт "Анёл Ахоунік"">Концерт "Анёл Ахоунік"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Красный костел (Минск).</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/koncert_anel_ahounk" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/master_i_margarita" target="_blank" title="Мастер и Маргарита">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1414071825Без имени-1.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Мастер и Маргарита">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/master_i_margarita" target="_blank"
+                       title="Мастер и Маргарита">Мастер и Маргарита</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Театр Киноактера</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/master_i_margarita" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" target="_blank" title="Спектакль "Крестовыйпоходдетей"">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519886424krest.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Спектакль "Крестовыйпоходдетей"">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" target="_blank"
+                       title="Спектакль "Крестовыйпоходдетей"">Спектакль "Крестовыйпоходдетей"</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Ok16 (Artcorporation)</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_krestovyypohoddetey" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                                                            <div class="events_list__row">
+                        <div class="event_item">
+                <time class="event_item__date">19.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/myuzikl_kazanova" target="_blank" title="Казанова">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1516441765Kazanova_web_270x405px.png&w=150&h=225&q=100&zc=1&a=c" alt="Казанова">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/myuzikl_kazanova" target="_blank"
+                       title="Казанова">Казанова</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Бел. академический музыкальный театр.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/myuzikl_kazanova" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">20.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_durochka" target="_blank" title="Дурочка">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1509629563durochka.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Дурочка">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_durochka" target="_blank"
+                       title="Дурочка">Дурочка</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Бел. государственный молодежный театр.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_durochka" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">20.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_nt_eho_ocheny_prostaya_istoriya" target="_blank" title="Очень простая история">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1519738216Ochen_prostaya_istoria777.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Очень простая история">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_nt_eho_ocheny_prostaya_istoriya" target="_blank"
+                       title="Очень простая история">Очень простая история</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">Республиканский Дворец Культуры Профсоюзов</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_nt_eho_ocheny_prostaya_istoriya" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">20.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/spektakly_pan_tadevush_16" target="_blank" title="Пан Тадэвуш">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1508509155Пан Тадэуш.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Пан Тадэвуш">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/spektakly_pan_tadevush_16" target="_blank"
+                       title="Пан Тадэвуш">Пан Тадэвуш</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">НАТ имени Я. Купалы.</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/spektakly_pan_tadevush_16" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                                                        <div class="event_item">
+                <time class="event_item__date">20.03.2018</time>
+                <div class="event_item__image">
+                    <a href="http://afisha.bycard.by/performance/beton" target="_blank" title="Спектакль «Бетон» (18+)">
+                        <img src="http://afisha.bycard.by/public/timthumb.php?src=/public/images/1518694354AFISHA-big111.jpg&w=150&h=225&q=100&zc=1&a=c" alt="Спектакль «Бетон» (18+)">
+
+                        <div class="event_item__hover">
+                            <div class="event_item__hover_stats">
+                                                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="event_item__name">
+                    <a href="http://afisha.bycard.by/performance/beton" target="_blank"
+                       title="Спектакль «Бетон» (18+)">Спектакль «Бетон» (18+)</a>
+                </div>
+
+                                    <div class="event_item__text">
+                        <span class="event_item__place">РТБД</span>
+                    </div>
+                
+                                    <div class="event_item__buy">
+                        <a href="http://afisha.bycard.by/performance/beton" class="event_item__buy_button">Купить билет</a>
+						<a href="http://gifts.bycard.by/#buy" class="event_item__buy_button">Подарить билет</a>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+            </section>
+            
+
+    
+
+        </div>
+    </div>
+</div>
+<div class="v5-footer" style="height: 260px;">
+    <div class="v5-footer-content">
+        <div class="credits">
+            <span>&copy; 2012-2018 «Bycard». Все права защищены.</span>
+            <a href="#"><i></i>Вернуться наверх</a>
+            <div class="social">
+                <div class="v5-social">
+                    <a target="_blank" href="http://www.bycard.by/info/contacts" class="mail"></a>
+                    <a target="_blank" href="http://vk.com/club50863572" class="vk" rel="nofollow"></a>
+                    <a target="_blank" href="http://twitter.com/BycardBy" class="tw" rel="nofollow"></a>
+                    <a target="_blank" href="http://www.facebook.com/pages/Bycard/122422317935261" class="fb" rel="nofollow"></a>
+                    <a target="_blank" href="http://www.ok.ru/bycard" class="ok" rel="nofollow"></a>
+                    <a target="_blank" href="https://www.instagram.com/bycardby/?hl=ru" class="inst" rel="nofollow"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-footer">
+            <!--<div class="item">
+                <p>ООО "Байкард"</p>
+                <p>Регистрация в торговом реестре Республики Беларусь №62 от 20.05.2012</p>
+                <p>Зарегистрирован Администрацией Советского района г. Минска</p>
+            </div>-->
+            <div class="item">
+                <p>Банковские реквизиты</p>
+				<p>ООО "БАЙКАРД"</p>
+                <p>УНП: 191679125, ОКПО: 380398265000, РБ, г.Минск, пр.Пушкина, д. 39, пом. 4, каб. 2</p>
+                <p>Расчетный счет: BY66OLMP30120001048550000933  в ОАО "Белгазпромбанк", БИК  OLMPBY2X</p>
+                <p>220121, г. Минск,  ул. Притыцкого, 60/2</p>
+            </div>
+            <div class="item">
+                <p><a href="http://www.bycard.by/info/contacts">Служба технической поддержки</a></p>
+                <p>График работы: 9:00-22:00.                <p>&nbsp;</p>
+                <p>Телефон: +375 (33) 365-00-00<br/>Электронная почта: <a href="mailto:info@bycard.by">info@bycard.by</a></p>
+            </div>
+			<div class="item">
+                <p><a href="http://www.bycard.by/corp" style="font-weight: normal;color: white;">Корпоративным клиентам</a></p>
+                <p style="margin-top: -5px;"><a href="http://www.bycard.by/info/fororganizer" style="color: white;">Партнерам</a></p>
+                <p><a href="http://www.bycard.by/info/mediakit" style="color: white;">Рекламодателям</a></p>
+                <p><a href="http://www.bycard.by/tv" style="color: white;">Бесплатное ТВ</a></p>
+                <p><a href="http://gifts.bycard.by/about" style="color: white;">Активировать сертификат</a></p>
+                <p><a href="http://www.bycard.by/iframe" style="color: white;">Продажа билетов на своем сайте</a></p>
+            </div>
+        </div>
+        <div class="pay-methods">
+            <a href="//kinominska.by" target="_blank"><i class="kvp clicked"></i></a>
+            <a href="#" onclick="return false;"><i class="webpay"></i></a>
+            <a href="#" onclick="return false;"><i class="ipay"></i></a>
+            <a href="#" onclick="return false;"><i class="erip"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="assist clicked"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="ver-visa clicked"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="ver-mc clicked"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="visa clicked"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="belcart clicked"></i></a>
+            <a href="//www.bycard.by/info/howtobuy#assist" target="_blank"><i class="mastercard clicked"></i></a>
+            <a href="//dengi.mts.by/payments/pay?id=10000393851" target="_blank"><i class="mtsden"></i></a>
+            <a href="//www.mts.by/" target="_blank"><i class="mts clicked"></i></a>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

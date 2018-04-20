@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://ergodox-ez.com/">redirected</a>.</body></html>

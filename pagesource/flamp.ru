@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="//moscow.flamp.ru/">//moscow.flamp.ru/</a></p>

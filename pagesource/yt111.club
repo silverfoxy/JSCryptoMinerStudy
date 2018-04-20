@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<title>여톡</title>
+<link rel="stylesheet" href="https://yt111.club/css/default.css?v=0.2">
+<link rel="stylesheet" href="https://yt111.club/skin/connect/basic/style.css">
+<link rel="stylesheet" href="/skin/latest_popular/webzine/style.css">
+<link rel="stylesheet" href="/skin/latest_popular/webzine/style_tab.css?v=2018-03-20-2">
+<!--[if lte IE 8]>
+<script src="https://yt111.club/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://yt111.club";
+var g5_bbs_url   = "https://yt111.club/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+</script>
+<script src="https://yt111.club/js/jquery-1.8.3.min.js"></script>
+<script src="https://yt111.club/js/jquery.menu.js"></script>
+<script src="https://yt111.club/js/common.js"></script>
+<script src="https://yt111.club/js/wrest.js"></script>
+</head>
+<body>
+<style>
+body{ background:#242424 url(https://yt111.club/img/bg_middle.png) repeat fixed; }
+</style>
+
+<!-- 상단 시작 { -->
+<div id="hd">
+    <h1 id="hd_h1">여톡</h1>
+
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+
+    
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+<span class="sound_only">팝업레이어 알림이 없습니다.</span></div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 -->
+    <div id="hd_wrapper">
+
+        <div id="logo">
+            <a href="https://yt111.club"><img src="https://yt111.club/img/logo.png" alt="여톡"></a>
+        </div>
+
+		<ul id="lineAd">
+															<li><a href="https://twitter.com/yeotok" target="_blank">도메인이 수시로 변경되니 여톡 트위터 팔로워는 필수입니다.</a></li>
+											<li>선입금 광고는 100% 사기이니 주의바랍니다.</li>
+																																	</ul>
+		<style>
+		#lineAd{ position:absolute; bottom:5px; right:2px; width:450px; height:25px; overflow:hidden; margin:0px; padding:0px; background:#404040 url(/img/top_menu_bg.png) repeat-x; }
+		#lineAd{ border-radius:5px; -webkit-border-radius:5px; }
+		#lineAd li{ display:none; position:absolute; top:0px; left:0px; width:470px; height:19px; overflow:hidden; margin:0px; padding:6px 15px 0px 15px; font:normal 11px Dotum; color:#dfdfdf; }
+		#lineAd li a{ color:#dfdfdf; }
+		</style>
+		<script>
+		$(function(){ lineAdRolling(); });
+		$(document).on({"mouseenter":function(){ $(this).prop("stop", true); }, "mouseleave":function(){ $(this).prop("stop", false); }}, "#lineAd");
+		function lineAdRolling(rolling)
+		{
+			var animateTime = 500;
+			var rollingTime = 4000;
+			var wrap = $("#lineAd");
+			var height = $(wrap).height();
+			var items = $(wrap).find("li").show();
+			var active = $(wrap).find("li.active").index(); if(active<0) active = 0;
+			if(items.length<=1) return;
+			if(!$(wrap).prop("stop"))
+			{
+				$(items).removeClass("active");
+				if(!rolling)
+				{
+					$(items).css({"top":height+"px"});
+					$(items).eq(active).css({"top":"0px"}).addClass("active");
+					setTimeout(function(){ lineAdRolling(true); }, rollingTime);
+					return;
+				}
+				var next = active+1;
+				if(next < 0) next = $(wrap).find("li:last").index();
+				if(next >= items.length) next = $(wrap).find("li:first").index();
+				$(items).eq(active).animate({"top":-height+"px"}, animateTime, function(){ $(items).not(":eq("+next+")").css({"top":height+"px"}); });
+				$(items).eq(next).animate({"top":"0px"}, animateTime).addClass("active");
+				$(items).eq(next).fadeOut(100).fadeIn(200).fadeOut(100).fadeIn(200);
+			}
+			setTimeout(function(){ lineAdRolling(true); }, rollingTime);
+		}
+		</script>
+
+        <div id="text_size">
+            <!-- font_resize('엘리먼트id', '제거할 class', '추가할 class'); -->
+            <button id="size_down" onclick="font_resize('container', 'ts_up ts_up2', '');"><img src="https://yt111.club/img/ts01.gif" alt="기본"></button>
+            <button id="size_def" onclick="font_resize('container', 'ts_up ts_up2', 'ts_up');"><img src="https://yt111.club/img/ts02.gif" alt="크게"></button>
+            <button id="size_up" onclick="font_resize('container', 'ts_up ts_up2', 'ts_up2');"><img src="https://yt111.club/img/ts03.gif" alt="더크게"></button>
+        </div>
+
+        <fieldset id="hd_sch">
+            <legend>사이트 내 전체검색</legend>
+            <form name="fsearchbox" method="get" action="https://yt111.club/bbs/search.php" onsubmit="return fsearchbox_submit(this);">
+            <!-- <input type="hidden" name="sfl" value="wr_subject||wr_content"> -->
+            <input type="hidden" name="sfl" value="wr_subject">
+            <input type="hidden" name="sop" value="and">
+            <label for="sch_stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+            <input type="text" name="stx" id="sch_stx" maxlength="20">
+            <input type="submit" id="sch_submit" value="검색">
+            </form>
+
+            <script>
+            function fsearchbox_submit(f)
+            {
+                if (f.stx.value.length < 2) {
+                    alert("검색어는 두글자 이상 입력하십시오.");
+                    f.stx.select();
+                    f.stx.focus();
+                    return false;
+                }
+
+                // 검색에 많은 부하가 걸리는 경우 이 주석을 제거하세요.
+                var cnt = 0;
+                for (var i=0; i<f.stx.value.length; i++) {
+                    if (f.stx.value.charAt(i) == ' ')
+                        cnt++;
+                }
+
+                if (cnt > 1) {
+                    alert("빠른 검색을 위하여 검색어에 공백은 한개만 입력할 수 있습니다.");
+                    f.stx.select();
+                    f.stx.focus();
+                    return false;
+                }
+
+                return true;
+            }
+            </script>
+        </fieldset>
+
+		<div id="twt_lnk">
+			<a href="https://twitter.com/yeotok" target="_blank">
+				https://twitter.com/<span>yeotok</span>
+			</a>
+		</div>
+
+        <ul id="tnb">
+                        <li><a href="https://yt111.club/bbs/register.php">회원가입</a></li>
+            <li><a href="https://yt111.club/bbs/login.php"><b>로그인</b></a></li>
+                        <li><a href="https://yt111.club/bbs/faq.php">FAQ</a></li>
+            <li><a href="https://yt111.club/bbs/qalist.php">1:1문의</a></li>
+            <li><a href="https://yt111.club/bbs/current_connect.php">접속자 
+134</a></li>
+            <li><a href="https://yt111.club/bbs/new.php">새글</a></li>
+        </ul>
+    </div>
+
+    <!-- <nav id="gnb">
+        <h2>메인메뉴</h2>
+
+		<ul id="gnb_1dul">
+						<li class="gnb_1dli" style="z-index:999">
+								<a href="/bbs/group.php?gr_id=u" target="_self" class="gnb_1da">업소정보</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u01" target="_self" class="gnb_2da">립/핸플/페티쉬</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u02" target="_self" class="gnb_2da">키스방</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u04" target="_self" class="gnb_2da">건마-스파</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u05" target="_self" class="gnb_2da">건마-서울</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u06" target="_self" class="gnb_2da">건마-경기</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u07" target="_self" class="gnb_2da">오피-서울</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u08" target="_self" class="gnb_2da">오피-경기</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u09" target="_self" class="gnb_2da">휴게텔</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u10" target="_self" class="gnb_2da">풀싸롱/하드코어</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u11" target="_self" class="gnb_2da">소프트룸/퍼블릭</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u12" target="_self" class="gnb_2da">출장/안마</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=u13" target="_self" class="gnb_2da">경상/충청/전라</a></li>
+									</ul>
+										<li class="gnb_1dli" style="z-index:985">
+								<a href="/bbs/group.php?gr_id=h" target="_self" class="gnb_1da">업소후기</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h01" target="_self" class="gnb_2da">핸플/페티쉬</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h02" target="_self" class="gnb_2da">키스방</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h03" target="_self" class="gnb_2da">립카페</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h04" target="_self" class="gnb_2da">건마서울</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h05" target="_self" class="gnb_2da">건마지방</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h06" target="_self" class="gnb_2da">오피강남</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h07" target="_self" class="gnb_2da">오피비강남</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h08" target="_self" class="gnb_2da">휴게텔/떡방</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h09" target="_self" class="gnb_2da">풀/하드코어/퍼블릭</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h10" target="_self" class="gnb_2da">안마/출장마사지</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h11" target="_self" class="gnb_2da">여관바리/빡촌</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h12" target="_self" class="gnb_2da">단란주점/노래방</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h13" target="_self" class="gnb_2da">채팅/헌팅/클럽/나이트</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h14" target="_self" class="gnb_2da">해외기행</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h15" target="_self" class="gnb_2da">대구/부산/호남지방후기</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=h16" target="_self" class="gnb_2da">기타/자유후기</a></li>
+									</ul>
+										<li class="gnb_1dli" style="z-index:981">
+								<a href="/bbs/group.php?gr_id=meet" target="_self" class="gnb_1da">조건&섹파후기</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=meet1" target="_self" class="gnb_2da">조건/섹파후기</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=meet2" target="_self" class="gnb_2da">공유/검증/분양/교환</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=meet3" target="_self" class="gnb_2da">야챗&야톡&어플공유</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=meet4" target="_self" class="gnb_2da">만남.일반.대행</a></li>
+									</ul>
+										<li class="gnb_1dli" style="z-index:993">
+								<a href="/bbs/group.php?gr_id=c" target="_self" class="gnb_1da">커뮤니티</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=c1" target="_self" class="gnb_2da">공지사항</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=c2" target="_self" class="gnb_2da">자유게시판</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=c3" target="_self" class="gnb_2da">질문답변</a></li>
+											<li class="gnb_2dli"><a href="/plugin/attendance/attendance.php" target="_self" class="gnb_2da">출석부</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=c4" target="_self" class="gnb_2da">성인소설</a></li>
+									</ul>
+										<li class="gnb_1dli" style="z-index:992">
+								<a href="/bbs/group.php?gr_id=ent" target="_self" class="gnb_1da">성인자료실</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="https://yadori.club" target="_blank" class="gnb_2da">성인토렌트</a></li>
+											<li class="gnb_2dli"><a href="https://todori.club" target="_blank" class="gnb_2da">티비/영화</a></li>
+											<li class="gnb_2dli"><a href="https://jubeya.info/" target="_blank" class="gnb_2da">성인스트리밍</a></li>
+									</ul>
+										<li class="gnb_1dli" style="z-index:994">
+								<a href="/bbs/group.php?gr_id=cen" target="_self" class="gnb_1da">여톡센터</a>
+				<ul class="gnb_2dul">
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=cen1" target="_self" class="gnb_2da">건의/버그신고</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=cen2" target="_self" class="gnb_2da">구인구직</a></li>
+											<li class="gnb_2dli"><a href="/bbs/board.php?bo_table=cen3" target="_self" class="gnb_2da">장터</a></li>
+											<li class="gnb_2dli"><a href="/bbs/qalist.php" target="_self" class="gnb_2da">제휴/광고문의</a></li>
+									</ul>
+							        </ul>
+    </nav> -->
+    <nav id="topnav">
+        <h2>메인메뉴</h2>
+		<ul id="topmenu">
+						<li>
+								<a href="/bbs/group.php?gr_id=u" target="_self">업소정보</a>
+				<ul>
+											<li><a href="/bbs/board.php?bo_table=u01" target="_self">립/핸플/페티쉬 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u02" target="_self">키스방 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u04" target="_self">건마-스파 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u05" target="_self">건마-서울 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u06" target="_self">건마-경기 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u07" target="_self">오피-서울 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u08" target="_self">오피-경기 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u09" target="_self">휴게텔 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u10" target="_self">풀싸롱/하드코어 </a></li>
+											<li><a href="/bbs/board.php?bo_table=u11" target="_self">소프트룸/퍼블릭 </a></li>
+											<li><a href="/bbs/board.php?bo_table=u12" target="_self">출장/안마 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=u13" target="_self">경상/충청/전라 </a></li>
+									</ul>
+							</li>
+						<li>
+								<a href="/bbs/group.php?gr_id=h" target="_self">업소후기</a>
+				<ul>
+											<li><a href="/bbs/board.php?bo_table=h01" target="_self">핸플/페티쉬 </a></li>
+											<li><a href="/bbs/board.php?bo_table=h02" target="_self">키스방 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h03" target="_self">립카페 </a></li>
+											<li><a href="/bbs/board.php?bo_table=h04" target="_self">건마서울 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h05" target="_self">건마지방 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h06" target="_self">오피강남 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h07" target="_self">오피비강남 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h08" target="_self">휴게텔/떡방 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h09" target="_self">풀/하드코어/퍼블릭 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h10" target="_self">안마/출장마사지 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h11" target="_self">여관바리/빡촌 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h12" target="_self">단란주점/노래방 </a></li>
+											<li><a href="/bbs/board.php?bo_table=h13" target="_self">채팅/헌팅/클럽/나이트 </a></li>
+											<li><a href="/bbs/board.php?bo_table=h14" target="_self">해외기행 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=h15" target="_self">대구/부산/호남지방후기 </a></li>
+											<li><a href="/bbs/board.php?bo_table=h16" target="_self">기타/자유후기 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+									</ul>
+							</li>
+						<li>
+								<a href="/bbs/group.php?gr_id=meet" target="_self">조건&섹파후기</a>
+				<ul>
+											<li><a href="/bbs/board.php?bo_table=meet1" target="_self">조건/섹파후기 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=meet2" target="_self">공유/검증/분양/교환 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=meet3" target="_self">야챗&야톡&어플공유 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=meet4" target="_self">만남.일반.대행 </a></li>
+									</ul>
+							</li>
+						<li>
+								<a href="/bbs/group.php?gr_id=c" target="_self">커뮤니티</a>
+				<ul>
+											<li><a href="/bbs/board.php?bo_table=c1" target="_self">공지사항 </a></li>
+											<li><a href="/bbs/board.php?bo_table=c2" target="_self">자유게시판 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=c3" target="_self">질문답변 </a></li>
+											<li><a href="/plugin/attendance/attendance.php" target="_self">출석부 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+											<li><a href="/bbs/board.php?bo_table=c4" target="_self">성인소설 </a></li>
+									</ul>
+							</li>
+						<li>
+								<a href="/bbs/group.php?gr_id=ent" target="_self">성인자료실</a>
+				<ul>
+											<li><a href="https://yadori.club" target="_blank">성인토렌트 </a></li>
+											<li><a href="https://todori.club" target="_blank">티비/영화 </a></li>
+											<li><a href="https://jubeya.info/" target="_blank">성인스트리밍 </a></li>
+									</ul>
+							</li>
+						<li>
+								<a href="/bbs/group.php?gr_id=cen" target="_self">여톡센터</a>
+				<ul>
+											<li><a href="/bbs/board.php?bo_table=cen1" target="_self">건의/버그신고 </a></li>
+											<li><a href="/bbs/board.php?bo_table=cen2" target="_self">구인구직 </a></li>
+											<li><a href="/bbs/board.php?bo_table=cen3" target="_self">장터 </a></li>
+											<li><a href="/bbs/qalist.php" target="_self">제휴/광고문의 <img src='/img/icon_new.gif' align='absmiddle'></a></li>
+									</ul>
+							</li>
+			        </ul>
+    </nav>
+	<script>
+	$(function(){
+		$("#topnav");
+		$("#topmenu li").hover(function(){
+			$(this).find("ul").fadeIn(100);
+		}, function(){
+			$(this).find("ul").stop().fadeOut(200);
+		});
+	});
+	</script>
+</div>
+<!-- } 상단 끝 -->
+
+<div class="wrap">
+
+<div class="angel_layer">
+	<ul>
+		<li class="angel">angel</li>
+		<li class="devil">devil</li>
+	</ul>
+</div>
+
+<hr>
+
+<!-- 콘텐츠 시작 { -->
+<div id="wrapper">
+			<div id="aside">
+			
+<!-- 로그인 전 아웃로그인 시작 { -->
+<link rel="stylesheet" href="https://yt111.club/skin/outlogin/basic2/style.css">
+
+<section id="ol_before" class="ol">
+    <h2>회원로그인</h2>
+    <form name="foutlogin" action="https://yt111.club/bbs/login_check.php" onsubmit="return fhead_submit(this);" method="post" autocomplete="off">
+	<div class='ol_top'>
+		<div class='ol_join'><a href="https://yt111.club/bbs/register.php">회원가입</a></div>
+		<div class='ol_password'><a href="https://yt111.club/bbs/password_lost.php" id="ol_password_lost">아이디/비밀번호 찾기</a></div>
+	</div>
+    <fieldset>
+		<div class='ol_area'>
+			<div class='Left'>
+				<input type="hidden" name="url" value="https://yt111.club/">
+				<label for="ol_id" id="ol_idlabel">아이디<strong class="sound_only">필수</strong></label>
+				<input type="text" id="ol_id" name="mb_id" required class="required" maxlength="20">
+				<label for="ol_pw" id="ol_pwlabel">비밀번호<strong class="sound_only">필수</strong></label>
+				<input type="password" name="mb_password" id="ol_pw" required class="required" maxlength="20">
+			</div>
+			<div class='Right'><input type="image" src="https://yt111.club/skin/outlogin/basic2/btn_login.png" border='0' /></div>
+		</div>
+        <div id="ol_auto">
+            <input type="checkbox" name="auto_login" value="1" id="auto_login">
+            <label for="auto_login" id="auto_login_label">자동로그인</label>
+        </div>
+    </fieldset>
+    </form>
+</section>
+
+<script>
+$omi = $('#ol_id');
+$omi.css('display','inline-block').css('width',110);
+$omp = $('#ol_pw');
+$omp.css('display','inline-block').css('width',110);
+$omi_label = $('#ol_idlabel');
+$omi_label.addClass('ol_idlabel');
+$omp_label = $('#ol_pwlabel');
+$omp_label.addClass('ol_pwlabel');
+
+$(function() {
+    $omi.focus(function() {
+        $omi_label.css('visibility','hidden');
+    });
+    $omp.focus(function() {
+        $omp_label.css('visibility','hidden');
+    });
+    $omi.blur(function() {
+        $this = $(this);
+        if($this.attr('id') == "ol_id" && $this.attr('value') == "") $omi_label.css('visibility','visible');
+    });
+    $omp.blur(function() {
+        $this = $(this);
+        if($this.attr('id') == "ol_pw" && $this.attr('value') == "") $omp_label.css('visibility','visible');
+    });
+
+    $("#auto_login").click(function(){
+        if ($(this).is(":checked")) {
+            if(!confirm("자동로그인을 사용하시면 다음부터 회원아이디와 비밀번호를 입력하실 필요가 없습니다.\n\n공공장소에서는 개인정보가 유출될 수 있으니 사용을 자제하여 주십시오.\n\n자동로그인을 사용하시겠습니까?"))
+                return false;
+        }
+    });
+});
+
+function fhead_submit(f)
+{
+    return true;
+}
+</script>
+<!-- } 로그인 전 아웃로그인 끝 -->
+						<div class="banner_wrap main_right"><a href="https://yt111.club/plugin/ad5/link.php?ad=ee1174ebed037f3cc33e5abaf4ec7c67" target="_blank"><img src="/data/ad_banner/20171116183522.gif"></a>
+<a href="https://yt111.club/plugin/ad5/link.php?ad=8701d0fa073a368abce6aabbfbe19b96" target="_blank"><img src="/data/ad_banner/20171117173653.gif"></a>
+<button type="button">광고제휴문의</button>
+<button type="button">광고제휴문의</button></div>
+		</div>
+	    <div id="container">
+		<div class="top_visual_wrap">
+			<div class="banner_wrap top"><a href="https://yt111.club/plugin/ad5/link.php?ad=75dcbf49649e99ae9516521f11b121bf" target="_self"><img src="/data/ad_banner/20161205093206.gif"></a>
+<a href="https://yt111.club/plugin/ad5/link.php?ad=e99cfc7d23f98b460363a14bde1201f2" target="_blank"><img src="/data/ad_banner/20171221144815.gif"></a>
+<a href="https://yt111.club/plugin/ad5/link.php?ad=b2bc257783a999750b49e991c3f25a3d" target="_blank"><img src="/data/ad_banner/20180311002513.gif"></a>
+<a href="https://yt111.club/plugin/ad5/link.php?ad=c78b77cd448f2db02344a3b01402eff7" target="_blank"><img src="/data/ad_banner/20180224164159.gif"></a></div>
+		</div>
+		<div class="banner_wrap board_top"></div>
+					<div class="top_popular">
+			<script>
+$(function(){
+	var url = "/skin/latest_popular/webzine/latest_popular_ajax.php";
+	var data = "params=a%3A5%3A%7Bs%3A8%3A%22skin_dir%22%3Bs%3A7%3A%22webzine%22%3Bs%3A4%3A%22rows%22%3Bi%3A10%3Bs%3A11%3A%22subject_len%22%3Bi%3A48%3Bs%3A10%3A%22cache_time%22%3Bi%3A1%3Bs%3A7%3A%22options%22%3Ba%3A3%3A%7Bi%3A0%3Ba%3A5%3A%7Bs%3A5%3A%22gr_id%22%3Bs%3A1%3A%22h%22%3Bs%3A8%3A%22bo_table%22%3BN%3Bs%3A7%3A%22subject%22%3Bs%3A13%3A%22%EC%97%AC%ED%86%A1+%EC%9D%BC%EA%B0%84%22%3Bs%3A4%3A%22term%22%3Bi%3A1%3Bs%3A5%3A%22order%22%3Bs%3A6%3A%22wr_hit%22%3B%7Di%3A1%3Ba%3A5%3A%7Bs%3A5%3A%22gr_id%22%3Bs%3A1%3A%22h%22%3Bs%3A8%3A%22bo_table%22%3BN%3Bs%3A7%3A%22subject%22%3Bs%3A13%3A%22%EC%97%AC%ED%86%A1+%EC%A3%BC%EA%B0%84%22%3Bs%3A4%3A%22term%22%3Bi%3A7%3Bs%3A5%3A%22order%22%3Bs%3A6%3A%22wr_hit%22%3B%7Di%3A2%3Ba%3A5%3A%7Bs%3A5%3A%22gr_id%22%3Bs%3A1%3A%22h%22%3Bs%3A8%3A%22bo_table%22%3BN%3Bs%3A7%3A%22subject%22%3Bs%3A13%3A%22%EC%97%AC%ED%86%A1+%EC%9B%94%EA%B0%84%22%3Bs%3A4%3A%22term%22%3Bi%3A30%3Bs%3A5%3A%22order%22%3Bs%3A6%3A%22wr_hit%22%3B%7D%7D%7D";
+
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:data,
+		success:function(data){
+			$("#latest_popular_5ab0872aba6a9").parent().html(data);
+		}
+	});
+});
+</script>
+<div id="latest_popular_5ab0872aba6a9" class="latest_popular_ajax"></div>			</div>
+			
+<div style="clear:both;"></div>
+
+																					
+    </div>
+</div>
+
+<!-- } 콘텐츠 끝 -->
+
+<hr>
+
+<!-- 하단 시작 { -->
+<div id="ft">
+            <div id="ft_company"></div>
+    <div id="ft_copy">
+    </div>
+</div>
+
+<a href="https://yt111.club/index.php?device=mobile" id="device_change">모바일 버전으로 보기</a>
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75758093-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	        <div style="display:none;">
+			<script id="_waucyz">
+				var _wau = _wau || []; _wau.push(["small", "zricjs8m8pkr", "cyz"]);
+				(function() {var s=document.createElement("script"); s.async=true;
+				s.src="http://widgets.amung.us/small.js";
+				document.getElementsByTagName("head")[0].appendChild(s);
+				})();
+			</script>
+		</div>
+	
+</body>
+</html>

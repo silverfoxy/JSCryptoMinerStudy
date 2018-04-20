@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="euc-kr">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta property="og:title" content="로또리치" />
+<meta property="og:url" content="http://www.lottorich.co.kr/" />
+<meta property="og:image" content="//image.lottorich.co.kr/lottorich/main_new/lottorich_logo_bab.gif" />
+<meta property="og:description" content="로또 1등 최다배출 한국기록원 인증, 로또 분석번호 제공 및 당첨번호 조회, 로또리치" />
+<meta name="naver-site-verification" content="809d84a3665fce356c69582ac5a2cd6aa36af115" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="로또리치" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="로또리치" />
+<meta name="twitter:url" content="http://www.lottorich.co.kr/" />
+<meta name="twitter:image" content="//image.lottorich.co.kr/lottorich/main_new/lottorich_logo_bab.gif" />
+<meta name="twitter:description" content="로또 1등 최다배출 한국기록원 인증, 로또 분석번호 제공 및 당첨번호 조회, 로또리치" />
+<meta name="google-site-verification" content="KfPTIIO73yuxJVlfSLiCVuY9_vv27ACyzTaYKdxL-AA" />
+<meta name="keywords" content="로또, 로또리치, 복권, 로또당첨번호, LOTTO, 로또분석번호, 로또번호, 로또복권당첨번호, 로또복권, 로또복권당첨번호확인, 로또당첨번호확인, 나눔로또당첨번호, 로또복권당첨번호안내">
+<meta name="description" content="로또 1등 최다배출 한국기록원 인증, 로또 분석번호 제공 및 당첨번호 조회, 로또리치">
+<title>로또리치</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="canonical" href="http://www.lottorich.co.kr/" />
+<link rel="stylesheet" type="text/css" href="//image.lottorich.co.kr/lottorich/css/lottorich.css?v=20180121" media="all" />
+<link rel="stylesheet" type="text/css" href="//image.lottorich.co.kr/lottorich/css/main.css?v=20180121" />
+<link rel="stylesheet" type="text/css" href="//image.lottorich.co.kr/lottorich/css/common.css?v=20180121" />
+<script type="text/javascript" src="/inc/js/lottorich.js?v=20180121"></script>
+<script type="text/javascript" src="/inc/js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="/inc/js/rolling_updown.js"></script>
+<script type="text/javascript" src="/inc/data/head_top_ticker_list.js?v=20180121"></script>
+<script type="text/javascript" src="/inc/js/maskinput.js"></script>
+<script type="text/javascript">
+	function checkUA(){
+		var ua	= window.navigator.userAgent;
+		var rv	= "";
+
+		if(ua.indexOf('Trident/4.0') >= 0 && ua.indexOf('MSIE 7.0') >= 0){	// IE 8.0 & ie7 호환모드
+			rv = "ie7";
+		}else if(ua.indexOf('MSIE 7.0') >= 0){												// IE 7.0
+			rv = "ie7";
+		}
+		return rv;
+	}
+
+	$(document).ready(function(){
+		if(checkUA() == "ie7"){
+			var rollHeadTopTicker = new rollingUpDown({rollId: "rollHeadTopTickerText", delay: 5000, speed: 10, step: 1, mover: true, childHeight: 17});	// 전광판 목록 롤링
+		}else{
+			var rollHeadTopTicker = new rollingUpDown({rollId: "rollHeadTopTickerText", delay: 5000, speed: 10, step: 1, mover: true, childHeight: 15});	// 전광판 목록 롤링
+		}
+	});
+
+	function nav_smenu(_type, _id, _num){
+		if(_type == "block" && _num != "06"){
+			document.getElementById("tmenu_"+_num).style.backgroundImage	= "url('//image.lottorich.co.kr/lottorich/main_new/navi_mn"+_num+"_on.png?v=20170310')";
+		}else{
+			document.getElementById("tmenu_"+_num).style.backgroundImage	= "url('//image.lottorich.co.kr/lottorich/main_new/navi_mn"+_num+".png?v=20170310')";
+		}
+		document.getElementById("tmenu_"+_num).style.backgroundRepeat	= "no-repeat";
+
+		for(var i = 1; i <= 6; i++){
+			if(i == _num * 1){
+				if(i == 1){
+					if(_type == "block"){
+						document.getElementById("nav_smenu_s"+i).className	= "first on";
+					}else{
+						document.getElementById("nav_smenu_s"+i).className	= "first";
+					}
+				}else{
+					if(_type == "block"){
+						document.getElementById("nav_smenu_s"+i).className	= "on";
+					}else{
+						document.getElementById("nav_smenu_s"+i).className	= "";
+					}
+				}
+			}else{
+				if(i == 1){
+					document.getElementById("nav_smenu_s"+i).className	= "first";
+				}else{
+					document.getElementById("nav_smenu_s"+i).className	= "";
+				}
+			}
+		}
+	}
+
+	function nav_smenu_all(_type){
+		document.getElementById("nav_2dep_layer").style.display		= _type;
+	}
+
+	function siteMap(_type){
+		document.getElementById("sitemap_bg").style.display		= _type;
+		if(checkUA() == "ie7"){
+			document.getElementById("sitemap_bg").style.height	= document.documentElement.scrollHeight;
+			document.getElementById("gnbsitemap").style.zIndex	= "1100";
+		}else{
+			document.getElementById("sitemap_bg").style.height	= document.body.scrollHeight;
+		}
+		document.getElementById("sitemap").style.display			= _type;
+
+		if(_type == "none"){
+			$('html').css('overflow','auto');
+		}else if(_type == "block"){
+			$('html').css('overflow','hidden');
+		}
+	}
+
+	$("#sitemap li a").each(function(){
+			});
+
+	function SetCookie(cKey, cValue)
+	{
+		var date = new Date();
+		var validity = 1;
+		date.setDate(date.getDate() + validity);
+		document.cookie = cKey + '=' + escape(cValue) + '; path=/;expires=' + date.toGMTString();
+	}
+</script>
+</head>
+<body>
+<div id="sitemap_bg" style="position:absolute;top:0;left:0;opacity:0.5;-moz-opacity:0.5;background:#000;width:100%;height:100%;display:none;margin:0;padding:0;filter:alpha(opacity=50);z-index:1100;"></div>
+<div id="head">
+	<div class="gnb">
+		<ul class="gnb_lm">
+			<li><a href="http://www.lottorich.co.kr/"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_home.gif" alt="HOME"></a></li>
+			<li class="li_noline"><a href="javascript:;" onclick="addFavorite();"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_fav.gif" alt="즐겨찾기"></a></li>
+					</ul>
+		<ul  class="gnb_rm">
+					<li><a href="http://www.lottorich.co.kr/member/login.html?r_url=http://www.lottorich.co.kr%2F"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_login.gif" alt="로그인"></a></li>
+			<li><a href="http://www.lottorich.co.kr/member/join_phone.html"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_join.gif" alt="회원가입"></a></li>
+			<li><a href="http://www.lottorich.co.kr/member/login.html?r_url=http://www.lottorich.co.kr/mylotto/mylottorich.html"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_mypage.gif" alt="마이페이지"></a></li>
+						<li><a href="http://www.lottorich.co.kr/member/simple_join/join_simple.html"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_payment.gif" alt="간편결제"></a></li>
+			<a href="javascript:;" onclick="siteMap('block');" ><li class="li_noline all_menu"><img src="//image.lottorich.co.kr/lottorich/main_new/gm_allmenu.gif" alt="전체메뉴"></li></a>
+		</ul>
+	</div>
+	<div id="gnbsitemap" class="gnbsitemap">
+	<div id="sitemap" class="sitemap" style="display:none;">
+		<h2><img src="//image.lottorich.co.kr/lottorich/main_new/sitemap_tit.gif" alt="로또리치 전체메뉴" title="로또리치 전체메뉴"></h2>
+		<div class="depth_1st first">
+			<h3><a href="http://www.lottorich.co.kr/lbbs/win.html">로또1등 후기/인터뷰</a></h3>
+			<div class="depth_2nd">
+				<h4>명예의 전당</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/win.html">로또당첨방</a></li>
+					<li><a href="http://www.lottorich.co.kr/hof/real_interview.html " target="_blank">로또1등 당첨자 공개</a><img src="//image.lottorich.co.kr/lottorich/main_new/icon_newwindow.png" alt="새창" title="새창" class="icon_newwindow"></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/real_lottorich/">로또1등 실제 배출내역</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또1등 후기</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/hof/list.html?tb=gold_after">1,2,3등 당첨후기</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=a_win&left_menu=left_win">로또 당첨후기</a></li>
+					<!--li><a href="http://www.lottorich.co.kr/lbbs/hot_list.html?s_tb=hot&left_menu=left_win">울고 웃는 로또 사연</a></li-->
+					<li><a href="http://www.lottorich.co.kr/lbbs/a_win_rank.html">실시간베스트당첨후기결과</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또1등 인터뷰</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/hof/list.html?tb=interview&left_menu=left_win">로또 1,2등 당첨 인터뷰</a></li>
+					<li><a href="http://www.lottorich.co.kr/event/120315/index.html">로또1등 방송언론보도</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또 당첨 정보</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/LR_RW_Result.html">대박 당첨자 리스트</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/certification.html">실제1등 사실공증</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/common.html">실제1등 당첨비법</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/lotto_store/">로또 판매점 찾기</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/prove.html">증명자료 확인법</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd dep2end">
+				<h4>당첨 기원 게시판</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=news">당첨 기원방</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=humor">자유게시판</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/news_rank.html">베스트당첨기원 후기결과</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="depth_1st">
+			<h3><a href="http://www.lottorich.co.kr/lotto/w_number.html">랜덤워크 분석 시스템</a></h3>
+			<div class="depth_2nd">
+				<h4>랜덤워크 분석 조합받기</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lotto/w_number.html">랜덤워크 분석 조합받기</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/myrw.html">나만의 랜덤워크 조합받기</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>랜덤워크 분석 시스템</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lotto/randomwork.html">랜덤워크 시스템 소개</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/randomwork2.html">랜덤워크시스템 구조와 이론</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/certification/index.html">공인 인증</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd dep2end">
+				<h4>나만의 1등분석조합기</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lotto/filter/">나만의 필터링 조합받기</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/dream/">꿈해몽 랜덤워크 조합받기</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/dream/dream_my.html">내 꿈 번호 등록하기</a></li>
+					<li><a href="http://www.lottorich.co.kr/perfect/perfect_intro.html">퍼펙트 조합받기</a></li>
+					<li><a href="http://www.lottorich.co.kr/perfect/index.html">퍼펙트 조합기란?</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="depth_1st">
+			<h3><a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html">골드서비스 안내</a></h3>
+			<div class="depth_2nd">
+				<h4>골드서비스 안내</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html">골드회원 가입혜택보기</a></li>
+					<li><a href="http://www.lottorich.co.kr/event/gold_member/GoldUsed.html">골드회원 100배 활용법</a></li>
+					<li><a href="http://www.lottorich.co.kr/event/gold_member/GoldPlus.html">골드서비스 상품안내</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/free_ticket/">골드VIP자유이용권</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/goldservice_windata.html">고액당첨분석</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd dep2end">
+				<h4>부가서비스 안내</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/company/welcome_intro.html" target="_blank">로또리치 서비스 안내</a><img src="//image.lottorich.co.kr/lottorich/main_new/icon_newwindow.png" alt="새창" title="새창" class="icon_newwindow"></li>
+					<li><a href="http://www.lottorich.co.kr/customer/moblie_guide.html">모바일 서비스 안내</a></li>
+					<li><a href="http://www.lottorich.co.kr/alrimi/lotto_alrimi.html">로또알림이 서비스</a></li>
+					<li><a href="http://www.lottorich.co.kr/alrimi/rw_alrimi.html">랜덤워크 알림이 서비스</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="depth_1st">
+			<h3><a href="http://www.lottorich.co.kr/lbbs/index_expert.html">로또 분석자료</a></h3>
+			<div class="depth_2nd">
+				<h4>로또 분석실</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=expert">로또 전문가 분석실</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=analysis">로또 정보 교환실</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=dream">로또 꿈해몽 분석실</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/randomworkstat_g.html">랜덤워크 조합 분석실</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또분석 게시판</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=imExpert">주니어 로또전문가</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=w_num">금주의 추천번호</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/?tb=n_num">금주의 제외번호</a></li>
+					<li ><a href="http://www.lottorich.co.kr/lbbs/expert_rank_new.html">로또분석 랭킹</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또분석의 모든것</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lotto/analysis/guide_main.html">로또 분석 체험 시스템</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/analysis/jackpot_number.html">로또 기초 분석</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/analysis/jackpot_hotcoldfirst.html">로또 응용 분석</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/terms/">로또용어 백과사전</a></li>
+					<li><a href="http://www.lottorich.co.kr/lotto/analysis/6d_check.html">6항목 입체 분석기</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>연금복권 정보</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/annuity/">연금복권 당첨번호</a></li>
+					<li><a href="http://www.lottorich.co.kr/annuity/basic/annuity_01.html">연금복권 기본통계</a></li>
+					<li><a href="http://www.lottorich.co.kr/annuity/expert/annuity_01.html">연금복권 고급통계</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd dep2end">
+				<h4>투표게시판</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/vote.html?type=w&left_menu=left_win">1등 예상번호 투표</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/vote.html?type=n&left_menu=left_win">낙첨 예상번호 투표</a></li>
+					<li><a href="http://www.lottorich.co.kr/poll/list.html?left_menu=left_win">설문조사 Power Poll</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="depth_1st">
+			<h3><a href="http://www.lottorich.co.kr/bbs/main.html">고객센터</a></h3>
+			<div class="depth_2nd">
+				<h4>로또리치 News</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/bbs/?tb=notice">공지사항</a></li>
+					<li><a href="http://www.lottorich.co.kr/bbs/hot_news_web/?tb=hot_news_web">복권과 경제 NEWS</a></li>
+					<li><a href="http://www.lottorich.co.kr/bbs/event.html?tb=event">이벤트 게시판</a></li>
+					<li><a href="http://www.lottorich.co.kr/bbs/event_winners.html?tb=event_winners">당첨자 발표</a></li>
+					<li><a href="http://www.lottorich.co.kr/recruit/140522.html">인재채용</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>로또리치 상담실</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/bbs/faq_new/faq.html?faq_idx=T">자주하시는 질문</a></li>
+					<li><a href="http://www.lottorich.co.kr/bbs/?tb=qa">1:1 상담문의</a></li>
+					<li><a href="http://www.lottorich.co.kr/bbs/sms_guide.html">문자수신 설정안내</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd dep2end">
+				<h4>올바른 복권 문화</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/customer/lottery_fund/">행복 LOTTO</a></li>
+					<li><a href="http://www.lottorich.co.kr/customer/lottery_fund/prevent_lottery.html">복권 중독 예방</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="depth_1st">
+			<h3><a href="http://www.lottorich.co.kr/gold_special/index.html">골드전용방</a></h3>
+			<div class="depth_2nd">
+				<h4>로또리치 분석연구소</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/lbbs/index_gold.html?tb=gold_special&sub=1">로또1등 연구보고서</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/index_gold.html?tb=gold_special&sub=2">지난주 1등 당첨분석</a></li>
+					<li><a href="http://www.lottorich.co.kr/lbbs/index_gold.html?tb=gold_special&sub=3">동영상 복권정보통</a></li>
+				</ul>
+			</div>
+			<div class="depth_2nd">
+				<h4>골드전용 조합실</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/gold_special/sub04.html?&sub=4">로또1등 골드조합 받기</a></li>
+					<li><a href="http://www.lottorich.co.kr/gold_special/sub05.html?&sub=5">나만의 1등 골드조합기</a></li>
+				</ul>
+			</div>
+					<div class="depth_2nd dep2end">
+				<h4>리치쿠폰</h4>
+				<ul>
+					<li><a href="http://www.lottorich.co.kr/coupon/rich_coupon.html">리치쿠폰</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="close_sitemap">
+			<a href="javascript:;" onclick="siteMap('none');"><img src="//image.lottorich.co.kr/lottorich/main_new/btn_sitemap_close.gif" alt="전체메뉴 닫기" title="전체메뉴 닫기"></a>
+		</div>
+	</div>
+</div><style>
+ *{ margin:0px; padding:0px; }
+ ul li{ list-style:none;}
+
+.localnav_bar_wrap{ width:100%; height:47px;  background:url(//image.lottorich.co.kr/lottorich/lnb/lnb_bg.png) repeat-x;}
+.lnb_st{ width:988px; margin:0 auto; position:relative;}
+.lnb_home{ padding:12px 65px 0px 20px;}
+.lnb_st ul { position:absolute; top:13px; left:100px;}
+.lnb_st ul li{ display:inline; padding-right:30px;}
+.lnb_st span{ position:absolute; top:2px; right:25px;}
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+		var onLoad = 1;
+		$(window).scroll(function(){
+		var gndPosition = $(window).scrollTop();
+				var gnbHeight = 170;
+						var thousandBannerTop = 250;
+				var thousandBannerBottom = 3300;
+
+		if(gndPosition >= gnbHeight){
+			$('#gnb_wrap').css({"position":"fixed", "left":"0", "top":"0", "right":"0", "z-index":"1001", "display":"block"});
+		}else{
+			$('#gnb_wrap').css({"position":"relative", "left":"0", "top":"0", "right":"0", "z-index":"1001", "display":"none"});
+		}
+
+		if(document.getElementById("thousandBanner")){
+			if(gndPosition >= thousandBannerTop && gndPosition <= thousandBannerBottom ){
+				document.getElementById("thousandBanner").style.display = "block";
+			}else{
+				document.getElementById("thousandBanner").style.display = "none";
+			}
+		}
+
+		if(document.getElementById("thousandBanner2")){
+			if(gndPosition >= thousandBannerTop){
+				document.getElementById("thousandBanner2").style.display = "block";
+			}else{
+				document.getElementById("thousandBanner2").style.display = "none";
+			}
+		}
+	});
+});
+
+function thousandBanner2(){
+	if(document.getElementById('thousandBanner2').style.height == '128px'){
+		document.getElementById("thousandBanner2").style.height = '352px';
+		document.getElementById("thousandBanner2_close").style.display = 'none';
+		document.getElementById("thousandBanner2_open").style.display = 'block';
+	}else{
+		document.getElementById("thousandBanner2").style.height = '128px';
+		document.getElementById("thousandBanner2_close").style.display = 'block';
+		document.getElementById("thousandBanner2_open").style.display = 'none';
+	}
+}
+</script>
+	<div class="localnav_bar_wrap" id="gnb_wrap" style="display:none;">
+    	<div class="lnb_st">
+        	<div class="lnb_home"><a href="http://www.lottorich.co.kr/"><img src="//image.lottorich.co.kr/lottorich/lnb/lnb_home.png" /></a></div>
+            <ul>
+            	<li><a href="http://www.lottorich.co.kr/lbbs/win.html"><img width="134" height="16" src="//image.lottorich.co.kr/lottorich/lnb/lnb_menu1.png" onmouseover="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu1_over.png'" onmouseout="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu1.png'" alt="메뉴1"/></a></li>
+                <li><a href="http://www.lottorich.co.kr/lotto/w_number.html"><img width="119" height="16" src="//image.lottorich.co.kr/lottorich/lnb/lnb_menu2.png?v=20170312" onmouseover="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu2_over.png?v=20170312'" onmouseout="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu2.png?v=20170312'" alt="메뉴2"/></a></li>
+                <li><a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html"><img width="98" height="16" src="//image.lottorich.co.kr/lottorich/lnb/lnb_menu3.png" onmouseover="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu3_over.png'" onmouseout="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu3.png'" alt="메뉴3"/></a></li>
+                <li><a href="http://www.lottorich.co.kr/lbbs/index_expert.html"><img width="85" height="16" src="//image.lottorich.co.kr/lottorich/lnb/lnb_menu4.png" onmouseover="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu4_over.png'" onmouseout="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu4.png'" alt="메뉴4"/></a></li>
+                <li><a href="http://www.lottorich.co.kr/bbs/main.html"><img width="56" height="16" src="//image.lottorich.co.kr/lottorich/lnb/lnb_menu5.png" onmouseover="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu5_over.png'" onmouseout="this.src='//image.lottorich.co.kr/lottorich/lnb/lnb_menu5.png'" alt="메뉴5"/></a></li>
+            </ul>
+            <span><a href="http://www.lottorich.co.kr/member/simple_join/join_simple.html"><img src="//image.lottorich.co.kr/lottorich/lnb/lnb_simple_join.png?v=20170915" /></a></span>
+        </div>
+    </div>
+	<div class="navigator">
+		<div class="navigator_wrap">
+			<h1 class="logonew">
+				<a href="http://www.lottorich.co.kr">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/lottorich_logo.png" >
+				</a>
+			</h1>
+			<ul id="nav" onmouseover="nav_smenu_all('block');" onmouseout="nav_smenu_all('none');">
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s1', '01');" onmouseout="nav_smenu('none', 'nav_smenu_s1', '01');">
+					<a href="http://www.lottorich.co.kr/lbbs/win.html" class="tmenu t1" id="tmenu_01"></a>
+				</li>
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s2', '02');" onmouseout="nav_smenu('none', 'nav_smenu_s2', '02');">
+					<a href="http://www.lottorich.co.kr/lotto/w_number.html" class="tmenu t2" id="tmenu_02"></a>
+				</li>
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s3', '03');" onmouseout="nav_smenu('none', 'nav_smenu_s3', '03');">
+					<a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html" class="tmenu t3" id="tmenu_03"></a>
+				</li>
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s4', '04');" onmouseout="nav_smenu('none', 'nav_smenu_s4', '04');">
+					<a href="http://www.lottorich.co.kr/lbbs/index_expert.html" class="tmenu t4" id="tmenu_04"></a>
+				</li>
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s5', '05');" onmouseout="nav_smenu('none', 'nav_smenu_s5', '05');">
+					<a href="http://www.lottorich.co.kr/bbs/main.html" class="tmenu t5" id="tmenu_05"></a>
+				</li>
+				<li onmouseover="nav_smenu('block', 'nav_smenu_s6', '06');" onmouseout="nav_smenu('none', 'nav_smenu_s6', '06');">
+					<a href="http://www.lottorich.co.kr/gold_special/index.html" class="tmenu t6" id="tmenu_06"></a>
+					<div class="gold_icon"><a href=""><img src="//image.lottorich.co.kr/lottorich/main_new/gold_icon.png" alt=""></a></div>
+				</li>
+			</ul>
+		</div>
+		<div id="nav_2dep_layer" class="nav_2dep_layer" style="display:none;">
+			<div class="nav_2dep_padiv">
+				<ul class="nav_2dep_list" onmouseover="nav_smenu_all('block');" onmouseout="nav_smenu_all('none');">
+					<li class="first" id="nav_smenu_s1" onmouseover="nav_smenu('block', 'nav_smenu_s1', '01');" onmouseout="nav_smenu('none', 'nav_smenu_s1', '01');">
+						<ul class="nav_smenu s1">
+							<li><a href="http://www.lottorich.co.kr/lbbs/win.html">명예의 전당</a></li>
+							<li><a href="http://www.lottorich.co.kr/hof/list.html?tb=gold_after">로또1등 후기</a></li>
+							<li><a href="http://www.lottorich.co.kr/hof/list.html?tb=interview&left_menu=left_win">로또1등 인터뷰</a></li>
+							<li><a href="http://www.lottorich.co.kr/lbbs/LR_RW_Result.html">로또 당첨 정보</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/lbbs/?tb=news">당첨 기원 게시판</a></li>
+						</ul>
+					</li>
+					<li id="nav_smenu_s2" onmouseover="nav_smenu('block', 'nav_smenu_s2', '02');" onmouseout="nav_smenu('none', 'nav_smenu_s2', '02');">
+						<ul class="nav_smenu s2">
+							<li><a href="http://www.lottorich.co.kr/lotto/w_number.html">랜덤워크 분석 조합받기</a></li>
+							<li><a href="http://www.lottorich.co.kr/lotto/randomwork.html">랜덤워크 분석시스템</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/lotto/filter/">나만의 1등분석조합기</a></li>
+						</ul>
+					</li>
+					<li id="nav_smenu_s3" onmouseover="nav_smenu('block', 'nav_smenu_s3', '03');" onmouseout="nav_smenu('none', 'nav_smenu_s3', '03');">
+						<ul class="nav_smenu s3">
+							<li><a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html">골드서비스 안내</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/coupon/rich_coupon.html">부가서비스 안내</a></li>
+						</ul>
+					</li>
+					<li id="nav_smenu_s4" onmouseover="nav_smenu('block', 'nav_smenu_s4', '04');" onmouseout="nav_smenu('none', 'nav_smenu_s4', '04');">
+						<ul class="nav_smenu s4">
+							<li><a href="http://www.lottorich.co.kr/lbbs/?tb=expert">로또 분석실</a></li>
+							<li><a href="http://www.lottorich.co.kr/lbbs/?tb=imExpert">로또분석 게시판</a></li>
+							<li><a href="http://www.lottorich.co.kr/lotto/analysis/jackpot_number.html">로또분석의 모든것</a></li>
+							<li><a href="http://www.lottorich.co.kr/annuity/">연금복권 정보</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/lbbs/vote.html?type=w&left_menu=left_win">투표게시판</a></li>
+						</ul>
+					</li>
+					<li id="nav_smenu_s5" onmouseover="nav_smenu('block', 'nav_smenu_s5', '05');" onmouseout="nav_smenu('none', 'nav_smenu_s5', '05');">
+						<ul class="nav_smenu s5">
+							<li><a href="http://www.lottorich.co.kr/bbs/?tb=notice">로또리치 News</a></li>
+							<li><a href="http://www.lottorich.co.kr/bbs/faq_new/faq.html?faq_idx=T">로또리치 상담실</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/customer/lottery_fund/">올바른 복권 문화</a></li>
+						</ul>
+					</li>
+					<li id="nav_smenu_s6" onmouseover="nav_smenu('block', 'nav_smenu_s6', '06');" onmouseout="nav_smenu('none', 'nav_smenu_s6', '06');">
+						<ul class="nav_smenu s6">
+							<li><a href="http://www.lottorich.co.kr/lbbs/index_gold.html?tb=gold_special&sub=1">로또리치 분석연구소</a></li>
+							<li class="end"><a href="http://www.lottorich.co.kr/gold_special/sub04.html?&sub=4">골드전용 조합실</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="head_bottom">
+		<div class="add_menu">
+			<div class="notice" style="list-style-type:none;height:14px;position:relative;overflow:hidden;"><ul id="rollHeadTopTickerText" style="position:relative; top:0;"><script>document.write(headTopTickerList);</script></ul></div>
+			<ul class="add_contents">
+				<li><a href="http://www.lottorich.co.kr/mootoon/index_chk.html"  class="gm_comic"><img src="//image.lottorich.co.kr/lottorich/main_new/serv_menu2.png" alt="만화서비스"></a></li>
+				<li><a href="http://www.lottorich.co.kr/howmovie/"  class="gm_movie"><img src="//image.lottorich.co.kr/lottorich/main_new/serv_menu1.png" alt="영화서비스"></a></li>
+				<li><a href="http://www.lottorich.co.kr/unse/"  class="gm_fortune"><img src="//image.lottorich.co.kr/lottorich/main_new/serv_menu3.png" alt="운세서비스"></a></li>
+							<li class="li_end"><a href="http://www.lottorich.co.kr/nanumstory/main.html" class="gm_nanumstory"><img src="//image.lottorich.co.kr/lottorich/main_new/serv_menu4.png" alt="나눔스토리"></a></li>
+							
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gnb_wrap" >
+<style type="text/css">
+	<!--
+	#left_menu div ul li.sel2 a{;letter-spacing:-1px;}
+	.sky_gold_box {
+		clear:both;
+		overflow:hidden;
+		width:130px;
+		margin:0 auto;
+	}
+	.sky_gold_num {
+		display:block;
+		width:130px;
+		margin:41px 0 0 73px;
+		color: #4a1a00;
+		font-weight: bold;
+		font-size:16px;
+		font-family: tahoma;
+	}
+	-->
+	.view_floating_main_top { top:0px }
+</style>
+
+<script type="text/javascript">
+function bannerGold(){
+	location.href = "http://www.lottorich.co.kr/event/gold_member/GoldInfo.html?callchk=Y";
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var doc = $(document);
+	var speed = 1000;
+	var easing = 'swing';
+	var layer = $('#view_floating_main');
+	var layerTopOffset = 0;
+	var layerHeight = layer.offset().top + layer.height();
+	var footTopOffset = $('#contentsAddc').offset().top;
+	//var layerTopMargin = 200;
+	var y_pos = 0;
+
+	if(doc.scrollTop() >= 600){
+		layer.css('top','65px');
+	}else{
+		layer.css('top','465px');
+	}
+
+	 // 스크롤 이벤트가 발생하면
+	$(window).scroll(function(){
+		if(doc.scrollTop() >= 600){
+			layer.css('top','65px');
+		}else{
+			layer.css('top','465px');
+		}
+	});
+});
+</script>
+
+	<div class="gnb_img2" style="height:0px;">
+		<!-- 쪽지 보기 // 시작 -->
+		<span id="memo_area" style="position:relative;"></span>
+		<!-- 쪽지 보기 // 끝 -->
+		<div id="skybanner" style="float:left;position:relative;width:900px;">
+			<div id="flylayer_left" style="top:10px;left:-163px;">
+				<table>
+										<tr>
+						<td style="padding:9px 0 0 0;">
+							<a href="http://www.lottorich.co.kr/lotto/certification/index.html"><img src="//image.lottorich.co.kr/lottorich/sky/20160219/sky_left.jpg?v=201705261407" width="116" height="447" border="0"/></a>
+						</td>
+					</tr>
+					<!--<tr>
+						<td style="padding:9px 0 0 0;">
+							<a href="http://www.lottorich.co.kr/company/lottorich_all.html"><img src="//image.lottorich.co.kr/lottorich/main_new/w_sky_point.jpg" width="116" height="167" border="0"/></a>
+						</td>
+					</tr>-->
+															<tr>
+						<td style="padding:9px 0 0 0;">
+															<a href="http://www.lottorich.co.kr/company/welcome_intro.html?xad=welcome" target="blank"><img src="//image.lottorich.co.kr/lottorich/main_new/leftbanner_first2.jpg" border="0" id="view_floating_main" style="top:465px" /></a>
+													</td>
+					</tr>
+																				<tr>
+						<td style="padding:9px 0 0 0;">
+							<a href="javascript:;" onclick="goBanner('open');"><img src="//image.lottorich.co.kr/lottorich/main_new/sky_bestgold.jpg" width="116" height="215" border="0"/></a>
+						</td>
+					</tr>
+									</table>
+			</div>
+		</div>
+		<!----------- 171129 로또 베스트 골드서비스 팝업 (당첨현황)  ------------>
+		<style>
+		.pop_bestgold{position:absolute; z-index:2000; top:125px; left:50%; margin:0px 0px 0px -360px;}
+		</style>
+		<script>
+			function goBanner(val) {
+				if(val == "open") {
+					$("#gold_banner").show();
+					window.scrollTo(0,0);
+					$("#gold_banner").bind('scroll touchmove mousewheel', function(event) {
+					   event.preventDefault();
+					   event.stopPropagation();
+
+					   return false;
+					});
+				} else {
+					$("#gold_banner").hide();
+					 $('#gold_banner').unbind('scroll touchmove mousewheel');
+				}
+			}
+
+			function goJoin(val) {
+				if(val == "1y") {
+					val = "GM00000005";
+				} else if(val == "3y") {
+					val = "GM00000004";
+				} else if(val == "6m") {
+					val = "GM00000006";
+				} else if(val == "1m") {
+					val = "GM00000001";
+				} else {
+					val = "";
+				}
+
+				if("" != "") {
+					 window.open("/cash/fill_gold_event.html?amt="+val, "cash_popup", 'width=493, height=705, fullscreen=no scrollbars=yes, status=yes, left=0, top=0');
+				} else {
+					window.open( "/cash/fill_gold_event_simple.html?amt="+val, "cash_popup", 'width=775, height=715, fullscreen=no scrollbars=yes, status=yes, left=0, top=0');
+				}
+			}
+		</script>
+		<div id="gold_banner" style="display:none;">
+		<div class="pop_bestgold">
+			<div class="bestTop">
+				<div class="gold_ranking">
+					<ul>
+						<li>
+							<div>
+								<img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/gold_1y.jpg" alt="골드 1년" id="gold_rank1_img1"/>
+								<span>실제 1등 당첨자<strong><em>37</em>명 배출</strong></span>
+								<a href="javascript:;" onclick="goJoin('1y');"><img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/btn_join.jpg" alt="즉시가입"/></a>
+								<img class="label_1th" src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/rank_1.png" alt="1위"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/gold_3y.jpg" alt="골드 3년" id="gold_rank2_img1"/>
+								<span>실제 1등 당첨자<strong><em>29</em>명 배출</strong></span>
+								<a href="javascript:;" onclick="goJoin('3y');"><img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/btn_join.jpg" alt="즉시가입"/></a>
+								<img class="label" src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/rank_2.png" alt="2위"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/gold_1m.jpg" alt="골드 1개월" id="gold_rank3_img1"/>
+								<span>실제 1등 당첨자<strong><em>14</em>명 배출</strong></span>
+								<a href="javascript:;" onclick="goJoin('1m');"><img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/btn_join.jpg" alt="즉시가입"/></a>
+								<img class="label" src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/rank_3.png" alt="3위"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/gold_6m.jpg" alt="골드 6개월"
+								id="gold_rank4_img1"/>
+								<span>실제 1등 당첨자<strong><em>2</em>명 배출</strong></span>
+								<a href="javascript:;" onclick="goJoin('6m');"><img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/btn_join.jpg" alt="즉시가입"/></a>
+								<img class="label" src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/rank_4.png" alt="4위"/>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="goldInfo">
+				<img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/gold_info.jpg" alt="골드서비스 안내" usemap="#gold_Map"/>
+				<map name="gold_Map" id="gold_Map">
+			  <area shape="rect" coords="17,187,703,229" href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html" alt="혜택 자세히 보기"/>
+			</map>
+			</div>
+			<a href="javascript:;" onclick="goBanner('close');" class="btn_close"><img src="//image.lottorich.co.kr/lottorich/popup/2017_popup/best_gold/btn_close.png" alt="닫기"/></a>
+		</div>
+		<div class="popup_bg"></div>
+		</div>
+		<!----------- //171129 로또 베스트 골드서비스 팝업 (당첨현황)  ------------>
+		<div style="width:930px;margin:0;position:relative;auto;">
+			<div id="flylayer" style="top:17px;margin-left:975px;">
+								<div style="padding-bottom:10px;">
+					<a href="http://www.lottorich.co.kr/event/180312/" target="_blank"><img src="//image.lottorich.co.kr/lottorich/main_new/sky_lastchance.jpg" border="0"/></a>
+				</div>
+				
+				<div class="sky_gold" style="height:210px;">
+					<a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html">
+						<img src="//image.lottorich.co.kr/lottorich/main_new/gold_service_bn.jpg?v=20171219" alt="골드회원 서비스가입하기" title="골드회원 서비스가입"></a>
+						<div class="gold_wnum" style="padding:27px 0 0 1px;font-size:18px;letter-spacing:-1px;color:#ff3030;font-weight:normal;">82</div>	
+				</div>
+
+										<!--div>
+								<a href="http://www.lottorich.co.kr/event/160401/" target="_blank"><img src="//image.lottorich.co.kr/lottorich/main_new/sky_1000.gif?v=20160406001" border="0"/></a>
+							</div-->
+							<script type="text/javascript">
+					var bannerImg = new Array();
+					// 이미지 지정
+					bannerImg[0] = new Image();
+					bannerImg[0].src ="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img744.jpg";
+
+					bannerImg[1] = new Image();
+					bannerImg[1].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img738.jpg";
+
+					bannerImg[2] = new Image();
+					bannerImg[2].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img736.jpg";
+
+					bannerImg[3] = new Image();
+					bannerImg[3].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img730.jpg";
+
+					bannerImg[4] = new Image();
+					bannerImg[4].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img724.jpg";
+
+					bannerImg[5] = new Image();
+					bannerImg[5].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img699.jpg";
+
+					bannerImg[6] = new Image();
+					bannerImg[6].src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img695.jpg";
+
+					var newBanner = 0;
+					var totalBan = bannerImg.length;
+
+					function cycleBan(){
+					  newBanner++;
+					  if(newBanner == totalBan){
+						newBanner = 0;
+					  }
+					 document.banner.src=bannerImg[newBanner].src;
+
+					  setTimeout("cycleBan()", 1*1500); //1*1000은 1초 (시간지정)
+					}
+					window.onload=cycleBan;
+				</script>
+
+				<div style="position:relative; padding-bottom:10px;">
+					<a href="http://www.lottorich.co.kr/hof/real_interview.html" target="_blank">
+						<img src="//image.lottorich.co.kr/lottorich/main_new/w_sky171121.jpg">
+						<span><img src="//image.lottorich.co.kr/lottorich/main_new/w_sky170321_img744.jpg" name="banner" class="real_thum" style="width:105px; position:absolute; top:102px; left:4px;"></span>
+					</a>
+				</div>
+
+				
+				<!--<div style="position:relative; top:0px;">
+					<a href="http://www.lottorich.co.kr/lotto/prove.html">
+						<img src="//image.lottorich.co.kr/lottorich/main_new/w_sky_prove.gif?v=20170613">
+					</a>
+				</div>-->
+
+								<!-- 170616 영상플로팅배너 추가 -->
+				<style>
+				.flt_bnr_media .bt_flt_close{position:absolute;top:-25px; right:10px;}
+				.flt_bnr_media .flt_option{color:#fff; position:absolute; bottom:18px; left:130px;}
+				.flt_bnr_media .flt_option input{vertical-align:middle; right:15px;}
+				.flt_bnr_media .flt_option span{padding:0px 4px;}
+				</style>
+				<div id="fixed_tv_floating" style="position:fixed; width:233px; left:50%; margin-left:505px; bottom:10px; z-index:1; display:none;" class="flt_bnr_media">
+					<a href="http://www.lottorich.co.kr/event/120315/index.html"><img src="//image.lottorich.co.kr/lottorich/main_new/w_sky_media2.gif?v=20170824"></a>
+					<a href="javascript:tv_floatingClose();" class="bt_flt_close"><img src="//image.lottorich.co.kr/lottorich/main_new/w_sky_bt_close.png"></a>
+					<div class="flt_option">
+						<span><input type="radio" id="layer_close" name="layer_close" value="1" checked onclick="checkCookieDay(1);"> <label for="1days">1일</label></span>
+						<span><input type="radio" id="layer_close" name="layer_close" value="7" onclick="checkCookieDay(7);"> <label for="7days">7일</label></span>
+					</div>
+				</div>
+				<script type="text/javascript">
+					var cookie_day = 1;
+					var chk_fixed_tv = 0;
+
+					var cookie_tv	 = "";
+
+					function checkCookieDay(val){
+						cookie_day = val;
+					}
+
+					function tv_floatingClose(){				
+						document.getElementById("fixed_tv_floating").style.display = "none";
+						chk_fixed_tv = 1;
+
+						var todayDate = new Date();
+						todayDate.setDate(todayDate.getDate() + cookie_day);
+						document.cookie = "fixed_tv_floating" + "=" + escape("done") + ";Domain=.lottorich.co.kr; path=/; expires=" + todayDate.toGMTString() + ";"
+					}
+
+					if (cookie_tv != "done") {
+						$(window).scroll(function() {
+							var gndPosition = $(window).scrollTop();
+							if (gndPosition >= 240 && gndPosition < 2700 && chk_fixed_tv == 0)	{
+									$("#fixed_tv_floating").css("display","block");
+							} else {
+								$("#fixed_tv_floating").css("display","none");
+							}
+						});
+					}
+				</script>
+				<!-- 170616 //영상플로팅배너 추가 -->
+				
+											</div>
+		</div>
+	</div>
+	<div id="content_wrap" style="width:986px;padding:0;">
+		<map name="LayerMap" id="LayerMap">
+			<area shape="circle" coords="15,115,15" href="javascript:closeCookie();" />
+			<area shape="circle" coords="80,82,60" href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html" />
+		</map>
+		<map name="LayerMap2" id="LayerMap2">
+			<area shape="rect" coords="386,371,710,421" href="http://www.lottorich.co.kr/lbbs/common.html" />
+			<area shape="rect" coords="784,395,846,420" href="javascript:hideLayer();" />
+		</map>
+		<div id="adult_layer" style="top:200px;left:600px;z-index:10000;position:absolute;display:none;">
+			<img src="//image.lottorich.co.kr/lottorich/popup/adult_pop/layer.png" alt="" useMap="#adult_pop"/>
+		</div>
+		<map name="adult_pop" id="adult_pop">
+			<area shape="rect" coords="534,24,566,57" href="javascript:;" onclick="document.getElementById('adult_layer').style.display='none'" />
+			<area shape="rect" coords="70,264,284,308" href="javascript:;" onclick="document.getElementById('adult_layer').style.display='none'" />
+			<area shape="rect" coords="306,264,518,309" href="javascript:;" onclick="adult_confrim('movie')"  />
+		</map>
+		<div id="adult_layer2" style="top:200px;left:600px;z-index:10000;position:absolute;display:none;">
+			<img src="//image.lottorich.co.kr/lottorich/popup/adult_pop/layer.png" alt="" useMap="#adult_pop2"/>
+		</div>
+		<map name="adult_pop2" id="adult_pop2">
+			<area shape="rect" coords="534,24,566,57" href="javascript:;" onclick="document.getElementById('adult_layer2').style.display='none'" />
+			<area shape="rect" coords="70,264,284,308" href="javascript:;" onclick="document.getElementById('adult_layer2').style.display='none'" />
+			<area shape="rect" coords="306,264,518,309" href="javascript:;" onclick="adult_confrim('manhwa')"  />
+		</map>
+<script type="text/javascript" src="/inc/js/Ajax.js?v=20171227"></script>
+<script type="text/javascript" src="/inc/js/main_new.js?v=20180309"></script>
+<div id="container">
+	<div id="contentsTop">
+		<div id="contentsTop_left">
+			<div class="main_banner">
+				<img id="main_banner" src="http://image.lottorich.co.kr/lottorich/main_new/tv2.jpg" usemap="#newsBannerMap" border="0" />
+				<map name="newsBannerMap" onfocus="blur();">
+					<area shape="rect" coords="232,104,300,145" href="javascript:bannerLeftFrameChg(4);" alt="JTBC" onfocus="this.blur();">
+					<area shape="rect" coords="154,104,233,145" href="javascript:bannerLeftFrameChg(3);" alt="MBC" onfocus="this.blur();">
+					<area shape="rect" coords="76,104,155,145" href="javascript:bannerLeftFrameChg(2);" alt="SBS" onfocus="this.blur();">
+					<area shape="rect" coords="9,104,78,145" href="javascript:bannerLeftFrameChg(1);" alt="KBS" onfocus="this.blur();">
+					<area shape="rect" coords="9,144,299,401" href="http://www.lottorich.co.kr/event/120315/index.html?m=6" alt="CONTENTS" onfocus="this.blur();" id="main_banner_url">
+				</map>
+			</div>
+						<div class="lottorich_total_2">
+				<div class="result_wrap">
+					<ul class="r_tab">
+						<li class="th_1"  id="winner_realwin_tab1">실제 1등 및 조합 배출 성적</li>
+					</ul>
+					<div class="r_cont">
+						<!-- 1등 기록 -->
+						<div id="winner_realwin_1">
+							<dl class="real">
+								<dt><img src="http://image.lottorich.co.kr/lottorich/main_new/ltotal_1_1.png?v=20160817" alt="로또 실제 1등 배출"></dt>
+								<dd><a href="http://www.lottorich.co.kr/hof/real_interview.html" target="_blank" onmouseover="win_layer_over('real',1);" onmouseout="win_layer_out('real',1);"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_8.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_2.png"></a><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_text.png"  alt="회"></dd>
+							</dl>
+							<dl class="win_1">
+								<dt><img src="http://image.lottorich.co.kr/lottorich/main_new/ltotal_1_2.png?v=20160817" alt="로또 1등 조합 배출"></dt>
+								<dd><a href="http://www.lottorich.co.kr/hof/real_interview.html"  target="_blank" onmouseover="win_layer_over('johap',1);" onmouseout="win_layer_out('johap',1);"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_2.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_8.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_9.png"></a><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_text.png"  alt="회"></dd>
+							</dl>
+						</div>
+						<!-- //1등 기록 -->
+						<!-- 2등 기록 -->
+						<div id="winner_realwin_2" style="display:none">
+							<dl class="real">
+								<dt><img src="http://image.lottorich.co.kr/lottorich/main_new/ltotal_2_1.png?v=20160817" alt="로또 실제 2등 배출"></dt>
+								<dd><a href="http://www.lottorich.co.kr/hof/real_interview.html" target="_blank" onmouseover="win_layer_over('real',2);" onmouseout="win_layer_out('real',2);"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_2.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_9.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_3.png"></a><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_text.png"  alt="회"></dd>
+							</dl>
+							<dl class="win_1">
+								<dt><img src="http://image.lottorich.co.kr/lottorich/main_new/ltotal_2_2.png?v=20160817" alt="로또 2등 조합 배출"></dt>
+								<dd><a href="http://www.lottorich.co.kr/hof/real_interview.html"  target="_blank" onmouseover="win_layer_over('johap',2);" onmouseout="win_layer_out('johap',2);"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_1.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_5.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_8.png"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_1.png"></a><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_text.png"  alt="회"></dd>
+							</dl>
+						</div>
+						<!-- //2등 기록 -->
+					</div>
+					<!-- 170313 말풍선 추가 -->
+					<div class="win_layer_ballon p1" style="display:none;" id="real_1_win_layer">
+						<p class="tit"><span>로또 1등 <strong>실제 배출</strong></span></p>
+						<div class="txt">지금까지 로또분석시스템을 통해 나온 조합 중<br>
+						<strong>실제 구매까지 확인된 1등 당첨 횟수</strong>입니다.</div>
+					</div>
+					<div class="win_layer_ballon p2" style="display:none;" id="johap_1_win_layer">
+						<p class="tit"><span>로또 1등 <strong>조합 배출</strong></span></p>
+						<div class="txt">지금까지 로또분석시스템을 통해 회원님들에게<br>
+						<strong>1등 당첨번호를 제공한 횟수</strong>입니다.</div>
+					</div>
+					<div class="win_layer_ballon p1" style="display:none;" id="real_2_win_layer">
+						<p class="tit"><span>로또 2등 <strong>실제 배출</strong></span></p>
+						<div class="txt">지금까지 로또분석시스템을 통해 나온 조합 중<br>
+						<strong>실제 구매까지 확인된 2등 당첨 횟수</strong>입니다.</div>
+					</div>
+					<div class="win_layer_ballon p2" style="display:none;" id="johap_2_win_layer">
+						<p class="tit"><span>로또 2등 <strong>조합 배출</strong></span></p>
+						<div class="txt">지금까지 로또분석시스템을 통해 회원님들에게<br>
+						<strong>2등 당첨번호를 제공한 횟수</strong>입니다.</div>
+					</div>
+					<!-- //170313 말풍선 추가 -->
+				</div>
+				<div class="lottorich_kri">
+					<div>
+						<a href="http://www.lottorich.co.kr/lotto/randomwork.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/bnr/random.jpg" alt="랜덤워크시스템 자세히보기" /></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+				<form id="jackpot_number" name="jackpot_number" method="post" action="http://www.lottorich.co.kr/lotto/analysis/jackpot_number.html" style="display:none;">
+			<input type="hidden" name="main_seq">
+		</form>
+		<div id="contentsTop_right">
+			<!--------- 170817 로또당첨번호 ------------->
+			<div id="contentsSeq">
+			<div class="lotto_this">
+				<div class="lotto_result1">
+					<div class="lotto_thtit" style="position:relative;">
+												<div class="th_num"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_s7.png" alt="7" title="7"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_s9.png" alt="9" title="9"><img src="http://image.lottorich.co.kr/lottorich/main_new/num_org_s8.png" alt="8" title="8"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_th_text.png" alt="0"></div>
+						<div class="th_arrow"><a href="javascript:;" onclick="th_list_click();" id="btn_arrow" class="btn_arrow" onmouseover="th_list_over();" onmouseout="th_list_out();"></a></div>
+						<span class="lotto_date">2018.03.17 추첨</span>
+						<div id="th_list" class="th_list" style="display:none">
+													<a href="javascript:;" onclick="th_list_select('798');">798회 (03.17)</a>
+														<a href="javascript:;" onclick="th_list_select('797');">797회 (03.10)</a>
+														<a href="javascript:;" onclick="th_list_select('796');">796회 (03.03)</a>
+														<a href="javascript:;" onclick="th_list_select('795');">795회 (02.24)</a>
+														<a href="javascript:;" onclick="th_list_select('794');">794회 (02.17)</a>
+														<a href="javascript:;" onclick="th_list_select('793');">793회 (02.10)</a>
+														<a href="javascript:;" onclick="th_list_select('792');">792회 (02.03)</a>
+														<a href="javascript:;" onclick="th_list_select('791');">791회 (01.27)</a>
+														<a href="javascript:;" onclick="th_list_select('790');">790회 (01.20)</a>
+														<a href="javascript:;" onclick="th_list_select('789');">789회 (01.13)</a>
+													</div>
+					</div>
+					<div class="lotto_ball" style="cursor:pointer;" onclick="send_jackpot_number(798, 'http://www.lottorich.co.kr/lotto/analysis/jackpot_number.html');">
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_2.png" alt="2"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_10.png" alt="10"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_14.png" alt="14"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_22.png" alt="22"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_32.png" alt="32"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_36.png" alt="36"></span>
+						<span class="plus"></span>
+						<span class="ball"><img src="http://image.lottorich.co.kr/lottorich/main_new/ball_41.png" alt="41"></span>
+					</div>
+					<div class="lotto_winner">1등 당첨자:<span class="win_red">7</span>명<span class="gray_line">|</span>당첨금액:<span class="win_red">2,710,791,911</span>원</div>
+					<div class="lotto_paging">
+						<a href="javascript:;" onclick="th_list_select('797');" class="btn_pre" title="이전회차"></a><a href="javascript:;" onclick="alert('가장 최근 회차 입니다.');" class="btn_next" title="다음회차"></a>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- th_list_select 함수 관련해서 /lotto/th_list_report.html 에 같은 소스를 ajax로 쓰기 때문에 그쪽에도 수정해야함 -->
+			<!--------- //170817 로또당첨번호 ------------->
+			<script>
+function setTimeCookie(name, value, expiretimes){
+	var todayDate = new Date();
+	todayDate.setSeconds(todayDate.getSeconds() + expiretimes);
+	document.cookie = name + "=" + escape( value ) + ";Domain=.lottorich.co.kr; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function bannerClose(){
+	setTimeCookie("landing_login_close", "Y", 86400 * 10);
+	document.getElementById("landing_login_banner").style.display = "none";
+}
+
+function bannerGo(){
+	setTimeCookie("landing_login_close", "Y", 86400 * 10);
+	location.replace("http://www.lottorich.co.kr/lotto/w_number.html");
+}
+</script>
+<div id="richLogin">
+	<div class="login_box">
+		<div class="info_input">
+			<form name="f_login" action="https://www.lottorich.co.kr/member/login_proc.html" method="post" onsubmit="return f_login_submit(this);" tabindex="1">
+				<input type="hidden" name="r_url" value="/index.html?">
+				<fieldset style="margin:0px; padding:0px; border:0px">
+					<legend>로또리치 로그인 폼</legend>
+					<div class="input_left">
+						<input name="userid" type="text" class="text label-id" maxlength="15" value=""/>
+						<input name="passwd" type="password" class="text label-pw" maxlength="12" value=""/>
+					</div>
+					<span class="btn_login"><input title="로그인" type="submit" value="로그인" class="login_btn" onclick=""></span>
+					<div class="save-find" >
+						<a href="http://www.lottorich.co.kr/member/join_phone.html">회원가입</a>
+						<span class="line">|</span><a href="http://www.lottorich.co.kr/member/find_idpw_new.html">아이디 </a> <span>/</span> <a href="http://www.lottorich.co.kr/member/find_idpw_new.html">비밀번호 찾기</a>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="other_login_new">
+			<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/loginbtn_naver2.gif" class="other_btn_new" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?client_id=UH7SS7cwqPQCnGzYXyZY&response_type=code&redirect_uri=http%3A%2F%2Fwww.lottorich.co.kr%2Fsns%2Flogin_naver.ls?login_type=normal&state=39e343a11557576852b46e6f34bb3ceb&svctype=0';">
+            <input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/loginbtn_daum2.gif" class="other_btn_new" onclick="location.href='https://apis.daum.net/oauth2/authorize?client_id=4767697555468306078&redirect_uri=http%3A%2F%2Fwww.lottorich.co.kr%2Fsns%2Flogin_daum.ls?login_type=normal&response_type=code&resize=no';">
+			<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/loginbtn_facebook2.gif" class="other_btn_new" onclick="location.href='https://www.facebook.com/v2.5/dialog/oauth?client_id=1420940541542740&redirect_uri=http%3A%2F%2Fwww.lottorich.co.kr%2Fsns%2Flogin_facebook.ls?login_type=normal';">
+			<input style="margin:0 0 0 0" type="image" src="http://image.lottorich.co.kr/lottorich/main_new/loginbtn_normal.gif" class="other_btn_new" onclick="location.href='http://www.lottorich.co.kr/member/join.html'">
+		</div>
+	</div>
+</div>			<div class="winner_story">
+				<h2 class="winner_story_tit life_tit">
+					<img src="http://image.lottorich.co.kr/lottorich/renewal2016/banner/main_bbst_talk_2.png" alt="인생역전에 성공한" title="인생역전에 성공한" class="winner_life_tit_img">
+					<div class="winner_life_num">
+						<img src="http://image.lottorich.co.kr/lottorich/main_new/real_num_8.png" class="num"><img src="http://image.lottorich.co.kr/lottorich/main_new/real_num_2.png" class="num">						<img src="http://image.lottorich.co.kr/lottorich/renewal2016/banner/main_bbst_talk_3.png" alt="" title="명의 1등 당첨자 이야기">
+					</div>
+					<ul class="winner_story_tab">
+						<li><a id="winner_story_1" href="javascript:;" onclick="winner_storyChg(1);" onmouseover="winner_storyChg(1);" class="stab_interview" title="당첨자 인터뷰"></a></li>
+						<li><a id="winner_story_2" href="javascript:;" onclick="winner_storyChg(2);" onmouseover="winner_storyChg(2);" class="stab_review" title="당첨자 후기"></a></li>
+					</ul>
+				</h2>
+				<!-- 180118 인터뷰 아이콘 붙이기 -->
+				<style>
+				.real_winner{display:inline-block;padding:1px 3px;background:#ff6000;color:#fff;border-radius:4px;margin-right:3px;font-weight:bold;}
+				.real_number{display:inline-block;padding:1px 3px;background:#007d82;color:#fff;border-radius:4px;margin-right:3px;font-weight:bold;}
+				</style>
+				<!-- //180118 인터뷰 아이콘 붙이기 -->
+				<div id="story_list_wrap_1" class="story_list_wrap" style="display:block;">
+									<div class="story_list" id="story_list_interview_1" style="display:block;;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=203"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_798_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=203">[798회 1등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=203">
+							<span class="real_winner">실제1등</span>로또리치 한 회차 27억 1등 2명 배출! [79..</a></p>
+							<p class="story_list_date">2018.03.23</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=203">한국기록원에서 1등  최다배출 인증도 받았고, 후기나 인터뷰가 구체적이고 진실돼 보여서 믿고 시작했습니다. 올해부터 시스템이 대대적으로 업그..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_2" style="display:block;;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=202"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_784_talk.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=202">[1등 당첨자 근황]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=202">
+							<span class=""></span>1등 당첨자 근황 공개 [747회 749회 779회..</a></p>
+							<p class="story_list_date">2018.02.09</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=202">747회 당첨자 : 나중에 억울한 일 안 생기게 매주 꼭 구입하세요. 749회 당첨자 : 잠깐 찰나에 안사서 후회하지 말고 회원님들도 저희처럼 이 자리..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_3" style="display:block;;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=201"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_790_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=201">[790회 1등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=201">
+							<span class="real_winner">실제1등</span>판매마감 22분전에 산 로또가 1등 당첨! [..</a></p>
+							<p class="story_list_date">2018.01.26</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=201">통장잔고가 천만원을 넘지 못했는데 이런 거액이 들어오니 이게 정말 내 돈인가 싶습니다. 1등을 위해서는 인내심이 가장 중요하니까 참고 꾸준히 ..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_4" style="display:block;;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=200"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_777_event.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=200">[777이벤트 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=200">
+							<span class=""></span>행운의 777을 찾아라 이벤트 당첨자 공개 ..</a></p>
+							<p class="story_list_date">2017.11.07</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=200">제가 지금 부도가 난 상황이라 많이 힘들다 보니 의지 할 곳이 로또 밖에 없더라고요로또라는게 돈에 대한 개념이 크다면 못하겠지만 서민 누구라..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_5" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=199"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_777_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=199">[777회 1등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=199">
+							<span class="real_winner">실제1등</span>친구한테 바로 2억 입금했습니다! [777회 ..</a></p>
+							<p class="story_list_date">2017.10.25</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=199">777회 1등된 회원입니다. 어제 친구하고 서울 농협가서 당첨금 받아왔습니다. 당첨금 받자마자 약속한대로 친구한테 바로 2억원 입금해줬습니다. ..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_6" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=198"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_772_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=198">[772회 1등 조합수령]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=198">
+							<span class="real_number">조합수령</span>“한가위 앞두고 액땜했죠 [772회 1등 조합]</a></p>
+							<p class="story_list_date">2017.09.27</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=198">매번 꼬박꼬박 받은 번호로 로또를 구매하다가 이번주는 몸도 아프고 손녀도 태어나고 그 날 따라 너무 바쁘고 정신이 없어서 로또구매를 못했는데..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_7" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=197"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_project.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=197">[2017년 상반기 결산]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=197">
+							<span class=""></span>2017년 로또리치 1등 당첨자 근황 공개!</a></p>
+							<p class="story_list_date">2017.07.18</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=197">김다정 리포터와 함께 2017년 상반기 로또리치 1등 당첨자님을 찾아가 근황을 들어봤습니다. 과연 당첨이후 어떤 삶을 살고 있을까요? 2017년 첫 ..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_8" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=196"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_753_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=196">[753회 1등 조합수령]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=196">
+							<span class="real_number">조합수령</span>지갑에 현금만 있었어도.. 27억을 날렸습..</a></p>
+							<p class="story_list_date">2017.05.12</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=196">로또를 사려고 보니 지갑에 현금이 하나도 없는 겁니다. 그때 2만원만 있었어도 1등 당첨인데... 설마 이번에 1등 되겠어? 하는 마음에 안 샀는데 ..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_9" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=195"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_750_2.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=195">[750회 2등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=195">
+							<span class=""></span>“407억 날리고 로또리치 만나서 인생역전..</a></p>
+							<p class="story_list_date">2017.04.21</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=195">혼자 번호조합 하다가 1등 당첨번호를 뽑아놓고 구매를 못해 407억을 날린 적이 있었습니다. 그런데 로또리치를 만나서 드디어 인생역전 하네요!</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_10" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=194"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_744_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=194">[744회 1등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=194">
+							<span class="real_winner">실제1등</span>저는 빚 갚고 노후 준비합니다![744회 1등..</a></p>
+							<p class="story_list_date">2017.03.09</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=194">로또리치 직원분께서 번호를 하나하나 불러주시는데 꼴깍꼴깍 마른침만 삼키며 로또 용지만 계속 봤어요. 아내에게 가장 먼저 알렸는데 거짓말인줄..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_11" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=193"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_740_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=193">[740회 1등 조합수령]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=193">
+							<span class="real_number">조합수령</span>“아이쿠! 이를 어쩌면 좋습니까!” [740..</a></p>
+							<p class="story_list_date">2017.02.09</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=193">중국 출장 중이라 로또 사는 걸 깜빡 했지 뭡니까, 그런데 저한테 1등 번호가 왔네요. 노후준비도 못했는데 너무나 아쉽네요. 여러분은 어떤 일이..</a></div>
+					</div>
+									<div class="story_list" id="story_list_interview_12" style="display:none;">
+						<div class="story_list_img" >
+							<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=192"><img src="http://image.lottorich.co.kr/lottorich/main_new/interview_thum_738_1.jpg?v=20170719" width="160px" height="100px" alt="" /></a>
+						</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=192">[738회 1등 당첨]</a></p>
+							<p class="story_list_stitle"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=192">
+							<span class="real_winner">실제1등</span>“밥을 안 먹어도 배부릅니다!” [738회 1..</a></p>
+							<p class="story_list_date">2017.02.07</p>
+						</div>
+						<div class="story_list_text" style=""><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=interview&uid=192">은행에 당첨금 찾으러 갔는데 마침 점심시간이라서 1시간 정도 기다려야 했어요. 은행 직원이 식사하고 오라는데 저는 안 먹어도 배부르더라고요. </a></div>
+					</div>
+									<div class="talk_paging">
+						<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rg_preview.png" onclick="th_list_interview('prev');">
+						<div class="page_show">
+							<span class="page_current" id="page_current_interview">1</span><span class="page_slash">/</span><span class="page_all">3</span>
+						</div>
+						<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rg_next.png" onclick="th_list_interview('next');">
+						<div class="talk_more">
+							<a href="http://www.lottorich.co.kr/hof/list.html?tb=interview" class="more" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="인터뷰 더보기"></a>
+						</div>
+					</div>
+				</div>
+				<div id="story_list_wrap_2" class="story_list_wrap" style="display:none;">
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5677" target="_self">
+					<div class="story_list" id="story_list_review_1" style="display:block;;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_798_2.jpg?v=20170410" alt="" width="160px;" height="100px;"/>
+															<!-- 171108 메인 NEW,금액추가 -->
+								<span class="new_winner">NEW</span>
+								<!-- //171108 메인 NEW,금액추가 -->
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[798회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">27억 1천만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">27억 두 번째 당첨자입니다. 저도 후기 올립니다.</p>
+							<p class="story_list_date">2018.03.20</p>
+						</div>
+						<div class="story_list_text" style="">이번에 27억 당첨된 사람입니다. 어제 당첨금 찾고 로또리치 인터뷰도 무사히 마쳤습니다. 한 30분 정도 촬영한거 같은데 제가 대답할 수 있는 선..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5670" target="_self">
+					<div class="story_list" id="story_list_review_2" style="display:block;;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_798_1.jpg" alt="" width="160px;" height="100px;"/>
+															<!-- 171108 메인 NEW,금액추가 -->
+								<span class="new_winner">NEW</span>
+								<!-- //171108 메인 NEW,금액추가 -->
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[798회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">27억 1천만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">확 바뀐다고 해서 기대했는데 대박이네요!</p>
+							<p class="story_list_date">2018.03.18</p>
+						</div>
+						<div class="story_list_text" style="">안녕하세요. 와... 몇번을 확인했는데 대박! 대박이란 말로밖에는 설명을 못하겠습니다. 말이 27억이지 1년에 천만원 모으기도 힘든데 아니 평생 ..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5626" target="_self">
+					<div class="story_list" id="story_list_review_3" style="display:block;;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_790_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[790회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">11억 6천만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">꿈이 아닙니다! 진짜로 1등 당첨!</p>
+							<p class="story_list_date">2018.01.20</p>
+						</div>
+						<div class="story_list_text" style="">안녕하세요~~ 드디어 저도 로또리치 2년만에 1등에 당첨됐습니다. 최근 이직 이후에 바쁘다고 거의 두 달 가까이 로또를 못 사다가 오늘 겨우 시간..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5618" target="_self">
+					<div class="story_list" id="story_list_review_4" style="display:block;;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_788_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[788회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">14억 1백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">밀려 쓴 번호가 1등 번호였네요</p>
+							<p class="story_list_date">2018.01.07</p>
+						</div>
+						<div class="story_list_text" style="">안녕하십니까!! 지금껏 평범한 서민으로 살아온 50대 아저씨입니다. 지난주 1등하신 회원님께서 말씀하시길 로또리치와 함께하면 분명히 기적이 일..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5609" target="_self">
+					<div class="story_list" id="story_list_review_5" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_787_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[787회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">30억 9천 2백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">40대 싱글맘이예요..분명히 기적은 있어요!</p>
+							<p class="story_list_date">2017.12.31</p>
+						</div>
+						<div class="story_list_text" style="">안녕하세요. 40대 싱글맘이예요. 사춘기아들이 한참 예민할 때라 엄마 손길이 많이갈때인데 챙겨주지 못할때가 많아 항상 미안한 마음뿐이네요....</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5599" target="_self">
+					<div class="story_list" id="story_list_review_6" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_784_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[784회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">19억 8백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">3년 기다림 끝에 드디어 1등 당첨됐어요!</p>
+							<p class="story_list_date">2017.12.10</p>
+						</div>
+						<div class="story_list_text" style="">안녕하세요. 이번 주 로또를 안샀더라면 어쩔뻔했나 생각만해도 무섭습니다. 당첨 성과가 별로라서 안산적도 많고 귀찮아서 사는걸 포기한적도 있..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5585" target="_self">
+					<div class="story_list" id="story_list_review_7" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_779_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[779회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">15억 2천 7백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">로또리치 덕분에 죽다 살아났네요</p>
+							<p class="story_list_date">2017.11.05</p>
+						</div>
+						<div class="story_list_text" style="">회원님들 안녕하세요. 제가 요새 안좋은 일이 겹쳐서 이러다 정말 큰일나겠다 싶었는데 오늘 로또 1등에 당첨됐습니다. 요새는 하루 하루가 고통스..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5576" target="_self">
+					<div class="story_list" id="story_list_review_8" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_777_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[777회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">8억 3천 3백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">로또리치 전화 받고 1등 된걸 알았습니다</p>
+							<p class="story_list_date">2017.10.21</p>
+						</div>
+						<div class="story_list_text" style="">안녕하십니까, 저는 지금 일 때문에 몇 주째 해외에 머물고 있습니다. 그런데도 1등에 당첨될 수 있었던건 친구와 약속한게 있어서 가능했습니다...</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5566" target="_self">
+					<div class="story_list" id="story_list_review_9" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_776_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[776회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">25억 5천 7백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">1등 25억원 제가 당첨됐습니다!!</p>
+							<p class="story_list_date">2017.10.16</p>
+						</div>
+						<div class="story_list_text" style="">토요일 산악회 모임 술자리가 밤 늦게까지 진행되는 바람에 이제서야 1등 당첨소식을 알립니다.776회 1등 25억원에 제가 당첨됐습니다!! 토요일 ..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5503" target="_self">
+					<div class="story_list" id="story_list_review_10" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_767_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[767회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">11억 6천 3백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">잠결에 1등 당첨됐다고 연락받았습니다</p>
+							<p class="story_list_date">2017.08.14</p>
+						</div>
+						<div class="story_list_text" style="">안녕하십니까 이번에 1등에 당첨된 여기 회원입니다. 토요일에 등산 갔다가 피곤해서 일직 잠을 청했다가 1등 당첨됐다고 전화받고 정신 차릴수가 ..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5476" target="_self">
+					<div class="story_list" id="story_list_review_11" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_765_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[765회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">11억 9백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">1등! 이제 소원 풀었습니다</p>
+							<p class="story_list_date">2017.07.29</p>
+						</div>
+						<div class="story_list_text" style="">지난 주 764회에 4등 2개 당첨되서 바꾼 10만원으로 이번주에 로또리치에서 번호 받은대로 산건데 1등에 당첨됐어요. 정말 행복하고 아직도 어안이..</div>
+					</div></a>
+									<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5395" target="_self">
+					<div class="story_list" id="story_list_review_12" style="display:none;">
+						<div class="story_list_img">
+							<img src="http://image.lottorich.co.kr/lottorich/main_new/review_thum_759_1.jpg" alt="" width="160px;" height="100px;"/>
+													</div>
+						<div class="story_list_title" style="">
+							<p class="story_list_th">[759회 1등 당첨]</p>
+							<!-- 171108 메인 NEW,금액추가 -->
+							<p class="story_list_money">30억 3천 2백만원</p>
+							<!-- //171108 메인 NEW,금액추가 -->
+							<p class="story_list_stitle">30억 당첨됐습니다!!!</p>
+							<p class="story_list_date">2017.06.17</p>
+						</div>
+						<div class="story_list_text" style="">로또리치 직원분의 전화 받고 1등 당첨을 알게 됐습니다. 집사람에게 1등 당첨사실을 알리고 마음 진정시킨 후 소감을 남깁니다.정년퇴직을 앞둔 ..</div>
+					</div></a>
+									<div class="talk_paging">
+						<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rg_preview.png" onclick="th_list_review('prev');">
+						<div class="page_show">
+							<span class="page_current" id="page_current_review">1</span><span class="page_slash">/</span><span class="page_all">3</span>
+						</div>
+						<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rg_next.png" onclick="th_list_review('next');">
+						<div class="talk_more">
+							<a href="http://www.lottorich.co.kr/hof/real_interview.html" class="more" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="후기 더보기"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+	.pop_number{z-index:999; width:307px; height:500px; background:url(http://image.lottorich.co.kr/lottorich/analysis_guide/pop_num_bg.png) no-repeat;}
+	.pop_number .close{position:absolute; top:12px; right:10px;}
+	.pop_number .btn{text-align:center; position:absolute; bottom:20px; left:13px;}
+	.pop_number .btn img{margin:0 3px;}
+	.pop_number .num_txt {padding:78px 17px 0px 17px;}
+	.pop_number .num_txt span{width:25px; height:40px; line-height:40px; display:inline-block;*display:inline;*zoom:1; background:url(http://image.lottorich.co.kr/lottorich/analysis_guide/pop_num_bg1.png) no-repeat; text-align:center; margin:5px 7px; cursor:pointer; font-family:Tahoma; font-weight:bold; font-size:14px; color:#d64948;}
+	.pop_number .num_txt span.check{background:url(http://image.lottorich.co.kr/lottorich/analysis_guide/pop_num_bg2.png) no-repeat; color:#fff;}
+	</style>
+	<script>
+		function bannerKriChg() {
+			if($("#kri1").css("display") == "block") {
+				$("#kri1").hide();
+				$("#kri2").show();
+			} else {
+				$("#kri1").show();
+				$("#kri2").hide();
+			}
+		}
+	</script>
+	<div id="contentsBot">
+		<div id="contentsBot_left">
+			<div class="cbl_bn_random">
+				<div id="kri1" style="display:block;">
+				<a href="http://www.lottorich.co.kr/lotto/analysis/lottopia.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/bnr/2018us.jpg" alt="로또리치 미국진출" title="로또리치 미국진출"></a></div>
+				<div id="kri2" style="display:none;">
+				<a href="http://www.lottorich.co.kr/lotto/analysis/kri.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/bnr/2018kri.jpg" alt="로또리치 한국기록원인증" title="로또리치 한국기록원인증"></a></div>
+			</div>
+			<!---------- 170818 로또분석가이드 ----------->
+			<div class="cbl_analysis_guide">
+				<a href="http://www.lottorich.co.kr/lotto/analysis/guide_main.html"> <img src="http://image.lottorich.co.kr/lottorich/main_new/cbl_bn_analysis.jpg?v=201710021523"/></a>
+			</div>
+			<!---------- //170818 로또분석가이드 ----------->
+			<div class="cbl_certify">
+				<ul class="certify_list" id="certify_list_1" style="display:block;">
+					<li><a href="http://www.lottorich.co.kr/lotto/certification/index.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/certify_kri.gif" alt="국내 로또 1등 최다 배출 한국기록원 KRI" title="국내 로또 1등 최다 배출 한국기록원 KRI"></a>	</li>
+					<li><a href="http://www.lottorich.co.kr/lotto/certification/index.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/certify_isms.gif?v=20161124" alt="정보보호 관리체계(ISMS) 인증" title="정보보호 관리체계(ISMS) 인증"></a></li>
+				</ul>
+				<ul class="certify_list" id="certify_list_2" style="display:none;">
+					<li><a href="http://www.lottorich.co.kr/lotto/certification/index.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/certify_iso.gif" alt="품질경영 ISO 획득" title="품질경영 ISO 획득"></a>	</li>
+					<li><a href="http://www.lottorich.co.kr/lotto/certification/index.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/certify_kipo.gif" alt="로또전문 마킹기술 특허 취득" title="로또전문 마킹기술 특허 취득"></a></li>
+				</ul>
+				<ul class="certify_list" id="certify_list_3" style="display:none;">
+					<li><a href="http://www.lottorich.co.kr/company/lottorich_all.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/rolling_bnr_point.jpg"></a>	</li>
+				</ul>
+				<ul class="certify_list" id="certify_list_4" style="display:none;">
+					<li><a href="http://www.lottorich.co.kr/lotto/prove.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/rolling_bnr_prove.jpg"></a>	</li>
+				</ul>
+				<ul class="certify_list" id="certify_list_5" style="display:none;">
+					<li><a href="http://www.lottorich.co.kr/lotto/history_1st.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/rolling_bnr_history.jpg"></a>	</li>
+				</ul>
+				<div class="certi_paging">
+					<a href="javascript:;" onclick="certify_pre();" class="btn_pre" title="이전목록"></a><a href="javascript:;" onclick="certify_next();"  class="btn_next" title="다음목록"></a>
+				</div>
+			</div>
+			<div class="main_bbs">
+				<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/main_bbst_statsanal.gif" alt="전문가 분석실" title="전문가 분석실"></h2>
+				<span class="more"><a href="http://www.lottorich.co.kr/lbbs/?tb=expert"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="전문가 분석실 더보기"></a></span>
+				<ul>
+									<li class="best1"><a href="http://www.lottorich.co.kr/lbbs/view_laboratory.html?tb=admin_analysis&uid=370">제798회 당첨번호 통계분석</a></li>
+										<li class="best2"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=expert&uid=29679">[799]몰림수[11]</a></li>
+										<li class="best3"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=expert&uid=29678">[799]계단타기-18[3]</a></li>
+										<li class="best4"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=expert&uid=29677">[799]계단타기-17[3]</a></li>
+										<li class="best5"><a href="http://www.lottorich.co.kr/lbbs/view.html?tb=expert&uid=29675">[799]계단타기-16[3]</a></li>
+									</ul>
+			</div>
+			<div class="cbl_bn_event">
+				<a id="event_banner_url" href="http://www.lottorich.co.kr/event/101019/" target="_blank"><img id="event_banner" src="http://image.lottorich.co.kr/lottorich/main_new/cbl_bn_event4.jpg?v=20171017"></a>
+				<img class="event_label" src="http://image.lottorich.co.kr/lottorich/main_new/label_event.png" border="0" alt="event">
+				<div class="event_rolling" id="event_banner_over" onmouseover="eventLeftFrameStop()" onmouseout="eventLeftFrameStart();">
+					<a id="event_chg1" href="javascript:;" onmouseover="eventLeftFrameChg(1);"></a>
+					<a id="event_chg2" href="javascript:;" onmouseover="eventLeftFrameChg(2);"></a>
+				</div>
+			</div>
+				<div class="lottorich_account1">
+		<img src="http://image.lottorich.co.kr/lottorich/main_new/mbn_tempaccount_1.jpg" alt="무통장 입금 가상계좌" usemap="#account">
+		<div id="bank_layer_view_area" style="position:relative;"></div>
+		<map name="account" id="account">
+			<area shape="rect" coords="23,275,288,322" href="javascript:;" onclick="chk_viewBankLayer();" />
+		</map>
+	</div>
+
+	<div id="" class="lottorich_cs1">
+		<div class="tel_num">
+			<img src="http://image.lottorich.co.kr/lottorich/main_new/lottorich_tel1.gif" alt="로또리치 고객센터 1588-0649" title="로또리치 고객센터 1588-0649">
+		</div>
+		<ul class="cs_time">
+			<li class="weekday">오전 09:00 ~ 오후 18:00</li>
+			<li class="weekend" >오전 10:00 ~ 오후 17:00</li>
+		</ul>
+	</div>
+			</div>
+		<!----------- 170817 복권경제NEWS ------------->
+		<script type="text/javascript">
+		function prevNews(){
+			if(document.getElementById("tabNews1").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "none";
+				document.getElementById("tabNews2").style.display = "none";
+				document.getElementById("tabNews3").style.display = "block";
+			}else if(document.getElementById("tabNews2").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "block";
+				document.getElementById("tabNews2").style.display = "none";
+				document.getElementById("tabNews3").style.display = "none";
+			}else if(document.getElementById("tabNews3").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "none";
+				document.getElementById("tabNews2").style.display = "block";
+				document.getElementById("tabNews3").style.display = "none";
+			}
+		}
+
+		function nextNews(){
+			if(document.getElementById("tabNews1").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "none";
+				document.getElementById("tabNews2").style.display = "block";
+				document.getElementById("tabNews3").style.display = "none";
+			}else if(document.getElementById("tabNews2").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "none";
+				document.getElementById("tabNews2").style.display = "none";
+				document.getElementById("tabNews3").style.display = "block";
+			}else if(document.getElementById("tabNews3").style.display == "block"){
+				document.getElementById("tabNews1").style.display = "block";
+				document.getElementById("tabNews2").style.display = "none";
+				document.getElementById("tabNews3").style.display = "none";
+			}
+		}
+		</script>
+		<div id="contentsBot_right">
+			<div class="lotto_news">
+				<div class="lotto_this">
+										<div class="main_life_eco_01" id="tabNews1" style="display:block;">
+						<div class="life_eco_title_01">
+							<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_h2.png" alt="복권과 생활경제 news" /></h2>
+							<span><a href="http://www.lottorich.co.kr/bbs/hot_news_web/?tb=hot_news_web"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png" alt="더보기" /></a></span>
+						</div>
+						<div class="clear"></div>
+						<div class="life_eco_news_01">
+							<div class="img">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003247213" target="_blank">
+									<img src="http://ims.lottorich.co.kr/bbs/hot_news_web/updir/1_1521424678550_jpg" width="124" height="75"/>
+								</a>
+							</div>
+							<div class="txt">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003247213" target="_blank"><p><strong><font color="black">로또 1등 당첨소감 나 같은 서민은 ..</font></strong></p>
+								<span>한 로또 커뮤니티 사이트에서 1등 당첨자 7명 중 2명을 동시에 배출해 화제다.</span>
+								</a>
+							</div>
+						</div>
+						<div class="life_eco_list">
+							<ul>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=076&aid=0003224927" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">로또리치 최다 로또 1등 당첨자 배출 인증 타이틀 획득</font> <img src="http://image.lottorich.co.kr/lottorich/main/new_icon.png" style="width:15px;vertical-align:middle;"></a>
+								</li>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003236653" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">796회 로또 당첨자, 사업 자금이 넉넉하지 않아 버티기 힘..</font> <img src="http://image.lottorich.co.kr/lottorich/main/new_icon.png" style="width:15px;vertical-align:middle;"></a>
+								</li>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003230597" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">로또 2등 사연 화제 올림픽 끝나 아쉬웠는데 당첨돼</font> <img src="http://image.lottorich.co.kr/lottorich/main/new_icon.png" style="width:15px;vertical-align:middle;"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="life_eco_page">
+							<p>
+								<a href="javascript:prevNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_l.png" /></a> 1/3 <a href="javascript:nextNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_r.png" /></a>
+							</p>
+						</div>
+					</div>
+										<div class="main_life_eco_01" id="tabNews2" style="display:none;">
+						<div class="life_eco_title_01">
+							<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_h2.png" alt="복권과 생활경제 news" /></h2>
+							<span><a href="http://www.lottorich.co.kr/bbs/hot_news_web/?tb=hot_news_web"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png" alt="더보기" /></a></span>
+						</div>
+						<div class="clear"></div>
+						<div class="life_eco_news_01">
+							<div class="img">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003249846" target="_blank">
+									<img src="http://ims.lottorich.co.kr/bbs/hot_news_web/updir/1_1521620720837_jpg" width="124" height="75"/>
+								</a>
+							</div>
+							<div class="txt">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003249846" target="_blank"><p><strong><font color="black">판매마감 1시간 앞두고 당첨된 두 ..</font></strong></p>
+								<span>이들은 모두 로또 커뮤니티 회원이며 해당 업체에서 분석 번호를 받았던 것으로 전해졌다. </span>
+								</a>
+							</div>
+						</div>
+						<div class="life_eco_list">
+							<ul>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=011&aid=0003194683" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">밀려 쓴 번호가 14억? 로또 788회 이색 당첨사연 화제</font></a>
+								</li>
+								<li>
+									<a href="http://www.asiatoday.co.kr/view.php?key=20180107002250185" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">로또 당첨번호 조회 30억 당첨자 후기 하루하루가 행복한 ..</font></a>
+								</li>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=076&aid=0003191428" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">784회 로또 1등 자동 5명-수동 4명…1등 40대 남성 3년 기다림</font></a>
+								</li>
+							</ul>
+						</div>
+						<div class="life_eco_page">
+							<p>
+								<a href="javascript:prevNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_l.png" /></a> 2/3 <a href="javascript:nextNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_r.png" /></a>
+							</p>
+						</div>
+					</div>
+										<div class="main_life_eco_01" id="tabNews3" style="display:none;">
+						<div class="life_eco_title_01">
+							<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_h2.png" alt="복권과 생활경제 news" /></h2>
+							<span><a href="http://www.lottorich.co.kr/bbs/hot_news_web/?tb=hot_news_web"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png" alt="더보기" /></a></span>
+						</div>
+						<div class="clear"></div>
+						<div class="life_eco_news_01">
+							<div class="img">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=005&aid=0001078201" target="_blank">
+									<img src="http://ims.lottorich.co.kr/bbs/hot_news_web/updir/1_152020867023_jpg" width="124" height="75"/>
+								</a>
+							</div>
+							<div class="txt">
+								<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=005&aid=0001078201" target="_blank"><p><strong><font color="black">복권 공동 구매한 직장동료, 505억 ..</font></strong></p>
+								<span>31명의 직장동료들이 복권에 당첨돼 모두 백만장자된 사연이 전해졌다. </span>
+								</a>
+							</div>
+						</div>
+						<div class="life_eco_list">
+							<ul>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=277&aid=0004151499" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">美 양대 로또 당첨금 4억달러 넘어…둘 다 당첨 확률은 7.5..</font></a>
+								</li>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=052&aid=0001087552" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">기적이 일어났어요 유방암 4기 치료 중 로또당첨된 여성</font></a>
+								</li>
+								<li>
+									<a href="http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=056&aid=0010497955" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_bul.png" /><font color="black">8천500억 복권 잭팟, 벼락 8번 연속 맞을 확률</font></a>
+								</li>
+							</ul>
+						</div>
+						<div class="life_eco_page">
+							<p>
+								<a href="javascript:prevNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_l.png" /></a> 3/3 <a href="javascript:nextNews();"><img src="http://image.lottorich.co.kr/lottorich/main_new/lotto_life_eco_r.png" /></a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="lotto_result3 align_left" >
+					<ul class="tab_menu_tc2">
+						<li class="tab_first"><a id="this_table_1" href="javascript:;" onclick="lotto_result_table(1, '798');" onmouseover="lotto_result_table(1, '');" class="tc2_tab1" style="background-position: 0px 0px;"></a></li>
+						<li><a id="this_table_4" href="javascript:;" onclick="lotto_result_table(4, '798','289','6873');" onmouseover="lotto_result_table(4, '','289','6873');" class="tc2_tab4" style="background-position: 0px 0px;"></a></li>
+						<li><a id="this_table_2" href="javascript:;" onclick="lotto_result_table(2, '798');" onmouseover="lotto_result_table(2, '');" class="tc2_tab2" style="background-position: 0px 0px;"></a></li>
+						<li class="tab_end"><a id="this_table_3" href="javascript:;" onclick="lotto_result_table(3, '798');" onmouseover="lotto_result_table(3, '');" class="tc2_tab3"></a></li>
+					</ul>
+					<span class="more">
+						<a id="this_table_url" href="http://www.lottorich.co.kr/lbbs/win.html" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="더보기"></a>
+					</span>
+					<script type="text/javascript">
+						document.getElementById("this_table_1").style.backgroundPosition	= "0 bottom";
+					</script>
+					<table class="this_table lottorich" id="lotto_result_1" summary="로또리치 성적" style="display:block;">
+						<caption>로또리치 성적</caption>
+						<colgroup>
+							<col class="col1_1">
+							<col class="col1_2">
+							<col class="col1_3 end">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>순위</th>
+								<th>당첨자수</th>
+								<th>1인당 당첨금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td_rank"><span class="rank1"></span></td>
+								<td>2명</td>
+								<td>2,710,791,911원</td>
+							</tr>
+							<tr class="en_line">
+								<td class="td_rank"><span class="rank2"></span></td>
+								<td>6명</td>
+								<td>52,709,843원</td>
+							</tr>
+							<tr>
+								<td class="td_rank"><span class="rank3"></span></td>
+								<td>262명</td>
+								<td>1,488,979원</td>
+							</tr>
+							<tr class="en_line">
+								<td class="td_rank"><span class="rank4"></span></td>
+								<td>8,039명</td>
+								<td>50,000원</td>
+							</tr>
+						</tbody>
+					</table>
+					<div id="lotto_result_4" style="display:none;">
+						<div class="produce01">
+							<p>798</p>
+								<span class="produce01_txt1"><strong>289</strong> 회</span>
+								<span class="produce01_txt2">총 <strong>6,873</strong> 억</span>
+						</div>
+						<div class="produce02">
+							<ul>
+							<li class="produce02_img1">
+								<p><strong>1,581</strong> 회</p>
+								<span>총 <strong>889</strong> 억</span>
+							</li>
+							<li class="produce02_img2">
+								<p><strong>60,665</strong> 회</p>
+								<span>총 <strong>877</strong> 억</span>
+							</li>
+							</ul>
+						</div>
+					</div>
+					<table class="this_table nanum" id="lotto_result_2" summary="당첨현황"  style="display:none;">
+						<caption>당첨현황</caption>
+						<colgroup>
+							<col class="col2_1">
+							<col class="col2_2">
+							<col class="col2_3">
+							<col class="col2_4 end">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>순위</th>
+								<th>당첨금액</th>
+								<th>당첨자수</th>
+								<th>1인당 당첨금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td_rank"><span class="rank1"></span></td>
+								<td>18,975,543,377원</td>
+								<td>7명</td>
+								<td>2,710,791,911원</td>
+							</tr>
+							<tr class="en_line">
+								<td class="td_rank"><span class="rank2"></span></td>
+								<td>3,162,590,580원</td>
+								<td>60명</td>
+								<td>52,709,843원</td>
+							</tr>
+							<tr>
+								<td class="td_rank"><span class="rank3"></span></td>
+								<td>3,162,591,396원</td>
+								<td>2,124명</td>
+								<td>1,488,979원</td>
+							</tr>
+							<tr class="en_line">
+								<td class="td_rank"><span class="rank4"></span></td>
+								<td>4,949,400,000원</td>
+								<td>98,988명</td>
+								<td>50,000원</td>
+							</tr>
+							<tr>
+								<td class="td_rank"><span class="rank5"></span></td>
+								<td>8,269,255,000원</td>
+								<td>1,653,851명</td>
+								<td>5,000원</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="this_table winner" id="lotto_result_3" summary="1등 배출점" style="display:none;">
+						<caption>1등 배출점</caption>
+						<colgroup>
+							<col class="col3_1">
+							<col class="col3_2">
+							<col class="col3_3">
+							<col class="col3_4 end">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>상호명</th>
+								<th>구분</th>
+								<th>지역</th>
+							</tr>
+						</thead>
+						<tbody>
+													<tr >
+								<td class="td_rank"><span class="rank1"></span></td>
+								<td>영남건재상사</td>
+								<td>수동</td>
+								<td>부산 연제구</td>
+							</tr>
+														<tr class="en_line">
+								<td class="td_rank"><span class="rank2"></span></td>
+								<td>경동G-PLUS할인마트</td>
+								<td>수동</td>
+								<td>부산 해운대구</td>
+							</tr>
+														<tr >
+								<td class="td_rank"><span class="rank3"></span></td>
+								<td>드림로또마켓</td>
+								<td>자동</td>
+								<td>경기 수원시 권선구</td>
+							</tr>
+														<tr class="en_line">
+								<td class="td_rank"><span class="rank4"></span></td>
+								<td>로또</td>
+								<td>수동</td>
+								<td>충남 홍성군</td>
+							</tr>
+														<tr >
+								<td class="td_rank"><span class="rank5"></span></td>
+								<td>진도로또</td>
+								<td>자동</td>
+								<td>전남 진도군</td>
+							</tr>
+													</tbody>
+					</table>
+				</div>
+			</div>
+			<!----------- 170817 사이드배너 ------------->
+<div class="side_roll_banner">
+	<div><a href="http://www.lottorich.co.kr/event/gold_member/GoldInfo.html"><img src="http://image.lottorich.co.kr/lottorich/main_new/logbox_bn2.png" width="243" height="56" /></a></div>
+		<div class="bn_gold_join">
+			<a id="bn_gold_join_url" href="http://www.lottorich.co.kr/hof/list.html?tb=interview" target="_self"><img id="bn_gold_join_img" src="http://image.lottorich.co.kr/lottorich/main_new/banner_reason_1.jpg?v=20170612"></a>
+			<div class="cbanner_rolling">
+				<input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rgs_preview.png" onclick="bn_gold_join('prev');"><input type="image" src="http://image.lottorich.co.kr/lottorich/main_new/arrow_rgs_next.png" onclick="bn_gold_join('next');">
+			</div>
+		</div>
+		<script type="text/javascript">
+			function phoneJoin(){
+				if(document.getElementById('phone_join_layer').style.display == "block"){
+					document.getElementById('phone_join_layer').style.display = "none";
+				}else{
+					document.getElementById('phone_join_layer').style.display = "block";
+				}
+			}
+
+			var bn_gold_num = 2;
+
+			var bn_gold_joinImg	= new Array();
+			bn_gold_joinImg[1]			= new Image();
+			bn_gold_joinImg[2]			= new Image();
+			bn_gold_joinImg[3]			= new Image();
+			bn_gold_joinImg[1].src	= "http://image.lottorich.co.kr/lottorich/main_new/banner_reason_1.jpg?v=20170612";
+			bn_gold_joinImg[2].src	= "http://image.lottorich.co.kr/lottorich/main_new/banner_reason_2.jpg";
+			bn_gold_joinImg[3].src	= "http://image.lottorich.co.kr/lottorich/main_new/banner_reason_3.jpg";
+
+			function bn_gold_join(_type){
+				switch (_type) {
+					case "prev"	: bn_gold_num--; break;
+					case "next"	: bn_gold_num++; break;
+				}
+
+				if (bn_gold_num < 1) {
+					bn_gold_num = 3;
+				} else if (bn_gold_num > 3) {
+					bn_gold_num = 1;
+				}
+
+				switch (bn_gold_num) {
+					case 1 : document.getElementById('bn_gold_join_url').href = "http://www.lottorich.co.kr/hof/real_interview.html";				document.getElementById('bn_gold_join_url').target = "_blank";	break;
+					case 2 : document.getElementById('bn_gold_join_url').href = "http://www.lottorich.co.kr/lbbs/real_lottorich/index.html";		document.getElementById('bn_gold_join_url').target = "_self";	break;
+					case 3 : document.getElementById('bn_gold_join_url').href = "http://www.lottorich.co.kr/lbbs/certification.html";					document.getElementById('bn_gold_join_url').target = "_self";	break;
+				}
+
+				document.getElementById('bn_gold_join_img').src = bn_gold_joinImg[bn_gold_num].src
+			}
+			bn_gold_join(bn_gold_num);
+		</script>
+		<div class="bn_ture">
+			<a id="bn_ture_banner_url" href="http://www.lottorich.co.kr/lbbs/real_lottorich/index.html" target="_self"><img id="bn_ture_banner" src="http://image.lottorich.co.kr/lottorich/main_new/banner_lottorichis_1.jpg" alt="로또리치는 오직 사실만을 전합니다."></a>
+			<div class="event_rolling" id="bn_ture_banner_over" onmouseover="bn_tureLeftFrameStop()" onmouseout="bn_tureLeftFrameStart();">
+				<a id="bn_ture_chg1" href="javascript:;" onmouseover="bn_tureLeftFrameChg(1);"></a>
+				<a id="bn_ture_chg2" href="javascript:;" onmouseover="bn_tureLeftFrameChg(2);"></a>
+				<a id="bn_ture_chg3" href="javascript:;" onmouseover="bn_tureLeftFrameChg(3);"></a>
+				<a id="bn_ture_chg4" href="javascript:;" onmouseover="bn_tureLeftFrameChg(4);"></a>
+			</div>
+		</div>
+		<script>setTimeout("bn_tureLeftFrameStart()",2000);bn_tureLeftFrameChg(1);</script>
+	</div>			<div class="main_bbs cbr_bbs">
+				<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/main_bbst_win.gif" alt="로또당첨방" title="로또당첨방"></h2>
+				<span class="more"><a href="http://www.lottorich.co.kr/hof/list.html?tb=gold_after"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="로또 당첨방 더보기"></a></span>
+				<ul>
+									<li class="best1">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5677">27억 두 번째 당첨자입니다. 저도 ..[478]</a>
+					</li>
+										<li class="best2">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5676">3등이예여~^^[2]</a>
+					</li>
+										<li class="best3">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5675">드디어 3등 당첨 되었습니다.^[12]</a>
+					</li>
+										<li class="best4">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5674">진짜로 3등 당첨되네요![8]</a>
+					</li>
+										<li class="best5">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5673">대박사건[12]</a>
+					</li>
+									</ul>
+			</div>
+						<div class="main_bbs cbr_bbsend">
+				<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/main_bbst_best.gif" alt="1,2,3등 베스트 후기" title="1,2,3등 베스트 후기"></h2>
+				<span class="more"><a href="http://www.lottorich.co.kr/hof/list.html?tb=gold_after"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="1,2,3등 베스트 후기 더보기"></a></span>
+				<ul>
+									<li class="best1">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5677">27억 두 번째 당첨자입니다. 저..[478]</a>
+					</li>
+										<li class="best2">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5670">확 바뀐다고 해서 기대했는데 ..[726]</a>
+					</li>
+										<li class="best3">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5626">꿈이 아닙니다! 진짜로 1등 당첨![1,700]</a>
+					</li>
+										<li class="best4">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5618">밀려 쓴 번호가 1등 번호였네요[986]</a>
+					</li>
+										<li class="best5">
+						<a href="http://www.lottorich.co.kr/lbbs/view.html?tb=gold_after&uid=5614">새해선물 31억 받아왔어요~ 넘 ..[738]</a>
+					</li>
+									</ul>
+			</div>
+						<div class="cbr_borad">
+				<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/h2_mn_broad2.gif?v=20170411"></h2>
+				<span class="more"><a href="http://www.lottorich.co.kr/event/120315/" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="방송보도 더보기"></a></span>
+				<ul class="broad_list_wrap">
+					<li class="broad_list_recent">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=6" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum12.jpg" alt="SBS 모닝와이드"  title="SBS 모닝와이드"></a>
+							<div id="broad_list_text_slide" class="broad_list_text">
+								<a href="http://www.lottorich.co.kr/event/120315/index.html?m=6" target="_self"><p class="bli_title">SBS 모닝와이드</p>
+								<p class="bli_text">15년 도전 끝에 34억 1등 당첨!</p></a>
+							</div>
+						</div>
+					</li>
+									<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=7" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum11.jpg" alt="SBS 8 뉴스"  title="SBS 8 뉴스"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=7" target="_self"><p class="bli_title">SBS 8 뉴스</p>
+							<p class="bli_text">5년만에 로또 1등, 19억 당첨자의 인생역전!</p></a>
+						</div>
+					</li>
+										<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=9" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum8.jpg" alt="JTBC 8시 뉴스룸"  title="JTBC 8시 뉴스룸"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=9" target="_self"><p class="bli_title">JTBC 8시 뉴스룸</p>
+							<p class="bli_text">‘국내최초’ 로또 1등 2장 구입 후 1등 당첨!</p></a>
+						</div>
+					</li>
+										<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=10" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum6.jpg" alt="KBS 생생정보"  title="KBS 생생정보"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=10" target="_self"><p class="bli_title">KBS 생생정보</p>
+							<p class="bli_text">로또 1등 당첨 당시의 소감과 당첨 비법 공개!</p></a>
+						</div>
+					</li>
+										<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=12" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum5.jpg" alt="SBS 뉴스토리"  title="SBS 뉴스토리"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=12" target="_self"><p class="bli_title">SBS 뉴스토리</p>
+							<p class="bli_text">로또1등 이후의 삶의 변화와 당첨금 사용...</p></a>
+						</div>
+					</li>
+										<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=0" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum13.jpg" alt="KBS 2TV 아침"  title="KBS 2TV 아침"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=0" target="_self"><p class="bli_title">KBS 2TV 아침</p>
+							<p class="bli_text">대한민국 로또열풍! 19억 당첨자가 밝힌 삶!</p></a>
+						</div>
+					</li>
+										<li class="broad_list">
+						<div class="broad_list_thum">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=1" target="_self"><img src="http://image.lottorich.co.kr/lottorich/main_new/cbr_broad_thum3.jpg" alt="KBS 뉴스광장"  title="KBS 뉴스광장"></a>
+						</div>
+						<div class="broad_list_text">
+							<a href="http://www.lottorich.co.kr/event/120315/index.html?m=1" target="_self"><p class="bli_title">KBS 뉴스광장</p>
+							<p class="bli_text">30대 워킹맘의 29억 당첨 후 10일간 가슴졸...</p></a>
+						</div>
+					</li>
+									</ul>
+			</div>
+			<!--로또리치 power poll 20151217-->
+			            <div class="main_bbs powerpoll">
+            	<img class="title_powerpoll" src="http://image.lottorich.co.kr/lottorich/main_new/title_poll.png">
+                <img class="txt_powerpoll" src="http://image.lottorich.co.kr/lottorich/main_new/txt_point.png">
+                <span class="more" style="z-index:100;"><a href="http://www.lottorich.co.kr/poll/list.html?left_menu=left_win"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png" alt="더보기" title="로또리치 설문조사 더보기"></a></span>
+                <div class="line_power">
+                	<span></span>
+                </div>
+								<script type="text/javascript">
+					function PollVote() {
+						var f = document.PollForm;
+						f.action = '/poll/vote_proc.html';
+						f.submit();
+					}
+				</script>
+				<iframe id="proc2" name="proc2" style="display:none;width:0;height:0;"></iframe>
+				<form method="POST" name="PollForm" target="proc2">
+				<input type="hidden" name="poll_no" value="275">
+                <div class="powerpoll_q_box">
+                    <img src="http://image.lottorich.co.kr/lottorich/main_new/ic_q.png" style="width:18px;">
+                    <span class="powerpoll_q_txt">로또에 당첨된다면 사용 계획은?</span>
+                    <div class="q_check_box">
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2359"><span>1. 주택 부동산 구입</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2360"><span>2. 재테크 및 예금</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2361"><span>3. 주식에 투자</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2362"><span>4. 대출금 상환</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2363"><span>5. 사업자금 활용</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2364"><span>6. 부모님 주변가족 돕기</span><br/>
+					                    	<input type="radio" class="q_txt" name="poll_rst_no" value="2365"><span>7. 기타</span><br/>
+					                    </div>
+                     <img class="btn_powerpoll" onClick="javascript:PollVote();" src="http://image.lottorich.co.kr/lottorich/main_new/btn_join.png">
+                </div>
+				</form>
+				<div style="display:block;" class="powerpoll_result_box_no" id="graphOff">
+					<div class="poll_box1">
+						<p class="txt_count">현재 <strong>5,291명</strong> 참여중</p>
+						<p class="txt_guide6">설문에 참여하시면 결과가 보입니다.</p>
+					</div>
+					<p class="poll_date"><img src="http://image.lottorich.co.kr/lottorich/main_new/icon_poll_calender.gif" alt="" align="absmiddle"/> 설문기간 : 2018/03/16~2018/03/31</p>
+				</div>
+				<div style="display:none;" class="powerpoll_result_box_yes" id="graphOn"> <!--그래프영역 참여 했을시-->
+				<script src="http://www.lottorich.co.kr/inc/js/amchart.js" type="text/javascript"></script>
+				<script src="http://www.lottorich.co.kr/inc/js/pie.js" type="text/javascript"></script>
+				<script>
+					var chart;
+
+											var chartData = [
+							{
+								"country": "1번",
+								"visits": 1778							},
+							{
+								"country": "2번",
+								"visits": 471							},
+							{
+								"country": "3번",
+								"visits": 31							},
+							{
+								"country": "4번",
+								"visits": 2130							},
+							{
+								"country": "5번",
+								"visits": 113							},
+							{
+								"country": "6번",
+								"visits": 573							},
+							{
+								"country": "7번",
+								"visits": 195							}
+						];
+					
+						function chartReload(){
+							 // PIE CHART
+							chart = new AmCharts.AmPieChart();
+
+							// title of the chart
+							//chart.addTitle("", 16);
+							chart.dataProvider = chartData;
+							chart.titleField = "country";
+							chart.valueField = "visits";
+							chart.sequencedAnimation = true;
+							chart.startEffect = "elastic";
+							chart.innerRadius = "50%";
+							chart.startDuration = 2;
+							chart.labelRadius = 10;
+							chart.balloonText = "[[title]]<br><span style='font-size:12px'><b>[[value]]</b> ([[percents]]%)</span>";
+							// the following two lines makes the chart 3D
+							chart.depth3D = 10;
+							chart.angle = 15;
+
+							// WRITE
+							chart.write("chartdiv");
+						}
+					</script>
+                    <div class="graph_area">
+						<div style="position:absolute; margin:100px 0 0 88px; color:red"><b>5291명</b></div>
+						<div id="chartdiv" style="width:300px; height:200px; margin:-35px 0 0 -45px;"></div>
+					</div>
+					<p class="txt_guide5">(2018/03/16 ~ 현재)</p>
+                </div>
+				            </div>
+						<div class="nanumstory" >
+				<h2><a href="http://www.lottorich.co.kr/nanumstory/main.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/ms_h2_nanumstory.png" alt="나눔스토리" title="나눔스토리 더보기"></a></h2>
+				<ul class="nanumstory_tab">
+					<li><a class="nanumtab_01" id="nanumstory_tab_1" href="javascript:;" onclick="nanumstory_tabChg(1);" onmouseover="nanumstory_tabChg(1);" ></a></li>
+					<li><a class="nanumtab_02" id="nanumstory_tab_2" href="javascript:;" onclick="nanumstory_tabChg(2);" onmouseover="nanumstory_tabChg(2);" ></a></li>
+					<li class="end"><a class="nanumtab_03 end" id="nanumstory_tab_3" href="javascript:;" onclick="nanumstory_tabChg(3);" onmouseover="nanumstory_tabChg(3);" ></a></li>
+				</ul>
+				<div id="nanumstory_img_1" style="display:block;">
+					<ul class="nanumstory_img">
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2017.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20171226/nanumstory_img1_1.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2017.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20171226/nanumstory_img1_2.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2017.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20171226/nanumstory_img1_3.jpg"></a></li>
+					</ul>
+					<p class="nanumstory_text"><a href="http://www.lottorich.co.kr/nanumstory/nanum_2017.html" target="_blank"><span>[포항 지진피해성금 전달]</span>이재민에게 희망을 전하며 나눔을 함께하겠습니다.</a></p>
+				</div>
+				<div id="nanumstory_img_2" style="display:none;">
+					<ul class="nanumstory_img">
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2016.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img1_1.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2016.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img1_2.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2016.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img1_3.jpg"></a></li>
+					</ul>
+					<p class="nanumstory_text"><a href="http://www.lottorich.co.kr/nanumstory/nanum_2016.html" target="_blank"><span>[재활병원 발전기금 전달]</span>모두가 행복해지는 세상을 꿈꾸며 여러분을 응원합니다.</a></p>
+				</div>
+				<div id="nanumstory_img_3" style="display:none;">
+					<ul class="nanumstory_img" >
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2015.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img2_1.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2015.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img2_2.jpg"></a></li>
+						<li><a href="http://www.lottorich.co.kr/nanumstory/nanum_2015.html" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/nanumstory/20170302/nanumstory_img2_3.jpg"></a></li>
+					</ul>
+					<p class="nanumstory_text"><a href="http://www.lottorich.co.kr/nanumstory/nanum_2015.html"><span>[재활병원 발전기금 전달]</span>당신이 어떤 모습이든 당신은 소중하고 아름답습니다.</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="contentsAddc">
+	<h2><img src="http://image.lottorich.co.kr/lottorich/main_new/addcon_title_img.jpg" alt=""></h2>
+	<div id="" class="addc_box_movie">
+		<h3><img src="http://image.lottorich.co.kr/lottorich/new_gold/acm_movie.gif" alt="영화서비스"></h3>
+		<span class="more"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="영화서비스 더보기"></a></span>
+		<ul class="category">
+					<li class="start">
+				<a id="acthum_movie_tab_1" href="javascript:;" onclick="acthum_movie_tabChg(1);" onmouseover="acthum_movie_tabChg(1);">인기</a>
+			</li>
+						<li >
+				<a id="acthum_movie_tab_2" href="javascript:;" onclick="acthum_movie_tabChg(2);" onmouseover="acthum_movie_tabChg(2);">액션/SF</a>
+			</li>
+						<li >
+				<a id="acthum_movie_tab_3" href="javascript:;" onclick="acthum_movie_tabChg(3);" onmouseover="acthum_movie_tabChg(3);">드라마/코미디</a>
+			</li>
+						<li class="end">
+				<a id="acthum_movie_tab_4" href="javascript:;" onclick="acthum_movie_tabChg(4);" onmouseover="acthum_movie_tabChg(4);">공포/스릴러</a>
+			</li>
+					</ul>
+			<ul id="acthum_movie_1" class="acthum_wrap" style="display:block;">
+					<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum1_1.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">피쉬탱크</a></p>
+				<p class="acthum_text">여느 열다섯 살 아이들처럼..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum3_4.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">댓 어쿼드 모먼트-그 어색한 순간</a></p>
+				<p class="acthum_text">대학 졸업과 동시에 결혼한..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum1_3.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">스텝업2</a></p>
+				<p class="acthum_text">어느덧 16살이 된 그녀의 ..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum1_4.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">샘닐의 쥬키퍼</a></p>
+				<p class="acthum_text">전쟁이 일어난 곳에서 사람..</p>
+			</li>
+					</ul>
+				<ul id="acthum_movie_2" class="acthum_wrap" style="display:none;">
+					<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum6.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">마고리엄의 장난감 백화점</a></p>
+				<p class="acthum_text">세상 모든 장난감들이 살아..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum2_1.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">반 헬싱</a></p>
+				<p class="acthum_text">악의 기운이 느껴지는 곳이..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum2_3.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">툼레이더</a></p>
+				<p class="acthum_text">전세계 최고의 레이더들 마..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum2_4.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">드래곤 레전드</a></p>
+				<p class="acthum_text">작은 마을의 무고한 시민들..</p>
+			</li>
+					</ul>
+				<ul id="acthum_movie_3" class="acthum_wrap" style="display:none;">
+					<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum3_1.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">6년째 연애중</a></p>
+				<p class="acthum_text">캠퍼스 동아리 커플로 시작..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum1_3.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">스텝업2</a></p>
+				<p class="acthum_text">어느덧 16살이 된 그녀의 ..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum3_3.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">쓰리 썸머 나잇</a></p>
+				<p class="acthum_text">왜 자고만 일어나면 이 난..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum3_4.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">댓 어쿼드 모먼트-그 어색한 순간</a></p>
+				<p class="acthum_text">대학 졸업과 동시에 결혼한..</p>
+			</li>
+					</ul>
+				<ul id="acthum_movie_4" class="acthum_wrap" style="display:none;">
+					<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum4_1.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">신이 말하는 대로</a></p>
+				<p class="acthum_text">매일 똑같이 반복되는 지루..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum4_2.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">최면 전문의</a></p>
+				<p class="acthum_text">일가족 몰살 사건 사라진 ..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum4_3.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">트랜스</a></p>
+				<p class="acthum_text">시베리아	중국과 러시아의 ..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/movie_thum4_4.jpg" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">허니문</a></p>
+				<p class="acthum_text">그 날 밤, 끔찍한 일이 일..</p>
+			</li>
+					</ul>
+			</div>
+	
+	<div id="" class="addc_box_comic">
+		<h3><img src="http://image.lottorich.co.kr/lottorich/new_gold/acm_comic.gif" alt="프리미엄 만화"></h3>
+		<span class="more"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="만화서비스 더보기"></a></span>
+		<ul class="category">
+					<li class="start">
+				<a id="acthum_comic_tab_1" href="javascript:;" onclick="acthum_comic_tabChg(1);" onmouseover="acthum_comic_tabChg(1);">무협</a>
+			</li>
+						<li >
+				<a id="acthum_comic_tab_2" href="javascript:;" onclick="acthum_comic_tabChg(2);" onmouseover="acthum_comic_tabChg(2);">액션</a>
+			</li>
+						<li >
+				<a id="acthum_comic_tab_3" href="javascript:;" onclick="acthum_comic_tabChg(3);" onmouseover="acthum_comic_tabChg(3);">드라마</a>
+			</li>
+						<li >
+				<a id="acthum_comic_tab_4" href="javascript:;" onclick="acthum_comic_tabChg(4);" onmouseover="acthum_comic_tabChg(4);">학원</a>
+			</li>
+						<li >
+				<a id="acthum_comic_tab_5" href="javascript:;" onclick="acthum_comic_tabChg(5);" onmouseover="acthum_comic_tabChg(5);">스포츠</a>
+			</li>
+						<li class="end">
+				<a id="acthum_comic_tab_6" href="javascript:;" onclick="acthum_comic_tabChg(6);" onmouseover="acthum_comic_tabChg(6);">순정</a>
+			</li>
+					</ul>
+			<ul id="acthum_comic_1" class="acthum_wrap" style="display:block;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/p8us_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">단란표국 1부</a></p>
+					<p class="acthum_text">묵검향</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/opnf_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">십만대적검 1부</a></p>
+					<p class="acthum_text">묵검향</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/q4tw_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">독보천하 1부</a></p>
+					<p class="acthum_text">천제황</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/9opz_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">무사의 노래</a></p>
+					<p class="acthum_text">박산하</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/ndb8_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">만인지상</a></p>
+					<p class="acthum_text">묵검향</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/imc9_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">구주강호(九州江湖) 2부</a></p>
+					<p class="acthum_text">천제황</p>
+				</li>
+						</ul>
+				<ul id="acthum_comic_2" class="acthum_wrap" style="display:none;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/yuc2_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">신이라불리운사나이 비하인드 스토리</a></p>
+					<p class="acthum_text">박봉성</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/m6wd_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">도시정벌8부</a></p>
+					<p class="acthum_text">신형빈</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/285o_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">박봉성 삼국지 1부</a></p>
+					<p class="acthum_text">박봉성</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/7546_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">뿌리</a></p>
+					<p class="acthum_text">박봉성</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/40l5_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">15야</a></p>
+					<p class="acthum_text">박봉성</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/90dy_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">흑권</a></p>
+					<p class="acthum_text">박봉성</p>
+				</li>
+						</ul>
+				<ul id="acthum_comic_3" class="acthum_wrap" style="display:none;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/lq7q_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">국수의신</a></p>
+					<p class="acthum_text">박인권</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/3lau_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">신마계대전</a></p>
+					<p class="acthum_text">김성모</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/58bw_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">열혈장사꾼</a></p>
+					<p class="acthum_text">박인권</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/b32y_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">딱 한잔만</a></p>
+					<p class="acthum_text">박산하</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/sa2c_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">일당백</a></p>
+					<p class="acthum_text">곽원일</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/b506_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">던전에이전트</a></p>
+					<p class="acthum_text">신형빈</p>
+				</li>
+						</ul>
+				<ul id="acthum_comic_4" class="acthum_wrap" style="display:none;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/qcwr_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">학교가자</a></p>
+					<p class="acthum_text">박인권</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/dsf6_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">Gap</a></p>
+					<p class="acthum_text">장태관</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/kx4z_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">노터치</a></p>
+					<p class="acthum_text">장태관</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/6xna_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">학교가자2부</a></p>
+					<p class="acthum_text">박인권</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/2iii_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">평양에서엄청난놈이왔데</a></p>
+					<p class="acthum_text">장태관</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/81de_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">뽑아칼</a></p>
+					<p class="acthum_text">장태관</p>
+				</li>
+						</ul>
+				<ul id="acthum_comic_5" class="acthum_wrap" style="display:none;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/0gm8_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">토네이도</a></p>
+					<p class="acthum_text">김성모</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/orqu_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">막강체고 1부</a></p>
+					<p class="acthum_text">유상모</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/vnb8_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">아웃복서</a></p>
+					<p class="acthum_text">장태관</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/igmn_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">강타자</a></p>
+					<p class="acthum_text">정낙원</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/6snf_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">사이드원더킥</a></p>
+					<p class="acthum_text">배광선</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/v9cl_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">막강체고 2부</a></p>
+					<p class="acthum_text">유상모</p>
+				</li>
+						</ul>
+				<ul id="acthum_comic_6" class="acthum_wrap" style="display:none;">
+						<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/7c3j_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">한번해봐</a></p>
+					<p class="acthum_text">차경희</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/wa37_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">신데렐라21C</a></p>
+					<p class="acthum_text">민혜경</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/b0zi_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">꿈꾸는 올챙이</a></p>
+					<p class="acthum_text">이보배</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/te4n_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">천사하나악마하나</a></p>
+					<p class="acthum_text">이보배</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/her5_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">내 사랑 깨몽</a></p>
+					<p class="acthum_text">이보배</p>
+				</li>
+								<li class="acthum_list">
+					<div id="" class="acthum_img">
+						<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/mootoon/rji6_ve_s.jpg" ></a>
+											</div>
+					<p class="acthum_tit" style="line-height:18px;"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">사랑은 내멋대로</a></p>
+					<p class="acthum_text">이보배</p>
+				</li>
+						</ul>
+			</div>
+
+
+
+
+	<div id="" class="addc_box_fortune">
+		<h3 ><img src="http://image.lottorich.co.kr/lottorich/main_new/acm_fortune.gif" alt="운세서비스"></h3>
+		<span class="more"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/more_link.png"  alt="더보기" title="운세서비스 더보기"></a></span>
+		<ul class="acthum_wrap">
+				<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/fortune_thum1.gif" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">2018 정통신년운세</a></p>
+				<p class="acthum_text">2018년 무술(戊戌))년, 물..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/fortune_thum2.gif" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">2018 내사랑 반쪽찾기</a></p>
+				<p class="acthum_text">나의 사랑과 인연은? 사랑..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/fortune_thum3.gif" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">2018 신토정비결</a></p>
+				<p class="acthum_text">토정 이지함님의 술서를 바..</p>
+			</li>
+						<li class="acthum_list">
+				<div id="" class="acthum_img">
+					<a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank"><img src="http://image.lottorich.co.kr/lottorich/main_new/fortune_thum4.gif" alt=""></a>
+				</div>
+				<p class="acthum_tit"><a href="http://www.lottorich.co.kr/event/entertainment/" target="_blank">2018 부자되기</a></p>
+				<p class="acthum_text">재물의 흐름을 파악하는 특..</p>
+			</li>
+					</ul>
+	</div>
+
+
+
+</div>	<script type="text/javascript">
+		var chk_user			= 0;
+		var tab_max_movie	= 4;
+		var tab_max_comic	= 6;
+
+		/*
+		function clk_cnt(u,l)
+		{
+			$.post(
+				'/bbs/lotto_hot_news/com_proc.html'
+				,{'mode':'ucnt','uid':u,'tb':'lotto_hot_news'}
+				,function(data){
+					eval("var res = " + data);
+				}
+				,'html'
+			);
+
+			window.open(l);
+		}
+		*/
+
+		setTimeout("eventLeftFrameStart()",2000);
+		setInterval("certify_next()",7000);
+
+		//setTimeout("bannerLeftFrameStart()",0);
+		//bannerLeftFrameChg(2);
+
+		//setTimeout("bn_tureLeftFrameStart()",2000);
+		//bn_tureLeftFrameChg(1);
+
+		//tab_channelChg(4);
+		eventLeftFrameChg(1);
+		winner_storyChg(2);
+		//winner_realWinChg(1);
+
+		//hot_news_imgChg(1);
+		nanumstory_tabChg(1);
+		acthum_movie_tabChg(1);
+		acthum_comic_tabChg(1);
+
+		//180308 kri, 미국진출 배너 롤링
+		setInterval("bannerKriChg()",7000);
+	</script>
+</div>
+<!-- index end -->
+
+<script type="text/javascript" src="/inc/js/jquery/jquery-ui.min.js"></script>
+<style>
+.layer_mainpop2{position:absolute; left:50%; top:330px; margin:0px 0px 0 -160px; width:586px; padding:1px; background-color:#000; z-index:200; line-height:0}
+.layer_mainpop2 .layer_foot2 {height:22px; color:#a1a1a1; text-align:right; padding-top:8px; vertical-align:top}
+.layer_mainpop2 .layer_foot2 span {display:inline-block; height:13px; margin-right:15px;}
+.layer_mainpop2 .layer_foot2 a {color:#dbdbdb;}
+.layer_mainpop2 .layer_foot2 a:hover {color:#fff; text-decoration:none;}
+.layer_mainpop2 .layer_foot2 input {margin-right:2px; width:13px; height:13px; margin-bottom:-2px}
+</style>
+<link rel="stylesheet" type="text/css" href="http://image.lottorich.co.kr/lottorich/css/main_popup.css?v=201711041009"/>
+</head>
+<body>
+<!----- 180222 메인레이어 ------>
+<div id="pop_layer_180317" class="layer_mainpop2">	
+	<div style="line-height:0; position:relative;">
+		<!----- 180207 792 메인레이어 ------>
+		<a href="http://www.lottorich.co.kr/bbs/view.html?tb=notice&uid=542"><img src="http://image.lottorich.co.kr/lottorich/popup/2018_popup/w_798.gif?v=20180322" /></a>
+	</div>
+	<div class="layer_foot2">
+		<input type="checkbox" id="3days" value="3" name="layer_close" >
+		<span><label for="3days">3일간 열지 않음</label></span>
+		<input type="checkbox" id="today" value="1" name="layer_close">
+		<span><label for="today">오늘하루 열지 않음</label></span>
+		<a href="javascript:;" id="pop_layer_180317_close"><span class="today_close">× 닫음</span></a>
+	</div>
+</div>
+<script type="text/javascript">
+var pop_check_period_180317 = "";
+var pop_left_180317 = parseInt($("#pop_layer_180317").css("left"));
+
+$("#pop_layer_180317").css({"display":"block"}).draggable({cursor:"move",opacity:"0.4",containment:"document", scroll:false});
+
+$("#pop_layer_180317_close").click(function(){
+	pop_check_period_180317	 =	$(":checkbox:checked","#pop_layer_180317").val();
+
+	if (pop_check_period_180317){
+		setCookie('t180317', 'done', pop_check_period_180317 * 1);
+	}
+
+	$("#pop_layer_180317").css({"display":"none"}).empty();
+});
+</script><style type="text/css">
+	#layerPop{background-color:white;position:absolute;display:none;border:0px solid #ccc;padding:10px;z-index:1000;top:1800px;left:580px;;}
+	#layerPop2{background-color:white;position:absolute;display:none;border:0px solid #ccc;padding:10px;z-index:1000;top:1800px;left:580px;;}
+	.layerstyle1 {color: #333333;font-weight: bold;font-size: 9pt;}
+	.layerstyle2 {color: #6c6c6c;font-weight: bold;font-size: 9pt;}
+	.layerstyle3 {color: #666666;font-size: 8pt;}
+	.layerstyle4 {color: #6d6d6d;font-weight: bold;font-size: 9pt;}
+	.layerstyle5 {color: #FC450D;font-weight: bold;font-size: 9pt;}
+	.layerstyle6 {color: #666666;font-weight: bold;font-size: 8pt;}
+	.layerstyle7 {color: #666666;font-weight: bold;font-size: 8pt;text-decoration:underline;}
+</style>
+<script type="text/javascript" src="/inc/js/bbs_view.js?v=2"></script>
+<iframe id="proc" name="proc" width="0" height="0" style="display:none;"></iframe>
+	<!-- START 무통장 입금 확인 신청서 레이어 -->
+	<div id="layerPop">
+		<form id="bank_apply_form" name="bank_apply_form" target="proc">
+			<table width="490" border="0" style='border-style:solid;border-width:5px; border-color:#897868' cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10" height="35">&nbsp;</td>
+								<td width="226" align="left" valign="bottom"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_01_0610.gif" /></td>
+								<td width="138">&nbsp;</td>
+								<td width="26"><a href="javascript:;"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_x.gif" name="닫기" width="18" height="16" onClick="viewBankLayer('close')" /></a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10" height="40">&nbsp;</td>
+								<td width="390" align="left" valign="bottom"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_02_0610.gif" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<!--서비스계정시작-->
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10">&nbsp;</td>
+								<td width="390"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_03_0610.gif" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10" rowspan="7">&nbsp;</td>
+								<td height="1" colspan="2"></td>
+								<td width="10" rowspan="7">&nbsp;</td>
+							</tr>
+							<tr>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+							</tr>
+							<tr>
+								<td width="104" height="26" align="center" bgcolor="#f7f7f7"><span class="layerstyle1">ID</span></td>
+								<td width="276" bgcolor="#f7f7f7"><input type="text" name="buyr_userid" id="buyr_userid" size="25" style="border:1px solid #d5d5d5; padding:1px; height:18px; color:#363636" value="" /></td>
+							</tr>
+							<tr>
+								<td width="104" height="26" align="center" bgcolor="#f7f7f7"><span class="layerstyle1">이름</span></td>
+								<td width="276" bgcolor="#f7f7f7"><input type="text" name="buyr_name" id="buyr_name" size="25" style="border:1px solid #d5d5d5; padding:1px; height:18px; color:#363636" value="" /></td>
+							</tr>
+							<tr>
+								<td width="104" height="26" align="center" bgcolor="#f7f7f7"><span class="layerstyle1">핸드폰번호</span></td>
+								<td width="276" bgcolor="#f7f7f7"><input type="text" name="buyr_tel" id="buyr_tel" size="25" style="border:1px solid #d5d5d5; padding:1px; height:18px; color:#363636" value="" /></td>
+							</tr>
+							<tr>
+								<td width="104" height="26" align="center" bgcolor="#f7f7f7"><span class="layerstyle1">이메일 주소</span></td>
+								<td width="276" bgcolor="#f7f7f7"><input type="text" name="buyr_mail" id="buyr_mail" size="25" style="border:1px solid #d5d5d5; padding:1px; height:18px; color:#363636" value="" /></td>
+							</tr>
+							<tr>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<!--서비스상품시작-->
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10">&nbsp;</td>
+								<td width="390"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_04_0610.gif" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10" height="10" rowspan="12">&nbsp;</td>
+								<td colspan="2" bgcolor="#dcdcdc" height="1"></td>
+								<td width="10" height="10" rowspan="12">&nbsp;</td>
+							</tr>
+							<tr>
+								<td width="110" align="center" bgcolor="#f7f6f2"><span class="layerstyle4">상품선택</span></td>
+								<td width="270" height="50">
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="VG4"	onClick="chMonth(this.value);" />VIP 3년
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="VG5"	onClick="chMonth(this.value);" />VIP 1년
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="G4"	onClick="chMonth(this.value);" />3년
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="G5"	onClick="chMonth(this.value);" />1년
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="G6"	onClick="chMonth(this.value);" />6개월
+									&nbsp;&nbsp;<input type="radio" name="sel_product"  value="G1"	onClick="chMonth(this.value);" />1개월
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" bgcolor="#dcdcdc" height="1"></td>
+							</tr>
+							<tr>
+								<td align="center" bgcolor="#f7f6f2"><span class="layerstyle4">조합선택</span></td>
+								<td height="25">
+									&nbsp;&nbsp;<input type="radio" name="sel_johap" value="0" onClick="chPlus(this.value);" />&nbsp;10조합
+									&nbsp;&nbsp;<input type="radio" name="sel_johap" value="1" onClick="chPlus(this.value);" />&nbsp;15조합
+									&nbsp;&nbsp;<input type="radio" name="sel_johap" value="2" onClick="chPlus(this.value);" />&nbsp;20조합
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" bgcolor="#dcdcdc" height="1"></td>
+							</tr>
+							<tr>
+								<td align="center" bgcolor="#f7f6f2"><span class="layerstyle4">조합수신요일</span></td>
+								<td height="50">
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="1" />&nbsp;월
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="2" />&nbsp;화
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="3" />&nbsp;수
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="4" />&nbsp;목
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="5" />&nbsp;금
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="6" />&nbsp;토
+								&nbsp;&nbsp;<input type="radio" name="sel_day"  value="0" />&nbsp;일
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" bgcolor="#dcdcdc" height="1"></td>
+							</tr>
+							<tr>
+								<td align="center" bgcolor="#f7f6f2">입금금액</td>
+								<td height="25">&nbsp;&nbsp;<span id="total_pay" class="layerstyle5">0</span><span class="layerstyle4">원(정상가 기준)</span></td>
+							</tr>
+							<tr>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+							</tr>
+							<tr>
+								<td colspan="2">&nbsp;&nbsp;<span class="layerstyle7">- 골드서비스 외 기타 상품의 입금을 원하시면 1588-0649 고객센터로 연락해 </span><span class="layerstyle3"><br>&nbsp;&nbsp;주시기 바랍니다.</span></td>
+							</tr>
+							<tr>
+								<td colspan="2" bgcolor="#dcdcdc" height="1"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<!--계좌이체시작-->
+				<tr>
+					<td>
+						<table width="400" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10">&nbsp;</td>
+								<td width="390"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_04_0610.gif" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td>
+						<table width="490" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="12" rowspan="5">&nbsp;</td>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+								<td width="14" rowspan="5">&nbsp;</td>
+							</tr>
+							<tr>
+								<td width="126" align="center" bgcolor="#f7f6f2"><span class="layerstyle4">입금은행</span></td>
+								<td width="338" height="50">&nbsp;&nbsp;
+									<select name="ipgm_bank" id="ipgm_bank">
+										<option value="BK04">국민은행</option>
+										<option value="BK11">농협중앙회</option>
+										<option value="BK26">신한(조흥)은행</option>
+										<option value="BK20">우리은행</option>
+										<option value="BK81">하나은행</option>
+										<option value="BK03">기업은행</option>
+										<option value="BK05">외환은행</option>
+										<option value="BK71">우체국</option>
+										<option value="BK23">SC제일은행</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+							</tr>
+							<tr>
+								<td align="center" bgcolor="#f7f6f2"><span class="layerstyle4">입금일</span></td>
+								<td height="30">&nbsp;&nbsp;<span class="layerstyle5">2018년 03월 29일까지 (7일 이내)</span></td>
+							</tr>
+							<tr>
+								<td height="1" bgcolor="#dcdcdc" colspan="2"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="40">&nbsp;&nbsp;<span class="layerstyle3">- 꼭 입금일을 확인하시고 기한내 입금해 주세요!<br>&nbsp;&nbsp;- 입금 금액과 입금자명이 회원정보와 일치한지 꼭 확인해 주세요!</span></td>
+				</tr>
+
+				<tr>
+					<td height="40" align="center"><img src="http://image.lottorich.co.kr/lottorich/popup/cash/cash_06_0610.gif" title="발급받기" style="cursor:pointer;" onClick="bankFormBtn();"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+<script type="text/javascript">
+	// 금액 표시
+	String.prototype.number_format=function(){
+		return this.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1,');
+	}
+
+	var sel_month	= "G5";
+	var sel_plus		= "0";
+	var S_VALUE		= new Array;
+	var CODE			= new Array;
+	var price			= 0;
+
+	S_VALUE["G"] = new Array;
+			S_VALUE["G"]["1"] = new Array;
+					S_VALUE["G"]["1"]["0"] = "12900";
+					S_VALUE["G"]["1"]["1"] = "15900";
+					S_VALUE["G"]["1"]["2"] = "18900";
+					S_VALUE["G"]["6"] = new Array;
+					S_VALUE["G"]["6"]["0"] = "56000";
+					S_VALUE["G"]["6"]["1"] = "74000";
+					S_VALUE["G"]["6"]["2"] = "86000";
+					S_VALUE["G"]["5"] = new Array;
+					S_VALUE["G"]["5"]["0"] = "80000";
+					S_VALUE["G"]["5"]["1"] = "107000";
+					S_VALUE["G"]["5"]["2"] = "126000";
+					S_VALUE["G"]["4"] = new Array;
+					S_VALUE["G"]["4"]["0"] = "143000";
+					S_VALUE["G"]["4"]["1"] = "196000";
+					S_VALUE["G"]["4"]["2"] = "231000";
+				S_VALUE["VG"] = new Array;
+			S_VALUE["VG"]["5"] = new Array;
+					S_VALUE["VG"]["5"]["0"] = "119000";
+					S_VALUE["VG"]["5"]["2"] = "139000";
+					S_VALUE["VG"]["4"] = new Array;
+					S_VALUE["VG"]["4"]["0"] = "249000";
+					S_VALUE["VG"]["4"]["2"] = "299000";
+				
+	// 가상계좌 재발급
+	function chk_phone_to_kcp_vcnt(){
+		if (confirm("가상계좌 재발급 시 이전에 신청하신 가상계좌는 자동 삭제됩니다.\n재발급을 계속 진행하시겠습니까?.")) {
+			$('#bank_apply_form')
+		   .attr('action','/cash/kcp_vcnt/proc/mod.php')  
+		   .attr('method','POST')            
+		   .submit();
+		}
+	}
+
+	//무통장 입금확인 신청서 레이어 열기
+	function viewBankLayer(flag, type){
+		if (!'') {
+			/*
+			if (confirm("로그인 후 이용해주세요.\n\n\"확인\"을 누르시면 \"로그인 페이지\"로 이동합니다.")) {
+				location.href = "http://www.lottorich.co.kr/member/login.html?r_url=http://www.lottorich.co.kr%2F";
+			}
+			*/
+			if(type == "tb"){
+				login_send_layer('/index.html?','%2Findex.html%3F','tb');
+			}else{
+				login_send_layer('/index.html','%2Findex.html%3F');
+			}
+			return;
+		}
+
+		if (flag=="close") {
+			$("#layerPop").hide();
+		} else {
+			$("#layerPop").show();
+		}
+	}
+
+	// 골드이용권 선택
+	function chMonth(_month){
+		sel_plus	= $(':radio[name="sel_johap"]:checked').val();
+		
+		if (!sel_plus) sel_plus = "0";
+
+		// 골드VIP 1년, 골드VIP 3년제 상품이면
+		if (_month == "VG5" || _month == "VG4") {
+			if (sel_plus == "1") {
+				alert("골드VIP 상품은 10조합, 20조합 중에 선택하세요.");
+				$("input:radio[name='sel_johap']:radio[value='0']").attr("checked",true);
+				sel_plus = "0";
+			}
+		} else {
+			$("input:radio[name='sel_product']:radio[value='"+_month+"']").attr("checked",true);
+		}
+
+		sel_month = $(':radio[name="sel_product"]:checked').val();
+		paintDesc();
+	}
+
+	// 조합수 선택
+	function chPlus(_plus){
+		sel_month = $(':radio[name="sel_product"]:checked').val();
+
+		// 15조합이면
+		if (_plus == "1") {
+			if (sel_month == "VG5" || sel_month == "VG4") {
+				alert('골드VIP 상품은 10조합, 20조합 중에 선택하세요.');
+				$("input:radio[name='sel_johap']:radio[value='0']").attr("checked",true);
+				sel_plus = "0";
+			}
+		} else {
+			$("input:radio[name='sel_johap']:radio[value='"+_plus+"']").attr("checked",true);
+		}
+
+		sel_plus = $(':radio[name="sel_johap"]:checked').val();
+		paintDesc();
+	}
+
+	// 결제금액 출력
+	function paintDesc(){
+		var sel_modify	= sel_month.substr(0, sel_month.length - 1);
+		var sel_period	= sel_month.substr(sel_month.length - 1, sel_month.length);
+		document.getElementById("total_pay").innerHTML = S_VALUE[sel_modify][sel_period][sel_plus].number_format();
+	}
+
+	// 무통장입금 확인 신청 폼 전송
+	function bankFormBtn(){
+		var bankForm = document.bank_apply_form;
+
+		// 골드이용권 체크
+		for (var i=0; i < bankForm.sel_product.length; i++) {
+			if (bankForm.sel_product[i].checked == true) {
+				goldProdTypeChk = true;
+				break;
+			} else {
+				goldProdTypeChk = false;
+			}
+		}
+
+		// 조합수신요일 체크
+		for (var j=0; j < bankForm.sel_day.length; j++) { 
+			if (bankForm.sel_day[j].checked == true) {
+				dayChk = true;
+				break;
+			} else {
+				dayChk = false;
+			}
+		}
+
+		if (!bankForm.buyr_userid.value) {
+			alert("계정 ID를 입력하여 주십시오.");
+			bankForm.buyr_userid.focus();
+			return false;
+		}
+		
+		if (!bankForm.buyr_name.value) {
+			alert("성명을 입력하여 주십시오.");
+			bankForm.buyr_name.focus();
+			return false;
+		}
+
+		if (!bankForm.buyr_tel.value) {
+			alert("핸드폰 번호를 입력하여 주십시오.");
+			bankForm.buyr_tel.focus();
+			return false;
+		}
+
+		if (goldProdTypeChk == false) {
+			alert("구매하신 서비스상품의 정보를 선택하여 주십시오.");
+			bankForm.sel_product.focus();
+			return false;
+		}
+		
+		if (goldProdTypeChk == true && dayChk == false){
+			alert("조합수신요일을 선택하여 주십시오.");
+			bankForm.sel_day[0].focus();
+			return false;
+		}
+
+		$('#bank_apply_form')
+		.attr('action','/cash/kcp_vcnt/proc/order.php')  
+		.attr('method','POST')            
+		.submit();                             
+	}
+
+	// 화면 로딩 후 처리
+	$(document).ready(function() {
+			chMonth('G5');	// 골드이용권 기본 선택
+		chPlus('0');	// 조합수 기본 선택
+			});
+
+	if ("" == "Y") {
+		viewBankLayer();
+	}
+</script><script type="text/javascript">
+	var bank_sms_send_cnt = 0;
+
+	// 무통장 입금계좌 문자받기 레이어 열기
+	function viewBankSMSLayer(){
+		var tmp = '';
+
+		if (!"") {
+			tmp = $('#bank_sms_login').clone().wrapAll('<div/>').parent().html();
+			$('#bank_sms_login').remove();
+			$('#bank_layer_view_area').html(tmp);
+			$('#bank_sms_login').show();
+			return;
+		}
+
+		if ($('#sel_bank').val() == '') {
+			alert('은행을 선택하세요.');
+			return;
+		}
+
+		$('#bank_sms_ok').hide();
+		tmp = $('#bank_sms').clone().wrapAll('<div/>').parent().html();
+		$('#bank_sms').remove();
+		$('#bank_layer_view_area').html(tmp);
+		$('#bank_sms').show();
+	}
+
+	// sms 전송, 창닫기, 다른 번호
+	function bank_sms_send(t){
+		if (t == 1) {
+			if (bank_sms_send_cnt >= 5) {
+				alert('이미 여러번 문자가 발송되였습니다.\n문자를 받는데 다소 시간이 소요될 수 있으니 잠시 기다렸다가 확인하세요.');
+				return false;
+			}
+
+			var p = $('#bank_phone1').val() + '-' + $('#bank_phone2').val() + '-' + $('#bank_phone3').val();
+
+			if (p.length < 10) {
+				alert('전화번호를 확인하세요.');
+				$('#bank_phone1').focus();
+				return false;
+			}
+
+			var ary_ment = Array();
+			ary_ment[1] = '로또리치 국민 452501-01-272150 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[2] = '로또리치 농협 317-0003-0904-21 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[3] = '로또리치 신한 140-010-082384 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[4] = '로또리치 우리 1005-501-797216 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[5] = '로또리치 하나 122-910021-54604 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[6] = '로또리치 기업 588-011111-04-017 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[7] = '로또리치 외환 630-007485-332 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[8] = '로또리치 우체국 014506-01-008195 예금주:㈜리치커뮤니케이션즈';
+			ary_ment[9] = '로또리치 sc제일 487-20-033910 예금주:㈜리치커뮤니케이션즈';
+
+			$.post(
+				'/inc/html/sms_proc.html'
+				,{'mode':'send','phone':p,'ment':ary_ment[$('#sel_bank').val()]}
+				,function(data) {
+					eval('var res = ' + data);
+
+					if (res.return_msg=="phone") {
+						alert('취소되었습니다. \휴대전화번호를 확인하세요.');
+					} else if (res.return_msg == "ment") {
+						alert('취소되었습니다. \내용을 확인하세요.');
+					} else if (res.return_msg == "ok") {
+						bank_sms_send_cnt++
+						$('#bank_sms_ok').show();
+					} else {
+						alert('취소되었습니다.');
+					}
+				}
+				,'html'
+			);
+		} else if(t == 2) {
+			$('#bank_phone1').val('');
+			$('#bank_phone2').val('');
+			$('#bank_phone3').val('');
+		} else {
+			$('#bank_sms').hide();
+		}
+	}
+</script>
+<!-- 계좌번호 문자받기 : 로그인 안내 // 시작 //-->
+<div id="bank_sms_login" style="display:none;position:absolute;left:-103px;top:-35px;">
+	<table width="236" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><img src="http://image.lottorich.co.kr/lottorich/popup/20131011/cuspop_1.gif" width="236" height="134" border="0" usemap="#Map_bank_sms_login" /></td>
+		</tr>
+	</table>
+	<map name="Map_bank_sms_login" id="Map_bank_sms_login">
+		<area shape="rect" coords="61,103,175,124" href="/member/join.html" /><!--로또리치간편가입-->
+		<area shape="rect" coords="220,4,230,17" href="javascript:;" onclick="$('#bank_sms_login').hide();" /><!--닫기버튼-->
+	</map>
+</div>
+<!-- 계좌번호 문자받기 : sms 발송 // 시작 //-->
+<div id="bank_sms" style="display:none;position:absolute;left:-103px;top:-35px;">
+	<table width="236" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<table width="236" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><img src="http://image.lottorich.co.kr/lottorich/popup/20131011/cuspop_2.gif" width="236" height="27" border="0" usemap="#Map_bank_sms2" /></td>
+					</tr>
+					<tr>
+						<td height="39" align="center" background="http://image.lottorich.co.kr/lottorich/popup/20131011/cuspop_4.gif">
+							<div style="position:relative;">
+								<!--문자발송확인-->
+								<div id="bank_sms_ok" style="position:absolute;display:none;left: 5px;top: -8px;">
+									<img src="http://image.lottorich.co.kr/lottorich/popup/20131011/cuspop_3.gif" usemap="#Map_bank_sms3" />
+									<map name="Map_bank_sms3" id="Map_bank_sms3">
+										<area shape="rect" coords="76,59,141,79" href="javascript:;" onclick="bank_sms_send(3)" />
+									</map>
+								</div>
+							</div>
+							<table width="210" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td><input name="bank_phone1" type="text" id="bank_phone1" size="6" maxlength="3" onblur="this.value=this.value.only_number();" value="" /></td>
+									<td>-</td>
+									<td><input name="bank_phone2" type="text" id="bank_phone2" size="6" maxlength="4" onblur="this.value=this.value.only_number();" value="" /></td>
+									<td>-</td>
+									<td><input name="bank_phone3" type="text" id="bank_phone3" size="6" maxlength="4" onblur="this.value=this.value.only_number();" value="" /></td>
+								</tr>
+							</table>
+						</td>
+						</tr>
+						<tr>
+						<td><img src="http://image.lottorich.co.kr/lottorich/popup/20131011/cuspop_5.gif" width="236" height="68" border="0" usemap="#Map_bank_sms1" /></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<map name="Map_bank_sms1" id="Map_bank_sms1">
+		<area shape="rect" coords="23,37,135,58" href="javascript:;" onclick="bank_sms_send(2)" /><!--다른번호로받기-->
+		<area shape="rect" coords="149,38,212,58" href="javascript:;" onclick="bank_sms_send(1)" /><!--발송-->
+	</map>
+	<map name="Map_bank_sms2" id="Map_bank_sms2">
+		<area shape="rect" coords="220,4,230,17" href="javascript:;" onclick="bank_sms_send(3)" /><!--닫기-->
+	</map>
+</div></div>
+<script type="text/javascript">
+function cert_view(n) {
+	for(var i = 1; i <=7; i++) {
+		if(i == n) $('#cert_' + i).show();
+		else $('#cert_' + i).hide();
+	}
+}
+
+function CERT_DIV(n, d) {
+	for(var i = 1; i <=7; i++) {
+		if(i == n) $('#CERT_0' + i).show();
+		else $('#CERT_0' + i).hide();
+	}
+}
+</script>
+<div style="clear:both;height:15px;font-size:1px;"></div>
+<div id="foot">
+	<div class="footer_wrap">
+		<ul class="footer_menu">
+			<li class="first"><a href="http://www.braincontents.kr/" target="_blank">회사소개</a></li>
+			<li><a href="javascript:;" onclick="window.open('http://www.lottorich.co.kr/member/agree_pop.html', 'agree_pop', 'width=800, height=450, fullscreen=no scrollbars=no, status=yes');">이용약관</a></li>
+			<li><a  href="javascript:;" onclick="window.open('http://www.lottorich.co.kr/member/Policy.ls', 'agree_pop', 'width=650, height=650, fullscreen=no scrollbars=no, status=yes');" ><font color="#306ac2"><b>개인정보처리방침</b></font></a></li>
+			<li><a href="http://www.lottorich.co.kr/bbs/?tb=notice">공지사항</a></li>
+			<!--li><a href="http://www.lottorich.co.kr/bbs/lotto_hot_news/?tb=lotto_hot_news">보도자료</a></li-->
+			<li><a href="http://www.lottorich.co.kr/bbs/hot_news_web/?tb=hot_news_web">보도자료</a></li>
+			<li><a href="http://www.lottorich.co.kr/bbs/faq_new/faq.html?faq_idx=T">자주하는 질문</a></li>
+			<li><a href="http://www.lottorich.co.kr/company/welcome_intro.html?xad=welcome" target="_blank">서비스안내</a></li>
+			<li class="end"><a href="http://www.lottorich.co.kr/company/partner_offer.html" target="_blank">제휴문의</a></li>
+		</ul>
+		<ul class="footer_certify">
+			<li class="first">
+				<a href="javascript:;" onclick="javascript:CERT_DIV('5','show');" onmouseover="cert_view(5)" onmouseout="$('#cert_5').hide();">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/fcertify_kri.gif?v=20180312" alt="로또1등 최다배출(한국기록원,KRI)">
+				</a>
+				<div id="cert_5" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_kri_pop1.gif?v=20180312"></div>
+				<div id="CERT_05" class="confirm_layer" style="display:none;">
+					<img src="//image.lottorich.co.kr/lottorich/renewal2017/foot/footer_kri_pop_l.gif?v=20180312">
+					<a href="javascript:;" onclick="$('#CERT_05').hide();" class="l_clo"></a>
+					<a href="http://www.lottorich.co.kr/lotto/certification/index.html?tab=6" class="l_more"></a>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;" onclick="javascript:CERT_DIV('1','show');" onmouseover="cert_view(1)" onmouseout="$('#cert_1').hide();">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/fcertify_isms.gif" alt="정보보호 관리체계인증(ISMS인증)">
+				</a>
+				<div id="cert_1" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_kisa.gif?v=20170116"></div>
+				<div id="CERT_01" class="confirm_layer"  style="display:none">
+					<img src="//image.lottorich.co.kr/lottorich/foot/footer_kisa_pop.gif?v=20170116">
+					<a href="javascript:;" onclick="$('#CERT_01').hide();" class="l_clo"></a>
+					<a href="http://www.lottorich.co.kr/lotto/certification/index.html?tab=7" class="l_more"></a>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;" onclick="javascript:CERT_DIV('2','show');" onmouseover="cert_view(2)" onmouseout="$('#cert_2').hide();">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/fcertify_iso.gif?v=20170329" alt="ISO획득(IAF,ANAB)">
+				</a>
+				<div id="cert_2" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_iso_pop.gif?v=20170329"></div>
+				<div id="CERT_02" class="confirm_layer"  style="display:none">
+					<img src="//image.lottorich.co.kr/lottorich/renewal2017/foot/footer_iso_pop_l.gif?v=20170329">
+					<a href="javascript:;" onclick="$('#CERT_02').hide();" class="l_clo"></a>
+					<a href="http://www.lottorich.co.kr/lotto/certification/index.html?tab=2" class="l_more"></a>
+				</div>
+			</li>
+			<!--<li>
+				<a href="javascript:;" onclick="javascript:CERT_DIV('3','show');" onmouseover="cert_view(3)" onmouseout="$('#cert_3').hide();">
+					<img src="http://image.lottorich.co.kr/lottorich/main_new/fcertify_koita.gif?v=20160215" alt="기술연구소 설립(Koita)">
+				</a>
+				<div id="cert_3" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_koita_pop.gif?v=2017040301"></div>
+				<div id="CERT_03" class="confirm_layer"  style="display:none">
+					<img src="//image.lottorich.co.kr/lottorich/renewal2017/foot/footer_koita_pop_l.gif?v=20170403">
+					<a href="javascript:;" onclick="$('#CERT_03').hide();" class="l_clo"></a>
+					<a href="http://www.lottorich.co.kr/lotto/certification/index.html?tab=3" class="l_more"></a>
+				</div>
+			</li>-->
+			<li>
+				<a href="javascript:;" onclick="javascript:CERT_DIV('4','show');" onmouseover="cert_view(4)" onmouseout="$('#cert_4').hide();">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/fcertify_kipo.gif" alt="로또마킹시스템 특허(특허청)">
+				</a>
+				<div id="cert_4" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_kipo_pop.gif"></div>
+				<div id="CERT_04" class="confirm_layer" style="display:none">
+					<img src="//image.lottorich.co.kr/lottorich/renewal2017/foot/footer_marking_pop_l.gif">
+					<a href="javascript:;" onclick="$('#CERT_04').hide();" class="l_clo"></a>
+					<a href="http://www.lottorich.co.kr/lotto/certification/index.html?tab=5" class="l_more"></a>
+				</div>
+			</li>
+			<li class="end" >
+				<a href="javascript:;" onclick="javascript:CERT_DIV('6','show');" onmouseover="cert_view(6)" onmouseout="$('#cert_6').hide();">
+					<img src="//image.lottorich.co.kr/lottorich/main_new/fcertify_kpc.gif" alt="2014년 대한민국 서비스 만족 대상">
+				</a>
+				<div id="cert_6" class="confirm_paper" style="display:none;"><img src="//image.lottorich.co.kr/lottorich/foot/footer_service_pop1.gif"></div>
+				<div id="CERT_06" class="confirm_layer" style="display:none">
+					<img src="//image.lottorich.co.kr/lottorich/renewal2017/foot/footer_service_pop_l.gif">
+					<a href="javascript:;" onclick="$('#CERT_06').hide();" class="l_clo"></a>
+					<a href="javascript:;" class="l_more"></a>
+				</div>
+			</li>
+		</ul>
+		<div class="company_info" style="padding:22px 0 0 0;">
+			<div class="f_logo">
+				<img src="//image.lottorich.co.kr/lottorich/main_new/f_logo.png" border="0" alt="">
+			</div>
+			<div class="cinfo_text">
+				<div class="text_2block">
+					당사의 분석시스템은 누적패턴을 분석/필터링한 정보제공만을 목적으로 하며, 당첨확률 개선서비스가 아니므로 서비스 이용 과정에서<br>
+					기대이익을 얻지 못하거나 발생한 손해 등에 대한 최종책임은 서비스 이용자 본인에게 있습니다.
+				</div>
+				<div class="text_lblock">
+					<p class="company_name">법인명:(주)브레인콘텐츠</p>
+					<p class="ceo">대표자:장대용</p>
+					<p class="address">도로명주소:서울특별시 강남구 테헤란로 325 (역삼동) 어반벤치빌딩 12층 </p>
+				</div>
+				<div class="text_lblock">
+					<p class="cs_tel">TEL:1588-0649</p>
+					<p class="cs_fax">FAX:02-2017-7994</p>
+					<p class="cs_email">E-mail:<a href="mailto:help@lsinfo.co.kr">help@lsinfo.co.kr</a></p>
+					<p class="cs_partner">제휴문의:<a href="mailto:lottorichmkt@gmail.com">lottorichmkt@gmail.com</a> </p>
+				</div>
+				<div class="text_lblock">
+					<p class="register1">통신판매업신고:2009-서울강남-00546호</p>
+					<p class="register2">사업자 등록번호:125-81-26555</p>
+				</div>
+				<div class="text_lblock">
+					<p class="copyright">COPYRIGHTⓒBRAIN CONTENTS ALL RIGHT RESERVED.</p>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 네이버 분석 스크립트 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "3077f743a0d9f4";
+wcs_do();
+</script>
+<!-- 네이버 분석 스크립트 -->
+</body>
+</html>
+<!-- 광고 서버 스트립트 -->
+<script type="text/javascript">
+	if(location.protocol == 'https:'){
+		document.write(unescape("%3Cscript src='https://ad.lottorich.co.kr/sl/sl.js' type='text/javascript'%3E%3C/script%3E"));
+	}else{
+		document.write(unescape("%3Cscript src='http://ad.lottorich.co.kr/sl/sl.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+<script type="text/javascript">
+	_sclogs.trace('', '');
+</script>
+<!-- 광고 서버 스트립트 -->
+
+<!-- 구글 분석 스크립트 Google Code for Conversion Page -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-31612181-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- 구글 분석 스크립트 Google Code for Conversion Page -->
+
+<!-- RealClick 리얼타겟팅 Checking Script (2013.03.21) -->
+<script type='text/javascript'>
+	function loadrtgJS(b,c){var d=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript";null!=c&&(a.charset="euc-kr");a.src=b;d.appendChild(a)}function load_rtg(b){loadrtgJS(("https:"==document.location.protocol?" https://":" http://")+b,"euc-kr")}load_rtg("event.realclick.co.kr/rtarget/rtget.js?rtcode=lottorich");
+</script>
+<!-- RealClick 리얼타겟팅 Checking Script (2013.03.21) -->
+
+
+<!-- Withpang Tracker v2.0 start 2016.04.18 -->
+<script type="text/javascript">
+(function (w, d, i) {
+	w[i]={
+		sc : (encodeURIComponent("")),
+		form : (encodeURIComponent(d.referrer)),
+		url : (encodeURIComponent(w.location.href))
+	};
+
+	if(w[i]) {
+		var _ar = _ar || [];
+		var _s = "log.dreamsearch.or.kr/servlet/rf";
+		for(x in w[i]) _ar.push(x + "=" + w[i][x]);
+		(new Image).src = d.location.protocol +"//"+ _s +"?"+ _ar.join("&");
+	}
+})(window, document, "wp_rf");
+</script>
+<!-- Withpang Tracker v2.0 end 2016.04.18 -->
+
+<!-- DSP 리타겟팅 Checking Script V.201603 Start -->
+<script type="text/javascript">
+function dsp_loadrtgJS(b,c){var d=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript";null!=c&&(a.charset="euc-kr");a.src=b;d.appendChild(a)}function dsp_load_rtg(b){dsp_loadrtgJS(("https:"==document.location.protocol?" https://":" http://")+b,"euc-kr")}dsp_load_rtg("realdmp.realclick.co.kr/rtarget/rtget.js?dsp_adid=richcoms");
+</script>
+<!-- DSP 리타겟팅 Checking Script V.201603 End -->
+
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+fbq('init', '265358690611060'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="//www.facebook.com/tr?id=265358690611060&ev=PageView&noscript=1" /></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+
+<!-- WIDERPLANET  SCRIPT START 2017.9.22 -->
+<div id="wp_tg_cts" style="display:none;"></div>
+<script type="text/javascript">
+var wptg_tagscript_vars = wptg_tagscript_vars || [];
+wptg_tagscript_vars.push(
+(function() {
+	return {
+		wp_hcuid:"",   /*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
+				*주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+		ti:"37778",	/*광고주 코드*/
+		ty:"Home",	/*트래킹태그 타입*/
+		device:"web"	/*디바이스 종류 (web 또는 mobile)*/
+		
+	};
+}));
+</script>
+<script type="text/javascript" async src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+<!-- // WIDERPLANET  SCRIPT END 2017.9.22 -->
+
+<!-- POWERLINK SCRIPT START 2018.1.5 -->
+<!-- POWERLINK SCRIPT END 2018.1.5 -->
+<!-- SK stoa 2018.03.19 by.박상희 -->
+<script type="text/javascript">
+var _paq = _paq || [];
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u="//piwik.readvista.com/";
+_paq.push(['setTrackerUrl', u+'piwik.php']);
+_paq.push(['setSiteId', '2']);
+var d=document, g=d.createElement('script'),
+s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+s.parentNode.insertBefore(g,s);
+})();
+</script>
+<!-- // SK stoa 2018.03.19 by.박상희 -->

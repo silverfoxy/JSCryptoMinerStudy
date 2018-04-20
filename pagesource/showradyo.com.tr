@@ -1,0 +1,1285 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Show Radyo
+</title><link rel="Shortcut Icon" href="projectimages/site/favicon.ico" /><link href="css/bootstrap.css" rel="stylesheet" /><link href="css/main.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46324780-1', 'showradyo.com.tr');
+        ga('send', 'pageview');
+
+    </script>
+    <style type="text/css">
+        .tablepopup td {
+            padding: 3px;
+        }
+
+        .tblwrapper {
+            width: 1320px;
+            position: relative;
+            margin: 0px auto;
+        }
+
+        .wrapper_left {
+            position: fixed;
+            top: 10px;
+            z-index: 99;
+        }
+
+        .wrapper_right {
+            position: fixed;
+            top: 10px;
+            z-index: 99;
+        }
+
+        #rekshow {
+            list-style: none;
+        }
+
+            #rekshow li {
+                max-width: 160px;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
+
+                #rekshow li a img {
+                    max-width: 160px;
+                }
+    </style>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabs div').hide();
+            //$('#tabs div:first').show();
+            //$('#tabs ul li:first').addClass('active');
+            $('#tabs #aTitle li a').click(function () {
+                $('#tabs #aTitle li').removeClass('active');
+                $(this).parent().addClass('active');
+                var currentTab = $(this).attr('href');
+                $('#tabs div').hide();
+                $(currentTab).show();
+                return false;
+            });
+            i = 0;
+            $('#tabs #aTitle li').each(function (i) {
+                if ($(this).is('.active')) {
+
+                    i = i + 2;
+
+                    $('#tabs div').hide();
+                    $('#tabs div:nth-child(' + i + ')').show();
+                    //alert(i);
+
+
+
+                }
+            });
+
+
+        });
+        
+    </script>
+    <style type="text/css">
+        .rdbtnPollList
+        {
+            padding-left: 5px;
+            padding-top: 10px;
+            font-size: 15px;
+            font-weight: 400;
+            color: Black;
+        }
+        .lblWarning
+        {
+            height: 20px;
+        }
+        .btnVote
+        {
+            float: left;
+            margin-left: 80px;
+            color: Red;
+            font-weight: bolder;
+        }
+        .btnShowResult
+        {
+            float: right;
+            margin-left: 60px;
+            color: Red;
+            font-weight: bolder;
+        }
+        
+        
+        /* Haberler için slider css başlangıç*/
+        
+        .slider-large-image
+        {
+            width: 428px;
+            height: 340px;
+            float: left;
+            margin: 10px 0 0 20px; /* overflow: hidden;  background-image: url(../projectimages/habersol.png);     background-repeat: no-repeat;*/
+        }
+        .slider-large-image img
+        {
+            position: relative;
+            z-index: 2;
+        }
+        .slider-sidebar
+        {
+            background: transparent;
+            width: 213px;
+            height: 340px;
+            float: left;
+            margin: 8px 1px 1px -8px; /*  padding:5px 0 0px;    background-image: url(../projectimages/habermenu.png);     background-position: top center;     background-repeat: no-repeat;*/
+            position: relative;
+            z-index: 10;
+        }
+        
+        .slider-sidebar img
+        {
+            width: 100px;
+            margin: 5px auto;
+            height: 0px;
+            cursor: pointer;
+            visibility: hidden;
+        }
+        .sliderItem
+        {
+            /*background-image: url(../projectimages/menuli.png);*/
+            background-image: url(../projectimages/haberpasif.png);
+            background-repeat: no-repeat;
+            cursor: pointer;
+            height: 49px;
+            width: 210px;
+            margin: -7px 0 0 3px;
+            color: Black;
+            background: transparant;
+            position: relative;
+            z-index: 12;
+            text-align: left;
+            padding: 20px 12px 5px 10px;
+            vertical-align: baseline;
+        }
+        .sliderItem a
+        {
+            color: black;
+            line-height: 15px;
+        }
+        .chosen
+        {
+            background-image: url(../projectimages/haberactive.png);
+            background-repeat: no-repeat;
+            color: White;
+            position: relative;
+            z-index: 13;
+        }
+        .chosen a
+        {
+            color: White;
+        }
+        #tabs
+        {
+            /*font-size: 90%;*/
+            margin: 0px 0;
+            background-image: url(../projectimages/livestreambg00.png);
+            background-position: -7px 6px;
+            background-repeat: no-repeat;
+            min-height: 300px;
+            position: relative;
+            padding-top: 13px;
+        }
+        #tabs ul
+        {
+            float: left;
+            width: 1000px;
+            padding-top: 4px;
+        }
+        #tabs li
+        {
+        }
+        
+        * html #tabs li
+        {
+            display: inline;
+        }
+        #tabs li
+        {
+            list-style: none;
+            float: left;
+            color: Black;
+        }
+        #tabs li a
+        {
+            font-family: "My Custom Font" , Verdana, Tahoma;
+            font-size: 18px;
+            color: Black;
+            font-weight: 600;
+        }
+        #tabs ul li.active
+        {
+        }
+        #tabs ul li.active a
+        {
+            color: white;
+        }
+        #tabs div
+        {
+            clear: both;
+            padding: 0 15px;
+            min-height: 200px;
+        }
+        
+        .thumbs
+        {
+            float: left;
+            border: #000 solid 1px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+        #container
+        {
+            position: relative;
+            top: -30px;
+        }
+        /**************************/
+        .wrdaily
+        {
+            list-style: none;
+            width: 1000px;
+            height: 250px;
+            margin-left: -10px;
+            margin-top: -5px;
+        }
+        .wrdaily li
+        {
+            float: left;
+            width: 101px;
+            height: 250px;
+            text-align: center;
+        }
+        .wrdaily li h3
+        {
+            position: relative;
+            top: 10px;
+            font-family: "My Custom Font" , Verdana, Tahoma;
+            font-size: 18px;
+        }
+        .wrdaily li img
+        {
+            width: 100px;
+            height: 120px;
+            position: relative;
+            top: 30px;
+        }
+        .wrdaily li p
+        {
+            position: relative;
+            top: 53px;
+            font-family: "My Custom Font" , Verdana, Tahoma;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        #aTitle li a
+        {
+            font-size: 17px;
+            position: relative;
+            margin: 1px auto;
+        }
+        #aTitle li
+        {
+            width: 124px;
+            padding: 1px auto;
+        }
+        #aTitle li:nth-child(2)
+        {
+            padding-left: 8px;
+            width: 116px;
+           
+        }
+        
+        .wrdaily li
+        {
+            margin-left: 8px;
+        }
+        /* .aLink
+        {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+        }*/
+    </style>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTg3MjY5OTAzMw9kFgJmD2QWAgIDD2QWBAIBD2QWHgIBDxYCHgtfIUl0ZW1Db3VudAIFFgpmD2QWAmYPFQQEMjU2OAQyNTY4KlNob3cgUmFkeW8gUG9kY2FzdCdsZXJpIFNvdW5kY2xvdWQuY29tJ2RhIRwuLi9pbWFnZXMvMjE5MjAxN18xNjE3MjAuanBnZAIBD2QWAmYPFQQEMjY1NAQyNjU0I1ZpenlvbmRhIEJ1IEhhZnRhISDDlkxEw5xSTUUgQVJaVVNVHC4uL2ltYWdlcy8xODMyMDE4XzEyNDY1MS5qcGdkAgIPZBYCZg8VBAQyNjUzBDI2NTMiTmloYXQnbGEgU2l2cmlzaW5laywgQmXFn2lrdGHFnyd0YRwuLi9pbWFnZXMvMTgzMjAxOF8xMjQzNDAuanBnZAIDD2QWAmYPFQQEMjY1MgQyNjUyH0tlcmVtIEFrw6dhLCBTaG93IFJhZHlvJ2RheWTEsSEcLi4vaW1hZ2VzLzE4MzIwMThfMTYyNTEwLmpwZ2QCBA9kFgJmDxUEBDI2NTEEMjY1MSBMaXZhbmVsaSDFnmFya8SxbGFyxLEgTWVyc2luJ2RlIRsuLi9pbWFnZXMvNTMyMDE4XzE1NTg0NC5qcGdkAgMPFgIeBFRleHQFXzxhIGhyZWY9J3Nob3dyYWR5b2RqbGVyaW1pei5hc3B4P2lkPTc3OCc+PGltZyBzcmM9Jy4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMjQ5NTguanBnJyAvPiA8L2E+ZAIFDxYCHwEFlQI8bGk+PGEgaHJlZj0nI3RhYi0xJz5QYXphcnRlc2k8L2E+PC9saT48bGk+PGEgaHJlZj0nI3RhYi0yJz5TYWzEsTwvYT48L2xpPjxsaSBjbGFzcz0nYWN0aXZlJz48YSBocmVmPScjdGFiLTMnID7Dh2FyxZ9hbWJhPC9hPjwvbGk+PGxpPjxhIGhyZWY9JyN0YWItNCc+UGVyxZ9lbWJlPC9hPjwvbGk+PGxpPjxhIGhyZWY9JyN0YWItNSc+Q3VtYTwvYT48L2xpPjxsaT48YSBocmVmPScjdGFiLTYnPkN1bWFydGVzaTwvYT48L2xpPjxsaT48YSBocmVmPScjdGFiLTcnPlBhemFyPC9hPjwvbGk+ZAIHDxYCHwACCBYQZg9kFgJmDxUFAzY0NwQ3OjAwBDk6MDAhLi4vaW1hZ2VzL2NhcnRvb24xNTkyMDE3XzAzMTYuanBnEU5paGF0J2xhIE11aGFiYmV0ZAIBD2QWAmYPFQUDNDkwBDk6MDAFMTA6MDAjLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzExMzYyNy5qcGcNS3JpcHRvIE9kYXPEsWQCAg9kFgJmDxUFAzc2MQUxMDowMAUxNDowMCIuLi9pbWFnZXMvY2FydG9vbjk1MjAxN18xNTI1NTEuanBnCFNob3cgTWl4ZAIDD2QWAmYPFQUDNDkzBTE0OjAwBTE2OjAwIy4uL2ltYWdlcy9jYXJ0b29uMjk2MjAxNl8yMDU4MjcuanBnCUNhZmUgU2hvd2QCBA9kFgJmDxUFAzc3NgUxNjowMAUxODowMCMuLi9pbWFnZXMvY2FydG9vbjIxMDIwMTdfMTI0ODUzLmpwZwhaZWtpcmRla2QCBQ9kFgJmDxUFAzY0OAUxODowMAUyMDowMCIuLi9pbWFnZXMvY2FydG9vbjE1OTIwMTdfMDMxMzAuanBnE05paGF0J2xhIFNpdnJpc2luZWtkAgYPZBYCZg8VBQM1NzYFMjA6MDAFMjI6MDAjLi4vaW1hZ2VzL2NhcnRvb24xMjEyMDE1XzE3MzA1Mi5qcGcTR8O8bsO8biBFbiDEsHlpbGVyaWQCBw9kFgJmDxUFAzc0NQUyMjowMAQxOjAwIy4uL2ltYWdlcy9jYXJ0b29uMTM3MjAxNl8xMzIzMzkuanBnBk1hdHJheGQCCQ8WAh8AAggWEGYPZBYCZg8VBQQ3OjAwBDk6MDADNjQ5Ii4uL2ltYWdlcy9jYXJ0b29uMTU5MjAxN18wMzE1NC5qcGcRTmloYXQnbGEgTXVoYWJiZXRkAgEPZBYCZg8VBQQ5OjAwBTEwOjAwAzQ5OSMuLi9pbWFnZXMvY2FydG9vbjcxMTIwMTRfMTE0MzQwLmpwZw1LcmlwdG8gT2Rhc8SxZAICD2QWAmYPFQUFMTA6MDAFMTQ6MDADNzYyIi4uL2ltYWdlcy9jYXJ0b29uOTUyMDE3XzE1NDQ1OC5qcGcIU2hvdyBNaXhkAgMPZBYCZg8VBQUxNDowMAUxNjowMAM1MDIjLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzExNDU1NS5qcGcJQ2FmZSBTaG93ZAIED2QWAmYPFQUFMTY6MDAFMTg6MDADNzc3Iy4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMjQ5MjkuanBnCFpla2lyZGVrZAIFD2QWAmYPFQUFMTg6MDAFMjA6MDADNjU0Ii4uL2ltYWdlcy9jYXJ0b29uMTU5MjAxN18wMzIyMS5qcGcTTmloYXQnbGEgU2l2cmlzaW5la2QCBg9kFgJmDxUFBTIwOjAwBTIyOjAwAzU3NyMuLi9pbWFnZXMvY2FydG9vbjEyMTIwMTVfMTczMTMyLmpwZxNHw7xuw7xuIEVuIMSweWlsZXJpZAIHD2QWAmYPFQUFMjI6MDAEMTowMAM3NDYjLi4vaW1hZ2VzL2NhcnRvb24xMzcyMDE2XzEzMjg1Ni5qcGcGTWF0cmF4ZAILDxYCHwACCBYQZg9kFgJmDxUFBDc6MDAEOTowMAM2NTEiLi4vaW1hZ2VzL2NhcnRvb24xNTkyMDE3XzAzMjQ5LmpwZxFOaWhhdCdsYSBNdWhhYmJldGQCAQ9kFgJmDxUFBDk6MDAFMTA6MDADNTIyIi4uL2ltYWdlcy9jYXJ0b29uNzExMjAxNF8xMzc0OC5qcGcNS3JpcHRvIE9kYXPEsWQCAg9kFgJmDxUFBTEwOjAwBTE0OjAwAzc2MyIuLi9pbWFnZXMvY2FydG9vbjk1MjAxN18xNTQ2NDEuanBnCFNob3cgTWl4ZAIDD2QWAmYPFQUFMTQ6MDAFMTY6MDADNzQ0Ii4uL2ltYWdlcy9jYXJ0b29uMjk2MjAxNl8yMTAzNi5qcGcJQ2FmZSBTaG93ZAIED2QWAmYPFQUFMTY6MDAFMTg6MDADNzc4Iy4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMjQ5NTguanBnCFpla2lyZGVrZAIFD2QWAmYPFQUFMTg6MDAFMjA6MDADNjU1Ii4uL2ltYWdlcy9jYXJ0b29uMTU5MjAxN18wMzQyNS5qcGcTTmloYXQnbGEgU2l2cmlzaW5la2QCBg9kFgJmDxUFBTIwOjAwBTIyOjAwAzU3OCMuLi9pbWFnZXMvY2FydG9vbjEyMTIwMTVfMTczMjU3LmpwZxNHw7xuw7xuIEVuIMSweWlsZXJpZAIHD2QWAmYPFQUFMjI6MDAEMTowMAM3NDciLi4vaW1hZ2VzL2NhcnRvb24xMzcyMDE2XzEzMzA4LmpwZwZNYXRyYXhkAg0PFgIfAAIIFhBmD2QWAmYPFQUENzowMAQ5OjAwAzY1MiIuLi9pbWFnZXMvY2FydG9vbjE1OTIwMTdfMDM1MzguanBnEU5paGF0J2xhIE11aGFiYmV0ZAIBD2QWAmYPFQUEOTowMAUxMDowMAM1MjMiLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzEzODM1LmpwZw1LcmlwdG8gT2Rhc8SxZAICD2QWAmYPFQUFMTA6MDAFMTQ6MDADNzY0Ii4uL2ltYWdlcy9jYXJ0b29uOTUyMDE3XzE1NDc0NS5qcGcIU2hvdyBNaXhkAgMPZBYCZg8VBQUxNDowMAUxNjowMAM1MzIjLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzEzNDAyNS5qcGcJQ2FmZSBTaG93ZAIED2QWAmYPFQUFMTY6MDAFMTg6MDADNzc5Iy4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMjUwMjQuanBnCFpla2lyZGVrZAIFD2QWAmYPFQUFMTg6MDAFMjA6MDADNjU2IS4uL2ltYWdlcy9jYXJ0b29uMTU5MjAxN18wMzYyLmpwZxNOaWhhdCdsYSBTaXZyaXNpbmVrZAIGD2QWAmYPFQUFMjA6MDAFMjI6MDADNTc5Iy4uL2ltYWdlcy9jYXJ0b29uMTIxMjAxNV8xNzMzNDguanBnE0fDvG7DvG4gRW4gxLB5aWxlcmlkAgcPZBYCZg8VBQUyMjowMAQxOjAwAzc0OCMuLi9pbWFnZXMvY2FydG9vbjEzNzIwMTZfMTMzMDQ4LmpwZwZNYXRyYXhkAg8PFgIfAAIIFhBmD2QWAmYPFQUENzowMAQ5OjAwAzY1MyIuLi9pbWFnZXMvY2FydG9vbjE1OTIwMTdfMDI1NDAuanBnEU5paGF0J2xhIE11aGFiYmV0ZAIBD2QWAmYPFQUEOTowMAUxMDowMAM1MjQiLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzEzOTM2LmpwZw1LcmlwdG8gT2Rhc8SxZAICD2QWAmYPFQUFMTA6MDAFMTQ6MDADNzY1Ii4uL2ltYWdlcy9jYXJ0b29uOTUyMDE3XzE1NDkzNC5qcGcIU2hvdyBNaXhkAgMPZBYCZg8VBQUxNDowMAUxNjowMAM1MzMjLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzEzNDExMy5qcGcJQ2FmZSBTaG93ZAIED2QWAmYPFQUFMTY6MDAFMTg6MDADNzgwIy4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMjUwNTAuanBnCFpla2lyZGVrZAIFD2QWAmYPFQUFMTg6MDAFMjA6MDADNjU3Ii4uL2ltYWdlcy9jYXJ0b29uMTU5MjAxN18wMzYzMC5qcGcTTmloYXQnbGEgU2l2cmlzaW5la2QCBg9kFgJmDxUFBTIwOjAwBTIyOjAwAzU4MCMuLi9pbWFnZXMvY2FydG9vbjEyMTIwMTVfMTczNDEwLmpwZxNHw7xuw7xuIEVuIMSweWlsZXJpZAIHD2QWAmYPFQUFMjI6MDAEMTowMAM3NDkjLi4vaW1hZ2VzL2NhcnRvb24xMzcyMDE2XzEzMzEyNi5qcGcGTWF0cmF4ZAIRDxYCHwACBRYKZg9kFgJmDxUFBTEwOjAwBTE0OjAwAzUwOSMuLi9pbWFnZXMvY2FydG9vbjcxMTIwMTRfMTE1MjM4LmpwZxZBc2zEsWhhbidsxLEgRGFraWthbGFyZAIBD2QWAmYPFQUFMTQ6MDAFMTg6MDADNzgzIi4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMzMzMC5qcGcPQ3VtYXJ0ZXNpIEtleWZpZAICD2QWAmYPFQUFMTg6MDAFMjA6MDADNjk0JC4uL2ltYWdlcy9jYXJ0b29uMjExMjIwMTVfMTQxMDIwLmpwZwjEsGxrIDIwIGQCAw9kFgJmDxUFBTIwOjAwBTIzOjAwAzUxMyMuLi9pbWFnZXMvY2FydG9vbjcxMTIwMTRfMTE1NTMwLmpwZxRCYcWfxLFib8WfIFNhYXRsZXIgIGQCBA9kFgJmDxUFBTIzOjAwBDE6MDADNzc1Ii4uL2ltYWdlcy9jYXJ0b29uMjc5MjAxN185MzQyOC5qcGcKU2hvdyBQYXJ0aWQCEw8WAh8AAgYWDGYPZBYCZg8VBQUxMDowMAUxNDowMAM0ODEjLi4vaW1hZ2VzL2NhcnRvb243MTEyMDE0XzExMTQzMi5qcGcWQXNsxLFoYW4nbMSxIERha2lrYWxhcmQCAQ9kFgJmDxUFBTE0OjAwBTE4OjAwAzc4NCIuLi9pbWFnZXMvY2FydG9vbjIxMDIwMTdfMTMxMTEuanBnC1BhemFyIEtleWZpZAICD2QWAmYPFQUFMTg6MDAFMjA6MDADNjk1Iy4uL2ltYWdlcy9jYXJ0b29uMjExMjIwMTVfMTQyMDUuanBnCMSwbGsgMjAgZAIDD2QWAmYPFQUFMjA6MDAFMjE6MDADNzg1Ii4uL2ltYWdlcy9jYXJ0b29uMjEwMjAxN18xMzIyNC5qcGcMQWvFn2FtIEtleWZpZAIED2QWAmYPFQUFMjE6MDAFMjM6MDADNDg3Iy4uL2ltYWdlcy9jYXJ0b29uNzExMjAxNF8xMTMzNTQuanBnDVNhcsSxIFRyYW12YXlkAgUPZBYCZg8VBQUyMzowMAQxOjAwAzQ4OCMuLi9pbWFnZXMvY2FydG9vbjcxMTIwMTRfMTEzNDM1LmpwZxhCYcWfxLFib8WfIFNhYXRsZXIgKFQpICBkAhUPFgIfAAIDFgZmD2QWAmYPFQQeLi4vdmlkZW9zL2ltZzE0NzIwMTRfMTYzOTEucG5nE05paGF0J2xhIFNpdnJpc2luZWsTTmloYXQnbGEgU2l2cmlzaW5lawoxOS8wOS8yMDE3ZAIBD2QWAmYPFQQfLi4vdmlkZW9zL2ltZzE0NzIwMTRfMTYzODM3LnBuZwZNYXRyYXgGTWF0cmF4CjE5LzA5LzIwMTdkAgIPZBYCZg8VBB8uLi92aWRlb3MvaW1nMjk2MjAxNl8yMDM4NTMucG5nDUtyaXB0byBPZGFzxLENS3JpcHRvIE9kYXPEsQoyMC8wOS8yMDE3ZAIXDxYCHwEFKiAgPGltZyBzcmM9Jy4uL2ltYWdlcy8xODMyMDE4XzEyMzczNC5wbmcnIGQCGQ8WAh8BBSlCdSBoYWZ0YSBzb251IGhhbmdpIGZpbG1pIGl6bGV5ZWNla3Npbml6P2QCGw9kFgQCAQ8QDxYCHgtfIURhdGFCb3VuZGdkEBUGF0JvcmRvIEJlcmVsaWxlciAyIEFmcmluEMOWbGTDvHJtZSBBcnp1c3UOS8SxesSxbCBTZXLDp2UUS8O8w6fDvGsgS2FocmFtYW5sYXIYWml5YXJldMOnaWxlcjogR2VjZSBBdsSxClN1eXVuIFNlc2kVBgQxNjAxBDE2MDIEMTYwMwQxNjA0BDE2MDUEMTYwNhQrAwZnZ2dnZ2dkZAIDDw9kDxAWAWYWARYCHg5QYXJhbWV0ZXJWYWx1ZQLKCBYBAgVkZAIhDw8WAh4HVmlzaWJsZWhkZAIDDxYCHwACAxYGZg9kFgJmDxUCATEGS8O8bnllZAIBD2QWAmYPFQIBNAZSZWtsYW1kAgIPZBYCZg8VAgE5D1JhZHlvbGFyIEdhemV0ZWRkq6LbHjEOCWk5zInWDDsziozKFbYR8+lTzmP4K0lgGA8=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAlbdTjBXknKg2H63dyw+TdjuZqVKfvghWXhZ0sHzMsNybtLzz8AHlqETjX4vBzHIy8jwuH+EHe9Fcs2LWYKXBdy/z0eYNIsATl+s8IETcYQigi5OxQyw74JLTOiClJgnCjIGIA63kVYcTA9evS0D4YSJ9jCoBr1sYRQMpjTpho+5XHBNRliDp2IYh8igFACXhRAZtWDpiaUncain2wC5ZRUDyVSlmrr6C/xUXVG4LR8rQ==" />
+        <div class="wrapper">
+            <table class="tblwrapper" style="margin: 0px auto;">
+                <tr>
+                    <td style="position: relative;">
+
+
+
+                        <div class="wrapper_left">
+                            <ul id="rekshow">
+                                <li></li>
+                                <li></li>
+                            </ul>
+
+                            
+
+                            
+                        </div>
+                    </td>
+                    <td style="width: 1000px;">
+                        <div class="wrapper_body">
+                            <div class="header">
+                                
+                                <a href="default.aspx">
+                                    <img src="projectimages/header.png" alt="" />
+                                </a>
+
+                            </div>
+                            <div class="wrapper_min_body">
+                                
+    <div class="first_block">
+        <div class="main-slider">
+            <div class="slider-large-image">
+                <div style="height: 330px; width: 460px;" class="big_img">
+                    <a id="aTarget">
+                        <img class="target" src="" style="width: 460px; height: 330px; top: 0px; left: 0px;"
+                            alt="" /></a>
+                    
+                </div>
+                <div class="total_news">
+                    
+                </div>
+            </div>
+            <div class="slider-sidebar">
+                
+                        
+                        <div class="sliderItem" onclick="location.href='haberler.aspx?id=2568';">
+                            <a class="aLink" href='haberler.aspx?id=2568'>
+                                Show Radyo Podcast'leri Soundcloud.com'da!
+                            </a>
+                            <img src='../images/2192017_161720.jpg' alt="" />
+                        </div>
+                        
+                    
+                        
+                        <div class="sliderItem" onclick="location.href='haberler.aspx?id=2654';">
+                            <a class="aLink" href='haberler.aspx?id=2654'>
+                                Vizyonda Bu Hafta! ÖLDÜRME ARZUSU
+                            </a>
+                            <img src='../images/1832018_124651.jpg' alt="" />
+                        </div>
+                        
+                    
+                        
+                        <div class="sliderItem" onclick="location.href='haberler.aspx?id=2653';">
+                            <a class="aLink" href='haberler.aspx?id=2653'>
+                                Nihat'la Sivrisinek, Beşiktaş'ta
+                            </a>
+                            <img src='../images/1832018_124340.jpg' alt="" />
+                        </div>
+                        
+                    
+                        
+                        <div class="sliderItem" onclick="location.href='haberler.aspx?id=2652';">
+                            <a class="aLink" href='haberler.aspx?id=2652'>
+                                Kerem Akça, Show Radyo'daydı!
+                            </a>
+                            <img src='../images/1832018_162510.jpg' alt="" />
+                        </div>
+                        
+                    
+                        
+                        <div class="sliderItem" onclick="location.href='haberler.aspx?id=2651';">
+                            <a class="aLink" href='haberler.aspx?id=2651'>
+                                Livaneli Şarkıları Mersin'de!
+                            </a>
+                            <img src='../images/532018_155844.jpg' alt="" />
+                        </div>
+                        
+                    
+            </div>
+            <div class="cleaner">
+            </div>
+        </div>
+        <div class="wrapper_onair">
+            <div style="width: 200px; height: 200px; float: left;">
+                <a onclick="window.open('canli.aspx','mywindow','width=800,height=200')">
+                    <div class="live_button">
+                    </div>
+                </a>
+            </div>
+            <div style="width: 90px; height: 200px; float: right; margin-right: -40px;">
+                <a href="http://dijibox.com/Radyo/Dijibox/?type=-2" target="_blank">
+                    <img src="projectimages/erisim.png" /></a>
+            </div>
+            <div class="cleaner">
+            </div>
+            <div class="onair">
+                <div class="onair_image">
+                    <a href='showradyodjlerimiz.aspx?id=778'><img src='../images/cartoon2102017_124958.jpg' /> </a>
+                </div>
+            </div>
+        </div>
+        <div class="cleaner">
+        </div>
+    </div>
+    <div class="WeekDayStream">
+    </div>
+    <div class="second_block">
+        <div id="container">
+            <div id="tabs">
+                <ul id="aTitle" style="padding-left: 100px; width: 960px;">
+                    <li><a href='#tab-1'>Pazartesi</a></li><li><a href='#tab-2'>Salı</a></li><li class='active'><a href='#tab-3' >Çarşamba</a></li><li><a href='#tab-4'>Perşembe</a></li><li><a href='#tab-5'>Cuma</a></li><li><a href='#tab-6'>Cumartesi</a></li><li><a href='#tab-7'>Pazar</a></li>
+                    
+                </ul>
+                <div id="tab-1">
+                    <ul class="wrdaily">
+                        
+                                <a href='showradyodjlerimiz.aspx?id=647'>
+                                    <li>
+                                        <h3>
+                                            7:00-9:00</h3>
+                                        <img src='../images/cartoon1592017_0316.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Nihat'la Muhabbet</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=490'>
+                                    <li>
+                                        <h3>
+                                            9:00-10:00</h3>
+                                        <img src='../images/cartoon7112014_113627.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Kripto Odası</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=761'>
+                                    <li>
+                                        <h3>
+                                            10:00-14:00</h3>
+                                        <img src='../images/cartoon952017_152551.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Show Mix</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=493'>
+                                    <li>
+                                        <h3>
+                                            14:00-16:00</h3>
+                                        <img src='../images/cartoon2962016_205827.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Cafe Show</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=776'>
+                                    <li>
+                                        <h3>
+                                            16:00-18:00</h3>
+                                        <img src='../images/cartoon2102017_124853.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Zekirdek</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=648'>
+                                    <li>
+                                        <h3>
+                                            18:00-20:00</h3>
+                                        <img src='../images/cartoon1592017_03130.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Nihat'la Sivrisinek</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=576'>
+                                    <li>
+                                        <h3>
+                                            20:00-22:00</h3>
+                                        <img src='../images/cartoon1212015_173052.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Günün En İyileri</p>
+                                    </li>
+                                </a>
+                            
+                                <a href='showradyodjlerimiz.aspx?id=745'>
+                                    <li>
+                                        <h3>
+                                            22:00-1:00</h3>
+                                        <img src='../images/cartoon1372016_132339.jpg' alt="" width="100px" height="120px" />
+                                        <p>
+                                            Matrax</p>
+                                    </li>
+                                </a>
+                            
+                    </ul>
+                </div>
+                <div id="tab-2">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        7:00-9:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=649'>
+                                        <img src='../images/cartoon1592017_03154.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Muhabbet</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        9:00-10:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=499'>
+                                        <img src='../images/cartoon7112014_114340.jpg' alt="" /></a>
+                                    <p>
+                                        Kripto Odası</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=762'>
+                                        <img src='../images/cartoon952017_154458.jpg' alt="" /></a>
+                                    <p>
+                                        Show Mix</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-16:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=502'>
+                                        <img src='../images/cartoon7112014_114555.jpg' alt="" /></a>
+                                    <p>
+                                        Cafe Show</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        16:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=777'>
+                                        <img src='../images/cartoon2102017_124929.jpg' alt="" /></a>
+                                    <p>
+                                        Zekirdek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=654'>
+                                        <img src='../images/cartoon1592017_03221.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Sivrisinek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-22:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=577'>
+                                        <img src='../images/cartoon1212015_173132.jpg' alt="" /></a>
+                                    <p>
+                                        Günün En İyileri</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        22:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=746'>
+                                        <img src='../images/cartoon1372016_132856.jpg' alt="" /></a>
+                                    <p>
+                                        Matrax</p>
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="tab-3">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        7:00-9:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=651'>
+                                        <img src='../images/cartoon1592017_03249.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Muhabbet</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        9:00-10:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=522'>
+                                        <img src='../images/cartoon7112014_13748.jpg' alt="" /></a>
+                                    <p>
+                                        Kripto Odası</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=763'>
+                                        <img src='../images/cartoon952017_154641.jpg' alt="" /></a>
+                                    <p>
+                                        Show Mix</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-16:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=744'>
+                                        <img src='../images/cartoon2962016_21036.jpg' alt="" /></a>
+                                    <p>
+                                        Cafe Show</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        16:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=778'>
+                                        <img src='../images/cartoon2102017_124958.jpg' alt="" /></a>
+                                    <p>
+                                        Zekirdek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=655'>
+                                        <img src='../images/cartoon1592017_03425.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Sivrisinek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-22:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=578'>
+                                        <img src='../images/cartoon1212015_173257.jpg' alt="" /></a>
+                                    <p>
+                                        Günün En İyileri</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        22:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=747'>
+                                        <img src='../images/cartoon1372016_13308.jpg' alt="" /></a>
+                                    <p>
+                                        Matrax</p>
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="tab-4">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        7:00-9:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=652'>
+                                        <img src='../images/cartoon1592017_03538.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Muhabbet</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        9:00-10:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=523'>
+                                        <img src='../images/cartoon7112014_13835.jpg' alt="" /></a>
+                                    <p>
+                                        Kripto Odası</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=764'>
+                                        <img src='../images/cartoon952017_154745.jpg' alt="" /></a>
+                                    <p>
+                                        Show Mix</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-16:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=532'>
+                                        <img src='../images/cartoon7112014_134025.jpg' alt="" /></a>
+                                    <p>
+                                        Cafe Show</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        16:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=779'>
+                                        <img src='../images/cartoon2102017_125024.jpg' alt="" /></a>
+                                    <p>
+                                        Zekirdek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=656'>
+                                        <img src='../images/cartoon1592017_0362.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Sivrisinek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-22:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=579'>
+                                        <img src='../images/cartoon1212015_173348.jpg' alt="" /></a>
+                                    <p>
+                                        Günün En İyileri</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        22:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=748'>
+                                        <img src='../images/cartoon1372016_133048.jpg' alt="" /></a>
+                                    <p>
+                                        Matrax</p>
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="tab-5">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        7:00-9:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=653'>
+                                        <img src='../images/cartoon1592017_02540.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Muhabbet</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        9:00-10:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=524'>
+                                        <img src='../images/cartoon7112014_13936.jpg' alt="" /></a>
+                                    <p>
+                                        Kripto Odası</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=765'>
+                                        <img src='../images/cartoon952017_154934.jpg' alt="" /></a>
+                                    <p>
+                                        Show Mix</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-16:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=533'>
+                                        <img src='../images/cartoon7112014_134113.jpg' alt="" /></a>
+                                    <p>
+                                        Cafe Show</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        16:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=780'>
+                                        <img src='../images/cartoon2102017_125050.jpg' alt="" /></a>
+                                    <p>
+                                        Zekirdek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=657'>
+                                        <img src='../images/cartoon1592017_03630.jpg' alt="" /></a>
+                                    <p>
+                                        Nihat'la Sivrisinek</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-22:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=580'>
+                                        <img src='../images/cartoon1212015_173410.jpg' alt="" /></a>
+                                    <p>
+                                        Günün En İyileri</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        22:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=749'>
+                                        <img src='../images/cartoon1372016_133126.jpg' alt="" /></a>
+                                    <p>
+                                        Matrax</p>
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="tab-6">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=509'>
+                                        <img src='../images/cartoon7112014_115238.jpg' alt="" /></a>
+                                    <p>
+                                        Aslıhan'lı Dakikalar</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=783'>
+                                        <img src='../images/cartoon2102017_13330.jpg' alt="" /></a>
+                                    <p>
+                                        Cumartesi Keyfi</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=694'>
+                                        <img src='../images/cartoon21122015_141020.jpg' alt="" /></a>
+                                    <p>
+                                        İlk 20 </p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-23:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=513'>
+                                        <img src='../images/cartoon7112014_115530.jpg' alt="" /></a>
+                                    <p>
+                                        Başıboş Saatler  </p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        23:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=775'>
+                                        <img src='../images/cartoon2792017_93428.jpg' alt="" /></a>
+                                    <p>
+                                        Show Parti</p>
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="tab-7">
+                    <ul class="wrdaily">
+                        
+                                <li>
+                                    <h3>
+                                        10:00-14:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=481'>
+                                        <img src='../images/cartoon7112014_111432.jpg' alt="" /></a>
+                                    <p>
+                                        Aslıhan'lı Dakikalar</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        14:00-18:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=784'>
+                                        <img src='../images/cartoon2102017_13111.jpg' alt="" /></a>
+                                    <p>
+                                        Pazar Keyfi</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        18:00-20:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=695'>
+                                        <img src='../images/cartoon21122015_14205.jpg' alt="" /></a>
+                                    <p>
+                                        İlk 20 </p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        20:00-21:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=785'>
+                                        <img src='../images/cartoon2102017_13224.jpg' alt="" /></a>
+                                    <p>
+                                        Akşam Keyfi</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        21:00-23:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=487'>
+                                        <img src='../images/cartoon7112014_113354.jpg' alt="" /></a>
+                                    <p>
+                                        Sarı Tramvay</p>
+                                </li>
+                            
+                                <li>
+                                    <h3>
+                                        23:00-1:00</h3>
+                                    <a href='showradyodjlerimiz.aspx?id=488'>
+                                        <img src='../images/cartoon7112014_113435.jpg' alt="" /></a>
+                                    <p>
+                                        Başıboş Saatler (T)  </p>
+                                </li>
+                            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="third_block">
+        <div class="podcast">
+            <ul>
+                
+                        <li>
+                            <ul>
+                                <a href='podcast.aspx'>
+                                    <li>
+                                        <img src='../videos/img1472014_16391.png' alt='Nihat'la Sivrisinek' /></li>
+                                    <li><span>
+                                        Nihat'la Sivrisinek</span>
+                                        <br />
+                                        <br />
+                                        <p>
+                                            19/09/2017
+                                        </p>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    
+                        <li>
+                            <ul>
+                                <a href='podcast.aspx'>
+                                    <li>
+                                        <img src='../videos/img1472014_163837.png' alt='Matrax' /></li>
+                                    <li><span>
+                                        Matrax</span>
+                                        <br />
+                                        <br />
+                                        <p>
+                                            19/09/2017
+                                        </p>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    
+                        <li>
+                            <ul>
+                                <a href='podcast.aspx'>
+                                    <li>
+                                        <img src='../videos/img2962016_203853.png' alt='Kripto Odası' /></li>
+                                    <li><span>
+                                        Kripto Odası</span>
+                                        <br />
+                                        <br />
+                                        <p>
+                                            20/09/2017
+                                        </p>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    
+            </ul>
+        </div>
+        <div class="frekans_trip">
+            <div class="frequency">
+                <a href="showradyofrekanslarimiz.aspx">
+                    <img src="projectimages/frekanslar.png" alt="" />
+                </a>
+            </div>
+            <div class="social_media">
+                <div class="sc_media_wrapper">
+                    <div class="scmedia">
+                        <a href="https://www.facebook.com/ShowRadyo" target="_blank">
+                            <img src="projectimages/social/facebook.png" />
+                        </a>
+                    </div>
+                    <div class="scmedia">
+                        <a href="https://twitter.com/showradyo" target="_blank">
+                            <img src="projectimages/social/twitter.png" />
+                        </a>
+                    </div>
+                    <div class="scmedia" style="width: 250px;">
+                        <a href="https://www.youtube.com/user/ShowRadyoOfficial" target="_blank">
+                            <img src="projectimages/social/youtube.png" />
+                        </a>
+                    </div>
+                    <div class="scmedia">
+                        <a href="https://instagram.com/showradyo" target="_blank">
+                            <img src="projectimages/social/instagram.png" />
+                        </a>
+                    </div>
+                    <div class="scmedia">
+                        <a href="https://www.pinterest.com/showradyo/" target="_blank">
+                            <img src="projectimages/social/Pinterest.png" />
+                        </a>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="top_list">
+              <img src='../images/1832018_123734.png' 
+            
+        </div>
+    </div>
+    <div class="cleaner">
+    </div>
+    <div class="fourth_block">
+        
+        <div class="poll">
+            <ul>
+                
+                
+                <li>
+                    Bu hafta sonu hangi filmi izleyeceksiniz?</li>
+                <li>
+                    
+                    <div id="ctl00_ContentPlaceHolder1_pnlVote">
+	
+                        <span id="ctl00_ContentPlaceHolder1_rdbtnPollList" class="rdbtnPollList" style="display:inline-block;"><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_0" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1601" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_0">Bordo Bereliler 2 Afrin</label><br /><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_1" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1602" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_1">Öldürme Arzusu</label><br /><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_2" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1603" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_2">Kızıl Serçe</label><br /><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_3" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1604" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_3">Küçük Kahramanlar</label><br /><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_4" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1605" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_4">Ziyaretçiler: Gece Avı</label><br /><input id="ctl00_ContentPlaceHolder1_rdbtnPollList_5" type="radio" name="ctl00$ContentPlaceHolder1$rdbtnPollList" value="1606" /><label for="ctl00_ContentPlaceHolder1_rdbtnPollList_5">Suyun Sesi</label></span>
+                        
+                    
+</div>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <div class="btnPolls">
+                        <a id="ctl00_ContentPlaceHolder1_btnVote" class="btnVote" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btnVote&#39;,&#39;&#39;)">Oy Ver</a>
+                        
+                    </div>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+        
+        <div class="galeritrip">
+            <a href="3DGaleri.aspx" target="_blank">
+                <img src="projectimages/gezinti.png" alt="" />
+            </a>
+        </div>
+        
+        
+    </div>
+
+
+
+                            </div>
+                            <div class="cleaner">
+                            </div>
+                            <div class="wrapper_footer">
+                                <ul>
+                                    
+                                    <li><a href="kurumsal.aspx">Kurumsal</a></li>
+                                    
+                                            <li><a href='show_radyo_sayfalari.aspx?id=1'>
+                                                Künye</a></li>
+                                        
+                                            <li><a href='show_radyo_sayfalari.aspx?id=4'>
+                                                Reklam</a></li>
+                                        
+                                            <li><a href='show_radyo_sayfalari.aspx?id=9'>
+                                                Radyolar Gazete</a></li>
+                                        
+                                    <li><a href="odullerimiz.aspx">Ödüllerimiz</a></li>
+                                    <li><a href="iltemsilciligi.aspx">İl Temsilciliği Başvuru Formu</a></li>
+                                    <li><a style="cursor: pointer;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">İletişim
+                                    </a></li>
+
+
+
+
+                                </ul>
+                                <div class="cleaner">
+                                </div>
+                                <ul class="companylogo" style="">
+                                    <li><a href="http://www.satisofisi.com.tr/" target="_blank">
+                                        
+                                        <img src="projectimages/logolar/satis2.png" height="20px" style="margin-top: 4px;" />
+                                    </a></li>
+                                    <li><a href="http://www.planetler.com/" target="_blank">
+                                        
+                                        <img src="projectimages/logolar/planetler2.png" height="25px" />
+                                    </a></li>
+                                    <li><a href="http://www.radyoviva.com.tr/" target="_blank">
+                                        
+                                        <img src="projectimages/logolar/viva2.png" height="30px" />
+                                    </a></li>
+                                </ul>
+                                <ul class="softhan">
+                                    <li style="float: right; font-family: Tahoma; font-size: 12px;">
+                                        <a style="color: #154A60;" href="http://ekolders.com/" target="_blank" rel="dofollow">
+                                            <span style="color: #154A60;">Tasarım ve Uygulama:</span>
+
+                                        </a>
+                                        <a style="color: #154A60;" href="http://softhan.com" target="_blank" rel="dofollow">
+                                            <span style="color: #154A60;">softhan.com</span>
+
+                                        </a>
+                                    </li>
+                                    <li style="float: right; font-family: Tahoma; font-size: 12px;"><span style="color: #154A60;">&nbsp; Copyright © 2013 Show Radyo. Tüm Hakkı Saklıdır.</span> </li>
+
+                                </ul>
+                                <div class="cleaner">
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="wrapper_right">
+                            <br />
+                            
+                            <a href="http://www.tvf.org.tr" target="_blank">
+
+
+                                <img src="images/tvf-banner.jpg" alt="Türkiye Voleybol Federasyonu" />
+
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <script src="js/trigger.js" type="text/javascript"></script>
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">İletişim</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td>Adres:</td>
+                                <td>Levent Mah. Üstzeren Sok. No:40 1. Levent Beşiktaş İSTANBUL</td>
+                            </tr>
+                            <tr>
+                                <td>Telefon:</td>
+                                <td>0212 385 00 00 (santral)
+                                    <br />
+                                    0212 325 90 90 (stüdyo)</td>
+                            </tr>
+                            <tr>
+                                <td>Fax:</td>
+                                <td>0212 385 00 09</td>
+                            </tr>
+                            <tr>
+
+                                <td>E-mail:</td>
+                                <td>dinleyicitemsilcisi@showradyo.com.tr</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="2">Show Radyo' yu akıllı telefon uygulamalarından ve masaüstü programlarından dinleyebilirsiniz.</td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="2">
+
+                                    <div class="links_wrapper">
+                                        <ul>
+                                            <li><a href="https://itunes.apple.com/tr/app/show-radyo/id358674364?l=tr&mt=8" target="_blank"
+                                                title="Bizi ios uygulaması ile dinleyebilirsiniz">
+                                                <img src="projectimages/ios.jpg" />
+                                            </a></li>
+                                            <li><a href=" https://play.google.com/store/apps/details?id=akilliyazilim.android.showradyo&hl=tr"
+                                                target="_blank" title="Bizi android uygulaması ile dinleyebilirsiniz">
+                                                <img src="projectimages/android.png" />
+                                            </a></li>
+                                            <li><a href="http://46.20.3.228/listen.pls" target="_blank" title="Bizi winnamptan dinleyebilirsiniz">
+                                                <img src="projectimages/winnamp.png" />
+                                            </a></li>
+                                            <li><a href="rtmp://37.247.100.100:80/show/show64" target="_blank" title="Bizi flash playerdan dinleyebilirsiniz">
+                                                <img src="projectimages/flash.png" />
+                                            </a></li>
+                                            <li><a href="mms://46.20.3.229:80" target="_blank" title="Bizi madia playerdan dinleyebilirsiniz">
+                                                <img src="projectimages/mediaplayer.png" />
+                                            </a></li>
+                                            <li><a href="rtsp://37.247.100.100:80/show/show64" target="_blank" title="Bizi blackberry ile dinleyebilirsiniz">
+                                                <img src="projectimages/blackberry.png" />
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both;">
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        </table>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <a style="cursor: pointer;" class="btn btn-default" data-dismiss="modal">Kapat</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://www.bidolusinema.com/Content/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var reklist = "";
+            $.getJSON("http://www.bidolusinema.com/service/getShowReklam", function (json) {
+                $.each(json.reklam, function (i, item) {
+                    reklist = reklist + '<li><a href="' + item.LINK + '" target="_blank"> <img src="' + item.IMAGE + '"></li>';
+                    //$("#reklam").html("<li>" + item.TITLE + " - " + item.LINK + "</li>");
+                });
+                $("#rekshow").html(reklist);
+            });
+        </script>
+    </form>
+</body>
+</html>

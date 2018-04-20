@@ -1,0 +1,3978 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html class=" js cssanimations csstransitions" lang="en">
+<!--<![endif]-->
+  <head>
+    
+
+
+
+  
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> 
+<html class=" js cssanimations csstransitions" lang="en"><!--<![endif]-->
+<title>军队采购网</title>
+<head>
+<!--导航js-->
+
+
+
+<meta name="viewport" content="user-scalable=no, width=device-width" />  
+<link href="/public/portal/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+<!-- css -->
+<link href="/public/portal/css/portal.bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="/public/bxslider/jquery.bxslider.min.css" media="screen" rel="stylesheet">
+<link href="/public/portal/css/portal_common.css" media="screen" rel="stylesheet">
+<link href="/public/portal/css/portal_style.css" media="screen" rel="stylesheet">
+<link href="/public/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+<link href="/public/select2/css/select2.css" rel="stylesheet" />
+<link href="/public/ztree/css/zTreeStyle.css" type="text/css" rel="stylesheet" >
+
+<!-- js -->
+<script>
+  var globalPath = "";
+</script>
+<script src="/public/portal/js/jquery.min.js"></script>
+<script src="/public/portal/js/browser.js"></script>
+<script src="/public/portal/js/bootstrap.min.js"></script>
+<script src="/public/bxslider/jquery.bxslider.min.js"></script>
+<script src="/public/layer/layer.js"></script>
+<script src="/public/layer/extend/layer.ext.js"></script>
+<script src="/public/laypage-v1.3/laypage/laypage.js"></script>
+<!-- 时间插件 -->
+<script src="/public/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="/public/select2/js/select2.js"></script>
+<script src="/public/ztree/jquery.ztree.all.js"></script>
+
+
+<!-- portal -->
+<!--[if lt IE 9]>
+  <script src="/public/common/respond.src.js"></script>
+<![endif]-->
+<script type="text/javascript">
+
+  var user = "";
+  $(function(){
+    /* 导航延迟两秒 */
+    var _width=$(window).width();
+    if(_width>972){
+      var id;
+      var _self;      
+      $(".dropdown").each(function(){
+        $(this).hover(function(){
+          _self = this;
+          id = setTimeout(function(){
+            $(_self).find(".drop_next").show();
+          },200);         
+        },function(){
+          if(id){
+            clearTimeout(id);
+          }
+          $(_self).find(".drop_next").hide();   
+        });
+      });
+    }
+    
+    $("a").attr("target","_blank");
+    
+    $("#close").click(function(){
+      $("#popupDiv").hide();
+    });
+    
+    $.ajax({
+      url: "/cacheManage/getPVDate.do",
+      type: "POST",
+      dataType: "json",
+      success: function(data) {
+        if(data.data.loginName != null && data.status==200){
+          $("#welcome_words").html(data.data.loginName+"你好，欢迎来到军队采购网！<a href=\"/browser/indexFront.html\" target=\"_blank\" class=\"red\" id=\"red\">【浏览器下载】</a>");
+          $("#properties").html("<a class=\"web_number\">网站编号：ZH21XWY0109 &nbsp;</a>|<a id=\"my\" onclick=\"myInfo()\">我的信息</a><a href=\"/login/loginOut.html\" id=\"exit\">&nbsp;|&nbsp;退出</a>")
+          // 今日访问量
+          $("#pvThisDay").text(data.data.dayNum);
+          // 总访问量
+          $("#pvTotal").text(data.data.totalCount);
+        }else{
+          $("#welcome_words").html("你好，欢迎来到军队采购网！<a href=\"/index/sign.html\" class=\"red\" id=\"red\">【请登录】</a><a href=\"/browser/indexFront.html\" target=\"_blank\" class=\"red\" id=\"red\">【浏览器下载】</a>");
+          $("#properties").html("<a class=\"web_number\">网站编号：ZH21XWY0109 &nbsp;</a>");
+          // 今日访问量
+          $("#pvThisDay").text(data.data.dayNum);
+          // 总访问量
+          $("#pvTotal").text(data.data.totalCount);
+        }
+      }
+    });
+  
+    if(user!=null && user!=''){
+      $("#welcome_words").html(user+"你好，欢迎来到军队采购网！");
+    } else {
+      $("#exit").remove();
+    }
+    $(".header-v4 .navbar-default .navbar-nav > .other > a").hover(function(){
+      $("#firstPage").attr("Class","dropdown shouye_li mega-menu-fullwidth");
+    });
+  });
+
+  function myInfo(){
+    window.location.href="/login/index.html";
+  }
+  
+  /* 
+  function myInfo(){
+    if(user!=null && user!=''){
+      window.location.href="/login/index.html";
+    }else{
+      window.location.href="/index/sign.html";
+    }
+  }
+   */
+  
+  /* function importAdd(){
+    if(user==null){
+      layer.alert("请先登录",{offset: ['222px', '390px'], shade:0.01});
+      return;
+    }
+    window.location.href="/importSupplier/register.html";
+  } */
+</script>
+</head>
+<body>
+  
+  <!-- 顶部登陆信息 -->
+  <div class="wrapper">
+  <div class="head_top col-md-12 col-xs-12 col-sm-12">
+  <div class="container p0">
+  <div class="row">
+    
+    <div class="col-md-5 col-sm-5 pl5 pr5 fl" id="welcome">
+      <span id="welcome_words">
+      你好，欢迎来到军队采购网!
+      <a href="/index/sign.html" class="red" id="red">【请登录】</a>
+      </span>
+      
+      
+      
+      
+    </div>
+    
+    <div class="col-md-7 col-sm-7 head_right pr5 pl0 fr" id="properties"> 
+      <!-- 根据session判断 -->
+      
+        
+      <a href="/login/loginOut.html" id="exit">&nbsp;|&nbsp;退出</a>
+    </div>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- End 顶部登陆信息 -->
+  
+	<div class="header-v4 clear">
+  <div class="navbar navbar-default mega-menu" role="navigation">
+    
+    <!-- logo & 搜索 -->
+    <div class="head_main reg_head">
+    <div class="container">
+    <div class="navbar-header col-md-12 col-xs-12 col-sm-12">
+    <div class="row margin-bottom-10">
+      
+      <!-- logo -->
+      <div class="col-md-5 col-sm-5 col-xs-12 head_logo">
+      <a href="/">
+        <img alt="Logo" src="/public/portal/images/logo.png" width="100%" id="logo-header">
+      </a>
+      </div>
+      <!-- End logo -->
+      
+      <!-- 搜索 -->
+      <div class="col-md-7 col-sm-7 col-xs-12 search_gpgz">
+        <div class="col-xs-12 gpgz_moblie">
+          <img src="/public/portal/images/gpgz.png" width="100%">
+        </div>
+        
+        <div class="col-md-7 col-xs-12 col-sm-7 search-block-v2 col-md-offset-5 col-sm-offset-5 col-xs-offset-0">
+        <form id="form1" accept-charset="UTF-8" action="/index/solrSearch1.html" method="post">
+          <div style="display:none"><input name="utf8" value="✓" type="hidden"></div>
+          <input id="t" name="t" value="search_products" type="hidden">
+          <div class="col-md-12 col-xs-12 col-sm-12 pull-left p0">
+          <div class="search-group">
+            <input class="search-input" id="k" name="condition" value="" placeholder="搜索" type="text">
+            <span class="input-group-btn">
+              <input class="btn-search" name="commit" value="搜索" type="submit">
+            </span>
+          </div>
+          </div>
+        </form>
+        </div>
+      </div>
+      <!-- End 搜索 -->
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- End logo & 搜索 -->
+    
+    <!-- 全部菜单 -->
+    <div class="container">
+    <button data-target=".navbar-responsive-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+      <span class="full-width-menu">全部菜单</span>
+      <span class="icon-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </span>
+    </button>
+    </div>
+    <!-- End 全部菜单 -->
+    
+    <div style="height: 0px;" aria-expanded="false" class="navbar-collapse navbar-responsive-collapse collapse">
+    <div class="container position_r">
+      <ul class="nav navbar-nav m-navbar-nav" >
+      <!-- 通知 -->
+      <li id="firstPage" class="dropdown shouye_li mega-menu-fullwidth">
+      <a class=" dropdown-toggle " href="/"><i class="shouye nav_icon"></i>首 页</a>
+      </li>
+      <!-- End 通知 -->
+
+      <!-- 公告 -->
+      <li class="dropdown other gonggao_li mega-menu-fullwidth">
+        <a class="dropdown-toggle " href="javascript:void(0);" data-toggle="dropdown"><i class="gonggao nav_icon"></i>信息公告</a>
+        
+        <!-- 信息公告鼠标移动 -->
+        <div class="drop_next dropdown-menu">
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-xs-12 col-sm-12 drop_hover">
+        <div class="drop_main">
+          
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="headline-v2"><h2>采购公告</h2></div>
+            
+            <div class="border1 margin-bottom-10 login_box job-content">
+              <h2 class="f17 bgwhite">
+              <ul class="list-unstyled login_tab">
+                <li class="active fl"><a aria-expanded="true" href="#tab-21" data-toggle="tab">物资</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-22" data-toggle="tab">工程</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-23" data-toggle="tab">服务</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-24" data-toggle="tab">进口</a></li>
+              </ul>
+              </h2>
+            
+              <div class="tab-content buyer_list">
+                <div id="tab-21" class="categories articleover tab-pane fade active in">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="军工马扎询价采购公告（2018-LD73071-4009）" href="/index/selectArticleNewsById.html?id=B05E0D83FC5F4171AC73D56875D1D3C8">军工马扎询价采购公告（2018-LD73071-4009）</a></li>
+                    
+                    
+                    
+                    <li><a title="“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）" href="/index/selectArticleNewsById.html?id=32382621DDC0481F956373C291ADCE1E">“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）</a></li>
+                    
+                    
+                    
+                    <li><a title="通用物资集中采购招标（2018-FK-65370-0101)" href="/index/selectArticleNewsById.html?id=2BAF9373BC3C4BCABCD2D4153993DFC0">通用物资集中采购招标（2018-FK-65370-0101)</a></li>
+                    
+                    
+                    
+                    <li><a title="医疗物资询价采购公告（2018-HJDL-4003）" href="/index/selectArticleNewsById.html?id=74819F9418244ADBB418F43F9A6711B5">医疗物资询价采购公告（2018-HJDL-4003）</a></li>
+                    
+                    
+                    
+                    <li><a title="礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）" href="/index/selectArticleNewsById.html?id=8374D4519B9E4499A6D69A1AE98E77C0">礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）</a></li>
+                    
+                    
+                    
+                    <li><a title="钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）" href="/index/selectArticleNewsById.html?id=FEB9211C23EF43F79F4DEE243C89551E">钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=3&twoid=24&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+                </div>
+                
+                <div id="tab-22" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告" href="/index/selectArticleNewsById.html?id=97B5C791244B4E97A7EE5F5E4FFF2558">“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告</a></li>
+                    
+                    
+                    
+                    <li><a title="房屋整修改造招标公告（2018--ZHSY-1004）" href="/index/selectArticleNewsById.html?id=BD888361D2DE4910BFAB981C33A61044">房屋整修改造招标公告（2018--ZHSY-1004）</a></li>
+                    
+                    
+                    
+                    <li><a title="公开选择招标代理机构招标公告（2018-LJXB-1001）" href="/index/selectArticleNewsById.html?id=BAA32E17A954414E84344A5D9B1AD3BA">公开选择招标代理机构招标公告（2018-LJXB-1001）</a></li>
+                    
+                    
+                    
+                    <li><a title="安防监控和军线电话系统工程项目 招标公告(2018-JYYGC-GBC01)" href="/index/selectArticleNewsById.html?id=A48BE0D4C6B341D0B3089F6BF36DA544">安防监控和军线电话系统工程项目 招标公告(2018-JYYGC-GBC01)</a></li>
+                    
+                    
+                    
+                    <li><a title="隐身新材料与新技术研究中心建设采购公示（2018–KGDWZCG–1045）" href="/index/selectArticleNewsById.html?id=257FADF731D8431EA2FE388D7852CE10">隐身新材料与新技术研究中心建设采购公示（2018–KGDWZCG–1045）</a></li>
+                    
+                    
+                    
+                    <li><a title="外训楼宿舍整修工程资格预审公告" href="/index/selectArticleNewsById.html?id=2AA9AFB9426240EB8376DBA0E29C5BCF">外训楼宿舍整修工程资格预审公告</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=8&twoid=29&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+                </div>
+                
+                <div id="tab-23" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）" href="/index/selectArticleNewsById.html?id=A07FC8D95BF54CF2830463E3AF27D887">“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）</a></li>
+                    
+                    
+                    
+                    <li><a title="飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）" href="/index/selectArticleNewsById.html?id=4E62288108A94ED0887FCFF13CB45099">飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）</a></li>
+                    
+                    
+                    
+                    <li><a title="2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）" href="/index/selectArticleNewsById.html?id=A675C27FA55342519C347ABBDD3E6349">2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）</a></li>
+                    
+                    
+                    
+                    <li><a title="放射性场所环评竞争性谈判公告（2018-BBYY-006）" href="/index/selectArticleNewsById.html?id=82A6CDF3877B4B9F88A37CB18A0466B5">放射性场所环评竞争性谈判公告（2018-BBYY-006）</a></li>
+                    
+                    
+                    
+                    <li><a title="游泳场馆租用询价采购公告（2018-JJXYZJFWCG-4007）" href="/index/selectArticleNewsById.html?id=220623FA86C040FE9E1393E271D7C180">游泳场馆租用询价采购公告（2018-JJXYZJFWCG-4007）</a></li>
+                    
+                    
+                    
+                    <li><a title="网络杀毒软件采购公告（2018-HJJWH-1005）" href="/index/selectArticleNewsById.html?id=1068C495430D411DB21AE6F550BF4192">网络杀毒软件采购公告（2018-HJJWH-1005）</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=13&twoid=34&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+                </div>
+                
+                <div id="tab-24" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=18&twoid=39&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="headline-v2"><h2>中标公示</h2></div>
+            
+            <div class="border1 margin-bottom-10 login_box job-content">
+              <h2 class="f17 bgwhite">
+              <ul class="list-unstyled login_tab">
+                <li class="active fl"><a aria-expanded="true" href="#tab-25" data-toggle="tab"> 物资</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-26" data-toggle="tab"> 工程</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-27" data-toggle="tab"> 服务</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-28" data-toggle="tab">进口</a></li>
+              </ul>
+              </h2>
+              
+              <div class="tab-content  buyer_list">
+                <div id="tab-25" class="categories articleover tab-pane fade active in">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="医疗设备采购中标公示（2017-SLJN-1039）" href="/index/selectArticleNewsById.html?id=0309632355C14C559F52585A5D9E9FB6">医疗设备采购中标公示（2017-SLJN-1039）</a></li>
+                    
+                    
+                    
+                    <li><a title="图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）" href="/index/selectArticleNewsById.html?id=18798F363F8D4FBD8B6B8CE47C433237">图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）</a></li>
+                    
+                    
+                    
+                    <li><a title="缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）" href="/index/selectArticleNewsById.html?id=E84AB755DE6940C3B7A0AAE4908290CF">缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）</a></li>
+                    
+                    
+                    
+                    <li><a title="格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）" href="/index/selectArticleNewsById.html?id=F4CA48B426F642BBAF86C7C2EDC82779">格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）</a></li>
+                    
+                    
+                    
+                    <li><a title="大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）" href="/index/selectArticleNewsById.html?id=58F7476F52544EE8B09A078F3E218C87">大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）</a></li>
+                    
+                    
+                    
+                    <li><a title="印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）" href="/index/selectArticleNewsById.html?id=EFA97425B497493FA47F6A8FA22DE8CA">印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=46&twoid=67&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+                </div>
+                
+                <div id="tab-26" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）" href="/index/selectArticleNewsById.html?id=9EA876A03E314E12A9458CC4167F936F">工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）</a></li>
+                    
+                    
+                    
+                    <li><a title="会议室建设项目招标结果公示（2018-YFGC-1001）" href="/index/selectArticleNewsById.html?id=4DA35E19DCE64837B343D77D22B09A35">会议室建设项目招标结果公示（2018-YFGC-1001）</a></li>
+                    
+                    
+                    
+                    <li><a title="警通连、汽车队篮球场改造 中标结果公示（2018-HJBB-1008）" href="/index/selectArticleNewsById.html?id=CCAA386016564816B181D6ADCCDC21E5">警通连、汽车队篮球场改造 中标结果公示（2018-HJBB-1008）</a></li>
+                    
+                    
+                    
+                    <li><a title="财务信息化建设中标公示(2018-HJCZ-1001)" href="/index/selectArticleNewsById.html?id=8175A7C3D8964C39A66E25D79A31A3F7">财务信息化建设中标公示(2018-HJCZ-1001)</a></li>
+                    
+                    
+                    
+                    <li><a title="丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购（复议）中标公示（JC2018005）" href="/index/selectArticleNewsById.html?id=260E78E46BFB41A1AB6C76DD8F793A3E">丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购（复议）中标公示（JC2018005）</a></li>
+                    
+                    
+                    
+                    <li><a title="海福巷营区公寓房（第二批）整修工程中标公告（LJGCGBC-2018-02）" href="/index/selectArticleNewsById.html?id=4A033DE6079D48D3A9CFF8FA1AAF13DD">海福巷营区公寓房（第二批）整修工程中标公告（LJGCGBC-2018-02）</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=51&twoid=72&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+                </div>
+                
+                <div id="tab-27" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）" href="/index/selectArticleNewsById.html?id=6B4FC3B0F5D442518E9D1BA616AAECCA">温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）</a></li>
+                    
+                    
+                    
+                    <li><a title="航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）" href="/index/selectArticleNewsById.html?id=59AD3CCA96AB4534A84A1E52327E6A52">航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）</a></li>
+                    
+                    
+                    
+                    <li><a title="工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）" href="/index/selectArticleNewsById.html?id=40DFC0D105D1408DAB79D91A1EFD5DEF">工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）</a></li>
+                    
+                    
+                    
+                    <li><a title="车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）" href="/index/selectArticleNewsById.html?id=A9790062268A433490D46677FF7B13DC">车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）</a></li>
+                    
+                    
+                    
+                    <li><a title="基建工程竣工结算审核造价咨询服务单位公开招标中标公示（2018-HJHG-1034）" href="/index/selectArticleNewsById.html?id=66EC5C87705E43D0B835BBC89AB3BA92">基建工程竣工结算审核造价咨询服务单位公开招标中标公示（2018-HJHG-1034）</a></li>
+                    
+                    
+                    
+                    <li><a title="军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072" href="/index/selectArticleNewsById.html?id=FAFF8AEB89B8456B942904B676668A53">军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=56&twoid=77&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+                </div>
+                
+                <div id="tab-28" class="categories articleover tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBynews.html?id=61&twoid=82&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="headline-v2"><h2>单一来源公示</h2></div>
+            
+            <div class="border1 margin-bottom-10 login_box job-content">
+              <h2 class="f17 bgwhite">
+              <ul class="list-unstyled login_tab">
+                <li class="active fl"><a aria-expanded="true" href="#tab-29" data-toggle="tab"> 物资</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-30" data-toggle="tab"> 工程</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-31" data-toggle="tab"> 服务</a></li>
+                <li class="fl"><a aria-expanded="false" href="#tab-32" data-toggle="tab">进口</a></li>
+              </ul>
+              </h2>
+              
+              <div class="tab-content  buyer_list">
+                <div id="tab-29" class="categories articleover tab-pane fade active in">
+                  <ul class="p0_10">   
+                    
+                    <li><a title="讯飞便携式听见智能会议系统" href="/index/selectArticleNewsById.html?id=E8F874BF6D4249138EFEBCE6CF7535C2">讯飞便携式听见智能会议系统</a></li>
+                    
+                    
+                    <li><a title="水稻种子单一来源采购公示（2018- LB65547-1006）" href="/index/selectArticleNewsById.html?id=01BB4827416C403985F2D75C567AC321">水稻种子单一来源采购公示（2018- LB65547-1006）</a></li>
+                    
+                    
+                    <li><a title="2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)" href="/index/selectArticleNewsById.html?id=1BFB715416C4449A908FD7CCFF7D13F4">2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)</a></li>
+                    
+                    
+                    <li><a title="某型车辆配套器材单一来源公示  （2018-ZLFH -5001）" href="/index/selectArticleNewsById.html?id=9B0CB2AD211E4E128539E1B3B104095A">某型车辆配套器材单一来源公示  （2018-ZLFH -5001）</a></li>
+                    
+                    
+                    <li><a title="发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】" href="/index/selectArticleNewsById.html?id=05178FBC6F99462F9A2A486266A55567">发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】</a></li>
+                    
+                    
+                    <li><a title="飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】" href="/index/selectArticleNewsById.html?id=183D1A70C0CE4D6983BA8C08A1DEEE96">飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBydanNews.html?id=89&twoid=94&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+                </div>
+                
+                <div id="tab-30" class="categories tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBydanNews.html?id=90&twoid=95&tal=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+                </div>
+                
+                <div id="tab-31" class="categories tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）" href="/index/selectArticleNewsById.html?id=6ABE1941FAD9499A83A84CDC797A33C6">苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）</a></li>
+                    
+                    
+                    
+                    <li><a title="虚拟化平台扩容项目单一来源采购公示（2018-SLLHQ-5003）" href="/index/selectArticleNewsById.html?id=EBA7C536CB2742E785377107BD426D9E">虚拟化平台扩容项目单一来源采购公示（2018-SLLHQ-5003）</a></li>
+                    
+                    
+                    
+                    <li><a title="万福广场停止有偿服务房产测绘单一来源采购公示（2018-KJGL-5C001）" href="/index/selectArticleNewsById.html?id=50535273F01549DBB31177A5B86CC2B6">万福广场停止有偿服务房产测绘单一来源采购公示（2018-KJGL-5C001）</a></li>
+                    
+                    
+                    
+                    <li><a title="数据挖掘平台改善升级单一来源采购公示 （2018020005）【KGD】" href="/index/selectArticleNewsById.html?id=E20CC914E05F47828B9F8558DB2543BC">数据挖掘平台改善升级单一来源采购公示 （2018020005）【KGD】</a></li>
+                    
+                    
+                    
+                    <li><a title="S波段定向干扰机研制单一来源采购公示（2018-KGDWZCG-1036）" href="/index/selectArticleNewsById.html?id=81B7D06878B5458B84ACEA99F979F287">S波段定向干扰机研制单一来源采购公示（2018-KGDWZCG-1036）</a></li>
+                    
+                    
+                    
+                    <li><a title="对某型空空弹靶场试验的设计方案及试验数据分析报告 (2017020311)" href="/index/selectArticleNewsById.html?id=44B9E1312F4F4E81A8726B8F04BA10A6">对某型空空弹靶场试验的设计方案及试验数据分析报告 (2017020311)</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBydanNews.html?id=91&twoid=96&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+                </div>
+                
+                <div id="tab-32" class="categories tab-pane fade">
+                  <ul class="p0_10">   
+                    
+                    
+                    <li><a title="某型号电台蓄电池采购公告（2018-LB65651-5002)" href="/index/selectArticleNewsById.html?id=27D128819E464626A58D945901710262">某型号电台蓄电池采购公告（2018-LB65651-5002)</a></li>
+                    
+                    
+                  </ul>
+                  
+                  <a class="tab_more" href="/index/selectsumBydanNews.html?id=92&twoid=97&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- End 信息公告鼠标移动 -->
+      </li>
+      <!-- End 公告 -->
+
+      <!-- 公示 -->
+      <li class="dropdown other gongshi_li mega-menu-fullwidth">
+        <a data-toggle="dropdown" class="dropdown-toggle " href="javascript:void(0);"><i class="gongshi nav_icon"></i>网上采购</a>
+        
+        <!--	网上采购鼠标移动开始   -->
+        <div class="drop_next dropdown-menu">
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-sm-12 col-xs-12 drop_hover">
+        <div class="drop_main">
+          
+          <div class="col-md-4 col-sm-6 col-xs-12 mt25 m_nav_btn" id="drop-1">
+            <div class="ywbl_01 col-md-6 col-sm-6 col-xs-6">
+              
+              
+              
+              <a href="http://mall.plap.cn" class="wssc">
+              
+              
+              
+              <i></i>
+              <span>网上商城</span> 
+              </a>
+            </div>
+            
+            <div class="ywbl_01 col-md-6 col-sm-6 col-xs-6">
+            <a href="/index/index_productList.html" class="dxcpjj">
+              <i></i>
+              <span>定型产品</span> 
+            </a>
+            </div>
+            
+            <div class="ywbl_01 col-md-6 col-sm-6 col-xs-6">
+            <a href="#" class="ypcg">
+              <i></i>
+              <span>药品采购</span> 
+            </a>
+            </div>
+            
+            <div class="ywbl_01 col-md-6 col-sm-6 col-xs-6">
+            <a href="#" class="fwcg">
+              <i></i>
+              <span>服务采购</span> 
+            </a>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-sm-6 col-xs-12 mt10">
+          <div class="margin-bottom-10 login_box job-content">
+            <h2 class="f17 bgwhite">
+            <ul class="list-unstyled login_tab">
+              <li class="active fl"><a aria-expanded="true" href="#tab-33" data-toggle="tab"> 需求公告 </a></li>
+              <li class="fl"><a aria-expanded="false" href="#tab-34" data-toggle="tab"> 成交公告</a></li>
+              <li class="fl"><a aria-expanded="false" href="#tab-35" data-toggle="tab"> 废标公告</a></li>
+            </ul>
+            </h2>
+            
+            <div class="tab-content  buyer_list">
+              <div id="tab-33" class="categories articleover tab-pane fade active in">
+                <ul class="p0_10">   
+                  
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=103">更多>></a>
+              </div>
+              
+              <div id="tab-34" class="categories tab-pane fade">
+                <ul class="p0_10">   
+                  
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=104">更多>></a>
+              </div>
+              
+              <div id="tab-35" class="categories tab-pane fade">
+                <ul class="p0_10">   
+                
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=105">更多>></a>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+        </div>
+        </div>
+        </div>
+        </div>
+      </li>
+      <!-- End 公示 -->
+
+      <!-- 供应商 -->
+      <li class="dropdown other zhuanjia_li mega-menu-fullwidth">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" ><i class="zhuanjia nav_icon"></i>供应商</a>
+
+        <!-- 供应商鼠标移动开始 -->
+        <div class="drop_next dropdown-menu">
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-sm-12 col-xs-12 drop_hover">
+        <div class="drop_main">
+          
+          
+          
+          
+
+          <!-- 拟入库公示 -->
+          <div class="col-md-8 col-sm-8 col-xs-10 mt10">
+              <div class="headline-v2">
+                  <h2>入库名单<a  href="/index/selectsumByDirectory.html?act=0" class="fr f14">更多>></a></h2>
+              </div>
+              <div class="job-content col-md-12 col-sm-12 col-xs-12 p0">
+                  <div class="categories">
+                      <ul class="list-unstyled">
+													
+                          
+                              
+                                  <table class="table table-bordered " >
+                                      <thead>
+                                      <tr >
+                                          <th class="tc info" width="55%">供应商名称</th>
+                                          <th class="tc info" width="25%">编号</th>
+                                          <th class="tc info" width="20%">状态</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      
+                                          <tr>
+                                              <td>深圳市金溢科技股份有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                          <tr>
+                                              <td>巨力索具股份有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                          <tr>
+                                              <td>镇江市亚东通用电气有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                          <tr>
+                                              <td>福建省伟志兴体育用品有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                          <tr>
+                                              <td>北京天佑仁达信息技术有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                          <tr>
+                                              <td>浙江佳力科技股份有限公司</td>
+                                              <td class="tc"></td>
+                                              <td class="tc">
+                                                  
+                                                      
+                                                          	入库（待复核）
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                  
+                                              </td>
+                                          </tr>
+                                      
+                                      </tbody>
+                                  </table>
+                              
+                              
+                          
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- End 拟入库公示 -->
+
+          <div class="login_box job-content col-md-4 col-sm-4 col-xs-12 mt10">
+            <h2 class="f17 bgwhite">
+            <ul class="list-unstyled login_tab p0">
+              
+              <li class="fl active"><a aria-expanded="true" href="#tab-37" data-toggle="tab">诚信记录</a></li>
+              <li class="fl"><a aria-expanded="false" href="#tab-38" data-toggle="tab">处罚公告</a></li>
+              <!-- <li class="fl"><a aria-expanded="false" href="#tab-38" data-toggle="tab">地方处罚公告</a></li> -->
+              <li class="fl"><a aria-expanded="false" href="#tab-gyshmd" data-toggle="tab">黑名单</a></li>
+            </ul>
+            </h2>
+
+            <div class="tab-content buyer_list m_buyer_list">
+              <!-- 诚信记录 -->
+              <div id="tab-37" class="categories articleover tab-pane fade active in">
+              
+              <a class="fr" href="javascript:void(0)">更多>></a>
+              </div>
+              <!-- End 诚信记录 -->
+
+              <!-- 处罚公告 -->
+              <div id="tab-38" class="categories tab-pane fade">
+                <ul class="p0_10">
+                  
+                  
+                  
+                  
+
+                  
+                  <li><a title="关于北京硕乐科技发展有限责任公司违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=5F475C1AF6764F6D99E4BDAA2F9FF12F">关于北京硕乐科技发展有限责任公司违规行为的处罚公告</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="关于上海煤气第二管线工程有限公司等4家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=1AEF853A7F224A6EAAAB312E0366D343">关于上海煤气第二管线工程有限公司等4家供应商违规行...</a></li>
+                  
+
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="关于霸州市星飞塑料制品厂等2家供应商违规处理结果的公告" href="/index/selectArticleNewsById.html?id=5DADC0D5D42948BD80C4986BB53AF224">关于霸州市星飞塑料制品厂等2家供应商违规处理结果的...</a></li>
+                  
+
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="关于北京易优凯科技有限公司等2家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=D2CE1A7A9DB6432A96B77B1B886077CB">关于北京易优凯科技有限公司等2家供应商违规行为的处...</a></li>
+                  
+
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="关于昆明申茂科技有限公司等2家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=DFEEF22A489E4423BE3503BA0922082B">关于昆明申茂科技有限公司等2家供应商违规行为的处罚...</a></li>
+                  
+
+                  
+                  
+                  
+                  
+                  
+
+                  
+                  <li><a title="关于山东白鸽食品机械有限公司违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=F4872D3C3A97430AAE74E23DE55F6A83">关于山东白鸽食品机械有限公司违规行为的处罚公告</a></li>
+                  
+                       
+                </ul>
+                
+                <a class="fr" href="/index/supplierPunishment.html">更多>></a>
+              </div>
+              <!-- End 处罚公告 -->
+
+              <!-- 供应商地方处罚公告 -->
+              
+
+              <!-- 专家黑名单 -->
+              <div id="tab-gyshmd" class="categories tab-pane fade">
+                <ul class="categories li_square col-md-12 col-sm-12 col-xs-12 p0 list_new">
+                  
+                </ul>
+                
+                <a class="fr" href="/index/supplierBlackList.html">更多&gt;&gt;</a>
+              </div>
+              <!-- End 专家黑名单 -->
+            </div>
+          </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- 供应商鼠标移动结束 -->
+      </li>
+      <!-- End 供应商 -->
+
+     	<!-- 专家评审 -->
+      <li class="dropdown other tousu_li mega-menu-fullwidth">
+        <a class="dropdown-toggle " data-toggle="dropdown" href="javascript:void(0);"><i class="tousu nav_icon"></i>评审专家</a>
+        
+        <!-- 评审鼠标移动开始 -->
+        <div class="drop_next dropdown-menu">
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-sm-12 col-xs-12 drop_hover" id="drop-4">
+        <div class="drop_main">
+
+        <!--<div class="col-md-2 col-xs-2 col-sm-2 mt20 supp_login">-->
+        
+        <!--<a href="/expert/toRegisterNotice.html">评审专家注册<i></i></a>	  
+        </div>-->
+
+        <div class="col-md-8 col-sm-8 col-xs-10 mt10">
+            <div class="headline-v2">
+                <h2>入库名单<a href="/index/selectsumByDirectory.html?act=1" class="fr f14">更多>></a></h2>
+            </div>
+            <div class="job-content col-md-12 col-sm-12 col-xs-12 p0">
+                <div class="categories zhuanjia_list">
+                		
+                    
+                        
+                            <table class="table table-bordered " >
+                                <thead>
+                                <tr >
+                                    <th class="tc" width="20%">专家姓名</th>
+                                    <th class="tc" width="60%">编号</th>
+                                    <th class="tc" width="20%">状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                    <tr>
+                                        <td>王玉明</td>
+                                        <td class="tc">2017-1-001</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>马刚</td>
+                                        <td class="tc">2017-1-002</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>肖斌</td>
+                                        <td class="tc">2017-1-003</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>钱万友</td>
+                                        <td class="tc">2017-1-004</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>赖琼玲</td>
+                                        <td class="tc">2017-1-005</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>杨炳泉</td>
+                                        <td class="tc">2017-1-006</td>
+                                        <td class="tc">
+                                          
+                                            
+                                               入库(待复查 )
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        </td>
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                        
+                        
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="login_box job-content col-md-4 col-sm-4 col-xs-12 mt10">
+          <h2 class="f17 bgwhite">
+          <ul class="list-unstyled login_tab">
+            
+            <li class="fl active"><a aria-expanded="true" href="#tab-40" data-toggle="tab">诚信记录</a></li>
+            <li class="fl"><a aria-expanded="false" href="#tab-41" data-toggle="tab">处罚公告</a></li>
+            <li class="fl"><a aria-expanded="false" href="#tab-zjhmd" data-toggle="tab">黑名单</a></li>
+          </ul>
+          </h2>
+
+          <div class="tab-content buyer_list m_buyer_list">
+            
+
+            <div id="tab-40" class="categories articleover tab-pane fade active in">
+            <ul class="p0_10">   
+            </ul>
+            <a class="fr" href="javascript:void(0)">更多&gt;&gt;</a>
+            </div>
+
+            <div id="tab-41" class="categories tab-pane fade">
+              <ul class="p0_10">   
+                
+              </ul>
+              
+              <a class="fr" href="/index/selectIndexNewsByTypeId.html?id=115">更多&gt;&gt;</a>
+            </div>
+
+            <div id="tab-zjhmd" class="categories tab-pane fade">
+              <ul class="categories li_square col-md-12 col-sm-12 col-xs-12 p0 list_new">
+                
+              </ul>
+              <a class="fr" href="/index/expertBlackList.html">更多&gt;&gt;</a>
+            </div>
+          </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+    	</li>
+    	<!-- End 评审专家 -->
+
+      <!-- 法规 -->
+        <li class="dropdown other cgfw_li mega-menu-fullwidth">
+          <a class="dropdown-toggle " data-toggle="dropdown" href="javascript:void(0);"><i class="cgfw nav_icon"></i>采购服务</a>
+	<!--采购服务鼠标移动开始-->
+		  <div class="drop_next dropdown-menu" >
+	   <div class="magazine-page clear">
+
+	<div class="col-md-12 col-xs-12 col-sm-12 drop_hover">
+	 <div class="drop_main supp_service">
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  <a href="/categorys/categoryList.html">
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic cpml">
+	    	<img src="/public/portal/images/cpml.jpg" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">产品目录</div>
+	  </a>
+	 </div>
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  <a href="/categorys/parameterList.html">
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic jscsk">
+	    	<img src="/public/portal/images/jscsk.jpg" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">技术参数库</div>
+	  </a>
+	 </div>
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  <a  >
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic cglt">
+	    	<img src="/public/portal/images/cglt.jpg" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">采购论坛</div>
+	  </a>
+	 </div>
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  
+	       <a href="/dataDownload/getIndexList.html">
+	 
+	  
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic zlxz">
+	    	<img src="/public/portal/images/new_zlxz.jpg" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">资料下载</div>
+	  </a>
+	 </div>
+	  <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  
+        <a href="/templateDownload/getIndexList.html">
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic cgmb">
+	    	<img src="/public/portal/images/mb_pic.png" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">采购模板</div>
+	  </a>
+	 </div>
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  <a href="javascript:void(0);">
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic yjfk">
+	    	<img src="/public/portal/images/yjfk.jpg" width="80%" height="80%;"/> 
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">意见反馈</div>
+	  </a>
+	 </div>
+	 <div class="service_btns col-md-2 col-sm-2 col-xs-3 ">
+	  <a href="/index/index_hotLineList.html">
+	    <div class="col-md-12 col-xs-12 col-sm-12 tc service_btns_pic shfw">
+	    	<img src="/public/portal/images/new_shfw.jpg" width="80%" height="80%;"/>
+	    </div>
+		<div class="tc f18 mt20 pt10 clear">服务热线</div>
+	  </a>
+	 </div>
+	</div>
+    </div>
+	</div>
+   </div>
+   
+        </li>
+      <!-- End 法规 -->
+
+      <li class="dropdown other luntan_li mega-menu-fullwidth">
+        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle " ><i class="luntan nav_icon"></i>投诉处理</a>
+        
+        <!-- 投诉处理鼠标移动开始-->
+        <div class="drop_next dropdown-menu" >
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-xs-12 col-sm-12 drop_hover"  id="drop-6">
+        <div class="drop_main">
+          
+          <div class="col-md-4 col-sm-4 col-xs-12 mt20">
+          <a href="/onlineComplaints/index_add.html">
+          <div class="col-md-12 col-xs-12 col-sm-12 tc p0">
+          <img src="/public/portal/images/tou_pic.jpg"/></div>
+          <div class="col-md-12 col-xs-12 col-sm-12 f22 tc mt20 p0">网上投诉</div>
+          </a>
+          </div>
+          
+          <div class="col-md-8 col-sm-8 col-xs-12 mt10">
+          <div class="margin-bottom-10 login_box job-content col-md-12 col-sm-12 col-xs-12">
+            <h2 class="f17 bgwhite">
+              <ul class="list-unstyled login_tab fl">
+                <li class="active fl"><a>投诉处理公告</a></li>
+              </ul>
+              
+              <a class="news_more" href="/index/selectIndexNewsByTypeId.html?id=112">更多>></a>
+            </h2>
+            
+            <div class="tab-content  buyer_list">
+            <div id="" class="categories tab-pane fade active in">
+            <ul class="p0_10">   
+              
+              
+              
+              
+              
+              <li><a title="关于国药中科器深圳公司等投诉医疗设备采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=3F7AA13939704AB0A7BAE0EE398B01B9">关于国药中科器深圳公司等投诉医疗设备采购项目处理结果的公告</a></li>
+              
+              
+              
+              
+              
+              <li><a title="关于北京佰欧威公司、深圳正东公司投诉清煤锅炉及设备采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=5C4F20891BEA4841826915C0E519A929">关于北京佰欧威公司、深圳正东公司投诉清煤锅炉及设备采购项目处...</a></li>
+              
+              
+              
+              
+              
+              
+              
+              <li><a title="关于西门子公司投诉CT采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=E0FCD7A593574E1591E03F2453ABE95A">关于西门子公司投诉CT采购项目处理结果的公告</a></li>
+              
+              
+              
+              
+              
+              
+              <li><a title="关于北京亿展公司投诉军博物业服务招标项目处理结果的公告" href="/index/selectArticleNewsById.html?id=9B5A98B34E954826BD52C0E8F468663C">关于北京亿展公司投诉军博物业服务招标项目处理结果的公告</a></li>
+              
+              
+              
+              
+              
+              
+              <li><a title="关于西门子公司投诉PET-MR采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=AB22A4A315444B8AAC929B25774B4253">关于西门子公司投诉PET-MR采购项目处理结果的公告</a></li>
+              
+              
+              
+              
+              
+              
+              <li><a title="关于开封茂盛公司投诉皮带输送机采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=8FE129800E5C4BA291AEC8346F77A365">关于开封茂盛公司投诉皮带输送机采购项目处理结果的公告</a></li>
+              
+              
+            </ul>  
+            </div>
+            </div>
+          </div>
+          </div>
+          
+        </div>
+        </div>
+        </div> 
+        </div>
+      </li>
+      
+      <li class="dropdown other fagui_li mega-menu-fullwidth">
+        <a class="dropdown-toggle " data-toggle="dropdown" href="javascript:void(0);"><i class="fagui nav_icon"></i>采购法规</a>
+        
+        <!--采购法规鼠标动开始-->
+        <div class="drop_next dropdown-menu" >
+        <div class="magazine-page clear">
+        <div class="col-md-12 col-xs-12 col-sm-12 drop_hover"  id="drop-7">
+        <div class="drop_main">
+          
+          <div class="margin-bottom-10 login_box job-content col-md-5 col-sm-12 col-xs-12 mt10">
+            <h2 class="f17 bgwhite">
+            <ul class="list-unstyled login_tab">
+              <li class="active fl"><a aria-expanded="true" href="#tab-41" data-toggle="tab">国家采购法规</a></li>
+              <li class="fl"><a aria-expanded="false" href="#tab-42" data-toggle="tab"> 军队采购法规</a></li>
+              <li class="fl"><a aria-expanded="false" href="#tab-43" data-toggle="tab"> 重要业务通知</a></li>
+            </ul>
+            </h2>
+            
+            <div class="tab-content buyer_list">
+              <div id="tab-41" class="categories tab-pane fade active in">
+                <ul class="p0_10">   
+                  
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=107">更多>></a>
+              </div>
+              
+              <div id="tab-42" class="categories tab-pane fade">
+                <ul class="p0_10">   
+                  
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=108">更多>></a>
+              </div>
+              
+              <div id="tab-43" class="categories tab-pane fade">
+                <ul class="p0_10">   
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队采购评审专家注册登记第五次公告" href="/index/selectArticleNewsById.html?id=D0456363B3B541AD819181DA558DE4F5">军队采购评审专家注册登记第五次公告</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队供应商注册登记第六次公告" href="/index/selectArticleNewsById.html?id=DE11F9E480FB4803910DA097375B1A5E">军队供应商注册登记第六次公告</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队采购评审专家注册登记第四次公告" href="/index/selectArticleNewsById.html?id=CDF0D498CA134BE8BE2BFC093FA0898F">军队采购评审专家注册登记第四次公告</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队供应商注册登记第五次公告" href="/index/selectArticleNewsById.html?id=0EE315DAC0C0424DBEEA2FDF717ED690">军队供应商注册登记第五次公告</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队采购网注册信息注销和账号密码查询须知" href="/index/selectArticleNewsById.html?id=A8B503BFAFC343AEA7931B23884AE8A0">军队采购网注册信息注销和账号密码查询须知</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li><a title="军队供应商注册登记第四次公告" href="/index/selectArticleNewsById.html?id=571C7352DA5E422DA44C6BF06EC072A7">军队供应商注册登记第四次公告</a></li>
+                  
+                  
+                </ul>
+                
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=109">更多>></a>
+              </div>
+            </div>
+          </div>
+            
+        </div>
+
+		</div>
+		</div>
+        
+	  </div>
+	 </div>
+	</div>
+	</div>
+   </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      </div>
+     <!-- 首页公告APP下载二维码 -->
+  <div class="m_app_code" id="m_app_code">
+    <span>采<br>购<br>公<br>告<br>A<br>P<br>P</span>
+    <div class="mac_img">
+      <img src="/public/portal/images/AppDownload.png" alt="">
+    </div>
+  </div>
+  
+  <!-- 首页网上商城APP下载二维码 -->
+  <div class="m_app_code code2" id="mall_app_code">
+    <span>网<br>上<br>商<br>城<br>A<br>P<br>P</span>
+    <div class="mac_img">
+      <img src="/public/portal/images/mallQrCode.png" alt="">
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      $('#m_app_code span').on('click', function() {
+        if ($(this).parent().hasClass('hover')) {
+          $(this).parent().removeClass('hover');
+        } else {
+          $(this).parent().addClass('hover');
+        }
+      });
+      $('#mall_app_code span').on('click', function() {
+          if ($(this).parent().hasClass('hover')) {
+            $(this).parent().removeClass('hover');
+          } else {
+            $(this).parent().addClass('hover');
+          }
+        });
+    });
+  </script>
+
+	<!-- 供应商和专家下拉菜单列表滚动效果 -->
+	<script>
+		/* var m_nav_scroll = []; // 设置保存滚动插件的数组
+		
+		// 循环所有插件并初始化
+		$('.mns_bxslider').each(function (index) {
+			m_nav_scroll[index] = $(this).bxSlider({
+				mode: 'vertical',   // 垂直模式
+				minSlides: 1,       // 最小显示个数
+				maxSlides: 1,       // 最大显示个数
+				ticker: true,
+				tickerHover: true,  // 鼠标移动上停止滚动
+				autoHover: true,    // 鼠标移动上停止滚动
+				speed: 5000         // 滚动速度
+			});
+		});
+		
+		// 设置下拉菜单出现后重置插件，防止display: none时候插件失效
+		$('.navbar-nav > li').mouseenter(function () {
+			var ishover = parseInt($(this).find('input[name=ishover]').val());  // 下拉菜单是否出现
+			// 如果下拉菜单已经出现防止多次重置插件导致滚动列表抖动
+			if (ishover == 0) {
+				$(this).find('input[name=ishover]').val(1);
+				// 加入延时防止下拉菜单还未出现程序已经执行的bug
+				setTimeout(function () {
+					for (var i in m_nav_scroll) {
+						m_nav_scroll[i].reloadSlider();
+					}
+				}, 500);
+			}
+		});
+		// 鼠标移除注销插件并初始化判断参数，以便下次打开重新生成
+		$('.navbar-nav > li').mouseleave(function () {
+			$(this).find('input[name=ishover]').val(0);
+			for (var i in m_nav_scroll) {
+				m_nav_scroll[i].destroySlider();
+			}
+		}); */
+	</script>
+	<!-- End 供应商和专家下拉菜单列表滚动效果 -->
+	
+
+</body>
+</html>
+
+    
+ 
+    <script type="text/javascript">
+        var browser = navigator.appName;
+        var b_version = navigator.appVersion;
+        var version = parseFloat(b_version);
+        var ver_arr = b_version.split(";");
+        var msie_ver = ""
+        for(var i = 0; i < ver_arr.length; i++) {
+          if(ver_arr[i].indexOf('MSIE') != -1) {
+            msie_ver = ver_arr[i].substring(5, ver_arr[i].length);
+          }
+        }
+        if((browser == "Netscape" || browser == "Microsoft Internet Explorer") && (version <= 4) && msie_ver < 9) {
+          //注释掉下面这行IE8 或低版本的则可以正常通过进入项目
+          window.location.href = "/browser/index.html";
+        } else {
+          $("#firstPage").attr("Class", "active dropdown shouye_li mega-menu-fullwidth");
+
+          $(".header-v4 .navbar-default .navbar-nav > .other > a").hover(function() {
+            $("#firstPage").attr("Class", "dropdown shouye_li mega-menu-fullwidth");
+          });
+        }
+
+      function kaptcha() {
+        $("#kaptchaImage").hide().attr('src', 'Kaptcha.jpg?' + Math.floor(Math.random() * 100)).fadeIn();
+      }
+
+/*       function setting() {
+        layer.msg("正在建设中");
+      } */
+
+      function drugs() {
+        layer.msg("正在建设中");
+      }
+      
+      function expertRegisterTip(){
+		layer.msg("暂未开放，请耐心等待！");
+	  }	
+	  
+	  function supplierRegisterTip(){
+		layer.msg("供应商请到外网注册");
+	  }
+	  
+	  function hotLine(){
+	  	layer.alert("服务热线：66946342(吕工)");
+	  }
+	  
+    </script>
+  </head>
+
+  <body>
+    <!--/end container-->
+    <!-- End Navbar -->
+    <div class="container content job-content ">
+      <div class="row magazine-page clear">
+        <div class="col-md-8  margin-bottom-10">
+          <div class="section-focus-pic" id="section-focus-pic">
+            <div class="pages" data-scro="list">
+              <ul>
+              	
+              	 
+	              <li class="item" style="left:0px;">
+	                <a href="javascript:void(0)" target="_blank"><img src="/public/portal/images/2.png" width="100%" height="100%"></a>
+	              </li>
+	              <li class="item">
+	                <a href="javascript:void(0)" target="_blank"><img src="/public/portal/images/3.png" width="100%" height="100%"></a>
+	              </li>
+              	
+              	
+            	  
+	           
+              </ul>
+            </div>
+            <div id="picshownum" class="controler" data-scro="controler">
+            
+              <b class="down">1</b>
+              <b>2</b>
+              <!-- <b>3</b> -->
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
+          </div>
+          <script src="/public/portal/js/script.js"></script>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 ">
+          <div class="tab-v1">
+            <h2 class="nav nav-tabs bb1 mt0">
+            
+		  	  	
+		          <span class="bg12_white"><a href="javascript:void(0)">工作动态</a></span>
+		        
+			    
+		      
+            <a class="news_more" href="/index/selectIndexNewsByTypeId.html?id=110">更多>></a>
+		  </h2>
+          </div>
+
+          <div class="">
+            <ul class="list-unstyled categories list_common articleover">
+              
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- /* 集中采购开始*/-->
+    <div class="container">
+      <div class="row magazine-page clear">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <h2 class="floor_title col-sm-12 col-md-12 col-xs-12">集中采购</h2>
+        </div>
+      </div>
+      <div class="row magazine-page clear">
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  	  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  	  <li class="active fl report_title"><a aria-expanded="true" href="#tab-cjList" data-toggle="tab">采购公告</a></li>
+		  	  
+		  	  	
+		          <li class="fl"><a aria-expanded="true" href="#tab-3" data-toggle="tab">物资</a></li>
+		        
+			    
+		      
+		      
+		  	  	
+		          <li class="fl"><a aria-expanded="false" href="#tab-4" data-toggle="tab" > 工程</a></li>
+		        
+			    
+		      
+		      
+		  	  	
+		          <li class="fl"><a aria-expanded="false" href="#tab-5" data-toggle="tab" > 服务</a></li>
+		        
+			    
+		      
+		      
+		  	  	
+		          <li class="fl"><a aria-expanded="false" href="#tabs-6" data-toggle="tab" > 进口</a></li>
+		        
+			    
+		      
+		      </ul>
+          </h2>
+            <div class=" tab-content">
+            <div id="tab-cjList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                    
+                      
+                      <li>
+                        <a title="电梯公开招标采购需求公告 (2018-GZGZ-1005)" href="/index/selectArticleNewsById.html?id=D739CC01B0D94B28818DE532F8C2584A"><span class="list_squre">■</span>【公开招标】电梯公开招标采购需求公告 (2018-GZGZ-1005)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="车辆附属设备招标公告（2018-SYSY-BQ-1003）" href="/index/selectArticleNewsById.html?id=8369E6D6BEF54A75A01ECD73E65C3852"><span class="list_squre">■</span>【公开招标】车辆附属设备招标公告（2018-SYSY-BQ-1003）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="LED屏采购需求公示（2018-KJBJ-1018）" href="/index/selectArticleNewsById.html?id=04645CC8FEA8415D9DA2A0F0EA3F46C1"><span class="list_squre">■</span>【公开招标】LED屏采购需求公示（2018-KJBJ-1018）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="制式营具（第六包）集中采购 资格预审公告(2017-HJJBJ-1006)" href="/index/selectArticleNewsById.html?id=FEF3E8729A8B4460A6DB232EA2477AD7"><span class="list_squre">■</span>【公开招标】制式营具（第六包）集中采购 资格预审公告(2017-HJJBJ-1006)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="频道播控编辑区改造公开招标项目招标公告（2017-ZHSH-1034)" href="/index/selectArticleNewsById.html?id=C823C12B8F604B4EAE554BD0A472AF86"><span class="list_squre">■</span>【公开招标】频道播控编辑区改造公开招标项目招标公告（2017-ZHSH-1034)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="设备器材公开招标项目招标公告（2017-ZHSH-1051)" href="/index/selectArticleNewsById.html?id=162F3BC088864EAB81196FDE5036043F"><span class="list_squre">■</span>【公开招标】设备器材公开招标项目招标公告（2017-ZHSH-1051)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="2018年中陆西安某部队实验室配套器材项目取消招标公告(2018-JNZZ-1014)" href="/index/selectArticleNewsById.html?id=38C87E3A4A3A4807AFEB33C45F01EE2E"><span class="list_squre">■</span>【公开招标】2018年中陆西安某部队实验室配套器材项目取消招标公告(2018-JNZZ-1014)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="帐篷等13项野营物资公开招标采购公告（2018-ZHSY-1002）" href="/index/selectArticleNewsById.html?id=F91A566EFDE04C48AF9A5BF9D256261B"><span class="list_squre">■</span>【公开招标】帐篷等13项野营物资公开招标采购公告（2018-ZHSY-1002）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="战储保障车辆维护保养采购公告(二次)（2017-KJBJ-3050）" href="/index/selectArticleNewsById.html?id=2FBAB62A48774A768A8CB0F20FAB537A"><span class="list_squre">■</span>【竞争性谈判】战储保障车辆维护保养采购公告(二次)（2017-KJBJ-3050）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="LED大屏竞争性谈判变更公告 （项目编号：2018-SLJN-3004）" href="/index/selectArticleNewsById.html?id=40E47D38C1774538A08C6917EFC574D8"><span class="list_squre">■</span>【竞争性谈判】LED大屏竞争性谈判变更公告 （项目编号：2018-SLJN-3004）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=1&secondArticleTypeId=2">更多>></a>
+              </div>
+              <div id="tab-3" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="电梯公开招标采购需求公告 (2018-GZGZ-1005)" href="/index/selectArticleNewsById.html?id=D739CC01B0D94B28818DE532F8C2584A"><span class="list_squre">■</span>【公开招标】电梯公开招标采购需求公告 (2018-GZGZ-1005)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="车辆附属设备招标公告（2018-SYSY-BQ-1003）" href="/index/selectArticleNewsById.html?id=8369E6D6BEF54A75A01ECD73E65C3852"><span class="list_squre">■</span>【公开招标】车辆附属设备招标公告（2018-SYSY-BQ-1003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="LED屏采购需求公示（2018-KJBJ-1018）" href="/index/selectArticleNewsById.html?id=04645CC8FEA8415D9DA2A0F0EA3F46C1"><span class="list_squre">■</span>【公开招标】LED屏采购需求公示（2018-KJBJ-1018）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="制式营具（第六包）集中采购 资格预审公告(2017-HJJBJ-1006)" href="/index/selectArticleNewsById.html?id=FEF3E8729A8B4460A6DB232EA2477AD7"><span class="list_squre">■</span>【公开招标】制式营具（第六包）集中采购 资格预审公告(2017-HJJBJ-1006)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="设备器材公开招标项目招标公告（2017-ZHSH-1051)" href="/index/selectArticleNewsById.html?id=162F3BC088864EAB81196FDE5036043F"><span class="list_squre">■</span>【公开招标】设备器材公开招标项目招标公告（2017-ZHSH-1051)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年中陆西安某部队实验室配套器材项目取消招标公告(2018-JNZZ-1014)" href="/index/selectArticleNewsById.html?id=38C87E3A4A3A4807AFEB33C45F01EE2E"><span class="list_squre">■</span>【公开招标】2018年中陆西安某部队实验室配套器材项目取消招标公告(2018-JNZZ-1014)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="帐篷等13项野营物资公开招标采购公告（2018-ZHSY-1002）" href="/index/selectArticleNewsById.html?id=F91A566EFDE04C48AF9A5BF9D256261B"><span class="list_squre">■</span>【公开招标】帐篷等13项野营物资公开招标采购公告（2018-ZHSY-1002）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="LED大屏竞争性谈判变更公告 （项目编号：2018-SLJN-3004）" href="/index/selectArticleNewsById.html?id=40E47D38C1774538A08C6917EFC574D8"><span class="list_squre">■</span>【竞争性谈判】LED大屏竞争性谈判变更公告 （项目编号：2018-SLJN-3004）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程物资招标公告2017-ZHBJ-1079(1.2.3.4）" href="/index/selectArticleNewsById.html?id=E65370DC023942919A553ED36546C5BA"><span class="list_squre">■</span>【公开招标】工程物资招标公告2017-ZHBJ-1079(1.2.3.4）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="民兵训练器材公开招标公告（2017-NJNJ-1177）" href="/index/selectArticleNewsById.html?id=858AA59F5E754AAE92BA53621246255A"><span class="list_squre">■</span>【公开招标】民兵训练器材公开招标公告（2017-NJNJ-1177）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=3&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+              </div>
+
+              <div id="tab-4" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="机关公寓区道路及给排水设施整治和04栋办公用房整修两项工程施工监理招标公告" href="/index/selectArticleNewsById.html?id=F0E27A5D4AC24A9883767E6C35F5B932"><span class="list_squre">■</span>【公开招标】机关公寓区道路及给排水设施整治和04栋办公用房整修两项工程施工监理招标公告</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="部分营房整修 招标公告（资格预审）" href="/index/selectArticleNewsById.html?id=9E0963C069F34B2EBA41EE0592414B15"><span class="list_squre">■</span>【公开招标】部分营房整修 招标公告（资格预审）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程造价咨询服务区域供应商征集补充公告" href="/index/selectArticleNewsById.html?id=C6E3702989594F718AFB1797BAF824E6"><span class="list_squre">■</span>【公开招标】工程造价咨询服务区域供应商征集补充公告</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程造价咨询服务区域供应商征集资格预审公告" href="/index/selectArticleNewsById.html?id=52EE8FD3F474459FAE1C22A2F7CB752C"><span class="list_squre">■</span>【公开招标】工程造价咨询服务区域供应商征集资格预审公告</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="医疗工程公开招标更正公告（2017-XBCD-1037）" href="/index/selectArticleNewsById.html?id=EF776ED2A1234415A03AEC8B4948712E"><span class="list_squre">■</span>【公开招标】医疗工程公开招标更正公告（2017-XBCD-1037）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="和平村项目B、C区、幼儿园电梯采购及安装工程 （JC2018007）" href="/index/selectArticleNewsById.html?id=2BD2158FA72F4A778BF88B3617913B13"><span class="list_squre">■</span>【公开招标】和平村项目B、C区、幼儿园电梯采购及安装工程 （JC2018007）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="海军某学院场地条件及氛围改造招标公告" href="/index/selectArticleNewsById.html?id=83DB69DE95474655B6CA9E8DE1683842"><span class="list_squre">■</span>【公开招标】海军某学院场地条件及氛围改造招标公告</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=8&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+
+              <div id="tab-5" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="频道播控编辑区改造公开招标项目招标公告（2017-ZHSH-1034)" href="/index/selectArticleNewsById.html?id=C823C12B8F604B4EAE554BD0A472AF86"><span class="list_squre">■</span>【公开招标】频道播控编辑区改造公开招标项目招标公告（2017-ZHSH-1034)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="战储保障车辆维护保养采购公告(二次)（2017-KJBJ-3050）" href="/index/selectArticleNewsById.html?id=2FBAB62A48774A768A8CB0F20FAB537A"><span class="list_squre">■</span>【竞争性谈判】战储保障车辆维护保养采购公告(二次)（2017-KJBJ-3050）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年天津某部安保服务项目招标公告(2018-JNZZ-1002)" href="/index/selectArticleNewsById.html?id=D7B5658BC0B848A389C34E34E2F9F0D0"><span class="list_squre">■</span>【公开招标】2018年天津某部安保服务项目招标公告(2018-JNZZ-1002)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="南京警备区办公区门岗安保服务项目公开招标公告 （2018-NJJSNJ-1001）" href="/index/selectArticleNewsById.html?id=98F6DB973B0A43B6B334BDED322FEDC7"><span class="list_squre">■</span>【公开招标】南京警备区办公区门岗安保服务项目公开招标公告 （2018-NJJSNJ-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="程控交换设备维保重新采购邀请招标公告（2017－XBLZ－2099－2）" href="/index/selectArticleNewsById.html?id=0740F66CEE41479B971CA33143E7D468"><span class="list_squre">■</span>【邀请招标】程控交换设备维保重新采购邀请招标公告（2017－XBLZ－2099－2）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年度信息化设备协议定点采购服务供应商 征集公告（2018-NJNJ-3002WX）" href="/index/selectArticleNewsById.html?id=A9E7973AD4B3410495652C756C6237B6"><span class="list_squre">■</span>【公开招标】2018年度信息化设备协议定点采购服务供应商 征集公告（2018-NJNJ-3002WX）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年武汉某部引入地方超市服务项目招标更正公告(2018-JNZZ-1010)" href="/index/selectArticleNewsById.html?id=AB1782B80BEA4BD0A23363D7E59E9DF1"><span class="list_squre">■</span>【公开招标】2018年武汉某部引入地方超市服务项目招标更正公告(2018-JNZZ-1010)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="聚氨酯软体油囊和软管技术性能检定检测服务采购公示（三次）" href="/index/selectArticleNewsById.html?id=E9BA8B09166F47ACBFCFC07CD0E39D7F"><span class="list_squre">■</span>【公开招标】聚氨酯软体油囊和软管技术性能检定检测服务采购公示（三次）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="战储保障车辆维护保养采购公告（2017-KJBJ-3050）" href="/index/selectArticleNewsById.html?id=DDEED9ACF5254B8E92C5D0D701FBC8EA"><span class="list_squre">■</span>【竞争性谈判】战储保障车辆维护保养采购公告（2017-KJBJ-3050）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="复兴路区域四个营区物业服务采购项目暂停公告  （2017-ZHBJ-1086）" href="/index/selectArticleNewsById.html?id=5E6A663905C245BCBD899A8FCF1DCD77"><span class="list_squre">■</span>【公开招标】复兴路区域四个营区物业服务采购项目暂停公告  （2017-ZHBJ-1086）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=13&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              
+              <div id="tabs-6" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=18&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  <li class="active fl report_title"><a aria-expanded="true" href="#tab-czList" data-toggle="tab">中标公示</a></li>
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="true" href="#tab-6" data-toggle="tab"> 物资</a></li>
+	        
+		    
+		  
+		    
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-7" data-toggle="tab" > 工程</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-8" data-toggle="tab" > 服务</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tabs-8" data-toggle="tab" > 进口</a></li>
+	        
+		    
+		  
+		  </ul>
+          </h2>
+            <div class=" tab-content">
+            
+            <div id="tab-czList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="医疗设备采购中标公示（2017-SLJN-1039）" href="/index/selectArticleNewsById.html?id=0309632355C14C559F52585A5D9E9FB6"><span class="list_squre">■</span>【公开招标】医疗设备采购中标公示（2017-SLJN-1039）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）" href="/index/selectArticleNewsById.html?id=EFA97425B497493FA47F6A8FA22DE8CA"><span class="list_squre">■</span>【竞争性谈判】印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="办公设备中标公示（2017-SYSY-BQ-1024）" href="/index/selectArticleNewsById.html?id=92E4ECE1F37B4D2CA6D11EB8EDAB1A2D"><span class="list_squre">■</span>【公开招标】办公设备中标公示（2017-SYSY-BQ-1024）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="空气消毒机公开招标采购预中标公示（2018-NJNJ-1009）" href="/index/selectArticleNewsById.html?id=49872A5882274BE08A251AC02D423376"><span class="list_squre">■</span>【公开招标】空气消毒机公开招标采购预中标公示（2018-NJNJ-1009）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="信息系统平台设备器材中标公示（2017-SYSY-WT-1013-1）" href="/index/selectArticleNewsById.html?id=4EAB844E63244C538155425683D9351B"><span class="list_squre">■</span>【公开招标】信息系统平台设备器材中标公示（2017-SYSY-WT-1013-1）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="信息化设备中标公示（2018-SYSY-WT-1001）" href="/index/selectArticleNewsById.html?id=3A906684A45C423B86A1BAF820A9F6A9"><span class="list_squre">■</span>【公开招标】信息化设备中标公示（2018-SYSY-WT-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="重庆某部礼堂升级改造设备公开招标采购流标公告 （2017-XBCD-1091）" href="/index/selectArticleNewsById.html?id=C01D328626A049059CFCE0F743C0E366"><span class="list_squre">■</span>【公开招标】重庆某部礼堂升级改造设备公开招标采购流标公告 （2017-XBCD-1091）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2017年度武汉某部公寓空调项目中标公示(2018-JNZZ-4015)" href="/index/selectArticleNewsById.html?id=D96D7A493BAA48A7BC1DE83007DE826E"><span class="list_squre">■</span>【询价】2017年度武汉某部公寓空调项目中标公示(2018-JNZZ-4015)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072" href="/index/selectArticleNewsById.html?id=FAFF8AEB89B8456B942904B676668A53"><span class="list_squre">■</span>【竞争性谈判】军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="文印设备采购项目评审结果公示(2017-GZGZ-1030)" href="/index/selectArticleNewsById.html?id=2EF0B4B6F657422AA26B283E21D32306"><span class="list_squre">■</span>【公开招标】文印设备采购项目评审结果公示(2017-GZGZ-1030)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=44&secondArticleTypeId=45">更多>></a>
+              </div>
+            
+              <div id="tab-6" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="医疗设备采购中标公示（2017-SLJN-1039）" href="/index/selectArticleNewsById.html?id=0309632355C14C559F52585A5D9E9FB6"><span class="list_squre">■</span>【公开招标】医疗设备采购中标公示（2017-SLJN-1039）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）" href="/index/selectArticleNewsById.html?id=EFA97425B497493FA47F6A8FA22DE8CA"><span class="list_squre">■</span>【竞争性谈判】印刷厂设备竞争性谈判结果公示 （2017-GZGZ-3013）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="办公设备中标公示（2017-SYSY-BQ-1024）" href="/index/selectArticleNewsById.html?id=92E4ECE1F37B4D2CA6D11EB8EDAB1A2D"><span class="list_squre">■</span>【公开招标】办公设备中标公示（2017-SYSY-BQ-1024）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="空气消毒机公开招标采购预中标公示（2018-NJNJ-1009）" href="/index/selectArticleNewsById.html?id=49872A5882274BE08A251AC02D423376"><span class="list_squre">■</span>【公开招标】空气消毒机公开招标采购预中标公示（2018-NJNJ-1009）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="信息系统平台设备器材中标公示（2017-SYSY-WT-1013-1）" href="/index/selectArticleNewsById.html?id=4EAB844E63244C538155425683D9351B"><span class="list_squre">■</span>【公开招标】信息系统平台设备器材中标公示（2017-SYSY-WT-1013-1）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="信息化设备中标公示（2018-SYSY-WT-1001）" href="/index/selectArticleNewsById.html?id=3A906684A45C423B86A1BAF820A9F6A9"><span class="list_squre">■</span>【公开招标】信息化设备中标公示（2018-SYSY-WT-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="重庆某部礼堂升级改造设备公开招标采购流标公告 （2017-XBCD-1091）" href="/index/selectArticleNewsById.html?id=C01D328626A049059CFCE0F743C0E366"><span class="list_squre">■</span>【公开招标】重庆某部礼堂升级改造设备公开招标采购流标公告 （2017-XBCD-1091）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2017年度武汉某部公寓空调项目中标公示(2018-JNZZ-4015)" href="/index/selectArticleNewsById.html?id=D96D7A493BAA48A7BC1DE83007DE826E"><span class="list_squre">■</span>【询价】2017年度武汉某部公寓空调项目中标公示(2018-JNZZ-4015)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="文印设备采购项目评审结果公示(2017-GZGZ-1030)" href="/index/selectArticleNewsById.html?id=2EF0B4B6F657422AA26B283E21D32306"><span class="list_squre">■</span>【公开招标】文印设备采购项目评审结果公示(2017-GZGZ-1030)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="智能零散子弹柜中标结果公示（2018-LJXJ-1001）" href="/index/selectArticleNewsById.html?id=BA118FFF5848434F8D6F084DF1E8BD8C"><span class="list_squre">■</span>【公开招标】智能零散子弹柜中标结果公示（2018-LJXJ-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=46&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+              </div>
+              <div id="tab-7" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购（复议）中标公示（JC2018005）" href="/index/selectArticleNewsById.html?id=260E78E46BFB41A1AB6C76DD8F793A3E"><span class="list_squre">■</span>【公开招标】丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购（复议）中标公示（JC2018005）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="和平村项目B、C区、幼儿园电梯采购及安装工程中标公示 （JC2018007）" href="/index/selectArticleNewsById.html?id=11DA461E153148A7A96B09C8A9EE8DB4"><span class="list_squre">■</span>【公开招标】和平村项目B、C区、幼儿园电梯采购及安装工程中标公示 （JC2018007）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="医疗工程预中标结果公示（2017-XBCD-1037）" href="/index/selectArticleNewsById.html?id=5DDA392A0DE24D10955DAB84641B9715"><span class="list_squre">■</span>【公开招标】医疗工程预中标结果公示（2017-XBCD-1037）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购 中标公示（JC2018005）" href="/index/selectArticleNewsById.html?id=AF4B449DAC89409285D3B5B89F874CB9"><span class="list_squre">■</span>【公开招标】丰台63号院安置住房项目一期I标段工程-住宅楼户门（四防门）材料采购 中标公示（JC2018005）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="海军丰台东大街5号院军职住房二期工程设 中标公示(JC2018001)" href="/index/selectArticleNewsById.html?id=80FF80F25D5A4B1CAE5E796CAD55304A"><span class="list_squre">■</span>【公开招标】海军丰台东大街5号院军职住房二期工程设 中标公示(JC2018001)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=51&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+              <div id="tab-8" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072" href="/index/selectArticleNewsById.html?id=FAFF8AEB89B8456B942904B676668A53"><span class="list_squre">■</span>【竞争性谈判】军队工程竣工结算抽审服务预成交结果公示  2017-ZHBJ-3072</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="“强军路上新风采”摄影展画册印刷服务询价采购成交公示（2018-JFJBS-4001)" href="/index/selectArticleNewsById.html?id=51F261EFD6A947EDA3A56F6B01153876"><span class="list_squre">■</span>【询价】“强军路上新风采”摄影展画册印刷服务询价采购成交公示（2018-JFJBS-4001)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程项目竣工结算审核服务单位中标公示（2018－KJBJ－2009）" href="/index/selectArticleNewsById.html?id=FA38F80111034E8A8F7327B9B581238F"><span class="list_squre">■</span>【邀请招标】工程项目竣工结算审核服务单位中标公示（2018－KJBJ－2009）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年度车辆维修保养协议定点 竞争性谈判采购预成交公示（2018-NJNJ-3001WX）" href="/index/selectArticleNewsById.html?id=BB6AEA1DD1FF48DA81F1C7ABC96D2311"><span class="list_squre">■</span>【竞争性谈判】2018年度车辆维修保养协议定点 竞争性谈判采购预成交公示（2018-NJNJ-3001WX）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="系统软件研发招标采购预中标公示（2017-XBCD-1069-2）" href="/index/selectArticleNewsById.html?id=F2C7CB0037544FCC98881E9445394B38"><span class="list_squre">■</span>【公开招标】系统软件研发招标采购预中标公示（2017-XBCD-1069-2）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="社会化保障服务公开招标中标结果第二次变更公示（2017-XBLZ-1043/1051)" href="/index/selectArticleNewsById.html?id=E1A9C9EDDE5640FC9DAAD1FDA41CE151"><span class="list_squre">■</span>【公开招标】社会化保障服务公开招标中标结果第二次变更公示（2017-XBLZ-1043/1051)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="社会化保障服务公开招标评标结果公示(2017-XBLZ-1043)" href="/index/selectArticleNewsById.html?id=7B36B075CA5E47F2B72083E221F4DF23"><span class="list_squre">■</span>【公开招标】社会化保障服务公开招标评标结果公示(2017-XBLZ-1043)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="物业服务预中标结果公示（2017-ZHBJ-1010）" href="/index/selectArticleNewsById.html?id=90B6EB1D507C40128D9DD4F19DB1BAF1"><span class="list_squre">■</span>【公开招标】物业服务预中标结果公示（2017-ZHBJ-1010）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="内科楼弱电工程系统设计项目中标结果公示（2017-WZCGB-3016）" href="/index/selectArticleNewsById.html?id=B3E757F698FD45BCA9DFE7BAA879EB72"><span class="list_squre">■</span>【竞争性谈判】内科楼弱电工程系统设计项目中标结果公示（2017-WZCGB-3016）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=56&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              <div id="tabs-8" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=61&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  <li class="active fl report_title"><a aria-expanded="true" href="#tab-jdList" data-toggle="tab">单一来源公示</a></li>
+		  
+	  	  	
+	          <li  class="fl"><a aria-expanded="true" href="#tab-9" data-toggle="tab"> 物资</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-10" data-toggle="tab" > 工程</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-11" data-toggle="tab" > 服务</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tabs-11" data-toggle="tab" > 进口</a></li>
+	        
+		    
+		  
+		  </ul>
+          </h2>
+            <div class=" tab-content">
+            
+            <div id="tab-jdList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="隔绝防护空气质量保障机 单一来源公示（2017-LJXJ-5012-1）" href="/index/selectArticleNewsById.html?id=99D762D2AE0A4C4DAA9078C3C4DB6E34"><span class="list_squre">■</span>隔绝防护空气质量保障机 单一来源公示（2017-LJXJ-5012-1）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="晓译维汉翻译机 单一来源公示（2017-LJXJ-5012-2）" href="/index/selectArticleNewsById.html?id=6B06FFD999064E7AA3B54BC766FAFB76"><span class="list_squre">■</span>晓译维汉翻译机 单一来源公示（2017-LJXJ-5012-2）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="GTMAP平台许可软件单一来源采购公告（2018-NJNJ-5026Q）" href="/index/selectArticleNewsById.html?id=2694B3EA5B744520B02ECE8CF30D6A1D"><span class="list_squre">■</span>GTMAP平台许可软件单一来源采购公告（2018-NJNJ-5026Q）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="纸质化浆机配件单一来源采购公示（2017-LJXJ-5019）" href="/index/selectArticleNewsById.html?id=4215718681FF4FF398F793E550C27D1D"><span class="list_squre">■</span>纸质化浆机配件单一来源采购公示（2017-LJXJ-5019）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="高场7T磁共振成像系统单一来源采购公示 （2017-ZHBJ-5093）" href="/index/selectArticleNewsById.html?id=2ABD35A48C064CE6968AF85661CCBA70"><span class="list_squre">■</span>高场7T磁共振成像系统单一来源采购公示 （2017-ZHBJ-5093）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="医疗设备单一来源采购公示（2017-LJXJ-5024）" href="/index/selectArticleNewsById.html?id=FDEA51771A2C44239587CC3A9E89378A"><span class="list_squre">■</span>医疗设备单一来源采购公示（2017-LJXJ-5024）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="农业生产资料单一来源中标公示（2018-SYHEB-5001）" href="/index/selectArticleNewsById.html?id=1F9D9D50074E4DC3B1A3B2CA46959371"><span class="list_squre">■</span>农业生产资料单一来源中标公示（2018-SYHEB-5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="业务管理系统维护项目单一来源采购公示（2018-ZHYC-3001）" href="/index/selectArticleNewsById.html?id=AB428732767548D2B3A0ACF3298C3C39"><span class="list_squre">■</span>业务管理系统维护项目单一来源采购公示（2018-ZHYC-3001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="统一业务应用系统配套软件单一来源采购公示（2017-ZHBJ-5081）" href="/index/selectArticleNewsById.html?id=D2479E2D78CB46D99A26ABA33D978988"><span class="list_squre">■</span>统一业务应用系统配套软件单一来源采购公示（2017-ZHBJ-5081）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="农业生产资料单一来源中标公示（2018-SYHEB-5001）" href="/index/selectArticleNewsById.html?id=A4F3FC516FF448FA960148A89E3E85E0"><span class="list_squre">■</span>农业生产资料单一来源中标公示（2018-SYHEB-5001）</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=87&secondArticleTypeId=88&flag=1">更多>></a>
+              </div>
+            
+              <div id="tab-9" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="隔绝防护空气质量保障机 单一来源公示（2017-LJXJ-5012-1）" href="/index/selectArticleNewsById.html?id=99D762D2AE0A4C4DAA9078C3C4DB6E34"><span class="list_squre">■</span>隔绝防护空气质量保障机 单一来源公示（2017-LJXJ-5012-1）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="晓译维汉翻译机 单一来源公示（2017-LJXJ-5012-2）" href="/index/selectArticleNewsById.html?id=6B06FFD999064E7AA3B54BC766FAFB76"><span class="list_squre">■</span>晓译维汉翻译机 单一来源公示（2017-LJXJ-5012-2）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="GTMAP平台许可软件单一来源采购公告（2018-NJNJ-5026Q）" href="/index/selectArticleNewsById.html?id=2694B3EA5B744520B02ECE8CF30D6A1D"><span class="list_squre">■</span>GTMAP平台许可软件单一来源采购公告（2018-NJNJ-5026Q）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="纸质化浆机配件单一来源采购公示（2017-LJXJ-5019）" href="/index/selectArticleNewsById.html?id=4215718681FF4FF398F793E550C27D1D"><span class="list_squre">■</span>纸质化浆机配件单一来源采购公示（2017-LJXJ-5019）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="高场7T磁共振成像系统单一来源采购公示 （2017-ZHBJ-5093）" href="/index/selectArticleNewsById.html?id=2ABD35A48C064CE6968AF85661CCBA70"><span class="list_squre">■</span>高场7T磁共振成像系统单一来源采购公示 （2017-ZHBJ-5093）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="医疗设备单一来源采购公示（2017-LJXJ-5024）" href="/index/selectArticleNewsById.html?id=FDEA51771A2C44239587CC3A9E89378A"><span class="list_squre">■</span>医疗设备单一来源采购公示（2017-LJXJ-5024）</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=89&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+              </div>
+              <div id="tab-10" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=90&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+              <div id="tab-11" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="业务管理系统维护项目单一来源采购公示（2018-ZHYC-3001）" href="/index/selectArticleNewsById.html?id=AB428732767548D2B3A0ACF3298C3C39"><span class="list_squre">■</span>业务管理系统维护项目单一来源采购公示（2018-ZHYC-3001）</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=91&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              <div id="tabs-11" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=92&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--部队采购开始-->
+
+    <div class="container">
+      <div class="row magazine-page clear">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <h2 class="floor_title col-sm-12 col-md-12 col-xs-12">部队采购</h2>
+        </div>
+      </div>
+      <div class="row magazine-page clear">
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  <li class="active fl report_title"><a aria-expanded="true" href="#tab-cbList" data-toggle="tab">采购公告</a></li>
+		  
+	  	  	
+	          <li  class="fl"><a aria-expanded="true" href="#tab-12" data-toggle="tab"> 物资</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-13" data-toggle="tab" > 工程</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-14" data-toggle="tab" > 服务</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tabs-14" data-toggle="tab" > 进口</a></li>
+	        
+		    
+		  
+		  </ul>
+          </h2>
+            <div class=" tab-content">
+            
+            <div id="tab-cbList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                    
+                      
+                      <li>
+                        <a title="军工马扎询价采购公告（2018-LD73071-4009）" href="/index/selectArticleNewsById.html?id=B05E0D83FC5F4171AC73D56875D1D3C8"><span class="list_squre">■</span>【询价】军工马扎询价采购公告（2018-LD73071-4009）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）" href="/index/selectArticleNewsById.html?id=A07FC8D95BF54CF2830463E3AF27D887"><span class="list_squre">■</span>【公开招标】“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）" href="/index/selectArticleNewsById.html?id=4E62288108A94ED0887FCFF13CB45099"><span class="list_squre">■</span>【公开招标】飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）" href="/index/selectArticleNewsById.html?id=32382621DDC0481F956373C291ADCE1E"><span class="list_squre">■</span>【公开招标】“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="通用物资集中采购招标（2018-FK-65370-0101)" href="/index/selectArticleNewsById.html?id=2BAF9373BC3C4BCABCD2D4153993DFC0"><span class="list_squre">■</span>【公开招标】通用物资集中采购招标（2018-FK-65370-0101)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告" href="/index/selectArticleNewsById.html?id=97B5C791244B4E97A7EE5F5E4FFF2558"><span class="list_squre">■</span>【公开招标】“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="医疗物资询价采购公告（2018-HJDL-4003）" href="/index/selectArticleNewsById.html?id=74819F9418244ADBB418F43F9A6711B5"><span class="list_squre">■</span>【询价】医疗物资询价采购公告（2018-HJDL-4003）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）" href="/index/selectArticleNewsById.html?id=A675C27FA55342519C347ABBDD3E6349"><span class="list_squre">■</span>【公开招标】2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）" href="/index/selectArticleNewsById.html?id=8374D4519B9E4499A6D69A1AE98E77C0"><span class="list_squre">■</span>【公开招标】礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）" href="/index/selectArticleNewsById.html?id=FEB9211C23EF43F79F4DEE243C89551E"><span class="list_squre">■</span>【公开招标】钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=1&secondArticleTypeId=23">更多>></a>
+              </div>
+            
+              <div id="tab-12" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="军工马扎询价采购公告（2018-LD73071-4009）" href="/index/selectArticleNewsById.html?id=B05E0D83FC5F4171AC73D56875D1D3C8"><span class="list_squre">■</span>【询价】军工马扎询价采购公告（2018-LD73071-4009）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）" href="/index/selectArticleNewsById.html?id=32382621DDC0481F956373C291ADCE1E"><span class="list_squre">■</span>【公开招标】“四站实习基地教学用台式计算机”招标公告（2018-KJQWXYGBC-1004）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="通用物资集中采购招标（2018-FK-65370-0101)" href="/index/selectArticleNewsById.html?id=2BAF9373BC3C4BCABCD2D4153993DFC0"><span class="list_squre">■</span>【公开招标】通用物资集中采购招标（2018-FK-65370-0101)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="医疗物资询价采购公告（2018-HJDL-4003）" href="/index/selectArticleNewsById.html?id=74819F9418244ADBB418F43F9A6711B5"><span class="list_squre">■</span>【询价】医疗物资询价采购公告（2018-HJDL-4003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）" href="/index/selectArticleNewsById.html?id=8374D4519B9E4499A6D69A1AE98E77C0"><span class="list_squre">■</span>【公开招标】礼堂灯光音响设备采购公开招标公告  （2018-HJGZJD-1002）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）" href="/index/selectArticleNewsById.html?id=FEB9211C23EF43F79F4DEE243C89551E"><span class="list_squre">■</span>【公开招标】钳工设备及器材项目招标公告 （HYCG-2018-JXZ-[0112]）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="焊接设备及器材项目招标公告 （HYCG-2018-JXZ-[0111]）" href="/index/selectArticleNewsById.html?id=CEE861BDC575410180075B990C80BD30"><span class="list_squre">■</span>【公开招标】焊接设备及器材项目招标公告 （HYCG-2018-JXZ-[0111]）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="机床设备项目招标公告 （HYCG-2018-JXZ-[0110]）" href="/index/selectArticleNewsById.html?id=AF748C794528453EBD2B2A8E05B04081"><span class="list_squre">■</span>【公开招标】机床设备项目招标公告 （HYCG-2018-JXZ-[0110]）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="航材及热处理设备项目招标公告 （HYCG-2018-JXZ-[0107]）" href="/index/selectArticleNewsById.html?id=42E7019F914F49E2937681E685CE6AD0"><span class="list_squre">■</span>【公开招标】航材及热处理设备项目招标公告 （HYCG-2018-JXZ-[0107]）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="检测计量教学设备项目招标公告 （HYCG-2018-JXZ-[0109]）" href="/index/selectArticleNewsById.html?id=D60272DF1A204F6483D7608AD8442F9D"><span class="list_squre">■</span>【公开招标】检测计量教学设备项目招标公告 （HYCG-2018-JXZ-[0109]）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=24&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+              </div>
+              <div id="tab-13" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    
+                      
+                      <li>
+                        <a title="“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告" href="/index/selectArticleNewsById.html?id=97B5C791244B4E97A7EE5F5E4FFF2558"><span class="list_squre">■</span>【公开招标】“6305工程”第六标段（2017-BL32110-1006）、 供水供暖管沟改造项目（2018-BL32110-1003）、 新建维修改造项目（2018-BL32110-1004）更正公告</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="房屋整修改造招标公告（2018--ZHSY-1004）" href="/index/selectArticleNewsById.html?id=BD888361D2DE4910BFAB981C33A61044"><span class="list_squre">■</span>【公开招标】房屋整修改造招标公告（2018--ZHSY-1004）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="公开选择招标代理机构招标公告（2018-LJXB-1001）" href="/index/selectArticleNewsById.html?id=BAA32E17A954414E84344A5D9B1AD3BA"><span class="list_squre">■</span>【公开招标】公开选择招标代理机构招标公告（2018-LJXB-1001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="安防监控和军线电话系统工程项目 招标公告(2018-JYYGC-GBC01)" href="/index/selectArticleNewsById.html?id=A48BE0D4C6B341D0B3089F6BF36DA544"><span class="list_squre">■</span>【公开招标】安防监控和军线电话系统工程项目 招标公告(2018-JYYGC-GBC01)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="隐身新材料与新技术研究中心建设采购公示（2018–KGDWZCG–1045）" href="/index/selectArticleNewsById.html?id=257FADF731D8431EA2FE388D7852CE10"><span class="list_squre">■</span>【公开招标】隐身新材料与新技术研究中心建设采购公示（2018–KGDWZCG–1045）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="外训楼宿舍整修工程资格预审公告" href="/index/selectArticleNewsById.html?id=2AA9AFB9426240EB8376DBA0E29C5BCF"><span class="list_squre">■</span>【公开招标】外训楼宿舍整修工程资格预审公告</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="营房整修项目" href="/index/selectArticleNewsById.html?id=96525054A3A348A38A6A1002AAA12C01"><span class="list_squre">■</span>【公开招标】营房整修项目</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="场坪整治硬化项目" href="/index/selectArticleNewsById.html?id=078FC32C234046CBB31EBD5722AB26C6"><span class="list_squre">■</span>【公开招标】场坪整治硬化项目</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="保温机库新建项目" href="/index/selectArticleNewsById.html?id=C3CDBF5D48EC41F4975335CA7A0C6917"><span class="list_squre">■</span>【公开招标】保温机库新建项目</a>
+                      </li>
+                      
+                      
+                      
+                  
+                    
+                      
+                      <li>
+                        <a title="防洪渠南侧护坡灾损修复工程公开招标更正公告 （2018-HJHDJD-1001）" href="/index/selectArticleNewsById.html?id=63B6D8CDB69249CAA42C42FAEACC190E"><span class="list_squre">■</span>【公开招标】防洪渠南侧护坡灾损修复工程公开招标更正公告 （2018-HJHDJD-1001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=29&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+              <div id="tab-14" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）" href="/index/selectArticleNewsById.html?id=A07FC8D95BF54CF2830463E3AF27D887"><span class="list_squre">■</span>【公开招标】“航空四站保障训练与评估系统”招标公告（2018-KJQWXYKYXSC-1005）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）" href="/index/selectArticleNewsById.html?id=4E62288108A94ED0887FCFF13CB45099"><span class="list_squre">■</span>【公开招标】飞机拦阻网实训系统招标公告（2018-KJQWXYJBC-1003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）" href="/index/selectArticleNewsById.html?id=A675C27FA55342519C347ABBDD3E6349"><span class="list_squre">■</span>【公开招标】2018年度副食品供应商联合招标项目（2018-HJSTXLZ-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="放射性场所环评竞争性谈判公告（2018-BBYY-006）" href="/index/selectArticleNewsById.html?id=82A6CDF3877B4B9F88A37CB18A0466B5"><span class="list_squre">■</span>【竞争性谈判】放射性场所环评竞争性谈判公告（2018-BBYY-006）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="游泳场馆租用询价采购公告（2018-JJXYZJFWCG-4007）" href="/index/selectArticleNewsById.html?id=220623FA86C040FE9E1393E271D7C180"><span class="list_squre">■</span>【询价】游泳场馆租用询价采购公告（2018-JJXYZJFWCG-4007）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="网络杀毒软件采购公告（2018-HJJWH-1005）" href="/index/selectArticleNewsById.html?id=1068C495430D411DB21AE6F550BF4192"><span class="list_squre">■</span>【公开招标】网络杀毒软件采购公告（2018-HJJWH-1005）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="车辆定点维修公开招标公告（2018-LB65651-1004）" href="/index/selectArticleNewsById.html?id=74D040453B3E40E2B6F87E072ED6BB18"><span class="list_squre">■</span>【公开招标】车辆定点维修公开招标公告（2018-LB65651-1004）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="车辆器材定点采购和定点维修招标更正公告(2018-XLJYG-1001)" href="/index/selectArticleNewsById.html?id=1808B7DE38E541649921E455FDA3BF9F"><span class="list_squre">■</span>【公开招标】车辆器材定点采购和定点维修招标更正公告(2018-XLJYG-1001)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="废旧试剂处理采购项目招标公告(2018-JYYFW-1004)" href="/index/selectArticleNewsById.html?id=F6C6C6AD8AC14A51B4D4E8E5E85E0DC1"><span class="list_squre">■</span>【公开招标】废旧试剂处理采购项目招标公告(2018-JYYFW-1004)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="围墙坐标点转化服务项目竞争性谈判第二次公告（2018-HJ92694-3006）" href="/index/selectArticleNewsById.html?id=D4EAE8DF7146473B8964D6B05C66F61F"><span class="list_squre">■</span>【竞争性谈判】围墙坐标点转化服务项目竞争性谈判第二次公告（2018-HJ92694-3006）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=34&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              <div id="tabs-14" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=39&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  <li class="active fl report_title"><a aria-expanded="true" href="#tab-bzList" data-toggle="tab">中标公示</a></li>
+		  
+	  	  	
+	          <li  class="fl"><a aria-expanded="true" href="#tab-15" data-toggle="tab"> 物资</a></li>
+	        
+		    
+		  
+		    
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-16" data-toggle="tab" > 工程</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-17" data-toggle="tab" > 服务</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tabs-17" data-toggle="tab" > 进口</a></li>
+	        
+		    
+		  
+		  </ul>
+          </h2>
+            <div class=" tab-content">
+            
+            <div id="tab-bzList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）" href="/index/selectArticleNewsById.html?id=6B4FC3B0F5D442518E9D1BA616AAECCA"><span class="list_squre">■</span>【公开招标】温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）" href="/index/selectArticleNewsById.html?id=18798F363F8D4FBD8B6B8CE47C433237"><span class="list_squre">■</span>【公开招标】图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）" href="/index/selectArticleNewsById.html?id=59AD3CCA96AB4534A84A1E52327E6A52"><span class="list_squre">■</span>【公开招标】航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）" href="/index/selectArticleNewsById.html?id=E84AB755DE6940C3B7A0AAE4908290CF"><span class="list_squre">■</span>【公开招标】缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）" href="/index/selectArticleNewsById.html?id=F4CA48B426F642BBAF86C7C2EDC82779"><span class="list_squre">■</span>【询价】格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）" href="/index/selectArticleNewsById.html?id=40DFC0D105D1408DAB79D91A1EFD5DEF"><span class="list_squre">■</span>【公开招标】工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）" href="/index/selectArticleNewsById.html?id=58F7476F52544EE8B09A078F3E218C87"><span class="list_squre">■</span>【公开招标】大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）" href="/index/selectArticleNewsById.html?id=9EA876A03E314E12A9458CC4167F936F"><span class="list_squre">■</span>【公开招标】工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）" href="/index/selectArticleNewsById.html?id=A9790062268A433490D46677FF7B13DC"><span class="list_squre">■</span>【询价】车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）</a>
+                      </li>
+                      
+                      
+                      
+                  
+                  	
+                      
+                      <li>
+                        <a title="医院办公用品主渠道供应商竞争性谈判结果公示(2018-HPYY-TY002)" href="/index/selectArticleNewsById.html?id=53152802170B4034A03DD92AE17058C9"><span class="list_squre">■</span>【竞争性谈判】医院办公用品主渠道供应商竞争性谈判结果公示(2018-HPYY-TY002)</a>
+                      </li>
+                      
+                      
+                      
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=44&secondArticleTypeId=66">更多>></a>
+              </div>
+            
+              <div id="tab-15" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                      
+                      
+                      <li>
+                        <a title="图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）" href="/index/selectArticleNewsById.html?id=18798F363F8D4FBD8B6B8CE47C433237"><span class="list_squre">■</span>【公开招标】图书馆中文纸质图书 中标公告（2018-KJQWXYJBC-1005）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）" href="/index/selectArticleNewsById.html?id=E84AB755DE6940C3B7A0AAE4908290CF"><span class="list_squre">■</span>【公开招标】缆绳、安全网中标公示（2018-JJXYZJFWCG-1002）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）" href="/index/selectArticleNewsById.html?id=F4CA48B426F642BBAF86C7C2EDC82779"><span class="list_squre">■</span>【询价】格斗器材、单双杠询价采购结果公示（2018-LD73071-4001）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）" href="/index/selectArticleNewsById.html?id=58F7476F52544EE8B09A078F3E218C87"><span class="list_squre">■</span>【公开招标】大兴奶牛场LNG天然气采购项目中标公告 （2018-ZJHSBJ-1002）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="医院办公用品主渠道供应商竞争性谈判结果公示(2018-HPYY-TY002)" href="/index/selectArticleNewsById.html?id=53152802170B4034A03DD92AE17058C9"><span class="list_squre">■</span>【竞争性谈判】医院办公用品主渠道供应商竞争性谈判结果公示(2018-HPYY-TY002)</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="环境放射性连续监测系统复核结果公示(2017-HJ92538-1007）" href="/index/selectArticleNewsById.html?id=65AB7D242D9D4D7799BB0D78F9ADB3A4"><span class="list_squre">■</span>【公开招标】环境放射性连续监测系统复核结果公示(2017-HJ92538-1007）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="单兵急救器材成交公示(2018-JJXYZJWZCG-4031)" href="/index/selectArticleNewsById.html?id=9A08058EE0C140D38BC834C5DCD879CC"><span class="list_squre">■</span>【询价】单兵急救器材成交公示(2018-JJXYZJWZCG-4031)</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="蓄电池及轮胎采购成交结果公示(2018-LJZQU-005)" href="/index/selectArticleNewsById.html?id=7460E1B0E89A44F99EA90B997B06CBB7"><span class="list_squre">■</span>【询价】蓄电池及轮胎采购成交结果公示(2018-LJZQU-005)</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="营产营具采购成交结果公示(2018-LJZQU-003)" href="/index/selectArticleNewsById.html?id=4BA45E96F0B24BF6882280F26E52B086"><span class="list_squre">■</span>【询价】营产营具采购成交结果公示(2018-LJZQU-003)</a>
+                      </li>
+                      
+                      
+                      
+                    
+                      
+                      
+                      <li>
+                        <a title="饲料定点采购项目预成交结果公示 （2018-DL73653-1006）" href="/index/selectArticleNewsById.html?id=FCB272AAFCED4BD493D6771359AB4D5B"><span class="list_squre">■</span>【公开招标】饲料定点采购项目预成交结果公示 （2018-DL73653-1006）</a>
+                      </li>
+                      
+                      
+                      
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=67&tab=%25E7%2589%25A9%25E8%25B5%2584">更多>></a>
+              </div>
+              <div id="tab-16" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）" href="/index/selectArticleNewsById.html?id=9EA876A03E314E12A9458CC4167F936F"><span class="list_squre">■</span>【公开招标】工程造价咨询服务公开招标 预中标单位公示（2018-HJ92003-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="会议室建设项目招标结果公示（2018-YFGC-1001）" href="/index/selectArticleNewsById.html?id=4DA35E19DCE64837B343D77D22B09A35"><span class="list_squre">■</span>【公开招标】会议室建设项目招标结果公示（2018-YFGC-1001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="警通连、汽车队篮球场改造 中标结果公示（2018-HJBB-1008）" href="/index/selectArticleNewsById.html?id=CCAA386016564816B181D6ADCCDC21E5"><span class="list_squre">■</span>【公开招标】警通连、汽车队篮球场改造 中标结果公示（2018-HJBB-1008）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="财务信息化建设中标公示(2018-HJCZ-1001)" href="/index/selectArticleNewsById.html?id=8175A7C3D8964C39A66E25D79A31A3F7"><span class="list_squre">■</span>【公开招标】财务信息化建设中标公示(2018-HJCZ-1001)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="海福巷营区公寓房（第二批）整修工程中标公告（LJGCGBC-2018-02）" href="/index/selectArticleNewsById.html?id=4A033DE6079D48D3A9CFF8FA1AAF13DD"><span class="list_squre">■</span>【公开招标】海福巷营区公寓房（第二批）整修工程中标公告（LJGCGBC-2018-02）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="防洪渠南侧护坡灾损修复工程勘察竞争性谈判 评审结果公示 （2017-HJHDJD-3002）" href="/index/selectArticleNewsById.html?id=A67B65C42A8745DF872FF7641A0D0B34"><span class="list_squre">■</span>【竞争性谈判】防洪渠南侧护坡灾损修复工程勘察竞争性谈判 评审结果公示 （2017-HJHDJD-3002）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="防洪渠南侧护坡灾损修复工程设计竞争性谈判 评审结果公示 （2017-HJHDJD-3003）" href="/index/selectArticleNewsById.html?id=50B25F8F5CCC4F188196833369A48A4C"><span class="list_squre">■</span>【竞争性谈判】防洪渠南侧护坡灾损修复工程设计竞争性谈判 评审结果公示 （2017-HJHDJD-3003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="海福巷营区大礼堂维修出新工程中标公告（LJGCGBC-2018-01）" href="/index/selectArticleNewsById.html?id=FA1F89781E4D4533892E2CD740F59E8F"><span class="list_squre">■</span>【公开招标】海福巷营区大礼堂维修出新工程中标公告（LJGCGBC-2018-01）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="4513工程施工监理中标结果公示" href="/index/selectArticleNewsById.html?id=B329505DFD1E4CCE94B6EF3E48F6D7F9"><span class="list_squre">■</span>【公开招标】4513工程施工监理中标结果公示</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="体能运动场建设工程公开招标评审结果公示" href="/index/selectArticleNewsById.html?id=D609F2B42F604B90AC2C809370DCE31C"><span class="list_squre">■</span>【公开招标】体能运动场建设工程公开招标评审结果公示</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=72&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+              <div id="tab-17" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                  	
+                      
+                      <li>
+                        <a title="温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）" href="/index/selectArticleNewsById.html?id=6B4FC3B0F5D442518E9D1BA616AAECCA"><span class="list_squre">■</span>【公开招标】温度滴定分析系统中标公告（2018-KJQWXYJBC-1002）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）" href="/index/selectArticleNewsById.html?id=59AD3CCA96AB4534A84A1E52327E6A52"><span class="list_squre">■</span>【公开招标】航空救生装备实验室 中标公告（2018-KJQWXYJBC-2004）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）" href="/index/selectArticleNewsById.html?id=40DFC0D105D1408DAB79D91A1EFD5DEF"><span class="list_squre">■</span>【公开招标】工程及采购服务招标代理、控制价编制及结算审核机构公开招标中标公示（2018-KJYJY-05）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）" href="/index/selectArticleNewsById.html?id=A9790062268A433490D46677FF7B13DC"><span class="list_squre">■</span>【询价】车辆保险服务采购项目询价结果公告 （2017-BLTN-4001）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="基建工程竣工结算审核造价咨询服务单位公开招标中标公示（2018-HJHG-1034）" href="/index/selectArticleNewsById.html?id=66EC5C87705E43D0B835BBC89AB3BA92"><span class="list_squre">■</span>【公开招标】基建工程竣工结算审核造价咨询服务单位公开招标中标公示（2018-HJHG-1034）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="学员食堂副食品配送 中标结果公示（2018-HJBB-1003）" href="/index/selectArticleNewsById.html?id=47E1FFE96A4B4EA488DD8B86576CD3F0"><span class="list_squre">■</span>【公开招标】学员食堂副食品配送 中标结果公示（2018-HJBB-1003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="食堂2018年度主副食品采购供应招标中标公示（XBZQBGS-2018-0124)" href="/index/selectArticleNewsById.html?id=AD13EF6043F74425ACFC9C2930B46BC8"><span class="list_squre">■</span>【公开招标】食堂2018年度主副食品采购供应招标中标公示（XBZQBGS-2018-0124)</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="27号院引进干洗店采购项目比照竞争性谈判成交公示（2018-JYYFW-3003）" href="/index/selectArticleNewsById.html?id=6183A81DAC3B41908DBB92C8AC1526BF"><span class="list_squre">■</span>【竞争性谈判】27号院引进干洗店采购项目比照竞争性谈判成交公示（2018-JYYFW-3003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="遴选军选民用车辆承修企业成交公告（2018-BL32116-3003）" href="/index/selectArticleNewsById.html?id=8BB16FCAA4264F4688B78E2D30A52497"><span class="list_squre">■</span>【竞争性谈判】遴选军选民用车辆承修企业成交公告（2018-BL32116-3003）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                  	
+                      
+                      <li>
+                        <a title="营房社会化保障招标中标结果公示（2018-LJBBXY-SJZ-1006）" href="/index/selectArticleNewsById.html?id=E498472FA277446AB0A5FAC0ED389A42"><span class="list_squre">■</span>【公开招标】营房社会化保障招标中标结果公示（2018-LJBBXY-SJZ-1006）</a>
+                      </li>
+                      
+                      
+                        
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=77&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              <div id="tabs-17" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByParId.html?id=82&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 mb10 login_box">
+          <div class=" border1 job-content floor_kind floor_news">
+            <h2>
+		  <ul class="list-unstyled col-md-12 col-sm-12 col-xs-12 buyer_news m0 p0">
+		  <li class="active fl report_title"><a aria-expanded="true" href="#tab-bdList" data-toggle="tab">单一来源公示</a></li>
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="true" href="#tab-18" data-toggle="tab"> 物资</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-19" data-toggle="tab" > 工程</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tab-20" data-toggle="tab" > 服务</a></li>
+	        
+		    
+		  
+		  
+	  	  	
+	          <li class="fl"><a aria-expanded="false" href="#tabs-20" data-toggle="tab" > 进口</a></li>
+	        
+		    
+		  
+		  </ul>
+          </h2>
+            <div class=" tab-content">
+            
+            <div id="tab-bdList" class="tab-pane fade active in">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="讯飞便携式听见智能会议系统" href="/index/selectArticleNewsById.html?id=E8F874BF6D4249138EFEBCE6CF7535C2"><span class="list_squre">■</span>讯飞便携式听见智能会议系统</a>
+                      </li>
+                    
+                    <li>
+                        <a title="水稻种子单一来源采购公示（2018- LB65547-1006）" href="/index/selectArticleNewsById.html?id=01BB4827416C403985F2D75C567AC321"><span class="list_squre">■</span>水稻种子单一来源采购公示（2018- LB65547-1006）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)" href="/index/selectArticleNewsById.html?id=1BFB715416C4449A908FD7CCFF7D13F4"><span class="list_squre">■</span>2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)</a>
+                      </li>
+                    
+                    <li>
+                        <a title="某型车辆配套器材单一来源公示  （2018-ZLFH -5001）" href="/index/selectArticleNewsById.html?id=9B0CB2AD211E4E128539E1B3B104095A"><span class="list_squre">■</span>某型车辆配套器材单一来源公示  （2018-ZLFH -5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】" href="/index/selectArticleNewsById.html?id=05178FBC6F99462F9A2A486266A55567"><span class="list_squre">■</span>发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】</a>
+                      </li>
+                    
+                    <li>
+                        <a title="飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】" href="/index/selectArticleNewsById.html?id=183D1A70C0CE4D6983BA8C08A1DEEE96"><span class="list_squre">■</span>飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】</a>
+                      </li>
+                    
+                    <li>
+                        <a title="苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）" href="/index/selectArticleNewsById.html?id=6ABE1941FAD9499A83A84CDC797A33C6"><span class="list_squre">■</span>苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="某型号电台蓄电池采购公告（2018-LB65651-5002)" href="/index/selectArticleNewsById.html?id=27D128819E464626A58D945901710262"><span class="list_squre">■</span>某型号电台蓄电池采购公告（2018-LB65651-5002)</a>
+                      </li>
+                    
+                    <li>
+                        <a title="05A防毒面具维修配件采购（2018-LB65651-5001）" href="/index/selectArticleNewsById.html?id=7A19BE7D8E6F4BD28961A7D6FA5D3587"><span class="list_squre">■</span>05A防毒面具维修配件采购（2018-LB65651-5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="春耕种子单一来源采购公示(2018-HFDSSEL-5001)" href="/index/selectArticleNewsById.html?id=860EDF243D8E45239EDCC84F8F98D783"><span class="list_squre">■</span>春耕种子单一来源采购公示(2018-HFDSSEL-5001)</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectAllByTabs.html?articleTypeId=87&secondArticleTypeId=93&tab=%25E7%2589%25A9%25E8%25B5%2584&flag=1">更多>></a>
+              </div>
+            
+              <div id="tab-18" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="讯飞便携式听见智能会议系统" href="/index/selectArticleNewsById.html?id=E8F874BF6D4249138EFEBCE6CF7535C2"><span class="list_squre">■</span>讯飞便携式听见智能会议系统</a>
+                      </li>
+                    
+                    <li>
+                        <a title="水稻种子单一来源采购公示（2018- LB65547-1006）" href="/index/selectArticleNewsById.html?id=01BB4827416C403985F2D75C567AC321"><span class="list_squre">■</span>水稻种子单一来源采购公示（2018- LB65547-1006）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)" href="/index/selectArticleNewsById.html?id=1BFB715416C4449A908FD7CCFF7D13F4"><span class="list_squre">■</span>2018年度军事类英文原版期刊单一来源公示（2018-TXG-001)</a>
+                      </li>
+                    
+                    <li>
+                        <a title="某型车辆配套器材单一来源公示  （2018-ZLFH -5001）" href="/index/selectArticleNewsById.html?id=9B0CB2AD211E4E128539E1B3B104095A"><span class="list_squre">■</span>某型车辆配套器材单一来源公示  （2018-ZLFH -5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】" href="/index/selectArticleNewsById.html?id=05178FBC6F99462F9A2A486266A55567"><span class="list_squre">■</span>发射模拟系统单一来源采购公示 （2017–KGDGYCG–5009）【KGD】</a>
+                      </li>
+                    
+                    <li>
+                        <a title="飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】" href="/index/selectArticleNewsById.html?id=183D1A70C0CE4D6983BA8C08A1DEEE96"><span class="list_squre">■</span>飞行控制教学实验系统单一来源采购公示 （2017–KGDGYCG–5010）【KGD】</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=94&tab=%25E5%25B7%25A5%25E7%25A8%258B">更多>></a>
+              </div>
+              <div id="tab-19" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=95&tab=%25E6%259C%258D%25E5%258A%25A1">更多>></a>
+              </div>
+              <div id="tab-20" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）" href="/index/selectArticleNewsById.html?id=6ABE1941FAD9499A83A84CDC797A33C6"><span class="list_squre">■</span>苏联军事藏品鉴定评估项目单一来源公告（2018-JBWZ-5001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="虚拟化平台扩容项目单一来源采购公示（2018-SLLHQ-5003）" href="/index/selectArticleNewsById.html?id=EBA7C536CB2742E785377107BD426D9E"><span class="list_squre">■</span>虚拟化平台扩容项目单一来源采购公示（2018-SLLHQ-5003）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="万福广场停止有偿服务房产测绘单一来源采购公示（2018-KJGL-5C001）" href="/index/selectArticleNewsById.html?id=50535273F01549DBB31177A5B86CC2B6"><span class="list_squre">■</span>万福广场停止有偿服务房产测绘单一来源采购公示（2018-KJGL-5C001）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="数据挖掘平台改善升级单一来源采购公示 （2018020005）【KGD】" href="/index/selectArticleNewsById.html?id=E20CC914E05F47828B9F8558DB2543BC"><span class="list_squre">■</span>数据挖掘平台改善升级单一来源采购公示 （2018020005）【KGD】</a>
+                      </li>
+                    
+                    <li>
+                        <a title="S波段定向干扰机研制单一来源采购公示（2018-KGDWZCG-1036）" href="/index/selectArticleNewsById.html?id=81B7D06878B5458B84ACEA99F979F287"><span class="list_squre">■</span>S波段定向干扰机研制单一来源采购公示（2018-KGDWZCG-1036）</a>
+                      </li>
+                    
+                    <li>
+                        <a title="对某型空空弹靶场试验的设计方案及试验数据分析报告 (2017020311)" href="/index/selectArticleNewsById.html?id=44B9E1312F4F4E81A8726B8F04BA10A6"><span class="list_squre">■</span>对某型空空弹靶场试验的设计方案及试验数据分析报告 (2017020311)</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=96&tab=%25E8%25BF%259B%25E5%258F%25A3">更多>></a>
+              </div>
+              <div id="tabs-20" class="tab-pane fade">
+                <ul class="categories articleover">
+                  
+                    <li>
+                        <a title="某型号电台蓄电池采购公告（2018-LB65651-5002)" href="/index/selectArticleNewsById.html?id=27D128819E464626A58D945901710262"><span class="list_squre">■</span>某型号电台蓄电池采购公告（2018-LB65651-5002)</a>
+                      </li>
+                    
+                </ul>
+                <a class="tab_more" href="/index/selectIndexNewsByTypeId.html?id=97">更多>></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--业务办理开始-->
+    <div class="container">
+      <div class="row magazine-page clear">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <h2 class="floor_title col-sm-12 col-md-12 col-xs-12">业务办理</h2>
+        </div>
+      </div>
+
+      <div class="row magazine-page clear">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <div class="flow_btn fl flow_one">
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+              
+              <a href="/supplier/registration_page.html" class="qyzc">
+              
+              
+    	        	<i></i>
+                <span>供应商注册</span>
+              </a>
+            </div>
+            
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+              <a href="/index/supplierBlackList.html" class="qyhmd">
+    	        	<i></i>
+                <span>供应商黑名单</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+              <a href="/index/indexSupPublicity.html" class="nrkgyshgsh">
+                <i></i>
+                <span>拟入库供应商公示</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+  	        	<a href="/expert/toRegisterNotice.html" class="zjzc">
+                <i></i>
+                <span>评审专家注册</span>
+              </a>
+            </div>
+            
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+  	        	<a href="/index/expertBlackList.html" class="zjhmd">
+                <i></i>
+                <span>评审专家黑名单</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-6 col-sm-6">
+              <a href="/index/indexExpPublicity.html" class="nrkzhjgsh">
+                <i></i>
+                <span>拟入库专家公示</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-12 col-sm-12">
+              <a href="/index/sign.html" onclick="importAdd()" class="jksdj">
+                <i></i>
+                <span>进口商登记</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="flow_btn fl">
+            <div class="ywbl_01 col-xs-4 col-sm-4">
+              
+              
+              
+              <a href="http://mall.plap.cn" class="wssc">
+              
+              
+              
+                <i></i>
+                <span>网上商城</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-4 col-sm-4">
+              <a href="/index/index_productList.html" class="dxcpjj"><!--  onclick="setting()" -->
+                <i></i>
+                <span>定型产品</span>
+              </a>
+            </div>
+
+            <div class="ywbl_01 col-xs-4 col-sm-4">
+              <a href="javascript:void(0)" onclick="drugs()" class="ypcg">
+                <i></i>
+                <span>药品采购</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="border1 flow_btn">
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="javascript:void(0)" class="fwcg">
+                <i></i>
+                <span>服务采购</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <!-- <a href="javascript:void(0)" onclick="hotLine()" class="fwrx"> -->
+              <a href="/index/index_hotLineList.html"  class="fwrx">
+                <i></i>
+                <span>服务热线</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="/categorys/categoryList.html" class="cpml">
+                <i></i>
+                <span>产品目录</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="/categorys/parameterList.html" class="jscsk">
+                <i></i>
+                <span>技术参数库</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              
+              
+              <a onclick="javascript:void(0);" class="zjzc">
+              
+                <i></i>
+                <span>资料下载</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="javascript:void(0)" class="cpshfw">
+                <i></i>
+                <span>产品售后服务</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="/onlineComplaints/index_add.html" class="zxts">
+                <i></i>
+                <span>网上投诉</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a  class="cglt">
+                <i></i>
+                <span>采购论坛</span>
+              </a>
+            </div>
+
+            <div class="ywbl_02 col-xs-4 col-sm-4">
+              <a href="javascript:void(0)" class="yjfk">
+                <i></i>
+                <span>意见反馈</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--采购信息开始-->
+    <div class="container">
+      <div class="row magazine-page clear">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <h2 class="floor_title col-sm-12 col-md-12 col-xs-12">采购信息</h2>
+        </div>
+      </div>
+      <div class="row magazine-page clear">
+        <div class="col-md-3 mb10 login_box">
+          <div class=" border1 job-content floor_kind h240">
+            <div class="cgxx_report">
+		     <div class="report-tab">重要通知
+		     	
+		     </div>
+		     <a class="news_more" href="/index/selectIndexNewsByTypeId.html?id=109">更多>></a>
+            </div>
+            <div class="categories articleover">
+              <ul class="p0_10">
+                
+                  <li>
+                      <a title="军队采购评审专家注册登记第五次公告" href="/index/selectArticleNewsById.html?id=D0456363B3B541AD819181DA558DE4F5">军队采购评审专家注册登记第五次公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="军队供应商注册登记第六次公告" href="/index/selectArticleNewsById.html?id=DE11F9E480FB4803910DA097375B1A5E">军队供应商注册登记第六次公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="军队采购评审专家注册登记第四次公告" href="/index/selectArticleNewsById.html?id=CDF0D498CA134BE8BE2BFC093FA0898F">军队采购评审专家注册登记第四次公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="军队供应商注册登记第五次公告" href="/index/selectArticleNewsById.html?id=0EE315DAC0C0424DBEEA2FDF717ED690">军队供应商注册登记第五次公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="军队采购网注册信息注销和账号密码查询须知" href="/index/selectArticleNewsById.html?id=A8B503BFAFC343AEA7931B23884AE8A0">军队采购网注册信息注销和账号密码查询须知</a>
+                    </li>
+                  
+                  <li>
+                      <a title="军队供应商注册登记第四次公告" href="/index/selectArticleNewsById.html?id=571C7352DA5E422DA44C6BF06EC072A7">军队供应商注册登记第四次公告</a>
+                    </li>
+                  
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb10 login_box">
+          <div class=" border1 job-content floor_kind h240">
+           <div class="cgxx_report">
+		   <div class="report-tab">采购法规
+		   		
+		   </div>
+		   <a class="news_more" href="/index/selectsumByParId.html">更多>></a>
+           </div>
+            <div class="categories">
+              <ul class="p0_10">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb10 login_box">
+          <div class=" border1 job-content floor_kind h240">
+           <div class="cgxx_report">
+		    <div class="report-tab">投诉处理公告
+		    	
+				    <b>1</b>
+		    	
+		    </div>
+		    <a class="news_more" href="/index/selectIndexNewsByTypeId.html?id=112">更多>></a>
+           </div>
+            <div class="categories articleover">
+              <ul class="p0_10">
+                
+                  <li>
+                      <a title="关于国药中科器深圳公司等投诉医疗设备采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=3F7AA13939704AB0A7BAE0EE398B01B9">关于国药中科器深圳公司等投诉医疗设备采购项目处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于北京佰欧威公司、深圳正东公司投诉清煤锅炉及设备采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=5C4F20891BEA4841826915C0E519A929">关于北京佰欧威公司、深圳正东公司投诉清煤锅炉及设备采购项目处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于西门子公司投诉CT采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=E0FCD7A593574E1591E03F2453ABE95A">关于西门子公司投诉CT采购项目处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于北京亿展公司投诉军博物业服务招标项目处理结果的公告" href="/index/selectArticleNewsById.html?id=9B5A98B34E954826BD52C0E8F468663C">关于北京亿展公司投诉军博物业服务招标项目处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于西门子公司投诉PET-MR采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=AB22A4A315444B8AAC929B25774B4253">关于西门子公司投诉PET-MR采购项目处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于开封茂盛公司投诉皮带输送机采购项目处理结果的公告" href="/index/selectArticleNewsById.html?id=8FE129800E5C4BA291AEC8346F77A365">关于开封茂盛公司投诉皮带输送机采购项目处理结果的公告</a>
+                    </li>
+                  
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb10 login_box">
+          <div class=" border1 job-content floor_kind h240">
+            <div class="cgxx_report">
+		      <div class="report-tab">处罚公告
+			      
+		      </div>
+		      <a class="news_more" href="/index/selectIndexChuFaNewsByTypeId.html?id=113">更多>></a>
+            </div>
+            <div class="categories articleover">
+              <ul class="p0_10">
+                
+                  <li>
+                      <a title="关于北京硕乐科技发展有限责任公司违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=5F475C1AF6764F6D99E4BDAA2F9FF12F">关于北京硕乐科技发展有限责任公司违规行为的处罚公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于上海煤气第二管线工程有限公司等4家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=1AEF853A7F224A6EAAAB312E0366D343">关于上海煤气第二管线工程有限公司等4家供应商违规行为的处罚公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于霸州市星飞塑料制品厂等2家供应商违规处理结果的公告" href="/index/selectArticleNewsById.html?id=5DADC0D5D42948BD80C4986BB53AF224">关于霸州市星飞塑料制品厂等2家供应商违规处理结果的公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于北京易优凯科技有限公司等2家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=D2CE1A7A9DB6432A96B77B1B886077CB">关于北京易优凯科技有限公司等2家供应商违规行为的处罚公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于昆明申茂科技有限公司等2家供应商违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=DFEEF22A489E4423BE3503BA0922082B">关于昆明申茂科技有限公司等2家供应商违规行为的处罚公告</a>
+                    </li>
+                  
+                  <li>
+                      <a title="关于山东白鸽食品机械有限公司违规行为的处罚公告" href="/index/selectArticleNewsById.html?id=F4872D3C3A97430AAE74E23DE55F6A83">关于山东白鸽食品机械有限公司违规行为的处罚公告</a>
+                    </li>
+                  
+              </ul>
+            </div>
+         </div>
+        </div>
+      <div class="visit_count">
+      	<span class="visit_title">访问量</span>
+      	<span class="visit_clip col-md-offset-1 col-sm-offset-1"><b></b>今日访问量：<i id="pvThisDay"></i>次</span>
+      	<span class="visit_clip col-md-offset-1 col-sm-offset-1"><b></b>总访问量：<i id="pvTotal"></i>次</span>
+      </div>
+      <!-- <a href="/index/init.html">初始化solr</a> -->
+
+	</div>
+	</div>
+    <!--底部代码开始-->
+    
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html class=" js cssanimations csstransitions" lang="en"><!--<![endif]--><head>
+<script type="text/javascript">
+	function indexTip(id){
+		 window.open("/index/selectArticleNewsById.html?id="+id);
+  		//window.location.href="/index/selectArticleNewsById.html?id="+id;
+  	}
+	
+	//实现显示隐藏底部弹窗功能
+	$(document).ready(function(){ 
+		var currUrl=window.location.href;
+		//定义数组
+		var urlArr=new Array();
+		//供应商注冊頁面
+		urlArr[0]="supplier/";
+		//登錄頁面
+		urlArr[1]="index/sign";
+		//专家注册
+		urlArr[2]="expert/";
+		//供应商注冊頁面
+		urlArr[3]="supplier_item/";
+		
+		for(var i=0;i<urlArr.length;i++){
+			//如果在url列表中找到就 隐藏，找不到就显示
+			if(currUrl.indexOf(urlArr[i]) > 0)
+			{
+				$("#popupDiv").hide();
+				return;
+			}
+			else{
+				$("#popupDiv").show();
+			}
+		}
+		
+		}); 
+	
+</script>
+<body>
+<!--底部代码开始-->
+<div class="footer-v2" id="footer-v2">
+
+      <div class="footer">
+
+            <!-- Address -->
+              <address class="">
+              Copyright © 2016 版权所有：中央军委后勤保障部 京ICP备09055519号
+              </address>
+              <div class="ratio">
+               浏览本网主页，建议将电脑显示屏的分辨率调为1024*768
+              </div> 
+            <!-- End Address -->
+       </div>
+     
+<!--/footer--> 
+    </div>
+ 
+    <div class="prompt_tips" id="popupDiv">
+     <div class="prompt_top">
+                   提示信息
+       <span class="close_icon" id="close"></span>
+     </div>
+      <div class="prompt_main">
+        
+              
+               <a class="red" title="军队采购评审专家注册登记第五次公告" onclick="indexTip('D0456363B3B541AD819181DA558DE4F5');return false;" href="javascript:void(0);">军队采购评审专家注册登记第...</a>
+              
+             
+            
+           <br />
+        
+              
+               <a class="red" title="军队供应商注册登记第六次公告" onclick="indexTip('DE11F9E480FB4803910DA097375B1A5E');return false;" href="javascript:void(0);">军队供应商注册登记第六次公...</a>
+              
+             
+            
+           <br />
+       
+              
+               <a class="" title="军队采购评审专家注册登记第四次公告" onclick="indexTip('CDF0D498CA134BE8BE2BFC093FA0898F');return false;" href="javascript:void(0);" >军队采购评审专家注册登记第...</a>
+              
+             
+            
+           <br />
+       
+              
+               <a class="" title="军队供应商注册登记第五次公告" onclick="indexTip('0EE315DAC0C0424DBEEA2FDF717ED690');return false;" href="javascript:void(0);" >军队供应商注册登记第五次公...</a>
+              
+             
+            
+           <br />
+        
+              
+               <a class="" title="军队供应商注册登记第四次公告" onclick="indexTip('571C7352DA5E422DA44C6BF06EC072A7');return false;" href="javascript:void(0);" >军队供应商注册登记第四次公...</a>
+              
+             
+            
+           <br />
+            <a class="" onclick="indexTip('BDEB4C3383F5400886A3A451BAF4E889');return false;" href="javascript:void(0);" >军队采购评审专家注册登记第三次公告</a>
+           <br />
+            <a class="" onclick="indexTip('581DD6335F95404BBB325760B86E6E82');return false;" href="javascript:void(0);" >军队采购评审专家注册登记第二次公告</a>
+           <br />
+           <a class="" onclick="indexTip('06615ACC3B38463CA76AA93BFF2A99B2');return false;" href="javascript:void(0);" >军队供应商注册登记第三次公告</a>
+           <br />
+           <a onclick="indexTip('7C5808A4C4B34C9CA86F661AF6B6E989');return false;" href="javascript:void(0);" >军队供应商注册登记第二次公告</a>
+           <br />
+           <a onclick="indexTip('712706E631194823AEF0E77A3FD2807C');return false;" href="javascript:void(0);" >军队采购评审专家注册登记公告</a>
+           <br />
+           <a onclick="indexTip('8B96764A39E64F5CADDA0013DE6B4719');return false;" href="javascript:void(0);" >军队供应商注册登记公告</a>
+      </div>
+      <div class="prompt_btn">
+        <button class="btn" onclick="indexTip('712706E631194823AEF0E77A3FD2807C');return false;">了解详情</button>
+      </div>
+</div>
+
+</body>
+</html>
+
+  </body>
+
+</html>

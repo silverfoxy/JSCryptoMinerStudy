@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.lesjeudis.com/">redirected</a>.</body></html>

@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1133">
+    <meta name="mcafeesecure-site-verification" content="92acdc39a8256ffe55e55e900a3eb50d">
+    
+    <link rel="stylesheet" href="menu.css" type="text/css" media="screen" />
+    
+    <title>Biovea.com: Buy Supplements, Vitamins, Fitness & Beauty Products Online</title>
+    <meta name="keywords" content="dhea, melatonine, hgh, Melatonin, Vialafil, Testrogain, Superflex-3, Hoodia-Lean">
+    <meta name="description" content="Since 2001, Biovea.com has been a leading provider of premium quality health and wellness products to millions of customers worldwide." />
+    <meta name="naver-site-verification" content="f96d0f3391c6198b88116e389167df88feb6b6fe"/>
+    <meta name="yandex-verification" content="bcbcb93012250712" />
+    <!--[if IE 6]>
+    <style>
+    body {behavior: url("csshover3.htc");}
+    #menu li .drop {background:url("img/drop.gif") no-repeat right 8px; 
+    </style>
+    <![endif]-->
+
+    <link rel="icon" id="favicon" href="favicon.ico" type="image/x-icon" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="fadeslideshow.js"></script>
+    <script type="text/javascript">
+        var mygallery=new fadeSlideShow({
+        	wrapperid: "slide1", //ID of blank DIV on page to house Slideshow
+        	dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+        	imagearray: [
+          ["images/splash-page/1-a.jpg"],
+          ["images/splash-page/2-a.jpg"],
+          ["images/splash-page/3-a.jpg"],
+          ["images/splash-page/4-a.jpg"],
+          ["images/splash-page/5-a.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+        	persist: false, //remember last viewed slide and recall within same session?
+        	fadeduration: 1500, //transition duration (milliseconds)
+        	descreveal: "ondemand",
+        	togglerid: ""
+        })
+        
+        var mygallery=new fadeSlideShow({
+        	wrapperid: "slide3", //ID of blank DIV on page to house Slideshow
+        	dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+        	imagearray: [
+          ["images/splash-page/1-c.jpg"],
+          ["images/splash-page/2-c.jpg"],
+          ["images/splash-page/3-c.jpg"],
+          ["images/splash-page/4-c.jpg"],
+          ["images/splash-page/5-c.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+        	persist: false, //remember last viewed slide and recall within same session?
+        	fadeduration: 1500, //transition duration (milliseconds)
+        	descreveal: "ondemand",
+        	togglerid: ""
+        })
+        
+        var mygallery=new fadeSlideShow({
+        	wrapperid: "slide2", //ID of blank DIV on page to house Slideshow
+        	dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+        	imagearray: [
+          ["images/splash-page/1-b.jpg"],
+          ["images/splash-page/2-b.jpg"],
+          ["images/splash-page/3-b.jpg"],
+          ["images/splash-page/4-b.jpg"],
+          ["images/splash-page/5-b.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+        	persist: false, //remember last viewed slide and recall within same session?
+        	fadeduration: 1500, //transition duration (milliseconds)
+        	descreveal: "ondemand",
+        	togglerid: ""
+        })
+        
+        var mygallery=new fadeSlideShow({
+          wrapperid: "slide4", //ID of blank DIV on page to house Slideshow
+          dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+          imagearray: [
+          ["images/splash-page/6-a.jpg"],
+          ["images/splash-page/7-a.jpg"],
+          ["images/splash-page/8-a.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+          persist: false, //remember last viewed slide and recall within same session?
+          fadeduration: 1500, //transition duration (milliseconds)
+          descreveal: "ondemand",
+          togglerid: ""
+        })
+        
+        var mygallery=new fadeSlideShow({
+          wrapperid: "slide5", //ID of blank DIV on page to house Slideshow
+          dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+          imagearray: [
+          ["images/splash-page/6-b.jpg"],
+          ["images/splash-page/7-b.jpg"],
+          ["images/splash-page/8-b.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+          persist: false, //remember last viewed slide and recall within same session?
+          fadeduration: 1500, //transition duration (milliseconds)
+          descreveal: "ondemand",
+          togglerid: ""
+        })
+        
+        var mygallery=new fadeSlideShow({
+          wrapperid: "slide6", //ID of blank DIV on page to house Slideshow
+          dimensions: [193, 127], //width/height of gallery in pixels. Should reflect dimensions of largest image
+          imagearray: [
+          ["images/splash-page/6-c.jpg"],
+          ["images/splash-page/7-c.jpg"],
+          ["images/splash-page/8-c.jpg"],
+          ],
+          displaymode: {type:'auto', pause:5200, cycles:0, wraparound:false},
+          persist: false, //remember last viewed slide and recall within same session?
+          fadeduration: 1500, //transition duration (milliseconds)
+          descreveal: "ondemand",
+          togglerid: ""
+        })
+    </script>
+
+    <script type="text/javascript">
+        window.mobilecheck = function() {
+            var check = false;
+            (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
+            return check; 
+        }
+    
+        if(window.mobilecheck()) {
+    		
+    		 var currentPage = window.location.href;
+      if (currentPage.indexOf("neulook.com") > -1)
+      {  window.location = 'https://www.neulook.com/new/mobile';            
+      } 
+      else{window.location = 'https://www.biovea.com/new/mobile';}
+            
+        }
+    </script>
+</head>
+
+
+<body topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W5NTNJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W5NTNJ');</script>
+<!-- End Google Tag Manager -->
+
+
+<div class="mainWrapper biovea">
+
+    <div class="header_bkg" align="center">
+    
+        <div class="header_logo">
+            <div class="slider_container">
+                <div id="slide1" class="photo_1"></div>
+                <div id="slide3" class="photo_2"></div>
+                <div id="slide2" class="photo_3"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div style="padding-top:125px;width:950px;margin:0 auto;">
+
+        <ul id="menu">
+        
+            <li><a href="#" class="drop"></a>
+            
+            <div class="dropdown_4columns clearfix">
+            
+                <div class="col_1">
+                
+                    <h3>Americas</h3>
+                    <ul>
+                        <li><a href="https://www.biovea.com/bo"><img src="images/splash-page/bo.png" border="0"/> <font color="#333333">Bolivia |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/br"><img src="images/splash-page/br.png" border="0"/> <font color="#333333">Brasil |</font> <font color="#2c63a9">Português</font></a></li>
+                        <li><a href="https://www.biovea.com/ca/en"><img src="images/splash-page/ca.png" border="0"/> <font color="#333333">Canada |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/ca/fr"><img src="images/splash-page/ca.png" border="0"/> <font color="#333333">Canada |</font> <font color="#2c63a9">Français</font></a></li>
+                        <li><a href="https://www.biovea.com/cl"><img src="images/splash-page/cl.png" border="0"/> <font color="#333333">Chile |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/co"><img src="images/splash-page/co.png" border="0"/> <font color="#333333">Colombia |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/do"><img src="images/splash-page/do.png" border="0"/> <font color="#333333">Dominican Republic |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/ec"><img src="images/splash-page/ec.png" border="0"/> <font color="#333333">Ecuador |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/mx"><img src="images/splash-page/mx.png" border="0"/> <font color="#333333">Mexico |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/py"><img src="images/splash-page/py.png" border="0"/> <font color="#333333">Paraguay |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/pe"><img src="images/splash-page/pe.png" border="0"/> <font color="#333333">Peru |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/us"><img src="images/splash-page/us.png" border="0"/> <font color="#333333">USA |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/us_es"><img src="images/splash-page/us.png" border="0"/> <font color="#333333">USA |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/uy"><img src="images/splash-page/uy.png" border="0"/> <font color="#333333">Uruguay |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                        <li><a href="https://www.biovea.com/ve"><img src="images/splash-page/ve.png" border="0"/> <font color="#333333">Venezuela |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="col_1">
+                
+                    <h3>Europe</h3>
+                    <ul>
+                        <li><a href="https://www.biovea.com/be"><img src="images/splash-page/be.png" border="0"/> <font color="#333333">Belgique |</font> <font color="#2c63a9">Français</font></a></li>
+                         <li><a href="https://www.biovea.com/be_nl"><img src="images/splash-page/be.png" border="0"/> <font color="#333333">België |</font> <font color="#2c63a9">Nederlands</font></a></li>
+                          <li><a href="https://www.biovea.bg/"><img src="images/splash-page/bg.png" border="0"/> <font color="#333333">България |</font> <font color="#2c63a9">
+български</font></a></li>
+                        <li><a href="https://www.biovea.com/cy"><img src="images/splash-page/cy.png" border="0"/> <font color="#333333">Cyprus |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/cz"><img src="images/splash-page/cz.png" border="0"/> <font color="#333333">Czech Republic |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/dk"><img src="images/splash-page/dk.png" border="0"/> <font color="#333333">Denmark |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/dk_da"><img src="images/splash-page/dk.png" border="0"/> <font color="#333333">Danmark |</font> <font color="#2c63a9">Dansk</font></a></li>
+                        <li><a href="https://www.biovea.com/de"><img src="images/splash-page/de.png" border="0"/> <font color="#333333">Deutschland |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                        <li><a href="https://www.biovea.com/es"><img src="images/splash-page/es.png" border="0"/> <font color="#333333">España |</font> <font color="#2c63a9">Español</font></a></li>
+                        <li><a href="https://www.biovea.com/fi"><img src="images/splash-page/fi.png" border="0"/> <font color="#333333">Finland |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/fr"><img src="images/splash-page/fr.png" border="0"/> <font color="#333333">France |</font> <font color="#2c63a9">Français</font></a></li>
+                        <li><a href="https://www.biovea.com/gr"><img src="images/splash-page/gr.png" border="0"/> <font color="#333333">Greece |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/hu"><img src="images/splash-page/hu.png" border="0"/> <font color="#333333">Hungary |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/ie"><img src="images/splash-page/ie.png" border="0"/> <font color="#333333">Ireland |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/it"><img src="images/splash-page/it.png" border="0"/> <font color="#333333">Italia |</font> <font color="#2c63a9">Italiano</font></a></li>
+                        <li><a href="https://www.biovea.com/nl"><img src="images/splash-page/nl.png" border="0"/> <font color="#333333">Netherlands |</font> <font color="#2c63a9">English</font></a></li>
+                         <li><a href="https://www.biovea.com/nl_nl"><img src="images/splash-page/nl.png" border="0"/> <font color="#333333">Nederland |</font> <font color="#2c63a9">Nederlands</font></a></li>
+                        <li><a href="https://www.biovea.com/no"><img src="images/splash-page/no.png" border="0"/> <font color="#333333">Norway |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/at"><img src="images/splash-page/at.png" border="0"/> <font color="#333333">Österreich |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                        <li><a href="https://www.biovea.com/pl"><img src="images/splash-page/pl.png" border="0"/> <font color="#333333">Polska |</font> <font color="#2c63a9">Polski</font></a></li>
+                        <li><a href="https://www.biovea.com/pt"><img src="images/splash-page/pt.png" border="0"/> <font color="#333333">Portugal |</font> <font color="#2c63a9">Português</font></a></li>
+                        <li><a href="https://www.biovea.com/eu"><img src="images/splash-page/europeanunion.png" border="0"/> <font color="#333333">Rest of Europe |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/ro"><img src="images/splash-page/ro.png" border="0"/> <font color="#333333">Romania |</font> <font color="#2c63a9">English</font></a></li>                      <li><a href="https://www.biovea.com/ru"><img src="images/splash-page/ru.png" border="0"/> <font color="#333333">Russia |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/si"><img src="images/splash-page/si.png" border="0"/> <font color="#333333">Slovenia |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/se"><img src="images/splash-page/se.png" border="0"/> <font color="#333333">Sweden |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/ch/de"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Schweiz |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                        <li><a href="https://www.biovea.com/ch/fr"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Suisse |</font> <font color="#2c63a9">Fran&ccedil;ais</font></a></li>
+                        <li><a href="https://www.biovea.com/ch/it"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Svizzera |</font> <font color="#2c63a9">Italiano</font></a></li>
+                        <li><a href="https://www.biovea.com/tr"><img src="images/splash-page/tr.png" border="0"/> <font color="#333333">Turkey |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/uk"><img src="images/splash-page/uk.png" border="0"/> <font color="#333333">UK |</font> <font color="#2c63a9">English</font></a></li>
+                    </ul>
+                    
+                </div>
+                
+                
+                <div class="col_1">
+                
+                    <h3>Africa, Middle East &amp; Asia Pacific</h3>
+                    <ul>
+                        <li><a href="https://www.biovea.com/au"><img src="images/splash-page/au.png" border="0"/> <font color="#333333">Australia |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/eg"><img src="images/splash-page/eg.png" border="0"/> <font color="#333333">Egypt |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/hk"><img src="images/splash-page/hk.png" border="0"/> <font color="#333333">Hong Kong |</font> <font color="#2c63a9">English</font></a></li>
+                       <!-- <li><a href="https://biovea.tmall.hk/"><img src="images/splash-page/hk.png" border="0"/> <font color="#333333">香港 |</font> <font color="#2c63a9">中国 </font></a></li>-->
+                        
+                        
+                        
+                        <li><a href="https://www.biovea.com/in"><img src="images/splash-page/in.png" border="0"/> <font color="#333333">India |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/id"><img src="images/splash-page/id.png" border="0"/> <font color="#333333">Indonesia |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/il"><img src="images/splash-page/il.png" border="0"/> <font color="#333333">Israel |</font> <font color="#2c63a9">English</font></a></li>
+                        
+                        <li><a href="https://www.biovea.com/kw"><img src="images/splash-page/kw.png" border="0"/> <font color="#333333">Kuwait |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/my"><img src="images/splash-page/my.png" border="0"/> <font color="#333333">Malaysia |</font> <font color="#2c63a9">English</font></a></li>
+                        <!-- <li><a href="https://www.biovea.com/jp"><img src="images/splash-page/jp.png" border="0"/> <font color="#333333">日本 |</font> <font color="#2c63a9">日本語</font></a></li>-->
+                        <li><a href="https://www.biovea.com/nz"><img src="images/splash-page/nz.png" border="0"/> <font color="#333333">New Zealand |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/om"><img src="images/splash-page/om.png" border="0"/> <font color="#333333">Oman |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/ph"><img src="images/splash-page/ph.png" border="0"/> <font color="#333333">Philippines |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/qa"><img src="images/splash-page/qa.png" border="0"/> <font color="#333333">Qatar |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/kr"><img src="images/splash-page/kr.png" border="0"/> <font color="#333333">Republic of Korea |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/kr_ko"><img src="images/splash-page/kr.png" border="0"/> <font color="#333333">대한민국 |</font> <font color="#2c63a9">한국어</font></a></li>
+                        <li><a href="https://www.biovea.com/sa"><img src="images/splash-page/sa.png" border="0"/> <font color="#333333">Saudi Arabia |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/sg"><img src="images/splash-page/sg.png" border="0"/> <font color="#333333">Singapore |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="http://www.biovea.co.za/"><img src="images/splash-page/za.png" border="0"/> <font color="#333333">South Africa |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/tw"><img src="images/splash-page/tw.png" border="0"/> <font color="#333333">Taiwan |</font> <font color="#2c63a9">English</font></a></li>  
+                        <li><a href="https://www.biovea.com/th"><img src="images/splash-page/th.png" border="0"/> <font color="#333333"> Thailand |</font> <font color="#2c63a9">English</font></a></li>                          
+                        <li><a href="https://www.biovea.com/ae"><img src="images/splash-page/ae.png" border="0"/> <font color="#333333"> United Arab Emirates |</font> <font color="#2c63a9">English</font></a></li>
+                        <li><a href="https://www.biovea.com/vn"><img src="images/splash-page/vn.png" border="0"/> <font color="#333333"> Vietnam |</font> <font color="#2c63a9">English</font></a></li>
+                    </ul>
+                    
+                </div>
+                
+            
+            </div>
+            
+            
+            <!-- We decided to not display this due to aesthetics
+            <div id="footer">
+            <h1>Buy Supplements Online Worldwide</h1>
+            <h2>Order Vitamins, Hair Loss & Beauty Supplies</h2>
+            </div>-->
+
+        </div>
+
+    </div>
+    
+    
+    <div class="mainWrapper neulook hide">
+    
+        <div class="header_bkg" align="center">
+        
+            <div class="header_logo">
+                <div class="slider_container">
+                    <div id="slide4" class="photo_1"></div>
+                    <div id="slide6" class="photo_2"></div>
+                    <div id="slide5" class="photo_3"></div>
+                </div>
+            </div>
+        
+        </div>
+        
+
+        <div style="padding-top:125px;width:950px;margin:0 auto;">
+        
+            <ul id="menu">
+            
+                <li><a href="#" class="drop"></a>
+                
+                <div class="dropdown_4columns clearfix">
+                
+                    <div class="col_1">
+                    
+                        <h3>Americas</h3>
+                        <ul>
+                          <li><a href="https://www.neulook.com/bo"><img src="images/splash-page/bo.png" border="0"/> <font color="#333333">Bolivia |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/br"><img src="images/splash-page/br.png" border="0"/> <font color="#333333">Brasil |</font> <font color="#2c63a9">Português</font></a></li>
+                          <li><a href="https://www.neulook.com/ca/en"><img src="images/splash-page/ca.png" border="0"/> <font color="#333333">Canada |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/ca/fr"><img src="images/splash-page/ca.png" border="0"/> <font color="#333333">Canada |</font> <font color="#2c63a9">Français</font></a></li>
+                          <li><a href="https://www.neulook.com/cl"><img src="images/splash-page/cl.png" border="0"/> <font color="#333333">Chile |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/co"><img src="images/splash-page/co.png" border="0"/> <font color="#333333">Colombia |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/do"><img src="images/splash-page/do.png" border="0"/> <font color="#333333">Dominican Republic |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/ec"><img src="images/splash-page/ec.png" border="0"/> <font color="#333333">Ecuador |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/mx"><img src="images/splash-page/mx.png" border="0"/> <font color="#333333">Mexico |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/py"><img src="images/splash-page/py.png" border="0"/> <font color="#333333">Paraguay |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/pe"><img src="images/splash-page/pe.png" border="0"/> <font color="#333333">Peru |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/us"><img src="images/splash-page/us.png" border="0"/> <font color="#333333">USA |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/us_es"><img src="images/splash-page/us.png" border="0"/> <font color="#333333">USA |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/uy"><img src="images/splash-page/uy.png" border="0"/> <font color="#333333">Uruguay |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                          <li><a href="https://www.neulook.com/ve"><img src="images/splash-page/ve.png" border="0"/> <font color="#333333">Venezuela |</font> <font color="#2c63a9">Espa&ntilde;ol</font></a></li>
+                      </ul>
+                    </div>
+                    
+                    
+                    <div class="col_1">
+                    
+                        <h3>Europe</h3>
+                        <ul>
+                          <li><a href="https://www.neulook.com/be"><img src="images/splash-page/be.png" border="0"/> <font color="#333333">Belgique |</font> <font color="#2c63a9">Français</font></a></li>
+                           <li><a href="https://www.neulook.com/be_nl"><img src="images/splash-page/be.png" border="0"/> <font color="#333333">België |</font> <font color="#2c63a9">Nederlands</font></a></li>
+                          <li><a href="https://www.neulook.com/cy"><img src="images/splash-page/cy.png" border="0"/> <font color="#333333">Cyprus |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/cz"><img src="images/splash-page/cz.png" border="0"/> <font color="#333333">Czech Republic |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/dk"><img src="images/splash-page/dk.png" border="0"/> <font color="#333333">Denmark |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/dk_da"><img src="images/splash-page/dk.png" border="0"/> <font color="#333333">Danmark |</font> <font color="#2c63a9">Dansk</font></a></li>
+                          <li><a href="https://www.neulook.com/de"><img src="images/splash-page/de.png" border="0"/> <font color="#333333">Deutschland |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                          <li><a href="https://www.neulook.com/es"><img src="images/splash-page/es.png" border="0"/> <font color="#333333">España |</font> <font color="#2c63a9">Español</font></a></li>
+                          <li><a href="https://www.neulook.com/fi"><img src="images/splash-page/fi.png" border="0"/> <font color="#333333">Finland |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/fr"><img src="images/splash-page/fr.png" border="0"/> <font color="#333333">France |</font> <font color="#2c63a9">Français</font></a></li>
+                          <li><a href="https://www.neulook.com/gr"><img src="images/splash-page/gr.png" border="0"/> <font color="#333333">Greece |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/hu"><img src="images/splash-page/hu.png" border="0"/> <font color="#333333">Hungary |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/ie"><img src="images/splash-page/ie.png" border="0"/> <font color="#333333">Ireland |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/it"><img src="images/splash-page/it.png" border="0"/> <font color="#333333">Italia |</font> <font color="#2c63a9">Italiano</font></a></li>
+                          <li><a href="https://www.neulook.com/nl"><img src="images/splash-page/nl.png" border="0"/> <font color="#333333">Netherlands |</font> <font color="#2c63a9">English</font></a></li>
+                            <li><a href="https://www.neulook.com/nl_nl"><img src="images/splash-page/nl.png" border="0"/> <font color="#333333">Nederland |</font> <font color="#2c63a9">Nederlands</font></a></li>
+                          <li><a href="https://www.neulook.com/no"><img src="images/splash-page/no.png" border="0"/> <font color="#333333">Norway |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/at"><img src="images/splash-page/at.png" border="0"/> <font color="#333333">Österreich |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                          <li><a href="https://www.neulook.com/pl"><img src="images/splash-page/pl.png" border="0"/> <font color="#333333">Polska |</font> <font color="#2c63a9">Polski</font></a></li>
+                          <li><a href="https://www.neulook.com/pt"><img src="images/splash-page/pt.png" border="0"/> <font color="#333333">Portugal |</font> <font color="#2c63a9">Português</font></a></li>
+                          <li><a href="https://www.neulook.com/eu"><img src="images/splash-page/europeanunion.png" border="0"/> <font color="#333333">Rest of Europe |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/ro"><img src="images/splash-page/ro.png" border="0"/> <font color="#333333">Romania |</font> <font color="#2c63a9">English</font></a></li>     
+                          <li><a href="https://www.neulook.com/ru"><img src="images/splash-page/ru.png" border="0"/> <font color="#333333">Russia |</font> <font color="#2c63a9">English</font></a></li>                  
+                          <li><a href="https://www.neulook.com/si"><img src="images/splash-page/si.png" border="0"/> <font color="#333333">Slovenia |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/se"><img src="images/splash-page/se.png" border="0"/> <font color="#333333">Sweden |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/ch/de"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Schweiz |</font> <font color="#2c63a9">Deutsch</font></a></li>
+                          <li><a href="https://www.neulook.com/ch/fr"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Suisse |</font> <font color="#2c63a9">Fran&ccedil;ais</font></a></li>
+                          <li><a href="https://www.neulook.com/ch/it"><img src="images/splash-page/ch.png" border="0"/> <font color="#333333">Svizzera |</font> <font color="#2c63a9">Italiano</font></a></li>
+                          <li><a href="https://www.neulook.com/tr"><img src="images/splash-page/tr.png" border="0"/> <font color="#333333">Turkey |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/uk"><img src="images/splash-page/uk.png" border="0"/> <font color="#333333">UK |</font> <font color="#2c63a9">English</font></a></li>
+                      </ul>
+                        
+                    </div>
+                    
+                    
+                    <div class="col_1">
+                    
+                        <h3>Africa, Middle East & Asia Pacific</h3>
+                        <ul>
+                          <li><a href="https://www.neulook.com/au"><img src="images/splash-page/au.png" border="0"/> <font color="#333333">Australia |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/eg"><img src="images/splash-page/eg.png" border="0"/> <font color="#333333">Egypt |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/hk"><img src="images/splash-page/hk.png" border="0"/> <font color="#333333">Hong Kong |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/in"><img src="images/splash-page/in.png" border="0"/> <font color="#333333">India |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/id"><img src="images/splash-page/id.png" border="0"/> <font color="#333333">Indonesia |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/il"><img src="images/splash-page/il.png" border="0"/> <font color="#333333">Israel |</font> <font color="#2c63a9">English</font></a></li>
+                          
+                          <li><a href="https://www.neulook.com/kw"><img src="images/splash-page/kw.png" border="0"/> <font color="#333333">Kuwait |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/my"><img src="images/splash-page/my.png" border="0"/> <font color="#333333">Malaysia |</font> <font color="#2c63a9">English</font></a></li>
+                          <!-- <li><a href="https://www.neulook.com/jp"><img src="images/splash-page/jp.png" border="0"/> <font color="#333333">日本 |</font> <font color="#2c63a9">日本語</font></a></li>-->
+                          <li><a href="https://www.neulook.com/nz"><img src="images/splash-page/nz.png" border="0"/> <font color="#333333">New Zealand |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/om"><img src="images/splash-page/om.png" border="0"/> <font color="#333333">Oman |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/ph"><img src="images/splash-page/ph.png" border="0"/> <font color="#333333">Philippines |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/qa"><img src="images/splash-page/qa.png" border="0"/> <font color="#333333">Qatar |</font> <font color="#2c63a9">English</font></a></li>                     
+                          <li><a href="https://www.neulook.com/kr"><img src="images/splash-page/kr.png" border="0"/> <font color="#333333">Republic of Korea |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/kr_ko"><img src="images/splash-page/kr.png" border="0"/> <font color="#333333">대한민국 |</font> <font color="#2c63a9">한국어</font></a></li>
+                          <li><a href="https://www.neulook.com/sa"><img src="images/splash-page/sa.png" border="0"/> <font color="#333333">Saudi Arabia |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/sg"><img src="images/splash-page/sg.png" border="0"/> <font color="#333333">Singapore |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/za"><img src="images/splash-page/za.png" border="0"/> <font color="#333333">South Africa |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/tw"><img src="images/splash-page/tw.png" border="0"/> <font color="#333333">Taiwan |</font> <font color="#2c63a9">English</font></a></li>  
+                          <li><a href="https://www.neulook.com/th"><img src="images/splash-page/th.png" border="0"/> <font color="#333333"> Thailand |</font> <font color="#2c63a9">English</font></a></li>                          
+                          <li><a href="https://www.neulook.com/ae"><img src="images/splash-page/ae.png" border="0"/> <font color="#333333"> United Arab Emirates |</font> <font color="#2c63a9">English</font></a></li>
+                          <li><a href="https://www.neulook.com/vn"><img src="images/splash-page/vn.png" border="0"/> <font color="#333333"> Vietnam |</font> <font color="#2c63a9">English</font></a></li>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                
+                <!-- We decided to not display this due to aesthetics
+                <div id="footer">
+                <h1>Buy Supplements Online Worldwide</h1>
+                <h2>Order Vitamins, Hair Loss & Beauty Supplies</h2>
+                </div>-->
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                var currentPage = window.location.href;
+                if (currentPage.indexOf("neulook.com") > -1){
+                    jQuery('.mainWrapper.biovea').addClass('hide');
+                    jQuery('.mainWrapper.neulook').removeClass('hide');
+                    
+                    jQuery("#favicon").remove();
+                    jQuery("#favicon").attr("href","faviconNeulook.ico");
+                    jQuery("head").append('<link href="faviconNeulook.ico" rel="shortcut icon" type="image/x-icon" />');
+                    
+                    document.title = 'Neulook | Beauty, Fragrances, Makeup and Skin Care Products';
+                    jQuery('meta[name=description]').attr("content", "Neulook.com is a leading online retailer for beauty, fragrances, makeup and skin care products. Shop the top brands and find the latest trends in beauty.");
+                }
+            });
+        </script>
+
+</body>
+</html>

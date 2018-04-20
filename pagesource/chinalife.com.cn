@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html>
+<head></head>
+<body>
+
+<script type="text/javascript" src="https://www.chinalife.com.cn/online/js/jquery-1.6.4.js"></script>
+<script type="text/javascript" src="https://www.chinalife.com.cn/zhuzhan/uiFramework/commonResource/js/dcs_tag.js"></script> 
+<script>
+
+	var URL = window.location.href;
+
+	if(URL.indexOf("ChinalifeLogo") > -1){
+
+		window.location.href = "http://tst.chinalife.com.cn/ChinalifeLogo/index.html";
+
+	} else if(URL.indexOf("m.chinalife.com.cn") > -1) {
+
+		window.location.href = "http://m.chinalife.com.cn/mobile/common/wap/index.do";
+
+	} else if(URL.indexOf("wap.chinalife.com.cn") > -1) {
+
+		window.location.href = "http://m.chinalife.com.cn/mobile/common/wap/index.do";
+
+	} else if(URL.indexOf("app.chinalife.com.cn") > -1) {
+
+		window.location.href = "http://www.chinalife.com.cn/online/cms/web/appdown.html";
+
+	} else if(URL.indexOf("login.chinalife.com.cn") > -1) {
+
+		window.location.href = "https://www.chinalife.com.cn/casServer/login";
+
+	} else if(URL.indexOf("chinalife.com.cn") > -1) {
+
+		isM();
+
+	} else {
+
+		window.location.href = "https://www.chinalife.com.cn/zhuzhan/index/";
+
+	}
+	
+	function isM() {
+		try{
+			var ua = window.navigator.userAgent,
+			isAndroid = /(?:Android)/.test(ua),
+			isFireFox = /(?:Firefox)/.test(ua),
+			isIpad = /(?:iPad|PlayBook)/.test(ua),
+			isTablet = /(?:iPad|PlayBook)/.test(ua)||(isFireFox && /(?:Tablet)/.test(ua)),
+			isPhone = /(?:iPhone)/.test(ua) && !isTablet;
+			var osVersion = isAndroid ? 'android' : isPhone ? 'ios' : isIpad ? 'ipad':'unknow';
+			if(osVersion =='android' || osVersion =='ios'){
+				/**get dev width*/
+				var deviceWidth = window.screen.width;
+				/**get dev height*/
+				var deviceHeight = window.screen.height;
+				/**get dev resolution*/
+				var devPix = window.devicePixelRatio;
+				var devReso = (deviceWidth*devPix)+"*"+(deviceHeight*devPix);
+				/**get os version by user agent infos*/
+				 var str= ua.toLowerCase(); 
+					var ver=str.match(/cpu iphone os (.*?) like mac os/);
+					if(ver){
+						osVersion=osVersion+ver[1].replace(/_/g,".");
+					}
+					if(ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1){
+						var u = ua.indexOf('Android');
+						var num = ua.slice(u+8);
+						num= num.split(";")[0];
+						osVersion=osVersion+num;
+					}
+					//console.log("ajax begin");
+					/**ajax check is or not shunt*/
+					$.ajax({
+						type:'POST',
+						async:false,
+						url:'/online/cn/com/chinalife/nocar/checkShunt.do',//project name
+						dataType:'json',
+						data:{"devReso":devReso,"osVersion":osVersion},
+						success:function(data){
+							if(data == "0"){
+								window.location.href = "http://m.chinalife.com.cn/mobile/common/wap/index.do";
+							}else{
+								//console.log("not configured");
+								window.location.href = "https://www.chinalife.com.cn/zhuzhan/index/";
+							}
+						},
+						error:function(){
+							//console.log("ajax error");
+							window.location.href = "https://www.chinalife.com.cn/zhuzhan/index/";
+						}
+					});
+			}else {
+				//console.log("pc");
+				window.location.href="https://www.chinalife.com.cn/zhuzhan/index/";
+			} 
+		}catch(exception){
+			//console.log("exception block");
+			window.location.href="https://www.chinalife.com.cn/zhuzhan/index/";
+		}
+	}
+</script> 
+
+</body>
+</html>

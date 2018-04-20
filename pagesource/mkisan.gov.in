@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="keywords" content="mkisan,ussd,pull sms, push sms, IVRS,KSEWA,Farmer Registration" /><meta name="description" content="This Website contains ussd,pull sms, push sms, IVRS,KSEWA,Farmer Registration" /><meta name="google-translate-customization" content="f290ba661cff9c2c-fa9bfd4d601b76f4-g5c4cdc9367c52b35-11" /><title>
+	mKisan:A Portal of Government of India for Farmer Centric Mobile Based Services
+</title><link href="css/styles.css" rel="stylesheet" type="text/css" />
+      <script src="api/live.js" type="text/javascript"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png" /><link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="js/js-image-slider.js" type="text/javascript"></script>
+    <!--Transaction Script-->
+    <link href="css/styles_Tran.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/jscounter.js"></script>
+
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63666666-2', 'auto');
+        ga('send', 'pageview');
+ 
+</script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("input[Id*='hfToken']").val("");
+
+            f_v_1 = '';
+            f_v_2 = '';
+            f_v_3 = '';
+
+            s_v_1 = '';
+            s_v_2 = '';
+            s_v_3 = '';
+
+
+            setInterval(function () {
+                t_v_1 = f_v_1;
+                t_v_2 = f_v_2;
+                t_v_3 = f_v_3;
+
+                /*
+                L_SMS
+                V_SMS
+                L_MSG
+                V_MSG                
+                L_ADV
+                V_ADV
+                */
+
+                var counter1 = new JSCounter.NumberCounter("V_SMS", { start: f_v_1, pretoken: false, comma: true, previousnumber: f_v_1, firsttimecounter: 0 });
+                counter1.render();
+
+                var counter2 = new JSCounter.NumberCounter("V_MSG", { start: f_v_2, pretoken: false, comma: true, previousnumber: f_v_2, firsttimecounter: 0 });
+                counter2.render();
+
+                var counter3 = new JSCounter.NumberCounter("V_ADV", { start: f_v_3, pretoken: false, comma: true, previousnumber: f_v_3, firsttimecounter: 0 });
+                counter3.render();
+
+                $.post("api/Counter.ashx", {}, function (response) {
+
+                    //"No.of  SMSs:54546456546-No.of Messages:64564655-Advisory Count:56465464654";
+                    var val = response.split('-');
+
+                    //   alert('aa-' + val[1]);
+                    //   alert('bb-' + val[2]);
+                    //   alert('cc-' + val[3]);
+
+                    var v1 = val[1].split(':');
+                    var v2 = val[2].split(':');
+                    var v3 = val[3].split(':');
+
+                    // alert('T1-' + v1[0]);
+                    // alert('T2-' + v2[0]);
+                    // alert('T3-' + v3[0]);
+                    //
+                    // alert('v1-' + v1[1]);
+                    // alert('V2-' + v2[1]);
+                    // alert('V3-' + v3[1]);
+
+
+                    counter1.setNumber(parseInt(v1[1]));
+                    counter2.setNumber(parseInt(v2[1]));
+                    counter3.setNumber(parseInt(v3[1]));
+
+
+                    f_v_1 = parseInt(v1[1]);
+                    f_v_2 = parseInt(v2[1]);
+                    f_v_3 = parseInt(v3[1]);
+
+
+                });
+
+            }, 4000);
+
+
+
+
+
+
+            //Declare a Counter For Month
+            var counter1 = new JSCounter.NumberCounter("V_SMS", { start: '', pretoken: false, comma: true });
+            counter1.render();
+            var counter2 = new JSCounter.NumberCounter("V_MSG", { start: '', pretoken: false, comma: true });
+            counter2.render();
+            var counter3 = new JSCounter.NumberCounter("V_ADV", { start: '', pretoken: false, comma: true });
+            counter3.render();
+
+            $.post("CodeFile/TransactionHandler.ashx", {}, function (response) {
+
+
+                var val = response.split('-');
+
+                var v1 = val[1].split(':');
+                var v2 = val[2].split(':');
+                var v3 = val[3].split(':');
+
+                //alert(v1);
+                //alert(v2);
+                //alert(v3);
+
+
+                counter1.setNumber(parseInt(v1[1]));
+                counter2.setNumber(parseInt(v2[1]));
+                counter3.setNumber(parseInt(v3[1]));
+
+                //$("#L_SMS").text(v1[0]);
+                //$("#L_MSG").text(v2[0]);
+                //$("#L_ADV").text(v3[0]);
+
+                f_v_1 = parseInt(v1[1]);
+                f_v_2 = parseInt(v2[1]);
+                f_v_3 = parseInt(v3[1]);
+
+            });
+
+        });
+
+        
+    </script>
+    <!--Scroller Script-->
+    <link rel="stylesheet" type="text/css" href="skins/tango/skin.css" />
+    <script type="text/javascript" src="lib/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.jcarousel.js"></script>
+    <script type="text/javascript">
+        function showDescription(msg) {
+            if (msg)
+                document.getElementById("description").innerHTML = msg;
+            else
+                document.getElementById("description").innerHTML = "Sample Image";
+        }
+        function removeDescription() {
+            document.getElementById("description").innerHTML = "";
+        }
+
+        function mycarousel_initCallback(carousel) {
+            // Disable autoscrolling if the user clicks the prev or next button.
+            carousel.buttonNext.bind('click', function () {
+                carousel.startAuto(0);
+            });
+
+            carousel.buttonPrev.bind('click', function () {
+                carousel.startAuto(0);
+            });
+
+            // Pause autoscrolling if the user moves with the cursor over the clip.
+            carousel.clip.hover(function () {
+                carousel.stopAuto();
+            }, function () {
+                carousel.startAuto();
+            });
+        };
+
+        jQuery(document).ready(function () {
+            jQuery('#mycarousel').jcarousel({
+                auto: 2,
+                wrap: 'last',
+                initCallback: mycarousel_initCallback
+            });
+        });
+
+    </script>
+    <!--Scroller Script End-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#nav li").hover(
+	function () {
+	    $(this).children('ul').hide();
+	    $(this).children('ul').slideDown('fast');
+	},
+	function () {
+	    $('ul', this).slideUp('fast');
+	});
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#incfont').click(function () {
+                curSize = parseInt($('#maincontainer').css('font-size')) + 2;
+                if (curSize != 30 || curSize >= 1)
+                    $('#maincontainer').css('font-size', curSize);
+            });
+
+            $('#normtext').click(function () {
+
+                $('#maincontainer').css('font-size', 16);
+            });
+
+            $('#decfont').click(function () {
+                curSize = parseInt($('#maincontainer').css('font-size')) - 2;
+                if (curSize >= 12)
+                    $('#maincontainer').css('font-size', curSize);
+            });
+        });
+    </script>
+
+
+<script type="text/javascript">
+    $('#SiteId').change(function () {
+        location.href = 'http://mkisan.gov.in/' + $(this).val() + '/';
+    });
+</script>
+
+
+<style type="text/css">
+marquee{margin-top:5px;margin-bottom:-30px;width:90%;}
+</style>
+<style type="text/css">
+    img {
+        border:0;
+    }
+</style>
+<script type="text/javascript" src="js/xbMarquee.js"></script>
+<script type="text/javascript">
+<!--    //set the marquee parameters
+    function init() { rtl_marquee.start(); }
+    var rtl_marquee_Text = '<a href="http://mkisan.gov.in/downloadmobileapps.aspx" title="Kisan Suvidha App" style="font-family:Arial; color:#3b5998;font-size:14px; font-weight:bold; margin-top:5px;margin-bottom:0;">Click here to download Kisan Suvidha App</a><img src="images/new.gif" alt="new" />';
+    var rtl_marquee_Direction = 'left';
+    var rtl_marquee_Contents = '<span style="font-family:Comic Sans MS;font-size:12pt;white-space:nowrap;position:relative;top:255px;">' + rtl_marquee_Text + '</span>';
+    rtl_marquee = new xbMarquee('rtl_marquee', '0', '60%', 6, 100, rtl_marquee_Direction, 'scroll', rtl_marquee_Contents);
+    window.setTimeout(init, 200);
+   // -->
+</script>
+
+    
+
+
+    <script language="JavaScript" type="text/javascript" src="advs/js/TrimJS.js"></script>
+    <script language="JavaScript" type="text/javascript" src="advs/js/md5.js"></script>
+
+
+    <script language="JavaScript" type="text/javascript">
+        function Okay() {
+
+            var hash1, hash2;
+            if (document.getElementById('ctl00_ContentPlaceHolderLogin_TxbUid').value != "") {
+            if (document.getElementById('ctl00_ContentPlaceHolderLogin_TBPwd').value != "") {
+                hash1 = hex_md5(Trim(document.getElementById('ctl00_ContentPlaceHolderLogin_TBPwd').value));
+                hash2 = hex_md5(document.getElementById('ctl00_ContentPlaceHolderLogin_PWSalt').value + hash1);
+                document.getElementById('ctl00_ContentPlaceHolderLogin_TBPwd').value = hash2;
+                return true;
+            }
+            else {
+                alert('Please enter password.');
+                return true;
+            }
+        }
+        else {
+            alert('Enter a valid Login-ID and Password.');
+            document.getElementById('ctl00_ContentPlaceHolderLogin_TxbUid').value = '';
+            document.getElementById('ctl00_ContentPlaceHolderLogin_TBPwd').value = '';
+            document.getElementById('ctl00_ContentPlaceHolderLogin_TxbUid').focus();
+            return false;
+        }
+
+    }
+
+    function ResetImage() {
+        document.forms[0].T2.value = '';
+        T2.Focus();
+        var img = document.getElementById("Image_CaptchaCode");
+        img.src = "CaptchaImg.ashx?query=" + Math.random();
+        //Image_CaptchaCode.src = "CImage.aspx";
+    }
+
+    </script>
+    <style type="text/css">
+        .noborder{border:none;}
+    </style>
+</head>
+<body onload="ScrollingMarquee()">
+    <form method="post" action="" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="WR4Ie9WiDTH7d3xABuPBOspHcE6HEZ2i0XOMCWwRGQ2Dd5NGdD+UCDkKaP2GaU+OSpJ120pERfo342La/TyKggT/fdORYkp0zMZ0poDEcnRHi0vdWg4t0SCgysPAbGs4Al6gpyjtv4sh1wE6th7mLHWfD8s9FNs04nHSFKtHxXRRsF9q6BK47/KewnTcjdfAwq98Uf3MMEwPAUqx/3ZCJXN7gJNVrLXyUYCcqnWZqmwYy3e3X/nCpKFK4Yiqhd72bpYhWg==" />
+
+
+<script src="/ScriptResource.axd?d=KLcN3h8gsiP-3v8xzZzA0tdO9fx7-SkJ7aL7BurpL60mv8Gd9N_koC2ljPgsd2Z8wg3Cvd5Zt1M8cY6H0ufTF_m5XQwG5JVa9ooZeSed8TaL0iu9M6qpJZJEmuayqUFIAq_YjQ2&amp;t=34a51159" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+    <div class="top">
+        <div id="accessibility_pan">
+            <ul>
+                <li><a href="#skip" title="Skip to Main Content">Skip to Main Content</a></li>
+                <li><a href="screenreaderaccess.aspx" title="Screen Reader Access" target="_self">Screen Reader Access</a></li>
+                <li class="img"><a href="#" title="Decrease Text">
+                    <img id="decfont" src="images/a_decrease.png" width="20" height="16" border="0" alt="Decrease Text" /></a></li>
+                <li class="pic"><a href="#" title="Normal Text">
+                    <img id="normtext" src="images/normal_icon.png" width="20" height="16" border="0" alt="Normal Text" /></a></li>
+                <li><a href="#" title="Increase Text">
+                    <img id="incfont" src="images/a_increase.png" width="20" height="16" border="0" alt="Increase Text" /></a></li>
+                
+                <li><a href="Default.aspx" title="Normal contrast" target="_self">
+                    <img src="images/normal_icon.png" width="20" height="16" border="0" alt="Normal contrast" /></a></li>
+                <li><a href="hindi/" title="This Website in Hindi (External website that opens in a new window)"> हिंदी में</a></li>
+               
+
+                <li><a href="https://twitter.com/AgriGoI" title="Follow us on Twitter" target="_blank">Follow us on Twitter<img src="images/twitter.png" width="18px" height="18px" alt="Follow us on Twitter" /></a></li>
+                  
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id="sliderFrame">
+        <div id="slider">
+            <img src="images/image-slider-1.jpg" alt="mkisan portal image slide 1" />
+            <img src="images/image-slider-2.jpg" alt="mkisan portal image slide 2" />
+            <img src="images/image-slider-3.jpg" alt="mkisan portal image slide 3" />
+            <img src="images/image-slider-4.jpg" alt="mkisan portal image slide 4" />
+            <img src="images/image-slider-5.jpg" alt="mkisan portal image slide 5" />
+            <img src="images/image-slider-6.jpg" alt="mkisan portal image slide 6" />
+            <img src="images/image-slider-7.jpg" alt="mkisan portal image slide 7" />
+            <img src="images/image-slider-8.jpg" alt="mkisan portal image slide 8" />
+            <img src="images/image-slider-9.jpg" alt="mkisan portal image slide 9" />
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <a id="skip" name="skip"></a>
+    <ul id="nav">
+        <li class="home"><a href="http://mkisan.gov.in/" title="Home" target="_self"><span style="visibility:hidden">Home</span></a></li>
+        <li class="ussd"><a href="#" title="USSD" target="_blank">USSD</a>
+            <ul>
+                <li><a href="aboutussd.aspx" title="About USSD" target="_self">About USSD</a></li>
+                <li><a href="ussdapplication.aspx" title="USSD Application">USSD Application</a></li>
+                <li><a href="wbreg.aspx" title="Register for USSD">Register for USSD</a></li>
+            </ul>
+        </li>
+        <li class="pull"><a href="#" title="Pull SMS" target="_blank">Pull SMS</a>
+            <ul>
+                <li><a href="aboutpullsms.aspx" title="About Pull SMS">About Pull SMS</a></li>
+                <li><a href="aboutussdstructureandcode.aspx" title="Structure &amp; Codes">Structure
+                    &amp; Codes</a></li>
+
+                    
+            </ul>
+        </li>
+        <li class="ivrs"><a href="#" title="IVRS" target="_self">IVRS</a>
+            <ul>
+                <li><a href="aboutivrs.aspx" title="About IVRS">About IVRS</a></li>
+                <li><a href="#" title="IVRS Dashboard">IVRS Dashboard</a>
+                    <ul>
+                        <li><a href="KCC/AgentRating.aspx" title="Agent Rating">Agent Rating</a></li>
+                        <li><a href="KCC/CallResponse.aspx" title="Call Response">Call Response</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="sms"><a href="#" title="Push SMS">Push SMS</a>
+            <ul>
+                <li><a href="pushsms.aspx" title="About Push SMS">About Push SMS</a></li>
+                <li><a href="http://mkisan.gov.in/advs/txtsrch.aspx" title="Search SMS Database"
+                    target="_blank">Search SMS Database</a></li>
+                    <li><a  href="Unsubscribe.aspx" title="Unsubscribe from SMS Advisory Service">Unsubscribe from SMS Advisory Service </a></li>
+            </ul>
+        </li>
+        <li class="kseva"><a href="#" title="Ksewa">Ksewa</a>
+            <ul>
+                <li><a href="aboutksewa.aspx" title="About Ksewa" target="_self">About KSEWA</a></li>
+                <li><a href="ksewa/registrationForm.aspx" title="Register for Ksewa" target="_self">
+                    Register for KSEWA</a></li>
+                <li><a href="ksewa/login.aspx" title="Login for Ksewa" target="_self">Login for KSEWA</a></li>
+                <li><a href="KSewa/AllServices.aspx" title="List of Services" target="_self">List
+                    of Services</a></li>
+            </ul>
+        </li>
+        <li class="kcc"><a href="#" title="KCC">KCC</a>
+            <ul>
+                <li><a href="aboutkcc.aspx" title="About KCC" target="_self">About KCC</a></li>
+                <li><a href="kccfeatures.aspx" title="KCC Locations" target="_self">KCC Locations</a></li>
+                <li><a href="kccnewfeatures.aspx" title="KCC Locations" target="_self">Features of KCC</a></li>
+		<li><a href="KCC/SLDO.aspx" title="KCC Nodal Officers" target="_self">KCC Nodal Officers</a></li>              
+                <li><a href="kccqueryescalationprocess.aspx" title="KCC Locations" target="_self">Query
+                    Escalation Process</a></li>
+                <li><a href="kccescalationmatrix.aspx" title="KCC Locations" target="_self">Implementation
+                    of Escalation Process</a></li>
+                
+                <li><a href="kccstatesinvolvement.aspx" title="KCC Locations" target="_self">Involvement
+                    of States</a></li>
+                
+                <li><a href="KCC/KCCDashboard.aspx" title="KCC Dashboard" target="_self">KCC Dashboard</a></li>
+            </ul>
+        </li>
+        <li class="buyerseller"><a href="#" title="Buyer Seller">Buyer Seller</a>
+            <ul>
+                <li><a href="BREG/Aboutbuyerseller.aspx" title="About Buyer Seller Platform">About Buyer Seller Platform</a></li>
+                <li><a href="BREG/login.aspx" title="Buyers Login">Seller/Buyers Login/Registration</a></li>
+                <li><a href="BREG/BuyerProduct.aspx" title="New Buyer Registration">Selling Product List</a></li>
+            </ul>
+        </li>
+        <li class="mapps"><a href="#" title="Mobile Apps">Mobile Apps</a>
+            <ul>
+                <li><a href="aboutmobileapps.aspx" title="About Mobile Apps" target="_self">About Mobile
+                    Apps</a></li>
+                <li><a href="downloadmobileapps.aspx" title="Downloads" target="_blank">Downloads</a></li>
+                <li><a href="AppDownload.aspx" title="Downloads" target="_blank">APP Logs</a></li>
+            </ul>
+        </li>
+        <li class="contact"><a href="#" title="Reach Us">Reach Us</a>
+            <ul>
+                <li><a href="cntcts.aspx" title="Queries on Portal" target="_self">Queries on Portal</a></li>
+                <li><a href="http://farmer.gov.in/feedback/Default.aspx" title="Feedback/Grievance"
+                    target="_blank">Feedback/Grievance</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="clear">
+    </div>
+    <!--Container-->
+    <div id="maincontainer">
+        <div style="margin:0">
+            <div id="ticker">   </div>   
+        </div>
+        <div id="latestnews">
+            <ul>        
+                <li class="latestnews_icon">
+                    <a href="platinumaward.aspx" title="Web Ratna Awards">mKisan won Platinum Icon in Web Ratna Awards for Innovative use of Technology. Union IT Minister conferred the honour.</a>
+                    
+                </li>
+                <li class="latestnews_icon">
+                    <a href="egovernanceaward.aspx" title="CSI-NIHILENT e-Governance Awards">mKisan received Award of Appreciation in CSI-NIHILENT e-Governance Awards 2013-2014.</a>
+                </li>       
+                <li class="latestnews_icon">
+                    <a href="skoch.aspx" title="SKOCH Gold award">mKisan bagged SKOCH Gold award and Order of Merit 2014. </a>
+                </li>
+            </ul>
+        </div>
+        <div id="leftpnl">
+            <h2 class="textbold1">Search</h2>
+            <div id="google" title="Search">
+                <script type="text/javascript">
+                    (function () {
+                        var cx = '017400244314664739846:8fen_fyhlzw';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                    })();
+                </script>
+                <div class="gcse-search">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="leftpnltop">
+            </div>
+            <div class="leftpnlmiddle">
+                <ul class="aboutus">
+                    <li class="aboutus">
+                        <div>
+                            <a href="aboutmkisan.aspx" title="About mKisan" target="_self">About mKisan</a></div>
+                    </li>
+                    <li class="dashboard">
+                        <div>
+                            <a href="dashboard.aspx" title="Dashboard" target="_blank">Dashboard</a></div>
+                    </li>
+                    <li class="farmerreg">
+                        <div>
+                            <a href="registration.aspx" title="Registration for SMS">Registration for SMS</a></div>
+                    </li>
+                    <li class="testo">
+                        <div>
+                            <a href="testimonials.aspx" title="Accolades">Accolades</a></div>
+                    </li>
+                     <li class="testo">
+                        <div>
+                            <a href="http://mkisan.gov.in/Revised_mKisan_SMS%20Policy.pdf" title="Revised SMS Policy" target="_blank">Revised SMS Policy</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="leftpnlbottom">
+            </div>
+            <h2 class="rss">
+                <a title="RSS Feed" href="http://mkisan.gov.in/advs/rss.aspx" target="_blank">RSS</a></h2>
+            <h2 class="twit">
+                <a title="Twitter" href="https://twitter.com/AgriGoI" target="_blank">Twitter</a></h2>
+            <p class="banner">
+                <a title="https://india.gov.in, The National Portal of India : External website that opens in a new window"
+                    href="https://india.gov.in/" target="_blank">
+                    <img width="158" height="44" alt="https://india.gov.in, The National Portal of India : External website that opens in a new window"
+                        src="images/indiagov.png" />
+                </a>
+            </p>
+            <p class="cssval">
+                <a title="Valid CSS! : External website that opens in a new window" href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+                    <img alt="Valid CSS! : External website that opens in a new window" style="border: 0;
+                        width: 88px; height: 31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" />
+                </a><a title="Valid XHTML! : External website that opens in a new window" href="http://validator.w3.org/check?uri=referer" target="_blank">
+                    <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML! : External website that opens in a new window" height="31" width="88" /></a>
+            </p>
+        </div>
+        <!--middle Pnl-->
+        <div id="middlepnl">
+            <div id="livecounter">
+                <p class="colorwhite">
+                    Since 25th May 2013
+                </p>
+                
+                <span class="textbold">To See this site in languages other than English &amp; Hindi,
+                    Use this</span>
+                <div id="google_translate_element">
+                </div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <div class="clear">
+                </div>
+                <div class="text">
+                    <label  id="L_SMS" class="sinceMnth">No. of SMSs</label>
+                    <div    id="V_SMS" class="l2"></div>
+                </div>
+                <div class="graphics2">                    
+                    <label id="L_MSG" class="since">No. of Messages</label>
+                    <div   id="V_MSG" class="l1"></div>
+                </div>
+                <div class="graphics">
+                    <label  id="L_ADV" class="sinceMnth2">Advisory Count</label>
+                    <div    id="V_ADV" class="l3"></div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="box">
+                <p>
+                    Unleashing the power of mobile in the hands of farmers to get information/advisories
+                    as per his or her preferences in the form of text/voice messages and getting access
+                    to numerous databases even without internet!</p>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="middletop">
+            </div>
+            <div class="middlemiddle">
+                <div style="color: green" id="AAAA">
+                    <img src="images/poster.jpg" width="605" height="350" alt=" " /></div>
+            </div>
+            <div class="middlebottom">
+            </div>
+            <!--Scroll content Start Here-->
+            <div id="wrap">
+                <ul id="mycarousel" class="jcarousel-skin-tango">
+
+ 		            <li><a href="http://www.digitalindia.gov.in/" target="_blank" title="Digital India Programme | Department of Electronics &amp; Information Technology, Government of India"> <img src="images/digitalindia.png" alt="DIgital India Programme" width="210" height="60" border="0" onmouseover="return showDescription('NVSP Portal')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://www.nvsp.in/" target="_blank" title="National Voter's Service Portal"> <img src="images/nvsp.png" alt="NVSP Portal" width="210" height="60" border="0" onmouseover="return showDescription('NVSP Portal')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://farmer.gov.in/" target="_blank" title="Farmer Portal"> <img src="images/farmerportal.png" alt="Farmer Portal" width="210" height="60" border="0" onmouseover="return showDescription('Farmer Portal')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://www.agricoop.nic.in/" target="_blank" title="Department of Agriculture and Cooperation"> <img src="images/dac.png" alt="DAC" width="210" height="60" border="0" onmouseover="return showDescription('DAC')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://seednet.gov.in/" target="_blank" title="SeedNet India"><img src="images/Seed.png" alt="Seednet India" width="210" height="60" border="0" onmouseover="return showDescription('Seed')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://www.nhm.nic.in/" target="_blank" title="National Horticulture Mission"><img src="images/horticulture.png" alt="NHM" width="210" height="60" border="0" onmouseover="return showDescription('NHM')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://www.nfsm.gov.in/" target="_blank" title="National Food Security Mission"><img src="images/nfsm.png" alt="NFSM" width="210" height="60" border="0" onmouseover="return showDescription('NFSM')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href="http://www.icar.org.in/" target="_blank" title="Indian Council of Agricultural Research"><img src="images/icar.png" alt="ICAR" width="210" height="60" border="0" onmouseover="return showDescription('ICAR')" onmouseout="removeDescription()" /></a></li>
+                    <li><a href=" http://nmoop.gov.in" target="_blank" title="Nation Mission on Oilseeds and Oil Palm"><img src="images/NMOOP.png" alt="NMOOP" width="210" height="60" border="0" onmouseover="return showDescription('NMOOP')" onmouseout="removeDescription()" /></a></li>
+                </ul>
+            </div>
+            <div class="clear">
+            </div>
+          
+        </div>
+        <!--Right Pnl-->
+        <div id="rightpnl">
+            <div class="logintop">
+                <h2>
+                    Login Interface</h2>
+            </div>
+            
+    <div class="loginmiddle">
+        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+            <tr>
+                <td class="boldtext">
+                    
+                    User Name
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="ctl00$ContentPlaceHolderLogin$TxbUid" type="text" id="ctl00_ContentPlaceHolderLogin_TxbUid" autocomplete="Off" value="Email or Mobile" onclick="javascript: if (this.value == &#39;Email or Mobile&#39;) { this.value = &#39;&#39;; }" onblur="javascript:if(this.value==&#39;&#39;){this.value=&#39;Email or Mobile&#39;;}" tabindex="1" class="select" />
+                </td>
+            </tr>
+            <tr>
+                <td class="boldtext">Password
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="ctl00$ContentPlaceHolderLogin$TBPwd" type="password" id="ctl00_ContentPlaceHolderLogin_TBPwd" autocomplete="Off" class="password" tabindex="2" />
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <div class="field_container">
+                        <label>
+                        </label>
+                        <div id="ctl00_ContentPlaceHolderLogin_updImageRefresh">
+	
+                                <img id="ctl00_ContentPlaceHolderLogin_Image_CaptchaCode" class="img" src="Advs/CaptchaImg.ashx" alt="Captcha" height="28" width="200" />
+                                <input type="image" name="ctl00$ContentPlaceHolderLogin$ImageButton2" id="ctl00_ContentPlaceHolderLogin_ImageButton2" tabindex="8" title="Change character displayed" class="noborder" src="images/refresh_img.png" onclick="return ResetImage();" style="border-width:0px;" /><br />
+                                <label>
+                                </label>
+                                Evaluate the result of mathematical expression shown in the image.<br />
+                                <input name="ctl00$ContentPlaceHolderLogin$TextBoxImageCode" type="text" id="ctl00_ContentPlaceHolderLogin_TextBoxImageCode" tabindex="3" class="select" />
+                            
+</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <label>
+                        <input type="hidden" name="ctl00$ContentPlaceHolderLogin$PWSalt" id="ctl00_ContentPlaceHolderLogin_PWSalt" value="6365699756709823078867" />
+                    </label>
+                    <input type="image" name="ctl00$ContentPlaceHolderLogin$btnSubmit" id="ctl00_ContentPlaceHolderLogin_btnSubmit" tabindex="4" src="images/submit.jpg" onclick="return Okay();" /><br />
+
+                    <span id="ctl00_ContentPlaceHolderLogin_ErrorLabel" style="color: Red"></span>
+
+                    <br />
+                    <span class="forgot"><a href="advs/frgtpswrd.aspx" target="_self" title="">Forgot Password</a></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="loginbottom">
+        <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+                <td class="manual"><a href="advs/UserManualSMSPortalVer1.pdf" target="_blank">User Manual</a></td>
+            </tr>
+            <tr>
+                <td id="reg"><span class="left"><a href="readme.aspx" target="_self" title="">New User ?</a></span><span class="right"><a href="advs/signup.aspx" target="_self" title="">Click here to Sign Up</a></span></td>
+            </tr>
+        </table>
+    </div>
+
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+   
+    <div id="footer">
+        <div id="footerlinks">
+            <ul class="footermargin">
+                <li><a href="http://mkisan.gov.in/" title="Home Page">Home</a></li>
+                <li><a href="aboutus.aspx" title="About Us">About Us</a></li>
+                <li><a href="help.aspx" title="Help">Help</a></li>
+                <li><a href="rti.aspx" title="RTI">RTI</a></li>
+                <li><a href="terms.aspx" title="Terms and Conditions">Terms and Conditions</a></li>
+                <li><a href="copyright.aspx" title="Copyright Policy">Copyright Policy</a></li>
+                <li><a href="hyperlink.aspx" title="Hyperlinking Policy">Hyperlinking Policy</a></li>
+                <li><a href="privacy.aspx" title="Privacy Policy">Privacy Policy</a></li>
+                <li><a href="sitemap.aspx" title="Sitemap">Sitemap</a></li>
+                <li><a href="accessibility.aspx" title="Accessibility Statement">Accessibility Statement</a></li>
+                <li class="last"><a href="websitepolicy.aspx" title="Website Policy">Website Policy
+                </a></li>
+            </ul>
+        </div>
+        <div id="owner">
+            
+            This website belongs to Department of Agriculture &amp; Cooperation and Farmers Welfare,<br />
+               Ministry of Agriculture and Farmers Welfare, Government
+               of India
+            <strong>Page Last Updated on : </strong>
+            <!--#BeginDate format:Sw1 -->
+            17 August, 2015<!-- #EndDate-->
+        </div>
+     
+    </div>
+    
+    </form>
+</body>
+</html>

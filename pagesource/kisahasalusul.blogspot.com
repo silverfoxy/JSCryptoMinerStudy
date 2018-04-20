@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/3957297643-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<meta content='1x3riE6GSdg-BY_MSAhYPh0HvFyF806HzT6i8lYaRUU' name='google-site-verification'/>
+<meta content='C4E201357F6329DF325883441135A039' name='msvalidate.01'/>
+<meta content='RkdfpQ6D-b-sRShwhcOnI_R1VKE' name='alexaVerifyID'/>
+<link href='https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed' rel='stylesheet'>
+<link href='http://kisahasalusul.blogspot.com/' rel='canonical'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='http://kisahasalusul.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://kisahasalusul.blogspot.com/' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Kisah Asal Usul - Atom" href="http://kisahasalusul.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Kisah Asal Usul - RSS" href="http://kisahasalusul.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Kisah Asal Usul - Atom" href="https://www.blogger.com/feeds/4452789518925547148/posts/default" />
+<link rel="me" href="https://plus.google.com/108578932543147576975" />
+<link rel="openid.server" href="https://www.blogger.com/openid-server.g" />
+<link rel="openid.delegate" href="http://kisahasalusul.blogspot.com/" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://plus.google.com/108578932543147576975' rel='publisher'/>
+<meta content='Asal Usul Sejarah Borobudur, Nenek Moyang, Tari Rumah Adat, Hindu, Budha, Islam, Majapahit, Merah Delima, Pusaka, Pocong, Kuntilanak, Nyi Roro Kidul' name='description'/>
+<meta content='http://kisahasalusul.blogspot.com/' property='og:url'/>
+<meta content='Kisah Asal Usul' property='og:title'/>
+<meta content='Asal Usul Sejarah Borobudur, Nenek Moyang, Tari Rumah Adat, Hindu, Budha, Islam, Majapahit, Merah Delima, Pusaka, Pocong, Kuntilanak, Nyi Roro Kidul' property='og:description'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Kisah Asal Usul</title>
+<meta content='Asal Usul, Pocong, Rumah Adat, Dajjal, Candi Borobudur, Jenglot, Bulu Perindu, Wali Songo, Kisah Nabi, Nyi Roro Kidul, Alat Musik Ritmis, Mata Batin, Tari Piring, Kisah Nabi' name='keywords'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<meta content='indonesian' name='language'/>
+<meta content='id' name='geo.country'/>
+<meta content='indonesia' name='geo.placename'/>
+<meta content='108578932543147576975' name='author'/>
+<meta content='index,follow' name='robots'/>
+<meta content='2 days' name='revisit-after'/>
+<meta content='2 days' name='revisit'/>
+<meta content='never' name='expires'/>
+<meta content='always' name='revisit'/>
+<meta content='global' name='distribution'/>
+<meta content='blogger' name='generator'/>
+<meta content='general' name='rating'/>
+<meta content='true' name='MSSmartTagsPreventParsing'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='index, follow' name='googlebot'/>
+<meta content='follow, all' name='Googlebot-Image'/>
+<meta content='follow, all' name='msnbot'/>
+<meta content='follow, all' name='Slurp'/>
+<meta content='follow, all' name='ZyBorg'/>
+<meta content='follow, all' name='Scooter'/>
+<meta content='all' name='spiders'/>
+<meta content='all' name='WEBCRAWLERS'/>
+<meta content='aeiwi, alexa, alltheWeb, altavista, aol netfind, anzwers, canada, directhit, euroseek, excite, overture, go, google, hotbot. infomak, kanoodle, lycos, mastersite, national directory, northern light, searchit, simplesearch, Websmostlinked, webtop, what-u-seek, aol, yahoo, webcrawler, infoseek, excite, magellan, looksmart, bing, cnet, googlebot' name='search engines'/>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Name     :  Speed Up Mini Versi 2.0 (Premium)
+Designer :  Bamz
+URL      :  bamz.co.id
+Release  :  November 2014
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#117AC9"/>
+<Group description="? SPEED UP" selector="body">
+<Variable name="body.background.color" description="Background" type="color" default="#eeeeee"/>
+</Group>
+<Group description="? Atur Teks" selector="#wrapper-speedup">
+<Variable name="body.font" description="Pilih Huruf Sesuai Selera Anda" type="font"
+default="normal normal 13.5px 'Roboto Condensed', sans-serif"/>
+</Group>
+<Group description="? Pilihan Warna" selector="#wrapper-speedup">
+<Variable name="pilihan.warna" description="Pilih Warna Sesuai Selera Anda" type="color" default="#008FFF"/>
+</Group>
+<Variable name="body.background" description="Body Background" type="background"
+color="#eeeeee" default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.override" description="Body Background Override" type="string" default=""/>
+*/
+/* KONTEN
+----------------------------------------------- */
+body{
+font: normal normal 13.5px 'Roboto Condensed', sans-serif;
+color: #555;
+margin: 0;
+background: #eeeeee none repeat scroll top left;
+}
+a:link, a:visited {color: #555;text-decoration:none;}
+a:hover{color: #008FFF;}
+a img { border-width:0; }
+#wrapper-speedup{
+width: 730px;
+margin: 0 auto;
+background: #fff;
+border: 1px solid #ddd;
+padding: 15px;
+}
+/* -- MAIN SET -- */
+#main-wrapper-speedup {
+width: 570px;
+float: left;
+padding: 0;
+word-wrap: break-word;
+overflow: hidden;
+}
+#main {
+padding: 0 15px 0 0;
+}
+.clear {clear: both;}
+.post-thumbnail {
+float:left;
+margin:0px 10px 0px 0px;
+}
+.date-header {display: none;}
+.post h1 {
+font-size: 120%;
+color: #008FFF;
+}
+.post h2 {
+font-size: 115%;
+}
+.post h2 a:link,.post h2 a:visited{
+color: #008FFF;
+}
+.post h2 a:hover{}
+.post-body {
+margin: 0;
+line-height: 1.6em;
+text-align:left
+}
+.post-body img {
+max-width:100%;
+height:auto;
+}
+.post-body img, .post-body table.tr-caption-container {
+max-width:100%;
+height:auto;
+}
+.post-body .separator img {
+max-width:92%;
+height:auto;
+}
+.post-body a{
+color: #008FFF;
+}
+.post-body h1{
+font-size: 130%;
+}
+.post-body h2{
+font-size: 125%;
+}
+.post-body h3{
+font-size: 120%;
+}
+.post-body h4{
+font-size: 115%;
+}
+.post-body h5{
+font-size: 110%;
+}
+.post-body h6{
+font-size: 105%;
+}
+.post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6{
+margin: 10px 0;
+color: #008FFF;
+}
+.post blockquote{
+margin-top: 14px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 14px;
+padding: 12px;
+background: #fefbc8;
+border: 1px solid #555;
+border-left: 5px solid #ff0000;
+}
+.section {
+margin: 0;
+}
+.post table{width:100%;text-align:left}
+.post tr{width:100%}
+.post td{
+border:1px solid #eee;
+padding:5px 10px;
+}
+.post th{
+padding: 5px 10px;
+background: whitesmoke;
+border: 1px solid #eee;
+text-transform: uppercase;
+}
+.post-timestamp {
+margin-left: 0;
+}
+/* -- SIDEBAR -- */
+#sidebar-wrapper-speedup {
+width: 160px;
+float: right;
+word-wrap: break-word;
+overflow: hidden;
+}
+#sidebar-wrapper-speedup h2, #sidebar-wrapper-speedup h3, #sidebar-wrapper-speedup h4 {
+margin: 0;
+text-transform: uppercase;
+font-family: Oswald, Sans Serif;
+font-size: 100%;
+border-bottom: 3px solid #008FFF;
+padding: 5px;
+background: #333;
+color: #fff;
+font-weight: normal;
+}
+.widget-content {
+margin: 0;
+overflow: hidden;
+}
+.sidebar {
+line-height: 1.5em;
+}
+.sidebar ul{
+padding: 0;
+margin: 0;
+}
+.BlogArchive #ArchiveList ul li {
+text-indent: 0 !important;
+}
+.sidebar ul li {
+list-style-position: inside;
+margin: 0;
+padding: 2px 0 !important;
+border-bottom: 1px dotted #eee;
+}
+.PopularPosts .item-title a {font-weight:bold;}
+.PopularPosts .item-snippet {
+font-size: 90%;
+color: #555;
+max-height: 40px;
+overflow: hidden;
+}
+.PopularPosts .widget-content ul li {
+list-style-type: none;
+overflow: hidden;
+list-style-position: inherit;
+}
+/* LABEL */
+.label-size-1,.label-size-2,.label-size-3,.label-size-4,.label-size-5 {
+font-size:100%;
+filter:alpha(100);
+opacity:10
+}
+.cloud-label-widget-content{
+text-align:left
+}
+.label-size{
+display:block;
+float:left;
+border:1px solid #ccc;
+margin:2px 1px;
+}
+.label-size a,.label-size span{
+display:inline-block;
+padding:5px 8px;
+}
+.label-size:hover{
+background:#eee;
+}
+.label-count{
+white-space:nowrap;
+padding-right:6px;
+margin-left:-3px;
+}
+.label-size{line-height:1.2
+}
+/* -- IKLAN -- */
+.widget-iklanresponsive {
+margin: 5px 0;
+}
+/* -- BREADCRUMBS -- */
+.breadcrumbs {
+padding: 8px 0;
+font-size: 90%;
+color: #666;
+border-bottom: 1px dotted #ccc;
+}
+/* -- FOOTER -- */
+#footer-speedup {
+margin: 0 auto;
+width: 750px;
+}
+#footerspeedup {
+font-size: 90%;
+margin: 0 auto;
+padding: 5px 0;
+}
+.feed-links { clear: both; display:none;}
+.jump-link {display:none;}
+/* -- FB G+ TWT -- */
+.article-share-speedup {
+width: 100%;
+display: block;
+overflow: hidden;
+}
+.article-share-fb-cont, .article-share-other-cont {
+float: left;
+width: 114px;
+padding: 5px;
+height: 41px;
+}
+.article-share-tw-cont, .article-share-other-cont, .article-share-like-cont {
+float: left;
+width: 114px;
+height: 41px;
+padding: 5px;
+}
+.article-share-fb, .article-share-tw, .article-share-gp, .article-share-li, .article-share-pi {
+float: left;
+display: block;
+background: url('http://3.bp.blogspot.com/-3ypydr9U3DI/U9DHOBQy-vI/AAAAAAAAAbs/hvhfDPIpevI/s1600/share.png') no-repeat;
+width: 42px;
+height: 41px;
+margin-right: 3px;
+}
+.article-share-fb-label {
+color: #2d609b;
+}
+.article-share-fb-label, .article-share-tw-label, .article-share-gp-label {
+float: left;
+width: 58px;
+height: inherit;
+font-size: 12px;
+font-family: 'Roboto Condensed', sans-serif;
+line-height: 14px;
+margin: 5px 0 0 4px;
+}
+.article-share-tw {
+background-position: 0 -43px;
+}
+.article-share-tw-label {
+color: #00c3f3;
+}
+.article-share-gp {
+background-position: 0 -86px;
+}
+.article-share-gp-label {
+color: #f00;
+}
+/* PAGE NAVIGASI */
+.pagenavi{clear:both;margin:10px auto;}
+.pagenavi span,.pagenavi a{padding:3px 6px;margin-right:5px;border:1px solid #ccc;}
+.pagenavi a:visited{color:#333}
+.pagenavi a:hover,.pagenavi .current{
+background:#008FFF;
+color:#fff;
+text-decoration:none;
+-webkit-transition: all .5s ease-in-out;
+-moz-transition: all .5s ease-in-out;
+-ms-transition: all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+}
+.pagenavi .pages,.pagenavi .current{font-weight:bold}
+.pagenavi .pages{border:none}
+/* -- COMMENTS -- */
+.comments h4 {
+padding: 5px;
+}
+#comments {
+}
+.comment-link { margin-left:.6em; }
+.comments .comment .comment-actions a {
+padding-right: 5px;
+padding-top: 5px;
+color: #65BDDF;
+}
+.comments .comments-content .datetime {
+display: none;
+}
+.comments .comments-content .comment {
+margin-bottom: 0;
+padding-bottom: 0;
+}
+.comments .comments-content .icon.blog-author {
+background: url(http://2.bp.blogspot.com/-nKaxFngIvto/Uh5qxjZUyvI/AAAAAAAAADw/MF9keiQHC08/s1600/admincomments.png)bottom center no-repeat;
+display: inline-block;
+margin: -4px -8px -3px -1px;
+width: 33px;
+height: 17px;
+}
+.comments .comments-content .comment-content {
+text-align: justify;
+line-height: 1.5;
+}
+/* -- ARTIKEL TERKAIT -- */
+.terkait-speedup {
+text-align: left;
+margin-top: 10px;
+}
+.terkait-speedup h2 {
+font-size: 100%;
+font-weight: bold;
+margin: 0 0 5px;
+background: whitesmoke;
+padding: 5px;
+border: 1px solid #ddd;
+}
+.terkait-speedup h2 a:link, .terkait-speedup h2 a:visited {
+color: #555;
+}
+.terkait-speedup ul a {
+color: #008FFF;
+font-family: 'Roboto Condensed', sans-serif;
+}
+.terkait-speedup a:hover {
+text-decoration: underline;
+}
+/* -- KEPALA -- */
+.kepala-speedup {
+padding: 5px;
+text-align: center;
+display : none;
+visibility : hidden;
+}
+.kepala-speedup .title {
+color: #008FFF;
+font-size: 150%;
+text-transform: uppercase;
+margin: 0;
+}
+.kepala-speedup .title a {
+color: #008FFF;
+}
+/* -- INFO -- */
+.infoartikel {
+display: block;
+padding: 3px 0;
+border-top: 1px dotted #eee;
+border-bottom: 1px dotted #eee;
+overflow: hidden;
+margin: 5px 0;
+}
+/* MENU NAVIGATION */
+#menunavigasi {
+color: #FFF;
+font-family: Oswald, Sans Serif;
+height: 40px;
+text-transform: uppercase;
+border-bottom: 3px solid #008FFF;
+background: #333;
+}
+#menunavigasi ul#menu {
+margin: 0;
+padding: 0;
+height: 40px;
+}
+#menunavigasi li {
+margin: 0;
+padding: 0;
+float: left;
+display: inline;
+list-style: none;
+position: relative;
+}
+#menunavigasi li > a {
+display: block;
+padding: 0 10px;
+line-height: 40px;
+text-decoration: none;
+color: #fff;
+}
+#menunavigasi li li > a {
+display:block;
+padding:0 10px;
+margin:0 0;
+line-height:40px;
+text-decoration:none;
+color: #ffffff;
+}
+#menunavigasi li:hover > a, #menunavigasi a:hover {
+background: #008FFF;
+-webkit-transition: all .5s ease-in-out;
+-moz-transition: all .5s ease-in-out;
+-ms-transition: all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+}
+#menunavigasi li ul {
+background:#333;
+margin:0 0;
+width:150px;
+height:auto;
+position:absolute;
+left:0px;
+z-index:10;
+display:none;
+padding: 0;
+}
+#menunavigasi li li {
+display:block;
+float:none;
+}
+#menunavigasi li:hover > ul {
+display:block;
+}
+#menunavigasi li ul ul {
+left:100%;
+top:0px;
+}
+.tinynav {
+display: none;
+padding: 10px;
+height: 40px;
+border: none;
+background: #333;
+font-weight: bold;
+width: 98%;
+margin: 0 1%;
+color: #fff;
+}
+.tinynav option {
+padding:0 5px;
+}
+.current {
+background: #008FFF;
+}
+/* -- SEARCH -- */
+#search-box-speedup{
+position: relative;
+border: 1px solid #ddd;
+margin: 5px auto;
+}
+#search-form-speedup{
+height: 30px;
+background: #fff;
+overflow: hidden;
+}
+#search-text-speedup{
+color: #ccc;
+border-width: 0;
+}
+#search-box-speedup input[type="text"]{
+width: 100%;
+padding: 7px 0 7px 7px;
+outline: none;
+}
+#search-button{
+position: absolute;
+top: 0;
+right: 0;
+height: 30px;
+margin: 0;
+text-align: center;
+line-height: 0;
+border-width: 0;
+background: whitesmoke;
+cursor: pointer;
+font-size: 12px;
+font-weight: bold
+}
+/* -- Berlangganan -- */
+#berlangganan {
+position: relative;
+border: 1px solid #ddd;
+margin: 5px auto;
+}
+#berlangganan-form {
+height: 30px;
+-moz-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+background: #fff;
+overflow: hidden;
+}
+#berlangganan-text{
+color: #ccc;
+border-width: 0;
+}
+#berlangganan input[type="text"]{
+width: 100%;
+padding: 7px 0 7px 7px;
+outline: none;
+}
+#berlangganan-button{
+position: absolute;
+top: 0;
+right: 0;
+height: 30px;
+margin: 0;
+text-align: center;
+line-height: 0;
+border-width: 0;
+background: whitesmoke;
+cursor: pointer;
+font-size: 12px;
+font-weight: bold
+}
+/* -- optimasitag -- */
+#optimasitag {
+position: relative;
+margin: 10px auto;
+}
+#related_posts {}
+#related_posts h2{border-top:1px solid #F4F3F3;border-bottom:1px solid #F4F3F3;color:#222;font-size:13px;color:#222;text-shadow:white 1px 1px 1px;letter-spacing:0;line-height:20px;background:#C4C4C4;margin:0 0 5px;padding:5px 10px}
+#relpost_img_sum{line-height:16px;margin:0;padding:0}
+#relpost_img_sum:hover{background:none}
+#relpost_img_sum ul{list-style-type:none;margin:0;padding:0}
+#relpost_img_sum li{
+list-style-type: none;
+padding: 5px;
+border: 1px solid #eee;
+margin: 5px 0;
+overflow: hidden;}
+#relpost_img_sum .news-title{}
+#relpost_img_sum .news-text{display:block;text-align:left;font-weight:400;text-transform:none;}
+#relpost_img_sum img{
+float: left;
+margin-right: 10px;
+display: block;
+width: 72px;
+height: 72px;
+}
+/* -- RESPONSIVE -- */
+@media only screen and (max-width:768px){
+#wrapper-speedup {width: 100%;margin-top:0;}
+#footerspeedup {margin-bottom:0;}
+#footer-speedup {width: 100%;}
+img,video,object {max-width: 100%;}
+.PopularPosts .item-snippet {font-size: 100%;}
+.sidebar {padding: 0 10px;}
+#search-box-speedup {margin: 5px 10px;}
+#sidebar-wrapper-speedup{width:100%;}
+#main-wrapper-speedup{width:100%;}
+#wrapper-speedup {padding: 0;}
+#main {padding: 0 10px;}
+#main-wrapper-speedup, #wrapper-speedup {border: none;}
+.tinynav {display: inline-block;}
+#menu {display:none;}
+}
+@media screen and (max-width:600px){
+.status-msg-border{width:97%}
+}
+@media screen and (max-width:480px){
+.comments .comments-content .user{line-height:2.8em;}
+#menunavigasi ul#menu {margin:0px 0px 0px 10px;}
+}
+@media screen and (max-width:380px){
+.comments {display:none}
+}
+@media screen and (max-width:320px){
+.terkait-speedup ul {padding: 0;list-style-type: none;}
+.post blockquote {margin:5px;}
+}
+.Header h1 {
+height: 0px;
+visibility: hidden;
+display: none;
+}
+.Header .description {
+height: 0px;
+visibility: hidden;
+display: none;
+}
+ads{color:#DC143C;text-decoration:none;font:10px "Roboto Slab";, serif;}
+
+--></style>
+<!--Script Google Adsense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<style>
+.post{
+border-bottom: 1px solid #ddd;
+padding: 0;
+margin: 5px 0;}
+
+.post-body {
+padding: 0 0 10px 0;
+text-align: left;
+}
+#blog-pager {
+width: 100%;margin:5px;
+}
+.infoartikel {
+display:none;
+}
+</style>
+<style type='text/css'>
+.status-msg-wrap {
+display: none;
+}
+</style>
+<!--RELATED POST THUMBNAIL START-->
+<script type='text/javascript'>//<![CDATA[
+var relnojudul = 0;
+var relmaxtampil = 5;
+var numchars = 170;
+var morelink = "";
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('2 4=f g();2 5=f g();2 9=f g();2 b=f g();s K(L,M){2 7=L.19("<");l(2 i=0;i<7.3;i++){8(7[i].N(">")!=-1){7[i]=7[i].O(7[i].N(">")+1,7[i].3)}}7=7.1a("");7=7.O(0,M-1);y 7}s 1b(z){l(2 i=0;i<z.P.6.3;i++){2 6=z.P.6[i];4[n]=6.A.$t;u="";8("Q"B 6){u=6.Q.$t}C 8("R"B 6){u=6.R.$t}9[n]=K(u,1c);8("S$T"B 6){D=6.S$T.1d}C{D="1e://1f.1g.1h/1i/1j/1k/1l/d/1m.1n"}b[n]=D;l(2 k=0;k<6.E.3;k++){8(6.E[k].U==\'1o\'){5[n]=6.E[k].v;F}}n++}}s V(a,e){l(2 j=0;j<a.3;j++)8(a[j]==e)y 1p;y 1q}s 1r(){2 m=f g(0);2 o=f g(0);2 p=f g(0);2 q=f g(0);l(2 i=0;i<5.3;i++){8(!V(m,5[i])){m.3+=1;m[m.3-1]=5[i];o.3+=1;o[o.3-1]=4[i];p.3+=1;p[p.3-1]=9[i];q.3+=1;q[q.3-1]=b[i]}}4=o;5=m;9=p;b=q;l(2 i=0;i<4.3;i++){2 c=w.W((4.3-1)*w.X());2 Y=4[i];2 Z=5[i];2 10=9[i];2 11=b[i];4[i]=4[c];5[i]=5[c];9[i]=9[c];b[i]=b[c];4[c]=Y;5[c]=Z;9[c]=10;b[c]=11}2 x=0;2 r=w.W((4.3-1)*w.X());2 12=r;2 h;2 13=14.1s;1t(x<15){8(5[r]!=13){h="<16 G=\'H-A 1u\'>";h+="<a v=\'"+5[r]+"\' U=\'1v\'  I=\'J\' A=\'"+4[r]+"\'><1w 1x=\'"+b[r]+"\' /></a>";h+="<a v=\'"+5[r]+"\' I=\'J\'>"+4[r]+"</a>";h+="<17 G=\'H-18\'>"+9[r]+" ... <17 G=\'H-18\'>";h+="</16>";14.1z(h);x++;8(x==15){F}}8(r<4.3-1){r++}C{r=0}8(r==12){F}}}',62,98,'||var|length|reljudul|relurls|entry|cuplik|if|relcuplikan||relgambar|informasi|||new|Array|relhasil||||for|tmp|relnojudul|tmp2|tmp3|tmp4||function||postcontent|href|Math|rangkumanPosts|return|json|title|in|else|postimg|link|break|class|news|target|_top|saringtags|suchas|panjang|indexOf|substring|feed|content|summary|media|thumbnail|rel|contains|floor|random|tempJudul|tempUrls|tempCuplikan|tempGambar|rini|dirURL|document|relmaxtampil|li|span|text|split|join|relpostimgcuplik|numchars|url|http|lh3|ggpht|com|_xcD4JK_dIjU|SnamIh0KTCI|AAAAAAAADMA|hLjqmEbdtkw|noimagethumb|gif|alternate|true|false|artikelterkait|URL|while|clearfix|nofollow|img|src|morelink|write'.split('|'),0,{}))
+//]]></script>
+<!--RELATED POST THUMBNAIL END-->
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script>
+//<![CDATA[
+(function(a,k,g){a.fn.tinyNav=function(l){var c=a.extend({active:"selected",header:"",indent:"- ",label:""},l);return this.each(function(){g++;var h=a(this),b="tinynav"+g,f=".l_"+b,e=a("<select/>").attr("id",b).addClass("tinynav "+b);if(h.is("ul,ol")){""!==c.header&&e.append(a("<option/>").text(c.header));var d="";h.addClass("l_"+b).find("a").each(function(){d+='<option value="'+a(this).attr("href")+'">';var b;for(b=0;b<a(this).parents("ul, ol").length-1;b++)d+=c.indent;d+=a(this).text()+"</option>"});
+e.append(d);c.header||e.find(":eq("+a(f+" li").index(a(f+" li."+c.active))+")").attr("selected",!0);e.change(function(){k.location.href=a(this).val()});a(f).after(e);c.label&&e.before(a("<label/>").attr("for",b).addClass("tinynav_label "+b+"_label").append(c.label))}})}})(jQuery,this,0);
+//]]>
+</script>
+<script>
+// TinyNav.js
+$(function () {
+  $('#menu').tinyNav();
+});
+</script>
+</link>
+<script type='text/javascript'>
+var blog = document.location.hostname;
+var slug = document.location.pathname;
+var ctld = blog.substr(blog.lastIndexOf("."));
+if (ctld != ".com") {
+var ncr = "http://" + blog.substr(0, blog.indexOf("."));
+ncr += ".blogspot.com/ncr" + slug;
+window.location.replace(ncr); }
+</script>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=4452789518925547148&amp;zx=4f8c017f-9ed9-4bba-a918-3d876bb5e484' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=4452789518925547148&amp;zx=4f8c017f-9ed9-4bba-a918-3d876bb5e484' rel='stylesheet'/></noscript>
+</head>
+<!-- <body><div></div> -->
+<body class='loading'>
+<div>
+<div id='wrapper-speedup'>
+<div class='kepala-speedup'>
+<div class='section' id='kepala-speedup'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+Kisah Asal Usul
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>Blog yang Membahas Asal Usul, Kisah, Sejarah Kerajaan, dan Rahasia Dunia yang Masih Banyak Tersembunyi.</span></p>
+</div>
+</div>
+</div></div>
+</div>
+<!-- Menu start -->
+<nav id='menunavigasi'>
+<ul id='menu'>
+<li class='current'><a href='http://kisahasalusul.blogspot.com/' style='color: #fff;'>Home</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/03/asal-usul-bulu-perindu-dan-cara-mendapatkan.html' title='asal-usul-bulu-perindu'>Asal Usul</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2015/03/asal-usul-nenek-moyang-bangsa-indonesia.html'>Nenek Moyang</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2014/07/batu-merah-delima-kegunaan-asal-usul.html'>Merah Delima</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/03/asal-usul-nyi-roro-kidul-menurut-islam.html'>Nyi Roro Kidul</a></li>
+</ul>
+</li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/03/asal-usul-bulu-perindu-dan-cara-mendapatkan.html' title='Sejarah Kerajaan'>Sejarah</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2015/05/masa-awal-masa-kejayaan-dan-masa.html'>Majapahit</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/05/terbentuk-masa-kejayaan-dan-masa.html'>Tarumanegara</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/10/kerajaan-hindu-tertua-di-indonesia-dan.html'>Hindu</a></li>
+</ul>
+</li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/09/19-pengertian-tari-menurut-para-ahli.html'>Seni Tari</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2015/09/lagu-tari-saman-tari-asal-aceh-gerakan.html'>Tari Saman</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/09/tari-piring-asal-usul-sejarah-kostum-gerakan.html'>Tari Piring</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/09/mengenali-tari-serampang-dua-belas.html'>Serampang 12</a></li>
+</ul></li>
+<li><a href='http://kisahasalusul.blogspot.com/2014/07/humor-ngeres-tutup-botol-minyak-wangi.html' title='cerita humor'>Humor Ngeres</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2014/07/humor-ngeres-sang-putri-dan-jodohnya.html'>Humor Ngeres 1</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2014/07/humor-ngeres-panjang-benar-susu-kau.html'>Humor Ngeres 2</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2014/07/humor-ngeres-pelajaran-biologi-anak-sd.html'>Humor Ngeres 3</a></li>
+</ul>
+</li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/11/kegunaan-dan-khasiat-keris-semar-mesem.html' title='Semar Mesem'>Misteri</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2015/04/5-tanda-akan-adanya-penampakan-pocong.html'>Pocong</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/11/asal-usul-dajjal-keluarga-ciri.html'>Dajjal</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/09/kisah-nyata-mati-suri.html'>Mati Suri</a></li>
+</ul></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/11/3-teori-masuknya-islam-ke-indonesia-dan.html' title='Masuknya Islam'>Islam</a>
+<ul>
+<li><a href='http://kisahasalusul.blogspot.com/2015/11/jejak-peninggalan-nabi-adam-ditemukan.html'>Nabi Adam</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/07/kisah-nabi-muhammad-membelah-bulan.html'>Muhammad</a></li>
+<li><a href='http://kisahasalusul.blogspot.com/2015/11/kisah-nabi-musa-as.html'>Nabi Musa</a></li>
+</ul></li>
+</ul>
+</nav>
+<div align='center' id='iklanresponsiveatas'>
+<div class='section' id='iklanresponsiveatas'><div class='widget HTML' data-version='1' id='HTML21'>
+<div class='widget-iklanresponsive'>
+</div>
+</div></div>
+</div>
+<div id='content-wrapper-speedup'>
+<div id='main-wrapper-speedup'>
+<div class='main section' id='main'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!--Can't find substitution for tag [defaultAdStart]-->
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Jumat, 18 Agustus 2017</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='2136131422520837562'></a>
+<script type='text/javascript'>
+//<![CDATA[
+function bp_thumbnail_resize(image_url,post_title)
+{
+var image_size=80;
+var show_default_thumbnail=true;
+var default_thumbnail="http://2.bp.blogspot.com/-erTXCq61ULM/TmHYAQBZ0GI/AAAAAAAACCs/6cBX54Dn6Gs/s72-c/default.png";
+if(show_default_thumbnail == true && image_url == "") image_url= default_thumbnail;
+image_tag='<img src="'+image_url.replace('/s72-c/','/s'+image_size+'-c/')+'" class="post-thumbnail" alt="'+post_title+'"/>';
+if(image_url!="") return image_tag; else return "";
+}
+//]]>
+</script>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://3.bp.blogspot.com/-Nqng0283jHQ/WZQrzjlYfbI/AAAAAAAACxc/syu_n3sFYwgslmFpzCQVm_ev3t6va4diwCLcBGAs/s72-c/Penarikan%2BUang%2BGaib.jpg","Kisah Nyata Penarikan Uang Gaib dan Emas Bung Karno!"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2017/08/kisah-nyata-penarikan-uang-gaib-emas-bung-karno.html' title='Kisah Nyata Penarikan Uang Gaib dan Emas Bung Karno!'>Kisah Nyata Penarikan Uang Gaib dan Emas Bung Karno!</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2017/08/kisah-nyata-penarikan-uang-gaib-emas-bung-karno.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2017/08/kisah-nyata-penarikan-uang-gaib-emas-bung-karno.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2017-08-18T18:49:00+07:00'>18.49</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-2136131422520837562'>
+<div class='post-snippet'>Beragam cerita tentang khasanah dunia gaib memang tak ada habisnya untuk ditelisik, terutama oleh mereka yang tertarik dan ingin tahu tentan...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Kamis, 17 Agustus 2017</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='3602820525366239542'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://1.bp.blogspot.com/-trwBOIBaQTc/WZQr0xWFcnI/AAAAAAAACxk/pAQkrL5Sd0oR3_ojzX2k4Ri5xgaGPFJRgCLcBGAs/s72-c/Pesugihan%2BUang%2BGaib.jpg","Pesugihan Uang Gaib : Ritual, Resiko, dan Bahayanya!"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2017/08/pesugihan-uang-gaib-ritual-tanpa-tumbal.html' title='Pesugihan Uang Gaib : Ritual, Resiko, dan Bahayanya!'>Pesugihan Uang Gaib : Ritual, Resiko, dan Bahayanya!</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2017/08/pesugihan-uang-gaib-ritual-tanpa-tumbal.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2017/08/pesugihan-uang-gaib-ritual-tanpa-tumbal.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2017-08-17T18:42:00+07:00'>18.42</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-3602820525366239542'>
+<div class='post-snippet'>Pesugihan Uang Gaib  - Siapa orangnya yang tak mau mendapatkan kekayaan dan harta berlimpah dalam waktu singkat? Tentu saya yakin, di kehidu...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Rabu, 16 Agustus 2017</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='8323676253039749701'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://2.bp.blogspot.com/-HsVzzpQ-J_s/WZQry3J-AxI/AAAAAAAACxY/XC0uSAV1IKESpoXIEz5RNEQkiQOmjRvsQCLcBGAs/s72-c/Cara%2BMendapatkan%2BUang%2BGaib.JPG","5 Cara Mendapatkan Uang Gaib : Kumpulan Pengalaman Saya!"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2017/08/cara-mendapatkan-uang-gaib.html' title='5 Cara Mendapatkan Uang Gaib : Kumpulan Pengalaman Saya!'>5 Cara Mendapatkan Uang Gaib : Kumpulan Pengalaman Saya!</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2017/08/cara-mendapatkan-uang-gaib.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2017/08/cara-mendapatkan-uang-gaib.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2017-08-16T18:29:00+07:00'>18.29</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-8323676253039749701'>
+<div class='post-snippet'>Cara Mendapatkan Uang Gaib  - Di kehidupan yang serba materialis seperti sekarang ini, uang telah menjadi raja yang mengatur setiap gerak da...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Jumat, 03 Maret 2017</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='1019936727883480495'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://1.bp.blogspot.com/-3mT8yRo-JQ8/WLjG3UCv36I/AAAAAAAACus/NwX4SqwbFdgrMwgPjh5lgRrBFe1V812xACLcB/s72-c/resiko%2Bbahaya%2Bmembuka%2Bmata%2Bbatin.jpg","9 Resiko Membuka Mata Batin Sendiri ! Baca Sebelum Mencoba!"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2017/03/resiko-membuka-mata-batin-sendiri.html' title='9 Resiko Membuka Mata Batin Sendiri ! Baca Sebelum Mencoba!'>9 Resiko Membuka Mata Batin Sendiri ! Baca Sebelum Mencoba!</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2017/03/resiko-membuka-mata-batin-sendiri.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2017/03/resiko-membuka-mata-batin-sendiri.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2017-03-03T08:31:00+07:00'>08.31</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-1019936727883480495'>
+<div class='post-snippet'>Keingintahuan dan rasa penasaran tentang kehidupan gaib dan metafisik mendorong sebagian orang untuk berusaha membuka mata batin nya.   Cara...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Senin, 26 Desember 2016</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='6182207434325322758'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://4.bp.blogspot.com/-Ko5Zyj49MsE/WGEsuuPX5WI/AAAAAAAACkM/RgC5c-4GegQwmQ5eXryoJS-8wqbB_B2lwCLcB/s72-c/cara%2Bmenggunakan%2Bbatu%2Bcombong.JPG","Cara Menggunakan Batu Combong untuk Memikat Wanita + Mantra"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/12/cara-menggunakan-batu-combong.html' title='Cara Menggunakan Batu Combong untuk Memikat Wanita + Mantra'>Cara Menggunakan Batu Combong untuk Memikat Wanita + Mantra</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/12/cara-menggunakan-batu-combong.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/12/cara-menggunakan-batu-combong.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-12-26T21:45:00+07:00'>21.45</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-6182207434325322758'>
+<div class='post-snippet'>Batu combong  adalah salah satu mustika yang dipercaya dapat memberikan karomah pada para pemiliknya. Batu yang memiliki lubang di bagian te...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Kamis, 02 Juni 2016</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='6032250274549302855'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://3.bp.blogspot.com/-kTqAnemWaN4/V0vg7zrsqkI/AAAAAAAAB2o/mkbKdKktLi8xUNzDymk0GB6OCaUiFFlXgCLcB/s72-c/Benteng%2BRotterdam%2Bpeninggalan%2BKerajaan%2BGowa%2BTallo.JPG","15 Peninggalan Kerajaan Gowa Tallo, Gambar, dan Keterangannya"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/06/15-peninggalan-kerajaan-gowa-tallo.html' title='15 Peninggalan Kerajaan Gowa Tallo, Gambar, dan Keterangannya'>15 Peninggalan Kerajaan Gowa Tallo, Gambar, dan Keterangannya</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/06/15-peninggalan-kerajaan-gowa-tallo.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/06/15-peninggalan-kerajaan-gowa-tallo.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-06-02T13:44:00+07:00'>13.44</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-6032250274549302855'>
+<div class='post-snippet'>Kesultanan Makassar atau biasa disebut Kerajaan Gowa Tallo adalah kerajaan bercorak Islam yang berdiri pada awal abad ke 16 Masehi di Sulawe...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Selasa, 31 Mei 2016</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='1348972106702112058'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://3.bp.blogspot.com/-kD3m0uvVRUI/V0pvv4n4E-I/AAAAAAAAB10/nwUc6Ap5o_EvbDTUck0oKSz7KsWrLtHZACLcB/s72-c/prasasti%2Bpeninggalan%2Bkerajaan%2BKalingga.JPG","15 Peninggalan Kerajaan Kalingga dalam Bentuk Candi dan Prasasti"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kalingga.html' title='15 Peninggalan Kerajaan Kalingga dalam Bentuk Candi dan Prasasti'>15 Peninggalan Kerajaan Kalingga dalam Bentuk Candi dan Prasasti</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kalingga.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kalingga.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-05-31T11:31:00+07:00'>11.31</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-1348972106702112058'>
+<div class='post-snippet'>Kerajaan Kalingga  atau Ho-ling merupakan sebuah kerajaan Hindu yang sempat berdiri pada abad ke 6 Masehi di Jawa Tengah. Meski letak persis...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Senin, 30 Mei 2016</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='1997172442899624289'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://1.bp.blogspot.com/-XvuqCNKyGBU/V0uuV0R5iNI/AAAAAAAAB2Q/bg447dpXrtEoRXmCKHO3a1U0_8J2V0iTACLcB/s72-c/masjid%2Bpeninggalan%2BKerajaan%2BBanten.jpg","8 Peninggalan Kerajaan Banten, Gambar dan Keterangannya"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-banten.html' title='8 Peninggalan Kerajaan Banten, Gambar dan Keterangannya'>8 Peninggalan Kerajaan Banten, Gambar dan Keterangannya</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-banten.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-banten.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-05-30T10:07:00+07:00'>10.07</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-1997172442899624289'>
+<div class='post-snippet'>PENINGGALAN  Kerajaan Banten  adalah salah satu Kerajaan bercorak Islam yang berdiri pada tahun 1526 di ujung Barat pulau Jawa. Kerajaan ini...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<b class='date-header'><span>Sabtu, 28 Mei 2016</span></b>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='66426812237712676'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://2.bp.blogspot.com/-p5ML03gvjuI/V0m01MDkzFI/AAAAAAAAB1c/8FuOYXFBEKAMnklgKovGx4Mj1mzmORVaQCLcB/s72-c/peninggalan%2Bkerajaan%2Bkediri.JPG","20 Peninggalan Kerajaan Kediri dalam Bentuk Candi, Prasasti, Kitab, dan Arca"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kediri-candi-prasasti.html' title='20 Peninggalan Kerajaan Kediri dalam Bentuk Candi, Prasasti, Kitab, dan Arca'>20 Peninggalan Kerajaan Kediri dalam Bentuk Candi, Prasasti, Kitab, dan Arca</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kediri-candi-prasasti.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/05/peninggalan-kerajaan-kediri-candi-prasasti.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-05-28T22:13:00+07:00'>22.13</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-66426812237712676'>
+<div class='post-snippet'>Kerajaan Kediri  adalah salah satu kerajaan Hindu yang terletak di Jawa Timur. Kerajaan ini memiliki nama lain, yaitu Kadiri atau Panjalu. S...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='5953105156876597324'></a>
+<script type='text/javascript'>
+document.write(bp_thumbnail_resize("https://3.bp.blogspot.com/-aVZ2EK0pZjc/V0l3bmBNz_I/AAAAAAAAB04/14z-vbDgAMI8kXey3O056GzznyNGuMsJgCLcB/s72-c/gambar%2Bprasasti%2Bciaruteun.JPG","Isi Prasasti Ciaruteun Peninggalan Kerajaan Tarumanegara + Gambar"));
+</script>
+<H2 class='post-title entry-title'>
+<a href='http://kisahasalusul.blogspot.com/2016/05/isi-prasasti-ciaruteun-peninggalan.html' title='Isi Prasasti Ciaruteun Peninggalan Kerajaan Tarumanegara + Gambar'>Isi Prasasti Ciaruteun Peninggalan Kerajaan Tarumanegara + Gambar</a>
+</H2>
+<div class='infoartikel'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>
+<meta content='https://plus.google.com/108578932543147576975' itemprop='url'/>
+<a class='g-profile' href='https://plus.google.com/108578932543147576975' rel='author' title='author profile'>
+<span itemprop='name'>Ken Pandu Negara</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://kisahasalusul.blogspot.com/2016/05/isi-prasasti-ciaruteun-peninggalan.html' itemprop='url'/>
+<a class='updated' href='http://kisahasalusul.blogspot.com/2016/05/isi-prasasti-ciaruteun-peninggalan.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2016-05-28T17:48:00+07:00'>17.48</abbr></a>
+</span>
+</div>
+<div class='post-body entry-content' id='post-body-5953105156876597324'>
+<div class='post-snippet'>Prasasti Ciaruteun  adalah salah satu prasasti peninggalan Kerajaan Tarumanegara  yang ditemukan di sekitar tepi sungai Ciaruteun, Kabupaten...</div>
+<div style='clear: both;'></div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div class='pagenavi'>
+<script type='text/javascript'>
+        var pageNaviConf = {
+            perPage: 10,
+            numPages: 10,
+            firstText: "First",
+            lastText: "Last",
+            nextText: "Next",
+            prevText: "Prev"
+        }
+        </script>
+<script type='text/javascript'>
+//<![CDATA[
+function pageNavi(o){var m=location.href,l=m.indexOf("/search/label/")!=-1,a=l?m.substr(m.indexOf("/search/label/")+14,m.length):"";a=a.indexOf("?")!=-1?a.substr(0,a.indexOf("?")):a;var g=l?"/search/label/"+a+"?updated-max=":"/search?updated-max=",k=o.feed.entry.length,e=Math.ceil(k/pageNaviConf.perPage);if(e<=1){return}var n=1,h=[""];l?h.push("/search/label/"+a+"?max-results="+pageNaviConf.perPage):h.push("/?max-results="+pageNaviConf.perPage);for(var d=2;d<=e;d++){var c=(d-1)*pageNaviConf.perPage-1,b=o.feed.entry[c].published.$t,f=b.substring(0,19)+b.substring(23,29);f=encodeURIComponent(f);if(m.indexOf(f)!=-1){n=d}h.push(g+f+"&max-results="+pageNaviConf.perPage)}pageNavi.show(h,n,e)}pageNavi.show=function(f,e,a){var d=Math.floor((pageNaviConf.numPages-1)/2),g=pageNaviConf.numPages-1-d,c=e-d;if(c<=0){c=1}endPage=e+g;if((endPage-c)<pageNaviConf.numPages){endPage=c+pageNaviConf.numPages-1}if(endPage>a){endPage=a;c=a-pageNaviConf.numPages+1}if(c<=0){c=1}var b='<span class="pages">Pages '+e+' of '+a+"</span> ";if(c>1){b+='<a href="'+f[1]+'">'+pageNaviConf.firstText+"</a>"}if(e>1){b+='<a href="'+f[e-1]+'">'+pageNaviConf.prevText+"</a>"}for(i=c;i<=endPage;++i){if(i==e){b+='<span class="current">'+i+"</span>"}else{b+='<a href="'+f[i]+'">'+i+"</a>"}}if(e<a){b+='<a href="'+f[e+1]+'">'+pageNaviConf.nextText+"</a>"}if(endPage<a){b+='<a href="'+f[a]+'">'+pageNaviConf.lastText+"</a>"}document.write(b)};(function(){var b=location.href;if(b.indexOf("?q=")!=-1||b.indexOf(".html")!=-1){return}var d=b.indexOf("/search/label/")+14;if(d!=13){var c=b.indexOf("?"),a=(c==-1)?b.substring(d):b.substring(d,c);document.write('<script type="text/javascript" src="/feeds/posts/summary/-/'+a+'?alt=json-in-script&callback=pageNavi&max-results=99999"><\/script>')}else{document.write('<script type="text/javascript" src="/feeds/posts/summary?alt=json-in-script&callback=pageNavi&max-results=99999"><\/script>')}})();
+//]]>
+</script>
+<div class='clear'></div>
+</div>
+<div class='blog-feeds'>
+<div class='feed-links'>
+Langganan:
+<a class='feed-link' href='http://kisahasalusul.blogspot.com/feeds/posts/default' target='_blank' type='application/atom+xml'>Postingan (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'in'};</script>
+</div></div>
+</div>
+<div id='sidebar-wrapper-speedup'>
+<div id='search-box-speedup'>
+<form action='/search' id='search-form-speedup' method='get' target='_top'>
+<input id='search-text-speedup' name='q' onblur='if (this.value == "") {this.value = "Pencarian..";}' onfocus='if (this.value == "Pencarian..") {this.value = ""}' type='text' value='Pencarian..'/>
+<button id='search-button' type='submit'>GO</button>
+</form>
+</div>
+<div class='sidebar section' id='sidebar'><div class='widget HTML' data-version='1' id='HTML20'>
+<div class='widget-iklan'>
+</div>
+</div><div class='widget PopularPosts' data-version='1' id='PopularPosts1'>
+<h3>Popular Posts</h3>
+<div class='widget-content popular-posts'>
+<ul>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/10/5-teori-masuknya-hindu-budha-ke-indonesia.html'>5 Teori Masuknya Hindu Budha Ke Indonesia + Bukti-buktinya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2016/01/10-contoh-karya-seni-rupa-2-dimensi-dan.html'>10 Contoh Karya Seni Rupa 2 Dimensi dan Penjelasannya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/11/3-teori-masuknya-islam-ke-indonesia-dan.html'>3 Teori Masuknya Islam Ke Indonesia dan Bukti Pendukungnya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/10/sejarah-masuknya-islam-ke-indonesia.html'>Sejarah Masuknya Islam ke Indonesia, Perkembangan, dan Penyebarannya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/08/35-rumah-adat-di-indonesia-gambar-1.html'>35 Rumah Adat di Indonesia + Gambar dan Pembahasan Lengkapnya 1/5</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/03/asal-usul-nenek-moyang-bangsa-indonesia.html'>Asal-Usul Nenek Moyang Bangsa Indonesia dan Penyebarannya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2016/01/seni-rupa-murni-dan-terapan-pengertian.html'>Seni Rupa Murni Dan Terapan : Pengertian dan Contohnya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2016/01/15-aliran-seni-rupa-ciri-contoh-gambar.html'>15 Aliran Seni Rupa, Ciri, Contoh Gambar, dan Tokohnya</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2015/07/3-cara-membuka-mata-batin-dengan-mudah.html'>3 Cara Membuka Mata Batin dengan Mudah dan Cepat</a>
+</li>
+<li>
+<a href='http://kisahasalusul.blogspot.com/2014/07/nama-asli-9-sunan-walisongo.html'>Nama Asli 9 Sunan yang Tergabung dalam Wali Songo</a>
+</li>
+</ul>
+</div>
+</div><div class='widget Label' data-version='1' id='Label1'>
+<h3>Labels</h3>
+<div class='widget-content cloud-label-widget-content'>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Adat'>Adat</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Ajian'>Ajian</a>
+</span>
+<span class='label-size label-size-1'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Alam'>Alam</a>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Asal%20Usul'>Asal Usul</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Cerita%20Humor'>Cerita Humor</a>
+</span>
+<span class='label-size label-size-5'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Cerita%20Misteri'>Cerita Misteri</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Hantu'>Hantu</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Indonesia'>Indonesia</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Islam'>Islam</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Kerajaan'>Kerajaan</a>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Majapahit'>Majapahit</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Ngeres'>Ngeres</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Penampakan'>Penampakan</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Pesugihan'>Pesugihan</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Pusaka%20Unik'>Pusaka Unik</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Seni'>Seni</a>
+</span>
+<span class='label-size label-size-2'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Tahukah%20Kamu'>Tahukah Kamu</a>
+</span>
+<span class='label-size label-size-4'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Tari'>Tari</a>
+</span>
+<span class='label-size label-size-3'>
+<a dir='ltr' href='http://kisahasalusul.blogspot.com/search/label/Tarumanegara'>Tarumanegara</a>
+</span>
+</div>
+</div></div>
+</div>
+<!-- Brand : Speed Up Designer : Bamz URL : bamz.co.id Release : November 2014 Email : info@bamz.co.id -->
+</div>
+<!-- end content-wrapper -->
+<div class='clear'></div>
+<div align='center' id='iklanresponsivebawah'>
+<div class='section' id='iklanresponsivebawah'><div class='widget HTML' data-version='1' id='HTML22'>
+<div class='widget-iklanresponsive'>
+</div>
+</div></div>
+</div>
+<div class='clear'></div>
+</div>
+<div id='footer-speedup'>
+<div id='footerspeedup'><center>
+<a href='#'>About</a> / <a href='/p/blog-page.html'>Sitemap</a> / <a href='/p/contact.html'>Contact</a> / <a href='/p/privacy.html'>Privacy</a> / <a href='/p/semua-informasi-yang-di-sajikan-di.html'>Disclaimer</a><br/><a href='https://kisahasalusul.blogspot.com/' target='_blank' title='Kisah Asal Usul'>Kisah Asal Usul</a> 2017</center>
+</div></div>
+</div>
+<script src='https://apis.google.com/js/plusone.js' type='text/javascript'></script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/698371418-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY4y82UgnWhELf18PB-3DPYKjzE30w:1521908061966';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d4452789518925547148','//kisahasalusul.blogspot.com/','4452789518925547148');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '4452789518925547148', 'title': 'Kisah Asal Usul', 'url': 'http://kisahasalusul.blogspot.com/', 'canonicalUrl': 'http://kisahasalusul.blogspot.com/', 'homepageUrl': 'http://kisahasalusul.blogspot.com/', 'searchUrl': 'http://kisahasalusul.blogspot.com/search', 'canonicalHomepageUrl': 'http://kisahasalusul.blogspot.com/', 'blogspotFaviconUrl': 'http://kisahasalusul.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'id', 'localeUnderscoreDelimited': 'id', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Kisah Asal Usul - Atom\x22 href\x3d\x22http://kisahasalusul.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Kisah Asal Usul - RSS\x22 href\x3d\x22http://kisahasalusul.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Kisah Asal Usul - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/4452789518925547148/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://plus.google.com/108578932543147576975\x22 /\x3e\n', 'openIdOpTag': '\x3clink rel\x3d\x22openid.server\x22 href\x3d\x22https://www.blogger.com/openid-server.g\x22 /\x3e\n\x3clink rel\x3d\x22openid.delegate\x22 href\x3d\x22http://kisahasalusul.blogspot.com/\x22 /\x3e\n', 'googleProfileUrl': 'https://plus.google.com/108578932543147576975', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/a222daff96ba02fc', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': 'Dapatkan link', 'key': 'link', 'shareMessage': 'Dapatkan link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Bagikan ke Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Bagikan ke Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Bagikan ke Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': 'Bagikan ke Google+', 'target': 'googleplus'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27id\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Baca selengkapnya', 'pageType': 'index', 'pageName': '', 'pageTitle': 'Kisah Asal Usul', 'metaDescription': 'Asal Usul Sejarah Borobudur, Nenek Moyang, Tari Rumah Adat, Hindu, Budha, Islam, Majapahit, Merah Delima, Pusaka, Pocong, Kuntilanak, Nyi Roro Kidul'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Tautan disalin ke papan klip!', 'ok': 'Oke', 'postLink': 'Tautan Pos'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Khusus', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Kisah Asal Usul', 'description': 'Asal Usul Sejarah Borobudur, Nenek Moyang, Tari Rumah Adat, Hindu, Budha, Islam, Majapahit, Merah Delima, Pusaka, Pocong, Kuntilanak, Nyi Roro Kidul', 'url': 'http://kisahasalusul.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'kepala-speedup', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML21', 'iklanresponsiveatas', null, document.getElementById('HTML21'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/1477909662-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML20', 'sidebar', null, document.getElementById('HTML20'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts1', 'sidebar', null, document.getElementById('PopularPosts1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML22', 'iklanresponsivebawah', null, document.getElementById('HTML22'), {}, 'displayModeFull'));
+</script>
+</body>
+</HTML>

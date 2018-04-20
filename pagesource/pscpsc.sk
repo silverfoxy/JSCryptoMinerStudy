@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SMART VIKINGS, s.r.o., smartvikings.com">
+
+        <title>PSČ Slovenská Republika</title>
+        <meta name="description" content="Aktualizovaný zoznam PSČ miest a obcí v SR. Rýchle vyhľadávanie.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+
+    <meta property="og:image" content="https://www.pscpsc.sk/public/assets/images/fb_img_appka.png">
+    <meta property="og:description" content="Aktualizovaný zoznam PSČ miest a obcí v SR. Rýchle vyhľadávanie.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="/public/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/assets/css/screen.css?v=3.1">
+    <link rel="icon" href="/public/assets/images/icon.png" sizes="32x32">
+
+    
+</head>
+
+<body>
+<script>
+    dataLayer = [];
+</script>
+
+
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P5L6RR"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',"GTM-P5L6RR");</script>
+        <!-- End Google Tag Manager -->
+
+
+<div id="document">
+
+<div id="main-content">
+
+    <div id="block-cookie-bar">
+
+        <div id="cookie">
+
+            <div id="cookie-text">Tento
+                web používa súbory cookie na poskytovanie služieb, prispôsobenie reklám
+                a analýzu prenosov. Informácie o tom, ako používate tento web, sa
+                zdieľajú s Googlom.
+
+                Používaním tohto webu vyjadrujete svoj súhlas s používaním súborov cookie.
+
+                <a href="https://www.google.com/policies/technologies/cookies/" target="_blank">Viac&nbsp;informácií</a>
+
+            </div>
+
+            <div id="cookie-btn-wrapper">
+                <button class="cookie-btn button">ROZUMIEM</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid container-main">
+
+        <div class="row header" id="header">
+            <h1>
+                <a href="/">
+                    Zoznam <strong>PSČ</strong>
+                    <span>Slovenskej republiky</span>
+                </a>
+            </h1>
+        </div>
+
+        <div class="row">
+
+            <div id="search-wrapper">
+                <div class="col-xs-12 col-md-12">
+                    <div class="searchbar-wrapper clearfix">
+                        <input class="searchbar" autofocus="true" placeholder="Zadajte PSČ, obec alebo ulicu"
+                               type="text">
+                        <div class="search-icon-wrapper">
+                            <i class="fa fa-search fa-lg search-icon" aria-hidden="true" data-toggle="tooltip"
+                               title="Zadajte aspoň 3 písmená z hľadanej adresy." data-placement="auto right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div id="snippet--results">            <div class="row">
+                <div id="results-wrapper"></div>
+            </div>
+</div>
+        <div class="loader-wrapper disabled">
+            <div class="loader">Loading...</div>
+        </div>
+
+
+
+        <script type="text/html" id="table-view">
+            <% if(!collection.length == 0) { %>
+
+            <div class="results-info">
+                <% if(counter >= (window.config.searchLimit + window.config.dynamicLimit) && callType != 2) { %>
+
+                <p>Zobrazených <%= window.config.searchLimit %> z <%= counter%> výsledkov</p>
+
+                <% }else if(counter < (window.config.searchLimit + window.config.dynamicLimit) || callType == 2){ %>
+
+                <% if(counter==1){ %>
+
+                <p>Zobrazený <%= counter %> výsledok</p>
+
+                <% }else if(counter >= 2 && counter <= 4) { %>
+
+                <p>Zobrazené <%= counter %> výsledky</p>
+
+                <% }else{ %>
+
+                <p>Zobrazených <%= counter %> výsledkov</p>
+
+                <% } %>
+                <% } %>
+            </div>
+
+            <table id="results-table" class="table table-hover">
+                <tr id="table-header-hide">
+                    <th>Obec</th>
+                    <th>Ulica</th>
+                    <th>PSČ</th>
+                    <th>Pošta</th>
+                    <th>Okres/Poznámky</th>
+                </tr>
+                <% for (i = 0; i < collection.length; i++) { %>
+                <% var item = collection.models[i] %>
+                <tr>
+                    <td><span class="lean-right"><%= item.get('obec') %></span></td>
+                    <td><span class="lean-right"><%= item.get('ulica') %></td>
+                    <td class="td-psc"><span class="lean-right"><%= item.get('psc') %></td>
+                    <td><span class="lean-right"><%= item.get('posta') %></td>
+                    <td class="wrap"><span class="lean-right"><%= item.get('okres') ? item.get('okres') : "" %> <%=item.get('poznamky') ? item.get('poznamky') : "" %>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+            <div class="col-xs-12">
+
+                <% if(counter >= (window.config.searchLimit + window.config.dynamicLimit) && callType != 2) { %>
+                <button id="more-results" type="button" class="btn-default">Zobraziť ďalších <span id="button-number"><%= counter - window.config.searchLimit %></span>
+                    výsledkov
+                </button>
+
+                <% } %>
+            </div>
+            <% } else { %>
+            <div id="no-results">
+                Vašim kritériám nezodpovedá žiadne PSČ.
+            </div>
+            <% } %>
+        </script>
+
+    </div>
+
+</div>
+
+<footer id="footer">
+    <div class="top">
+        <a href="http://www.smartvikings.com" target="_blank">
+            Túto službu pre Vás pripravili
+            <span>www.smartvikings.com</span>
+        </a>
+    </div>
+    <div class="bottom">
+        Chcete u nás inzerovať i Vy? <a href="mailto:reklama@smartvikings.com">MÁM ZÁUJEM</a>
+    </div>
+</footer>
+</div>
+
+    <script src="/public/assets/js/vendor/underscore-min.js"></script>
+    <script src="/public/assets/js/vendor/jquery-1.12.2.min.js"></script>
+    <script src="/public/assets/js/vendor/bootstrap.min.js"></script>
+
+    <script src="/public/assets/js/vendor/backbone-min.js"></script>
+    <script src="/public/assets/js/vendor/velocity.min.js"></script>
+    <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+    <script src="/public/assets/js/script.min.js?v=2"></script>
+    <script>
+        window.config = {
+            gtHandler: "\/?do=gt",
+            bnrHandler: 'https://www.pscpsc.sk/?do=banner-click',
+            productionMode: true,
+            isBot: true,
+            city: null,
+            street: null,
+            psc: null,
+            firstResult: null,
+            counter: 0,
+            searchResults: null,
+
+            searchUrl: "\/search",
+            searchLimit: 30,
+            dynamicLimit: 5
+
+        };
+    </script>
+
+
+<script>
+</script>
+</body>
+</html>

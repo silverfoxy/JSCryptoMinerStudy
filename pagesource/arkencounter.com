@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Life-size Noah’s Ark | Ark Encounter</title>
+
+<link rel="dns-prefetch" href="https://assets.arkencounter.com/" /><link rel="dns-prefetch" href="https://streaming.arkencounter.com/" /><link rel="dns-prefetch" href="https://fonts.googleapis.com/" /><link rel="dns-prefetch" href="https://ajax.googleapis.com/" /><link rel="dns-prefetch" href="https://nrpc.olark.com/" /><link rel="dns-prefetch" href="https://static.olark.com/" /><link rel="dns-prefetch" href="https://cdns.gigya.com/" /><link rel="dns-prefetch" href="https://www.google-analytics.com/" />
+<link rel="apple-touch-icon" sizes="57x57" href="https://assets.arkencounter.com/art/apple-touch-icon-57x57.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="60x60" href="https://assets.arkencounter.com/art/apple-touch-icon-60x60.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="72x72" href="https://assets.arkencounter.com/art/apple-touch-icon-72x72.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="76x76" href="https://assets.arkencounter.com/art/apple-touch-icon-76x76.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="114x114" href="https://assets.arkencounter.com/art/apple-touch-icon-114x114.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="120x120" href="https://assets.arkencounter.com/art/apple-touch-icon-120x120.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="144x144" href="https://assets.arkencounter.com/art/apple-touch-icon-144x144.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="152x152" href="https://assets.arkencounter.com/art/apple-touch-icon-152x152.png?v=alld0YGk2q">
+<link rel="apple-touch-icon" sizes="180x180" href="https://assets.arkencounter.com/art/apple-touch-icon-180x180.png?v=alld0YGk2q">
+<link rel="icon" type="image/png" href="https://assets.arkencounter.com/art/favicon-32x32.png?v=alld0YGk2q" sizes="32x32">
+<link rel="icon" type="image/png" href="https://assets.arkencounter.com/art/favicon-194x194.png?v=alld0YGk2q" sizes="194x194">
+<link rel="icon" type="image/png" href="https://assets.arkencounter.com/art/favicon-96x96.png?v=alld0YGk2q" sizes="96x96">
+<link rel="icon" type="image/png" href="https://assets.arkencounter.com/art/android-chrome-192x192.png?v=alld0YGk2q" sizes="192x192">
+<link rel="icon" type="image/png" href="https://assets.arkencounter.com/art/favicon-16x16.png?v=pggE446mLP" sizes="16x16">
+<link rel="manifest" href="https://assets.arkencounter.com/art/manifest.json?v=alld0YGk2q">
+<link rel="mask-icon" href="https://assets.arkencounter.com/art/safari-pinned-tab.svg?v=alld0YGk2q" color="#351300">
+<link rel="shortcut icon" href="https://assets.arkencounter.com/art/favicon.ico?v=alld0YGk2q">
+<meta name="theme-color" content="#351300">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta charset='utf-8'>
+<meta name="description" content="Experience the life-size Noah’s Ark! Ark Encounter is a one-of-a-kind themed attraction the whole family will enjoy, located in Williamstown, Kentucky.">
+<link rel="stylesheet" media="all" href="https://assets.arkencounter.com/lib/js/jqueryui/1.12.1/jquery-ui.min.css" />
+<link rel="stylesheet" media="all" href="https://assets.arkencounter.com/lib/js/jqueryui/1.12.1/jquery-ui.structure.min.css" />
+<link rel="stylesheet" media="all" href="https://assets.arkencounter.com/lib/js/jqueryui/1.12.1/jquery-ui.theme.min.css" />
+<link rel="stylesheet" media="all" href="https://assets.arkencounter.com/lib/js/timepicker/1.6.3/timepicker.css" />
+
+<script src="https://use.fontawesome.com/96612aaff9.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://assets.arkencounter.com/lib/js/juxtapose/1.1.7/juxtapose.css">
+
+<link rel="stylesheet" type="text/css" href="https://assets.arkencounter.com/css/attraction/default/live/default.css?v=104">
+<meta itemprop="name" content="Life-size Noah’s Ark">
+<meta property="og:title" content="Life-size Noah’s Ark">
+<meta name="twitter:title" content="Life-size Noah’s Ark" />
+<meta itemprop="description" content="Experience the life-size Noah’s Ark! Ark Encounter is a one-of-a-kind themed attraction the whole family will enjoy, located in Williamstown, Kentucky.">
+<meta property="og:description" content="Experience the life-size Noah’s Ark! Ark Encounter is a one-of-a-kind themed attraction the whole family will enjoy, located in Williamstown, Kentucky." />
+<meta name="twitter:description" content="Experience the life-size Noah’s Ark! Ark Encounter is a one-of-a-kind themed attraction the whole family will enjoy, located in Williamstown, Kentucky." />
+
+<meta property="og:image" content="https://assets.arkencounter.com/img/cms/content/contentnode/header_image/noahs-ark-blue.jpg" />
+<meta property="og:image:alt" content="" />
+<meta property="og:image:width" content="945" />
+<meta property="og:image:height" content="300" />
+<meta name="twitter:image:src" content="https://assets.arkencounter.com/img/cms/content/contentnode/header_image/noahs-ark-blue.jpg" />
+<meta itemprop="image" content="https://assets.arkencounter.com/img/cms/content/contentnode/header_image/noahs-ark-blue.jpg">
+<meta property="fb:app_id" content="1078622838819840" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:url" content="https://arkencounter.com/" />
+<meta property="og:site_name" content="Ark Encounter" />
+<meta name="twitter:site" content="@ArkEncounter" />
+<meta name="twitter:creator" content="@ArkEncounter" />
+<!--[if lt IE 9]>
+			<link rel="stylesheet" type="text/css" href="https://assets.arkencounter.com/css/ie7-8.css">  
+		<![endif]-->
+
+<script>
+    var currency = {
+        "fullSymbol": "$",
+        "fullOnLeft": true,
+        "useCents": true,
+        "centSymbol": "¢",
+        "centOnLeft": false
+    };
+	var donation_sku_code = 'GeneralDonation';
+	var livestreamActiveFile = 'doc/json/livebroadcast-active.js';
+</script>
+<script type="text/javascript">
+			var cdnAssetsUrl = 'https://assets.arkencounter.com/';
+			var aigOffice = 'us';
+		</script>
+<style>
+		    a.nav-logo {
+                min-width: 5rem;
+            }
+            @media screen and (min-width: 45em) {
+                a.nav-logo {
+                min-width: 10rem;
+            }
+            }
+            nav a {
+                display: inline-block;
+            }
+		</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+<link href='https://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+<script>
+	var cdnAssetsUrl = 'https://assets.arkencounter.com/';
+	var googleAnalyticsID = 'UA-124736-20';
+	var googleAnalyticsEnhancedID = 'UA-124736-26';
+	var searchBackend = 'elasticsearch';
+	var formAppSetupFieldTypeFunctions = [];
+	var formAppSetupValidatorFunctions = [];
+	var useGigya = true;
+	var goLive = true;
+	var chatDisabled = null;
+</script>
+<script type="text/javascript" src="https://assets.arkencounter.com/lib/js/internal/fitie/working/fitie.js"></script>
+<meta name="apple-mobile-web-app-title" content="Ark Encounter">
+<meta name="application-name" content="Ark Encounter">
+<meta name="msapplication-TileColor" content="#4f2800">
+
+
+
+
+<meta name="msapplication-TileImage" content="https://assets.arkencounter.com/art/mstile-144x144.png">
+<link href="https://arkencounter.com/feeds/blog/" rel="alternate" title="Ark Encounter Blog" type="application/rss+xml">
+<style>
+    ul.panelDots li {
+        z-index: 1;
+    }
+
+    section.white.card-row.gallery img {
+        width: auto;
+    }
+    .white h2 {
+        font-family: "Ubuntu", Verdana, Lucida Grande, Gill Sans, Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        color: #656565;
+        text-transform: uppercase;
+    }
+    
+    .cm-highlighted-quote-right {
+        background-color: rgba(88, 184, 208, 0.8);
+        box-shadow: 2em 0 0 rgba(88, 184, 208, 0.8),-0.1em 0 0 rgba(88, 184, 208, 0.8) !important;
+    }
+    
+    .cm-highlighted-quote-left {
+        background-color: rgba(88, 184, 208, 0.8);
+        box-shadow: 2em 0 0 rgba(88, 184, 208, 0.8),-0.1em 0 0 rgba(88, 184, 208, 0.8) !important;
+    }
+    
+    .card-link {
+        text-align: left;
+        padding: 1.5em;
+    }
+    
+    
+    
+    @media screen and (max-width: 64em) {
+        .img-quote-right.img-quote-bottom, .img-quote-right.img-quote-middle, .img-quote-right.img-quote-top, .img-quote-left.img-quote-bottom, .img-quote-left.img-quote-middle, .img-quote-left.img-quote-top {
+            padding: 25% 0;
+            position: relative;
+                width: 80%;
+        }
+        
+        .full-width-card p.img-quote {
+            font-size: 1.5em;
+        }
+         .img-quote-right.img-quote-bottom, .img-quote-right.img-quote-middle, .img-quote-right.img-quote-top {
+             margin-right: -1em;
+         }
+        .ark-highlighted-quote-right, .ark-highlighted-quote-left {
+            font-size: 1.5em;
+        }
+  }
+  
+  .overlay-wrap {
+        overflow-y: scroll;
+    }
+    .overlay-outer {
+        padding-top: 25%;
+    }
+    
+    a.sister-logo:hover {
+        color: #f38b00;
+    }
+    .footer-form .newsletterPersonalBox {
+        display: inline-block;
+    }
+    .footer-form input {
+        background-color: #e6e3e3;
+        border-color: rgb(218, 218, 218);
+    }
+    .footer-form .newsletter-check {
+        width: 20em;
+        font-size: 0.8em;
+        margin: 0 auto;
+        margin-top: -1em;
+        margin-bottom: 1em;
+    }
+    .footer-form .newsletterSubmitBox {
+        font-size: 0.9em;
+    }
+    
+    @media screen and (min-width: 45em) {
+        .footer-form .newsletterSubmitBox {
+            display: inline-block;
+        }
+    }
+    .footer-form button.btn { 
+        padding: 0.8em 1.5em;
+        margin-top: -1.5em;
+            margin-top: 0.3em;
+    }
+
+    .grid-item.grid-4col.padded.footer-grid {
+        margin-top: 0.5em;
+    }
+    
+    p.footer-form-caption {
+        margin: 0;
+    }
+    
+
+	@media only screen and (max-width: 64em) {
+        section.fw-header, section.fw-wrap {
+            background-attachment: scroll;
+        }
+    }
+</style>
+</head>
+<body class="homeLanding js-noFollowBox no-touch">
+<script type="text/javascript">
+			var body = document.getElementsByTagName('body')[0],
+				bodyClass = body.className;
+			body.className = bodyClass+' js';
+		</script>
+<nav class="nav-main js-followerFull ">
+<a href="/" class="nav-logo js-navLogo">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 324.4 168.3" enable-background="new 0 0 324.4 168.3" xml:space="preserve" class="svg svg-ArkEncounter" style="max-width:7em">
+<path d="M282.8,149.4c1.9,0,4.2,0.7,4.2,2.8c0,2.1-2.4,2.8-4.2,2.8h-6.9v-5.6H282.8z M279.8,159.6c2.1,0,3.3,1.4,4.1,2.7l2.8,4.3
+		c0.5,0.9,1.7,1.5,2.5,1.5h3.9c0.9,0,1.1-0.7,0.6-1.5l-3-4.7c-1.3-2.1-2.3-3.3-3.7-3.8c3.4-0.7,6.1-2.3,6.1-5.9
+		c0-4.6-3.6-7.4-8.5-7.4h-13.5c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5h3.1c0.9,0,1.5-0.7,1.5-1.5v-7H279.8z M262,144.8
+		h-18.8c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.9,0.7,1.6,1.5,1.6h18.7c0.9,0,1.5-0.7,1.5-1.5v-1.6c0-0.8-0.7-1.5-1.5-1.5h-14.2v-4.8H260
+		c0.8,0,1.5-0.7,1.5-1.5v-1.5c0-0.8-0.7-1.5-1.5-1.5h-12.2v-4.7H262c0.8,0,1.5-0.7,1.5-1.5v-1.5C263.5,145.5,262.8,144.8,262,144.8
+		 M213.9,144.8c-0.9,0-1.5,0.7-1.5,1.5v1.5c0,0.9,0.7,1.5,1.5,1.5h7.3v17.3c0,0.8,0.7,1.5,1.5,1.5h3.1c0.8,0,1.5-0.7,1.5-1.5v-17.3
+		h7.3c0.9,0,1.5-0.7,1.5-1.5v-1.5c0-0.9-0.7-1.5-1.5-1.5H213.9z M187,168.2c0.8,0,1.5-0.7,1.5-1.5v-14l9,14c0.5,0.8,1.5,1.5,2.4,1.5
+		h5.4c0.9,0,1.5-0.7,1.5-1.5v-20.3c0-0.9-0.7-1.5-1.5-1.5h-2.8c-0.8,0-1.5,0.7-1.5,1.5v15.2l-9.8-15.2c-0.5-0.8-1.4-1.5-2.2-1.5h-4.8
+		c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5H187z M162.2,163.7c-3,0-4.3-1.5-4.3-4.7v-12.6c0-0.9-0.7-1.5-1.5-1.5h-3
+		c-0.9,0-1.6,0.7-1.6,1.5v12.6c0,5.9,3.5,9.4,10.3,9.4h2.9c6.8,0,10.3-3.5,10.3-9.4v-12.6c0-0.9-0.7-1.5-1.6-1.5h-3
+		c-0.8,0-1.5,0.7-1.5,1.5V159c0,3.2-1.3,4.7-4.3,4.7H162.2z M119.5,156.5c0,8.7,4.8,12.2,13.1,12.2c8.3,0,13.1-3.5,13.1-12.2
+		c0-8.7-4.8-12.2-13.1-12.2C124.2,144.3,119.5,147.8,119.5,156.5 M132.6,148.7c5,0,7,2.8,7,7.8c0,5-2,7.8-7,7.8c-5,0-7-2.8-7-7.8
+		C125.6,151.5,127.6,148.7,132.6,148.7 M89.1,156.5c0,8.1,4.1,11.8,12.1,11.8h4c4.5,0,9.4-2.4,9.4-7.2c0-1.5-1.2-1.8-1.7-1.8h-1.9
+		c-0.9,0-1.7,0.4-2.3,1.8c-0.7,1.6-2,2.6-4,2.6h-3.2c-4.8,0-6.1-1.8-6.1-7.2c0-5.4,1.3-7.2,6.1-7.2h2.9c2,0,3.3,1,4,2.6
+		c0.6,1.4,1.4,1.8,2.3,1.8h1.9c0.4,0,1.7-0.3,1.7-1.8c0-4.7-4.8-7.2-9.4-7.2h-3.6C93.2,144.7,89.1,148.4,89.1,156.5 M62.9,168.2
+		c0.8,0,1.5-0.7,1.5-1.5v-14l9,14c0.5,0.8,1.5,1.5,2.4,1.5h5.4c0.9,0,1.5-0.7,1.5-1.5v-20.3c0-0.9-0.7-1.5-1.5-1.5h-2.8
+		c-0.8,0-1.5,0.7-1.5,1.5v15.2L67,146.3c-0.5-0.8-1.4-1.5-2.2-1.5H60c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5H62.9z
+		 M50.7,144.8H31.9c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.9,0.7,1.6,1.5,1.6h18.7c0.9,0,1.5-0.7,1.5-1.5v-1.6c0-0.8-0.7-1.5-1.5-1.5H36.6
+		v-4.8h12.2c0.8,0,1.5-0.7,1.5-1.5v-1.5c0-0.8-0.7-1.5-1.5-1.5H36.6v-4.7h14.2c0.8,0,1.5-0.7,1.5-1.5v-1.5
+		C52.3,145.5,51.6,144.8,50.7,144.8"></path>
+<path d="M78.2,78.2H40.8l2.8-10.3c2.4-8.8,9.7-14.4,19-14.4h15.6V78.2z M105.3,126.1V39.8c0-3.5-2.7-6.6-6.2-6.6H65.2
+		c-20.9,0-41.7,5.2-47.7,28L0,127.3c2.2,0.7,5.2,0.6,9.2-1.5c11.2-5.8,13.4-2.8,13.4-2.8s-3.2-0.3-2.3,3c0.9,3.6,12.4,6.1,19.2,1.4
+		c6.8-4.7,4.7-17-1.2-17c-5.8,0-7.7,5.3-7.7,5.3s-1.9-15.2,17.1-20.6c17.1-4.8,27.2,10.7,27.2,10.7s0.8-1.6,0.1-3.5
+		c-0.6-1.9-2.5-2.9-2.5-2.9s3.5-1.6,8.3,4.8C85.5,110.6,92.8,121.8,105.3,126.1 M186.7,65.9c0,9.4-10.5,12.4-18.7,12.4h-30.6V53.5
+		h30.6C176.2,53.5,186.7,56.4,186.7,65.9 M216.5,130.2c-0.1-0.2-0.2-0.5-0.4-0.7L203,108.7c-5.9-9.3-10.3-14.4-16.4-16.7
+		c14.9-2.9,27.1-10.3,27.1-26.2c0-20.3-16.1-32.7-37.6-32.7l-59.4,0c-3.7,0-6.6,2.9-6.6,6.8v87.7c10.7,2.8,20.1,2.3,27.6-3.2
+		c8.4-6.1,6.3-16.7-1.2-17.8c-7.5-1.2-10,4.7-10,4.7s0.7-13.1,20.6-16.1c17.5-2.7,25.9,10,25.9,10s0-0.3,2.6-0.5
+		c2.6-0.2,5.1,2.6,5.1,2.6s-3.2-2.1-4.7,1.6C174.6,112.6,181.1,131.7,216.5,130.2 M297.6,32.5c0,1.3-1.1,2.4-2.4,2.4
+		c-1.3,0-2.4-1.1-2.4-2.4c0-1.3,1.1-2.4,2.4-2.4C296.5,30.1,297.6,31.1,297.6,32.5 M308,33.1c2-1.3,3.7-1.9,3.7-1.9s-2.2-1.8-5.7-3.1
+		c-0.4-1.4-0.7-2.9-0.9-4.3c0.2-2.3,1-6.1,4-10.7C313.4,6.7,315,0,315,0s-10.6,2.1-14.3,11.1c-3.4,8.2,1.5,13,3.6,14.6
+		c0.1,0.7,0.2,1.3,0.3,2c-4.7-1.3-11.1-1.4-17.6,4.2c-11.9,10.2-6.9,42.6-32.8,42.6h-7.6V39.9c0-3.8-3.1-6.9-6.8-6.9h-13.6
+		c-3.7,0-6.8,3.1-6.8,6.9v89.4c0,0.3,0,0.5,0.1,0.7c13.5-0.9,21.3-3.3,25.6-6c7.6-4.8,6.9-14.2,3.6-15.4c-3.7-1.3-5.6,1.4-5.6,1.4
+		s0.2-2.6,1.9-4c2.3-1.9,4.4-1.2,4.4-1.2s-1.6-2.3-5.8-1.7c-4.2,0.6-6.3,4.5-6.3,4.5s-0.7-16.9,20.6-15.3
+		c18.7,1.4,27.2,26.7,49.1,33.3c6.6,2,12.5,2.7,17.5,2.9L307,100.9c-4.1-6.3-11.5-15.3-18.6-16.8c10-2.4,17.2-10,17.6-20.1
+		c0.4-10.5-3.2-13.4-3.6-21.5c-0.2-4,2.1-6.8,4.4-8.7c3.5,5.7,7.8,7.5,7.8,7.5l1.6-1.9C316.3,39.5,311.2,38.6,308,33.1"></path>
+</svg>
+</a>
+<ul class="no-dec modules">
+<li class="nav-search">
+<a href="/search/" class="js-navIconButton js-navIconSearch" data-child="navChildSearch">
+<i class="material-icons">&#xE8B6;</i>
+</a>
+</li>
+<li class="btn-notification is-hidden js-navItemNotification">
+<a class="js-navIconButton js-navIconNotification" data-child="navChildNotification" href="#">
+<i class="material-icons">&#xE7F4;</i><span class="alert-badge js-notificationQty">3</span> Messages
+</a>
+</li>
+<li class="js-headerLoginLi" data-unauthenticatedtext="Sign in">
+<a class="js-navIconButton js-navIconAccount" data-child="navChildAccount" href="/account/">
+<span>Account</span> <i class="material-icons js-headerProfileImage">&#xE853;</i>
+</a>
+</li>
+<li>
+<a href="#nav-deep" class="jsShowMore"><span>Menu</span><i class="material-icons">&#xE5D2;</i></a>
+</li>
+</ul>
+<ul class="no-dec nav js-header2">
+<li class="l1 PYV
+  
+  " data-id="29503">
+<a href="/tickets/" title="" class="subNavBtn l1
+      
+        
+      "><i class="material-icons">&#xE638;</i>Tickets</a>
+</li>
+<li class="l1 
+  
+  " data-id="30839">
+<a href="/places-to-stay/" title="" class="subNavBtn l1
+      
+        
+      "><i class="material-icons">hotel</i>Places to Stay</a>
+</li>
+<li class="l1 
+  
+  " data-id="30840">
+<a href="/things-to-do/" title="" class="subNavBtn l1
+      
+        
+      "><i class="material-icons">star</i>Things to Do</a>
+</li>
+<li class="l1 
+  
+  " data-id="30841">
+<a href="/about-the-ark/" title="" class="subNavBtn l1
+      
+        
+      "><i class="icon-material-ark"></i>About the Ark</a>
+</li>
+</ul>
+</nav>
+<div class="animated-border"><div class="animated-border-2 borderRollRight borderGrowOne"></div><div class="animated-border-3 borderRollLeft borderGrowTwo"></div><div class="animated-border-4 borderRollLeft borderGrowOne"></div><div class="animated-border-5 borderRollRight borderGrowTw0"></div><div class="animated-border-6 borderRollLeft borderGrowOne"></div><div class="animated-border-7 borderRollLeft borderGrowOne"></div></div>
+<div id="navChildWeather" class="js-navChild is-hidden navChildWeather">
+<div class="weather-copyright">
+Weather provided by <a href="http://openweathermap.org/" target="_blank">OpenWeatherMap</a>
+<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">(cc-by-sa)</a>
+</div>
+</div>
+<div id="navChildNotification" class="js-navChild notification-drawer is-hidden">
+<ul class="noDec list-card js-notificationsList">
+</ul>
+</div>
+<div id="navChildAccount" class="js-navChild is-hidden">
+<div class="content js-headerProfileContent js-loginSystem"></div>
+</div>
+<div id="navChildSearch" class="js-navChild is-hidden">
+<form method="GET" action="/search/" class="js-searchForm">
+<input type="search" name="q" placeholder="Search" />
+<button type="submit">GO</button>
+</form>
+</div>
+<nav id="nav-deep" class="nav-deep-container">
+<div class="nav-deep-drawer">
+<a href="/" class="nav-deep-logo">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 324.4 168.3" enable-background="new 0 0 324.4 168.3" xml:space="preserve" class="svg svg-ArkEncounter" style="max-width:7em">
+<path d="M282.8,149.4c1.9,0,4.2,0.7,4.2,2.8c0,2.1-2.4,2.8-4.2,2.8h-6.9v-5.6H282.8z M279.8,159.6c2.1,0,3.3,1.4,4.1,2.7l2.8,4.3
+        		c0.5,0.9,1.7,1.5,2.5,1.5h3.9c0.9,0,1.1-0.7,0.6-1.5l-3-4.7c-1.3-2.1-2.3-3.3-3.7-3.8c3.4-0.7,6.1-2.3,6.1-5.9
+        		c0-4.6-3.6-7.4-8.5-7.4h-13.5c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5h3.1c0.9,0,1.5-0.7,1.5-1.5v-7H279.8z M262,144.8
+        		h-18.8c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.9,0.7,1.6,1.5,1.6h18.7c0.9,0,1.5-0.7,1.5-1.5v-1.6c0-0.8-0.7-1.5-1.5-1.5h-14.2v-4.8H260
+        		c0.8,0,1.5-0.7,1.5-1.5v-1.5c0-0.8-0.7-1.5-1.5-1.5h-12.2v-4.7H262c0.8,0,1.5-0.7,1.5-1.5v-1.5C263.5,145.5,262.8,144.8,262,144.8
+        		 M213.9,144.8c-0.9,0-1.5,0.7-1.5,1.5v1.5c0,0.9,0.7,1.5,1.5,1.5h7.3v17.3c0,0.8,0.7,1.5,1.5,1.5h3.1c0.8,0,1.5-0.7,1.5-1.5v-17.3
+        		h7.3c0.9,0,1.5-0.7,1.5-1.5v-1.5c0-0.9-0.7-1.5-1.5-1.5H213.9z M187,168.2c0.8,0,1.5-0.7,1.5-1.5v-14l9,14c0.5,0.8,1.5,1.5,2.4,1.5
+        		h5.4c0.9,0,1.5-0.7,1.5-1.5v-20.3c0-0.9-0.7-1.5-1.5-1.5h-2.8c-0.8,0-1.5,0.7-1.5,1.5v15.2l-9.8-15.2c-0.5-0.8-1.4-1.5-2.2-1.5h-4.8
+        		c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5H187z M162.2,163.7c-3,0-4.3-1.5-4.3-4.7v-12.6c0-0.9-0.7-1.5-1.5-1.5h-3
+        		c-0.9,0-1.6,0.7-1.6,1.5v12.6c0,5.9,3.5,9.4,10.3,9.4h2.9c6.8,0,10.3-3.5,10.3-9.4v-12.6c0-0.9-0.7-1.5-1.6-1.5h-3
+        		c-0.8,0-1.5,0.7-1.5,1.5V159c0,3.2-1.3,4.7-4.3,4.7H162.2z M119.5,156.5c0,8.7,4.8,12.2,13.1,12.2c8.3,0,13.1-3.5,13.1-12.2
+        		c0-8.7-4.8-12.2-13.1-12.2C124.2,144.3,119.5,147.8,119.5,156.5 M132.6,148.7c5,0,7,2.8,7,7.8c0,5-2,7.8-7,7.8c-5,0-7-2.8-7-7.8
+        		C125.6,151.5,127.6,148.7,132.6,148.7 M89.1,156.5c0,8.1,4.1,11.8,12.1,11.8h4c4.5,0,9.4-2.4,9.4-7.2c0-1.5-1.2-1.8-1.7-1.8h-1.9
+        		c-0.9,0-1.7,0.4-2.3,1.8c-0.7,1.6-2,2.6-4,2.6h-3.2c-4.8,0-6.1-1.8-6.1-7.2c0-5.4,1.3-7.2,6.1-7.2h2.9c2,0,3.3,1,4,2.6
+        		c0.6,1.4,1.4,1.8,2.3,1.8h1.9c0.4,0,1.7-0.3,1.7-1.8c0-4.7-4.8-7.2-9.4-7.2h-3.6C93.2,144.7,89.1,148.4,89.1,156.5 M62.9,168.2
+        		c0.8,0,1.5-0.7,1.5-1.5v-14l9,14c0.5,0.8,1.5,1.5,2.4,1.5h5.4c0.9,0,1.5-0.7,1.5-1.5v-20.3c0-0.9-0.7-1.5-1.5-1.5h-2.8
+        		c-0.8,0-1.5,0.7-1.5,1.5v15.2L67,146.3c-0.5-0.8-1.4-1.5-2.2-1.5H60c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.8,0.7,1.5,1.5,1.5H62.9z
+        		 M50.7,144.8H31.9c-0.8,0-1.5,0.7-1.5,1.5v20.3c0,0.9,0.7,1.6,1.5,1.6h18.7c0.9,0,1.5-0.7,1.5-1.5v-1.6c0-0.8-0.7-1.5-1.5-1.5H36.6
+        		v-4.8h12.2c0.8,0,1.5-0.7,1.5-1.5v-1.5c0-0.8-0.7-1.5-1.5-1.5H36.6v-4.7h14.2c0.8,0,1.5-0.7,1.5-1.5v-1.5
+        		C52.3,145.5,51.6,144.8,50.7,144.8"></path>
+<path d="M78.2,78.2H40.8l2.8-10.3c2.4-8.8,9.7-14.4,19-14.4h15.6V78.2z M105.3,126.1V39.8c0-3.5-2.7-6.6-6.2-6.6H65.2
+        		c-20.9,0-41.7,5.2-47.7,28L0,127.3c2.2,0.7,5.2,0.6,9.2-1.5c11.2-5.8,13.4-2.8,13.4-2.8s-3.2-0.3-2.3,3c0.9,3.6,12.4,6.1,19.2,1.4
+        		c6.8-4.7,4.7-17-1.2-17c-5.8,0-7.7,5.3-7.7,5.3s-1.9-15.2,17.1-20.6c17.1-4.8,27.2,10.7,27.2,10.7s0.8-1.6,0.1-3.5
+        		c-0.6-1.9-2.5-2.9-2.5-2.9s3.5-1.6,8.3,4.8C85.5,110.6,92.8,121.8,105.3,126.1 M186.7,65.9c0,9.4-10.5,12.4-18.7,12.4h-30.6V53.5
+        		h30.6C176.2,53.5,186.7,56.4,186.7,65.9 M216.5,130.2c-0.1-0.2-0.2-0.5-0.4-0.7L203,108.7c-5.9-9.3-10.3-14.4-16.4-16.7
+        		c14.9-2.9,27.1-10.3,27.1-26.2c0-20.3-16.1-32.7-37.6-32.7l-59.4,0c-3.7,0-6.6,2.9-6.6,6.8v87.7c10.7,2.8,20.1,2.3,27.6-3.2
+        		c8.4-6.1,6.3-16.7-1.2-17.8c-7.5-1.2-10,4.7-10,4.7s0.7-13.1,20.6-16.1c17.5-2.7,25.9,10,25.9,10s0-0.3,2.6-0.5
+        		c2.6-0.2,5.1,2.6,5.1,2.6s-3.2-2.1-4.7,1.6C174.6,112.6,181.1,131.7,216.5,130.2 M297.6,32.5c0,1.3-1.1,2.4-2.4,2.4
+        		c-1.3,0-2.4-1.1-2.4-2.4c0-1.3,1.1-2.4,2.4-2.4C296.5,30.1,297.6,31.1,297.6,32.5 M308,33.1c2-1.3,3.7-1.9,3.7-1.9s-2.2-1.8-5.7-3.1
+        		c-0.4-1.4-0.7-2.9-0.9-4.3c0.2-2.3,1-6.1,4-10.7C313.4,6.7,315,0,315,0s-10.6,2.1-14.3,11.1c-3.4,8.2,1.5,13,3.6,14.6
+        		c0.1,0.7,0.2,1.3,0.3,2c-4.7-1.3-11.1-1.4-17.6,4.2c-11.9,10.2-6.9,42.6-32.8,42.6h-7.6V39.9c0-3.8-3.1-6.9-6.8-6.9h-13.6
+        		c-3.7,0-6.8,3.1-6.8,6.9v89.4c0,0.3,0,0.5,0.1,0.7c13.5-0.9,21.3-3.3,25.6-6c7.6-4.8,6.9-14.2,3.6-15.4c-3.7-1.3-5.6,1.4-5.6,1.4
+        		s0.2-2.6,1.9-4c2.3-1.9,4.4-1.2,4.4-1.2s-1.6-2.3-5.8-1.7c-4.2,0.6-6.3,4.5-6.3,4.5s-0.7-16.9,20.6-15.3
+        		c18.7,1.4,27.2,26.7,49.1,33.3c6.6,2,12.5,2.7,17.5,2.9L307,100.9c-4.1-6.3-11.5-15.3-18.6-16.8c10-2.4,17.2-10,17.6-20.1
+        		c0.4-10.5-3.2-13.4-3.6-21.5c-0.2-4,2.1-6.8,4.4-8.7c3.5,5.7,7.8,7.5,7.8,7.5l1.6-1.9C316.3,39.5,311.2,38.6,308,33.1"></path>
+</svg>
+</a>
+<a href="#nav-deep" class="jsCloseMore nav-deep-close">
+<i class="material-icons">&#xE5CD;</i>
+</a>
+<ul class="no-dec nav-deep">
+<li><a href="/tickets/"><i class="material-icons">&#xE638;</i>Tickets</a></li>
+<li><a href="/places-to-stay/"><i class="material-icons">&#xE53A;</i>Places to Stay</a></li>
+<li><a href="/things-to-do/"><i class="material-icons">&#xE838;</i>Things to Do</a></li>
+<li><a href="/about-the-ark/"><i class="icon-material-ark"></i>About the Ark</a></li>
+</ul>
+</div>
+<div class="nav-deep-overlay"></div>
+</nav>
+<div id="ipaNodeBody" class="node-body">
+<script>
+    var loaded = 0;
+    function fadeInHome(el)
+    {
+        loaded++;
+        if (loaded == 3)
+        {
+            document.getElementById('homeParallaxWrap').style.opacity = 1;
+        }
+    }
+</script>
+<style>
+
+.homeLanding .nav-main {
+     background: -webkit-linear-gradient(#000000 0%, transparent 100%);
+    background: -o-linear-gradient(rgba(0,0,0,0.65) 0%, transparent 100%);
+    background: linear-gradient(#000000 0%, transparent 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#000000', endColorstr='#00000000',GradientType=0 );
+}
+
+.cardTitle {
+        padding: 1em 0.5em 0;
+    }
+    
+.heroContent {
+    margin: 35vh auto 0;
+}
+
+@media (min-width: 55em) {
+    .heroContent {
+        margin: 20vh auto 0;
+    }
+}
+
+.heroContent {
+    width: 100%;
+    max-width: 22em;
+    transform: translateY(-50%);
+}
+
+ul.secCardWrap {
+    margin: -1em 0 0;
+    padding: 0 1.5em 1.3em;
+}
+.att-staticHero {
+    height: 80vh;
+}
+</style>
+<div class="ark-HeroWrap">
+<div class="att-staticHero" style="background-image: url(https://assets.arkencounter.com/img/features/1801-ThinkBigger.jpg); background-position: center bottom;">
+<div class="heroContent">
+<img src="https://assets.arkencounter.com/img/art/think-bigger.png" alt="Think Bigger">
+<a href="/tickets/" class="btn">Ticket Options</a>
+</div>
+</div>
+</div>
+<div class="secondaryCards flex-container ">
+<ul class="secCardWrap row">
+<li class="secCardGrid col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<a href="/exhibits/" class="cardLink">
+<div class="secondaryCard box">
+<div class="cardTitle">
+<h2>See Inside The Ark</h2>
+<p>Explore 3 decks of world-class exhibits.</p>
+</div>
+<img src="https://assets.arkencounter.com/img/1704-SeeInsideArk.jpg" />
+</div>
+</a>
+</li>
+<li class="secCardGrid col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<a href="https://creationmuseum.org" class="cardLink">
+<div class="secondaryCard box">
+<div class="cardTitle">
+<h2>Explore Bible History</h2>
+<p>Visit our popular sister attraction.</p>
+</div>
+<img src="https://assets.arkencounter.com/img/panels/1612_ArkWebsite_SecondPannel_CreationMuseum.jpg" />
+</div>
+</a>
+</li>
+<li class="secCardGrid col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<a href="/bible-true/" class="cardLink">
+<div class="secondaryCard box">
+<div class="cardTitle">
+<h2>The Bible Is True</h2>
+<p>Discover why in this stunning exhibit.</p>
+</div>
+<img src="https://assets.arkencounter.com/img/why-bible-true-exhibit.jpg" />
+</div>
+</a>
+</li>
+<li class="secCardGrid col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<a href="/visit/" class="cardLink">
+<div class="secondaryCard box">
+<div class="cardTitle">
+<h2>Plan Your Visit</h2>
+<p>5 steps to an unforgettable vacation.</p>
+</div>
+<img src="https://assets.arkencounter.com/img/plan-your-visit-homepage.jpg" />
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<section class="footer">
+<div class="footer-container">
+<h2 class="margin-bottom-lg">Bigger Than Imagination</h2>
+<form method="post" action="/newsletters/" id="newsletterForm" class="newsletterForm footer-form">
+<input type='hidden' name='csrfmiddlewaretoken' value='GGJhuJ4BOT4JSgWbjSa8gb0s488fmAjzipLuD4cfogrt7vGBnKa65TFES8inl70r' />
+<p class="footer-form-caption">Subscribe to Ark Encounter Emails</p>
+<input type="hidden" name="newsletterinterest-ark-latest-news" value="ark-latest-news" data-newslettertitle="ark-latest-news" />
+<div class="newsletterPersonalBox js-frmFieldWrap">
+<label for="id_EMAIL" class="frm-textBoxTitle">
+<input id="id_EMAIL" type="email" name="EMAIL" maxlength="50" placeholder="email" class="js-required required" />
+</label>
+</div>
+<div class="newsletterPersonalBox js-frmFieldWrap">
+<label for="id_FNAME" class="frm-textBoxTitle">
+<input id="id_FNAME" type="text" name="FNAME" placeholder="first name" maxlength="50" class="js-required required">
+</label>
+</div>
+<div class="newsletterSubmitBox">
+<button type="submit" value="Subscribe" name="submit" class="btn js-newsletterSubmit">
+<i class="spr spr-send"></i>
+Subscribe
+</button>
+</div>
+</form>
+<div class="flex-container">
+<div class="row padded footer-grid">
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 grid">
+<div class="box jsAigExpander is-left">
+<h3><a href="/tickets/">Tickets</a></h3>
+<ul class="no-dec" id="foot-menu-tickets">
+<li><a href="/account/">Charter Boarding Passholders</a></li>
+<li><a href="/tickets/helpful-tips/">Helpful Tips & FAQ</a></li>
+ <li><a href="/hours/">Ark Hours</a></li>
+<li><a href="/groups/">Bring a Group</a></li>
+<li class="js-storeMenuLiveChat is-hidden" id="olarkFooterBtn"><a href="javascript:void(0);" onclick="olark('api.box.expand')">For Assistance: Live Chat</a></li>
+</ul>
+<h3 class="lone-wolf"><a href="/places-to-stay/">Places to Stay</a></h3>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<div class="box jsAigExpander is-left">
+<h3><a href="/things-to-do/">Things to Do</a></h3>
+<ul class="no-dec" id="foot-menu-do">
+<li><a href="/exhibits/">Exhibits</a></li>
+<li><a href="/events/">Events</a></li>
+<li><a href="/zip-lines/">Zip Lines</a></li>
+<li><a href="/dining/">Family Dining</a></li>
+<li><a href="/zoo/">Ararat Ridge Zoo</a></li>
+<li><a href="/gift-shop/">Gift Shop</a></li>
+<li><a href="/map/area-attractions/">Nearby Attractions</a></li>
+</ul>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<div class="box jsAigExpander is-left">
+<h3><a href="/about-the-ark/">About the Ark</a></h3>
+<ul class="no-dec" id="foot-menu-ark">
+<li><a href="/ark-map/">Ark Encounter Map</a></li>
+<li><a href="/directions/">Directions</a></li>
+<li><a href="/noahs-ark/">Noah’s Ark</a></li>
+<li><a href="/flood/">Flood</a></li>
+<li><a href="/noah/">Noah</a></li>
+<li><a href="/animals/">Animals</a></li>
+</ul>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+<div class="box jsAigExpander is-left">
+<h3><a href="/about/">About Us</a></h3>
+<ul class="no-dec" id="foot-menu-about">
+<li><a href="https://answersingenesis.org/insider/">Donate</a></li>
+<li><a href="/jobs/">Jobs</a></li>
+<li><a href="/media-press-kit/">Press</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/gospel/">Good News</a></li>
+<li><a href="/volunteer/">Volunteer</a></li>
+<li><a href="/about/contact-us/">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<div class="flex-container">
+<div class="row padded">
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+<div class="box">
+
+<h2><a href="/hours/">Hours</a></h2>
+<p>Monday – Saturday: 9 AM – 7 PM
+<br />Sunday: Noon – 7 PM
+</p>
+<p class="caption" style="max-width: 26em; margin: 0 auto;">All hours are Eastern Time. Last entry 1 1/2 hours before closing.</p>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+<div class="box">
+<h2>Follow Us</h2>
+<div class="social-list margin-bottom">
+<a href="https://www.instagram.com/arkencounter/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+<a href="http://www.twitter.com/ArkEncounter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="http://www.facebook.com/ArkEncounter"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a href="https://www.youtube.com/channel/UCwFrI64absE3Zo8025TfVeQ"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+</div>
+<p style="margin: 0;">Sister Attraction</p>
+<a href="https://creationmuseum.org" class="sister-logo">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 84.3 29" enable-background="new 0 0 84.3 29" xml:space="preserve" class="svg svg-CreationMuseum" style="max-width: 6.5em; margin: 0 auto; fill: #605f5b;">
+<g>
+<path d="M9.8,11.5V9.8c-1.1,0.5-2.2,1-4,1c-3.1,0-4-2-4-4.7c0-2.6,0.9-4.7,4-4.7c1.7,0,2.8,0.4,4,1V0.7c-1.1-0.6-2.4-0.9-4-0.9
+                    				C1.4-0.2,0,2.4,0,6.1c0,3.8,1.4,6.3,5.9,6.3C7.4,12.4,8.7,12,9.8,11.5z"></path>
+<path d="M23.2,12.1V11c-0.2,0.1-0.5,0.1-0.7,0.1c-0.6,0-0.9-0.2-1.2-0.9c-0.7-1.4-1.4-2.7-2.6-3.5c1.7-0.6,2.5-1.8,2.5-3.1
+                    				c0-1.9-1.6-3.6-5.2-3.6h-4.4v12.2h1.8V7.2c0.2,0,0.7-0.1,1.2-0.1c3.4,0,4.1,1.9,5.1,4.1c0.2,0.5,0.8,1.2,1.9,1.2
+                    				C22.2,12.4,22.7,12.3,23.2,12.1z M16.1,5.6h-2.6v-4h2.6c2.4,0,3.4,0.9,3.4,2C19.5,4.7,18.6,5.6,16.1,5.6z"></path>
+<path d="M24,8.7c0,2.2,1.7,3.6,4.7,3.6c1.7,0,2.8-0.1,4.4-0.3v-1.6c-1.6,0.2-2.7,0.3-4.2,0.3c-1.7,0-3.1-0.7-3.1-2.1
+                    				c0-1.4,1.2-2.1,3-2.1h3.3V4.9h-3.3c-1.5,0-2.6-0.5-2.6-1.7c0-1.2,1-1.8,2.6-1.8c1.2,0,2.4,0.1,3.9,0.3V0.1
+                    				c-1.2-0.1-2.4-0.3-4.1-0.3c-2.7,0-4.3,1.3-4.3,3.3c0,1.2,0.6,2,1.5,2.6C24.7,6.3,24,7.4,24,8.7z"></path>
+<path d="M37.1,9.6h6.7l1.1,2.6h1.9L41.7,0h-2.5l-5.1,12.2H36L37.1,9.6z M40.4,1.6L43.1,8h-5.4L40.4,1.6z"></path>
+<polygon points="49.4,12.2 51.2,12.2 51.2,1.6 55.7,1.6 55.7,0 44.9,0 44.9,1.6 49.4,1.6 	"></polygon>
+<rect x="57.2" width="1.8" height="12.2"></rect>
+<path d="M66.9,12.4c4,0,5.7-2.3,5.7-6.3c0-4-1.7-6.3-5.7-6.3c-4,0-5.7,2.3-5.7,6.3C61.2,10,62.9,12.4,66.9,12.4z M66.9,1.4
+                    				c3,0,3.9,1.9,3.9,4.7c0,2.8-0.9,4.7-3.9,4.7c-3,0-3.9-1.9-3.9-4.7C63,3.3,63.9,1.4,66.9,1.4z"></path>
+<polygon points="82.5,0 82.5,9.3 76.1,0 74.3,0 74.3,12.2 76.1,12.2 76.1,2.9 82.5,12.2 84.3,12.2 84.3,0 	"></polygon>
+<polygon points="15.1,16.6 11.3,24 7.4,16.6 5.7,16.6 4,28.8 5.8,28.8 7,19.6 10.5,26.2 12.1,26.2 15.5,19.6 16.8,28.8 18.5,28.8 
+                    				16.9,16.6 	"></polygon>
+<path d="M28.5,25c0,1.5-1.1,2.4-3.2,2.4c-2.1,0-3.2-0.9-3.2-2.4v-8.4h-1.8V25c0,2.4,1.9,4,5,4c3.1,0,5-1.6,5-4v-8.4h-1.8V25z"></path>
+<path d="M37.3,21.7c-1.6-0.5-3-0.9-3.1-2.1c0-1.2,1.2-1.6,2.6-1.6c1.6,0,3,0.6,4,1v-1.7c-1.1-0.4-2.7-0.9-4-0.9
+                    				c-2.7,0-4.4,1.4-4.4,3.2c0,2.2,2.2,3.1,4.4,3.7c1.7,0.5,3.1,1,3.1,2.3c0,1.4-1.5,1.8-2.9,1.8c-1.7,0-3.4-0.7-4.6-1.4v1.8
+                    				c1.3,0.6,3.2,1.2,4.6,1.2c3,0,4.8-1.3,4.8-3.4C41.7,23.3,39.4,22.4,37.3,21.7z"></path>
+<path d="M45.1,25.3c0-1.4,1.2-2.1,3-2.1h3.3v-1.6h-3.3c-1.5,0-2.6-0.5-2.6-1.7c0-1.2,1-1.8,2.6-1.8c1.2,0,2.4,0.1,3.9,0.3v-1.6
+                    				c-1.2-0.1-2.4-0.3-4.1-0.3c-2.7,0-4.3,1.3-4.3,3.3c0,1.2,0.6,2,1.5,2.6c-1.2,0.6-1.9,1.7-1.9,3.1c0,2.2,1.7,3.6,4.7,3.6
+                    				c1.7,0,2.8-0.1,4.4-0.3v-1.6c-1.6,0.2-2.7,0.3-4.2,0.3C46.5,27.4,45.1,26.7,45.1,25.3z"></path>
+<path d="M62.1,25c0,1.5-1.1,2.4-3.2,2.4c-2.1,0-3.2-0.9-3.2-2.4v-8.4H54V25c0,2.4,1.9,4,5,4c3.1,0,5-1.6,5-4v-8.4h-1.8V25z"></path>
+<polygon points="76.7,16.6 72.9,24 69,16.6 67.3,16.6 65.6,28.8 67.4,28.8 68.6,19.6 72.1,26.2 73.7,26.2 77.1,19.6 78.4,28.8 
+                    				80.1,28.8 78.5,16.6 	"></polygon>
+</g>
+</svg>
+</a>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+<div class="box">
+<h2><a href="/directions/">Location</a></h2>
+<p><i class="material-icons" style="font-size: 2em;">place</i><br /> 1 Ark Encounter Drive
+<br />&nbsp; Williamstown, KY 41097 (<a href="/directions/">see directions</a>)
+<br /><span class="caption">Just west of the intersection of KY-36 and I-75 (at exit 154).</span></p>
+</div>
+</div>
+</div>
+</div>
+<br />
+<a href="https://answersingenesis.org/">
+<p>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 154.5 184.5" style="enable-background:new 0 0 154.5 184.5; width: 1.5em; margin: 0 auto;" xml:space="preserve">
+<style type="text/css">
+                	.st1{fill:#EBEBEB;}
+                </style>
+<g>
+<path class="st0" d="M20.8,140.9h71.7V175L20.8,140.9z M144.8,9.7v122.7H8.2V9.7H144.8z" />
+<path class="st1" d="M84.6,62.4c0,1.8-0.6,3.3-1.8,4.4c-1.2,1.1-2.7,1.7-4.4,1.7c-1.8,0-3.2-0.6-4.4-1.7c-1.2-1.1-1.8-2.6-1.8-4.4
+                		c0-1.8,0.6-3.3,1.8-4.5c1.2-1.2,2.7-1.8,4.4-1.8c1.7,0,3.2,0.6,4.4,1.8C84,59.1,84.6,60.5,84.6,62.4z M84.6,90.6
+                		c0,1.8-0.6,3.3-1.8,4.4c-1.2,1.1-2.7,1.7-4.4,1.7c-1.8,0-3.2-0.6-4.4-1.7c-1.2-1.1-1.8-2.6-1.8-4.4c0-1.8,0.6-3.3,1.8-4.5
+                		c1.2-1.2,2.7-1.8,4.4-1.8c1.7,0,3.2,0.6,4.4,1.8C84,87.3,84.6,88.8,84.6,90.6z M106,41.5c-2.4,2.6-5.2,4.9-8.3,6.9
+                		c-2,1.2-4,2.3-6.1,3.3l3.1,7.6c1-0.4,2-0.9,3-1.3c2.2-1.1,4-2.2,5.5-3.3v44.3h9.8V41.5H106z M50.5,41.5c-2.4,2.6-5.2,4.9-8.3,6.9
+                		c-2,1.2-4,2.3-6.1,3.3l3.1,7.6c1-0.4,1.9-0.8,3-1.3c2.2-1.1,4-2.2,5.5-3.3v44.3h9.8V41.5H50.5z" />
+</g>
+</svg>
+An attraction of Answers in Genesis</p></a>
+<p class="caption"><i class="material-icons" style="font-size: 1.1em;">&#xE90C;</i> 2018 Answers in Genesis. All rights reserved. | <a href="/privacy/">Privacy Policy</a> |<a href="/content-use/"> Content Use</a> | <a href="/about/attraction-rules/">Attraction Rules</a></p>
+</div>
+</section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://assets.arkencounter.com/lib/js/ace/1.2.2/src/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js"></script>
+<script type="text/javascript" src="/jstemplate/all.js"></script>
+<script type="text/javascript">
+
+var $window = $(window),
+		halfWindowH = $window.height()*0.5,
+		halfWindowW = $window.width()*0.5,
+		//define a max rotation value (X and Y axises)
+		maxRotationY = 5,
+		maxRotationX = 3,
+		aspectRatio;
+
+$('.coverZoom').mousemove(moveBackground);
+
+function moveBackground(event) {
+	var rotateY = ((-event.pageX+halfWindowW)/halfWindowW)*maxRotationY,
+			rotateX = ((event.pageY-halfWindowH)/halfWindowH)*maxRotationX;
+
+	if( rotateY > maxRotationY) rotateY = maxRotationY;
+	if( rotateY < -maxRotationY ) rotateY = -maxRotationY;
+	if( rotateX > maxRotationX) rotateX = maxRotationX;
+	if( rotateX < -maxRotationX ) rotateX = -maxRotationX;
+
+	var transform = 'rotateX(' + rotateX + 'deg' + ') rotateY(' + rotateY + 'deg' + ') translateZ(0)';
+
+	$('.js-parallax').css({
+		'-moz-transform': transform,
+			'-webkit-transform': transform,
+		'-ms-transform': transform,
+		'-o-transform': transform,
+		'transform': transform,
+	});
+}
+
+</script>
+<script type="text/javascript">
+
+this.fitie = function (node) {
+	// restrict to valid object-fit value
+	var objectFit = node.currentStyle['object-fit'];
+
+	if (!objectFit || !/^(contain|cover|fill)$/.test(objectFit)) return;
+
+	// prepare container styles
+	var outerWidth  = node.clientWidth;
+	var outerHeight = node.clientHeight;
+	var outerRatio  = outerWidth / outerHeight;
+
+	var name = node.nodeName.toLowerCase();
+
+	var setCSS = node.runtimeStyle;
+	var getCSS = node.currentStyle;
+
+	var addEventListener = node.addEventListener || node.attachEvent;
+	var removeEventListener = node.removeEventListener || node.detachEvent;
+	var on = node.addEventListener ? '' : 'on';
+	var img = name === 'img';
+	var type = img ? 'load' : 'loadedmetadata';
+
+	addEventListener.call(node, on + type, onload);
+
+	if (node.complete) onload();
+
+	function onload() {
+		removeEventListener.call(node, on + type, onload);
+
+		// prepare container styles
+		var imgCSS = {
+			boxSizing: 'content-box',
+			display:   'inline-block',
+			overflow:  'hidden'
+		};
+
+		'backgroundColor backgroundImage borderColor borderStyle borderWidth bottom fontSize lineHeight height left opacity margin position right top visibility width'.replace(/\w+/g, function (key) {
+			imgCSS[key] = getCSS[key];
+		});
+
+		// prepare image styles
+		setCSS.border = setCSS.margin = setCSS.padding = 0;
+		setCSS.display = 'block';
+		setCSS.height = setCSS.width = 'auto';
+		setCSS.opacity = 1;
+
+		var innerWidth  = node.videoWidth || node.width;
+		var innerHeight = node.videoHeight || node.height;
+		var innerRatio  = innerWidth / innerHeight;
+
+		// style container
+		var imgx = document.createElement('object-fit');
+
+		imgx.appendChild(node.parentNode.replaceChild(imgx, node));
+
+		for (var key in imgCSS) imgx.runtimeStyle[key] = imgCSS[key];
+
+		// style image
+		var newSize;
+
+		if (objectFit === 'fill') {
+			if (img) {
+				setCSS.width = outerWidth;
+				setCSS.height = outerHeight;
+			} else {
+				setCSS['-ms-transform-origin'] = '0% 0%';
+				setCSS['-ms-transform'] = 'scale(' + outerWidth / innerWidth + ',' + outerHeight / innerHeight + ')';
+			}
+		} else if (innerRatio < outerRatio ? objectFit === 'contain' : objectFit === 'cover') {
+			newSize = outerHeight * innerRatio;
+
+			setCSS.width  = Math.round(newSize) + 'px';
+			setCSS.height = outerHeight + 'px';
+			setCSS.marginLeft = Math.round((outerWidth - newSize) / 2) + 'px';
+		} else {
+			newSize = outerWidth / innerRatio;
+
+			setCSS.width  = outerWidth + 'px';
+			setCSS.height = Math.round(newSize) + 'px';
+			setCSS.marginTop = Math.round((outerHeight - newSize) / 2) + 'px';
+		}
+	}
+};
+
+
+this.fitie.init = function () {
+	if (document.body) {
+		var all = document.querySelectorAll('img,video');
+		var index = -1;
+
+		while (all[++index]) fitie(all[index]);
+	} else {
+		setTimeout(fitie.init);
+	}
+};
+
+if (/MSIE|Trident/.test(navigator.userAgent)) this.fitie.init();
+    
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js"></script>
+<script type="text/javascript" src="/jstemplate/all.js"></script>
+<script type="text/javascript" src="https://cdns.gigya.com/JS/gigya.js?apiKey=3_sqEKtQeBYiMACktRSGrJthaIvzdThlXN4sCojUGS_Q24ZoJIOl1un1maZVAa5EAm"></script>
+<script type="text/javascript" src="https://assets.arkencounter.com/js/default/live/default.min.js?v=104"></script>
+<script type="text/javascript">
+		// New Google Universal Analytics code
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+								})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-124736-20', 'auto');  // Replace with your property ID.
+		ga('require', 'displayfeatures');
+		ga('require', 'ecommerce', 'ecommerce.js');
+		ga('send', 'pageview');
+		ga('create', 'UA-124736-26', 'auto', {'name': 'enhancedTracker'});
+		ga('enhancedTracker.require', 'displayfeatures');
+		ga('enhancedTracker.require', 'ec');
+		ga('enhancedTracker.send', 'pageview');
+	</script>
+
+<div class="is-hidden">
+<img src="https://bcp.crwdcntrl.net/5/c=5117/b=32538758" width="1" height="1" />
+<script src='https://www.mnixpixel.com/rt/764391?p=69711'></script>
+</div>
+
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
+    
+    fbq('init', '160685647831240');
+    fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=160685647831240&ev=PageView&noscript=1" /></noscript>
+
+
+<script type='text/javascript'>
+            var axel = Math.random()+""; var a = axel * 10000000000000;
+            document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=642011;ord='+ a +'?" width=1 height=1 border=0/>');
+        </script>
+<noscript>
+            <img src="https://pubads.g.doubleclick.net/activity;xsp=642011;ord=1?" width=1 height=1 border=0/>
+        </noscript>
+
+<script src='//www.mnixpixel.com/rt/764391?p=69711'></script>
+
+<img src="https://bcp.crwdcntrl.net/5/c=5117/b=32538758" width="1" height="1" />
+
+<script type="text/javascript">
+            /* <![CDATA[ */
+            var google_conversion_id = 930762378;
+            var google_custom_params = window.google_tag_params;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+            /* ]]> */ 
+        </script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+            <div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/930762378/?value=0&amp;guid=ON&amp;script=0"/></div>
+        </noscript>
+
+<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+	f[z]=function(){
+	(a.s=a.s||[]).push(arguments)};var a=f[z]._={
+	},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+	f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+	0:+new Date};a.P=function(u){
+	a.p[u]=new Date-a.p[0]};function s(){
+	a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+	hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+	return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+	b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+	b.contentWindow[g].open()}catch(w){
+	c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+	var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+	b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+	loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+	/* custom configuration goes here (www.olark.com/documentation) */
+	olark.identify('2776-763-10-5369');/*]]>*/
+    olark.configure('system.hb_primary_color', '#58b8d0');</script><noscript><a href="https://www.olark.com/site/2776-763-10-5369/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+<script type='text/javascript'> olark.configure('system.group', 'd39437848139865538b074ebe5fc0daa'); /*Routes to Ark Live Chat*/ </script>
+<script>
+    	    // For non-VIPs, hide the chat box when no one's available to chat.
+            olark('api.chat.onOperatorsAway', function() {
+                chatDisabled = true;
+                document.getElementById('olarkFooterBtn').style.display = 'none';
+            });
+            olark('api.chat.onOperatorsAvailable', function() {
+                chatDisabled = false;
+                document.getElementById('olarkFooterBtn').style.display = 'list-item';
+            });
+        </script>
+
+
+<script src="//s3.amazonaws.com/fiveqsimplepath/collector/aig-ark.js"></script>
+<link href="//s3.amazonaws.com/fiveqsimplepath/sp/aig-ark.css" rel="stylesheet" />
+<script src="//s3.amazonaws.com/fiveqsimplepath/sp/aig-ark.min.js"></script>
+
+</body>
+</html>

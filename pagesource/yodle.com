@@ -1,0 +1,1 @@
+<html><head><title>yodle.com</title></head><body><h2>Moved</h2><p>This page has moved to <a href="http://www.yodle.com/">http://www.yodle.com/</a></p></body></html>

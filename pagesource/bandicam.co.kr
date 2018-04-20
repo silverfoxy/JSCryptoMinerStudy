@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>반디캠 - 고성능 화면 녹화 프로그램, 게임 녹화 프로그램</title>	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="ko" />
+    <meta name="keywords" content="화면 녹화, 화면 녹화 프로그램, 동영상 녹화 프로그램, 화면, 웹캠, 동영상, 녹화, 캡처, 프로그램, 동영상 캡처, 게임 녹화" />
+    <meta name="description" content="반디캠은 컴퓨터 화면이나 게임 화면, 웹캠 영상 등을 쉽고 간편하게 동영상으로 녹화할 수 있는 고성능 게임 및 화면 동영상 녹화 프로그램입니다." />
+    <meta property="fb:admins" content="100001679068610"/>
+	<meta property="fb:app_id" content="155231521228873"/>
+	<meta property="og:image" content="https://www.bandicam.com/img/1200x630-bandicam-pack.png"/> 
+	<meta property="og:type" content="product" />
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="msapplication-config" content="none"/>
+
+	<link rel="stylesheet" type="text/css" href="/style.min.css?20180212" />
+    
+    <!--[if IE 6]>
+		<script src="/js/DD_belatedPNG_0.0.8a-min.js"></script>
+		<script>DD_belatedPNG.fix('.png_bg, .png_img');</script>
+	<![endif]-->    
+	<script type="text/javascript">
+		function loadScript(src, callback)
+		{
+			var s, r, t;
+			r = false;
+			s = document.createElement('script');
+			s.type = 'text/javascript';
+			s.src = src;
+			s.onload = s.onreadystatechange = function() {
+			if ( !r && (!this.readyState || this.readyState == 'complete' || this.readyState == 'loaded')) {
+				r = true;
+				if(typeof callback == 'function') callback();
+			}
+			};
+			t = document.getElementsByTagName('script')[0];
+			t.parentNode.insertBefore(s, t);
+		}
+		
+		function onLoaded_Adsense() 
+		{
+		        $('.adsbygoogle').each(function() {
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			});
+		}
+		function onLoaded_Slide()
+		{
+			$("#slides").slidesjs({
+				start: Math.floor((Math.random()*3)+1),
+				width: 970,
+				height: 800,
+				play: {         
+					auto: true,
+					pauseOnHover: true,
+					interval: 6000      
+				}
+			});
+		}
+
+		function onLoaded_JQuery()
+		{
+			$(window).load(function ()
+			{
+        		/* Load adsbygoogle.js */
+        		if($('.adsbygoogle').length)
+        		{
+					loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", onLoaded_Adsense);
+				}
+            			
+				/* Load social.js */
+        		if($('.fb-like').length || $('.fb-comments').length || $("fb\\:like").length || $("fb\\:comments").length || $("g\\:plusone").length)
+        		{				
+					loadScript("/js/social.js", null);
+				}
+
+				/* Load magnific-popup.min.js */
+				if($(".popup-gallery").length || $(".popup-youtube").length)
+				{				
+					loadScript("/js/jquery.magnific-popup.min.js", null);
+				}
+
+				/* Load jquery.slides.min.js */
+				if($("#slides").length)
+				{
+					loadScript("/js/jquery.slides.min.js", onLoaded_Slide);
+				}
+
+				/* scroll-up */
+				$(window).scroll(function () {
+					if ($(this).scrollTop() > 100) {
+						$('.scrollup').fadeIn();
+					} else {
+						$('.scrollup').fadeOut();
+					}
+				});
+				$('.scrollup').click(function () {
+					$("html, body").animate({ scrollTop: 0 }, 600);
+					return false;
+				});
+			});
+
+			/* Languqge Select */
+			function runEffect() {                
+				$("#Language-Select").toggle("blind", 200, 500);
+			};
+			$("#Language, #Language1").click(function () {
+				runEffect();
+				return false;
+			});
+
+
+			/* expand */
+			$("#expand-btn").click(function () {
+				$("#expand-box").toggle("blind", 200, 500);
+
+				if ($(".exp2").css("display") != "none") {
+				    $(".exp2").hide();
+				    $(".exp1").show();
+				}
+				else {
+				    $(".exp2").show();
+				    $(".exp1").hide();
+				}
+			});
+		}
+
+		function onInput(obj) {
+			obj.value = "";
+		}
+
+		function setFocus(itemID)
+		{
+			if (document.getElementById(itemID)) 
+				document.getElementById(itemID).className = "Menu_Selected";
+		}
+
+		function killFocus(itemID)
+		{
+			if (document.getElementById(itemID)) {
+				document.getElementById(itemID).className = "";
+			}
+		}				
+
+			
+		(function() {
+
+			function Slideshow( element ) {
+				this.el = document.querySelector( element );
+				this.init();
+			}
+
+			Slideshow.prototype = {
+				init: function() {
+					this.wrapper = this.el.querySelector( ".slider-wrapper" );
+					this.slides = this.el.querySelectorAll( ".slide" );
+					this.previous = this.el.querySelector( ".slider-previous" );
+					this.next = this.el.querySelector( ".slider-next" );
+					this.index = 0;
+					this.total = this.slides.length;
+					this.timer = null;
+					
+					this.action();
+					this.stopStart();	
+				},
+				_slideTo: function( slide ) {
+					var currentSlide = this.slides[slide];
+					currentSlide.style.opacity = 1;
+					
+					for( var i = 0; i < this.slides.length; i++ ) {
+						var slide = this.slides[i];
+						if( slide !== currentSlide ) {
+							slide.style.opacity = 0;
+						}
+					}
+				},
+				action: function() {
+					var self = this;
+					self.timer = setInterval(function() {
+						self.index++;
+						if( self.index == self.slides.length ) {
+							self.index = 0;
+						}
+						self._slideTo( self.index );
+						
+					}, 5000);
+				},
+			//	stopStart: function() {
+			//		var self = this;
+			//		self.el.addEventListener( "mouseover", function() {
+			//			clearInterval( self.timer );
+			//			self.timer = null;
+			//			
+			//		}, false);
+			//		self.el.addEventListener( "mouseout", function() {
+			//			self.action();
+			//			
+			//		}, false);
+			//	}	
+			};
+
+			document.addEventListener( "DOMContentLoaded", function() {		
+				var slider = new Slideshow( "#main-slider" );		
+			});
+
+		})();
+
+		
+		loadScript("/js/jquery-1.8.3.custom.min.js", onLoaded_JQuery)
+	</script></head>
+<body id="Main">
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-20339103-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<div id="Header" class="Bandicam">
+	<div id="Topmenu">
+	<div class="Inner-Spec">    
+    <ul>
+        <li id="Topmenu-bandicam"><a href="/">반디캠 &#183; PC화면 녹화</a></li>
+        <li id="Topmenu-bandicut"><a href="/bandicut-video-cutter/">반디컷 &#183; 동영상 편집</a></li>
+        <li id="Topmenu-sdk"><a href="/company/sdk/">SDK</a></li>
+        <!--li id="Topmenu-forum"><a href="//forum.bandicam.com/">게시판</a></li-->
+        <li id="Topmenu-contact"><a href="/company/">회사소개</a></li>
+    </ul>
+    <div id="Topmenu-Banner">
+    <a href="//www.bandicam.co.kr/buy/package/">최대 <b>29% 할인</b> 혜택!</a>
+    </div>
+</div>	</div>
+
+    <div id="Header-Inner" class="Inner-Spec">
+        <div id="Brand">
+            <a href="/">반디캠 - 고성능 동영상 캡처 프로그램</a>
+        </div>	   
+        <ul id="Menu">
+            <!--li><a href="/" id="nav_item_home">반디캠</a></li-->
+	        <li><a href="/downloads/" id="nav_item_download">다운로드</a></li>
+	        <li><a href="/buy/" id="nav_item_buy">정품 구매</a></li>
+            <li><a href="/support/how_to_record/"  id="nav_item_product">사용 방법</a></li>
+	        <li><a href="/faqs/" id="nav_item_faqs">제품 문의</a></li>
+	        <li><a href="/board/bandicam/" id="nav_item_forum">게시판</a></li>
+        </ul>
+        <div id="Language-Menu-Box">
+            <div id="Language-Menu-Inner">
+                <a href="#" id="Language" class="Language-Img Language-ko" title="홈페이지 언어 선택">반디캠 한국어 페이지</a>
+                <ul id="Language-Select" class="blR brR">
+                    <li><a href="//www.bandicam.com/us/"><div class="Lang-Txt">English</div><div class="Lang-Flag Language-Img Language-eng"></div></a></li>
+                    <li><a href="/ko/"><div class="Lang-Txt">한국어</div><div class="Lang-Flag Language-Img Language-ko"></div></a></li>       
+                    <li><a href="//www.bandicam.jp/"><div class="Lang-Txt">日本語</div><div class="Lang-Flag Language-Img Language-jp"></div></a></li>     
+                    <li><a href="//www.bandicam.com/de/"><div class="Lang-Txt">Deutsch</div><div class="Lang-Flag Language-Img Language-de"></div></a></li>        
+                    <li><a href="//www.bandicam.com/cn/"><div class="Lang-Txt">中文(简体)</div><div class="Lang-Flag Language-Img Language-cn"></div></a></li>
+                    <!--li><a href="http://www.bandicam.com.tw"><div class="Lang-Txt">中文(繁體)</div><div class="Lang-Flag Language-Img Language-tw"></div></a></li-->
+                    <li class="lang-close"><a href="#" id="Language1" title="닫기">&#94;</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="clear"><hr /></div>
+
+<!-- 내용 시작 -->
+<div id="Wrapper"><script type="text/javascript" >setFocus("nav_item_home");
+</script>
+<div class="Prime-Outter">	
+		
+	<div id="Main-Outter">	
+		<div id="Main-Head">
+			<div id="Main-Inner">					
+				<div class="screen">
+					<div class="cover">						
+						<div class="m-btn">
+						<a id="btn_download" href="/downloads/" class="Btn BB Bg-Red Tx-Nounderline" style="padding:5px 30px; font-size: 20px;" title="녹화 프로그램, 반디캠 무료 다운로드"><span class="Btn-Txt Tx-White">반디캠 무료 다운로드</span></a>
+						<a href="/buy/" class="Btn BB Bg-Green Tx-Nounderline" style="padding:5px 25px; font-size: 20px;" title="반디캠 정품 구매"><span class="Btn-Txt Tx-White">정품 구매</span></a>
+						</div>
+					</div>
+					<div id="slides" style="width:100%; height:100%; overflow:hidden; margin:0 auto;">							
+						<div class="sliders showcase-slide p1"><h1>PC 화면 녹화</h1><p>PC 화면상의 원하는 부분을 영상으로 녹화할 수 있습니다.</div>
+						<div class="sliders showcase-slide p2"><div class="p1-sub"><h1>게임 영상 녹화</h1><p>고화질 게임을 원본 화질 그대로 영상으로 녹화할 수 있습니다.</p></div></div>
+						<div class="sliders showcase-slide p3"><h1>외부 비디오 장치 녹화</h1><p>IPTV, 스마트폰, PS/Xbox 등의 외부 비디오 장치로 입력되는<br>영상을 녹화할 수 있습니다.</div>
+					</div>				
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+
+	<div class="Prime-Mode Inner-Spec" >
+		<div class="Mode Mode-1">
+			<div></div>
+			<h2>화면 녹화</h2>
+			<p>PC화면으로 보이는 모든 것을 동영상(AVI, MP4)으로 녹화하거나 이미지로 저장할 수 있습니다.</p>
+			<a href="/screen-recorder/" title="화면 녹화 프로그램" style="text-decoration:none;">자세히 보기<span class="IconArrow">&rsaquo;</span></a>
+		</div>
+		<div class="Mode Mode-2">
+			<div></div>
+			<h2>게임 녹화</h2>
+			<p>고화질의 2D/3D 게임을 즐기면서 게임 장면을 원본 그대로의 영상으로 녹화 할 수 있습니다.  </p>
+			<a href="/game-recorder/" title="게임 녹화 프로그램" style="text-decoration:none;">자세히 보기<span class="IconArrow">&rsaquo;</span></a>
+		</div>		
+		<div class="Mode Mode-3">
+			<div></div>
+			<h2>장치 녹화</h2>
+			<p>웹캠, 엑스박스/플레이스테이션, 스마트폰, IPTV 등의 외부 비디오 장치를 통해 입력되는 영상을 녹화할 수 있습니다. </p>
+			<a href="/webcam-recorder/" title="웹캠 녹화 프로그램" style="text-decoration:none;">자세히 보기<span class="IconArrow">&rsaquo;</span></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+</div>
+<br>
+
+<div id="Context" >
+
+	<div id="Game-Recorder-Info">
+		
+		<img src="//static.bandicam.com/v/game-recorder/img_bandicam_box.jpg" alt="반디캠, 박스 이미지" align="left" style="padding:0 40px 50px 0;">	
+		<h2 style="border:none; font-size:20px;margin:0 0 5px 0;padding-top:10px;">반디캠은 컴퓨터 화면이나 게임 화면, 웹캠 영상 등을 쉽고 편리하게 동영상으로 저장할 수 있는 최고의 화면 녹화 프로그램입니다.</h2>	
+		<p style="font-size:15px;line-height:22px;">반디캠은 웹캠 영상 및 컴퓨터 화면 그리고 DirectX/OpenGL/Vulkan 그래픽 기술을
+사용하는 게임 등을 동영상으로 녹화해주는 동영상 녹화 프로그램으로,
+원본에 가까운 화질을 유지하면서도 적은 용량의 동영상 파일로 녹화를 할 수 있어,
+유사기능을 제공하는 타 제품들에 비해 월등한 성능을 발휘하는 제품입니다.</p>
+	</div>
+	<br><br><br>
+	<div class="line-space"></div>
+	<br>
+
+	<h2 class="sub_t">반디캠 동영상 도움말</h2>
+	<p class="sub_desc">
+	반디캠 사용법을 '화면녹화, 게임녹화, 장치녹화' 순서로 시청하실 수 있습니다.
+	</p>
+	<br>
+	<div style="text-align:center">
+		<div class="youtube" id="rQxQLBnSZ-4" data-image="/img/youtube/screen_recording_rectangle_area.jpg" data-params="list=PLgB7xCUn05zLOPXMVOZnwLcQSftl9jnhq&rel=0&amp;showinfo=0&cc_load_policy=1" style="width:730px; height:411px;"></div>		
+	</div>
+	<div class="clear"></div>
+	<br><br><br>
+	<div class="line-space"></div>
+	<br>
+
+	<h2 class="sub_t">반디캠의 주요 기능</h2>
+	<p class="sub_desc">
+	다음은 화면 녹화 기능 시 유용하게 사용할 수 있는 반디캠의 주요 기능입니다.
+	</p>	
+	<br>
+	<div id="FSR-Features">
+		<div class="outter">
+			<div class="inner"><img src="/screen-recorder/f_01.jpg"></div>
+			<h3>전체화면/특정영역 녹화</h3>
+			컴퓨터 전체화면 혹은 사용자가 특정영역을 직접 지정해서 녹화할 수 있습니다.
+		</div>
+		<div class="outter">
+			<div class="inner"><img src="/screen-recorder/f_02.jpg"></div>
+			<h3>실시간 펜 그리기</h3>
+			동영상 녹화중 화면에 실시간으로 펜/화살표/사각형 그리기 등을 할 수 있습니다.
+		</div>
+		<div class="outter"  style="margin-right:0;">
+			<div class="inner"><img src="/screen-recorder/f_03.jpg" alt="반디캠 녹화, 게임, 웹캠"></div>
+			<h3>웹캠 화면 추가</h3>
+			녹화되고 있는 화면의 한편에 웹캠 화면을 함께/동시에 저장할 수 있습니다.
+		</div>
+		<div class="outter">
+			<div class="inner"><img src="/screen-recorder/f_04.jpg"></div>
+			<h3>내 목소리/마이크 녹음</h3>
+			컴퓨터 화면을 녹화하면서, 컴퓨터 소리나 마이크소리를 함께 녹음할 수 있습니다.
+		</div>
+		<div class="outter">
+			<div class="inner"><img src="/screen-recorder/f_05.jpg"></div>
+			<h3>나만의 로고 추가</h3>
+			녹화된 비디오에 자신만의 로고 이미지를 박아 넣을 수 있을 수 있습니다.
+		</div>
+		<div class="outter"  style="margin-right:0;">
+			<div class="inner"><img src="/screen-recorder/f_06.jpg"></div>
+			<h3>마우스 클릭 효과</h3>
+			마우스 하이라이트와 클릭 효과 기능으로 튜토리얼 영상을 쉽게 제작할 수 있습니다.
+		</div>
+	</div>
+	
+	<div class="clear"></div>
+	<br><br>
+	<div class="line-space"></div>
+	<br>
+
+	<h2 class="sub_t">반디캠 + 반디컷 패키지 - 최대 29%의 할인 혜택을 받아보세요!</h2>
+	<p class="sub_desc">
+	반디캠으로 녹화한 후, 필요한 부분만 반디컷으로 편집하여 활용하실 수 있는 상품 구성입니다.
+	<br><br>
+	<a href="/buy/package/" class="Btn BB Bg-Green Tx-Nounderline" style="padding:5px 30px; font-size: 20px;"><span class="Btn-Txt Tx-White">반디캠+반디컷 패키지 구매</span></a>
+	</p>	
+	
+	
+	<div class="clear"></div>
+	<br><br><br>
+
+</div>
+
+    <div class="clear"><hr /></div>
+
+    <a href="#" class="scrollup" title="맨 위로 올라가요~">&spades;</a>
+</div> 
+<!-- Wrapper -->
+<div class="clear"><hr /></div>
+<!-- Footer -->
+<div id="Footer">
+
+    <div id="Footer-Inner" class="Inner-Spec">   
+        
+        <a href="/">반디캠 PC화면 녹화</a>&nbsp;&nbsp;&#183&nbsp;
+        <a href="/bandicut-video-cutter/">반디컷 동영상 편집</a>&nbsp;&nbsp;&#183&nbsp;
+        <a href="/company/sdk/">SDK</a>&nbsp;&nbsp;&#183&nbsp
+        <a href="/company/">회사소개</a>&nbsp;&nbsp;&#183&nbsp
+        <a href="/company/contact/">문의</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <a href="/company/tos/">이용약관</a>&nbsp;&nbsp;&#183&nbsp;
+        <a href="/company/privacy/"><b>개인정보취급방침</b></a>
+        <br><br>
+
+        <div id="Footer-Info">
+        상호: <a href="//www.bandicam.co.kr" target="bandicam">반디캠컴퍼니</a>&nbsp;&nbsp;&#183;&nbsp;&nbsp;대표: 오철욱&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;주소: 서울 영등포구 여의도동 국제금융로2길 37, 에스트레뉴 603호<br />
+        사업자 등록번호: 850-20-00344 (<a class="keyword" href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp" target="_blank">확인</a>)&nbsp;&nbsp;&#183;&nbsp;통신판매업 신고번호: 제 2016-서울영등포-1606<br />
+        이용 및 구매문의: <a href="/board/bandicam/">게시판</a>, bandicam@bandicam.com, <a href="/faqs/">1833-7947 (문의전 꼭 읽어주세요!</a>)
+        </div>
+        
+        <address>Copyright &copy; 2008-2018 <a href="//www.bandicam.co.kr" target="bandicam">Bandicam Company</a> All rights reserved.</address>
+        
+    <div class="clear"></div>  
+    </div>
+    <div id="SNS-Channels">
+        <a href="https://www.facebook.com/bandicam" id="fb" target="_blank" title="반디캠 페이스북"></a><a href="https://twitter.com/bandicam" id="tw" target="_blank" title="반디캠 트위터"></a>
+    </div>
+</div>
+<!-- Footer -->
+
+</body>
+
+<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script>
+<script type="text/javascript">
+  if (!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "s_502950d95e2b";
+  if (!_nasa) var _nasa = {};
+  wcs.inflow();
+  wcs_do(_nasa);
+</script>
+
+<script language="javascript" src="/js/acecounter_cts.js" type="text/javascript"></script>
+
+</html>

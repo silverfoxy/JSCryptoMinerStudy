@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="propeller" content="50c9047e9cf9e6c97d2ddfdd22f9e173" />
+	<title>Fileone.tv - Upload and share your videos.</title>
+	<link href="http://fileone.tv/css/fine-uploader.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<meta name="prVerify" content="64e105ab007f0c9c4cc565df8849d7b1" />
+	<meta name="csrf-token" content="4AbeAVZTTK5REcKzZ7bchOJGLXsG9E18QQ52ufcQ" />
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="http://fileone.tv/js/jquery.fine-uploader.js"></script>
+	<link href="http://fileone.tv/css/app.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	
+		<link href="http://fileone.tv/css/notify.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="http://fileone.tv/js/notify.js"></script>
+
+</head>
+<body>
+	<div class="container" style="margin-top: 20px">
+		
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://fileone.tv">Fileone.tv</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+
+
+														</ul>
+
+				<ul class="nav navbar-nav navbar-right " role="tablist">
+											<li><a href="http://fileone.tv/auth/login">Login</a></li>
+						<li><a href="http://fileone.tv/auth/register">Register</a></li>
+									</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="row">
+			<div class="col-md-12">
+				 			</div>
+		</div>
+	<script>
+  $(document).ready(function() {
+    var uploader = $("#bootstrapped-fine-uploader").fineUploader({
+       
+     autoUpload: true,
+     multiple: true,
+      failedUploadTextDisplay: {
+        mode: 'custom',
+        maxChars: 40,
+        responseProperty: 'error',
+        enableTooltip: true
+      },
+       
+      debug: true,
+      template: 'qq-template-bootstrap',
+      classes: {
+          success: 'alert alert-success',
+          fail: 'alert alert-error'
+      },
+      
+    }).on('complete', function(event, id, fileName, responseJSON) {
+       if (responseJSON.success) {
+          $('#bootstrapped-fine-uploader').append('<div style="margin-top: 5px; text-align: center" class="alert alert-success"><b>Embed:' + fileName+ ':</b> ' + responseJSON.link + '</div>');
+          $('input[name=aktorki]').val('');
+          $('input[name=kategorie]').val('');
+          $('input[name=email]').val('');
+          $('input[name=rules]').val('');
+          $('input[name=filename]').val('');
+
+       }
+       if (responseJSON.errorr) {
+            $('#info').removeClass('invisible');
+          for(var x in responseJSON.errorr) 
+            { 
+              var tmp = responseJSON.errorr[x]; 
+               $('#blad').append('<li style="margin-left: 40px">' + tmp + '</li>');
+         
+            }
+       }
+   }); 
+  });
+</script>
+
+<style>
+  /* For the bootstrapped demos */
+  li.alert-success {
+      background-color: #DFF0D8;
+  }
+    .invisible {
+    display: none;
+
+  }
+
+  li.alert-error {
+      background-color: #F2DEDE;
+  }
+
+  .alert-error .qq-upload-failed-text {
+      display: inline;
+  }
+</style>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">VIDEO UPLOAD</div>
+
+                <div class="panel-body">
+                  <div class="form-group">
+                    
+                            <div id="info" class="invisible">
+                                <ul class="alert alert-danger">
+                                  <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                           
+                                   <div id="blad"> </div>
+                             
+                                </ul>
+                             </div>
+                          <div id="bootstrapped-fine-uploader"></div>
+                          <p class="help-block text-center">Supported: MP4, FLV, AVI, MKV | Max Size: 5 GB</p>
+                                                    <p class="help-block text-center">Start uploading videos and share for free!
+                          </br><a href="#" class="btn btn-primary btn-success">Join Now!</a>
+                          </p>
+                                                    </div>
+                    
+                        <form action="http://fileone.tv/video/upload" id="qq-form">
+                          <input name="_token" type="hidden" value="4AbeAVZTTK5REcKzZ7bchOJGLXsG9E18QQ52ufcQ" />
+                                                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/template" id="qq-template-bootstrap">
+  <div class="qq-uploader-selector qq-uploader span7 text-center">
+    <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
+      <span>Drop files here to upload</span>
+    </div>
+    <div class="qq-upload-button-selector qq-upload-button btn btn-lg btn-primary" style="width: auto; text-align: center">
+      <div><i class="icon-upload icon-white"></i> Start Uploading Videos!</div>
+    </div>
+    <span class="qq-drop-processing-selector qq-drop-processing">
+      <span>Processing dropped files...</span>
+      <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+    </span>
+    <ul class="qq-upload-list-selector qq-upload-list" style="margin-top: 10px; text-align: center;">
+      <li>
+        <div class="qq-progress-bar-container-selector">
+          <div class="qq-progress-bar-selector qq-progress-bar"></div>
+        </div>
+        <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+        <span class="qq-upload-file-selector qq-upload-file"></span>
+        <span class="qq-upload-size-selector qq-upload-size"></span>
+        <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+        <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+      </li>
+    </ul>
+  </div>
+</script>
+
+	<!-- Scripts -->
+	<footer>
+        <p>&copy;Copyright 2016 FILEONE.TV</p>
+        <div class="pull-right"> <a href="http://fileone.tv">Home</a> | <a href="http://fileone.tv/site/terms">Terms of Service</a>  |  <a href="http://fileone.tv/site/dmca">DMCA</a> | <a href="http://fileone.tv/site/contact">Contact</a></div>
+     	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43232304-11', 'auto');
+  ga('send', 'pageview');
+
+</script>
+      </footer>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

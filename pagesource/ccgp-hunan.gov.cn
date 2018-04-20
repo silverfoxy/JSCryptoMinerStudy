@@ -1,0 +1,1558 @@
+
+
+ 
+ 
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>湖南省政府采购网</title>
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/lrtk.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/koala.min.1.5.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		 $.ajaxSetup({
+				async : false
+ 		 });	 
+		initdate();
+		initNoticeDate();
+		//采购公告数据 
+    	//getNotice('prcmNotices');
+	    //getNoticeByPrcmMode('01');
+    	//getNoticeByPrcmItem('A');
+    	//getSpecialByPrcmItem(20);
+    	//getCityNotice('prcmNotices');
+    	//getCityNoticeByPrcmMode('01');
+    	//getCitySpecialByPrcmItem(21);  //加载市县PPP公告 
+    	changecolumn('gzwj');
+    	 $.ajaxSetup({
+				async : true
+ 		}); 
+    	$("#div_left").height(307);
+		
+	});
+function loginOut()
+	{  
+		var url = '/mvc/loginOut.do';
+		$.post(url, { 
+		}, function(data) {
+			if(data.msg=="ok")
+			{
+				alert('已注销成功.'); 
+				window.location.reload();  
+			}
+			 
+		}, "json");
+		 
+	}
+	function initdate() {
+		var myDate = new Date();
+		var dayNames = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+		$("#date").html("欢迎进入湖南省政府采购网！ 今天是" + myDate.getFullYear() + "年" + (myDate.getMonth() + 1) + "月" + myDate.getDate() + "日  " + dayNames[myDate.getDay()]);
+	}
+	
+	// 左边 工作动态，重要通知，采购指南，监督管理公告的数据单击调用方法 
+	function viewContent(columnId) {
+		window.open('/page/content/content.jsp?columnId='+columnId);
+	}
+	
+	//查看公告详情 
+	function viewNotcieContent(noticeId) {
+		window.open('/page/notice/notice.jsp?noticeId='+noticeId);
+	}
+	
+	//查看市（州）公告详情 
+	function viewNotcieContentCity(noticeId) {
+		window.open('/page/notice/notice.jsp?noticeId='+noticeId+'&area_id=1');
+	}
+	
+	
+	
+	//查看更多公告数据 
+	function viewMore() { 
+		window.open('/page/notice/more.jsp');
+	}
+	
+	//查看更多公告数据 
+	function viewMore1() { 
+		window.open('/page/notice/more.jsp?noticeTypeID='+curnoticeType);
+	}
+	
+	//查看更多公告数据 
+	function viewMore2() { 
+		window.open('/page/notice/more.jsp?prcmMode='+curprcmMode);
+	}
+	
+	//查看更多公告数据 
+	function viewMore3() { 
+		window.open('/page/notice/more.jsp?prcmItemCode='+curprcmItemCode);
+	}
+	
+	//查看市州区县更多公告数据 
+	function viewMoreCity1() { 
+		window.open('/page/notice/moreCityCounty.jsp?noticeTypeID='+curnoticeType);
+	}
+	
+	//查看市州区县更多公告数据 
+	function viewMoreCity2() { 
+		window.open('/page/notice/moreCityCounty.jsp?prcmMode='+curprcmMode);
+	}
+	
+	//查看更多栏目
+	function viewMoreCpntent(column_code) { 
+		window.open('/page/content/more.jsp?column_code='+column_code);
+	}
+	
+	function viewMoreCpntentCity(column_code) { 
+		window.open('/page/content/moreCityCounty.jsp?column_code='+column_code);
+	}
+	
+	
+	//获得采购公告[queryTarget:采购公告(prcmNotices)、中标成交公告(dealNotices)、合同公告(contractNotices)、更正公告(modfiyNotices)、终止公告(endNotices)]
+	var curnoticeType = "prcmNotices";
+	function getNotice(noticeType){
+		curnoticeType = noticeType;
+		var url = '/mvc/getNotice.do';
+		$.post(url,{noticeType:noticeType},function(data){
+			$('#gglist').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,55);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td class="cggg" width="120">'+rowdata[i].NOTICE_NAME+'</td>';
+					htmstr = htmstr + '<td class="zbfs" width="90">'+(rowdata[i].PRCM_MODE_NAME==undefined?"&nbsp;":rowdata[i].PRCM_MODE_NAME)+'</td>';
+					htmstr = htmstr + '<td class="dwbh" width="60">'+(rowdata[i].ORG_CODE==null?"&nbsp;":rowdata[i].ORG_CODE)+'</td>';
+					htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				} 
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist').html(htmstr);	
+		},"json");
+	}
+	
+	//采购方式分类查询
+	var curprcmMode = "01";
+	function getNoticeByPrcmMode(prcmMode){
+		var url = '/mvc/getNotice.do';
+		$.post(url,{prcmMode:prcmMode},function(data){
+			curprcmMode = prcmMode;
+			$('#gglist2').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,55);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td class="cggg" width="120">'+rowdata[i].NOTICE_NAME+'</td>';
+					htmstr = htmstr + '<td class="zbfs" width="90">'+(rowdata[i].PRCM_MODE_NAME==undefined?"&nbsp;":rowdata[i].PRCM_MODE_NAME)+'</td>';
+					htmstr = htmstr + '<td class="dwbh" width="60">'+(rowdata[i].ORG_CODE==null?"&nbsp;":rowdata[i].ORG_CODE)+'</td>';
+					htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				}
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist2').html(htmstr);	
+		},"json");
+	}
+	
+	//采购品目分类查询
+	var curprcmItemCode = 'A';
+	function getNoticeByPrcmItem(prcmItemCode){
+		curprcmItemCode = prcmItemCode
+		var url = '/mvc/getNotice.do';
+		$.post(url,{prcmItemCode:prcmItemCode},function(data){
+			$('#gglist3').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,55);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td class="cggg" width="120">'+rowdata[i].NOTICE_NAME+'</td>';
+					htmstr = htmstr + '<td class="zbfs" width="90">'+(rowdata[i].PRCM_MODE_NAME==undefined?"&nbsp;":rowdata[i].PRCM_MODE_NAME)+'</td>';
+					htmstr = htmstr + '<td class="dwbh" width="60">'+(rowdata[i].ORG_CODE==null?"&nbsp;":rowdata[i].ORG_CODE)+'</td>';
+					htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				}
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist3').html(htmstr);	
+		},"json");
+	}
+	
+	//加载省厅 PPP栏目内容 
+	function getSpecialByPrcmItem(specialCode){
+		var url = '/mvc/getSpecial.do';
+		$.post(url,{specialCode:specialCode},function(data){
+			$('#gglist4').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].TITLE,80);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td width="30"></td>';
+					htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].TITLE+'" onclick="viewContent('+rowdata[i].COLUMN_ID+')">'+notice_title+'</a></td>';
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].STAFF_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				}
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist4').html(htmstr);	
+		},"json");
+	}
+	
+	
+	function getCityNotice(noticeType){
+		curnoticeType = noticeType;
+		var url = '/mvc/getCityNoticeOfProvince.do';
+		$.post(url,{noticeType:noticeType},function(data){
+			$('#gglist_city').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,55);
+					var area_name =  getLengthArea(rowdata[i].AREA_NAME);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td class="cggg_red" title="'+rowdata[i].AREA_NAME+'"  width="70">'+area_name+'</td>';
+					htmstr = htmstr + '<td class="cggg" width="110">'+rowdata[i].NOTICE_NAME+'</td>';
+					htmstr = htmstr + '<td class="zbfs" width="90">'+(rowdata[i].PRCM_MODE_NAME==undefined?"&nbsp;":rowdata[i].PRCM_MODE_NAME)+'</td>';
+					if(rowdata[i]&&rowdata[i].SRC_CODE=='2'){
+						htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					}else if(rowdata[i]&&rowdata[i].SRC_CODE=='1'){
+						htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					}
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				}
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist_city').html(htmstr);	
+		},"json");
+	}
+	
+	function getCityNoticeByPrcmMode(prcmMode){
+		var url = '/mvc/getCityNoticeOfProvince.do';
+		$.post(url,{prcmMode:prcmMode},function(data){
+			curprcmMode = prcmMode;
+			$('#gglist2_city').html('');
+			var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			if(data&&data.total&&data.total>0)
+			{
+				var rowdata=data.rows;
+				for(var i=0; i<rowdata.length; i++){
+					var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,55);
+					var area_name =  getLengthArea(rowdata[i].AREA_NAME);
+					htmstr = htmstr + '<tr>';
+					htmstr = htmstr + '<td class="cggg_red" title="'+rowdata[i].AREA_NAME+'"  width="70">'+area_name+'</td>';
+					htmstr = htmstr + '<td class="cggg" width="110">'+rowdata[i].NOTICE_NAME+'</td>';
+					htmstr = htmstr + '<td class="zbfs" width="90">'+(rowdata[i].PRCM_MODE_NAME==undefined?"&nbsp;":rowdata[i].PRCM_MODE_NAME)+'</td>';
+					if(rowdata[i]&&rowdata[i].SRC_CODE=='2'){
+						htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					}else if(rowdata[i]&&rowdata[i].SRC_CODE=='1'){
+						htmstr = htmstr + '<td class="ggnr"><a href="#"  title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+					}
+					
+					htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+					htmstr = htmstr + '</tr>';
+				}
+			}
+			
+			htmstr = htmstr + '</table>';
+			$('#gglist2_city').html(htmstr);	
+		},"json");
+	}
+	
+	//市州ppp专栏
+	function getCitySpecialByPrcmItem(specialCode,column_code){ 
+		var url = '/mvc/getCitySpecial.do';
+		$.post(url,{specialCode:specialCode,column_code:column_code},function(data){
+			//如果是 需求征集意见   在公告类型 列表显示  
+			if(specialCode == "24")
+			{
+				$('#gglist_city').html('');
+				var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+				if(data&&data.total&&data.total>0)
+				{
+					var rowdata=data.rows;
+					for(var i=0; i<rowdata.length; i++){
+						var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,80);
+						var area_name =  getLengthArea(rowdata[i].AREA_NAME);
+						htmstr = htmstr + '<tr>';
+						htmstr = htmstr + '<td class="cggg_red" title="'+rowdata[i].AREA_NAME+'"  width="70">'+area_name+'</td>';
+						if(rowdata[i]&&rowdata[i].SRC_CODE=='2'){
+							htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';							
+						}else if(rowdata[i]&&rowdata[i].SRC_CODE=='3'){
+							htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewContent('+rowdata[i].COLUMN_ID+')">'+notice_title+'</a></td>';
+						}else{
+							htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';
+						}
+						htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+						htmstr = htmstr + '</tr>';
+					}
+				}
+				
+				htmstr = htmstr + '</table>';
+				$('#gglist_city').html(htmstr);	
+			}else
+			{
+				$('#gglist4_city').html('');
+				var htmstr = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+				if(data&&data.total&&data.total>0)
+				{
+					var rowdata=data.rows;
+					for(var i=0; i<rowdata.length; i++){
+						var notice_title = getLength(0,rowdata[i].NOTICE_TITLE,80);
+						var area_name =  getLengthArea(rowdata[i].AREA_NAME);
+						htmstr = htmstr + '<tr>';
+						htmstr = htmstr + '<td class="cggg_red" title="'+rowdata[i].AREA_NAME+'"  width="70">'+area_name+'</td>';
+						if(rowdata[i]&&rowdata[i].SRC_CODE=='2'){
+							htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+rowdata[i].NOTICE_ID+')">'+notice_title+'</a></td>';							
+						}else if(rowdata[i]&&rowdata[i].SRC_CODE=='3'){
+							htmstr = htmstr + '<td class="ggnr"><a href="#" title="'+rowdata[i].NOTICE_TITLE+'" onclick="viewContent('+rowdata[i].COLUMN_ID+')">'+notice_title+'</a></td>';
+						}
+						htmstr = htmstr + '<td class="riqi" width="90">'+rowdata[i].NEWWORK_DATE+'</td>'; 
+						htmstr = htmstr + '</tr>';
+					}
+				}
+				
+				htmstr = htmstr + '</table>';
+				$('#gglist4_city').html(htmstr);	
+			}
+			
+		},"json");
+	}
+	
+	function showlogin(){
+		var url =  "http://220.168.30.70:89/w_login.jsp"; 
+		window.open(url);
+		
+	}
+	
+	//样式切换
+	function changeNoticeType(curobj,curobjname){
+		//$("*[name='small_title']").attr("class","small_title_wxz")
+		$("*[name='"+curobjname+"']").attr("class","gonggao_title_wxz");
+		$(curobj).attr("class","gonggao_title_xz");
+		//curobj.className = "gonggao_title_xz";
+	}
+	
+	function changeNoticeType2(curobj,curobjname){
+		$("*[name='gonggao_title2']").attr("class","gonggao_title_wxz");
+		$("*[name='"+curobjname+"']").attr("class","small_title_wxz")
+		curobj.className = "small_title_xz";
+	}
+	
+	function changecolumn(curobjId){
+		if(curobjId=="gzwj"){
+			$("#gzwj").attr("class","gzwj_pxzl_xz");
+			$("#pxzl").attr("class","gzwj_pxzl_wxz");
+			$('#fjxz').html('');
+				
+				var row = '<li><a href="javascript:;"  title="政府采购供应商质疑函范本"  onclick="viewContent(1000001849)">政府采购供应商质疑函范本</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="政府采购供应商投诉书范本"  onclick="viewContent(1000001848)">政府采购供应商投诉书范本</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="2016年度采购代理机构项目代理基本情况统计表（代理机构填报）"  onclick="viewContent(1000001248)">2016年度采购代理机构项目代理基本情况统计表（代理机构填报）</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="2016年度政府采购项目代理机构情况统计表"  onclick="viewContent(903)">2016年度政府采购项目代理机构情况统计表</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="政府采购网市县区公告功能用户操作手册（市县财政局、集采机构、代理机构）"  onclick="viewContent(324)">政府采购网市县区公告功能用户操作手册（市县财政局、集采机构、代理机构）</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="湖南省政府采购新平台操作手册"  onclick="viewContent(1000000129)">湖南省政府采购新平台操作手册</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="湖南省政府采购非招标采购方式管理办法实施细则附件 "  onclick="viewContent(1000000050)">湖南省政府采购非招标采购方式管理办法实施细则附件 </a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+				
+				var row = '<li><a href="javascript:;"  title="公务机票购买管理操作手册"  onclick="viewContent(1000000048)">公务机票购买管理操作手册</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+			
+		}else if(curobjId=="pxzl"){
+			$("#gzwj").attr("class","gzwj_pxzl_wxz");
+			$("#pxzl").attr("class","gzwj_pxzl_xz");
+			$('#fjxz').html('');
+				
+				var row = '<li><a href="javascript:;"  title="培训课件"  onclick="viewContent(1000000049)">培训课件</a></li>';
+				$('#fjxz').html($('#fjxz').html() + row);
+			
+		}
+	}
+	
+	function getLength(typeName,title,codeNum){ 
+		var type_len = 0;  
+		 for(var i=0;i<typeName.length;i++){ 
+			if(typeName.charCodeAt(i) > 127 || typeName.charCodeAt(i)==94){
+				type_len +=2;
+			}else{
+				type_len ++;	
+			}
+		} 
+		var len = 0; 
+		var subsize = 0;  //实际截取的位数  因为一个汉字是算2位 
+		var s = codeNum-type_len ;  //所需截取的位数   
+		
+		for(var j=0;j<title.length;j++){
+			if(title.charCodeAt(j) > 127 || title.charCodeAt(j)==94){
+				len +=2;
+			}else{
+				len +=2;	
+			}
+			
+			if(len <= s ){ 
+				subsize ++;
+			}
+		}
+		if(len>s){
+			title =  title.substring(0,subsize)+"...";
+		}
+		return title;
+	}
+	
+	function supplyRegister() {
+		window.open('http://ccgp-hunan.gov.cn:80/page/supply/supplyRegster.jsp');
+	}
+	
+	function agentRegister(){
+		window.open('http://ccgp-hunan.gov.cn:80/page/agent/agentRegster.jsp');
+	}
+	
+	function getLengthArea(title)
+	{ 
+		var len = 0; 
+		var subsize = 0;  //实际截取的位数  因为一个汉字是算2位 
+		var s = 6 ;  //所需截取的位数   
+		if(title){
+			for(var j=0;j<title.length;j++)
+			{
+				if(title.charCodeAt(j) > 127 || title.charCodeAt(j)==94)
+				{
+					len +=2;
+				}else
+				{
+					len ++;	
+				}
+				
+				if(len <= s )
+				{ 
+					subsize ++;
+				}
+				
+			}
+		}
+		if(len>s)
+		{
+			title =  title.substring(0,subsize)+"...";
+		}
+		return title;
+	}
+	
+	function gotoCity(areaCode){
+		window.open('http://ccgp-hunan.gov.cn:80/portal_city.jsp?areaCode='+areaCode);
+	}
+	
+	//初始化首页 数据  
+	function initNoticeDate(){ 
+		var url = '/mvc/getInitNoticeDateNew.do';
+		$.post(url,{notice_class_type:''},function(data){
+			$('#gglist').html('');
+			$('#gglist2').html('');
+			$('#gglist3').html(''); 
+			$('#gglist4').html('');
+			$('#gglist_city').html(''); 
+			$('#gglist2_city').html('');
+			$('#gglist4_city').html('');
+			
+			var htmstr_1 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var htmstr_2 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var htmstr_3 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var htmstr_4 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">'; 
+			var htmstr_5 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var htmstr_6 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var htmstr_7 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+			var datarows = data.rows;
+			for(var i=0;i<data.total;i++)
+			{
+				var notice_class_type = datarows[i].NOTICE_CLASS_TYPE;
+				var notice_category_name = datarows[i].NOTICE_CATEGORY_NAME;
+				var notice_id = datarows[i].NOTICE_ID;
+				var org_code = typeof(datarows[i].ORG_CODE)=='undefined'?'&nbsp;':datarows[i].ORG_CODE;
+				var prcm_mode_name = datarows[i].PRCM_MODE_NAME;
+				var notice_title = datarows[i].NOTICE_TITLE;
+				var notice_type_name = datarows[i].NOTICE_TYPE_NAME;
+				var newwork_date = datarows[i].NEWWORK_DATE;
+				var column_id = datarows[i].COLUMN_ID;
+				var org_id = datarows[i].ORG_ID;
+				var area_name =  typeof(datarows[i].AREA_NAME)=='undefined'?'&nbsp;':datarows[i].AREA_NAME;
+				var src_code = datarows[i].SRC_CODE;
+				//notice_class_type 对应首页从上往下第几个数据列表  1 公告类型 2采购方式 往下推 
+				if("1" == notice_class_type)
+				{
+					notice_title = getLength(0,notice_title,55);
+					htmstr_1 = htmstr_1 + '<tr>';
+					htmstr_1 = htmstr_1 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+					htmstr_1 = htmstr_1 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+					htmstr_1 = htmstr_1 + '<td class="dwbh" width="60">'+org_code+'</td>';
+					htmstr_1 = htmstr_1 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+					htmstr_1 = htmstr_1 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_1 = htmstr_1 + '</tr>';
+				}else if("2" == notice_class_type)
+				{
+					notice_title = getLength(0,notice_title,55);
+					htmstr_2 = htmstr_2 + '<tr>';
+					htmstr_2 = htmstr_2 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+					if(prcm_mode_name==null){
+						htmstr_2 = htmstr_2 + '<td class="zbfs" width="90">&nbsp;</td>';
+					}else{
+						htmstr_2 = htmstr_2 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+					}
+					if(prcm_mode_name==null){
+						htmstr_2 = htmstr_2 + '<td class="dwbh" width="60">&nbsp;</td>';
+					}else{
+						htmstr_2 = htmstr_2 + '<td class="dwbh" width="60">'+org_code+'</td>';
+					}
+					htmstr_2 = htmstr_2 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+					htmstr_2 = htmstr_2 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_2 = htmstr_2 + '</tr>';
+					 
+				}else if("3" == notice_class_type)
+				{  
+					notice_title = getLength(0,notice_title,55);
+					htmstr_3 = htmstr_3 + '<tr>';
+					htmstr_3 = htmstr_3 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+					htmstr_3 = htmstr_3 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+					htmstr_3 = htmstr_3 + '<td class="dwbh" width="60">'+org_code+'</td>';
+					htmstr_3 = htmstr_3 + '<td class="ggnr"><a href="#" title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+					htmstr_3 = htmstr_3 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_3 = htmstr_3 + '</tr>';
+				 
+				}else if("4" == notice_class_type)
+				{ 
+					notice_title = getLength(0,notice_title,80); 
+					htmstr_4 = htmstr_4 + '<tr>';
+					htmstr_4 = htmstr_4 + '<td width="30"></td>';
+					htmstr_4 = htmstr_4 + '<td class="ggnr"><a href="#" title="'+datarows[i].NOTICE_TITLE+'" onclick="viewContent('+column_id+')">'+notice_title+'</a></td>';
+					htmstr_4 = htmstr_4 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_4 = htmstr_4 + '</tr>';
+					 
+					
+				}else if("5" == notice_class_type)
+				{ 
+					notice_title = getLength(0,notice_title,55); 
+					area_name =  getLengthArea(area_name);
+					htmstr_5 = htmstr_5 + '<tr>';
+					htmstr_5 = htmstr_5 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+					htmstr_5 = htmstr_5 + '<td class="cggg" width="110">'+notice_category_name+'</td>';
+					htmstr_5 = htmstr_5 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+					if(src_code=='2'){
+						htmstr_5 = htmstr_5 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+					}else if(src_code=='1'){
+						htmstr_5 = htmstr_5 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+					}
+					htmstr_5 = htmstr_5 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_5 = htmstr_5 + '</tr>';
+					 	
+					
+				}else if("6" == notice_class_type)
+				{ 
+					notice_title = getLength(0,notice_title,55); 
+					area_name =  getLengthArea(area_name);
+					htmstr_6 = htmstr_6 + '<tr>';
+					htmstr_6 = htmstr_6 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+					htmstr_6 = htmstr_6 + '<td class="cggg" width="110">'+notice_category_name+'</td>';
+					htmstr_6 = htmstr_6 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+					if(src_code=='2'){
+						htmstr_6 = htmstr_6 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+					}else if(src_code=='1'){
+						htmstr_6 = htmstr_6 + '<td class="ggnr"><a href="#"  title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+					}
+					htmstr_6 = htmstr_6 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_6 = htmstr_6 + '</tr>';
+					 
+					
+				}else if("7" == notice_class_type)
+				{
+					notice_title = getLength(0,notice_title,80);  
+					area_name =  getLengthArea(area_name);
+					htmstr_7 = htmstr_7 + '<tr>';
+					htmstr_7 = htmstr_7 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+					if(src_code=='2'){
+						htmstr_7 = htmstr_7 + '<td class="ggnr"><a href="#" title="'+datarows[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+					}else if(src_code=='3'){
+						htmstr_7 = htmstr_7 + '<td class="ggnr"><a href="#" title="'+datarows[i].NOTICE_TITLE+'" onclick="viewContent('+column_id+')">'+notice_title+'</a></td>';
+					}
+					htmstr_7 = htmstr_7 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+					htmstr_7 = htmstr_7 + '</tr>'; 
+				}
+				
+			}
+			
+			htmstr_1 = htmstr_1 + '</table>'; 
+			htmstr_2 = htmstr_2 + '</table>';
+			htmstr_3 = htmstr_3 + '</table>'; 
+			htmstr_4 = htmstr_4 + '</table>'; 
+			htmstr_5 = htmstr_5 + '</table>';
+			htmstr_6 = htmstr_6 + '</table>'; 
+			htmstr_7 = htmstr_7 + '</table>';
+			
+			$('#gglist').html(htmstr_1);	 
+			$('#gglist2').html(htmstr_2); 
+			$('#gglist3').html(htmstr_3);	
+			$('#gglist4').html(htmstr_4);	
+			$('#gglist_city').html(htmstr_5);	 
+			$('#gglist2_city').html(htmstr_6);	
+			$('#gglist4_city').html(htmstr_7);	
+			
+		},"json");
+	}
+	
+	
+	//初始化首页 数据  
+	function initNoticeDateByClassType(not_class_type){  
+		var url = '/mvc/getInitNoticeDateNew.do';
+		$.post(url,{notice_class_type:not_class_type},function(da){
+				var data = da.rows;
+				//notice_class_type 对应首页从上往下第几个数据列表  1 公告类型 2采购方式 往下推 
+				if("1" == not_class_type)
+				{ 
+					$('#gglist').html('');
+					var htmstr_1 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,55);
+						htmstr_1 = htmstr_1 + '<tr>';
+						htmstr_1 = htmstr_1 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+						htmstr_1 = htmstr_1 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+						htmstr_1 = htmstr_1 + '<td class="dwbh" width="60">'+org_code+'</td>';
+						htmstr_1 = htmstr_1 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+						htmstr_1 = htmstr_1 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_1 = htmstr_1 + '</tr>';
+						
+					} 
+					htmstr_1 = htmstr_1 + '</table>';  
+					$('#gglist').html(htmstr_1);	
+					
+				}else if("2" == not_class_type)
+				{
+
+					$('#gglist2').html('');
+					var htmstr_2 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						notice_title = getLength(0,notice_title,55);
+						htmstr_2 = htmstr_2 + '<tr>';
+						htmstr_2 = htmstr_2 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+						if(prcm_mode_name==null){
+							htmstr_2 = htmstr_2 + '<td class="zbfs" width="90">&nbsp;</td>';
+						}else{
+							htmstr_2 = htmstr_2 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+						}
+						if(prcm_mode_name==null){
+							htmstr_2 = htmstr_2 + '<td class="dwbh" width="60">&nbsp;</td>';
+						}else{
+							htmstr_2 = htmstr_2 + '<td class="dwbh" width="60">'+org_code+'</td>';
+						}
+						htmstr_2 = htmstr_2 + '<td class="ggnr"><a href="#"  title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+						htmstr_2 = htmstr_2 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_2 = htmstr_2 + '</tr>';
+					}
+					htmstr_2 = htmstr_2 + '</table>';
+					$('#gglist2').html(htmstr_2); 
+					
+				}else if("3" == not_class_type)
+				{  
+
+					$('#gglist3').html('');  
+					var htmstr_3 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,55);
+						htmstr_3 = htmstr_3 + '<tr>';
+						htmstr_3 = htmstr_3 + '<td class="cggg" width="120">'+notice_category_name+'</td>';
+						htmstr_3 = htmstr_3 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+						htmstr_3 = htmstr_3 + '<td class="dwbh" width="60">'+org_code+'</td>';
+						htmstr_3 = htmstr_3 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+						htmstr_3 = htmstr_3 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_3 = htmstr_3 + '</tr>';
+						
+					}
+
+					htmstr_3 = htmstr_3 + '</table>';  
+					$('#gglist3').html(htmstr_3);	
+				 
+				}else if("4" == not_class_type)
+				{ 
+
+					$('#gglist4').html(''); 
+					var htmstr_4 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">'; 
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,80); 
+						htmstr_4 = htmstr_4 + '<tr>';
+						htmstr_4 = htmstr_4 + '<td width="30"></td>';
+						htmstr_4 = htmstr_4 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewContent('+column_id+')">'+notice_title+'</a></td>';
+						htmstr_4 = htmstr_4 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_4 = htmstr_4 + '</tr>';
+					}
+
+					htmstr_4 = htmstr_4 + '</table>'; 
+					$('#gglist4').html(htmstr_4);	
+					 
+					
+				}else if("5" == not_class_type)
+				{ 
+
+					$('#gglist_city').html(''); 
+					var htmstr_5 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,55); 
+						area_name =  getLengthArea(area_name);
+						htmstr_5 = htmstr_5 + '<tr>';
+						htmstr_5 = htmstr_5 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+						htmstr_5 = htmstr_5 + '<td class="cggg" width="110">'+notice_category_name+'</td>';
+						htmstr_5 = htmstr_5 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+						if(data[i].SRC_CODE=='2'){
+							htmstr_5 = htmstr_5 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+						}else if(data[i].SRC_CODE=='1'){
+							htmstr_5 = htmstr_5 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+						}
+						htmstr_5 = htmstr_5 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_5 = htmstr_5 + '</tr>';
+					} 
+					htmstr_5 = htmstr_5 + '</table>';
+					$('#gglist_city').html(htmstr_5);	
+					 	
+					
+				}else if("6" == not_class_type)
+				{ 
+
+					$('#gglist2_city').html('');
+					var htmstr_6 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,55); 
+						area_name =  getLengthArea(area_name);
+						htmstr_6 = htmstr_6 + '<tr>';
+						htmstr_6 = htmstr_6 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+						htmstr_6 = htmstr_6 + '<td class="cggg" width="110">'+notice_category_name+'</td>';
+						htmstr_6 = htmstr_6 + '<td class="zbfs" width="90">'+prcm_mode_name+'</td>';
+						if(data[i].SRC_CODE=='2'){
+							htmstr_6 = htmstr_6 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+						}else if(data[i].SRC_CODE=='1'){
+							htmstr_6 = htmstr_6 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContent('+notice_id+')">'+notice_title+'</a></td>';
+						}
+						htmstr_6 = htmstr_6 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_6 = htmstr_6 + '</tr>';
+					} 
+					htmstr_6 = htmstr_6 + '</table>'; 
+					$('#gglist2_city').html(htmstr_6);	
+					 
+					
+				}else if("7" == not_class_type)
+				{
+
+					$('#gglist4_city').html('');
+					var htmstr_7 = '<table width="100%" border="0" cellpadding="0" cellspacing="0" class="">';
+					for(var i=0;i<data.length;i++)
+					{
+						var notice_class_type = data[i].NOTICE_CLASS_TYPE;
+						var notice_category_name = data[i].NOTICE_CATEGORY_NAME;
+						var notice_id = data[i].NOTICE_ID;
+						var org_code = typeof(data[i].ORG_CODE)=='undefined'?'&nbsp;':data[i].ORG_CODE;
+						var prcm_mode_name = data[i].PRCM_MODE_NAME;
+						var notice_title = data[i].NOTICE_TITLE;
+						var notice_type_name = data[i].NOTICE_TYPE_NAME;
+						var newwork_date = data[i].NEWWORK_DATE;
+						var column_id = data[i].COLUMN_ID;
+						var org_id = data[i].ORG_ID;
+						var area_name =  typeof(data[i].AREA_NAME)=='undefined'?'&nbsp;':data[i].AREA_NAME;
+						
+						notice_title = getLength(0,notice_title,80);  
+						area_name =  getLengthArea(area_name);
+						htmstr_7 = htmstr_7 + '<tr>';
+						htmstr_7 = htmstr_7 + '<td class="cggg_red" title="'+area_name+'"  width="70">'+area_name+'</td>';
+						if(data[i].SRC_CODE=='2'){
+							htmstr_7 = htmstr_7 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewNotcieContentCity('+notice_id+')">'+notice_title+'</a></td>';
+						}else if(data[i].SRC_CODE=='3'){
+							htmstr_7 = htmstr_7 + '<td class="ggnr"><a href="#" title="'+data[i].NOTICE_TITLE+'" onclick="viewContent('+data[i].COLUMN_ID+')">'+notice_title+'</a></td>';
+						}
+						htmstr_7 = htmstr_7 + '<td class="riqi" width="90">'+newwork_date+'</td>'; 
+						htmstr_7 = htmstr_7 + '</tr>'; 
+					}
+
+					htmstr_7 = htmstr_7 + '</table>'; 
+					$('#gglist4_city').html(htmstr_7);	
+					
+				} 
+			
+		},"json");
+	}
+	
+	function openurl(url){
+		window.open(url);
+	}
+	
+</script>
+</head>
+<body>
+	<div class="top">
+		<div class="top_one">
+			<ul class="web_link">
+				<p id="date"></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话: 0731-85165438
+				</p>
+				<!-- <span><a href="http://220.168.30.70:8080" target="_blank"><font style="color: #FFA500;"><b>旧网站入口</b></font></a></span> -->
+			</ul>
+		</div>
+		<div class="top_two"></div>
+		<div class="nav">
+			<div class="nav_left">
+				<a href="/portal_v2.jsp">网站首页</a>&nbsp;|&nbsp;
+				<a href="#" onclick="viewMoreCpntent('2');">工作动态</a>&nbsp;|&nbsp;
+				<a href="#" onclick="viewMoreCpntent('3');">政策法规</a>&nbsp;|&nbsp; 
+				<a href="#" onclick="viewMore();">信息公开</a>&nbsp;|&nbsp;
+				<a href="#" onclick="viewMoreCpntent('4');">办事指南</a>&nbsp;|&nbsp;
+				<a href="#" onclick="viewMoreCpntent('17');">文件下载</a>&nbsp;|&nbsp;
+				<a href="#" onclick="viewMoreCpntent('6');">监督管理</a>&nbsp;|&nbsp;
+				<a href="#">采购协会</a>&nbsp;|&nbsp;
+				<a href="xyimp.html" target="_blank" style="color: #ffa800;">协议商品导入</a>
+				
+				
+				
+				
+				
+				
+			</div>
+			<div class="search">
+				<input class="search_kuang" name="" type="text" value="请输入关键字..." />
+				<input class="allsearch" name="" type="button" value="" />
+			</div>
+		</div>
+	</div>
+	<!-- -------------------------------------------------------------- -->
+	<div class="center">
+		<div class="centertop_left">
+			<!-- 工作动态  start---------------------------------->
+			<div class="gzdt_kuang">
+				<div class="focus_iamge">
+					<div id="fsD1" class="focus">
+						<div id="D1pic1" class="fPic">
+							
+							<div class="fcon" style="display: none;">
+								<a target="_blank" onclick="viewContent(1000001707)">
+									
+									<img src="http://ccgp-hunan.gov.cn:80/dtimg/8e35e2c406714e84ba6a363795bdfaa1.jpg" style="opacity: 1;"></img>
+								</a> 
+								<span class="shadow">
+									<a href="#" target="_blank" onclick="viewContent(1000001707)">以党的十九大精神为引领进一步深化政府采购制度改革</a>
+								</span>
+							</div>
+							
+							<div class="fcon" style="display: none;">
+								<a target="_blank" onclick="viewContent(1000001367)">
+									
+									<img src="http://ccgp-hunan.gov.cn:80/dtimg/295691175fc343eba0a3d71e6aa5683e.jpg" style="opacity: 1;"></img>
+								</a> 
+								<span class="shadow">
+									<a href="#" target="_blank" onclick="viewContent(1000001367)">湖南召开代理机构监督检查暨培训工作会</a>
+								</span>
+							</div>
+							
+							<div class="fcon" style="display: none;">
+								<a target="_blank" onclick="viewContent(1000001207)">
+									
+									<img src="http://ccgp-hunan.gov.cn:80/dtimg/3618199a69064ada8919043376ae7df7.jpg" style="opacity: 1;"></img>
+								</a> 
+								<span class="shadow">
+									<a href="#" target="_blank" onclick="viewContent(1000001207)">“2017年政府采购湘江论坛”在长沙举行</a>
+								</span>
+							</div>
+							
+							<div class="fcon" style="display: none;">
+								<a target="_blank" onclick="viewContent(1000000707)">
+									
+									<img src="http://ccgp-hunan.gov.cn:80/dtimg/9eaab4046cd14bf1a59956407b6a89c4.jpg" style="opacity: 1;"></img>
+								</a> 
+								<span class="shadow">
+									<a href="#" target="_blank" onclick="viewContent(1000000707)">湖南省财政厅政府采购处开展 “合同能源管理”专题学习活动</a>
+								</span>
+							</div>
+							
+							<div class="fcon" style="display: none;">
+								<a target="_blank" onclick="viewContent(445)">
+									
+									<img src="http://ccgp-hunan.gov.cn:80/dtimg/013caa53d765424ebb23dc431378145b.jpg" style="opacity: 1;"></img>
+								</a> 
+								<span class="shadow">
+									<a href="#" target="_blank" onclick="viewContent(445)">竞争性磋商采购方式研讨会在长沙召开</a>
+								</span>
+							</div>
+							
+						</div>
+
+						<div class="fbg">
+							<div class="D1fBt" id="D1fBt">
+								
+									
+						    			<a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>1</i></a>  
+						    		
+    							
+									
+						    			<a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a> 
+						    		
+    							
+									
+						    			<a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>3</i></a> 
+						    		
+    							
+									
+						    			<a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a> 
+						    		
+    							
+									
+						    			<a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>5</i></a> 
+						    		
+    							 
+							</div>
+						</div>
+						<span class="prev"></span> <span class="next"></span>
+					</div>
+					
+					<script type="text/javascript">
+						Qfast.add('widgets', {
+							path : "js/terminator2.2.min.js",
+							type : "js",
+							requires : [ 'fx' ]
+						});
+						Qfast(false, 'widgets', function() {
+							K.tabs({
+								id : 'fsD1', //焦点图包裹id  
+								conId : "D1pic1", //** 大图域包裹id  
+								tabId : "D1fBt",
+								tabTn : "a",
+								conCn : '.fcon', //** 大图域配置class       
+								auto : 1, //自动播放 1或0
+								effect : 'fade', //效果配置
+								eType : 'click', //** 鼠标事件
+								pageBt : true,//是否有按钮切换页码
+								bns : [ '.prev', '.next' ],//** 前后按钮配置class                          
+								interval : 3000
+							//** 停顿时间  
+							})
+						})
+					</script>
+					
+				</div>
+				<div class="gzdt">
+					<div class="gzdt_nav">
+						<a href="#" onclick="viewMoreCpntent('2');">更多 >>&nbsp;&nbsp;</a>
+					</div>
+					<div class="dongtai_content">
+						<ul>
+							
+							<li><a href="javascript:;" title="湖南发布2018年省级集采目录和限额标准" onclick="viewContent(1000001807)">湖南发布2018年省级集采目录和限额标准</a></li>
+							
+							<li><a href="javascript:;" title="湖南举办政采监管工作业务培训班" onclick="viewContent(1000001747)">湖南举办政采监管工作业务培训班</a></li>
+							
+							<li><a href="javascript:;" title="以党的十九大精神为引领进一步深化政府采购制度改革" onclick="viewContent(1000001707)">以党的十九大精神为引领进一步深化政府采购制度改革</a></li>
+							
+							<li><a href="javascript:;" title="财政部国库司有关负责人就发布政府采购指导性案例答记者问" onclick="viewContent(1000001647)">财政部国库司有关负责人就发布政府采购指导性案例答记者问</a></li>
+							
+							<li><a href="javascript:;" title="湖南：提升政采透明度 采购信息全公开" onclick="viewContent(1000001627)">湖南：提升政采透明度 采购信息全公开</a></li>
+							
+							<li><a href="javascript:;" title="国务院公布《机关团体建设楼堂馆所管理条例》" onclick="viewContent(1000001587)">国务院公布《机关团体建设楼堂馆所管理条例》</a></li>
+							
+							<li><a href="javascript:;" title="《湖南省政府采购非公开招标采购方式审批管理办法》出台" onclick="viewContent(1000001547)">《湖南省政府采购非公开招标采购方式审批管理办法》出台</a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 工作动态  end---------------------------------->
+			
+			
+			<div class="sjgg">
+				<div class="cgggbt"></div>
+				<!-- 公告类型 start --------------------------->
+				<div class="statement" style="width:768px;height:50px;line-height:50px;margin-left:4px;margin-top:-12px;border:solid 1px #cee1ff;background:#dde9fc;"><img src="images/statement.png"></div>
+				<div class="procurement_notice">
+					<h2>
+						<span>公告类型</span>
+						<p name="gonggao_title1" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="initNoticeDateByClassType('1')" class="big_titile">采购公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title1" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="getNotice('dealNotices')" class="big_titile">中标(成交)公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title1" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="getNotice('invalidNotices')" class="big_titile">废标公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title1" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="getNotice('contractNotices')" class="big_titile">合同公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title1" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="getNotice('modfiyNotices')" class="big_titile">更正公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title1" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title1');">
+							<a onclick="getNotice('endNotices')" class="big_titile">终止公告</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMore1();">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist">
+					</ul>
+				</div>
+				<!-- 公告类型 end --------------------------->
+				
+				<!-- 采购方式 start-------------------------- -->
+				<div class="procurement_notice" style="margin-top: 0px;">
+					<h2>
+						<span>采购方式</span>
+						<p name="gonggao_title2" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="initNoticeDateByClassType('2');" class="big_titile">公开招标</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('07');" class="big_titile">协议供货</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('06');" class="big_titile">定点采购</a>
+						</p>
+						<!-- <p class="gonggao_title_wxz">
+							<a name="small_title" class="small_title_wxz" onclick="changeNoticeType2(this,'small_title');getNoticeByPrcmMode('07');">协议供货</a>
+							<a name="small_title" class="small_title_wxz" onclick="changeNoticeType2(this,'small_title');getNoticeByPrcmMode('06');">定点采购</a>
+						</p> -->
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('02');" class="big_titile">邀请招标</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('03');" class="big_titile">竞争性谈判</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a  onclick="getNoticeByPrcmMode('11');"  class="big_titile">竞争性磋商</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('04');" class="big_titile">询价</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title2" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title2');">
+							<a onclick="getNoticeByPrcmMode('05');" class="big_titile">单一来源</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMore2();">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist2">
+					</ul>
+				</div>
+				<!-- 采购方式 end-------------------------- -->
+				<!-- 品目分类 start-------------------------- -->
+				<div class="procurement_notice" style="margin-top: 0px;">
+					<h2>
+						<span>品目分类</span>
+						<p name="gonggao_title3" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title3');"> 
+							<a onclick="initNoticeDateByClassType('3')" class="big_titile">货物</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title3" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title3');">
+							<a onclick="getNoticeByPrcmItem('B')" class="big_titile">工程</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title3" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title3');">
+							<a onclick="getNoticeByPrcmItem('C')" class="big_titile">服务</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMore3();">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist3">
+					</ul>
+				</div>
+				<!-- 品目分类 end-------------------------- -->
+				<!-- PPP专栏 start  省厅 栏目PPP-------------------------- -->
+				<div class="procurement_notice" style="margin-top: 0px;">
+					<h2>
+						<span>PPP专栏</span>
+						<p name="gonggao_title4" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title4');"> 
+							<a onclick="initNoticeDateByClassType('4')" class="big_titile">资格预审公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title4" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title4');">
+							<a onclick="getSpecialByPrcmItem(21)" class="big_titile">预中标成交结果公示</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title4" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title4');">
+							<a onclick="getSpecialByPrcmItem(22)" class="big_titile">中标、成交公告</a>
+						</p>  
+						<a class="jiange"></a>
+						<p name="gonggao_title4" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title4');">
+							<a onclick="getSpecialByPrcmItem(23)" class="big_titile">合同公告</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMoreCpntent('19');">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist4">
+					</ul>
+				</div>
+				<!-- PPP专栏 end-------------------------- -->
+				
+			</div>
+			
+			<!-- 市（州）区（县） 级政府采购信息公告start-->
+			<div class="sjgg">
+				<div class=cgggbt_province></div>
+				<div class="statement" style="width:768px;height:50px;line-height:50px;margin-left:4px;margin-top:-12px;border:solid 1px #cee1ff;background:#dde9fc;"><img src="images/statement.png"></div>
+				 <div class="important_notice3" >
+		          <ul>
+		           <li><span class="leftbg"></span><a href="#" onclick='gotoCity("css")'>长沙市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#" onclick='gotoCity("zzs")'>株洲市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("xts")'>湘潭市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("hys")'>衡阳市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("sys")'>邵阳市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("yys")'>岳阳市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("cds")'>常德市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("zjjs")'>张家界</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("yyss")'>益阳市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("czs")'>郴州市</a><span class="rightbg"></span></li>
+		           <br/>
+		           <br/>
+		           <li><span class="leftbg"></span><a href="#"  onclick='gotoCity("yzs")'>永州市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#" onclick='gotoCity("hhs")'>怀化市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#" onclick='gotoCity("lds")'>娄底市</a><span class="rightbg"></span></li>
+		           <li><span class="leftbg"></span><a href="#" onclick='gotoCity("xxz")'>湘西州</a><span class="rightbg"></span></li>
+		          </ul>
+		       </div>
+				<!-- 公告类型 start --------------------------->
+				<div class="procurement_notice">
+					<h2>
+						<span>公告类型</span>
+						<p name="gonggao_title5" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="initNoticeDateByClassType('5')" class="big_titile">采购公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title5" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="getCityNotice('dealNotices')" class="big_titile">中标(成交)公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title5" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="getCityNotice('contractNotices')" class="big_titile">合同公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title5" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="getCityNotice('modfiyNotices')" class="big_titile">更正公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title5" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="getCityNotice('endNotices')" class="big_titile">终止公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title5" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title5');">
+							<a onclick="getCitySpecialByPrcmItem(24,-1)" class="big_titile">需求征求意见</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMoreCity1();">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist_city">
+					</ul>
+				</div>
+				<!-- 公告类型 end --------------------------->
+				
+				<!-- 采购方式 start-------------------------- -->
+				<div class="procurement_notice" style="margin-top: 0px;">
+					<h2>
+						<span>采购方式</span>
+						<p name="gonggao_title6" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="initNoticeDateByClassType('6');" class="big_titile">公开招标</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('07');" class="big_titile">协议供货</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('06');" class="big_titile">定点采购</a>
+						</p>
+						<!-- <p class="gonggao_title_wxz">
+							<a name="small_title" class="small_title_wxz" onclick="changeNoticeType2(this,'small_title');getNoticeByPrcmMode('07');">协议供货</a>
+							<a name="small_title" class="small_title_wxz" onclick="changeNoticeType2(this,'small_title');getNoticeByPrcmMode('06');">定点采购</a>
+						</p> -->
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('02');" class="big_titile">邀请招标</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('03');" class="big_titile">竞争性谈判</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a  onclick="getCityNoticeByPrcmMode('11');"  class="big_titile">竞争性磋商</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('04');" class="big_titile">询价</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title6" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title6');">
+							<a onclick="getCityNoticeByPrcmMode('05');" class="big_titile">单一来源</a>
+						</p>
+						<p class="more">
+							<a  href="#" onclick="viewMoreCity2();">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist2_city">
+					</ul>
+				</div>
+				<!-- 采购方式 end-------------------------- -->
+				<!-- PPP专栏 start--市县------------------------ -->
+				<div class="procurement_notice" style="margin-top: 0px;">
+					<h2>
+						<span>PPP专栏</span>
+						<p name="gonggao_title7" class="gonggao_title_xz" onclick="changeNoticeType(this,'gonggao_title7');"> 
+							<a onclick="initNoticeDateByClassType('7')" class="big_titile">资格预审公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title7" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title7');">
+							<a onclick="getCitySpecialByPrcmItem(22,21)" class="big_titile">预中标成交结果公示</a>
+						</p> 
+						<a class="jiange"></a>
+						<p name="gonggao_title7" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title7');">
+							<a onclick="getCitySpecialByPrcmItem(26,22)" class="big_titile">中标、成交公告</a>
+						</p>
+						<a class="jiange"></a>
+						<p name="gonggao_title7" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title7');">
+							<a onclick="getCitySpecialByPrcmItem(27,23)" class="big_titile">合同公告</a>
+						</p>
+						
+						<a class="jiange"></a>
+						<p name="gonggao_title7" class="gonggao_title_wxz" onclick="changeNoticeType(this,'gonggao_title7');">
+							<a onclick="getCitySpecialByPrcmItem(23,-1)" class="big_titile">政府购买公共服务</a>
+						</p>
+						  
+						<p class="more">
+							<a  href="#" onclick="viewMoreCpntentCity('19');">更多</a>
+						</p>
+					</h2>
+					<ul id="gglist4_city">
+					</ul>
+				</div>
+				<!-- PPP专栏 end-------------------------- -->
+				
+			</div>
+			<!-- 市（州）区（县） 级政府采购信息公告end-->
+		</div>
+		<div class="centertop_right">
+			<!--<div id="unified_login" class="unified_login">
+				<a href="http://220.168.30.70:89/w_login.jsp" target="_blank"><span></span></a>
+				<p>
+					<a href="#" onclick="agentRegister();">代理机构注册</a>&nbsp;|&nbsp;<a href="#" onclick="supplyRegister()">供应商注册</a>
+				</p>
+			</div> -->
+			
+			<div  class="unified_login1">
+			 <div id="unified_login" class="denglu" >
+			 <span class="gys"><a href="http://220.168.30.70:89/w_login.jsp" target="_blank">供应商</a></span><span class="gys" style=" margin-left:4px;"><a href="#">专家库</a></span>
+			 <span class="dljg"><a href="http://220.168.30.70:89/w_login.jsp" target="_blank">代理机构</a></span>
+			 <p><a href="#" onclick="agentRegister();">代理机构注册</a>&nbsp;|&nbsp;<a href="#" onclick="supplyRegister()">供应商注册</a></p>
+		     </div>
+		  
+			<!-- <div id="show_logon" class="unified_login" style="display: none">
+			<br />
+				<label id="userInfo"  style="margin-left: 65px;margin-top: 25px;"></label> 
+			</div> -->
+			<div id="show_logon" class="denglu2" style="display: none"> 
+          </div> 
+			 </div>
+			 
+			<div class="important_notice" style="margin-top: 8px;height:296px">
+				<h1>
+					<img src="images/zxzc_03.jpg" width="56" height="14" />
+					<span><a href="#" onclick="viewMoreCpntent('3');">更多</a></span>
+				</h1>
+				<ul>
+					
+						<li>
+							<a href="javascript:;"  title="湖南省财政厅关于印发《湖南省2018年省级政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001787)"><img src="images/new_03.gif"/>湖南省财政厅关于印发《湖南省2018年省级政府集中采购目录及政府采购限额标准》的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="财政部关于印发《政务信息系统政府采购管理暂行办法》的通知"  onclick="viewContent(1000001767)"><img src="images/new_03.gif"/>财政部关于印发《政务信息系统政府采购管理暂行办法》的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="湖南省财政厅关于规范政府采购项目投标保证金和履约保证金收取退还工作的通知"  onclick="viewContent(1000001687)"><img src="images/new_03.gif"/>湖南省财政厅关于规范政府采购项目投标保证金和履约保证金收取退还工作的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="湖南省财政厅关于进一步做好政府采购信息公告工作有关事项的通知"  onclick="viewContent(1000001607)">湖南省财政厅关于进一步做好政府采购信息公告工作有关事项的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="财政部关于政府购买服务信息平台运行管理有关问题的通知"  onclick="viewContent(1000001567)">财政部关于政府购买服务信息平台运行管理有关问题的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="湖南省财政厅关于印发《湖南省政府采购非公开招标采购方式审批管理办法》的通知"  onclick="viewContent(1000001530)">湖南省财政厅关于印发《湖南省政府采购非公开招标采购方式审批管理办法》的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="关于促进残疾人就业政府采购政策的通知"  onclick="viewContent(1000001347)">关于促进残疾人就业政府采购政策的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="财政部关于进一步做好政府采购信息公开工作有关事项的通知"  onclick="viewContent(1000001230)">财政部关于进一步做好政府采购信息公开工作有关事项的通知</a>
+						</li>
+					
+						<li>
+							<a href="javascript:;"  title="财政部 环境保护部关于调整公布第二十期环境标志产品政府采购清单的通知"  onclick="viewContent(1000001229)">财政部 环境保护部关于调整公布第二十期环境标志产品政府采购清单的通知</a>
+						</li>
+					
+				</ul>
+			</div>
+
+			<div class="important_notice" style="margin-top: 0px;height:296px">
+				<h1>
+					<img src="images/left_title_03.jpg" width="56" height="14" /><span><a
+						href="#" onclick="viewMoreCpntent('1');">更多</a></span>
+				</h1>
+				<ul>
+					
+						<li><a href="javascript:;"  title="关于印发《湖南省两型产品政府采购目录（第六批）》的通知"  onclick="viewContent(1000002007)">关于印发《湖南省两型产品政府采购目录（第六批）》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="省以下法院、检察院关于政府采购问题解答"  onclick="viewContent(1000001987)">省以下法院、检察院关于政府采购问题解答</a></li>
+					
+						<li><a href="javascript:;"  title="关于做好政府采购代理机构名录登记有关工作的通知"  onclick="viewContent(1000001847)">关于做好政府采购代理机构名录登记有关工作的通知</a></li>
+					
+						<li><a href="javascript:;"  title="公开征求意见通知"  onclick="viewContent(1078)">公开征求意见通知</a></li>
+					
+						<li><a href="javascript:;"  title="关于政府采购供应商注册有关事项的通知"  onclick="viewContent(1000000947)">关于政府采购供应商注册有关事项的通知</a></li>
+					
+						<li><a href="javascript:;"  title="公开征求意见的通知"  onclick="viewContent(1000001727)">公开征求意见的通知</a></li>
+					
+						<li><a href="javascript:;"  title="湖南省财政厅关于做好2017年政府采购代理机构监督检查现场检查工作有关事项的通知"  onclick="viewContent(963)">湖南省财政厅关于做好2017年政府采购代理机构监督检查现场检查工作有关事项的通知</a></li>
+					
+						<li><a href="javascript:;"  title="湖南省财政厅公布71家2017年政府采购代理机构监督检查名单"  onclick="viewContent(933)">湖南省财政厅公布71家2017年政府采购代理机构监督检查名单</a></li>
+					
+						<li><a href="javascript:;"  title="湖南省财政厅转发财政部关于2017年开展全国政府采购代理机构监督检查工作的通知"  onclick="viewContent(926)">湖南省财政厅转发财政部关于2017年开展全国政府采购代理机构监督检查工作的通知</a></li>
+					
+				</ul>
+			</div>
+			<div class="important_notice" style="margin-top: 0px;height:296px">
+				<h1>
+					<img src="images/left_title_06.jpg" width="56" height="14" /><span><a
+						href="#" onclick="viewMoreCpntent('4');">更多</a></span>
+				</h1>
+				<ul>
+					
+						<li><a href="javascript:;"  title="永州市财政局关于印发《永州市2018年市本级政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001967)">永州市财政局关于印发《永州市2018年市本级政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="张家界市财政局关于调整《张家界市2018年政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001927)">张家界市财政局关于调整《张家界市2018年政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="邵阳市财政局关于印发《邵阳市2018-2019年政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001908)">邵阳市财政局关于印发《邵阳市2018-2019年政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="衡阳市财政局关于印发《衡阳市2017年政府集中采购目录及采购限额标准》的通知"  onclick="viewContent(1000001907)">衡阳市财政局关于印发《衡阳市2017年政府集中采购目录及采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="娄底市财政局关于印发《娄底市2017-2018年全市政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001890)">娄底市财政局关于印发《娄底市2017-2018年全市政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="永州市财政局关于印发《永州市2017年市本级政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001889)">永州市财政局关于印发《永州市2017年市本级政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="益阳市财政局关于印发《益阳市2018年政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001888)">益阳市财政局关于印发《益阳市2018年政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="湘西自治州财政局关于印发《湘西自治州2017年政府集中采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001887)">湘西自治州财政局关于印发《湘西自治州2017年政府集中采购目录及政府采购限额标准》的通知</a></li>
+					
+						<li><a href="javascript:;"  title="湘潭市财政局关于印发《湘潭市2018-2019年度政府采购目录及政府采购限额标准》的通知"  onclick="viewContent(1000001871)">湘潭市财政局关于印发《湘潭市2018-2019年度政府采购目录及政府采购限额标准》的通知</a></li>
+					
+				</ul>
+			</div>
+			<div class="important_notice" style="margin-top: 0px;height:296px">
+				<h1>
+					<img src="images/left_title_09.jpg" width="76" height="14" /><span><a
+						href="#" onclick="viewMoreCpntent('6');">更多</a></span>
+				</h1>
+				<ul>
+					
+						<li><a href="javascript:;"  title="湖南省财政厅政府采购信息公告（处罚）"  onclick="viewContent(1000001948)">湖南省财政厅政府采购信息公告（处罚）</a></li>
+					
+						<li><a href="javascript:;"  title="湖南省财政厅政府采购信息公告（处理）"  onclick="viewContent(1000001947)">湖南省财政厅政府采购信息公告（处理）</a></li>
+					
+						<li><a href="javascript:;"  title="行政处罚决定书（湘财行罚 [2018] 6 号）"  onclick="viewContent(1000001828)">行政处罚决定书（湘财行罚 [2018] 6 号）</a></li>
+					
+						<li><a href="javascript:;"  title="行政处罚决定书（湘财行罚 [2018 ] 1 号）"  onclick="viewContent(1000001827)">行政处罚决定书（湘财行罚 [2018 ] 1 号）</a></li>
+					
+						<li><a href="javascript:;"  title="投诉处理决定书（湘财购〔2017〕17号）"  onclick="viewContent(1000001667)">投诉处理决定书（湘财购〔2017〕17号）</a></li>
+					
+						<li><a href="javascript:;"  title="投诉处理决定书(航天信息股份有限公司)"  onclick="viewContent(1006)">投诉处理决定书(航天信息股份有限公司)</a></li>
+					
+						<li><a href="javascript:;"  title="行政处罚决定书（湖南圣智图书有限公司）"  onclick="viewContent(1000001067)">行政处罚决定书（湖南圣智图书有限公司）</a></li>
+					
+						<li><a href="javascript:;"  title="投诉处理决定书(湖南林夕仪器设备有限公司)"  onclick="viewContent(1000001047)">投诉处理决定书(湖南林夕仪器设备有限公司)</a></li>
+					
+						<li><a href="javascript:;"  title="行政处罚决定书（湖南一帆信息科技有限公司）"  onclick="viewContent(1000001027)">行政处罚决定书（湖南一帆信息科技有限公司）</a></li>
+					
+				</ul>
+			</div>
+			<div class="important_notice" style="margin-top: 0px;height:296px">
+				<h1>
+					<img src="images/left_title_13.jpg" width="56" height="14" /><span><a
+						href="#" onclick="viewMoreCpntent('17');">更多</a></span>
+				</h1>
+				<div class="gzwj_pxzl">
+					<a id="gzwj" onclick="changecolumn('gzwj');" class="gzwj_pxzl_xz">工作文件</a>
+					<a id="pxzl" onclick="changecolumn('pxzl');" class="gzwj_pxzl_wxz">培训资料</a>
+				</div>
+				<ul id="fjxz">
+					<!-- <li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li>
+					<li><a href="#">注册成为政府采购信息信息信息会...</a></li> -->
+				</ul>
+			</div>
+			<!--左侧图片链接-->
+	        <div class="important_notice4" style="margin-top:0px; ">
+	             <ul>
+	           <li><a href="#"><img src="images/link_zhuanti_1.jpg" width="218" height="74" /></a></li>
+	           <li><a href="#" onclick="openurl('/page/content/more.jsp?column_code=10#');"><img src="images/link_zhuanti_2.png" width="218" height="70" /></a></li>
+	           <li><a href="#"><img src="images/link_zhuanti_3.jpg" width="218" height="69" /></a></li>
+	           <li><a href="#" onclick="openurl('/agentQueryList.jsp');"><img src="images/link_zhuanti_4.jpg" width="218" height="71" /></a></li> 
+	           <li><a href="#" onclick="openurl('/financeBankInfo.jsp');"><img src="images/link_zhuanti_5.jpg" width="218" height="67" /></a></li>
+	           <li><a href="#"><img src="images/link_zhuanti_6.jpg" width="218" height="69" /></a></li>
+	           <li><a href="#" onclick="openurl('/supperQueryFromPage.jsp');"><img src="images/link_zhuanti_15.jpg" width="218" height="69" /></a></li>
+	           <li><a href="#" onclick="openurl('/argMecQueryPortal.jsp?orgId=1');"><img src="images/link_zhuanti_14.jpg" width="218" height="69" /></a></li>
+	           <li><a href="#" onclick="openurl('/queryDesignSupplier.jsp');"><img src="images/link_zhuanti_16.jpg" width="218" height="69" /></a></li>
+	           <li><a href="#" onclick="openurl('http://www.ccgp.gov.cn/cr/list');"><img src="images/link_zhuanti_22.png" width="218" height="69" /></a></li>
+	           
+	           
+	          </ul>
+	       </div>
+		</div>
+
+		<!-- <div class="center_mid">
+			<a href="#" onclick="viewMoreCpntent('18');"><img src="images/link_zhuanti_03.jpg" width="165" height="67"/></a>
+			<a href="#" onclick="viewMoreCpntent('10');"><img src="images/link_zhuanti_05.jpg" width="152" height="67" /></a> 
+			<a href="#"><img src="images/link_zhuanti_07.jpg" width="162" height="67" /></a> 
+			<a href="#" onclick="window.open('http://www.ccgp.gov.cn/agency')"><img src="images/link_zhuanti_09.jpg" width="163" height="67" /></a> 
+			<a href="#" onclick="viewMoreCpntent('12');"><img src="images/link_zhuanti_11.jpg" width="161" height="67" /></a> 
+			<a href="#" onclick="viewMoreCpntent('11');"><img src="images/link_zhuanti_13.jpg" width="175" height="67" /></a>
+		</div> -->
+	</div>
+	<div class="foot"><a href="http://www.ccgp.gov.cn" target="_blank">中国政府采购网</a> &nbsp; <a>|</a> &nbsp; <a href="http://www.cgpnews.cn/" target="_blank">中国政府采购新闻网 </a> &nbsp;<a> |</a>&nbsp; <a href="http://www.caigou2003.com/index.html" target="_blank">政府采购信息网</a><br />Copyright© 1999-2015 Hunan Province Provincial Finance Department, All rights reserved.  版权所有：湖南省财政厅<br />E-mail: hunangpa@163.com  传真: 0731-85165446  网络实名: 湖南省政府采购网 <br />
+	推荐使用的浏览器版本为IE8、IE9
+<br />	</div>
+</body>
+</html>

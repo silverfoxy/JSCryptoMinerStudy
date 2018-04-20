@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Husk - Soundcloud & Spotify Download Gate from The Drunken Coconut</title>
+  <meta name="description" content="A free Soundcloud download gate courtesy of the Drunken Coconut!">
+  <meta name="author" content="The Drunken Coconut">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <script src="defaultDEV.js"></script>
+</head>
+<body>
+<style>
+.topbar {
+	background-color:black;
+	height:30px;
+	color:white;
+	text-align:center;
+	font-size:15px;
+	text-decoration:none;
+}
+.topbar a {
+	text-decoration:none;
+	color:white;
+}
+</style>
+<div class=topbar><a href="http://thehusk.ca/grow">Take full control of your own growth!&nbsp;&nbsp;Click here to check out our new growth platform!</a></div>
+<div class="container" id="logocontainer">
+ <div class="row longline">
+    <div class="three columns" >
+		<a onClick="cancelCreate()"><img src="images/thehusklogo.png" id="sitelogo" alt="" /></a><br>
+	</div>
+    <div class="nine columns" >
+		<div id="trackdownload">&nbsp;</div>
+		<div id="trackdownload2">Powered by <a href="http://thedrunkencoconut.com" target="_blank">TheDrunkenCoconut.com</a></div>
+	</div>
+ </div>
+</div>	
+
+<div class="container" id="logincontainer">
+<center>
+		<img src="images/thehusklogo.png" id="sitelogo" alt="Free Download Gate" />
+<br>
+		<a onCLick="connect()"><img src="images/btn-connect-sc-l.png"/></a>
+<br>
+		<p>Download gates made simple.</p>
+		</center>
+</div>
+
+<div class="container" id="viewcontainer">
+	<div class="row">
+    	<div class="twelve columns">
+			<h2>My Gates</h2>
+		</div>
+	</div>
+	<div class="row">
+	    <div class="six columns">
+		  <input class="button-primary u-full-width" value="Add New Gate" type="button" onclick=createClick() >
+		</div>
+	    <div class="six columns">
+		  <input class="button u-full-width" value="Back" type="button" onclick=cancelCreate() >
+		</div>
+     </div>
+</div>
+
+<div class="container" id="menucontainer">
+	<div class="row">
+    	<div class="twelve columns">
+			<h2>Main Menu</h2>
+			<p>Create or edit a Soundcloud download gate here. Download gates allow you to put your Soundcloud tracks behind a gate so that users must perform a social action before downloading.</p>
+			<br>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="twelve columns" id="menustatus">
+		</div>
+	</div>
+
+	<div class="row">
+	    <div class="twelve columns" id="moneytotal">
+	    </div>
+	</div>
+<center>
+<font size=.7em>Update: The minimum payout has now been increased to $50.00.<br>
+You can now transfer your earnings balance to your grow with us account at anytime.<br>
+</font>
+</center>
+	<div class="row">
+
+	    <div class="four columns">
+		  <input class="button-primary u-full-width" type="button" value="Create A Gate" onclick=createClick() />
+		</div>	
+	    <div class="four columns">
+		  <input class="button-primary u-full-width" type="button" value="View/Edit Gates" onclick=viewClick() />
+		</div>	
+	    <div class="four columns">
+		  <input class="button-primary u-full-width" type="button" value="Collected Emails" onclick=getEmails() />
+		</div>	
+	</div>
+</div>
+<script>
+function getEmails() {
+	window.open("ge.asp?id="+me.id);
+}
+</script>
+ <div id="loader"></div> 
+
+<div class="container" id="createcontainer">
+ <div class="row">
+    <div class="twelve columns">
+		<h2><span id="createheading">Create Download Gate</span></h2>
+    </div>
+ </div>
+ <form id="createform" enctype="multipart/form-data" >
+ 	<input type="hidden" name="user_id" id="user_id" value="">
+ 	<input type="hidden" name="secret_token" id="secret_token" value="">
+  <div class="row">
+    <div class="twelve columns">
+      <label for="GateName">Gate Name</label>
+      <input class="u-full-width" required placeholder="Type a gate name" id="GateName" name="GateName" type="text">
+    </div>
+   <div class="twelve columns">
+      <label for="purchasetitle" id="purchasetitlelabel">Buy Link Text (premium SoundCloud only)</label>
+      <input class="u-full-width" placeholder="FREE DOWNLOAD" id="purchasetitle" name="purchasetitle" type="text">
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <label for="TrackFile">URL to Downloadable Track</label>
+      <input class="u-full-width" placeholder="Leave blank if uploading track" id="TrackFile" name="TrackFile" type="url">
+    </div>
+    <div class="six columns">
+      <label for="fileupload" id='uploadlabel'>or.. Upload a Track (max 50MB)</label>
+      <input type="file" name="fileupload" id="fileupload">
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+      <label for="track">Soundcloud Track</label>
+      <select class="u-full-width" id="track" name="track"></select>
+    </div>
+    <div class="twelve columns" id="trackwarning">
+      WARNING: This track already has a purchase URL assigned to it that will be overwritten! 
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="three columns">
+	  <input type="checkbox" id="checkfollow" name="checkfollow" >
+	  <span class="label-body">Follow</span>
+	</div>
+    <div class="three columns">
+	  <input type="checkbox" id="checklike" name="checklike">
+	  <span class="label-body">Like</span>
+	</div>
+    <div class="three columns">
+	  <input type="checkbox" id="checkcomment" name="checkcomment">
+	  <span class="label-body">Comment</span>
+	</div>
+    <div class="three columns">
+	  <input type="checkbox" id="checkrepost" name="checkrepost">
+	  <span class="label-body">Re-post</span>
+	</div>
+  <div class="row">
+    <div class="three columns">
+	  <input type="checkbox" id="checkemail" name="checkemail">
+	  <span class="label-body">Get Email</span>
+	</div>
+    <div class="three columns">
+	  <input type="checkbox" id="checkspotify" name="checkspotify"  >
+	  <span class="label-body">Spotify Follow</span>
+	</div>
+    <div class="three columns">
+	  <input type="checkbox" id="checkyoutube" name="checkyoutube"  >
+	  <span class="label-body">YouTube Follows</span>
+	</div>
+  </div>		  
+
+  <div class="row" id="followspotify">
+    <div class="twelve columns">
+	  <label>Spotify URI's for Playlist, Artist, or User</label>
+      <input class="u-full-width" placeholder="spotify:" id="spotifyurl1" name="spotifyurl1" type="text">
+      <input class="u-full-width" placeholder="spotify:" id="spotifyurl2" name="spotifyurl2" type="text">
+      <input class="u-full-width" placeholder="spotify:" id="spotifyurl3" name="spotifyurl3" type="text">
+     </div>
+  </div>
+  <div class="row" id="followyoutube">
+    <div class="twelve columns">
+	  <label>Youtube Channel ID's (code at the end of channel URL</label>
+      <input class="u-full-width" placeholder="" id="youtubeurl1" name="youtubeurl1" type="text">
+      <input class="u-full-width" placeholder="" id="youtubeurl2" name="youtubeurl2" type="text">
+      <input class="u-full-width" placeholder="" id="youtubeurl3" name="youtubeurl3" type="text">
+     </div>
+  </div>
+
+  <div class="row" id="followextra">
+    <div class="twelve columns">
+	  <label>Additional Soundcloud Profiles To Follow</label>
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow1" name="follow1" type="text">
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow2" name="follow2" type="text">
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow3" name="follow3" type="text">
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow4" name="follow4" type="text">
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow5" name="follow5" type="text">
+      <input class="u-full-width" placeholder="Soundcloud Account Link or User ID" id="follow6" name="follow6" type="text">
+     </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+	  <input class="button-primary u-full-width" value="Save/Create Gate" type="submit" id="submitbutton">
+	</div>
+    <div class="six columns">
+	  <input class="button u-full-width" value="Cancel" type="button" onclick=cancelCreate() >
+	</div>
+  </div>
+</form>
+ 
+</div>
+
+<div class="row" id="footer">
+    <div class="twelve columns">
+  	  <center>
+	  <a onclick=$('#privacycontainer').toggle(true)>Privacy</a>
+	  <a onclick=$('#legalcontainer').toggle(true)>Terms & Rules</a>
+	  <a onclick=$('#faqcontainer').toggle(true)>F.A.Q</a>
+	  </center>
+    </div>
+</div>
+
+<div class="container" id="privacycontainer" style="display: none">
+  <div class="row">
+    <div class="twelve columns">
+	<h1>Privacy policy</h1>
+
+<p><h4>1.	Introduction</h4>
+1.1	We are committed to safeguarding the privacy of our website visitors; in this policy we explain how we will treat your personal information.
+</p><p><h4>2.	Credit</h4>
+2.1	This document was created using a template from SEQ Legal (http://www.seqlegal.com).
+</p><p><h4>3.	Collecting personal information</h4>
+3.1	We may collect, store and use the following kinds of personal information: 
+(a)	Information about your SoundCloud and about your visits to and use of this website (including your IP address, geographical location, browser type and version, operating system, referral source, length of visit, page views and website navigation paths);
+(b)	Information that you provide when completing your profile on Soundcloud. (including your name, artist name, profile pictures, gender, date of birth, location, track information, and profile statistics.);
+(c)	Information that you provide to us when using the services on our website, or that is generated in the course of the use of those services (including number of gates, gate statistics and information, time and number of visits, upload links, and uploaded files.);
+(d)	Information that you post to our website for publication on the internet (including your uploaded files, file links, artist information, additional accounts followed);
+(e)	And any other personal information that you choose to send to us.
+<br>3.2	Before you disclose to us the personal information of another person, you must obtain that person's consent to both the disclosure and the processing of that personal information in accordance with this policy.
+</p><p><h4>4.	Using personal information</h4>
+4.1	Personal information submitted to us through our website will be used for the purposes specified in this policy or on the relevant pages of the website.
+<br>4.2	We may use your personal information to: 
+(a)	administer our website and business;
+(b)	personalize our website for you;
+(c)	enable your use of the services available on our website;
+(d)	send statements, invoices and payment reminders to you, and provide payments to you;
+(e)	send you non-marketing commercial communications;
+(f)	send you email notifications that you have specifically requested;
+(g)	send you our email newsletter, if you have requested it (you can inform us at any time if you no longer require the newsletter);
+(h)	send you marketing communications relating to our business [or the businesses of carefully-selected third parties] which we think may be of interest to you, by post or, where you have specifically agreed to this, by email or similar technology (you can inform us at any time if you no longer require marketing communications);
+(i)	provide third parties with statistical information about our users (but those third parties will not be able to identify any individual user from that information);
+(j)	deal with enquiries and complaints made by or about you relating to our website;
+(k)	keep our website secure and prevent fraud; and
+(l)	verify compliance with the terms and conditions governing the use of our website.
+<br>4.3	If you submit personal information for publication on our website, we will publish and otherwise use that information in accordance with the licence you grant to us.
+<br>4.4	We will not, without your express consent, supply your personal information to any third party for the purpose of their or any other third party's direct marketing.
+<br>4.5	All our website financial transactions are handled through our payment services provider, PayPal. You can review the provider's privacy policy at https://www.paypal.com. We will share information with our payment services provider only to the extent necessary for the purposes of processing payments made to settle your account, and dealing with complaints and queries relating to such payments.
+</p><p><h4>5.	Disclosing personal information</h4>
+5.1	We may disclose your personal information to [any of our employees, officers, insurers, professional advisers, agents, suppliers or subcontractors] insofar as reasonably necessary for the purposes set out in this policy.
+<br>5.2	We may disclose your personal information to any member of our group of companies (this means our subsidiaries, our ultimate holding company and all its subsidiaries) insofar as reasonably necessary for the purposes set out in this policy.
+<br>5.3	We may disclose your personal information: 
+(a)	to the extent that we are required to do so by law;
+(b)	in connection with any ongoing or prospective legal proceedings;
+(c)	in order to establish, exercise or defend our legal rights (including providing information to others for the purposes of fraud prevention and reducing credit risk);
+(d)	to the purchaser (or prospective purchaser) of any business or asset that we are (or are contemplating) selling; and
+(e)	to any person who we reasonably believe may apply to a court or other competent authority for disclosure of that personal information where, in our reasonable opinion, such court or authority would be reasonably likely to order disclosure of that personal information.
+<br>5.4	Except as provided in this policy, we will not provide your personal information to third parties.
+</p><p><h4>6.	International data transfers</h4>
+6.1	Information that we collect may be stored and processed in and transferred between any of the countries in which we operate in order to enable us to use the information in accordance with this policy.
+<br>6.2	Information that we collect may be transferred to the following countries which do not have data protection laws equivalent to those in force in the European Economic Area: [the United States of America, Russia, Japan, China and India].
+<br>6.3	Personal information that you publish on our website or submit for publication on our website may be available, via the internet, around the world. We cannot prevent the use or misuse of such information by others.
+<br>6.4	You expressly agree to the transfers of personal information described in this Section 6.
+</p><p><h4>7.	Retaining personal information</h4>
+7.1	This Section 7 sets out our data retention policies and procedure, which are designed to help ensure that we comply with our legal obligations in relation to the retention and deletion of personal information.
+<br>7.2	Personal information that we process for any purpose or purposes shall not be kept for longer than is necessary for that purpose or those purposes.
+<br>7.3	Notwithstanding the other provisions of this Section 7, we will retain documents (including electronic documents) containing personal data: 
+(a)	to the extent that we are required to do so by law;
+(b)	if we believe that the documents may be relevant to any ongoing or prospective legal proceedings; and
+(c)	in order to establish, exercise or defend our legal rights (including providing information to others for the purposes of fraud prevention and reducing credit risk).
+</p><p><h4>8.	Security of personal information</h4>
+8.1	We will take reasonable technical and organisational precautions to prevent the loss, misuse or alteration of your personal information.
+<br>8.2	We will store all the personal information you provide on our secure (password- and firewall-protected) servers.
+<br>8.3	All electronic financial transactions entered into through our website will be protected by encryption technology.
+<br>8.4	You acknowledge that the transmission of information over the internet is inherently insecure, and we cannot guarantee the security of data sent over the internet.
+</p><p><h4>9.	Amendments</h4>
+9.1	We may update this policy from time to time by publishing a new version on our website.
+<br>9.2	You should check this page occasionally to ensure you are happy with any changes to this policy.
+<br>9.3	We may notify you of changes to this policy by email.
+</p><p><h4>10.	Your rights</h4>
+10.1	You may instruct us to provide you with any personal information we hold about you; provision of such information will be subject to: 
+(a)	the payment of a fee (currently fixed at USD 10); and
+(b)	the supply of appropriate evidence of your identity [(for this purpose, we will usually accept a photocopy of your passport certified by a solicitor or bank plus an original copy of a utility bill showing your current address)].
+<br>10.2	We may withhold personal information that you request to the extent permitted by law.
+<br>10.3	You may instruct us at any time not to process your personal information for marketing purposes.
+<br>10.4	In practice, you will usually either expressly agree in advance to our use of your personal information for marketing purposes, or we will provide you with an opportunity to opt out of the use of your personal information for marketing purposes.
+</p><p><h4>11.	Third party websites</h4>
+11.1	Our website includes hyperlinks to, and details of, third party websites.
+<br>11.2	We have no control over, and are not responsible for, the privacy policies and practices of third parties.
+</p><p><h4>12.	Updating information</h4>
+12.1	Please let us know if the personal information that we hold about you needs to be corrected or updated.
+</p><p><h4>13.	Cookies</h4>
+13.1	Our website does not use cookies.
+</p><p><h4>14.	Data protection registration</h4>
+14.1	We are registered as a data controller with the UK Information Commissioner's Office.
+<br>14.2	Our data protection registration number is [number].
+</p><p><h4>15.	Our details</h4>
+15.1	This website is owned and operated by AM Marketing Strategies.
+<br>15.2	We are registered in Canada under registration number 250203502, and our registered office is at 3-35 Stone Church Road, Suite 213 L9K 1S5
+<br>15.3	You can contact us using our website contact form at www.thedrunkencoconut.com];
+</p>
+
+
+	</div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+	  <input class="button u-full-width" value="Close" type="button" onclick=$('#privacycontainer').toggle(false) >
+	</div>
+  </div>
+</div>
+
+<div class="container" id="legalcontainer" style="display: none">
+  <div class="row">
+    <div class="twelve columns">
+	<h1>Terms and Conditions of Use</h1>
+<p>
+1.	Introduction
+1.1	These terms and conditions shall govern your use of our website.
+1.2	By using our website, you accept these terms and conditions in full; accordingly, if you disagree with these terms and conditions or any part of these terms and conditions, you must not use our website.
+1.3	If you [register with our website, submit any material to our website or use any of our website services], we will ask you to expressly agree to these terms and conditions.
+1.4	You must be at least [13] years of age to use our website; by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least [13] years of age.
+</p><p><h4>2.	Credit</h4>
+2.1	This document was created using a template from SEQ Legal (http://www.seqlegal.com).
+</p><p><h4>3.	Copyright notice</h4>
+3.1	Copyright (c) [2016] [The Husk].
+3.2	Subject to the express provisions of these terms and conditions:
+(a)	we, together with our licensors, own and control all the copyright and other intellectual property rights in our website and the material on our website; and
+(b)	all the copyright and other intellectual property rights in our website and the material on our website are reserved.
+</p><p><h4>4.	Licence to use website</h4>
+4.1	You may:
+(a)	view pages from our website in a web browser;
+(b)	download pages from our website for caching in a web browser;
+(c)	print pages from our website;
+(d)	stream and download audio and other files from our website; and
+(e)	use The Husk services by means of a web browser,
+	subject to the other provisions of these terms and conditions.
+4.2	You may only use our website for your own personal and business purposes, and you must not use our website for any other purposes.
+4.3	Except as expressly permitted by these terms and conditions, you must not edit or otherwise modify any material on our website.
+4.4	Unless you own or control the relevant rights in the material, you must not:
+(a)	republish material from our website (including republication on another website);
+(b)	sell, rent or sub-license material from our website;
+(c)	exploit material from our website for a commercial purpose; or
+(d)	redistribute material from our website.
+4.6	We reserve the right to restrict access to areas of our website, or indeed our whole website, at our discretion; you must not circumvent or bypass, or attempt to circumvent or bypass, any access restriction measures on our website.
+</p><p><h4>5.	Acceptable use</h4>
+5.1	You must not:
+(a)	use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability or accessibility of the website;
+(b)	use our website in any way that is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity;
+(c)	use our website to copy, store, host, transmit, send, use, publish or distribute any material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software;
+(d)	conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent;
+(e)	access or otherwise interact with our website using any robot, spider or other automated means[, except for the purpose of [search engine indexing]];
+(f)	violate the directives set out in the robots.txt file for our website; or
+(g)	use data collected from our website for any direct marketing activity (including without limitation email marketing, SMS marketing, telemarketing and direct mailing).
+5.2	You must not use data collected from our website to contact individuals, companies or other persons or entities.
+5.3	You must ensure that all the information you supply to us through our website, or in relation to our website, is [true, accurate, current, complete and non-misleading].
+</p><p><h4>6.	Registration and accounts</h4>
+6.1	You may register for an account with our website by connecting through your SoundCloud account.
+6.2	You must not allow any other person to use your account to access the website.
+6.3	You must notify us in writing immediately if you become aware of any unauthorised use of your account.
+6.4	You must not use any other person's account to access the website [unless you have that person's express permission to do so].
+</p><p><h4>7.	User login details</h4>
+7.1	Your user ID must not be liable to mislead and must comply with the content rules set out in Section 10; you must not use your account or user ID for or in connection with the impersonation of any person. 
+7.2	You must notify us in writing immediately if you become aware of any disclosure of your log in information.
+7.3	You are responsible for any activity on our website arising out of any failure to keep your log in information confidential, and may be held liable for any losses arising out of such a failure.
+</p><p><h4>8.	Cancellation and suspension of account</h4>
+8.1	We may:
+(a)	[suspend your account];
+(b)	[cancel your account]; and/or
+(c)	[edit your account details],
+	at any time in our sole discretion without notice or explanation.
+8.2	You may cancel your account on our website by contacting us directly.
+</p><p><h4>9.	Your content: licence</h4>
+9.1	In these terms and conditions, "your content" means [all works and materials (including without limitation text, graphics, images, audio material, video material, audio-visual material, scripts, software and files) that you submit to us or our website for storage or publication on, processing by, or transmission via, our website].
+9.2	You hereby waive all your moral rights in your content to the maximum extent permitted by applicable law; and you warrant and represent that all other moral rights in your content have been waived to the maximum extent permitted by applicable law.
+9.3	You may edit your content to the extent permitted using the editing functionality made available on our website.
+9.4	Without prejudice to our other rights under these terms and conditions, if you breach any provision of these terms and conditions in any way, or if we reasonably suspect that you have breached these terms and conditions in any way, we may delete, unpublish or edit any or all of your content.
+</p><p><h4>10.	Your content: rules</h4>
+10.1	You warrant and represent that your content will comply with these terms and conditions.
+10.2	Your content must not be illegal or unlawful, must not infringe any person's legal rights, and must not be capable of giving rise to legal action against any person (in each case in any jurisdiction and under any applicable law).
+10.3	Your content, and the use of your content by us in accordance with these terms and conditions, must not:
+(a)	be libellous or maliciously false;
+(b)	be obscene or indecent;
+(c)	infringe any copyright, moral right, database right, trade mark right, design right, right in passing off, or other intellectual property right;
+(d)	infringe any right of confidence, right of privacy or right under data protection legislation;
+(e)	constitute negligent advice or contain any negligent statement;
+(f)	constitute an incitement to commit a crime[, instructions for the commission of a crime or the promotion of criminal activity];
+(g)	be in contempt of any court, or in breach of any court order;
+(h)	be in breach of racial or religious hatred or discrimination legislation;
+(i)	be blasphemous;
+(j)	be in breach of official secrets legislation;
+(k)	be in breach of any contractual obligation owed to any person;
+(l)	[depict violence[ in an explicit, graphic or gratuitous manner]];
+(m)	[be pornographic[, lewd, suggestive or sexually explicit]];
+(n)	[be untrue, false, inaccurate or misleading];
+(o)	[consist of or contain any instructions, advice or other information which may be acted upon and could, if acted upon, cause illness, injury or death, or any other loss or damage];
+(p)	[constitute spam];
+(q)	[be offensive, deceptive, fraudulent, threatening, abusive, harassing, anti-social, menacing, hateful, discriminatory or inflammatory]; or
+(r)	[cause annoyance, inconvenience or needless anxiety to any person].
+</p><p><h4>11.	Limited warranties</h4>
+11.1	We do not warrant or represent:
+(a)	the completeness or accuracy of the information published on our website;
+(b)	that the material on the website is up to date; or
+(c)	that the website or any service on the website will remain available.
+11.2	We reserve the right to discontinue or alter any or all of our website services, and to stop publishing our website, at any time in our sole discretion without notice or explanation; and save to the extent expressly provided otherwise in these terms and conditions, you will be compensated for the current balance of your account through direct payment procedures outlined in Section 21.
+11.3	To the maximum extent permitted by applicable law and subject to Section 12.1, we exclude all representations and warranties relating to the subject matter of these terms and conditions, our website and the use of our website.
+</p><p><h4>12.	Limitations and exclusions of liability</h4>
+12.1	Nothing in these terms and conditions will:
+(a)	limit or exclude any liability for death or personal injury resulting from negligence;
+(b)	limit or exclude any liability for fraud or fraudulent misrepresentation;
+(c)	limit any liabilities in any way that is not permitted under applicable law; or
+(d)	exclude any liabilities that may not be excluded under applicable law.
+12.2	The limitations and exclusions of liability set out in this Section 12 and elsewhere in these terms and conditions: 
+(a)	are subject to Section 12.1; and
+(b)	govern all liabilities arising under these terms and conditions or relating to the subject matter of these terms and conditions, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty, except to the extent expressly provided otherwise in these terms and conditions.
+12.3	To the extent that our website and the information and services on our website are provided free of charge, we will not be liable for any loss or damage of any nature.
+12.4	We will not be liable to you in respect of any losses arising out of any event or events beyond our reasonable control.
+12.5	We will not be liable to you in respect of any business losses, including (without limitation) loss of or damage to profits, income, revenue, use, production, anticipated savings, business, contracts, commercial opportunities or goodwill.
+12.6	We will not be liable to you in respect of any loss or corruption of any data, database or software.
+12.7	We will not be liable to you in respect of any special, indirect or consequential loss or damage.
+12.8	You accept that we have an interest in limiting the personal liability of our officers and employees and, having regard to that interest, you acknowledge that we are a limited liability entity; you agree that you will not bring any claim personally against our officers or employees in respect of any losses you suffer in connection with the website or these terms and conditions (this will not, of course, limit or exclude the liability of the limited liability entity itself for the acts and omissions of our officers and employees).
+</p><p><h4>13.	Breaches of these terms and conditions</h4>
+13.1	Without prejudice to our other rights under these terms and conditions, if you breach these terms and conditions in any way, or if we reasonably suspect that you have breached these terms and conditions in any way, we may: 
+(a)	send you one or more formal warnings;
+(b)	temporarily suspend your access to our website;
+(c)	permanently prohibit you from accessing our website;
+(d)	[block computers using your IP address from accessing our website];
+(e)	[contact any or all of your internet service providers and request that they block your access to our website];
+(f)	commence legal action against you, whether for breach of contract or otherwise; and/or
+(g)	[suspend or delete your account on our website].
+(h)	not be held responsible for paying out the balance of your account prior to termination of your account. 
+13.2	Where we suspend or prohibit or block your access to our website or a part of our website, you must not take any action to circumvent such suspension or prohibition or blocking[ (including without limitation [creating and/or using a different account])].
+</p><p><h4>14.	Variation</h4>
+14.1	We may revise these terms and conditions from time to time.
+14.2	The revised terms and conditions shall apply to the use of our website from the date of publication of the revised terms and conditions on the website, and you hereby waive any right you may otherwise have to be notified of, or to consent to, revisions of these terms and conditions.
+</p><p><h4>15.	Assignment</h4>
+15.1	You hereby agree that we may assign, transfer, sub-contract or otherwise deal with our rights and/or obligations under these terms and conditions. 
+15.2	You may not without our prior written consent assign, transfer, sub-contract or otherwise deal with any of your rights and/or obligations under these terms and conditions. 
+</p><p><h4>16.	Severability</h4>
+16.1	If a provision of these terms and conditions is determined by any court or other competent authority to be unlawful and/or unenforceable, the other provisions will continue in effect.
+16.2	If any unlawful and/or unenforceable provision of these terms and conditions would be lawful or enforceable if part of it were deleted, that part will be deemed to be deleted, and the rest of the provision will continue in effect. 
+</p><p><h4>17.	Third party rights</h4>
+17.1	A contract under these terms and conditions is for our benefit and your benefit, and is not intended to benefit or be enforceable by any third party.
+17.2	The exercise of the parties' rights under a contract under these terms and conditions is not subject to the consent of any third party.
+</p><p><h4>18.	Entire agreement</h4>
+18.1	Subject to Section 12.1, these terms and conditions[, together with [our privacy and cookies policy] shall constitute the entire agreement between you and us in relation to your use of our website and shall supersede all previous agreements between you and us in relation to your use of our website.
+</p><p><h4>19.	Law and jurisdiction</h4>
+19.1	These terms and conditions shall be governed by and construed in accordance with Canadian Law.
+19.2	Any disputes relating to these terms and conditions shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada.
+</p><p><h4>20.	Our details</h4>
+20.1	This website is owned and operated by AM Marketing Strategies.
+20.2	We are registered in Canada, under registration number 250203502, and our registered office is at 3-35 Stone Church Road, Suite 213 L9K 1S5
+20.3	You can contact us using our website contact form at www.thedrunkencoconut.com;
+</p><p><h4>21.	Payments</h4>
+
+21.1 Each artist will receive USD $0.10 per unique follower to their account, gained through the use of gates created through The Husk. 
+21.2 Payments will be delivered by Direct Business and Services PayPal transfer, and 
+21.3 All associated fees pertaining to transfers and payments through PayPal are not the responsibility of The Husk. 
+21.4 All payouts will be made after a minimum account balance of USD $50.00 has been reached, and a payout has been requested. 
+21.5 The Husk has up to 180 days to settle the users account balance from the date that payment has been requested. 
+21.6 Payouts may be requested by contacting us by the methods outlined in section 20.3
+</p>
+	</div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+	  <input class="button u-full-width" value="Close" type="button" onclick=$('#legalcontainer').toggle(false) >
+	</div>
+  </div>
+</div>
+
+<div class="container" id="faqcontainer" style="display: none">
+  <div class="row">
+    <div class="twelve columns">
+	<h1>Frequently Asked Questions</h1>
+<ol>
+<li><b>How do I earn money?</b><br>
+
+Simple! Connect, Create a gate, and start earning revenue for every new follower you gain through The Husk.
+
+</li><li><b>2)How much can I earn?</b><br>
+
+You earn 10 cents per new follower gained.
+
+</li><li><b>How do I withdraw my money?</b><br>
+
+To withdraw, contact us via email: submit@thedrunkencoconut.com with your Pay Pal email.
+
+</li><li><b>When can I withdraw my money?</b><br>
+
+You can withdraw your money when you have reached a minimum of $50.00.
+
+</li><li><b>Can I track my stats and revenue?</b><br>
+
+Yes you can. Everything is tracked in real time directly on the site.
+
+</li><li><b>What actions can I require downloaders do to?</b><br>
+
+You may ask the end user to follow, like, repost, comment and give you their email.
+
+</li><li><b>How many gates can I create?</b><br>
+
+You may create unlimited gates.
+
+</li><li><b>How many extra accounts can I add into a gate?</b><br>
+
+At this time you may add up to six extra accounts.
+
+</li><li><b>Do I have to pay to use this service?</b><br>
+
+Never! The Husk is absolutely free to use! No one should ever have to pay for download gates.
+
+</li><li><b>What cut do you take from our earnings?</b><br>
+
+None! You keep 100% of your earnings.
+
+</li><li><b>Can I pool my money across accounts?</b><br>
+
+No. All accounts earn separately. 
+
+</li><li><b>I am having issues creating a gate, who can I contact?</b><br>
+
+If you're having issues with The Husk, you may contact us at: submit@thedrunkencoconut.com
+
+</li><li><b>Is Pay Pal the only way to be paid?</b><br>
+
+Currently Pay Pal is the only way to receive your payment.
+
+</li><li><b>What social media platforms are integrated on The Husk?</b><br>
+
+Currently only SoundCloud. We kept it simple for everyone.
+
+</li><li><b>Are you planning on adding new social media platforms?</b><br>
+
+Possibly. Right now we are focusing on keeping things simple.
+
+</li><li><b>How do I collect my emails?</b><br>
+
+Click "Collect Emails" and create a new password to protect your emails from phishing scams and email scrapers. Once you have entered the password you will see all the emails from your downloaders.
+
+</li><li><b>I forgot my password and I can't access emails! Help!</b><br>
+
+No worries! Just send us an email and we will recover it for you.
+
+</li>
+</ol>
+	</div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+	  <input class="button u-full-width" value="Close" type="button" onclick=$('#faqcontainer').toggle(false) >
+	</div>
+  </div>
+</div>
+
+</body>
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '4c0f633d-48ba-4365-a041-63fa0e52fd13', f: true }); done = true; } }; })();</script>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="revisit-after" content="7days"/>
+    <meta name="ROBOTS" content="INDEX, FOLLOW, ALL"/>
+    <meta name="Identifier-url" content="http://itra.run/"/>
+    <meta http-equiv="Content-Language" content=""/>
+    <title>Mission Statement - ITRA</title>
+    <meta name="title" lang="" content="Mission Statement - ITRA"/>
+    <meta name="description" lang="" content="International Trail-Running Association"/>
+    <meta name="keywords" lang="" content="trail-running, international, association, trail-running, on foot, running, jogging"/>
+    <link rel="icon" type="image/png" href="/itra16.png" />
+    <!--[if IE]>
+    <link rel="shortcut icon" type="image/x-icon" href="/itra16.ico" />
+    <![endif]-->
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/jquery/jquery-ui-1.8.19.custom.css" />
+	<link rel="stylesheet" type="text/css" href="/js/fancybox/jquery.fancybox.css" />
+	<link rel="stylesheet" type="text/css" href="/style.css?v=20180306" />
+			<link href="newsrss.php?Langue=" title="RSS 2.0" type="application/rss+xml" rel="alternate"/>
+			<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery-ui.js"></script>
+				<script type="text/javascript" src="/js/fancybox/jquery.fancybox.pack.js"></script>
+		<link rel="stylesheet" href="/js/fancybox/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="/js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+		<script type="text/javascript" src="/js/jquery.placeholder-0.2.min.js"></script>
+		<script type="text/javascript" src="/js/init.js"></script>
+		<script type="text/javascript" src="/js/util.js?d=20170616"></script>
+		<script type="text/javascript" src="/js/httpReq.js"></script>
+		<link rel="stylesheet" href="/js/intlTelInput/intlTelInput.css"></link>
+		<script type="text/javascript" src="/js/intlTelInput/intlTelInput.js"></script>
+		<script type="text/javascript">
+			function dispSsM(o){
+				var c=$(o).parent("li").find("ul:first");
+				if(!c.is(":visible")) {
+					c.parent("li").parent("ul").find("li ul:visible").fadeToggle().parent("li").removeClass("sel");
+				}
+				c.fadeToggle().parent("li").toggleClass("sel");
+			}
+			function dispProfil(o) {
+				$('#txtLoginCpt').hide();$('#txtCreaCpt').hide();
+				$('#fMemb').attr("action","");
+				$(o).parent().find("div.profil div:first").fadeToggle();
+			}
+			function dispNotif(o) {
+				$(o).parent().find("div.notifs").fadeToggle();
+			}
+			function readNotif(id) {
+				HttpReq("/espace_membres.php", "mode=readNotif&idn="+id);
+				$("#notif_"+id).removeClass("new");
+			}
+			function delNotif(id, event) {
+				cancelevent(event);
+				$.post("/espace_membres.php", "mode=delNotif&idn="+id);
+				$("#notif_"+id).remove();
+				if($("#member div.notifs a.notif").size() == 0) $("#member div.notifs, #member span.notifs").remove();
+			}
+			$(function() {
+				$("body").click(function(e) {
+					if($(e.target).closest("#mainMenu").length > 0) return;
+					$("#mainMenu li ul:visible").fadeToggle();
+					if($(e.target).closest("#member .notifs").length == 0) $("#member div.notifs:visible").fadeToggle();
+					if($(e.target).closest("#member .profil, #member span.btnconnect").length == 0) $("#member div.profil div:first:visible").fadeToggle();
+				});
+			});
+			
+			function discon() {
+				if (confirm("Are you sure you want to sign out?")){
+					unsetCookie("MBLogin");
+					unsetCookie("MBPass");
+					location.href='/';
+				}
+			}
+			
+			function loginOublie(){
+				document.fOubli.regenmdp.value="0";
+				$("#modifLoginDiv").show();
+				$("#lnkForgot").hide();
+			}
+			function loginMdpOublie(){
+				document.fOubli.regenmdp.value="1";
+				$("#modifLoginDiv").show();
+				$("#lnkForgot").hide();
+			}
+			function undisplayLogin(){
+				$("#modifLoginDiv").hide();
+				$("#lnkForgot").show();
+			}
+			function EnregLoginOublie(){
+				if (document.getElementById("forgot_nom").value=="" || document.getElementById("forgot_email").value==""){
+					alert("Please complete all the compulsory fields (marked with an *)");
+					return;
+				}
+				var res=HttpReq("/espace_membres.php","modif=testloginoublie&"+getFormData(document.fOubli));
+				if(document.fOubli.regenmdp.value=="0") {
+				  if(res=="incorrect") {
+					alert("This information does not correspond to any  member presently registered: please review it");
+				  } else {
+					alert("Votre login est : "+res);
+					document.fMemb.login.value=res;
+					undisplayLogin();
+				  }
+				} else {
+				  if (res=="ok"){
+					alert("An email with your new password has just been sent.");
+					undisplayLogin();
+				  } else if (res=="incorrect") {
+					alert("This information does not correspond to any  member presently registered: please review it");
+				  } else {
+					alert(res);
+				  }
+				}
+			}
+			function validMbLogin() {
+				if(HttpReq("/espace_membres.php", "mode=testLogin&MBLogin="+encodeURIComponent(document.fMemb.login.value.trim())+"&MBPass="+encodeURIComponent(document.fMemb.pwd.value))=="1") {
+					SetCookie("MBLogin", document.fMemb.login.value.trim(),document.fMemb.keepconn.checked?350:null);
+					SetCookie("MBPass", document.fMemb.pwd.value,document.fMemb.keepconn.checked?350:null);
+					//document.location.href=document.location.href;
+					document.fMemb.submit();
+				} else {
+					$("#loginErr").slideDown();
+					setTimeout('$("#loginErr").slideUp();', 10000);
+				}
+			}
+			
+			function mdpOublie(){
+				if (document.fMemb.login.value==""){
+					alert("Please state your username so that we may send you an email with your password.");
+					document.fMemb.login.focus();
+					return;
+				}
+				var res=HttpReq("/espace_membres.php","modif=email&login="+escape(document.fMemb.login.value));
+				if (res=="ok")
+					alert("An email with your new password has just been sent.");
+				else
+					alert("Sorry, an error has occured. The email has not been sent.");
+			}
+		</script>
+					<script type="text/javascript">
+
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-4373731-16']);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+			</script>
+				</head>
+	<body>
+	<a href="aspi.php?p=4521" style="display:block;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;">&nbsp;</a>
+		<div id="infobulle" style="position:absolute;display:none;left:25px;top:-50px;z-index:1001;background-color:#96BF06; border:2px solid #999;"></div>
+	 <div id="general" class="home" >
+	  <div id="tetiere">
+				<div id="imgs" style="background-image:url(/incphotos/fond//respself1.jpg);">
+			<a href="/"><img id="logo" src="/images/logo.png" alt="ITRA logo - back to Home" border="0"/></a>
+			<div id="vals">
+				<div id="valTit" onclick="$('#imgs #valTxt').fadeToggle();">* &nbsp;Respect for<br/>oneself</div>
+				<div id="valTxt"><p>The practice of trail-running can entail risks and the search for performance and/or pleasure on no account justifies the distortion of one’s, more or less long term, good health.</p><p>Each runner will be particularly vigilant so as not to take any doping product and not to resort to the abusive use of self-medication. They must take care not to exceed their limits to the point of affecting their physical or moral integrity.</p></div>
+			</div>
+		</div>
+		<div id="contMenu">
+			
+			<div id="contSocial">
+				<a href="http://itra.run/page/320/Presse.html" class="contact" title="Press"></a>				<a href="https://www.facebook.com/InternationalTrailRunningAssociation" target="_blank" class="facebook" title="Find ITRA on Facebook"></a>				<a href="https://www.twitter.com/ITRA_trail" target="_blank" class="twitter" title="Find ITRA on Twitter"></a>				<a href="https://www.youtube.com/channel/UCfCBMcMsUdW_tO5mqd2oimg/featured" target="_blank" class="youtube" title="Find ITRA on YouTube"></a>			</div>
+			<div id="contLg">
+				<a href="?langue_affich=_en" onclick="changeLg('_en'); return false;"><img src="/images/_en.png" alt="Language _en"/></a>
+					<a href="?langue_affich=_fr" onclick="changeLg('_fr'); return false;"><img src="/images/_fr.png" alt="Language _fr"/></a>
+					<a href="?langue_affich=_es" onclick="changeLg('_es'); return false;"><img src="/images/_es.png" alt="Language _es"/></a>
+								</div>
+			
+			
+			<ul id="mainMenu">
+			  <li style="max-width:173px" ><a href="#" class="ssm" onclick="dispSsM(this); return false" style="border-color:#639A02">ITRA&#160;&#160;&#9662;</a><ul><li ><a href="/page/257/Historical.html" >Historical</a></li><li ><a href="/page/391/Goals.html" >Goals</a></li><li ><a href="/page/258/Values.html" >Values</a></li><li ><a href="/page/259/Definition_of_trail-running.html" >Definition of trail-running</a></li><li ><a href="/page/283/Organization.html" >Organization</a></li><li ><a href="/page/371/National_representatives.html" >National representatives</a></li><li ><a href="/page/369/2017_Congress.html" >2017 Congress</a></li></ul></li><li style="max-width:173px" ><a href="#" class="ssm" onclick="dispSsM(this); return false" style="border-color:#E8666D">Missions&#160;&#160;&#9662;</a><ul><li ><a href="#" class="ssm" onclick="dispSsM(this); return false">Health</a><ul><li ><a href="/page/377/Health_policy.html" >Health policy</a></li><li ><a href="/page/379/QUARTZ_program.html" >QUARTZ program</a></li></ul></li><li ><a href="/page/291/Security.html" >Security</a></li><li ><a href="/page/292/Trail_evaluation.html" >Trail evaluation</a></li><li ><a href="/page/260/High_calibre_athletes.html" >High calibre athletes</a></li></ul></li><li style="max-width:173px" ><a href="#" class="ssm" onclick="dispSsM(this); return false" style="border-color:#EFA101">Races&#160;&#160;&#9662;</a><ul><li ><a href="/page/290/Calendar.html" >Calendar</a></li><li ><a href="/page/328/Results.html" >Results</a></li><li ><a href="#" class="ssm" onclick="dispSsM(this); return false">Trail World Championships</a><ul><li ><a href="/page/349/2018_TWC_-_Penyagolosa_Trails_SportHG.html" >2018 TWC - Penyagolosa Trails SportHG</a></li><li ><a href="/page/347/2017_TWC_-_Badia_Prataglia.html" >2017 TWC - Badia Prataglia</a></li><li ><a href="/page/345/2016_TWC_-_Geres.html" >2016 TWC - Gerês</a></li></ul></li></ul></li><li style="max-width:173px" ><a href="/community/"  style="border-color:#019ADC">Find a runner</a></li><li style="max-width:173px" ><a href="#" class="ssm" onclick="dispSsM(this); return false" style="border-color:#F0010F">Runner space&#160;&#160;&#9662;</a><ul><li ><a href="#" onclick="$('#member span.btnconnect').click();return false;">My account</a></li><li ><a href="/page/381/My_health_space.html" >My health space</a></li><li ><a href="/page/397/My_services.html" >My services</a></li><li ><a href="/page/353/Insurance.html" >Insurance</a></li><li ><a href="/page/383/Runners_FAQ.html" >Runners FAQ</a></li><li ><a href="/page/269/FAQ_scores_and_Performance_index.html" >FAQ scores and Performance index</a></li></ul></li><li style="max-width:173px" ><a href="#" class="ssm" onclick="dispSsM(this); return false" style="border-color:#4EB5C9">Organizer space&#160;&#160;&#9662;</a><ul><li ><a href="#" onclick="$('#member span.btnconnect').click();return false;">My account</a></li><li ><a href="/page/327/My_services.html" >My services</a></li><li ><a href="/page/385/Organizers_FAQ.html" >Organizers FAQ</a></li></ul></li>			</ul>
+						<div id="member">
+									<span class="btnconnect" onclick="dispProfil(this);">Connect / Create an account</span>
+									<div class="profil">
+											<div class="pinotif">
+							<div class="tabs" >
+								<div class="selected">
+									<section id="txtLoginCpt" style="display:none">Are you member already ? Log in to validate your linkage request</section>
+									Sign in								</div>
+															</div>
+							<div id="loginErr" style="font-weight:bold;margin-bottom:10px;color:#C40E0E;display:none;">Invalid login or password</div>
+							
+							<form id="fMemb" name="fMemb" method="POST" onsubmit="validMbLogin(); return false;" >
+								<input type="text" name="login" placeholder="username" title="username" /> &nbsp;&nbsp;
+								<input type="password" name="pwd" placeholder="Password" title="Password" /><br/>
+								<input type="submit" class="btn" value="Sign in"/><br/>
+								<label><input name="keepconn" type="checkbox" class="style_input" value="1"/> Stay connected</label><br/>
+							</form>
+							<div id="lnkForgot">
+																<i><a href="javascript:loginMdpOublie()" >Login or password lost ? Click here</a></i>
+							</div>
+							<div id="modifLoginDiv" style="display:none;" >
+							  <form name="fOubli">
+								<input type="hidden" name="regenmdp" value="0" />
+								Surname<font color="red">*</font> : <input style="margin-bottom:10px" name="nom" id="forgot_nom" value="" size="20"  /><br />
+								Email<font color="red">*</font> : <input style="margin-bottom:10px" name="email" id="forgot_email" value="" size="20" />
+								<center>
+									<input class="btn" type="button" name="enregistrer" value="Confirm" onclick="EnregLoginOublie();"> &nbsp;&nbsp;&nbsp;
+									<input class="btn" type="button" name="annul" value="Cancel" onclick="undisplayLogin();">
+								</center>
+							  </form>
+							</div>
+							<div class="tabs" >
+								<div class="selected">
+									<section id="txtCreaCpt" style="display:none">Not registered yet? Create an account for free!</section>
+																	</div>
+							</div>
+														<a class="biglink" href="/myspace">Create an account</a>
+							
+						</div>
+										</div>
+							</div>
+		</div>
+	  </div>
+		
+		
+		<div id="content" >
+																<script type="text/javascript">
+		function toggleMission() {
+			if($('#mission div').is(":visible")) SetCookie ("missionHidden", 1, 365);
+			else unsetCookie("missionHidden");
+			
+			$('#mission div').slideToggle();
+		}
+	</script>
+	<div id="mission">
+		<h1 onclick="toggleMission();">Mission Statement  &#160; &#9662;</h1>
+		<div ><p>Born in July 2013, the ITRA (International Trail Running Association) aims to give a voice to parties involved in trail running in order to promote its strong values, its diversity, the safety of races and the health of runners, as well as to further the development of trail running and ensure a constructive dialogue between the national and international bodies with an interest in the sport.</p></div>
+	</div>
+	<div id="home">
+	<div id="homeRight">
+						
+				<script type="text/javascript">
+	function chgPage(pg) {
+		var request = $.ajax({
+		  url: "breves.php",
+		  type: "POST",
+		  data: { mode:"getPage", pg:pg, langue_affich:"" },
+		  dataType: "html"
+		});
+		request.done(function( msg ) {
+			$("#breves").html(msg);
+		});
+	}
+</script>
+<div id="breves">
+		<h1>News</h1>
+	<div class="breve pag">
+		<span class="brdth">Pages</span>
+		<span class="brtit">
+						<a href="#" class="leftarr dis" onclick="return false;"></a>
+			1 / 3			<a href="#" class="rightarr" onclick="chgPage(2);return false;"></a>
+		</span>
+	</div>
+			<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">16/01</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">Become member or renew your membership</span>
+			<div class="brcont"><p>&gt; Click on :&nbsp; "My space"&nbsp; -&gt; "Access my account" then</p>
+<p>&gt; Click on : "Personnal Information" then</p>
+<p>&gt; Click on : "Membership".&nbsp;</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">15/01</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();"><span style="color: rgb(0, 0, 0);">Un oiseau en plein vol&nbsp;!</span></span>
+			<div class="brcont"><p>Nous avons le plaisir de vous pr&eacute;senter le projet de S&eacute;bastien Schropff. Collaborateur de l&rsquo;ITRA, S&eacute;bastien souhaite se reconvertir et devenir moniteur de parapente. Passionn&eacute; et d&eacute;termin&eacute; ce jeune r&ecirc;veur lance un appel &agrave; contributions. Nous vous invitons &agrave; d&eacute;couvrir ce projet de vie via un site de crowdfunding cr&eacute;&eacute; sp&eacute;cialement pour l&rsquo;occasion par l'int&eacute;ress&eacute; en personne !&nbsp; &nbsp; <a href="https://aideunoiseau.com/" target="_blank">aideunoiseau.com</a></p>
+<p>&nbsp;</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">28/09</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">WORK FOR ITRA !</span>
+			<div class="brcont"><h4 style="text-align: center;">ITRA is looking for a Community Manager and a Project Coordinator&nbsp;!</h4>
+<p style="text-align: center;">You are a trail running and digital marketing passionate, you wish to contribute to the development of this sport in an associative environment? The following job applications are made for you !</p>
+<p style="text-align: center;">(We are looking for bilingual profiles french/english)</p>
+<p style="text-align: center;"><a href="/documents/Offre_Community_Manager.pdf" target="_blank">Offre_Community_Manager.pdf</a></p>
+<p style="text-align: center;"><a href="/documents/Offre_Charge_de_mission_-_relation_membres.pdf" target="_blank">Offre_Charge_de_mission_-_relation_membres.pdf</a></p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">14/09</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">US Trail Running Conference</span>
+			<div class="brcont"><p>Love trail running? We do too! Whether you're an experienced trail runner, and ultra-marathoner, a trail newbie, a trail race director, or somewhere in between, the fifth annual US Trail Running Conference, brought to you by Active at Altitude, is for you. The Conference is held in partnership with the American Trail Running Association, and takes place <strong>October 11-14</strong>, 2017, in Estes Park, CO, USA, at the historic Stanley Hotel.</p>
+<p>See details &amp; to register <a href="http://ustrailrunningconference.com/" target="_blank">here</a></p>
+<p><a href="/Love trail running? We do too! Whether you're an experienced trail runner, and ultra-marathoner, a trail newbie, a trail race director, or somewhere in between, the fifth annual US Trail Running Conference, brought to you by Active at Altitude, is for you. The Conference is held in partnership with the American Trail Running Association, and takes place October 11-14, 2017, in Estes Park, CO, USA, at the historic Stanley Hotel. See details &amp; to register at http:/ustrailrunningconference.com/   Logo attached for you as well  FB link https:/www.facebook.com/ustrailrunningconference/ Twitter link https:/twitter.com/TrailConference" target="_blank"></a><a href="https://www.facebook.com/ustrailrunningconference/" target="_blank">FB link</a></p>
+<p><a href="https://twitter.com/TrailConference" target="_blank">Twitter link</a></p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">22/08</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">ITRA Press conference</span>
+			<div class="brcont"><p>ITRA PRESS CONFERENCE</p>
+<p>Friday, September 1st, 2017 - 12:00 am &ndash; 1:00 pm<br />Le Majestic, Congress Centre, Chamonix</p>
+<p>Program :</p>
+<ul>
+<li>Focus on the 2018 Trail World Championships</li>
+<li>Presentation of the ITRA Quartz health program&rsquo;s innovations</li>
+</ul>
+<p>With the presence of the organizer of Penyagolosa Trails, Jos&eacute; SANTOS vice-president of ITRA in charge of international relations, and some of the <a href="http://www.itra.run/community/" target="_blank">athletes involved into Quartz Programm&nbsp;</a></p>
+<p>Presentation of the ITRA Quartz health program&rsquo;s innovations with the partner brands<br />Columbia, Compressport, Hoka One One, Salomon, The North Face,</p>
+<p>Speakers:</p>
+<ul>
+<li>Patrick BASSET president of the ITRA Health Commission and Ultra Sports Sciences foundation,</li>
+<li>Pierre SALLET president of the Athletes For Transparency association and coordinator of Quartz program for the ITRA</li>
+<li>Jean-Charles PERRIN representative of Ultra-Trail&reg; World Tour</li>
+</ul>
+<p>&nbsp;</p>
+<p>1.05 pm: Possible individual meetings with the speakers in the adjoining rooms of the Congress Centre</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">06/07</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();"><span style="font-family: arial, sans-serif; font-size: 12.800000190734863px;">Asia Pacific Trail Running Summit</span></span>
+			<div class="brcont"><p class="breve">6 July 2017 - The 3<sup>rd</sup>&nbsp;edition of the Asia Pacific Trail Running Summit will be held tomorrow at the Shanghai ISPO in China.&nbsp; Janet Ng, member of the Steering Committee, will discuss ITRA and its work, in addition to the development of trail running in Asia.</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">06/07</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();"><span style="font-family: arial, sans-serif; font-size: 12.800000190734863px; text-align: center;">The 8th EHUNMILAK ULTRA-TRAIL® - July 7-9</span></span>
+			<div class="brcont"><p>The 3 events of this 8th edition will be held on July 7, 8 and 9 with departure and arrival in Beasain. Two of the tests will start on Friday July 7th and the little sister will be held on Sunday, July. As for the Ehunmilak Ultra-Trail&reg; main event, its demanding course of 168km/D+11,000 m continues to attract an ever larger number of participants per year, as its reputation for beauty, personality and toughtness grows larger. There will be 409 aspirants this year to its finish line.</p>
+<p>Ehunmilak novelties for 2017:&nbsp;The main novelties of this eigth edition correspond to the environment, sports control, safety and live race tracking. &nbsp;&bull; In the environmental field, extended measures are applied on waste recycling, with an ever larger number of containers for selective recycling in the race. &nbsp;&bull; Sports control includes specialized personnel to ensure no runner receives external support in any form, as well as cheking out mandatory gear per each entry. &nbsp;&bull; Live race coverage will be available via geolocation, video streaming and radiotrail. All ultrarunners for the 88k and 168km races, will be geotagged by GPS. It is also worth mentioning the increase in emergency specialists to cover the route with greater guarantees. Finally, fans will be able to follow the race by live streaming video as well as radio, with a live show of up to 30 hours coordinated by veteran trail journalist Mayayo from the #radiotrail show at Maratonradio.com More info <a href="http://www.ehunmilak.com" target="_blank">here</a>&nbsp;and access to facebook page <a href="https://www.facebook.com/EhunmilakUltratrailG2h/" target="_blank">here</a>.</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">14/03</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">Fizkultura, 18th of March, Bulgaria // Trail-running seminar</span>
+			<div class="brcont"><p>Information from Mil&eacute;na Alen, the ITRA national representative for organizers in Bulgaria:</p>
+<p>"This saturday,&nbsp;<strong>18th of March</strong>, three of the most inspiring and popular people in trail-running and endurance&nbsp;<a href="http://fizkultura.bg/en/cth_speaker/dean-karnazes/" target="_blank">Dean Karnazes</a>,&nbsp;<a href="http://fizkultura.bg/en/cth_speaker/sean-conway/" target="_blank">Sean Conway</a>&nbsp;and&nbsp;<a href="http://fizkultura.bg/en/cth_speaker/ian-corless/" target="_blank">Ian Corless</a>&nbsp;will participate as guest lecturers in&nbsp;<a href="http://www.fizkultura.bg/en">Fizkultura</a>,&nbsp;<strong>a seminar on trail-running and adventure in Bulgaria</strong>.</p>
+<p>Together with the Bulgarian top mountain climber&nbsp;<a href="https://www.facebook.com/boyan.petrov.73">Boyan Petrov</a>, the Bulgarian top female runner&nbsp;<a href="/community/antonia.grigorova/527153//" target="_blank">Antonia Grigorova</a>, who is going to attempt a national female endurance record 600 km for less than 6 days, and&nbsp;<a href="https://www.facebook.com/finastyle/">Dimitrina Sivkova</a>, one of the renowned kinesio practitioners who is also part of the ITRA Health Commission, they will talk about&nbsp;<strong>motivation and life experience in endurance and adventure</strong>."</p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">26/01</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">Trail running recognition - Uruguay</span>
+			<div class="brcont"><p style="text-align: justify;"><strong>16th of December 2016</strong>: 1st prize giving ceremony for the <strong>CAU</strong> (Uruguayan Athletic Federation) trail running category, in collaboration with the<strong> AUTRA</strong> (Uruguayan Trail running association) in which <strong>Daniel Perez</strong>, the ITRA National Representative of the Uruguayan Runners, is involved.</p>
+<p><a href="https://confederacionatletica.org/premios-2016/" target="_blank">See the results</a></p></div>
+		</div>
+				<div class="breve">
+			<span class="brdth" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">01/09</span>
+			<span class="brtit" onclick="$(this).parent('div.breve').find('.brcont').slideToggle();">2016 Trail World Championships - Trans Peneda Trails</span>
+			<div class="brcont"><p>Already 40 delegations and 302 runners confirmed for Trans Peneda-Ger&ecirc;s 2016 Trail World Championships in Portugal ! Find more <a href="https://www.facebook.com/transpenedageres/photos/a.227250274320526.1073741828.227245240987696/287630378282515/?type=3&amp;theater" target="_blank">here</a></p></div>
+		</div>
+			<div class="breve pag last">
+		<span class="brdth">Pages</span>
+		<span class="brtit" style="text-align:center;">
+						<a href="#" class="leftarr dis" onclick="return false;"></a>
+			1 / 3			<a href="#" class="rightarr" onclick="chgPage(2);return false;"></a>
+		</span>
+	</div>
+	</div>
+		<hr/>
+						<script type="text/javascript">
+			function filtInscr(val) {
+				var request = $.ajax({
+				  url: "home_f.php",
+				  type: "POST",
+				  data: { mode:"filtInscr", pays:val, langue_affich:"" },
+				  dataType: "html"
+				});
+				request.done(function( msg ) {
+					$("#inscrCont").html(msg);
+				});
+			}
+		</script>
+		<h1>Opening of registration</h1>
+		<select onchange="filtInscr($(this).val());">
+			<option value="">Choice of country</option>
+			<option value="AL">Albania</option>
+				<option value="DZ">Algeria</option>
+				<option value="AD">Andorra</option>
+				<option value="AR">Argentina</option>
+				<option value="AU">Australia</option>
+				<option value="AT">Austria</option>
+				<option value="BH">Bahrain</option>
+				<option value="BY">Belarus</option>
+				<option value="BE">Belgium</option>
+				<option value="BT">Bhutan</option>
+				<option value="BO">Bolivia</option>
+				<option value="BA">Bosnia and Herzegovina</option>
+				<option value="BR">Brazil</option>
+				<option value="BN">Brunei</option>
+				<option value="BG">Bulgaria</option>
+				<option value="BF">Burkina</option>
+				<option value="KH">Cambodia</option>
+				<option value="CA">Canada</option>
+				<option value="CV">Cape Verde</option>
+				<option value="TD">Chad</option>
+				<option value="CL">Chile</option>
+				<option value="CN">China</option>
+				<option value="CO">Colombia</option>
+				<option value="CR">Costa Rica</option>
+				<option value="HR">Croatia</option>
+				<option value="CU">Cuba</option>
+				<option value="CY">Cyprus</option>
+				<option value="CZ">Czech Republic</option>
+				<option value="DK">Denmark</option>
+				<option value="DO">Dominican Republic</option>
+				<option value="EC">Ecuador</option>
+				<option value="EG">Egypt</option>
+				<option value="SV">El Salvador</option>
+				<option value="EE">Estonia</option>
+				<option value="ET">Ethiopia</option>
+				<option value="FJ">Fiji</option>
+				<option value="FI">Finland</option>
+				<option value="FR">France</option>
+				<option value="DE">Germany</option>
+				<option value="GR">Greece</option>
+				<option value="GT">Guatemala</option>
+				<option value="GY">Guyana</option>
+				<option value="HK">Hong Kong</option>
+				<option value="HU">Hungary</option>
+				<option value="IS">Iceland</option>
+				<option value="IN">India</option>
+				<option value="ID">Indonesia</option>
+				<option value="IR">Iran</option>
+				<option value="IE">Ireland</option>
+				<option value="IL">Israel</option>
+				<option value="IT">Italy</option>
+				<option value="JP">Japan</option>
+				<option value="JO">Jordan</option>
+				<option value="KZ">Kazakhstan</option>
+				<option value="KE">Kenya</option>
+				<option value="LA">Laos</option>
+				<option value="LV">Latvia</option>
+				<option value="LS">Lesotho</option>
+				<option value="LT">Lithuania</option>
+				<option value="LU">Luxembourg</option>
+				<option value="MK">Macedonia (The Former Yugoslav Republic of)</option>
+				<option value="MG">Madagascar</option>
+				<option value="MY">Malaysia</option>
+				<option value="ML">Mali</option>
+				<option value="MT">Malta</option>
+				<option value="MU">Mauritius</option>
+				<option value="MX">Mexico</option>
+				<option value="MN">Mongolia</option>
+				<option value="ME">Montenegro</option>
+				<option value="MA">Morocco</option>
+				<option value="NA">Namibia</option>
+				<option value="NP">Nepal</option>
+				<option value="NL">Netherlands</option>
+				<option value="NZ">New Zealand</option>
+				<option value="NI">Nicaragua</option>
+				<option value="NO">Norway</option>
+				<option value="OM">Oman</option>
+				<option value="PA">Panama</option>
+				<option value="PY">Paraguay</option>
+				<option value="PE">Peru</option>
+				<option value="PH">Philippines</option>
+				<option value="PL">Poland</option>
+				<option value="PT">Portugal</option>
+				<option value="RO">Romania</option>
+				<option value="RU">Russia</option>
+				<option value="SA">Saudi Arabia</option>
+				<option value="SN">Senegal</option>
+				<option value="RS">Serbia</option>
+				<option value="SG">Singapore</option>
+				<option value="SK">Slovakia</option>
+				<option value="SI">Slovenia</option>
+				<option value="ZA">South Africa</option>
+				<option value="KR">South Korea</option>
+				<option value="ES">Spain</option>
+				<option value="LK">Sri Lanka</option>
+				<option value="SE">Sweden</option>
+				<option value="CH">Switzerland</option>
+				<option value="TW">Taiwan</option>
+				<option value="TZ">Tanzania</option>
+				<option value="TH">Thailand</option>
+				<option value="TN">Tunisia</option>
+				<option value="TR">Turkey</option>
+				<option value="UG">Uganda</option>
+				<option value="UA">Ukraine</option>
+				<option value="AE">United Arab Emirates</option>
+				<option value="GB">United Kingdom</option>
+				<option value="US">United States</option>
+				<option value="UY">Uruguay</option>
+				<option value="VE">Venezuela</option>
+				<option value="VN">Vietnam</option>
+						</select>
+		<div id="inscrCont" class="fichesevt">
+					<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5649&annee=2018">The Tour Of Yunnan Mountain Marathon-Mojiang Station 2018 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>20/03 &#9656; 20/04</li></ul>
+			<ul><li>Location</li><li>Yunnan, China</li></ul>
+			<ul><li>Date of event</li><li>30/04/2018</li></ul>
+			<ul><li>Distance</li><li>44.3km</li></ul>
+			<ul><li>Height gain/loss</li><li>1530m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts2">2</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont4">4</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish300">300</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5627&annee=2018">Tiger And Leopard Trail Race 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>20/03 &#9656; 13/05</li></ul>
+			<ul><li>Location</li><li>Taiwan</li></ul>
+			<ul><li>Date of event</li><li>10/06/2018</li></ul>
+			<ul><li>Distance</li><li>59.1km</li></ul>
+			<ul><li>Height gain/loss</li><li>1530m+</li></ul>
+					</div>
+		<div id="moreInscr" class="more">		<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5559&annee=2018">The Tour Of Yunnan Mountain Marathon-Pu’Er Station 2018 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>20/03 &#9656; 01/05</li></ul>
+			<ul><li>Location</li><li>Yunnan, China</li></ul>
+			<ul><li>Date of event</li><li>20/05/2018</li></ul>
+			<ul><li>Distance</li><li>41.9km</li></ul>
+			<ul><li>Height gain/loss</li><li>1510m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts2">2</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont4">4</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish300">290</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5641&annee=2018">O2 Trail 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>19/03 &#9656; 30/04</li></ul>
+			<ul><li>Location</li><li>Jendouba, Tunisia</li></ul>
+			<ul><li>Date of event</li><li>13/05/2018</li></ul>
+			<ul><li>Distance</li><li>32km</li></ul>
+			<ul><li>Height gain/loss</li><li>1250m+</li></ul>
+					</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=4795&annee=2018">Ballyhoura Trail Ultra Marathon 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>19/03 &#9656; 27/04</li></ul>
+			<ul><li>Location</li><li>Limerick, Ireland</li></ul>
+			<ul><li>Date of event</li><li>28/04/2018</li></ul>
+			<ul><li>Distance</li><li>61.8km</li></ul>
+			<ul><li>Height gain/loss</li><li>2060m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts3">3</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont4">4</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish400">400</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5369&annee=2018">Utnc 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>15/03 &#9656; 15/05</li></ul>
+			<ul><li>Location</li><li>98 - TOM (Territoires d'Outre-Mer), France</li></ul>
+			<ul><li>Date of event</li><li>18/05/2018</li></ul>
+			<ul><li>Distance</li><li>51.3km &#9656; 111.2km</li></ul>
+			<ul><li>Height gain/loss</li><li>2100m+ &#9656; 4350m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts3">3</span> &#9656; <span class="icon pts5">5</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont5">5</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5599&annee=2018">Hvitasunnuhlaup Hauka 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>15/03 &#9656; 20/05</li></ul>
+			<ul><li>Location</li><li>Hofuoborgarsvaoio, Iceland</li></ul>
+			<ul><li>Date of event</li><li>21/05/2018</li></ul>
+			<ul><li>Distance</li><li>21.6km</li></ul>
+			<ul><li>Height gain/loss</li><li>410m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts1">1</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont2">2</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish320">330</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5577&annee=2018">Mutianyu Great Wall Trail Run 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>14/03 &#9656; 25/04</li></ul>
+			<ul><li>Location</li><li>Beijing, China</li></ul>
+			<ul><li>Date of event</li><li>21/05/2018</li></ul>
+			<ul><li>Distance</li><li>50.4km</li></ul>
+			<ul><li>Height gain/loss</li><li>3380m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts3">3</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont8">8</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=835&annee=2018">Mátra 115 Community Trail 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>14/03 &#9656; 19/05</li></ul>
+			<ul><li>Location</li><li>Hungary</li></ul>
+			<ul><li>Date of event</li><li>02/06/2018</li></ul>
+			<ul><li>Distance</li><li>125.3km</li></ul>
+			<ul><li>Height gain/loss</li><li>5720m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts5">5</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont5">5</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish360">370</span></li></ul>
+							</div>
+				<div class="evt">
+			<h2><a href="/page/290/calend.html?ide=5227&annee=2018">Trail Des Goyaves 2018</a></h2>
+			<ul class="first"><li>Registration </li><li>14/03 &#9656; 05/04</li></ul>
+			<ul><li>Location</li><li>Black River, Mauritius</li></ul>
+			<ul><li>Date of event</li><li>07/04/2018</li></ul>
+			<ul><li>Distance</li><li>26.1km</li></ul>
+			<ul><li>Height gain/loss</li><li>1620m+</li></ul>
+							<ul><li>Endurance points</li><li><span class="icon pts2">2</span></li></ul>					<ul><li>Mountain</li><li><span class="icon mont7">7</span></li></ul>
+										<ul><li>Finisher criteria</li><li><span class="icon finish300">240</span></li></ul>
+							</div>
+		</div>
+		<a class="btnMore" href="#" onclick="$('#moreInscr').slideToggle(); if($(this).html()=='▾') {$(this).html('▴');} else {$(this).html('▾');} return false;">▾</a>
+				</div>
+		
+		<hr/>
+						<script type="text/javascript">
+			function filtRes(val) {
+				var request = $.ajax({
+				  url: "home_f.php",
+				  type: "POST",
+				  data: { mode:"filtRes", pays:val, langue_affich:"" },
+				  dataType: "html"
+				});
+				request.done(function( msg ) {
+					$("#resultCont").html(msg);
+				});
+			}
+		</script>
+		<h1>Last results</h1>
+		<select onchange="filtRes($(this).val());">
+			<option value="">Choice of country</option>
+			<option value="AL">Albania</option>
+				<option value="DZ">Algeria</option>
+				<option value="AD">Andorra</option>
+				<option value="AR">Argentina</option>
+				<option value="AU">Australia</option>
+				<option value="AT">Austria</option>
+				<option value="BH">Bahrain</option>
+				<option value="BY">Belarus</option>
+				<option value="BE">Belgium</option>
+				<option value="BT">Bhutan</option>
+				<option value="BO">Bolivia</option>
+				<option value="BA">Bosnia and Herzegovina</option>
+				<option value="BR">Brazil</option>
+				<option value="BN">Brunei</option>
+				<option value="BG">Bulgaria</option>
+				<option value="BF">Burkina</option>
+				<option value="KH">Cambodia</option>
+				<option value="CA">Canada</option>
+				<option value="CV">Cape Verde</option>
+				<option value="TD">Chad</option>
+				<option value="CL">Chile</option>
+				<option value="CN">China</option>
+				<option value="CO">Colombia</option>
+				<option value="CR">Costa Rica</option>
+				<option value="HR">Croatia</option>
+				<option value="CU">Cuba</option>
+				<option value="CY">Cyprus</option>
+				<option value="CZ">Czech Republic</option>
+				<option value="DK">Denmark</option>
+				<option value="DO">Dominican Republic</option>
+				<option value="EC">Ecuador</option>
+				<option value="EG">Egypt</option>
+				<option value="SV">El Salvador</option>
+				<option value="EE">Estonia</option>
+				<option value="ET">Ethiopia</option>
+				<option value="FJ">Fiji</option>
+				<option value="FI">Finland</option>
+				<option value="FR">France</option>
+				<option value="DE">Germany</option>
+				<option value="GR">Greece</option>
+				<option value="GT">Guatemala</option>
+				<option value="GY">Guyana</option>
+				<option value="HK">Hong Kong</option>
+				<option value="HU">Hungary</option>
+				<option value="IS">Iceland</option>
+				<option value="IN">India</option>
+				<option value="ID">Indonesia</option>
+				<option value="IR">Iran</option>
+				<option value="IE">Ireland</option>
+				<option value="IL">Israel</option>
+				<option value="IT">Italy</option>
+				<option value="JP">Japan</option>
+				<option value="JO">Jordan</option>
+				<option value="KZ">Kazakhstan</option>
+				<option value="KE">Kenya</option>
+				<option value="LA">Laos</option>
+				<option value="LV">Latvia</option>
+				<option value="LS">Lesotho</option>
+				<option value="LT">Lithuania</option>
+				<option value="LU">Luxembourg</option>
+				<option value="MK">Macedonia (The Former Yugoslav Republic of)</option>
+				<option value="MG">Madagascar</option>
+				<option value="MY">Malaysia</option>
+				<option value="ML">Mali</option>
+				<option value="MT">Malta</option>
+				<option value="MU">Mauritius</option>
+				<option value="MX">Mexico</option>
+				<option value="MN">Mongolia</option>
+				<option value="ME">Montenegro</option>
+				<option value="MA">Morocco</option>
+				<option value="NA">Namibia</option>
+				<option value="NP">Nepal</option>
+				<option value="NL">Netherlands</option>
+				<option value="NZ">New Zealand</option>
+				<option value="NI">Nicaragua</option>
+				<option value="NO">Norway</option>
+				<option value="OM">Oman</option>
+				<option value="PA">Panama</option>
+				<option value="PY">Paraguay</option>
+				<option value="PE">Peru</option>
+				<option value="PH">Philippines</option>
+				<option value="PL">Poland</option>
+				<option value="PT">Portugal</option>
+				<option value="RO">Romania</option>
+				<option value="RU">Russia</option>
+				<option value="SA">Saudi Arabia</option>
+				<option value="SN">Senegal</option>
+				<option value="RS">Serbia</option>
+				<option value="SG">Singapore</option>
+				<option value="SK">Slovakia</option>
+				<option value="SI">Slovenia</option>
+				<option value="ZA">South Africa</option>
+				<option value="KR">South Korea</option>
+				<option value="ES">Spain</option>
+				<option value="LK">Sri Lanka</option>
+				<option value="SE">Sweden</option>
+				<option value="CH">Switzerland</option>
+				<option value="TW">Taiwan</option>
+				<option value="TZ">Tanzania</option>
+				<option value="TH">Thailand</option>
+				<option value="TN">Tunisia</option>
+				<option value="TR">Turkey</option>
+				<option value="UG">Uganda</option>
+				<option value="UA">Ukraine</option>
+				<option value="AE">United Arab Emirates</option>
+				<option value="GB">United Kingdom</option>
+				<option value="US">United States</option>
+				<option value="UY">Uruguay</option>
+				<option value="VE">Venezuela</option>
+				<option value="VN">Vietnam</option>
+						</select>
+		<div id="resultCont" class="fichesevt">
+					<div class="evt">
+			<h2><div>04/05/2019 &nbsp; 67.70km / 2850m+</div><a href="/page/results/results.html">Vulcano Ultra-Trail® 2014 - 64K</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Franco PAREDES</td><td>07:30:14</td></tr><tr><td>2</td><td>Rafael FUENTES</td><td>07:52:01</td></tr><tr><td>3</td><td>Joel BARRA CASTILLO</td><td>08:07:37</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Veronica BRAVO</td><td>09:50:16</td></tr><tr><td>2</td><td>Fabienne NAZARIAN TRANO</td><td>10:05:35</td></tr><tr><td>3</td><td>Paula CONTRERAS</td><td>11:05:55</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>18/03/2018 &nbsp; 20.10km / 370m+</div><a href="/page/results/results.html">Sydney Trail Series - March 2018 - Manly Dam - 21Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Justin PAOLUCCI</td><td>01:35:24</td></tr><tr><td>2</td><td>Ryan ARMSTRONG</td><td>01:40:36</td></tr><tr><td>3</td><td>Tom TODD</td><td>01:40:49</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Lara HAMILTON</td><td>01:48:35</td></tr><tr><td>2</td><td>Krisztina Eszter BALAZS</td><td>01:56:20</td></tr><tr><td>3</td><td>Julie HUNZIKER</td><td>02:04:47</td></tr>					</tfoot>
+								</table>
+		</div>
+		<div id="moreRes" class="more">		<div class="evt">
+			<h2><div>18/03/2018 &nbsp; 11.30km / 360m+</div><a href="/page/results/results.html">Trail Des Salamandres 2018 - 11Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Alexandre BRASSAC</td><td>00:45:21</td></tr><tr><td>2</td><td>Corentin CROUZET</td><td>00:45:48</td></tr><tr><td>3</td><td>Clement BOULARD</td><td>00:47:00</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Sylviane BOULHOL</td><td>00:58:24</td></tr><tr><td>2</td><td>Severine SERVE</td><td>00:59:14</td></tr><tr><td>3</td><td>Audrey CHAREYRE</td><td>00:59:20</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>18/03/2018 &nbsp; 29.70km / 700m+</div><a href="/page/results/results.html">Sydney Trail Series - March 2018 - Manly Dam - 30Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Gus MACGREGOR</td><td>02:18:07</td></tr><tr><td>2</td><td>Jody WALL</td><td>02:27:13</td></tr><tr><td>3</td><td>NICHOLAS WILLIAMS</td><td>02:32:01</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Michelle GAILEY</td><td>02:48:15</td></tr><tr><td>2</td><td>Kat PEATEY</td><td>03:01:32</td></tr><tr><td>3</td><td>Lisa GOOZEE</td><td>03:05:03</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>18/03/2018 &nbsp; 29.90km / 1210m+</div><a href="/page/results/results.html">Trail Des Salamandres 2018 - 30Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Augustin GUIBERT</td><td>02:16:27</td></tr><tr><td>2</td><td>Guillaume LACASSAGNE</td><td>02:17:52</td></tr><tr><td>3</td><td>Jeremy COMBE</td><td>02:25:29</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Nathalie BAZILE</td><td>02:54:16</td></tr><tr><td>2</td><td>Line MONCELON</td><td>02:56:24</td></tr><tr><td>3</td><td>Rejane SOULAS</td><td>03:03:58</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>18/03/2018 &nbsp; 18.50km / 600m+</div><a href="/page/results/results.html">Trail Des Salamandres 2018 - 19Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Benjamin DUPAIN</td><td>01:25:39</td></tr><tr><td>2</td><td>Stephane MICHAUD</td><td>01:26:16</td></tr><tr><td>3</td><td>Guillaume BAŸ</td><td>01:29:24</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Fabienne MIOLANE</td><td>01:42:29</td></tr><tr><td>2</td><td>Eloise LAINE</td><td>01:43:02</td></tr><tr><td>3</td><td>Audrey MEYER</td><td>01:48:58</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>17/03/2018 &nbsp; 26.30km / 1070m+</div><a href="/page/results/results.html">Trilhas Salto Ventoso - I Etapa Cgctm 2018 - 27K Trilhas Do Salto Ventoso</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Jeferson DIAS</td><td>02:34:36</td></tr><tr><td>2</td><td>Rogerio ANDRETTA</td><td>02:42:05</td></tr><tr><td>3</td><td>Ronaldo VALE</td><td>02:44:30</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Jasieli ROSA</td><td>03:11:09</td></tr><tr><td>2</td><td>Larissa FRANCA</td><td>03:16:28</td></tr><tr><td>3</td><td>Eliana MILIORANSA</td><td>03:27:20</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>11/03/2018 &nbsp; 21.40km / 1470m+</div><a href="/page/results/results.html">Desafio Cerro Negro 2018</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Sergio PEREYRA</td><td>01:56:41</td></tr><tr><td>2</td><td>Castillo CRISTIAN</td><td>02:03:23</td></tr><tr><td>3</td><td>Federico ZAMUDIO</td><td>02:08:21</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Roxana FLORES</td><td>02:16:45</td></tr><tr><td>2</td><td>Yennifer CASTRO</td><td>02:18:32</td></tr><tr><td>3</td><td>Vanina NAMUNCURA</td><td>02:30:00</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>11/03/2018 &nbsp; 51.80km / 2290m+</div><a href="/page/results/results.html">Borneo Ultra-Trail® Marathon 2018 - 50 Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Petr NOVOTNY</td><td>05:45:33</td></tr><tr><td>2</td><td>Safrey SUMPING</td><td>07:04:08</td></tr><tr><td>3</td><td>Chris TIMMS</td><td>07:37:10</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Cindy FAN</td><td>08:43:42</td></tr><tr><td>2</td><td>Jassica BINTI LINTANGA PADO</td><td>09:18:33</td></tr><tr><td>3</td><td>Giovanna MEENAN</td><td>09:32:43</td></tr>					</tfoot>
+								</table>
+		</div>
+				<div class="evt">
+			<h2><div>11/03/2018 &nbsp; 102.20km / 4840m+</div><a href="/page/results/results.html">Borneo Ultra-Trail® Marathon 2018 - 100 Km</a></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>Rk</td>
+						<td>Name</td>
+						<td>Time</td>
+											</tr>
+				</thead>
+									<tbody>
+						<tr><td>1</td><td>Milton AMAT</td><td>15:47:56</td></tr><tr><td>2</td><td>Chris GOODWIN</td><td>15:50:06</td></tr><tr><td>3</td><td>Alessandro RIZZETTO CHINI</td><td>17:36:55</td></tr>					</tbody>
+										<tfoot>
+						<tr><td>1</td><td>Lucy SCOTT</td><td>19:12:02</td></tr><tr><td>2</td><td>Adelinah LINTANGA</td><td>19:41:33</td></tr><tr><td>3</td><td>Poh Suan PUAH</td><td>21:27:29</td></tr>					</tfoot>
+								</table>
+		</div>
+		</div>
+		<a class="btnMore" href="#" onclick="$('#moreRes').slideToggle(); if($(this).html()=='▾') {$(this).html('▴');} else {$(this).html('▾');} return false;">▾</a>
+				</div>
+	</div>
+	
+	<div id="homeArt">
+		<script type="text/javascript">
+function doNextNews(from, numcol, petit) {
+	$("#nextNews").remove();
+	var request = $.ajax({
+	  url: "news.php",
+	  type: "POST",
+	  data: { mode:"getNextNews", from:from, numcol:numcol, petit:petit, langue_affich:"" },
+	  dataType: "html"
+	});
+	request.done(function( msg ) {
+		$("#homeArt").html( msg ); 
+	});
+}
+</script>
+		<div class="newslst first" style="background-image:url(/incphotos/news/gruppo_4a_tappa.jpg);background-position:0px 0;" onclick="location.href='?id=199';">
+		  <div class="news">
+			  <div class="dth">19/03/2018</div>
+			  <h2>Upcoming Trails!&nbsp;</h2>
+			  
+
+ALVI TRAIL LIGURIA 2018 - ITALIA
+
+ The Alvi Trail Liguria, from June 9th to June 16th, is a race in eight stages: it’s 400 km long with a 17,000 meters vert...		  </div>
+		</div>
+				<div class="newslst col1 Vert" style="background-image:url(/incphotos/news/capture.jpg);background-position:-0px 0;" onclick="location.href='?id=197';">
+		  <div class="news">
+			  <div class="dth">28/02/2018</div>
+			  <h2>Trails of The Month - February 2018</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col2 Vert" style="background-image:url(/incphotos/news/mira_rai_near_nagi_gompa_14_feb_2016_by_r_bull.jpg);background-position:-0px 0;" onclick="location.href='?id=195';">
+		  <div class="news">
+			  <div class="dth">16/02/2018</div>
+			  <h2>TRAILS - COMING SOON!</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col3 Vert" style="background-image:url(/incphotos/news/utmf_fj__ho_4057-2000x1333.jpg);background-position:-0px 0;" onclick="location.href='?id=193';">
+		  <div class="news">
+			  <div class="dth">13/02/2018</div>
+			  <h2>NEW CLASSIFICATION OF TRAIL-RUNNING</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col1 Vert" style="background-image:url(/incphotos/news/hk100_03.jpg);background-position:-0px 0;" onclick="location.href='?id=191';">
+		  <div class="news">
+			  <div class="dth">31/01/2018</div>
+			  <h2>Trails of the month - January 2018</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col2 Vert" style="background-image:url(/incphotos/news/image_article_site_internet_v2.jpg);background-position:-0px 0;" onclick="location.href='?id=187';">
+		  <div class="news">
+			  <div class="dth">15/01/2018</div>
+			  <h2>New : Membership Fees</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col3 Vert" style="background-image:url(/incphotos/news/article2.jpg);background-position:-0px 0;" onclick="location.href='?id=183';">
+		  <div class="news">
+			  <div class="dth">11/01/2018</div>
+			  <h2>&nbsp;</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col1 Vert" style="background-image:url(/incphotos/news/bonne_annee_2018_en0.jpg);background-position:-0px 0;" onclick="location.href='?id=177';">
+		  <div class="news">
+			  <div class="dth">02/01/2018</div>
+			  <h2>Happy New Year 2018</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col2 Vert" style="background-image:url(/incphotos/news/utmbcover.jpg);background-position:-0px 0;" onclick="location.href='?id=175';">
+		  <div class="news">
+			  <div class="dth">03/08/2017</div>
+			  <h2>Not to be missed... the UTMB® week !</h2>
+			  		  </div>
+		</div>
+				<div class="newslst col3 Vert" style="background-image:url(/incphotos/news/march_2017.jpg);background-position:-200px 0;" onclick="location.href='?id=171';">
+		  <div class="news">
+			  <div class="dth">08/02/2017</div>
+			  <h2>Trails of the Month - March 2017</h2>
+			  		  </div>
+		</div>
+				<a href="#" id="nextNews" onclick="doNextNews(10, 0, 0); return false;">Suite...</a>
+			</div>
+	<div style="clear:both"></div>
+</div>
+		</div>
+		<div id="bottom" style="clear:both">
+			<div id="menusec">
+				<div style="float:right;line-height:32px;">
+					Powered by <a href="http://livetrail.net" target="_blank" >LiveTrail&reg;</a>&nbsp;&nbsp;<a href="http://livetrail.net" target="_blank" ><img src="/images/livetrail.png" alt="LiveTrail logo" style="vertical-align:middle" /></a> - Design by <a href="http://www.designvisuel.com/" target="_blank">DesignVisuel</a>
+				</div>
+				<ul>
+					<li><a href="/page/320/Press.html" >Press</a></li><li><a href="/page/387/Terms.html" >Terms</a></li><li><a href="/page/405/Legal_Notice.html" >Legal Notice</a></li><li class="last"><a href="/page/276/Contact.html" >Contact</a></li>				</ul>
+				<span class="socialnw">
+					<span><a href="http://itra.run/page/320/Presse.html" class="contact" title="Press"></a></span>					<span><a href="https://www.facebook.com/InternationalTrailRunningAssociation" target="_blank" class="facebook" title="Find ITRA on Facebook"></a></span>					<span><a href="https://www.twitter.com/ITRA_trail" target="_blank" class="twitter" title="Find ITRA on Twitter"></a></span>					<span><a href="https://www.youtube.com/channel/UCfCBMcMsUdW_tO5mqd2oimg/featured" target="_blank" class="youtube" title="Find ITRA on YouTube"></a></span>				</span>
+			</div>
+			
+		</div>
+	 </div>
+	 <div id="result" class="popin"></div>
+	 <div class="modalwait"></div>
+	</body>
+</html>

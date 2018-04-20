@@ -1,0 +1,1 @@
+Redirecting to https://app.netlify.com/

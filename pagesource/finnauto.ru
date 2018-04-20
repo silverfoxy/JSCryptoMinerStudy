@@ -1,0 +1,1 @@
+<html><head><meta name="refresh" content="0; url=https://finnautoparts.ru/"><script>location.href="https://finnautoparts.ru/";</script></head><body><a href="https://finnautoparts.ru/">https://finnautoparts.ru/</a></body></html>

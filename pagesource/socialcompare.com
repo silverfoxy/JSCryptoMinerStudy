@@ -1,0 +1,1 @@
+<html><head><meta http-equiv="refresh" content="0;url=http://socialcompare.com/en"/></head></html>

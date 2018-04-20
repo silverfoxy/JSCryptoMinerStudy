@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.opposingviews.com/">https://www.opposingviews.com/</a></p>

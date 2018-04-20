@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://supa.ru/">https://supa.ru/</a></p>

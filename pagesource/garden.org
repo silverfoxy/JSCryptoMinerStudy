@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="/i/3p/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+   <script src="/i/3p/jquery-ui.min.js" defer="defer"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link href="/i/c/nga_20170921.css" rel="stylesheet">
+  <script type="text/javascript" src="/i/js/colorbox-min.js" defer="defer"></script>
+
+  <link rel="search" href="https://garden.org/i/search/opensearch_plants.xml" type="application/opensearchdescription+xml" title="NGA Database search" />
+  <meta name="description" content="Learn how to garden and grow plants successfully from the National Gardening Association. Read articles about vegetables, flowers, and herb and much more.">
+  <meta name="keywords" content="garden,gardening,vegetables,herbs,flowers,raised beds,lawn care,garden beds,community gardens,organic gardening,plants,planters,succulents,orchids,tomatoes,daylilies,roses,irises">
+
+    <meta name="msapplication-TileImage" content="/i/p/nga/nga_144.png">
+    <link rel="apple-touch-icon" href="/i/p/nga/nga_57.png"/>  
+    <link rel="apple-touch-icon" sizes="72x72" href="/i/p/nga/nga_72.png"/>  
+    <link rel="apple-touch-icon" sizes="114x114" href="/i/p/nga/nga_114.png"/>  
+  <title>The National Gardening Association</title><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script>
+
+
+  $(document).ready(function() {
+
+    // No framing the site, please.
+    if(top!=self) {
+      top.location.replace(document.location);
+    }
+
+
+    // Make my boxes all the same height:
+    var heights = $(".matchheight").map(function() { return $(this).height(); }).get(),
+      maxHeight = Math.max.apply(null, heights);
+    $(".matchheight").height(maxHeight);
+
+    // ////////////////////////////////////////////
+    // The below forces the footer to stick to the bottom, if the page isn't tall enough.
+    var docHeight = $(window).height();
+    var footerHeight = $("#atpfooter").height();
+    var footerTop = $("#atpfooter").position().top + footerHeight;
+ 
+    if (footerTop < docHeight) {
+      $("#atpfooter").css("margin-top", -22+ (docHeight - footerTop) + "px");
+    }
+    // ////////////////////////////////////////////
+
+    // ////////////////////////////////////////////
+    // The below loads the system messages, mail, etc. into the modal.
+
+    var trigger = $("body").find('[data-toggle="modal"]');
+    trigger.click(function(e) {
+      e.preventDefault();
+      var theModal = $(this).attr("data-target");
+      var ngaview = $(this).attr("data-ngaview"); 
+      var thetitle = $(this).attr("title");
+
+      $(theModal).find(".modal-title").html(thetitle);
+
+      var uri = theModal.replace("#", "");
+
+      if (uri == "ModalNGAView") {
+        $.get("/apps/atpview/show/"+ngaview+"/", function(data) {
+          var modal = $(this);
+          $(theModal).find(".modal-body").html(data);
+        });
+
+      } else {
+        $.get("/i/ajax/modal/"+uri+".php", function(data) {
+          var modal = $(this);
+          $(theModal).find(".modal-body").html(data);
+        });
+      };
+
+    });
+
+    // ////////////////////////////////////////////
+    // Sticky Items in Sidebar:
+    var sidebar_offset = 0;
+    // Line below is to avoid top() if the element doesn't exist for whatever reason.
+    if ($("#sticky_sidebar").length) {
+      sidebar_offset = $("#sticky_sidebar").offset().top + 300;
+      if (sidebar_offset > 1000) { sidebar_offset = sidebar_offset+1200; }
+    }
+    $("#sticky_sidebar").affix({
+      offset: {
+        top: sidebar_offset
+      }
+    });
+    var $body   = $(document.body);
+    var navHeight = $(".navbar").outerHeight(true) + 10;
+    $body.scrollspy({
+      target: "#sticky_sidebar",
+      offset: navHeight
+    });
+    // / Sticky Items in Sidebar:
+
+
+  });
+
+ </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-4809383-1', 'auto');
+</script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7276780576747069",
+    enable_page_level_ads: true
+  });
+</script></head>
+
+  <body>
+  <div class="modal fade" id="ModalMail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New and Unread Tree-Mails</h4>
+        </div>
+        <div class="modal-body">
+          <img src="/i/icon/loading.gif">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="ModalNGAView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+          <img src="/i/icon/loading.gif">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="ModalSysMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Messages from Garden.org</h4>
+        </div>
+        <div class="modal-body">
+          <img src="/i/icon/loading.gif">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top" id="nganav1">
+  <div class="fluid-container">
+    <div class="navbar-header navbar-left pull-left">
+      <a href="/"><i class="fa fa-home fa-fw fa-1x fahomeicon"></i></a>
+    </div>
+    <div class="navbar-header navbar-right pull-right">
+      <ul class="nav pull-left">
+        
+      <li class="navbar-text pull-left"><a href="/users/join/"><i class="fa fa-user-plus"> </i> Signup</a></li>
+      <li class="navbar-text pull-left"><a href="/login.php"><i class="fa fa-sign-in"> </i> Login</a></li>
+
+      </ul>
+      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="visible-xs-block clearfix"></div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+      
+      <ul class="nav navbar-nav" id="nga_dropdowns">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learning Library <i class="fa fa-caret-down "></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/learn/">Learning Library Homepage</a></li>
+            <li><a href="/learn/library/plantguide/">Plant Care Guides</a></li>
+            <li><a href="/learn/library/foodguide/">Food Gardening Guides</a></li>
+            <li><a href="/learn/library/weeds/">Weed Library</a></li>
+            <li><a href="/learn/library/pests/">Pest Control Library</a></li>
+            <li><a href="/courseweb/">Garden Curricula</a></li>
+            <li><a href="/ideas/podcast/">Podcast</a></li>
+            <li><a href="/learn/videos/">Videos</a></li>
+            <li><a href="/nga/searchqa/">Questions and Answers</a></li>
+            <li><a href="/nga/dictionary/">Garden Dictionary</a></li>
+            <li><a href="/ediblelandscaping/">Edible Landscaping</a></li>
+            <li><a href="/urbangardening/">Urban Gardening</a></li>
+            <li><a href="/learn/articles/">Browse all articles</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plants Database <i class="fa fa-caret-down "></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/plants/">Plants Database</a></li>
+            <li><a href="/plants/search/text.php">Search by name</a></li>
+            <li><a href="/plants/search/advanced.php">Search by characteristics</a></li>
+            <li class="divider"></li>
+            <li><a href="/plants/multi/">Landscape Photos</a></li>
+            <li><a href="/apps/plant_photos/view/">See All New Database Photos</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools &amp; Apps <i class="fa fa-caret-down "></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/apps/">View All Apps</a></li>
+            <li><a href="/apps/calendar/">Vegetable Planting Calendar</a></li>
+            <li><a href="/apps/frost-dates/">Frost Dates Lookup</a></li>
+            <li><a href="/apps/swap/">Seed Swaps</a></li>
+            <li><a href="/lists/">Plant Lists</a></li>
+            <li><a href="/nga/calculators/">Gardening Calculators</a></li>
+            <li><a href="/greenpages/">Green Pages</a></li>
+            <li><a href="/nga/zipzone/">Zone Lookup</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <i class="fa fa-caret-down "></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ideas/">Gardening News</a></li>
+            <li><a href="/forums/">Forums</a></li>
+            <li><a href="/blogs/">Blogs</a></li>
+            <li><a href="/apps/events/">Gardening Calendar of Events</a></li>
+            <li><a href="/frogs/">Gardening Knowledgebase</a></li> 
+            <li><a href="/frogs/ask/">Ask a Question</a></li>
+            <li><a href="/ideas/raffles/">Not-a-Raffle-Raffles</a></li>
+            <li><a href="/apps/photocontest/">Photo Contests</a></li>
+          </ul>
+        </li>
+      </ul>
+  
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <style>
+    #row_ngalogo {
+      background-image: url("/pics/2017-09-05/joannakat/143ada.jpg");
+    }
+  </style>
+
+  <div class="fluid-container">
+    <div class="col-xs-12" id="row_ngalogo">
+     
+
+     <a href="/"><img src="/i/p/nga/header/logo.png" width="154" height="150" alt="National Gardening Association Logo" class="nga_nav150"></a><a href="/"><img src="/i/p/nga/header/nga.png" width="250" height="150" id="row_text" class="nga_nav150"></a><a href="/special/offers/newsletter_signup.php"><img src="/i/p/newsletter_signup.png" class="nl_signupbutton" style="border:1px solid black;"></a>
+
+    </div>
+  </div>
+<div class="container-fluid" id="ngabody"><div class="row" style="margin-bottom:5px;">
+          <div class="col-sm-8">
+            <h1 class="page-header">The National Gardening Association</h1>
+          </div>
+          <div class="col-sm-4 text-right">
+            <h2 class="page-header">
+<form class="form-inline" action="/search/index.php" method="get">
+  <div class="input-group">
+    <input type="text" class="form-control" name="q" placeholder="Search Garden.org...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+    </span>
+  </div>
+</form>
+</h2>
+          </div>
+          </div><div class="row"><div class="col-sm-12"><link rel="canonical" href="https://garden.org/" /><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "National Gardening Association",
+  "url": "https://garden.org",
+  "logo": "https://garden.org/i/p/nga/nga_750.png",
+  "sameAs": [
+    "https://www.pinterest.com/ngagrows/",
+    "https://www.facebook.com/Garden.Org/",
+    "https://www.youtube.com/user/nationalgardening",
+    "https://twitter.com/NatlGardening",
+    "https://www.instagram.com/nationalgardeningassoc/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "National Gardening Association",
+  "url": "https://garden.org",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://garden.org/search/index.php?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+
+
+</script>
+
+
+<script>
+$(document).ready(function(){
+  $('.infos_clickmore').click(function(e) {
+    var infoid = $(this).attr('data-infoid');
+    e.preventDefault();
+    $('#showmore-'+infoid).slideToggle();
+    $(this).find('i').toggleClass('fa-caret-down fa-caret-up')
+    // $('#clickmore-'+infoid).hide();
+  });
+});
+</script>
+
+<style>
+.infos_clickmore {
+  cursor: pointer;
+  user-select: none;
+}
+</style>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <center>
+      <span style="font-size:1.6em;"><B>Since 1971, our mission is to promote gardening.</B></span>
+      <P>
+      <div style="font-size:1.4em;max-width:500px;">
+1. We teach people how to get started gardening and to improve their plant growing skills.
+<P><img src="/i/p/leaf.png"><P>
+2. With over a million members, we are the largest social media website dedicated exclusively to gardening.
+<P><img src="/i/p/leaf.png"><P>
+2. We make online tools that help gardeners connect, teach, share, and trade with each other.
+<P><img src="/i/p/leaf.png"><P>
+3. We help gardeners research information through our continuous development of the world's largest database of plants.
+<P><img src="/i/p/leaf.png"><P>
+4. We help gardening companies reach the public with their products, services and messages.
+<P><img src="/i/p/leaf.png"><P>
+How we accomplish these goals is detailed below. Click any of the following sections to explore NGA's most frequently used resources.
+      </div> 
+    </center>
+  </div>
+</div>
+
+
+<div class="panel panel-default" style="border-left: 10px solid #799c5d;"> <div class="panel-body infos_clickmore" id="clickmore-1" data-infoid="1" style="font-size:1.6em;">
+      <i class="fa fa-fw fa-1x fa-caret-down"></i> Teaching Gardening
+  </div>
+  <div class="panel-body" id="showmore-1" style="display:none;">
+<img src="/courseweb/images/lg2sm.jpg" align="right">
+Brand new gardeners of all ages can start with our critically acclaimed <a href="/courseweb/">gardening courses</a> where they will learn everything they need to get started gardening. We have 5 courses to take and when you finish them all, you will know more about gardening than most. Impress your friends with your horticultural knowledge!
+<P>
+Gardeners who want to grow their own food will find everything they need to be successful by using our complete <a href="/learn/library/foodguide/">Food Gardening Guide</a>. You will learn how to grow all the popular vegetables, herbs and fruits.
+<P>
+Gardening problems? Use our <a href="/learn/library/weeds/">Weed Library</a> and <a href="/learn/library/pests/">Pest Control Library</a> for answers to these common issues.
+<P>
+We also have a huge library of <a href="/frogs/list/">Frequently Asked Gardening Questions</a>, as well as a <a href="/nga/dictionary/">Dictionary of Garden Terms</a>. Need something to listen to? Download and listen to over a hundred hours of our <a href="/ideas/podcast/">All Things Plants Podcast</a>, also available on itunes.
+<P>
+Beyond all that, we also have <a href="/learn/articles/">thousands of articles</a>, nicely categorized to help you find what you're looking for.
+<P>
+Finally, we have over 40 years of experience in publishing a wide variety of <a href="/greenpages/browse/nga_books/">printed gardening books</a>.
+</div>
+</div>
+
+<div class="panel panel-default" style="border-left: 10px solid #799c5d;"> <div class="panel-body infos_clickmore" id="clickmore-2" data-infoid="2" style="font-size:1.6em;">
+      <i class="fa fa-fw fa-1x fa-caret-down"></i> Research Plants
+  </div>
+  <div class="panel-body" id="showmore-2" style="display:none;"><div class="db_photo_right"><a href="https://garden.org/plants/view/81059/">Texas Thistle (<i>Cirsium texanum</i>)</a><BR><B>Posted by <a href="/users/profile/GrammaChar/">GrammaChar</a></B><BR><a href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="db_photo-438851" title="Image by GrammaChar"><img src="/pics/2017-04-18/GrammaChar/9b362b-250.jpg" width="250" height="250" alt="Image" title="Image" class="thumb"></a></div>Our <a href="/plants/">database of plants</a> has been in continuous development since 2010, and now has over 700K plants and nearly half a million photos. Any member of NGA is allowed to contribute to it, and it has had many thousands of different gardeners collaborating in its development. We have a team of administrators and moderators who check each and every addition, helping to ensure accuracy at all times.
+<P>
+Every day new plants and photos are added by our members.
+<P>
+Each plant has all the important data details included, such as sunlight requirements, water needs, etc. For each plant, members can post photos, write comments, and enter in grower performance reports. For cultivars, we track parentage and allow gardeners to easily traverse family trees to see which pollen or pod parent each cultivar was bred from. We also have custom data fields for different kinds of plants. Tomatoes, for example, include data fields for heredity, fruit shape, etc.
+<P>
+Members can keep their own custom lists of plants that they grow (or wish to grow in the future). They can then use this list as a journal where they report milestones in the growth of all their plants. These lists also form the backbone of the world's largest seed swap that occurs each fall, when tens of thousands of seed packets are shared amongst the NGA membership.
+<P>
+We also maintain beautifully designed <a href="/plants/group/">plant care guides</a> for each the main kinds of plants.
+</div>
+</div>
+
+<div class="panel panel-default" style="border-left: 10px solid #799c5d;"> <div class="panel-body infos_clickmore" id="clickmore-3" data-infoid="3" style="font-size:1.6em;">
+      <i class="fa fa-fw fa-1x fa-caret-down"></i> Gardening Tools
+  </div>
+  <div class="panel-body" id="showmore-3" style="display:none;">
+
+<img src="/i/p/zipzone/smallmap-460.gif" align="right" style="max-width:300px;">
+
+We maintain a number of highly popular tools that gardeners can use to find important and helpful information for their gardening activities. They are all easy to use and need only a zipcode to return insights relevant to your local area.
+<P>
+Our most popular tool is the <a href="/apps/calendar/">Planting Calendar</a>. Enter your zipcode and it will tell you exactly when you should plant all the common kinds of vegetables. Similarly, enter your zipcode to know when you can expect your <a href="/apps/frost-dates/">first and last frost dates for your area.</a> You can lookup your <a href="/nga/zipzone/">USDA Hardiness Zone</a>, and browse our <a href="/apps/events/">Calendar of Local Gardening Events</a>. To help you calculate how much mulch, fertilizer, or other gardening inputs, use our handy <a href="/nga/calculators/">Gardening Calculators</a>.
+
+
+</div>
+</div>
+
+<div class="panel panel-default" style="border-left: 10px solid #799c5d;"> <div class="panel-body infos_clickmore" id="clickmore-4" data-infoid="4" style="font-size:1.6em;">
+      <i class="fa fa-fw fa-1x fa-caret-down"></i> Connect with our Community
+  </div>
+  <div class="panel-body" id="showmore-4" style="display:none;">
+At the heart of Garden.org is the homepage, which is the social media gathering spot for thousands of people to visit every day to interact with each other. Once logged in with a member account, this homepage becomes a customizable hub of content where members can see everything that is happening right now on the site.
+<P>
+Our <a href="/forums/">100+ different gardening forums</a> buzz with activity, where members discuss every aspect of gardening. 
+<P>
+The <a href="/greenpages/">Green Pages</a> is where members give recommendations of their favorite local garden centers, public gardens, online sellers of gardening stuff, gardening books, and more.
+<P>
+Our annual <a href="/apps/photocontest/">photo contest</a> draws thousands of entries, and the members are the judges!
+<P>
+For decades, NGA has been known for their seed swaps, and that tradition continues into the digital age with our amazing <a href="/apps/swap/">group seed swaps</a>, where upwards of a hundred gardeners all do a huge group swap where tens of thousands of seed packets are traded.
+<P>
+Our <a href="/special/offers/newsletter_signup.php">weekly e-newsletter</a> goes out to around 200,000 subscribed members, and contains highlights of the best and most interesting things that happened on Garden.org during the previous week.
+</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+      <span style="font-size:1.6em;"><B>Want to get involved?</B></span>
+      <P>
+      <div style="font-size:1.4em;">
+        Simply <a href="/signup.php">create a free username</a>, and you can then login and enjoy the social side of the site!
+
+
+      </div> 
+  </div>
+</div>
+<strong>Here's a sample of the recent activity on Garden.org:</strong><P><div class="container-fluid"><div class="row" style="margin-bottom: 20px;"><div class="col-sm-6"><a href="https://garden.org/learn/articles/view/4017/" class="bigitem_caption">How to Control Annual Weeds</a><a href="https://garden.org/learn/articles/view/4017/"><img src="/pics/2012-06-06/dave/6e7ef1.jpg" style="max-width: 100%; border: 1px solid black; margin-bottom: 15px;"></a><P><div class="panel panel-default "><div class="panel-heading">New Landscape Photos</div><div class="panel-body"><center><a href="/plants/multi/view/7879/"><img src="/pics/2018-03-16/frankrichards16/02d168-175.jpg" width="175" height="175" alt="Posted by frankrichards16" title="Posted by frankrichards16" class="thumb"></a> <a href="/plants/multi/view/7878/"><img src="/pics/2018-03-15/gardengorilla97306/46fc78-175.jpg" width="175" height="175" alt="Posted by gardengorilla97306" title="Posted by gardengorilla97306" class="thumb"></a> <a href="/plants/multi/view/7877/"><img src="/pics/2018-03-15/gardengorilla97306/5397a3-175.jpg" width="175" height="175" alt="Posted by gardengorilla97306" title="Posted by gardengorilla97306" class="thumb"></a> <a href="/plants/multi/view/7876/"><img src="/pics/2018-03-15/gardengorilla97306/be4305-175.jpg" width="175" height="175" alt="Posted by gardengorilla97306" title="Posted by gardengorilla97306" class="thumb"></a> <a href="/plants/multi/view/7874/"><img src="/pics/2018-03-14/TBGDN/a447c0-175.jpg" width="175" height="175" alt="Posted by TBGDN" title="Posted by TBGDN" class="thumb"></a> <a href="/plants/multi/view/7873/"><img src="/pics/2018-03-14/quietyard/95bfec-175.jpg" width="175" height="175" alt="Posted by quietyard" title="Posted by quietyard" class="thumb"></a> <a href="/plants/multi/view/7872/"><img src="/pics/2018-03-14/HemNorth/a2cdf8-175.jpg" width="175" height="175" alt="Posted by HemNorth" title="Posted by HemNorth" class="thumb"></a> <a href="/plants/multi/view/7871/"><img src="/pics/2018-03-14/Baja_Costero/f82098-175.jpg" width="175" height="175" alt="Posted by Baja_Costero" title="Posted by Baja_Costero" class="thumb"></a> </center><br><a href="/plants/multi/all/">&raquo; See more new landscape photos</a></div></div></div><div class="col-sm-6"><div class="panel panel-default "><div class="panel-heading">Today's Inspiration</div><div class="panel-body"><a href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="lightbox-2016-11-10/jon/5407c0" title=""><img src="/pics/2016-11-10/jon/5407c0.jpg" style="max-width: 100%;"></a><p><a href="/thread/post/inspiration/219/">&raquo; Start a new thread to discuss</a></div></div><div class="panel panel-default "><div class="panel-heading">Recently Popular Photos</div><div class="panel-body"><div class="plant_thumbbox"><a href="/plants/photo/493308/"><img src="/pics/2018-03-12/cliftoncat/c055bb-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/cliftoncat/">cliftoncat</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-493308-cliftoncat-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-493308-cliftoncat" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-493308" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/493308/">42</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/493133/"><img src="/pics/2018-03-11/dimson67/2e7ba9-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/dimson67/">dimson67</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-493133-dimson67-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-493133-dimson67" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-493133" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/493133/">32</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/493599/"><img src="/pics/2018-03-13/dimson67/3107ab-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/dimson67/">dimson67</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-493599-dimson67-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-493599-dimson67" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-493599" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/493599/">27</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/492680/"><img src="/pics/2018-03-10/sunnyvalley/4455ff-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/sunnyvalley/">sunnyvalley</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-492680-sunnyvalley-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-492680-sunnyvalley" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-492680" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/492680/">27</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/492805/"><img src="/pics/2018-03-10/RuuddeBlock/0a01e3-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/RuuddeBlock/">RuuddeBlock</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-492805-RuuddeBlock-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-492805-RuuddeBlock" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-492805" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/492805/">26</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/494329/"><img src="/pics/2018-03-16/Orsola/23c3ae-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/Orsola/">Orsola</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-494329-Orsola-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-494329-Orsola" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-494329" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/494329/">25</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/493368/"><img src="/pics/2018-03-12/robertduval14/94e6a0-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/robertduval14/">robertduval14</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-493368-robertduval14-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-493368-robertduval14" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-493368" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/493368/">24</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/492871/"><img src="/pics/2018-03-10/JuliaNY/b049a9-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/JuliaNY/">JuliaNY</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-492871-JuliaNY-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-492871-JuliaNY" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-492871" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/492871/">19</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/492677/"><img src="/pics/2018-03-10/sunnyvalley/1adf9c-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/sunnyvalley/">sunnyvalley</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-492677-sunnyvalley-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-492677-sunnyvalley" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-492677" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/492677/">11</a>)</span>
+
+
+
+
+</div> <div class="plant_thumbbox"><a href="/plants/photo/494330/"><img src="/pics/2018-03-16/Orsola/b3444e-175.jpg" width="175" height="175" alt="Image" title="Image" class="plant_thumbimage"></a><br>By <a href="/users/profile/Orsola/">Orsola</a><BR><img src="/i/colorbox/loading.gif" id="plants_images-iid-494330-Orsola-wait" class="rwdicon" width="16" height="16" title="Waiting" alt="Waiting" style="display:none;"> <a href="/not.php"><img src="/i/icon/tu-green.png" class="rwdicon" width="16" height="16" title="Login to give thumbs-ups" class="thumbgreen userlink" alt="Give a thumbs up"></a> <span id="thumbs-plants_images-iid-494330-Orsola" class="social_count" href="#" data-toggle="modal" data-target="#ModalNGAView" data-ngaview="thumbs_count-plants_images-iid-494330" title="Viewing Thumbs">  (<a href="/thumbs/view/plants_images/iid/494330/">8</a>)</span>
+
+
+
+
+</div> </div></div></div></div></div><div class="panel panel-default "><div class="panel-body">Join the party: <a href="/signup.php">create a free username</a>, and you can then login!</div></div></div></div></div><div id="atpfooter"><div class="container-fluid">
+          <div class="col-sm-4">
+            <a href="/">Garden.org Homepage</a><BR>
+            <a href="/help/">Help using the site</a><BR>
+            <a href="/about/">About</a><BR>
+            <a href="/about/contact/">Contact</a><BR>
+            <a href="/about/tos/">Terms of Service</a><BR>
+            <a href="/about/privacy/">Privacy</a><BR>
+            <a href="/about/sponsors/">Corporate Sponsors</a><BR>
+            <a href="/users/memberlist/">Memberlist</a><BR>
+            <a href="/special/acorns/">Acorns</a><BR>
+            <a href="/about/links/">Links</a><BR>
+            <a href="/apps/ask/">Ask a Question</a><BR>
+            <a href="/newsletter/">Newsletter</a><BR>
+            
+    <p>&copy; 1972 - 2018 <a href="/">National Gardening Association</a><p>
+    Times are presented in US Central Standard Time<p>
+          </div>
+     <div class="col-sm-2 text-left">
+      <a href="https://www.pinterest.com/ngagrows/"><i class="fa fa-pinterest-square fa-fw fa-2x"></i>Pinterest</a><br>
+      <a href="https://www.facebook.com/Garden.Org/"><i class="fa fa-facebook-square fa-fw fa-2x"></i>Facebook</a><br>
+      <a href="https://www.youtube.com/user/nationalgardening"><i class="fa fa-youtube-square fa-fw fa-2x"></i>Youtube</a><br>
+      <a href="https://twitter.com/NatlGardening"><i class="fa fa-twitter-square fa-fw fa-2x"></i>Twitter</a><br>
+      <a href="https://www.instagram.com/nationalgardeningassoc/"><i class="fa fa-instagram fa-fw fa-2x"></i>Instagram</a><br>
+    </div><div class="col-sm-6 text-right"><p>Today's site banner is by <a href="/users/profile/joannakat/">joannakat</a> and is called "<a href="/thread/go/78715/">Sweet Alyssum 2</a>"<p></div></div></div><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="/i/js/nga_20170818.js"></script>
+  <script>
+    ga('send', 'pageview');
+  </script>
+    </body></html>

@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0; URL='/sab-saath-badhein/default.html'" />

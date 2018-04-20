@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="http://dirarab.net/" /><!--[if IE]></base><![endif]-->
+<title>اخبار الديرة</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/css/uikit-rtl.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/js/uikit.min.js"></script>
+<meta name="google-site-verification" content="PNLuXz2jHcS3hFdKQClLwEX_oUqf90NYe5QDThKM30M">
+<link rel="canonical" href="http://dirarab.net/">
+<meta name="twitter:url" content="http://dirarab.net/">
+<meta property="og:url" content="http://dirarab.net/">
+<meta name="description" content="اخبار الديرة">
+<meta property="og:description" content="اخبار الديرة">
+<meta name="twitter:description" content="اخبار الديرة">
+
+<meta property="fb:app_id" content="302184056577324" />
+<meta property="og:site_name" content="شبكة الديرة" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="اخبار الديرة">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dirarab">
+<meta name="twitter:title" content="اخبار الديرة">
+<meta name="twitter:creator" content="@dirarab">
+<link rel="shortcut icon" href="http://dirarab.net/assets/img/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://dirarab.net/assets/img/favicons/favicon-32x32.png">
+
+<script>
+    $(document).ready(function() {
+
+        $('.qrcode').on('click', function(e) {
+            e.preventDefault();
+            $(this).blur();
+            var src = 'http://chart.apis.google.com/chart?chs=328&cht=qr&chl=http://dirarab.net/';
+            UIkit.modal.dialog('<div class="uk-modal-body uk-text-center"><img src="' + src + '" alt=""></div><div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">إغلق هذة النافذة</button></div>');
+        });
+        $('.location').click(function() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    $.ajax({
+                            method: "POST",
+                            dataType: "json",
+                            url: "ajax/get_city_by_geolocation",
+                            data: {
+                                model: 'prayertimes',
+                                lat: position.coords.latitude,
+                                lon: position.coords.longitude
+                            }
+                        })
+                        .done(function(msg) {
+                            if (msg.goto)
+                             {
+                                window.location = msg.goto;
+                            } else {
+                                $(".uk-modal-body").append(msg.html);
+                                UIkit.modal("#modal-sections").show();
+                            }
+
+                        });
+                });
+            } else {
+
+                UIkit.modal.alert('متصفحك لا يدعم تحديد موقعك الجغرافي').then();
+
+            }
+        });
+
+    });
+</script>
+</head>
+<body>
+<div class="uk-section uk-section-overlap uk-light uk-section-xsmall" style="background-color:#334C7C">
+<div class="uk-container uk-container-small">
+<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+<div class="uk-navbar-right">
+<a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:void(0)" uk-toggle="target: #offcanvas-nav"></a>
+<a class="uk-navbar-item uk-logo" href="http://dirarab.net/" title="الرئيسية">
+<img class="uk-margin-small-right" alt="" src="http://dirarab.net/assets/img/favicons/logo.png">
+</a>
+</div>
+<div class="uk-navbar-center uk-visible@m">
+<ul class="uk-navbar-nav">
+<li>
+<a href="http://dirarab.net/news" class="">الاخبار</a>
+<div class="uk-navbar-dropdown">
+<ul class="uk-nav uk-navbar-dropdown-nav">
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/1" title="محلية">محلية</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/2" title="اخبار عربية">اخبار عربية</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/3" title="اخبار عالمية">اخبار عالمية</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/4" title="رياضة">رياضة</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/5" title="الاقتصاد">الاقتصاد</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/6" title="تكنلوجيا">تكنلوجيا</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/7" title="ثقافة">ثقافة</a></li>
+<li><a style=" color: #0a0f18" href="http://dirarab.net/news/category/8" title="منوعات">منوعات</a></li>
+</ul>
+</div>
+</li>
+<li><a href="http://dirarab.net/prayertimes" class="">مواقيت الصلاة</a></li>
+<li><a href="http://dirarab.net/weather" class="">حالة الطقس</a></li>
+<li><a href="http://dirarab.net/contact" class="">الاتصال بنا</a></li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class="uk-section uk-section-muted">
+<div class="uk-container uk-container-small">
+<ul class="uk-breadcrumb uk-visible@m" id="breadcrumb" itemprop="breadcrumb">
+<li><a href="http://dirarab.net/">الرئيسية</a></li>
+<li class="uk-active"><a href="http://dirarab.net/news">الاخبار</a></li>
+</ul>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/183">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/img-9E4KU2TWufnlH7gq.jpg" alt="سمو ولي ولي العهد يعزي الرئيس اليمني في ضحايا العمل الإرهابي في مدينة عدن" title="سمو ولي ولي العهد يعزي الرئيس اليمني في ضحايا العمل الإرهابي في مدينة عدن">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/183">سمو ولي ولي العهد يعزي الرئيس اليمني في ضحايا العمل الإرهابي في مدينة عدن</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">بعث صاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزيز آل سعود ولي ولي العهد النائب الثاني رئيس مجلس الوزراء وزير الدفاع برقية عزاء ومواساة لفخامة الرئيس عبدربه منصور هادي رئيس الجمهورية اليمنية إثر نبأ&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/182">تعليم النماص يحتفي باليوم العالمي للغة العربية</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">تحتفي إدارة تعليم محافظة النماص يوم غد الثلاثاء ، باليوم العالمي للغة العربية الذي يقام تحت شعار &quot;تعزيز انتشار اللغة العربية &quot; ، وأعدت لذلك لجان على مستوى الإدارة والمدارس بهدف استثمار هذه المناسبة بما&#8230;</div>
+</div>
+</div>
+<div class="uk-text-center" style=" margin-right: -30px; margin-left: -30px;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8386100151363765" data-ad-slot="1302429935"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/181">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/r6C4E.jpg" alt="تحديد هوية مشتبه به في اعتداء بانكوك" title="تحديد هوية مشتبه به في اعتداء بانكوك">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/181">تحديد هوية مشتبه به في اعتداء بانكوك</a>
+<span class="uk-badge uk-align-left">اخبار عربية</span></h3>
+<div class="">أعلن قائد المجلس العسكري في تايلاند اليوم الثلاثاء أن الشرطة تبحث عن مشتبه به تم تحديده من خلال صور كاميرات المراقبة بالقرب من مكان الاعتداء الذي أوقع ما لا يقل عن 21 قتيلاً وأكثر من&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/180">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/XSUvT.jpg" alt="9 فوائد للتعرض للشمس يومياً" title="9 فوائد للتعرض للشمس يومياً">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/180">9 فوائد للتعرض للشمس يومياً</a>
+<span class="uk-badge uk-align-left">منوعات</span></h3>
+<div class="">أشعة الشمس مهمة لجميع الكائنات الحية، فهي مصدر الطاقة والسبب الأساسى لتعزيز نشاطنا وإعطائنا سببا للاستيقاظ، وعلى الرغم من ذلك، فإن معظم الناس لا يحصلون على ما يكفى من ضوء الشمس الطبيعى، مما يفقدهم الكثير&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/179">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/26VbJ.jpg" alt="100 فرصة عمل مؤقتة وفرها اصنع مهارة للشباب والفتيات" title="100 فرصة عمل مؤقتة وفرها اصنع مهارة للشباب والفتيات">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/179">100 فرصة عمل مؤقتة وفرها اصنع مهارة للشباب والفتيات</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">تمكن برنامج «اصنع مهارة» التدريبي بالمنطقة الشرقية من احتضان 100 شاب وفتاة للعمل المؤقت طيلة فترة الصيف، والبرنامج الذي تنظمه لجنة التنمية الاجتماعية الاهلية بحي الروضة في نسخته 11 والذي أقيم برعاية أمير المنطقة الشرقية&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/178">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/RBsmd.jpg" alt="موجة الرطوبة تواصل الارتفاع بالساحل الشرقي" title="موجة الرطوبة تواصل الارتفاع بالساحل الشرقي">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/178">موجة الرطوبة تواصل الارتفاع بالساحل الشرقي</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">تستمر موجة الرطوبة في الساحل الشرقي في الارتفاع حتى مطلع الأسبوع المقبل، وتدخل المنطقة إلى مساحة غطاء السحب وتراجع سرعة الرياح، الذي يؤثر في مضاعفة الإحساس بشدة الحر ، ويبدأ موسم الرطوبة بالمنطقة الشرقية في&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/177">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/sh7eB.jpg" alt="السياح الخليجيون خارج قائمة الـ 10 الأسوأ عالميا" title="السياح الخليجيون خارج قائمة الـ 10 الأسوأ عالميا">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/177">السياح الخليجيون خارج قائمة الـ 10 الأسوأ عالميا</a>
+<span class="uk-badge uk-align-left">الاقتصاد</span></h3>
+<div class="">أظهر تقرير حديث عن السياحة والسفر حول العالم، خلو قائمة أسوأ السياح من الخليجيين، ما ينصفهم أمام التقارير التي أشارت مؤخرا الى تعاملات سلبية تجاه المرافق العامة في بعض الدول الأوروبية.
+وتصدر السائح الأمريكي قائمة&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/176">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/71PV4.jpg" alt="اليابان وألمانيا.. من دمار الحرب إلى «المعجزة» الاقتصادية" title="اليابان وألمانيا.. من دمار الحرب إلى «المعجزة» الاقتصادية">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/176">اليابان وألمانيا.. من دمار الحرب إلى «المعجزة» الاقتصادية</a>
+<span class="uk-badge uk-align-left">الاقتصاد</span></h3>
+<div class="">يوصف التحول الكبير الذي شهدته أكبر دولتين هُزمتا في الحرب العالمية الثانية، المانيا واليابان «بالمعجزة» بعد سبعين عاما على استسلام هاتين القوتين الاقتصاديتين العالميتين، ففي العام 1945كان البلدان مدمرين بسبب حرب لا سابق للعنف الذي&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/175">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/57Vzo.jpg" alt="انسحاب 25 % من مستحقي الدعم خلال معرض إسكان الشرقية" title="انسحاب 25 % من مستحقي الدعم خلال معرض إسكان الشرقية">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/175">انسحاب 25 % من مستحقي الدعم خلال معرض إسكان الشرقية</a>
+<span class="uk-badge uk-align-left">الاقتصاد</span></h3>
+<div class="">انسحب 25% من مستحقي الدعم في معرض "إسكان الشرقية" بعد رفضهم خيار الحصول على شقة سكنية راغبين في انتظار الإفصاح عن منتجات جديدة تلبي رغباتهم.
+فيما بدأت وزارة الإسكان يوم أمس إرسال رسائل جديدة تعويضية&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/174">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/DIq2V.jpg" alt="تويتة مواطن تغرم محلاً للزي المدرسي" title="تويتة مواطن تغرم محلاً للزي المدرسي">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/174">تويتة مواطن تغرم محلاً للزي المدرسي</a>
+<span class="uk-badge uk-align-left">الاقتصاد</span></h3>
+<div class="">غرمت وزارة التجارة والصناعة محلاً لبيع الزي المدرسي بمحافظة جدة؛ لإرفاقه عبارة «البضاعة المباعة لا ترد» في فاتورة المبيعات.
+وكان مواطن قد تقدم بشكوى للوزارة عبر حسابها بـ «تويتر»، أفاد فيها بأن محلاً لبيع الزي&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/173">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/Au6C6.jpg" alt="النصر أول الأبطال وآخرهم والهلال الأكثر تتويجاً باللقب" title="النصر أول الأبطال وآخرهم والهلال الأكثر تتويجاً باللقب">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/173">النصر أول الأبطال وآخرهم والهلال الأكثر تتويجاً باللقب</a>
+<span class="uk-badge uk-align-left">رياضة</span></h3>
+<div class="">تنطلق، يوم غد الأربعاء، منافسات النسخة الـ 41 من بطولة الدوري الممتاز « دوري عبداللطيف جميل للمحترفين، وسيعود معها ضجيج المدرجات للملاعب السعودية بعد صيف ساخن كان حافلا بالعديد من الصفقات المحلية والأجنبية التي أبرمتها&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/172">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/vT42P.jpg" alt="مانشيني : اللعب المالي النظيف سبب رحيل كوفاتشيتش" title="مانشيني : اللعب المالي النظيف سبب رحيل كوفاتشيتش">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/172">مانشيني : اللعب المالي النظيف سبب رحيل كوفاتشيتش</a>
+<span class="uk-badge uk-align-left">رياضة</span></h3>
+<div class="">بدا ماتيو كوفاتشيتش لاعب وسط انترناسيونالي الذي ينافس بدوري الدرجة الأولى الايطالي لكرة القدم في طريقه للانتقال لريال مدريد، بعد أن أشار المدرب روبرتو مانشيني إلى أن قواعد اللعب النظيف المالي الخاصة بالاتحاد الأوروبي للعبة&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/171">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/oOcmn.jpg" alt="غواص كويتي يتلقّى الأسلحة من قوارب إيرانية" title="غواص كويتي يتلقّى الأسلحة من قوارب إيرانية">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/171">غواص كويتي يتلقّى الأسلحة من قوارب إيرانية</a>
+<span class="uk-badge uk-align-left">اخبار عربية</span></h3>
+<div class="">قضية «خلية حزب الله» في الكويت بدأت تتضخم، وبتسريبات حول قوائم بأسماء كويتيين تلقّوا تدريبات لدى حزب الله في لبنان على استخدام الأسلحة والمتفجرات، وتلقيهم أسلحة بانتظار «تنشيط» العمل في الكويت.
+وما قيل إن شحنات&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/170">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/Fhkvt.jpg" alt="مصر إعلان الجدول الزمني لانتخابات البرلمان الأسبوع المقبل" title="مصر إعلان الجدول الزمني لانتخابات البرلمان الأسبوع المقبل">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/170">مصر إعلان الجدول الزمني لانتخابات البرلمان الأسبوع المقبل</a>
+<span class="uk-badge uk-align-left">اخبار عربية</span></h3>
+<div class="">في أجواء شديدة الحرارة، تجاوزت 53 مئوية، أدت لمقتل وإصابة أكثر من 2000 مصري في حوالي أسبوع واحد، تواصلت عمليات التفجير من قبل جماعات إرهابية مستهدفة المرافق العامة وخطوط السكك الحديدية والمياه في أنحاء متفرقة&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/169">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/3s7tw.jpg" alt="المقاومة تبلغ ذمار وتبدأ عملياً معركة تحرير صنعاء" title="المقاومة تبلغ ذمار وتبدأ عملياً معركة تحرير صنعاء">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/169">المقاومة تبلغ ذمار وتبدأ عملياً معركة تحرير صنعاء</a>
+<span class="uk-badge uk-align-left">اخبار عربية</span></h3>
+<div class="">باتت معركة تحرير صنعاء وشيكة بعد أن حققت المقاومة الشعبية اليمنية تقدماً نوعياً في محافظات ومدن قريبة من صنعاء، فبعد مواجهات استمرت عدة ايام نجحت المقاومة الشعبية اليمنية بتحرير مديرية عتمة بمحافظة ذمار (100 كم&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/168">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/KTxRv.jpg" alt="الصين: 114 قتيلًا في انفجار تيانجين" title="الصين: 114 قتيلًا في انفجار تيانجين">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/168">الصين: 114 قتيلًا في انفجار تيانجين</a>
+<span class="uk-badge uk-align-left">اخبار عالمية</span></h3>
+<div class="">أفادت وسائل الإعلام صينية بأن عمال الانقاذ نقلوا مئات الأطنان من مادة السيانيد السامة من موقع انفجار كيميائي في شمال الصين، فيما ارتفع عدد القتلى إلى 114 شخصًا. وأفادت أحدث حصيلة للضحايا بأن 70 شخصًا&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/167">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/RHRTg.jpg" alt="«الخالدي» مديراً لفرع وزارة التجارة والصناعة بالشرقية" title="«الخالدي» مديراً لفرع وزارة التجارة والصناعة بالشرقية">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/167">«الخالدي» مديراً لفرع وزارة التجارة والصناعة بالشرقية</a>
+<span class="uk-badge uk-align-left">الاقتصاد</span></h3>
+<div class="">أصدر معالي وزير التجارة والصناعة الدكتور توفيق الربيعة، قراراً بتعيين الأستاذ عبد العزيز بن عبد الرحمن الخالدي، مديراً لفرع وزارة التجارة والصناعة بالمنطقة الشرقية .
+ويعد "الخالدي" من الكفاءات الوطنية المؤهلة، وسبق له شغل عدة&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/166">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/KKy6T.jpg" alt="ترحيل «سياجي» البحرية وجامعة الدمام عن مسار «الساحلي»" title="ترحيل «سياجي» البحرية وجامعة الدمام عن مسار «الساحلي»">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/166">ترحيل «سياجي» البحرية وجامعة الدمام عن مسار «الساحلي»</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">كشف مدير عام الادارة العامة للطرق والنقل بالمنطقة الشرقية المكلف المهندس احمد بن مهدي اليامي، عن الاتفاق مع قائد معهد الدراسات الفنية للقوات البحرية وقائد المنطقة الشرقية على ترحيل سور المعهد ضمن خطوات ازالة العوائق&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/165">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/K7UkB.jpg" alt="الأحساء.. منتجات زراعية تصل للمستهلك محملة بسموم المبيدات" title="الأحساء.. منتجات زراعية تصل للمستهلك محملة بسموم المبيدات">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/165">الأحساء.. منتجات زراعية تصل للمستهلك محملة بسموم المبيدات</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">طالب مواطنون بمحافظة الاحساء بفحص الفواكه والخضار المحلية من بقايا المبيدات الزراعية قبل دخولها أسواق الخضار المركزية، حيث بين المواطن عمار السعيد مخاطر المبيدات على الإنسان داعيا الأمانة إلى فحص جميع الفواكه والخضار التي تدخل&#8230;</div>
+</div>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
+<div class="uk-card-media-top">
+<a href="http://dirarab.net/news/post/164">
+<img class="uk-width-1-1" src="http://dirarab.net/assets/files/medium/ADSOi.jpg" alt="لجنة تربوية بتعليم الخبر تستعد للعام الجديد" title="لجنة تربوية بتعليم الخبر تستعد للعام الجديد">
+</a>
+</div>
+<div class="uk-card-body">
+<h3 class="uk-h4 uk-margin-top-remove">
+<a class="uk-link-reset" href="http://dirarab.net/news/post/164">لجنة تربوية بتعليم الخبر تستعد للعام الجديد</a>
+<span class="uk-badge uk-align-left">محلية</span></h3>
+<div class="">ضمن خطته الاستعدادية للعام الدراسي الجديد شكّل مكتب تعليم الخبر لجنة "الاستعداد للعام الدراسي" والتي ستنطلق صباح اليوم الثلاثاء لمتابعة جاهزية مدارس الخبر والظهران لبدء العام.
+وترصد اللجنة البيانات الأساسية لكل مدرسة واكتمال التشكيلات وانضباط&#8230;</div>
+</div>
+</div>
+<ul class="uk-pagination uk-flex-center" uk-margin><li class='uk-disabled'><span uk-pagination-previous></span></li><li class='uk-active'><span class='current'>1</span></li><li><a class='ajaxify' href='http://dirarab.net/?p=2'>2</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=3'>3</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=4'>4</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=5'>5</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=6'>6</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=7'>7</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=8'>8</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=9'>9</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=10'>10</a></li><li><a class='ajaxify' href='http://dirarab.net/?p=2'><span uk-pagination-next></span></a></li></ul>
+</div>
+</div>
+<footer class="uk-section uk-section-secondary uk-light uk-padding-small">
+<div class="uk-container uk-container-small">
+<ul class="uk-subnav" uk-margin>
+<li><a href="#top" uk-icon="icon: triangle-up" uk-scroll></a></li>
+<li><a class="uk-icon-hover  uk-icon-chevron-circle-up uk-icon-small" data-uk-smooth-scroll href="#"></a></li>
+<li class="uk-visible@m"><a href="http://dirarab.net/" title="الرئيسية">الرئيسية</a></li>
+<li class="uk-visible@m"><a href="http://dirarab.net/news" class="">الاخبار</a></li>
+<li class="uk-visible@m"><a href="http://dirarab.net/prayertimes" class="">مواقيت الصلاة</a></li>
+<li class="uk-visible@m"><a href="http://dirarab.net/weather" class="">حالة الطقس</a></li>
+<li class="uk-visible@m"><a href="https://twitdwn.com/" class="">تحميل فيديوهات تويتر</a></li>
+</ul>
+<div class="uk-text-center" style="direction: ltr">
+&copy; Copyright 2011 - 2018.
+</div>
+</div>
+</footer>
+
+<script>
+(function(i, s, o, g, r, a, m)
+  {i['GoogleAnalyticsObject'] = r; i[r] = i[r]||function()
+    {
+      (i[r].q = i[r].q||[]).push(arguments)}, i[r].l = 1*new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  }
+)(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-86812885-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.25/js/uikit-icons.min.js"></script>
+
+<div id="offcanvas-nav" uk-offcanvas="overlay:false">
+<div class="uk-offcanvas-bar">
+<ul class="uk-nav uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
+<li class="uk-nav-header">لوحة التحكم</li>
+<li class="uk-nav-divider"></li>
+<li><a href="http://dirarab.net/" title="الرئيسية"><span uk-icon="icon: home"></span> الرئيسية</a></li>
+<li class="uk-parent">
+<a href="http://dirarab.net/news" class=""><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/png/news.png);"></span> الاخبار</a>
+<ul class="uk-nav-sub">
+<li><a href="http://dirarab.net/news/category/1" title="محلية"><span uk-icon="icon: folder"></span> محلية</a></li>
+<li><a href="http://dirarab.net/news/category/2" title="اخبار عربية"><span uk-icon="icon: folder"></span> اخبار عربية</a></li>
+<li><a href="http://dirarab.net/news/category/3" title="اخبار عالمية"><span uk-icon="icon: folder"></span> اخبار عالمية</a></li>
+<li><a href="http://dirarab.net/news/category/4" title="رياضة"><span uk-icon="icon: folder"></span> رياضة</a></li>
+<li><a href="http://dirarab.net/news/category/5" title="الاقتصاد"><span uk-icon="icon: folder"></span> الاقتصاد</a></li>
+<li><a href="http://dirarab.net/news/category/6" title="تكنلوجيا"><span uk-icon="icon: folder"></span> تكنلوجيا</a></li>
+<li><a href="http://dirarab.net/news/category/7" title="ثقافة"><span uk-icon="icon: folder"></span> ثقافة</a></li>
+<li><a href="http://dirarab.net/news/category/8" title="منوعات"><span uk-icon="icon: folder"></span> منوعات</a></li>
+</ul>
+</li>
+<li class="uk-parent">
+<a href="http://dirarab.net/prayertimes"><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/svg/mosque_d.svg);"></span> مواقيت الصلاة</a>
+<ul class="uk-nav-sub">
+<li><a href="http://dirarab.net/prayertimes/Palestine" title="مواقيت الصلاة في  فلسطين">🇵🇸 فلسطين</a></li>
+<li><a href="http://dirarab.net/prayertimes/Saudi-Arabia" title="مواقيت الصلاة في  المملكة العربية السعودية">🇸🇦 المملكة العربية السعودية</a></li>
+<li><a href="http://dirarab.net/prayertimes/Egypt" title="مواقيت الصلاة في  مصر">🇪🇬 مصر</a></li>
+<li><a href="http://dirarab.net/prayertimes/Syria" title="مواقيت الصلاة في  سوريا">🇸🇾 سوريا</a></li>
+<li><a href="http://dirarab.net/prayertimes/United-Arab-Emirates" title="مواقيت الصلاة في  الإمارات العربية المتحدة">🇦🇪 الإمارات العربية المتحدة</a></li>
+<li><a href="http://dirarab.net/prayertimes/Jordan" title="مواقيت الصلاة في  الأردن">🇯🇴 الأردن</a></li>
+<li><a href="http://dirarab.net/prayertimes/Morocco" title="مواقيت الصلاة في  المغرب">🇲🇦 المغرب</a></li>
+<li><a href="http://dirarab.net/prayertimes/Tunisia" title="مواقيت الصلاة في  تونس">🇹🇳 تونس</a></li>
+<li><a href="http://dirarab.net/prayertimes/Mauritania" title="مواقيت الصلاة في  موريتانيا">🇲🇷 موريتانيا</a></li>
+<li><a href="http://dirarab.net/prayertimes/Qatar" title="مواقيت الصلاة في  قطر">🇶🇦 قطر</a></li>
+<li><a href="http://dirarab.net/prayertimes/Libya" title="مواقيت الصلاة في  ليبيا">🇱🇾 ليبيا</a></li>
+<li><a href="http://dirarab.net/prayertimes/Algeria" title="مواقيت الصلاة في  الجزائر">🇩🇿 الجزائر</a></li>
+<li><a href="http://dirarab.net/prayertimes/Iraq" title="مواقيت الصلاة في  العراق">🇮🇶 العراق</a></li>
+<li><a href="http://dirarab.net/prayertimes/Lebanon" title="مواقيت الصلاة في  لبنان">🇱🇧 لبنان</a></li>
+<li><a href="http://dirarab.net/prayertimes/Oman" title="مواقيت الصلاة في  عمان">🇴🇲 عمان</a></li>
+<li><a href="http://dirarab.net/prayertimes/Sudan" title="مواقيت الصلاة في  السودان">🇸🇩 السودان</a></li>
+<li><a href="http://dirarab.net/prayertimes/Kuwait" title="مواقيت الصلاة في  الكويت">🇰🇼 الكويت</a></li>
+<li><a href="http://dirarab.net/prayertimes/Yemen" title="مواقيت الصلاة في  اليمن">🇾🇪 اليمن</a></li>
+<li><a href="http://dirarab.net/prayertimes/Bahrain" title="مواقيت الصلاة في  البحرين">🇧🇭 البحرين</a></li>
+</ul>
+</li>
+<li class="uk-parent">
+<a href="http://dirarab.net/weather"><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/svg/temperature.svg);"></span> حالة الطقس</a>
+<ul class="uk-nav-sub">
+<li><a href="http://dirarab.net/weather/Palestine" title=" فلسطين">🇵🇸 فلسطين</a></li>
+<li><a href="http://dirarab.net/weather/Saudi-Arabia" title=" المملكة العربية السعودية">🇸🇦 المملكة العربية السعودية</a></li>
+<li><a href="http://dirarab.net/weather/Egypt" title=" مصر">🇪🇬 مصر</a></li>
+<li><a href="http://dirarab.net/weather/Syria" title=" سوريا">🇸🇾 سوريا</a></li>
+<li><a href="http://dirarab.net/weather/United-Arab-Emirates" title=" الإمارات العربية المتحدة">🇦🇪 الإمارات العربية المتحدة</a></li>
+<li><a href="http://dirarab.net/weather/Jordan" title=" الأردن">🇯🇴 الأردن</a></li>
+<li><a href="http://dirarab.net/weather/Morocco" title=" المغرب">🇲🇦 المغرب</a></li>
+<li><a href="http://dirarab.net/weather/Tunisia" title=" تونس">🇹🇳 تونس</a></li>
+<li><a href="http://dirarab.net/weather/Mauritania" title=" موريتانيا">🇲🇷 موريتانيا</a></li>
+<li><a href="http://dirarab.net/weather/Qatar" title=" قطر">🇶🇦 قطر</a></li>
+<li><a href="http://dirarab.net/weather/Libya" title=" ليبيا">🇱🇾 ليبيا</a></li>
+<li><a href="http://dirarab.net/weather/Algeria" title=" الجزائر">🇩🇿 الجزائر</a></li>
+<li><a href="http://dirarab.net/weather/Iraq" title=" العراق">🇮🇶 العراق</a></li>
+<li><a href="http://dirarab.net/weather/Lebanon" title=" لبنان">🇱🇧 لبنان</a></li>
+<li><a href="http://dirarab.net/weather/Oman" title=" عمان">🇴🇲 عمان</a></li>
+<li><a href="http://dirarab.net/weather/Sudan" title=" السودان">🇸🇩 السودان</a></li>
+<li><a href="http://dirarab.net/weather/Kuwait" title=" الكويت">🇰🇼 الكويت</a></li>
+<li><a href="http://dirarab.net/weather/Yemen" title=" اليمن">🇾🇪 اليمن</a></li>
+<li><a href="http://dirarab.net/weather/Bahrain" title=" البحرين">🇧🇭 البحرين</a></li>
+</ul>
+</li>
+<li><a href="http://dirarab.net/currency" class=""><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/svg/exchange.svg);"></span> تحويل العملات</a></li>
+<li><a href="http://dirarab.net/dateconversion" class=""><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/png/dateconversion.png);"></span> تحويل التاريخ ( بالميلادي او بالهجري )</a></li>
+<li><a href="http://dirarab.net/barcodeqr" class=""><span class="uk-icon uk-icon-image" style="background-image: url(http://dirarab.net/assets/img/svg/barcodeqr.svg);"></span> صانع الباركود</a></li>
+<li><a href="http://dirarab.net/contact" class=""><span uk-icon="icon: mail"></span> الاتصال بنا</a></li>
+</ul>
+</div>
+</div>
+
+<div id="share-social" uk-modal="center: true">
+<div class="uk-modal-dialog">
+<button class="uk-modal-close-default" type="button" uk-close></button>
+<div class="uk-modal-header">
+<h2 class="uk-modal-title"><i uk-icon="icon: social"></i> مشاركة الصفحة</h2>
+</div>
+<div class="uk-modal-body">
+<a style="color: #08A8CC" href="https://twitter.com/intent/tweet?text=%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1+%D8%A7%D9%84%D8%AF%D9%8A%D8%B1%D8%A9%0Ahttp%3A%2F%2Fdirarab.net%2F" uk-icon="icon: twitter; ratio: 2" class="uk-icon-button"></a>
+<a style="color: #295488" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdirarab.net%2F&amp;t=%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1+%D8%A7%D9%84%D8%AF%D9%8A%D8%B1%D8%A9" uk-icon="icon: facebook; ratio: 2" class="uk-icon-button"></a>
+<a style="color: #C03A2A" href="https://plus.google.com/share?url=http%3A%2F%2Fdirarab.net%2F" class="uk-icon-button" uk-icon="icon: google-plus; ratio: 2"></a>
+ <a style="color: #0A9E01" href="whatsapp://send?text=%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1+%D8%A7%D9%84%D8%AF%D9%8A%D8%B1%D8%A9%0Ahttp://dirarab.net/" class="uk-icon-button" uk-icon="icon: whatsapp; ratio: 2"></a>
+<a href="javascript:;" class="uk-icon-button qrcode" uk-icon="icon: thumbnails; ratio: 2"></a>
+</div>
+<div class="uk-modal-footer uk-text-right">
+<button class="uk-button uk-button-default uk-modal-close" type="button">إغلق هذة النافذة</button>
+</div>
+</div>
+</div>
+</body>
+</html>

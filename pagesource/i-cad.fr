@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Icad - Accueil</title>
+        <link rel="stylesheet" href="/css/dialog-polyfill.css"/>
+    <link rel="stylesheet" href="/css/jquery-ui.css"/>
+    	<link rel="stylesheet" href="/css/jquery.jcarousel.css"/>
+        <link rel="stylesheet" href="/css/jquery-ui.css"/>
+            <link rel="stylesheet" href="/css/main.css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <![endif]-->
+                    
+
+                        <script src="/js/jquery.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/datepicker-fr.js"></script>
+        <script src="/js/dialog-polyfill.js"></script>
+        <script src="/js/jquery.jcarousel.min.js"></script>
+        <script src="/js/jquery.flip.min.js" type="text/javascript"></script>
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+
+            function are_cookies_enabled()
+            {
+                var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+
+                if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled)
+                {
+                    document.cookie="testcookie";
+                    cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
+                }
+                return (cookieEnabled);
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            function validateEmail(email) {
+                var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+            $(document).ready(function () {
+                $( ".country_select" ).change(function() {
+                        var id = $(this).attr("class").match(/count__\w+/)[0];
+                        if(id) {
+                            var zipCode = $("input." + id);
+                            if ($(this).val() == '' || $(this).val() == 250) zipCode.attr("required", "required");
+                            else zipCode.removeAttr("required");
+                        }
+                    }
+                );
+                $(".lower-case-force").keyup(function(event){
+                   $(this).val($(this).val().toLowerCase());
+                });
+                if(are_cookies_enabled()) {
+                    if (!getCookie("cookieDirective")) {
+                        $('#cookiesdirective').toggle("fade", 2000);
+                    }
+                }
+                else {
+                    $('#cookiesdisabled').toggle("fade", 2000);
+                }
+                $('#accept-cookie').click(function (event) {
+                    event.preventDefault();
+                    setCookie("cookieDirective", "all", 365);
+                    $('#cookiesdirective').toggle("fade", 2000);
+                });
+                $.datepicker.setDefaults($.datepicker.regional['fr']);
+            });
+        </script>
+    
+    <script>
+        $(document).tooltip();
+    </script>
+
+    <script src="/js/login.js" type="text/javascript"></script>
+    <script src="/js/jquery.jcarousel.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            current_index = 1;
+                        max_index = 5;
+            
+            $('.jcarousel').jcarousel({
+            	    wrap: 'circular'
+            })
+            .jcarouselAutoscroll({
+                interval: 3000,
+                target: '+=1',
+                autostart: true
+            });
+
+            $('.jcarousel-control-prev')
+                .on('jcarouselcontrol:active', function() {
+                    $(this).removeClass('inactive');
+                })
+                .on('jcarouselcontrol:inactive', function() {
+                    $(this).addClass('inactive');
+                })
+                .jcarouselControl({
+                    target: '-=1'
+                });
+
+            $('.jcarousel-control-next')
+                .on('jcarouselcontrol:active', function() {
+                    $(this).removeClass('inactive');
+                })
+                .on('jcarouselcontrol:inactive', function() {
+                    $(this).addClass('inactive');
+                })
+                .jcarouselControl({
+                    target: '+=1'
+                });
+
+            $('.jcarousel-pagination')
+                .on('jcarouselpagination:active', 'a', function() {
+                    $(this).addClass('active');
+                })
+                .on('jcarouselpagination:inactive', 'a', function() {
+                    $(this).removeClass('active');
+                })
+                .jcarouselPagination();
+			
+			            generateDialog({
+                "login-dialog-id": "#particulier-login-dialog",
+                "connect-button-id": "#particulier-connect",
+                "close-dialog-button-id": "#particulier_login_close",
+                "connect-form-id": "#form-particulier-login",
+                "connect-sablier-id": "#login-particulier-sablier",
+                "connect-errors-id": "#particulier-login-errors"
+            });
+
+            generateDialog({
+                "login-dialog-id": "#veto-login-dialog",
+                "connect-button-id": "#veto-connect",
+                "close-dialog-button-id": "#veto_login_close",
+                "connect-form-id": "#form-veto-login",
+                "connect-sablier-id": "#login-veto-sablier",
+                "connect-errors-id": "#veto-login-errors"
+            });
+
+            generateDialog({
+                "login-dialog-id": "#tatou-login-dialog",//ok
+                "connect-button-id": "#tatou-connect",//ok
+                "close-dialog-button-id": "#tatou_login_close",//ok
+                "connect-form-id": "#form-tatou-login",
+                "connect-sablier-id": "#login-tatou-sablier",
+                "connect-errors-id": "#tatou-login-errors"
+            });
+
+            generateDialog({
+                "login-dialog-id": "#acteur-login-dialog",//ok
+                "connect-button-id": "#acteur-connect",//ok
+                "close-dialog-button-id": "#acteur_login_close",//ok
+                "connect-form-id": "#form-acteur-login",
+                "connect-sablier-id": "#login-acteur-sablier",
+                "connect-errors-id": "#acteur-login-errors"
+            });
+
+            generateDialog({
+                "login-dialog-id": "#ayantDroit-login-dialog",//ok
+                "connect-button-id": "#ayantDroit-connect",//ok
+                "close-dialog-button-id": "#ayantDroit_login_close",//ok
+                "connect-form-id": "#form-ayantDroit-login",
+                "connect-sablier-id": "#login-ayantDroit-sablier",
+                "connect-errors-id": "#ayantDroit-login-errors"
+            });
+
+            generateDialog({
+                "login-dialog-id": "#ministere-login-dialog",//ok
+                "connect-button-id": "#ministere-connect",//ok
+                "close-dialog-button-id": "#ministere_login_close",//ok
+                "connect-form-id": "#form-ministere-login",
+                "connect-sablier-id": "#login-ministere-sablier",
+                "connect-errors-id": "#ministere-login-errors"
+            });
+						
+            			
+			$('#carrousel').mouseover(function () { 
+				$('.description-image').css('opacity', 0.5);
+				$('.jcarousel').jcarouselAutoscroll('stop'); 
+			});
+			$('#carrousel').mouseout(function () {
+				$('.description-image').css('opacity', 1);
+				$('.jcarousel').jcarouselAutoscroll('start'); 
+			});
+				
+			var lastTimeout = null;
+			
+			$(".flip-card").mouseover(function() {
+				var cart = $(this);
+				if (lastTimeout){
+					clearTimeout(lastTimeout);
+				}
+				lastTimeout = setTimeout(function() { cart.flip(true); }, 300);
+			});
+			
+			$(".flip-card").mouseleave(function() {
+				var cart = $(this);
+				if (lastTimeout){
+					clearTimeout(lastTimeout);
+				}
+				cart.flip(false);
+			});
+			
+			$(".flip-card").flip({
+				trigger: 'manual'
+			});
+			
+			
+			$('.back').css('visibility', 'visible');
+        });
+    </script>
+
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v2"/>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-79593240-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    </head>
+<body>
+<div id="cookiesdirective" style="display: none;">
+    En poursuivant votre navigation sur ce site, vous acceptez l'installation et l'utilisation de cookies sur votre
+    poste.
+    <button id="accept-cookie">Accepter</button>
+</div>
+<!-- <p class="black-13" style="text-align:center;background-color:#a9ca38;border:1px gray solid;;padding:10px"><i>Une intervention de maintenance est programmée mercredi 21 février de 17h30 à 18h30. Cette opération engendrera une indisponibilité temporaire de nos services. Veuillez nous excuser pour la gêne occasionnée.</i></p>-->
+<!-- <p class="black-13" style="text-align:center;background-color:#a9ca38;border:1px gray solid;;padding:10px"><i>Des évènements techniques externes à I-CAD ont eu une incidence sur les site ww.i-cad.fr et www.filalapat.fr , les rendant inaccessibles et non opérationnels.
+Ces perturbations sont désormais résolues.
+Nous vous prions de nous en excuser et vous remercions de la compréhension dont vous aurez fait preuve</i></p>
+<p class="black-13" style="text-align:center;background-color:#a9ca38;border:1px gray solid;;padding:10px">Des évènements techniques externes à I-CAD ont eu une incidence sur les sites www.i-cad.fr et www.filalapat.fr , les rendant inaccessibles et non opérationnels.<br/>
+Ces perturbations sont désormais résolues.
+Nous vous prions de nous en excuser et vous remercions de la compréhension dont vous aurez fait preuve.</p>-->
+
+<div id="cookiesdisabled" style="display: none;">
+    Les cookies sur votre votre navigateur sont désactivés. Pour continuer à utiliser correctement notre site merci de les activer.
+</div>
+    <dialog id="dialog" class="transparent-dialog"></dialog>
+<div id="wrapper">
+    <header>
+            <div id="logos">
+        <a href="/">
+            <img src="/images/logo_ministere.png" id="header_logo_ministere"/>
+            <img src="/images/logo_icad.png" id="header_logo_icad"/>
+        </a>
+    </div>
+    <div id="contact_search">
+        <div>
+            <a href="/contact">
+                <img src="/images/icons/contact-petit.png" class="picto" />
+                Nous contacter
+            </a>
+        </div>
+        <div style="margin-top: 5px;">
+            <a href="/newsletter">
+                <img src="/images/icons/newsletter-petit.png" class="picto" />
+                S'inscrire &agrave; la newsletter
+            </a>
+        </div>
+                            <form method="post" action="/search" style="margin-left:25px;display:inline-block;">
+                <input type="text" id="search_article_searchString" name="search_article[searchString]" required="required" placeholder="Rechercher une page..." class="search_input" />
+                    <button type="submit" id="search_article_save" name="search_article[save]" class="search_submit"><img src="/images/icons/search-header.png" /></button>
+
+                <input type="hidden" id="search_article__token" name="search_article[_token]" value="a6a59e6ee0c8c0713797a45d010f488ce3256d45" /></form>
+            </div>
+    </header>
+    <nav>    <ul id="menu">
+                <li>
+                    <a href="/">Accueil</a>
+                            <li>
+                    <a href="#">I-CAD</a>
+                            <ul class="sub-menu">
+                                                                                                                                <li>
+                        <a href="/articles/124">
+                            Qui sommes-nous ?
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/valeurs_et_engagements">
+                            Nos valeurs et nos engagements
+                        </a>
+                    </li>
+                                                                                                                <li>
+                        <a href="/articles/notre_savoir_faire">
+                            Notre savoir-faire
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/102">
+                            Nos usagers
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/identification_chiffres_cles_">
+                            Nos chiffres clés
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/offres_demploi">
+                            Nous recrutons !
+                        </a>
+                    </li>
+                                                </ul>
+                    <li>
+                    <a href="#">IDENTIFICATION</a>
+                            <ul class="sub-menu">
+                                                        <li>
+                        <a href="/articles/identifier_animal">
+                            Pourquoi faire identifier son animal
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/23">
+                            Les chiffres clés
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/moyens_identification">
+                            Les moyens d&#039;identification
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/documents_identification">
+                            Les documents
+                        </a>
+                    </li>
+                                                </ul>
+                    <li>
+                    <a href="#">Démarches</a>
+                            <ul class="sub-menu">
+                                                        <li>
+                        <a href="/articles/sommaire-reglementations">
+                            Règlementation
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/36">
+                            Questions - réponses
+                        </a>
+                    </li>
+                                                                                                                        </ul>
+                    <li>
+                    <a href="#">PERDU / TROUVÉ</a>
+                            <ul class="sub-menu">
+                                                        <li>
+                        <a href="/articles/animal_perdu">
+                            J&#039;ai perdu mon animal
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/animal_trouve">
+                            J&#039;ai trouvé un animal
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/28">
+                            Filalapat
+                        </a>
+                    </li>
+                                                </ul>
+                    <li>
+                    <a href="#">ACTUALITÉS</a>
+                            <ul class="sub-menu">
+                                                        <li>
+                        <a href="/articles/sommaire-actualites">
+                            Toutes les actualités
+                        </a>
+                    </li>
+                                                                                                                <li>
+                        <a href="/articles/publications">
+                            Nos publications
+                        </a>
+                    </li>
+                                                </ul>
+                    <li>
+                    <a href="#">Conseils</a>
+                            <ul class="sub-menu">
+                                                        <li>
+                        <a href="/articles/sommaire-conseils">
+                            &gt; Tous les conseils
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/sommaire-conseils-chat">
+                            Conseils pour chat
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/sommaire-conseils-chien">
+                            Conseils pour chien
+                        </a>
+                    </li>
+                                                                            <li>
+                        <a href="/articles/sommaire-conseils-furet">
+                            Conseils pour furet
+                        </a>
+                    </li>
+                                                </ul>
+                </ul>
+                                                </nav>
+    <main>
+            <div id="fb-root"></div>
+    <section id="carrousel" style="position:relative">
+			<div class="jcarousel">
+			    <ul>
+				    	                <li>
+	                	<a href="/articles/192">
+				            <div class="description">
+			                    <div class="description-text">
+			                        <h2>Actualité</h2>
+			                        <h3>Élevage et vente de chiens et chats : vos nouvelles obligations</h3>
+			                    </div>
+			                </div>
+		                    <img class="description-image" src="/uploads/5a7ad72cc880f.png" />
+	                    </a>
+	                </li>
+	                	
+	                	                    <li>
+                        	<a href="/articles/importation_chiens_chats_furets_infographie">
+	                        <div class="description">
+	                            <div class="description-text">
+	                                <h2>Actualité</h2>
+			                        <h3>L&#039;importation des chiens, chats et furets : une croissance de 17 % en 4 ans</h3>
+	                            </div>
+	                        </div>
+	                        <img class="description-image" src="/uploads/5a0c2d4f20567.jpeg" /></a>
+	                    </li>
+	                	
+	                	                <li>
+	                    <a href="/articles/151">
+	                    <div class="description">
+	                        <div class="description-text">
+	                            <h2>Conseil</h2>
+		                        <h3>Comment faire cohabiter un chien et un enfant ?</h3>
+	                        </div>
+	                    </div><img class="description-image" src="/uploads/584e60da5389c.png" /></a>
+	                </li>
+	                	                	                <li>
+	                    <a href="/articles/changement_detenteur">
+	                    <div class="description">
+	                        <div class="description-text">
+	                            <h2>Actualité</h2>
+		                        <h3>Vous souhaitez effectuer un changement de détenteur ?</h3>
+	                        </div>
+	                    </div><img class="description-image" class="description-image" src="/uploads/583571b1be51f.jpeg" /></a>
+	                </li>
+	                	                	                <li>
+	                    <a href="/articles/288">
+	                    <div class="description">
+	                        <div class="description-text">
+	                            <h2>Actualité</h2>
+		                        <h3>Mon chien fugue. Que faire ?</h3>
+	                        </div>
+	                    </div><img class="description-image" src="/uploads/591db5a8c8464.png" /></a>
+	                </li>
+                			    </ul>
+			</div>
+            <a href="#" class="jcarousel-control jcarousel-control-prev">&nbsp;</a>
+        	<a href="#" class="jcarousel-control jcarousel-control-next">&nbsp;</a>
+			<p class="jcarousel-pagination"></p>
+	</section>
+    <section id="liens_connection">
+        <div class="row-x">
+            <div class="menu_link flip-card" id="particulier-connect">
+            	<div class="front"> 
+            	<h2 class="connect-button" style="background-color: #a9ca38;">
+                    <img src="/images/particulier-picto.png" style="display: inline-block;"><br>
+                    <span>D&Eacute;TENTEUR</span>
+                </h2>
+                </div>
+                <div class="back" style="visibility:hidden">
+            	<h2 class="connect-button" style="background-color: #54651c;">
+                    <span><!-- D&Eacute;TENTEUR<br> -->
+                        <span class="menu_subtitle">Espace privé réservé aux détenteurs de chien, chat ou furet</span>
+                    </span>
+                </h2>
+                </div>
+            </div>
+            <div class="menu_link flip-card" id="veto-connect">
+        		<div class="front"> 
+	                <h2 class="connect-button" style="background-color: #7ea7b3;">
+	                    <img src="/images/veterinaire_blanc.png" style="display: inline-block;" height="45" width="32"><br>
+	                    <span>
+	                        V&Eacute;T&Eacute;RINAIRE<br>
+	                    </span>
+	                </h2>
+                </div>
+                <div class="back" style="visibility:hidden">
+	            	<h2 class="connect-button" style="background-color: #3f5359;">
+	                    <span>
+	                    <!-- V&Eacute;T&Eacute;RINAIRE<br> -->
+		                    <span class="menu_subtitle">Espace privé réservé aux vétérinaires libéraux ou salariés et aux assistantes vétérinaires</span>
+		                </span>
+	                </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row-x">
+
+            <div class="menu_link flip-card" id="tatou-connect">
+            	<div class="front"> 
+	                <h2 class="connect-button" style="background-color: #f4991f;">
+	                    <img src="/images/tatoueur_blanc.png" style="display: inline-block;" height="37" width="44"><br>
+	                    <span>TATOUEUR AGR&Eacute;&Eacute;</span>
+	                </h2>
+	            </div>
+	            <div class="back" style="visibility:hidden">
+	            	<h2 class="connect-button" style="background-color: #7a4c0f;">
+	            		<span>
+	            		<!-- TATOUEUR AGR&Eacute;&Eacute; -->
+		            		<span class="menu_subtitle">Espace privé réservé aux personnes agréées à tatouer des chiens</span>
+	            		</span>
+	                </h2>
+	            </div>
+            </div>
+            <div class="menu_link flip-card" id="acteur-connect">
+           		<div class="front"> 
+	                <h2 class="connect-button" style="background-color: #a9ca38;">
+	                    <img src="/images/acteur-picto.png" style="display: inline-block;"><br>
+	                    <span>ACTEUR <br> DE LA FILI&Egrave;RE
+	                    </span>
+	                </h2>
+                </div>
+		        <div class="back" style="visibility:hidden">
+	            	<h2 class="connect-button" style="background-color: #54651c;">
+	                    <span><!-- ACTEUR <br> DE LA FILI&Egrave;RE -->
+	                        <span class="menu_subtitle">Espace privé réservé aux éleveurs, animaleries, associations animales, refuges, fourrières, etc…</span>
+	                    </span>
+	                </h2>
+	            </div>
+            </div>
+        </div>
+        <div class="row-x">
+
+            <div class="menu_link flip-card" id="ayantDroit-connect">
+            	<div class="front"> 
+	                <h2 class="connect-button" style="background-color: #7ea7b3;">
+	                    <img src="/images/ayant_droit-picto.png" style="display: inline-block;"><br>
+	                    <span>AYANT-DROIT<br>
+	                    </span>
+	                </h2>
+	             </div>
+			     <div class="back" style="visibility:hidden">
+	            	<h2 class="connect-button" style="background-color: #3f5359;">
+	                    <span><!-- AYANT-DROIT<br> -->
+		                    <span class="menu_subtitle">Espace privé réservé aux gendarmeries, polices, pompiers, mairies, etc…</span>
+		                </span>
+	                </h2>
+	            </div>
+            </div>
+            <div class="menu_link flip-card" id="ministere-connect">
+            	<div class="front"> 
+	            	<h2 class="connect-button" style="background-color: #f4991f;">
+	                    <img src="/images/ministere-picto.png" style="display: inline-block;"><br>
+	                    <span>MINIST&Egrave;RE <br>
+	                    </span>
+	                </h2>
+	            </div>
+				<div class="back" style="visibility:hidden">
+	            	<h2 class="connect-button" style="background-color: #7a4c0f;">
+	                    <span><!-- MINIST&Egrave;RE <br> -->
+	                        <span class="menu_subtitle">Espace privé réservé aux douanes, DD(CS)PP, DGAL, DGCCRF, etc…</span>
+	                    </span>
+	                </h2>
+		        </div>
+            </div>
+        </div>
+    </section>
+    <div id="bottom-wrapper">
+			<section id="conseil">
+            <div class="head"><a href="/articles/sommaire-conseils">Conseils</a><a  href="/articles/sommaire-conseils" class="plus">+</a></div>
+                        <a href="/articles/163">
+            <img src="/uploads/5807760f99bb7.png" />
+            <div class="infos">
+                <p class="cat">Conseils Grand Public<span class="date"> | 11.10.2016</span></p>
+                <p class="title">Pourquoi ne jamais appliquer une pipette antipuces/antitiques pour chien sur un chat ?</p>
+                <p class="lower-right">+</p>
+            </div>
+            </a>
+                    </section>
+                    <section id="nouveaute">
+            <div class="head"><a href="/actualites">Actualités</a><a  href="/actualites" class="plus">+</a></div>
+                        <a href="/articles/AccesFilalapat">
+            <img src="/uploads/5a854b53a7e14.jpeg" />
+            <div class="infos">
+                <p class="cat"><span class="date"> | 14.02.2018</span></p>
+                <p class="title">L’accès à Filalapat n’est plus possible depuis le site I-CAD</p>
+                <p class="lower-right">+</p>
+            </div>
+            </a>
+                    </section>
+                    <div id="bottom-right-wrapper">
+            <section id="agenda">
+                <div class="head" style="line-height:20px">
+                    <a href="/agenda">Agenda</a>
+                    <a class="plus" href="/agenda">+</a>
+                </div>
+                                    <div class="event">
+                        <a href="/articles/277">
+                            <div class="date col-xs-3">
+                                <div class="dummy"></div>
+                                <div class="element">
+                                    <span class="day">01</span><br/>
+                                    <span class="month">Avril</span>
+                                </div>
+                            </div>
+                            <div class="title col-xs-9">
+                            I-CAD partenaire du WE Animal et cie
+                                                        <br/>
+                            <span class="agenda_preview"><p>Les 1er et 2 avril 2017 &agrave; Toulouse</p></span>
+                                                        </div>
+                            <div class="plus-2">+</div>
+                        </a>
+                    </div>
+                                            <hr class="separator">
+                                                        <div class="event">
+                        <a href="/articles/267">
+                            <div class="date col-xs-3">
+                                <div class="dummy"></div>
+                                <div class="element">
+                                    <span class="day">25</span><br/>
+                                    <span class="month">Févr.</span>
+                                </div>
+                            </div>
+                            <div class="title col-xs-9">
+                            I-CAD au Salon de l&#039;Agriculture 2017
+                                                        <br/>
+                            <span class="agenda_preview"><p>I-CAD au Salon de l&#39;Agriculture 2017</p></span>
+                                                        </div>
+                            <div class="plus-2">+</div>
+                        </a>
+                    </div>
+                                            <hr class="separator">
+                                                        <div class="event last">
+                        <a href="/articles/269">
+                            <div class="date col-xs-3">
+                                <div class="dummy"></div>
+                                <div class="element">
+                                    <span class="day">21</span><br/>
+                                    <span class="month">Févr.</span>
+                                </div>
+                            </div>
+                            <div class="title col-xs-9">
+                            Identification des chiens, chats et fure…
+                                                        <br/>
+                            <span class="agenda_preview"><p>Le bilan 2016 en chiffres et en images</p></span>
+                                                        </div>
+                            <div class="plus-2">+</div>
+                        </a>
+                    </div>
+                                                </section>
+        </div>
+                    
+    </div>
+    <div id="session_error">
+        
+	</div>
+        <div id="particulier-login-dialog" class="ui-dialog-content ui-widget-content ui-tabs ui-widget ui-corner-all">
+	<a id="particulier_login_close" class="conn_close" href="#">&#10006;</a>
+    
+    <div class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <div class="login-dialog-title">
+	    	Accéder à mon espace détenteur
+	    </div>
+	    <div class="login-body">
+	        <div class="row-x subtitle" style="padding: 10px 0;">
+	            Mon espace Détenteur me permet de :
+	        </div>
+	        <div class="row-x" style="padding-bottom: 25px;">
+	            <div class="col-xs-6">
+	                <div class="row-x">
+	                    <div class="col-xs-0-5"><img src="/images/point-1.png" class="margin-right-5"></div>
+	                    <div class="col-xs-11">Déclarer un de mes animaux perdu, trouvé ou retrouvé</div>
+	                </div>
+	                <div class="row-x margin-top-10">
+	                    <div class="col-xs-0-5"><img src="/images/point-2.png" class="margin-right-5"></div>
+	                    <div class="col-xs-11">Déclarer une adresse temporaire pour un ou plusieurs de mes animaux</div>
+	                </div>
+	            </div>
+	            <div class="col-xs-6">
+	                <div class="row-x">
+	                    <div class="col-xs-0-5"><img src="/images/point-3.png" class="margin-right-5"></div>
+	                    <div class="col-xs-11">Déclarer le décès d'un de mes animaux</div>
+	                </div>
+	                <div class="row-x margin-top-10">
+	                    <div class="col-xs-0-5"><img src="/images/point-4.png" class="margin-right-5"></div>
+	                    <div class="col-xs-11">Accéder aux démarches spécifiques aux détenteurs d'animaux</div>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <div id="particulier-login-errors" class="row-x" style="display: none;">
+	                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+	        </div>
+	        <form id="form-particulier-login" method="post" class="form-login-popup"
+	              action="/login/particulier/checkIdentiy">
+	
+	            <div class="row-x" id="tabs-1">
+	                <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+	                <div style="display: table;margin: 15px 0;width: 100%;table-layout: fixed">
+	                    <div style="display: table-row">
+	                        <div class="left-col" style="width:220px;">
+	                            <label class="espace-det"><img src="/images/login.png" class="margin-right-5">
+	                                N° d'identification
+	                            </label>
+	                            <label class="espace-filalapat"><img src="/images/login.png" class="margin-right-5">
+	                                Nom d'utilisateur
+	                            </label>
+	                        </div>
+	                        <div class="right-col">
+	                            <input type="text" name="login" style="width: 80%; margin-right: 5px;">
+	                            <img class="espace-det" id="help_login" src="/images/pointinterogation.png" alt="?" style="cursor:pointer;vertical-align: top;"/>
+	                        </div>
+	                    </div>
+	                    <div style="display: table-row">
+	                        <div class="left-col" style="width:220px;">
+	                            <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+	                        </div>
+	                        <div class="right-col">
+	                            <input type="password" name="password" style="width: 80%;">
+	                        </div>
+	                    </div>
+	                </div>
+	
+	                <div class="row-x" style="text-align: left">
+	                    <!--<input type="checkbox" style="vertical-align: middle;"> <label>se souvenir de moi</label>-->
+	                </div>
+	
+	                <div class="row-x margin-top-20">
+	                    <div class="col-xs-3 espace-det"><a href="/particulier/forgot_password" class="forget-password">Mot de passe oublié ?</a></div>
+		            </div>
+	                
+	            </div>
+	        
+	            <div class="row-x margin-top-20" style="text-align: right">
+	                <img id="login-particulier-sablier" src="/images/sablier.gif" width="20px" height="20px"
+	                     style="position: relative;top: 6px;">
+	                <input type="submit" class="login-button" value="Connexion">
+	            </div>
+	       </form>
+        </div>
+    </div>
+    <div id="help_locate_ident_dialog" style="display:none">
+	<p class="red-16">Votre identifiant et votre mot de passe se trouvent en haut à gauche de la carte d'identification de votre animal :</p>
+	<img src="/images/CI.png" alt="CI"/>
+	<p class="black-14">Si vous avez une carte d'identifcation plus ancienne qui ne possède pas d'identifiant, veuillez nous <a style="color: #D70048;" href="/contact/identifiant">contacter</a>.</p>
+</div>
+</div>
+<script>
+function switchTab(espace) {
+	$('.tabs').removeClass('tabs-active');
+	$('#tab-' + espace).addClass('tabs-active');
+	$('.espace-det').hide();
+	$('.espace-filalapat').hide();
+	$('.' + espace).show();
+}
+$(function() { 
+	switchTab('espace-det');
+	$('#help_login').click(function() {
+		$("#help_locate_ident_dialog").dialog();
+	});
+});
+</script>
+
+
+    <div id="veto-login-dialog" class="transparent-dialog">
+    <div class="row-x">
+        <a id="veto_login_close" class="conn_close" href="#">&#10006;</a>
+    </div>
+
+    <div class="login-dialog-title">Accéder à mon espace vétérinaire</div>
+    <div class="login-body">
+        <div class="row-x subtitle" style="padding: 10px 0;">
+            Mon espace Vétérinaire me permet de :
+        </div>
+        <div class="row-x" style="padding-bottom: 25px;">
+            <div class="col-xs-6">
+                <div class="row-x">
+                    <div class="col-xs-0-5"><img src="/images/point-1.png" class="margin-right-5"></div>
+                    <div class="col-xs-11">Consulter le Fichier d'identification des carnivores domestiques</div>
+                </div>
+                <div class="row-x margin-top-10">
+                    <div class="col-xs-0-5"><img src="/images/point-2.png" class="margin-right-5"></div>
+                    <div class="col-xs-11">Commander des droits à enregistrer dans le fichier</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="row-x">
+                    <div class="col-xs-0-5"><img src="/images/point-3.png" class="margin-right-5"></div>
+                    <div class="col-xs-11">Enregistrer l'identification que je viens de réaliser</div>
+                </div>
+                <div class="row-x margin-top-10">
+                    <div class="col-xs-0-5"><img src="/images/point-4.png" class="margin-right-5"></div>
+                    <div class="col-xs-11">Enregistrer mes évaluations comportementales</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="veto-login-errors" class="row-x margin-bottom-20" style="display: none;">
+                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <form id="form-veto-login" method="post" class="form-login-popup" action="/login/check/veterinaire">
+        <div class="row-x">
+            <div class="col-xs-6">
+                <span class="login-dialog-sub-title">Je suis vétérinaire inscrit à l'Ordre</span>
+                <a href="/cso" class="login-dialog-sub-title-button">
+                    J'accéde à mon Espace Véterinaire avec mon code ordinal
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <span class="login-dialog-sub-title">Je suis ASV ou non inscrit à l'Ordre</span>
+
+                    <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+                    <div style="display: table;margin: 15px 0;width: 320px;table-layout: fixed">
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/login.png" class="margin-right-5"> Login </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="text" name="login">
+                            </div>
+                        </div>
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-x" style="text-align: left">
+                        <!--<input type="checkbox" style="vertical-align: middle;"> <label>se souvenir de moi</label>-->
+                    </div>
+            </div>
+        </div>
+        <div class="row-x" style="text-align: right">
+            <img id="login-veto-sablier" src="/images/sablier.gif" width="20px" height="20px"
+                 style="position: relative;top: 6px;">
+            <input type="submit" class="login-button" value="Connexion">
+        </div>
+
+        </form>
+    </div>
+</div>
+    <div id="tatou-login-dialog" class="transparent-dialog">
+    <div class="row-x">
+        <a id="tatou_login_close" class="conn_close" href="#">&#10006;</a>
+    </div>
+
+    <div class="login-dialog-title">Accéder à mon espace tatoueur</div>
+    <div class="login-body">
+        <div class="row-x subtitle" style="padding: 10px 0;">
+            Mon espace Tatoueur me permet de :
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-1.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Consulter le Fichier d'identification des carnivores domestiques</div>
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-2.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Commander des carnets de tatouage</div>
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-3.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Enregistrer l'identification que je viens de réaliser</div>
+        </div>
+
+        <div id="tatou-login-errors" class="row-x margin-top-20" style="display: none;">
+                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="row-x margin-top-20">
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <span class="login-dialog-sub-title">J'accéde à mon Espace Tatoueur</span>
+
+                <form id="form-tatou-login" class="form-login-popup" method="post" action="/login/check/tatoueur">
+                    <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+
+                    <div style="display: table;margin: 15px 0;width: 320px;table-layout: fixed">
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/login.png" class="margin-right-5"> Login </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="text" name="login">
+                            </div>
+                        </div>
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-x">
+                        <!--<input type="checkbox"> <label>se souvenir de moi</label>-->
+                    </div>
+
+                    <div class="row-x margin-top-20">
+                        <a href="/forgot_password" class="forget-password">Mot de passe oublié ?</a>
+                    </div>
+
+                    <div class="row-x margin-top-20" style="text-align: center;">
+                        <input type="submit" class="login-button" value="Connexion">
+                        <img id="login-tatou-sablier" src="/images/sablier.gif" width="20px" height="20px" style="position: relative;top: 6px;">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <a href="/contact/identifiant" class="login-dialog-demande-acces">Je demande des codes d'accès</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="acteur-login-dialog" class="transparent-dialog">
+    <div class="row-x">
+        <a id="acteur_login_close" class="conn_close" href="#">&#10006;</a>
+    </div>
+
+
+    <div class="login-dialog-title">Accéder à mon espace ACTEUR DE LA FILIERE</div>
+    <div class="login-body">
+        <div class="row-x subtitle" style="padding: 10px 0;">
+            Je suis une <b>association animale</b>, un <b>éleveur</b>, un <b>grossiste</b>, une <b>animalerie</b>,<br>
+            une <b>fourrière</b>, un <b>refuge</b>, une <b> Fourrière-Refuge</b> ou un <b>laboratoire</b>, mon espace me permet de :
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-1.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Consulter la liste de mes animaux et les déclarer perdu, retrouvé ou décédé</div>
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-2.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Déclarer les cessions de mes animaux</div>
+        </div>
+
+        <div id="acteur-login-errors" class="row-x margin-top-20" style="display: none;">
+                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="row-x margin-top-20">
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <span class="login-dialog-sub-title">J'accéde à mon Espace Acteur de la filière</span>
+
+                <form id="form-acteur-login" class="form-login-popup" method="post" action="/login/check/acteur">
+                    <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+
+                    <div style="display: table;margin: 15px 0;width: 320px;table-layout: fixed">
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/login.png" class="margin-right-5"> Login </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="text" name="login">
+                            </div>
+                        </div>
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-x">
+                        <!--<input type="checkbox"> <label>se souvenir de moi</label>-->
+                    </div>
+
+                    <div class="row-x margin-top-20">
+                        <a href="/forgot_password" class="forget-password">Mot de passe oublié ?</a>
+                    </div>
+
+                    <div class="row-x margin-top-20" style="text-align: center;">
+                        <input type="submit" class="login-button" value="Connexion">
+                        <img id="login-acteur-sablier" src="/images/sablier.gif" width="20px" height="20px" style="position: relative;top: 6px;">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <a href="/contact/identifiant" class="login-dialog-demande-acces">Je demande des codes d'accès</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="ayantDroit-login-dialog" class="transparent-dialog">
+    <div class="row-x">
+        <a id="ayantDroit_login_close" class="conn_close" href="#">&#10006;</a>
+    </div>
+
+    <div class="login-dialog-title">Accéder à mon espace AYANT-DROIT</div>
+    <div class="login-body">
+        <div class="row-x subtitle" style="padding: 10px 0;">
+            Je suis <b>gendarmerie, police, pompier</b> ou <b>club de race</b>, mon espace me permet de :
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-1.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Consulter le Fichier d'identification des carnivores domestiques</div>
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-2.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Accéder aux données qui me sont dédiées</div>
+        </div>
+
+        <div id="ayantDroit-login-errors" class="row-x margin-top-20" style="display: none;">
+                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="row-x margin-top-20">
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <span class="login-dialog-sub-title">J'accéde à mon Espace Ayant-droit</span>
+
+                <form id="form-ayantDroit-login" class="form-login-popup" method="post" action="/login/check/ayantdroit">
+                    <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+
+                    <div style="display: table;margin: 15px 0;width: 320px;table-layout: fixed">
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/login.png" class="margin-right-5"> Login </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="text" name="login">
+                            </div>
+                        </div>
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-x">
+                        <!--<input type="checkbox"> <label>se souvenir de moi</label>-->
+                    </div>
+
+                    <div class="row-x margin-top-20">
+                        <a href="/forgot_password" class="forget-password">Mot de passe oublié ?</a>
+                    </div>
+
+                    <div class="row-x margin-top-20" style="text-align: center;">
+                        <input type="submit" class="login-button" value="Connexion">
+                        <img id="login-ayantDroit-sablier" src="/images/sablier.gif" width="20px" height="20px" style="position: relative;top: 6px;">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <a href="/contact/identifiant" class="login-dialog-demande-acces">Je demande des codes d'accès</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="ministere-login-dialog" class="transparent-dialog">
+    <div class="row-x">
+        <a id="ministere_login_close" class="conn_close" href="#">&#10006;</a>
+    </div>
+
+    <div class="login-dialog-title">Accéder à mon espace MINISTERE :</div>
+    <div class="login-body">
+        <div class="row-x subtitle" style="padding: 10px 0;">
+            Je suis une <b>DDCSPP</b>, un <b> service du Ministère</b> ou les <b>douanes</b>, mon espace me permet de :
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-1.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Consulter le Fichier d'identification des carnivores domestiques</div>
+        </div>
+        <div class="row-x margin-top-10">
+            <div class="col-xs-0-3"><img src="/images/point-2.png" class="margin-right-5"></div>
+            <div class="col-xs-11">Accéder aux données qui me sont dédiées</div>
+        </div>
+
+        <div id="ministere-login-errors" class="row-x margin-top-20" style="display: none;">
+                    <div class="ui-widget" style="text-align: left;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <div>
+                <span class="ui-icon ui-icon-alert" style="margin-right: .3em; float: left;"></span>
+                <p id="affiche-erreur-login"></p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="row-x margin-top-20">
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <span class="login-dialog-sub-title">J'accéde à mon espace ministère</span>
+
+                <form id="form-ministere-login" class="form-login-popup" method="post" action="/login/check/ministere">
+                    <input class="login_token" type="hidden" name="_token" value="79a64a1082aa643ef959eb5bd5a6fdd9500734b9">
+
+                    <div style="display: table;margin: 15px 0;width: 320px;table-layout: fixed">
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/login.png" class="margin-right-5"> Login </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="text" name="login">
+                            </div>
+                        </div>
+                        <div style="display: table-row">
+                            <div class="left-col">
+                                <label><img src="/images/motdepasse.png" class="margin-right-5"> Mot de passe </label>
+                            </div>
+                            <div class="right-col">
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-x">
+                        <!--<input type="checkbox"> <label>se souvenir de moi</label>-->
+                    </div>
+
+                    <div class="row-x margin-top-20">
+                        <a href="/forgot_password" class="forget-password">Mot de passe oublié ?</a>
+                    </div>
+
+                    <div class="row-x margin-top-20" style="text-align: center;">
+                        <input type="submit" class="login-button" value="Connexion">
+                        <img id="login-ministere-sablier" src="/images/sablier.gif" width="20px" height="20px" style="position: relative;top: 6px;">
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-6" style="padding: 0.3%;">
+                <a href="/contact/identifiant" class="login-dialog-demande-acces">Je demande des codes d'accès</a>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+    <footer>
+            <section id="useful_links">
+        <header style="padding-top: 0;">Liens utiles</header>
+        <div class="row">
+                <div class="cell"><a href="/">Accueil</a></div>
+                <div class="cell"><a href="/show/26">Animal Perdu</a></div>
+                <div class="cell"><a href="/show/121">Conseils</a></div>
+        </div>
+        <div class="row">
+                <div class="cell"><a href="/show/124">Qui sommes-nous ?</a></div>
+                <div class="cell"><a href="/show/27">Animal trouvé</a></div>
+                <div class="cell"><a href="/show/290">Espace presse</a></div>
+        </div>
+        <div class="row">
+                <div class="cell"><a href="/show/15">Identification</a></div>
+                <div class="cell"><a href="/show/146">Démarches</a></div>
+                <div class="cell"><a href="/show/246">Mentions légales</a></div>
+        </div>
+        <div class="row">
+                <div class="cell"><a href="/reglementation">Réglementation</a></div>
+                <div class="cell"><a href="/show/32">Actualités</a></div>
+                    </div>
+    </section>
+    <section id="stay_connected">
+        <header>Restez connect&eacute;(e) !</header>
+        <p>
+            <a href="https://www.facebook.com/Icad.fr/"><img src="/images/icons/facebook.png" height="21px" /></a>
+            <a href="https://twitter.com/Icad_fr"><img src="/images/icons/twitter.png" height="21px" /></a>
+            <a href="https://www.youtube.com/channel/UC49AT_cokmAKZxgE4PrB_jA"><img src="/images/icons/youtube.png" height="21px" /></a>
+            <a href="/feed"><img src="/images/icons/rss.png" height="15px" /></a>
+        </p>
+        <div id="epn-badge">
+		<div class="content">
+			<a href="http://www.europetnet.com/europetnet-member.html?ICA" target="_blank">
+				<img src="/images/epn-badge-light.png" alt="EPN Badge" />
+				<span class="epn-date">16/03/2018</span>
+			</a>
+		</div>
+	</div>
+    </section>
+    <section id="filalapat">
+    	<p style="line-height: 1px;padding-left:20px"><span style="font-size:14px;line-height: 13px;">Téléchargez</span> <span style="color:#76c2ea;font-size:18px">Filalapat</span></p>
+        <a href="https://filalapat.fr/info"><img style="position:relative;top:-10px" src="/images/filalapat_logo.png" alt="filalapat" width="80" height="80"/></a>
+        <p style="padding-right: 20px;padding-left:20px;text-transform: uppercase;color:#76c2ea;font-size:11px;position:relative;top:-22px">L’application qui fait le lien entre votre animal et vous</p>
+    </section>
+    <section id="frise">
+        <img src="/images/frise.png" />
+    </section>
+    </footer>
+</div>
+</body>
+</html>

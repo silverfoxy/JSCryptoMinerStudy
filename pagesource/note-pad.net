@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class='no_js' data-ng-app='Notepad' lang='ru'>
+<head>
+<title data-ng-bind="(window_title ? window_title + ' - ' : '') + 'Онлайн-блокнот'">Онлайн-блокнот</title>
+<link href="/assets/application-03c0275f8f6a89b84a7427cee4ee79c7.css" id="main_stylesheet" media="screen" rel="stylesheet" type="text/css" />
+<script src="/ru/api/news.js" type="text/javascript"></script>
+<script src="/assets/application-33b68e603bca6f966af7082018ed1908.js" type="text/javascript"></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="GdEEBLXi4xEyIpI4ScB4M5w5+DQxPZztfaTvnN7NQAY=" name="csrf-token" />
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='/favicon.ico' rel='shortcut icon'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<meta content='Простой и удобный сайт, который можно использовать вместо бумажного блокнота или текстового файла' name='description'>
+<script>
+  //<![CDATA[
+    I18n.locale = "ru";
+    I18n.defaultLocale = "ru";
+    I18n.locales = ["ru", "en"];
+    window.flash_messages = [];
+  //]]>
+</script>
+
+</head>
+<!--[if lt IE 8]>
+<div class='ie_warning'>Ваш браузер не поддерживается. <br>Для работы с сайтом установите современный браузер,<br>например, <a href='http://google.com/chrome'>Google Chrome</a>.</div>
+<![endif]-->
+<div id='wrapper'>
+<script id='/template/header' type='text/ng-template'><div id='textlogo' title='На главную страницу'>
+<a href='{{root_url()}}'>Онлайн-блокнот</a>
+</div>
+<div data-notepad-share id='block_share'></div>
+<div id='main_page_actions'>
+<div style='padding-bottom: 30px;'>
+<span data-ng-if='!session.data.user'>
+<a href='{{root_url()}}'>Войти</a>
+<a href='{{root_url()}}?register=1'>Зарегистрироваться</a>
+<a href='/{{locale}}/reset_password_request'>Восстановить доступ</a>
+</span>
+<div class='account_info' data-ng-if='session.data.user'>
+<div data-ng-if="session.data.user.openid !== ''">
+OpenID:
+<span data-ng-bind='session.data.user.openid' title='{{ session.data.user.openid }}'></span>
+</div>
+<div>
+Email:
+<span data-ng-switch='' on="session.data.user.email !== ''">
+<b data-ng-switch-when='false'>не указан</b>
+<span data-ng-bind='session.data.user.email' data-ng-switch-when='true'></span>
+</span>
+</div>
+<div>
+<a href='/{{locale}}/set_email'>Изменить email</a>
+</div>
+<div data-ng-if="session.data.user.email === ''">
+<span data-ng-if="session.data.user.login !== ''">
+Логин:
+<span data-ng-bind='session.data.user.login'></span>
+</span>
+</div>
+<div data-ng-if="session.data.user.email !== '' || session.data.user.login !== ''"></div>
+<div>
+<a href='/{{locale}}/set_password' title='Изменить'>Изменить пароль</a>
+</div>
+</div>
+<a data-ng-if='session.data.all_pads.length &gt; 0' href='/{{locale}}/search'>Найти текст</a>
+<span data-ng-if='session.data.user || session.data.guest_pads.length &gt; 0'>
+<a data-ng-click='logout()'>Выйти</a>
+</span>
+</div>
+<a href="http://notepad.reformal.ru/" target="_blank">Оставить отзыв</a>
+<a href='/{{locale}}/tech_support'>Техподдержка</a>
+<a href='/{{locale}}/donate'>Donate</a>
+<a href='/{{locale}}/pda' target='_self'>PDA-версия</a>
+</div>
+<div class='copyright'>
+<div>
+&copy; <a href='http://idzaaus.org/' target="_blank">Idzaaus</a>, 2010&ndash;2015
+<br>
+<a href='/{{locale}}/disclaimer'>Отказ от ответственности</a>
+</div>
+<div>
+<a data-ng-click="set_locale('en'); $event.preventDefault()" href='/en/'>In English</a>
+</div>
+</div>
+
+</script>
+<script id='/template/index' type='text/ng-template'><div data-ng-if='!session.initialized' style='text-align: center; color: #aaa; padding: 30px;'>
+Загрузка...
+</div>
+<div data-ng-if='session.initialized'>
+<div data-ng-include="'/template/header'" id='navigation'></div>
+<div class='top_content'>
+<div data-ng-include="'/template/login_form'" data-slide-toggle='!session.data.user'></div>
+<div class='promo' data-ng-if='!session.data.user' data-ng-include="'/template/top_promo'"></div>
+<div data-ng-if='!hide_pads' data-notepad-pads-sortable='' id='pads_list'><div data-ng-class=" 'pad theme-'+pad.editor_settings.theme" data-ng-repeat='pad in pads' id='pad{{pad.id}}'>
+<a class='pad' data-ng-href='{{ pad.path }}'>
+<div class='title' data-ng-bind="pad.title !== '' ? pad.title : 'Блокнот'"></div>
+</a>
+<a class='settings' data-ng-href='{{ pad.path }}/settings' title='Параметры и&nbsp;действия'></a>
+<div class='updated_at' data-ng-bind='pad.content_updated_at | format_date' title='Время последнего изменения блокнота'></div>
+</div><div data-ng-class="'add pad theme-'+new_pad_theme" data-ng-if='session.data.user'><a class='pad add' data-ng-click='create_pad()' title='Создать блокнот'>
+<div>+</div>
+</a></div></div>
+<div data-ng-if='session.data.deleted_pads_count &gt; 0'>
+Удаленные блокноты ({{session.data.deleted_pads_count}}) будут окончательно удалены через 3 дня после удаления.
+<a data-ng-click='session.undelete_pads()'>Отменить удаление</a>
+</div>
+<div data-ng-if='session.data.guest_pads.length &gt; 0 &amp;&amp; !session.data.user' style='clear: both; margin-bottom: 10px; '></div>
+<div class='promo' data-ng-if='!session.data.user' data-ng-include="'/template/promo'"></div>
+<div class='news' data-ng-if='news.length &gt; 0'>
+<div data-ng-repeat='n in news'>
+<h3>
+{{ n[locale].title }}
+</h3>
+<p class='date'>
+{{ n.date | format_iso8601_date_only }}
+</p>
+<div data-ng-bind-html='n[locale].text'></div>
+</div>
+<a class='hide_news' data-ng-click='hide_news()' data-ng-if='session.data.user'>Скрыть эти новости</a>
+</div>
+</div>
+<div id='bottom_copyright'><div class='copyright'>
+<div>
+&copy; <a href='http://idzaaus.org/' target="_blank">Idzaaus</a>, 2010&ndash;2015
+<br>
+<a href='/{{locale}}/disclaimer'>Отказ от ответственности</a>
+</div>
+<div>
+<a data-ng-click="set_locale('en'); $event.preventDefault()" href='/en/'>In English</a>
+</div>
+</div>
+</div>
+</div>
+</script>
+<script id='/template/login_form' type='text/ng-template'><div id='login_container'>
+<a class='close_button' data-ng-if='routeParams.register' href='{{root_url()}}'>×</a>
+<div id='classic_wrapper'>
+<div class='hint'>Введите данные вашего аккаунта</div>
+<form data-ng-if='!routeParams.register' data-ng-submit='submit_login()' id='login_form'>
+<table>
+<tr>
+<td>
+<label for='email'>Email или логин:</label>
+</td>
+<td>
+<input data-ng-model='login_data.email' id='email' name='email' type='text'>
+</td>
+</tr>
+<tr>
+<td>
+<label for='password'>Пароль:</label>
+</td>
+<td>
+<input data-ng-model='login_data.password' id='password' name='password' type='password'>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type='submit' value='Войти'>
+</td>
+</tr>
+</table>
+</form>
+<form data-ng-if='routeParams.register' data-ng-submit='submit_register()' id='register_form'>
+<table>
+<tr>
+<td class='label'>
+<label for='email'>Email:</label>
+</td>
+<td>
+<input data-ng-model='register_data.email' id='email' name='email' type='text'>
+</td>
+</tr>
+<tr>
+<td class='label'>
+<label for='password'>Пароль:</label>
+</td>
+<td>
+<input data-ng-model='register_data.password' id='password' name='password' type='password'>
+</td>
+</tr>
+<tr>
+<td class='label'>
+<label for='password_confirmation'>Повторите пароль:</label>
+</td>
+<td>
+<input data-ng-model='register_data.password_confirmation' id='password_confirmation' name='password_confirmation' type='password'>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type='submit' value='Зарегистрироваться'>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<div id='ulogin_wrapper'>
+<div class='hint'>или войдите под аккаунтом на одном из этих сайтов:</div>
+<div data-notepad-insert-element='ulogin'></div>
+</div>
+<br>
+<a data-ng-if='routeParams.register' href='{{root_url()}}'>Войти</a>
+<a data-ng-if='!routeParams.register' href='{{root_url()}}?register=1'>Зарегистрироваться</a>
+&nbsp;&nbsp;&nbsp;
+<a href='/{{locale}}/reset_password_request'>Восстановить доступ к аккаунту</a>
+</div>
+</script>
+<script id='/template/pad' type='text/ng-template'><div data-ng-if='password_asked'>
+<div data-ng-include="'/template/header'" id='navigation'></div>
+<div class='top_content'>
+<form data-ng-submit='submit_password()'>
+<div>Этот блокнот зашифрован. Для доступа к блокноту необходимо ввести пароль, который вы указали при настройке шифрования: </div>
+<div>
+<input data-ng-model='form.password' type='password'>
+</div>
+<div>
+<input type='submit' value='OK'>
+<input data-ng-click='cancel_password()' type='button' value='Отменить'>
+</div>
+</form>
+</div>
+</div>
+<div data-ng-if='!ready &amp;&amp; !password_asked' style='text-align: center; color: #aaa; padding: 30px;'>
+Загрузка...
+</div>
+<div data-ng-if='ready' data-notepad-add-html-class='in_pad theme_{{pad.editor_settings.theme}}' id='pad_left'>
+<div id='pad_left_toolbar'><a class='icon_back' data-ng-click='go_to_main()' title='На главную страницу'>
+<img alt='На главную страницу' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'>
+</a><a class='page_switch' data-ng-bind='current_page' data-ng-class='{ page_switch: true, menu_visible: show_pda_pages_list }' data-ng-click='toggle_pda_pages_list()' title='Номер текущей страницы (нажмите для смены страницы или добавления новой)'></a><a class='icon_add_page' data-ng-click='add_page()' data-ng-show='!read_only' title='Создать страницу'>
+<img alt='Создать страницу' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'>
+</a><a data-ng-class='{ icon_menu: true, menu_visible: menu_visible }' data-ng-click='toggle_menu()' data-ng-show='!read_only' title='Показать меню'>
+<img alt='Меню' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'>
+</a><a class='loading_indicator' data-ng-class='error ? "status_error" : loading || saving ? "status_loading" : saved ? "status_saved" : "status_unsaved"' data-ng-click='save_page()' title='Сохранить'>
+<img alt='Сохранить' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'>
+</a></div>
+<div data-notepad-menu data-slide-toggle='menu_visible' id='pad_menu'>
+<div id='pad_menu_piece1'></div>
+<div id='pad_menu_piece2'></div>
+<div id='pad_menu_content'>
+<a class='icon_settings' data-ng-href='{{pad.path}}/settings'>Параметры</a>
+<a class='icon_search' data-ng-click='check_search_pad($event)' data-ng-href='{{pad.path}}/search'>Найти текст</a>
+<a class='icon_backup' data-ng-href='{{pad.path}}/backups'>Резервные копии</a>
+<a class='icon_delete' data-ng-click='delete_pad()'>Удалить блокнот</a>
+<a class='icon_help' href='/{{locale}}/tech_support'>Техподдержка</a>
+<a class='icon_reformal' href='http://notepad.reformal.ru/' target='_blank'>
+Оставить отзыв
+</a>
+<a class='icon_logout' ng-click='logout()'>Выйти</a>
+<div class='copyright'>
+<div>
+&copy; <a href='http://idzaaus.org/' target="_blank">Idzaaus</a>, 2010&ndash;2015
+<br>
+<a href='/{{locale}}/disclaimer'>Отказ от ответственности</a>
+</div>
+<div>
+<a data-ng-click="set_locale('en'); $event.preventDefault()" href='/en/'>In English</a>
+</div>
+</div>
+
+</div>
+</div>
+<div data-notepad-pages id='pages_container'>
+<div class='pages_gradient1' data-ng-mouseout='pages_scrolling_dx=0' data-ng-mouseover='pages_scrolling_dx=-1' data-ng-show='show_gradient1'></div>
+<div data-ng-class='{ compact: compact_pages_mode }' data-ng-if='!hide_pages' id='pages'>
+<div id='pad_title'>
+<span data-ng-bind="pad.title !== '' ? pad.title : 'Блокнот'"></span>
+<a class='settings' data-ng-href='{{pad.path}}/settings' data-ng-show='!read_only' title='Параметры блокнота'></a>
+</div>
+<div class='sortable' data-notepad-sortable=''>
+<div data-ng-class='{ current: $index+1 === current_page }' data-ng-click='move_to($index+1)' data-ng-repeat='page in client.pages' id='page{{$index+1}}'>
+<span class='title' data-ng-bind="!!page.title &amp;&amp; page.title.length &gt; 0 ? page.title : 'Страница ' + ($index+1)"></span>
+</div>
+</div>
+</div>
+<div class='pages_gradient2' data-ng-mouseout='pages_scrolling_dx=0' data-ng-mouseover='pages_scrolling_dx=1' data-ng-show='show_gradient2'></div>
+</div>
+</div>
+<div data-ng-if='show_pda_pages_list' id='pda_pages_list'>
+<div data-ng-class='{ current: $index+1 === current_page }' data-ng-click='toggle_pda_pages_list(); move_to($index+1)' data-ng-repeat='page in client.pages' id='page{{$index+1}}' title='{{page.title}}'>
+<a data-ng-bind="!!page.title &amp;&amp; page.title.length &gt; 0 ? page.title : 'Страница ' + ($index+1)"></a>
+</div>
+<div>
+<a data-ng-click='toggle_pda_pages_list(); add_page()'>Создать страницу</a>
+</div>
+</div>
+<div data-ng-if='ready &amp;&amp; !show_pda_pages_list' id='pad_main'>
+<div id='page_title_block'>
+<span data-ng-bind='page.updated_at | format_date' id='page_updated_at' title='Время последнего изменения страницы'></span>
+<div class='page_title'>
+<input data-ng-disabled='!can_edit' data-ng-model='page.title' id='page_title' maxlength='32' title='Заголовок страницы (нажмите для редактирования)' type='text'>
+</div>
+</div>
+<div data-ng-class='{ on: panel_visible }' id='formatting_panel_toggler'>
+<div data-ng-show='!read_only'>
+<a class='delete_page' data-ng-click='delete_page()'>Удалить страницу</a>
+&nbsp;&nbsp;
+<a class='toggle_formatting_panel' data-ng-bind="panel_visible ? 'Скрыть панель' : 'Панель форматирования'" data-ng-if='page.format=="html"' data-notepad-mce-panel-toggle></a>
+<a class='enable_formatting' data-ng-click='switch_to_html()' data-ng-if='page.format=="plain"'>Включить форматирование</a>
+</div>
+</div>
+<div class='page_text'>
+<textarea data-notepad-text id='page_text'></textarea>
+</div>
+</div>
+<div data-ng-show='max_length_warning' id='text_max_length_warning'>Текст слишком большой. Сохранение невозможно.</div>
+</script>
+<script id='/template/pad_settings' type='text/ng-template'><div data-ng-include="'/template/header'" id='navigation'></div>
+<div class='top_content'>
+<h1>Параметры блокнота</h1>
+<form data-ng-if='show_password_form' data-ng-submit='submit_password()'>
+<div style='text-align: justify; padding-bottom: 10px;'>
+<p> Шифрование выполняется прямо в вашем браузере. На сервер отправляется только зашифрованный текст. Ни пароль, ни исходный текст не передаются на сервер. </p> <p> Если шифрование включено, то каждый раз, когда вы пытаетесь открыть блокнот для просмотра или изменения, у вас будет запрашиваться пароль. Однако, если злоумышленник получит доступ к вашему аккаунту или секретной ссылке, он может удалить блокнот, не зная пароля на шифрование. Поэтому следите за тем, чтобы ваш аккаунт или секретная ссылка оставались в безопасности. </p> <p> Будьте внимательны при вводе пароля. Если вы забудете пароль, восстановить данные будет невозможно. </p> <p> Внимание: эта операция может привести к потере данных. Обязательно сделайте резервную копию содержимого блокнота. </p>
+</div>
+<table>
+<tr data-ng-show='ask_old_password'>
+<td>
+<label for='old_password'>Старый пароль</label>
+</td>
+<td>
+<input data-ng-model='password_form.old_password' id='old_password' type='password'>
+</td>
+</tr>
+<tr data-ng-show='ask_new_password'>
+<td>
+<label for='new_password'>Новый пароль</label>
+</td>
+<td>
+<input data-ng-model='password_form.new_password' id='new_password' type='password'>
+</td>
+</tr>
+<tr data-ng-show='ask_new_password'>
+<td>
+<label for='new_password2'>Повторите новый пароль</label>
+</td>
+<td>
+<input data-ng-model='password_form.new_password2' id='new_password2' type='password'>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type='submit' value='OK'>
+<input data-ng-click='cancel_password()' type='button' value='Отменить'>
+</td>
+</tr>
+</table>
+</form>
+<form data-ng-show='!show_password_form &amp;&amp; !show_restore_form' data-ng-submit='submit_form()' id='settings_form'>
+<h2>
+<label for='title'>Название блокнота</label>
+</h2>
+<input autocomplete='off' data-ng-model='form.title' id='title' maxlength='256' size='20' type='text'>
+<h2>Параметры</h2>
+<div>
+<input data-ng-model='autosave' id='autosave' type='checkbox'>
+<label for='autosave'>Автосохранение</label>
+</div>
+<div>
+<label>Тема оформления:</label>
+<div data-ng-class='(form.editor_settings.theme == theme ? "on" : "") +  " button-theme theme-" + theme' data-ng-click='form.editor_settings.theme = theme' data-ng-repeat='theme in all_themes'>
+<div class='content'></div>
+</div>
+</div>
+<input data-ng-click='delete_pad()' type='button' value='Удалить блокнот'>
+<h2>Параметры доступа</h2>
+<div data-ng-show='pad.owner_id &gt; 0'>
+<input data-ng-model='form.shared_link' id='shared_link' type='checkbox'>
+<label for='shared_link'>Разрешить доступ по ссылке без авторизации</label>
+<div data-ng-show='form.shared_link'>
+<input class='shared_link' data-notepad-select-on-click='' length='100' readonly='readonly' type='text' value="{{ full_root_url + '/' + locale + '/secretlink/' + pad.key }}">
+</div>
+</div>
+<div data-ng-show='form.encrypted'>
+<div>Содержимое блокнота зашифровано.</div>
+<div>Шифрование блокнотов больше не поддерживается из-за риска потери данных. Пожалуйста, переместите содержимое этого блокнота в новый блокнот вручную, а затем удалите зашифрованный блокнот.</div>
+</div>
+<p>
+<input data-ng-click='new_key()' data-ng-show='form.shared_link' type='button' value='Сгенерировать новую ссылку...'>
+<input data-ng-click='link_account()' data-ng-hide='pad.owner_id &gt; 0' type='button' value='Прикрепить к аккаунту...'>
+</p>
+<h2>Доступ только для чтения блокнота</h2>
+<div data-ng-show='pad.read_only_key'>
+Любые посетители могут видеть блокнот по этой ссылке, но не могут редактировать его. Администрация сайта оставляет за собой право заблокировать ссылку при поступлении жалоб на содержимое блокнота.
+<input class='shared_link' data-notepad-select-on-click='' length='100' readonly='readonly' type='text' value="{{ full_root_url + '/' + locale + '/read/' + pad.read_only_key }}">
+<input data-ng-click='remove_read_only_link()' type='button' value='Запретить доступ'>
+</div>
+<div data-ng-show='!pad.read_only_key'>
+<input data-ng-click='create_read_only_link()' type='button' value='Создать ссылку'>
+</div>
+<h2>Горячие клавиши</h2>
+<div class='tip'>(щелкните по полю и нажмите комбинацию клавиш)</div>
+<table style='border:1px solid #aaa'>
+<tr>
+<td>
+<label for='hk_save'>Сохранить</label>
+</td>
+<td>
+<input autocomplete='off' data-ng-model='form.editor_settings.hk_save' data-notepad-hotkey-setup='' id='hk_save' maxlength='15' size='15' type='text'>
+</td>
+</tr>
+<tr>
+<td>
+<label for='hk_prev'>Предыдущая страница</label>
+</td>
+<td>
+<input autocomplete='off' data-ng-model='form.editor_settings.hk_prev' data-notepad-hotkey-setup='' id='hk_prev' maxlength='15' size='15' type='text'>
+</td>
+</tr>
+<tr>
+<td>
+<label for='hk_next'>Следующая страница</label>
+</td>
+<td>
+<input autocomplete='off' data-ng-model='form.editor_settings.hk_next' data-notepad-hotkey-setup='' id='hk_next' maxlength='15' size='15' type='text'>
+</td>
+</tr>
+</table>
+<br>
+<input type='submit' value='Сохранить'>
+<input data-ng-click='cancel()' type='button' value='Отменить'>
+</form>
+</div>
+</script>
+<script id='/template/promo' type='text/ng-template'><p>
+Возможности сайта:
+</p>
+<ul>
+<li>Автосохранение</li>
+<li>Форматирование текста в визуальном или обычном редакторе</li>
+<li>Настраиваемые горячие клавиши для сохранения и перелистывания страниц</li>
+<li>Открытие ссылки по нажатию Ctrl+щелчок мыши</li>
+<li>Сортировка страниц в блокноте перетаскиванием</li>
+<li>Поиск по блокнотам</li>
+<li>Возможность открыть доступ к блокноту по секретной ссылке без авторизации</li>
+<li>Возможность опубликовать блокнот для чтения</li>
+<li>Возможность шифрования данных на стороне клиента</li>
+<li>Скачивание блокнота одним файлом</li>
+<li>Резервные копии блокнотов</li>
+</ul>
+<p></p>
+<p>
+<a href='http://notepad.reformal.ru/proj/?ia=179714' target='_blank'>Отзывы наших пользователей</a>
+</p>
+<p>Желаем вам приятного пользования нашим сайтом.</p>
+
+</script>
+<script id='/template/search' type='text/ng-template'><div data-ng-include="'/template/header'" id='navigation'></div>
+<div class='top_content'>
+<h1>Поиск по блокнотам</h1>
+<a class='back_to_notepad' data-ng-href='/{{locale}}{{ routeParams.pad_id ? "/id/" + routeParams.pad_id : "/secretlink/" + routeParams.pad_key }}' data-ng-if='!!routeParams.pad_id || !!routeParams.pad_key'>
+Назад в блокнот
+</a>
+<form data-ng-submit='submit_form()'>
+<input data-ng-model='query' type='text'>
+<input type='submit' value='OK'>
+</form>
+<div data-ng-if='query_done'>
+<div data-ng-if='results.length == 0'>
+Ничего не найдено.
+</div>
+<div data-ng-repeat='result in results'>
+<div>
+<a data-ng-bind="result.pad_title + ' #' + result.number" data-ng-href="/{{locale}}{{ ((!!result.pad_id) ? ('/id/' + result.pad_id) : ('/secretlink/' + result.pad_key)) + '?page=' + result.number }}"></a>
+</div>
+<div data-ng-bind-html='result.text | highlight_query: query'></div>
+</div>
+</div>
+</div>
+</script>
+<script id='/template/top_promo' type='text/ng-template'><p>
+Добро пожаловать! Это сайт, который можно использовать вместо бумажного блокнота
+или текстового файла.
+Вы можете просто открыть его и записать что-нибудь.
+Сервис предельно прост в использовании.
+Чтобы начать им пользоваться, достаточно войти с помощью аккаунта в соцсети или
+зарегистрироваться с помощью e-mail и пароля.
+</p>
+
+</script>
+<div data-ng-view id='view'>
+<div id='navigation'>
+<div id='textlogo' title='На главную страницу'>
+<a href='/'>Онлайн-блокнот</a>
+</div>
+<div class='copyright'>
+<div>
+&copy; <a href='http://idzaaus.org/' target="_blank">Idzaaus</a>, 2010&ndash;2015
+<br>
+<a href='/{{locale}}/disclaimer'>Отказ от ответственности</a>
+</div>
+<div>
+<a data-ng-click="set_locale('en'); $event.preventDefault()" href='/en/'>In English</a>
+</div>
+</div>
+
+</div>
+<div class='top_content'>
+<div class='no_js'>
+<div class='warning'>Для работы приложения необходимо включить Javascript.</div>
+<a href="/ru/pda">PDA-версия</a>
+(для устройств без поддержки JavaScript)
+<br>
+<br>
+</div>
+<div class='promo'>
+<p>
+Добро пожаловать! Это сайт, который можно использовать вместо бумажного блокнота
+или текстового файла.
+Вы можете просто открыть его и записать что-нибудь.
+Сервис предельно прост в использовании.
+Чтобы начать им пользоваться, достаточно войти с помощью аккаунта в соцсети или
+зарегистрироваться с помощью e-mail и пароля.
+</p>
+
+<p>
+Возможности сайта:
+</p>
+<ul>
+<li>Автосохранение</li>
+<li>Форматирование текста в визуальном или обычном редакторе</li>
+<li>Настраиваемые горячие клавиши для сохранения и перелистывания страниц</li>
+<li>Открытие ссылки по нажатию Ctrl+щелчок мыши</li>
+<li>Сортировка страниц в блокноте перетаскиванием</li>
+<li>Поиск по блокнотам</li>
+<li>Возможность открыть доступ к блокноту по секретной ссылке без авторизации</li>
+<li>Возможность опубликовать блокнот для чтения</li>
+<li>Возможность шифрования данных на стороне клиента</li>
+<li>Скачивание блокнота одним файлом</li>
+<li>Резервные копии блокнотов</li>
+</ul>
+<p></p>
+<p>
+<a href='http://notepad.reformal.ru/proj/?ia=179714' target='_blank'>Отзывы наших пользователей</a>
+</p>
+<p>Желаем вам приятного пользования нашим сайтом.</p>
+
+<div class='news'>
+<h3>Отключение блокнотов без авторизации и клиентского шифрования</h3>
+<p class='date'>17.11.17</p>
+<div>Блокноты без авторизации и клиентское шифрование больше не поддерживаются, т.к. некоторые пользователи теряли свои данные, пользуясь этими функциями. Для использования блокнотов теперь необходимо войти под аккаунтом в социальной сети или зарегистрироваться. Это обеспечит сохранность ваших данных и упростит восстановление доступа к ним.</div>
+<h3>Резервные копии и PDA-версия</h3>
+<p class='date'>13.01.15</p>
+<div><ul> <li>Добавлена новая система резервных копий. На сервере сохраняются копии страниц, когда вы редактируете (не чаще раза в минуту) и удаляете страницы. Через пункт меню «Резервные копии» можно открыть список резервных копий и восстановить текст из них. Это спасет ваш текст, если вы случайно удалили что-то важное.</li> <li>Добавлена <a href="/ru/pda" target="_blank">PDA-версия</a> для старых устройств и для возможности экономии трафика. Теперь можно пользоваться сайтом практически на любом телефоне, где есть интернет.</li> <li>Добавлена возможность включать и выключать визуальный редактор для отдельных страниц. Если вам не нужно форматирование, можно выключить его с помощью кнопки "Выключить форматирование" на панели форматирования. Редактор обычного текста быстрее и надежнее, чем визуальный редактор. В режиме без форматирования на страницу умещается больше текста.</li> <li>Включена проверка орфографии в тексте (зависит от возможностей вашего браузера).</li> </ul></div>
+<h3>Большое апрельское обновление</h3>
+<p class='date'>13.04.14</p>
+<div>Нововведения: <ul> <li>Адаптивная верстка для портативных устройств. Использовать блокнот со смартфонов стало удобнее.</li> <li>Новые нескучные цветовые темы. Тему можно изменить в параметрах блокнота.</li> <li>Сортировка блокнотов перетаскиванием на главной странице.</li> <li>Возможность скачивания файлов с резервными копиями и восстановления блокнота из этих файлов. </li> </ul></div>
+<h3>Визуальный редактор</h3>
+<p class='date'>21.12.13</p>
+<div> <p>Теперь текст блокнота можно форматировать: выделять жирным, курсивом, изменять цвета, добавлять списки, таблицы, ссылки и изображения.</p> <p>Создана англоязычная версия сайта.</p> </div>
+<h3>Новый дизайн</h3>
+<p class='date'>14.01.13</p>
+<div><p>Полностью обновлен дизайн сайта. </p></div>
+</div>
+<a class='googleplus_profile' href='https://plus.google.com/113709164230246975212/?rel=author'>G+</a>
+</div>
+</div>
+</div>
+
+</div>
+<div class='no_js'>
+<img alt='' src='//mc.yandex.ru/watch/24177139?ut=noindex' style='position:absolute; left:-9999px;'>
+</div>
+<script src='//ulogin.ru/js/ulogin.js'></script>
+<div data-ulogin='display=panel;fields=;providers=yandex,vkontakte,odnoklassniki,google,facebook,twitter,mailru;hidden=other;redirect_uri=https://note-pad.net/ru/ulogin' id='ulogin'></div>
+<script charset='utf-8' src='//yandex.st/share/share.js' type='text/javascript'></script>
+</html>

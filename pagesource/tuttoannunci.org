@@ -1,0 +1,1075 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+<head>
+
+<title>TuttoAnnunci.org - Annunci Gratuiti Case, Auto usate, Moto, Offerte Lavoro, annunci Usato e molto altro</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta name="content-language" content="it" />
+<meta name="language" content="it" />
+
+<meta name="description" content="Annunci gratuiti vendita o affitto case, annunci auto e moto usate, offerte di lavoro e tanto altro. Inserisci gratis il tuo annuncio su TuttoAnnunci.org" />
+<meta name="keywords" content="Annunci TuttoAnnunci.org" />
+<meta name="author" content="TuttoAnnunci" />
+<meta name="robots" content="follow, all" />
+<meta name="verify-v1" content="wP3pLx8h9lEuD4gIJuy3DxxFXCT63D9dk9XdvjHxT3c=" />
+
+<link rel="stylesheet" href="http://www.tuttoannunci.org/css/css.css?v=2.2" type="text/css" />
+<link rel="shortcut icon" href="http://www.tuttoannunci.org/favicon.ico" type="image/x-icon" />
+
+<link rel="canonical" href="http://www.tuttoannunci.org" />      
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.tuttoannunci.org" />
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<link href="http://www.tuttoannunci.org/css/jquery-ui.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="http://www.tuttoannunci.org/javascript/controllainputricerca.js"></script>
+<script type="text/javascript" src="http://www.tuttoannunci.org/javascript/http_dominio.js"></script>
+
+<script type="text/javascript" src="http://www.tuttoannunci.org/javascript/cookie.js"></script>
+
+<style>
+
+    .ui-widget { font-size: 14px; }
+
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        function controlla_accesso() {
+
+            var url_data = 'operazione=A';  
+            var str_value = '';
+            var str_url = '';
+
+            $.ajax({
+                type: "POST",
+                url: HTTP_WWW_TUTTOANNUNCI_ORG + "/jq_ad.aspx?cmd=controlla_accesso",
+                data: url_data,
+                success: function (msg) {
+                    if (msg == 'OK') {
+
+                        str_value = getCookie('IDEMail');
+                        if (str_value != '') {
+                            str_url = $("#ta_riepilogo_annunci_utente").attr("href");
+                            str_url = str_url.replace('qry0/0/1', 'qry0/' + str_value + '/1');
+                            $("#ta_riepilogo_annunci_utente").attr("href", str_url);                            
+                        }
+                                            
+                        var elem = document.getElementById("ta_ul_accedi_registrati");
+                        elem.className = "ta_nascondi";
+
+                        elem = document.getElementById("area_personale_utente");
+                        elem.className = "ta_mostra";
+                    
+                    }
+                },
+                error: function (msg) {                    
+                }
+            });
+        }
+
+        controlla_accesso();
+
+
+        $("#inp_cosa").focus(function () {
+            $("#ta_cosa_cerchi").addClass("ta_motore_ricerca_section_active");
+        });
+
+        $("#inp_cosa").blur(function () {
+            $("#ta_cosa_cerchi").removeClass("ta_motore_ricerca_section_active");
+        });
+
+
+        $("#sel_categoria").on("selectmenuopen", function (event, ui) { $("#ta_categoria").addClass("ta_motore_ricerca_section_active"); });
+
+        $("#sel_categoria").on("selectmenuclose", function (event, ui) { $("#ta_categoria").removeClass("ta_motore_ricerca_section_active"); });
+
+        $("#sel_categoria").blur(function () {
+            $("#ta_categoria").removeClass("ta_motore_ricerca_section_active");
+        });
+
+        $("#sel_categoria").selectmenu().selectmenu("menuWidget").addClass("ta_categoria_overflow");
+
+
+        $("#sel_dove").on("selectmenuopen", function (event, ui) { $("#ta_dove").addClass("ta_motore_ricerca_section_active"); });
+
+        $("#sel_dove").on("selectmenuclose", function (event, ui) { $("#ta_dove").removeClass("ta_motore_ricerca_section_active"); });
+
+        $("#sel_dove").blur(function () {
+            $("#ta_dove").removeClass("ta_motore_ricerca_section_active");
+        });
+
+        $("#sel_dove").selectmenu();
+        
+
+        $("#btn_cerca").click(function () {
+            var inp_cosa = ReplaceAll(ControllaInputRicerca($("#inp_cosa").val()), '-', ' ');
+            inp_cosa = inp_cosa.Trim();
+
+
+            var sel_dove = $("#sel_dove").val();
+            var sel_categoria = $("#sel_categoria").val();
+            sel_categoria = sel_categoria.split('|');
+            var desc_categoria = sel_categoria[0];
+            var gruppo = sel_categoria[1];
+            var categoria = sel_categoria[2];
+            var url = '';
+            var url_data = '';
+
+
+            inp_cosa = ReplaceAll(inp_cosa, '/', ' ');
+            inp_cosa = ReplaceAll(inp_cosa, "'", ' ');
+            inp_cosa = inp_cosa.Trim();
+
+           
+            if (categoria != '0') {
+                url = HTTP_WWW_TUTTOANNUNCI_ORG + '/annunci/' + desc_categoria + '/' + sel_dove + '/' + encodeURIComponent(inp_cosa) + '--tiprri-idc' + categoria + '-pag0.aspx';
+            } else {
+                url = HTTP_WWW_TUTTOANNUNCI_ORG + '/annunci/' + desc_categoria + '/' + sel_dove + '/' + encodeURIComponent(inp_cosa) + '--tiprri-grp' + gruppo + '-pag0.aspx';
+            }
+            
+            url_data = 'cosa_hp=' + inp_cosa + '&dove_hp=' + sel_dove + '&gruppo_hp=' + gruppo + '&categoria_hp=' + categoria;
+
+            $.ajax({
+                type: "POST",
+                url: HTTP_WWW_TUTTOANNUNCI_ORG + "/jq_api.aspx?cmd=ricerca_home_page",
+                data: url_data,
+                success: function (msg) {                   
+                    location.replace(url);
+                },
+                error: function (msg) {
+                    location.replace(url);
+                }
+            });
+        });
+
+           
+        
+    });
+
+</script>
+
+<script type="text/javascript" src="http://www.tuttoannunci.org/javascript/cookie.js"></script>
+<script type="text/javascript" src="http://www.tuttoannunci.org/javascript/detectmobilebrowser.js"></script>
+
+</head>
+<body class="ta_sfondo_skin"> 
+
+
+
+<div id="ta_pagina">
+
+    <div id="ta_contenitore">
+
+        <header>
+            <div id="ta_header">
+                                
+                <script type="text/javascript">
+
+                    $(document).ready(function () {
+
+                        $("#area_personale_utente").mouseenter(function () {
+                            $("#menu_utente").show();
+                            $("#area_personale_utente").css('height', '418');
+
+                            var url_data = 'id_email=' + getCookie('IDEMail');                                                        
+
+                            $.ajax({
+                                type: "POST",
+                                url: "http://www.tuttoannunci.org/messaggi.aspx?cmd=cmd_aggiorna_totale_eam",
+                                data: url_data,
+                                success: function (msg) {
+                                    var res_msg = msg;
+                                    var res_msg_2 = '';
+                                    var i = 0;
+                                    var totale = 0;
+
+                                    if (msg != '') {
+                                        res_msg = res_msg.split('|');
+                                        for (i = 0; i < res_msg.length - 1; i++) {
+                                            res_msg_2 = res_msg[i].split(',');
+
+                                            totale = totale + parseInt(res_msg_2[1]);
+                                        }
+                                    }
+
+                                    $("#ta_tanlm").html('(' + totale + ')');
+
+                                },
+                                error: function (msg) {
+
+                                }
+                            });
+
+                        });
+
+                        $("#area_personale_utente").mouseleave(function () {
+                            $("#menu_utente").hide();
+                            $("#area_personale_utente").css('height', '76');
+                        });
+
+                        $("#menu_utente ul li:even").css("background-color", "#ffa500");
+
+                    });
+
+                </script>  
+
+                <div id="ta_header_logo">
+                    <span id="lbl_logo_tuttoannunci"><img src="http://www.tuttoannunci.org/images/img_tuttoannunci_org.png" alt="logo tuttoannunci.org" /></span>                    
+                </div>
+                    
+                <div id="ta_header_nav">  
+                    <nav>
+                        <ul>
+                            <li><a id="ta_header_pubblicita" href="http://www.tuttoannunci.org/strumenti-di-visibilita.aspx">Pubblicità</a></li>
+                            <li><a id="ta_header_aiuto" href="http://www.tuttoannunci.org/aiuto.aspx">Aiuto</a></li>
+                            <li><a id="ta_header_preferiti" href="http://www.tuttoannunci.org/mostra_annunci_preferiti.aspx">Preferiti</a></li>
+
+                            
+                            <li><a id="ta_header_inserisci" href="http://www.tuttoannunci.org/g-annuncio.aspx"><span class="header_nav_inserisci_annuncio">Inserisci Annuncio</span></a></li>
+                            
+
+                            <ul id="ta_ul_accedi_registrati">
+                                <li><a id="ta_header_accedi" href="http://www.tuttoannunci.org/accedi.aspx">Accedi</a></li>
+                                <li><a id="ta_header_registrati" href="http://www.tuttoannunci.org/registrati.aspx">Registrati</a></li>                                
+                            </ul>
+                        </ul>                              
+                    </nav>
+
+                    <div id="area_personale_utente" class="ta_nascondi">                        
+                        <span class="area_personale_utente_active"><img src="http://www.tuttoannunci.org/images/img_account_utente.png" />Area Personale</span>
+
+                        <span id="menu_utente" class="ta_nascondi">
+                            <ul>
+                                <li><a href="http://www.tuttoannunci.org/gestione_annunci.aspx?idi=0&pag=0&ord=0&so=0&cgr=tutti_0_0">I miei annunci</a></li>
+                                <li><a href="http://www.tuttoannunci.org/messaggi.aspx">Messaggi <span id="ta_tanlm" class="ta_bold">(0)</span></a></li>
+                                <li><a href="http://www.tuttoannunci.org/acquista-credito--tippav-pag99.aspx">Acquista credito</a></li>                    
+                                <li><a href="http://www.tuttoannunci.org/cambia-citta.aspx">Cambia la città</a></li>
+                                <li><a href="http://www.tuttoannunci.org/avvisi-annunci-oggi.aspx">Avvisi Annunci Oggi</a></li>                                
+                                <li><a href="http://www.tuttoannunci.org/utenti.aspx?fol=1&pag=0">Segui annunci utenti</a></li>
+                                <li><a href="http://www.tuttoannunci.org/utenti.aspx?fol=0&pag=0">Utenti seguono tuoi annunci</a></li>
+                                <li><a id="ta_riepilogo_annunci_utente" href="http://www.tuttoannunci.org/riepilogo-annunci--tipadf-qry0/0/1.aspx">Riepilogo annunci</a></li>
+                                <li><a href="http://www.tuttoannunci.org/gestione_account.aspx">Dati personali</a></li>
+                                <li><a href="http://www.tuttoannunci.org/impostazioni_apd.aspx">Impostazioni</a></li>
+                                <li><a href="http://www.tuttoannunci.org/mostra_annunci_preferiti.aspx">Preferiti</a></li>
+                                <li><a href="http://www.tuttoannunci.org/pubblicita_utente.aspx">Pubblicità effettuate</a></li>
+                                <li><a href="http://www.tuttoannunci.org/vetrina-exclusive.aspx">Diventa EXCLUSIVE</a></li>
+                                <li><a href="http://www.tuttoannunci.org/esci-sessione.aspx">Esci</a></li>
+                            </ul>                        
+                        </span>
+
+                    </div>
+
+                </div>  
+
+                <div class="ta_clearfix"></div>
+
+               
+            </div>
+        </header>  
+
+        
+<div class="info_header"><h1>Annunci gratuiti in tutta Italia</h1></div>
+                
+
+
+
+
+
+        <section>  
+
+            <div id="ta_sezione_principale">
+
+                <div id="ta_motore_ricerca">
+
+                    <div id="ta_cosa_cerchi" class="ta_motore_ricerca_section">
+	                    <input autocomplete="off" class="ui-autocomplete-input" id="inp_cosa" name="inp_cosa" value="" placeholder="Cosa cerchi?" type="text" maxlength="256" />                        
+                    </div>
+
+                    <div id="ta_categoria" class="ta_motore_ricerca_section">
+
+                        <select id="sel_categoria" name="sel_categoria">
+                            <option value="animali|1|0">-- ANIMALI --</option>
+                            <option value="animali-in-regalo|1|2">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; In regalo</option>
+                            <option value="animali-in-vendita|1|3">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; In vendita</option>                                        
+                            <option value="animali-accoppiamenti|1|4">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Accoppiamenti</option>
+                            <option value="animali-persi-trovati|1|5">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Persi / Trovati</option>
+                            <option value="animali-dogsitter-catsitter|1|6">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Dogsitter / Catsitter</option>
+                            <option value="animali-accessori|1|7">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Accessori</option>                                        
+                            <option value="animali-altro|1|8">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="tempo-libero|2|0">-- TEMPO LIBERO --</option>
+                            <option value="tempo-libero-artisti-e-musicisti|2|52">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Artisti e musicisti</option>
+                            <option value="tempo-libero-scambio-libri|2|53">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Scambio libri</option>                                        
+                            <option value="tempo-libero-oggetti-smarriti-e-ritrovati|2|54">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Oggetti smarriti e ritrovati</option>
+                            <option value="tempo-libero-hobby-sport|2|55">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Hobby / Sport</option>
+                            <option value="tempo-libero-volontariato|2|56">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Volontariato</option>
+							<option value="tempo-libero-compagni-di-viaggio|2|57">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Compagni di viaggio</option>
+                            <option value="tempo-libero-associazioni-attivita-culturali|2|58">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Associazioni / Attivit&agrave;  culturali</option>
+                            <option value="tempo-libero-corsi-e-master|2|59">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Corsi e master</option>
+                            <option value="tempo-libero-chiacchiere|2|60">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Chiacchiere</option>
+                            <option value="tempo-libero-altro|2|61">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="incontri|3|0">-- INCONTRI --</option>
+                            <option value="incontri-solo-amici|3|102">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Solo amici</option>
+                            <option value="incontri-incroci-di-sguardi|3|103">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Incroci di sguardi</option>
+                            <option value="incontri-persi-di-vista|3|104">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Persi di vista</option>                                        
+                            <option value="incontri-donna-cerca-uomo|3|105">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Donna cerca uomo</option>
+                            <option value="incontri-donna-cerca-donna|3|106">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Donna cerca donna</option>
+                            <option value="incontri-uomo-cerca-donna|3|107">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Uomo cerca donna</option>
+                            <option value="incontri-uomo-cerca-uomo|3|108">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Uomo cerca uomo</option>                                        
+                            <option value="incontri-incontri-per-adulti|3|109">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Incontri per adulti</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="auto-e-moto|4|0">-- AUTO E MOTO --</option>
+                            <option value="auto-e-moto-automobili-meno-di-5000|4|152">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Automobili meno di 5.000</option>
+                            <option value="auto-e-moto-automobili-piu-di-5001|4|153">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Automobili pi&ugrave; di 5.001</option>
+                            <option value="auto-e-moto-camper|4|154">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Camper</option>
+                            <option value="auto-e-moto-fuoristrada|4|155">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Fuoristrada</option>
+                            <option value="auto-e-moto-moto|4|156">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Moto</option>
+                            <option value="auto-e-moto-scooter|4|157">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Scooter</option>                                        
+                            <option value="auto-e-moto-biciclette|4|158">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Biciclette</option>
+                            <option value="auto-e-moto-nautica|4|159">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Nautica</option>
+                            <option value="auto-e-moto-ricambi-e-accessori|4|160">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Ricambi e accessori</option>
+                            <option value="auto-e-moto-altro|4|161">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="case|5|0">-- CASE --</option>
+                            <option value="case-appartamenti-in-affitto|5|202">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Appartamenti in affitto</option>
+                            <option value="case-stanze-posti-letto|5|203">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Stanze / Posti letto</option>
+                            <option value="case-appartamenti-in-vendita|5|204">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Appartamenti in vendita</option>
+                            <option value="case-immobili-commerciali|5|205">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Immobili commerciali</option>
+                            <option value="case-posti-auto-box|5|206">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Posti auto / Box</option>
+                            <option value="case-casa-vacanze|5|207">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Casa vacanze</option>
+                            <option value="case-altro|5|208">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="corsi-e-lezioni|6|0">-- CORSI E LEZIONI --</option>
+                            <option value="corsi-e-lezioni-corsi-di-lingua|6|252">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Corsi di lingua</option>
+                            <option value="corsi-e-lezioni-corsi-d-informatica|6|253">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Corsi d'informatica</option>
+                            <option value="corsi-e-lezioni-corsi-di-musica-danza-teatro|6|254">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Corsi di musica / Danza / Teatro</option>
+                            <option value="corsi-e-lezioni-lezioni-private|6|255">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Lezioni private</option>
+                            <option value="corsi-e-lezioni-scambi-linguistici|6|256">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Scambi linguistici</option>
+                            <option value="corsi-e-lezioni-formazione-professionale|6|257">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Formazione professionale</option>
+                            <option value="corsi-e-lezioni-altro|6|258">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="compra-e-vendi|7|0">-- COMPRA E VENDI --</option>
+                            <option value="compra-e-vendi-abbigliamento|7|302">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Abbigliamento</option>
+                            <option value="compra-e-vendi-arte-antiquariato-collezioni|7|303">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Arte / Antiquariato / Collezioni</option>
+                            <option value="compra-e-vendi-articoli-per-bambini|7|304">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Articoli per bambini</option>
+                            <option value="compra-e-vendi-articoli-sportivi|7|305">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Articoli sportivi</option>
+                            <option value="compra-e-vendi-audio-tv-elettronica|7|306">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Audio / TV / Elettronica</option>
+                            <option value="compra-e-vendi-dvd-e-videogame|7|307">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; DVD e videogame</option>
+                            <option value="compra-e-vendi-fotografia-e-video|7|308">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Fotografia e video</option>
+                            <option value="compra-e-vendi-cellulari-e-accessori|7|309">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Cellulari e accessori</option>
+                            <option value="compra-e-vendi-computer-e-software|7|310">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Computer e software</option>
+                            <option value="compra-e-vendi-gastronomia-e-vini|7|311">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Gastronomia e vini</option>
+                            <option value="compra-e-vendi-libri-e-cd|7|312">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Libri e CD</option>                                        
+                            <option value="compra-e-vendi-orologi-e-gioielli|7|313">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Orologi e gioielli</option>
+                            <option value="compra-e-vendi-per-la-casa-e-il-giardino|7|314">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Per la casa e il giardino</option>
+                            <option value="compra-e-vendi-strumenti-musicali|7|315">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Strumenti musicali</option>
+                            <option value="compra-e-vendi-baratto|7|316">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Baratto</option>                                        
+                            <option value="compra-e-vendi-mobili-elettrodomestici|7|317">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Mobili / Elettrodomestici</option>
+                            <option value="compra-e-vendi-prodotti-di-bellezza|7|318">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Prodotti di bellezza</option>
+                            <option value="compra-e-vendi-biglietti|7|319">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Biglietti</option>  
+                            <option value="compra-e-vendi-sexy-shop|7|321">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Sexy shop</option>
+                            <option value="compra-e-vendi-altro|7|320">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="servizi|8|0">-- SERVIZI --</option>
+                            <option value="servizi-babysitter|8|352">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Babysitter</option>
+                            <option value="servizi-estetica-e-salute|8|353">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Estetica e salute</option>
+                            <option value="servizi-organizzazione-eventi|8|354">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Organizzazione eventi</option>
+                            <option value="servizi-casting-provini|8|355">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Casting / Provini</option>
+                            <option value="servizi-informatica|8|356">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Informatica</option>
+                            <option value="servizi-manodopera|8|357">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Manodopera</option>
+                            <option value="servizi-pulizie-e-assistenza-domestica|8|358">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Pulizie e assistenza domestica</option>
+                            <option value="servizi-imbiancature-e-traslochi|8|359">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Imbiancature e traslochi</option>
+                            <option value="servizi-traduzioni|8|360">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Traduzioni</option>
+                            <option value="servizi-free-lance|8|361">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Free lance</option>
+                            <option value="servizi-artigianato-riparazioni|8|362">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Artigianato / Riparazioni</option>  
+                            <option value="servizi-oroscopo-astrologia|8|363">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Oroscopo / Astrologia</option>
+                            <option value="servizi-servizi-informatici|8|364">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Servizi informatici</option>
+                            <option value="servizi-massaggi|8|366">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Massaggi</option>
+                            <option value="servizi-altro|8|365">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+                                     
+                            <option disabled="disabled"></option>
+                               
+                            <option value="offerte-di-lavoro|9|0">-- OFFERTE DI LAVORO --</option>  
+                            <option value="offerte-di-lavoro-lavori-da-casa-telelavoro|9|421">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Lavori da casa - Telelavoro</option>
+                            <option value="offerte-di-lavoro-formazione-istruzione-risorse-umane|9|422">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Formazione - Istruzione - Risorse Umane</option>   
+                            <option value="offerte-di-lavoro-commerciale-agenti|9|402">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Commerciale / Agenti</option>
+                            <option value="offerte-di-lavoro-comunicazione-e-marketing|9|403">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Comunicazione e marketing</option>
+                            <option value="offerte-di-lavoro-franchising|9|404">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Franchising</option>                                        
+                            <option value="offerte-di-lavoro-informatica-web-design|9|405">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Informatica / Web design</option>
+                            <option value="offerte-di-lavoro-hostess-promoter|9|406">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Hostess / Promoter</option>
+                            <option value="offerte-di-lavoro-manodopera-operai|9|407">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Manodopera / Operai</option>
+                            <option value="offerte-di-lavoro-negozi-bar-pub-ristoranti|9|408">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Negozi / Bar / Pub / Ristoranti</option>
+                            <option value="offerte-di-lavoro-segreteria-e-amministrazione|9|409">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Segreteria e amministrazione</option>
+                            <option value="offerte-di-lavoro-turismo-hotel-animazione|9|410">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Turismo / Hotel / Animazione</option>
+                            <option value="offerte-di-lavoro-stage-ed-apprendistato|9|411">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Stage ed apprendistato</option>
+                            <option value="offerte-di-lavoro-temporanei-e-part-time|9|412">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Temporanei e part-time</option>
+                            <option value="offerte-di-lavoro-industria-artigianato|9|413">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Industria / Artigianato</option>
+                            <option value="offerte-di-lavoro-medicina-salute|9|414">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Medicina / Salute</option>
+                            <option value="offerte-di-lavoro-customer-service-call-center|9|416">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Customer Service / Call Center</option>
+                            <option value="offerte-di-lavoro-dirigenti-quadri-e-manager|9|417">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Dirigenti, quadri e manager</option>
+                            <option value="offerte-di-lavoro-finanza-legale|9|418">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Finanza / Legale</option>
+                            <option value="offerte-di-lavoro-modelli-modelle|9|419">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Modelli/e</option>
+                            <option value="offerte-di-lavoro-tecnici-ingegneri|9|420">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Tecnici / Ingegneri</option>
+                            <option value="offerte-di-lavoro-altro|9|415">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>                                        
+                                  
+                            <option disabled="disabled"></option>
+                                  
+                            <option value="cv-cerco-lavoro|10|0">-- CV/CERCO LAVORO --</option>
+                            <option value="cv-cerco-lavoro-lavori-da-casa-telelavoro|10|470">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Lavori da casa - Telelavoro</option>
+                            <option value="cv-cerco-lavoro-formazione-istruzione-risorse-umane|10|471">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Formazione - Istruzione - Risorse Umane</option>
+                            <option value="cv-cerco-lavoro-negozi-bar-pub-ristoranti|10|452">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Negozi / Bar / Pub / Ristoranti</option>
+                            <option value="cv-cerco-lavoro-commerciale-vendite-e-acquisti|10|453">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Commerciale vendite e acquisti</option>
+                            <option value="cv-cerco-lavoro-comunicazione-e-marketing|10|454">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Comunicazione e marketing</option>
+                            <option value="cv-cerco-lavoro-informatica-web-design|10|455">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Informatica / Web design</option>
+                            <option value="cv-cerco-lavoro-hostess-promoter|10|456">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Hostess / Promoter</option>
+                            <option value="cv-cerco-lavoro-manodopera-operai|10|457">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Manodopera / Operai</option>
+                            <option value="cv-cerco-lavoro-temporanei-e-part-time|10|458">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Temporanei e part-time</option>
+                            <option value="cv-cerco-lavoro-segreteria-e-amministrazione|10|459">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Segreteria e amministrazione</option>
+                            <option value="cv-cerco-lavoro-turismo-hotel-animazione|10|460">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Turismo / Hotel / Animazione</option>
+                            <option value="cv-cerco-lavoro-stage-ed-apprendistato|10|461">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Stage ed apprendistato</option>
+                            <option value="cv-cerco-lavoro-industria-artigianato|10|462">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Industria / Artigianato</option>
+                            <option value="cv-cerco-lavoro-medicina-salute|10|463">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Medicina / Salute</option>
+                            <option value="cv-cerco-lavoro-customer-service-call-center|10|465">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Customer Service / Call Center</option>
+                            <option value="cv-cerco-lavoro-dirigenti-quadri-e-manager|10|466">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Dirigenti, quadri e manager</option>
+                            <option value="cv-cerco-lavoro-finanza-legale|10|467">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Finanza / Legale</option>
+                            <option value="cv-cerco-lavoro-modelli-modelle|10|468">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Modelli/e</option>
+                            <option value="cv-cerco-lavoro-tecnici-ingegneri|10|469">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Tecnici / Ingegneri</option>
+                            <option value="cv-cerco-lavoro-altro|10|464">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>                                        
+                               
+                            <option disabled="disabled"></option>
+                                     
+                            <option value="eventi-feste|11|501">-- EVENTI / FESTE --</option>
+
+                            <option disabled="disabled"></option>
+                                        
+                            <option value="news|12|0">-- NEWS --</option>
+                            <option value="news-economia-e-finanza|12|552">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Economia e Finanza</option>
+                            <option value="news-scienze-e-tecnologie|12|553">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Scienze e Tecnologie</option>
+                            <option value="news-sport|12|554">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Sport</option>                                        
+                            <option value="news-spettacolo-e-gossip|12|555">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Spettacolo e Gossip</option>
+                            <option value="news-salute-e-medicina|12|556">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Salute e Medicina</option>
+                            <option value="news-ufo|12|557">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; UFO</option>
+                            <option value="news-italia|12|558">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Italia</option>                                        
+                            <option value="news-mondo|12|559">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Mondo</option>
+                            <option value="news-altro|12|560">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; Altro</option>
+                        </select>
+
+                    </div>
+
+                    <div id="ta_dove" class="ta_motore_ricerca_section">
+                                       
+                        <select id="sel_dove" name="sel_dove">
+                            <option value="annunci-italia" selected="selected">Tutta Italia</option>
+                            <option value="annunci-abruzzo">Abruzzo</option>
+                            <option value="annunci-basilicata">Basilicata</option>
+                            <option value="annunci-calabria">Calabria</option>
+                            <option value="annunci-campania">Campania</option>
+                            <option value="annunci-emilia-romagna">Emilia Romagna</option>
+                            <option value="annunci-friuli-venezia-giulia">Friuli Venezia Giulia</option>
+                            <option value="annunci-lazio">Lazio</option>
+                            <option value="annunci-liguria">Liguria</option>
+                            <option value="annunci-lombardia">Lombardia</option>
+                            <option value="annunci-marche">Marche</option>
+                            <option value="annunci-molise">Molise</option>
+                            <option value="annunci-piemonte">Piemonte</option>
+                            <option value="annunci-puglia">Puglia</option>
+                            <option value="annunci-sardegna">Sardegna</option>
+                            <option value="annunci-sicilia">Sicilia</option>
+                            <option value="annunci-toscana">Toscana</option>
+                            <option value="annunci-trentino-alto-adige">Trentino Alto Adige</option>
+                            <option value="annunci-umbria">Umbria</option>
+                            <option value="annunci-valle-d-aosta">Valle d'Aosta</option>
+                            <option value="annunci-veneto">Veneto</option>
+                        </select>                                                                    
+                        
+                    </div>
+
+                    <div id="ta_cerca" class="ta_motore_ricerca_section_cerca">                        
+                        <button id="btn_cerca" name="btn_cerca" type="submit"><span>Cerca</span></button>                                                                         
+                    </div>
+
+                    <div class="ta_clearfix"></div>
+
+                </div>
+
+                <div id="ta_citta_home">
+
+                    <h1>Scegli una Città</h1>
+                    
+                    <div class="ta_citta_home_section">
+
+                        <div class="ta_citta_home_regione">Abruzzo</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/chieti/categorie-gratis-chieti--tipcgr-idi24.aspx">Chieti</a></li>
+                            <li><a href="http://www.tuttoannunci.org/laquila/categorie-gratis-laquila--tipcgr-idi41.aspx" class="ta_bold">L'Aquila</a></li>
+                            <li><a href="http://www.tuttoannunci.org/pescara/categorie-gratis-pescara--tipcgr-idi66.aspx">Pescara</a></li>
+                            <li><a href="http://www.tuttoannunci.org/teramo/categorie-gratis-teramo--tipcgr-idi88.aspx">Teramo</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Basilicata</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/matera/categorie-gratis-matera--tipcgr-idi52.aspx">Matera</a></li>
+                            <li><a href="http://www.tuttoannunci.org/potenza/categorie-gratis-potenza--tipcgr-idi71.aspx" class="ta_bold">Potenza</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Calabria</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/catanzaro/categorie-gratis-catanzaro--tipcgr-idi23.aspx" class="ta_bold">Catanzaro</a></li>
+                            <li><a href="http://www.tuttoannunci.org/cosenza/categorie-gratis-cosenza--tipcgr-idi26.aspx">Cosenza</a></li>
+                            <li><a href="http://www.tuttoannunci.org/crotone/categorie-gratis-crotone--tipcgr-idi28.aspx">Crotone</a></li>
+                            <li><a href="http://www.tuttoannunci.org/reggiocalabria/categorie-gratis-reggiocalabria--tipcgr-idi75.aspx">Reggio Calabria</a></li>
+                            <li><a href="http://www.tuttoannunci.org/vibovalentia/categorie-gratis-vibovalentia--tipcgr-idi101.aspx">Vibo Valentia</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Campania</div>
+                        <ul>                            
+                            <li><a href="http://www.tuttoannunci.org/avellino/categorie-gratis-avellino--tipcgr-idi8.aspx">Avellino</a></li>
+                            <li><a href="http://www.tuttoannunci.org/benevento/categorie-gratis-benevento--tipcgr-idi11.aspx">Benevento</a></li>
+                            <li><a href="http://www.tuttoannunci.org/caserta/categorie-gratis-caserta--tipcgr-idi21.aspx">Caserta</a></li>
+                            <li><a href="http://www.tuttoannunci.org/napoli/categorie-gratis-napoli--tipcgr-idi56.aspx" class="ta_bold">Napoli</a></li>
+                            <li><a href="http://www.tuttoannunci.org/salerno/categorie-gratis-salerno--tipcgr-idi81.aspx">Salerno</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Emilia Romagna</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/bologna/categorie-gratis-bologna--tipcgr-idi14.aspx" class="ta_bold">Bologna</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/ferrara/categorie-gratis-ferrara--tipcgr-idi31.aspx">Ferrara</a></li>
+                            <li><a href="http://www.tuttoannunci.org/forlicesena/categorie-gratis-forlicesena--tipcgr-idi34.aspx">Forlì-Cesena</a></li>
+                            <li><a href="http://www.tuttoannunci.org/modena/categorie-gratis-modena--tipcgr-idi55.aspx">Modena</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/parma/categorie-gratis-parma--tipcgr-idi62.aspx">Parma</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/piacenza/categorie-gratis-piacenza--tipcgr-idi67.aspx">Piacenza</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ravenna/categorie-gratis-ravenna--tipcgr-idi74.aspx">Ravenna</a></li>
+                            <li><a href="http://www.tuttoannunci.org/reggioemilia/categorie-gratis-reggioemilia--tipcgr-idi76.aspx">Reggio Emilia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/rimini/categorie-gratis-rimini--tipcgr-idi78.aspx">Rimini</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Friuli Venezia Giulia</div>
+                        <ul>                            
+                            <li><a href="http://www.tuttoannunci.org/gorizia/categorie-gratis-gorizia--tipcgr-idi37.aspx">Gorizia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/pordenone/categorie-gratis-pordenone--tipcgr-idi70.aspx">Pordenone</a></li>
+                            <li><a href="http://www.tuttoannunci.org/trieste/categorie-gratis-trieste--tipcgr-idi94.aspx" class="ta_bold">Trieste</a></li>
+                            <li><a href="http://www.tuttoannunci.org/udine/categorie-gratis-udine--tipcgr-idi95.aspx">Udine</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Lazio</div>
+                        <ul>                            
+                            <li><a href="http://www.tuttoannunci.org/frosinone/categorie-gratis-frosinone--tipcgr-idi35.aspx">Frosinone</a></li>
+                            <li><a href="http://www.tuttoannunci.org/latina/categorie-gratis-latina--tipcgr-idi43.aspx">Latina</a></li>
+                            <li><a href="http://www.tuttoannunci.org/rieti/categorie-gratis-rieti--tipcgr-idi77.aspx">Rieti</a></li>
+                            <li><a href="http://www.tuttoannunci.org/roma/categorie-gratis-roma--tipcgr-idi79.aspx" class="ta_bold">Roma</a></li>
+                            <li><a href="http://www.tuttoannunci.org/viterbo/categorie-gratis-viterbo--tipcgr-idi103.aspx">Viterbo</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Liguria</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/genova/categorie-gratis-genova--tipcgr-idi36.aspx" class="ta_bold">Genova</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/imperia/categorie-gratis-imperia--tipcgr-idi39.aspx">Imperia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/laspezia/categorie-gratis-laspezia--tipcgr-idi42.aspx">La Spezia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/savona/categorie-gratis-savona--tipcgr-idi83.aspx">Savona</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="ta_citta_home_section">
+
+                        <div class="ta_citta_home_regione">Lombardia</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/bergamo/categorie-gratis-bergamo--tipcgr-idi12.aspx">Bergamo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/brescia/categorie-gratis-brescia--tipcgr-idi16.aspx">Brescia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/como/categorie-gratis-como--tipcgr-idi25.aspx">Como</a></li>
+                            <li><a href="http://www.tuttoannunci.org/cremona/categorie-gratis-cremona--tipcgr-idi27.aspx">Cremona</a></li>
+                            <li><a href="http://www.tuttoannunci.org/lecco/categorie-gratis-lecco--tipcgr-idi45.aspx">Lecco</a></li>
+                            <li><a href="http://www.tuttoannunci.org/lodi/categorie-gratis-lodi--tipcgr-idi47.aspx">Lodi</a></li>
+                            <li><a href="http://www.tuttoannunci.org/mantova/categorie-gratis-mantova--tipcgr-idi50.aspx">Mantova</a></li>
+                            <li><a href="http://www.tuttoannunci.org/milano/categorie-gratis-milano--tipcgr-idi54.aspx" class="ta_bold">Milano</a></li>
+                            <li><a href="http://www.tuttoannunci.org/monzabrianza/categorie-gratis-monzabrianza--tipcgr-idi108.aspx">Monza/Brianza</a></li>
+                            <li><a href="http://www.tuttoannunci.org/pavia/categorie-gratis-pavia--tipcgr-idi63.aspx">Pavia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/sondrio/categorie-gratis-sondrio--tipcgr-idi86.aspx">Sondrio</a></li>
+                            <li><a href="http://www.tuttoannunci.org/varese/categorie-gratis-varese--tipcgr-idi96.aspx">Varese</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Marche</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/ancona/categorie-gratis-ancona--tipcgr-idi3.aspx" class="ta_bold">Ancona</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ascolipiceno/categorie-gratis-ascolipiceno--tipcgr-idi6.aspx">Ascoli Piceno</a></li>
+                            <li><a href="http://www.tuttoannunci.org/fermo/categorie-gratis-fermo--tipcgr-idi109.aspx">Fermo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/macerata/categorie-gratis-macerata--tipcgr-idi49.aspx">Macerata</a></li>
+                            <li><a href="http://www.tuttoannunci.org/pesarourbino/categorie-gratis-pesarourbino--tipcgr-idi65.aspx">Pesaro-Urbino</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Molise</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/campobasso/categorie-gratis-campobasso--tipcgr-idi20.aspx" class="ta_bold">Campobasso</a></li>
+                            <li><a href="http://www.tuttoannunci.org/isernia/categorie-gratis-isernia--tipcgr-idi40.aspx">Isernia</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Piemonte</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/alessandria/categorie-gratis-alessandria--tipcgr-idi2.aspx">Alessandria</a></li>
+                            <li><a href="http://www.tuttoannunci.org/asti/categorie-gratis-asti--tipcgr-idi7.aspx">Asti</a></li>
+                            <li><a href="http://www.tuttoannunci.org/biella/categorie-gratis-biella--tipcgr-idi13.aspx">Biella</a></li>
+                            <li><a href="http://www.tuttoannunci.org/cuneo/categorie-gratis-cuneo--tipcgr-idi29.aspx">Cuneo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/novara/categorie-gratis-novara--tipcgr-idi57.aspx">Novara</a></li>
+                            <li><a href="http://www.tuttoannunci.org/torino/categorie-gratis-torino--tipcgr-idi90.aspx" class="ta_bold">Torino</a></li>
+                            <li><a href="http://www.tuttoannunci.org/verbania/categorie-gratis-verbania--tipcgr-idi98.aspx">Verbania</a></li>
+                            <li><a href="http://www.tuttoannunci.org/vercelli/categorie-gratis-vercelli--tipcgr-idi99.aspx">Vercelli</a></li>
+                        </ul>                            
+
+                        <div class="ta_citta_home_regione">Puglia</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/bari/categorie-gratis-bari--tipcgr-idi9.aspx" class="ta_bold">Bari</a></li>
+                            <li><a href="http://www.tuttoannunci.org/barlettaandriatrani/categorie-gratis-barlettaandriatrani--tipcgr-idi110.aspx">Barletta-Andria-Trani</a></li>
+                            <li><a href="http://www.tuttoannunci.org/brindisi/categorie-gratis-brindisi--tipcgr-idi17.aspx">Brindisi</a></li>
+                            <li><a href="http://www.tuttoannunci.org/foggia/categorie-gratis-foggia--tipcgr-idi33.aspx">Foggia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/lecce/categorie-gratis-lecce--tipcgr-idi44.aspx">Lecce</a></li>
+                            <li><a href="http://www.tuttoannunci.org/taranto/categorie-gratis-taranto--tipcgr-idi87.aspx">Taranto</a></li>
+                        </ul>                            
+
+                        <div class="ta_citta_home_regione">Sardegna</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/cagliari/categorie-gratis-cagliari--tipcgr-idi18.aspx" class="ta_bold">Cagliari</a></li>
+                            <li><a href="http://www.tuttoannunci.org/carboniaiglesias/categorie-gratis-carboniaiglesias--tipcgr-idi105.aspx">Carbonia-Iglesias</a></li>
+                            <li><a href="http://www.tuttoannunci.org/nuoro/categorie-gratis-nuoro--tipcgr-idi58.aspx">Nuoro</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ogliastra/categorie-gratis-ogliastra--tipcgr-idi106.aspx">Ogliastra</a></li>
+                            <li><a href="http://www.tuttoannunci.org/olbiatempio/categorie-gratis-olbiatempio--tipcgr-idi104.aspx">Olbia-Tempio</a></li>
+                            <li><a href="http://www.tuttoannunci.org/oristano/categorie-gratis-oristano--tipcgr-idi59.aspx">Oristano</a></li>
+                            <li><a href="http://www.tuttoannunci.org/mediocampidano/categorie-gratis-mediocampidano--tipcgr-idi107.aspx">Medio Campidano</a></li>
+                            <li><a href="http://www.tuttoannunci.org/sassari/categorie-gratis-sassari--tipcgr-idi82.aspx">Sassari</a></li>
+                        </ul>                            
+
+                    </div>
+
+                    <div class="ta_citta_home_section">
+
+                        <div class="ta_citta_home_regione">Sicilia</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/agrigento/categorie-gratis-agrigento--tipcgr-idi1.aspx">Agrigento</a></li>
+                            <li><a href="http://www.tuttoannunci.org/caltanissetta/categorie-gratis-caltanissetta--tipcgr-idi19.aspx">Caltanissetta</a></li>
+                            <li><a href="http://www.tuttoannunci.org/catania/categorie-gratis-catania--tipcgr-idi22.aspx">Catania</a></li>
+                            <li><a href="http://www.tuttoannunci.org/enna/categorie-gratis-enna--tipcgr-idi30.aspx">Enna</a></li>
+                            <li><a href="http://www.tuttoannunci.org/messina/categorie-gratis-messina--tipcgr-idi53.aspx">Messina</a></li>
+                            <li><a href="http://www.tuttoannunci.org/palermo/categorie-gratis-palermo--tipcgr-idi61.aspx" class="ta_bold">Palermo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ragusa/categorie-gratis-ragusa--tipcgr-idi73.aspx">Ragusa</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/siracusa/categorie-gratis-siracusa--tipcgr-idi85.aspx">Siracusa</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/trapani/categorie-gratis-trapani--tipcgr-idi91.aspx">Trapani</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Toscana</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/arezzo/categorie-gratis-arezzo--tipcgr-idi5.aspx">Arezzo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/firenze/categorie-gratis-firenze--tipcgr-idi32.aspx" class="ta_bold">Firenze</a></li>
+                            <li><a href="http://www.tuttoannunci.org/grosseto/categorie-gratis-grosseto--tipcgr-idi38.aspx">Grosseto</a></li>
+                            <li><a href="http://www.tuttoannunci.org/livorno/categorie-gratis-livorno--tipcgr-idi46.aspx">Livorno</a></li>
+                            <li><a href="http://www.tuttoannunci.org/lucca/categorie-gratis-lucca--tipcgr-idi48.aspx">Lucca</a></li>
+                            <li><a href="http://www.tuttoannunci.org/massacarrara/categorie-gratis-massacarrara--tipcgr-idi51.aspx">Massa-Carrara</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/pisa/categorie-gratis-pisa--tipcgr-idi68.aspx">Pisa</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/pistoia/categorie-gratis-pistoia--tipcgr-idi69.aspx">Pistoia</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/prato/categorie-gratis-prato--tipcgr-idi72.aspx">Prato</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/siena/categorie-gratis-siena--tipcgr-idi84.aspx">Siena</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Trentino Alto Adige</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/bolzano/categorie-gratis-bolzano--tipcgr-idi15.aspx">Bolzano</a></li>
+                            <li><a href="http://www.tuttoannunci.org/trento/categorie-gratis-trento--tipcgr-idi92.aspx" class="ta_bold">Trento</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Umbria</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/perugia/categorie-gratis-perugia--tipcgr-idi64.aspx" class="ta_bold">Perugia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/terni/categorie-gratis-terni--tipcgr-idi89.aspx">Terni</a></li>                            
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Valle d'Aosta</div>
+                        <ul>                            
+                            <li><a href="http://www.tuttoannunci.org/aosta/categorie-gratis-aosta--tipcgr-idi4.aspx" class="ta_bold">Aosta</a></li>
+                        </ul>
+
+                        <div class="ta_citta_home_regione">Veneto</div>
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/belluno/categorie-gratis-belluno--tipcgr-idi10.aspx">Belluno</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/padova/categorie-gratis-padova--tipcgr-idi60.aspx">Padova</a></li>
+                            <li><a href="http://www.tuttoannunci.org/rovigo/categorie-gratis-rovigo--tipcgr-idi80.aspx">Rovigo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/treviso/categorie-gratis-treviso--tipcgr-idi93.aspx">Treviso</a></li>
+                            <li><a href="http://www.tuttoannunci.org/venezia/categorie-gratis-venezia--tipcgr-idi97.aspx" class="ta_bold">Venezia</a></li>
+                            <li><a href="http://www.tuttoannunci.org/verona/categorie-gratis-verona--tipcgr-idi100.aspx">Verona</a></li>                            
+                            <li><a href="http://www.tuttoannunci.org/vicenza/categorie-gratis-vicenza--tipcgr-idi102.aspx">Vicenza</a></li>                            
+                        </ul>
+
+                    </div>
+
+                    <div class="ta_clearfix"></div>
+
+                </div>
+
+                <div id="ta_categorie_home">
+                    
+                    <h1>Tutte le Categorie</h1>
+
+                    <a href="http://www.tuttoannunci.org/annunci/animali/annunci-italia/--tiprri-grp1-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_animali_48.png" alt="Animali" />
+                            <p>Animali</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/tempo-libero/annunci-italia/--tiprri-grp2-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_tempo_libero_48.png" alt="Tempo Libero" />
+                            <p>Tempo Libero</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/incontri/annunci-italia/--tiprri-grp3-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_incontri_48.png" alt="Incontri" />
+                            <p>Incontri</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/auto-e-moto/annunci-italia/--tiprri-grp4-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_auto_moto_48.png" alt="Auto e Moto" />
+                            <p>Auto e Moto</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/case/annunci-italia/--tiprri-grp5-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_casa_48.png" alt="Case" />
+                            <p>Case</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/corsi-e-lezioni/annunci-italia/--tiprri-grp6-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_corsi_lezioni_48.png" alt="Corsi e Lezioni" />
+                            <p>Corsi e Lezioni</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/compra-e-vendi/annunci-italia/--tiprri-grp7-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_compra_vendi_48.png" alt="Compra e Vendi" />
+                            <p>Compra e Vendi</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/servizi/annunci-italia/--tiprri-grp8-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_servizi_48.png" alt="Servizi" />
+                            <p>Servizi</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/offerte-di-lavoro/annunci-italia/--tiprri-grp9-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_lavoro_offro_48.png" alt="Offerte di Lavoro" />
+                            <p>Offerte di Lavoro</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/cv-cerco-lavoro/annunci-italia/--tiprri-grp10-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_lavoro_cerco_48.png" alt="CV/Cerco Lavoro" />
+                            <p>CV/Cerco Lavoro</p>                        
+                        </div>
+                    </a>  
+                    
+                    <a href="http://www.tuttoannunci.org/annunci/eventi-feste/annunci-italia/--tiprri-idc501-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_eventi_feste_48.png" alt="Eventi / Feste" />
+                            <p>Eventi / Feste</p>                        
+                        </div>
+                    </a>
+
+                    <a href="http://www.tuttoannunci.org/annunci/news/annunci-italia/--tiprri-grp12-pag0.aspx">
+                        <div class="ta_categorie_home_section">                        
+                            <img src="http://www.tuttoannunci.org/images/img_news_48.png" alt="News" />
+                            <p>News</p>                        
+                        </div>
+                    </a>                                                              
+
+                </div>
+
+                <div class="ta_clearfix"></div>
+
+
+                <div class="ta_adsense_hp">
+                    <aside>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- TuttoAnnunci_org 970x90 -->
+                        <ins class="adsbygoogle"
+                           style="display:inline-block;width:970px;height:90px"
+                           data-ad-client="ca-pub-2538993012677221"
+                           data-ad-slot="3590803305"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </aside>
+                </div>
+
+                
+                <div id="ta_links_home">
+                    <p>
+                        <a href="http://milano.tuttoannunci.org">Annunci Milano</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://roma.tuttoannunci.org">Annunci Roma</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://torino.tuttoannunci.org">Annunci Torino</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://napoli.tuttoannunci.org">Annunci Napoli</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://firenze.tuttoannunci.org">Annunci Firenze</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://bologna.tuttoannunci.org">Annunci Bologna</a>
+                        <br />
+                        <a href="http://brescia.tuttoannunci.org">Annunci Brescia</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://bergamo.tuttoannunci.org">Annunci Bergamo</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://genova.tuttoannunci.org">Annunci Genova</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://venezia.tuttoannunci.org">Annunci Venezia</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://palermo.tuttoannunci.org">Annunci Palermo</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://catania.tuttoannunci.org">Annunci Catania</a>
+                        <br />
+                        <a href="http://padova.tuttoannunci.org">Annunci Padova</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://bari.tuttoannunci.org">Annunci Bari</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://salerno.tuttoannunci.org">Annunci Salerno</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://como.tuttoannunci.org">Annunci Como</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://varese.tuttoannunci.org">Annunci Varese</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://verona.tuttoannunci.org">Annunci Verona</a>
+                        <br />
+                        <a href="http://pisa.tuttoannunci.org">Annunci Pisa</a>
+                        &nbsp;-&nbsp;                        
+                        <a href="http://treviso.tuttoannunci.org">Annunci Treviso</a>
+                    </p>
+
+                    <div class="ta_links_home_sep">&nbsp;</div>
+
+                    <p>
+                        <a href="http://annunci.tuttoannunci.org">Annunci Gratuiti</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/cerco-lavoro.aspx">Cerco Lavoro</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/affitti.aspx">Affitti Case</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/vendita.aspx">Vendita Appartamenti</a>                                                
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/vendita-auto-usate.aspx">Vendita Auto Usate</a>
+                        <br />
+                        <a href="http://annunci.tuttoannunci.org/annunci-auto-usate.aspx">Annunci auto usate</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/annunci-auto-moto-usate.aspx">Auto e Moto</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/incontri.aspx">Annunci Incontri</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/cani-e-gatti.aspx">Cani e Gatti</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci.tuttoannunci.org/eventi-feste.aspx">Eventi / Feste</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://www.tuttoannunci.org">Annunci Economici</a>		
+                    </p>
+
+                    <div class="ta_links_home_sep">&nbsp;</div>
+
+                    <p>
+                        <a href="http://abruzzo.tuttoannunci.org">Annunci Abruzzo</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://basilicata.tuttoannunci.org">Annunci Basilicata</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://calabria.tuttoannunci.org">Annunci Calabria</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://campania.tuttoannunci.org">Annunci Campania</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://emilia-romagna.tuttoannunci.org">Annunci Emilia Romagna</a>
+                        <br />
+                        <a href="http://friuli-venezia-giulia.tuttoannunci.org">Annunci Friuli Venezia Giulia</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://lazio.tuttoannunci.org">Annunci Lazio</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://liguria.tuttoannunci.org">Annunci Liguria</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://lombardia.tuttoannunci.org">Annunci Lombardia</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://marche.tuttoannunci.org">Annunci Marche</a>
+                        <br />
+                        <a href="http://molise.tuttoannunci.org">Annunci Molise</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://piemonte.tuttoannunci.org">Annunci Piemonte</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://puglia.tuttoannunci.org">Annunci Puglia</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://sardegna.tuttoannunci.org">Annunci Sardegna</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://sicilia.tuttoannunci.org">Annunci Sicilia</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://toscana.tuttoannunci.org">Annunci Toscana</a>
+                        <br />
+                        <a href="http://trentino-alto-adige.tuttoannunci.org">Annunci Trentino Alto Adige</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://umbria.tuttoannunci.org">Annunci Umbria</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://valle-daosta.tuttoannunci.org">Annunci Valle d'Aosta</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://veneto.tuttoannunci.org">Annunci Veneto</a>
+                    </p>
+
+                    <div class="ta_links_home_sep">&nbsp;</div>
+
+                    <p>
+                        <a href="http://incontri.tuttoannunci.org">Annunci Incontri</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://donna-cerca-uomo.tuttoannunci.org">Donna Cerca Uomo</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://massaggi.tuttoannunci.org">Annunci Massaggi</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://annunci-personali.tuttoannunci.org">Annunci Personali</a>
+                        &nbsp;-&nbsp;
+                        <a href="http://bacheca.tuttoannunci.org">Annunci Bacheca</a>                        
+                    </p>
+                </div>
+
+                <div class="ta_adsense_hp">
+                    <aside>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- TuttoAnnunci_org 970x90 -->
+                        <ins class="adsbygoogle"
+                           style="display:inline-block;width:970px;height:90px"
+                           data-ad-client="ca-pub-2538993012677221"
+                           data-ad-slot="3590803305"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </aside>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <div id="ta_footer">
+                                    
+                    <div class="ta_footer_section">
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/chi-siamo.aspx">Chi siamo</a></li>
+                            <li><a href="http://www.tuttoannunci.org/strumenti-di-visibilita.aspx">Pubblicità</a></li>
+                            <li><a href="http://www.tuttoannunci.org/elenco-vetrine-exclusive.aspx">Vetrine Exclusive</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ta_footer_section">
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/condizioni-duso.aspx">Condizioni d'uso</a></li>
+                            <li><a href="http://www.tuttoannunci.org/informativa-sulla-privacy.aspx">Informativa sulla privacy</a></li>
+                            <li><a href="http://www.tuttoannunci.org/suggerimenti-sicurezza.aspx">Sicurezza</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ta_footer_section">
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/aiuto.aspx">Aiuto</a></li>
+                            <li><a href="http://www.tuttoannunci.org/contattaci.aspx">Contattaci</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ricevi-annunci-persi-per-email.aspx">Gestione annunci per email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ta_footer_section">
+                        <ul>
+                            <li><div class="ta_icon_footer"><img src="http://www.tuttoannunci.org/images/img_smartphone_footer.png" alt="Versione Mobile" /></div><a href="http://m.tuttoannunci.org">Versione Mobile</a></li>
+                            <li><div class="ta_icon_footer"><img src="http://www.tuttoannunci.org/images/img_facebook_footer.png" alt="Facebook" /></div><a href="https://www.facebook.com/pages/TuttoAnnunciorg/134115873297516" target="_blank">Facebook</a></li>
+                            <li><div class="ta_icon_footer"><img src="http://www.tuttoannunci.org/images/img_twitter_footer.png" alt="Twitter" /></div><a href="https://twitter.com/tuttoannunciorg" target="_blank">Twitter</a></li>
+                            <li><a href="https://secure.easy-pay.net/customers/?site=6303" target="_blank">Supporto titolari carta credito</a></li> 
+                            <li><a href="https://www.paysafecard.com/it-it/prodotti/paysafecard/" target="_blank">Paysafecard</a></li>
+                        </ul>
+                    </div>                 
+
+                    <div class="ta_footer_section">
+                        <ul>
+                            <li><a href="http://www.tuttoannunci.org/ricerche-effettuate--tipuri-dovItalia-pag0.aspx">Ricerche effettuate</a></li>
+                            <li><a href="http://www.tuttoannunci.org/sitemap--tipgsr-idi54.aspx">Sitemap</a></li>
+                            <li><a href="http://www.tuttoannunci.org/ricerche--tipasr.aspx">Ricerche A-Z</a></li>
+                            <li><a href="http://www.tuttoannunci.org/link-utili.html">Link Utili</a></li>                            
+                        </ul>
+                    </div>                
+
+                    <div class="ta_clearfix"></div>
+
+                    <div id="ta_copyright_footer">
+                        Copyright © 2007-2017 - P. Iva 04863820876
+                    </div>
+
+            </div>
+        </footer> 
+
+    </div>
+</div>
+
+
+<script src="http://www.tuttoannunci.org/javascript/cookiechoices.js" type="text/javascript"></script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function (event) {
+        cookieChoices.showCookieConsentBar('Le pagine di TuttoAnnunci.org utilizzano Cookie. Proseguendo nella navigazione esprimi il tuo consenso.', 'OK', 'Maggiori informazioni', 'http://www.tuttoannunci.org/informativa-sulla-privacy.aspx');
+    });
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-241067-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<style media="screen" type="text/css">#ctoclose{opacity:1;display:block;width:9px;height:10px;background-repeat:no-repeat!important;border-bottom-color:#6d6c71;cursor:pointer;margin:0}.ctow{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNDY4RkE0RTlGRDMxMUU0QTYwMkFGNkNDQ0Y4NENBMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNDY4RkE0RjlGRDMxMUU0QTYwMkFGNkNDQ0Y4NENBMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA0NjhGQTRDOUZEMzExRTRBNjAyQUY2Q0NDRjg0Q0ExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA0NjhGQTREOUZEMzExRTRBNjAyQUY2Q0NDRjg0Q0ExIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+d8PnJAAAAU5JREFUeNo0kD1Lw1AUho8EhTYuxV/Q0n9ghoihk4FQAg6Ci3MWSzGL1MkpWVz8AdpFHOwuQvaSxUBpoKSDRSVDCuajpY1pm4/ruQUPPBfuPe855z0XCCHXyDtygAAlyzJoNBpg2/ZDGIYvEEXRByZInuevyH5RFLDZbGA0Gqn4jPpsDoIgnAwGA4cKMfmWpimLXNI7FhSKoqhgGAZIksQPh8MvmkiSxF6v1ykW5K1W6wZoUA/9fh+azeaR67o/q9WKjiadTucW/mM2m209OI5z4XleQgXYiZim+Vyv15mtKAgC8H3/fLlcpovFgmia9ogev+loNP9Uq9UYut0Vin5RRFRVvZNlmUGk8Xjs066WZXUBj884jkm73b7HTfboH/V6PRBF8XQymcyn02m8w/P8caVSOaxWq11d12P0A+VyGTiOA5Zlz0ql0u6fAAMAQ+fsfIg44xsAAAAASUVORK5CYII=)}#ctoclosebg{cursor:pointer;padding:7px}#ctowrapper{position:fixed;opacity:0;line-height:0!important;z-index:2147483646!important;text-align:center!important;zoom:1}.ctounselectable{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}#ctopanel{display:none;width:100%}#ctoclose:hover{opacity:.7}#ctobannerwrapper{display:inline-block!important;position:relative!important;vertical-align:middle}#ctomessage{display:none;cursor:pointer;line-height:23px;font-size:13px;font-family:Arial,Helvetica,sans-serif;border-style:solid;border-width:1px 0 0;padding:0 20px}</style><div id="ctowrapper"><div id="ctopanel"><span class="ctounselectable" id="ctomessage"></span><div id="ctoclosebg"><a id="ctoclose"></a></div></div><div id="ctoinnerwrapper"><div id="ctobannerwrapper" class="ctounselectable"><script type="text/javascript">var zoneid_desktop = "287313";var zoneid_mobile  = "";var limit_width  = 768;var limit_height  = 200;var zoneid_selected = zoneid_desktop;if( window.innerWidth<window.limit_width || window.innerHeight<window.limit_height) { zoneid_selected = zoneid_mobile; }var cto_start = document.cookie.indexOf("cto_sticky_closed" + "=");if (cto_start != -1){zoneid_selected = "";}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <!--//<![CDATA[
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   document.MAX_ct0 ='';var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');var m3_r = Math.floor(Math.random()*99999999999);document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);document.write ("zoneid="+zoneid_selected);document.write("&amp;nodis=1");document.write ('&amp;cb=' + m3_r);if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));document.write ("&amp;loc=" + escape(window.location));if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));if (document.context) document.write ("&context=" + escape(document.context));if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {document.write ("&amp;ct0=" + escape(document.MAX_ct0));}if (document.mmm_fo) document.write ("&amp;mmm_fo=1");document.write ("'></scr"+"ipt>");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   //]]>-->
+</script></div></div></div><script type="text/javascript">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   var externalBottomMargin = 0;var externalLeftMargin = 0;var externalRightMargin = 0;var internalTopMargin = 0;var internalBottomMargin = 0;var internalLeftMargin = 0;var internalRightMargin = 0;var red = 138;var green = 138;var blue = 138;var bgOpacity = 0.5;var widthOfBorder = 0;var borderRed = 255;var borderGreen = 255;var borderBlue = 255;var closePosition = 1;var closeCrossColor = "ctow";var closeMessage = "Chiudi";var closeRed = 0;var closeGreen = 0;var closeBlue = 0;var appearingAnimationEffect = true;var disappearingAnimationEffect = false;var animationTime = 400;</script><script type="text/javascript">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   function setInOutAnimation(t){t.style.setProperty("-webkit-transition","all "+window.animationTime+"ms cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-moz-transition","all "+window.animationTime+"ms cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-o-transition","all "+window.animationTime+"ms cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("transition","all "+window.animationTime+"ms cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-webkit-transition-timing-function","cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-webkit-transition-timing-function","cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-moz-transition-timing-function","cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("-o-transition-timing-function","cubic-bezier(0.455, 0.030, 0.515, 0.955)"),t.style.setProperty("transition-timing-function","cubic-bezier(0.455, 0.030, 0.515, 0.955)")}function removeInOutAnimation(t){t.style.setProperty("-webkit-transition",""),t.style.setProperty("-moz-transition",""),t.style.setProperty("-o-transition",""),t.style.setProperty("transition",""),t.style.setProperty("-webkit-transition-timing-function",""),t.style.setProperty("-webkit-transition-timing-function",""),t.style.setProperty("-moz-transition-timing-function",""),t.style.setProperty("-o-transition-timing-function",""),t.style.setProperty("transition-timing-function","")}function ctoClose(){var t=document.getElementById("ctowrapper");t.style.opacity=0,setTimeout(function(){t.style.display="none"},window.animationTime+20);var cto_days = 1,cto_value = "true",cto_name = "cto_sticky_closed",cto_expires,cto_date = new Date();cto_date.setTime(cto_date.getTime() + (cto_days * 24 * 60 * 60 * 1000));cto_expires = "; expires=" + cto_date.toGMTString();document.cookie = cto_name + "=" + cto_value + cto_expires + "; path=/";}function ctoInitialize(){var t=document.getElementById("ctobannerwrapper");if(t.clientHeight>40){var e=document.getElementById("ctowrapper"),i=document.getElementById("ctoinnerwrapper");if(3!=window.closePosition){document.getElementById("ctopanel").style.display="inline-block";var o=document.getElementById("ctoclosebg"),n=document.getElementById("ctomessage");if(2!=window.closePosition?(document.getElementById("ctoclose").className="ctounselectable close "+window.closeCrossColor,o.style.cssText="float:"+(1==window.closePosition?"right":"left")+";background-color: rgb("+window.closeRed+","+window.closeGreen+","+window.closeBlue+");",o.onclick=function(){ctoClose()}):o.style.display="none",""!=window.closeMessage){var ns="background-color:"+("ctow"==window.closeCrossColor?"#fff":"#565A5C")+";color:rgb("+window.closeRed+","+window.closeGreen+","+window.closeBlue+");border-color:rgb("+window.closeRed+","+window.closeGreen+","+window.closeBlue+");";ns+=2!=window.closePosition?"float:"+(1==window.closePosition?"right":"left")+";display:block;":"display:inline-block;border-width: 1px 1px 0 1px;",n.innerHTML=window.closeMessage,n.style.cssText=ns}else n.style.display="none";n.onclick=function(){ctoClose()}}else document.getElementById("ctopanel").style.display="none";i.style.cssText="border-width:"+window.widthOfBorder+"px;border-color:rgb("+window.borderRed+","+window.borderGreen+","+window.borderBlue+");border-style:solid;padding:"+window.internalTopMargin+"px "+window.internalRightMargin+"px "+window.internalBottomMargin+"px "+window.internalLeftMargin+"px;background:rgba("+window.red+","+window.green+","+window.blue+","+window.bgOpacity+");",e.style.cssText="bottom:0;left:0;right:0;margin:0 "+window.externalRightMargin+"px "+window.externalBottomMargin+"px "+window.externalLeftMargin+"px;",window.appearingAnimationEffect&&setInOutAnimation(e),e.style.opacity=1,setTimeout(function(){window.disappearingAnimationEffect&&!window.appearingAnimationEffect?setInOutAnimation(e):!window.disappearingAnimationEffect&&window.appearingAnimationEffect&&removeInOutAnimation(e)},window.animationTime)}}ctoInitialize();</script>
+
+
+
+</body>
+</html>

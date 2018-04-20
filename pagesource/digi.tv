@@ -1,0 +1,227 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			window.addEventListener('load', function(data) {
+				document.getElementById('loading').remove();
+			});
+			google.load('visualization', '1', {packages:['geochart']});
+			google.setOnLoadCallback(drawRegionsMap);
+			function drawRegionsMap() {
+				var data = google.visualization.arrayToDataTable([
+					['Country',	 'Latitude'],
+					['Hungary', 'Hungary'], ['Croatia', 'Croatia'], ['Czech Republic', 'Czech Republic'], ['Romania', 'Romania'], ['Serbia', 'Serbia'], ['Slovakia', 'Slovakia']
+				]);
+
+				var options = {
+					region: '150',
+					colorAxis: {colors: []},
+					backgroundColor: {
+						fill: '#DFF6FF',
+						stroke: 'white',
+						strokeWidth: 3
+					},
+					datalessRegionColor: 'white',
+					defaultColor: '#009ee0',
+					enableRegionInteractivity: true,
+					legend: 'none',
+					/*tooltip: {trigger: 'none'},*/
+				};
+
+				var chart = new google.visualization.GeoChart(document.getElementById('map'));
+				google.visualization.events.addListener(chart, 'regionClick', function(data) {
+					var links = {HU: 'http://www.digi.hu', CZ: 'http://cz.digi.tv', SK: 'http://www.digislovakia.sk', RO: 'http://www.rcs-rds.ro', RS: 'http://www.digi.rs/web/', HR: 'http://hr.digi.tv/'}
+					if (links[data.region]) location.href = links[data.region];
+					console.log(data.region);
+				});
+				chart.draw(data, options);
+			};
+		</script>
+		<style>
+			body {
+				text-align: center;
+			}
+			#logo {
+				margin: 50px auto;
+			}
+			#frame {
+				width: 800px;
+				height: 450px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+				border: 1px solid #f5f5f5;
+			}
+			#map {
+				width: 1500px;
+				top: -380px;
+				left: -500px;
+				position: absolute;
+			}
+			.loading {
+				text-align: center;
+				position: absolute;
+				top: 40%;
+				left: 0;
+				right: 0;
+				height: 50px;
+				margin: auto;
+			}
+			@media (max-width: 767px) {
+				#logo {
+					width: 250px;
+					margin: 25px auto;
+				}
+				#frame {
+					width: 250px;
+					height: 350px;
+				}
+				#map {
+					width: 1200px;
+					top: -320px;
+					left: -590px;
+				}
+			}
+
+			.loading span {
+				display: inline-block;
+				vertical-align: middle;
+				width: 20px;
+				height: 20px;
+				margin: 50px auto;
+				background: rgb(0,158,224);
+				border-radius: 100px;
+					-o-border-radius: 100px;
+					-ms-border-radius: 100px;
+					-webkit-border-radius: 100px;
+					-moz-border-radius: 100px;
+				animation: loading 1.105s infinite alternate;
+					-o-animation: loading 1.105s infinite alternate;
+					-ms-animation: loading 1.105s infinite alternate;
+					-webkit-animation: loading 1.105s infinite alternate;
+					-moz-animation: loading 1.105s infinite alternate;
+			}
+
+			#loading_1 {
+				animation-delay: 0s;
+					-o-animation-delay: 0s;
+					-ms-animation-delay: 0s;
+					-webkit-animation-delay: 0s;
+					-moz-animation-delay: 0s;
+			}
+
+			#loading_2 {
+				animation-delay: 0.3295s;
+					-o-animation-delay: 0.3295s;
+					-ms-animation-delay: 0.3295s;
+					-webkit-animation-delay: 0.3295s;
+					-moz-animation-delay: 0.3295s;
+			}
+
+			#loading_3 {
+				animation-delay: 0.659s;
+					-o-animation-delay: 0.659s;
+					-ms-animation-delay: 0.659s;
+					-webkit-animation-delay: 0.659s;
+					-moz-animation-delay: 0.659s;
+			}
+
+
+
+			@keyframes loading {
+				0% {
+					width: 20px;
+					height: 20px;
+					background-color:rgb(0,138,204);
+					transform: translateY(0);
+				}
+
+				100% {
+					width: 48px;
+					height: 48px;
+					background-color:rgb(255,255,255);
+					transform: translateY(-42px);
+				}
+			}
+
+			@-o-keyframes loading {
+				0% {
+					width: 20px;
+					height: 20px;
+					background-color:rgb(0,138,204);
+					-o-transform: translateY(0);
+				}
+
+				100% {
+					width: 48px;
+					height: 48px;
+					background-color:rgb(255,255,255);
+					-o-transform: translateY(-42px);
+				}
+			}
+
+			@-ms-keyframes loading {
+				0% {
+					width: 20px;
+					height: 20px;
+					background-color:rgb(0,138,204);
+					-ms-transform: translateY(0);
+				}
+
+				100% {
+					width: 48px;
+					height: 48px;
+					background-color:rgb(255,255,255);
+					-ms-transform: translateY(-42px);
+				}
+			}
+
+			@-webkit-keyframes loading {
+				0% {
+					width: 20px;
+					height: 20px;
+					background-color:rgb(0,138,204);
+					-webkit-transform: translateY(0);
+				}
+
+				100% {
+					width: 48px;
+					height: 48px;
+					background-color:rgb(255,255,255);
+					-webkit-transform: translateY(-42px);
+				}
+			}
+
+			@-moz-keyframes loading {
+				0% {
+					width: 20px;
+					height: 20px;
+					background-color:rgb(0,138,204);
+					-moz-transform: translateY(0);
+				}
+
+				100% {
+					width: 48px;
+					height: 48px;
+					background-color:rgb(255,255,255);
+					-moz-transform: translateY(-42px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<img id="logo" src="data:image/png;base64,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"/>
+		<div id="frame">
+			<div class="loading" id="loading">
+				<span id="loading_1">
+				</span>
+				<span id="loading_2">
+				</span>
+				<span id="loading_3">
+				</span>
+			</div>
+			<div id="map"></div>
+		</div>
+	</body>
+</html>

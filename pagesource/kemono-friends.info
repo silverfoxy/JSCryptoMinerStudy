@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#9ccc65"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="favicon.ico">
+<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.light_green-red.min.css" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" onload="this.rel='stylesheet'">
+<style>
+html,body{
+font-family: 'Roboto', Noto Serif, sans-serif;
+background-color:#ebebeb;
+}
+main{
+width:100%;
+}
+
+.center{
+text-align:center;
+}
+
+.card-center{
+margin-left:auto;margin-right:auto;
+}
+
+.margin-card{
+  margin-top:5px;
+  margin-bottom:15px;
+}
+footer{
+margin-bottom:0px;
+bottom:0;
+}
+.bmzero{
+margin-bottom:0px;
+bottom:0;
+}
+body{
+margin-bottom:0px;
+bottom:0;
+}
+.width-max{
+	width: 100%;
+}
+</style>
+<title>Tools</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header bmzero">
+  <header class="mdl-layout__header  mdl-layout--fixed-header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Tools</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+<!--        <a class="mdl-navigation__link pga" href="./">トップページ</a>-->
+      </nav>
+    </div>
+  </header>
+
+<main class="main">
+
+  <div class="mdl-grid">
+    <div class="mdl-card mdl-shadow--2dp card-center margin-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text"></h2>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-900">
+        <a href="http://www.nicovideo.jp/watch/1484126967">1話</a>
+<!--        <p><a href="http://live.nicovideo.jp/watch/lv286858209">12話...12話...12...話...........</a></p>
+<p>12話のコメント数は1,243,585で100万超えてましたね…来場者は213.744でした</p>
+<p>あとで幾つか画像追加しておきます</p>-->
+<p>1話の再生数<span id='1ct'></span></p>
+      </div>
+    </div>
+  </div>
+
+<div class="mdl-grid">
+  <div class="mdl-card mdl-shadow--2dp card-center margin-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">フレンズへんかん</h2>
+    </div>
+    <div class="mdl-card__supporting-text mdl-color-text--grey-900">
+        <form id="genr">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" id="digit" value="">
+            <label class="mdl-textfield__label" for="digit">もとのぶんしょう</label>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="genb">
+            へんかん！
+          </button>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="resa">
+            <input class="mdl-textfield__input" type="text" id="res">
+            <label class="mdl-textfield__label" for="res">けっか</label>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" type="button" id="rcopy"  data-clipboard-target="#res">
+          Copy!
+        </button>
+        </form>
+<p>まだ変換用の辞書はかなり少ないので何か単語の組み合わせがあれば<a href="https://goo.gl/forms/ODb9dLYYViU24S1J3">ここから</a>送信してもらえれば登録します。</p>
+    </div>
+  </div>
+</div>
+</main>
+<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
+<footer class="mdl-mini-footer" style="display:none;">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">maa123's HP</div>
+    <ul class="mdl-mini-footer__link-list">
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+</footer>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script>
+$(function(){
+$.ajax({
+'url':'./vcount.php',
+'cache':false,
+}).done(function(d){
+$('#1ct').text(d);
+});
+
+
+
+  new Clipboard('#rcopy');
+  $('#genr').on('submit',function(event) {
+    $.ajax({
+      type: "POST",
+      url: "k-friends-api.php",
+      dataType: 'text',
+      data: {
+        "t": $('#digit').val()
+      }
+    }).done(function(data){
+        $('#res').val(data);
+        //$('#twi').attr('href', "https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Ftool.maa123.gq%2Ffwfw&ref_src=twsrc%5Etfw&text="+data+"&tw_p=tweetbutton&url=https%3A%2F%2Ftool.maa123.gq%2Ffwfw&via=maa123_LQ");
+        //$('#twi').attr('data-text', data);
+        $('#res').addClass('is-focused');
+        $("#resa").addClass('is-dirty');
+        $("#resa").removeClass('is-invalid');
+      });
+
+
+    event.preventDefault();
+  });
+});
+
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  // tracker methods like "setCustomDimension" should be called before "trackPageView"
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.maa123.net/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+</body>
+</html>

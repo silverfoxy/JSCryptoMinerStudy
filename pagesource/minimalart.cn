@@ -1,0 +1,712 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>极简客-网站开发技术交流-minimalart</title>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="generator" content="phpwind v9.0 20130702" />
+<meta name="description" content="极简客-网站开发技术论坛" />
+<meta name="keywords" content="极简客,网站开发技术交流,php网站开发,网站制作，网页设计，极简客论坛" />
+<meta property="qc:admins" content="3534266617651615141246367" />
+<link rel="stylesheet" href="http://www.minimalart.cn/themes/site/default/css/dev/core.css?v=20130702" />
+<link rel="stylesheet" href="http://www.minimalart.cn/themes/site/default/css/dev/style.css?v=20130702" />
+<!-- <base id="headbase" href="http://www.minimalart.cn/" /> -->
+<style>.nav li.current a,.nav li.current a:hover{background:#4f81bd;}</style><script>
+//全局变量 Global Variables
+var GV = {
+	JS_ROOT : 'http://www.minimalart.cn/res/js/dev/',										//js目录
+	JS_VERSION : '20130702',											//js版本号(不能带空格)
+	JS_EXTRES : 'http://www.minimalart.cn/themes/extres',
+	TOKEN : '111b98b5ac7fb24d',	//token $.ajaxSetup data
+	U_CENTER : 'http://www.minimalart.cn/space-index-run',		//用户空间(参数 : uid)
+	U_AVATAR_DEF : 'http://www.minimalart.cn/res/images/face/face_small.jpg',					//默认小头像
+	U_ID : parseInt('0'),									//uid
+	REGION_CONFIG : '',														//地区数据
+	CREDIT_REWARD_JUDGE : '',			//是否积分奖励，空值:false, 1:true
+	URL : {
+		LOGIN : 'http://www.minimalart.cn/u-login-run',										//登录地址
+		QUICK_LOGIN : 'http://www.minimalart.cn/u-login-fast',								//快速登录
+		IMAGE_RES: 'http://www.minimalart.cn/res/images',										//图片目录
+		CHECK_IMG : 'http://www.minimalart.cn/u-login-showverify',							//验证码图片url，global.js引用
+		VARIFY : 'http://www.minimalart.cn/verify-index-get',									//验证码html
+		VARIFY_CHECK : 'http://www.minimalart.cn/verify-index-check',							//验证码html
+		HEAD_MSG : {
+			LIST : 'http://www.minimalart.cn/message-notice-minilist'							//头部消息_列表
+		},
+		USER_CARD : 'http://www.minimalart.cn/space-card-run',								//小名片(参数 : uid)
+		LIKE_FORWARDING : 'http://www.minimalart.cn/bbs-post-doreply',							//喜欢转发(参数 : fid)
+		REGION : 'http://www.minimalart.cn/misc-webData-area',									//地区数据
+		SCHOOL : 'http://www.minimalart.cn/misc-webData-school',								//学校数据
+		EMOTIONS : "http://www.minimalart.cn/emotion-index-run?type=bbs",					//表情数据
+		CRON_AJAX : 'http://www.minimalart.cn/cron-index-run',											//计划任务 后端输出执行
+		FORUM_LIST : 'http://www.minimalart.cn/bbs-forum-list',								//版块列表数据
+		CREDIT_REWARD_DATA : 'http://www.minimalart.cn/u-index-showcredit',					//积分奖励 数据
+		AT_URL: 'http://www.minimalart.cn/bbs-remind-run',									//@好友列表接口
+		TOPIC_TYPIC: 'http://www.minimalart.cn/bbs-forum-topictype'							//主题分类
+	}
+};
+</script>
+<script src="http://www.minimalart.cn/res/js/dev/wind.js?v=20130702"></script>
+<link href="http://www.minimalart.cn/themes/site/default/css/dev/forum.css?v=20130702" rel="stylesheet" />
+<meta property="qc:admins" content="353426661765161514124636" />
+</head>
+<body>
+<style type="text/css">
+</style><div class="wrap">
+<header class="header_wrap">
+	<div id="J_header" class="header cc">
+		<div class="logo">
+			<a href="http://www.minimalart.cn/">
+								<img src="http://www.minimalart.cn/themes/site/default/images/logo.png" alt="极简客-网站开发">
+							</a>
+		</div>
+		<nav class="nav_wrap">
+			<div class="nav">
+				<ul>
+						<li class=""><a href="http://www.minimalart.cn/index.php?m=bbs">论坛</a></li>
+						<li class="current"><a href="http://www.minimalart.cn/index.php?m=bbs&c=forumlist">版块</a></li>
+						<li class=""><a href="http://www.minimalart.cn/index.php?m=like&c=like">热门</a></li>
+						<li class=""><a href="http://www.minimalart.cn/index.php?m=tag">标签</a></li>
+					</ul>
+			</div>
+		</nav>
+				<div class="header_search" role="search">
+			<form action="http://www.minimalart.cn/search-s-run" method="post">
+				<input type="text" id="s" aria-label="搜索关键词" accesskey="s" placeholder="搜索其实很简单" x-webkit-speech speech name="keyword"/>
+				<button type="submit" aria-label="搜索"><span>搜索</span></button>
+			<input type="hidden" name="csrf_token" value="111b98b5ac7fb24d"/><input type="hidden" name="csrf_token" value="111b98b5ac7fb24d"/></form>
+		</div>
+		<div class="header_login">
+	<a rel="nofollow" href="http://www.minimalart.cn/u-login-run">登录</a><a rel="nofollow" href="http://www.minimalart.cn/u-register-run">注册</a>
+</div>
+	</div>
+</header>
+<div class="tac"></div>
+	<div class="main_wrap">
+		
+		<!--div class="bread_crumb">
+					</div-->
+		<div class="forum_page">
+			<div class="bbs_info_box">
+				<span>今日：0</span><i></i><span>昨日：0</span><i></i><span>最高日：20</span><i></i><span>帖子：393</span><i></i><span>会员：23</span><i></i><span>新会员：<a href="http://www.minimalart.cn/space-index-run?username=PAPA" target="_blank">PAPA</a></span>
+			</div>
+			<style>
+.forum_recommend{
+	padding:15px;
+}
+/*焦点图*/
+.forum_recommend .home_push_slide{
+	float:left;
+}
+.home_push_slidewrap{
+	float:left;
+	width: 360px;
+	display:inline;
+	height:240px;
+}
+.home_push_slide {
+	height: 240px;
+	overflow: hidden;
+	position: relative;
+	width: 360px;
+	background:#f5f5f5;
+}
+.home_push_slide img{
+	display: block;
+}
+.home_push_slide .num {
+	bottom:5px;
+	right: 5px;
+	position: absolute;
+	z-index:6;
+}
+.home_push_slide .num li {
+	float: left;
+	margin-left: 5px;
+}
+.home_push_slide .num li a {
+	background:#fff;
+	color: #000;
+	padding:0 5px;
+}
+.home_push_slide .num li a:hover,
+.home_push_slide .num li.current a {
+	background: #f60;
+	color: #fff;
+	text-decoration: none;
+}
+.home_push_slide .caption {
+	background:#000;
+	background:rgba(0,0,0,.5);
+	bottom:0px;
+	height:30px;
+	/*opacity: 0.6;*/
+	position: absolute;
+	width: 100%;
+	z-index: 6;
+}
+.home_push_slide .caption p {
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+	width: 100%;
+}
+.home_push_slide .caption .h2 {
+	height: 30px;
+	line-height: 30px;
+	overflow:hidden;
+	text-indent: 10px;
+}
+.home_push_slide .caption .h2 a {
+	color: #fff;
+	font-size: 12px;
+}
+/*热门推荐*/
+.forum_recommend .home_push_hot{
+	float:right;
+}
+.home_push_hot{
+	width:555px;
+}
+.home_push_hot dt{
+	line-height:1.2;
+	font-weight:700;
+	font-size:16px;
+}
+.home_push_hot dd{
+	padding:8px 0 10px;
+	width:460px;
+}
+.home_push_hot li{
+	font-family:Simsun;
+	float:left;
+	width:47.5%;
+	padding-right:2%;
+	display:inline;
+	line-height:24px;
+	height:24px;
+	overflow:hidden;
+}
+.home_push_hot li em a{
+	color:#ff5500;
+	margin-right:5px;
+}
+.home_push_hot li a{
+	color:#333;
+}
+/*友情链接颜色*/
+.tmode_traverseList a{
+	color:#333;
+}
+</style>
+<div class="box_wrap" style="margin-bottom:0;">
+
+<div class="box_title">
+	<h2 class="f12">首页推荐</h2>
+</div>
+
+<div class="forum_recommend cc">
+
+<div id="J_slides" class="home_push_slide">
+
+	<div class="slides_container">
+				 <div class="slide">
+			 <a href="http://www.minimalart.cn/read-202.html" target="_blank" title="" target="_blank"><img src="http://www.minimalart.cn/design-image-run?id=25768" width="360" height="240" alt="photoshop去除水印的六种方法"></a>
+				<div class="caption">
+					<div class="h2"><a href="http://www.minimalart.cn/read-202.html" target="_blank" target="_blank">photoshop去除水印的六种方法</a></div>
+				</div>
+		</div>
+				 <div class="slide">
+			 <a href="http://www.minimalart.cn/read-173.html" target="_blank" title="" target="_blank"><img src="http://www.minimalart.cn/design-image-run?id=25769" width="360" height="240" alt="超酷的固定菜单页面滚动效果"></a>
+				<div class="caption">
+					<div class="h2"><a href="http://www.minimalart.cn/read-173.html" target="_blank" target="_blank">超酷的固定菜单页面滚动效果</a></div>
+				</div>
+		</div>
+				 <div class="slide">
+			 <a href="http://www.minimalart.cn/read-113.html" target="_blank" title="" target="_blank"><img src="http://www.minimalart.cn/design-image-run?id=25770" width="360" height="240" alt="PHPCMS V9多站点[站群功能]动态设置与静态设置子站内容URL"></a>
+				<div class="caption">
+					<div class="h2"><a href="http://www.minimalart.cn/read-113.html" target="_blank" target="_blank">PHPCMS V9多站点[站群功能]...</a></div>
+				</div>
+		</div>
+				 <div class="slide">
+			 <a href="http://www.minimalart.cn/read-68.html" target="_blank" title="" target="_blank"><img src="http://www.minimalart.cn/design-image-run?id=25771" width="360" height="240" alt="RGB颜色查询对照表"></a>
+				<div class="caption">
+					<div class="h2"><a href="http://www.minimalart.cn/read-68.html" target="_blank" target="_blank">RGB颜色查询对照表</a></div>
+				</div>
+		</div>
+				 <div class="slide">
+			 <a href="http://www.minimalart.cn/read-35.html" target="_blank" title="" target="_blank"><img src="http://www.minimalart.cn/design-image-run?id=25772" width="360" height="240" alt="phpwind9.0模板开发手册_入门篇"></a>
+				<div class="caption">
+					<div class="h2"><a href="http://www.minimalart.cn/read-35.html" target="_blank" target="_blank">phpwind9.0模板开发手册_入...</a></div>
+				</div>
+		</div>
+			</div>
+	<ul class="J_slides_num num">
+			<li><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href="">4</a></li>
+			<li><a href="">5</a></li>
+		</ul>
+
+</div>
+<div class="home_push_hot">
+
+  <dl>
+    <dt><a href="http://www.minimalart.cn/read-296.html" target="_blank">图文理解七种不同的排序方法</a></dt>
+    <dd style="width:550px;">1快速排序介绍：快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序n个项目要Ο(nlogn)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο...</dd>
+  </dl>
+
+
+
+<ul class="cc">
+    <li><em><a href="http://www.minimalart.cn/thread-45.html" target="_blank">[php]</a></em><a href="http://www.minimalart.cn/read-381.html" target="_blank">js/php浮点数精确运算</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-61.html" target="_blank">[mongodb]</a></em><a href="http://www.minimalart.cn/read-380.html" target="_blank">win7-64 mongodb 安装</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-61.html" target="_blank">[mongodb]</a></em><a href="http://www.minimalart.cn/read-379.html" target="_blank">【Mongodb】3.0 配置身份验证db.createUser</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-378.html" target="_blank">一千行MySQL学习笔记</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-45.html" target="_blank">[php]</a></em><a href="http://www.minimalart.cn/read-377.html" target="_blank">两千行PHP学习笔记</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-376.html" target="_blank">查询所有数据库占用磁盘空间大小的SQL语句：</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-375.html" target="_blank">mysql 分析查找执行效率慢的SQL语句</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-17.html" target="_blank">[thinkphp]</a></em><a href="http://www.minimalart.cn/read-374.html" target="_blank">ThinkPHP Where 条件中使用表达式</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-34.html" target="_blank">[linux]</a></em><a href="http://www.minimalart.cn/read-373.html" target="_blank">Linux 查看CPU信息，机器型号，内存等信息</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-34.html" target="_blank">[linux]</a></em><a href="http://www.minimalart.cn/read-372.html" target="_blank">Vim命令合集</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-371.html" target="_blank">mysql存储过程之一—建立简单的存储过程</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-370.html" target="_blank">Mysql临时表</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-45.html" target="_blank">[php]</a></em><a href="http://www.minimalart.cn/read-369.html" target="_blank">PHP实现目录列表、文件列表读取</a></li>
+     <li><em><a href="http://www.minimalart.cn/thread-30.html" target="_blank">[mysql]</a></em><a href="http://www.minimalart.cn/read-368.html" target="_blank">mysql函数大全</a></li>
+   </ul>
+
+</div>
+</div>
+</div>
+
+
+<script>
+Wind.ready('global.js', function(){
+	Wind.use('slides', function(){
+		$('#J_slides').slides({
+			preload: false,
+			preloadImage: 'http://www.minimalart.cn/themes/site/default/images/common/loading.gif',
+			play: 5000,
+			pause: 100,
+			hoverPause: true,
+			effect : 'slide', //渐隐切换fade, 默认为'slide'滚动
+			crossfade : true, //消去渐隐间隙空白
+			paginationClass : 'J_slides_num',
+			generatePagination : false,
+			animationStart: function(current){
+				$('.caption').animate({
+					bottom:-55
+				},100);
+			},
+			animationComplete: function(current){
+				$('.caption').animate({
+					bottom:0
+				},200);
+			},
+			slidesLoaded: function() {
+				$('.caption').animate({
+					bottom:0
+				},200);
+			}
+		});
+	})
+});
+</script>
+
+			<div class="box_wrap">
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-1.html">WEB前端</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-2.html">HTML/CSS</a></h3>
+				主题：36，帖子：42<br>
+				最后回复：<a href="http://www.minimalart.cn/read-365-e.html#a" rel="nofollow"><span class="time">2014-05-25 17:32</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-6.html">Javascript</a></h3>
+				主题：32，帖子：34<br>
+				最后回复：<a href="http://www.minimalart.cn/read-367-e.html#a" rel="nofollow"><span class="time">2014-06-07 20:50</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-5.html">Jquery</a></h3>
+				主题：16，帖子：17<br>
+				最后回复：<a href="http://www.minimalart.cn/read-334-e.html#a" rel="nofollow"><span class="time">2014-02-27 23:04</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-4.html">网页模板</a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-116-e.html#a" rel="nofollow"><span class="time">2013-07-14 18:09</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-3.html">前端其他讨论</a></h3>
+				主题：4，帖子：5<br>
+				最后回复：<a href="http://www.minimalart.cn/read-245-e.html#a" rel="nofollow"><span class="time">2013-09-17 11:09</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-18.html">图片设计</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-202-e.html#a" rel="nofollow"><span class="time">2013-08-23 14:24</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-58.html">extjs</a></h3>
+				主题：4，帖子：4<br>
+				最后回复：<a href="http://www.minimalart.cn/read-360-e.html#a" rel="nofollow"><span class="time">2014-05-16 16:43</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-60.html">nodejs</a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-353-e.html#a" rel="nofollow"><span class="time">2014-05-11 10:02</span></a>			</th>
+			</tr>
+	</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-7.html">PHP&CMS</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-10.html">phpwind</a></h3>
+				主题：3，帖子：3<br>
+				最后回复：<a href="http://www.minimalart.cn/read-281-e.html#a" rel="nofollow"><span class="time">2013-09-24 10:24</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-45.html">php</a></h3>
+				主题：87，帖子：91<br>
+				最后回复：<a href="http://www.minimalart.cn/read-381-e.html#a" rel="nofollow"><span class="time">2015-07-26 16:49</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-9.html">phpcms</a></h3>
+				主题：16，帖子：16<br>
+				最后回复：<a href="http://www.minimalart.cn/read-316-e.html#a" rel="nofollow"><span class="time">2013-10-30 09:27</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-25.html">dedecms</a></h3>
+				主题：18，帖子：19<br>
+				最后回复：<a href="http://www.minimalart.cn/read-337-e.html#a" rel="nofollow"><span class="time">2014-03-06 13:05</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-8.html">wordpress</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-124-e.html#a" rel="nofollow"><span class="time">2013-07-17 21:33</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-46.html">其他CMS</a></h3>
+				主题：6，帖子：6<br>
+				最后回复：<a href="http://www.minimalart.cn/read-300-e.html#a" rel="nofollow"><span class="time">2013-10-22 11:09</span></a>			</th>
+			</tr>
+		</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-14.html">开源框架</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-17.html">thinkphp</a></h3>
+				主题：3，帖子：3<br>
+				最后回复：<a href="http://www.minimalart.cn/read-374-e.html#a" rel="nofollow"><span class="time">2015-03-01 09:22</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-15.html">CodeIgniter </a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-71-e.html#a" rel="nofollow"><span class="time">2013-07-03 08:47</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-16.html">yii framework</a></h3>
+				主题：0，帖子：0<br>
+							</th>
+			</tr>
+		</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-29.html">服务器&数据库</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-34.html">linux</a></h3>
+				主题：32，帖子：34<br>
+				最后回复：<a href="http://www.minimalart.cn/read-373-e.html#a" rel="nofollow"><span class="time">2015-02-03 13:51</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-33.html">apache</a></h3>
+				主题：8，帖子：8<br>
+				最后回复：<a href="http://www.minimalart.cn/read-291-e.html#a" rel="nofollow"><span class="time">2013-10-04 09:54</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-32.html">nginx</a></h3>
+				主题：6，帖子：7<br>
+				最后回复：<a href="http://www.minimalart.cn/read-280-e.html#a" rel="nofollow"><span class="time">2013-09-24 10:02</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-31.html">windows</a></h3>
+				主题：4，帖子：4<br>
+				最后回复：<a href="http://www.minimalart.cn/read-257-e.html#a" rel="nofollow"><span class="time">2013-09-18 13:40</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-30.html">mysql</a></h3>
+				主题：30，帖子：34<br>
+				最后回复：<a href="http://www.minimalart.cn/read-378-e.html#a" rel="nofollow"><span class="time">2015-03-23 17:40</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-59.html">git</a></h3>
+				主题：1，帖子：1<br>
+							</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-61.html">mongodb</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-380-e.html#a" rel="nofollow"><span class="time">2015-06-27 21:30</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-62.html">docker</a></h3>
+				主题：0，帖子：0<br>
+							</th>
+			</tr>
+	</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-35.html">软件设计</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-38.html">面向对象</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-248-e.html#a" rel="nofollow"><span class="time">2013-09-18 10:15</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-37.html">网站架构</a></h3>
+				主题：5，帖子：5<br>
+				最后回复：<a href="http://www.minimalart.cn/read-265-e.html#a" rel="nofollow"><span class="time">2013-09-19 23:59</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-36.html">其他技术</a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-253-e.html#a" rel="nofollow"><span class="time">2013-09-18 10:27</span></a>			</th>
+			</tr>
+		</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-48.html">行业资讯</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-42.html">云计算</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-254-e.html#a" rel="nofollow"><span class="time">2013-09-18 10:32</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-50.html">移动</a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-255-e.html#a" rel="nofollow"><span class="time">2013-09-18 10:35</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-49.html">每日IT新闻</a></h3>
+				主题：3，帖子：3<br>
+				最后回复：<a href="http://www.minimalart.cn/read-194-e.html#a" rel="nofollow"><span class="time">2013-08-15 16:29</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-56.html">技术杂谈</a></h3>
+				主题：4，帖子：4<br>
+				最后回复：<a href="http://www.minimalart.cn/read-238-e.html#a" rel="nofollow"><span class="time">2013-09-14 15:47</span></a>			</th>
+			</tr>
+	</table>
+</div>
+
+				</div>
+								<div class="forum_group">
+					<div class="box_title">
+						<div class="fr">
+													</div>
+						<h2 class="cname"><a href="http://www.minimalart.cn/thread-39.html">其他分类</a></h2>
+					</div>
+					<div class="ct">
+	<table width="100%" summary="横排版块排序">
+		<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-44.html">SEO</a></h3>
+				主题：5，帖子：5<br>
+				最后回复：<a href="http://www.minimalart.cn/read-259-e.html#a" rel="nofollow"><span class="time">2013-09-18 14:56</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-51.html">模板&前端开发工具</a></h3>
+				主题：3，帖子：3<br>
+				最后回复：<a href="http://www.minimalart.cn/read-173-e.html#a" rel="nofollow"><span class="time">2013-08-02 14:20</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-43.html">软件测试</a></h3>
+				主题：7，帖子：7<br>
+				最后回复：<a href="http://www.minimalart.cn/read-288-e.html#a" rel="nofollow"><span class="time">2013-09-24 14:25</span></a>			</th>
+			</tr>
+			<tr>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-41.html">转载</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-156-e.html#a" rel="nofollow"><span class="time">2013-07-29 17:09</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-40.html">计算机英语</a></h3>
+				主题：1，帖子：1<br>
+				最后回复：<a href="http://www.minimalart.cn/read-56-e.html#a" rel="nofollow"><span class="time">2013-06-11 22:22</span></a>			</th>
+				<th class="old">
+					<h3 class="fname"><a href="http://www.minimalart.cn/thread-47.html">开发工具</a></h3>
+				主题：2，帖子：2<br>
+				最后回复：<a href="http://www.minimalart.cn/read-294-e.html#a" rel="nofollow"><span class="time">2013-10-05 15:00</span></a>			</th>
+			</tr>
+		</table>
+</div>
+
+				</div>
+							</div>
+		</div>
+		
+<div class="box_wrap">
+	<div class="box_title">
+		<a href="index.php?m=link&c=index&a=run" class="J_link_apply fr">申请链接</a>
+		<h2 class="f12">友情链接</h2>
+	</div>
+		<div class="tmode_traverseList">
+		<ul class="cc">
+					<li><a href="http://blog.minimalart.cn/" target="_blank" target="_blank">极简博客</a></li>
+					<li><a href="https://worktile.com" target="_blank" target="_blank">worktile协同</a></li>
+					<li><a href="http://www.mywulian.com" target="_blank" target="_blank">云联在线</a></li>
+					<li><a href="http://shop.minimalart.cn" target="_blank" target="_blank">极简客商城</a></li>
+					<li><a href="http://www.jq-school.com/" target="_blank" target="_blank">jquery-school</a></li>
+					<li><a href="http://www.5icool.org/" target="_blank" target="_blank">酷站代码</a></li>
+					<li><a href="http://www.w3cplus.com/" target="_blank" target="_blank">前端资讯</a></li>
+					<li><a href="http://www.daqianduan.com/" target="_blank" target="_blank">大前端</a></li>
+					<li><a href="http://www.bootcss.com/" target="_blank" target="_blank">Bootstrap中文网</a></li>
+					<li><a href="http://www.html5china.com/" target="_blank" target="_blank">HTML5中文网</a></li>
+					<li><a href="http://s.click.taobao.com/t?e=m%3D2%26s%3DyYhkPwtGj6ocQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAgUChGkBLxHmFvxThwrhnVwuZnETljFmPDIgontLvFXfYk122z9POpCygPy0Ce2%2B%2Bedn1BbglxZYxUhy8exlzcq9AmARIwX9K%2BnbtOD3UdznPV1H2z0iQv9eY%2By0blbhscYl7w3%2FA2kb" target="_blank" target="_blank">阿里云</a></li>
+					<li><a href="http://www.phpddt.com/" target="_blank" target="_blank">PHP点点通</a></li>
+					<li><a href="http://www.css88.com/" target="_blank" target="_blank">web前端开发</a></li>
+					<li><a href="http://www.lamp99.com/" target="_blank" target="_blank">Web编程技术交流网</a></li>
+					<li><a href="http://www.nowamagic.net/" target="_blank" target="_blank">简明现代魔法</a></li>
+					<li><a href="http://note.youdao.com/?invitation=0C4F327" target="_blank" target="_blank">有道云笔记</a></li>
+					<li><a href="http://www.cnblogs.com/" target="_blank" target="_blank">博客园</a></li>
+					<li><a href="http://www.php1.cn/" target="_blank" target="_blank">第一PHP社区</a></li>
+					<li><a href="http://www.helloweba.com/" target="_blank" target="_blank">helloweba</a></li>
+					<li><a href="http://ai.taobao.com?pid=mm_32490646_4086998_22422069" target="_blank" target="_blank">爱淘宝</a></li>
+					<li><a href="http://www.jq22.com/" target="_blank" target="_blank">jquery插件库</a></li>
+					<li><a href="http://www.imooc.com" target="_blank" target="_blank">慕课网</a></li>
+					<li><a href="http://www.hcharts.cn" target="_blank" target="_blank">Highcharts中文网</a></li>
+					<li><a href="http://www.sharethemes.cn" target="_blank" target="_blank">HTML5响应式模板资源站</a></li>
+					<li><a href="http://ngnice.com/" target="_blank" target="_blank">AngularJS</a></li>
+				</ul>
+	</div>
+	
+</div>
+	</div>
+
+<!--.main-wrap,#main End-->
+<div class="tac">
+<br />
+
+</div>
+<div class="footer_wrap">
+	<div class="footer">
+		
+		<div class="bottom">
+				</div>
+		<p>Powered by <a href="http://www.phpwind.net/" target="_blank" rel="nofollow">phpwind v9.0</a> &copy;2003-2103 <a href="http://www.phpwind.com" target="_blank" rel="nofollow">phpwind.com</a> <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">京ICP备13027371号-2</a></p>
+		<p><script src="http://s23.cnzz.com/stat.php?id=5473492&web_id=5473492&show=pic" language="JavaScript"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fffc7f9445b762ad11847e1d566def5f7' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- UJian Button BEGIN -->
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&pos=left&fade=1&uid=1799810"></script>
+<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+<!-- UJian Button END -->
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_streak_share_24x24" id="jiathis_streak_share" style="display:none">
+<span class="streak_share_jiao"></span>
+<div class="jiathis_streak_goshare" id="jiathis_streak_goshare"><span class="jiathis_streak_txt">分享到</span>  <span style="" title="隐藏分享框" onclick="JIATHIS_STREAK.hideShare()" class="jiathis_streak_close">X</span></div>
+<div class="jiathis_style_24x24" >
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_renren"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1371276426289434" charset="utf-8"></script>	
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_streak.js" charset="utf-8"></script>
+</div></div>
+<!-- JiaThis Button END -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34296348-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42258080-1', 'minimalart.cn');
+  ga('send', 'pageview');
+
+</script>
+<!-- 将此代码放在适当的位置，建议在body结束前 -->
+<script id="bdaddtocite_shell"></script>
+<script>
+var bdShare_config_addtocite = {
+	"type":"slide"
+	,"pos":"left"
+	,"color":"blue"
+	,"top":"200"
+	,"uid":"6045317"
+};
+document.getElementById("bdaddtocite_shell").src="http://bdimg.share.baidu.com/static/js/addtocite_shell.js?t=" + Math.ceil(new Date()/3600000);
+</script>
+<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/1fdb36b6d6733a924976d69d6b0ee243/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" /></p>
+	</div>
+	
+	<div id="cloudwind_common_bottom"></div>
+	</div>
+
+<!--返回顶部-->
+<a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+
+</div>
+<script>
+Wind.use('jquery', 'global', function(){
+});
+</script>
+
+</body>
+</html><script type="text/javascript">(function(d,t){var url="http://app.open.phpwind.com/?src=forumlist&url=www.minimalart.cn&sn=www.minimalart.cn&fid=0&uid=0&tid=0&d61e7e29=0&charset=UTF-8&username=%E6%B8%B8%E5%AE%A2&title=&_ua=482d441464272609ef&_shr=&_sqs=&_ssn=L2luZGV4LnBocA%3D%3D&_t=86400&_v=8429";var g=d.createElement(t);g.async=1;g.src=url;d.body.insertBefore(g,d.body.firstChild);}(document,"script"));</script>

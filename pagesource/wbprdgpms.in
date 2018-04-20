@@ -1,0 +1,644 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome To GPMS Status Monitoring System</title>
+<meta name="keywords" content="GPMS" />
+<meta name="description" content="GPMS" />
+<link rel="icon" type="images/png" href="images/favicon.png"/>
+<link type="text/css" href="gpms_css/main.css" rel="stylesheet"/>
+<link type="text/css" href="gpms_css/menubar.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="gpms_css/sdmenu.css" />
+<script type="text/javascript" src="gpms_js/jslib_dom_ready.js"></script>
+<script type="text/javascript" src="gpms_js/jslib_event.js"></script>
+<script type="text/javascript" src="gpms_js/jslib_css.js"></script>
+<script type="text/javascript" src="gpms_js/menubar_library.js"></script>
+<script type="text/javascript" src="gpms_js/menubar.js"></script>
+<script type="text/javascript" src="gpms_js/ajaxfunctions.js"></script>
+<script type="text/javascript" src="gpms_js/ajaxfunctions_26upload.js"> </script>
+<script type="text/javascript" src="gpms_js/AC_RunActiveContent.js"></script>
+<script type="text/javascript" src="gpms_js/amcharts.js"></script>
+<script language="javascript" type="text/javascript" >
+function getXMLHTTP(){var xmlhttp=false;try{xmlhttp=new XMLHttpRequest();}catch(e){try{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}catch(e){try{xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");}catch(e1){xmlhttp=false;}}}return xmlhttp;}
+
+function getmyblock(district_code) {  
+   // alert(district_code);
+ var strURL="monthlyReport/findblock.php?district="+district_code;  
+    var req = getXMLHTTP();
+    if (req) { req.onreadystatechange = function() {
+    if (req.readyState == 4) { if (req.status == 200) {
+    document.getElementById('cfcblock').innerHTML=req.responseText; } else {
+    alert("There was a problem while using XMLHTTP:\n" + req.statusText);} } }
+    req.open("GET", strURL, true);
+    req.send(null);
+    }
+}
+
+    function getmygp(district_code, block_code) {
+        var strURL = "monthlyReport/findgp.php?district=" + district_code + "&block=" + block_code;
+        var req = getXMLHTTP();
+        if (req) {
+            req.onreadystatechange = function() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        document.getElementById('cfcgp').innerHTML = req.responseText;
+                    } else {
+                        alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+                    }
+                }
+            }
+            req.open("GET", strURL, true);
+            req.send(null);
+        }
+    } 
+
+
+
+
+
+function getformat(year_code) { //if(year_code != '2015-2016') exit();
+                var strURL="shownewformat.php?year_code="+year_code;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('newformat').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+
+
+
+function getblock(district_code) {
+                var strURL="form26findblock.php?district="+district_code;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('statediv').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+  
+function getmonth(yearvalue) {
+                var strURL="findmonths.php?yr="+yearvalue;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('monthdiv').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+
+function getmonthto(yearvalue) { 
+                var strURL="findmonthsto.php?yr="+yearvalue;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('tomonthdiv').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+  
+ function getfundsname(yearvalue) { 
+ 				var strURL="fundsnamelist.php?yr="+yearvalue;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('fund_names').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}} 
+
+
+function getyear(yearvalue) {
+                var strURL="findperiods.php?yr="+yearvalue;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('period').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+    
+function testResults (form) {
+  				var username = form.fupload.value;var tt = form.xx.value;alert ("You typed: " + username);
+                var strURL="formupload.php?district="+username; var req = getXMLHTTP();
+               if (req) { req.onreadystatechange = function() { if (req.readyState == 4) { if (req.status == 200) {
+                                                document.getElementById('citydiv').innerHTML=req.responseText;
+                                     } else { alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+                   req.open("GET", strURL, true);req.send(null); } }	
+function getsubdiv(district_code) {
+                var strURL="findsubdiv.php?district="+district_code;  var req = getXMLHTTP();
+                if (req) { req.onreadystatechange = function() {
+                                if (req.readyState == 4) { if (req.status == 200) {
+                                                document.getElementById('statediv').innerHTML=req.responseText;
+                                        } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+                        req.open("GET", strURL, true);req.send(null);}}	
+                        
+function getformat(year_code) { //if(year_code != '2015-2016') exit();
+                var strURL="shownewformat.php?year_code="+year_code;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('newformat').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}}
+
+function schemegetblock(district_code) { //alert(district_code);  
+var strURL="schemereport/schemefindblock.php?district_code="+district_code;var req = getXMLHTTP();
+                if (req) {req.onreadystatechange = function() {if (req.readyState == 4) {if (req.status == 200) {
+                document.getElementById('statediv').innerHTML=req.responseText; } else {alert("There was a problem while using XMLHTTP:\n" + req.statusText);}}}
+  req.open("GET", strURL, true);req.send(null);}
+
+ }
+                        
+function inputLimiter(e, allow, value)
+ {
+        
+        var AllowableCharacters = '';
+        if (allow == 'Letters') { AllowableCharacters = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'; }
+        if (allow == 'Numbers') { AllowableCharacters = '1234567890'; }
+        if (allow == 'NameCharacters') { AllowableCharacters = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-.\''; }
+        if (allow == 'NameCharactersAndNumbers') { AllowableCharacters = '1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-\''; }
+        var k;
+        k = document.all ? parseInt(e.keyCode) : parseInt(e.which);
+        if (k != 13 && k != 8 && k != 0) {
+            if ((e.ctrlKey == false) && (e.altKey == false)) {
+               // return ((AllowableCharacters.indexOf(String.fromCharCode(k)) != -1) && (value.length < 5));
+			      return ((AllowableCharacters.indexOf(String.fromCharCode(k)) != -1) );
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
+                    						
+function chk() {
+
+       var x =  document.getElementById("percen").value ;	 	
+
+    }						
+function chkob() {
+
+      
+	   var y =  document.getElementById("percenob").value ;
+	  
+
+    }									
+						                        
+                        			   
+</script>
+<style type="text/css">
+.style1{font-family:tahoma;color:#fff;}.style2{font-size:10pt}.style8{font-family:Chiller;font-size:24px;font-weight:bold;color:#336;}.style27{font-size:10pt;font-weight:bold;color:#00f;}.style34{font-size:9pt;font-family:Verdana,Arial,Helvetica,sans-serif;}.style42{font-size:9pt;font-family:Verdana,Arial,Helvetica,sans-serif;color:#666;}.style44{color:#666}.style46{font-weight:bold;font-size:10pt;}.style47{color:#600}.style48{color:#00f}body{background-color:#fff;}.style56{font-size:9pt;color:#936;}a.f_26:hover{color:Green;text-decoration:None;}.style57{font-size:12px;font-weight:bold;text-decoration:none;color:#906;}.style58 {
+	color: #990033;
+	font-size: 9pt;
+	font-family: Tahoma;
+	font-weight: bold;
+}
+.style59 {color:#00f; font-weight: bold;}
+.style62 {
+	color: #999999;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+-->
+</style>
+
+<script type="text/javascript">
+   function destroyall()
+   {
+   alert("sdfsd");
+    window.location="destroypage.php";
+   }
+   </script>
+
+
+
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+
+</head>
+<!-- <body> -->
+<body > 
+<!--<div id="loading" style="position:absolute; width:901px; text-align:center; top:353px; left: 51px;">
+  <div align="center"><img src="images/loader.gif" border=0></div>-->
+</div>
+ <script>var ld=(document.all);var ns4=document.layers;var ns6=document.getElementById&&!document.all;var ie4=document.all;if (ns4)ld=document.loading;else if (ns6)ld=document.getElementById("loading").style;else if (ie4)ld=document.all.loading.style;function init(){if(ns4){ld.visibility="hidden";}else if (ns6||ie4) ld.display="none";}</script>
+<table width="900" height="611"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" >
+				<table width="100%" cellspacing = "0" cellpadding="0"  border="0" >
+							<tr>
+								<td height="170"  valign="top" ><div align="left"><img src="images/logo4.jpg" width="900" height="127"  />
+								
+											</div>
+								<div id="content">
+								  <div class="menubar" id="menubar">
+												<ul class="style1">
+												<li class="style2"><a href="/index.php">Home</a></li>
+												<!-- <li class="style2"><a href="" menu="ifmsmenu">IFMS</a></li>-->
+												<li class="style2" STYLE="cursor:pointer;" onClick="makeRequest('download.php')">Download</li>
+												<!-- <li class="style2" STYLE="cursor:pointer;" onClick="makeRequest('dashcompositeindex_bar.php')">Download</li> -->
+												<li class="style2"><a href="" menu="finreport">Financial Report</a></li>
+												<li class="style2"><a href="" menu="rolloutmenu">Roll Out</a></li>
+												<li class="style2"><a href="" menu="servicemenu1">Block Level Report</a></li>
+												<!--<li class="style2" STYLE="cursor:pointer;" onClick="makeRequest('start_status.php')">Gram Panchayat Info </a></li> -->
+												<li class="style2"><a href="" menu="inframenu1">Gram Panchayat Info</a></li>
+												<li class="style2"><a href="" menu="supportmenu1">Support Official</a></li>
+												<li class="style2" STYLE="cursor:pointer;" onClick="makeRequest('contactt_status.php')"> Contact Us</a></li>
+												<li class="style2"><a href="" menu="linkmenu">Links</a></li>
+												</ul>
+								  </div>
+					          </div>							  </td>						
+				  </tr> 
+	  			</table>
+                <table width="100%"  cellspacing = "0" cellpadding="0"  height="468"  border="0" >
+                <tr>
+                  <td width="16%" rowspan="2" align="center" valign="top" ><div align="left">
+                      <table width="136" height="330"  border="0" align="left" cellpadding="0" cellspacing="0" >
+                        <tr>
+                         <td height="41" colspan="2" align="left" valign="top" STYLE="cursor:pointer;"  >
+						  <div align="left"><a href="gatepassnew.php" STYLE="TEXT-DECORATION: NONE"><img src="images/avj.gif" width="126" height="35" align="left" border="0">
+						  </a></div>
+                          </div></td>  
+						  </tr>
+                        <tr>
+                          <td height="27" colspan="2" align="center" valign="top"><div align="left">
+                            <table width="93%"  border="0" align="left" cellspacing="0">
+                          <tr>
+                              <td  height="36" align="left"><div align="left">
+                                <div align="center"><a href="query.php"><img src="images/query.gif"  height="24" border="0"  align="left"/></a></div></td>
+                                <td width="76%" nowrap="nowrap"><div align="left"><a href="query.php" class="f_26 style57"; font-size: 14px; >Complex Query</a></div></td>
+                            </tr>
+                             <tr>
+                                <td width="23%" height="35"><div align="left">
+                                <div align="center"><a href="xmluploadNew.php"><img src="images/folder.gif" border="0" width="31" height="26" /></a></div></td>
+                                <td width="76%" nowrap="nowrap"><div align="left"><a href="xmluploadNew.php" class="f_26 style57"; font-size: 14px; >Form 26 Upload</a></div></td>
+                              </tr> 
+			      <tr>
+                                <!--<td width="23%" height="35"><div align="left">
+                                <div align="center"></div></td>
+                                <td width="77%" nowrap="nowrap"><div align="left"><a href="xmlupload.php" class="f_26 style57"; font-size: 14px; >Form 26 Upload<br> 
+                                      <span class="style63">(2014 - 2015)</span></a><span class="style63"></span></div></td>
+                              </tr> -->
+							   <!--<tr>
+                                <td width="23%" height="35"><div align="left">
+                                <div align="center"><a href="cssfile.php"><img src="images/citizen.jpg" border="0" width="31" height="26" /></a></div></td>
+                                <td width="77%" nowrap="nowrap"><div align="left"><a href="cssfile.php" class="f_26 style57"; font-size: 14px; >Service Reg. Upload</a></div></td>
+                              </tr>-->
+                            </table>
+						  
+						  
+						  
+						  </div></td>
+                        </tr>
+                        <tr>
+						<td height="27" colspan="2" align="center" valign="top"  ><div align="left">
+						  <table width="96%"  border="0" align="left">
+                           <!--<tr>
+                              <td  height="36" align="left"><div align="left">
+                                <div align="center"><a href="query.php"><img src=""  height="24" border="0"  align="left"/></a></div></td>
+                                <td width="76%" nowrap="nowrap"><div align="left"><a href="" class="f_26 style57"; font-size: 14px; ></a></div></td>
+                            </tr> -->
+							<tr>
+                              <td  height="36" align="left"><div align="left">
+                                <div align="center"><a href="gpmsdashboard/index.php"><img src="images/dash.jpg"  height="24" border="0"  align="left"/></a></div></td>
+                                <td width="76%" nowrap="nowrap"><div align="left"><a href="gpmsdashboard/index.php" class="f_26 style57"; font-size: 14px; >Dash Board</a></div></td>								
+                            </tr>
+							<tr>
+                            <td height="79" align="center" colspan="3" ><div align="center">
+						    <div align="left"><a href="wbrtps/alldistrictstatus.php" target="_blank"><img src="images/wbrtps.png" border="0" width="145" height="52" border="0"  
+                            align="left"/></a>
+							</div></td>
+                            </tr>
+							<tr>
+                              <td height="79" align="left" colspan="3" ><div align="left">
+                                <div align="left"><a href="odf/login.php"><img src="images/nirmalbangla_newlogo.png" style="margin-left: -31px; "  width="190" height="72" border="0"  align="left"/></a></div></td>                                
+                            </tr>
+							
+                            <tr>
+                          <td height="79" align="center" colspan="3" ><div align="center">
+						    <div align="left"><a href="http://www.mis.wbprd.gov.in" target="_blank"><img src="images/isgplogo.png" border="0" width="150" height="52" /></a></div></td>
+                        </tr> 
+						
+					<!--	 <tr>
+                              <td height="67" colspan="2"  align="center"><div align="center">
+                          <div align="left"><a href="http://wbisgpp.gov.in/ISGPP_ProtectedPage/user_login.aspx" target="_blank"><img src="images/isgplogo.png"  height="49" width="143" border="0"  align="center"/></a></div></td>
+                                
+                            </tr> -->
+                            
+							
+						<!--	<tr>
+                          <td height="79" align="center" colspan="3" ><div align="center">
+						    <div align="left"><a href="saras2017/home/index.php" target="_blank"><img src="images/saras.png" border="0" width="135 height="40" /></a></div></td>
+                        </tr> 
+						-->	
+                         <!--   <tr>
+                              <td colspan="2"  align="center"><div align="center">
+                                <div align="left"><a href="helpline/index.php" target="_blank">
+								<img src="images/helpline-no.gif"  height="60" width="145" border="0"  align="center"/></a></div></td>
+                                
+                            </tr> -->
+                            
+                            
+                          <!--  <tr>
+                              <td width="24%" height="36" align="left"><div align="left">
+								<div align="center"><a href="dashboard.php"><img src="images/chart.jpg" width="30"   border="0"  align="left"/></a></div></td>
+                                <td width="76%" colspan="2" nowrap="nowrap"><div align="left"><a href="dashboard.php" class="f_26 style57"; font-size: 14px; >Dash Board</a></div></td>
+                            </tr>
+							<tr>
+                              <td width="24%" height="36" align="left"><div align="left">
+								<div align="center"><a href="sfcsynoptic.php"><img src="images/sfcimage.jpg" width="30"   border="0"  align="left"/></a></div></td>
+                                <td width="38%" nowrap="nowrap"><div align="left"><a href="sfcsynoptic.php" class="f_26 style57"; font-size: 14px; >4Th SFC Status</a></div></td>
+                            <td width="38%" nowrap="nowrap"><img src="images/new.gif" width="48" height="26" /></td>
+							</tr>  -->
+                          </table>
+						</div></td>
+                        </tr>
+                        <tr>
+                          <td width="43" height="19"><div align="center"></div></td>
+                        <td width="113">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" valign="top" class="style56">
+						  <div align="right"></div>
+                          <div align="right">                            </div></td>
+                        </tr>
+                      </table>
+                    </div>                      
+					</td>
+                    <td width="59%" height="16" align="center" valign="top" background="images/top_red.gif" bgcolor="#FFFFFF"><span class="style27">Gram Panchayat Management System</span></td>
+                    <td width="1%" rowspan="2" align="center" valign="top">&nbsp;</td>
+                    <td width="24%" rowspan="2" align="center" valign="top">
+					<table width="100%" cellspacing = "0" cellpadding="0" height="437"  border="0">
+                      <tr>
+                        <td height="220" valign="top">
+                          <div align="right"></div>                         
+						   <table width="216" height="216"  border="0" align="center" cellpadding="0" cellspacing = "0" background="images/chabi.jpg">
+                            <tr>
+                              <td height="34" ><div align="center"><span class="style8">Graffiti</span></div></td>
+                            </tr>
+                            <tr>
+							                              <td valign="center" align="center" ><font color="#FOF5D2" size="2" face="arial,courier"><strong></font>
+                                <div align="center"></div>
+                                <font color="#FOF5D2" size="2" face="arial,courier">&nbsp;
+							    </font>                                <div align="center">	
+									             <font color="#FOF5D2" size="2" face="arial,courier">
+									             <marquee direction="up"  align="center"  scrollamount="3" scrolldelay="180"  onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 3, 0);">
+											     											     </marquee>
+                                               </font></div></td>
+											  
+                            </tr>
+                          </table></td></tr>
+                      <tr>
+                        <td align="right" valign="middle">
+						<table   width="216" height="274"  border="0" align="left" cellpadding="0" cellspacing = "0">
+                          <tr>
+                            <td height="25" align="center" valign="bottom"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing = "0" background="images/top_blue.gif">
+                              <tr>
+                                <td height="21" align="center" valign="bottom"><div align="center">
+                                  <table width="100%"  border="0">
+                                    <tr>
+                                      <td align="center" valign="top"><div align="center" class="style58">Memories
+                                      </div></td>
+                                    </tr>
+                                  </table>
+                                </div></td>
+                              </tr>
+                            </table>
+                            <div align="right"></div></td>
+                          </tr>
+                          <tr>
+                            <td height="216" align="center" valign="top" ><div align="center"><html>
+<head>
+<script type="text/javascript">
+<!--
+var image1=new Image()
+image1.src="images/1.jpg"
+var image2=new Image()
+image2.src="images/6.jpg"
+var image3=new Image()
+image3.src="images/1.jpg"
+var image4=new Image()
+image4.src="images/2.jpg"
+var image5=new Image()
+image5.src="images/3.jpg"
+var image6=new Image()
+image6.src="images/4.jpg"
+var image7=new Image()
+image7.src="images/5.jpg"
+var image8=new Image()
+image8.src="images/6.jpg"
+var image9=new Image()
+image9.src="images/7.jpg"
+var image10=new Image()
+image10.src="images/8.jpg"
+var image11=new Image()
+image10.src="images/9.jpg"
+var image12=new Image()
+image10.src="images/10.jpg"
+//-->
+</script>
+</head>
+<body>
+
+	<img src="images/1.jpg" name="slide" width="220" height="195" />
+<script>
+<!--
+//variable that will increment through the images
+var step=1
+function slideit(){
+//if browser does not support the image object, exit.
+if (!document.images)
+return
+ document.images.slide.src=eval("image"+step+".src")
+if (step<10)
+step++
+else
+step=1
+//call function "slideit()" every 2.5 seconds
+setTimeout("slideit()",4000)
+}
+slideit()
+//-->
+</script>
+</body>
+</html></div></td>
+                          </tr>
+                        </table>						</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td height="409" align="center" valign="top">		
+								<DIV ID="MyPage" ALIGN="CENTER">
+													<DIV ID="MyPage26" ALIGN="CENTER">
+													  <DIV ID="statediv" ALIGN="CENTER">
+																<p align="justify" class="style2 style34 style44">	
+																<span class="style46">GPMS (Gram Panchayat Management System)</span> is a part of the e-Governance initiatives 
+							   									of the Panchayats & Rural Development Department of the Government of West Bengal,
+							   									focused to Gram Panchayats which is the lowest tier of the three-tier Panchayati
+							   									Raj system and the institution closest to the common people. It is a program designed 
+							   									in-house by the Computerization Cell of the Department. The prime focus of the software
+							   									is to standardize the accounting system of the PRIs and to make account keeping easy,
+							   									transparent and comfortable to the users. Double Entry Cash Basis accounting system is 
+																followed in the software. GPMS also helps the Gram Panchayats in rendering a number of 
+																citizen centric services viz., issue of Birth & Death Certificates, Assessment of Tax on
+																Land and Buildings, Issue of Trade Certificates etc.</p>
+																<p align="justify" class="style42">GPMS was first introduced in the year 2003 at Bilkanda-II Gram Panchayat 
+																    under Barrackpur-II Panchayat Samiti in the District of North 24 Parganas. 
+																    Since then, the process of implementation has come a long way. All the Districts 
+																    in West Bengal now have considerable numbers of Gram Panchayats using the software
+																    on a regular basis. As a direct consequence, improvements, both qualitative and 
+																    quantitative, in Gram Panchayat Accounting are now clearly visible. The immense 
+																    possibilities with digitized accounting data are now being explored by the Department.
+																    The support services for the software are controlled directly by the Department through
+																    its team of trained support personnel. </p>
+																	<p align="justify" span class="style42">This website was designed as a part of the management
+																	initiatives for running of GPMS in the State. Apart from helping the Department, it also enables
+																	the District and Block level authorities to keep themselves informed of the status of running of
+																	GPMS in their respective jurisdictions and take administrative decisions based on such information.
+																	It is also open for public in general, especially for people who are interested in electronic 
+																	Governance. </span>
+                                                                    <p align="justify" span class="style42">
+																	To make the accounting in Gram Panchayats even more transparent, monthly statements of
+																	accounts (Form 26) have also been made available at the website. The concerned Gram Panchayats
+																	themselves upload these reports directly to the website. Efforts are on to make the audit reports
+																	also available for public viewing. </span>
+																	 
+									                  </DIV>                                                               
+								  </DIV>
+					  </DIV>
+			      </tr>
+</table>
+										<!--<div id="Layer1" style="position:absolute; width:898px; height:26px; z-index:1; left: 49px; top: 652px;"> -->
+																  <div align="left"></div>
+																  <!--<table width="216"  border="0" align="center">
+                                                                    <tr>
+                                                                      <td nowrap="nowrap"><div align="left"></div>                                                                        
+																	    <div align="center"><span class="style47">
+                                                                        </span> </div>
+																	    <div align="left"></div></td>
+                                                                    </tr>
+                                                                  </table>-->
+																  <table width="100%"  border="0">
+                                                                    <tr>
+                                                                      <td width="24%" valign="top"><div align="center"><a href="http://india.gov.in">
+                                                                        <div align="left"><img src="images/india.gif" width="191" height="46" border="0" /></div>
+                                                                      </div></td>
+                                                                    <td width="47%"><div align="center"><span class="style47">
+                                                                      
+<html>
+<style type="text/css">
+<!--
+.style16 {font-size: 9pt; font-family: Tahoma; color: #FFFFFF;}
+.style18 {color: #990033}
+.style19 {color: #990066}
+-->
+</style>
+
+<table width="26%" border="0" align="center" >
+  <tr>
+    <td width="20%" align="right" valign="middle" nowrap bgcolor=""><div align="center" class="style4"><span class="style7">
+    <div align="right" class="style16 style19">You Are Preeceded By  87293 </div></td>
+	
+		<td width="47%" align="center" valign="middle" nowrap bgcolor=""><div align="center" class="style4"><span class="style7">
+    <div align="right" class="style16 style19"> Visitors</div></td>
+  </tr>
+</table>
+</html>                                                                    </span></div></td>
+                                                                      <td width="2%">&nbsp;</td>
+                                                                      <td width="2%">&nbsp;</td>
+                                                                      <td width="2%">&nbsp;</td>
+                                                                      <td width="2%">&nbsp;</td>
+                                                                      <td width="21%" valign="top"><div align="center"><a href="http://www.banglarmukh.com"><img src="images/banglarmukh.jpg" width="181" height="46"  border="0"/></div></td>
+                                                                    </tr>
+                                                                  </table>
+																  										                                                                
+													  
+
+	</td>
+  </tr>
+</table>
+ <!-- <div id="Layer2" style="position:absolute; width:901px; height:36px; z-index:2; left: 48px; top: 680px;">-->
+    <table width="642" height="28"  border="0" align="center">
+      <tr>
+        <td width="651"  align="center" valign="middle" nowrap="nowrap"><div align="center" class="style48">
+          <div align="center">
+            <span class="style59"><font size="-2"> Powered </font></span><span class="style27"><font size="-2"> by Computerisation Cell,Panchayats </font></span><span class="style59"><font size="-2">And </font></span><span class="style27"><font size="-2">Rural</font></span><span class="style59"><font size="-2"> Development </font></span><span class="style27"><font size="-2"> Department, Government Of West Bengal </font></span>
+		  </div>
+        </div></td>
+            
+          
+      </tr>
+	  <tr>
+	  <td width="651"  align="center" valign="middle" nowrap="nowrap"><div align="center" class="style48">
+	  <div align="center">
+            <span class="style62">  Best viewed in 1024 x 768 Resolution </span>
+		</div>
+        </div></td>
+	  </tr>
+	  <!--<tr>	
+        <td colspan="2" nowrap="nowrap" style="cursor:pointer" onclick="/gpmsstatus/show.php"><div align="center" class="style27 style51"></div></td>
+        </tr> -->
+</table>
+  <!--</div>-->
+  <!--</tr>
+</table> -->
+
+	
+																	
+										<p>&nbsp;</p>
+										<div class="dropmenu" id="finreport">
+										<ul>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('form26list.php')">Form 26 View</li>
+											<!--  <li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('form26all.php')">Form 26 Synoptic Report</li> -->
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('form27list.php')">Form 27 View</li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('performance.php')">% Of Expenditure</li>
+											<!-- <li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('fundanalysis.php')">Fund Analysis</li> -->
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('schemereport/schematicreport.php')">Schematic Report</li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('monthlyreport/cfcperformanceReport.php')">MPR - CFC,SFC,PBG</li>
+
+										</ul>
+										</div>
+										
+										<div class="dropmenu" id="rolloutmenu">
+										<ul>
+											<li><a href="synoptic.php">Synoptic Report</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('start_district.php')">District Performance</li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="newsynoptic.php">New Synoptic Report</a></li>
+											<!--<li STYLE="cursor:pointer; text-decoration:none" ><a href="form26status.php"  target="_blank">Synoptic Form 26 Uploading</a></li>-->
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="schemereport/voucherstatus.php"  target="_blank">Synoptic Voucher Uploading</a></li>
+
+										</ul>
+</div>
+										
+										<div class="dropmenu" id="servicemenu1">
+										<ul>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('districtsub.php')">Subdivisionwise Synoptic Report</li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('districtsubdivdetails.php')">Subdivisionwise Detail Report</li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('districtblock.php')">Blockwise Synoptic Report</li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('districtblockdetails.php')">Blockwise Detail Report</li>
+										</ul>
+										</div>
+										
+										<div class="dropmenu" id="linkmenu">
+										<ul>
+											<li><a href="http://www.panchayat.nic.in">MoPR, Govt. Of India</a></li>
+											<li><a href="http://www.wbprd.nic.in">PRD Department, Govt. Of West Bengal</a></li>
+											<li><a href="http://www.wbprd.org/rhs">Rural House Hold Survey, Govt. Of West Bengal</a></li>
+										</ul>
+										</div>
+										
+										<div class="dropmenu" id="inframenu1">
+										<ul>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('start_status.php')">GP Infrastructure</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="gpstatus-compile.php">GP Synoptic Infrastructure</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="searchgp.php">Find Gram Panchayat</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="gpproblem.php">GP Internal Status</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('dist_show_uninstal.php')">Not Installed</a></li>
+											<!--<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('gpinfraquery.php')">Query...</a></li> -->
+										</ul>
+										</div>
+										
+										<div class="dropmenu" id="supportmenu1">
+										<ul>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('staffdetail.php')">Individual Report</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="staffsynoptic.php">Synoptic Report</a></li>
+										</ul>
+										</div>
+										
+										<!-- <div class="dropmenu" id="ifmsmenu">
+										<ul>
+											<li STYLE="cursor:pointer; text-decoration:none" onClick="makeRequest('ifms/start.php')">Districtwise Report</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="ifms/synoptic.php">Synoptic Report</a></li>
+											<li STYLE="cursor:pointer; text-decoration:none" ><a href="ifms/staffsynoptic.php">Individual Report</a></li>
+										</ul>
+										</div> -->
+										
+</body>
+</html>

@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0; url=http://beta.legiontd2.com" />

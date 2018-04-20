@@ -1,0 +1,992 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+ <!-- Bootstrap -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  
+  <link href="css/my.css" rel="stylesheet" type="text/css">  
+<!--<script type='text/javascript' src='http://code.jquery.com/jquery-latest.min.h'></script>-->
+<script type='text/javascript' src='jquery/jquery-latest.min.js'></script>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="pt-br">
+
+  <link rel="icon"  type="image/png" href="images/favicon.jpg">
+  <link rel="image_src" href="http://bancodeseries.com.br/images/bsbanner.jpg" / >
+
+    
+   
+<meta name="keywords" content="media,tracker,séries,big bang theory,marcar séries,tv,xbmc,mediaportal,plex,boxee,apple tv,banco, de, series, séries, banco séries, banco series, banco de series, banco de séries, banco de seriados, seriados, seriado, banco de seriado, banco seriado, banco de seriado" />
+<meta name="description" content="
+Banco de Séries é uma rede social que mantém um registro de todas as séries que você assiste, deixa você dar notas, cria seu calendário, mostra estatísticas de quann
+tas horas você passa vendo séries, cria rankings das séries que você assiste e promove um espaço perfeito para que você possa comentar e interagir sobre os episódioss
+ com outros fãs.
+" />
+  
+  <title>Banco de Séries - Organize as séries de TV que você assiste</title>
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29533337-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body> 
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"Tmlhj1a8Dy00OI", domain:"bancodeseries.com.br",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Tmlhj1a8Dy00OI" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->   
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+
+    
+ 
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI(response);
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '388885937793794',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.3' // use version 2.r
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+ // FB.getLoginStatus(function(response) {
+ //   statusChangeCallback(response);
+ // });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI(response) {
+    console.log('Welcome!  Fetching your information.... ');
+    id=response['authResponse']['userID'];
+    var info;
+    FB.api('/me', function(response) {
+       
+      info = JSON.stringify(response);
+  
+     
+
+     $.ajax({
+          url:"ajaxrequest.php?context=setFaceSession",
+          data: {"info":info}, 
+          type:'POST',
+          success: function(data) {
+             
+              $("#status").html("<font color=green>Sucesso ao logar</font>");
+              var pathname = window.location.pathname; // Returns path only
+              var url      = window.location.href;  
+              if (pathname == "/") 
+              {
+                url=url+"index.php?action=mygrade";
+              }
+              
+              
+              window.location.replace(url);
+              
+                          
+          } 
+        });
+        
+      })
+    
+       
+    //});
+  }
+</script>
+             <div class="bs-docs-example">
+            <div class="navbar navbar-inverse navbar-fixed-top" style="position: static;">
+              <div class="navbar-inner">
+                <div class="container">
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".subnav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+                  <a class="brand" href="index.php"><img src=images/bannernew.png width=100%></a>
+                  <div class="nav-collapse subnav-collapse">
+                    <ul class="nav">
+                      <li class="active"><a href="index.php">Home</a></li>
+                      <li ><a href="index.php?action=hoje">Hoje na TV</a></li>
+                      
+                      
+               
+                    <form class="navbar-search pull-left" method="get" action="index.php">
+                    <!--  <input autocomplete="off" autotype="text" class="search-query span2" placeholder="Procurar" name="pattern"   data-provide="typeahead" data-items="6" data-source='[]'> -->
+                      <input id=searchA autocomplete="off" autotype="text" class="search-query span2" placeholder="Procurar" name="pattern" > 
+                      
+                    <button type="submit" class="btn-link"><li class="icon-search icon-white"></li></button>                   
+ <input type=hidden name="action" value="search">
+                    </form>
+                   
+		   
+                       
+                      <li class="divider-vertical"></li>
+                      
+                      
+                      
+                      
+                      
+                      
+                      <li><span class="divider"></span>
+    <!-- Button to trigger modal -->
+    <a href="#myModal" data-toggle="modal">Login</a>
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Logue-se no Banco de Séries</h3>
+    </div>
+    <div class="modal-body">
+    
+    <form method="post" action="index.php">
+   <table>
+     <tr>
+      <td><b>Login ou email:</b></td><td><input type="text" name="login" value="" maxlength="50"></td>
+    </tr>
+      <td><b>Senha:</b></td><td><input type="password" name="pw"></td>
+    </tr>
+    <tr>
+      <td align=right><a href=index.php?esqueci=1>Esqueceu a senha?</a></td>
+    </tr>
+    </table>
+     <input type="hidden" name="action" value="loginUser">
+           Não tem conta? <a href=index.php?callCadastro=2>Cria sua conta agora mesmo</a>
+          <br><br>
+          ou Logue-se com sua conta do Facebook 
+          <!--<fb:login-button scope="email" >Facebook</fb:login-button>-->
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+<div id=status></div>
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary">Logar-se</button>
+    </form>
+    </div>
+    </div></li>
+                      <li><span class="divider"></span>
+    <!-- Button to trigger modal -->
+    <a href="#myModalCadastro" data-toggle="modal">Cadastre-se</a>
+     
+    <!-- Modal -->
+    <div id="myModalCadastro" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelCadastro" aria-hidden="true">
+    <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabelCadastro">Cadastro - Banco de Séries</h3>
+    </div>
+    <div class="modal-body">
+    <form method="post" action="index.php">
+    
+<table>
+  <tr>
+    <td><b>Login:</b></td><td><input type="text" name="login" value="" maxlength="50"></td>
+  </tr>
+  <tr>
+    <td><b>Email:</b></td><td><input type="text" name="email" value=""></td>
+  </tr>
+  <tr>
+    <td><b>Senha:</b></td><td><input type="password" name="pw"></td>
+  </tr>
+  <tr>
+    <td><b>Confirma Senha:</b></td><td><input type="password" name="pw2"</td>
+  </tr>
+</table>
+     
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary">Cadastrar-se</button>
+    <input type="hidden" name="callCadastro" value="1">
+    </form>
+    </div>
+    </div></li>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
+                </div>
+              </div><!-- /navbar-inner -->
+            </div><!-- /navbar -->
+          </div>
+      <span class="divider"></span>
+    
+    <!-- Modal -->
+    <div id="myModalEsqueciSenha" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEsqueciSenha" aria-hidden="true">
+    <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabelEsqueciSenha">Recuperação de Senha - Banco de Séries</h3>
+    </div>
+    <div class="modal-body">
+
+   <form method="post" action="index.php">
+<table>
+  <tr>
+    <td><b>Email Cadastrado:</b></td><td><input type="text" name="email" value=""></td>
+  </tr>
+</table>
+  <input type="hidden" name="action" value="recuperasenha">
+     
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary">Enviar</button>
+    </form>
+    </div>
+    <small><small>Obs: Caso use hotmail, live ou msn, cadastre o email noreply@bancodeseries.com.br na lista de remetentes válidos No outlook vá em : 
+Caixa de Entrada>Opções>Remetentes confiáveis e bloqueados>Remetentes confiáveis e adicione noreply@bancodeseries.com.br</small></small>
+    </div>
+      
+     
+    <center></center>
+     
+
+<script>
+$(document).ready(function() {
+  // some code here
+ // $("#btnallbadges2").click(function() {
+
+   //  $("#dcenter").load("ajaxdcenter.php?context=showbadges");
+
+  //}); 
+  $("#a_showlikes").click (function() {
+     $("#li_showlikes").load("ajaxrequest.php?context=likesmenu");
+  })
+  
+  $("#a_showreply").click (function() {
+     $("#li_showreply").load("ajaxrequest.php?context=replymenu");
+  })
+   
+});
+</script>
+<div id="dcenter">
+    <div class="container" >
+<br><img src=images/banner3.jpg>
+<hr>
+</div>
+ <div class="container-fluid">
+    <div class="row-fluid">
+ <div class="span9 well">
+<div class="alert alert-success" align=center>
+ IMPORTANTE: O <b>Banco de Séries</b> não serve para assistir séries! Somos uma rede social onde os fãs de séries podem controlar os episódios que assistiram, dar notas, comentar, criar sua agenda, saber quando passa o próximo episódio. Somos totalmente contra a pirataria e não disponibilizamos conteúdo que fere direitos autorais. 
+</div>
+      <b>Mais Assistidos da Semana</b>
+      <br>
+<div id="myCarouselTOP_EPISODES" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8326&action=se&episode=60">
+                <center><img src="images/posters/MOBILE/8326.jpg"  alt title="How to Get Away with Murder - 4x15 - Nobody Else Is Dying"></a>
+                      <br>
+                     <span class="label label-inverse">4x15</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2693 já marcaram o episódio">2693</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=4856&action=se&episode=110">
+                <center><img src="images/posters/MOBILE/4856.jpg"  alt title="The Walking Dead - 8x11 - Dead or Alive Or"></a>
+                      <br>
+                     <span class="label label-inverse">8x11</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2646 já marcaram o episódio">2646</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8326&action=se&episode=59">
+                <center><img src="images/posters/MOBILE/8326.jpg"  alt title="How to Get Away with Murder - 4x14 - The Day Before He Died"></a>
+                      <br>
+                     <span class="label label-inverse">4x14</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2371 já marcaram o episódio">2371</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=308">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x15 - Old Scars, Future Hearts"></a>
+                      <br>
+                     <span class="label label-inverse">14x15</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2278 já marcaram o episódio">2278</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8070&action=se&episode=85">
+                <center><img src="images/posters/MOBILE/8070.jpg"  alt title="The Flash (2014) - 4x16 - Run, Iris, Run"></a>
+                      <br>
+                     <span class="label label-inverse">4x16</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2257 já marcaram o episódio">2257</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=307">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x14 - Games People Play"></a>
+                      <br>
+                     <span class="label label-inverse">14x14</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2248 já marcaram o episódio">2248</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+    <div class="item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=10936&action=se&episode=36">
+                <center><img src="images/posters/MOBILE/10936.jpg"  alt title="This Is Us - 2x18 - The Wedding"></a>
+                      <br>
+                     <span class="label label-inverse">2x18</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="2138 já marcaram o episódio">2138</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8856&action=se&episode=48">
+                <center><img src="images/posters/MOBILE/8856.jpg"  alt title="Lucifer - 3x17 - Let Pinhead Sing!"></a>
+                      <br>
+                     <span class="label label-inverse">3x17</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="1823 já marcaram o episódio">1823</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=14">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x01 - AKA Start at the Beginning"></a>
+                      <br>
+                     <span class="label label-inverse">2x01</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="1650 já marcaram o episódio">1650</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=15">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x02 - AKA Freak Accident"></a>
+                      <br>
+                     <span class="label label-inverse">2x02</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="1591 já marcaram o episódio">1591</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=16">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x03 - AKA Sole Survivor"></a>
+                      <br>
+                     <span class="label label-inverse">2x03</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="1542 já marcaram o episódio">1542</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=17">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x04 - AKA God Help the Hobo"></a>
+                      <br>
+                     <span class="label label-inverse">2x04</span>
+                     <span class="label"><img src="images/checked.png" width="12px" alt title="1511 já marcaram o episódio">1511</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarouselTOP_EPISODES" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarouselTOP_EPISODES" data-slide="next">&rsaquo;</a>
+</div>
+      <hr> 
+      <b>Maiores notas dos ultimos 15 dias</b>
+      <br>
+<div id="myCarouselTOP_RATES" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7024&action=se&episode=101">
+                <center><img src="images/posters/MOBILE/7024.jpg"  alt title="The Fosters - 5x19 - Many Roads"></a>
+                      <br>
+                     <span class="label label-inverse">5x19</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.67 de Media">9.67</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=9607&action=se&episode=130">
+                <center><img src="images/posters/MOBILE/9607.jpg"  alt title="Dragon Ball Super - 5x54 - The Greatest Showdown of All Time! The Ultimate Survival Battle!!"></a>
+                      <br>
+                     <span class="label label-inverse">5x54</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.66 de Media">9.66</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=12865&action=se&episode=10">
+                <center><img src="images/posters/MOBILE/12865.jpg"  alt title="Violet Evergarden - 1x10 - 'A Loved One Will Always Watch Over You'"></a>
+                      <br>
+                     <span class="label label-inverse">1x10</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.61 de Media">9.61</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7085&action=se&episode=100">
+                <center><img src="images/posters/MOBILE/7085.jpg"  alt title="Marvel's Agents of S.H.I.E.L.D. - 5x12 - The Real Deal"></a>
+                      <br>
+                     <span class="label label-inverse">5x12</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.56 de Media">9.56</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=10936&action=se&episode=36">
+                <center><img src="images/posters/MOBILE/10936.jpg"  alt title="This Is Us - 2x18 - The Wedding"></a>
+                      <br>
+                     <span class="label label-inverse">2x18</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.53 de Media">9.53</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=9714&action=se&episode=35">
+                <center><img src="images/posters/MOBILE/9714.jpg"  alt title="The Magicians - 3x09 - All That Josh"></a>
+                      <br>
+                     <span class="label label-inverse">3x09</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.4 de Media">9.4</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+    <div class="item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=12865&action=se&episode=9">
+                <center><img src="images/posters/MOBILE/12865.jpg"  alt title="Violet Evergarden - 1x09 - 'Violet Evergarden'"></a>
+                      <br>
+                     <span class="label label-inverse">1x09</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.37 de Media">9.37</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8326&action=se&episode=60">
+                <center><img src="images/posters/MOBILE/8326.jpg"  alt title="How to Get Away with Murder - 4x15 - Nobody Else Is Dying"></a>
+                      <br>
+                     <span class="label label-inverse">4x15</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.35 de Media">9.35</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=997&action=se&episode=293">
+                <center><img src="images/posters/MOBILE/997.jpg"  alt title="Criminal Minds - 13x16 - Last Gasp"></a>
+                      <br>
+                     <span class="label label-inverse">13x16</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.33 de Media">9.33</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7177&action=se&episode=100">
+                <center><img src="images/posters/MOBILE/7177.jpg"  alt title="Chicago PD - 5x16 - Profiles (1)"></a>
+                      <br>
+                     <span class="label label-inverse">5x16</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.27 de Media">9.27</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=9678&action=se&episode=59">
+                <center><img src="images/posters/MOBILE/9678.jpg"  alt title="Blindspot - 3x14 - Everlasting"></a>
+                      <br>
+                     <span class="label label-inverse">3x14</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.26 de Media">9.26</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=12634&action=se&episode=15">
+                <center><img src="images/posters/MOBILE/12634.jpg"  alt title="Dynasty (2017) - 1x15 - Our Turn Now "></a>
+                      <br>
+                     <span class="label label-inverse">1x15</span>
+                     <span class="label"><img src="img/star-on.png" width="12px" alt title="9.24 de Media">9.24</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarouselTOP_RATES" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarouselTOP_RATES" data-slide="next">&rsaquo;</a>
+</div>
+      <hr> 
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8288930974747122";
+/* Banco de Series 2 */
+google_ad_slot = "9005068829";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br>
+</center>
+      <hr>
+      <b>Episodios mais comentados nos ultimos 15 dias</b>
+      <br>
+<div id="myCarouselTOP_COMMENTS" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=6529&action=se&episode=23">
+                <center><img src="images/posters/MOBILE/6529.jpg"  alt title="RuPaul's Drag Race All Stars - 3x08 - A Jury of their Queers"></a>
+                      <br>
+                     <span class="label label-inverse">3x08</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="336 Comentarios">336</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8326&action=se&episode=60">
+                <center><img src="images/posters/MOBILE/8326.jpg"  alt title="How to Get Away with Murder - 4x15 - Nobody Else Is Dying"></a>
+                      <br>
+                     <span class="label label-inverse">4x15</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="313 Comentarios">313</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=10936&action=se&episode=36">
+                <center><img src="images/posters/MOBILE/10936.jpg"  alt title="This Is Us - 2x18 - The Wedding"></a>
+                      <br>
+                     <span class="label label-inverse">2x18</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="288 Comentarios">288</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=12568&action=se&episode=1">
+                <center><img src="images/posters/MOBILE/12568.jpg"  alt title="Rise (2018) - 1x01 - Pilot"></a>
+                      <br>
+                     <span class="label label-inverse">1x01</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="180 Comentarios">180</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8070&action=se&episode=85">
+                <center><img src="images/posters/MOBILE/8070.jpg"  alt title="The Flash (2014) - 4x16 - Run, Iris, Run"></a>
+                      <br>
+                     <span class="label label-inverse">4x16</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="171 Comentarios">171</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=307">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x14 - Games People Play"></a>
+                      <br>
+                     <span class="label label-inverse">14x14</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="161 Comentarios">161</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+    <div class="item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=308">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x15 - Old Scars, Future Hearts"></a>
+                      <br>
+                     <span class="label label-inverse">14x15</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="145 Comentarios">145</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=4856&action=se&episode=110">
+                <center><img src="images/posters/MOBILE/4856.jpg"  alt title="The Walking Dead - 8x11 - Dead or Alive Or"></a>
+                      <br>
+                     <span class="label label-inverse">8x11</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="140 Comentarios">140</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7085&action=se&episode=100">
+                <center><img src="images/posters/MOBILE/7085.jpg"  alt title="Marvel's Agents of S.H.I.E.L.D. - 5x12 - The Real Deal"></a>
+                      <br>
+                     <span class="label label-inverse">5x12</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="126 Comentarios">126</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8856&action=se&episode=48">
+                <center><img src="images/posters/MOBILE/8856.jpg"  alt title="Lucifer - 3x17 - Let Pinhead Sing!"></a>
+                      <br>
+                     <span class="label label-inverse">3x17</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="125 Comentarios">125</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=26">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x13 - AKA Playland"></a>
+                      <br>
+                     <span class="label label-inverse">2x13</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="124 Comentarios">124</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7024&action=se&episode=101">
+                <center><img src="images/posters/MOBILE/7024.jpg"  alt title="The Fosters - 5x19 - Many Roads"></a>
+                      <br>
+                     <span class="label label-inverse">5x19</span>
+                     <span class="label"><img src="images/comment.png" width="12px" alt title="120 Comentarios">120</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarouselTOP_COMMENTS" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarouselTOP_COMMENTS" data-slide="next">&rsaquo;</a>
+</div>
+      <hr> 
+      <b>Top Reactions</b>
+      <br>
+<div id="myCarouselTOP_REACTIONS" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8326&action=se&episode=59">
+                <center><img src="images/posters/MOBILE/8326.jpg"  alt title="How to Get Away with Murder - 4x14 - The Day Before He Died"></a>
+                      <br>
+                     <span class="label label-inverse">4x14</span>
+                     <span class="label"><img src="images/emojis/morri.png" width="12px" alt title="258 Morta!">258</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=10936&action=se&episode=36">
+                <center><img src="images/posters/MOBILE/10936.jpg"  alt title="This Is Us - 2x18 - The Wedding"></a>
+                      <br>
+                     <span class="label label-inverse">2x18</span>
+                     <span class="label"><img src="images/emojis/cry.png" width="12px" alt title="164 Chorando litros">164</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7085&action=se&episode=100">
+                <center><img src="images/posters/MOBILE/7085.jpg"  alt title="Marvel's Agents of S.H.I.E.L.D. - 5x12 - The Real Deal"></a>
+                      <br>
+                     <span class="label label-inverse">5x12</span>
+                     <span class="label"><img src="images/emojis/tulla.png" width="12px" alt title="103 Esse momento é meu!">103</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=14">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x01 - AKA Start at the Beginning"></a>
+                      <br>
+                     <span class="label label-inverse">2x01</span>
+                     <span class="label"><img src="images/emojis/gostei.png" width="12px" alt title="97 Gostei">97</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=307">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x14 - Games People Play"></a>
+                      <br>
+                     <span class="label label-inverse">14x14</span>
+                     <span class="label"><img src="images/emojis/angry.png" width="12px" alt title="94 Passei Raiva!">94</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=6529&action=se&episode=23">
+                <center><img src="images/posters/MOBILE/6529.jpg"  alt title="RuPaul's Drag Race All Stars - 3x08 - A Jury of their Queers"></a>
+                      <br>
+                     <span class="label label-inverse">3x08</span>
+                     <span class="label"><img src="images/emojis/shit.png" width="12px" alt title="90 Não pago minha internet pra isso">90</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+    <div class="item">
+        <table align=center><tr>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=5577&action=se&episode=308">
+                <center><img src="images/posters/MOBILE/5577.jpg"  alt title="Grey's Anatomy - 14x15 - Old Scars, Future Hearts"></a>
+                      <br>
+                     <span class="label label-inverse">14x15</span>
+                     <span class="label"><img src="images/emojis/amei.png" width="12px" alt title="69 Amei!">69</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=4856&action=se&episode=110">
+                <center><img src="images/posters/MOBILE/4856.jpg"  alt title="The Walking Dead - 8x11 - Dead or Alive Or"></a>
+                      <br>
+                     <span class="label label-inverse">8x11</span>
+                     <span class="label"><img src="images/emojis/sleep.png" width="12px" alt title="47 Dormi!">47</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=7229&action=se&episode=102">
+                <center><img src="images/posters/MOBILE/7229.jpg"  alt title="Mom - 5x14 - Charlotte Brontë and a Backhoe"></a>
+                      <br>
+                     <span class="label label-inverse">5x14</span>
+                     <span class="label"><img src="images/emojis/euri.png" width="12px" alt title="40 Berro!">40</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=26">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x13 - AKA Playland"></a>
+                      <br>
+                     <span class="label label-inverse">2x13</span>
+                     <span class="label"><img src="images/emojis/esperava.png" width="12px" alt title="40 Esperava mais">40</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=3336&action=se&episode=146">
+                <center><img src="images/posters/MOBILE/3336.jpg"  alt title="Once Upon a Time - 7x12 - A Taste of the Heights"></a>
+                      <br>
+                     <span class="label label-inverse">7x12</span>
+                     <span class="label"><img src="images/emojis/lilpreacher.png" width="12px" alt title="14 Não era pra ser diferente?">14</a> </span>
+                  
+                  </center>
+      </div></td>
+           <td>      <div class="thumbnail">
+          <a href="index.php?serieid=8053&action=se&episode=19">
+                <center><img src="images/posters/MOBILE/8053.jpg"  alt title="Marvel's Jessica Jones - 2x06 - AKA Facetime"></a>
+                      <br>
+                     <span class="label label-inverse">2x06</span>
+                     <span class="label"><img src="images/emojis/atenta.png" width="12px" alt title="11 Atenta! ">11</a> </span>
+                  
+                  </center>
+      </div></td>
+        </tr></table>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarouselTOP_REACTIONS" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarouselTOP_REACTIONS" data-slide="next">&rsaquo;</a>
+</div>
+      <div class="alert alert-info">
+          <center><a href=?action=lastupdates>Veja aqui as últimas atualizações, comentários e fotos</a></center>
+      </div>
+      <ul class="thumbnails"> 
+      <li class="span4">
+      <strong>Mais populares</strong>
+           <div class=well><table width=100%><tr><td><small>1</small></td><td ><a href=index.php?serieid=10555&action=ss><small><strong>Stranger Things</strong></small></a></td><td align=right><small>52405</small></td></tr><tr><td><small>2</small></td><td ><a href=index.php?serieid=1658&action=ss><small><strong>Game of Thrones</strong></small></a></td><td align=right><small>46235</small></td></tr><tr><td><small>3</small></td><td ><a href=index.php?serieid=8326&action=ss><small><strong>How to Get Away with Murder</strong></small></a></td><td align=right><small>40698</small></td></tr><tr><td><small>4</small></td><td ><a href=index.php?serieid=8057&action=ss><small><strong>Sense8</strong></small></a></td><td align=right><small>36935</small></td></tr><tr><td><small>5</small></td><td ><a href=index.php?serieid=7310&action=ss><small><strong>Orange is the New Black</strong></small></a></td><td align=right><small>34447</small></td></tr><tr><td><small>6</small></td><td ><a href=index.php?serieid=11185&action=ss><small><strong>13 Reasons Why</strong></small></a></td><td align=right><small>34084</small></td></tr><tr><td><small>7</small></td><td ><a href=index.php?serieid=8070&action=ss><small><strong>The Flash (2014)</strong></small></a></td><td align=right><small>33577</small></td></tr><tr><td><small>8</small></td><td ><a href=index.php?serieid=5863&action=ss><small><strong>Black Mirror</strong></small></a></td><td align=right><small>33294</small></td></tr><tr><td><small>9</small></td><td ><a href=index.php?serieid=4856&action=ss><small><strong>The Walking Dead</strong></small></a></td><td align=right><small>32508</small></td></tr><tr><td><small>10</small></td><td ><a href=index.php?serieid=8053&action=ss><small><strong>Marvel's Jessica Jones</strong></small></a></td><td align=right><small>32220</small></td></tr></table><small><small>* Somente usuários ativos no site</small></small></div>
+           
+      </li>  
+      <li class="span4">
+     <strong>Enquetes Recentes</strong><div class=well><table width=100%><tr><td><a href=index.php?action=se&serieid=5878&episode=1388 alt title=""><small><strong>Big Brother Brasil - 18x56</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=8926&episode=10 alt title=""><small><strong>American Crime Story - 1x10</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=5736&episode=50 alt title=""><small><strong>RuPaul's Drag Race - 4x14</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=8326&episode=60 alt title=""><small><strong>How to Get Away with Murder - 4x15</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=6529&episode=23 alt title=""><small><strong>RuPaul's Drag Race All Stars - 3x8</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=6954&episode=152 alt title=""><small><strong>Big Brother Canada - 6x4</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=4392&episode=489 alt title=""><small><strong>Survivor (US) - 33x1</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=4392&episode=489 alt title=""><small><strong>Survivor (US) - 33x1</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=8053&episode=26 alt title=""><small><strong>Marvel's Jessica Jones - 2x13</strong></a></small></td></tr></table><table width=100%><tr><td><a href=index.php?action=se&serieid=5878&episode=1383 alt title=""><small><strong>Big Brother Brasil - 18x51</strong></a></small></td></tr></table></div>
+      </li>  
+      <li class="span4">
+	 <strong>Últimas Séries Adicionadas</strong><div class="well"><table width=100% ><tr><td><a href=index.php?action=ss&serieid=14323><small><strong>The Remix</strong></small></a></td><td><a href=index.php?action=todasseries&pais=US&order=year border=none target=_blank><img src=images/flags/US.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14322><small><strong>Weiß Kreuz</strong></small></a></td><td><a href=index.php?action=todasseries&pais=JP&order=year border=none target=_blank><img src=images/flags/JP.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14321><small><strong>Skam (GE)</strong></small></a></td><td><a href=index.php?action=todasseries&pais=GE&order=year border=none target=_blank><img src=images/flags/GE.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14320><small><strong>Sex Appeal</strong></small></a></td><td><a href=index.php?action=todasseries&pais=BR&order=year border=none target=_blank><img src=images/flags/BR.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14319><small><strong>Selling New York</strong></small></a></td><td><a href=index.php?action=todasseries&pais=US&order=year border=none target=_blank><img src=images/flags/US.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14318><small><strong>Style Me</strong></small></a></td><td><a href=index.php?action=todasseries&pais=US&order=year border=none target=_blank><img src=images/flags/US.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14317><small><strong>The Pick-up Artist</strong></small></a></td><td><a href=index.php?action=todasseries&pais=US&order=year border=none target=_blank><img src=images/flags/US.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14316><small><strong>Riacho Doce</strong></small></a></td><td><a href=index.php?action=todasseries&pais=BR&order=year border=none target=_blank><img src=images/flags/BR.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14315><small><strong>Rabo de Saia</strong></small></a></td><td><a href=index.php?action=todasseries&pais=BR&order=year border=none target=_blank><img src=images/flags/BR.png></a></td></tr><tr><td><a href=index.php?action=ss&serieid=14314><small><strong>Hate Thy Neighbor</strong></small></a></td><td><a href=index.php?action=todasseries&pais=US&order=year border=none target=_blank><img src=images/flags/US.png></a></td></tr></table><center><a href=index.php?action=last100 class="btn btn-mini btn-primary" alt title="Últimas 100 séries cadastradas no site">Ver últimas 100 séries</a></center></div> 
+      </li>  
+     </ul>
+<br>
+ </div> 
+   
+<div class="span3">
+<br>
+    <!-- BEGIN TAG - HEAD -->
+<script type="text/javascript">
+    /*<![CDATA[*/
+    if(!(window.AdsurgeConfig && window.AdsurgeConfig.ads)) window.AdsurgeConfig = {ads:[]};
+    AdsurgeConfig.ads.push({
+        adsurge_key:"205b4b369285f36fdb01b7fe4b944d75",
+        adsurge_channel: "",
+        adsurge_code_format:"man",
+        adsurge_click:"",
+        adsurge_custom_params:{},
+        adsurge_width:"300",
+        adsurge_height:"600",
+        adsurge_target_id:"adsurge-205b4b369285f36fdb01b7fe4b944d75-300x600"
+    });
+    (function () {
+        var sc = document.createElement("script");
+        sc.type = "text/javascript";
+        sc.async = true;
+        sc.src = (location.protocol == "https:" ? "https:" : "http:") + "//www.schborg.com\/js\/show_ads_adsurge.js?pubId=1877";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(sc, s);
+    })();
+    /*]]>*/
+</script>
+<!-- END TAG - HEAD -->
+<!-- BEGIN TAG - BODY -->
+<div id="adsurge-205b4b369285f36fdb01b7fe4b944d75-300x600"></div>
+<!-- END TAG - BODY -->
+<hr>
+  <a class="twitter-timeline"  href="https://twitter.com/BancodeSeries" data-widget-id="294426047183720449">Tweets de @BancodeSeries</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>   
+<hr>
+    <b>Aplicativo Banco de Séries</b>
+           <a href=https://itunes.apple.com/br/app/banco-de-series/id826450036?ls=1&mt=8><img src=images/applestore.png border=none></a>
+          <a href=https://play.google.com/store/apps/details?id=com.bancodeseries.app&hl=pt-BR><img src=images/googleplay.png border=none></a>
+      <b>Facebook</b> 
+<div class="fb-like-box" data-href="https://www.facebook.com/BancodeSeries" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+</div>
+   </div> <!--- row-fluid-->  
+ </div>  <!-- container-fluid-->
+</div>         <hr>
+
+<center>
+<b>Copyright© 2017 Banco de Séries</b> - Todos os direitos reservados<br>
+<a href="https://plus.google.com/115242751014775725874" rel="publisher">Google+</a> | <a href="index.php?action=todasseries&letra=A">Índice de Séries A-Z</a> | Contatos:
+<a href="http://www.facebook.com/groups/164682516984238/" target="_blank" alt title="Ajude-nos a desenvolver o site!"><img src="/images/extras/facebook-icon.jpg" border="none"></a>
+<a href="https://twitter.com/#!/BancodeSeries" target="_blank" alt title="Siga-nos no twitter"><img src="/images/extras/twitter-icon.png" border="none"></a>
+<a href="http://ask.fm/BancodeSeries" alt title="Faça uma pergunta"><img src="images/askfm.png" border="none"></a>
+<a href="index.php?action=contato" alt title="Email"><img src="images/Email-icon.png" border="none"></a>
+| <a href="index.php?action=dmca" alt title="Email">DMCA</a>
+</center>
+<br><br><br><br> 
+<br>
+
+<script type="text/javascript">
+
+$(document).ready($(function () {
+
+
+$('input#searchA').click(function(){
+
+var json = (function() {
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': "json/string2",
+            'dataType': "text",
+            'success': function (data) {
+                json = data;
+            }
+        });
+        return json;
+    })();
+
+
+var colors=json.split("|");
+
+
+
+$('input#searchA').typeahead({
+    source: colors,
+    updater:function (item) {
+
+        //item = selected item
+        //do your stuff.
+	console.log(item);
+	window.location.href="index.php?action=search&pattern="+item;
+        //dont forget to return the item to reflect them into input
+        return item;
+    }
+
+});
+
+})
+
+    $("#fblogout").click(facebooklogout);
+}));
+
+function facebooklogout() {
+    FB.logout(function (response) {
+    }
+)};
+</script>
+
+<script src="//api.grumft.com/js/49af113b23ac1d77feaef76143f023b8.js"></script>
+</body>
+
+</html>

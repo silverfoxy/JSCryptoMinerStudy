@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <title>G. Giappichelli Editore </title>
+    <base href="http://www.giappichelli.it/" /> 
+    <link rel="stylesheet" type="text/css" href="style/jquery-ui.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="description" content="" />
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+
+    <script src="js/overlay.js"></script>
+        <script src="js/scrollable.js"></script>
+    <script src="js/scrollable.autoscroll.js"></script>
+    <script src="js/scrollable.navigator.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/tabs.slideshow.js"></script>
+    <script>
+    var oldTabs = $.fn.tabs;
+    delete $.fn.tabs;
+    $.fn.jTabs = oldTabs;
+    </script>
+    
+    <link href="style/giappi-bs.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        /*** Handle jQuery plugin naming conflict between jQuery UI and Bootstrap ***/
+        $.widget.bridge('uibutton', $.ui.button);
+        $.widget.bridge('uitooltip', $.ui.tooltip);
+    </script>
+
+    <script src="js/bootstrap/bootstrap.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.ui.datepicker-it.js"></script>
+        <script type="text/javascript"  src="js/flowtype.js"></script>
+    <script src="js/jquery.carousel-1.1.min.js"></script>
+    <script src="js/jquery.lazy.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/qtip.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style/home.css" />
+    <link rel="stylesheet" type="text/css" href="style/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="style/custom.css" />
+    <style>
+    .ui-tabs-vertical { width: 55em; }
+    .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+    .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+    .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+    .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+    </style>
+    <script src="js/hypenator.js" type="text/javascript"></script>
+    <link href="style/screen.css" rel="stylesheet" type="text/css" />
+    <link href="style/form.css" rel="stylesheet" type="text/css" />
+    <link href="style/qtip.css" rel="stylesheet" type="text/css" />
+    <link href="style/fullcalendar.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        function expandArticolo(idArticolo)
+        {
+            $('#articolo' + idArticolo + "Expand").hide();
+            $('#articolo' + idArticolo + "Details").show();
+        }
+
+        function GetURLParameter(sParam) // This will read parametters from the URL
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[1] == sParam)
+                    return true;
+            }
+        }
+        $(document).ready(function(){
+            
+            $( document ).uitooltip({
+                track: true
+            });
+
+            $(".dropdownbtn").on("click", function() {
+                $( "#search-dialog" ).dialog({
+                    height: 180,
+                    modal: true,
+                    draggable: true,
+                    resizable: false,
+                    closeText: "",
+                    position: { my: "left top", at: "left bottom", of: $(".dropdownbtn") },
+                    open: function() {
+                        jQuery('.ui-widget-overlay').bind('click', function() {
+                            jQuery('#search-dialog').dialog('close');
+                        })
+                    }
+                });
+            });
+            $(".searchbtn").on("click", function() {
+                $("#searchForm").submit();
+            });
+
+            if(GetURLParameter("showRicerca")){
+
+                $("#ricerca-barra-semplice").css('display','none');
+                $("#ricercaAvanzata").css('display','none');
+                $("#ricercaAvanzataImg").css('display','none');
+            }
+
+            $("img.lazy").lazy({  
+                effect: "fadeIn", effectTime: 1500,
+                enableThrottle: true, throttle: 250
+            });
+
+            jQuery.extend(jQuery.validator.messages, {
+                   required: "Campo obbligatorio.",
+                   remote: "Controlla questo campo.",
+                   email: "Inserisci un indirizzo email valido.",
+                   url: "Inserisci un indirizzo web valido.",
+                   date: "Inserisci una data valida.",
+                   dateISO: "Inserisci una data valida (ISO).",
+                   number: "Inserisci un numero valido.",
+                   digits: "Inserisci solo numeri.",
+                   creditcard: "Inserisci un numero di carta di credito valido.",
+                   equalTo: "Il valore non corrisponde.",
+                   accept: "Inserisci un valore con un&apos;estensione valida.",
+                   maxlength: jQuery.validator.format("Non inserire pi&ugrave; di {0} caratteri."),
+                   minlength: jQuery.validator.format("Inserisci almeno {0} caratteri."),
+                   rangelength: jQuery.validator.format("Inserisci un valore compreso tra {0} e {1} caratteri."),
+                   range: jQuery.validator.format("Inserisci un valore compreso tra {0} e {1}."),
+                   max: jQuery.validator.format("Inserisci un valore minore o uguale a {0}."),
+                   min: jQuery.validator.format("Inserisci un valore maggiore o uguale a {0}.")
+            });
+
+            $.validator.addMethod("codiceFiscale_regex", function(value, element) {   
+                return this.optional(element) ||/^[a-zA-Z]{6}\d{2}[a-zA-Z]{1}\d{2}[a-zA-Z]{1}\d{3}[a-zA-Z]{1}$/i.test(value);   
+            }, "Codice fiscale non valido"); 
+        
+            $.validator.addMethod("partitaIva_regex", function(value, element) {   
+                return this.optional(element) ||/^[0-9]{11}$/i.test(value);   
+            }, "Partita Iva non valida"); 
+        
+        });
+    </script>
+</head>
+<body>
+    <div class="main-container">
+    <table align="center" style="width: 100%; padding-top: 15px; table-layout:fixed" >
+        <col width="640px">
+        
+        <tr>
+            <td valign="bottom">
+                <nobr>
+<ul class="testata-lista">
+    <li><a href="distribuzione">distribution</a></li>
+<!--<li><a href="index.php?znfModule=public&znfAction=showRicerca&search=1&checkAutore=true&checkCuratore=true&checkDirettore=true&autore=&titolo=&idTipologia=&idMateria=&idCollana=&visionabiliOnline=true&indice=&dataPub=&dataPub2=&isbn=&pageSize=20">online visions</a></li>-->
+    <li><a href="visionionline">online visions</a></li>
+    <li><a href="index.php?znfModule=public&znfAction=showRegistrationNewsletter" style="left:101%;top:50%; width:10%;padding-top: 5px;">newsletter subscription</a></li>
+<!--<li><a href="la_mia_libreria">My bookshop</a></li>-->
+	<li><a href="LaMiaLibreria">My bookshop</a></li>
+    <li><span style="display:inline-block">
+        <div>
+        <a href="carrello"><img src="images/buy1-det.png" id="img-carrello-testata"></a>
+    </div>
+</span>
+<!--
+<a href="carrello">
+            Carrello vuoto
+    </a>
+--></li>
+</ul>
+</nobr>
+            </td>
+            <td style="padding-right: 20px">
+                <div style="float:left; padding-top: 15px"> 
+                    <a href="index.php?language=en"><img src="images/eng_flag.png"></a>
+                    <a href="index.php?language=it"><img src="images/ita_flag.png"></a>
+                </div>
+                <form method="get" action="index.php" id="searchForm">
+                    <input type="hidden" name="znfModule" value="public">
+                    <input type="hidden" name="znfAction" value="getSearchBarraResult">
+                    <input type="hidden" name="codice" value="tuttoCatalogo"/>
+                    <div class="searchbox"> 
+                        <input name="strDaCercare" placeholder="search by author and title">
+                        <div class="dropdownbtn"></div>
+                        <div class="searchbtn"></div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" class="top-bar" colspan="2">
+                <div style="max-width:980px;">
+                <table cellspacing="0" cellpadding="0" style="_background-image: url(images/sfondinoUP_c.png);width: 980px;">
+                    <tr>
+                        <!--td style="width: 2px">
+                            <img src="images/sfondinoUP_l.png">
+                        </td-->
+                        <td>
+                            <a class="home-link" href="."><img src="images/top/logo.jpg" style="margin-bottom:10px;margin-top:32px;margin-left: 10px;"></a>
+                        </td>
+                        <td class="title title-text" style="width: 900px">
+                            <nobr>G. GIAPPICHELLI <span class="nobold">EDITORE</span></nobr>
+                        </td>
+                        <!--td valign="bottom">
+                            <div id="header-nav-login-container">
+                                
+                            </div>
+                        </td>
+                        <td style="width: 2px">
+                            <img src="images/sfondinoUP_r.png">
+                        </td-->
+                    </tr>
+                </table>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center" _style="border-bottom: 1px solid #b2b3b4;">
+                <table cellpadding="0" cellspacing="0" style="width: 100%"> 
+                    <tr>
+                        <td align="center">
+                            <style>
+.nav-bar-item {
+    cursor: pointer;
+    text-align: center; 
+    float: left;
+    margin-left: 11px;
+    margin-right: 12px;
+}
+.nav-bar-item-first {
+    margin-left: 25px !important;
+}
+.nav-bar-item-last {
+    margin-right: 35px !important;
+    margin-left: 0px !important;
+    float: right !important;
+}
+.nav-bar-item .header-nav-link {
+    color: #0e3083 !important;
+}
+.nav-bar-item-selected .header-nav-link {
+    /*color: #41a62a !important;*/
+    background-color: white;
+}
+.nav-bar-item-selected {
+    background-color: white;
+}
+.nav-bar-item .icon {
+    width: 47px;
+    height: 47px;
+}
+.nav-bar-item .icon {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.nav-bar-item .icon-selected {
+    display: none;
+}
+.nav-bar-item:hover {
+    /*background-color: white;*/
+}
+.nav-bar-item:hover .icon-selected, .nav-bar-item-selected .icon-selected {
+    display: block;
+}
+.nav-bar-item:hover .icon-normal, .nav-bar-item-selected .icon-normal {
+    display: none;
+}
+.nav-bar-item .grafismo {
+    visibility: hidden;
+    display: block;
+    width: 100%;
+    height: 3px;
+}
+.nav-bar-item:hover .grafismo, .nav-bar-item-selected .grafismo {
+    visibility: visible !important;
+}
+.nav-bar-item-universita .grafismo {
+    display: none;
+}
+.nav-bar-item-professionale .grafismo {
+    display: none;
+}
+.nav-bar-item-ebook .grafismo {
+    display: none;
+}
+.nav-bar-item-cultura .grafismo {
+    display: none;
+}
+.flash-nav-current {
+    display: block !important;
+}
+.flash-nav {
+    display: none;
+}
+
+.foro {
+    text-align: center;
+    border: 2px solid #f9e5c0;
+    width: 60px;
+    height: 60px;
+    color: #0e3083 !important;
+    font-family: Times new roman;
+    margin-top: 5px;
+}
+</style>
+
+<script>
+    $(function() {
+
+        window.__codice = null;
+        window.__prev = null;
+
+        window.setInterval(function() {
+            if (window.__prev) {
+                $("#flash-nav-" + window.__prev).removeClass("flash-nav-current");
+                window.__prev = null;
+            }
+            if (window.__codice && window.__codice != $(".flash-nav-active").data("codice")) {
+                $("#flash-nav-" + window.__codice).addClass("flash-nav-current")
+                $(".flash-nav-active").removeClass("flash-nav-current")
+                adjustOffset($("#flash-nav-" + window.__codice));
+            }
+            else {
+                $(".flash-nav-active").addClass("flash-nav-current")
+                adjustOffset($(".flash-nav-active"));
+            }
+        }, 300);
+
+        window.__flashNavTimeout = -1;
+        $(".flash-nav").hover(
+            function() {
+                window.__codice = $(this).data("codice");
+            },
+            function() {
+                if (window.__prev == null)
+                    window.__prev = window.__codice; 
+                window.__codice = null;
+            });
+        $(".nav-bar-item").hover(
+            function() {
+                window.__codice = $(this).data("codice");
+            },
+            function() {
+                if (window.__prev == null)
+                    window.__prev = window.__codice; 
+                window.__codice = null;
+            });
+    });
+
+    function adjustOffset(el) {
+        var t = $(".item-" + el.data("codice"))
+        if(t.length==0)return;
+        var left = t.offset().left - t.parent().offset().left;
+        left += (t.outerWidth() - el.find("a:first").outerWidth()) / 2; 
+        el.find(".arrowunderline").css("margin-left", left + "px")
+    }
+</script>
+
+<div id="header-nav" style="width: 100%; position:relative;">
+                        
+            <div data-codice="universita" class="item-universita nav-bar-item-first nav-bar-item ">
+                <a href="universita">
+                <img class="icon icon-normal" src="images/celle/universita.png">
+                <img class="icon icon-selected" src="images/celle/universita_sel.png">
+                </a>
+                <a href="universita">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >University</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="professionale" class="item-professionale  nav-bar-item ">
+                <a href="professionale">
+                <img class="icon icon-normal" src="images/celle/professionale.png">
+                <img class="icon icon-selected" src="images/celle/professionale_sel.png">
+                </a>
+                <a href="professionale">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Professional</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="cultura" class="item-cultura  nav-bar-item ">
+                <a href="varia_cultura_giuridica">
+                <img class="icon icon-normal" src="images/celle/cultura.png">
+                <img class="icon icon-selected" src="images/celle/cultura_sel.png">
+                </a>
+                <a href="varia_cultura_giuridica">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Misc/Juridical culture</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="novita" class="item-novita  nav-bar-item ">
+                <a href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12">
+                <img class="icon icon-normal" src="images/celle/novita.png">
+                <img class="icon icon-selected" src="images/celle/novita_sel.png">
+                </a>
+                <a href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >What's new</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="riviste" class="item-riviste  nav-bar-item ">
+                <a href="riviste">
+                <img class="icon icon-normal" src="images/celle/riviste.png">
+                <img class="icon icon-selected" src="images/celle/riviste_sel.png">
+                </a>
+                <a href="riviste">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Journals</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="ebook" class="item-ebook  nav-bar-item ">
+                <a href="ebook">
+                <img class="icon icon-normal" src="images/celle/ebook.png">
+                <img class="icon icon-selected" src="images/celle/ebook_sel.png">
+                </a>
+                <a href="ebook">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Ebook</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="multimedia2" class="item-multimedia2  nav-bar-item ">
+                <a href="prodotti_multimediali.html">
+                <img class="icon icon-normal" src="images/celle/multimedia2.png">
+                <img class="icon icon-selected" src="images/celle/multimedia2_sel.png">
+                </a>
+                <a href="prodotti_multimediali.html">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Multimedia</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+                        
+            <div data-codice="formazione" class="item-formazione  nav-bar-item ">
+                <a href="gli_eventi">
+                <img class="icon icon-normal" src="images/celle/formazione.png">
+                <img class="icon icon-selected" src="images/celle/formazione_sel.png">
+                </a>
+                <a href="gli_eventi">
+                <span class="header-nav-link stui-selector-control-item" id="header-nav-" >Events/Training</span>
+                </a>
+                <!--img src="images/top/grafismo.png" class="grafismo"-->
+            </div>
+
+               
+    	<!--
+    <div class="nav-bar-item nav-bar-item-last foro" style="display: table; overflow: hidden;" onclick="location.href='il_foro_italiano'">
+        <div style="display: table-cell; vertical-align: middle; background-color: white">
+            <div>
+                IL FORO<br>ITALIANO
+            </div>
+        </div>
+    </div>
+	-->
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="padding-top: 6px; padding-bottom: 12px; margin-bottom: 15px; height: 20px" id="navContainer">
+                                                                                                <div data-codice="universita" class="flash-nav flash-nav-other" id="flash-nav-universita">
+                                        <ul class="arrowunderline" style="margin-left: 10px;">
+    <li><a  href="novita_universitarie">What's new</a></li>
+    <li><a  href="collane_universitarie">University book series</a></li>
+    <li><a  href="richiesta_adozione">Book adoption request</a></li>
+</ul>
+                                    </div>
+                                                                                                                                <div data-codice="professionale" class="flash-nav flash-nav-other" id="flash-nav-professionale">
+                                        <ul class="arrowunderline" style="margin-left: 115px">
+    <li><a  href="novita_professionali">News</a></li>
+    <li><a  href="collane_professionali">Professional series</a></li>
+    <li><a  href="trattati">the Essays</a></li>
+</ul>
+                                    </div>
+                                                                                                                                <div data-codice="cultura" class="flash-nav flash-nav-other" id="flash-nav-cultura">
+                                        <ul class="arrowunderline">
+    <li><a   href="index.php?znfModule=public&znfAction=showNovitaCultura" >News</a></li>
+    <li><a   href="index.php?znfModule=public&znfAction=showCollane&cultura=true" >Book series</a></li>
+</ul>
+                                    </div>
+                                                                                                                                <div data-codice="novita" class="flash-nav flash-nav-other" id="flash-nav-novita">
+                                        <ul class="arrowunderline" style="margin-left: 390px"> 
+    <li><a  href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12&sezione=all">All</a></li>
+    <li><a  href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12&sezione=universita">University</a></li>
+    <li><a  href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12&sezione=professionale">Professional series</a></li>
+    <li><a  href="index.php?znfModule=public&znfAction=showCategoria&idCategoria=12&sezione=cultura">Miscellaneous/Juridical culture</a></li>
+</ul>
+
+                                    </div>
+                                                                                                                                <div data-codice="riviste" class="flash-nav flash-nav-other" id="flash-nav-riviste">
+                                        
+                                    </div>
+                                                                                                                                <div data-codice="ebook" class="flash-nav flash-nav-other" id="flash-nav-ebook">
+                                        <ul class="arrowunderline" style="margin-left: 552px">
+    <li><a  href="ebook">All</a></li>
+    <li><a  href="ebook_universitari">University</a></li>
+    <li><a  href="ebook_professionali">Professional series</a></li>
+    <li><a  href="ebook_varia">Miscellaneous/Juridical culture</a></li>
+</ul>
+                                    </div>
+                                                                                                                                <div data-codice="multimedia2" class="flash-nav flash-nav-other" id="flash-nav-multimedia2">
+                                        
+                                    </div>
+                                                                                                                                <div data-codice="formazione" class="flash-nav flash-nav-other" id="flash-nav-formazione">
+                                        <!--
+<ul class="arrowunderline">
+    <li><a class="aree-main-nav-item" href="#">Collane</a></li>
+    <li><a class=" aree-main-nav-item" href="#">Ricerca</a></li>
+</ul>
+-->
+                                    </div>
+                                                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="padding-top: 15px" height="800px" valign="top" align="center">
+                <div style="max-width:980px;" class="main-content">
+                   ﻿
+
+
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Tue, 20 Aug 2014 14:25:27 GMT">
+<link href="style/giappi-bs.css" rel="stylesheet" type="text/css">
+<script src="js/bootstrap/bootstrap.js"></script> 
+<script src="js/scrollable.js"></script>
+<script src="js/scrollable.autoscroll.js"></script>
+<script src="js/scrollable.navigator.js"></script>
+
+<div class="giappi-bs">
+<!-- Modal -->
+		
+<!-- fine modal -->
+ 
+
+<div>
+<div class="box_a_destra">
+
+<div class="foroboxhome2">
+<div class="boxsottocalendario4"> 
+<div class="giappi-bs">
+<a href="http://www.giappichelli.it/offerta_lavoro"><button type="button" class="btn btn-success btn-large btn-block">Cerchiamo agenti editoriali</button></a>
+</div>
+</div>
+ <div class="calendarhome">
+<br><!--<img src="custom/images/home/grafismo verde.jpg" width="215px" height="auto"> --> 
+<img src="custom/images/home/eventi1.jpg"  width="215px" height="auto">
+ <script>
+    $(function() {
+        $.get("index.php?znfModule=public&znfAction=getEvents", function( data ) {
+            var events = JSON.parse(data);
+            if (events.length > 2) {
+                $('#calendar').fullCalendar({
+            
+                    //Calendar options
+            
+                    //month: 9,//(new Date().getMonth()+1),
+                    //year: 2014,//(new Date().getMonth()+1900),
+                    header: false,
+                    firstDay: 1,
+                    contentHeight: 130,
+            
+                    dayNamesShort: ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab',],  
+                
+                    events: events,
+            
+                    dayClick: function(date) {
+            
+                                                return;      
+                                    
+                        var currentData = date.toLocaleDateString();
+                        console.log(currentData);
+                        
+                        //var isAdmin = $('#isAdmin').html();
+                        //if(isAdmin != "0")
+                        //{
+                            $('#todayDateEvento').val(currentData);
+                            $('#todayDateForma').val(currentData);
+                            $( "#dialog-form" ).dialog( "open" );
+                        //}
+                    },
+            
+                    eventRender: function(event, element) 
+                    {
+                        element.addClass("div-eve-cont");
+                        
+                    },
+            
+                    eventClick: function(event, element)
+                    {
+                        location.href='gli_eventi';
+                    }
+                });
+            } else {
+                $(".calendarhome").hide();
+            }   
+        });
+    });
+</script>
+<div id='calendar' class='home-calendar'></div>
+ 
+
+ </div>
+ <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br> <br> 
+</div>
+<!--
+<div class="boxsottocalendario2">
+
+<img src="http://www.giappichelli.it/custom/images/foro/foro_accesso.png" width="22%" max-height="22%" style="float :left; margin: 1px 10px 1px 1px;" ><a href="http://www.giappichelli.it/foro_accesso "><p><strong> Access</a></strong> preview online<strong> Il Foro Italiano</strong></p>  
+ </div>
+ -->
+
+<!--
+<div class="foroboxhome2">
+<div class="boxsottocalendario2"> 
+<img src="http://www.giappichelli.it/custom/images/home/scritta_foro_filetto_En.jpg" width="90%" max-height="90%" >
+</div>
+ 
+<div class="foroboxhome">
+<div class="forohome">
+</div>
+
+
+<div class="forohome">
+<a href="http://www.foroitaliano.it/tutte-le-recentissime/" target="_blank"><strong>leggi tutto >></strong></a></div>
+</div>
+-->
+<div class="foroboxhome2">
+<div class="boxsottocalendario4"><br>
+<br><br><br>
+</div>
+</div> 
+  </div> 
+</div> 
+</div> 
+
+ 
+<!-- box che scorre -->
+<div class="navi"></div>
+<div class="boxgrande">
+<div align="left">
+
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="scrollable"> 
+
+  <!-- root element for the items -->
+  <div class="items">
+ <!--  Parte di riccardo inglese -->
+ 
+ 
+ 
+ 
+ 
+	 
+ 
+ 
+ 
+ <!-- 1 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/diritto-del-governo-delle-imprese,9210404"/>
+    <img src="http://www.giappichelli.it/custom/images/home/irrera_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/diritto-del-governo-delle-imprese,9210404"/>
+	
+		
+	
+	Tutti i profili concernenti la corporate governance: l’amministrazione, il controllo e le interferenze tra proprietà e governo<br>
+	delle imprese. I macro-argomenti sono affrontati unitariamente con riguardo a tutti i tipi e sottotipi societari:<br>
+	società azionarie, società a responsabilità limitata, società quotate, società pubbliche, società cooperative,<br>
+	società vigilate e società di persone.<br>
+	<strong>Ne emerge un quadro vivace con molte sfaccettature.</strong>
+
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ 
+ <!-- 2 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/diritto-di-famiglia-e-minorile-istituti-e-questioni-aperte,7524353"/>
+    <img src="http://www.giappichelli.it/custom/images/home/cottatell_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/diritto-di-famiglia-e-minorile-istituti-e-questioni-aperte,7524353"/>
+	
+		
+	
+	<br><strong>Aggiornato</strong> alla legge 20 maggio 2016, n. 76,<br>
+    alla Direttiva (UE) 2016/800 sulle garanzie procedurali per i minori indagati o imputati<br>
+    e alla sentenza di Cass. 22 giugno 2016, n. 12962 sulla <i>step child adoption.</i><br>
+
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ 
+ <!-- 3 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/la-nuova-mini-riforma-della-legge-fallimentare,7524361"/>
+    <img src="http://www.giappichelli.it/custom/images/home/san_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/la-nuova-mini-riforma-della-legge-fallimentare,7524361"/>
+	
+		
+	
+	Il volume presenta un commento alle modifiche della legge fallimentare introdotte dal d.l. 27 giugno 2015, n. 83,<br>
+	convertito in l. 6 agosto 2015, n. 132, e dal d.l. 3 maggio 2016, n. 59, convertito in l. 30 giugno 2016, n. 119.<br>
+	La trattazione è ordinata per argomenti, in modo da delineare un quadro chiaro dei profili di novità più significativi.<br>
+	I singoli commenti, corredati di un aggiornato richiamo della dottrina e della giurisprudenza, offrono un contributo<br>
+	alla interpretazione delle norme, sia in chiave teorica, sia in una concreta prospettiva operativa.
+
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ 
+ 
+ <!-- 4 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/il-giudizio-civile-di-cassazione,9210184"/>
+    <img src="http://www.giappichelli.it/custom/images/home/ricci_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/il-giudizio-civile-di-cassazione,9210184"/>
+	
+		
+	
+	
+	Due soli esempi. Il primo è offerto dalla pronunzia di S.U. n. 8053 del 2014 (e da quelle che l’hanno seguita)<br>
+	che si è sforzata di offrire la prima interpretazione della complessa trama del nuovo n. 5 dell’art. 360 c.p.c.<br>
+	Come secondo esempio, si può citare l’ordinanza di Cass. n. 2174 del 2014, che fa parte di un gruppo di decisioni volte a<br>
+	ricondurre al rigore delle origini il principio di autosufficienza del ricorso, dopo gli “ammorbidimenti” di qualche anno prima<br>
+	da parte delle Sezioni Unite e delle intese fra i Presidenti della Suprema Corte e del Consiglio Nazionale Forense.
+
+
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ <!-- 5 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/la-nuova-regolamentazione-delle-unioni-civili-e-delle-convivenze,7524365"/>
+    <img src="http://www.giappichelli.it/custom/images/home/figone_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/la-nuova-regolamentazione-delle-unioni-civili-e-delle-convivenze,7524365"/>
+	
+		
+	
+	Anche l’Italia si è allineata alla maggior parte degli Stati europei, attribuendo piena rilevanza<br>
+	alle relazioni affettive same sex, specie dopo i richiami della Corte EDU e della giurisprudenza interna,<br>
+	che rendevano indifferibile un intervento in materia. Pure si riconosce una serie di effetti giuridici<br>
+	alla convivenza di fatto tra coloro che decidono di costituire un nucleo familiare senza formalizzare alcun vincolo,<br>
+	ed è espressamente valorizzata l’autonomia negoziale tra essi, con lo strumento del contratto di convivenza.
+	
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ <!-- 6 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/il-codice-dei-contratti-pubblici,7524363"/>
+    <img src="http://www.giappichelli.it/custom/images/home/mariani_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/il-codice-dei-contratti-pubblici,7524363"/>
+	
+		
+	
+	<strong>Guida semplice e diretta</strong> al nuovo Codice dei contratti pubblici articolata in due parti:<br>
+	1) il Commento al testo del nuovo Codice, predisposto seguendone l’ordine sistematico e le connessioni con le direttive UE;<br>
+	2) una serie di Tavole riepilogative delle principali novità introdotte rispetto al precedente Codice degli appalti<br>
+	in riferimento a ciascun istituto.<br>
+	Valido strumento di studio e di lavoro per tutti coloro che si occupano di contratti pubblici, di appalto e concessione. 
+	
+	
+			
+		
+</a>
+	</div>	 
+</div>
+ 
+ 
+ 
+ 
+ 
+ <!-- 7 --> <!--inizio -->
+	
+
+	
+<div>
+	<a href="http://www.giappichelli.it/valutazione-del-danno-e-strumenti-risarcitori,7524337"/>
+    <img src="http://www.giappichelli.it/custom/images/home/inzitari_650.jpg"/></a>
+	<div class="testo_home_scuro_allineatosx_dx2"> 
+  
+	<a href="http://www.giappichelli.it/valutazione-del-danno-e-strumenti-risarcitori,7524337"/>
+	
+		
+	Il tema della responsabilità per fatto illecito ha assunto una dimensione che non appariva prevedibile<br>
+	dalle scarne norme contenute nei diversi codici, che hanno accompagnato l’evoluzione del diritto privato.<br>
+	Il volume fornisce un utile contributo allo studio e alla applicazione dei principi elaborati dalla giurisprudenza e dalla dottrina<br>
+	nella diversificazione dei criteri di valutazione del danno e nella definizione<br>
+	delle diverse fattispecie risarcitorie in continua evoluzione. 
+	
+			
+		
+</a>
+	</div>	 
+</div>
+		
+		
+
+		
+
+
+    
+ 
+ 
+  		</div>
+				</div>
+					</div>
+					   </div>
+
+
+<!-- elementi per il secondo scroll sotto il primo -->
+<div>
+<br clear="all" />
+<div id="newItem" style="display:none">
+  </div>
+	
+	<!-- box 1 -->
+
+<div class="boxsotto">
+<div class="scrollable2" id="scrollable2"> 
+
+    <!-- 2.1 -->
+<div>
+	<a href="http://www.giappichelli.it/multimedia"/>
+      <img src="http://www.giappichelli.it/custom/images/home/5multimedia_302.jpg"/></a>
+<div class="testo_home_scuro_allineatosx_dx">     
+
+</div>
+</div>
+</div>
+</div>
+
+	<!-- box 2 -->
+
+<div class="boxsotto3">
+<div class="scrollable2" id="scrollable2"> 
+    <!-- 2.1 -->
+<div>
+	<a href="http://www.processocivileweb.it/"/> 
+      <img src="http://www.giappichelli.it/custom/images/home/ProCiWeb_302-bis.jpg"/></a>
+<div class="testo_home_scuro_allineatosx_dx">    
+
+</div>
+</div>
+</div>
+</div>
+
+ <!-- Elemento sotto il foro   -->
+ 
+ 
+ 
+ <!-- Button trigger modal 
+ <div class="giappi-bs">
+<br><button type="button" class="btn btn-primary btn-lg" onclick="$('#myModal').modal();" _data-toggle="modal" _data-target="#myModal">
+  Cerchiamo agenti 
+</button>
+<!-- Modal 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cerchiamo agenti di commercio</h4>
+      </div>
+      <div class="modal-body"><div class="testo_home_scuro_allineatosx_dx2"> 
+       La Casa Editrice giuridica G. Giappichelli Editore, nell'ambito della strategia di ampliamento della propria rete vendita rivolta a enti e professionisti, seleziona su tutto il territorio nazionale agenti di commercio.<br><br>
+
+Il candidato ideale e' un agente di commercio con almeno un paio di anni di esperienza nel settore e con spiccata capacita' organizzativa e buone doti relazionali.<br><br> 
+La nostra offerta:<br>
+-	Editoria cartacea costante nel tempo, autorevole e fortemente concorrenziale.<br>
+-	Banche Dati Giuridiche e riviste de Il Foro Italiano<br>
+-	Software e gestionali rivolti ai professionisti del mondo legale<br>
+-	Inquadramento Enasarco<br>
+-	Formazione continua attraverso incontri periodici e webinar<br>
+-	Provvigioni tra le piu' alte nel mercato<br><br>
+Inviare il Curriculum Vitae a:<br> catanzaro@giappichelli.it citando il riferimento "RICERCA AGENTI"<br>
+
+      </div></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+ </div> -->
+ 
+ 
+ 
+ 
+	<!-- elemento calendario  -->
+	
+
+	
+
+ 
+
+
+</div>
+
+
+  
+<!-- Fine elemento sotto il foro e il calendario -->
+
+ 
+<div style="clear:both;"></div> 
+<br><br>
+<div class="giappi-bs">
+
+
+<!--   new Accordion -->
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+ <!--
+ <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 align="justify" class="panel-title">
+	  <img src="http://www.giappichelli.it/images/copertine/9215812.jpg" width="60px" height="80px" align="left">
+        <a class="collapsed" href="http://www.giappichelli.it/food-heritage,9215812" aria-expanded="false" aria-controls="collapseTwo">
+          &nbsp;Ebook in evidenza:  <br>
+        &nbsp;Food & Heritage - Sostenibilita' economico - aziendale e valorizzazione del territorio </a>
+      </h4>
+      <p>&nbsp;</p>
+    </div>
+    
+  </div>  
+ <br>
+  
+ 
+<!-- <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 align="justify" class="panel-title">
+	  
+		<img src="http://www.giappichelli.it/images/copertine/3483802.jpg" width="60px" height="80px" align="left">
+	     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          &nbsp;Ebook in evidenza:<br> &nbsp;Collana IL LABORATORIO DEL PENALISTA
+        </a>
+      </h4>
+      <p>&nbsp;</p>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tab" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="text-left testo_home_scuro_allineatosx_dx2">
+	5 - Le misure antiviolenza nelle manifestazioni sportive tra innovazioni legislative ed elaborazione giurisprudenziale - di Corinna Forte  <a href="http://www.giappichelli.it/le-misure-antiviolenza-nelle-manifestazioni-sportive-tra-innovazioni-legislative-ed-elaborazione-giurisprudenziale,3485606">link</a> <br>     
+	4 - Tossicodipendenza e alternative alla detenzione - di Fabio Gianfilippo <a href="http://www.giappichelli.it/tossicodipendenza-e-alternative-alla-detenzione,3485404">link</a> <br> 
+	3 - La confisca di prevenzione quale strumento di contrasto alla criminalita' organizzata - di Valentina Botti <a href="http://www.giappichelli.it/la-confisca-di-prevenzione-quale-strumento-di-contrasto-alla-criminalit-organizzata,3484748">link</a> <br> 
+	2 - Salute, affettivita' e liberta' di corrispondere e comunicare. I diritti fondamentali alla prova del carcere - di Giuseppe Melchiorre Napoli <a href="http://www.giappichelli.it/salute-affettivit-e-libert-di-corrispondere-e-comunicare,3483802">link</a><br> 
+	1 - Affidamento in prova al servizio sociale - di Sara La Rocca <a href="http://www.giappichelli.it/affidamento-in-prova-al-servizio-sociale,3487924">link</a><br> 
+	  </div>
+      </div>
+    </div>
+  </div> -->
+  
+  
+</div>
+
+
+
+
+
+<!--   new Accordion -->
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+ <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 align="justify" class="panel-title">
+	  <img src="http://www.giappichelli.it/images/copertine/3485958.jpg" width="60px" height="80px" align="left">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          &nbsp;Our ebooks: highlights  <br>
+        &nbsp;Degiurisdizionalizzazione e altri interventi per la definizione dell'arretrato </a>
+      </h4>
+      <p>&nbsp;</p>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+	  <div class="text-left testo_home_scuro_allineatosx_dx2">
+        1 - Degiurisdizionalizzazione e altri interventi per la definizione dell'arretrato - formato epub <a href="http://www.giappichelli.it/degiurisdizionalizzazione-e-altri-interventi-per-la-definizione-dellarretrato,3485958">link</a><br> 
+		2 - Degiurisdizionalizzazione e altri interventi per la definizione dell'arretrato - formato pdf <a href="http://www.giappichelli.it/degiurisdizionalizzazione-e-altri-interventi-per-la-definizione-dellarretrato,3485957">link</a><br> 
+		</div>
+      </div>
+    </div>
+  </div>  
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 align="justify" class="panel-title">
+	  
+		<img src="http://www.giappichelli.it/images/copertine/3483802.jpg" width="60px" height="80px" align="left">
+	     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          &nbsp;Our ebooks: highlights<br> &nbsp;Collana IL LABORATORIO DEL PENALISTA
+        </a>
+      </h4>
+      <p>&nbsp;</p>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tab" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="text-left testo_home_scuro_allineatosx_dx2">
+	5 - Le misure antiviolenza nelle manifestazioni sportive tra innovazioni legislative ed elaborazione giurisprudenziale - di Corinna Forte  <a href="http://www.giappichelli.it/le-misure-antiviolenza-nelle-manifestazioni-sportive-tra-innovazioni-legislative-ed-elaborazione-giurisprudenziale,3485606">link</a> <br>   
+	4 - Tossicodipendenza e alternative alla detenzione - di Fabio Gianfilippo <a href="http://www.giappichelli.it/tossicodipendenza-e-alternative-alla-detenzione,3485404">link</a> <br> 
+	3 - La confisca di prevenzione quale strumento di contrasto alla criminalita' organizzata - di Valentina Botti <a href="http://www.giappichelli.it/la-confisca-di-prevenzione-quale-strumento-di-contrasto-alla-criminalit-organizzata,3484748">link</a> <br> 
+	2 - Salute, affettivita' e liberta' di corrispondere e comunicare. I diritti fondamentali alla prova del carcere - di Giuseppe Melchiorre Napoli <a href="http://www.giappichelli.it/salute-affettivit-e-libert-di-corrispondere-e-comunicare,3483802">link</a><br> 
+	1 - Affidamento in prova al servizio sociale - di Sara La Rocca <a href="http://www.giappichelli.it/affidamento-in-prova-al-servizio-sociale,3487924">link</a><br> 
+	  </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+</div>
+<!--   fine new Accordion -->
+
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+<img src="/custom/materiali/catalogo_internazionale/Catalog.jpg" width="60px" height="80px" align="left">
+<h4 align="justify" class="panel-title"> 
+<a href="/custom/materiali/catalogo_internazionale/Catalog.pdf" target="_new">&nbsp;download International catalogue</a> or  <a href="http://ita.calameo.com/read/004128309ea4e229514f0" target="_new">browse online </h4>
+</div>
+</div>
+</div>
+
+ 
+
+
+<script>
+  function addItem() {
+  // get handle to scrollable API
+  var api = $(".scrollable").data("scrollable");
+
+  // use API to add our new item. after the item is being added
+  // seek to the end
+  api.addItem($("#newItem div").clone()).end();
+}
+  
+$(document).ready(function() {
+// initialize scrollable together with the navigator plugin
+$("#scrollable").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({ autoplay: true });;
+});
+</script>
+
+
+<!-- pop up -->
+ 
+<!-- fine pop up -->
+
+<!--
+<script>
+  $(function() {
+  (function($) {
+                
+        // static constructs
+        $.tools = $.tools || {version: '@VERSION'};
+        
+        $.tools.tabs = {
+                
+                conf: {
+
+                        tabs: 'a',
+                        current: 'current',
+                        onBeforeClick: null,
+                        onClick: null,
+                        effect: 'default',
+
+                        initialEffect: false, // whether or not to show effect in first init of tabs
+                        initialIndex: 0,                        
+                        event: 'click',
+
+                        rotate: false,
+                        
+      // slide effect
+      slideUpSpeed: 400,
+      slideDownSpeed: 400,
+                        
+                        // 1.2
+                        history: false
+
+                },
+                
+                addEffect: function(name, fn) {
+                        effects[name] = fn;
+                }
+                
+        };
+        
+        var effects = {
+
+                
+                // simple "toggle" effect
+                'default': function(i, done) {
+                        this.getPanes().hide().eq(i).show();
+                        done.call();
+
+                },
+                
+                /*
+                        configuration:
+                                - fadeOutSpeed (positive value does "crossfading")
+                                - fadeInSpeed
+
+                */
+                fade: function(i, done) {                
+                        
+                        var conf = this.getConf(),
+                                 speed = conf.fadeOutSpeed,
+
+                                 panes = this.getPanes();
+                        
+                        if (speed) {
+                                panes.fadeOut(speed);        
+                        } else {
+
+                                panes.hide();        
+                        }
+
+                        panes.eq(i).fadeIn(conf.fadeInSpeed, done);        
+                },
+                
+                // for basic accordions
+
+                slide: function(i, done) {
+                 var conf = this.getConf();
+                
+                        this.getPanes().slideUp(conf.slideUpSpeed);
+                        this.getPanes().eq(i).slideDown(conf.slideDownSpeed, done);                        
+
+                },
+
+                /**
+                 * AJAX effect
+                 */
+                ajax: function(i, done) {                        
+                        this.getPanes().eq(0).load(this.getTabs().eq(i).attr("href"), done);        
+
+                }                
+        };         
+        
+        /**
+         * Horizontal accordion
+         *
+         * @deprecated will be replaced with a more robust implementation
+        */
+
+        
+        var
+         /**
+         * @type {Boolean}
+         *
+         * Mutex to control horizontal animation
+         * Disables clicking of tabs while animating
+         * They mess up otherwise as currentPane gets set *after* animation is done
+
+         */
+         animating,
+         /**
+         * @type {Number}
+         *
+         * Initial width of tab panes
+         */
+         w;
+        
+        $.tools.tabs.addEffect("horizontal", function(i, done) {
+
+         if (animating) return; // don't allow other animations
+        
+         var nextPane = this.getPanes().eq(i),
+         currentPane = this.getCurrentPane();
+        
+                // store original width of a pane into memory
+
+                w || ( w = this.getPanes().eq(0).width() );
+                animating = true;
+                
+                nextPane.show(); // hidden by default
+                
+                // animate current pane's width to zero
+
+    // animate next pane's width at the same time for smooth animation
+    currentPane.animate({width: 0}, {
+      step: function(now){
+        nextPane.css("width", w-now);
+      },
+      complete: function(){
+
+        $(this).hide();
+        done.call();
+        animating = false;
+     }
+    });
+    // Dirty hack... onLoad, currentPant will be empty and nextPane will be the first pane
+    // If this is the case, manually run callback since the animation never occured, and reset animating
+
+    if (!currentPane.length){
+      done.call();
+      animating = false;
+    }
+        });        
+
+        
+        function Tabs(root, paneSelector, conf) {
+                
+                var self = this,
+
+        trigger = root.add(this),
+        tabs = root.find(conf.tabs),
+        panes = paneSelector.jquery ? paneSelector : root.children(paneSelector),
+        current;
+                        
+                
+
+                // make sure tabs and panes are found
+                if (!tabs.length) { tabs = root.children(); }
+                if (!panes.length) { panes = root.parent().find(paneSelector); }
+                if (!panes.length) { panes = $(paneSelector); }
+
+                
+                
+                // public methods
+                $.extend(this, {                                
+                        click: function(i, e) {
+
+                                var tab = tabs.eq(i),
+
+                                 firstRender = !root.data('tabs');
+                                
+                                if (typeof i == 'string' && i.replace("#", "")) {
+
+                                        tab = tabs.filter("[href*=\"" + i.replace("#", "") + "\"]");
+                                        i = Math.max(tabs.index(tab), 0);
+
+                                }
+                                                                
+                                if (conf.rotate) {
+                                        var last = tabs.length -1;
+
+                                        if (i < 0) { return self.click(last, e); }
+                                        if (i > last) { return self.click(0, e); }                                                
+
+                                }
+                                
+                                if (!tab.length) {
+                                        if (current >= 0) { return self; }
+                                        i = conf.initialIndex;
+
+                                        tab = tabs.eq(i);
+                                }                                
+                                
+                                // current tab is being clicked
+
+                                if (i === current) { return self; }
+                                
+                                // possibility to cancel click action                                
+                                e = e || $.Event();
+
+                                e.type = "onBeforeClick";
+                                trigger.trigger(e, [i]);                                
+//                               if (e.isDefaultPrevented()) { return; }
+
+                                
+        // if firstRender, only run effect if initialEffect is set, otherwise default
+                                var effect = firstRender ? conf.initialEffect && conf.effect || 'default' : conf.effect;
+
+
+                                // call the effect
+                                effects[effect].call(self, i, function() {
+                                        current = i;
+                                        // onClick callback
+
+                                        e.type = "onClick";
+                                        trigger.trigger(e, [i]);
+                                });                        
+                                
+
+                                // default behaviour
+                                tabs.removeClass(conf.current);        
+                                tab.addClass(conf.current);                                
+
+                                
+                                return self;
+                        },
+                        
+                        getConf: function() {
+                                return conf;        
+
+                        },
+
+                        getTabs: function() {
+                                return tabs;        
+                        },
+                        
+                        getPanes: function() {
+
+                                return panes;        
+                        },
+                        
+                        getCurrentPane: function() {
+                                return panes.eq(current);        
+
+                        },
+                        
+                        getCurrentTab: function() {
+                                return tabs.eq(current);        
+                        },
+                        
+
+                        getIndex: function() {
+                                return current;        
+                        },
+                        
+                        next: function() {
+                                return self.click(current + 1);
+
+                        },
+                        
+                        prev: function() {
+                                return self.click(current - 1);        
+                        },
+                        
+
+                        destroy: function() {
+                                tabs.off(conf.event).removeClass(conf.current);
+                                panes.find("a[href^=\"#\"]").off("click.T");
+
+                                return self;
+                        }
+                
+                });
+
+                // callbacks        
+                $.each("onBeforeClick,onClick".split(","), function(i, name) {
+
+                                
+                        // configuration
+                        if ($.isFunction(conf[name])) {
+                                $(self).on(name, conf[name]);
+                        }
+
+
+                        // API
+                        self[name] = function(fn) {
+                                if (fn) { $(self).on(name, fn); }
+                                return self;        
+                        };
+
+                });
+        
+                
+                if (conf.history && $.fn.history) {
+                        $.tools.history.init(tabs);
+                        conf.event = 'history';
+
+                }        
+                
+                // setup click actions for each tab
+                tabs.each(function(i) {                                 
+                        $(this).on(conf.event, function(e) {
+
+                                self.click(i, e);
+                                return e.preventDefault();
+                        });                        
+                });
+                
+                // cross tab anchor link
+
+                panes.find("a[href^=\"#\"]").on("click.T", function(e) {
+                        self.click($(this).attr("href"), e);                
+                });
+                
+
+                // open initial tab
+                if (location.hash && conf.tabs == "a" && root.find("[href=\"" +location.hash+ "\"]").length) {
+                        self.click(location.hash);
+
+
+                } else {
+                        if (conf.initialIndex === 0 || conf.initialIndex > 0) {
+                                self.click(conf.initialIndex);
+                        }
+                }                                
+
+                
+        }
+        
+        
+        // jQuery plugin implementation
+        $.fn.tabs = function(paneSelector, conf) {
+                
+                // return existing instance
+
+                var el = this.data("tabs");
+                if (el) {
+                        el.destroy();        
+                        this.removeData("tabs");
+                }
+
+
+                if ($.isFunction(conf)) {
+                        conf = {onBeforeClick: conf};
+                }
+                
+                // setup conf
+                conf = $.extend({}, $.tools.tabs.conf, conf);                
+
+                
+                
+                this.each(function() {                                
+                        el = new Tabs($(this), paneSelector, conf);
+                        $(this).data("tabs", el);
+
+                });                
+                
+                return conf.api ? el: this;                
+        };                
+                
+}) (jQuery);
+      $("#lucproducts").tabs("div.lucdescription", {event:'mouseover'});
+    });
+</script>
+-->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                	<div class='boxdeltesto4' STYLE="background-color:#FFF;width:95%"></div>
+		<div class='boxdeltesto4' STYLE="background-color:#FFF;width:95%"></div>
+			<div class='boxdeltesto4' STYLE="background-color:#FFF;width:95%"></div>
+
+
+<a href="contatti">contact &nbsp </a>
+<a href="chi_siamo">history &nbsp </a>
+<a href="index.php?znfModule=public&znfAction=showPrivateArea">reserved area</a> &nbsp 
+<a href="link">links</a> &nbsp 
+<a href="privacy">privacy</a> &nbsp 
+<a href="cookies">Cookies</a>
+
+
+                <br>
+                <img src="images/spacer.gif" style="width: 960px; height: 1px">
+            </td>
+        </tr>
+    </table>
+
+    ﻿
+<script type="text/javascript" > 
+/***********************************************
+* Scroll To Top Control script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Modified by www.ideepercomputeredinternet.com
+* This notice MUST stay intact for legal use
+* Visit Project Page at http://www.dynamicdrive.com for full source code
+***********************************************/
+var scrolltotop={
+    //startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control
+    //scrollto: Keyword (Integer, or "Scroll_to_Element_ID"). How far to scroll document up when control is clicked on (0=top).
+    setting: {startline:100, scrollto: 0, scrollduration:1000, fadeduration:[500, 100]},
+    controlHTML: '<img src="custom/images/gotop6.png" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
+    controlattrs: {offsetx:15, offsety:15}, //offset of control relative to right/ bottom of window corner
+    anchorkeyword: '#top', //Enter href value of HTML anchors on the page that should also act as "Scroll Up" links
+    state: {isvisible:false, shouldvisible:false},
+    scrollup:function(){
+        if (!this.cssfixedsupport) //if control is positioned using JavaScript
+            this.$control.css({opacity:0}) //hide control immediately after clicking it
+        var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+        if (typeof dest=="string" && jQuery('#'+dest).length==1) //check element set by string exists
+            dest=jQuery('#'+dest).offset().top
+        else
+            dest=0
+        this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+    },
+    keepfixed:function(){
+        var $window=jQuery(window)
+        var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+        var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+        this.$control.css({left:controlx+'px', top:controly+'px'})
+    },
+    togglecontrol:function(){
+        var scrolltop=jQuery(window).scrollTop()
+        if (!this.cssfixedsupport)
+            this.keepfixed()
+        this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+        if (this.state.shouldvisible && !this.state.isvisible){
+            this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+            this.state.isvisible=true
+        }
+        else if (this.state.shouldvisible==false && this.state.isvisible){
+            this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+            this.state.isvisible=false
+        }
+    },
+   
+    init:function(){
+        jQuery(document).ready(function($){
+            var mainobj=scrolltotop
+            var iebrws=document.all
+            mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest //not IE or IE7+ browsers in standards mode
+            mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+            mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+                .css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+                .attr({title:'Torna in cima'})
+                .click(function(){mainobj.scrollup(); return false})
+                .appendTo('body')
+            if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='') //loose check for IE6 and below, plus whether control contains any text
+                mainobj.$control.css({width:mainobj.$control.width()}) //IE6- seems to require an explicit width on a DIV containing text
+            mainobj.togglecontrol()
+            $('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+                mainobj.scrollup()
+                return false
+            })
+            $(window).bind('scroll resize', function(e){
+                mainobj.togglecontrol()
+            })
+        })
+    }
+}
+scrolltotop.init()
+</script>
+
+<!-- barra laterale social pulsanti-->
+
+<script type='text/javascript'>
+$(function () {
+    $('#pulsante a').stop().animate({
+        'marginLeft': '-10px'
+    }, 1000);    
+$('#pulsante > li').hover(
+        function () {
+            $('a', $(this)).stop().animate({
+                'marginLeft': '-85px'
+            }, 200);
+        },
+        function () {
+            $('a', $(this)).stop().animate({
+                'marginLeft': '-10px'
+            }, 200);
+        }
+    );
+});
+</script> 
+
+
+<ul id='pulsante'>
+<li class='twitter'><a href='https://twitter.com/share' target="_blank"  title='Twitter'><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>  </a></li>
+<li class='googleplus'><a href='https://plus.google.com/+GiappichelliIt_Editore'  target="_blank"  title='Google Plus'></a></li>
+<!-- <li class='facebook'><a href='https://www.facebook.com/sharer/sharer.php?u=www.giappichelli.it'  title='Facebook'></a></li>  -->
+<li class='facebook'><a href='https://www.facebook.com/Giappichelli.Editore'  target="_blank" title='Facebook'></a></li>
+<!-- <li class='pinterest'><a href='http://www.pinterest.com/parsifal32/'  target="_blank"  title='Pinterest'></a></li> -->
+<!-- <li class='rss'><a href='http://feeds.feedburner.com/ideepercomputeredinternet/zUQN'  target="_blank"  title='Rss'></a></li> -->
+</ul>
+<!--  fine barra laterale -->
+
+<div align="center">
+ <!--   <a href="https://plus.google.com/100807898535253825670" _rel="publisher" class="foot">Trovaci su Google+</a>-->
+
+<br>
+<div class="social">
+
+<!-- <a href="https://plus.google.com/u/0/b/100807898535253825670/+GiappichelliIt_Editore/posts"><img src="custom/images/loghi_social/logo-gplus.png" alt="logo G+" width="20px" height="20px"></a>&nbsp;-->
+<!--<a target="_blank" href="https://www.facebook.com/Giappichelli.Editore"><img src="custom/images/loghi_social/logo-fb.png" alt="logo facebook" width="20px" height="20px"></a>&nbsp;<a target="_blank" href="https://twitter.com/GiappichelliEdi"><img src="custom/images/loghi_social/logo-twitter.png" alt="logo twitter" width="20px" height="20px">-->
+<script src="//platform.linkedin.com/in.js" type="text/javascript">
+  lang: it_IT
+</script>
+<script type="IN/FollowCompany" data-id="1210651" data-counter="right"></script>
+
+<!--
+</a>&nbsp;<a target="_blank" href="https://www.linkedin.com/company/g.-giappichelli-editore-s.r.l."><img width="20px" src="custom/images/loghi_social/logo-linkedin.png" alt="logo linkedin"></a>-->
+
+</div>
+<br>
+
+<table>
+<tr>
+<td>
+
+<!-- Inserisci questo tag nel punto in cui vuoi che sia visualizzato l'elemento pulsante +1. -->
+<div class="g-plusone" data-size="tall" data-annotation="inline" data-width="300"></div>
+
+<!-- Inserisci questo tag dopo l'ultimo tag di pulsante +1. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'it'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</td>
+<td>
+
+  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.giappichelli.it&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=359360544096113" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+ </td> 
+ <!--<td>
+ 
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.4&appId=359360544096113";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="http://www.giappichelli.it" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+<div class="fb-share-button" data-href="http://www.giappichelli.it/" data-layout="button"></div>
+  </td>-->
+ 
+ <td>
+ 
+  <a href="https://twitter.com/giappichelliedi" class="twitter-follow-button" data-show-count="false" data-lang="it">Follow @giappichelliedi</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ </td> 
+
+</tr>
+</table>
+  <p class="foot">
+  
+  &copy; G. Giappichelli Editore srl - Via Po 21 ang. Via Vasco 2 - 10124 Torino - 
+  2005-2017 Tutti i diritti riservati<br></p>
+  <p class="foot">
+  Iscriz. Ufficio Registro di Torino, P.I e C.F 02874520014 -- Capitale sociale i. v. &#8364; 46.800,00
+  Realizzato da: G. Giappichelli Editore srl e <a href="http://www.endixi.com/" target="_new">Endixi</a>
+  Housing by: <a href="http://www.be-online.net/" target="_new">Be Online</a> & <a href="http://www.sinergia.to/" target="_new">Sinergia</a><br>
+  
+  <!-- nuovo piede 
+  <div class="giappi-bs">
+  <ul class="nav nav-tabs" id="mioTab">
+  <li class="active"><a href="#home" data-toggle="tab">contatti</a></li>
+  <li><a href="#uno" data-toggle="tab">distribuzione</a></li>
+  <li><a href="#due" data-toggle="tab">area riservata</a></li>
+  <li><a href="#tre" data-toggle="tab">Tre</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home"><h3>Home</h3>
+    <p> Lorem ipsum dolor sit amet ... <p>
+  </div>
+  <div class="tab-pane" id="uno"><h3>Uno</h3>
+    <p>Curabitur pretium tincidunt lacus...</p>
+  </div>
+  <div class="tab-pane" id="due"><h3>Due</h3>
+    <p>Proin nonummy...</p></div>
+  <div class="tab-pane" id="tre"><h3>Tre</h3>
+    <p>Fusce convallis,...</p>
+  </div>
+</div>
+</div>
+  <!-- fine nuovo piede --> 
+
+</div>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '545633762292837'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" 
+src="https://www.facebook.com/tr?id=545633762292837&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-524739-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+
+
+<!--linkedin-->
+	<script type="text/javascript"> _linkedin_data_partner_id = "38895"; </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script>
+<!--fine linkedin-->
+
+<!-- script per cookie -->
+
+<script src="js/cookiechoices.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(event) {
+    cookieChoices.showCookieConsentBar('Questo sito utilizza cookie per fini operativi e statistici, come descritto nella nostra Informativa sui cookie e su tecnologie analoghe. Per sapere a cosa servono i cookie e per impostare le proprie preferenze, visitare la nosta pagina sull uso dei cookie. Chiudendo questo banner, restando su questa pagina, o cliccando su qualsiasi elemento si acconsente al nostro utilizzo dei cookie.',  
+      'chiudi messaggio', 'Maggiori Informazioni',                      
+                 'http://www.giappichelli.it/cookies');
+  });
+</script>
+
+
+<br><br><br>
+    </div>
+
+<div id="search-dialog" title="Search" style="display:none">
+     <form method="get" action="index.php">
+        <input type="hidden" name="znfModule" value="public">
+        <input type="hidden" name="znfAction" value="getSearchBarraResult">
+        <input type="hidden" name="codice" value="tuttoCatalogo"/>
+        search by author<br>
+        <input type="text" name="strDaCercareAutore" style="width: 270px">
+        <br>
+        search by title<br>
+        <input type="text" name="strDaCercareTitolo" style="width: 270px">
+        <br><br>
+        <div style="float: left">
+        <button>search</button>
+        </div>
+        <div style="float: right">
+        <a href="ricerca_avanzata" style="margin-top: 0px; display:block;" id="ricercaAvanzata">advanced search</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

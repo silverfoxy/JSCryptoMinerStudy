@@ -1,0 +1,1 @@
+<head><body> This object may be found <a HREF="https://www.blackbaud.com/fundraising-crm/etapestry-donor-management">here</a> </body>

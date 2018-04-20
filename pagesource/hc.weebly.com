@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://hc.weebly.com/hc">redirected</a>.</body></html>

@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://auth.grip-on-it.com/v2/saml2/idp/c1/http-redirect?RelayState=%2F&amp;spEntityId=www.grip-on-it.com">https://auth.grip-on-it.com/v2/saml2/idp/c1/http-redirect?RelayState=%2F&amp;spEntityId=www.grip-on-it.com</a></p>

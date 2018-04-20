@@ -1,0 +1,1911 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Language" content="tr" />
+    <meta http-equiv="content-type" content="text/html;charset=windows-1254" />
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-9" />
+ <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+ <meta name ="PKCS10" content="SHA256">
+    <meta name="Language" content="Turkish" />
+
+<!-- Add jQuery library -->
+    
+</head>
+
+
+    <link href="css/webSTYLE.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="css/ie7.css" />
+    <![endif]-->
+    <!--[if IE 8]>
+         <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+    <title>İstanbul Sağlık Müdürlüğü</title>
+    <script src="/w/sablon/js/WebUIValidation.js" type="text/javascript"></script>
+    
+    <script src="js/alttakidoner.js" type="text/javascript"></script>
+
+<style>
+.fancybox-title-float-wrap .child{
+background: rgb(90, 182, 179) !important;
+}
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-8527170-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <script type="text/javascript">
+        var jQry = jQuery.noConflict();
+    </script>
+    <script type="text/javascript">
+
+        jQry.fn.infiniteCarousel = function () {
+
+            function repeat(str, num) {
+                return new Array(num + 1).join(str);
+            }
+
+            return this.each(function () {
+                var $wrapper = jQry('> div', this).css('overflow', 'hidden'),
+            $slider = $wrapper.find('> ul'),
+            $items = $slider.find('> li'),
+            $single = $items.filter(':first'),
+
+            singleWidth = $single.outerWidth(),
+            visible = Math.ceil($wrapper.innerWidth() / singleWidth), // note: doesn't include padding or border
+            currentPage = 1,
+            pages = Math.ceil($items.length / visible);
+
+
+                // 1. Pad so that 'visible' number will always be seen, otherwise create empty items
+                if (($items.length % visible) != 0) {
+                    $slider.append(repeat('<li class="empty" />', visible - ($items.length % visible)));
+                    $items = $slider.find('> li');
+                }
+
+                // 2. Top and tail the list with 'visible' number of items, top has the last section, and tail has the first
+                $items.filter(':first').before($items.slice(-visible).clone().addClass('cloned'));
+                $items.filter(':last').after($items.slice(0, visible).clone().addClass('cloned'));
+                $items = $slider.find('> li'); // reselect
+
+                // 3. Set the left position to the first 'real' item
+                $wrapper.scrollLeft(singleWidth * visible);
+
+                // 4. paging function
+                function gotoPage(page) {
+                    var dir = page < currentPage ? -1 : 1,
+                n = Math.abs(currentPage - page),
+                left = singleWidth * dir * visible * n;
+
+                    $wrapper.filter(':not(:animated)').animate({
+                        scrollLeft: '+=' + left
+                    }, 1650, function () {
+                        if (page == 0) {
+                            $wrapper.scrollLeft(singleWidth * visible * pages);
+                            page = pages;
+                        } else if (page > pages) {
+                            $wrapper.scrollLeft(singleWidth * visible);
+                            // reset back to start position
+                            page = 1;
+                        }
+
+                        currentPage = page;
+                    });
+
+                    return false;
+                }
+
+                $wrapper.after('<a class="arrow back">&lt;</a><a class="arrow forward"></a>');
+
+                // 5. Bind to the forward and back buttons
+                jQry('a.back', this).click(function () {
+                    return gotoPage(currentPage - 1);
+                });
+
+                jQry('a.forward', this).click(function () {
+                    return gotoPage(currentPage + 1);
+                });
+
+                // create a public interface to move to a specific page
+                jQry(this).bind('goto', function (event, page) {
+                    gotoPage(page);
+                });
+            });
+        };
+
+        jQry(document).ready(function () {
+            jQry('.infiniteCarousel').infiniteCarousel();
+        });
+    </script>
+    <link href="css/sonCssKucuk.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/alttakidoner.css" />
+
+
+	<style>
+.solMenuOrta{z-index:99;}
+</style>
+
+<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <!-- Add Button helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <!-- Add Thumbnail helper (this is optional) -->
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <!-- Add Media helper (this is optional) -->
+    <script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+		});
+    </script>
+
+	<!--<script type="text/javascript">
+	    $(document).ready(function () {
+	        $.fancybox({
+	            'autoScale': true,
+	            'transitionIn': 'fade',
+	            'transitionOut': 'fade',
+	            'href': 'resim/duyuru_25012018.jpg'
+	        });
+	    });
+</script>-->
+
+<!--<script>
+  $(document).ready(function () {
+            $.fancybox({
+                
+	            'autoScale': true,
+	            'transitionIn': 'fade',
+	            'transitionOut': 'fade',
+                'href': 'resim/istanbul_eczacilik_zirvesi_afis.jpg',
+                'title':'<a href="http://istanbuleczacilikzirvesi.org/kayit.php" style="color:#fff; font-size:16px;" target="_blank">Online Kayıt Formu için tıklayınız.</a>'
+               
+            });
+      
+	    });
+</script>-->
+
+
+
+
+      <script type='text/javascript'>
+          $(document).ready(function () {
+              $(".various").fancybox({
+                  maxWidth: 800,
+                  maxHeight: 600,
+                  fitToView: false,
+                  width: '70%',
+                  height: '70%',
+                  autoSize: false,
+                  closeClick: false,
+                  openEffect: 'none',
+                  closeEffect: 'none'
+              });
+          });
+
+   $("document").ready(function () {
+            $(".various").trigger('click');
+        });
+    </script>
+
+ <script type='text/javascript'>
+    $(function(){
+        $("a.fancypdf").fancybox({type:'iframe'});
+        $("a.fancy").fancybox();
+    });
+    </script>
+
+
+<link rel="stylesheet" type="text/css" href="css/totem_style.css"/>
+	
+	<script type="text/javascript" src="js/jquery.totemticker.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $('#ticker').totemticker({
+	            row_height: '270px',
+	            next: '#ticker-next',
+	            previous: '#ticker-previous',
+	            stop: '#stop',
+	            start: '#start',
+	            mousestop: true,
+	        });
+	    });
+	</script>
+
+
+  <style type="text/css">
+    .blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    
+    animation-name: blinker;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    width:270px; height:150px;  margin:15px auto auto 10px;
+    font-family:'Trebuchet MS'; font-size:22px; font-weight:bold;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.20);
+  
+   
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    60% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    60% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    60% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+
+
+.alert {
+    padding: 20px;
+    background:url(http://dosyahastane.saglik.gov.tr/sehir/istanbul/images/referanslar-back.jpg);
+    color: white;
+    text-align:center;
+    font-size:13px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+.alert {
+    opacity: 1;
+    transition: opacity 0.6s; /* 600ms to fade out */
+}
+    .alert a {
+    color:#fff;
+    font-size:14px;
+    text-decoration:underline;
+    }
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Web Arayüzümüz Yenilendi! Ziyaret Etmek için <a href="http://istanbulism.saglik.gov.tr">http://istanbulism.saglik.gov.tr</a></strong>
+</div>
+
+
+    <table cellspacing="0" cellpadding="0" style="width: 942px; margin-left: auto; margin-right: auto;
+        margin-top: 0px;" border="0">
+        <tr>
+            <td align="left" colspan="3">
+                <a href="/index.asp"><img src="/resim/logoTam.jpg" alt="logo" border="0" /></a>
+            </td>
+        </tr>
+         <tr><td style="padding-top:5px;"></td></tr>
+        <tr>
+            <td style="width: 180px; height: 190px; padding: 0px; vertical-align: top;"> <table cellspacing="0" cellpadding="0" border="0">
+                  
+                    <tr>
+                        <td class="solMenuOrta">
+                            
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1254" />
+    <meta http-equiv=content-type content="text/html;charset=windows-1254" />
+    <meta http-equiv=content-type content="text/html;charset=x-mac-turkish" />
+
+
+
+
+    <link rel="stylesheet" href="/menucss/style.css" type="text/css" />
+
+    <link rel="stylesheet" href="/menucss/style1.css" type="text/css" />
+
+    <style type="text/css">
+        ._css3m {
+            display: none;
+        }
+    </style>
+
+
+
+</head>
+<body id="TotalBodyId" style="margin: 0px 0pt 0pt; background-position: 0pt 0pt;">
+
+
+       <div class="leftPan">
+
+        <div class="menu_templ" style="width: 100%; max-width: 612px;">
+
+            <!-- Nav Baslangıc -->
+            <ul id="css3menu1" class="topmenu">
+                <li class="topmenu"> <a href="/index.asp" title="Home" style="width: 154px;"> <span> SAĞLIK MÜDÜRLÜĞÜ</span> </a>
+                    <ul>
+                        <li> <a href="/w/tarihce/tarihce.asp" title="Tarihçe">Tarihçe</a> </li>
+                        <li> <a href="/w/tarihce/saglik_muduru.asp" title="Sağlık Müdürümüz"> Sağlık Müdürümüz </a></li>
+ <li><a href="/w/sb/idsema/idsema_popup/index.html" target="_blank" title="Yönetim"> Yönetim </a> </li>
+ <li><a href="/w/sb/idsema/resim/idari_sema.jpg" target="_blank" title="İdari Şema"> İdari Şema </a> </li>
+                       
+                        <li><a href="/w/sb/idsema/resim/teskilat_semasi.jpg" target="_blank" title="Teşkilat Şeması">Teşkilat Şeması</a></li>
+                        <li><a href="#" title="Başkan ve Başkan Yardımcıları">Başkan ve Başkan Yardımcıları</a></li>
+                        <li><a href="/w/sb/idsema/resim/ilce_saglik_mud.pdf" title="İlçe Sağlık Müdürleri ve Uzmanları"> İlçe Sağlık Müdürleri ve Uzmanları</a></li>
+ <li><a href="#" title="Sağlık Müdürlüğüne Ait Birimleri"> <span>Bağlı Birimler</span> </a>
+	<ul>
+		<li><a href="/w/sb/huk_mev/huk_mev_index.asp" title="Hukuk ve Muhakemat Birimi"> Hukuk ve Muhakemat Birimi </a> </li>	
+	</ul>
+
+ </li>
+                    </ul>
+
+                </li>
+                     <li class="topmenu"><a href="menu/baskanliklar.asp" style="width: 154px;"><span> BAŞKANLIKLAR</span> </a>
+                      <ul>
+                        <li> <a href="menu/acil_saglik_hizmetleri/index.asp">Acil Sağlık Hizmetleri Başkanlığı</a> </li>
+                        <li> <a href="menu/destek_hizmetleri/index.asp">Destek Hizmetleri Başkanlığı</a>  </li>
+                        <li> <a href="menu/halk_sagligi_hizmetleri/index.asp">Halk Sağlığı Hizmetleri Başkanlığı</a> </li>
+                        <li> <a href="menu/saglik_hizmetleri/index.asp">Sağlık Hizmetleri Başkanlığı</a> </li>
+                        <li> <a href="menu/personel_hizmetleri/index.asp">Personel Hizmetleri Başkanlığı</a> </li>
+                        <li> <a href="menu/kamu_hastaneleri_hizmetleri/index.asp">Kamu Hastaneleri Hizmetleri Başkanlığı</a> </li>
+
+                    </ul>
+                </li>
+                <li class="topmenu"><a href="saglik_kurumlari.asp" style="width: 154px;"> SAĞLIK KURUMLARI</a> </li>
+                <li class="topmenu">
+                    <a href="/w/halkkilavuzlari/hasta_rehberi.asp" style="width: 154px;"> <span> HALK KILAVUZLARI </span> </a>
+                         <ul><li><a href="/w/halkkilavuzlari/hasta_rehberi.asp?s=05010"> Hasta Rehberi </a></li>
+                            <li><a href="/w/halkkilavuzlari/kurumsal.asp?s=05010">Kurumsal Rehber</a></li>
+                        </ul>
+                </li><li class="topmenu"><a href="/w/sb/bsn/gnlkbsn.asp">HABERLER</a></li>
+                <li class="topmenu"><a href="#" title="Home" style="width: 154px;"><span> BİLGİ GÜVENLİĞİ</span></a>
+                    <ul>
+                        <li> <a href="/w/anasayfalinkler/bilgi_guvenligi_sunumlari.asp" title="BİLGİ GÜVENLİĞİ SUNUMLARI"> BİLGİ GÜVENLİĞİ SUNUMLARI </a></li>
+                        <li><a href="/w/anasayfalinkler/bilgi_guvenligi_dokumanlari.asp" title="BİLGİ GÜVENLİĞİ SUNUMLARI"> BİLGİ GÜVENLİĞİ DOKÜMANLARI</a> </li>
+                    </ul>
+
+                </li>
+                <li class="topmenu"><a href="/w/bizeulasin/bize_ulasin.asp">BİZE ULAŞIN </a> </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+  <div style="width:150px; padding-top:5px; float:left;text-align:center;">
+        <a href="https://www.facebook.com/ismgovtr" target="_blank"><img src="/resim/social/facebook.png" width="28" height="28" /></a>
+        <a href="https://twitter.com/ismgovtr" target="_blank"><img src="/resim/social/twitter.png" width="28" height="28" /></a>
+        <a href="https://www.youtube.com/user/istsaglikMudurlugu" target="_blank"><img src="/resim/social/youtube.png" width="28" height="28" /></a>
+        <a href="https://www.instagram.com/ismgovtr/" target="_blank"><img src="/resim/social/instagram.png" width="28" height="28" /></a>
+    </div>
+
+
+
+</body>
+</html>
+                        </td>
+                    </tr>
+                  
+                </table>
+            </td>
+          <td style="width: 582px; vertical-align: top; height: 190px;">
+                <div id="wrapper2">
+                       <div class="slider-wrapper2 futurico-theme2">
+
+                          <div id="slider2" class="nivoSlider2">
+
+<a class="various" href="slidebelge/surekli_isci_sinav_yerleri.html" data-fancybox-type="iframe"><img src="resim/BnSinavTakvimZaman.jpg" alt="" border="0"/></a>
+
+<a href="/w/sb/duyurular/istanbul_il_saglik_mudurlugu_ve_bagli_kuruluslar_icin_surekli_isci_kadrolarina_gecis_surecinde_sinava_katilmaya_hak_kazananlar_listesi.asp" target="_blank"><img src="resim/BnSurekliisciSinavHakListe.jpg" alt="" border="0"/></a>
+<a href="/w/sb/duyurular/istanbul_il_saglik_mudurlugu_ve_bagli_kuruluslar_icin_surekli_isci_kadrolarina_gecis_basvuru_sonuclari.asp"><img src="resim/BnSureklisciSonuc19022018_1.jpg" alt="" border="0"/></a>
+
+
+
+<a href="/w/sb/duyurular/ohal_islemleri_inceleme_komisyonu_calismalari.asp" target="_blank" class="nivo-imageLink" style="display: none;"><img src="resim/BnOhalKomisyon12012017.jpg" alt="" border="0" style="display: none;"></a>
+
+<a href="/w/sb/duyurular/belge/14MartTipBayram12032018/index.html" target="_blank"><img src="resim/Bn14Mart12032018.jpg" alt="" border="0"/></a>
+
+<!--<a href="/w/kurumlar/kurumlar.asp?lc=0&kk=83" target="_blank"><img src="resim/BnSaglikliBeslenmeDiyetisyin06022018.jpg" alt="" border="0"/></a>-->
+
+<a href="/slidebelge/16298_aile_hekimligine_geciste_muvafek38825000.pdf" target="_blank"><img src="resim/BnAileHekimGecis13022018.jpg" alt="" border="0"/></a>
+<!--<a href="/w/sb/duyurular/belge/guvenlik_sorusturma.xls" target="_blank"><img src="resim/bnGuvenlik.jpg" alt="" border="0"/></a>-->
+
+
+<!--<a href="/w/sb/duyurular/diyabet_obezite_tedavi_merkezi_acilis_21122017.asp" target="_blank"><img src="resim/BnDiyabetObeziteTedaviMerkAcilis.jpg" alt="" border="0"/></a>-->
+
+
+<!--<a href="/w/sb/duyurular/istanbul_saglik_fuari_cnr_expo_yesilkoyde.asp" target="_blank"><img src="resim/Bnistsaglikfuarcnrexpo.jpg" alt="" border="0"/></a>-->
+
+
+<!--<a href="/w/sb/duyurular/2017_yili_kasim_donemi_il_ici_donem_tayinleri_sonuclari.asp" target="_blank"><img src="resim/Bn2017donemkasimilictayin_sonuc.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/duyurular/2017_yili_kasim_donemi_il_ici_donem_tayinleri.asp" target="_blank"><img src="resim/Bn2017donemkasimilictayin.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/duyurular/istanbul_eczacilik_zirvesi.asp"><img src="resim/BnistanbulEczZirvesi.jpg" alt="" border="0" target="_blank"/></a>-->
+<!--<a href="/w/anasayfalinkler/15_temmuz_demokrasi_ve_milli_birlik_gunu_saglik_etkinlikleri_toplantisi_gerceklesti.asp"><img src="resim/Bn15TemmuzSagEtGun.jpg" alt="" border="0" target="_blank"/></a>-->
+
+<!--<a class="various" target="_blank" href="slidebelge/ramazan_bayrami_23062017.jpg"><img src="resim/BnBayramMesajı23062017.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/duyurular/alo_191_uyusturucu_ile_mucadele_danisma_ve_destek_hatti.asp" target="_blank"><img src="resim/BnAlo191uyusturucubirakhat.jpg" alt="" border="0"/></a>-->
+
+
+
+<!--<a href="/w/anasayfalinkler/saglik_tarama_tiri.asp" target="_blank"><img src="resim/BnSaglikTiri1.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/anasayfalinkler/turkiye_hanehalki_saglik_arastirmasi.asp" target="_blank"><img src="resim/BnTurkiyeHaneSagAras.jpg" alt="" border="0"/></a>-->
+<!--<a href="slidebelge/surucu_aday_suruculerde_aranacak_saglik_sart_yonetmelik.pdf"><img src="resim/BnSrcAdayYonetmelik16052017.jpg" alt="" border="0" target="_blank"/></a>-->
+
+<!--<a href="/w/anasayfalinkler/yangin_guvenligi_egitimi_09052017.asp" target="_blank"><img src="resim/BnYanginEgit1.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/slidebelge/mayis2017_donem_il_ici_yer_degis_sonuc_11052017.pdf" target="_blank"><img src="resim/Bn2017MayısYerDegisik.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/per/hokul/hokul_brosur.html" target="_blank"><img src="resim/Bn2017HastOkul.jpg" alt="" border="0"/></a>-->
+
+
+
+<!--<a href="/w/anasayfalinkler/expomed_eurasia_2017_sona_erdi.asp" target="_blank"><img src="resim/BnExpomedEurasia2017.jpg" alt="" border="0"/></a>-->
+
+
+
+<!--<a class="fancybox" href="resim/tuyap_fuari_afis_27032017.jpg"><img src="resim/Bn_tuyap_fuari_27032017.jpg" alt="" border="0"/></a>-->
+
+<a href="/w/sb/duyurular/engelsiz_saglik_iletisim_merkezi_esim_mobil_uygulamasi.asp" target="_blank"><img src="resim/BnEsimUyg.jpg" alt="" border="0"/></a>
+
+<!--<a href="/w/sb/duyurular/22_subat_2017_aday_memur_sinav_sonuclari.asp" target="_blank"><img src="resim/Bn22subAdayMemrSinav.jpg" alt="" border="0"/></a>-->
+<!--<a class="fancybox" href="resim/unnamed.jpg"><img src="resim/bnYeniyil2017.jpg" alt="" border="0"/></a>-->
+
+<!--<a class="various" href="slidebelge/eczane_calisma_saatleri_hk.html" data-fancybox-type="iframe"><img src="resim/BnEczCalSaatDuyuru.jpg" alt="" border="0"/></a>-->
+
+<!--<a class="fancypdf" target="_blank" href="slidebelge/eczave_calisma_saatleri_hk.pdf"><img src="resim/BnEczCalSaatDuyuru.jpg" alt="" border="0"/></a>-->
+
+<!--<a class="fancybox" href="resim/ist_hastane_karantinaya_alindi_domuz_gribi_alarmi.jpg"><img src="resim/bnBilgiNotu.jpg" alt="" border="0"/></a>-->
+
+<!--<a class="fancybox" href="resim/DisHekmGunHaftMesaj.jpg"><img src="resim/BnDisHkmHaft.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/anasayfalinkler/istanbul_health_expo_saglik_fuari_yesilkoy_24_26_kasim.asp"><img src="resim/BnSagFuarExpo2426.jpg" alt="" border="0"/></a>-->
+<!--<a class="fancybox" href="resim/29ekim2016cumhuriyetbayrammesaj.jpg" data-fancybox-group="gallery"><img src="resim/Bncmhriyetbyrmmesaj.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/duyurular/saglik_meslek_lisesi_ogrencilerinin_stajlari.asp"><img src="resim/BnSagMslkDuyuru.jpg" alt="" border="0" /></a>-->
+<!--<a class="fancybox" href="resim/MdMsjj.jpg"><img src="resim/BnMdMesaj.jpg" alt="" border="0" /></a>-->
+
+<!--<a class="fancybox" href="resim/bayramtebrik09092016.jpg"><img src="resim/BnAlbayrakBayramMesaj09092016.jpg" alt="" border="0" /></a>-->
+
+
+<!--<a class="fancybox" href="resim/yurtdisi_cikis_islemleri_genelge.jpg"><img src="resim/Bnyurtdisicikis.jpg" alt="" border="0"/></a>-->
+
+
+<!--<a href="/w/anasayfalinkler/tsim_egitimleri18.11.2016.asp" target="_blank"><img src="resim/BnTsimEgit18112016.jpg" alt="" border="0"/></a>-->
+
+<!--<a href="/w/sb/sagmslk/saglik_raporunun_duzenlenmesi.asp" target="_blank"><img src="resim/BnSurucuAdaysaglikDuzBan.jpg" alt="" border="0"/></a>-->
+
+
+<!--<a href="/w/sb/duyurular/gezici_is_sagligi_guvenligi_genelgesi_saglik_bakanligimizda_yayinlandi.asp"><img src="resim/Bngezissaggenelge.jpg" alt="" border="0" /></a>-->
+
+
+
+<!--<a href="/w/sb/per/hokul/hokul_brosur.html"><img src="resim/BnDiyabetKitapcik.jpg" alt="" border="0"/></a>-->
+<!--<a href="/w/anasayfalinkler/hasta_okulu_2016.asp"><img src="resim/BnHastOkul2016.jpg" alt="" border="0"/></a>-->
+<!--<a href="/w/anasayfalinkler/e-nabiz.asp"><img src="resim/bnEnabiz.jpg" alt="enabiz" border="0" /></a>-->
+
+
+<img src="resim/bnism.jpg" alt="" border="0" />
+
+</div>
+                        </div>
+</div>
+                      
+                </div>
+            </td>
+            <td style="width: 180px; vertical-align: top; height: 190px;">
+
+<map name="sagust">
+<area alt="" coords="3,79,180,111" href="/Index_Nobetci.asp">
+<area alt="" coords="3,117,180,149" href="https://www.saglik.gov.tr/TR,10357/saglik-mevzuati.html" target="_blank">
+<area alt="" coords="3,155,182,187" href="/w/anasayfalinkler/pano.asp">
+<area shape="poly" coords="31,8" href="#" />
+<area shape="poly" coords="27,7,3,31,1,38,4,45,25,65,35,66,46,59,160,59,176,48,177,33,173,21,161,13" href="/w/sb/tedk/tedk.asp" alt="Rapor İtiraz Sorgulama" />
+</map>
+
+<img src="/resim/SagUstBG.jpg" width="180" height="190" border="0" usemap="#sagust">
+
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 3px;" colspan="3">
+            </td>
+        </tr>
+         <!-- <tr>
+            <td style="background-color: #DFE9F5; height: 74px;" colspan="3" align="center">
+              <table cellpadding="0" cellspacing="0" style="width: 932px;">
+                      <tr>
+                        <td>
+                            <a href="/w/dergi/index.asp">
+                                <img src="resim/LinkMenu/issa.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                            <a href="/w/ihale/ihale.asp">
+                                <img src="resim/LinkMenu/ihale.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                            <a href="/w/onemli_gun/saglik_onem.asp">
+                                <img src="resim/LinkMenu/onemli.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                            <a href="/w/bilgiedinme/blgedm.asp">
+                                <img src="resim/LinkMenu/bilgi.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                            <a href="/donerbordro/donerFiles/tumu.asp">
+                                <img src="resim/LinkMenu/doner.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                         <a href="/w/anasayfalinkler/dokuman.asp">
+                                <img src="resim/LinkMenu/dokuman.jpg" border="0" alt="" /></a>
+                        </td>
+
+                          <td>
+                         <a href="/w/sb/per/pasaport.asp">
+                                <img src="resim/LinkMenu/passport.jpg" border="0" alt="" /></a>
+                        </td>
+
+                        <td>
+                            <a href="/Index_Randevu.asp">
+                                <img src="resim/LinkMenu/randevu.jpg" border="0" alt="" /></a>
+                        </td>
+                        <td>
+                            <a href="/w/anasayfalinkler/ic_kontrol_sistemi.asp">
+                                <img src="resim/LinkMenu/haritada.jpg" border="0" alt="" /></a>
+                        </td>
+                      
+                    </tr>
+                </table>
+
+
+               
+
+                
+            </td>
+        </tr>-->
+ <tr>
+            <td style="height: 3px;" colspan="3">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="width: 942px;" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td style="background: url(resim/Cust.gif) no-repeat; width: 942px; height: 10px;"
+colspan="5">
+
+                        </td>
+                    </tr>
+                                 <tr>
+                        <td style="background: url(resim/HeadDuyuru.gif) no-repeat; width: 177px; height: 30px;">
+                        </td>
+                        <td style="background: url(resim/Haralik.png) no-repeat; width: 3px; height: 30px;">
+                        </td>
+                        <td style="background: url(resim/headGuncelHaber.gif) no-repeat; width: 585px; height: 30px;">
+                        </td>
+                        <td style="background: url(resim/Haralik.png) no-repeat; width: 3px; height: 30px;">
+                        </td>
+                        <td style="background: url(resim/DuyuruSaglik.gif) no-repeat; width: 180px; height: 30px;border-right:1px solid #D1D1D1;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="background: url(resim/dsobg.gif) repeat-x top; text-align: left; 
+                            border-left: 1px solid #ccc; vertical-align: top;">
+                          
+                          
+                                       <map name="solAlt">
+<area alt="" coords="0, 0, 182, 44" href="http://apps.istanbulsaglik.gov.tr/SaglikRehber/SaglikRehberiDISBilgi.aspx" target="_blank" shape="rect">
+<area alt="" coords="0, 44, 179, 87" href="http://health.istanbulsaglik.gov.tr" target="_blank" shape="rect">
+<area alt="" coords="0, 88, 182, 131" href="/w/sb/per/hokul/ana.html" target="_blank"  shape="rect">
+<area alt="" coords="0, 130, 178, 175" href="/w/dergi/son_sayi.asp" target="_blank" shape="rect">
+<area alt="" coords="0, 175, 178, 219" href="http://umke.istanbulsaglik.gov.tr/" target="_blank" shape="rect">
+<area alt="" coords="42, 230, 175, 263" href="/w/anasayfalinkler/ic_kontrol_sistemi.asp" target="_blank" shape="rect">
+
+<area alt="" coords="42, 282, 170, 315" href="/w/hashak/hh.asp" shape="rect">
+<area alt="" coords="42, 335, 170, 365" href="/w/anasayfalinkler/akilci_ilac_kullanimi.asp" target="_blank" shape="rect">
+</map>
+<img src="/resim/solAlt.jpg" width="177" height="370" border="0" usemap="#solAlt">
+                        </td>
+                        <td style="border-right: 1px solid #ddd;"></td>
+                        <td style="background: url(resim/Dghbg.gif) repeat-x top; text-align: left; height: 223px;
+                            vertical-align: top;">
+                            <br />
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper">
+
+
+
+    <ul id="ticker">
+        <!-- UL Başlangıç -->
+        <li>
+            <!-- Li Başlangıç -->
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/gaziosmanpasa_taksim_eah_bashekimi_istanbul_il_saglik_mudurunu_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/gaziosmanpasa_taksim_eah_bashekimi_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Gaziosmanpaşa Taksim Eğitim ve Araştırma Hastanesi Başhekimi Doç. Dr. Savaş Öztürk, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti </a></div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/avcilar_murat_koluk_dh_ist_sag_mud_14mart_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/avcilar_murat_koluk_devlet_hastanesi_bashekimi_istanbul_il_saglik_mudurunu_14_mart_tip_bayrami_munasebetiyle_ziyaret_etti.asp">Avcılar Murat Kölük Devlet Hastanesi Başhekimi Op. Dr. İbrahim Ulusoy, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu, 14 Mart Tıp Bayramı Münasebetiyle Ziyaret Etti </a></div>
+             <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/avcilar_murat_koluk_devlet_hastanesi_bashekimi_istanbul_il_saglik_mudurunu_14_mart_tip_bayrami_munasebetiyle_ziyaret_etti.asp">Ulusoy ziyarette, yakında inşaatı başlayacak olan 320 yataklı, 18 yoğun bakım yataklı, 27 poliklinik odalı ve 6 ameliyathaneli yeni bina projesi...</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/bezmialem_vakif_uni_hekim_haklari_derng_15032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/bezmialem_vakif_universitesi_ve_hekim_haklari_derneginin_duzenledigi_uluslararasi_katilimli_palyatif_bakim_ve_hospis_kongresi.asp">Bezmialem Vakıf Üniversitesi ve Hekim Hakları Derneği’nin düzenlediği, Uluslararası Katılımlı Palyatif Bakım ve Hospis Kongresi Gerçekleşti </a></div>
+             <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/bezmialem_vakif_universitesi_ve_hekim_haklari_derneginin_duzenledigi_uluslararasi_katilimli_palyatif_bakim_ve_hospis_kongresi.asp">Kongreye, Sağlık Hizmetleri Genel Müdürü Prof. Dr. Alper Cihan ve İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu katıldı...</a>
+                </div>
+            </div>
+
+
+
+
+    </li>
+        <!-- Li Bitiş -->
+
+        <li> <!-- Li Başlangıç -->
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/6ciCocukDostlariKontresi15032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_6ci_cocuk_dostlari_kongresine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, ‘6. Çocuk Dostları Kongresi’ne Katıldı</a></div>
+             <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_6ci_cocuk_dostlari_kongresine_katildi.asp">Şişli Hamidiye Etfal Eğitim ve Araştırma Hastanesi, Haseki Eğitim ve Araştırma Hastanesi, Okmeydanı Eğitim ve Araştırma Hastanesi ve Ümraniye Eğitim ve Araştırma Hastanesi tarafından düzenlenen...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/SagMudSagSen14Mart_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_mudurlugu_ve_saglik_sen_in_birlikte_duzenledigi_14_mart_tip_bayrami_etkinligi.asp">İstanbul İl Sağlık Müdürlüğü ve Sağlık-Sen'in Birlikte Düzenlediği "14 Mart Tıp Bayramı" Etkinliği</a></div>
+
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/SBU14Mart15032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_sbu_14_mart_tip_bayrami_ve_sahane_medya_odulleri_torenine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Sağlık Bilimleri Üniversitesi’nin Düzenlediği ‘14 Mart Tıp Bayramı ve Şahane Medya Ödülleri Töreni’ne Katıldı</a></div>
+
+            </div>
+
+
+
+
+     </li>
+        <!-- Li Bitiş -->
+
+        <li>
+            <!-- Li Başlangıç -->
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/TaksimEah14MartTipBayam_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_taksim_eah_duzenledigi_14_mart_tip_bayrami_etkinligine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Gaziosmanpaşa Taksim Eğitim ve Araştırma Hastanesi’nin Düzenlediği 14 Mart Tıp Bayramı Etkinliğine Katıldı</a></div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/BeykentUni14MartTipBayram_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_beykent_universitesinin_duzenledigi_14_mart_tip_bayrami_etkinligine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Beykent Üniversitesi'nin Düzenlediği 14 Mart Tıp Bayramı Etkinliğine Katıldı</a></div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/14martetkinlik13032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_mudurlugumuz_ve_saglik_sen_subelerinin_birlikte_duzenledigi_14_mart_tip_bayrami_etkinligi.asp">İstanbul İl Sağlık Müdürlüğümüz ve Sağlık-Sen Şubelerinin Birlikte Düzenlediği '14 Mart Tıp Bayramı' Etkinliği Gerçekleşti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_mudurlugumuz_ve_saglik_sen_subelerinin_birlikte_duzenledigi_14_mart_tip_bayrami_etkinligi.asp">Etkinliğe, İstanbul Valisi Vasip Şahin, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Adalet ve Kalkınma Partisi İstanbul İl Başkan Yardımcısı Habibe Çiftcioğlu Başer,...</a>
+                </div>
+            </div>
+
+
+
+
+        </li>
+        <!-- Li Bitiş -->
+
+    </ul>
+    <!-- UL Bitiş -->
+
+
+
+
+    <p><a href="#" id="ticker-previous">< Geri</a>  /<a href="#" id="start">Oynat</a>  / <a href="#" id="stop">Durdur</a> / <a href="#" id="ticker-next">İleri ></a></p>
+
+
+</div>
+
+
+
+
+<!--  Arşivlenecek Haberler
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_haseki_eah_ziyaret_06032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_haseki_eah_ziyaret_ederek_personel_ile_sohbet_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Haseki Eğitim ve Araştırma Hastanesi’ni Ziyaret Ederek, Personel ile Sohbet Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_haseki_eah_ziyaret_ederek_personel_ile_sohbet_etti.asp">Prof. Dr. Kemal Memişoğlu’na ziyaret esnasında, Kamu Hastaneleri Başkanlığı-5 Başkanı Op. Dr. Gürhan Çelik eşlik etti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mudr_avcilat_murat_koluk_dh_ziyaret_06032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_avcilar_murat_koluk_devlet_hastanesini_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Avcılar Murat Kölük Devlet Hastanesini Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_avcilar_murat_koluk_devlet_hastanesini_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, Avcılar ve çevre ilçelerde sunulan sağlık hizmetlerine yönelik görüşmeler yaparak, personel ile sohbet etti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_basaksehir_dh_ziyaret_05032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_basaksehir_devlet_hastanesini_ziyaret_etti_05032018.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Başakşehir Devlet Hastanesi’ni Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_basaksehir_devlet_hastanesini_ziyaret_etti_05032018.asp">Prof. Dr. Kemal Memişoğlu, Başakşehir ve çevre ilçeler genelinde sunulan sağlık hizmetlerine yönelik görüşmeler yaparak, personel ile sohbet etti...</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mıud_sultangazi_lutfiye_nuri_burat_dh_ziyaret_05032018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_sultangazi_lutfiye_nuri_burat_devlet_hastanesini_ziyaret_etti_05032018.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Sultangazi Lütfiye Nuri Burat Devlet Hastanesi’ni ziyaret ederek, Sultangazi ve çevre ilçelerde sunulan sağlık hizmetlerine yönelik görüşmeler yapıp, personel ile sohbet etti.</a></div>
+
+            </div>
+
+
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/beyoglu_belediye_baskan_yard_sosyal_yard_is_mud_ist_sag_mud_ziy_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/beyoglu_belediye_baskan_yardimcisi_ve_sosyal_yardim_isleri_muduru_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Beyoğlu Belediyesi Başkan Yardımcısı Yasin Balcı ve Sosyal Yardım İşleri Müdürü Rukiye Balcı, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti </a></div>
+     
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/erasmus_toplanti_27022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/erasmus_programi_acilis_toplantisi_27022018.asp">Erasmus+ Programı Kapsamında, Türkiye Ulusal Ajansı Tarafından Fonlanan ve Ana Koordinatörlüğünü İstanbul İl Sağlık Müdürlüğümüzün Yürüttüğü Projenin Açılış Toplantısı Gerçekleşti </a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/erasmus_programi_acilis_toplantisi_27022018.asp">Erasmus+ Programı kapsamında, Türkiye Ulusal Ajansı tarafından fonlanan ve ana koordinatörlüğünü İstanbul İl Sağlık Müdürlüğümüzün yürüttüğü...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_uskudar_ilce_ziyaret_26022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_uskudar_ilce_saglik_mudurlugunu_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Üsküdar İlçe Sağlık Müdürlüğü’nü Ziyaret Etti  </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_uskudar_ilce_saglik_mudurlugunu_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, İlçe genelinde sunulan sağlık hizmetlerine yönelik görüşmeler yaparak, personel ile sohbet etti...</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ErenkoyRuhSinirEahCematemAcilis_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/erenkoy_ruh_ve_sinir_hastaliklari_eah_cematem_acilisi_gerceklesti.asp">Erenköy Ruh ve Sinir Hastalıkları Eğitim ve Araştırma Hastanesi ÇEMATEM Açılışı Gerçekleşti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/erenkoy_ruh_ve_sinir_hastaliklari_eah_cematem_acilisi_gerceklesti.asp">Açılışa İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Kadıköy Kaymakamı Dr. Mustafa Özdemir, Kamu Hastaneleri Başkanlığı-2 Başkanı Prof. Dr. Kamil Özdil,...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/hizmet_is_sendika_7nolu_sube_ist_sag_mud_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/hizmet_is_sendikasi_7nolu_sube_baskani_huseyin_topcu_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Hizmet-İş Sendikası 7 No’lu Şube Başkanı Hüseyin Topçu, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti </a></div>
+              
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_uskdr_belediye_ilce_sag_yatirim_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_ve_uskudar_belediyesi_ilcedeki_saglik_yatirimlarina_yonelik_protokol_imzaladi.asp">İstanbul İl Sağlık Müdürlüğü ve Üsküdar Belediyesi İlçedeki Sağlık Yatırımlarına Yönelik Protokol İmzaladı  </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_ve_uskudar_belediyesi_ilcedeki_saglik_yatirimlarina_yonelik_protokol_imzaladi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu ve Üsküdar Belediye Başkanı Hilmi Türkmen ilçeye kazandırılacak sağlık yatırımları ile ilgili anlaşma gerçekleştirdi...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_valisi_vasip_sahin_muhtarlar_toplantisi_21022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahin_mustarlar_toplantisi_21022018.asp">İstanbul Valisi Vasip Şahin; Beşiktaş, Beyoğlu, Kâğıthane, Sarıyer ve Şişli İlçelerinin Muhtarlarıyla Bir Araya Geldi </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahin_mustarlar_toplantisi_21022018.asp">Avrupa Yakası Muhtarları 2. Buluşması toplantısına, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, il müdürleri, kamu kurum ve kuruluşlarının temsilcileri ile muhtarlar katıldı....</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_yeni_buyukcekmece_devlet_hast_inceleme_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_buyukcekmece_devlet_hastanesinde_incelemelerde_bulundu.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Yeni Büyükçekmece Devlet Hastanesi’nde İncelemelerde Bulundu </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_buyukcekmece_devlet_hastanesinde_incelemelerde_bulundu.asp">12 adet ameliyathanesi, 67 adet polikliniği ve 32 adet acil müşahade odası olan; 37’si yoğun bakım olmak üzere, toplam 237 yatak sayısı ile hizmete açılacak olan, Yeni Büyükçekmece Devlet Hastanesi’ni...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_silivri_ilce_ziyaret_12022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_silivri_ilcesinde_ziyaretlerde_bulundu.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Silivri İlçesi’nde Ziyaretlerde Bulundu </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_silivri_ilcesinde_ziyaretlerde_bulundu.asp"> İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Adalet Bakanlığı Silivri Ceza İnfaz Kurumu Cumhuriyet Savcısı Metin Arda’yı ziyaret ederek, sağlık hizmetleri ile ilgili istişare etti... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sbu_dekan_ali_tasci_ziyareti_07022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bilimleri_universitesi_tip_fakultesi_dekani_prof_dr_ali_ihsan_tasci_istanbul_saglik_mudurunu_ziyaret_etti.asp">Sağlık Bilimleri Üniversitesi Tıp Fakültesi Dekanı Prof. Dr. Ali İhsan Taşçı, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bilimleri_universitesi_tip_fakultesi_dekani_prof_dr_ali_ihsan_tasci_istanbul_saglik_mudurunu_ziyaret_etti.asp"> </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sac_ekimi_dernegi_heyeti_ist_sag_mud_ziyaret_06022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/sac_ekimi_dernegi_baskani_ve_beraberindeki_heyet_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Saç Ekimi Derneği Başkanı ve Beraberindeki Heyet, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/sac_ekimi_dernegi_baskani_ve_beraberindeki_heyet_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, Türkiye’nin saç ekiminde marka ülke olduğunu, saç ekiminin Türkiye'yi, sağlık turizminde üst sıralara taşıdığını... </a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_il_jandarma_komutanindan_istanbul_saglik_mudurlugune_ziyaret_06022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_jandarma_komutanindan_istanbul_saglik_mudurlugune_ziyaret_06022018.asp">İstanbul İl Jandarma Komutanı'ndan, İstanbul İl Sağlık Müdürü'ne Ziyaret</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_jandarma_komutanindan_istanbul_saglik_mudurlugune_ziyaret_06022018.asp">İstanbul İl Jandarma Komutanı Tuğgeneral Nuh Köroğlu, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_der_baskan_istanbul_il_baskan_ziyaret_06022018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_der_baskani_istanbul_il_baskani_ve_baskan_yardimcisi_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Sağlık-Der Genel Başkanı Uzm. Dr. Kasım Sezen, İstanbul İl Başkanı Musa Akan, Başkan Yardımcısı Yunus Emre Kırgeç ve Alper Özbakır, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_der_baskani_istanbul_il_baskani_ve_baskan_yardimcisi_istanbul_il_saglik_mudurunu_ziyaret_etti.asp"></a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_saglik_muduru_afrini_ziyaret_etti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_afrini_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Afrin Sınırında Görev Yapan Sağlık Personelimizi ve Gazilerimizi Ziyaret Etti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_afrini_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, Hatay İl Sağlık Müdürü Dr. Sebahattin Yılmaz ve İstanbul İl Sağlık Müdürlüğü ...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/dis_hekim_odasi_heyeti_istanbul_il_saglik_mudurunu_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_dis_hekimleri_odasi_heyeti_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">İstanbul Diş Hekimleri Odası Heyeti, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti  </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_dis_hekimleri_odasi_heyeti_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, İstanbul Diş Hekimleri Odası Başkanı Prof. Dr. Turhan Atalay, Başkan Yardımcısı Dt. Ahmet Tarik İşmen, Genel Sekreter Dt. Aret Karabulut,...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_saglik_muduru_ito_yonetim_kurulu_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru__istanbul_ticaret_odasi_ito_yonetim_kurulu_baskanini_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Ticaret Odası (İTO) Yönetim Kurulu Başkanı Öztürk Oran'ı Ziyaret Etti </a></div>
+                <div class="donen_yazi"><br /><br>
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru__istanbul_ticaret_odasi_ito_yonetim_kurulu_baskanini_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, Öztürk Oran’ı makamında ziyaret ederek, hayırlı olsun dileklerini iletti.</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/fatih_belediye_baskani_ziyareti30012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/fatih_belediye_baskani_mustafa_demir_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Fatih Belediye Başkanı Mustafa Demir, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/fatih_belediye_baskani_mustafa_demir_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp"></a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/yenisultanbeylihastinceleme_30012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_sultanbeyli_devlet_hastanesinde_incelemelerde_bulundu.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Yeni Sultanbeyli Devlet Hastanesi’nde İncelemelerde Bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_sultanbeyli_devlet_hastanesinde_incelemelerde_bulundu.asp">İstanbul İl Sağlık Müdürlüğü Kamu Hastaneleri Başkanlığı-1 Başkanı Uzm. Dr. Ersin Şimşek, Başkan Yardımcısı İlyas Çelebi, ziyarette Prof. Dr. Kemal Memişoğlu’na eşlik etti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/OkanUniDisHastAcilis29012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/sayin_basbakanimiz_binali_yildirimin_tesrifleriyle_okan_universitesi_dis_hastanesi_okan_universitesi_acibadem_poliklinigi_ve_turkan_omer_okan_camii_acilisi_gerceklesti.asp">Sayın Başbakanımız Binali Yıldırım'ın teşrifleriyle, Okan Üniversitesi Diş Hastanesi, Okan Üniversitesi Acıbadem Polikliniği ve Türkan-Ömer Okan Camii Açılışı Gerçekleşti</a></div>
+                <div class="donen_yazi"><br /><br>
+                    <a href="/w/anasayfalinkler/sayin_basbakanimiz_binali_yildirimin_tesrifleriyle_okan_universitesi_dis_hastanesi_okan_universitesi_acibadem_poliklinigi_ve_turkan_omer_okan_camii_acilisi_gerceklesti.asp">Sağlık Bakanı Dr. Ahmet Demircan, Milli Eğitim Bakanı Dr. İsmet Yılmaz, Sağlık Bakanı Yardımcısı Ahmet Baha Öğütken, Sağlık Bakanlığı Müsteşar Yardımcısı Dr. Şuayip Birinci, İstanbul Valisi Vasip Şahin, ...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/cekmekoy_uyusturucu_ile_mucadele_toplantisi_26012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/cekmekoy_kaymakami_cemal_husnu_kansiz_baskanliginda_cekmekoy_ilce_uyusturucu_ile_mucadele_kurulu_toplantisi.asp">Çekmeköy Kaymakamı Cemal Hüsnü Kansız Başkanlığı’nda, Çekmeköy İlçe Uyuşturucu ile Mücadele Kurulu Toplantısı Gerçekleştirildi</a></div>
+                <div class="donen_yazi"><br /><br>
+                    <a href="/w/anasayfalinkler/cekmekoy_kaymakami_cemal_husnu_kansiz_baskanliginda_cekmekoy_ilce_uyusturucu_ile_mucadele_kurulu_toplantisi.asp">Toplantıya, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Çekmeköy Belediye Başkanı Ahmet Poyraz ve İlçenin önde gelenleri katıldı... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/IstanbuluYonetenlerTop24012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbulu_yonetenler_toplantisi_istanbul_il_saglik_mudurumuzun_ev_sahipliginde_gerceklesti.asp">İstanbul'u Yönetenler Toplantısı, İstanbul İl Sağlık Müdürümüzün Ev Sahipliğinde Gerçekleşti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbulu_yonetenler_toplantisi_istanbul_il_saglik_mudurumuzun_ev_sahipliginde_gerceklesti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nun ev sahipliği yaptığı toplantıya, Genel Müdürler, Bölge Müdürleri ve İl Müdürleri katıldı... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/cekmekoy_asm_23012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_mudurunden_cekmekoy_agis_ve_dis_sagligi_merkezine_ziyaret.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'ndan, Çekmeköy Ağız ve Diş Sağlığı Merkezi'ne Ziyaret</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_mudurunden_cekmekoy_agis_ve_dis_sagligi_merkezine_ziyaret.asp">Prof. Dr. Kemal Memişoğlu Çekmeköy Ağız ve Diş Sağlığı Merkezi Başhekimi Dt. Meltem İdil Çalış'ı ziyaret etti... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_eyupsultan_ilceleme_23012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_eyup_sultan_ilcesinde_incelemelerde_bulundu.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Eyüp Sultan İlçesi'nde İncelemelerde Bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_eyup_sultan_ilcesinde_incelemelerde_bulundu.asp">Prof. Dr. Kemal Memişoğlu; Eyüp Sultan Kaymakamı Abdullah Dölek, ilçenin önde gelenleri ve Eyüp Sultan İlçesi muhtarlarıyla toplantı yaparak, Eyüp Sultan İlçesi'nde yatırım programına alınan 300 yataklı... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/cayeli_vakfi_genclik_platformu22012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/cayeli_vakfi_platformu_baskani_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Çayeli Vakfı Gençlik Platformu Başkanı, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/cayeli_vakfi_platformu_baskani_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Çayeli Vakfı Gençlik Platformu Başkanı, aynı zamanda Maltepe Üniversitesi Öğrenci Konseyi Başkanı Ahmet Kadir Çakır ve AK Parti İstanbul Gençlik Kolları Üniversiteler Birimi... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/GlabToplanti22012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_caare_tanitim_toplantisi_ve_genom_calistayi_programina_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, 'ÇAARE' Tanıtım Toplantısı ve Genom Çalıştay'ı Programına Katıldı</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_caare_tanitim_toplantisi_ve_genom_calistayi_programina_katildi.asp">Ümraniye Eğitim ve Araştırma Hastanesi'nde gerçekleşen toplantıya, İl Sağlık Müdürlüğü Kamu Hastaneleri Başkanlığı-2 Başkanı Prof. Dr. Kamil Özdil ve yöneticiler katıldı... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/SisliEtfalBolumAcilis19012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahin_tesrifleriyle_istanbul_il_saglik_mudurlugu_sisli_hamidiye_etfal_eah_bolumlare_yonelikacilis_gerceklestirildi.asp">İstanbul Valisi Vasip Şahin'in Teşrifleriyle, İstanbul İl Sağlık Müdürlüğü Şişli Hamidiye Etfal Eğitim ve Araştırma Hastanesi'ndeki Bölümlere Yönelik Açılış Gerçekleştirildi</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahin_tesrifleriyle_istanbul_il_saglik_mudurlugu_sisli_hamidiye_etfal_eah_bolumlare_yonelikacilis_gerceklestirildi.asp">Açılışta Vali Vasip Şahin'e İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu ve  Şişli Kaymakamı İdris Akbıyık eşlik ederken,... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/okmeydani_eah_kardio_vaskuler_acilis19012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahinin_tesrifleriyle_istanbul_il_saglik_mudurlugu_okmeydani_eah_kardio_vaskuler_cerrahi_yogun_bakim_unitesi_acilisi_gerceklestirildi.asp">İstanbul Valisi Vasip Şahin'in Teşrifleriyle, İstanbul İl Sağlık Müdürlüğü Okmeydanı Eğitim ve Araştırma Hastanesi Kardio Vasküler Cerrahi Yoğun Bakım Ünitesi Açılışı Gerçekleştirildi </a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_valisi_vasip_sahinin_tesrifleriyle_istanbul_il_saglik_mudurlugu_okmeydani_eah_kardio_vaskuler_cerrahi_yogun_bakim_unitesi_acilisi_gerceklestirildi.asp">Açılışta Vali Vasip Şahin'e İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu ve Şişli Kaymakamı İdris Akbıyık eşlik ederken, İl Sağlık Müdürlüğü Kamu Hastaneleri-4... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/yildizteknik_universite_rektor_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_yildiz_teknik_universitesi_rektorlugunu_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Yıldız Teknik Üniversitesi Rektörü Prof.Dr. Bahri Şahin'i Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_yildiz_teknik_universitesi_rektorlugunu_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'na ziyareti esnasında İl Sağlık Müdürlüğü Kamu Hastaneleri-6 Başkanı Op. Uz. Dr. Gürhan Çelik ve Başkan Yardımcısı Uz. Dr. Ömer Halim Kaşıkçı eşlik etti... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/adale_bakanligi_adli_tip_kurumu_baskanligi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_adalet_bakanligi_adli_tip_kurumu_baskanini_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Adalet Bakanlığı Adli Tıp Kurumu Başkanı'nı Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_adalet_bakanligi_adli_tip_kurumu_baskanini_ziyaret_etti.asp">Prof. Dr. Kemal Memişoğlu, Adalet Bakanlığı Adli Tıp Kurumu Başkanı Doç. Dr. Yalçın Büyük'ü ziyaret etti... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/rumeli_feneri_aile_sag_merkezi_ziyareti09012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_rumeli_feneri_aile_sagligi_merkezininde_incelemelerde_bulundu.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Rumeli Feneri Aile Sağlığı Merkezi'ni Ziyaret Ederek İncelemelerde Bulundu</a></div>
+                <div class="donen_yazi"><br /><br>
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_rumeli_feneri_aile_sagligi_merkezininde_incelemelerde_bulundu.asp">Sarıyer Rumeli Feneri Muhtarlığı ve Rumeli Feneri Mahallesi'ni ziyaret eden Memişoğlu, yeni aile sağlığı merkezi için yer tespitinde... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/kemal_memisoglu_ipkb_direktor_ziyareti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_ipkb_direktorunu_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İPKB Direktörü'nü Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_ipkb_direktorunu_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Proje Koordinasyon Birimi Direktörü Kazım Gökhan Elgin'i ziyaret etti... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/1ci_bolge_kamu_hastaneler_baskanligi_ziyareti_05012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_1ci_bolge_kamu_hastaneleri_baskanligini_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İl Sağlık Müdürlüğü Kamu Hastaneleri Başkanlığı(1)'na  Ziyaret Gerçekleştirdi</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_muduru_prof_dr_kemal_memisoglu_1ci_bolge_kamu_hastaneleri_baskanligini_ziyaret_etti.asp">Ziyarette,  Kamu Hastaneleri-1 Başkanı, Yrd. Doç. Dr. Ersin Şimşek,  Başkan Yardımcısı Prof. Dr. M. Kürşat Tigen ve Başkan Yardımcısı İlyas Çelebi, İl Sağlık Müdürlüğü Kamu Hastaneleri-1 Başkanlığınca ... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_il_jandarma_komutan_ziyaret05012018_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_jandarma_komutanindan_il_saglik_mudurune_ziyaret.asp">İstanbul İl Jandarma Komutanı'ndan, İl Sağlık Müdürü'ne Ziyareti</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/istanbul_il_jandarma_komutanindan_il_saglik_mudurune_ziyaret.asp">İstanbul İl Jandarma Komutanı Tuğgeneral Nuh Köroğlu, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti... </a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_trafik_vakfi_olagan_kurul_toplanti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_trafik_vakfi_olagan_kuruculari_kurulu_toplantisi_gerceklesti.asp">İstanbul Trafik Vakfı Olağan Kurucular Kurulu Toplantısı Gerçekleşti</a></div><br>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/istanbul_trafik_vakfi_olagan_kuruculari_kurulu_toplantisi_gerceklesti.asp">Toplantı, İstanbul Valisi Vasip Şahin başkanlığında, Kalyon Otelde düzenlendi... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/vali_yilin_ilk_bebegi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/vali_yilin_ilk_bebegi.asp">Vali Vasip Şahin Yılın İlk Bebeğini ve 112 Avrupa Komuta Kontrol Merkezi'ni Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/vali_yilin_ilk_bebegi.asp">İstanbul Valisi Vasip Şahin ve Eşi Hanımefendi Şeyma Şahin, İstabul İl Sağlık Müdürlüğü'ne bağlı Kanuni Sultan Süleyman Eğitim... </a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/avrupa_yakasi_1ci_bolge_muhtarlar_toplantisi_29122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/avrupa_yakasi_1ci_bolge_muhtarlar_toplantisi_29122017.asp">Avrupa Yakası 1. Bölge Muhtarlar Toplantısı, Sayın İçişleri Bakanımız Süleyman Soylu'nun Katılımlarıyla Gerçekleşti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/avrupa_yakasi_1ci_bolge_muhtarlar_toplantisi_29122017.asp">İstanbul  Valiliği'nin düzenlediği toplantıya, İçişleri Bakanı Süleyman Soylu, İstanbul Valisi Vasip Şahin, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu,... </a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/lutfi_kirdar_kartal_eah_onkoloji_toplantisi_21122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_mudurlugu_ve_ipkb_direktorlugu_temsilcileri_ile_baslangic_ve_onkoloji_toplantisi_duzenlendi.asp">İstanbul İl Sağlık Müdürlüğü ve İPKB Direktörülüğü Temsilcileri ile Başlangıç ve Onkoloji Toplantısı Düzenlendi</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_mudurlugu_ve_ipkb_direktorlugu_temsilcileri_ile_baslangic_ve_onkoloji_toplantisi_duzenlendi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu ‘Haydarpaşa Numune EAH ve Dr. Siyami Ersek Göğüs Kalp ve Damar Cerrahisi EAH Başlangıç Toplantısı ile Dr Lütfi Kırdar Kartal EAH Onkoloji Toplantısı'na katıldı.... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/OHSAD_Ziyareti_21122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/oshad_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti_21122017.asp">OHSAD Yeni Yönetim Kurulu Üyeleri İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/oshad_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti_21122017.asp">OHSAD Genel Başkanı Op. Dr. Reşat Bahat başkanlığında, Genel Sekreter Dr. Uğur Baran, Genel Sayman Abdurrahman Külünk, Dr. Ahmet Şah Kolan, Dr. Ömer Güzel, Dr. Cengiz Gül, Hayati... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/cinheyetziyareti_19122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/cin_halk_cumhuriyeti_ziyareti_19122017.asp">Çin Halk Cumhuriyeti’nin Çin-Guangxi Bölgesi Ziyaret Heyeti, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/cin_halk_cumhuriyeti_ziyareti_19122017.asp">Çin Halk Cumhuriyeti’nin Ankara Büyükelçiliği ile iş birliği çerçevesinde Türkiye’de gerçekleştirilen sağlık reformları ile ilgili bilgi edinmek ve sağlık alanındaki etkileşimi pekiştirmek amacıyla Çin-Guangxi Bölgesi... </a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bilimleri_universitesi_19122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bilimleri_universitesi_ziyareti_19122017.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu Marmara Üniversitesi Sağlık Bilimleri Eğitim - Araştırma ve Uygulamalarında Güncel Yönelimler Kongresi'ne Katıldı</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_bilimleri_universitesi_ziyareti_19122017.asp">Sağlık Bilimleri Eğitim-Araştırma ve Uygulamalarında Güncel Yönelimler Kongresi'nde "Uluslararası Karşılaştırmalı Sağlık Sistemlerinde Meslekler"</a>
+                </div>
+            </div>
+
+
+    <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_sen_ziyareti_19122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_sen_sube_baskanlarindan_il_saglik_mudurune_ziyaret.asp">İstanbul Sağlık-Sen Şube Başkanları'ndan İl Sağlık Müdürü'ne Ziyaret</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_sen_sube_baskanlarindan_il_saglik_mudurune_ziyaret.asp">Sağlık-Sen İstanbul 1 Nolu Şube Başkanı Durali Baki, 2 Nolu Şube Başkanı Cesur Öztürk ve Başkan Yardımcıları Zafer Caner ve Fahri Aziret, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti.</a>
+                </div>
+            </div>
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/marmara_universte_sag_bilim_egit_kontre_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_arastirma_ve_uygulamalarinda_guncel_yonelimler_kongresine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu Marmara Üniversitesi Sağlık Bilimleri Eğitim - Araştırma ve Uygulamalarında Güncel Yönelimler Kongresi'ne Katıldı</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_arastirma_ve_uygulamalarinda_guncel_yonelimler_kongresine_katildi.asp">Sağlık Bilimleri Eğitim-Araştırma ve Uygulamalarında Güncel Yönelimler Kongresi'nde "Uluslararası Karşılaştırmalı Sağlık Sistemlerinde Meslekler"</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_tarama_tiri_catalca_okul_ziyareti.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_tarama_tiri_catalca_okul_ziyareti.asp">İstanbul İl Sağlık Müdürlüğü Bünyesinde Hizmet Veren Sağlık Tarama Tırı ile Avrupa
+Yakası Ambulans Servisi Başhekimliği, Çatalca 75. Yıl İlkokulu'nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_tarama_tiri_catalca_okul_ziyareti.asp">Sağlık Tarama Tırında öğrencilere göz, işitme ve diş taraması yapıldıktan sonra Yaşama Yol
+Ver Medya Kampanyası kapsamında yürütülen,...</a>
+                </div>
+            </div>
+
+
+    <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/gopeah_acil_servis_cocuk_acil_07122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_gop_eah_acil_servis_ve_cocuk_acili_acilisina_katildi.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Gaziosmanpaşa Taksim EAH "Acil Servis ve Çocuk Acili" Açılışına Katıldı</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_gop_eah_acil_servis_ve_cocuk_acili_acilisina_katildi.asp">Gaziosmanpaşa Kaymakamı Oktay Çağatay, Gaziosmanpaşa Belediye Başkanı Hasan Tahsin Usta, Gaziosmanpaşa Taksim EAH Başhekimi Prof. Dr. Gökhan Tolga Adaş ve hastane personelinin katıldığı açılışta,...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/fatih_belediye_bas_ziyaret_07122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/fatih_belediye_baskani_mustafa_demir_ziyareti_07122017.asp">Fatih Belediye Başkanı Mustafa Demir Ziyareti</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/fatih_belediye_baskani_mustafa_demir_ziyareti_07122017.asp">Fatih Belediye Başkanı Mustafa Demir, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/HealthExpoSaglikFuari07122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_istanbul_health_expo_saglik_fuari_saglik_bakim_kongresine_katildi.asp">İstanbul Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Health Expo 5. Hastane Donanımları Medikal Cihaz ve Bütünleşik Sağlık Fuarı 3. Uluslararası Bütünleşik Sağlık ve Bakım Kongresi'ne Katıldı</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_istanbul_health_expo_saglik_fuari_saglik_bakim_kongresine_katildi.asp">Bakım Kongresine katılımından önce fuar alanını gezen Memişoğlu, başta İstanbul İl Sağlık Müdürlüğü olmak üzere özel hastane ve medikal...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/avrupa_roma_dernegi_fedeyasyonu_saglik_mudr_ziyareti01122017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/avrupa_roman_dernekleri_federasyonu_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Avrupa Roman Dernekleri Federasyonu İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/avrupa_roman_dernekleri_federasyonu_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Avrupa Roman Dernekleri Federasyonu Başkanı Halil Demirişleyen, Genel Başkan Yardımcıları Burhan Narcık ve Tarık Orakçı, Teşkilat Başkanı Erkan Oltaç ve Zeytinburnu GÖÇ-DER Başkanı Şenol...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_prof_dr_kemal_memisoglu_yesilay_4_uluslararasi_teknoloji_bagimli_kongre_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_yesilay_4_uluslararasi_teknoloji_bagimliligi_kongresine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu Yeşilay 4. Uluslararası Teknoloji Bağımlılığı Kongresi'ne Katıldı</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_yesilay_4_uluslararasi_teknoloji_bagimliligi_kongresine_katildi.asp">Yeşilay 4. Uluslararası Teknoloji Bağımlılığı Kongresi'nde "İnternet ve Sosyal Medya Bağımlılığı" adlı oturuma başkanlık yapan Prof. Dr. Kemal Memişoğlu Yeşilay'ın...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_der_istanbul_il_baskan_ve_baskan_yardmc_saglik_mudr_ziyaret_28112017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_der_istanbul_il_baskani_ve_baskan_yardimcisi_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Sağlık-Der İstanbul İl Başkanı ve Başkan Yardımcısı İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_der_istanbul_il_baskani_ve_baskan_yardimcisi_istanbul_il_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">Sağlık-Der İstanbul İl Başkanı Musa Akan ve Başkan Yardımcısı Yunus Emre Kırgeç, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/okmeydani_agiz_dis_sag_dis_hekim_gun_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_okmeydani_agiz_ve_dis_hastanesi_dis_hekimleri_gunu_etkinligine_katildi.asp">İstanbul Sağlık Müdürü Prof.Dr.Kemal Memişoğlu Okmeydanı Ağız ve Diş Hastanesi "Ağız ve Diş Sağlığı Haftası, Diş Hekimleri Günü Etkinliği Programı'na" Katıldı.</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_okmeydani_agiz_ve_dis_hastanesi_dis_hekimleri_gunu_etkinligine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul geneli Ağız ve Diş Sağlığı Merkezi - Hastanesi Başhekimleri ve diş hekimlerinin katılımlarıyla gerçekleşti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_eczaci_yonetim_ist_sag_mudur_ziyareti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_eczaci_odasi_yonetim_kurulu_istanbul_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">İstanbul Eczacı Odası Yönetim Kurulu İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu Ziyaret Etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_eczaci_odasi_yonetim_kurulu_istanbul_saglik_muduru_prof_dr_kemal_memisoglunu_ziyaret_etti.asp">İstanbul Eczacı Odası Yönetim Kurulu Başkanı Ecz. Zafer Cenap Sarıalioğlu ve Yönetim Kurulu Üyeleri; Ecz. Zozan Padel, Ecz. Zehra Zeynep Ayna, Ecz. Şeker Pınar Özcan ve Ecz. Zeki Özcan...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakani_milli_halterci_naim_suleymanoglu_ziyareti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_atasehir_memorial_hastanesinde_tedavi_goren_milli_halterci_naim_suleymanoglunu_ziyaret_etti.asp">Sağlık Bakanı Dr. Ahmet Demircan, Ataşehir Memorial Hastanesinde tedavi gören milli halterci Naim Süleymanoğlu’nu ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_atasehir_memorial_hastanesinde_tedavi_goren_milli_halterci_naim_suleymanoglunu_ziyaret_etti.asp">Sağlık Bakanı Dr. Ahmet Demircan, Ataşehir Memorial Hastanesinde tedavi gören milli halterci Naim Süleymanoğlu’nu ziyaret ederek...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sag_bakan_okmeydani_eah_inceleme_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_okmeydani_eah_insaat_alaninda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, Okmeydanı Eğitim ve Araştırma Hastanesi inşaat alanında incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_okmeydani_eah_insaat_alaninda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, yapımı devam eden 1.000 yataklı Okmeydanı Eğitim ve Araştırma Hastanesinde yeni binasında incelemelerde bulunarak yüklenici firma yetkililerinden bilgi aldı...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakani_ahmet_demircan_seyrantepe_eah_insaat_alani_inceleme_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_ahmet_demircan_seyrantepe_eah_insaat_alaninda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, Seyrantepe Eğitim ve Araştırma Hastanesi inşaat alanında incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_ahmet_demircan_seyrantepe_eah_insaat_alaninda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, yapımı devam eden 620 yataklı Seyrantepe Eğitim ve Araştırma Hastanesinde incelemelerde bulunarak yüklenici firma yetkililerinden bilgi aldı....</a>
+                </div>
+            </div>
+
+
+  <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sag_bakan_sbu_fsm_eah_merkelabor_umraniye_kdçh_eah_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_sbu_fsm_eah_merkez_laboratuvar_umraniye_kdçh_eah_ziyareti.asp">Sağlık Bakanı Dr. Ahmet Demircan, S.B.Ü. Fatih Sultan Mehmet EAH Merkez Laboratuvarı ve Ümraniye Kadın Doğum ve Çocuk Hastalıkları EAH ziyareti</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_sbu_fsm_eah_merkez_laboratuvar_umraniye_kdçh_eah_ziyareti.asp">Bakan Demircan'a Sağlık Bakanlığı Müsteşarı Prof. Dr. Eyüp Gümüş, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu...</a>
+                </div>
+            </div>
+
+
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakani_bagcilar_eah_incelemelerde_bulundu_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_bagcilar_ea_hastanesinde_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, Bağcılar Eğitim ve Araştırma Hastanesinde incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_bagcilar_ea_hastanesinde_incelemelerde_bulundu.asp">Sağlık Bakanı Demircan'a, Sağlık Bakan Yardımcısı Ahmet Baha Öğütken, Sağlık Bakanlığı Müsteşarı Prof. Dr. Eyüp Gümüş,İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu,....</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sagbakangopfiziktedavi03112017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_gaziosmanpasa_fizik_tedavi_rehabilitasyon_ea_hastanesinde_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, Gaziosmanpaşa Fizik Tedavi ve Rehabilitasyon E.A. Hastanesinde incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_gaziosmanpasa_fizik_tedavi_rehabilitasyon_ea_hastanesinde_incelemelerde_bulundu.asp">Sağlık Bakanı Demircan'a, Sağlık Bakan Yardımcısı Ahmet Baha Öğütken, Sağlık Bakanlığı Müsteşarı Prof. Dr. Eyüp Gümüş,İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, ....</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_saglik_muduru_kemal_memisoglunu_musiad_heyeti_ziyaret_etti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglunu_musiad_heyeti_ziyaret_etti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu, MÜSİAD heyeti ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglunu_musiad_heyeti_ziyaret_etti.asp">MÜSİAD Kurumsal İlişkiler Komisyonu Başkan Yrd. Yusuf Kılıç, MÜSİAD Sağlık SK Başkanı Levent Can, Sağlık SK Başk. Yard. Hakan Özdemir...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakani_dr_ahmet_demircan_goztepe_eah_yeni_bina_inceleme_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_goztepe_eah_yeni_binasinda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan , Göztepe Eğitim ve Araştırma Hastanesi yeni binasında incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_goztepe_eah_yeni_binasinda_incelemelerde_bulundu.asp">Sağlık Bakanı Dr. Ahmet Demircan, yapımı devam eden 1000 yataklı İstanbul Medeniyet Üniversitesi Göztepe Eğitim ve Araştırma Hastanesi yeni binasında incelemelerde bulunarak...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakan_turkiye_tse_tuseb_aziz_sancar_bilim_tesvik_odul_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircanin_katildigi_torence_tse_baskanligi_tuseb_aziz_sancar_bilim_tesvik_odulleri_sahiplerini_buldu.asp">Sağlık Bakanı Dr.Ahmet Demircan’ın katıldığı törenle Türkiye Sağlık Enstitüleri Başkanlığı TÜSEB “Aziz Sancar Bilim ve Teşvik Ödülleri” sahiplerini buldu</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircanin_katildigi_torence_tse_baskanligi_tuseb_aziz_sancar_bilim_tesvik_odulleri_sahiplerini_buldu.asp">(TÜSEB) tarafından 4. Türk Tıp Dünyası Kurultayı çerçevesinde "Aziz Sancar Bilim, Hizmet ve Teşvik Ödülleri" töreni gerçekleşti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakani_dr_ahmet_demircan_saglik_mudr_il_ambls_servis_akkm_ziyareti_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_istanbul_saglik_mudurlugu_il_ambulans_servis_avrua_komuta_kontrol_merkezi_ziyareti.asp">Sağlık Bakanı Dr. Ahmet Demircan, İstanbul İl Sağlık Müdürlüğü İl Ambulans Servisi Avrupa Komuta Kontrol Merkezini ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_istanbul_saglik_mudurlugu_il_ambulans_servis_avrua_komuta_kontrol_merkezi_ziyareti.asp">Sağlık Bakanı Dr. Ahmet Demircan, İstanbul İl Sağlık Müdürlüğü İl Ambulans Servisi Avrupa Komuta Kontrol Merkezinde 7/24 sürdürülen hizmeti yerinde inceledi...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_bakan_uskudar_universite_2017_2018_akademik_acilis_toren_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_uskudar_universitesi_2017_2018_akademik_yili_acilis_torenine_katildi.asp">Sağlık Bakanı Dr. Ahmet Demircan Üsküdar Üniversitesi 2017-2018 Akademik Yılı Açılış Töreni’ne katıldı</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_dr_ahmet_demircan_uskudar_universitesi_2017_2018_akademik_yili_acilis_torenine_katildi.asp">Törende konuşmalarını gerçekleştiren Bakan Demircan, ilk dersi salonda bulunan öğrenci ve akademisyenlere vererek, ardından katılımcıların sorularını cevapladı...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/kosova_cumhuriyet_il_saglik_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/kosova_cumhuriyet_istanbul_baskonsolosu_istanbul_il_saglik_mudurlugu_ziyareti.asp">Kosova Cumhuriyeti İstanbul Başkonsolosu İstanbul İl Sağlık Müdürlüğü Ziyareti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/kosova_cumhuriyet_istanbul_baskonsolosu_istanbul_il_saglik_mudurlugu_ziyareti.asp">Kosova Cumhuriyeti İstanbul Başkonsolosu Evren Fusha ve Konsolos Zana Berisha, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+            <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ist_sag_mud_saglik_der_ist_sag_hiz_rapor_calistay_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_saglik_derin_duzenledigi_istanbul_saglik_hizmetleri_raporu_calistayina_katildi.asp">İstanbul Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Sağlık-Der İstanbul İl Başkanlığının düzenlediği “İstanbul Sağlık Hizmetleri Raporu Çalıştayına” katıldı</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/istanbul_saglik_muduru_prof_dr_kemal_memisoglu_saglik_derin_duzenledigi_istanbul_saglik_hizmetleri_raporu_calistayina_katildi.asp">Sağlık-Der İstanbul İl Başkanlığının düzenlediği “İstanbul Sağlık Hizmetleri Raporu Çalıştayı”, İstanbul Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nun katılımıyla gerçekleştirildi...</a>
+                </div>
+            </div>
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/sag_bakan_mustesar_sag_mudur_13_contact_ceter_gun_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakanligi_mustesar_yardimcisi_dr_suayip_birinci_ve_il_saglik_muduru_prof_dr_kemal_memisoglu_13_contact_center_gunlerine_katildi.asp">T.C. Sağlık Bakanlığı Müsteşar Yardımcısı Dr. Şuayip Birinci ve İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu İstanbul’da gerçekleşen “13.Contact Center Günleri”ne katıldı </a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_bakanligi_mustesar_yardimcisi_dr_suayip_birinci_ve_il_saglik_muduru_prof_dr_kemal_memisoglu_13_contact_center_gunlerine_katildi.asp">Müsteşar Yardımcısı Dr. Şuayip Birinci, 19-20 Ekim tarihleri arasında Haliç Kongre Merkezi’nde gerçekleşen 13. Contact Center Günleri’nin ikinci gününe katılarak...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/eczacilik_zirvesi17102017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_bakani_istanbul_il_saglik_mudurlugunun_ev_sahipliginde_istanbul_eczacilik_zirvesi_gerceklestirdi.asp">T.C. Sağlık Bakanlığı İstanbul İl Sağlık Müdürlüğünün ev sahipliğinde İstanbul Eczacılık Zirvesi gerçekleşti </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/saglik_bakani_istanbul_il_saglik_mudurlugunun_ev_sahipliginde_istanbul_eczacilik_zirvesi_gerceklestirdi.asp">İstanbul Eczacılık Zirvesi İstanbul İl Sağlık Müdürlüğünün ev sahipliğinde, 14-15 Ekim tarihleri arasında Osmanlı Arşivi Kongre Merkezinde gerçekleştirildi...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/ksseah_akademik_yil_acilis_1_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/prof_dr_kemal_memisoglu_saglik_bilimleri_universitesi_ksseah_akademik_yil_acilis_toplantisina_katildi.asp">Prof. Dr. Kemal Memişoğlu Sağlık Bilimleri Üniversitesi Kanuni Sultan Süleyman Eğitim ve Araştırma Hastanesi Akademik Yılı açılış toplantısına katıldı </a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/prof_dr_kemal_memisoglu_saglik_bilimleri_universitesi_ksseah_akademik_yil_acilis_toplantisina_katildi.asp">Prof. Dr. Kemal Memişoğlu toplantıda yaptığı konuşmada, “1952 yılında faaliyete başlayan SSK Sultanahmet Hastanesi Hariciye ve Nisaiye servisinde çekirdeği,...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_muduru_prof_dr_kemal_memisoglu_bagcilar_akademik_yili_acilis_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_muduru_prof_dr_kemal_memisoglu_bagcilar_akademik_yili_acilis_toplantisina_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu Sağlık Bilimleri Üniversitesi Bağcılar Eğitim ve Araştırma Hastanesinin Akademik Yılı Açılış toplantısına katıldı </a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_muduru_prof_dr_kemal_memisoglu_bagcilar_akademik_yili_acilis_toplantisina_katildi.asp">Prof. Dr. Kemal Memişoğlu toplantıda yaptığı konuşmada, “Dünyada birçok ülkenin yapamadığı sağlıkta dönüşümü gerçekten biz, ülke olarak 7-8 sene gibi kısa bir dönemde yaptık...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/prof_dr_kemal_memisoglu_istahed_guz_akademisi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/prof_dr_kemal_memisoglu_istahed_guz_akademisine_katildi.asp">Prof. Dr. Kemal Memişoğlu, İstanbul Aile Hekimleri Derneği İSTAHED Güz Akademisinde konuşmalarını gerçekleştirdi </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/prof_dr_kemal_memisoglu_istahed_guz_akademisine_katildi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Aile Hekimleri Derneği tarafından Conrad İstanbul Bosphorus Otel'de düzenlenen İSTAHED Güz Akademisi'ne katılım göstererek konuşmalarını gerçekleştirdi...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/prf_dr_kemal_memisoglundan_darulacezeye_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/prof_dr_kemal_memisoglundan_darulacezeye_ziyaret_03102017.asp">Prof. Dr. Kemal Memişoğlu'ndan Darülaceze'ye ziyaret</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/prof_dr_kemal_memisoglundan_darulacezeye_ziyaret_03102017.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Darülaceze Başkanı Hamza Cebeci’yi ziyaret etti. Darülaceze Başkanı Hamza Cebeci İl Sağlık Müdürü Memişoğlu’nu makamında ağırladıktan sonra, yerleşkeyi ve sosyal alanları gezdirerek hizmetler hakkında bilgi verdi...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_saglik_muduru_prof_dr_kemal_memisoglu_sbu_haseki_eah_akademik_acilis_torenine_katildi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_sbu_haseki_eah_akademik_acilis_torenine_katildi.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu gerçekleşen S.B.Ü. Haseki Eğitim ve Araştırma Hastanesi 2017-2018 Akademik Yılı açılış törenine katıldı</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_sbu_haseki_eah_akademik_acilis_torenine_katildi.asp">S.B.Ü. Haseki EA Hastanesinin Akademik Yılı açılış töreni İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nun da katılımıyla Op. Dr. Haldun Ertürk toplantı salonunda gerçekleşti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_ist_fiziktedavi_reah_eah_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_ist_fiziktedavi_reah_eah_ziyareti.asp">il Sağlık Müdürü Prof.Dr. Kemal Memişoğlu Yeni İstanbul Fizik Tedavi ve Rehabilitasyon E. A. Hastanesi'ni ziyaret etti</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_yeni_ist_fiziktedavi_reah_eah_ziyareti.asp">İstanbul il Sağlık Müdürü Prof.Dr. Kemal Memişoğlu ve beraberindeki heyet yapımı devam eden Yeni İstanbul Fizik Tedavi ve Rehabilitasyon Eğitim ve Araştırma Hastanesi'ni ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/saglik_muduru_prof_dr_kemal_memisoglu_yeni_medeniyet_unversitesi_eah_incelemelerde_bulundu_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/saglik_muduru_prof_dr_kemal_memisoglu_yeni_medeniyet_unversitesi_eah_incelemelerde_bulundu.asp">İstanbul il Sağlık Müdürü Prof.Dr. Kemal Memişoğlu, Yeni Medeniyet Üniversitesi Göztepe Eğitim ve Araştırma Hastanesinde incelemelerde bulundu</a></div>
+                <div class="donen_yazi"><br /><br />
+                    <a href="/w/anasayfalinkler/saglik_muduru_prof_dr_kemal_memisoglu_yeni_medeniyet_unversitesi_eah_incelemelerde_bulundu.asp">İstanbul il Sağlık Müdürü Prof.Dr. Kemal Memişoğlu ve beraberindeki heyet yapımı devam eden, İstanbul'un en önemli ve en özellikli hastanelerinden biri olması hedeflenen;...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/10cu_rize_tanitim_gunleri_maltepede_duzenlenen_torenle_basladi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/10cu_rize_tanitim_gunleri_maltepede_duzenlenen_torenle_basladi.asp">10. Rize Tanıtım Günleri Maltepe'de düzenlenen törenle başladı</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/10cu_rize_tanitim_gunleri_maltepede_duzenlenen_torenle_basladi.asp">İstanbul'da Rize Dernekler Federasyonu (RİDEF), Rize Valiliği ve Rize Belediyesinin desteği ile ''10. Rize Tanıtım Günleri'' başladı...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_eczacilik_zirvesi_calistayi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_eczacilik_hazirlik_zirvesi_calistayi.asp">İstanbul Eczacılık Zirvesi Hazırlık Çalıştayı</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/istanbul_eczacilik_hazirlik_zirvesi_calistayi.asp">İstanbul Sağlık Müdürlüğü tarafından düzenlenen “İstanbul Eczacılık Zirvesi Hazırlık Çalıştayı” çeşitli üniversitelerden akademisyenler, serbest eczacıların ve diğer sektörlerde çalışan eczacıların katılmıyla...</a>
+                </div>
+            </div>
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/marmara_universitesi_tip_fakultesi_ziyaret_20092017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/marmara_universitesi_tip_fakultesi_ziyaret_20092017.asp">Marmara Üniversitesi Tıp Fakültesi Ziyaret</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/marmara_universitesi_tip_fakultesi_ziyaret_20092017.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Marmara Üniversitesi Tıp Fakültesi Dekanı Prof. Dr. Hakan Gündüz'ü ziyaret etti...</a>
+                </div>
+            </div>
+
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/yeni_sultanbeyli_devlet_hast_20092017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/yeni_sultanbeyli_devlet_hastanesi.asp">Yeni Sultanbeyli Devlet Hastanesi</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/yeni_sultanbeyli_devlet_hastanesi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, TOKİ Başkanı M. Ergün Turan ve Sultanbeyli Belediye Başkanı Hüseyin Keskin’le, Yeni Sultanbeyli Devlet Hastanesi inşaatını ziyaret ederek, incelemelerde bulundu...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/seyrantepe_devlet_hastanesi_20092017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/seyrantepe_devlet_hastanesi.asp">Seyrantepe Devlet Hastanesi</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/seyrantepe_devlet_hastanesi.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, TOKİ Başkanı Ergün Turan ile 600 yataklı Seyrantepe Devlet Hastanesi şantiye alanında incelemede bulundu...</a>
+                </div>
+            </div>
+
+
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/pakistan_pencap_eyalet_devlet_baskan_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/pakistan_pencap_eyaleti_devlet_baskani_ziyareti.asp">Pakistan Pencap Eyaleti Devlet  Başkanı  Ziyareti</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/pakistan_pencap_eyaleti_devlet_baskani_ziyareti.asp">Pakistan Pencap Eyalet Başbakanı Şahbaz Şerif, Fatih Sultan Mehmet Eğitim ve Araştırma Hastanesi ve Merkez Laboratuvara ziyaret gerçekleştirdi...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/tuseb_yonetim_kurulu_toplantisi_gerceklestirildi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/tuseb_yonetim_kurulu_toplantisi_gerceklestirildi.asp">TÜSEB Yönetim Kurulu Toplantısı Gerçekleşti</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/tuseb_yonetim_kurulu_toplantisi_gerceklestirildi.asp">15.09. 2017 cuma günü Türkiye Sağlık Enstitüleri İstanbul Kampüsü Toplantı Salonunda “TÜSEB Yönetim Kurulu Toplantısı” Sağlık Bakanı Dr. Ahmet Demircan Başkanlığında gerçekleşti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/pekin_heyet_ist_sag_sistem_inceledi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/pekin_heyeti_istanbulun_saglik_sistemini_inceledi.asp">Pekin Heyeti İstanbul’un Sağlık Sistemini İnceledi</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/pekin_heyeti_istanbulun_saglik_sistemini_inceledi.asp">Çin Halk Cumhuriyeti'nin Ankara Büyükelçiliği'nden alınan Nota'da, Türkiye'de gerçekleştirilen sağlık reformları ile ilgili bilgi edinmek başta olmak üzere;...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/basin_ilan_kurum_genel_mud_ist_sag_mud_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/basin_ilan_kurumu_genel_muduru_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Basın İlan Kurumu Genel Müdürü, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu ziyaret etti.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/basin_ilan_kurumu_genel_muduru_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Basın İlan Kurumu Genel Müdürü Yakup Karaca, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu’nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_sag_mud_bolge_ayniyat_depo_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_bolge_ayniyat_depolarini_ziyaret_etti.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Bölge ve Ayniyat Depolarını ziyaret etti.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_bolge_ayniyat_depolarini_ziyaret_etti.asp">Ziyareti sırasında Prof. Dr. Kemal Memişoğlu'na, İl Sağlık Müdür Yardımcısı Uz. Dr. Halim Özçevik, İl Sağlık Müdür Yardımcısı Olgun Yazıcı ve İl Sağlık Müdür Yardımcısı Dr. Murat Yüksel eşlik etti...</a>
+                </div>
+            </div>
+
+
+<div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_sag_mud_ist_fizik_tedavi_reah_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_istanbul_fizik_tedavi_rehabilitasyon_eah_ziyareti.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Fizik Tedavi Rehabilitasyon Eğitim ve Araştırma Hastanesini ziyaret etti.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_prof_dr_kemal_memisoglu_istanbul_fizik_tedavi_rehabilitasyon_eah_ziyareti.asp">Ziyareti sırasında Prof. Dr. Kemal Memişoğlu'na, İl Sağlık Müdür Yardımcısı Uz. Dr. Halim Özçevik ve Hastane Başhekimi Doç Dr. Fatma Nur Kesiktaş eşlik etti...</a>
+                </div>
+            </div>
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_sag_mudur_bahselievler_devlet_hast_zayret_11092017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/is_saglik_muduru_kemal_memisoglu_bahcelievler_devlet_hastanesi_ziyareti.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Bahçelievler Devlet Hastanesini ziyaret etti.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/is_saglik_muduru_kemal_memisoglu_bahcelievler_devlet_hastanesi_ziyareti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Bahçelievler Devlet Hastanesine ziyaret gerçekleştirdi...</a>
+                </div>
+            </div>
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/il_sag_mudur_suleymaniye_eah_ziyaret_11092017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/il_saglik_muduru_kemal_memisoglu_suleymaniye_kadin_dogum_eah_ziyareti.asp">İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Süleymaniye K. D. ve Ç. H. Eğitim ve Araştırma Hastanesine ziyaret gerçekleştirdi.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/il_saglik_muduru_kemal_memisoglu_suleymaniye_kadin_dogum_eah_ziyareti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, Süleymaniye Kadın Doğum ve Çocuk Hastalıkları Eğitim ve Araştırma Hastanesine ziyaret gerçekleştirerek...</a>
+                </div>
+            </div>
+
+
+    <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/marmara_universite_rektor_tip_fak_dekan_ist_sag_mud_ziyaret_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/marmara_universitesi_rektoru_ve_tip_fakultesi_dekani_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Marmara Üniversitesi Rektörü ve Tıp Fakültesi Dekanı İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti. </a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/marmara_universitesi_rektoru_ve_tip_fakultesi_dekani_istanbul_il_saglik_mudurunu_ziyaret_etti.asp">Marmara Üniversitesi Rektörü Prof. Dr. M. Emin Arat ve Marmara Üniversitesi Tıp Fakültesi Dekanı Prof. Dr. Hakan Gündüz, İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu'nu ziyaret etti...</a>
+                </div>
+            </div>
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_il_saglik_mudurlugu_ailesi_bayramlasti25082017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_il_saglik_mudurlugu_ailesi_bayramlasti_25082017.asp">İstanbul İl Sağlık Müdürlüğü Ailesi Bayramlaştı.</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/istanbul_il_saglik_mudurlugu_ailesi_bayramlasti_25082017.asp">İstanbul İl Sağlık Müdürlüğü’nde Kurban Bayramı  vesilesiyle bayramlaşma töreni düzenlendi. İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, sağlık çalışanlarının bayramlarını tebrik etti...</a>
+                </div>
+            </div>
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/istanbul_valiligi_bayramlasma_toreni_duzenledi_25082017_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/istanbul_valiligi_bayramlasma_toreni_duzenledi_25082017.asp">İstanbul Valiliği Bayramlaşma Töreni Düzenledi.</a></div>
+                <div class="donen_yazi">
+                    <a href="/w/anasayfalinkler/istanbul_valiligi_bayramlasma_toreni_duzenledi_25082017.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu, İstanbul Valiliği’nde Kurban Bayramı münasebetiyle düzenlenen bayramlaşma törenine katıldı...</a>
+                </div>
+            </div>
+
+
+ <div class="donendiv_wrap">
+                <div style="background: url(/anasayfauygulamalar/donenhaberler/res/yenidogan_brans_komisyonu_toplantisi_pul.jpg) no-repeat; width: 98px; height: 69px; float: left;"></div>
+                <div class="donen_bslk"><a href="/w/anasayfalinkler/yenidogan_brans_komisyonu_toplantisi_gerceklesti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu başkanlığında, “Yeni Doğan Branş Komisyonu” toplantısı gerçekleşti.</a></div>
+                <div class="donen_yazi"><br />
+                    <a href="/w/anasayfalinkler/yenidogan_brans_komisyonu_toplantisi_gerceklesti.asp">İstanbul İl Sağlık Müdürü Prof. Dr. Kemal Memişoğlu başkanlığında, Yeni Doğan Branş Komisyonu Toplantısı gerçekleşti...</a>
+                </div>
+            </div>
+
+
+    
+    -->
+<style>
+    .footimage {
+    width:120px;
+    height:77px;
+    float:left;
+    border:1px solid lightgray;
+    margin-left:19px;
+    }
+</style>
+<br />
+<div class="footimage">
+    <img src="resim/evdesaglik_iletisim.jpg"/>
+</div>
+<div class="footimage">
+
+    <a href="https://evdesaglik.saglik.gov.tr/Account/Login?ReturnUrl=http%3A%2F%2Fevdesaglik.saglik.gov.tr%3A83%2F" target="_blank"><img src="resim/evdesaglik_giris.jpg" alt="Evde Sağlık Yönetim Sistemi Giriş"/></a>
+</div>
+
+<div class="footimage">
+
+    <a href="https://www.sbn.gov.tr" target="_blank"><img src="resim/sbnlogo.jpg" alt="SBN Sağlıkta Buluşma Noktası"/></a>
+</div>
+
+<div class="footimage">
+
+    <a href="http://www.guvenliyasam.org" target="_blank"><img src="resim/guvenliyasam.jpg" alt="Güvenli Yaşam"/></a>
+</div>
+
+</td>
+                        <td style="border-right: 1px solid #ddd; height: 223px;"></td>
+                        <td style="background: url(resim/dsobg.gif) repeat-x top; border-right: 1px solid #ccc;
+                            height: 223px; vertical-align: top">
+                            <table style="margin: auto;" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                     <td style="padding-top:1px;">
+ <map name="sagAlt">
+<area alt="sağlık bakanlığı" coords="0,0,181,45" href="http://www.saglik.gov.tr/TR/" target="_blank">
+<area alt="Halk Sağlığı Müdürlüğü" coords="0,45,185,89" href="http://ihs.istanbulsaglik.gov.tr" target="_blank">
+<area coords="0,88,184,133" href="/w/sb/toplum_sagligi_hslab/index.asp" target="_blank" alt="">
+<area alt="112 Acil Sağlık hizmetleri" coords="0,133,180,177" href="/w/sb/ash/112acil.asp">
+<area alt="Bilgi Edinme Başvurusu" coords="3,220,131,203" href="https://www.bimer.gov.tr/?bim=CfDJ8CLd_u-3vtlEmchj_bWBwBd48YjHAWguOlnZWqepNo_XfR1jFn0-poIC9UZUW7CK1h0P5AqkDO_ksMbpFSq8kWfMM4pe-DEaD4VdQ4Jbcm0O7VuZ9qd9pewwmV7w7bPOLqlNGewUNpEWTgCZdrcBiX7Rf_uP4DObQCN0Oc4wCqesQD3YTzkUD92f1IXIjomVYw" target="_blank">
+<area alt="Neyi Nasıl Yapabilirim" coords="2,255,131,271" href="/w/halkkilavuzlari/kurumsal.asp">
+<area alt="e-nabız" shape="rect" coords="3,297,138,331" href="/w/anasayfalinkler/e-nabiz.asp" />
+</map>
+<img src="/resim/sagAlt.jpg" width="180" height="335" border="0" usemap="#sagAlt">                                        
+                                    </td>
+                                </tr>
+
+                              <tr><td><map name="uzmanlik">
+<area alt="" coords="8,15,138,34" href="/w/sb/per/uzmanlik_sinav.asp">
+</map>
+<img src="/resim/uzmanlik.png" width="180" height="46" border="0" usemap="#uzmanlik"></td></tr>
+				  <tr>
+                                    <td style="border-top: 1px dotted #ffffff; background-position: center; padding-top: 5px;"
+                                        align="center"><br/>
+                                      
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                           
+                        		
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="background: url(resim/Calt.gif) no-repeat; width: 942px; height: 10px;">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 3px;">
+            </td>
+        </tr>
+     
+ <tr>
+            <td style="height: 3px;">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="background: url(resim/altmenuBg.png) no-repeat; width: 942px;
+                height: 77px;">
+              
+                     <div class="altlinkwrap">
+                        <div class="altlinklinkalan">
+                        <div style="width:323px; height:20px; float:left;  padding-top:15px;"><div style="margin-left:180px;"><a href="/w/sb/duyurular/duyuru.asp">Duyurular</a></div></div>
+                         <div style="width:211px; height:20px; float:left; padding-top:15px;"><div style="margin-left:16px;"><a href="/w/anasayfalinkler/ekutuphane.asp">e-Kütüphane</a></div></div>
+                         <div style="width:210px; height:20px; float:left; padding-top:15px;"><div style="margin-left:16px;"><a href="http://hastanerandevu.gov.tr/Vatandas/" target="_blank">MHRS Randevu</a></div></div>
+                         <div style="width:198px; height:20px; float:left; padding-top:15px;"><div style="margin-left:16px;"><a href="/w/anasayfalinkler/evrak.asp">Evrak Takip</a></div></div>
+                            </div>
+                    </div>
+               
+
+
+            </td>
+        </tr>        <!-- <tr><td style="background:#F1F2F6;" colspan="3"></td></tr>-->
+    </table>
+<div style="background:url(/resim/line.png) no-repeat; width:940px; height:11px; margin:auto;"></div>
+        <div id="footer">
+         <div style="margin: auto; width: 922px;">
+           
+
+            <div class="foot">
+
+                <ul>
+                   
+                  
+
+                     <li><a href="/ahweb/">Aile Hekimliği Portali</a></li>
+                    <li><a href="http://portal.istanbulsaglik.gov.tr/index.asp">Kurumsal Portal</a></li>
+                  <li><a href="/w/proj/proj_index.asp">Sağlık Yatırımları</a></li>
+                    <li><a href="http://rehber.istanbulsaglik.gov.tr" target="_blank">Telefon Defteri</a></li>
+ <li><a href="http://howtoistanbul.com/" target="_blank">howtoistanbul</a></li>
+        <li><a href="http://www.guvenliyasam.org/" target="_blank">Güvenli Yaşam</a></li>
+           
+              
+                    
+                 
+                </ul>
+
+            </div>
+            <div class="foot">
+
+                <ul>
+                                      
+
+                  
+                    <li><a href="w/sb/per/pasaport.asp">Yeşil Pasaport</a></li>
+                    <li><a href="#">Döner Sermaye</a></li>
+                    <li><a href="/w/onemli_gun/saglik_onem.asp">Önemli Gün ve Haftalar</a></li>
+                     <li><a href="/w/anasayfalinkler/ekutuphane.asp">Doküman</a></li>
+                       <li><a href="/w/halkkilavuzlari/hasta_rehberi.asp?s=05010">Sağlık Hizmetleri Rehberi</a></li>
+                    
+
+
+                </ul>
+  
+     
+            </div>
+            <div class="foot">
+
+                <ul>
+                  
+                    <li><a href="http://www.beslenme.gov.tr/" target="_blank">Sağlıklı Beslenme</a></li>
+                    <li><a href="http://ashgm.saglik.gov.tr/ana-sayfa/1-15777/20140129.html" target="_blank">Acil Sağlık Hiz. Gen. Müd.</a></li>
+                    <li><a href="http://www.sbn.gov.tr/" target="_blank">Sağlıkta Buluşma Noktası</a></li>
+                    <!--<li><a href="http://www.diyabet.gov.tr/" target="_blank">Diyabet Web Sitesi</a></li>-->
+                    <li><a href="http://www.havanikoru.org.tr/" target="_blank">Havanı Koru</a></li>
+                </ul>
+
+            </div>
+             <div class="foot">
+          <p>Binbirdirek Mah. Peykhane Sk.<br /> No:8 PK.
+           34122   <br />Çemberlitaş / İSTANBUL<br />
+          Tel : 0212 638 30 00<br />
+          Faks: 0212 638 30 35</p>
+</div>   
+             
+                         <div class="foot">
+       <p>Tel: 0212 413 05 00 <br />
+         Tel : 0212 570 05 53<br />
+          Faks : 0212 571 00 33<br />
+          Faks: 0212 458 44 00</p>
+</div>  
+
+
+
+</div>
+            </div>
+    <script src="js/jsSonKucuk.js" type="text/javascript"></script>
+    <script src="js/lsSonkucuk2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var jQeryy = jQuery.noConflict();
+    </script>
+    <script type="text/javascript">
+        jQeryy(window).load(function () {
+            jQeryy('#slider').nivoSlider({
+                effect: 'random',
+                directionNavHide: false,
+                pauseOnHover: true,
+                captionOpacity: 1,
+                prevText: '<',
+                nextText: '>'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        jQeryy(window).load(function () {
+            jQeryy('#slider2').nivoSlider({
+                effect: 'random',
+                directionNavHide: false,
+                pauseOnHover: true,
+                captionOpacity: 1,
+                prevText: '<',
+                nextText: '>'
+            });
+        });
+    </script>
+
+
+</body>
+</html>

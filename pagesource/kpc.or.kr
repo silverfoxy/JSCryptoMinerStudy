@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0"-->
+		<link rel="shortcut icon" href="/images/common/icon03.ico">
+		<link rel="apple-touch-icon" href="../../../../../../reshtm/images/common/apple-touch-icon.png">
+
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="/css/table.css" />
+
+		<script type="text/javascript" src="/js/html5.js"></script>
+		<script type="text/javascript" src="/js/jQuery/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="/js/jQuery/plugIn/jquery.tmpl.min.js" ></script>
+		<script type="text/javascript" src="/js/jQuery/plugIn/dotdotdot/jquery.dotdotdot.min.js" ></script>
+		<script type="text/javascript" src="/js/jQuery/plugIn/bPopup/0.11.0/jquery.bpopup.min.js" ></script>
+		<script type="text/javascript" src="/js/jQuery/plugIn/form-master/jquery.form.min.js" ></script>
+		<script type="text/javascript" src="/js/jQuery/plugIn/ui/1.11.4/jquery-ui.min.js" ></script>
+		<link href="/js/jQuery/plugIn/ui/1.11.4/jquery-ui.min.css" type="text/css" rel="stylesheet"  media="screen" />
+		<link rel="stylesheet" type="text/css" href="/css/Search/Search.css" />
+
+		<script type="text/javascript" src="/js/common.js" ></script>
+		<script type="text/javascript" language="javascript" src="/js/akc.js"></script>
+		<script type="text/javascript">
+			document.domain = 'www.kpc.or.kr'
+
+			jQuery(document).ready(function(){
+				jQuery(document).on('click', 'a', function(){
+					var linkUrl = jQuery(this).attr('href');
+
+					if ( linkUrl.indexOf('http://') > -1 || linkUrl.indexOf('https://') > -1 ){
+						if ( linkUrl.indexOf('www.kpc.or.kr') == -1 ){
+							jQuery.ajax({
+								url : '/_inc/menu_count_new.asp',
+								type : 'post',
+								dataType : 'html',
+								cache : false,
+								data : 'cate=K&link='+linkUrl,
+								success : function(result){
+								}
+							});
+						}
+					}
+				});
+			});
+
+			// ���콺 ��Ŭ�� ����
+			/*document.oncontextmenu=function(e){
+				return false;
+			}*/
+
+			/*
+			document.ondragstart=function(e){
+				return false;
+			}
+
+			document.onselectstart=function(e){
+				return false;
+			}
+			*/
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="js/jQuery/plugIn/FlexSlider.2.6.0/jquery.flexslider-min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="js/jQuery/plugIn/FlexSlider.2.6.0/flexslider.css" />
+		<script type="text/javascript" src="js/index.js" ></script>
+		<title>한국생산성본부</title>
+		<script type="text/javascript" src="/js/FnCookie.js" ></script>
+		<script type="text/javascript">
+/*
+			var evt_chk	= "";
+				evt_chk = fnGetCookie("event20180102");
+			if (evt_chk != "y" ){
+				evtPop = window.open("/popup/newyear_popup.asp","event","top=50,left=50, width=550,height=806, resizable=no, toolbar=no, menubar=no, scrollbars=no, status=no; copyhistory=no");
+				evtPop.focus();
+			}
+
+			function notPopup(){
+				fnSetCookie('event20180102','y');
+			}
+
+
+
+/*
+			var evt_chk	= "";
+				evt_chk = fnGetCookie("event20160323");
+			if (evt_chk != "y" ){
+				evtPop = window.open("/popup/event_popup.asp","event","top=50,left=50, width=550,height=685, resizable=no, toolbar=no, menubar=no, scrollbars=no, status=no; copyhistory=no");
+				evtPop.focus();
+			}
+
+			function notPopup(){
+				fnSetCookie('event20160323','y');
+			}
+*/
+
+			jQuery(document).ready(function(){
+				var evt_chk2= ""; evt_chk2 = fnGetCookie("event20160325");
+				var evt_chk3= ""; evt_chk3 = fnGetCookie("event20160908");
+				var evt_chk4= ""; evt_chk4 = fnGetCookie("event20161223");
+
+				if (evt_chk2 != "y" ){
+					jQuery("#popup_1").show();
+				}
+
+				if (evt_chk3 != "y" ){
+					jQuery("#popup_2").show();
+				}
+				if (evt_chk4 != "y" ){
+					jQuery("#popup_3").show();
+				}
+
+
+			});
+
+			function callBackData( resultData ){
+				if ( resultData.result ){
+					switch ( resultData.mode ) {
+						case 'changePwdCheck' :
+							if ( resultData.Articles.length > 0 ){
+								var today = new Date();
+								var changeday = new Date(resultData.Articles[0].PwdDate.substring(0, 4), Number(resultData.Articles[0].PwdDate.substring(4, 6))-1, resultData.Articles[0].PwdDate.substring(6, 8));
+								var betweenday = (today.getTime() - changeday.getTime())/1000/60/60/24;
+
+								if ( betweenday > 180 && (Number(resultData.Articles[0].PwdDate) > Number()) ){
+									jQuery('#open_pass_change_pop').empty();
+									jQuery('#footerLayerPop5').tmpl( '' ).appendTo('#open_pass_change_pop');
+									jQuery('#open_pass_change_pop').bPopup({ closeClass : 'g_pop_close' });
+								}
+							}
+							break;
+
+						default: break;
+					}
+				} else {
+					alert( resultData.errorMSG );
+				}
+				return false;
+			}
+
+			//레이어 팝업
+			function closeLayer(para1,para2){ // 여기 팝업 갯수에 따라 인자값 늘리는거 아닙니다~ 팝업갯수 상관 없이 para1:어떤팝업인지 구분, para2:오늘하루 안보기 or 닫기
+
+				if(para1=="1"){
+					if(para2=="close"){
+						fnSetCookie('event20160325','y');
+						$("#popup_1").hide();
+					}else{
+						$("#popup_1").hide();
+					}
+				}else if(para1=="2"){
+					if(para2=="close"){
+						fnSetCookie('event20160908','y');
+						$("#popup_2").hide();
+					}else{
+						$("#popup_2").hide();
+					}
+				}else if(para1=="3"){
+					if(para2=="close"){
+						fnSetCookie('event20161223','y');
+						$("#popup_3").hide();
+					}else{
+						$("#popup_3").hide();
+					}
+				}
+			}
+<!-- Facebook Pixel Code -->
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '853864834732492');
+fbq('track', "PageView");
+<!-- End Facebook Pixel Code -->
+		</script>
+
+		<!-- Facebook Pixel Code -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=853864834732492&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+	</head>
+	<body>
+		<div id="wrap">
+		<!-- skip_nav -->
+			<div id="skip_nav">
+				<a href="#nav">메인메뉴 바로가기</a>
+				<a href="#content">본문내용 바로가기</a>
+			</div>
+		<!-- //skip -->
+
+		<!-- header -->
+
+			<header>
+			<div class="search_area">
+			<h1 class="logo"><a href="http://www.kpc.or.kr/index.asp">KPC 한국생산성본부</a></h1>
+				<div class="search">
+				    <form id="search" name="frmGlobalSearch" action="/Search/Search.asp" >
+				        <fieldset>
+				            <legend class="hidden">통합검색 입력</legend>
+				            <div>
+				                <label for="q" class="hidden">검색어 입력창</label>
+				                <input type="text" class="type_text" id="kwd" name="kwd" value="" placeholder="검색" maxlength=""/>
+				                <input type="submit" class="search_btn"  value="검색"/>
+							</div>
+							<div class="searchKeyword" id="akcKwd">
+								<ul id="keywordList">
+								</ul>
+							</div>
+				        </fieldset>
+				    </form>
+				</div><!--search-->
+				<div class="search_right">
+					<ul>
+						<li><a href="/info/greeting.asp" title="KPC소개 페이지 이동" target="_self">KPC소개</a></li>
+						<li><a href="/customer/qnalist.asp" title="고객센터 페이지 이동" target="_self">고객센터</a></li>
+						<li><a href="/mypage/edulist.asp" title="마이페이지 페이지 이동" target="_self">마이페이지</a></li>
+					</ul>
+				</div>
+			</div><!--search_area-->
+			<nav id="nav">
+				<div class="nav_wrap">
+					<ul class="gnb">
+						<li class="on"><a href="http://www.kpc.or.kr/index.asp">교육</a></li>
+						<li><a href="http://www.kpc.or.kr/Consulting/index.asp">컨설팅</a></li>
+						<li><a href="http://www.kpc.or.kr/Indices/index.asp">지수</a></li>
+						<li><a href="http://www.kpc.or.kr/Certification/index.asp">자격인증</a></li>
+						<li><a href="http://www.kpc.or.kr/Productivity/index.asp">생산성</a></li>
+					</ul>
+					<ul class="lnb">
+						<!--<li><a href="http://www.kpc.or.kr/info/greeting.asp">KPC소개</a></li>-->
+
+						<li><a href="https://www.kpc.or.kr/membership/MemberLogin.asp">로그인</a></li>
+						<li><a href="http://www.kpc.or.kr/membership/Step01.asp">회원가입</a></li>
+
+						<!--<li><a href="http://www.kpc.or.kr/customer/QNAList.asp">고객센터</a></li>-->
+						<li><a href="http://www.kpc.or.kr/customer/sitemap.asp">사이트맵</a></li>
+						<li><a href="http://www.kpc.or.kr/eng/">ENGLISH</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="menu_area">
+				<div class="see_menu">
+					<h2>전체 교육과정 보기 및 교육신청</h2>
+				</div>
+				<div class="menu_all">
+					<ul>
+	<li class="UMEduType49049037 lnbParent pdl0 h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049037" title="4차 산업혁명 페이지 이동">4차 산업혁명</a></h3>
+		<ul>
+			<li class="UMEduTheme49050141"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049037&UMEduTheme=49050141" title="4차 산업혁명 페이지 이동">4차 산업혁명</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049006 lnbParent  h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006" title="계층·리더십 페이지 이동">계층·리더십</a></h3>
+		<ul>
+			<li class="UMEduTheme49050014"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006&UMEduTheme=49050014" title="직급별 역량 페이지 이동">직급별 역량</a></li>
+			<li class="UMEduTheme49050153"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006&UMEduTheme=49050153" title="신임·승진자 역량 페이지 이동">신임·승진자 역량</a></li>
+			<li class="UMEduTheme49050015"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006&UMEduTheme=49050015" title="리더십 역량 페이지 이동">리더십 역량</a></li>
+			<li class="UMEduTheme49050016"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006&UMEduTheme=49050016" title="경력개발·코칭 페이지 이동">경력개발·코칭</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049033 lnbParent  h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033" title="비즈니스스킬 페이지 이동">비즈니스스킬</a></h3>
+		<ul>
+			<li class="UMEduTheme49050120"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033&UMEduTheme=49050120" title="프리젠테이션·문서작성 페이지 이동">프리젠테이션·문서작성</a></li>
+			<li class="UMEduTheme49050121"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033&UMEduTheme=49050121" title="커뮤니케이션·협상 페이지 이동">커뮤니케이션·협상</a></li>
+			<li class="UMEduTheme49050122"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033&UMEduTheme=49050122" title="기획력·문제해결 페이지 이동">기획력·문제해결</a></li>
+			<li class="UMEduTheme49050123"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033&UMEduTheme=49050123" title="성과관리·자기혁신 페이지 이동">성과관리·자기혁신</a></li>
+			<li class="UMEduTheme49050124"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033&UMEduTheme=49050124" title="글로벌 비즈니스 페이지 이동">글로벌 비즈니스</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049003 lnbParent  h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003" title="경영기획 페이지 이동">경영기획</a></h3>
+		<ul>
+			<li class="UMEduTheme49050134"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050134" title="사업계획·기획관리 페이지 이동">사업계획·기획관리</a></li>
+			<li class="UMEduTheme49050007"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050007" title="신규사업 페이지 이동">신규사업</a></li>
+			<li class="UMEduTheme49050145"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050145" title="경영혁신 해외연수 페이지 이동">경영혁신 해외연수</a></li>
+			<li class="UMEduTheme49050008"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050008" title="내부감사 페이지 이동">내부감사</a></li>
+			<li class="UMEduTheme49050142"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050142" title="방위산업 페이지 이동">방위산업</a></li>
+			<li class="UMEduTheme49050009"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003&UMEduTheme=49050009" title="지속가능경영 페이지 이동">지속가능경영</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049004 lnbParent  h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004" title="인적자원 페이지 이동">인적자원</a></h3>
+		<ul>
+			<li class="UMEduTheme49050010"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004&UMEduTheme=49050010" title="인사·조직관리 페이지 이동">인사·조직관리</a></li>
+			<li class="UMEduTheme49050011"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004&UMEduTheme=49050011" title="노무관리·노사관계 페이지 이동">노무관리·노사관계</a></li>
+			<li class="UMEduTheme49050017"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004&UMEduTheme=49050017" title="HRD 페이지 이동">HRD</a></li>
+			<li class="UMEduTheme49050114"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004&UMEduTheme=49050114" title="퇴직·창업·전직 페이지 이동">퇴직·창업·전직</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049005 lnbParent  h150">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049005" title="총무·법무 페이지 이동">총무·법무</a></h3>
+		<ul>
+			<li class="UMEduTheme49050012"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049005&UMEduTheme=49050012" title="총무·경영지원 페이지 이동">총무·경영지원</a></li>
+			<li class="UMEduTheme49050013"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049005&UMEduTheme=49050013" title="기업법무 페이지 이동">기업법무</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049008 lnbParent pdl0 h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049008" title="재무 페이지 이동">재무</a></h3>
+		<ul>
+			<li class="UMEduTheme49050019"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049008&UMEduTheme=49050019" title="재무·경영분석 페이지 이동">재무·경영분석</a></li>
+			<li class="UMEduTheme49050021"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049008&UMEduTheme=49050021" title="투자 페이지 이동">투자</a></li>
+			<li class="UMEduTheme49050116"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049008&UMEduTheme=49050116" title="자금·금융·외환 페이지 이동">자금·금융·외환</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049009 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009" title="회계 페이지 이동">회계</a></h3>
+		<ul>
+			<li class="UMEduTheme49050022"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050022" title="재무회계 페이지 이동">재무회계</a></li>
+			<li class="UMEduTheme49050023"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050023" title="세무회계 페이지 이동">세무회계</a></li>
+			<li class="UMEduTheme49050024"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050024" title="원가회계 페이지 이동">원가회계</a></li>
+			<li class="UMEduTheme49050026"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050026" title="관리회계 페이지 이동">관리회계</a></li>
+			<li class="UMEduTheme49050148"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050148" title="원가절감 페이지 이동">원가절감</a></li>
+			<li class="UMEduTheme49050149"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009&UMEduTheme=49050149" title="공개모집 해외연수 신청 페이지 이동">공개모집 해외연수 신청</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049012 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012" title="영업·마케팅 페이지 이동">영업·마케팅</a></h3>
+		<ul>
+			<li class="UMEduTheme49050037"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012&UMEduTheme=49050037" title="영업 페이지 이동">영업</a></li>
+			<li class="UMEduTheme49050027"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012&UMEduTheme=49050027" title="마케팅 페이지 이동">마케팅</a></li>
+			<li class="UMEduTheme49050029"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012&UMEduTheme=49050029" title="브랜드 페이지 이동">브랜드</a></li>
+			<li class="UMEduTheme49050151"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012&UMEduTheme=49050151" title="벤치마킹 해외연수 페이지 이동">벤치마킹 해외연수</a></li>
+			<li class="UMEduTheme49050154"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012&UMEduTheme=49050154" title="중소기업 A/S핵심직무향상 페이지 이동">중소기업 A/S핵심직무향상</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049011 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049011" title="CS 페이지 이동">CS</a></h3>
+		<ul>
+			<li class="UMEduTheme49050032"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049011&UMEduTheme=49050032" title="CS경영 페이지 이동">CS경영</a></li>
+			<li class="UMEduTheme49050033"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049011&UMEduTheme=49050033" title="서비스 페이지 이동">서비스</a></li>
+			<li class="UMEduTheme49050034"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049011&UMEduTheme=49050034" title="콜센터 페이지 이동">콜센터</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049014 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014" title="생산 페이지 이동">생산</a></h3>
+		<ul>
+			<li class="UMEduTheme49050041"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050041" title="생산관리 페이지 이동">생산관리</a></li>
+			<li class="UMEduTheme49050001"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050001" title="생산성 페이지 이동">생산성</a></li>
+			<li class="UMEduTheme49050025"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050025" title="원가절감 페이지 이동">원가절감</a></li>
+			<li class="UMEduTheme49050042"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050042" title="제조혁신 페이지 이동">제조혁신</a></li>
+			<li class="UMEduTheme49050043"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050043" title="설비관리(TPM) 페이지 이동">설비관리(TPM)</a></li>
+			<li class="UMEduTheme49050044"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014&UMEduTheme=49050044" title="자동화·스마트공장 페이지 이동">자동화·스마트공장</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049016 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016" title="품질 페이지 이동">품질</a></h3>
+		<ul>
+			<li class="UMEduTheme49050048"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016&UMEduTheme=49050048" title="품질관리 페이지 이동">품질관리</a></li>
+			<li class="UMEduTheme49050049"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016&UMEduTheme=49050049" title="품질보증·신뢰성 페이지 이동">품질보증·신뢰성</a></li>
+			<li class="UMEduTheme49050050"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016&UMEduTheme=49050050" title="품질개선 페이지 이동">품질개선</a></li>
+			<li class="UMEduTheme49050051"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016&UMEduTheme=49050051" title="6시그마 페이지 이동">6시그마</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049015 lnbParent pdl0 h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049015" title="R＆D 페이지 이동">R＆D</a></h3>
+		<ul>
+			<li class="UMEduTheme49050045"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049015&UMEduTheme=49050045" title="R＆D기획 페이지 이동">R＆D기획</a></li>
+			<li class="UMEduTheme49050046"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049015&UMEduTheme=49050046" title="R＆D혁신 페이지 이동">R＆D혁신</a></li>
+			<li class="UMEduTheme49050047"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049015&UMEduTheme=49050047" title="지식재산(특허)관리 페이지 이동">지식재산(특허)관리</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049017 lnbParent  h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049017" title="구매·자재 페이지 이동">구매·자재</a></h3>
+		<ul>
+			<li class="UMEduTheme49050052"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049017&UMEduTheme=49050052" title="구매관리 페이지 이동">구매관리</a></li>
+			<li class="UMEduTheme49050054"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049017&UMEduTheme=49050054" title="자재관리 페이지 이동">자재관리</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049013 lnbParent  h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049013" title="유통·물류·SCM·무역 페이지 이동">유통·물류·SCM·무역</a></h3>
+		<ul>
+			<li class="UMEduTheme49050056"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049013&UMEduTheme=49050056" title="물류·SCM 페이지 이동">물류·SCM</a></li>
+			<li class="UMEduTheme49050038"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049013&UMEduTheme=49050038" title="유통 페이지 이동">유통</a></li>
+			<li class="UMEduTheme49050040"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049013&UMEduTheme=49050040" title="무역 페이지 이동">무역</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049019 lnbParent  h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019" title="IT(정보기술) 페이지 이동">IT(정보기술)</a></h3>
+		<ul>
+			<li class="UMEduTheme49050147"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050147" title="빅데이터 페이지 이동">빅데이터</a></li>
+			<li class="UMEduTheme49050057"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050057" title="IT비즈니스 페이지 이동">IT비즈니스</a></li>
+			<li class="UMEduTheme49050058"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050058" title="모바일·웹·프로그래밍 페이지 이동">모바일·웹·프로그래밍</a></li>
+			<li class="UMEduTheme49050059"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050059" title="소프트웨어 페이지 이동">소프트웨어</a></li>
+			<li class="UMEduTheme49050060"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050060" title="정보보안·네트워크 페이지 이동">정보보안·네트워크</a></li>
+			<li class="UMEduTheme49050062"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050062" title="데이터베이스 페이지 이동">데이터베이스</a></li>
+			<li class="UMEduTheme49050063"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050063" title="정보처리기술사 페이지 이동">정보처리기술사</a></li>
+			<li class="UMEduTheme49050143"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050143" title="정보통신기술사 페이지 이동">정보통신기술사</a></li>
+			<li class="UMEduTheme49050064"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050064" title="정보시스템감리사 페이지 이동">정보시스템감리사</a></li>
+			<li class="UMEduTheme49050144"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019&UMEduTheme=49050144" title="ICT 해외연수 페이지 이동">ICT 해외연수</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049022 lnbParent  h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049022" title="프로젝트관리(PM) 페이지 이동">프로젝트관리(PM)</a></h3>
+		<ul>
+			<li class="UMEduTheme49050065"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049022&UMEduTheme=49050065" title="PM실무 페이지 이동">PM실무</a></li>
+			<li class="UMEduTheme49050140"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049022&UMEduTheme=49050140" title="PM국제자격 페이지 이동">PM국제자격</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049034 lnbParent  h220">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049034" title="OA·디자인 페이지 이동">OA·디자인</a></h3>
+		<ul>
+			<li class="UMEduTheme49050066"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049034&UMEduTheme=49050066" title="MS Office(엑셀·PPT) 페이지 이동">MS Office(엑셀·PPT)</a></li>
+			<li class="UMEduTheme49050125"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049034&UMEduTheme=49050125" title="디자인 페이지 이동">디자인</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049002 lnbParent pdl0 h200">
+		<h3><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title="http://www.kpcre.or.kr/class/education.asp?lecId=management 페이지 이동">최고경영자</a></h3>
+		<ul>
+			<li class="UMEduTheme49050004"><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title="http://www.kpcceo.or.kr/html/education/edu_list.asp 새창열기">CEO경영아카데미</a></li>
+			<li class="UMEduTheme49050005"><a href="http://www.ceobook.or.kr/" target="_blank" title="http://www.ceobook.or.kr/ 새창열기">CEO북클럽</a></li>
+			<li class="UMEduTheme49050006"><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title="http://www.kpcceo.or.kr/html/education/edu_list.asp 새창열기">인문학·철학</a></li>
+			<li class="UMEduTheme49050135"><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title="http://www.kpcceo.or.kr/html/education/edu_list.asp 새창열기">CEO조찬포럼</a></li>
+			<li class="UMEduTheme49050136"><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title="http://www.kpcceo.or.kr/html/education/edu_list.asp 새창열기">전국CEO연찬회</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049024 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024" title="지역본부 페이지 이동">지역본부</a></h3>
+		<ul>
+			<li class="UMEduTheme49050068"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024&UMEduTheme=49050068" title="부산울산경남지역본부 페이지 이동">부산울산경남지역본부</a></li>
+			<li class="UMEduTheme49050069"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024&UMEduTheme=49050069" title="호남지역본부 페이지 이동">호남지역본부</a></li>
+			<li class="UMEduTheme49050070"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024&UMEduTheme=49050070" title="대전충청지역본부 페이지 이동">대전충청지역본부</a></li>
+			<li class="UMEduTheme49050071"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024&UMEduTheme=49050071" title="대구경북지역본부 페이지 이동">대구경북지역본부</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049025 lnbParent  h200">
+		<h3><a href="http://www.kpcre.or.kr/class/education.asp?lecId=management" target="_blank" title="http://www.kpcre.or.kr/class/education.asp?lecId=management 페이지 이동">부동산</a></h3>
+		<ul>
+			<li class="UMEduTheme49050129"><a href="http://www.kpcice.or.kr/edu/openclass01.asp" target="_blank" title="http://www.kpcice.or.kr/edu/openclass01.asp 새창열기">부동산 운용/관리</a></li>
+			<li class="UMEduTheme49050074"><a href="http://www.kpcice.or.kr/edu/openclass01.asp" target="_blank" title="http://www.kpcice.or.kr/edu/openclass01.asp 새창열기">부동산 개발사업</a></li>
+			<li class="UMEduTheme49050075"><a href="http://www.kpcice.or.kr/edu/openclass01.asp" target="_blank" title="http://www.kpcice.or.kr/edu/openclass01.asp 새창열기">부동산 투자/금융</a></li>
+		</ul>
+	</li>
+	<li class="UMEduType49049038 lnbParent  h200">
+		<h3><a href="http://www.kpcqa.or.kr/edu/edu_process.asp" target="_blank" title="ISO경영시스템 새창열기">ISO경영시스템</a></h3>	</li>
+	<li class="UMEduType49049039 lnbParent  h200">
+		<h3><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049039" title="중소기업 특화훈련 페이지 이동">중소기업 특화훈련</a></h3>
+		<ul>
+			<li class="UMEduTheme49050146"><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049039&UMEduTheme=49050146" title="중소기업 특화훈련 페이지 이동">중소기업 특화훈련</a></li>
+		</ul>
+	</li>
+
+					</ul>
+				</div>
+			</div><!--menu_area-->
+			</header>
+		<!-- //header -->
+			<section id="content">
+				<section class="top_area">
+					<article class="slide_area clearb">
+						<div class="slide">
+							<div id="topSlide" class="flexslider bordernone">
+								<ul class="slides">
+<li><a href="." target="_self" title="생산성으로 여는 미래 The Insight KPC 페이지 이동"><img src="/PDS/Banner/Main/2018030516402751.png" alt="생산성으로 여는 미래 The Insight KPC" width="568" height="291"></a></li><li><a href="http://award.kpc.or.kr/bbs/mb/index.asp?BID=notice&aopt=view&idx=203&seq=155&page=1&category=&category_2=" target="_blank" title="2018년 국가생산성대상 정부포상 응모안내 페이지 이동"><img src="/PDS/Banner/Main/20180314132045521.png" alt="2018년 국가생산성대상 정부포상 응모안내" width="568" height="291"></a></li><li><a href="http://www.kpc.or.kr/Customer/NoticeView.asp?seq=30762" target="_self" title="생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion 페이지 이동"><img src="/PDS/Banner/Main/20180226144746361.png" alt="생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion" width="568" height="291"></a></li><li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049039" target="_self" title="중소기업 특화훈련 페이지 이동"><img src="/PDS/Banner/Main/20171221101849471.png" alt="중소기업 특화훈련" width="568" height="291"></a></li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<article class="con_tab_area">
+						<div class="tabmenu">
+							<ul>
+								<li><a href="#none" class="btnTabMenu"><img src="images/main/tab01_on.gif" alt="컨설팅" /></a>
+									<div class="tabcontent consulting">
+										<h3>컨설팅</h3>
+										<p class="marginb20">모든 조직에게 신뢰받는 최고의 <br>전략적 혁신 파트너</p>
+											<ul>
+<li><a href="http://www.kpc.or.kr/Consulting/cons_d.asp" target="_self" title="대학 경영진단 컨설팅페이지로 이동">대학 경영진단 컨설팅</a></li><li><a href="http://www.kpc.or.kr/Consulting/Paper.asp" target="_self" title="지속가능경영 - 보고서 개발 및 검증페이지로 이동">지속가능경영 - 보고서 개발 및 검증</a></li><li><a href="http://www.kpc.or.kr/Consulting/Strategy.asp" target="_self" title="중장기전략 컨설팅페이지로 이동">중장기전략 컨설팅</a></li>
+										</ul>
+									</div>
+									<p class="morebtn"><a href="/Consulting/index.asp"><img src="images/main/more.jpg" alt="더보기" /></a></p>
+								</li>
+								<li><a href="#none" class="btnTabMenu"><img src="images/main/tab02_off.gif" alt="지수" /></a>
+									<div class="tabcontent consulting">
+										<h3>지수</h3>
+										<p class="marginb20">조직의 역량을 최고의 수준으로 <br>향상시켜드립니다.</p>
+										<ul>
+<li><a href="http://www.ncsi.or.kr" target="_blank" title="NCSI(국가고객만족도)페이지로 이동">NCSI(국가고객만족도)</a></li><li><a href="http://www.brand.or.kr" target="_blank" title="NBCI(국가브랜드경쟁력지수)페이지로 이동">NBCI(국가브랜드경쟁력지수)</a></li>
+										</ul>
+									</div>
+									<p class="morebtn"><a href="/Indices/index.asp"><img src="images/main/more.jpg" alt="더보기" /></a></p>
+								</li>
+								<li><a href="#none" class="btnTabMenu"><img src="images/main/tab03_off.gif" alt="자격인증" /></a>
+									<div class="tabcontent consulting">
+										<h3>자격인증</h3>
+										<p class="marginb20">대한민국을 이끌어가는 <br>한국생산성본부의 핵심 자격</p>
+										<ul>
+<li><a href="http://apply.itq.or.kr" target="_blank" title="국가공인 정보기술자격페이지로 이동">국가공인 정보기술자격</a></li><li><a href="http://www.kpc.or.kr/Certification/index.asp" target="_self" title="국가공인 SMAT(서비스경영자격)페이지로 이동">국가공인 SMAT(서비스경영자격)</a></li>
+										</ul>
+									</div>
+									<p class="morebtn"><a href="/Certication/index.asp"><img src="images/main/more.jpg" alt="더보기" /></a></p>
+								</li>
+								<li><a href="#none" class="btnTabMenu"><img src="images/main/tab04_off.gif" alt="생산성" /></a>
+									<div class="tabcontent consulting">
+										<h3>생산성</h3>
+										<p class="marginb20">국가생산성향상을 위한 <br>Think Tank</p>
+										<ul>
+<li><a href="http://www.kpc.or.kr/Productivity/LaborList.asp" target="_self" title="생산성연구·통계페이지로 이동">생산성연구·통계</a></li><li><a href="http://pms.kpc.or.kr/" target="_blank" title="생산성경영체제(PMS; Productivity Management System)페이지로 이동">생산성경영체제(PMS; Productivity Management System)</a></li>
+										</ul>
+									</div>
+									<p class="morebtn"><a href="/Productivity/index.asp"><img src="images/main/more.jpg" alt="더보기" /></a></p>
+								</li>
+							</ul>
+						</div>
+					</article>
+				</section><!--top_area-->
+				<section class="mid_area">
+					<article class="tab_area">
+						<h3 class="edu_h3">교육부문</h3>
+						<div class="edu_part">
+							<ul class="red_bullet">
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049037" title="4차 산업혁명 페이지 이동">4차 산업혁명</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049006" title="계층·리더십 페이지 이동">계층·리더십</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049033" title="비즈니스스킬 페이지 이동">비즈니스스킬</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049003" title="경영기획 페이지 이동">경영기획</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049004" title="인적자원 페이지 이동">인적자원</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049005" title="총무·법무 페이지 이동">총무·법무</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049008" title="재무 페이지 이동">재무</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049009" title="회계 페이지 이동">회계</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049012" title="영업·마케팅 페이지 이동">영업·마케팅</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049011" title="CS 페이지 이동">CS</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049014" title="생산 페이지 이동">생산</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049016" title="품질 페이지 이동">품질</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049015" title="R＆D 페이지 이동">R＆D</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049017" title="구매·자재 페이지 이동">구매·자재</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049013" title="유통·물류·SCM·무역 페이지 이동">유통·물류·SCM·무역</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049019" title="IT(정보기술) 페이지 이동">IT(정보기술)</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049022" title="프로젝트관리(PM) 페이지 이동">프로젝트관리(PM)</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049034" title="OA·디자인 페이지 이동">OA·디자인</a></li>
+		<li><a href="http://www.kpcceo.or.kr/html/education/edu_list.asp" target="_blank" title=" http://www.kpcre.or.kr/class/education.asp?lecId=management 페이지 이동">최고경영자</a></li>
+		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049024" title="지역본부 페이지 이동">지역본부</a></li>
+		<li><a href="http://www.kpcre.or.kr/class/education.asp?lecId=management" target="_blank" title=" http://www.kpcre.or.kr/class/education.asp?lecId=management 페이지 이동">부동산</a></li>
+		<li><a href="http://www.kpcqa.or.kr/edu/edu_process.asp" target="_blank" title="ISO경영시스템 새창열기">ISO경영시스템</a></li>		<li><a href="http://www.kpc.or.kr/education/CourseYear.asp?UMEduType=49049039" title="중소기업 특화훈련 페이지 이동">중소기업 특화훈련</a></li>
+
+							</ul>
+						</div>
+						<ul class="edu_bottom_menu">
+							<li><a href="/Education/OverseaInfo.asp">해외연수</a></li>
+							<li><a href="http://www.e-kpc.or.kr/" target="_blank">이러닝/우편원격교육</a></li>
+							<li><a href="http://www.kpclaw.or.kr/default.asp" target="_blank">법정관리인 양성</a></li>
+							<li><a href="http://smhrd.kpc.or.kr/smhrd_main.asp" target="_blank">중소기업 특화훈련</a></li>
+							<li><a href="/Education/CustomEdu.asp" class="bdright">맞춤형 위탁교육</a></li>
+						</ul>
+					</article>
+					<!-- 중간 오른쪽 배터영영ㄱ -->
+					<article class="hottrend">
+						<h3 class="hottrend_h3 hidden">Hot Trend</h3>
+						<div class="slide_hottrend">
+							<div id="hot_Slide" class="flexslider bordernone">
+								<ul class="slides" >
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=21788&UMEduTheme=49050052&Serl=91863&UMEduType=49049017" target="_self"><img src="/PDS/Banner/Main/20180307135231981.jpg" alt="CPSM(국제공인 공급관리전문가)양성" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=29378&Serl=91970&UMEduType=49049017&UMEduTheme=49050052" target="_self"><img src="/PDS/Banner/Main/20180307131830941.png" alt="구매계약과 공정거래하도급법의 이해" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=11871&UMEduTheme=49050134&Serl=91546&UMEduType=49049003" target="_self"><img src="/PDS/Banner/Main/20180124115608571.jpg" alt="경영진단사" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=23144&UMEduType=49049016&UMEduTheme=49050048" target="_self"><img src="/PDS/Banner/Main/2018020810150961.png" alt="[자격과정]품질경영관리사양성" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=35333&UMEduType=49049003&UMEduTheme=49050134" target="_self"><img src="/PDS/Banner/Main/20180212140825591.png" alt="[Catch up] 핀테크 산업 주요 규제와 법률문제 대응기법" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=20672&UMEduType=49049013&UMEduTheme=49050056" target="_self"><img src="/PDS/Banner/Main/20180221103947971.png" alt="글로벌 물류SCM 컨설턴트(GLSC)" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=9578&UMEduTheme=49050052&Serl=91868&UMEduType=49049017" target="_self"><img src="/PDS/Banner/Main/20180305162818411.png" alt="구매관리사(KCPM)" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=35344&UMEduType=49049009&UMEduTheme=49050149" target="_self"><img src="/PDS/Banner/Main/20180307132006451.png" alt="핵심인재 양성을 위한 글로벌 원가혁신 기법 벤치마킹(일본)" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&CourseSeq=4264&UMEduTheme=49050024&Serl=94572&UMEduType=49049009" target="_self"><img src="/PDS/Banner/Main/20180314103236761.png" alt="원가관리사" width="305" height="300"></a></li><li><a href="http://www.e-kpc.or.kr/" target="_self"><img src="/PDS/Banner/Main/20180316085441181.jpg" alt="KOTRA-KPC 무역투자 온라인연수원 신규오픈" width="305" height="300"></a></li><li><a href="http://www.kpc.or.kr/Education/CourseYearSchedule.asp" target="_self"><img src="/PDS/Banner/Main/20171114092002361.jpg" alt="2018년 연간교육일정" width="305" height="300"></a></li>
+								</ul>
+							</div>
+						</div>
+					</article>
+
+
+
+				</section>
+				<section class="mid_area_sec">
+					<article class="education">
+						<div class="tab">
+							<ul>
+								<li class="on">
+									<span class=" fb17">교육과정</span>
+									<div class="edulist_tabcontent">
+										<!--<img src="images/main/education_tab01_bg.png" alt="교육과정 이미지">-->
+										<ul class="red_bullet">
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049025&amp;UMEduTheme=49050075&amp;CourseSeq=33765" title="부동산금융전문가 양성 페이지로 이동">부동산금융전문가 양성</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049025&amp;UMEduTheme=49050075&amp;CourseSeq=33765" title="부동산금융전문가 양성 페이지로 이동">부동산금융전문가 양성</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049025&amp;UMEduTheme=49050074&amp;CourseSeq=33768" title="국토의 계획 및 이용에 관한 법률 검토 향상 페이지로 이동">국토의 계획 및 이용에 관한 법률 검토 향상</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049009&amp;UMEduTheme=49050022&amp;CourseSeq=12756" title="기업회계 및 세무기초 페이지로 이동">기업회계 및 세무기초</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049003&amp;UMEduTheme=49050134&amp;CourseSeq=540" title="경영계획수립을 위한 사업실적분석 페이지로 이동">경영계획수립을 위한 사업실적분석</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049003&amp;UMEduTheme=49050134&amp;CourseSeq=8968" title="기획담당자를 위한 전략기획서 작성실무 페이지로 이동">기획담당자를 위한 전략기획서 작성실무</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049004&amp;UMEduTheme=49050010&amp;CourseSeq=32205" title="임금, 보상, 복리후생실무 페이지로 이동">임금, 보상, 복리후생실무</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049004&amp;UMEduTheme=49050011&amp;CourseSeq=34929" title="2018년 개정 노동법과 인사노무관리 대응전략 페이지로 이동">2018년 개정 노동법과 인사노무관리 대응전략</a></li>
+
+										</ul>
+									</div>
+								</li>
+								<li><a href="/Education/Course3month.asp?ym=201803" class="fb14 bar">3월<img src="../images/main/education_tab01_plus.png" class="marginl5" alt="더보기"></a></li>
+								<li><a href="/Education/Course3month.asp?ym=201804" class="fb14 bar">4월<img src="../images/main/education_tab01_plus.png" class="marginl5" alt="더보기"></a></li>
+								<li><a href="/Education/Course3month.asp?ym=201805" class="fb14 bdright">5월<img src="../images/main/education_tab01_plus.png" class="marginl5" alt="더보기"></a></li>
+							</ul>
+						</div>
+					</article>
+					<article class="recommendation">
+						<div class="tab2">
+							<h3>추천과정</h3>
+						    <ul>
+<li class="on"><a href="#none" class="pageNo">1</a>
+<div class="recommendationlist">
+<h4 class="hidden">추천과정1</h4>
+<ul class="red_bullet">
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049005&amp;UMEduTheme=49050012&amp;CourseSeq=33556" title="인사총무담당자를 위한 문서관리능력 향상 페이지로 이동">인사총무담당자를 위한 문서관리능력 향상</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049008&amp;UMEduTheme=49050019&amp;CourseSeq=12212" title="재무제표분석실무 페이지로 이동">재무제표분석실무</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049012&amp;UMEduTheme=49050027&amp;CourseSeq=24499" title="B2B마케팅전략기획 페이지로 이동">B2B마케팅전략기획</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049009&amp;UMEduTheme=49050023&amp;CourseSeq=35060" title="가산세 대처실무 페이지로 이동">가산세 대처실무</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049006&amp;UMEduTheme=49050014&amp;CourseSeq=34726" title="[직급필수] 컨설팅회사가 알려주는 업무노하우 페이지로 이동">[직급필수] 컨설팅회사가 알려주는 업무노하우</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049003&amp;UMEduTheme=49050008&amp;CourseSeq=29241" title="내부감사입문 페이지로 이동">내부감사입문</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049004&amp;UMEduTheme=49050010&amp;CourseSeq=34930" title="HR리스크 예방과 조직성과 제고 페이지로 이동">HR리스크 예방과 조직성과 제고</a></li>
+<li><a href="http://www.kpc.or.kr/education/CourseInformation.asp?YY=2018&amp;UMEduType=49049009&amp;UMEduTheme=49050024&amp;CourseSeq=4264" title="[자격과정] 원가관리사 페이지로 이동">[자격과정] 원가관리사</a></li>
+</ul>
+</div>
+</li>
+
+						    </ul>
+						</div>
+					</article>
+				</section>
+				<section class="bottom_area">
+					<article class="notice">
+						<div class="tab tab3">
+							<ul>
+								<li class="on">
+									<span class=" fb17">공지사항
+										<a href="/Customer/NoticeList.asp" title="공지사항 더보기" class="dpib marginl3 "><img src="../images/main/education_tab01_plus.png" alt="더보기"></a>
+									</span>
+									<div class="notice_tabcontent">
+										<h4 class="hidden">공지사항</h4>
+										<ul class="red_bullet">
+
+<li><a href="/Customer/NoticeView.asp?seq=30234" title="2018년 연간교육일정표 페이지 이동"><span>2018년 연간교육일정표</span><span>2017-10-24</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30820" title="[입찰공고] 12층 접견실 소파 및 테이블 등 집기비품 구매 경쟁입찰 페이지 이동"><span>[입찰공고] 12층 접견실 소파 및 테이블 등 집기비품 구매 경쟁입찰</span><span>2018-03-06</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30763" title="[제안평가공고] ICT역량지수 통합관리시스템 개선 용역업체 선정 페이지 이동"><span>[제안평가공고] ICT역량지수 통합관리시스템 개선 용역업체 선정</span><span>2018-02-22</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30762" title="생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion 페이지 이동"><span>생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion</span><span>2018-02-22</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30753" title="[입찰공고]대전충청지역본부 업무용 차량 임차 경쟁입찰 페이지 이동"><span>[입찰공고]대전충청지역본부 업무용 차량 임차 경쟁입찰</span><span>2018-02-21</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30671" title="[제안평가공고] 2018년 KPC자격 경기서부지역센터 사업자 선정 페이지 이동"><span>[제안평가공고] 2018년 KPC자격 경기서부지역센터 사업자 선정</span><span>2018-02-14</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<span class=" fb17">교육
+										<a href="/Customer/NoticeList.asp?gubun=교육" title="교육 더보기" class="dpib marginl3 " style="display:none"><img src="../images/main/education_tab01_plus.png" alt="더보기"></a>
+									</span>
+									<div class="notice_tabcontent">
+										<h4 class="hidden">교육</h4>
+										<ul class="red_bullet">
+
+<li><a href="/Customer/NoticeView.asp?seq=30234" title="2018년 연간교육일정표 페이지 이동"><span>2018년 연간교육일정표</span><span>2017-10-24</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30851" title="[사업주훈련 알림]2018년 사업주 직업능력개발훈련 지원규정 등 고시 개정 알림 페이지 이동"><span>[사업주훈련 알림]2018년 사업주 직업능력개발훈련 지원규정 등 고시 개정 알림</span><span>2018-03-12</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30762" title="생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion 페이지 이동"><span>생산경영MBA, 품질경영관리사양성, CPSM, 구매관리사 신규 수강기업 Promotion</span><span>2018-02-22</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30747" title="[교육안내] 2018년도 비즈니스스킬부문 문제해결능력향상과정 4월 교육일정 변경안내 페이지 이동"><span>[교육안내] 2018년도 비즈니스스킬부문 문제해결능력향상과정 4월 교육일정 변경안내</span><span>2018-02-20</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30654" title="중소기업특화훈련 단체수강신청 양식 페이지 이동"><span>중소기업특화훈련 단체수강신청 양식</span><span>2018-02-14</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=30648" title="생산/품질부문 2018년 Brand New & Upgrade 교육과정 안내 페이지 이동"><span>생산/품질부문 2018년 Brand New & Upgrade 교육과정 안내</span><span>2018-02-13</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="">
+									<span class=" fb17">컨설팅
+										<a href="/Customer/NoticeList.asp?gubun=컨설팅" title="컨설팅 더보기" class="dpib marginl3 " style="display:none"><img src="../images/main/education_tab01_plus.png" alt="더보기"></a>
+									</span>
+									<div class="notice_tabcontent">
+										<h4 class="hidden">컨설팅</h4>
+										<ul class="red_bullet">
+
+<li><a href="/Customer/NoticeView.asp?seq=30462" title="NCSI 인증패 디자인 공모전 결과 안내 페이지 이동"><span>NCSI 인증패 디자인 공모전 결과 안내</span><span>2017-12-18</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=29430" title="2017년 제1호 임금정보 브리프 페이지 이동"><span>2017년 제1호 임금정보 브리프</span><span>2017-04-21</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=19115" title="2017년도 일터혁신 컨설팅 지원사업 안내 페이지 이동"><span>2017년도 일터혁신 컨설팅 지원사업 안내</span><span>2017-03-02</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=18830" title="2017년도 중소기업청 창업지원사업 페이지 이동"><span>2017년도 중소기업청 창업지원사업</span><span>2017-01-04</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=18413" title=""스마트공장 구축 및 추진실무"과정 연수 참가자 모집 페이지 이동"><span>"스마트공장 구축 및 추진실무"과정 연수 참가자 모집</span><span>2016-10-20</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=17452" title="[전액무료]일터혁신 컨설팅 지원사업 안내 페이지 이동"><span>[전액무료]일터혁신 컨설팅 지원사업 안내</span><span>2016-05-11</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="">
+									<span class=" fb17">지역본부
+										<a href="/Customer/NoticeList.asp?gubun=지역본부" title="지역본부 더보기" class="dpib marginl3 " style="display:none"><img src="../images/main/education_tab01_plus.png" alt="더보기"></a>
+									</span>
+									<div class="notice_tabcontent">
+										<h4 class="hidden">지역본부</h4>
+										<ul class="red_bullet">
+
+<li><a href="/Customer/NoticeView.asp?seq=18420" title="[대구경북지역본부] 11월 공개교육 일정 및 안내 페이지 이동"><span>[대구경북지역본부] 11월 공개교육 일정 및 안내</span><span>2016-10-22</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=18205" title="[대구경북지역본부] 10월 공개교육 일정 및 안내 페이지 이동"><span>[대구경북지역본부] 10월 공개교육 일정 및 안내</span><span>2016-09-21</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=18099" title="[대구경북지역본부] 9월 공개교육 일정 및 안내 페이지 이동"><span>[대구경북지역본부] 9월 공개교육 일정 및 안내</span><span>2016-08-30</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=17856" title="CPSM(국제공인공급관리전문가)양성 과정 8월 서울&부산 동시 개강! 페이지 이동"><span>CPSM(국제공인공급관리전문가)양성 과정 8월 서울&부산 동시 개강!</span><span>2016-07-07</span></a></li>
+<li><a href="/Customer/NoticeView.asp?seq=17234" title="홈페이지 새단장 안내 페이지 이동"><span>홈페이지 새단장 안내</span><span>2016-04-21</span></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</article>
+					<article class="news">
+						<h3>보도자료</h3>
+							<ul class="red_bullet">
+<li><img src="/PDS/Board/Image/20180314130617531.jpg" alt="뉴스 이미지" width="101" height="65" /><a href="/Info/NewsView.asp?seq=30868"><strong>지멘스 부회장 초청 CEO 북클럽 개최</strong><p>&nbsp;																																						kpc, 지멘스 부회장 초청 ceo 북클럽 개최									&nbsp;’인더스트리 4.0 활성화 전략’ 주제 강연&nbsp; 							&nbsp;							■ 한국생산성본부(kpc, 회장 노규성)는 14일(수) 오전 7시 밀레니엄 힐튼호텔에서 4차 산업혁명 글로벌 선도 기업 지멘스의 체드릭 나이케(cedrik neike) 부회장을 초청해 ’기술과 협력을 통한 인더스트리 4.0 활성화 전략’을 주제로 ceo 북클럽을 열었다. 							  &nbsp;  																								o 체드릭 부회장은 4차 산업혁명 시대 중요 키워드를 설명하고, 한국의 4차 산업혁명 및 중소기업 발전 방향에 대해 제언했다. 							  &nbsp;  																								o 체드릭 부회장은 “인더스트리 4.0은 우리가 다른 방식으로 일할 수 있다는 것을 의미한다. 미래 제조업은 창의적인 사람들이 유연성 있는 제조공정을 만들고 이를 다른 방식으로 판매하는 것” 이라면서 “위키피디아, 애플 등의 사례에서도 알 수 있듯 기업이 오픈소스를 만드는 오픈, 협업, 플랫폼 등이 인더스트리 4.0에서는 매우 중요하다. 지멘스의 경우 아이디어 공유에 대한 인센티브 제도로 개방형 협업 문화를 만들어 가고 있다”고 말했다. 							  &nbsp;  																								o 체드릭 부회장은 “한국과 독일은 제조업 기반 국가, 고령화 사회, 낮은 출생률, 로봇에 대한 높은 관심, 재생 에너지로의 전환 등 많은 공통점과 유사한 도전과제를 갖고 있는 만큼 양국 간의 벤치마킹을 통해 서로 발전해 나갈 수 있을 것” 이라면서 “현재 독일의 경우 인더스트리 4.0을 통해 중소기업들이 빠르게 변화하고 경쟁력을 갖춰가고 있다”고 말했다. 							  &nbsp;  																								o 체드릭 부회장은 “한국이 새로운 시대의 승자가 되자면 인더스트리 4.0에 맞춰 쇄신해야 한다”면서 “인더스트리 4.0 시대에는 아이디어창출의 기반이 되는 생태계를 확립하는 것이 무엇보다 중요하다. 한국의 경우, 인더스트리 4.0을 추진하는데 있어 중소기업 · 학계 · 펀딩 등 각각의 클러스터를 만들고 이를 허브화해 생태계를 만들어 가는 것이 선결되어야 할 것”이라고 강조했다. 							  &nbsp;  																								o 체드릭 부회장은 맺음말을 통해 ceo들에게 "인더스트리 4.0은 반드시 결정해야 하고, 대비해야 한다. 지금은 변화를 껴안고 혁신해야 할 때"라면서 "인더스트리 4.0은 제조업에만 국한되는 것이 아니라 제조공정은 물론 고객서비스 등 각각의 벨류 체인에서 혁신이 일어나야 한다. 따라서 특정 분야에 깊이 있는 딥러닝과 함께 광의의 브로드러닝이 함께 필요하다"고 조언했다.&nbsp;	▶기사게재&nbsp;&nbsp;	&nbsp;	매일경제: http://news.mk.co.kr/newsread.php?year=2018&no=167434	파이낸셜뉴스: http://www.fnnews.com/news/201803141451240765	뉴시스: http://www.newsis.com/view/?id=nisx20180314_0000251945&cid=13001&pid=13000	한국경제: http://news.hankyung.com/article/201803146962i	뉴스투데이: http://www.news2day.co.kr/100532	헤럴드경제: http://news.heraldcorp.com/view.php?ud=20180314000687	쿠키뉴스: http://www.kukinews.com/news/article.html?no=531488&nbsp;&nbsp;&nbsp;</p></a></li>
+<li><a href="/Info/NewsView.asp?seq=30818" title="노규성 회장 기고문(디지털타임스) 페이지 이동"><span>노규성 회장 기고문(디지털타임스)</span><span>2018-03-05</span></a></li>
+<li><a href="/Info/NewsView.asp?seq=30817" title="2018년도 제조업군 국가브랜드경쟁력지수(NBCI) 발표 페이지 이동"><span>2018년도 제조업군 국가브랜드경쟁력지수(NBCI) 발표</span><span>2018-03-05</span></a></li>
+<li><a href="/Info/NewsView.asp?seq=30802" title="’블록체인과 암호화폐’ 주제 CEO북클럽 개최 페이지 이동"><span>’블록체인과 암호화폐’ 주제 CEO북클럽 개최</span><span>2018-03-02</span></a></li>
+<li><a href="/Info/NewsView.asp?seq=30790" title="혁신위원회 발족 페이지 이동"><span>혁신위원회 발족</span><span>2018-02-27</span></a></li>
+							</ul>
+						<p class="plus"><a href="/Info/NewsList.asp" title="보도자료 리스트 페이지로 이동"><img src="images/main/ico_plus.png" alt="더보기" /></a></p>
+					</article>
+				</section>
+			</section>
+		<aside class="quick_menu" id="floatMenu">
+			<h3>quick menu</h3>
+			<ul>
+				<li class="quick01"><a href="#" class="open_edu">교육 신청방법</a></li>
+
+				<li class="quick02"><a href="https://www.kpc.or.kr/MyPage/EduList.asp">교육신청확인<br>일정변경</a></li>
+				<li class="quick03"><a href="https://www.kpc.or.kr/MyPage/EduList.asp">수료증 / 계산서</a></li>
+
+				<li class="quick04"><a href="#" class="open_bank">계좌번호 안내</a></li>
+				<li class="quick05"><a href="#">회원사 검색</a></li>
+				<li class="quick06"><a href="http://www.kpc.or.kr/Education/CourseYearSchedule.asp">연간교육 일정</a></li>
+				<li class="quick07"><a href="https://www.kpc.or.kr/MyPage/CoApplication.asp">단체수강신청</a></li>
+				<li class="quick08"><a href="https://www.kpc.or.kr/Info/PhoneNumber.asp">담당자연락처</a></li>
+				<li class="quick09"><a href="http://www.kpc.or.kr/Info/Directions.asp">찾아오시는 길</a></li>
+			</ul>
+			<p class="go_top"><a href="#nav">TOP</a></p>
+					<!-- 오픈교육신청방법 -->
+			<div id="open_edu_pop" class="layerpop hide open_edu_popup" title="레이어팝업"></div>
+			<div id="open_bank_pop" class="layerpop hide open_bank_popup" title="레이어팝업"></div>
+			<div id="quick_company_search" class="layerpop accountcall hide edulist_bill pop_company_search" title="레이어팝업">
+			<div id="open_pass_change_pop" class="layerpop hide open_pass_change_popup" title="레이어팝업"></div>
+		</aside>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(window).scroll(function(){
+			var def_posittion	= 241; //기본 퀵메뉴 위치정보 241px
+			var def_dHeight		= parseInt($(document).height());
+			var qmenu_height	= parseInt($(".quick_menu").css("height").replace("px", ""));
+			var def_bottom_posittion = 352; //하단(알림+footer) 영역크기
+
+			var def_qmenuPosit	= parseInt($(".quick_menu").css("top"));
+			var def_limit_posion= parseInt(def_dHeight - (qmenu_height + def_bottom_posittion) );
+			var set_posittion	= def_posittion;
+
+				$(".quick_menu").stop();
+				set_posittion = $(document).scrollTop()+20;
+
+				//상단의 포지션 위치 조정
+				if ( $(document).scrollTop() < 250 )
+					set_posittion = def_posittion;
+				
+				//하단 스크롤 위치 조정
+				if ( def_limit_posion <  set_posittion)
+					set_posittion = def_limit_posion;
+					
+				$(".quick_menu").animate( { "top": set_posittion + "px" }, 100 );
+			});
+		});
+	</script>
+		<!--content -->
+
+		<!-- footer //-->
+			<section id="foot">
+				<div class="foot_area">
+					<ul class="foot_menu">
+						<li>지역본부
+							<ul>
+								<li><a href="/Info/GyeongnamInformation.asp">부산울산경남</a></li>
+								<li><a href="/Info/GyeongbukInformation.asp">대구경북</a></li>
+								<li><a href="/Info/HonamInformation.asp">호남(광주)</a></li>
+								<li><a href="/Info/ChungcheongInformation.asp">대전충청</a></li>
+							</ul>
+						</li>
+						<li><a href="/MeCo/Information.asp">법인회원제도</a></li>
+						<li><a href="https://www.kpc.or.kr/Info/PhoneNumber.asp">담당자연락처</a></li>
+					</ul>
+					<ul class="foot_menu">
+						<li><a href="/Info/TrainInformation.asp">연수원(이천)</a></li>
+						<li><a href="/Info/Directions.asp">찾아오시는 길</a></li>
+						<li>고객센터
+							<ul>
+								<li><a href="/Customer/QNAList.asp">묻고답하기</a></li>
+								<li><a href="/Customer/FAQList.asp">FAQ(자주 묻는 질문)</a></li>
+								<li class="refund"><a href="#">고용보험 환급안내</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="foot_menu">
+						<li><a href="/Info/Recruitment.asp">인재채용</a></li>
+						<!--<li><a href="/customer/ImproveSuggest.asp">홈페이지 개선건의</a></li>-->
+						<li><a href="http://webzine.kpc.or.kr" target="_blank">교육웹진</a>
+							<form id="" name="" action="" >
+								<fieldset>
+									<legend class="hidden">과월호 보기</legend>
+									<div class="webzine">
+										<div class="select_wrap float_left foot_selectbd">
+											<select name="f_magazine" id="f_magazine" title="과월호 보기">
+												<option value="">과월호 보기</option>
+												<option value="1803">2018년 3월호</option>
+												<option value="1802">2018년 2월호</option>
+												<option value="1801">2018년 1월호</option>
+												<option value="1712">2017년 12월호</option>
+												<option value="1711">2017년 11월호</option>
+												<option value="1710">2017년 10월호</option>
+												<option value="1709">2017년 9월호</option>
+												<option value="1708">2017년 8월호</option>
+												<option value="1707">2017년 7월호</option>
+												<option value="1706">2017년 6월호</option>
+												<option value="1705">2017년 5월호</option>
+												<option value="1704">2017년 4월호</option>
+												<option value="1703">2017년 3월호</option>
+												<option value="1702">2017년 2월호</option>
+												<option value="1701">2017년 1월호</option>
+
+											</select>
+										</div>
+										<input type="button" class="move_btn float_left marginl5" id="btnMagazineMove" value="이동"/>
+									</div>
+								</fieldset>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<footer id="footer">
+			<div class="footer_area">
+				<div class="add">
+					<strong>한국생산성본부 </strong>
+					<address>대표자. 노규성 | 우. 03170  서울시 종로구 새문안로5가길 32 생산성빌딩 | 사업자 등록번호. 102-82-05476 | 통신판매업신고번호 제 2013-서울종로-0356호</address>
+					<p>Copyright ⓒ 2016 Korea Productivity Center. All Rights Reserved.</p>
+				</div>
+				<!-- <img src="/images/main/footer_logo.png" alt="미래창조과학부" /> -->
+				<div class="clearb">
+					<div class="privatcy">
+						<ul>
+							<li><a href="/MemberShip/PersonalInformation.asp"><strong>개인정보처리방침</strong></a></li>
+							<li><a href="#" class="email_x" title="이메일 무단수집거부 팝업창" >이메일 무단수집거부</a></li>
+						</ul>
+					</div>
+					<div class="link">
+						<div class="related_web">
+							<a href="#" class="plus">한국생산성본부 관련 홈페이지</a>
+							<ul class="box" style="display:none;">
+								<li><a href="http://www.motie.go.kr"	title="산업통상자원부 페이지로 이동">산업통상자원부</a></li>
+								<li><a href="http://www.moel.go.kr"		title="고용노동부 페이지로 이동">고용노동부</a></li>
+								<li><a href="http://www.hrdkorea.or.kr" title="한국산업인력공단 페이지로 이동">한국산업인력공단</a></li>
+								<li><a href="http://www.mois.go.kr"		title="행정안전부 페이지로 이동">행정안전부</a></li>
+								<li><a href="http://www.kpcqa.or.kr"	title="한국생산성본부인증원 페이지로 이동">한국생산성본부인증원</a></li>
+								<li><a href="http://www.kpcice.or.kr"	title="한국사회능력개발원 페이지로 이동">한국사회능력개발원</a></li>
+								<li><a href="http://www.kpcm.or.kr"		title="한생미디어 페이지로 이동"  >한생미디어</a></li>
+							</ul>
+
+						</div>
+						<div class="business_web">
+							<a href="#" class="plus">사업부 홈페이지</a>
+							<ul class="box" style="display:none;">
+								<li><a href="http://www.ncsi.or.kr" title="국가고객만족도 페이지로 이동">국가고객만족도</a></li>
+								<li><a href="http://www.brand.or.kr" title="통합브랜드 홈페이지 페이지로 이동">통합브랜드 홈페이지</a></li>
+								<li><a href="http://award.kpc.or.kr" title="국가생산성대상 페이지로 이동">국가생산성대상</a></li>
+								<li><a href="http://pms.kpc.or.kr" title="국가생산성경영체제 페이지로 이동">국가생산성경영체제</a></li>
+								<li><a href="http://www.kpclaw.or.kr" title="법정관리인양성 페이지로 이동">법정관리인양성</a></li>
+								<li><a href="http://www.e-kpc.or.kr" title="이러닝 페이지로 이동">이러닝</a></li>
+								<li><a href="http://www.kpcceo.or.kr" title="CEO아카데미포럼 페이지로 이동">CEO아카데미포럼</a></li>
+								<li><a href="http://kmpi.kpc.or.kr" title="kmpi멘탈생산성진단 페이지로 이동">kmpi멘탈생산성진단</a></li>
+								<li><a href="http://www.itq.or.kr" title="ITQ 자격 홈페이지 페이지로 이동">ITQ 자격 홈페이지</a></li>
+								<li><a href="http://apply.itq.or.kr" title="ITQ 원서접수 홈페이지 페이지로 이동">ITQ 원서접수 홈페이지</a></li>
+								<li><a href="http://www.gtq.or.kr" title="GTQ 자격 홈페이지 페이지로 이동">GTQ 자격 홈페이지</a></li>
+								<li><a href="http://www.kpcerp.or.kr" title="ERP 자격 홈페이지 페이지로 이동">ERP 자격 홈페이지</a></li>
+								<li><a href="http://www.icdl.or.kr" title="ICDL 자격 홈페이지 페이지로 이동">ICDL 자격 홈페이지</a></li>
+								<li><a href="http://www.ieq.or.kr" title="인터넷윤리자격 페이지로 이동">인터넷윤리자격</a></li>
+								<li><a href="http://www.utq.or.kr" title="정보기술소양자격 페이지로 이동">정보기술소양자격</a></li>
+								<li><a href="http://www.mat.or.kr" title="MAT경영능력시험">MAT경영능력시험</a></li>
+								<li><a href="http://www.itop.or.kr" title="ITOP 경진대회 홈페이지 페이지로 이동">ITOP 경진대회 홈페이지</a></li>
+								<li><a href="http://www.topcit.or.kr" title="IT핵심역량진단 평가 페이지로 이동">IT핵심역량진단 평가</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- 이메일무단수집거부 -->
+			<div id="email_x_pop" class="layerpop hide email_x" title="레이어팝업"></div>
+		<!-- 고용보험 환급안내 -->
+			<div id="refund_pop" class="layerpop hide refund_info"></div>
+		</footer>
+
+
+		<!-- footer 이메일무단수집거부 -->
+		<script id="footerLayerPop1" type="text/x-jquery-tmpl">
+			<h2 class="pop_title"><span>이메일무단수집거부</span></h2>
+				<span><a href="#" class="pop_close g_pop_close">닫기</a></span>
+				<div class="email_x_pop">
+					<div class="email_x_pop_img"><p class="hidden">이메일무단수집거부 이미지</p></div>
+					<p class="color_pointr font18 bold">KPC 홈페이지와 관련된 이메일로...</p>
+					<p class="font15">KPC 홈페이지와 관련된 이메일로 보내지는 타사의 메일을 차단하기 위해 본 웹사이트에 게시된 이메일주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반시 정보통신방법에 의해 형사처벌됨을 유념하시기 바랍니다.</p>
+					<p class="font18 bold bddt">게시일 2003년 11월 5일</p>
+				</div>
+				<div class="alignr marginr30 padt10">
+					<input type="button" id="" name="" class="pop_confirm marginb20 g_pop_close" value="창 닫기" >
+				</div>
+		</script>
+		<!-- 퀵메뉴 공개교육신청방법 -->
+		<script id="footerLayerPop2" type="text/x-jquery-tmpl">
+			<h2 class="pop_title"><span>공개교육신청방법</span></h2>
+				<span><a href="#" class="pop_close g_pop_close">닫기</a></span>
+				<div class="margint30">
+					<h4 class="open_edu_bullet marginl30">온라인 신청<span class="color_pointr font14">&#40;교육신청은 인터넷접수를 우선으로 합니다.&#41;</span></h4>
+					<div class="d3_box openedubox">
+						<ul class="red_bullet">
+							<li>홈페이지에서 회원&#40;개인&#47;기업&#41;가입 및 로그인 하시고 과정을 선택하신 후 수강신청을 하실 수 있습니다. &#40;카테고리검색 혹은 직접 과정명검색&#41; 수강접수와 함께 교육위탁계약서를 출력하신 후 직인을 날인하여 FAX로 보내주셔야 수강신청이 완료됩니다.</li>
+							<li>마이페이지에서 교육신청 및 수료교육 조회, 수료증 출력이 가능합니다.</li>
+							<li>고용보험비환급 대상자는 STEP 03까지 진행하시기 바랍니다. (교육위탁계약서 송부 불필요)</li>
+						</ul>
+					<div class="openapp_img01"><p class="hidden">온라인신청절차그림</p></div>
+					<p class="hidden">1. 회원가입, 로그인 및 비회원로그인 2. 교육과정검색 3. 수강신청 및 결제방법 선택 4. 교육위탁계약서 출력 5. 사업주직인날인 후 팩스 송부</p>
+					</div>
+				</div>
+			
+				<div class="margint30">
+					<h4 class="open_edu_bullet marginl30">기타안내</h4>
+					<div class="d3_box openedubox nomargin">
+						<ul class="red_bullet">
+							<li>교육신청시 휴대폰, 이메일정보를 정확히 기입해 주세요 => 교육참가안내 및 전자계산서 발송</li>
+						</ul>
+					</div>
+				</div>
+				<div class="margint30">
+					<h4 class="open_edu_bullet marginl30">교육비납부</h4>
+					<div class="d3_box openedubox nomargin">
+						<ul class="red_bullet">
+							<li>교육비 입금계좌(한국생산성본부)로 교육 전까지 입금</li>
+							<li>교육신청시, 법인카드 결제 또는 가상계좌로 납부 가능</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="margint30">
+					<h4 class="open_edu_bullet marginl30">오프라인 신청</h4>
+					<div class="d3_box openedubox">
+						<ul class="red_bullet">
+						<li>오프라인 신청은 홈페이지 마이페이지에서 교육신청 및 수료교육 조회, 수료증 출력이 불가합니다.</li>
+							<li>교육위탁계약서 양식을 다운 받으신 후 작성, 직인을 날인하여 전화와 함께 FAX로 보내 주신 후 유선상으로 최종 수신확인 전화 부탁드립니다.
+</li>
+						</ul>
+						<div class="openapp_img02"><p class="hidden">오프라인신청절차그림</p></div>
+						<p class="hidden">1. 교육위탁계약서 출력 2. 사업주직인날인 3. 전화,팩스 송부 4.전화확인</p>
+					</div>
+				</div>
+				<div class="open_edu_bt margint30">
+					<a href="/download/download.asp?mode=GroupTemp&amp;seq=0&amp;fileName=%EC%9C%84%ED%83%81%EA%B3%84%EC%95%BD%EC%84%9C%2Ehwp&amp;realFileName=%EC%9C%84%ED%83%81%EA%B3%84%EC%95%BD%EC%84%9C%2Ehwp" title="교육위탁계약서(한글)다운로드"><img src="/images/Education/openapp_bt01.jpg" alt="교육위탁계약서(한글)다운로드" /></a>
+					<a href="/download/download.asp?mode=GroupTemp&amp;seq=0&amp;fileName=%EC%9C%84%ED%83%81%EA%B3%84%EC%95%BD%EC%84%9C%2Edoc&amp;realFileName=%EC%9C%84%ED%83%81%EA%B3%84%EC%95%BD%EC%84%9C%2Edoc" title="교육위탁계약서(MS워드)다운로드"><img src="/images/Education/openapp_bt02.jpg" alt="교육위탁계약서(MS워드)다운로드" /></a>
+				</div> -->
+				<div class="margint30 open_edu_table">
+					<table style="width:100%;">
+						<caption>담당 연락처, e-mail 안내표입니다.</caption>
+						<colgroup>
+							<col style="width: *%;" />
+							<col style="width: 26%;" />
+							<col style="width: 26%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th>부문</th>
+								<th>전화번호</th>
+								<th>FAX</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>경영교육센터</td>
+								<td>02-724-1101</td>
+								<td>02-724-1867</td>
+							</tr>
+							<tr>
+								<td>마케팅물류교육센터</td>
+								<td>02-724-1108, 113, 813, 109</td>
+								<td>02-724-1872</td>
+							</tr>
+							<tr>
+								<td>생산품질교육센터</td>
+								<td>02-724-1802~8</td>
+								<td>02-724-1868</td>
+							</tr>
+							<tr>
+								<td>기업교육센터</td>
+								<td>02-724-1127</td>
+								<td>02-724-1869</td>
+							</tr>
+							<tr>
+								<td>ICT융복합컨설팅센터</td>
+								<td>02-724-1221, 1215, 1214</td>
+								<td>02-724-1875</td>
+							</tr>
+							<tr>
+								<td>제조혁신추진센터</td>
+								<td>02-724-1191</td>
+								<td>02-724-1199</td>
+							</tr>
+							<tr>
+								<td>공공교육센터</td>
+								<td>02-398-4312, 724-1848</td>
+								<td>02-724-1869</td>
+							</tr>
+							<tr>
+								<td>맞춤형교육개발팀</td>
+								<td>02-724-1133~4</td>
+								<td>02-724-1869</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="open_edu_bt margint30">
+					<a href="http://www.e-kpc.or.kr" target="_blank" title="원격교육신청하기"><div class="application_bt"><span class="hidden">원격교육신청하기</span></div></a>
+				</div>
+				<div class="alignc margint30 marginb30">
+					<input type="button" id="" name="" class="pop_confirm g_pop_close" value="창 닫기" >
+				</div>
+		</script>
+		<!-- 퀵메뉴 계좌번호 안내 -->
+		<script id="footerLayerPop3" type="text/x-jquery-tmpl">
+			<h2 class="pop_title"><span>계좌번호안내</span></h2>
+				<span><a href="#" class="pop_close g_pop_close">닫기</a></span>
+				<div class="padt35 padl20">
+					<h3 class="open_edu_bullet">교육비 입금계좌</h3>
+				</div>
+				<div class="padt5 marginl20 open_bank_box">
+					<table class="bank_info_table">
+						<caption>계좌번호 안내 테이블입니다.</caption>
+						<colgroup>
+							<col style="width: 22%;">
+							<col style="width: 20%;">
+							<col style="width: 33%;" />
+							<col style="width: 25%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th colspan="2">은행</th>
+								<th>계좌번호</th>
+								<th>통장사본</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><div class="bank_01"><p class="hidden">국민은행로고</p></div></td>
+								<td>국민은행</td>
+								<td>009-01-1132-191</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_kb.jpg&amp;realFileName=%EA%B5%AD%EB%AF%BC%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="국민은행통장사본 다운로드" title="국민은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_02"><p class="hidden">기업은행로고</p></div></td>
+								<td>기업은행</td>
+								<td>024-001364-01-011</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_ibk.jpg&amp;realFileName=%EA%B8%B0%EC%97%85%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="기업은행통장사본 다운로드" title="기업은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_03"><p class="hidden">농협로고</p></div></td>
+								<td>농협</td>
+								<td>003-01-179970</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_nh.jpg&amp;realFileName=%EB%86%8D%ED%98%91%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="농협통장사본 다운로드" title="농협통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_04"><p class="hidden">KEB하나은행로고</p></div></td>
+								<td>KEB하나은행</td>
+								<td>272-810068-88505</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_hana.jpg&amp;realFileName=KEB%ED%95%98%EB%82%98%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="하나은행통장사본 다운로드" title="하나은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_05"><p class="hidden">신한은행로고</p></div></td>
+								<td>신한은행</td>
+								<td>140-000-600004</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_shinhan.jpg&amp;realFileName=%EC%8B%A0%ED%95%9C%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="신한은행통장사본 다운로드" title="신한은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_06"><p class="hidden">우체국은행로고</p></div></td>
+								<td>우체국</td>
+								<td>012344-01-000068</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_epost.jpg&amp;realFileName=%EC%9A%B0%EC%B2%B4%EA%B5%AD%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="우체국통장사본 다운로드" title="우체국은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_07"><p class="hidden">우리은행로고</p></div></td>
+								<td>우리은행</td>
+								<td>015-145759-01-002</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_woori.jpg&amp;realFileName=%EC%9A%B0%EB%A6%AC%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="우리은행통장사본 다운로드" title="우리은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_04"><p class="hidden"KEB하나은행로고</p></div></td>
+								<td>KEB하나은행 구)외환</td>
+								<td>178-890005-38805</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_keb.jpg&amp;realFileName=KEB%ED%95%98%EB%82%98%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="KEB하나은행통장사본 다운로드" title="KEB하나은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+							<tr>
+								<td><div class="bank_09"><p class="hidden">제일은행로고</p></div></td>
+								<td>제일은행</td>
+								<td>130-10-101447</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_scfirst.jpg&amp;realFileName=%EC%A0%9C%EC%9D%BC%EC%9D%80%ED%96%89%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="제일은행통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="padt35 padl20">
+					<h3 class="open_edu_bullet">중기특화 교육 입금 계좌 </h3>
+					<p style="margin:-7px 0 0 15px;">※과정명에 ‘중기특화’ ‘중소기업 특별교육과정’으로 기재된 과정에 한함</p>
+				</div>
+				<div class="padt5 marginl20 open_bank_box">
+					<table class="bank_info_table">
+						<caption>계좌번호 안내 테이블입니다.</caption>
+						<colgroup>
+							<col style="width: 22%;">
+							<col style="width: 20%;">
+							<col style="width: 33%;" />
+							<col style="width: 25%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th colspan="2">은행</th>
+								<th>계좌번호</th>
+								<th>통장사본</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><div class="bank_04"><p class="hidden">KEB하나은행로고</p></div></td>
+								<td>KEB하나은행</td>
+								<td>272-910011-72704</td>
+								<td><a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=bank_smhrd.jpg&amp;realFileName=%ED%95%9C%EA%B5%AD%EC%83%9D%EC%82%B0%EC%84%B1%EB%B3%B8%EB%B6%80%5F%EC%A4%91%EA%B8%B0%ED%8A%B9%ED%99%94%5F%ED%86%B5%EC%9E%A5%EC%82%AC%EB%B3%B8%2Ejpg" title="중기특화통장사본 다운로드" title="중기특화통장사본 다운로드"><div class="bank_copy_download"></div></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="padt5 marginl20 open_bank_box">
+					<div class="bank_txt margint10"><p>부동산 관련 과정 계좌정보는 <strong>별도 계좌정보 안내(사회능력개발원)</strong></p></div>
+					<div class="margint10 download_box">
+						<span><strong>예 금 주 : 한국생산성본부</strong></span>
+						<a href="/download/download.asp?mode=Bank&amp;seq=0&amp;fileName=number.jpg&amp;realFileName=%EC%82%AC%EC%97%85%EC%9E%90%EB%93%B1%EB%A1%9D%EC%A6%9D%EC%82%AC%EB%B3%B8%2Ejpg" title="사업자등록증 사본 다운로드"><div class="marginl10 license_copy_download"><p class="hidden">사업자등록증 사본 다운로드</p></div></a>
+					</div>
+				</div>
+				<div class="alignc margint15 marginb20">
+					<input type="button" id="" name="" class="pop_confirm g_pop_close" value="창 닫기" >
+				</div>
+		</script>
+
+<script id="quickLayerPop" type="text/x-jquery-tmpl">
+	<h2 class="pop_title"><span>회원사 검색</span></h2>
+	<span><a href="#" class="pop_close">닫기</a></span>
+	<h3 class="pop_h3">회원사 검색</h3>
+	<div class="pop_division">
+		<fieldset>
+			<div class="ndivision">
+				<p class="bold font18 alignc">회사(법인)명 또는 사업자등록번호를 입력하세요.</p>
+				<form name="frmQuickMemCom" id="frmQuickMemCom">
+				<div class="f6_box edu_person_search_box margint30">
+					<label for="" class="hidden">사업자 입력</label>
+					<input type="text" id="schWord" class="inp_w310" placeholder="회사(법인)명 또는 사업자등록번호를 입력하세요." />
+					<label for="" class="hidden">검색</label>
+					<input type="button" id="" class="pop_search" value="검색">
+					<span class="color_pointr alignc margint10">사업자번호는 ‘ - ’ 빼고 입력해 주세요.</span>
+				</div>
+				</form>
+				<h4 class="cons_title_bullet margint30 font18 color_pointr">검색결과</h4>
+				<table id="quickTblList" class="list1 edu_person_table">
+					<caption>사업자 조회 결과</caption>
+					<colgroup>
+						<col style="width:78px" />
+						<col style="width:100px" />
+						<col style="width:100px" />
+						<col style="width:110px" />
+						<col style="width:116px" />
+					</colgroup>
+					<thead>
+						<th scope="col">회사 (법인) 명</th>
+						<th scope="col">사업자 번호</th>
+						<th scope="col">주소</th>
+						<th scope="col">등급</th>
+						<th scope="col">종류</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="5" class="no_data">
+								<span class="bold font16">데이터가 존재하지 않습니다.</span>
+								<span class="font13">* 유료 법인회원 문의 : 02-724-1089</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="alignc padt25">
+					<button id="btn_close" name="" class="btn_company_seach_confirm marginb20">확인</button>
+					<a href="/MeCo/Information.asp" target="_blank" class="btn_member_info">KPC 회원제도 안내</a>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</script>
+<script id="quickTblListTemplate" type="text/x-jquery-tmpl">
+							<tr id="schlist">
+								<td>${ClientName}</td>
+								<td>${BizNo}</td>
+								<td>${Addr}${AddrDetail}</td>
+								<td>${UMMemberTypeName}</td>
+								<td>${UMMemberKindName}</td>
+							</tr>
+</script>
+<script id="quickTblListTemplateNone" type="text/x-jquery-tmpl">
+							<tr>
+								<td colspan="5" class="no_data">
+									<span class="bold font16">데이터가 존재하지 않습니다.</span>
+									<span class="font13">* 유료 법인회원 문의 : 02-724-1089</span>
+								</td>
+							</tr>
+</script>
+
+<!-- 고용보험 환급안내 -->
+<script id="footerLayerPop4" type="text/x-jquery-tmpl">
+	<h2 class="pop_title"><span>고용보험 환급안내</span></h2>
+	<span><a href="#" class="pop_close g_pop_close">닫기</a></span>
+	<h3 class="pop_h3">고용보험 환급안내</h3>
+	<div class="infobox">
+		<h4 class="cons_title_bullet">고용보험이란?</h4>
+		<p>근로자와 사업주에 대한 사회 안전망의 하나로서 진행되고 있으며, 실업보험의 성격과 함께 사전적인 실업예방, 재취업 촉진, 근로자의 직업능력 향상을 위한 인적자원 개발을 수행하는 종합적인 인력정책 수단으로서의 특성을 갖고 있습니다.</p>
+	</div>
+	<div class="infobox">
+		<h4 class="cons_title_bullet">고용보험에 의한 교육비 환급이란?</h4>
+		<p>고용보험 피보험자로 등록된 교육생의 교육비 전액을 사업주가 부담한 경우 교육비의 일부금액을 사업주 앞으로 한국산업인력공단이 지원해 주는 제도입니다.</p>
+	</div>
+	<div class="infobox">
+		<h4 class="cons_title_bullet">환급은 얼마나 받을 수 있나요?</h4>
+		<p>훈련직종별 NCS단가에 훈련시간과 환급비율을 곱하여 산출한 금액(환급비율은 기업규모별 비율 적용)이 지급됩니다.<br />
+		◆ 계산식 : NCS기준단가 x 교육시간 x 기업규모별환급율(%) + 식비 + 숙박비<br />
+		※ 기업규모별 환급율 : 50인 미만 우선지원 : 100% / 50인 이상 우선지원 : 90% / 1,000인 미만 대규모 : 60% / 1,000인 이상 대규모 : 40%(교육비의 20% 내외)</p>
+	</div>
+	<div class="infobox">
+		<h4 class="cons_title_bullet">환급을 받으려면 어떻게 해야하나요?</h4>
+		<p>교육신청시 훈련위탁계약서를 생산성본부에 제출합니다. 교육종료일 기준으로 1달 이후부터 3년이내에 아래 서류를 준비하시어 
+사업장 소재지 한국산업인력공단 지역본부 및 지사에 제출 합니다.</p>
+	</div>
+	<div class="red_info"> <a href="http://www.hrdkorea.or.kr/5/4/2/1" title="한국산업인력공단 홈페이지 이동" target="_blank">한국산업인력공단 안내 바로가기</a></div>
+	<div class="infobox_gray">
+		<h5>고용보험환급관련 증빙서류</h5>
+		<p>
+			① <a href="/download/download.asp?mode=grouptemp&fileName=%EC%82%AC%EC%97%85%EC%A3%BC%EC%A7%81%EC%97%85%EB%8A%A5%EB%A0%A5%EA%B0%9C%EB%B0%9C%ED%9B%88%EB%A0%A8%EB%B9%84%EC%9A%A9%EC%A7%80%EC%9B%90%EC%8B%A0%EC%B2%AD%EB%B3%84%EC%A7%80%2Ehwp&realFileName=%EC%82%AC%EC%97%85%EC%A3%BC%EC%A7%81%EC%97%85%EB%8A%A5%EB%A0%A5%EA%B0%9C%EB%B0%9C%ED%9B%88%EB%A0%A8%EB%B9%84%EC%9A%A9%EC%A7%80%EC%9B%90%EC%8B%A0%EC%B2%AD%EB%B3%84%EC%A7%80%2Ehwp" title="사업주 직업능력개발 훈련비용 지원신청서 한글 download"><strong>사업주 직업능력개발 훈련비용 지원신청서(download)</strong><img src="../images/main/han_icon.gif" alt="사업주 직업능력개발 훈련비용 지원신청서 한글 download"></a><br />
+			② 회사 법인통장 사본<br />
+			③ 수료증 사본 또는 수료자명단<br />
+			④ 훈련기관 발행 영수계산서 사본 또는 법인카드 영수증 또는 청구계산서+수납(입금)확인서
+		</p><br />
+		<p>* KPC홈페이지 로그인 후 마이페이지-> 기업교육현황조회 or 수강교육조회에서 재발행가능<br />
+         * 수납(입금)확인서가 조회되지 않을 경우 청구계산서 비고란의 전화번호로 연락하여 발행요청</p>
+	</div><br>
+	<div class="red_info">상기 고용보험환급 안내는 2016년 12월 31일까지 과정에 한함</div><br><br>
+	<div class="red_info"> <a href="http://www.kpc.or.kr/Customer/NoticeView.asp?seq=18847" title="2017년 1월 1일 과정 환급제도 안내 페이지 이동" target="_blank">※ 2017년 1월 1일 인정기준 과정 환급제도 안내 바로가기</a></div>
+	<div class="alignc margint15 marginb20">
+		<input type="button" id="" name="" class="pop_confirm g_pop_close" value="창 닫기" >
+	</div>
+</script>
+
+<!-- 비밀번호 변경안내 -->
+<script id="footerLayerPop5" type="text/x-jquery-tmpl">
+	<h2 class="pop_title"><span>비밀번호 변경안내</span></h2>
+	<span><a href="#" class="pop_close g_pop_close">닫기</a></span>
+	<div class="pass_change_txt">
+		<h3><span class="color_pointr">비밀번호 변경</span> 안내</h3>
+		<p class="bold marginb5">고객님의 개인정보를 안전하게 보호하기 위해 비밀 번호를 변경해 주세요.</p>
+		<p>최근 6개월 동안 비밀번호 변경을 하지 않았습니다.</p>
+		<p>개인 정보 보호를 위해 주기적으로 비밀번호를 변경하는 것이 좋습니다.</p>
+		<div class="margint15 marginb15">
+			<input type="button" id="" name="" class="btn pass_change" />
+			<input type="button" id="" name="" class="btn pass_next" />
+		</div>
+		<p>* 다음에 변경하기를 클릭하면 6개월 동안 해당화면은 출력 되지 않습니다.</p>
+	</div>
+</script>
+
+54.196.46.127
+<!-- 구글 접속통계 -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84489108-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- 구글 접속통계 -->
+<!--  LOG corp Web Analitics & Live Chat  START -->
+<script  type="text/javascript">
+//<![CDATA[
+function logCorpAScript_full(){
+	HTTP_MSN_MEMBER_NAME="";/*member name*/
+	var prtc=(document.location.protocol=="https:")?"https://":"http://";
+	var hst=prtc+"asp27.http.or.kr";
+	var rnd="r"+(new Date().getTime()*Math.random()*9);
+	this.ch=function(){
+		if(document.getElementsByTagName("head")[0]){logCorpAnalysis_full.dls();}else{window.setTimeout(logCorpAnalysis_full.ch,30)}
+	}
+	this.dls=function(){
+		var h=document.getElementsByTagName("head")[0];
+		var s=document.createElement("script");s.type="text/jav"+"ascript";try{s.defer=true;}catch(e){};try{s.async=true;}catch(e){};
+		if(h){s.src=hst+"/HTTP_MSN/UsrConfig/bkshin/js/ASP_Conf.js?s="+rnd;h.appendChild(s);}
+	}
+	this.init= function(){
+		document.write('<img src="'+hst+'/sr.gif?d='+rnd+'" style="width:1px;height:1px;position:absolute;display:none" onload="logCorpAnalysis_full.ch()" alt="" />');
+	}
+}
+if(typeof logCorpAnalysis_full=="undefined"){var logCorpAnalysis_full=new logCorpAScript_full();logCorpAnalysis_full.init();}
+//]]>
+</script>
+<noscript><img src="http://asp27.http.or.kr/HTTP_MSN/Messenger/Noscript.php?key=bkshin" style="display:none;width:0;height:0;" alt="" /></noscript>
+<!-- LOG corp Web Analitics & Live Chat END -->
+
+		<!--// footer -->
+		</div><!--wrap-->
+	<!-- QR코드 출력 안내 팝업 -->
+ 	<!--<div id="popup_1" name="popup_1" style="position:absolute;top:523px;left:0px;background-color:#cdcdcd;display:none;z-index:999">
+		<div style="width:100%; "><img src="/images/popup/20180314.png" width="416px" height="367px" alt="한국고용정보원에서 3월 8일 고시한 사업주훈련 지원규정이 변경되어 알려드립니다." >
+		</div>
+		<div style="width:100%; ">
+			<div style="float:left;margin:0px 0px 5px 10px; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('1','close');" style="color:#666666;text-decoration:none;">오늘 이 창을 다시 열지 않음</a>
+			</div>
+			<div style="float:right;margin:0px 10px 5px 0; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('1','');" style="color:#666666;text-decoration:none;">닫기</a>
+			</div>
+		</div>
+	</div>  -->
+<div id="popup_2" name="popup_2" style="position:absolute;top:190px;left:0px;background-color:#cdcdcd;display:none;z-index:999">
+		<div style="width:100%; "><a href="http://www.kpc.or.kr/Customer/NoticeView.asp?seq=30851" ><img src="/images/popup/20180314.png" width="416px" height="367px" alt="한국고용정보원에서 3월 8일 고시한 사업주훈련 지원규정이 변경되어 알려드립니다." ></a>
+		</div>
+		<div style="width:100%; ">
+			<div style="float:left;margin:0px 0px 5px 10px; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('2','close');" style="color:#666666;text-decoration:none;">오늘 이 창을 다시 열지 않음</a>
+			</div>
+			<div style="float:right;margin:0px 10px 5px 0; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('2','');" style="color:#666666;text-decoration:none;">닫기</a>
+			</div>
+		</div>
+	</div> 
+
+	<!--<div id="popup_2" name="popup_2" style="position:absolute;top:150px;left:0px;background-color:#cdcdcd;display:none;z-index:999">
+		<div style="width:100%; "><a href="http://www.kpc.or.kr/Customer/NoticeView.asp?seq=30427"  target="_blank"><img src="/images/popup/20171204.jpg" width="382px" height=296px" alt="한국생산성본부 회장공모" ></a>
+		</div>
+		<div style="width:100%; ">
+			<div style="float:left;margin:0px 0px 5px 10px; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('2','close');" style="color:#666666;text-decoration:none;">오늘 이 창을 다시 열지 않음</a>
+			</div>
+			<div style="float:right;margin:0px 10px 5px 0; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('2','');" style="color:#666666;text-decoration:none;">닫기</a>
+			</div>
+		</div>
+	</div>
+<div id="popup_3" name="popup_3" style="position:absolute;top:150px;left:0px;background-color:#828282;display:none;z-index:999">
+		<div style="width:100%; "><a href="https://kpc.recruitcenter.kr/01_RECRUIT/recruitNotice171026.html"  target="_blank"><img src="/images/popup/20171030.jpg" width="382px" height="350" alt="한국생산성본부 신입 및 경력직원 채용 안내 팝업" ></a>
+		</div>
+		<div style="width:100%; ">
+			<div style="float:left;margin:0px 0px 5px 10px; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('3','close');" style="color:#ffffff;text-decoration:none;">오늘 이 창을 다시 열지 않음</a>
+			</div>
+			<div style="float:right;margin:0px 10px 5px 0; padding-top:7px; font-size:12px; letter-spacing:-1px;">
+				<a href="javascript:closeLayer('3','');" style="color:#ffffff;text-decoration:none;">닫기</a>
+			</div>
+		</div>
+	</div>  -->
+	</body>
+</html>

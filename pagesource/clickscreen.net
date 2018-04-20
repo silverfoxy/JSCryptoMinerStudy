@@ -1,0 +1,96 @@
+<html>
+<head><title></title>
+<script type="text/javascript" src="jquery-1.7.min.js"></script>
+<script type="text/javascript">
+function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 
+
+$(document).ready(function()
+{
+$('#frmComments').submit(function() {
+        //get user input and create random number
+        var input = ($(this).serialize());
+        var rand = Math.random();
+		if($('#comments').val() == '' ) {
+			alert('Please enter comments.');
+			return false;
+		}
+		if(!validateEmail($('#email').val())) {
+			alert('Please enter a valid email address.');
+			return false;
+		}
+
+        //submit post to check.php and reload image
+        $.post('check.php', input, function(data) {
+				var arrData = data.split("|");
+				if(arrData[0]=="1") {
+					//success.. disable submit button
+					$('#btnSubmit').attr('disabled', true);
+					$('p.success').html(arrData[1]);
+					$('p.success').show();
+					
+				} else {
+					$('div.result').html(arrData[1]);
+				}
+                $('img.captcha').attr("src", 'captchacreate.php?' + rand);
+        });
+        return false;
+        });
+
+return false;
+});
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+<span><img src='info.jpg'></span>
+<p class='success' style='display:none;'></p>
+<p class='greenmsg'>
+This Domain/IP belongs to an Advertising network, we are using this Domain/IP <BR/> as a redirection of traffic from our publishers.
+</p>
+<p class='content'>
+We are strongly against any click frauds. If that site was opened without your permission do not hesitate to notify us about it.<br/> Please describe everything filling the complaint below.
+</p>
+<div>
+	<form id="frmComments" method="post">
+			<table class='center'>
+				<tr>
+					<td valign='top' align='right'><strong>Comment:</strong></td>
+					<td><textarea id='comments' name='comments' cols='50' rows='6'></textarea></td>
+				</tr>
+				<tr>
+					<td colspan='2' align='center'>
+					Please provide <span class='greenmsg-sml'>YOUR EMAIL ADDRESS</span> in order to receive our feedback.
+					</td>
+				</tr>
+				<tr>
+					<td valign='top' align='right'><strong>Enter Your Email:</strong></td>
+					<td><input type="text" id='email' name="email" size="65"></td>
+				</tr>
+				<tr>
+					<td colspan='2' align='center'>
+					To make sure that you are a human please <span class='greenmsg-sml'>TYPE IN A CODE</span> from the image into the input field below:
+					</td>
+				</tr>
+				<tr>
+					<td valign='top' align='right'><strong>Enter the message as shown *:</strong></td>
+					<td valign='top'><img class="captcha" src="captchacreate.php"> &nbsp;
+					<input type="text" name="userinput" style='vertical-align:top;margin-top:0px'>
+					<!-- result holder -->
+					<div class="result"></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan='2' valign='top' align='center'>
+						<input type="submit" value="Submit" class='btn btn-primary' id='btnSubmit'>
+					</td>
+				</tr>
+			</table>
+	</form>
+</div>
+
+</body>
+</html>

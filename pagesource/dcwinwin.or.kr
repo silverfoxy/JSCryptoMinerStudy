@@ -1,0 +1,513 @@
+<!doctype html>
+
+
+    
+
+
+
+
+
+
+
+<html lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>DC상생협력지원센터</title>
+<meta name="viewport" content="width=1024">
+<link rel="stylesheet" type="text/css" href="/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/css/default.css">
+<link rel="stylesheet" type="text/css" href="/css/util.css">
+
+    
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/at.vendor.js"></script>
+
+<script type="text/javascript" src="/js/jquery/jquery-ui-1.8.23.custom.min.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+
+<script type="text/javascript" src="/js/jquery/jquery.easing.1.3.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+<script type="text/javascript" src="/js/jquery/jquery.ui.datepicker-ko.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+<link href="/css/custom-theme/jquery-ui-1.8.23.custom.css;jsessionid=BE83412F212936030EC049DA036B6146" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/jquery/jquery.util.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+
+<!-- fancy box -->
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox-1.3.4.pack.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+<link href="/js/fancybox/jquery.fancybox-1.3.4.css;jsessionid=BE83412F212936030EC049DA036B6146" rel="stylesheet" type="text/css" />
+
+<!-- validation -->
+<script type="text/javascript" src="/js/validator/validator.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+<script type="text/javascript" src="/js/bjs-util-1.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+
+<script type="text/javascript" src="/js/upload/ajaxupload.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+<script type="text/javascript" src="/js/common.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+
+
+<script type="text/javascript" src="/js/jquery/jquery.cookie.js;jsessionid=BE83412F212936030EC049DA036B6146"></script>
+
+
+
+
+
+	
+
+<script type="text/javascript">
+//<![CDATA[
+	$(document).ajaxError(function(event, xhr, settings, exception){
+		try{				
+			console.log('AJAX ERROR : '+ exception);
+			console.log(arguments);
+		}catch(e){/*do nothing*/}
+	});
+	
+	$.ajaxSetup({
+		timeout : 60000
+	});
+	
+	$(function(){
+		$('.loginPopup').fancybox({
+			'showCloseButton':false,
+			'padding':0,
+			'scrolling': 'no',
+			'width':525,
+			'height':350,
+			'type':'iframe',
+			'autoScale':'false'
+		});
+		/*뉴스레터 팝업 추가*/
+		$('.newLetterChoicePopup').fancybox({
+			'showCloseButton':false,
+			'padding':0,
+			'scrolling': 'no',
+			'width':525,
+			'height':350,
+			'type':'iframe',
+			'autoScale':'false'
+		});
+		/*Q&A 팝업 추가*/
+		$('.qnaPopup').fancybox({
+			'showCloseButton':false,
+			'padding':0,
+			'scrolling': 'no',
+			'width':525,
+			'height':560,
+			'type':'iframe',
+			'autoScale':'false'
+		});
+	});
+	
+//]]>
+</script>
+
+
+<script type="text/javascript">
+	//<![CDATA[
+	//var GNBFIX = 1; // 1부터 시작
+
+	//var depth1 = 0;
+	//var depth2 = 0;
+
+	$(function(){
+		//popupOpen();
+
+		$("a[href='#view']").click(function(){
+			//var form = document.aform;
+			var url = '/board/B000001/view.do?boardNo=' + $(this).attr('value');
+			location.href = url;
+//			form.action = url;
+//			form.submit();
+		});
+
+		var  cookiedata;
+		cookiedata = document.cookie;
+		
+		if (cookiedata.indexOf("11=done") < 0) {
+			var popObject11 = window.open("/pop.do?pop=11", "pop11", "width=10,height=10,toolbar=no,top=130,left=120");
+		} else{
+// 			popObject11.close();
+		}
+		
+	});
+
+	var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson');
+	//alert(navigator.userAgent);
+	for (var word in mobileKeyWords){
+
+		if (navigator.userAgent.match(mobileKeyWords[word]) != null){
+			parent.window.location.href='/mobile/index.do';
+			break;
+		}
+	}
+
+	// 2017.08.07 로그인 시 새로고침 되지 않도록 function 추가
+	function getLogin(){
+
+		$.ajax({
+			url:'/lawCnlt/list.do',
+			type:'POST',
+			dataType:'json',
+			async: false,
+			beforeSend : function(xmlHttpRequest){
+				xmlHttpRequest.setRequestHeader("AJAX", "true");
+			},
+			success:function(data){
+
+			},
+			error: function(e){
+				if (e.status == 400){
+					if (confirm("로그인 하시겠습니까?")) {
+						$(".loginPopup").click();
+					}
+				}else{
+					location.href = "/lawCnlt/list.do";
+				}
+			}
+		});
+	}
+
+	//]]>
+</script>
+
+</head>
+<body>
+
+	<!-- skipToContent -->
+	<div id="skipToContent">
+		<a href="#gnb">주메뉴바로가기</a>
+		<a href="#content">본문바로가기</a>
+	</div>
+	<!-- //skipToContent -->
+
+
+
+
+
+
+	<!-- Header -->
+	
+    
+
+
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+	
+	//$(function(){
+		
+	//});
+	
+//]]>
+</script>
+
+<!-- header -->
+<div id="header">
+	<div class="header1">
+		<nav class="tnb"> 
+			<a href="/;jsessionid=BE83412F212936030EC049DA036B6146">HOME</a><span>|</span>
+			
+				<a href="/loginPopup.do;jsessionid=BE83412F212936030EC049DA036B6146" class="loginPopup iframe" >로그인</a><span>|</span>
+				<a href="/user/userStep1Write.do;jsessionid=BE83412F212936030EC049DA036B6146">회원가입</a>				
+			
+			
+			<span>|</span><a href="/user/mypage/mypageDetail.do;jsessionid=BE83412F212936030EC049DA036B6146">마이페이지</a>
+		</nav>
+	</div>
+	<div class="header2">
+		<h1><a href="/;jsessionid=BE83412F212936030EC049DA036B6146"><img src="/images/logo.png" alt="DC상생협력지원센터" /></a></h1>
+		<nav class="gnb" id="gnb">
+
+			<a href="/info.do;jsessionid=BE83412F212936030EC049DA036B6146">센터소개</a>
+			<a href="/cnsl/info.do;jsessionid=BE83412F212936030EC049DA036B6146">맞춤형표준계약서</a>
+			<a href="/lawCnlt/info.do;jsessionid=BE83412F212936030EC049DA036B6146">법률자문</a>
+			<a href="/edu/online.do;jsessionid=BE83412F212936030EC049DA036B6146">교육서비스</a>
+			<a href="/board/B000001/list.do;jsessionid=BE83412F212936030EC049DA036B6146">정보마당</a>
+			<!-- <a href="/event/event_list.do;jsessionid=BE83412F212936030EC049DA036B6146">참여마당</a> -->
+			<div class="snbGroup">
+				<nav class="snb v01">
+
+					<a href="/info.do;jsessionid=BE83412F212936030EC049DA036B6146">센터소개</a>
+					<a href="/location.do;jsessionid=BE83412F212936030EC049DA036B6146">찾아오시는길</a>
+				</nav>
+				<nav class="snb v02">
+					<a href="/cnsl/info.do;jsessionid=BE83412F212936030EC049DA036B6146">안내 및 신청</a>
+					
+				</nav>
+				<nav class="snb v03">
+					<a href="/lawCnlt/info.do;jsessionid=BE83412F212936030EC049DA036B6146">안내 및 신청</a>
+					<a href="/lawCnlt/cseList.do;jsessionid=BE83412F212936030EC049DA036B6146">대표 사례</a>
+				</nav>
+				<nav class="snb v04">
+					<a href="/edu/online.do;jsessionid=BE83412F212936030EC049DA036B6146">공정거래 교육 안내</a>
+					<a href="/edu/list.do;jsessionid=BE83412F212936030EC049DA036B6146">교육 및 세미나 신청</a>
+				</nav>
+				<nav class="snb v05">
+					<a href="/board/B000001/list.do;jsessionid=BE83412F212936030EC049DA036B6146">공지사항</a>
+					<a href="/board/B000003/list.do;jsessionid=BE83412F212936030EC049DA036B6146">DC표준계약서</a>
+					<a href="/board/B000002/list.do;jsessionid=BE83412F212936030EC049DA036B6146">산업동향</a>
+					<a href="/board/B000006/list.do;jsessionid=BE83412F212936030EC049DA036B6146">DC센터 뉴스레터</a>
+					<a href="/board/B000006/list.do;jsessionid=BE83412F212936030EC049DA036B6146">FAQ</a>
+					
+				</nav>		
+				
+			</div>
+		</nav>
+	</div>
+	
+</div>
+<!-- //header -->
+	<!-- Header -->
+
+	<!-- container -->
+	<div id="container">
+		<div class="visualArea">
+			<ul class="visual">
+
+				
+					
+						
+							
+								
+									<li><img src="upload_public/POP/gq3q99v13ki2u91.jpg" alt="메인-1"/></li>
+								
+								
+							
+						
+					
+						
+							
+								
+									<li><img src="upload_public/POP/6te5xxfr7w325nn.jpg" alt="메인-2"/></li>
+								
+								
+							
+						
+					
+						
+							
+								
+									<li><img src="upload_public/POP/3tk15u1rh104ijt.jpg" alt="메인-3"/></li>
+								
+								
+							
+						
+					
+						
+							
+								
+								
+									<li><a href="http://www.dcwinwin.or.kr/edu/online.do"><img src="upload_public/POP/e555lr16w8jbum3.jpg" alt="메인-4"></a></li>
+								
+							
+						
+					
+				
+			</ul>
+			<div class="visualList">
+				
+					
+						<a href="#roling"  class="on"></a>
+					
+						<a href="#roling" ></a>
+					
+						<a href="#roling" ></a>
+					
+						<a href="#roling" ></a>
+					
+				
+			</div>
+		</div>
+		<div id="content">
+			<div class="contentGroup1">
+				<div class="serviceGroup v06">
+					<div class="titGroup">
+						<h2>디지털콘텐츠 표준계약서</h2>
+						<p>필요한 계약서를<br/>다운받아 사용하세요.</p>
+						<a href="/board/B000003/list.do;jsessionid=BE83412F212936030EC049DA036B6146"><img src="/images/btn_more1.png" alt="표준계약서 더보기"></a>
+					</div>
+					<ul class="contractList">
+
+						<li><a href="/download/디지털콘텐츠제작_도급_표준계약서.hwp;jsessionid=BE83412F212936030EC049DA036B6146" target="_blank"></a>도급</li>
+						<li><a href="/download/디지털콘텐츠제작_하도급_표준계약서.hwp;jsessionid=BE83412F212936030EC049DA036B6146" target="_blank"></a>하도급</li>
+						<li><a href="/download/디지털콘텐츠위탁매매표준계약서.hwp;jsessionid=BE83412F212936030EC049DA036B6146" target="_blank"></a>위탁매매</li>
+						<li><a href="/download/디지털콘텐츠 중개 표준계약서.hwp;jsessionid=BE83412F212936030EC049DA036B6146" target="_blank"></a>중개</li>
+						<li><a href="/download/디지털콘텐츠퍼블리싱표준계약서.hwp;jsessionid=BE83412F212936030EC049DA036B6146" target="_blank"></a>퍼블리싱</li>
+					</ul>
+				</div>
+			</div>
+			<div class="contentGroup3">
+				<div class="serviceGroup v01">
+					<h2>맞춤형 표준계약서</h2>
+					<p>디지털콘텐츠 계약 특성에 맞게 <br/>맞춤형 계약서를 제공해드립니다.</p>
+					<div class="aGroup">
+						<a href="/cnsl/info.do;jsessionid=BE83412F212936030EC049DA036B6146" class="btn blue">맞춤형 표준계약서 신청</a>
+						
+					</div>
+				</div>
+				<div class="serviceGroup v02">
+					<h2>법률자문</h2>
+					<p>사업자 대상으로 공정거래와 관련한 무료<br/>
+					법률자문 서비스를 제공하고 있습니다.</p>
+					<div class="aGroup">
+						<a href="/lawCnlt/info.do;jsessionid=BE83412F212936030EC049DA036B6146" class="btn blue">법률자문 신청</a>
+						
+					</div>
+				</div>
+				<div class="serviceGroup v05">
+					<h2>SNS</h2>
+					<ul class="infoList">
+						<li><a href="https://www.facebook.com/dcwinwin" target="_blank"><img src="/images/icon_sns_info1.png" alt="페이스북"/><br/>페이스북</a></li>
+						<li><a href="http://m.post.naver.com/my.nhn?memberNo=9707756" target="_blank"><img src="/images/icon_sns_info3.png" alt="포스트"/><br/>포스트</a></li>
+						<li class="last"><a href="http://blog.naver.com/contentstand" target="_blank"><img src="/images/icon_sns_info2.png" alt="블로그"/><br/>블로그</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="contentGroup2">
+				<div class="seviceWrap">
+					<div class="serviceGroup v04">
+						<div class="titGroup">
+							<h2>공지사항</h2>
+							<a href="/board/B000001/list.do;jsessionid=BE83412F212936030EC049DA036B6146"><img src="/images/btn_more1.png" alt=" 공지사항 더보기"/></a>
+						</div>
+						<ul class="newsList">
+							
+					 			
+									<li >
+										<a href="#view" value="221" class="contTitle">
+											
+												[2018 뉴스레터 2월호] 독자 만...
+											
+											
+										</a>
+										<span class="date_v01">2018.03.07</span>
+									</li>
+								
+									<li >
+										<a href="#view" value="217" class="contTitle">
+											
+												2018년도 과학기술정보통신부 창업·...
+											
+											
+										</a>
+										<span class="date_v01">2018.02.08</span>
+									</li>
+								
+									<li >
+										<a href="#view" value="207" class="contTitle">
+											
+												[2018 K-ICT 창업멘토링센터]...
+											
+											
+										</a>
+										<span class="date_v01">2018.01.30</span>
+									</li>
+								
+									<li >
+										<a href="#view" value="206" class="contTitle">
+											
+												[2018 청년, 창업을 만나다] 그...
+											
+											
+										</a>
+										<span class="date_v01">2017.12.14</span>
+									</li>
+								
+							
+							
+						</ul>
+					</div>
+					<div class="serviceGroup v07">
+						<h2>문의처</h2>
+						<h1>02.6207.8272</h1>
+						<p>운영시간 : 평일09:00~18:00</p>
+						<div class="aGroup">
+							<a href="/board/B000007/qnaPopup.do" class="btn blue qnaPopup iframe">Q&#38;A 보내기</a>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- //container -->
+
+	<!-- banner -->
+	<div class="bannerSlider">
+		<div class="innerContainer">
+			<div class="sliderFrame">
+				<div class="innerFrame">
+					
+					<a href="http://www.moiba.or.kr/" target="_blank"><img src="/images/banner1.png" alt="한국무선인터넷산업연합회" /></a>
+					<a href="http://www.nipa.kr" target="_blank"><img src="/images/banner2.png" alt="NIPA. 정보통신산업진흥원" /></a>
+					<a href="http://www.msip.go.kr" target="_blank"><img src="/images/banner3.png" alt="미래창조과학부" /></a>
+					
+					<a href="http://www.sw.or.kr" target="_blank"><img src="/images/banner4.png" alt="한국소프트웨어산업협회" /></a>
+					<a href="http://www.kelia.org" target="_blank"><img src="/images/banner5.png" alt="에듀테크산업협회" /></a>
+					<a href="http://www.kodfa.org " target="_blank"><img src="/images/banner6.png" alt="한국디자인기업협회" /></a>
+					<a href="http://www.dea.or.kr" target="_blank"><img src="/images/banner7.png" alt="한국디지털기업협회" /></a>
+					<a href="http://www.kofair.or.kr" target="_blank"><img src="/images/banner8.png" alt="한국공정거래조정원" /></a>
+					<a href="http://www.kwia.or.kr" target="_blank"><img src="/images/banner9.png" alt="한국웹툰산업협회" /></a>
+					<a href="http://www.onlinead.or.kr" target="_blank"><img src="/images/banner10.png" alt="한국온라인광고협회" /></a>
+					<a href="http://www.korra.kr" target="_blank"><img src="/images/banner11.png" alt="한국복제전송저작권협회" /></a>
+					<a href="http://www.dcna.or.kr" target="_blank"><img src="/images/banner12.png" alt="디지털콘텐츠네트워크협회" /></a>
+					<a href="http://www.koreaanimation.or.kr" target="_blank"><img src="/images/banner13.png" alt="한국애니메이션제작자협회" /></a>
+				</div>
+			</div>
+			<div class="control">
+				<button type="button" class="left">왼쪽으로</button>
+				<button type="button" class="right">오른쪽으로</button>
+				<button type="button" class="play">시작</button>
+				<button type="button" class="pause">일시정지</button>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+
+	<!-- Footer -->
+	<div class="footer">
+		
+    
+	
+	<div id="footer">
+		<div class="footerGroup">
+			<nav class="fnb">
+				<a href="/user/userStep1Write.do">이용약관</a><span>|</span>
+				<a href="/user/userStep1Write.do">개인정보취급방침</a><span>|</span>
+				<a href="/email.do">이메일무단수집거부</a><span>|</span>
+				<a href="/location.do;jsessionid=BE83412F212936030EC049DA036B6146">찾아오시는길</a>
+			</nav>
+			<address class="address">
+				<p>서울시 강남구 압구정로 36길 신구빌딩 4층  Tel : 02-6207-8272  FAX: 02-539-8767</p>
+<!-- 				<p>사업자등록번호 : 120-82-09427    통신판매업신고 : 제2012-서울강남-01190호    대표자 : 고진</p> -->
+			</address>
+			<p class="copyrights">CopyRight 2017. DC Center by KOREA MOBILE INTERNET BUSSINESS ASSOCIATION.All Rights Reserved.</p>
+			<div class="familyGroup">
+				<img alt="풋터 로고 이미지" src="/images/footerLog.png" />
+				
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<!-- //Footer -->
+	<script src="/js/at.util.js"></script>
+	<script src="/js/at.app.js"></script>
+	<script src="/js/at.execution.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		if("" == "login"){
+			if (confirm("로그인 하시겠습니까?")) {
+				$(".loginPopup").click();
+			}
+		}
+		
+	});
+	</script>
+</body>
+</html>

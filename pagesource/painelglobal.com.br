@@ -1,0 +1,1600 @@
+
+
+
+
+                                                                                                   
+
+<script type="text/javascript"  src="http://maps.googleapis.com/maps/api/js?&sensor=false"> </script>
+
+     <script type="text/javascript">                                     
+
+       var map; 
+       var infoWindow;
+
+       function plotQuake(map, lat, long, regiao, magnitude, prof, dia, tnt , bombas) {         
+       
+       //var url= "http://localhost/painel_global/satmap_terremotos.php?mapa=" + dia ;
+       
+       var url= "http://www.painelglobal.com.br/satmap_terremotos.php?mapa=" + dia ;
+          
+          // Define o ícone de acordo com a magnitude
+	    if ( magnitude > 8 ){
+   	      // Alvo vermelho grande
+	      var image = new google.maps.MarkerImage('http://www.painelglobal.com.br/imagens/mapa_global_m8.gif',
+	      new google.maps.Size(133, 133),      
+	      new google.maps.Point(0, 0),
+	      new google.maps.Point(66, 66))
+	      }
+      
+	      else if (magnitude > 7){
+   	      // Alvo vermelho   	            
+	      var image = new google.maps.MarkerImage('http://www.painelglobal.com.br/imagens/mapa_global_m7a.gif',
+	      new google.maps.Size(70, 70),      
+	      new google.maps.Point(0, 0),
+	      new google.maps.Point(35, 35))
+	      }      
+
+   	      else {    
+   	      // Alvo azul   	      
+	      var image = new google.maps.MarkerImage('http://www.painelglobal.com.br/imagens/mapa_global_m7.gif',
+	      new google.maps.Size(70, 70),      
+	      new google.maps.Point(0, 0),
+	      new google.maps.Point(35, 35))
+      	      }    
+
+         
+	  // plota o ícone
+             var point = new google.maps.LatLng(lat,long);
+             var ponto = new google.maps.Marker({
+             position: point,
+             map: map,
+             icon: image,                 
+             optimized: false})
+
+
+            google.maps.event.addListener(ponto, 'click', function() {
+                window.open(url,'janela', 'width=778, height=502, top=20, left=120, scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no, scrollbars=no');
+	    });
+
+
+
+
+      }   // Fecha a função
+
+
+
+       
+       function load() {
+       
+        var centro_mapa = new google.maps.LatLng(-30.18, -177.71);
+        
+        var myOptions = {
+          center: new google.maps.LatLng(-30.18, -177.71),
+          zoom: 2,       
+          disableAutoPan: false,
+          scaleControl: false,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        
+        plotQuake(map,'-30.18', '-177.71','Nova Zelândia, a 103 km de Raoul Islan','5.4','10','22/0307:265.4','1875','0.09375');                              
+        
+        
+        
+                  
+        
+        
+              //--------------  EVENTOS ---------
+	          google.maps.event.addListener(map, 'mouseup', function(event){
+		     latLngStr=event.latLng.lat() + ',' + event.latLng.lng();
+		     var latlon = latLngStr.split(",");		 
+		     zoom=5;
+		  });
+
+		  
+              //--------------
+              		  
+		  
+        
+      }
+
+   </script>
+<script type="text/javascript">
+var pix_grau_ver=495 /180;      // pixel por grau na vertical do mapa
+var pix_grau_hor=990/360;       // pixel por grau na horizontal do mapa
+var $rev_dia="15.54069515";
+var $dif="10800";                       // Horário do servidor
+var $fuso_local=-2;
+var $id_local="SP - São Paulo";
+var $latitude_local=-23.37;
+var $longitude_local=-46.37;
+var $altitude_local=750;
+var $sat_id="25544U";
+var $dia_utc=23;
+var $mes_utc=03;
+var $ano_utc=2018;
+var $hora_utc=17;
+var $min_utc=04;
+var $seg_utc=50;
+var $YE =2016;
+var $TE =281.21490516;
+var $IN =51.6439;
+var $RA =219.2354;
+var $EC =0.00059;
+var $WP =54.2842;
+var $MA = 95.4826;
+var $MM =15.54069515;
+var $RV = 2241;
+var $YE_back=2016;
+var $TE_back=281.21490516;
+var $IN_back=51.6439;
+var $RA_back=219.2354;
+var $EC_back=0.00059;
+var $WP_back=54.2842;
+var $MA_back= 95.4826;
+var $MM_back=15.54069515;
+var $RV_back= 2241;
+
+var debug="";
+var tic=1;
+var $nome_sat="Estação Espacial";
+var $sat_info="";
+
+
+</script>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+
+<title>Painel Global - Monitoramento da Terra em Tempo Real</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">         
+<meta Http-equiv="expires" Content="0">
+<meta name="description" content="Painel de monitoramento em tempo real de terremotos, furacões, tempestade e outros acontecimentos da Terra."> 
+<meta name="keywords" content="IPCC, Monitoramento meteorológico, Monitoramento Sísmico, Monitoramento de Tempestades Solares, Monitoramento em Tempo real">
+<meta name="google-site-verification" content="nUCAkGE_i4ZW4915A-4EZm3Wv4kK083-BWxm5CR_lis" />
+<meta name="h12-site-verification" content="cd3349864ba08d79464472166bdc7826"/>
+
+
+<meta property="fb:app_id" content="212240205527142"/>
+<meta property="fb:admins" content="1756971583"/>
+
+
+<script src="init.js" type="text/javascript"></script>
+<script src="track.js" type="text/javascript"></script>
+<script src="plot.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'pt-BR'}
+</script>
+
+<LINK rel="stylesheet" type="text/css" href="painel.css">
+<style>                              
+
+
+   .sismo_m0 {background: url('imagens/mapa_global_m0.gif') no-repeat; width:10px;height:10px;}
+   .sismo_m5 {background: url('imagens/mapa_global_m5.gif') no-repeat; width:10px;height:10px;}  
+   .sismo_m7 {background: url('imagens/mapa_global_m7.gif') no-repeat; width:70px;height:70px;}     
+   .vulcao {background: url('imagens/icone_vulcao_report.gif') no-repeat; width:20px;height:20px;}        
+   
+   .pg_mark {background: url('imagens/pg_mark.gif') no-repeat; width:80px;height:26px;}        
+   .pg_mark_dir_inf {background: url('imagens/pg_mark_dir_inf.gif') no-repeat; width:80px;height:26px;}           
+
+
+
+
+  .tabela_furacao { color: black; text-decoration: none; font-size: 10px;   font-weight: none; font-family: verdana}          
+   table#tabela_furacao td {border-style:solid; border-width:0px 1px 1px 0px; border-color:#196CAB ; padding:8px 3px 8px; 3px}     
+
+  .tempo_mundo {overflow:hidden;border-style:solid;border-width:1px;width:21px;height:14px;Position:absolute}
+  .tempo_mundo_bg {opacity: .75;filter: alpha(opacity=75);background-color:#FFFFFF;overflow:hidden;border-style:solid;border-width:1px;width:21px;height:14px;Position:absolute}
+  .sismo {width:10px;height:10px;Position:absolute}
+     
+
+div#destaque
+{overflow:hidden; border-bottom: dotted 1px #cbcbcb; padding:6px 0 6px 0;}
+h2 {display:inline; font-family: arial}
+h2 {font-size:12px; color:990000}
+h2 a {font-size:12px;color:990000}
+</style>                                          
+
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({home:'auto'});
+  !function (e, f, u, i) {
+    if (!document.getElementById(i)){
+      e.async = 1;
+      e.src = u;
+      e.id = i;
+      f.parentNode.insertBefore(e, f);
+    }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/apollo11-painelglobal/loader.js',
+  'tb_loader_script');
+</script> 
+
+
+
+</head>                       
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="load()" onunload="GUnload()" >
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1095310-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript" src="wz_tooltip.js"></script>
+
+<center>
+                                                   
+ 
+
+
+<table bgcolor=ffffff width=1196 cellpadding=0 cellspacing=0 style="margin-bottom:2px;margin-top:5px;border=0">
+<tr><td colspan=2><img src=imagens/pix_preto.gif width=1188 height=1 border=0 style="margin-bottom:12px"></td></tr>
+
+<tr>
+<td align=left width=254 valign=top><img src=imagens/logo_nov_2009.gif border=0></td>
+<td align=left  height=90>
+<div style="margin-left:0px;width:720px;height:90px">
+  <div id="16345-1"><script src="//ads.themoneytizer.com/s/gen.js?type=1"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=16345&formatId=1" ></script></div>
+</div>
+         
+</td>
+</tr>
+
+<tr>
+<td colspan=2>
+
+<div id="barra_azul"  style="width:100%;height:30px;padding:0;margin:9px 0 9px 0">
+
+
+<!-- Antigo pf_pg_links_728x15 -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pf_satmap_pg_topo_responsivo -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5941710628502738"
+     data-ad-slot="7043101038"
+     data-ad-format="link"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</div>
+
+</td>
+</tr>
+
+
+</table>      
+
+
+
+
+<table bgcolor=ffffff width=1188 cellpadding=0 cellspacing=0 style="margin-bottom:2px;margin-top:0px!important;margin-top:0px;">
+<td align=left>
+
+<!-- main_track -->
+<div id="main_track" style="background-color:1A4098;overflow:hidden;width:990px;height:495px;Position:relative">
+                                   
+
+
+<div id="infotrack_topo" style="overflow:hidden;width:auto;height:auto;top:5px;left:14px;line-height:20px;Position:absolute;"><font class=texto_track3>Aguardando... </font></div>
+<div id="ajaxloading" style="overflow:hidden;width:auto;height:auto;top:5px;left:620px;line-height:20px;Position:absolute;display:none"><font color=04FE1C face=verdana size=1><b>Calculando...</b></font> <img src=imagens/ajax-loader.gif align=absmiddle></div>
+
+                      
+
+
+<!--  Desenha mapa principal -->
+ <div id="mapa_bg" style="overflow:hidden;width:990px;height:495px;Position:absolute;top:0px;left:0px"><img src=imagens/painel_global_mapa_politico.jpg></div>
+ 
+ <div id="layer_agua_do_mar" style="display:none;width:990px;height:495px;Position:absolute;top:0px;left:0px">
+   <div id="sst"></div>
+   <div id="sub_layer_barra_celsius" style="Position:absolute;top:450px;left:0px"></div>
+ </div>
+
+<div id="greyline" style="overflow:hidden;opacity: .20;filter: alpha(opacity=20);width:990px;height:495px;Position:absolute;top:0px;left:-1000px"><img src=imagens/greyline_23mar.gif></div>
+<div id="greyline2" style="overflow:hidden;opacity: .20;filter: alpha(opacity=20);width:990px;height:495px;Position:absolute;top:0px;left:1000px"><img src=imagens/greyline_23mar.gif></div>
+
+<!-- Placas tectonicas -->
+<div id="layer_placas_tectonicas" style="width:990px;height:495px;Position:absolute;top:0px;left:0px"><img src=imagens/mapa_global_placas_tectonicas.gif></div>
+
+<!-- Sol -->
+<div id="sol" style="width:16px;height:16px;Position:absolute;top:0px;left:-1000px"><a href=#WIN  onmouseover="Tip('Sol a Pino')" onmouseout="UnTip()"><img src=imagens/painel_global_icone_sol.gif border=0></a></div>
+
+<!-- Palco do Satélite -->
+<div id="janela_mapa" style="overflow:hidden;width:990px;height:495px;Position:absolute;top:0px;left:0px">
+<div id="satelite" style="width:20px;height:20px;Position:absolute;top:100px;left:100px"><a href=#WIN  onmouseover="Tip('ISS')" onmouseout="UnTip()"><img src=imagens/satelite_icone_iss.gif border=0 alt="Estação Espacial" title="Estação Espacial"></a></div>
+
+ <!-- Efemerides -->
+  <div id="sat_latlon" style="opacity: .70;filter: alpha(opacity=70);background-color:#FFFFFF;width:130px;text-align:left;Position:absolute;top:370px;left:20px;padding:5px;border-style:solid;border-width:1px;border-color:000000;">Parâmetros Satélite</div>
+  
+ <!-- Home -->
+ <div id="icone_home" style="width:20px;height:20px;Position:absolute;top:304px;left:357px"><img src=imagens/track_home.gif alt="Sede do Painel Global"></div>
+ 
+ <!-- path do satelite -->
+ <div id="path_sat" style="width:990px;height:495px;Position:absolute;top:0px;left:0px"></div>
+  <div id="ground_track" style="width:990px;height:495px;Position:absolute;top:0px;left:0px"></div>
+</div>
+
+
+
+
+
+<!--  Plotagem dos eventos extremos no mundo-->
+<div id="tempo" style="overflow:hidden;width:990px;height:495px;Position:absolute;top:0px;left:0px">
+
+
+	
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:29px;left:306px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_1" class=tempo_mundo style="border-color:blue;top:29px;left:306px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=76.5333333333333&lon=-68.75&local=Thule_(Groenlândia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Thule / Groenlândia<BR>Temperatura: -30 &deg;C<BR>Tempo: Trovoadas<BR>ICAO: BGTL<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-30 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:65px;left:436px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_2" class=tempo_mundo style="border-color:blue;top:65px;left:436px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=64.1333333333333&lon=-21.9&local=Reykjavik_(Islândia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Reykjavik / Islândia<BR>Temperatura: 05 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: BIRK<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>5 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:111px;left:301px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_3" class=tempo_mundo style="border-color:blue;top:111px;left:301px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=46.8&lon=-71.3833333333333&local=Québec_(Canadá)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Québec / Canadá<BR>Temperatura: 01 &deg;C<BR>Tempo: Poucas nuvens esparsas<BR>ICAO: CYQB<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>1 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:70px;left:183px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_4" class=tempo_mundo style="border-color:blue;top:70px;left:183px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=62.4666666666667&lon=-114.45&local=Yellowknife_(Canadá)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Yellowknife / Canadá<BR>Temperatura: -18 &deg;C<BR>Tempo: Muitas Nuvens<BR>ICAO: CYZF<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-18 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:98px;left:535px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_5" class=tempo_mundo style="border-color:blue;top:98px;left:535px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=52.3833333333333&lon=13.5166666666667&local=Berlim_(alemanha)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Berlim / alemanha<BR>Temperatura: 03 &deg;C<BR>Tempo: Nublado<BR>ICAO: EDDB<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>3 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:76px;left:526px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_6" class=tempo_mundo style="border-color:blue;top:76px;left:526px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=60.2&lon=11.0833333333333&local=Oslo_(Noruega)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Oslo / Noruega<BR>Temperatura: 00 &deg;C<BR>Tempo: Névoa úmida<BR>ICAO: ENGM<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>00 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:76px;left:546px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_7" class=tempo_mundo style="border-color:blue;top:76px;left:546px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=59.65&lon=17.95&local=Estocolmo_(Suécia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Estocolmo / Suécia<BR>Temperatura: 05 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: ESSA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>5 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:FB3740;top:197px;left:587px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_8" class=tempo_mundo style="border-color:FB3740;top:197px;left:587px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=15.6&lon=32.55&local=Cartum_(Sudão)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Cartum / Sudão<BR>Temperatura: 41 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: HSSS<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=FB3740 size=1 face=verdana><b>41 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:125px;left:301px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_9" class=tempo_mundo style="border-color:blue;top:125px;left:301px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=42.3666666666667&lon=-71.0166666666667&local=Boston_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Boston / EUA<BR>Temperatura: 05 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: KBOS<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>5 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:133px;left:284px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_10" class=tempo_mundo style="border-color:blue;top:133px;left:284px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=38.8483333333333&lon=-77.0341666666667&local=Washington_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Washington / EUA<BR>Temperatura: 08 &deg;C<BR>Tempo: Céu Limpo<BR>ICAO: KDCA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>8 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:128px;left:293px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_11" class=tempo_mundo style="border-color:blue;top:128px;left:293px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=40.7791666666667&lon=-73.88&local=Nova_York_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Nova York / EUA<BR>Temperatura: 08 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: KLGA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>8 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:125px;left:254px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_12" class=tempo_mundo style="border-color:blue;top:125px;left:254px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=41.9833333333333&lon=-87.9166666666667&local=Chicago_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Chicago / EUA<BR>Temperatura: 04 &deg;C<BR>Tempo: Poucas nuvens esparsas<BR>ICAO: KORD<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>4 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:136px;left:161px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_13" class=tempo_mundo style="border-color:blue;top:136px;left:161px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=37.6197222222222&lon=-122.364722222222&local=São_Francisco_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('São Francisco / EUA<BR>Temperatura: 08 &deg;C<BR>Tempo: Não Disponível<BR>ICAO: KSFO<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>8 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:106px;left:504px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_14" class=tempo_mundo style="border-color:blue;top:106px;left:504px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=49.0166666666667&lon=2.53333333333333&local=Paris_(França)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Paris / França<BR>Temperatura: 06 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: LFPG<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>6 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:111px;left:548px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_15" class=tempo_mundo style="border-color:blue;top:111px;left:548px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=47.4333333333333&lon=19.2666666666667&local=Budapeste_(Hungria)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Budapeste / Hungria<BR>Temperatura: 07 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: LHBP<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>7 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:125px;left:532px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_16" class=tempo_mundo style="border-color:blue;top:125px;left:532px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=41.7833333333333&lon=12.5833333333333&local=Roma_(Itália)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Roma / Itália<BR>Temperatura: 09 &deg;C<BR>Tempo: Poucas nuvens esparsas<BR>ICAO: LIRA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>9 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:488px;left:496px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_17" class=tempo_mundo style="border-color:blue;top:488px;left:496px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=-90&lon=0&local=Amundsen-Scott_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Amundsen-Scott / EUA<BR>Temperatura: -34 &deg;C<BR>Tempo: Granizo<BR>ICAO: NZSP<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-34 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:45px;left:64px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_18" class=tempo_mundo style="border-color:blue;top:45px;left:64px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=71.2833333333333&lon=-156.766666666667&local=Post_Rogers_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Post Rogers / EUA<BR>Temperatura: -20 &deg;C<BR>Tempo: Nevasca<BR>ICAO: PABR<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-20 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:73px;left:84px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_19" class=tempo_mundo style="border-color:blue;top:73px;left:84px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=61.2530555555556&lon=-149.793888888889&local=Ancorage_(EUA)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Ancorage / EUA<BR>Temperatura: -10 &deg;C<BR>Tempo: Céu Limpo<BR>ICAO: PAED<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-10 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:122px;left:884px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_20" class=tempo_mundo style="border-color:blue;top:122px;left:884px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=43.1166666666667&lon=141.383333333333&local=Sapporo_(Japão)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Sapporo / Japão<BR>Temperatura: 03 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: RJCO<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>3 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:136px;left:845px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_21" class=tempo_mundo style="border-color:blue;top:136px;left:845px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=37.55&lon=126.8&local=Seul_(Coréia_do_Sul)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Seul / Coréia do Sul<BR>Temperatura: 04 &deg;C<BR>Tempo: Quase sem nuvens<BR>ICAO: RKSS<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>4 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:122px;left:708px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_22" class=tempo_mundo style="border-color:blue;top:122px;left:708px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=43.2333333333333&lon=76.9333333333333&local=Almaty_(Kasaquistão)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Almaty / Kasaquistão<BR>Temperatura: 08 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: UAAA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>8 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:131px;left:634px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_23" class=tempo_mundo style="border-color:blue;top:131px;left:634px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=40.45&lon=50.0666666666667&local=Baku_(Azerbaijão)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Baku / Azerbaijão<BR>Temperatura: 05 &deg;C<BR>Tempo: Parcialmente Nublado<BR>ICAO: UBBB<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>5 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:122px;left:859px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_24" class=tempo_mundo style="border-color:blue;top:122px;left:859px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=43.1166666666667&lon=131.933333333333&local=Vladivostok_(Rússia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Vladivostok / Rússia<BR>Temperatura: -00 &deg;C<BR>Tempo: Céu Encoberto<BR>ICAO: UHWW<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-0 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:103px;left:581px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_25" class=tempo_mundo style="border-color:blue;top:103px;left:581px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=50.4&lon=30.5666666666667&local=kiev_(Ucrânia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('kiev / Ucrânia<BR>Temperatura: 00 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: UKKK<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>00 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:76px;left:579px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_26" class=tempo_mundo style="border-color:blue;top:76px;left:579px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=59.9666666666667&lon=30.3&local=São_Petersburgo_(Rússia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('São Petersburgo / Rússia<BR>Temperatura: -03 &deg;C<BR>Tempo: Céu Encoberto<BR>ICAO: ULLI<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-3 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:51px;left:587px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_27" class=tempo_mundo style="border-color:blue;top:51px;left:587px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=68.9666666666667&lon=33.05&local=Murmansk_(Rússia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Murmansk / Rússia<BR>Temperatura: -05 &deg;C<BR>Tempo: Poucas nuvens esparsas<BR>ICAO: ULMM<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-5 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:89px;left:697px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_28" class=tempo_mundo style="border-color:blue;top:89px;left:697px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=54.9666666666667&lon=73.3&local=Omsk_(Rússia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Omsk / Rússia<BR>Temperatura: -02 &deg;C<BR>Tempo: Muitas Nuvens<BR>ICAO: UNOO<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-2 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:89px;left:601px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_29" class=tempo_mundo style="border-color:blue;top:89px;left:601px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=55.4&lon=37.9&local=Moscou_(Rússia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Moscou / Rússia<BR>Temperatura: 01 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: UUDD<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>1 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:131px;left:815px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_30" class=tempo_mundo style="border-color:blue;top:131px;left:815px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=39.9333333333333&lon=116.283333333333&local=Pequim_(China)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Pequim / China<BR>Temperatura: 09 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: ZBAA<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>9 </b> </font></a></div>
+
+<div id="tempo_mundo_bg" class=tempo_mundo_bg style="border-color:blue;top:109px;left:790px"><div class=pg_mark></div></div>
+<div id="tempo_mundo_31" class=tempo_mundo style="border-color:blue;top:109px;left:790px"><a href=#WIN  onClick=window.open("painel_global_maps.php?lat=47.85&lon=106.766666666667&local=Ulan_Bator_(Mongólia)&zoom=14","info_manuais","width=778,height=502,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('Ulan Bator / Mongólia<BR>Temperatura: -02 &deg;C<BR>Tempo: Céu Limpo (Cavok)<BR>ICAO: ZMUB<BR \><BR \><b>Clque e veja o mapa</b>')" onmouseout="UnTip()"><font color=blue size=1 face=verdana><b>-2 </b> </font></a></div>
+
+<div id="dados_vulcoes_1" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:279px;left:947px"><a href=vulcao.php?report=1&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Ambae (Vanuatu) -  Report for 14 March-20 March 2018 - NEW<\/B><P><P>On 18 March the Vanuatu Geohazards Observatory (VGO) reported that eruptive activity at Ambae?s Lake Voui during February-March was similar to activity observed at the end of October 2017, but with more sustained ash emissions from explosions at the vent. <BR>The ongoing ash-and-gas emissions were impacting local villages, prompting VGO to raise the Alert Level to 3 (on a scale of 0-5) and to warn residents and tourists to stay outside of the Danger Zone defined as a 3-km radius around the active vent in Lake Voui. <BR>A news article noted that ashfall was reported in the NW, W, SW, and S parts of the island. <BR></P><P>Sources: Radio New Zealand ,Vanuatu Geohazards Observatory </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_2" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:205px;left:315px"><a href=vulcao.php?report=2&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kick \'em Jenny (Grenada) -  Report for 14 March-20 March 2018 - NEW<\/B><P><P>The University of the West Indies (UWI) Seismic Research Centre (SRC) and the National Disaster Management Agency (NaDMA) reported that during 12-15 March seismicity at Kick \'em Jenny significantly decreased. <BR>The Alert Level remained at Orange (the second highest level on a four-color scale) with a 5-km maritime exclusion zone.</P><P>Sources: National Disaster Management Agency (NaDMA) ,Seismic Research Unit, University of the West Indies</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_3" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:152px;left:843px"><a href=vulcao.php?report=3&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kikai (Japan) -  Report for 14 March-20 March 2018 - NEW<\/B><P><P>JMA reported that one small-amplitude, short-duration volcanic tremor was detected on 16 March at Satsuma Iwo-jima, a subaerial part of Kikai?s NW caldera rim. <BR>The number of volcanic earthquakes increased on 19 March, prompting JMA to raise the Alert Level to 2 (on a 5-level scale), and then decreased the next day. <BR>The report noted increased thermal activity since February, with occasional visual observations of incandescence. <BR></P><P>Source: Japan Meteorological Agency (JMA) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_4" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:150px;left:845px"><a href=vulcao.php?report=4&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kirishimayama (Japan) -  Report for 14 March-20 March 2018 - NEW<\/B><P><P>JMA reported that the eruption at Shinmoedake (Shinmoe peak), a stratovolcano of the Kirishimayama volcano group, continued during 13-19 March. <BR>Lava effusion possibly stopped on 9 March, though the lava flow on the NW flank continued to advance. <BR>An explosion at 1413 on 15 March generated a gray-white plume that rose 2.1 km above the crater and ejected material 1 km from the crater. <BR>A high number of volcanic earthquakes continued to be recorded, in addition to many low-frequency earthquakes with shallow hypocenters. <BR>Volcanic tremor was occasionally recorded. <BR>The Alert Level remained at 3 (on a scale of 1-5).</P><P>Source: Japan Meteorological Agency (JMA) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_5" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:130px;left:526px"><a href=vulcao.php?report=5&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Stromboli (Italy) -  Report for 14 March-20 March 2018 - NEW<\/B><P><P>INGV reported that during 12-17 March activity at Stromboli was at normal levels, characterized by explosive activity and gas emissions from two vents (N1 and N2) in Area N and two vents in Area C-S (C and S2). <BR>Explosions at N1 ejected lapilli, bombs, and sometimes ash less than 120 m high, and less intense explosions at N2 emitted ash no higher than 80 m. <BR>The frequency of explosions in Area N was 3-8 events/hour. <BR>Continuous gas emissions rose from C. <BR>Explosions at S2 emitted ash no higher than 80 m at a rate of 2-5 explosions/hour. <BR>A high-energy explosive sequence began at vent C at 2027 on 19 March and lasted about 40 seconds. <BR>The first explosion ejected ash and incandescent material that fell in a radial distribution around the crater. <BR>Two subsequent explosions ejected incandescent material as high as 80 m. <BR>Tephra fell along the Sciara del Fuoco, towards the NE parts of the island. <BR>At 2028 an explosion at N2 ejected lapilli 100-120 m high.</P><P>Source: Sezione di Catania - Osservatorio Etneo (INGV)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_6" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:150px;left:845px"><a href=vulcao.php?report=6&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Aira (Japan) -  Report for 14 March-20 March 2018<\/B><P><P>JMA reported that during 12-19 March there were seven events and six explosions at Minamidake crater (at Aira Caldera?s Sakurajima volcano). <BR>Some of the explosions ejected tephra as far as 1.1 km and generated ash plumes that rose 1.7-2.3 km above the crater rim. <BR>The Alert Level remained at 3 (on a 5-level scale).</P><P>Source: Japan Meteorological Agency (JMA) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_7" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:282px;left:947px"><a href=vulcao.php?report=7&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Ambrym (Vanuatu) -  Report for 14 March-20 March 2018<\/B><P><P>On 19 March the Vanuatu Geohazards Observatory (VGO) reported that, based on photos taken during February-March, the lava lakes in Ambrym?s Benbow and Marum craters continued to be active and produced gas-and-steam emissions. <BR>Visitors occasionally reported smelling volcanic gases and hearing explosions. <BR>The Alert Level remained at 2 (on a scale of 0-5); the report reminded the public to stay outside of the Permanent Danger Zone defined as a 1-km radius from Benbow Crater and a 2.7-km radius from Marum Crater.</P><P>Source: Vanuatu Geohazards Observatory </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_8" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:92px;left:18px"><a href=vulcao.php?report=8&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Cleveland (United States) -  Report for 14 March-20 March 2018<\/B><P><P>AVO reported that seismic and infrasound sensors recorded a small explosion at Cleveland at 2219 on 14 March; ash plumes were not visible in subsequent cloudy satellite images. <BR>The Aviation Color Code remained at Yellow and the Volcano Alert Level remained at Advisory.</P><P>Source: US Geological Survey Alaska Volcano Observatory (AVO)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_9" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:232px;left:837px"><a href=vulcao.php?report=9&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Dukono (Indonesia) -  Report for 14 March-20 March 2018<\/B><P><P>Based on analyses of satellite imagery, wind model data, and notices from PVMBG, the Darwin VAAC reported that during 14-20 March ash plumes from Dukono rose to altitudes of 1.8-2.7 km (6,000-9,000 ft) a.s.l. <BR>and drifted in multiple directions.</P><P>Source: Darwin Volcanic Ash Advisory Centre (VAAC)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_10" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:97px;left:914px"><a href=vulcao.php?report=10&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Ebeko (Russia) -  Report for 14 March-20 March 2018<\/B><P><P>Based on observations by volcanologists in Severo-Kurilsk (Paramushir Island), about 7 km E of Ebeko, explosions during 12-13 March generated ash plumes that rose as high as 2.7 km (8,900 ft) a.s.l. <BR>The Aviation Color Code remained at Orange (the second highest level on a four-color scale).</P><P>Source: Kamchatkan Volcanic Eruption Response Team (KVERT)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_11" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:249px;left:884px"><a href=vulcao.php?report=11&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kadovar (Papua New Guinea) -  Report for 14 March-20 March 2018<\/B><P><P>RVO reported that the lava dome at Kadovar?s SE Coastal Vent continued to grow, though slowly, with only a 1-m change detected during 10-20 March. <BR>Weak incandescence from the Main Crater was visible on 13 March. <BR>Bright incandescence from both the Main Crater and the SE Coastal vent was visible on 14 March, coincident with the start of dark gray ash emissions from both vents, lasting until 19 March. <BR></P><P>Source: Rabaul Volcano Observatory (RVO)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_12" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:185px;left:59px"><a href=vulcao.php?report=12&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kilauea (United States) -  Report for 14 March-20 March 2018<\/B><P><P>During 14-20 March HVO reported that the lava lake continued to rise, fall, and spatter in Kilauea?s Overlook crater. <BR>Webcams recorded incandescence from a small lava pond in a pit on the W side of Pu\'u \'O\'o Crater. <BR>Surface lava flows were active above and on Pulama pali.</P><P>Source: US Geological Survey Hawaiian Volcano Observatory (HVO) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_13" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:136px;left:867px"><a href=vulcao.php?report=13&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Kusatsu-Shiranesan (Japan) -  Report for 14 March-20 March 2018<\/B><P><P>On 16 March JMA lowered the Alert Level for the Kusatsu-Shiranesan complex to 2 (on a 5-level scale) noting that the number of volcanic earthquakes had gradually declined since the 23 January eruption; seismicity remained elevated. <BR></P><P>Source: Japan Meteorological Agency (JMA) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_14" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:202px;left:826px"><a href=vulcao.php?report=14&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Mayon (Philippines) -  Report for 14 March-20 March 2018<\/B><P><P>PHIVOLCS reported that during 13-20 March activity at Mayon was mostly characterized by periods of gravity-driven lava advancement, gas-and-steam emissions, rockfalls, and quiescence. <BR>Lava flows extended 3.3 km, 4.5 km, and 1.9 km long in the Mi-isi (S), Bonga (SE), and Basud (E) drainages, respectively. <BR>Sulfur dioxide emissions were between 969 and 2,077 tonnes/day. <BR>Steam-and-gas emissions drifted SW. <BR>An episode of lava fountaining was recorded during 0831-0832 on 14 March and produced a light-gray ash plume that rose 200 m above the crater and drifted SW. <BR>At 1347 on 16 March a pyroclastic flow traveled 4-5 km down the Mi-isi and Basud drainages. <BR>The Alert Level remained at 3 (on a 0-5 scale) and PHIVOLCS reminded residents to stay away from the 6-km-radius Permanent Danger Zone and the 7-km Extended Danger Zone on the SSW and ENE flanks.</P><P>Source: Philippine Institute of Volcanology and Seismology (PHIVOLCS) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_15" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:282px;left:287px"><a href=vulcao.php?report=15&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Sabancaya (Peru) -  Report for 14 March-20 March 2018<\/B><P><P>Observatorio Vulcanológico del Sur del IGP (OVS-IGP) and Observatorio Vulcanológico del INGEMMET (OVI) reported that explosive activity at Sabancaya increased compared to the previous week; explosions averaged 17 per day during 12-18 March. <BR>Seismicity was dominated by long-period events, with signals indicating emissions. <BR>Gas-and-ash plumes rose 3 km above the crater rim and drifted 30 km NW, SW, and S. <BR>The sulfur dioxide flux was high, at 3,110 tons per day on 14 March. <BR>The report noted that the public should not to approach the crater within a 12-km radius.</P><P>Sources: Instituto Geofísico del Perú (IGP),Instituto Geológico Minero y Metalúrgico (INGEMMET)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_16" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:81px;left:928px"><a href=vulcao.php?report=16&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Sheveluch (Russia) -  Report for 14 March-20 March 2018<\/B><P><P>KVERT reported that a weak thermal anomaly over Sheveluch was identified in satellite images during 11-14 March. <BR>The Aviation Color Code remained at Orange.</P><P>Source: Kamchatkan Volcanic Eruption Response Team (KVERT)</P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_17" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:155px;left:843px"><a href=vulcao.php?report=17&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Suwanosejima (Japan) -  Report for 14 March-20 March 2018<\/B><P><P>Based on JMA notices and satellite data, the Tokyo VAAC reported that on 17 March an eruption at Suwanosejima produced a plume that rose 1.8 km (6,000 ft) a.s.l. <BR>and drifted W.</P><P>Source: Japan Meteorological Agency (JMA) </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div>
+<div id="dados_vulcoes_18" style="overflow:hidden;width:20px;height:20px;Position:absolute;top:293px;left:950px"><a href=vulcao.php?report=18&bd= onmouseover="Tip('<div style=\'width:300px;\'><B>Yasur (Vanuatu) -  Report for 14 March-20 March 2018<\/B><P><P>Based on visual observations and satellite data, the Vanuatu Geohazards Observatory reported on 19 March that explosions at Yasur remained strong. <BR>The Alert Level remained at 2 (on a scale of 0-4). <BR>VGO reminded residents and tourists that hazardous areas were near and around the volcanic crater, within a 395-m-radius permanent exclusion zone, and that volcanic ash and gas could reach areas impacted by trade winds.</P><P>Source: Vanuatu Geohazards Observatory </P><P><img src=imagens/band_brasil.gif>&nbsp;&nbsp;<B>Atenção</b><BR>Clique no ícone para ver a imagem de satélite<BR>ou ler uma tradução automática deste boletim.</div>')" onmouseout="UnTip()"><div class=vulcao></div></a></div></div> <!-- TEMPO -->
+
+<div id="copa_do_mundo" style="overflow:hidden;width:42px;height:33px;Position:absolute;top:332px;left:535px;"></div>
+
+
+
+
+
+
+
+<!--  Plotagem dos Furacoes -->
+<div id="furacao_animado_1" style="width:20px;height:20px;Position:absolute;top:273px;left:867px"><a href=#WIN  onClick=window.open("painel_global_info.php?modo=jtwc&id=Ciclone_Tropical_NORA","info_furac","width=488,height=470,resizable=no,status=no,top=20,left=120") onmouseover="Tip('Ciclone Tropical NORA<BR>Veloc. Vento: 171 Km/h<BR>Rumo: sudeste a 9 Km/h<BR>Lat: -11.3º&nbsp; Lon: 138.8º')" onmouseout="UnTip()"><img src=imagens/furacao_animado.gif border=0></a></div>
+
+<div id="furacao_animado_2" style="width:20px;height:20px;Position:absolute;top:303px;left:777px"><a href=#WIN  onClick=window.open("painel_global_info.php?modo=jtwc&id=Ciclone_Tropical_MARCUS","info_furac","width=488,height=470,resizable=no,status=no,top=20,left=120") onmouseover="Tip('Ciclone Tropical MARCUS<BR>Veloc. Vento: 144 Km/h<BR>Rumo: sul-sudeste a 10 Km/h<BR>Lat: -22.3º&nbsp; Lon: 106.0º')" onmouseout="UnTip()"><img src=imagens/furacao_animado.gif border=0></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:889px"><a href=terremoto.php?mapa=23-0315-01 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 15:01 UTC<BR>Ilhas Marianas do Norte, a 66 km de Ag  <BR>4.8 Graus /  218 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:150px;left:166px"><a href=terremoto.php?mapa=23-0314-30 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 14:30 UTC<BR>CA, a 3 km de Upland                    <BR>2.4 Graus /   13 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:161px;left:883px"><a href=terremoto.php?mapa=23-0312-16 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 12:16 UTC<BR>Próximo às Ilhas Izu, Japão             <BR>4.9 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:260px;left:883px"><a href=terremoto.php?mapa=23-0311-52 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>23/03 - 11:52 UTC<BR>Papua Nova Guiné, a 76 km de Mendi      <BR>5.3 Graus /   59 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:230px;left:837px"><a href=terremoto.php?mapa=23-0310-41 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 10:41 UTC<BR>Filipinas, a 109 km de Caburan          <BR>4.7 Graus /   47 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:125px;left:872px"><a href=terremoto.php?mapa=23-0310-34 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 10:34 UTC<BR>Japão, a 146 km de Iwanai               <BR>4.3 Graus /  223 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:230px;left:839px"><a href=terremoto.php?mapa=23-0310-19 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 10:19 UTC<BR>Filipinas, a 171 km de Sarangani        <BR>4.9 Graus /   78 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:303px"><a href=terremoto.php?mapa=23-0310-06 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 10:06 UTC<BR>Porto Rico, a 64 km de Rincon           <BR>2.9 Graus /    8 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:103px;left:985px"><a href=terremoto.php?mapa=23-0309-39 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 09:39 UTC<BR>Alasca, a 71 km de Amatignak Island     <BR>2.9 Graus /   42 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:147px;left:166px"><a href=terremoto.php?mapa=23-0308-49 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 08:49 UTC<BR>CA, a 18 km de Johannesburg             <BR>3.0 Graus /    7 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:114px;left:179px"><a href=terremoto.php?mapa=23-0308-04 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 08:04 UTC<BR>Montana, a 14 km de Lincoln             <BR>3.0 Graus /   11 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:309px"><a href=terremoto.php?mapa=23-0307-57 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 07:57 UTC<BR>Porto Rico, a 9 km de Dorado            <BR>2.5 Graus /   71 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:300px"><a href=terremoto.php?mapa=23-0307-41 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 07:41 UTC<BR>República Dominicana, a 9 km de Ramon   <BR>4.1 Graus /  112 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:208px;left:366px"><a href=terremoto.php?mapa=23-0307-40 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>23/03 - 07:40 UTC<BR>norte da cordilheira meso-atlântica     <BR>5.2 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:216px;left:259px"><a href=terremoto.php?mapa=23-0307-37 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 07:37 UTC<BR>Costa Rica, a 10 km de San Marcos       <BR>4.8 Graus /   36 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:303px"><a href=terremoto.php?mapa=23-0307-27 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 07:27 UTC<BR>República Dominicana, a 65 km de Punta  <BR>3.2 Graus /  123 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:103px;left:985px"><a href=terremoto.php?mapa=23-0307-12 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 07:12 UTC<BR>Alasca, a 61 km de Semisopochnoi Islan  <BR>3.9 Graus /   54 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:311px"><a href=terremoto.php?mapa=23-0306-13 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 06:13 UTC<BR>Ilhas Virgens (EUA), a 40 km de Charlo  <BR>2.7 Graus /   29 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:398px;left:416px"><a href=terremoto.php?mapa=23-0305-46 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>23/03 - 05:46 UTC<BR>South Georgia and the South Sandwich I  <BR>5.1 Graus /   69 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:98px;left:36px"><a href=terremoto.php?mapa=23-0305-16 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 05:16 UTC<BR>Alasca, a 165 km de Akutan              <BR>2.6 Graus /   23 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:260px;left:903px"><a href=terremoto.php?mapa=23-0305-01 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 05:01 UTC<BR>Papua Nova Guiné, a 50 km de Kandrian   <BR>4.7 Graus /  166 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:303px"><a href=terremoto.php?mapa=23-0304-34 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 04:34 UTC<BR>República Dominicana, a 7 km de Punta   <BR>3.5 Graus /  152 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:134px;left:149px"><a href=terremoto.php?mapa=23-0303-18 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 03:18 UTC<BR>CA, a 17 km de Petrolia                 <BR>2.9 Graus /   22 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:134px;left:149px"><a href=terremoto.php?mapa=23-0303-09 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 03:09 UTC<BR>CA, a 22 km de Petrolia                 <BR>4.6 Graus /   20 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:145px;left:223px"><a href=terremoto.php?mapa=23-0301-43 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 01:43 UTC<BR>Oklahoma, a 13 km de Stroud             <BR>2.8 Graus /    5 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:260px;left:883px"><a href=terremoto.php?mapa=23-0300-03 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>23/03 - 00:03 UTC<BR>Papua Nova Guiné, a 96 km de Porgera    <BR>4.2 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:136px;left:531px"><a href=terremoto.php?mapa=22-0323-40 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 23:40 UTC<BR>Itália, a 49 km de Cetraro              <BR>4.2 Graus /  255 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:260px;left:883px"><a href=terremoto.php?mapa=22-0323-23 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 23:23 UTC<BR>Papua Nova Guiné, a 84 km de Mendi      <BR>4.9 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:145px;left:166px"><a href=terremoto.php?mapa=22-0322-57 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 22:57 UTC<BR>CA, a 40 km de Olancha                  <BR>3.0 Graus /    0 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:80px"><a href=terremoto.php?mapa=22-0322-40 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 22:40 UTC<BR>Alasca, a 291 km de Kodiak              <BR>2.8 Graus /   12 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:311px"><a href=terremoto.php?mapa=22-0322-35 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 22:35 UTC<BR>Ilhas Virgens (EUA), a 107 km de Charl  <BR>3.5 Graus /   36 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:139px;left:182px"><a href=terremoto.php?mapa=22-0321-40 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 21:40 UTC<BR>Utah, a 1 km de Loa                     <BR>2.5 Graus /   16 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:136px;left:881px"><a href=terremoto.php?mapa=22-0321-32 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 21:32 UTC<BR>Japão, a 41 km de Ofunato               <BR>4.8 Graus /   36 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:80px"><a href=terremoto.php?mapa=22-0320-07 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 20:07 UTC<BR>Alasca, a 262 km de Kodiak              <BR>2.7 Graus /   11 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:306px"><a href=terremoto.php?mapa=22-0319-53 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 19:53 UTC<BR>Porto Rico, a 8 km de Pole Ojea         <BR>2.4 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:145px;left:157px"><a href=terremoto.php?mapa=22-0319-27 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 19:27 UTC<BR>CA, a 17 km de Parkfield                <BR>2.6 Graus /    4 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:78px"><a href=terremoto.php?mapa=22-0318-55 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 18:55 UTC<BR>Alasca, a 252 km de Kodiak              <BR>2.9 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:80px"><a href=terremoto.php?mapa=22-0317-38 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 17:38 UTC<BR>Alasca, a 295 km de Kodiak              <BR>4.4 Graus /   20 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:131px;left:149px"><a href=terremoto.php?mapa=22-0316-24 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 16:24 UTC<BR>CA, a 17 km de Humboldt Hill            <BR>4.6 Graus /   24 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:285px;left:949px"><a href=terremoto.php?mapa=22-0316-05 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>22/03 - 16:05 UTC<BR>Vanuatu, a 12 km de Port-Olry           <BR>5.1 Graus /   39 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:78px"><a href=terremoto.php?mapa=22-0314-49 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 14:49 UTC<BR>Alasca, a 247 km de Kodiak              <BR>4.2 Graus /   25 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:87px;left:80px"><a href=terremoto.php?mapa=22-0314-00 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 14:00 UTC<BR>Alasca, a 225 km de Kodiak              <BR>3.3 Graus /   26 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:139px;left:182px"><a href=terremoto.php?mapa=22-0313-21 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 13:21 UTC<BR>Utah, a 2 km de Loa                     <BR>3.1 Graus /   16 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:351px;left:284px"><a href=terremoto.php?mapa=22-0312-48 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 12:48 UTC<BR>Chile, a 181 km de Carahue              <BR>4.9 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:139px;left:182px"><a href=terremoto.php?mapa=22-0312-38 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 12:38 UTC<BR>Utah, a 1 km de Loa                     <BR>2.6 Graus /   14 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:78px"><a href=terremoto.php?mapa=22-0311-05 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 11:05 UTC<BR>Alasca, a 241 km de Kodiak              <BR>3.4 Graus /   35 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:309px"><a href=terremoto.php?mapa=22-0311-02 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 11:02 UTC<BR>Porto Rico, a 1 km de Bayamon           <BR>2.8 Graus /   91 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:64px"><a href=terremoto.php?mapa=22-0309-54 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 09:54 UTC<BR>Havaí, a 7 km do Vulcão                 <BR>2.6 Graus /    1 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:301px;left:298px"><a href=terremoto.php?mapa=22-0308-44 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 08:44 UTC<BR>Chile, a 91 km de Tocopilla             <BR>4.1 Graus /   51 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:80px"><a href=terremoto.php?mapa=22-0308-33 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 08:33 UTC<BR>Alasca, a 272 km de Kodiak              <BR>3.7 Graus /   22 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:301px;left:300px"><a href=terremoto.php?mapa=22-0308-03 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 08:03 UTC<BR>Chile, a 119 km de Calama               <BR>4.8 Graus /  117 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:90px;left:80px"><a href=terremoto.php?mapa=22-0307-56 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 07:56 UTC<BR>Alasca, a 253 km de Kodiak              <BR>3.3 Graus /   21 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:64px"><a href=terremoto.php?mapa=22-0307-55 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 07:55 UTC<BR>Havaí, a 8 km do Vulcão                 <BR>2.4 Graus /    1 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:326px;left:1px"><a href=terremoto.php?mapa=22-0307-26 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>22/03 - 07:26 UTC<BR>Nova Zelândia, a 103 km de Raoul Islan  <BR>5.4 Graus /   10 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:255px;left:776px"><a href=terremoto.php?mapa=22-0306-40 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 06:40 UTC<BR>Indonésia, a 21 km de Tanjungagung      <BR>4.5 Graus /  152 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:311px"><a href=terremoto.php?mapa=22-0305-31 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 05:31 UTC<BR>Porto Rico, a 20 km de Culebra          <BR>3.0 Graus /   55 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:191px;left:306px"><a href=terremoto.php?mapa=22-0305-24 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 05:24 UTC<BR>Porto Rico, a 32 km de San Antonio      <BR>2.4 Graus /   65 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:194px;left:311px"><a href=terremoto.php?mapa=22-0304-52 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 04:52 UTC<BR>Ilhas Virgens (RU), a 12 km de Road To  <BR>2.8 Graus /   66 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:76px;left:75px"><a href=terremoto.php?mapa=22-0304-06 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 04:06 UTC<BR>Alasca, a 56 km de Anchorage            <BR>2.5 Graus /   44 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:134px;left:149px"><a href=terremoto.php?mapa=22-0303-57 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 03:57 UTC<BR>CA, a 17 km de Petrolia                 <BR>2.5 Graus /   18 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:244px;left:837px"><a href=terremoto.php?mapa=22-0302-46 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>22/03 - 02:46 UTC<BR>Indonésia, a 150 km de Kota Ternate     <BR>5.0 Graus /   23 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:285px;left:952px"><a href=terremoto.php?mapa=22-0300-44 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 00:44 UTC<BR>Vanuatu, a 49 km de Luganville          <BR>4.9 Graus /  129 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:139px;left:182px"><a href=terremoto.php?mapa=22-0300-27 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 00:27 UTC<BR>Utah, a 2 km de Loa                     <BR>3.0 Graus /   16 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:158px;left:204px"><a href=terremoto.php?mapa=22-0300-09 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>22/03 - 00:09 UTC<BR>Texas, a 19 km de Pecos                 <BR>2.6 Graus /    4 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="sismo_5" class=sismo style="z-index:98;top:257px;left:773px"><a href=terremoto.php?mapa=22-0300-08 target=_blank onmouseover="Tip('TERREMOTO MODERADO<br>22/03 - 00:08 UTC<BR>Indonésia, a 88 km de Pagaralam         <BR>5.3 Graus /   61 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m5"></div></a></div>
+
+
+<div id="sismo_0" class=sismo style="z-index:97;top:128px;left:881px"><a href=terremoto.php?mapa=21-0323-15 target=_blank onmouseover="Tip('TERREMOTO LEVE<br>21/03 - 23:15 UTC<BR>Japão, a 35 km de Shiraoi               <BR>4.5 Graus /  104 Km de profundidade')" onmouseout="UnTip()"><div class="sismo_m0"></div></a></div>
+
+
+<div id="cat_1" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:200px;left:555px"><a href=#WIN  onClick=window.open("event_maps.php?lat=6.9500923&lon=32.4679146","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>21/01/2018<br>NE of Bor, Jungoli</b><BR>Incendios Florestais<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_2" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:192px;left:440px"><a href=#WIN  onClick=window.open("event_maps.php?lat=9.5872717&lon=-9.9956970","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>21/01/2018<br>N of Kissidougou, Faranah</b><BR>Incendios Florestais<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_3" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:209px;left:550px"><a href=#WIN  onClick=window.open("event_maps.php?lat=4.2234964&lon=29.5706310","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>21/01/2018<br>NW of Maridi, West Equatoria</b><BR>Incendios Florestais<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_4" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:305px;left:877px"><a href=#WIN  onClick=window.open("event_maps.php?lat=-30.9262848&lon=149.3196716","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>21/01/2018<br>SW of Narrabri, New South Wales</b><BR>Incendios Florestais<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_5" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:107px;left:255px"><a href=#WIN  onClick=window.open("event_maps.php?lat=40.9719086&lon=-77.4910812","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>19/01/2018<br>Central Pennsylvania, United States</b><BR>Inundacoes<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_6" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:286px;left:786px"><a href=#WIN  onClick=window.open("event_maps.php?lat=-23.6107006&lon=116.1871338","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>19/01/2018<br>Western Coast, Western Australia</b><BR>Inundacoes<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_7" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:288px;left:310px"><a href=#WIN  onClick=window.open("event_maps.php?lat=-25.2840805&lon=-57.1251793","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>18/01/2018<br>Asuncion, Paraguay</b><BR>Inundacoes<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_8" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:74px;left:459px"><a href=#WIN  onClick=window.open("event_maps.php?lat=52.8494682&lon=-3.3553400","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>18/01/2018<br>Western England</b><BR>Inundacoes<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_9" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:126px;left:209px"><a href=#WIN  onClick=window.open("event_maps.php?lat=34.4072418&lon=-93.6190109","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>06/12/2017<br>Arkansas, United States</b><BR>Seca<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+
+<div id="cat_10" style="z-index:110;overflow:hidden;width:20px;height:20px;Position:absolute;top:90px;left:181px"><a href=#WIN  onClick=window.open("event_maps.php?lat=47.2388496&lon=-104.3433304","info_catast","width=898,height=580,resizable=no,status=no,top=20,left=120")  onmouseover="Tip('<b>25/10/2017<br>Northern Plains, United States</b><BR>Seca<br><br><b>Atenção</b><br>Clique no ícone para ver a<br>localização e ler alguma referência.<br><br>')" onmouseout="UnTip()"><img src=imagens/iconeexclamacao.png border=0></a></div>
+----: 
+ //<!--  Direto no Painel--> 
+<div id="hidden_dir_pa">
+ </div>
+
+
+ <div id="utc" style=background-transparent;width:150px;text-align:left;Position:absolute;top:450px;left:820px;padding:5px;border-style:solid;border-width:1px;border-color:#FFFFFF;"></div>
+
+
+</div><!-- main_track -->
+
+
+
+
+<div id="menu2" style="background-color:ffffff;height:15px;width:990px;margin-top:0px;border-style:solid;border-color:#cdcdcd;border-width:0 0 1px 0">
+ <table cellpadding=2 cellspacing=0 align=center width=100% height=12 bgcolor=196CAB>
+ <td align=center><font color=ffffff size=1 face=verdana><b>Remover Layers</b></font></td>
+ <td  align=center><div style="background-color:#4590DA;padding:0 5px 0 5px;width:auto;height:auto"><a href=javascript:toggle('janela_mapa') ><font color=ffffff size=1 face=verdana><b>Estação Espacial</b></font></a></td>
+ <td  align=center><div style="background-color:#4590DA;padding:0 5px 0 5px;width:auto;height:auto"><a href=javascript:toggle('layer_agua_do_mar') ><font color=ffffff size=1 face=verdana><b>Temp. do Mar</b></font></a></td>
+ <td  align=center><div style="background-color:#4590DA;padding:0 5px 0 5px;width:auto;height:auto"><a href=javascript:toggle('layer_placas_tectonicas') ><font color=ffffff size=1 face=verdana><b>Placas Tectônicas</b></font></a></td>
+  <td align=center><div style="background-color:#4590DA;padding:0 5px 0 5px;width:auto;height:auto"><a href=javascript:toggle('tempo') ><font color=ffffff size=1 face=verdana><b>Graus Extremos</b></font></a></td>
+ </table>
+</div>
+                           
+<div id="menu" style="background-color:eaeaea;height:17px;width:990px;line-height:17px;padding:3px 0 3px 0;text-align:center">
+ 	 <font color=000033 size=1 face=verdana><b>
+	
+	 <img src=imagens/us_flag.png  width=18 border=0 align=absmiddle style="margin-right:4px"></a>
+	 <a href=http://www.painelglobal.org><font color=000000 size=1 face=verdana><b>English</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	 <a href=#WIN  onClick=window.open('painel_global_info.php?modo=brasil','info_brasil','width=488,height=470,resizable=no,status=no,top=20,left=120') onmouseover="Tip('texto')" onmouseout="UnTip()"><font color=000000 size=1 face=verdana><b>Tempo Brasil </b></font></a> <font size=1>|</font>
+	 <a href=vulcao.php ><font color=000000 size=1 face=verdana><b>Relatório Vulcânico</b></font></a> | 
+
+	
+
+	 <a href=http://www.apolo11.com/pgcast target=_blank><img src=imagens/icones/icone_pgcast.png height=17 border=0 align=absmiddle style="margin-left:0px"></a> | 
+  	 <a href=entenda.php><font color=000033 size=1 face=verdana><b>Entenda o Painel</b></font></a> | 
+	 <a href=midia><font color=000033  size=1 face=verdana><b>Imprensa </b></font></a> | 
+	 <a href=midia><font color=000033  size=1 face=verdana><b>Anuncie </b></font></a> | 
+	 <a href=midia><font color=000033  size=1 face=verdana><b>fale Conosco </b></font></a>
+	 </b></font>
+		
+</div>
+
+<BR>
+
+   
+<style>
+div#destaque_radar {width:982px;height:376px;background-color:#ffffff;Position:relative;font-family:arial;border-color:#EAEAEA;border-width:4px;border-style:solid}
+div#destaque_radar a {color:#000000;  text-decoration:none;}
+div#destaque_radar h3 {color:#0657CB;padding:0 0 0 0;margin:0;font-size:11px;display:block}
+div#destaque_radar h4 {color:#000000;padding:0 0 6px 0;margin:0;font-size:9px;font-weight:normal;display:block}
+div#destaque_radar .hidd {overflow:hidden}
+div#destaque_radar .abs {position:absolute}
+div#destaque_radar .tempomundo { color: 555555; font-size: 11px;  font-family:verdana; padding-left:10px;} 
+div#destaque_radar .cont_tempo {padding:5px 0 0 10px;color:#0657CB}
+div#destaque_radar .right {text-align:right}
+div#destaque_radar .titulo_tempo{height:11px;background-color:#0657CB;padding:3px 0 3px 1px;color:#ffffff;font-weight:bold;line-height:10px}
+div#destaque_radar .subtit {color:#444444;font-size:14px;font-weight:bold}
+</style>
+
+<div id="destaque_radar">
+        <div class="hidd abs" style="left:6px;top:6px">
+	 <div class="hidd" style="width:364px;height:234px"><a href=talk/destaque.php?id=dat_20180303-231659.inc><img src=talk/fotos_enviadas/administrador_20180305101100.jpg height=100% ></a></div>
+	 <div class="hidd" style="width:364px;font-size:13px;font-weight:bold;margin-top:6px"><h3></h3><h4>03/03/2018</h4><a href=talk/destaque.php?id=dat_20180303-231659.inc><font size=4 color=C50909>Tremor de terra assusta população</font> de Maceio, AL.Ruas sofreram rachaduras e prédios foram abalados.</a></div>
+	</div>                                                                                                                       
+	
+	 <div class="hidd abs" style="width:162px;height:104px;left:390px;top:6px"><a href=talk/destaque.php?id=dat_20180220-232108.inc><img src=http://i1.ytimg.com/vi/SLc9DYS3Bzw/hqdefault.jpg width=162 height=104></a></div>        
+	 <div class="hidd abs" style="width:200px;height:104px;font-size:12px;left:567px;top:6px"><h3></h3><h4>20/02/2018</h4><a href=talk/destaque.php?id=dat_20180220-232108.inc><font class=subtit>Bola de Fogo cruza diversas cidades do Nordeste</font></a></div>
+	 
+	 <div class="hidd abs" style="width:162px;height:104px;left:390px;top:130px"><a href=talk/destaque.php?id=dat_20180219-102501.inc><img src=http://i1.ytimg.com/vi/f8z3asgj2PA/hqdefault.jpg width=162 height=104></a> </div>        
+	 <div class="hidd abs" style="width:200px;height:104px;font-size:12px;left:567px;top:130px"><h3></h3><h4>19/02/2018</h4><a href=talk/destaque.php?id=dat_20180219-102501.inc><font class=subtit>Monte Sinabung explode e lança cinzas sobre cidades da Indonésia</font></a></div>
+
+
+	 <div class="hidd abs" style="width:162px;height:104px;left:390px;top:254px"><a href=talk/destaque.php?id=dat_20180215-005914.inc><img src=talk/fotos_enviadas/phellipef_20180215012838.jpg width=100%></a> </div>        
+	 <div class="hidd abs" style="width:200px;height:104px;font-size:12px;left:567px;top:254px"><h3></h3><h4>15/02/2018</h4><a href=talk/destaque.php?id=dat_20180215-005914.inc><font class=subtit>Informativos e acompanhamento das chuvas no Riode Janeiro</font></a></div>
+
+
+<div class="hidd abs" style="right:8px;width:160px;height:160px;bottom:10px;z-index:1000">	 
+<iframe src=http://apolo11.com/gadget_vento_solar.php width=160 height=160  frameborder='0' scrolling='no' marginwidth='0' marginheight='0'></iframe>
+</div>	 	                                                                
+
+
+	 
+	<div class="hidd abs" style="right:8px;border-width:0 0 0 1px;border-color:#555555;border-style:dotted;width:170px;height:355px;top:6px">	 
+	<table cellpadding=0 cellspacing=0 align=left style="width:100%;height:180px" >  
+	<tr height=18 bgcolor=white><td class=tempomundo valign=top ><div class="titulo_tempo">&nbsp;&nbsp;Tempo no Mundo</div></td><td valign=top class="right"><div class="titulo_tempo">+&nbsp;&nbsp;</div></td><tr>
+       
+<tr height=14 bgcolor=white><td colspan=2 style="padding-left:10px;padding-top:5px"><font size=2 face=verdana color=0657CB><b>América do Norte </b></font></td><tr>
+<tr height=14 bgcolor=white><td class=tempomundo>Nova York</td><td class="tempomundo right" >08&deg;</td><tr><tr height=14 bgcolor=white><td class=tempomundo>Miami</td><td class="tempomundo right" >21&deg;</td><tr><tr height=14 bgcolor=white><td class=tempomundo>São Francisco</td><td class="tempomundo right" >08&deg;</td><tr>	
+
+<tr height=14 bgcolor=white><td colspan=2 class=cont_tempo><font size=2 face=verdana color=0657CB><b>Europa </b></font></td><tr>
+<tr height=14 bgcolor=white><td class=tempomundo>Berlim</td><td class="tempomundo right">03&deg;</td><tr><tr height=14 bgcolor=white><td class=tempomundo>Londres</td><td class="tempomundo right">12&deg;</td><tr><tr height=14 bgcolor=white><td class=tempomundo>Paris</td><td class="tempomundo right">06&deg;</td><tr></table>	
+
+	</div>                                                                                 
+	
+</div>
+<div style="width:990px;border-width:0 0 1px 0;border-color:#000000;border-style:dashed;margin-top:12px;margin-bottom:6px"></div>
+             
+
+ <!-- painel_monit -->
+<div id="painel_monit" style="width:990px;text-align:left;padding-left:7px;display:block;clear:both">
+
+
+ <h1>Painel de Monitoramento </h1>  
+
+ <BR>
+ <font color=black size=1 face=verdana><b>Atualização: 23 de Março às 14h00 </b> </font>
+ <font color=blue size=3 face=verdana><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font>
+
+ <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style" style="font-family:verdana;font-size:10px;height:20px;line-height:20px;float:right"> 
+  
+    <a alt="Envie por email" title="Envie por email" class="addthis_button_email">&nbsp; Recomende o Painel&nbsp;</a>
+    <a alt="Envie para o Facebook" title="Envie para o Facebook" class="addthis_button_facebook">&nbsp;Facebook&nbsp;</a>
+    <a alt="Envie para o Twitter" title="Envie para o Twitter" class="addthis_button_twitter">&nbsp;Twitter&nbsp;</a>
+    <div id=likebuttom style="float:left;padding:0 6px 0 6px;"><iframe src="http://www.facebook.com/widgets/like.php?href=http://www.painelglobal.com.br&layout=button_count"  scrolling="no" frameborder="0"  style="border:none; width:85px; height:20px"></iframe></div>	  
+   <div id=google style="float:left;padding:0 0 0 0;"> <g:plusone size="medium"></g:plusone>   </div>              
+   
+<a href=http://www.facebook.com/painelglobal><img src=imagens/botao_fb2.gif border=0 align=absmiddle></a>&nbsp;
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=apolo11"></script>
+
+<!-- AddThis Button END --> 
+ 
+	<div style="width:990px;margin-bottom:0px;height:270px;margin-top:10px!important;margin-top:0">
+	   <div style="margin-bottom:3px;margin-left:4px"><a href=terremotos_no_brasil.php><img src=imagens/tarja_terremotos_brasil.gif border=0></a></div>
+	 <!-- Início Bloco Sismoscópio -->
+<table cellpadding=0 cellspacing=0 width=990 align=left>
+<td width="680">
+<div style="margin-left:5px"><img src=imagens/header_tabela_sismos.gif></div>
+<div style="background-color:#FFFFFF;height:225px;overflow-x:hidden;overflow-y:scroll;margin-left:5px;width:650px;float:left;">
+<table  id="tab_sismo"  cellpading=0 cellspacing=0 style="width:645px!important;width:645px">
+<tr bgcolor=#FFFFFF><td>23/03</td><td>15:01</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0315-01" target=_parent>Ilhas Marianas do Norte, a 66 km de Ag  </a></td><td>218</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>14:30</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0314-30" target=_parent>CA, a 3 km de Upland                    </a></td><td>14</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>12:16</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0312-16" target=_parent>Próximo às Ilhas Izu, Japão             </a></td><td>10</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>23/03</td><td>11:52</td><td>5.3</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=23-0311-52" target=_parent>Papua Nova Guiné, a 76 km de Mendi      </a></td><td>59</td><td>1335</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>10:41</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0310-41" target=_parent>Filipinas, a 109 km de Caburan          </a></td><td>48</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>10:34</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0310-34" target=_parent>Japão, a 146 km de Iwanai               </a></td><td>224</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>10:19</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0310-19" target=_parent>Filipinas, a 171 km de Sarangani        </a></td><td>78</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>10:06</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0310-06" target=_parent>Porto Rico, a 64 km de Rincon           </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>09:39</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0309-39" target=_parent>Alasca, a 71 km de Amatignak Island     </a></td><td>43</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>08:49</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0308-49" target=_parent>CA, a 18 km de Johannesburg             </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>08:04</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0308-04" target=_parent>Montana, a 14 km de Lincoln             </a></td><td>12</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>07:57</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0307-57" target=_parent>Porto Rico, a 9 km de Dorado            </a></td><td>71</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>07:41</td><td>4.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0307-41" target=_parent>República Dominicana, a 9 km de Ramon   </a></td><td>112</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>23/03</td><td>07:40</td><td>5.2</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=23-0307-40" target=_parent>Norte da cordilheira meso-atlântica     </a></td><td>10</td><td>945</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>07:37</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0307-37" target=_parent>Costa Rica, a 10 km de San Marcos       </a></td><td>36</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>07:27</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0307-27" target=_parent>República Dominicana, a 65 km de Punta  </a></td><td>123</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>07:12</td><td>3.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0307-12" target=_parent>Alasca, a 61 km de Semisopochnoi Islan  </a></td><td>54</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>06:13</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0306-13" target=_parent>Ilhas Virgens (EUA), a 40 km de Charlo  </a></td><td>29</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>23/03</td><td>05:46</td><td>5.1</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=23-0305-46" target=_parent>South Georgia and the South Sandwich I  </a></td><td>70</td><td>660</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>05:16</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0305-16" target=_parent>Alasca, a 165 km de Akutan              </a></td><td>23</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>05:01</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0305-01" target=_parent>Papua Nova Guiné, a 50 km de Kandrian   </a></td><td>166</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>04:34</td><td>3.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0304-34" target=_parent>República Dominicana, a 7 km de Punta   </a></td><td>152</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>03:18</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0303-18" target=_parent>CA, a 17 km de Petrolia                 </a></td><td>23</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>03:09</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0303-09" target=_parent>CA, a 22 km de Petrolia                 </a></td><td>21</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>01:43</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0301-43" target=_parent>Oklahoma, a 13 km de Stroud             </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>23/03</td><td>00:03</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=23-0300-03" target=_parent>Papua Nova Guiné, a 96 km de Porgera    </a></td><td>10</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>23:40</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0323-40" target=_parent>Itália, a 49 km de Cetraro              </a></td><td>256</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>23:23</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0323-23" target=_parent>Papua Nova Guiné, a 84 km de Mendi      </a></td><td>10</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>22:57</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0322-57" target=_parent>CA, a 40 km de Olancha                  </a></td><td>   0.7</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>22:40</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0322-40" target=_parent>Alasca, a 291 km de Kodiak              </a></td><td>12</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>22:35</td><td>3.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0322-35" target=_parent>Ilhas Virgens (EUA), a 107 km de Charl  </a></td><td>36</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>21:40</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0321-40" target=_parent>Utah, a 1 km de Loa                     </a></td><td>16</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>21:32</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0321-32" target=_parent>Japão, a 41 km de Ofunato               </a></td><td>37</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>20:07</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0320-07" target=_parent>Alasca, a 262 km de Kodiak              </a></td><td>11</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>19:53</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0319-53" target=_parent>Porto Rico, a 8 km de Pole Ojea         </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>19:27</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0319-27" target=_parent>CA, a 17 km de Parkfield                </a></td><td>4</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>18:55</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0318-55" target=_parent>Alasca, a 252 km de Kodiak              </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>17:38</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0317-38" target=_parent>Alasca, a 295 km de Kodiak              </a></td><td>21</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>16:24</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0316-24" target=_parent>CA, a 17 km de Humboldt Hill            </a></td><td>25</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>22/03</td><td>16:05</td><td>5.1</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=22-0316-05" target=_parent>Vanuatu, a 12 km de Port-Olry           </a></td><td>39</td><td>660</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>14:49</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0314-49" target=_parent>Alasca, a 247 km de Kodiak              </a></td><td>26</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>14:00</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0314-00" target=_parent>Alasca, a 225 km de Kodiak              </a></td><td>27</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>13:21</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0313-21" target=_parent>Utah, a 2 km de Loa                     </a></td><td>17</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>12:48</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0312-48" target=_parent>Chile, a 181 km de Carahue              </a></td><td>10</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>12:38</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0312-38" target=_parent>Utah, a 1 km de Loa                     </a></td><td>15</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>11:05</td><td>3.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0311-05" target=_parent>Alasca, a 241 km de Kodiak              </a></td><td>35</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>11:02</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0311-02" target=_parent>Porto Rico, a 1 km de Bayamon           </a></td><td>91</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>09:54</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0309-54" target=_parent>Havaí, a 7 km do Vulcão                 </a></td><td>2</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>08:44</td><td>4.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0308-44" target=_parent>Chile, a 91 km de Tocopilla             </a></td><td>52</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>08:33</td><td>3.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0308-33" target=_parent>Alasca, a 272 km de Kodiak              </a></td><td>22</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>08:03</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0308-03" target=_parent>Chile, a 119 km de Calama               </a></td><td>117</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>07:56</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0307-56" target=_parent>Alasca, a 253 km de Kodiak              </a></td><td>22</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>07:55</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0307-55" target=_parent>Havaí, a 8 km do Vulcão                 </a></td><td>1</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>22/03</td><td>07:26</td><td>5.4</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=22-0307-26" target=_parent>Nova Zelândia, a 103 km de Raoul Islan  </a></td><td>10</td><td>1875</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>06:40</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0306-40" target=_parent>Indonésia, a 21 km de Tanjungagung      </a></td><td>152</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>05:31</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0305-31" target=_parent>Porto Rico, a 20 km de Culebra          </a></td><td>55</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>05:24</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0305-24" target=_parent>Porto Rico, a 32 km de San Antonio      </a></td><td>65</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>04:52</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0304-52" target=_parent>Ilhas Virgens (RU), a 12 km de Road To  </a></td><td>66</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>04:06</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0304-06" target=_parent>Alasca, a 56 km de Anchorage            </a></td><td>44</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>03:57</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0303-57" target=_parent>CA, a 17 km de Petrolia                 </a></td><td>19</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>22/03</td><td>02:46</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=22-0302-46" target=_parent>Indonésia, a 150 km de Kota Ternate     </a></td><td>23</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>00:44</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0300-44" target=_parent>Vanuatu, a 49 km de Luganville          </a></td><td>130</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>00:27</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0300-27" target=_parent>Utah, a 2 km de Loa                     </a></td><td>16</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>22/03</td><td>00:09</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=22-0300-09" target=_parent>Texas, a 19 km de Pecos                 </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>22/03</td><td>00:08</td><td>5.3</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=22-0300-08" target=_parent>Indonésia, a 88 km de Pagaralam         </a></td><td>61</td><td>1335</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>23:15</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0323-15" target=_parent>Japão, a 35 km de Shiraoi               </a></td><td>105</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>21/03</td><td>23:11</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=21-0323-11" target=_parent>Ilhas Salomão, a 17 km de Lata          </a></td><td>75</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>22:56</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0322-56" target=_parent>Islândia, a 125 km de Hofn              </a></td><td>7</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>22:15</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0322-15" target=_parent>Papua Nova Guiné, a 95 km de Mendi      </a></td><td>10</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>21:11</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0321-11" target=_parent>CA, a 5 km de San Juan Bautista         </a></td><td>6</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>21:00</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0321-00" target=_parent>B.C., a 7 km de Delta                   </a></td><td>6</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>21/03</td><td>20:41</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=21-0320-41" target=_parent>Irã, a 51 km de Bandar  Abbas           </a></td><td>10</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>18:14</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0318-14" target=_parent>Porto Rico, a 98 km de Loiza            </a></td><td>74</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>17:00</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0317-00" target=_parent>Alasca, a 78 km de Homer                </a></td><td>36</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>16:22</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0316-22" target=_parent>Indonésia, a 23 km de Tobelo            </a></td><td>9</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>16:18</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0316-18" target=_parent>Japão, a 285 km de Chichi-shima         </a></td><td>55</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>16:02</td><td>3.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0316-02" target=_parent>Alasca, a 277 km de Kodiak              </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>21/03</td><td>15:33</td><td>5.2</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=21-0315-33" target=_parent>Indonésia, a 29 km de Tobelo            </a></td><td>7</td><td>945</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>15:33</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0315-33" target=_parent>Indonésia, a 49 km de Tobelo            </a></td><td>39</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>15:02</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0315-02" target=_parent>República Dominicana, a 25 km de Boca   </a></td><td>68</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>15:02</td><td>3.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0315-02" target=_parent>Alasca, a 67 km de Atka                 </a></td><td>135</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>14:36</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0314-36" target=_parent>Indonésia, a 262 km de Saumlaki         </a></td><td>101</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>13:50</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0313-50" target=_parent>CA, a 31 km de Bayview                  </a></td><td>18</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>12:33</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0312-33" target=_parent>Irã, a 53 km de Bandar  Abbas           </a></td><td>37</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>11:23</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0311-23" target=_parent>Ilhas Marianas do Norte, a 86 km de Pa  </a></td><td>74</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>09:56</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0309-56" target=_parent>Chile, a 14 km de Hacienda La Calera    </a></td><td>42</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>09:33</td><td>3.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0309-33" target=_parent>Ilhas Virgens (RU), a 173 km de Road T  </a></td><td>88</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>08:50</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0308-50" target=_parent>Porto Rico, a 80 km de San Juan         </a></td><td>88</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>08:00</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0308-00" target=_parent>Papua Nova Guiné, a 105 km de Porgera   </a></td><td>10</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>07:07</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0307-07" target=_parent>Japão, a 184 km de Yamada               </a></td><td>34</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>05:47</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0305-47" target=_parent>Alasca, a 244 km de Kodiak              </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>04:59</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0304-59" target=_parent>New York, a 25 km de Malone             </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>04:34</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0304-34" target=_parent>República Dominicana, a 5 km de La Rom  </a></td><td>133</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>03:49</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0303-49" target=_parent>Havaí, a 7 km de Pahala                 </a></td><td>33</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>01:18</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0301-18" target=_parent>Bolívia, a 124 km de Uyuni              </a></td><td>220</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>00:34</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0300-34" target=_parent>Alasca, a 28 km do Vulcão Redoubt       </a></td><td>77</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>21/03</td><td>00:00</td><td>4.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=21-0300-00" target=_parent>El Salvador, a 35 km de El Rosario      </a></td><td>51</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>23:51</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0323-51" target=_parent>Indonésia, a 152 km de Abepura          </a></td><td>35</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>23:44</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0323-44" target=_parent>República Dominicana, a 21 km de San R  </a></td><td>147</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>23:24</td><td>3.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0323-24" target=_parent>Oklahoma, a 33 km de Fairview           </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>21:23</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0321-23" target=_parent>China, a 68 km de Luring                </a></td><td>35</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>18:07</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0318-07" target=_parent>México, a 1 km de Cuajinicuilapa        </a></td><td>57</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>20/03</td><td>17:47</td><td>5.2</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=20-0317-47" target=_parent>México, a 15 km de Cuajinicuilapa       </a></td><td>37</td><td>945</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>16:44</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0316-44" target=_parent>México, a 16 km de Ometepec             </a></td><td>35</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>16:32</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0316-32" target=_parent>Idaho, a 8 km de Challis                </a></td><td>4</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>15:46</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0315-46" target=_parent>Argentina, a 39 km de San Antonio de l  </a></td><td>211</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>15:25</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0315-25" target=_parent>Nicarágua, a 102 km de Jiquilillo       </a></td><td>35</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>14:50</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0314-50" target=_parent>Washington, a 4 km de Port Townsend     </a></td><td>22</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>13:30</td><td>4.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0313-30" target=_parent>Papua Nova Guiné, a 108 km de Kiunga    </a></td><td>10</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>13:10</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0313-10" target=_parent>Argentina, a 35 km de San Antonio de l  </a></td><td>199</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>12:58</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0312-58" target=_parent>Indonésia, a 66 km de Tual              </a></td><td>10</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>12:09</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0312-09" target=_parent>CA, a 8 km de Brawley                   </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>11:10</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0311-10" target=_parent>Filipinas, a 46 km de Bantogon          </a></td><td>611</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>10:52</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0310-52" target=_parent>Alasca, a 107 km de Talkeetna           </a></td><td>6</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>10:20</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0310-20" target=_parent>Canadá, a 105 km de Haines Junction     </a></td><td>2</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>20/03</td><td>09:22</td><td>5.2</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=20-0309-22" target=_parent>Taiwan, a 21 km de Yujing               </a></td><td>14</td><td>945</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>07:06</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0307-06" target=_parent>Oklahoma, a 8 km de Yale                </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>06:58</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0306-58" target=_parent>Fiji, a 277 km de Ndoi Island           </a></td><td>469</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>06:55</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0306-55" target=_parent>CA, a 2 km de The Geysers               </a></td><td>3</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>05:46</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0305-46" target=_parent>Alasca, a 55 km de Talkeetna            </a></td><td>77</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>01:34</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0301-34" target=_parent>Alasca, a 98 km de Alakanuk             </a></td><td>1</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>00:28</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0300-28" target=_parent>Alasca, a 74 km de Nikolski             </a></td><td>85</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>00:28</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0300-28" target=_parent>Ilhas Virgens (RU), a 28 km de Road To  </a></td><td>37</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>20/03</td><td>00:25</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=20-0300-25" target=_parent>Porto Rico, a 86 km de San Antonio      </a></td><td>41</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>23:56</td><td>3.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0323-56" target=_parent>B.C., a 124 km de Estacion Coahuila     </a></td><td>6</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>23:36</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0323-36" target=_parent>B.C., a 143 km de Estacion Coahuila     </a></td><td>6</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>22:43</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0322-43" target=_parent>Alasca, a 130 km de Middleton Island    </a></td><td>   0.8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>19:43</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0319-43" target=_parent>Porto Rico, a 29 km de Luquillo         </a></td><td>76</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>19:32</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0319-32" target=_parent>Irã, a 17 km de Behbahan                </a></td><td>10</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>18:26</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0318-26" target=_parent>Canadá, a 160 km de Haines Junction     </a></td><td>   0.3</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>17:08</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0317-08" target=_parent>Alasca, a 90 km de Old Iliamna          </a></td><td>119</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>16:36</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0316-36" target=_parent>Chile, a 60 km de Copiapo               </a></td><td>89</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>15:20</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0315-20" target=_parent>China, a 33 km de Kuqa                  </a></td><td>28</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>14:24</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0314-24" target=_parent>Na região do Chile, em local incerto    </a></td><td>10</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>14:05</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0314-05" target=_parent>El Salvador, a 78 km de Acajutla        </a></td><td>10</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>13:37</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0313-37" target=_parent>Alasca, a 256 km de Kodiak              </a></td><td>35</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>12:51</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0312-51" target=_parent>Argentina, a 79 km de Mendoza           </a></td><td>114</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>12:20</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0312-20" target=_parent>Alasca, a 18 km de Little Sitkin Islan  </a></td><td>141</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>12:20</td><td>4.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0312-20" target=_parent>Alasca, a 122 km do Vulcão Kiska        </a></td><td>51</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>11:36</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0311-36" target=_parent>Indonésia, a 55 km de Gunungbatu        </a></td><td>42</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>09:15</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0309-15" target=_parent>Alasca, a 50 km de Valdez               </a></td><td>14</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>09:03</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0309-03" target=_parent>Chile, a 46 km de Valparaiso            </a></td><td>33</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>07:20</td><td>3.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0307-20" target=_parent>Ilhas Virgens (RU), a 83 km de Road To  </a></td><td>79</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>07:14</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0307-14" target=_parent>Alasca, a 78 km de Unalaska             </a></td><td>37</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>07:06</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0307-06" target=_parent>Porto Rico, a 92 km de San Juan         </a></td><td>46</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>06:50</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0306-50" target=_parent>Chile, a 84 km de Iquique               </a></td><td>117</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>04:30</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0304-30" target=_parent>Irã, a 22 km de Bandar-e Ganaveh        </a></td><td>10</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>02:45</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0302-45" target=_parent>Japão, a 57 km de Hasaki                </a></td><td>30</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>19/03</td><td>02:36</td><td>5.1</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=19-0302-36" target=_parent>Vanuatu, a 57 km de Norsup              </a></td><td>132</td><td>660</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>02:15</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0302-15" target=_parent>Porto Rico, a 9 km de Brenas            </a></td><td>39</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>01:45</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0301-45" target=_parent>Chile, a 63 km de Vallenar              </a></td><td>20</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>19/03</td><td>00:02</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=19-0300-02" target=_parent>República Dominicana, a 52 km de Punta  </a></td><td>103</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>23:46</td><td>3.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0323-46" target=_parent>Alasca, a 53 km de Unalaska             </a></td><td>60</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>23:43</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0323-43" target=_parent>Oklahoma, a 10 km de Hennessey          </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>21:36</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0321-36" target=_parent>Porto Rico, a 91 km de San Juan         </a></td><td>26</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>21:34</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0321-34" target=_parent>Alasca, a 9 km de Cantwell              </a></td><td>93</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>18:55</td><td>3.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0318-55" target=_parent>Golfo do Alasca                         </a></td><td>10</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>18:50</td><td>3.0</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0318-50" target=_parent>Oklahoma, a 15 km de Langston           </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>18/03</td><td>18:00</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=18-0318-00" target=_parent>Rússia, a 174 km de Kuril sk            </a></td><td>86</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>16:36</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0316-36" target=_parent>Fiji, a 43 km de Ndoi Island            </a></td><td>566</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>14:46</td><td>3.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0314-46" target=_parent>Alasca, a 181 km de Amukta Island       </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>13:54</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0313-54" target=_parent>Indonésia, a 98 km de Sungaipenuh       </a></td><td>60</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>13:40</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0313-40" target=_parent>Alasca, a 200 km de Kodiak              </a></td><td>35</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>13:25</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0313-25" target=_parent>Porto Rico, a 27 km de Vieques          </a></td><td>36</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>18/03</td><td>13:20</td><td>5.1</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=18-0313-20" target=_parent>South Of Tonga                          </a></td><td>38</td><td>660</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>12:51</td><td>4.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0312-51" target=_parent>Alasca, a 177 km de Amukta Island       </a></td><td>13</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>18/03</td><td>11:35</td><td>5.3</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=18-0311-35" target=_parent>Indonésia, a 12 km de Lemito            </a></td><td>107</td><td>1335</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>10:23</td><td>3.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0310-23" target=_parent>Alasca, a 262 km de Kodiak              </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>10:22</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0310-22" target=_parent>B.C., a 66 km de Maneadero              </a></td><td>14</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>09:22</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0309-22" target=_parent>México, a 24 km de Matias Romero        </a></td><td>52</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>08:28</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0308-28" target=_parent>Ilhas Virgens (EUA), a 69 km de Charlo  </a></td><td>31</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>08:14</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0308-14" target=_parent>Alasca, a 66 km de Valdez               </a></td><td>21</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>08:06</td><td>4.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0308-06" target=_parent>Chile, a 81 km de Vallenar              </a></td><td>18</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>07:47</td><td>4.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0307-47" target=_parent>México, a 9 km de Niltepec              </a></td><td>93</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>06:19</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0306-19" target=_parent>Havaí, a 4 km do Vulcão                 </a></td><td>  -0.2</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>06:01</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0306-01" target=_parent>Guam, a 280 km de Merizo Village        </a></td><td>48</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>05:54</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0305-54" target=_parent>Indonésia, a 116 km de Banda Aceh       </a></td><td>35</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>05:38</td><td>3.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0305-38" target=_parent>Ilhas Virgens (RU), a 51 km de Road To  </a></td><td>73</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>04:22</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0304-22" target=_parent>Papua Nova Guiné, a 91 km de Arawa      </a></td><td>174</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>03:59</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0303-59" target=_parent>Japão, a 5 km de Chiba-shi              </a></td><td>65</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>03:30</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0303-30" target=_parent>Papua Nova Guiné, a 103 km de Porgera   </a></td><td>19</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>02:53</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0302-53" target=_parent>Irã, a 22 km de Shah Pasand             </a></td><td>10</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>02:31</td><td>4.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0302-31" target=_parent>México, a 10 km de Ixhuatan             </a></td><td>78</td><td>15</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>02:17</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0302-17" target=_parent>Kansas, a 7 km de South Hutchinson      </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>02:11</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0302-11" target=_parent>Ilhas Salomão, a 98 km de Kirakira      </a></td><td>64</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>01:26</td><td>3.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0301-26" target=_parent>Japão, a 77 km de Kushiro               </a></td><td>26</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>18/03</td><td>00:38</td><td>3.1</td> <td>LEVE</td><td><a href="terremoto.php?mapa=18-0300-38" target=_parent>Alasca, a 262 km de Kodiak              </a></td><td>38</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>22:35</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0322-35" target=_parent>Washington, a 4 km de Mercer Island     </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>22:33</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0322-33" target=_parent>Papua Nova Guiné, a 94 km de Porgera    </a></td><td>10</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>22:19</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0322-19" target=_parent>CA, a 11 km de Borrego Springs          </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>22:02</td><td>3.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0322-02" target=_parent>Alasca, a 69 km de Larsen Bay           </a></td><td>74</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>21:46</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0321-46" target=_parent>Papua Nova Guiné, a 136 km de Madang    </a></td><td>198</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>20:54</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0320-54" target=_parent>Filipinas, a 235 km de Sarangani        </a></td><td>35</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>20:53</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0320-53" target=_parent>Montana, a 11 km de Lincoln             </a></td><td>12</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>20:34</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0320-34" target=_parent>Alasca, a 45 km de Sterling             </a></td><td>26</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>17/03</td><td>20:34</td><td>5.3</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=17-0320-34" target=_parent>Chile, a 81 km de Putre                 </a></td><td>132</td><td>1335</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>20:31</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0320-31" target=_parent>CA, a 2 km de The Geysers               </a></td><td>   0.7</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>17/03</td><td>19:59</td><td>5.1</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=17-0319-59" target=_parent>Burma, a 35 km de Pyu                   </a></td><td>29</td><td>660</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>19:58</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0319-58" target=_parent>CA, a 1 km de Loma Linda                </a></td><td>17</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>19:31</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0319-31" target=_parent>Alasca, a 219 km de False Pass          </a></td><td>10</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>19:14</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0319-14" target=_parent>B.C., a 88 km de Maneadero              </a></td><td>12</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>18:18</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0318-18" target=_parent>Argentina, a 9 km de Palpala            </a></td><td>44</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>17:45</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0317-45" target=_parent>CA, a 12 km de Mammoth Lakes            </a></td><td>3</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>17:35</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0317-35" target=_parent>Papua Nova Guiné, a 145 km de Finschha  </a></td><td>70</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>15:12</td><td>4.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0315-12" target=_parent>Malavi, a 22 km de Nsanje               </a></td><td>10</td><td>330</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>13:07</td><td>2.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0313-07" target=_parent>CA, a 3 km de Huntington Park           </a></td><td>8</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>12:48</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0312-48" target=_parent>Indonésia, a 265 km de Kali             </a></td><td>547</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>12:43</td><td>3.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0312-43" target=_parent>Alasca, a 31 km de Atka                 </a></td><td>79</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>11:31</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0311-31" target=_parent>CA, a 12 km de Mammoth Lakes            </a></td><td>3</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>10:16</td><td>4.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0310-16" target=_parent>Colômbia, a 33 km de Uribia             </a></td><td>46</td><td>75</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>09:23</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0309-23" target=_parent>Timor-Leste, a 175 km de Ainaro         </a></td><td>10</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>09:15</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0309-15" target=_parent>Timor-Leste, a 179 km de Ainaro         </a></td><td>10</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>08:02</td><td>2.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0308-02" target=_parent>Kansas, a 14 km de Plainville           </a></td><td>5</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>07:39</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0307-39" target=_parent>México, a 20 km de San Juan Evangelist  </a></td><td>112</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>17/03</td><td>07:36</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=17-0307-36" target=_parent>Sul das ilhas Fiji                      </a></td><td>524</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>07:30</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0307-30" target=_parent>Chile, a 98 km de Calama                </a></td><td>87</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>06:41</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0306-41" target=_parent>República Dominicana, a 41 km de Punta  </a></td><td>95</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>17/03</td><td>05:50</td><td>5.5</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=17-0305-50" target=_parent>Sul da Dorsal meso-atlântica            </a></td><td>10</td><td>2655</td><td>0.1</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>05:23</td><td>4.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0305-23" target=_parent>Indonésia, a 129 km de Tobelo           </a></td><td>10</td><td>105</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>05:16</td><td>4.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0305-16" target=_parent>Wallis and Futuna, a 231 km de Mata-Ut  </a></td><td>10</td><td>225</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>04:32</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0304-32" target=_parent>Alasca, a 34 km de Y                    </a></td><td>20</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>03:05</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0303-05" target=_parent>Alasca, a 54 km do Vulcão Redoubt       </a></td><td>128</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>02:31</td><td>4.4</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0302-31" target=_parent>Indonésia, a 131 km de Tobelo           </a></td><td>160</td><td>45</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>02:18</td><td>3.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0302-18" target=_parent>Alasca, a 227 km de Kodiak              </a></td><td>21</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>01:51</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0301-51" target=_parent>República Dominicana, a 41 km de Boca   </a></td><td>96</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>01:40</td><td>2.9</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0301-40" target=_parent>Porto Rico, a 0 km de Ingenio           </a></td><td>117</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>01:00</td><td>4.7</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0301-00" target=_parent>Sudeste da Ilha de Páscoa, Pacífico     </a></td><td>10</td><td>165</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>00:26</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0300-26" target=_parent>Alasca, a 119 km de Kodiak              </a></td><td>33</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>17/03</td><td>00:15</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=17-0300-15" target=_parent>Porto Rico, a 1 km de Bayamon           </a></td><td>122</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#D4E7F9><td>16/03</td><td>23:41</td><td>5.0</td> <td>MODERADO</td><td><a href="terremoto.php?mapa=16-0323-41" target=_parent>Região das Ilhas Balleny                </a></td><td>10</td><td>465</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>23:38</td><td>3.2</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0323-38" target=_parent>Ilhas Virgens (EUA), a 105 km de Charl  </a></td><td>65</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>23:23</td><td>2.8</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0323-23" target=_parent>Alasca, a 35 km do Vulcão Redoubt       </a></td><td>85</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>21:50</td><td>2.5</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0321-50" target=_parent>Porto Rico, a 47 km de Arecibo          </a></td><td>37</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>19:58</td><td>4.3</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0319-58" target=_parent>Índia, a 147 km de Port Blair           </a></td><td>107</td><td>30</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>17:56</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0317-56" target=_parent>Alasca, a 15 km de Cantwell             </a></td><td>3</td><td>0</td><td>0</td></tr>
+<tr bgcolor=#FFFFFF><td>16/03</td><td>17:21</td><td>2.6</td> <td>LEVE</td><td><a href="terremoto.php?mapa=16-0317-21" target=_parent>Oklahoma, a 12 km de Watonga            </a></td><td>29</td><td>0</td><td>0</td></tr>
+
+<tr bgcolor=FFFFFF><td><font color=white> xx/xx</td><td><font color=white>xx:xx</td><td><font color=white>x.x</td><td><font color=white>MODERADO</td><td><font color=white>------------------------------------</td><td><font color=white>xxx</td><td><font color=white>xxxxxxxx</td><td><font color=white>xxxx</td></tr>
+<tr bgcolor=2F7BC3><td><font color=white>&nbsp;Data</td><td><font color=white>Hora</td><td><font color=white>Mag.</td><td><font color=white>Intensidade</td><td><font color=white>Local</td><td><font color=white>Prof.</td><td><font color=white>Tons de TNT</td><td><font color=white>BA</td></tr>
+</table>
+<font color=black size=1 face=verdana><BR><b>Prof</b> = Profundidade em km<BR><b>Tons de TNT</b> = Quantidade de energia liberada equivalente em toneladas de TNT <BR><b>BA</b> = Quantidade de bombas atômicas equivalentes à de Hiroshima, de 20 Ktons de TNT<BR><BR></b></font></div></td>
+
+<td id=sismoscopio style="padding-left:30px"><img src=imagens/header_sismoscopio.gif style="margin-left:2px;margin-bottom:2px" alt="Sismoscópio"><BR><div align=left style="height:159px;margin-top:10px"><img src=imagens/escala_sismos_out_gd.jpg></div></td>
+
+</table>
+
+<!-- FIM Bloco Sismoscópio -->
+	 
+	</div>
+
+</div>
+<!-- painel_monit -->
+
+
+<!-- ------------------------------------- -->
+
+<BR>
+
+
+
+   <div id="miolo" style="width:982px;border-style:solid;border-width:4px;border-color:#1B4C86;display:block">
+   
+	    <style> 
+		div#menu_susp {color:#DEF6FA; font-size:10px ; font-family:verdana ; font-weight:bold;}         
+		div#menu_susp a {color:#DEF6FA;  text-decoration:none;}
+		div#menu_susp a:hover {color:#F4C903; text-decoration:underline;}
+
+		div#menu_cont {color:#DEF6FA; font-size:8px ; font-family:verdana ; font-weight:bold;}         
+		div#menu_cont a {color:#DEF6FA;  text-decoration:none;}
+		div#menu_cont a:hover {color:#F4C903; text-decoration:underline;}
+
+		div#menu_inferior {color:#000000; font-size:11px ; font-family:verdana ; font-weight:none;}         
+		div#menu_inferior a {color:#000000;  text-decoration:none;}
+		div#menu_inferior a:hover {color:#00ff00; text-decoration:underline;}
+
+		div#menu_forum {color:#DEF6FA; font-size:10px ; font-family:verdana ; font-weight:bold;}         
+		div#menu_forum a {color:#DEF6FA;  text-decoration:none;}
+		div#menu_forum a:hover {color:#F4C903; text-decoration:underline;}
+		
+	        .tempomundo { color: 222222; text-decoration: none; font-size: 12px;   font-weight: none; font-family: verdana }          		
+	        
+                table#disp_aero td {color:#000000; font-size:12px ; font-family:verdana ; font-weight:none;  padding:4px 3px 4px; 3px}     
+                	        
+	    </style>
+
+
+
+	 
+	 <table id="tab_miolo" cellspacing=0 cellpadding=0>       
+	 
+	  <tr bgcolor=E0ECFF> 
+	    <td height=40><img src=imagens/tarja_panorama.gif style="margin-left:10px"></td>
+	    <td height=40 width=500  align=center>
+  	      <div id="menu_susp" style="background-color:#1B4C86;height:24px;width:500px;margin-top:0px;margin-right:5px;line-height:24px">
+		<a href=javascript:toggle2('miolo_relat_sismico') >Tempo no Brasil </a> |
+		<a href=javascript:toggle2('miolo_relat_sismico') >Tempo no mundo</a>
+	     </div> 	
+	    </td>	  
+	  </tr>
+	    
+	 
+	 <tr>
+	   <td width=420 valign=top>
+	   <div id="miolo_interno_esq">	   
+	    <table cellspacing=2 cellpadding=0 bgcolor=ffffff width=420 height=100% style="margin-top:10px;margin-left:6px">
+<td width=420 valign=top>   
+
+
+<iframe src="http://www.apolo11.com/franquia_breaking_painelglobal.php" width="420" height="178" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe>
+
+
+<center><div id="miolo_asolar" style="width:420px;margin-top:25px;">
+<img src=imagens/tarja_atividade_solar_2.gif alt="Atividade Solar" style="margin-bottom:12px;">
+<div style="line-height:18px;text-align:left"><font color=black size=2 face=verdana>
+Os dois gráficos mostrados permitem uma visão rápida do nível da atividade solar e o que esperar para os próximos dias.
+</div>
+<table cellpadding=0 cellspacing=0 width=420>
+ <td width=50% style="padding-top:12px">
+ <a href=http://www.apolo11.com/atividade_solar.php><img src=http://www.apolo11.com/imagens/graficos/indice_kp_346.png width=200 height=150 border=0></a>
+ </td>
+ <td width=50% style="padding-top:12px" align=center>
+ <a href=http://www.apolo11.com/atividade_solar.php><img src=http://www.apolo11.com/imagens/graficos/fluxo_rx_346.png width=200 height=150 border=0></a>
+ </td>
+</table> 
+</div></center>   
+
+
+<BR><BR>
+<center>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pf_pg_quadr_esq_336x280 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-5941710628502738"
+     data-ad-slot="9836521033"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+
+
+<center><div id="miolo_temp_mundo" style="width:420px;margin-top:38px;">
+<img src=imagens/tarja_extremos_climaticos2.gif alt="Extremos Climáticos" style="margin-bottom:12px;">
+
+<div style="line-height:18px;text-align:left;margin-bottom:16px">                            
+  <font color=black size=2 face=verdana>
+  Observações meteorológicas recebidas às 23/Mar/2018 13:50 e monitorados pelo Painel Global indicam que 30 estações apresentaram temperaturas inferiores a 10&deg;C, disparando os alertas destacados em azul no mapa.</div>
+
+<div style="line-height:16px;text-align:left">
+<img src=imagens/tarja_maior_temp.gif alt="Maior temperatura no mundo" style="margin-bottom:0px;">
+<BR><font color=black size=2 face=verdana><b>Cartum (Sudão):  41 graus C </b></font>
+</div>
+
+<div style="line-height:16px;text-align:left;margin-top:12px">
+<img src=imagens/tarja_menor_temp.gif alt="Menor temperatura no mundo" style="margin-bottom:0px;">
+<BR><font color=black size=2 face=verdana><b>Amundsen-Scott (Base Antártica) :  -34 graus C </b></font>
+</div>
+
+</div></center>   
+
+
+<center><div id="miolo_temp_mundo" style="width:420px;margin-top:48px;">
+<img src=imagens/tarja_recordes_24h.gif alt="Recordes de Clima no Brasil" style="margin-bottom:12px;">
+
+
+
+</font>
+
+
+<table width=100% cellpadding=0 cellspacing=0 border=0>
+<td valign=top><font color=black size=2 face=verdana>Abaixo são mostrados os extremos meteorológicos brasileiros registrados das últimas 24 horas e informados pelos principais aeroportos do país. <P></font></td>
+</table>
+
+<style>
+      table#recordes_br td {border-style:solid; border-width:0px 1px 1px 0px; border-color:#196CAB ; padding:4px 3px 4px; 3px; font-size:11px ;font-family:verdana ; color:#000000}     
+</style>
+
+
+<table id="recordes_br" cellpadding=0 cellspacing=0 bgcolor=D9EBFC width=420 style="border-style:solid; border-width:1px 0px 0px 1px; border-color:#196CAB ;">
+
+<tr><td valign=center ><img src=imagens/log_vermelho.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;T. Máxima </td><td>Paulo Afonso                            (BA) </td><td> 37ºC </td><td>22  às 16h <BR></td></tr><tr><td valign=center><img src=imagens/log_azul.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;T. Mínima </td><td>Pelotas                                 (RS) </td><td> 14ºC </td><td>23  às 07h</td></tr><tr><td valign=center><img src=imagens/log_verde.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;U. Relativa </td><td>Paulo Afonso                            (BA) </td><td> 27% </td><td>22  às 16h</td></tr><tr><td valign=center><img src=imagens/log_verde.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;Pressão Máx. </td><td>Barbacena                               (MG) </td><td>1022 hPa </td><td>23  às 11h</td></tr><tr><td valign=center><img src=imagens/log_verde.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;Pressão Mín. </td><td>Corumbá                                 (MS) </td><td>1006 hPa </td><td>22  às 19h</td></tr><tr><td valign=center><img src=imagens/log_verde.gif width=6 height=6 align=absmiddle>&nbsp;&nbsp;Vento </td><td>Cascavel                                (PR)  </td><td> 45 km/h </td><td>23  às 12h</td></tr></td>
+</table>
+
+
+<P>
+
+
+</div></center>   
+
+
+
+
+<center><div id="miolo_furacoesx" style="width:420px;margin-top:40px;">
+<img src=imagens/tarja_furacoes_tempestades_2.gif alt="Furacões e Tempestades"  style="margin-bottom:0px;margin-top:10px">
+<P>
+<table id="tabela_furacao" cellspacing=0 cellpadding=4 bgcolor=D9EBFC width=420 style="border-style:solid; border-width:1px 0px 0px 1px; border-color:#196CAB ;">
+<tr font class=tabela_furacao><td><b>Tormenta</b></td><td><b>Ventos</b></td><td><b>Rumo/Veloc.</b></td><td><b>Lat.</b></td><td><b>Lon.</b></td><td><b>Pressão</b></td></tr><tr font class=tabela_furacao><td><b>Ciclone Tropical Nora</b></td><td>171 km/h</td><td>SE - 9 km/h</td><td>-11.3</td><td>138.8<td>965–979</td></tr><tr font class=tabela_furacao><td><b>Ciclone Tropical Marcus</b></td><td>144 km/h</td><td>SSE - 10 km/h</td><td>-22.3</td><td>106.0<td>>980</td></tr></table>
+<div style="line-height:18px;text-align:left"><font color=black size=2 face=verdana> </font></div>
+<P>   
+
+</div></center>
+</td>
+</table>	    </div>
+	   </td>
+  
+	   <td width=562 valign=top>
+	    <div id="miolo_interno" style="margin-left:26px"> 
+	    
+	    
+	    <script type="text/javascript">
+function toggle2(idx){
+          document.getElementById('miolo_relat_sismico').style.display = "none";                 
+          document.getElementById('miolo_destaque').style.display = "none";                           
+          document.getElementById(idx).style.display = "";                            
+}
+
+</script>
+
+
+
+<center>
+<div id="miolo_destaque" style="width:473px;margin-top:37px;display:none";>
+	<div style="line-height:18px;text-align:left"><font color=black size=2 face=verdana> </font></div>
+	</div>
+</center>
+
+       
+<center>
+<BR><a href=http://www.apolo11.com/sismoalerta?ref=pg010><img src=imagens/campanhas/sismoalerta_banner_peq.jpg border=0></a>
+
+<BR>
+<a href=http://www.apolo11.com/aquecimento_global.php><font color=365ADD size=4 face=verdana><b>Dados sobre Aquecimento Global </b></font></a>
+</center>
+
+
+<center><div id="miolo_relat_sismico" style="width:473px;margin-top:27px;display:block";>
+<img src=imagens/tarja_terremotos_recentes.gif alt="terremotos recentes" style="margin-bottom:12px!important:margin-bottom:12px">
+
+
+<div style="line-height:18px;text-align:left"><font color=black size=2 face=verdana><div id="map" style="width:255px;height:170px;background-color:#cdcdcd;float:right;margin-left:8px"></div><P>De acordo com os últimos 66 registros sísmicos reportados nas últimas 48 horas, o evento de maior intensidade ocorreu <B>na Nova Zelândia, 103 km ao sul de Raoul Island</B>, às 07:26 UTC do dia 22/03. O evento foi localizado a   10 km e de profundidade e segundo o USGS, Instituto de Pesquisas geológicas dos EUA, a magnitude do tremor foi calculada em 5.4 graus. Do total de eventos, 59 deles foram classificados como de intensidade leve e 7 atingiram o status de moderados. . (Caio)<BR></font></div>
+<P>
+	<BR><font color=blue size=3 face=verdana><b>Sismômetro em São Paulo</b></font><BR>
+	<a href=http://www.apolo11.com/sismografo.php><img src=http://s63302.gridserver.com/imagens/helicorder_ap11.gif width=470 height=353 border=0 alt="sismômetro" style="margin-top:10px!important;margin-top:0px"></a>
+
+<P>
+<div id="miolo_diversos" style="width:473px;margin-top:40px;display:block";><img src=imagens/tarja_terremotos_anuais.gif alt="Quantidade de terremotos no ano" style="margin-bottom:12px;">
+<style>
+      table#estat td {border-style:solid; border-width:0px 1px 1px 0px; border-color:#196CAB ; padding:4px 3px 4px; 2px; font-size:10px ;font-family:arial ; color:#000000}     
+</style>
+
+
+<table id="estat" cellpadding=0 cellspacing=0 bgcolor=D9EBFC width=473 style="border-style:solid; border-width:1px 0px 0px 1px; border-color:#196CAB ;">
+
+<tr bgcolor=8EBEF9><td>Mag/Data</td><td> 2011 </td><td> 2012 </td><td> 2013 </td><td> 2014 </td><td> 2015 </td><td> 2016 </td><td> 2017 </td><td> 2018</td><td>Média anual</td><td>Proj.<BR>2018</td></tr>
+<tr><td>8.0 a 8.9</td><td> 1     </td><td> 2     </td><td> 2   </td><td> 1   </td><td> 1   </td><td> 0   </td><td> 1   </td><td> 0</td><td>1 (1)</td><td>0</td></tr>
+<tr><td>7.0 a 7.9</td><td> 19    </td><td> 12    </td><td> 17     </td><td> 11     </td><td> 18     </td><td> 16     </td><td> 6     </td><td> 5</td><td>17 (1)</td><td>22</td></tr>
+<tr><td>6.0 a 6.9</td><td> 185   </td><td> 108   </td><td> 122    </td><td> 143    </td><td> 127    </td><td> 129    </td><td> 104    </td><td> 21</td><td>134 (2)</td><td>93</td></tr>
+<tr><td>5.0 a 5.9</td><td> 2276  </td><td> 1401  </td><td> 1395   </td><td> 1566   </td><td> 1414   </td><td> 1520   </td><td> 1447   </td><td> 359</td><td>1319 (2)</td><td>1597</td></tr>
+<tr><td>4.0 a 4.9</td><td> 13315 </td><td> 9534  </td><td> 8840  </td><td> 15786  </td><td> 13698  </td><td> 12697  </td><td> 11153  </td><td> 2294</td><td>13000</td><td>10211</td></tr>
+<tr><td>Total</td><td> 22289 </td><td> 16667 </td><td>       </td><td>       </td><td>       </td><td>       </td><td>       </td><td></td><td></td></tr>
+<tr><td>Mortes</td><td> 21953  </td><td> 768    </td><td>        </td><td>        </td><td>        </td><td>        </td><td>        </td><td></td><td></td></tr>
+       
+
+
+</table>
+<font color=blue size=1 face=verdana>Até 23/03/2018 - 10:40</font>
+<div style="text-align=left;width:490px"><font color=black size=1 face=verdana>
+(1) Baseado em observações desde 1900<BR>(2) Baseado em observações desde 1990<BR>Projeção: Tendência caso a quantidade de abalos seja mantida<BR><b>Obs:</b> Os valores podem sofrer correções à medida que são aferidos</font></div></div>
+<BR>
+<center>     
+
+
+
+
+<table cellpadding=0 cellspacing=0 width=470 style="border-style:solid;border-color:#365ADD;border-width:1 0 1px 0;padding:12 0 12px 0" >
+<td width=320 valign=top align=left> 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pf_pg_quadr_dir_336x280 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-5941710628502738"
+     data-ad-slot="6743453831"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</td>
+<td width=150 valign=top align=right >
+<div style="width:120px;padding:12px 15px 3px 5px;border-style:solid;border-color:#365ADD;border-width:0px">
+<!-- propag 120x250 -->
+</div>
+</td>
+</table> 
+
+
+</center>	    </div>
+	   </td>
+	  </tr>
+
+	 </table>
+	<br>	 
+   </div> <!-- miolo -->
+   
+   
+   
+<td width=200 valign=top bgcolor=ffffff algin=center>   
+<div style="width:198px;height:610px;background-color:#ffffff;">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pf_pg_160x600_lateral -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-5941710628502738"
+     data-ad-slot="6883054630"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</td>
+
+
+</td>
+
+ 
+</table>
+ 
+   <div id="miolo_inferior" style="width:1188px!important;width:1180px;border-style:solid;border-width:1px;border-color:#1B4C86;margin-top:10px; padding-bottom:10px;text-align:left">
+    	<!-- ----------- USUÁRIOS  ------------------>
+<table cellspadding=0 cellspacing=0 width=980 style="margin-top:10px">
+   <td valign=top width=400 align=left style="padding-left:0px">
+
+
+
+
+
+
+
+  
+
+
+
+                     
+
+
+
+
+
+<div style="margin-left:4px">    
+<a href=http://www.apolo11.com><img src=http://www.painelglobal.com.br/imagens/twiiters_em_acao.gif></a>
+<a class="twitter-timeline"  height="520" href="https://twitter.com/siteapolo11/tempo"  data-widget-id="344868755618295808">Tweets from @siteapolo11/tempo</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+</td>
+
+
+<!-- ----------- MENSAGENS ------------------>
+
+    <td xbgcolor=lightyellow align=right  valign=top style="padding:0px">
+               
+                                                                            
+           
+<iframe src="talk/talk.php" width="550" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" style="height:545px;margin-right:6px"></iframe>        
+      
+        
+        <div style="width:550px;border-style:solid;border-width:1px 0 0 0;border-color:#cdcdcd;margin-top:0px;margin-right:6px"></div>
+        
+       
+    </td>
+
+
+</table>
+<BR>
+<table width=980 border=0 style="display:block">
+
+<td valign=top align=left width=326 bgcolor=E0ECFF>
+<div style="background-color:#3B5998;padding:6px 0 6px 0"><center><font color=ffffff size=2 face=verdana><b> Links e Aplicativos </b></font></center></div>
+<div style="background-color:#E0ECFF;padding:6px 10px 0 10px;font-family:verdana;font-size:11px;color:#0000ff;line-height:20px">   
+
+        <hr style="margin-top:14px;margin-bottom:14px">  
+        
+	<li><a href=http://www.satview.org/br><b>Satview:</b> Rastreio de Satélites e Lixo Espacial </a></li>        
+	<li><a href=http://www.apolo11.com/ceu><b>Planeta Fácil:</b> Planetário fácil de usar!  </a></li>        
+
+	<li><a href=http://www.apolo11.com/asteroides.php><b>Asteroides:</b> Monitoramento de objetos próximos à Terra  </a></li>        	
+
+	<li><a href=http://www.apolo11.com/mundo_agora.php><b>Mundo Agora:</b> Imagens de Satélites atualizadas e animadas  </a></li>        		
+
+	<li><a href=http://www.apolo11.com/tictoc><b>Tic Toc:</b> Hora certa no Brasil e no mundo   </a></li>        					
+	
+	<li><a href=http://www.apolo11.com/mare.php><b>Tábua de Marés:</b> Cálculo de altura para 55 localidades  </a></li>        
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+        	
+	<li><a href=http://www.apolo11.com/efemerides.php><b>Efemérides:</b> Calendário Solar e Lunar completo   </a></li>        	
+	
+	<li><a href=http://www.apolo11.com/satmap2_cidades.php><b>SatMaps:</b> Veja sua cidade e sua casa do espaço!   </a></li>        		
+	
+	<li><a href=http://www.apolo11.com/populacao.php><b>Relógio Populacional:</b> Contagem em tempo real do habitantes do planeta   </a></li>        			
+
+	<li><a href=http://www.apolo11.com/tempo_mundo.php><b>Tempo no Mundo:</b> Condições do tempo em diversas cidades no mundo   </a></li>        				
+	
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+        
+	<li><a href=http://www.videonews.com.br><b>Videonews:</b> Nasa-TV e imagens ao vivo da Estação Espacial   </a></li>        				
+		
+        <hr style="margin-top:14px;margin-bottom:14px">  
+<BR><BR>	        
+</div>
+</td>
+
+<td valign=top align=left width=326 bgcolor=E0ECFF>
+
+<div style="background-color:#3B5998;padding:6px 0 6px 0"><center><font color=ffffff size=2 face=verdana><b> Perguntas e Respostas Frequentes </b></font></center></div>
+<div style="background-color:#E0ECFF;padding:6px 10px 0 10px;font-family:verdana;font-size:11px;color:#0000ff;line-height:16px">   
+
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+        
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=1 target=_blank>O que causa os terremotos? </a></li>        
+	<li><a href=http://www.apolo11.com/terremotos_globais.php?titulo=Nucleo_da_Terra_A_usina_de_forca_que_produz_terremotos&posic=dat_20110314-154453.inc target=_blank>O Sol e a Lua podem gerar terremotos? </a></li>
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=8 target=_blank>O aquecimento global pode influenciar os terremotos?</a></li> 
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=5 target=_blank>Quantos terremotos ocorrem por dia?</a></li>
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=6 target=_blank>O terremotos estão aumentando? (1)</a></li> 
+	<li><a href=http://www.apolo11.com/terremotos_globais.php?posic=dat_20100407-101814.inc target=_blank>Os terremotos estão aumentando? (2)</a></li> 
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=10 target=_blank>O Brasil está livre dos terremotos? </a></li>
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=11 target=_blank>Podemos ter um tsunami no Brasil?</a></li>
+	<li><a href=http://www.apolo11.com/curiosidades.php?posic=dat_20071211-092620.inc target=_blank>Onde estão as falhas geológicas brasileiras</a></li>
+
+        <hr style="margin-top:14px;margin-bottom:14px">	
+<BR><BR>      
+
+
+
+<BR><BR>
+<BR><BR>
+<BR><BR>
+<BR><BR>
+	
+</div>
+</td>  
+
+<td valign=top align=left width=326 bgcolor=E0ECFF>
+
+<div style="background-color:#3B5998;padding:6px 0 6px 0"><center><font color=ffffff size=2 face=verdana><b> Perguntas e Respostas Frequentes </b></font></center></div>
+<div style="background-color:#E0ECFF;padding:6px 10px 0 10px;font-family:verdana;font-size:11px;color:#0000ff;line-height:16px">
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+
+	<li><a href=http://www.apolo11.com/curiosidades.php?posic=dat_20060110-084859.inc target=_blank>Tectônica de placas: conheça a Deriva Continental</a></li>
+	<li><a href=http://www.apolo11.com/terremotos_wave.php target=_blank>Ondas Sísmicas: O que são e como se propagam</a></li>
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=2 target=_blank>O que é réplica e quanto tempo dura?</a></li>
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=3 target=_blank>A escala Richter. Como os terremotos são medidos?</a></li>
+	<li><a href=http://www.apolo11.com/terremotos_globais.php?posic=dat_20100301-092010.inc target=_blank>Compare a força dos terremotos </a></li> 
+	
+	<li><a href=http://www.apolo11.com/terremotos_mais_destrutivos.php target=_blank>Abalos mais destrutivos</a></li>        
+	<li><a href=http://www.apolo11.com/perguntas_e_respostas_sobre_terremotos.php?faq=7 target=_blank>É possível prever terremotos? (1)</a></li>        
+	<li><a href=http://www.apolo11.com/terremotos_globais.php?posic=dat_20100118-094642.inc target=_blank>É possível prever terremotos? (2)</a></li>
+                                                              
+        <hr style="margin-top:14px;margin-bottom:14px">
+        	
+        <li><a href=http://www.apolo11.com/atividade_solar.php target=_blank>Monitore a atividade solar</a></li>        
+        <li><a href=http://www.apolo11.com/aquecimento_global.php target=_blank>Dados do Aquecimento Global</a></li>                	
+        <li><a href=http://www.apolo11.com/recordes_climaticos.php target=_blank>Recordes Climáticos</a></li>                	        	
+	<li><a href=http://www.apolo11.com/relogiocarbonico.php target=_blank>Emissão atual de CO2</a></li>
+	<li><a href=http://www.apolo11.com/populacao.php target=_blank>Relógio Populacional</a></li>		
+	<li><a href=http://www.apolo11.com/sismogramas.php target=_blank>Sismogramas Globais</a></li>		
+
+
+        <hr style="margin-top:14px;margin-bottom:14px">
+<li><a href=http://www.apolo11.com/sismogramas.php target=_blank>Apolo11-Lab: Construa um sismógrafo e detecte terremotos à longa distância!</a></li>		        
+        
+<BR><BR>
+<BR><BR>
+</div>	
+<!-- <BR> <a href=http://www.apolo11.com/sismoalerta?ref=pg_fb><img src=imagens/campanhas/sismoalerta_quadrado_300px.jpg border=0></a> <BR><BR> -->
+</td>
+<table>
+<BR>
+
+   </div>
+
+<script>  
+    
+  var divs = document.getElementsByTagName('DIV');
+   for(var x = 0; x<divs.length;x++){                              
+   }                        
+
+  
+//================= Greyline 
+var seg_atual_utc=61490;
+var grey_seg=0.011458333333333;
+
+function greyline(){
+ seg_atual_utc++;
+ 
+ if (seg_atual_utc > 86400){
+ seg_atual_utc=0;
+ }     
+ 
+posic_greyline=-(seg_atual_utc*grey_seg);
+document.all('greyline').style.left=posic_greyline;
+document.all('greyline2').style.left=posic_greyline+990;
+ 
+sol_atual=(grey_seg*seg_atual_utc);
+document.all('sol').style.top=245.41532258065-8; 
+document.all('sol').style.left=990-sol_atual-8;
+                              
+var h_utc=seg_atual_utc/3600;       // Hora e fração da hora
+var m_utc= (seg_atual_utc % 3600)/60;  // Minuto
+var s_utc= (m_utc - Math.floor(m_utc))*60 ;  // segundo
+
+h_utc=Math.floor(h_utc)
+m_utc=Math.floor(m_utc)
+s_utc=Math.floor(s_utc)
+
+
+if (h_utc<10){ h_utc="0"+h_utc; }
+if (m_utc<10){ m_utc="0"+m_utc; }
+if (s_utc<10){ s_utc="0"+s_utc; }
+document.getElementById("utc").innerHTML = "<center><font color=#FFFFFF size=4 face=verdana><b>" + h_utc + ":" + m_utc + ":" + s_utc + " UTC</b> </font></center>" ;
+}    
+ 
+</script>  
+
+
+<script type="text/javascript">   
+ track('plot');
+ window.setInterval("track('tic')",1000); // Incrementa o greyline a cada segundo
+ window.setInterval("greyline()",1000); // Incrementa o greyline a cada segundo
+</script>
+
+<script type="text/javascript">
+function carrega(){
+document.getElementById('sst').innerHTML  = '<img src=http://www.ssec.wisc.edu/data/sst/latest_sst.gif width=990 height=495>';   
+document.getElementById('sub_layer_barra_celsius').innerHTML  = '<img src=imagens/painel_global_barra_celsius.gif border=0>';   
+
+}
+window.setTimeout("carrega()",8000); 
+</script>
+          
+
+<div style="padding:0 6px 0 6px">
+<font color=dd0000><b>Atenção</font></b><br>
+Versão <b>Clássica</b> do Painel Global<BR>
+Mudar para versão teste <a href="/?versao=celular">CELULAR</a>
+</div><br><br>
+
+
+	   <div id="menu_inferior" style="background-color:#ffffff;height:24px;line-height:24px;">
+		<a href=http://www.apolo11.com/sismografo.php >Sismógrafo </a> |			   
+		<a href=vulcao.php >Relat. Vulcânico</a> |
+		<a href=direto.php >Direto no Painel</a> |
+		<a href=http://www.apolo11.com/sismoalerta/alerta.php >Últimos Alertas<a> |
+		<a href=entenda.php >Entenda o Painel</a>
+	   </div> 	
+
+
+<a href=midia><font color=000099  size=2 face=verdana><b>Imprensa | Anuncie | Fale Conosco </b></font></a>
+<P>
+<font color=steelblue  size=1 face=arial>Painelglobal.com.br - Todos os direitos reservados - 2008 - 2018 </font>
+<BR>
+<a href=painel_global_politica_privacidade.php ref=nofollow><font color=steelblue  size=1 face=arial>Política de Privacidade </font></a>
+<BR><BR>                                   
+</div>
+</center>
+
+<b>&nbsp;</b>
+
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({flush: true});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE HTML><html lang="en"><head><meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>
+The LiederNet Archive: Texts and Translations to Lieder, m&eacute;lodies, art songs, choral pieces, and other vocal music
+</title>
+<meta http-equiv="cache-control" content="no-cache" />
+
+
+<link rel="Stylesheet" href="/lieder/style/style_sheet.css" type="text/css" />
+<link rel="icon" type="image/png" href="/images/favicon.ico" />
+<meta NAME="description" Content="Texts to over 145,000 Lieder and other classical vocal works in more than a hundred languages with over 30,000 translations." />
+<meta NAME="keywords" CONTENT="Lieder, lieder translations, lieder lyrics, Lied, art song, melodie, classical, vocal text, kunstlieder, song text, partsongs, choral, madrigal, Liederen, Lied text, words, canzoni, laulua, lyrics, piosenki, traductions, pisne, translations, liedtexte, gedichte, poetry, poems, poem, Vertonungen, letra, cancoe, music, vocal music, uebersetzungen" />
+
+<meta name="ROBOTS" content="NOARCHIVE" />
+<meta NAME="GOOGLEBOT" CONTENT="NOARCHIVE" />
+
+<meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-store, no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<style type="text/css">
+@media print{
+body {display:none;}
+}
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" />
+
+<script>
+function newPopup(url) {
+popupWindow = window.open(
+url,'popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+
+function delete_my_cookie ( cookie_name )
+{
+  var cookie_date = new Date ( );  // current date & time
+  cookie_date.setTime ( cookie_date.getTime() - 1 );
+  document.cookie = cookie_name + "=X;expires=" + cookie_date.toGMTString();
+}
+
+function sign_out() {
+  delete_my_cookie("lieder");
+  location.reload();
+}
+
+</script>
+
+
+
+
+<script type="text/javascript" src="/lieder/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/lieder/js/sha3.js"></script>
+<script type="text/javascript">
+
+function sf(){if (document.f) { document.f.username.focus(); } }
+
+function hashIt() {
+   var hash = CryptoJS.SHA3($("#password").val(), { outputLength: 224 });
+   $("#password").val(hash);
+   return true;
+}
+</script>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" ></script> 
+<script> 
+
+
+$(document).ready(function(){
+    $(this).bind("contextmenu", function(e) {
+        var lieder_cookie = getCookie("lieder");
+        if (lieder_cookie == "" || lieder_cookie == null) {
+            e.preventDefault();
+        }
+    });
+}); 
+
+
+$(document).on('keydown', function ( e ) {
+    var lieder_cookie = getCookie("lieder");
+    if (lieder_cookie != "" && lieder_cookie != null) {
+        return true;
+    }
+    if ( e.ctrlKey && ( String.fromCharCode(e.which) === 's' || String.fromCharCode(e.which) === 'S' ) ) {
+        $('#save').click(); 
+        popup('popUpDiv');
+        clearData();
+        return false;
+    }
+    if ( e.ctrlKey && ( String.fromCharCode(e.which) === 'a' || String.fromCharCode(e.which) === 'A' ) ) {
+        popup('popUpDiv');
+        clearData();
+        return false;
+    }
+});
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function toggle(div_id) {
+	var el = document.getElementById(div_id);
+	if ( el.style.display == 'none' ) {	el.style.display = 'block';}
+	else {el.style.display = 'none';}
+}
+function blanket_size(popUpDivVar) {
+    if (typeof window.innerWidth != 'undefined') {	
+       viewportwidth = window.innerWidth;
+    } else {
+       viewportwidth = document.documentElement.clientWidth;
+    }
+
+	if (typeof window.innerHeight != 'undefined') {
+		viewportheight = window.innerHeight;
+	} else {
+		viewportheight = document.documentElement.clientHeight;
+	}
+
+	if ((viewportheight > document.body.parentNode.scrollHeight) && (viewportheight > document.body.parentNode.clientHeight)) {
+		blanket_height = viewportheight;
+	} else {
+		if (document.body.parentNode.clientHeight > document.body.parentNode.scrollHeight) {
+			blanket_height = document.body.parentNode.clientHeight;
+		} else {
+			blanket_height = document.body.parentNode.scrollHeight;
+		}
+	}
+	var blanket = document.getElementById('blanket');
+	blanket.style.height = blanket_height + 'px';
+	var popUpDiv = document.getElementById(popUpDivVar);
+//	popUpDiv_height=blanket_height/2-200;   //200 is half popup's height
+    popUpDiv_height = window.pageYOffset + 40; // 40 for just a little extra space at top.
+	popUpDiv.style.top = popUpDiv_height + 'px';
+}
+function window_pos(popUpDivVar) {
+	if (typeof window.innerWidth != 'undefined') {
+		viewportwidth = window.innerHeight;
+	} else {
+		viewportwidth = document.documentElement.clientHeight;
+	}
+	if ((viewportwidth > document.body.parentNode.scrollWidth) && (viewportwidth > document.body.parentNode.clientWidth)) {
+		window_width = viewportwidth;
+	} else {
+		if (document.body.parentNode.clientWidth > document.body.parentNode.scrollWidth) {
+			window_width = document.body.parentNode.clientWidth;
+		} else {
+			window_width = document.body.parentNode.scrollWidth;
+		}
+	}
+	var popUpDiv = document.getElementById(popUpDivVar);
+	window_width=window_width/2-200;//200 is half popup's width
+	popUpDiv.style.left = window_width + 'px';
+}
+function popup(windowname) {
+	blanket_size(windowname);
+	window_pos(windowname);
+	toggle('blanket');
+	toggle(windowname);		
+    clearData();
+}
+function clearData() {
+    var selection = window.getSelection ? window.getSelection() : document.selection ? document.selection : null;
+    if(!!selection) selection.empty ? selection.empty() : selection.removeAllRanges();
+}
+
+
+$(function() {
+    var isDragging = false;
+    $("*")
+    .mousedown(function() {
+        isDragging = false;
+    })
+    .mousemove(function() {
+        isDragging = true;
+     })
+    .mouseup(function() {
+        var wasDragging = isDragging;
+        isDragging = false;
+        if (wasDragging) {
+            var showed_alert = getCookie("showed_alert");
+            var lieder_cookie = getCookie("lieder");
+            if (lieder_cookie == "" || lieder_cookie == null) {
+                popup('popUpDiv');
+                setCookie("showed_alert",1,1);
+            }
+        }
+    });
+});
+
+
+
+
+
+</script>
+
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9230203067680119",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+ 
+<script>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34594381-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body 
+onLoad=sf()
+>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Banner -->
+
+<table class="myheader">
+<tr>
+<td class="bigTitle" colspan="2">
+<a href="/lieder/" class="LiederBannerA">The LiederNet Archive</a>
+</td>
+</tr>
+</table>
+
+<table class="LiederBanner2">
+<tr class="LiederBanner2"><td class="LiederBanner2Left">
+</td><td class="LiederBanner2Right"><b>
+</b>
+</td></tr>
+</table>
+
+
+
+
+<!-- Left navbar  -->
+<table class="outerLieder">
+    <tr>
+     <td style="vertical-align:top">
+       <table class="innerLieder">
+        <tr>
+          <td style="vertical-align:top" class="navColCell">
+
+<table class="navColTable">
+<tr><td class="navColTitle">Contents</td></tr>
+<tr><td class="navColCell"><a href="/lieder/">Home</A> | <a href="/lieder/intro.html">Introduction</A></td></tr>
+<tr><td class="navColCell"><a href="/lieder/tour.html">A&nbsp;Small&nbsp;Tour</a></td></tr>
+<tr><td class="navColCell"><a href="/lieder/new.html">What's new</a> | <a href="/lieder/faq.html">FAQ,&nbsp;Links</A></td></tr>
+<tr><td class="navColCell"><a href="/lieder/cindex.html">Composers</a>&nbsp;(<b>16,773</b>)</td></tr>
+<tr><td class="navColCell"><a href="/lieder/pindex.html">Text&nbsp;Authors</a>&nbsp;(<b>15,310</b>)</td></tr>
+<tr><td class="navColCell"><a href="/lieder/contact.html">Contact Information</a></td></tr>
+<tr><td class="navColCell"><a href="/lieder/pay.html">Make a payment</a></td></tr>
+</table>
+
+
+<table class="navColTable">
+<tr><td class="navColTitle">Utilities</td></tr>
+<tr><td class="navColCell"><a href="/lieder/search.html">Search&nbsp;everything</a></td></tr>
+<tr><td class="navColCell">Search&nbsp;by&nbsp;<a href="/lieder/quick_find.html">Surname</a></td></tr>
+<tr><td class="navColCell">Search&nbsp;by&nbsp;<a href="/lieder/find_titles_and_first_lines.html">Title&nbsp;or&nbsp;First&nbsp;Line</a></td></tr>
+<tr><td class="navColCell">Search&nbsp;by&nbsp;<a href="/lieder/find_settings_by_date.html">Year</a></td></tr>
+<tr><td class="navColCell">Search&nbsp;by&nbsp;<a href="/lieder/find_text_compilations.html">Collection</a></td></tr>
+<tr><td class="navColCell">
+<a href="/lieder/random.html?type=as">Random&nbsp;Text</a>
+</td></tr>
+</table>
+
+<table class="navColTable">
+<tr><td class="navColTitle">Credits</td></tr>
+<tr><td class="navColCell">Created&nbsp;and&nbsp;run&nbsp;by<br/>Emily&nbsp;Ezust</td></tr>
+<tr><td class="navColCell"><a href="/lieder/contrib.html">Translators and other<br />volunteers</a>&nbsp;(<b>967</b>)</td></tr>
+<tr><td class="navColCell"><a href="/lieder/donors.html">Our Donors</a></td></tr>
+<tr><td class="navColCell"><form action="
+/lieder/pay.html
+" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2KRJ55CC5S3S4">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+<hr></td></tr>
+
+<tr><td class="navColCell"><a href="/lieder/copyright.html">Copyright Statement</a></td></tr>
+<tr><td class="navColCell"><a href="/lieder/privacy_policy.html">Privacy Policy</a></td></tr>
+<tr><td class="navColCell"><a href="/lieder/biblio.html">Partial Bibliography</a></td></tr>
+
+<tr><td>
+<div class="fb-like-box" data-href="http://www.facebook.com/TheLiedArtSongAndChoralTextsArchive" data-width="200" data-height="300" data-colorscheme="dark" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+</td></tr>
+
+</table>
+	  </td>
+          <td style="vertical-align:top; text-align:left">
+
+		<table style="padding:10pt;border-spacing:0px">
+            <tr style="width:100%">
+              <td style="vertical-align: top; text-align:left">
+
+<div style="color:red; background-color: white; text-align: center">
+
+WARNING. Not all the material on this website is in the public domain.<br/>
+<b>It is illegal</b> to copy and distribute our copyright-protected material 
+without permission.<br/>For more information, contact us at the following address:<br/>
+<img src="/images/licensesATliedernet.png" alt="licenses (AT) lieder (DOT) net" />
+<br/> 
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- liederboard -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9230203067680119"
+     data-ad-slot="9225142780"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</div><br/>
+
+
+
+
+
+
+
+<h4 style="text-align : center">
+The <span style="color:red;">LiederNet Archive</span> is the world's largest reference archive<br>
+of texts and translations of art songs and choral works.<br/>
+We have been online since May 24, 1995.<br/><br/>
+146,165 vocal pieces have been catalogued.<br/>
+30,803 translations are available.<br/>
+
+<br/>The collection has frequent <a href="new.html">additions and updates</a><br/>
+ (this month: 87 song texts, 90 settings, and 116 translations).<br/><br/>
+
+</h4>
+
+<hr>
+
+<h3>Getting Started</h3>
+<p>
+Start with the <a href="intro.html">Introduction</a> and the <a href="faq.html">Frequently Asked Questions</a> (FAQ).
+Browse the collection by using the indexes by <a
+ href="./cindex.html">composer</a> or <a href="./pindex.html">text 
+
+author</a>; or 
+
+<a
+ href="./search.html">search</a> for words or phrases, or search by <a href="quick_find.html">surname</a>,
+<a href="find_flines.html">first line</a>, or <a href="find_titles.html">title</a>.</p> 
+
+
+
+The following links will give you an idea of the type of information this website has to offer.
+ <ul>
+ <li><a href="./get_settings.html?ComposerId=2520">Schubert</a></li>
+ <li><a href="./get_author_texts.html?AuthorId=993">Goethe</a></li>
+ <li><a href="/lieder/get_text.html?TextId=7736">Ich hab' im Traume geweinet</a> (Heine)</li>
+ <li><a href="/lieder/get_text.html?TextId=6460">Kennst du das Land</a> (Goethe)</li>
+ <li><a href="/lieder/get_text.html?TextId=6568">&Uuml;ber allen Gipfeln</a> (Goethe)</li>
+ <li><a href="/lieder/get_text.html?TextId=13149">&#1047;&#1072;&#1082;&#1083;&#1080;&#1085;&#1072;&#1085;&#1080;&#1077;</a> (Pushkin, set also in German and French)</li>
+ <li><a href="/lieder/get_text.html?TextId=15561">Speak to me, my love!</a> (Tagore)</li>
+ <li><a href="/lieder/get_text.html?TextId=2255">L'invitation au Voyage</a> (Baudelaire)</li>
+ <li>Schubert's <a href="/lieder/assemble_texts.html?7645&SongCycleId=48">Die sch&ouml;ne M&uuml;llerin</a> (M&uuml;ller)</li>
+ <li>Heine's collection <a href="/lieder/show_poems_in_group.html?CID=9">Lyrisches Intermezzo</a> (in <i>Buch der Lieder</i>)</li>
+ </ul>
+
+<p>
+Be sure to read <a href="status_info.html">this
+note</a> about how to tell when a text shown is the sung text or the published
+stand-alone text or both.
+</p>
+
+<hr>
+
+
+<table class="donationsTable">
+<tr><td class="donationsTitle">Note</td></tr>
+<tr><td>
+Dear visitors,<br>
+
+This website began in 1995 as a personal project, and I have been working
+on it full-time without a salary since 2008. Our research has 
+never had any government or institutional funding, so if you
+
+find
+
+the information here useful, please consider making a donation. Your gift is greatly appreciated.
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp; - Emily Ezust
+<br /><br />
+<div style="margin-left:auto;margin-right:auto">
+<form action="
+/lieder/pay.html
+" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2KRJ55CC5S3S4">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+</div>
+</td></tr></table>
+
+
+
+
+
+ 	</td></tr></table>
+ 	</td></tr></table>
+    </td></tr></table>
+
+
+
+</BODY></HTML>

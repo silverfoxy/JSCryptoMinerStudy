@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<script src="/cdn-cgi/apps/head/mb2_O6AxD40t_MShSQ0pQPxYLx0.js"></script><link rel="shortcut icon" href="/static/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://forum.superiorservers.co/assets/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="/static/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.custom.css">
+<script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/nprogress.js"></script>
+<script type="text/javascript">
+		var info = {};
+		info.route = "/";
+		info.route = info.route.substr(0, info.route.lastIndexOf('/')) + '/';
+
+					info.api = "/home";
+			info.api = '/api' + info.api.substr(0, info.api.lastIndexOf('/')) + '/';
+		
+		$(document).ready(function() {
+			NProgress.start();
+			NProgress.inc(1);
+		});
+
+		window.onload = function() {
+			NProgress.done();
+		}
+	</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="/">
+<img class="logo" src="/static/images/site-logo_reduced.png" alt="Superior Servers" height="60">
+</a>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav navbar-left">
+<li class=><a href="/">Portal</a></li><li class=><a href="https://forum.superiorservers.co">Forum</a></li><li><a href="https://steamcommunity.com/groups/SuperiorServers" target="_blank">Steam</a></li><li class=><a href="/staff">Staff</a></li><li class=><a href="/bans">Bans</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">DarkRP<b class="caret"></b></a><ul class="dropdown-menu pull-right"><li><a href="/darkrp/credits">Buy Credits</a></li><li><a href="/darkrp/rules">Rules</a></li><li><a href="https://trello.com/b/eL3gK2Yd/darkrp" target="_blank">Trello</a></li><li class="divider"></li><li><a href="/darkrp/leaderboard/money">Money Leaderboard</a></li><li><a href="/darkrp/leaderboard/orgs">Org Leaderboard</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">CWRP<b class="caret"></b></a><ul class="dropdown-menu pull-right"><li><a href="/cwrp/credits">Buy Credits</a></li><li><a href="/cwrp/rules">Rules</a></li><li><a href="https://trello.com/b/tCdmsn2g/starwarsrp" target="_blank">Trello</a></li><li class="divider"></li><li><a href="/cwrp/characters">Character Search</a></li><li><a href="/cwrp/gamemasters">Gamemasters</a></li><li><a href="/cwrp/leaderboard/money">RC Leaderboard</a></li></ul></li> </ul>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="https://superiorservers.co/api/auth/login/?return=%2F"> <img src="/static/images/steam_login.png" alt="Steam Login"> </a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div style="padding-bottom: 80px"></div>
+<div id="app" class="container"><div class="account-profile">
+<div class="container text-center">
+<div class="container-fluid">
+<div class="row" v-if="stats" v-cloak>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/month-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ stats.PlayersMonth | FormatNumber }}</div>
+<span class="stat-label">Players This Month</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/year-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ stats.PlayersYear | FormatNumber }}</div>
+<span class="stat-label">Players This Year</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/total-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ stats.PlayersTotal | FormatNumber }}</div>
+<span class="stat-label">Total Players</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/time-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ stats.TimePlayed | TimeToString(4) }}</div>
+<span class="stat-label">Total Time Played</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/staff-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ stats.TotalStaff }}</div>
+<span class="stat-label">Total Staff</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 stat">
+<div class="col-xs-3 stat">
+<img class="img-responsive center-block" src="/static/images/home/online-02.png">
+</div>
+<div class="col-xs-9 stat">
+<div class="account-stats">
+<div class="stat">
+<div class="human-readable-number" v-cloak>{{ total.Players }}/{{ total.MaxPlayers }}</div>
+<span class="stat-label">Players Online</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="account-profile" v-if="servers" v-cloak>
+<div class="container text-center">
+<div class="container-fluid">
+<div v-for="serverList in servers" class="row">
+<div v-for="(item, index) in serverList" class="col-md-4 server">
+<a class="serverlink" v-bind:href="item.Connect">
+<div class="panel panel-default">
+<div class="serverinfo">
+<h4 class="servertitle" v-cloak>{{ item.Name }}</h4>
+</div>
+<img v-cloak v-if="item.gfx" class="img-responsive center-block" style="-webkit-filter: hue-rotate(12deg); filter: hue-rotate(12deg);" v-bind:src="'/static/images/servers/' + item.Image" />
+<img v-cloak v-if="!item.gfx" class="img-responsive center-block nofx" v-bind:src="'/static/images/servers/' + item.Image" />
+<div class="serverinfo">
+<img class="serveronline" v-bind:src="'/static/images/servers/' + (item.Online ? 'online' : 'offline') + '.png'">
+<h5 class="serverip" v-cloak>{{ item.IP }}</h5>
+<h5 class="servercount" v-cloak>{{ item.Players }}/{{ item.MaxPlayers }}</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(function()
+{
+
+	var app = new Vue({
+		el: '#app',
+		data: {
+			stats: false,
+			servers: false,
+			total: false,
+			stack: 3
+		},
+		methods: {
+			GetServers()
+			{
+				var _self = this;
+				$.ajax({
+					dataType: 'json',
+					url: "/api/home",
+					success: function(res)
+					{
+						_self.stats = res.Stats;
+					}
+				});
+			},
+			GetHomeSettings()
+			{
+				var _self = this;
+				$.ajax({
+					dataType: 'json',
+					url: "/api/servers",
+					success: function(res)
+					{
+						_self.total = res.Total;
+
+						var servers = [];
+						var j = 0;
+
+						for(var i = 0; i < res.Servers.length; i++)
+						{
+							if(i%_self.stack == 0) j++;
+							if(i == 0) res.Servers[i].gfx = true;
+
+							servers[j] = servers[j] || [];
+							servers[j].push(res.Servers[i]);
+						}
+
+						console.log(servers);
+						_self.servers = servers;
+					}
+				});
+			}
+		},
+		mounted()
+		{
+			this.GetHomeSettings();
+			this.GetServers();
+
+			var _self = this;
+			setInterval(function(){
+				_self.GetHomeSettings();
+				_self.GetServers();
+			}, 30000);
+		}
+	});
+});	
+</script></div>
+<script type="text/javascript" src="/static/js/util.js"></script>
+<script type="text/javascript" src="/static/js/steam.js"></script>
+<script type="text/javascript" src="/static/js/lazyload.min.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		$("img.lazy").lazyload();
+	});
+</script>

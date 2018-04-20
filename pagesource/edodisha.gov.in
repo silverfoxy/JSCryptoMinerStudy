@@ -1,0 +1,1210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>e-Despatch Odisha</title>
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0.1)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.1)" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="keywords" content="letters, office orders, government of Odisha, department, devlopement, law, information, welfare, resouece, technology, education, amendment" />
+    <meta name="description" content="Letters, Letter, Letter Despatch, Letter Send, Office Orders Letter, and other resources, receive Letter of different departments of Government of Odisha are provided through this e-despatch site,ie;http://edodisha.gov.in" />
+    <!--<link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="CSS/defaultNew.css" rel="stylesheet" type="text/css" />
+    <link href="style/tickerHome.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet'
+        type='text/css'>
+
+    <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
+
+    <script type="text/javascript" src="scripts/jquery.odotickerHome.min.js"></script>
+
+    <script src="scripts/Validator.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="scripts/NewHomeScript.js"></script>
+
+    <script type="text/javascript" src="scripts/easySlider1.7.js"></script>
+    <script src="Scripts/jquery.signalR-1.1.4.js" type="text/javascript"></script>
+    <script src="Scripts/hubs.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="scripts/Validator.js"></script>
+    <script type="text/javascript">
+  
+	$(document).ready(function(){	
+		$(".top_dept").easySlider({
+			auto: true,
+			continuous: true,
+			speed: 2000,
+			pause: 60000,
+			controlsShow: false
+		});
+	});
+	
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //var clientHub = $.connection.messageSender;
+            var clientHub1 = $.connection.headerCount;
+//            clientHub.client.broadcastMessage = function (msg) {
+
+//                var n = msg.split("~");
+//                $('#Ul1').append('' + msg + '</br>');
+//                console.log(msg);
+//            };
+
+            clientHub1.client.broadcastMessage = function (msg1) {
+
+                var n = msg1.split("|");
+                $('.TotalDes').odoTicker
+                ({
+                    number: n[0]
+                });
+                $('.TodayDes').odoTicker
+                ({
+                    number: n[1]
+                });
+                $('.TotalRec').odoTicker
+            ({
+                number: n[2]
+            });
+                $('.TodayRec').odoTicker
+            ({
+                number: n[3]
+            });
+                $('.TotalCitz').odoTicker
+            ({
+                number: n[4]
+            });
+                $('.TodayCitz').odoTicker
+            ({
+                number: n[5]
+            });
+                ltrNumWid();
+
+               // console.log(msg1);
+            };
+
+            $.connection.hub.start()
+                .done(function () {
+                    console.log('Now connected, connection ID=' + $.connection.hub.id);
+                    //contosoChatHubProxy.invoke('show');
+
+                })
+                .fail(function () { console.log('Could not Connect!'); });
+
+
+        });
+</script>
+
+
+    
+
+    <script type="text/javascript" language="javascript">
+            $(document).ready(function() {
+            //debugger;
+               updateTime();
+			   ShoweDSummary();
+               //setInterval(updateTime,10000);
+
+        });
+ function updateTime() 
+  { 
+   
+    PageMethods.ShowTotalLetterCount(0,onSucess, onError);
+
+    function onSucess(result) {
+                //debugger;
+            var n=result.split("|");
+            $('.TotalDes').odoTicker
+                ({                
+                    number: n[0]                
+                });
+            $('.TodayDes').odoTicker
+                ({                
+                    number: n[1]
+                });
+            $('.TotalRec').odoTicker
+            ({
+                number: n[2]
+            });
+            $('.TodayRec').odoTicker
+            ({
+                number: n[3]
+            });
+            $('.TotalCitz').odoTicker
+            ({
+                number: n[4]
+            });
+            $('.TodayCitz').odoTicker
+            ({
+                number: n[5]
+            });            
+            ltrNumWid();
+        }
+        function onError(result) {
+                //alert('Something wrong.');
+            }
+        }
+		function ShoweDSummary() {
+
+            PageMethods.ShoweDSummaryDetails(0, onSucess, onError);
+
+            function onSucess(result) {
+                var m = result.split("|");
+                document.getElementById('UsersCount').innerHTML = numberWithCommas(m[0]);
+                document.getElementById('OfficesCount').innerHTML = numberWithCommas(m[1]);
+                document.getElementById('TrainedUserCount').innerHTML = numberWithCommas(m[2]);
+                document.getElementById('TotalLetterCount').innerHTML = m[3];
+                document.getElementById('TotalFilesCount').innerHTML = m[4];
+                document.getElementById('TranDailyCount').innerHTML = numberWithCommas(m[5]) + '+';
+                document.getElementById('UploadDailySize').innerHTML = m[6] + ' GB';
+                document.getElementById('DownloadDailySize').innerHTML = m[7] + ' GB';
+                document.getElementById('LetterSize').innerHTML = m[8] + ' TB';
+
+            }
+            function onError(result) {
+                //alert('Something wrong.');
+            }
+        }
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
+    </script>
+
+    <script type="text/javascript">
+		$(window).load(function(){
+				//setTimeout(ltrNumWid ,0);				
+		});
+		function ltrNumWid (){
+			$('.odoTicker').each(function(){
+				var oneWid = $(this).children('.odoNumber').outerWidth(true);
+				var len = $(this).children('.odoNumber').length;
+				$(this).css('width',oneWid*len);
+			});	
+		}
+		
+    </script>
+
+    
+
+    <style type="text/css">
+        .console table th
+        {
+            font-size: 16px;
+            padding: 7px;
+        }
+        .console table td
+        {
+            font-size: 16px;
+            padding: 7px !important;
+        }
+		.console td img
+		{
+			margin-top:-4px;
+		}
+		.hdingText { color:#ED3F1A!important; font-weight:normal!important; font-size:15px!important;}
+		
+    </style>
+</head>
+<body>
+    <form name="Form1" method="post" action="Indexnew.aspx" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+
+<script src="/ScriptResource.axd?d=L10rFvoDtlYLU4e1uqiZWjEhv8GSoY0NhbCKBKug7sk00a3BlYlORRtiqoxj0ICL3JrBD4hur9H0Bc0inMd1GbWXHeCLtAa3G9kRl8Gz7bdpBHCht9Ka9VCh68Xd04trzs_hS-OfFqTENXIUz1moBvp-PAQ1&amp;t=218dd34d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=rYZJuQKMGzJbkHPLEeIPcjGfyX05cJOXJHyNc8AA_rloOPACQiJcSFALdXiHsk0DAvMKKCnkA8rAO50Qm0KW2g0_XAMsJwP0RuGPL_uxQFbmjaBPg_sywt9OjyBMHLuKKpoxwUs3CNZ2tuYfl29Ta1rOacE1&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=9wH4mFehIXvJ4YcGOJYaHiLSlucnKWgF8hndrz8QqNMcSKkdNocy4a2aamQawEe3bu56yoyH6YOGyMgoRXWiZXZsk-anXw2CR5sBH0HPPVc2J9dZntUIP6qAFwRI5gC2gRsyi_ZCj0gDHPVEaQ5SKgebWCs1&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=2B6A78Vu-p4ZCTOkavsn_FZfboZzATdBbq-MMWQiqZwuMCVGkacW698meSx-JCZw1XI_SHILiJWiNQJFF3yjDeJQ0ngxcIyvP1qArgxXiUAR9eT-4eUq7lCTXy0__aqAz6TZrcNkRnrVqkyEo6jPBrdr8ziOqPPVvv4D65DY-CBU9Dxj0&amp;t=ffffffff87636c38" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+ShowTotalLetterCount:function(DeptId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ShowTotalLetterCount',false,{DeptId:DeptId},succeededCallback,failedCallback,userContext); },
+ShoweDSummaryDetails:function(DeptId,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'ShoweDSummaryDetails',false,{DeptId:DeptId},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_path("/Indexnew.aspx");
+PageMethods.ShowTotalLetterCount= function(DeptId,onSuccess,onFailed,userContext) {PageMethods._staticInstance.ShowTotalLetterCount(DeptId,onSuccess,onFailed,userContext); }
+PageMethods.ShoweDSummaryDetails= function(DeptId,onSuccess,onFailed,userContext) {PageMethods._staticInstance.ShoweDSummaryDetails(DeptId,onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="xOw0Y2/YLczIw7/MnXniNmiQcmCEZIYM5RTUrNrRw5l5EQSZzwG79LkeikCgr2otQ1trHKLdkpmGHmpCeT+g5SgKWg5BdyZlhXwHGtD/xm6I+gMH" />
+    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<script type="text/javascript" language="JavaScript">
+    function validation() {
+
+        if (document.getElementById("txtSearch").value == "Search Letter No./Subject"){
+            alert("Please enter Letter No. or Subject. to get the details.");
+            document.getElementById("txtSearch").focus();
+            return false;
+        }
+    }
+    
+</script>
+
+<div class="hdr_top_div">
+    <div class="wrapper">
+        <a href="http://www.edodisha.gov.in" class="fltlft ed_logo">
+            <img src="ImagesNew/ed_logo.png" width="325" height="75" alt="e-Despatch Odisha" /></a>
+<div class="fltrht" style="width: 234px; text-align: center;margin-top: 18px;">
+			<div class="srch_div">
+				<input name="txtSearch" type="text" id="txtSearch" class="fltlft" />
+				 <input type="hidden" name="txtSearch_TextBoxWatermarkExtender_ClientState" id="txtSearch_TextBoxWatermarkExtender_ClientState" />
+				<input type="submit" name="btnShow" value="" onclick="return validation();" id="btnShow" class="fltrht" />
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+        <div class="fltrht" style="padding-top: 23px;">
+            <a href="http://www.edodisha.gov.in/OfficeeSpace/diaristRegistration.aspx" target="_blank" class="fltlft reg_ofc_espc">Register here for Office e-Space</a> 
+             
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div class="main_menu_bg">
+    <div class="wrapper menu_rht_sado">
+        <div class="fltlft">
+            <ul class="top_menu">
+            	<li class="active"><a href="http://www.edodisha.gov.in">Home</a></li>
+                <li><a href="http://espace.edodisha.gov.in/eSpace_New/eSpaceLogin.aspx">eSpace Login</a></li>
+                <li><a href="quikspace.aspx">QuikSpace</a></li>
+                <li><a href="eFiles.aspx">eFiles</a></li>
+                <li><a href="OfficeeSpace/diaristLogin.aspx">Office e-Space</a></li>
+                <li><a href="Login.aspx">eD Portal</a></li>
+                <div class="clear">
+                </div>
+            </ul>
+        </div>
+        
+        <div class="clear">
+        </div>
+    </div>
+</div>
+
+    <div style="height: 10px;">
+    </div>
+    <div class="wrapper hdr_content_part" style="padding-top: 0px;">
+        <table width="100%" class="file_record repTbl" style="margin: 10px 0% 0px 1%;width: 99%!important;">
+            <tr>
+                <td width="9%">Till Date</td>
+                <td width="18%">
+                    <h3>Despatch</h3>
+                    <div class="TotalDes meter"></div>
+                </td>
+                <td width="18%">
+                    <h3>Receipt</h3>
+                    <div class="TotalRec meter"></div>
+                </td>
+                <td width="18%">
+                    <h3>Citizen</h3>
+                    <div class="TotalCitz meter"></div>
+                </td>
+                <td rowspan="2" class="summeryTd" style="vertical-align: bottom; border-left-color: transparent!important">
+                <div style="position: relative;top: -2px;">
+                    <div class="summeryDiv forBanner">
+
+
+                    <table class="summeryTbl" cellspacing="0" border="0" style="padding: 0px;margin-top: 3px;">
+                        <tr>
+                            <td rowspan="2" width="25%">
+                            <div style="height: 80px;">
+                                <strong class="block colRed" id="UsersCount"></strong>
+                                <b>USERS</b>
+                                </div>
+                            </td>
+                            <td rowspan="2" width="42%">
+                            <div style="height: 80px;">
+                                <strong id="OfficesCount"></strong> <b> OFFICES</b>
+                                <small class="block">Across Departments, Districts, Sub-Division & Block Offices</small>
+                                </div>
+                            </td>
+                            <td>
+                            <div style="padding-bottom: 6px;">
+                                <strong id="TrainedUserCount" class="colRed"></strong>
+                                <small class="block">USERS TRAINED</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="">
+                                    <strong><small><var id="LetterSize"></var></small></strong> <small><b>of LETTERS</b></small>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="summeryTbl" cellspacing="0" border="0" style="padding: 0px;margin-top: 2px;">
+                        <tr>
+                            <td colspan="2">
+                                <div style="height: 40px;">
+                                <strong><small class="coldipYelow" ><var id="TotalLetterCount"></var> <span class="coldipYelow" style="font-size: 12px!important;">LETTERS</span></small></strong>
+                                <small class="block">of <var id="TotalFilesCount"></var> FILES</small>
+                                </div>
+                            </td>
+                            <td rowspan="2" width="27%">
+                                <div style="height: 105px;">
+                                <strong class="block colRed" style="font-size: 35px;">1</strong>
+                                <b style="font-size: 12px;">SINGLE APPLICATION</b>
+                                </div>
+                            </td>
+                            <td rowspan="2" width="38%">
+                                <div style="height: 85px;padding-top: 20px;">
+                                <strong class="block coldipYelow" id="TranDailyCount"></strong><b style="font-size: 12px;margin: 0px 5px;">TRANSACTIONS DAILY</b>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="height: 56px;">
+                                <strong><small id="UploadDailySize"></small></strong>
+                                <small class="block">UPLOAD Daily</small>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 56px;">
+                                <strong><small id="DownloadDailySize"></small></strong>
+                                <small class="block">DOWNLOAD Everyday</small>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Today</td>
+                <td>
+                    <div class="TodayDes meter"></div>                    
+                </td>
+                <td>
+                    <div class="TodayRec meter"></div>
+                </td>
+                <td>
+                    <div class="TodayCitz meter"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="wrapper">
+        <div>
+            
+                <div style ="height :5px"></div>
+            <div class="console get_scroll">
+                <div class="scroll-pane" style="margin-left: 6px; padding-top: 10px;">
+                    
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" style="margin-bottom: 0;
+                        border-bottom: solid 1px #CCC;">
+                        <tr>
+                            <th width="15" >Offices</th>
+                            <th>
+                                Department <ul id="Ul1">
+   
+                                            </ul>
+                            </th>
+                            <th width="80" class="bg-blue">
+                                <div class="text-center">
+                                    Despatch</div>
+                            </th>
+                            <th width="80" class="bg-red">
+                                <div class="text-center">
+                                    Receipt</div>
+                            </th>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr valign="middle" class="">
+                            <td width="15"><span id="lblToAg" class="noOfOfc">631</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerAG.aspx" title="Agriculture & Farmers' Empowerment">
+                                    <span>Agriculture &amp; Farmers' Emp. </span>
+                                </a>	
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypAG" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerAG.aspx">4,09,792</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRAG" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerAG.aspx">6,49,522</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                            <td width="15"><span id="lblCT" class="noOfOfc">80</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCnT.aspx">
+                                    <span>Commerce &amp; Transport</span>                                </a>                            </td>
+                          <td width="80" class="bg-ltblue">
+                                <a id="hypCT" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCnT.aspx">1,61,696</a>                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRCT" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCnT.aspx">3,77,401</a>                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblCoop" class="noOfOfc">263</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCooperation.aspx">
+                                    
+                                    <span>Co-operation </span>
+                                </a>								
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypCoop" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCooperation.aspx">1,82,576</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRCoop" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerCooperation.aspx">3,01,099</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+						<td width="15"><span class="noOfOfc">2</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerEIT.aspx" title="Electronics & Information Technology">
+									    <span>Electronics &amp; Information Tech.</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblIT" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerEIT.aspx">24,567</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRIT" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerEIT.aspx">26,666</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=233&type=D"><span>Energy &nbsp;&nbsp; </span>                                </a>                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblEnergy" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=233&amp;type=D">72,982</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblREnergy" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=233&amp;type=R">47,315</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span id="lblExc" class="noOfOfc">3</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerExcise.aspx">
+									    <span>Excise &nbsp;&nbsp; </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblExcise" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerExcise.aspx">63,691</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRExcise" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerExcise.aspx">44,378</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblFSCW" class="noOfOfc">96</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFSCW.aspx" title="Food Supplies & Consumer Welfare">
+                                    <span>FS &amp; CW </span>
+                                </a>								
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypFSCW" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFSCW.aspx">6,19,340</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRFSCW" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFSCW.aspx">5,72,196</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblFinance" class="noOfOfc">264</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFin.aspx">
+								    <span>Finance </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypFinance" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFin.aspx">13,21,413</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRFinance" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFin.aspx">20,04,708</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span id="lblFARD" class="noOfOfc">203</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFARD.aspx" title="Fisheries & Animal Resources Development">
+									<span>Fisheries &amp; ARD </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblFish" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFARD.aspx">1,43,984</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRFish" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFARD.aspx">1,71,233</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span id="lblForest" class="noOfOfc">14</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFE.aspx">
+									<span>Forest &amp; Environment &nbsp;&nbsp;</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypForest" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFE.aspx">1,96,239</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRForest" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerFE.aspx">1,04,438</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">								
+                                <td width="15"><span id="lblTOGA" class="noOfOfc">4</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerGA.aspx" title="General Administration & Public Grievance">
+                                    <span>GA & PG</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypGA" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerGA.aspx">1,66,624</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRGA" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerGA.aspx">1,75,771</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOFamily" class="noOfOfc">404</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHFW.aspx">
+								    <span>Health & Family Welfare</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblhFamily" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHFW.aspx">4,42,248</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblhRFamily" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHFW.aspx">3,59,288</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblhu" class="noOfOfc">243</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHUD.aspx" title="Housing &amp; Urban Development">
+								    <span>Housing &amp; Urban Dev. </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblLetterCount" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHUD.aspx">5,39,627</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRLetterCount" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHUD.aspx">6,56,611</a>
+                            </td>
+                        </tr>
+                    <!--Higher Education-->
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOHEducation" class="noOfOfc">725</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDHE.aspx">
+								    <span>Higher Education</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblHEducation" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDHE.aspx">7,51,195</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRHEducation" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDHE.aspx">16,95,341</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblHD" class="noOfOfc">252</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHome.aspx">
+								    <span>Home</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypHOME" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHome.aspx">3,86,617</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRHOME" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerHome.aspx">4,66,378</a>
+                            </td>
+                        </tr>
+    
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=231&type=D">
+                                    <span>Information &amp; Public Relations </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblIpr" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=231&amp;type=D">92,286</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRIpr" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=231&amp;type=R">52,147</a>
+                            </td>
+                        </tr>
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOIndustries" class="noOfOfc">18</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerIndustries.aspx">
+								    <span>Industries </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblIndustries" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerIndustries.aspx">49,364</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRIndustries" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerIndustries.aspx">59,596</a>
+                            </td>
+                        </tr>
+                                       
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOLab" class="noOfOfc">2</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerLE.aspx" title="Labour & Employees' State Insurance">
+								    <span>Labour &amp; Emp. State Insurance</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypLE" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerLE.aspx">5,451</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRLE" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerLE.aspx">16,412</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9715&type=D">
+									<span>Law &nbsp;&nbsp; </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblLaw" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9715&amp;type=D">1,671</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRLaw" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9715&amp;type=R">16,905</a>
+                            </td>
+                        </tr>
+                     
+                    </table>
+                </div>
+                <div class="scroll-pane" style="padding-top: 10px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" style="margin-bottom: 0;
+                        border-bottom: solid 1px #CCC;">
+                        <tr>
+                            <th width="15">Offices</th>
+                            <th>
+                                Department
+                            </th>
+                            <th width="80" class="bg-blue">
+                                <div class="text-center">
+                                    Despatch</div>
+                            </th>
+                            <th width="80" class="bg-red">
+                                <div class="text-center">
+                                    Receipt</div>
+                            </th>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOMSME" class="noOfOfc">75</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerMSME.aspx" title="Micro, Small & Medium Enterprise">
+								    <span>MS &amp; ME</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypMSME" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerMSME.aspx">1,63,715</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRMSME" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerMSME.aspx">2,17,072</a>
+                            </td>
+                        </tr>                   
+
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span id="lblPRAJ" class="noOfOfc">424</span></td>
+                            <td valign="top">
+                                 <a href="http://citizen.edodisha.gov.in/citizen/IndexInnerPRAJ.aspx" title="Panchayati Raj & Drinking Water">
+									<span>PR & Drinking Water </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblPj" href="http://citizen.edodisha.gov.in/citizen/IndexInnerPRAJ.aspx">7,59,379</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRPj" href="http://citizen.edodisha.gov.in/citizen/IndexInnerPRAJ.aspx">8,44,425</a>
+                            </td>
+                        </tr>
+                    
+                    
+                   
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=266&type=D">
+									    <span>Parliamentary Affairs &nbsp;&nbsp;
+                                    </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="LblPa" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=266&amp;type=D">10,068</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="LblRPa" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=266&amp;type=R">18,196</a>
+                            </td>
+                        </tr>
+                   
+                    
+                    
+                        <!--tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9716&type=R" title="Public Grievances & Pension Admin">
+									    <span>PG &amp; PA &nbsp;&nbsp; </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblpgpa"></a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRpgpa"></a>
+                            </td>
+                        </tr--> 
+                    
+                    
+                   
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOPc" class="noOfOfc">37</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerPnC.aspx">
+								    <span>Planning &amp; Convergence</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblPc" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerPnC.aspx">74,655</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRPc" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerPnC.aspx">1,43,103</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=263&type=D">
+                                    <span>Public Enterprises &nbsp;&nbsp; </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblPe" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=263&amp;type=D">21,041</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRPe" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=263&amp;type=R">23,678</a>
+                            </td>
+                        </tr>
+                   
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTODM" class="noOfOfc">6</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRDM.aspx" title="Revenue & Disaster Management">
+								    <span>Revenue &amp; Disaster Mgmt.</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypRDM" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRDM.aspx">2,66,463</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRRDM" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRDM.aspx">1,91,777</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTORD" class="noOfOfc">80</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRD.aspx">
+								    <span>Rural Development </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblRD" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRD.aspx">11,93,463</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRRD" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerRD.aspx">13,45,245</a>
+                            </td>
+                        </tr>
+                   
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOSmass" class="noOfOfc">397</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSME.aspx">
+								    <span>School &amp; Mass Education </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblSmass" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSME.aspx">12,60,712</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRSmass" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSME.aspx">21,37,953</a>
+                            </td>
+                        </tr>
+                                       
+                    
+                   
+                        <tr valign="middle" class="">
+							<td width="15"><span id="lblTOSct" class="noOfOfc">7</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/citizen/IndexInnerSct.aspx">
+								    <span>Science &amp; Technology &nbsp;&nbsp;</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblSct" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSct.aspx">13,897</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRSct" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSct.aspx">29,082</a>
+                            </td>
+                        </tr>
+                       
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOETET" class="noOfOfc">3</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerETET.aspx" title="Skill Development & Technical Education">
+								    <span>Skill Development &amp; Tech. Edu.</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypETET" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerETET.aspx">1,71,461</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRETET" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerETET.aspx">27,821</a>
+                            </td>
+                        </tr>
+                        
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9717&type=D">
+									    <span>Sports &amp; Youth Services &nbsp;&nbsp;
+                                        </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblSys" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9717&amp;type=D">35,804</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRSys" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=9717&amp;type=R">22,887</a>
+                            </td>
+                        </tr>
+                        
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=28165&type=D" title="Social Security & Empowerment of Persons with Disabilities">
+									    <span>SS &amp; EPD &nbsp;&nbsp;
+                                        </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblSSEPD" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=28165&amp;type=D">14,310</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRSSEPD" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=28165&amp;type=R">25,099</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">1</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=7&type=D">
+									    <span>Steel &amp; Mines &nbsp;&nbsp;
+                                    </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblsMines" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=7&amp;type=D">55,774</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRsMines" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=7&amp;type=R">30,898</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOStsc" class="noOfOfc">27</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSTSC.aspx" title="Scheduled Tribes and Scheduled Castes Development">
+								    <span>ST &amp; SC Development </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblStsc" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSTSC.aspx">1,72,167</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRStsc" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerSTSC.aspx">1,30,374</a>
+                            </td>
+                        </tr>
+                   
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOTxtl" class="noOfOfc">3</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTH.aspx">
+								    <span>Textile & Handloom </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypTH" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTH.aspx">82,321</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRTH" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTH.aspx">53,307</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOTC" class="noOfOfc">3</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTC.aspx">
+								    <span>Tourism Culture </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hypTC" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTC.aspx">3,389</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hypRTC" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerTC.aspx">24,227</a>
+                            </td>
+                        </tr>
+                   
+                
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOWcd" class="noOfOfc">369</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDSW.aspx" title="Women & Child Development & Mission Shakti">
+								    <span>W&CD & Mission Shakti </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblWcd" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDSW.aspx">3,72,175</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRWcd" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerDSW.aspx">6,30,962</a>
+                            </td>
+                        </tr>
+                   
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOWorks" class="noOfOfc">107</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWorks.aspx">
+								    <span>Works </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblWorks" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWorks.aspx">5,80,485</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRWorks" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWorks.aspx">5,61,305</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    
+                        <tr valign="middle" class="">
+                                <td width="15"><span id="lblTOWR" class="noOfOfc">125</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWR.aspx">
+								    <span>Water Resources </span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="lblWR" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWR.aspx">4,31,800</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="lblRWR" href="http://citizen.edodisha.gov.in/Citizen/IndexInnerWR.aspx">4,59,687</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clear">
+                </div>
+                <div style="margin-left: 6px; margin-right: 6px; padding-top: 10px;">
+                    
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr valign="middle" class="">
+                            
+                            <td valign="top" colspan="4" align="center">
+                                Important Government Offices
+                            </td>
+                           
+                        </tr>
+                        <tr valign="middle" class="">
+							<td width="15"><span class="noOfOfc">&nbsp;</span></td>
+                            <td valign="top">
+                                <a href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=22680&type=D" >
+									    <span>Odisha Legislative Assembly</span>
+                                </a>
+                            </td>
+                            <td width="80" class="bg-ltblue">
+                                <a id="hlnkOLA" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=22680&amp;type=D">2,925</a>
+                            </td>
+                            <td width="80" class="bg-ltred">
+                                <a id="hlnkOLAR" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=22680&amp;type=R">7,682</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+<link href="../CSS/defaultNew.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<div class="fltlft shadow_box" style="text-align: center;">
+    <div class="top_dept">
+        <ul id="ulDept">
+            <li class="fltlft">
+                <h1 class="ftr_gray_hdng">
+                    Top 5 Department of 
+                      <span id="Label1">March</span>
+                  (Max. Despatch)</h1>
+                <div class="dept_links">
+                    <a id="hyp1" href="http://citizen.edodisha.gov.in/citizen/IndexInnerFin.aspx">Finance</a>
+                    <a id="hyp2" href="http://citizen.edodisha.gov.in/citizen/IndexInnerSME.aspx">School & Mass Education</a>
+                    <a id="hyp3" href="http://citizen.edodisha.gov.in/citizen/IndexInnerRD.aspx">Rural Development</a>
+                    <a id="hyp4" href="http://citizen.edodisha.gov.in/citizen/IndexInnerHome.aspx">Home</a>
+                    <a id="hyp5" href="http://citizen.edodisha.gov.in/citizen/IndexInnerWorks.aspx">Works</a>
+                </div>
+            </li>
+            <li class="fltlft">
+                <h1 class="ftr_gray_hdng">
+                    Top 5 Department of
+                       <span id="Label2">March</span>
+                      (Max. Receipt)</h1>
+                <div class="dept_links">
+                    <a id="hyp6" href="http://citizen.edodisha.gov.in/citizen/IndexInnerSME.aspx">School & Mass Education</a>
+                    <a id="hyp7" href="http://citizen.edodisha.gov.in/citizen/IndexInnerFin.aspx">Finance</a>
+                    <a id="hyp8" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=4">PR & Drinking Water</a>
+                    <a id="hyp9" href="http://citizen.edodisha.gov.in/citizen/IndexInnerRDM.aspx">Revenue & Disaster Management</a>
+                    <a id="hyp10" href="http://citizen.edodisha.gov.in/citizen/IndexInnerDHE.aspx">Higher Education</a>
+                </div>
+            </li>
+            <li class="fltlft">
+                <h1 class="ftr_gray_hdng">
+                    Top 5 Department of 
+                    <span id="Label3">March</span>
+                    (Max. Transaction)</h1>
+                <div class="dept_links">
+                   <a id="hyp11" href="http://citizen.edodisha.gov.in/citizen/IndexInnerSME.aspx">School & Mass Education</a>
+                    <a id="hyp12" href="http://citizen.edodisha.gov.in/citizen/IndexInnerFin.aspx">Finance</a>
+                    <a id="hyp13" href="http://citizen.edodisha.gov.in/eSpace/WebSearchLetter.aspx?OfficeId=4">PR & Drinking Water</a>
+                    <a id="hyp14" href="http://citizen.edodisha.gov.in/citizen/IndexInnerRDM.aspx">Revenue & Disaster Management</a>
+                    <a id="hyp15" href="http://citizen.edodisha.gov.in/citizen/IndexInnerDHE.aspx">Higher Education</a>
+                </div>
+            </li>
+        </ul>
+  </div>
+</div>
+<div class="clear">
+</div>
+</div>
+<div class="wrapper">
+	<div class="new_footer">
+		<ul class="fltlft ftr_menu">
+        	
+        	<li><a href="Feedback.aspx">Feedback</a></li>
+        	<li><a href="ContactUs.aspx">Contact Us</a></li>
+            <div class="clear"></div>
+        </ul>
+		<div class="fltrht">
+        	<a href="http://www.ocac.in" title="Odisha Computer Application Center" target="_blank"><img src="ImagesNew/powerdby.png" border="0" align="absmiddle" /></a>
+        </div>
+		
+		<div class="clear"></div>
+	</div>
+</div>
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TextBoxWatermarkBehavior, {"ClientStateFieldID":"txtSearch_TextBoxWatermarkExtender_ClientState","WatermarkText":"Search Letter No./Subject","id":"txtSearch_TextBoxWatermarkExtender"}, null, null, $get("txtSearch"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

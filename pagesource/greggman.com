@@ -1,0 +1,1 @@
+<a href="https://greggman.com/">Moved Permanently</a>.

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GeoServer</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/css/bootstrap-3.0.3.min.css">
+    <link rel="stylesheet" href="/css/ol.css"/>
+    <link rel="stylesheet" href="/css/app.css">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+      <nav class="navbar" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+              data-target="#gs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">GeoServer</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="gs-navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="http://blog.geoserver.org" target="_blank">Blog</a>
+        </li>        
+        <li>
+          <a href="/download">Download</a>
+        </li>
+        <li>
+          <a href="http://docs.geoserver.org">Documentation</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/comm">Community Support</a></li>
+            <li><a href="/support">Commercial Support</a></li>
+            <li><a href="/issues">Issue Tracker</a></li>
+            <li><a href="/roadmap">Roadmap</a></li>
+            <li><a href="https://github.com/geoserver/geoserver/wiki/Proposals" target="_blank">Improvement Proposals</a></li>
+            <li><a href="http://old.geoserver.org/Contributors.html">Contributors</a></li>
+            <li><a href="/license">License</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <a href="https://github.com/geoserver/geoserver" target="_blank">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  </nav>
+
+    <div class="background">
+      <div class="wrapper home">
+        <div class="content">
+          <style>
+#download {
+  text-align: center;
+}
+
+#download ul {
+  list-style-type: none;
+  padding-left: 0px;
+
+}
+
+#news h2 {
+  text-align: center;
+}
+
+#news ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#news li p {
+  font-size: 8pt;
+  color: #666;
+}
+
+#books img {
+  width: 320px;
+}
+div[class*="col-"] img {
+  margin-bottom: 10px;
+}
+
+.ol-attribution {
+  background: rgba(255,255,255,0.8);
+  color: #333;
+}
+
+.ol-attribution a {
+  color: #7b98bc;
+}
+</style>
+<script>
+function init() {
+  initMap();
+  <!-- local: feed.xml -->
+  <!-- deploy: http://blog.geoserver.org/feed/ -->
+  $.get("http://blog.geoserver.org/?feed=rss2", function(data) {
+    var $xml = $(data);
+    $xml.find("item:lt(3)").each(function() {
+        var $this = $(this),
+            item = {
+                title: $this.find("title").text(),
+                link: $this.find("link").text(),
+                description: $this.find("description").text(),
+                pubDate: $this.find("pubDate").text(),
+                author: $this.find("author").text()
+        }
+        //Do something with item here...
+        $("#news ul").append("<li><a href='"+item.link+"'>"+item.title+"</a><p>"+item.description+"</p></li>");
+       });
+   });
+
+  if ("" == "") {
+    $(".download_dev_version").hide();
+  }
+  else {
+    $(".download_dev_version").hide();
+  }
+
+}
+</script>
+<div class="text-center">
+<h1>GeoServer is an open source server for sharing geospatial data.</h1>
+<p class="lead">
+Designed for interoperability, it publishes data from any major spatial data source using open standards.  
+</p>
+</div>
+
+<section id="">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="map" class="map"></div>
+    </div>
+    <div class="col-md-6">
+      <div id="download">
+        <h2><a href="/download">Download</a> <span class="glyphicon glyphicon-download"></span></h2>
+        <div class="row">
+          <div class="col-md-4 download-stable">
+            <h4>Stable</h4>
+            <ul>
+              <li><a href="/release/stable">2.13.0</a></li>
+              <li><a href="/release/2.13.x">Nightly</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 download-maintain">
+            <h4>Maintenance</h4>
+            <ul>
+              <li><a href="/release/maintain">2.12.2</a></li>
+              <li><a href="/release/2.12.x">Nightly</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 download-dev">
+            <h4>Development</h4>
+            <ul>
+              <li id="download_dev_version"><a href="/release/dev"></a></li>
+              <!--<li><a href="/release/master">Nightly</a></li>-->
+              <li><a href="/release/master">Master</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="news">
+        <h2><a href="http://blog.geoserver.org" target="_blank">News</a></h2>
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="" class="text-center">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Built on Open Standards</h4>
+      <img src="img/ogc-cert-badge.png"/>
+      <p class="text-left">
+        GeoServer is a OGC compliant implementation of a number of open standards such as Web Feature Service (WFS), Web Map Service (WMS), and Web Coverage Service (WCS).
+      </p>
+      <p class="text-left">
+        Additional formats and publication options are available including  Web Map Tile Service (WMTS) and extensions for Catalogue Service (CSW) and Web Processing Service (WPS).
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>Part of a Vibrant Open Source Community</h4>
+      <a href="http://osgeo.getinteractive.nl/projects/geoserver/"><img src="img/OSGeo_project.png"/ width="150"></a> <a href="http://2018.foss4g.org"><img src="img/foss4g_2018.png" width=63/></a>
+      <p class="text-left">
+        GeoServer is developed, tested, and supported as community-driven project by a diverse group of individuals and organizations around the world. We are proud to be a recognized <a href="http://osgeo.getinteractive.nl/projects/geoserver/">Open Source Geospatial Foundation</a> project.
+      </p>
+      <p class="text-left">
+        GeoServer participates in the annual <a href="https://foss4g.org/">Free and Open Source Software for Geospatial</a> conference, join us in Dar es Salaam for <a href="https://2018.foss4g.org/">FOSS4G 2018</a>!
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="thanks" class="text-center">
+  <h2>Special Thanks</h2>
+  <p class="lead">The following products are kindly supporting open source projects like GeoServer.</p>
+  <div class="row">
+    <div class="col-md-6" id="books">
+       <a href="http://www.packtpub.com/geoserver-share-edit-geospatial-data-beginners-guide/book"><img src="img/books.png"/ ></img></a>
+       <p class="text-left">
+         <a href="https://www.packtpub.com/application-development/geoserver-beginner’s-guide">GeoServer Beginner's Guide</a>, <a href="https://www.packtpub.com/application-development/geoserver-cookbook">GeoServer Cookbook</a>, <a href="https://www.packtpub.com/networking-and-servers/mastering-geoserver">Mastering GeoServer</a>, <a href="https://www.packtpub.com/application-development/geoserver-beginner%E2%80%99s-guide-second-edition">GeoServer Beginner's Guide - Second Edition</a> and <a href="https://www.packtpub.com/application-development/fundamentals-geoserver-video">Fundamentals of Geoserver [Video]</a> are available from Packt Publishing.
+       </p>
+     </div>
+     <div class="col-md-6">
+       <a href="https://www.yourkit.com/java/profiler/index.jsp"><img src="img/yklogo.png"/ ></img></a>
+     </div>
+  </div>
+</section>
+
+        </div>
+      </div>
+      <div id="footer">
+    &copy; 2014 Open Source Geospatial Foundation
+</div>
+    </div>
+    
+        <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/bootstrap-3.0.3.min.js"></script>
+    <script src="/js/ol.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+    $(document).ready(function() {
+        if (typeof window.init != "undefined") {
+          init();
+        }
+    });
+    </script>
+  </body>
+</html>

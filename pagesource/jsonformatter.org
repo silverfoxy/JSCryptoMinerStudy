@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Online JSON Formatter and JSON Validator will format json data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON">
+<meta name="author" content="JsonFormatter">
+<meta name="keywords" content="json formatter, json validator, online json formatter, json formatter online, JSON Checker,format json, json format ,json viewer, online json viewer, format json online" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Best JSON Formatter and JSON Validator: Online JSON Formatter" />
+<meta name="twitter:description" content="Online JSON Formatter and JSON Validator will format json data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON" />
+<meta name="twitter:image" content="https://jsonformatter.org/img/rectlogo.png" />
+<meta name="twitter:url" content="https://jsonformatter.org/">
+<meta name="twitter:creator" content="@jsonformatter">
+<meta name='ir-site-verification-token' value='600428248' />
+<meta property="og:title" content="Best JSON Formatter and JSON Validator: Online JSON Formatter" />
+<meta property="og:image" content="https://jsonformatter.org/img/rectlogo.png" />
+<meta property="og:url" content="https://jsonformatter.org/" />
+<link rel="canonical" href="https://jsonformatter.org/" />
+<link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+<title>Best JSON Formatter and JSON Validator: Online JSON Formatter</title>
+<link href="https://plus.google.com/108734869867956898267/posts" rel="publisher" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.14.0/jsoneditor.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<input type="hidden" id="viewname" value="index">
+<input type="hidden" id="type" value="json">
+<body id="page-top" class="index">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69019558-1', 'auto');
+  ga('send', 'pageview');
+
+</script><div id="pluswrap" class='hide'>
+<div class="plus">
+<button class="btn btn-lg btn-success">
+<i class="fa fa-cog fa-spin"></i>
+</button>
+</div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+
+<div class="navbar-header page-scroll">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="/img/logo.png" height="97%" alt="JSON Formatter" title="JSON Formatter"></a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right">
+<li class="page-scroll"><a href="/xml-formatter" title="XML Formatter">XML Formatter</a></li>
+<li class="page-scroll"><a href="/json-pretty-print" title="JSON pretty Print">JSON Pretty Print</a></li>
+<li class="page-scroll"><a href="/json-editor" title="JSON Editor">JSON Editor</a></li>
+<li id="savelink" class="page-scroll"><a href="#save" onclick="Action_Save();">Save</a></li>
+<li class="page-scroll"><a href="/recentLinksPage/json">Recent
+Links</a></li>
+<li class="page-scroll" id="loginDiv"><a href="#loginDialog" class="portfolio-link" data-toggle="modal">Login</a></li>
+<a data-toggle="dropdown">
+<li id="loginDropdown" class="dropdown cursor-pointer" onclick="toggleOpenClass()">
+<span id="loggedUserName"></span><span class="caret"></span>
+<ul class="dropdown-menu">
+<li><a target="_blank" href="/userSaveLinkPage/json">My Links</a></li>
+<li><a href="#Logout" onclick="logout();">Logout</a></li>
+</ul>
+</a></li>
+</ul>
+</div>
+
+</div>
+
+</nav>
+<div id="flymessage" class="alert alert-danger flyover flyover-bottom">
+<p>
+Copied to Clipboard
+</p>
+</div>
+
+<header>
+<div class="container container-no-padding">
+<div class="row" id="msgDiv"> </div>
+<div class="row">
+<div id="inputdiv" class="col-lg-5">
+<div id="inputeditor" tabindex="-1" class="jsoneditor-manual"></div>
+</div>
+<div class="col-lg-2">
+<button type="button" class="btn btn-xs btn-outline btn-block" href="#loadFileDialog" data-toggle="modal" onclick="clearInput('loadFileDialog')" title="JSON URL or Browse File">Load Data</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="validateJSON();" title="JSON Validator">Validate</button>
+<br>
+<div class="form-group">
+<select class="form-control" id="sel1">
+<option value="2" selected="selected">2 Tab Space</option>
+<option value="3">3 Tab Space</option>
+<option value="4">4 Tab Space</option>
+</select>
+</div>
+<button type="button" id="defaultaction" class="btn btn-xs btn-outline btn-block" onclick="beautifyJSON();" title="JSON Formatter">Format / Beautify</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="minifyJSON();" title="JSON Minify or JSON Compact">Minify / Compact</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="jsonToxml();" title="JSON to XML">JSON to XML</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="jsonTocsv();" title="JSON to CSV">JSON to CSV</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="jsonToyaml();" title="JSON to YAML">JSON to YAML</button>
+<br>
+<button type="button" class="btn btn-xs btn-outline btn-block" onclick="download();" title="JSON Download">Download</button>
+</div>
+<div id="outputdiv" class="col-lg-5">
+<div id="outputeditor" tabindex="-1" class="jsoneditor-manual"></div>
+</div>
+</div>
+</div>
+</header>
+<input type="hidden" id="user_id" value="0"><section class="ads" id="portfolio">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 text-center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:970px;height:250px" data-ad-client="ca-pub-4125058781634690" data-ad-slot="3819426769"></ins>
+<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+</div>
+</div>
+</div>
+</section> 
+<section class="success" id="about">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 text-center">
+<h1>JSON Formatter</h1>
+<hr class="star-light">
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-lg-offset-2">
+<p>JSON Formatter and JSON Validator helps to format and validate your JSON data. It also provides tree view which helps to navigate your formatted JSON data. </p>
+<p>This JSON Online tool is very Powerful.</p>
+<ul>
+<li>It helps to validate JSON online with Error Messages.</li>
+<li>Supports indentation levels: 2 spaces, 3 spaces, 4 spaces.</li>
+<li>Supports JSON Minify and Compact.</li>
+<li>Supports Printing of JSON Data.</li>
+<li>Supports JSON Graph View.</li>
+<li>Stores data locally for last JSON Formatted in Browser's local Storage.</li>
+</ul>
+</div>
+<div class="col-lg-4">
+<p>Online JSON Formatter and Online JSON Validator also provides tools to convert <a href="/json-to-xml">JSON to XML</a>,
+JSON to CSV, <a href="/json-editor">JSON Editor </a>,
+JSONLint and JSON Checker. </p>
+<p>JSON Formatter Online and JSON Validator Online works well in Windows, Mac, Linux, Chrome, Firefox, Safari and Edge and it's Free.</p>
+</div>
+</div>
+</div>
+</section><section class="faq" id="faq">
+<div class="">
+<div class="row">
+<div class="col-lg-12 text-center">
+<h2>FAQ</h2>
+<hr class="star-light">
+</div>
+</div>
+<div class="rowfaq">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Why JSON FORMATTER?</a>
+</h4>
+</div>
+<div style="height: 0px;" aria-expanded="false" id="collapseOne" class="panel-collapse collapse">
+<div class="panel-body faq-text">
+JSON Formatter is very unique tool for formatting JSON, converting to XML, CSV and YAML. It can be used as json validator, json editor and json viewer.
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How to use JSON formatter with URL?</a>
+</h4>
+</div>
+<div style="height: 0px;" aria-expanded="false" id="collapseTwo" class="panel-collapse collapse">
+<div class="panel-body faq-text">
+Json Formatter support URL linking for sharing json.<br> i.e. <a href="//jsonformatter.org/?url=https://gist.githubusercontent.com/jimmibond/9205480889e19c0de347/raw/sample.json">https://jsonformatter.org/?url=https://gist.githubusercontent.com/jimmibond/9205480889e19c0de347/raw/sample.json</a>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Is login required to save JSON data?</a>
+</h4>
+</div>
+<div style="height: 0px;" aria-expanded="false" id="collapseThree" class="panel-collapse collapse">
+<div class="panel-body faq-text">
+No. It's not required to save and share code. If JSON data is saved without login, it will become public. To make json data private please login and save the links.
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Have you accidently saved your JSON data?</a>
+</h4>
+</div>
+<div style="height: 0px;" aria-expanded="false" id="collapseFour" class="panel-collapse collapse">
+<div class="panel-body faq-text">
+Please send us the details of the URL using <a href="/contact">Contact US</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div id="loadFileDialog" class="modal" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Load External Data</h4>
+</div>
+<div class="modal-body text-center">
+<div class="form-group">
+<input type="text" class="form-control" id="path" placeholder="Enter Url" autofocus>
+<br>
+<button type="button" class="btn btn-primary btn-md" onclick="loadUrl();">Load URL</button>
+</div>
+<div class="col-lg-12 text-center">
+<hr class="star-primary">
+</div>
+<div class="form-group">
+<button type="button" class="btn btn-primary btn-md" id="me" onclick="openFile();">Browse</button>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" id="loadFileClose" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div id="saveDialog" class="modal" role="dialog">
+<input type="hidden" id="id" value="1">
+<input type="hidden" id="dataUrl" value="" />
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Save</h4>
+</div>
+<div class="modal-body">
+<form name="sentMessage" id="contactForm" novalidate>
+<div class="row control-group">
+<div class="form-group col-xs-12 floating-label-form-group controls">
+<label>Title</label>
+<input type="text" class="form-control" placeholder="Title" id="title" required data-validation-required-message="Please enter your title">
+<p class="help-block text-danger"></p>
+</div>
+</div>
+<div class="row control-group">
+<div class="form-group col-xs-12 floating-label-form-group controls">
+<label>Tags</label>
+<input type="text" class="form-control" placeholder="Tags" id="tags">
+<p class="help-block text-danger"></p>
+</div>
+</div>
+<div class="row control-group">
+<div class="form-group col-xs-12 floating-label-form-group controls">
+<label>Description</label>
+<textarea rows="5" class="form-control" placeholder="Description" id="desc"></textarea>
+<p class="help-block text-danger"></p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" id="btnSave" class="btn btn-default" data-dismiss="modal" onclick="download();">Download</button>
+<button type="button" id="btnUpdate" class="btn btn-default" data-dismiss="modal" onclick="update();">Update</button>
+<button type="button" id="btnSaveAndShare" class="btn btn-default" data-dismiss="modal" onclick="save();">Save Online</button>
+<button type="button" id="loadSaveClose" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<button type="button" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#saveDialog" id="openSave">ErrorDialog</button>
+
+<div id="errorDialog" class="modal" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Message</h4>
+</div>
+<div class="modal-body">
+<p id="errorMsg"></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<button type="button" id="openError" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#errorDialog">ErrorDialog</button>
+
+<div id="loginDialog" class="modal" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Login With</h4>
+</div>
+<div class="modal-body">
+<a class="btn btn-block btn-primary" onclick="login('facebook')" href="#facebook">
+<span class="fa-stack fa-lg">
+<i class="fa fa-square-o fa-stack-2x"></i>
+<i class="fa fa-facebook fa-stack-1x"></i>
+</span>
+Login with Facebook
+</a>
+<br>
+<a id="googleloginlink" class="btn btn-block btn-warning" href="#googlelogin" onclick="login('google')">
+<span class="fa-stack fa-lg">
+<i class="fa fa-square-o fa-stack-2x"></i>
+<i class="fa fa-google fa-stack-1x"></i>
+</span> Login with Google
+</a>
+<br>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="adBlockerDialog" class="modal" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title">Hi Coder</h4>
+</div>
+<div class="modal-body">
+<p><b>It looks like you're blocking ads.</b>
+Ads help me pay the bills. Can I ask that you <a href="http://www.wikihow.com/Disable-Adblock" target="_blank" style="color: #0088cc!important;">disable Adblocker just for this site</a>? I promise the ads aren't obnoxious.
+Please disable adBlocker and <a href="#" style="color: #0088cc!important;" onclick="javascript:document.location.reload(true);">refresh</a> page.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" id="btnSave" class="btn btn-default" data-dismiss="modal" onclick="javascript:document.location.reload(true);">Refresh</button>
+</div>
+</div>
+</div>
+</div>
+<button type="button" class="btn btn-info btn-lg hide" data-toggle="modal" data-target="#adBlockerDialog" id="openAdBlocker">adBlockerDialog</button>
+
+<footer class="text-center">
+<div class="footer-above">
+<div class="container">
+<div class="row">
+<div class="footer-col col-md-4">
+<h3>functionality</h3>
+<p>JSON Formatter, JSON Validator, <a href="/json-editor">JSON Editor</a>,
+<a href="/json-viewer">JSON Viewer</a>,
+<a href="/json-to-xml">JSON to XML</a>,
+JSON to CSV,
+JSON to YAML,
+JSON Tree View,
+<a href="/json-pretty-print">JSON Pretty Print</p>
+</div>
+<div class="footer-col col-md-4">
+<h3>Join us</h3>
+<ul class="list-inline">
+<li>
+<a href="https://www.facebook.com/jsonformatter" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+</li>
+<li>
+<a href="https://plus.google.com/+JSONFormatterOfficial" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+</li>
+<li>
+<a href="https://twitter.com/jsonformatter" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+</li>
+
+</ul>
+</div>
+<div class="footer-col col-md-4">
+<h3>About</h3> <h2>JSON Formatter</h2>
+<p>JSON Formatter is a free to use tools which helps to format, validate, save and share your JSON data</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-middle">
+<div class="container">
+<div class="row">
+</div>
+<div class="row">
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">JSON</h3>
+<ul class="list-unstyled">
+<li><a href="/">JSON Formatter</a></li><li>
+<a href="/">JSON Validator</a></li>
+<li><a href="/json-editor">JSON Editor</a></li>
+<li><a href="/json-pretty-print">JSON Pretty Print</a></li>
+<li><a href="/json-viewer">JSON Viewer</a></li>
+<li><a href="/json-minify">JSON Minify</a></li>
+<li><a href="/json-tree">JSON Tree</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">Converters</h3>
+<ul class="list-unstyled">
+<li><a href="/json-to-xml">JSON to XML</a></li>
+<li><a href="/json-to-csv">JSON to CSV</a></li>
+<li><a href="/json-to-yaml">JSON to YAML</a></li>
+<li><a href="/xml-to-json">XML to JSON</a></li>
+<li><a href="/xml-to-csv">XML to CSV</a></li>
+<li><a href="/xml-to-yaml">XML to YAML</a></li>
+<li><a href="/yaml-to-json">YAML to JSON</a></li>
+<li><a href="/yaml-to-xml">YAML to XML</a></li>
+<li><a href="/yaml-to-csv">YAML to CSV</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">XML</h3>
+<ul class="list-unstyled">
+<li><a href="/xml-formatter">XML Formatter</a></li>
+<li><a href="/xml-viewer">XML Viewer</a></li>
+
+<li><a href="/xml-pretty-print">XML Pretty Print</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">YAML</h3>
+<ul class="list-unstyled">
+<li><a href="/yaml-validator">YAML Validator</a></li>
+<li><a href="/yaml-formatter">YAML Formatter</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">HTML</h3>
+<ul class="list-unstyled">
+<li><a href="/html-formatter">HTML Formatter</a></li>
+<li><a href="/html-pretty-print">HTML Pretty Print</a></li>
+<li><a href="/html-validator">HTML Validator</a></li>
+<li><a href="/excel-to-html">EXCEL to HTML</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">Escaper</h3>
+<ul class="list-unstyled">
+<li>
+<span class="escaper-right-padding">
+<a href="/html-escape">HTML Escape</a>
+</span>
+<span>
+<a href="/html-unescape">HTML Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/xml-escape">XML Escape</a>
+</span>
+<span>
+<a href="/xml-unescape">XML Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/javascript-escape">Javascript Escape</a>
+</span>
+<span>
+<a href="/javascript-unescape">Javascript Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/java-escape">Java Escape</a>
+</span>
+<span>
+<a href="/java-unescape">Java Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/dotnet-escape">.Net Escape</a>
+</span>
+<span>
+<a href="/dotnet-unescape">.Net Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/json-escape">JSON Escape</a>
+</span>
+<span>
+<a href="/json-unescape">JSON Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/csv-escape">CSV Escape</a>
+</span>
+<span>
+<a href="/csv-unescape">CSV Unescape</a>
+</span>
+</li>
+<li>
+<span class="escaper-right-padding">
+<a href="/sql-escape">SQL Escape</a>
+</span>
+<span>
+<a href="/sql-unescape">SQL Unescape</a>
+</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-col links col-md-4 col-sm-4">
+<div class="footer-col-inner">
+<h3 class="title">Other tools</h3>
+<ul class="list-unstyled">
+<li><a href="/string-utility">String Utility</a></li>
+<li><a href="/tools">All Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="footer-below">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+Copyright &copy; JSON Formatter 2017 |
+<a href="/policy">Privacy Policy</a> |
+<a href="#about">About</a> |
+<a href="#faq">FAQ</a> |
+<a href="https://codeblogmoney.com" target="_blank">Blog</a> |
+<a href="/contact">Contact</a> |
+<a target="_blank" href="https://hexcolorcodes.org/">Hex Color Codes</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<div class="scroll-top page-scroll visible-xs visible-sm">
+<a class="btn btn-primary" href="#page-top">
+<i class="fa fa-chevron-up"></i>
+</a>
+</div>
+
+
+
+
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='/js/lib/common-lib.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/hellojs/2.0.0-4/hello.all.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.14.0/jsoneditor.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jsonlint/1.6.0/jsonlint.min.js'></script>
+<script src='/js/tools/jsontools.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+<script src='/js/tools/convertToCsv.js'></script>
+
+</script>
+<script src='/js/tools/main.js'></script>
+<script>
+if (typeof(window.google_jobrunner) === "undefined" ) {
+	//$("#openAdBlocker").click();
+} 
+</script>
+<script>
+
+$(function() {
+var user=getCookie("loggedinuser");
+
+if(user!="")	 
+{		var user_id = getCookie('loggedinuserid');
+	    $("#user_id").val(user_id);
+		$("#loggedUserName").text(user);
+		$("#loginDropdown").show();
+		$("#loginDiv").hide();
+
+ }else{
+	    $("#loginDropdown").hide();
+		$("#loginDiv").show();
+		$("#user_id").val("0");
+		check_login();
+ }
+});
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+        	name = c.substring(name.length, c.length);
+        	return name.replace(/\+/g,' ');
+        }
+    }
+    return "";
+}
+
+/*
+ * Login Function
+ * 
+ * fb appID : 699700786833772 //url = localhost:8000 google :
+ * '634077763847-k2hep9e086m4409utrcdp9kd79frn6vk.apps.googleusercontent.com'
+ * //url = 127.0.0.1:8000
+ * 
+ * Prduction FB id: 548931178592042 //url jsonformatter.org Production Google id :
+ * 302157126871-87of7f944ef3c6ai29etb7389iggc3f8.apps.googleusercontent.com
+ * //url jsonformatter.org
+ */
+
+// local use
+// hello.init({
+// 			facebook : '699700786833772',
+// 			google : '634077763847-k2hep9e086m4409utrcdp9kd79frn6vk.apps.googleusercontent.com'
+// 		});
+
+
+// online
+
+  hello.init({ facebook: '548931178592042', google :
+  '302157126871-87of7f944ef3c6ai29etb7389iggc3f8.apps.googleusercontent.com'
+  });
+ 
+
+function login(provider) {
+	hello(provider).login({
+		display : 'page',
+		scope : 'publish,email'
+	}).then(function() {
+
+	}, function(e) {
+		showErrorDialog('Signin error: ' + e.error.message);
+	});
+}
+
+function shareLink(link) {
+		if(getProvider() == "google"){
+			window.location.href = "https://plus.google.com/share?url="+link;
+		}
+		else{
+			window.location.href = "https://www.facebook.com/sharer/sharer.php?u="+link
+		}
+}
+
+function delete_cookie(name) {
+	  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function logout() {
+	hello(getProvider()).logout().then(function() {
+		removeSession();
+	}, function(e) {
+		removeSession();
+	});
+}
+
+function removeSession(){
+	showErrorDialog('Signed out');
+	$("#loginDropdown").hide();
+	$("#loginDiv").show();
+	$("#user_id").val("0");
+	delete_cookie("loggedinuser");
+	delete_cookie("loggedinuserid");
+
+	$.ajax({
+		url : "/service/logout",
+		success : function(res) {
+		}
+	});
+
+	window.location.href = "/";
+}
+
+var online = function(session) {
+	var currentTime = (new Date()).getTime() / 1000;
+	return session && session.access_token && session.expires > currentTime;
+};
+
+function check_login() {
+	
+	var provider = getProvider();
+	if (provider != null) {
+		getLogindata(provider);
+	} else {
+		$("#loginDropdown").hide();
+		$("#loginDiv").show();
+		$("#user_id").val("0");
+	}
+}
+
+function getProvider() {
+
+	var provider = null;
+
+	var facebook = hello('facebook').getAuthResponse();
+	var google = hello('google').getAuthResponse();
+
+	if (online(facebook)) {
+		provider = 'facebook';
+	} else if (online(google)) {
+		provider = 'google';
+	}
+
+	return provider;
+}
+
+function getLogindata(provider) {
+	hello(provider).api('me').then(function(json) {
+		$("#user_id").val(json.id);
+		$("#loggedUserName").text(json.name);
+		$("#loginDropdown").show();
+		$("#loginDiv").hide();
+
+		storeUserDataToSession(provider,json);
+	}, function(e) {
+		console.log('getLogindata ' + e.error.message);
+	});
+}
+
+function storeUserDataToSession(provider,json) {
+	$.ajax({
+		url : "/service/storeLoginData",
+		dataType : "text",
+		type : 'post',
+		data : {
+			user_id : json.id,
+			name : json.name,
+			email : json.email,
+			provider : provider
+		},
+		success : function(response) {
+			console.log(response);
+		}	
+	});
+}
+
+</script>
+</body>
+</html>

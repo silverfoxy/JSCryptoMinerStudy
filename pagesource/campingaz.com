@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Campingaz – Gas & Charcoal barbecues | Innovative Outdoor Products | Gas Cartridges</title>
+        <meta name="description" content="Campingaz is the innovative manufacturer of gas & charcoal grills, coolers, stoves, lanterns, gas cartridges & cylinders, regulators and blowlamps.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="landing/css/normalize.min.css">
+        <link rel="stylesheet" href="landing/css/main.css">
+        <link rel="stylesheet" href="landing/css/styles.css">
+	<style type="text/css">
+		#countries
+		{
+			/*background-image: url("landing/img/500x332.png");*/
+			height: 295px;
+			padding-left: 10px;
+			padding-top: 20px;
+			width: 460px;
+			background-color: black;
+			border-radius: 10px;
+			opacity: 0.8;
+		}
+	</style>
+    </head>
+    <body>
+	<div id="container">
+		<div id="background">
+			<img src="landing/img/Background_2017_2.jpg" alt="" />
+		</div>
+		
+		<div id="countries"><ul class="countryList">
+					<li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=nl-NL">
+                        <img src="landing/img/mapicons/Belgique.gif" alt="" />
+                        België</a> / <a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=fr-FR">Belgique</a></li>
+                    <li><a href="/bg/setlocale.aspx?returnURL=default.aspx&amp;localesetting=bg-BG">
+                        <img src="landing/img/mapicons/Bulgaria.gif" alt="" />
+                        Bulgaria</a></li>
+                    <li><a href="/hr/setlocale.aspx?returnURL=default.aspx&amp;localesetting=hr-HR">
+                        <img src="landing/img/mapicons/Croatia.gif" alt="" />
+                        Croatia</a></li>
+                    <li><a href="cz/setlocale.aspx?returnURL=default.aspx&amp;localesetting=cs-CZ">
+                        <img src="landing/img/mapicons/Czech%20Republic.gif" alt="" />
+                        Czech Republic</a></li>
+                    <li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Danmark.gif" alt="" />
+                        Danmark</a></li>
+                    <li class="shoppingcart"><a href="/DE/setlocale.aspx?returnURL=default.aspx&amp;localesetting=de-DE">
+                        <img src="landing/img/mapicons/Deutschland.gif" alt="" />
+                        Deutschland</a></li>
+                    <li><a href="/Iberia/setlocale.aspx?returnURL=default.aspx&amp;localesetting=es-ES">
+                        <img src="landing/img/mapicons/España.gif" alt="" />
+                        España</a></li>
+                    <li><a href="/ee/setlocale.aspx?returnURL=default.aspx&amp;localesetting=et-EE">
+                        <img src="landing/img/mapicons/Estonia.gif" alt="" />
+                        Estonia</a></li>
+						<li><a href="/FR/setlocale.aspx?returnURL=default.aspx&amp;localesetting=fr-FR">
+                        <img src="landing/img/mapicons/France.gif" alt="" />
+                        France</a></li>
+                    <li><a href="/GR/setlocale.aspx?returnURL=default.aspx&amp;localesetting=el-GR">
+                        <img src="landing/img/mapicons/Greece.gif" alt="" />
+                        Greece</a></li>
+                    <li><a href="/HU/setlocale.aspx?returnURL=default.aspx&amp;localesetting=hu-HU">
+                        <img src="landing/img/mapicons/Hungary.gif" alt="" />
+                        Hungary</a></li></ul><ul class="countryList">
+					<li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/iceland.png" alt="" />
+                        Iceland</a></li>
+                    
+                    <li><a href="/in/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/india.gif" alt="" />
+                        India</a></li>
+                    <li><a href="/UK/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Ireland.gif" alt="" />
+                        Ireland</a></li>
+                    <li><a href="/IT/setlocale.aspx?returnURL=default.aspx&amp;localesetting=it-IT">
+                        <img src="landing/img/mapicons/Italia.gif" alt="" />
+                        Italia</a></li>
+                    <li><a href="/cz/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Latvia.gif" alt="" />
+                        Latvia</a></li>
+                    <li><a href="/cz/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Lithuania.gif" alt="" />
+                        Lithuania</a></li>
+                    <!--<li><a href="/cz/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Macedonia.gif" alt="" />
+                        Macedonia</a></li>-->
+					<li><a href="/MiddleEast/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/International-Flag.png" alt="" />
+                        Middle East</a></li>
+                    <!--<li><a href="/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Montenegro.gif" alt="" />
+                        Montenegro</a></li>-->
+                    <li><a href="/ma/setlocale.aspx?returnURL=default.aspx&amp;localesetting=fr-FR">
+                        <img src="landing/img/mapicons/Morroco.png" alt="" />
+                        Morocco</a></li>
+					<li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=nl-NL">
+                        <img src="landing/img/mapicons/Nederland.gif" alt="" />
+                        Nederland</a></li>
+                    <li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Norge.gif" alt="" />
+                        Norge</a></li>
+					<li class="shoppingcart"><a href="/DE/setlocale.aspx?returnURL=default.aspx&amp;localesetting=de-DE">
+                        <img src="landing/img/mapicons/Österreich.gif" alt="" />
+                        Österreich</a></li></ul><ul class="countryList">
+                    <li><a href="/RU/setlocale.aspx?returnURL=default.aspx&amp;localesetting=ru-RU">
+                        <img src="landing/img/mapicons/Россия.gif" alt="" />
+                        Россия</a></li>
+                    <li><a href="PL/setlocale.aspx?returnURL=default.aspx&amp;localesetting=pl-PL">
+                        <img src="landing/img/mapicons/Polska.gif" alt="" />
+                        Polska</a></li>
+                    <li><a href="/Iberia/setlocale.aspx?returnURL=default.aspx&amp;localesetting=pt-PT">
+                        <img src="landing/img/mapicons/Portugal.gif" alt="" />
+                        Portugal</a></li>
+                    <li><a href="/cz/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Romania.gif" alt="" />
+                        Romania</a></li>
+					<li><a href="/sk/setlocale.aspx?returnURL=default.aspx&amp;localesetting=sk-SK">
+                        <img src="landing/img/mapicons/Slovakia.gif" alt="" />
+                        Slovakia</a></li>
+                    <li><a href="/si/setlocale.aspx?returnURL=default.aspx&amp;localesetting=sl-SI">
+                        <img src="landing/img/mapicons/slovenia.png" alt="" />
+                        Slovenia</a></li>
+					<li><a href="/co.za/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/za.png" alt="" />
+                        South Africa</a></li>
+                    <li class="shoppingcart"><a href="/CH/setlocale.aspx?returnURL=default.aspx&amp;localesetting=fr-FR">
+                        <img src="landing/img/mapicons/Suisse.gif" alt="" />
+                        Suisse</a> / <a href="/CH/setlocale.aspx?returnURL=default.aspx&amp;localesetting=de-DE">Schweiz</a></li>
+                    <li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Suomi.gif" alt="" />
+                        Suomi</a></li>
+                    <li><a href="/Benelux/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Sverige.gif" alt="" />
+                        Sverige</a></li>
+                    <!--<li><a href="/tr/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/Turkey.gif" alt="" />
+                        Turkey</a></li>-->
+                    <li><a href="/uk/setlocale.aspx?returnURL=default.aspx&amp;localesetting=en-US">
+                        <img src="landing/img/mapicons/UK.gif" alt="" />
+                        United Kingdom</a></li>
+						<!--<li><a href="/UA/setlocale.aspx?returnURL=default.aspx&amp;localesetting=ru-RU">
+                        <img src="landing/img/mapicons/Ukraine.gif" alt="" />
+                        Ukraine</a></li>-->
+					</ul>
+
+		</div>
+				
+		<div id="footer">&copy; 2017 The Coleman Company Inc. All Rights reserved</div>
+	</div>
+		
+
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+ 
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-57681901-1");
+				pageTracker._trackPageview();
+			} catch (err) { }
+		</script>
+    </body>
+</html>

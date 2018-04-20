@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.showmax.com/eng">redirected</a>.</body></html>

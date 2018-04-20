@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.qoqa.ch/fr">redirected</a>.</body></html>

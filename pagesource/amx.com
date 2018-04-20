@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.amx.com/en-US">redirected</a>.</body></html>

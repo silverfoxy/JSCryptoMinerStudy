@@ -1,0 +1,7 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="280 handpicked colors ready for COPY & PASTE"><link rel="shortcut icon" href=static/favicon.ico><title>Flat UI Colors 2 - 14 Color Palettes, 280 colors 🎨</title><script type=text/javascript>if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js"><\/script>');</script><meta property=og:title content="Flat UI Colors 2 - 14 Color Palettes, 280 colors 🎨"><meta property=og:description content="280 handpicked colors ready for COPY & PASTE"><meta property=og:image content=/static/facebook-share.png><meta property=og:type content=website><link href=/static/css/app.ab432d14820b8e069efe21eca0a3b2a4.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.59a4e6477c36226cad77.js></script><script type=text/javascript src=/static/js/vendor.59a4e6477c36226cad77.js></script><script type=text/javascript src=/static/js/app.59a4e6477c36226cad77.js></script></body><script type=text/javascript>if (window.location.href.indexOf('8080') === -1) {
+    window.$crisp = []; window.CRISP_WEBSITE_ID = "e36cb2fe-82d5-40a4-83bd-f826eedad8f2"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+  }
+  else{
+    window.$crisp = [];
+  }</script></html>

@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://americanactionnews.com/index">redirected</a>.</body></html>

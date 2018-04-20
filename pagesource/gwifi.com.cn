@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="GWIFI商业wifi领跑者" />
+<meta name="description" content="上海寰创通信科技股份有限公司" />
+<title>GWIFI商业wifi领跑者</title>
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+</head>
+<SCRIPT type=text/javascript><!--//-->//><!--
+function menuFix() {
+ var sfEls = document.getElementById("nav").getElementsByTagName("li");
+ for (var i=0; i<sfEls.length; i++) {
+  sfEls[i].onmouseover=function() {
+  this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onMouseDown=function() {
+  this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onMouseUp=function() {
+  this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onmouseout=function() {
+  this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"),
+ 
+"");
+  }
+ }
+}
+window.onload=menuFix;
+ 
+//--><!</SCRIPT>
+<script type="text/javascript" src="js/jquery.js"></script>
+<SCRIPT type=text/javascript src="js/MSClass.js"></SCRIPT>
+<script type="text/javascript"> 
+$(function() {
+    var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+    var len = $("#focus ul li").length; //获取焦点图个数
+    var index = 0;
+    var picTimer;
+    
+    //以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮<div class='preNext pre'></div><div class='preNext next'></div>
+    var btn = "<div class='btnBg'></div><div class='btn'>";
+    for(var i=0; i < len; i++) {
+        btn += "<span></span>";
+    }
+    btn += "</div>";
+    $("#focus").append(btn);
+    $("#focus .btnBg").css("opacity",0.5);
+ 
+    //为小按钮添加鼠标滑入事件，以显示相应的内容
+    $("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+        index = $("#focus .btn span").index(this);
+        showPics(index);
+    }).eq(0).trigger("mouseenter");
+ 
+    //上一页、下一页按钮透明度处理
+    $("#focus .preNext").css("opacity",0.5).hover(function() {
+        $(this).stop(true,false).animate({"opacity":"0.5"},300);
+    },function() {
+        $(this).stop(true,false).animate({"opacity":"0.2"},300);
+    });
+ 
+    //上一页按钮
+    $("#focus .pre").click(function() {
+        index -= 1;
+        if(index == -1) {index = len - 1;}
+        showPics(index);
+    });
+ 
+    //下一页按钮
+    $("#focus .next").click(function() {
+        index += 1;
+        if(index == len) {index = 0;}
+        showPics(index);
+    });
+ 
+    //本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+    $("#focus ul").css("width",sWidth * (len));
+    
+    //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+    $("#focus").hover(function() {
+        clearInterval(picTimer);
+    },function() {
+        picTimer = setInterval(function() {
+            showPics(index);
+            index++;
+            if(index == len) {index = 0;}
+        },4000); //此4000代表自动播放的间隔，单位：毫秒
+    }).trigger("mouseleave");
+    
+    //显示图片函数，根据接收的index值显示相应的内容
+    function showPics(index) { //普通切换
+        var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+        $("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+        $("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+        $("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+    }
+});
+ 
+</script>
+<body>
+<!--TOP-->
+<div class="top1">
+  <div class="zw">
+    <div class="l"><a href="/"><img src="images/logo.png" width="74" style="padding:10px 0px;" /></a></div>
+    <div class="r">
+      <div class="t2" style="width:325px; margin:11px 0 6px">
+      	<div style="text-align:right; line-height:26px; padding-right:5px;"><a href="http://global.gbcom.com.cn/">英文版</a></div>
+        <div class="l2">
+          <div class="r2">
+          <form name="searchForm" id="searchForm" method="get" action="/search.aspx" onsubmit="if($('#keywords').val() == ''){alert('请输入关键字');return false;}">
+<input type="hidden" name="action" value="Search" />
+<input type="hidden" name="searchCat" value="0" />
+		<input type="text" id="keywords" name="keywords" class="txt1" value="输入关键字" />
+        <input name="" type="submit" value=" " class="txt2" />
+		</form>
+          </div>
+        </div>
+        
+        <div class="t1" style="width:100px; background-image:url(images/jrjr_09.png)"><a href="http://gmis.gwifi.com.cn" style="color:RGB(129,2,6)">厂园WiFi平台</a></div>
+		<!--
+        <div class="t1" style="width:100px; background-image:url(images/jrjr_05.png)"><a href="http://www.gwixin.com " style="color:RGB(129,2,6)">微信营销平台</a></div>
+<div class="clear"></div>-->
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="top2">
+  <div class="zw">
+    <ul id="nav">
+    <!--id="mdq" 此为当前栏目-->
+    	
+        <style>
+        .mcd1,.mcd2{ height:260px;}
+        </style>
+        <li><a href="/">首页</a></li>
+           	      
+      <li><a href="/index.aspx?cat_code=hzgy" id="">服务</a><ul>
+	          <li style="height:310px;"><div class="nr">
+          <div class="mcd1">
+		  		  		  <a href="/index.aspx?cat_code=hzyz">什么是GWIFI</a>
+		  		  <a href="/index.aspx?cat_code=hztd">能做什么</a>
+		  		  <a href="/index.aspx?cat_code=zmy">怎么用</a>
+		  		  </div>
+		  		                  <div class="mcd2">
+            <div class="imgk"><img src="upload/hc-S5_03.jpg" /></div>
+            <div class="txtk"><a href="/index.aspx?cat_code=hzyz">什么是GWIFI</a>
+			<p>智能商业WiFi营销系统提供商业场所高性能无线覆盖，抢占WiFi无线互联网入口营销平台，通过入口广告投放，微信粉丝互动，最大限的挖掘平台价值，提升经济效益。</p></div>
+          </div>
+          		                    <div class="mcd2">
+            <div class="imgk"><img src="upload/hc-S5_07.jpg" /></div>
+            <div class="txtk"><a href="/index.aspx?cat_code=hztd">能做什么</a>
+			<p>能够提供认证页面品牌广告展示，促销信息展示与及时更新，占据上网浏览的第一界面，广告覆盖率100%，提供微博微信一键分享，将商家原有的网络资源升级为营销系统，资源最大化利用</p></div>
+          </div>
+          		          		            <div class="clear"></div>
+        </div></li>
+					            </ul></li>
+	      
+      <li><a href="/index.aspx?cat_code=cpzx" id="">产品</a><ul>
+	  			<li style="height:380px;">
+      <div class="nr">
+        <div class="mcd3">
+				                  <div class="lb" style="width:190px;">
+		  <a href="/index.aspx?cat_code=yysWLANcp" class="tt">无线覆盖</a>
+		  		  		  <a href="/index.aspx?cat_code=yysWLANcp&article_id=1626" title="墙面式单频2*2无线AP N200-GA100i-WA2020">墙面式单频2*2无线AP N200-GA...</a>
+		  		  <a href="/index.aspx?cat_code=yysWLANcp&article_id=1625" title="吸顶式单频2*2无线AP N200-GA100i-TA2020SP">吸顶式单频2*2无线AP N200-GA...</a>
+		  		  <a href="/index.aspx?cat_code=yysWLANcp&article_id=1624" title="室内分布式单频1*1无线AP N200-GA100i-CA1020">室内分布式单频1*1无线AP N200-...</a>
+		  		  <a href="/index.aspx?cat_code=yysWLANcp&article_id=1622" title="室内放装型双频2*2无线AP N200-GA200i-CA2025">室内放装型双频2*2无线AP N200-...</a>
+		  		  </div>
+        		                  <div class="lb" style="width:190px;">
+		  <a href="/index.aspx?cat_code=hyWLANcp" class="tt">智能网关</a>
+		  		  		  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1645" title="单频智能小网关N200-GA100i-CGW500-支持微信连WiFi">单频智能小网关N200-GA100i-C...</a>
+		  		  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1644" title="双频智能小网关N200-GA200i-CGW1200">双频智能小网关N200-GA200i-C...</a>
+		  		  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1613" title="中型智能网关ENAX-CGW2000">中型智能网关ENAX-CGW2000</a>
+		  		  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1612" title="大型智能网关ENAX-CGW3000">大型智能网关ENAX-CGW3000</a>
+		  		  </div>
+        		                  <div class="lb" style="width:190px;">
+		  <a href="/index.aspx?cat_code=sywifi" class="tt">云平台</a>
+		  		  		  <a href="/index.aspx?cat_code=sywifi&article_id=1611" title="商业WIFI云平台 GBC-PRO">商业WIFI云平台 GBC-PRO</a>
+		  		  </div>
+        		                  <div class="lb" style="width:190px;">
+		  <a href="/index.aspx?cat_code=sjzx" class="tt">云安全审计中心</a>
+		  		  		  <a href="/index.aspx?cat_code=sjzx&article_id=1648" title="安全审计中心（100M出口型）ENAX-NSA3000">安全审计中心（100M出口型）ENAX-...</a>
+		  		  <a href="/index.aspx?cat_code=sjzx&article_id=1647" title="安全审计中心（50M出口型）ENAX-NSA2000">安全审计中心（50M出口型）ENAX-N...</a>
+		  		  <a href="/index.aspx?cat_code=sjzx&article_id=1646" title="安全审计中心（10M出口型）ENAX-NSA1000">安全审计中心（10M出口型）ENAX-N...</a>
+		  		  </div>
+        		                  <div class="lb" style="width:190px;">
+		  <a href="/index.aspx?cat_code=wxkdjrcp" class="tt">GWIXIN微信营销</a>
+
+		  <a href="/index.aspx?cat_code=wxkdjrcp" style="text-decoration:none;">极微信，GWIFI旗下微信营销专家，国内第一批微信营销软件，填补了中小企业微信营销的空白。</a>
+
+		  </div>
+        		          <div class="clear"></div>
+        </div>
+        <div class="mcd4">
+            <h2>近期主推产品</h2>
+					    			<img src="upload/500.jpg" width="210" style="max-width:210px" />
+			<a href="/index.aspx?cat_code=hyWLANcp&article_id=1645" class="tt">单频智能小网关N200-GA100i-CGW500-支持微信连WiFi</a>
+			<p></p>
+						</div>
+        <div class="clear"></div>
+      </div>
+      </li>
+				            </ul></li>
+	      
+      <li><a href="/index.aspx?cat_code=jjfa" id="">成功案例</a><ul>
+	  		    	<li style="height:310px;"><div class="nr">
+          <div class="mcd1">
+		  		  		  <a href="/index.aspx?cat_code=yysWLAN">酒店</a>
+		  		  <a href="/download.aspx?cat_code=qywWLAN" target="_blank">餐饮</a>
+		  		  <a href="/index.aspx?cat_code=hyWLAN">KTV</a>
+		  		  <a href="/download.aspx?cat_code=wxkdjr" target="_blank">银行</a>
+		  		  <a href="/index.aspx?cat_code=LTE">汽车4s店</a>
+		  		  <a href="/download.aspx?cat_code=znyq" target="_blank">智能园区</a>
+		  		  <a href="/download.aspx?cat_code=yy" target="_blank">医院</a>
+		  		  <a href="/index.aspx?cat_code=sccs">商场超市</a>
+		  		  </div>
+		  		                  <div class="mcd2">
+            <div class="imgk"><img src="upload/hc-jd_01.jpg" /></div>
+            <div class="txtk"><a href="/index.aspx?cat_code=yysWLAN">酒店</a>
+			<p>基于以上各种考虑,为了让顾客在不同的场景都能享受酒店优质的无线网络服务，提升无线服务的商业价值，同时也符合无线网络国家安全审计的要求，GWiFi提出实现酒店门户，用户管理，营销等业...</p></div>
+          </div>
+          		                    <div class="mcd2">
+            <div class="imgk"><img src="upload/hc-jd_02.jpg" /></div>
+            <div class="txtk"><a href="/download.aspx?cat_code=qywWLAN" target="_blank">餐饮</a>
+			<p>随着全球信息技术和无线网络的高速发展，客户对无线上网的需求越来越强烈，顾客带着智能手机,IPAD平板电脑在餐饮店就餐，闲暇等待时可以随时随地的上网浏览，现在中国十大连锁餐饮店大部分...</p></div>
+          </div>
+          		          		          		          		          		          		          		            
+          <div class="clear"></div>
+        </div></li>
+		
+			            </ul></li>
+	      
+      <li><a href="/index.aspx?cat_code=zxsc" id="">在线商城</a><ul>
+	  			    <!--
+		<li><div class="nr">
+				         <div class="clear"></div>
+       </div>
+       </li>
+    -->
+		            </ul></li>
+	      
+      <li><a href="/index.aspx?cat_code=dls" id="">代理商</a><ul>
+	  				        <li style="height:310px;"><div class="nr">
+          <div class="mcd1">
+		  		  		  <a href="/index.aspx?cat_code=wyjm">我要加盟</a>
+		  		  </div>
+		  		                  <div class="mcd2">
+            <div class="imgk"><img src="upload/dailis.png" /></div>
+            <div class="txtk"><a href="/index.aspx?cat_code=wyjm">我要加盟</a>
+			<p></p></div>
+          </div>
+          		            <div class="clear"></div>
+        </div></li>
+	            </ul></li>
+	      
+      <li><a href="/index.aspx?cat_code=lxwm" id="">联系我们</a><ul>
+	  				            <li style="height:310px;"><div class="nr">
+          <div class="mcd1">
+		  		  		  <a href="/index.aspx?cat_code=jtdz">具体地址</a>
+		  		  <a href="http://www.gbcom.com.cn/" target="_blank">寰创官网</a>
+		  		  <a href="/index.aspx?cat_code=wx">微信</a>
+		  		  </div>
+		  		                  <div class="mcd2">
+            <div class="imgk"><img src="upload/1(9).jpg" /></div>
+            <div class="txtk"><a href="/index.aspx?cat_code=jtdz">具体地址</a>
+			<p>地址：上海东川路555号紫竹科学园区6号<br />联系电话：+86-21-34290770（总机）<br />E-mail：support@gbcom.com.cn</p></div>
+          </div>
+          		                    <div class="mcd2">
+            <div class="imgk"><img src="upload/2(1).jpg" /></div>
+            <div class="txtk"><a href="http://www.gbcom.com.cn/" target="_blank">寰创官网</a>
+			<p>上海寰创通信科技股份有限公司（GBCOM）创立于2007年，位于上海市紫竹国家高新技术开发区，是一家专注于无线宽带通信领域技术研究、产品开发和销售的高科技公司。</p></div>
+          </div>
+          		          		            <div class="clear"></div>
+        </div></li>
+	        </ul></li>
+	        
+        
+        
+     
+    </ul>
+  </div>
+</div>
+<!--/TOP--><!--banner-->
+<div class="banbj">
+  <div class="ban1">
+  <div id="focus">
+  <ul>
+  	        <li><a href="http://www.gwixin.com/" target="_blank"><img src="upload/01_19(2).jpg" /></a></li>
+	    <li><a href="/download.aspx?cat_code=banner&article_id=1410" target="_blank"><img src="upload/2_19(1).jpg" /></a></li>
+	    <li><a href="/download.aspx?cat_code=banner&article_id=1573" target="_blank"><img src="upload/3_19(2).jpg" /></a></li>
+	  </ul>
+</div>
+</div>
+
+</div>
+<!--/banner-->
+<!--BODY-->
+<div class="top4" style="overflow:hidden; ">
+<script>
+function clickqq()
+{
+	if($(".r_fd").css("right")=="0px")
+	{
+		$(".r_fd").animate({opacity: "100", right: "-110px"}, "slow",function(){$("#imgc").attr("src","images/zxkf_162.jpg");});
+	}else
+	{
+		$(".r_fd").animate({opacity: "100", right: "0px"}, "slow",function(){$("#imgc").attr("src","images/zxkf_16.jpg");});
+	}
+}
+
+
+</script>
+<script>
+/*
+jQuery(document).ready(function(){
+
+	var menuYloc = jQuery(".r_fd").offset().top; //获取div距离顶部高度并设置其距离顶部高度值
+
+	jQuery(window).scroll(function (){
+		//alert(menuYloc);
+		if(jQuery(window).scrollTop() > menuYloc)
+		{
+			var offsetTop = (jQuery(window).scrollTop()-menuYloc) +"px";
+			jQuery(".r_fd").animate({top : offsetTop },{ duration:600 , queue:false });
+		}
+	});
+
+});
+*/
+</script>
+  <!--漂浮客服-->
+  <div class="r_fd" style="right:0px; position:fixed; top:175px;">
+       <div class="jjt"><img src="images/zxkf_16.jpg" width="33" height="33" id="imgc" onclick="clickqq()"/></div>
+            <div class="kkf">
+              <div class="kbt">在线客服</div>
+                 <div class="knr">
+                 		  		                     <div class="kqq"><img style=" float:left; padding:5px 7px 0px 7px;" src="images/zxkf_29.jpg" width="21" height="24" /><span style="float:left"><a href="tencent://message/?uin=2979010838&Site=客服一&Menu=yes">客服一</a></span></div>
+                                     <div class="kqq"><img style=" float:left; padding:5px 7px 0px 7px;" src="images/zxkf_29.jpg" width="21" height="24" /><span style="float:left"><a href="tencent://message/?uin=1376237880&Site=客服二&Menu=yes">客服二</a></span></div>
+                                     <img src="images/zxkf_33.jpg" width="87" height="67" />
+                    <div class="aniu"><a href="download.aspx?cat_code=zxsc"><img src="images/zxkf_44.jpg" width="78" height="24" /></a></div>
+                  </div>
+            </div>
+  </div>
+  <!--/漂浮客服-->
+  <div class="zw">
+    <div class="l" onmouseover="this.style.background='url(images/nrk_bg_16.jpg) top no-repeat'" onmouseout="this.style.background='url(images/nrk-bga_16.jpg) top no-repeat'">
+      <div class="n1">
+智能商业WiFi营销系统提供商业场所高性能无线覆盖，抢占WiFi无线互联网入口营销平台，通过入口广告投放，微信粉丝互动，最大限的挖掘平台价值，提升经济效益。
+      </div><span class="r2"><a href="index.aspx?cat_code=hzgy">更多>></a></span>
+    </div>
+    <div class="c" onmouseover="this.style.background='url(images/nrk_bg_18.jpg) top no-repeat'" onmouseout="this.style.background='url(images/nrk-bga_18.jpg) top no-repeat'">
+      <div class="n1">
+      <script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				play: 4000,
+				pause: 2500,
+				hoverPause: true
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="css/global.css">
+          	<div id="container">
+		<div id="example">
+		  <div id="slides">
+				<div class="slides_container">
+                                                    <div style="text-align:center;width:210px; height:100px;">
+                  <div style="text-align:center;">
+                  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1645" target="_blank" title="单频智能小网关N200-GA100i-CGW500-支持微信连WiFi"><img src="upload/500.jpg" width="165" height="115"  alt="Slide 1">
+                  </a>
+                  </div>
+                  <div style="text-align:center;"><a href="/index.aspx?cat_code=hyWLANcp&article_id=1645" target="_blank" title="单频智能小网关N200-GA100i-CGW500-支持微信连WiFi">单频智能小网关N200-GA100i-C...</a></div>
+                  </div>
+                                    <div style="text-align:center;width:210px; height:100px;">
+                  <div style="text-align:center;">
+                  <a href="/index.aspx?cat_code=hyWLANcp&article_id=1644" target="_blank" title="双频智能小网关N200-GA200i-CGW1200"><img src="upload/1200.png" width="165" height="115"  alt="Slide 1">
+                  </a>
+                  </div>
+                  <div style="text-align:center;"><a href="/index.aspx?cat_code=hyWLANcp&article_id=1644" target="_blank" title="双频智能小网关N200-GA200i-CGW1200">双频智能小网关N200-GA200i-C...</a></div>
+                  </div>
+                                    <div style="text-align:center;width:210px; height:100px;">
+                  <div style="text-align:center;">
+                  <a href="/index.aspx?cat_code=yysWLANcp&article_id=1626" target="_blank" title="墙面式单频2*2无线AP N200-GA100i-WA2020"><img src="upload/1(17).jpg" width="165" height="115"  alt="Slide 1">
+                  </a>
+                  </div>
+                  <div style="text-align:center;"><a href="/index.aspx?cat_code=yysWLANcp&article_id=1626" target="_blank" title="墙面式单频2*2无线AP N200-GA100i-WA2020">墙面式单频2*2无线AP N200-GA...</a></div>
+                  </div>
+                  				  </div>
+		  </div>
+			</div>
+		</div>
+      </div><span class="r2"><a href="index.aspx?cat_code=cpzx">更多>></a></span>
+    </div>
+    <div class="d" onmouseover="this.style.background='url(images/nrk_bg_20.jpg) top no-repeat'" onmouseout="this.style.background='url(images/nrk-bga_20.jpg) top no-repeat'">
+      <div class="n1">
+        <ul class="list_n1">
+        		            <li><a href="/index.aspx?cat_code=yy&article_id=1641" title="医院解决方案">医院解决方案</a></li>
+		            <li><a href="/index.aspx?cat_code=znyq&article_id=1640" title="智能园区解决方案">智能园区解决方案</a></li>
+		            <li><a href="/index.aspx?cat_code=yysWLAN&article_id=1637" title="酒店解决方案">酒店解决方案</a></li>
+		            <li><a href="/index.aspx?cat_code=hyWLAN&article_id=1636" title="KTV解决方案">KTV解决方案</a></li>
+		            <li><a href="/index.aspx?cat_code=LTE&article_id=1635" title="4S店解决方案">4S店解决方案</a></li>
+		            <li><a href="/index.aspx?cat_code=sccs&article_id=1619" title="购物中心">购物中心</a></li>
+		          </ul> 
+      </div><span class="r2"><a href="index.aspx?cat_code=jjfa">更多>></a></span>
+    </div>
+    <div class="r" onmouseover="this.style.background='url(images/nrk_bg_22.jpg) top no-repeat'" onmouseout="this.style.background='url(images/nrk-bga_22.jpg) top no-repeat'">
+    <div class="n1">
+    智能商业WiFi营销系统提供商业场所高性能无线覆盖，抢占WiFi无线互联网入口营销平台，通过入口广告投放，微信粉丝互动，最大限的挖掘平台价值，提升经济效益。
+
+      </div><span class="r2"><a href="index.aspx?cat_code=dls">更多>></a></span>
+    </div>
+    <div></div>
+    <div class="clear"></div>
+  </div>
+
+</div>
+<!--/BODY-->
+<!--FOOT-->
+<div class="foot">
+  <div class="zw">
+  <div class="lxmk">
+    <div class="ewm"><img src="images/ewm1.jpg" width="87" height="87" /><br />寰创订阅号</div>
+    <div class="ewm"><img src="images/ewm2.jpg" width="87" height="87" /><br />GWIFI服务号</div>
+    <div class="clear"></div>
+    <div style=" padding-top:25px;"><a href="http://www.gbcom.com.cn"><strong style=" font-size:14px">上海寰创通信科技股份有限公司（GBCOM）
+      </strong></a><br />
+      地址：上海东川路555号紫竹科学园区6号楼
+      <br />
+      电话：+86-21-34290770（总机）</div>
+      <div style="padding-top:10px;"><img src="images/fwdh.jpg" width="255" height="42" /></div>
+          <div class="clear"></div>
+    </div>
+
+  <ul class="list_fcd">
+  
+          <li><a href="/index.aspx?cat_code=hzgy">服务</a>
+      <ul>
+	  	        <li><a href="/index.aspx?cat_code=hzyz">什么是GWIFI</a></li>
+	        <li><a href="/index.aspx?cat_code=hztd">能做什么</a></li>
+	        <li><a href="/index.aspx?cat_code=zmy">怎么用</a></li>
+	      </ul></li>
+          <li><a href="/index.aspx?cat_code=cpzx">产品</a>
+      <ul>
+	  	        <li><a href="/index.aspx?cat_code=yysWLANcp">无线覆盖</a></li>
+	        <li><a href="/index.aspx?cat_code=hyWLANcp">智能网关</a></li>
+	        <li><a href="/index.aspx?cat_code=sywifi">云平台</a></li>
+	        <li><a href="/index.aspx?cat_code=sjzx">云安全审计中心</a></li>
+	        <li><a href="/index.aspx?cat_code=wxkdjrcp">GWIXIN微信营销</a></li>
+	      </ul></li>
+          <li><a href="/index.aspx?cat_code=jjfa">成功案例</a>
+      <ul>
+	  	        <li><a href="/index.aspx?cat_code=yysWLAN">酒店</a></li>
+	        <li><a href="/download.aspx?cat_code=qywWLAN" target="_blank">餐饮</a></li>
+	        <li><a href="/index.aspx?cat_code=hyWLAN">KTV</a></li>
+	        <li><a href="/download.aspx?cat_code=wxkdjr" target="_blank">银行</a></li>
+	        <li><a href="/index.aspx?cat_code=LTE">汽车4s店</a></li>
+	        <li><a href="/download.aspx?cat_code=znyq" target="_blank">智能园区</a></li>
+	        <li><a href="/download.aspx?cat_code=yy" target="_blank">医院</a></li>
+	        <li><a href="/index.aspx?cat_code=sccs">商场超市</a></li>
+	      </ul></li>
+              <li><a href="/index.aspx?cat_code=dls">代理商</a>
+      <ul>
+	  	        <li><a href="/index.aspx?cat_code=wyjm">我要加盟</a></li>
+	      </ul></li>
+          <li><a href="/index.aspx?cat_code=lxwm">联系我们</a>
+      <ul>
+	  	        <li><a href="/index.aspx?cat_code=jtdz">具体地址</a></li>
+	        <li><a href="http://www.gbcom.com.cn/" target="_blank">寰创官网</a></li>
+	        <li><a href="/index.aspx?cat_code=wx">微信</a></li>
+	      </ul></li>
+       
+  </ul>
+  <div class="clear"></div>
+  <div class="nr">
+    <span style="padding-top:15px;" class="left"> © 2013 上海寰创通信科技股份有限公司 版权所有  沪ICP备08100239号</span>
+    <div class="clear"></div></div>
+  </div>
+</div>
+<!--/FOOT-->
+</body>
+</html>

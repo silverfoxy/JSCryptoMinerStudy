@@ -1,0 +1,305 @@
+<!doctype html>
+<html  dir="rtl" >
+        <head>
+                <link rel="stylesheet" href="https://static.khanwarsx.com/gate8.0/dist/css/default.css?v=1.5.7" ></link>
+                <link rel="shortcut icon" href="https://static.khanwarsx.com/gate8.0/dist/img//default/logos/favicon.ico" type="image/x-icon">
+                <title>جنگ خان ها - بهترین بازی آنلاین استراتژی</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta property="og:image" content="https://static.khanwarsx.com/gate8.0/dist/img//default/main/KW_Share_Image.jpg" />
+                <meta property="og:title" content="جنگ خان ها - بهترین بازی آنلاین استراتژی" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="http://www2.khanwars.ir" />
+                <meta property="og:description" content="جنگ خانها برنده کهنه کار ام ام او و دارای تمامی ویژگیهای کلاسیک یک بازی استراتژی عالی ام ام او است. الان بپیوند و فرمانروایی قرون وسطی را با آهن آغاز کن." />
+                <meta property="fb:app_id" content="138574219510368" />
+                <script type="application/ld+json">
+     
+                             { 
+                  "@context": "http://schema.org",
+                  "@type": "WebApplication",
+                  "applicationCategory" : "بازی, بازی مرورگر, آنلاین",
+                  "applicationSubCategory" : "استراتژی, MMO, چند نفره",
+                  "operatingSystem" : "Windows, Mac, Linux, Adroid, IOS",
+                  "url": "https://www2.khanwars.ir",
+                  "image" : "https://static.khanwarsx.com/gate8.0/dist/img//default/main/KW_Share_Image.jpg",
+                  'logo' : "https://static.khanwarsx.com/gate8.0/dist/img/default/logos/logo_en.png"
+                  "description" : "جنگ خانها برنده کهنه کار ام ام او و دارای تمامی ویژگیهای کلاسیک یک بازی استراتژی عالی ام ام او است. الان بپیوند و فرمانروایی قرون وسطی را با آهن آغاز کن.",
+                  "keywords" : "جنگ خان ها,بازی های تحت مرورگر ، آنلاین ، بازی ، بازی های انلاین  ، انلاین ، جنگ خان ها ، قرون وسطی ، استراتژی"
+ 
+                 } 
+                </script>
+                <meta name="description" content="جنگ خانها برنده کهنه کار ام ام او و دارای تمامی ویژگیهای کلاسیک یک بازی استراتژی عالی ام ام او است. الان بپیوند و فرمانروایی قرون وسطی را با آهن آغاز کن." />
+                <meta name="keywords" content="جنگ خان ها,بازی های تحت مرورگر ، آنلاین ، بازی ، بازی های انلاین  ، انلاین ، جنگ خان ها ، قرون وسطی ، استراتژی" />
+        </head>
+        <body>
+                <div id="gateApp">                        
+                    <div id="gateMainSection">
+        <KW-LoginForm inline-template >
+                <div v-bind:class="{ gateLoginForm: true, logged: authenticated }">
+                                                <kw-button caption="اخبار" class-name="newsBtn defaultBtn " @click="goToNews"></kw-button>
+                        <div class="separator"></div>
+                        <div v-if="!authenticated" class="loginFormInner">
+                                                                <div class="credentials" v-if="credentialsApi">
+                                    <kw-button class-name="credentialsLoginBtn" v-on:click="getCredentials"></kw-button>
+                                    <div class="credentialsRejected" v-if="!credentialsAvailable">
+                                        <p>Could not obtain credentials.</p>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <input name="username" type="text" v-model="username" autofocus  placeholder="نام کاربری" />
+                                    <input name="password" type="password" v-model="password" placeholder="رمز عبور" v-on:keyup="keyPressed" />
+                                </div>
+                                <div v-if="!loading" class="buttonrow">
+                                    <kw-button @click="authenticateByCredentials" caption="ورود به بازی" class-name="loginBtn"></kw-button>
+                                </div>
+                                 <div v-else><div class="loadingSpinner" ><div></div></div></div>
+                                <kw-button @click="forgottenPasswordDialog" caption="رمز عبور را فراموش کرده اید؟" class-name="forgotPassBtn defaultBtn"></kw-button>
+                        </div>
+                        <div v-else class="loggedPlayerInfo">
+                                <div class="welcomeMsg">
+                                        خوش آمدید, <span v-text="username"></span>
+                                </div>
+                                <kw-button v-if="credentialsApi" class-name="logoutBtn" v-on:click="logOut"></kw-button>
+                                <div class="picker">
+									<div class="rememberMe buttonrow">
+										<input type="checkbox" v-model="rememberMe"  v-bind:true-value="1"  v-bind:false-value="0" />
+										<p>مرا به خاطر بسپار</p>
+									</div> 
+									<select v-model="worldId">
+											<option v-for="world in worlds" v-bind:value="world.id" v-text="world.name" ></option>
+									</select>
+								</div>
+                                
+                                <kw-button  @click="login" caption="بازی کن" class-name="greenBtn"></kw-button>
+                        </div>
+                   
+                  
+                       
+                </div>
+        </KW-LoginForm>
+        <KW-RegisterForm inline-template recommended="34">
+                <div class="gateRegistrationForm">
+                        <div id="gameLogo" class="logo logo_ir"></div>
+                        <div class="registrationFormInner">
+                                <h1>اکانت بساز</h1>
+
+                                <div class="inputField">
+                                        <input type="text" value="" placeholder="نام کاربری" v-model="username" /> 
+                                        <span v-if="errorMessages.username" v-text="errorMessages.username" class="errorMsg"></span>
+                                </div>
+
+                                <div class="inputField">
+                                        <input type="password" value="" placeholder="رمز عبور" v-model="password" />
+                                        <span v-if="errorMessages.password" v-text="errorMessages.password" class="errorMsg"></span>
+                                </div>
+
+                                <div class="inputField">
+                                        <input type="text" value="" placeholder="ایمیل" v-model="email" />
+                                        <span v-if="errorMessages.email" v-text="errorMessages.email" class="errorMsg"></span>
+                                </div>
+
+                                <div class="inputField">
+                                        <select v-model="worldId">
+                                                                                                <option value="34"  >
+                                                    World 34 (speed : 2x) 
+                                                </option>
+                                                                                                <option value="63"  >
+                                                    World 63 (speed : 5x) 
+                                                </option>
+                                                                                        </select>
+                                        <span v-if="errorMessages.worldId" v-text="errorMessages.worldId" class="errorMsg"></span>
+                                </div>
+
+                                <div class="registrationFormTerms">
+                                        <input type="checkbox" checked="checked">
+                                        <div class="termsText">موافقم با 
+                                                <a href="https://madmoo.com/terms?l=ir&amp;new_l=ir_IR" target="_blank">شرایط  استفاده</a>
+                                        
+                                        </div>
+                                </div>
+
+                                <div  class="buttonrow">
+                                        <div v-if="!loading" class="buttonrow">
+                                        <kw-button @click="registerByCredentials" caption="بازی کن" class-name="greenBtn" ></kw-button>
+                                                                                </div>
+                                        <div v-else><div class="loadingSpinner"><div></div></div></div>
+                                </div>
+
+                                <span v-if="errorMessages.unknown" v-text="errorMessages.unknown" class="errorMsg unknown"></span>
+
+                                <kw-borders></kw-borders>
+                        </div>
+                </div>
+        </KW-REGISTERFORM>
+
+        
+        <div class="buttonrow">
+                <kw-button caption="بیشتر بیاموزید" class-name="moreBtn" @click="learnMore"></kw-button>
+        </div>
+</div>
+
+<div id="gateCarousel">
+        <a id="gameInfo" href="#" style="visibility:hidden" ></a>
+        <kw-carousel inline-template num-items="6">
+                <div class="carousel-container" v-on:mouseenter="stopInterval" v-on:mouseleave="startInterval">
+                        <kw-button class-name="arrow prev defaultBtn" @click="prevItem"></kw-button>
+                        <div class="carousel-container-inner">
+                            <div class="carousel-items-container" >
+                                <div class="carousel-item welcomeSlide">
+                                        <p>به جنگ خانها خوش آمدید- برنده جایزه پیشگامان بازیهای استراتژی از اف تو پی</p>
+                                        <p>اگر شما به رقابت و بازیهای استراتژی علاقه دارید، پس درست آمده اید</p>
+                                        <p>جنگ خانها تمامی ویژگیهای لازم برای یک بازی تمام عیار چند نفره استراتژیک را داراست.، شامل توسعه امپراطوری قدرتمند، تاسیس ارتش قوی، ساخت استراتژی موزیانه و بسیاری دیگر - با بازیکنان دیگر بجنگید!</p>
+                                        <p>هدف اصلی شما در جنگ خان ها، دستیابی به یک ملت قرون وسطایی قدرتمند است که تمام بازیکنان دیگر را شکست می دهد تا به جهان قرون وسطایی تسلط پیدا کند.</p>
+                                        <p>الان به عصر قرون وسطای بی رحم وارد شوید و مهارت های خود را در برابر برخی از بهترین بازیکنان جهانی تست کنید!</p>
+                                </div>
+
+                                <div class="carousel-item nationsSlide">
+                                        <h3>ملیتها</h3>
+                                        <p>شما می توانید از 12 ملیت کاملا متعادل انتخاب کنید، هر کدام دارای پاداش هایی هستند که بر اقتصاد شما، قدرت نبرد یا تجارت تاثیر می گذارد. در زمان  مشخص شما می توانید واحدهای خاص ملیت را استخدام کنید که تاکتیک های نبرد شما را تغییر می دهد و به شما کمک می کند که بر دیگر بازیکنان برتر شوید.</p>
+                                </div>
+
+                                <div class="carousel-item citiesSlide">
+                                        <h3>شهرها</h3>
+                                        <p>شهر های قرون وسطی خود را از طریق ساختمان های جدید و ساختارهای استراتژیک توسعه دهید و تقویت کنید. شما می توانید مسیر رشد اقتصادی پایدار، حملات بی رحمانه به سازه های دشمن، تجارت منتقی، دیپلماسی عقلانی و بازی گروهی یا هر ترکیبی از این موارد را که علاقمندید انتخاب کنید.</p>
+                                </div>
+
+                                <div class="carousel-item unitsSlide">
+                                        <h3>واحدها</h3>
+                                        <p>در طول این بازی شما می توانید قلعه های بیشتری را تسخیر کنید وتا  28 واحد مختلف استخدام کنید  - پیاده نظام، کمانداران، سواره نظام، ماشین های محاصره و واحدهای مخصوص ملت خاص. این نیروها می توانند بیشتر به منظور ارتقای قابلیت های حمله و دفاع شما  برای غلبه بر مخالفان خود و انبوه راهزنان به کار گرفته شوند</p>
+                                </div>
+
+                                    <div class="carousel-item battlesSlide">
+                                            <h3>نبردها</h3>
+                                            <p>پیشرفته ترین سیستم نبرد در صنعت بازی در حال حاضر در دسترس است. بزرگترین دارایی بازی سیستم تاکتیکی نبرد است. به معنای واقعی کلمه، هزاران استراتژی مختلف برای شما وجود دارد که در هنگام رقابت با دیگر بازیکنان به کار ببرید. جاسوسی دشمنان  نیز در زمان جنگ بسیار مهم است.</p>
+                                    </div>
+
+
+                                    <div class="carousel-item guildsSlide">
+                                            <h3>انجمنها</h3>
+                                            <p>انجمنهای جنگ  خان ها  گروهی از بازیکنان هستند که با کمک رهبر گروهشان متحد شده و تلاش آنها برای پیروزی است. تسخیر ارگ های قدرتمند، کنترل نقشه جهانی و گسترش قدرت . چت گروهی گزینه ای است که اجازه می دهد تا بازیکنان در زمان واقعی با هم تیمیهای  ارتباط برقرار کنندکه برای بحث در مورد سیاست ها، استراتژی ها یا اقدامات هماهنگ بسیار مفید است.</p>
+                                    </div>
+                            </div>
+                                
+                            <kw-borders></kw-borders>
+                        </div>
+                        <kw-button class-name="arrow next defaultBtn" @click="nextItem"></kw-button>
+                </div>
+        </kw-carousel>
+</div>
+
+<div id="gateRanking">
+    <kw-ranking inline-template>
+            <div class="rankingContainer">
+                    <h2>رتبه بندی</h2>
+                    
+                    <div class="rankingControls">
+                        <div class="rankingTabs">
+                                <div class="tab" @click="getPlayersRanking">
+                                        <div class="tabLeft"></div>
+                                        <div class="tabCenter">
+                                                <div class="tabPlayers"></div>
+                                                <div class="text">بازیکنان</div>
+                                        </div>
+                                        <div class="tabRight"></div>
+                                </div>
+                                
+                                <div class="tab" @click="getGuildsRanking">
+                                        <div class="tabLeft"></div>
+                                        <div class="tabCenter">
+                                                <div class="tabGuilds"></div>
+                                                <div class="text">انجمنها</div>
+                                        </div>
+                                        <div class="tabRight"></div>
+                                </div>
+                        </div>
+
+                        <div class="rankingSelects">
+                            <select v-model="worldId" @change="worldSelcted" >
+                                <option v-for="world in worlds" v-bind:value="world.id" v-text="world.name" ></option>
+                            </select> 
+                            <select v-model="roundId" @change="roundSelcted" >
+                                    <option v-for="round in rounds" v-bind:value="round" v-text="round" ></option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div v-html="contentHtml" class="rankingTableContainer"></div>
+                    
+                    <kw-pagination v-bind:num-pages="numPages" @pageselect="setPage" current-page="1" ></kw-pagination>
+                    
+                    <kw-borders></kw-borders>
+            </div>
+    </kw-ranking>
+</div>                    
+                    <div id="gateFooter">
+                            <div class="content">
+                                    <div class="top">
+                                            <a href="http://xs-software.com/" target="_blank" class="logoLink"><div class="xsLogo"></div></a>
+
+                                            <div class="links">
+                                                                                                        <div class="cat">
+                                                            <div class="esra"></div>
+                                                            <div class="beh-pardakht"></div>
+                                                    </div>
+                                                    
+                                                    <div class="cat">
+                                                            <h5 class="catTitle">درباره</h5>
+
+                                                            <ul>
+                                                                    <li>
+                                                                            <a href="/news"  class-name="defaultBtn" >اخبار</a>
+                                                                    </li>
+                                                                    <li>
+                                                                            <kw-button caption="آمار" class-name="defaultBtn" @click="stats"></kw-button>
+                                                                    </li>
+                                                                                                                                            <li>
+                                                                                <a href="https://t.me/joinchat/DapsR0BnF9sl7_BVzehFgg" target="_blank">گروه رسمی تلگرام جنگ خانها</a>
+                                                                                <br>
+                                                                                <a href="https://t.me/khanwarsir" target="_blank">کانال رسمی تلگرام جنگ خانها</a>
+                                                                        </li>
+                                                                                                                                </ul>
+                                                    </div>
+                                            </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="bottom">
+                                            <h5>2005 - 2018  XS Software </h5>
+                                            <p>
+                                                    <a href="http://www2.khanwars.ir/terms" target="_blank">ضوابط استفاده</a>
+                                                    <a href="http://www2.khanwars.ir/policy" target="_blank">سیاست حفظ حریم خصوصی</a>
+                                                                                                        <span class="ir">تمامي خدمات اين سایت، حسب مورد داراي مجوزهاي لازم از مراجع مربوطه مي‌باشند و فعاليت‌هاي اين سايت تابع قوانين و مقررات جمهوري اسلامي ايران است. <br />دارای تاییده و مجوز از بنیاد ملی بازی‌های رایانه‌ای. دارای نماد اعتماد الکترونیکی از مرکز توسعه تجارت الکترونیکی <br /><br />شرکت ايده هاي رايانه اي اهورا پايا (AHURA Software)<br />نشانی: استان تهران - شهر تهران - ایرانشهر جنوبی ، نبش سمیه ، پلاک ۱۰۲ ، طبقه ۵ ، واحد ۲۰<br />تلفن: ۰۲۱۸۶۰۷۳۵۸۴ (برای پشتیبانی از بازی ﻧﻤﻲ ﺑﺎﺷﺪ)<br />ایمیل پشتیبانی از بازی: support@khanwars.ir <br />کلیه حقوق این سایت متعلق به شرکت ایده های رایانه ای اهورا پایا و  XS Software  می باشد</span>
+                                                                                                </p>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+
+                <script src="https://static.khanwarsx.com/gate8.0/dist/js/libs.js?v=1.4.5" ></script>
+                <script src="https://static.khanwarsx.com/gate8.0/dist/js/components.js?v=1.4.5" ></script>
+                <script src="https://static.khanwarsx.com/gate8.0/dist/js/common.js?v=1.4.5" ></script>
+
+
+                <script>
+        
+
+           KW.init();
+
+
+        
+                </script>
+                                <script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-622841-51']);_gaq.push(['_setDomainName', '.khanwars.ir']);_gaq.push(['_setAllowHash', false]);_gaq.push(['_trackPageview']);(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = 'https://ssl.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-622841-51', '.khanwars.ir'); ga('send', 'pageview');	</script>
+<script type="text/javascript">  var xsTracker = Xs_namespace._getTracker("dfb58fcebc68117ba1c8334ba2a064f0");  xsTracker.track();</script>
+                        </body>
+</html>

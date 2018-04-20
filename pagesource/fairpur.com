@@ -1,0 +1,1 @@
+<html><head><title>CAS Authentication wanted!</title></head><body><h1>CAS Authentication wanted!</h1><p>You should already have been redirected to the CAS server. Click <a href="https://login.fairpur.com/login?service=https%3A%2F%2Fwww.fairpur.com%2F&gateway=true">here</a> to continue.</p></body></html>

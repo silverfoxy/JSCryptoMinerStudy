@@ -1,0 +1,1861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Kilimall: Online Shopping for Electronics, Home &amp; Living, Fashion</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="keywords" content="kilimall, killimall, killmall, killimal, smart phones, online shopping, clothes, bag, hair, laptop, home, shoes, smart watch, phones, hair, handbags, kilimall reviews, kilmal" />
+<meta name="description" content="Kenya's online shopping centre, we offer the best price on smartphones, electronics, dress, shirt, shoes, home and living, TV | Order Now!" />
+<style type="text/css"> body { _behavior: url(https://www.kilimall.co.ke/templates/en/css/csshover.htc); } </style>
+<link rel="shortcut icon" href="https://www.kilimall.co.ke/favicon.ico" />
+<link href="https://www.kilimall.co.ke/templates/en/css/base.css?v=1521367" rel="stylesheet" type="text/css">
+<link href="https://www.kilimall.co.ke/templates/en/css/home_header.css?v=1521367" rel="stylesheet" type="text/css">
+<link href="https://www.kilimall.co.ke/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<!--[if IE 7]><link rel="stylesheet" href="https://www.kilimall.co.ke/resource/font/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
+<!--[if lt IE 9]>
+<script src="https://script.kilimall.co.ke/js/html5shiv.js"></script>
+<script src="https://script.kilimall.co.ke/js/respond.min.js"></script>
+<![endif]-->
+<script>
+var COOKIE_PRE = '4E62_';
+var _CHARSET = 'utf-8';
+var SITEURL = 'https://www.kilimall.co.ke';
+var SHOP_SITE_URL = 'https://www.kilimall.co.ke';
+var RESOURCE_SITE_URL = 'https://script.kilimall.co.ke';
+var RESOURCE_SITE_URL = 'https://script.kilimall.co.ke';
+var SHOP_TEMPLATES_URL = 'https://www.kilimall.co.ke/templates/en';
+var CURRENCY = 'KSh';
+var API_URL = 'https://api.kilimall.com';
+var API_VERSION = 'v1';
+var API_SITE_CODE = 'ke';
+</script>
+<script src="https://script.kilimall.co.ke/js/jquery.js"></script>
+<script src="https://script.kilimall.co.ke/js/app.js?v=20171218" charset="utf-8"></script>
+<script src="https://script.kilimall.co.ke/js/common.js" charset="utf-8"></script>
+<script src="https://script.kilimall.co.ke/js/jquery-ui/jquery.ui.js"></script>
+<script src="https://script.kilimall.co.ke/js/jquery.validation.min.js"></script>
+<script src="https://script.kilimall.co.ke/js/jquery.masonry.js"></script>
+<script src="https://script.kilimall.co.ke/js/jquery.lazyload.min.js"></script>
+<script src="https://script.kilimall.co.ke/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
+<script src="https://script.kilimall.co.ke/js/kui/react.min.js"></script>
+<script src="https://script.kilimall.co.ke/js/kui/react-dom.min.js"></script>
+<link href="https://script.kilimall.co.ke/js/kui/k.ui.css" rel="stylesheet" type="text/css">
+<script src="https://script.kilimall.co.ke/js/kui/k.ui.js"></script>
+<script type="text/javascript">
+    var PRICE_FORMAT = 'KSh%s';
+    $(function(){
+
+        $('.lazyload').lazyload({ data_attribute:'src', effect:'fadeIn', skip_invisible:false, placeholder:'/templates/en/images/dot.fff.png' });
+
+        //追加菜单
+        $(document).on("mouseover", '.all-category', function() {
+            if ($("div.category").length != 0||$(".all-category").attr('one-event')=='true') return;
+            $(".all-category").attr('one-event','true');
+            $("div.category").html('Loading');  // 确保不会被重复执行
+            $.get('https://www.kilimall.co.ke/index.php?act=index&op=get_onecategory', function (data) { $(".all-category .title").after(data); })
+        });
+
+        //首页左侧分类菜单
+        $(document).on("mouseover", ".category ul.menu li", function(){
+            if($(".wrapper .all-category").attr('event')=='false'){
+                $(".all-category").attr('event','true');
+                $.get('https://www.kilimall.co.ke/index.php?act=index&op=get_category', function (data) {
+                    $.each(data,function(k,v){ $(".category ul.menu li[cat_id=" + k + "]").append(v); })
+                },'json')
+            }
+            var cat_id = $(this).attr("cat_id");
+            var menu = $(this).find("div[cat_menu_id='" + cat_id + "']");
+            menu.show();
+            $(this).addClass("hover");
+            var menu_height = menu.height();
+            if (menu_height < 60) menu.height(80);
+            menu_height = menu.height();
+            var li_top = $(this).position().top;
+            $(menu).css("top", -li_top + 38);
+        })
+
+        $(document).on("mouseout",".category ul.menu li",function(){
+            //鼠标离开
+            $(this).removeClass("hover");
+            var cat_id = $(this).attr("cat_id");
+            $(this).find("div[cat_menu_id='" + cat_id + "']").hide();
+        })
+
+        $(".head-user-menu dl").hover(function() { $(this).addClass("hover"); }, function() { $(this).removeClass("hover"); });
+        $('.head-user-menu .my-mall').mouseover(function(){// 最近浏览的商品
+            load_history_information();
+            $(this).unbind('mouseover');
+        });
+        $('.head-user-menu .my-cart').mouseover(function(){// 运行加载购物车
+            load_cart_information();
+            $(this).unbind('mouseover');
+        });
+        $('#button').click(function(){
+            if ($('#keyword').val() == '') return false;
+        });
+                $('#keyword').focus(function(){
+            if ($(this).val() == $(this).attr('title')) {
+                $(this).val('').removeClass('tips');
+            }
+        }).blur(function(){
+            if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
+                $(this).addClass('tips').val($(this).attr('title'));
+            }
+        }).blur().autocomplete({
+            source: function (request, response) {
+                $.getJSON('https://www.kilimall.co.ke/index.php?act=search&op=auto_complete', request, function (data, status, xhr) {
+                    $('#top_search_box > ul').unwrap();
+                    response(data);
+                    if (status == 'success') {
+                        $('body > ul:last').wrap("<div id='top_search_box'></div>").css({'zIndex':'1000','width':'362px'});
+                    }
+                });
+            },
+            select: function(event,ui) {
+                $('#keyword').val(ui.item.value);
+                $(".search-form").append('<input type="hidden" value="'+ ui.item.cate_id +'" id="cate_id" name="cate_id">');
+                $('.search-form').submit();
+            }
+        });
+            });
+</script>
+
+<!-- mail chimp -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/24146943c83075698821df684/6d7a161aed4d3335c3b542ba0.js");</script>
+<!-- ↓20170928 web push sp -->
+  <script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/342738aa9c9abeeacd2646d727d0cbca_1.js" async></script>
+
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5W5RX6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5W5RX6');</script>
+<!-- PublicTopLayout Begin -->
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div><a href="javascript:void(0);" id="gotop" class="gotop"></a></div>
+<div class="public-top-layout w">
+    <div class="topbar wrapper">
+        <div class="user-entry">
+                            Hi, Welcome to  <a href="https://www.kilimall.co.ke" title="MALL" >Kilimall Kenya</a>
+                - <a href="/index.php?act=login&op=index" rel="nofollow">Login</a> - <a href="javascript:;"  onclick="javascript:qregister();" class="qregister" rel="nofollow">Register</a>
+                                    <span class="other">
+                                                    <a href="https://www.kilimall.co.ke/api.php?act=tofacebook" title="facebook" class="facebook"><i></i></a>
+                                                                    </span>
+                                    </div>
+        <div class="quick-menu">
+            <!-- <dl class="invite"><dt><a href="https://www.kilimall.co.ke/index.php?act=invite"><span>Invite Friends</span></a></dt></dl> -->
+                            <dl class="down_app">
+                    <dt><a href="https://play.google.com/store/apps/details?id=net.kilimall.shop" target="_blank" rel="nofollow">Get App Now</a><i></i></dt>
+                    <dd>
+                        <div class="qrcode"><img src="https://image.kilimall.com/kenya/shop/common/mb_app.png"></div>
+                        <div class="hint"><h4>Scan QR Code</h4> To Download App</div>
+                        <div class="addurl">
+                                                            <a href="https://play.google.com/store/apps/details?id=net.kilimall.shop" target="_blank"><i class="icon-android"></i>Android</a>
+                                                                                </div>
+                    </dd>
+                </dl>
+                                        <dl>
+                    <dt>Navigation<i></i></dt>
+                    <dd>
+                        <ul>
+                                                            <li><a  href="/index.php?act=seller_login&amp;op=show_login" rel="nofollow">Seller Center</a></li>
+                                                            <li><a  target="_blank" href="http://www.kilimall.co.ke/article-2066.html" rel="nofollow">Need Help?</a></li>
+                                                            <li><a  target="_blank" href="http://www.kilimall.co.ke/article_cate-20.html" rel="nofollow">FAQs</a></li>
+                                                    </ul>
+                    </dd>
+                </dl>
+                    </div>
+    </div>
+</div>
+<script type="text/javascript">
+    backTop=function (btnId){
+        var btn=document.getElementById(btnId);
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        window.onscroll=set;
+        btn.onclick=function (){
+            //btn.style.opacity="0.5";
+            window.onscroll=null;
+            this.timer=setInterval(function(){
+                scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                scrollTop-=Math.ceil(scrollTop*0.1);
+                if(scrollTop==0) clearInterval(btn.timer,window.onscroll=set);
+                if (document.documentElement.scrollTop > 0) document.documentElement.scrollTop=scrollTop;
+                if (document.body.scrollTop > 0) document.body.scrollTop=scrollTop;
+            },10);
+        };
+        function set(){
+            scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            //btn.style.opacity=scrollTop?'1':"0.5";
+        }
+    };
+    backTop('gotop');
+
+    // Arrow Animation
+    $(function() {
+        $(".quick-menu dl").hover(function() {
+            $(this).addClass("hover");
+        }, function() {
+            $(this).removeClass("hover");
+        });
+    });
+
+    function qregister() {
+        if($.cookie('reg_sen_vou')!='ADFRMSENVOUC'){ // TODO Checking
+            window.location.href = "/index.php?act=login&op=register";
+        } else {
+            var mask =$('<div></div>');
+            mask.addClass("screen-mask");
+            $('body').append(mask);
+            $('.screen-mask').load(SITEURL + '/index.php?act=login&op=quick_register&inajax=1',function(){
+                $('.screen-mask .quick-register').css({"display":"block",top:'200px',left:'35%'});
+                $('.close').click(function(){$('.screen-mask').remove();})
+            });
+            return false;
+        }
+    }
+</script>
+<!-- PublicHeadLayout Begin -->
+<div class="wrapper" id="top-banner"></div>
+<div class="header-wrap">
+    <header class="public-head-layout wrapper">
+        <div class="site-logo ">
+            <a href="https://www.kilimall.co.ke"><img src="https://image.kilimall.com/kenya/shop/common/05667433757065236.png" alt="Kilimall logo" class="pngFix lazyload"></a>        </div>
+        <div class="site-ad"></div>
+        <div class="head-search-bar">
+            <div id="search">
+                <ul class="tab">
+                    <li act="search" class="current"><span>Product</span><i class="arrow"></i></li>
+                    <li act="store_list"><span>Shop</span></li>
+                </ul>
+            </div>
+            <form class="search-form " method="get" action="https://www.kilimall.co.ke">
+                <input type="hidden" value="search" id="search_act" name="act">
+                <input placeholder="Search for products, brands and categories." name="keyword" id="keyword" type="text" class="input-text" value="" autocomplete="off" maxlength="200" x-webkit-speech lang="zh-CN" onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search" />
+                <input type="submit" id="button" value="Search" class="input-submit">
+            </form>
+            <div class="keyword">Top Searches:                <ul>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=watch">Watch</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=dresses">Dresses</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=shoes">Shoes</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=handbags">Handbags</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=infinix">Infinix</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=smartphone">Smartphone</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=tv">Tv</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=tecno">Tecno</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=subwoofer">Subwoofer</a></li>
+                                            <li><a href="https://www.kilimall.co.ke/index.php?act=search&op=index&keyword=necklace">Necklace</a></li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="head-user-menu">
+            <dl class="my-cart">
+                                <dt><a href="https://www.kilimall.co.ke/index.php?act=cart"><span class="ico"></span>Cart<i class="arrow"></i></a></dt>
+                <dd>
+                    <div class="sub-title"><h4>The latest addition</h4></div>
+                    <div class="incart-goods-box">
+                        <div class="incart-goods"><img class="loading" src="https://www.kilimall.co.ke/templates/en/images/loading.gif" /></div>
+                    </div>
+                    <div class="checkout"> <span class="total-price">Total<i>0</i>product(s)</span><a href="https://www.kilimall.co.ke/index.php?act=cart" class="btn-cart">Check Out</a> </div>
+                </dd>
+            </dl>
+            <dl class="my-mall">
+                <dt><a href="https://www.kilimall.co.ke/index.php?act=member&op=home"><span class="ico"></span>Account<i class="arrow"></i></a></dt>
+                <dd>
+                    <div class="sub-title">
+                        <h4></h4>
+                        <a href="https://www.kilimall.co.ke/index.php?act=member&op=home" class="arrow">User Center<i></i></a>
+                    </div>
+                    <div class="user-centent-menu">
+                        <ul>
+                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_message&op=newMessage">Message(<span>0</span>)</a></li>
+                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_order" class="arrow">Orders<i></i></a></li>
+                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_consult&op=my_consult">Replies(<span id="member_consult">0</span>)</a></li>
+                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_favorites&op=fglist" class="arrow">Favorite<i></i></a></li>
+                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_voucher">Vouchers(<span id="member_voucher">0</span>)</a></li>                            <li><a href="https://www.kilimall.co.ke/index.php?act=member_points" class="arrow">Kilibobs<i></i></a></li>                        </ul>
+                    </div>
+                    <div class="browse-history">
+                        <div class="part-title"><h4>Recently Viewed</h4><span style="float:right;"><a href="https://www.kilimall.co.ke/index.php?act=member_goodsbrowse&op=list">View All</a></span></div>
+                        <ul><li class="no-goods"><img class="loading" src="https://www.kilimall.co.ke/templates/en/images/loading.gif" /></li></ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </header>
+</div>
+<!-- PublicHeadLayout End -->
+<!-- publicNavLayout Begin -->
+<nav class="public-nav-layout ">
+    <div class="wrapper">
+        <div class="all-category" event='false' one-event="false">    <div class="title">
+        <i></i>
+        <h3><a href="https://www.kilimall.co.ke/category.html">SHOP BY CATEGORY</a></h3>
+    </div>
+    <div class="category">
+        <ul class="menu">
+                                                <li cat_id="1057" sort="1" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/phones-accessories/">Phones &amp; Accessories</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1072" sort="2" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/computers-tablets/">Computers &amp; Tablets</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1250" sort="3" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/electronics-photos/">Electronics &amp; Appliances</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1466" sort="4" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/home-living/">Home &amp; Living</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1294" sort="5" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/clothes/">Clothes</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1350" sort="6" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/shoes/">Shoes</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1385" sort="7" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/bags-fashion/">Bags &amp; Fashion</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1425" sort="8" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/sports-outdoor/">Sports &amp; Outdoor</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1615" sort="9" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/beauty-hair/">Beauty &amp; Hair</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1504" sort="10" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/kids-baby-toys/">Kids, Baby, Toys</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1563" sort="11" class="odd"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/office-products/">Office Products</a></h4>
+                                                    </div>
+                    </li>
+                                    <li cat_id="1603" sort="12" class="even"  event="false">
+                        <div class="class">
+                            <span class="arrow"></span>
+                                                                                        <h4><a href="https://www.kilimall.co.ke/automotives/">Automotive</a></h4>
+                                                    </div>
+                    </li>
+                                    </ul>
+    </div>
+</div>
+        <ul class="site-menu">
+                                                                        <li><a target="_blank" href="https://www.kilimall.co.ke/top-selection/" class="">Top Selection</a><span><i></i></span></li>                                                                                <li><a href="/flashsales.html" class="">Flash Sales</a><span><i></i></span></li>                                                                                <li><a target="_blank" href="/promotion.html" class="">Today's Deals</a><span><i></i></span></li>                                                                                <li><a target="_blank" href="https://www.kilimall.co.ke/index.php?act=static&amp;op=bookroom" class="">Travel</a><span><i></i></span></li>                                                                                                                                                                                                                                                                                </ul>
+    </div>
+</nav>
+<div class="nch-breadcrumb-layout">
+    </div>
+<link href="https://www.kilimall.co.ke/templates/en/css/index.css?v=20171018" rel="stylesheet" type="text/css">
+<div class="edm-popup">
+    <div class="edm"  style="background-repeat: no-repeat;">
+        <a href="https://www.kilimall.co.ke/black-friday/2017/" class="popup-link" style="display: block;width: 100%;height: 98%;cursor: pointer;"></a>
+        <!-- <input type="text" class="email"  value="" placeholder="Type your email here"/>
+        <div class="gender-select">
+          <button name="gender" class="gender-button male" value="1" >Male</button>
+          <button name="gender" class="gender-button female" value="2">Female</button>
+        </div>
+        <button type="button" name="subscribe" class="subscribe" >Subscribe</button>
+        <div class="error"></div> -->
+        <!-- <div class="app-download">
+          <a href="https://play.google.com/store/apps/details?id=net.kilimall.shop"></a>
+          <a href="https://play.google.com/store/apps/details?id=net.kilimall.shop"></a>
+        </div> -->
+        <i class="close"></i>
+    </div>
+</div>
+<script type="text/javascript">
+    var domain = window.location.href;
+    function addCookie(e, t, a) {var n = e + "=" + escape(t) + "; path=/";if (a > 0) {var r = new Date;r.setTime(r.getTime() + a * 3600 * 1e3);n =n+";expires=" + r.toGMTString()}document.cookie = n}
+    function getCookie(e) {var t = document.cookie;var a = t.split("; ");for (var n = 0; n < a.length; n++) {var r = a[n].split("=");if (r[0] == e) return unescape(r[1])}return null}
+    var pop_open = 0;
+        var popupEnd = new Date("2017-12-25");
+    var now = new Date();
+    if( (getCookie("notshowpopup")==null || getCookie("notshowpopup")==undefined ) && now < popupEnd && pop_open == 1){
+        showPopup();
+    }
+    function showPopup(){
+        var popbg = "https://image.kilimall.com/kenya/mobile/ad/05639116996828462.jpg";
+        if(popbg.trim()!=""){
+            $(".edm").css("background-image","url("+popbg+")");
+        }
+        var gender = 0;
+        $("button[name=gender]").click(function(){
+            gender = this.value;
+            $("button[name=gender]").removeClass("sel");
+            $(this).addClass("sel");
+        })
+        $(".edm-popup").css("display","flex");
+        $(".close").click(function(){
+            $(".edm-popup").hide();
+            addCookie("notshowpopup","1",1*24);
+        })
+        var t = setTimeout(function(){
+            $(".edm-popup").fadeOut(300);
+        },25000);
+        $(".email,.subscribe").click(function(){clearInterval(t);});
+        $(".subscribe").click(function(){
+            if(gender == 0){
+                $(".edm .error").css("display","block");
+                $(".edm .error").html("Please select your gender.")
+                $(".edm .error").delay(1200).fadeOut(300);
+                return false;
+            }
+            var email = $(".email").val();
+            if(email==""){
+                $(".edm .error").css("display","block");
+                $(".edm .error").html("Invalid email,please try again.")
+                $(".edm .error").delay(1200).fadeOut(300);
+                return false;
+            }else{
+                if(checkEmail(email)==2){
+                    $(".email").val("");
+                    $(".edm .error").css("display","block");
+                    $(".edm .error").html("Invalid email,please try again.")
+                    $(".edm .error").delay(1200).fadeOut(300);
+                    return false;
+                }
+            }
+            var url = "/index.php?act=black_friday&op=mail&mail="+email+"&sex="+gender;
+            $.getJSON(url,function(r){
+                if(r.state == 1){
+                    $(".edm .error").css("display","block");
+                    $(".edm .error").html("Subscribtion completed.");
+                    $(".edm .error").delay(1000).fadeOut(300);
+                }
+            })
+        });
+        function checkEmail(a){
+            if(a.indexOf("@")>1 && a.indexOf(".")>2){
+                return 1;
+            }else{
+                return 2;
+            }
+        }
+        var h ="";
+        //countdown();
+        // function countdown(){
+        //     var endtime = new Date("2016/11/21,0:0:0");//结束时间
+        //     var nowtime = new Date();//当前时间
+        //     var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+        //     d = parseInt(lefttime / 24 / 60 / 60);
+        //     d<10?(d1=0,d2=d):(d1= parseInt(d/10), d2=d%10);
+        //     h = parseInt((lefttime / (60 * 60)) % 24);
+        //     h<10?(h1=0,h2=h):(h1= parseInt(h/10), h2=h%10);
+        //     m = parseInt(lefttime / 60 % 60);
+        //     m<10?(m1=0,m2=m):(m1= parseInt(m/10), m2=m%10);
+        //     s = parseInt(lefttime % 60);
+        //     s<10?(s1=0,s2=s):(s1= parseInt(s/10), s2=s%10);
+        //     if (endtime <= nowtime) {
+        //         // window.location.reload();
+        //         return;
+        //     }
+        //     h=""
+        //     h+='<span><b>'+d1+'</b><b>'+d2;
+        //     h+='</b></span><span><b>'+h1+'</b><b>'+h2;
+        //     h+='</b></span><span><b>'+m1+'</b><b>'+m2+'</b></span>';
+        //     document.getElementById("time").innerHTML =h;
+        //     setTimeout(function () {
+        //         countdown()
+        //     }, 1000*60);
+        // }
+    }
+</script>
+<script type="text/javascript" src="https://www.kilimall.co.ke/resource/js/home_index.js" charset="utf-8"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="https://script.kilimall.co.ke/js/ie6.js" charset="utf-8"></script>
+<![endif]-->
+<script src="https://script.kilimall.co.ke/js/waypoints.js"></script>
+<script language="JavaScript">
+    $(function () {$(".scrollLoading").scrollLoading();});
+    $(".header-wrap").waypoint(function(a, b) {
+        a.stopPropagation()
+    });
+    var uid = window.location.href.split("#V3");
+    var  fragment = uid[1];
+    if(fragment){
+        if (fragment.indexOf("V3") == 0) {document.cookie='uid=0';}
+        else {document.cookie='uid='+uid[1];}
+    }
+</script>
+<style type="text/css">
+.category { display: block !important; }
+</style>
+<div class="clear"></div>
+<!-- HomeFocusLayout Begin-->
+<div class="home-focus-layout"> <ul id="fullScreenSlides" class="full-screen-slides">
+                <li style="background:#dbe5f1 no-repeat center top" data-src="https://image.kilimall.com/kenya/shop/editor/web-101-101-1-8e26ca4db1d056e882884d9dd1a978b6.jpg?696" class="lazyload"><a href="https://www.kilimall.co.ke/index.php?act=cms&amp;id=440" target="_blank" title=""></a></li>
+                <li style="background:#dbe5f1 no-repeat center top" data-src="https://image.kilimall.com/kenya/shop/editor/web-101-101-3-e9100620e6b282cc03a27e11a12b1bd8.jpg?558" class="lazyload"><a href="https://www.kilimall.co.ke/smartphones/tecno/" target="_blank" title=""></a></li>
+                <li style="background:#eeece1 no-repeat center top" data-src="https://image.kilimall.com/kenya/shop/editor/web-101-101-2-de88660a83dab8ee81d10836fef880bc.jpg?912" class="lazyload"><a href="https://www.kilimall.co.ke/kitchen-dining-bar/" target="_blank" title=""></a></li>
+                <li style="background: no-repeat center top" data-src="https://image.kilimall.com/kenya/shop/editor/web-101-101-4-7bfe94449d92f360b2c38d35ca1523db.jpg?962" class="lazyload"><a href="http://sparkbay.kilimall.co.ke/" target="_blank" title=""></a></li>
+            </ul>
+    <div class="right-sidebar">
+        <div class="right-panel">
+            <div class="panelimg-side">
+                <ul><li><a href='/index.php?act=advclick&op=advclick&adv_id=1056' title='Top selection'><img style='width:210px;height:350px' border='0' data-src='https://image.kilimall.com/kenya/shop/adv/e3c7248008fe2e09e3651cfa6f906d66.gif' class='lazyload' /></a></li></ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--HomeFocusLayout End-->
+<!-- <div class="new-user-guide" onclick="kGuide();"></div> -->
+<div class="home-sale-layout wrapper" style="clear:both">
+    <div class="left-layout"> <ul class="tabs-nav">
+                <li class="tabs-selected"><i class="arrow"></i><h3>Hot Cakes</h3></li>
+            <li class=""><i class="arrow"></i><h3>Smartphones</h3></li>
+            <li class=""><i class="arrow"></i><h3>Women's Shoes</h3></li>
+            <li class=""><i class="arrow"></i><h3>Men's Fashion</h3></li>
+            <li class=""><i class="arrow"></i><h3>Women' dress</h3></li>
+            <li class=""><i class="arrow"></i><h3>TV &amp; Home Appliances</h3></li>
+        </ul>
+<div class="tabs-panel sale-goods-list ">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1290927-womens-clothes-dress-brown-xxxxl.html" title="womens clothes dress brown xxxxl">womens clothes dress brown xxxxl</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1290927-womens-clothes-dress-brown-xxxxl.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2059/2018/03/2059_05744709171178541_240.jpg" alt="womens clothes dress brown xxxxl" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,740</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1274383-tecno-spark-k7-plus-5-5-screen-2gb-ram-16gb-rom-13mp-5mp-camera-smartphone-coral-champagne-gold.html" title="Tecno Spark k7 Plus, 5.5 '' Screen, 2GB RAM + 16GB ROM, 13MP + 5MP Camera  Smartphone Coral champagne gold">Tecno Spark k7 Plus, 5.5 '' Screen, 2GB RAM + 16GB ROM, 13MP + 5MP Camera  Smartphone Coral champagne gold</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1274383-tecno-spark-k7-plus-5-5-screen-2gb-ram-16gb-rom-13mp-5mp-camera-smartphone-coral-champagne-gold.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2321/2018/02/2321_05717604029478141_240.jpg" alt="Tecno Spark k7 Plus, 5.5 '' Screen, 2GB RAM + 16GB ROM, 13MP + 5MP Camera  Smartphone Coral champagne gold" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 10,700</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1284800-gustomerd-brand-coat-men-casual-hoodied-patchwork-cotton-padding-parka-men-clothing-jacket-men-black-white-size-s-50-to-58kg.html" title="GustOmerD Brand Coat Men Casual Hoodied Patchwork Cotton Padding Parka Men Clothing Jacket Men black white size S 50 to 58kg">GustOmerD Brand Coat Men Casual Hoodied Patchwork Cotton Padding Parka Men Clothing Jacket Men black white size S 50 to 58kg</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1284800-gustomerd-brand-coat-men-casual-hoodied-patchwork-cotton-padding-parka-men-clothing-jacket-men-black-white-size-s-50-to-58kg.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2170/2018/03/2170_05736935105465814_240.jpg" alt="GustOmerD Brand Coat Men Casual Hoodied Patchwork Cotton Padding Parka Men Clothing Jacket Men black white size S 50 to 58kg" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,690</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-910299-2017-new-arrival-men-casual-business-shirt-long-sleeve-dark-blue-m.html" title="2017 New Arrival Men Casual Business Shirt Long Sleeve dark blue m">2017 New Arrival Men Casual Business Shirt Long Sleeve dark blue m</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-910299-2017-new-arrival-men-casual-business-shirt-long-sleeve-dark-blue-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1781/2017/11/1781_05629494435249362_240.jpg" alt="2017 New Arrival Men Casual Business Shirt Long Sleeve dark blue m" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,279</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1274325-coffee-tea-milk-breakfast-cup-6-pcs-glass-one-middle.html" title="Coffee Tea Milk Breakfast Cup 6 PCS Glass one middle">Coffee Tea Milk Breakfast Cup 6 PCS Glass one middle</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1274325-coffee-tea-milk-breakfast-cup-6-pcs-glass-one-middle.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2336/2018/02/2336_05719306387027154_240.jpg" alt="Coffee Tea Milk Breakfast Cup 6 PCS Glass one middle" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 200</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-840254-220-250v-3-strength-hair-care-baking-oil-cap-steaming-hot-hair-salon-membrane-electric-cap-pink-normal.html" title="220-250V 3 strength Hair Care baking oil cap steaming hot hair salon membrane electric cap pink normal">220-250V 3 strength Hair Care baking oil cap steaming hot hair salon membrane electric cap pink normal</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-840254-220-250v-3-strength-hair-care-baking-oil-cap-steaming-hot-hair-salon-membrane-electric-cap-pink-normal.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1888/2018/02/1888_05713355740164874_240.jpg" alt="220-250V 3 strength Hair Care baking oil cap steaming hot hair salon membrane electric cap pink normal" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 950</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+<div class="tabs-panel sale-goods-list tabs-hide">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1278209-infinix-hot-5-lite-x559-5-5-screen-16gb-rom-1gb-ram-8-5mp-4000mah-battery-smartphone-gold.html" title="INFINIX HOT 5 Lite X559, 5.5'' Screen, 16GB ROM+1GB RAM, 8+5MP, 4000mAh Battery SmartPhone gold">INFINIX HOT 5 Lite X559, 5.5'' Screen, 16GB ROM+1GB RAM, 8+5MP, 4000mAh Battery SmartPhone gold</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1278209-infinix-hot-5-lite-x559-5-5-screen-16gb-rom-1gb-ram-8-5mp-4000mah-battery-smartphone-gold.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2321/2018/02/2321_05724789815954778_240.jpg" alt="INFINIX HOT 5 Lite X559, 5.5'' Screen, 16GB ROM+1GB RAM, 8+5MP, 4000mAh Battery SmartPhone gold" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 8,499</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1284026-tecno-wx3-smartphone-5-0-8gb-rom-5mp-android-7-0-grey.html" title="TECNO WX3 SMARTPHONE: 5.0''- 8GB ROM- 5MP- ANDROID 7.0 grey">TECNO WX3 SMARTPHONE: 5.0''- 8GB ROM- 5MP- ANDROID 7.0 grey</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1284026-tecno-wx3-smartphone-5-0-8gb-rom-5mp-android-7-0-grey.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2180/2018/03/2180_05734182276295477_240.jpeg" alt="TECNO WX3 SMARTPHONE: 5.0''- 8GB ROM- 5MP- ANDROID 7.0 grey" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 7,063</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1235203-citycall-life-pro-7-5-5-screen-13mp-5mp-camera-16gb-rom-1gb-ram-2600mah-battery-free-vr-red.html" title="CITYCALL LIFE PRO 7, 3G, 5.5'', 13 MP + MP, 16GB + 1GB, 2600mAh + Free VR Red">CITYCALL LIFE PRO 7, 3G, 5.5'', 13 MP + MP, 16GB + 1GB, 2600mAh + Free VR Red</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1235203-citycall-life-pro-7-5-5-screen-13mp-5mp-camera-16gb-rom-1gb-ram-2600mah-battery-free-vr-red.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2286/2018/01/2286_05687629771122527_240.jpg" alt="CITYCALL LIFE PRO 7, 3G, 5.5'', 13 MP + MP, 16GB + 1GB, 2600mAh + Free VR Red" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 7,999</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-784770-owwo-carnival-6-6-inch-8mp-2mp-camera-memory-1gb-8gb-rom-3000mah-battery-2g-3g-smartphone-black.html" title="OWWO Carnival 6 - 6 Inch, 8MP + 2MP Camera, Memory: 1GB &amp; 8GB ROM, 3000mAh battery, 2G/3G Smartphone Black">OWWO Carnival 6 - 6 Inch, 8MP + 2MP Camera, Memory: 1GB &amp; 8GB ROM, 3000mAh battery, 2G/3G Smartphone Black</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-784770-owwo-carnival-6-6-inch-8mp-2mp-camera-memory-1gb-8gb-rom-3000mah-battery-2g-3g-smartphone-black.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2114/2017/09/2114_05594093319578539_240.jpg" alt="OWWO Carnival 6 - 6 Inch, 8MP + 2MP Camera, Memory: 1GB &amp; 8GB ROM, 3000mAh battery, 2G/3G Smartphone Black" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 5,999</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-11793-samsung-galaxy-j5-5-0-hd-8gb-rom-1-5gb-ram-13mp-gold.html" title="SAMSUNG GALAXY J5, 5.0'' HD, 8GB ROM, 1.5GB RAM, 13MP Gold">SAMSUNG GALAXY J5, 5.0'' HD, 8GB ROM, 1.5GB RAM, 13MP Gold</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-11793-samsung-galaxy-j5-5-0-hd-8gb-rom-1-5gb-ram-13mp-gold.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/359/2017/03/359_05429876696411602_240.png" alt="SAMSUNG GALAXY J5, 5.0'' HD, 8GB ROM, 1.5GB RAM, 13MP Gold" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 17,499</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-288513-htc-desire-626-5-0-16gb-2-gb-ram-13mp-camera-dual-sim-white.html" title="HTC Desire 626 - 5.0'' - 16GB - 2 GB RAM - 13MP Camera - Dual SIM white">HTC Desire 626 - 5.0'' - 16GB - 2 GB RAM - 13MP Camera - Dual SIM white</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-288513-htc-desire-626-5-0-16gb-2-gb-ram-13mp-camera-dual-sim-white.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/359/2017/03/359_05429859746113620_240.png" alt="HTC Desire 626 - 5.0'' - 16GB - 2 GB RAM - 13MP Camera - Dual SIM white" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 14,999</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+<div class="tabs-panel sale-goods-list tabs-hide">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-868671-leather-girl-s-sandals-navy-heel-party-high-heels-buckle-shoes-woman-khaki-sandals-ankle-strap-heels-black-35.html" title="Leather Girl's Sandals Navy Heel Party High Heels Buckle Shoes Woman Khaki Sandals Ankle Strap Heels black 35">Leather Girl's Sandals Navy Heel Party High Heels Buckle Shoes Woman Khaki Sandals Ankle Strap Heels black 35</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-868671-leather-girl-s-sandals-navy-heel-party-high-heels-buckle-shoes-woman-khaki-sandals-ankle-strap-heels-black-35.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1817/2017/10/1817_05624206613505949_240.jpg" alt="Leather Girl's Sandals Navy Heel Party High Heels Buckle Shoes Woman Khaki Sandals Ankle Strap Heels black 35" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,366</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-501161-2017-brand-shoes-summer-sexy-women-comfortable-low-heels-leather-sandals-woman-black-35.html" title="2017 Brand Shoes Summer Sexy Women Comfortable Low Heels Leather Sandals Woman black 35">2017 Brand Shoes Summer Sexy Women Comfortable Low Heels Leather Sandals Woman black 35</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-501161-2017-brand-shoes-summer-sexy-women-comfortable-low-heels-leather-sandals-woman-black-35.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1326/2017/05/1326_05483792092016642_240.jpg" alt="2017 Brand Shoes Summer Sexy Women Comfortable Low Heels Leather Sandals Woman black 35" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,986</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-501186-women-sandals-2017-new-summer-brand-pu-leather-women-flip-flop-shoes-shiny-rhinestones-black-36.html" title="Women Sandals 2017 New Summer Brand PU Leather Women flip flop shoes Shiny rhinestones black 36">Women Sandals 2017 New Summer Brand PU Leather Women flip flop shoes Shiny rhinestones black 36</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-501186-women-sandals-2017-new-summer-brand-pu-leather-women-flip-flop-shoes-shiny-rhinestones-black-36.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1326/2017/05/1326_05483800614580079_240.jpg" alt="Women Sandals 2017 New Summer Brand PU Leather Women flip flop shoes Shiny rhinestones black 36" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,807</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-989013-women-outdoor-trekking-shoes-hiking-sneakers-sport-shoes-breathable-climbing-female-mountain-boots-blue-36.html" title="Women Outdoor Trekking Shoes Hiking Sneakers Sport Shoes Breathable Climbing Female Mountain Boots blue 36">Women Outdoor Trekking Shoes Hiking Sneakers Sport Shoes Breathable Climbing Female Mountain Boots blue 36</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-989013-women-outdoor-trekking-shoes-hiking-sneakers-sport-shoes-breathable-climbing-female-mountain-boots-blue-36.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1326/2017/11/1326_05636570306373085_240.jpg" alt="Women Outdoor Trekking Shoes Hiking Sneakers Sport Shoes Breathable Climbing Female Mountain Boots blue 36" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,237</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-500201-women-platforms-shoes-height-increasing-party-comfortable-casual-shoes-female-sports-shoes-running-red-35.html" title="Women Platforms Shoes Height Increasing Party Comfortable Casual Shoes Female Sports Shoes Running red 35">Women Platforms Shoes Height Increasing Party Comfortable Casual Shoes Female Sports Shoes Running red 35</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-500201-women-platforms-shoes-height-increasing-party-comfortable-casual-shoes-female-sports-shoes-running-red-35.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1326/2017/05/1326_05483502940093835_240.jpg" alt="Women Platforms Shoes Height Increasing Party Comfortable Casual Shoes Female Sports Shoes Running red 35" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,938</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1283506-des-gem-high-quality-classic-heel-woman-girl-nice-shoe-red-38.html" title="Des.Gem High Quality Classic Heel Woman Girl Nice Shoe Red 38">Des.Gem High Quality Classic Heel Woman Girl Nice Shoe Red 38</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1283506-des-gem-high-quality-classic-heel-woman-girl-nice-shoe-red-38.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2336/2018/03/2336_05733253534036235_240.jpg" alt="Des.Gem High Quality Classic Heel Woman Girl Nice Shoe Red 38" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 800</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+<div class="tabs-panel sale-goods-list tabs-hide">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-154983-suit-three-piece-business-casual-slim-career-suits-black-m.html" title="Suit three-piece business casual Slim career suits black m">Suit three-piece business casual Slim career suits black m</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-154983-suit-three-piece-business-casual-slim-career-suits-black-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/967/2016/10/967_05312310007958958_240.png" alt="Suit three-piece business casual Slim career suits black m" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 6,317</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1159107-2018-new-fashion-men-coat-boutique-men-s-wool-suit-collar-casual-suit-navy-size-m-50-to-58kg.html" title="2018 New Fashion Men Coat Boutique Men 's Wool Suit Collar Casual Suit navy size m 50 to 58kg">2018 New Fashion Men Coat Boutique Men 's Wool Suit Collar Casual Suit navy size m 50 to 58kg</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1159107-2018-new-fashion-men-coat-boutique-men-s-wool-suit-collar-casual-suit-navy-size-m-50-to-58kg.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2170/2017/12/2170_05661730904360425_240.jpg" alt="2018 New Fashion Men Coat Boutique Men 's Wool Suit Collar Casual Suit navy size m 50 to 58kg" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 3,450</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-759364-2017-new-business-leisure-suit-single-row-of-a-buckle-a-two-piece-suit-the-groom-best-man-wedding-navy-blue-m.html" title="2017 NEW Business Leisure Suit Single Row Of A Buckle A Two-piece Suit The Groom Best Man Wedding navy blue m">2017 NEW Business Leisure Suit Single Row Of A Buckle A Two-piece Suit The Groom Best Man Wedding navy blue m</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-759364-2017-new-business-leisure-suit-single-row-of-a-buckle-a-two-piece-suit-the-groom-best-man-wedding-navy-blue-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2021/2017/08/2021_05574214831838595_240.jpg" alt="2017 NEW Business Leisure Suit Single Row Of A Buckle A Two-piece Suit The Groom Best Man Wedding navy blue m" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,463</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1253701-fh-brand-man-s-leather-handbag-with-a-large-leather-bag-one-color-one-size.html" title="FH Brand  Man's leather handbag with a large leather bag. one color one size">FH Brand  Man's leather handbag with a large leather bag. one color one size</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1253701-fh-brand-man-s-leather-handbag-with-a-large-leather-bag-one-color-one-size.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2207/2018/02/2207_05731363305930082_240.png" alt="FH Brand  Man's leather handbag with a large leather bag. one color one size" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 999</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-43602-hot-sell-new-arrival-luxury-designer-leather-men-handbag-bag-classic-men-s-travel-bags-messenger.html" title="hot sell new arrival luxury designer leather men handbag bag,classic men's travel bags,messenger">hot sell new arrival luxury designer leather men handbag bag,classic men's travel bags,messenger</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-43602-hot-sell-new-arrival-luxury-designer-leather-men-handbag-bag-classic-men-s-travel-bags-messenger.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/429/2016/05/429_05179385147770288_240.jpg" alt="hot sell new arrival luxury designer leather men handbag bag,classic men's travel bags,messenger" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 3,000</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-363879-2017-vintage-leather-men-dress-shoes-business-formal-brogue-pointed-toe-carved-oxfords-wedding-shoes-black-43.html" title="2017 Vintage Leather Men Dress Shoes Business Formal Brogue Pointed Toe Carved Oxfords Wedding Shoes black 43">2017 Vintage Leather Men Dress Shoes Business Formal Brogue Pointed Toe Carved Oxfords Wedding Shoes black 43</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-363879-2017-vintage-leather-men-dress-shoes-business-formal-brogue-pointed-toe-carved-oxfords-wedding-shoes-black-43.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1326/2017/03/1326_05427137350741496_240.jpg" alt="2017 Vintage Leather Men Dress Shoes Business Formal Brogue Pointed Toe Carved Oxfords Wedding Shoes black 43" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,499</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+<div class="tabs-panel sale-goods-list tabs-hide">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-953043-black-cold-shoulder-short-sleeve-high-low-dress-black-xl.html" title="Black Cold Shoulder Short Sleeve High Low Dress black XL">Black Cold Shoulder Short Sleeve High Low Dress black XL</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-953043-black-cold-shoulder-short-sleeve-high-low-dress-black-xl.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1801/2017/11/1801_05634906748516884_240.jpg" alt="Black Cold Shoulder Short Sleeve High Low Dress black XL" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,799</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-703777-sexy-v-neck-female-print-floral-vintage-boho-beach-dress-floral-m.html" title="Sexy V-neck Female Print Floral Vintage Boho Beach Dress floral m">Sexy V-neck Female Print Floral Vintage Boho Beach Dress floral m</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-703777-sexy-v-neck-female-print-floral-vintage-boho-beach-dress-floral-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2063/2017/08/2063_05556045805730610_240.jpg" alt="Sexy V-neck Female Print Floral Vintage Boho Beach Dress floral m" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,611</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-505313-2017-new-summer-women-sexy-dashiki-strap-dress-casual-dress-short-sleeve-print-dresses-yellow-s.html" title="2017 New Summer Women Sexy Dashiki Strap Dress Casual Dress Short Sleeve Print Dresses Yellow S">2017 New Summer Women Sexy Dashiki Strap Dress Casual Dress Short Sleeve Print Dresses Yellow S</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-505313-2017-new-summer-women-sexy-dashiki-strap-dress-casual-dress-short-sleeve-print-dresses-yellow-s.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1075/2017/05/1075_05486424170268042_240.jpg" alt="2017 New Summer Women Sexy Dashiki Strap Dress Casual Dress Short Sleeve Print Dresses Yellow S" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,495</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-319205-elegant-women-white-dress-sleeveless-long-dress-white-s.html" title="Elegant Women White Dress Sleeveless Long Dress white s">Elegant Women White Dress Sleeveless Long Dress white s</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-319205-elegant-women-white-dress-sleeveless-long-dress-white-s.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/964/2017/02/964_05409000148125568_240.png" alt="Elegant Women White Dress Sleeveless Long Dress white s" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,495</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-283926-new-women-summer-casual-office-lady-formal-party-evening-cocktail-midi-dress-navy-blue-m.html" title="New Women Summer Casual Office Lady Formal Party Evening Cocktail Midi Dress navy blue m">New Women Summer Casual Office Lady Formal Party Evening Cocktail Midi Dress navy blue m</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-283926-new-women-summer-casual-office-lady-formal-party-evening-cocktail-midi-dress-navy-blue-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/964/2017/01/964_05382224714953848_240.jpg" alt="New Women Summer Casual Office Lady Formal Party Evening Cocktail Midi Dress navy blue m" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,231</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-702107-women-v-neck-sleeveless-white-sweet-ball-gown-white-organza-high-low-evening-party-long-dress-white-l.html" title="Women V Neck Sleeveless White Sweet Ball Gown White Organza High Low Evening Party Long Dress white l">Women V Neck Sleeveless White Sweet Ball Gown White Organza High Low Evening Party Long Dress white l</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-702107-women-v-neck-sleeveless-white-sweet-ball-gown-white-organza-high-low-evening-party-long-dress-white-l.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2063/2017/08/2063_05555886207256033_240.jpg" alt="Women V Neck Sleeveless White Sweet Ball Gown White Organza High Low Evening Party Long Dress white l" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 2,892</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+<div class="tabs-panel sale-goods-list tabs-hide">
+    <ul>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1078370-skyworth-32e2a15g-32-inch-digital-led-tv-for-sale-one-32.html" title="Skyworth 32E2A15G-32 Inch Digital LED TV For Sale one 32">Skyworth 32E2A15G-32 Inch Digital LED TV For Sale one 32</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1078370-skyworth-32e2a15g-32-inch-digital-led-tv-for-sale-one-32.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/829/2018/01/829_05701995151932182_240.jpg" alt="Skyworth 32E2A15G-32 Inch Digital LED TV For Sale one 32" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 17,500</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1127104-tagwood-portable-bluetooth-speaker-black-500w-mp-25.html" title="TAGWOOD PORTABLE BLUETOOTH SPEAKER Black 500w MP-25">TAGWOOD PORTABLE BLUETOOTH SPEAKER Black 500w MP-25</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1127104-tagwood-portable-bluetooth-speaker-black-500w-mp-25.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2189/2017/11/2189_05642470659406042_240.jpg" alt="TAGWOOD PORTABLE BLUETOOTH SPEAKER Black 500w MP-25" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 1,999</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-800926-12pcs-pack-3d-wall-solid-colorful-butterfly-fake-butterfly-living-room-bedroom-colors-4-size.html" title="12Pcs/Pack 3D Wall Solid Colorful Butterfly Fake Butterfly Living Room Bedroom colors 4 size">12Pcs/Pack 3D Wall Solid Colorful Butterfly Fake Butterfly Living Room Bedroom colors 4 size</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-800926-12pcs-pack-3d-wall-solid-colorful-butterfly-fake-butterfly-living-room-bedroom-colors-4-size.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1482/2018/02/1482_05714321648823571_240.jpg" alt="12Pcs/Pack 3D Wall Solid Colorful Butterfly Fake Butterfly Living Room Bedroom colors 4 size" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 249</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-627486-ll-3110-ultrasonic-electric-pest-repeller-home-indoor-pest-control-solution-white-one-size.html" title="Ll - 3110 Ultrasonic Electric Pest Repeller Home Indoor Pest Control Solution white one size">Ll - 3110 Ultrasonic Electric Pest Repeller Home Indoor Pest Control Solution white one size</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-627486-ll-3110-ultrasonic-electric-pest-repeller-home-indoor-pest-control-solution-white-one-size.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1888/2017/08/1888_05562825232101029_240.jpg" alt="Ll - 3110 Ultrasonic Electric Pest Repeller Home Indoor Pest Control Solution white one size" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 599</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1135620-icecool-bd-60-chest-freezer-white-550-446-635-white-550-446-635.html" title="ICECOOL BD-60 Chest Freezer white 550*446*635 white 550*446*635">ICECOOL BD-60 Chest Freezer white 550*446*635 white 550*446*635</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1135620-icecool-bd-60-chest-freezer-white-550-446-635-white-550-446-635.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2195/2017/12/2195_05658027514589298_240.jpg" alt="ICECOOL BD-60 Chest Freezer white 550*446*635 white 550*446*635" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 17,500</em></dd>
+            </dl>
+        </li>
+                <li>
+            <dl>
+                <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-791548--only-1-in-stock-2m-tv-backlighting-led-light-strip-kit-remote-control-usb-60-led-waterproof-light-colorful-normal-avarage.html" title="2M TV Backlighting LED Light Strip Kit Remote Control USB 60 LED Waterproof Light colorful normal avarage">2M TV Backlighting LED Light Strip Kit Remote Control USB 60 LED Waterproof Light colorful normal avarage</a></dt>
+                <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-791548--only-1-in-stock-2m-tv-backlighting-led-light-strip-kit-remote-control-usb-60-led-waterproof-light-colorful-normal-avarage.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1894/2017/09/1894_05599157074608387_240.jpg" alt="2M TV Backlighting LED Light Strip Kit Remote Control USB 60 LED Waterproof Light colorful normal avarage" class="lazyload" /></a></dd>
+                <dd class="goods-price"><em>KSh 879</em></dd>
+            </dl>
+        </li>
+            </ul>
+</div>
+ </div>
+</div>
+<div class="wrapper">
+    <div class="mt10">
+        <div class="mt10"><a href='/index.php?act=advclick&op=advclick&adv_id=935' title='Top selection'><img style='width:1200px;height:100px' border='0' data-src='https://image.kilimall.com/kenya/shop/adv/fd856c75e92844d2db9072a2fb3dbb90.jpg' class='lazyload' /></a></div>
+    </div>
+</div>
+<div class="wrapper home-brand-wall"><div class="brand-sider-bar">
+    <div class="brand-ad-name">TECNO Camon CM</div>
+    <a href='https://www.kilimall.co.ke/item-1277406.html' target="_blank">
+        <img src="https://image.kilimall.com/kenya/shop/common/05739108518779106.jpg" alt="TECNO Camon CM">
+    </a>
+</div>
+<div class="brand-list">
+    <ul class="brands-menu"></ul>
+</div>
+<style>
+.brand-sider-bar, .brand-list { display: none }
+.brands-menu li { cursor: pointer; }
+</style>
+<script type="text/javascript">
+function brands_menu_load() {
+    $(".brands-menu .menu").each(function (i) {
+        $(this).click(function () {
+            $(this).addClass("on").siblings().removeClass("on");
+            $("ul.brands").eq(i).removeClass("off").siblings().addClass("off");
+        })
+    })
+}
+
+$(function () {
+    $.ajax({
+        type: "GET",
+        url: SHOP_SITE_URL + "/index.php?act=index&op=json_brand_street",
+        dataType: "json",
+        success: function (data) {
+            if (data.config.brand_street_status == 1) {
+                var brands_menu_li = "", brands_list_ul = "", class_on = "", class_off = "", i, j, url;
+                var image_url = "https://image.kilimall.com/kenya/shop/common/";
+                for (i = 0; i < data.config.brand_street_cat_array.length; i++) {
+                    class_on = i == 0 ? "on" : "";
+                    class_off = i == 0 ? "" : "off";
+                    brands_menu_li += "<li class='menu " + class_on + "'>" + data.config.brand_street_cat_array[i] + " <span></span></li>";
+                    brands_list_ul += '<ul class="brands brands-content ' + class_off + '">';
+                    if (typeof (data.list[i]) != "undefined") {
+                        for (j = 0; j < data.list[i].length && j < data.config.brand_street_number; j++) {
+                            url = (data.list[i][j].url == "" || data.list[i][j].url == "http://") ? "" : ' href="' + data.list[i][j].url + '"';
+                            brands_list_ul += '<li><a ' + url + ' target="_blank"><img src="' + image_url + data.list[i][j].image + '" alt="' + data.list[i][j].brand_name + '"/></a></li>'
+                        }
+                    }
+                    brands_list_ul += '</ul>';
+                }
+                $(".brands-menu").html(brands_menu_li);
+                $(".brand-list").append(brands_list_ul);
+                $(".brand-sider-bar").show();
+                $(".brand-list").show();
+                brands_menu_load();
+            }
+        }
+    })
+});
+</script>
+</div>
+<!--StandardLayout Begin-->
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Women's Fashion">Women's Fashion</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/women-handbags/" title="Handbags" target="_blank">Handbags</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-coats-jackets/" title="Coats &amp; Jackets" target="_blank">Coats &amp; Jackets</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-watches/" title="Watches" target="_blank">Watches</a></li>
+                                <li><a href="https://www.kilimall.co.ke/makeup/" title="Makeup" target="_blank">Makeup</a></li>
+                                <li><a href="https://www.kilimall.co.ke/skin-care/" title="Skin Care" target="_blank">Skin Care</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-boots/" title="Boots" target="_blank">Boots</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-jewellery/" title="Jewellery" target="_blank">Jewellery</a></li>
+                                <li><a href="https://www.kilimall.co.ke/human-hair/" title="Human Hair" target="_blank">Human Hair</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-skirts/" title="Skirts" target="_blank">Skirts</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-lingerie/" title="Lingerie" target="_blank">Lingerie</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-suits-separates/" title="Suits &amp; Separates" target="_blank">Suits &amp; Separates</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-court-shoes/" title="Court Shoes" target="_blank">Court Shoes</a></li>
+                                <li><a href="https://www.kilimall.co.ke/women-dresses/" title="Dresses" target="_blank">Dresses</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/1356-women-boots-0-0-1-2-0-0-0-0-0-0-1.html" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-2-28-2.jpg?877" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/women-coats-jackets/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-2-28-5.jpg?110" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/women-trousers-leggings/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-2-28-1.jpg?321" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-183042-high-neck-cut-out-bandage-bodysuits-sexy-long-sleeve-hollow-out-shoulder-ladies-jumpsuits-black-s.html" title="high neck cut out bandage bodysuits sexy Long Sleeve hollow out shoulder Ladies Jumpsuits black s">high neck cut out bandage bodysuits sexy Long Sleeve hollow out shoulder Ladies Jumpsuits black s</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-183042-high-neck-cut-out-bandage-bodysuits-sexy-long-sleeve-hollow-out-shoulder-ladies-jumpsuits-black-s.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/964/2016/11/964_05326163798183396_240.jpg" alt="high neck cut out bandage bodysuits sexy Long Sleeve hollow out shoulder Ladies Jumpsuits black s" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,258</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-294152-elegant-bowknot-colorblock-pencil-dress-green-s.html" title="Elegant Bowknot Colorblock Pencil Dress green s">Elegant Bowknot Colorblock Pencil Dress green s</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-294152-elegant-bowknot-colorblock-pencil-dress-green-s.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/964/2017/02/964_05398683789257909_240.png" alt="Elegant Bowknot Colorblock Pencil Dress green s" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,699</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1291021-womens-clothes-dress-lomen-xl.html" title="womens clothes dress lomen xl">womens clothes dress lomen xl</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1291021-womens-clothes-dress-lomen-xl.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2059/2018/03/2059_05744721991256961_240.jpg" alt="womens clothes dress lomen xl" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,920</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1259000-hn-brand-3-piece-new-bridal-pearl-crystal-drops-necklace-pendant-stud-earring-women-jewellery-gift-white-one-size.html" title="HN Brand 3 piece New Bridal Pearl crystal Drops Necklace pendant stud earring Women Jewellery Gift white one size">HN Brand 3 piece New Bridal Pearl crystal Drops Necklace pendant stud earring Women Jewellery Gift white one size</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1259000-hn-brand-3-piece-new-bridal-pearl-crystal-drops-necklace-pendant-stud-earring-women-jewellery-gift-white-one-size.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1852/2018/01/1852_05699512442424175_240.jpg" alt="HN Brand 3 piece New Bridal Pearl crystal Drops Necklace pendant stud earring Women Jewellery Gift white one size" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 359</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-496452-joyismhandbags-3pcs-solid-color-nylon-handbag-tote-portable-backpack-blue-f.html" title="JoyismHandbags 3pcs Solid Color Nylon Handbag Tote Portable Backpack blue f">JoyismHandbags 3pcs Solid Color Nylon Handbag Tote Portable Backpack blue f</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-496452-joyismhandbags-3pcs-solid-color-nylon-handbag-tote-portable-backpack-blue-f.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1658/2017/04/1658_05466045647674464_240.png" alt="JoyismHandbags 3pcs Solid Color Nylon Handbag Tote Portable Backpack blue f" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,699</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1219453-women-s-fashion-sunglasses-fashion-accessories-black-color-frame-eyewears-black-one-size.html" title="Women's Fashion Sunglasses Fashion Accessories Black Color Frame Eyewears black one size">Women's Fashion Sunglasses Fashion Accessories Black Color Frame Eyewears black one size</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1219453-women-s-fashion-sunglasses-fashion-accessories-black-color-frame-eyewears-black-one-size.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1482/2018/02/1482_05721785156025851_240.jpg" alt="Women's Fashion Sunglasses Fashion Accessories Black Color Frame Eyewears black one size" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 699</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-floor-banner">
+    <a href="https://www.kilimall.co.ke/flashsales.html" title="Flash Sales" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-2-148.jpg?712" alt="Flash Sales" class="lazyload" /></a>
+</div>
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Men's Fashion">Men's Fashion</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/men-watch/" title="Watch" target="_blank">Watch</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-jackets-trench-coats/" title="Jackets &amp; Trench Coats" target="_blank">Jackets &amp; Trench Coats</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-belts/" title="Belts" target="_blank">Belts</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-sweatshirts-cardigans-hoodies/" title="Sweatshirts, Cardigans &amp; Hoodies" target="_blank">Sweatshirts, Cardigans &amp; Hoodies</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-shoes/" title="Men's Shoes" target="_blank">Men's Shoes</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-trousers/" title="Trousers" target="_blank">Trousers</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-wallets/" title="Wallets" target="_blank">Wallets</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-t-shirts-polos/" title="T-shirts &amp; Polos" target="_blank">T-shirts &amp; Polos</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-shirts/" title="Shirts" target="_blank">Shirts</a></li>
+                                <li><a href="https://www.kilimall.co.ke/men-backpack/" title="Backpack" target="_blank">Backpack</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/men-belts/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-1-18-1.jpg?452" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/men-jackets-trench-coats/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-1-18-4.jpg?124" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1289875-gustomerd-new-100-cotton-men-short-sleeve-flower-printed-men-pocket-patchwork-casual-t-shirts-navy-size-s-50-to-58kg.html" title="GustOmerD New 100% Cotton Men Short Sleeve Flower Printed Men Pocket Patchwork Casual T-shirts navy size s 50 to 58kg">GustOmerD New 100% Cotton Men Short Sleeve Flower Printed Men Pocket Patchwork Casual T-shirts navy size s 50 to 58kg</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1289875-gustomerd-new-100-cotton-men-short-sleeve-flower-printed-men-pocket-patchwork-casual-t-shirts-navy-size-s-50-to-58kg.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2170/2018/03/2170_05743480781550548_240.jpg" alt="GustOmerD New 100% Cotton Men Short Sleeve Flower Printed Men Pocket Patchwork Casual T-shirts navy size s 50 to 58kg" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,199</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1288975-gustomerd-new-fashion-men-s-casual-jacket-coat-slim-denim-men-s-clothing-jeans-blue-size-m-50-to-58kg.html" title="GustOmerD New Fashion Men's Casual Jacket Coat Slim Denim Men's Clothing Jeans Blue size M 50 to 58kg">GustOmerD New Fashion Men's Casual Jacket Coat Slim Denim Men's Clothing Jeans Blue size M 50 to 58kg</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1288975-gustomerd-new-fashion-men-s-casual-jacket-coat-slim-denim-men-s-clothing-jeans-blue-size-m-50-to-58kg.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2170/2018/03/2170_05741798789093648_240.jpg" alt="GustOmerD New Fashion Men's Casual Jacket Coat Slim Denim Men's Clothing Jeans Blue size M 50 to 58kg" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,990</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1287808-gustomerd-new-fashion-men-pants-business-suit-pants-slim-fit-brand-clothing-casual-trousers-men-black-29.html" title="GustOmerD New Fashion Men Pants Business Suit Pants Slim Fit Brand-Clothing Casual Trousers Men black 29">GustOmerD New Fashion Men Pants Business Suit Pants Slim Fit Brand-Clothing Casual Trousers Men black 29</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1287808-gustomerd-new-fashion-men-pants-business-suit-pants-slim-fit-brand-clothing-casual-trousers-men-black-29.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2170/2018/03/2170_05741023246054509_240.jpg" alt="GustOmerD New Fashion Men Pants Business Suit Pants Slim Fit Brand-Clothing Casual Trousers Men black 29" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,495</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1259751-curren-2018-quartz-vogue-business-men-s-watches-waterproof-wristwatch-style-3-as-picture.html" title="CURREN 2018 Quartz Vogue Business Men's Watches Waterproof Wristwatch style 3 as picture">CURREN 2018 Quartz Vogue Business Men's Watches Waterproof Wristwatch style 3 as picture</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1259751-curren-2018-quartz-vogue-business-men-s-watches-waterproof-wristwatch-style-3-as-picture.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2205/2018/01/2205_05699593674758525_240.jpg" alt="CURREN 2018 Quartz Vogue Business Men's Watches Waterproof Wristwatch style 3 as picture" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,550</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1250161-fashion-hand-bag-wallet-for-men-business-zipper-cow-leather-long-section-brown-osfm.html" title="Fashion Hand Bag Wallet for Men Business Zipper Cow Leather Long Section brown osfm">Fashion Hand Bag Wallet for Men Business Zipper Cow Leather Long Section brown osfm</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1250161-fashion-hand-bag-wallet-for-men-business-zipper-cow-leather-long-section-brown-osfm.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2192/2018/01/2192_05693538814205332_240.jpg" alt="Fashion Hand Bag Wallet for Men Business Zipper Cow Leather Long Section brown osfm" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,500</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-802801-men-care-beard-ear-and-nose-hair-trimmer-waterproof-father-s-day-father-gift-husband-boy-friend-gift-one-color.html" title="Men Care Beard Ear and Nose Hair Trimmer Waterproof Father's Day Father Gift Husband Boy friend Gift one color">Men Care Beard Ear and Nose Hair Trimmer Waterproof Father's Day Father Gift Husband Boy friend Gift one color</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-802801-men-care-beard-ear-and-nose-hair-trimmer-waterproof-father-s-day-father-gift-husband-boy-friend-gift-one-color.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2016/2017/10/2016_05607350024771196_240.jpg" alt="Men Care Beard Ear and Nose Hair Trimmer Waterproof Father's Day Father Gift Husband Boy friend Gift one color" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,130</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-floor-banner">
+    <a href="https://www.kilimall.co.ke/shop_view-2321-0-0-0-0.html" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-1-147.png?302" alt="" class="lazyload" /></a>
+</div>
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Phones &amp; Tablets">Phones &amp; Tablets</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/smartphones/" title="Smart Phone" target="_blank">Smart Phone</a></li>
+                                <li><a href="https://www.kilimall.co.ke/feature-phones/" title="Feature Phones" target="_blank">Feature Phones</a></li>
+                                <li><a href="https://www.kilimall.co.ke/earphones-headset/" title="Earphones &amp; Headset" target="_blank">Earphones &amp; Headset</a></li>
+                                <li><a href="https://www.kilimall.co.ke/phone-cases-covers/" title="Cases &amp; Covers" target="_blank">Cases &amp; Covers</a></li>
+                                <li><a href="https://www.kilimall.co.ke/bluetooth-accessorie/" title="Bluetooth Accessories" target="_blank">Bluetooth Accessories</a></li>
+                                <li><a href="https://www.kilimall.co.ke/screen-protectors/" title="Screen Protectors" target="_blank">Screen Protectors</a></li>
+                                <li><a href="https://www.kilimall.co.ke/power-banks/" title="Power Banks" target="_blank">Power Banks</a></li>
+                                <li><a href="https://www.kilimall.co.ke/phone-memory-cards/" title="Memory Cards" target="_blank">Memory Cards</a></li>
+                                <li><a href="https://www.kilimall.co.ke/phone-chargers/" title="Chargers" target="_blank">Chargers</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/index.php?act=cms&amp;id=402" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-3-38-2.jpg?868" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/power-banks/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-3-38-5.jpg?513" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1277406-tecno-camon-cm-5-7inch-18-9-full-display-16-2gb-13-13mp-4g-lte-blue.html" title="TECNO Camon CM - 5.7Inch 18:9 Full Display - 16+2GB,13+13MP, 4G LTE Blue">TECNO Camon CM - 5.7Inch 18:9 Full Display - 16+2GB,13+13MP, 4G LTE Blue</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1277406-tecno-camon-cm-5-7inch-18-9-full-display-16-2gb-13-13mp-4g-lte-blue.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2096/2018/02/2096_05725414608290224_240.jpg" alt="TECNO Camon CM - 5.7Inch 18:9 Full Display - 16+2GB,13+13MP, 4G LTE Blue" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 14,999</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1278209-infinix-hot-5-lite-x559-5-5-screen-16gb-rom-1gb-ram-8-5mp-4000mah-battery-smartphone-gold.html" title="INFINIX HOT 5 Lite X559, 5.5">INFINIX HOT 5 Lite X559, 5.5</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1278209-infinix-hot-5-lite-x559-5-5-screen-16gb-rom-1gb-ram-8-5mp-4000mah-battery-smartphone-gold.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2321/2018/02/2321_05724789815954778_240.jpg" alt="INFINIX HOT 5 Lite X559, 5.5" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 8,499</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1278216-infinix-smart-x5010-5-0-display-16gb-rom-1gb-ram-dual-sim-3060mah-battery-sandstone-black.html" title="INFINIX Smart (X5010), 5.0">INFINIX Smart (X5010), 5.0</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1278216-infinix-smart-x5010-5-0-display-16gb-rom-1gb-ram-dual-sim-3060mah-battery-sandstone-black.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2321/2018/02/2321_05724822021223933_240.jpg" alt="INFINIX Smart (X5010), 5.0" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 7,999</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1131173-fh-brand-kucipa-universal-wireless-bluetooth-4-1in-earearphonesheadphones-black.html" title="FH Brand KUCIPA Universal Wireless Bluetooth 4.1In EarEarphonesHeadphones black">FH Brand KUCIPA Universal Wireless Bluetooth 4.1In EarEarphonesHeadphones black</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1131173-fh-brand-kucipa-universal-wireless-bluetooth-4-1in-earearphonesheadphones-black.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2207/2018/02/2207_05731382104953983_240.jpg" alt="FH Brand KUCIPA Universal Wireless Bluetooth 4.1In EarEarphonesHeadphones black" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 499</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-243752-bluetooth-headset-high-quality-head-mounted-movement-intelligent-charging-ce-rosh-certification-black.html" title="Bluetooth headset  high quality head-mounted movement  intelligent charging CE, ROSH certification Black">Bluetooth headset  high quality head-mounted movement  intelligent charging CE, ROSH certification Black</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-243752-bluetooth-headset-high-quality-head-mounted-movement-intelligent-charging-ce-rosh-certification-black.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1088/2016/12/1088_05356499305251752_240.jpg" alt="Bluetooth headset  high quality head-mounted movement  intelligent charging CE, ROSH certification Black" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,880</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-253313-ultra-thin-power-bank-5000mah-metal-case-li-polymer-external-battery-portable-charger-power-bank-silver-5000mh.html" title="Ultra-thin Power Bank 5000mah Metal Case  Li Polymer External Battery Portable Charger Power Bank silver 5000mh">Ultra-thin Power Bank 5000mah Metal Case  Li Polymer External Battery Portable Charger Power Bank silver 5000mh</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-253313-ultra-thin-power-bank-5000mah-metal-case-li-polymer-external-battery-portable-charger-power-bank-silver-5000mh.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/509/2016/12/509_05360810535287954_240.png" alt="Ultra-thin Power Bank 5000mah Metal Case  Li Polymer External Battery Portable Charger Power Bank silver 5000mh" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 699</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-floor-banner">
+    <a href="https://www.kilimall.co.ke/shop_view-2286-0-0-0-0.html" title="Citycall Smart Phones" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-3-149.jpg?337" alt="Citycall Smart Phones" class="lazyload" /></a>
+</div>
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Electronics &amp; Office">Electronics &amp; Office</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/notebooks/" title="Notebooks" target="_blank">Notebooks</a></li>
+                                <li><a href="https://www.kilimall.co.ke/speaker-systems/" title="Speaker Systems" target="_blank">Speaker Systems</a></li>
+                                <li><a href="https://www.kilimall.co.ke/smartwatches/" title="Smart Watches" target="_blank">Smart Watches</a></li>
+                                <li><a href="https://www.kilimall.co.ke/tablet-pc/" title="Tablet PC" target="_blank">Tablet PC</a></li>
+                                <li><a href="https://www.kilimall.co.ke/printers/" title="Printers" target="_blank">Printers</a></li>
+                                <li><a href="https://www.kilimall.co.ke/projectors/" title="Projectors" target="_blank">Projectors</a></li>
+                                <li><a href="https://www.kilimall.co.ke/sound-bars/" title="Sound Bars" target="_blank">Sound Bars</a></li>
+                                <li><a href="https://www.kilimall.co.ke/point-and-shoots/" title="Point-and-Shoots" target="_blank">Point-and-Shoots</a></li>
+                                <li><a href="https://www.kilimall.co.ke/compact-system-cameras/" title="Compact System Cameras" target="_blank">Compact System Cameras</a></li>
+                                <li><a href="https://www.kilimall.co.ke/calculators/" title="Calculators" target="_blank">Calculators</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/notebooks/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-4-48-2.jpg?887" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/speaker-systems/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-4-48-4.jpg?779" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-812272-hp-15-bs098nia-15-6-intel-celeron-4gb-500gb-dos-15-6-black-15-6.html" title="HP 15-bs098nia - 15.6">HP 15-bs098nia - 15.6</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-812272-hp-15-bs098nia-15-6-intel-celeron-4gb-500gb-dos-15-6-black-15-6.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/757/2017/10/757_05612216347108998_240.jpg" alt="HP 15-bs098nia - 15.6" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 28,899</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1127312-tagwood-portable-bluetooth-speaker-white-500w-mp-28.html" title="TAGWOOD PORTABLE BLUETOOTH SPEAKER white 500W MP-28">TAGWOOD PORTABLE BLUETOOTH SPEAKER white 500W MP-28</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1127312-tagwood-portable-bluetooth-speaker-white-500w-mp-28.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2189/2018/02/2189_05714213582607030_240.jpg" alt="TAGWOOD PORTABLE BLUETOOTH SPEAKER white 500W MP-28" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,499</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-761065-foldable-wireless-arc-optical-mouse-mice-with-usb-receiver-for-pc-laptop-notebook-computer.html" title="Foldable Wireless Arc Optical Mouse Mice with USB Receiver for PC Laptop Notebook Computer">Foldable Wireless Arc Optical Mouse Mice with USB Receiver for PC Laptop Notebook Computer</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-761065-foldable-wireless-arc-optical-mouse-mice-with-usb-receiver-for-pc-laptop-notebook-computer.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1888/2017/09/1888_05593955546463964_240.jpg" alt="Foldable Wireless Arc Optical Mouse Mice with USB Receiver for PC Laptop Notebook Computer" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 499</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-546053-epson-l382-printer.html" title="EPSON L382 PRINTER">EPSON L382 PRINTER</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-546053-epson-l382-printer.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/757/2017/06/757_05513941522176806_240.png" alt="EPSON L382 PRINTER" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 17,499</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-106044-artizlee-7inch-tablet-atl-16-color-white-quad-core-hd-1024x600-8gb-wifi-bluetooth-double-cam-atl-16-white.html" title="Artizlee 7inch Tablet ATL-16 Color White ( Quad Core, HD 1024x600, 8GB, WIFI, Bluetooth, Double-CAM) ATL-16 White">Artizlee 7inch Tablet ATL-16 Color White ( Quad Core, HD 1024x600, 8GB, WIFI, Bluetooth, Double-CAM) ATL-16 White</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-106044-artizlee-7inch-tablet-atl-16-color-white-quad-core-hd-1024x600-8gb-wifi-bluetooth-double-cam-atl-16-white.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/618/2016/09/618_05276138892376418_240.jpg" alt="Artizlee 7inch Tablet ATL-16 Color White ( Quad Core, HD 1024x600, 8GB, WIFI, Bluetooth, Double-CAM) ATL-16 White" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 5,098</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1278611-wireless-backlit-mini-keyboard-for-android-box-smart-tv-computer.html" title="Wireless Backlit Mini Keyboard for Android Box/Smart TV/Computer">Wireless Backlit Mini Keyboard for Android Box/Smart TV/Computer</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1278611-wireless-backlit-mini-keyboard-for-android-box-smart-tv-computer.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2296/2018/02/2296_05726407216766322_240.jpg" alt="Wireless Backlit Mini Keyboard for Android Box/Smart TV/Computer" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,599</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-floor-banner">
+    <a href="https://www.kilimall.co.ke/shop_view-377-0-0-0-0.html" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-4-150.png?266" alt="" class="lazyload" /></a>
+</div>
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Home &amp; Appliances">Home &amp; Appliances</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/televisions/" title="Televisions" target="_blank">Televisions</a></li>
+                                <li><a href="https://www.kilimall.co.ke/ironing-pressing/" title="Ironing &amp; Pressing" target="_blank">Ironing &amp; Pressing</a></li>
+                                <li><a href="https://www.kilimall.co.ke/gas-cooker/" title="Gas Cooker" target="_blank">Gas Cooker</a></li>
+                                <li><a href="https://www.kilimall.co.ke/cookware/" title="Cookware" target="_blank">Cookware</a></li>
+                                <li><a href="https://www.kilimall.co.ke/water-dispensers/" title="Water dispensers" target="_blank">Water dispensers</a></li>
+                                <li><a href="https://www.kilimall.co.ke/blenders-grinders-juicers/" title="Blenders, Grinders &amp; Juicers" target="_blank">Blenders, Grinders &amp; Juicers</a></li>
+                                <li><a href="https://www.kilimall.co.ke/kitchen-dining-bar/" title="Kitchen,Dining &amp; bar" target="_blank">Kitchen,Dining &amp; bar</a></li>
+                                <li><a href="https://www.kilimall.co.ke/bedroom/" title="Bedroom" target="_blank">Bedroom</a></li>
+                                <li><a href="https://www.kilimall.co.ke/garden-pots-planters/" title="Garden Pots &amp; Planters" target="_blank">Garden Pots &amp; Planters</a></li>
+                                <li><a href="https://www.kilimall.co.ke/home-security/" title="Home Security" target="_blank">Home Security</a></li>
+                                <li><a href="https://www.kilimall.co.ke/lighting/" title="Lighting" target="_blank">Lighting</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/televisions/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-6-68-3.jpg?526" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/kettles/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-6-68-4.jpg?311" class="lazyload" /></a></li>
+                                                                                <li><a href="https://www.kilimall.co.ke/gas-cooker/" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-6-68-2.jpg?298" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-343538-ramtons-microwave-with-digital-control-panel-rm-458-silver-20-litre-capacity-.html" title="Ramtons Microwave with Digital Control Panel (RM/458) - Silver, 20 Litre Capacity .">Ramtons Microwave with Digital Control Panel (RM/458) - Silver, 20 Litre Capacity .</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-343538-ramtons-microwave-with-digital-control-panel-rm-458-silver-20-litre-capacity-.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1531/2017/03/1531_05440262449901692_240.jpg" alt="Ramtons Microwave with Digital Control Panel (RM/458) - Silver, 20 Litre Capacity ." class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 7,490</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1203191-tianlong-table-top-two-burner-7102-black-black.html" title="TIANLONG Table Top Two burner 7102 Black Black">TIANLONG Table Top Two burner 7102 Black Black</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1203191-tianlong-table-top-two-burner-7102-black-black.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2251/2017/12/2251_05672141722273998_240.jpg" alt="TIANLONG Table Top Two burner 7102 Black Black" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 2,299</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-790197-3d-cartoon-sea-world-wall-stickers-home-decor-sticker-room-decoration-painting-murals-blue-50-70cm.html" title="3D Cartoon Sea World Wall Stickers Home Decor Sticker Room Decoration Painting Murals blue 50*70CM">3D Cartoon Sea World Wall Stickers Home Decor Sticker Room Decoration Painting Murals blue 50*70CM</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-790197-3d-cartoon-sea-world-wall-stickers-home-decor-sticker-room-decoration-painting-murals-blue-50-70cm.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1601/2017/09/1601_05589585615456725_240.jpg" alt="3D Cartoon Sea World Wall Stickers Home Decor Sticker Room Decoration Painting Murals blue 50*70CM" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 570</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1262965-skyworth-43s3a32g-43s3a31t-43-inch-smart-led-tv-for-sale-black-43-inch.html" title="Skyworth 43S3A32G/43S3A31T-43 Inch Smart LED TV For Sale Black 43 Inch">Skyworth 43S3A32G/43S3A31T-43 Inch Smart LED TV For Sale Black 43 Inch</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1262965-skyworth-43s3a32g-43s3a31t-43-inch-smart-led-tv-for-sale-black-43-inch.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/829/2018/02/829_05712633950453641_240.jpg" alt="Skyworth 43S3A32G/43S3A31T-43 Inch Smart LED TV For Sale Black 43 Inch" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 35,999</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-542288-fine-non-stick-frying-pan-black-25-4cm.html" title="Fine Non-Stick Frying Pan black 25.4cm">Fine Non-Stick Frying Pan black 25.4cm</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-542288-fine-non-stick-frying-pan-black-25-4cm.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1541/2017/06/1541_05511964700443518_240.jpg" alt="Fine Non-Stick Frying Pan black 25.4cm" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,175</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1274822-party-glass-glass-cup-for-wine-coffee-tea-juice-water-cup-12-1-red-small.html" title="Party Glass Glass Cup for Wine Coffee Tea Juice Water Cup 12*1 red small">Party Glass Glass Cup for Wine Coffee Tea Juice Water Cup 12*1 red small</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1274822-party-glass-glass-cup-for-wine-coffee-tea-juice-water-cup-12-1-red-small.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2336/2018/02/2336_05727171508095636_240.jpg" alt="Party Glass Glass Cup for Wine Coffee Tea Juice Water Cup 12*1 red small" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 200</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-standard-layout wrapper style-default">
+    <div class="left-sidebar">
+        <div class="title">
+      	            <div class="txt-type">
+                                <h2 title="Kids Stuff">Kids Stuff</h2>
+            </div>
+      	        </div>
+        <div class="recommend-classes">
+            <ul>
+                                                <li><a href="https://www.kilimall.co.ke/girls-dresses/" title="Dresses" target="_blank">Dresses</a></li>
+                                <li><a href="https://www.kilimall.co.ke/girls-athletic/" title="Athletic" target="_blank">Athletic</a></li>
+                                <li><a href="https://www.kilimall.co.ke/girls-hair-accessories/" title="Hair Accessories" target="_blank">Hair Accessories</a></li>
+                                <li><a href="https://www.kilimall.co.ke/boys-t-shirts-polos/" title="T-shirts &amp; Polos" target="_blank">T-shirts &amp; Polos</a></li>
+                                <li><a href="https://www.kilimall.co.ke/boys-athletic/" title="Athletic" target="_blank">Athletic</a></li>
+                                <li><a href="https://www.kilimall.co.ke/sunglasses-watches/" title="Sunglasses &amp; Watches" target="_blank">Sunglasses &amp; Watches</a></li>
+                                <li><a href="https://www.kilimall.co.ke/dolls-accessories/" title="Dolls &amp; Accessories" target="_blank">Dolls &amp; Accessories</a></li>
+                                <li><a href="https://www.kilimall.co.ke/building-toys/" title="Building Toys" target="_blank">Building Toys</a></li>
+                                <li><a href="https://www.kilimall.co.ke/electronics-for-kids/" title="Electronics for Kids" target="_blank">Electronics for Kids</a></li>
+                                <li><a href="https://www.kilimall.co.ke/baby-care/" title="Baby Care" target="_blank">Baby Care</a></li>
+                                <li><a href="https://www.kilimall.co.ke/baby-feeding/" title="Feeding" target="_blank">Feeding</a></li>
+                                            </ul>
+        </div>
+    </div>
+    <div class="middle-layout">        
+        <ul class="tabs-nav">
+                                    <li class="tabs-selected"><i class="arrow"></i><h3>Trending</h3></li>
+                                </ul>
+        <div class="right-side-layout">
+            <div class="right-side-focus">
+                <ul>
+                                                                                <li><a href="https://www.kilimall.co.ke/shop-1452.html" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-8-88-1.jpg?727" class="lazyload" /></a></li>
+                                                                            </ul>
+            </div>
+        </div>
+                                <div class="tabs-panel middle-goods-list ">
+            <ul>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-106583-diagnostic-tool-multi-purpose-infrared-baby-adult-thermometer-white.html" title="Diagnostic-tool Multi-purpose Infrared Baby/Adult Thermometer White">Diagnostic-tool Multi-purpose Infrared Baby/Adult Thermometer White</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-106583-diagnostic-tool-multi-purpose-infrared-baby-adult-thermometer-white.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/650/2016/09/650_05276807058961444_240.jpg" alt="Diagnostic-tool Multi-purpose Infrared Baby/Adult Thermometer White" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 2,151</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-15633-m-easy-bottle-brush-set-with-sponge-head.html" title="M/Easy BOTTLE BRUSH SET WITH SPONGE HEAD">M/Easy BOTTLE BRUSH SET WITH SPONGE HEAD</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-15633-m-easy-bottle-brush-set-with-sponge-head.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/405/2016/01/405_05064467705344476_240.jpg" alt="M/Easy BOTTLE BRUSH SET WITH SPONGE HEAD" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 200</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-470036-wishful-wide-mouth-newborn-babies-milk-bottle-150ml-250ml-pink-250ml.html" title="Wishful Wide Mouth Newborn Babies milk Bottle 150ml/250ml pink 250ml">Wishful Wide Mouth Newborn Babies milk Bottle 150ml/250ml pink 250ml</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-470036-wishful-wide-mouth-newborn-babies-milk-bottle-150ml-250ml-pink-250ml.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/1452/2017/05/1452_05471356564194950_240.jpg" alt="Wishful Wide Mouth Newborn Babies milk Bottle 150ml/250ml pink 250ml" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 979</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-124912-fashion-led-light-up-children-athletic-shoes-baby-girl-casual-sport-shoes-boy-breathable-sneakers-black-21.html" title="Fashion LED Light Up Children Athletic Shoes Baby Girl Casual Sport Shoes Boy Breathable Sneakers black 21">Fashion LED Light Up Children Athletic Shoes Baby Girl Casual Sport Shoes Boy Breathable Sneakers black 21</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-124912-fashion-led-light-up-children-athletic-shoes-baby-girl-casual-sport-shoes-boy-breathable-sneakers-black-21.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/749/2016/10/749_05296121245098522_240.jpg" alt="Fashion LED Light Up Children Athletic Shoes Baby Girl Casual Sport Shoes Boy Breathable Sneakers black 21" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 999</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1207510-baby-boys-jacket-winter-jacket-for-boys-bees-hooded-down-jacket-warm-outerwear-infant-boys-coat-yellow-m.html" title="Baby Boys Jacket  Winter Jacket For Boys Bees Hooded Down Jacket  Warm Outerwear Infant Boys Coat yellow m">Baby Boys Jacket  Winter Jacket For Boys Bees Hooded Down Jacket  Warm Outerwear Infant Boys Coat yellow m</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1207510-baby-boys-jacket-winter-jacket-for-boys-bees-hooded-down-jacket-warm-outerwear-infant-boys-coat-yellow-m.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2186/2017/12/2186_05675311539756735_240.jpg" alt="Baby Boys Jacket  Winter Jacket For Boys Bees Hooded Down Jacket  Warm Outerwear Infant Boys Coat yellow m" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 1,971</em></dd>
+                    </dl>
+                </li>
+                                <li>
+                    <dl>
+                        <dt class="goods-name"><a target="_blank" href="https://www.kilimall.co.ke/item-1180069-hot-autumn-girls-clothes-sets-t-shirt-pants-2pcs-set-full-sleeve-clothing-children-active-suits-yellow-100cm.html" title="Hot autumn girls clothes sets T-shirt+ Pants 2pcs/set  full sleeve clothing children active suits yellow 100cm">Hot autumn girls clothes sets T-shirt+ Pants 2pcs/set  full sleeve clothing children active suits yellow 100cm</a></dt>
+                        <dd class="goods-thumb"><a target="_blank" href="https://www.kilimall.co.ke/item-1180069-hot-autumn-girls-clothes-sets-t-shirt-pants-2pcs-set-full-sleeve-clothing-children-active-suits-yellow-100cm.html"><img data-src="https://image.kilimall.com/kenya/shop/store/goods/2186/2017/12/2186_05665748541429708_240.jpg" alt="Hot autumn girls clothes sets T-shirt+ Pants 2pcs/set  full sleeve clothing children active suits yellow 100cm" class="lazyload" /></a></dd>
+                        <dd class="goods-price"><em>KSh 995</em></dd>
+                    </dl>
+                </li>
+                            </ul>
+        </div>
+                            </div>  
+</div>
+<div class="home-floor-banner">
+    <a href="http://www.kilimall.co.ke/index.php?act=show_joinin" title="" target="_blank"><img data-src="https://image.kilimall.com/kenya/shop/editor/web-8-154.jpg?728" alt="" class="lazyload" /></a>
+</div>
+<!--StandardLayout End-->
+
+<div class="wrapper">
+    <div class="mt10"></div>
+</div>
+<div class="seo-text" style="width: 1200px;margin: auto;">
+    <p>
+	<br />
+</p>
+<h2>
+	<strong>Kilimall Online Shopping in Kenya</strong> 
+</h2>
+<strong><a href="https://en.wikipedia.org/wiki/Kilimall" target="_blank">Kilimall</a> </strong>is Kenya's largest online shopping mall. It was launched in July 2014 with the mission of&nbsp; becoming No.1 E-commerce platform in Africa.<br />
+Kilimall serves a retail-customer base that continues to grow exponentially, offering products that span various categories including electronics such as <a href="https://www.kilimall.co.ke/smartphones/" target="_blank"><strong>smart phones</strong></a>, <a href="https://www.kilimall.co.ke/laptops/" target="_blank"><strong>laptops</strong></a>, <a href="https://www.kilimall.co.ke/speaker-systems/" target="_blank"><strong>subwoofer</strong> </a>etc, <a href="https://www.kilimall.co.ke/clothes/" target="_blank"><strong>Clothing</strong></a>, <a href="https://www.kilimall.co.ke/home-living/" target="_blank"><strong>Home Appliances</strong></a>, <a href="https://www.kilimall.co.ke/bags-fashion/" target="_blank"><strong>Fashion bag</strong></a>, <strong><a href="https://www.kilimall.co.ke/kids-baby-toys/" target="_blank">Baby Products</a></strong>, <a href="https://www.kilimall.co.ke/makeup/" target="_blank"><strong>makeup</strong></a> and much more.<br />
+The range of services are designed to ensure optimum levels of convenience and customer satisfaction with the retail process; order delivery-tracking, dedicated customer service support and many other premium services.<br />
+Kilimall continues to expand the mall, with the scope of offerings that will increase in variety, simplicity and convenience.<br />
+The company is highly customer-centric and are committed towards finding innovative ways of improving the customers' shopping experience.<br />
+In addition, Kilimall has sites strategically&nbsp; distributed in the three countries namely: <strong><a href="https://www.kilimall.co.ke/" target="_blank">Kenya</a></strong>, <strong><a href="https://www.kilimall.co.ug/" target="_blank">Uganda</a></strong> and <strong><a href="https://www.kilimall.ng/" target="_blank">Nigeria</a></strong>.<br />
+Shopping with Kilimall App will bring you millions of cash rewards and the best customer services, download <strong><a href="https://play.google.com/store/apps/details?id=net.kilimall.shop">Kilimall App</a></strong> and enjoy best service online in Kenya.<br />
+<strong><a href="https://www.kilimall.co.ke/black-friday/2017/" target="_blank">Kilimall Black Friday</a></strong> is the annual biggest deal with unbeleavable discounted products on <strong><a href="https://www.kilimall.co.ke/electronics-photos/" target="_blank">electronics</a></strong>, clothes, home appliances and many more. Enjoy best services with Kilimall.
+<p>
+	<br />
+</p></div>
+<div class="footer-line"></div>
+<div class="fttff29">
+    <div class="warp-all236">
+        <div class="mod_agree">
+            <ul class="mod_agree_con">
+                <li class="mod_agree_item mod_agree_item1">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/ee0562b2462c34888150.png" class="lazyload"></a>
+                    <strong>Great Value</strong><span>We offer competitive prices on our 10 million plus product range.</span>
+                </li>
+                <li class="mod_agree_item mod_agree_item2">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/7b56b7cb8cb6fe5d4230.png" class="lazyload"></a>
+                    <strong>Worldwide Delivery</strong><span>With sites in 3 languages, we ship to over 20 countries & regions.</span>
+                </li>
+                <li class="mod_agree_item mod_agree_item3">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/13cb8028e4f67a686800.png" class="lazyload"></a>
+                    <strong>Safe Payment</strong><span>Pay with the world’s most popular and secure payment methods.</span>
+                </li>
+                <li class="mod_agree_item mod_agree_item4">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/c13260d90a397bdc5320.png" class="lazyload"></a>
+                    <strong>Shop with Confidence</strong><span>Our Buyer Protection covers your purchase from click to delivery.</span>
+                </li>
+                <li class="mod_agree_item mod_agree_item5">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/9d98df3a1467db4d9680.png" class="lazyload"></a>
+                    <strong>24/7 Help Center</strong><span>Round-the-clock assistance for a smooth shopping experience.</span>
+                </li>
+                <li class="mod_agree_item mod_agree_item6">
+                    <a><img data-src="https://image.kilimall.com/kenya/shop/rec_position/70b239fe0e0b83079630.png" class="lazyload"></a>
+                    <strong>Shop On-The-Go</strong><span>Download the app and get the world of Kilimall at your fingertips.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><script>
+var oHead = document.getElementsByTagName('head').item(0);
+var oScript= document.createElement("script");
+var oScript2= document.createElement("script");
+oScript.type = "application/ld+json";
+oScript2.type = "application/ld+json";
+
+switch(window.location.host){
+    case 'www.kilimall.co.ke':
+    var seoJSON={"@context":"https://schema.org","@type":"Organization","name":"Kilimall","url":"https://www.kilimall.co.ke/","sameAs":["https://www.facebook.com/kilimall","https://twitter.com/Kilimall","https://www.youtube.com/channel/UCiULdy56ABvBc8IAlFqiPSw"],"logo":"https://gallery.mailchimp.com/24146943c83075698821df684/images/79d92cd3-0544-445b-949b-486a20debf7a.png","contactPoint":{"@type":"ContactPoint","telephone":"+254709717000","contactType":"customer service"}}
+    var seoJSON2=  {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.kilimall.co.ke",
+        "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.kilimall.co.ke/?act=search&keyword={search_term_string}",
+        "query-input": "required name=search_term_string"
+        }
+    }
+    break;
+    case 'www.kilimall.co.ug':
+    var seoJSON={"@context":"https://schema.org","@type":"Organization","name":"Kilimall","url":"https://www.kilimall.co.ug/","sameAs":["https://www.facebook.com/kilimalluganda/","https://twitter.com/kilimalluganda"],"logo":"https://gallery.mailchimp.com/24146943c83075698821df684/images/79d92cd3-0544-445b-949b-486a20debf7a.png","contactPoint":{"@type":"ContactPoint","telephone":"+256706717000","contactType":"customer service"}}
+    var seoJSON2={
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "https://www.kilimall.co.ug",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.kilimall.co.ug/?act=search&keyword={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+    break;
+    case 'www.kilimall.ng':
+    var seoJSON={"@context":"https://schema.org","@type":"Organization","name":"Kilimall","url":"https://www.kilimall.ng/","sameAs":["https://www.facebook.com/KilimallNigeria/","https://twitter.com/kilimallnigeria"],"logo":"https://gallery.mailchimp.com/24146943c83075698821df684/images/79d92cd3-0544-445b-949b-486a20debf7a.png","contactPoint":{"@type":"ContactPoint","telephone":"+2349078060008","contactType":"customer service"}}
+    var seoJSON2={
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "https://www.kilimall.ng",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.kilimall.ng/?act=search&keyword={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+    }
+
+    break;
+    case 'www.kili.co':
+    var seoJSON={"@context":"https://schema.org","@type":"Organization","name":"Kilimall","url":"https://www.kilimall.ng/","sameAs":["https://www.facebook.com/KilimallNigeria/","https://twitter.com/kilimallnigeria"],"logo":"https://gallery.mailchimp.com/24146943c83075698821df684/images/79d92cd3-0544-445b-949b-486a20debf7a.png","contactPoint":{"@type":"ContactPoint","telephone":"+2349078060008","contactType":"customer service"}}
+    var seoJSON2={
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "https://www.kilimall.ng",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.kilimall.ng/?act=search&keyword={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+    }
+    break;
+}
+oScript.innerHTML = JSON.stringify(seoJSON);
+oHead.appendChild( oScript);
+oScript2.innerHTML = JSON.stringify(seoJSON2);
+oHead.appendChild( oScript2);
+
+</script><div id="faq" class="hidden">
+    <div class="faq-wrapper"><ul></ul></div>
+</div>
+
+<style>
+    .adtitle{
+        color:#666666;
+        margin-bottom: 4px;
+        font-size: 13px;
+    }
+    .appPromo{
+        width: 340px;
+        height: 190px;
+        padding:18px 28px 0;
+        background: #F5F5F5;
+        position: absolute;
+        left: 800px;
+        top: -200px;
+    }
+    .iconList{
+        height: 30px;
+        margin-bottom: 8px;
+    }
+    .iconList li{
+        margin-right: 6px;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        float: left;
+    }
+    .iconList li a{
+        display:inline-block;
+        width:100%;
+        height:100%;
+    }
+    .iconList li:nth-of-type(1){
+        background-image: url(https://www.kilimall.co.ke/templates/en/images/footerappad/facebook.png);
+    }
+    .iconList li:nth-of-type(2){
+        background-image: url(https://www.kilimall.co.ke/templates/en/images/footerappad/twitter.png);
+    }
+    .iconList li:nth-of-type(3){
+        background-image: url(https://www.kilimall.co.ke/templates/en/images/footerappad/blog.png);
+    }
+    .iconList li:nth-of-type(4){
+        background-image: url(https://www.kilimall.co.ke/templates/en/images/footerappad/Telegram-icon.png);
+    }
+    .googleplay{
+        width: 102px;
+        height: 30px;
+        background: url(https://www.kilimall.co.ke/templates/en/images/footerappad/google_play.png);
+        margin-bottom:8px;
+    }
+    .googleplay a{
+        display:inline-block;
+        width:100%;
+        height:100%;
+    }
+    .subemailbox{
+        width: 170px;
+        padding-left: 10px;
+        height: 30px;
+        outline: none;
+        left: 0;
+        top:0;
+        border:1px solid #DDDDDD;
+    }
+    .subemailwrapper{
+        width: 260px;
+        position: relative;
+    }
+    .subemailbutton{
+        position: absolute;
+        right: 0;
+        top:0;
+        width: 80px;
+        height: 30px;
+        background: #F87622;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+        line-height: 30px;
+    }
+    .emailWarning1{
+        color: #F87622;
+        font-size: 12px;
+        display: none;
+    }
+    .bigwrapper1{
+        width: 1200px;
+        height: 0;
+        margin:0 auto;
+        /*top:500px;*/
+        position: relative;
+        z-index: 999;
+        display: none;
+    }
+    .spwrapper1{
+        background: #f5f5f5;
+        padding-top: 1px;
+        border-top: 1px solid #e7e7e7;
+        border-bottom: 1px solid #e7e7e7;
+    }
+    .supportedPayment{
+        width: 1200px;
+        height: 100px;
+        margin:0 auto;
+    }
+    .spTitle1{
+        font-weight: bold;
+        color:#666666;
+        font-size: 14px;
+        margin:16px 0 15px 0;
+    }
+    .paymentICONLIST li{
+        width: 87px;
+        height: 43px;
+        border:1px solid #eee;
+        float: left;
+        margin-right: 10px;
+    }
+    .paymentICONLIST>li>img{
+        width: :100%;
+    }
+    .footerlipalpay{
+        height: 45px;
+    }
+    .footerlipalpay a{
+        display: inline-block;
+        height: 45px;
+        width: 100%;
+    }
+    .footerlipalpay li{
+        width: 90px;
+        height: 45px;
+        float: left;
+        margin:0 5px;
+    }
+    .footerlipalpay li:nth-of-type(1){
+        background: url(https://www.kilimall.co.ke/templates/en/images/footerlipalpay/M.png);
+    }
+    .footerlipalpay li:nth-of-type(2){
+        background: url(https://www.kilimall.co.ke/templates/en/images/footerlipalpay/T.png);
+    }
+    .footerlipalpay li:nth-of-type(3){
+        background: url(https://www.kilimall.co.ke/templates/en/images/footerlipalpay/S.png);
+    }
+</style>
+<!-- ↓app推广 -->
+<div class="bigwrapper1">
+    <div class="appPromo">
+        <p class="adtitle">Stay Connected:</p>
+        <ul class="iconList">
+            <li><a href="#" target="_blank"></a></li>
+            <li><a href="#" target="_blank"></a></li>
+            <li><a href="#" target="_blank"></a></li>
+            <li><a href="#" target="_blank"></a></li>
+        </ul>
+        <p class="adtitle">Get Shopping App and Earn Millions of Cash Rewards:</p>
+        <div class="googleplay"><a href="https://play.google.com/store/apps/details?id=net.kilimall.shop" target="_blank"></a></div>
+        <p class="adtitle">Subscribe for Special Offers, Promos & Deals: </p>
+        <div class="subemailwrapper">
+            <input type="text" class="subemailbox" placeholder="Please enter your email">
+            <div class="subemailbutton">Subscribe</div>
+        </div>
+        <div class="emailWarning1"></div>
+    </div>
+</div>
+<!-- ↑app推广 -->
+<div class="spwrapper1">
+<div class="supportedPayment">
+    <p class="spTitle1">Partner With</p>
+    <ul class="paymentICONLIST clearfix">
+        <!-- <li><img src="templates/en/images/supportedParterner/ke/12.png" alt=""></li> -->
+    </ul>
+</div>
+</div>
+
+<div id="footer" class="wrapper">
+    <div class="footerlipalpay">
+        <ul class="clearfix">
+            <li><a href="https://www.lipapay.com/mc.html" target="_blank"></a></li>
+            <li><a href="https://www.lipapay.com/mc.html" target="_blank"></a></li>
+            <li><a href="https://www.lipapay.com/mc.html" target="_blank"></a></li>
+        </ul>
+    </div>
+    <p>
+        <a href="https://www.kilimall.co.ke">MALL</a>
+                                                                                                                                                                        | <a  target="_blank" href="/index.php?act=seller_login&amp;op=show_login">SELLER</a>
+                                                                | <a  href="https://play.google.com/store/apps/details?id=net.kilimall.shop">MOBILE APP</a>
+                                                                                                                                                    | <a  href="/article-2026.html">iOS App</a>
+                                        </p>
+    Copyright 2017 <a href="http://www.kilimall.co.ke" target="_blank">Kilimall</a>, All rights reserved.
+<script>
+$(".s1 dd:nth-of-type(2)").css("font-weight","bold");
+</script></div>
+<link href="https://script.kilimall.co.ke/js/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+<link href="https://script.kilimall.co.ke/js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://script.kilimall.co.ke/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://script.kilimall.co.ke/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="https://script.kilimall.co.ke/js/qtip/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="https://www.kilimall.co.ke/resource/js/compare.js"></script><!-- 对比 -->
+<script>
+
+//footer添加app推广及
+$('.subemailbutton').click(function(){
+
+    function isEmail(str){
+            var reEmail=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            return reEmail.test(str);
+    }
+    if(isEmail($('.subemailbox').val())){
+        $('.emailWarning1').hide()
+
+        $.ajax({
+            type:'POST',
+            url:'/index.php?act=black_friday&op=mail',
+            data:{mail:$('.subemailbox').val()},
+            // dataType: "json",
+            success:function(res){
+                res = JSON.parse(res)
+                $('.emailWarning1').html(res.msg).show()
+            },
+            error:function(res){
+                alert(res.msg)
+            }
+
+        })
+    }else{
+        $('.emailWarning1').html('Please enter a mailbox in the correct format').show()
+    }
+
+})
+
+switch(window.location.host){
+    case 'www.kilimall.co.ke':
+    $('.iconList li:nth-of-type(1) a').attr('href','https://www.facebook.com/kilimall/')
+    $('.iconList li:nth-of-type(2) a').attr('href','https://twitter.com/Kilimall')
+    $('.iconList li:nth-of-type(3) a').attr('href','https://kilimallkenya.blogspot.com/')
+    $('.iconList li:nth-of-type(4) a').attr('href','https://t.me/joinchat/G6OoDw-1B_SjbrcPCPoJZQ')
+
+    var str = ''
+    for(var i=1;i<12;i++){
+        var liSTR = '<li><img src="/templates/en/images/supportedParterner/ke/'+i+'.png" /></li>'
+        str+=liSTR
+    }
+    $('.paymentICONLIST').html(str)
+
+    break
+    case 'www.kilimall.co.ug':
+    $('.iconList li:nth-of-type(1) a').attr('href','https://www.facebook.com/kilimalluganda/')
+    $('.iconList li:nth-of-type(2) a').attr('href','https://twitter.com/kilimalluganda')
+    $('.iconList li:nth-of-type(3) a').attr('href','https://kilimalluganda.blogspot.com/')
+    $('.iconList li:nth-of-type(4) a').attr('href','https://t.me/joinchat/G6OoDw-1B_SjbrcPCPoJZQ')
+
+    var str = ''
+    for(var i=1;i<6;i++){
+        var liSTR = '<li><img src="/templates/en/images/supportedParterner/ug/'+i+'.png" /></li>'
+        str+=liSTR
+    }
+    $('.paymentICONLIST').html(str)
+
+    break
+    case 'www.kilimall.ng':
+
+    $('.iconList li:nth-of-type(1) a').attr('href','https://www.facebook.com/KilimallNigeria/')
+    $('.iconList li:nth-of-type(2) a').attr('href','https://twitter.com/kilimallNigeria')
+    $('.iconList li:nth-of-type(3) a').attr('href','https://kilimallnigeria.blogspot.com/')
+    $('.iconList li:nth-of-type(4) a').attr('href','https://t.me/joinchat/G6OoDw-1B_SjbrcPCPoJZQ')
+
+    var str = ''
+    for(var i=1;i<12;i++){
+        var liSTR = '<li><img src="/templates/en/images/supportedParterner/ng/'+i+'.png" /></li>'
+        str+=liSTR
+    }
+    $('.paymentICONLIST').html(str)
+
+    break
+    case 'www.kili.com':
+
+    $('.iconList li:nth-of-type(1) a').attr('href','https://www.facebook.com/KilimallNigeria/')
+    $('.iconList li:nth-of-type(2) a').attr('href','https://twitter.com/kilimallNigeria')
+    $('.iconList li:nth-of-type(3) a').attr('href','https://kilimallkenya.blogspot.com/')
+    $('.iconList li:nth-of-type(4) a').attr('href','https://t.me/joinchat/G6OoDw-1B_SjbrcPCPoJZQ')
+
+    var str = ''
+    for(var i=1;i<12;i++){
+        var liSTR = '<li><img src="/templates/en/images/supportedParterner/ke/'+i+'.png" /></li>'
+        str+=liSTR
+    }
+    $('.paymentICONLIST').html(str)
+
+    break
+    case 'www.kili.co':
+    
+    var str = ''
+    for(var i=1;i<12;i++){
+        var liSTR = '<li><img src="/templates/en/images/supportedParterner/ke/'+i+'.png" /></li>'
+        str+=liSTR
+    }
+    $('.paymentICONLIST').html(str)
+    break
+}
+
+if(getCookie('homeArticle')){
+    $('#faq').show().find('.faq-wrapper ul').html(getCookie('homeArticle'));
+}else{
+    App.getJSON('/articles/home','',function (data) {
+        var dl = '<li><dl class="s{i}">{content}</dl></li>';
+        var dt = '<dt>{class_name}</dt>';
+        var dd = '<dd><i></i><a href="{url}" title="{title}">{title}</a></dd>';
+        var html = '';
+        for(var i = 0; i < data.length; i++){
+            var class_name = data[i].title;
+            var tmpdl = dl.replace('{i}',i+1);
+            var tmp = '';
+            tmp += dt.replace('{class_name}',class_name);
+            if(data[i].articles){
+                for (var k = 0; k< data[i].articles.length; k++){
+                    var tmp1 = '';
+                    tmp1 = dd.replace(/{title}/g,data[i].articles[k].title);
+                    if(data[i].articles[k].article_url){
+                        tmp1 = tmp1.replace('{url}',data[i].articles[k].article_url);
+                    }else{
+                        tmp1 = tmp1.replace('{url}','/index.php?act=article&article_id='+data[i].articles[k].id);
+                    }
+                    tmp += tmp1;
+                }
+            }
+            tmpdl = tmpdl.replace('{content}',tmp);
+            html += tmpdl;
+            setCookie('homeArticle',html);
+        }
+        $('#faq').show().find('.faq-wrapper ul').html(html);
+    });
+}
+if(getCookie('homeArticle')){
+    $('.bigwrapper1').show();
+}
+
+
+</script>
+</body>
+</html>

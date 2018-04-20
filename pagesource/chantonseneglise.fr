@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Chantons en Eglise - Toute la musique liturgique et religieuse en t&eacute;l&eacute;chargement</title>
+<meta name="description" content="Rechercher, écouter et télécharger des partitions et des versions enregistrées de chants litugiques et de chansons religieuses" />
+<link href="css/chantons.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"/>
+<script type="text/JavaScript">
+$(document).ready(function() {
+	$('.voirplus>a, .voirmoins>a').live("click", function() {
+		var affichage=$(this).closest('span').attr('class'); //voirplus ou voirmoins
+		var div=$(this).closest('div').attr('id');
+		var explode=div.split('_');
+		var type=explode[0]; //actu ou revue
+		var id=explode[1];
+		$.get('ajax-accueil-voirplus.php?'+type+'='+id+'&affichage='+affichage, function(data) {
+			$('#'+div).html(data);
+		});
+		return false;
+	});
+	$('#infos-abonnement-bouton').live('click', function(){
+		$( "#infos-abonnement-message" ).dialog({
+		  modal: true,
+		  height : 700,
+          width : 600,
+		  buttons: {
+			Ok: function() {
+			  $( this ).dialog( "close" );
+			}
+		  }
+		});
+		return false;
+	});	
+	$('#problemes-abonnement-bouton').live('click', function(){
+		$( "#problemes-abonnement-message" ).dialog({
+		  modal: true,
+		  height : 300,
+          width : 600,
+		  buttons: {
+			Ok: function() {
+			  $( this ).dialog( "close" );
+			}
+		  }
+		});
+		return false;
+	});
+	
+});
+</script>
+</head>
+<body>
+<script>
+var tagAnalyticsCNIL = {}
+
+tagAnalyticsCNIL.CookieConsent = function() {
+    // Remplacez la valeur UA-XXXXXX-Y par l'identifiant analytics de votre site.
+    var gaProperty = 'UA-783191-3'
+    // DÃ©sactive le tracking si le cookie d'Opt-out existe dÃ©jÃƒ .
+    var disableStr = 'ga-disable-' + gaProperty;
+    var firstCall = false;
+
+    //Cette fonction retourne la date dÃ¢â‚¬â„¢expiration du cookie de consentement 
+
+    function getCookieExpireDate() { 
+     // Le nombre de millisecondes que font 13 mois 
+     var cookieTimeout = 33696000000;
+     var date = new Date();
+     date.setTime(date.getTime()+cookieTimeout);
+     var expires = "; expires="+date.toGMTString();
+     return expires;
+    }
+
+
+    //Cette fonction vÃ©rifie si on  a dÃ©jÃƒ  obtenu le consentement de la personne qui visite le site.
+    function checkFirstVisit() {
+       var consentCookie =  getCookie('hasConsent'); 
+       if ( !consentCookie ) return true;
+    }
+
+    //Affiche une  banniÃ¨re d'information en haut de la page
+     function showBanner(){
+        var bodytag = document.getElementsByTagName('body')[0];
+        var div = document.createElement('div');
+        div.setAttribute('id','cookie-banner');
+        div.setAttribute('width','70%');
+        // Le code HTML de la demande de consentement
+        div.innerHTML =  '<div style="background-color:#000;color:#fff;text-align:center;padding:5px;font-size:12px;\
+        border-bottom:1px solid #eeeeee;" id="cookie-banner-message" align="center">Ce site utilise Google\
+        Analytics. En continuant &agrave; naviguer, vous nous autorisez &agrave; d&eacute;poser un cookie &agrave; des fins de mesure\
+        d\'audience. <a style="margin-left:10px;color:#fff;text-decoration:underline" href="javascript:tagAnalyticsCNIL.CookieConsent.showInform()" \
+        style="text-decoration:underline;"> En savoir plus</a></div>';
+        // Vous pouvez modifier le contenu ainsi que le style
+        // Ajoute la banniÃ¨re juste au dÃ©but de la page 
+        bodytag.insertBefore(div,bodytag.firstChild); 
+        document.getElementsByTagName('body')[0].className+=' cookiebanner';    
+        createInformAndAskDiv();
+     }
+          
+          
+    // Fonction utile pour rÃ©cupÃ©rer un cookie Ã  partir de son nom
+    function getCookie(NameOfCookie)  {
+        if (document.cookie.length > 0) {        
+            begin = document.cookie.indexOf(NameOfCookie+"=");
+            if (begin != -1)  {
+                begin += NameOfCookie.length+1;
+                end = document.cookie.indexOf(";", begin);
+                if (end == -1) end = document.cookie.length;
+                return unescape(document.cookie.substring(begin, end)); 
+            }
+         }
+        return null;
+    }
+
+    //RÃ©cupÃ¨re la version d'Internet Explorer, si c'est un autre navigateur la fonction renvoie -1
+    function getInternetExplorerVersion() {
+      var rv = -1;
+      if (navigator.appName == 'Microsoft Internet Explorer')  {
+        var ua = navigator.userAgent;
+        var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+          rv = parseFloat( RegExp.$1 );
+      }  else if (navigator.appName == 'Netscape')  {
+        var ua = navigator.userAgent;
+        var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+          rv = parseFloat( RegExp.$1 );
+      }
+      return rv;
+    }
+
+    //Effectue une demande de confirmation de DNT pour les utilisateurs d'IE
+    function askDNTConfirmation() {
+        var r = confirm("La signal DoNotTrack de votre navigateur est activÃ©, confirmez vous activer \
+        la fonction DoNotTrack?")
+        return r;
+    }
+
+    //VÃ©rifie la valeur de navigator.DoNotTrack pour savoir si le signal est activÃ© et est Ã   1
+    function notToTrack() {
+        if ( (navigator.doNotTrack && (navigator.doNotTrack=='yes' || navigator.doNotTrack=='1'))
+            || ( navigator.msDoNotTrack && navigator.msDoNotTrack == '1') ) {
+            var isIE = (getInternetExplorerVersion()!=-1)
+            if (!isIE){    
+                 return true;
+            }
+            return false;
+        }
+    }
+
+    //Si le signal est Ã   0 on considÃ¨re que le consentement a dÃ©jÃ   Ã©tÃ© obtenu
+    function isToTrack() {
+        if ( navigator.doNotTrack && (navigator.doNotTrack=='no' || navigator.doNotTrack==0 )) {
+            return true;
+        }
+    }
+       
+    // Fonction d'effacement des cookies   
+    function delCookie(name )   {
+        var path = ";path=" + "/";
+        var hostname = document.location.hostname;
+        if (hostname.indexOf("www.") === 0)
+            hostname = hostname.substring(4);
+        var domain = ";domain=" + "."+hostname;
+        var expiration = "Thu, 01-Jan-1970 00:00:01 GMT";       
+        document.cookie = name + "=" + path + domain + ";expires=" + expiration;
+    }
+      
+    // Efface tous les types de cookies utilisÃ©s par Google Analytics    
+    function deleteAnalyticsCookies() {
+        var cookieNames = ["__utma","__utmb","__utmc","__utmt","__utmv","__utmz","_ga","_gat"]
+        for (var i=0; i<cookieNames.length; i++)
+            delCookie(cookieNames[i])
+    }
+
+    //La fonction qui informe et demande le consentement. Il s'agit d'un div qui apparait au centre de la page
+    function createInformAndAskDiv() {
+        var bodytag = document.getElementsByTagName('body')[0];
+        var div = document.createElement('div');
+        div.setAttribute('id','inform-and-ask');
+        div.style.width= window.innerWidth+"px" ;
+        div.style.height= window.innerHeight+"px";
+        div.style.display= "none";
+        div.style.position= "fixed";
+        // Le code HTML de la demande de consentement
+        // Vous pouvez modifier le contenu ainsi que le style
+        div.innerHTML =  '<div style="width: 300px; background-color: white; repeat scroll 0% 0% white;\
+        border: 1px solid #cccccc; padding :10px 10px;text-align:center; position: fixed; top:30px; \
+        left:75%; margin-top:0px; margin-left:-150px; z-index:100000;" id="inform-and-consent">\
+        <div><span><b>Les cookies Google Analytics</b></span></div><br><div>Ce site utilise  des cookies\
+        de Google Analytics, ces cookies nous aident &agrave; identifier le contenu qui vous int&eacute;resse le plus\
+        ainsi qu\'&agrave;  rep&eacute;rer certains dysfonctionnements. Vos donn&eacute;es de navigations sur ce site sont\
+        envoy&eacute;es &agrave; Google Inc.</div><div style="padding :10px 10px;text-align:center;"><button\
+        style="margin-right:50px;text-decoration:underline;" name="Refuser" onclick="tagAnalyticsCNIL.CookieConsent.gaOptout();\
+        tagAnalyticsCNIL.CookieConsent.hideInform();" id="optout-button" >Refuser</button>\
+        <button style="text-decoration:underline;" name="cancel" onclick="tagAnalyticsCNIL.CookieConsent.hideInform()"\
+        >Accepter</button></div></div>';
+        // Ajoute la banniÃ¨re juste au dÃ©but de la page 
+        bodytag.insertBefore(div,bodytag.firstChild); 
+    }
+
+      
+
+    function isClickOnOptOut( evt) { 
+        // Si le noeud parent ou le noeud parent du parent est la banniÃ¨re, on ignore le clic
+        return(evt.target.parentNode.id == 'cookie-banner' || evt.target.parentNode.parentNode.id =='cookie-banner' 
+        || evt.target.id == 'optout-button')
+    }
+
+    function consent(evt) {
+        // On vÃ©rifie qu'il ne s'agit pas d'un clic sur la banniÃ¨re
+        if (!isClickOnOptOut(evt) ) { 
+            if ( !clickprocessed) {
+                evt.preventDefault();
+                document.cookie = 'hasConsent=true; '+ getCookieExpireDate() +' ; path=/'; 
+                callGoogleAnalytics();
+                clickprocessed = true;
+                window.setTimeout(function() {evt.target.click();}, 1000)
+            } 
+        }
+    }
+
+    
+    // Tag Google Analytics, cette version est avec le tag Universal Analytics
+    function callGoogleAnalytics() {
+        if (firstCall) return;
+        else firstCall = true;
+        
+        // InsÃƒÂ©rez votre tag Google Analytics ou Universal Analytics ici
+    }
+
+    return {
+        
+        // La fonction d'opt-out   
+         gaOptout: function() {
+            document.cookie = disableStr + '=true;'+ getCookieExpireDate() +' ; path=/';       
+            document.cookie = 'hasConsent=false;'+ getCookieExpireDate() +' ; path=/';
+            var div = document.getElementById('cookie-banner');
+            // Ci dessous le code de la banniÃƒÂ¨re affichÃƒÂ©e une fois que l'utilisateur s'est opposÃƒÂ© au dÃƒÂ©pot
+            // Vous pouvez modifier le contenu et le style
+            if ( div!= null ) div.innerHTML = '<div style="background-color:#fff;text-align:center;padding:5px;font-size:12px;\
+            border-bottom:1px solid #eeeeee;" id="cookie-message"> Vous vous &ecirc;tes oppos&eacute; au d&eacute;p&ocirc;t de cookies de mesures d\'audience\
+            dans votre navigateur </div>'
+            window[disableStr] = true;
+            clickprocessed = true;
+            deleteAnalyticsCookies();
+        },
+
+        
+         showInform: function() {
+            var div = document.getElementById("inform-and-ask");
+            div.style.display = "";
+        },
+          
+          
+         hideInform: function() {
+            var div = document.getElementById("inform-and-ask");
+            div.style.display = "none";
+            var div = document.getElementById("cookie-banner");
+            div.style.display = "none";
+        },
+        
+        
+        start: function() {
+            //Ce bout de code vÃƒÂ©rifie que le consentement n'a pas dÃƒÂ©jÃƒ  ÃƒÂ©tÃƒÂ© obtenu avant d'afficher
+            // la banniÃƒÂ¨re
+            var consentCookie =  getCookie('hasConsent');
+            clickprocessed = false; 
+            if (!consentCookie) {
+                //L'utilisateur n'a pas encore de cookie, on affiche la banniÃƒÂ©re. 
+                //Si il clique sur un autre ÃƒÂ©lÃƒÂ©ment que la banniÃƒÂ©re on enregistre le consentement
+                if ( notToTrack() ) { 
+                    //L'utilisateur a activÃƒÂ© DoNotTrack. Do not ask for consent and just opt him out
+                    tagAnalyticsCNIL.CookieConsent.gaOptout()
+                    alert("You've enabled DNT, we're respecting your choice")
+                } else {
+                    if (isToTrack() ) { 
+                        consent();
+                    } else {
+                        if (window.addEventListener) { 
+                          window.addEventListener("load", showBanner, false);
+                          document.addEventListener("click", consent, false);
+                        } else {
+                          window.attachEvent("onload", showBanner);
+                          document.attachEvent("onclick", consent);
+                        }
+                    }
+                }
+            } else {
+                if (document.cookie.indexOf('hasConsent=false') > -1) 
+                    window[disableStr] = true;
+                else 
+                    callGoogleAnalytics();
+            }
+        }
+    }
+
+}();
+
+tagAnalyticsCNIL.CookieConsent.start();
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-783191-3', 'auto');
+  ga('send', 'pageview');
+
+</script><div id="content">
+<link rel="stylesheet" type="text/css" media="all" href="css/chantons.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="css/jMenu.jquery.css"/>
+<link rel="icon" type="image/png" href="images/favicon2-chantons.png" />
+<!-- Font-Awesome CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div id="entete">
+	<div id="logo_new"><a href="index.php"><img src="images/entete/logo_new.gif" width="500" height="94" alt=""/></a></div>
+	<div id="recherche">
+		<form name="FormRecherche" id="FormRecherche">
+			<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+			<td valign="middle">
+			<input name="InputRecherche" type="text" id="InputRecherche" value="Saisissez ici le titre que vous cherchez" />			</td>
+				<td><a id="FormRechercheSubmit" class="btnRecherche">Je cherche un chant</a></td>
+			</tr>
+		  </table>
+	  </form>
+	</div>
+		<div id="panier-container">
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<div id="div-panier" class="box-user ">
+		<a class="box-user-button dropbtn" href="panier.php">Mon panier</a>
+	<div class="box-user-menu dropdown-content">
+		<div class="box-user-menu-total-panier">0,00 &euro;</div>
+		<a style="background-image: url('images/entete/picto-panier-modif-sm.png')" href="panier.php">Modifier mon panier</a>
+		<a style="background-image: url('images/entete/picto-panier-confirm-sm.png')" href="panier.php">Valider ma commande</a>
+	</div>		
+</div>		</div>
+		<div style="clear:both"></div>
+		<div id="div-client" class="box-user ">
+						<a class="box-user-button dropbtn" href="compte.php">Mon compte</a>			
+			<div class="box-user-menu dropdown-content">
+					
+				<a style="background-image: url('images/entete/picto-client-sm.png')" href="inscription.php">Modifier mes coordonnées</a>
+				<a style="background-image: url('images/entete/picto-panier-sm.png')" href="compte.php?onglet=commandes">Voir mes commandes<br>Télécharger mes fichiers</a>
+				<a style="background-image: url('images/entete/picto-credits-sm.png')" href="credit.php">Acheter des crédits</a>
+				<a class="logout" href="/index.php?logout=oui">Me déconnecter</a>				
+			</div>		
+		</div>
+</div>
+<div id="menu">
+	<div id="fond_menu">
+		<ul id="jMenu">
+			<li class="accueil"><a href="index.php">ACCUEIL</a></li>
+			<li class="messe"><a href="celebration.php">MESSE</a></li>
+			<li class="bapteme"><a href="celebration.php?celebration=bapteme">BAPTÊME</a></li>
+			<li class="mariage"><a href="celebration.php?celebration=mariage">MARIAGE</a></li>
+			<li class="funerailles"><a href="celebration.php?celebration=funerailles">FUNÉRAILLES</a></li>
+			<li class="selections"><a href="catalogue.php?onglet=selection">SÉLECTIONS</a></li>
+			<li class="repertoires">
+				<a class="fNiv">RÉPERTOIRES</a>
+				<ul><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=9#repertoire">Revue Chantons en Eglise</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=10#repertoire">Chants notés de l'assemblée (CNA)</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=24#repertoire">D'une même voix (DMV) - Canada</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=22#repertoire">Sélection annuelle du SNPLS</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=1#repertoire">Lourdes</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=14#repertoire">Sylvanès</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=2#repertoire">Taizé</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=12#repertoire">Caecilia</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=7#repertoire">Emmanuel</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=8#repertoire">Chemin Neuf</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=5#repertoire">Frat</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=6#repertoire">JMJ</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=4#repertoire">MEJ</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=3#repertoire">Scoutisme</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=20#repertoire">Avec des enfants</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=25#repertoire">Animation</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=21#repertoire">Chanson chrétienne</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=23#repertoire">Chant monastique</a></li><li class="repertoires"><a href="catalogue.php?onglet=recherche&recherche=oui&repertoire=26#repertoire">Jubilus Voix nouvelles Editions</a></li>	
+				</ul>			
+			</li>
+			<li class="aide"><a href="outils.php">BESOIN D'AIDE ?</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="http://www.digit-image.fr/framework/jMenu-1.6/jMenu.jquery.js"></script>
+<script type="text/JavaScript">
+jQuery(document).ready(function($) {
+
+	/*champ recherche*/
+	var InputRechercheInitial = 'Saisissez ici le titre que vous cherchez';
+	$('#InputRecherche')
+		.focusin(function(){
+			if($(this).val()==InputRechercheInitial) {$(this).val('');}
+			$(this).css('color','#000000');
+		})
+		.focusout(function(){
+			if($(this).val()=='') {
+				$(this).val(InputRechercheInitial);
+				$(this).css('color','#b3b3b3');
+			}			
+		});	
+	if($('#InputRecherche').val()!=InputRechercheInitial) {$('#InputRecherche').css('color','#000000');}
+	$('#FormRechercheSubmit').click(function() {
+		$('#FormRecherche').submit();
+	});
+	$('#FormRecherche').submit(function() {
+		if($('#InputRecherche').val()!=InputRechercheInitial) {
+			var titre = $('#InputRecherche').val();
+			location.href="catalogue.php?recherche=oui&titre="+titre+"#moteur";
+		} else {
+			location.href="catalogue.php";
+		}
+		return false;
+	});
+	/*menu horizontal*/
+	$("#jMenu").jMenu({
+      ulWidth : '220',
+      effects : {
+        effectSpeedOpen : 200,
+        effectSpeedClose : 50,
+        effectTypeOpen : 'slide',
+        effectTypeClose : 'slide',
+        effectOpen : 'linear',
+        effectClose : 'linear'
+      },
+      TimeBeforeOpening : 100,
+      TimeBeforeClosing : 100,
+      animatedText : false,
+      paddingLeft: 1
+    });
+});
+
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script><div id="infos-abonnement-message" title="Abonnement avec CD : Comment télécharger mes partitions ?">
+	<iframe src="http://docs.google.com/gview?url=http://www.chantonseneglise.fr/PDF_explication_telechargement_CD.pdf&embedded=true" 
+	style="width:580px; height:1000px;" frameborder="0"></iframe>
+</div>    
+<div id="problemes-abonnement-message" title="Des difficultés avec mon abonnement ?">
+	<h2 class="gras rouge">Difficult&eacute;s ?</h2>
+	<p style="font-size:1.2em">Si vous rencontrez encore des difficult&eacute;s avec votre abonnement &agrave; la revue,<br />
+	veuillez contacter le service client : </p>
+	<ul style="font-size:1.5em">
+		<li>Par mail : <a href="mailto:service.client@bayard-presse.com">service.client@bayard-presse.com</a></li>
+		<li>Par téléphone : <span class="gras rouge">01 74 31 15 01</span></li>
+	</ul>
+</div>
+<div class="accueil-colgauche">
+<div class="accueil-titre-prochaines-celebrations">Pr&eacute;parer les prochaines c&eacute;l&eacute;brations</div><div class="accueil-statique"><h3 style="margin:10px 0" class="gras rouge">Préparer la messe</h3><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=207&suggestion=2">Dimanche 18 mars 2018 - 5ème dimanche de Carême</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=213&suggestion=2">Dimanche 25 mars 2018 - Dimanche des  Rameaux et de la Passion</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=341&suggestion=2">Jeudi 29 mars 2018 - Jeudi saint</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=277&suggestion=2">Vendredi 30 mars 2018 - Vendredi saint</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=395&suggestion=2">Samedi 31 mars 2018 - Veillée pascale</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=279&suggestion=2">Dimanche 1er avril 2018 - Jour de Pâques</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=218&suggestion=2">Dimanche 8 avril 2018 - Divine miséricorde (2ème dimanche de Pâques)</a></div><div class="prochain-dimanche"><a href="celebration.php?recherche=possible&etape=1&celebration=dimanche&calendrier=219&suggestion=2">Dimanche 15 avril 2018 - 3ème dimanche de Pâques</a></div><h3 style="margin:20px 0 0 0" class="gras rouge">Psaume du 17 mars 2018<a class="btnEcouterPsaumeDuJour" style="margin-left:20px" href="http://www.adf-bayardmusique.com/cdj/psa/" target="_blank">Ecouter</a></h3><h3 style="margin:0">« Samedi de la 4e semaine de Carême (Psaume 7, Acclamation de l'Évangile) »</h3><a class="bouton" href="chant.php?chant=21442">Découvrir ce chant</a></div><div class="accueil-titre">Actualit&eacute;</div><div class="accueil-statique"><h2 class="gras rouge">En chemin vers Pâques !</h2><div><p><b><img height="197" align="left" width="146" alt="" style="margin: 0px 10px 10px 0px;" src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/DesertArgilecareme.jpg" /></b><b>Sur le chemin qui conduit vers P&acirc;ques<br />
+</b></p>
+<p>Nous avons pris la route du Car&ecirc;me. C'est un temps pour laisser le Seigneur entrer dans nos vies. C'est un temps pour cheminer dans la foi et pour mieux d&eacute;couvrir notre vocation de baptis&eacute;s.</p>
+<p>Depuis toujours les p&egrave;lerins ont rythm&eacute; leur d&eacute;marche avec des chants. C'est pourquoi, nous aussi, baptis&eacute;s, p&egrave;lerins en marche vers P&acirc;ques, nous avons &agrave; c&oelig;ur de chanter l'amour et la mis&eacute;ricorde du Seigneur.</p>
+<p><b>Des suggestions pour le Car&ecirc;me</b></p>
+<p>Au fil du Car&ecirc;me, venez r&eacute;guli&egrave;rement sur Chantons en &Eacute;glise nous vous proposerons une suggestion plus g&eacute;n&eacute;rale de chants pour le Car&ecirc;me mais aussi des suggestions plus particuli&egrave;res pour les&nbsp; temps forts.<b><br />
+</b></p>
+<p><a href="http://www.chantonseneglise.fr/catalogue.php?selection=7"><b>Une s&eacute;lection de chants pour le mercredi des Cendres</b></a></p>
+<p><b><a href="http://www.chantonseneglise.fr/catalogue.php?selection=51">Une s&eacute;lection de chants pour le Car&ecirc;me 2018</a></b></p>
+<p><a href="http://chantonseneglise.fr/catalogue.php?selection=5"><b>Chants pour le 5e dimanche du Car&ecirc;me (journ&eacute;e CCFD)</b></a></p>
+<p>Le Car&ecirc;me est un temps privil&eacute;gi&eacute; pour suivre le Christ et s'ouvrir &agrave; la mis&eacute;ricorde du P&egrave;re. Pour vos c&eacute;l&eacute;brations, retrouvez une s&eacute;lection d'une cinquantaine de chants de mis&eacute;ricorde et de r&eacute;conciliation.</p>
+<p><a href="http://www.chantonseneglise.fr/catalogue.php?selection=113"><b>Chants de mis&eacute;ricorde et de r&eacute;conciliation</b></a></p>
+<p><a href="http://chantonseneglise.fr/catalogue.php?selection=8"><b>Chants pour le Jeudi saint</b></a></p>
+<p><a href="http://chantonseneglise.fr/catalogue.php?selection=9"><b>Chants pour le Vendredi saint</b><br />
+</a></p>
+<p><b><a href="http://chantonseneglise.fr/catalogue.php?selection=10">Chants pour la Veill&eacute;e pascale et pour P&acirc;ques</a></b></p>
+<p>Toute l'&eacute;quipe de Chantons en &Eacute;glise vous souhaite un bon chemin vers P&acirc;ques.</p>
+<p>&nbsp;</p>
+<p><b>&nbsp;Erreur sur le CD 103 et 105 (psaumes)</b><b><br />
+</b></p>
+<p>Par erreur de notre part, les enregistrements des psaumes du CD 103 et 105 (correspondant aux plages 14 &agrave; 23 ) reprennent des versions de l'ancien lectionnaire. Les partitions sur le PDF sont les bonnes versions (celles du nouveau lectionnaire). Les personnes abonn&eacute;es au CD qui souhaitent r&eacute;cup&eacute;rer les bons enregistrements peuvent le faire avec le lien suivant :</p>
+<p><a href="http://ftp.adfmusique.net/CDS103Psaumes"><b>Psaumes du CD Chantons 103.</b></a></p>
+<p><b><a href="http://ftp.adfmusique.net/CDS105Psaumes">Psaumes du CD 105</a>&nbsp;</b></p>
+<p>En priant nos abonn&eacute;s de bien vouloir nous excuser pour cette erreur.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div><div style="clear:both"></div></div><div class="accueil-titre">Chant de la semaine</div><div class="accueil-statique"><h3 class="gras rouge">Ô Seigneur d’amour immense (Z50-15)</h3><div style="font-weight:bold">Bernard/Viau/Bayard</div><div style="margin-top:10px">Chant après la Parole (Cendres, 1er dim. de Carême A, le 5ème dim. de Carême B et le 24ème dimanche du Temps ordinaire). Célébrations pénitentielles…</div><div style="margin:10px 0 10px 0"><div><a href="chant.php?chant=20501">Articles disponibles pour ce chant : paroles, 1 partition</a></div></div><div style="float:right"><a class="bouton" href="chant.php?chant=20501"> D&eacute;couvrir ce chant</a></div><div style="clear:both"></div></div><div class="accueil-titre">Toujours dans l'actu</div><div class="accueil-statique"><h3 style="margin:0" class="gras rouge">Psaumes avec les nouvelles antienne - Année B</h3><div id="actu_215" class="accueil-actu-contenu"><p style="text-align: justify;"><b>Des psaumes pour la nouvelle ann&eacute;e liturgique</b></p>
+<p style="text-align: justify;">D&eacute;couvrez nos diff&eacute;rentes propositions de psaumes avec les antiennes des nouveaux lectionnaires (partitions polyphoniques et enregistrements).</p>
+<p style="text-align: justify;"><b>Pour les dimanches et f&ecirc;tes de l'ann&eacute;e B</b></p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/PsaumesAWack.jpg" width="70" height="70" vspace="5" hspace="5" align="left" alt="Les psaumes de wackenheim" /></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&bull; <a href="http://www.chantonseneglise.fr/album.php?album=845">Les psaumes des dimanches et f&ecirc;tes de l'ann&eacute;e B compos&eacute;s par Michel Wackenheim</a></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;&nbsp;</p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/PsaumesAGouzes.jpg" width="70" height="70" vspace="5" hspace="5" align="left" alt="" /></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&bull;&nbsp;<a href="http://www.chantonseneglise.fr/album.php?album=654">Les psaumes des dimanches et f&ecirc;tes de l'ann&eacute;e B compos&eacute;s par Andr&eacute; Gouzes</a></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp; &nbsp;</p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/PsaumesPrevidis.jpg" width="70" height="70" vspace="5" hspace="5" align="left" alt="" /></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&bull;&nbsp;<a href="http://www.chantonseneglise.fr/album.php?album=846">Les psaumes des dimanches et f&ecirc;tes de l'ann&eacute;e B compos&eacute;s par Grazia Previdis</a></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp; &nbsp;</p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/PsaumesLecot.jpg" width="70" height="70" vspace="5" hspace="5" align="left" alt="Psaume annee B - Jean Paul Lecot" /></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&bull;&nbsp;<a href="http://www.chantonseneglise.fr/album.php?album=848">Les psaumes des dimanches et f&ecirc;tes de l'ann&eacute;e B compos&eacute;s par Jean Paul Lecot</a></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp; &nbsp;&nbsp;</p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/NouvellesAntiennes.jpg" width="70" height="69" vspace="5" hspace="5" align="left" alt="Nouvelles Antiennes Annee B Groslambert" /></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&bull;&nbsp;<a href="http://www.chantonseneglise.fr/album.php?album=847">les nouvelles antiennes pour les dimanches et f&ecirc;tes ann&eacute;e B compos&eacute;es par Louis Groslambert</a></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><b>Pour les messe de semaine</b></p>
+<p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/301403_150.jpg" width="70" height="60" vspace="5" hspace="5" align="left" alt="" /><b>Les psaumes et acclamations des messes de semaine</b>&nbsp;mis en musique sous la direction de Jean-Paul L&eacute;cot.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<ul>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=707">Volume 1, les grands temps liturgiques : Avent, No&euml;l, Car&ecirc;me et Temps pascal</a></li>
+</ul>
+<ul>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=724">Volume 2, le temps ordinaire ann&eacute;e paire</a></li>
+</ul>
+<ul>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=748">Volume 3, le temps ordinaire ann&eacute;e impaire</a></li>
+</ul>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><a href="http://www.prionseneglise.fr/"><img width="130" vspace="5" hspace="0" height="32" alt="Prions en eglise" src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/PEEtrsp.png" /></a></p>
+<p style="text-align: justify;"><span class="Apple-style-span" style="font-family: Arial;"><b>Prions en &Eacute;glise</b> publie les psaumes pour les dimanches et f&ecirc;tes (nouvelles antiennes) compos&eacute;s par Andr&eacute; Gouzes et Michel Wackenheim.</span></p></div><div style="clear:both"></div></div><div class="accueil-statique dotted"><div id="actu_144" class="accueil-actu-contenu"><p><img style="margin-top:30px" src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Chantons-en-eglise-Collection2(1).png" width="236" height="60" alt="Collection Chantons en Eglise" /></p>
+<p style="text-align: justify;">La collection Chantons en &Eacute;glise , est une collection de CD de chants pour la liturgie. Dans chaque CD 22 chants correspondants &agrave; une th&eacute;matique particuli&egrave;re : 22 chants pour le bapt&ecirc;me, le mariage, la communion, &nbsp;pour prier avec Marie&hellip;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p><b style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Chantons-en-eglise-CD.png" alt="Chantons en Eglise - Mariage - Fun&eacute;raille" width="148" height="90" vspace="5" hspace="5" align="left" /></b></p>
+<p style="text-align: justify;">Les liturgies qui font le c&oelig;ur de la vie de nos paroisses sont port&eacute;es par le chant. La nouvelle collection Chantons en &Eacute;glise est un outil pour tous ceux qui pr&eacute;parent les diff&eacute;rentes c&eacute;l&eacute;brations qui rythment la vie de nos communaut&eacute;s. Elle propose une s&eacute;lection renouvel&eacute;e du r&eacute;pertoire avec des chants de styles et de compositeurs divers, puis&eacute;s aux fonds du site Chantons en &Eacute;glise et de Signes Musiques.</p>
+<p style="text-align: justify;"><b>D&eacute;j&agrave; parus</b> :</p>
+<ul>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=651">22 chants pour le mariage</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=652">22 chants pour les fun&eacute;railles</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=674">20 chants pour la communion</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=673">22 chants pour le bapt&ecirc;me</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=676">22 chants pour l'entr&eacute;e</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=683">22 chants pour l'envoi</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=709">22 chants de mis&eacute;ricorde et de r&eacute;conciliation</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=728">Laudato si - 21 chants pour la cr&eacute;ation</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=733">22 chants pour prier avec Marie</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=746">50 chants pour prier avec St Fran&ccedil;ois</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=749">24 chants pour les temps de l'Avent et de No&euml;l</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=756">43 chants pour le Car&ecirc;me et le Temps Pascal</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=837">chants de p&egrave;lerinage - Rome et Assise</a></li>
+    <li><a href="http://www.chantonseneglise.fr/album.php?album=838">chants de p&egrave;lerinage - Terre Sainte</a></li>
+    <p>&nbsp;</p>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div><div style="clear:both"></div></div></div>
+<div class="accueil-coldroite">
+<div class="accueil-titre-revue">Chantons en Eglise - La Revue</div><div style="margin-top:1.5em;margin-bottom:0.5em"><a href="https://librairie-prions.com/abonnements/chantons-en-eglise/chantons-en-eglise-standard.html" target="_blank"><i class="fa fa-plus-circle fa-lg"></i><span style="padding-left:0.7em">Découvrir la revue / s’abonner à la revue</span></a></div><div class="accueil-revue "><a href="catalogue.php?revue=166"><img class="img" src="images/cdsignes/166-100x145.jpg" class="cdsignes_entete"></a><a href="catalogue.php?revue=166"><h3 class="gras rouge">n°164 - 2018 Pentec&ocirc;te B  <span class="nowrap">(CD 106)</span></h3></a><div id="revue_166" class="accueil-revue-resume">Retrouvez les chants publiés dans la revue Chantons en Eglise <span class="nowrap">n°164</span> et les partitions du <span class="nowrap">CD 106</span></div><div class="accueil-revue-lien"><a class="bouton" href="catalogue.php?revue=166">Télécharger les partitions du <span class="nowrap">CD 106</span></a></div><div style="clear:both"></div></div><div class="accueil-revue small"><a href="catalogue.php?revue=163"><img class="img" src="images/cdsignes/163-100x145.jpg" class="cdsignes_entete"></a><a href="catalogue.php?revue=163"><h3 class="gras ">n°163 - 2018 P&acirc;ques B  <span class="nowrap">(CD 105)</span></h3></a><div id="revue_163" class="accueil-revue-resume">Retrouvez les chants publiés dans la revue Chantons en Eglise <span class="nowrap">n°163</span> et les partitions du <span class="nowrap">CD 105</span></div><div class="accueil-revue-lien"><a class="bouton" href="catalogue.php?revue=163">Télécharger les partitions du <span class="nowrap">CD 105</span></a></div><div style="clear:both"></div></div><div class="accueil-revue small"><a href="catalogue.php?revue=162"><img class="img" src="images/cdsignes/162-100x145.jpg" class="cdsignes_entete"></a><a href="catalogue.php?revue=162"><h3 class="gras ">n°162 - 2018 Car&ecirc;me B  <span class="nowrap">(CD 104)</span></h3></a><div id="revue_162" class="accueil-revue-resume">Retrouvez les chants publiés dans la revue Chantons en Eglise <span class="nowrap">n°162</span> et les partitions du <span class="nowrap">CD 104</span></div><div class="accueil-revue-lien"><a class="bouton" href="catalogue.php?revue=162">Télécharger les partitions du <span class="nowrap">CD 104</span></a></div><div style="clear:both"></div></div><div style="margin-bottom:0.5em"><a href="PDF_explication_telechargement_CD.pdf" target="_blank" id="infos-abonnement-bouton-old"><i class="fa fa-plus-circle fa-lg"></i><span style="padding-left:0.7em">Abonnement avec CD : Comment télécharger mes partitions ?</span></a></div><div><a href="#" id="problemes-abonnement-bouton"><i class="fa fa-plus-circle fa-lg"></i><span style="padding-left:0.7em">Des difficultés avec mon abonnement ?</span></a></div><div class="news"><div class="accueil-titre-nouveau">Nouveau sur le site</div><div class="accueil-actu"><h3 class="gras">Lourdes : Chants 2018</h3><div id="actu_220" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/lourdes-chants-2018-pour-la-messe-jean-paul-lecot.jpg" alt="Lourdes : Chants 2018 pour la messe &ldquo;Faites tout ce qu&rsquo;Il vous dira !&rdquo;" width="90" height="89" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /></p>
+<p style="text-align: justify;"><b><i>Lourdes : Chants 2018 pour la messe &quot;Faites tout ce qu&rsquo;Il vous dira !&quot;</i></b></p>
+<p style="text-align: justify;">Ce CD reprend les chants principaux choisis pour la messe du th&egrave;me pastoral de Lourdes 2018.</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Noël Colombier - Je crois en Dieu qui chante</h3><div id="actu_219" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Ncolombier.jpg" alt="Noel Colombier - Je crois en Dieu qui chante" width="90" height="90" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" />Retrouvez dans cet album les plus belles chansons de <b>No&euml;l Colombier</b>.</p>
+<p style="text-align: justify;">Je crois en Dieu qui chante, L&rsquo;amour (Toi qui aimes), Tu es le Dieu des grands espaces, L&rsquo;eau...</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Comme une étoile, Marie</h3><div id="actu_211" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Comme%20une%20etoile%20marie%20150.jpg" alt="Comme une &eacute;toile Marie" width="90" height="89" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /><i>Deux entit&eacute;s d&rsquo;artistes, chanteurs en &Eacute;glise reconnus, s&rsquo;unissent pour un m&ecirc;me projet d&rsquo;album.</i></p>
+<p style="text-align: justify;"><b>Patrick Richard</b>, <b>C&eacute;cile et Jean-No&euml;l Klinguer</b> parcourent la France et la francophonie depuis plus de trente ans. Leurs pas les am&egrave;nent r&eacute;guli&egrave;rement dans des sanctuaires mariaux qui imposent un r&eacute;pertoire de chants de d&eacute;votion adapt&eacute;s.</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Ta Parole, ô ma joie</h3><div id="actu_210" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Soeur%20Agathe%20Ta%20parole%20o%20ma%20joie.jpg" alt="Soeur Agathe - Ta parole O ma joie" width="90" height="89" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /></p>
+<p style="text-align: justify;"><i>Le nouvel album de </i><b><i>s&oelig;ur Agathe</i></b></p>
+<p style="text-align: justify;"><b>S&oelig;ur Agathe chante la Bible</b> : des m&eacute;lodies qui impr&egrave;gnent le c&oelig;ur, des paroles qui nourrissent l&rsquo;&acirc;me.</p>
+<p style="text-align: justify;">Une tr&egrave;s belle s&eacute;lection de passages des &Eacute;critures mis en musique d&rsquo;une mani&egrave;re dr&ocirc;le et humble qui honore &agrave; la fois le caract&egrave;re sacr&eacute; mais aussi l&rsquo;accessibilit&eacute; de la Parole de Dieu. Une fa&ccedil;on rafra&icirc;chissante de d&eacute;couvrir l&rsquo;Ancien et le Nouveau Testaments. Un album qui parle &agrave; tous et apporte de la joie dans les c&oelig;urs de tout &acirc;ge.</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Au coeur du monde</h3><div id="actu_206" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Fantino%20Au%20coeur%20du%20monde.jpg" alt="Hugues Fantino - Au coeur du monde" width="90" height="89" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /><b><i>Hugues Fantino</i></b><i> nous revient avec&nbsp;</i><i>13 nouvelles chansons et la messe </i><b><i>&laquo; Au c&oelig;ur du monde &raquo;.</i></b><i><br />
+</i></p>
+<p style="text-align: justify;">Rajeunissons notre foi !</p>
+<p style="text-align: justify;">Cette foi re&ccedil;ue de l'&Eacute;glise, qui s'est transmise de g&eacute;n&eacute;ration en g&eacute;n&eacute;ration, gardons-l&agrave; avec grand soin, car sous l'action de l'Esprit Saint, tel un parfum de tr&egrave;s grand prix, au creux d'un vase comme un &eacute;crin, elle rajeunit et fait rajeunir le vase m&ecirc;me qui la contient (saint Ir&eacute;n&eacute;e de Lyon).</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Chants de Pèlerinage - Terre Sainte</h3><div id="actu_209" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Chantons%20en%20Eglise%20pelerinage%20terre%20sainte.jpg" alt="Chantons en Eglise - P&egrave;lerinage en Terre Sainte" width="90" height="89" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" />Dans la collection <b>Chantons en Eglise,</b> 40 chants pour les p&eacute;lerinages en <b>Terre Sainte</b></p>
+<p style="text-align: justify;">Quelle que soit la destination, tant dans le juda&iuml;sme que dans le christianisme, on n&rsquo;imagine pas un p&egrave;lerinage sans psaumes ni cantiques. Le chant fait partie de la m&eacute;moire du p&egrave;lerinage : c&rsquo;est un moyen pour le croyant de vivre cette exp&eacute;rience spirituelle sur place et d&rsquo;en garder le souvenir une fois rentr&eacute; chez lui. Avec ce CD, la collection Chantons en &Eacute;glise poursuit sa nouvelle s&eacute;rie consacr&eacute;e aux chants de p&egrave;lerinage.</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Chants de Pèlerinage - Rome et Assise</h3><div id="actu_208" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Chant%20pelerinage%20rome%20assise.jpg" alt="Chants de P&eacute;lerinage Rome et Assise" width="90" height="90" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /><i>Dans la collection <b>Chantons en Eglise</b>, 40 chants pour les p&eacute;lerinages &agrave; <b>Rome et Assise</b>.</i></p>
+<p style="text-align: justify;">Avec ce CD, la collection Chantons en &Eacute;glise ouvre une nouvelle s&eacute;rie consacr&eacute;e aux chants de p&egrave;lerinage.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div><div class="accueil-actu dotted"><h3 class="gras">Chefs d'Oeuvres Grégoriens</h3><div id="actu_207" class="accueil-actu-contenu"><p style="text-align: justify;"><img src="http://www.chantonseneglise.fr/FCKeditor/userfiles/image/Chefs%20d%20oeuvres%20gergoriens.jpg" alt="Chefs d oeuvres gregoriens" width="90" height="81" align="left" style="text-align: justify; margin-right: 10px;" vspace="5" hspace="5" /><i>Les plus belles pi&egrave;ces du chant&nbsp; gr&eacute;gorien</i></p>
+<p style="text-align: justify;">Ce double CD propose une s&eacute;lection des plus belles pi&egrave;ces gr&eacute;goriennes chant&eacute;es lors des offices, que ce soit dans les communaut&eacute;s religieuses ou les paroisses. L&rsquo;auditeur pourra ici se plonger dans le chant premier de l&rsquo;&Eacute;glise, depuis les origines jusqu&rsquo;&agrave; nos jours. Dans cet enregistrement, comme dans la r&eacute;alit&eacute; de l&rsquo;&Eacute;glise, les pi&egrave;ces sont interpr&eacute;t&eacute;es par des moines, des moniales, des scholas ou des ma&icirc;trises.</p>
+<p style="text-align: justify;"><span class="voirplus"><a href="javascript:;">Lire la suite</a>...</span></div><div style="clear:both"></div></div></div></div>
+<script language="JavaScript">
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+<div id="footer"><a href="celebration.php">Messe</a> | <a href="celebration.php?celebration=bapteme">Baptême</a> | <a href="celebration.php?celebration=mariage">Mariage</a> | <a href="celebration.php?celebration=funerailles">Funérailles</a> | <a href="catalogue.php">Rechercher un chant</a> | <a href="compte.php">Mon compte</a> | <a href="cgv.php">Conditions g&eacute;n&eacute;rales de vente</a> | <a href="qui-sommes-nous.php#contact">Nous contacter</a>  | <a href="javascript:void(0)" onclick="MM_openBrWindow('legal.html','winlegal','width=350,height=400')">Infos l&eacute;gales</a></div>
+<div id="copyright">
+	<span style="float:left">&copy; Tous droits r&eacute;serv&eacute;s Chantons en Eglise 2018 - Un site <a href="http://www.adf-bayardmusique.com">ADF-BAYARD MUSIQUE</a></span>
+	<span style="float:right">Conception et réalisation : <a href="http://www.digit-image.fr" target="_blank">www.digit-image.fr</a></span>
+</div>
+<script type="text/javascript" src="SitesBayard3_chantonsEglise.js"></script>
+<script class="kxct" data-id="KWDdmKuT" data-timing="async" data-version="1.9" type="text/javascript" src="Krux_chantonsEglise.js"></script>
+</div>
+</body>
+</html>

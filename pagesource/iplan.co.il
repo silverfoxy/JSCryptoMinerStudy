@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://iplan.co.il/he-IL">redirected</a>.</body></html>

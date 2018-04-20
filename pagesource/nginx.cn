@@ -1,0 +1,1019 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<meta name="description" content="分享nginx中文资料的网站，从nginx入门安装到配置到优化，如nginx的rewrite、反向代理、负载均衡、缓存等配置，也会看到我业余时间研究PHP、Linux、数据库、Android、iOS开发遇到的有趣问题和经验总结。" />
+<link rel="shortcut icon" href="favicon.ico" />
+<title>运维与架构 - nginx.cn</title>
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - 所有文章" href="http://www.nginx.cn/feed" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - 所有评论" href="http://www.nginx.cn/comments/feed" />
+<link rel="pingback" href="http://www.nginx.cn/xmlrpc.php" />
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+	<!-- style START -->
+	<!-- default style -->
+	<style type="text/css" media="screen">@import url( http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/style.css );</style>
+	<!-- for translations -->
+			<link rel="stylesheet" href="http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/chinese.css" type="text/css" media="screen" />
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!-- style END -->
+
+	<!-- script START -->
+	<script type="text/javascript" src="http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/js/base.js"></script>
+	
+	<script type="text/javascript" src="http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/js/menu.js"></script>
+	<!-- script END -->
+
+	<link rel='stylesheet' id='crayon-css'  href='http://www.nginx.cn/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='http://www.nginx.cn/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='http://www.nginx.cn/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.nginx.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://www.nginx.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.nginx.cn\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.nginx.cn/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<link rel='https://api.w.org/' href='http://www.nginx.cn/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.nginx.cn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.nginx.cn/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.4" />
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		
+</head>
+
+
+<body>
+<!-- wrap START -->
+<div id="wrap">
+
+<!-- container START -->
+<div id="container"  >
+
+<!-- header START -->
+<div id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption">
+		<h1 id="title"><a href="http://www.nginx.cn/">运维与架构 - nginx.cn</a></h1>
+		<div id="tagline">好的架构减少运维，好的运维反哺架构</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+<!-- navigation START -->
+<div id="navigation">
+	<!-- menus START -->
+	<ul id="menus">
+	    <li class="current_page_item"><a class="home" title="首页" href="http://www.nginx.cn/">首页</a></li>
+		<li class="page_item page-item-9"><a href="http://www.nginx.cn/nginx-download">nginx最新版下载</a></li>
+<li class="page_item page-item-55"><a href="http://www.nginx.cn/install">Nginx安装</a></li>
+<li class="page_item page-item-55"><a href="http://www.nginx.cn/76.html">Nginx配置</a></li>
+<li class="page_item page-item-55"><a href="http://www.nginx.cn/231.html">PHP-FPM安装配置</a></li>
+<li class="page_item page-item-353"><a href="http://www.nginx.cn/nginx-how-to">nginx中文手册</a></li>
+<li class="page_item page-item-43"><a href="http://www.nginx.cn/nginxchscommandline">运行和控制Nginx</a></li>
+<li class="page_item page-item-620"><a href="http://www.nginx.cn/manual" title="常用运维手册">在线手册</a></li>
+<li class="page_item page-item-55"><a href="http://www.nginx.cn/links" title="好站推荐">友情链接</a></li>
+<li class="page_item page-item-620"><a href="http://www.nginx.cn/about">关于我</a></li>
+		<li><a class="lastmenu" href="javascript:void(0);"></a></li>
+
+	</ul>
+	<!-- menus END -->
+
+
+
+	<div class="fixed"></div>
+</div>
+<!-- navigation END -->
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+	<div class="post" id="post-4758">
+		<h2><a class="title" href="http://www.nginx.cn/4758.html" rel="bookmark">ModuleNotFoundError: No module named 'win32com'</a></h2>
+		<div class="info">
+			<span class="date">2018年1月19日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4758.html#comments">4 条评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>python 中的win32com包 </p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ebef3392032132" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+pip install pypiwin32</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ebef3392032132-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ebef3392032132-1"><span class="crayon-e">pip </span><span class="crayon-e">install </span><span class="crayon-v">pypiwin32</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<p>python解决ModuleNotFoundError: No module named 'win32api'</p>
+<p>安装完pypiwin32报找不到win32api，需要重启动解释器</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/program/python" rel="category tag">python</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+	<div class="post" id="post-4723">
+		<h2><a class="title" href="http://www.nginx.cn/4723.html" rel="bookmark">如何在ubuntu 16.04 上安装Nginx</a></h2>
+		<div class="info">
+			<span class="date">2017年12月9日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4723.html#comments">2 条评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<h3 class="container tutorial-header">概述</h3>
+<p>Nginx 是世界上最受欢迎的web服务器，许多大流量的主机都采用Nginx作为服务器。在大多数场景下作为web服务器的Nginx比Apache更加节省资源，它也可当作反向代理服务器。</p>
+<p>本文主要介绍如何在ubuntu16.04上安装Nginx</p>
+<h2 id="prerequisites">前提条件</h2>
+<p>开始以前，你需要有一个安装好的ubuntu16.04，并且你需要有一个拥有sudo权限的非root普通用户。</p>
+<h2 id="step-1-install-nginx">第一步：安装Nginx</h2>
+<p>Ubuntu默认的源中就有Nginx，所以安装是比较简单的。</p>
+<p>首先，更新apt源，以便软件是最新的，然后就可以安装nginx:</p>
+<ul>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install nginx</li>
+</ul>
+<p>执行这两个命令之后，apt-get就会安装好Nginx和它依赖的软件。</p>
+<h2 id="step-2-adjust-the-firewall">第二步：配置防火墙</h2>
+<p>开始测试Nginx前，我们需要配置防火墙，以便允许外界访问nginx服务。Nginx在安装的时候使用ufw注册自己作为一个服务，这样对nginx的访问就会变得很容易。</p>
+<p>显示所有ufw应用的配置：</p>
+<p>sudo ufw app list</p>
+<p>你可以得到一个配置的输出列表：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec545540403387" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+Available applications:
+  Nginx Full
+  Nginx HTTP
+  Nginx HTTPS
+  OpenSSH
+</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec545540403387-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec545540403387-2">2</div><div class="crayon-num" data-line="crayon-5aae86c9ec545540403387-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec545540403387-4">4</div><div class="crayon-num" data-line="crayon-5aae86c9ec545540403387-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec545540403387-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec545540403387-1"><span class="crayon-e">Available </span><span class="crayon-v">applications</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec545540403387-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">Nginx </span><span class="crayon-e">Full</span></div><div class="crayon-line" id="crayon-5aae86c9ec545540403387-3"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-e">Nginx </span><span class="crayon-e">HTTP</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec545540403387-4"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-e">Nginx </span><span class="crayon-e">HTTPS</span></div><div class="crayon-line" id="crayon-5aae86c9ec545540403387-5"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-i">OpenSSH</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec545540403387-6">&nbsp;</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>我们可以看到，有三个Nginx的配置：</p>
+<ul>
+<li><strong>Nginx Full</strong>: 这个配置打开 80端口和443端口</li>
+<li><strong>Nginx HTTP</strong>: 这个配置只打开80 (普通, 未加密通信)</li>
+<li><strong>Nginx HTTPS</strong>: 这个配置只打开 443 (TLS/SSL 加密通信 )</li>
+</ul>
+<p>一般来说我们应该配置最严的限制，因为本文我们还没有配置SSL，所以我们只打开80端口。</p>
+<p>我们执行：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec550802938426" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo ufw allow 'Nginx HTTP'</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec550802938426-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec550802938426-1"><span class="crayon-e">sudo </span><span class="crayon-e">ufw </span><span class="crayon-i">allow</span><span class="crayon-h"> </span><span class="crayon-s">'Nginx HTTP'</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>验证修改状态:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec555428670512" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo ufw status</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec555428670512-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec555428670512-1"><span class="crayon-e">sudo </span><span class="crayon-e">ufw </span><span class="crayon-v">status</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>我们可以看到HTTP是被打开的：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec559575554522" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere                  
+Nginx HTTP                 ALLOW       Anywhere                  
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
+Nginx HTTP (v6)            ALLOW       Anywhere (v6)
+</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec559575554522-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec559575554522-2">2</div><div class="crayon-num" data-line="crayon-5aae86c9ec559575554522-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec559575554522-4">4</div><div class="crayon-num" data-line="crayon-5aae86c9ec559575554522-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec559575554522-6">6</div><div class="crayon-num" data-line="crayon-5aae86c9ec559575554522-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec559575554522-8">8</div><div class="crayon-num" data-line="crayon-5aae86c9ec559575554522-9">9</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec559575554522-1"><span class="crayon-v">Status</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">active</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec559575554522-2">&nbsp;</div><div class="crayon-line" id="crayon-5aae86c9ec559575554522-3"><span class="crayon-st">To</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">From</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec559575554522-4"><span class="crayon-o">--</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">--</span><span class="crayon-o">--</span></div><div class="crayon-line" id="crayon-5aae86c9ec559575554522-5"><span class="crayon-e">OpenSSH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ALLOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">Anywhere&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec559575554522-6"><span class="crayon-e">Nginx </span><span class="crayon-e">HTTP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">ALLOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">Anywhere&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5aae86c9ec559575554522-7"><span class="crayon-e">OpenSSH</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">v6</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">ALLOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">Anywhere</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">v6</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec559575554522-8"><span class="crayon-e">Nginx </span><span class="crayon-e">HTTP</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">v6</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ALLOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">Anywhere</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">v6</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5aae86c9ec559575554522-9">&nbsp;</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<h2 id="step-3-check-your-web-server">第三步: 检查你的web server</h2>
+<p>安装完成后，Ubuntu 16.04 会自动启动 Nginx. 我们可以使用<code>systemd</code> 检查运行状态:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec55d997230543" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+systemctl status nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec55d997230543-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec55d997230543-1"><span class="crayon-e">systemctl </span><span class="crayon-e">status </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<div class="secondary-code-label " title="Output">输出</div>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec562221683238" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: &lt;span class="highlight"&gt;active (running)&lt;/span&gt; since Mon 2016-04-18 16:14:00 EDT; 4min 2s ago
+ Main PID: 12857 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─12857 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
+           └─12858 nginx: worker process
+</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec562221683238-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec562221683238-2">2</div><div class="crayon-num" data-line="crayon-5aae86c9ec562221683238-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec562221683238-4">4</div><div class="crayon-num" data-line="crayon-5aae86c9ec562221683238-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec562221683238-6">6</div><div class="crayon-num" data-line="crayon-5aae86c9ec562221683238-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5aae86c9ec562221683238-8">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec562221683238-1">●<span class="crayon-h"> </span><span class="crayon-v">nginx</span><span class="crayon-sy">.</span><span class="crayon-v">service</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-i">A</span><span class="crayon-h"> </span><span class="crayon-e">high </span><span class="crayon-e">performance </span><span class="crayon-e">web </span><span class="crayon-e">server </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-e">reverse </span><span class="crayon-e">proxy </span><span class="crayon-e">server</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec562221683238-2"><span class="crayon-e">&nbsp;&nbsp; </span><span class="crayon-v">Loaded</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">loaded</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-o">/</span><span class="crayon-v">lib</span><span class="crayon-o">/</span><span class="crayon-v">systemd</span><span class="crayon-o">/</span><span class="crayon-v">system</span><span class="crayon-o">/</span><span class="crayon-v">nginx</span><span class="crayon-sy">.</span><span class="crayon-v">service</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">enabled</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-e">vendor </span><span class="crayon-v">preset</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">enabled</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5aae86c9ec562221683238-3"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-v">Active</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"highlight"</span><span class="crayon-o">&gt;</span><span class="crayon-e">active</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">running</span><span class="crayon-sy">)</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-e">since </span><span class="crayon-i">Mon</span><span class="crayon-h"> </span><span class="crayon-cn">2016</span><span class="crayon-o">-</span><span class="crayon-cn">04</span><span class="crayon-o">-</span><span class="crayon-cn">18</span><span class="crayon-h"> </span><span class="crayon-cn">16</span><span class="crayon-o">:</span><span class="crayon-cn">14</span><span class="crayon-o">:</span><span class="crayon-cn">00</span><span class="crayon-h"> </span><span class="crayon-v">EDT</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-cn">4min</span><span class="crayon-h"> </span><span class="crayon-cn">2s</span><span class="crayon-h"> </span><span class="crayon-e">ago</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec562221683238-4"><span class="crayon-e"> </span><span class="crayon-e">Main </span><span class="crayon-v">PID</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">12857</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">nginx</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5aae86c9ec562221683238-5"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-v">CGroup</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">system</span><span class="crayon-sy">.</span><span class="crayon-v">slice</span><span class="crayon-o">/</span><span class="crayon-v">nginx</span><span class="crayon-sy">.</span><span class="crayon-i">service</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec562221683238-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>├─<span class="crayon-cn">12857</span><span class="crayon-h"> </span><span class="crayon-v">nginx</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">master </span><span class="crayon-v">process</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">sbin</span><span class="crayon-o">/</span><span class="crayon-v">nginx</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">g</span><span class="crayon-h"> </span><span class="crayon-e">daemon </span><span class="crayon-v">on</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-e">master_process </span><span class="crayon-i">on</span></div><div class="crayon-line" id="crayon-5aae86c9ec562221683238-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>└─<span class="crayon-cn">12858</span><span class="crayon-h"> </span><span class="crayon-v">nginx</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">worker </span><span class="crayon-i">process</span></div><div class="crayon-line crayon-striped-line" id="crayon-5aae86c9ec562221683238-8">&nbsp;</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p>服务已经正常启动，当然最好的确认方法是通过访问web页面的方式。</p>
+<p>如果我们能访问到默认加载页就证明启动成功了。</p>
+<p>如果你不知道服务器的ip可以使用如下命令：</p>
+<p>&nbsp;</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec567833419711" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec567833419711-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec567833419711-1"><span class="crayon-e">ip </span><span class="crayon-e">addr </span><span class="crayon-e">show </span><span class="crayon-v">eth0</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-e">grep </span><span class="crayon-v">inet</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-i">awk</span><span class="crayon-h"> </span><span class="crayon-s">'{ print $2; }'</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-i">sed</span><span class="crayon-h"> </span><span class="crayon-s">'s/\/.*$//'</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>有了IP之后，在浏览器里输入：</p>
+<p><code langs="">http://<span class="highlight">server_domain_or_IP</span><br />
+</code></p>
+<p>你就能看到Nginx的默认加载页了：</p>
+<p><img class="alignnone size-full wp-image-4724" src="http://www.nginx.cn/wp-content/uploads/2017/12/default_page.png" alt="Nginx default page" width="577" height="212" srcset="http://www.nginx.cn/wp-content/uploads/2017/12/default_page.png 577w, http://www.nginx.cn/wp-content/uploads/2017/12/default_page-150x55.png 150w, http://www.nginx.cn/wp-content/uploads/2017/12/default_page-300x110.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<h2 id="step-4-manage-the-nginx-process">第四步: 管理 Nginx 进程</h2>
+<p>现在我们已经有nginx在运行了，我们可以再试一些管理命令：</p>
+<p>停止nginx:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec56c639499735" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl stop nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec56c639499735-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec56c639499735-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">stop </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>启动nginx:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec570443181993" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl start nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec570443181993-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec570443181993-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">start </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>重启nginx:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec574858681474" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl restart nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec574858681474-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec574858681474-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">restart </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>修改配置文件后，平滑加载配置命令(不会断开用户访问）：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec578908253842" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl reload nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec578908253842-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec578908253842-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">reload </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>默认，nginx是随着系统启动的时候自动运行。如果你不想开机启动，那么你可以禁止nginx开机启动：</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec57c934945890" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl disable nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec57c934945890-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec57c934945890-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">disable </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>重新配置nginx开机自动启动:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec580683459663" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+sudo systemctl enable nginx</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec580683459663-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec580683459663-1"><span class="crayon-e">sudo </span><span class="crayon-e">systemctl </span><span class="crayon-e">enable </span><span class="crayon-v">nginx</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h2 id="step-5-get-familiar-with-important-nginx-files-and-directories">第五步: 熟悉Nginx的文件和目录</h2>
+<p>现在我们已经管理nginx了，接下来可以熟悉一下nginx的目录结构和一些重要的文件：</p>
+<h3>网站文件位置</h3>
+<ul class="prefixed">
+<li style="list-style-type: none">
+<ul class="prefixed">
+<li style="list-style-type: none;">
+<ul>
+<li><code>/var/www/html</code>: 网站文件存放的地方, 默认只有我们上面看到nginx页面，可以通过改变nginx配置文件的方式来修改这个位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="server-configuration">服务器配置</h3>
+<ul class="prefixed">
+<li style="list-style-type: none">
+<ul class="prefixed">
+<li style="list-style-type: none;">
+<ul>
+<li><code>/etc/nginx</code>: nginx配置文件目录。所有的nginx配置文件都在这里。</li>
+<li><code>/etc/nginx/nginx.conf</code>: Nginx的主配置文件. 可以修改他来改变nginx的全局配置。</li>
+<li><code>/etc/nginx/sites-available/</code>: 这个目录存储每一个网站的"server blocks"。nginx通常不会使用这些配置，除非它们陪连接到  <code>sites-enabled</code> 目录 (see below)。一般所有的server block 配置都在这个目录中设置，然后软连接到别的目录 。</li>
+<li><code>/etc/nginx/sites-enabled/</code>: 这个目录存储生效的 "server blocks" 配置. 通常,这个配置都是链接到 <code>sites-available目录中的配置文件</code></li>
+<li><code>/etc/nginx/snippets</code>: 这个目录主要可以包含在其它nginx配置文件中的配置片段。重复的配置都可以重构为配置片段。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="server-logs">日志文件</h3>
+<ul class="prefixed">
+<li style="list-style-type: none;">
+<ul>
+<li><code>/var/log/nginx/access.log</code>: 每一个访问请求都会记录在这个文件中，除非你做了其它设置。</li>
+<li><code>/var/log/nginx/error.log</code>: 任何Nginx的错误信息都会记录到这个文件中。</li>
+</ul>
+</li>
+</ul>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/nginx-article" rel="category tag">nginx</a></span>			<span class="tags">标签: </span><span><a href="http://www.nginx.cn/tag/ubuntu" rel="tag">ubuntu</a>, <a href="http://www.nginx.cn/tag/%e5%ae%89%e8%a3%85" rel="tag">安装</a></span>		</div>
+	</div>
+	<div class="post" id="post-4718">
+		<h2><a class="title" href="http://www.nginx.cn/4718.html" rel="bookmark">苹果ios同步icloud照片到新手机</a></h2>
+		<div class="info">
+			<span class="date">2017年11月15日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4718.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>换了个新手机，想把icloud里面的照片下来。一直也没搞懂苹果的更新机制。</p>
+<p>设置的是通过icloud恢复，结果发现没有可用备份。那只能设置为新手机了。</p>
+<p>设为新手机后使用已有的icloud账户登录后，以前通讯录，照片会自动恢复。</p>
+<p>设置方式是：照片需要打开 设置->照片->icloud照片图库</p>
+<p>打开照片后发现里还是没有照片，网上查了查也看不到什么原理。</p>
+<p>最后无意间发现照片有了。</p>
+<p>原来是要想同步照片需要三个条件:<br />
+1.需要打开icloud照片图库<br />
+2.手机接入wifi<br />
+3.手机充电状态是。</p>
+<p>才会下载照片到新手机。</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/apple" rel="category tag">iOS/Mac</a></span>			<span class="tags">标签: </span><span><a href="http://www.nginx.cn/tag/icloud" rel="tag">icloud</a>, <a href="http://www.nginx.cn/tag/%e5%90%8c%e6%ad%a5" rel="tag">同步</a></span>		</div>
+	</div>
+	<div class="post" id="post-4707">
+		<h2><a class="title" href="http://www.nginx.cn/4707.html" rel="bookmark">git skip worktree文件恢复</a></h2>
+		<div class="info">
+			<span class="date">2017年10月20日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4707.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>从远程pull文件一致报error: Your local changes to the following files would be overwritten by merge:<br />
+提示有文件未commit，可是本地已经无文件可，后来发现提示未提交这些文件都是skip worktre文件，需要恢复取消skipwork状态，然后暂存本地的修改，再进行pull远程文件就可以了。</p>
+<p>把所有标记为skip worktree的问价取消标记命令：</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5aae86c9ec9c7627245892" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+git ls-files -v | grep -i ^S | cut -c 3- | tr '\012' '\000' | xargs -0 git update-index --no-skip-worktree</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5aae86c9ec9c7627245892-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5aae86c9ec9c7627245892-1"><span class="crayon-e">git </span><span class="crayon-v">ls</span><span class="crayon-o">-</span><span class="crayon-v">files</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">v</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">grep</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">^</span><span class="crayon-v">S</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">cut</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">c</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-i">tr</span><span class="crayon-h"> </span><span class="crayon-s">'\012'</span><span class="crayon-h"> </span><span class="crayon-s">'\000'</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">xargs</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-e">git </span><span class="crayon-v">update</span><span class="crayon-o">-</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-v">no</span><span class="crayon-o">-</span><span class="crayon-v">skip</span><span class="crayon-o">-</span><span class="crayon-v">worktree</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p><code>git ls-files -v</code> 显示所有文件的状态<br />
+<code>grep -i ^S </code 过滤选择只有skip worktree (S)状态 或者 skip worktree 和 assume unchanged (s)状态的文件, -i 忽略大小写
+<code>cut -c 3- </code> 提取从第三个字符开始到结尾，去掉状态只保留路径<br />
+<code>tr '\012' '\000'</code>替换换行符 (\012) 为 (\000)<br />
+<code>xargs -0 git update-index --no-skip-worktree</code> 把以0分割的路径字符传给 git update-index --no-skip-worktree 取消</p>
+<p>忽略修改，从而不用提交到库里面。<br />
+git update-index --assume-unchanged   /path/file </p>
+<p>如果想恢复该文件，可以用<br />
+git update-index --no-assume-unchanged /path/file  来恢复跟踪</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/%e5%b0%8f%e6%8a%80%e5%b7%a7" rel="category tag">小技巧</a></span>			<span class="tags">标签: </span><span><a href="http://www.nginx.cn/tag/git" rel="tag">git</a></span>		</div>
+	</div>
+	<div class="post" id="post-4696">
+		<h2><a class="title" href="http://www.nginx.cn/4696.html" rel="bookmark">TCP连接建立的三次握手与连接断开四次挥手</a></h2>
+		<div class="info">
+			<span class="date">2017年9月4日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4696.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>TCP三次握手</p>
+<p>一、什么是三次握手</p>
+<p>三次握手(Three-way Handshake)，是指建立一个TCP连接时，需要客户端和服务器总共发送3个包。</p>
+<p>二、三次握手的目的</p>
+<p>三次握手的目的是连接服务器指定端口，建立TCP连接,并同步连接双方的序列号和确认号并交换 TCP 窗口大小信息。客户端执行连接请求时。将触发三次握手。</p>
+<p>三、三次握手过程</p>
+<p><img class="alignnone size-full wp-image-4699" src="http://www.nginx.cn/wp-content/uploads/2017/09/20170902193737_32965.png" width="583" height="363" alt="" srcset="http://www.nginx.cn/wp-content/uploads/2017/09/20170902193737_32965.png 583w, http://www.nginx.cn/wp-content/uploads/2017/09/20170902193737_32965-150x93.png 150w, http://www.nginx.cn/wp-content/uploads/2017/09/20170902193737_32965-300x187.png 300w" sizes="(max-width: 583px) 100vw, 583px" /></p>
+<p>第一次握手:<br />
+客户端发送一个TCP的SYN标志位置1的包指明客户打算连接的服务器的端口，以及初始序号X,保存在包头的序列号(Sequence Number)字段里。<br />
+第二次握手:<br />
+服务器发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的ISN加1以.即X+1。<br />
+第三次握手.<br />
+客户端再次发送确认包(ACK) SYN标志位为0,ACK标志位为1。如果正确则连接建立成功，客户端和服务器进入ESTABLISHED状态，完成三次握手，随后客户端与服务器之间可以开始传输数据了。把服务器发来ACK的序号字段+1,放在确定字段中发送给对方.并且在数据段放写ISN的+1。</p>
+<p>TCP四次挥手</p>
+<p>一、什么是四次挥手</p>
+<p>TCP的连接的拆除需要发送四个包，因此称为四次挥手(four-way handshake)。客户端或服务器均可主动发起挥手动作，任何一方执行close操作即可产生挥手操作。</p>
+<p>二、四次挥手过程</p>
+<p><img class="alignnone size-full wp-image-4700" src="http://www.nginx.cn/wp-content/uploads/2017/09/20170902194556_66476.png" width="613" height="400" alt="" srcset="http://www.nginx.cn/wp-content/uploads/2017/09/20170902194556_66476.png 613w, http://www.nginx.cn/wp-content/uploads/2017/09/20170902194556_66476-150x98.png 150w, http://www.nginx.cn/wp-content/uploads/2017/09/20170902194556_66476-300x196.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<p>第一次挥手：</p>
+<p>客户端发送一个FIN，用来关闭客户端到服务器的数据传送，客户机进入FIN_WAIT_1状态。<br />
+第二次挥手：</p>
+<p>服务器收到FIN后，发送一个ACK给客户端，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），服务器进入CLOSE_WAIT状态。<br />
+第三次挥手：</p>
+<p>服务器发送一个FIN，用来关闭服务器到客户端的数据传送，服务器进入LAST_ACK状态。<br />
+第四次挥手：</p>
+<p>客户端收到FIN后，客户端进入TIME_WAIT状态，接着发送一个ACK给服务器，确认序号为收到序号+1，服务器进入CLOSED状态，完成四次挥手。</p>
+<div id="15yqpw1504335094201">有限状态机FSM:Finite State Machine</div>
+<div>1、CLOSED 没有任何连接状态</div>
+<div>2、LISTEN 侦听状态，等待来自远方TCP端口的连接请求</div>
+<div>3 、SYN-SENT 在发送连接请求后，等待对方确认</div>
+<div>4、SYN-RECEIVED 在收到和发送一个连接请求后，等待对方确认</div>
+<div>5、ESTABLISHED 代表传输连接建立，双方进入数据传送状态</div>
+<div>6、FIN-WAIT-1 主动关闭,主机已发送关闭连接请求，等待对方确认</div>
+<div>7 、FIN-WAIT-2 主动关闭,主机已收到对方关闭传输连接确认，等待对方发送关闭传输连接请求</div>
+<div>8、 TIME-WAIT 完成双向传输连接关闭，等待所有分组消失</div>
+<div>9、CLOSE-WAIT 被动关闭,收到对方发来的关闭连接请求，并已确认</div>
+<div>10、LAST-ACK 被动关闭,等待最后一个关闭传输连接确认，并等待所有分组消失</div>
+<p>11、CLOSING 双方同时尝试关闭传输连接，等待对方确认</p>
+<p>附加问题：</p>
+<div>【问题1】为什么连接的时候是三次握手，关闭的时候却是四次挥手？</div>
+<div>答：因为当服务器收到客户端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来回应的，SYN报文是用来同步的。但是关闭连接时，当服务器收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉客户端，”发送的FIN报文已经收到”。只有等到客户端所有的报文都发送完了，客户端才能发送FIN报文，因此不能一起发送。故需要四步挥手。</div>
+<div>【问题2】为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</div>
+<div>答：四个报文都发送完毕，客户端和服务器可以直接进入CLOSE状态了，但有可能最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文，确保之前的数据不会丢失后再进入close状态。</div>
+<div></div>
+<p>原文：http://www.178linux.com/85976</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/program/networkprogram" rel="category tag">网络编程</a></span>			<span class="tags">标签: </span><span><a href="http://www.nginx.cn/tag/tcp" rel="tag">tcp</a></span>		</div>
+	</div>
+	<div class="post" id="post-4692">
+		<h2><a class="title" href="http://www.nginx.cn/4692.html" rel="bookmark">tcpdump抓取http的请求头和响应信息</a></h2>
+		<div class="info">
+			<span class="date">2017年8月21日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4692.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>tcpdump过滤HTTP的GET请求:</p>
+<p>sudo tcpdump -s 0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'</p>
+<p>tcpdump过滤HTTP的POST请求:</p>
+<p>sudo tcpdump -s 0 -A 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'</p>
+<p>tcpdump过滤HTTP的请求和响应头信息，以及请求和响应消息体信息：</p>
+<p>tcpdump -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'<br />
+tcpdump -X -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/linux" rel="category tag">linux</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+	<div class="post" id="post-4682">
+		<h2><a class="title" href="http://www.nginx.cn/4682.html" rel="bookmark">The listener supports no services</a></h2>
+		<div class="info">
+			<span class="date">2017年8月14日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4682.html#comments">1 条评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>[oracle@localhost ~]$ lsnrctl status</p>
+<p>LSNRCTL for Linux: Version 11.2.0.4.0 - Production on 14-AUG-2017 13:56:45</p>
+<p>Copyright (c) 1991, 2013, Oracle.  All rights reserved.</p>
+<p>Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))<br />
+STATUS of the LISTENER<br />
+------------------------<br />
+Alias                     LISTENER<br />
+Version                   TNSLSNR for Linux: Version 11.2.0.4.0 - Production<br />
+Start Date                14-AUG-2017 13:54:44<br />
+Uptime                    0 days 0 hr. 2 min. 0 sec<br />
+Trace Level               off<br />
+Security                  ON: Local OS Authentication<br />
+SNMP                      OFF<br />
+Listener Parameter File   /home/oracle/product/11gR2/network/admin/listener.ora<br />
+Listener Log File         /home/oracle/product/diag/tnslsnr/localhost/listener/alert/log.xml<br />
+Listening Endpoints Summary...<br />
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=127.0.0.1)(PORT=1521)))<br />
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))<br />
+The listener supports no services<br />
+The command completed successfully</p>
+<p>tlister启动没有服务</p>
+<p>#netmgr<br />
+在database services下增加实例名配置，替换红色部分为你的实例名。</p>
+<p><img src="http://www.nginx.cn/wp-content/uploads/2017/08/noservice.png" alt="" width="766" height="645" class="alignnone size-full wp-image-4690" srcset="http://www.nginx.cn/wp-content/uploads/2017/08/noservice.png 766w, http://www.nginx.cn/wp-content/uploads/2017/08/noservice-150x126.png 150w, http://www.nginx.cn/wp-content/uploads/2017/08/noservice-300x253.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<p>客户端连接报错：<br />
+ORA-12541:TNS:no listener<br />
+把127.0.0.1 替换为你机器的ip<br />
+<img src="http://www.nginx.cn/wp-content/uploads/2017/08/netmgr-1.png" alt="" width="751" height="614" class="alignnone size-full wp-image-4687" srcset="http://www.nginx.cn/wp-content/uploads/2017/08/netmgr-1.png 751w, http://www.nginx.cn/wp-content/uploads/2017/08/netmgr-1-150x123.png 150w, http://www.nginx.cn/wp-content/uploads/2017/08/netmgr-1-300x245.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/oracle" rel="category tag">oracle</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+	<div class="post" id="post-4680">
+		<h2><a class="title" href="http://www.nginx.cn/4680.html" rel="bookmark">oralce删除数据库</a></h2>
+		<div class="info">
+			<span class="date">2017年8月14日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4680.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>sqlplus / as sysdba<br />
+SQL> startup<br />
+ORACLE instance started.</p>
+<p>Total System Global Area 2.0176E+10 bytes<br />
+Fixed Size                  2261928 bytes<br />
+Variable Size            2818575448 bytes<br />
+Database Buffers         1.7314E+10 bytes<br />
+Redo Buffers               41463808 bytes<br />
+Database mounted.<br />
+Database opened.<br />
+SQL> alter database close;</p>
+<p>Database altered.</p>
+<p>SQL> alter system enable restricted session;</p>
+<p>System altered.</p>
+<p>SQL> drop database;</p>
+<p>Database dropped.</p>
+<p>Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production<br />
+With</p>
+<p>删除 /etc/oratab<br />
+删除 rm -rf product/<br />
+删除 rm -rf oraInventory/</p>
+<p>未关闭的进程杀掉<br />
+[root@localhost ~]# ps -ef|grep ora<br />
+root      4736  3961  0 13:17 pts/2    00:00:00 su - oracle<br />
+oracle    4737  4736  0 13:17 pts/2    00:00:00 -bash<br />
+oracle    4763     1  0 13:18 ?        00:00:00 /home/oracle/product/11gR2/bin/tnslsnr LISTENER -inherit<br />
+root      5482  3790  0 13:36 pts/1    00:00:00 grep ora<br />
+[root@localhost ~]# kill -9 4763</p>
+<p>这样重新安装数据库，不会报实例冲突</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/oracle" rel="category tag">oracle</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+	<div class="post" id="post-4674">
+		<h2><a class="title" href="http://www.nginx.cn/4674.html" rel="bookmark">eclipse工程有红色叹号</a></h2>
+		<div class="info">
+			<span class="date">2017年7月11日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4674.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>eclipse有红色叹号；</p>
+<p>一般情况可以这样处理，处理方法来自网络</p>
+<p>1，右键项目名称 BuildPath ---> Configure Build Paht...中，然后上面有几个选项卡找到 Libraries中出现红色叉号的包为路径错误的包。到classpath中修改相应包的当前路径。然后回到eclipse中F5刷新工程。</p>
+<p>不行的话可以试试clean项目;</p>
+<p>project--->clean</p>
+<p>如果你的eclipse项目有红色叹号，而Libraries中没有出现红色叉号的包，我是这样做的。</p>
+<p>1，先把eclipse转换到Markers视图，windows---->show view ---->markers </p>
+<p>你会发现这些报错内容，<br />
+Archive for required library: ‘XXXXXXXX001’ in project ‘xxxxxxxxx’ cannot be read or is not a valid ZIP file<br />
+2，用记事本打开项目根目录的.classpath文件，找到“<classpathentry kind=”lib” path=”XXXXXXXXX001”/>”这一行，删掉</p>
+<p>保存，刷新后，这个报错就没有了，从而红色叹号也没有了。</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/java" rel="category tag">java</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+	<div class="post" id="post-4671">
+		<h2><a class="title" href="http://www.nginx.cn/4671.html" rel="bookmark">word按tab不能多级标题</a></h2>
+		<div class="info">
+			<span class="date">2017年7月5日</span>
+			<span class="author"><a href="http://www.nginx.cn/author/mood" title="由mood发布" rel="author">mood</a></span>						<span class="comments"><a href="http://www.nginx.cn/4671.html#respond">没有评论</a></span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p>使用word 2010 ，经常用到tab键进行列表等级变换，但是在某些情况下，tab键不能回退到下一级，那么就需要修复word此功能。<br />
+1第一步，打开word 2010 ，选择“文件”-> “选项”：<br />
+2第二步，在弹出框中选择“校对”，然后选择“自动更正选项(A)...”：<br />
+3第三步，在弹出框中选择“键入时自动套用格式”标签卡，在“用Tab和Backspace设置左缩进和首行缩进”前打勾：<br />
+4最后，保存退出</p>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">分类: </span><span><a href="http://www.nginx.cn/category/%e5%b0%8f%e6%8a%80%e5%b7%a7" rel="category tag">小技巧</a></span>			<span class="tags">标签: </span><span></span>		</div>
+	</div>
+
+<div id="pagenavi">
+			<span class="newer"></span>
+		<span class="older"><a href="http://www.nginx.cn/page/2" >下一页</a></span>
+		<div class="fixed"></div>
+</div>
+
+	</div>
+	<!-- main END -->
+
+	<!-- sidebar START -->
+<div id="sidebar">
+
+    <!-- sidebar north START -->
+    <div id="northsidebar" class="sidebar">
+<div class="sidebar_compliance"></div>
+        <!--ad-161216-->
+        
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- nginx右侧导航 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-8728612882429404"
+                 data-ad-slot="8826641902"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        		
+<div class="widget">
+             <p>查找问题的解决方法时，你是不是会经常发现同一篇文章被转来转去，却没有一篇能说清楚问题究竟怎么回事。<br><br>面对问题你是不是偶尔也会发现自己也能设计出精彩的解决方案，觉得自己就是个天才。<br><br>现在好了如果你有刻骨铭心的经历无论是Nginx还是其它的方面，别让它被遗忘，与大家分享吧，投稿邮箱<a href="mailto:tougao@nginx.cn?subject=投递文章：">tougao@nginx.cn</a>。</p>
+<p>与我联系 关注公众号 wsyw668</p>
+<p>新开Nginx QQ群，欢迎大家一起交流探讨，群号645278394。<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=37386d81e354797638b1660743334ed6dcdc9154bfc5cdd2d4b54f25f41eddbf"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="nginx交流" title="nginx交流"></a></p>
+
+<div id="attachment_4770" style="max-width: 268px" class="wp-caption alignnone"><img src="http://www.nginx.cn/wp-content/uploads/2018/03/qrcode_for_gh_e8c6e6836ec5_258-2.jpg" alt="" width="258" height="258" class="size-full wp-image-4770" <p class="wp-caption-text">扫描二维码关注向我提问</p></div>
+
+<p>如果你喜欢本站，请关注公众号或添加本站链接。</p>
+   </div>
+
+
+        <div id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://www.nginx.cn/">
+				<div>
+					<label class="screen-reader-text" for="s">搜索：</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="搜索" />
+				</div>
+			</form></div><div id="views-3" class="widget widget_views"><h3>热门访问</h3><ul>
+<li><a href="http://www.nginx.cn/install"  title="Nginx安装">Nginx安装</a> - 665,162 views</li><li><a href="http://www.nginx.cn/76.html"  title="nginx基本配置与参数说明">nginx基本配置与参数说明</a> - 468,023 views</li><li><a href="http://www.nginx.cn/231.html"  title="nginx php-fpm安装配置">nginx php-fpm安装配置</a> - 388,328 views</li><li><a href="http://www.nginx.cn/115.html"  title="nginx location匹配规则">nginx location匹配规则</a> - 258,181 views</li><li><a href="http://www.nginx.cn/927.html"  title="nginx反向代理配置">nginx反向代理配置</a> - 222,007 views</li><li><a href="http://www.nginx.cn/nginx-how-to"  title="nginx中文手册">nginx中文手册</a> - 217,763 views</li><li><a href="http://www.nginx.cn/591.html"  title="nginx配置入门">nginx配置入门</a> - 183,616 views</li><li><a href="http://www.nginx.cn/216.html"  title="nginx rewrite 指令">nginx rewrite 指令</a> - 167,982 views</li><li><a href="http://www.nginx.cn/nginx-download"  title="nginx最新版下载">nginx最新版下载</a> - 154,448 views</li><li><a href="http://www.nginx.cn/nginxchscommandline"  title="运行和控制Nginx">运行和控制Nginx</a> - 140,484 views</li></ul>
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h3>近期文章</h3>		<ul>
+											<li>
+					<a href="http://www.nginx.cn/4758.html">ModuleNotFoundError: No module named 'win32com'</a>
+									</li>
+											<li>
+					<a href="http://www.nginx.cn/4723.html">如何在ubuntu 16.04 上安装Nginx</a>
+									</li>
+											<li>
+					<a href="http://www.nginx.cn/4718.html">苹果ios同步icloud照片到新手机</a>
+									</li>
+											<li>
+					<a href="http://www.nginx.cn/4707.html">git skip worktree文件恢复</a>
+									</li>
+											<li>
+					<a href="http://www.nginx.cn/4696.html">TCP连接建立的三次握手与连接断开四次挥手</a>
+									</li>
+					</ul>
+		</div><div id="recent-comments-2" class="widget widget_recent_comments"><h3>近期评论</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">有个问题</span>发表在《<a href="http://www.nginx.cn/149.html#comment-15374">nginx禁止未绑定域名访问</a>》</li><li class="recentcomments"><span class="comment-author-link">moming</span>发表在《<a href="http://www.nginx.cn/115.html#comment-15307">nginx location匹配规则</a>》</li><li class="recentcomments"><span class="comment-author-link"><a href='http://hizdm.cn' rel='external nofollow' class='url'>工资计算器</a></span>发表在《<a href="http://www.nginx.cn/about#comment-15306">关于我</a>》</li><li class="recentcomments"><span class="comment-author-link">mood</span>发表在《<a href="http://www.nginx.cn/links#comment-15175">友情链接</a>》</li><li class="recentcomments"><span class="comment-author-link">f1e180dd853ab6a64fd08d185bbb6663</span>发表在《<a href="http://www.nginx.cn/links#comment-15134">友情链接</a>》</li></ul></div>    </div>
+    <!-- sidebar north END -->
+
+    <div id="centersidebar">
+
+                    <!-- sidebar east START -->
+            <div id="eastsidebar" class="sidebar">
+                                                <div id="linkcat-2" class="widget widget_links"><h3>友情链接</h3>
+                    <ul class='xoxo blogroll'>
+                        <li><a href="http://www.redis.com.cn" title="Redis中文官方网站，中文用户讨论组">Redis中文网</a></li>
+                                                <li><a href="http://www.Open-Open.com/" title="Open-Open">Java开源大全</a></li>
+                        <li><a href="http://www.nginx.cn" title="nginx官网" target="_blank">nginx中文站</a></li>
+                        <li><a href="http://www.zendstudio.net/" title="Zend Studio" target="_blank">Zend Studio</a></li>
+                        <li><a href="http://www.outofmemory.cn/" title="outofmemory">为程序员服务</a></li>
+                        <li><a href="http://www.shiyanlou.com/" title="通过动手实践的方式学会IT技术">实验楼IT实训</a></li>
+                        <li><a href="http://www.ttlsa.com" title="Linux系统教程,运维经验分享" target="_blank">运维生存时间</a>
+<li><a href="https://www.264.cn/shengqi" title="天安门升旗时间">升旗时间</a></li>
+                        <li><a href="http://www.264.cn/nongli" title="万年历黄道吉日">老黄历</a></li></li>
+<li><a href="http://www.php.cn" title="php中文网">php</a></li>
+                        
+<li><a href="http://www.php1.cn" title="php1">第一PHP社区</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- sidebar east END -->
+        
+        <!-- sidebar west START -->
+        <div id="westsidebar" class="sidebar">
+            <div id="categories-2" class="widget widget_categories"><h3>分类目录</h3>		<ul>
+	<li class="cat-item cat-item-2"><a href="http://www.nginx.cn/category/android" >android</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.nginx.cn/category/program/cplusplus" >c++</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.nginx.cn/category/apple" >iOS/Mac</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.nginx.cn/category/java" >java</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.nginx.cn/category/program/js" >js</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.nginx.cn/category/linux" >linux</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.nginx.cn/category/mysql" >mysql</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.nginx.cn/category/nginx-article" title="nginx入门文章，介绍nginx的安装和配置相关内容">nginx</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.nginx.cn/category/oracle" >oracle</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.nginx.cn/category/program/php" >php</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.nginx.cn/category/program/python" >python</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.nginx.cn/category/redis" >redis</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.nginx.cn/category/wordpress" >wordpress</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.nginx.cn/category/%e5%b0%8f%e6%8a%80%e5%b7%a7" >小技巧</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.nginx.cn/category/whoami" >杂谈</a>
+</li>
+	<li class="cat-item cat-item-431"><a href="http://www.nginx.cn/category/arch" >架构</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.nginx.cn/category/site" >网站</a>
+</li>
+	<li class="cat-item cat-item-429"><a href="http://www.nginx.cn/category/program/networkprogram" >网络编程</a>
+</li>
+		</ul>
+</div>        </div>
+        <!-- sidebar west END -->
+        <div class="fixed"></div>
+    </div>
+
+
+    <!-- sidebar south START -->
+    <div id="southsidebar" class="sidebar">
+        <div id="meta-2" class="widget widget_meta"><h3>功能</h3>			<ul>
+						<li><a href="http://www.nginx.cn/wp-login.php">登录</a></li>
+			<li><a href="http://www.nginx.cn/feed">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.nginx.cn/comments/feed">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>			</ul>
+			</div>    </div>
+    <!-- sidebar south END -->
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- nginx右侧导航 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:250px"
+         data-ad-client="ca-pub-8728612882429404"
+         data-ad-slot="8826641902"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+<!-- sidebar END -->
+	<div class="fixed"></div>
+</div>
+<script type="text/javascript" src="http://www.nginx.cn/wp-content/themes/caonimaxiugaizhe/js/copy.js"></script>
+<script type="text/javascript">
+(function(){
+//支付鼓励
+        //添加在本篇完之后
+
+        var targetLastP = document.getElementById("ad");
+
+        if (targetLastP ) {
+          //alert('targetlastp');
+                targetLastP.innerHTML = targetLastP.innerHTML + '<br/><table width="650" height="40" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;border: 1px solid #b8d4ea;">  <tbody>  <tr>  <td align="center"><a href="mailto:admin@nginx.cn" title="寻求空间赞助" target="_blank" rel="nofollow" ><font color="red">赞助本站主机</font></a></td>  <td align="center"><a href="http://wangsu.264.cn" title="网速测试" target="_blank"><font color="blue">网速测试</font></a></td>  <td align="center"><a href="http://huilv.264.cn" title="美元人民币汇率" target="_blank"><font color="red">最新美元人民币汇率</font></a></td>  </tr>  </tbody>  </table>  <br/>';
+        }
+})();
+</script>
+<!-- content END -->
+
+<!-- footer START -->
+<div id="footer">
+	<a id="gotop" href="#" onclick="MGJS.goTop();return false;">回到顶部</a>
+	
+	<div id="copyright">
+		版权所有 &copy; 2009-2018  <a title="nginx中文网" href="http://www.nginx.cn">服务器运维与Web架构</a> Theme by NeoEase.<a href="mailto:admin@nginx.cn" title="业务联系" target="_blank" rel＝"nofollow"><font color="red">合作联系</font></a>
+	</div>
+	
+</div>
+<!-- footer END -->
+
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+<script type='text/javascript' src='http://www.nginx.cn/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9ff71d1196ef31d4eda8f8d61936342c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script language="javascript">
+document.body.oncopy = function () { 
+	setTimeout( function () { 
+		var text = getClipboard();
+		if (text) { 
+			text = text + "\r\n详细出处参考："+location.href.toString(); 
+copy2Clipboard(text);
+		} 
+				}, 100 ) 
+}
+
+</script>
+</body>
+</html>

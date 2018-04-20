@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <title>ExPASy: SIB Bioinformatics Resource Portal - Home</title>
+	<meta name="keywords" content="proteomics,genomics,structural bioinformatics,systems biology,phylogeny,evolution,population genetics,transcriptomics,biophysics,imaging,IT infrastructure,drug design" />
+	<meta name="description" content="ExPASy: SIB Bioinformatics Resource Portal" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	<link rel="stylesheet" type="text/css" href="/css/sib_css/SIB.css" />
+
+	<script type="text/javascript" src="/js/jquery182.js"></script>
+	<script type="text/javascript" src="/js/jqueryNoConflict.js"></script>
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"></script>
+	<script type="text/javascript" src="/js/controls.js"></script>
+	<script type="text/javascript" src="/js/menuscripts.js"></script>
+	<script type="text/javascript" src="/js/mainsearch.js"></script>
+	<script type="text/javascript" src="/js/query_engine.js"></script>
+	<script type="text/javascript" src="/js/hilight.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/sib_css/pluit-carousel.css" /><script type="text/javascript">
+//<![CDATA[
+document.observe("dom:loaded", function (event) {$('Querytext').setValue('');
+        });
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+document.observe("dom:loaded", function (event) {   autocompleter = new Ajax.Autocompleter(
+            'Querytext',
+            'Querytext_autoComplete',
+            '/keywords/suggestions',
+            {
+                tokens: ', ',
+                minChars: 3
+            });
+            if($('sib_search').down('form')){
+                $('sib_search').down('form').observe('submit',function(evt){
+                    Event.stop(evt);
+                    if($('queryformat')) FillField('queryformat','');
+
+                    if($('resourcelist')){ $('resourcelist').fade({ duration: 0.5}); }
+                    if($('fullsearchSearchtype').getValue() == 'cross' || $('fullsearchSearchtype').getValue().startsWith('CAT_')){
+                        $('sib_search').down('form').request({
+                            evalScripts: true,
+                            onCreate: function(){
+                                $('sib_content').down('div').update();
+								if($('home_right')) $('home_right').remove();
+                                if($('resource_search_container')) $('resource_search_container').remove();
+                            },
+                            onComplete: function(transport){
+                                var response = transport.responseText || '';
+                                $('sib_content').down('div').update(response);
+                            }
+                        })
+                    }
+                    else if($('fullsearchSearchtype').getValue() == 'res'){
+                        $('sib_search').down('form').submit();
+                    }
+                    else {
+                        $('sib_search').down('form').request({
+                            evalScripts: true,
+                            onCreate: function(){
+                                $('sib_content').down('div').update("<p class = 'center fade'>searching...<\/p>");
+                            },
+                            onComplete: function(transport){
+                                var response = transport.responseText || '';
+                                var hidden = document.createElement('div');
+                                Element.setStyle(hidden,{visibility: 'hidden'});
+                                $('sib_content').down('div').update();
+                                $('sib_content').down('div').appendChild(hidden);
+                                Element.update(hidden,response);
+                            }
+                        })
+                    }
+                })
+            }
+            });
+//]]>
+</script>
+</head>
+<body class="sib_body">
+    <div id="sib_container">
+        <div id="sib_header">
+
+        	
+            <div id = 'sib_expasy_logo'>
+            <a href="http://www.sib.swiss/" id="sib_link" title="SIB Swiss Institute of Bioinformatics"></a>            <a href="/" id="expasy_link" title="ExPASy - SIB Bioinformatics Resource Portal"></a>            </div>
+            <div class='sib_drop_rmenu'>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a>                    <ul>
+		        <li><a href="/about">Background and reference</a></li>
+                        <li><a href="/features">Overview</a></li>
+			<li><a href="/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/support">Contact</a>                    <ul>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/sibgroups">SIB Groups</a></li>
+                    </ul>
+                </li>
+                <li>&nbsp;&nbsp;</li>
+            </ul>
+            </div>
+
+        </div>
+
+        <div id='sib_search'>
+            <form action="/resources/fullsearch" id="searchform" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST" /></div>            <div id='sib_search_form'>
+            	
+            <select name="data[fullsearch][searchtype]" id="fullsearchSearchtype">
+<option value="res">Find resources</option>
+<option value="cross" selected="selected">Query all databases</option>
+<option value="" disabled="disabled">- Query within a category:</option>
+<option value="CAT_evolutionary biology">&nbsp;&nbsp;&nbsp;evolutionary biology</option>
+<option value="CAT_genomics">&nbsp;&nbsp;&nbsp;genomics</option>
+<option value="CAT_proteomics">&nbsp;&nbsp;&nbsp;proteomics</option>
+<option value="CAT_systems biology">&nbsp;&nbsp;&nbsp;systems biology</option>
+<option value="" disabled="disabled">- Query a specific database:</option>
+<option value="1030">&nbsp;&nbsp;&nbsp;Cellosaurus</option>
+<option value="12">&nbsp;&nbsp;&nbsp;ENZYME</option>
+<option value="108">&nbsp;&nbsp;&nbsp;EPD</option>
+<option value="13">&nbsp;&nbsp;&nbsp;HAMAP</option>
+<option value="770">&nbsp;&nbsp;&nbsp;MetaNetX</option>
+<option value="96">&nbsp;&nbsp;&nbsp;miROrtho</option>
+<option value="3">&nbsp;&nbsp;&nbsp;MyHits</option>
+<option value="128">&nbsp;&nbsp;&nbsp;neXtProt</option>
+<option value="98">&nbsp;&nbsp;&nbsp;OMA</option>
+<option value="64">&nbsp;&nbsp;&nbsp;OpenFlu</option>
+<option value="95">&nbsp;&nbsp;&nbsp;OrthoDB</option>
+<option value="7">&nbsp;&nbsp;&nbsp;PROSITE</option>
+<option value="6">&nbsp;&nbsp;&nbsp;Selectome</option>
+<option value="88">&nbsp;&nbsp;&nbsp;STRING</option>
+<option value="17">&nbsp;&nbsp;&nbsp;SWISS-2DPAGE</option>
+<option value="75">&nbsp;&nbsp;&nbsp;SWISS-MODEL Repository</option>
+<option value="51">&nbsp;&nbsp;&nbsp;SwissDock</option>
+<option value="990">&nbsp;&nbsp;&nbsp;SwissLipids</option>
+<option value="14">&nbsp;&nbsp;&nbsp;SwissVar</option>
+<option value="1">&nbsp;&nbsp;&nbsp;UniProtKB</option>
+<option value="1050">&nbsp;&nbsp;&nbsp;VenomZone</option>
+<option value="15">&nbsp;&nbsp;&nbsp;ViralZone</option>
+<option value="18">&nbsp;&nbsp;&nbsp;World-2DPAGE Repository</option>
+</select>
+                <input name="data[fullsearch][querytext]" type="text" id="Querytext" title="Query text" class="withimg" size="45" value="" />                                <a title="Clear search" style="border: none;" href="#" onclick="ClearSearchTerm('/query_engine/clearquerytext');return false;"><img src="/img/delete.png" alt="clear" width="9" height="10" /></a>
+                <div id="Querytext_autoComplete" class="auto_complete"></div>
+                <input type="hidden" name="data[fullsearch][queryformat]" value="" id="queryformat" /><input type="hidden" name="data[fullsearch][full]" value="0" id="full" /><button type="submit" style="margin-left: -8px;">search</button><script type="text/javascript">
+//<![CDATA[
+document.getElementById('Querytext').setAttribute("autocomplete", "off");
+//]]>
+</script>                <a href="/searchhelp" style="color:#696969; font-size: 11px;">help</a>            </div>
+                </form>
+        </div>
+          <!-- Placeholder for maintenance announcement
+          <center><font color="green">Maintenance announcement: the ExPASy portal will be temporarily inaccessible on Friday, 31 July 2015 from 11:00 to 11:30 CEST.</font></center> -->
+
+        <div id="sib_body">
+            <div id="sib_left_menu">
+                                <ul class='sib_menu' id='category_expanding_menu'>
+
+                    <li class='menu_title' id="menu_vg">
+                        <a href="/vg/index/vg_welcome">Visual Guidance</a>                    </li>
+                                        <li style = 'display: none'>
+                                                <ul class='sib_submenu'>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/DNA">DNA</a>                            </li>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/RNA">RNA</a>                            </li>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/Protein">Protein</a>                            </li>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/Cell">Cell</a>                            </li>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/Organism">Organism</a>                            </li>
+                                                        <li class='sib_submenu'>
+                                <a href="/vg/index/Population">Population</a>                            </li>
+                                                    </ul>
+                    </li>
+                                        <li class='menu_title' id='menu_categories'>
+                        <a href="/proteomics">Categories</a>                    </li>
+                    <li id='menu_categories_list'  >
+                        <ul class='sib_submenu'>
+                        <li class='sib_submenu'>
+<a href="/proteomics">proteomics</a></li>
+<li style = 'display: none' class = 'sib_subcategories'>
+<ul>
+<li class = 'sib_subcategory'><a href="/proteomics/protein_sequences_and_identification">protein sequences and identification</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/mass_spectrometry_and_2-DE_data">proteomics experiment</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/protein_characterisation_and_function">function analysis</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/families__patterns_and_profiles">sequence sites, features and motifs</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/post-translational_modification">protein modifications</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/protein_structure">protein structure</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/protein-protein_interaction">protein interactions</a></li>
+<li class = 'sib_subcategory'><a href="/proteomics/similarity_search_alignment">similarity search/alignment</a></li>
+</ul></li>                                                            <li class='sib_submenu'>
+<a href="/genomics">genomics</a></li>
+<li style = 'display: none' class = 'sib_subcategories'>
+<ul>
+<li class = 'sib_subcategory'><a href="/genomics/sequence_alignment">sequence alignment</a></li>
+<li class = 'sib_subcategory'><a href="/genomics/similarity_search">similarity search</a></li>
+<li class = 'sib_subcategory'><a href="/genomics/characterisation_annotation">characterisation/annotation</a></li>
+</ul></li>                                                            <li class='sib_submenu'>
+<a href="/structural_bioinformatics">structure analysis</a></li>
+                        <li class='sib_submenu'>
+<a href="/systems_biology">systems biology</a></li>
+                        <li class='sib_submenu'>
+<a href="/phylogeny_evolution">evolutionary biology</a></li>
+                        <li class='sib_submenu'>
+<a href="/population_genetics">population genetics</a></li>
+                        <li class='sib_submenu'>
+<a href="/transcriptomics">transcriptomics</a></li>
+                        <li class='sib_submenu'>
+<a href="/biophysics">biophysics</a></li>
+                        <li class='sib_submenu'>
+<a href="/imaging">imaging</a></li>
+                        <li class='sib_submenu'>
+<a href="/IT_infrastructure">IT infrastructure</a></li>
+                        <li class='sib_submenu'>
+<a href="/medicinal_chemistry">medicinal chemistry</a></li>
+                        <li class='sib_submenu'>
+<a href="/glycomics">glycomics</a></li>
+                                                </ul>
+                    </li>
+                    <li class='menu_title'><a href="/resources">Resources A..Z</a></li>
+                    <li class='menu_title'><a href="/links">Links/Documentation</a></li>
+                </ul>
+            </div>
+
+            <div id="sib_content">
+                                <script type="text/javascript" src="/js/pluit-carousel.js"></script>
+
+<div id = 'body_container' style = 'position: relative;'>
+	<div id = 'body_content' style = 'position: relative; margin-right: 270px;'>
+		<!--h1>Welcome to ExPASy</h1-->
+		<div id = 'expasy_presentation'>
+   		ExPASy is the <span class = 'bold'>SIB Bioinformatics Resource Portal</span> which provides access to scientific databases and software tools (i.e., <em>resources</em>) in different areas of life sciences including proteomics, genomics, phylogeny, systems biology, population genetics, transcriptomics etc. (see <a href="/categories">Categories</a> in the left menu). On this portal you find resources from many different SIB groups as well as external institutions.
+		</div>
+
+
+<div id = 'highlight_container'>
+<div id="featuring_today" class="highlight_box">
+				<div class="title">Featuring today</div>
+				<div class="featuring_today content">
+					<div id="carousel" class="pluit-carousel">
+					<div class="viewport">
+					<ul>					
+					<li style="height:100px; width:350px;"><div class="featuring_image"><img src="img/resources/siblogo75.png" width="75" height="75" alt="SIBsim4" /></div><div class="featuring_text">
+								<p class="resource_title"><a href="https://sourceforge.net/projects/sibsim4/">SIBsim4</a></p><p class="resource_description">Align expressed RNA sequences on a DNA template<br /> [<a href="/resources/detail/SIBsim4">details</a>]</p></div></li>
+<li style="height:100px; width:350px;"><div class="featuring_image"><img src="img/resources/siblogo75.png" width="75" height="75" alt="FetchGWI / tagger" /></div><div class="featuring_text">
+								<p class="resource_title"><a href="https://sourceforge.net/projects/tagger/">FetchGWI / tagger</a></p><p class="resource_description">Short sequence mapping<br /> [<a href="/resources/detail/FetchGWI%20--%20tagger">details</a>]</p></div></li>
+<li style="height:100px; width:350px;"><div class="featuring_image"><img src="img/resources/siblogo75.png" width="75" height="75" alt="TMPred" /></div><div class="featuring_text">
+								<p class="resource_title"><a href="http://embnet.vital-it.ch/software/TMPRED_form.html">TMPred</a></p><p class="resource_description">Predict trans-membrane regions in protein sequences<br /> [<a href="/resources/detail/TMPred">details</a>]</p></div></li>
+<li style="height:100px; width:350px;"><div class="featuring_image"><img src="img/resources/49.png" width="75" height="75" alt="tromer" /></div><div class="featuring_text">
+								<p class="resource_title"><a href="http://ccg.vital-it.ch/tromer/">tromer</a></p><p class="resource_description">Predict transcribed regions and splice junctions in a genome<br /> [<a href="/resources/detail/tromer">details</a>]</p></div></li>
+<li style="height:100px; width:350px;"><div class="featuring_image"><img src="img/resources/51.png" width="75" height="75" alt="SwissDock" /></div><div class="featuring_text">
+								<p class="resource_title"><a href="http://www.swissdock.ch/">SwissDock</a></p><p class="resource_description">Docking of small ligands into protein active sites with EADock DSS<br /> [<a href="/resources/detail/SwissDock">details</a>]</p></div></li>
+					</ul>
+					</div>
+					</div>
+				</div>
+  </div>
+</div>
+
+
+<!-- </div> -->       
+		<div id = 'home_help'>
+	  		<h1>How to use this portal?</h1>
+	  		<ul>
+	            <li> <a href="features#features">Features and updates</a></li>
+	    		<li> <a href="features#new">New to ExPASy</a></li>
+	    		<li> <a href="features#experienced">Experienced ExPASy users</a>: what is different </li>
+	    		<!-- <li> FAQs: What’s the main difference? How do I find resources that I used previously?</li> -->
+	  		</ul>
+		</div>
+
+<div style="padding-top:20px; text-align: center;"><a href="https://www.sib.swiss"><img src="/img/SIB20/SIB_logo_20ans_255x151_anim_crop.gif " border="0" alt="SIB 20 years" /></a></div>
+
+	</div>
+</div>
+<div id='home_right'>
+	<div id='popular_resources' class='highlight_box'>
+	<div class='title'>Popular resources</div>
+	<div class='content'>
+		<ul>
+		<li><a href = 'http://www.uniprot.org'><img src = '/img/icon_resources/icon_uniprotkb.png' alt='uniprotkb' height='16' width='16' style='margin-right: 7px; vertical-align: middle;' />UniProtKB</a></li>
+<li><a href = 'https://swissmodel.expasy.org'><img src = '/img/icon_resources/icon_swiss-model.png' alt='swiss-model' height='16' width='16' style='margin-right: 7px; vertical-align: middle;' />SWISS-MODEL</a></li>
+<li><a href = 'https://string-db.org'><img src = '/img/icon_resources/icon_string.png' alt='string' height='16' width='16' style='margin-right: 7px; vertical-align: middle;' />STRING</a></li>
+<li><a href = 'https://prosite.expasy.org/'><img src = '/img/icon_resources/icon_prosite.png' alt='prosite' height='16' width='16' style='margin-right: 7px; vertical-align: middle;' />PROSITE</a></li>
+		</ul>
+	</div>
+	</div>
+	
+<div class='highlight_box' id='news'>
+	<div class='title'>Latest News<span style="float: right;"><a href="news/index.rss"><img src="/img/RSS_16.png" alt="RSS Feed" width="16" height="16" /></a></span></div>
+	<div class='content'>
+					<div class='news_title'>Revamping neXtProt - 
+			<span class='news_date'>2018-03-13</span></div>
+			<div class='news_content'>Revamped entry references pages, new SPARQL queries and neXtProt in ResearchGate. See <a  href="https://www.nextprot.org/news/revamped-entry-references-pages-and-nextprot-in-researchgate">More</a>.</div>
+					<div class='news_title'>UniProt Knowledgebase release 2018_02 - 
+			<span class='news_date'>2018-02-28</span></div>
+			<div class='news_content'><a href="https://www.uniprot.org/news/2018/02/28/release">Release notes</a><br/>556,825 UniProtKB/Swiss-Prot entries (<a href="https://web.expasy.org/docs/relnotes/relstat.html">More..</a>)<br/>108,857,716 UniProtKB/TrEMBL entries (<a href= "https://www.ebi.ac.uk/uniprot/TrEMBLstats/">More..</a>)</div>
+			
+		<p class='bottom'>[<a href="/news">More news</a>] [<a
+			href="http://www.sib.swiss/about-us/news/" target="_blank">SIB
+		news</a>]</p>
+	</div>
+</div>
+</div>
+<!--  </div> -->
+<script type="text/javascript">
+// Default - Initialize all .pluit-carousel found
+new Pluit.Carousel('carousel', {
+circular: true,
+effect: 'fade',
+autoPlay: true,
+slideDuration: 8
+});
+</script>
+<script type="text/javascript">
+$j(document).ready(function(){
+//Remove outline from links
+$j(".hl-item-link").click(function(){
+$j(this).blur();
+});
+//When mouse rolls over
+$j(".hl-item").mouseover(function(){
+$j(this).stop().animate({height:'235px'},{queue:false, duration:600, easing: 'easeOutBounce'})
+});
+//When mouse is removed
+$j(".hl-item").mouseout(function(){
+$j(this).stop().animate({height:'40px'},{queue:false, duration:600, easing: 'easeOutBounce'})
+});
+});
+</script> 
+                
+            </div>
+        </div>
+
+<!-- GA for ExPASy -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-23957752-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+        <div id="sib_footer">
+            <div id='sib_footer_content'>
+                <a href="http://www.sib.swiss">SIB Swiss Institute of Bioinformatics</a> | <a href="/disclaimer.html">Disclaimer</a>            </div>
+        </div>
+    </div>
+    </body>
+</html>

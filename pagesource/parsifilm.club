@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="/cdn-cgi/apps/head/d49NoTqIt-Mq68nqHVCUUiDTHzo.js"></script><link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+<script src="/jquery/jquery-1.12.0.min.js"></script>
+<link rel="shortcut icon" href="/images/logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="پارس فیلم" />
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.bc1e21a775656538c66d.css">
+<link href="/css/rtl.bc1e21a775656538c66d.css" rel="stylesheet">
+
+<meta name="csrf-token" content="d5eNKnHde5HozsVQ3Zsyeo1llWawgE6fqylNxo7J">
+
+<script>
+	    window.Laravel = {"csrfToken":"d5eNKnHde5HozsVQ3Zsyeo1llWawgE6fqylNxo7J","locale":"fa","url":"https:\/\/parsifilm.club"};
+	</script>
+<meta name="google-site-verification" content="0yOLREB9CoMQkvC_Ue0p6hEGgXIiyGW-kRf5YujeFKA" />
+<title>پارس فیلم - دانلود فیلم و سریال های روز دنیا</title>
+<meta property="og:title" content="پارس فیلم - دانلود فیلم و سریال های روز دنیا" />
+<meta property="og:image" content="https://cdn.parsifilm.club/images/logo.png">
+<meta name="description" content="پارس فیلم - دانلود فیلم و سریال های روز دنیا با لینک مستقیم و به صورت رایگان" />
+</head>
+<body>
+<nav class="nav has-shadow" id="app">
+<div class="container">
+<div class="nav-left">
+<span class="mobile-header-btn">
+<i class="fa fa-bars"></i>
+</span>
+<a class="nav-item is-tab desktop-only is-active" href="https://parsifilm.club">
+صفحه اصلی
+</a>
+<a class="nav-item is-tab desktop-only" href="https://parsifilm.club/latest-episodes">
+آخرین سریال ها
+</a>
+<a class="nav-item is-tab desktop-only" href="https://parsifilm.club/latest-movies">
+آخرین فیلم ها
+</a>
+</div>
+<div class="logo">
+<a href="https://parsifilm.club" class="logo-item-big">
+<img src="https://cdn.parsifilm.club/images/logo.png" alt="پارس فیلم">
+</a>
+</div>
+<div class="nav-right">
+<div class="nav-item is-tab is-active">
+<span class="mobile-search-btn"><i class="fa fa-search search-submit"></i></span>
+<form method="GET" action="/search" v-on-clickaway="closeSearch">
+<div class="search-box">
+<input type="text" class="search-header" name="q" placeholder="جستجو..." required autocomplete="off" v-model="searched" v-on:input="search(searched)" />
+<i class="fa fa-search search-submit"></i>
+<div class="search-results" v-if="searched.trim()" :class="searched.trim() ? 'display-block' : 'display-none'">
+<div class="search-type">
+<div class="item" :class="searchType == 'tv' ? 'active' : ''" v-on:click="changeSearchType('tv')">
+سریال ها
+</div>
+<div class="item" :class="searchType == 'movie' ? 'active' : ''" v-on:click="changeSearchType('movie')">
+فیلم ها
+</div>
+</div>
+<div class="search-tv-items" v-if="!loading && searchType == 'tv' && tvs.length">
+<a v-for="item in tvs" :href="url + locale + '/tv-show/' + item.slug" class="search-item">
+<div>
+<img :src="'https://cdn.parsfilm.club' + item.img" :alt="item.title">
+</div>
+<div>
+<h3>
+{{ item.title }}
+</h3>
+</div>
+</a>
+</div>
+<div class="search-movie-items">
+<a v-for="item in movies" :href="url + locale + '/movie/' + item.slug" class="search-item">
+<div>
+<img :src="'https://cdn.parsfilm.club' + item.img" :alt="item.title">
+</div>
+<div>
+<h3>
+{{ item.title }}
+</h3>
+</div>
+</a>
+</div>
+<div class="seach-loading-wrapper" v-if="loading">
+<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<div class="seach-loading-wrapper" v-if="!loading && nothingWasFound">
+موردی یافت نشد
+</div>
+</div>
+</div>
+</form>
+</div>
+<a class="nav-item is-tab desktop-only" href="https://parsifilm.club/movies">
+کل فیلم ها
+</a>
+<a class="nav-item is-tab desktop-only" href="https://parsifilm.club/tv-shows">
+کل سریال ها
+</a>
+</div>
+</div>
+</nav>
+<div class="mobile-header-items">
+<a href="/" class="header-item">صفحه اصلی</a>
+<a href="/movies" class="header-item">فیلم ها</a>
+<a href="/tv-shows" class="header-item">سریال ها</a>
+</div>
+<form method="GET" action="/search" id="mob-search">
+<div class="mobile-search-box">
+<input type="text" class="mobile-search-header" name="q" placeholder="جستجو..." required />
+</div>
+</form>
+<div class="home-cover-wrapper">
+<h1>
+دانلود فیلم و سریال های روز دنیا
+</h1>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6 border-right">
+<h2 class="home-title">
+آخرین سریال ها
+</h2>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/knightfall-s1-e10">
+دانلود سریال
+Knightfall
+فصل
+1
+قسمت
+10
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/knightfall-s1-e10"><img src="https://cdn.parsifilm.club/images/uploads/tvs/knightfall.jpg" class="home-img" alt="Knightfall"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Adventure, Drama</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.4/10</td>
+<td>تاریخ عرضه:</td>
+<td>06 Dec 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>60 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Tom Cullen, Pádraic Delaney, Simon Merrells, Olivia Ross
+<br><br>
+<p>خلاصه داستان: این سریال نگاهی دارد به آخرین روزهای دوره شوالیه های معبد در قرن 14 میلادی. این گروه در قرون وسطی فعالیت می‌کرد. شوالیه های معبد گروهی نظامی بودند که در قرن 12 میلادی برای محافظت از زائران مسیحی در مسیر اورشلیم، دور هم جمع شدند. اعضای این گروه به دلیل خدماتشان، امتیازهای ویژه‌ای داشتند و مورد حمایت کلیسا بودند. آنها به داشتن ثروت و قدرت قابل توجه هم شهرت داشتند.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/arrow-s6-e13">
+دانلود سریال
+Arrow
+فصل
+6
+قسمت
+13
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/arrow-s6-e13"><img src="https://cdn.parsifilm.club/images/uploads/tvs/arrow.jpg" class="home-img" alt="Arrow"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+ <td>ژانر:</td>
+<td>Action, Adventure, Crime</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.1/10</td>
+<td>تاریخ عرضه:</td>
+<td>10 Oct 2012</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>42 min</td>
+<td>زبان:</td>
+<td>English, Spanish, Chinese</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Stephen Amell, Katie Cassidy, David Ramsey, Willa Holland
+<br><br>
+<p>خلاصه داستان: پس از غرق شدن یک کشتی، شخصی میلیاردر بنام &quot;الیور کویین&quot; مفقود می‌شود و به مدت پنج سال همه فکر میکردند که او مرده است، اما 5 سال بعد در یک جزیره‌ی دور افتاده او را پیدا می کنند. او به شهر خودش یعنی &quot;استارلینگ سیتی&quot; نزد مادر و خواهر و بهترین دوستش برمیگردد، که بلافاصله آن‌ها متوجه تغییر رفتار &quot;اُلیور&quot; می‌شوند. &quot;اُلیور&quot; با شخصیت جدیدی که پیدا کرده قصد دارد با تمام بدی ها و خلاف ها درون شهرش مبارزه کند ولی در عین حال شخصیت قدیم خودش رو هم حفظ کند...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/arrow-s6-e12">
+دانلود سریال
+Arrow
+فصل
+6
+قسمت
+12
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/arrow-s6-e12"><img src="https://cdn.parsifilm.club/images/uploads/tvs/arrow.jpg" class="home-img" alt="Arrow"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Adventure, Crime</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.1/10</td>
+<td>تاریخ عرضه:</td>
+<td>10 Oct 2012</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>42 min</td>
+<td>زبان:</td>
+<td>English, Spanish, Chinese</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Stephen Amell, Katie Cassidy, David Ramsey, Willa Holland
+<br><br>
+<p>خلاصه داستان: پس از غرق شدن یک کشتی، شخصی میلیاردر بنام &quot;الیور کویین&quot; مفقود می‌شود و به مدت پنج سال همه فکر میکردند که او مرده است، اما 5 سال بعد در یک جزیره‌ی دور افتاده او را پیدا می کنند. او به شهر خودش یعنی &quot;استارلینگ سیتی&quot; نزد مادر و خواهر و بهترین دوستش برمیگردد، که بلافاصله آن‌ها متوجه تغییر رفتار &quot;اُلیور&quot; می‌شوند. &quot;اُلیور&quot; با شخصیت جدیدی که پیدا کرده قصد دارد با تمام بدی ها و خلاف ها درون شهرش مبارزه کند ولی در عین حال شخصیت قدیم خودش رو هم حفظ کند...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/the-blacklist-s5-e13">
+دانلود سریال
+The Blacklist
+فصل
+5
+قسمت
+13
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/the-blacklist-s5-e13"><img src="https://cdn.parsifilm.club/images/uploads/tvs/the-blacklist.jpg" class="home-img" alt="The Blacklist"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>23 Sep 2013</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>43 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: James Spader, Megan Boone, Diego Klattenhoff, Harry Lennix
+<br><br>
+<p>خلاصه داستان: سریالی پیرامون کاراکتری به اسم Raymond Reddington که در سریال لقبش ”Red” هست خواهد بود . Red که یکی از مشهور ترین تبهکاران تحت تعقیب است ناگهان تصمیم میگیره خودش رو تسلیم پلیس کنه و کمک کنه هر کسی رو که باهاش تاحالا کار میکرده رو معرفی کنه ولی تنها شرطش اینه که با مامور FBI تازه وارد Liz Keen همکاری میکنه…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/the-blacklist-s5-e12">
+دانلود سریال
+The Blacklist
+فصل
+5
+قسمت
+12
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/the-blacklist-s5-e12"><img src="https://cdn.parsifilm.club/images/uploads/tvs/the-blacklist.jpg" class="home-img" alt="The Blacklist"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>23 Sep 2013</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>43 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: James Spader, Megan Boone, Diego Klattenhoff, Harry Lennix
+<br><br>
+<p>خلاصه داستان: سریالی پیرامون کاراکتری به اسم Raymond Reddington که در سریال لقبش ”Red” هست خواهد بود . Red که یکی از مشهور ترین تبهکاران تحت تعقیب است ناگهان تصمیم میگیره خودش رو تسلیم پلیس کنه و کمک کنه هر کسی رو که باهاش تاحالا کار میکرده رو معرفی کنه ولی تنها شرطش اینه که با مامور FBI تازه وارد Liz Keen همکاری میکنه…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/the-blacklist-s5-e11">
+دانلود سریال
+The Blacklist
+فصل
+5
+قسمت
+11
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/the-blacklist-s5-e11"><img src="https://cdn.parsifilm.club/images/uploads/tvs/the-blacklist.jpg" class="home-img" alt="The Blacklist"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>23 Sep 2013</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>43 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: James Spader, Megan Boone, Diego Klattenhoff, Harry Lennix
+<br><br>
+<p>خلاصه داستان: سریالی پیرامون کاراکتری به اسم Raymond Reddington که در سریال لقبش ”Red” هست خواهد بود . Red که یکی از مشهور ترین تبهکاران تحت تعقیب است ناگهان تصمیم میگیره خودش رو تسلیم پلیس کنه و کمک کنه هر کسی رو که باهاش تاحالا کار میکرده رو معرفی کنه ولی تنها شرطش اینه که با مامور FBI تازه وارد Liz Keen همکاری میکنه…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/the-blacklist-s5-e10">
+دانلود سریال
+The Blacklist
+فصل
+5
+قسمت
+10
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/the-blacklist-s5-e10"><img src="https://cdn.parsifilm.club/images/uploads/tvs/the-blacklist.jpg" class="home-img" alt="The Blacklist"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>8.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>23 Sep 2013</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>43 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: James Spader, Megan Boone, Diego Klattenhoff, Harry Lennix
+<br><br>
+<p>خلاصه داستان: سریالی پیرامون کاراکتری به اسم Raymond Reddington که در سریال لقبش ”Red” هست خواهد بود . Red که یکی از مشهور ترین تبهکاران تحت تعقیب است ناگهان تصمیم میگیره خودش رو تسلیم پلیس کنه و کمک کنه هر کسی رو که باهاش تاحالا کار میکرده رو معرفی کنه ولی تنها شرطش اینه که با مامور FBI تازه وارد Liz Keen همکاری میکنه…</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/knightfall-s1-e9">
+دانلود سریال
+Knightfall
+فصل
+1
+قسمت
+9
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/knightfall-s1-e9"><img src="https://cdn.parsifilm.club/images/uploads/tvs/knightfall.jpg" class="home-img" alt="Knightfall"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Adventure, Drama</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.4/10</td>
+<td>تاریخ عرضه:</td>
+<td>06 Dec 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>60 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Tom Cullen, Pádraic Delaney, Simon Merrells, Olivia Ross
+<br><br>
+<p>خلاصه داستان: این سریال نگاهی دارد به آخرین روزهای دوره شوالیه های معبد در قرن 14 میلادی. این گروه در قرون وسطی فعالیت می‌کرد. شوالیه های معبد گروهی نظامی بودند که در قرن 12 میلادی برای محافظت از زائران مسیحی در مسیر اورشلیم، دور هم جمع شدند. اعضای این گروه به دلیل خدماتشان، امتیازهای ویژه‌ای داشتند و مورد حمایت کلیسا بودند. آنها به داشتن ثروت و قدرت قابل توجه هم شهرت داشتند.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/taken-s2-e3">
+دانلود سریال
+Taken
+فصل
+2
+قسمت
+3
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/taken-s2-e3"><img src="https://cdn.parsifilm.club/images/uploads/tvs/taken.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Thriller</td>
+<td>کشور:</td>
+<td>France, USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.6/10</td>
+<td>تاریخ عرضه:</td>
+<td>27 Feb 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>41 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Clive Standen, Jennifer Beals, Gaius Charles, Brooklyn Sudano
+<br><br>
+<p>خلاصه داستان: این سریال که پیش درآمدی بر مجموعه فیلم های &quot;ربوده‌ شده&quot; می باشد داستان مامور سابق CIA، &quot;برایان میلرز&quot; را روایت میکند که قتل خواهرش او را به سمت یک ماموریت خطرناک انتقامجویی در برابر رئیس کارتل &quot;کارلوس میجا&quot; قرار می دهد. در این میان یک سازمان مخفی اطلاعاتی آمریکایی که توسط &quot;کریستینا هارت&quot; رهبری می شود، بطور مخفیانه از برایان به عنوان طعمه برای گرفتن میجا استفاده می کند و...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index">
+<h4>
+<a href="https://parsifilm.club/e/taken-s2-e2">
+دانلود سریال
+Taken
+فصل
+2
+قسمت
+2
+</a>
+</h4>
+</div>
+<div class="panel-body">
+<a href="https://parsifilm.club/e/taken-s2-e2"><img src="https://cdn.parsifilm.club/images/uploads/tvs/taken.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Thriller</td>
+<td>کشور:</td>
+<td>France, USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.6/10</td>
+<td>تاریخ عرضه:</td>
+<td>27 Feb 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>41 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Clive Standen, Jennifer Beals, Gaius Charles, Brooklyn Sudano
+<br><br>
+<p>خلاصه داستان: این سریال که پیش درآمدی بر مجموعه فیلم های &quot;ربوده‌ شده&quot; می باشد داستان مامور سابق CIA، &quot;برایان میلرز&quot; را روایت میکند که قتل خواهرش او را به سمت یک ماموریت خطرناک انتقامجویی در برابر رئیس کارتل &quot;کارلوس میجا&quot; قرار می دهد. در این میان یک سازمان مخفی اطلاعاتی آمریکایی که توسط &quot;کریستینا هارت&quot; رهبری می شود، بطور مخفیانه از برایان به عنوان طعمه برای گرفتن میجا استفاده می کند و...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<h2 class="home-title">
+آخرین فیلم ها
+</h2>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-vanishing-of-sidney-hall">
+دانلود فیلم
+The Vanishing of Sidney Hall
+(کیفیت 720p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-vanishing-of-sidney-hall"><img src="https://cdn.parsifilm.club/images/uploads/movies/the-vanishing-of-sidney-hall.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.8/10</td>
+<td>تاریخ عرضه:</td>
+<td>02 Mar 2018</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>119 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Michelle Monaghan, Elle Fanning, Logan Lerman, Kyle Chandler
+<br><br>
+<p>خلاصه: فیلم سینمایی «نابودی سالن سیدنی» داستان سالن سیدنی را روایت میکند که باعث موفقیت های تصادفی و علاقه های غیرمنتظره را در دوره های اولیه بود و بدون هیچ ردی از بین میرود...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-vanishing-of-sidney-hall">
+دانلود فیلم
+The Vanishing of Sidney Hall
+(کیفیت 1080p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-vanishing-of-sidney-hall"><img src="https://cdn.parsifilm.club/images/uploads/movies/the-vanishing-of-sidney-hall.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.8/10</td>
+<td>تاریخ عرضه:</td>
+<td>02 Mar 2018</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>119 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Michelle Monaghan, Elle Fanning, Logan Lerman, Kyle Chandler
+<br><br>
+<p>خلاصه: فیلم سینمایی «نابودی سالن سیدنی» داستان سالن سیدنی را روایت میکند که باعث موفقیت های تصادفی و علاقه های غیرمنتظره را در دوره های اولیه بود و بدون هیچ ردی از بین میرود...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/small-town-crime">
+دانلود فیلم
+Small Town Crime
+(کیفیت 1080p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/small-town-crime"><img src="https://cdn.parsifilm.club/images/uploads/movies/small-town-crime.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Mystery, Thriller</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.6/10</td>
+<td>تاریخ عرضه:</td>
+<td>19 Jan 2018</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>91 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: John Hawkes, Anthony Anderson, Octavia Spencer, Robert Forster
+<br><br>
+<p>خلاصه: داستان فیلم در مورد یک پُلیس بازنشسته‌ی معتاد به الکُل است که جسد یک زن جوان را پیدا می‌کند و تصمیم می‌گیرد تا قاتل او را پیدا کند اما ناخواسته خانواده‌اش را در معرض خطر قرار می‌دهد و…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/small-town-crime">
+دانلود فیلم
+Small Town Crime
+(کیفیت 720p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/small-town-crime"><img src="https://cdn.parsifilm.club/images/uploads/movies/small-town-crime.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Crime, Mystery, Thriller</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>6.6/10</td>
+<td>تاریخ عرضه:</td>
+<td>19 Jan 2018</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>91 min</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: John Hawkes, Anthony Anderson, Octavia Spencer, Robert Forster
+<br><br>
+<p>خلاصه: داستان فیلم در مورد یک پُلیس بازنشسته‌ی معتاد به الکُل است که جسد یک زن جوان را پیدا می‌کند و تصمیم می‌گیرد تا قاتل او را پیدا کند اما ناخواسته خانواده‌اش را در معرض خطر قرار می‌دهد و…</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-thousand-faces-of-dunjia">
+دانلود فیلم
+The Thousand Faces of Dunjia
+(کیفیت 720p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-thousand-faces-of-dunjia"><img src="https://cdn.parsifilm.club/images/uploads/movies/the-thousand-faces-of-dunjia.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Adventure, Fantasy</td>
+<td>کشور:</td>
+<td>China, Hong Kong</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>5.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>15 Dec 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>113 min</td>
+<td>زبان:</td>
+<td>Mandarin</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Chengpeng Dong, Ni Ni, Arif Rahman, Wu Bai
+<br><br>
+<p>خلاصه: گروهی از برترین مبارزان، از جهان در مقابل تهاجم هیولاها محافظت می کنند.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-thousand-faces-of-dunjia">
+دانلود فیلم
+The Thousand Faces of Dunjia
+(کیفیت 1080p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-thousand-faces-of-dunjia"><img src="https://cdn.parsifilm.club/images/uploads/movies/the-thousand-faces-of-dunjia.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+ <td>Action, Adventure, Fantasy</td>
+<td>کشور:</td>
+<td>China, Hong Kong</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>5.2/10</td>
+<td>تاریخ عرضه:</td>
+<td>15 Dec 2017</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>113 min</td>
+<td>زبان:</td>
+<td>Mandarin</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Chengpeng Dong, Ni Ni, Arif Rahman, Wu Bai
+<br><br>
+<p>خلاصه: گروهی از برترین مبارزان، از جهان در مقابل تهاجم هیولاها محافظت می کنند.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/untitled-justin-kelly-project">
+دانلود فیلم
+Untitled Justin Kelly Project
+(کیفیت 720p web-dl اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/untitled-justin-kelly-project"><img src="https://cdn.parsifilm.club/images/uploads/movies/2y9QwJx.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Drama, Mystery</td>
+<td>کشور:</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>N/A/10</td>
+<td>تاریخ عرضه:</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>N/A</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Riley Keough, Abbey Lee
+<br><br>
+<p>خلاصه: آلیس بیخبر به خانه برادرش ایتان که سالها از او دور بوده و با هم غریبه میباشند میرود ، نامزد ایتان دختری مشکوک و عجیب است و آلیس هم دختر متوهمی است و ...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-monkey-king-3">
+دانلود فیلم
+The Monkey King 3
+(کیفیت 720p WEBrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-monkey-king-3"><img src="https://cdn.parsifilm.club/images/uploads/movies/the-monkey-king-3.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Adventure, Fantasy</td>
+<td>کشور:</td>
+<td>China, Hong Kong</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>5.6/10</td>
+<td>تاریخ عرضه:</td>
+<td>16 Feb 2018</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>114 min</td>
+<td>زبان:</td>
+<td>Mandarin, English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Aaron Kwok, William Feng, Zanilia Zhao, Shenyang Xiao
+<br><br>
+<p>خلاصه: راهب و پیروانش در سرزمینی که فقط زنان در آن ساکن هستند گیر می افتند...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-humanity-bureau">
+دانلود فیلم
+The Humanity Bureau
+(کیفیت 1080p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-humanity-bureau"><img src="https://cdn.parsifilm.club/images/uploads/movies/omW8ebL.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Sci-Fi</td>
+<td>کشور:</td>
+<td>Canada</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>N/A/10</td>
+<td>تاریخ عرضه:</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>N/A</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Nicolas Cage, Sarah Lind, Vicellous Shannon, Jakob Davies
+<br><br>
+<p>خلاصه: یک فیلم هیجان انگیز در سال 2030 که جهان را در یک رکود دائمی اقتصادی و مشکلات جدی زیست محیطی در اثر گرمایش جهانی می بیند.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default info-box indexing">
+<div class="panel-heading list-head-index-light"><h4><a href="https://parsifilm.club/movie/the-humanity-bureau">
+دانلود فیلم
+The Humanity Bureau
+(کیفیت 720p BRrip اضافه شد)
+</a></h4></div>
+<div class="panel-body">
+<a href="https://parsifilm.club/movie/the-humanity-bureau"><img src="https://cdn.parsifilm.club/images/uploads/movies/omW8ebL.jpg" class="home-img" alt="Taken"></a>
+<div class="panel-info">
+<table class="table">
+<tbody>
+<tr>
+<td>ژانر:</td>
+<td>Action, Sci-Fi</td>
+<td>کشور:</td>
+<td>Canada</td>
+</tr>
+<tr>
+<td>IMDB امتیاز:</td>
+<td>N/A/10</td>
+<td>تاریخ عرضه:</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>مدت:</td>
+<td>N/A</td>
+<td>زبان:</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+<div class="stars">
+بازیگران: Nicolas Cage, Sarah Lind, Vicellous Shannon, Jakob Davies
+<br><br>
+<p>خلاصه: یک فیلم هیجان انگیز در سال 2030 که جهان را در یک رکود دائمی اقتصادی و مشکلات جدی زیست محیطی در اثر گرمایش جهانی می بیند.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 flex-center-center">
+<ul class="pagination">
+<li class="disabled"><span>&laquo;</span></li>
+<li class="active"><span>1</span></li>
+<li><a href="https://parsifilm.club?page=2">2</a></li>
+ <li><a href="https://parsifilm.club?page=3">3</a></li>
+<li><a href="https://parsifilm.club?page=4">4</a></li>
+<li><a href="https://parsifilm.club?page=5">5</a></li>
+<li><a href="https://parsifilm.club?page=6">6</a></li>
+<li><a href="https://parsifilm.club?page=7">7</a></li>
+<li><a href="https://parsifilm.club?page=8">8</a></li>
+<li class="disabled"><span>...</span></li>
+<li><a href="https://parsifilm.club?page=705">705</a></li>
+<li><a href="https://parsifilm.club?page=706">706</a></li>
+<li><a href="https://parsifilm.club?page=2" rel="next">&raquo;</a></li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
+کپی رایت ۱۳۹۶،‌ تمامی حقوق محفوظ است.
+</div>
+</div>
+</div>
+</footer>
+<script src="/js/app.414253e38431173b6c91.js"></script>
+</body>
+</html>

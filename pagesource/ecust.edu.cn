@@ -1,0 +1,723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>华东理工大学电子邮件系统</title>
+<meta name="description" content="亿邮电子邮件系统，亿邮邮件整体解决方案" />
+<meta name="keywords" content="企业邮件，亿邮企业邮件，亿邮邮件整体解决方案" />
+<style>
+*{ margin:0; padding:0}
+body{ font-family:"微软雅黑",Verdana, Geneva, sans-serif; font-size:12px; background:#fff}
+select {  
+  appearance:none;  
+  -moz-appearance:none;  
+  -webkit-appearance:none;  
+}  
+select::-ms-expand { display: none; }  
+.t{ height:76px; line-height:90px; background:#fff; overflow:hidden;}
+a{ outline:none}
+.h{ width:964px; margin:0 auto;}
+.logo{ padding-top:15px; float:left}
+.help{ float:right; font-size:14px; font-weight:700; color:#787878; text-decoration:none;}
+.help:hover{ text-decoration:underline}
+.password_explain { position:absolute; padding:10px 20px; right:5px; top:-35px; z-index:1; line-height:28px; background:#fff; border:1px solid #ccc; text-align:center; font-size:14px; box-shadow: 0 0 5px rgba(0,0,0,0.4); display:none}
+
+.c{ width:964px; height:460px; margin:20px auto 0 auto; background:url(/tpl/login/user/images/banner1.png) no-repeat; position:relative}
+.b{ height:70px; border-top:1px solid #fff; border-radius:0 0 5px 5px; background:#f7f7f7; clear:both; width:964px; margin:0 auto; text-align:center; line-height:70px; color:#999;}
+ul{ list-style:none}
+
+.box{ width:376px;position:absolute; box-shadow:0 0 5px rgba(0,0,0,0.4);*height:339px;*background:#fff;_height:339px;_background:#fff;}
+.text_item{height:38px; line-height:38px; width:292px; margin:15px 0 15px 0; position:relative;}
+.text_item label { font-size:14px; margin-right:15px;}
+.text_item select { height:28px; line-height:28px;outline:none; font-size:16px;width:222px;border:1px solid #7a8395; background:url(/tpl/login/user/images/input_bg.png) repeat-x; border-radius:2px; padding:0 5px; padding-right:26px;}
+.text{ height:28px; line-height:28px;outline:none; font-size:16px;width:210px;border:1px solid #7a8395; background:url(/tpl/login/user/images/input_bg.png) repeat-x; border-radius:2px; padding:0 5px; font-family:"微软雅黑"}
+.text_f{ height:28px; line-height:28px;outline:none; font-size:16px;width:210px; padding:0 5px;border:1px solid #7a8395; background:url(/tpl/login/user/images/input_bg.png) repeat-x; border-radius:2px; box-shadow:0 0 3px rgba(0,0,0,0.4); font-family:"微软雅黑"}
+.bl{color:#999; width:292px; overflow:hidden; position:relative; top:-3px; font-size:14px;}
+.bl a{ color:#999; text-decoration:none}
+.bl a:hover{ color:#333; text-decoration:underline;}
+.bl input{ position:relative; top:2px; opacity:0.7;}
+
+.tab{ border-bottom:3px solid #ff7e00; border-bottom:3px solid rgba(255,126,0,0.8); overflow:hidden;}
+
+.tab li{ height:40px; line-height:40px; float:left; width:89px; text-align:center;  background:url(/tpl/login/user/images/tabli.png); _background:#333;color:#fff; font-size:16px; cursor:pointer;}
+.tab li:hover{background:url(/tpl/login/user/images/tablihover.png); _background:#000; }
+.tab li.current{background:url(/tpl/login/user/images/tablicurrent.png); _background:#ff7e00;}
+.tab li.dragbar{ width:20px; background:url(/tpl/login/user/images/dragbar.png); cursor:move}
+
+
+.boxc{ background:#fff; padding:20px 0 30px 42px;}
+.pop{ border:1px solid #0167ff; position:absolute; width:220px; background:#fff; border-top:none;z-index:100; border-radius:0 0 2px 2px; box-shadow:0 2px 3px rgba(0,0,0,0.4); left:103px; top:98px; z-index:1000}
+.pop a{ overflow:hidden;display:block; height:34px; line-height:34px; font-size:14px; color:#666; margin:0 5px; font-weight:700; text-decoration:none;}
+.pop p:hover{ background:#f6f6f6}
+.pop p:first-child a{ border-top:1px dotted #eee;}
+.pop p.first{ color:#000; background:#b5c6e6;}
+
+.fp{ position:absolute; right:0; top:-14px; line-height:12px; text-decoration:none; color:#333}
+.fp:hover{ text-decoration:underlined; color:#333}
+.yzm{ float:right; display:block; height:38px; background:#eee; width:135px;}
+.yzmbox{ position:absolute; height:30px; width:112px; background:#eee; left:61px; top:-38px;}
+a.zc{ font-weight:700; color:#f60}
+a.zc:hover{color:#f60}
+.showpassword{ position:absolute; height:18px; line-height:18px; right:-1px; top:38px; background:#bac5d4; color:#fff; padding:0 3px;}
+.showpassword input{ position:relative; top:2px;}
+.btnb{margin:8px 0 0 0; width:292px; position:relative;}
+.btnb a{ float:right; color:#787878; text-decoration:none;}
+.btnb a:hover{ text-decoration:underline;}
+.btn{ height:28px; width:86px; border:1px solid #757575; font-size:14px; color:#333; font-weight:400; background:url(/tpl/login/user/images/login_btn.png) 0 0;font-family:"微软雅黑"}
+.btn_j { height:21px; width:86px; border:1px solid #757575; font-size:12px; color:#333; font-weight:400; background:url(/tpl/login/user/images/btn_j.png) 0 0;font-family:"微软雅黑"; margin-left:10px;}
+h3{ text-align:; font-size:16px; padding-right:42px; }
+.blt{ float:right;}
+.msg{ position:absolute; background:#cc3300; color:#fff; padding:0 10px; font-size:14px; top:20px; height:30px; line-height:30px; left:42px; right:42px; text-align:center}
+
+
+.f{ position:absolute;bottom:56px;background:url(/tpl/login/user/images/wbg.png); _background:#fff;height:80px; padding:5px 20px;}
+.fl{ float:left; height:80px; width:80px; margin-right:10px;}
+.fr{ float:left; height:80px; width:320px; padding-left:10px;}
+.fr a{ line-height:20px; display:block; width:320px; overflow:hidden; height:20px; color:#333; text-decoration:none; background:url(/tpl/login/user/images/login_dot.jpg) left center no-repeat; padding-left:5px;}
+
+.login_drag{ display:none; position:absolute; width:374px; height:342px; top:60px; left:60px; border:1px dotted #000; zoom:1; background:url(/tpl/login/user/images/dragbg.png); _background:none;}
+
+.pushbox{ height:344px; width:400px; position:absolute; z-index:10}
+b.epicon{ display:block; height:43px; width:43px; background:url(/tpl/login/user/images/ep_icon.png) no-repeat; cursor:pointer}
+b.epicon:hover{ background-position:0 -43px;}
+.epush{ padding-top:70px;}
+.epic{ float:left;}
+
+.dtab{ height:22px; padding-bottom:1px; background:url(/tpl/login/user/images/t50w.png) repeat-x 0 22px; margin-top:25px;}
+.dtab a{ display:block; float:left; margin-right:10px; height:22px; line-height:22px; padding:0 15px; text-decoration:none; color:#fff; text-shadow:0 1px 1px rgba(0,0,0,0.5)}
+.dtab a.current,.dtab a:hover{ background:url(/tpl/login/user/images/t50w.png); border-radius:3px 3px 0 0; box-shadow:1px -1px 1px rgba(0,0,0,0.2)}
+.dbox > div{ display:block; float:left; margin:13px 15px 0 0; height:25px; line-height:25px;padding:0 20px; border-radius:2px; text-decoration:none; color:#fff; cursor:pointer}
+.dbox > div > a{ color:#fff; text-decoration:none;}
+.d_desk{ background:url(/tpl/login/user/images/dbg.png) 0 0 repeat-x;}
+.d_stor{ background:url(/tpl/login/user/images/dbg.png) 0 -25px repeat-x;}
+.d_code{ background:url(/tpl/login/user/images/dbg.png) 0 -50px repeat-x; position:relative}
+.dbox > div:hover{ box-shadow:0 0 3px rgba(0,0,0,0.5)}
+.divcode{ position:absolute; width:122px; left:-22px; display:none;}
+.arrt{ position:absolute; left:90px; top:0; background:url(/tpl/login/user/images/arrt.png);width:13px; height:7px;}
+.codec{ background:#fff; width:120px;position:absolute; top:6px; z-index:-1; border:1px solid #dadada; border-radius:3px; box-shadow:2px 2px 2px rgba(0,0,0,0.3)}
+.codec p{ color:#666; padding:5px 10px 0; line-height:160%; width:100px;}
+.ewm{ padding:5px 10px 10px 10px;}
+.d_code:hover .divcode{ display:block;}
+
+.boxc_title { color:#154077; background:url(/tpl/login/user/images/login_bg.png) no-repeat;height:30px; padding-left: 40px; line-height:30px; box-sizing:border-box;}
+.arrow { 
+	width:12px;
+	height:9px;
+	position:absolute;
+	background:url(/tpl/login/user/images/arrow.png);
+	right:15px;
+	top:13px;
+	cursor:pointer;
+}
+</style>
+
+<script type="text/javascript" src="/tpl/public/js/url_control.js"></script>
+<script type="text/javascript">
+var gUrlPrefix = '/';
+var isCaptcha = 0;
+var code = 0;
+
+//自动完成匹配用的域名列表
+var domainList = [];
+
+//引入系统配置里面的域列表信息,合并到自动完成的域里面里面。
+domainList = (["ecust.edu.cn"]).concat(domainList);
+
+var gLockInfo = "";var msgTpl = {
+    1 : "您填写的用户名或密码错误。",
+    2 : "您帐户所在的域已经过期。", 
+    3 : "您的帐户已经过期。",
+    4 : "您的帐户已经被锁定。",
+    5 : "验证码已经过期，请重新输入。",
+    6 : "您填写的验证码错误，请重新输入。",
+    7 : "模板配置错误。",
+    8 : "该用户不允许别名登录。",
+    9 : "重试次数太多，用户被锁定。",
+    10 : "重试次数太多，IP被锁定，" + gLockInfo + "分钟后再试。" 
+};
+var furls = {
+    //收信url
+    'inbox': '&module=listmail&_data=listmail%3D%253Ffid%253D1', 
+    //写信url
+    'compose' : '&module=compose&_data=compose%3D%253Faction%253Dcompose', 
+    //今日url
+    'today' : '&module=today&_data=',
+    //网盘url
+    'storage' : '&module=storage&_data='
+};
+
+var showMsgCode = function(c) {
+    c = c-0;
+    if (c === 0) {
+        showMsg();
+    } else if (msgTpl[c]) {
+        showMsg(msgTpl[c]);
+    } else {
+        showMsg(msgTpl[1]);
+    }
+}
+
+var showMsg = function(msg) {
+    if (msg === undefined) {
+        document.getElementById('msg').style.display = 'none';
+    } else {
+        document.getElementById('msg').innerHTML = msg;
+        document.getElementById('msg').style.display = '';
+    }
+}
+
+var getLoginTo = function() {
+    return getCookie('emLoginTo');
+}
+
+var setCookie = function(k, v) {
+    document.cookie = k + '=' + encodeURIComponent(v) + ' ;expires=' + (new Date(
+                (new Date()).getTime() + 180*24*3600*1000
+                )).toGMTString() + ' ;path=/';
+}
+
+var getCookie = function(k) {
+    var cookieStr = document.cookie;
+    if (cookieStr != "") {
+        var cookieArr = cookieStr.split(';');
+        var everyCookie, cookieKey, cookieValue, splitPos;
+        for (i=0; i<cookieArr.length; i++) {
+            everyCookie = cookieArr[i].replace(/(^\s*)|(\s*$)/g, '');
+            if (everyCookie != "") {
+                splitPos = everyCookie.indexOf('=');
+                if (splitPos == -1) continue;
+                cookieKey = everyCookie.substr(0, splitPos);
+                cookieValue = everyCookie.substr(splitPos+1);
+
+                if (cookieKey === k) {
+                    return decodeURIComponent(cookieValue);
+                }
+            }
+        }
+    }
+
+    return '';
+}
+
+var setLoginTo = function(loginTo) {
+    setCookie('emLoginTo', loginTo);
+}
+
+var tabClick = function(tab, notClear) {
+    notClear = !!notClear;
+    if (!notClear) {
+        showMsg(); 
+    }
+    var c = tab.className;
+    var liList = tab.parentNode.getElementsByTagName('li');
+    for (var i=liList.length-2; i>=0; i--) {
+        liList[i].className = '';
+    }
+
+    if (c === 'current') {
+        document.getElementById('where').innerHTML = '';
+        document.form_login.go.value = gUrlPrefix + '?q=base';
+        setLoginTo('');
+        tab.className = '';
+    } else {
+        document.getElementById('where').innerHTML = '&raquo; ' + tab.innerHTML;
+        document.form_login.go.value = gUrlPrefix + '?q=base' + furls[tab.id];
+        setLoginTo(tab.id);
+        tab.className = 'current';
+    }
+
+}
+
+var ajax_post = function(url, data, success) 
+{
+    var ajax;
+    var toTry = ['XMLHttpRequest', 'Msxml2.XMLHTTP', 'Microsoft.XMLHTTP'];
+    for (var i=0; i<toTry.length; i++) {
+        try {
+            if (i == 0) {
+                ajax = new window[toTry[i]]();
+            } else {
+                ajax = new window.ActiveXObject(toTry[i]);
+            }
+            break;
+        } catch(e) {}
+    }
+    
+    var stateChange = function()
+    {
+        if(ajax.readyState == 4)
+        {
+            if (ajax.status >=400) {
+            } else if (typeof(success) === 'function') {
+                success(ajax.responseText);
+            }
+        }
+    };
+
+    url = url + (url.indexOf('?') > -1 ? '&' : '?') + 'r=' + Math.random();
+
+    ajax.onreadystatechange = stateChange;
+
+    ajax.open('post', url, true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+    try {
+        ajax.send(data);
+    } catch (e) {
+    }
+};
+
+var on = function(node, ev, callback) {
+    if (!node) return;
+    var _callback = function(ev) {
+        if (false === callback.apply(node, [ev])) {
+            if (ev.preventDefault) {
+                ev.preventDefault();
+            }
+            return false;
+        }
+    }
+    if (node.addEventListener) {
+        node.addEventListener(ev, _callback, false);
+    } else {
+        node.attachEvent('on'+ev, _callback);
+    }
+}
+
+var _setPlaceholder = function (b) {
+    var a = b.getAttribute("_placeholder");
+    if (!a) return;
+    if ("placeholder" in b) {
+        b.placeholder = a;
+        return b;
+    }
+
+    var f = false;
+    var _b;
+    //password补丁
+    if (b.type === 'password') {
+        f = true;
+        _b = document.createElement('input');
+        _b.type = 'text';
+        _b.style.fontSize =  '20px';
+        _b.style.color = "#999";
+        _b.value = a;
+        _b.className = 'text';
+        _b.style.display = 'none';
+        b.parentNode.insertBefore(_b, b);
+    }
+    
+    //初始化
+    if (f) {
+        if (b.value !== '') {
+            b.style.display = '';
+            _b.style.display = 'none';
+        } else {
+            b.style.display = 'none';
+            _b.style.display = '';
+        } 
+    } else {
+        if (b.value !== "") {
+            b.empty = 0;
+            b.style.color = "#000";
+        } else {
+            b.empty = 1;
+            b.value = a;
+            b.style.color = "#999";
+        }
+    }
+    if (f) {
+        on(_b, "focus", function () {
+            _b.style.display = 'none';
+            b.style.display = '';
+            b.focus();
+        });
+        on(b, "blur", function () {
+            if (b.value === "") {
+		_b.style.display = '';
+		b.style.display = 'none';
+            }
+        });
+    } else {
+        on(b, "focus", function () {
+            if (this.empty == 1) {
+                this.value = "";
+                this.style.color = "#000";
+            }
+        });
+
+        on(b, "blur", function () {
+            if (this.empty == 1) {
+                this.value = a 
+                this.style.color = "#999"; 
+            }
+        });
+        on(b, "change", function () {if (this.value === "") {this.empty = 1;} else {this.empty = 0;}});
+    }
+	return b;
+    }
+
+window.onload = function() {
+    if (!window.location.href.match(/&furl=.+/)) {
+        var loginTo = getLoginTo();
+        if (loginTo && document.getElementById(loginTo)) {
+            tabClick(document.getElementById(loginTo), true);
+        } 
+    }
+
+    var _u = getCookie('emLoginUser');
+    if (_u) {
+        document.getElementById('user').value = _u;
+        document.form_login.user.value = _u;
+    }
+    
+    var ipts = document.getElementsByTagName('input');
+    for (var i=ipts.length-1; i>=0; i--) {
+        var type = ipts[i].type;
+        if ((type == 'text' || type == 'password') && ipts[i].getAttribute('_placeholder')) {
+            _setPlaceholder(ipts[i]);
+        }
+    }
+
+    
+    var authCode = document.getElementById('auth_code');
+    var authImage = document.getElementById('auth_code_img');
+    var timer = 0;
+    on(authCode, 'focus', function() {
+        if (authImage.innerHTML === '') {
+            loadImage();
+        }
+        clearTimeout(timer);
+        authImage.style.display = ''; 
+    });
+    
+    on(authCode, 'blur', function() {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            authImage.style.display = 'none'; 
+        }, 100);
+    });
+
+    on(authImage, 'mousedown', function() {
+        authImage.style.display = ''; 
+        loadImage();      
+        clearTimeout(timer);
+        authCode.focus();
+		return false;
+    });
+
+    var loadImage = function() {
+        authImage.innerHTML = '<img width=112 height=38 title="点击更换验证码" src="' + "/?q=auth.image&type=login&r=" + Math.random() + '">';
+    }
+
+    if (isCaptcha == 2) {
+        var forceCaptcha = false;
+        var showCaptcha = function() {
+            var authCode = document.getElementById('auth_code');
+            authCode.style.display = '';
+            var authCodeDiv = document.getElementById('auth_code_div');
+            authCodeDiv.style.display = '';
+            forceCaptcha = true;
+        }
+
+        var hideCaptcha = function() {
+            var authCode = document.getElementById('auth_code');
+            authCode.style.display = 'none';
+            var authCodeDiv = document.getElementById('auth_code_div');
+            authCodeDiv.style.display = 'none';
+            forceCaptcha = false;
+        }
+
+        var changeFun = function() {
+            var u = document.getElementById('user').value.replace(/^\s+|\s+$/g, '');
+            if (u === '') {
+                hideCaptcha();
+                return;
+            }
+            ajax_post('/?q=login.check.captcha', 'user=' + encodeURIComponent(u), function(d) {
+                try {
+                    var o = eval('(' + d  + ')');
+                    if (o.data) {
+                        showCaptcha();
+                    } else {
+                        hideCaptcha();
+                    }
+                } catch(e) {
+                    hideCaptcha();
+                }
+            });
+        };
+
+
+        on(document.getElementById('user'), 'blur', changeFun);
+        changeFun();
+    }
+
+    var beforeLogin = function() {
+        var uc1, uc2, fUrl;
+        var loginUrl, locationUrl;
+
+        var loginSsl = document.form_login.login_ssl.value;
+
+        uc1 = new UrlControl();
+        uc2 = new UrlControl();
+
+        uc1.setUrl(window.location.href);
+        fUrl = uc1.getParam("furl");
+		/*
+        var tabs = document.getElementById('tab').getElementsByTagName('li');
+        for (var i=0; i<tabs.length-1; i++) {
+            if (tabs[i].className === 'current') {
+                fUrl = document.form_login.go.value;
+            }
+        }
+		 */
+
+        var urlPort1, urlPort2, urlProtocol1, urlProtocol2;
+        if ("" === uc1.urlProtocol) {
+            urlPort1 = "";
+        } else {
+            urlProtocol1 = uc1.urlProtocol + "://";
+            urlPort1 = "" === uc1.urlPort ? "" : (":" + uc1.urlPort);
+        }
+
+        uc2.setUrl(urlProtocol1 + uc1.urlHostname + urlPort1 + uc1.getPath());
+        switch (parseInt(loginSsl)) {
+            case 1:
+                if (document.form_login.login_ssl.checked) {
+                    uc2.urlProtocol = 'https'; 
+                }
+                break;
+            case 2:
+                uc2.urlProtocol = 'https';//login.do 
+                break;
+            case 3:
+                uc1.urlProtocol = 'https';//q=base 
+                uc2.urlProtocol = 'https'; 
+                break;
+            default:
+        }
+
+        if ("" === uc2.urlProtocol) {
+            urlPort2 = "";
+        } else {
+            urlProtocol2 = uc2.urlProtocol  + "://";
+            urlPort2 = "" === uc2.urlPort ? "" : (":" + uc2.urlPort);
+        }
+        
+        if ("" === uc1.urlProtocol) {
+            urlPort1 = "";
+        } else {
+            urlProtocol1 = uc1.urlProtocol + "://";
+            urlPort1 = "" === uc1.urlPort ? "" : (":" + uc1.urlPort);
+        }
+		/*
+        if (fUrl) {
+            var uc3 = new UrlControl(); 
+            uc3.setUrl(decodeURIComponent(fUrl));
+            if (!uc3.urlProtocol) {
+                locationUrl =  urlProtocol1 + uc1.urlHostname + urlPort1 + uc3.getPath() + "?" + uc3.getQs();
+            } else {
+                locationUrl = uc3.getUrl();
+            }
+        } else {
+
+        }
+		*/
+		locationUrl =  urlProtocol1 + uc1.urlHostname + urlPort1 + uc1.getPath() + "?q=base";
+
+        document.form_login.setAttribute('action', uc2.getUrl() + "?q=login.do");
+        document.form_login.referer.value = window.location.href;
+        document.form_login.go.value = locationUrl;
+    }
+
+    var onsubmit = function(ev, noAlert) {
+        noAlert = !!noAlert;
+        showMsg();
+        var uNode = document.getElementById('user');
+        var u = uNode.value.replace(/^\s+|\s+$/g, '');
+        if (u === '' || uNode.empty === 1 || document.form_login.password.value === '') {
+            if (!noAlert) {
+                showMsg("请填写用户名和密码。");
+            }
+            if (u === '' || uNode.empty === 1) {
+                uNode.focus();
+            } else {
+                if (document.form_login.password.style.display === 'none') {
+                    document.form_login.password.previousSibling.style.display = 'none';
+                    document.form_login.password.style.display = '';
+                }
+                document.form_login.password.focus();
+            }
+            return false;
+        }
+
+        document.form_login.user.value = u;
+
+        //如果开启验证码
+        if (isCaptcha == 1 || forceCaptcha) {
+            if ("" == authCode.value || authCode.empty === 1) {
+                if (!noAlert) {
+                    showMsg("请填写验证码。"); 
+                }
+                authCode.focus();
+                return false;
+            }
+        }
+
+        setCookie('emLoginUser', u);
+        beforeLogin();
+
+        return true;
+    };
+
+    on(document.getElementById('user'), 'keydown', function(ev) {
+        if (ev.keyCode === 13) {
+        setTimeout(function() {
+            if (false === onsubmit(null, true)) {
+                return; 
+            } else {
+                document.form_login.submit();
+            }
+        }, 100);
+        }
+    });
+
+    on(document.form_login, 'submit', onsubmit);
+
+    showMsgCode(code);
+	on(document.getElementById('password_rule'), 'mouseover', function(){
+		document.getElementById('password_explain').style.display="block";
+	});
+	
+	on(document.getElementById('password_rule'), 'mouseout', function(){
+		document.getElementById('password_explain').style.display="none";
+	});
+
+}
+//以下代码用来登录退出
+ajax_post('/?q=login.destroy.session');
+</script>
+<!-- 登录界面普通处理结束 -->
+</head>
+
+
+<body>
+<div class="t">
+	<div class="h">
+    	<div class="logo"><img src="/tpl/login/user/images/logo.png" /></div>
+        <a class="help" href="">帮助</a>
+        <p style="float:right">&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+        <a class="help" href="#"  id="password_rule">密码说明</a>
+    </div>
+</div>
+
+<div class="c">
+        <div class="password_explain" id="password_explain">
+        	<p>新生密码规则</p>
+            <p>新生初始密码为身份证号后8位（末尾若为x则统一为大写X）</p>
+        </div>
+
+		<div class="pushbox" style="left:60px; top:60px; display:none;">
+        	<b class="epicon" style="display:none"></b>
+            <div class="epush" style="display:">
+            	<div class="ep"><img src="/tpl/login/user/images/pushpic.png" /></div>
+                <div class="dtab">
+                	<a href="#" class="current">Android客户端</a> 
+                    <a href="#">IOS客户端</a> 
+                    <a href="#">桌面客户端</a>   
+                </div>
+                <div class="dbox">
+                	<div class="d_desk"><a href="#">下载到电脑</a></div>
+                    <div class="d_stor"><a href="#">Google Play下载</a></div>
+                    <div class="d_code">
+                    	<a href="#">二维码下载</a>
+                        <div class="divcode">
+                        	<div class="arrt"></div>
+                            <div class="codec">
+                            	<p>用手机扫描以下二维码即可下载</p>
+                                <div class="ewm"><img src="/tpl/login/user/images/ewm.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    	<div class="box" style="right:60px; top:40px;">
+        	<ul class="tab" style="display:none;">
+            	<li>收信</li>
+                <li class="current">写信</li>
+                <li>今日</li>
+                <li>网盘</li>
+                <li class="dragbar"></li>
+            </ul>
+		<form name='form_login' method="post" action="/user/?q=login.do">
+		<div class="msg" id="msg" style="display:none">用户名错误</div>
+            	<div class="boxc">
+                <h3 class="boxc_title">教职工邮箱登陆</h3>
+                <div class="text_item">
+                	<label>用户名</label>
+                    <input type="text" class="text" id="user" name="user" onfocus="this.className='text_f'" onblur="this.className='text'" />
+                    <div class="pop" style="display:none">
+                        <p><a href="#" class="first">wanghongyu@eyou.net</a></p>
+                        <p><a href="#" class="first">wanghongyu@eyou.net</a></p>
+                        <p><a href="#" class="first">wanghongyu@eyou.net</a></p>
+                        <p><a href="#" class="first">wanghongyu@eyou.net</a></p>
+                        <p><a href="#" class="first">wanghongyu@eyou.net</a></p>
+                    </div>
+                </div>
+                <div class="text_item">
+                	<label>密　码</label>
+                    <input type="password" name="password" class="text" onfocus="this.className='text_f'" onblur="this.className='text'" />
+                    <a href="#" class="fp" style="display:none">忘记密码？</a>
+                </div>
+                <div class="text_item">
+                	<label>风　格</label>
+                    <select name="skin">
+                    	<option value="0">默认风格</optiom>
+                    	<option value="1">宝石蓝</optiom>
+                    	<option value="2">玫瑰红</option>
+                    	<option value="4">彩虹</option>
+                    	<option value='5'>水墨仙剑</option>
+                    </select>
+                    <div class="arrow"></div>
+                </div>
+                
+
+                <div class="bl">
+				                        <input type="hidden" name="login_ssl" value="0" />
+                    
+                    <span class="blt" style="display:none"><a href="#">忘记密码</a> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" class="zc">注册</a></span> 
+
+          		</div>
+
+                        <!-- 登录成功以后跳转的URL -->
+                        <input type="hidden" name="go" value="/?q=base">
+
+                        <!-- 登录成功失败后跳转的URL -->
+                        <input type="hidden" name="referer" value="/?q=login">
+
+			<div class="btnb">
+			<div style='float:left;display:none' id="auth_code_div">
+			<label style="font-size:14px; margin-right:15px;">验证码</label>
+			<input type="text" name="auth_code" class="text" style="width:100px;" onfocus="this.className='text_f'" onblur="this.className='text'" id="auth_code">
+                 <div class="yzmbox" style="z-index:1000;display:none" id="auth_code_img"></div>
+			</div>
+                    <input type="submit" class="btn" value="登   录" style="float:right; margin-top:2px;margin-right:9px" />
+                    <div style="clear:both"></div>
+                </div>
+		</form>
+               <h3 class="boxc_title" style="margin-top:20px;">学生/校友邮箱<input type="button" class="btn_j" value="点击进入" onclick="javascript:window.location.href='http://stu.mail.ecust.edu.cn/'"/>
+</h3>
+               </div>
+        </div>
+        
+        
+        <div class="login_drag"></div>
+</div>
+
+<div class="b" style="display:none;">
+eYouMail 5 &copy;2009-2012 eYou.net &nbsp;&nbsp;&nbsp;&nbsp;中国第一大邮件整体解决方案提供商&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">ipad版</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">iphone版</a>
+</div>
+</body>
+</html>

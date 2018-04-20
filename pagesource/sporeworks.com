@@ -1,0 +1,1 @@
+<br /><br />If the page is not updated in 2 seconds, please follow this link: <a href="http://sporeworks.com/?xid=2b18d79d22b76266b008853489faa5f3">continue &gt;&gt;</a><meta http-equiv="Refresh" content="0;URL=http://sporeworks.com/?xid=2b18d79d22b76266b008853489faa5f3" />

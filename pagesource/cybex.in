@@ -1,0 +1,1529 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_HomePage">
+
+    <title>Import Export Data | Daily Data of Indian Customs | Global Trade Data</title>
+    <meta name="description" content="Cybex Exim is trusted by major research firms and media houses for Imports Exports data of Indian Customs derived from daily shipments data of importers, exporters."/>   
+    <meta name="keywords" content="export data, import data, import, export, imports exports data, importers, exporters, suppliers, buyers, Import duty, hs code, Trade Data, Trade Statistics, Daily List, Shipment Data, Custom Data, Statistical reports, Depb, Drawback, Notifications, exim news, exim policy, Indian custom duty, Budget, Dgft, Indian Customs, CBEC, Service tax"/>    
+    <meta name="google-site-verification" content="-1rN4ZGCx3ezlpnVml9uc_uojnH2qWddsmEI9iQb7LE" />
+    <meta name="Author" content="Cybex Exim Solutions Pvt Ltd" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="stylesheet" href="NEW_CSS/slider_default.css" type="text/css" media="screen" />
+    <link href="CSS/globel-trade-data.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="NEW_CSS/nivo-slider.css" />
+    <link rel="stylesheet" href="NEW_CSS/sliderstyle.css" type="text/css" media="screen" />
+    <link href="CSS/style_FreeDemo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript">
+    $(document).ready(function()
+    {
+        $('.blink').blink(); // default is 500ms blink interval. 
+        //$('.blink').blink(100); // causes a 100ms blink interval.
+    });
+</script>
+
+<script language="javascript" type="text/javascript">
+// <!CDATA[
+
+function DIV1_onclick() {
+
+}
+
+// ]]>
+</script>
+
+<script src="js/googleapis.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    function ValidatePassTest() {
+        $("#ctl00_BodyContents_txtproduct").removeClass("Error");
+        $("#ctl00_BodyContents_txthscode").removeClass("Error");
+        $("#ctl00_BodyContents_ddl_Type").removeClass("Error");
+        $("#ctl00_BodyContents_ddl_Country").removeClass("Error");
+    var product = $("#ctl00_BodyContents_txtproduct").val();
+    var hsCode = $("#ctl00_BodyContents_txthscode").val();
+    var type = $("#ctl00_BodyContents_ddl_Type").val();
+    var Country = $("#ctl00_BodyContents_ddl_Country").val();
+
+    if ((hsCode.length == 2) || (hsCode.length == 1) || (hsCode.length == 3) || (hsCode.length == 5) || (hsCode.length == 7)) {
+        if ((product == "Enter Product" || product == "") && (hsCode.length == 2)) {
+            alert("Must Enter Product Name When You Are using " + hsCode.length + " Digit HSCODE");
+            $("#ctl00_BodyContents_txtproduct").addClass("Error");
+            if (type == "Select") {
+                $("#ctl00_BodyContents_ddl_Type").addClass("Error");
+            }
+            return false;
+        }        
+        else {
+            if (type == "Select") {
+                $("#ctl00_BodyContents_ddl_Type").addClass("Error");
+                return false;
+            }
+            else if (Country == "Select") {
+                $("#ctl00_BodyContents_ddl_Country").addClass("Error");
+                return false;
+            }
+            else {
+                if (hsCode.length == 1) {
+                    $("#ctl00_BodyContents_txthscode").addClass("Error");
+                    alert("Please Enter At Least 2 Digit HSCODE")
+                    return false;
+                }
+                else if (hsCode.length == 3) {
+                    $("#ctl00_BodyContents_txthscode").addClass("Error");
+                    alert("Please Enter Only 2,4,6 and 8 Digit HSCODE")
+                    return false;
+                }
+                else if (hsCode.length == 5) {
+                    $("#ctl00_BodyContents_txthscode").addClass("Error");
+                    alert("Please Enter Only 2,4,6 and 8 Digit HSCODE")
+                    return false;
+                }
+                else if (hsCode.length == 7) {
+                    $("#ctl00_BodyContents_txthscode").addClass("Error");
+                    alert("Please Enter Only 2,4,6 and 8 Digit HSCODE")
+                    return false;
+                }
+            }          
+        }
+    }
+    else {
+
+        if (((product == "Enter Product" && hsCode == "Enter HSCode") || (product == "" && hsCode == "Enter HSCode") || (product == "Enter Product" && hsCode == "")) && type == "Select" && Country == "Select") {
+
+            $("#ctl00_BodyContents_ddl_Country").addClass("Error");
+            $("#ctl00_BodyContents_txtproduct").addClass("Error");
+            $("#ctl00_BodyContents_txthscode").addClass("Error");
+            $("#ctl00_BodyContents_ddl_Type").addClass("Error");
+            
+            return false;
+        }
+        else if (((product == "Enter Product" && hsCode == "Enter HSCode") || (product == "" && hsCode == "Enter HSCode") || (product == "Enter Product" && hsCode == "")) && Country == "Select") {
+            $("#ctl00_BodyContents_txtproduct").addClass("Error");
+            $("#ctl00_BodyContents_txthscode").addClass("Error");
+            $("#ctl00_BodyContents_ddl_Country").addClass("Error");
+            $("#ctl00_BodyContents_ddl_Type").removeClass("Error");
+            return false;
+        }
+        else if ((product == "Enter Product" && hsCode == "Enter HSCode") || (product == "" && hsCode == "Enter HSCode") || (product == "Enter Product" && hsCode == "")) {
+            $("#ctl00_BodyContents_txtproduct").addClass("Error");
+            $("#ctl00_BodyContents_txthscode").addClass("Error");
+            $("#ctl00_BodyContents_ddl_Country").removeClass("Error");
+            $("#ctl00_BodyContents_ddl_Type").removeClass("Error");
+            return false;
+        }
+        else if (Country == "Select") {
+            $("#ctl00_BodyContents_txtproduct").removeClass("Error");
+            $("#ctl00_BodyContents_txthscode").removeClass("Error");
+            $("#ctl00_BodyContents_ddl_Country").addClass("Error");
+            $("#ctl00_BodyContents_ddl_Type").removeClass("Error");
+            return false;
+        }
+        else if (type == "Select") {
+            $("#ctl00_BodyContents_txtproduct").removeClass("Error");
+            $("#ctl00_BodyContents_txthscode").removeClass("Error");
+            $("#ctl00_BodyContents_ddl_Country").removeClass("Error");
+            $("#ctl00_BodyContents_ddl_Type").addClass("Error");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+}
+
+function numbersonlyTest(myfield, e, dec) {  
+
+    var key;
+    var keychar;
+    if (window.event)
+    key = window.event.keyCode;
+    else if (e)
+    key = e.which;
+    else
+    return true;
+    keychar = String.fromCharCode(key);
+   
+    $("#ctl00_BodyContents_txthscode").removeClass("Error");
+   
+
+    //For after 8 hscode number automaticaly take ,
+    //by bharat Pandey
+    var str = dec;
+    if(key != 8)
+    {
+        if (str.indexOf(",") == -1) {
+            if (str.length == 8) {
+                if (key == 0) {
+                    return true;
+                }
+                else {
+                    //$("#ctl00_BodyContents_txthscode").val(str + ",");
+                    alert('No More 8 Digit HSCODE Would be Allowed Here!!');
+                    $("#ctl00_BodyContents_txthscode").addClass("Error");
+                    return false;
+                }
+            } 
+        }
+    }
+    if (key == 44) { //For ,
+        alert('Only One HSCODE Would be Allowed Here!!');
+        $("#ctl00_BodyContents_txthscode").addClass("Error");
+        return false;          
+    }
+
+    // control keys
+    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27))
+    return true;
+
+    // numbers
+    else if ((("0123456789").indexOf(keychar) > -1))
+        return true;
+    
+    else if ((key == 33) || (key == 34) || (key == 35) || (key == 36) || (key == 37) || (key == 38) || (key == 39) || (key == 40) || (key == 41) || (key == 42) || (key == 43) || (key == 46) || (key == 47) || (key == 91) || (key == 92) || (key == 93) || (key == 94) || (key == 96) || (key == 123) || (key == 124) || (key == 125) || (key == 126) || (key == 58) || (key == 59) || (key == 61) || (key == 60) || (key == 62) || (key == 63) || (key == 64)) {
+            alert('No Special Character Would be Allowed Here!!');
+            $("#ctl00_BodyContents_txthscode").addClass("Error");
+            return false;
+    }
+    else
+         alert('Only Numbers Would be Allowed In HSCODE!!');
+         $("#ctl00_BodyContents_txthscode").addClass("Error");
+         return false;
+
+}
+function productonlyTest(myfield, e, dec) {
+
+    var key;
+    var keychar;
+    if (window.event)
+        key = window.event.keyCode;
+    else if (e)
+        key = e.which;
+    else
+        return true;
+    keychar = String.fromCharCode(key);
+
+    $("#ctl00_BodyContents_txtproduct").removeClass("Error");
+
+
+    //For after 8 hscode number automaticaly take ,
+    //by bharat Pandey
+    var str = dec;
+   
+    if (key == 44) { //For ,
+        alert('Only One Product Would be Allowed Here!!');
+        $("#ctl00_BodyContents_txtproduct").addClass("Error");
+        return false;
+    }
+    if ((key == 33) || (key == 34) || (key == 35) || (key == 36) || (key == 37) || (key == 38) || (key == 39) || (key == 40) || (key == 41) || (key == 42) || (key == 43) || (key == 44) || (key == 46) || (key == 47) || (key == 91) || (key == 92) || (key == 93) || (key == 94) || (key == 96) || (key == 123) || (key == 124) || (key == 125) || (key == 126) || (key == 58) || (key == 59) || (key == 61) || (key == 60) || (key == 62) || (key == 63) || (key == 64)) {
+        alert('No Special Character Would be Allowed Here!!');
+        $("#ctl00_BodyContents_txtproduct").addClass("Error");
+        return false;
+    }
+    else
+        return true;
+}
+
+function nameonly(myfield, e, dec) {
+    var key;
+    var keychar;
+    if (window.event)
+        key = window.event.keyCode;
+    else if (e)
+        key = e.which;
+    else
+        return true;
+    keychar = String.fromCharCode(key);
+
+    if (key == 44) { //For ,
+        alert('Only One Product Would be Allowed Here!!');        
+        return false;
+    }
+    // control keys
+    if ((key > 64 && key < 91) || (key > 96 && key < 123) || (key == 32) || (key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27) || (key == 46))
+        return true;
+
+    // decimal point jump
+    else if (dec && (keychar == ".")) {
+        myfield.form.elements[dec].focus();
+        return false;
+    }
+    else
+        return false;
+}
+
+</script>
+
+<style type="text/css">
+.Error
+{border-color:Red;
+ border-style:solid;
+ border-width:1px;
+	}
+</style>
+
+<link rel="stylesheet" type="text/css" href="NEW_CSS/menu.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/StyleSheet.css" /><link rel="stylesheet" type="text/css" href="CSS/StyleSheet.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/Style-2010.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/Subscription-Plan.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/Treeview.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/Temp.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/cont-page.css" /><link rel="stylesheet" type="text/css" href="NEW_CSS/Ajax-Controls.css" /><link rel="stylesheet" type="text/css" href="DDMS/CSS/button.css" /><link rel="stylesheet" type="text/css" href="DDMS/CSS/style01.css" /><link rel="stylesheet" type="text/css" href="DDMS/CSS/webwidget_slideshow_common.css" /><link rel="shortcut icon" href="DDMS/images/fav.ico" /><link rel="Shortcut Icon" href="favicon.ico" />
+ <style type='text/css'>@import 'css/fixed4all-alt.css';</style> 
+ <!--[if lte IE 7]>
+<link href="MasterPage_Collections/css/fixed4ie.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">onload = function() { content.focus() }</script>
+<![endif]--> 
+
+
+    <script src="../js/googleapis.min.js" type="text/javascript"></script>
+    
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+ <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+ <script type='text/javascript'> 
+  $(function() {
+    
+  $('#floatingbar').css({height: 0}).animate({ height: '25' }, 'slow');
+  $('.toolbarLink').tipsy({gravity: 's'});
+  });
+</script>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+          (function() {
+           var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+           po.src = 'https://apis.google.com/js/plusone.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); 
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+<script type="text/javascript"> 
+try 
+{ 
+var pageTracker = _gat._getTracker("UA-2626951-6"); 
+pageTracker._trackPageview(); 
+} 
+catch(err) 
+{ } 
+</script>
+
+
+
+
+
+
+<style type="text/css">
+        a#goTop
+        {
+            bottom: 10px;
+            display: none;
+            height: 40px;
+            position: fixed;
+            right: 10px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body class="cybexbody" style="background-color: #175B64 !important;">
+
+    <!-- Start Alexa Certify Javascript --><script type="text/javascript">
+    _atrk_opts = { atrk_acct: "Xgrcj1a4ZP00wr", domain: "cybex.in", dynamic: true };
+    (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+</script><noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Xgrcj1a4ZP00wr" style="display:none" height="1" width="1" alt="" /></noscript><!-- End Alexa Certify Javascript --><script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-2626951-6', 'cybex.in');
+    ga('send', 'pageview');
+
+</script><form name="aspnetForm" method="post" action="default.aspx" id="aspnetForm">
+<input type="hidden" name="ctl00_BodyContents_ScriptManager1_HiddenField" id="ctl00_BodyContents_ScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJOTY4NzAxNzUzD2QWAmYPZBYCAgMPZBYIAgcPZBYKAgMPEA8WBh4NRGF0YVRleHRGaWVsZAULQ291bnRyeU5hbWUeDkRhdGFWYWx1ZUZpZWxkBQtDb3VudHJ5TmFtZR4LXyFEYXRhQm91bmRnZBAVAgZTZWxlY3QFSW5kaWEVAgZTZWxlY3QFSW5kaWEUKwMCZ2dkZAIRDw8WAh4EVGV4dAULMjYtTm92LTIwMTZkZAITDw8WAh8DBQUzNy40OGRkAhUPDxYCHwMFCzI2LU5vdi0yMDE2ZGQCFw9kFgJmD2QWBAILDw8WAh8DBbgXPHVsPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL0V4aW0tTmV3cy9IdWdlLUJpei1PcHBvcnR1bml0aWVzLUZvci1UZXh0aWxlLTExOTE0LmFzcHgiPkh1Z2UgQml6IE9wcG9ydHVuaXRpZXMgRm9yIFRleHRpbGUsIEFwcGFyZWwgSW4gVWFlOiBGaWVvPC9hPjxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjojNTg1ODU4Ij5FeHBvcnRlcnMgQm9keSBGaWVvIFRvZGF5IFNhaWQgSHVnZSBCdXNpbmVzcyBPcHBvcnR1bml0aWVzIEV4aXN0IEluIFRoZSBVYWUgRm9yIERvbWVzdGljIFRleHRpbGUgQW5kIEFwcGFyZWwgU2VjdG9yLjwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL0V4aW0tTmV3cy9FdS1TZXRzLURlYy0zMS1EZWFkbGluZS0xMTkxMy5hc3B4Ij5FdSBTZXRzIERlYyAzMSBEZWFkbGluZSBUbyBBZGhlcmUgVG8gTmV3IEJhc21hdGkgSW1wb3J0IE5vcm1zPC9hPjxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjojNTg1ODU4Ij5UaGUgRXVyb3BlYW4gVW5pb24gSGFzIEdpdmVuIFRpbWUgVG8gSW5kaWEgVGlsbCBEZWNlbWJlciAzMSBUbyBNZWV0IFRoZSBCbG9jJ3MgTmV3IE5vcm1zIE9uIEltcG9ydGluZyBCYXNtYXRpIFJpY2UsIE1pbmlzdGVyIE9mIFN0YXRlIEZvciBDb21tZXJjZSBBbmQgSW5kdXN0cnkgQ3IgQ2hhdWRoYXJ5IFNhaWQgVG9kYXkuPC9zcGFuPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY3liZXguaW4vRXhpbS1OZXdzL1VzLUFncmljdWx0dXJhbC1FeHBvcnRzLVRvLUluZGlhLTExOTEyLmFzcHgiPlVzIEFncmljdWx0dXJhbCBFeHBvcnRzIFRvIEluZGlhIFJpc2UgMjUwJSBJbiBMYXN0IERlY2FkZTwvYT48YnIgLz48c3BhbiBzdHlsZT0iY29sb3I6IzU4NTg1OCI+QW1lcmljYW4gQWdyaWN1bHR1cmFsIFByb2R1Y3RzIEhhdmUgRXhwZXJpZW5jZWQgQSBXaG9wcGluZyAyNTAgUGVyIENlbnQgR3Jvd3RoIEluIEl0cyBFeHBvcnRzIFRvIEluZGlhIEluIFRoZSBMYXN0IERlY2FkZSwgQSBTZW5pb3IgVXMgT2ZmaWNpYWwgSGFzIFNhaWQuPC9zcGFuPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY3liZXguaW4vRXhpbS1OZXdzL0Zvcm11bGEtVG8tRGV0ZXJtaW5lLUltcG9ydC1EdXR5LTExOTExLmFzcHgiPkZvcm11bGEgVG8gRGV0ZXJtaW5lIEltcG9ydCBEdXR5IE9uIEFncmljdWx0dXJhbCBQcm9kdWN0cyBTb29uPC9hPjxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjojNTg1ODU4Ij5OZXcgRGVsaGk6IFRoZSBHb3Zlcm5tZW50IFdpbGwgU29vbiBDb21lIE91dCBXaXRoIEEgRm9ybXVsYSBUbyBJbmNyZWFzZSBPciBEZWNyZWFzZSBJbXBvcnQgRHV0eSBPbiBBZ3JpY3VsdHVyZSBDb21tb2RpdGllcyBBbmQgVG8gQWxsb3cgRXhwb3J0IE9yIFJlc3RyaWN0IEl0IEJ5IEZpeGluZyBBIEJlbmNobWFyayBQcmljZS48L3NwYW4+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3d3dy5jeWJleC5pbi9FeGltLU5ld3MvR3N0LUhpdHMtTmVwYWwtUy1FeHBvcnQtMTE5MTAuYXNweCI+R3N0IEhpdHMgTmVwYWwncyBFeHBvcnQgVG8gSW5kaWE6IFJlcG9ydDwvYT48YnIgLz48c3BhbiBzdHlsZT0iY29sb3I6IzU4NTg1OCI+TmVwYWwncyBFeHBvcnQgVG8gSW5kaWEgSGFzIEJlZW4gQWR2ZXJzZWx5IEFmZmVjdGVkIEFmdGVyIFRoZSBFbmZvcmNlbWVudCBPZiBHb29kcyBBbmQgU2VydmljZXMgVGF4IEFzIE5lcGFsaSBHb29kcyBIYXZlIEJlY29tZSBMZXNzIENvbXBldGl0aXZlIEluIFRoZSBJbmRpYW4gTWFya2V0IER1ZSBUbyBIaWdoIER1dHkgSW4gUG9zdC1Hc3QgUGVyaW9kLCBBIE1lZGlhIFJlcG9ydCBTYWlkIFRvZGF5Ljwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL0V4aW0tTmV3cy9KbnB0LUthcndhci1Qb3J0LUdldHMtR3JhbnQtMTE5MDkuYXNweCI+Sm5wdCAmIEthcndhciBQb3J0IEdldHMgR3JhbnQgVW5kZXIgU2FnYXJtYWxhIFRvIEJvb3N0IENvYXN0YWwgU2hpcHBpbmc8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPlRoZSBNaW5pc3RyeSBPZiBTaGlwcGluZyBIYXMgU2FuY3Rpb25lZCBScyAyNSBDcm9yZSBBcyBHcmFudHMtSW4tQWlkIFRvIEphd2FoYXJsYWwgTmVocnUgUG9ydCBUcnVzdCBBbmQgQW5vdGhlciBScyA1MCBDcm9yZSBUbyBUaGUgR292ZXJubWVudCBPZiBLYXJuYXRha2EgRm9yIEthcndhciBQb3J0LCBGb3IgRGV2ZWxvcGluZyBUaGVpciBJbmZyYXN0cnVjdHVyZSwgVW5kZXIgVGhlIENvYXN0YWwgQmVydGggU2NoZW1lIE9mIEl0cyBGbGFnc2hpcCBQcm9ncmFtbWUgU2FnYXJtYWxhLjwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL0V4aW0tTmV3cy9Hc3QtSGFzLU5vdC1IZWxwZWQtR2FybWVudC0xMTkwOC5hc3B4Ij5Hc3QgSGFzIE5vdCBIZWxwZWQgR2FybWVudCBFeHBvcnRzOiBUcmFkZXJzIFRvIFBhcmxpYW1lbnRhcnkgQ29tbWl0dGVlPC9hPjxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjojNTg1ODU4Ij5HYXJtZW50IEV4cG9ydGVycyBIYXZlIFRvbGQgUGFybGlhbWVudCdzIFN0YW5kaW5nIENvbW1pdHRlZSBPbiBDb21tZXJjZSBUaGF0IFRoZXkgQXJlIFlldCBUbyBTZWUgQW55IEJlbmVmaXQgRnJvbSBUaGUgR29vZHMgQW5kIFNlcnZpY2VzIFRheCAoR3N0KSwgV2l0aCBObyBEZWNyZWFzZSBJbiBJbnB1dCBDb3N0cy48L3NwYW4+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3d3dy5jeWJleC5pbi9FeGltLU5ld3MvRGVlbmRheWFsLVBvcnQtQmVjb21lcy0yTmQtTWFqb3ItMTE5MDcuYXNweCI+RGVlbmRheWFsIFBvcnQgQmVjb21lcyAyTmQgTWFqb3IgUG9ydCBUbyBIYXZlIFNob3JlIFRvIFNoaXAgUG93ZXIgRmFjaWxpdHk8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPkRlZW5kYXlhbCBQb3J0IFdpbGwgTm93IEJlY29tZSBUaGUgU2Vjb25kIE1ham9yIFBvcnQgSW4gSW5kaWEgVG8gSGF2ZSBTaG9yZS1Uby1TaGlwIFBvd2VyIEZhY2lsaXR5Ljwvc3Bhbj48L2xpPjwvdWw+ZGQCFw8PFgIfAwWVFzx1bD48bGk+PGEgaHJlZj0iaHR0cDovL3d3dy5jeWJleC5pbi9Ob3RpZmljYXRpb25zLzUxLTIwMTUtU2Vla3MtRnVydGhlci1BbWVuZC1Ob3RpZmljYXRpb24tMTE1NzcuYXNweCI+SW5kaWFuIEN1c3RvbXMgVGFyaWZmIE5vdGlmaWNhdGlvbiBOdW1iZXIgNTEvMjAxNS1DdXM8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPnNlZWtzIHRvIGZ1cnRoZXIgYW1lbmQgbm90aWZpY2F0aW9uIE5vLiAxMi8yMDEyLUN1c3RvbXMgZGF0ZWQgMTcuMDMuMjAxMiBzbyBhcyB0byBpbmNyZWFzZSB0aGUgYmFzaWMgY3VzdG9tcyBkdXR5IG9uIHdoZWF0IFtDVEggMTAwMSAxOSAwMCBhbmQgMTAwMSA5OSAxMF0gZnJvbSB0aGUgcHJlc2VudCByYXRlIG9mIDEwJSB0byAyNSUgZm9yIGEgcGVyaW9kIHVwIHRvIGFuZCBpbmNsdXNpdmUgb2YgMzEuMDMuMjAxNjwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL05vdGlmaWNhdGlvbnMvNTAtMjAxNS1TZWVrcy1GdXJ0aGVyLUFtZW5kLU5vdGlmaWNhdGlvbi0xMTU3Ni5hc3B4Ij5JbmRpYW4gQ3VzdG9tcyBUYXJpZmYgTm90aWZpY2F0aW9uIE51bWJlciA1MC8yMDE1LUN1czwvYT48YnIgLz48c3BhbiBzdHlsZT0iY29sb3I6IzU4NTg1OCI+U2Vla3MgdG8gZnVydGhlciBhbWVuZCBub3RpZmljYXRpb24gTm8uIDI3LzIwMTEtQ3VzdG9tcyBkYXRlZCAwMS4wMy4yMDExIHNvIGFzIHRvIHJlZHVjZSB0aGUgZXhwb3J0IGR1dHkgb24gZXhwb3J0IG9mIElyb24gT3JlIGJ5IE1NVEMgTGltaXRlZCAob25seSBOTURDIG9yaWdpbikgdG8gSmFwYW4gYW5kIFNvdXRoIEtvcmVhIHVuZGVyIHRoZSBMb25nIFRlcm0gQWdyZWVtZW50IChMVEEpLCBmcm9tIDMwJSB0byAxMCUsIHVwdG8gYW5kIGluY2x1c2l2ZSBvZiAzMS4wMy4yMDE4Ljwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL05vdGlmaWNhdGlvbnMvNDktMjAxNS1TZWVrcy1GdXJ0aGVyLUFtZW5kLU5vdGlmaWNhdGlvbi0xMTU3NS5hc3B4Ij5JbmRpYW4gQ3VzdG9tcyBUYXJpZmYgTm90aWZpY2F0aW9uIE51bWJlciA0OS8yMDE1LUN1czwvYT48YnIgLz48c3BhbiBzdHlsZT0iY29sb3I6IzU4NTg1OCI+U2Vla3MgdG8gZnVydGhlciBhbWVuZCBub3RpZmljYXRpb24gTm8uIDEyLzIwMTItQ3VzdG9tcyBkYXRlZCAxNy4wMy4yMDEyIHNvIGFzIHRvIGluY3JlYXNlIHRoZSBiYXNpYyBjdXN0b21zIGR1dHkgb24gZ2hlZSwgYnV0dGVyIGFuZCBidXR0ZXIgb2lsIGZyb20gdGhlIHByZXNlbnQgcmF0ZSBvZiAzMCUgdG8gNDAlIGZvciBhIHBlcmlvZCB1cHRvIGFuZCBpbmNsdXNpdmUgb2YgdGhlIDMxc3QgZGF5IG9mIE1hcmNoLCAyMDE2PC9zcGFuPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY3liZXguaW4vTm90aWZpY2F0aW9ucy80OC0yMDE1LVNlZWtzLUZ1cnRoZXItQW1lbmQtTm90aWZpY2F0aW9uLTExNTc0LmFzcHgiPkluZGlhbiBDdXN0b21zIFRhcmlmZiBOb3RpZmljYXRpb24gTnVtYmVyIDQ4LzIwMTUtQ3VzPC9hPjxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjojNTg1ODU4Ij5TZWVrcyB0byBmdXJ0aGVyIGFtZW5kIG5vdGlmaWNhdGlvbiBOby4gMTIvMjAxMi1DdXN0b21zIGRhdGVkIDE3LjAzLjIwMTIgc28gYXMgdG86IGV4dGVuZCB6ZXJvIGltcG9ydCBkdXR5IHJlZ2ltZSBmb3IgYWxsIHB1bHNlcyBleGNlcHQgZ3JhbSBbQ1RIIDA3MTMgMjAgMDBdIGFuZCBsZW50aWwgW0NUSCAwNzEzIDQwIDAwXSB3aXRob3V0IGFuIGVuZCBkYXRlIC5leHRlbmQgemVybyBpbXBvcnQgZHV0eSByZWdpbWUgZm9yIGdyYW0gW0NUSCAwNzEzIDIwIDAwXSBhbmQgbGVudGlscyBbQ1RIIDA3MTMgNDAgMDBdIG9ubHkgdXAgdG8gMzEuMTIuMjAxNTwvc3Bhbj48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmN5YmV4LmluL05vdGlmaWNhdGlvbnMvNDctMjAxNS1TZWVrcy1GdXJ0aGVyLUFtZW5kLU5vdGlmaWNhdGlvbi0xMTU3My5hc3B4Ij5JbmRpYW4gQ3VzdG9tcyBUYXJpZmYgTm90aWZpY2F0aW9uIE51bWJlciA0Ny8yMDE1LUN1czwvYT48YnIgLz48c3BhbiBzdHlsZT0iY29sb3I6IzU4NTg1OCI+U2Vla3MgdG8gZnVydGhlciBhbWVuZCBOb3RpZmljYXRpb24gTm8uMTIvMjAxMi1DdXN0b21zIGRhdGVkIDE3LjAzLjIwMTI8L3NwYW4+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3d3dy5jeWJleC5pbi9Ob3RpZmljYXRpb25zLzQ2LTIwMTUtU2Vla3MtRnVydGhlci1BbWVuZC1Ob3RpZmljYXRpb24tMTE1NzEuYXNweCI+SW5kaWFuIEN1c3RvbXMgVGFyaWZmIE5vdGlmaWNhdGlvbiBOdW1iZXIgNDYvMjAxNS1DdXM8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPlNlZWtzIHRvIGZ1cnRoZXIgYW1lbmQgTm90aWZpY2F0aW9uIE5vLjEyLzIwMTItQ3VzdG9tcyBkYXRlZCAxNy4wMy4yMDEyPC9zcGFuPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY3liZXguaW4vTm90aWZpY2F0aW9ucy85MC0yMDE1LUFwcG9pbnRtZW50LUNvbW1vbi1BZGp1ZGljYXRpbmctQXV0aG9yaXR5LTExNTgzLmFzcHgiPkluZGlhbiBDdXN0b21zIE5vbi1UYXJpZmYgTm90aWZpY2F0aW9uIE51bWJlciA5MC8yMDE1LUN1cyhOVCk8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPkFwcG9pbnRtZW50IG9mIENvbW1vbiBBZGp1ZGljYXRpbmcgQXV0aG9yaXR5PC9zcGFuPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY3liZXguaW4vTm90aWZpY2F0aW9ucy84OS0yMDE1LUFwcG9pbnRtZW50LUNvbW1vbi1BZGp1ZGljYXRpbmctQXV0aG9yaXR5LTExNTgyLmFzcHgiPkluZGlhbiBDdXN0b21zIE5vbi1UYXJpZmYgTm90aWZpY2F0aW9uIE51bWJlciA4OS8yMDE1LUN1cyhOVCk8L2E+PGJyIC8+PHNwYW4gc3R5bGU9ImNvbG9yOiM1ODU4NTgiPkFwcG9pbnRtZW50IG9mIENvbW1vbiBBZGp1ZGljYXRpbmcgQXV0aG9yaXR5PC9zcGFuPjwvbGk+PC91bD5kZAIJDw8WAh8DBQVHdWVzdGRkAg8PZBYCZg9kFgQCAQ8PFgIfAwUNTm92ZW1iZXIgMjAxNmRkAgMPFgIfAwWlATx1bD48bGk+PHNwYW4gY2xhc3M9IlByb2ZpbGUiIHN0eWxlPSJmb250LXdlaWdodDpib2xkOyBjb2xvcjojMDA2NmNjOyI+MjYtTm92LTIwMTY8L3NwYW4+PGJyIC8+PHNwYW4gY2xhc3M9IlByb2ZpbGUiPkRhdGEgQXZhaWxhYmxlIHRpbGwgMjYgTm92IDIwMTY8L3NwYW4+PC9saT48L3VsPmQCEQ8PFgIeB1Zpc2libGVnZBYCZg9kFgxmDw8WAh4JTWF4TGVuZ3RoAjJkZAIBDw8WAh8FAmRkZAICDw8WAh8FAsgBZGQCAw8PFgIfBQIUZGQCBA8WAh4JbWF4bGVuZ3RoBQMxMDBkAggPDxYCHwUCZGRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYHBRtjdGwwMCRDWUJFWF9MT0dJTiRidG5fTG9naW4FHWN0bDAwJENZQkVYX0xPR0lOJFJlbWVtYmVyX01lBR5jdGwwMCRDWUJFWF9FTlFVSVJZJHJkYl9leHBvcnQFHmN0bDAwJENZQkVYX0VOUVVJUlkkcmRiX0ltcG9ydAUeY3RsMDAkQ1lCRVhfRU5RVUlSWSRyZGJfSW1wb3J0BRxjdGwwMCRDWUJFWF9FTlFVSVJZJHJkYl9ib3RoBRxjdGwwMCRDWUJFWF9FTlFVSVJZJHJkYl9ib3Ro" />
+
+
+<script src="http://www.cybex.in/js/jquery-1.4.2.js" type="text/javascript"></script>
+<script src="http://www.cybex.in/js/using_jquery.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=l8BXQ30p_2IED3kv0AQcScGY9fzJr4eb7fFo7tG3UNz1ZkEssRVmBT1zqRxNvIQRXUHxK1F7ck3--vy3Xs1eIzFC4PfYJE7JTPUh4bXNckGSU-EN1smfW4E3IVDgoFS2lG3PuQ2&amp;t=78f0a2d1" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/default.aspx?_TSM_HiddenField_=ctl00_BodyContents_ScriptManager1_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.60623.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a834c499a-b613-438c-a778-d32ab4976134%3ade1feab2%3af9cec9bc%3a35576c48%3af2c8e708%3a720a52bf%3a4a2c8239" type="text/javascript"></script> 
+	
+<div class="MainTable">
+<div style="width:100%; clear:right;">
+
+
+
+<style type="text/css">
+   
+.lft-chris{position:fixed;left:6px; top:200px;z-index: 99999;}
+.rgt-chris{position:fixed; right:0px; top:200px;z-index: 99999;}	
+    
+@media screen and (min-width: 120px) and (max-width: 1199px) {  
+.lft-chris{display:none;}
+.rgt-chris{display:none;}	
+}
+    
+@media screen and (min-width: 1200px) and (max-width: 1400px) { 
+.lft-chris{position:fixed;left:6px; top:200px;z-index: 99999;}
+.rgt-chris{position:fixed; right:0px; top:200px;z-index: 99999;}	
+}
+
+@media screen and (min-width: 1400px){ 
+.lft-chris{position:fixed;left:60px; top:200px;z-index: 99999;}
+.rgt-chris{position:fixed; right:70px; top:200px;z-index: 99999;}	
+}
+
+.helpful {
+    background: none repeat scroll 0 0 #F3F6FD;
+    border: 1px solid #222222;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 6px #555555;
+    color: #1C1B1B;
+    margin: 50px 0 0;
+    padding: 10px 15px;
+    width: 80px;
+    height:400px;
+    position:fixed;left:6px; top:200px;z-index: 99999;
+}
+</style>
+
+
+<div style="width:100%;">
+
+<div style="float:left"><a href="http://www.cybex.in"><img src="/images/logo.jpg"  style="border: 0px none; margin-left: 5px; width: 175px; margin-bottom: 0px; height: 95px; margin-top: 5px;" alt="EXPORT IMPORT DATA" title="EXPORT IMPORT DATA" /></a></div>
+
+
+
+<div style="float:left;position: relative;">
+
+</div>
+
+<div style="float:left;position: relative;">
+
+
+
+</div>
+
+
+<div id="topmostlink" style="width:430px; float:right; border:0px; text-align:right; margin:20px 10px 0 0; font-weight:normal; font-size:13px; font-family:  Arial;"><div class="sub-menu"> <a href="http://www.cybex.in" id="top" name="top" title="Home">Home</a> | <a href="http://www.cybex.in/About.aspx" title="About Us">About Us</a>
+| <a href="http://www.cybex.in/clients.aspx" title="Clients">Clients</a> | <a href="http://www.cybex.in/credentials.aspx" title="Credentials">Credentials</a>
+| <a href="http://www.cybex.in/Careers.aspx" title="Careers">Careers</a> | <a href="http://www.cybex.in/FAQ.aspx" title="FAQs">FAQs</a>
+| <a href="http://www.cybex.in/SiteMap.aspx" title="Sitemap">Sitemap</a></div>
+
+
+<div id="topmostlink"  style="border:0px; margin:-8px -10px 0 0; font-weight:normal; font-family:  Arial;">
+<div style="width: 251px; margin-left: 0px; text-align: left ! important; font-size: 10px ! important; float: left;">
+<style>
+.cse input.gsc-input,input.gsc-input {background-image: url("http://cse.google.com/images/google_custom_search_smwide.gif") !important;font-size:13px !important;}
+.cse input.gsc-input:focus,input.gsc-input:focus {background-image: none !important;font-size:13px !important;}
+</style>
+
+
+<script>
+  (function() {
+    var cx = '015873042830971733580:5xindgv7bvs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+
+<div style="width: 172px; float: left; margin-top: 20px;">
+
+<div id="google_translate_element"></div><script type="text/javascript">
+                                             function googleTranslateElementInit() {
+                                                 new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'es,fr,ja,ko,la,ru,vi,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-2626951' }, 'google_translate_element');
+                                             }
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</div>
+</div>
+
+
+
+
+<div class="top-rgt" style="float: left; width: 349px; margin-left: 75px; margin-top: -8px;">
+
+ <span><img id="ctl00_CYBEX_HEADER_img_phone" src="http://www.cybex.in/images/phone.png" alt="Phone" border="0" style="vertical-align: middle;" />+91 120 4517800 </span> 
+<span> <img id="ctl00_CYBEX_HEADER_img_whatapp" src="http://www.cybex.in/images/whatsapp-messenger-icon.png" alt="WhatsApp" border="0" style="border-width: 0;height: 32px;width: 32px; vertical-align: middle;" />+91 9971093718 </span>
+<span><iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fcybex.exim&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=192259200789094" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width:52px; vertical-align:middle;" allowTransparency="true"></iframe>
+</span>
+</div>
+
+</div>
+</div>
+
+
+
+
+</div>
+<div style="width:100%; clear:both;"><img id="ctl00_CYBEX_BLUE_BAR" src="images/blue-bar.jpg" alt=" " border="0" style="border:0; width:100%; height:26px;" /></div>
+<div style="width:100%; clear:both;">
+
+<!-- Menu user control goes here -->
+<ul id="menu">
+<li><a href="http://www.cybex.in" title="Home"><b>&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</b></a></li>
+<li class="current"><a class="sub" href="http://www.cybex.in/Demo-Search/Default.aspx" title="Online India Data"><b>Online India Data</b></a>
+<ul class="sub">		
+<li><a href="http://www.cybex.in/Register.aspx" title="Register Now">Register Now</a></li>
+<li><a href="http://www.cybex.in/Subscription-Plans.aspx" title="Subscription Plans">Subscription Plans</a></li>			
+<li><a href="http://www.cybex.in/Demo-Search/Default.aspx" title="Demo Search">Live Demo Search</a></li>	
+<li><a href="http://www.cybex.in/india-imports-data/Default.aspx" title="Imports Sample Data">Imports Sample Data</a></li>
+<li><a href="http://www.cybex.in/india-exports-data/Default.aspx" title="Exports Sample Data">Exports Sample Data</a></li>
+<li><a href="http://www.cybex.in/SampleData.aspx" title="Sample Data">Sample Data</a></li>
+<li><a href="http://www.cybex.in/Indian-Ports-Data.aspx" title="Indian Ports Data">Indian Ports Data</a></li>		
+</ul> 
+</li>  
+<li><a class="sub" href="http://www.cybex.in/Global-Trade-Data/Default.aspx" title="Global Trade Data"><b>Global Trade Data</b></a>
+<ul class="sub">
+<li><a href="http://www.cybex.in/Indian-Customs/India-Imports-Data.aspx" title="India Import Data">India Import Data</a></li>
+<li><a href="http://www.cybex.in/Indian-Customs/India-Exports-Data.aspx" title="India Export Data">India Export Data</a></li>
+<li><a href="http://www.cybex.in/Indian-Ports-Data.aspx" title="Indian Ports Data">Indian Ports Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/China-Imports-Data.aspx" title="China Import Data">China Import Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/China-Exports-Data.aspx" title="China Export Data">China Export Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/US-Imports-Data.aspx" title="USA Import Data">USA Import Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/UK-Imports-Data.aspx" title="UK Import Data">UK Import Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/Russia-Imports-Data.aspx" title="Russia Import Data">Russia Import Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/Russia-Exports-Data.aspx" title="Russia Export Data">Russia Export Data</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/Active-Buyers-Suppliers.aspx" title="Active Buyers & Suppliers">Active Buyers &amp; Suppliers</a></li>
+<li><a href="http://www.cybex.in/Global-Trade-Data/Customized-Data-Solutions.aspx" title="Customized Data Solutions">Customized Data Solutions</a></li>		
+</ul>
+</li>
+<li><a class="sub" href="http://www.cybex.in/International-Trade-Resources/Default.aspx" title="International Trade Resources"><b>International Trade Resources</b>
+</a>
+<ul class="sub">
+<li><a href="http://www.cybex.in/International-Trade-Resources/ISD_CODES.aspx" title="ISD Codes">ISD Codes</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Port_Code.aspx" title="Port Codes">Port Codes</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Country_Code.aspx" title="Country Codes">Country Codes</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Currency_Code.aspx" title="Currency Codes">Currency Codes</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Unit_Quantity_Code.aspx" title="Unit Quantity Codes">Unit Quantity Codes</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Indian_Port_List.aspx" title="Indian Port List">Indian Port List</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Exchange Rates">Exchange Rates</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Incoterms.aspx" title="IncoTerms">IncoTerms</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Foreign-Embassies-in-India.aspx" title="Foreign Embassies in India">Foreign Embassies in India</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Indian-Embassy-Abroad.aspx" title="Indian Embassy Abroad">Indian Embassy Abroad</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Export-promotion-council.aspx" title="Export Promotion Councils">Export Promotion Councils</a></li>
+</ul>
+</li>
+<li><a class="sub" href="http://www.cybex.in/Indian-Trade-Laws/Default.aspx" title="Indian Trade Laws"><b>Indian Trade Laws</b></a>
+<ul class="sub">
+<li><a href="http://www.cybex.in/indian-custom-duty/default.aspx" title="Indian Custom Duty">Indian Custom Duty</a></li>
+<li><a href="http://www.cybex.in/Notifications/Default.aspx" title="Notifications">Notifications</a></li>
+<li><a href="http://www.cybex.in/HS-Codes/Default.aspx" title="HS Classifications">HS Classifications</a></li>
+<li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Exchange Rates">Exchange Rates</a></li>
+<li><a href="http://www.cybex.in/DEPB_RATE.aspx" title="DEPB Rates">DEPB Rates</a></li>
+<li><a href="http://www.cybex.in/Exim-Policy/Default.aspx" title="New Exim Policy">New Exim Policy</a></li>
+<li><a href="http://www.cybex.in/Baggage-Rules.aspx" title="Baggage Rules">Baggage Rules</a></li>
+<li><a href="http://www.cybex.in/Importers-Exporters-Code-IEC.aspx" title="IEC">IEC</a></li>
+</ul>
+</li>
+<li>
+<a href="http://www.cybex.in/in-media-news/" title="Media"><b>&nbsp;&nbsp;&nbsp;Media&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+</li>
+<li><a class="sub" href="http://www.cybex.in/About.aspx" title="About Us"><b>&nbsp;&nbsp;&nbsp;About Us&nbsp;&nbsp;&nbsp;</b></a>
+<ul class="sub">
+<li><a href="http://www.cybex.in/About.aspx" title="About Us">About Us</a></li>
+<li><a href="http://www.cybex.in/clients.aspx" title="Key Clients">Key Clients</a></li>
+<li><a href="http://www.cybex.in/credentials.aspx" title="Credentials">Credentials</a></li>
+<li><a href="http://www.cybex.in/Feedback-Suggestion.aspx" title="Feedback | Help | Questions">Feedback | Help | Questions</a></li>
+<li><a href="http://www.cybex.in/Contact.aspx" title="Contact Us">Contact Us</a></li>
+<li><a href="http://www.cybex.in/content.aspx" title="Guide">Guide</a></li>
+<li><a href="http://www.cybex.in/SiteMap.aspx" title="Sitemap">Sitemap</a></li>
+</ul>
+</li>
+
+<li><a href="http://www.cybex.in/contact.aspx" title="Contact Us"><b>Contact Us</b></a></li>
+</ul>
+<!-- Menu user control ends here --></div>
+<div style="width:100%; clear:both;">
+<table width="100%"><tr>
+<td class="LeftCol">
+<div style="width:98%; text-align:center; margin-left:auto; margin-right:auto;">
+   
+
+    <div id="ctl00_BodyContents_main">
+
+
+</div>
+
+<div style="width:100%; text-align:center; margin-left:auto; margin-right:auto; padding-top:10px;">
+<div style="display:block; float:left; clear:right; width:100%; height:100%; text-align:left;">
+<!--slide start here -->
+      <div class="slider-wrapper theme-default" style="margin:0 0 6px 2px;">
+        <div id="slider" class="nivoSlider">
+   <img src="images/first_img.png" width="759" height="226" alt="Import Export Data" />
+   <img src="images/sec_img.png" width="759" height="226" alt="Export Import Data" />
+   <img src="images/third_img.png" width="759" height="226" alt="Import Export" />
+   <img src="images/forth.png" width="759" height="226" alt="Export Import Data Company" />
+   <img src="images/fif_call_img.png" width="759" height="226" alt="Shipment Data India" />
+   </div>
+  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>          
+ </div>
+ <!-- slider end here --> 
+</div>
+</div>
+
+
+<div style="width:100%;">
+<div class="glo-tr-data-main">
+<div class="glo-tr-data">
+          <h4><img src="images/globe-head.png" title="" alt="" /> <a style="color:#1D5991" href="http://www.cybex.in/Global-Trade-Data/Default.aspx"> Global Trade Data </a> <span><a>Available Offline</a> </span></h4>
+          
+          
+          <div class="sear_pan_main">
+<div class="search_panel">
+<div class="search_panel_head">
+<span>Live Data Free</span>
+</div>
+
+<div class="select_box_div">
+<span>Country</span>
+    <select name="ctl00$BodyContents$ddl_Country" id="ctl00_BodyContents_ddl_Country" class="text_box_div_select" onChange="javascript:return ValidatePassTest();">
+	<option value="Select">Select</option>
+	<option selected="selected" value="India">India</option>
+
+</select>
+</div>
+
+<div class="select_box_div" style="padding:0 1px 0 21px">
+<span>Type</span>
+    <select name="ctl00$BodyContents$ddl_Type" id="ctl00_BodyContents_ddl_Type" class="text_box_div_select" onChange="javascript:return ValidatePassTest();">
+	<option value="Select">Select</option>
+	<option value="Import" style="margin-top:3px;">Import</option>
+	<option value="Export" style="margin-top:3px;">Export</option>
+
+</select>
+</div>
+
+<div class="text_box_div">
+<span>HS Code</span>
+<input name="ctl00$BodyContents$txthscode" type="text" maxlength="8" id="ctl00_BodyContents_txthscode" class="text_box_div_txtbox" onKeyPress="return numbersonlyTest(this, event,this.value)" onblur="javascript:return ValidatePassTest();" />
+    <input type="hidden" name="ctl00$BodyContents$txt_HsCode_TextBoxWatermarkExtender_ClientState" id="ctl00_BodyContents_txt_HsCode_TextBoxWatermarkExtender_ClientState" />
+
+</div>
+
+<div class="text_box_div">
+<span>Product</span>
+    <input name="ctl00$BodyContents$txtproduct" type="text" maxlength="20" id="ctl00_BodyContents_txtproduct" class="text_box_div_txtbox" onKeyPress="return productonlyTest(this, event,this.value)" onblur="javascript:return ValidatePassTest();" />
+    
+    <input type="hidden" name="ctl00$BodyContents$txt_Product_TextBoxWatermarkExtender_ClientState" id="ctl00_BodyContents_txt_Product_TextBoxWatermarkExtender_ClientState" />
+    
+
+</div>
+
+
+
+
+
+<div class="select_box_btn">
+    <input type="submit" name="ctl00$BodyContents$Button1" value="search" onclick="javascript:return ValidatePassTest();" id="ctl00_BodyContents_Button1" class="sr_btn" />
+
+
+</div>
+</div>
+</div>
+          
+          
+          
+          <p><a href="http://www.cybex.in/sample-data/Global-Trade-Data.xls" style="color:#C65206">Click Here</a> to download sample data of all countries. </p>
+         
+          <ul>
+            <li><a href="Global-Trade-Data/Argentina-Exports-Data.aspx">Argentina Exports Data</a></li>
+            <li><a href="Global-Trade-Data/Argentina-Imports-Data.aspx">Argentina Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Bolivia-Imports-Data.aspx">Bolivia Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Brazil-Exports-Data.aspx">Brazil Exports Data</a></li>
+            <li><a href="Global-Trade-Data/Brazil-Imports-Data.aspx">Brazil Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Chile-Imports-Data.aspx">Chile Imports Data</a></li>
+            <li><a href="Global-Trade-Data/China-Exports-Data.aspx">China Exports Data</a></li>
+            <li><a href="Global-Trade-Data/China-Imports-Data.aspx">China Imports Data</a></li>
+            <li><a href="Samples-Data/China-Exports-Sample.aspx">China Exports Data</a></li>
+            <li><a href="Samples-Data/China-Imports-Sample.aspx">China Imports Data</a></li>
+          </ul>
+         <ul>
+            <li><a href="Global-Trade-Data/Colombia-Imports-Data.aspx">Colombia Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Costa-Rica-Imports-Data.aspx">Costa Rica Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Ecuador-Imports-Data.aspx">Ecuador Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Indonesia-Exports-Data.aspx">Indonesia Exports Data</a></li>
+            <li><a href="Global-Trade-Data/Indonesia-Imports-Data.aspx">Indonesia Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Korea-Exports-Data.aspx">Korea Exports Data</a></li>
+            <li><a href="Global-Trade-Data/Malaysia-Imports-Data.aspx">Malaysia Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Mexico-Imports-Data.aspx">Mexico Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Pakistan-Imports-Data.aspx">Pakistan Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Panama-Imports-Data.aspx">Panama Imports Data</a></li>
+          </ul>
+          <ul>
+            <li><a href="Global-Trade-Data/Paraguay-Imports-Data.aspx">Paraguay Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Peru-Imports-Data.aspx">Peru Imports Data</a></li>
+            <li><a href="Samples-Data/Russia-Exports-Sample.aspx">Russia Exports Data</a></li>
+            <li><a href="Samples-Data/Russia-Imports-Sample.aspx">Russia Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Srilanka-Imports-Data.aspx">Srilanka Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Ukraine-Imports-Data.aspx">Ukraine Imports Data</a></li>
+            <li><a href="Samples-Data/UK-Imports-Sample.aspx">UK Imports Data</a></li>
+            <li><a href="Samples-Data/US-Imports-Sample.aspx">USA Imports Data</a></li>
+            <li><a href="Global-Trade-Data/Vietnam-Exports-Data.aspx">Vietnam Exports Data</a></li>
+            <li><a href="Global-Trade-Data/Vietnam-Imports-Data.aspx">Vietnam Imports Data</a></li>
+          </ul>
+        </div>
+</div></div>
+
+<div style="width:100%; clear:left;">
+<div style="width:770px;">
+
+<div id="main_trade_content"> 
+
+
+
+
+
+
+<div class="trade_top">
+<h1 class="gl_ic">Export Import Indian Trade Data – Online (<span>Live data of <a href="http://www.cybex.in/Demo-Search/Port-list.aspx"><span class="gtext">120
+    ports</span></a> available till </span><span class="gtext"><span id="ctl00_BodyContents_lbl_current">26-Nov-2016</span></span>)
+<span class="re_now">Register Now to download more than <span id="ctl00_BodyContents_lbl_total_counts">37.48</span> Crore online shipment data of export and import from January 2008 onwards.</span></h1>
+</div>
+
+
+
+
+<div class="trade_bot">
+
+<div id="player"></div>
+<script src="http://www.youtube.com/player_api"></script>
+<script>
+    var player;
+    function onYouTubePlayerAPIReady() {
+        player = new YT.Player('player', {
+            height: '315',
+            width: '768', videoId: 'Lao2QsJBs2w',
+            suggestedQuality: 'large',
+            events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+    //autoplay
+
+    function onPlayerReady(event) {
+        //event.target.playVideo();
+     }
+
+     //when  video end
+
+     function onPlayerStateChange(event) {
+         if (event.data === 0) {
+             //event.target.playVideo();
+             event.target.stopVideo();
+
+         }
+     }
+</script>
+</div>
+<br />
+
+<div id="trade_div">
+<div class="trade_box" style="min-height:110px">
+<ul>
+<li><a href="http://www.cybex.in/research-reports/mobile-phone-imports-india.aspx">Mobile Phones Imports Data</a></li>
+<li style="background:none !important;line-height:15px">&nbsp;</li>
+<li><a href="http://www.cybex.in/india-imports-data/Default.aspx">Indian Imports - Sample Data </a></li>
+<li><a href="http://www.cybex.in/india-exports-data/Default.aspx">Indian Exports - Sample Data </a></li>
+<li><a href="http://www.cybex.in/Indian-Ports-Data.aspx">Sample Data - Indian Ports</a></li></ul>
+</div>
+<div class="trade_box trade_box02" style="min-height:110px">
+<ul class="see_demo">
+<li style="margin-top:4px;">Data Available till <span><span id="ctl00_BodyContents_lblcurrentdata">26-Nov-2016</span></span></li>
+<li class="res_subs2" style="margin-top:8px;"><a href="http://www.Cybex.in/Register.aspx">Register Now</a></li>
+<li class="res_subs" style="margin-top:8px;"><a href="http://www.Cybex.in/Subscription-Plans.aspx">Subscription Plans</a></li></ul>
+<br />
+</div>
+</div>
+
+
+
+<div class="trade_bot">
+<ul>
+<li class="call_li">Call Us : <span>0120-4517800.</span></li><li class="mess_li">Just <a href="Enquiry.aspx">Send Enquiry </a>to contact sales.</li></ul>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div style="width:100%;">
+<table style="width:100%;">
+<tr><td title="Exim Laws, Exim Policy, Exim Procedures" style="width:100%; vertical-align:top; background-color:#ffffff; text-align:justify; border:#0099FF ridge 1px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="100%" style="height: 10px"><img border="0" src="images/clear.gif" width="19" height="10"></td></tr>
+<tr><td class="boxheader"><b><img src="images/tbl_head.png" alt="" height="28px" width="28px" title="Exim Laws, Exim Policy, Exim Procedures"/><a href="http://www.cybex.in/Indian-Trade-Laws/Default.aspx"> Exim Laws, Exim Policy, Exim Procedures</a></b></td></tr>
+<tr><td width="100%"><img border="0" src="images/clear.gif" width="4" height="4"></td></tr>                                     
+<tr><td width="100%" bgcolor="#C4C4C4"><img border="0" src="images/clear.gif" width="1" height="1"></td></tr>
+<tr><td width="100%">
+<table style="width:100%; vertical-align:top;"><tr>
+<td style="width:50%;"><div class="UnorderedList"><ul>
+<li><a href="http://www.cybex.in/HS-Codes/Default.aspx" title="H.S. Classification">H.S. Classification</a></li><li><a href="http://www.cybex.in/DEPB_RATE.aspx" title="DEPB Rates">DEPB Rates</a></li><li><a href="http://www.cybex.in/indian-custom-duty/default.aspx" title="India Custom Duty">India Custom Duty</a></li><li><a href="http://www.cybex.in/Notifications/Default.aspx" title="Notifications">Notifications</a></li><li><a href="http://www.cybex.in/duty-drawback-rates.aspx" title="Duty Drawback Rates">Duty Drawback Rates</a></li><li><a href="http://www.cybex.in/new-duty-draw-back-rates.aspx" title="New Duty Drawback Rates (PDF)">New Duty Drawback Rates (PDF)</a></li><li><a href="http://www.cybex.in/Baggage-Rules.aspx" title="Baggage Rules">Baggage Rules</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Customs Exchange Rates">Customs Exchange Rates</a></li><li><a href="http://www.cybex.in/input-output-norms.aspx" title="Input Output Norms">Input Output Norms</a></li><li><a href="http://www.cybex.in/Exim-Policy/Default.aspx" title="Exim Policy">Exim Policy</a></li></ul></div></td>
+<td style="width:50%; vertical-align:top;"><div class="UnorderedList"><ul>
+<li><a href="http://www.cybex.in/travellers_information.aspx" title="Travellers Information">Travellers Information</a></li><li><a href="http://www.cybex.in/Aayaat-Niryaat-Form.aspx" title="Ayaat Niryaat Form">Ayaat Niryaat Form</a></li><li><a href="http://www.cybex.in/New-Exim-Policy-2008.aspx"  title="New Exim Policy 2008">New Exim Policy 2008</a></li><li><a href="http://www.cybex.in/NEW-EXIM-PROCEDURE-2008.ASPX" title="New Exim Procedure 2008">New Exim Procedure 2008</a></li><li><a href="http://www.cybex.in/Importers-Exporters-Code-IEC.aspx" title="Importers Exporters Code">Importers Exporters Code</a></li><li><a href="http://www.cybex.in/china-hsclassification.aspx" title="China H.S. Classification">China H.S. Classification</a></li><li><a href="http://www.cybex.in/india-budget/Default.aspx" title="India Union Budgets">India Union Budgets</a></li></ul></div></td></tr></table></td></tr>
+</table></td></tr></table>
+</div>
+
+<div style="width:100%;">
+<table style="width:100%;"><tr>
+<td title="Indian Customs" class="Box">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="100%" style="height: 10px"><img border="0" src="images/clear.gif" width="19" height="10"></td></tr>
+<tr><td class="boxheader"><b><img src="images/tbl_head.png" alt="" height="28px" width="28px" title="Indian Customs" /><a href="http://www.cybex.in/Indian-Customs/Default.aspx">Indian Customs</a></b></td></tr>
+<tr><td width="100%"><img border="0" src="images/clear.gif" width="4" height="4"></td></tr>                                     
+<tr><td width="100%" bgcolor="#C4C4C4"><img border="0" src="images/clear.gif" width="1" height="1"></td></tr>
+<tr><td width="100%"><img border="0" src="images/clear.gif" width="4" height="4"></td></tr>
+<tr><td width="100%">
+<div class="UnorderedList"><ul>
+<li><a href="http://www.cybex.in/Indian-Customs/India-Exports-Data.aspx" title="Indian Custom Export Data">Indian Custom Export Data</a></li><li><a href="http://www.cybex.in/Indian-Customs/India-Imports-Data.aspx" title="Indian Custom Import Data">Indian Custom Import Data</a></li><li><a href="http://www.cybex.in/indian-custom-duty/default.aspx" title="Indian Custom Duty">Indian Custom Duty</a></li><li><a href="http://www.cybex.in/Notifications/Indian-Customs.aspx" title="Custom Notifications">Custom Notifications</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Import Exchange Rates">Import Exchange Rates</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Export Exchange Rates">Export Exchange Rates</a></li><li><a href="http://www.cybex.in/travellers_information.aspx" title="Travellers Information">Travellers Information</a></li><li><a href="http://www.cybex.in/Baggage-Rules.aspx" title="Baggage Rules">Baggage Rules</a></li><li><a href="http://www.cybex.in/custom-act-1962.aspx" title="Custom Act 1962">Custom Act 1962</a></li><li><a href="http://www.cybex.in/custom-tariff-act-1975.aspx" title="Custom Tariff Act 1975">Custom Tariff Act 1975</a></li><li><a href="http://www.cybex.in/custom-rules.aspx" title="Custom Rules">Custom Rules</a></li><li><a href="http://www.cybex.in/custom-regulations.aspx" title="Custom Regulations">Custom Regulations</a></li></ul></div>
+
+</td></tr></table>
+</td>
+
+<td style="width:1px;"></td>
+
+<td title="International Trade Resources" class="Box">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="100%" style="height: 10px"><img border="0" src="images/clear.gif" width="19" height="10"></td></tr>
+<tr><td class="boxheader"><b><img src="images/tbl_head.png" alt="" height="28px" width="28px"  title="International Trade Resources"/><a href="http://www.cybex.in/International-Trade-Resources/Default.aspx">International Trade Resources</a></b></td></tr>
+<tr><td width="100%"><img border="0" src="images/clear.gif" width="4" height="4"></td></tr><tr>
+<td width="100%" bgcolor="#C4C4C4"><img border="0" src="images/clear.gif" width="1" height="1"></td></tr>
+<tr><td width="100%"><img border="0" src="images/clear.gif" width="4" height="4"></td></tr>
+<tr><td width="100%"><div class="UnorderedList">
+<ul>
+<li><a href="http://www.cybex.in/International-Trade-Resources/ISD_CODES.aspx" title="ISD Codes">ISD Codes</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Port_Code.aspx" title="Port Codes">Port Codes</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Country_Code.aspx" title="Country Codes">Country Codes</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Currency_Code.aspx" title="Currency Codes">Currency Codes</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Unit_Quantity_Code.aspx" title="Unit Quantity Codes">Unit Quantity Codes</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Indian_Port_List.aspx" title="Indian Port List">Indian Port List</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Exchange_Rates.aspx" title="Exchange Rates">Exchange Rates</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Incoterms.aspx" title="Incoterms">Incoterms</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Foreign-Embassies-in-India.aspx" title="Foreign Embassies in India">Foreign Embassies in India</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Indian-Embassy-Abroad.aspx" title="Indian Embassy  Abroad">Indian Embassy  Abroad</a></li><li><a href="http://www.cybex.in/International-Trade-Resources/Export-promotion-council.aspx" title="Export Promotion Councils">Export Promotion Councils</a></li></ul>
+
+</div></td></tr></table>
+</td>
+</tr></table>
+</div>
+
+<div style="width:100%;">
+<div id="ctl00_BodyContents_CYBEX_EXIM_NEWS_PANEL_EXIM_NEWS">
+	
+<table style="width:100%;">
+<tr>
+<td title="EXIM NEWS - EXPORT IMPORT" 
+style="width:50%; vertical-align:top; background-color:#ffffff; text-align:justify; border:#0099FF ridge 1px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="100%" style="height: 10px"><img src="images/clear.gif" border="0" width="19" height="10" /></td></tr>
+<tr><td class="boxheader"><b>
+<img id="ctl00_BodyContents_CYBEX_EXIM_NEWS_bullet" src="images/tbl_head.png" border="0" style="border:none; height:28px; width:28px;" />
+<a id="ctl00_BodyContents_CYBEX_EXIM_NEWS_EXIM_NEWS_HEADER" href="Exim-News/Default.aspx">EXIM NEWS - EXPORT IMPORT</a>
+</b></td></tr>
+<tr><td width="100%"><img src="images/clear.gif" border="0" width="4" height="4" /></td></tr>                                     
+<tr><td width="100%" bgcolor="#C4C4C4"><img src="images/clear.gif" border="0" width="1" height="1" /></td></tr>
+<tr>
+<td style="width:100%; vertical-align:top; padding:0 0 15px 0;text-align:left; margin:0;">
+<div class="UnorderedList" style="vertical-align:top; text-align:left; margin:0; padding:0;">
+<marquee direction="up" onmouseover="stop();" onmouseout="start();" behaviour="slide" scrollamount="5"> 
+<span id="ctl00_BodyContents_CYBEX_EXIM_NEWS_LB_EXIM_NEWS" class="spl_format"><ul><li><a href="http://www.cybex.in/Exim-News/Huge-Biz-Opportunities-For-Textile-11914.aspx">Huge Biz Opportunities For Textile, Apparel In Uae: Fieo</a><br /><span style="color:#585858">Exporters Body Fieo Today Said Huge Business Opportunities Exist In The Uae For Domestic Textile And Apparel Sector.</span></li><li><a href="http://www.cybex.in/Exim-News/Eu-Sets-Dec-31-Deadline-11913.aspx">Eu Sets Dec 31 Deadline To Adhere To New Basmati Import Norms</a><br /><span style="color:#585858">The European Union Has Given Time To India Till December 31 To Meet The Bloc's New Norms On Importing Basmati Rice, Minister Of State For Commerce And Industry Cr Chaudhary Said Today.</span></li><li><a href="http://www.cybex.in/Exim-News/Us-Agricultural-Exports-To-India-11912.aspx">Us Agricultural Exports To India Rise 250% In Last Decade</a><br /><span style="color:#585858">American Agricultural Products Have Experienced A Whopping 250 Per Cent Growth In Its Exports To India In The Last Decade, A Senior Us Official Has Said.</span></li><li><a href="http://www.cybex.in/Exim-News/Formula-To-Determine-Import-Duty-11911.aspx">Formula To Determine Import Duty On Agricultural Products Soon</a><br /><span style="color:#585858">New Delhi: The Government Will Soon Come Out With A Formula To Increase Or Decrease Import Duty On Agriculture Commodities And To Allow Export Or Restrict It By Fixing A Benchmark Price.</span></li><li><a href="http://www.cybex.in/Exim-News/Gst-Hits-Nepal-S-Export-11910.aspx">Gst Hits Nepal's Export To India: Report</a><br /><span style="color:#585858">Nepal's Export To India Has Been Adversely Affected After The Enforcement Of Goods And Services Tax As Nepali Goods Have Become Less Competitive In The Indian Market Due To High Duty In Post-Gst Period, A Media Report Said Today.</span></li><li><a href="http://www.cybex.in/Exim-News/Jnpt-Karwar-Port-Gets-Grant-11909.aspx">Jnpt & Karwar Port Gets Grant Under Sagarmala To Boost Coastal Shipping</a><br /><span style="color:#585858">The Ministry Of Shipping Has Sanctioned Rs 25 Crore As Grants-In-Aid To Jawaharlal Nehru Port Trust And Another Rs 50 Crore To The Government Of Karnataka For Karwar Port, For Developing Their Infrastructure, Under The Coastal Berth Scheme Of Its Flagship Programme Sagarmala.</span></li><li><a href="http://www.cybex.in/Exim-News/Gst-Has-Not-Helped-Garment-11908.aspx">Gst Has Not Helped Garment Exports: Traders To Parliamentary Committee</a><br /><span style="color:#585858">Garment Exporters Have Told Parliament's Standing Committee On Commerce That They Are Yet To See Any Benefit From The Goods And Services Tax (Gst), With No Decrease In Input Costs.</span></li><li><a href="http://www.cybex.in/Exim-News/Deendayal-Port-Becomes-2Nd-Major-11907.aspx">Deendayal Port Becomes 2Nd Major Port To Have Shore To Ship Power Facility</a><br /><span style="color:#585858">Deendayal Port Will Now Become The Second Major Port In India To Have Shore-To-Ship Power Facility.</span></li></ul></span></marquee>
+</div>
+</td>
+</tr>
+</table>
+</td>
+
+<td style="width:1px;"></td>
+
+<td title="Latest Notifications" style="width:50%; vertical-align:top; background-color:#ffffff; text-align:justify; border:#0099FF ridge 1px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="100%" style="height: 10px"><img src="images/clear.gif" id="ctl00_BodyContents_CYBEX_EXIM_NEWS_Img1" border="0" width="19" height="10" /></td></tr>
+<tr><td class="boxheader"><b>
+<img id="ctl00_BodyContents_CYBEX_EXIM_NEWS_Image1" src="images/tbl_head.png" border="0" style="border:none; height:28px; width:28px;" />
+<a id="ctl00_BodyContents_CYBEX_EXIM_NEWS_HyperLink1" href="Notifications/Default.aspx">LATEST NOTIFICATIONS</a>
+</b></td></tr>
+<tr><td width="100%"><img src="images/clear.gif" id="ctl00_BodyContents_CYBEX_EXIM_NEWS_Img2" border="0" width="4" height="4" /></td></tr>                                     
+<tr><td width="100%" bgcolor="#C4C4C4"><img src="images/clear.gif" id="ctl00_BodyContents_CYBEX_EXIM_NEWS_Img3" border="0" width="1" height="1" /></td></tr>
+<tr>
+<td style="width:100%; vertical-align:top; padding:0 0 15px 0;text-align:left; margin:0;">
+<div class="UnorderedList" style="vertical-align:top; text-align:left; margin:0; padding:0;">
+<marquee direction="up" onmouseover="stop();" onmouseout="start();" behaviour="slide" scrollamount="5"> 
+<span id="ctl00_BodyContents_CYBEX_EXIM_NEWS_LB_EXIM_NOTIFICATIONS" class="spl_format"><ul><li><a href="http://www.cybex.in/Notifications/51-2015-Seeks-Further-Amend-Notification-11577.aspx">Indian Customs Tariff Notification Number 51/2015-Cus</a><br /><span style="color:#585858">seeks to further amend notification No. 12/2012-Customs dated 17.03.2012 so as to increase the basic customs duty on wheat [CTH 1001 19 00 and 1001 99 10] from the present rate of 10% to 25% for a period up to and inclusive of 31.03.2016</span></li><li><a href="http://www.cybex.in/Notifications/50-2015-Seeks-Further-Amend-Notification-11576.aspx">Indian Customs Tariff Notification Number 50/2015-Cus</a><br /><span style="color:#585858">Seeks to further amend notification No. 27/2011-Customs dated 01.03.2011 so as to reduce the export duty on export of Iron Ore by MMTC Limited (only NMDC origin) to Japan and South Korea under the Long Term Agreement (LTA), from 30% to 10%, upto and inclusive of 31.03.2018.</span></li><li><a href="http://www.cybex.in/Notifications/49-2015-Seeks-Further-Amend-Notification-11575.aspx">Indian Customs Tariff Notification Number 49/2015-Cus</a><br /><span style="color:#585858">Seeks to further amend notification No. 12/2012-Customs dated 17.03.2012 so as to increase the basic customs duty on ghee, butter and butter oil from the present rate of 30% to 40% for a period upto and inclusive of the 31st day of March, 2016</span></li><li><a href="http://www.cybex.in/Notifications/48-2015-Seeks-Further-Amend-Notification-11574.aspx">Indian Customs Tariff Notification Number 48/2015-Cus</a><br /><span style="color:#585858">Seeks to further amend notification No. 12/2012-Customs dated 17.03.2012 so as to: extend zero import duty regime for all pulses except gram [CTH 0713 20 00] and lentil [CTH 0713 40 00] without an end date .extend zero import duty regime for gram [CTH 0713 20 00] and lentils [CTH 0713 40 00] only up to 31.12.2015</span></li><li><a href="http://www.cybex.in/Notifications/47-2015-Seeks-Further-Amend-Notification-11573.aspx">Indian Customs Tariff Notification Number 47/2015-Cus</a><br /><span style="color:#585858">Seeks to further amend Notification No.12/2012-Customs dated 17.03.2012</span></li><li><a href="http://www.cybex.in/Notifications/46-2015-Seeks-Further-Amend-Notification-11571.aspx">Indian Customs Tariff Notification Number 46/2015-Cus</a><br /><span style="color:#585858">Seeks to further amend Notification No.12/2012-Customs dated 17.03.2012</span></li><li><a href="http://www.cybex.in/Notifications/90-2015-Appointment-Common-Adjudicating-Authority-11583.aspx">Indian Customs Non-Tariff Notification Number 90/2015-Cus(NT)</a><br /><span style="color:#585858">Appointment of Common Adjudicating Authority</span></li><li><a href="http://www.cybex.in/Notifications/89-2015-Appointment-Common-Adjudicating-Authority-11582.aspx">Indian Customs Non-Tariff Notification Number 89/2015-Cus(NT)</a><br /><span style="color:#585858">Appointment of Common Adjudicating Authority</span></li></ul></span>
+</marquee>
+</div>
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+
+</div>
+</div>
+<a href="http://www.cybex.in/urls/Default.aspx" style="display:block"></a>
+
+</div>
+</td>
+
+
+<td class="RightCol" >
+<div class="RightTab" style="text-align:left;">
+   <span class="WelcomeName"><b>Welcome
+                                    <span id="ctl00_lblwelcome">Guest</span></b></span>
+                                <br />
+                                <div id="ctl00_div_login">
+                                <input type="hidden" name="ctl00$CollapsiblePanelExtender1_ClientState" id="ctl00_CollapsiblePanelExtender1_ClientState" />
+                                <div id="ctl00_pn_header_online" class="collapsePanelHeader" style="text-align: left;
+                                    padding: 10px 0 10px 0;">
+	
+                                    <span id="ctl00_lblOnline" style="padding: 0 0 5px 0; color: #38383B;"></span>
+                                    <img id="ctl00_Imgonline" src="DDMS/images/expand_blue.jpg" border="0" style="visibility: hidden;" />
+                                
+</div>
+                                <div id="ctl00_pn_online_login">
+	
+                                    <div id="ctl00_CYBEX_LOGIN_LoginPanel">
+		
+<table border="0" cellspacing="0" cellpadding="0" width="99%" class="ASummary">
+<tr><td class="ASummaryHead">
+<span class="rounded_box1">
+<b class="rounded_box2">User Login</b>
+</span>
+</td></tr>
+<tr><td style="width:100%; text-align:center;">
+       <table style="width:92%; text-align:left; margin-left:auto; margin-right:auto;" border="0" cellspacing="1" cellpadding="2" >       
+       <tr><td style="width:100%;">Username or Email  <br />
+                <input name="ctl00$CYBEX_LOGIN$txtlogin" type="text" id="ctl00_CYBEX_LOGIN_txtlogin" title="Enter your UserID OR Email" class="LoginTextBox" />                
+       </td></tr>         
+       <tr><td style="width:100%;">Password <br />
+                <input name="ctl00$CYBEX_LOGIN$txtpass" type="password" id="ctl00_CYBEX_LOGIN_txtpass" title="Enter your Password" class="LoginTextBox" />
+       </td></tr>      
+       <tr><td>
+            <input type="image" name="ctl00$CYBEX_LOGIN$btn_Login" id="ctl00_CYBEX_LOGIN_btn_Login" title="Login" class="Masterlogin" src="images/login.jpg" alt="Login" onclick="return guestfreepaidlogin();" border="0" />
+       </td></tr>       
+       <tr><td class="remember-me">       
+       <span title="Uncheck if using shared computer."><input id="ctl00_CYBEX_LOGIN_Remember_Me" type="checkbox" name="ctl00$CYBEX_LOGIN$Remember_Me" checked="checked" /><label for="ctl00_CYBEX_LOGIN_Remember_Me">Remember Me</label></span>
+       </td></tr>
+       <tr><td class="forgotPassword">       
+       &raquo; <a id="ctl00_CYBEX_LOGIN_Free_Signup" title="Register Now" href="http://www.cybex.in/Register.aspx">Register Now</a>
+       </td></tr>
+       <tr><td class="forgotPassword">       
+       &raquo; <a id="ctl00_CYBEX_LOGIN_hrpforgotpass" title="Forgot Password ?" href="http://www.cybex.in/Paid-Users/Forgot-Password-Recovery.aspx">Forgot Password ?</a>
+       </td></tr>
+       </table>        
+</td></tr>
+</table>
+
+	</div><br />
+                                
+</div>
+                                
+                           
+                               
+</div>
+
+
+<div id="ctl00_CYBEX_ENQUIRY_EnquiryFormPanel">
+	
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="92%" class="ASummary">
+<tr><td class="ASummaryHead">
+<span class="rounded_box1">
+<b class="rounded_box2">Cybex in media</b>
+</span>
+</td></tr>
+<tr><td>
+
+<marquee  behavior="scroll" direction="up" scrollamount="3" style="padding:10px;box-shadow: inset -1px -1px 3px #73C3FD;
+    -moz-box-shadow: inset -1px -1px 3px #73C3FD;
+    -webkit-box-shadow: inset -1px -1px 3px #73C3FD;" >
+<a href="http://www.cybex.in/in-media-news/" target="_blank">
+<img src="http://www.cybex.in/images/media_news_1.jpg" style="width:170px;" /><br /><br />
+<img src="http://www.cybex.in/images/media_news_2_1.jpg" style="width:170px;" /><br /><br />
+<img src="http://www.cybex.in/images/media_news_2_2.jpg" style="width:170px;" /><br /><br />
+<img src="http://www.cybex.in/images/media_news_3.jpg" style="width:170px;" /><br /><br />
+<img src="http://www.cybex.in/images/media_news_4.jpg" style="width:170px;" /></a>
+</marquee>
+
+</table>
+<br />
+
+<table border="0" cellspacing="0" cellpadding="0" width="92%" class="ASummary">
+<tr><td class="ASummaryHead">
+<span class="rounded_box1">
+<b class="rounded_box2">Enquiry Form</b>
+</span>
+</td></tr>
+<script type="text/javascript">
+function checkEmail(txtemail)
+ {
+    var email = document.getElementById('ctl00_CYBEX_ENQUIRY_txt_Email').value;
+    if(email == "")
+    {
+        alert("Please Enter E-mail Address!");
+        return false;
+    }
+else
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    {
+        return true;
+    }
+    else
+    {
+        document.getElementById('ctl00_CYBEX_ENQUIRY_txt_Email').value="";
+        alert("Invalid E-mail Address! Please re-enter.");
+        return false;
+    }
+}
+ 
+function numbersonly(myfield, e,dec)
+{
+    var key;
+    var keychar;
+    if (window.event)
+       key = window.event.keyCode;
+    else if (e)
+       key = e.which;
+    else
+       return true;
+       keychar = String.fromCharCode(key);
+    
+    // control keys
+    if ( (key==null) || (key==0) || (key==8) || (key==9) || (key==13) || (key==27) || (key==45)|| (key==44))
+       return true;
+
+    // numbers
+    else if ((("0123456789").indexOf(keychar) > -1))
+       return true;
+
+    // decimal point jump
+    else if (dec && (keychar == "."))
+       {
+           myfield.form.elements[dec].focus();
+           return false;
+       }
+    else
+       return false;
+}
+
+function nameonly(myfield, e,dec)
+{
+    var key;
+    var keychar;
+    if (window.event)
+       key = window.event.keyCode;
+    else if (e)
+       key = e.which;
+    else
+       return true;
+       keychar = String.fromCharCode(key);
+    
+    // control keys
+    if ( (key > 64 && key < 91) || (key > 96 && key < 123) || (key==32) || (key==null) || (key==0) || (key==8) || (key==9) || (key==13) || (key==27) || (key==46))
+       return true;
+
+    // decimal point jump
+    else if (dec && (keychar == "."))
+       {
+           myfield.form.elements[dec].focus();
+           return false;
+       }
+    else
+       return false;
+} 
+</script>
+<tr><td style="width:50%; text-align:center;">
+       <table style="width:52%; text-align:left; margin-left:auto; margin-right:auto;" border="0" cellspacing="2">       
+       <tr><td style="width:92%;">Name<span class="Compulsory">*</span><br />
+                <input name="ctl00$CYBEX_ENQUIRY$txt_name" type="text" maxlength="50" id="ctl00_CYBEX_ENQUIRY_txt_name" title="Your Name Here" class="LoginTextBox" autocomplete="off" onKeyPress="return nameonly(this, event)" />
+       </td></tr> 
+       
+       <tr><td style="width:92%;">Company Name<br />
+                <input name="ctl00$CYBEX_ENQUIRY$txt_CompanyName" type="text" maxlength="100" id="ctl00_CYBEX_ENQUIRY_txt_CompanyName" title="Name of Your Company will be Here" class="LoginTextBox" autocomplete="off" />
+       </td></tr>        
+       
+       <tr><td style="width:92%;">Company Address<br />
+                <input name="ctl00$CYBEX_ENQUIRY$txt_CompanyAddress" type="text" maxlength="200" id="ctl00_CYBEX_ENQUIRY_txt_CompanyAddress" title="Address of your Company Here" class="LoginTextBox" autocomplete="off" />
+       </td></tr>        
+       
+       <tr><td style="width:92%;">Phone<span class="Compulsory">*</span><br />
+               <input name="ctl00$CYBEX_ENQUIRY$txt_PhoneNumber" type="text" maxlength="20" id="ctl00_CYBEX_ENQUIRY_txt_PhoneNumber" title="Your Contact No. {Mobile | BaseLine}" class="LoginTextBox" autocomplete="off" onKeyPress="return numbersonly(this, event)" />
+      
+       </td></tr>        
+       
+       <tr><td style="width:92%;">Email<span class="Compulsory">*</span><br />
+       <input name="ctl00$CYBEX_ENQUIRY$txt_Email" type="text" id="ctl00_CYBEX_ENQUIRY_txt_Email" class="LoginTextBox" maxlength="100" title="Your Email ID" onblur="return checkEmail(this)" /></td></tr> 
+                                   
+         <tr><td style="width:92%;">
+            <table style="width:92%;">
+            <tr><td><span title="Select Export, If you want information on  Export Data Only"><input id="ctl00_CYBEX_ENQUIRY_rdb_export" type="radio" name="ctl00$CYBEX_ENQUIRY$GROUP1" value="rdb_export" checked="checked" /><label for="ctl00_CYBEX_ENQUIRY_rdb_export">Export</label></span></td>
+            <td><span title="Select Import, If you want information on  Import Data Only"><input id="ctl00_CYBEX_ENQUIRY_rdb_Import" type="radio" name="ctl00$CYBEX_ENQUIRY$GROUP1" value="rdb_Import" /><label for="ctl00_CYBEX_ENQUIRY_rdb_Import">Import</label></span></td>
+            <td><span title="Select Both, If you want information on  Both Export as well as Import  Data"><input id="ctl00_CYBEX_ENQUIRY_rdb_both" type="radio" name="ctl00$CYBEX_ENQUIRY$GROUP1" value="rdb_both" /><label for="ctl00_CYBEX_ENQUIRY_rdb_both">Both</label></span></td>
+            </tr></table>
+       </td></tr>       
+       <tr><td style="width:100%;">Products<br />
+                <input name="ctl00$CYBEX_ENQUIRY$txt_Products" type="text" maxlength="100" id="ctl00_CYBEX_ENQUIRY_txt_Products" title="Description of Product, You want information on" class="LoginTextBox" autocomplete="off" />
+       </td></tr>       
+       
+       <tr><td style="width:100%;">Information Sought<br />
+           <textarea name="ctl00$CYBEX_ENQUIRY$txt_InfoSought" rows="2" cols="20" id="ctl00_CYBEX_ENQUIRY_txt_InfoSought" title="Your Message goes Here" class="LoginTextBox"></textarea>                                
+       </td></tr>   
+       <tr>
+       <td  style="width:100%;">
+       <table style="width:92%;">
+        <tr><td style="width:100%;">  Image Verification<br />      
+        
+        <img id="ctl00_CYBEX_ENQUIRY_Image1" src="Captcha/CImage.aspx" alt=" " height="40" width="140" border="0" />
+        </td></tr>  
+        <tr><td>
+        <input name="ctl00$CYBEX_ENQUIRY$txtCaptcha" type="text" maxlength="10" id="ctl00_CYBEX_ENQUIRY_txtCaptcha" class="STtextbox" value="Enter the security code" onfocus="Javascript : if(this.value=='Enter the security code') this.value='';" onblur="javascript:if(this.value=='') this.value='Enter the security code';" />
+        </td></tr>
+        </table>  
+        </td>
+       </tr>                  
+       <tr><td style="width:100%; text-align:right;">
+             <input type="submit" name="ctl00$CYBEX_ENQUIRY$btn_submit" value="Submit" id="ctl00_CYBEX_ENQUIRY_btn_submit" title="Submit your enquiry." class="StandardButton" />
+             <input type="submit" name="ctl00$CYBEX_ENQUIRY$btn_reset" value="Reset" id="ctl00_CYBEX_ENQUIRY_btn_reset" title="Clear all Fields" class="StandardButton" />   
+       </td>
+       </tr>                  
+       <tr><td style="width:100%; text-align:right;">
+            <span class="Compulsory">*</span><span id="ctl00_CYBEX_ENQUIRY_lable_Explain">Compulsory Fields</span> 
+       </td></tr>
+       </table>
+</td></tr>
+</table>
+
+</div><br />
+<div id="ctl00_twiter_EnquiryFormPanel">
+	
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="200px" class="ASummary">
+<tr>
+<td class="ASummaryHead" colspan="4">
+<span class="rounded_box1">
+<b class="rounded_box2">Follow us on</b>
+</span>
+</td></tr>
+
+<tr>
+<td>
+<br>
+<div id="fb-root"></div>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;amp;version=v2.4&amp;amp;appId=1570990099780964";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+
+    <div fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=197&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcybex.exim&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;width=150" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/cybex.exim" data-width="150" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"><span style="vertical-align: bottom; width: 197px; height: 65px;"><iframe width="150px" height="1000px" frameborder="0" name="f3502c7ebc7c224" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 225px; height: 65px;" src="http://www.facebook.com/plugins/like.php?action=like&amp;app_id=&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FX9pYjJn4xhW.js%3Fversion%3D41%23cb%3Df260d9d532888ec%26domain%3Dwww.cybex.in%26origin%3Dhttp%253A%252F%252Fwww.cybex.in%252Fff2b39a308bc9c%26relation%3Dparent.parent&amp;container_width=197&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcybex.exim&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;width=150" class=""></iframe></span></div>
+    <br>
+</td>
+</tr></table>
+<br />
+<table border="0" cellspacing="0" cellpadding="0" width="200px" class="ASummary">
+<tr>
+<td class="ASummaryHead" colspan="4">
+<span class="rounded_box1">
+<b class="rounded_box2">Latest Updates</b>
+</span>
+</td></tr>
+<tr>
+<td>
+                    <a class="twitter-timeline" style="max-width:200px !important"  href="https://twitter.com/cybex_exim" data-widget-id="624546332619898881">Tweets by @cybex_exim</a>
+            <script>                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");</script>
+          
+</td>
+</tr>
+
+</table>
+<br />
+<table border="0" cellspacing="0" cellpadding="0" width="200px" class="ASummary">
+<tr>
+<td class="ASummaryHead" colspan="4">
+<span class="rounded_box1">
+<b class="rounded_box2">Follow us on</b>
+</span>
+</td></tr>
+
+<tr>
+    <td style="height:30px; text-align:left; padding-left:15px; padding-bottom:5px; width:98%" colspan="2">
+<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fcybex.exim&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=192259200789094" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width:52px; vertical-align:middle;" allowTransparency="true"></iframe>  
+      
+     <a style=" text-decoration:none;  margin-top:-18px; border-top-color:White; color:White; background-color:White; border-bottom-style:none;" href="http://www.twitter.com/cybex_exim" title="Follow us on Twitter."><img alt="" style="margin-bottom:-5px;" src="http://twitter-badges.s3.amazonaws.com/t_small-c.png" /></a>
+    
+    <a style="" href="http://www.linkedin.com/company/241815" ><img alt="linkedin" src="/images/linkedin.png" style="width:21px; height:21px;margin-bottom:-4px; border:0px;" title="Join Linkein" /></a>
+            
+            
+    <g:plusone size="small" count="false" href="http://www.cybex.in" rel="Publisher"></g:plusone>
+    
+    </td>
+</tr>  
+
+</table>
+
+
+</div><br />
+
+<div id="ctl00_CYBEX_KEY_CLIENTS_KEY_CLIENTS">
+	
+	
+<table border="0" cellspacing="0" cellpadding="0" width="200px" class="ASummary">
+<tr><td class="ASummaryHead">
+<span class="rounded_box1">
+<b class="rounded_box2">Key Clients</b>
+</span>
+</td></tr>
+
+
+
+
+
+
+
+<tr><td style="width:100%; text-align:center;">
+       <table style="width:92%; text-align:left; margin-left:auto; margin-right:auto;" border="0" cellspacing="1" >       
+       <tr><td class="ClientsCol" style="padding-left:24px;padding-top:10px;padding-bottom:10px">
+     
+     <style type="text/css">
+
+
+.seqslidestyle{
+margin-right: 15px;
+}
+</style>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* MultiFrame Image Slideshow script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Please keep this notice intact
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var seqslides=new Array()
+//Set Path to Image plus optional URL ("" for no URL):
+seqslides[0] = ["http://www.cybex.in/images/client-logo1.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[1] = ["http://www.cybex.in/images/client-logo4.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[2] = ["http://www.cybex.in/images/client-logo5.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[3] = ["http://www.cybex.in/images/client-logo6.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[4] = ["http://www.cybex.in/images/client-logo7.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[5] = ["http://www.cybex.in/images/client-logo8.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[6] = ["http://www.cybex.in/images/client-logo9.jpg", "http://www.cybex.in/clients.aspx"]
+seqslides[7] = ["http://www.cybex.in/images/client-logo10.jpg", "http://www.cybex.in/clients.aspx"]
+
+//Set pause between each image display (2000=2 second):
+var slidedelay=2000
+
+//Set how many images to show at once (must be less than total # of images above):
+var slidestoreveal=2
+
+//Specify code to insert between each slide (ie: "<br>" to insert a line break and create a vertical layout)
+//"" for none (or horizontal):
+var slideseparater="<br>"
+
+//Set optional link target to be added to all images with a link:
+var optlinktarget="secwindow"
+
+//Set image border width:
+var imgborderwidth=0
+
+//Set opacity value of each image when it's "dimmed", and when it's not, respectively (1=100% opaque/normal).
+//Change 0.2 to 0 to completely hide image when it's dimmed:
+var opacityvalues=[0.2,1]
+
+///No need to edit beyond here///////////
+
+function processimgcode(theimg){
+var imghtml=""
+if (theimg[1]!="")
+imghtml='<a href="'+theimg[1]+'" target="'+optlinktarget+'">'
+imghtml+='<img src="'+theimg[0]+'" border="'+imgborderwidth+'" style="filter:alpha(opacity='+(opacityvalues[0]*100)+');-moz-opacity:'+opacityvalues[0]+'">'
+if (theimg[1]!="")
+imghtml+='</a>'
+return imghtml
+}
+
+var curslide=1 //var to track current slide (total: slidestoreveal)
+var curimgindex=0 //var to track current image (total: seqslides.length)
+var isfirstcycle=1 //boolean to indicate whether this is the first cycle
+
+if (document.getElementById){
+for (i=0;i<slidestoreveal;i++)
+document.write('<span id="seqslide'+i+'" class="seqslidestyle">'+processimgcode(seqslides[i])+'</span>'+slideseparater)
+curimgindex=slidestoreveal
+illuminateslide(0,opacityvalues[1])
+}
+
+function illuminateslide(slideindex, amt){
+var slideobj=document.getElementById("seqslide"+slideindex).getElementsByTagName("IMG")[0]
+if (slideobj.filters)
+slideobj.filters.alpha.opacity=amt*100
+else if (slideobj.style.MozOpacity)
+slideobj.style.MozOpacity=amt
+}
+
+function displayit(){
+if (curslide<slidestoreveal){
+if (!isfirstcycle)
+changeimage(curslide)
+illuminateslide(curslide, opacityvalues[1])
+curslide++
+}
+else{
+isfirstcycle=0
+for (i=0;i<slidestoreveal;i++)
+illuminateslide(i, opacityvalues[0])
+changeimage(0)
+illuminateslide(0, opacityvalues[1])
+curslide=1
+}
+}
+
+function changeimage(slideindex){
+document.getElementById("seqslide"+slideindex).innerHTML=processimgcode(seqslides[curimgindex])
+curimgindex++
+if (curimgindex>=seqslides.length)
+curimgindex=0
+}
+
+if (document.getElementById)
+setInterval("displayit()",slidedelay)
+
+
+</script>
+     
+        </td></tr>
+       </table>
+</td></tr>
+
+</table>
+
+</div>
+
+</div>
+</td>
+</tr></table>
+</div>
+<div style="margin-left:10px; margin-right:10px;">
+
+<style type="text/css">
+.footer-trade-data{ float:left; text-align:left; vertical-align:top;}
+.footer-trade-data ul{ float:left; margin:0 5px 0 0; display:block; width:150px; padding:0;}
+.footer-trade-data ul li{ list-style:none;} 
+.footer-trade-data ul li a{ font-size:13px; color:#fff; text-decoration:none; font-weight:bold; line-height:25px;}
+.footer-trade-data ul li a:hover{ color:#000; text-decoration:underline;} 
+.footer-trade-data h3{ padding:12px 0; border-bottom:1px solid #DDD;}
+</style>
+<div class="clearboth" style="background-color:#1788d6; margin-left:10px; margin-right:10px;"></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div style="background-color:#1788d6; clear:both; overflow:hidden; padding:15px 0; margin:0 0 15px 0;">
+ <div class="footer-trade-data" style=" width:180px; margin:0 12px 0 15px;">
+<h3 style="font-weight:bold;font-size:16px; color:#ffffff; font-family:Bookman Old Style; margin-bottom:8px;" >Home</h3>
+
+
+<ul>
+            <li><a  href="http://www.cybex.in/About.aspx" title="About Us" >About Us</a> </li>
+            <li><a  href="http://www.cybex.in/Contact.aspx" title="Contact Us">Contact Us</a></li>
+            <li><a  href="http://www.cybex.in/Exim-News/Default.aspx" title="News" >News</a></li>
+            <li><a href="http://www.cybex.in/sitemap.xml" title="XML">XML</a></li>
+            <li><a  href="http://www.cybex.in/Feedback-Suggestion.aspx" title="Feedback">Feedback</a></li>
+            <li><a  href="http://www.cybex.in/FAQ.aspx" title="FAQs">FAQs</a></li>
+            <li><a  href="http://www.cybex.in/Indian-Trade-Laws/Default.aspx" title="Indian Trade Law">Indian Trade Law</a></li>
+            <li><a href="http://www.cybex.in/research-reports/mobile-phone-imports-india.aspx">Mobile Phones Imports Data</a></li>
+          </ul>
+
+
+
+
+
+
+
+</div>
+ <div class="footer-trade-data" style=" width:475px; margin:0 12px 0 0">
+<h3 style="font-weight:bold;font-size:16px; color:#ffffff; font-family:Bookman Old Style; margin-bottom:8px;" >International Trade Data</h3>
+
+
+<ul>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Argentina-Exports-Data.aspx">Argentina Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Argentina-Imports-Data.aspx">Argentina Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Bolivia-Imports-Data.aspx">Bolivia Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Brazil-Exports-Data.aspx">Brazil Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Brazil-Imports-Data.aspx">Brazil Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Chile-Imports-Data.aspx">Chile Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/China-Exports-Data.aspx">China Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/China-Imports-Data.aspx">China Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/China-Exports-Sample.aspx">China Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/China-Imports-Sample.aspx">China Imports Data</a></li>
+          </ul>
+         <ul>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Colombia-Imports-Data.aspx">Colombia Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Costa-Rica-Imports-Data.aspx">Costa Rica Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Ecuador-Imports-Data.aspx">Ecuador Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Indonesia-Exports-Data.aspx">Indonesia Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Indonesia-Imports-Data.aspx">Indonesia Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Korea-Exports-Data.aspx">Korea Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Malaysia-Imports-Data.aspx">Malaysia Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Mexico-Imports-Data.aspx">Mexico Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Pakistan-Imports-Data.aspx">Pakistan Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Panama-Imports-Data.aspx">Panama Imports Data</a></li>
+          </ul>
+          <ul>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Paraguay-Imports-Data.aspx">Paraguay Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Peru-Imports-Data.aspx">Peru Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/Russia-Exports-Sample.aspx">Russia Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/Russia-Imports-Sample.aspx">Russia Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Srilanka-Imports-Data.aspx">Srilanka Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Ukraine-Imports-Data.aspx">Ukraine Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/UK-Imports-Sample.aspx">UK Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Samples-Data/US-Imports-Sample.aspx">USA Imports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Vietnam-Exports-Data.aspx">Vietnam Exports Data</a></li>
+            <li><a href="http://www.cybex.in/Global-Trade-Data/Vietnam-Imports-Data.aspx">Vietnam Imports Data</a></li>
+          </ul>
+
+
+
+
+
+
+</div>
+
+<div class="footer-trade-data" style=" width:260px; margin-right:15px;">
+<h3 style="font-weight:bold;font-size:16px; color:#ffffff; font-family:Bookman Old Style; margin-bottom:8px;" > International Trade Resources </h3>
+
+
+<ul>
+            <li><a href="http://www.cybex.in/HS-Codes/Default.aspx" title="HS Codes">HS Codes</a></li>
+            <li><a href="http://www.cybex.in/indian-custom-duty/default.aspx" title="Indian Custom Duty">Indian Custom Duty</a> </li>
+            <li><a href="http://www.cybex.in/DEPB_RATE.aspx" title="DEPB Rate">DEPB Rate</a></li>
+            <li><a href="http://www.cybex.in/Notifications/Default.aspx" title="Notifications">Notifications</a></li>
+            <li><a href="http://www.Cybex.in/Exim-Policy/Default.aspx" title="Exim Policy">Exim Policy</a></li>
+            <li><a href="http://www.cybex.in/Importers-Exporters-Code-IEC.aspx" title="IEC Code">IEC Code</a></li>
+            <li><a href="http://www.cybex.in/Notifications/Indian-Customs.aspx" title="Indian Circulars">Indian Circulars</a></li>
+          </ul>
+
+
+
+
+
+
+
+</div>
+ 
+ </div>
+
+</div>
+<div style="width:100%; clear:right;">
+ 
+<a href="#" alt="go top" id="goTop" style="display: block;">
+        <img alt="go top" src="images/to-top1.png" /></a>
+
+<div id="ctl00_CYBEX_FOOTER_FOOTER">
+	
+<table class="FooterTab">
+<tr><td width="100%"><div align="center"><center>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+<td class="FooterCol">
+<font class="FooterLinks">
+<a href="http://www.cybex.in/Indian-Customs/Default.aspx" title="Indian Custom Data">Indian Custom Data</a> |
+<a href="http://www.cybex.in/Global-Trade-Data/Default.aspx" title="Global Trade Data">Global Trade Data</a> |
+<a href="http://www.cybex.in/International-Trade-Resources/Default.aspx" title="International Trade Resources">International Trade Resources</a> |
+<a href="http://www.cybex.in/Indian-Trade-Laws/Default.aspx" title="Indian Trade Laws">Indian Trade Laws</a> |                  
+<a href="http://www.cybex.in/FAQ.aspx" title="FAQs">FAQs</a> |
+<a href="http://www.cybex.in/Terms-Conditions.aspx" title="Terms & Conditions/Disclaimer">Terms &amp; Conditions/Disclaimer</a> |
+<a href="http://www.cybex.in/Feedback-Suggestion.aspx" title="Feedback">Feedback</a> |                                    
+<a href="http://www.cybex.in/credentials.aspx" title="Credentials">Credentials</a> |
+<a href="http://www.cybex.in/About.aspx" title="About Us">About Us</a> |
+<a href="http://www.cybex.in/Contact.aspx" title="Contact Us">Contact Us</a> |
+<a href="http://www.cybex.in/Exim-News/Default.aspx" title="News">News</a> |
+<a href="http://www.cybex.in/sitemap.xml" title="XML">XML</a>        
+</font>   
+<br /><font color="#585858" size="1" face="Verdana"><tt style="font-size:1.3em;">&copy;</tt> Copyright 2010, All rights reserved with <b>www.cybex.in (<a href="http://www.cybex.in" class="Portal" title="Export Import Data Portal">Export Import Data Portal</a>)</b></font>
+</td></tr></table></center></div></td></tr></table>
+
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ctl00_BodyContents_ScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TextBoxWatermarkBehavior, {"ClientStateFieldID":"ctl00_BodyContents_txt_HsCode_TextBoxWatermarkExtender_ClientState","WatermarkText":"Enter HSCode","id":"ctl00_BodyContents_txt_HsCode_TextBoxWatermarkExtender"}, null, null, $get("ctl00_BodyContents_txthscode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TextBoxWatermarkBehavior, {"ClientStateFieldID":"ctl00_BodyContents_txt_Product_TextBoxWatermarkExtender_ClientState","WatermarkText":"Enter Product","id":"ctl00_BodyContents_txt_Product_TextBoxWatermarkExtender"}, null, null, $get("ctl00_BodyContents_txtproduct"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"ctl00_CollapsiblePanelExtender1_ClientState","CollapsedText":"Online Users\u003cspan style=\u0027text-decoration:underline;padding-left:5px; color:#0066cc\u0027\u003eClick Here\u003c/span\u003e","ExpandControlID":"ctl00_pn_header_online","ExpandedText":" Enter Your Details Below","SuppressPostBack":true,"TextLabelID":"ctl00_lblOnline","id":"cpeOnlineLogin"}, null, null, $get("ctl00_pn_online_login"));
+});
+//]]>
+</script>
+</form>
+<script type = "text/javascript">
+    $(function() {
+//        $('#scrollToBottom').bind("click", function() {
+//            $('html, body').animate({ scrollTop: $(document).height() }, 1200);
+//            return false;
+//        });
+        $('#scrollToTop').bind("click", function() {
+            $('html, body').animate({ scrollTop: 0 }, 1200);
+            return false;
+        });
+    });
+    </script>
+</body>
+</html>

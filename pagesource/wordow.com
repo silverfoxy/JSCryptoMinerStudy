@@ -1,0 +1,1 @@
+<a href='http://www.wordow.com/'>Moved Permanently</a>.

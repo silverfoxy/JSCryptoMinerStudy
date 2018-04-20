@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://askwonder.com/">https://askwonder.com/</a></p>

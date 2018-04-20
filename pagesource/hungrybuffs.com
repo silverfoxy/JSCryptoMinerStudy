@@ -1,0 +1,1 @@
+<a href="https://hungrybuffs.com">Moved Permanently</a>.

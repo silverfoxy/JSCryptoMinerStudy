@@ -1,0 +1,2204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:g='http://www.google.com/2005/gml/g'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/3957297643-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='http://javarevisited.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://javarevisited.blogspot.com/' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Javarevisited - Atom" href="http://javarevisited.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Javarevisited - RSS" href="http://javarevisited.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Javarevisited - Atom" href="https://www.blogger.com/feeds/8712770457197348465/posts/default" />
+<link rel="me" href="https://plus.google.com/114528699166048052030" />
+<link rel="openid.server" href="https://www.blogger.com/openid-server.g" />
+<link rel="openid.delegate" href="http://javarevisited.blogspot.com/" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://plus.google.com/114528699166048052030' rel='publisher'/>
+<meta content='Tutorials and Interview questions for Java, data structures, algorithms, programming, coding, FIX Protocol, Tibco RV, UNIX,SQL,books,certifications.' name='description'/>
+<meta content='http://javarevisited.blogspot.com/' property='og:url'/>
+<meta content='Javarevisited' property='og:title'/>
+<meta content='Tutorials and Interview questions for Java, data structures, algorithms, programming, coding, FIX Protocol, Tibco RV, UNIX,SQL,books,certifications.' property='og:description'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<meta content='KEYWORDS' name='learn java online,program,java coding,tutorial,example, string,java tutorial, learn java ,java programming tutorials , java developer interview questions,  questions and answers ,coding algorithm,java developers,string, array, jQuery,'/>
+<meta content='java interview questions, java tutorial, Java example, mysql tutorial,fix protocol tutorial, unix command and example, Linux command examples tips' name='keywords'/>
+<!-- place future descriptions and keywords here -->
+<script type='text/javascript'>
+      if(document.location.protocol=='http:'){
+         var Tynt=Tynt||[];Tynt.push('dU3ek4CPmr4Ai1acwqm_6r');Tynt.i={"ap":"Read more:"};
+         (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+                                                  }
+    </script>
+<title>
+        Javarevisited: Blog about Java Programming Tutorials, Examples, Design Patterns, Interview Questions and Answers, FIX Protocol, Tibco RV messaging, UNIX and Linux Commands, XML, SQL, MySQL, Oracle, jQuery, JavaScript,HTML, Multithreading, Collection, Error and Exception, Debugging, Best Practices and Practical tips from my experience.
+      </title>
+<link href='https://plus.google.com/103515296667914706982' rel='publisher'/>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Rounders 3
+Date:     27 Feb 2004
+Updated by: Blogger Team
+----------------------------------------------- */
+#navbar-iframe {
+display: none !important;
+}
+/* Variable definitions
+====================
+<Variable name="mainBgColor" description="Main Background Color"
+type="color" default="#ffffff">
+<Variable name="mainTextColor" description="Text Color" type="color"
+default="#333">
+<Variable name="postTitleColor" description="Post Title Color" type="color"
+default="#333">
+<Variable name="dateHeaderColor" description="Date Header Color"
+type="color" default="#586">
+<Variable name="borderColor" description="Post Border Color" type="color"
+default="#bbb">
+<Variable name="mainLinkColor" description="Link Color" type="color"
+default="#456">
+<Variable name="mainVisitedLinkColor" description="Visited Link Color"
+type="color" default="#234">
+<Variable name="mainHoverLinkColor" description="Hover Link Color"
+type="color" default="#234">
+<Variable name="titleBgColor" description="Page Header Background Color"
+type="color" default="#357">
+<Variable name="titleTextColor" description="Blog Title Color"
+type="color" default="#fff">
+<Variable name="topSidebarHeaderColor"
+description="Top Sidebar Title Color"
+type="color" default="#fff">
+<Variable name="topSidebarBgColor"
+description="Top Sidebar Background Color"
+type="color" default="#586">
+<Variable name="topSidebarTextColor" description="Top Sidebar Text Color"
+type="color" default="#fff">
+<Variable name="topSidebarLinkColor" description="Top Sidebar Link Color"
+type="color" default="#fff">
+<Variable name="topSidebarVisitedLinkColor"
+description="Top Sidebar Visited Link Color"
+type="color" default="#fff">
+<Variable name="bottomSidebarHeaderColor"
+description="Bottom Sidebar Title Color"
+type="color" default="#abc">
+<Variable name="bottomSidebarLinkColor"
+description="Bottom Sidebar Link Color"
+type="color" default="#99ddbb">
+<Variable name="bottomSidebarVisitedLinkColor"
+description="Bottom Sidebar Visited Link Color"
+type="color" default="#ffffff">
+<Variable name="bodyFont" description="Text Font" type="font"
+default="normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="pageTitleFont" description="Blog Title Font" type="font"
+default="normal bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="descriptionFont" description="Blog Description Font" type="font"
+default="normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="headerFont" description="Sidebar Title Font" type="font"
+default="normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="postTitleFont" description="Post Title Font" type="font"
+default="normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+body, .body-fauxcolumn-outer {
+background:#123;
+margin:0;
+text-align:center;
+line-height: 1.5em;
+font: x-small Trebuchet MS, Verdana, Arial, Sans-serif;
+color:#3b3b3b
+font-size/* */:/**/small;
+font-size: /**/small;
+}
+/* Page Structure
+----------------------------------------------- */
+/* The images which help create rounded corners depend on the
+following widths and measurements. If you want to change
+these measurements, the images will also need to change.
+*/
+#outer-wrapper {
+width:1092px;
+margin:0 auto;
+text-align:left;
+font: normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+#main-wrap1 {
+width:752px;
+float:left;
+background:#ffffff url("") no-repeat left bottom;
+margin:0px 0 0;
+padding:0 0 10px;
+color:#333333;
+font-size:97%;
+line-height:1.5em;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+#main-wrap2 {
+float:left;
+width:100%;
+padding:10px 0 0;
+}
+#main {
+padding:0;
+width:732px;
+}
+#sidebar-wrap {
+width:340px;
+float:right;
+margin:0px 0 0;
+font-size:97%;
+line-height:1.5em;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+.main .widget {
+margin-top: 4px;
+width: 746px;
+padding: 0 5px;
+}
+.main .Blog {
+margin: 0;
+padding: 0;
+width: 752px;
+}
+/* Links
+----------------------------------------------- */
+a:link {
+color: #0066CC;
+}
+a:visited {
+color: #660099;
+}
+a:hover {
+color: #000066;
+}
+a img {
+border-width:0;
+}
+/* Blog Header
+----------------------------------------------- */
+#header-wrapper {
+background:#335577 url("") no-repeat left top;
+margin-top:4px;
+margin-right:0;
+margin-bottom:0;
+margin-left:0;
+padding-top:2px;
+padding-right:0;
+padding-bottom:0;
+padding-left:0;
+color:#ffffff;
+}
+#header {
+background:url("") no-repeat left bottom;
+padding:0 5px 5px;
+}
+#header h1 {
+margin:0;
+padding:5px 10px 0px;
+line-height:1.2em;
+font: normal bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+#header a,
+#header a:visited {
+text-decoration:none;
+color: #ffffff;
+}
+#header .description {
+margin:0;
+padding:1px 10px 5px;
+line-height:0.5em;
+font: normal normal 75% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+p.title {
+margin:0;
+padding:5px 10px 0px;
+line-height:1.2em;
+font: normal bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+p.title a{
+text-decoration:none;
+color: #ffffff;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+margin-top:0;
+margin-right:28px;
+margin-bottom:0;
+margin-left:43px;
+font-size:85%;
+line-height:2em;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#558866;
+}
+h4.date-header {
+margin-top:0;
+margin-right:28px;
+margin-bottom:0;
+margin-left:43px;
+font-size:85%;
+line-height:2em;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#558866;
+}
+.post {
+margin:.3em 0 25px;
+padding:0 13px;
+border:1px dotted #bbbbbb;
+border-width:1px 0;
+}
+h2.post-title {
+margin:0;
+line-height:1.5em;
+background:url("") no-repeat 10px .5em;
+display:block;
+border:1px dotted #bbbbbb;
+border-width:0 1px 1px;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+color: #333333;
+font: normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+h2.post-title a, h2.post-title a:visited {
+text-decoration:none;
+color: #333333;
+}
+h1.post-title {
+margin:0;
+line-height:1.5em;
+background:url("") no-repeat 10px .5em;
+display:block;
+border:1px dotted #bbbbbb;
+border-width:0 1px 1px;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+color: #333333;
+font: normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+h1.post-title a, h1.post-title a:visited {
+text-decoration:none;
+color: #333333;
+}
+.post h3 {
+margin:0;
+line-height:1.5em;
+display:block;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:0px;
+color: #333333;
+font: normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+.post h3 a, .post h3 a:visited {
+text-decoration:none;
+color: #333333;
+}
+a.title-link:hover {
+background-color: #bbbbbb;
+color: #333333;
+}
+.post-body {
+border:1px dotted #bbbbbb;
+border-width:0 1px 1px;
+border-bottom-color:#ffffff;
+padding-top:10px;
+padding-right:14px;
+padding-bottom:1px;
+padding-left:29px;
+font-size:12pt;
+line-height:1.5
+}
+html>body .post-body {
+border-bottom-width:0;
+}
+.post-body {
+margin:0 0 .75em;
+}
+.post-body blockquote {
+line-height:1.3em;
+}
+.post-footer {
+background: #ffffff;
+margin:0;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+border:1px dotted #bbbbbb;
+border-width:1px;
+font-size:100%;
+line-height:1.5em;
+color: #666666;
+}
+/*
+The first line of the post footer might only have floated text, so we need to give it a height.
+The height comes from the post-footer line-height
+*/
+.post-footer-line-1 {
+min-height:1.5em;
+_height:1.5em;
+}
+.post-footer p {
+margin: 0;
+}
+html>body .post-footer {
+border-bottom-color:transparent;
+}
+.uncustomized-post-template .post-footer {
+text-align: right;
+}
+.uncustomized-post-template .post-author,
+.uncustomized-post-template .post-timestamp {
+display: block;
+float: left;
+text-align:left;
+margin-right: 4px;
+}
+.post-footer a {
+color: #456;
+}
+.post-footer a:hover {
+color: #234;
+}
+a.comment-link {
+/* IE5.0/Win doesn't apply padding to inline elements,
+so we hide these two declarations from it */
+background/* */:/**/url("http://www.blogblog.com/rounders/icon_comment_left.gif") no-repeat left 45%;
+padding-left:14px;
+}
+html>body a.comment-link {
+/* Respecified, for IE5/Mac's benefit */
+background:url("http://www.blogblog.com/rounders3/icon_comment_left.gif") no-repeat left 45%;
+padding-left:14px;
+}
+.post img, table.tr-caption-container {
+margin-top:0;
+margin-right:0;
+margin-bottom:5px;
+margin-left:0;
+padding:4px;
+border:1px solid #bbbbbb;
+}
+.tr-caption-container img {
+border: none;
+margin: 0;
+padding: 0;
+}
+blockquote {
+margin:.75em 0;
+border:1px dotted #bbbbbb;
+border-width:1px 0;
+padding:5px 15px;
+color: #558866;
+}
+.post blockquote p {
+margin:.5em 0;
+}
+#blog-pager-newer-link {
+float: left;
+margin-left: 13px;
+}
+#blog-pager-older-link {
+float: right;
+margin-right: 13px;
+}
+#blog-pager {
+text-align: center;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+margin-left: 13px;
+}
+/* Comments
+----------------------------------------------- */
+#comments {
+margin:-25px 13px 0;
+border:1px dotted #bbbbbb;
+border-width:0 1px 1px;
+padding-top:20px;
+padding-right:0;
+padding-bottom:15px;
+padding-left:0;
+}
+#comments h4 {
+margin:0 0 10px;
+padding-top:0;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+border-bottom:1px dotted #bbbbbb;
+font-size:120%;
+line-height:1.4em;
+color:#333333;
+}
+#comments-block {
+margin-top:0;
+margin-right:15px;
+margin-bottom:0;
+margin-left:9px;
+}
+.comment-author {
+background:url("http://www.blogblog.com/rounders3/icon_comment_left.gif") no-repeat 2px .3em;
+margin:.5em 0;
+padding-top:0;
+padding-right:0;
+padding-bottom:0;
+padding-left:20px;
+font-weight:bold;
+}
+.comment-body {
+margin:0 0 1.25em;
+padding-top:0;
+padding-right:0;
+padding-bottom:0;
+padding-left:20px;
+}
+.comment-body p {
+margin:0 0 .5em;
+}
+.comment-footer {
+margin:0 0 .5em;
+padding-top:0;
+padding-right:0;
+padding-bottom:.75em;
+padding-left:20px;
+}
+.comment-footer a:link {
+color: #333;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.comment-form {
+padding-left:20px;
+padding-right:5px;
+}
+#comments .comment-form h4 {
+padding-left:0px;
+}
+/* Profile
+----------------------------------------------- */
+.profile-img {
+float: left;
+margin-top: 5px;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+border: 4px solid #ffffff;
+}
+.profile-datablock {
+margin-top:0;
+margin-right:15px;
+margin-bottom:.5em;
+margin-left:0;
+padding-top:8px;
+}
+.profile-link {
+background:url("http://www.blogblog.com/rounders3/icon_profile_left.gif") no-repeat left .1em;
+padding-left:15px;
+font-weight:bold;
+}
+.profile-textblock {
+clear: both;
+margin: 0;
+}
+.sidebar .clear, .main .widget .clear {
+clear: both;
+}
+#sidebartop-wrap {
+background:#558866 url("") no-repeat left bottom;
+margin:0px 0px 15px;
+padding:0px 0px 10px;
+color:#ffffff;
+}
+#sidebartop-wrap2 {
+background:url("") no-repeat left top;
+padding: 10px 0 0;
+margin:0;
+border-width:0;
+}
+#sidebartop h2 {
+line-height:1.5em;
+color:#ffffff;
+border-bottom: 1px dotted #ffffff;
+font: normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+margin-bottom: 0.5em;
+}
+#sidebartop h4 {
+line-height:1.5em;
+color:#ffffff;
+border-bottom: 1px dotted #ffffff;
+font: normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+margin-bottom: 0.5em;
+}
+#sidebartop a {
+color: #ffffff;
+}
+#sidebartop a:hover {
+color: #ffffff;
+}
+#sidebartop a:visited {
+color: #ffffff;
+}
+#sidebar a {
+color: #99ddbb;
+}
+#sidebar a:hover,
+#sidebar a:visited {
+color: #ffffff;
+}
+/* Sidebar Boxes
+----------------------------------------------- */
+.sidebar .widget {
+margin:.5em 13px 1.25em;
+padding:0 0px;
+}
+.widget-content {
+margin-top: 0.5em;
+}
+#sidebarbottom-wrap1 {
+background:#335577 url("") no-repeat left top;
+margin:0 0 15px;
+padding:10px 0 0;
+color: #ffffff;
+}
+#sidebarbottom-wrap2 {
+background:url("") no-repeat left bottom;
+padding:0 0 8px;
+}
+.sidebar h2 {
+margin-top:0;
+margin-right:0;
+margin-bottom:.5em;
+margin-left:0;
+padding:0 0 .2em;
+line-height:1.5em;
+font:normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+.sidebar h4 {
+margin-top:0;
+margin-right:0;
+margin-bottom:.5em;
+margin-left:0;
+padding:0 0 .2em;
+line-height:1.5em;
+font:normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+.sidebar ul {
+list-style:none;
+margin:0 0 1.25em;
+padding:0;
+}
+.sidebar ul li {
+background:url("http://www2.blogblog.com/rounders3/icon_arrow_sm.gif") no-repeat 2px .25em;
+margin:0;
+padding-top:0;
+padding-right:0;
+padding-bottom:3px;
+padding-left:16px;
+margin-bottom:3px;
+border-bottom:1px dotted #bbbbbb;
+line-height:1.4em;
+}
+.sidebar p {
+margin:0 0 .6em;
+}
+#sidebar h2 {
+color: #aabbcc;
+border-bottom: 1px dotted #aabbcc;
+}
+#sidebar h4 {
+color: #aabbcc;
+border-bottom: 1px dotted #aabbcc;
+}
+/* Footer
+----------------------------------------------- */
+#footer-wrap1 {
+clear:both;
+margin:0 0 10px;
+padding:15px 0 0;
+}
+#footer-wrap2 {
+background:#335577 url("") no-repeat left top;
+color:#ffffff;
+}
+#footer {
+background:url("") no-repeat left bottom;
+padding:8px 15px;
+}
+#footer hr {display:none;}
+#footer p {margin:0;}
+#footer a {color:#ffffff;}
+#footer .widget-content {
+margin:0;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #main-wrap1,
+body#layout #sidebar-wrap,
+body#layout #header-wrapper {
+margin-top: 0;
+}
+body#layout #header, body#layout #header-wrapper,
+body#layout #outer-wrapper {
+margin-left:0,
+margin-right: 0;
+padding: 0;
+}
+body#layout #outer-wrapper {
+width: 1030px;
+}
+body#layout #footer-wrap1 {
+padding-top: 0;
+}
+#HTML4{
+}
+#HTML6{
+padding-left:-10px;
+margin-left:2px;
+}
+#HTML1{
+margin-top:-10px;
+}
+#HTML2{
+margin-top:-10px;
+}
+#HTML5{
+margin-top:-15px;
+}
+#HTML10{
+margin-top:-12px;
+}
+#HTML12{
+margin-left:-10px;
+}
+#AdSense1{
+}
+.title-only {
+margin-left: 50px;
+margin-top: 10px;
+}
+.snippet{
+margin-left: 50px;
+}
+.thumbnail{
+margin-left: 50px;
+}
+#blog-pager{clear:both;margin:30px auto;text-align:center; padding: 7px; }
+.blog-pager {background: none;}
+.displaypageNum a,.showpage a,.pagecurrent{font-size: 13px;padding: 5px 12px;margin-right:5px; color: #3E5801; background-color:#E0EDC1;}
+.displaypageNum a:hover,.showpage a:hover, .pagecurrent{background:#FEF6DF;text-decoration:none;color: #E16800;}
+#blog-pager .pagecurrent{font-weight:bold;color: #D25E71;background:#FFDEDF;}
+.showpageOf{display:none!important}
+#blog-pager .pages{border:none;}
+#PageList2 {
+background: rgba(232, 53, 53, 0.78)  !important;
+margin-top:-4px;
+}
+#PageList2 .widget-content{
+}
+#PageList2 .widget-content ul li{
+margin: 0px !important;
+padding: 0.75em !important;
+}
+#PageList2 .widget-content ul li:hover{
+display: block !important;
+background: #E16800 !important;
+}
+#PageList2 .widget-content ul li a{
+color: white !important;
+}
+#PageList2 .widget-content ul li.selected a{
+color: white !important;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 0 !important;
+border: none !important;
+background: none !important;
+-moz-box-shadow: 0px 0px 0px transparent !important;
+-webkit-box-shadow: 0px 0px 0px transparent !important;
+box-shadow: 0px 0px 0px transparent !important;
+}
+
+--></style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19004659-1', 'auto');
+  ga('require', 'GTM-5TWPGXJ');
+  ga('send', 'pageview');
+</script>
+<script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5808379456926196",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- script for increasing snippet length -->
+<script type='text/javascript'>
+snippet_count = 200;
+
+//<![CDATA[
+
+function removeHtmlTag(strx,chop){
+if(strx.indexOf("<")!=-1)
+{
+var snippet = strx.split("<");
+for(var i=0;i<snippet.length;i++){
+if(snippet[i].indexOf(">")!=-1){
+snippet[i] = snippet[i].substring(snippet[i].indexOf(">")+1,snippet[i].length);
+}
+}
+strx = snippet.join("");
+}
+chop = (chop < strx.length-1) ? chop : strx.length-2;
+while(strx.charAt(chop-1)!=' ' && strx.indexOf(' ',chop)!=-1) chop++;
+strx = strx.substring(0,chop-1);
+return strx+'...';
+}
+function createSnippet(pID){
+var div = document.getElementById(pID);
+var summ = snippet_count;
+var summary = '<div class="snippets">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
+div.innerHTML = summary;
+}
+
+var path = document.location.pathname.toLowerCase();
+var index = path.substring(1).indexOf("/");
+var tDate = path.substring(1,index + 1);
+var year = parseInt(tDate);
+var currentYear = new Date().getFullYear();
+if ( currentYear - year <= 2){
+}
+
+//]]>
+</script>
+<script type='text/javascript'>
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u) {
+    e.async = 1;
+    e.src = u;
+    f.parentNode.insertBefore(e, f);
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/javarevisited/loader.js');
+</script>
+<meta content='summary_large_image' name='twitter:card'/>
+<meta content='@javinpaul' name='twitter:site'/>
+<meta content='@javinpaul' name='twitter:creator'/>
+<meta content='http://javarevisited.blogspot.com/' name='twitter:domain'/>
+<meta content='http://javarevisited.blogspot.com/' name='twitter:url'/>
+<meta content='Javarevisited' name='twitter:title'/>
+<meta content='data:blog.postImageUrl' name='twitter:image:src'/>
+<meta content='Tutorials and Interview questions for Java, data structures, algorithms, programming, coding, FIX Protocol, Tibco RV, UNIX,SQL,books,certifications.' name='twitter:description'/>
+<meta content='http://javarevisited.blogspot.com/' name='twitter:url'/>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8712770457197348465&amp;zx=95f6dda5-4def-429d-b273-c51135ba9f13' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8712770457197348465&amp;zx=95f6dda5-4def-429d-b273-c51135ba9f13' rel='stylesheet'/></noscript>
+</head>
+<body>
+<div class='navbar section' id='navbar'><div class='widget Navbar' data-version='1' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d8712770457197348465\x26blogName\x3dJavarevisited\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://javarevisited.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttp://javarevisited.blogspot.com/\x26vt\x3d-8336597872107792865',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<!--INFOLINKS_OFF-->
+<div id='outer-wrapper'>
+<div id='header-wrapper'>
+<div class='header section' id='header'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+Javarevisited
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'>
+<span>
+Blog about Java, Programming, Spring, Hibernate, Interview Questions, Books and Online Course Recommendations from Udemy, Pluarlsight etc
+</span>
+</p>
+</div>
+</div>
+</div></div>
+</div>
+<div id='crosscol-wrapper' style='text-align:center'>
+<div class='crosscol section' id='crosscol'><div class='widget HTML' data-version='1' id='HTML6'>
+<div class='widget-content'>
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border-color: rgb(204, 204, 204); margin-top: 100px; width: 75px;  margin-right: 10px; margin-left: -80px; display: block; top: 65px; position: fixed; list-style-type:none;padding-top:15px" padding-bottom:25px" id="sharebar" >
+<a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+<a class="addthis_button_facebook_share" fb:share:layout="box_count"></a>
+<a class="addthis_button_linkedin_counter" li:counter="top"></a>
+
+<a class="addthis_button_google_plusone"g:plusone:size="tall"></a>
+<a class="addthis_button_tweet"></a>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML6&action=editWidget&sectionId=crosscol' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML6"));' target='configHTML6' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget PageList' data-version='1' id='PageList2'>
+<h2>Pages</h2>
+<div class='widget-content'>
+<ul>
+<li class='selected'>
+<a href='http://javarevisited.blogspot.com/'>Home</a>
+</li>
+<li>
+<a href='/search/label/core%20java?max-results=3'>core java</a>
+</li>
+<li>
+<a href='/search/label/spring?max-results=3'>spring</a>
+</li>
+<li>
+<a href='/search/label/hibernate?max-results=3'>hibernate</a>
+</li>
+<li>
+<a href='/search/label/java%20collection%20tutorial?&max-results=3'>collections</a>
+</li>
+<li>
+<a href='/search/label/Java%20multithreading%20Tutorials?max-results=3'>multithreading</a>
+</li>
+<li>
+<a href='/search/label/design%20patterns?max-results=3'>design patterns</a>
+</li>
+<li>
+<a href='/search/label/interview%20questions?max-results=3'>interview questions</a>
+</li>
+<li>
+<a href='/search/label/Coding%20Interview%20Question?max-results=3'>coding</a>
+</li>
+<li>
+<a href='/search/label/data%20structure%20and%20algorithm?max-results=3'>data structure</a>
+</li>
+<li>
+<a href='/search/label/object%20oriented%20programming?max-results=3'>OOP</a>
+</li>
+<li>
+<a href='/search/label/Java 8?max-results=3'>java 8</a>
+</li>
+<li>
+<a href='/search/label/books?max-results=3'>books</a>
+</li>
+<li>
+<a href='http://javarevisited.blogspot.com/p/about-me.html'>About Me</a>
+</li>
+<li>
+<a href='/search/label/Java%20Certification%20OCPJP%20SCJP?&max-results=3'>Java Certifications</a>
+</li>
+<li>
+<a href='/search/label/JDBC?&max-results=3'>JDBC</a>
+</li>
+<li>
+<a href='/search/label/jsp-servlet?&max-results=3'>jsp-servlet</a>
+</li>
+<li>
+<a href='/search/label/Java%20JSON%20tutorial?&max-results=3'>JSON</a>
+</li>
+<li>
+<a href='/search/label/SQL?max-results=3'>SQL</a>
+</li>
+<li>
+<a href='/search/label/linux?max-results=3'>Linux</a>
+</li>
+<li>
+<a href='/search/label/courses?max-results=3'>Courses</a>
+</li>
+<li>
+<a href='/search/label/online%20resources?&max-results=3'>online resources</a>
+</li>
+<li>
+<a href='/search/label/JVM%20Internals?max-results=3'>jvm-internals</a>
+</li>
+<li>
+<a href='/search/label/REST?max-results=3'>REST</a>
+</li>
+<li>
+<a href='/search/label/Eclipse?max-results=3'>Eclipse</a>
+</li>
+<li>
+<a href='/search/label/JQuery?max-results=3'>jQuery</a>
+</li>
+<li>
+<a href='/search/label/java%20IO%20tutorial?&max-results=3'>Java IO</a>
+</li>
+<li>
+<a href='/search/label/Java%20xml%20tutorial?&max-results=3'>Java XML</a>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=PageList&widgetId=PageList2&action=editWidget&sectionId=crosscol' onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList2"));' target='configPageList2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+<!--INFOLINKS_ON-->
+<div id='main-wrap1'>
+<div id='main-wrap2'>
+<div class='main section' id='main'><div class='widget HTML' data-version='1' id='HTML8'>
+<div class='widget-content'>
+<div id="cse-search-results"></div>
+<script type="text/javascript">
+  var googleSearchIframeName = "cse-search-results";
+  var googleSearchFormName = "cse-search-box";
+  var googleSearchFrameWidth = 1072;
+  var googleSearchDomain = "www.google.com";
+  var googleSearchPath = "/cse";
+</script>
+<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML8&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML8"));' target='configHTML8' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!--Can't find substitution for tag [defaultAdStart]-->
+
+                        <div class="date-outer">
+                      
+<h4 class='date-header'>
+<span>
+Tuesday, March 20, 2018
+</span>
+</h4>
+
+                        <div class="date-posts">
+                      
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='2161256912294011573'></a>
+<h2 class='post-title entry-title'>
+<a href='http://javarevisited.blogspot.com/2018/03/java-10-released-10-new-features-java.html'>
+Java 10 Released - 10 New Features Java Developers Should Know
+</a>
+</h2>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+<div style='float:right; margin:5px 6px 0px 5px; position:relative; z-index:10'>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- 336x280_Top_Right_Above_The_Fold -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:336px;height:280px"
+                             data-ad-client="ca-pub-5808379456926196"
+                             data-ad-slot="9776759940"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+</div>
+<div class='post-body entry-content'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Hello Guys, while we all are talking about <a href="http://www.java67.com/2018/01/top-10-java-9-tutorials-and-courses.html" target="_blank">Java 9</a> and some people are yet to adopt <a href="http://www.java67.com/2014/09/top-10-java-8-tutorials-best-of-lot.html" target="_blank">Java 8</a> in their projects, here comes the new release of Java, the JDK 10. It&#39;s available to download now on Oracle&#39;s website. This is the first release in the new release schedule, where you have a new Java release every six months, I know it&#39;s quite early but that&#39;s a reality now. Apart from 6 monthly release, Every 3 years there is an LTS release, which is sort of major Java release. The next LTS release is Java 11 which should be out in September. So you can aim for that. Then you can update three years after that to the next LTS release.<br>
+</div>
+<div style='clear: both; margin-left:-40px; margin-top:20px'>
+</div>
+<div style='clear: both; margin-top:20px'></div>
+</div>
+<div class='jump-link'>
+<a href='http://javarevisited.blogspot.com/2018/03/java-10-released-10-new-features-java.html#more' title='Java 10 Released - 10 New Features Java Developers Should Know'>
+Read more &#187;
+</a>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+By
+<span class='fn'>
+Javin Paul
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<a class='timestamp-link' href='http://javarevisited.blogspot.com/2018/03/java-10-released-10-new-features-java.html' rel='bookmark' title='permanent link'>
+<abbr class='published' title='2018-03-20T17:47:00-07:00'>
+March 20, 2018
+</abbr>
+</a>
+</span>
+<span class='post-comment-link'>
+<a class='comment-link' href='http://javarevisited.blogspot.com/2018/03/java-10-released-10-new-features-java.html#comment-form' onclick=''>
+
+                                  1 
+                                  comments
+</a>
+</span>
+<span class='post-icons'>
+<span class='item-action'>
+<a href='https://www.blogger.com/email-post.g?blogID=8712770457197348465&postID=2161256912294011573' title='Email Post'>
+<img alt='' class='icon-action' height='13' src='http://img1.blogblog.com/img/icon18_email.gif' width='18'/>
+</a>
+</span>
+<span class='item-control blog-admin pid-1367717747'>
+<a href='https://www.blogger.com/post-edit.g?blogID=8712770457197348465&postID=2161256912294011573&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=2161256912294011573&target=email' target='_blank' title='Email This'>
+<span class='share-button-link-text'>
+Email This
+</span>
+</a>
+<a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=2161256912294011573&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'>
+<span class='share-button-link-text'>
+BlogThis!
+</span>
+</a>
+<a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=2161256912294011573&target=twitter' target='_blank' title='Share to Twitter'>
+<span class='share-button-link-text'>
+Share to Twitter
+</span>
+</a>
+<a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=2161256912294011573&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'>
+<span class='share-button-link-text'>
+Share to Facebook
+</span>
+</a>
+<div class='goog-inline-block dummy-container'>
+<g:plusone source='blogger:blog:plusone' href='http://javarevisited.blogspot.com/2018/03/java-10-released-10-new-features-java.html' size='medium' width='300' annotation='inline'/>
+</div>
+</div>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+Labels:
+<a href='http://javarevisited.blogspot.com/search/label/core%20java?max-results=3' rel='tag,nofollow'>
+core java
+</a>
+
+                              ,
+                            
+<a href='http://javarevisited.blogspot.com/search/label/Java%2010?max-results=3' rel='tag,nofollow'>
+Java 10
+</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+<span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='5331509117078253382'></a>
+<h2 class='post-title entry-title'>
+<a href='http://javarevisited.blogspot.com/2018/01/top-5-free-agile-courses-for-programmers.html'>
+Top 5 Free Agile Courses for Programmers and Software Engineers - Best of Lot
+</a>
+</h2>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+<div style='float:right; margin:5px 6px 0px 5px; position:relative; z-index:10'>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- 336x280_Top_Right_Above_The_Fold -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:336px;height:280px"
+                             data-ad-client="ca-pub-5808379456926196"
+                             data-ad-slot="9776759940"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+</div>
+<div class='post-body entry-content'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Technology is changing at a rapid pace and market conditions, tough competition, and time-to-market are some of the biggest concerns for today&#39;s organizations, especially for technology companies. In order to adapt this fast-changing environment, most of the companies are now using the Agile model of development, testing, and project management. This enables the organizations to efficiently cope with changes and deliver faster and that&#39;s why for a programmer or an IT professional, a solid knowledge of Agile methodologies and framework is important. It doesn&#39;t matter whether you know the Waterfall model of development or not but it does matter whether you have worked in an Agile environment or not. In order to educate programmers about Agile, I have shared some of the <a href="http://javarevisited.blogspot.sg/2017/06/top-5-books-to-learn-agile-and-scrum-methodology.html" target="_blank">books to learn Agile</a> in past and today I am going to share some of the free online Agile courses you can take to learn Agile methodologies at your own pace.<br>
+</div>
+<div style='clear: both; margin-left:-40px; margin-top:20px'>
+</div>
+<div style='clear: both; margin-top:20px'></div>
+</div>
+<div class='jump-link'>
+<a href='http://javarevisited.blogspot.com/2018/01/top-5-free-agile-courses-for-programmers.html#more' title='Top 5 Free Agile Courses for Programmers and Software Engineers - Best of Lot'>
+Read more &#187;
+</a>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+By
+<span class='fn'>
+Javin Paul
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<a class='timestamp-link' href='http://javarevisited.blogspot.com/2018/01/top-5-free-agile-courses-for-programmers.html' rel='bookmark' title='permanent link'>
+<abbr class='published' title='2018-03-20T05:49:00-07:00'>
+March 20, 2018
+</abbr>
+</a>
+</span>
+<span class='post-comment-link'>
+<a class='comment-link' href='http://javarevisited.blogspot.com/2018/01/top-5-free-agile-courses-for-programmers.html#comment-form' onclick=''>
+0
+comments
+</a>
+</span>
+<span class='post-icons'>
+<span class='item-action'>
+<a href='https://www.blogger.com/email-post.g?blogID=8712770457197348465&postID=5331509117078253382' title='Email Post'>
+<img alt='' class='icon-action' height='13' src='http://img1.blogblog.com/img/icon18_email.gif' width='18'/>
+</a>
+</span>
+<span class='item-control blog-admin pid-1367717747'>
+<a href='https://www.blogger.com/post-edit.g?blogID=8712770457197348465&postID=5331509117078253382&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=5331509117078253382&target=email' target='_blank' title='Email This'>
+<span class='share-button-link-text'>
+Email This
+</span>
+</a>
+<a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=5331509117078253382&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'>
+<span class='share-button-link-text'>
+BlogThis!
+</span>
+</a>
+<a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=5331509117078253382&target=twitter' target='_blank' title='Share to Twitter'>
+<span class='share-button-link-text'>
+Share to Twitter
+</span>
+</a>
+<a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=5331509117078253382&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'>
+<span class='share-button-link-text'>
+Share to Facebook
+</span>
+</a>
+<div class='goog-inline-block dummy-container'>
+<g:plusone source='blogger:blog:plusone' href='http://javarevisited.blogspot.com/2018/01/top-5-free-agile-courses-for-programmers.html' size='medium' width='300' annotation='inline'/>
+</div>
+</div>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+Labels:
+<a href='http://javarevisited.blogspot.com/search/label/Agile?max-results=3' rel='tag,nofollow'>
+Agile
+</a>
+
+                              ,
+                            
+<a href='http://javarevisited.blogspot.com/search/label/online%20resources?max-results=3' rel='tag,nofollow'>
+online resources
+</a>
+
+                              ,
+                            
+<a href='http://javarevisited.blogspot.com/search/label/Scrum?max-results=3' rel='tag,nofollow'>
+Scrum
+</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+<span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+</div>
+
+                          </div></div>
+                        
+
+                        <div class="date-outer">
+                      
+<h4 class='date-header'>
+<span>
+Monday, March 19, 2018
+</span>
+</h4>
+
+                        <div class="date-posts">
+                      
+<div class='post-outer'>
+<div class='post hentry'>
+<a name='4534847821566464166'></a>
+<h2 class='post-title entry-title'>
+<a href='http://javarevisited.blogspot.com/2017/12/top-5-courses-to-learn-big-data-and.html'>
+Top 5 Big Data and Apache Spark Courses for Java Developers to Learn Online in 2018
+</a>
+</h2>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+<div style='float:right; margin:5px 6px 0px 5px; position:relative; z-index:10'>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- 336x280_Top_Right_Above_The_Fold -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:336px;height:280px"
+                             data-ad-client="ca-pub-5808379456926196"
+                             data-ad-slot="9776759940"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+</div>
+<div class='post-body entry-content'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Slowing economy and the recent trend of job cuts in India and elsewhere have made many programmers anxious about their job security. I receive a lot of emails and Facebook chats about suggestions to improve IT skills to remain competitive and marketable. So, if you are in the same boat, you can learn Big Data and IT Automation to remain marketable. These two skills are in great demand and will generate a lot of jobs in future. I have suggested many Java developers around the world to learn Big Data Technologies e.g. <a href="https://spark.apache.org/" rel="nofollow" target="_blank">Apache Spark</a> to give their CV a new boost. Since it&#39;s not easy to learn a new technology and at a certain age, you feel a lot of restriction and resistance from both your body and mind. In order to overcome that I found a combination of books and online courses works great.<br>
+</div>
+<div style='clear: both; margin-left:-40px; margin-top:20px'>
+</div>
+<div style='clear: both; margin-top:20px'></div>
+</div>
+<div class='jump-link'>
+<a href='http://javarevisited.blogspot.com/2017/12/top-5-courses-to-learn-big-data-and.html#more' title='Top 5 Big Data and Apache Spark Courses for Java Developers to Learn Online in 2018'>
+Read more &#187;
+</a>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+By
+<span class='fn'>
+Javin Paul
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<a class='timestamp-link' href='http://javarevisited.blogspot.com/2017/12/top-5-courses-to-learn-big-data-and.html' rel='bookmark' title='permanent link'>
+<abbr class='published' title='2018-03-19T07:35:00-07:00'>
+March 19, 2018
+</abbr>
+</a>
+</span>
+<span class='post-comment-link'>
+<a class='comment-link' href='http://javarevisited.blogspot.com/2017/12/top-5-courses-to-learn-big-data-and.html#comment-form' onclick=''>
+0
+comments
+</a>
+</span>
+<span class='post-icons'>
+<span class='item-action'>
+<a href='https://www.blogger.com/email-post.g?blogID=8712770457197348465&postID=4534847821566464166' title='Email Post'>
+<img alt='' class='icon-action' height='13' src='http://img1.blogblog.com/img/icon18_email.gif' width='18'/>
+</a>
+</span>
+<span class='item-control blog-admin pid-1367717747'>
+<a href='https://www.blogger.com/post-edit.g?blogID=8712770457197348465&postID=4534847821566464166&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=4534847821566464166&target=email' target='_blank' title='Email This'>
+<span class='share-button-link-text'>
+Email This
+</span>
+</a>
+<a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=4534847821566464166&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'>
+<span class='share-button-link-text'>
+BlogThis!
+</span>
+</a>
+<a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=4534847821566464166&target=twitter' target='_blank' title='Share to Twitter'>
+<span class='share-button-link-text'>
+Share to Twitter
+</span>
+</a>
+<a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=8712770457197348465&postID=4534847821566464166&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'>
+<span class='share-button-link-text'>
+Share to Facebook
+</span>
+</a>
+<div class='goog-inline-block dummy-container'>
+<g:plusone source='blogger:blog:plusone' href='http://javarevisited.blogspot.com/2017/12/top-5-courses-to-learn-big-data-and.html' size='medium' width='300' annotation='inline'/>
+</div>
+</div>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+Labels:
+<a href='http://javarevisited.blogspot.com/search/label/Apache%20Spark?max-results=3' rel='tag,nofollow'>
+Apache Spark
+</a>
+
+                              ,
+                            
+<a href='http://javarevisited.blogspot.com/search/label/Big%20Data?max-results=3' rel='tag,nofollow'>
+Big Data
+</a>
+
+                              ,
+                            
+<a href='http://javarevisited.blogspot.com/search/label/online%20resources?max-results=3' rel='tag,nofollow'>
+online resources
+</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+<span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+</div>
+
+                      </div></div>
+                    
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://javarevisited.blogspot.com/search?updated-max=2018-03-19T07:35:00-07:00&amp;max-results=3' id='Blog1_blog-pager-older-link' title='Older Posts'>
+Older Posts
+</a>
+</span>
+<a class='home-link' href='http://javarevisited.blogspot.com/'>
+Home
+</a>
+</div>
+<div class='clear'></div>
+<div class='blog-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='http://javarevisited.blogspot.com/feeds/posts/default' target='_blank' type='application/atom+xml'>
+Posts
+                      (
+                      Atom
+                      )
+                    </a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en'};</script>
+</div><div class='widget AdSense' data-version='1' id='AdSense1'>
+<div class='widget-content'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- javarevisited_sidebartop_AdSense1_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5808379456926196"
+     data-ad-host="ca-host-pub-1556223355139109"
+     data-ad-host-channel="L0001"
+     data-ad-slot="4721535549"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=AdSense&widgetId=AdSense1&action=editWidget&sectionId=main' onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense1"));' target='configAdSense1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+</div>
+<div id='sidebar-wrap'>
+<div id='sidebartop-wrap'>
+<div id='sidebartop-wrap2'>
+<div class='sidebar section' id='sidebartop'><div class='widget HTML' data-version='1' id='HTML10'>
+</div><div class='widget HTML' data-version='1' id='HTML5'>
+</div><div class='widget FollowByEmail' data-version='1' id='FollowByEmail1'>
+<h2 class='title'>Follow by Email</h2>
+<div class='widget-content'>
+<div class='follow-by-email-inner'>
+<form action='https://feedburner.google.com/fb/a/mailverify' method='post' onsubmit='window.open("https://feedburner.google.com/fb/a/mailverify?uri=Javarevisited", "popupwindow", "scrollbars=yes,width=550,height=520"); return true' target='popupwindow'>
+<table width='100%'>
+<tr>
+<td>
+<input class='follow-by-email-address' name='email' placeholder='Email address...' type='text'/>
+</td>
+<td width='64px'>
+<input class='follow-by-email-submit' type='submit' value='Submit'/>
+</td>
+</tr>
+</table>
+<input name='uri' type='hidden' value='Javarevisited'/>
+<input name='loc' type='hidden' value='en_US'/>
+</form>
+</div>
+</div>
+<span class='item-control blog-admin'>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=FollowByEmail&widgetId=FollowByEmail1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("FollowByEmail1"));' target='configFollowByEmail1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</span>
+</div><div class='widget Label' data-version='1' id='Label1'>
+<h2>Interview Questions</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/core%20java%20interview%20question?max-results=3'>core java interview question</a>
+<span dir='ltr'>(168)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Coding%20Interview%20Question?max-results=3'>Coding Interview Question</a>
+<span dir='ltr'>(66)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/data%20structure%20and%20algorithm?max-results=3'>data structure and algorithm</a>
+<span dir='ltr'>(59)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/interview%20questions?max-results=3'>interview questions</a>
+<span dir='ltr'>(48)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/SQL%20Interview%20Questions?max-results=3'>SQL Interview Questions</a>
+<span dir='ltr'>(30)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/design%20patterns?max-results=3'>design patterns</a>
+<span dir='ltr'>(30)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/thread%20interview%20questions?max-results=3'>thread interview questions</a>
+<span dir='ltr'>(30)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/object%20oriented%20programming?max-results=3'>object oriented programming</a>
+<span dir='ltr'>(28)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/collections%20interview%20questions?max-results=3'>collections interview questions</a>
+<span dir='ltr'>(25)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/database%20interview%20questions?max-results=3'>database interview questions</a>
+<span dir='ltr'>(17)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/spring%20interview%20questions?max-results=3'>spring interview questions</a>
+<span dir='ltr'>(17)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/servlet%20interview%20questions?max-results=3'>servlet interview questions</a>
+<span dir='ltr'>(16)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Programming%20interview%20question?max-results=3'>Programming interview question</a>
+<span dir='ltr'>(7)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/hibernate%20interview%20questions?max-results=3'>hibernate interview questions</a>
+<span dir='ltr'>(6)</span>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML2'>
+<div class='widget-content'>
+<script type="text/javascript" language="javascript" src="//c.amazon-adsystem.com/aax2/getads.js"></script>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+aax_getad_mpb({
+  "slot_uuid":"1a631a27-7478-440e-ac7f-355dbed82b58"
+});
+//]]>
+</script>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML2&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML2"));' target='configHTML2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget LinkList' data-version='1' id='LinkList1'>
+<h2>Best of Javarevisited</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='http://javarevisited.blogspot.sg/2017/06/how-spring-mvc-framework-works-web-flow.html'>How Spring MVC works internally?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2016/06/design-vending-machine-in-java.html#axzz4sZVwtCgs'>How to design a vending machine in Java?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2011/02/how-hashmap-works-in-java.html#axzz4sZOoYUxv'>How HashMap works in Java?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2010/10/why-string-is-immutable-or-final-in-java.html#axzz4sZOoYUxv'>Why String is Immutable in Java?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2014/05/10-articles-every-programmer-must-read.html'>10 Articles Every Programmer Must Read</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2017/08/how-to-convert-lambda-expression-to-method-reference-in-java8-example.html'>How to convert lambda expression to method reference in Java 8?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2014/01/10-tips-to-improve-programming-skill-become-better-programmer.html#axzz4sZOoYUxv'>10 Tips to improve Programming Skill </a></li>
+<li><a href='http://javarevisited.blogspot.sg/2012/03/10-object-oriented-design-principles.html#axzz4sZOoYUxv'>10 OOP design principles programmer should know</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2011/04/synchronization-in-java-synchronized.html#axzz4sZOoYUxv'>How Synchronization works in Java?</a></li>
+<li><a href='http://javarevisited.blogspot.sg/2011/03/unix-command-tutorial-working-fast-in.html'>10 tips to work fast in Linux</a></li>
+<li><a href='http://www.java67.com/2016/02/5-books-to-improve-coding-skills-of.html'>5 Books to improve Coding Skills</a></li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=LinkList&widgetId=LinkList1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("LinkList1"));' target='configLinkList1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML4'>
+<div class='widget-content'>
+<script type="text/javascript" language="javascript" src="//c.amazon-adsystem.com/aax2/getads.js"></script>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+aax_getad_mpb({
+  "slot_uuid":"392ffdf9-b1c9-44b2-9e3e-c43ecd0faabd"
+});
+//]]>
+</script>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML4&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML4"));' target='configHTML4' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Label' data-version='1' id='Label2'>
+<h2>Java Tutorials</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/date%20and%20time%20tutorial?&max-results=3'>date and time tutorial</a>
+<span dir='ltr'>(21)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/FIX%20protocol%20tutorial?&max-results=3'>FIX protocol tutorial</a>
+<span dir='ltr'>(17)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20Certification%20OCPJP%20SCJP?&max-results=3'>Java Certification OCPJP SCJP</a>
+<span dir='ltr'>(23)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/java%20collection%20tutorial?&max-results=3'>java collection tutorial</a>
+<span dir='ltr'>(73)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/java%20IO%20tutorial?&max-results=3'>java IO tutorial</a>
+<span dir='ltr'>(27)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20JSON%20tutorial?&max-results=3'>Java JSON tutorial</a>
+<span dir='ltr'>(12)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20multithreading%20Tutorials?&max-results=3'>Java multithreading Tutorials</a>
+<span dir='ltr'>(53)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20Programming%20Tutorials?&max-results=3'>Java Programming Tutorials</a>
+<span dir='ltr'>(18)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20xml%20tutorial?&max-results=3'>Java xml tutorial</a>
+<span dir='ltr'>(17)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/JDBC?&max-results=3'>JDBC</a>
+<span dir='ltr'>(27)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/jsp-servlet?&max-results=3'>jsp-servlet</a>
+<span dir='ltr'>(33)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/online%20resources?&max-results=3'>online resources</a>
+<span dir='ltr'>(65)</span>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=Label&widgetId=Label2&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label2"));' target='configLabel2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Followers' data-version='1' id='Followers1'>
+<h2 class='title'>Followers</h2>
+<div class='widget-content'>
+<div id='Followers1-wrapper'>
+<div style='margin-right:2px;'>
+<div><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<div id="followers-iframe-container"></div>
+<script type="text/javascript">
+    window.followersIframe = null;
+    function followersIframeOpen(url) {
+      gapi.load("gapi.iframes", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          window.followersIframe = gapi.iframes.getContext().openChild({
+            url: url,
+            where: document.getElementById("followers-iframe-container"),
+            messageHandlersFilter: gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER,
+            messageHandlers: {
+              '_ready': function(obj) {
+                window.followersIframe.getIframeEl().height = obj.height;
+              },
+              'reset': function() {
+                window.followersIframe.close();
+                followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8712770457197348465\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzYjNiM2IiByMwMDAwMDAqByNmZmZmZmYyByMwMDAwMDA6ByMzYjNiM2JCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50\x26pageSize\x3d21\x26origin\x3dhttp://javarevisited.blogspot.com/");
+              },
+              'open': function(url) {
+                window.followersIframe.close();
+                followersIframeOpen(url);
+              },
+              'blogger-ping': function() {
+              }
+            }
+          });
+        }
+      });
+    }
+    followersIframeOpen("https://www.blogger.com/followers.g?blogID\x3d8712770457197348465\x26colors\x3dCgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzYjNiM2IiByMwMDAwMDAqByNmZmZmZmYyByMwMDAwMDA6ByMzYjNiM2JCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50\x26pageSize\x3d21\x26origin\x3dhttp://javarevisited.blogspot.com/");
+  </script></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=Followers&widgetId=Followers1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target='configFollowers1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML12'>
+<div class='widget-content'>
+<div class="widget FollowByEmail" data-version="2.2" id="FollowByEmail_2.2">
+  <h2 class="title" data-drip-attribute="headline">
+    <label for="subscriber_email">Subscribe to Download the E-book</label>
+  </h2>
+  <div class="widget-content">
+    <div class="follow-by-email-inner">
+      <form action="https://www.getdrip.com/forms/11779874/submissions" method="post" data-drip-embedded-form="11779874">
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <img class="tve_image tve_brdr_none" alt="" src="https://3.bp.blogspot.com/-P80XX4fJykQ/WPS9FZBY0rI/AAAAAAAAIYQ/IaSiOPS5iY4YFDvnFVh3qaAJVcDKOYzXQCLcB/s1600/baeldung-rest-widget-main-1.2.0.jpg" width="310" height="243" />
+              </td>
+            </tr>
+            <tr>
+              <td width="100" style="background-color: rgba(255,255,255,0.2);">
+                <p style="font-size: 14px; margin: 0; padding: 0 10px;"><b>Download</b> <br /> The E-book</p>
+              </td>
+              <td style="background-color: rgba(255,255,255,0.2)">
+                <h3 style="padding: 0 10px;">Building&nbsp;a REST API with Spring 4?</h3>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td>
+                <input type="email" id="subscriber_email" class="follow-by-email-address" name="fields[email]" placeholder="Email address..." />
+              </td>
+              <td width="64">
+                <input type="submit" class="follow-by-email-submit" value="Submit" name="submit" data-drip-attribute="sign-up-button" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML12&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML12"));' target='configHTML12' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Label' data-version='1' id='Label3'>
+<h2>Categories</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/SQL'>SQL</a>
+<span dir='ltr'>(50)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/linux'>linux</a>
+<span dir='ltr'>(38)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/database'>database</a>
+<span dir='ltr'>(35)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Eclipse'>Eclipse</a>
+<span dir='ltr'>(28)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Java%20Certification%20OCPJP%20SCJP'>Java Certification OCPJP SCJP</a>
+<span dir='ltr'>(23)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/JVM%20Internals'>JVM Internals</a>
+<span dir='ltr'>(21)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/courses'>courses</a>
+<span dir='ltr'>(18)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/general'>general</a>
+<span dir='ltr'>(18)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/JQuery'>JQuery</a>
+<span dir='ltr'>(17)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/REST'>REST</a>
+<span dir='ltr'>(14)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Testing'>Testing</a>
+<span dir='ltr'>(11)</span>
+</li>
+<li>
+<a dir='ltr' href='http://javarevisited.blogspot.com/search/label/Maven'>Maven</a>
+<span dir='ltr'>(10)</span>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=Label&widgetId=Label3&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label3"));' target='configLabel3' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML1'>
+<div class='widget-content'>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+aax_getad_mpb({
+  "slot_uuid":"04fe6626-7404-4356-b895-1fd4d298071a"
+});
+//]]>
+</script>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=sidebartop' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target='configHTML1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+<div id='sidebarbottom-wrap1'>
+<div id='sidebarbottom-wrap2'>
+<div class='sidebar section' id='sidebar'><div class='widget PageList' data-version='1' id='PageList1'>
+<h2>Pages</h2>
+<div class='widget-content'>
+<ul>
+<li>
+<a href='http://javarevisited.blogspot.com/p/privacy-policy.html'>Privacy Policy</a>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=PageList&widgetId=PageList1&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList1"));' target='configPageList1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Attribution' data-version='1' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+Copyright by Javin Paul 2010-2018. Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=sidebar' onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target='configAttribution1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+</div>
+<div id='footer-wrap1'>
+<div id='footer-wrap2'>
+<div class='footer section' id='footer'><div class='widget BlogSearch' data-version='1' id='BlogSearch1'>
+<h2 class='title'>Search This Blog</h2>
+<div class='widget-content'>
+<div id='BlogSearch1_form'>
+<form action='http://javarevisited.blogspot.com/search' class='gsc-search-box' target='_top'>
+<table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+<tbody>
+<tr>
+<td class='gsc-input'>
+<input autocomplete='off' class='gsc-input' name='q' size='10' title='search' type='text' value=''/>
+</td>
+<td class='gsc-search-button'>
+<input class='gsc-search-button' title='search' type='submit' value='Search'/>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=8712770457197348465&widgetType=BlogSearch&widgetId=BlogSearch1&action=editWidget&sectionId=footer' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogSearch1"));' target='configBlogSearch1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget HTML' data-version='1' id='HTML3'>
+</div></div>
+</div>
+</div>
+</div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script async='async' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=javabuddy' type='text/javascript'></script>
+<script type='text/javascript'>
+  /*<![CDATA[*/
+    var perPage=6;
+    var numPages=6;
+    var firstText ='First';
+    var lastText ='Last';
+    var prevText ='« Previous';
+    var nextText ='Next »';
+    var urlactivepage=location.href;
+    var home_page="/";
+  /*]]>*/
+</script>
+<script type='text/javascript'>
+ /*<![CDATA[*/
+    if (typeof firstText == "undefined") firstText = "First"; 
+    if (typeof lastText == "undefined") lastText = "Last";
+    var noPage;
+    var currentPage;
+    var currentPageNo;
+    var postLabel;
+    pagecurrentg();
+
+    function looppagecurrentg(pageInfo) {
+        var html = '';
+        pageNumber = parseInt(numPages / 2);
+        if (pageNumber == numPages - pageNumber) {
+            numPages = pageNumber * 2 + 1
+        }
+        pageStart = currentPageNo - pageNumber;
+        if (pageStart < 1) pageStart = 1;
+        lastPageNo = parseInt(pageInfo / perPage) + 1;
+        if (lastPageNo - 1 == pageInfo / perPage) lastPageNo = lastPageNo - 1;
+        pageEnd = pageStart + numPages - 1;
+        if (pageEnd > lastPageNo) pageEnd = lastPageNo;
+        html += "<span class='showpageOf'>Page " + currentPageNo + ' of ' + lastPageNo + "</span>";
+        var prevNumber = parseInt(currentPageNo) - 1;
+      
+		//Iccsi was here, doing magic      
+        if (currentPageNo > 1) {
+			if (currentPage == "page") {
+			  html += '<span class="showpage firstpage"><a href="' + home_page + '">' + firstText + '</a></span>'
+			} else {
+			  html += '<span class="displaypageNum firstpage"><a href="/search/label/' + postLabel + '?&max-results=' + perPage + '">' + firstText + '</a></span>'
+			}
+		}
+		
+		if (currentPageNo > 2) {
+            if (currentPageNo == 3) { 
+                if (currentPage == "page") {
+                    html += '<span class="showpage"><a href="' + home_page + '">' + prevText + '</a></span>'
+                } else {
+                    html += '<span class="displaypageNum"><a href="/search/label/' + postLabel + '?&max-results=' + perPage + '">' + prevText + '</a></span>'
+                }
+            } else {
+                if (currentPage == "page") {
+                    html += '<span class="displaypageNum"><a href="#" onclick="redirectpage(' + prevNumber + ');return false">' + prevText + '</a></span>'
+                } else {
+                    html += '<span class="displaypageNum"><a href="#" onclick="redirectlabel(' + prevNumber + ');return false">' + prevText + '</a></span>'
+                }
+            }
+        }
+        if (pageStart > 1) {
+            if (currentPage == "page") {
+                html += '<span class="displaypageNum"><a href="' + home_page + '">1</a></span>'
+            } else {
+                html += '<span class="displaypageNum"><a href="/search/label/' + postLabel + '?&max-results=' + perPage + '">1</a></span>'
+            }
+        }
+        if (pageStart > 2) {
+            html += ' ... '
+        }
+        for (var jj = pageStart; jj <= pageEnd; jj++) {
+            if (currentPageNo == jj) {
+                html += '<span class="pagecurrent">' + jj + '</span>'
+            } else if (jj == 1) {
+                if (currentPage == "page") {
+                    html += '<span class="displaypageNum"><a href="' + home_page + '">1</a></span>'
+                } else {
+                    html += '<span class="displaypageNum"><a href="/search/label/' + postLabel + '?&max-results=' + perPage + '">1</a></span>'
+                }
+            } else {
+                if (currentPage == "page") {
+                    html += '<span class="displaypageNum"><a href="#" onclick="redirectpage(' + jj + ');return false">' + jj + '</a></span>'
+                } else {
+                    html += '<span class="displaypageNum"><a href="#" onclick="redirectlabel(' + jj + ');return false">' + jj + '</a></span>'
+                }
+            }
+        }
+        if (pageEnd < lastPageNo - 1) {
+            html += '...'
+        }
+        if (pageEnd < lastPageNo) {
+            if (currentPage == "page") {
+                html += '<span class="displaypageNum"><a href="#" onclick="redirectpage(' + lastPageNo + ');return false">' + lastPageNo + '</a></span>'
+            } else {
+                html += '<span class="displaypageNum"><a href="#" onclick="redirectlabel(' + lastPageNo + ');return false">' + lastPageNo + '</a></span>'
+            }
+        }
+
+
+        var nextnumber = parseInt(currentPageNo) + 1;
+        if (currentPageNo < (lastPageNo - 1)) {
+            if (currentPage == "page") {
+                html += '<span class="displaypageNum"><a href="#" onclick="redirectpage(' + nextnumber + ');return false">' + nextText + '</a></span>'
+            } else {
+                html += '<span class="displaypageNum"><a href="#" onclick="redirectlabel(' + nextnumber + ');return false">' + nextText + '</a></span>'
+            }
+		}
+		
+		if (currentPageNo < lastPageNo) {
+			//Iccsi was here, doing magic
+			if (currentPage == "page") {
+			  html += '<span class="displaypageNum lastpage"><a href="#" onclick="redirectpage(' + lastPageNo + ');return false">' + lastText + '</a></span>'
+			} else {
+			  html += '<span class="displaypageNum lastpage"><a href="#" onclick="redirectlabel(' + lastPageNo + ');return false">' + lastText + '</a></span>'
+			}
+        }
+
+        var pageArea = document.getElementsByName("pageArea");
+        var blogPager = document.getElementById("blog-pager");
+        for (var p = 0; p < pageArea.length; p++) {
+            pageArea[p].innerHTML = html
+        }
+        if (pageArea && pageArea.length > 0) {
+            html = ''
+        }
+        if (blogPager) {
+            blogPager.innerHTML = html
+        }
+    }
+
+    function totalcountdata(root) {
+        var feed = root.feed;
+        var totaldata = parseInt(feed.openSearch$totalResults.$t, 10);
+        looppagecurrentg(totaldata)
+    }
+
+    function pagecurrentg() {
+        var thisUrl = urlactivepage;
+        if (thisUrl.indexOf("/search/label/") != -1) {
+            if (thisUrl.indexOf("?updated-max") != -1) {
+                postLabel = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.indexOf("?updated-max"))
+            } else {
+                postLabel = thisUrl.substring(thisUrl.indexOf("/search/label/") + 14, thisUrl.indexOf("?&max"))
+            }
+        }
+        if (thisUrl.indexOf("?q=") == -1 && thisUrl.indexOf(".html") == -1) {
+            if (thisUrl.indexOf("/search/label/") == -1) {
+                currentPage = "page";
+                if (urlactivepage.indexOf("#PageNo=") != -1) {
+                    currentPageNo = urlactivepage.substring(urlactivepage.indexOf("#PageNo=") + 8, urlactivepage.length)
+                } else {
+                    currentPageNo = 1
+                }
+                document.write("<script src=\"" + home_page + "feeds/posts/summary?max-results=1&alt=json-in-script&callback=totalcountdata\"><\/script>")
+            } else {
+                currentPage = "label";
+                if (thisUrl.indexOf("&max-results=") == -1) {
+                    perPage = 20
+                }
+                if (urlactivepage.indexOf("#PageNo=") != -1) {
+                    currentPageNo = urlactivepage.substring(urlactivepage.indexOf("#PageNo=") + 8, urlactivepage.length)
+                } else {
+                    currentPageNo = 1
+                }
+                document.write('<script src="' + home_page + 'feeds/posts/summary/-/' + postLabel + '?alt=json-in-script&callback=totalcountdata&max-results=1" ><\/script>')
+            }
+        }
+    }
+
+    function redirectpage(numberpage) {
+        jsonstart = (numberpage - 1) * perPage;
+        noPage = numberpage;
+        var nameBody = document.getElementsByTagName('head')[0];
+        var newInclude = document.createElement('script');
+        newInclude.type = 'text/javascript';
+        newInclude.setAttribute("src", home_page + "feeds/posts/summary?start-index=" + jsonstart + "&max-results=1&alt=json-in-script&callback=finddatepost");
+        nameBody.appendChild(newInclude)
+    }
+
+    function redirectlabel(numberpage) {
+        jsonstart = (numberpage - 1) * perPage;
+        noPage = numberpage;
+        var nameBody = document.getElementsByTagName('head')[0];
+        var newInclude = document.createElement('script');
+        newInclude.type = 'text/javascript';
+        newInclude.setAttribute("src", home_page + "feeds/posts/summary/-/" + postLabel + "?start-index=" + jsonstart + "&max-results=1&alt=json-in-script&callback=finddatepost");
+        nameBody.appendChild(newInclude)
+    }
+
+    function finddatepost(root) {
+        post = root.feed.entry[0];
+        var timestamp1 = post.published.$t.substring(0, 19) + post.published.$t.substring(23, 29);
+        var timestamp = encodeURIComponent(timestamp1);
+        if (currentPage == "page") {
+            var pAddress = "/search?updated-max=" + timestamp + "&max-results=" + perPage + "#PageNo=" + noPage
+        } else {
+            var pAddress = "/search/label/" + postLabel + "?updated-max=" + timestamp + "&max-results=" + perPage + "#PageNo=" + noPage
+        }
+        location.href = pAddress
+    }
+  /*]]>*/
+</script>
+<div id='fb-root'></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script src='http://javarevisited.us.intellitxt.com/intellitxt/front.asp?ipid=88514' type='text/javascript'></script>
+<script type='text/javascript'>
+  window._taboola = window._taboola || [];
+  _taboola.push({flush: true});
+</script>
+<script src='//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=33634d01-4699-43f3-a063-ec5046285c07'></script>
+<script src='https://apis.google.com/js/plusone.js' type='text/javascript'></script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/698371418-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY7GPVl0qbPj8qrK9O6kavDs0lsRyQ:1521643399740';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8712770457197348465','//javarevisited.blogspot.com/','8712770457197348465');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8712770457197348465', 'title': 'Javarevisited', 'url': 'http://javarevisited.blogspot.com/', 'canonicalUrl': 'http://javarevisited.blogspot.com/', 'homepageUrl': 'http://javarevisited.blogspot.com/', 'searchUrl': 'http://javarevisited.blogspot.com/search', 'canonicalHomepageUrl': 'http://javarevisited.blogspot.com/', 'blogspotFaviconUrl': 'http://javarevisited.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': false, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': 'UA-19004659-1', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Javarevisited - Atom\x22 href\x3d\x22http://javarevisited.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Javarevisited - RSS\x22 href\x3d\x22http://javarevisited.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Javarevisited - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/8712770457197348465/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://plus.google.com/114528699166048052030\x22 /\x3e\n', 'openIdOpTag': '\x3clink rel\x3d\x22openid.server\x22 href\x3d\x22https://www.blogger.com/openid-server.g\x22 /\x3e\n\x3clink rel\x3d\x22openid.delegate\x22 href\x3d\x22http://javarevisited.blogspot.com/\x22 /\x3e\n', 'googleProfileUrl': 'https://plus.google.com/114528699166048052030', 'adsenseClientId': 'ca-pub-5808379456926196', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': true, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/602437e894e12ddd', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': 'Share to Google+', 'target': 'googleplus'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'Javarevisited', 'metaDescription': 'Tutorials and Interview questions for Java, data structures, algorithms, programming, coding, FIX Protocol, Tibco RV, UNIX,SQL,books,certifications.'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Javarevisited', 'description': 'Tutorials and Interview questions for Java, data structures, algorithms, programming, coding, FIX Protocol, Tibco RV, UNIX,SQL,books,certifications.', 'url': 'http://javarevisited.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML6', 'crosscol', null, document.getElementById('HTML6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList2', 'crosscol', null, document.getElementById('PageList2'), {'title': 'Pages', 'links': [{'isCurrentPage': true, 'href': 'http://javarevisited.blogspot.com/', 'title': 'Home'}, {'isCurrentPage': false, 'href': '/search/label/core%20java?max-results\x3d3', 'title': 'core java'}, {'isCurrentPage': false, 'href': '/search/label/spring?max-results\x3d3', 'title': 'spring'}, {'isCurrentPage': false, 'href': '/search/label/hibernate?max-results\x3d3', 'title': 'hibernate'}, {'isCurrentPage': false, 'href': '/search/label/java%20collection%20tutorial?\x26max-results\x3d3', 'title': 'collections'}, {'isCurrentPage': false, 'href': '/search/label/Java%20multithreading%20Tutorials?max-results\x3d3', 'title': 'multithreading'}, {'isCurrentPage': false, 'href': '/search/label/design%20patterns?max-results\x3d3', 'title': 'design patterns'}, {'isCurrentPage': false, 'href': '/search/label/interview%20questions?max-results\x3d3', 'title': 'interview questions'}, {'isCurrentPage': false, 'href': '/search/label/Coding%20Interview%20Question?max-results\x3d3', 'title': 'coding'}, {'isCurrentPage': false, 'href': '/search/label/data%20structure%20and%20algorithm?max-results\x3d3', 'title': 'data structure'}, {'isCurrentPage': false, 'href': '/search/label/object%20oriented%20programming?max-results\x3d3', 'title': 'OOP'}, {'isCurrentPage': false, 'href': '/search/label/Java 8?max-results\x3d3', 'title': 'java 8'}, {'isCurrentPage': false, 'href': '/search/label/books?max-results\x3d3', 'title': 'books'}, {'isCurrentPage': false, 'href': 'http://javarevisited.blogspot.com/p/about-me.html', 'id': '6312557353959475498', 'title': 'About Me'}, {'isCurrentPage': false, 'href': '/search/label/Java%20Certification%20OCPJP%20SCJP?\x26max-results\x3d3', 'title': 'Java Certifications'}, {'isCurrentPage': false, 'href': '/search/label/JDBC?\x26max-results\x3d3', 'title': 'JDBC'}, {'isCurrentPage': false, 'href': '/search/label/jsp-servlet?\x26max-results\x3d3', 'title': 'jsp-servlet'}, {'isCurrentPage': false, 'href': '/search/label/Java%20JSON%20tutorial?\x26max-results\x3d3', 'title': 'JSON'}, {'isCurrentPage': false, 'href': '/search/label/SQL?max-results\x3d3', 'title': 'SQL'}, {'isCurrentPage': false, 'href': '/search/label/linux?max-results\x3d3', 'title': 'Linux'}, {'isCurrentPage': false, 'href': '/search/label/courses?max-results\x3d3', 'title': 'Courses'}, {'isCurrentPage': false, 'href': '/search/label/online%20resources?\x26max-results\x3d3', 'title': 'online resources'}, {'isCurrentPage': false, 'href': '/search/label/JVM%20Internals?max-results\x3d3', 'title': 'jvm-internals'}, {'isCurrentPage': false, 'href': '/search/label/REST?max-results\x3d3', 'title': 'REST'}, {'isCurrentPage': false, 'href': '/search/label/Eclipse?max-results\x3d3', 'title': 'Eclipse'}, {'isCurrentPage': false, 'href': '/search/label/JQuery?max-results\x3d3', 'title': 'jQuery'}, {'isCurrentPage': false, 'href': '/search/label/java%20IO%20tutorial?\x26max-results\x3d3', 'title': 'Java IO'}, {'isCurrentPage': false, 'href': '/search/label/Java%20xml%20tutorial?\x26max-results\x3d3', 'title': 'Java XML'}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML8', 'main', null, document.getElementById('HTML8'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'main', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML10', 'sidebartop', null, document.getElementById('HTML10'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'sidebartop', null, document.getElementById('HTML5'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowByEmailView', new _WidgetInfo('FollowByEmail1', 'sidebartop', null, document.getElementById('FollowByEmail1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebartop', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebartop', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList1', 'sidebartop', null, document.getElementById('LinkList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'sidebartop', null, document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'sidebartop', null, document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebartop', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML12', 'sidebartop', null, document.getElementById('HTML12'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label3', 'sidebartop', null, document.getElementById('Label3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebartop', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'sidebar', null, document.getElementById('PageList1'), {'title': 'Pages', 'links': [{'isCurrentPage': false, 'href': 'http://javarevisited.blogspot.com/p/privacy-policy.html', 'id': '7683233013767637665', 'title': 'Privacy Policy'}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'sidebar', null, document.getElementById('Attribution1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'footer', null, document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'footer', null, document.getElementById('HTML3'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>

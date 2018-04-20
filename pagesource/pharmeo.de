@@ -1,0 +1,975 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="iso-8859-1">
+	<meta name="robots" content="all" />
+<meta name="language" content="de" />
+<meta name="author" content="Pharmeo" />
+<meta name="publisher" content="Interemotion Onlineservices" />
+<meta name="company" content="Pharmeo Versandapotheke" />
+<meta name="page-topic" content="shopping" />
+<meta name="reply-to" content="" />
+<meta name="distribution" content="global" />
+<meta name="revisit-after" content="1" />
+<!--  Suchmaschinen Optimierung   -->
+<meta name="copyright" content="2008-2018 www.pharmeo.de all rights reserved" />
+<meta http-equiv="content-language" content="de" />
+<!--  Suchmaschinen Optimierung   -->
+<meta name="description" content="pharmeo Versandapotheke die Online Apotheke - bestens erreichbar, schnell und sicher direkt nach Hause, Versandkostenfrei bei Rezepteinlösung und ab einem Bestellwert von 55 Euro" />
+<meta name="keywords" content="Apotheke, Online Apotheke, Versandapotheke, Internet-Apotheke, Internet Apotheke, Online-Apotheke, Medikamente, Arzneimittel, günstig, Medikamente online, Apotheke online" />
+<title>pharmeo Versandapotheke die Online Apotheke - bestens erreichbar, schnell und sicher direkt nach Hause, Versandkostenfrei bei Rezepteinlösung und ab einem Bestellwert von 55 Euro</title>
+	<base href="https://www.pharmeo.de/"/>
+	<meta name="viewport" content="width=device-width"/>
+		<link rel="stylesheet" type="text/css" href="templates/pharmeo_bs/css/bootstrap.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="templates/pharmeo_bs/css/meta.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pacifico" media="screen">
+	<link rel="stylesheet" type="text/css" href="templates/pharmeo_bs/css/owl.carousel.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="templates/pharmeo_bs/css/mainSK.css" media="screen">
+			<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="templates/pharmeo_bs/css/ie.css" media="all"><![endif]-->
+
+	<script src="templates/pharmeo_bs/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="templates/pharmeo_bs/js/prefunc.js" type="text/javascript"></script>
+	<script type="text/javascript" src="includes/header.js"></script>
+
+
+
+
+	<script type="text/javascript" src="extmodules/AmazonAdvancedPayment/js/static.js"></script>
+<script>
+
+    var amazonOrderReferenceId = '';
+    var amazonOrderType = 'login_pay';
+    var amzAddressSelectCounter = 0;
+
+    if (amazonOrderType != 'pay') {
+        window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId('amzn1.application-oa2-client.d9eadc62f9874a9bbcec1e7e1d384886');
+        };
+    }
+
+    $(document).ready(function(){
+        $('#logoff_link, a[href*="logoff.php"]').click(function() { amazonLogout(); });
+            });
+
+    function initAmazon()
+    {
+        //PAY ONLY
+        if (amazonOrderType == 'pay')
+        {
+            new OffAmazonPayments.Widgets.Button ({
+                sellerId: 'A3789NBEA5D35U',
+                buttonSettings: {color:'orange', size:'medium'},
+                useAmazonAddressBook: true,
+                onSignIn: function(orderReference) {
+                    amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+                    $('#payWithAmazonDiv').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://www.pharmeo.de/checkout_amazon_handler.php',
+                        data: 'handleraction=setsession&amazon_id=' + amazonOrderReferenceId,
+                        success: function(htmlcontent){
+                        window.location = 'https://www.pharmeo.de/checkout.php/pay/amazon';                        }
+                    });
+                },
+                onError: function(error) {
+                    // your error handling code
+                }
+            }).bind("payWithAmazonDiv");
+
+            if($('#payWithAmazonDiv_Top').length > 0){
+
+                new OffAmazonPayments.Widgets.Button ({
+                    sellerId: 'A3789NBEA5D35U',
+                    buttonSettings: {color:'orange', size:'medium'},
+                    useAmazonAddressBook: true,
+                    onSignIn: function(orderReference) {
+                        amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+                        $('#payWithAmazonDiv_Top').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+                        $.ajax({
+                            type: 'GET',
+                            url: 'https://www.pharmeo.de/checkout_amazon_handler.php',
+                            data: 'handleraction=setsession&amazon_id=' + amazonOrderReferenceId,
+                            success: function(htmlcontent){
+                            window.location = 'https://www.pharmeo.de/checkout.php/pay/amazon';                            }
+                        });
+                    },
+                    onError: function(error) {
+                        // your error handling code
+                    }
+                }).bind("payWithAmazonDiv_Top");
+            }
+
+
+            if($('#amazon_checkout_button_cart').length > 0)
+            {
+                new OffAmazonPayments.Widgets.Button ({
+                    sellerId: 'A3789NBEA5D35U',
+                    buttonSettings: {color:'orange', size:'medium'},
+                    useAmazonAddressBook: true,
+                    onSignIn: function(orderReference) {
+                        amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+                        $('#amazon_checkout_button_cart').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+                        $.ajax({
+                            type: 'GET',
+                            url: 'https://www.pharmeo.de/checkout_amazon_handler.php',
+                            data: 'handleraction=setsession&amazon_id=' + amazonOrderReferenceId,
+                            success: function(htmlcontent){
+                                window.location = 'https://www.pharmeo.de/checkout.php/pay/amazon';
+                            }
+                        });
+                    },
+                    onError: function(error) {
+                        // your error handling code
+                    }
+                }).bind("amazon_checkout_button_cart");
+            }
+        } else {
+
+            //WITH LOGIN FUNCTIONALITY
+            var authRequest, amazonOrderReferenceId;
+            if($('.amazonLoginWr').length > 0)
+            {
+                $('.amazonLoginWr').each(function(){
+                    OffAmazonPayments.Button($(this).attr('id'), "A3789NBEA5D35U", {
+                        type: 'LwA',
+                        size: 'small',
+                        color:'Gold',
+                        authorization: function() {
+                            loginOptions =  {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
+                            authRequest = amazon.Login.authorize (loginOptions);
+                        },
+                        onSignIn: function(orderReference) {
+                            $('.amazonLoginWr').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+                            amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+                            $.ajax({
+                                type: 'GET',
+                                url: 'https://www.pharmeo.de/checkout_amazon_handler.php',
+                                data: 'handleraction=setusertoshop&amazon_id=' + amazonOrderReferenceId + '&access_token=' + authRequest.access_token,
+                                success: function(htmlcontent){
+                                    if (htmlcontent == 'error') {
+                                        alert('An error occured - please try again or contact our support');
+                                    } else {
+                                        //$('#amazonLoginWr').html(htmlcontent);
+                                        window.location = htmlcontent;
+                                    }
+                                }
+                            });
+                        },
+                        onError: function(error) {
+                            console.log(error);
+                        }
+                    });
+
+
+                });
+            }
+
+            if(amazonOrderType == 'login_pay' && $('#payWithAmazonDiv').length > 0)
+            {
+                OffAmazonPayments.Button("payWithAmazonDiv", "A3789NBEA5D35U", {
+                    type: 'PwA',
+                    size: 'small',
+                    color:'Gold',
+                    authorization: function() {
+                        loginOptions =  {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
+                        authRequest = amazon.Login.authorize (loginOptions);
+                    },
+                    onSignIn: function(orderReference) {
+                        $('#payWithAmazonDiv').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+                        amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+
+                                                $.ajax({
+                            type: 'GET',
+                            url: 'https://www.pharmeo.de/checkout_amazon_handler.php',
+                            data: 'handleraction=setusertoshop&amazon_id=' + amazonOrderReferenceId + '&access_token=' + authRequest.access_token,
+                            success: function(htmlcontent){
+                                if (htmlcontent == 'error') {
+                                    alert('An error occured - please try again or contact our support');
+                                } else {
+                                    //$('#amazonLoginWr').html(htmlcontent);
+                                    window.location = htmlcontent;
+                                }
+                            }
+                        });
+                                            },
+                    onError: function(error) {
+                        console.log(error);
+                    }
+                });
+
+                            }
+        }
+    }
+
+
+</script>
+<script type='text/javascript' src='https://static-eu.payments-amazon.com/OffAmazonPayments/de/lpa/js/Widgets.js'></script><script type="text/javascript" src="//content.cptrack.de/clicks.js"></script>
+
+<!-- Google Analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-34278483-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+</head>
+
+<body>
+	
+	    	
+    	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MVZD9Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVZD9Z');</script>
+		
+		<header class="container" data-ru="/" x-ms-format-detection="none">
+	<div class="row">
+		<div class="col-lg-7 col-md-6 col-sm-6">
+			<a href="http://www.pharmeo.de/index.php">
+													<img src="templates/pharmeo_bs/img/optimized/pharmeo.png" alt="pharmeo.de" width="372" height="58">
+							</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3">
+			<p id="tel"><strong>Kontakt: 0800 999 28 28</strong><br>Mo. bis Fr.: 08:00 bis 16:00 Uhr</p>
+					</div>
+		
+	<div id="cart" class="col-lg-2 col-md-3 col-sm-3">
+		<a href="https://www.pharmeo.de/shopping_cart.php">
+			<img src="templates/pharmeo_bs/img/optimized/cart.png" width="45" height="45">
+			<div>
+				<p><strong>Warenkorb</strong></p>
+				<p>Gesamt: 0,00&nbsp;EUR</p>
+			</div>
+										<div class="inner">
+					<div class="total cartItem innerHeadline">Der Warenkorb ist leer</div>
+				</div>
+					</a>
+	</div>
+
+	</div>
+	<div class="row">
+		<nav id="nav" class="col-lg-7 col-md-7 col-sm-7">
+			<ul>
+				<li><a href="#">Kategorien</a><ul class="ctlg_left_0 level_1"><li><a href="http://www.pharmeo.de/index.php/cat/c3414_Gratis-Aktionen.html">Gratis-Aktionen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c645_Heute-ist-kein-Preis-Mittwoch.html">Heute ist kein Preis-Mittwoch</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3503_Neuheiten.html">Neuheiten</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4112_pharmeos-genialer-Preis-Mittwoch.html">pharmeos genialer Preis-Mittwoch</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c11_Abnehmen---Gewichtskontrolle.html">Abnehmen &amp; Gewichtskontrolle</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c675_Allergie---Heuschnupfen.html">Allergie &amp; Heuschnupfen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c817_Augen---Ohren.html">Augen &amp; Ohren</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c711_Baby---Kind.html">Baby &amp; Kind</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c55_Diabetes.html">Diabetes</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c730_Erkaeltung---Grippe.html">Erk&auml;ltung &amp; Grippe</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c651_Ernaehrung--Vitamine---Mineralien.html">Ern&auml;hrung, Vitamine &amp; Mineralien</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c571_Familienplanung.html">Familienplanung</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c700_Frauen---Gynaekologika.html">Frauen &amp; Gyn&auml;kologika</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c739_Hals--Mund-und-Rachen.html">Hals, Mund und Rachen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c765_Haut--Haar---Naegel.html">Haut, Haar &amp; N&auml;gel</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c722_Herz--Kreislauf---Venen.html">Herz, Kreislauf &amp; Venen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c656_Homoeopathie.html">Hom&ouml;opathie</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c81_Haemorrhoiden.html">H&auml;morrhoiden</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3955_Immunsystem.html">Immunsystem</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c746_Infektion-und-Wunden.html">Infektion und Wunden</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3498_Inkontinenz.html">Inkontinenz</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c784_Kosmetik--Koerperpflege--Wellness.html">Kosmetik, K&ouml;rperpflege, Wellness</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c690_Liebe---Erotik.html">Liebe &amp; Erotik</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c752_Magen--Darm--Leber---Galle.html">Magen, Darm, Leber &amp; Galle</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c800_Medizinische-Geraete.html">Medizinische Ger&auml;te</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c171_Niere--Blase---Prostata.html">Niere, Blase &amp; Prostata</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c811_Rauchfrei.html">Rauchfrei</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c717_Rheuma---Muskel.html">Rheuma &amp; Muskel</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c682_Schlaf---Nerven.html">Schlaf &amp; Nerven</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c646_Schmerzen.html">Schmerzen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c705_Schwangerschaft---Stillen.html">Schwangerschaft &amp; Stillen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c115_Sonnenschutz---Pflege.html">Sonnenschutz &amp; Pflege</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c-1_Sonstige.html">Sonstige</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c822_Sport---Fitness.html">Sport &amp; Fitness</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c133_Staerkung---Konzentration.html">St&auml;rkung &amp; Konzentration</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c797_Tee--Saefte-und-Bonbons.html">Tee, S&auml;fte und Bonbons</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c761_Tiergesundheit---Ungeziefer.html">Tiergesundheit &amp; Ungeziefer</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c145_Urlaub---Reise.html">Urlaub &amp; Reise</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3525_Vegan.html">Vegan</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c203_Verletzungen---Wunden.html">Verletzungen &amp; Wunden</a></li></ul></li>
+				<li><a href="#">Marken</a><ul class="ctlg_left_70 level_1"><li><a href="http://www.pharmeo.de/index.php/cat/c3493_Benzaknen----Benzacare-.html">Benzaknen&reg; &amp; Benzacare™</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3488_Daylong-.html">Daylong™</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3474_Doppelherz.html">Doppelherz</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3435_Durex.html">Durex</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3419_Ell-Cranell.html">Ell-Cranell</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3527_Ginkobil--ratiopharm.html">Ginkobil&reg; ratiopharm</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3441_Hansaplast.html">Hansaplast</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4064_Hevert.html">Hevert</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4006_Lysi-Herp.html">Lysi Herp</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4113_Moeller-s-Omega-3.html">M&ouml;ller&acute;s Omega-3</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3487_Neo-Angin.html">Neo Angin</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3434_Priorin-.html">Priorin&reg;</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3505_Scholl.html">Scholl</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4126_Syxyl.html">Syxyl</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3184_Aspirin--500mg.html">Aspirin&reg; 500mg</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3987_Elasten.html">Elasten</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3973_Nasic.html">Nasic</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3563_Vigantoletten.html">Vigantoletten</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3422_Keltican--forte.html">Keltican&reg; forte</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3224_Femibion.html">Femibion</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3207_Umckaloabo.html">Umckaloabo</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c1522_Eucerin.html">Eucerin</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3216_DHU-Schue-ler-Salze.html">DHU Sch&uuml;&szlig;ler-Salze</a></li></ul></li>
+				<li><a href="#">Themen</a><ul class="ctlg_left_70 level_1"><li><a href="http://www.pharmeo.de/index.php/cat/c3140_Frohe-Ostern.html">Frohe Ostern</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4054_Alles-fuer-den-Mann.html">Alles f&uuml;r den Mann</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3528_Locker-durch-die-Wechseljahre.html">Locker durch die Wechseljahre</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4031_Praxisbedarf.html">Praxisbedarf</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3984_Rueckengesundheit.html">R&uuml;ckengesundheit</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3536_Fu-pflege.html">Fu&szlig;pflege</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4008_Fu-pilz---Nagelpilz.html">Fu&szlig;pilz &amp; Nagelpilz</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3985_Herpes.html">Herpes</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3989_Herz.html">Herz</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3978_Powerfood.html">Powerfood</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3977_Reiseapotheke.html">Reiseapotheke</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4014_Sonnenschutz-fuer-Kinder.html">Sonnenschutz f&uuml;r Kinder</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3517_Akne.html">Akne</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3521_Inkontinenz.html">Inkontinenz</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3199_Zahngesundheit.html">Zahngesundheit</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c2721_Erkaeltung---Grippe.html">Erk&auml;ltung &amp; Grippe</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c4093_Gedaechtnis.html">Ged&auml;chtnis</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3171_Fuer-die-schlanke-Linie.html">F&uuml;r die schlanke Linie</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3161_Sonnenschutz---Pflege.html">Sonnenschutz &amp; Pflege</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c2700_Tierisch-gut.html">Tierisch gut</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3141_Haemorrhoiden.html">H&auml;morrhoiden</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3187_Homoeopathie.html">Hom&ouml;opathie</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3181_Gesunde-Augen.html">Gesunde Augen</a></li><li><a href="http://www.pharmeo.de/index.php/cat/c3226_Gesund-durch-die-Schwangerschaft.html">Gesund durch die Schwangerschaft</a></li></ul></li>
+									<li><a href="#">Angebote</a>
+						
+<ul class="products microlist">
+	    	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p4114918_ASPIRIN-COMPLEX-Btl-m-Gran-z-Herst-e-Susp-z-Einn--20-St.html"><img width="60" height="60" src="images/product_images/thumbnail_images/04114918.jpg" alt="ASPIRIN COMPLEX Btl.m.Gran.z.Herst.e.Susp.z.Einn. 20 St" /></a>
+        		
+	            	            	<div class="saving">-40%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p4114918_ASPIRIN-COMPLEX-Btl-m-Gran-z-Herst-e-Susp-z-Einn--20-St.html">ASPIRIN COMPLEX...</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 8,99&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/4114918" title="1 x 'ASPIRIN COMPLEX Btl.m.Gran.z.Herst.e.Susp.z.Einn. 20 St' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p13860603_OMNI-BiOTiC-Stress-Beutel-28X3-g.html"><img width="60" height="60" src="images/product_images/thumbnail_images/13860603.jpg" alt="OMNI BiOTiC Stress Beutel 28X3 g" /></a>
+        		
+	            	            	<div class="saving">-32%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p13860603_OMNI-BiOTiC-Stress-Beutel-28X3-g.html">OMNI BiOTiC Stress Beutel 28X3 g</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 26,29&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/13860603" title="1 x 'OMNI BiOTiC Stress Beutel 28X3 g' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p6147514_FOR-YOU-eiwei--power-Vanille-750-g.html"><img width="60" height="60" src="images/product_images/thumbnail_images/6147514_0.jpg" alt="FOR YOU eiweiß power Vanille 750 g" /></a>
+        		
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p6147514_FOR-YOU-eiwei--power-Vanille-750-g.html">FOR YOU eiweiß power Vanille 750 g</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 41,90&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/6147514" title="1 x 'FOR YOU eiweiß power Vanille 750 g' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p5003931_VITAMIN-B-Komplex-forte-Hevert-Tabletten-100-St.html"><img width="60" height="60" src="images/product_images/thumbnail_images/5003931_0.jpg" alt="VITAMIN B Komplex forte Hevert Tabletten 100 St" /></a>
+        		
+	            	            	<div class="saving">-35%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p5003931_VITAMIN-B-Komplex-forte-Hevert-Tabletten-100-St.html">VITAMIN B Komplex forte Hevert Tabletten...</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 15,59&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/5003931" title="1 x 'VITAMIN B Komplex forte Hevert Tabletten 100 St' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p4369222_TEBONIN-120-mg-bei-Ohrgeraeuschen-Filmtabletten-60-St.html"><img width="60" height="60" src="images/product_images/thumbnail_images/04369222.jpg" alt="TEBONIN 120 mg bei Ohrgeräuschen Filmtabletten 60 St" /></a>
+        		
+	            	            	<div class="saving">-27%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p4369222_TEBONIN-120-mg-bei-Ohrgeraeuschen-Filmtabletten-60-St.html">TEBONIN 120 mg bei Ohrgeräuschen...</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 39,90&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/4369222" title="1 x 'TEBONIN 120 mg bei Ohrgeräuschen Filmtabletten 60 St' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p11599520_ELL-CRANELL-Haarfuelle--fuer-Frauen-Kapseln-180-St.html"><img width="60" height="60" src="images/product_images/thumbnail_images/11599520_0.jpg" alt="ELL-CRANELL Haarfülle+ für Frauen Kapseln 180 St" /></a>
+        		
+	            	            	<div class="saving">-23%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p11599520_ELL-CRANELL-Haarfuelle--fuer-Frauen-Kapseln-180-St.html">ELL-CRANELL Haarfülle+ für Frauen Kapseln...</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 56,90&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/11599520" title="1 x 'ELL-CRANELL Haarfülle+ für Frauen Kapseln 180 St' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p12400130_OTRI-Allergie-Nasenspray-Fluticason-6-ml.html"><img width="60" height="60" src="images/product_images/thumbnail_images/12400130.jpg" alt="OTRI-Allergie Nasenspray Fluticason 6 ml" /></a>
+        		
+	            	            	<div class="saving">-42%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p12400130_OTRI-Allergie-Nasenspray-Fluticason-6-ml.html">OTRI-Allergie Nasenspray Fluticason 6 ml</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 6,95&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/12400130" title="1 x 'OTRI-Allergie Nasenspray Fluticason 6 ml' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p11140773_APTAMIL-Proexpert-Pepti-Pulver-400-g.html"><img width="60" height="60" src="images/product_images/thumbnail_images/11140773.jpg" alt="APTAMIL Proexpert Pepti Pulver 400 g" /></a>
+        		
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p11140773_APTAMIL-Proexpert-Pepti-Pulver-400-g.html">APTAMIL Proexpert Pepti Pulver 400 g</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 29,90&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/11140773" title="1 x 'APTAMIL Proexpert Pepti Pulver 400 g' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p8585997_PROSPAN-Hustensaft-100-ml.html"><img width="60" height="60" src="images/product_images/thumbnail_images/08585997.jpg" alt="PROSPAN Hustensaft 100 ml" /></a>
+        		
+	            	            	<div class="saving">-40%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p8585997_PROSPAN-Hustensaft-100-ml.html">PROSPAN Hustensaft 100 ml</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 4,76&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/8585997" title="1 x 'PROSPAN Hustensaft 100 ml' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	    	<li class="product">
+        	<div class="thumb">
+            	            		<a href="http://www.pharmeo.de/product_info.php/info/p2807988_MUCOSOLVAN-Kindersaft-30-mg-5-ml-100-ml.html"><img width="60" height="60" src="images/product_images/thumbnail_images/02807988.jpg" alt="MUCOSOLVAN Kindersaft 30 mg/5 ml 100 ml" /></a>
+        		
+	            	            	<div class="saving">-43%</div>
+	                            
+            </div>
+            <div class="title"><a href="http://www.pharmeo.de/product_info.php/info/p2807988_MUCOSOLVAN-Kindersaft-30-mg-5-ml-100-ml.html">MUCOSOLVAN Kindersaft 30 mg/5 ml 100 ml</a></div>
+            <div class="order">
+            	<div class="price">
+                	Nur <span> 2,29&sup1;</span>&euro;                </div>
+                <a href="http://www.pharmeo.de/product_info.php/action/buy_now/BUYproducts_id/2807988" title="1 x 'MUCOSOLVAN Kindersaft 30 mg/5 ml 100 ml' bestellen" class="minibutton">&gt;</a>
+            </div>
+        </li>
+                	        	        	        	        	        	        	        	        	        	        	        	        	        	        	     
+</ul>
+					</li>
+								<li><a href="/login.php" id="loginButton">Anmelden</a></li>			</ul>
+		</nav>
+		
+
+<div id="search" class="col-lg-5 col-md-5 col-sm-5">
+	<form id="quick_find"  name="quick_find" action="https://www.pharmeo.de/advanced_search_result.php" method="get">
+		<input type="text" name="keywords" id="hitengine" maxlength="100" autocomplete="off" />        <input type="submit" value="Suche" id="qicon">
+	</form>
+	<div id="quicksearch"></div>
+</div>
+
+	</div>
+</header>
+<!-- LOGIN ROW -->
+<div id="loginRow" class="container">
+	<h2>Bitte melden Sie sich an.</h2>
+	<div class="row">
+		
+<div class="col-lg-3 col-md-3">
+<h3>Ich bin bereits Kunde</h3>
+	<form id="login" name="login" action="/login.php/action/process" method="post">
+		<label>E-Mail-Adresse<br><input type="email" name="email_address"></label>
+		<label>Passwort<br><input type="password" name="password"></label>
+		<p><a href="https://www.pharmeo.de/password_double_opt.php">Passwort vergessen?</a></p>
+		<input type="submit" class="btn btn-primary btn-lg active" value="anmelden">
+		<!--a href="https://www.pharmeo.de/login.php">anmelden</a-->
+	</form>
+</div>
+<!--
+	    	<span class="icon icon-user">Konto</span> <a href="https://www.pharmeo.de/login.php">anmelden</a>&thinsp;|&thinsp;<a href="https://www.pharmeo.de/create_account.php">registrieren</a>
+        <div class="inner">
+        	            	<form id="loginbox" method="post" action="https://www.pharmeo.de/login.php/action/process">
+                	<div class="userfield logfield"><input type="text" name="email_address" id="email_address" size="25" maxlength="50" /></div>
+                    <div class="pwfield logfield"><input type="password" name="password" id="password" size="10" maxlength="30" /></div>
+                    <div class="right"><input type="submit" class="minibutton" value="anmelden"></div>
+                </form>
+                        <div class="left"><a href="https://www.pharmeo.de/password_double_opt.php">Passwort vergessen?</a></div>
+        </div>
+    </div-->
+
+
+<!--div class="col-lg-3">
+	<h3>Ich bin bereits Kunde</h3>
+	<label>E-Mail-Adresse<br><input type="email" name="email"></label>
+	<label>Passwort<br><input type="password" name="password"></label>
+	<p><a href="#">Passwort vergessen?</a></p>
+	<a href="#" class="btn btn-primary btn-lg active">anmelden</a>
+</div-->
+		<div class="col-lg-3 col-md-3">
+			<h3>Ich bin ein neuer Kunde</h3>
+			<p>Registrieren Sie sich für mehr Einkaufskomfort bei Ihrem nächsten Besuch.</p>
+			<p>- Schneller und einfacher Bestellvorgang</p>
+			<p>- Einfacher Zugriff auf Ihren Bestellablauf und Status.</p>
+			<a href="/create_account.php" class="btn btn-primary btn-lg active">weiter</a>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Als Gast bestellen</h3>
+			<p>Durch Ihre Bestellung als Gast werden Ihre Daten nicht gespeichert und Sie erhalten kein eigenes Konto.<br>
+			Bei einer erneuten Bestellung müssen Sie jedoch alle Daten eingeben.</p>
+			<a href="/login.php/action/guest" class="btn btn-primary btn-lg active">weiter</a>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Login und Bezahlen mit Amazon</h3>
+			<p>Nutzen Sie Ihren Amazon-Account, um in unserem Shop zu bezahlen.</p>
+						<a href="https://www.pharmeo.de/login.php" class="btn btn-primary btn-lg active">weiter</a>
+		</div>
+	</div>
+</div>
+							
+<main class="container" id="main" x-ms-format-detection="none">
+		
+	<!-- SLIDER ROW -->
+		<div id="sliderRow" class="row owl-carousel owl-one">
+		<div>
+			<div class="text col-lg-4 col-md-4 col-sm-4">
+				<h3>DHU Silicea Pentarkan</h3>
+				<p>Homöopathisches Arzneimittel zur Anwendung bei Bindegewebsschwäche</p>
+				<p><a href="/index.php/cat/3557/refID/dsilicea">Zum Produkt</a></p>
+			</div>
+			<a href="/index.php/cat/3557/refID/dsilicea" class="image col-lg-8 col-md-8 col-sm-8" style="background-image:url('templates/pharmeo_bs/img/optimized/slider_pentarkan.jpg');">
+				<span class="compulsory compulsory-switch">Pflichttext</span>
+				<span class="compulsory compulsory-text" style="font-size:12px;">
+					<strong>DHU Silicea Pentarkan®</strong> Enthält Lactose und Weizenstärke. Packungsbeilage beachten! <strong>Anwendungsgebiete:</strong> DHU Silicea Pentarkan® ist ein homöopathisches Arzneimittel zur Anwendung bei Bindegewebsschwäche. Das Anwendungsgebiet leitet sich von den homöopathischen Arzneimittelbildern ab. Dazu gehört: Bindegewebsschwäche. <strong>Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Arzt oder Apotheker.</strong> Deutsche Homöopathie-Union DHU Arzneimittel GmbH &amp; Co. KG
+				</span>
+			</a>
+		</div>
+				<div>
+			<div class="text col-lg-4 col-md-4 col-sm-4">
+				<h3>Seresto&reg;</h3>
+				<p>Länger geschützt – besser unterwegs<br>Das Halsband gegen Zecken, Flöhe und Haarlinge</p>
+				<p><a href="/index.php?refID=dseresto#search:query=seresto&attrib%5Bprescription%5D%5B0%5D=nicht+rezeptpflichtig&first=0">Zum Produkt</a></p>
+			</div>
+			<a href="/index.php?refID=dseresto#search:query=seresto&attrib%5Bprescription%5D%5B0%5D=nicht+rezeptpflichtig&first=0" class="image col-lg-8 col-md-8 col-sm-8" style="background-image:url('templates/pharmeo_bs/img/optimized/slider_seresto.jpg');">
+				<span class="compulsory compulsory-switch">Pflichttext</span>
+				<span class="compulsory compulsory-text" style="font-size:12px;">
+					<strong>Seresto® 1,25 g + 0,56 g Halsband für Hunde = 8 kg, Seresto® 4,50 g + 2,03 g Halsband für Hunde &gt; 8 kg. Anwendungsgebiete:</strong> Zur Vorbeugung (Ctenocephalides felis, C. canis) und Behandlung von Flohbefall (Ctenocephalides felis) mit einer Wirkungsdauer von 7 bis 8 Monaten. Die Wirksamkeit gegen Flöhe beginnt sofort nach dem Anlegen des Halsbandes. Das Tierarzneimittel verhindert die Entwicklung von Flohlarven in der unmittelbaren Umgebung des Tieres für 8 Monate. Seresto kann als Teil der Behandlungsstrategie bei durch Flohstiche ausgelöster allergischer Hautentzündung (Flohallergiedermatitis, FAD) angewendet werden. Das Tierarzneimittel hat eine anhaltend akarizide (abtötende) Wirkung bei Zeckenbefall mit Ixodes ricinus, Rhipicephalus sanguineus, Dermacentor reticulatus, sowie repellierende (anti-feeding = die Blutmahlzeit verhindernde) Wirkung bei Zeckenbefall mit Ixodes ricinus und Rhipicephalus sanguineus mit einer Wirkungsdauer von 8 Monaten. Das Tierarzneimittel ist wirksam gegen Larven, Nymphen und adulte Zecken. Es ist möglich, dass Zecken, die zum Zeitpunkt der Behandlung bereits am Hund vorhanden sind, nicht innerhalb der ersten 48 Stunden nach Anlegen des Halsbandes getötet werden und angeheftet und sichtbar bleiben. Deshalb sollten die Zecken, die zum Behandlungszeitpunkt bereits auf dem Hund befindlich sind, entfernt werden. Der Schutz vor dem Befall mit neuen Zecken beginnt innerhalb von zwei Tagen nach Anlegen des Halsbandes. Das Produkt vermittelt indirekten Schutz gegen eine Übertragung der Erreger Babesia canis vogeli und Ehrlichia canis durch die Vektorzecke Rhipicephalus sanguineus. Dadurch wird das Risiko einer Babesiose und einer Ehrlichiose des Hundes über einen Zeitraum von sieben Monaten reduziert. Zur Behandlung gegen Haarlingsbefall (Trichodectes canis). <strong>Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Tierarzt oder Apotheker.</strong> <strong>Apothekenpflichtig. Zulassungsinhaber:</strong> Bayer Vital GmbH, 51368 Leverkusen. Druckversion: 12/2016
+				</span>
+			</a>
+		</div>
+				<div>
+			<div class="text col-lg-4 col-md-4 col-sm-4">
+				<h3>Elevit</h3>
+				<p>Eine umfangreiche Nahrungsergänzung für Frauen mit Kinderwunsch, Schwangere und Stillende</p>
+				<p><a href="/index.php?refID=delevit#search:query=elevit+1&attrib%5Bvendor%5D%5B0%5D=Bayer+Vital+GmbH&first=0">Zum Produkt</a></p>
+			</div>
+			<a href="/index.php?refID=delevit#search:query=elevit+1&attrib%5Bvendor%5D%5B0%5D=Bayer+Vital+GmbH&first=0" class="image col-lg-8 col-md-8 col-sm-8" style="background-image:url('templates/pharmeo_bs/img/optimized/slider_elevit2.jpg');">
+				<!--span class="compulsory compulsory-switch">Pflichttext</span>
+				<span class="compulsory compulsory-text" style="font-size:12px;">
+					<strong>Soledum&reg; Kapseln forte</strong> <strong>Wirkstoff:</strong> Cineol. Anwendungsgebiete: Zur Behandlung der Symptome bei Bronchitis und Erk&auml;ltungskrankheiten der Atemwege. Zur Zusatzbehandlung bei chronischen und entz&uuml;ndlichen Erkrankungen der Atemwege (z. B. der Nasennebenh&ouml;hlen). <br/><strong>Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Arzt oder Apotheker.</strong>
+				</span-->
+			</a>
+		</div>
+		
+		<div>
+			<div class="text col-lg-4 col-md-4 col-sm-4">
+				<h3>Möller´s Omega -3</h3>
+				<p>Unterstützt die Gesundheit der ganzen Familie</p>
+				<p><a href="/index.php/cat/4113/refID/dmoellers">Zu den Produkten</a></p>
+			</div>
+			<a href="/index.php/cat/4113/refID/dmoellers" class="image col-lg-8 col-md-8 col-sm-8" style="background-image:url('templates/pharmeo_bs/img/optimized/slider_moellers.jpg');">
+				<!--span class="compulsory compulsory-switch">Pflichttext</span>
+				<span class="compulsory compulsory-text" style="font-size:12px;">
+					<strong>Soledum&reg; Kapseln forte</strong> <strong>Wirkstoff:</strong> Cineol. Anwendungsgebiete: Zur Behandlung der Symptome bei Bronchitis und Erk&auml;ltungskrankheiten der Atemwege. Zur Zusatzbehandlung bei chronischen und entz&uuml;ndlichen Erkrankungen der Atemwege (z. B. der Nasennebenh&ouml;hlen). <br/><strong>Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Arzt oder Apotheker.</strong>
+				</span-->
+			</a>
+		</div>
+		
+		
+
+		
+	</div>
+	
+	<!-- CUSTOM ROW -->
+	<h2>Mit besten Empfehlungen für Sie</h2>
+	<div id="customRow" class="row">
+		<div class="text col-sm-6 col-lg-3 col-md-3">
+			<!-- CAMPAIGN 1 -->
+			<h3>Allergie-Zeit</h3>
+			<p>Nutzen Sie unsere aktuellen Angebote, um sich mit allen wichtigen Präparaten für die Allergie-Zeit zu bevorraten.</p>
+			<p><a href="/index.php/cat/675/refID/dallergie">Zu den Produkten</a></p>
+		</div>
+		<a href="/index.php/cat/675/refID/dallergie" class="image col-sm-6 col-lg-3 col-md-3" style="background-image:url('templates/pharmeo_bs/img/optimized/cat_allergie2.jpg');">
+		</a>
+		
+				<div class="item col-sm-6 col-lg-3 col-md-3">
+		<a href="http://www.pharmeo.de/product_info.php/info/p12400130_OTRI-Allergie-Nasenspray-Fluticason-6-ml.html">
+			<h3>OTRI-Allergie Nasenspray Fluticason...</h3>
+							<img src="images/product_images/thumbnail_images/12400130.jpg" alt="OTRI-Allergie Nasenspray Fluticason 6&nbsp;ml*">
+										<p class="pricing test">Nur 6,95<sup>1</sup>&nbsp;&euro;</p>
+										<p class="crossed">statt 11,97<sup>3</sup>&nbsp;&euro;</p>
+				
+				<p class="conserve">Sie sparen <span>5,02&nbsp;&euro;</span></p>
+					</a>
+	</div>
+							
+				<div class="textImg col-sm-6 col-lg-3 col-md-3">
+			<a href="/shop_content.php/coID/991/content/Rezept-einloesen/refID/rezept"><div class="textImage-image" style="background-image:url('templates/pharmeo_bs/img/optimized/rezept.jpg');"></div></a>
+			<div class="textImage-text">
+				<h3>Rezept einlösen</h3>
+				<p><a href="/shop_content.php/coID/991/content/Rezept-einloesen">Alle Details...</a></p>
+			</div>
+		</div>
+			</div>
+	
+	<!-- DYN -->
+			
+<h2>Beliebte Produkte unserer Kunden</h2>
+<div id="productRow" class="row owl-carousel owl-four">
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p4369222_TEBONIN-120-mg-bei-Ohrgeraeuschen-Filmtabletten-60-St.html">
+				<h3>TEBONIN 120 mg bei Ohrger&auml;us...</h3>
+				<img src="images/product_images/thumbnail_images/04369222.jpg" alt="TEBONIN 120 mg bei Ohrger&auml;us...">
+									<p class="pricing">Nur 39,90<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 54,97<sup>3</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>15,07&nbsp;&euro;</span></p>
+							</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p4114918_ASPIRIN-COMPLEX-Btl-m-Gran-z-Herst-e-Susp-z-Einn--20-St.html">
+				<h3>ASPIRIN COMPLEX Btl.m.Gran.z...</h3>
+				<img src="images/product_images/thumbnail_images/04114918.jpg" alt="ASPIRIN COMPLEX Btl.m.Gran.z...">
+									<p class="pricing">Nur 8,99<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 14,99<sup>3</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>6,00&nbsp;&euro;</span></p>
+							</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p13860603_OMNI-BiOTiC-Stress-Beutel-28X3-g.html">
+				<h3>OMNI BiOTiC Stress Beutel 28...</h3>
+				<img src="images/product_images/thumbnail_images/13860603.jpg" alt="OMNI BiOTiC Stress Beutel 28...">
+									<p class="pricing">Nur 26,29<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 38,90<sup>2</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>12,61&nbsp;&euro;</span></p>
+							</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p6147514_FOR-YOU-eiwei--power-Vanille-750-g.html">
+				<h3>FOR YOU eiwei&szlig; power Vanille...</h3>
+				<img src="images/product_images/thumbnail_images/6147514_0.jpg" alt="FOR YOU eiwei&szlig; power Vanille...">
+									<p class="pricing">Nur 41,90<sup>1</sup>&nbsp;&euro;</p>
+											</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p12400130_OTRI-Allergie-Nasenspray-Fluticason-6-ml.html">
+				<h3>OTRI-Allergie Nasenspray Flu...</h3>
+				<img src="images/product_images/thumbnail_images/12400130.jpg" alt="OTRI-Allergie Nasenspray Flu...">
+									<p class="pricing">Nur 6,95<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 11,97<sup>3</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>5,02&nbsp;&euro;</span></p>
+							</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p5003931_VITAMIN-B-Komplex-forte-Hevert-Tabletten-100-St.html">
+				<h3>VITAMIN B Komplex forte Heve...</h3>
+				<img src="images/product_images/thumbnail_images/5003931_0.jpg" alt="VITAMIN B Komplex forte Heve...">
+									<p class="pricing">Nur 15,59<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 23,87<sup>3</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>8,28&nbsp;&euro;</span></p>
+							</a>
+		</div>
+			<div class="item">
+			<a href="http://www.pharmeo.de/product_info.php/info/p11599520_ELL-CRANELL-Haarfuelle--fuer-Frauen-Kapseln-180-St.html">
+				<h3>ELL-CRANELL Haarf&uuml;lle+ f&uuml;r F...</h3>
+				<img src="images/product_images/thumbnail_images/11599520_0.jpg" alt="ELL-CRANELL Haarf&uuml;lle+ f&uuml;r F...">
+									<p class="pricing">Nur 56,90<sup>1</sup>&nbsp;&euro;</p>
+													<p class="crossed">statt 74,00<sup>2</sup>&nbsp;&euro;</p>
+					
+					<p class="conserve">Sie sparen <span>17,10&nbsp;&euro;</span></p>
+							</a>
+		</div>
+	 
+</div>
+
+<!--h2>Beliebte Produkte unserer Kunden</h2>
+<div id="productRow" class="row owl-carousel owl-four">
+	<div class="product">
+		<a href="https://www.pharmeo.de/product_info.php/info/3062013">
+			<h3>NICOTINELL Lutschtabletten 1 mg Mint 96 St*</h3>
+			<img src="https://www.pharmeo.de/images/product_images/info_images/3062013_0.jpg">
+			<p class="price">Nur 19,99 &euro;</p>
+			<p class="crossed">statt 31,23 &euro;</p>
+			<p class="saving">Sie sparen <span>11,24 &euro;</span></p>
+		</a>
+	</div>
+	<div class="product">
+		<a href="https://www.pharmeo.de/product_info.php/info/11164839">
+			<h3>ISLA MED hydro+ Pastillen milde Kirsche 20 St*</h3>
+			<img src="https://www.pharmeo.de/images/product_images/info_images/11164839.jpg">
+			<p class="price">Nur 4,79 &euro;</p>
+			<p class="crossed">statt 7,85 &euro;</p>
+			<p class="saving">Sie sparen <span>3,06 &euro;</span></p>
+		</a>
+	</div>
+	<div class="product">
+		<a href="https://www.pharmeo.de/product_info.php/info/4369216">
+			<h3>TEBONIN 120 mg bei OhrgerÃ¤uschen Filmtabletten 30 St*</h3>
+			<img src="https://www.pharmeo.de/images/product_images/info_images/04369216.jpg">
+			<p class="price">Nur 19,99 &euro;</p>
+			<p class="crossed">statt 28,96 &euro;</p>
+			<p class="saving">Sie sparen <span>8,97 &euro;</span></p>
+		</a>
+	</div>
+	<div class="product">
+		<a href="https://www.pharmeo.de/product_info.php/info/1062032">
+			<h3>UMCKALOABO FlÃ¼ssigkeit 20 ml*</h3>
+			<img src="https://www.pharmeo.de/images/product_images/info_images/01062032.jpg">
+			<p class="price">Nur 5,39 &euro;</p>
+			<p class="crossed">statt 9,97 &euro;</p>
+			<p class="saving">Sie sparen <span>4,58 &euro;</span></p>
+		</a>
+	</div>
+	<div class="product">
+		<a href="https://www.pharmeo.de/product_info.php/info/9892879">
+			<h3>ASPECTON Hustentropfen 30 ml*</h3>
+			<img src="https://www.pharmeo.de/images/product_images/info_images/9892879.jpg">
+			<p class="price">Nur 4,59 &euro;</p>
+			<p class="crossed">statt 7,97 &euro;</p>
+			<p class="saving">Sie sparen <span>3,38 &euro;</span></p>
+		</a>
+	</div>
+</div-->		
+	<!-- TOPIC ROW -->
+	<h2>Unser aktuelles Thema</h2>
+	<div id="topicRow" class="row">
+		<div class="text col-lg-6 col-md-6" style="padding-top:30px;">
+			<!-- TOP THEMA -->
+			<h3>Rückengesundheit</h3>
+			<p>Rückenschmerzen gelten als Volkskrankheit Nummer Eins in Deutschland. Häufige Ursachen sind Bewegungsmangel, Übergewicht, Haltungsfehler, Verspannungen oder Stress.<br>Hier finden Sie Produkte, die Ihre Beschwerden lindern können.</p>
+			<p><a href="/index.php/cat/3984/refID/druecken">Zur Produktüberischt.</a></p>
+		</div>
+		<a href="/index.php/cat/3984/refID/druecken" class="image col-lg-6 col-md-6" style="background-image:url('templates/pharmeo_bs/img/optimized/cat-ruecken.jpg');"></a>
+	</div>
+	
+	
+	
+	<!-- POPULAR ROW -->
+	<h2>Beliebte Themen unserer Kunden</h2>
+	<div id="popularRow" class="row">
+		<!-- 1 -->
+		<div class="textImg col-sm-6 col-lg-3">
+			<a href="/index.php/cat/2721/refID/dgrippe"><div class="textImage-image" style="background-image:url('templates/pharmeo_bs/img/optimized/cat-sommergrippe.jpg');"></div></a>
+			<div class="textImage-text">
+				<h3>Erkältung &amp; Grippe </h3>
+				<p><a href="/index.php/cat/2721/refID/dgrippe">Angebote ansehen</a></p>
+			</div>
+		</div>
+		<!-- 1 -->
+		<div class="textImg col-sm-6 col-lg-3">
+			<a href="/index.php/cat/3414/refID/dgratis"><div class="textImage-image" style="background-image:url('templates/pharmeo_bs/img/optimized/cat-gratis-beigaben.jpg');"></div></a>
+			<div class="textImage-text">
+				<h3>Gratis-Beigaben</h3>
+				<p><a href="/index.php/cat/3414/refID/dgratis">Angebote ansehen</a></p>
+			</div>
+		</div>
+		<!-- 1 -->
+
+		<div class="textImg col-sm-6 col-lg-3">
+			<a href="/index.php/cat/3140/refID/dostern"><div class="textImage-image" style="background-image:url('templates/pharmeo_bs/img/optimized/cat_ostern_geschenke.jpg');"></div></a>
+			<div class="textImage-text">
+				<h3>Frohe Ostern</h3>
+				<p><a href="/index.php/cat/3140/refID/dostern">Angebote ansehen</a></p>
+			</div>
+		</div>
+
+		<!-- 1 -->
+				<div class="textImg col-sm-6 col-lg-3">
+			<a href="/preismittwoch.php"><div class="textImage-image" style="background-image:url('templates/pharmeo_bs/img/optimized/cat_preismittwoch.jpg');"></div></a>
+			<div class="textImage-text">
+				<h3>Jede Woche neu</h3>
+				<p><a href="/preismittwoch.php">Angebote ansehen</a></p>
+			</div>
+		</div>
+			</div>
+	
+	<!-- BRANDS ROW -->
+	<h2>Nur die besten &ndash; eine Auswahl unserer Marken</h2>
+	<div id="brandsRow" class="row owl-carousel owl-six">
+		<div class="logo">
+			<a href="/index.php/cat/3474/refID/dmdoppelherz"><img src="templates/pharmeo_bs/img/optimized/brand-doppelherz.png" width="189" height="112" alt="Doppelherz"></a>
+		</div>
+		<div class="logo">
+			<a href="/index.php/cat/c4064_Hevert.html"><img src="templates/pharmeo_bs/img/optimized/brand-hevert.png" width="146" height="46" alt="Hevert"></a>
+		</div>
+		<!--div class="logo">
+			<a href="/index.php/cat/3505/refID/dmscholl"><img src="templates/pharmeo_bs/img/optimized/brand-scholl.png" width="151" height="80"></a>
+		</div-->
+		<div class="logo">
+			<a href="/index.php/cat/3216/refID/dmdhu"><img src="templates/pharmeo_bs/img/optimized/brand-dhu.png" width="112" height="111" alt="DHU"></a>
+		</div>
+		<div class="logo">
+			<a href="/index.php/cat/3435/refID/dmdurex"><img src="templates/pharmeo_bs/img/optimized/brand-durex.png" width="161" height="104" alt="Durex"></a>
+		</div>
+		<div class="logo">
+			<a href="/index.php/cat/1522/refID/dmeucerin"><img src="templates/pharmeo_bs/img/optimized/brand-eucerin_new.png" width="138" height="55" alt="Eucerin"></a>
+		</div>
+		<div class="logo">
+			<a href="/index.php/cat/3488/refID/dmdaylong"><img src="templates/pharmeo_bs/img/optimized/brand-daylong.png" width="146" height="30" alt="Daylong"></a>
+		</div>
+	</div>
+	
+	<!-- WISH ROW -->
+		<h2>Mit uns bleiben Sie auf dem Laufenden</h2>
+	<div id="wishRow" class="row">
+		<!-- CAMPAIGN 2 DE -->
+		<a href="/index.php/cat/3977/refID/dreiseapo" class="image col-sm-6 col-md-3 col-lg-3" style="background-image:url('templates/pharmeo_bs/img/optimized/cat-sonnenschutz2.jpg');"></a>
+		<div class="text col-sm-6 col-md-3 col-lg-3">
+			<h3>Reiseapotheke</h3>
+			<p>Diese Produkte können Unterwegs nützlich sein</p>
+			<p><a href="/index.php/cat/3977/refID/dreiseapo">Zur Übersicht</a></p>
+		</div>
+		
+		<a href="/newsletter.php" class="image col-sm-6 col-md-3 col-lg-3" style="background-image:url('templates/pharmeo_bs/img/optimized/newsletter-anmeldung.jpg');"><img src="templates/pharmeo_bs/img/optimized/badge.png" class="addon" width="95" height="95" alt="Newsletter"></a>
+		<div class="newsletter col-sm-6 col-md-3 col-lg-3">
+			<h3>Unser Newsletter für Sparfüchse</h3>
+			<p>Bis zu 72% sparen!</p>
+			<p>&nbsp;</p>
+			<a href="/newsletter.php" class="btn btn-default btn-lg active" role="button">Zum Newsletter anmelden</a>
+		</div>
+		
+		
+	</div>
+		
+	<!-- ICON ROW -->
+	<h2>Auf einen Blick</h2>
+	<div id="iconRow" class="row">
+		<a href="/shop_content.php/coID/997/content/Kontakt/refID/dkontakt" class="benefit col-sm-3 col-lg-3 col-md-3">
+			<img src="templates/pharmeo_bs/img/optimized/icon-phone.png" width="70" height="70">
+			<h3>Bestens erreichbar</h3>
+			<p>Wir sind erreichbar per E-Mail, Telefon, Fax oder per Post.</p>
+			<p class="link">Alle Details ...</p>
+		</a>
+		<a href="/shop_content.php/coID/992/content/Versand-und-Kosten/refID/dversand" class="benefit col-sm-3 col-lg-3 col-md-3">
+			<img src="templates/pharmeo_bs/img/optimized/icon-package.png" width="70" height="70">
+			<h3>Versandkosten</h3>
+			<p>Versandkostenfrei ab 55,00 Euro Bestellwert oder bei Rezeptvorlage.</p>
+			<p class="link">Alle Details ...</p>
+		</a>
+		<a href="/shop_content.php/coID/992/content/Versand-und-Kosten/refID/dliefer" class="benefit col-sm-3 col-lg-3 col-md-3">
+			<img src="templates/pharmeo_bs/img/optimized/icon-delivery.png" width="70" height="70">
+			<h3>Lieferzeit</h3>
+			<p>Sie erhalten Ihre Bestellung schnell und sicher direkt nach Hause.</p>
+			<p class="link">Alle Details ...</p>
+		</a>
+		<a href="/shop_content.php/coID/990/content/Ueber-uns/refID/dsicher" class="benefit col-sm-3 col-lg-3 col-md-3">
+			<img src="templates/pharmeo_bs/img/optimized/icon-card.png" width="70" height="70">
+			<h3>Sicher einkaufen</h3>
+			<p>Sicher einkaufen bei www.pharmeo.de<br>&nbsp;</p>
+			<p class="link">Alle Details ...</p>
+		</a>
+	</div>
+	</main>
+<footer class="container" x-ms-format-detection="none">
+	<div class="row">
+		<div id="social" class="col-lg-3 col-md-3">
+			<h3>Mehr von uns</h3>
+			<div>
+				<a href="http://de-de.facebook.com/pharmeo" id="socialFb" target="_blank"></a>
+				<a href="http://www.youtube.com/user/Pharmeo" id="socialYt" target="_blank"></a>
+				<a href="http://twitter.com/pharmeo" id="socialTw" target="_blank"></a>
+				<a href="http://plus.google.com/104696070803476084457/posts" id="socialGp" target="_blank"></a>
+				<a href="http://www.pinterest.com/pharmeo/" id="socialPi" target="_blank"></a>
+				<a href="https://www.instagram.com/pharmeo_versandapotheke/?hl=de" id="socialIg" target="_blank"></a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Kontakt</h3>
+			<p><strong>Rufen Sie uns an</strong><br>
+			Telefon 0800 999 28 28<br>
+			Mo. - Fr. 8 Uhr bis 16 Uhr<br>
+			(Kostenfrei aus dem deutschen Netz)</p>
+			<p><strong>Schreiben Sie uns eine Nachricht</strong><br>
+			Fax: 0251 - 38 45 12 27<br>
+			E-Mail: <a href="mailto:info@pharmeo.de">info@pharmeo.de</a></p>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Über uns</h3>
+			<nav>
+				<ul>
+					<li><a href="/shop_content.php/coID/990/content/Ueber-uns">Unternehmen</a></li>
+					<li><a href="/shop_content.php/coID/1050/content/Nachhaltigkeit">Nachhaltigkeit</a></li>
+					<li><a href="/shop_content.php/coID/3/content/AGB">AGB</a></li>
+					<li><a href="/shop_content.php/coID/996/content/Datenschutzerklaerung">Datenschutz</a></li>
+					<li><a href="/shop_content.php/coID/982/content/Widerrufsbelehrung--amp--Widerrufsformular">Widerrufsbelehrung und -formular</a></li>
+					<li><a href="/shop_content.php/coID/983/content/Disclaimer">Disclaimer</a></li>
+					<li><a href="/shop_content.php/coID/4/content/Impressum">Impressum</a></li>
+					<li><a href="/shop_content.php/coID/1020/content/Partner">Partner</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Service</h3>
+			<nav>
+				<ul>
+					<li><a href="/shop_content.php/coID/994/content/Haeufige-Fragen">Häufige Fragen</a></li>
+					<li><a href="/shop_content.php/coID/995/content/Ihre-Vorteile">Ihre Vorteile</a></li>
+					<li><a href="/shop_content.php/coID/991/content/Rezept-einloesen">Rezept einlösen</a></li>					<li><a href="/shop_content.php/coID/981/content/Freiumschlaege">Freiumschläge</a></li>					<li><a href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten">Zahlungsmöglichkeiten</a></li>
+					<li><a href="/shop_content.php/coID/992/content/Versand-und-Kosten">Versandkosten</a></li>
+					<li><a href="/shop_content.php/coID/17/content/Bestellschein">Bestellschein</a></li>
+					<li><a href="/shop_content.php/coID/19/content/Newsletter">Newsletter</a></li>				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-9 col-md-9">
+			<h3>Zahlungsarten</h3>
+			<div class="footerImg">
+				<div>
+					<a title="Amazon Pay" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="https://images-na.ssl-images-amazon.com/images/G/01/amazonservices/payments/website/Black-L._V526159215_.png" width="74" height="46"></a>
+					<a title="Vorkasse&#10;Lastschrift" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-ec.png" width="83" height="34"></a>
+					<a title="PayPal" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-paypal.png" width="82" height="22"></a>
+					<a title="Sofort mit Klarna&#10;Rechnung mit Klarna" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-klarna.png" width="90" height="20"></a>
+					<a title="mastercard" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-mastercard.png" width="60" height="48"></a>
+					<a title="Visa" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-visa.png" width="80" height="27"></a>
+					<a title="UnionPay" href="/shop_content.php/coID/999/content/Zahlungsmoeglichkeiten"><img src="templates/pharmeo_bs/img/optimized/footer-unionpay.png" width="72" height="48"></a>				</div>
+							</div>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Versandart</h3>
+			<div class="footerImg">
+				<a href="/shop_content.php/coID/992/content/Versandkosten"><img src="templates/pharmeo_bs/img/optimized/footer-hermes.png" width="92" height="14"></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-9 col-md-9">
+			<h3>Zertifikate</h3>
+			<div class="footerImg">
+				<a style="width:121px;height:101px;" href="https://versandhandel.dimdi.de/websearch/servlet/Gate?accessid=dimdi_var&term=da7b74b4485e260b7210ef5a5451a2c4" target="_blank"><img src="templates/pharmeo_bs/img/optimized/footer-legalitaet.png" width="121" height="101"></a>
+				<span><img src="templates/pharmeo_bs/img/optimized/footer-qualitaetsmanagement.png" width="78" height="78"></span>
+				<span><img src="templates/pharmeo_bs/img/optimized/footer-bvdva.png" width="85" height="32"></span>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3">
+			<h3>Zufriedene Kunden</h3>
+			<div class="footerImg">
+				<a href="http://www.idealo.de/preisvergleich/Shop/21146.html#NeueMeinung" class="idealo" target="_blank"><img src="https://img.idealo.com/folder/Shop/21/211/21146/s1_widget1Box.png" alt="zu idealo" height="101" width="145" style="width:145px;height:101px;"></a>							</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<p>Versandhandels-Register DIMDI</p>
+			<p>* Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Arzt oder Apotheker.<br>
+			** Die Zuzahlung kann sich abhängig von der Krankenkasse und dem Rabattvertrag noch ändern oder wegfallen! Sie zahlen jedoch nie mehr als den Arzneimittelpreis, der in unserem Shop angegeben ist.<br>			1 Alle Preise verstehen sich inkl. der gesetzlichen MwSt., zuzüglich Versandkosten.
+				Keine Versandkosten bei Rezepteinlösung und ab einem Bestellwert von 55,00 Euro.<br>
+			2 unverbindliche Preisempfehlung des Herstellers<br>
+			3 Verkaufspreis gemäß Lauer-Taxe nach aktuellem Stand; verbindlicher Abrechnungspreis nach der Großen Deutschen Spezialitätentaxe (sog. Lauer-Taxe) bei Abgabe zu Lasten der GKV, die sich gemäß §129 Abs. 5a SGB V aus dem Abgabepreis des pharmazeutischen Unternehmens und der Arzneimittelpreisverordnung in der Fassung zum 31.12.2003 ergibt.</p>
+		</div>
+	</div>
+</footer>
+<aside id="side" x-ms-format-detection="none">
+	<a href="#" id="phone"><img src="templates/pharmeo_bs/img/optimized/side-phone.png" width="19" height="21"></a>
+	<a href="#" id="newsletter"><img src="templates/pharmeo_bs/img/optimized/side-newsletter.png" width="20" height="27"></a>	<div id="phone-content" class="text">
+		<img src="templates/pharmeo_bs/img/optimized/icon-phone.png" width="40" height="40">
+		<h3>Können wir Ihnen weiterhelfen?</h3>
+		<p><strong>0800 999 28 28</strong></p>
+		<p>Mo. - Fr. 8 Uhr bis 16 Uhr</p>
+		<p class="small">(Kostenfrei aus dem deutschen Netz)</p>		<hr>
+		<h3>Schreiben Sie uns eine Nachricht</h3>
+		<p><a href="mailto:info@pharmeo.de">info@pharmeo.de</a></p>
+		<a href="#" class="closer"></a>
+	</div>
+		<div id="newsletter-content" class="newsletter">
+		<h3>Sparfuchs? Bestellen Sie unseren Newsletter.</h3>
+		<a href="/newsletter.php" class="btn btn-default btn-lg active" role="button">Zum Newsletter anmelden</a>
+		<a href="#" class="closer"></a>
+	</div>
+	</aside>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="templates/pharmeo_bs/js/owl.carousel.min2.js"></script>
+	<script type="text/javascript" src="templates/pharmeo_bs/js/mainSK.js"></script>
+<script type="text/javascript">
+	 
+		 $(function(){$(".row>div").addClass('float');});
+	 
+</script>
+<script type="text/javascript">
+    (function() {
+        var flDataMain = "https://cdn.findologic.com/autocomplete/C1BB4A8C137425792F4E88441EFCA1A0/autocomplete.js";
+        var flAutocomplete = document.createElement('script'); 
+        flAutocomplete.type = 'text/javascript'; 
+        flAutocomplete.async = true;
+        flAutocomplete.src = "https://cdn.findologic.com/autocomplete/require.js";
+        var s = document.getElementsByTagName('script')[0];
+        flAutocomplete.setAttribute('data-main', flDataMain);
+        s.parentNode.insertBefore(flAutocomplete, s);
+    })();
+    </script>
+    
+    <script type="text/javascript">
+    var fl_paq = fl_paq || [];
+    (function(){ var u = (("https:" == document.location.protocol)? "https://" : "http://") + 'tracking.findologic.com/';
+    fl_paq.push(['setSiteId', 'pharmeo']);
+    fl_paq.push(['setTrackerUrl', u + 'tracking.php']);
+    fl_paq.push(['trackPageView']);
+    fl_paq.push(['enableLinkTracking']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'tracking.js';
+    s.parentNode.insertBefore(g,s); })();
+</script>
+
+</body></html>

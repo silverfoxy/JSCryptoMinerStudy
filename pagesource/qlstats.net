@@ -1,0 +1,1232 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QLStats: Player Statistics for Quake Live</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/static/favicon.ico?v=2">
+
+    
+  
+    <!--<link href="/static/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link href="/static/css/app.min.css" rel="stylesheet">
+    
+
+
+    <script>
+      function setCookie(name, value, persistent) {
+        if (value === null || value === undefined) {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/"
+          return;
+        }
+        
+        var cookie = name + "=" + value;
+        if (persistent === undefined)
+          persistent = document.cookie.match(/allowCookies=true/);
+        if (persistent) {
+          var exp = new Date(Date.now() + 30*24*60*60*1000);
+          cookie += "; expires=" + exp.toUTCString();
+        }
+        cookie += "; path=/";
+        document.cookie = cookie;
+      }
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp(name + "=([^;]*)"));
+        return match ? match[1] : null;
+      }
+
+      (function() {
+        if (!document.cookie.match(/allowCookies=true/))
+        {
+          // remove old persistent cookies
+          if (document.cookie.match(/region=\d/))
+            document.cookie = "region=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+          if (document.cookie.match(/gametype=[a-z]*/))
+            document.cookie = "gametype=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+          if (document.cookie.match(/weapons=[a-z]*/))
+            document.cookie = "weapons=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+          if (document.cookie.match(/_ga=/))
+            document.cookie = "_ga=; path=/; domain=.qlstats.net; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+          if (document.cookie.match(/_gat=/))
+            document.cookie = "_gat=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+
+          if (!location.href.match(/\/cookie/)) {
+            location.href="/cookies?referer=" + encodeURIComponent(location.href);
+          }
+          return;
+        }
+
+        if (!document.cookie.match(/region=\d/))
+          setCookie("region", "0");
+        if (!document.cookie.match(/gametype=[a-z]*/))
+          setCookie("gametype", "");
+        if (!document.cookie.match(/weapons=[a-z]*/))
+          setCookie("weapons", "mg,lg,rg,hmg");
+
+        // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-71098578-1', 'auto');
+        ga('send', 'pageview');
+      })();
+    </script>
+  </head>
+
+  <body>
+    
+  
+    
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="height: auto;">
+  <div class="container-fluid">
+    <div class="navbar-header">  
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>                      
+      <a class="navbar-brand" href="/">
+        <img width="32" height="32" src="/static/css/img/menu_icon.png" alt="QL Logo" style="float:left;margin-top:-5px;margin-right:10px;-webkit-filter: drop-shadow(0px 5px 5px grey);" />
+        QLStats
+      </a>           
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li 
+          class="active"
+          ><a href="/" title="Leaderboard">Leaderboard</a></li>
+        <li 
+          ><a href="/news" title="News/Forum">News/Forum</a></li>
+        <li 
+          ><a href="/players" title="Player Index">Players</a></li>
+        <li 
+          ><a href="/games" title="Game Index">Games</a></li>
+        <li 
+          ><a href="/servers" title="Server Index">Servers</a></li>
+        <li 
+          ><a href="/maps" title="Map Index">Maps</a></li>
+
+        <li>
+          <a href="http://qlstats.net:8081/account">Account</a>
+        </li>
+      </ul>
+
+
+
+      <form class="navbar-form navbar-right" role="search" action="/search" method="get">
+        <input type="hidden" name="fs" />
+        <input type="search" class="input-small search" placeholder="search" name="sval" />
+        <select class="search" name="stype">
+          <option>players</option>
+          <option>servers</option>
+          <option>maps</option>
+        </select>
+        [<a href="/search" title="Advanced search">+</a>]
+      </form>
+
+    </div>
+  </div>     
+</nav>
+
+
+    
+  
+
+
+<div id="filterBar">
+  <ul id="region">
+    <li data-region="0" >All</li>
+    <li data-region="1">EU</li>
+    <li data-region="5">NA</li>
+    <li data-region="6">SA</li>
+    <li data-region="4">AU</li>
+    <li data-region="3">AS</li>
+    <li data-region="2">AF</li>
+  </ul>
+  <ul id="gametype">
+    <li data-gametype="overall" >All</li>
+    <li data-gametype="1fctf"><!--<img src="/static/images/icons/24x24/1fctf.png" alt=""> -->1FCTF</li>
+    <li data-gametype="ad"><!--<img src="/static/images/icons/24x24/ad.png" alt=""> -->AD</li>
+    <li data-gametype="ca"><!--<img src="/static/images/icons/24x24/ca.png" alt=""> -->CA</li>
+    <li data-gametype="ctf"><!--<img src="/static/images/icons/24x24/ctf.png" alt=""> -->CTF</li>
+    <li data-gametype="dom"><!--<img src="/static/images/icons/24x24/dom.png" alt=""> -->DOM</li>
+    <li data-gametype="duel"><!--<img src="/static/images/icons/24x24/duel.png" alt=""> -->Duel</li>
+    <li data-gametype="ffa"><!--<img src="/static/images/icons/24x24/ffa.png" alt=""> -->FFA</li>
+    <li data-gametype="ft"><!--<img src="/static/images/icons/24x24/ft.png" alt=""> -->FT</li>
+    <li data-gametype="harvester"><!--<img src="/static/images/icons/24x24/harvester.png" alt=""> -->Harvester</li>
+    <li data-gametype="race"><!--<img src="/static/images/icons/24x24/race.png" alt=""> -->Race</li>
+    <li data-gametype="rr"><!--<img src="/static/images/icons/24x24/rr.png" alt=""> -->RR</li>
+    <li data-gametype="tdm"><!--<img src="/static/images/icons/24x24/tdm.png" alt=""> -->TDM</li>
+  </ul>
+</div>
+
+
+
+    <div class="container-fluid" style="margin-left:15px;margin-right:15px;">
+      
+
+<div class="row newsitem" style="background-color:#822;display:none">
+  <div class="col-sm-2">
+    2017-10-06
+  </div>
+  <div class="col-sm-10">
+    QLStats.net will be offline on Monday, Oct 9th, from 10:00 to approximately 12:00 CEST for maintenance.
+  </div>
+</div>
+
+<div class="row newsitem" style="display:block">
+  <div class="col-sm-2">
+    2017-12-26 11:20 CET
+  </div>
+  <div class="col-sm-10">
+    New players are now assigned an initial rating of 900 instead of 1337. 
+  </div>
+</div>
+
+
+
+      <div class="row">
+        <div class="col-sm-12" id="xonborder">
+          <div id="title"></div>
+          
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+
+  <div class="col-sm-6 col-md-3">
+    <div>
+      <h3 style="display:inline-block">Player Ranking</h3>
+      <img class="info" alt="information" title="updated daily at 12:00 CET&#x0a;requires a minimum of 10 matches&#x0a;offenders are excluded from rankings" />
+      <span id="ranksNote" class="note"></span>
+    </div>
+    <table id="rankingTable" class="table table-hover table-condensed" style="table-layout:fixed;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25px">#</th>
+          <th>Player</th>
+          <th style="width:50px">Glicko</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="link" style="white-space:nowrap;overflow-x:hidden"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note"><a id="moreRanking" href="" title="See more rankings">More...</a></p>
+  </div> <!-- /span3 -->
+
+  <div class="col-sm-6 col-md-3 col-md-push-6">
+    <h3 style="display:inline-block">Now Playing</h3>
+    <span style="color:green;font-size:large">&#x25cf;</span>   
+    <span id="matchNote" class="note"></span>
+    <table id="matchTable" class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th style="width:25px;">#</th>
+          <th>Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <!-- /span4 -->
+
+  <!--
+  <div class="col-sm-6 col-md-3 col-md-push-6" stype="display:none">
+    <h3 style="display:inline-block">Most Active Maps</h3>
+    <img class="info" alt="information" title="updated every hour with data from the past 7 days" />
+    <span id="mapsNote" class="note"></span>
+    <table id="mapTable" class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th style="width:40px;">#</th>
+          <th style="width:180px;">Map</th>
+          <th style="width:60px;">Games</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note"><a href="/topmaps" title="See more map activity">More...</a></p>
+  </div> 
+  -->
+ 
+  <div class="col-sm-12 col-md-6 col-md-pull-3">
+    <h3 style="display:inline-block">Most Active Servers</h3>
+    <img class="info" alt="information" title="updated every hour with data from the past 7 days"/>
+    <span id="serversNote" class="note"></span>
+    <p style="position:absolute;right:15px;top:20px"><a id="btnAddServer" class="btn btn-primary btn-small" style="display:none" href="">Add Server</a></p>
+    <table id="serverTable" class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th style="width:40px;">#</th>
+          <th style="width:40px;">Loc</th>
+          <th style="width:250px;">Server</th>
+          <th style="width:60px;">Games</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td></td>
+          <td class="nostretch" style="max-width:180px;"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note"><a href="/topservers" title="See more server activity">More...</a></p>
+  </div> <!-- /span4 -->
+
+</div> <!-- /row -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Recent Games</h3>
+    <table class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Time</th>
+          <th>Type</th>
+          <th>Loc</th>
+          <th>Server</th>
+          <th>Map</th>
+          <th>Players</th>
+          <th>Score</th>
+          <th>Rated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337156" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775422">03:23:42</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1829" title="Go to the detail page for this server">Allah&#39;s Instagib Snackbar! *RAILJUMP ENABLED*</a></td>
+          <td><a href="/map/24" title="Go to the map detail page for this map">eviscerated</a></td>
+          <td class="nostretch">
+            <a href="/player/114955" title="Go to the player info page for this player"><span class='ql7'>Greater Chimdale County Man</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/386" title="Go to the player info page for this player"><span class='ql7'>Doom</span></a>
+          </td>
+          <td>
+            97:89
+          </td>
+          <td class="tdcenter">
+            <i class="glyphicon glyphicon-minus"></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337155" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775393">03:23:13</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1631" title="Go to the detail page for this server">4:20&#39;s duel server</a></td>
+          <td><a href="/map/2" title="Go to the map detail page for this map">bloodrun</a></td>
+          <td class="nostretch">
+            <a href="/player/65450" title="Go to the player info page for this player"><span class='ql7'>Julbars</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/2796" title="Go to the player info page for this player"><span class='ql7'>tr1pty</span></a>
+          </td>
+          <td>
+            18:DNF
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337154" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775372">03:22:52</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/2140" title="Go to the detail page for this server">Allah&#39;s Duel Snackbar!</a></td>
+          <td><a href="/map/10" title="Go to the map detail page for this map">furiousheights</a></td>
+          <td class="nostretch">
+            <a href="/player/170782" title="Go to the player info page for this player"><span class='ql7'>Odd</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/92730" title="Go to the player info page for this player"><span class='ql7'>lanark_militia</span></a>
+          </td>
+          <td>
+            7:-1
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337153" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775309">03:21:49</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/ru.png" alt="RU" width="24" height="24" class="flag"> RU
+          </td>
+          <td><a href="/server/729" title="Go to the detail page for this server">Team 125FPS Duel#1 Server @ Saint-Petersburg, WestCall</a></td>
+          <td><a href="/map/13" title="Go to the map detail page for this map">campgrounds</a></td>
+          <td class="nostretch">
+            <a href="/player/246105" title="Go to the player info page for this player"><span class='ql7'>fakefface</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/27690" title="Go to the player info page for this player"><span class='ql7'>fly</span></a>
+          </td>
+          <td>
+            14:2
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337152" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775257">03:20:57</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1197" title="Go to the detail page for this server">|)ark Fiber FFA | NY</a></td>
+          <td><a href="/map/97" title="Go to the map detail page for this map">grimdungeons</a></td>
+          <td class="nostretch">
+            <a href="/player/386" title="Go to the player info page for this player"><span class='ql7'>Lucy</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/15293" title="Go to the player info page for this player"><span class='ql7'>doc.</span></a>
+          </td>
+          <td>
+            -5:DNF
+          </td>
+          <td class="tdcenter">
+            <i class="glyphicon glyphicon-minus"></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337151" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775255">03:20:55</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1786" title="Go to the detail page for this server">|)ark Fiber FFA | Chicago</a></td>
+          <td><a href="/map/13" title="Go to the map detail page for this map">campgrounds</a></td>
+          <td class="nostretch">
+            <a href="/player/8904" title="Go to the player info page for this player"><span class='ql7'><span class='ql1'>AND<span class='ql7'>RO<span class='ql4'>IDD<span class='ql7'></span></span></span></span></span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/2253" title="Go to the player info page for this player"><span class='ql7'>Wraith</span></a>
+          </td>
+          <td>
+            50:48
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337150" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775213">03:20:13</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/ru.png" alt="RU" width="24" height="24" class="flag"> RU
+          </td>
+          <td><a href="/server/933" title="Go to the detail page for this server">DUEL IN MOSCOW</a></td>
+          <td><a href="/map/12" title="Go to the map detail page for this map">hektik</a></td>
+          <td class="nostretch">
+            <a href="/player/15592" title="Go to the player info page for this player"><span class='ql7'><span class='ql4'>ban<span class='ql1'>S<span class='ql4'>hee<span class='ql7'></span></span></span></span></span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/6251" title="Go to the player info page for this player"><span class='ql7'><span class='ql5'>A<span class='ql4'>|<span class='ql5'>G<span class='ql7'>ib<span class='ql5'>i<span class='ql7'></span></span></span></span></span></span></span></a>
+          </td>
+          <td>
+            17:10
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337149" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775163">03:19:23</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/2237" title="Go to the detail page for this server">DOOM&#39;S DIVE BAR - Bay Area - CA</a></td>
+          <td><a href="/map/44" title="Go to the map detail page for this map">almostlost</a></td>
+          <td class="nostretch">
+            <a href="/player/151424" title="Go to the player info page for this player"><span class='ql7'>AdolfHitlerFromTheTownOfPallet</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/15362" title="Go to the player info page for this player"><span class='ql7'>w4ph3r</span></a>
+          </td>
+          <td>
+            1:10
+          </td>
+          <td class="tdcenter">
+            <i class="glyphicon glyphicon-minus"></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337148" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775123">03:18:43</span></td>
+          <td><img src="/static/images/icons/24x24/ft.png" alt="ft" width="24" height="24"> ft</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/662" title="Go to the detail page for this server">PILL FREEZE TAG | CHICAGO</a></td>
+          <td><a href="/map/34" title="Go to the map detail page for this map">warehouse</a></td>
+          <td class="nostretch">
+            <a href="/player/131" title="Go to the player info page for this player"><span class='ql7'>triopted</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/3866" title="Go to the player info page for this player"><span class='ql7'><span class='ql2'>Sir. Fire<span class='ql7'></span></span></span></a>
+          </td>
+          <td>
+            2:8
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337147" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775118">03:18:38</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/au.png" alt="AU" width="24" height="24" class="flag"> AU
+          </td>
+          <td><a href="/server/1622" title="Go to the detail page for this server">     #0 The Purgery - PQL CA - Unlimited</a></td>
+          <td><a href="/map/21" title="Go to the map detail page for this map">overkill</a></td>
+          <td class="nostretch">
+            <a href="/player/1609" title="Go to the player info page for this player"><span class='ql7'>Leon</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/298" title="Go to the player info page for this player"><span class='ql7'>JMF</span></a>
+          </td>
+          <td>
+            5:10
+          </td>
+          <td class="tdcenter">
+            <i class="glyphicon glyphicon-minus"></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337146" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521775083">03:18:03</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/cl.png" alt="CL" width="24" height="24" class="flag"> CL
+          </td>
+          <td><a href="/server/2500" title="Go to the detail page for this server">::LAG.CL:: Connection Interrupted | TS.LAG.CL - FFA</a></td>
+          <td><a href="/map/44" title="Go to the map detail page for this map">almostlost</a></td>
+          <td class="nostretch">
+            <a href="/player/110028" title="Go to the player info page for this player"><span class='ql7'>^<span class='ql0'>Canserbero<span class='ql7'></span></span></span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/13804" title="Go to the player info page for this player"><span class='ql7'><span class='ql2'>«<span class='ql7'>ϟoϟ<span class='ql1'>»<span class='ql2'>RoRoCk<span class='ql7'></span></span></span></span></span></span></a>
+          </td>
+          <td>
+            50:43
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337145" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774921">03:15:21</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/ar.png" alt="AR" width="24" height="24" class="flag"> AR
+          </td>
+          <td><a href="/server/2135" title="Go to the detail page for this server">-=[QuakeArg]=- Srv1 #ClanArena</a></td>
+          <td><a href="/map/46" title="Go to the map detail page for this map">hiddenfortress</a></td>
+          <td class="nostretch">
+            <a href="/player/164628" title="Go to the player info page for this player"><span class='ql7'>Krozev</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/116555" title="Go to the player info page for this player"><span class='ql7'><span class='ql3'>D<span class='ql4'>D<span class='ql7'>M-<span class='ql3'>G<span class='ql7'>uiCo</span></span></span></span></span></span></a>
+          </td>
+          <td>
+            10:5
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337144" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774918">03:15:18</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/2337" title="Go to the detail page for this server">✪✪✪ THE MADHOUSE™ CHI #1 &lt;1700 ELO ✪✪✪</a></td>
+          <td><a href="/map/54" title="Go to the map detail page for this map">longestyard</a></td>
+          <td class="nostretch">
+            <a href="/player/8879" title="Go to the player info page for this player"><span class='ql7'><span class='ql4'>pete<span class='ql7'></span></span></span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/5556" title="Go to the player info page for this player"><span class='ql7'>Chains</span></a>
+          </td>
+          <td>
+            10:8
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337143" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774884">03:14:44</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/cl.png" alt="CL" width="24" height="24" class="flag"> CL
+          </td>
+          <td><a href="/server/2248" title="Go to the detail page for this server">::LAG.CL:: Connection Interrupted | TS.LAG.CL - CA #1</a></td>
+          <td><a href="/map/26" title="Go to the map detail page for this map">trinity</a></td>
+          <td class="nostretch">
+            <a href="/player/102420" title="Go to the player info page for this player"><span class='ql7'>x<span class='ql1'>3<span class='ql7'>m Boost</span></span></span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/57446" title="Go to the player info page for this player"><span class='ql7'>zef1ro</span></a>
+          </td>
+          <td>
+            9:10
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337142" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774865">03:14:25</span></td>
+          <td><img src="/static/images/icons/24x24/ad.png" alt="ad" width="24" height="24"> ad</td>
+          <td>
+            <img src="/static/images/flags/ar.png" alt="AR" width="24" height="24" class="flag"> AR
+          </td>
+          <td><a href="/server/2380" title="Go to the detail page for this server">Lo]v[ushasho Dedicated QuakeLive Server</a></td>
+          <td><a href="/map/294" title="Go to the map detail page for this map">q3wcp16</a></td>
+          <td class="nostretch">
+            <a href="/player/142111" title="Go to the player info page for this player"><span class='ql7'>Toro</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/27493" title="Go to the player info page for this player"><span class='ql7'>renga73</span></a>
+          </td>
+          <td>
+            12:15
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337141" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774804">03:13:24</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1631" title="Go to the detail page for this server">4:20&#39;s duel server</a></td>
+          <td><a href="/map/10" title="Go to the map detail page for this map">furiousheights</a></td>
+          <td class="nostretch">
+            <a href="/player/65450" title="Go to the player info page for this player"><span class='ql7'>Julbars</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/2796" title="Go to the player info page for this player"><span class='ql7'>tr1pty</span></a>
+          </td>
+          <td>
+            24:6
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337140" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774800">03:13:20</span></td>
+          <td><img src="/static/images/icons/24x24/ca.png" alt="ca" width="24" height="24"> ca</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/797" title="Go to the detail page for this server">eBattlegrounds - Chicago 1</a></td>
+          <td><a href="/map/21" title="Go to the map detail page for this map">overkill</a></td>
+          <td class="nostretch">
+            <a href="/player/15301" title="Go to the player info page for this player"><span class='ql7'>Alice</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/36032" title="Go to the player info page for this player"><span class='ql7'>72826</span></a>
+          </td>
+          <td>
+            3:10
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337139" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774758">03:12:38</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1768" title="Go to the detail page for this server">Allah&#39;s FFA Snackbar! allahs-snackbar.com</a></td>
+          <td><a href="/map/890" title="Go to the map detail page for this map">13plant</a></td>
+          <td class="nostretch">
+            <a href="/player/71494" title="Go to the player info page for this player"><span class='ql7'>Pr0wo_HOTHEAD_o</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/2135" title="Go to the player info page for this player"><span class='ql7'><span class='ql2'>pothead<span class='ql7'></span></span></span></a>
+          </td>
+          <td>
+            50:35
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337138" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774752">03:12:32</span></td>
+          <td><img src="/static/images/icons/24x24/duel.png" alt="duel" width="24" height="24"> duel</td>
+          <td>
+            <img src="/static/images/flags/cn.png" alt="CN" width="24" height="24" class="flag"> CN
+          </td>
+          <td><a href="/server/2353" title="Go to the detail page for this server">CN Duel 新手服 #2</a></td>
+          <td><a href="/map/8" title="Go to the map detail page for this map">battleforged</a></td>
+          <td class="nostretch">
+            <a href="/player/148510" title="Go to the player info page for this player"><span class='ql7'>CCCat</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/207892" title="Go to the player info page for this player"><span class='ql7'>[X]人生真是寂寞如雪</span></a>
+          </td>
+          <td>
+            4:DNF
+          </td>
+          <td class="tdcenter">
+            A
+          </td>
+        </tr>
+        <tr>
+          <td class="tdcenter"><a class="btn btn-primary btn-small" href="/game/4337137" title="View detailed information about this game">view</a></td>
+          <td><span class="abstime" data-epoch="1521774736">03:12:16</span></td>
+          <td><img src="/static/images/icons/24x24/ffa.png" alt="ffa" width="24" height="24"> ffa</td>
+          <td>
+            <img src="/static/images/flags/us.png" alt="US" width="24" height="24" class="flag"> US
+          </td>
+          <td><a href="/server/1829" title="Go to the detail page for this server">Allah&#39;s Instagib Snackbar! *RAILJUMP ENABLED*</a></td>
+          <td><a href="/map/20" title="Go to the map detail page for this map">asylum</a></td>
+          <td class="nostretch">
+            <a href="/player/114955" title="Go to the player info page for this player"><span class='ql7'>Greater Chimdale County Man</span></a>
+
+
+            &nbsp;vs&nbsp;
+
+            <a href="/player/247750" title="Go to the player info page for this player"><span class='ql7'>Dimonster</span></a>
+          </td>
+          <td>
+            50:13
+          </td>
+          <td class="tdcenter">
+            <i class="glyphicon glyphicon-minus"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="/games">More...</a></p>
+  </div> <!-- /span12 -->
+</div> <!-- /row -->
+
+        </div>
+      </div>
+
+      
+      <div class="row shadowtext" id="pageFooter">
+        <div class="col-sm-10 col-sm-offset-1">
+          <p class="text-center">
+            QLStats was created by PredatH0r as a Quake Live modification of <a href="http://stats.xonotic.org" target="_blank">XonStat</a>,
+            the <a href="http://www.xonotic.org" target="_blank">Xonotic</a> stats tracking system created by Antibody.
+
+            <br>Both are licensed under GPLv2 and available on Github: <a href="https://github.com/PredatH0r/xonstat" title="Go to the project page" target="_blank">QLStats</a>,
+            <a href="https://github.com/antzucaro/XonStat" title="Go to the project page" target="_blank">XonStat</a>
+            <br>Geo-IP information provided by <a href="http://www.freegeoip.net">freegeoip.net</a> | Flag images provided by <a href="http://www.icondrawer.com/flag-icons.php">icondrawer.com</a>
+            <br><a href="/static/legal.html">Legal information</a> (contact, cookie policy, data privacy, disclaimer)
+          </p>
+        </div>
+      </div>
+      
+
+    </div>
+
+    
+  
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <!--<script type='text/javascript' src='/static/js/bootstrap.min.js'></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      var entityMap = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': '&quot;', "'": '&#39;', "/": '&#x2F;' };
+      function escapeHtml(string) { return String(string).replace(/[&<>"'\/]/g, function (s) { return entityMap[s]; }); }
+      function htmlColors(text) {
+        text = escapeHtml(text);
+        return "<span class='ql7'>" + text.replace(/\^[0-7]/g, function(match) { return "</span><span class='ql" + match[1] + "'>"; }) + "</span>";
+      }
+
+    </script>
+    
+  
+<script type="text/javascript">
+// filter nav bar
+$("#filterBar li[data-region='" + (getCookie("region") || "0") + "']").addClass("selected");
+$("#filterBar li[data-gametype='" + (getCookie("gametype") || "overall") + "']").addClass("selected");
+$("#filterBar #region li").click(function() {
+  $("#filterBar #region li").removeClass("selected");
+  $(this).addClass("selected");
+  var region = $(this).data("region");
+  if (region == "0") region = "";
+  setCookie("region", region);
+})
+$("#filterBar #gametype li").click(function() {
+  $("#filterBar #gametype li").removeClass("selected");
+  $(this).addClass("selected");
+  var gt = $(this).data("gametype");
+  if (gt == "overall") gt = "";
+  setCookie("gametype", gt);
+})
+</script>
+
+<script>
+  var region=parseInt(getCookie("region"));
+  var gameType=getCookie("gametype");
+  var rankingCache={}, serverCache={}, mapCache={}, matchCache={};
+
+  function fillRanking(region, gameType) {
+    $("#moreRanking").attr("href", "/ranks/" + gameType + "/" + region);
+
+    if (rankingCache.hasOwnProperty(gameType + region))
+      fillTable();
+    else {
+      rankingCache[gameType + region] = null;
+      $.getJSON("/ranks/" + gameType + "/" + region + ".json", { limit: 10 }, function(data) {
+        rankingCache[gameType + region] = data;
+        fillTable();
+      })
+      .fail(function(err) { console.log(err); });
+    }
+
+    function fillTable() {
+      var data = rankingCache[gameType + region] || { players: []};
+      for (var i=1, c=data.players.length; i<=10; i++) {
+        var player=data.players[i-1];
+        var $row = $($("#rankingTable tr")[i]);
+        var $cells = $row.children();
+        $($cells[1]).data("href", i <= c ? "/player/" + player.player_id : null);
+        $($cells[1]).html(i <= c ? "<a href='/player/" + player.player_id + "'>" + player.html_name + "</a>" : "");
+        $($cells[2]).html(i <= c ? player.rating : "").attr("title", i < c ? "\xb1 " + player.rd : "").css("cursor", "help");
+      }
+      $("#ranksNote").text(
+        $("#filterBar li[data-region='" + region + "']").text() + " / " + 
+        $("#filterBar li[data-gametype='" + gameType + "']").text()
+      );
+    }
+  }
+
+  function fillServers(region, gameType) {
+    if (serverCache.hasOwnProperty(gameType + region))
+      fillTable();
+    else {
+      serverCache[gameType + region] = null;
+      $.getJSON("/topservers.json", { gametype: gameType, region: region, limit: 10 }, function(data) {
+        serverCache[gameType + region] = data;
+        fillTable();
+      })
+      .fail(function(err) { console.log(err); });
+    }
+
+    function fillTable() {
+      var data = serverCache[gameType + region] || { servers: []};
+      for (var i=1, c=data.servers.length; i<=10; i++) {
+        var server=data.servers[i-1];
+        var $row = $($("#serverTable tr")[i]);
+        var $cells = $row.children();
+        $($cells[1]).html(i <= c && server[3] != null ? "<img src='/static/images/flags/" + server[3].toLowerCase() + ".png' class='flag'> " + server[3] : "");
+        $($cells[2]).html(i <= c ? "<a href='/server/" + server[0] + "'>" + escapeHtml(server[1]) + "</a>" : "");
+        $($cells[3]).html(i <= c ? server[2] : "");
+      }
+      $("#serversNote").text(
+        $("#filterBar li[data-region='" + (region || 0) + "']").text() + " / " + 
+        $("#filterBar li[data-gametype='" + (gameType || "overall") + "']").text()
+      );
+    }
+  }
+
+  function fillMaps(region, gameType) {
+    if (mapCache.hasOwnProperty(gameType + region))
+      fillTable();
+    else {
+      mapCache[gameType + region] = null;
+      $.getJSON("/topmaps.json", { gametype: gameType, region: region, limit: 10 }, function(data) {
+        mapCache[gameType + region] = data;
+        fillTable();
+      })
+      .fail(function(err) { console.log(err); });
+    }
+
+    function fillTable() {
+      var data = mapCache[gameType + region] || { maps: []};
+      for (var i=1, c=data.maps.length; i<=10; i++) {
+        var server=data.maps[i-1];
+        var $row = $($("#mapTable tr")[i]);
+        var $cells = $row.children();
+        $($cells[1]).html(i <= c ? "<a href='/map/" + server[0] + "'>" + escapeHtml(server[1]) + "</a>" : "");
+        $($cells[2]).html(i <= c ? server[2] : "");
+      }
+      $("#mapsNote").text(
+        $("#filterBar li[data-region='" + (region || 0) + "']").text() + " / " + 
+        $("#filterBar li[data-gametype='" + (gameType || "overall") + "']").text().substr(0,5)
+      );
+    }
+  }
+
+  function fillTopMatches(region, gameType) {
+    if (matchCache.hasOwnProperty(region))
+      fillTable();
+    else {
+      matchCache[region] = null;
+      var api = "https://api.qlstats.net/" || "http://" + location.hostname + ":8081/";
+      $.getJSON(api + "api/nowplaying", { gametype: gameType, region: region, limit: 10 }, function(data) {
+        matchCache[region] = data;
+        fillTable();
+      })
+      .fail(function(err) { console.log(err); });
+    }
+
+    function fillTable() {
+      var data = (matchCache[region] || {})[gameType] || [];
+      for (var i=1, c=data.length; i<=10; i++) {
+        var row=data[i-1] || {};
+        var $row = $($("#matchTable tr")[i]);
+        var $cells = $row.children();
+        var players = htmlColors(row.name);
+        if (row.opponent)
+          players += " vs " + htmlColors(row.opponent.name);
+        $($cells[1]).html(i <= c ? "<a href='/server/" + row.server + "'>" + players + "</a>" : "");
+      }
+      $("#matchNote").text(
+        $("#filterBar li[data-region='" + (region || 0) + "']").text() + " / " + 
+        $("#filterBar li[data-gametype='" + (gameType) + "']").text().substr(0,5)
+      );
+    }
+  }
+
+  $("#filterBar li").on("click", function() {
+    region = parseInt(getCookie("region"));
+    gameType = getCookie("gametype");
+    fillRanking(region || "1", gameType || "duel");
+    fillServers(region, gameType);
+    //fillMaps(region, gameType);
+    fillTopMatches(region, gameType || "duel");
+  });
+
+  $("td.link").on("click", function() {
+    var url = $(this).data("href");
+    if (url)
+      location.href = url;
+  });
+  fillRanking(region || "1", gameType || "duel");
+  fillServers(region, gameType);
+  //fillMaps(region, gameType);
+  fillTopMatches(region, gameType || "duel");
+
+/***************************/
+
+  function setLinkToServerAdminPanel() {
+    var url = 'http://qlstats.net:8084/' || "http://" + location.hostname + ":8081/";
+    if (url && url.toLowerCase().trim() != "false")
+      $("#btnAddServer").attr("href", url).css("display", "inline-block");
+  }
+  setLinkToServerAdminPanel();
+
+</script>
+
+
+    <script type="text/javascript">
+      // RELATIVE TIME CONVERSION
+      $('.abstime').each(function(i,e){
+        var $e = $(e);
+        var epoch = $e.attr('data-epoch');
+        $e.attr("title", $e.text());
+        $e.text(dateToString(epoch));
+      });
+
+      function dateToString(epoch) {
+        if (!epoch)
+          return "";
+        var d = new Date(0);
+        d.setUTCSeconds(epoch);
+        var dt = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).toString().substr(-2) + "-" + ("0" + d.getDate()).substr(-2);
+        var tm = ("0" + d.getHours()).toString().substr(-2) + ":" + ("0" + d.getMinutes()).toString().substr(-2) + ":" + ("0" + d.getSeconds()).toString().substr(-2);
+        return Date.now()/1000 - parseInt(epoch) < 24*60*60 ? tm : dt + "   " + tm
+      }
+    </script>
+
+  </body>
+</html>

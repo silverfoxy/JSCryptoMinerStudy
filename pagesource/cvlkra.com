@@ -1,0 +1,1 @@
+Please check your redirection url, it should not be same as domain name

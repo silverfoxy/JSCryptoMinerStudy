@@ -1,0 +1,802 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Moxa——值得信赖的工业级设备联网领导品牌，工业以太网交换机，串口设备联网，嵌入式计算机，工业无线，视频监控，远程控制，接口转换器，现场总线网关
+</title><meta type="keywords" content="Moxa,工业以太网交换机,工业交换机,串口设备联网,串口服务器,嵌入式计算机,工业计算机,工业无线,视频监控,远程控制,IP摄像机,远程IO,远程RTU,多串口卡,USB转串口,串口转换器,光电转换器,接口转换器" /><meta type="description" content="Moxa创立于1987年，迄今已有20多年的历史，是值得信赖的工业级设备联网领导品牌。Moxa提供丰富的自动化集成解决方案，包括工业联网解决方案、工业计算解决方案和远程自动化解决方案。不仅如此，Moxa是工业以太网交换机，工业交换机，串口设备联网，串口服务器，嵌入式计算机，工业计算机，工业无线，视频监控，远程控制，IP摄像机，远程IO，远程RTU，多串口卡，USB转串口，串口转换器，光电转换器，接口转换器等产品的世界领导品牌。" /><meta name="verify-v1" content="sN0xxIPWFnnClg5N5T/SPUbFm9UqCI2Xy2hnbStJs+g=" /><meta name="chinaz-site-verification" content="ee3134e1-1392-4c62-bb32-543b25245b0a" /><link rel="canonical" href="http://www.moxa.com.cn" /><link rel="alternate" href="http://www.moxa.com.cn" hreflang="zh-Hans" /><link href="css/index.css" type="text/css" rel="stylesheet" /><link href="css/indextreemenu.css" type="text/css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="css/style_2012_index.css" />
+    <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/indextreemenu.js"></script>
+	<script type="text/javascript" src="js/Pingdom_tracking.js"></script>
+	<script type="text/javascript" src="js/Baidu_tracking.js"></script>
+      <script type="text/javascript" src="js/left_right_slids.js"></script>
+    <!--[if lte IE 6]>
+<link href="css/indexie6.css" type="text/css" rel="stylesheet" />
+<![endif]-->
+
+    <style type="text/css">
+        <!--
+        .STYLE1 {
+            color: #FF0000;
+        }
+        -->
+    </style>
+
+    <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/banner_slider.css" type="text/css" />
+    <script type="text/javascript" src="js/banner_slider.js"></script>
+    <script src="js/jquery.cycle.all.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var fadeSpeed = 500;
+        var changeBannerSpeed = 11000;
+        var bannerIndex;
+        var bannerCNT;
+        var TimerId;
+        var isClick = false;
+        var strLink = new Array;
+        var strTarget = new Array;
+        var strWording = new Array;
+        //New
+        var strtracking = new Array;
+
+        $(document).ready(function () {
+
+
+
+            //以下都是上方Banner
+            $("#main_image_go_left").hide();
+            $("#main_image_go_right").hide();
+            $("#main_image_go_left a").click(getPeriousBanner);
+            $("#main_image_go_right a").click(getNextBanner);
+
+            setBanner_MDA_part("banner");
+            $("#bannerlink div").each(function (i) {
+                strLink[i] = $("#spanLink", this).text();
+                strTarget[i] = $("#spanTarget", this).text();
+                //new
+                strtracking[i] = $("#spanTracking", this).text();
+            });
+
+            bannerCNT = $("#bannerlink img").length - 1;
+            if (bannerCNT > 6) bannerCNT = 6;
+            for (var i = 0; i < bannerCNT; i++) {
+                $("#selector_container").append("<a href='#'><img src='images/hover_point.png' alt='' /></a>");
+            }
+            if (bannerCNT <= 1) {
+                $("#selector_container").hide();
+                $("#main_image_go_right").hide();
+                $("#main_image_go_left").hide();
+            }
+
+            getSBanner();
+            $("#selector_container a:first").click();
+
+            if (bannerCNT > 1) {
+                $("#main_image").mousemove(function (e) {
+                    var pos;
+                    if (e.pageX < $(this).offset().left + ($(this).width() / 2)) {
+                        $("#main_image_go_left").show();
+                        $("#main_image_go_right").hide();
+                    }
+                    else {
+                        $("#main_image_go_right").show();
+                        $("#main_image_go_left").hide();
+                    }
+                });
+                $("#main_image").mouseleave(function () {
+                    $("#main_image_go_right").hide();
+                    $("#main_image_go_left").hide();
+                });
+            }
+        });
+
+        function getSBanner() {
+            $("#selector_container a").click(function (e) {
+                if ($(".animated").html() == null) {
+                    home_banner_small_cell_click($(this));
+                }
+                e.preventDefault();
+            });
+            resetA();
+            bannerIndex = 0;
+        }
+
+        function bannerFade(targetIndex, orgIndex) {
+            $("#bannerlink img:eq(" + targetIndex + ")").fadeIn(fadeSpeed, function () {
+                $("#bannerlink").attr("href", strLink[targetIndex - 1]);
+                $("#bannerlink").attr("target", strTarget[targetIndex - 1]);
+                //new
+                $("#bannerlink").attr("onclick", strtracking[targetIndex - 1]);
+                bannerIndex = targetIndex;
+                TimerId = setInterval("getNextBanner()", changeBannerSpeed);
+                $("#main_image").removeClass("animated");
+            });
+            $("#bannerlink img:eq(" + orgIndex + ")").fadeOut(fadeSpeed);
+        }
+
+
+        function getNextBanner() {
+            if (bannerIndex < bannerCNT)
+                $("#selector_container a:eq(" + (bannerIndex) + ")").click();
+            else
+                $("#selector_container a:eq(0)").click();
+            return false;
+        }
+
+    </script>
+    <!-- Begin google analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-1227070-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+     <!-- End google analytics tracking code --> 
+
+    <!-- Begin baidu tracking code -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9a302d36465a235616ed45aa99ac83c8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <!-- End baidu tracking code -->
+<meta name="Keywords" content="Moxa，工业以太网交换机，工业交换机，串口设备联网，串口服务器，嵌入式计算机，工业计算机，工业无线，视频监控，远程控制，IP摄像机，远程IO，远程RTU，多串口卡，USB转串口，串口转换器，光电转换器，接口转换器，现场总线网关" /><meta name="Description" content="Moxa是工业联网、工业计算和远程自动化解决方案的领导者。拥有超过30年的行业经验，Moxa在全球连接了超过5千万台设备，并布局了完善的分销和服务网络，覆盖全球超过70个国家和地区的客户。Moxa将持续提供“可靠的网络”和“真诚的服务”的商业价值。提供丰富的产品，工业以太网交换机，工业交换机，串口设备联网，串口服务器，嵌入式计算机，工业计算机，工业无线，视频监控，远程控制，IP摄像机，远程IO，远程RTU，多串口卡，USB转串口，串口转换器，光电转换器，接口转换器，现场总线网关" /></head>
+<body>
+    <script src="/js/Validator.js"></script>
+    <div id="layout">
+        <div id="top">
+            <div id="logo">
+                <a href="http://www.moxa.com.cn">
+                    <img src="images/index/logo.gif" width="208" height="34" /></a>
+            </div>
+            <div id="topright">
+                <div id="topnav">
+                    <a href="/index.htm">首页</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="https://partnerzone.moxa.com">合作伙伴</a>&nbsp;&nbsp;|&nbsp;
+                	<a href="/contact/feedback.htm">意见回馈</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="/map.htm">网站地图</a>
+                </div>
+                <div id="topsearch">
+                    <form action="/search/Default.htm" id="cse-search-box" onsubmit="return Validator.Validate(this,2)">
+                        <div id="Div1">
+                            <input name="keyword" type="text" class="searcharea" datatype="Require" msg="请输入您要查询的关键字" /><input name="" type="image" src="images/index/search.gif" class="searchicon" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="menu">
+
+                <ul>
+                    <li><a class="hide" href="/about/Company_Profile.htm" title="关于Moxa">关于Moxa</a><!--[if lte IE 6]>
+        <a class="navrightline" href="about/Company_Profile.htm" title="关于Moxa">关于Moxa
+        <table><tr><td>
+        <![endif]-->
+                        <ul>
+                            <li class="icon"><a class="hide" href="/about/Company_Profile.htm" title="企业简介">企业简介</a><!--[if lte IE 6]>
+              <a class="icons" href="about/Company_Profile.htm" title="企业简介">企业简介
+              <table><tr><td>
+              <![endif]-->
+                                <ul>
+                                    <li><a href="/about/corporate_culture.htm" title="Moxa的企业文化">Moxa的企业文化</a></li>
+                                    <li><a href="/about/product_development.htm" title="产品的研发">产品的研发</a></li>
+                                    <li><a href="/about/technical_support.htm" title="技术支持">技术支持</a></li>
+                                    <li><a href="/about/sales_marketing.htm" title="业务与营销">业务与营销</a></li>
+                                    <li><a href="/about/major_product_miletones.htm" title="公司里程碑">公司里程碑</a></li>
+                                </ul>
+                                <!--[if lte IE 6]>
+            </td></tr></table>
+          </a>
+          <![endif]-->
+                            </li>
+                            <li><a href="/about/life_moxa.htm" title="Life @ Moxa">Life @ Moxa</a></li>
+                            <li><a href="/about/moxa_in_the_community.htm" title="Moxa与社会回馈">Moxa与社会回馈</a></li>
+                            <li><a href="/about/job_openings.htm" title="招募菁英">招募菁英</a></li>
+                            <li><a href="/about/greenproduct_index.htm" title="绿色产品(RoHS)">绿色产品</a></li>
+                        </ul>
+                        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+                    </li>
+                    <li><a class="hide" href="/product/index.htm" title="产品资讯">产品资讯</a><!--[if lte IE 6]>
+        <a class="navrightline" href="/product/index.htm" title="产品资讯">产品资讯
+        <table><tr><td>
+        <![endif]-->
+                        <ul>
+                            
+                            <li><a href="/product/Industrial_Ethernet_Switches.htm">工业以太网交换机</a></li>
+                    
+                            <li><a href="/product/USB_to_Serial_Hubs.htm">USB转串口集线器</a></li>
+                    
+                            <li><a href="/product/Industrial_Wireless_LAN.htm">工业无线WLAN</a></li>
+                    
+                            <li><a href="/product/Industrial_Cellular.htm">工业蜂窝网络</a></li>
+                    
+                            <li><a href="/product/industrial_secure_routers.htm">防火墙/NAT/VPN安全路由器</a></li>
+                    
+                            <li><a href="/product/Fieldbus_Gateway.htm">现场总线/网关</a></li>
+                    
+                            <li><a href="/product/Serial_to_Ethernet_Products.htm">串口设备联网</a></li>
+                    
+                            <li><a href="/product/Multiport_Serial_Boards.htm">多串口卡</a></li>
+                    
+                            <li><a href="/product/Media_Converters.htm">接口转换器</a></li>
+                    
+                            <li><a href="/product/Surge_Protector.htm">浪涌保护器</a></li>
+                    
+                            <li><a href="/product/Remote_IO_Server.htm">RTU和远程I/O</a></li>
+                    
+                            <li><a href="/product/Video_over_IP_Servers.htm">IP 视频监控</a></li>
+                    
+                            <li><a href="/product/Embedded_Computers.htm">嵌入式工业计算机</a></li>
+                    
+                            <li><a href="/product/IC_specialized_by_market.htm">行业专用计算机</a></li>
+                    
+                            <li><a href="/product/Software_Accessories.htm">软件与配件</a></li>
+                    
+                            <li><a href="/product/Inquiry.htm"><font color="red">快速询价</font></a></li>
+                        </ul>
+                        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+                    </li>
+                    <li><a class="hide" href="/applications/index.htm" title="应用案例">应用案例</a><!--[if lte IE 6]>
+        <a class="navrightline" href="/applications/index.htm" title="应用案例">应用案例
+        <table><tr><td>
+        <![endif]-->
+                        
+                        <ul>
+                    
+                            <li><a href="/applications/index.htm">行业应用</a></li>
+                    
+                            <li><a href="/solutions/index.htm">解决方案</a></li>
+                    
+                </ul>
+                
+        <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+                </li>
+        <li><a class="hide" href="/support/support_home.htm" title="技术支持与服务">技术支持与服务</a>
+            <!--[if lte IE 6]>
+        <a class="navrightline" href="/support/support_home.htm" title="技术支持与服务">技术支持与服务
+        <table><tr><td>
+        <![endif]-->
+            <ul>
+                <li><a href="/support/search.aspx?type=soft" title="软件驱动下载">软件驱动下载</a></li>
+                <li><a href="/support/download.htm" title="技术文件下载">技术文件下载</a></li>
+                <li><a href="/support/tech_sup.htm" title="在线技术支持服务">在线技术支持服务</a></li>
+                
+                <li><a href="/support/about_rma.htm" title="在线返修服务">在线返修服务</a></li>
+                <li><a href="/support/warranty_policy.htm" title="5年质保">5年质保</a></li>
+                <li><a href="/support/faq.htm" title="FAQ">FAQ</a></li>
+                <li><a href="/support/mtsc.htm" title="MTSC活动">MTSC活动</a></li>
+                <li><a href="/support/glossary.htm" title="专有名词解释">专有名词解释</a></li>
+            </ul>
+            <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+        </li>
+                <li><a class="hide" href="/news/News_home.htm" title="新闻与活动">新闻与活动</a>
+                    <!--[if lte IE 6]>
+        <a class="navrightline" href="news/News_home.htm" title="新闻与活动">新闻与活动
+        <table><tr><td>
+        <![endif]-->
+                    <ul>
+                        <li><a href="/news_events/video_library/index.htm" title="视频专区">视频专区<span class="STYLE1"> - <strong>New!</strong></span></a></li>
+                        <li><a href="/news/Events_Calendar.htm" title="活动行程">活动行程</a></li>
+                        <li><a href="/news/Press_Releases.htm" title="新闻稿">新闻稿</a></li>
+                        <li><a href="/news/Newsletters.htm" title="Moxa电子月刊">Moxa电子月刊</a></li>
+                        <li><a href="/news/Rss.htm" title="Rss">Rss</a></li>
+                    </ul>
+                    <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+                </li>
+
+                <li style="border: 0px;" class="wheretobuy"><a class="hide" href="/contact/feedback.htm" title="与我们联系">与我们联系&nbsp;</a><!--[if lte IE 6]>
+        <a href="contact/feedback.htm" title="与我们联系">与我们联系&nbsp;
+        <table><tr><td>
+        <![endif]-->
+                    <ul>
+                        <li><a href="/contact/contact_moxa.htm" title="办公地址">办公地址</a></li>
+                        <li><a href="/contact/feedback.htm" title="意见回馈">意见回馈</a></li>
+                    </ul>
+                    <!--[if lte IE 6]>
+        </td></tr></table>
+        </a>
+        <![endif]-->
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div id="banner">
+            <!-- Banner setting start -->
+            <div class="box-163css">
+                <div id="main_image">
+                    <div id="main_image_selector">
+                        <div id="selector_container">
+                        </div>
+                    </div>
+                    <a id="bannerlink" href="#" target="_blank">
+                        
+                        <img id="mainpic" src="images/empty.jpg" alt="" width="784" />
+                        
+                                                                <!-- main banner 1 -->
+                                                                <div id="divHide" style="display: none">
+                                                                    <span id="spanLink">http://www.moxa.com.cn/Event/ethernet-gateways/modbus-to-profinet-profibus/index.htm</span>
+                                                                    <span id="spanTarget">_blank</span>
+
+                                                                </div>
+                                                                             <img src='/ImgUpload/Adsimage/20180119113342.jpg' alt='轻松将 Modbus 设备连接至 PROFINET 或 PROFIBUS 网络' title='轻松将 Modbus 设备连接至 PROFINET 或 PROFIBUS 网络' width="784" style="display: none;">
+                                                                         
+                                                                <!-- main banner 1 -->
+                                                                <div id="divHide" style="display: none">
+                                                                    <span id="spanLink">http://www.moxa.com.cn/Event/panel-computers-displays/rugged-hmi-solution-portal/index.htm</span>
+                                                                    <span id="spanTarget">_blank</span>
+
+                                                                </div>
+                                                                             <img src='/ImgUpload/Adsimage/20180103165251.jpg' alt='适用于恶劣环境的强固型平板计算机和显示器' title='适用于恶劣环境的强固型平板计算机和显示器' width="784" style="display: none;">
+                                                                         
+                                                                <!-- main banner 1 -->
+                                                                <div id="divHide" style="display: none">
+                                                                    <span id="spanLink">http://www.moxa.com.cn/Event/industrial-wireless/aeromag/index.htm</span>
+                                                                    <span id="spanTarget">_blank</span>
+
+                                                                </div>
+                                                                             <img src='/ImgUpload/Adsimage/20180103162038.jpg' alt='AeroMag_轻松快捷的连接Wi-Fi' title='AeroMag_轻松快捷的连接Wi-Fi' width="784" style="display: none;">
+                                                                         
+                                                                <!-- main banner 1 -->
+                                                                <div id="divHide" style="display: none">
+                                                                    <span id="spanLink">http://www.moxa.com.cn/Event/promote-cn/multiprotocol-io/index.htm</span>
+                                                                    <span id="spanTarget">_blank</span>
+
+                                                                </div>
+                                                                             <img src='/ImgUpload/Adsimage/20180103162048.jpg' alt='多协议I/O：让您的I/O轻松转换OT和IT协议' title='多协议I/O：让您的I/O轻松转换OT和IT协议' width="784" style="display: none;">
+                                                                         
+                                                                <!-- main banner 1 -->
+                                                                <div id="divHide" style="display: none">
+                                                                    <span id="spanLink">http://www.moxa.com.cn/Event/promote-cn/modbus-protocol-gateway/index.htm</span>
+                                                                    <span id="spanTarget">_blank</span>
+
+                                                                </div>
+                                                                             <img src='/ImgUpload/Adsimage/20180103154405.JPG' alt='协议网关，简化多协议互联' title='协议网关，简化多协议互联' width="784" style="display: none;">
+                                                                         
+
+
+
+                    </a>
+                    <div id="main_image_go_left" style="display: none;">
+                        <a href="#">
+                            <img src="images/banner_go_left.png"></a>
+                    </div>
+                    <div id="main_image_go_right" style="display: none;">
+                        <a href="#">
+                            <img src="images/banner_go_right.png"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner setting end -->
+            
+        </div>
+
+         <div class="ow_news">
+                <h3>
+                    公告</h3>
+                <div class="slides">
+                    <ul id="ul_news">
+                        <li><a href="http://www.moxa.com.cn/news_events/20170220_statement.htm">关于不法份子冒充Moxa名义提供假货的声明</a></li>
+						<li><a href="http://www.moxa.com.cn/about/channel_recruitment.htm">Moxa诚征区域及行业合作伙伴</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="prev"></a>
+				<a href="#" class="next"></a>
+				<!--<a href="https://www.surveymonkey.com/s/WebsiteMakeover"
+                    target="_blank" class="feedback">
+                    <img src="images/feedback.jpg" /></a>-->
+         </div>
+
+        <div id="smallmenu">
+            <div class="smam dashed">
+                <div id="smantit"><span class="px12 c006ba7 bold">工业以太网</span></div>
+                <div id="tree" class="px12 c006ba7">
+                    
+        <div class="terrmenu" id="terrmenu1">
+        <ul>
+        
+            <li><a href="/product/Industrial_Ethernet_Switches.htm">工业以太网交换机</a>
+                  <ul id="Class1_1_ReData_ctl01_ul1">
+                
+                    <li class="Child"><a href="/product/Managed_Redundant_Switches.htm">- 导轨式网管型工业以…</a></li>
+                   
+                    <li class="Child"><a href="/product/Unmanaged_Switches.htm">- 导轨式非网管型工业…</a></li>
+                   
+                    <li class="Child"><a href="/product/Rackmount_Switches.htm">- 机架式工业以太网交换机</a></li>
+                   
+                    <li class="Child"><a href="/product/IEC_61850_3_Ethernet_Switches.htm">- IEC 61850…</a></li>
+                   
+                    <li class="Child"><a href="/Product/EN50155_M12_Ethernet_Switches.htm">- EN50155以太…</a></li>
+                   
+                    <li class="Child"><a href="/product/poe_power_over_ethernet_switch.htm">- 工业级PoE交换机</a></li>
+                   
+                    <li class="Child"><a href="/product/Embedded_Ethernet_Switches.htm">- 嵌入式以太网交换机</a></li>
+                   
+                    <li class="Child"><a href="/product/DSL_Extender.htm">- DSL以太网扩展器</a></li>
+                   
+                    <li class="Child"><a href="/product/Network_Management_Software.htm">- 网络管理软件</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Industrial_Wireless_LAN.htm">工业无线WLAN</a>
+                  <ul id="Class1_1_ReData_ctl02_ul1">
+                
+                    <li class="Child"><a href="/product/Single_Radio_Wireless_AP_Bridge_Client.htm">- 单射频无线AP/B…</a></li>
+                   
+                    <li class="Child"><a href="/product/Rail-Wireless-LAN.htm">- 铁路专用WLAN</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Industrial_Cellular.htm">工业蜂窝网络</a>
+                  <ul id="Class1_1_ReData_ctl03_ul1">
+                
+                    <li class="Child"><a href="/product/cellular_gateway.htm">- 工业级蜂窝IP网关</a></li>
+                   
+                    <li class="Child"><a href="/product/cellular_modem.htm">- 工业级蜂窝Modem</a></li>
+                   
+                    <li class="Child"><a href="/product/cellular_router.htm">- 工业级蜂窝路由器</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/industrial_secure_routers.htm">防火墙/NAT/VPN安全路由器</a>
+                  <ul id="Class1_1_ReData_ctl04_ul1">
+                
+                    <li class="Child"><a href="/product/industrial_secure_routers.htm">- 防火墙/NAT/V…</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Fieldbus_Gateway.htm">现场总线/网关</a>
+                  <ul id="Class1_1_ReData_ctl05_ul1">
+                
+                    <li class="Child"><a href="/product/Ethernet_Fieldbus_Gateways.htm">- 以太网现场总线网关</a></li>
+                   
+                    <li class="Child"><a href="/product/field_bus_boards.htm">- 现场总线板卡</a></li>
+                   
+                 </ul>
+            </li>
+          
+        </ul>
+    </div>
+        
+                </div>
+            </div>
+            <div class="smam dashed">
+                <div id="smantit"><span class="px12 c006ba7 bold">工业计算</span></div>
+                <div id="tree" class="px12 c006ba7">
+                    
+        <div class="terrmenu" id="terrmenu2">
+        <ul>
+        
+            <li><a href="/product/Embedded_Computers.htm">嵌入式工业计算机</a>
+                  <ul id="Class2_1_ReData_ctl01_ul1">
+                
+                    <li class="Child"><a href="/product/Embedded_Computers_din-rail.htm">- 导轨型嵌入式计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/Embedded_Computers_boxcomputers.htm">- 壁挂式嵌入式计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/Embedded_Computers_Wireless.htm">- 无线嵌入式计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/Embedded_Computer_Modules.htm">- 嵌入式模块</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/IC_specialized_by_market.htm">行业专用计算机</a>
+                  <ul id="Class2_1_ReData_ctl02_ul1">
+                
+                    <li class="Child"><a href="/product/Oil_Gas_Computers.htm">- 石化行业专用计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/Power_Automation_Computers.htm">- 变电站专用计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/railway_computers.htm">- 铁路专用计算机</a></li>
+                   
+                    <li class="Child"><a href="/product/marine_computers.htm">- 海事&面板计算机</a></li>
+                   
+                 </ul>
+            </li>
+          
+        </ul>
+    </div>
+        
+                </div>
+            </div>
+            <div class="smam dashed">
+                <div id="smantit"><span class="px12 c006ba7 bold">设备联网</span></div>
+                <div id="tree" class="px12 c006ba7">
+                    
+        <div class="terrmenu" id="terrmenu3">
+        <ul>
+        
+            <li><a href="/product/USB_to_Serial_Hubs.htm">USB转串口集线器</a>
+                  <ul id="Class3_1_ReData_ctl01_ul1">
+                
+                    <li class="Child"><a href="/product/RS-232_422_485_over_USB.htm">- USB转RS-23…</a></li>
+                   
+                    <li class="Child"><a href="/product/usb-hub.htm">- USB Hubs</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Serial_to_Ethernet_Products.htm">串口设备联网</a>
+                  <ul id="Class3_1_ReData_ctl02_ul1">
+                
+                    <li class="Child"><a href="/product/External_Device_Servers.htm">- 串口联网服务器</a></li>
+                   
+                    <li class="Child"><a href="/product/Wireless_Device_Server.htm">- 串口设备无线联网服务器</a></li>
+                   
+                    <li class="Child"><a href="/product/Terminal_Servers.htm">- 终端服务器</a></li>
+                   
+                    <li class="Child"><a href="/product/Embedded_Device_Servers.htm">- 内嵌式设备联网模块</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Multiport_Serial_Boards.htm">多串口卡</a>
+                  <ul id="Class3_1_ReData_ctl03_ul1">
+                
+                    <li class="Child"><a href="/product/PCI_Express_Boards.htm">- PCI Expre…</a></li>
+                   
+                    <li class="Child"><a href="/product/Universal_PCI_Boards.htm">- Universal…</a></li>
+                   
+                    <li class="Child"><a href="/product/ISA_Boards.htm">- ISA多串口卡</a></li>
+                   
+                    <li class="Child"><a href="/product/PC_104_Boards.htm">- PC/104多串口卡</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Media_Converters.htm">接口转换器</a>
+                  <ul id="Class3_1_ReData_ctl04_ul1">
+                
+                    <li class="Child"><a href="/product/Ethernet_to_Fiber_Converters.htm">- 光电转换器</a></li>
+                   
+                    <li class="Child"><a href="/product/Serial_to_Fiber_Converters.htm">- 串口转光纤转换器</a></li>
+                   
+                    <li class="Child"><a href="/product/RS-232_to_RS-422_485_Converters.htm">- RS-232到RS…</a></li>
+                   
+                    <li class="Child"><a href="/product/Repeaters_Isolators.htm">- 中继器&隔离器</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Surge_Protector.htm">浪涌保护器</a>
+                  <ul id="Class3_1_ReData_ctl05_ul1">
+                
+                    <li class="Child"><a href="/product/Surge_Protector.htm">- 浪涌保护器</a></li>
+                   
+                 </ul>
+            </li>
+          
+        </ul>
+    </div>
+        
+                </div>
+            </div>
+            <div class="smam">
+                <div id="smantit"><span class="px12 c006ba7 bold">视频监控&远程自动化</span></div>
+                <div id="tree" class="px12 c006ba7">
+                    
+        <div class="terrmenu" id="terrmenu4">
+        <ul>
+        
+            <li><a href="/product/Remote_IO_Server.htm">RTU和远程I/O</a>
+                  <ul id="Class4_1_ReData_ctl01_ul1">
+                
+                    <li class="Child"><a href="/product/Active_Remote_IO_Server.htm">- 以太网RTU控制器</a></li>
+                   
+                    <li class="Child"><a href="/product/Cellular_GPRS_IO_servers.htm">- GPRS无线RTU…</a></li>
+                   
+                    <li class="Child"><a href="/product/modular_RTU_controller.htm">- 模块化RTU控制器</a></li>
+                   
+                    <li class="Child"><a href="/product/Remote_Ethernet_IO.htm">- 远程以太网I/O</a></li>
+                   
+                    <li class="Child"><a href="/product/Serial_Remote_IO_Server.htm">- RS-485串口远…</a></li>
+                   
+                    <li class="Child"><a href="/product/Peer-to-Peer_IO_Servers.htm">- 点对点以太网I/O</a></li>
+                   
+                    <li class="Child"><a href="/product/expandable_remote_IO_server.htm">- 模块化以太网I/O</a></li>
+                   
+                 </ul>
+            </li>
+          
+            <li><a href="/product/Video_over_IP_Servers.htm">IP 视频监控</a>
+                  <ul id="Class4_1_ReData_ctl02_ul1">
+                
+                    <li class="Child"><a href="/product/IP_Cameras.htm">- IP摄像机</a></li>
+                   
+                    <li class="Child"><a href="/product/video_server.htm">- 工业级视频服务器</a></li>
+                   
+                    <li class="Child"><a href="/product/Industrial_Network_Video_Recorder.htm">- 工业网络硬盘录像机</a></li>
+                   
+                    <li class="Child"><a href="/product/IP_Surveillance_Software.htm">- IP视频监控软件</a></li>
+                   
+                 </ul>
+            </li>
+          
+        </ul>
+    </div>
+        
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="news">
+            <div id="newstit" style="position: relative;">
+                <span style="position: absolute; right: 0px;"><a href="/news/rss.aspx">
+                    <img src="images/index/rss.gif" width="90" height="13" /></a></span><span class="px12 ffffff bold">新&nbsp;&nbsp;&nbsp;&nbsp;闻</span>
+            </div>
+            <div id="newsarea">
+                
+            	<ul>
+                
+                <li><a href="/news_events/modbus-to-profinet-profibus.htm">Moxa 协议网关，助力 Modbus 设备轻松接入 PROFINET 或 PROFIBUS 网络</a><div class="px10 c7a7a7a">2018-01-19</div>&nbsp;&nbsp;</li>
+                
+                <li><a href="/news_events/mpc-2070.htm">Moxa 全新 7 英寸平板计算机专为严苛及危险环境打造</a><div class="px10 c7a7a7a">2018-01-09</div>&nbsp;&nbsp;</li>
+                
+                <li><a href="/news_events/marintec.htm">Moxa 即将亮相2017国际海事会展</a><div class="px10 c7a7a7a">2017-11-24</div>&nbsp;&nbsp;</li>
+                
+                </ul>
+                
+                <div class="areamore"><a href="/news/Press_Releases.htm" class="px12 c01669c bold nounderline">更多</a></div>
+            </div>
+            <div id="newsbottom"></div>
+        </div>
+        <div id="quicklink">
+            <div id="quicktit"><span class="px12 c00adc5 bold">快速连接</span></div>
+            <div id="quickarea">
+                <ul>
+                    <li><a href="/product/Inquiry.htm">快速询价</a></li>
+                    <li><a href="/news/Newsletters.htm">Moxa电子月刊</a></li>
+                    <li><a href="/support/tech_sup.htm">在线技术支持服务</a></li>
+                    <li><a href="/support/download.htm">免费下载</a></li>
+                    <li><a href="/news_events/video_library/index.htm">视频专区</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="project">
+            <div id="projecttit"><span class="px12 ffffff bold">行业应用</span></div>
+            <div id="projectarea">
+                
+            	<ul>
+                
+               <li><a href="/applications/Transportation_Surveillance_Systems.htm">BRT系统的CCTV解决方案</a><div class="px12 c7a7a7a"></div></li>
+                
+               <li><a href="/applications/mine-extension.htm">如何在复杂的井下环境扩展通信网络</a><div class="px12 c7a7a7a"></div></li>
+                
+               <li><a href="/applications/CCTV-system.htm">如何利用现有的铜线构建交通信号和CCTV系统</a><div class="px12 c7a7a7a"></div></li>
+                
+                </ul>
+                
+                <div class="areamore"><a href="/applications/allapplications.htm" class="px12 c01669c bold nounderline">更多</a></div>
+            </div>
+            <div id="projectbottom"></div>
+        </div>
+        <div id="events">
+            <div id="eventstit"><span class="px12 c00adc5 bold">扫一扫，关注微信公众号</span></div>
+
+            
+            	<div id="eventsarea">
+                
+                <div id="eventsarea">
+                	<img src="/ImgUpload/qcode.jpg" alt="qcode"/>
+                </div>
+                
+        </div>
+        
+
+    </div>
+    <div id="fourad">
+        <a href="/support/download.htm">
+            <img src="images/index/fourad_01.gif" width="188" height="60" /></a>&nbsp;
+        <a href="/news/Newsletters.htm">
+            <img src="images/index/fourad_02.gif" width="188" height="60" /></a>&nbsp;
+        <a href="/products/newp.htm">
+            <img src="images/index/fourad_03.gif" width="188" height="60" /></a>&nbsp;
+        <a href="applications/index.htm">
+            <img src="images/index/fourad_05.jpg" width="188" height="60" /></a></a>
+    </div>
+    <div id="bottom">
+        <div id="botlink" class="px12 c8b8b8b nounderline">
+            <a href="/index.htm">首页</a><span class="botline">|</span>
+            <a href="/about/Company_Profile.htm">关于Moxa</a><span class="botline">|</span>
+            <a href="/product/index.htm">产品资讯</a><span class="botline">|</span>
+            <a href="/applications/index.htm">解决方案</a><span class="botline">|</span>
+            <a href="/support/support_home.htm">技术支持与服务</a><span class="botline">|</span>
+            <a href="/news/News_home.htm">新闻与活动</a><span class="botline">|</span>
+            <a href="https://partnerzone.moxa.com">合作伙伴</a><span class="botline">|</span>
+            <a href="/contact/feedback.htm">与我们联系</a><span class="botline">|</span>
+            <a href="/map.htm">网站总览</a>
+        </div>
+        <div id="botcopy">
+            <div class="botbg">
+                <img src="images/index/bottom_left.gif" width="12" height="40" />
+            </div>
+            <div id="botcopyarea">
+                <span id="botlink2" class="c7a7a7a px12 nounderline">
+                    <a href="/about/privacy.htm">隐私保密条款</a> <a href="/contact/feedback.htm">意见回馈</a>
+                </span>
+                <span class="px12 c595959">
+                    <span id="WebInfo"></span>
+                </span>
+
+            </div>
+            <div class="botbg">
+                <img src="images/index/bottom_right.gif" width="12" height="40" />
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    </div>
+    <script type="text/javascript">
+<!--
+    var Myterrmenu1=new terrmenu("terrmenu1","li");
+    Myterrmenu1.InitCss("Opened","Closed","Child","../images/treemenu/s.gif");
+    // OPSecond();
+    var Myterrmenu2=new terrmenu("terrmenu2","li");
+    Myterrmenu2.InitCss("Opened","Closed","Child","../images/treemenu/s.gif");
+    //OPSecond();
+    var Myterrmenu3=new terrmenu("terrmenu3","li");
+    Myterrmenu3.InitCss("Opened","Closed","Child","../images/treemenu/s.gif");
+    // OPSecond();
+    var Myterrmenu4=new terrmenu("terrmenu4","li");
+    Myterrmenu4.InitCss("Opened","Closed","Child","../images/treemenu/s.gif");
+    //OPSecond();
+    -->
+    </script>
+
+<!--
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        _uacct = "UA-1227070-1";
+        urchinTracker();
+    </script>
+-->
+
+    <!-- Google Code for &#20840;&#32593; Remarketing List -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 1022717396;
+        var google_conversion_language = "en";
+        var google_conversion_format = "3";
+        var google_conversion_color = "ffffff";
+        var google_conversion_label = "dAZqCPqWmQMQ1NvV5wM";
+        var google_conversion_value = 0;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display: inline;">
+            <img height="1" width="1" style="border-style: none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1022717396/?value=0&amp;label=dAZqCPqWmQMQ1NvV5wM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+</body>
+</html>

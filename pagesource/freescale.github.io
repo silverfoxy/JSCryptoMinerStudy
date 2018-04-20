@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta name="description" content="FSL Community BSP" />
+    <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <title>FSL Community BSP</title>
+  </head>
+
+  <body>
+
+    <header class="navbar navbar-fixed-top os-navbar" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header os-main-links">
+          <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <p>FSL Community BSP</p>
+          </a>
+        </div>
+        <div id="os-navbar-links" class="collapse navbar-collapse navbar-right">
+          <ul id="main-nav" class="nav navbar-nav os-main-links">
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div id="content">
+
+      <section id="header-section">
+        <div id="header-container" class="container">
+          <div id="overview" class="os-centered">
+            <h1 id="project_title">FSL Community BSP</h1>
+          </div>
+        </div>
+      </section>
+
+      <section id="main-section">
+        <div id="main-content" class="container">
+          <div id="items" class="row">
+            <div class="col-sm-4">
+              <div class="os-centered os-main-links">
+                <a class="btn" href="#documentation">
+                  <span class="fa-stack fa-3x os-green-color">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-file-text fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <h4>Documentation</h4>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="os-centered os-main-links">
+                <a class="btn" href="#contributing">
+                  <span class="fa-stack fa-3x os-blue-color">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-group fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <h4>Contributing</h4>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="os-centered os-main-links">
+                <a class="btn" href="#download">
+                  <span class="fa-stack fa-3x os-red-color">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-download fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <h4>Download</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="documentation" class="os-no-striped os-section">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="os-section-title">
+                <h1>Documentation</h1>
+              </div>
+            </div>
+            <div class="col-md-8 os-border-left os-green-links">
+              <div class="os-section-content">
+                <p class="lead">The FSL Community BSP is a community driven project to provide and maintain a Board Support Package meta layer to be used with <a href="http://www.openembedded.org/wiki/OpenEmbedded-Core" target="_blank">OpenEmbedded-Core</a> and <a href="https://www.yoctoproject.org/tools-resources/projects/poky" target="_blank">Poky</a>.</p>
+                <p class="lead">It is composed by three main layers:</p>
+                <ul>
+                  <li><a href="http://git.yoctoproject.org/cgit/cgit.cgi/meta-freescale" target="_blank"><strong>meta-freescale:</strong></a> provides the base BSP support and the board support for Freescale i.MX and QorIQ reference boards;</li>
+                  <li><a href="https://github.com/Freescale/meta-freescale-3rdparty" target="_blank"><strong>meta-freescale-3rdparty:</strong></a> provides support for 3rd party and partner boards;</li>
+                  <li><a href="https://github.com/Freescale/meta-freescale-distro" target="_blank"><strong>meta-freescale-distro:</strong></a> provides images recipes, demo recipes, and packagegroups used to ease the development with Yocto Project.</li>
+                </ul>
+                <p class="lead"><strong>Release Notes:</strong></p>
+                <ul class="fa-ul">
+                  <li>
+                    <h3><i class="fa fa-arrow-right fa-fw"></i> 2.4 - codename Rocko:</h3>
+                    <div id="documentation-icons" class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1">
+                          <div class="row center-block">
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.4/" target="_blank">
+                                <i class="fa fa-globe fa-2x os-green-color"></i>
+                                <h4>Online</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.4/FSLCommunityBSPReleaseNotes-view.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Visualization</h4>
+                              </a>
+                              </p>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.4/FSLCommunityBSPReleaseNotes-print-a4.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>A4</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.4/FSLCommunityBSPReleaseNotes-print-letter.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>Letter</h4>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   </li>
+                    <h3><i class="fa fa-arrow-right fa-fw"></i> 2.3 - codename Pyro:</h3>
+                    <div id="documentation-icons" class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1">
+                          <div class="row center-block">
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.3/" target="_blank">
+                                <i class="fa fa-globe fa-2x os-green-color"></i>
+                                <h4>Online</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.3/FSLCommunityBSPReleaseNotes-view.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Visualization</h4>
+                              </a>
+                              </p>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.3/FSLCommunityBSPReleaseNotes-print-a4.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>A4</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.3/FSLCommunityBSPReleaseNotes-print-letter.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>Letter</h4>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   </li>
+                    <h3><i class="fa fa-arrow-right fa-fw"></i> 2.2 - codename Morty:</h3>
+                    <div id="documentation-icons" class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1">
+                          <div class="row center-block">
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.2/" target="_blank">
+                                <i class="fa fa-globe fa-2x os-green-color"></i>
+                                <h4>Online</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.2/FSLCommunityBSPReleaseNotes-view.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Visualization</h4>
+                              </a>
+                              </p>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.2/FSLCommunityBSPReleaseNotes-print-a4.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>A4</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.2/FSLCommunityBSPReleaseNotes-print-letter.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>Letter</h4>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <h3><i class="fa fa-arrow-right fa-fw"></i> 2.1 - codename Krogoth:</h3>
+                    <div id="documentation-icons" class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1">
+                          <div class="row center-block">
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.1/" target="_blank">
+                                <i class="fa fa-globe fa-2x os-green-color"></i>
+                                <h4>Online</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.1/FSLCommunityBSPReleaseNotes-view.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Visualization</h4>
+                              </a>
+                              </p>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.1/FSLCommunityBSPReleaseNotes-print-a4.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>A4</h4>
+                              </a>
+                            </div>
+                            <div class="col-sm-3 os-centered">
+                              <a href="http://freescale.github.io/doc/release-notes/2.1/FSLCommunityBSPReleaseNotes-print-letter.pdf" target="_blank">
+                                <i class="fa fa-file-pdf-o fa-2x os-green-color"></i>
+                                <h4>Printing</h4>
+                                <h4>Letter</h4>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contributing" class="os-striped os-section">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="os-section-title">
+                <h1>Contributing</h1>
+              </div>
+            </div>
+            <div class="col-md-8 os-border-left os-blue-links">
+              <div class="os-section-content">
+                <p class="lead">The development is centralized in the meta-freescale mailing list.</p>
+                <p class="lead">The mailing list is used to coordinate and handle contributions for meta-freescale, meta-freescale-3rdparty and meta-freescale-distro.</p>
+                <p class="lead"><a href="https://lists.yoctoproject.org/listinfo/meta-freescale" target="_blank">Subscribe</a> the mailing lists to talk directly with the developers and other users.</p>
+                <p class="lead">See the latest discussions in our <a href="https://www.mail-archive.com/meta-freescale@yoctoproject.org/" target="_blank">archive</a>.</p>
+                <p class="lead">The known bugs are handled using the <a href="https://bugzilla.yoctoproject.org/buglist.cgi?quicksearch=meta-freescale" target="_blank">Yocto Project Bugzilla</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="os-section os-no-striped">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="os-section-title">
+                <h1>Get the BSP</h1>
+                <div class="yocto pull-right">
+                  <img src="images/yocto-compatible.png">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 os-border-left os-red-links">
+              <div class="os-section-content">
+                <p class="lead">The FSL Community BSP follow the same release schedule used in Yocto Project. The releases are done every <em>6 months</em>, in April and October</p>
+                <p class="lead"></p>
+                <p class="lead"><strong>Pre built images</strong></p>
+                <p class="lead">There are a set of pre-built images available for download. You can choose them below:</p>
+                <div style="height: 500px; margin: 0 auto;">
+                  <script src="//blink.ossystems.com.br/widgets/43fe3f5606450d4b41e854443d902bb968b2c5fa4d3aa6ef8cd657ec2b1a306d"></script>
+                </div>
+                </br>
+                <p class="lead"><strong>Platform source code download</strong></p>
+                <p class="lead">To download the platform source code, you need to have repo installed.</p>
+                <p class="lead">Install the repo utility:</p>
+                <div class="os-code-install os-code">
+                  <ul class="nav">
+                    <li><i class="fa fa-dollar fa-fw"></i>mkdir ~/bin</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>curl http://commondatastorage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>chmod a+x ~/bin/repo</li>
+                  </ul>
+                </div>
+                <br/>
+                <p class="lead">Download the source code:</p>
+                <div class="os-code-setup os-code">
+                  <ul class="nav">
+                    <li><i class="fa fa-dollar fa-fw"></i>PATH=${PATH}:~/bin</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>mkdir fsl-community-bsp</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>cd fsl-community-bsp</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b rocko</li>
+                    <li><i class="fa fa-dollar fa-fw"></i>repo sync</li>
+                  </ul>
+                </div>
+                </br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="os-back-top os-main-links">
+        <a href="#"><i class="fa fa-chevron-up fa-2x"></i></a>
+      </div>
+    </div>
+
+    <footer class="os-footer">
+      <div class="container os-centered">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <p>Developed by 
+              <a href="http://www.ossystems.com.br" target="_blank">
+                <img class="os-logo" src="images/os_logo.png">
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/perfect-scrollbar-mousewheel.min.js"></script>
+    <script src="js/perfect-scrollbar.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

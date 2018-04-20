@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html id="XenForo" lang="en-GB" dir="LTR" class="Public NoJs GalleryLazyLoader XenBase LoggedOut Sidebar   RightSidebar  Responsive" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	
+		<base href="https://www.railforums.co.uk/" />
+		<script>
+			var _b = document.getElementsByTagName('base')[0], _bH = "https://www.railforums.co.uk/";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+	
+
+	<title>RailUK Forums</title>
+	
+	
+	<noscript><style>.JsOnly, .jsOnly { display: none !important; }</style></noscript>
+	<link rel="stylesheet" href="css.php?css=xenforo,form,public&amp;style=4&amp;dir=LTR&amp;d=1521404239" />
+	<link rel="stylesheet" href="css.php?css=bb_code,fc_mileage,login_bar,node_category,node_forum,node_list,profile_post_list_simple,sidebar_share_page,thread_list_simple,xb,xb_offcanvas_menu,xb_quicksearch_nav,xengallery_tab_links&amp;style=4&amp;dir=LTR&amp;d=1521404239" />
+
+
+	
+	
+	
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	
+	
+	
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+	
+	<script>
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-9955998-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+		<script src="js/jquery/jquery-1.11.0.min.js"></script>	
+		
+	<script src="js/xenforo/xenforo.js?_v=cd1a36a4"></script>
+
+
+
+
+
+<script>
+/** @param {jQuery} $ jQuery Object */
+!function($, window, document, _undefined)
+{
+    XenForo.XbCollapsibleNode = function($nodeLink) { this.__construct($nodeLink); };
+    XenForo.XbCollapsibleNode.prototype =
+    {
+        __construct: function($nodeLink)
+        {
+            this.$nodeLink = $nodeLink;
+            this.$container = this.$nodeLink.parent().parent().parent();
+            this.$href = this.$nodeLink.parent().find('h3:first').find('a').attr('href');
+            this.$nodeId = this.$href.substr(this.$href.indexOf('#')+1);
+            if ($.getCookie('xenbase-node-'+this.$nodeId))
+            {
+                console.info("nodelink", "cookie-set", this.$container);
+                this.$container.find('i.fa-chevron-up').addClass('fa-chevron-down').removeClass('fa-chevron-up');
+                this.$container.addClass('xbCollapsed');
+                this.$container.find('ol.nodeList:first').hide();
+            }
+            this.$nodeLink.click($.context(this, 'click'));
+
+        },
+        click: function(e)
+        {
+            e.preventDefault();
+            console.info("nodeLink", "Clicked");
+            if (this.$container.find('ol.nodeList').is(':hidden'))
+            {
+            	this.$container.removeClass('xbCollapsed');
+                this.$container.find('ol.nodeList').slideDown(800, 'easeOutBounce');
+                this.$container.find('i.fa-chevron-down').addClass('fa-chevron-up').removeClass('fa-chevron-down');
+                $.deleteCookie('xenbase-node-'+this.$nodeId);
+            }
+            else
+            {
+            	this.$container.addClass('xbCollapsed');
+            	this.$container.find('i.fa-chevron-up').addClass('fa-chevron-down').removeClass('fa-chevron-up');
+                this.$container.find('ol.nodeList').slideUp(800, 'easeInOutCirc');
+                var expires = new Date(new Date().getTime() + 31 * 86400000); // 7 days
+				$.setCookie('xenbase-node-'+this.$nodeId, 1, expires);
+            }
+        }
+    };
+
+    XenForo.register('.categoryText > .xbCatTrigger', 'XenForo.XbCollapsibleNode');
+}
+(jQuery, this, document);
+</script>
+
+
+
+
+
+<script type='text/javascript'>
+$(function() {
+    var items = $('.xbOffCanvasMask, .slideLeft');
+    var xbOffCanvasContent = $('.xbOffCanvasContent');
+
+    var xbOffCanvasOpen = function() {
+        $(items).removeClass('xbOffCanvasClose').addClass('xbOffCanvasOpen');
+    }
+    var xbOffCanvasClose = function() {
+        $(items).removeClass('xbOffCanvasOpen').addClass('xbOffCanvasClose');
+    }
+
+    $('#xbOffCanvasToggle').click(function() {
+        if (xbOffCanvasContent.hasClass('xbOffCanvasOpen')) {
+            $(xbOffCanvasClose)
+        } else {
+            $(xbOffCanvasOpen)
+        }
+    });
+    xbOffCanvasContent.click(function() {
+        if (xbOffCanvasContent.hasClass('xbOffCanvasOpen')) {
+            $(xbOffCanvasClose)
+        }
+    });
+
+    $('#xbOffCanvasToggle,.xbOffCanvasMask').on('click', function() {
+        $('.xbOffCanvasContainer').toggleClass("marginLeft");
+    });
+
+    $('.publicTabs li').has('.xbOffCanvasSubMenu').prepend('<span class="xbOffCanvasArrow"><i class="xbOffCanvasExpand fa fa-chevron-down"></i></span>');
+
+    $('.xbOffCanvasArrow').click(function() {
+        $(this).siblings('.xbOffCanvasSubMenu, .secondaryContent.blockLinksList').slideToggle('fast');
+        $(this).children('.xbOffCanvasExpand').toggleClass('fa-flip-vertical ');
+    });
+
+});
+</script>
+
+
+	
+	
+	<link rel="apple-touch-icon" href="https://www.railforums.co.uk/styles/railukforums/xenforo/logo.og.png" />
+	<link rel="alternate" type="application/rss+xml" title="RSS feed for RailUK Forums" href="forums/-/index.rss" />
+	
+	<link rel="canonical" href="https://www.railforums.co.uk/" />
+	<meta name="description" content="The biggest forum for discussion of all topics concerning railways in the UK. From advice on fares, to high speed rail, days out and more!" />
+		<meta property="og:site_name" content="RailUK Forums" />
+	
+	<meta property="og:image" content="https://www.railforums.co.uk/styles/railukforums/xenforo/logo.og.png" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.railforums.co.uk/" />
+	<meta property="og:title" content="RailUK Forums" />
+	<meta property="og:description" content="The biggest forum for discussion of all topics concerning railways in the UK. From advice on fares, to high speed rail, days out and more!" />
+	
+	
+	
+
+</head>
+
+<body>
+
+
+
+<div class="xbOffCanvasContent xbOffCanvasMask"></div>
+
+
+<div class="xbOffCanvas slideLeft publicTabs">
+	<ul class="xbOffCanvasList">
+		
+		
+		<!-- home -->
+		
+			<li class="navTab home"><a href="https://www.railforums.co.uk" class="navLink">Home</a></li>
+		
+		
+		<!-- extra tabs: home -->
+		
+		
+		
+		<!-- forums -->
+		
+			<li class="navTab forums selected">
+				<a href="https://www.railforums.co.uk/" class="navLink">Forums</a>
+					<div class="xbOffCanvasSubMenu">
+					<ul>
+					
+						
+						<li><a href="search/?type=post">Search Forums</a></li>
+						
+						<li><a href="find-new/posts" rel="nofollow">Recent Posts</a></li>
+					
+					</ul>
+					</div>
+			</li>
+		
+		
+		
+		<!-- extra tabs: middle -->
+		
+		
+			
+			<li class="navTab xengallery ">
+				<a href="https://www.railforums.co.uk/media/" class="navLink">Media</a>
+					<div class="xbOffCanvasSubMenu">
+						
+
+<ul class="secondaryContent blockLinksList xengallery">
+	
+	<li><a href="search/?type=xengallery_media">Search Media</a></li>
+	
+	
+		
+		
+	
+	<li><a href="find-new/media">New Media</a></li>
+</ul>
+					</div>
+			</li>
+			
+		
+		
+		
+		
+		<!-- members -->
+		
+			<li class="navTab members ">
+				<a href="https://www.railforums.co.uk/members/" class="navLink">Members</a>
+					<div class="xbOffCanvasSubMenu">
+					<ul>
+					
+						<li><a href="members/">Notable Members</a></li>
+						<li><a href="members/list">Registered Members</a></li>
+						<li><a href="online/">Current Visitors</a></li>
+						<li><a href="recent-activity/">Recent Activity</a></li>
+						<li><a href="find-new/profile-posts">New Profile Posts</a></li>
+					
+					</ul>
+					</div>
+			</li>
+						
+
+		<!-- extra tabs: end -->
+		
+
+		
+
+		<li class="navTab xbOffCanvasExtraLink">		
+	<a href="search/" rel="Menu" class="navLink NoPopupGadget"><i class="fa fa-search"></i> Search</a>
+</li>
+
+
+	</ul>
+</div>
+
+
+
+<div class="xbOffCanvasContainer">
+
+
+
+	
+		
+
+
+
+<div id="loginBar">
+	<div class="pageWidth">
+		<div class="pageContent">	
+			<h3 id="loginBarHandle">
+				<label for="LoginControl"><a href="login/" class="concealed noOutline">Log in or Sign up</a></label>
+			</h3>
+			
+			<span class="helper"></span>
+			
+			
+		</div>
+	</div>
+</div>
+	
+
+
+
+
+
+<div id="headerMover">
+
+
+<header>
+	
+
+
+<div id="header">
+	
+		
+		
+
+
+
+
+<div id="navigation" class="withSearch">
+	<div class="pageContent">
+		<nav>
+
+<div class="navTabs">
+<div class="navTabsInner">
+<div class="xbMaxwidth">	
+	
+	<div class="xbOffCanvasControls">
+		<a id="xbOffCanvasToggle" onclick="return false;" class="slideLeft" href="#"><i class="fa fa-bars fa-fw"></i> <span class="menuText">Menu</span></a>
+		<a href="find-new/posts" rel="nofollow" class="xbOffCanvasNew Tooltip" title="Recent Posts"> <i class="fa fa-commenting fa-fw"></i><span>Recent Posts</span></a>
+	</div>
+		
+				
+	<ul class="publicTabs">
+	
+	
+
+	
+		<li class="navTab xbNavLogo"><a href="https://www.railforums.co.uk" class="navLink">
+				<span></span>
+				
+				<img src="styles/railukforums/xenforo/logo.jpg" class="desktopLogo" alt="RailUK Forums" />
+				<img src="styles/railukforums/xenforo/sources/mobilelogo.png" class="mobileLogo" alt="RailUK Forums" />
+				
+			</a>
+		</li>
+	
+
+		
+	
+		<!-- home -->
+		
+			<li class="navTab home PopupClosed"><a href="https://www.railforums.co.uk" class="navLink">Home</a></li>
+		
+		
+		
+		<!-- extra tabs: home -->
+		
+		
+		
+		<!-- forums -->
+		
+		
+			
+			<li class="navTab forums selected">
+			
+				
+				<a href="https://www.railforums.co.uk/" class="navLink">Forums</a>
+				<a href="https://www.railforums.co.uk/" class="SplitCtrl" rel="Menu"></a>
+				<div class="xbTabPopupArrow">
+					<span class="arrow"><span></span></span>
+				</div>
+				
+				
+				<div class="tabLinks forumsTabLinks">
+				
+
+				<div class="xbMaxwidth">
+					<div class="primaryContent menuHeader">
+						<h3>Forums</h3>
+						<div class="muted">Quick Links</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					
+						
+						<li><a href="search/?type=post">Search Forums</a></li>
+						
+						<li><a href="find-new/posts" rel="nofollow">Recent Posts</a></li>
+					
+					</ul>
+				</div>
+				</div>
+			</li>
+		
+		
+		
+		<!-- extra tabs: middle -->
+		
+		
+			
+			
+			<li class="navTab xengallery Popup PopupControl PopupClosed">
+			
+			
+				<a href="https://www.railforums.co.uk/media/" class="navLink">Media</a>
+				<a href="https://www.railforums.co.uk/media/" class="SplitCtrl" rel="Menu"></a>
+				<div class="xbTabPopupArrow">
+					<span class="arrow"><span></span></span>
+				</div>
+				
+				
+				<div class="Menu JsOnly tabMenu xengalleryTabLinks">
+				
+				<div class="xbMaxwidth">
+					<div class="primaryContent menuHeader">
+						<h3>Media</h3>
+						<div class="muted">Quick Links</div>
+					</div>
+					
+
+<ul class="secondaryContent blockLinksList xengallery">
+	
+	<li><a href="search/?type=xengallery_media">Search Media</a></li>
+	
+	
+		
+		
+	
+	<li><a href="find-new/media">New Media</a></li>
+</ul>
+				</div>
+				</div>
+			</li>
+			
+		
+		
+		
+		
+		<!-- members -->
+		
+			
+			<li class="navTab members Popup PopupControl PopupClosed">
+			
+			
+				<a href="https://www.railforums.co.uk/members/" class="navLink">Members</a>
+				<a href="https://www.railforums.co.uk/members/" class="SplitCtrl" rel="Menu"></a>
+				<div class="xbTabPopupArrow">
+					<span class="arrow"><span></span></span>
+				</div>
+				
+				
+				<div class="Menu JsOnly tabMenu membersTabLinks">
+				
+				<div class="xbMaxwidth">
+					<div class="primaryContent menuHeader">
+						<h3>Members</h3>
+						<div class="muted">Quick Links</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					
+						<li><a href="members/">Notable Members</a></li>
+						<li><a href="members/list">Registered Members</a></li>
+						<li><a href="online/">Current Visitors</a></li>
+						<li><a href="recent-activity/">Recent Activity</a></li>
+						<li><a href="find-new/profile-posts" rel="nofollow">New Profile Posts</a></li>
+					
+					</ul>
+				</div>
+				</div>
+			</li>
+						
+
+		<!-- extra tabs: end -->
+		
+
+		
+
+		
+			
+		<li class="navTab searchMini Popup PopupControl PopupClosed">		
+			<a href="search/" rel="Menu" class="navLink NoPopupGadget"><i class="fa fa-search"></i> Search</a>
+					<div class="Menu xbSearchPopup">
+						
+<div id="searchBar" class="pageWidth">
+	
+	<fieldset id="QuickSearchNav">
+		<form action="search/search" method="post" class="formPopup">
+			
+			<div class="primaryControls">
+				<input type="search" name="keywords" value="" class="textCtrl" placeholder="Search..." results="0" title="Enter your search and hit enter" id="QuickSearchQuery" />	
+				<!-- <a class="xbSearchIcon" href="/search/"><i class="fa fa-search"></i></a> -->			
+			</div>
+			
+			<div class="secondaryContent secondaryControls">				
+					<dl class="ctrlUnit">
+						<dt></dt>
+						<dd><ul>
+							<li><label><input type="checkbox" name="title_only" value="1"
+								id="search_bar_title_only" class="AutoChecker"
+								data-uncheck="#search_bar_thread" /> Search titles only</label></li>
+						</ul></dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_users">Posted by Member:</label></dt>
+						<dd>
+							<input type="text" name="users" value="" class="textCtrl AutoComplete" id="searchBar_users" />
+							<p class="explain">Separate names with a comma.</p>
+						</dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_date">Newer Than:</label></dt>
+						<dd><input type="date" name="date" value="" class="textCtrl" id="searchBar_date" /></dd>
+					</dl>
+					
+					
+				</div>
+				<div class="ctrlUnit sectionFooter submitUnit">
+
+						<input type="submit" value="Search" class="button primary Tooltip" title="Find Now" />
+						<a href="search/" class="button moreOptions Tooltip" title="Advanced Search">More...</a>
+				
+
+				<div id="commonSearches"><span class="button"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+				<ul class="primaryContent blockLinksList">
+									
+				<!-- block: useful_searches -->
+				<li><a href="find-new/posts?recent=1" rel="nofollow">Recent Posts</a></li>
+				
+				<!-- end block: useful_searches -->
+				</ul>
+				</div>
+				
+				</div>
+				
+			
+			<input type="hidden" name="_xfToken" value="" />
+		</form>		
+	</fieldset>
+	
+</div>
+					</div>
+		</li>
+			
+		
+		
+		
+
+		<!-- responsive popup -->
+		<li class="navTab navigationHiddenTabs Popup PopupControl PopupClosed" style="display:none">	
+						
+			<a rel="Menu" class="navLink NoPopupGadget"><span class="menuIcon">Menu</span></a>
+			
+			<div class="Menu JsOnly blockLinksList primaryContent" id="NavigationHiddenMenu"></div>
+		</li>
+		
+		
+			
+		<!-- no selection -->
+		
+		
+	</ul>
+	
+
+	
+		
+				
+		
+					
+				
+</div>
+</div>
+</div>
+<span class="helper"></span>
+			
+		</nav>	
+	</div>
+</div>
+
+	
+
+
+	
+	
+		
+	
+</div>
+
+	
+	
+</header>
+
+
+
+	
+
+<div id="content" class="forum_list">
+	<div class="pageWidth">
+		<div class="pageContent">
+			
+			
+			
+			
+			<!-- main content area -->
+			
+			
+
+			
+			
+			
+				<div class="mainContainer">
+					<div class="mainContent">
+						
+						
+						
+						
+						
+							
+						<div class="breadBoxTop ">
+							
+							
+
+<nav>
+	
+
+	<fieldset class="breadcrumb">
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Open quick navigation"><i class="fa fa-sitemap"></i><!--Jump to...--></a> 
+			
+		<div class="boardTitle"><strong>RailUK Forums</strong></div>
+		
+		<span class="crumbs">
+			
+				<span class="crust homeCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="https://www.railforums.co.uk" class="crumb" rel="up" itemprop="url"><span itemprop="title">Home</span></a>
+					<span class="arrow"><span></span></span>
+				</span>
+			
+			
+			
+				<span class="crust selectedTabCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="https://www.railforums.co.uk/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Forums</span></a>
+					<span class="arrow"><span>&gt;</span></span>
+				</span>
+			
+			
+			
+		</span>
+	</fieldset>
+</nav>
+						</div>
+						
+						
+						
+						
+						
+
+					
+						<!--[if lt IE 8]>
+							<p class="importantMessage">You are using an out of date browser. It  may not display this or other websites correctly.<br />You should upgrade or use an <a href="https://www.google.com/chrome/browser/" target="_blank">alternative browser</a>.</p>
+						<![endif]-->
+
+						
+						
+
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						<!-- main template -->
+						
+
+
+
+
+
+
+
+	
+
+
+	<ol class="nodeList sectionMain" id="forums">
+	
+		
+
+
+<li class="node category level_1 node_41" id="uk-railway-forums.41">
+
+	<div class="nodeInfo categoryNodeInfo categoryStrip">
+	
+		<div class="categoryText">
+			<h3 class="nodeTitle"><a 
+			href="#uk-railway-forums.41">UK Railway Forums</a></h3>
+			
+			<a id="collapse-41" class="xbCatTrigger" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<div class="xbCategoryImage"></div>
+	</div>
+	
+	
+	
+			
+		<ol class="nodeList  xbNoCustomNodeFlex">
+			
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_42">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/uk-railway-discussion.42/" data-description="">UK Railway Discussion</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-42">Discussion of any UK railway topic not covered elsewhere.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>17,875</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>635,495</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382572/" title="St Pancras = St Patricks">St Pancras = St Patricks</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/mintona.280/" class="username" dir="auto">Mintona</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521430358" data-diff="5697" data-datestring="19 Mar 2018" data-timestring="03:32">19 Mar 2018 at 03:32</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/uk-railway-discussion.42/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbSubForums xbForumDescription node_43">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/infrastructure-stations.43/" data-description="">Infrastructure &amp; Stations</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-43">Discuss all aspects of rail infrastructure here, including stations and permanent way.<br />
+<b>Subforum:</b> <a href="forumdisplay.php?f=165">Future High Speed Rail</a></blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>8,131</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>277,363</dd></dl>
+				
+					<div class="Popup subForumsPopup">
+
+						<a href="forums/infrastructure-stations.43/" rel="Menu" class="cloaked" data-closemenu="true"><span class="dt">Sub-Forums:</span> 1</a>
+						
+						<div class="Menu JsOnly subForumsMenu">
+						<div class="xbTabPopupArrow">
+							<span class="arrow"><span></span></span>
+						</div>
+							<div class="primaryContent menuHeader">
+								<h3>Infrastructure &amp; Stations</h3>
+								<div class="muted">Sub-Forums</div>
+							</div>
+							<ol class="secondaryContent blockLinksList">
+							
+								<li class="node forum level-n node_165">
+	<div class="unread">
+		<h4 class="nodeTitle"><a href="forums/future-high-speed-rail.165/" class="menuRow">Future High Speed Rail</a></h4>
+	</div>
+	
+</li>
+							
+							</ol>
+						</div>
+					</div>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382560/" title="Trivia: Wired Stations served mostly by Diesels">Trivia: Wired Stations served mostly by Diesels</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/scrapy.3170/" class="username" dir="auto">scrapy</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521424933" data-diff="11122" data-datestring="19 Mar 2018" data-timestring="02:02">19 Mar 2018 at 02:02</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/infrastructure-stations.43/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_46">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/traction-rolling-stock.46/" data-description="">Traction &amp; Rolling Stock</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-46">Discussion on various aspects of UK locomotives, multiple units and other rolling stock.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>9,233</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>330,696</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382567/" title="Rumours of all 323s to now go to Northern">Rumours of all 323s to now go to Northern</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/js1000.25650/" class="username" dir="auto">js1000</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521426669" data-diff="9386" data-datestring="19 Mar 2018" data-timestring="02:31">19 Mar 2018 at 02:31</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/traction-rolling-stock.46/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_44">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/allocations-diagrams-timetables.44/" data-description="">Allocations, Diagrams &amp; Timetables</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-44">Discussion on timetabling, rolling stock allocations and operating diagrams.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>8,311</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>135,708</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382540/" title="TOPS Requests (including headcodes, allocations, traction, etc) [Instructions in Post 2]">TOPS Requests (including headcodes, allocations, traction, etc) [Instructions in Post 2]</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/timbom.34077/" class="username" dir="auto">TimboM</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521421541" data-diff="14514" data-datestring="19 Mar 2018" data-timestring="01:05">19 Mar 2018 at 01:05</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/allocations-diagrams-timetables.44/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_122">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/railway-jobs-careers.122/" data-description="">Railway Jobs &amp; Careers</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-122">Discussion of jobs and vacancies on the railways, advice for applications & interviews and information on work experience.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>7,315</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>120,968</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382575/" title="GTR Trainee Drivers Hornsey/ Cricklewood">GTR Trainee Drivers Hornsey/ Cricklewood</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/1812_s.60329/" class="username" dir="auto">1812_s</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521435170" data-diff="885" data-datestring="19 Mar 2018" data-timestring="04:52">19 Mar 2018 at 04:52</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/railway-jobs-careers.122/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_51">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/railtours-preservation.51/" data-description="">Railtours &amp; Preservation</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-51">Discussion of railtours/charters, heritage railways and other rail-related attractions.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>3,079</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>33,913</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382495/" title="[trivia] Examples of heritage railways connected to the National Rail network at more than one end?">[trivia] Examples of heritage railways connected to the National Rail network at more than one end?</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/6gman.14892/" class="username" dir="auto">6Gman</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521417536" data-diff="18519" data-datestring="18 Mar 2018" data-timestring="23:58">18 Mar 2018 at 23:58</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/railtours-preservation.51/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+		</ol>
+	
+	
+	<span class="tlc"></span>
+	<span class="trc"></span>
+	<span class="blc"></span>
+	<span class="brc"></span>
+	
+	
+</li>
+
+
+<li class="node category level_1 node_151" id="fares-ticketing-routeing.151">
+
+	<div class="nodeInfo categoryNodeInfo categoryStrip">
+	
+		<div class="categoryText">
+			<h3 class="nodeTitle"><a 
+			href="#fares-ticketing-routeing.151">Fares, Ticketing &amp; Routeing</a></h3>
+			
+			<a id="collapse-151" class="xbCatTrigger" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<div class="xbCategoryImage"></div>
+	</div>
+	
+	
+	
+			
+		<ol class="nodeList  xbNoCustomNodeFlex">
+			
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_105">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/fares-advice-policy.105/" data-description="">Fares Advice &amp; Policy</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-105">Requests for good value tickets and routeing advice, as well as general discussion on fares policy.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>22,572</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>291,387</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382533/" title="ADV tickets, London Victoria to Brighton, after May 21st 2018">ADV tickets, London Victoria to Brighton, after May 21st 2018</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/fortheloveof.57932/" class="username" dir="auto">ForTheLoveOf</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521420498" data-diff="15557" data-datestring="19 Mar 2018" data-timestring="00:48">19 Mar 2018 at 00:48</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/fares-advice-policy.105/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_152">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/disputes-prosecutions.152/" data-description="">Disputes &amp; Prosecutions</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-152">Seek help here on penalty fares, fines and other post-travel ticketing issues.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>2,179</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>78,721</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382568/" title="Greater Anglia sued, warrant for baliffs issued">Greater Anglia sued, warrant for baliffs issued</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/spurs.28488/" class="username" dir="auto">Spurs</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521426900" data-diff="9155" data-datestring="19 Mar 2018" data-timestring="02:35">19 Mar 2018 at 02:35</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/disputes-prosecutions.152/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbSubForums xbForumDescription node_153">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/railuk-fares-ticketing-guide.153/" data-description="">RailUK Fares &amp; Ticketing Guide</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-153">Contains a comprehensive guide to fares & ticketing.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>11</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>168</dd></dl>
+				
+					<div class="Popup subForumsPopup">
+
+						<a href="forums/railuk-fares-ticketing-guide.153/" rel="Menu" class="cloaked" data-closemenu="true"><span class="dt">Sub-Forums:</span> 1</a>
+						
+						<div class="Menu JsOnly subForumsMenu">
+						<div class="xbTabPopupArrow">
+							<span class="arrow"><span></span></span>
+						</div>
+							<div class="primaryContent menuHeader">
+								<h3>RailUK Fares &amp; Ticketing Guide</h3>
+								<div class="muted">Sub-Forums</div>
+							</div>
+							<ol class="secondaryContent blockLinksList">
+							
+								<li class="node link level-n node_156">
+	<div>
+		<h4 class="nodeTitle"><a href="link-forums/railuk-ticket-stock-gallery.156/" class="menuRow">RailUK Ticket Stock Gallery</a></h4>
+	</div>
+	
+</li>
+							
+							</ol>
+						</div>
+					</div>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/1315679/" title="RailUK Fares &amp; Ticketing Guide">RailUK Fares &amp; Ticketing Guide</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/yorkie.4/" class="username" dir="auto">yorkie</a>,</span>
+					<span class="DateTime muted lastThreadDate" data-latest="Latest: " title="1 Jan 2013 at 20:46">1 Jan 2013</span>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/railuk-fares-ticketing-guide.153/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+		</ol>
+	
+	
+	<span class="tlc"></span>
+	<span class="trc"></span>
+	<span class="blc"></span>
+	<span class="brc"></span>
+	
+	
+</li>
+
+
+<li class="node category level_1 node_47" id="other-rail-transport.47">
+
+	<div class="nodeInfo categoryNodeInfo categoryStrip">
+	
+		<div class="categoryText">
+			<h3 class="nodeTitle"><a 
+			href="#other-rail-transport.47">Other Rail &amp; Transport</a></h3>
+			
+			<a id="collapse-47" class="xbCatTrigger" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<div class="xbCategoryImage"></div>
+	</div>
+	
+	
+	
+			
+		<ol class="nodeList  xbNoCustomNodeFlex">
+			
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_160">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/railway-history-nostalgia.160/" data-description="">Railway History &amp; Nostalgia</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-160">Discussion of Railway History and the place for sharing stories of days gone by.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>1,438</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>21,533</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382519/" title="Performance of &quot;lumbering&quot; Cl 40s and other early BR diesels">Performance of &quot;lumbering&quot; Cl 40s and other early BR diesels</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/hexagon789.35677/" class="username" dir="auto">hexagon789</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521419423" data-diff="16632" data-datestring="19 Mar 2018" data-timestring="00:30">19 Mar 2018 at 00:30</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/railway-history-nostalgia.160/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_48">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/international-transport.48/" data-description="">International Transport</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-48">Discussion of railways and other surface transport outside of the UK, including Eurostar and Enterprise.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>3,338</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>41,866</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382553/" title="Brand new Queensland trains don&#039;t meet legal standards">Brand new Queensland trains don&#039;t meet legal standards</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/shaw-s-hunter.34172/" class="username" dir="auto">Shaw S Hunter</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521423415" data-diff="12640" data-datestring="19 Mar 2018" data-timestring="01:36">19 Mar 2018 at 01:36</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/international-transport.48/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_166">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/buses-coaches.166/" data-description="">Buses &amp; Coaches</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-166">An area for the discussion of bus and coach services, including guided busways and sharing information on vehicles and individual operators.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>1,761</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>110,278</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382534/" title="first Kernow">first Kernow</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/daveharries.13067/" class="username" dir="auto">DaveHarries</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521420666" data-diff="15389" data-datestring="19 Mar 2018" data-timestring="00:51">19 Mar 2018 at 00:51</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/buses-coaches.166/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbSubForums xbForumDescription node_49">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/other-public-transport.49/" data-description="">Other Public Transport</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-49">Includes Trams, metros, light rail and any other forms of public transport.
+<br />
+<b>Subforum:</b> <a href="forumdisplay.php?f=50">London Underground</a></blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>3,384</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>76,122</dd></dl>
+				
+					<div class="Popup subForumsPopup">
+
+						<a href="forums/other-public-transport.49/" rel="Menu" class="cloaked" data-closemenu="true"><span class="dt">Sub-Forums:</span> 1</a>
+						
+						<div class="Menu JsOnly subForumsMenu">
+						<div class="xbTabPopupArrow">
+							<span class="arrow"><span></span></span>
+						</div>
+							<div class="primaryContent menuHeader">
+								<h3>Other Public Transport</h3>
+								<div class="muted">Sub-Forums</div>
+							</div>
+							<ol class="secondaryContent blockLinksList">
+							
+								<li class="node forum level-n node_50">
+	<div class="unread">
+		<h4 class="nodeTitle"><a href="forums/london-underground.50/" class="menuRow">London Underground</a></h4>
+	</div>
+	
+</li>
+							
+							</ol>
+						</div>
+					</div>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382513/" title="Discussion of Metrolink to Stockport idea">Discussion of Metrolink to Stockport idea</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/hsted.11181/" class="username" dir="auto">HSTEd</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521418918" data-diff="17137" data-datestring="19 Mar 2018" data-timestring="00:21">19 Mar 2018 at 00:21</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/other-public-transport.49/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+		</ol>
+	
+	
+	<span class="tlc"></span>
+	<span class="trc"></span>
+	<span class="blc"></span>
+	<span class="brc"></span>
+	
+	
+</li>
+
+
+<li class="node category level_1 node_98" id="rail-hobbies-games.98">
+
+	<div class="nodeInfo categoryNodeInfo categoryStrip">
+	
+		<div class="categoryText">
+			<h3 class="nodeTitle"><a 
+			href="#rail-hobbies-games.98">Rail Hobbies &amp; Games</a></h3>
+			
+			<a id="collapse-98" class="xbCatTrigger" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<div class="xbCategoryImage"></div>
+	</div>
+	
+	
+	
+			
+		<ol class="nodeList  xbNoCustomNodeFlex">
+			
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_25">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/quizzes-games.25/" data-description="">Quizzes &amp; Games</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-25">Why not take part in our popular quizzes and games?</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>636</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>437,426</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382514/" title="General Knowledge Quiz">General Knowledge Quiz</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/rj21.34217/" class="username" dir="auto">RJ21</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521418949" data-diff="17106" data-datestring="19 Mar 2018" data-timestring="00:22">19 Mar 2018 at 00:22</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/quizzes-games.25/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_90">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/photo-of-the-week.90/" data-description="">Photo of the Week</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-90">RailUK's weekly railway photography competition!</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>1,120</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>8,856</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3379730/" title="Photo of the Month :: March 2018 - Voting">Photo of the Month :: March 2018 - Voting</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/matt.72/" class="username" dir="auto">matt</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521265035" data-diff="171020" data-datestring="17 Mar 2018" data-timestring="05:37">17 Mar 2018 at 05:37</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/photo-of-the-week.90/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbSubForums xbForumDescription node_20">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/photography-sites-blogs-videos.20/" data-description="">Photography Sites, Blogs &amp; Videos</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-20">Plug and discuss your rail/transport blogs, photography and videography websites here.<br />
+<b>Subforum:</b> <a href="forumdisplay.php?f=99">Photography Advice & Discussion</a></blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>16,823</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>58,508</dd></dl>
+				
+					<div class="Popup subForumsPopup">
+
+						<a href="forums/photography-sites-blogs-videos.20/" rel="Menu" class="cloaked" data-closemenu="true"><span class="dt">Sub-Forums:</span> 1</a>
+						
+						<div class="Menu JsOnly subForumsMenu">
+						<div class="xbTabPopupArrow">
+							<span class="arrow"><span></span></span>
+						</div>
+							<div class="primaryContent menuHeader">
+								<h3>Photography Sites, Blogs &amp; Videos</h3>
+								<div class="muted">Sub-Forums</div>
+							</div>
+							<ol class="secondaryContent blockLinksList">
+							
+								<li class="node forum level-n node_99">
+	<div class="unread">
+		<h4 class="nodeTitle"><a href="forums/photography-advice-discussion.99/" class="menuRow">Photography Advice &amp; Discussion</a></h4>
+	</div>
+	
+</li>
+							
+							</ol>
+						</div>
+					</div>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382386/" title="The Wanderer&#039;s Photos 2018 Gallery">The Wanderer&#039;s Photos 2018 Gallery</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/thewanderer.1816/" class="username" dir="auto">Thewanderer</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521411786" data-diff="24269" data-datestring="18 Mar 2018" data-timestring="22:23">18 Mar 2018 at 22:23</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/photography-sites-blogs-videos.20/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_53">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/memorabilia-media-publications.53/" data-description="">Memorabilia, Media &amp; Publications</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-53">Discuss railway collectables, railwayana, books, magazines and other media such as TV programmes and DVDs.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>1,345</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>10,289</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3379489/" title="Anybody ever seen one of these and know what it is or was used for">Anybody ever seen one of these and know what it is or was used for</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/bernard-grant.60217/" class="username" dir="auto">Bernard Grant</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521237416" data-diff="198639" data-datestring="16 Mar 2018" data-timestring="21:56">16 Mar 2018 at 21:56</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/memorabilia-media-publications.53/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_55">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/modelling-simulations-games.55/" data-description="">Modelling, Simulations &amp; Games</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-55">Questions, discussions and troubleshooting regarding transport-based simulations and computer games, as well as railway modelling.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>2,888</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>28,789</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3381777/" title="Anyone Remember The Railroad Tycoon Games?">Anyone Remember The Railroad Tycoon Games?</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/ianno87.29838/" class="username" dir="auto">Ianno87</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521390580" data-diff="45475" data-datestring="18 Mar 2018" data-timestring="16:29">18 Mar 2018 at 16:29</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/modelling-simulations-games.55/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+		</ol>
+	
+	
+	<span class="tlc"></span>
+	<span class="trc"></span>
+	<span class="blc"></span>
+	<span class="brc"></span>
+	
+	
+</li>
+
+
+<li class="node category level_1 node_60" id="other-forums.60">
+
+	<div class="nodeInfo categoryNodeInfo categoryStrip">
+	
+		<div class="categoryText">
+			<h3 class="nodeTitle"><a 
+			href="#other-forums.60">Other Forums</a></h3>
+			
+			<a id="collapse-60" class="xbCatTrigger" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<div class="xbCategoryImage"></div>
+	</div>
+	
+	
+	
+			
+		<ol class="nodeList  xbNoCustomNodeFlex">
+			
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_24">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/trip-planning-reports.24/" data-description="">Trip Planning &amp; Reports</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-24">The place for posting your journey, meet up or trip planning requests and reports.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>2,870</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>64,867</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382475/" title="Richard does a 22 day Interrail...">Richard does a 22 day Interrail...</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/tt-onr-nrn.37171/" class="username" dir="auto">TT-ONR-NRN</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521416189" data-diff="19866" data-datestring="18 Mar 2018" data-timestring="23:36">18 Mar 2018 at 23:36</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/trip-planning-reports.24/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_13">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/general-discussion.13/" data-description="">General Discussion</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-13">Discussion of world events & topics not covered elsewhere in the forum.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>7,523</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>275,280</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382570/" title="Should employers be required by law to provide a sick room and subsidised waited on restaurant?">Should employers be required by law to provide a sick room and subsidised waited on restaurant?</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/shaw-s-hunter.34172/" class="username" dir="auto">Shaw S Hunter</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521427650" data-diff="8405" data-datestring="19 Mar 2018" data-timestring="02:47">19 Mar 2018 at 02:47</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/general-discussion.13/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+
+
+<li class="node forum primaryContent level_2  xbNoSubForums xbForumDescription node_64">
+
+	
+	
+	<div class="nodeInfo forumNodeInfo unread">
+
+		
+				
+					<span class="nodeIcon" title="Unread messages"></span>
+				
+			
+		
+		
+		<div class="nodeText">
+			<h3 class="nodeTitle"><a href="forums/forum-information-announcements.64/" data-description="">Forum Information &amp; Announcements</a></h3>
+
+			
+				<blockquote class="nodeDescription  baseHtml" id="nodeDescription-64">Information and announcements from the forum staff at RailUK Forums.</blockquote>
+			
+
+			<div class="nodeStats pairsInline">
+				<dl class="xbNodeDiscussion"><dt>Discussions:</dt> <dd>111</dd></dl>
+				<dl class="xbNodeMessages"><dt>Messages:</dt> <dd>2,958</dd></dl>
+				
+			</div>
+			
+			
+			
+			
+		</div>
+
+		
+		
+		
+
+		<div class="nodeLastPost secondaryContent">
+			
+				<span class="lastThreadTitle"><span>Latest:</span> <a href="posts/3382319/" title="Change to Forum Staff">Change to Forum Staff</a></span>
+				<span class="lastThreadMeta">
+					<span class="lastThreadUser"><a href="members/gazthomas.10582/" class="username" dir="auto">gazthomas</a>,</span>
+					<abbr class="DateTime muted lastThreadDate" data-latest="Latest: " data-time="1521409971" data-diff="26084" data-datestring="18 Mar 2018" data-timestring="21:52">18 Mar 2018 at 21:52</abbr>
+				</span>
+			
+		</div>
+
+		<div class="nodeControls">
+			<a href="forums/forum-information-announcements.64/index.rss" class="tinyIcon feedIcon" title="RSS"><i class="fa fa-rss"></i></a>
+		</div>
+		
+	</div>
+
+	
+
+</li>
+		</ol>
+	
+	
+	<span class="tlc"></span>
+	<span class="trc"></span>
+	<span class="blc"></span>
+	<span class="brc"></span>
+	
+	
+</li>
+	
+	</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+						
+						
+<div align="center"><style>
+.example_responsive_1 { width: 320px; height: 100px; }
+@media(min-width: 500px) { .example_responsive_1 { width: 468px; height: 60px; } }
+@media(min-width: 800px) { .example_responsive_1 { width: 728px; height: 90px; } }
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- XenForo Advertisement -->
+<ins class="adsbygoogle example_responsive_1"
+     style="display:block"
+     data-ad-client="ca-pub-0423981136367513"
+     data-ad-slot="2090137338"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+						
+						
+							<!-- login form, to be moved to the upper drop-down -->
+							
+
+
+
+
+
+
+
+<form action="login/login" method="post" class="xenForm " id="login" style="display:none">
+
+	
+
+	<div class="ctrlWrapper">
+		<dl class="ctrlUnit">
+			<dt><label for="LoginControl">Your name or email address:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" /></dd>
+		</dl>
+	
+	
+		<dl class="ctrlUnit">
+			<dt>
+				<label for="ctrl_password">Do you already have an account?</label>
+			</dt>
+			<dd>
+				<ul>
+					<li><label for="ctrl_not_registered"><input type="radio" name="register" value="1" id="ctrl_not_registered" tabindex="105" />
+						No, create an account now.</label></li>
+					<li><label for="ctrl_registered"><input type="radio" name="register" value="0" id="ctrl_registered" tabindex="105" checked="checked" class="Disabler" />
+						Yes, my password is:</label></li>
+					<li id="ctrl_registered_Disabler">
+						<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" />
+						<div class="lostPassword"><a href="lost-password/" class="OverlayTrigger OverlayCloser" tabindex="106">Forgot your password?</a></div>
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	
+		
+		<dl class="ctrlUnit submitUnit">
+			<dt></dt>
+			<dd>
+				<input type="submit" class="button primary" value="Log in" tabindex="104" data-loginPhrase="Log in" data-signupPhrase="Sign up" />
+				<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103" /> Stay logged in</label>
+			</dd>
+		</dl>
+	</div>
+
+	<input type="hidden" name="cookie_check" value="1" />
+	<input type="hidden" name="redirect" value="/" />
+	<input type="hidden" name="_xfToken" value="" />
+
+</form>
+						
+						
+						
+						
+					</div>
+										
+				</div>
+				
+				<!-- sidebar -->
+				<aside>
+					<div class="sidebar">
+						
+						
+
+
+						
+
+
+<div class="section loginButton">		
+	<div class="secondaryContent">
+		<label for="LoginControl" id="SignupButton"><a href="login/" class="inner">Sign up now!</a></label>
+	
+		
+	
+	</div>
+</div>
+
+
+
+
+
+						
+	
+	
+	
+		
+			
+
+<!-- block: sidebar_online_staff -->
+
+<!-- end block: sidebar_online_staff -->
+
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">		
+	<div class="secondaryContent">
+		<h3><a href="online/" title="See all online users">Members Online Now</a></h3>
+		
+		
+		
+			
+			
+			<ol class="listInline">
+				
+					
+						<li>
+						
+							<a href="members/swindonbert.39491/" dir="auto"
+								class="username">SwindonBert</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/iron-girder.27429/" dir="auto"
+								class="username">Iron Girder</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/butts.8762/" dir="auto"
+								class="username">Butts</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/jonnyb.24724/" dir="auto"
+								class="username">JonnyB</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/bovverboy.23071/" dir="auto"
+								class="username">Bovverboy</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/glbotu.14578/" dir="auto"
+								class="username">glbotu</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/foggycorner.36657/" dir="auto"
+								class="username">Foggycorner</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/class303.14996/" dir="auto"
+								class="username">class303</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/matt_world2004.27385/" dir="auto"
+								class="username">matt_world2004</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/gusb.35023/" dir="auto"
+								class="username">GusB</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/1812_s.60329/" dir="auto"
+								class="username">1812_s</a>
+						
+						</li>
+					
+				
+				
+			</ol>
+		
+		
+		<div class="footnote">
+			Total: 259 (members: 14, guests: 172, robots: 73)
+		</div>
+	</div>
+</div>
+<!-- end block: sidebar_online_users -->
+		
+		
+		
+			<div class="section threadList">
+				<div class="secondaryContent">
+					<h3><a href="find-new/posts" rel="nofollow">New Posts</a></h3>
+					
+
+<ul>
+
+	<li id="thread-158230" class="threadListItem" data-author="1812_s">
+
+		<a href="members/1812_s.60329/" class="avatar Av60329s" data-avatarhtml="true"><img src="styles/railukforums/xenforo/avatars/avatar_male_s.png" width="48" height="48" alt="1812_s" /></a>
+		
+		<div class="messageInfo">
+			
+			<div class="messageContent">
+				<div class="title">
+				
+					<a href="posts/3382575/">GTR Trainee Drivers Hornsey/ Cricklewood</a>
+				
+				</div>
+			</div>
+
+			<div class="additionalRow muted">
+				Latest: 1812_s, <abbr class="DateTime" data-time="1521435170" data-diff="885" data-datestring="19 Mar 2018" data-timestring="04:52">19 Mar 2018 at 04:52</abbr>
+			</div>
+			
+			<div class="additionalRow muted">
+				<a href="forums/railway-jobs-careers.122/" class="forumLink">Railway Jobs &amp; Careers</a>
+			</div>
+		</div>
+	</li>
+
+	<li id="thread-161964" class="threadListItem" data-author="Mintona">
+
+		<a href="members/mintona.280/" class="avatar Av280s" data-avatarhtml="true"><img src="data/avatars/s/0/280.jpg?1507542730" width="48" height="48" alt="Mintona" /></a>
+		
+		<div class="messageInfo">
+			
+			<div class="messageContent">
+				<div class="title">
+				
+					<a href="posts/3382573/">Work-Life Balance on the Railway</a>
+				
+				</div>
+			</div>
+
+			<div class="additionalRow muted">
+				Latest: Mintona, <abbr class="DateTime" data-time="1521432943" data-diff="3112" data-datestring="19 Mar 2018" data-timestring="04:15">19 Mar 2018 at 04:15</abbr>
+			</div>
+			
+			<div class="additionalRow muted">
+				<a href="forums/railway-jobs-careers.122/" class="forumLink">Railway Jobs &amp; Careers</a>
+			</div>
+		</div>
+	</li>
+
+	<li id="thread-162060" class="threadListItem" data-author="Mintona">
+
+		<a href="members/mintona.280/" class="avatar Av280s" data-avatarhtml="true"><img src="data/avatars/s/0/280.jpg?1507542730" width="48" height="48" alt="Mintona" /></a>
+		
+		<div class="messageInfo">
+			
+			<div class="messageContent">
+				<div class="title">
+				
+					<a href="posts/3382572/">St Pancras = St Patricks</a>
+				
+				</div>
+			</div>
+
+			<div class="additionalRow muted">
+				Latest: Mintona, <abbr class="DateTime" data-time="1521430358" data-diff="5697" data-datestring="19 Mar 2018" data-timestring="03:32">19 Mar 2018 at 03:32</abbr>
+			</div>
+			
+			<div class="additionalRow muted">
+				<a href="forums/uk-railway-discussion.42/" class="forumLink">UK Railway Discussion</a>
+			</div>
+		</div>
+	</li>
+
+	<li id="thread-161979" class="threadListItem" data-author="61653 HTAFC">
+
+		<a href="members/61653-htafc.18495/" class="avatar Av18495s" data-avatarhtml="true"><img src="data/avatars/s/18/18495.jpg?1507167591" width="48" height="48" alt="61653 HTAFC" /></a>
+		
+		<div class="messageInfo">
+			
+			<div class="messageContent">
+				<div class="title">
+				
+					<a href="posts/3382571/">Train company branding: &quot;Trains&quot; vs &quot;Railways&quot;</a>
+				
+				</div>
+			</div>
+
+			<div class="additionalRow muted">
+				Latest: 61653 HTAFC, <abbr class="DateTime" data-time="1521429498" data-diff="6557" data-datestring="19 Mar 2018" data-timestring="03:18">19 Mar 2018 at 03:18</abbr>
+			</div>
+			
+			<div class="additionalRow muted">
+				<a href="forums/uk-railway-discussion.42/" class="forumLink">UK Railway Discussion</a>
+			</div>
+		</div>
+	</li>
+
+	<li id="thread-161983" class="threadListItem" data-author="Shaw S Hunter">
+
+		<a href="members/shaw-s-hunter.34172/" class="avatar Av34172s" data-avatarhtml="true"><img src="styles/railukforums/xenforo/avatars/avatar_s.png" width="48" height="48" alt="Shaw S Hunter" /></a>
+		
+		<div class="messageInfo">
+			
+			<div class="messageContent">
+				<div class="title">
+				
+					<a href="posts/3382570/">Should employers be required by law to provide a sick room and subsidised waited on restaurant?</a>
+				
+				</div>
+			</div>
+
+			<div class="additionalRow muted">
+				Latest: Shaw S Hunter, <abbr class="DateTime" data-time="1521427650" data-diff="8405" data-datestring="19 Mar 2018" data-timestring="02:47">19 Mar 2018 at 02:47</abbr>
+			</div>
+			
+			<div class="additionalRow muted">
+				<a href="forums/general-discussion.13/" class="forumLink">General Discussion</a>
+			</div>
+		</div>
+	</li>
+
+</ul>
+				</div>
+			</div>
+		
+		
+		
+			<div class="section profilePostList">
+				<div class="secondaryContent">
+					<h3><a href="find-new/profile-posts" rel="nofollow">New Profile Posts</a></h3>
+					
+<ul id="ProfilePostList" class="">
+
+	
+
+
+<li id="profile-post-10872" class="profilePostListItem   " data-author="TT-ONR-NRN">
+
+	<a href="members/tt-onr-nrn.37171/" class="avatar Av37171s" data-avatarhtml="true"><img src="data/avatars/s/37/37171.jpg?1521378746" width="48" height="48" alt="TT-ONR-NRN" /></a>
+	
+	<div class="messageInfo">
+		
+		<div class="messageContent">
+			<span class="poster">
+				<a href="members/tt-onr-nrn.37171/" class="username" dir="auto">TT-ONR-NRN</a>
+				
+					<span class="muted">&#9658;</span> <a href="members/deltic1989.7605/" class="username" dir="auto">deltic1989</a>
+				
+			</span>
+			<article><blockquote class="ugc baseHtml">Happy birthday.</blockquote></article>
+		</div>
+
+		<div class="messageMeta">
+			<div class="privateControls">
+				<a href="profile-posts/10872/" title="Permalink" class="item muted"><abbr class="DateTime" data-time="1521372832" data-diff="63223" data-datestring="18 Mar 2018" data-timestring="11:33">18 Mar 2018 at 11:33</abbr></a>
+			</div>
+
+			<div class="publicControls">
+				<a href="profile-posts/10872/" class="item Tooltip OverlayTrigger" title="Interact" data-tipclass="flipped" data-offsetX="7" data-offsetY="-7">&#8226;&#8226;&#8226;</a>
+			</div>
+		</div>
+
+	</div>
+</li>
+
+	
+
+
+<li id="profile-post-10871" class="profilePostListItem   " data-author="TT-ONR-NRN">
+
+	<a href="members/tt-onr-nrn.37171/" class="avatar Av37171s" data-avatarhtml="true"><img src="data/avatars/s/37/37171.jpg?1521378746" width="48" height="48" alt="TT-ONR-NRN" /></a>
+	
+	<div class="messageInfo">
+		
+		<div class="messageContent">
+			<span class="poster">
+				<a href="members/tt-onr-nrn.37171/" class="username" dir="auto">TT-ONR-NRN</a>
+				
+					<span class="muted">&#9658;</span> <a href="members/pjnathanail.16644/" class="username" dir="auto">pjnathanail</a>
+				
+			</span>
+			<article><blockquote class="ugc baseHtml">Happy Birthday</blockquote></article>
+		</div>
+
+		<div class="messageMeta">
+			<div class="privateControls">
+				<a href="profile-posts/10871/" title="Permalink" class="item muted"><abbr class="DateTime" data-time="1521372802" data-diff="63253" data-datestring="18 Mar 2018" data-timestring="11:33">18 Mar 2018 at 11:33</abbr></a>
+			</div>
+
+			<div class="publicControls">
+				<a href="profile-posts/10871/" class="item Tooltip OverlayTrigger" title="Interact" data-tipclass="flipped" data-offsetX="7" data-offsetY="-7">&#8226;&#8226;&#8226;</a>
+			</div>
+		</div>
+
+	</div>
+</li>
+
+	
+
+
+<li id="profile-post-10870" class="profilePostListItem   " data-author="TT-ONR-NRN">
+
+	<a href="members/tt-onr-nrn.37171/" class="avatar Av37171s" data-avatarhtml="true"><img src="data/avatars/s/37/37171.jpg?1521378746" width="48" height="48" alt="TT-ONR-NRN" /></a>
+	
+	<div class="messageInfo">
+		
+		<div class="messageContent">
+			<span class="poster">
+				<a href="members/tt-onr-nrn.37171/" class="username" dir="auto">TT-ONR-NRN</a>
+				
+					<span class="muted">&#9658;</span> <a href="members/thejrb.9149/" class="username" dir="auto">TheJRB</a>
+				
+			</span>
+			<article><blockquote class="ugc baseHtml">Happy Birthday! (Even though your avatar is of a Networker...)<br />
+:)</blockquote></article>
+		</div>
+
+		<div class="messageMeta">
+			<div class="privateControls">
+				<a href="profile-posts/10870/" title="Permalink" class="item muted"><abbr class="DateTime" data-time="1521331345" data-diff="104710" data-datestring="18 Mar 2018" data-timestring="00:02">18 Mar 2018 at 00:02</abbr></a>
+			</div>
+
+			<div class="publicControls">
+				<a href="profile-posts/10870/" class="item Tooltip OverlayTrigger" title="Interact" data-tipclass="flipped" data-offsetX="7" data-offsetY="-7">&#8226;&#8226;&#8226;</a>
+			</div>
+		</div>
+
+	</div>
+</li>
+
+	
+
+
+<li id="profile-post-10868" class="profilePostListItem   " data-author="507021">
+
+	<a href="members/507021.28799/" class="avatar Av28799s" data-avatarhtml="true"><img src="data/avatars/s/28/28799.jpg?1520440288" width="48" height="48" alt="507021" /></a>
+	
+	<div class="messageInfo">
+		
+		<div class="messageContent">
+			<span class="poster">
+				<a href="members/507021.28799/" class="username" dir="auto">507021</a>
+				
+			</span>
+			<article><blockquote class="ugc baseHtml">Trip report and mileage update coming soon.</blockquote></article>
+		</div>
+
+		<div class="messageMeta">
+			<div class="privateControls">
+				<a href="profile-posts/10868/" title="Permalink" class="item muted"><abbr class="DateTime" data-time="1521298801" data-diff="137254" data-datestring="17 Mar 2018" data-timestring="15:00">17 Mar 2018 at 15:00</abbr></a>
+			</div>
+
+			<div class="publicControls">
+				<a href="profile-posts/10868/" class="item Tooltip OverlayTrigger" title="Interact" data-tipclass="flipped" data-offsetX="7" data-offsetY="-7">&#8226;&#8226;&#8226;</a>
+			</div>
+		</div>
+
+	</div>
+</li>
+
+	
+
+
+<li id="profile-post-10867" class="profilePostListItem   " data-author="TT-ONR-NRN">
+
+	<a href="members/tt-onr-nrn.37171/" class="avatar Av37171s" data-avatarhtml="true"><img src="data/avatars/s/37/37171.jpg?1521378746" width="48" height="48" alt="TT-ONR-NRN" /></a>
+	
+	<div class="messageInfo">
+		
+		<div class="messageContent">
+			<span class="poster">
+				<a href="members/tt-onr-nrn.37171/" class="username" dir="auto">TT-ONR-NRN</a>
+				
+					<span class="muted">&#9658;</span> <a href="members/ainsworth74.5117/" class="username" dir="auto">ainsworth74</a>
+				
+			</span>
+			<article><blockquote class="ugc baseHtml">Happy birthday :)</blockquote></article>
+		</div>
+
+		<div class="messageMeta">
+			<div class="privateControls">
+				<a href="profile-posts/10867/" title="Permalink" class="item muted"><abbr class="DateTime" data-time="1521073318" data-diff="362737" data-datestring="15 Mar 2018" data-timestring="00:21">15 Mar 2018 at 00:21</abbr></a>
+			</div>
+
+			<div class="publicControls">
+				<a href="profile-posts/10867/" class="item Tooltip OverlayTrigger" title="Interact" data-tipclass="flipped" data-offsetX="7" data-offsetY="-7">&#8226;&#8226;&#8226;</a>
+			</div>
+		</div>
+
+	</div>
+</li>
+
+</ul>
+				</div>
+			</div>
+		
+		
+		
+<!-- block: forum_stats -->
+		<div class="section">
+			<div class="secondaryContent statsList" id="boardStats">
+				<h3>Forum Statistics</h3>
+				<div class="pairsJustified">
+					<dl class="discussionCount"><dt>Discussions:</dt>
+						<dd>142,326</dd></dl>
+					<dl class="messageCount"><dt>Messages:</dt>
+						<dd>3,174,410</dd></dl>
+					<dl class="memberCount"><dt>Members:</dt>
+						<dd>36,327</dd></dl>
+					<dl><dt>Latest Member:</dt>
+						<dd><a href="members/svg2076.60837/" class="username" dir="auto">SVG2076</a></dd></dl>
+					<!-- slot: forum_stats_extra -->
+				</div>
+			</div>
+		</div>
+		<!-- end block: forum_stats -->
+
+	
+	<div class="section">
+		<dl class="secondaryContent">
+			<h3>Gallery Statistics</h3>
+			<div class="statisticsBlock pairsJustified">
+
+				
+					<dl class="ctrlUnit">
+						<dt>Categories:</dt>
+						<dd>2</dd>
+					</dl>
+				
+
+				
+					<dl class="ctrlUnit">
+						<dt>Albums:</dt>
+						<dd>661</dd>
+					</dl>
+				
+
+				<dl class="ctrlUnit">
+					<dt>Uploaded Media:</dt>
+					<dd>3,041</dd>
+				</dl>
+
+				<dl class="ctrlUnit">
+					<dt>Embedded Media:</dt>
+					<dd>0</dd>
+				</dl>
+
+				<dl class="ctrlUnit">
+					<dt>Comments:</dt>
+					<dd>91</dd>
+				</dl>
+
+				<dl class="ctrlUnit">
+					<dt>Disk Usage:</dt>
+					<dd>554.6 MB</dd>
+				</dl>
+			</div>
+		</dl>
+	</div>
+	
+
+
+		
+			
+	
+	<div class="section infoBlock sharePage">
+		<div class="secondaryContent">
+			<h3>Share This Page</h3>
+			
+				
+				
+					<div class="tweet shareControl">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"
+							data-lang="en-GB"
+							data-url="https://www.railforums.co.uk/"
+							
+							>Tweet</a>
+					</div>
+						
+				
+					<div class="facebookLike shareControl">
+						
+						<div class="fb-like" data-href="https://www.railforums.co.uk/" data-layout="button_count" data-action="recommend" data-font="trebuchet ms" data-colorscheme="light"></div>
+					</div>
+				
+					
+						
+			
+		</div>
+	</div>
+
+		
+	
+
+						
+						
+					</div>
+				</aside>
+				
+			
+				
+			
+						
+			
+			
+						
+			<div class="breadBoxBottom">
+
+<nav>
+	
+
+	<fieldset class="breadcrumb">
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Open quick navigation"><i class="fa fa-sitemap"></i><!--Jump to...--></a> 
+			
+		<div class="boardTitle"><strong>RailUK Forums</strong></div>
+		
+		<span class="crumbs">
+			
+				<span class="crust homeCrumb">
+					<a href="https://www.railforums.co.uk" class="crumb"><span>Home</span></a>
+					<span class="arrow"><span></span></span>
+				</span>
+			
+			
+			
+				<span class="crust selectedTabCrumb">
+					<a href="https://www.railforums.co.uk/" class="crumb"><span>Forums</span></a>
+					<span class="arrow"><span>&gt;</span></span>
+				</span>
+			
+			
+			
+		</span>
+	</fieldset>
+</nav></div>
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+	
+</div>
+
+
+
+</div>
+
+<footer>
+	
+
+
+<div class="footer">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<dl class="choosers">
+			
+				
+					<dt>Style</dt>
+					<dd><a href="misc/style?redirect=%2F" class="OverlayTrigger Tooltip" title="Style Chooser" rel="nofollow"><span>Rail UK Forums v2 O</span> <i class="fa fa-paint-brush fa-fw"></i></a></dd>
+				
+				
+				
+							
+			</dl>
+			
+			
+			<ul class="footerLinks">
+			
+				
+					<li><a href="misc/contact" class="OverlayTrigger" data-overlayOptions="{&quot;fixed&quot;:false}"><i class="fa fa-envelope-o fa-fw"></i> <span>Contact Us</span></a></li>
+				
+				<li><a href="help/"><i class="fa fa-life-ring fa-fw"></i> <span>Help</span></a></li>
+				<li><a href="https://www.railforums.co.uk" class="homeLink"><i class="fa fa-home fa-fw"></i> <span>Home</span></a></li>
+				<li><a href="/#headerMover" class="topLink"> <i class="fa fa-arrow-up fa-fw"></i><span>Top</span></a></li>
+			
+				<li><a href="https://www.railforums.co.uk/threads/forum-rules.27358/"><i class="fa fa-gavel fa-fw"></i> <span>Terms and Rules</span></a></li>
+				
+			
+				<li><a href="forums/-/index.rss" rel="alternate" class="globalFeed" target="_blank"
+					title="RSS feed for RailUK Forums"><i class="fa fa-rss fa-fw"></i></a></li>
+			
+			</ul>
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="footerLegal">
+	<div class="pageWidth">
+		<div class="pageContent">			
+			<div id="copyright"><a href="https://xenforo.com" class="concealed">Forum software by XenForo&trade; <span>&copy;2010-2017 XenForo Ltd.</span></a> <span>|</span> <a href="https://pixelexit.com" rel="nofollow" class="peCopyright Tooltip" title="Free, Premium and Custom Xenforo styles!"> XenForo style by Pixel Exit</a>  </div>
+			
+			
+			
+			<span class="helper"></span>
+		</div>
+	</div>	
+</div>
+
+</footer>
+
+
+
+
+</div>
+
+
+<script>
+
+
+jQuery.extend(true, XenForo,
+{
+	visitor: { user_id: 0 },
+	serverTimeInfo:
+	{
+		now: 1521436055,
+		today: 1521417600,
+		todayDow: 1
+	},
+	_lightBoxUniversal: "0",
+	_enableOverlays: "1",
+	_animationSpeedMultiplier: "1",
+	_overlayConfig:
+	{
+		top: "10%",
+		speed: 200,
+		closeSpeed: 100,
+		mask:
+		{
+			color: "rgb(45, 45, 45)",
+			opacity: "0.6",
+			loadSpeed: 200,
+			closeSpeed: 100
+		}
+	},
+	_ignoredUsers: [],
+	_loadedScripts: {"node_list":true,"node_category":true,"node_forum":true,"thread_list_simple":true,"profile_post_list_simple":true,"bb_code":true,"sidebar_share_page":true,"xb":true,"xb_offcanvas_menu":true,"xengallery_tab_links":true,"login_bar":true,"fc_mileage":true,"xb_quicksearch_nav":true},
+	_cookieConfig: { path: "/", domain: "", prefix: "xf_"},
+	_csrfToken: "",
+	_csrfRefreshUrl: "login/csrf-token-refresh",
+	_jsVersion: "cd1a36a4",
+	_noRtnProtect: false,
+	_noSocialLogin: false
+});
+jQuery.extend(XenForo.phrases,
+{
+	xengallery_lightbox_loading:	"Loading...",
+	xengallery_lightbox_close:	"Close (Esc)",
+	xengallery_lightbox_previous:	"Previous (Left arrow key)",
+	xengallery_lightbox_next:	"Next (Right arrow key)",
+	xengallery_lightbox_counter:	"%curr% of %total%",
+	xengallery_lightbox_error:	"The <a href=\"%url%\">media<\/a> could not be loaded.",
+	xengallery_touch_error:		"This operation will not work from a touch enabled device.",
+	cancel: "Cancel",
+
+	a_moment_ago:    "A moment ago",
+	one_minute_ago:  "1 minute ago",
+	x_minutes_ago:   "%minutes% minutes ago",
+	today_at_x:      "Today at %time%",
+	yesterday_at_x:  "Yesterday at %time%",
+	day_x_at_time_y: "%day% at %time%",
+
+	day0: "Sunday",
+	day1: "Monday",
+	day2: "Tuesday",
+	day3: "Wednesday",
+	day4: "Thursday",
+	day5: "Friday",
+	day6: "Saturday",
+
+	_months: "January,February,March,April,May,June,July,August,September,October,November,December",
+	_daysShort: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+
+	following_error_occurred: "The following error occurred",
+	server_did_not_respond_in_time_try_again: "The server did not respond in time. Please try again.",
+	logging_in: "Logging in",
+	click_image_show_full_size_version: "Click this image to show the full-size version.",
+	show_hidden_content_by_x: "Show hidden content by {names}"
+});
+
+// Facebook Javascript SDK
+XenForo.Facebook.appId = "";
+XenForo.Facebook.forceInit = true;
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--XenBase Current Version : 1.5.7 -->
+<!--Style Version : 1.4.8 -->
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "https://www.railforums.co.uk/",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://www.railforums.co.uk/search/search?keywords={search_keywords}",
+		"query-input": "required name=search_keywords"
+	}
+}
+</script>
+
+
+
+</body>
+</html>

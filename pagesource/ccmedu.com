@@ -1,0 +1,1 @@
+<frameset><frame src="http://www.ccmedu.com/blog/blog.asp?domain=ccmedu.com"></frameset>

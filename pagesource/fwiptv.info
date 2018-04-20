@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+  <title>FWIPTV</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=1280" />
+<link rel="shortcut icon" href="favicov.ico?1" />
+<link href="https://fonts.googleapis.com/css?family=Pridi&amp;subset=thai" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/jquery.growl.css">
+<link rel="apple-touch-icon-precomposed" href="images/xxx/fwtv-logo.png"/>
+<link rel='stylesheet' href="css/fwiptv.css?v=1521539072" type='text/css' />
+<link rel="stylesheet" href="css/jquery.itoppage.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/jquery.growl.js"></script>
+<script type="text/javascript" src="js/jquery.itoppage.js"></script>
+	<script>
+  $(function() {
+	$().iTopPage();
+	$(".rslides").responsiveSlides({
+  auto: true,             // Boolean: Animate automatically, true or false
+  speed: 1000,            // Integer: Speed of the transition, in milliseconds
+  timeout: 10000,          // Integer: Time between slide transitions, in milliseconds
+  pager: false,           // Boolean: Show pager, true or false
+  nav: false,             // Boolean: Show navigation, true or false
+  random: false,          // Boolean: Randomize the order of the slides, true or false
+  pause: false,           // Boolean: Pause on hover, true or false
+  pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+  maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+  navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+  manualControls: "",     // Selector: Declare custom pager navigation
+  namespace: "rslides",   // String: Change the default namespace used
+  before: function(){},   // Function: Before callback
+  after: function(){}     // Function: After callback
+});
+	$("#slogin").submit(function(){
+		$.post("fw-check_login.php",$("#slogin").serialize(),function(data){
+			if(data==1)
+			{ 
+				window.location='manu.php';
+			}
+			else if(data==2)
+			{ 
+				$.growl({ title: "Error", message: "ชื่อผู้ใช้ของคุณกำลังเข้าใช้งานอยู่ในขณะนี้ โปรดรอสักครู่.....!!!" });
+			}
+			else if(data==3)
+			{ 
+				window.location='manu.php';
+			}
+			else if(data==4)
+			{ 
+				$.growl({ title: "Error", message: "กรุณาติดต่อฝ่ายเทคนิคเพื่อแก้ไข" });
+			}
+			else if(data==5)
+			{ 
+				$.growl({ title: "Error", message: "รหัสยืนยันผิดพลาด" });
+			}
+			else if(data==7)
+			{ 
+				$.growl({ title: "Error", message: "โดนแบนไอพีกรุณา รอ 15 นาที จากนั้นเข้าใหม่!!!" });
+			}
+			else if(data==12)
+			{ 
+				$.growl({ title: "Error", message: "ชื่อผู้ใช้หรือพาสเวิดผิดพลาดค่ะ กรุณาลองอีกครั้ง" });
+			}
+			else if(data==14)
+			{ 
+				$.growl({ title: "Error", message: "คุณเข้าใช้งานผิดพลาดเกินจำนวน กรุณากรอกข้อมูลให้ถูกต้อง !!!" });
+				setTimeout(function() {
+				window.location = 'fw-login.php';
+				}, 5000);
+			}
+		});
+		return false;
+	});
+	$("#pregister").submit(function(){
+		$.post("register.php",$("#pregister").serialize(),function(data){
+			if(data==1)
+			{ 
+				$.growl({ title: "Error", message: "กรุณาตรวจสอบข้อมูลใหม่อีกครั้ง...!!!" });
+			}
+			else if(data==2)
+			{ 
+				$.growl({ title: "Error", message: "กรุณาเปลี่ยนชื่อผู้ใช้ใหม่ค่ะ....!!!" });
+			}
+			else if(data==3)
+			{ 
+				$.growl({ title: "Error", message: "บัตรของคุณอาจถูกใช้งานแล้ว หรือ รหัสบัตรไม่ถูกต้อง....!!!" });
+			}
+			else if(data==4)
+			{ 
+				$.growl({ title: "Success", message: "สมัครสมาชิกเรียบร้อยค่ะ กรุณารอสักครู่เพื่อเข้าใช้งาน (^_^)" });
+				setTimeout(function() {
+				window.location = 'manu.php';
+				}, 5000);
+			}
+		});
+		return false;
+	});
+  });
+
+function ajax_checkusername(username , password)
+{
+if(password.length <= "5")
+  {
+  document.getElementById("truesubmit").innerHTML="";
+  return;
+  }
+else
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	document.getElementById("truesubmit").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","checkuser.php?id=" + username + "&pass=" + password,true);
+xmlhttp.send();
+}
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70402382-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  $(function(){
+   $('ul li a').click(function(){
+      var item=$(this).parent();
+       $('ul li').removeClass('current');
+       item.addClass('current')
+    });
+});
+	</script>
+<body>
+<form method='POST' action='' name="slogin" id="slogin">
+<table align='center' style="width:1247px;border:0px solid #830000;">
+  <tr>
+    <td rowspan='2' align='left' width='320'><a href="?type="><img tabindex='1' src='images/fwiptv/fwiptv.png?0.01994800 1521539072' width='315' height='50'></a></td>
+	<td align='center' width='900'>
+<table align="center" style="margin-top:1px" cellpadding='4'>
+  <tr>
+  <td><b>ยินดีต้อนรับค่ะ</b></td>
+    <td><input tabindex='2' class="textboxflied person" name='username' id='username' type='text' placeholder="USERNAME" value='' /></td>
+    <td><input tabindex='3' class="textboxflied lock" name='password' id='password' type='password' placeholder="PASSWORD" value='' /></td>
+      <td><b>จดจำ </b><input tabindex='4' type="checkbox" value="1" name="remember" checked/></td>
+	   	  <td><input tabindex='6' id="login" name="login" type='image' src='images/fwiptv/login.gif' width='130' height='35' /></td>
+  </tr>
+</table>
+</td></tr></table></form>
+<div align='center'><ul class='rslides'><li><img src='https://image.goosiam.com/imgupload/upload62/pwsNafn39vGy.jpg' />
+</li><li><img src='https://image.goosiam.com/imgupload/upload62/pwsNafn39vGy.jpg' />
+</li><li><img src='https://image.goosiam.com/imgupload/upload62/pwsNafn39vGy.jpg' />
+</li><li><img src='https://image.goosiam.com/imgupload/upload62/pwsNafn39vGy.jpg' />
+</li><li><img src='https://image.goosiam.com/imgupload/upload62/pwsNafn39vGy.jpg' /></li></ul></div><div align="center"><div style="width:1265px;margin-top:5px;"><a href="?type=r"><img tabindex="9" src="images/fwiptv/register.gif" width="252" height="57" /></a><a href="faq/iphone.php"><img tabindex="10" src="images/fwiptv/ios.png" width="252" height="57" /></a><a href="faq/android.php"><img tabindex="11" src="images/fwiptv/android.png" width="252" height="57" /></a><a href="faq/pc.php"><img tabindex="12" src="images/fwiptv/pc.png" width="252" height="57" /></a><a href="?chplayer=fw&type=demo"><img tabindex="13" src="images/fwiptv/test.gif" width="252" height="57" /></a></div></div>
+<div align="center" style="margin-top:5px;"><a href='https://www.facebook.com/fwiptvhd.fanpage'><img  width="136" height="36" border="0" tabindex="14" src='images/fwiptv/fbcon.png' /></a> <a href="http://line.me/ti/p/@fwiptvhd"><img height="36" border="0" alt="เพิ่มเพื่อน" tabindex="15" src="images/fwiptv/addfriends_en.png"></a></div>
+<div align="center" style="margin-top:5px;"><a href='test2.php'>54.81.128.172</a></div>
+<style type="text/css">
+
+.containMarquee{
+ 	position:relative;
+	width:96%;
+	margin:auto;
+	display:block;
+	height:40px;
+	background-color:#ffffff;	
+	overflow:hidden;
+	color:#000000;
+}
+
+.obj_marquee{
+	position:absolute;
+	display:block;
+	white-space:nowrap;
+}
+</style>
+<div align="center" style="margin-top:55px;">
+<div style="position:fixed; left:0px; bottom:0px; z-index:2;width:100%; background-color:#ffffff">
+<div class="containMarquee">
+<span class="obj_marquee">
+<div class="textslide">. . . ยินดีต้อนรับสู่ FWIPTV HD ขอให้สมาชิกทุกท่านมีความสุขในการรับชม FWIPTV นะคะ . . .</div>
+</span>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var move_marquee;
+var marquee_status;
+var marquee_move;
+var marquee_speed;
+var marquee_step;
+var marquee_direction;
+var newLeft;
+var obj;
+$(function(){
+	
+	var divCover_w=$(".containMarquee").width();
+	var divMarquee_w=$(".obj_marquee").width()
+	obj=$(".obj_marquee");
+	marquee_direction=1;
+	marquee_speed=50;
+	marquee_step=2;
+	
+	obj.css("left",(marquee_direction==1)?divCover_w:-divMarquee_w);
+	marquee_move=function(obj){
+		marquee_status=setTimeout(function(){
+			move_marquee(obj)
+		},marquee_speed);		
+	}
+	move_marquee=function(obj){
+		var condition_mq=(marquee_direction==2)?'newLeft<divCover_w':'newLeft>-divMarquee_w';
+		var initLeft=(marquee_direction==1)?divCover_w:-divMarquee_w;
+		newLeft=(marquee_direction==1)
+		?parseInt(obj.css('left'))-marquee_step
+		:parseInt(obj.css('left'))+marquee_step;
+		if(eval(condition_mq)){
+			obj.css({
+				'left':newLeft+'px'
+			});
+		}else{
+			obj.css("left",initLeft);
+		}				
+		marquee_move(obj);
+	}	
+	marquee_move(obj);
+
+
+	$(".containMarquee").mouseover(function(){
+		clearTimeout(marquee_status);
+	}).mouseout(function(){
+		marquee_move(obj);
+	});
+
+	
+});
+</script><script type="text/javascript">
+function loadAjaxAnDemo( tid )
+{
+var result;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	result=xmlhttp.responseText;
+	if(result==1){
+	$.growl({ title: "Error", message: "กรุณาตรวจสอบรายละเอียดการใช้งาน" });
+	}else{
+	window.location.href=result;
+	}
+    }
+  }
+xmlhttp.open("GET","player_andemo.php?channel=" + tid,true);
+xmlhttp.send();
+}
+function loadAjaxDemo( channel_code ){
+		$('#fwplayer').load('player_demo.php?channel=' + channel_code);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Filmek és sorozatok online adatlapjai regisztráció nélkül. Naponta frissülő több ezer válogatott adatlap film és sorozat-hoz. " />
+	<meta name="keywords" content="filmezz.eu online filmnézés, online filmek, filmezz.eu letöltés" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<meta name="google-site-verification" content="TyCUQACkmWX42BzCHJXf6k5UMIXACaZUCQpwZOgIzXE" />
+	
+
+	<title>filmezz.eu - Online filmek adatlapja</title>
+	
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>	
+	<script src="js/jquery.rating.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	
+	
+	<link rel="stylesheet" href="css/token-input.css?v=46" />
+	<link rel="stylesheet" href="css/dropdown-checklist.css?v=46" />
+	<link rel="stylesheet" href="css/font-awesome.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.css" />
+	<link rel="stylesheet" href="css/flat-form.css" />
+	<link rel="stylesheet" href="js/venobox/venobox.css" />
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+	<!--[if LTE IE 8]>
+		<link rel="stylesheet" href="css/lte-ie8.css" />
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+	<![endif]-->
+
+	<script>
+			//catscoo=$.cookie('filmezz_cats');
+		//advscoo=$.cookie('filmezz_advs');
+		hb=$.cookie('flz_hb');
+		
+	//  0: minden csukva
+	//  1: kereső
+	//  2: részletes cucc
+	//  3: vissza a találatokhoz
+	
+	function hbtoogle(a){
+        if(hb==a){
+            $('#hb'+a).slideUp(300);
+            hb=0;
+            $.cookie('flz_hb',hb);
+        }else{
+            $('#hb'+hb).slideUp(300);
+            $('#hb'+a).slideDown(300);
+            hb=a;
+            $.cookie('flz_hb',hb);
+        }
+		
+		if(hb==a){
+			if(a == 1) {
+				$('#menu-categories').removeClass('active');
+				$('#menu-filter').addClass('active');
+			} else if(a == 2) {
+				$('#menu-categories').addClass('active');
+				$('#menu-filter').removeClass('active');
+			}
+		}
+		else {
+			$('#menu-categories').removeClass('active');
+			$('#menu-filter').removeClass('active');
+		}
+    }
+	</script>
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=150449808497405&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<header class="header">
+	<div class="header-bg"><span></span></div>
+	
+	<div class="container">
+		<div class="header-wrapper">
+			<div class="col-sm-2">
+				<a href="/" class="logo">filmezz<span>.eu</span></a>
+			</div>
+			
+			<nav class="col-sm-10">
+				<ul class="pull-right list-inline menu">
+					<li><a href="http://filmezz.eu">Főoldal</a></li>
+					<li><a href="kereses.php?t=1&o=feltoltve">Filmek</a></li>
+					<li><a href="kereses.php?t=2&o=feltoltve">Sorozatok</a></li>
+					<!--<li><a href="segitseg.php">Segítség</a></li>-->
+					<li><a href="friss.php">Új epizódok</a></li>
+					<li><a href="keresek.php">Kérések</a></li>
+					<li><a href="forum.php">Fórum</a></li>
+					<!--<li><a href="filmkviz.php">Kvíz</a></li>-->
+					<!--<li><a href="kozosseg.php">Közösség</a></li>-->
+					<!--<li><a href="chat.php">Chat</a></li></li>-->
+				</ul>
+			</nav>
+			
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</header>
+
+<div class="top-bar">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 search">
+				<form method="get" action="kereses.php" class="input-group">
+					<input type="text" id="s" name="s" value="" class="form-control search-field" autocomplete="off" placeholder="Keresés..." >
+					
+					<span class="input-group-btn">
+												<select name="w" class="custom-select search-type">
+							<option value="0"  selected="selected">Cím szerint</option>
+							<option value="1" >Szereplők szerint</option>
+							<option value="2" >Rendező szerint</option>
+						</select>
+						
+						<button class="btn btn-default" type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+					
+					<ul id="results" class="list-unstyled"></ul>
+				</form>
+			</div>
+			
+			<div class="col-sm-6">
+				 				
+				<ul class="pull-right list-inline top-buttons">
+				
+								
+					<li class="text"><a href="bejelentkezes.php"  title="Bejelentkezés">Bejelentkezés</a>
+					<li class="text"><a href="regisztracio.php" title="Regisztráció">Regisztráció</a>
+				
+								 
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="top-commercial">
+
+	<div class="container">
+		<!-- REKLÁM HELYE -->
+	</div>
+</div>
+
+
+<div class="submenu">
+	<div class="container">
+		<ul class="list-inline menu-items">
+						<li id="menu-filter"><a href="javascript:void(0);" onclick="hbtoogle(1);">Részletes keresés</a></li>
+						<li id="menu-categories"><a href="javascript:void(0);" onclick="hbtoogle(2);">Kategóriák</a></li>
+			<li><a href="kereses.php?q=0&l=0&e=0&c=0&t=1&h=0&o=nezettseg">Legnézettebb filmek</a></li>
+			<li><a href="kereses.php?q=0&l=0&e=0&c=0&t=2&h=0&o=nezettseg">Legnézettebb sorozatok</a></li>
+			<li><a href="kereses.php?q=0&l=0&e=0&c=0&t=0&h=0&o=feltoltve">Legfrissebb beküldések</a></li>			
+		</ul>
+		
+		<div class="filter" id="hb2" style="display: none;">
+			<ul class="row list-unstyled categories">
+				<li class="col-sm-3 active"><a href="kereses.php?o=imdbrating">Minden</a></li><li class="col-sm-3"><a href="kereses.php?c=18&o=feltoltve">18+</a></li><li class="col-sm-3"><a href="kereses.php?c=akcio&o=feltoltve">Akció</a></li><li class="col-sm-3"><a href="kereses.php?c=animacio&o=feltoltve">Animáció</a></li><li class="col-sm-3"><a href="kereses.php?c=anime&o=feltoltve">Anime</a></li><li class="col-sm-3"><a href="kereses.php?c=csaladi&o=feltoltve">Családi</a></li><li class="col-sm-3"><a href="kereses.php?c=dokumentum&o=feltoltve">Dokumentum</a></li><li class="col-sm-3"><a href="kereses.php?c=dorama&o=feltoltve">Ázsiai</a></li><li class="col-sm-3"><a href="kereses.php?c=drama&o=feltoltve">Dráma</a></li><li class="col-sm-3"><a href="kereses.php?c=eletrajzi&o=feltoltve">Életrajzi</a></li><li class="col-sm-3"><a href="kereses.php?c=fantasy&o=feltoltve">Fantasy</a></li><li class="col-sm-3"><a href="kereses.php?c=haborus&o=feltoltve">Háborús</a></li><li class="col-sm-3"><a href="kereses.php?c=horror&o=feltoltve">Horror</a></li><li class="col-sm-3"><a href="kereses.php?c=kaland&o=feltoltve">Kaland</a></li><li class="col-sm-3"><a href="kereses.php?c=katasztrofa&o=feltoltve">Katasztrófafilm</a></li><li class="col-sm-3"><a href="kereses.php?c=krimi&o=feltoltve">Krimi</a></li><li class="col-sm-3"><a href="kereses.php?c=magyar&o=feltoltve">Magyar film</a></li><li class="col-sm-3"><a href="kereses.php?c=misztikus&o=feltoltve">Misztikus</a></li><li class="col-sm-3"><a href="kereses.php?c=romantikus&o=feltoltve">Romantikus</a></li><li class="col-sm-3"><a href="kereses.php?c=sci-fi&o=feltoltve">Sci-Fi</a></li><li class="col-sm-3"><a href="kereses.php?c=sorozat&o=feltoltve">TV-Sorozat</a></li><li class="col-sm-3"><a href="kereses.php?c=sport&o=feltoltve">Sport</a></li><li class="col-sm-3"><a href="kereses.php?c=thriller&o=feltoltve">Thriller</a></li><li class="col-sm-3"><a href="kereses.php?c=tortenelmi&o=feltoltve">Történelmi</a></li><li class="col-sm-3"><a href="kereses.php?c=vigjatek&o=feltoltve">Vígjáték</a></li><li class="col-sm-3"><a href="kereses.php?c=western&o=feltoltve">Western</a></li><li class="col-sm-3"><a href="kereses.php?c=zenes&o=feltoltve">Zenés</a></li>			</ul>
+		</div>
+		
+		<div class="filter" id="hb1" style="display: none;">
+						<form action="kereses.php" method="get">
+			
+				<div class="row">
+					<div class="col-lg-5 col-sm-4 col-xs-6">
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="q">Minőség</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="q">
+									<option value="0"  selected="selected">Összes</option>
+									<option value="2" >TV-RIP</option>
+									<option value="3" >DVD-RIP</option>
+									<option value="4" >BD-RIP</option>
+									<option value="5" >HD</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="l">Nyelv</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="l">
+									<option value="0"  selected="selected">Összes</option>
+									<option value="2" >Angol-magyar felirattal</option>
+									<option value="3" >Magyar nyelvű</option>
+									<option value="4" >Német</option>
+									<option value="5" >Német-magyar felirattal</option>
+									<option value="6" >Japán-magyar felirattal</option>
+									<option value="7" >Orosz-magyar felirattal</option>
+									<option value="8" >Francia-magyar felirattal</option>
+									<option value="9" >Spanyol-magyar felirattal</option>
+									<option value="10" >Koreai-magyar felirattal</option>
+									<option value="11" >Olasz-magyar felirattal</option>
+									<option value="12" >Kínai-magyar felirattal</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="e">Év</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="e">
+									<option value="0"  selected="selected">Összes</option>
+									<option value="2018" >2018</option><option value="2017" >2017</option><option value="2016" >2016</option><option value="2015" >2015</option><option value="2014" >2014</option><option value="2013" >2013</option><option value="2012" >2012</option><option value="2011" >2011</option><option value="2010" >2010</option><option value="2009" >2009</option><option value="2008" >2008</option><option value="2007" >2007</option><option value="2006" >2006</option><option value="2005" >2005</option><option value="2004" >2004</option><option value="2003" >2003</option><option value="2002" >2002</option><option value="2001" >2001</option><option value="2000" >2000</option><option value="1999" >1999</option><option value="1998" >1998</option><option value="1997" >1997</option><option value="1996" >1996</option><option value="1995" >1995</option><option value="1994" >1994</option><option value="1993" >1993</option><option value="1992" >1992</option><option value="1991" >1991</option><option value="1990" >1990</option><option value="1989" >1989</option><option value="1988" >1988</option><option value="1987" >1987</option><option value="1986" >1986</option><option value="1985" >1985</option><option value="1984" >1984</option><option value="1983" >1983</option><option value="1982" >1982</option><option value="1981" >1981</option><option value="1980" >1980</option><option value="1979" >1979</option><option value="1978" >1978</option><option value="1977" >1977</option><option value="1976" >1976</option><option value="1975" >1975</option><option value="1974" >1974</option><option value="1973" >1973</option><option value="1972" >1972</option><option value="1971" >1971</option><option value="1970" >1970</option><option value="1969" >1969</option><option value="1968" >1968</option><option value="1967" >1967</option><option value="1966" >1966</option><option value="1965" >1965</option><option value="1964" >1964</option><option value="1963" >1963</option><option value="1962" >1962</option><option value="1961" >1961</option><option value="1960" >1960</option><option value="1959" >1959</option><option value="1958" >1958</option><option value="1957" >1957</option><option value="1956" >1956</option><option value="1955" >1955</option><option value="1954" >1954</option><option value="1953" >1953</option><option value="1952" >1952</option><option value="1951" >1951</option><option value="1950" >1950</option><option value="1949" >1949</option><option value="1948" >1948</option><option value="1947" >1947</option><option value="1946" >1946</option><option value="1945" >1945</option><option value="1944" >1944</option><option value="1943" >1943</option><option value="1942" >1942</option><option value="1941" >1941</option><option value="1940" >1940</option><option value="1939" >1939</option><option value="1938" >1938</option><option value="1937" >1937</option><option value="1936" >1936</option><option value="1935" >1935</option><option value="1934" >1934</option><option value="1933" >1933</option><option value="1932" >1932</option><option value="1931" >1931</option><option value="1930" >1930</option><option value="1929" >1929</option><option value="1928" >1928</option><option value="1927" >1927</option><option value="1926" >1926</option><option value="1925" >1925</option><option value="1924" >1924</option><option value="1923" >1923</option><option value="1922" >1922</option><option value="1921" >1921</option><option value="1920" >1920</option><option value="1919" >1919</option><option value="1918" >1918</option><option value="1917" >1917</option><option value="1916" >1916</option><option value="1915" >1915</option><option value="1914" >1914</option><option value="1913" >1913</option><option value="1912" >1912</option><option value="1911" >1911</option><option value="1910" >1910</option><option value="1909" >1909</option><option value="1908" >1908</option><option value="1907" >1907</option><option value="1906" >1906</option><option value="1905" >1905</option><option value="1904" >1904</option><option value="1903" >1903</option><option value="1902" >1902</option><option value="1901" >1901</option><option value="1900" >1900</option>								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-5 col-sm-4 col-xs-6">
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="c">Kategória</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="c">
+									<option value="0" selected="selected">Összes</option>
+									<option value="18">18+</option><option value="akcio">Akció</option><option value="animacio">Animáció</option><option value="anime">Anime</option><option value="csaladi">Családi</option><option value="dokumentum">Dokumentum</option><option value="dorama">Ázsiai</option><option value="drama">Dráma</option><option value="eletrajzi">Életrajzi</option><option value="fantasy">Fantasy</option><option value="haborus">Háborús</option><option value="horror">Horror</option><option value="kaland">Kaland</option><option value="katasztrofa">Katasztrófafilm</option><option value="krimi">Krimi</option><option value="magyar">Magyar film</option><option value="misztikus">Misztikus</option><option value="romantikus">Romantikus</option><option value="sci-fi">Sci-Fi</option><option value="sorozat">TV-Sorozat</option><option value="sport">Sport</option><option value="thriller">Thriller</option><option value="tortenelmi">Történelmi</option><option value="vigjatek">Vígjáték</option><option value="western">Western</option><option value="zenes">Zenés</option>								</select>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="t">Típus</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="t">
+									<option value="0"  selected="selected">Összes</option>
+									<option value="1" >Csak film</option>
+									<option value="2" >Csak sorozat</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<div class="col-sm-5">
+								<label class="control-label" for="h">Tárhely</label>
+							</div>
+							
+							<div class="col-sm-7">
+								<select class="custom-select" name="h">
+									<option value="0"  selected="selected">Összes</option>
+
+									<option value="viki.com" >Viki.com</option><option value="indavideo.hu" >Indavideo</option><option value="youtube.com" >Youtube</option><option value="vidto.me" >Vidto.me</option><option value="vidzi.tv" >Vidzi.tv</option><option value="flashx.tv" >Flashx.tv</option><option value="mega.co.nz" >Mega</option><option value="raptu.com" >Raptu.com</option><option value="thevideo.me" >TheVideo.me</option><option value="openload.co" >Openload.co</option><option value="estream.to" >Estream.to</option><option value="drive.google.com" >Google Drive</option><option value="vidlox.tv" >Vidlox.tv</option><option value="videakid.hu" >Videakid</option><option value="videa.hu" >Videa.hu</option><option value="vidup.me" >Vidup.me</option><option value="ok.ru" >Ok.ru</option><option value="vidoza.net" >Vidoza.net</option><option value="kingvid.tv" >Kingvid.tv </option><option value="faststream.ws" >Faststream.ws</option>								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<p><strong>Rendezés</strong></p>
+						
+						<div class="radio">
+							<label class="custom-option button">
+								<input type="radio" name="o" id="rabc" value="abc" checked="checked">
+								<span class="button-radio"></span>
+							</label>
+							<label for="rabc">ABC</label>
+						</div>
+						
+						<div class="radio">
+							<label class="custom-option button">
+								<input type="radio" name="o" id="rnezettseg" value="nezettseg">
+								<span class="button-radio"></span>
+							</label>
+							<label for="rnezettseg">Nézettség</label>
+						</div>
+						
+						<div class="radio">
+							<label class="custom-option button">
+								<input type="radio" name="o" id="rfeltoltve" value="feltoltve" >
+								<span class="button-radio"></span>
+							</label>
+							<label for="rfeltoltve">Feltöltési idő</label>
+						</div>
+						
+						<div class="radio">
+							<label class="custom-option button">
+								<input type="radio" name="o" id="rimdb" value="imdbrating" >
+								<span class="button-radio"></span>
+							</label>
+							<label for="rimdb">IMDb pontszám</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<input class="btn btn-block btn-success" type="submit" value="Keresés" />
+				</div>
+				
+			</form>
+						
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<section  class="content-box">
+<h1 class="headline"><span>Ízelítő a filmekből</span></h1>
+	<ul class="row list-unstyled movie-list featured">
+
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=hupikek-torpikek-az-elveszett-falu">
+				<div class="cover-element cover-info">
+					<span class="title">Hupikék törpikék: Az elveszett falu</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Kelly Asbury</li>	
+					<li><span>Hossz:</span> 1 óra 29 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">5.9</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/hupikek-torpikek-az-elveszett-falu.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=zsivany-egyes-egy-star-wars-tortenet">
+				<div class="cover-element cover-info">
+					<span class="title">Zsivány Egyes: Egy Star Wars történet</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Gareth Edwards</li>	
+					<li><span>Hossz:</span> 2 óra 14 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.8</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/zsivany-egyes-egy-star-wars-tortenet.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=vademberek-hajszaja">
+				<div class="cover-element cover-info">
+					<span class="title">Vademberek hajszája</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Taika Waititi</li>	
+					<li><span>Hossz:</span> 1 óra 51 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.9</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/vademberek-hajszaja.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=kincsem-2017">
+				<div class="cover-element cover-info">
+					<span class="title">Kincsem 2017</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Herendi Gábor</li>	
+					<li><span>Hossz:</span> 2 óra 1 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.6</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/kincsem-2017.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=tomb-raider">
+				<div class="cover-element cover-info">
+					<span class="title">Tomb Raider</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2018</li>
+						<li><span>Rendező:</span> Roar Uthaug</li>	
+					<li><span>Hossz:</span> 1 óra 58 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qcam" title="Kamerás"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.9</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/tomb-raider.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=a-szamolas-joga">
+				<div class="cover-element cover-info">
+					<span class="title">A számolás joga</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Theodore Melfi</li>	
+					<li><span>Hossz:</span> 2 óra 7 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.8</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/a-szamolas-joga.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=never-back-down-no-surrender">
+				<div class="cover-element cover-info">
+					<span class="title">Never Back Down: No Surrender</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Michael Jai White</li>	
+					<li><span>Hossz:</span> 1 óra 41 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.5</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/never-back-down-no-surrender.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=gengszterzsaruk">
+				<div class="cover-element cover-info">
+					<span class="title">Gengszterzsaruk</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2018</li>
+						<li><span>Rendező:</span> Christian Gudegast</li>	
+					<li><span>Hossz:</span> 2 óra 20 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qcam" title="Kamerás"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.1</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/gengszterzsaruk.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=enekelj">
+				<div class="cover-element cover-info">
+					<span class="title">Énekelj!</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Christophe Lourdelet, Garth Jennings</li>	
+					<li><span>Hossz:</span> 1 óra 48 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.1</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/enekelj.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=az-egeszseg-ellenszere">
+				<div class="cover-element cover-info">
+					<span class="title">Az egészség ellenszere</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Gore Verbinski</li>	
+					<li><span>Hossz:</span> 2 óra 26 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qhd" title="HD"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.4</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/az-egeszseg-ellenszere.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=doctor-strange">
+				<div class="cover-element cover-info">
+					<span class="title">Doctor Strange</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Scott Derrickson</li>	
+					<li><span>Hossz:</span> 1 óra 55 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qbr" title="BR-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.5</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/doctor-strange.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=a-baratsagos-orias">
+				<div class="cover-element cover-info">
+					<span class="title">A barátságos óriás</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Steven Spielberg</li>	
+					<li><span>Hossz:</span> 1 óra 57 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.4</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/a-baratsagos-orias.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=halalos-iramban-8">
+				<div class="cover-element cover-info">
+					<span class="title">Halálos iramban 8</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span>  F. Gary Gray</li>	
+					<li><span>Hossz:</span> 2 óra 16 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.7</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/halalos-iramban-8.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=kaliforniai-alom">
+				<div class="cover-element cover-info">
+					<span class="title">Kaliforniai álom</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Damien Chazelle</li>	
+					<li><span>Hossz:</span> 2 óra 6 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">8.1</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/kaliforniai-alom.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=a-szepseg-es-a-szornyeteg">
+				<div class="cover-element cover-info">
+					<span class="title">A szépség és a szörnyeteg</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Bill Condon</li>	
+					<li><span>Hossz:</span> 2 óra 9 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qbr" title="BR-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">7.3</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/a-szepseg-es-a-szornyeteg.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=a-stylist">
+				<div class="cover-element cover-info">
+					<span class="title">A stylist</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Olivier Assayas</li>	
+					<li><span>Hossz:</span> 1 óra 45 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.2</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/a-stylist.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=jegkorszak-5-a-nagy-bumm">
+				<div class="cover-element cover-info">
+					<span class="title">Jégkorszak 5 - A nagy bumm</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2016</li>
+						<li><span>Rendező:</span> Mike Thurmeier, Galen T. Chu</li>	
+					<li><span>Hossz:</span> 1 óra 34 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lhun" title="Magyar"></li>					<li class="qhd" title="HD"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">5.7</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/jegkorszak-5-a-nagy-bumm.jpg" alt="" />
+			</a>
+		</li>
+	
+		<li class="col-md-2 col-sm-3 col-xs-6">
+						<a href="film.php?n=mielott-elmegyek">
+				<div class="cover-element cover-info">
+					<span class="title">Mielőtt elmegyek</span>
+					
+					<ul class="list-unstyled more-info">
+						<li><span>Év:</span> 2017</li>
+						<li><span>Rendező:</span> Ry Russo-Young</li>	
+					<li><span>Hossz:</span> 1 óra 38 perc</li>					</ul>
+				</div>
+				
+				<ul class="list-inline cover-element movie-icons">
+					<li class="lsub" title="Angol-magyar"></li>					<li class="qdvd" title="DVD-Rip"></li>				</ul>
+				
+				<span class="cover-element imdb" title="IMDb értékelés">6.4</span>
+				
+				
+				<img class="cover" src="http://filmezz.eu/kiskep/mielott-elmegyek.jpg" alt="" />
+			</a>
+		</li>
+	
+	
+	</ul>
+<!-- itt volt --></section>	<section  class="content-box">
+<h2 class="headline"><span>Főoldal</span></h2>
+		<h3>Üdvözlünk oldalunkon!</h3>
+
+		<p>A honlapon ingyenesen megtekinthető film adatlapokat találsz. Több ezer filmet a klasszikusoktól napjaink kasszasikereiig,
+		kiegészítve a legnépszerűbb sorozatokkal! Segítséget és ismerkedési lehetőséget kínál a fórumunk, valamint a belső
+		levelezőrendszerünk. A filmek adatlapját regisztráció nélkül is megtekintheted, de ha teljes közösségi élményre vágysz, egy pár másodperces regisztráció szükséges.</p>
+
+		<p>Kövess minket a Facebook csatornánkon, hogy értesülhess az új filmmegjelenésekről, és a felkerült új tartalmakról.
+		Jó szórakozást kívánunk!</p>
+
+		<p>Várunk téged is a filmezz.eu-n! Légy Te is online a filmek birodalmában!</p>
+		Oldalunk a külföldön élő magyarok számára készül, igyekezve magyar nyelven eljuttatni számukra a lehető legtöb filmes adatlapot.
+		<br>
+
+</section></div>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="col-sm-4">
+				<a href="http://filmezz.eu" class="logo">filmezz<span>.eu</span></a>
+			</div>
+			
+			
+			<div class="col-sm-8 text-right">
+					<ul class="list-inline copyright">
+					<li><a href="gyik.php">Jogi nyilatkozat</a></li>
+					<li><a href="gyik.php">Felhasználási feltételek</a></li>
+					<li><a href="gyik.php">Tartalom jelentése, DMCA</a></li>
+					<!--<li><a href="http://filmezz.eu/segitseg.php#row6">Adatvédelmi és jogi nyilatkozat</a></li>
+					<li>render time: 159 ms</li>-->
+					<li><a href="https://www.facebook.com/slfilmezzeu/"><i class="fa fa-facebook fa-2x fa-inverse" title="Facebook oldalunk"></i></a></li>
+					<li><a href="kapcsolat.php"><i class="fa fa-envelope fa-2x fa-inverse" title="Üzenet az oldal szerkesztőinek" ></i></a></li>
+					<!-- <li><i class="fa fa-twitter fa-2x fa-inverse" title="Twitter oldalunk"></i></li> -->
+					<li><a href="#top"><i class="fa fa-arrow-up fa-2x fa-inverse" title="Ugrás az oldal tetjére "></i></a></li>
+					<script>
+  $("a[href='#top']").click(function() {
+     $("html, body").animate({ scrollTop: 0 }, "slow");
+     return false;
+  });
+					</script>
+					</ul>
+			</div>
+		</div>
+	</footer>
+
+	
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Custom select -->
+	<script src="js/fancySelect.js"></script>
+
+	<script src="js/jquery.hint.js"></script>
+	<script src="js/jquery.tipsy.js"></script>
+
+	<script type="text/javascript" src="js/jquery.tokeninput.js?v=46"></script>
+	<script type="text/javascript" src="js/jquery.dropdownchecklist.js?v=46"></script>
+	
+	<!-- Add venobox -->
+	<script src="js/venobox/venobox.min.js"></script>
+
+		
+	
+	<script>
+		$(document).ready(function() {
+			$('.custom-select').fancySelect(); // Custom select
+			
+			$('[data-toggle="tooltip"]').tooltip() // Tooltip
+
+
+	        $("#s_directors").tokenInput("/kereses_ajax.php", {
+	            placeholder: "",
+	            hintText: "Kezdd el gépelni a nevet...",
+	            noResultsText: "Nincs találat",
+	            searchingText: "Keresés folyamatban...",
+	            preventDuplicates: true,
+	            tokenValue: "name",
+	            minChars: 3
+	        });
+	        	    
+	        $("#s_actors").tokenInput("/kereses_ajax.php", {
+	            placeholder: "",
+	            hintText: "Kezdd el gépelni a nevet...",
+	            noResultsText: "Nincs találat",
+	            searchingText: "Keresés folyamatban...",
+	            preventDuplicates: true,
+	            tokenValue: "name",
+	            minChars: 3
+	        });
+	        			
+			// Movie details
+			var details_height = $('.details').height();
+			
+			if(details_height > 350) {
+				$('.details').addClass('closed');
+			}
+			
+			$('.more-details a').click(function() {
+				$(this).parent().parent().removeClass('closed');
+			});
+			
+			// Smileys
+			$('#btnsmileys').click(function() {
+				$('#smileys').toggle('slow');
+			});
+			
+			// VenoBox
+			$('.venobox').venobox(); 
+
+
+			/* custom settings */
+			$('.venobox_custom').venobox({
+				framewidth: '400px',        // default: '400px'
+				frameheight: '200px',       // default: '200px'
+				border: '10px',             // default: '0'
+				bgcolor: '#5dff5e',         // default: '#fff'
+				titleattr: 'data-title',    // default: 'title'
+				numeratio: true,            // default: false
+				infinigall: true            // default: false
+			});
+
+			/* auto-open #firstlink on page load */
+			$("#firstlink").venobox().trigger('click');
+			
+			// Live search
+			$("input#s").on("keyup", function(e) {
+				// Set Timeout
+				clearTimeout($.data(this, 'timer'));
+
+				// Set Search String
+				var search_string = $(this).val();
+
+				// Do Search
+				if (search_string == '') {
+					$("ul#results").fadeOut();
+				}else{
+					$("ul#results").fadeIn();
+					$(this).data('timer', setTimeout(search, 100));
+				};
+			});
+			
+			// Live search
+			$(".search .fancy-select li").click(function() {
+				$("#s").val('');
+				$("ul#results").fadeOut();
+			});
+			
+			// On Search Submit and Get Results
+			function search() {
+				var query_value = $('input#s').val();
+				var search_type = $('.search-type').val();
+				
+				if(query_value !== ''){
+					$.ajax({
+						type: "GET",
+						url: "livesearch.php",
+						data: { query: query_value, type: search_type },
+						cache: false,
+						success: function(html){
+							$("ul#results").html(html);
+						}
+					});
+				}return false;
+			}
+			
+		});
+		
+		 
+	</script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74768027-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

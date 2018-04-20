@@ -1,0 +1,2023 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="iso-8859-2">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mezzoforte hangszeraruház</title>
+<base href="https://www.hangszeraruhaz.hu/" />
+<link type="image/x-icon" href="scnt/favicon.png" rel="shortcut icon" />
+
+    
+<meta content="" name="description" />
+
+<script type="text/javascript" src="/scnt/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/scnt/_site.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Teko:400,300,500,600,700&subset=latin-ext' rel='stylesheet' type='text/css'>
+<link href="/scnt/_site.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" href="/scnt/fonts/fontello-ie7.css"><![endif]-->
+
+<!--[if lt IE 8]><link href="/scnt/_site-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<!--[if lt IE 9]>
+	<script src="/scnt/js/html5.js"></script>
+	<script src="/scnt/js/css3-mediaqueries.js"></script>
+<![endif]-->
+
+
+
+	<script src="/scnt/js/jquery.bxslider.min.js"></script>
+	<link href="/scnt/js/jquery.bxslider-indexx.css" rel="stylesheet" />
+
+		<script type="text/javascript">
+
+		$( document ).ready(function()
+		{
+			$(".bxslider").bxSlider({
+				auto: true,
+				mode: "horizontal",
+  				captions: true,
+  				nextText: '<i class="icon-right-open-big"></i>',
+  				prevText: '<i class="icon-left-open-big"></i>'
+			});
+
+
+		});
+
+		</script>
+		
+<script type="text/javascript">
+//<![CDATA[
+var fttol = 0;
+var ftig = 0;
+var filterIDs = [];
+var filterGYIDs = [];
+var filterMIDs = [];
+var filterCUSTOMs = [];
+var filterKEYWORDs = '';
+
+var tmr;
+
+var sumOnly = 0;
+
+var tagIDs = new Array();
+var tagGYIDs = new Array();
+var tagMIDs = new Array();
+var tagCUSTs = new Array();
+
+function fltIDs(FID,MID,GYID,CUST)
+{
+   	clearTimeout(tmr);
+   	$('#axRes').css("display",'none');
+
+	isNew = '';
+	if(FID != '')
+	{
+		for(i=0;i<filterIDs.length;i++) { if(filterIDs[i] == FID) { isNew = i; break; } }
+
+		if(isNew !== '') { filterIDs.splice(isNew,1); }
+		else { filterIDs.push(FID); }
+	}
+	else if(GYID != '')
+	{
+		for(i=0;i<filterGYIDs.length;i++) { if(filterGYIDs[i] == GYID) { isNew = i; break; } }
+
+		if(isNew !== '') { filterGYIDs.splice(isNew,1); }
+		else { filterGYIDs.push(GYID); }
+	}
+	else if(MID != '')
+	{
+		for(i=0;i<filterMIDs.length;i++) { if(filterMIDs[i] == MID) { isNew = i; break; } }
+
+		if(isNew !== '') { filterMIDs.splice(isNew,1); }
+		else { filterMIDs.push(MID); }
+	}
+	else if(CUST != '')
+	{
+		for(i=0;i<filterCUSTOMs.length;i++) { if(filterCUSTOMs[i] == CUST) { isNew = i; break; } }
+
+		if(isNew !== '') { filterCUSTOMs.splice(isNew,1); }
+		else { filterCUSTOMs.push(CUST); }
+	}
+
+	setPrc(0);
+	setKeyw(0);
+	getProds();
+}
+
+function setPrc(dogetprods)
+{
+	artol = document.getElementById('ART').value;
+	arig = document.getElementById('ARI').value;
+
+	if(artol >= 0 && isitNum(artol)) { fttol = artol; }
+	else { fttol = ''; }
+
+	if(arig >= 0 && isitNum(arig)) { ftig = arig; }
+	else { ftig = ''; }
+
+	if(dogetprods == 1)
+	{
+		getProds();
+	}
+}
+
+function clearPrc(tol,ig,dogetprods)
+{
+	if(tol == 1) { document.getElementById('ART').value = ""; }
+	if(ig == 1) { document.getElementById('ARI').value = ""; }
+
+	if(dogetprods == 1)
+	{
+		setPrc(0);
+		getProds();
+	}
+}
+
+function setKeyw(dogetprods)
+{
+	filterKEYWORDs = document.getElementById('KEYW').value;
+	if(dogetprods == 1)
+	{
+		getProds();
+	}
+}
+
+function clearKeyw()
+{
+	filterKEYWORDs = '';
+	document.getElementById('KEYW').value = '';
+	setPrc(0);
+	getProds();
+}
+
+function setTags(REgyids,REfids,REmids,REartol,REarig,REcustoms)
+{
+	REgyidArr = REgyids.split(",");
+
+	for(i=0;i<tagGYIDs.length;i++)
+	{
+		tagged = 0;
+		for(j=0;j<REgyidArr.length;j++)
+		{
+			if('G'+REgyidArr[j] == tagGYIDs[i])
+			{
+				document.getElementById(tagGYIDs[i]).className = 'cimkeOn';
+				tagged = 1;
+
+				break;
+			}
+
+		}
+
+		if(tagged != 1)
+		{
+			document.getElementById(tagGYIDs[i]).className = 'cimke';
+		}
+	}
+
+	REfidArr = REfids.split(",");
+
+	for(i=0;i<tagIDs.length;i++)
+	{
+		tagged = 0;
+		for(j=0;j<REfidArr.length;j++)
+		{
+			if(REfidArr[j] == tagIDs[i])
+			{
+				$("#"+tagIDs[i]).attr('class', 'cimkeOn');
+
+				tagged = 1;
+				break;
+			}
+		}
+		if(tagged != 1)
+		{ $("#"+tagIDs[i]).attr('class', 'cimke'); }
+	}
+
+
+
+	REmidArr = REmids.split(",");
+
+	for(i=0;i<tagMIDs.length;i++)
+	{
+		tagged = 0;
+		for(j=0;j<REmidArr.length;j++)
+		{
+			if(REmidArr[j] == tagMIDs[i])
+			{
+				$("#"+tagMIDs[i]).attr('class', 'cimkeOn');
+				tagged = 1;
+				break;
+			}
+		}
+		if(tagged != 1)
+		{ $("#"+tagMIDs[i]).attr('class', 'cimke'); }
+	}
+
+	if(REartol > 0 && isitNum(REartol))
+	{
+		fttol = REartol;
+		document.getElementById('ART').value = REartol;
+	}
+	else
+	{
+		fttol = '';
+		document.getElementById('ART').value = '';
+	}
+
+	if(REarig > 0 && isitNum(REarig))
+	{
+		ftig = REarig;
+		document.getElementById('ARI').value = REarig;
+	}
+	else
+	{
+		ftig = '';
+		document.getElementById('ARI').value = '';
+	}
+
+	REcusArr = REcustoms.split(",");
+
+	for(i=0;i<tagCUSTs.length;i++)
+	{
+		tagged = 0;
+		for(j=0;j<REcusArr.length;j++)
+		{
+			if('C'+REcusArr[j] == tagCUSTs[i])
+			{
+				document.getElementById(tagCUSTs[i]).className = 'cimkeOn';
+				tagged = 1;
+				break;
+			}
+		}
+		if(tagged != 1)
+		{ document.getElementById(tagCUSTs[i]).className = 'cimke'; }
+	}
+
+}
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+	$(window).on("popstate", function(e)
+	{
+		if (e.originalEvent.state !== null)
+		{
+			top.location.href=location.href;
+		}
+	});
+
+function getProds(turn)
+{
+	fids	= filterIDs.join(",");
+	gyids	= filterGYIDs.join(",");
+	mids	= filterMIDs.join(",");
+	customs	= filterCUSTOMs.join(",");
+
+	if(sumOnly == 1)
+	{
+		$("#loadingHldr").removeClass("dnone");
+		$("#showMres a").addClass("dnone");
+	}
+	else
+	{
+		document.getElementById('prodsRes').innerHTML='<div style="background:#ffffff;text-align:center;margin-top:20px;"><img src="/scnt/ajax-bars.gif" width="180" height="40" alt="Feldolgozás folyamatban"></div>';
+	}
+
+
+	var posting = $.post("/", {
+									mode: "getProducts",
+									ckID: 0,
+									fids: fids,
+									gyids: gyids,
+									mids: mids,
+									artol: fttol,
+									arig: ftig,
+									customs: customs,
+									keyw: filterKEYWORDs,
+									turn: turn,
+									sumOnly: sumOnly
+								}, '', "json"
+	);
+
+	posting.done(function( retdata )
+	{
+		if(sumOnly == 0)
+		{
+        	document.getElementById('prodsRes').innerHTML = retdata.products;
+        	$('#mobresCount').html( retdata.REcnt );
+
+        	document.getElementById('axRes').innerHTML = retdata.REcnt+' db termék';
+        	document.getElementById('axRes').style.display = 'block';
+        	tmr = setTimeout("document.getElementById('axRes').style.display = 'none';",3000);
+        	setTags(retdata.REgyids, retdata.REfids, retdata.REmids, retdata.REartol, retdata.REarig, retdata.REcustoms);
+
+        		//alert($("#reboundURL").attr("href"));
+        		history.pushState({}, '', retdata.REurl);
+
+        	//setupZoom();
+
+        	checkLeadHei();
+		}
+		else if(sumOnly == 1)
+		{
+			document.getElementById('prodsRes').innerHTML = retdata.REcnt;
+			$('#mobresCount').html( retdata.REcnt );
+			$("#loadingHldr").addClass("dnone");
+			$("#showMres a").removeClass("dnone");
+			setTags(retdata.REgyids, retdata.REfids, retdata.REmids, retdata.REartol, retdata.REarig, retdata.REcustoms);
+
+       		history.pushState({}, '', retdata.REurl);
+
+			$("#showMobres").attr("href",retdata.REurl);
+		}
+	});
+
+
+}
+
+function toggleSub(id)
+{
+	if(document.getElementById('tags'+id).className == 'tagSTon')
+	{ document.getElementById('tags'+id).className = 'tagSToff'; document.getElementById('stgs'+id).style.display = "none"; }
+	else
+	{ document.getElementById('tags'+id).className = 'tagSTon'; document.getElementById('stgs'+id).style.display = 'block'; }
+}
+
+function isitNum(val)
+{
+   return (val - 0) == val && val.length > 0;
+}
+
+function buildURL()
+{
+	artol = document.getElementById('ART').value;
+	arig = document.getElementById('ARI').value;
+
+	if(artol >= 0 && isitNum(artol)) { fttol = artol; }
+	else { fttol = ''; }
+
+	if(arig >= 0 && isitNum(arig)) { ftig = arig; }
+	else { ftig = ''; }
+
+	tx = 'mode=useprm&tplDt=subcat|||&prmID=;;;;;;;';
+
+	var tx1 = tx.substring(0,tx.lastIndexOf(";"));
+	var tx2 = tx1.substring(0,tx1.lastIndexOf(";"));
+	var tx3 = tx2.substring(0,tx2.lastIndexOf(";"));
+	var tx4 = tx3.substring(0,tx3.lastIndexOf(";"));
+
+	var footKeyw = tx.substring(tx.lastIndexOf(";")+1);
+	var footCust = tx1.substring(tx1.lastIndexOf(";")+1);
+	var footArig = tx2.substring(tx2.lastIndexOf(";")+1);
+	var footArtol = tx3.substring(tx3.lastIndexOf(";")+1);
+
+	top.location.href = "/index.php?"+tx4+";"+artol+";"+arig+";"+footCust+";"+footKeyw;
+
+	//index.php?mode=useprm&tplDt=subcat|1||&prmID=3;;;;100000;300000;1;
+	//index.php?mode=useprm&tplDt=subcat|1||&prmID=3;;;;10;1000000;1;int
+}
+//]]>
+</script>
+
+
+
+		<script>
+		dataLayer = [];
+
+		dataLayer.push({
+		  'ecommerce':
+		  {
+		    'impressions': [
+		{
+	       'name': 'Epiphone SG Special VE, Vintage Worn Vintage Sunburst',
+	       'id': '36355',
+	       'price': '42440.9',
+	       'brand': 'Epiphone',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 1
+		}
+		,
+		{
+	       'name': 'Marshall Origin5 csöves gitárkombó',
+	       'id': '36378',
+	       'price': '121968.5',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 2
+		}
+		,
+		{
+	       'name': 'Marshall Origin50C csöves gitárkombó',
+	       'id': '36376',
+	       'price': '202283.5',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 3
+		}
+		,
+		{
+	       'name': 'Marshall Origin50H csöves gitárerősítő fej',
+	       'id': '36377',
+	       'price': '162126',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 4
+		}
+		,
+		{
+	       'name': 'Marshall DSL5CR csöves gitárkombó',
+	       'id': '36309',
+	       'price': '125905.5',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 5
+		}
+		,
+		{
+	       'name': 'Epiphone SG Special VE, Vintage Worn Ebony',
+	       'id': '36356',
+	       'price': '42440.9',
+	       'brand': 'Epiphone',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 6
+		}
+		,
+		{
+	       'name': 'Marshall Origin20H csöves gitárerősítő fej',
+	       'id': '36375',
+	       'price': '131417.3',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 7
+		}
+		,
+		{
+	       'name': 'Marshall MG10G gitárkombó',
+	       'id': '36310',
+	       'price': '18031.5',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 8
+		}
+		,
+		{
+	       'name': 'Marshall Origin20C csöves gitárkombó',
+	       'id': '36374',
+	       'price': '166850.4',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 9
+		}
+		,
+		{
+	       'name': 'Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst',
+	       'id': '36357',
+	       'price': '42440.9',
+	       'brand': 'Epiphone',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 10
+		}
+		,
+		{
+	       'name': 'Marshall DSL20CR csöves gitárkombó',
+	       'id': '36306',
+	       'price': '157401.6',
+	       'brand': 'Marshall',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 11
+		}
+		,
+		{
+	       'name': 'Epiphone SG Special VE, Vintage Worn Cherry',
+	       'id': '36358',
+	       'price': '42440.9',
+	       'brand': 'Epiphone',
+	       'category': '',
+	       'variant': '',
+	       'list': 'Címlap',
+	       'position': 12
+		}
+		]
+		  }
+		});
+		</script>
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NRGZ7J');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NRGZ7J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<header>
+	<section class="menu2row cnt cntpad F12">
+		<i class="icon-phone-1"></i>+36 (1) 555-7711 <i class="icon-location"></i><a href="/kapcsolat">Üzleteink címe</a>
+		<ul id="topmenu" class="cfix">
+			<li><a href="/kapcsolat">Kapcsolat</a></li>
+			<li><a href="/informacio">Információ</a></li>
+			<li><a href="/blog">Blog</a></li>
+							<li class="JQ_hideonlogin"><a href="javascript:void(0);" onClick="showLB('login')">Bejelentkezés</a></li>
+				<li class="JQ_hideonlogin"><a href="/regisztracio">Regisztráció</a></li>
+						</ul>
+	</section>
+	<section id="searchBar" class="cnt cfix cntpad">
+        <form action="/index.php" method="get" name="qsearchform" onSubmit="return chk_qsearch('');">
+        <input type="hidden" name="tpl" value="qsearch" />
+
+		<input type="text" id="qkey" name="qkey" value="" size="" maxlength="64" autocomplete="off">
+		<a href="javascript:void(0);" onClick="toggleSearch('off');" class="CT F24 cls"><i class="icon-cancel"></i></a>
+		<a href="javascript:void(0);" id="searchsubmitter" onClick="chk_qsearch('');" class="CT F24 srch"><i class="icon-search"></i></a>
+		</form>
+		<div id="qreshldr" class="cntpad">
+			<div id="qres"></div>
+		</div>
+	</section>
+	<section id="logoBar" class="cnt cfix cntpad">
+		<a href="/" class="logo">Mezzoforte hangszeráruház - hangszer vásárlás</a>
+
+		<div id="o-wrapper" class="o-wrapper FR RT icblok icmenu">
+			<a href="javascript:void(0);" id="c-button--slide-right" class="ic c-button"><i class="icon-menu"></i></a>
+		</div>
+		<!--
+		<div class="FR RT icblok icmenu">
+			<a href="javascript:void(0);" id="menuIcon" class="ic"><i class="icon-menu"></i></a>
+		</div>
+		-->
+
+		<div id="iclogout" class="FR RT icblok" style="display:none" >
+			<a href="/kilepes" id="icoff1" class="ic" title="Kilépés" rel="nofollow"><i class="icon-off"></i></a>
+		</div>
+
+		<div class="FR RT icblok iccart">
+						<a href="/kosar" class="ic" rel="nofollow"><i class="icon-basket-2"></i> <span id="cartAmount">0,-</span></a>
+		</div>
+		<div class="FR RT icblok icsrc">
+			<a href="javascript:void(0);" onClick="toggleSearch('on');" class="ic BRD0"><i class="icon-search"></i></a>
+		</div>
+	</section>
+	<section class="nav-menu cnt cfix cntpad">
+		<ul>
+			<li><a href="/laptop-akciok">Laptop akciók</a></li>
+			<li class="galmenupont"><a href=""></a></li>
+			<li><a href="/kiallitott-laptopok">Kiállított laptopok</a></li>
+			<li><a href="/kapcsolat">Kapcsolat</a></li>
+			<li><a href="/garancia">Garancia</a></li>
+			<li><a href="/aruhitel">Áruhitel</a></li>
+			<li><a href="/blog">Blog</a></li>
+					</ul>
+	</section>
+		<!--
+	<section class="greenrow">
+		<div class="cnt">
+            <ul id="nav" class="dropdown dropdown-linear dropdown-columnar">
+			                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=622">Gitárok/pengetős</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Gitárok</div>
+                                <ul>
+								<li><a href="elektromos-gitar/SC835">Elektromos gitár</a></li><li><a href="balkezes-elektromos-gitar/SC1169">Balkezes elektromos gitár</a></li><li><a href="basszusgitar/SC838">Basszusgitár</a></li><li><a href="balkezes-basszusgitar/SC1170">Balkezes basszusgitár</a></li><li><a href="akusztikus-gitar-fem-huros/SC841">Akusztikus gitár (fém húros)</a></li><li><a href="balkezes-akusztikus-gitar-fem-huros/SC1171">Balkezes akusztikus gitár (fém húros)</a></li><li><a href="klasszikus-gitar-nylon-huros/SC930">Klasszikus gitár (nylon húros)</a></li><li><a href="akusztikus-basszusgitar/SC1103">Akusztikus basszusgitár</a></li><li><a href="ukulele/SC1147">Ukulele</a></li><li><a href="egyeb-pengetos/SC842">Egyéb pengetős</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Húrok</div>
+                                <ul>
+								<li><a href="elektromos-gitar-hur/SC844">Elektromos gitár húr</a></li><li><a href="basszusgitar-hur/SC845">Basszusgitár húr</a></li><li><a href="fem-akusztikus-gitar-hur/SC846">Fém akusztikus gitár húr</a></li><li><a href="nylon-klasszikus-gitar-hur/SC847">Nylon klasszikus gitár húr</a></li><li><a href="hur-egyeb-pengetoshoz/SC848">Húr egyéb pengetőshöz</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Gitár kiegészítők</div>
+                                <ul>
+								<li><a href="pengeto/SC936">Pengető</a></li><li><a href="slide-gyuru/SC1078">Slide gyűrű</a></li><li><a href="capo/SC1079">Capo</a></li><li><a href="gitarpant/SC937">Gitárpánt</a></li><li><a href="gitartok/SC938">Gitártok</a></li><li><a href="tok-egyeb-pengetoshoz/SC1148">Tok egyéb pengetőshöz</a></li><li><a href="hangszedo/SC939">Hangszedő</a></li><li><a href="hardver/SC940">Hardver</a></li><li><a href="tisztito-dekoracio-stb/SC941">Tisztító, dekoráció, stb.</a></li><li><a href="egyeb-gitaros-kiegeszito/SC1077">Egyéb gitáros kiegészítő</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/gitarallvany/SC1050">Gitár állványok</a></li><li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Hangoló/Metronóm</a></li><li><a href="http://www.hangszeraruhaz.hu/gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=1126;;1130|1821;;;;;">Gitár adó-vevő</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=839">Gitár erősítő / effekt</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Gitár erősítő/hangfal</div>
+                                <ul>
+								<li><a href="szologitar-erosito-fej-kombo/SC914">Szólógitár erősítő (fej, kombó)</a></li><li><a href="basszusgitar-erosito-fej-kombo/SC915">Basszusgitár erősítő (fej, kombó)</a></li><li><a href="akusztikus-gitar-erosito-fej-kombo/SC916">Akusztikus gitár erősítő (fej, kombó)</a></li><li><a href="szologitar-hangfal/SC917">Szólógitár hangfal</a></li><li><a href="basszusgitar-hangfal/SC918">Basszusgitár hangfal</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Gitár effekt</div>
+                                <ul>
+								<li><a href="gitar-effekt/SC951">Gitár effekt</a></li><li><a href="gitar-szintetizator/SC1061">Gitár szintetizátor</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Erősítő/effekt kiegészítő</div>
+                                <ul>
+								<li><a href="tok-pedal-board/SC1029">Tok/Pedal Board</a></li><li><a href="elektroncso/SC1075">Elektroncső</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati adapter</a></li><li><a href="https://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/Hangoló</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=652">Billentyűs</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Billentyűs hangszerek</div>
+                                <ul>
+								<li><a href="digitalis-zongora-szintetizator/SC903">Digitális Zongora/Szintetizátor</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=903;;;908|1511;;;;">Kalapácsmechanikás digitális zongora/szintetizátor</a></li><li><a href="tangoharmonika/SC904">Tangóharmónika</a></li><li><a href="orgona/SC1060">Orgona</a></li><li><a href="egyeb-billentyus-hangszer/SC906">Egyéb billentyűs hangszer</a></li><li><a href="egyeb-szintetizator/SC1138">Egyéb szintetizátor</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Billentyűs kiegészítők</div>
+                                <ul>
+								<li><a href="tok-billentyus-hangszerekhez/SC910">Tok billentyűs hangszerekhez</a></li><li><a href="bovitok/SC911">Bővítők</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">MIDI billentyűzet</div>
+                                <ul>
+								<li><a href="midi-billentyuzet/SC1059">MIDI billentyűzet</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="http://www.hangszeraruhaz.hu/szek-pad/SC959">Szék/pad</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati Adapter</a></li><li><a href="http://www.hangszeraruhaz.hu/komplett-hangositas-kombo-hordozhato/SC850">Komplett hangosítás/kombó/hordozható</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=641">Hangosítás / Stúdió</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Hangosítás</div>
+                                <ul>
+								<li><a href="szett-billentyus-kombo-akkus-mobil-hangositas/SC850">Szett/billentyűs kombó/akkus mobil hangosítás</a></li><li><a href="passziv-hangfalak/SC851">Passziv hangfalak</a></li><li><a href="aktiv-hangfalak/SC1175">Aktív hangfalak</a></li><li><a href="kevero/SC853">Keverő</a></li><li><a href="digitalis-kevero/SC1168">Digitális keverő</a></li><li><a href="keverorosito/SC852">Keverőrősítő</a></li><li><a href="vegfok/SC1141">Végfok</a></li><li><a href="fulmonitor-in-ear/SC1080">Fülmonitor (In-Ear)</a></li><li><a href="effekt-processzor-elofok/SC856">Effekt/processzor/Előfok</a></li><li><a href="eq-dinamika-processzor/SC857">EQ/Dinamika processzor</a></li><li><a href="keresztvalto-di-box-konverter/SC858">Keresztváltó/DI Box/Konverter</a></li><li><a href="100-volt/SC859">100 Volt</a></li><li><a href="hangositas-kiegeszito/SC860">Hangosítás kiegészítő</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Lejátszó / DJ</div>
+                                <ul>
+								<li><a href="lejatszo-mp3-cd-lemezjatszo/SC862">Lejátszó, mp3, CD, lemezjátszó</a></li><li><a href="hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="groovebox-dance-tool/SC864">Groovebox, Dance Tool</a></li><li><a href="dj-kevero/SC865">DJ keverő</a></li><li><a href="lejatszo-dj-kiegeszito/SC866">Lejátszó/DJ kiegészítő</a></li><li><a href="mikrofon-vezetekes/SC1125">Mikrofon (vezetékes)</a></li><li><a href="vezeteknelkuli-mikrofon-szett/SC1126">Vezetéknélküli mikrofon szett</a></li><li><a href="vezetek-nelkuli-komponensek/SC1127">Vezeték nélküli komponensek</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Stúdió/PC</div>
+                                <ul>
+								<li><a href="hordozhato-felvevo-diktafon/SC872">Hordozható felvevő/diktafon</a></li><li><a href="hangkartya-interfesz/SC873">Hangkártya/interfész</a></li><li><a href="belso-pc-hangkartya/SC874">Belső PC hangkártya</a></li><li><a href="fejhallgato/SC870">Fejhallgató</a></li><li><a href="fejhallgato-erosito/SC871">Fejhallgató erősítő</a></li><li><a href="studio-monitor/SC877">Stúdió Monitor</a></li><li><a href="midi-eszkozok-vezerlok/SC875">MIDI eszközök, vezérlők</a></li><li><a href="http://www.hangszeraruhaz.hu/midi-billentyuzet/SC1059">MIDI billentyűzetek</a></li><li><a href="konverter/SC1066">Konverter</a></li><li><a href="studios-kiegeszitok/SC876">Stúdiós kiegészítők</a></li><li><a href="studio-butor/SC1063">Stúdió bútor</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Hangtechnika kiegészítők</div>
+                                <ul>
+								<li><a href="fuldugo-hallasvedelem/SC1165">Füldugó/hallásvédelem</a></li><li><a href="megafon/SC1172">Megafon</a></li><li><a href="mikrofon-kiegeszitok/SC1173">Mikrofon kiegészítők</a></li><li><a href="huzatok-tokok/SC1174">Huzatok, tokok</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=642">Dob, ütős</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Dobfelszerelés</div>
+                                <ul>
+								<li><a href="akusztikus-dob-szett/SC1005">Akusztikus dob szett</a></li><li><a href="elektromos-dob-szett/SC1006">Elektromos dob szett</a></li><li><a href="elektromos-utos-hangszerek/SC1062">Elektromos ütős hangszerek</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Dob kiegészítők</div>
+                                <ul>
+								<li><a href="cintanyer/SC1007">Cintányér</a></li><li><a href="bor/SC1008">Bőr</a></li><li><a href="dobvero-dobsepru/SC1009">Dobverő, dobseprű</a></li><li><a href="dobtest/SC1010">Dobtest</a></li><li><a href="karam/SC1011">Karám</a></li><li><a href="dob-allvany/SC1012">Dob állvány</a></li><li><a href="labgep/SC1013">Lábgép</a></li><li><a href="dobszek/SC1014">Dobszék</a></li><li><a href="egyeb-kiegeszito/SC1015">Egyéb kiegészítő</a></li><li><a href="elektromos-dob-kiegeszitok/SC1016">Elektromos dob kiegészítők</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Ütős hangszerek</div>
+                                <ul>
+								<li><a href="kolomp/SC1019">Kolomp</a></li><li><a href="konga/SC1020">Konga</a></li><li><a href="bongo/SC1021">Bongó</a></li><li><a href="darbuka/SC1022">Darbuka</a></li><li><a href="djembe/SC1023">Djembe</a></li><li><a href="kezi-dob-csorgo/SC1024">Kézi dob, csörgő</a></li><li><a href="maracas-shaker/SC1025">Maracas, Shaker</a></li><li><a href="timbales/SC1026">Timbales</a></li><li><a href="cajon/SC1144">Cajon</a></li><li><a href="egyeb-utosok/SC1027">Egyéb ütősök</a></li><li><a href="utos-hangszer-kiegeszitok/SC1145">Ütős hangszer kiegészítők</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/hangoló</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=679">Kotta / szoftver / ajándék</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Kotta</div>
+                                <ul>
+								<li><a href="kotta/SC1035">Kotta</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Szoftver</div>
+                                <ul>
+								<li><a href="szoftver/SC1033">Szoftver</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Ajándék</div>
+                                <ul>
+								<li><a href="ajandek-utalvany/SC1074">Ajándék utalvány</a></li><li><a href="ajandek-targy/SC1083">Ajándék tárgy</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/kotta-tarto-allvany/SC1049">Kottatartó</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=680">Fúvós / Vonós</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Fúvós hangszer</div>
+                                <ul>
+								<li><a href="furulya/SC1042">Furulya</a></li><li><a href="szajharmonika/SC1043">Szájharmonika</a></li><li><a href="egyeb-fuvos/SC1044">Egyéb fúvós</a></li><li><a href="didgeridoo/SC1146">Didgeridoo</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Vonós hangszer</div>
+                                <ul>
+								<li><a href="hegedu/SC1045">Hegedű</a></li><li><a href="bracsa/SC1046">Brácsa</a></li><li><a href="csello/SC1047">Cselló</a></li><li><a href="nagybogo/SC1143">Nagybőgő</a></li><li><a href="vono/SC1071">Vonó</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Fúvós/vonós kiegészítők</div>
+                                <ul>
+								<li><a href="tok-vonos-hangszerhez/SC1109">Tok vonós hangszerhez</a></li><li><a href="egyeb-fuvos-vonos-kiegeszitok/SC1123">Egyéb fúvós/vonós kiegészítők</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=682">Fény / Video / Hi-Fi</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Fénytechnika</div>
+                                <ul>
+								<li><a href="par-spotlampa/SC1149">PAR Spotlámpa</a></li><li><a href="fenyvezerlo/SC1068">Fényvezérlő</a></li><li><a href="optikas-fenyeffekt/SC1150">Optikás fényeffekt</a></li><li><a href="mozgofejes-lampa/SC1153">Mozgófejes lámpa</a></li><li><a href="scanner/SC1154">Scanner</a></li><li><a href="szinpadi-reflektor/SC1155">Szinpadi reflektor</a></li><li><a href="tukorgomb/SC1156">Tükörgömb</a></li><li><a href="mobil-allvanyos-fenyszett/SC1157">Mobil állványos fényszett</a></li><li><a href="dekoracios-feny/SC1158">Dekorációs fény</a></li><li><a href="effektfolyadek/SC1159">Effektfolyadék</a></li><li><a href="fust-hazer-fazer/SC1162">Füst hazer fazer</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Video technika</div>
+                                <ul>
+								<li><a href="video-munkaallomas/SC1070">Video munkaállomás</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Hi-Fi</div>
+                                <ul>
+								<li><a href="fulhallgato/SC1082">Fülhallgató</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kapcsolódó kategóriák</div>
+                                <ul>
+								<li><a href="http://www.hangszeraruhaz.hu/fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                                <li class="dir">
+                    <a href="/index.php?tpl=maincats&mcID=683">Kiegészítők</a>
+                    <ul>
+						                            <li class="dir">
+                                <div class="hk2">Székek, állványok</div>
+                                <ul>
+								<li><a href="szek-pad/SC959">Szék/pad</a></li><li><a href="rack/SC961">Rack</a></li><li><a href="billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="kotta-tarto-allvany/SC1049">Kotta tartó állvány</a></li><li><a href="gitarallvany/SC1050">Gitárállvány</a></li><li><a href="fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li><li><a href="mikrofonallvany/SC1052">Mikrofonállvány</a></li><li><a href="hangfalallvany/SC1053">Hangfalállvány</a></li><li><a href="monitor-kombo-kevero-laptop-allvany/SC1055">Monitor/Kombó/Keverő/Laptop állvány</a></li><li><a href="fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li><li><a href="allvany-kiegeszito/SC1057">Állvány kiegészítő</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Metronóm, hangoló, adapter</div>
+                                <ul>
+								<li><a href="metronom-hangolo/SC962">Metronóm/Hangoló</a></li><li><a href="pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="halozati-adapter/SC964">Hálózati adapter</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Kábel, csatlakozó</div>
+                                <ul>
+								<li><a href="midi-kabel/SC965">MIDI kábel</a></li><li><a href="gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="stereo-jack-stereo-jack/SC1122">Stereo Jack - Stereo Jack</a></li><li><a href="mikrofon-kabel/SC1114">Mikrofon kábel</a></li><li><a href="hangfal-kabel/SC1115">Hangfal kábel</a></li><li><a href="audio-kabel/SC1116">Audio kábel</a></li><li><a href="patch-kabel/SC1117">Patch kábel</a></li><li><a href="y-kabel/SC1118">Y kábel</a></li><li><a href="csoportkabel/SC1076">Csoportkábel</a></li><li><a href="adatkabel-egyeb-keszkabel/SC966">Adatkábel, egyéb készkábel</a></li><li><a href="kabel-csatlakozo-nelkul/SC967">Kábel csatlakózó nélkül</a></li><li><a href="atalakito/SC968">Átalakító</a></li><li><a href="kabel-kiegeszito/SC1119">Kábel kiegészítő</a></li>                                </ul>
+                            </li>
+							                            <li class="dir">
+                                <div class="hk2">Egyéb</div>
+                                <ul>
+								<li><a href="egyeb/SC1167">Egyéb</a></li>                                </ul>
+                            </li>
+							                    </ul>
+                </li>
+                            </ul>
+		</div>
+	</section>
+	-->
+
+    <section class="navigation cfix">
+		<div id="hnavholder" class="cnt cntpad">
+
+	            <ul class="cfix navbar">
+					                <li class="blurow">
+	                    <a href="gitarok-pengetos/MC622" class="cat1">Gitárok/pengetős</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Gitárok</div>
+	                                <ul  class="cfix">
+									<li><a href="elektromos-gitar/SC835">Elektromos gitár</a></li><li><a href="balkezes-elektromos-gitar/SC1169">Balkezes elektromos gitár</a></li><li><a href="basszusgitar/SC838">Basszusgitár</a></li><li><a href="balkezes-basszusgitar/SC1170">Balkezes basszusgitár</a></li><li><a href="akusztikus-gitar-fem-huros/SC841">Akusztikus gitár (fém húros)</a></li><li><a href="balkezes-akusztikus-gitar-fem-huros/SC1171">Balkezes akusztikus gitár (fém húros)</a></li><li><a href="klasszikus-gitar-nylon-huros/SC930">Klasszikus gitár (nylon húros)</a></li><li><a href="akusztikus-basszusgitar/SC1103">Akusztikus basszusgitár</a></li><li><a href="ukulele/SC1147">Ukulele</a></li><li><a href="egyeb-pengetos/SC842">Egyéb pengetős</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Húrok</div>
+	                                <ul  class="cfix">
+									<li><a href="elektromos-gitar-hur/SC844">Elektromos gitár húr</a></li><li><a href="basszusgitar-hur/SC845">Basszusgitár húr</a></li><li><a href="fem-akusztikus-gitar-hur/SC846">Fém akusztikus gitár húr</a></li><li><a href="nylon-klasszikus-gitar-hur/SC847">Nylon klasszikus gitár húr</a></li><li><a href="hur-egyeb-pengetoshoz/SC848">Húr egyéb pengetőshöz</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Gitár kiegészítők</div>
+	                                <ul  class="cfix">
+									<li><a href="pengeto/SC936">Pengető</a></li><li><a href="slide-gyuru/SC1078">Slide gyűrű</a></li><li><a href="capo/SC1079">Capo</a></li><li><a href="gitarpant/SC937">Gitárpánt</a></li><li><a href="gitartok/SC938">Gitártok</a></li><li><a href="tok-egyeb-pengetoshoz/SC1148">Tok egyéb pengetőshöz</a></li><li><a href="hangszedo/SC939">Hangszedő</a></li><li><a href="hardver/SC940">Hardver</a></li><li><a href="tisztito-dekoracio-stb/SC941">Tisztító, dekoráció, stb.</a></li><li><a href="egyeb-gitaros-kiegeszito/SC1077">Egyéb gitáros kiegészítő</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/gitarallvany/SC1050">Gitár állványok</a></li><li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Hangoló/Metronóm</a></li><li><a href="http://www.hangszeraruhaz.hu/gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=1126;;1130|1821;;;;;">Gitár adó-vevő</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="gitar-erosito-effekt/MC839" class="cat1">Gitár erősítő / effekt</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Gitár erősítő/hangfal</div>
+	                                <ul  class="cfix">
+									<li><a href="szologitar-erosito-fej-kombo/SC914">Szólógitár erősítő (fej, kombó)</a></li><li><a href="basszusgitar-erosito-fej-kombo/SC915">Basszusgitár erősítő (fej, kombó)</a></li><li><a href="akusztikus-gitar-erosito-fej-kombo/SC916">Akusztikus gitár erősítő (fej, kombó)</a></li><li><a href="szologitar-hangfal/SC917">Szólógitár hangfal</a></li><li><a href="basszusgitar-hangfal/SC918">Basszusgitár hangfal</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Gitár effekt</div>
+	                                <ul  class="cfix">
+									<li><a href="gitar-effekt/SC951">Gitár effekt</a></li><li><a href="gitar-szintetizator/SC1061">Gitár szintetizátor</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Erősítő/effekt kiegészítő</div>
+	                                <ul  class="cfix">
+									<li><a href="tok-pedal-board/SC1029">Tok/Pedal Board</a></li><li><a href="elektroncso/SC1075">Elektroncső</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati adapter</a></li><li><a href="https://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/Hangoló</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="billentyus/MC652" class="cat1">Billentyűs</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Billentyűs hangszerek</div>
+	                                <ul  class="cfix">
+									<li><a href="digitalis-zongora-szintetizator/SC903">Digitális Zongora/Szintetizátor</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=903;;;908|1511;;;;">Kalapácsmechanikás digitális zongora/szintetizátor</a></li><li><a href="tangoharmonika/SC904">Tangóharmónika</a></li><li><a href="orgona/SC1060">Orgona</a></li><li><a href="egyeb-billentyus-hangszer/SC906">Egyéb billentyűs hangszer</a></li><li><a href="egyeb-szintetizator/SC1138">Egyéb szintetizátor</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Billentyűs kiegészítők</div>
+	                                <ul  class="cfix">
+									<li><a href="tok-billentyus-hangszerekhez/SC910">Tok billentyűs hangszerekhez</a></li><li><a href="bovitok/SC911">Bővítők</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">MIDI billentyűzet</div>
+	                                <ul  class="cfix">
+									<li><a href="midi-billentyuzet/SC1059">MIDI billentyűzet</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="http://www.hangszeraruhaz.hu/szek-pad/SC959">Szék/pad</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati Adapter</a></li><li><a href="http://www.hangszeraruhaz.hu/komplett-hangositas-kombo-hordozhato/SC850">Komplett hangosítás/kombó/hordozható</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="hangositas-studio/MC641" class="cat1">Hangosítás / Stúdió</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Hangosítás</div>
+	                                <ul  class="cfix">
+									<li><a href="szett-billentyus-kombo-akkus-mobil-hangositas/SC850">Szett/billentyűs kombó/akkus mobil hangosítás</a></li><li><a href="passziv-hangfalak/SC851">Passziv hangfalak</a></li><li><a href="aktiv-hangfalak/SC1175">Aktív hangfalak</a></li><li><a href="kevero/SC853">Keverő</a></li><li><a href="digitalis-kevero/SC1168">Digitális keverő</a></li><li><a href="keverorosito/SC852">Keverőrősítő</a></li><li><a href="vegfok/SC1141">Végfok</a></li><li><a href="fulmonitor-in-ear/SC1080">Fülmonitor (In-Ear)</a></li><li><a href="effekt-processzor-elofok/SC856">Effekt/processzor/Előfok</a></li><li><a href="eq-dinamika-processzor/SC857">EQ/Dinamika processzor</a></li><li><a href="keresztvalto-di-box-konverter/SC858">Keresztváltó/DI Box/Konverter</a></li><li><a href="100-volt/SC859">100 Volt</a></li><li><a href="hangositas-kiegeszito/SC860">Hangosítás kiegészítő</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Lejátszó / DJ</div>
+	                                <ul  class="cfix">
+									<li><a href="lejatszo-mp3-cd-lemezjatszo/SC862">Lejátszó, mp3, CD, lemezjátszó</a></li><li><a href="hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="groovebox-dance-tool/SC864">Groovebox, Dance Tool</a></li><li><a href="dj-kevero/SC865">DJ keverő</a></li><li><a href="lejatszo-dj-kiegeszito/SC866">Lejátszó/DJ kiegészítő</a></li><li><a href="mikrofon-vezetekes/SC1125">Mikrofon (vezetékes)</a></li><li><a href="vezeteknelkuli-mikrofon-szett/SC1126">Vezetéknélküli mikrofon szett</a></li><li><a href="vezetek-nelkuli-komponensek/SC1127">Vezeték nélküli komponensek</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Stúdió/PC</div>
+	                                <ul  class="cfix">
+									<li><a href="hordozhato-felvevo-diktafon/SC872">Hordozható felvevő/diktafon</a></li><li><a href="hangkartya-interfesz/SC873">Hangkártya/interfész</a></li><li><a href="belso-pc-hangkartya/SC874">Belső PC hangkártya</a></li><li><a href="fejhallgato/SC870">Fejhallgató</a></li><li><a href="fejhallgato-erosito/SC871">Fejhallgató erősítő</a></li><li><a href="studio-monitor/SC877">Stúdió Monitor</a></li><li><a href="midi-eszkozok-vezerlok/SC875">MIDI eszközök, vezérlők</a></li><li><a href="http://www.hangszeraruhaz.hu/midi-billentyuzet/SC1059">MIDI billentyűzetek</a></li><li><a href="konverter/SC1066">Konverter</a></li><li><a href="studios-kiegeszitok/SC876">Stúdiós kiegészítők</a></li><li><a href="studio-butor/SC1063">Stúdió bútor</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Hangtechnika kiegészítők</div>
+	                                <ul  class="cfix">
+									<li><a href="fuldugo-hallasvedelem/SC1165">Füldugó/hallásvédelem</a></li><li><a href="megafon/SC1172">Megafon</a></li><li><a href="mikrofon-kiegeszitok/SC1173">Mikrofon kiegészítők</a></li><li><a href="huzatok-tokok/SC1174">Huzatok, tokok</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="dob-utos/MC642" class="cat1">Dob, ütős</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Dobfelszerelés</div>
+	                                <ul  class="cfix">
+									<li><a href="akusztikus-dob-szett/SC1005">Akusztikus dob szett</a></li><li><a href="elektromos-dob-szett/SC1006">Elektromos dob szett</a></li><li><a href="elektromos-utos-hangszerek/SC1062">Elektromos ütős hangszerek</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Dob kiegészítők</div>
+	                                <ul  class="cfix">
+									<li><a href="cintanyer/SC1007">Cintányér</a></li><li><a href="bor/SC1008">Bőr</a></li><li><a href="dobvero-dobsepru/SC1009">Dobverő, dobseprű</a></li><li><a href="dobtest/SC1010">Dobtest</a></li><li><a href="karam/SC1011">Karám</a></li><li><a href="dob-allvany/SC1012">Dob állvány</a></li><li><a href="labgep/SC1013">Lábgép</a></li><li><a href="dobszek/SC1014">Dobszék</a></li><li><a href="egyeb-kiegeszito/SC1015">Egyéb kiegészítő</a></li><li><a href="elektromos-dob-kiegeszitok/SC1016">Elektromos dob kiegészítők</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Ütős hangszerek</div>
+	                                <ul  class="cfix">
+									<li><a href="kolomp/SC1019">Kolomp</a></li><li><a href="konga/SC1020">Konga</a></li><li><a href="bongo/SC1021">Bongó</a></li><li><a href="darbuka/SC1022">Darbuka</a></li><li><a href="djembe/SC1023">Djembe</a></li><li><a href="kezi-dob-csorgo/SC1024">Kézi dob, csörgő</a></li><li><a href="maracas-shaker/SC1025">Maracas, Shaker</a></li><li><a href="timbales/SC1026">Timbales</a></li><li><a href="cajon/SC1144">Cajon</a></li><li><a href="egyeb-utosok/SC1027">Egyéb ütősök</a></li><li><a href="utos-hangszer-kiegeszitok/SC1145">Ütős hangszer kiegészítők</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/hangoló</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="kotta-szoftver-ajandek/MC679" class="cat1">Kotta / szoftver / ajándék</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Kotta</div>
+	                                <ul  class="cfix">
+									<li><a href="kotta/SC1035">Kotta</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Szoftver</div>
+	                                <ul  class="cfix">
+									<li><a href="szoftver/SC1033">Szoftver</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Ajándék</div>
+	                                <ul  class="cfix">
+									<li><a href="ajandek-utalvany/SC1074">Ajándék utalvány</a></li><li><a href="ajandek-targy/SC1083">Ajándék tárgy</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/kotta-tarto-allvany/SC1049">Kottatartó</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="fuvos-vonos/MC680" class="cat1">Fúvós / Vonós</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Fúvós hangszer</div>
+	                                <ul  class="cfix">
+									<li><a href="furulya/SC1042">Furulya</a></li><li><a href="szajharmonika/SC1043">Szájharmonika</a></li><li><a href="egyeb-fuvos/SC1044">Egyéb fúvós</a></li><li><a href="didgeridoo/SC1146">Didgeridoo</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Vonós hangszer</div>
+	                                <ul  class="cfix">
+									<li><a href="hegedu/SC1045">Hegedű</a></li><li><a href="bracsa/SC1046">Brácsa</a></li><li><a href="csello/SC1047">Cselló</a></li><li><a href="nagybogo/SC1143">Nagybőgő</a></li><li><a href="vono/SC1071">Vonó</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Fúvós/vonós kiegészítők</div>
+	                                <ul  class="cfix">
+									<li><a href="tok-vonos-hangszerhez/SC1109">Tok vonós hangszerhez</a></li><li><a href="egyeb-fuvos-vonos-kiegeszitok/SC1123">Egyéb fúvós/vonós kiegészítők</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="feny-video-hi-fi/MC682" class="cat1">Fény / Video / Hi-Fi</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Fénytechnika</div>
+	                                <ul  class="cfix">
+									<li><a href="par-spotlampa/SC1149">PAR Spotlámpa</a></li><li><a href="fenyvezerlo/SC1068">Fényvezérlő</a></li><li><a href="optikas-fenyeffekt/SC1150">Optikás fényeffekt</a></li><li><a href="mozgofejes-lampa/SC1153">Mozgófejes lámpa</a></li><li><a href="scanner/SC1154">Scanner</a></li><li><a href="szinpadi-reflektor/SC1155">Szinpadi reflektor</a></li><li><a href="tukorgomb/SC1156">Tükörgömb</a></li><li><a href="mobil-allvanyos-fenyszett/SC1157">Mobil állványos fényszett</a></li><li><a href="dekoracios-feny/SC1158">Dekorációs fény</a></li><li><a href="effektfolyadek/SC1159">Effektfolyadék</a></li><li><a href="fust-hazer-fazer/SC1162">Füst hazer fazer</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Video technika</div>
+	                                <ul  class="cfix">
+									<li><a href="video-munkaallomas/SC1070">Video munkaállomás</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Hi-Fi</div>
+	                                <ul  class="cfix">
+									<li><a href="fulhallgato/SC1082">Fülhallgató</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kapcsolódó kategóriák</div>
+	                                <ul  class="cfix">
+									<li><a href="http://www.hangszeraruhaz.hu/fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	                <li class="blurow">
+	                    <a href="kiegeszitok/MC683" class="cat1">Kiegészítők</a>
+	                    <ul class="cfix dropdown">
+								                            <li class="dropcols">
+	                                <div class="cat2">Székek, állványok</div>
+	                                <ul  class="cfix">
+									<li><a href="szek-pad/SC959">Szék/pad</a></li><li><a href="rack/SC961">Rack</a></li><li><a href="billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="kotta-tarto-allvany/SC1049">Kotta tartó állvány</a></li><li><a href="gitarallvany/SC1050">Gitárállvány</a></li><li><a href="fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li><li><a href="mikrofonallvany/SC1052">Mikrofonállvány</a></li><li><a href="hangfalallvany/SC1053">Hangfalállvány</a></li><li><a href="monitor-kombo-kevero-laptop-allvany/SC1055">Monitor/Kombó/Keverő/Laptop állvány</a></li><li><a href="fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li><li><a href="allvany-kiegeszito/SC1057">Állvány kiegészítő</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Metronóm, hangoló, adapter</div>
+	                                <ul  class="cfix">
+									<li><a href="metronom-hangolo/SC962">Metronóm/Hangoló</a></li><li><a href="pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="halozati-adapter/SC964">Hálózati adapter</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Kábel, csatlakozó</div>
+	                                <ul  class="cfix">
+									<li><a href="midi-kabel/SC965">MIDI kábel</a></li><li><a href="gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="stereo-jack-stereo-jack/SC1122">Stereo Jack - Stereo Jack</a></li><li><a href="mikrofon-kabel/SC1114">Mikrofon kábel</a></li><li><a href="hangfal-kabel/SC1115">Hangfal kábel</a></li><li><a href="audio-kabel/SC1116">Audio kábel</a></li><li><a href="patch-kabel/SC1117">Patch kábel</a></li><li><a href="y-kabel/SC1118">Y kábel</a></li><li><a href="csoportkabel/SC1076">Csoportkábel</a></li><li><a href="adatkabel-egyeb-keszkabel/SC966">Adatkábel, egyéb készkábel</a></li><li><a href="kabel-csatlakozo-nelkul/SC967">Kábel csatlakózó nélkül</a></li><li><a href="atalakito/SC968">Átalakító</a></li><li><a href="kabel-kiegeszito/SC1119">Kábel kiegészítő</a></li>	                                </ul>
+	                            </li>
+									                            <li class="dropcols">
+	                                <div class="cat2">Egyéb</div>
+	                                <ul  class="cfix">
+									<li><a href="egyeb/SC1167">Egyéb</a></li>	                                </ul>
+	                            </li>
+									                    </ul>
+	                </li>
+	                	            </ul>
+        </div>
+    </section>
+</header>
+
+<div class="main PD0">
+	<div class="cnt cfix cntpad padbot" style="padding-top:1px;">
+		<div class="idxBanLeft">
+
+			<ul class="bxslider">
+				<li><a href="https://www.hangszeraruhaz.hu/marshall-dsl100hr-csoves-gitarerosito-fej/P36303"  title="Marshall DSL100HR csöves gitárerősítő fej" class="cfix bannerKW"><img src="/bannerek/159-marshall-dsl-100hr.jpg" alt="Marshall DSL100HR csöves gitárerősítő fej" title="Marshall DSL100HR csöves gitárerősítő fej" class="FR" /></a></li><li><a href="https://www.hangszeraruhaz.hu/boss-katana-artist-gitarkombo/P36190"  title="Boss Katana-Artist" class="cfix bannerKW"><img src="/bannerek/157-boss-katana-artist.jpg" alt="Boss Katana-Artist" title="Boss Katana-Artist" class="FR" /></a></li><li><a href="https://www.hangszeraruhaz.hu/boss-katana-air-gitarerosito/P35864"  title="Boss Katana Air gitárerősítő" class="cfix bannerKW"><img src="/bannerek/154-boss-katana-air.jpg" alt="Boss Katana Air gitárerősítő" title="Boss Katana Air gitárerősítő" class="FR" /></a></li><li><a href="https://www.hangszeraruhaz.hu/blog/boss-pedal-perks-kampany/345"  title="Vásárolj pedálokat és izgalmas ajándékokat kapsz!" class="cfix bannerKW"><img src="/bannerek/149-boss-pedal-perks.jpg" alt="Vásárolj pedálokat és izgalmas ajándékokat kapsz!" title="Vásárolj pedálokat és izgalmas ajándékokat kapsz!" class="FR" /></a></li><li><a href="https://www.hangszeraruhaz.hu/szologitar-erosito-fej-kombo/vox/sc914g281"  title="Vox gitárerősítők" class="cfix bannerKW"><img src="/bannerek/146-vox-rhythmvox.jpg" alt="Vox gitárerősítők" title="Vox gitárerősítők" class="FR" /></a></li><li><a href="https://www.hangszeraruhaz.hu/behringer-umc202hd-u-phoria-usb-interfesz-hangkartya/P34237"  title="Behringer UMC202HD interfész/hangkártya" class="cfix bannerKW"><img src="/bannerek/124-behringer-umc202hd.jpg" alt="Behringer UMC202HD interfész/hangkártya" title="Behringer UMC202HD interfész/hangkártya" class="FR" /></a></li>			</ul>
+
+		</div>
+		<div class="idxBanRight">
+			<ul>
+			<li><a href="https://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=835;;;;0;0;;genesis"  title="Ibanez Genesis - Made in Japan" class="cfix bannerKW">
+					<div><span>Ibanez Genesis - Made in Japan</span></div>
+					<img src="/bannerek/158-ibanez-genesis-guitars.jpg" alt="Ibanez Genesis - Made in Japan" title="Ibanez Genesis - Made in Japan" class="FR" />
+					</a>
+				</li><li><a href="https://www.hangszeraruhaz.hu/hordozhato-felvevo-diktafon/roland/sc872g162"  title="Roland hordozható felvevők" class="cfix bannerKW">
+					<div><span>Roland hordozható felvevők</span></div>
+					<img src="/bannerek/155-roland-r07.jpg" alt="Roland hordozható felvevők" title="Roland hordozható felvevők" class="FR" />
+					</a>
+				</li>			</ul>
+		</div>
+	</div>
+
+	<div class="cnt cfix cntpad padbot">
+		<h1>Blog</h1>
+
+		<div class="cfix">
+		
+		<div class="newsbox fw4col  ">
+			<div class="nwHed">
+				<a href="blog/yamaha-genos-bemutato-egerben/372" title="Yamaha Genos bemutató Egerben" class="nwTit">Yamaha Genos bemutató Egerben</a>
+				<div class="nwImg"><a href="blog/yamaha-genos-bemutato-egerben/372" title="Yamaha Genos bemutató Egerben"><img src="/hirek/cover-EGER-Mezzoforte-03-27-372.jpg" alt="" /></a></div>
+			</div>
+			<div class="nwLed">2018. március 27-én, 18:00 órakor ezt látnod kell! A Yamaha demonstrátora, billentyűs hangszer fanatikus, kitűnő előadó, zongorista Neumann Balázs rendkívül izgalmas bemutatót tart a Genosról, amely kijelenthető, hogy valóban óriási lépés a szintetizátorok piacán. Igazán jól sikerült ötvözete a ...</div>
+		</div>
+	
+		<div class="newsbox fw4col fw4c2 ">
+			<div class="nwHed">
+				<a href="blog/ibanez-genesis-collection-2018/371" title="Ibanez Genesis Collection 2018" class="nwTit">Ibanez Genesis Collection 2018</a>
+				<div class="nwImg"><a href="blog/ibanez-genesis-collection-2018/371" title="Ibanez Genesis Collection 2018"><img src="/hirek/ibanez-genesis-371.jpg" alt="" /></a></div>
+			</div>
+			<div class="nwLed">Az Ibanezről elmondhatjuk, hogy a gitárosok minden rétegének - a kezdőktől a legigényesebb profikig - készít gitárokat. A cég arra törekszik, hogy árfekvéstől függetlenül, minden kategóriában a legtökéletesebb hangzást, kivitelt és játékkényelmet nyújtsa.</div>
+		</div>
+	
+		<div class="newsbox fw4col fw4c3 ">
+			<div class="nwHed">
+				<a href="blog/ingyenes-bovito-yamaha-psr-s775-psr-s975-szintetizatorokhoz/370" title="Ingyenes bővítő Yamaha PSR-S775, PSR-S975 szintetizátorokhoz" class="nwTit">Ingyenes bővítő Yamaha PSR-S775, PSR-S975 szintetizátorokhoz</a>
+				<div class="nwImg"><a href="blog/ingyenes-bovito-yamaha-psr-s775-psr-s975-szintetizatorokhoz/370" title="Ingyenes bővítő Yamaha PSR-S775, PSR-S975 szintetizátorokhoz"><img src="/hirek/expansion-pack-psr-s775-975-genos-370.jpg" alt="" /></a></div>
+			</div>
+			<div class="nwLed">A Yamaha Bonus Pack Campaign keretén belül a három csúcskategóriás  Yamaha szintetizátorokhoz (S775, S975 és Genos) egy bővítő packot lehet letölteni, regisztrálás után.</div>
+		</div>
+	
+		<div class="newsbox fw4col fw4c2 fw4c4 hide4th">
+			<div class="nwHed">
+				<a href="blog/tavaszi-rendkivuli-nyitva-tartas/369" title="Tavaszi rendkívüli nyitva tartás" class="nwTit">Tavaszi rendkívüli nyitva tartás</a>
+				<div class="nwImg"><a href="blog/tavaszi-rendkivuli-nyitva-tartas/369" title="Tavaszi rendkívüli nyitva tartás"><img src="/hirek/2017-marcius-369.jpg" alt="" /></a></div>
+			</div>
+			<div class="nwLed">Március-április folyamán, a nemzeti ünnepek miatt lesz némi változás a hagyományos, év közben szokásos nyitva tartáshoz képest. </div>
+		</div>
+			</div>
+
+		<div class="moreRow CT mrgbot">
+			<a href="/blog" class="btn bluempty">Korábbi blog bejegyzések</a>
+		</div>
+
+	</div>
+
+	<div class="cnt cfix cntpad padbot">
+		<h1>Kiemelt ajánlataink, akciók</h1>
+
+		<ul class="tboxes cfix cntpad"><li class="tbox  fw4col "><a id="pr36355"></a>
+		<div class="hed">
+			<a href="epiphone-sg-special-ve-vintage-worn-vintage-sunburst/P36355" class="megn"><strong>Epiphone SG Special VE, Vintage Worn Vintage Sunburst</strong></a>
+			<div class="primg"><a href="epiphone-sg-special-ve-vintage-worn-vintage-sunburst/P36355" title="Epiphone SG Special VE, Vintage Worn Vintage Sunburst"><img src="/termekek/150/epiphone-sg-special-ve-vintage-worn-vintage-sunburst.jpg" title="Epiphone SG Special VE, Vintage Worn Vintage Sunburst" alt="Epiphone SG Special VE, Vintage Worn Vintage Sunburst kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">53 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36355" class="cartbutton blank" onclick="addCart(36355)" data-ar="53900.00" data-prodname="Epiphone SG Special VE, Vintage Worn Vintage Sunburst"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">SG gitár, 650R/700T hangszedők (HH), fix húrláb</div>
+	</li><li class="tbox  fw4col fw4c2"><a id="pr36378"></a>
+		<div class="hed">
+			<a href="marshall-origin5-csoves-gitarkombo/P36378" class="megn"><strong>Marshall Origin5 csöves gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-origin5-csoves-gitarkombo/P36378" title="Marshall Origin5 csöves gitárkombó"><img src="/scnt/nopic-120.jpg" title="Marshall Origin5 csöves gitárkombó" alt="Marshall Origin5 csöves gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">154 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36378" class="cartbutton blank" onclick="addCart(36378)" data-ar="154900.00" data-prodname="Marshall Origin5 csöves gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">5W csöves kombó, 8" Celestion Eight 15 hangszóró</div>
+	</li><li class="tbox  fw4col fw4c3"><a id="pr36376"></a>
+		<div class="hed">
+			<a href="marshall-origin50c-csoves-gitarkombo/P36376" class="megn"><strong>Marshall Origin50C csöves gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-origin50c-csoves-gitarkombo/P36376" title="Marshall Origin50C csöves gitárkombó"><img src="/scnt/nopic-120.jpg" title="Marshall Origin50C csöves gitárkombó" alt="Marshall Origin50C csöves gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">256 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36376" class="cartbutton blank" onclick="addCart(36376)" data-ar="256900.00" data-prodname="Marshall Origin50C csöves gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">50W csöves kombó,  12" Celestion V Type hangszóró</div>
+	</li><li class="tbox  fw4col fw4c2 fw4c4"><a id="pr36377"></a>
+		<div class="hed">
+			<a href="marshall-origin50h-csoves-gitarerosito-fej/P36377" class="megn"><strong>Marshall Origin50H csöves gitárerősítő fej</strong></a>
+			<div class="primg"><a href="marshall-origin50h-csoves-gitarerosito-fej/P36377" title="Marshall Origin50H csöves gitárerősítő fej"><img src="/scnt/nopic-120.jpg" title="Marshall Origin50H csöves gitárerősítő fej" alt="Marshall Origin50H csöves gitárerősítő fej kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">205 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36377" class="cartbutton blank" onclick="addCart(36377)" data-ar="205900.00" data-prodname="Marshall Origin50H csöves gitárerősítő fej"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">50W csöves fej</div>
+	</li><li class="tbox ujdBox fw4col "><a id="pr36309"></a>
+		<div class="hed">
+			<a href="marshall-dsl5cr-csoves-gitarkombo/P36309" class="megn"><strong>Marshall DSL5CR csöves gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-dsl5cr-csoves-gitarkombo/P36309" title="Marshall DSL5CR csöves gitárkombó"><img src="/termekek/150/marshall-dsl5cr.jpg" title="Marshall DSL5CR csöves gitárkombó" alt="Marshall DSL5CR csöves gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20"><div class="statusTxtUj">Újdonság</div>159 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36309" class="cartbutton blank" onclick="addCart(36309)" data-ar="159900.00" data-prodname="Marshall DSL5CR csöves gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">5 Watt csöves gitárkombó, 10" Celestion hangszóró</div>
+	</li><li class="tbox  fw4col fw4c2 fw4c3"><a id="pr36356"></a>
+		<div class="hed">
+			<a href="epiphone-sg-special-ve-vintage-worn-ebony/P36356" class="megn"><strong>Epiphone SG Special VE, Vintage Worn Ebony</strong></a>
+			<div class="primg"><a href="epiphone-sg-special-ve-vintage-worn-ebony/P36356" title="Epiphone SG Special VE, Vintage Worn Ebony"><img src="/termekek/150/epiphone-sg-special-ve-vintage-worn-ebony.jpg" title="Epiphone SG Special VE, Vintage Worn Ebony" alt="Epiphone SG Special VE, Vintage Worn Ebony kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">53 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36356" class="cartbutton blank" onclick="addCart(36356)" data-ar="53900.00" data-prodname="Epiphone SG Special VE, Vintage Worn Ebony"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">SG gitár, 650R/700T hangszedők (HH), fix húrláb</div>
+	</li><li class="tbox  fw4col "><a id="pr36375"></a>
+		<div class="hed">
+			<a href="marshall-origin20h-csoves-gitarerosito-fej/P36375" class="megn"><strong>Marshall Origin20H csöves gitárerősítő fej</strong></a>
+			<div class="primg"><a href="marshall-origin20h-csoves-gitarerosito-fej/P36375" title="Marshall Origin20H csöves gitárerősítő fej"><img src="/scnt/nopic-120.jpg" title="Marshall Origin20H csöves gitárerősítő fej" alt="Marshall Origin20H csöves gitárerősítő fej kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">166 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36375" class="cartbutton blank" onclick="addCart(36375)" data-ar="166900.00" data-prodname="Marshall Origin20H csöves gitárerősítő fej"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">20W csöves fej</div>
+	</li><li class="tbox ujdBox fw4col fw4c2 fw4c4"><a id="pr36310"></a>
+		<div class="hed">
+			<a href="marshall-mg10g-gitarkombo/P36310" class="megn"><strong>Marshall MG10G gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-mg10g-gitarkombo/P36310" title="Marshall MG10G gitárkombó"><img src="/termekek/150/marshall-mg10g.jpg" title="Marshall MG10G gitárkombó" alt="Marshall MG10G gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20"><div class="statusTxtUj">Újdonság</div>22 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36310" class="cartbutton blank" onclick="addCart(36310)" data-ar="22900.00" data-prodname="Marshall MG10G gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">10 Watt kombó, 2 csatorna, 1x6,5" hangszóró</div>
+	</li><li class="tbox  fw4col fw4c3"><a id="pr36374"></a>
+		<div class="hed">
+			<a href="marshall-origin20c-csoves-gitarkombo/P36374" class="megn"><strong>Marshall Origin20C csöves gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-origin20c-csoves-gitarkombo/P36374" title="Marshall Origin20C csöves gitárkombó"><img src="/scnt/nopic-120.jpg" title="Marshall Origin20C csöves gitárkombó" alt="Marshall Origin20C csöves gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">211 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36374" class="cartbutton blank" onclick="addCart(36374)" data-ar="211900.00" data-prodname="Marshall Origin20C csöves gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">20W csöves kombó, 10" Celestion V Type hangszóró</div>
+	</li><li class="tbox  fw4col fw4c2"><a id="pr36357"></a>
+		<div class="hed">
+			<a href="epiphone-sg-special-ve-vintage-worn-heritage-cherry-sunburst/P36357" class="megn"><strong>Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst</strong></a>
+			<div class="primg"><a href="epiphone-sg-special-ve-vintage-worn-heritage-cherry-sunburst/P36357" title="Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst"><img src="/termekek/150/epiphone-sg-special-ve-vintage-worn-heritage-cherry-sunburst.jpg" title="Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst" alt="Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">53 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36357" class="cartbutton blank" onclick="addCart(36357)" data-ar="53900.00" data-prodname="Epiphone SG Special VE, Vintage Worn Heritage Cherry Sunburst"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">SG gitár, 650R/700T hangszedők (HH), fix húrláb</div>
+	</li><li class="tbox ujdBox fw4col "><a id="pr36306"></a>
+		<div class="hed">
+			<a href="marshall-dsl20cr-csoves-gitarkombo/P36306" class="megn"><strong>Marshall DSL20CR csöves gitárkombó</strong></a>
+			<div class="primg"><a href="marshall-dsl20cr-csoves-gitarkombo/P36306" title="Marshall DSL20CR csöves gitárkombó"><img src="/termekek/150/marshall-dsl20cr.jpg" title="Marshall DSL20CR csöves gitárkombó" alt="Marshall DSL20CR csöves gitárkombó kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20"><div class="statusTxtUj">Újdonság</div>199 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36306" class="cartbutton blank" onclick="addCart(36306)" data-ar="199900.00" data-prodname="Marshall DSL20CR csöves gitárkombó"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">20 Watt csöves gitárkombó, 12" Celestion hangszóró</div>
+	</li><li class="tbox  fw4col fw4c2 fw4c3 fw4c4"><a id="pr36358"></a>
+		<div class="hed">
+			<a href="epiphone-sg-special-ve-vintage-worn-cherry/P36358" class="megn"><strong>Epiphone SG Special VE, Vintage Worn Cherry</strong></a>
+			<div class="primg"><a href="epiphone-sg-special-ve-vintage-worn-cherry/P36358" title="Epiphone SG Special VE, Vintage Worn Cherry"><img src="/termekek/150/epiphone-sg-special-ve-vintage-worn-cherry.jpg" title="Epiphone SG Special VE, Vintage Worn Cherry" alt="Epiphone SG Special VE, Vintage Worn Cherry kép, fotó"></a></div>
+			
+			
+		</div>
+		<div class="price CT F20">53 900 Ft</div>
+		<div class="CT cartbuttr"><a href="javascript:;" id="cartbutton36358" class="cartbutton blank" onclick="addCart(36358)" data-ar="53900.00" data-prodname="Epiphone SG Special VE, Vintage Worn Cherry"><i class="icon-basket-2"></i> Kosárba teszem</a></div>
+		
+		<div class="desc">SG gitár, 650R/700T hangszedők (HH), fix húrláb</div>
+	</li></ul>
+	</div>
+
+</div>
+
+	<footer>
+			<div class="footcols">
+			<div  class="cnt cntpad cfix mrgbot">
+				<div class="fcol fc1">
+					<div class="fcoltit">Információk</div>
+					<ul class="links">
+						<li><a href="?tpl=page&cID=2" title="">Információk</a></li>
+						<li><a href="/aszf" title="">ÁSZF</a></li>
+						<li><a href="?tpl=page&cID=3" title="">Rólunk, cégadatok</a></li>
+						<li><a href="/kapcsolat" title="">Kapcsolat, térkép</a></li>
+					</ul>
+				</div>
+				<div class="fcol fc2" itemscope itemtype="http://schema.org/LocalBusiness">
+					<meta itemprop="name" content="Hangszeraruhaz.hu" />
+					<div class="fcoltit">Elérhetőségeink</div>
+					Mezzoforte hangszeráruhaz<br />
+					<i class="icon-email"></i> <a href="mailto:info@hangszeraruhaz.hu">info@hangszeraruhaz.hu</a>
+
+					<ul class="shopdata">
+						<li class="addr" title="Üzletünk címe" itemprop="address">1137 Budapest, Radnóti Miklós u. 25.</li>
+						<li class="open" title="Nyitvatartás" itemprop="openingHours" content="H-P: 10:00 - 18:00, Szo: 10:00 - 13:30">H - P: 10:00 - 18:00, Szo: 10:00 - 13:30</li>
+						<li class="tel" title="Telefon" itemprop="telephone">+36 (1) 555-7711</li>
+					</ul>
+
+					<ul class="shopdata">
+						<li class="addr" title="Üzletünk címe" itemprop="address">3300 Eger, Katona István tér 5.</li>
+						<li class="open" title="Nyitvatartás" itemprop="openingHours" content="H-P: 9:00-17:00, Szo: 9:00-12:30">H-P: 9:00-17:00, Szo: 9:00-12:30</li>
+						<li class="tel" title="Telefon" itemprop="telephone">+36 (36) 817-599</li>
+					</ul>
+
+					<ul class="shopdata">
+						<li class="addr" title="Üzletünk címe" itemprop="address">3300 Eger, Kallomalom u. 46.</li>
+						<li class="open" title="Nyitvatartás" itemprop="openingHours" content="H-K, CS-P: 12:00-16:30, Szo: 9:00-12:00 ">H-K, Cs-P.: 12:00-16:30, Szo: 9:00-12:00</li>
+						<li class="tel" title="Telefon" itemprop="telephone">+36 (36) 413-307, +36 (20) 9644-769</li>
+					</ul>
+
+				</div>
+				<div class="fcol fc3">
+					<div class="fcoltit">Blog</div>
+					<ul class="ftnews">
+					<li><a href="blog/yamaha-genos-bemutato-egerben/372" title="">Yamaha Genos bemutató Egerben</a></li><li><a href="blog/ibanez-genesis-collection-2018/371" title="">Ibanez Genesis Collection 2018</a></li><li><a href="blog/ingyenes-bovito-yamaha-psr-s775-psr-s975-szintetizatorokhoz/370" title="">Ingyenes bővítő Yamaha PSR-S775, PSR-S975 szintetizátorokhoz</a></li><li><a href="blog/tavaszi-rendkivuli-nyitva-tartas/369" title="">Tavaszi rendkívüli nyitva tartás</a></li><li><a href="blog/chapman-2017-legjobb-uj-elektromos-gitarja/367" title="">Chapman - 2017 legjobb új elektromos gitárja</a></li><li><a href="blog/kulsos-munkatarsat-keresunk/368" title="">Külsős munkatársat keresünk!</a></li>					</ul>
+				</div>
+				<div class="fcol fc4">
+					<div class="fcoltit">Lájkolj minket!</div>
+
+					<div class="fb-page" data-href="https://www.facebook.com/MezzoforteHangszeraruhaz" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MezzoforteHangszeraruhaz"><a href="https://www.facebook.com/MezzoforteHangszeraruhaz">Mezzoforte Hangszeráruház</a></blockquote></div></div>
+
+				</div>
+			</div>
+							<div id="tagCloud" class="cnt cntpad cfix">
+						<div class="fcoltit">Címke felhő</div>
+						<ul class="tagcloud">
+						<li><a href="https://www.hangszeraruhaz.hu/aktiv-hangfalak/electro-voice/sc1175g332" title="https://www.hangszeraruhaz.hu/aktiv-hangfalak/electro-voice/sc1175g332">Electro-Voice aktív hangfalak</a></li><li><a href="https://www.hangszeraruhaz.hu/hangkartya-interfesz/ik-multimedia/sc873g813" title="https://www.hangszeraruhaz.hu/hangkartya-interfesz/ik-multimedia/sc873g813">IK Multimedia hangkártyák, interfészek</a></li><li><a href="https://www.hangszeraruhaz.hu/digitalis-kevero/allen-es-heath/sc1168g782" title="https://www.hangszeraruhaz.hu/digitalis-kevero/allen-es-heath/sc1168g782">Allen & Heath digitális keverők</a></li><li><a href="https://www.hangszeraruhaz.hu/digitalis-zongora-szintetizator/SC903" title="https://www.hangszeraruhaz.hu/digitalis-zongora-szintetizator/SC903">Yamaha digitális zongorák, szintetizátorok</a></li><li><a href="https://www.hangszeraruhaz.hu/studio-monitor/genelec/sc877g616" title="https://www.hangszeraruhaz.hu/studio-monitor/genelec/sc877g616">Genelec Stúdió monitorok</a></li><li><a href="https://www.hangszeraruhaz.hu/gitar-effekt/boss/sc951g163" title="https://www.hangszeraruhaz.hu/gitar-effekt/boss/sc951g163">Boss gitáreffektek</a></li><li><a href="https://www.hangszeraruhaz.hu/hordozhato-felvevo-diktafon/SC872" title="https://www.hangszeraruhaz.hu/hordozhato-felvevo-diktafon/SC872">Hordozható felvevők, diktafonok</a></li><li><a href="https://www.hangszeraruhaz.hu/hangszedo/emg/sc939g555" title="https://www.hangszeraruhaz.hu/hangszedo/emg/sc939g555">EMG hangszedők</a></li>						</ul>
+				</div>
+						</div>
+		<div class="foot cfix cnt cntpad">
+			<div class="ftext">
+				&copy; 2018 minden jog fenntartva. Az oldalon található képek és szövegek a Mezzoforte hangszeráruház tulajdonát képezik, másolásuk nem engedélyezett.<br />
+			</div>
+			<div class="flogo">
+				<a href="http://www.springmedia.hu/webaruhaz-keszites" target="_blank" class="monstore tiptip" title="Powered by MONstore">Powered by MONstore</a>
+				<a href="http://www.springmedia.hu" target="_blank" class="springmedia tiptip" title="Készítette Spring Media">Készítette Spring Media</a>
+			</div>
+		</div>
+
+	</footer>
+	
+<div id="showCmp" class="cfix dnone"><a href="javascript:void(0);" onClick="delallcmp();" class="delall"><i class="icon-cancel"></i><span>Törlés</span></a><a href="compare.php" target="_blank">Kijelöltek összehasonlítása<i class="icon-right-open-big"></i></a></div>
+
+	<form action="/" onSubmit="return false;">
+	<div id="lightbox" class="overlay-scale">
+		<div class="ctr1">
+			  <div class="ctr2">
+			    <div class="ctr3">
+
+					<div id="lbPanel">
+						<div class="LBtit"><a href="javascript:void(0);" onClick="closeLB();" class="lboff"><span id="closetxt">Bezár</span> <i class="icon-cancel"></i></a> <span id="addcrtTit">Folyamatban...</span></div>
+						<div class="LBcnt">
+							<div id="processing"><img src="/scnt/ajax-bars.gif" width="180" height="40" alt="Feldolgozás folyamatban"></div>
+
+
+							<!-- Result msg -->
+							<div id="axresultDiv" class="lbcbox dnone cfix">
+								<div>
+									<p id="axrestext" class="CT"></p>
+								</div>
+							</div>
+
+							<!-- Add to Cart -->
+							<div id="addcartDiv" class="lbcbox dnone cfix">
+								<div>
+									<p class="CT">
+										<a href="javascript:void(0);" id="contshop" class="LBbuttbig" onClick="return closeLB();">Vásárlás folytatása</a>
+										<a href="/kosar" id="gochkout" class="LBbuttbig" rel="nofollow">Pénztárhoz <span class="icon-right-bold"></span></a>
+									</p>
+								</div>
+							</div>
+
+							<!-- Login -->
+							<div id="loginDiv" class="lbcbox dnone">
+
+								<div id="logdatas" class="LBsinglecol">
+
+									<div class="sw_forg sw_log">
+										<div class="bbcol4_1">E-mail cím*:</div>
+										<div class="bbcol4_2"><input type="text" id="login_email" name="login_email" value="" maxlength="128" class="odata"></div>
+										<div class="CLB"></div>
+									</div>
+
+									<div class="sw_log mrgbot">
+										<div class="bbcol4_1">Jelszó*:</div>
+										<div class="bbcol4_2"><input type="password" id="login_jelszo" name="login_jelszo" value="" maxlength="20" class="odata"></div>
+										<div class="CLB"></div>
+									</div>
+
+									<!--<div class="bbcol4_2 FR sw_log">
+										<label class="styin"><input type="checkbox" id="stayLogged" name="stayLogged" value="1"> Maradjak belépve ezen a gépen</label>
+									</div>-->
+
+									<div class="cfix">
+										<div class="bbcol4_2 CT FR sw_log"><a href="javascript:void(0);" onClick="swapLoginer('sw_forg')" class="btn smallwh"><i class="icon-lock-open-alt"></i>Elfelejtett jelszó</a> <a href="javascript:void(0);" class="btn smallgrn" onClick="lbdologin('indexx')"><i class="icon-login"></i>Belépés</a></div>
+										<div class="bbcol4_2 CT FR sw_forg"><a href="javascript:void(0);" onClick="swapLoginer('sw_log')" class="btn smallwh"><i class="icon-left-open-mini"></i>Vissza</a> <a href="javascript:void(0);" class="btn smallgrn" onClick="lbdogetpw()"><i class="icon-lock-open-alt"></i>Új jelszó kérése</a></div>
+									</div>
+
+								</div>
+
+								<div id="logresok" class="LBsinglecol CT BD F22 cgrn PD20 dnone">
+									Üdvözlünk! Sikeresen beléptél!
+								</div>
+
+								<div id="pwresok" class="LBsinglecol CT BD F22 cgrn PD20 dnone">
+									Új jelszavad elküldtük a regisztrált e-mail címedre.
+								</div>
+
+							</div>
+							<!-- end Login -->
+
+							<!-- Confirm -->
+							<div id="confirmDiv" class="lbcbox dnone">
+
+								<div class="CT F22">
+									Biztosan eltávolítod a terméket a kosárból?<br /><br />
+
+									<p class="CT">
+										<a href="javascript:void(0);" class="btn bluempty" onClick="return closeLB();">Mégsem</a>
+										<a href="javascript:void(0);" id="confirmYesButton" class="btn blufilled" onClick="return false">Igen</a>
+									</p>
+								</div>
+
+							</div>
+							<!-- end Confirm -->
+
+
+
+						</div>
+					</div>
+					<!-- end #lbPanel -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	
+<!--<div class="c-buttons">
+        <button id="c-button--slide-left" class="c-button">Slide Left</button>
+        <button id="c-button--slide-right" class="c-button">Slide Right</button>
+</div>-->
+
+<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+  <button class="c-menu__close">Bezár <i class="icon-cancel"></i></button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="/" class="c-menu__link">Főoldal</a></li>
+    <li class="c-menu__item"><a href="javascript:void(0);" onClick="toggling('#sidePrcats')" class="c-menu__link">Termékek</a>
+
+    	<div id="sidePrcats">
+    		<ul class="cath1">
+			                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-622')">Gitárok/pengetős</a>
+                    <div id="sidePrcats_L2-622" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-834')">Gitárok</a>
+	                                <div id="sidePrcats_L3-834" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="elektromos-gitar/SC835">Elektromos gitár</a></li><li><a href="balkezes-elektromos-gitar/SC1169">Balkezes elektromos gitár</a></li><li><a href="basszusgitar/SC838">Basszusgitár</a></li><li><a href="balkezes-basszusgitar/SC1170">Balkezes basszusgitár</a></li><li><a href="akusztikus-gitar-fem-huros/SC841">Akusztikus gitár (fém húros)</a></li><li><a href="balkezes-akusztikus-gitar-fem-huros/SC1171">Balkezes akusztikus gitár (fém húros)</a></li><li><a href="klasszikus-gitar-nylon-huros/SC930">Klasszikus gitár (nylon húros)</a></li><li><a href="akusztikus-basszusgitar/SC1103">Akusztikus basszusgitár</a></li><li><a href="ukulele/SC1147">Ukulele</a></li><li><a href="egyeb-pengetos/SC842">Egyéb pengetős</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-843')">Húrok</a>
+	                                <div id="sidePrcats_L3-843" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="elektromos-gitar-hur/SC844">Elektromos gitár húr</a></li><li><a href="basszusgitar-hur/SC845">Basszusgitár húr</a></li><li><a href="fem-akusztikus-gitar-hur/SC846">Fém akusztikus gitár húr</a></li><li><a href="nylon-klasszikus-gitar-hur/SC847">Nylon klasszikus gitár húr</a></li><li><a href="hur-egyeb-pengetoshoz/SC848">Húr egyéb pengetőshöz</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-935')">Gitár kiegészítők</a>
+	                                <div id="sidePrcats_L3-935" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="pengeto/SC936">Pengető</a></li><li><a href="slide-gyuru/SC1078">Slide gyűrű</a></li><li><a href="capo/SC1079">Capo</a></li><li><a href="gitarpant/SC937">Gitárpánt</a></li><li><a href="gitartok/SC938">Gitártok</a></li><li><a href="tok-egyeb-pengetoshoz/SC1148">Tok egyéb pengetőshöz</a></li><li><a href="hangszedo/SC939">Hangszedő</a></li><li><a href="hardver/SC940">Hardver</a></li><li><a href="tisztito-dekoracio-stb/SC941">Tisztító, dekoráció, stb.</a></li><li><a href="egyeb-gitaros-kiegeszito/SC1077">Egyéb gitáros kiegészítő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-994')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-994" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/gitarallvany/SC1050">Gitár állványok</a></li><li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Hangoló/Metronóm</a></li><li><a href="http://www.hangszeraruhaz.hu/gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=1126;;1130|1821;;;;;">Gitár adó-vevő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-839')">Gitár erősítő / effekt</a>
+                    <div id="sidePrcats_L2-839" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-912')">Gitár erősítő/hangfal</a>
+	                                <div id="sidePrcats_L3-912" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="szologitar-erosito-fej-kombo/SC914">Szólógitár erősítő (fej, kombó)</a></li><li><a href="basszusgitar-erosito-fej-kombo/SC915">Basszusgitár erősítő (fej, kombó)</a></li><li><a href="akusztikus-gitar-erosito-fej-kombo/SC916">Akusztikus gitár erősítő (fej, kombó)</a></li><li><a href="szologitar-hangfal/SC917">Szólógitár hangfal</a></li><li><a href="basszusgitar-hangfal/SC918">Basszusgitár hangfal</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-913')">Gitár effekt</a>
+	                                <div id="sidePrcats_L3-913" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="gitar-effekt/SC951">Gitár effekt</a></li><li><a href="gitar-szintetizator/SC1061">Gitár szintetizátor</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-954')">Erősítő/effekt kiegészítő</a>
+	                                <div id="sidePrcats_L3-954" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="tok-pedal-board/SC1029">Tok/Pedal Board</a></li><li><a href="elektroncso/SC1075">Elektroncső</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-998')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-998" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati adapter</a></li><li><a href="https://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/Hangoló</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-652')">Billentyűs</a>
+                    <div id="sidePrcats_L2-652" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-902')">Billentyűs hangszerek</a>
+	                                <div id="sidePrcats_L3-902" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="digitalis-zongora-szintetizator/SC903">Digitális Zongora/Szintetizátor</a></li><li><a href="http://www.hangszeraruhaz.hu/index.php?mode=useprm&tplDt=subcat|1||&prmID=903;;;908|1511;;;;">Kalapácsmechanikás digitális zongora/szintetizátor</a></li><li><a href="tangoharmonika/SC904">Tangóharmónika</a></li><li><a href="orgona/SC1060">Orgona</a></li><li><a href="egyeb-billentyus-hangszer/SC906">Egyéb billentyűs hangszer</a></li><li><a href="egyeb-szintetizator/SC1138">Egyéb szintetizátor</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-909')">Billentyűs kiegészítők</a>
+	                                <div id="sidePrcats_L3-909" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="tok-billentyus-hangszerekhez/SC910">Tok billentyűs hangszerekhez</a></li><li><a href="bovitok/SC911">Bővítők</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1058')">MIDI billentyűzet</a>
+	                                <div id="sidePrcats_L3-1058" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="midi-billentyuzet/SC1059">MIDI billentyűzet</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1064')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-1064" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="http://www.hangszeraruhaz.hu/pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="http://www.hangszeraruhaz.hu/billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="http://www.hangszeraruhaz.hu/szek-pad/SC959">Szék/pad</a></li><li><a href="http://www.hangszeraruhaz.hu/halozati-adapter/SC964">Hálózati Adapter</a></li><li><a href="http://www.hangszeraruhaz.hu/komplett-hangositas-kombo-hordozhato/SC850">Komplett hangosítás/kombó/hordozható</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-641')">Hangosítás / Stúdió</a>
+                    <div id="sidePrcats_L2-641" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-849')">Hangosítás</a>
+	                                <div id="sidePrcats_L3-849" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="szett-billentyus-kombo-akkus-mobil-hangositas/SC850">Szett/billentyűs kombó/akkus mobil hangosítás</a></li><li><a href="passziv-hangfalak/SC851">Passziv hangfalak</a></li><li><a href="aktiv-hangfalak/SC1175">Aktív hangfalak</a></li><li><a href="kevero/SC853">Keverő</a></li><li><a href="digitalis-kevero/SC1168">Digitális keverő</a></li><li><a href="keverorosito/SC852">Keverőrősítő</a></li><li><a href="vegfok/SC1141">Végfok</a></li><li><a href="fulmonitor-in-ear/SC1080">Fülmonitor (In-Ear)</a></li><li><a href="effekt-processzor-elofok/SC856">Effekt/processzor/Előfok</a></li><li><a href="eq-dinamika-processzor/SC857">EQ/Dinamika processzor</a></li><li><a href="keresztvalto-di-box-konverter/SC858">Keresztváltó/DI Box/Konverter</a></li><li><a href="100-volt/SC859">100 Volt</a></li><li><a href="hangositas-kiegeszito/SC860">Hangosítás kiegészítő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-861')">Lejátszó / DJ</a>
+	                                <div id="sidePrcats_L3-861" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="lejatszo-mp3-cd-lemezjatszo/SC862">Lejátszó, mp3, CD, lemezjátszó</a></li><li><a href="hangmodul-szekvenszer/SC863">Hangmodul/Szekvenszer</a></li><li><a href="groovebox-dance-tool/SC864">Groovebox, Dance Tool</a></li><li><a href="dj-kevero/SC865">DJ keverő</a></li><li><a href="lejatszo-dj-kiegeszito/SC866">Lejátszó/DJ kiegészítő</a></li><li><a href="mikrofon-vezetekes/SC1125">Mikrofon (vezetékes)</a></li><li><a href="vezeteknelkuli-mikrofon-szett/SC1126">Vezetéknélküli mikrofon szett</a></li><li><a href="vezetek-nelkuli-komponensek/SC1127">Vezeték nélküli komponensek</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-867')">Stúdió/PC</a>
+	                                <div id="sidePrcats_L3-867" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="hordozhato-felvevo-diktafon/SC872">Hordozható felvevő/diktafon</a></li><li><a href="hangkartya-interfesz/SC873">Hangkártya/interfész</a></li><li><a href="belso-pc-hangkartya/SC874">Belső PC hangkártya</a></li><li><a href="fejhallgato/SC870">Fejhallgató</a></li><li><a href="fejhallgato-erosito/SC871">Fejhallgató erősítő</a></li><li><a href="studio-monitor/SC877">Stúdió Monitor</a></li><li><a href="midi-eszkozok-vezerlok/SC875">MIDI eszközök, vezérlők</a></li><li><a href="http://www.hangszeraruhaz.hu/midi-billentyuzet/SC1059">MIDI billentyűzetek</a></li><li><a href="konverter/SC1066">Konverter</a></li><li><a href="studios-kiegeszitok/SC876">Stúdiós kiegészítők</a></li><li><a href="studio-butor/SC1063">Stúdió bútor</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1164')">Hangtechnika kiegészítők</a>
+	                                <div id="sidePrcats_L3-1164" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="fuldugo-hallasvedelem/SC1165">Füldugó/hallásvédelem</a></li><li><a href="megafon/SC1172">Megafon</a></li><li><a href="mikrofon-kiegeszitok/SC1173">Mikrofon kiegészítők</a></li><li><a href="huzatok-tokok/SC1174">Huzatok, tokok</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-642')">Dob, ütős</a>
+                    <div id="sidePrcats_L2-642" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1001')">Dobfelszerelés</a>
+	                                <div id="sidePrcats_L3-1001" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="akusztikus-dob-szett/SC1005">Akusztikus dob szett</a></li><li><a href="elektromos-dob-szett/SC1006">Elektromos dob szett</a></li><li><a href="elektromos-utos-hangszerek/SC1062">Elektromos ütős hangszerek</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1002')">Dob kiegészítők</a>
+	                                <div id="sidePrcats_L3-1002" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="cintanyer/SC1007">Cintányér</a></li><li><a href="bor/SC1008">Bőr</a></li><li><a href="dobvero-dobsepru/SC1009">Dobverő, dobseprű</a></li><li><a href="dobtest/SC1010">Dobtest</a></li><li><a href="karam/SC1011">Karám</a></li><li><a href="dob-allvany/SC1012">Dob állvány</a></li><li><a href="labgep/SC1013">Lábgép</a></li><li><a href="dobszek/SC1014">Dobszék</a></li><li><a href="egyeb-kiegeszito/SC1015">Egyéb kiegészítő</a></li><li><a href="elektromos-dob-kiegeszitok/SC1016">Elektromos dob kiegészítők</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1003')">Ütős hangszerek</a>
+	                                <div id="sidePrcats_L3-1003" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="kolomp/SC1019">Kolomp</a></li><li><a href="konga/SC1020">Konga</a></li><li><a href="bongo/SC1021">Bongó</a></li><li><a href="darbuka/SC1022">Darbuka</a></li><li><a href="djembe/SC1023">Djembe</a></li><li><a href="kezi-dob-csorgo/SC1024">Kézi dob, csörgő</a></li><li><a href="maracas-shaker/SC1025">Maracas, Shaker</a></li><li><a href="timbales/SC1026">Timbales</a></li><li><a href="cajon/SC1144">Cajon</a></li><li><a href="egyeb-utosok/SC1027">Egyéb ütősök</a></li><li><a href="utos-hangszer-kiegeszitok/SC1145">Ütős hangszer kiegészítők</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1004')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-1004" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/metronom-hangolo/SC962">Metronóm/hangoló</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-679')">Kotta / szoftver / ajándék</a>
+                    <div id="sidePrcats_L2-679" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1031')">Kotta</a>
+	                                <div id="sidePrcats_L3-1031" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="kotta/SC1035">Kotta</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1032')">Szoftver</a>
+	                                <div id="sidePrcats_L3-1032" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="szoftver/SC1033">Szoftver</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1073')">Ajándék</a>
+	                                <div id="sidePrcats_L3-1073" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="ajandek-utalvany/SC1074">Ajándék utalvány</a></li><li><a href="ajandek-targy/SC1083">Ajándék tárgy</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1036')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-1036" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/kotta-tarto-allvany/SC1049">Kottatartó</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-680')">Fúvós / Vonós</a>
+                    <div id="sidePrcats_L2-680" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1038')">Fúvós hangszer</a>
+	                                <div id="sidePrcats_L3-1038" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="furulya/SC1042">Furulya</a></li><li><a href="szajharmonika/SC1043">Szájharmonika</a></li><li><a href="egyeb-fuvos/SC1044">Egyéb fúvós</a></li><li><a href="didgeridoo/SC1146">Didgeridoo</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1039')">Vonós hangszer</a>
+	                                <div id="sidePrcats_L3-1039" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="hegedu/SC1045">Hegedű</a></li><li><a href="bracsa/SC1046">Brácsa</a></li><li><a href="csello/SC1047">Cselló</a></li><li><a href="nagybogo/SC1143">Nagybőgő</a></li><li><a href="vono/SC1071">Vonó</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1040')">Fúvós/vonós kiegészítők</a>
+	                                <div id="sidePrcats_L3-1040" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="tok-vonos-hangszerhez/SC1109">Tok vonós hangszerhez</a></li><li><a href="egyeb-fuvos-vonos-kiegeszitok/SC1123">Egyéb fúvós/vonós kiegészítők</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1041')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-1041" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-682')">Fény / Video / Hi-Fi</a>
+                    <div id="sidePrcats_L2-682" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1067')">Fénytechnika</a>
+	                                <div id="sidePrcats_L3-1067" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="par-spotlampa/SC1149">PAR Spotlámpa</a></li><li><a href="fenyvezerlo/SC1068">Fényvezérlő</a></li><li><a href="optikas-fenyeffekt/SC1150">Optikás fényeffekt</a></li><li><a href="mozgofejes-lampa/SC1153">Mozgófejes lámpa</a></li><li><a href="scanner/SC1154">Scanner</a></li><li><a href="szinpadi-reflektor/SC1155">Szinpadi reflektor</a></li><li><a href="tukorgomb/SC1156">Tükörgömb</a></li><li><a href="mobil-allvanyos-fenyszett/SC1157">Mobil állványos fényszett</a></li><li><a href="dekoracios-feny/SC1158">Dekorációs fény</a></li><li><a href="effektfolyadek/SC1159">Effektfolyadék</a></li><li><a href="fust-hazer-fazer/SC1162">Füst hazer fazer</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1069')">Video technika</a>
+	                                <div id="sidePrcats_L3-1069" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="video-munkaallomas/SC1070">Video munkaállomás</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1081')">Hi-Fi</a>
+	                                <div id="sidePrcats_L3-1081" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="fulhallgato/SC1082">Fülhallgató</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1160')">Kapcsolódó kategóriák</a>
+	                                <div id="sidePrcats_L3-1160" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="http://www.hangszeraruhaz.hu/fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                                <li class="dir">
+                    <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L2-683')">Kiegészítők</a>
+                    <div id="sidePrcats_L2-683" class="sidePrcats_L2">
+	                    <ul class="cath2">
+								                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-956')">Székek, állványok</a>
+	                                <div id="sidePrcats_L3-956" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="szek-pad/SC959">Szék/pad</a></li><li><a href="rack/SC961">Rack</a></li><li><a href="billentyus-allvany/SC1048">Billentyűs állvány</a></li><li><a href="kotta-tarto-allvany/SC1049">Kotta tartó állvány</a></li><li><a href="gitarallvany/SC1050">Gitárállvány</a></li><li><a href="fuvos-es-vonos-allvany/SC1051">Fúvós és vonós állvány</a></li><li><a href="mikrofonallvany/SC1052">Mikrofonállvány</a></li><li><a href="hangfalallvany/SC1053">Hangfalállvány</a></li><li><a href="monitor-kombo-kevero-laptop-allvany/SC1055">Monitor/Kombó/Keverő/Laptop állvány</a></li><li><a href="fenyallvany-rogzito/SC1056">Fényállvány, rögzítő</a></li><li><a href="allvany-kiegeszito/SC1057">Állvány kiegészítő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-957')">Metronóm, hangoló, adapter</a>
+	                                <div id="sidePrcats_L3-957" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="metronom-hangolo/SC962">Metronóm/Hangoló</a></li><li><a href="pedal-labkapcsolo-hangero/SC963">Pedál, lábkapcsoló, hangerő</a></li><li><a href="halozati-adapter/SC964">Hálózati adapter</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-958')">Kábel, csatlakozó</a>
+	                                <div id="sidePrcats_L3-958" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="midi-kabel/SC965">MIDI kábel</a></li><li><a href="gitar-hangszer-kabel-jack-jack/SC1113">Gitár/hangszer kábel (Jack-Jack)</a></li><li><a href="stereo-jack-stereo-jack/SC1122">Stereo Jack - Stereo Jack</a></li><li><a href="mikrofon-kabel/SC1114">Mikrofon kábel</a></li><li><a href="hangfal-kabel/SC1115">Hangfal kábel</a></li><li><a href="audio-kabel/SC1116">Audio kábel</a></li><li><a href="patch-kabel/SC1117">Patch kábel</a></li><li><a href="y-kabel/SC1118">Y kábel</a></li><li><a href="csoportkabel/SC1076">Csoportkábel</a></li><li><a href="adatkabel-egyeb-keszkabel/SC966">Adatkábel, egyéb készkábel</a></li><li><a href="kabel-csatlakozo-nelkul/SC967">Kábel csatlakózó nélkül</a></li><li><a href="atalakito/SC968">Átalakító</a></li><li><a href="kabel-kiegeszito/SC1119">Kábel kiegészítő</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                            <li class="dir">
+	                                <a href="javascript:void(0);" onClick="toggling('#sidePrcats_L3-1166')">Egyéb</a>
+	                                <div id="sidePrcats_L3-1166" class="sidePrcats_L3">
+	                                <ul class="cath3">
+									<li><a href="egyeb/SC1167">Egyéb</a></li>	                                </ul>
+	                                </div>
+	                            </li>
+									                    </ul>
+                	</div>
+                </li>
+                   			</ul>
+   		</div>
+
+    </li>
+    <li class="c-menu__item"><a href="/informacio" class="c-menu__link">Információ</a></li>
+    <li class="c-menu__item"><a href="/blog" class="c-menu__link">Blog</a></li>
+    <li class="c-menu__item"><a href="javascript:void(0);" onClick="$('.c-menu__close').click();showLB('login')" class="c-menu__link">Bejelentkezés</a></li>
+    <li class="c-menu__item"><a href="/regisztracio" class="c-menu__link">Regisztráció</a></li>
+  </ul>
+</nav><!-- /c-menu slide-right -->
+
+<!--<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+  <button class="c-menu__close">&larr; Close Menu</button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+  </ul>
+</nav>-->
+<!-- /c-menu slide-left -->
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+<!-- menus script -->
+<script>
+
+(function(window) {
+
+  'use strict';
+
+  /**
+   * Extend Object helper function.
+   */
+  function extend(a, b) {
+    for(var key in b) {
+      if(b.hasOwnProperty(key)) {
+        a[key] = b[key];
+      }
+    }
+    return a;
+  }
+
+  /**
+   * Each helper function.
+   */
+  function each(collection, callback) {
+    for (var i = 0; i < collection.length; i++) {
+      var item = collection[i];
+      callback(item);
+    }
+  }
+
+  /**
+   * Menu Constructor.
+   */
+  function Menu(options) {
+    this.options = extend({}, this.options);
+    extend(this.options, options);
+    this._init();
+  }
+
+  /**
+   * Menu Options.
+   */
+  Menu.prototype.options = {
+    wrapper: '#o-wrapper',          // The content wrapper
+    type: 'slide-right',             // The menu type
+    menuOpenerClass: '.c-button',   // The menu opener class names (i.e. the buttons)
+    maskId: '#c-mask'               // The ID of the mask
+  };
+
+  /**
+   * Initialise Menu.
+   */
+  Menu.prototype._init = function() {
+    this.body = document.body;
+    this.wrapper = document.querySelector(this.options.wrapper);
+    this.mask = document.querySelector(this.options.maskId);
+    this.menu = document.querySelector('#c-menu--' + this.options.type);
+    this.closeBtn = this.menu.querySelector('.c-menu__close');
+    this.menuOpeners = document.querySelectorAll(this.options.menuOpenerClass);
+    this._initEvents();
+  };
+
+  /**
+   * Initialise Menu Events.
+   */
+  Menu.prototype._initEvents = function() {
+    // Event for clicks on the close button inside the menu.
+    this.closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.close();
+    }.bind(this));
+
+    // Event for clicks on the mask.
+    this.mask.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.close();
+    }.bind(this));
+  };
+
+  /**
+   * Open Menu.
+   */
+  Menu.prototype.open = function() {
+    this.body.classList.add('has-active-menu');
+    this.wrapper.classList.add('has-' + this.options.type);
+    this.menu.classList.add('is-active');
+    this.mask.classList.add('is-active');
+    this.disableMenuOpeners();
+  };
+
+  /**
+   * Close Menu.
+   */
+  Menu.prototype.close = function() {
+    this.body.classList.remove('has-active-menu');
+    this.wrapper.classList.remove('has-' + this.options.type);
+    this.menu.classList.remove('is-active');
+    this.mask.classList.remove('is-active');
+    this.enableMenuOpeners();
+  };
+
+  /**
+   * Disable Menu Openers.
+   */
+  Menu.prototype.disableMenuOpeners = function() {
+    each(this.menuOpeners, function(item) {
+      item.disabled = true;
+    });
+  };
+
+  /**
+   * Enable Menu Openers.
+   */
+  Menu.prototype.enableMenuOpeners = function() {
+    each(this.menuOpeners, function(item) {
+      item.disabled = false;
+    });
+  };
+
+  /**
+   * Add to global namespace.
+   */
+  window.Menu = Menu;
+
+})(window);
+
+//////////////////////////////
+
+  /**
+   * Slide right instantiation and action.
+   */
+  var slideRight = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-right',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideRightBtn = document.querySelector('#c-button--slide-right');
+
+  slideRightBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideRight.open();
+  });
+
+
+ /**
+   * Slide left instantiation and action.
+   */
+   /*
+  var slideLeft = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideLeftBtn = document.querySelector('#c-button--slide-left');
+
+  slideLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideLeft.open();
+  });
+  */
+
+
+function toggling(oid)
+{
+	$(oid).slideToggle(200, function() {});
+
+}
+
+</script>
+
+<script>
+    (function() {
+        var v = document.getElementsByClassName("youtube-player");
+        for (var n = 0; n < v.length; n++) {
+            var p = document.createElement("div");
+            p.innerHTML = labnolThumb(v[n].dataset.id);
+            p.onclick = labnolIframe;
+            v[n].appendChild(p);
+        }
+    })();
+
+    function labnolThumb(id) {
+        return '<img class="youtube-thumb" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
+    }
+
+    function labnolIframe() {
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=1&showinfo=0");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("id", "youtube-iframe");
+        this.parentNode.replaceChild(iframe, this);
+    }
+
+$(document).ready(function(){
+
+	$(document).on("click", ".bx-pager-link", function(e){
+		$('.youtube-player iframe').each(function(){
+		  this.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*')
+		});
+  });
+
+});
+
+</script>
+<style>
+.youtube-container { display: block; margin: 0; width: 100%; height:100%; }
+.youtube-player { display: block; width: 100%; overflow: hidden; width: 100%; height: 100%; cursor: hand; cursor: pointer; }
+img.youtube-thumb { bottom: 0; display: block; left: 0; margin: auto; max-width: 100%; width: 100%; position: absolute; right: 0; top: 0; height: auto }
+div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -36px; margin-top: -36px; position: absolute; background: url("/scnt/button-icon-play.png") no-repeat; }
+#youtube-iframe { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+</style>
+
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'hu'}
+</script>
+
+</body>
+</html>

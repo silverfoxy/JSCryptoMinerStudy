@@ -1,0 +1,303 @@
+
+
+
+
+<!-- JSP:/login/Login.jsp -->
+<head>
+  <title>Logar no Sistema</title>
+  <base href="http://www2.mt.gov.br:80/">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css" type="text/css">
+  <link rel="stylesheet" href="css/jquery-confirm.css" type="text/css">
+  <link rel="stylesheet" href="css/Fiplan.css?71902465" type="text/css">
+  <link rel="stylesheet" href="css/Grade.css?71902465" type="text/css">
+  <link rel="stylesheet" href="css/Menu.css?71902465" type="text/css">
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script src="jquery-ui/jquery-ui.js"></script>
+  <script src="jquery-ui/datepicker-pt-BR.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script src="scripts/Gera_Menu.js?71902465"></script>
+  <script src="scripts/Gera_Grade.js?71902465"></script>
+  <script src="scripts/Funcoes.js?71902465"></script>
+  <script src="scripts/Framework.js?71902465"></script>
+  <script src="scripts/Validation.js?71902465"></script>
+  <script src="scripts/Seg.js?71902465"></script>
+  <script src="scripts/Formata_Moeda.js?71902465"></script>
+  <script src="scripts/Calendario_Popup.js?71902465"></script>
+  <script src="scripts/moment-2.15.js?71902465"></script>
+  <script src="scripts/jquery-confirm.js?71902465"></script>
+  <script src="scripts/jquery.blockUI.js?71902465"></script>
+
+
+  <script>
+	$(document).ready(function() {
+		$("input, select").removeClass("input-xs");
+	});
+     
+      //se a tela estiver em um popup, fecha o popup e reinicia a janela principal.
+     if(parent != null && parent.opener != null&&parent.opener.parent.areaAplicacao){
+//         parent.opener.parent.location.href = "Fiplan.jsp;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+        parent.opener.parent.menu.document.location.href = "Oculto.jsp;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+        parent.opener.parent.areaAplicacao.document.location.href = "exibirLogin.do;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+
+         parent.window.close();
+     }
+     else if(parent == null || parent.areaAplicacao == null || parent==self){
+         //se a tela de login não estiver dentro de um frame, 
+         //carregar o frame inicial da aplicação.
+         parent.document.location.href = "index.jsp;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+     }else if(parent != null && parent.menu != null && ((parent.menu.menuCarregado && parent.menu.menuCarregado != null) || !parent.menu.menuCarregado)){
+        //se o menu estiver carregado limpar o menu
+         parent.cabecalho.exibirItensAposLogin(false);
+         parent.cabecalho.showMenu(false);
+         parent.buttons.configurarBotoes(null);
+         parent.menu.document.location.href = "Oculto.jsp;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+         
+     }
+
+    loadMenuPopup();
+
+    function validarLogin(){
+      var form = document.forms[0];        
+      var msg = (form.senha.value == '') ? "O campo:'Senha' deve ser informado!\n" : "";
+      
+        if(!form.cdUnidadeOrcamentariaNova.selectedIndex){
+           msg += "O campo 'Unidade Orçamentária' deve ser informado!";
+        }
+      
+      if(msg.length > 0 && msg!=' '){    
+         alert(msg);
+      }
+      else{
+         form.anoExercicio.disabled = false;
+         document.forms[0].respostaAoDesafio.value = getRespostaAoDesafio(document.forms[0].desafio.value);
+//         if(confirm('Submeter?'))
+         	document.forms[0].submit();
+      }
+    }
+    
+    function getRespostaAoDesafio(desafio){
+    	var result='';
+    	try {
+    		var f = document.forms[0];
+			if(f.logouCertificado[1].checked)
+				return result;
+			var appt = document.applets['oApplet'];
+			if(!appt)
+				return result;
+			result = appt.getResponse();
+			f.cert.value = appt.getUserCertificate();
+            if(result == "" || f.cert.value == ""){
+            	throw "Não foi possível responder ao desafio usando o certificado digital do usuário!"; 
+            }
+	    }
+	    catch(err) {
+	        alert("Erro: "+err+"\n\nVerifique se o token está corretamente conectado à máquina e se o erro persistir entre em contato com o suporte técnico!");
+	        return;
+	    }
+		return result;
+    }
+ // Verifica se a applet foi iniciada ou não.
+
+  var started = false;
+  function checkAppletStarted() {
+    if (document.applets['oApplet']) {
+	  try{
+        started = document.applets['oApplet'].isStarted();
+	  }catch (err) {}
+	}
+    if (!started){
+		window.setTimeout("checkAppletStarted()", 1000);
+	}else
+      ;//enableButtons(true);
+  }
+
+    function carregarLogin(){
+      var form = document.forms[0];
+      if(form.dsLogin.value == ""){
+         alert("O campo 'Login' deve ser informado!");
+      }
+      else{
+        form.action = "exibirLogin.do;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+        form.submit();
+      }
+    }
+
+    function cancelarLogin(){
+      form.dsLogin.value = '';
+      form.senha.value = '';
+      mudarStatusLogin(false);
+    }
+
+    function mudarStatusLogin(loginInformado){
+      var form = document.forms[0];
+      form.dsLogin.readOnly = loginInformado;
+      form.senha.disabled = !loginInformado;
+      form.anoExercicio.disabled = loginInformado;
+      form.cdUnidadeOrcamentariaNova.disabled = !loginInformado;
+
+      document.getElementById('linhaSenha').style.display = (loginInformado) ? "block" : "none" ;
+      document.getElementById('linhaUnidadeOrcamentaria').style.display = (loginInformado) ? "block" : "none" ;
+      document.getElementById('linhabotoes').style.display = (loginInformado) ?  "block" : "none" ;
+      document.getElementById('botaoOk').style.display = (loginInformado) ?  "none" : "block" ;
+
+      fieldFocus = (loginInformado) ? form.senha : form.dsLogin;
+      fieldFocus.focus();
+
+    }
+    //Data vinda do servidor via simple date format
+    //18/03/2018 18:44.730
+  </script>
+<style>
+	#cdUnidadeOrcamentariaNova {
+		width: 100%;
+	}
+	@media (min-width: 768px) {
+		/* 768px é a largura que muda de col-xs para col-sm no bootstrap */
+		.row-vertical-center {
+			position: relative;
+			height: 100%;
+		}
+		.col-vertical-center {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.col-left {
+			left:0;
+		}
+		.col-right {
+			right:0;
+		}
+		#cdUnidadeOrcamentariaNova {
+			width: 90%;
+		}
+	}
+</style>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row row-vertical-center">
+		<div id="imgLoginDiv" class="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-4 col-vertical-center col-left">
+			<img src="imagens/logos/logo-fiplan-10anos.png" alt="Fiplan" width="90%" />
+		</div>
+		<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-6 col-vertical-center col-right">
+			<form name="loginForm" method="post" action="/validarLogin.do;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR.mineirinho" id="loginForm">     <!-- propriedades framework -->
+          <input type="hidden" name="botaoPressionadoFiplan"/>
+          <input type="hidden" name="fiplanPageCount" value="30"/>
+          <input type="hidden" name="lastRedirectFiplan"/>
+          <input type="hidden" name="exercicioAtualFiplan"/>
+          <input type="hidden" name="fiplanTotalCount" value="0"/>
+          <input type="hidden" name="exercicioInicioPPA"/>
+          <input type="hidden" name="idUnidadeOrcamentariaFiplan"/>
+          <input type="hidden" name="acaoErroFiplan"/>
+          <input type="hidden" name="unidadeOrcamentariaFiplan"/>
+          <input type="hidden" name="acaoAnteriorFiplan" value="/exibirLogin.do"/>
+          <input type="hidden" name="fiplanSerValues"/>
+          <input type="hidden" name="acaoConfirmacaoFiplan"/>
+          <input type="hidden" name="exercicioFimPPA"/>
+          <input type="hidden" name="acaoConfirmarFiplan"/>
+          <input type="hidden" name="method"/>
+          <input type="hidden" name="cdUnidadeOrcamentariaFiplan"/>
+          <input type="hidden" name="tipoOperacaoFiplan"/>
+          <input type="hidden" name="fiplanPagina" value="0"/>
+          <input type="hidden" name="confirmacaoFiplan"/>
+          <input type="hidden" name="voltarActionFiplan"/>
+          <input type="hidden" name="exercicioPlanejamentoFiplan"/>
+          <input type="hidden" name="exercicioExecucaoOrcamentaria"/>
+          <input type="hidden" name="exercicioExecucaoFinanceiro"/>
+          <input type="hidden" name="acaoAtualFiplan" value="/exibirLogin.do"/>
+          <input type="hidden" name="exercicioCorrenteFiplan"/>
+     <!-- fim propriedades framework -->
+
+				<input type="hidden" name="telaLogin" value="true">
+				<div class="form-group">
+					<label for="inputExercicio">EXERCÍCIO</label>
+					<select name="anoExercicio" class="form-control input-xs input-sm" id="inputExercicio"><option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018" selected="selected">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option></select>
+				</div>
+				<div class="form-group">
+					<label for="inputLogin">LOGIN</label>
+					<input type="text" name="dsLogin" size="25" value="" onkeypress="if (!(validaAoTeclar(this, event, 'login') && true)) return false;" onblur="if(!this.validatorReseted) this.validatorReseted=false;this.isModified=(verificaSeAlterado(this,'login',this.validatorReseted));if(validaAoSair(this, 'login', '', '')){;}" onfocus="validaAoFocar(this, 'login');this.initValue=this.value;;" class="form-control input-xs input-sm" id="inputLogin">
+				</div>
+				<div id="botaoOk" class="form-group" style="display:block;">
+					<a class="btn btn-default" href="javascript:carregarLogin();" target="areaAplicacao" role="button">AVANÇAR</a>
+				</div>
+				<div id="linhaSenha" class="form-group" style="display:none;">
+					<label for="inputSenha">SENHA</label>
+					<input id="inputSenha" class="form-control input-sm" type="password" name="senha" size="25" maxlength="20"/>
+				</div>
+				<div id="linhaUnidadeOrcamentaria" class="form-group" style="display:none;">
+					<label for="cdUnidadeOrcamentariaNovaTextBox">UNIDADE ORÇAMENTÁRIA</label>
+					<input type="hidden" name="cdUnidadeOrcamentariaNovaTextBoxHiddenTemp" value=""/><div style="display:table"><span style="display:table-cell;width:1%"><input type="text" name="cdUnidadeOrcamentariaNovaTextBox" value="" maxlength="5"  size="5" onchange="comboTextoAjustaCombo(document, 'cdUnidadeOrcamentariaNova');;validaAoSair(this, 'ZEROSESQUERDA', '', '')&&validaAoSair(this, 'NUMERICO', '', '');if (document.forms[0].cdUnidadeOrcamentariaNovaTextBox.value!=document.forms[0].cdUnidadeOrcamentariaNovaTextBoxHiddenTemp.value) {null;}" id="cdUnidadeOrcamentariaNovaTextBox" class="form-control input-xs input-sm"  style="width:auto"  onfocus="validaAoFocar(this, 'ZEROSESQUERDA');validaAoFocar(this, 'NUMERICO');" onkeypress="if (!handleEnter(this, event)) return false;if (!(validaAoTeclar(this, event, 'ZEROSESQUERDA') && validaAoTeclar(this, event, 'NUMERICO') && true)) return false;;" /></span><span style="display:table-cell;width:1%">&nbsp;-&nbsp;</span><select name="cdUnidadeOrcamentariaNova" onchange=";comboTextoAjustaTexto(document, 'cdUnidadeOrcamentariaNova');validaAoSair($('#'+$(this).prop('name')+'TextBox')[0], 'ZEROSESQUERDA', '', '');" class="form-control input-xs input-sm" id="cdUnidadeOrcamentariaNova"><option value="" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option></select></div>
+					<input type="hidden" name="desafio" value="">
+					<input type="hidden" name="respostaAoDesafio" value="">
+					<input type="hidden" name="cert" value="">
+				</div>
+				<div id="trDeveUsarCertificado" class="form-group" style="display:none;">
+					<label for="logouCertificado">USAR SEU CERTIFICADO DIGITAL</label>
+					<input type="radio" name="logouCertificado" checked="true" value="S"> Sim 
+					<input type="radio" name="logouCertificado"                value="N"> Não
+				</div>
+				<div id="linhabotoes" class="form-group" style="display:none;">
+					<a class="btn btn-default" href="javascript:validarLogin();" target="areaAplicacao" role="button">AVANÇAR</a>
+					&nbsp;
+					<a class="btn btn-default" href="javascript:cancelarLogin();" target="areaAplicacao" role="button">CANCELAR</a>
+				</div>
+			<script>
+var form=document.forms[0];
+form.oldSubmit=form.submit;
+form.submit=function(){
+		if(document.fiplanSubmit=='y'){
+			return false; 
+		}
+		document.fiplanSubmit='y';
+		form.oldSubmit();
+}
+</script>
+</form>
+		</div>
+	</div>
+</div>
+<script></script>
+
+<script>
+  var form = document.forms[0];
+
+  mandatoryValidator.addField("Login", form.dsLogin);
+
+  
+    mudarStatusLogin(false);
+  
+  
+
+</script>
+
+
+
+</body>
+
+</html>
+<script>
+	if(document.forms[0].anoExercicio.length==0){
+		parent.document.location.href = "Fiplan.jsp;jsessionid=cGGXRnnaBsqLOiazxYOaYVNOT1C2H9RHvd5fFinR";
+	}
+	
+	checkAppletStarted();
+</script>

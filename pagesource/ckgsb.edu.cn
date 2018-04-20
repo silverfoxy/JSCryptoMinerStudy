@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>长江商学院</title>
+    <meta name="keywords" content="长江,长江商学院,商学院,项兵,课程,论坛" />
+    <meta name="description" content="长江商学院是由李嘉诚（海外）基金会捐资创办并获得国家正式批准，拥有独立法人资格的非赢利性教育机构，其目标是在十年内进入世界十强商学院之列，并致力于创建全球新一代商学院。长江商学院现有MBA项目、EMBA项目和高层管理培训项目等。创办院长为项兵博士。长江商学院每年在全国多所城市举办“长江管理前沿论坛”，在社会各界取得不俗反响。" />
+    <link href="/public/ckgsb/responsive/pc/css/common.css" rel="stylesheet" >
+    <link href="/public/ckgsb/responsive/pc/css/style.css" rel="stylesheet"  >
+    <link rel="Shortcut Icon" href="/public/ckgsb/responsive/pc/images/ckgsb.ico" />
+       <meta name="baidu-site-verification" content="vXBriZacSY" />  
+       <meta property="wb:webmaster" content="8d6ef09111909721" />
+     <!--[if lt IE 9]>
+      <script type="text/javascript" src="/public/ckgsb/responsive/pc/js/respond.min.js"></script>
+ 
+        <![endif]-->
+        
+    <!--[if IE 6]>
+    <style type="text/css">
+        .clearfix { zoom:1; }
+    </style>
+    <![endif]-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/public/ckgsb/js/DD_belatedPNG.js"></script>
+    <script>
+        DD_belatedPNG.fix('*');
+    </script>
+    <![endif]-->
+    <script type="text/javascript" src="/public/ckgsb/js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var system ={
+
+    		win : false,
+
+    		mac : false,
+
+    		xll : false
+
+    };
+
+    //检测平台
+
+    var p = navigator.platform;
+
+    system.win = p.indexOf("Win") == 0;
+
+    system.mac = p.indexOf("Mac") == 0;
+
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+	
+	var isipad = p.indexOf("iPad") == 0;
+    //跳转语句，如果是手机访问就自动跳转到mobile
+
+    if(system.win||system.mac||system.xll||isipad){
+
+    	//window.location.href="mobile";	
+    	
+    }else{
+
+    	window.location.href="mobile";
+
+    }
+    
+    var page = 1;
+        $(function(){
+            var navs = $(".dropdown");
+            var nl = $(".active2");
+         
+            nl.mouseenter(function(){
+                nl.find('ul').hide();navs.find('ul').hide();nl.removeClass('active');navs.removeClass('active');
+                var t = $(this);
+                t.addClass('active').find('ul').stop().slideDown(300,function(){
+                    var u = $(this);
+                    nl.mouseleave(function(){$('.nav ul').stop().slideUp(300,function(){t.removeClass('active');});})
+                })
+            });
+            navs.click(function(){
+                nl.find('ul').hide();navs.find('ul').hide();nl.removeClass('active');navs.removeClass('active');
+                var t = $(this);
+                t.addClass('active').find('ul').slideDown(300,function(){
+                    var u = $(this);
+                    u.mouseleave(function(){$('.nav ul').slideUp(300,function(){t.removeClass('active');});})
+                })
+            });
+          
+            // 模块边距初始化
+           $(".viewBox").click(function() {
+             wraW = $('#wrapper').width();
+             id = $('#tags').val();
+             if(page > 3){ 
+                 if(id==1){
+                     window.location.href="/about/article/78/";
+                 }else if(id==2){
+                     window.location.href="/faculty/article/index/157";
+                 }else if(id==3){
+                     window.location.href="/about/video/82";
+                 }else if(id==4){
+                     window.location.href="/about/article/79/";
+                 }else if(id==5){
+                     window.location.href="http://www.ckgsb.edu.cn/research/ckri/index.aspx";
+                 }else{
+                     $(".viewBox").hide(600);   
+                 }
+               }
+             if(page > 4){ return false;} 
+            // alert(wraW);  
+            if (wraW <= 1280&&wraW>=940) {
+                    size = 4;
+              } else if (wraW >= 1285) {
+                     size =5;
+                   }
+                   else 
+                     size =4;
+                  
+                      var list_p = $(".itemListdown"),
+                            list = $('.itemList').find('li');
+                            $.ajax({
+                                url:'/index/ajax/'+id,
+                                type:'post',
+                                data:{size:size,page:page,tags:id},
+                                dataType:'json',
+                                success:function(r){
+                                    if(r.data=='') {
+                                           if(id==1){
+                                               window.location.href="/about/article/78/";
+                                           }else if(id==2){
+                                               window.location.href="/faculty/article/index/157";
+                                           }else if(id==3){
+                                               window.location.href="/about/video/82";
+                                           }else if(id==4){
+                                               window.location.href="/about/article/79/";
+                                           }else if(id==5){
+                                               window.location.href="http://www.ckgsb.edu.cn/research/ckri/index.aspx";
+                                           }
+                                  $(".viewBox").hide();}
+                                  else list_p.append(r.data);
+                                    var lengths = Math.ceil($(".itemListdown").find('li').length / size);
+                                    for (var i = 0; i < lengths; i++) {
+                                        $(".itemListdown li").eq(size * i - 1).css({
+                                            'margin-right': 0
+                                        });
+                                    }
+                                    page ++;
+                                }
+                            });
+                });  
+            $(".apply").click(function(){
+                var applyBox = $(".footerDiv2");
+                applyBox.slideDown(300,function(){
+                    var downApplyBoxBtn = $(".applyBt");
+                    downApplyBoxBtn.click(function(){
+                        applyBox.slideUp();
+                    });
+                });
+            });
+
+            $(function(){
+                $("a.weixin").mouseover(function(){
+                    $(".wxImg").show();
+                })
+                $("a.weixin").mouseout(function(){
+                    $(".wxImg").hide();
+                })
+            });
+        });
+        /*function newsScroll(){
+            $(function(){
+                $(".newsList li:first").slideUp('slow',function(){
+                    $(this).clone().appendTo($(this).parent()).slideDown('slow');
+                    $(this).remove();
+                });
+            }); 
+        };
+        $(document).ready(function() {
+            var myar = setInterval('newsScroll(".newsList li")', 5000)
+            $(".newsList li").hover(function() { clearInterval(myar); }, function() { myar = setInterval('newsScroll(".newsList li")', 5000) });
+        });   */
+        
+        /**全球课程下拉菜单滑过效果**/
+        $(function(){
+            $("ul li.cor06").hover(function(){
+                $(this).find(".ov_in").show();    
+            },function(){
+                $(this).find(".ov_in").hide()    
+            })    
+        });
+				 $(function(){
+            $("ul li.cor03").hover(function(){
+                $(this).find(".ov_in").show();    
+            },function(){
+                $(this).find(".ov_in").hide()    
+            })    
+        });
+        // 二维码
+        $(function(){
+            $(".btR").hover(function(){
+                $('.btRhver').show();   
+            },function(){
+                $('.btRhver').hide();   
+            }); 
+                $("#lifg").hover(function(){
+                $('.neop').show();    
+            },function(){
+                $('.neop').hide();    
+            });    
+        });
+    </script>
+</head>
+<body>
+<!-- header -->
+<style>
+	.span{
+		float: left;
+		display: block;
+		height: 10px;
+		background: #666;
+		width: 1px;
+		margin-top: 5px;
+	}
+	.header_menu ul li{
+		margin: 0 5px;
+	}
+	@media only screen and  (max-width: 1280px) {
+		.header_menu ul li{
+		
+		}
+	}
+</style>
+<div class="header_wrap">
+
+    <div class="header">
+
+        <div class="top_l fl" style="margin-top:-3px;">
+
+			<ul class="nav">
+
+                    <li class="home"><a href="/">首页</a></li>
+
+					
+
+                    <li><a href="http://bb.ckgsb.com/" target="_blank">课程系统</a></li>
+
+					
+
+                    <li class="dropdown">
+
+                        <a href="http://ro.ckgsb.com/" class="" target="_blank">教务管理</a>
+
+                    </li>
+
+                    <!--<li><a href="http://mail.ckgsb.edu.cn/" target="_blank">学员邮件</a></li>-->
+
+					
+
+                    <li class="dropdown">
+
+                        <a href="javascript:;" class="caret">学习中心<!-- <b class="caret"></b>--></a>
+
+						
+
+                        <ul class="dropdown-menu">
+
+                            <li><a href="http://knowledge.ckgsb.edu.cn/" target="_blank">知识中心</a></li>
+
+                            <li><a href="http://www.ckgsb.edu.cn/faculty/article/index/157" target="_blank">观点文章</a></li>
+
+							<!--
+
+                            <li><a href="http://2014.ckgsb.com/about/video/82" target="_blank">教授视频</a></li>
+
+							-->
+
+                            <li><a href="http://www.ckgsb.edu.cn/faculty/pages/index/181" target="_blank">研究中心</a></li>
+
+                            <li><a href="http://www.ckgsb.edu.cn/faculty/pages/index/173" target="_blank">案例中心</a></li>
+
+                            <li><a href="http://www.ckgsb.edu.cn/faculty/pages/index/184" target="_blank">学术交流</a></li>
+
+							                    <li>
+
+                        <a href="http://cmc.ckgsb.com/sso/SignOn.aspx?ActionUrl=http%3a%2f%2fcmc.ckgsb.com%2f" class="" target="_blank">职业发展</a>
+
+                    </li>
+
+
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="http://2013.ckgsb.com/library/index.aspx " target="_blank">图书馆</a></li>
+
+					
+
+                    <li><a href="http://stu.ckgsb.com/" target="_blank">校友平台</a></li>
+
+					
+
+                    <li class="active2">
+
+                        <a href="javascript:;">Language</a>
+
+                        <ul class="dropdown-menu">
+
+                            <li><a href="http://english.ckgsb.edu.cn/" target="_blank">English</a></li>
+
+                            <li><a href="http://jp.ckgsb.edu.cn/" target="_blank">Japanese</a></li>
+
+                            <li><a href="http://www.ckgsb.kr/" target="_blank">Korean</a></li>
+
+                        </ul>
+
+                    </li>
+
+					<li><a href="http://www.ckgsb.edu.cn/about/job/178" target="_blank">加盟长江</a></li>
+
+                </ul>
+
+        </div>
+
+        <div class="searchBox fr" id="searchBox">
+
+            <form method='get' target="_blank" action="/search/index" style="float:right;">
+
+                <input style="width:106px;" name='word' type="text" class="searchText" value="请输入关键字" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value='';}" onblur="if(this.value==''){this.value='请输入关键字';}" x-webkit-speech="" x-webkit-grammar="builtin:translate"/>
+
+                 <input type="submit" value='' class="searchIcon"/>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="wrapper">
+
+    <div class="content clear">
+
+        <div class="header_top">
+
+            <div class="header_cont">
+
+                <div class="logo fl">
+
+                    <a href="/">
+
+                        <img src="/public/ckgsb/responsive/pc/images/logo.gif">
+
+                    </a>
+
+                </div>
+
+                <div class="header_menu fr">
+
+                    <div class="number" style="float:right;">
+
+					   <div class="neol"> 
+
+							<a id="lifg">
+
+								<img src="/public/ckgsb/responsive/pc/images/weChat.gif" >
+
+							</a>
+
+							<img class="ikn" src="/public/ckgsb/responsive/pc/images/number.gif" >
+
+							<span>全国统一咨询热线：</span>
+
+						</div>
+
+                       <div class="neop"><img src="/public/ckgsb/responsive/pc/images/weixin_img1.png"></div>
+
+                    </div>
+
+                         
+
+                    <ul style="float:right;">
+
+                        <li><a href="/faculty" target="_blank">教授/研究</a></li>
+                        
+                        <span class="span"></span>
+
+                        <li class="cor01"><a href="/mba" target="_blank">英文MBA</a></li>                     
+						<span class="span"></span>
+                        <li class="cor02"><a href="/fmba" target="_blank">金融MBA</a></li>
+                        <span class="span"></span>
+
+                        <li class="cor03"><a href="/emba" target="_blank">EMBA</a>
+                        
+
+						<!--<div class="ov_in" style='width:92px;text-align:center;'>
+
+                                <a href="/emba" target="_blank"    style='width:72px;text-align:center;float:left;margin-left:19px;'>EMBA</a>
+
+                                <a href="http://2013.ckgsb.com/FEMBA/index.aspx" target="_blank"  style='width:72px;text-align:center;float:left;margin-left:19px;'>FEMBA</a>
+
+                                <a href="http://2013.ckgsb.com/CCEMBA/index.aspx" target="_blank"  style='width:72px;text-align:center;float:left;margin-left:19px;'>文创EMBA</a>
+
+                                <a href="http://2013.ckgsb.com/dualemba/index.aspx" target="_blank"    style='width:72px;text-align:center;float:left;margin-left:19px;'>Dual EMBA</a>
+
+                            </div> -->
+
+						
+
+						
+
+						
+
+						</li>
+						<span class="span"></span>
+
+                        <li class="cor04"><a href="/dba" target="_blank">DBA</a></li><span class="span"></span>
+
+                        <li class="cor05"><a href="http://ee.ckgsb.com/" target="_blank">EE高层管理教育</a></li><span class="span"></span>
+
+                        <li class="cor06">
+
+                            <a href="/chuang" target="_blank">创创社区</a>
+
+                         <!-- <div class="ov_in">
+
+                                <a href="/abroad" target="_blank">海外课程</a>
+
+                                <a href="/international" target="_blank">国际课程</a>
+
+								<a href="/international/pages/index/161.html" target="_blank">iLEAD</a>
+
+                            </div>    -->
+
+                        </li><span class="span"></span>
+
+                          <li><a target="_blank" href="/zt/2017/Science-innovation-meti/course.html" >科技创新与创业</a></li><span class="span"></span>
+
+                        <li><a href="/alumni" target="_blank">校友</a></li><span class="span"></span>
+                        
+                        <li ><a href="/ckedf/" target="_blank">长江教育发展基金会</a></li>    <span class="span"></span>                                                                     
+                        <li class="last_li"><a href="/about" target="_blank">走近长江</a></li>    
+                            
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="container" id="idTransformView2"><ul class="slider slider2" id="idSlider2"><li><a href="javascript:;"><img src="/uploads/slide/201401/23/1390475623953606.jpg"></a></li><li><a href="http://www.ckgsb.edu.cn/about/activity_detail/80/1120.html" target="_blank"><img src="/uploads/slide/201803/08/1520481999873023.JPG"></a></li><li><a href="http://www.ckgsb.edu.cn/zt/2017/alumni/" target="_blank"><img src="/uploads/slide/201710/27/1509087057243575.jpg"></a></li><li><a href="http://www.ckgsb.edu.cn/zt/2017/ndgongyi/" target="_blank"><img src="/uploads/slide/201712/19/1513667491906962.jpg"></a></li><li><a href="http://www.ckgsb.edu.cn/alumni/aggregate/index/410" target="_blank"><img src="/uploads/slide/201603/22/1458629692163416.jpg"></a></li></ul><ul class="num" id="idNum2" style='width:150px'><li></li><li></li><li></li><li></li><li></li></ul>
+                          <ul class="xys" id="idBtn"><li class="prev"></li><li class="next"></li></ul></div><!-- end -->
+        <div class="item_menu" id="item_menu">
+            <span><a href="/" style="float:left;color:#fff;height:30px;width:90px;padding:0px;">热点</a></span>
+            <a href="javascript:;"  id='cat1' onclick="get_ajax_content(1)">新闻</a>
+            <a href="javascript:;" id='cat2' onclick="get_ajax_content(2)">观点</a>  
+            <!-- <a href="javascript:;" id='cat3'  onclick="get_ajax_content(3)">视频</a>
+           <a href="javascript:;"  id='cat5' onclick="get_ajax_content(5)">研究</a>
+           
+            <a href="javascript:;" id='cat7' onclick="get_ajax_content(7)">思享</a>
+           <a href="javascript:;"  id='cat6' onclick="get_ajax_content(6)">悦读</a>-->
+            <a href="javascript:;" id='cat4' onclick="get_ajax_content(4)">报道</a>
+       </div>
+        <div class="leftBox leftBoxtop fl">
+            <ul class="itemList" id="ckgsbmsg">
+                                <li>
+                    <div class="hv">
+                        <h3>观点</h3>
+                                                <h4><a href="/faculty/article/detail/157/4861" target="_blank">李海涛：管窥政府工作报告——何为高质量发展？</a></h4>
+                        <p>习近平主席在十九大报告中描绘了中国到2020年、到本世纪中叶的发展蓝图，也对中国的政治、经济作出了很多新的判断，例如十九大报告指出，中国的经济增长已经从“高速增长阶段”转向了...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-19</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>新闻</h3>
+                                                <h4><a href="/about/article_detail/78/4860" target="_blank">项兵：中国有能力引领新一轮颠覆式科技革命</a></h4>
+                        <p>2018年2月23日 美国 加州  长江商学院创办院长、中国商业与全球化教授项兵博士日前应邀在美国加州大学伯克利分校发表主旨演讲。“中国有能力引领新一轮颠覆式科技革命，因为中国已经具备...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-19</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>新闻</h3>
+                                                <h4><a href="/about/article_detail/78/4854" target="_blank">长江商学院发布2017中国产业经济四季度报告</a></h4>
+                        <p>产业经济在 2017 年持续 L 型走势，稳中向好。我们基于生产量、用电量、开工率及毛利
+率的数据分析显示前 3 季度生产规模保持平稳（扩散指数在 50-51 之间）。而四季度则出现广
+泛而明显的向...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-15</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>观点</h3>
+                                                <h4><a href="/faculty/article/detail/157/4848" target="_blank">欧阳辉：影子银行之二——银行理财产品的发展与前景分析</a></h4>
+                        <p>2007年以来银行理财产品规模不断上升，2007年底理财产品资金存续余额为0.53万亿元，2017年底理财产品存续规模增长至29.54万亿元。从性质上看，银行理财产品可以分为保证收益类、保本浮动收益...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-09</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>观点</h3>
+                                                <h4><a href="/faculty/article/detail/157/4847" target="_blank">荆兵：生鲜网红——盒马鲜生的商业逻辑</a></h4>
+                        <p>一石激起千层浪，一语惊醒梦中人。2016年10月，马云在云栖大会的演讲中，首次提出“新零售”的概念。随后，零售行业的新物种新业态纷至沓来，电商巨头和资本的线下布局明显提速，线下龙...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-08</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>新闻</h3>
+                                                <h4><a href="/about/article_detail/78/4846" target="_blank">长江商学院发布《2017中国产业经济报告》——中国产业经济稳中向好 结构性矛盾开始缓解</a></h4>
+                        <p>中新网北京3月7日电 (周锐 王庆凯)长江商学院日前发布的2017年第四季度《中国产业经济报告》指出，中国产业经济在2017年持续L型走势，稳中向好，但原材料和成品价格持续上涨对产业恢复的不...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-08</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>报道</h3>
+                                                <h4><a href="/about/article_detail/79/4842" target="_blank">李伟：企业经营状况小幅回升 需警惕通胀回暖风险</a></h4>
+                        <p>长江商学院经济学教授李伟指出，通胀进一步回暖的风险不可低估，今年的货币政策似乎还是不宜过于放松，维持中性稳定会更有利于经济的运行和发展。...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-02</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                                <li>
+                    <div class="hv">
+                        <h3>新闻</h3>
+                                                <h4><a href="/about/article_detail/78/4840" target="_blank">2018中国全球影响力闭门论坛成功举办 ——长江商学院“知识系列”专题活动走进美国硅谷</a></h4>
+                        <p>2018年2月22日 美国 硅谷 长江商学院纽约代表处最新一期的“知识系列”专题活动日前走进美国硅谷，携手美国硅谷最具影响力的非盈利性专业机构——华源科技协会和美国及亚太区最具影响力...</p>
+                    </div>
+                    <div class="timeBox">
+                        <span>2018-03-01</span>
+                      <!--  <em>0</em>-->
+                    </div>
+                </li>
+                            </ul>
+        </div>
+        <div class="rightBox fr">
+            <div class="itemDiv">
+                <div class="tit"><h2>活动预告</h2><i></i><a href="/about/activity/80/" class="more" target="_blank"></a></div>
+                <div id="container2" class="newsList2">
+                    <ul>
+                                                <li>
+                                                                            <div class="section">
+                                <div class="txt"><a href="/about/activity_detail/80/1120.html" target="_blank">新科技、新金融、新担当——2018科技创新领袖峰会暨第九届长江青投论坛</a></div>
+                                <div class="timeBox timeC">
+                                    <span>03-29 /  09:00 - 17:30</span>
+                                    <em>北京</em>
+                                </div>
+                            </div>
+                                                                                                    <div class="section">
+                                <div class="txt"><a href="http://www.ckgsb.edu.cn/fmba/activity/detail/34/1146" target="_blank">长江商学院FMBA 2018考前辅导</a></div>
+                                <div class="timeBox timeC">
+                                    <span>04-12 /  19:00 - 21:00</span>
+                                    <em>北京</em>
+                                </div>
+                            </div>
+                                                                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <span class="sp20"></span>
+            <div class="itemDiv">
+                <div class="tit"><h2>学院公告</h2></div>
+                <div  class="leftBox fl" style="width:100%;"> 
+                    <ul class="itemList">                                                    
+                        <li style="width:98%;">
+                         <!--<div class="hv">          
+                                <h4><a target="_blank" href="/about/article_detail/78/3709">长江商学院学员满意度及需求研究项目-项目启动公告</a></h4>
+                                <p>为了更真实客观的了解大家对长江商学院的评价、意见和建议，长江商学院特意委托尼尔森公司进行第三方学员满意度研究。
+</p><p><a style="float:right" target="_blank" href="/about/article_detail/78/3709">浏览全文</a></p>
+                            </div>
+                            <div class="timeBox">
+                            <span> </span>    
+                            </div>-->
+
+
+<style>	
+.dic_new h3 { width:240px!important;   box-sizing:border-box;}
+.dic_new { height:300px; overflow:hidden;}
+    	.dic_new h3 {    font-size: 14px!important;  padding: 0 0 10px 20px;   box-sizing:border-box; }
+		.dic_new p { font-size: 12px!important;  }
+		.timeBox {    background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -137px;}
+                .timeBox1 {    background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;}
+
+.dic_new h3 { padding-top:20px!important; 
+    text-align: justify!important;
+    overflow: hidden!important;
+    height: auto!important;  max-height: 90px!important;
+    line-height: 23px!important;
+    padding-left: 20px!important;
+    font-size: 16px;
+    color: #1295D8;padding-right:20px!important;
+}
+    </style>
+    <!--<div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/about/article_detail/78/4611" target="_blank">
+    	<h3 style="font-size: 14px!important; ">长江商学院2017年硕士研究生全国统考拟录取公示名单 </h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">根据教育部、北京市教育考试院相关文件要求，经学院复试工作领导小组审批，现将长江商学院2017年硕士研究生拟录取名单进行统一公示， 公示期为6月28日至7月11日。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2017年6月28日</span>
+        </div>
+      <div class=" timeBox" style="  overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">北京</span>
+        </div>
+    </div> -->
+ <!--   <div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/zt/2017/Innovation%20leap%20Israel/index.html" target="_blank">
+    	<h3 style="font-size: 14px!important; ">创新飞跃以色列独创项目 </h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">创新飞跃以色列是世界年轻创业者深入了解以色列这个创新之国的独特机会，项目培养全球商业领袖所需的必要技能和知识，帮助青年人了解以色列独特的生态系统，促进创业者建立全新的管理理念。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2017年6月18日—25日</span>
+        </div>
+      <div class=" timeBox" style="  overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">以色列</span>
+        </div>
+    </div>  -->
+   <!--  <div class="dic_new">
+      <a href="http://www.ckgsb.com/GEL" target="_blank">
+    	<h3 style="font-size: 14px!important; ">全球新兴家族企业领袖(GEL)</h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">全球新兴家族企业领袖(GEL)是为美国、中国和全球家族企业量身定制的一种卓越的领导力发展机遇。GEL可促成您与行业同侪和创新者的联系而助您实现业务成功，成为新一代业务领袖。为您的成功加油助力。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2018年6月3日—9日</span>
+        </div>
+      <div class=" timeBox" style="  overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">纽约</span>
+        </div>
+    </div> -->
+<div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/zt/2017/fwb/index.html" target="_blank">
+    	<h3 style="font-size: 14px!important; ">长江商学院反舞弊与举报管理规定</h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">为防止舞弊，加强长江商学院（以下简称“学院”）治理和内部控制，规范运营，确保学院运营与教学目标的实现和学院持续、稳定、健康发展，根据有关法律，结合学院的实际情况，制定本规定。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2017年4月10日
+</span>
+        </div>
+      <div class=" timeBox" style="   overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;"></span>
+        </div>
+    </div>
+
+  <!--<div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/zt/2017/global-branding-in-digital-era/index.html" target="_blank">
+    	<h3 style="font-size: 14px!important; ">数字时代的品牌全球化</h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">本课程由中美两国顶尖学府携手全球最大市场营销集团的营销领袖精心打造，旨在为客户导向型企业指引数字时代的制胜之道。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2018年10月</span>
+        </div>
+      <div class=" timeBox" style="   overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">地点：纽黑文、纽约</span>
+        </div>
+    </div>-->
+ <!--<div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/zt/2017/Science-innovation-meti/course.html" target="_blank">
+    	<h3 style="font-size: 14px!important; ">科技创新与创业硕士课程</h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">长江商学院携手顶级工程学教授、多家高科技企业创始人李泽湘创立的松山湖机器人产业基地，合力UC-Berkeley工程学院，创建科技创新与创业硕士，为中国智造培养新一代的高科技创新人才和未来的商业领袖！</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2018年5月</span>
+        </div>
+      <div class=" timeBox" style="   overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">地点：深圳，上海</span>
+        </div>
+    </div>
+-->
+ <!--<div class="dic_new">
+      <a href="http://www.ckgsb.edu.cn/zt/2017/ROAD/index.html" target="_blank">
+    	<h3 style="font-size: 14px!important; ">常春藤盟校之路</h3>
+        <p style=" border-bottom:0; padding-bottom:20px;">通往常春藤联盟之路：“深度了解美国”课程，专为有志于申请美国大学的优秀高中生量身订制，帮助你获得在大学四年期间成就卓越表现所需具备的知识与技能。</p></a>
+        <div class="timeBox" style=" overflow:hidden; padding-bottom:0;">
+            <span>2017年7月23日—8月6日</span>
+        </div>
+      <div class=" timeBox" style="   overflow:hidden; background:none;">
+            <span style=" background: url(/public/ckgsb/responsive/pc/images/icon.png) no-repeat 10px -327px!important;">地点：常春藤联盟人文学院校区</span>
+        </div>
+    </div>
+-->                        </li>     
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <style>
+            .itemDiv .leftBox{width:240px}
+            .itemDiv .leftBox .itemList li{background:none; margin-top: 0;border: none; height:258px}
+            .itemDiv .leftBox .itemList li .hv{height:218px;padding-top: 10px;}
+        </style>
+        <div class="leftBoxdown fl leftBox">
+            <ul class="itemList itemListdown " id="getmore">
+                
+            </ul>
+        </div>
+         <div class="clear"></div>
+        <div class="viewBox">
+            <span style="background: none;">加载更多>>></span><input id="tags" name="tags" type="hidden"/>
+        </div>
+        <div class="btL fl">
+            <h1>在线申请<em>Apply Online</em></h1>
+            <ul>
+                                <li><a href="http://online.ckgsb.com/" target="_blank">英文MBA</a></li>
+                                <li><a href="http://embaenroll.ckgsb.com/index.php/user/login" target="_blank">EMBA课程</a></li>
+                                <li><a href="http://online.ckgsb.com/DBA/Login.aspx" target="_blank">DBA</a></li>
+                                <li><a href="http://oas.ckgsb.com" target="_blank">高层管理教育</a></li>
+                                <li><a href="http://online.ckgsb.com:8080/foas/index.jsp" target="_blank">金融MBA</a></li>
+                                <li><a href="http://oas.ckgsb.com/meti" target="_blank">科技创新和创业硕士课程</a></li>
+                            </ul>
+        </div>
+           <a ><div class="btR fr"><div class="btR hide btRhver"></div></div></a>
+    </div>
+</div>
+<script type="text/javascript">
+  var act11=1;                  
+function get_ajax_content(id){
+    for(var i=1;i<=7;i++){
+        $('#cat'+i).removeClass('active');
+        }
+    $('#cat'+id).addClass('active');
+    $('#getmore').html('');
+    $('.viewBox').show();
+    page = 1;
+    $.ajax({
+        url:'/index/get_index_ajax_content/'+id,
+        dataType:'json',
+        success:function(r){
+            $('#ckgsbmsg').html(r.data.html);
+            $('#tags').val(r.data.tags);
+        }
+    });
+}       
+</script>
+
+<script type="text/javascript">
+window["_BFD"] = window["_BFD"] || {};
+_BFD.client_id = "Cckgsb";
+_BFD.BFD_USER = {    
+        "user_id" : "0", //网站当前用户id，如果未登录就为0或空字符串        
+        "user_cookie" : "xxxxxxxxx" //网站当前用户的cookie，不管是否登录都需要传        
+};
+_BFD.script = document.createElement("script");
+_BFD.script.type = "text/javascript";
+_BFD.script.async = true;
+_BFD.script.charset = "utf-8";
+_BFD.script.src = (('https:' == document.location.protocol?'https://ssl-static1':'http://static1')+'.bfdcdn.com/service/changjiangshangxueyuan/changjiangshangxueyuan.js');
+document.getElementsByTagName("head")[0].appendChild(_BFD.script);
+</script>
+
+﻿<!--百分点代码：首页-->
+﻿<script type="text/javascript">
+    window["_BFD"] = window["_BFD"] || {};
+    _BFD.BFD_INFO = {
+    
+            
+        "user_id" : "123456", //网站当前用户id，如果未登录就为0或空字符串
+        
+        "page_type" : "homepage" //当前页面全称，请勿修改
+    }; 
+</script>
+
+<div id="footer">
+    <div class="footer_cont">
+        <p><a href="/about/job/178" target="_blank">加盟长江</a> | <!--<a href="javascript:;" target="_blank">友情链接</a> |--> 
+        <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_5784795'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D5784795' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        </p>
+        <p>© 长江商学院版权所有     粤ICP备12034584号     京公网安备11010102000785号</p>
+    </div>
+    <div class="footerBJ">
+        <div class="footerBox">
+        <div class="footerDiv1">
+            <div class="aL fl">
+                <a href="javascript:;" class="apply">在线申请</a>
+				<a href="http://knowledge.ckgsb.edu.cn/" target="_blank">CKGSB KNOWLEDGE</a><a href="http://cn.ckgsb.com/download/cheungkongmag.aspx" target="_blank">长江ONLINE</a>
+				<!--<a href="http://www.ckgsb.edu.cn/rss/index.aspx" target="_blank">RSS订阅</a>
+				<a href="http://www.ckgsb.edu.cn/EdmCenter/index.aspx" target="_blank">邮件订阅</a>-->
+				<a href="/about/pages/165" target="_blank">联系我们</a>
+                <a href="/about/information"  target="_blank">信息公示</a>
+            </div>
+            <div class="aR fr">
+                <!--<a class="QC" href="http://www.weibo.com/ckgsbvblog" target="_blank"></a><a class="QD" href="" target="_blank"></a>-->
+            </div>
+        </div>
+
+        <div class="footerDiv2">
+        <div class='footerinner'>
+            <a href="javascript:;" class="applyBt">在线申请</a>
+            <ul class="ul1">
+                                <li><a href="http://online.ckgsb.com/" target="_blank">英文MBA</a></li>
+                                <li><a href="http://embaenroll.ckgsb.com/index.php/user/login" target="_blank">EMBA课程</a></li>
+                                <li><a href="http://online.ckgsb.com/DBA/Login.aspx" target="_blank">DBA</a></li>
+                                <li><a href="http://oas.ckgsb.com" target="_blank">高层管理教育</a></li>
+                                <li><a href="http://online.ckgsb.com:8080/foas/index.jsp" target="_blank">金融MBA</a></li>
+                                <li><a href="http://embaenroll.ckgsb.com/index.php/user/login" target="_blank">金融EMBA</a></li>
+                                <li><a href="http://embaenroll.ckgsb.com/index.php/user/login" target="_blank">文创EMBA</a></li>
+                                <li><a href="http://oas.ckgsb.com/meti" target="_blank">科技创新和创业硕士课程</a></li>
+                            </ul>
+            <ul class="ul2">
+                <li class="icon1"><a href="http://bb.ckgsb.com/" target="_blank">课程系统</a></li>
+                <li class="icon2"><a href="http://ro.ckgsb.com/" target="_blank">教务管理</a></li>
+                <!--<li class="icon3"><a href="http://mail.ckgsb.edu.cn/" target="_blank">学员邮件</a></li>-->
+                <li class="icon4"><a href="http://cmc.ckgsb.com/sso/SignOn.aspx?ActionUrl=http%3a%2f%2fcmc.ckgsb.com%2f" target="_blank">职业发展</a></li>
+            </ul>
+            <div class="img"><a href="http://weibo.com/ckgsb"  target="_blank"><img src="/public/ckgsb/responsive/pc/images/img1.png" class="imgWB"></a><a href="javascript:;"  target="_blank"><!--  <img src="/public/ckgsb/responsive/pc/images/img2.png"  class="imgApp">--></a><a href="javascript:;"  target="_blank" class="weixin fr"><span class="wxImg noImg"><img src="/public/ckgsb/responsive/pc/images/weixin.jpg"/></span></a></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script type="text/javascript" src="/public/ckgsb/responsive/pc/js/banner.js"></script>
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F85172b6cb9228aac1b3d0952b083e671' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+<a href="http://webscan.360.cn/index/checkwebsite/url/www.ckgsb.com" name="15a7783538561ad56a5fc4a658b8783f" ></a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?06332df365efc57f2d09f3468061b30c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49714354-1', 'ckgsb.com');
+  ga('send', 'pageview');
+ 
+</script>

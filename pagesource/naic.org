@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<title>National Association of Insurance Commissioners</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' *.naic.org; img-src *; style-src 'unsafe-inline' *; font-src 'unsafe-inline' *; frame-src *.youtube.com; media-src *.youtube.com; connect-src 'self' *.naic.org translate.google.com translate.googleapis.com; script-src 'self' 'unsafe-eval' https://*.google-analytics.com code.jquery.com ajax.googleapis.com translate.google.com translate.googleapis.com 'nonce-approved_script';">
+<!-- no caching script
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="Cache-control" content="max-age=604800, private"> -->
+
+<!-- description and keywords -->
+<meta name="description" content="The National Association of Insurance Commissioners (NAIC) is the U.S. standard-setting and regulatory support organization created and governed by the chief insurance regulators from the 50 states, the District of Columbia and five U.S. territories." />
+<meta name="Keywords" content="insurance, insurance information, about NAIC, national association of insurance commissioners, state insurance, insurance regulators, public interest, insurance consumers, insurance institutions, state regulation of insurance, insurance facts, insurance help, white papers, model laws" />
+
+<!-- linking shortcuts -->
+<link rel="shortcut icon" href="favicon.ico" type="/image/x-icon" />
+<link rel="apple-touch-icon" href="/image_icons/naic_apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/image_icons/naic_apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/image_icons/naic_apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/image_icons/naic_apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/image_icons/naic_apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/image_icons/naic_apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/image_icons/naic_apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/image_icons/naic_apple-touch-icon-152x152.png" /> 
+
+<!-- responsive viewport settings -->
+<meta content="width=device-width" name="viewport">
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/css/opensans_font.css">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script nonce="approved_script">document.write('<link rel="stylesheet" type="text/css" href="/css/main.css?v' + Math.floor(Math.random() * 1000) + '"\><\/link>');</script>
+<link rel="stylesheet" type="text/css" href="/css/mobile.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script nonce="approved_script">window.jQuery || document.write('<script src="/scripts/jquery.min.js">\x3C/script>')</script>
+<script type="text/javascript" src="/scripts/common.js"></script>
+<script type="text/javascript" src="/scripts/jquery.youtubeplaylist_html5.js"></script>
+
+<script nonce="approved_script">
+$(document).ready(function() {
+	var date = new Date();
+	var n = date.getMilliseconds(); 
+	
+	$('#header').load('/header.htm?' + n +'');
+	$('#footer').load('/footer.htm?' + n +'');
+	
+	//sticky code
+	$(document).scroll(function() {
+		var scroll_dst = ($(document).scrollTop());	
+		var win_width = $(window).width();
+		var width = $('#body_container').width() * 0.35;
+		if (win_width > 1200){
+			var left = $('#body_container').width() * 0.65 + ((win_width - 1200) / 2);
+		} else {
+			var left = $('#body_container').width() * 0.65;
+		}
+		var tab_height = $('#tab_container').height();
+		var set_height = tab_height + $('#header').height();
+		//console.log(set_height);
+		if ($('.phone_show').is(':hidden') && $('.phone_hide').is(':visible')){		//modified due to iPad compat issues 2/10/17
+			if (scroll_dst >= set_height){
+				$('#right_column').css({
+					'top':-5 - tab_height,
+					'position':'fixed',
+					'left':left,
+					'width':width
+				});
+			} else {
+				$('#right_column').removeAttr('style');
+			}
+		}
+	});
+	
+	/*slider*/	
+	$('div.art').hide();
+	$('div.art:first').show();
+	$('div.art:first').attr('aria-hidden','false');
+	$('div.slider_tab:first').addClass('slider_tab_current');
+	
+	/*slide on timeout*/
+	var timeoutFunction = function(){
+		var placeholder = $('.slider_tab_current').next('.slider_tab').attr('class');
+		if (placeholder == null){
+			$('.slider_tab_current').removeClass('slider_tab_current');
+			$('.slider_tab:first').addClass('slider_tab_current');
+		} else {
+			$('.slider_tab_current').next('.slider_tab').addClass('slider_tab_current');
+			$('.slider_tab_current:first').removeClass('slider_tab_current');
+		}
+		$('.art:visible').fadeOut(600, function(){
+			$('.art').attr('aria-hidden', 'true');
+			var x = $('.slider_tab').length;
+			for (var i = 0; i<x; i++){
+				if ($('.slider_tab:eq('+i+')').hasClass('slider_tab_current')){
+					$('.art:eq('+i+')').fadeIn(600);
+					$('.art:eq('+i+')').attr('aria-hidden', 'false');
+				}
+			}
+		})
+	};
+	//comment out to stop story rotation	
+	var int = self.setInterval(timeoutFunction, 18000);
+	
+	/*slide on click*/
+	$('.slider_tab a').on('click keydown',function(e){
+		if(e.which !== 13 && e.type !== 'click') { return; }
+		e.preventDefault();
+		var slider_tab = $(this).closest('.slider_tab');
+		if (slider_tab.hasClass('slider_tab_current')){
+			clearTimeout(int);
+			return;
+		} else {
+			$('.slider_tab_current').removeClass('slider_tab_current');
+			
+			slider_tab.addClass('slider_tab_current');
+			var x = $('.slider_tab').length;
+			$('.art:visible').fadeOut(600, function(){
+				$('.art').attr('aria-hidden', 'true');
+				var x = $('.slider_tab').length;
+				for (var i = 0; i<x; i++){
+					if ($('.slider_tab:eq('+i+')').hasClass('slider_tab_current')){
+						$('.art:eq('+i+')').fadeIn(600);
+						$('.art:eq('+i+')').attr('aria-hidden', 'false');
+					}
+				}
+			});
+			clearTimeout(int);
+		}
+		$('div.art[aria-hidden="false"]').focus();
+	});	
+	
+	//video gallery
+	$("ul.naicvideo").ytplaylist({addThumbs:true, autoPlay: false, holderId: 'ytvideo'});
+	video_size();
+});
+
+$(window).load(function(){
+	$('div.art').hide();
+	$('div.art:first').show();
+	
+	video_size();
+});
+</script>
+
+<style type="text/css">
+div.slider_tab{ 
+	padding-top:0.5em;
+	padding-bottom:0.6em;
+	font-weight: 600;
+}
+div.slider_tab a:hover{
+	text-decoration: none;
+}
+div.slider_tab font{
+	 color:#2c9cde; 
+	 font-weight:bold; 
+	 font-size:.7em;
+}
+.media ul.naicvideo li a:focus{
+	text-decoration: underline;
+    color: #B0701F;
+}
+div.art{
+	min-height: 494px;
+}
+#call_info_links {
+    background-color: #e2e2e2;
+    margin: 0 -8px -8px -8px;
+    padding: 8px;
+    font-family: verdana;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px antiquewhite;
+    text-align: center;
+	clear:both;
+}
+#call_info_links a {
+    color: #555;
+}
+
+/* calendar */
+#content_3{
+	position: relative;
+}
+div.content_calendar_container {
+	width: 22%;
+	max-width: 900px;
+	padding: 20px;
+}	
+div.content_calendar {
+	width: 100%;
+}
+#calOutput li {
+	margin-bottom: 5px;
+}
+
+#calOutput p, #calText p {
+	margin-bottom:15px;
+	margin-left:0;
+	margin-right:0;
+	margin-top:15px;
+}
+div#calOutput div:first-of-type {
+    width: 65%;
+}
+.call_data {
+    padding: 0.4em 0.2em;
+    border-bottom: 1px solid black;
+	display: none;
+}
+.call_data.approved{
+	display: block;
+}
+.call_data strong:first-of-type {
+    padding-bottom: 1em;
+    display: inline-block;
+}
+#calContainer a < div{
+	font-color: blue;
+	font-weight: strong;
+}
+#calPrev, #calNext {
+    position: absolute;
+    top: 0.2em;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: darkorchid;
+}
+#calPrev{
+	left: 0.5em;
+}
+#calNext{
+	right: 0.5em;
+}
+.date_container {
+    background: #053f61;
+    background: -moz-linear-gradient(top, #053f61 0%, #001e40 91%, #000b20 97%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#053f61), color-stop(91%,#001e40), color-stop(97%,#000b20), color-stop(100%,#000000));
+    background: -webkit-linear-gradient(top, #053f61 0%,#001e40 91%,#000b20 97%,#000000 100%);
+    background: -o-linear-gradient(top, #053f61 0%,#001e40 91%,#000b20 97%,#000000 100%);
+    background: -ms-linear-gradient(top, #053f61 0%,#001e40 91%,#000b20 97%,#000000 100%);
+    background: linear-gradient(to bottom, #053f61 0%,#001e40 91%,#000b20 97%,#000000 100%);
+    height: 40px;
+	color: white;
+	position: relative;
+}
+strong.date{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}
+#calText{
+	text-align: center;
+	margin: 2em;
+}
+#calContainer{
+	margin: auto;
+}
+#calBody {
+    width: 125px;
+    border-radius: 0.5em;
+    margin: 0.2em;
+    font-size: 0.7em;
+    position: absolute;
+    background-color: white;
+    float: left;
+    right: 5px;
+}
+#calMonth {
+    width: 100%;
+    padding: 0.6em 0;
+    text-align: center;
+}
+#calDOW div {
+    color: #003F60;
+    width: calc(14.2857%);
+    float: left;
+    text-align: center;
+}
+.calDay {
+    width: calc(14.28% - 1px);
+    padding: 1.3em 0 0.7em 0;
+    float: left;
+    text-align: center;
+    margin: 1px 1px 0 0;
+    color: black;
+    font-size: 0.9em;
+}
+a .calDay {
+    font-weight: bold;
+    color: black;
+    background: #053f61;
+}
+a div.calDay {
+    color: #225684;
+    background-color: #e2e2e2;
+}
+#currentDay{
+	background-color: #203f6b;
+	color: white;
+}
+
+/*added to adjust the height of the headline image without wierd mobile issues*/
+.header_size_workaround{
+	width: 100%; 
+	height: 250px; 
+	overflow: hidden;
+}
+@media only screen and (max-width: 989px){
+	.header_size_workaround{
+		width: 100%; 
+		height: auto; 
+		overflow: none;
+	}
+}
+</style>
+
+</head>
+
+<body>
+<div class="click_to_slide" style="position: relative; height: 0; left: 1em; width: 5px; cursor: pointer;">
+ <img class="hbgr" src="/images/hbgr.png" alt="" style="margin-top: 2px;">
+</div>
+<div id="header">&nbsp;</div>
+<div id="body_container">
+  <div id="overlay">
+      <div id="right_column">
+        <div class="click_to_slide" style="position: relative; height: 0; float: right; width: 5px; right: 18px; cursor: pointer;">
+            <img class="hbgr" src="/images/hbgr.png" alt="" style="margin-top: 2px;">
+        </div>
+        <div id="tab_container">
+            <a href="meetings_events.htm"><h1 class="underline" style="margin-top: 0px;"><strong>MEETINGS</strong> &amp; <strong>CONFERENCE CALLS</strong></h1></a>
+            <ul role="tablist" class="tabrow">
+                <li role="tab" class="selected" id="tab_1"><a href="#">Upcoming</a></li>
+                <li role="tab" class="" id="tab_2"><a href="#">Recent</a></li>
+                <li role="tab" class="" id="tab_3"><a href="#">Calendar</a></li>
+            </ul>
+           <div role="tabpanel" aria-labelledby="tab_1" class="tab_content" id="content_1">
+             <table width="100%" border="0" cellspacing="0" cellpadding="6">
+               <tr>
+            <td width="25%"><img src="/images/meetings_icon_2018_spring.png" alt="" width="100"></td>
+            <td width="75%"><p><a href="meetings_events.htm" target="_blank">Spring National Meeting<br/>
+              March 24-27, 2018</a></p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p></td>
+          </tr>
+      </table>
+                 
+          <hr style="color: #e2e2e2;">
+             
+              <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                    <tr style="margin-top:1em;">
+                        <td width="25%"><img src="images/meetings_icon_int_forum.png" alt="" width="100"></td>
+                        <td width="75%"><p><a href="international_forum/index.htm" target="_blank">International Forum<br/>
+                          May 14-15, 2018</a></p>
+                          <p><a href="http://www.cvent.com/d/ntqcm9" target="_blank">Registration now open</a></p></td>
+                    </tr>
+              </table>
+           <hr style="color: #e2e2e2;">
+           <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                    <tr>
+                        <td width="25%"><img src="images/meetings_icon_summit.png" alt="" width="100"></td>
+                        <td width="75%"><p><a href="insurance_summit/index.htm" target="_blank">Insurance Summit<br/>
+                        June 18-22, 2018</a></p>
+                        <p><a href="http://www.cvent.com/d/ztqrf9" target="_blank">Registration now open</a></p></td>
+                    </tr>
+              </table>
+           
+         
+
+            </div>
+            
+            <div role="tabpanel" aria-labelledby="tab_2" class="tab_content" id="content_2">
+              <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                <tr style="margin-top:1em;">
+                  <td width="25%"><img src="images/meetings_icon_reinsurance.png" alt="" width="100"></td>
+                  <td width="75%"><p><a href="documents/cmte_e_reinsurance_covered_agreement_notice_171221.pdf?171222" target="_blank">NAIC Public Hearing  on Covered Agreement</a></p>
+                    <p>February 20, 2018 </p>
+                    <ul>
+                      <li><a href="http://www.naic.org/Releases/2018_docs/naic_holds_public_hearing_on_covered_agreement.htm" target="_blank"><strong>News Release</strong></a></li>
+                      <li><a href="http://naic.org/cmte_e_reinsurance.htm" target="_blank">Reinsurance (E) Task Force</a></li>
+                    </ul>
+                    <p>&nbsp;</p></td>
+                </tr>
+              </table>
+              <hr style="color: #e2e2e2;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="6">
+          <tr>
+            <td width="25%"><img src="/images/meetings_icon_2017_fall.png" alt="" width="100"></td>
+            <td width="75%"><p><a href="meetings_events.htm?tab_1" target="_blank">Fall National Meeting<br/>
+              Dec. 2-4, 2017</a></p>
+              <p>&nbsp;</p></td>
+          </tr>
+        </table>
+                 
+           <hr style="color: #e2e2e2;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="6">
+          <tr>
+            <td width="25%"><img src="/images/meetings_icon_stanford_cyber.png" alt="" width="100"></td>
+            <td width="75%"><p><strong> <a href="/index_security_breach.htm">NAIC &amp;  Stanford Cyber Initiative</a></strong> <br>
+              <strong>Oct. 10&ndash;11, 2017</strong></p></td>
+          </tr>
+          </table>
+          </div>
+             <div role="tabpanel" aria-labelledby="tab_3" class="tab_content cal_tab_content" id="content_3">
+                    <div id="calContainer">
+						<div class="clearfix" id="calBody"><a href="#" id="calPrev">&lt;</a> <a href="#" id="calNext">&gt;</a>
+							<div id="calMonth"> </div>
+							<div id="calDOW">
+								<div>S</div>
+								<div>M</div>
+								<div>T</div>
+								<div>W</div>
+								<div>T</div>
+								<div>F</div>
+								<div>S</div>
+							</div>
+						</div>
+					</div>
+                    <div class="todays_calls" style="min-height: 170px;">
+                        <h2 style="margin-bottom: 0.4em">Today's Calls &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/calendar_print.htm">Full Calendar</a></h2>
+                        <div id="calOutput"> </div>
+                    </div>
+                    <div style="clear: both;">&nbsp;</div>
+                    <div id="call_info_links">
+                   	<a href="/calendar_print.htm">Conference Call Help</a></div>
+          </div>  
+        </div>
+        <h1 class="underline"><strong>ANALYSIS, Issues &amp; Policy</strong></h1>
+        <table class="quick_links" cellspacing="0" cellpadding="0" style="margin-top: 10px; border: 1px solid gray; width: 100%;">
+          <tr>
+            <td width="32%" align="center" valign="middle" style="padding: 10px;">
+                <img src="/images/index_icon_svo.png" alt="" style="width: 100%"/>
+            </td>
+            <td>
+                <h2>CAPITAL MARKETS &amp;<br>
+                INVESTMENT ANALYSIS</h2>
+                <ul>
+                    <li><a href="/svo.htm" target="_blank">Securities Valuation Office (SVO)</a></li>
+                    <li><a href="/structured_securities/index_structured_securities.htm" target="_blank">Structured Securities Group (SSG)</a></li>
+                    <li><a href="/members_capital_markets_bureau.htm" target="_blank">Capital Markets Bureau</a></li>  
+                </ul>
+            </td>
+          </tr>
+        </table>
+        <table class="quick_links" cellspacing="0" cellpadding="0" style="margin-top: 10px; border: 1px solid gray; width: 100%;">
+          <tr>
+              <td width="32%" align="center" valign="top" style="padding: 10px;">
+                  <img src="/images/index_icon_government.png" alt="" style="width: 100%"/>
+            </td>
+              <td><a href="/government_relations.htm" target="_blank">
+              <h2>GOVERNMENT RELATIONS &amp;<br> INTERNATIONAL POLICY</h2></a>
+                  <ul>
+                      <li><a href="/government_relations_financial.htm" target="_blank">Financial</a></li>
+                      <li><a href="/government_relations_health.htm" target="_blank">Health</a></li>
+                      <li><a href="/government_relations_international.htm" target="_blank">International</a> | <a href="https://eapps.naic.org/IntFellows/application.jsp" target="_blank">Fellows Application</a></li>
+                  </ul>
+            </td>
+          </tr>
+        </table>
+        <table class="quick_links" cellspacing="0" cellpadding="0" style="margin-top: 10px; border: 1px solid gray; width: 100%;">
+          <tr>
+              <td width="32%" align="center" valign="middle" style="padding: 10px;">
+            <a href="/cipr_home.htm" target="_blank"><img src="/images/index_cipr_marble_square.png" alt="Center for Insurance Policy and Research" style="width: 100%"/></a></td>
+            <td>
+                  <h2>CENTER FOR INSURANCE POLICY<br>
+                  &amp; RESEARCH (CIPR)</h2>
+                <ul>
+                    <li><a href="/cipr_home.htm" target="_blank">CIPR Home: <em>What's New</em></a></li>
+                    <li><a href="/cipr_key_issues.htm" target="_blank">Key Issues</a></li>
+				    <li><a href="/cipr_events.htm" target="_blank">CIPR Events</a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </div>
+      <div id="left_content"><a name="skip_to_content"></a><!--<div style=" background-color:yellow; font-weight:bold; text-align:center; padding:.3em; width:99%; margin:auto;">The NAIC Executive Office in Washington D.C. is closed today, Friday, March 2, 2018. </div>-->
+      <a href="newsroom.htm"><h1 class="underline"><strong>NEWS</strong>ROOM</h1></a>
+        <div id="slider">
+          <div id="art_tabs">
+           
+<!-- SLIDER NAVIGATION START -->
+<div class="slider_tab">
+          <font>NOTICE</font><br>
+          <a href="javascript:void(0);"><strong>FSOC Insurance Expert Confirmed</strong></a></div>
+<div class="slider_tab">
+          <font>LETTER</font><br>
+          <a href="javascript:void(0);"><strong>NAIC Encourages Health Market Stabilization in Spending Bill</strong></a></div>
+<div class="slider_tab">
+          <font>NOTICE</font><br>
+          <a href="javascript:void(0);"><strong>UPDATE: P/C Actuarial Opinion Instructions With Revised Qualified Actuary Definition</strong></a></div>
+<div class="slider_tab">
+          <font>NEWS RELEASE</font><br>
+          <a href="#"><strong>NAIC, State Insurance Departments Send Staff to Support Puerto Rico Office</strong></a></div>
+			  
+<div class="slider_tab">
+          <font>RECENT ACTIVITY</font><br>
+          <a href="#"><strong>Senate Passes Banking Bill</strong></a></div>
+			  
+<div class="slider_tab">
+          <font>NOTICE</font><br>
+          <a href="#"><strong>State Regulators Submit Comments about DOL's AHP Proposal</strong></a></div>
+
+<!--<div class="slider_tab">
+          <font>NEWS RELEASE</font><br>
+          <a href="#"><strong>NAIC Releases Strategic Plan &ndash; State Ahead</strong></a></div>-->
+			  
+
+<!--<div class="slider_tab">
+           <font>NEWS RELEASE</font><br>
+            <a href="#">NAIC, Bermuda Monetary Authority Hold 5th Regulatory Dialogue</a></div>-->
+         <div class="slider_tab">
+            <!-- Type of Article --><font>NEWS RELEASE</font><br>
+                <!-- Title -->
+            <a href="#"><strong>NAIC Continues Support of Puerto Rico, US Virgin Islands</strong></a> </div>
+          </div>
+<!-- SLIDER NAVIGATION END -->
+     
+<!-- Generic Story Template. Img size = 476 X 271
+<div class="art">
+	<div style="width: 100%;" align="center">
+  		<img src="/images/2016_fall_fellows.png" alt="" style="width: 99%;">
+    </div>
+	<h1>NAIC Welcomes Fall Fellows </h1>
+	<p>The NAIC welcomed nine participants to the <a href="/cipr_topics/topic_international_fellows.htm">International Fellows Program</a> on Oct. 3. Countries represented this fall include Bermuda, China, India, Saudi Arabia, Thailand and Taiwan. Host jurisdictions are California, Georgia, Hawaii, Louisiana, Missouri, Nebraska, Oklahoma and Texas. The NAIC developed the program in 2004 to advance working relationships with foreign market regulators, emphasizing the exchange of regulatory techniques and technology.</p>
+     <ul>
+     	<li><a href="/Releases/2016_docs/naic_congress_protect_international_insurance_negotiations.htm" target="_blank">Read Full Release</a></li>
+     </ul>
+</div>
+-->
+ 
+<!-- BEGIN TOP STORY DISPLAY-->
+
+<div class="art">
+	<div style="width: 100%;" align="center">
+  		<img src="/images/index_header_treasury.png" alt="" style="width: 99%;">
+    </div>
+	<h1>FSOC Insurance Expert Confirmed</h1>
+	<p>The NAIC congratulates Thomas  Workman on his confirmation as the Independent Member with Insurance Expertise  for the Financial Stability Oversight Council (FSOC). We look forward to  working with Workman to ensure FSOC actions are compatible with the insurance  regulatory framework, and that attempts to stem systemic risk are handled with  appropriate recognition of the states as the primary insurance regulators and  protectors of insurance consumers. &nbsp;</p>
+We also thank and commend Roy Woodall, who Mr. Workman succeeds, for his 6  1/2 years of service as the first FSOC Independent Member with Insurance  Expertise. We wish him well with his future endeavors.
+     
+</div>
+<div class="art">
+	<div style="width: 100%;" align="center">
+  		<img src="/images/index_header_capitol.png" alt="" style="width: 99%;">
+    </div>
+	<h1>NAIC Encourages Health Market Stabilization in Spending Bill</h1>
+	<p>NAIC urges Congressional support for health insurance market stabilization reforms and applauds the Senate leaders who have worked across the political aisle to advance them.&nbsp; If Congress does not act to stabilize health insurance markets, continued uncertainty regarding federal funding, the health of the risk pool, and regulatory requirements will result in even higher premiums and, possibly, fewer carriers participating on the exchange &ndash; perhaps even bare counties.</p>
+     <ul>
+     	<li><a href="/documents/government_relations_letter_alexander_murray_collins.pdf" target="_blank">Read Full Letter</a></li>
+     </ul>
+</div>
+
+            
+<div class="art">
+   <div style="width: 100%; "><img src="/images/index_header_calculator.png" alt="" style="width: 99%;"></div>
+   <h1><strong><u>UPDATE</u></strong><strong>: P/C Actuarial Opinion Instructions With Revised Qualified Actuary  Definition</strong></h1>
+<p>In August 2017&nbsp;the NAIC,&nbsp;in collaboration&nbsp;with a  consultant,&nbsp;began a Job Analysis Project to revise requirements for the  Property/Casualty (P/C) Statement of Actuarial Opinion (&quot;Actuarial  Opinion&quot;) using an evidence-based definition of a &quot;Qualified Actuary.&quot;  The resulting proposed instructions incorporate an expanded definition of  &quot;Qualified Actuary&quot; based largely on the results of the Job Analysis  Project, with the addition of professionalism requirements.</p>
+<p>The instructions with definition were exposed for a 45-day comment period  ending Feb. 12. The comments are posted here, along with a memorandum  addressing the instructions and proposed next steps. </p>
+<ul>
+  <li><a href="/documents/index_posting_pc_actuarial_definition_comments.pdf" target="_blank">Qualified Actuary Definition - Comments</a></li>
+  <li><a href="/documents/index_posting_pc_actuarial_definiton_memo.pdf" target="_blank">Qualified Actuary Definition and Related  Standards - Memorandum (March 16, 2018)</a></li>
+ </ul>
+   </div>
+<div class="art" aria-hidden="true">
+   <div style="width: 100%; "><img src="/images/index_header_mcpeak.png" alt="" style="width: 99%;"></div>
+   <h1>NAIC, State Insurance Departments Send Staff to Support Puerto Rico Office</h1>
+   <p>The NAIC and 10 state insurance departments have sent more than 20 regulators and NAIC staff to support the Office of the Insurance Commissioner of Puerto Rico since January.</p>
+   <ul>
+     <li><a href="http://www.naic.org/Releases/2018_docs/naic_insurance_departments_send_staff_to_support_puerto_rico.htm" target="_blank"><strong>Read Full Release</strong></a></li>
+ </ul>
+   </div>
+			
+<div class="art" aria-hidden="true">
+   <div style="width: 100%; "><img src="/images/index_header_capitol.png" alt="" style="width: 99%;"></div>
+   <h1>Senate Passes Banking Bill</h1>
+   <p>The NAIC applauds the U.S. Senate on passage of S. 2155, The Economic Growth, Regulatory Relief, and Consumer Protection Act, which includes two NAIC legislative priorities. The bill includes language from the Senior Safe Act, sponsored by Sens. Susan Collins and Claire McCaskill, which encourages reporting of suspected financial exploitation. It also includes the text of the International Insurance Capital Standards Accountability Act sponsored by Sens. Dean Heller and Jon Tester, which formalizes structures for congressional oversight, increased transparency of international insurance standard-setting activities and consultation with state insurance regulators. We look forward to working with the U.S. House of Representatives as they consider this important piece of legislation.</p>
+   
+   </div>
+
+			
+<div class="art" aria-hidden="true">
+   <div style="width: 100%; "><img src="/images/index_header_us_capitol.png" alt="" style="width: 99%;"></div>
+   <h1>State Regulators Submit Comments about DOL's AHP Proposal</h1>
+   <p>The NAIC has submitted comments to the U.S. Department of Labor's (DOL) Office of Regulations and Interpretations regarding the administrations Association Health Plans (AHP) Proposed Rule. In the letter signed by NAIC Officers, state insurance regulators encourage the DOL to confirm states' regulatory and consumer protection  authority while committing to constructively engage with Secretary Acosta and DOL leadership on the AHP Proposal.</p>
+   <ul>
+     <li><a href="documents/index_health_reform_section_180306_comments_assoc_plan_nprm.pdf" target="_blank"><strong>Read Comment Letter</strong></a></li>
+ </ul>
+   </div>
+
+<!--<div class="art" aria-hidden="true">
+   <div style="width: 100%; "><img src="/images/index_header_state_ahead.png" alt="" style="width: 99%;"></div>
+   <h1>NAIC Releases Strategic Plan &#8212; State Ahead</h1>
+   <p>The NAIC recently announced the release of <em>State Ahead</em>, the organization's strategic plan. <em>State Ahead</em> highlights specific investments the NAIC will be making the next three years to support state insurance regulation.</p>
+   <ul>
+     <li><a href="http://www.naic.org/Releases/2018_docs/naic_releases_strategic_plan_state_ahead.htm" target="_blank"><strong>Read Full Release</strong></a></li>
+     <li><a href="/state_ahead.htm" target="_blank">State Ahead Webpage</a></li>
+     <li><a href="/documents/state_ahead_strategic_plan.pdf" target="_blank">State Ahead Strategic Plan</a></li>
+   </ul>
+</div>-->		
+			
+
+<div class="art" aria-hidden="true">
+  <div style="width: 100%; " align="center">
+     <!-- IMAGE-->
+     <img src="/images/index_pr_vi_us_flags.png" alt="" style="width: 99%;"></div>
+   <!-- Headline-->
+   <h1 style="font-size: 1.1em; padding:3px 0 0 3px; margin:0;"><strong>NAIC Continues Support of Puerto Rico, US Virgin Islands</strong><br>
+
+     <!-- Body-->
+   </h1>
+   <p style="font-size: 0.9em;">With damage caused by Hurricanes Irma and Maria, the NAIC has worked closely with the Office of the Insurance Commissioner of Puerto Rico and the U.S. Virgin Islands' Office of the Lieutenant Governor &mdash; Division of Banking, Insurance and Financial Regulation to provide communications to consumers, media and the insurance industry.</p>
+   
+   <ul style="margin: 0.3em 0;">
+     <li><strong><a href="/Releases/2017_docs/naic_continues_support_of_pr_vi_after_hurricanes.htm">Read  Full News Release</a></strong></li>
+     <li><a href="http://ocspr.naic.org/">Visit: ocspr.naic.org</a> | Insurance consumers call <strong>1-866-874-4905</strong></li>
+     <li><a href="http://usvi.naic.org">Visit: usvi.naic.org</a> | Insurance consumers call <strong>1-833-252-2376</strong></li>
+   </ul>
+ </div>
+
+<!-- end article -->
+</div>
+<!-- END TOP STORY DISPLAY-->
+<!-- End sliders -->
+		<p class="phone_show" style="clear: both;"></p>
+        <h1 class="underline"><strong>FEATURED </strong>CONTENT</h1>
+            <div style="float: right;" class="features">
+              
+				<div class="special_sub"> 
+                    <a href="https://eapps.naic.org/life-policy-locator/" target="_blank">
+                    <h3>LIFE INSURANCE POLICY LOCATOR</h3>
+                    <img src="images/index_feature_life_policy_locator.png" alt=""></a>
+              </div>
+				
+				<div class="special_sub"> 
+                    <a href="http://www.insureuonline.org" target="_blank">
+                    <h3>INSURE U: CONSUMER EDUCATION</h3>
+                    <img src="images/index_feature_rita_moreno.png" alt=""></a>
+              </div>
+                
+               <div class="special_sub">
+                    <a href="/consumer_military_insurance.htm" target="_blank">
+                    <h3>MILITARY FAMILIES</h3><img src="images/index_feature_military.png" alt=""></a>
+              </div> 
+                <div class="special_sub">
+                    <a href="/index_health_reform_section.htm" target="_blank">
+                    <h3>HEALTHCARE REFORM</h3>
+                   <img src="images/index_feature_aca.png" alt=""></a>
+                </div>
+            </div>
+          <div class="features">
+			   <div class="special_sub">
+                    <a href="/state_ahead.htm" target="_blank"><h3>STATE AHEAD</h3>
+                    <img src="images/index_feature_state_ahead.png" alt=""></a>
+                </div> 
+			  
+			   <div class="special_sub"> 
+                    <a href="https://eapps.naic.org/cis/" target="_blank"><h3>CONSUMER INFORMATION SOURCE (CIS)</h3>
+                    <img src="images/index_feature_cis.png" alt=""></a></div>
+			  
+                <div class="special_sub">
+                    <a href="http://www.insureuonline.org/insureu_retirement_security_resources.htm" target="_blank"><h3>RETIREMENT SECURITY INITIATIVE</h3>
+                    <img src="images/index_feature_retirement.jpg" alt=""></a>
+                </div> 
+              
+                    <div class="special_sub">
+                    <a href="/index_security_breach.htm" target="_blank"><h3>CYBERSECURITY</h3>
+                    <img src="images/index_feature_cyber.png" alt=""></a>
+                </div>
+        </div>
+  </div>
+   
+	<div class="phone_hide" style="width: 100%; background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ position: relative; z-index: 9999; height: 30px;">&nbsp;</div>
+</div> 
+<div style="background-color: #333333;" align="center">
+    <div class="media" style="margin-top: 0; padding: 20px 0 40px; max-width: 1200px; margin: auto;" align="left">
+      <div class="phone_show" style="height: 0px;">&nbsp;</div>
+      <div class="page_wrap">
+      <div id="page">
+      	<h1 style="color: white;"><strong>VIDEOS</strong></h1>
+        <div class="yt_holder">
+          <div id="ytvideo">&nbsp;</div>
+          <div class="gallery_wrap">
+            <ul class="naicvideo">
+            <li> <a href="http://www.youtube.com/watch?v=aPaV26sq4Wg" target="_blank" >Technology Jobs and Benefits at the NAIC and NIPR</a></li>
+            
+<li> <a href="http://www.youtube.com/watch?v=4VjR-KYpgOY" target="_blank" >2017 NAIC, Stanford Cybersecurity Forum: Panel 1</a></li>
+          
+<li> <a href="http://www.youtube.com/watch?v=5bGIGAoJzmc" target="_blank" >2017 NAIC, Stanford Cybersecurity Forum: Panel 2</a></li>
+          
+<li> <a href="http://www.youtube.com/watch?v=Rbf_vOMJcnY" target="_blank" >2017 NAIC, Stanford Cybersecurity Forum: Panel 3</a></li>
+           
+<li> <a href="http://www.youtube.com/watch?v=Beo8pnqe7Ic" target="_blank" > 2017 NAIC Meets InsureTech in Silicon Valley</a></li>           
+            
+<li> <a href="http://www.youtube.com/watch?v=y_lwrLL8ArY" target="_blank" > 2017 Regulators, Participants Discuss InsureTech in Silicon Valley</a></li>
+            
+<li> <a href="http://www.youtube.com/watch?v=Drzz3j5mS78" target="_blank" > 2017 NAIC &amp; Stanford host Cybersecurity Forum</a></li>            
+            
+<li> <a href="http://www.youtube.com/watch?v=Gs_BBuS4NE0" target="_blank" > 2017 NAIC CEO Michael F. Consedine Responds to Executive Order: Association Health Plans </a></li>
+            
+<li> <a href="http://www.youtube.com/watch?v=IgmMZNEznPE" target="_blank" > 2017 Finding A Lost Life Insurance Policy - NAIC Life Insurance Policy Locator </a></li>
+ 
+<li> <a href="http://www.youtube.com/watch?v=JEDrdJCFQD8" target="_blank" >2017 Insurance Summit Preview</a></li>
+
+<li> <a href="http://www.youtube.com/watch?v=p9cffxVwBl0" target="_blank" >
+2017 NAIC CEO Mike Consedine Discusses His New Role</a></li>
+
+<li> <a href="http://www.youtube.com/watch?v=W9xQfI9R5ss" target="_blank" >2017 NAIC COO Andy Beal Discusses Operations and Work Life Balance</a></li>
+
+
+<li> <a href="http://www.youtube.com/watch?v=h0ex4iwCNH0" target="_blank" >2017 NAIC COO Andy Beal  Innovation and Technology</a></li>
+<li> <a href="http://www.youtube.com/watch?v=ddfdlbHCT7A" target="_blank" >2016 NAIC Annual Report</a></li>
+
+<li> <a href="http://www.youtube.com/watch?v=kUsAFfvT96U" target="_blank" >NAIC 2016 International Forum</a></li>
+
+<li> <a href="http://www.youtube.com/watch?v=wjAm7iNjGMQ" target="_blank" >2016 Rita Moreno Stars at the National Meeting</a></li>
+            <li> <a href="http://www.youtube.com/watch?v=x94TMZfsxeU" target="_blank" >2016 Rita Moreno: Life Unscripted - Living without Lenny</a></li>
+            <li><a href="http://www.youtube.com/watch?v=VNxvuXSfKdc" target="_blank" >2014 NAIC Kidcast: GAME BREAKERS</a> </li>
+              <li><a href="http://www.youtube.com/watch?v=hViZcLPuRj0" target="_blank">2013 NAIC Kidcast: WRECKCHECK</a> </li>
+              <li><a href="http://www.youtube.com/watch?v=yHVfV8V6fTE" target="_blank">2012 FREE WreckCheck Accident Checklist Mobile App </a>...</li>
+              <li> <a href="http://www.youtube.com/watch?v=VqdXlyFBq-w">2011 FREE MyHOME Scr.APP.book for Android</a> </li>
+              <li> <a href="http://www.youtube.com/watch?v=EDBw8UUbFRM">2011 MyHOME Scr.APP.book FREE Home Inventory iPhone App</a></li>
+              <li> <a href="http://www.youtube.com/watch?v=ouwv099gFBw">PSA: &quot;Right Fit&quot; National Version</a> </li>
+              <li> <a href="http://www.youtube.com/watch?v=Dl4yxrgXbLA">Market Conduct   Annual Statement (MCAS) Preview</a> </li>           
+              <li><a href="http://www.youtube.com/watch?v=4c1e_rF_8WA">Long-Term Care PSA</a></li>
+              <li><a href="http://www.youtube.com/watch?v=FCRreN7u8xk">Prepare Before Disasters Strike PSA</a></li>
+              <li><a href="http://www.youtube.com/watch?v=LE86pCWtI0U">NAIC Launches Insure U - Get Smart About Insurance</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+<div class="phone_show" style="height: 0;">&nbsp;</div>
+<div id="footer" style="z-index: 99; margin-top: 0px"></div>
+<script src="shared_assets/naic_cal.js"></script>
+	<script nonce="approved_script">
+		var yt_data = '';
+		regex = /http:\/\/www\.youtube\.com\/watch\?v=/g;
+		$('ul.naicvideo li a').on('click', function(){
+			yt_data = $(this).attr('href').replace(regex, '');
+			ga('send','event','YouTube-UA',window.location.pathname, $(this).attr('href'));
+			//console.log(yt_data);
+		});
+		
+		$(document).ready(function(){
+			setCalDate(current);
+			$('#calPrev').hide();
+			$('#calNext').hide();
+			
+				
+			//video gallery
+			$("ul.naicvideo").ytplaylist({addThumbs:true, autoPlay: false, holderId: 'ytvideo'});
+			video_size();
+		});
+		$(window).load(function(){
+			$('div.call_data').each(function(){
+				if ($(this).attr('name') == todayDate){
+					//console.log('keeper');
+				} else {
+					$(this).remove();
+				}
+			});
+			if ($('div.call_data[name="'+todayDate+'"]').length < 1){
+				$('#calOutput').append('<p>There are no calls scheduled today</p><p>&nbsp;</p><p>&nbsp;</p><p style="clear:both;">&nbsp;</p>');
+				//console.log('works... kind of.');
+			}
+		});
+	</script>
+</body>
+</html>

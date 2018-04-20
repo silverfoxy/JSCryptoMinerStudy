@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	武汉地铁集团有限公司
+</title><link rel="shortcut icon" href="Images/index/favicon.ico" /><link rel="Bookmark" href="Images/index/favicon.ico" /><link id="lnkTheme" href="/Css/theme.css" rel="stylesheet" /><link href="Css/system.css" rel="stylesheet" />
+    <script type="text/javascript" src="../Script/whrt.min.js?v=20160626"></script>
+    <script type="text/javascript" src="../Script/index.js?v=20160626"></script>
+    <link href="css/tipswindown.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Script/tipswindown.js?v=201606261"></script>
+    <script type="text/javascript" src="Script/public_forward.js?v=20160626"></script>
+    <link href="Css/consulting.css" rel="stylesheet" /><link href="/css/lanrensc.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Script/jquery.query.js"></script>
+    
+    <script type="text/javascript"  src="OAuth/OAuthCore.js?V=636571910259355315"></script>
+    
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        font-family: '微软雅黑';
+    }
+
+    .top_main_div {
+        width: 100%;
+        height: 30px;
+        background: #f7f7f7;
+        color: #969696;
+        position: fixed;
+        border-bottom: 1px solid #ececec;
+    }
+
+    .mid_div {
+        margin: 0 auto;
+        width: 1004px;
+        min-width: 1004px;
+        max-width: 1004px;
+    }
+
+    .left_div {
+        float: left;
+        margin: 5px 0 0 0;
+        padding-left: 12px;
+        color: #444;
+        /*text-shadow: 1px 1px 1px #6c3007;*/
+    }
+
+        .left_div .pm {
+            background: #31a880;
+            color: #fff;
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin: 0 5px;
+        }
+
+        .left_div img {
+            border: none;
+        }
+
+    .weather {
+        margin-bottom: -4px;
+    }
+
+    .right_div {
+        float: right;
+        margin: 10px 0 0 0;
+        padding-right: 52px;
+        text-align: right;
+    }
+
+        .right_div a {
+            /*text-shadow: 1px 1px 1px #6c3007;*/
+            color: #444;
+            text-decoration: none;
+            padding: 0 3px;
+        }
+
+    #isdis {
+        background-color: rgba(239, 246, 251, 1);
+        box-shadow: 0px 3px 4px rgba(0,0,0,.4);
+        position: fixed;
+        float: right;
+        margin: 25px 0 0 950px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+        color: #808080;
+    }
+
+        #isdis tr {
+            height: 20px;
+        }
+
+        #isdis .xg {
+            text-align: right;
+            color: #333;
+        }
+
+            #isdis .xg a {
+                color: #4995e4;
+            }
+</style>
+<script type="text/javascript">
+    var openid, oAuthType,oauthAccessToken;
+    var loginname = '';
+
+    function showImg() {
+        $("#ShowTitleImg").slideDown();
+        $(".close").css("display", "none");
+        $(".show").css("display", "");
+
+
+    }
+    function closeImg() {
+        $("#ShowTitleImg").slideUp();
+        $(".show").css("display", "none");
+        $(".close").css("display", "");
+
+    }
+
+    function TitleImg() {
+        strurl = window.location.href;
+        if (strurl == DomainUrl || strurl == (DomainUrl + "public_forward.aspx??url=home.aspx?dtag=aa_1") || strurl == (DomainUrl + "public_forward.aspx")) {
+            $(".close").css("display", "");
+            $(".show").css("display", "");
+        } else {
+            $("#Imgshow").css("display", "none");
+            $("#ShowTitleImg").css("display", "none");
+        }
+    }
+
+    function occurs(souce, target) {
+        return souce.split(target).length - 1;
+    }
+
+    $(document).ready(function () {
+
+        //获取OAuth授权access_token
+        oAuthType = getCookie("OAUTHTYPE");
+        if (oAuthType == "qq") {
+              oauthAccessToken = $.query.get("access_token");
+            if (oauthAccessToken && !loginname) {
+                qc_app.getUserOpenId(oauthAccessToken, setCheckOAuth);
+            }
+        } else if (oAuthType == "sina") {
+            var code = $.query.get("code");
+            if (!code)return;
+            sina_app.getAccessToken(code, function (r) {
+                if (!r) {
+                    alert("授权失败，请稍后再试");
+                    return;
+                }
+                if (r.error_code == 21325) {
+                    return;
+                }
+                oauthAccessToken = r.access_token;
+                openid = r.uid;
+                validateRegister(openid, oAuthType, validateReg);
+            });
+        }
+        delCookie("OAUTHTYPE");
+
+        function setCheckOAuth(data) {
+            openid = data.openid;
+            validateRegister(data.openid, oAuthType, validateReg);
+        }
+        function validateReg(data) {
+            if (data.register) {
+                OAuthLogin(data.userId,oauthAccessToken ,openid, authLoginCallback);
+            } else {
+                parent.window.tipsWindown("iframe:" + "OAuthBind.aspx", "361", "260", "true", "", "true", "id");
+            }
+        }
+        function authLoginCallback(r) {
+            if (r && !loginname) {
+                location.reload();
+            } else {
+                parent.window.tipsWindown("iframe:" + "OAuthBind.aspx", "361", "260", "true", "", "true", "id");
+            }
+        }
+
+        //if (document.domain != "www.whrt.gov.cn" && document.domain != "www.wuhanrt.cn") {
+        //    top.location.href = "http://www.whrt.gov.cn";
+        //};
+
+        TitleImg();
+        setTimeout(closeImg, 3000);
+
+        try {
+            var str = window.location.href.split("??")[1];
+            if (parseInt(occurs(str, '.')) > 1) {
+                //top.location.href = "www.whrt.gov.cn";
+                top.location.href = DomainUrl + "public_forward.aspx??url=home.aspx?dtag=aa_1";
+            }
+
+            if (str.indexOf("http") > -1 || str.indexOf("https") > -1 || str.indexOf("www") > -1) {
+                //top.location.href = "www.whrt.gov.cn";
+                top.location.href = DomainUrl + "public_forward.aspx??url=home.aspx?dtag=aa_1";
+            }
+            str = str.substring(4, str.length);
+        }
+        catch (e) {
+            str = "home.aspx?dtag=aa_1";
+        }
+        window.frames["mainFrame"].location.href = str;
+
+        var cssClass = "";
+        var oldClass = "";
+        if (str.indexOf("dtag") > 0) {
+            cssClass = str.substring(str.indexOf("dtag") + 5, str.length);
+            oldClass = cssClass.substring(0, cssClass.length - 2);
+
+
+            $("li[name='group']").each(function () {
+                if ($(this).attr("class").indexOf("_1") > 0) {
+                    var i = $(this).attr("class").length - 2;
+                    var tempclass = $(this).attr("class").substring(0, i);
+                    $(this).removeClass().addClass(tempclass);
+                }
+            });
+            $("li[name='group']").each(function () {
+                if ($(this).attr("class") == oldClass) {
+                    $(this).removeClass().addClass(cssClass);
+                }
+            });
+        }
+
+
+        var countNum = "49084011";
+        var html = "";
+        for (var i = 0; i < countNum.length; i++) {
+            html += "<div class=\"countNum_bg\">" + countNum.substring(i, i + 1) + "</div>";
+        }
+        $("#dynNum").html(html);
+
+        var theme = '/Css/theme.css';
+
+        $("#lnkTheme").attr("href", theme);
+
+    });
+
+    function OpenLogin() {
+        parent.window.conultingreplyReguserBox("Login.aspx");
+    }
+    function OpenRegister() {
+        parent.window.conultingreplyReguserBox("RegisterUser.aspx");
+    }
+
+    function UpdaUser() {
+        document.location.href = "public_forward.aspx?isout=2";
+    }
+
+    function LoginOut() {
+        if (confirm("您确认退出登录吗？")) {
+            document.location.href = "public_forward.aspx?isout=2";
+        }
+    }
+
+    function changeZY(obj) {
+        stopFunc(event);
+        window.open("http://zy.wuhanrt.cn/MainPage/Index.aspx?ID=Index");
+    }
+    function stopFunc(e) {
+        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+    }
+</script>
+<body>
+    <table>
+        <div class="top_main_div">
+            <div class="mid_div">
+                <div class="left_div">
+                    <span></span>
+
+                </div>
+
+                <div class="right_div">
+                    
+                    <a class="LoginCss" href="javascript:OpenLogin()">登录</a>&nbsp;
+                               
+                    <a href="javascript:OpenRegister()">注册</a>&nbsp; 
+                              
+                    
+                </div>
+
+                <div id="Imgshow" style="cursor: pointer; padding-left: 1020px; color: rgb(73,149,228);">
+                    <div onclick="closeImg()" style="position: fixed; width: 45px; top: 10px; right: 10px;">
+                        <img src="Images/zh_topbtn02_03.png" class="show" style="cursor: pointer;">
+                    </div>
+                    
+                    <div onclick="showImg()" style="position: fixed; width: 45px; top: 10px; right: 10px;">
+                        <img src="Images/zh_top_btn01_03.png" class="close" style="cursor: pointer; display: none">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </table>
+
+    <div class="divmain">
+        <div class="content">
+            <div id="ShowTitleImg" class="note_head_fist">
+                <table style="padding-top: 30px;">
+                    <tr style="height: 5px;">
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr style="height: 10px;">
+                        <td><a href="http://cpc.people.com.cn/xuexi/" target="_blank">
+                            <img src="Images/Jiazhiguan/jianghua.jpg" /></a></td>
+                        <td style="padding: 0 0 0 7px;"><a href="http://www.wuhan.gov.cn/whszfwz/zt/pyhjxshzyhxjzg/" target="_blank">
+                            <img src="Images/Jiazhiguan/jiazhiguan.jpg" /></a></td>
+                    </tr>
+                    <tr style="height: 10px;">
+                        <td>
+                            <img src="Images/Jiazhiguan/zgm.jpg"></td>
+                        <td style="padding: 0 0 0 7px;"><a href="http://www.wh.gov.cn/whszfwz/zt/xyddsjd/" target="_blank">
+                            <img src="Images/Jiazhiguan/dlfjdwn.png" /></a></td>
+                    </tr>
+                    <tr style="height: 10px;">
+                        <td><a href="http://www.wh.gov.cn/whszfwz/zt/gyggzl/" target="_blank">
+                            <img src="Images/Jiazhiguan/wenming1.jpg" /></a></td>
+                        <td style="padding: 0 0 0 7px;"><a href="http://zyz.whwm.org/" target="_blank">
+                            <img src="Images/Jiazhiguan/zhiyuan1.jpg" /></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="content_head">
+                <div class="logo">
+                    <a href="home.aspx" onclick="changeClass(this,'home.aspx')" coustom="aa" class="aa"
+                        target="mainFrame"></a>
+                </div>
+                <div class="menu" id="stateContent">
+                    <ul class="state" id="state">
+                        <li name="group" coustom="menu_index" class="menu_index" onclick="changeClass(this,'about.aspx')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 3px; width: 93px;">
+                                <div class="list_sub_muen" style="width: 93px;">
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="集团简介" href="javascript:public_forward_first('group_public_list.aspx?tag=1&newtype=groupsummary&dtag=menu_index_1')">集团简介</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="组织结构" href="javascript:public_forward_first('group_public_list.aspx?tag=3&newtype=GetOrganize&dtag=menu_index_1')">组织结构</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="大事记" href="javascript:public_forward_first('group_public_list.aspx?tag=4&newtype=GetBigEvent&dtag=menu_index_1')">大事记</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="集团理念" href="javascript:public_forward_first('group_public_list.aspx?tag=6&newtype=GetIdea&dtag=menu_index_1')">集团理念</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="集团形象" href="javascript:public_forward_first('group_public_list.aspx?tag=7&newtype=GetImage&dtag=menu_index_1')">集团形象</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li style="width: 93px;">
+                                        <div>
+                                            <a title="荣誉墙" href="javascript:public_forward_first('group_public_list.aspx?tag=8&newtype=GetHonorWall&dtag=menu_index_1')">荣誉墙</a>
+                                        </div>
+
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li name="group" coustom="menu_build" class="menu_build" onclick="changeClass(this,'subway_constru.aspx')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 0px;">
+                                <div class="list_sub_muen">
+                                    <li>
+                                        <div>
+                                            <a title="建设资讯" href="javascript:public_forward_first('construction_public_list.aspx?tag=1&newtype=GetBuild&dtag=menu_build_1')">建设资讯</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="工程进展" href="javascript:public_forward_first('construction_public_list.aspx?tag=2&newtype=GetPojmgr&dtag=menu_build_1')">工程进展</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    
+                                </div>
+                            </ul>
+                        </li>
+                        <li name="group" coustom="menu_motion" class="menu_motion" onclick="changeClass(this,'operation.aspx')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 0px;">
+                                <div class="list_sub_muen">
+                                    <li>
+                                        <div>
+                                            <a title="运营公司" href="javascript:public_forward_first('operation_public_list.aspx?tag=1&newtype=GetCompany&dtag=menu_motion_1')">运营公司</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="运营信息" href="javascript:public_forward_first('operation_public_list.aspx?tag=2&newtype=GetInfo&dtag=menu_motion_1')">运营信息</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="运营时刻表" href="javascript:public_forward_first('operation_public_list.aspx?tag=3&newtype=GetTime&dtag=menu_motion_1')">运营时刻表</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="票务规定" href="javascript:public_forward_first('operation_public_list.aspx?tag=5&newtype=GetTickguid&dtag=menu_motion_1')">票务规定</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="乘客须知" href="javascript:public_forward_first('operation_public_list.aspx?tag=6&newtype=GetPassengerNotice&dtag=menu_motion_1')">乘客须知</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li style="display: none">
+                                        <div>
+                                            <a title="失物招领" href="javascript:public_forward_first('lostfound_public_list.aspx?tag=7&newtype=GetLose&dtag=menu_motion_1')">失物招领</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="服务承诺" href="javascript:public_forward_first('operation_public_list.aspx?tag=8&newtype=GetService&dtag=menu_motion_1')">服务承诺</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="运营线路图" href="javascript:public_forward_first('operation_public_list.aspx?tag=9&newtype=GetLineMap&dtag=menu_motion_1')">运营线路图</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="安全常识" href="javascript:public_forward_first('operation_public_list.aspx?tag=10&newtype=GetSafe&dtag=menu_motion_1')">安全常识</a>
+                                        </div>
+
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li name="group" coustom="menu_development" class="menu_development" onclick="changeClass(this,'developmentResource.aspx')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 0px;">
+                                <div class="list_sub_muen">
+                                    <li>
+                                        <div>
+                                            <a title="土地招商信息" href="javascript:public_forward_first('developmentResource_list.aspx?tag=1&newtype=GetDevBusiness&dtag=menu_development_1')">土地招商信息</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="土地资讯" href="javascript:public_forward_first('developmentResource_list.aspx?tag=2&newtype=GetDevRulelaw&dtag=menu_development_1')">土地资讯</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="储备信息" href="javascript:public_forward_first('developmentResource_list.aspx?tag=3&newtype=GetDevDevdyn&dtag=menu_development_1')">储备信息</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="项目介绍" href="javascript:public_forward_first('developmentResource_list.aspx?tag=4&newtype=GetDevNous&dtag=menu_ziyuan_1')">项目介绍</a>
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li name="group" coustom="menu_ziyuan" class="menu_ziyuan" onclick="changeZY('this')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 0px;">
+                                <div class="list_sub_muen">
+                                    <li>
+                                        <div>
+                                            <a title="资源公司简介" onclick="public_forward_first('Resource_list.aspx?tag=11&newtype=GetGroupNews&dtag=menu_ziyuan_1')" href="javascript:viod(0)">资源公司简介</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="招商合作动态" onclick="public_forward_first('Resource_list.aspx?tag=12&newtype=GetCooperation&dtag=menu_ziyuan_1') " href="javascript:viod(0)">招商合作动态</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="商务拓展" onclick="public_forward_first('Resource_list.aspx?tag=13&newtype=GetBusiness&dtag=menu_ziyuan_1')" href="javascript:viod(0)">商务拓展</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="文化衍生品" onclick="public_forward_first('Resource_list.aspx?tag=14&newtype=GetCulture&dtag=menu_ziyuan_1')" href="javascript:viod(0)">文化衍生品</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="资源资讯" onclick="public_forward_first('Resource_list.aspx?tag=15&newtype=GetConsulting&dtag=menu_ziyuan_1')" href="javascript:viod(0)">资源资讯</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li name="group" coustom="menu_company" class="menu_company" onclick="changeClass(this,'resource.aspx')">
+                            <ul class="subnav " style="margin-top: 58px; margin-left: 0px;">
+                                <div class="list_sub_muen">
+                                    
+                                    
+                                    <li>
+                                        <div>
+                                            <a title="建设动态" href=" javascript:public_forward_first('resource_publice_list.aspx?tag=4&newtype=devDyn&dtag=menu_company_1') ">建设动态</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a title="项目管理" href=" javascript:public_forward_first('resource_publice_list.aspx?tag=5&newtype=GetProjectMgr&dtag=menu_company_1') ">项目管理</a>
+                                        </div>
+                                        <div class="boder-img">
+                                        </div>
+                                    </li>
+                                    
+                                </div>
+                            </ul>
+                        </li>
+                        <li name="group" class="muen_right">
+                            <div class="navsearch">
+                                <input id="keyWord" type="text" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;全站检索" onkeydown="if(event.keyCode==13) search1();"
+                                    value="" />
+                            </div>
+                            <div class="navsearchimg" onclick="javascript:search1()">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <iframe id="mainFrame" onload="Javascript:SetWinHeight(this)" frameborder="0" name="mainFrame"
+                width="100%" height="1820px" scrolling="no" src="about:blank"></iframe>
+        </div>
+        <!--<div class="divbottom"></div> -->
+        <div id="line_all" style="width: 1004px; margin: auto;">
+            <div class="quicklink">
+                <div class="quicklink_left">
+                </div>
+                <div class="quicklink_center">
+                    <div class="footer_link_1 front_16" id="requireLint">
+                        <div class="link_img">
+                        </div>
+                        <div class="text_span">
+                            政府机构
+                       
+                        </div>
+                    </div>
+                    <div class="footer_link_split">
+                    </div>
+                    <div class="footer_link_2 front_16" id="metroLink">
+                        <div class="link_img">
+                        </div>
+                        <div class="text_span">
+                            全国地铁
+                       
+                        </div>
+                    </div>
+                    <div class="footer_link_split">
+                    </div>
+                    <div class="footer_link_3 front_16" id="newLink">
+                        <div class="link_img">
+                        </div>
+                        <div class="text_span">
+                            新闻媒体
+                       
+                        </div>
+                    </div>
+                    <div class="footer_link_split">
+                    </div>
+                    <div class="footer_link_4 front_16" id="favoriteLink">
+                        <div class="link_img">
+                        </div>
+                        <div class="text_span">
+                            常用链接
+                       
+                        </div>
+                    </div>
+                    <div class="footer_link_split">
+                    </div>
+                    <div class="footer_link_5 front_16" id="cloumLink">
+                        <div class="link_img">
+                        </div>
+                        <div class="text_span">
+                            专题栏目
+                       
+                        </div>
+                    </div>
+                </div>
+                <div class="quicklink_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div id="requirJob_top" class="quicklink_top" style="display: none;" align="center">
+                <div class="tag_point" style="margin-left: 102px;">
+                </div>
+                <div style="clear: both">
+                </div>
+                <div class="quicklink_top_left">
+                </div>
+                <div class="quicklink_top_center">
+                    <div class="link_text_span">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.hubei.gov.cn" target="_blank">湖北省政府</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.wh.gov.cn" target="_blank">武汉市政府</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.whjs.gov.cn/" target="_blank">武汉市建设委员会</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.whgzw.gov.cn/" target="_blank">武汉市国资委</a>
+                    </div>
+                    
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.whjt.gov.cn/" target="_blank">武汉市交通运输委员会</a>
+                    </div>
+                </div>
+                <div class="quicklink_top_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div id="metro_top" class="quicklink_top" style="display: none;">
+                <div class="tag_point" style="margin-left: 290px;">
+                </div>
+                <div style="clear: both">
+                </div>
+                <div class="quicklink_top_left">
+                </div>
+                <div class="quicklink_top_center">
+                    <div class="link_text_span">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.bjsubway.com" target="_blank">北京地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.shmetro.com/" target="_blank">上海地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.gzmtr.com/" target="_blank">广州地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.szmc.net/" target="_blank">深圳地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.mtr.com.hk/" target="_blank">香港地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.symtc.com/" target="_blank">沈阳地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.njmetro.com.cn/" target="_blank">南京地铁</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.cqmetro.cn/" target="_blank">重庆轨道交通</a>
+                    </div>
+                </div>
+                <div class="quicklink_top_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div id="new_top" class="quicklink_top" style="display: none;">
+                <div class="tag_point" style="margin-left: 466px;">
+                </div>
+                <div style="clear: both">
+                </div>
+                <div class="quicklink_top_left">
+                </div>
+                <div class="quicklink_top_center">
+                    <div class="link_text_span">
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.cctv.com/" target="_blank">中央电视台</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.sina.com" target="_blank">新浪网</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.163.com/" target="_blank">网易</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.qq.com/" target="_blank">腾讯网</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.edu-hb.com/" target="_blank">教育网</a>
+                    </div>
+                    <!--
+                    <div class="split_line_link"></div> 
+                         <div class="link_text_span"><a href="http://www.enshifdc.com/" target="_blank">恩施房产网</a></div> 
+                         -->
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.cnhubei.com/" target="_blank">荆楚网</a>
+                    </div>
+                    <!--
+                     <div class="split_line_link"></div>  
+                         <div class="link_text_span"><a href="http://www.jzfcol.com/" target="_blank">荆州房产网</a></div> 
+                        -->
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://hb.qq.com/" target="_blank">大楚网</a>
+                    </div>
+                    <!--
+                    <div class="split_line_link"></div> 
+                         <div class="link_text_span"><a href="http://www.huamanche.com/" target="_blank">汽车网</a></div> 
+                    -->
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.whbc.com.cn/" target="_blank">武汉广电网</a>
+                    </div>
+                    <!--
+                     <div class="split_line_link"></div>  
+                         <div class="link_text_span"><a href="http://www.0710fz.com/" target="_blank">襄阳房产网</a></div> 
+                        -->
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.ifeng.com/" target="_blank">凤凰网</a>
+                    </div>
+                </div>
+                <div class="quicklink_top_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div id="favorite_Top" class="quicklink_top" style="display: none;">
+                <div class="tag_point" style="margin-left: 640px;">
+                </div>
+                <div style="clear: both">
+                </div>
+                <div class="quicklink_top_left">
+                </div>
+                <div class="quicklink_top_center">
+                    <div class="link_text_span">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.whjg.gov.cn/" target="_blank">交通处罚</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.wuhan.net.cn/" target="_blank">生活查询</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://wuhan.8684.cn/" target="_blank">公交查询</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://flights.ctrip.com/Domestic/SearchFlights.aspx" target="_blank">航班班次</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.12306.cn/mormhweb/" target="_blank">列车时刻</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+                    <div class="link_text_span">
+                        <a href="http://www.cpdc.com.cn/web/" target="_blank">邮政编码</a>
+                    </div>
+                    <div class="split_line_link">
+                    </div>
+
+                    <div class="link_text_span">
+                        <a href="http://xjxw.e21.cn/xlcx.php" target="_blank">学籍学位</a>
+                    </div>
+                </div>
+                <div class="quicklink_top_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div id="cloum_top" class="quicklink_top" style="display: none;">
+                <div class="tag_point" style="margin-left: 827px;">
+                </div>
+                <div style="clear: both">
+                </div>
+                <div class="quicklink_top_left">
+                </div>
+                <div class="quicklink_top_center">
+                    <!--
+                       <div class="link_text_span">&nbsp;&nbsp;&nbsp;&nbsp;安全考试</div> 
+                   
+                     <div class="split_line_link"></div> 
+                         <div class="link_text_span">地铁集团招商栏目</div> 
+                      
+                     <div class="split_line_link"></div> 
+                         <div class="link_text_span">第二季职工运动会</div> 
+                      -->
+                </div>
+                <div class="quicklink_top_right">
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_1">
+                <div class="bom_text2" style="text-align: center;">
+                    <div class="sitecount">
+                        <div class="count1">
+                            &nbsp;您是第&nbsp;&nbsp;
+                       
+                        </div>
+                        <a href="http://xyz.freeweblogger.com/stats/1/1313744245/" target="_top">
+                            <div class="count2">
+                                <div class="num_bg" id="dynNum">
+                                </div>
+                                <!--
+                            <a href="http://xyz.freeweblogger.com/stats/1/1313744245/" target="_top">
+                                <img border="0" alt="free hit counter" src="http://xyz.freeweblogger.com/counter/index.php?u=1313744245&amp;s=a" align="middle" hspace="4" vspace="2">
+                            </a>
+                                -->
+                            </div>
+                        </a>
+                        <div class="count3">
+                            &nbsp;&nbsp;位访问者
+                       
+                        </div>
+                    </div>
+                    <div class="cnzzShow">
+                        <!-- <script type="text/javascript">                            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077469'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077469%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>-->
+                        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_3306770'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D3306770%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+                    </div>
+                </div>
+                <div style="clear: both;">
+                </div>
+                <div class="footer_1_1" style="text-align: center;">
+                    对外服务热线：+86 027 96556 &nbsp;&nbsp;&nbsp;&nbsp;常见问题解答 互联网违法和不良信息举报
+               
+                </div>
+                <div class="footer_1_2">
+                    COPYRIGHT&nbsp;©&nbsp;2013&nbsp;WHRT.GOV.CN&nbsp;&nbsp;版权所有：武汉地铁集团有限公司&nbsp;&nbsp;地址：武汉市洪山区欢乐大道77号
+               
+                </div>
+                <div class="footer_tt_1">
+                    <div>
+                        <a style="color: white; font-size: 12px;" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010602000318">
+                            <img src="Images/index/beian.png" />
+                            鄂公网安备 42010602000318号</a>
+                    </div>
+                    <div style="margin-left: 23px;">
+                        鄂ICP备14000323号
+                   
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

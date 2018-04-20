@@ -1,0 +1,1 @@
+<h1>Redirecting To <a href="http://www.liptonkitchens.com/">liptonkitchens.com</a> </h1>

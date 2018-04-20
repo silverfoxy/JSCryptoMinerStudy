@@ -1,0 +1,1475 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vocaloid Database</title>
+	<meta name="description" content="VocaDB is a Vocaloid music database with translated artists, albums and songs." />	
+	<meta name="keywords" content="Vocaloid, VocaDB, Vocaloid database, Hatsune Miku, UTAU" />
+	<meta name="og:image" content="https://static.vocadb.net/img/vocaDB-title-large.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta charset="utf-8" />
+	
+
+
+	<link rel="shortcut icon" href="/Content/favicon.ico" type="image/x-icon" />
+	<link href="/Content/css?v=uUANKwnJx6GB86yuyV9Du5b2x1afzZlf5VT0j5i6ZwM1" rel="stylesheet"/>
+
+	<link href="/Content/Styles/Icons.css" rel="stylesheet" type="text/css" />	
+	<link href="/Content/themes/redmond/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/qTip/jquery.qtip.css" rel="stylesheet" type="text/css" />
+	<link rel="search" type="application/opensearchdescription+xml" title="VocaDB" href="/opensearch.xml" />
+	
+	<!-- prevent flashing content while loading the page -->
+	<style type="text/css">
+		.js-cloak { visibility: hidden; }
+    </style>
+	<noscript>
+		<style type="text/css">
+			.js-cloak { visibility: visible; }
+		</style>		
+	</noscript>
+
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS" href='/Song/LatestVideos'>
+	<link rel="canonical" href="http://vocadb.net" />
+
+	
+
+<script>
+	(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-26327627-1', 'vocadb.net');
+	ga('require', 'displayfeatures');
+	ga('send', 'pageview');
+</script>
+
+
+
+</head>
+
+	<body class="vdb">
+		  
+	    <div data-bind="stopBinding" class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="navbar-inner">
+			    <div id="topBar" class="container">
+<form action="/Home/GlobalSearch" class="navbar-form form-inline pull-left navbar-search" id="globalSearchBox" method="post">	<input type="hidden" id="globalSearchObjectType" name="objectType" data-bind="value: entryType" />
+	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</a>
+	<div class="brand hidden-phone">
+		<a href="/">VocaDB</a>
+	</div>
+	<div class="input-prepend input-append navbar-searchBox">
+		<div class="btn-group">
+			<a class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+				<span data-bind="text: entryTypeName">Anything</span>
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+					<li>
+						<a data-bind="click: function() { entryType('Undefined'); }" href="#">Anything</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('Artist'); }" href="#">Artist</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('Album'); }" href="#">Album</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('Song'); }" href="#">Song</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('Tag'); }" href="#">Tag</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('User'); }" href="#">User</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('ReleaseEvent'); }" href="#">Event</a>
+					</li>
+					<li>
+						<a data-bind="click: function() { entryType('SongList'); }" href="#">Song list</a>
+					</li>
+			</ul>
+		</div>
+		<input type="text" name="globalSearchTerm" id="globalSearchTerm" class="globalSearchBox search-query" size="50" placeholder="Search" maxlength="255" />
+		<button type="submit" class="btn btn-info" title="Search">
+			<i class="icon-search"></i>
+		</button>
+	</div>
+	<div class="btn-group navbar-languageBar">
+		<a class="btn btn-info navbar-languageBtn dropdown-toggle" data-toggle="dropdown" href="#">
+			<i class="icon-user"></i>
+			<span class="visible-desktop">
+				Account
+			</span>
+			<span data-bind="visible: hasNotifications" class="badge badge-small badge-important" style="display: none;">!</span>
+			<span class="caret"></span>
+		</a>
+
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+				<li><a href="/User/Login" onclick=" vdb.functions.showLoginPopup(); return false; ">Log in</a></li>
+				<li><a href="/User/Create">Register</a></li>
+			<li class="divider"></li>
+			<li><h6>Preferred display language</h6></li>
+				<li>
+					<a href="#" onclick="return setLanguagePreferenceCookie('Default');">
+						<i class="menuIcon icon-ok" style=""></i>
+						<i class="menuIcon icon-" style="display: none;"></i>
+						Original
+					</a>
+				</li>
+				<li>
+					<a href="#" onclick="return setLanguagePreferenceCookie('Japanese');">
+						<i class="menuIcon icon-ok" style="display: none;"></i>
+						<i class="menuIcon icon-" style=""></i>
+						Non-English
+					</a>
+				</li>
+				<li>
+					<a href="#" onclick="return setLanguagePreferenceCookie('Romaji');">
+						<i class="menuIcon icon-ok" style="display: none;"></i>
+						<i class="menuIcon icon-" style=""></i>
+						Romanized
+					</a>
+				</li>
+				<li>
+					<a href="#" onclick="return setLanguagePreferenceCookie('English');">
+						<i class="menuIcon icon-ok" style="display: none;"></i>
+						<i class="menuIcon icon-" style=""></i>
+						English
+					</a>
+				</li>
+		</ul>
+	</div>
+	<div class="nav-collapse collapse">
+		<ul class="nav nav-list">
+	<li><a href="/">Home</a></li>
+	<li>
+		<a href="/Search?searchType=Artist">Artists</a>
+		<ul>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=Album">Albums</a>
+		<ul>
+			<li><a href="/Search?searchType=Album&amp;sort=RatingAverage">Top rated albums</a></li>
+			<li><a href="/Search?searchType=Album&amp;sort=ReleaseDate">New albums</a></li>
+			<li><a href="/Search?searchType=Album&amp;tag=free&amp;childTags=True">Free download</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=Song">Songs</a>
+		<ul>
+			<li><a href="/Song/Rankings">Top rated songs</a></li>
+			<li><a href="/Search?onlyWithPVs=True&amp;searchType=Song&amp;sort=AdditionDate">Recent PVs</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=ReleaseEvent">Events</a>		
+		<ul>
+			<li><a href="/Event">Upcoming events</a></li>
+		</ul>
+	</li>
+	<li><a href="/SongList/Featured">Featured song lists</a></li>
+	<li><a href="/Tag">Tags / genres</a></li>
+	<li><a href="/Help">Help / About</a></li>
+	<li><a href="/discussion/">Discussions</a></li>
+	<li><a href="https://wiki.vocadb.net/">Wiki</a></li>
+	<li><a href="http://blog.vocadb.net">Blog</a></li>
+				<li><a href="/User/Login" onclick="vdb.functions.showLoginPopup(); return false;">Log in</a></li>
+		<li><a href="/User/Create">Register</a></li>
+</ul>
+
+
+	</div>
+</form>
+			    </div>
+		    </div>
+	    </div>
+	
+		<div class="container-fluid">
+			<div class="row-fluid">
+
+
+
+
+<div class="span2 menu">
+	<div class="well">
+		<a href="/">
+			<img src="http://static.vocadb.net/img/vocaDB-title.png" class="site-logo" alt="VocaDB" title="VocaDB" />
+		</a>
+		<p class="slogan">Our site uses Micookies</p>
+	</div>
+
+	<div class="well sidebar-nav">
+<ul class="nav nav-list">
+	<li><a href="/">Home</a></li>
+	<li>
+		<a href="/Search?searchType=Artist">Artists</a>
+		<ul>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=Album">Albums</a>
+		<ul>
+			<li><a href="/Search?searchType=Album&amp;sort=RatingAverage">Top rated albums</a></li>
+			<li><a href="/Search?searchType=Album&amp;sort=ReleaseDate">New albums</a></li>
+			<li><a href="/Search?searchType=Album&amp;tag=free&amp;childTags=True">Free download</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=Song">Songs</a>
+		<ul>
+			<li><a href="/Song/Rankings">Top rated songs</a></li>
+			<li><a href="/Search?onlyWithPVs=True&amp;searchType=Song&amp;sort=AdditionDate">Recent PVs</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="/Search?searchType=ReleaseEvent">Events</a>		
+		<ul>
+			<li><a href="/Event">Upcoming events</a></li>
+		</ul>
+	</li>
+	<li><a href="/SongList/Featured">Featured song lists</a></li>
+	<li><a href="/Tag">Tags / genres</a></li>
+	<li><a href="/Help">Help / About</a></li>
+	<li><a href="/discussion/">Discussions</a></li>
+	<li><a href="https://wiki.vocadb.net/">Wiki</a></li>
+	<li><a href="http://blog.vocadb.net">Blog</a></li>
+				<li><a href="/User/Login" onclick="vdb.functions.showLoginPopup(); return false;">Log in</a></li>
+		<li><a href="/User/Create">Register</a></li>
+</ul>
+
+
+	</div>			
+		
+	<div class="well">
+			<div id="appLinks">
+    <div>	<a href="https://play.google.com/store/apps/details?id=com.coolappz.Vocadb" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/en_app_rgb_wo_45.png" alt="Google Play Store" title="Google Play Store" /></a>
+</div>
+    <div>	<a href="https://itunes.apple.com/us/app/vocadb/id907510673" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/appstore.png" alt="App Store" title="App Store" /></a>
+</div>
+				<br />
+			</div>
+
+		<h4>Community</h4>
+		<div id="socialSites">
+	<a href="https://www.facebook.com/vocadb" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/facebook.png" alt="Facebook" title="Facebook" /></a>
+	<a href="https://twitter.com/VocaDB" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/Twitter_Logo.png" alt="Twitter" title="Twitter" /></a>
+	<a href="https://plus.google.com/112203842561345720098" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/googleplus-icon.png" alt="Google+" title="Google+" /></a>
+			<br />
+			<a href="/Home/Chat">IRC channel on Rizon</a>
+		</div>
+
+		<br />
+		<h4>Related sites</h4>
+		<ul id="banners">
+		</ul>					
+		<div id="banners-small">
+    <div>	<a href="http://www.vocallective.net" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/vocallective_small.jpg" alt="Vocallective" title="Vocallective" /></a>
+</div>
+    <div>	<a href="http://vocaloidotaku.net" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/vo_small.png" alt="VocaloidOtaku" title="VocaloidOtaku" /></a>
+</div>
+    <div>	<a href="http://www.mikufan.com" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/mikufan_small.png" alt="Mikufan.com" title="Mikufan.com" /></a>
+</div>
+    <div>	<a href="https://www.reddit.com/r/vocaloid" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/rvocaloid_small2.png" alt="r/vocaloid" title="r/vocaloid" /></a>
+</div>
+    <div>	<a href="https://www.vocaloidnews.net/" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/vnn.png" alt="Vocaloid News Network" title="Vocaloid News Network" /></a>
+</div>
+    <div>	<a href="https://utaitedb.net" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/utaitedb_small.png" alt="UtaiteDB" title="UtaiteDB" /></a>
+</div>
+    <div>	<a href="http://projectdiva.wiki/" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/pjd-wiki_small.png" alt="Project DIVA wiki" title="Project DIVA wiki" /></a>
+</div>
+    <div>	<a href="https://vocaeuro.wordpress.com/" onclick="vdb.functions.trackOutboundLink(event)"><img src="http://static.vocadb.net/banners/vocaeuro.jpg" alt="VocaEuro" title="VocaEuro" /></a>
+</div>
+		</div>
+			<hr />
+<p>
+	<small>
+		VocaDB is a non-profit project. All money will be used for further site development, hosting fees and software licenses.
+	</small>
+</p>
+
+<a href="https://www.patreon.com/vocadb" target="_blank">
+	<img src="/Content/patreon.png" alt="Support on Patreon" title="Support on Patreon" />
+</a>
+
+			</div>						
+</div>
+
+
+				<div class="span10 rightFrame well">
+                    
+                                        
+                    
+							
+
+				
+		
+                            <div id="messages">
+                                <div class="wrapper">
+                                    <div id="ajaxLoadingMessage" style="display: none;">Loading...</div>
+
+								    <div id="errorMessage" class="alert alert-error" style="display: none;">
+									    <a class="close" data-dismiss="alert" href="#">&times;</a>
+									    <span id="errorMessageString"></span>
+								    </div>
+
+                                    <div id="successMessage" class="alert alert-success" style="display: none;">
+                                        <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                        <span id="successMessageString"></span>
+                                    </div>
+                                    
+                                    <div id="warnMessage" class="alert" style="display: none;">
+                                        <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                        <span id="warnMessageString"></span>
+                                    </div>
+                                </div>
+                            </div>
+                                                            		
+		
+							
+
+
+<h1 class="page-title">Welcome to the Vocaloid Database! <small>The collaborative database for Vocaloid, UTAU and other singing synthesizers, with artists, discography, PVs and more.</small></h1>
+
+<h3 class="withMargin">Highlighted PVs (<a href="/Search?onlyWithPVs=True&amp;searchType=Song&amp;sort=AdditionDate">view more</a>)</h3>
+<div class="pvPlayer">
+	<div class="scrollable-navi">
+		<a class="prev scrollable-browse-up disabled"></a>
+		<div class="scrollable scrollable-vertical" id="songs-navi">
+			<div class="scrollable-items">
+				<div>
+						<div class="scrollable-item alignTop" id="#songPV_271481">
+							<input type="hidden" class="js-songId" value="187408" />
+							<img src="http://tn.smilevideo.jp/smile?i=32921516" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">SNOBBISM</strong>
+							<span class="songArtists">Neru feat. 鏡音レン, 鏡音リン</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271449">
+							<input type="hidden" class="js-songId" value="187390" />
+							<img src="https://i.ytimg.com/vi/sxQHzF1YpQk/default.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">I Disappear</strong>
+							<span class="songArtists">ureshiiiiii feat. V3 GUMI (English)</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271477">
+							<input type="hidden" class="js-songId" value="187405" />
+							<img src="http://tn.smilevideo.jp/smile?i=32917292" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">想い</strong>
+							<span class="songArtists">Noel, CielP feat. 初音ミク Append (Unknown)</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271507">
+							<input type="hidden" class="js-songId" value="187416" />
+							<img src="http://tn.smilevideo.jp/smile?i=32920796" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">翻転のパサージュ</strong>
+							<span class="songArtists">bobobo feat. さとうささら</span>
+						</div>
+				</div>
+				<div>
+						<div class="scrollable-item alignTop" id="#songPV_271524">
+							<input type="hidden" class="js-songId" value="187427" />
+							<img src="https://i1.sndcdn.com/artworks-000321428505-2mspx5-large.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">#918D40</strong>
+							<span class="songArtists">keisei feat. 鏡音リン</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271513">
+							<input type="hidden" class="js-songId" value="187420" />
+							<img src="http://tn.smilevideo.jp/smile?i=22097089" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">R17</strong>
+							<span class="songArtists">No1 feat. Lily</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271478">
+							<input type="hidden" class="js-songId" value="187406" />
+							<img src="http://tn.smilevideo.jp/smile?i=32919868" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">雪桜</strong>
+							<span class="songArtists">てのひら feat. 初音ミク</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271488">
+							<input type="hidden" class="js-songId" value="187412" />
+							<img src="http://tn.smilevideo.jp/smile?i=32922589" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">Prayer</strong>
+							<span class="songArtists">no-ix feat. Lily</span>
+						</div>
+				</div>
+				<div>
+						<div class="scrollable-item alignTop" id="#songPV_271490">
+							<input type="hidden" class="js-songId" value="187414" />
+							<img src="https://i.ytimg.com/vi/lZ0qr0Z8OWo/default.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">ALWAYS BE AROUND</strong>
+							<span class="songArtists">Vocasy feat. DAINA</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271503">
+							<input type="hidden" class="js-songId" value="187415" />
+							<img src="https://i1.sndcdn.com/artworks-000307762710-vlrqul-large.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">Melting Horizon</strong>
+							<span class="songArtists">Flanger Moose feat. Ruby</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271479">
+							<input type="hidden" class="js-songId" value="187407" />
+							<img src="http://tn.smilevideo.jp/smile?i=32917081" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">エンオグラデュ</strong>
+							<span class="songArtists">おくみゅう feat. 初音ミク</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271471">
+							<input type="hidden" class="js-songId" value="187403" />
+							<img src="http://tn.smilevideo.jp/smile?i=30349875" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">Revolve</strong>
+							<span class="songArtists">完熟とまとP feat. 鏡音リン, 鏡音レン</span>
+						</div>
+				</div>
+				<div>
+						<div class="scrollable-item alignTop" id="#songPV_271475">
+							<input type="hidden" class="js-songId" value="187404" />
+							<img src="http://tn.smilevideo.jp/smile?i=32921716" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">馬鹿</strong>
+							<span class="songArtists">手動 feat. 初音ミク</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271518">
+							<input type="hidden" class="js-songId" value="187422" />
+							<img src="https://i1.hdslb.com/bfs/archive/8447654168b4b5e82554534c0e1d2b5e1e79465c.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">光雪与共</strong>
+							<span class="songArtists">rabbiii, 昔诺, 观默 feat. 乐正龙牙 (Unknown)</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271521">
+							<input type="hidden" class="js-songId" value="187424" />
+							<img src="https://i2.hdslb.com/bfs/archive/0ad113367aadbca06d9e678b99ad391507d21300.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">梨花泽泽远山远</strong>
+							<span class="songArtists">木変石 feat. 言和</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271522">
+							<input type="hidden" class="js-songId" value="187425" />
+							<img src="https://i2.hdslb.com/bfs/archive/811fb750afd77ebdc2ab5b9ca590a2528497841e.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">若梦境来袭</strong>
+							<span class="songArtists">Kevinz, Creuzer feat. 言和</span>
+						</div>
+				</div>
+				<div>
+						<div class="scrollable-item alignTop" id="#songPV_271523">
+							<input type="hidden" class="js-songId" value="187426" />
+							<img src="https://i2.hdslb.com/bfs/archive/d6400760186d0719161f46af8179163202105861.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">自作自受</strong>
+							<span class="songArtists">Sya feat. 洛天依</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271509">
+							<input type="hidden" class="js-songId" value="187417" />
+							<img src="http://tn.smilevideo.jp/smile?i=25178210" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">Statice</strong>
+							<span class="songArtists">カラス feat. 初音ミク</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271510">
+							<input type="hidden" class="js-songId" value="187418" />
+							<img src="http://tn.smilevideo.jp/smile?i=25634815" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">Gloss</strong>
+							<span class="songArtists">カラス feat. GUMI</span>
+						</div>
+						<div class="scrollable-item alignTop" id="#songPV_271511">
+							<input type="hidden" class="js-songId" value="187419" />
+							<img src="https://i.ytimg.com/vi/NF2LO4kRjJY/default.jpg" alt="Cover" class="coverPicThumb" />
+							<strong class="songName">haustoria</strong>
+							<span class="songArtists">ej music feat. KAITO V3 (English)</span>
+						</div>
+				</div>
+			</div>
+		</div>	
+		<a class="next scrollable-browse-down"></a>    
+	</div>
+
+	<div id="songPreview" class="pvViewerContent" data-bind="stopBinding">
+<input type="hidden" class="js-songId" value="187408" />
+<h4 class="pvViewer-title">
+	<span id="songPreviewName" class="pvViewer-songName" title="">
+		<a href="/S/187408">SNOBBISM</a>
+	</span>
+    &nbsp;
+    <small id="songPreviewArtists" class="pvViewer-artists">
+		Neru feat. 鏡音レン, 鏡音リン
+        (Original song)
+	</small>
+</h4>
+<span class="pvViewer-translatedNames"></span>
+<!-- PVRatingButtonsViewModel -->
+<div class="pull-right js-cloak" id="rating-bar" data-song-id="187408" data-rating="Nothing" data-bind="show">
+	<span class="ratingButtons" data-bind="visible: !isRated()">
+		<a href="#" data-bind="click: setRating_like, css: { disabled: true || ratingInProgress }" class="btn btn-inverse">Like</a>
+		<a href="#" data-bind="click: setRating_favorite, css: { disabled: true || ratingInProgress }" class="btn btn-inverse">Favorite</a>
+	</span>
+	<a href="#" data-bind="click: setRating_nothing, visible: isRated, css: { disabled: true || ratingInProgress }" class="btn btn-inverse ratingButtons">
+		Clear my rating
+	</a>	
+</div> 
+<div class="pv-embed-wrapper">
+		<div id="">
+		<iframe width="560" height="340" allowfullscreen="allowfullscreen" style="border: none;" src="//embed.nicovideo.jp/watch/sm32921516?jsapi=0&noRelatedVideo=0&autoplay=0&defaultNoComment=0&noLinkToNiconico=0&noController=0&noHeader=0&noTags=0&noShare=0"></iframe>	
+	</div>
+
+</div>
+<a class="btn btn-info songInfoButton pull-right" href="/S/187408">
+	<i class="icon icon-info-sign"></i>
+	Song info
+</a>
+	</div>
+</div>
+
+<br />
+
+	<h3 class="withMargin">Recent or upcoming albums (<a href="/Search?searchType=Album&amp;sort=ReleaseDate">view more</a>)</h3>
+	<div id="newAlbums">
+			<ul class="smallThumbs">
+	<li>
+		<a href="/Al/24202">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24202.png?v=7" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24202" />										           
+			</div>
+		</a>
+			<p>EXIT TUNES PRESENTS Vocaloseasons feat. 初音ミク～Spring～</p>
+	</li>
+	<li>
+		<a href="/Al/24137">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24137.jpg?v=12" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24137" />										           
+			</div>
+		</a>
+			<p>CYNICISM</p>
+	</li>
+	<li>
+		<a href="/Al/24195">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24195.jpg?v=8" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24195" />										           
+			</div>
+		</a>
+			<p>ONE/01 -BLOOM-</p>
+	</li>
+	<li>
+		<a href="/Al/24194">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24194.jpg?v=7" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24194" />										           
+			</div>
+		</a>
+			<p>IA/04 -STAR-</p>
+	</li>
+	<li>
+		<a href="/Al/24341">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24341.jpg?v=3" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24341" />										           
+			</div>
+		</a>
+			<p>ユーフォリア</p>
+	</li>
+	<li>
+		<a href="/Al/24322">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24322.jpg?v=3" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24322" />										           
+			</div>
+		</a>
+			<p>THE WONDERER</p>
+	</li>
+	<li>
+		<a href="/Al/24317">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/24317.png?v=7" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="24317" />										           
+			</div>
+		</a>
+			<p>Ocean of Lies</p>
+	</li>
+	</ul>
+
+	</div>	
+
+	<h3 class="withMargin">Random popular albums (<a href="/Search?searchType=Album&amp;sort=RatingTotal">view more</a>)</h3>
+	<div id="topAlbums">
+			<ul class="smallThumbs">
+	<li>
+		<a href="/Al/1281">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/1281.png?v=17" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="1281" />										           
+			</div>
+		</a>
+			<p>5150</p>
+	</li>
+	<li>
+		<a href="/Al/9338">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/9338.jpg?v=14" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="9338" />										           
+			</div>
+		</a>
+			<p>初音ミク「マジカルミライ 2014」オフィシャルアルバム</p>
+	</li>
+	<li>
+		<a href="/Al/9676">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/9676.jpg?v=35" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="9676" />										           
+			</div>
+		</a>
+			<p>IA/03 -VISION-</p>
+	</li>
+	<li>
+		<a href="/Al/1760">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/1760.jpg?v=10" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="1760" />										           
+			</div>
+		</a>
+			<p>チルドレンレコード</p>
+	</li>
+	<li>
+		<a href="/Al/50">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/50.png?v=13" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="50" />										           
+			</div>
+		</a>
+			<p>EXIT TUNES PRESENTS GUMism from Megpoid</p>
+	</li>
+	<li>
+		<a href="/Al/1099">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/1099.jpg?v=15" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="1099" />										           
+			</div>
+		</a>
+			<p>Armonia</p>
+	</li>
+	<li>
+		<a href="/Al/547">
+			<div class="pictureFrame">
+				    <img src="http://static.vocadb.net/img/album/mainSmall/547.jpg?v=16" alt="Preview" class="coverPic" data-entry-type="Album" data-entry-id="547" />										           
+			</div>
+		</a>
+			<p>INNERVE</p>
+	</li>
+	</ul>
+
+	</div>	
+	
+	<h3 class="withMargin">Happening now</h3>
+	<div class="clearfix">
+			<div class="well well-transparent event-teaser">
+					<a href="/E/1721" class="event-image pull-left" title="">
+						<img class="media-object" src="http://static.vocadb.net/img/releaseevent/mainSmall/1721.png?v=3" alt="Thumb" />
+					</a>
+				<div>
+					<a href="/E/1721" title="">
+						かがみねのお茶会 三席目
+					</a>
+						(Album release fair)
+											<br />
+						<small class="extraInfo">
+							3/25/2018
+						</small>						
+											<br />
+						<small class="extraInfo">京都府総合見本市会館（京都パルスプラザ）</small>
+				</div>
+			</div>
+	</div>
+
+
+<!-- Binding context: NewsListViewModel -->
+
+<h3 class="withMargin" data-bind="visible: !loaded() || posts().length">News</h3>
+
+<div data-bind="visible: loaded, foreach: posts" style="display: none;">
+	<div class="message newsEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+		<div class="messageTitle ui-widget-header ui-corner-all">
+			<div class="messageTitleText">
+				<h4>
+					<a data-bind="attr: { href: URL }, html: title" href="#"></a>	
+					&nbsp;		
+					<span class="news-title-author">
+						<img data-bind="attr: { src: author.avatar_URL }" src="/Content/Unknown.png" width="15" height="15" alt="Avatar" />
+						<span data-bind="text: author.name"></span>
+						<span> at </span>
+						<span data-bind="text: date"></span>
+					</span>
+				</h4>
+			</div>	
+		</div>	
+		<p class="messageContent">
+			<span data-bind="html: content"></span>
+		</p>
+	</div>
+</div>
+<div data-bind="visible: !loaded()">
+	<img src="/Content/ajax-loader.gif"/>
+	Loading...
+</div>
+
+<div class="row-fluid">
+    <div class="span7">
+        <h3 class="withMargin">Recent activity (<a href="/ActivityEntry">view more</a>)</h3>
+
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:59 PM UTC">
+			0 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/157814" title="Noise World">
+					<img src="http://tn-skr4.smilevideo.jp/smile?i=31266579" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/157814" title="Noise World">
+						<strong>ノイズワールド</strong>
+					</a>
+				</h4>
+ЯiveR feat. 鏡音レン V4X (Unknown)			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>created a new song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:56 PM UTC">
+			2 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/187517" title="">
+					<img src="http://tn.smilevideo.jp/smile?i=22567287" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/187517" title="">
+						<strong>Notice</strong>
+					</a>
+				</h4>
+SineP feat. 初音ミク Append (Unknown)			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>created a new song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:54 PM UTC">
+			4 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/187516" title="">
+					<img src="http://tn.smilevideo.jp/smile?i=23170907" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/187516" title="">
+						<strong>Liar child</strong>
+					</a>
+				</h4>
+SineP feat. 初音ミク			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>created a new song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:53 PM UTC">
+			6 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/187515" title="">
+					<img src="https://i.ytimg.com/vi/tScbzH_NZCo/default.jpg" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/187515" title="">
+						<strong>BEYOND ME</strong>
+					</a>
+				</h4>
+pinoyvocaloid feat. DAINA, V3 GUMI (English)			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>created a new song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:49 PM UTC">
+			10 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/187514" title="">
+					<img src="http://tn.smilevideo.jp/smile?i=31594515" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/187514" title="">
+						<strong>ノアノマリティ ～目覚ましの詩～</strong>
+					</a>
+				</h4>
+Natsu. feat. GUMI			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/MoveForward"  
+	   title='Moderator
+Joined: 10/20/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/06a083e5606028f49e9131b76d4a3ac0?s=20" alt="Icon" />
+		</div>
+
+		<span>MoveForward</span>
+	</a>
+
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:38 PM UTC">
+			21 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/130944" title="">
+					<img src="http://tn-skr4.smilevideo.jp/smile?i=29412031" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/130944" title="">
+						<strong>If you were here</strong>
+					</a>
+				</h4>
+オカメP feat. 初音ミク			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>updated artist</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:38 PM UTC">
+			21 minutes ago
+		</small>
+
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/Ar/237" title="164&#215;40mP">
+						<strong>1640mP</strong>
+					</a>
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/MoveForward"  
+	   title='Moderator
+Joined: 10/20/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/06a083e5606028f49e9131b76d4a3ac0?s=20" alt="Icon" />
+		</div>
+
+		<span>MoveForward</span>
+	</a>
+
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:36 PM UTC">
+			22 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/177" title="Κύριε ἐλέησον, Lord, have mercy">
+					<img src="http://tn-skr1.smilevideo.jp/smile?i=11963748" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/177" title="Κύριε ἐλέησον, Lord, have mercy">
+						<strong>kyrie eleison</strong>
+					</a>
+				</h4>
+オカメP feat. 初音ミク Append (Dark)			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/musono"  
+	   title='Trusted user
+Joined: 3/18/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/004cdeb744b3d42e19302b2ac3d86848?s=20" alt="Icon" />
+		</div>
+
+		<span>musono</span>
+	</a>
+
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 3:36 PM UTC">
+			22 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/123571" title="">
+					<img src="http://tn-skr1.smilevideo.jp/smile?i=28664608" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/123571" title="">
+						<strong>POP&#39;N ROCK</strong>
+					</a>
+				</h4>
+なすP feat. 初音ミク			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/musono"  
+	   title='Trusted user
+Joined: 3/18/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/004cdeb744b3d42e19302b2ac3d86848?s=20" alt="Icon" />
+		</div>
+
+		<span>musono</span>
+	</a>
+
+					<span>created a new song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:56 PM UTC">
+			63 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/187513" title="">
+					<img src="http://tn.smilevideo.jp/smile?i=32924959" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/187513" title="">
+						<strong>nagatabi</strong>
+					</a>
+				</h4>
+Noko feat. 初音ミク			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/musono"  
+	   title='Trusted user
+Joined: 3/18/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/004cdeb744b3d42e19302b2ac3d86848?s=20" alt="Icon" />
+		</div>
+
+		<span>musono</span>
+	</a>
+
+					<span>updated artist</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:48 PM UTC">
+			71 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/Ar/59427" title="Namazu, catfish, 猫魚">
+					<img src="http://static.vocadb.net/img/artist/mainTiny/59427.jpg?v=4" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/Ar/59427" title="Namazu, catfish, 猫魚">
+						<strong>なまず</strong>
+					</a>
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/musono"  
+	   title='Trusted user
+Joined: 3/18/2015'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/004cdeb744b3d42e19302b2ac3d86848?s=20" alt="Icon" />
+		</div>
+
+		<span>musono</span>
+	</a>
+
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:47 PM UTC">
+			72 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/176492" title="Calluna">
+					<img src="http://tn.smilevideo.jp/smile?i=32366925" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/176492" title="Calluna">
+						<strong>カルーナ</strong>
+					</a>
+				</h4>
+なまず feat. 初音ミク			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/Jorro_Treul"  
+	   title='Trusted user
+Joined: 11/12/2013'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/cf766bcf67a1ebf0e4bae50441ea8e50?s=20" alt="Icon" />
+		</div>
+
+		<span>Jorro_Treul</span>
+	</a>
+
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:45 PM UTC">
+			74 minutes ago
+		</small>
+
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/184869" title="ユーフォリア">
+						<strong>Euphoria</strong>
+					</a>
+				</h4>
+じん feat. IA			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<a href="/Profile/Jorro_Treul"  
+	   title='Trusted user
+Joined: 11/12/2013'>
+				<div style="width: 20px; height: 20px; display: inline-block">
+			<img src="https://www.gravatar.com/avatar/cf766bcf67a1ebf0e4bae50441ea8e50?s=20" alt="Icon" />
+		</div>
+
+		<span>Jorro_Treul</span>
+	</a>
+
+					<span>created a new album</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:40 PM UTC">
+			79 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/Al/24341" title="Euphoria">
+					<img src="http://static.vocadb.net/img/album/mainTiny/24341.jpg?v=3" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/Al/24341" title="Euphoria">
+						<strong>ユーフォリア</strong>
+					</a>
+				</h4>
+じん feat. IA			</div>
+		</div>
+	</div>
+	<div class="message activityEntry ui-tabs ui-widget ui-widget-content ui-corner-all">
+A contributor
+					<span>updated song</span>
+
+
+		<small class="pull-right extraInfo" title="3/22/2018 2:36 PM UTC">
+			83 minutes ago
+		</small>
+
+		<div class="media">
+				<a class="pull-left" href="/S/70917" title="Celeste~Ichiban Kireina Ao~, Celeste~The Most Beautiful Blue~">
+					<img src="https://i1.sndcdn.com/avatars-000100537908-0crnc3-large.jpg" alt="thumb" class="media-object coverPicThumb" />
+				</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="/S/70917" title="Celeste~Ichiban Kireina Ao~, Celeste~The Most Beautiful Blue~">
+						<strong>Celeste~一番綺麗な青~</strong>
+					</a>
+				</h4>
+纯白 feat. IA			</div>
+		</div>
+	</div>
+		
+		<a href="/ActivityEntry">view more</a>
+    </div>
+    <div class="span5">
+        <h3 class="withMargin">Recent comments (<a href="/Comment">view more</a>)</h3>
+            
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/Ar/191" title="Kaai Yuki">
+			<img src="http://static.vocadb.net/img/artist/mainTiny/191.jpg?v=19" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/Ar/191" title="Kaai Yuki">
+					歌愛ユキ
+				</a>
+			</h4>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/Mister_Tsar">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/0775653fc6b5faa2a296bce09d572f38?s=25" alt="gravatar" />
+		</div>
+<span>Mister_Tsar</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/22/2018 11:04:37 AM UTC">
+				4 hours ago
+			</small>		
+		</h3>
+		<p>Commercial link: <a href="https://www.animefanshop.de/de/vocaloid/software/Kaai-Yuki-V2-VOCALOID-2-Voice-Bank-inkl-lite-Editor-DVD-AHS-434.html">https://www.animefanshop.de/de/vocaloid/software/Kaai-Yuki-V2-VOCALOID-2-Voice-Bank-inkl-lite-Editor-DVD-AHS-434.html</a></p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/Ar/246" title="Hiyama Kiyoteru">
+			<img src="http://static.vocadb.net/img/artist/mainTiny/246.jpg?v=23" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/Ar/246" title="Hiyama Kiyoteru">
+					氷山キヨテル
+				</a>
+			</h4>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/Mister_Tsar">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/0775653fc6b5faa2a296bce09d572f38?s=25" alt="gravatar" />
+		</div>
+<span>Mister_Tsar</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/22/2018 11:03:14 AM UTC">
+				4 hours ago
+			</small>		
+		</h3>
+		<p>Commercial link: <a href="https://www.animefanshop.de/de/vocaloid/software/Hiyama-Kiyoteru-V2-VOCALOID-2-Voice-Bank-inkl-lite-Editor-DVD-AHS-433.html">https://www.animefanshop.de/de/vocaloid/software/Hiyama-Kiyoteru-V2-VOCALOID-2-Voice-Bank-inkl-lite-Editor-DVD-AHS-433.html</a></p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/Ar/28167" title="SF-A2 Kaihatsu Code miki V4, SF-A2 miki V4, miki V4, SF-A2 開発コード miki V4 Natural, SF-A2 Kaihatsu Code miki V4 Natural, SF-A2 miki V4 Natural">
+			<img src="http://static.vocadb.net/img/artist/mainTiny/28167.jpg?v=9" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/Ar/28167" title="SF-A2 Kaihatsu Code miki V4, SF-A2 miki V4, miki V4, SF-A2 開発コード miki V4 Natural, SF-A2 Kaihatsu Code miki V4 Natural, SF-A2 miki V4 Natural">
+					SF-A2 開発コード miki V4
+				</a>
+			</h4>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/Mister_Tsar">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/0775653fc6b5faa2a296bce09d572f38?s=25" alt="gravatar" />
+		</div>
+<span>Mister_Tsar</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/22/2018 10:56:34 AM UTC">
+				5 hours ago
+			</small>		
+		</h3>
+		<p>Another commercial link: <a href="https://www.animefanshop.de/de/vocaloid/software/SF-A2-miki-V4-Natural-VOCALOID-4-Voice-Bank-DVD-AHS-437.html">https://www.animefanshop.de/de/vocaloid/software/SF-A2-miki-V4-Natural-VOCALOID-4-Voice-Bank-DVD-AHS-437.html</a><br />
+Wish I could edit approved entries.</p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/T/2995/vocaloid4" title="">
+			<img src="http://vocadb.net/EntryImg/Tag/2995-st.png?v=7" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/T/2995/vocaloid4" title="">
+					Vocaloid4
+				</a>
+			</h4>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/Mister_Tsar">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/0775653fc6b5faa2a296bce09d572f38?s=25" alt="gravatar" />
+		</div>
+<span>Mister_Tsar</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/22/2018 10:54:32 AM UTC">
+				5 hours ago
+			</small>		
+		</h3>
+		<p>Here is a commercial link: <a href="https://www.animefanshop.de/de/vocaloid/software/VOCALOID-4-Editor-DVD-YAMAHA-442.html">https://www.animefanshop.de/de/vocaloid/software/VOCALOID-4-Editor-DVD-YAMAHA-442.html</a></p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/S/115016" title="">
+			<img src="https://i.ytimg.com/vi/NtYStF7Zxoc/default.jpg" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/S/115016" title="">
+					Miku
+				</a>
+			</h4>
+				<span>Anamanaguchi feat. 初音ミク V3 (English)</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/jakegaslamp">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/894bc9f9b0a5f6c4a919029dcee050db?s=25" alt="gravatar" />
+		</div>
+<span>jakegaslamp</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/22/2018 1:13:35 AM UTC">
+				14 hours ago
+			</small>		
+		</h3>
+		<p>@overtides where did you find &quot;neco&quot; as illustrator?</p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/Al/22584" title="S/S17 (featuring. Hatsune Miku) [Remixes]">
+			<img src="http://static.vocadb.net/img/album/mainTiny/22584.jpg?v=13" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/Al/22584" title="S/S17 (featuring. Hatsune Miku) [Remixes]">
+					S/S17
+				</a>
+			</h4>
+				<span>Various artists</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/riipah">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/2f5d563125cdb6d78a300862ff60f9f1?s=25" alt="gravatar" />
+		</div>
+<span>riipah</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/21/2018 6:14:32 PM UTC">
+				21 hours ago
+			</small>		
+		</h3>
+		<p>I haven&#39;t checked, but I assume sets (playlists) and single tracks have their own ID ranges, so when you add a set, it adds the single track with the matching ID.</p>
+
+	</div>	
+				<hr />
+	<div class="comment">
+		<h3>
+				<a href="/Profile/MoveForward">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/06a083e5606028f49e9131b76d4a3ac0?s=25" alt="gravatar" />
+		</div>
+<span>MoveForward</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/21/2018 11:23:47 AM UTC">
+				28 hours ago
+			</small>		
+		</h3>
+		<p>I see. So did a random SoundCloud upload take its place?</p>
+
+	</div>	
+				<hr />
+	<div class="comment">
+		<h3>
+				<a href="/Profile/riipah">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/2f5d563125cdb6d78a300862ff60f9f1?s=25" alt="gravatar" />
+		</div>
+<span>riipah</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/21/2018 9:41:14 AM UTC">
+				30 hours ago
+			</small>		
+		</h3>
+		<p>Soundcloud sets/playlists are not supported. <a href="https://github.com/VocaDB/vocadb/issues/217">https://github.com/VocaDB/vocadb/issues/217</a></p>
+
+	</div>	
+	</div>
+	<div class="well well-transparent">
+			<div class="media">
+		<a class="pull-left" href="/S/11124" title="Sore wa, Mahiru no Suisei, That Is a Midday Comet">
+			<img src="http://tn-skr4.smilevideo.jp/smile?i=20163007" alt="thumb" class="coverPicThumb" />
+		</a>
+		
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="/S/11124" title="Sore wa, Mahiru no Suisei, That Is a Midday Comet">
+					それは、真昼の彗星
+				</a>
+			</h4>
+				<span>ぽわぽわP feat. 初音ミク Append (Sweet)</span>
+		</div>
+	</div>
+
+	<div class="comment">
+		<h3>
+				<a href="/Profile/Arisa_Hana">		<div style="width: 25px; height: 25px; display: inline-block">
+			<img src="http://www.gravatar.com/avatar/3754a9ae3fc287721ae8ece639f60a9c?s=25" alt="gravatar" />
+		</div>
+<span>Arisa_Hana</span></a>
+
+
+			<small class="pull-right extraInfo" title="3/21/2018 8:35:14 AM UTC">
+				31 hours ago
+			</small>		
+		</h3>
+		<p>such calming song~</p>
+
+	</div>	
+	</div>
+		
+		<a href="/Comment">view more</a>
+    </div>
+</div>
+
+<h4 class="withMargin">Search the whole site using Google custom search</h4>
+<div id="cse" style="width: 100%;">Loading</div>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+	google.load('search', '1', { language: 'en' });
+	google.setOnLoadCallback(function () {
+		var customSearchControl = new google.search.CustomSearchControl('010575853430721629857:uosxb117-zg');
+		customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+		customSearchControl.draw('cse');
+	}, true);
+</script>
+<link rel="stylesheet" href="https://www.google.com/cse/style/look/default.css" type="text/css" />	
+
+
+
+
+					
+						<div id="loginPopup" title="Log in" style="display: none;">
+						</div>
+
+				</div>
+			</div>  
+		</div>
+			
+        <!-- Footer -->	
+
+<span class="about-disclaimer">
+	<a href="http://piapro.jp/t/nire">Background illustration by みゆ</a>
+	|
+	<a href="https://github.com/VocaDB/vocadb/">Other credits and source code</a>
+	|
+	<a href="http://wiki.vocadb.net/wiki/29/license">Content licensed under Creative Commons.</a>
+</span>
+
+
+
+
+
+<!-- Common scripts -->
+<script src="/bundles/shared/libs?v=N-z2EGn-D2HHanUviK-F2pNFbyFaZSkj0kSR6bO_KqU1"></script>
+<script src="/bundles/shared/jqui?v=VRrxFJYe-VLyF8y8F6UNDy_ye5iMwgnM7vrgT6iX8A01"></script>
+<script src="/bundles/VocaDB?v=v7uYyNE2Mk15MvpKgTFrMnQANBq-kKrb-aMCDn1RD5s1"></script>
+<script src="/bundles/shared/common?v=-uuyHTGyy1et1TmwR_d8J4yxBTW26mEcgSRficaFpb01"></script>
+
+
+
+<script type="text/javascript">
+
+    var baseAddress = '/';
+
+    vdb = vdb || {};
+    vdb.values = vdb.values || {};
+    vdb.values.hostAddress = 'http://vocadb.net';
+	vdb.values.baseAddress = baseAddress;
+	vdb.values.languagePreference = 0;
+	vdb.values.isLoggedIn = false;
+	vdb.values.uiLanguage = "en-US";
+    vdb.resources = vdb.resources || {};
+    var urlMapper = new vdb.UrlMapper(baseAddress);
+
+    vdb.resources.shared = {
+    	reportSent: "Report sent. Thank you!"
+	};
+
+    vdb.ui.initAll("Thank you for rating!");
+
+    var entryReportRepository = new vdb.repositories.EntryReportRepository(urlMapper);
+    var userRepository = new vdb.repositories.UserRepository(urlMapper, 0);
+
+    var entryTypeTranslations = {"Artist":"Artist","ReleaseEventSeries":"Event series","Undefined":"Anything","SongList":"Song list","ReleaseEvent":"Event","Tag":"Tag","Album":"Album","User":"User","Song":"Song"};
+    var topBarData = {"searchObjectType":"Undefined"};
+	var hasUnreadMessages = false;
+	var unreadMessagesCount = 0;
+	var getNewReportCount = false;
+
+    var topBarViewModel = new vdb.viewModels.TopBarViewModel(
+        entryTypeTranslations, topBarData.searchObjectType, "", unreadMessagesCount,
+	    getNewReportCount, entryReportRepository, userRepository);
+
+    var topBar = $("#topBar")[0];
+	if (topBar) {
+		ko.applyBindings(topBarViewModel, $("#topBar")[0]);
+	}
+
+</script>
+
+        
+        <!-- Page-specific scripts -->
+	    
+    
+    <script type="text/javascript">
+        vdb.resources.song = {
+            thanksForRating: 'Thank you for rating!'
+        };
+    </script>
+	<script src="/bundles/Home/Index?v=Vpx_jOXilzOMzlljis55xQRuFJJ4Bwomgd2ItvvVc2Y1"></script>
+
+
+    <script type="text/javascript">
+    	$(function () {
+
+    		var viewModel = new vdb.viewModels.NewsListViewModel('blog.vocadb.net');
+    		ko.applyBindings(viewModel);
+
+    	});
+    </script>
+
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head><title>302 Found</title></head>
+<body bgcolor="white">
+<center><h1>302 Found</h1></center>
+<hr><center>nginx</center>
+
+		<script type="text/javascript">
+      window.addEventListener("load", function fly_performance_report(event){
+        setTimeout(function(){
+          var sMatch = (' '+document.cookie).match(new RegExp('[; ]flyio_request_id=([^\\s;]*)'));
+          var originalRequestId = sMatch ? unescape(sMatch[1]) : false;
+          if (!originalRequestId) return
+
+          var req = new window.XMLHttpRequest
+          req.open('POST', "/__fly/middleware/render-performance/", true);
+          req.setRequestHeader('Content-Type', 'application/json');
+          req.setRequestHeader('Original-Request-Id', originalRequestId);
+          req.setRequestHeader('Original-Method', 'GET');
+          req.setRequestHeader('Original-Uri', 'https://psychonautwiki.org/');
+          req.send(JSON.stringify(performance.timing));
+        }, 0);
+      },false);
+    </script></body>
+</html>

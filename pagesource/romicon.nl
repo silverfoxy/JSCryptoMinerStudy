@@ -1,0 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.romicon.nl/">here</a>.</p>
+<hr>
+<address>Apache Server at romicon.nl Port 80</address>
+</body></html>

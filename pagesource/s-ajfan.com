@@ -1,0 +1,1 @@
+<META HTTP-EQUIV="Refresh" CONTENT="0; url=http://s-ajfan.com/vb/">

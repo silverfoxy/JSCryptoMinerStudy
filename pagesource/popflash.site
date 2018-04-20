@@ -1,0 +1,691 @@
+<html lang="en-US">
+<head> <!--shot-->
+  <title>PopFlash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes"/>
+  <meta http-equiv="Content-Language" content="en">
+  <!--google this is not what I want but you offer nothing better. allow me to declare a lang, not disable translation-->
+  <meta name="google" content="notranslate" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    html, body {
+      background: #FFF;
+      color: #3c3d4f;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a {
+      color: #3c3d4f;
+    }
+
+    pre {
+      white-space: pre-wrap;       /* CSS 3 */
+      white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      max-width: 100%;
+      padding: 0 20px;
+    }
+
+    #container {
+      border-top: 2px solid #e3e3e3;
+      min-height: 300px;
+    }
+
+    #page-container {
+      border: 1px solid #E2E2E2;
+      width: 960px;
+      margin: 40px auto;
+      min-height: 275px;
+      position: relative;
+      z-index: 1;
+      background: #FFF;
+      padding: 30px;
+    }
+
+    #background-overlay {
+      position: absolute;
+      top: 85px;
+      left: 0;
+      width: 100%;
+      min-height: 300px;
+      background: #EEE;
+      -webkit-box-shadow: 0 1px 0 0 #e2e2e2, inset 0 1px 0 0 rgba(1,1,1,.05);
+      box-shadow: 0 1px 0 0 #e2e2e2, inset 0 1px 0 0 rgba(1,1,1,.05);
+      background: url('/pattern.png');
+      border-top: 1px solid #e7e7e7;
+    }
+
+    .content-box-container {
+      margin: 0;
+      padding-bottom: 30px;
+    }
+
+    .content-box {
+      border: 1px solid #E2E2E2;
+      padding: 30px 35px;
+      background: #F7F7F7;
+      min-height: 205px;
+      font-size: 14px;
+    }
+
+    .content-box-first .content-box-container {
+      margin: 0 15px 0 0;
+    }
+
+    .content-box-last .content-box-container {
+      margin: 0 0 0 15px;
+    }
+
+    .content-box-1-2 {
+      float:left;
+      width: 50%;
+    }
+
+    .content-box-1-3 {
+      float: left;
+      width: 40%;
+    }
+
+    .content-box-2-3 {
+      float: left;
+      width: 60%;
+    }
+
+    h2 {
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #e83c2f;
+      margin: 0 0 30px 0;
+      padding: 5px;
+      border-bottom: 1px solid #E7E7E7;
+    }
+
+    h3 {
+      font-family: 'Roboto Condensed', sans-serif;
+      margin: 0 0 40px 0;
+      font-weight: 400;
+      font-size: 24px;
+    }
+
+    h4 {
+      font-family: 'Roboto Condensed', sans-serif;
+      margin: 0 0 10px 0;
+      font-weight: 400;
+      font-size: 18px;
+    }
+
+    h3 span, h4 span {
+      color: #e83c2f;
+    }
+
+    table {
+      color: #FFF;
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: 14px;
+      outline: 1px solid #333442;
+      margin: 0 auto;
+      background-color: #444557;
+    }
+
+    td {
+      min-width: 15px;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #505166;
+    }
+
+    td.align-left {
+      text-align: left;
+    }
+
+    td.name {
+      width: 100px;
+      max-width: 120px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: left;
+      color: #fbfe03;
+    }
+
+    tr.bold {
+      font-weight: bold;
+    }
+
+    td a {
+      color: #fbfe03;
+      text-decoration: none;
+      font-weight: lighter;
+    }
+
+
+    .clear {
+      clear: both;
+    }
+
+    /* *********************************************************************************************************************
+    One% CSS Grid - 12 Columns Fluid CSS Grid System
+
+    Why One% ? Let’s count ...
+      we have 12 columns (magic number divided by 2, 3, 4, 6)
+
+      for 12 columns we need 11 margins
+
+      so if we count margin 3%, then 3% * 11 margins = 33%
+
+      and if we count width of 1 column 5.5%, than 5.5% * 12 columns = 66%
+
+      in the end we have 33% + 66% = 99% aaand ???
+
+      1% is still here so that's the name - One%
+
+    2 starting options ? Let’s count a bit more ...
+      1200px - perfectly fits 1280 screens
+        12 columns
+        margin 3% / 36px (full-width)
+        col1 5.5% / 66px (full-width)
+
+      1000px - perfectly fits 1024 screens
+        12 columns
+        margin 3% / 30px (full-width)
+        col1 5.5% / 55px (full-width)
+    */
+
+    /* *********************************************************************************************************************
+    * Main container for all
+    */
+    .onepcssgrid-1000, .onepcssgrid-1200 {
+      margin: 0 auto;
+      padding: 0 0 0 1%; /* THAT'S THE NAME ;) */
+    }
+
+    .onepcssgrid-1200 {
+      max-width: 1220px;
+    }
+
+    .onepcssgrid-1000 {
+      max-width: 1020px;
+    }
+
+    .onerow {
+      clear: both;
+      padding: 0 10px;
+    }
+
+    /* *********************************************************************************************************************
+    * Common columns definitions
+    */
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+    float: left;
+    margin: 0 3% 0 0;
+    }
+
+    .col1.last, .col2.last, .col3.last, .col4.last, .col5.last, .col6.last, .col7.last, .col8.last, .col9.last, .col10.last, .col11.last, .col12 {
+    margin: 0;
+    }
+
+    .col1 { width: 5.5%; }
+    .col2 { width: 14%; }
+    .col3 { width: 22.5%; }
+    .col4 { width: 31%; }
+    .col5 { width: 39.5%; }
+    .col6 { width: 48%; }
+    .col7 { width: 56.5%; }
+    .col8 { width: 65%; }
+    .col9 { width: 73.5%; }
+    .col10 { width: 82%; }
+    .col11 { width: 90.5%; }
+    .col12 { width: 99%; margin: 0; }
+
+    .col1 img, .col2 img, .col3 img, .col4 img, .col5 img, .col6 img, .col7 img, .col8 img, .col9 img, .col10 img, .col11 img, .col12 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    }
+
+
+
+
+
+    /* *********************************************************************************************************************
+    * Disable padding left/right 10px if I'm 1024 or gibber - correct percentage math
+    */
+    @media all and (min-width: 1024px) {
+    .onepcssgrid-1000 {
+      max-width: 1000px;
+    }
+
+    .onepcssgrid-1000 .onerow {
+      padding: 0;
+    }
+    }
+
+
+
+
+
+    /* *********************************************************************************************************************
+    * Small devices
+    */
+    @media all and (max-width: 768px) {
+    .onerow {
+    }
+
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11 {
+      float: none;
+      width: 99%;
+    }
+    }
+  </style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!--<script type="text/javascript" src="/jquery.js"></script>-->
+</head>
+<body class=""> <!--93 in 3-->
+  <style type="text/css">
+    header {
+      background: #FFF;
+      min-height: 85px;
+    }
+  
+    #header-container {
+      width: 980px;
+      margin: 0 auto;
+      position: relative;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+  
+    header .navigation a {
+      display: inline-block;
+      color: #3c3d4d;
+      padding: 0 10px;
+      line-height: 85px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      position: relative;
+    }
+  
+    header .navigation a.active {
+      color: #e83c2f;
+    }
+  
+    header .navigation a.closed:after {
+      content: "CLOSED";
+      color: #e83c2f;
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      opacity: .6;
+      font-size: .8em;
+    }
+  
+    header .navigation a.new:after {
+      content: "NEW!";
+      color: #08c;
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      opacity: .6;
+      font-size: .8em;
+    }
+  
+    header .navigation a.new:hover:after, header .navigation a.closed:hover:after {
+      opacity: 1;
+    }
+  
+    header .navigation a.new:active:after, header .navigation a.closed:active:after {
+      display: none;
+    }
+  
+    header .logo {
+      padding-left: 20px;
+      padding-right: 50px;
+      border-right: 1px solid #e7e7e7;
+      float: left;
+      height: 85px;
+      line-height: 85px;
+    }
+  
+    header .navigation {
+      padding-left: 50px;
+      float: left;
+    }
+  
+    header .profile {
+      float: right;
+      height: 85px;
+      line-height: 85px;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 15px;
+    }
+  
+    .loggedin header .profile {
+      margin-top: 0;
+    }
+  
+    header .logo a {
+      text-decoration: none;
+      font-size: 1.7em;
+      color: #e83c2f; /* red */
+    }
+  
+    header .logo .flash {
+      color: #3c3d4d;
+      font-weight: 700;
+    }
+  
+    header .logo .site {
+      color: #b0b0b0;
+    }
+  
+    header .profile .overlay-container {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 165px;
+      height: 200px;
+      background: #FFF;
+      border: 1px solid #E3E3E3;
+      z-index: 99;
+      padding: 15px;
+      -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,.1);
+      box-shadow: 1px 1px 1px 0px rgba(0,0,0,.1);
+    }
+  
+    header .profile:hover .overlay-container {
+      display: block;
+    }
+  
+    header .profile .overlay-container .name {
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      text-align: right;
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    header .profile .overlay-container ul {
+      padding: 0;
+      margin: 0;
+    }
+  
+    header .profile .overlay-container ul li {
+      list-style-type: none;
+      border-bottom: 1px solid #E3E3E3;
+      height: 30px;
+      line-height: 30px;
+      color: #9e9e9e;
+      font-size: 12px;
+    }
+  
+    header .profile .overlay-container ul li a {
+      color: #9e9e9e;
+      text-decoration: none;
+      font-size: 12px;
+    }
+  
+    header .profile .name img {
+      vertical-align: middle;
+      display: inline-block;
+    }
+  
+    header .profile .name span {
+      color: #e83c2f;
+    }
+  </style>
+  
+  <header>
+    <div id="header-container">
+      <div class="logo">
+        <a href="/">POP<span class="flash">FLASH.</span><span class="site">SITE</span></a>
+      </div>
+      <div class="navigation">
+          <a href="/about" >ABOUT</a>
+        <a href="/faq" >FAQ</a>
+      </div>
+      <div class="profile">
+          <a href="/auth/steam" id="steam-link">
+            <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_noborder.png" alt="Login with Steam" />
+          </a>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </header>
+  <div id="container">
+    <div id="page-container">
+      <style>
+  h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-box {
+    font-size: 16px;
+  }
+
+  pre.footer {
+    font-size: 12px;
+  }
+
+  .blog .date {
+    opacity: .7;
+  }
+
+  .get-started {
+    background: #3c3d4f;
+    color: #FFF;
+    width: 275px;
+    margin: 0 auto;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .sub-text {
+    text-align: center;
+    font-style: italic;
+    font-size: .8em;
+    padding: 5px 0;
+  }
+
+  .btn {
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 0 20px 10px 0;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 32px;
+  }
+
+  .btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+
+  .blue {
+    background-color: #55acee;
+    box-shadow: 0px 5px 0px 0px #3C93D5;
+  }
+
+  .blue:hover {
+    background-color: #6FC6FF;
+  }
+
+  .green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15B358;
+  }
+
+  .green:hover {
+    background-color: #48E68B;
+  }
+
+  .red {
+    background-color: #e74c3c;
+    box-shadow: 0px 5px 0px 0px #CE3323;
+  }
+
+  .red:hover {
+    background-color: #FF6656;
+  }
+
+  .join-solo {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .join-lobby {
+    margin: 10px;
+    font-size: 1.85em;
+  }
+
+  .profile #steam-link img {
+    padding: 5px;
+  }
+</style>
+
+<h3 style="font-size: 40px; font-weight: 700; text-align: center; margin: 0;">SIMPLE COMPETITIVE <span>COUNTERSTRIKE MATCHES</span></h3>
+
+<p style="text-align: center; padding: 10px 0 20px 0; font-size: 18px;">Set up a scrim with friends in 60 seconds</p>
+
+<div class="content-box-1-2 content-box-first">
+  <div class="content-box-container">
+    <div class="content-box">
+      <h3>128-TICK <span>SERVERS</span></h3>
+
+      <p>Stable servers with low-latency networking. Like butter.</p>
+
+      <p>Now serving Europe and the United States.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content-box-1-2 content-box-last">
+  <div class="content-box-container">
+    <div class="content-box">
+      <h3>SIMPLE <span>SCRIMS</span></h3>
+
+      <p>Running a 5v5 match is as easy as sharing a URL.</p>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="content-box-1-2 content-box-first">
+  <div class="content-box-container">
+    <div class="content-box">
+      <h3>RANK <span>IMPORT</span></h3>
+
+      <p>Add our steam bot to import your rank and wins into PopFlash so you can balance matches between your friends.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-box-1-2 content-box-last">
+  <div class="content-box-container">
+    <div class="content-box">
+      <h3>NO <span>FLUFF</span></h3>
+
+      <p>No ads. No bullshit. Just CS.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+<!--
+<h4 style="text-align: center; margin: 0;"><a href="/about">MORE FEATURES</a></h4>
+-->
+
+    </div>
+      <div style="text-align: center; padding: 0 0 40px 0;">
+        <h4>Join 615,960 Counter-Strike enthusiasts</h4>
+        <a href="/auth/steam" id="steam-link">
+          <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_noborder.png" alt="Login with Steam" />
+        </a>
+      </div>
+  </div>
+  <style type="text/css">
+    footer {
+      background: #e83c30;
+      min-height: 80px;
+    }
+  
+    #footer-container {
+      width: 940px;
+      height: 80px;
+      margin: 0 auto;
+      line-height: 80px;
+      color: #FFF;
+    }
+  
+    #footer-container a {
+      color: #FFF;
+      text-decoration: none;
+    }
+  
+    footer .logo {
+      padding-left: 20px;
+      padding-right: 50px;
+      height: 85px;
+      line-height: 85px;
+    }
+  
+    footer .logo a {
+      text-decoration: none;
+      font-size: 1.5em;
+      color: #FFF; /* red */
+      font-family: 'Roboto Condensed', sans-serif
+    }
+  
+    footer .logo a .flash {
+      font-weight: bold;
+    }
+  </style>
+  
+  <footer>
+    <div id="footer-container">
+      <div style="float: left;">
+        <div class="logo">
+          <a href="/">POP<span class="flash">FLASH.</span><span class="site">SITE</span></a>
+        </div>
+      </div>
+      <div style="float: right;">
+        <a href="/terms-of-service">TERMS</a> | <a href="/privacy-policy">PRIVACY</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </footer>
+  <div id="background-overlay"></div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65110825-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>

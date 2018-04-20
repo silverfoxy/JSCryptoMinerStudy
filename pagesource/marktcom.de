@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang='de' xml:lang='de' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta content='text/html; charset=utf-8' http-equiv='Content-type'>
+<meta content='text/javascript; charset=iso-8859-1' http-equiv='Content-type'>
+<title> marktcom | Flohmarkt- und Trödelmarkttermine</title>
+<meta content='marktcom, das Verzeichnis für Flohmarkt, Termine und Freizeit' name='description'>
+<meta content='Marktcom, das Verzeichnis für Flohmarkt, Termine und Freizeit' property='og:description'>
+<meta content='http://www.marktcom.de/assets/marktcomfacebook-6612ce681a48b9b1b4e05f0a82afe986b3b506724b7a624bd0a37637e7be2150.png' property='og:image'>
+<meta content='trödelmarkt,termine,flohmarkt,flohmarktverzeichnis,trödelmarktverzeichnis,marktplatz,flohmarkttermine,trödelmarkttermine,flohmärkte,trödelmärkte,veranstaltungen' name='keywords'>
+<meta content='de' name='language'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='{100000290917048,100001466018190}' property='fb:app_id'>
+<meta content='5070e79437bd5556ddcd28a89d3bd744' name='verification'>
+<meta content='{350602541653566}' property='fb:admins'>
+<link href="/assets/apple-touch-icon-871f9a191171495803f182bf1e58bf89565ff41526b27fae611abd65d96b304f.png" rel="apple-touch-icon" type="image/png" />
+<link href="/assets/favicon-4faab505b4b00d89c58612982d85d218a8661fdd5b21c854cf68dd9b74e46997.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="/assets/application-4ea3de47dadc1ef33275f64f9aed7038ff519d18e979b9b26cb1f1d086632721.css" media="screen" rel="stylesheet" />
+<script src="/assets/application-24784c6fe033ac0f7785f58e13b661aa141ed33778c9dc869e404b7b7343ae52.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>
+
+<script type="text/javascript">
+    $('#search').ready(function() {
+        var vinput = $('#veranstalter');
+        vinput.on('input',function(){
+            if ($.trim($(vinput).val()) == ''){
+                $('#q_event_user_id_eq').val('');
+            }
+        });
+
+        // Geolocation
+        var patt1=new RegExp(/^[\d]+$/); //nur Zahlen
+        var GeoCoded = {done: false};
+        var input = document.getElementById('stadt');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        // autocomplete.setTypes(['(cities)']); nur nach städten suchen
+        autocomplete.setComponentRestrictions({'country': 'de'});
+
+        $('#term_search').on('submit',function(e){
+
+            if(GeoCoded.done){
+                return true;
+            }
+            e.preventDefault();
+            var address = document.getElementById('stadt').value;
+            if( (patt1.test(address)) || address.length == 0 || address == "aktuelle Position") {
+                GeoCoded.done = true;
+                $('#stadt').val('');
+                $('#lat').val('');
+                $('#lng').val('');
+                $('#suche_stadt').val('');
+                $('#suche_kreis').val('');
+                $('#term_search').submit();
+            }
+            // console.log('submit stopped');
+            else{
+
+                var geocoder = new google.maps.Geocoder();
+                $('#term_search input[type="submit"]').attr('disabled',true);
+
+
+                geocoder.geocode({
+                    'address': address,
+                    'componentRestrictions': {'country': 'de'}
+                },function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                      $('#lat').val('');
+                      $('#lng').val('');
+                      $('#stadt').val('');
+                      $('#suche_stadt').val('');
+                      $('#suche_kreis').val('');
+
+                      for (var i = 0; i < results.length; i++) {
+                        var place = results[i];
+                        //if (results[i].types[0] === "locality" || results[i].types[0] === "administrative_area_level_1") { //nur nach städten suchen
+                        $('#lat').val(place.geometry.location.lat());
+                        $('#lng').val(place.geometry.location.lng());
+                        //if you only want to submit in the event of successful geocoding, you can only trigger submission here.
+                        GeoCoded.done = true;
+                        $('#stadt').val(place.formatted_address);
+
+                        for (var j=0;j< place.address_components.length;j++) {
+                          var place_component = place.address_components[j];
+                          for (var k = 0; k < place_component.types.length; k++) {
+                            if (place_component.types[k] == "sublocality") {
+                              ort = place_component.long_name;
+                              $('#suche_stadt').val(ort);
+                            }
+                            if (place_component.types[k] == "locality") {
+                              stadt = place_component.long_name;
+                              $('#suche_stadt').val(stadt);
+                            }
+                            if (place_component.types[k] == "administrative_area_level_3") {
+                              landkreis = place_component.long_name;
+                              $('#suche_kreis').val(landkreis);
+                            }
+                          }
+                        }
+
+                        $('#term_search').submit();
+                        return;
+                      }
+                    }
+                        // console.log("Geocode was not successful for the following reason: " + status);
+                        // $('#searchbutton').val("Ort nicht gefunden");
+                        alert("Der Ort wurde nicht gefunden");
+                        //enable the submit button
+                        $('#term_search input[type="submit"]').attr('disabled',false);
+
+                });
+            }
+        });
+
+
+        $('#stadt').keyup(function(){
+        if( patt1.test($(this).val())){
+        $('#radius').css('display', "none");
+        // $('#radius_Umkreis').css('display', "none");
+        $('#radius_hinweis').css('display', "block");
+        }
+        else{
+        $('#radius').css('display', "block");
+        // $('#radius_Umkreis').css('display', "block");
+        $('#radius_hinweis').css('display', "none");
+        }
+        });
+            });
+</script>
+
+
+<script type="text/javascript" src="//static.h-bid.com/marktcom.de/20171108/sws-hb-marktcom.de.min.js"></script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+    googletag.cmd.push(function() {
+        googletag.defineSlot('/11974173/160x220_links_1', [160, 220], 'div-gpt-ad-1515756613324-0').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/160x220_links_2', [160, 220], 'div-gpt-ad-1515756613324-1').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Startseite_160x220_links_1', [160, 220], 'div-gpt-ad-1515756613324-2').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Startseite_160x220_links_2', [160, 220], 'div-gpt-ad-1515756613324-3').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Banner_oben_detail', [468, 60], 'div-gpt-ad-1515756613324-4').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Detail_250x90', [[200, 200], [250, 250], [295, 120], [250, 90]], 'div-gpt-ad-1515756613324-5').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Skyscraper_rechts_unten', [[160, 600], [300, 600]], 'div-gpt-ad-1515756613324-6').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/300x600_links_Anfrage', [300, 600], 'div-gpt-ad-1515756613324-7').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Detail_625x280', [625, 280], 'div-gpt-ad-1515756613324-8').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Anfrage_625x280_Ende', [625, 280], 'div-gpt-ad-1515756613324-9').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Händler_535x280', [535, 280], 'div-gpt-ad-1515756613324-10').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/Rectangle_Startseite', [300, 250], 'div-gpt-ad-1515756613324-11').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/300x250_Mobile_Detail_oben', [[300, 250], [336, 280]], 'div-gpt-ad-1515756613324-12').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/LR_Mobile_Mitte', [[300, 250], [336, 280]], 'div-gpt-ad-1515756613324-13').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/LR_Mobile_Mitte_10', [[300, 250], [336, 280]], 'div-gpt-ad-1515756613324-14').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/LR_Mobile_Mitte_15', [[300, 250], [336, 280]], 'div-gpt-ad-1515756613324-15').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/LR_Mobile_Startseite', [300, 250], 'div-gpt-ad-1515756613324-16').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/1x1', [1, 1], 'div-gpt-ad-1515756613324-17').addService(googletag.pubads());
+        googletag.defineSlot('/11974173/1x1_Ad', [[1, 1], [320, 480]], 'div-gpt-ad-1515756613324-18').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>
+
+<!-- ads by snigelweb--->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2128647-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<div class='cookies-eu'>
+<span class='cookies-eu-content-holder'>Diese Webseite benutzt Cookies, um einige Funktionen anzubieten, pseudonyme Nutzungsstatistiken zu erstellen und Werbung anzuzeigen.</span>
+<span class='cookies-eu-button-holder'>
+<button class='cookies-eu-ok'>
+weiter
+</button>
+<a class='cookies-eu-link' href='http://www.marktcom.de/seiten/datenschutz'>
+Weitere Informationen
+</a>
+</span>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id='container'>
+<!-- /11974173/970x250_Large_Leaderboard -->
+<div id='div-swshb-header_billboard-0' style='max-height:250px;margin-top:10px;margin-bottom:10px;margin-left:190px'>
+<script>
+  googletag.cmd.push(function() {
+    googletag.pubads().setTargeting('Landkreis','').setTargeting('Ort','');
+    googletag.display('div-swshb-header_billboard-0');
+  });
+</script>
+</div>
+<!-- /11974173/970x250_Large_Leaderboard -->
+<div id='content_left2' style='float:left;width:160px;margin-top:100px;padding-right:10px'>
+
+    <!-- /11974173/Startseite_160x220_links_1 -->
+<div id='div-gpt-ad-1515756613324-2' style='height:220px; width:160px;'>
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515756613324-2'); });
+  </script>
+</div>
+
+<!-- /11974173/Startseite_160x220_links_2 -->
+<div id='div-gpt-ad-1515756613324-3' style='height:220px; width:160px;margin-top:10px'>
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515756613324-3'); });
+  </script>
+</div>
+
+</div>
+<div id='container2'>
+<div id='header'>
+<a href="/"><img alt="Mclogo b90b9616a4d7eda20502bd6b612f5010426f273b6558f0d0eed116e07b0f0aa1" src="/assets/mclogo-b90b9616a4d7eda20502bd6b612f5010426f273b6558f0d0eed116e07b0f0aa1.png" style="margin-top:30px;margin-left:35px;float:left" /></a>
+<a href="/veranstalter/anmelden" id="veranstalterlogin">Veranstalterlogin / Registrieren</a>
+<div id='mainnav' style='float:right;'>
+<ul>
+<li><span>Märkte nach:</span>
+</li><li><a href="/termine/radius" id="toplink-umkreis">Umkreis</a></li>
+<li><a href="/termine/verzeichnis" id="toplink-bundeslaender">Bundesländern</a></li>
+<li><a href="/termine/plz" id="toplink-postleitzahlen">Postleitzahlen</a></li>
+</ul>
+</div>
+</div>
+
+<map name="deutschland" id="deutschland">
+<area alt="Berlin" shape="poly" coords="159,79,160,80,162,87,172,87,174,83,170,77,158,78" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Berlin" title="Berlin" class="berlin" />
+<area alt="Hamburg" shape="poly" coords="93,47,93,48,96,55,106,55,101,43,93,47" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Hamburg" title="Hamburg" class="hamburg" />
+<area alt="Bremen" shape="poly" coords="70,62,70,63,79,64,76,73,67,61" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Bremen" title="Bremen" class="bremen" />
+<area alt="Schleswig-Holstein" shape="poly" coords="77,39,91,52,100,40,104,50,111,54,116,47,116,39,112,35,110,23,119,22,105,17,90,6,82,2,71,5,63,5,65,18,69,24,70,29,74,35,74,35,83,42,83,42,91,46,91,46,89,48,87,48,85,48" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Schleswig-Holstein" title="Schleswig-Holstein" class="sh" />
+<area alt="Sachsen-Anhalt" shape="poly" coords="129,124,130,125,111,109,118,93,118,79,134,67,143,79,145,96,161,112,144,121,144,133,129,122,129,123,128,120,128,120" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Sachsen-Anhalt" title="Sachsen-Anhalt" class="sa" />
+<area alt="Baden-Württemberg" shape="poly" coords="95,251,96,252,96,221,100,221,105,208,101,194,98,186,87,174,81,176,76,187,65,185,57,203,45,221,39,252,68,250,84,249,92,256,93,251,93,251" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Baden-W%C3%BCrttemberg" title="Baden-Württemberg" class="bw" />
+<area alt="Mecklenburg-Vorpommern" shape="poly" coords="122,34,123,35,153,18,169,27,181,33,183,51,166,55,148,61,142,55,132,66,115,60,112,50,123,30,130,26,130,26" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Mecklenburg-Vorpommern" title="Mecklenburg-Vorpommern" class="mv" />
+<area alt="Niedersachsen" shape="poly" coords="33,88,34,89,33,75,41,53,37,47,61,39,64,45,66,37,103,58,116,58,132,68,117,76,116,97,107,107,109,113,93,123,84,114,75,91,78,85,69,83,60,86,62,97,57,99,55,89,40,82,39,90" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Niedersachsen" title="Niedersachsen" class="niedersachsen" />
+<area alt="Brandenburg" shape="poly" coords="196,116,197,117,169,119,164,113,154,104,143,92,143,81,139,69,136,67,134,59,145,57,156,59,182,51,186,56,182,72,192,77,201,117,196,115" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Brandenburg" title="Brandenburg" class="brandenburg" />
+<area alt="Sachsen" shape="poly" coords="137,154,138,155,153,135,147,131,145,121,161,112,178,119,201,117,203,142,192,137,147,162,138,155" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Sachsen" title="Sachsen" class="sachsen" />
+<area alt="Nordrhein-Westfalen" shape="poly" coords="29,104,30,105,16,104,15,113,11,143,18,159,43,141,55,142,61,137,73,121,87,118,74,80,63,81,55,99,41,84,29,88,29,104,29,104" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Nordrhein-Westfalen" title="Nordrhein-Westfalen" class="nrw" />
+<area alt="Thüringen" shape="poly" coords="143,135,144,136,122,123,111,112,96,124,99,139,103,158,118,163,130,153,140,155,144,136" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Th%C3%BCringen" title="Thüringen" class="thueringen" />
+<area alt="Saarland" shape="poly" coords="16,184,17,185,37,182,40,196,35,199,26,196,15,185" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Saarland" title="Saarland" class="saarland" />
+<area alt="Bayern" shape="poly" coords="149,167,150,168,182,210,162,234,167,255,150,250,120,258,106,256,102,263,90,251,107,199,86,173,73,182,79,158,87,167,102,148" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Bayern" title="Bayern" class="bayern" />
+<area alt="Hessen" shape="poly" coords="54,155,55,156,52,168,62,182,72,180,79,156,86,164,98,150,94,120,83,119,54,148,53,157" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Hessen" title="Hessen" class="hessen" />
+<area alt="Rheinland-Pfalz" shape="poly" coords="14,159,15,160,11,167,18,183,39,184,42,200,53,203,65,183,50,165,53,143,14,161" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Rheinland-Pfalz" title="Rheinland-Pfalz" class="rp" />
+
+</map>
+	<div>
+	<form accept-charset="UTF-8" action="/termine/radius" class="searchform" id="term_search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+	<div id="search">
+				<img alt="Karte fe8bcafbd77b5259419670433600a0ebe72b77a0ecbd9c28153f8d3ccb0cf128" src="/assets/karte-fe8bcafbd77b5259419670433600a0ebe72b77a0ecbd9c28153f8d3ccb0cf128.png" style="float:left;margin-left:-25px;margin-top:-25px" />
+	<div class="div-table" style="width:750px;margin-left:100px">
+		<div class="div-table-row">
+			
+
+			<div class="div-table-col" style="padding-right:10px;padding-top:15px">	
+				<label for="stadt">Stadt</label>
+				<input id="stadt" name="stadt" size="20" style="width:200px" type="text" />
+				<input id="lat" name="lat" type="hidden" />
+				<input id="lng" name="lng" type="hidden" />
+        <input id="suche_stadt" name="suche_stadt" type="hidden" />
+        <input id="suche_kreis" name="suche_kreis" type="hidden" />
+
+        <br/>
+				
+			</div>
+			<div class="div-table-col" style="padding-right:10px;padding-top:15px;width:100px">
+				<label for="radius" id="radius_Umkreis">Umkreis</label>
+				<select id="radius" name="radius" style="width:80px"><option value="5">5 km</option>
+<option value="10">10 km</option>
+<option selected="selected" value="25">25 km</option>
+<option value="50">50 km</option>
+<option value="100">100 km</option></select>
+				<span id="radius_hinweis" style="margin-top:-7px;font-weight:normal;font-size:12px;display:none">Eine PLZ hat keinen Umkreis</span>
+			</div>	
+			<div class="div-table-col" style="padding-right:10px;padding-top:15px">
+            	<label for="veranstalter">Veranstalter</label>
+                <input data-autocomplete="/termine/autocomplete_user_firma" data-id-element="#q_event_user_id_eq" id="veranstalter" name="veranstalter" placeholder="alle" size="20" type="text" />
+                <input id="q_event_user_id_eq" name="q[event_user_id_eq]" type="hidden" />
+        	</div>
+			<div class="div-table-col" style="padding-right:10px;padding-top:15px">
+    			<label for="q_event_kategorie_eq">Kategorie</label>
+              <select id="q_event_kategorie_eq" name="q[event_kategorie_eq]" style="width:250px"><option value="">nach allen Märkten suchen</option>
+<option value="2">Antik- Sammlermarkt</option>
+<option value="42">Antik-Trödelmarkt</option>
+<option value="11">Antiquariat &amp; Bücherbörse</option>
+<option value="17">Automarkt-, Oldtimer- &amp; Teilemarkt</option>
+<option value="12">Bambini, Kinder &amp; Jugend</option>
+<option value="13">Briefmarken,  Münzen, Ansichtskartenbörse</option>
+<option value="5">Computermarkt</option>
+<option value="8">Film, Comic, Manga &amp; Figurenbörse</option>
+<option value="1">Floh-, Trödel- &amp; Jahrmarkt</option>
+<option value="35">Flohmarkt nur Privatanbieter</option>
+<option value="43">Garten, Pflanzenmarkt</option>
+<option value="4">Kunsthandwerk &amp; Kreativ</option>
+<option value="19">Markt im Ausland</option>
+<option value="37">Messen &amp; Ausstellungen</option>
+<option value="36">Militaria und Waffenbörse</option>
+<option value="15">Mineralien &amp; Fossilienbörse</option>
+<option value="44">Mittelaltermarkt</option>
+<option value="6">Modellbau, Eisenbahn &amp; Spielzeug</option>
+<option value="7">Musik, CD &amp; Schallplattenbörse</option>
+<option value="14">Nachtmarkt</option>
+<option value="39">privater Hof-/ Garagentrödel</option>
+<option value="9">Puppen, Bärenbörse</option>
+<option value="10">Schmuck &amp; Uhrenbörse</option>
+<option value="20">Second Hand &amp; Modemarkt</option>
+<option value="47">Second-Hand &amp; Lifestylemarkt</option>
+<option value="18">Sonstige</option>
+<option value="45">Sportbörse</option>
+<option value="3">Stadtfest</option>
+<option value="40">Stoffmarkt</option>
+<option value="16">Tiere und Zubehör</option>
+<option value="34">Trödelhallen &amp; Antikläden</option>
+<option value="41">Weihnachtsmarkt</option>
+<option value="31">Wochenmarkt</option>
+<option value="38">Zweiräder-, Teilemarkt</option></select>
+			</div>
+			<div class="div-table-col" style="vertical-align:top">
+				<input class="btn btn-yellow" id="searchbutton" name="commit" style="margin-top:44px;" type="submit" value="suchen" />
+			</div>
+		</div>
+
+	</div>
+				</div>
+</form>      <script type="text/javascript">
+          $('#search').ready(function() {
+
+              var hoverfarbe = "#fbcb09";
+              var farbe = "#fff";
+              var hoverTextDecoration = "underline";
+              var textDecoration = "none";
+              $('.bw').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-baden-wuerttemberg-kl-37eab786019073f7b2db8a73371311ca371ba69e6a80663c45b03ba64b534a32.png");
+                      $(".bw").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".bw").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.bayern').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-bayern-kl-23fe10c0d69fc2a985cf08e1a4755d65003675231bcf2cc8297a36d1940af7c5.png");
+                      $(".bayern").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".bayern").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.berlin').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-berlin-kl-9b45c9c1825b397460b0ff6a182ceb1ec5c3e178b3fb365cf9d189d1a48cfcc5.png");
+                      $(".berlin").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".berlin").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.brandenburg').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-brandenburg-kl-e78d07618015ae49aa7daa68760ec499d79fdd31e4ba0b36f9f4cc539b9801f1.png");
+                      $(".brandenburg").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".brandenburg").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.bremen').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-bremen-kl-0743b0c4c1712a73048ff6d57cbe65b13ba60141b61b985c3ed721bea3080053.png");
+                      $(".bremen").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".bremen").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.hamburg').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-hamburg-kl-ec4d69de68c44a9b2678614c265d59474eb3f230880b9eb821a3555c418d344d.png");
+                      $(".hamburg").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".hamburg").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.hessen').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-hessen-kl-3bf60eeb8b382feae93209d8c6842226d270d1d00b6ac2eed1001f686b3756f4.png");
+                      $(".hessen").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".hessen").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.mv').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-mv-kl-368de7e307e75bbfbcab6bbf1413455aa498902e631a9ac686e434fe79e01d5e.png");
+                      $(".mv").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".mv").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.nrw').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-nrw-kl-30bfdae71b9c193bbd181be9074e1a835bcfd488c8c1f10474190b5af1ea1d85.png");
+                      $(".nrw").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".nrw").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.niedersachsen').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-niedersachsen-kl-7098ca49d6eb714c31e1b29cffbec13f2d69eb132a1d532876191f05fffdd148.png");
+                      $(".niedersachsen").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".niedersachsen").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.rp').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-rheinland-pfalz-kl-879b87db66bfde07d99914688c4c28df080cb731df9f388682eefb8cad00e6d8.png");
+                      $(".rp").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".rp").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.saarland').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-saarland-kl-8eee9ac7e00550ae97413c7f7e1c1d279dac77bcb700fdfdba6abcf92b69be57.png");
+                      $(".saarland").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".saarland").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.sachsen').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-sachsen-kl-443515d3273c233bbcedaf1135723829fa84f814643b152a58729e31f6e00bc0.png");
+                      $(".sachsen").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".sachsen").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.sa').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-sa-kl-808a5273b2d555ced6b027083afe189a01b2e2154c6869e15205c395c608cb56.png");
+                      $(".sa").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".sa").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.sh').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-sh-kl-638112d1274dc2c1f2095099e8a99e802be68db11adc483c9aa3350155f521be.png");
+                      $(".sh").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".sh").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+              $('.thueringen').on({
+                  mouseover: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-thueringen-kl-36a495d71e181b3b51a2e688625c28df24322b80eaef7a8097548a1d1265992a.png");
+                      $(".thueringen").css({"color": hoverfarbe,"textDecoration": hoverTextDecoration });
+                  },
+                  mouseout: function () {
+                      $("#deutschlandkarte").attr("src", "/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png");
+                      $(".thueringen").css({"color": farbe,"textDecoration": textDecoration });
+                  }});
+          });
+      </script>
+
+<div id='content_left'>
+
+    <div class="blograhmen">
+        
+	<div style="border:4px solid #fdc00f;background-color:#fdc00f;float:left;border-radius:5px">
+		<div style="display:table;padding:0px 10px;height:100px;border:3px solid black;background-color:#fdc00f;border-radius:5px;text-align:center">
+			<div style="font-weight:bold;font-size:24px;display:table-cell;vertical-align:middle;color:black;max-width:130px">Kommende Märkte</div>
+			<span style="margin-left:-80px;margin-top:-10px;margin-right:-15px;font-size:12px;font-family:sans-serif;">markt<span style="font-weight:bold">com</span><span style="font-size:10px">.de</span></span>
+		</div>
+		<span style="height:0px;clear:both"/>
+	</div>
+	<div style="line-height:0.9;padding-top:30px;width:120px;height:102px;float:left;text-align:center;font-weight:bold;font-size:28px">
+	</div>
+
+
+          <div class="blogeintrag" style="clear:both" >
+    <ul class="kommendeMaerkte">
+      <li style="margin-top:25px;">
+         <span style="font-weight:bold;font-size:16px;color:#1d5bbf">Sonntag</span> | <span style="font-size:12px;color:#1d5bbf">18.03.2018</span>
+        <ul>
+
+
+              <li>
+                <img alt="Klwoche" class="kategorienLogo" src="/system/logos/31/original/klwoche.png" title="Wochenmarkt" />
+                <a href="/veranstaltung/wochenmarkt-oranienburg-oberhavel-bauernmarkt-in-16515-oranienburg-schmachtenhagen?term_id=512476">Wochenmarkt Oranienburg Oberhave...</a><br/>
+                16515 Oranienburg
+              </li>
+
+
+              <li>
+                <img alt="Kunsticon" class="kategorienLogo" src="/system/logos/4/original/kunsticon.png" title="Kunsthandwerk &amp; Kreativ" />
+                <a href="/veranstaltung/5-gartenlust-kunsthandwerk-auf-schloss-eicherhof-in-leichlingen-in-42799-leichlingen-rheinland?term_id=593328">5. Gartenlust &amp; Kunsthandwerk au...</a><br/>
+                <img alt="Star a67b932f578617b02fc3a47cb614710ac1068254333601bad64abb5625a1bd90" src="/assets/star-a67b932f578617b02fc3a47cb614710ac1068254333601bad64abb5625a1bd90.gif" />42799 Leichlingen (Rheinland)
+              </li>
+
+
+              <li>
+                <img alt="Klantik" class="kategorienLogo" src="/system/logos/2/original/klantik.png" title="Antik- Sammlermarkt" />
+                <a href="/veranstaltung/antik-kunst-und-kitsch-markt-in-24340-eckernfoerde?term_id=658940">ANTIK-, KUNST- UND KITSCH MARKT</a><br/>
+                24340 Eckernförde
+              </li>
+
+
+              <li>
+                <img alt="Klantik" class="kategorienLogo" src="/system/logos/2/original/klantik.png" title="Antik- Sammlermarkt" />
+                <a href="/veranstaltung/kleiner-kursaal-in-83646-bad-toelz?term_id=674510">Kleiner Kursaal</a><br/>
+                83646 Bad Tölz
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/12/original/kltroedel.png" title="Bambini, Kinder &amp; Jugend" />
+                <a href="/veranstaltung/fruehlings-flohmarkt-alles-rund-ums-kind-in-77791-berghaupten?term_id=675932">Frühlings-Flohmarkt – Alles rund...</a><br/>
+                77791 Berghaupten
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/42/original/kltroedel.png" title="Antik-Trödelmarkt" />
+                <a href="/veranstaltung/hallenflohmarkt-in-26954-nordenham?term_id=676945">Hallenflohmarkt</a><br/>
+                26954 Nordenham
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/42/original/kltroedel.png" title="Antik-Trödelmarkt" />
+                <a href="/veranstaltung/euregiotroedelmarkt-in-04730-raeren?term_id=677259">euregiotrödelmarkt</a><br/>
+                04730 Hauset
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/1/original/kltroedel.png" title="Floh-, Trödel- &amp; Jahrmarkt" />
+                <a href="/veranstaltung/der-original-berliner-troedelmarkt-10623-charlottenburg-berlin-charlottenburg?term_id=677982">Der Original Berliner Trödelmarkt</a><br/>
+                10623 Charlottenburg
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/1/original/kltroedel.png" title="Floh-, Trödel- &amp; Jahrmarkt" />
+                <a href="/veranstaltung/ekz-hansa-carre-ueberdacht-28207-bremen-hastedt?term_id=678915">EKZ Hansa Carré (Überdacht)</a><br/>
+                28207 Bremen
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/1/original/kltroedel.png" title="Floh-, Trödel- &amp; Jahrmarkt" />
+                <a href="/veranstaltung/madame-floh-in-nordhorn-in-48529-nordhorn?term_id=679511">Madame Floh in Nordhorn</a><br/>
+                48529 Nordhorn
+              </li>
+
+
+              <li>
+                <img alt="Kunsticon" class="kategorienLogo" src="/system/logos/4/original/kunsticon.png" title="Kunsthandwerk &amp; Kreativ" />
+                <a href="/veranstaltung/hobby-freizeit-0f92d63f-d56c-4264-915c-712a3267aaea?term_id=679530">&quot;Hobby &amp; Freizeit&quot;</a><br/>
+                26603 Aurich
+              </li>
+
+
+              <li>
+                <img alt="Klstadt" class="kategorienLogo" src="/system/logos/3/original/klstadt.png" title="Stadtfest" />
+                <a href="/veranstaltung/fruehlingsmarkt-lechenich-in-50374-erftstadt-lechenich?term_id=680432">Frühlingsmarkt Lechenich</a><br/>
+                50374 Erftstadt
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/1/original/kltroedel.png" title="Floh-, Trödel- &amp; Jahrmarkt" />
+                <a href="/veranstaltung/troedelmarkt-berlin-weissensee-13088-berlin-bezirk-pankow?term_id=680488">Trödelmarkt Berlin-Weißensee</a><br/>
+                <img alt="Star a67b932f578617b02fc3a47cb614710ac1068254333601bad64abb5625a1bd90" src="/assets/star-a67b932f578617b02fc3a47cb614710ac1068254333601bad64abb5625a1bd90.gif" />13088 Berlin
+              </li>
+
+
+              <li>
+                <img alt="Kltroedel" class="kategorienLogo" src="/system/logos/20/original/kltroedel.png" title="Second Hand &amp; Modemarkt" />
+                <a href="/veranstaltung/frauenkram-neues-2nd-hand-vintage-trends-in-32257-buende-ahle?term_id=681222">♥ FRAUENKRAM ♥ #Neues #2nd-Hand ...</a><br/>
+                32257 Bünde
+              </li>
+          </ul>
+          </ul>
+  </div>
+
+	</div>
+	<!-- Rectangle_Startseite -->
+        <div id='div-gpt-ad-1515756613324-11' style='height:250px; width:300px;'>
+          <script>
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515756613324-11'); });
+          </script>
+        </div>
+	
+
+</div>
+<div id='content_middle' style='border-left:none;width:615px'>
+<div style='text-align:center'>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="startregister" style="">
+<img alt="Deutschlandkarte 1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61" id="deutschlandkarte" src="/assets/deutschlandkarte-1fd9a4c2d90535a8b355a9d012d88cdcfb612f53440563ef1fa285e7edbbca61.png" style="float:left;width:215px;margin-left:-145px;margin-top:-30px;margin-right:10px" usemap="#deutschland" />
+<h1 style="display:inline;line-height:normal"><a href="/termine/verzeichnis">Märkte nach Bundesländern</a></h1>
+<ul id="bundeslaenderstartseite">
+				<li><a class="bw" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Baden-W%C3%BCrttemberg">Baden-Württemberg</a></li>
+				<li><a class="bayern" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Bayern">Bayern</a></li>
+				<li><a class="berlin" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Berlin">Berlin</a></li>
+				<li><a class="brandenburg" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Brandenburg">Brandenburg</a></li>
+				<li><a class="bremen" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Bremen">Bremen</a></li>
+				<li><a class="hamburg" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Hamburg">Hamburg</a></li>
+				<li><a class="hessen" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Hessen">Hessen</a></li>
+				<li><a class="mv" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</a></li>
+				<li><a class="niedersachsen" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Niedersachsen">Niedersachsen</a></li>
+				<li><a class="nrw" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Nordrhein-Westfalen">Nordrhein-Westfalen</a></li>
+				<li><a class="rp" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Rheinland-Pfalz">Rheinland-Pfalz</a></li>
+				<li><a class="saarland" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Saarland">Saarland</a></li>
+				<li><a class="sachsen" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Sachsen">Sachsen</a></li>
+				<li><a class="sa" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Sachsen-Anhalt">Sachsen-Anhalt</a></li>
+				<li><a class="sh" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Schleswig-Holstein">Schleswig-Holstein</a></li>
+				<li><a class="thueringen" href="/termine/verzeichnis?q%5Bevent_bundesland_matches%5D=Th%C3%BCringen">Thüringen</a></li>
+</ul>
+
+    <div id="plzstartseite">
+	<h1 style="padding-top:0px;margin-bottom:0px;float:left;margin-right:10px;line-height:normal"><a href="/termine/plz">Märkte nach PLZ</a></h1>
+	<ul>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=0" id="plz0">0</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=1" id="plz1">1</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=2" id="plz2">2</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=3" id="plz3">3</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=4" id="plz4">4</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=5" id="plz5">5</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=6" id="plz6">6</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=7" id="plz7">7</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=8" id="plz8">8</a></li>
+		<li><a href="/termine/plz?q%5Bevent_plz_start%5D=9" id="plz9">9</a></li>
+	</ul>
+    </div>
+</div>
+
+
+    <div data-display="plista_widget_outstream"></div>
+    <div style="text-align:center" class="fb-page" data-href="https://www.facebook.com/marktcom.de" data-width="500" data-height="700" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/marktcom.de"><a href="https://www.facebook.com/marktcom.de">marktcom.de</a></blockquote></div></div>
+
+
+<div class="row" style="margin-top:20px">
+    <div class="col-md-6 blograhmen">
+      <h1>marktcom.de App</h1>
+        <a href="/seiten/39"><img alt="Marktcomapp 4661573af3ad429558dd12f0c2ae88db18bcac260b172862e8c8c172162e093f" src="/assets/marktcomapp-4661573af3ad429558dd12f0c2ae88db18bcac260b172862e8c8c172162e093f.jpg" style="width:100%" /></a>
+    </div>
+    <div class="col-md-6 blograhmen">
+        <h1>Werben auf Marktcom</h1>
+            <a href="/seiten/32"><img alt="Werben 3f6d1d697c69676b36f219d1fd41ba3e939673e93b61187183bda76f01940220" src="/assets/werben-3f6d1d697c69676b36f219d1fd41ba3e939673e93b61187183bda76f01940220.png" style="width:100%" /></a>
+    </div>
+</div>
+</div>
+</div>
+
+<div id='partnerlinks'>
+<ul>
+<li>Partnerseiten:</li>
+<li>
+<a href='http://www.sammeln.at' rel='nofollow' target='_blank'>Sammeln.at</a>
+|
+</li>
+<li>
+<a href='http://www.rewirpower.de' rel='nofollow' target='_blank'>Rewirpower</a>
+</li>
+</ul>
+</div>
+<div id='footer'>
+<span style='margin-left:15px;float:left'>marktcom.de Deutschland GmbH © 2015</span>
+<ul style='display:inline;float:right;margin-right:15px'>
+<li><a href="/seiten/agb">AGB</a></li>
+<li><a href="/seiten/datenschutz">Datenschutz</a></li>
+<li><a href="/seiten/impressum">Impressum</a></li>
+<li><a href="/contacts/new" id="kontakt">Kontakt</a></li>
+<li><a href="/seiten/werben-bei-marktcom">Werben bei Marktcom</a></li>
+<li><a href="/?mobile=1">Mobile Webseite</a></li>
+</ul>
+</div>
+
+</div>
+<div id='content_right2'>
+
+  <!-- /11974173/Skyscraper_Startseite -->
+<div id='div-swshb-side_right-0'>
+<script>
+  googletag.cmd.push(function() { googletag.display('div-swshb-side_right-0'); });
+</script>
+</div>
+
+
+</div>
+</div>
+
+<!-- /11974173/1x1 -->
+<div id='div-gpt-ad-1515756613324-17' style='height:1px; width:1px;'>
+<script>
+  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515756613324-17'); });
+</script>
+</div>
+<!-- /11974173/1x1_Ad -->
+<div id='div-gpt-ad-1515756613324-18' style='height:1px; width:1px;'>
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515756613324-18'); });
+  </script>
+</div>
+
+</body>
+</html>

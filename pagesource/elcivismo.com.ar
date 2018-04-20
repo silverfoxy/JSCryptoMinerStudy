@@ -1,0 +1,330 @@
+<!doctype html>
+<html ng-app="App" ng-controller="GmCtrl">
+    <head>
+        <meta charset="utf-8">
+        <title ng-cloak ng-bind="(titulo_pagina)?titulo_pagina+' - [Noticias de Luján - Bisemanario El Civismo]':'[Noticias de Luján] - Bisemanario El Civismo'">[Noticias de Luján] - Bisemanario El Civismo</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="canonical" href="{{(url_canonica_nota)?url_canonica_nota:'http://www.elcivismo.com.ar/'}}" />
+        <meta property="og:title" content="{{(titulo_pagina)?titulo_pagina+' - [Noticias de Luján - Bisemanario El Civismo]':'[Noticias de Luján - Bisemanario El Civismo]'}}" />
+        <meta property="og:description" content="{{(desc_pagina)?desc_pagina:'Todas las noticias en tiempo real. Información, videos y fotos sobre los hechos y los protagonistas más relevantes del momento de la Argentina y el mundo'}}" />
+        <meta property="og:image" content="{{(img_pagina)?img_pagina:'http://www.elcivismo.com.ar/img/logo.jpg'}}" />
+        <meta property="og:url" content="{{getUrl()}}" />
+        <meta property="fb:app_id" content="850168888381087" />
+
+        <meta property="title" content="(titulo_pagina)?titulo_pagina+' - [Noticias de Luján - Bisemanario El Civismo]':'[Noticias de Luján - Bisemanario El Civismo]'" />
+        <meta property="description"  content="{{(desc_pagina)?desc_pagina:'Todas las noticias en tiempo real. Información, videos y fotos sobre los hechos y los protagonistas más relevantes del momento de la Argentina y el mundo'}}" />
+        <meta ng-if="keywords_pagina" name="keywords" content="{{keywords_pagina}}">
+        <meta ng-if="news_keywords_pagina" name="keywords" content="{{news_keywords_pagina}}">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' type="text/css" href="/css/civismo_v2.css" >
+        <link rel='stylesheet' type="text/css" href='/css/civismo_mobil.css' media='(max-width: 485px)' />
+        <link rel="stylesheet" type="text/css" href="/css/civismo_media.css" media="screen and (min-width:486px) and (max-width:1120px)"/>
+
+        <link rel="stylesheet" href="/css/colorbox.css">
+
+
+        <script src="/js/jquery_1_11_3_min.js"></script>
+        <script src="/js/angular_1_4_2_min.js"></script>
+        <script src="/js/mobile-detect.min.js"></script>
+
+        <script src="/js/angularjs/angular-sanitize.min.js"></script>
+        <script src="/js/angularjs/angular-route.min.js"></script>
+        <script src="/js/angularjs/dirPagination.js"></script>
+        <script src="/js/jquery/jquery.dotdotdot.js"></script>
+        <script src="/js/jquery.color.js"></script>
+        <script src="/js/jquery.cookie.js"></script>
+
+
+        <script src="/js/app.js"></script>
+        <script src="/js/gmCtrls.js"></script>
+
+        <script src="/js/jquery.colorbox.js"></script>
+
+        <script src="/admin/tapa/js/tapactrl.js"></script>
+
+        <script type='text/javascript' src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js' data-shr-siteid='d1e9d576f5c857e0c99e495cfe57c9fc' data-cfasync='false' async='async'></script>
+        <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7652250597350924",
+            enable_page_level_ads: true
+          });
+        </script>-->
+    </head>
+
+    <body style="padding:0px; margin:0px">
+
+        <!-- The Modal -->
+        <!--<div id="myModal" class="modal">-->
+
+          <!-- Modal content -->
+          <!--<div class="modal-content">
+                <span class="closeModal">x</span>
+                <a id="linkBanner" href="" target="_blank">
+                    <img id="fotoBanner" src="/banners/esg_pop.jpg"/>
+                </a>
+            </div>
+
+        </div>
+
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 999999; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: hidden; /* Enable scroll if needed */
+                background-color: rgb(255,255,255); /* Fallback color */
+                background-color: rgba(255,255,255,0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 8% auto; /* 15% from the top and centered */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 533px; /* Could be more or less, depending on screen size */
+                position: relative;
+            }
+
+            .modal-content img{
+                width: 100%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button */
+            .closeModal {
+                color: #444;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                font-family: 'Roboto Condensed', sans-serif;
+                position: absolute;
+                right: 5px;
+                top: -5px
+            }
+
+            .closeModal:hover,
+            .closeModal:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            //console.log($.cookie('name'));
+            //$.cookie('name', 'value');
+            console.log($.cookie('name4b'));
+
+            //RANDON DE MODAL
+            /*var bannerRandom = Math.floor((Math.random() * 2) + 1);
+
+            switch(bannerRandom) {
+                case 1:
+                    $('#fotoBanner').attr("src", "/banners/LujanRetrospetivoPop.jpg");
+                    $('#linkBanner').attr("href", "http://elcivismo.com.ar/concurso/");
+                    break;
+                case 2:
+                    $('#fotoBanner').attr("src", "/banners/VAyACPop.gif");
+                    $('#linkBanner').attr("href", "http://vayac.com/");
+                    break;
+                case 3:
+                    $('#fotoBanner').attr("src", "/banners/cursosGestionCEI.jpg");
+                    $('#linkBanner').attr("href", "http://www.ceicap.com");
+                    break;
+            }*/
+
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            //var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("closeModal")[0];
+
+            // When the user clicks on the button, open the modal
+            /*btn.onclick = function() {
+                modal.style.display = "block";
+            }*/
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+                $.cookie('name4b', '1', { expires: 0.1 });
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    $.cookie('name4b', '1', { expires: 0.1 });
+                }
+            }
+
+            if($.cookie('name4b')!='1'){
+                console.log("ESTA LA COOKIE");
+                modal.style.display = "block";
+            }
+
+            setTimeout(function(){ modal.style.display = "none"; }, 20000);
+
+            /*
+            //OBTENER HORA
+            var d = new Date();
+            var hora = d.getHours();
+
+            //SEGUN LA HORA PONER UN BANNER u OTRO EN EL MODAL
+
+            if(hora >= 11 && hora <= 19) {
+                //console.log("ESTA ES LA HORAAAAAAA");
+                $('.modal-content').html('<span class="close">x</span><a href="http://www.wallmart.com.ar" target="_blank"><img width="533" src="/banners/ad74f-wall.gif"/></a>');
+                setTimeout(function(){ modal.style.display = "none"; }, 20000);
+            }else{
+                //console.log("ESTA NO ES LA HORAAAAAAA");
+                setTimeout(function(){ modal.style.display = "none"; }, 15000);
+            }*/
+            //console.log(hora);
+
+        </script>-->
+
+
+
+        <div class="header">
+        	<div class="wrapp">
+            	<div class="institucional">
+                	<a href="/" alt="Ir a Tapa" target="_self"><div class="logo"></div></a>
+                    <div class="logo100"></div>
+                    <div ng-cloak class="informacion" ng-bind="'Bisemanario de la ciudad de Luján - '+datosTiempo.dia"></div>
+                </div>
+                <div class="tiempo" >
+                	<div class="icon" ng-cloak style="background-image:url(/img/weather/{{datosTiempo.clima.clima.codigo}}.jpg);"></div>
+                    <div class="info" ng-cloak>
+                    	<div class="grados">{{datosTiempo.clima.clima.temperatura}}º</div>
+                        <div class="temp">Temp</div>
+                  	</div>
+                    <div class="hora">{{datosTiempo.fecha}} - Hum.:{{datosTiempo.clima.atmosfera.humedad}}%</div>
+                </div>
+                <div class="redes">
+                	<div class="fb"><a href="https://www.facebook.com/El-Civismo-272694336151554/" target="_blank"><i class="fa fa-facebook-official"></i></a></div>
+                    <div class="tw"><a href="https://twitter.com/elcivismo" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                    <div class="tw"><a href="https://www.instagram.com/elcivismo/" target="_blank"><i class="fa fa-instagram"></i></a></div>
+                    <div class="tw"><a href="https://www.youtube.com/channel/UCRce93ktGrEcAdOLioT7Dpw" target="_blank"><i class="fa fa-youtube"></i></a></div>
+                    <div class="search">
+                        <div class="buscarForm" ng-show='buscar.visible'>
+                            <input type="text" name='buscar_string' ng-model="buscar.string" placeholder="Buscar..." ng-keyup="$event.keyCode == 13 && buscarClick()">
+                        </div>
+                        <i class="fa fa-search" ng-click="buscarClick()"></i>
+                    </div>
+                </div>
+                <div class="menu fa fa-bars" style="display: none"></div>
+                <script type="text/javascript">
+                	var menuState = false;
+
+                	$('.menu').click(function(){
+                		//alert("HOLA");
+                		if(menuState){
+                			$('.header.header').css("height", "163px");
+                			menuState = false;
+                		}else{
+                			$('.header.header').css("height", "610px");
+                			menuState = true;
+                		}
+                	})
+                </script>
+                <div class="clear"></div>
+        		<div class="menu1">
+                	<a href="/" alt="Portada" target="_self"><div class="item">PORTADA</div></a>
+                    <a href="/seccion/107/Educacion" alt="Educación"><div class="item">EDUCACIÓN</div></a>
+                    <a href="/seccion/114/Policiales" alt="Policiales"><div class="item">POLICIALES</div></a>
+                    <a href="/seccion/115/Política" alt="Política"><div class="item">POLÍTICA</div></a>
+                    <a href="/seccion/112/Información-General" alt="Información General"><div class="item">INFORMACIÓN GENERAL</div></a>
+                    <a href="/seccion/106/Editorial" alt="Editorial"><div class="item">EDITORIAL</div></a>
+                    <a href="/seccion/105/Deportes" alt="Deportes"><div class="item">DEPORTES</div></a>
+                    <a href="/seccion/113/Opinión" alt="Opinión"><div class="item">OPINIÓN</div></a>
+                    <a href="/seccion/102/Carta-de-Lectores" alt="Carta de Lectores"><div class="item">CARTA DE LECTORES</div></a>
+                    <a href="/notas/23645/Contacto" alt="Contacto"><div class="item">CONTACTO</div></a>
+                    <div class="clear"></div>
+                </div>
+                <div class="menu2">
+                	<a href="/core/index.php/notas/ultimaCategoria/103" alt="Clasificados" target="_self"><div class="item">CLASIFICADOS</div></a>
+                    <a href="/notas/31313" alt="Profesionales"><div class="item">PROFESIONALES</div></a>
+                    <a href="/seccion/122/Guía-de-Oficios" alt="Guía de Oficios"><div class="item">GUÍA DE OFICIOS</div></a>
+                    <a href="/notas/23642/Fallecidos" alt="Necrológicas"><div class="item">NECROLÓGICAS</div></a>
+                    <a href="/core/index.php/notas/ultimaCategoria/119" alt="Sociales" target="_self"><div class="item">SOCIALES</div></a>
+                    <a href="/notas/23644/Farmacias" alt="Farmacias"><div class="item">FARMACIAS</div></a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-view ></div>
+
+        <div class="footer">
+        	<div class="logo"></div>
+            <div class="wrapp">
+            	<div class="col1">
+                	<div class="tit">Contacto</div>
+                    <div class="label"><a href= "mailto:redacciondiario@elcivismo.com.ar" >redacciondiario@elcivismo.com.ar</a></div>
+                    <div class="label"><a href= "mailto:fotografia@elcivismo.com.ar" >fotografia@elcivismo.com.ar</a></div>
+                    <div class="label"><a href= "mailto:publicidad@elcivismo.com.ar" >publicidad@elcivismo.com.ar</a></div>
+                </div>
+                <div class="col1 col3">
+                	<div class="tit">Info</div>
+                    <div class="label"><i class="fa fa-copyright"></i>2009 - Bisemanario el civismo</div>
+                    <div class="label">Dr. Muniz 654 (6700) Luján</div>
+                    <div class="label">Buenos Aires- Argentina</div>
+                </div>
+                <div class="col1">
+                	<div class="tit">Redes Sociales</div>
+                    <a href="https://www.facebook.com/El-Civismo-272694336151554/" target="_blank"><div class="label">Facebook</div></a>
+                    <a href="https://twitter.com/elcivismo" target="_blank"><div class="label">Twitter</div></a>
+                    <div class="label"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-33929642-1', 'auto');
+          ga('send', 'pageview');
+
+        function simoniPop() {
+            var myWindow = window.open("http://www.elcivismo.com.ar/banners/publi_simoni_max.html", "", "resizable=no,width=800, height=642");
+        }
+
+        </script>
+        <!-- Facebook Pixel Code -->
+		<script>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+		document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+		fbq('init', '1048507455233191');
+		fbq('track', "PageView");</script>
+		<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=1048507455233191&ev=PageView&noscript=1"
+		/></noscript>
+		<!-- End Facebook Pixel Code -->
+
+
+
+
+    </body>
+</html>

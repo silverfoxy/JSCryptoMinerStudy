@@ -1,0 +1,570 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>StepMap - Landkarten online erstellen und für die Webseite oder Printzwecke verwenden</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-language" content="de">
+<meta http-equiv="expires" content="0">
+<meta name="title" content="StepMap - Landkarten online erstellen und für die Webseite oder Printzwecke verwenden">
+<meta name="author" content="StepMap">
+<meta name="description" content="StepMap ist ein Landkarteneditor, der die Erstellung individueller Landkarten ermöglicht. Diese Landkarten können Online oder in Printmedien eingesetzt werden.">
+<meta name="keywords" content="Karte, Landkarte, Infografik, interaktive Karte, Reise, EPS Karte, hochauflösende Karte, Reiseroute, Weltkarte, Europakarte, Deutschlandkarte, Kartographie, Geographie, politische Karte, Reliefkarte, topographische Karte, interaktive Landkarte, Landkartentool, Landkartensoftware">
+<meta name="copyright" content="(c)StepMap">
+<meta name="robots" content="index, follow">
+<base href="http://www.stepmap.de/">
+<link rel="stylesheet" type="text/css" href="/stepmap.css">
+<link rel="shortcut icon" href="http://www.stepmap.de/favicon.ico" type="image/x-icon">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.ui.css">
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+
+<link rel="dns-prefetch" href="//tag.partner.mairdumont.com">
+<script
+	type="text/javascript"
+	src="//tag.partner.mairdumont.com/nx/534bfcd9-9913-4313-9c36-da0504195925/loader.js"
+	async="true"
+	data-nx-zone="home"
+></script>
+
+<script>
+  $(function() {
+
+  	$( "#groupMember").change(function(){
+		target = escape($("#groupMember").val());
+		if(target == ''){
+			return false;
+		}
+
+/*		$.ajax({
+			type : "POST",
+			url : "/api/groupSwitch.php",
+			data : {'target' : target },
+			contentType: "application/x-www-form-urlencoded; charset=ISO-8859-1",
+			success : function(response) {
+				if (response == 'success') {
+					if(window.location.search == '?autor=' || window.location.search == '?autor='){
+						ownMaps = 'http://www.stepmap.de/atlas.php?autor='+target;
+						window.location = ownMaps;
+					}
+					else {
+						location.reload() ;
+					}
+				}
+				else {
+					return false;
+				}
+			}
+		});*/
+
+
+		$.post("/api/groupSwitch.php", {'target' : target}, function(response) {
+			if (response == 'success') {
+				if(window.location.search == '?autor=' || window.location.search == '?autor='){
+					ownMaps = 'http://www.stepmap.de/atlas.php?autor='+target;
+					window.location = ownMaps;
+				}
+				else {
+					location.reload() ;
+				}
+			}
+			else {
+				return false;
+			}
+		});
+
+  	});
+
+  	$( ".callmeback" ).click(function(event){
+  		event.preventDefault();
+  		$( "#callbackDialog" ).dialog( "open" );
+  	});
+
+    $( "#callbackDialog" ).dialog({
+    		autoOpen: false,
+    		modal: true,
+    		closeOnEscape: true,
+			position: { my: "center", at: "center top+300px", within: "#bodyrahmen"},
+			minWidth: 500
+    });
+
+	$("#callbackForm").submit(function(){
+		data = $("#callbackForm").serialize();
+		values = $("#callbackForm").serializeArray();
+		form = new Array();
+		$.each(values, function(i, field){
+			form[field.name] = field.value;
+		});
+
+
+		errors = new Array();
+		// Prüfung der Eingaben
+		if(form['callbackGender'] !='Herr' && form['callbackGender'] !='Frau'){
+			errors.push('callbackGender');
+		}
+
+		if(form['callbackName'].length < 2){
+			errors.push('callbackName');
+		}
+		if(form['callbackCompany'].length < 2){
+			errors.push('callbackCompany');
+		}
+		if(form['callbackPhone'].length < 5){
+			errors.push('callbackPhone');
+		}
+		if(form['callbackEmail'].length < 5){
+			errors.push('callbackEmail');
+		}
+		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		if(! emailPattern.test(form['callbackEmail'])){
+			errors.push('callbackEmail');
+		}
+
+		if(errors.length > 0){
+			$('#callbackErrors').fadeIn();
+			return false;
+		}
+		else {
+			$('#callbackErrors').fadeOut();
+			$.post("/api/callback.php", data, function(response) {
+				var checkresponse = eval("(" + response + ")");
+				if (checkresponse['status'] == 'success') {
+					$('#callbackInit').fadeOut(function(){
+						$('#callbackSuccess').fadeIn();
+					})
+				}
+				else {
+					$('#callbackUndefinedErrors').fadeIn();
+				}
+			});
+		}
+		return false;
+	});
+  });
+</script>
+
+<!--
+<script type="text/javascript" src="http://www.stepmap.de/js/stepmap.js?6554cd712e5e35e58b6c8d0fd8426165"></script>
+<script type="text/javascript" src="http://www.stepmap.de/js/karte.js?ab31d94f45bbaa3c6475b50638586e05"></script>
+<script type="text/javascript" src="http://www.stepmap.de/js/stepmapkarten.js?b0607290f76abf85d027db521b190391"></script>       -->
+<script type="text/javascript" src="http://www.stepmap.de/js/stepmap.js"></script>
+<script type="text/javascript" src="http://www.stepmap.de/js/karte.js"></script>
+<script type="text/javascript" src="http://www.stepmap.de/js/stepmapkarten.js"></script>
+
+</head>
+<body id='body' style='margin-top:0px;' onload="window.setTimeout('checkBenutzerPasswortEintrag()', 10)">
+
+
+
+
+
+
+<div data-nx-container='right' style='position:absolute;left:990px;'></div>
+
+<div style='width:960px;text-align:right;font-size:12px;z-index:1;color:#666666;padding-top:4px;'>
+<a href='http://www.marcopolo.de' target='_blank' rel="nofollow"><img src='images/MP_Logo_123x21px.png' style='width:123px;height:21px;'></a></div><!--Partner von marcopolo -->
+
+<div id='bodyrahmen' style='position:absolute;border:1px solid #e0e0e0;background:#ffffff; '>
+<div style='width:960px;'>
+<div style='padding:10px;'>
+
+
+<div style='height:57px;margin-bottom:26px;'>
+<div style='position:absolute;left:10px;top:10px;width:940px;height:57px;background:url(images/header_bg.png);'>
+
+<div style='position:absolute;left:0px;top:0px;'>
+	<a href='/' style='position:absolute;left:0px;'><img src='images/logo.png' alt='StepMap - Logo' title='StepMap - Startseite'></a>
+
+	<div style='position:absolute;left:280px;top:18px;width:250px;font-size:13pt;'>
+	<a href='registrierung.php' style='color:#ffffff;'><b>Jetzt kostenlos registrieren</b></a>
+	</div>
+
+</div>
+
+<div id='loginform' style='position:absolute;left:560px;top:0px;width:280px;font-size:14px;'>
+
+<form name='loginform' method='post'>
+<input type='hidden' name='login' value=''>
+<input type='hidden' name='logout' value=''>
+
+
+<div style='position:absolute;left:0px;top:9px;'>
+	<input type='text' id='login_benutzer' name='login_benutzer' style='width:145px;height:20px;padding:3px 3px;border:none;background:url(images/benutzer_bg.png) no-repeat #FFFFFF;' onfocus='onBenutzerFocus()' onkeypress='onBenutzerKeyPress(event)' value=''>
+</div>
+<div style='position:absolute;left:152px;top:9px;'>
+	<input type='password' id='login_passwort' name='login_passwort' style='width:145px;height:20px;padding:3px 3px;border:none;background:url(images/passwort_bg.png) no-repeat #FFFFFF;' onfocus='onPasswortFocus()' onkeypress='onPasswortKeyPress(event)'>
+</div>
+<div style='position:absolute;left:308px;top:9px;'>
+  <a href='javascript:doLogin();'><img src='images/loginbutton.png' alt='Login' title='Login'></a>
+</div>
+<div style='position:absolute;left:-5px;top:31px;'>
+	<input type='checkbox' name='rememberme'>Angemeldet bleiben
+</div>
+<div style='position:absolute;left:152px;top:34px; width: 145px;'>
+	<a href='pw.php'>Passwort vergessen?</a>
+</div>
+</form>
+
+</div>
+</div>
+
+</div>
+
+
+<div id='browsermeldungdiv' style='margin-bottom:24px;background:#ffff00;padding:10px;display:none;'>
+</div>
+
+<script type="text/javascript">
+var msievers = msieversion();
+if ((msievers > 0) && (msievers < 7))
+{
+   var mldgobj = document.getElementById('browsermeldungdiv');
+   mldgobj.innerHTML = "StepMap benötigt zur korrekten Darstellung mindestens Internet Explorer 7. Neueste Version hier <a href='http://www.microsoft.com/windows/internet-explorer/default.aspx' target='_blank'>kostenlos herunterladen</a>.";
+   mldgobj.style.display = 'block';
+}
+</script>
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+
+<div id='maincontent' style=''>
+
+<script language="javascript">var AC_FL_RunContent = 0;</script>
+<script src="js/AC_RunActiveContent.js" language="javascript"></script>
+
+
+<div style='height:650px;'>  <!-- height:488px; -->
+<div style='position:absolute;'>
+
+
+<!--- Startseitengrafik -->
+
+<a href="editorpro.php" style='text-decoration:none;cursor:pointer;'>
+<div style='position:absolute;left:0px;top:15px;width:650px;text-align:center;'>
+  <div style='font-size:28px;margin-bottom:18px;'><b>Landkarten online gestalten und drucken</b></div>
+  <!--div style='font-size:14px;'>&ndash; für <b>Webseiten</b> (interaktiv), <b>Kataloge & Zeitungen</b> (hochauflösend) und <b>Präsentationen</b> &ndash;</div-->
+  <!--div style='font-size:16px;'>&ndash; Für <b>Reiseveranstalter</b> und <b>Reisebüros</b> &ndash; Für <b>Webseiten</b> und <b>Kataloge</b> &ndash;</div-->
+  <div style='font-size:15px;'>&ndash; Für <b>Reisen</b>, <b>Nachrichten</b> und <b>Präsentationen</b> &ndash; Für <b>Webseiten</b> und <b>Printzwecke</b> &ndash;</div>
+</div>
+</a>
+
+<div style='position:absolute;top:113px;'>  <!-- top:62px; -->
+	<!-- <a href="editor.php">
+	<img style="width:650px;height:420px;" src="images/startseite_grafik2.png">
+	</a> -->
+	 
+
+	<iframe src="https://player.vimeo.com/video/57358506?title=0&byline=0&portrait=0" width="650" height="365" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<div style='font-size:17px; margin-top: 40px; width: 650px;'>
+		<strong>Hinweis für Reiseveranstalter und Reisebüros</strong>: Hunderte von Reiseveranstaltern nutzen StepMap zur Erstellung von personalisierten Reisekarten zur Einbindung in Katalogen, Broschüren und Webseiten oder auch für individuelle Kundenangebote. Weitere <a href='/tourismus' title='Informationen für Reiseveranstalter und Reisebüros'>Informationen und Beispiele</a> haben wir hier bereitgestellt.		
+	</div>
+</div>
+
+<!-- Box 1 -->
+<div style='position:absolute;left:660px;top:0px;width:280px;' class="linkBox" data-href='editorpro.php'>
+  <div class='b1kopf'>
+    <a href='editorpro.php' class='feldbtn'>
+    <div style='padding:4px 2px 0 10px;'>
+      <img src='images/start_box1_icon.png' style='float:right;position:relative;top:-2px;'>
+      <b>Landkarte erstellen</b>
+    </div>
+    </a>
+  </div>
+  <div style='height:130px;'>
+	<div style='position:absolute; '>
+		<a href='editorpro.php' style='text-decoration:none;cursor:pointer;'>
+		<img src='images/atlas2/karte-erstellen-teaser-bg_index.png' style='width:280px;height:130px;' alt='Jetzt eigene Landkarte auf StepMap erstellen'>
+		<div style='position:absolute;left:157px;top:20px;color:#ffffff;font-size:15px;line-height:22px;font-weight:bold;'>Jetzt eigene<br>Landkarte<br>auf StepMap<br><u>erstellen</u> ></div>
+		</a>
+	</div>
+  </div>
+</div>
+
+
+<div style='position:absolute;left:660px;top:166px;width:280px;'>
+  <div class='b3kopf'>
+    <a href='/hilfe/wie-funktioniert-stepmap' class='feldbtn'>
+    <div style='padding:4px 2px 0 10px;'>
+      <img src='images/start_box3_icon.png' style='float:right;position:relative;top:-2px;'>
+      <b>StepMap Video Tutorial</b>
+    </div>
+    </a>
+  </div>
+  <div class='b1' style='height:122px;'>
+	<a href='/hilfe/wie-funktioniert-stepmap'><img src='/images/video_tutorial_editor_preview.png' alt='StepMap Video Tutorial ansehen' title='StepMap Video Tutorial ansehen' /></a>
+  </div>
+</div>
+
+
+<!-- Box 2 -->
+<div style='position:absolute;left:660px;top:332px;width:280px;' class="linkBox" data-href='landkarten'>
+  <div class='b2kopf'>
+    <a href='landkarten' class='feldbtn'>
+    <div style='padding:4px 2px 0 10px;'>
+      <img src='images/start_box2_icon.png' style='float:right;position:relative;top:-2px;'>
+      <b>Landkarten-Verzeichnis</b>
+    </div>
+    </a>
+  </div>
+  <div class='b2' style='background-image:url(images/start_box2_bg.png);height:122px;'>
+    <div style='font-size:12px;line-height:18px;padding:14px 10px;'>
+      <b>Im Landkarten-Verzeichnis findest Du thematisch und
+      geographisch sortierte Landkarten,
+      die von Mitgliedern erstellt und
+      veröffentlicht wurden.</b><br>
+      <div style='padding-top:4px;'>
+        <a href='landkarten'>zum Landkarten-Verzeichnis<img src='images/pfeil_grau_rechts.png' style='margin-left:4px;position:relative;top:1px;'></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Box 3 -- top:332px -->
+<div style='position:absolute;left:660px;top:498px;width:280px;'>
+  <div class='b3kopf'>
+    <a href='hilfe/was-ist-stepmap' class='feldbtn'>
+    <div style='padding:4px 2px 0 10px;'>
+      <img src='images/start_box3_icon.png' style='float:right;position:relative;top:-2px;'>
+      <b>Wichtige Informationen</b>  <!-- So geht's -->
+    </div>
+    </a>
+  </div>
+  <div class='b3' style='background-image:url(images/start_box3_bg.png);height:122px;'>
+    <div style='font-size:16px;padding:10px 10px;'>
+      <ul style='margin-top:0px;margin-bottom:0;'>
+      <li style='margin-bottom:6px;'>
+        <strong><a href='hilfe/wie-funktioniert-stepmap'>Wie funktioniert StepMap?<img src='images/pfeil_grau_rechts.png' style='margin-left:4px;position:relative;top:1px;'></a></strong></li>
+      <li style='margin-bottom:6px;'>
+        <a href='hilfe/wie-darf-ich-die-karten-nutzen'>Preisliste & Konditionen<img src='images/pfeil_grau_rechts.png' style='margin-left:4px;position:relative;top:1px;'></a></li>
+      <li style='margin-bottom:6px;'>
+        <a href='#' class='callmeback'>Rückruf vereinbaren<img src='images/pfeil_grau_rechts.png' style='margin-left:4px;position:relative;top:1px;'></a></li>
+      <li style='margin-bottom:6px;'>
+        <a href='hilfe/was-ist-stepmap'>Fragen zu StepMap<img src='images/pfeil_grau_rechts.png' style='margin-left:4px;position:relative;top:1px;'></a></li>        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
+
+<div class='b2kopf' style='margin-top:10px;'>
+  <div style='padding:4px 2px 0 10px;'>
+    <!--img src='./images/pfeil_weiss.png' style='width:11;height:9px;margin-right:10px;'--><b>Beispielkarten</b>
+  </div>
+</div>
+
+<!--
+background:#0680A8;
+<div class='b2' style='padding:2px;margin-top:10px;background:#0680A8;'>
+<div class='b2' style='background:#ffffff;padding:13px 12px 4px;'>
+background:#e6f3f6;
+-->
+<div class='b2' style='padding:0 10px 10px;margin-bottom:10px;'>
+<div style='padding:13px 0px 4px;'>
+
+
+<table cellpadding=0 cellspacing=0 class='startmapvorschau' style='width:920px;'>
+<tr>
+
+<td style='padding:2px 25px 0px 0;width:50%;'>
+<a href='./karte/midterm-elections-senatswahlen-in-den-usa-2014-1472357'><img src='./usermaps/karte-0000047xxxx/karte-00000472357/karte-20141128-074946-ocaw88s1ja/karte_vorschau140.jpg' style='float:left;margin:0 10px 5px 0;' alt="Midterm Elections: Senatswahlen in den USA 2014" title="Midterm Elections: Senatswahlen in den USA 2014"></a>
+<div style='margin-bottom:10px;'>
+<a href='./karte/midterm-elections-senatswahlen-in-den-usa-2014-1472357'><span style='font-size:12px;'><b>Midterm Elections: Senatswahlen in den USA 2014</b></span></a>
+<br><span style='font-size:11px;'>von Nama</span>
+</div>
+Midterm Election: Senatswahlen in den USA 2014 (USA nach Bundesstaaten, in denen Wahlen zum Senat anstehen). Hinweis: Nicht in allen Bundestaaten wurde gewählt (daher ohne Einfärbung und Beschriftung).
+</td>
+<td style='padding:2px 25px 0px 0;width:50%;'>
+<a href='./karte/namibia-rundreise-selbstfahrer-impala-14-tage-1453162'><img src='./usermaps/karte-0000045xxxx/karte-00000453162/karte-20140901-133212-rdsgqhk3vu/karte_vorschau140.jpg' style='float:left;margin:0 10px 5px 0;' alt="Namibia Rundreise Selbstfahrer Impala - 14 Tage" title="Namibia Rundreise Selbstfahrer Impala - 14 Tage"></a>
+<div style='margin-bottom:10px;'>
+<a href='./karte/namibia-rundreise-selbstfahrer-impala-14-tage-1453162'><span style='font-size:12px;'><b>Namibia Rundreise Selbstfahrer Impala - 14 Tage</b></span></a>
+<br><span style='font-size:11px;'>von Accept Reisen</span>
+</div>
+Namibia Rundreise Selbstfahrer Impala
+Die „Namibia Rundreise Selbstfahrer Impala&quot; kombiniert die klassische Selbstfahrerroute mit den schönsten Highlights des Landes und  wunderschön gelegenen Unterkünften. Entdecken ...
+</td></tr>
+</table>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+
+
+<div id='footer' style='position:absolute;text-align:center;width:960px;padding:8px 0 10px;'>
+
+<br>
+  <a href='ueber-uns.php'>Über uns</a> &nbsp;|&nbsp;
+  <a href='http://blog.stepmap.de' target='_blank'>Blog</a> &nbsp;|&nbsp;
+  <a href='hilfe/was-ist-stepmap'>Hilfe</a> &nbsp;|&nbsp;
+  <a href='impressum.php'>Impressum</a> &nbsp;|&nbsp;
+  <a href='nutzungsbedingungen.php'>Nutzungsbedingungen</a> &nbsp;|&nbsp;
+  <a href='datenschutzerklaerung.php'>Datenschutzerklärung</a> &nbsp;|&nbsp;  <a href='http://www.mapfacture.de'>Adressdaten visualisieren</a> &nbsp;|&nbsp;
+    StepMap:
+  <a href='http://www.stepmap.com' title='stepmap.com'><img src='/images/stepmap_flag_us.png' style='height: 10px; margin-left: 4px;' alt='stepmap.com' /></a><a href='http://www.stepmap.com' title='stepmap.com'><img src='/images/stepmap_flag_uk.png' style='height: 10px; margin-left: 4px;' alt='stepmap.com' /></a><a href='http://www.stepmap.com' title='stepmap.com'><img src='/images/stepmap_flag_au.png' style='height: 10px; margin-left: 4px;' alt='stepmap.com' /></a><a href='http://www.stepmap.fr' title='stepmap.fr'><img src='/images/stepmap_flag_fr.png' style='height: 10px; margin-left: 4px;' alt='stepmap.fr' /></a>
+<br><br>
+<div id='footer2'>
+<a href='landkarten'>Landkarten</a> &nbsp;-&nbsp;
+<a href='landkarte-nordamerika-mittelamerika'>Nordamerika / Mittelamerika</a> &nbsp;-&nbsp;
+<a href='landkarte-suedamerika'>Südamerika</a> &nbsp;-&nbsp;
+<a href='landkarte-europa'>Europa</a> &nbsp;-&nbsp;
+<a href='landkarte-asien'>Asien</a> &nbsp;-&nbsp;
+<a href='landkarte-afrika'>Afrika</a> &nbsp;-&nbsp;
+<a href='landkarte-australien-ozeanien'>Australien / Ozeanien</a> &nbsp;-&nbsp;
+<a href='landkarte-weltkarte'>Weltkarte</a>
+</div>
+
+    
+</div>
+</div>
+
+
+<div id='medialayer' onmouseup='closeMediaLayer()'>
+
+<table style='width:100%;' cellpadding='0' cellspacing='0'>
+<tr>
+<td style='width:50%;'>&nbsp;</td>
+<td>
+<div id='mediaranddiv'>
+  <div style='width:100%;text-align:right;'>
+    <img src='images/schliessen2.png' onmouseup='closeMediaLayer()' style='width:76px;heigth:18px;margin-bottom:2px;cursor:pointer;'>
+  </div>
+  <div id='mediadiv'></div>
+  <div id='medianavidiv' style='padding:6px 0 0px;font-size:11px;width:100%;'>
+    <table cellpadding=0 cellspacing=0 style='width:100%'>
+    <tr>
+    <td style='padding-top:2px;'><img src='images/pfeil_grau_zurueck2.png' onmouseup='shiftMediaAnsicht(-1)' style='float:left;cursor:pointer;'></td>
+    <td id='medianrdiv' style='text-align:center;vertical-align:top;font-size:11px;padding:0 20px 0;'></td>
+    <td style='padding-top:2px;'><img src='images/pfeil_grau_vor2.png' onmouseup='shiftMediaAnsicht(+1)' style='float:right;cursor:pointer;'></td>
+    </tr>
+    </table>
+  </div>
+</div>
+</td>
+<td style='width:50%;'>&nbsp;</td>
+</tr>
+</table>
+
+</div>
+
+<div id='hinweisdiv'>
+	<div id='hinweisobendiv'></div>
+	<div id='hinweistextdiv'></div>
+	<div id='hinweisuntendiv'></div>
+</div>
+
+<div id='hinweisdiv2'>
+<table cellpadding='0' cellspacing='0'>
+<tr><td id='hinweisobendiv2'></td></tr>
+<tr><td id='hinweistextdiv2'></td></tr>
+<tr><td id='hinweisuntendiv2'></td></tr>
+</table>
+</div>
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript">
+
+var gaProperty = 'UA-9108005-1';
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+function gaOptout() {
+  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+  window[disableStr] = true;
+}
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9108005-1");
+_gat._anonymizeIp();
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+inc = '<' + 'script type="text/javascript" src="https://ivw.mairdumont.com/get?referrer=' + encodeURIComponent(location.href) + '"><' + '/' + 'script' + '>';
+document.write(inc);
+/* ]]> */
+</script>
+<div id="callbackDialog" title="Rückruf vereinbaren" style='display: none;'>
+<div id='callbackInit'>
+	Gerne rufen wir Sie als gewerblichen Kunden zurück, um Fragen zu StepMap zu beantworten!<br /><br />
+	Bitte füllen Sie das folgende Formular aus und klicken Sie anschließend auf 'Absenden'. Wir werden uns schnellstmöglich telefonisch bei Ihnen melden.<br /><br />
+	<form id="callbackForm" mehtod='post' name="callbackForm">
+	<span style='font-size: 0.8em'>* Pflichtfelder</span>
+	<div class='formRow'>
+		<label for='callbackGender'>Anrede *</label>
+		<input type="radio" name="callbackGender" value="Herr" /> Herr <input type="radio" name="callbackGender" value="Frau" /> Frau
+	</div>
+	<div class='formRow'>
+		<label for='callbackName'>Name *</label>
+		<input type='text' class='callbackInput' name='callbackName' value='' />
+	</div>
+	<div class='formRow'>
+		<label for='callbackCompany'>Firma *</label>
+		<input type='text' class='callbackInput' name='callbackCompany' value='' />
+	</div>
+	<div class='formRow'>
+		<label for='callbackPhone'>Telefonnummer *</label>
+		<input type='text' class='callbackInput' name='callbackPhone' value='' />
+	</div>
+	<div class='formRow'>
+		<label for='callbackEmail'>E-Mail Adresse *</label>
+		<input type='text' class='callbackInput' name='callbackEmail' value='' />
+	</div>
+	<div class='formRow'>
+		<label for='callbackComment'>Kommentar</label>
+		<textarea class='callbackInputArea' name='callbackComment'></textarea>
+	</div>
+	<div class='formRow'>
+		<input type='submit' class='callbackSubmit' value='Absenden' />
+	</div>
+	<div id='callbackErrors'>
+	Bitte füllen Sie alle mit einem * versehenen Felder korrekt aus!
+	</div>
+	<div id='callbackUndefinedErrors'>
+	Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
+	</div>
+	</form>
+</div>
+<div id='callbackSuccess'>
+Vielen Dank!<br /><br />
+Wir haben Ihre Daten erhalten und werden uns so schnell wie möglich bei Ihnen melden.
+</div>
+</div>
+<script type="application/ld+json">
+{
+   "@context": "http://schema.org",
+   "@type": "WebSite",
+   "url": "http://www.stepmap.de/",
+   "potentialAction": {
+     "@type": "SearchAction",
+     "target": "http://www.stepmap.de/atlas.php?freiesuche={search_term}",
+     "query-input": "required name=search_term"
+   }
+}
+</script>
+<script type="text/javascript" src="//cdn.conative.de/serve/domain/159/config.js" async></script>
+</body>
+</html>

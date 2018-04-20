@@ -1,0 +1,8 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script language="JavaScript" src="https://seal.networksolutions.com/siteseal/javascript/siteseal.js" type="text/javascript"></script>
+<head>
+
+<title>Welcome to CA Sri Lanka</title>
+<meta http-equiv="Refresh" content="0;url=https://www.casrilanka.com/casl/">
+</head>

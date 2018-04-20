@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgQAVFBWGwADUVFQBgcA"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<title>Woodworking Tools Supplies Hardware Plans Finishing - Rockler.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> <meta name="description" content="Shop for Woodworking Tools, Plans, Finishing and Hardware online at Rockler Woodworking and Hardware.  Find thousands of woodworking supplies like drawer slides, hardwoods, cabinet hinges, and knobs and pulls.  Plus, Rockler has great tools like router tables, clamps, roller ball stands, and more for your workshop." />
+<meta name="keywords" content="woodworking, hardware, hardware store, home improvement store, hand tools,  power tools, woodworking plans, woodcraft supplies, wood finishing supplies, adhesives, wood glue, cabinet hardware, custom cabinet doors, locks, hinges, drawer slides, kitchen hardware, lumber, hardwood, woodturning tools, woodworking articles" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<meta name="verify-v1" content="AKVMaFA9bSV7LLKAEOyW6nQaCCq+UXftjLZxnGUnn1I=" />
+<meta name="msvalidate.01" content="E3F7D47597F6BE5E2EC620FA013F899F" />
+<link rel="icon" href="http://assets.rockler.com/skin/frontend/responsive/rockler/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://assets.rockler.com/skin/frontend/responsive/rockler/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="http://assets.rockler.com/skin/frontend/responsive/rockler/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="http://assets.rockler.com/skin/frontend/responsive/rockler/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="http://assets.rockler.com/skin/frontend/responsive/rockler/apple-touch-icon-114x114.png" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+    //<![CDATA[
+    var BLANK_URL = 'http://assets.rockler.com/js/blank.html';
+    var BLANK_IMG = 'http://assets.rockler.com/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link rel="dns-prefetch" href="http://script.i-parcel.com">
+<link rel="dns-prefetch" href="http://assets.resultspage.com">
+<link rel="dns-prefetch" href="http://rockler.resultspage.com">
+
+
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/46bf33524bf2517c1a1aa9e089aa2bf2_1508772150.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/5063a68ec4ba1bc4e6d8e76ce2ec04a4_1476791005.css" media="print" />
+<!--[if lt IE 7]>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/775f9810a1e301d0b765548f04efd755_1517237691.css" media="all" />
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/c4cb5fe9edad11259dc46b50e6f548b6_1476791005.css" media="all" />
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/d33ab32406c30e17f1ebead89701d645_1476791005.css" media="all" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/0413dbe00f57899d76129fe311c6b384_1476791005.css" media="all" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/7037be8822031163e06bd51025c32ac9_1476791005.css" media="all" />
+<![endif]-->
+<!--[if lte IE 8]>
+<![endif]-->
+<!--[if lte IE 9]>
+<link rel="stylesheet" type="text/css" href="http://assets.rockler.com/media/css/07edae151dbb0bcd9f060bc69b3ed57a_1476791005.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="http://assets.rockler.com/js/dist/core.min.js"></script>
+<script type="text/javascript" src="http://assets.rockler.com/media/js/f08e2e034a027bcc3b71b94fcd18b5f2_1478780026.js"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://assets.rockler.com/media/js/a02c0bffc616e1ddea4aee8cca0f46e3_1476791004.js"></script>
+<![endif]-->
+<!--[if IE]>
+<![endif]-->
+<!--[if lte IE 7]>
+<![endif]-->
+<!--[if IE 8]>
+<![endif]-->
+<!--[if IE 9]>
+<![endif]-->
+<!--[if lte IE 8]>
+<script type="text/javascript" src="http://assets.rockler.com/media/js/009cf97562511d03c3a6f294aaf69dbc_1476791005.js"></script>
+<![endif]-->
+<!--[if lte IE 9]>
+<![endif]-->
+
+
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/';
+Mage.Cookies.domain   = '.www.rockler.com';
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["HK","IE","MO","PA"];
+//]]>
+</script>
+<script type="text/javascript" src="//script.i-parcel.com/Javascript/Merchant/1939/1"></script>
+<script type="text/javascript">var ipar_is_mage = true;</script>
+<link rel="stylesheet" type="text/css" href="//script.i-parcel.com/CSS/Merchant/1939/1" />
+<!-- TurnTo -->
+
+<script type="text/javascript">
+
+
+	if(document.location.href.indexOf('checkout') < 0 && document.location.href.indexOf('success') < 0) {
+        		
+        var turnToConfig = {"siteKey":"6f2iIJdfiy1XrhEsite","setupType":"staticEmbed","reviewsSetupType":"staticEmbed","setTeaserCookieOnView":true,"paginationReviewsShownInitially":5,"reviewsTeaserFunc":"customReviewsTeaserDisplay","gallery":{"size":"small"},"paginationQuestionsShownInitially":5};
+
+        (function() {
+            var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true;
+            tt.src = document.location.protocol + "//static.www.turnto.com/traServer4_3/trajs/" + turnToConfig.siteKey + "/tra.js";
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tt, s);
+			
+			        })();
+    }
+</script>
+
+
+
+
+<!-- End TurnTo -->
+
+<script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script>
+<script>
+  dataLayer = [{
+	'pageGpType': '1',
+    'pageGpName': 'home'
+}];
+</script>
+
+
+<meta property="og:site_name" content="Rockler Woodworking and Hardware" />
+<!--590b3a7d77ebfef4f2262c33eaf245a7-->
+<script>
+    if(typeof ROITracker==='undefined'){window.ROIStorage={};ROIStorage.q=[];window.ga=function(){ROIStorage.q.push(arguments)};var ga=window.ga;window.ga.q=window.ga.q||[];ROIStorage.roiq=[];ROIStorage.analyticsJsNotLoaded=true;window.ga.q.push([function(){var e;ROIStorage.realGa=window.ga;ROIStorage.analyticsJsNotLoaded=false;window.ga=function(){if(typeof arguments[0]==='function'){ROIStorage.realGa(arguments)}else{ROIStorage.q.push(arguments)}};ROIStorage.roiq.push=function(){ROIStorage.realGa.apply(window,arguments)};for(e=0;e<ROIStorage.roiq.length;e+=1){ROIStorage.realGa.call(window,ROIStorage.roiq[e])}}])}ROIStorage.gaq=ROIStorage.gaq||[];window._gaq={push:function(){var e;for(e=0;e<arguments.length;e++){ROIStorage.gaq.push(arguments[e])}}};var _gaq=window._gaq;ROIStorage.gaq=ROIStorage.gaq||[];window._gat={trackingObjects:{},_createTracker:function(e,t){return new _gat.Tracker(e,t)},_getTracker:function(e){return _gat._createTracker(e)},_getTrackerByName:function(e){var e=e||'';if(_gat.trackingObjects.hasOwnProperty(e)){return _gat.trackingObjects[e]}return _gat._createTracker('UA-XXXXX-X',e)},_anonymizeIp:function(){ROIStorage.gaq.push('_gat._anonymizeIp')},_forceSSL:function(){ROIStorage.gaq.push('_gat._forceSSL')},_getPlugin:function(){ROIStorage.gaq.push('_gat._getPlugin')},Tracker:function(e,t){function u(e){return function(){if(s){e=s+'.'+e}var t=Array.prototype.slice.call(arguments,0);t.unshift(e);ROIStorage.gaq.push(t)}}var n,r,i=['_addDevId','_addEventListener','_addIgnoredOrganic','_addIgnoredRef','_addItem','_addOrganic','_addTrans','_clearIgnoredOrganic','_clearIgnoredRef','_clearOrganic','_clearTrans','_clearXKey','_clearXValue','_cookiePathCopy','_createEventTracker','_createXObj','_deleteCustomVar','_get','_getAccount','_getClientInfo','_getDetectFlash','_getDetectTitle','_getLinkerUrl','_getLocalGifPath','_getName','_getPlugin','_getServiceMode','_getVersion','_getVisitorCustomVar','_getXKey','_getXValue','_initData','_link','_linkByPost','_removeEventListener','_sendXEvent','_set','_setAccount','_setAllowAnchor','_setAllowHash','_setAllowLinker','_setAutoTrackOutbound','_setCampCIdKey','_setCampContentKey','_setCampIdKey','_setCampMediumKey','_setCampNOKey','_setCampNameKey','_setCampSourceKey','_setCampTermKey','_setCampaignCookieTimeout','_setCampaignTrack','_setClientInfo','_setCookiePath','_setCookiePersistence','_setCookieTimeout','_setCustomVar','_setDetectFlash','_setDetectTitle','_setDomainName','_setHrefExamineLimit','_setLocalGifPath','_setLocalRemoteServerMode','_setLocalServerMode','_setMaxCustomVariables','_setNamespace','_setPageGroup','_setReferrerOverride','_setRemoteServerMode','_setSampleRate','_setSessionCookieTimeout','_setSessionTimeout','_setSiteSpeedSampleRate','_setTrackOutboundSubdomains','_setTrans','_setTransactionDelim','_setVar','_setVisitorCookieTimeout','_setXKey','_setXValue','_trackEvent','_trackPageLoadTime','_trackPageview','_trackSocial','_trackTiming','_trackTrans','_visitCode'];var s=t||'';var o=e||'UA-XXXXX-X';for(n=0;n<i.length;n++){r=i[n];this[r]=u(r)}_gat.trackingObjects[s]=this}};var _gat=window._gat;
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://f0650497ab104ed15969-8166eaa76694052c624d4a770fb27493.ssl.cf2.rackcdn.com/gate.js' : 'http://54cc182083f1ddde7f0f-8166eaa76694052c624d4a770fb27493.r75.cf2.rackcdn.com/gate.js');
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<script type="text/javascript" src="//cdn.evergage.com/beacon/rockler/engage/scripts/evergage.min.js"></script>
+<link rel="dns-prefetch" href="http://www.turnto.com">
+<link rel="dns-prefetch" href="http://static.www.turnto.com">
+<link rel="dns-prefetch" href="http://session.i-parcel.com">
+<link rel="dns-prefetch" href="http://www.googletagmanager.com">
+<link rel="dns-prefetch" href="http://cdn.mxpnl.com">
+<link rel="dns-prefetch" href="http://googleads.g.doubleclick.net">
+
+
+
+
+
+
+</head>
+<body class=" cms-index-index cms-home">
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-3DPT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-3DPT');</script>
+<!-- End Google Tag Manager -->
+
+<div class="widget widget-banner">
+        <ul>
+        </ul>
+</div>
+<div class="widget widget-static-block"><div id="top-of-site-block">
+</div></div>
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+    <div class="inner-wrap">
+        <div class="page">
+            <!-- SLI header starts -->
+<div class="page-header" id="top">
+    <div class="container">
+        <div class="user-menu">
+            <div class="top-links big-links header-links show-separators hide-below-768">
+                <ul class="links">
+                        <li class="first" ><a href="https://www.rockler.com/customer/account/" title="My Account" >My Account</a></li>
+                                <li ><a href="https://www.rockler.com/customer/account/login/referer/aHR0cDovL3d3dy5yb2NrbGVyLmNvbS8,/" title="Log In" class="top-links-loginout" id="top-link-login">Log In</a></li>
+                                <li class=" last" ><a href="https://www.rockler.com/wishlist/" title="Wishlist" class="top-links-wishlist" id="top-link-wishlist">Wishlist</a></li>
+            </ul>
+                <div id="mini-cart">
+                    
+
+        <span class="link-title hide-below-480" title="View contents of your shopping cart">Cart </span>
+    <span class="link-title show-below-480" title="View contents of your shopping cart"></span>
+        <div class="block-content block" style="display:none;">
+    
+        <div class="block-content-inner">
+                        <p class="empty">You have no items in your shopping cart.</p>
+                
+        </div> <!-- end: block-content-inner -->
+
+        </div> <!-- end: block-content -->
+                </div>
+            </div>
+        </div>
+        <div class="header-main wood">
+            <a class="logo" href="http://www.rockler.com/" title="Rockler, Woodworking and Hardware, Create with Confidence">
+                <img src="http://assets.rockler.com/skin/frontend/responsive/rockler/images/logo.jpg" alt="Rockler, Woodworking and Hardware, Create with Confidence" />
+            </a>
+            <div class="user-menu">
+                <div class="top-links show-separators hide-below-768">
+                    <ul class="links second-row">
+                        <li><a href="http://www.rockler.com/retail/" title="Store Locator">Find a Store</a></li>
+<li><a href="http://www.rockler.com/customer-service/support/" title="Help">Help</a></li>
+<li><a href='javascript:window.open("http://focalscope.rockler.com/emm/ext/webchat/dispatch/?sIdMod=Registration&sNamePage=registration.htm&uid=livechat&lang=__&__d=2&openerTitle="+encodeURIComponent(document.title||"")+"&openerUrl="+encodeURIComponent(document.location.href||""), "_blank", "width=587,height=531,menubar=no,toolbar=no"), undefined;'>Live Chat</a></li>
+<li class="phone-number"><span>800-279-4441</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom tan-fabric">
+
+            <div class="block-destop" style="display: none;">
+                <div class="nav-container">
+    <ul id="mobnav">
+        <li class="first"><a class="i menu-i" id="mobnav-trigger" href="">Menu</a></li>
+        <li><a class="i phone-i" href="tel:+18002794441"></a></li>
+        <li><a class="i locator-i" href="http://www.rockler.com/store-locator/"></a></li>
+        <li class="last"><a class="" id="mobnav-cart" href="http://www.rockler.com/checkout/cart/"><span class="i cart-i"></span></a></li>
+    </ul>
+
+    <div id="oc-nav">
+        <ul class="accordion vertnav-top grid-full" style="">
+  <li class="level0 first level-top parent" id="category_menu">
+    <a href="#">
+      <span>Shop Our Products</span>
+    </a>
+    <ul class="level0">
+      <li class="level1 level-top first parent">
+        <a href="#" class="level-top">
+          <span>Tools</span>
+        </a>
+        <ul class="level1">
+          <li class="level2 first parent">
+            <a href="http://www.rockler.com/power-tools/" >
+              <span>Power Tools</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/power-tool-accessories/" >
+              <span>Power Tool Accessories</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/woodworking-jigs/" >
+              <span>Woodworking Jigs</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/dust-collection/" >
+              <span>Dust Collection</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/clamps/" >
+              <span>Clamps</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/hand-tools/" >
+              <span>Hand Tools</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/turning-tools/" >
+              <span>Turning Tools</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/workshop-accessories/" >
+              <span>Workshop Accessories</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="level1 level-top first parent">
+        <a href="#" class="level-top">
+          <span>Hardware</span>
+        </a>
+        <ul class="level1">
+          <li class="level2 first parent">
+            <a href="http://www.rockler.com/drawer-slides/" >
+              <span>Drawer Slides</span>
+            </a>
+          </li>
+          <li class="level2 first parent">
+            <a href="/hardware/hinges" >
+              <span>Hinges</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/knobs-and-pulls/" >
+              <span>Knobs and Pulls</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="/hardware/project-hardware" >
+              <span>Project Hardware</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/storage-and-organization/" >
+              <span>Storage and Organization</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/fasteners/" >
+              <span>Fasteners</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/hardware/home-automation/" >
+              <span>Home Automation</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/lighting/" >
+              <span>Lighting</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="level1 level-top first parent">
+        <a href="#" class="level-top">
+          <span>Supplies</span>
+        </a>
+        <ul class="level1">
+          <li class="level2 first parent">
+            <a href="http://www.rockler.com/wood/" >
+              <span>Wood</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/wood-turning/" >
+              <span>Wood Turning</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/adhesives/" >
+              <span>Adhesives</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/abrasives/" >
+              <span>Abrasives</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/finishing/" >
+              <span>Finishing</span>
+            </a>
+          </li>
+          <li class="level2">
+            <a href="http://www.rockler.com/project-supplies/" >
+              <span>Project Supplies</span>
+            </a>
+          </li>
+          <li class="level2 parent">
+            <a href="http://www.rockler.com/woodworking-media/" >
+              <span>Media</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+
+ <li class="level2 parent">
+            <a href="http://www.rockler.com/shop-by-brand/rockler-innovations/">
+              <span>Only @ Rockler</span>
+            </a>
+          </li>
+
+      <li>
+        <a href="http://www.rockler.com/new-products/">
+          <span>New Products</span>
+        </a>
+      </li> 
+     <li>
+        <a href="http://www.rockler.com/outlet/">
+          <span>Outlet</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/order-by-item/">
+          <span>Quick Order</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="level0 level-top parent" id="mobile-login-container">
+    <a href="https://www.rockler.com/customer/account/">
+      <span>Account Info</span>
+    </a>
+    <ul class="level0">
+      <li>
+        <a href="https://www.rockler.com/customer/account/">
+          <span>My Account</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-links-loginout" href="#">
+          <span>Log In</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/checkout/cart/">
+          <span>Cart</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.rockler.com/wishlist/">
+          <span>Wishlist</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/email-exclusives/">
+          <span>Email Subscription</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="level0 level-top parent">
+    <a href="">
+      <span>Helpful Links</span>
+    </a>
+    <ul class="level0">
+      <li>
+        <a href="http://www.rockler.com/customer-service/support/">
+          <span>Help</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/retail/">
+          <span>Find a Store</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/how-to/">
+          <span>How-To Articles</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/careers/">
+          <span>Careers</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/about-rockler/">
+          <span>Company Info</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/privacy-policy/">
+          <span>Privacy Policy</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>        <div id="oc-nav-level2"></div>
+        <div class="vertnav-overlay">&nbsp;</div>
+    </div>
+
+        <ul id="nav" class="hide-below-768">
+                            <li class="level0 level-top parent  first">
+                <a href="#">Tools</a>
+                                    <div class="nav-content ">
+                        <div>
+                                <ul>
+      <li>
+        <a href="http://www.rockler.com/power-tools">Power Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/power-tools/cnc-machines">CNC Machines</a></li>
+            <li><a href="http://www.rockler.com/power-tools/power-saws">Saws</a></li>
+            <li><a href="http://www.rockler.com/power-tools/routers">Routers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/lathes">Lathes</a></li>
+            <li><a href="http://www.rockler.com/power-tools/planers">Planers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/joiners">Joiners</a></li>
+            <li><a href="http://www.rockler.com/power-tools/mortisers">Mortisers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/shapers">Shapers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/drill-presses">Drill Presses</a></li>
+            <li><a href="http://www.rockler.com/power-tools/sanders">Sanders</a></li>
+            <li><a href="http://www.rockler.com/power-tools/multi-tool">Multi-Tools</a></li>
+            <li><a href="http://www.rockler.com/power-tools/handheld-drills">Handheld Drills</a></li>
+            <li><a href="http://www.rockler.com/power-tools/laser-cutters-engravers">Lasers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/power-carving" class="">Power Carving</a></li>
+            <li><a href="http://www.rockler.com/power-tools/air-tools" class="">Air Tools</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/dust-collection">Dust Collection</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/dust-collection/dust-collectors">Dust Collectors</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/shop-vacuums">Shop Vacuums</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/air-filtration">Air Filtration</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-cyclones-and-separators">Dust Separators</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-hose">Dust Collection Hose</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/hose-clamps-and-hangers">Hose Clamps and Hangers</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/hose-end-attachments">Hose End Attachments</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-fittings">Dust Collection Fittings</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/blast-gates">Blast Gates</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-filters">Dust Collection Filters</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/metal-ducting">Metal Ducting</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/special-application-dust-collection">Dust Collection Accessories</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/power-tool-accessories">Power Tool Accessories</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-tables">Router Tables</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-bits">Router Bits</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-accessories">Router Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/cnc-machine-accessories">CNC Machine Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/saw-blades">Saw Blades</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/saw-accessories">Saw Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/drilling-accessories">Drilling Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/drill-bits-and-drivers">Drill Bits and Drivers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/batteries-and-chargers">Batteries and Chargers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/mobile-bases">Mobile Bases</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/batteries-and-chargers">Batteries and Chargers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/laser-cutters-and-engravers-accessories">Laser and Engraver Accessories</a></li>
+            <li><a href="http://www.rockler.com/wood-turning">Turning Accessories</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/woodworking-jigs">Woodworking Jigs</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/woodworking-jigs/router-jigs">Router Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/joinery-jigs">Joinery Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/table-saw-jigs">Table Saw Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/band-saw-jigs">Band Saw Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/drill-jigs">Drill Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/installation-jigs">Installation Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/jig-parts-kits">Jig Parts & Kits</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/clamps">Clamps</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/clamps/parallel-clamps">Parallel Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/spring-clamps">Spring Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/f-style-clamps">F-Style Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/pipe-clamps">Pipe Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/bar-clamps">Bar Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/toggle-clamps">Toggle Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/handscrew-clamps">Handscrew Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/cam-clamps">Cam Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/clamp-racks-and-clamping-accessories">Clamp Racks and Clamping Accessories</a></li>
+            <li><a href="http://www.rockler.com/clamps/clamped-guides">Clamped Guides</a></li>
+            <li><a href="http://www.rockler.com/clamps/special-application-clamps">Special Application Clamps</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/hand-tools">Hand Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/hand-tools/hand-saws">Hand Saws</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/planes">Planes</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/scrapers">Scrapers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/rasps">Rasps</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/chisels-and-draw-knives">Chisels and Draw Knives</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/carving">Carving</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/veneering-tools">Veneering Tools</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/mallets-and-hammers">Mallets and Hammers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/screwdrivers">Screwdrivers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/picture-framing-tools">Picture Framing Tools</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/speciality-hand-tools">Speciality Hand Tools</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/wood-turning">Turning Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/wood-turning/pen-turning-kits">Pen Turning Kits</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-tools">Turning Tools</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/pen-blanks">Pen Blanks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/lathe-chucks">Lathe Chucks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-accessories">Turning Accessories</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/small-turning-project-kits">Small Turning Project Kits</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-blanks">Turning Blanks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/specialty-wood-turning">Specialty Wood Turning</a></li>     
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/workshop-accessories">Workshop Accessories</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/workshop-accessories/workbenches-and-tops">Workbenches and Tops</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/woodworking-vises">Woodworking Vises</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/workshop-stands-legs-and-parts">Workshop Stands, Legs and Parts</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/roller-and-ball-bearing-stands">Roller and Ball Bearing Stands</a></li> 
+            <li><a href="http://www.rockler.com/workshop-accessories/bench-dogs-and-holddowns">Bench Dogs and Holddowns</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/specialty-stands">Specialty Stands</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/shop-flooring-and-anti-fatigue-floor-mats">Shop Flooring and Anti-Fatigue Floor Mats</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/organizers">Organizers</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/containers">Containers</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/task-lighting">Task Lighting</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/tool-maintenance">Tool Maintenance</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/measuring-tools">Measuring Tools</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/apparel-merchandise">Apparel & Merchandise</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/workshop-safety">Workshop Safety</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/sharpening">Sharpening</a>
+        <ul class="ti-nav-ul-list">
+          <li><a href="http://www.rockler.com/sharpening/electric-sharpeners">Power Sharpeners</a></li>
+          <li><a href="http://www.rockler.com/sharpening/sharpening-stones">Whetstones</a></li>
+          <li><a href="http://www.rockler.com/sharpening/sharpening-jigs-and-guides">Sharpening Jigs and Guides</a></li>
+        </ul>
+      </li>
+    </ul>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                            </li>
+                            <li class="level0 level-top parent ">
+                <a href="#">Hardware</a>
+                                    <div class="nav-content ">
+                        <div>
+                            <ul>
+  <li>
+    <a href="http://www.rockler.com/hardware/drawer-slides">Drawer Slides</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/cabinet-drawer-slides">Drawers</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/file-slides">Files</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/shelf-slides">Shelves</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/pantry-slides">Pantries</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/door-slides">Doors</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/ball-bearing-drawer-slides">Ball Bearing</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/concealed-drawer-slides">Concealed</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/euro-drawer-slides">European</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/drawer-slide-mounts">Slide Mounts</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/slide-accessories">Accessories</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/hinges">Hinges</a>
+    <ul class="ti-nav-ul-list">
+       <li><a href="http://www.rockler.com/hardware/hinges/cabinet-hinges">Cabinet Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/furniture-hinges">Furniture Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/box-hinges">Box Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/specialty-hinges">Specialty Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/european-hinges">European Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/semi-concealed-hinges">Semi-Concealed Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/partial-wrap-shutter-hinges">Partial Wrap Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/demountable-hinges">Demountable Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/no-mortise-hinges">No-Mortise Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/butt-hinges">Butt Hinges</a></li>	   
+       <li><a href="http://www.rockler.com/hardware/hinges/piano-hinges">Piano Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/quadrant-hinges">Quadrant Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/lid-support-hinges">Lid Support Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/small-box-hinges">Small Box Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/pivot-hinges">Pivot Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/sewing-machine-hinges">Sewing Machine Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/pivot-hinges">Butler Tray Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/glass-door-hinges">Glass Door Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/concealed-hinges">Concealed Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/hinge-accessories">Hinge Accessories</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/hinge-installation-bits">Hinge Installation Bits</a></li>	   
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/knobs-and-pulls">Knobs and Pulls</a>
+    <ul class="ti-nav-ul-list">
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/kitchen-and-bath-knobs-and-pulls">Kitchen &amp; Bath Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/furniture-knobs-and-pulls">Furniture Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/black-knobs-and-pulls">Black Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/brass-knobs-and-pulls">Brass Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/bronze-knobs-and-pulls">Bronze Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/chrome-knobs-and-pulls">Chrome Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/colored-knobs-and-pulls">Color Knobs and Pulls</a></li>	  
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/copper-knobs-and-pulls">Copper Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/glass-ceramic-knobs-and-pulls">Glass/Ceramic Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/iron-knobs-and-pulls">Iron Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/nickel-knobs-and-pulls">Nickel Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/pewter-knobs-and-pulls">Pewter Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/rust-knobs-and-pulls">Rust Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/stainless-steel-knobs-and-pulls">Stainless Steel Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/white-knobs-and-pulls">White Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/wood-knobs-and-pulls">Wood Knobs and Pulls</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/fasteners">Fasteners</a>
+    <ul class="ti-nav-ul-list">
+      <li><a href="http://www.rockler.com/hardware/fasteners/interior-screws">Interior Screws</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/exterior-screws">Exterior Screws</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/threaded-inserts">Threaded Inserts</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/knock-down-hardware">Knock-Down Hardware</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/wood-dowels-and-biscuits">Wood Dowels and Biscuits</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/nails">Nails</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/screw-caps-and-plugs">Screw Caps and Plugs</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/speciality-fasteners">Speciality Fasteners</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/machine-screws-nuts-and-bolts">Machine Screws, Nuts and Bolts</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/escutcheon-pins">Escutcheon Pins</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/lighting">Lighting</a>
+    <ul class="ti-nav-ul-list">
+	<li><a href="http://www.rockler.com/hardware/lighting/led-lights">LED Lights</a></li>
+	<li><a href="http://www.rockler.com/hardware/lighting/workshop-lighting">Workshop Lighting</a></li>
+      <li><a href="http://www.rockler.com/hardware/lighting/cabinet-lighting">Cabinet Lighting</a></li>
+      <li><a href="http://www.rockler.com/hardware/lighting/lighting-accessories-and-switches">Lighting Accessories and Switches</a></li>
+    </ul>
+  </li>
+    <li class="">
+    <a href="http://www.rockler.com/hardware/bed-hardware">Bed Hardware</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/murphy-beds">Murphy Bed Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/platform-bed-lifts">Platform Bed Lifts</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-bases">Bed Bases</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-rails-hooks-brackets">Bed Rails, Hooks and Brackets</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-fasteners">Bed Fasteners</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-accessories">Bed Accessories</a></li>
+      </ul>
+  </li>
+  <li class="">
+    <a href="http://www.rockler.com/hardware/project-hardware">Project Hardware</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/project-hardware/box-hardware">Box Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/rolling-door-hardware">Rolling Door Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/cabinet-locks-and-latches">Cabinet Locks and Latches</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/casters-and-glides">Casters and Glides</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/chair-hardware">Chair Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/entertainment-center-hardware">Entertainment Center Hardware</a></li><li><a href="http://www.rockler.com/hardware/project-hardware/table-hardware">Table Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/decorative-grille">Decorative Grille</a></li>
+		<li><a href="http://www.rockler.com/hardware/project-hardware/decorative-glass">Decorative Glass</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/casket-hardware">Casket Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/furniture-bumpers">Furniture Bumpers</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/specialty-project-hardware">Specialty Project Hardware</a></li>		
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/storage-and-organization">Storage &amp; Organization</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/shelving">Shelving</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/media-and-cord-management">Media and Cord Management</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/kitchen-organization">Kitchen Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/bath-organization">Bath Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/office-organization">Office Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/closet-organization">Closet Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/workshop-organization">Workshop Organization</a></li>
+      </ul>
+  </li>
+</ul>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                            </li>
+                            <li class="level0 level-top parent ">
+                <a href="#">Supplies</a>
+                                    <div class="nav-content ">
+                        <div>
+                            <ul>
+  <li class="">
+    <a href="http://www.rockler.com/abrasives" class="">Abrasives</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sandpaper">Sandpaper</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sanding-sponges">Sanding Sponges</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/contoured-abrasives">Contoured Abrasives</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sanding-blocks">Sanding Blocks</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-discs">Sanding Discs</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-belts">Sanding Belts</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-wraps">Sanding Wraps</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-drums-sanding-sleeves">Sanding Sleeves and Drums</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/specialty-abrasives">Specialty Abrasives</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/adhesives">Adhesives</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/adhesives/ca-glue">CA Glue</a></li>
+        <li><a href="http://www.rockler.com/adhesives/epoxy">Epoxy</a></li>
+        <li><a href="http://www.rockler.com/adhesives/wood-glue">Wood Glue</a></li>
+        <li><a href="http://www.rockler.com/adhesives/glue-applicators">Glue Applicators</a></li>
+        <li><a href="http://www.rockler.com/adhesives/adhesive-tape">Adhesive Tape</a></li>
+        <li><a href="http://www.rockler.com/adhesives/wood-filler-and-grain-filler">Wood Filler and Grain Filler</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/finishing">Finishing</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/finishing/wood-stain">Wood Stain</a></li>
+        <li><a href="http://www.rockler.com/finishing/finish">Topcoats</a></li>
+        <li><a href="http://www.rockler.com/finishing/paint/chalk-style-paint">Chalk Style Paint</a></li>
+        <li><a href="http://www.rockler.com/finishing/paint/milk-paint">Milk Paint</a></li>
+        <li><a href="http://www.rockler.com/finishing/re-finishing">Re-Finishing</a></li>
+        <li><a href="http://www.rockler.com/finishing/specialty-finish">Specialty Finish</a></li>
+        <li><a href="http://www.rockler.com/finishing/finishing-accessories">Finishing Accessories</a></li>
+        <li><a href="http://www.rockler.com/finishing/applicators">Applicators</a></li>
+        <li><a href="http://www.rockler.com/finishing/applicators/sprayer">Sprayers</a></li>
+
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/wood-turning">Wood Turning</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/wood-turning/turning-tools">Turning Tools</a></li>  
+        <li><a href="http://www.rockler.com/wood-turning/turning-blanks">Turning Blanks</a></li> 
+        <li><a href="http://www.rockler.com/wood-turning/pen-turning-kits">Pen Turning Kits</a></li>     
+        <li><a href="http://www.rockler.com/wood-turning/pen-blanks">Pen Blanks</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/small-turning-project-kits">Small Turning Project Kits</a></li>
+        <li><a href="http://www.rockler.com/power-tools/lathes">Lathes</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/lathe-chucks">Lathe Chucks</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/turning-accessories">Accessories</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/wood">Wood</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/wood/domestic-lumber">Domestic Lumber</a></li>
+        <li><a href="http://www.rockler.com/wood/exotic-lumber">Exotic Lumber</a></li>
+        <li><a href="http://www.rockler.com/wood/plywood">Plywood</a></li>
+        <li><a href="http://www.rockler.com/wood/barnwood">Barn Wood</a></li>
+        <li><a href="http://www.rockler.com/wood/wood-barrel-parts">Wood Barrel Parts</a></li>
+        <li><a href="http://www.rockler.com/wood/knife-scales">Knife Scales</a></li>
+        <li><a href="http://www.rockler.com/wood/one-of-a-kind">One of a Kind Slabs</a></li>
+        <li><a href="http://www.rockler.com/wood/one-of-a-kind-lumber">One of a Kind Lumber Specials</a></li>
+        <li><a href="http://www.rockler.com/wood/inlays">Inlays</a></li>        
+        <li><a href="http://www.rockler.com/wood/veneer">Veneer</a></li>
+        <li><a href="http://www.rockler.com/wood/edge-banding">Edge Banding</a></li>
+        <li><a href="http://www.rockler.com/wood/molding">Molding</a></li>
+        <li><a href="http://www.rockler.com/wood/corbels">Corbels</a></li>
+        <li><a href="http://www.rockler.com/wood/columns">Columns</a></li>
+        <li><a href="http://www.rockler.com/wood/bun-feet">Bun Feet</a></li>
+        <li><a href="http://www.rockler.com/wood/legs">Wooden Table Legs</a></li>
+        <li><a href="http://www.rockler.com/wood/spindles-and-pegs">Spindles and Pegs</a></li>
+        </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/metalworking">Metalworking</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/metalworking/metalworking-materials">Metalworking Materials</a></li>
+        <li><a href="http://www.rockler.com/metalworking/metalworking-tools">Metalworking Tools</a></li>
+        <li><a href="http://www.rockler.com/metalworking/metalworking-supplies">Metalworking Supplies</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/project-supplies">Project Supplies</a>
+      <ul class="ti-nav-ul-list">
+         <li><a href="http://www.rockler.com/project-supplies/custom-doors-and-drawers">Custom Doors and Drawers</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/ladders">Ladders</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/shutters">Shutters</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/project-kits">Project Kits</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/wood-branding-irons">Wood Branding Irons</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/wood-burning-tools">Wood Burning Tools</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/knife-making-kits">Knife Making Kits</a></li>
+        <li><a href="http://www.rockler.com/wood/barnwood">Barn Wood</a></li>
+        <li><a href="http://www.rockler.com/wood/wood-barrel-parts">Wood Barrel Parts</a></li>
+        <li><a href="http://www.rockler.com/wood/knife-scales">Knife Scales</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/woodworking-media">Media</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-books">Woodworking Books</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-plans">Woodworking Plans</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-software">Woodworking Software</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-videos">Woodworking Videos</a></li>
+         <li><a href="http://www.rockler.com/woodworking-media/woodworking-magazines">Woodworking Magazines</a></li>
+      </ul>
+  </li>
+</ul>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                            </li>
+                            <li class="level0 level-top  ">
+                <a href="http://www.rockler.com/shop-by-brand/rockler-innovations">Only @ Rockler</a>
+                            </li>
+                            <li class="level0 level-top  ">
+                <a href="http://www.rockler.com/new-products">New Products</a>
+                            </li>
+                            <li class="level0 level-top  ">
+                <a href="http://www.rockler.com/rockler-promotions/current-promotions">Deals</a>
+                            </li>
+                            <li class="level0 level-top   last">
+                <a href="http://www.rockler.com/outlet">Outlet</a>
+                            </li>
+            </ul>
+</div>
+<!--
+  Handle Tablet Main Navigation Behavior
+-->
+<script type="text/javascript">
+    var eventTouchStart = 'touchstart';
+    var eventTouchMove = 'touchmove';
+    var eventTouchEnd = 'touchend';
+    if(window.PointerEvent) {
+        eventTouchStart = 'pointerdown';
+        eventTouchMove = 'pointermove';
+        eventTouchEnd = 'pointerup';
+    } else if (window.MSPointerEvent) {
+        eventTouchStart = 'MSPointerDown';
+        eventTouchMove = 'MSPointerMove';
+        eventTouchEnd = 'MSPointerUp';
+    }
+
+    var blockClick = false;
+    var touchScreen = false;
+
+    document.observe('dom:loaded', function() {
+        var topMenus = $("nav").childElements();
+
+        topMenus.each(function(elm,idx) {
+            if (elm.childElements().length > 1) {
+                $(elm).on(eventTouchStart, function() {
+                    touchScreen = true;
+                });
+                $(elm).on('mouseover', function() {
+                    blockClick = true;
+                });
+                $(elm).on('mouseout', function() {
+                    blockClick = false;
+                });
+                $(elm).on('click', function(e) {
+                    if (touchScreen) {
+                        e.stopPropagation();
+                        if (!blockClick) {
+                            this.childElements()[1].toggleClassName('shown-sub');
+                            this.down('a').toggleClassName('over');
+                            this.toggleClassName('over');
+                        }
+                        blockClick = false;
+                    }
+                });
+            }
+        });
+
+        $$('*').each(function(elm, idx) {
+            elm.on('click', function (e) {
+                if (typeof(elm.up('ul#nav')) != 'undefined') {
+                    return false;
+                }
+                if (!touchScreen) {
+                    return false;
+                }
+
+                e.stopPropagation();
+
+                return true;
+            });
+        });
+    })
+</script>                <div id="header_quick_order_link" class="hide-below-768"><a href="" onclick="toggleQuickOrder(); return false;">Quick Order<span></span></a></div>
+<div id="header_quick_order" class="header_quick_order hide-below-768" style="display: none">
+    <div class="block-content">
+        <form  action="http://www.rockler.com/checkout/cart/advancedAdd/" method="post" class="background">
+            <input name="form_key" type="hidden" value="5Cxuq6xYOzZ1Awct" />
+            <div class="quick-order-table">
+                <div class="header">
+                    <div>
+                        <div><span>Item Number</span></div>
+                        <div><span>Qty</span></div>
+                    </div>
+                </div>
+                <div class="items">
+                    <div>
+                        <div><input type="text" name="items[0][sku]"></div>
+                        <div><input type="text" name="items[0][qty]"></div>
+                    </div>
+                    <div>
+                        <div><input type="text" name="items[1][sku]"></div>
+                        <div><input type="text" name="items[1][qty]"></div>
+                    </div>
+                    <div>
+                        <div><input type="text" name="items[2][sku]"></div>
+                        <div><input type="text" name="items[2][qty]"></div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="quick-order-info">
+                <div class="add-more">
+                    <a href="" onclick="addRow(); return false;">Add More</a>
+                </div>
+                <div class="actions">
+                    <button type="submit" title="Add to Cart" class="button btn-add_to_cart">Add to Cart</button>
+                    <a href="" class="close-link" onclick="toggleQuickOrder(); return false"></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function addRow() {
+        if ( typeof addRow.lastRow == 'undefined' ) {
+            addRow.lastRow = 2;
+        }
+        ++addRow.lastRow;
+        var rowHtml = '<div><div><input type="text" name="items[' + addRow.lastRow + '][sku]"></div><div><input type="text" name="items[' + addRow.lastRow + '][qty]"></div></div>';
+        jQuery('#header_quick_order').find('.quick-order-table').find('.items').append(rowHtml);
+    }
+
+    function toggleQuickOrder() {
+        jQuery('#header_quick_order').toggle();
+
+        var orderBox = jQuery('#header_quick_order_link');
+        if (orderBox.hasClass('open')) {
+            orderBox.removeClass('open');
+        } else {
+            orderBox.addClass('open');
+        }
+    }
+</script>            </div>
+            <form name="searchform" action="http://www.rockler.com/search/go" method="get" id="SliSearchProductForm">
+    <div class="form-search">
+        <label for="search">Search:</label>
+        <input type="hidden" name="p" value="Q">
+        <input type="hidden" name="asug">
+        <input type="text" name="w" id="sli_search_1" class="input-text" autocomplete="off" size="20" data-provide="rac">
+        <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
+    </div>
+</form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var searchForm = new Varien.searchForm('SliSearchProductForm', 'sli_search_1', 'Search');
+    //]]>
+    </script>
+<script type="text/javascript">
+    function ajaxsearchsubmit(form){
+        var search = encodeURIComponent(form.w.value);
+        var asug = encodeURIComponent(form.asug.value);
+        window.location=slibaseurlsearch+"?w="+search+"&asug="+asug+"&sli_uuid="+sli_uuid+"&sli_sid="+sli_sid;
+        return false;
+ }
+</script>
+        </div>
+    </div>
+</div>
+<!--SLI header ends -->
+<!-- end: header-container -->
+<script>
+
+        jQuery(document).ready(function(){
+
+            jQuery('.accordion li ul li a').on('click', function(event){
+
+                var categoryId = jQuery(this).data('category-id');
+
+                var $height = jQuery(this).parent().parent().parent().parent().height();
+
+                    jQuery('#oc-nav-level2 ul').css('height', $height)
+            });
+
+            jQuery(window).resize(function (e) {
+
+
+                jQuery('.accordion li ul li a').on('click', function(event){
+
+                var categoryId = jQuery(this).data('category-id');
+
+                var $height = jQuery(this).parent().parent().parent().parent().height();
+
+                    jQuery('#oc-nav-level2 ul').css('height', $height)
+                });
+
+            });
+
+        });
+
+
+</script>            <div class="main-container col1-layout">
+                <div class="container wrap-tabmenu">
+                    
+                    
+                </div>
+                <div class="main container">
+                                                                <div class="preface grid-full in-col1">
+                            <div class="widget widget-static-block"><div class="grid12-full" style="padding-bottom: 10px"><a href="/rockler-promotions/current-promotions" onClick="_gaq.push(['_trackEvent', 'globalpromobanner', 'click', 'powersale']);"><img src="http://assets.rockler.com/media/wysiwyg/Landings/Promo-Pages/powersalemain.png" alt="" /></a></div>
+</div>
+                        </div>
+                    
+                    <div class="col-main grid-full in-col1">
+                        <!--{SILK_CARTMODAL_MODAL_49d6c73b49f2a411ffe8710bd75b0a25}--><!--/{SILK_CARTMODAL_MODAL_49d6c73b49f2a411ffe8710bd75b0a25}--><div class="std"><div class="widget widget-static-block"><div class="custom_blocks nested-container clearer">
+<div style="width:20%;height:auto;float:left;position:relative;" id="ti-sidewrap">
+    <div id="expand-home"><img src="/skin/frontend/responsive/rockler/images/roc-shop-categories.png"></div>
+<ul id="nav" class="block-nav hide-below-768">
+            <li class="level0 level-top parent first ti-menu-change">
+            
+                <a href='#'>Tools</a>
+        <div class="nav-content">    <ul>
+      <li>
+        <a href="http://www.rockler.com/power-tools">Power Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/power-tools/cnc-machines">CNC Machines</a></li>
+            <li><a href="http://www.rockler.com/power-tools/power-saws">Saws</a></li>
+            <li><a href="http://www.rockler.com/power-tools/routers">Routers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/lathes">Lathes</a></li>
+            <li><a href="http://www.rockler.com/power-tools/planers">Planers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/joiners">Joiners</a></li>
+            <li><a href="http://www.rockler.com/power-tools/mortisers">Mortisers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/shapers">Shapers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/drill-presses">Drill Presses</a></li>
+            <li><a href="http://www.rockler.com/power-tools/sanders">Sanders</a></li>
+            <li><a href="http://www.rockler.com/power-tools/multi-tool">Multi-Tools</a></li>
+            <li><a href="http://www.rockler.com/power-tools/handheld-drills">Handheld Drills</a></li>
+            <li><a href="http://www.rockler.com/power-tools/laser-cutters-engravers">Lasers</a></li>
+            <li><a href="http://www.rockler.com/power-tools/power-carving" class="">Power Carving</a></li>
+            <li><a href="http://www.rockler.com/power-tools/air-tools" class="">Air Tools</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/dust-collection">Dust Collection</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/dust-collection/dust-collectors">Dust Collectors</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/shop-vacuums">Shop Vacuums</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/air-filtration">Air Filtration</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-cyclones-and-separators">Dust Separators</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-hose">Dust Collection Hose</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/hose-clamps-and-hangers">Hose Clamps and Hangers</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/hose-end-attachments">Hose End Attachments</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-fittings">Dust Collection Fittings</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/blast-gates">Blast Gates</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/dust-collection-filters">Dust Collection Filters</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/metal-ducting">Metal Ducting</a></li>
+            <li><a href="http://www.rockler.com/dust-collection/special-application-dust-collection">Dust Collection Accessories</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/power-tool-accessories">Power Tool Accessories</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-tables">Router Tables</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-bits">Router Bits</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/router-accessories">Router Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/cnc-machine-accessories">CNC Machine Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/saw-blades">Saw Blades</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/saw-accessories">Saw Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/drilling-accessories">Drilling Accessories</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/drill-bits-and-drivers">Drill Bits and Drivers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/batteries-and-chargers">Batteries and Chargers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/mobile-bases">Mobile Bases</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/batteries-and-chargers">Batteries and Chargers</a></li>
+            <li><a href="http://www.rockler.com/power-tool-accessories/laser-cutters-and-engravers-accessories">Laser and Engraver Accessories</a></li>
+            <li><a href="http://www.rockler.com/wood-turning">Turning Accessories</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/woodworking-jigs">Woodworking Jigs</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/woodworking-jigs/router-jigs">Router Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/joinery-jigs">Joinery Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/table-saw-jigs">Table Saw Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/band-saw-jigs">Band Saw Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/drill-jigs">Drill Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/installation-jigs">Installation Jigs</a></li>
+            <li><a href="http://www.rockler.com/woodworking-jigs/jig-parts-kits">Jig Parts & Kits</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/clamps">Clamps</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/clamps/parallel-clamps">Parallel Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/spring-clamps">Spring Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/f-style-clamps">F-Style Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/pipe-clamps">Pipe Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/bar-clamps">Bar Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/toggle-clamps">Toggle Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/handscrew-clamps">Handscrew Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/cam-clamps">Cam Clamps</a></li>
+            <li><a href="http://www.rockler.com/clamps/clamp-racks-and-clamping-accessories">Clamp Racks and Clamping Accessories</a></li>
+            <li><a href="http://www.rockler.com/clamps/clamped-guides">Clamped Guides</a></li>
+            <li><a href="http://www.rockler.com/clamps/special-application-clamps">Special Application Clamps</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/hand-tools">Hand Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/hand-tools/hand-saws">Hand Saws</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/planes">Planes</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/scrapers">Scrapers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/rasps">Rasps</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/chisels-and-draw-knives">Chisels and Draw Knives</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/carving">Carving</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/veneering-tools">Veneering Tools</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/mallets-and-hammers">Mallets and Hammers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/screwdrivers">Screwdrivers</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/picture-framing-tools">Picture Framing Tools</a></li>
+            <li><a href="http://www.rockler.com/hand-tools/speciality-hand-tools">Speciality Hand Tools</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/wood-turning">Turning Tools</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/wood-turning/pen-turning-kits">Pen Turning Kits</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-tools">Turning Tools</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/pen-blanks">Pen Blanks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/lathe-chucks">Lathe Chucks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-accessories">Turning Accessories</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/small-turning-project-kits">Small Turning Project Kits</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/turning-blanks">Turning Blanks</a></li>     
+            <li><a href="http://www.rockler.com/wood-turning/specialty-wood-turning">Specialty Wood Turning</a></li>     
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/workshop-accessories">Workshop Accessories</a>
+          <ul class="ti-nav-ul-list">
+            <li><a href="http://www.rockler.com/workshop-accessories/workbenches-and-tops">Workbenches and Tops</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/woodworking-vises">Woodworking Vises</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/workshop-stands-legs-and-parts">Workshop Stands, Legs and Parts</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/roller-and-ball-bearing-stands">Roller and Ball Bearing Stands</a></li> 
+            <li><a href="http://www.rockler.com/workshop-accessories/bench-dogs-and-holddowns">Bench Dogs and Holddowns</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/specialty-stands">Specialty Stands</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/shop-flooring-and-anti-fatigue-floor-mats">Shop Flooring and Anti-Fatigue Floor Mats</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/organizers">Organizers</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/containers">Containers</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/task-lighting">Task Lighting</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/tool-maintenance">Tool Maintenance</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/measuring-tools">Measuring Tools</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/apparel-merchandise">Apparel & Merchandise</a></li>
+            <li><a href="http://www.rockler.com/workshop-accessories/workshop-safety">Workshop Safety</a></li>
+          </ul>
+      </li>
+      <li>
+        <a href="http://www.rockler.com/sharpening">Sharpening</a>
+        <ul class="ti-nav-ul-list">
+          <li><a href="http://www.rockler.com/sharpening/electric-sharpeners">Power Sharpeners</a></li>
+          <li><a href="http://www.rockler.com/sharpening/sharpening-stones">Whetstones</a></li>
+          <li><a href="http://www.rockler.com/sharpening/sharpening-jigs-and-guides">Sharpening Jigs and Guides</a></li>
+        </ul>
+      </li>
+    </ul>
+</div>
+            </li>
+            <li class="level0 level-top parent ti-menu-change">
+    
+                <a href='#'>Hardware</a>
+        <div class="nav-content"><ul>
+  <li>
+    <a href="http://www.rockler.com/hardware/drawer-slides">Drawer Slides</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/cabinet-drawer-slides">Drawers</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/file-slides">Files</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/shelf-slides">Shelves</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/pantry-slides">Pantries</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/door-slides">Doors</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/ball-bearing-drawer-slides">Ball Bearing</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/concealed-drawer-slides">Concealed</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/euro-drawer-slides">European</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/drawer-slide-mounts">Slide Mounts</a></li>
+        <li><a href="http://www.rockler.com/hardware/drawer-slides/slide-accessories">Accessories</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/hinges">Hinges</a>
+    <ul class="ti-nav-ul-list">
+       <li><a href="http://www.rockler.com/hardware/hinges/cabinet-hinges">Cabinet Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/furniture-hinges">Furniture Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/box-hinges">Box Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/specialty-hinges">Specialty Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/european-hinges">European Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/semi-concealed-hinges">Semi-Concealed Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/partial-wrap-shutter-hinges">Partial Wrap Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/demountable-hinges">Demountable Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/no-mortise-hinges">No-Mortise Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/butt-hinges">Butt Hinges</a></li>	   
+       <li><a href="http://www.rockler.com/hardware/hinges/piano-hinges">Piano Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/quadrant-hinges">Quadrant Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/lid-support-hinges">Lid Support Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/small-box-hinges">Small Box Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/pivot-hinges">Pivot Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/sewing-machine-hinges">Sewing Machine Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/pivot-hinges">Butler Tray Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/glass-door-hinges">Glass Door Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/concealed-hinges">Concealed Hinges</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/hinge-accessories">Hinge Accessories</a></li>
+       <li><a href="http://www.rockler.com/hardware/hinges/hinge-installation-bits">Hinge Installation Bits</a></li>	   
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/knobs-and-pulls">Knobs and Pulls</a>
+    <ul class="ti-nav-ul-list">
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/kitchen-and-bath-knobs-and-pulls">Kitchen &amp; Bath Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/furniture-knobs-and-pulls">Furniture Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/black-knobs-and-pulls">Black Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/brass-knobs-and-pulls">Brass Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/bronze-knobs-and-pulls">Bronze Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/chrome-knobs-and-pulls">Chrome Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/colored-knobs-and-pulls">Color Knobs and Pulls</a></li>	  
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/copper-knobs-and-pulls">Copper Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/glass-ceramic-knobs-and-pulls">Glass/Ceramic Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/iron-knobs-and-pulls">Iron Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/nickel-knobs-and-pulls">Nickel Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/pewter-knobs-and-pulls">Pewter Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/rust-knobs-and-pulls">Rust Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/stainless-steel-knobs-and-pulls">Stainless Steel Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/white-knobs-and-pulls">White Knobs and Pulls</a></li>
+      <li><a href="http://www.rockler.com/hardware/knobs-and-pulls/wood-knobs-and-pulls">Wood Knobs and Pulls</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/fasteners">Fasteners</a>
+    <ul class="ti-nav-ul-list">
+      <li><a href="http://www.rockler.com/hardware/fasteners/interior-screws">Interior Screws</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/exterior-screws">Exterior Screws</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/threaded-inserts">Threaded Inserts</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/knock-down-hardware">Knock-Down Hardware</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/wood-dowels-and-biscuits">Wood Dowels and Biscuits</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/nails">Nails</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/screw-caps-and-plugs">Screw Caps and Plugs</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/speciality-fasteners">Speciality Fasteners</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/machine-screws-nuts-and-bolts">Machine Screws, Nuts and Bolts</a></li>
+      <li><a href="http://www.rockler.com/hardware/fasteners/escutcheon-pins">Escutcheon Pins</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/lighting">Lighting</a>
+    <ul class="ti-nav-ul-list">
+	<li><a href="http://www.rockler.com/hardware/lighting/led-lights">LED Lights</a></li>
+	<li><a href="http://www.rockler.com/hardware/lighting/workshop-lighting">Workshop Lighting</a></li>
+      <li><a href="http://www.rockler.com/hardware/lighting/cabinet-lighting">Cabinet Lighting</a></li>
+      <li><a href="http://www.rockler.com/hardware/lighting/lighting-accessories-and-switches">Lighting Accessories and Switches</a></li>
+    </ul>
+  </li>
+    <li class="">
+    <a href="http://www.rockler.com/hardware/bed-hardware">Bed Hardware</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/murphy-beds">Murphy Bed Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/platform-bed-lifts">Platform Bed Lifts</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-bases">Bed Bases</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-rails-hooks-brackets">Bed Rails, Hooks and Brackets</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-fasteners">Bed Fasteners</a></li>
+        <li><a href="http://www.rockler.com/hardware/bed-hardware/bed-accessories">Bed Accessories</a></li>
+      </ul>
+  </li>
+  <li class="">
+    <a href="http://www.rockler.com/hardware/project-hardware">Project Hardware</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/project-hardware/box-hardware">Box Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/rolling-door-hardware">Rolling Door Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/cabinet-locks-and-latches">Cabinet Locks and Latches</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/casters-and-glides">Casters and Glides</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/chair-hardware">Chair Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/entertainment-center-hardware">Entertainment Center Hardware</a></li><li><a href="http://www.rockler.com/hardware/project-hardware/table-hardware">Table Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/decorative-grille">Decorative Grille</a></li>
+		<li><a href="http://www.rockler.com/hardware/project-hardware/decorative-glass">Decorative Glass</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/casket-hardware">Casket Hardware</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/furniture-bumpers">Furniture Bumpers</a></li>
+        <li><a href="http://www.rockler.com/hardware/project-hardware/specialty-project-hardware">Specialty Project Hardware</a></li>		
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/hardware/storage-and-organization">Storage &amp; Organization</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/shelving">Shelving</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/media-and-cord-management">Media and Cord Management</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/kitchen-organization">Kitchen Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/bath-organization">Bath Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/office-organization">Office Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/closet-organization">Closet Organization</a></li>
+        <li><a href="http://www.rockler.com/hardware/storage-and-organization/workshop-organization">Workshop Organization</a></li>
+      </ul>
+  </li>
+</ul>
+</div>
+            </li>
+            <li class="level0 level-top parent ti-menu-change">
+    
+                <a href='#'>Supplies</a>
+        <div class="nav-content"><ul>
+  <li class="">
+    <a href="http://www.rockler.com/abrasives" class="">Abrasives</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sandpaper">Sandpaper</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sanding-sponges">Sanding Sponges</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/contoured-abrasives">Contoured Abrasives</a></li>
+        <li><a href="http://www.rockler.com/abrasives/hand-sanding/sanding-blocks">Sanding Blocks</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-discs">Sanding Discs</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-belts">Sanding Belts</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-wraps">Sanding Wraps</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/sanding-drums-sanding-sleeves">Sanding Sleeves and Drums</a></li>
+        <li><a href="http://www.rockler.com/abrasives/power-tool-abrasives/specialty-abrasives">Specialty Abrasives</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/adhesives">Adhesives</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/adhesives/ca-glue">CA Glue</a></li>
+        <li><a href="http://www.rockler.com/adhesives/epoxy">Epoxy</a></li>
+        <li><a href="http://www.rockler.com/adhesives/wood-glue">Wood Glue</a></li>
+        <li><a href="http://www.rockler.com/adhesives/glue-applicators">Glue Applicators</a></li>
+        <li><a href="http://www.rockler.com/adhesives/adhesive-tape">Adhesive Tape</a></li>
+        <li><a href="http://www.rockler.com/adhesives/wood-filler-and-grain-filler">Wood Filler and Grain Filler</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/finishing">Finishing</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/finishing/wood-stain">Wood Stain</a></li>
+        <li><a href="http://www.rockler.com/finishing/finish">Topcoats</a></li>
+        <li><a href="http://www.rockler.com/finishing/paint/chalk-style-paint">Chalk Style Paint</a></li>
+        <li><a href="http://www.rockler.com/finishing/paint/milk-paint">Milk Paint</a></li>
+        <li><a href="http://www.rockler.com/finishing/re-finishing">Re-Finishing</a></li>
+        <li><a href="http://www.rockler.com/finishing/specialty-finish">Specialty Finish</a></li>
+        <li><a href="http://www.rockler.com/finishing/finishing-accessories">Finishing Accessories</a></li>
+        <li><a href="http://www.rockler.com/finishing/applicators">Applicators</a></li>
+        <li><a href="http://www.rockler.com/finishing/applicators/sprayer">Sprayers</a></li>
+
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/wood-turning">Wood Turning</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/wood-turning/turning-tools">Turning Tools</a></li>  
+        <li><a href="http://www.rockler.com/wood-turning/turning-blanks">Turning Blanks</a></li> 
+        <li><a href="http://www.rockler.com/wood-turning/pen-turning-kits">Pen Turning Kits</a></li>     
+        <li><a href="http://www.rockler.com/wood-turning/pen-blanks">Pen Blanks</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/small-turning-project-kits">Small Turning Project Kits</a></li>
+        <li><a href="http://www.rockler.com/power-tools/lathes">Lathes</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/lathe-chucks">Lathe Chucks</a></li>
+        <li><a href="http://www.rockler.com/wood-turning/turning-accessories">Accessories</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/wood">Wood</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/wood/domestic-lumber">Domestic Lumber</a></li>
+        <li><a href="http://www.rockler.com/wood/exotic-lumber">Exotic Lumber</a></li>
+        <li><a href="http://www.rockler.com/wood/plywood">Plywood</a></li>
+        <li><a href="http://www.rockler.com/wood/barnwood">Barn Wood</a></li>
+        <li><a href="http://www.rockler.com/wood/wood-barrel-parts">Wood Barrel Parts</a></li>
+        <li><a href="http://www.rockler.com/wood/knife-scales">Knife Scales</a></li>
+        <li><a href="http://www.rockler.com/wood/one-of-a-kind">One of a Kind Slabs</a></li>
+        <li><a href="http://www.rockler.com/wood/one-of-a-kind-lumber">One of a Kind Lumber Specials</a></li>
+        <li><a href="http://www.rockler.com/wood/inlays">Inlays</a></li>        
+        <li><a href="http://www.rockler.com/wood/veneer">Veneer</a></li>
+        <li><a href="http://www.rockler.com/wood/edge-banding">Edge Banding</a></li>
+        <li><a href="http://www.rockler.com/wood/molding">Molding</a></li>
+        <li><a href="http://www.rockler.com/wood/corbels">Corbels</a></li>
+        <li><a href="http://www.rockler.com/wood/columns">Columns</a></li>
+        <li><a href="http://www.rockler.com/wood/bun-feet">Bun Feet</a></li>
+        <li><a href="http://www.rockler.com/wood/legs">Wooden Table Legs</a></li>
+        <li><a href="http://www.rockler.com/wood/spindles-and-pegs">Spindles and Pegs</a></li>
+        </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/metalworking">Metalworking</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/metalworking/metalworking-materials">Metalworking Materials</a></li>
+        <li><a href="http://www.rockler.com/metalworking/metalworking-tools">Metalworking Tools</a></li>
+        <li><a href="http://www.rockler.com/metalworking/metalworking-supplies">Metalworking Supplies</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/project-supplies">Project Supplies</a>
+      <ul class="ti-nav-ul-list">
+         <li><a href="http://www.rockler.com/project-supplies/custom-doors-and-drawers">Custom Doors and Drawers</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/ladders">Ladders</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/shutters">Shutters</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/project-kits">Project Kits</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/wood-branding-irons">Wood Branding Irons</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/wood-burning-tools">Wood Burning Tools</a></li>
+        <li><a href="http://www.rockler.com/project-supplies/knife-making-kits">Knife Making Kits</a></li>
+        <li><a href="http://www.rockler.com/wood/barnwood">Barn Wood</a></li>
+        <li><a href="http://www.rockler.com/wood/wood-barrel-parts">Wood Barrel Parts</a></li>
+        <li><a href="http://www.rockler.com/wood/knife-scales">Knife Scales</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="http://www.rockler.com/woodworking-media">Media</a>
+      <ul class="ti-nav-ul-list">
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-books">Woodworking Books</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-plans">Woodworking Plans</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-software">Woodworking Software</a></li>
+        <li><a href="http://www.rockler.com/woodworking-media/woodworking-videos">Woodworking Videos</a></li>
+         <li><a href="http://www.rockler.com/woodworking-media/woodworking-magazines">Woodworking Magazines</a></li>
+      </ul>
+  </li>
+</ul>
+</div>
+            </li>
+            <li class="level0 level-top">
+    
+            <a href='http://www.rockler.com/shop-by-brand/rockler-innovations'>Only @ Rockler</a>
+                </li>
+            <li class="level0 level-top">
+    
+            <a href='http://www.rockler.com/new-products'>New Products</a>
+                </li>
+            <li class="level0 level-top">
+    
+            <a href='http://www.rockler.com/rockler-promotions/current-promotions'>Deals</a>
+                </li>
+            <li class="level0 level-top">
+    
+            <a href='http://www.rockler.com/outlet'>Outlet</a>
+                </li>
+    <li id="ti-order" class="level0 level-top parent last">
+        <a href="" onclick="toggleQuickOrder(); return false">Quick Order<span></span></a>
+        <div class="nav-content">
+            <div class="block-content">
+                <form  action="http://www.rockler.com/checkout/cart/advancedAdd/" method="post" class="background">
+                        <input name="form_key" type="hidden" value="5Cxuq6xYOzZ1Awct" />
+                    <div class="quick-order-table">
+                        <div class="header">
+                            <span id="title">Quick Order</span><div>
+                                <span>Item Number</span>
+                                <span>Qty</span>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div>
+                                <input type="text" name="items[0][sku]">
+                                <input type="text" name="items[0][qty]">
+                            </div>
+                            <div>
+                                <input type="text" name="items[1][sku]">
+                                <input type="text" name="items[1][qty]">
+                            </div>
+                            <div>
+                                <input type="text" name="items[2][sku]">
+                                <input type="text" name="items[2][qty]">
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="quick-order-info">
+                        <div class="add-more">
+                            <a href="" onclick="addRow(); return false;">Add More</a>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" title="Add to Cart" class="button btn-add_to_cart">Add to Cart</button>
+                            <a href="" class="close-link" onclick="toggleQuickOrder(); return false"></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </li>
+</ul>
+    <script type="text/javascript">
+        function addRow() {
+
+            jQuery('')
+            if ( typeof addRow.lastRow == 'undefined' ) {
+                addRow.lastRow = 2;
+            }
+            ++addRow.lastRow;
+            var rowHtml = '<div><input style="margin-right: 8px;" type="text" name="items[' + addRow.lastRow + '][sku]"><input type="text" name="items[' + addRow.lastRow + '][qty]"></div>';
+            jQuery('.quick-order-table').find('.items').append(rowHtml);
+        }
+
+
+
+        function toggleBlock(event){
+
+            var speed=600,
+                originalHeight=0,
+                hoverHeight;
+
+                jQuery(window).resize(function (e) {
+
+
+                    if(jQuery(window).width() < 1159){
+                        hoverHeight=391;
+                    }else{
+                        hoverHeight=448;
+                    }
+
+                    if(jQuery('.block-nav').height() == 0){
+                        console.log(0);
+                        jQuery('.block-nav').stop().animate({height:hoverHeight},speed);
+                    }else{
+                        console.log(1);
+                        jQuery('.block-nav').stop().animate({height:originalHeight},speed);
+                    }
+
+                });
+
+                if(jQuery(window).width() < 1159){
+                    hoverHeight=391;
+                }else{
+                    hoverHeight=448;
+                }
+
+                if(jQuery('.block-nav').height() == 0){
+                    console.log(0);
+                    jQuery('.block-nav').stop().animate({height:hoverHeight},speed);
+                }else{
+                    console.log(1);
+                    jQuery('.block-nav').stop().animate({height:originalHeight},speed);
+                }
+
+        }
+             
+
+        jQuery(document).on('click', function(e) {
+            if(jQuery('body').hasClass('cms-home') !== true){
+                if (!jQuery(e.target).closest("#ti-nav-wrap").length) {
+                    jQuery('.block-nav').stop().animate({height:0},600);
+                }
+            } 
+            e.stopPropagation();
+        });
+
+
+        jQuery(document).ready(function(){
+
+            jQuery('.nav-content ul li a').hover(function(){
+
+                var $height = jQuery(this).parent().parent().parent().height();
+                var $width = jQuery(this).parent().parent().parent().width();
+                var $next = jQuery(this).next().css({'min-height' : $height, 'min-width': $width});
+                // console.log($height);
+            });
+
+            jQuery('.wrap-tabmenu .block-nav li, #ti-sidewrap .block-nav li').hover(function(){
+
+                jQuery(this).toggleClass('over');    
+                jQuery(this).find('.nav-content').toggleClass('shown-sub');    
+
+
+            });
+
+        });
+
+</script>
+</div>
+
+
+
+
+<div id="hp-hero-block">
+
+
+
+</div>
+
+ 
+
+
+<div class="grid12-12" style="clear:both;"></div>
+
+</div></div>
+                
+<div class="widget widget-static-block"><div class="media desktop tablet"> 
+	<div class="grid12-full" style="padding-top: 25px"><a href="/shop-by-brand/rockler-innovations"><img src="http://assets.rockler.com/media/wysiwyg/Home/onlyat-ban.png" alt="Only at Rockler" /></a> </div>
+
+<div class="grid12-full">
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/rockler-bandy-clamps"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar1-3-8.png"></a></div>
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/carbide-mini-turning-tool-3-piece-set"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar2-3-8.png"></a></div>
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/rockler-3-piece-silicone-glue-application-kit"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar3-3-8.png"></a></div>
+
+<div class="grid12-full" style="clear:both"></div>
+<div class="grid12-full" style="margin-top:10px;">
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/dust-right-4-hose-handle-docking-port-kit"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar4-3-8.png"></a></div>
+
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/rockler-t-track-corner-stop"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar5-3-8.png"></a></div>
+
+<div class="grid12-4" style="float:left; padding-top:5px"><a href="/rockler-router-bit-storage-inserts-10-pack"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar6-3-8.png"></a></div>
+
+</div>
+</div>
+<div class="grid12-full" style="clear:both"></div>
+<div class="grid12-full" style="color:#005d7d; font-size:1.5em; margin-top:10px; font-family:BitterBold; text-align:right; text-decoration:underline; padding-right:20px"><a href="/shop-by-brand/rockler-innovations">SHOP ALL ROCKLER PRODUCTS</a></div>
+</div>
+
+
+<div class="media mobile"> 
+<div class="grid12-full" style="padding-top: 25px"><a href="/shop-by-brand/rockler-innovations"><img src="http://assets.rockler.com/media/wysiwyg/Home/onlyat-ban.png" alt="Only at Rockler" /></a> </div>
+
+
+<div style=" width:49%; float:left; padding-top:5px; padding-right:5px;"><a href="/rockler-bandy-clamps"><img src="http://assets.rockler.com/media/wysiwyg/Home/oarsave1.jpg"></a></div>
+
+<div style=" width:49%; float:left; padding-top:5px"><a href="/carbide-mini-turning-tool-3-piece-set"><img src="http://assets.rockler.com/media/wysiwyg/Home/oarsave2.jpg"></a></div>
+
+<div class="grid12-full" style="clear:both"></div>
+
+<div style=" width:49%; float:left; padding-top:5px; padding-right:5px;"><a href="/rockler-3-piece-silicone-glue-application-kit"><img src="http://assets.rockler.com/media/wysiwyg/Home/oarsave3.jpg"></a></div>
+
+
+<div style=" width:49%; float:left;  padding-top:5px;"><a href="/dust-right-4-hose-handle-docking-port-kit"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar4.jpg"></a></div>
+
+
+<div class="grid12-full" style="clear:both"></div>
+
+<div style=" width:49%; float:left; padding-top:5px; padding-right:5px;"><a href="/rockler-t-track-corner-stop"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar5.jpg"></a></div>
+
+<div style=" width:49%; float:left; padding-top:5px;"><a href="/rockler-router-bit-storage-inserts-10-pack"><img src="http://assets.rockler.com/media/wysiwyg/Home/oar6.jpg"></a></div>
+
+
+<div class="grid12-full" style="clear:both"></div>
+
+
+
+<div class="grid12-full" style="color:#005d7d; font-size:1em; margin-top:10px; font-family:BitterBold; text-align:center; text-decoration:underline; padding-right:20px"><a href="/shop-by-brand/rockler-innovations">SHOP ALL ROCKLER PRODUCTS</a></div>
+<div class="grid12-full" style="clear:both"></div>
+</div>
+
+</div>
+
+<div class="widget widget-static-block"><style>
+/* ColorBox Core Style
+-------------------------------------------------------------- */
+ #colorbox, #cboxOverlay, #cboxWrapper {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:9999;
+    overflow:hidden;
+}
+#cboxOverlay {
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear:left;
+}
+#cboxContent {
+    position:relative;
+}
+#cboxLoadedContent {
+    overflow:auto;
+}
+#cboxTitle {
+    margin:0;
+}
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor:pointer;
+}
+.cboxPhoto {
+    float:left;
+    margin:auto;
+    border:0;
+    display:block;
+    max-width:none;
+}
+.cboxIframe {
+    width:100%;
+    height:100%;
+    display:block;
+    border:0;
+}
+#colorbox, #cboxContent, #cboxLoadedContent {
+    box-sizing:content-box;
+}
+/* ColorBox skin.
+   The following styles are ordered & tabbed
+   in a way that represents the nesting of the generated HTML.
+-------------------------------------------------------------- */
+ #cboxOverlay {
+    background:url(http://assets.rockler.com/skin/frontend/responsive/default/images/responsive/_shared/colorbox/overlay.png) repeat 0 0;
+}
+#colorbox {
+}
+#cboxContent {
+    background:#fff;
+    overflow:hidden;
+    border:none;
+    /*10px solid #333*/
+    padding:10px;
+}
+.cboxIframe {
+    background:#fff;
+}
+#cboxError {
+    padding:50px;
+    border:1px solid #ccc;
+}
+#cboxLoadedContent {
+    margin-bottom:40px;
+    /*10px above buttons*/
+}
+#cboxTitle {
+    position:absolute;
+    bottom:17px;
+    left:0;
+    text-align:center;
+    width:100%;
+    color:#999999;
+}
+#cboxCurrent {
+    position:absolute;
+    bottom:17px;
+    left:80px;
+    color:#999999;
+}
+#cboxSlideshow {
+    position:absolute;
+    bottom:4px;
+    right:30px;
+    color:#0092ef;
+}
+#cboxPrevious, #cboxNext {
+    position:absolute;
+    background:url(http://assets.rockler.com/skin/frontend/responsive/default/images/responsive/_shared/slider-arrows.png) no-repeat #ddd;
+    width:30px;
+    height:30px;
+    text-indent:-9999px;
+}
+#cboxPrevious:hover, #cboxNext:hover {
+    background-color:#333;
+}
+#cboxPrevious {
+    bottom:10px;
+    left:10px;
+    background-position:-10px -10px;
+}
+#cboxPrevious:hover {
+    background-position:-10px -60px;
+}
+#cboxNext {
+    bottom:10px;
+    left:40px;
+    background-position:-60px -10px;
+}
+#cboxNext:hover {
+    background-position:-60px -60px;
+}
+#cboxLoadingOverlay {
+    background:url(http://assets.rockler.com/skin/frontend/responsive/default/images/responsive/_shared/colorbox/loading_background.png) no-repeat center center;
+}
+#cboxLoadingGraphic {
+    background:url(http://assets.rockler.com/skin/frontend/responsive/default/images/responsive/_shared/colorbox/loading.gif) no-repeat center center;
+}
+#cboxClose {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    background:url(http://assets.rockler.com/skin/frontend/responsive/default/images/responsive/_shared/close-button.png) -10px -10px no-repeat #ddd;
+    width:30px;
+    height:30px;
+    text-indent:-9999px;
+}
+#cboxClose:hover {
+    background-position:-10px -60px;
+    background-color:#333;
+}
+#cboxNext, #cboxPrevious, #cboxClose {
+    transition: background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -moz-transition: background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -webkit-transition: background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -o-transition: background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+}
+       
+
+.ctabutton{
+    background-color: #005d7d;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius:10px;
+    padding: 12px;
+    color: #fff;
+    font-family: 'MeriweatherSansRegular';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+	box-shadow: 3px 3px 1px #777;
+}
+
+
+
+.ctabutton:hover {
+    border: none;
+    background:#b05c23;
+    box-shadow: 0px 0px 1px #777;
+    color: #fff;
+}         
+</style>
+
+<div class="grid12-full">
+
+<div class="grid12-6">
+<div class="grid12-full" style="background-color:#005d7d; color:white; font-size:4em; margin-top:10px; font-family:DukeFill;text-align:center"><a href="/skill-builders">Skill Builders</a></div>
+
+<div class="grid12-full" style="margin-top:15px"><a href="/dust-collection-solutions"><img src="http://assets.rockler.com/media/wysiwyg/Home/dstest.jpg"></a></div>
+
+<div class="grid12-full" style="margin-top:10px">
+<div class="grid12-6" style="margin-top: 15px;"><a rel=0 videoWidth="680" videoHeight="495" class="rw-product-video lightbox-group-video" title="Router Bits for Beginners " href="//www.youtube.com/embed/TL6T1rYh-CA?rel=0" frameborder="0"> <img src="http://assets.rockler.com/media/wysiwyg/skill-builders/sb-TL6T1rYh-CAtest.jpg" alt="Router Bits for Beginners" /> </a></div>
+<div class="grid12-6" style="margin-top: 15px;"><a rel=0 videoWidth="680" videoHeight="495" class="rw-product-video lightbox-group-video" title="Making Cove Cuts with a Table Saw" href="//www.youtube.com/embed/chDrJpzPMPg?rel=0" frameborder="0"> <img src="http://assets.rockler.com/media/wysiwyg/skill-builders/sb-chDrJpzPMPgtest.jpg" alt="Making Cove Cuts with a Table Saw" /> </a></div>
+</div>
+
+<div class="grid12-full" style="margin-top:10px">
+<div class="grid12-6" style="margin-top: 15px;"><a rel=0 videoWidth="680" videoHeight="495" class="rw-product-video lightbox-group-video" title="Upgrade Your Miter Gauge" href="//www.youtube.com/embed/_TWh4n5FFfU?rel=0" frameborder="0"> <img src="http://assets.rockler.com/media/wysiwyg/skill-builders/sb-_TWh4n5FFfUtest.jpg" alt="Upgrade Your Miter Gauge" /> </a></div>
+<div class="grid12-6" style="margin-top: 15px;"><a rel=0 videoWidth="680" videoHeight="495" class="rw-product-video lightbox-group-video" title="Introduction to Clamps" href="//www.youtube.com/embed/J5YYN-pkMAw?rel=0" frameborder="0"> <img src="http://assets.rockler.com/media/wysiwyg/skill-builders/sb-J5YYN-pkMAwtest.jpg" alt="Introduction to Clamps" /> </a></div>
+</div>
+
+<div class="grid12-full" style="color:#005d7d; font-size:1.5em; margin-top:10px; font-family:BitterBold; text-align:right; text-decoration:underline; padding-right:20px"><a href="/skill-builders/videos">Watch More Skill Builder Videos >></a></div>
+</div>
+<div class="grid12-6">
+  <div class="grid12-full" style="background-color:#005d7d; color:white; font-size:4em; margin-top:10px; font-family:DukeFill;text-align:center"><a href="/customer-projects">Customer Projects</a></div>
+  <div class="grid12-full" style="margin-top:10px"><a href="/customer-projects"><img src="http://assets.rockler.com/media/wysiwyg/Home/custprojectsboxtest.jpg" alt="" /></a> </div>
+</div>
+
+
+<div class="grid12-full" style="clear:both"></div>
+
+<script type="text/javascript">
+        //<![CDATA[
+        (function($) {
+            $(function() {
+                $(".lightbox-group-video").colorbox({
+                    iframe: true,
+                    rel:        'lightbox-group-video',
+                    opacity:	0.5,
+                    speed:		300,
+                    current:	'Video {current} of {total}',
+                    innerWidth: 680,
+                    innerHeight:495                });
+            });
+        })(jQuery);
+        //]]>
+    </script></div>
+
+<div class="widget widget-static-block"><div class="media desktop tablet" style="background-color:#FFF">
+<div style="background-color:#FFF">
+<div class="grid12-full" style="padding-bottom:15px; padding-top:15px;" ><a href="http://www.rockler.com/gift-cards"><img src="http://assets.rockler.com/media/wysiwyg/Landings/Giftcards/gctest.jpg" alt="" /></a></div>
+</div></div>
+
+<div class="media mobile">
+<div style="background-color:#FFF">
+<div class="grid12-full" style="padding-bottom:15px; padding-top:15px;" ><a href="http://www.rockler.com/gift-cards"><img src="http://assets.rockler.com/media/wysiwyg/Landings/Giftcards/gctest.jpg" alt="" /></a></div>
+</div></div>
+
+
+</div></div><div id="map-popup" class="map-popup" style="display:none;">
+    <a href="#" class="map-popup-close" id="map-popup-close">x</a>
+    <div class="map-popup-arrow"></div>
+    <div class="map-popup-heading"><h2 id="map-popup-heading"></h2></div>
+    <div class="map-popup-content" id="map-popup-content">
+        <div class="map-popup-checkout">
+            <form action="" method="POST" id="product_addtocart_form_from_popup">
+                <input type="hidden" name="product" class="product_id" value="" id="map-popup-product-id" />
+                <div class="additional-addtocart-box">
+                                    </div>
+                <button type="button" title="Add to Cart" class="button btn-cart" id="map-popup-button" data-sku="N/A" ><span><span>Add to Cart</span></span></button>
+            </form>
+        </div>
+        <div class="map-popup-msrp" id="map-popup-msrp-box"><strong>Price:</strong> <span style="text-decoration:line-through;" id="map-popup-msrp"></span></div>
+        <div class="map-popup-price" id="map-popup-price-box"><strong>Actual Price:</strong> <span id="map-popup-price"></span></div>
+        <script type="text/javascript">
+        //<![CDATA[
+            document.observe("dom:loaded", Catalog.Map.bindProductForm);
+        //]]>
+        </script>
+    </div>
+    <div class="map-popup-text" id="map-popup-text">Our price is lower than the manufacturer's &quot;minimum advertised price.&quot;  As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+    <div class="map-popup-text" id="map-popup-text-what-this">Our price is lower than the manufacturer's &quot;minimum advertised price.&quot;  As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+</div>
+                    </div>
+
+                                    </div>
+            </div>
+            
+    <!-- SLI footer starts -->
+        <div class="page-footer">
+        <div class="footer-main tan-fabric">
+            <div class="stitches"></div>
+            <div class="container">
+                <ul class="footer-columns">
+                    <li>
+                        <dl>
+                            <dt>Customer care</dt>
+<dd><a href="http://www.rockler.com/customer-service/support/">Customer Service</a></dd>
+<dd><a href="http://www.rockler.com/customer-service/faq-ordering/">FAQ's</a></dd>
+<dd><a href="http://www.rockler.com/retail/">Find a Store</a></dd>
+<dd><a href="http://www.rockler.com/order-status/">Order Status Lookup</a></dd>
+<dd><a href="http://go.rockler.com/wishlist/index.cfm" target="_blank">Wish List Lookup</a></dd>
+<dd><a href="http://www.rockler.com/financing" target="_blank">Special Financing</a></dd>
+<dd><a href="http://www.rockler.com/persistent/index/unsetCookie/">Log Out</a></dd>
+<br />
+<dt>Product Info</dt>
+<dd><a href="http://www.rockler.com/promo-codes/">Promotions</a></dd>
+<dd><a href="/shop-by-brand">Shop By Brand</a></dd>
+<dd><a title="Search SDS" href='javascript:window.open("http://go.rockler.com/MSDS.cfm", "_blank", "width=500,height=600,menubar=no,toolbar=no"), undefined;'>Search SDS</a></dd>
+<dd><a href="http://www.rockler.com/recalls/">Recalls</a></dd>
+                            <dt class="clear"></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>Company Info</dt>
+<dd><a href="http://www.rockler.com/about-rockler/">About Rockler</a></dd>
+<dd><a href="http://www.rockler.com/customer-service/support/">Contact Us</a></dd>
+<dd><a href="http://www.rockler.com/careers/">Careers</a></dd>
+<dd><a href="http://www.rockler.com/how-to/">How-To Articles</a></dd>
+<dd><a href="http://www.rockler.com/privacy-policy/">Privacy Policy</a></dd>
+<dd><a href="http://www.rockler.com/news/">Rockler News</a></dd>
+<dd><a href="http://www.rockler.com/catalog/seo_sitemap/category/">Sitemap</a></dd>
+<br />
+<dt>Special Programs</dt>
+<dd><a href="http://affiliates.rockler.com/" target="_blank">Affiliate Program</a></dd>
+<dd><a href="http://www.rockler.com/content-partnership-program/">Content Partnership</a></dd>
+<dd><a href="http://www.rockler.com/maker-space-program/">Maker Space Application</a></dd>
+<dd><a href="http://www.rockler.com/school-program/">School Discounts</a></dd>
+
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="social-icons">
+                                        <dt>Follow us online</dt>
+            <dd><a class="facebook icon"    href="http://facebook.com/Rockler" target="_blank"></a></dd>
+            <dd><a class="twitter icon"     href="http://twitter.com/Rockler" target="_blank"></a></dd>
+            <dd><a class="google icon"      href="https://plus.google.com/117724620620191934208/posts" target="_blank"></a></dd>
+            <dd><a class="pinterest icon"   href="http://pinterest.com/Rockler" target="_blank"></a></dd>
+            <dd><a class="youtube icon"     href="http://www.youtube.com/RocklerWoodworking" target="_blank"></a></dd>
+            <dd><a class="instagram icon"   href="http://instagram.com/rockler_woodworking/" target="_blank" style="font-size:.96em"></a></dd>
+            <dd><a class="email icon"       href=""></a></dd>
+                            </dl>
+                    </li>
+                    <li>
+                        <h5>Email Exclusives</h5>
+                        
+<div id="subscribe-form" class="clearer">
+    <form action="https://www.rockler.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+        <div>
+            <label for="newsletter">Newsletter</label>
+            <div class="input-box">
+                <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" />
+            </div>
+            <button type="submit" title="Subscribe" class="button btn-inline"><span><span>Subscribe</span></span></button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    new Varien.searchForm('newsletter-validate-detail', 'newsletter', 'Enter your email address');
+//]]>
+</script>
+                        <h5>Free catalog request</h5>
+<p><a href='javascript:window.open("http://go.rockler.com/catalog.cfm", "_blank", "width=550,height=600,menubar=no,toolbar=no,scrollbars=yes"), undefined;'>Click here to get our free catalog by mail.</a></p>
+        
+                        <div class="security-signs">
+                            <p><a href="/customer-service/faq-ordering/#security"><img src="http://assets.rockler.com/skin/frontend/responsive/rockler/images/norton.png" alt="Norton SECURED, powered by VeriSign" /></a><a href="/customer-service/faq-ordering/#security"><img src="http://assets.rockler.com/skin/frontend/responsive/rockler/images/security.png" alt="We Care About Your Security" /></a><div id="GTS_Rockler"></div></p>                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom blue-fabric">
+            <div class="container">
+                <ul class="footer-columns">
+                    <li class="copyright">
+                        <small>Copyright &copy; <script type="text/javascript">
+var d = new Date();
+document.write(d.getFullYear())
+</script> Rockler Companies, Inc.</small>
+                    </li>
+                    <li class="footer-logo">
+                        <img src="http://assets.rockler.com/skin/frontend/responsive/rockler/images/bottom-logo.png" alt="Rockler">
+                    </li>
+                    <li class="bottom-links">
+                        <ul>
+                            <li>800.279.4441</li>
+<li><a href="mailto:info@rockler.com">info@rockler.com</a></li>
+<li><a href="http://www.rockler.com/privacy-policy/">Privacy Policy</a></li>
+                            </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+//<![CDATA[
+(function($) {
+    $(function() {
+
+                        function setGridItemsEqualHeight()
+        {
+            var SPACING = 20;
+            if ($(window).width() >= 480){
+                $('.category-products-grid').removeClass("auto-height");
+
+                var gridItemMaxHeight = 0;
+                $('.category-products-grid > .item').each(function() {
+                    $(this).css("height", "auto");
+
+                    ////////////////////////////////////////////////////////////////
+                                        var actionsHeight = $(this).find('.actions').height();
+                    $(this).css("padding-bottom", (actionsHeight + SPACING) + "px"); //Set new padding
+                                        ////////////////////////////////////////////////////////////////
+
+                    gridItemMaxHeight = Math.max(gridItemMaxHeight, $(this).height());
+                });
+
+                //Apply max height
+                $('.category-products-grid > .item').css("height", gridItemMaxHeight + "px");
+
+            }else{
+                $('.category-products-grid').addClass("auto-height");
+                $('.category-products-grid > .item').css("height", "auto");
+                $('.category-products-grid > .item').css("padding-bottom", "20px");
+            }
+        }
+        
+
+        var cartToggle = (function(time){
+            var selector = '#mini-cart .block';
+            var opened = false;
+            var timeout;
+            return function cartToggle()
+            {
+                if(opened)
+                {
+                    opened = false;
+                    $(selector).stop(true, true).slideUp('slow');
+                    clearTimeout(timeout);
+                }
+                else
+                {
+                    if($(selector).css('display') != 'none')
+                        return;
+
+                    opened = true;
+                    $(selector).stop(true, true).slideDown('slow');
+                    timeout = setTimeout(cartToggle,time);
+                }
+            }
+        })(30000);
+
+        var activeItemCount = 0;	//Amount of active list items (used to determine when to show/hide li in menu)
+        var menuDelay = 350; 	//Delay time for menu switching open and close
+        var activeItemTimer = 0;
+
+        /**
+         *	Determine if given element is the
+         *	top level of the mega menu
+         */
+        function isTopLevel(e)
+        {
+            var value = false;
+
+            if(e.hasClass('level0'))
+            {
+                value = true;
+            }
+
+            return value;
+        }
+
+        /**
+         *	Handle adding and subtracting from active list item count
+         *	Also correct negative integer counts if encountered
+         */
+        function activeLiCount(action)
+        {
+            switch(action)
+            {
+                case '++':
+                    activeItemCount++;
+                    break;
+                case '--':
+                    if(activeItemCount <= 0)
+                    {
+                        activeItemCount = 0;
+                    }
+                    else
+                    {
+                        activeItemCount--;
+                    }
+
+                    break;
+            }
+        }
+
+        /**
+         *	Mega menu delay functionality
+         *	Keep count of all list items hovered over.
+         *	When the count gets back down to 1, show that element.
+         */
+        $("#nav li").hover(function() {
+            activeLiCount('++'); //increment the count on all hovers (used to avoid closing targeted li)
+            var listItem = $(this); //helps keep active object in scope with timers
+
+            if(isTopLevel(listItem)) //If this the top level "Shop Our Products" li
+            {
+                //This timer is canceled if the li is left in less than 500ms
+                listItem.data('holdon', setTimeout( function()
+                {
+                    listItem.find("> ul")
+                        .stop(true, true)
+                        .addClass('FadeIn');
+
+                    activeLiCount('--');
+                    return;
+                }, menuDelay));
+            }
+            else
+            {
+                setTimeout( function() {
+                    if(activeItemCount == 1) //If the count is equal to 1 show this element.
+                    {
+                        listItem.find("> ul")
+                            .stop(true, true)
+                            .addClass('FadeIn');
+
+                        activeLiCount('--'); //Set the count back to 0
+                    }
+                    else
+                    {
+                        activeLiCount('--'); //We are not going to show this element. Remove it from the count.
+                        return;
+                    }
+                }, menuDelay);
+            }
+        },
+        function() {    //mouseout
+
+            var listItem = $(this); //helps keep active object in scope with timers
+
+            if ($(this).data('holdon') > 1) //Check if top level timer is running. If it is, stop it and clear timer.
+            {
+                clearTimeout($(this).data('holdon'));
+                activeLiCount('--');
+            }
+
+            if(isTopLevel(listItem))
+            {
+                listItem.find("> ul")
+                    .stop(true, true)
+                    .removeClass('FadeIn');
+                return;
+            }
+
+            setTimeout(function() {
+                if(listItem.hasClass('over')) //Do not close active element
+                {
+                    return;
+                }
+
+                listItem.find("> ul")
+                    .stop(true, true)
+                    .removeClass('FadeIn');
+            }, menuDelay);
+        });
+
+        // checkout mini cart messages
+        function checkForMiniCartMessages() {
+            var regexp = /cart/i;
+
+            
+                if (($('.messages .success-msg span').length && regexp.test($('.messages .success-msg span').html()) && $(window).width() < 767)
+                || ($(window).width() > 767 && $('.groped-product-block').length > 0)) {
+                // cartToggle();
+                // $('#messages_product_view .messages').show();
+                }
+                if($('.groped-product-block').length > 0) {
+                    // $('.catalog-product-view .messages').show();
+                }
+
+        }
+
+                $("#mini-cart .link-title").click(cartToggle);
+        $("#mini-cart .close-icon").click(cartToggle);
+        $("#mini-cart #mini-cart-continue-shopping").click(cartToggle);
+
+            checkForMiniCartMessages();
+
+        if($(window).width() < 767){
+            $('#messages_product_view .messages').show();
+            $('.mpopup-overlay').hide();
+        }
+
+        $(window).resize(function(){
+            if($(window).width() < 767){
+                $('.mpopup-overlay').hide();
+                $('#cartmodal').hide();
+                $('#messages_product_view .messages').show();
+                // console.log(1);
+            }else{
+                $('.mpopup-overlay').show();
+                $('#cartmodal').show();
+                $('#messages_product_view .messages').hide();
+                // console.log(2);
+            }
+        });
+        
+
+                $(".dropdown-button").mouseenter(function () {
+            $(this).click();
+        });
+        $(".dropdown-button").click(function () {
+            $(this).addClass('hover');
+            var el = $(this).find("ul");
+            if ($(window).width() >= 480)
+                el.stop(true, true).delay(300).fadeIn(500, "easeOutCubic");
+            else
+                el.show();
+
+            //Positionning
+            var x = el.offset().left;
+            if (x < 0) {
+                var space = $(this).offset().left;
+                el.css("left", (-1) * space);
+                el.css("right", "auto");
+            }
+        }).mouseleave(function () {
+                var el = $(this).find("ul");
+                if ($(window).width() >= 480)
+                    el.stop(true, true).delay(300).fadeOut(500, "easeInCubic");
+                else
+                    el.hide();
+                el.css("left", "");
+                el.css("right", "");
+            });
+
+                $(window).scroll(function(){
+            if ($(this).scrollTop() > 100){
+                $('#scroll-to-top').fadeIn();
+            }else{
+                $('#scroll-to-top').fadeOut();
+            }
+        });
+
+        $('#scroll-to-top').click(function(){
+            $("html, body").animate({scrollTop: 0}, 600, "easeOutCubic");
+            return false;
+        });
+
+                
+                $('.category-products-grid > .item').hover(function() {
+            $(this).find(".display-onhover").fadeIn(400, "easeInCubic");
+        }, function() {
+            $(this).find(".display-onhover").hide();
+        });
+
+        
+        /* On resize */
+        var t;
+        $(window).resize(function() {
+            clearTimeout(t);
+            t = setTimeout(function() {
+
+                                                setGridItemsEqualHeight($);
+                
+                                $('.itemslider').each(function(index){
+                    var s = $(this).data('flexslider');
+                    if (s != null) s.flexAnimate(0);
+                });
+
+            }, 100);
+        });
+
+                setGridItemsEqualHeight();
+            });
+})(jQuery);
+//]]>
+</script>    <div id="popup-modal-bg" style="display: none;">
+    <div id="popup-modal" style="display: none;">
+        <div id="popup-modal-title">
+            <span>Loading...</span>
+            <a id="popup-modal-close"></a>
+        </div>
+        <div id="popup-modal-content">
+             <div id="popup-modal-loader"></div>
+             <p class="clearer"></p>
+             <div id="popup-modal-bottom"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    	jQuery( document ).ready( function() {
+                jQuery( '#popup-modal-close' ).click( function() {
+    		     jQuery('body').removeClass('modal-open');
+    		     jQuery('#popup-modal-title span').html('Loading...');
+                 jQuery('#popup-modal-content').html('<div id="popup-modal-loader"><p class="clearer"></p></div><div id="popup-modal-bottom"></div>');
+    		     jQuery('#popup-modal-bg').toggle();
+    		     jQuery('#popup-modal').toggle();
+                });
+    	});
+</script>    <!-- SLI footer ends -->
+
+            <!--{BRONTO_CART_RECOVERY_7811882f377ebb76671dd1571cd0c230}-->
+<script data-name="__br_tm" type="text/javascript">
+  var _bsw = _bsw || [];
+  _bsw.push(['_bswId', '8b84564792e3d95b6a17eaa4bb85712f1aaa396b05dfb2c9c74c5aed0ac38bf8']);
+  (function() {
+    var bsw = document.createElement('script'); bsw.type = 'text/javascript'; bsw.async = true;
+    bsw.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'js.bronto.com/c/6w6kpoxs5qxfig87pkfi14fdsbkhgnvt3m3o1hqh7hsap9mt18/8b84564792e3d95b6a17eaa4bb85712f1aaa396b05dfb2c9c74c5aed0ac38bf8/s/b.min.js';
+    var t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(bsw, t);
+  })();
+</script>
+<!--/{BRONTO_CART_RECOVERY_7811882f377ebb76671dd1571cd0c230}-->
+<script bronto-popup-id="be90952c-76ae-4fd9-9af6-729afdbcd63b" src="https://cdn.bronto.com/popup/delivery.js"></script>
+<script type="text/javascript">
+if (document.addEventListener) {
+  document.addEventListener('bronto:popup-submitted', function(e) {
+    new Ajax.Request('http://www.rockler.com/btnewsletter/index/submit/', {
+      method: 'post',
+      parameters: { emailAddress: e.detail.email }
+    });
+  }, false);
+}
+</script>
+
+
+<script type="text/javascript" src="//p.bm23.com/bta.js"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    var bta = new __bta('8a13fd25698aabdbaf2942154d661a30');
+    //]]>
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    // Handle Magento Email Fields
+    Event.observe(window, 'load', function() {
+        $$('input.validate-email').each(function(item) {
+            item.observe('change', function(event) {
+                captureEmail(item.value);
+            });
+        });
+    });
+
+    // Handle Popup Event
+    if (document.addEventListener) {
+        document.addEventListener('bronto:popup-created', function(e) {
+            $$('.popup-dialog input[id*=inputs-email]').each(function(item) {
+                item.observe('change', function(event) {
+                    captureEmail(item.value);
+                });
+            });
+        }, false);
+    }
+
+    // Trigger AJAX call to capture Email Address
+    function captureEmail(emailAddress) {
+        var targetUrl = 'http://www.rockler.com/emailcapture/index/capture/';
+        new Ajax.Request(targetUrl, {
+            method: 'post',
+            parameters: {emailAddress: emailAddress}
+        });
+    }
+    //]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Enterprise.Wishlist.list = [];
+if (!Enterprise.Wishlist.url) {
+    Enterprise.Wishlist.url = {};
+}
+Enterprise.Wishlist.url.create = 'https://www.rockler.com/wishlist/index/createwishlist/';
+Enterprise.Wishlist.canCreate = false;
+//]]>
+</script>
+
+<script type="text/javascript">
+var slibaseurlsearch = 'http://www.rockler.com/search/go';
+var slibaseurl = 'www.rockler.com';
+</script>
+   <script type="text/javascript"> 
+        var sli_uuid = ""; 
+        var sli_sid = ""; 
+        </script> 
+<script>racsite = "rockler";</script>
+<script type="text/javascript" src="//rockler.resultspage.com/autocomplete/sli-rac.config.js"></script>
+<script type="text/javascript">
+var google_tag_params = {
+	ecomm_pagetype: 'home'
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1072718600;
+var google_conversion_label = "PRFuCNjw2wEQiMbB_wM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072718600/?value=0&amp;label=PRFuCNjw2wEQiMbB_wM&amp;guid=ON&amp;script=0&amp"/>
+</div>
+</noscript>        </div>
+        <!-- off-canvas nav inserted here via responsive.js -->
+    </div>
+</div>
+<script src="https://cdn.bronto.com/bba/bba.js" data-bbaid="a5770032-78ca-45a1-80b2-a3361b14d3b2" async></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e956b7682b","applicationID":"33502167,85982782","transactionName":"NV1SbUFWXEQCVUVeCgwXcVpHXl1ZTEZQUAABWVNRVhhAUhJDVEQRTUhCVlBSQUQ=","queueTime":0,"applicationTime":56,"atts":"GRpRGwlMT0o=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

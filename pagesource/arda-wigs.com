@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.arda-wigs.com/">redirected</a>.</body></html>

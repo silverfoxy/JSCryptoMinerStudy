@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://www.thebostoncalendar.com/">redirected</a>.</body></html>

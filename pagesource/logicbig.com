@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head><link type="text/css" rel="stylesheet" href="javax.faces.resource/theme.cssab55.css?ln=primefaces-aristo" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/primefaces.css5b27.css?ln=primefaces&amp;v=5.3" /><script type="text/javascript" src="javax.faces.resource/jquery/jquery.js5b27.xhtml?ln=primefaces&amp;v=5.3"></script><script type="text/javascript" src="javax.faces.resource/jquery/jquery-plugins.js5b27.xhtml?ln=primefaces&amp;v=5.3"></script><script type="text/javascript" src="javax.faces.resource/primefaces.js5b27.xhtml?ln=primefaces&amp;v=5.3"></script><script type="text/javascript">if(window.PrimeFaces){}</script>
+ <title>LogicBig
+ </title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="keywords" content="Software Engineering, Software Development, Open Source Projects, Tutorials, Java, C++. Java EE, Project, Software consultant, Freelancer," />
+            <meta name="description" content="Logicbig is primarily about software development. We love to design software. We love to share knowledge. We are strong advocates for the best engineering practices and productivity. We also provide software consultancy, technical advice and training." />
+
+ <link rel="shortcut icon" href="images/title-icon.ico" />
+
+ <link rel="stylesheet" type="text/css" href="css/lb91f7.css?a=11" />
+ <script type="text/javascript" src="js/lb91f7.js?a=11"></script>
+ <link rel="stylesheet" type="text/css" href="css/lb-v191f7.css?a=11" />
+ <script type="text/javascript" src="js/lb-v191f7.js?a=11"></script>
+ <script type="text/javascript" src="js/browser30f4.js?v=3"></script>
+ <script type="text/javascript" src="js/ads.js"></script></head><body>
+ <div id="dlgOverlay">
+ <div id="globalDlg">
+  <div id="globalDlgContent"></div>
+  <div class="button dlgCloseBtn" onclick="closeDialog()">Close</div>
+ </div>
+ </div>
+
+ <div id="page">
+  <div id="v-p">
+   <div id="header">
+
+
+        <table class="page-width-class" style="width:100%">
+            <tr>
+                <td class="lb-img"><a href="index.html"><div class="logo"><span class="logoC">L</span>OGIC<span class="logoC">B</span>IG.COM</div>
+
+                </a></td>
+                <td id="menuParent">
+                    <div class="lb-menu"><div id="form:j_idt13" class="ui-menu ui-menubar ui-widget ui-widget-content ui-corner-all ui-helper-clearfix" role="menubar"><div tabindex="0" class="ui-helper-hidden-accessible"></div><ul class="ui-menu-list ui-helper-reset"><li class="ui-widget ui-menuitem ui-corner-all ui-menu-parent" role="menuitem" aria-haspopup="true"><a href="#" class="ui-menuitem-link ui-submenu-link ui-corner-all" tabindex="-1"><span class="ui-menuitem-text">Contact</span><span class="ui-icon ui-icon-triangle-1-s"></span></a><ul class="ui-widget-content ui-menu-list ui-corner-all ui-helper-clearfix ui-menu-child ui-shadow" role="menu"><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="contact/send-message.php"><span class="ui-menuitem-text">Send Message</span></a></li></ul></li><li class="ui-widget ui-menuitem ui-corner-all ui-menu-parent" role="menuitem" aria-haspopup="true"><a href="#" class="ui-menuitem-link ui-submenu-link ui-corner-all" tabindex="-1"><span class="ui-menuitem-text">Tutorials</span><span class="ui-icon ui-icon-triangle-1-s"></span></a><ul class="ui-widget-content ui-menu-list ui-corner-all ui-helper-clearfix ui-menu-child ui-shadow" role="menu"><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/core-java-tutorial.html"><span class="ui-menuitem-text">Core Java Tutorials</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/java-ee-tutorial.html"><span class="ui-menuitem-text">Java EE Tutorials</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/spring-framework.html"><span class="ui-menuitem-text">Spring Framework Tutorials</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/unit-testing.html"><span class="ui-menuitem-text">Unit Testing</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/apache-maven.html"><span class="ui-menuitem-text">Apache Maven Tutorials</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="tutorials/misc.html"><span class="ui-menuitem-text">Misc Tutorials</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="how-to.html"><span class="ui-menuitem-text">How-to</span></a></li><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="quick-info.html"><span class="ui-menuitem-text">Quick-info</span></a></li></ul></li><li class="ui-widget ui-menuitem ui-corner-all ui-menu-parent" role="menuitem" aria-haspopup="true"><a href="#" class="ui-menuitem-link ui-submenu-link ui-corner-all" tabindex="-1"><span class="ui-menuitem-text">Projects</span><span class="ui-icon ui-icon-triangle-1-s"></span></a><ul class="ui-widget-content ui-menu-list ui-corner-all ui-helper-clearfix ui-menu-child ui-shadow" role="menu"><li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);"><a tabindex="-1" class="ui-menuitem-link ui-corner-all item" style="font-stretch: condensed !important;
+        font-size: 1em !important;
+        color: black !important; background: none !important; border:none !important; background: linear-gradient(#CCCACA, #E6E2CC);" href="projects/quickcli.html"><span class="ui-menuitem-text">Quick CLI</span></a></li></ul></li></ul></div><script id="form:j_idt13_s" type="text/javascript">PrimeFaces.cw("Menubar","widget_form_j_idt13",{id:"form:j_idt13",autoDisplay:true});</script>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+   </div>
+
+   <div id="contentData" class="content">
+            <div class="page-width-class">
+                <br />
+                <table id="m-p-t">
+                    <tr class="h-f-m">
+                        <td colspan="2"><h3 style="text-align:left;margin-top:30px;margin-bottom:5px">Projects</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td class="h-f-m" style="padding-right:40px;vertical-align:top;text-align:left"><div class="product"> 
+ <b>Quick CLI 1.0</b> 
+ <p> The quickest way to create command line program in Java. Quick CLI is an open source annotation based framework for creating shell program. It enables application developers to build command line tools without writing down boilerplate code. It's very simple and easy to learn. You will be starting using it in few minutes. Here are the quick features: </p> 
+ <ol> 
+  <li> It supports Linux style arguments and options. </li> 
+  <li> It's annotation based. You just have to use four annotations on method level. </li> 
+  <li> It generates help text, based on user provided descriptions on annotations </li> 
+  <li> By default, it appends 'help' and 'exit' commands. </li> 
+  <li>Prints information in table/column format with flexible alignments and wrapping.</li> 
+  <li>Automatic type conversion depending on the method parameter type</li> 
+ </ol> 
+ <p> <a href="projects/quickcli.html">Check out the details with examples.</a> </p> 
+</div>
+                            <h3 style="text-align:left;margin-top:40px;margin-bottom:5px;">About LogicBig.com</h3><div class="product" style=""> 
+ <p> Logicbig.com is primarily about software development. We are developers and engineers who care about software excellence. We love to design software. We love to share knowledge. We are strong advocates for the best engineering practices and logical reasoning. </p> 
+ <br> 
+ <p><b>Consultants:</b> We provide software consultancy, technical advice and training. We help designing, structuring and developing maintainable projects, utilizing the latest trends and technologies. We have been doing that since 1998. We are U.S. based consultants and have worked on large-scale, multi-tier, enterprise-level software projects using languages such as Java and C++. </p> 
+ <br> 
+ <p> <b>Open Source Projects:</b> We design and develop easy to use open source software, frameworks and tools. We think when developers are going to use a framework, the API should be minimal intrusive and there should not be a steep learning curve. We are convinced that a framework software should be intuitive from a developer perspective and each feature should speak for itself with a reasonable need behind it. </p> 
+ <br> 
+ <p> <b>Tutorials:</b> We also write concise, intuitive and easy to understand tutorials. Our tutorials provide a lot of example projects and working scenarios. We emphasize on how to use logical reasoning to do things rather than memorizing stuff. All tutorials include complete project examples which were understood and tested by the authors. Sometimes, we have to investigate and debug even low level source code to find the answers/solutions which are not available or understandable via the documentations. </p> 
+</div> 
+<br> 
+<div class="product" style=""> 
+ <p> <a href="how-to.html">How-to</a><br> <a href="quick-info.html">Quick-info</a><br> <a href="examples.html">Misc Examples</a><br>   </p> 
+</div>
+                        </td>
+                        <td class="r-tut">
+                            <h3 style="text-align:left;margin-bottom:5px;">Recent Tutorials</h3>
+
+                            <table class="r-tut" style="text-align:left;border-collapse: collapse;margin:0;padding:0;" id="idRecentTutorials"><tr><td class="utdl">Mar 15, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 16, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/core-java-tutorial/images/default.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/core-java-tutorial.html">Core Java Tutorials</a><ul class="ptree"><li><a href="tutorials/core-java-tutorial/modules.html">Java 9 Module System</a><ul><li><a href="tutorials/core-java-tutorial/modules/illegal-access-operations.html"><div class="mrt">The Unnamed Module and Accessing JDK Internal Code via Reflection</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 13, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 13, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/servlet-error-handling-outside-mvc/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/servlet-error-handling-outside-mvc.html"><div class="mrt">Mapping Errors in Servlet based application  outside of Spring MVC</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 10, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 10, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/second-level-cache-unspecified-mode.html"><div class="mrt">UNSPECIFIED and NONE modes of SharedCacheMode</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 10, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 10, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/disable-selective-second-level-cache.html"><div class="mrt">Using DISABLE_SELECTIVE of SharedCacheMode</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 10, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 10, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/enable-selective-second-level-cache.html"><div class="mrt">Using ENABLE_SELECTIVE of SharedCacheMode</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 10, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 10, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/access-second-level-cache.html"><div class="mrt">Accessing Second-Level Cache via Cache interface</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 10, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 10, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/setting-second-level-cache.html"><div class="mrt">Enabling Second-Level Cache</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 9, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 9, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/core-java-tutorial/images/default.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/core-java-tutorial.html">Core Java Tutorials</a><ul class="ptree"><li><a href="tutorials/core-java-tutorial/java-language.html">Java Language</a><ul><li><a href="tutorials/core-java-tutorial/java-language/widening-vs-narrowing-conversion.html"><div class="mrt">Widening and Narrowing Primitive Conversions</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 8, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 8, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/json-error-controller/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/json-error-controller.html"><div class="mrt">Returning JSON Response from Custom ErrorController</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 8, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 8, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/error-attributes/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/error-attributes.html"><div class="mrt">Using ErrorAttributes in our custom ErrorController</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 8, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 8, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/java-servlet/dispatcher-type/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/java-servlet.html">Java Servlet Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/java-servlet/dispatcher-type.html"><div class="mrt">Applying Filter based on DispatcherType</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 7, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 8, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/implementing-error-controller/c/images/output2.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/implementing-error-controller.html"><div class="mrt">Mapping /error to a custom controller by implementing ErrorController</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 7, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 7, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-web-mvc/set-use-trailing-slash-match/c/images/output2.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-web-mvc.html">Spring Web MVC Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-web-mvc/set-use-trailing-slash-match.html"><div class="mrt">URI matching, using setUseTrailingSlashMatch() method of RequestMappingHandlerMapping</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 6, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 7, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-web-mvc/use-registered-suffix-pattern-match/c/images/output2.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-web-mvc.html">Spring Web MVC Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-web-mvc/use-registered-suffix-pattern-match.html"><div class="mrt">URI suffix pattern matching behavior, Using setUseRegisteredSuffixPatternMatch() method of RequestMappingHandlerMapping</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 6, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 6, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/core-java-tutorial/swing/jtree-filtering/images/jtree-filtering-highlighting.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/core-java-tutorial.html">Core Java Tutorials</a><ul class="ptree"><li><a href="tutorials/core-java-tutorial/swing.html">Java Swing Tutorials</a><ul><li><a href="tutorials/core-java-tutorial/swing/jtree-filtering.html"><div class="mrt">JTree Filtering and Highlighting Example</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 5, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 16, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/core-java-tutorial/swing/jtree-expand-collapse-all-nodes/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/core-java-tutorial.html">Core Java Tutorials</a><ul class="ptree"><li><a href="tutorials/core-java-tutorial/swing.html">Java Swing Tutorials</a><ul><li><a href="tutorials/core-java-tutorial/swing/jtree-expand-collapse-all-nodes.html"><div class="mrt">How to  Collapse or Expand All Nodes of JTree?</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 3, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 6, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-web-mvc/use-suffix-pattern-match/c/images/output3.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-web-mvc.html">Spring Web MVC Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-web-mvc/use-suffix-pattern-match.html"><div class="mrt">URI suffix pattern matching behavior, Using setUseSuffixPatternMatch() method of RequestMappingHandlerMapping</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 2, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 2, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/misc/primefaces/indeterminate-progress-bar/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/misc.html">Misc Tutorials</a><ul class="ptree"><li><a href="tutorials/misc/primefaces.html">PrimeFaces Tutorials</a><ul><li><a href="tutorials/misc/primefaces/indeterminate-progress-bar.html"><div class="mrt">Indeterminate ProgressBar Example</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 1, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 1, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/auto-apply-conversion.html"><div class="mrt">Auto applying conversion based on the target attribute type</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 1, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 2, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/conversion-involving-map-with-embeddable.html"><div class="mrt">Type Conversion involving Map with embeddable key or value</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Mar 1, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 1, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/conversion-involving-map.html"><div class="mrt">Type Conversion involving Map key or value</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Feb 28, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Mar 1, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/conversion-involving-embeddable.html"><div class="mrt">Type Conversion involving Embeddable</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Feb 28, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Feb 28, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/java-ee-tutorial/jpa/images/jpa.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/java-ee-tutorial.html">Java EE Tutorials</a><ul class="ptree"><li><a href="tutorials/java-ee-tutorial/jpa.html">JPA Tutorials</a><ul><li><a href="tutorials/java-ee-tutorial/jpa/entity-attribute-type-converter.html"><div class="mrt">Entity Attribute Converter</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Feb 26, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Feb 26, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/free-marker-status-code-mapping/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/free-marker-status-code-mapping.html"><div class="mrt">Mapping HTTP Response Status Codes to a template engine like FreeMarker Pages</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Feb 25, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Feb 25, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/static-pages-status-code-mapping/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/static-pages-status-code-mapping.html"><div class="mrt">Mapping HTTP Response Status Codes to Static HTML Pages</div></a></li></ul></li></ul></li></ul></div></td></tr><tr><td class="utdl">Feb 25, 2018<br/><small style="color: #5D5D5D;font-family: monospace;font-size: 0.9em;">Updated:<br/>Feb 25, 2018</small></td><td class="utdr"><div class='r-iUWrap'><img class="img-rTut" src = 'tutorials/spring-framework/spring-boot/jsp-status-code-mapping/c/images/output.png' alt = "" / ><ul class="ptree-top"><li><a href="tutorials/spring-framework.html">Spring Framework Tutorials</a><ul class="ptree"><li><a href="tutorials/spring-framework/spring-boot.html">Spring Boot Tutorials</a><ul><li><a href="tutorials/spring-framework/spring-boot/jsp-status-code-mapping.html"><div class="mrt">Mapping HTTP Response Status Codes to Custom JSP Error Pages</div></a></li></ul></li></ul></li></ul></div></td></tr>
+    <tr>
+        <td colspan="3" style="text-align:right;"><button style="" onclick="handleAjaxCall( 'idRecentTutorials', true, 'recentTutorials-816-rd.html', removeShowMoreButton(this));">&nbsp;&nbsp;&nbsp;&nbsp; More &nbsp;&nbsp;&nbsp; </button>
+        </td>
+    </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ihwt-fixedHeight p-a-ad">
+                <div class="ihwt">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- top -->
+<ins class="adsbygoogle"
+     style="display: block;"
+     data-ad-client="ca-pub-3903448923622104"
+     data-ad-slot="9407900879"
+     data-ad-format="horizontal"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                </div></div>
+   </div>
+
+   <div id="bottom-navigation">
+   </div>
+  </div>
+        <span id="pre-footer">
+        </span>
+  <div id="footer"><table class="f-bar" style="width: 100%; margin: 0 auto;"> 
+ <tbody>
+  <tr> 
+   <td style="text-align:center;"> <span id=copyrights-info></span><script>handleAjaxCallOnLoad2( 'copyrights-info', 'data/copyrights-info.html', true, 9123, false, 'undefined');</script> </td> 
+  </tr> 
+ </tbody>
+</table>
+  </div>
+
+ </div>
+</body>
+
+
+</html>

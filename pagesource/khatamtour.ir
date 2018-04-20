@@ -1,0 +1,649 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta name="keywords" content="رزرو تور,تور مشهد,سازمان بازنشستگی,تور کربلا" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>
+	سیستم جامع رزرو تور بازنشستگی
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link href="Styles/lightBox.css" rel="stylesheet" type="text/css" /><link href="Styles/FirstStyle1.css" rel="stylesheet" /><link href="Styles/Sf_Menu.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.4.1.js"></script>
+    
+    <script src="Scripts/Common.js"></script>
+
+
+    <script type="text/jscript">
+        //---------------------------------------------------------------------- 
+
+        $(document).ready(function () {
+            $('.div_parent h3').each(function () {
+                var flag_click = 0;
+                $(this).click(function () {
+                    if (flag_click === 0) {
+
+                        $(this).parent(".div_parent").next(".panel_description").slideToggle("slow");
+
+                        flag_click++;
+                    }
+                    else {
+
+                        $(this).parent(".div_parent").next(".panel_description").hide();;
+                        flag_click = 0;
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    <script type="text/jscript">
+        //--------------------------------------------------------------------
+
+        function SelectTour(AN) {
+
+
+            document.getElementById('ContentPlaceHolder1_txt_an').value = AN;
+            OpenBox_Rezerv(AN);
+            $.ajax({
+                url: "TourSummery_Ajax.aspx?p=" + AN, success: function (result) {
+                    $("#div_tour_summery").html(result);
+                }
+            });
+        }
+        function ValidCompatString_Mobile(oSrc, args) {
+            args.IsValid = true
+            var value = args.Value;
+            var len = value.length;
+
+            if (len != 11) {
+                args.IsValid = false;
+            }//End IF
+
+
+            var n = value.charAt(0);
+            var b = value.charAt(1);
+            if (n != '0' && b != '9') {
+                args.IsValid = false;
+            }
+
+        }
+        function ValidCompatString_Tell(oSrc, args) {
+            args.IsValid = true
+            var value = args.Value;
+            var len = value.length;
+
+            if (len != 11) {
+                args.IsValid = false;
+            }//End IF
+
+
+            var n = value.charAt(0);
+
+            if (n != '0') {
+                args.IsValid = false;
+            }
+
+        }
+    </script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ 
+    <script>
+
+        $(function () {
+            $(document).tooltip({
+                position: {
+                    my: "center bottom-20",
+                    at: "center top",
+                    using: function (position, feedback) {
+                        $(this).css(position);
+                        $("<div>")
+                          .addClass("arrow")
+                          .addClass(feedback.vertical)
+                          .addClass(feedback.horizontal)
+                          .appendTo(this);
+                    }
+                }
+            });
+        });
+  </script>
+  <style>
+  .ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font: bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px black;
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }
+  .errorNew {
+            border: solid 1px;
+            border-radius: 22px;
+            padding-right: 31px;
+            border-color: red;
+            color: white;
+            background-color: red;
+        }
+   .errorNews {
+            border: solid 1px;
+            border-radius: 22px;
+            padding-right: 31px;
+            border-color:white;
+            color: white;
+            background-color: #a6ab95;
+            font-size: 20px;
+        }
+  </style>
+</head>
+<body>
+    <form method="post" action="./" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNjI3ODU0NzEPFgQeBGtoYWwFATAeCE5vZV9Vc2VyZRYCZg9kFgICAw9kFggCAQ9kFgwCAw8QDxYGHg5EYXRhVmFsdWVGaWVsZAUJTmFtZV9tYWJkHg1EYXRhVGV4dEZpZWxkBQlOYW1lX21hYmQeC18hRGF0YUJvdW5kZ2QQFUAFdGVzdDIM2KLYqNin2K/Yp9mGCNin2LHYp9qpDNin2LHYr9io24zZhAzYp9ix2YjZhduM2YcM2KfYtdmB2YfYp9mGENin2YTbjNqv2YjYr9ix2LIO2KfZhtiv24zZhdi02qkK2KfZh9mI2KfYsh/Yp9mH2YjYp9iyICjZhtmI2LHYp9mE2YXZh9iv24wpFNin2YfZiNin2LIo2KrYqNmI2qkpH9in2YfZiNin2LIo2LTYrNix2Ycg2KfYqNuM2KfYsSkU2KfZh9mI2KfYsijaqdio24zYsSkM2KjYp9io2YTYs9ixDNio2KzZhtmI2LHYrwzYqNix2YjYrNix2K8Q2KjZhtiv2LHYudio2KfYswrYqNmI2LTZh9ixDNio24zYsdis2YbYrwrYqtio2LHbjNiyCtiq2YfYsdin2YYK2obYp9mE2YjYsw/Yrtix2YUg2KLYqNin2K8O2K7ZiNiy2LPYqtin2YYM2K/Yp9mF2LrYp9mGCNiv2LHZiNivCtiv2YjYsdmI2K8K2LHYp9mF2LPYsQbYsdi02KoO2LHZgdiz2YbYrNin2YYM2LLYp9mH2K/Yp9mGCtiy2YbYrNin2YYI2LPYp9ix24wI2LPYp9mI2YcM2LPYsdin2LPYsduMFtiz2LHYp9iz2LHbjC0g2YjbjNmE2KcG2LPZgtiyCtiz2YXZhtin2YYK2LPZhtmG2K/YrAzYtNin2YfYsdmI2K8M2LTZh9ix2qnYsdivCti02YjYtNiq2LEK2LTbjNix2KfYsiLZgdix2K/ZiNizINiu2LHYp9iz2KfZhiDYrNmG2YjYqNuMDtmC2KfYptmF2LTZh9ixCtmC2LLZiNuM2YYE2YLZhQrar9ix2q/Yp9mGH9qv2LHar9in2YYgKCDar9ix2q/Yp9mGINiq2YjYsSkM2q/YsdmF2LPYp9ixDNmE2LHYs9iq2KfZhgrZhdit2YTYp9iqCNmF2LTZh9ivGdmF2LTZh9ivKNi52KfZhNmFINqv2LTYqikg2YXYtNmH2K8o2YHYp9i22YQg2LPbjNixINiq2YjYsykK2YXZhNin24zYsQzZhdmH2KfYqNin2K8K2YbZiNi02YfYsQ7ZhtuM2LTYp9io2YjYsQrZh9mF2K/Yp9mGCtqp2LHZhdin2YYQ2qnYsdmF2KfZhti02KfZhwrbjNin2LPZiNisBtuM2LLYrxVABXRlc3QyDNii2KjYp9iv2KfZhgjYp9ix2KfaqQzYp9ix2K/YqNuM2YQM2KfYsdmI2YXbjNmHDNin2LXZgdmH2KfZhhDYp9mE24zar9mI2K/YsdiyDtin2YbYr9uM2YXYtNqpCtin2YfZiNin2LIf2KfZh9mI2KfYsiAo2YbZiNix2KfZhNmF2YfYr9uMKRTYp9mH2YjYp9iyKNiq2KjZiNqpKR/Yp9mH2YjYp9iyKNi02KzYsdmHINin2KjbjNin2LEpFNin2YfZiNin2LIo2qnYqNuM2LEpDNio2KfYqNmE2LPYsQzYqNis2YbZiNix2K8M2KjYsdmI2KzYsdivENio2YbYr9ix2LnYqNin2LMK2KjZiNi02YfYsQzYqNuM2LHYrNmG2K8K2KrYqNix24zYsgrYqtmH2LHYp9mGCtqG2KfZhNmI2LMP2K7YsdmFINii2KjYp9ivDtiu2YjYstiz2KrYp9mGDNiv2KfZhdi62KfZhgjYr9ix2YjYrwrYr9mI2LHZiNivCtix2KfZhdiz2LEG2LHYtNiqDtix2YHYs9mG2KzYp9mGDNiy2KfZh9iv2KfZhgrYstmG2KzYp9mGCNiz2KfYsduMCNiz2KfZiNmHDNiz2LHYp9iz2LHbjBbYs9ix2KfYs9ix24wtINmI24zZhNinBtiz2YLYsgrYs9mF2YbYp9mGCtiz2YbZhtiv2KwM2LTYp9mH2LHZiNivDNi02YfYsdqp2LHYrwrYtNmI2LTYqtixCti024zYsdin2LIi2YHYsdiv2YjYsyDYrtix2KfYs9in2YYg2KzZhtmI2KjbjA7Zgtin2KbZhdi02YfYsQrZgtiy2YjbjNmGBNmC2YUK2q/Ysdqv2KfZhh/ar9ix2q/Yp9mGICgg2q/Ysdqv2KfZhiDYqtmI2LEpDNqv2LHZhdiz2KfYsQzZhNix2LPYqtin2YYK2YXYrdmE2KfYqgjZhdi02YfYrxnZhdi02YfYryjYudin2YTZhSDar9i0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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAFMmNsI1dE172t1HeI6aZX3qYsKkadUQIVuowzPSmDmxNgwYLe6VdpTO3ccRAhxkRy9pmD7rp4OEc7WsS7p63ZnEsHmpJj1cJmBsjw6vkHeomsHiWXVhow6USZ31FH1ClgkwD2MOyX0VxHc7fhJTLpugyWn6ekZ69/f1OdmH0DzhM0jvVh6e+ujenaiAykK+7Pwq94/NTfDyB7Q3hrBO/bZKOstmp34EtRhsG+CMAY9H4zulxUbFIRWSh/hZAU9wKQIAf9QynTUVia6kVqHDhq+nuNRidrSgQU/Wdog3KuR3fvDoNx77ky12aUNJnAw5uNbzcPajOHM5dFmMHGgZDvoASg4R4JJG2ad4NIVlH9pXvTzsM5rOSD9pFCXloxbF2nFD0NNLT1gcE87EqD150C6VVTdq6ZhnnLxl153b1UEzEhQ6sXw2MHTD8ynGn2Oo6sKPqt6dmt+K5yep8W3/CylG0he/vkPtTCJZ/UxzukorkBPirqvz7bRESsAeGiGtHvkjnqjFH1QYFZ5Jktrvos/8PzZLdYuzVm+4Zz5oXsOEERwyVmQE/BJCpuLNnpHZ+JpMXGsrzhjAL3ZSsS66dK5NsSX0qpbl1dzDZCOoR7DzHCISZCLgFQ9v9JtxQdedYOHXCR1DC4LrMrA5P7g1pulwYUJ/TlxPUP43WIjiBhKDM5aY71F7NrjrRsQy7tMQz30ePUMn1vpod5x3kCLVRAMNWF8VtDcBDJ0EG8JJa57Fnp1nBzSGodoSL5J0taH1EQya5J2Ih5QZYWeS25hSGJujn45ZTZggqYEaaklMAASRncRStZmwRogo8/AzAd8nhytEtr4cPp4Ybc95+8//UAIpR7Xn23BL+rD/sjy71ByKLMrdsoPDH3SyxUFVOB/AO5rjqBEiLVOOz6GTWrxlDDnVOtTgPKE40KtZuX/x0Kn0MjsyJ2X/oEcnPiCqWF0klKmhytx8BE+10fvU0DqXQVPqd74OwzKeDgytv65epFD+OdQtP+nyj347mFol0YH+D2GPKblfI/YYBoAotc++yhmxQS4OMMmZnzLSjlLlkqflP/9pj8z8e44wm0RZl9KaG1/ABxDgwNI3/NN8QoE1lgwcwyPpVzwQGZxxCMENgBwjKnPMbiYAsPTbxmj0SO8Bsi8C0ENH7p4BT2x27HFSl1x1IZakR0VPZJmv+zcbeM79XrjD7QqbXTvAO6SEtg1nDo+fceLrRWs6Cct9bd0tsZcONhqrNaP8c8jJ26K356+RNlL5pclCv2eZB9thR4DQlbkPJmMGuWQNq4njGVk9LAMz4cBvvSUakmHg1zwGZ730OxvEFPJWkvv3DxWFmLm8jed8bt7HrhwwAfl+Bi9kx4HdIl8aWMLpWisF30S7eGakIhXjJ7+gKht+cfHxpt2geeyK2mkGhZ1ymi7jtbCkZuHvjDu35o5CUn6umW4JNpE1p5wvtUV9QqjdhYDgBzxt827v5VJESu0r5fEBwtjOpeU3+KFQylVeod9rbVX8GfQfW9zYeA28rpFAQTodd3h74NeUQQqZoGGFIfx0f5OwLSuoWPtR4hRdoybR10tlHDj1j2i7OLYsgG7T6cnY1aMC7EYAYpyDlfnyYPH065gX4MfT8YuxDnMjBC3zrMc4ALPZMy3KsoZiVvwuyNfX0WwcyXoaw5mZTKc6IUi02j3GVPgD57CSGauKkM0NeYOBjC3U69iFu2umovPkyiX0YIhn/TPNCRMQXHEwq7QFebpk/VO2+BAzWD+5xuuU7AWfJB65dN/2Cd805krDVcGRYuC/PwZ3RZ3RYtilClskVw5psY0q" />
+        <div id="DivBody" class="DivBody">
+            <div id="header" class="header">
+                <img id='rgvlrgvlxlaprgvl' style='cursor: pointer; cursor: pointer; margin-left: 235px; height:126px;margin-top:1px; float: left; '
+                    onclick='window.open("http://trustseal.enamad.ir/Verify.aspx?id=5535&p=yncryncrfuixyncr", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")' alt='' src='http://trustseal.enamad.ir/logo.aspx?id=5535&p=fujyfujyvjymfujy' />
+            </div>
+            <div class="div_menu">
+                <div id="div_menu_all" class="div_menu_all">
+                    <div id="div_menu_right" class="div_menu_right">
+                        <div class="menu">
+                            <ul class="sf-menu">
+                                <li class='first'><a href='Default.aspx'>خانه</a></li>
+
+                                <li>
+                                    <a href='Natijeh_Search.aspx'>جستجو تور</a>
+                                </li>
+                                <li>
+                                    <a href='Noe_Tour_IE.aspx'>انواع تور</a>
+                                </li>
+                                <li>
+                                    <a>راهنما</a>
+                                    <ul>
+                                        <li><a href='PGFiles/Help.pdf' target="_blank">راهنمای رزرو</a></li>
+                                        <li><a href='PGFiles/Taahod.pdf' target="_blank">شرایط و ضوابط رزرو تور کربلا</a></li>
+                                    </ul>
+
+                                </li>
+                                <li>
+                                    <a href='Porsesh.aspx'>نظر سنجی تور</a>
+                                </li>
+                                <li>
+                                    <a href='Tamas.aspx'>تماس با ما</a>
+                                </li>
+                                <li>
+                                    <a href='Entegad.aspx'>شکایات </a>
+                                </li>
+                                <li>
+                                    <a href="AboutAs.aspx">درباره ما</a>
+                                </li>
+                                <li>
+                                    <a href="Ghavanin.aspx">قوانین </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="div_menu_left" class="div_menu_left">
+                        <a href="javascript:void(0)" onclick="OpenBox_Pay_Rezerv()">
+                            <img src="Images/btn/bt_peygiri.png" /></a> <a href="javascript:void(0)" onclick="OpenBox_Ozviat()">
+                                <img src="Images/btn/bt_regi.png" /></a>
+
+                    </div>
+                </div>
+            </div>
+            <!--End div header -->
+            <table id="main" class="main">
+                <tr>
+                    <td id="contain" class="contain" align="right" dir="rtl" valign="top">
+                        
+
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$txt_an" id="ContentPlaceHolder1_txt_an" value="0" />
+    <center>
+    
+         
+          
+        <div >
+             <table width="100%" cellpadin="0" collpadin="0" class="YelloBackground">
+                <tr style=" height:65px;">
+                    <td align="left" >
+                        شهر مبدا :</td>
+                        <td  align="right" >
+                       
+                    <select name="ctl00$ContentPlaceHolder1$dl_mabd" id="ContentPlaceHolder1_dl_mabd" class="text3">
+	<option value="test2">test2</option>
+	<option value="آبادان">آبادان</option>
+	<option value="اراک">اراک</option>
+	<option value="اردبیل">اردبیل</option>
+	<option value="ارومیه">ارومیه</option>
+	<option value="اصفهان">اصفهان</option>
+	<option value="الیگودرز">الیگودرز</option>
+	<option value="اندیمشک">اندیمشک</option>
+	<option value="اهواز">اهواز</option>
+	<option value="اهواز (نورالمهدی)">اهواز (نورالمهدی)</option>
+	<option value="اهواز(تبوک)">اهواز(تبوک)</option>
+	<option value="اهواز(شجره ابیار)">اهواز(شجره ابیار)</option>
+	<option value="اهواز(کبیر)">اهواز(کبیر)</option>
+	<option value="بابلسر">بابلسر</option>
+	<option value="بجنورد">بجنورد</option>
+	<option value="بروجرد">بروجرد</option>
+	<option value="بندرعباس">بندرعباس</option>
+	<option value="بوشهر">بوشهر</option>
+	<option value="بیرجند">بیرجند</option>
+	<option value="تبریز">تبریز</option>
+	<option selected="selected" value="تهران">تهران</option>
+	<option value="چالوس">چالوس</option>
+	<option value="خرم آباد">خرم آباد</option>
+	<option value="خوزستان">خوزستان</option>
+	<option value="دامغان">دامغان</option>
+	<option value="درود">درود</option>
+	<option value="دورود">دورود</option>
+	<option value="رامسر">رامسر</option>
+	<option value="رشت">رشت</option>
+	<option value="رفسنجان">رفسنجان</option>
+	<option value="زاهدان">زاهدان</option>
+	<option value="زنجان">زنجان</option>
+	<option value="ساری">ساری</option>
+	<option value="ساوه">ساوه</option>
+	<option value="سراسری">سراسری</option>
+	<option value="سراسری- ویلا">سراسری- ویلا</option>
+	<option value="سقز">سقز</option>
+	<option value="سمنان">سمنان</option>
+	<option value="سنندج">سنندج</option>
+	<option value="شاهرود">شاهرود</option>
+	<option value="شهرکرد">شهرکرد</option>
+	<option value="شوشتر">شوشتر</option>
+	<option value="شیراز">شیراز</option>
+	<option value="فردوس خراسان جنوبی">فردوس خراسان جنوبی</option>
+	<option value="قائمشهر">قائمشهر</option>
+	<option value="قزوین">قزوین</option>
+	<option value="قم">قم</option>
+	<option value="گرگان">گرگان</option>
+	<option value="گرگان ( گرگان تور)">گرگان ( گرگان تور)</option>
+	<option value="گرمسار">گرمسار</option>
+	<option value="لرستان">لرستان</option>
+	<option value="محلات">محلات</option>
+	<option value="مشهد">مشهد</option>
+	<option value="مشهد(عالم گشت)">مشهد(عالم گشت)</option>
+	<option value="مشهد(فاضل سیر توس)">مشهد(فاضل سیر توس)</option>
+	<option value="ملایر">ملایر</option>
+	<option value="مهاباد">مهاباد</option>
+	<option value="نوشهر">نوشهر</option>
+	<option value="نیشابور">نیشابور</option>
+	<option value="همدان">همدان</option>
+	<option value="کرمان">کرمان</option>
+	<option value="کرمانشاه">کرمانشاه</option>
+	<option value="یاسوج">یاسوج</option>
+	<option value="یزد">یزد</option>
+
+</select>
+                   
+                            
+                            
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$Button2" value="نمایش تورهای ویژه بازنشستگان" id="ContentPlaceHolder1_Button2" class="YelloBackground" style="width:190px;height:35px; margin-right:30px" />
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$Button1" value="تور های مسافرین آزاد" id="ContentPlaceHolder1_Button1" class="YelloBackground" style="width:190px;height:35px; margin-right:30px; background-color:#FF3300; font-size:14px;" />
+</td>
+                </tr>
+            </table>
+            <br />
+             <div style="float:left; width:25%; height:400px;" class="YelloBackground">
+               <table>
+                   <tr>
+                       <td>
+                             <a href="http://gtaticket.ir/"><img src="Images/dava.jpg"/></a>
+                       </td>
+                     </tr>
+                   <tr>
+                       <td >
+                          
+                                رزرو بلیت هواپیما
+                          
+                       </td>
+                   </tr>
+               </table>
+                
+            </div>
+            <div style="float:left; width:47%;height:400px;" class="YelloBackground">
+            <table id="ContentPlaceHolder1_dl_Show_tour" cellspacing="0">
+	<tr>
+		<td>
+                    <table width="100%" >
+                 
+                 <tr style="text-align:center;">
+                     
+
+                     <td class="btn rcw-button-1 rcw-small prevent sunflower rcw-curl-top-right ft-btn3">
+                         <input type="image" name="ctl00$ContentPlaceHolder1$dl_Show_tour$ctl00$img_Mashhad" id="ContentPlaceHolder1_dl_Show_tour_img_Mashhad_0" title="بازنشستگانی که قبلا دو نوبت از سهمیه سفر تورهای داخلی استفاده کرده اند و یا قبلا با یک نفر همراه از تور عتبات استفاده نموده اند،فقط می توانند منفرداٌ از تور عتبات(بدون همراه)استفاده نمایند که در این صورت کمک هزینه سفرشان به مبلغ ششصد هزار تومان توسط صندوق بازنشستگی پرداخت خواهد شد." src="PGFiles/Shahr_Maqsad/53.jpg" />
+                         
+                     </td>
+                    
+                 </tr>
+                 <tr >
+                     <td class="YelloBackground">تور زیارتی کربلا</td>
+                     
+                 </tr>
+             </table>
+                </td><td>
+                    <table width="100%" >
+                 
+                 <tr style="text-align:center;">
+                     
+
+                     <td class="btn rcw-button-1 rcw-small prevent sunflower rcw-curl-top-right ft-btn3">
+                         <input type="image" name="ctl00$ContentPlaceHolder1$dl_Show_tour$ctl02$img_Mashhad" id="ContentPlaceHolder1_dl_Show_tour_img_Mashhad_2" src="PGFiles/Shahr_Maqsad/8.jpg" />
+                         
+                     </td>
+                    
+                 </tr>
+                 <tr >
+                     <td class="YelloBackground">تور سیاحتی جزیره کیش</td>
+                     
+                 </tr>
+             </table>
+                </td>
+	</tr><tr>
+		<td>
+                    <table width="100%" >
+                 
+                 <tr style="text-align:center;">
+                     
+
+                     <td class="btn rcw-button-1 rcw-small prevent sunflower rcw-curl-top-right ft-btn3">
+                         <input type="image" name="ctl00$ContentPlaceHolder1$dl_Show_tour$ctl01$img_Mashhad" id="ContentPlaceHolder1_dl_Show_tour_img_Mashhad_1" src="PGFiles/Shahr_Maqsad/17.jpg" />
+                         
+                     </td>
+                    
+                 </tr>
+                 <tr >
+                     <td class="YelloBackground">تور زیارتی مشهد مقدس</td>
+                     
+                 </tr>
+             </table>
+                </td><td>
+                    <table width="100%" >
+                 
+                 <tr style="text-align:center;">
+                     
+
+                     <td class="btn rcw-button-1 rcw-small prevent sunflower rcw-curl-top-right ft-btn3">
+                         <input type="image" name="ctl00$ContentPlaceHolder1$dl_Show_tour$ctl03$img_Mashhad" id="ContentPlaceHolder1_dl_Show_tour_img_Mashhad_3" src="Images/tour/4.jpg" />
+                         
+                     </td>
+                    
+                 </tr>
+                 <tr >
+                     <td class="YelloBackground">سایر تورها</td>
+                     
+                 </tr>
+             </table>
+                </td>
+	</tr>
+</table>
+            </div>
+            <div style="float:right; width:25%; height:400px;" class="YelloBackground">
+               <table>
+                   <tr>
+                       <td>
+                             <input type="image" name="ctl00$ContentPlaceHolder1$img_Mashhad" id="ContentPlaceHolder1_img_Mashhad" title="آبدرمانی محلات" src="Images/mahalat.jpg" />
+                       </td>
+                     </tr>
+                   <tr>
+                       <td style="font-size:15px">
+                          
+                                کلیه بازنشستگان و یکنفر همراه می توانند از تور آبگرم محلات با کمک هزینه صندوق بازنشستگی کشوری  یکبار  بدون محدودیت استفاده نمایید.
+                          
+                       </td>
+                   </tr>
+               </table>
+                
+            </div>
+          
+             
+         </div>
+        
+        <br />
+       <span id="ContentPlaceHolder1_lbl_msg"><font color="Black"></font></span>
+                
+    </center>
+    <div id="Mahalat" class="white_content" style="width: 400px; height: 320px;">
+        <h3>تور آبگرم محلات
+        </h3>
+        <h4>
+            <p>
+                کلیه بازنشستگان و یکنفر همراه می توانند از تور آبگرم محلات با کمک هزینه صندوق بازنشستگی کشوری  بدون محدودیت استفاده نمایید.
+
+            </p>
+            <p>
+                این سامانه بزودی راه اندازی می شود.
+            </p>
+        </h4>
+        <center>
+            
+            <input type="submit" name="ctl00$ContentPlaceHolder1$btn_Count_Visit" value="بستن" id="ContentPlaceHolder1_btn_Count_Visit" class="button" />
+         </center>
+    </div>
+    <div id="fade" class="black_overlay">
+        
+    </div>
+<script type="text/javascript">
+        $(".showAdress").hide();
+        
+        var code = $(".showNoeUser").val();
+        if (code.toString() == "Mahalat") {
+            $(".showAdress").show();
+        }
+        else {
+            $(".showAdress").hide();
+        }
+    </script>
+
+
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+            <div id="footer" class="footer">
+                تمامی حقوق مادی و معنوی این سایت به صندوق بازنشستگی کشوری تعلق دارد.
+
+                <br />
+                
+                <b>
+
+                    <a href="Sazman/Sazman_Login.aspx">صندوق بازنشستگی کشوری</a> | <a href="Nazer/Nazer_Login.aspx">ناظر</a> | <a href="Hotell/Hotell_Login.aspx">هتل</a>| <a href="Bazres/Bazres_Login.aspx">بازرس</a>
+                    <center>
+                    <table id="DataList1" cellspacing="0">
+	<tr>
+		<td>
+
+                            <a href='admin/Login.aspx?UserType=irangardijahangardi'>ایرانگردی  و جهانگردی</a> | 
+                        </td><td>
+
+                            <a href='admin/Login.aspx?UserType=Mahalat'>آب درمانی محلات</a> | 
+                        </td><td>
+
+                            <a href='admin/Login.aspx?UserType=PersianGulf'>پرشین گلف</a> | 
+                        </td>
+	</tr>
+</table>
+                </b>
+                نام مرورگر  جاری :<span id="lbl_B">Unknown</span>
+                ورژن مرورگر  جاری :
+                    <span id="lbl_V">0.0</span>
+                </center>
+                <!--End div footer -->
+                </>
+            </div>
+            <!--End div Body -->
+            <div class="white_content" id="Pay_Rezerv">
+                <center>
+            <div class="div_Message">
+                <h3>
+                    جهت ادامه عملیات رزرو کد پیگیری خود را وارد نمایید
+                </h3>
+                در صورت فراموشی کد پیگیری خود در بخش جستجو کد پیگیری کد جدید دریافت نمایید
+            </div>
+        </center>
+                <br />
+                <div>
+                    <div id="Panel1">
+	
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td align="left">کد پیگیری :
+                                </td>
+                                <td>
+                                    <input name="ctl00$txt_Code" type="text" id="txt_Code" class="text2" />
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">کد ملی :
+                                </td>
+                                <td>
+                                    <input name="ctl00$txt_Code_meli" type="text" maxlength="10" id="txt_Code_meli" class="text2" />
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
+                                    <br />
+                                    <input type="submit" name="ctl00$btn_Search_code" value="جستجو" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$btn_Search_code&quot;, &quot;&quot;, true, &quot;Code&quot;, &quot;&quot;, false, false))" id="btn_Search_code" class="button" />
+                                    <input id="btn_Cancel" type="button" value="انصراف" class="button" onclick="ClosBox_Pay_Rezerv()" />
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    
+</div>
+                </div>
+                <br />
+                <br />
+                <p class="p_samllFont">
+                    جهت پيگيري تلفني شما مي توانيد با شماره تلفن دفتر مرکزي شبکه در ساعات اداري تماس
+            حاصل نماييد
+            <br />
+                    خط ويژه چهار رقمي پشتيباني :021-8682
+                </p>
+            </div>
+            <div class="white_content" id="Ozviat">
+                <center>
+            <div class="div_Message">
+                <h3>
+                    با عضویت در این سامانه می توانید از اخبار تورهای ارزان قیمت با پیشنهادهای ویژه مطلع شوید.
+                </h3>
+               
+            </div>
+        </center>
+                <br />
+                <table width="100%" style="top: auto; right: auto;">
+
+                    <tr>
+                        <td align="left" style="width: 25%;">
+                            <label>
+                                نام :</label>
+                        </td>
+                        <td>
+                            <input name="ctl00$txt_name" type="text" maxlength="20" id="txt_name" class="text2" />
+                            <span class="comment_lightBox">*</span>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 25%;">
+                            <label>
+                                نام خانوادگی :</label>
+                        </td>
+                        <td>
+                            <input name="ctl00$txt_name_kh" type="text" maxlength="20" id="txt_name_kh" class="text2" />
+                            <span class="comment_lightBox">*</span>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 25%;">تلفن ثابت :
+                        </td>
+                        <td>
+                            <input name="ctl00$txt_tell" type="text" maxlength="11" id="txt_tell" class="text2" onkeypress="return isNumberKey(event)" />
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 25%;">
+                            <label>
+                                تلفن همراه :</label>
+                        </td>
+                        <td>
+                            <input name="ctl00$txt_mobl" type="text" maxlength="11" id="txt_mobl" class="text2" onkeypress="return isNumberKey(event)" />
+                            <span class="comment_lightBox">*</span>
+                            
+                            
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 25%;">
+                            <label>
+                                پست الکترونیک :</label>
+                        </td>
+                        <td>
+                            <input name="ctl00$txt_email" type="text" id="txt_email" class="text2" />
+                            <span class="comment_lightBox">*</span>
+                            
+                            
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                            <br />
+                            <input type="submit" name="ctl00$btn_Save" value="ثبت" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$btn_Save&quot;, &quot;&quot;, true, &quot;Ozv&quot;, &quot;&quot;, false, false))" id="btn_Save" class="button" />
+                            <input id="Button1" type="button" value="انصراف" class="button" onclick="ClosBox_Ozviat()" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="fade" class="black_overlay">
+            </div>
+    </form>
+</body>
+</html>

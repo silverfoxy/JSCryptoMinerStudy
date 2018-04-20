@@ -1,0 +1,1 @@
+<script>top.location="https://bankard.com.ph/dasc_e2b/index.jsp"</script>

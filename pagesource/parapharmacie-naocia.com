@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><style type="text/css">html, body {font-family: "Trebuchet MS", Helvetica, sans-serif; margin: 0;padding: 0;height: 100%; }p {color: #7f8897;font-weight:bold;margin: 11px 0px 11px 0px;}h1 { color: #92b408;font-weight:bold;margin: 13px 0px 13px 0px;}article {background-color: #fbfbfb; border: 1px solid #b7b7b7;margin: 2em;padding: 1em 2em 1em 2em;}</style><body><article><header><h1>Site momentanément indisponible</h1></header><p>Notre équipe technique travaille activement au rétablissement du service dans les meilleurs délais.</p><p>Nous vous prions de bien vouloir nous excuser pour la gêne occasionnée.</p><p>Merci de votre compréhension.</p></article>
+<article lang="en"><header><h1>Site temporarily
+unavailable</h1></header><p>Our technical team is actively working on getting the service back online as soon as possible.</p><p>We
+are sorry for the inconvenience and thank you for your understanding.</p></article>
+</body></html>

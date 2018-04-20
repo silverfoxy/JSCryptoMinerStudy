@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8" ng-app="icApp"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9" ng-app="icApp"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en" ng-app="icApp"> <!--<![endif]-->
+<head>
+    <title>IATA Codes Database</title>
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="description" content="IATA,ICAO,IATA Codes,IATA Codes Database,,IATA Database,IATA Codes API,IATA API,IATA codes list,IATA Airpots,IATA Cities,IATA codes download,IATA database download,Countries,IATA Aircompanies,IATA Airlines,IATA Taxes,IATA Aircrafts,Crafts,Airplanes,Planes,Routes,Timezones"/>
+    <meta name="keywords" content="IATA,ICAO,database,code,codes,list,API,airpot,airpots,city,cities,download,country,countries,aircompany,aircompanies,airline,airlines,tax,taxes,aircraft,aircrafts,crafts,airplane,airplanes,routes,timezones"/>
+    <meta name="author" content="iatacodes.org"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css"/>
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>.docs-inner,.license-inner {max-width: none !important;}</style>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-touch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-loader.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-messages.min.js"></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-touch.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular-csp.css" rel="stylesheet"/>
+
+    <script src="//momentjs.com/downloads/moment-with-locales.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js" type="text/javascript"></script>
+
+    <!-- Facebook Pixel Code -->
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '476996735823087');fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=476996735823087&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <script type="text/javascript">
+        var api_prefix = "/api/v6/";
+        var api_key_from_storage = false;
+        var icApp = angular.module('icApp', ['ngAnimate','ngSanitize']);
+        icApp.config(function($locationProvider) {
+            $locationProvider.html5Mode(true);
+        });
+        icApp.controller('mainController', function($scope, $http, $sce, $location, $timeout, $interval) {
+            $scope.registered = false;
+            $scope.upgrade_params = {};
+            $scope.onetime_params = {};
+            setInterval(function() { $scope.ga = window.ga; }, 2000);
+            
+            if($location.search().a) {
+                $timeout(function() {
+                    ga('send', 'event', 'Affiliate', 'Invite', 'affiliate_id', $location.search().a);
+                }, 3000);
+                window.sessionStorage.setItem('affiliate_id', $location.search().a);
+            }
+            $scope.premium_disabled = true;
+            $scope.register_params = {};
+            console.log("init controller");
+
+            $scope.register = function() {
+                $scope.registered = true;
+                if(!$scope.register_params.full_name || !$scope.register_params.email) return;
+
+                console.log('$scope.register_params', $scope.register_params);
+                $scope.in_progress = true;
+                if(window.sessionStorage.getItem('affiliate_id')) {
+                    $scope.register_params.created_by = window.sessionStorage.getItem('affiliate_id');
+                }
+                $http.post(api_prefix + 'register', $scope.register_params).then(function(res) {
+                    $scope.in_progress = false;
+                    $scope.register_response = res.data.response;
+                    if(res.data.response) {
+                        $scope.upgrade_params.api_key = $scope.register_response;
+                        if(window.localStorage && window.localStorage.setItem) {
+                            window.localStorage.setItem('api_key', $scope.register_response);
+                        }
+                        ga('send', 'event', 'API', 'Register', 'api_key', $scope.register_response);
+                        $scope.upgrade();
+                        $scope.premium_disabled = false;
+                    }
+                    else {
+                        $scope.premium_disabled = true;
+                    }
+                    console.log("$scope.register_response", $scope.register_response);
+
+                    // facebook pixel //
+                    fbq('track', 'AddToCart', {
+                        value   : $scope.stats_response.premium_price,
+                        currency: 'USD'
+                    });
+                });
+            };
+
+            $scope.upgrade = function() {
+                console.log('$scope.upgrade_params', $scope.upgrade_params);
+                if(window.localStorage && window.localStorage.setItem) {
+                    window.localStorage.setItem('api_key', $scope.upgrade_params.api_key);
+                }
+                $scope.in_progress = true;
+                $scope.upgrade_response = null;
+                $http.post(api_prefix + 'upgrade_now', $scope.upgrade_params).then(function(res) {
+                    $scope.in_progress = false;
+                    $scope.upgrade_response = res.data.response;
+                    for(var key in $scope.upgrade_response) {
+                        $scope.upgrade_response[key].action = $sce.trustAsResourceUrl($scope.upgrade_response[key].action);
+                        if($scope.upgrade_response[key].submit.image) {
+                            $scope.upgrade_response[key].submit.image = $sce.trustAsResourceUrl($scope.upgrade_response[key].submit.image);
+                        }
+                    }
+                    console.log("$scope.upgrade_response", $scope.upgrade_response);
+
+                    // facebook //
+                    fbq('track', 'InitiateCheckout');
+                });
+            };
+
+            $scope.total = 0;
+            var redraw_price = function () {
+                $scope.total = 0;
+                for(var name in $scope.onetimes) {
+                    if($scope.onetimes[name] && $scope.stats_response.pricing[name]) {
+                        $scope.total += +$scope.stats_response.pricing[name];
+                    }
+                }
+            };
+            $scope.$watch('onetimes.airports', redraw_price);
+            $scope.$watch('onetimes.cities', redraw_price);
+            $scope.$watch('onetimes.countries', redraw_price);
+            $scope.$watch('onetimes.airlines', redraw_price);
+            $scope.$watch('onetimes.aircrafts', redraw_price);
+            $scope.$watch('onetimes.airplanes', redraw_price);
+            $scope.$watch('onetimes.taxes', redraw_price);
+            $scope.$watch('onetimes.timezones', redraw_price);
+            $scope.$watch('onetimes.routes', redraw_price);
+            $scope.onetime = function () {
+                if(!$scope.total || !$scope.onetime_params.email) return;
+
+                var list = [];
+                for(var name in $scope.onetimes) {
+                    if($scope.onetimes[name]) list.push(name);
+                }
+
+                $scope.onetime_params.list = list.join(',');
+                $scope.onetime_params.total = $scope.total;
+
+                console.log($scope.onetime_params);
+
+                $scope.in_progress = true;
+                $scope.onetime_response = {};
+                $http.post(api_prefix + 'onetime_now', $scope.onetime_params).then(function(res) {
+                    $scope.in_progress = false;
+                    $scope.onetime_response = {paypal: res.data.response.paypal};
+                    $scope.onetime_response.paypal.action = $sce.trustAsResourceUrl($scope.onetime_response.paypal.action);
+                    if($scope.onetime_response.paypal.submit.image) {
+                        $scope.onetime_response.paypal.submit.image = $sce.trustAsResourceUrl($scope.onetime_response.paypal.submit.image);
+                    }
+                    console.log("$scope.onetime_response", $scope.onetime_response);
+
+                    // facebook //
+                    fbq('track', 'InitiateCheckout');
+                });
+            };
+            $scope.stats = function() {
+                $scope.mode = 'subscription';
+                if(window.localStorage && window.localStorage.getItem('api_key')) {
+                    if(!api_key_from_storage) {
+                        api_key_from_storage = true;
+                        $scope.upgrade_params.api_key = window.localStorage.getItem('api_key');
+                        $scope.upgrade();
+                    }
+                    else {
+                        $scope.upgrade_params.api_key = window.localStorage.getItem('api_key');
+                    }
+                }
+                
+                $http.post(api_prefix + 'stats').then(function(res) {
+                    $scope.stats_response = res.data.response;
+                });
+                
+                $scope.uptime = {};
+                window.jsonUptimeRobotApi = function(data) {
+                    $timeout(function() {
+                        data.monitors.monitor.forEach(function(item) {
+                            $scope.uptime[item.friendlyname] = item.alltimeuptimeratio;
+                        });
+                        console.log("uptime", $scope.uptime);
+                    }, 111);
+                };
+                $http
+                    .jsonp("https://api.uptimerobot.com/getMonitors?apiKey=u292729-37e6fb46e0279d0c5f3fd7df&format=json&logs=1&alertContacts=1&customUptimeDays=1-7-30")
+                    .then(function() {});
+            };
+            
+            // $scope.stats();
+        });
+    </script>
+    <style type="text/css">
+    .btn-cta-hot {
+        background: #F32A2A !important;
+        border: 1px solid #FFFFFF !important;
+        color: #fff !important;
+    }
+    .borderless .table {
+        border-top-style: none;
+        border-left-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+    }
+    </style>
+    
+</head> 
+
+<body data-spy="scroll" ng-controller="mainController" ng-init="stats()">
+    
+    <!---//Facebook button code-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a class="scrollto" href="#promo">
+                    <span class="logo-title">IATACodes</span>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#get_started">Get Started</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#docs">Docs</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#free_access">FREE Access</a></li>                        
+                        <li class="nav-item"><a class="scrollto" href="#premium">PREMIUM</a></li>                        
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+    
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">IATA<span class="highlight">Codes</span></h2>
+            <p class="intro">An API to get IATA codes database and more.</p>
+            <div class="btns">
+                <a class="btn btn-cta-primary scrollto" href="#get_started">Get Started</a>
+                <a class="btn btn-cta-secondary scrollto" href="#premium">Get PREMIUM</a>
+                <!--a class="btn btn-cta-secondary btn-cta-hot scrollto" href="#jetRadar">HOT! Metasearch API</a-->
+                <!--a class="btn btn-cta-secondary" href="http://www.jetradar.com/affiliates/?utm_source=iatacodes&utm_medium=referral&utm_campaign=website&marker=89606" target="_blank">Travel Pricing API</a-->
+            </div>
+            <ul class="meta list-inline">
+                <li><a href="https://github.com/iatacodes" target="_blank">View on GitHub</a></li>
+                <!--li><a href="https://github.com/iatacodes/documentation" target="_blank">Full Documentation</a></li-->
+                <li><a class="scrollto" href="#docs">Full Documentation</a></li>
+            </ul><!--//meta-->
+        </div><!--//container-->
+        <div class="social-media">
+            <div class="social-media-inner container text-center">
+                <ul class="list-inline">
+                    <li class="twitter-follow"><a href="https://twitter.com/iatacodes" class="twitter-follow-button" data-show-count="false">Follow @iatacodes</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-follow-->
+                    <li class="twitter-tweet">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="iatacodes" data-hashtags="iata #codes #database #airport #airline #list">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </li><!--//twitter-tweet-->
+                    <li class="facebook-like">
+                         <div class="fb-like" data-href="http://iatacodes.org/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                    </li><!--//facebook-like>
+                    <!--// Generate github buttons: https://github.com/iatacodes/github-buttons -->
+                    <!--li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=iatacodes&repo=iatacodes&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=iatacodes&repo=iatacodes&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li-->
+                    <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=iatacodes&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
+                </ul>
+            </div>
+        </div>
+    </section><!--//promo-->
+    
+    <!-- ******ABOUT****** --> 
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is IATACodes?</h2>
+            <div class="intro">
+                <p class="text-center">We provide information with respect to the
+                    <a href="http://en.wikipedia.org/wiki/International_Air_Transport_Association" target="_blank">IATA</a> /
+                    <a href="https://en.wikipedia.org/wiki/International_Civil_Aviation_Organization" target="_blank">ICAO</a>
+                    codes for <code>aircrafts</code>, <code>airlines</code>, <code>airports</code>, <code>cities</code>, <code>countries</code>,
+                    <code>flights</code> in real–time, <code>routes</code>, <code>timezones</code>, and so on.</p>
+                <p class="text-center">Among other things, this information is useful for: airline and airport services, business applications,
+                    consumer services, manufacturers, tour operators, travel portals, etc.</p>
+            </div>
+            <div class="row">
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Save your time and money.</h3>
+                        <p>We have used our expertise to carefully collate our data, so you don’t have to.</p>
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-database"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Accurate and complete.</h3>
+                        <p>Our databases are updated frequently with information from hundreds of official and unofficial sources, such as distribution systems and exchange networks.</p>
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Designed for Developers</h3>
+                        <p>We utilize a fast <a class="scrollto" href="#get_started">API</a> with the standard formats (<code>JSON</code>, <code>XML</code>, <code>CSV</code>), and we provide easy and simple access through our <a class="scrollto" href="#free_access">API Key</a>.</p>
+                        <!--p>Fast <a class="scrollto" href="#get_started">API</a>, popular formats - <code>JSON</code>, <code>XML</code> and <code>CSV</code>.<br/>Easy access by <a class="scrollto" href="#free_access">API Key</a>.</p-->
+                    </div>
+                </div>
+                <!-- <div class="clearfix visible-md"></div>
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-btc"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">FREE access</h3>
+                        <p>Just try our product for <a class="scrollto" href="#free_access">FREE</a>, and we know you will interested to catch a <a class="scrollto" href="#premium">PREMIUM</a> key.</p>
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-send"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Faster then you can believe</h3>
+                        <p>Our system is really fast. So, you can use <a class="scrollto" href="#free_access">API</a> directly in your application.</p>
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Internationalization</h3>
+                        <p><a class="scrollto" href="#free_access">API</a> understand a few languages. So, your customers will think a good things about your product.</p>
+                    </div>
+                </div> -->
+            </div><!--//row-->            
+        </div><!--//container-->
+    </section><!--//about-->
+    
+    <!-- ******FEATURES****** --> 
+    <section id="get_started" class="features section">
+        <div class="container ">
+            <h2 class="title">Get Started</h2>
+            <ul class="feature-list list-unstyled">
+                <li>Access to our database is provided via HTTP. Each type of data has a personal <b>ENDPOINT</b>.</li>
+                <li>You must have your own <b>API Key</b> to send requests. We provide the <a class="scrollto" href="#free_access"><i><b>API Key</b></i></a> free of charge. <br/>
+                    Furthermore, you must include the API Key in every request you make. Here is an example of an <b>API Key</b> request: <br/>
+                    <a href="https://iatacodes.org/api/VERSION/ENDPOINT?api_key=YOUR-API-KEY" target="_blank"><b>https://iatacodes.org/api/VERSION/ENDPOINT?api_key=YOUR-API-KEY</b></a></li>
+                <li>Our response(s) will be in the <b>JSON</b> format. To receive a response in the <b>XML</b> or <b>CSV</b> formats, you must add <b>.xml</b> or <b>.csv</b> after the endpoint: <br/>
+                    <a href="https://iatacodes.org/api/VERSION/ENDPOINT.xml?api_key=YOUR-API-KEY" target="_blank"><b>https://iatacodes.org/api/VERSION/ENDPOINT.xml?api_key=YOUR-API-KEY</b></a></li>
+                <li>Additionally, you can use <b>JSONP</b> by adding <b>.jsonp</b> as an extension, together with <b>&callback=funcName</b>: <br/>
+                    <a href="https://iatacodes.org/api/VERSION/ENDPOINT.jsonp?&callback=funcName&api_key=YOUR-API-KEY" target="_blank"><b>https://iatacodes.org/api/VERSION/ENDPOINT.jsonp?&callback=funcName&api_key=YOUR-API-KEY</b></a></li>
+                <li>Each request must be sent with the most current version of API. Presently, the most current version of API is <b>v6</b>: <br/>
+                    <a href="https://iatacodes.org/api/v6/ENDPOINT.xml?api_key=YOUR-API-KEY" target="_blank"><b>https://iatacodes.org/api/v6/ENDPOINT.xml?api_key=YOUR-API-KEY</b></a></li>
+                <li>The following languages are compatible with our API: <b>en</b>, <b>fr</b>, <b>de</b>, <b>es</b>, <b>it</b>, <b>ru</b>, <b>th</b>, <b>tr</b>. <br/>
+                    While <b>en</b> is the default language, you may send requests for another language: <br/>
+                    <a href="https://iatacodes.org/api/v6/ENDPOINT.xml?api_key=YOUR-API-KEY&lang=de" target="_blank"><b>https://iatacodes.org/api/v6/ENDPOINT.xml?api_key=YOUR-API-KEY&lang=de</b></a><br/>
+                    Kindly note, however, that free users will only have access to <b>en</b>.</li>
+                <li>To request several items at once, you must separate their respective values with a comma (,): <br/>
+                    <a href="https://iatacodes.org/api/v6/countries?api_key=YOUR-API-KEY&code=FR,ES" target="_blank"><b>https://iatacodes.org/api/v6/countries?code=FR,ES</b></a>. <br/>
+                    This will work for all types of requests.</li>
+            </ul>
+        </div><!--//container-->
+    </section><!--//features-->
+    
+    <!-- ******DOCS****** --> 
+    <section id="docs" class="docs section">
+        <div class="container">
+                <div class="docs-inner">
+                <h2 class="title text-center">End-Points</h2>
+                <div class="block">
+                    <h2 class="sub-title">Airports</h2>
+                    <p>Our database for airports contains <b>{{stats_response.airports||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Airports}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all airports, send this API request: <a href="https://iatacodes.org/api/v6/airports?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/airports</code></a>.</p>
+                    <p>To receive data from a specific airport, send this API request: <a href="https://iatacodes.org/api/v6/airports?api_key=YOUR-API-KEY&code=CDG" target="_blank"><code>https://iatacodes.org/api/v6/airports?code=CDG</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseAirports" aria-expanded="false" aria-controls="collapseAirports">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseAirports">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of airport</p>
+                        <p><span class="label label-default">name</span> - airport name</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">country_code</span> - ISO code of country for this airport</p>
+                        <p><span class="label label-default">icao</span> - ICAO code of airport</p>
+                        <p><span class="label label-default">city_code</span> - IATA code of city for this airport</p>
+                        <p><span class="label label-default">lat</span> - geo latitude of airport</p>
+                        <p><span class="label label-default">lng</span> - geo longitude of airport</p>
+                        <p><span class="label label-default">timezone</span> - Timezone of airport</p>
+                        <p><span class="label label-default">gmt</span> - GMT timezone value of airport</p>
+                        <p><span class="label label-default">is_rail_road</span> - mark iata code as rail road</p>
+                        <p><span class="label label-default">is_bus_station</span> - mark iata code as bus station</p>
+                        <p><span class="label label-default">alternatenames</span> - alternative names of airport</p>
+                        <p><span class="label label-default">tch_code</span> - <a href="http://www.tch.ru/eng/" target="_blank">TCH code</a> of airport</p>
+                        <p><span class="label label-default">popularity</span> - popularity index of airport</p>
+                        <p><span class="label label-default">phone</span> - phone of airport</p>
+                        <p><span class="label label-default">website</span> - website of airport</p>
+                        <p><span class="label label-default">geoname_id</span> - related id for geo names</p>
+                        <p><span class="label label-default">routes</span> - open routes for this airport</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Cities</h2>
+                    <p>Our database for cities contains <b>{{stats_response.cities||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Cities}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all cities, send this API request: <a href="https://iatacodes.org/api/v6/cities?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/cities</code></a>.</p>
+                    <p>To receive data from a specific city, send this API request: <a href="https://iatacodes.org/api/v6/cities?api_key=YOUR-API-KEY&code=PAR" target="_blank"><code>https://iatacodes.org/api/v6/cities?code=PAR</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseCities" aria-expanded="false" aria-controls="collapseCities">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseCities">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of city</p>
+                        <p><span class="label label-default">name</span> - name of city</p>
+                        <p><span class="label label-default">country_code</span> - ISO code of country for this city</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">lat</span> - geo latitude of city</p>
+                        <p><span class="label label-default">lng</span> - geo longitude of city</p>
+                        <p><span class="label label-default">timezone</span> - of city</p>
+                        <p><span class="label label-default">gmt</span> - of city</p>
+                        <p><span class="label label-default">alternatenames</span> - alternative names of city</p>
+                        <p><span class="label label-default">tch_code</span> - <a href="http://www.tch.ru/eng/" target="_blank">TCH code</a> of city</p>
+                        <p><span class="label label-default">popularity</span> - popularity index of city</p>
+                        <p><span class="label label-default">geoname_id</span> - related geoname id</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Countries</h2>
+                    <p>Our database for countries contains <b>{{stats_response.countries||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Countries}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from every country across the world, send this API request: <a href="https://iatacodes.org/api/v6/countries?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/countries</code></a>.</p>
+                    <p>To receive data from a specific country, send this API request: <a href="https://iatacodes.org/api/v6/countries?api_key=YOUR-API-KEY&code=FR" target="_blank"><code>https://iatacodes.org/api/v6/countries?code=FR</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseCountries" aria-expanded="false" aria-controls="collapseCountries">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseCountries">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - 2 chars ISO code of country</p>
+                        <p><span class="label label-default">code3</span> - 3 chars ISO code of country</p>
+                        <p><span class="label label-default">iso_numeric</span> - numeric ISO code of country</p>
+                        <p><span class="label label-default">name</span> - name of country.</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">currency_code</span> - currency 3 chars ISO code of country</p>
+                        <p><span class="label label-default">currency_name</span> - currency name of country</p>
+                        <p><span class="label label-default">continent</span> - 2 chars ISO code of continent</p>
+                        <p><span class="label label-default">languages</span> - uses languages in country</p>
+                        <p><span class="label label-default">fips_code</span> - fips code of country</p>
+                        <p><span class="label label-default">population</span> - country population</p>
+                        <p><span class="label label-default">alternatenames</span> - alternative names of country</p>
+                        <p><span class="label label-default">neighbours</span> - neighbours countries for country</p>
+                        <p><span class="label label-default">phone_code</span> - phone code of country</p>
+                        <p><span class="label label-default">capital</span> - capitalname of country</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><span class="label label-danger">NEW</span> Airlines</h2>
+                    <p>Our database for airlines contains <b>{{stats_response.airlines||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Airlines}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all airlines across the world, send this API request: <a href="https://iatacodes.org/api/v7/airlines?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v7/airlines</code></a>.</p>
+                    <p>To receive data from a specific airline, send this API request: <a href="https://iatacodes.org/api/v7/airlines?api_key=YOUR-API-KEY&iata_code=NH" target="_blank"><code>https://iatacodes.org/api/v7/airlines?iata_code=NH</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseAirlines" aria-expanded="false" aria-controls="collapseAirlines">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseAirlines">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">name</span> - the name of airline</p>
+                        <p><span class="label label-default">iata_code</span> - IATA code of airline</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">iata_prefix</span> - IATA airline prefix number</p>
+                        <p><span class="label label-default">iata_accounting</span> - IATA accounting number</p>
+                        <p><span class="label label-default">base_code</span> - IATA code of base hub airport</p>
+                        <p><span class="label label-default">icao_code</span> - ICAO code of airline</p>
+                        <p><span class="label label-default">callsign</span> - ICAO callsign</p>
+                        <p><span class="label label-default">country_code</span> - country code of airline</p>
+                        <p><span class="label label-default">country_name</span> - country name of airline</p>
+                        <p><span class="label label-default">slug</span> - unique slug identifier in our system</p>
+                        <p><span class="label label-default">status</span> - current airline status (<code>active</code>, <code>disabled</code>, <code>restarting</code>, <code>not_ready</code>, <code>start_up</code>,
+                            <code>merged</code>, <code>renamed</code>, <code>historical</code>, <code>duplicate</code>, <code>unknown</code>)
+                        </p>
+                        <p><span class="label label-default">type</span> - airline type (<code>scheduled</code>, <code>private</code>, <code>cargo</code>, <code>charter</code>, <code>virtual</code>,
+                            <code>manufacturer</code>, <code>government</code>, <code>division</code>, <code>supplier</code>, <code>unknown</code>)
+                        </p>
+                        <p><span class="label label-default">founded</span> - year of airline founding</p>
+                        <p><span class="label label-default">fleet_age</span> - average fleet age</p>
+                        <p><span class="label label-default">fleet_size</span> - current fleet size</p>
+                        <p><span class="label label-default">website</span> - official airline website</p>
+                        <p><span class="label label-default">twitter</span> - airline Twitter page</p>
+                        <p><span class="label label-default">facebook</span> - airline Facebook page</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Taxes</h2>
+                    <p>Our database for taxes contain <b>{{stats_response.taxes||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Taxes}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data in relation to all taxes, send this API request: <a href="https://iatacodes.org/api/v6/taxes?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/taxes</code></a>.</p>
+                    <p>To receive data regarding a specific tax, send this API request: <a href="https://iatacodes.org/api/v6/taxes?api_key=YOUR-API-KEY&code=AB" target="_blank"><code>https://iatacodes.org/api/v6/taxes?code=AB</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseTaxes" aria-expanded="false" aria-controls="collapseTaxes">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseTaxes">
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of tax</p>
+                        <p><span class="label label-default">name</span> - tax name</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Aircrafts</h2>
+                    <p>Our aircraft database contains <b>{{stats_response.aircrafts||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Aircrafts}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all aircrafts, send this API request: <a href="https://iatacodes.org/api/v6/aircrafts?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/aircrafts</code></a>.</p>
+                    <p>To receive data from a specific aircraft, send this API request: <a href="https://iatacodes.org/api/v6/aircrafts?api_key=YOUR-API-KEY&code=310" target="_blank"><code>https://iatacodes.org/api/v6/aircrafts?code=310</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseAircrafts" aria-expanded="false" aria-controls="collapseAircrafts">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseAircrafts">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of aircraft</p>
+                        <p><span class="label label-default">name</span> - aircraft name</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Airplanes</h2>
+                    <p>Our airplane database contains <b>{{stats_response.airplanes||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Airplanes}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all airplanes, send this API request: <a href="https://iatacodes.org/api/v6/airplanes?api_key=YOUR-API-KEY&page=0&limit=1" target="_blank"><code>https://iatacodes.org/api/v6/airplanes?page=0&limit=1</code></a>.</p>
+                    <p>To receive data from a specific airplane (through its Registration Number), send this API request: <a href="https://iatacodes.org/api/v6/airplanes?reg_number=4X-ECC&api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/airplanes?reg_number=4X-ECC</code></a>.</p>
+                    <p>To receive data from a specific airplane by airline code, send this API request: <a href="https://iatacodes.org/api/v6/airplanes?api_key=YOUR-API-KEY&airline_iata=LY&page=0&limit=1" target="_blank"><code>https://iatacodes.org/api/v6/airplanes?airline_iata=LY&page=0&limit=1</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseAirplanes" aria-expanded="false" aria-controls="collapseAirplanes">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseAirplanes">
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response contain:</p>
+                        <p><span class="label label-default">reg_number</span> - registration number of aircraft</p>
+                        <p><span class="label label-default">test_registration</span> - test registration number</p>
+                        <p><span class="label label-default">construction_number</span> - construction number of aircraft</p>
+                        <p><span class="label label-default">icao_hex</span> - ICAO24 hex code of aircraft</p>
+                        <p><span class="label label-default">aircraft_iata</span> - aircraft IATA code (short)</p>
+                        <p><span class="label label-default">aircraft_code</span> - aircraft IATA code</p>
+                        <p><span class="label label-default">aircraft_type</span> - aircraft IATA type code</p>
+                        <p><span class="label label-default">production_line</span> - aircraft production line name</p>
+                        <p><span class="label label-default">line_number</span> - line number</p>
+                        <p><span class="label label-default">model</span> - aircraft production model</p>
+                        <p><span class="label label-default">strict_model</span> - exactly model code</p>
+                        <p><span class="label label-default">series</span> - series of aircraft</p>
+                        <p><span class="label label-default">engines_type</span> - engines type</p>
+                        <p><span class="label label-default">engines_count</span> - engines count</p>
+                        <p><span class="label label-default">first_flight</span> - date of first flight</p>
+                        <p><span class="label label-default">age</span> - aircraft age in years</p>
+                        <p><span class="label label-default">registered</span> - registeration date</p>
+                        <p><span class="label label-default">rollout</span> - rollout date</p>
+                        <p><span class="label label-default">delivered</span> - delivered date</p>
+                        <p><span class="label label-default">airline_iata</span> - airline IATA code</p>
+                        <p><span class="label label-default">airline_icao</span> - airline ICAO code</p>
+                        <p><span class="label label-default">owner</span> - aircraft owner</p>
+                        <p><span class="label label-default">status</span> - current status of aircraft</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.name</span> - internal airline class name</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.seats</span> - count of seats</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.pitch</span> - seat pitch</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.width</span> - seat width</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.bed_type</span> - seat type (standard, angle-flat, open-suite, closed-suite, flat, recliner)</p>
+                        <p><span class="label label-default">classes.{economy|premium|business|first}.bed_length</span> - length of bed (if possible)</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><span class="label label-danger">NEW</span> Routes</h2>
+                    <p>Our routes database contains <b>{{stats_response.routes||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Routes}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data in relation to all routes, send this API request: <a href="https://iatacodes.org/api/v7/routes?api_key=YOUR-API-KEY&limit=1000&offset=0" target="_blank"><code>https://iatacodes.org/api/v7/routes?limit=1000&offset=0</code></a>.</p>
+                    <p>To receive data regarding a specific route, send this API request: <a href="https://iatacodes.org/api/v7/routes?api_key=YOUR-API-KEY&flight_number=10&departure_iata=CDG&departure_icao=LFPG&arrival_iata=JFK&arrival_icao=KJFK&airline_iata=5K&airline_icao=HFY" target="_blank"><code>https://iatacodes.org/api/v7/routes?flight_number=10&departure_iata=CDG&departure_icao=LFPG&arrival_iata=JFK&arrival_icao=KJFK&airline_iata=5K&airline_icao=HFY</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseRoutes" aria-expanded="false" aria-controls="collapseRoutes">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseRoutes">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">flight_number</span> - flight number</p>
+                        <p><span class="label label-default">airline_iata</span> - airline IATA code</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response contain:</p>
+                        <p><span class="label label-default">departure_iata</span> - departure IATA code</p>
+                        <p><span class="label label-default">departure_icao</span> - departure ICAO code</p>
+                        <p><span class="label label-default">departure_terminal</span> - departure terminal</p>
+                        <p><span class="label label-default">departure_time</span> - estimated departure time in departure airport timezone</p>
+                        <p><span class="label label-default">arrival_iata</span> - arrival IATA code</p>
+                        <p><span class="label label-default">arrival_icao</span> - arrival ICAO code</p>
+                        <p><span class="label label-default">arrival_terminal</span> - arrival terminal</p>
+                        <p><span class="label label-default">arrival_time</span> - arrival time in arrival airport timezone</p>
+                        <p><span class="label label-default">airline_icao</span> - airline ICAO code</p>
+                        <p><span class="label label-default">codeshares</span> - codeshares information</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Timezones</h2>
+                    <p>Our time zones database contains <b>{{stats_response.timezones||"..."}}</b> records. <span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Timezones}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To receive data from all time zones, send this API request: <a href="https://iatacodes.org/api/v6/timezones?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v6/timezones</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseTimezones" aria-expanded="false" aria-controls="collapseTimezones">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseTimezones">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">timezone</span> - timezone code/name</p>
+                        <p><span class="label label-default">country_code</span> - country ISO code</p>
+                        <p><span class="label label-default">gmt</span> - GMT offset</p>
+                        <p><span class="label label-default">dst</span> - DST offset</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">Autocompletion service</h2>
+                    <p><span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Autocomplete}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To locate airports and cities via query string, send this API request: <a href="https://iatacodes.org/api/v6/autocomplete?api_key=YOUR-API-KEY&query=madrid" target="_blank"><code>https://iatacodes.org/api/v6/autocomplete?query=madrid</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseAutocomplete" aria-expanded="false" aria-controls="collapseAutocomplete">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseAutocomplete">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of airport/city</p>
+                        <p><span class="label label-default">name</span> - airport/city name</p>
+                        <p><span class="label label-default">country_name</span> - name of country for this airport/city</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">city_code</span> - IATA code of city for this airport</p>
+                        <p><span class="label label-default">city_name</span> - city name for this airport</p>
+                        <p><span class="label label-default">country_code</span> - ISO code of country for this airport/city</p>
+                        <p><span class="label label-default">lat</span> - geo latitude of airport/city</p>
+                        <p><span class="label label-default">lng</span> - geo longitude of airport/city</p>
+                        <p><span class="label label-default">type</span> - type of item (airport, city, railway, busstation)</p>
+                        <p><span class="label label-default">timezone</span> - Timezone of airport/city</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title">NearBy service</h2>
+                    <p><span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.NearBy}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>To locate airports via measurements of latitude/longitude and/or distance, send this API request: <a href="https://iatacodes.org/api/v6/nearby?api_key=YOUR-API-KEY&lat=-6.1744&lng=106.8294&distance=1000" target="_blank"><code>https://iatacodes.org/api/v6/nearby?lat=-6.1744&lng=106.8294&distance=1000</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseNearby" aria-expanded="false" aria-controls="collapseNearby">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseNearby">
+                        <p>For <span class="label label-success">FREE</span> accounts response contain:</p>
+                        <p><span class="label label-default">code</span> - IATA code of airport/city</p>
+                        <p><span class="label label-default">name</span> - airport/city name</p>
+                        <p><span class="label label-default">country_name</span> - name of country for this airport/city</p>
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response also contain:</p>
+                        <p><span class="label label-default">city_code</span> - IATA code of city for this airport</p>
+                        <p><span class="label label-default">city_name</span> - city name for this airport</p>
+                        <p><span class="label label-default">country_code</span> - ISO code of country for this airport/city</p>
+                        <p><span class="label label-default">lat</span> - geo latitude of airport/city</p>
+                        <p><span class="label label-default">lng</span> - geo longitude of airport/city</p>
+                        <p><span class="label label-default">type</span> - type of item (airport, city, railway, busstation)</p>
+                        <p><span class="label label-default">timezone</span> - Timezone of airport/city</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><span class="label label-danger">NEW</span> Real-time flights information</h2>
+                    <p><span class="text text-success" title="Provided by UptimeRobot.com">Uptime <b>{{uptime.Flights}}%</b> <i class="fa fa-thumbs-up"></i></span></p>
+                    <p>Real-Time information about current flights in world <a href="https://iatacodes.org/api/v7/flights?api_key=YOUR-API-KEY" target="_blank"><code>https://iatacodes.org/api/v7/flights</code></a>.</p>
+                    <p>You can filter the real – time information by bounds and/or any other object parameter at the following link: <a href="https://iatacodes.org/api/v7/flights?api_key=YOUR-API-KEY&bounds=s-w-lat,s-w-lng,n-e-lat,n-e-lng&airline[iata_code]=AA" target="_blank"><code>https://iatacodes.org/api/v7/flights?bounds=s-w-lat,s-w-lng,n-e-lat,n-e-lng&airline[iata_code]=AA</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseFlights" aria-expanded="false" aria-controls="collapseFlights">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseFlights">
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response contain:</p>
+                        <p><span class="label label-default">status</span> - current flight status (<code>en-route</code>, <code>landed</code>, <code></code>)</p>
+                        <p><span class="label label-default">aircraft.reg_number</span> - registration number of aircraft</p>
+                        <p><span class="label label-default">aircraft.icao_code</span> - aircraft type ICAO code</p>
+                        <p><span class="label label-default">flight.number</span> - flight number</p>
+                        <p><span class="label label-default">flight.iata_number</span> - flight number with IATA airline prefix</p>
+                        <p><span class="label label-default">flight.icao_number</span> - flight number with ICAO airline prefix</p>
+                        <p><span class="label label-default">airline.iata_code</span> - airline IATA code</p>
+                        <p><span class="label label-default">airline.icao_code</span> - airline ICAO code</p>
+                        <p><span class="label label-default">departure.iata_code</span> - IATA code of deprature airport</p>
+                        <p><span class="label label-default">departure.icao_code</span> - ICAO code of deprature airport</p>
+                        <p><span class="label label-default">arrival.iata_code</span> - IATA code of arrival airport</p>
+                        <p><span class="label label-default">arrival.icao_code</span> - ICAO code of arrival airport</p>
+                        <p><span class="label label-default">geography.latitude</span> - current aircraft latitude</p>
+                        <p><span class="label label-default">geography.longitude</span> - current aircraft longitude</p>
+                        <p><span class="label label-default">geography.altitude</span> - current aircraft altitude</p>
+                        <p><span class="label label-default">geography.direction</span> - current aircraft direction (0-360)</p>
+                        <p><span class="label label-default">speed.horizontal</span> - current horizontal speed in <b>km</b></p>
+                        <p><span class="label label-default">speed.vertical</span> - current vertical speed in <b>km</b></p>
+                        <p><span class="label label-default">system.squawk</span> - current flight Squawk code</p>
+                        <p><span class="label label-default">system.updated</span> - last unix timestamp</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><span class="label label-danger">NEW</span> Airport Timetable</h2>
+                    <p>The current timetable for the arrivals and departures of flights at specific airports throughout the world may be found at: <a href="https://iatacodes.org/api/v7/timetable?api_key=YOUR-API-KEY&iata_code=LGA&type=departure" target="_blank"><code>https://iatacodes.org/api/v7/timetable?iata_code=LGA&type=departure</code></a>.</p>
+                    <p><a role="button" class="scrollto" data-toggle="collapse" href="#collapseTimetable" aria-expanded="false" aria-controls="collapseTimetable">Show response details &gt;&gt;</a></p>
+                    <div class="collapse" id="collapseTimetable">
+                        <p>For <span class="label label-danger">PREMIUM</span> accounts (<a class="scrollto" href="#premium">only ${{stats_response.premium_price||"79"}}</a>) response contain:</p>
+                        <p><span class="label label-default">status</span> - status of flight (<code>active</code>, <code>scheduled</code>, <code>landed</code>, <code>cancelled</code>,
+                            <code>incident</code>, <code>diverted</code>, <code>redirected</code>, <code>unknown</code>)</p>
+                        <p><span class="label label-default">flight.number</span> - flight number</p>
+                        <p><span class="label label-default">flight.iata_number</span> - flight number with IATA airline prefix</p>
+                        <p><span class="label label-default">flight.icao_number</span> - flight number with ICAO airline prefix</p>
+                        <p><span class="label label-default">airline.name</span> - airline name</p>
+                        <p><span class="label label-default">airline.iata_code</span> - airline IATA code</p>
+                        <p><span class="label label-default">airline.icao_code</span> - airline ICAO code</p>
+                        <p><span class="label label-default">departure.iata_code</span> - IATA code of deprature airport</p>
+                        <p><span class="label label-default">departure.icao_code</span> - ICAO code of deprature airport</p>
+                        <p><span class="label label-default">departure.terminal</span> - deprature airport terminal</p>
+                        <p><span class="label label-default">departure.gate</span> - deprature airport gate</p>
+                        <p><span class="label label-default">departure.scheduled_time</span> - scheduled deprature time</p>
+                        <p><span class="label label-default">departure.estimated_time</span> - estimated deprature time</p>
+                        <p><span class="label label-default">departure.actual_time</span> - actual deprature time</p>
+                        <p><span class="label label-default">arrival.iata_code</span> - IATA code of arrival airport</p>
+                        <p><span class="label label-default">arrival.icao_code</span> - ICAO code of arrival airport</p>
+                        <p><span class="label label-default">arrival.terminal</span> - arrival airport terminal</p>
+                        <p><span class="label label-default">arrival.gate</span> - arrival airport gate</p>
+                        <p><span class="label label-default">arrival.baggage</span> - arrival airport baggage claim</p>
+                        <p><span class="label label-default">arrival.scheduled_time</span> - scheduled arrival time</p>
+                        <p><span class="label label-default">arrival.estimated_time</span> - estimated arrival time</p>
+                        <p><span class="label label-default">arrival.actual_time</span> - actual arrival time</p>
+                        <p><span class="label label-default">codeshared</span> - information about original flight, if current flight is codeshare</p>
+                    </div>
+                </div>
+                <div id="jetRadar"></div>
+                <div class="block">
+                    <h2 class="sub-title">Mixed API request</h2>
+                    <p>To make several API requests at once, you must specify the different methods and their parameters: <a href="https://iatacodes.org/api/v6/mixed?api_key=YOUR-API-KEY&method[cities][code]=PAR&method[airports][code]=CDG&method[timezones]=1&method[timetable][code]=CDG" target="_blank"><code>https://iatacodes.org/api/v6/mixed?method[cities][code]=PAR&method[airports][code]=CDG&method[timezones]=1&method[timetable][code]=CDG</code></a>.</p>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><a href="https://github.com/search?q=user:iatacodes+sdk" target="_blank">SDK</a></h2>
+                    <p>Get <a href="https://github.com/iatacodes/php-sdk" target="_blank">PHP-SDK</a> on GitHub</p>
+                    <p>Get <a href="https://github.com/iatacodes/java-sdk" target="_blank">Java-SDK</a> on GitHub</p>
+                    <p>Get <a href="https://github.com/iatacodes/nodejs-sdk" target="_blank">NodeJS-SDK</a> on GitHub or <a href="https://www.npmjs.com/package/iatacodes" target="_blank">package on NPMjs.org</a></p>
+                    <p>Get <a href="https://github.com/iatacodes/python-sdk" target="_blank">Python-SDK</a> on GitHub or <a href="https://pypi.python.org/pypi/iata_codes" target="_blank">package on PyPi.Python.org</a></p>
+                </div>
+                <div class="block">
+                    <h2 class="sub-title"><a href="http://www.jetradar.com/affiliates/?utm_source=iatacodes&utm_medium=referral&utm_campaign=website&marker=89606" target="_blank">Travel Pricing API/Widgets</a></h2>
+                    <p><br/>
+                        <ul>
+                            <li>Are you running a travel blog, web site or portal?</li>
+                            <li>Are you looking for new ways to monetize your site without ugly advertising?</li>
+                            <li>JetRadar Affiliate Network membership is free. There is no set-up fee and no ongoing costs. As soon as you register online, you get instant access to our affiliate tools.</li>
+                            <li><a href="http://www.jetradar.com/affiliates/?utm_source=iatacodes&utm_medium=referral&utm_campaign=website&marker=89606" target="_blank">Join JetRadar Affiliate Network</a> - a global pay-per-action program for monetizing anything travel and generate revenue in a smart way.</li>
+                        </ul>
+                        <center>
+                            <h4>
+                                <a href="http://www.travelpayouts.com/?utm_source=iatacodes&utm_medium=referral&utm_campaign=website&marker=89606" target="_blank">Register Here</a>
+                            </h4>
+                        </center>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ******license****** --> 
+    <section id="free_access" class="license section">
+        <div class="container">
+            <div class="license-inner">
+                <h2 class="title text-center">Free access to API</h2>
+                <div class="cta-container">
+                    <div class="speech-bubble0">                    
+                        
+                        <div class="info">
+                            <p>You can start to use this <b>API</b> absolutely <span class="label label-success">FREE</span>!</p>
+                        </div><!--//info-->
+                        
+                        <form class="form-horizontal row-border" ng-show="!register_response">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" ng-class='{"text-danger":!register_params.full_name&&registered}'>Full Name</label>
+                                <div class="col-md-7"><input type="text" ng-model="register_params.full_name" class="form-control"/></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" ng-class='{"text-danger":!register_params.email&&registered}'>Real Email</label>
+                                <div class="col-md-7">
+                                    <input type="text" ng-model="register_params.email" class="form-control"/>
+                                    <span class="help-block">We will send your <code>api_key</code> to this Email</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" ng-class='{"text-danger":!register_params.website&&registered}'>Website, app or company</label>
+                                <div class="col-md-7"><input type="text" ng-model="register_params.website" class="form-control"/></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" ng-class='{"text-danger":!register_params.kind&&registered}'>What's your project about?</label>
+                                <div class="col-md-7">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="register_params.kind" id="kind_travel" value="travel" />
+                                            OTA / Tour operator / Blog
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="register_params.kind" id="kind_software" value="software" />
+                                            Software / Developer / Freelancer
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="register_params.kind" id="kind_service" value="service" />
+                                            Airport / Airline / Manufacturer
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="register_params.kind" id="kind_business" value="business" />
+                                            Consumer services / Research / Business
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="register_params.kind" id="kind_university" value="university" />
+                                            Student / Teacher / University
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="msg" ng-class='{"text-danger":!register_params.message&&registered}'>Message</label>
+                                <div class="col-md-7"><textarea class="form-control" id="msg" ng-model="register_params.message" rows="5"></textarea></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-md-7">
+                                    <button type="button" class="btn-lg btn-block btn-danger" ng-click="register()">Register</button>
+                                    <br/>
+                                    <small class="help-block">By registering you agree to <a href="/terms.html" target="_blank">terms and conditions</a>.</small>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="form-horizontal row-border" ng-show="register_response"><!--Free access to API result-->
+                            <h5 class="text-success">Your api_key: <code class="lead bg-danger">{{register_response}}</code></h5>
+                        </div>
+                        
+                    </div><!--//speech-bubble-->
+                    
+                </div><!--//cta-container-->
+                
+                <div class="cta-container" style="display:none">
+                    <div class="speech-bubble">
+                        <p class="intro">If you are feeling generous and want to show your support to our project, you can buy a beer or coffee for us via the PayPal donate button below. :)</p>
+                        <div class="icon-holder  text-center"><i class="fa fa-smile-o"></i></div>
+                    </div><!--//speech-bubble-->
+                    <div class="btn-container  text-center">
+                        <!-- http://paypal.github.io/JavaScriptButtons/ -->
+                        <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=JWUFLHZD8LS8N" data-button="donate" data-name="FREE IATA Codes Database Donation" data-quantity="1" data-currency="USD" data-callback="http://iatacodes.org/"></script>
+                    </div><!--//btn-container-->
+                </div><!--//cta-container-->
+            </div>
+        </div>
+    </section>
+    <section id="premium" class="license section">
+        <div class="container">
+            <div class="license-inner">
+                <h2 class="title text-center" style="margin-bottom:30px !important">Premium access</h2>
+
+                <div class="cta-container" style="margin-top:30px !important">
+                    <div class="speech-bubble0">
+
+                        <p ng-show="0">
+                            <label class="radio-inline">
+                                <input type="radio" name="mode" ng-model="mode" checked="checked" id="type_subscription" value="subscription"/>
+                                PREMIUM Subscription
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="mode" ng-model="mode" id="type_onetime" value="onetime"/>
+                                One-time data downloading
+                            </label>
+                        </p><br/>
+
+                        <p ng-show="mode=='subscription'" class="lead bg-success" style="padding:15px">Upgrade to our PREMIUM package for just ${{stats_response.premium_price||"79"}} per month, and receive:</p>
+                        <p ng-show="mode=='onetime'" class="lead bg-success" style="padding:15px">Select required datasets and download once</p>
+
+                        <h4 ng-show="mode=='subscription'" class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Email support.</h4>
+                        <h4 ng-show="mode=='subscription'" class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Unrestricted access to all data of any endpoint.</h4>
+                        <h4 ng-show="mode=='subscription'" class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Cross-origin resource sharing (CORS)</h4>
+                        <h4 ng-show="mode=='subscription'" class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Priority access to our Beta features.</h4>
+                        <h4 ng-show="mode=='onetime'" class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Data in 3 different formats - XML, CSV, JSON</h4>
+                        <h4 class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Save time and money!</h4>
+                        <h4 class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;Pay securely using PayPal or crypto-currencies.</h4>
+                        
+                        <br/>
+
+                        <div ng-show="mode=='onetime'" style="margin-left:15px" class="form-group">
+                            <table class='table borderless'>
+                                <tbody>
+                                <tr>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.airports" checked="checked" value="airports"  > Airports - {{stats_response.pricing.airports||19}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.cities" value="cities"    > Cities - {{stats_response.pricing.cities||11}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.countries" value="countries" > Countries - {{stats_response.pricing.countries||5}}$</label></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.airlines" value="airlines"  > Airlines - {{stats_response.pricing.airlines||19}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.aircrafts" value="aircrafts" > Aircrafts - {{stats_response.pricing.aircrafts||19}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.airplanes" value="airplanes" > Airplanes - {{stats_response.pricing.airplanes||19}}$</label></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.timezones" value="timezones" > Timezones - {{stats_response.pricing.timezones||5}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.taxes" value="taxes"     > Taxes - {{stats_response.pricing.taxes||9}}$</label></div></td>
+                                    <td><div class="checkbox-inline"><label><input type="checkbox" ng-model="onetimes.routes" value="routes"    > Routes - {{stats_response.pricing.routes||11}}$</label></div></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 ng-show="mode=='onetime'" class="text-right">Total: {{total||0}}$</h4>
+
+                        <div class="form-group">
+                            <label ng-show="mode=='subscription'" class="col-md-3 control-label">Your <code>api_key</code></label>
+                            <label ng-show="mode=='onetime'" class="col-md-3 control-label">Your <code>Email</code></label>
+                            <div class="col-md-9">
+                                <input ng-show="mode=='subscription'" type="text" ng-model="upgrade_params.api_key" class="form-control" />
+                                <span ng-show="mode=='subscription'" class="help-block">Please, put your current <code>api_key</code> for upgrade to Premium.</span>
+                                <button ng-show="mode=='subscription'" type="button" ng-click="upgrade()" ng-mousedown="ga('send','event','API','Premium','api_key',upgrade_params.api_key);" class="btn-lg btn-block btn-success">Continue</button>
+
+                                <input ng-show="mode=='onetime'" type="text" ng-model="onetime_params.email" class="form-control" />
+                                <span ng-show="mode=='onetime'" class="help-block">Please, put your real <code>email</code> (we will send you the database).</span>
+                                <button ng-show="mode=='onetime'" type="button" ng-click="onetime()" ng-mousedown="ga('send','event','DATA','OneTime','api_key',upgrade_params.api_key);" class="btn-lg btn-block btn-success">Continue</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div><br/><br/>
+
+                        <form novalidate ng-if="mode=='onetime'" name="onetimeForm" class="form-horizontal row-border"
+                              ng-repeat="(key,val) in onetime_response"
+                              action="{{val.action}}" accept-charset="{{val.charset}}"
+                              method="{{val.method}}" target="{{val.target}}">
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-md-7">
+                                    <input ng-repeat="(name,value) in val.hidden" type="hidden" name="{{name}}" value="{{value}}" style="display:none;"/>
+                                    <button ng-if="val.submit.text && !val.submit.image" type="submit" class="btn-lg btn-block btn-success">{{val.submit.text}}</button>
+                                    <input ng-if="val.submit.image" type="image" src="{{val.submit.image}}" alt="{{val.submit.text}}" title="{{val.submit.text}}"/>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+
+                        <form novalidate ng-if="mode=='subscription'" name="subsForm" ng-repeat="(key,val) in upgrade_response" style="margin-left:13px"
+                            class="form-horizontal row-border" action="{{val.action}}" accept-charset="{{val.charset}}" method="{{val.method}}" target="{{val.target}}">
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-md-7">
+                                    <input ng-repeat="(name,value) in val.hidden" type="hidden" name="{{name}}" value="{{value}}" style="display:none;"/>
+                                    <button ng-if="val.submit.text && !val.submit.image" type="submit" class="btn-lg btn-block btn-success">{{val.submit.text}}</button>
+                                    <input type="image" src="{{val.submit.image}}" alt="{{val.submit.text}}" title="{{val.submit.text}}"/>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                        
+                    </div><!--//speech-bubble-->
+                </div><!--//cta-container-->
+            </div><!--//license-inner-->
+        </div><!--//container-->
+    </section><!--//how-->
+    
+    <!--section id="qa" class="docs section">
+        <div class="container">
+            <div class="docs-inner">
+                <h2 class="title text-center">Questions and Answers</h2>
+                <div class="block">
+                    <div id="disqus_thread"></div>
+                    <script>(function() {var d = document, s = d.createElement('script');s.src = '//iatacodes.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script>
+                </div>
+            </div>
+        </div>
+    </section-->
+    
+    
+    <!-- ******CONTACT****** --> 
+    <section id="contact" class="contact section has-pattern">
+        <div class="container">
+            <div class="contact-inner">
+                <h2 class="title  text-center">Contact</h2>
+                <p class="intro  text-center">Feel free to contact us - <a href="mailto:info@iatacodes.org">info@iatacodes.org</a></p>
+                <div class="clearfix"></div>
+                <div class="info text-center">
+                    <h4 class="sub-title">Get Connected</h4>
+                    <ul class="social-icons list-inline">
+                        <li><a href="https://twitter.com/iatacodes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://github.com/iatacodes"><i class="fa fa-github"></i></a></li>
+                        <li class="last"><a href="mailto:info@iatacodes.org"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div><!--//info-->
+            </div><!--//contact-inner-->
+        </div><!--//container-->
+    </section><!--//contact-->  
+      
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+            <small class="copyright">Developed by <a href="http://iatacodes.org/">IataCodes.Org</a></small>
+        </div>
+    </footer>
+     
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-59980171-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+<!-- 476996735823087 -->
+</body>
+</html>

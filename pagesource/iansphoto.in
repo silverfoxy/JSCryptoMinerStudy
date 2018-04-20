@@ -1,0 +1,1034 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta name="Keywords"
+	content="IANS Photo Service, iansphoto, digital photo service,photo services,online photo service,best online photo service,Bollywood photo service,Indian Cinema photo service,Cinema photo service,on line photo service,Indian celebrity photo,photography service,photograph service,photo images,Bollywood images,picture service,imaging service" />
+
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link href="css/photo.css" rel="stylesheet" type="text/css" />
+<link href="css/fantasy-swap-selectbox.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/main.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/menu.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/tipTip.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="css/autotipTip.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="css/menustyle.css" rel="stylesheet" type="text/css" media="screen"/>
+
+<link href="css/galleriffic-2.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.ChangeAlbum ul{margin:0; padding:0;}
+.ChangeAlbum ul li{list-style:none; float:left; margin:0; padding:0; background-image:url(..images/icons.png); background-repeat:no-repeat; width:20px; height:20px;}
+.ChangeAlbum ul li#normalview{background-position:0 0px;}
+.ChangeAlbum ul li#normalview a:hover{background-position:0 -20px;}
+</style>
+
+<!-- <script type="text/javascript" src="js/jquery.js" language="javascript"></script> -->
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+
+<!--<script type="text/javascript" src="js/jquery.date-dropdowns.js"></script>-->
+<script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+<script type="text/javascript" src="js/cycle-plugin.js"></script>
+<!--<script type="text/javascript" src="js/jquery-dropdate.js"></script>
+<script type="text/javascript" src="js/date.format.js"></script>-->
+<script type="text/javascript" src="js/jquery.tipTip.js" language="javascript"></script>
+<script type="text/javascript" src="js/autojquery.tipTip.js" language="javascript"></script>
+<script src="web/img/show.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="js/jquery.selectbox-0.1.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+<script type="text/javascript" src="js/jQuery-miscellaneous.js"></script>
+<script type="text/javascript" src="js/function.common.js" language="javascript"></script>
+<script type = "text/javascript" src ="js/mis.js"></script>
+
+<script type="text/javascript" language="javascript">
+jQuery(document).ready(function(){
+
+  jQuery(".someClass").tipTip({maxWidth: "250", edgeOffset:0});
+  
+  jQuery(".auto").autotipTip({maxWidth: "auto", edgeOffset:0});
+  
+ });
+ 
+</script>
+
+<script language="javascript">
+function validate()
+	{
+ 		if ((document.search_form.search.value=="") ||(trim12(document.search_form.search.value)==""))
+			{
+ 			alert("Pls enter a value to search");
+  			document.search_form.search.focus();
+  			return false;
+ 	}
+	return true;
+	}
+function submitCat(obj)
+{
+	var name = obj.getAttribute("name");
+	var id1 = obj.getAttribute("id");
+	
+	if(name=="cat")
+	{
+		document.frm.event.value="";
+		document.getElementById("cdrop").value="1";
+	}
+	if(name=="event")
+	{	
+		if(document.frm.event.value!="")
+			{	document.getElementById("isAlbumview").value="false";
+				document.getElementById("cl").value="1";
+			}
+		document.getElementById("cdrop").value="1";
+	}
+	
+		
+	if(id1=="dropno1"){
+		document.forms["frm1"].submit();
+		//document.frm1.submit();
+	}
+	else{
+		document.forms["frm"].submit();
+		//document.frm.submit();
+	}
+}
+</script>
+<script type="text/javascript">
+
+  
+(function( $ ) {
+
+ // $(".someClass").tipTip({maxWidth: "250", edgeOffset:0});
+  
+ // $(".auto").autotipTip({maxWidth: "auto", edgeOffset:0});
+
+  $("#albumview, #normalview").click(function(){
+		var id = $(this).attr("id");
+		
+		if(id=="albumview")
+			$("#viewId").val("true");
+		else
+			$("#viewId").val("false");
+		
+		submitCat(this);
+  });
+},(jQuery));
+
+
+(function( $ ) {
+				var navR,navL	= false;
+				var first		= 1;
+				var positions 	= {
+					'0'		: 0,
+					'1' 	: 160,
+					'2' 	: 320,
+					'3' 	: 0,
+					'4' 	: 160,
+					'5' 	: 320,
+				}
+				var $ps_albums 		= $('#ps_albums');
+				var elems			= $ps_albums.children().length;
+				
+				var $ps_container 	= jQuery('#ps_container');
+				var $ps_overlay 	= jQuery('#ps_overlay');
+				var $ps_close		= jQuery('#ps_close');
+				
+				$('#ps_albums div a#Preview').bind('click',function(){
+				
+					var $elem = $('#ps_albums div');
+					var eventId = $(this).attr("rel");
+					
+					var $loading 	= jQuery('<div />',{className:'loading'});
+					$elem.append($loading);
+					$ps_container.find('img').remove();
+					
+					$.ajax({
+					//url: "photostack.php",
+					url:"albumview.php",
+					data:{eventid:eventId} , 
+					dataType:"json",
+					
+					success:function(data) {
+					
+					function simple_tooltip(target_items, name){
+						
+ $(target_items).each(function(i){
+		
+		$("body").append("<div class='"+name+"' id='"+name+i+"'><p>"+$(this).attr('title')+"</p></div>");
+		var my_tooltip = $("#"+name+i);
+
+		$(this).removeAttr("title").mouseover(function(){
+				my_tooltip.css({opacity:0.8, display:"none"}).fadeIn(400);
+		}).mousemove(function(kmouse){
+				
+				my_tooltip.css({left:kmouse.pageX+15, top:kmouse.pageY+15});
+		}).mouseout(function(){
+				my_tooltip.fadeOut(400);
+		});
+	});
+}
+					
+					var items_count	= data.length;
+					
+					//$ps_container.append("<div class='capcontainer'>");
+						for(var i = 0; i < items_count; ++i){
+    						var datasource=data[i].split("[[]]");
+							
+							var item_source = datasource[0];
+							var imgtitle = datasource[1];
+							
+							
+							var cnt 		= 0;
+							
+							$("<img />").load(function(){
+								var $image = jQuery(this);
+								++cnt;
+								resizeCenterImage($image,datasource[1]);
+								$ps_container.append($image);
+								var r = Math.floor(Math.random()*41)-20;
+								if(cnt < items_count){
+									$image.css({
+										'-moz-transform'	:'rotate('+r+'deg)',
+										'-webkit-transform'	:'rotate('+r+'deg)',
+										'transform'			:'rotate('+r+'deg)'
+									});
+								}
+								
+								if(cnt == items_count){
+									$ps_container.append("</div>");
+									ajustimagePosition($ps_container);
+									//$loading.remove();
+									$ps_container.show();
+									$ps_close.show();
+									$ps_overlay.show();
+									
+								}
+							}).attr({'src':item_source,'title':imgtitle,'class':'someClass1'});
+						}
+						
+						//$(".someClass1").tipTip({maxWidth: "250", edgeOffset:0});
+					},
+					error: function(x,y,z){
+								//alert('An error has occurred:\n' + x + '\n' + y + '\n' + z);
+						}
+					});
+				});
+				
+				function ajustimagePosition($objContainer)
+				{
+					var maskHeight = jQuery(document).height();
+					var maskWidth = jQuery(document).width();
+					var scrollpos =jQuery(window).scrollTop();
+					var scrollposleft =jQuery(window).scrollLeft();
+					var windowHeight = jQuery(window).height();
+					var windowWidth = jQuery(window).width();
+					var dialogHeight = jQuery($objContainer).height();
+					var dialogTop =  (scrollpos+(windowHeight/2)) - (jQuery('#dialog-box').height()/2);
+					
+					jQuery($objContainer).stop().animate({
+						top:dialogTop+'px'},'fast');
+				}
+				
+				$ps_container.live('mouseenter',function(){
+					imgCount = $("#ps_container img").length;
+					if(imgCount==1)
+						jQuery.preventDefault();
+					$('#ps_next_photo').show();
+
+				}).live('mouseleave',function(){
+					$('#ps_next_photo').hide();
+				});
+				
+				
+				jQuery(window).scroll(function () {
+						ajustimagePosition($ps_container);		
+				});
+				$('#ps_next_photo').bind('click',function(){
+					var $current 	= $ps_container.find('img:last');
+					var r			= Math.floor(Math.random()*41)-20;
+					//alert(r);
+					var currentPositions = {
+						marginLeft	: $current.css('margin-left'),
+						marginTop	: $current.css('margin-top')
+					}
+					var $new_current = $current.prev();
+					$($current).stop(true,true).animate({
+						'marginLeft':'250px',
+						'marginTop':'-385px'
+					},50,function(){
+						$(this).insertBefore($ps_container.find('img:first'))
+							   .css({
+									'-moz-transform'	:'rotate('+r+'deg)',
+									'-webkit-transform'	:'rotate('+r+'deg)',
+									'transform'			:'rotate('+r+'deg)'
+								})
+							   .animate({
+									'marginLeft':currentPositions.marginLeft,
+									'marginTop'	:currentPositions.marginTop
+									},250,function(){
+										$new_current.css({
+											'-moz-transform'	:'rotate(0deg)',
+											'-webkit-transform'	:'rotate(0deg)',
+											'transform'			:'rotate(0deg)'
+										});
+							   });
+					});
+				});
+				
+				
+				
+				$('#ps_close').bind('click',function(){
+					$ps_container.hide();
+					$ps_container.next().nextAll().empty();
+					$ps_close.hide();
+					$ps_overlay.fadeOut(400);
+				});
+				
+				function resizeCenterImage($image,$ImgTitle){
+				//alert($image);
+					var theImage 	= new Image();
+					theImage.src 	= $image.attr("src");
+					theImage.title 	= $image.attr("title");
+					var imgwidth 	= theImage.width;
+					var imgheight 	= theImage.height;
+					
+					var containerwidth  = 460;
+					var containerheight = 330;
+
+					
+					if(imgwidth	> containerwidth){
+						var newwidth = containerwidth;
+						var ratio = imgwidth / containerwidth;
+						var newheight = imgheight / ratio;
+						if(newheight > containerheight){
+							var newnewheight = containerheight;
+							var newratio = newheight/containerheight;
+							var newnewwidth =newwidth/newratio;
+							theImage.width = newnewwidth;
+							theImage.height= newnewheight;
+						}
+						else{
+							theImage.width = newwidth;
+							theImage.height= newheight;
+						}
+					}
+					else if(imgheight > containerheight){
+						var newheight = containerheight;
+						var ratio = imgheight / containerheight;
+						var newwidth = imgwidth / ratio;
+						if(newwidth > containerwidth){
+							var newnewwidth = containerwidth;
+							var newratio = newwidth/containerwidth;
+							var newnewheight =newheight/newratio;
+							theImage.height = newnewheight;
+							theImage.width= newnewwidth;
+						}
+						else{
+							theImage.width = newwidth;
+							theImage.height= newheight;
+						}
+					}
+					$image.css({
+						'width'			:theImage.width,
+						'height'		:theImage.height,
+						'margin-top'	:-(theImage.height/2)-10+'px',
+						'margin-left'	:-(theImage.width/2)-10+'px'	
+					});
+				}
+				 //simple_tooltip(".someClass1","tooltip");
+				
+},(jQuery));
+</script>
+
+
+
+</head>
+
+<body>
+<!-- Header Starts Here -->
+<!-- header start -->
+<div id="Header">
+	<!--<a href="index.php"><img src="logos/photo.jpg" alt=""  border="0" align='left'></a>-->
+	<!-- Toppanel Starts Here -->
+	<div class="TopPanel">
+		<div class="Container">
+			<!-- NetworkSites Starts Here -->
+			<div class="NetworkSites">
+				<strong><em>IANS NETWORK SITES</em> &gt;</strong>
+				<ul>
+					<li><a href="#">IANS News Wire </a>
+						<ul>
+							<li><a href="http://ians.in/" target="_blank">IANS English</a></li>
+							<li><a href="http://ianshindi.com/" target="_blank">IANS Hindi</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="http://ianslive.in/" target="_blank">IANS Live</a></li>
+					<li><a href="http://iansvideo.com/" target="_blank">IANS Video</a>
+					</li>
+					<li><a href="http://iansconsultancy.com/" target="_blank">IANS
+							Consultancy</a></li>
+					<li><a href="http://ianspublishing.com/" target="_blank">IANS
+							Publishing</a></li>
+												</ul>
+							
+				
+			</div>
+			<!-- NetworkSites Ends Here -->
+
+			<!-- All IANS Sites Starts Here -->
+			<div class="All_IANS_Sites">
+				<form>
+					<select class="SelectBox">
+						<option value="">All IANS Sites</option>
+						<option value='ianslive.in'>IANS Live</option>
+						<option value='iansvideo.com'>IANS Video</option>
+						<option value='iansconsultancy.com'>IANS Consultancy</option>
+						<option value='ianspublishing.com'>IANS Publishing</option>
+						<option value='ians.in'>IANS English</option>
+						<option value='ianshindi.com'>IANS Hindi</option>
+						<option value="multimedia.ians.in">IANS Multimedia</option>
+						<option value="hindi.multimedia.ians.in">Hindi Multimedia</option>
+						<option value="iansinternational.com/">IANS International</option>
+						<option value="bollywoodcountry.com">Bollywood Country</option>
+						<option value="ianssoftware.com/">IANS Software</option>
+						<option value="182.18.151.123">IANS AFP</option>
+						<option value="182.18.151.124/index.php?cat=32">IANS Southern
+							Cinema</option>
+						<option value="182.18.151.124/index.php?cat=30">IANS Images Mart</option>
+					</select>
+				</form>
+			</div>
+			<!-- All IANS Sites Ends Here -->
+			<div class="ClearB"></div>
+		</div>
+		<!-- Container -->
+	</div>
+	<!-- Top Panel -->
+
+
+	<!-- Ad Panel Starts Here -->
+	<!--
+<div class="Ads">
+<div class="Container">
+<ul class="Topslideshow">
+<li><a href="http://www.jharkhand.gov.in/"  target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide1.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/"  target="_blank" ><img src="Home-Page-Image/Top Ads/Top_Slide2.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/" target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide3.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/" target="_blank" ><img src="Home-Page-Image/Top Ads/Top_Slide4.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/"  target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide5.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/"  target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide6.jpg" ></a></li>
+<li><a href="http://www.jharkhand.gov.in/" target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide7.jpg"  ></a></li>
+<li><a href="http://www.jharkhand.gov.in/" target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide9.jpg"  ></a></li>
+<li><a href="http://www.jharkhand.gov.in/" target="_blank" ><img  src="Home-Page-Image/Top Ads/Top_Slide10.jpg"  ></a></li>
+</ul>
+
+<div class="ToggleAds">
+<span> Hide Advertisements </span>
+<span style="display:none;"> Show Advertisements </span>
+</div>
+<div class="ClearB"></div>
+</div>
+</div>
+-->
+	<!-- Ad Panel Ends Here -->
+
+	<!-- Toppanel Ends Here -->
+	<div class="ClearB"></div>
+
+</div>
+
+<!-- header end -->
+
+<!-- MiddleBody start -->
+<div class="MiddleBody">
+
+<!-- Freephotos section starts-->
+<div class="freePhotos">
+<div align="" style="margin:10px auto; display:block; width:184px;"> 
+<!--<a href="http://iansphoto.in/freephotos.php"><img src="images/freephotos.png" alt=""></a>-->
+<!--<a href="index.php?cat=61" class="asiacup"><img src="images/iplbutton2015.png" alt="">-->
+<!--<a href="http://iansphoto.in/index.php?cat=60" class="asiacup"><img src="images/worldcup2015.png" alt="">-->
+<!-- <a href="index.php?cat=66" ><img src="images/rio-2016-logo-.jpg" alt="" style="margin:0 auto; display:block;"></a> -->
+</div>
+</div>
+<!-- Freephotos section ends-->
+
+
+<div class="TopRightIcons">
+<ul>
+	<!-- <li><a href='download_information.php' class="men"><img src="images/dashboard-Panel-icon.png" class="auto" alt="" border="0"  width="25" height="25" class="auto" title="Go To Dashboard"/></a></li>-->
+		        <li><a href='http://iansphoto.in/' class="men"><img src="images/home_icon.png" alt="" border="0" class="auto" title="Go To Home" /></a></li>
+        <li><a href='javascript:history.go(-1);' class="men"><img src="images/back.png" alt="" border="0"  class="auto" title="Go Back" /></a></li>
+        <li><a href='javascript:history.go(0)' class="men"><img src="images/refresh.png" alt="" border="0"  class="auto" title="Reload page"/></a></li>
+       <!-- <li><a href='advancedsearch.php' class="men"><img src="images/iconQuickJobSearch.png" alt="" border="0"  class="auto" title="Advanced Search"  /></a></li>-->
+
+        <li><a href='feedback.php' class="men"><img src="images/contact.png" alt="" border="0"  class="auto" title="Contact Us"  /></a></li>
+
+</ul>
+<!--
+
+              <li><a href='login.php' class="men"><img src="images/login.png" alt="" border="0" class="auto"  title="Login" /></a></li>
+								</ul>-->
+	<p>					
+		<br>
+		Welcome Guest </p>		
+        </div>
+		
+   <!-- Top Right Icons Starts Here -->
+   
+   <div class="ClearB"></div>
+<!-- Logo Starts Here -->
+<div class="Logo" style="margin-top:0;">
+<a href="/"><img src="Home-Page-Image/Logo.png" /></a>
+</div>
+<!-- Logo Ends Here -->
+
+<!-- AboutIANS Starts Here -->
+<div class="AboutIANS" style="padding-top:26px;">
+<ul>
+<li><a href="about.php">Who We Are</a></li>
+<li><a href="about.php">What We Do</a></li>
+<li><a href="feedback.php">Contact</a></li>
+<div class="ClearB"></div>
+</ul>
+</div>
+<!-- About IANS Ends Here -->
+
+<!-- SearchBox Starts Here -->
+<div class="SearchBox" style="margin-top:15px;">
+<div class="FloatL">
+
+<FORM name="search_form" METHOD="post" ACTION="index.php" onSubmit="return validate();">
+<INPUT type="text" id="cl" name="search" value="" maxlength="35">
+<input type="submit" id="srhbutton" name="Go" value="">
+
+</FORM>
+</div>
+ <div class="FloatL"><a href='advancedsearch.php' class="advancesearch"><img src="images/iconQuickJobSearch.png" alt="" border="0"  class="auto" title="Advanced Search"  /></a></div>
+
+</div>
+<!-- SearchBox Ends Here -->
+
+
+
+ 
+<!-- Menus START -->
+<div class="Menus">
+<div class="FloatL">
+<a href="/"><img src="Home-Page-Image/HomeButton.png" /></a>
+</div><!-- HomeButton -->
+<div class="MenuMid" >
+<ul>
+<li><a href='index.php?cat=35'>Business</a></li><li><a href='index.php?cat=13'>Cinema</a></li><li><a href='index.php?cat=64'>Cricket</a></li><li><a href='index.php?cat=14'>Fashion</a></li><li><a href='index.php?cat=45'>Features</a></li><li><a href='index.php?cat=62'>File Photos</a></li><li><a href='index.php?cat=17'>General</a></li><li><a href='index.php?cat=52'>Hollywood</a></li><li><a href='index.php?cat=37'>International</a></li><li><a href='index.php?cat=36'>Politics</a></li><li><a href='index.php?cat=55'>Promotions</a></li><li><a href='index.php?cat=32'>SouthernCinema</a></li><li><a href='index.php?cat=12'>Sports</a></li> 		 <title>Welcome To  IANS Photos : Photo Service from India's largest Independent News Wire </title>
+    <li id='current'><a href='#'></a></li>	 <title>Welcome To IANS Photo Services</title>
+	 </ul>	
+	 </div>
+<div class="MenuRight">
+<ul>
+<li><a href="login.php">Sign in</a></li>
+<li>|</li>
+<li><a href="feedback.php">Subscribe</a></li>
+</ul>
+</div><!-- MenuRight -->
+<div class="MenuRightCurve">
+</div><!-- MenuRightCurve -->	
+
+</div>
+<!-- Menus end -->
+<br/>
+<!--
+<div class="Menus" style="background: #09F;
+padding: 5px;
+-moz-border-radius: 10px 30px;
+border-radius: 10px 10px / 10px 10px;
+border: 1px solid red;
+padding: 5px 10px;
+color: #fff;
+font-weight: bold;
+font-size: 15px;
+height: 40px;">
+As we are in the process of upgrading our platform, there will be limited access to archival content. We expect to complete the upgrading process by November 18. Inconvenience is regretted.
+</div>
+-->
+
+<!-- MiddleBody end -->
+<!-- Header Ends Here -->
+
+<!-- MiddleBody Starts Here -->
+<div id="MiddleBody">
+<!-- Containerinner statrt -->
+<div class="Containerinner">
+<!--Date Panel Starts Here -->
+<div class="DatePanel">
+<h3></h3>
+
+<!-- Bestof2013 Starts -->
+<!--<div class="PromotionalButton">
+<a href="http://iansphoto.in/index.php?cat=56" ><img src="images/bestof2013.png" alt="PromotionalButton" /></a>
+</div>-->
+<!-- Bestof2013 Ends -->
+	
+</div>
+<!--Date Panel Ends Here -->
+
+<!-- Slideshow Starts Here -->
+<div class="Photos_Tabs">
+<div class="Tabs">
+<h3>Photos<br /> of the day</h3>
+
+<ul class="ui-tabs-nav">
+<!--<li><a href="#allimg">ALL</a></li>-->
+<li class="ui-tabs-nav-item" id="nav-fragment-1"><a href="#fragment-1" rel='http://iansphoto.in/index.php?cat=37'>International</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2" rel='http://iansphoto.in/index.php?cat=36'>Politics</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3" rel='http://iansphoto.in/index.php?cat=35'>Business</a></li> 
+<li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4" rel='http://iansphoto.in/index.php?cat=12'>Sports</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-5"><a href="#fragment-5" rel='http://iansphoto.in/index.php?cat=13'>Cinema</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-6"><a href="#fragment-6" rel='http://iansphoto.in/index.php?cat=14'>Fashion</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-7"><a href="#fragment-7" rel='http://iansphoto.in/index.php?cat=17'>General</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-8"><a href="#fragment-8" rel='http://iansphoto.in/index.php?cat=45'>Features</a></li>
+<li class="ui-tabs-nav-item" id="nav-fragment-9"><a href="#fragment-9" rel='http://iansphoto.in/index.php?cat=52'>Hollywood</a></li>
+<!--<li><a href="#Southern">Southern Cinema</a></li> -->
+</ul>
+</div>
+
+<div id="fragment-1" class="Slideshow ui-tabs-panel">
+
+<div class="SectionContainer">
+
+<div class="SectionDetails">
+  <h3>International Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=37">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Int-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Kabu: Security force members inspect a suicide bombing site in Kabul, capital of Afghanistan, March 17, 2018. At least three people were dead and four others injured in a suicide bombing that rocked the Despechari locality in the 9th precinct of Kabul on Saturday, spokesman for the Public Health Ministry Wahid Majroh said. (Xinhua/Rahmat Alizadah/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Int-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Madrid: European Council President Donald Tusk (R) and Spanish Prime Minister Mariano Rajoy pose for the media at the Moncloa Palace in Madrid, Spain, on March 16, 2018. (Xinhua/Guo Qiuda/IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-2" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Politics Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=36">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Pol-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>New Delhi: TDP MPs stage a demonstration to press for special economic status for Andhra Pradesh at Parliament in New Delhi on March 16, 2018. (Photo: IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Pol-1.JPG" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>New Delhi: Congress President Rahul Gandhi addresses during the 84th plenary session of AICC at the Indira Gandhi Indoor Stadium in New Delhi on March 17, 2018. (Photo: IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-4" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Sports Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=12">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Spo-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Colombo: Thisara Perera of Sri Lanka in action during the sixth match of 2018 Nidahas Twenty20 Tri-Series between Sri Lanka and Bangladesh at R.Premadasa Stadium in Colombo, Sri Lanka on March 16, 2018. (Photo: Surjeet Yadav/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Spo-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Bhubaneswar: Players in action during a Super Cup 2018 match between Mumbai City FC and Indian Arrows at Kalinga Stadium in Bhubaneswar on March 16, 2018. (Photo: IANS)</p>
+			</div>
+			</li></ul>
+</div><div class="Slideshow ui-tabs-panel ui-tabs-hide" id="fragment-5">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Cinema Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=13">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/CIN-2.JPG" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Mumbai: Managing Director of T-Series Bhushan Kumar, actors Kirti Kulhari, Divya Dutta, Arunoday Singh and director Abhinay Deo at the song launch of their upcoming film "Blackmail" in Mumbai on Mumbai 16, 2018.(Photo: IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Cin-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Jodhpur: Actor Aamir Khan arrives in Jodhpur to shoot for his upcoming film "Thugs of Hindostan" on March 17, 2018. (Photo: IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-6" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Fashion Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=14">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Fas-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Tokyo: Models present Disney-inspired wedding dresses designed by Kuraudia Co. in Tokyo, Japan, March 15, 2018. (Xinhua/Ma Ping/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Fas-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>New Delhi: A model showcases creations of fashion designer Esha Amiin during Amazon India Fashion Week in New Delhi, on March 16, 2018. (Photo: Amlan Paliwal/IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-7" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>General Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=17">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Gen-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Kolkata: Union MoS Civil Aviation Jayant Sinha addresses during 'Think India Convention 2018' in Kolkata on March 17, 2018. (Photo: Kuntal Chakrabarty/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/GEN-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Mumbai: Maharashtra Chief Minister Devendra Fadnavis flags off hybrid electric AC buses in Mumbai on March 16, 2018.  The buses will be operated by BEST. (Photo: IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-3" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Business Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=35">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Bus-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Seoul: Lee Won-hee, chief of Hyundai Motor Co., speaks during an ordinary general meeting of shareholders at the carmaker's headquarters in Seoul on March 16, 2018.(Yonhap/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Bus-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>New Delhi: HP Senior Director Vikram Bedi and HP India MD Sumeer Chandra during the launch of HP "Omen X", a gaming PC in New Delhi on March 15, 2018. (Photo: IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-8" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Features Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=45">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Fea-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Nanjing: A koala meets the public at the Hongshan Forest Zoo in Nanjing, capital of east China's Jiangsu Province, March 15, 2018. There are totally two koalas in the zoo. (Xinhua/Liu Jianhua/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/Fea-2.JPG" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Jaipur: Sunrise as seen from Man Sagar Lake in Jaipur on March 16, 2018. (Photo: Ravi Shankar Vyas/IANS)</p>
+			</div>
+			</li></ul>
+</div><div id="fragment-9" class="Slideshow ui-tabs-panel ui-tabs-hide">
+<div class="SectionContainer">
+<div class="SectionDetails">
+  <h3>Hollywood Pix <br />
+From IANS Photo</h3>
+<ul>
+<li><a href="http://iansphoto.in/index.php?cat=52">View More</a></li>
+<li>|</li>
+<li><a href="http://iansphoto.in/feedback.php">Subscribe</a></li>
+</ul>
+</div><!--Section Details -->
+<div class="Collapsible">
+
+</div>
+<div class="ClearB"></div>
+</div>
+<ul><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/hol-1.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Los Angeles: Actor Mark Hamill, attends his Hollywood Walk of Fame Star ceremony where he was the recipient of the 2,630th star on the Hollywood Walk of Fame in the category of Motion Pictures on March 8, 2018 in Los Angeles, The United States. (Xinhua/Zhao Hanrong/IANS)</p>
+			</div>
+			</li><li>
+			<img src="http://iansphoto.in/photo/web/homepageimg/hol-2.jpg" style="width:729px; height:419px;"/>
+			<div class="Caption">
+			<p>Los Angeles: Actor Sam Rockwell poses after winning the Best Supporting Actor award for his role in "Three Billboards outside Ebbing, Missouri" at press room of the 90th Academy Awards at the Dolby Theater in Los Angeles, the United States, on March 4, 2018. (Xinhua/Li Ying/IANS)</p>
+			</div>
+			</li></ul>
+</div>
+
+</div>
+
+</div>
+<!-- Containerinner end -->
+<div class="ClearB"></div>
+</div>
+<!-- MiddleBody Ends Here -->
+
+<!-- Footer Starts Here -->
+<style>
+.logofooter {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #595d5f;
+	text-align: justify;
+	/* width:800px ; */
+	height: 100px;
+	background: #f4f2f2;
+	padding: 5px 0px 5px 10px;
+	-webkit-border-radius: 5px;
+	border: #ddd 1px solid;
+}
+
+.logofooter_inner {
+	width: 95%;
+	height: 80px;
+	padding: 0px 0px 0px 15px;
+}
+</style>
+
+<script type="text/javascript" src="include/crawler.js"></script>
+
+
+
+
+
+
+<!--
+<div id="logofooter" class="logofooter" >
+
+                &nbsp;&nbsp;&nbsp;&nbsp;Click here for :
+               
+
+        <div id="logofooter_inner" class="logofooter_inner" align="center" > 
+
+        <div id="home-scroller">
+
+		<div id="fred1" style="border: 1px solid rgb(226, 226, 226); overflow: hidden; height: 80px; background-color: rgb(255, 255, 255);">
+
+
+
+<!--<div class="marquee" id="mycrawler2" style="padding: 0px 0px 0px 5px;">
+
+<a href="http://ians.in" target="_blank"><img src='logos/ians.jpg'  border='0' /></a>
+<a href="http://ianshindi.com"  target="_blank"><img src='logos/hindi.jpg' border='0' /></a>
+<a href="http://alhindelyom.com"  target="_blank"><img src='logos/arabic.jpg' border='0' /></a>
+<a href="http://bollywoodcountry.com"  target="_blank"><img src='logos/bollywood.jpg' border='0' /></a>
+<a href="http://iansphoto.com"  target="_blank"><img src='logos/photo.jpg'  border='0' /></a>
+<a href="http://iansvideo.com"  target="_blank"><img src='logos/video.jpg' border='0' /></a>
+<a href="http://ianspublishing.com"  target="_blank"><img src='logos/publishing.jpg'  border='0' /></a>
+<a href="http://ians.in/iansmobile.html"  target="_blank"><img src='logos/mobile.jpg' border='0' /></a>
+<a href="http://ianslive.in"  target="_blank"><img src='logos/live.jpg' border='0' /></a>
+<a href="http://ians.in/iansconsultancy.html"  target="_blank"><img src='logos/consultancy.jpg' border='0' /></a>
+</div>
+-->
+
+
+
+
+
+
+<!--<script type="text/javascript">
+
+marqueeInit({
+
+	uniqueid: 'mycrawler2',
+
+	style: {
+
+		'padding': '0px',
+
+		'width': '100%',
+
+		'height': '80px'
+
+	},
+
+	inc: 0, //speed - pixel increment for each iteration of this marquee's movement
+
+	mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
+
+	moveatleast: 3,
+
+	neutral: 150,
+
+	savedirection: true
+
+});
+
+</script>
+
+
+
+         </div>
+
+</div>
+
+
+</div>
+        </div>
+-->
+
+
+<div class="MiddleBody">
+<!-- Subscribe Box Ends Here -->
+<div class="SubscribePanel">
+	<div class="PanelLeft"></div>
+
+	<div class="PanelMid" style="width:970px;">
+		<h3>Subscribe</h3>
+		<div>
+			<a href="http://ians.in" target="_blank" title="IANS English"><img
+				src="Home-Page-Image/IANS.png" /> </a>
+			
+		</div>
+
+		<div>
+			<a href="http://ianshindi.com" target="_blank" title="IANS Hindi"><img
+				src="Home-Page-Image/Hindi.png" /> </a>
+			
+		</div>
+
+		<div>
+			<a href="http://multimedia.ians.in" target="_blank"
+				title="IANS Multimedia"><img src="Home-Page-Image/Multimedia.png" />
+			</a>
+			
+		</div>
+
+		<div>
+			<a href="http://iansvideo.com" target="_blank" title="IANS Video"><img
+				src="Home-Page-Image/video.png" /> </a>
+			
+		</div>
+		<!--
+		<div>
+			<a href="http://182.18.151.128/" target="_blank" title="IANS Zuma"><img
+				src="Home-Page-Image/zuma.png" /> </a>
+			
+		</div> -->
+
+	</div>
+	<div class="PanelRight"></div>
+</div>
+<!-- Subscribe Box Ends Here -->
+
+<div class="ClearB"></div>
+</div>
+
+
+
+
+
+
+<!-- Footer Starts Here -->
+<div id="Footer">
+	<div class="Bar"><img src="Home-Page-Image/FooterBar.png" align="left" /></div>
+	<div class="Container">
+		<ul>
+			<li><a href="index.php">Home</a></li>
+			<li>|</li>
+			<li><a href="about.php">About us</a></li>
+			<li>|</li>
+			<li><a href="feedback.php">Feedback</a></li>
+			<li>|</li>
+			<li><a href="feedback.php">Contact us</a></li>
+		</ul>
+		<p>
+			&copy;
+			2018			IANS Photo
+		</p>
+		<p>
+			Site Designed & Developed By <a href="http://ianspublishing.com"
+				target="_blank">IANS Publishing</a>
+		</p>
+	</div>
+	<!-- Container -->
+</div>
+<!-- Footer Ends Here -->
+
+
+
+
+
+<!-- Footer Ends Here -->
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<title>Günstige Reifen und Felgen im Schweizer Online-Shop Reifendirekt.ch</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="description" content="Reifen für PKWs, LKWs und Motorräder extrem günstig online kaufen. Wir bieten Ihnen Autoreifen äußerst vorteilhaft! Klitzekleine Preise, versandkostenfreie Lieferung schon ab 2 Reifen, günstiger Montageservice für Reifen fast überall in der Schweiz, unkomplizierte Bestellung, viele Zahlungsmöglichkeiten, sehr große Auswahl."/>
+<meta name="keywords" content="Reifen, Autoreifen, Felgen, Komplettr&auml;der, Autozubeh&ouml;r, Reifeninformationen, Reifenpreise, Reifen zu besten Preisen, Reifentest, Reifenhandel" /> 
+<script src="https://cdn.optimizely.com/js/577252018.js"></script>
+<link rel="canonical" href="https://www.reifendirekt.ch/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="icon" href="https://www.reifendirekt.ch/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="https://ssl.delti.com/scss/pure-min.css" />
+<link rel="stylesheet" type="text/css" href="/scss/font-awesome-4.7.0/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="https://ssl.delti.com/rshop/rdshop/styles/style.css" />
+<link rel="stylesheet" type="text/css" href="https://ssl.delti.com/scss/responsive/rshop.css" />
+<link rel="stylesheet" type="text/css" href="styles/local.css" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800">
+<link rel="alternate" href="https://www.reifendirekt.at/" hreflang="de-at" />
+<link rel="alternate" href="https://www.reifendirekt.ch/" hreflang="de-ch" />
+<link rel="alternate" href="https://www.reifendirekt.de/" hreflang="de-de" />
+<link rel="alternate" href="https://www.reifendirekt.com/" hreflang="en-eu" />
+<link rel="alternate" href="https://www.123pneus.be/" hreflang="fr-be" />
+<link rel="alternate" href="https://www.123pneus.ch/" hreflang="fr-ch" />
+<link rel="alternate" href="https://www.123pneus.fr/" hreflang="fr-fr" />
+<link rel="alternate" href="https://www.autobandenmarkt.be/" hreflang="nl-be" />
+<link rel="alternate" href="https://www.autobandenmarkt.nl/" hreflang="nl-nl" />
+<link rel="alternate" href="http://www.tires-direct.com/" hreflang="en-us" />
+</head>
+<body>
+<div id="headline">
+<div class="container">
+<div class="row">
+ <div class="col-md-6 col-lg-5 hidden-xs"><img src="images/ico_08.png" alt="ico"> 0041 315.281365 <small class="hidden-xs">(Mo-Fr 10-16 Uhr)</small> <img src="images/ico_05.png" alt="ico"></div>
+ <div class="col-xs-12 col-md-6 col-lg-7 head-right">
+<ul>
+<li class="hidden-xs"><a href="kontakt.html">Kontakt</a></li>
+<li class="hidden-xs"><a href="https://ssl.delti.com/cgi-bin/yourorder.pl?dsco=104">Mein Konto</a></li> 
+<li><a href="#" class="minicart" rel="nofollow"><i class="cart-ico"></i><span class="count">0</span><span class="price">0.00 CHF </span></a></li><li><a href="/cgi-bin/rshop.pl?dsco=102&amp;s_p=index" class="minicart">Deutsch</a></li><li><a href="https://www.123pneus.ch" class="minicart">Francais</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="navbar navbar-default">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="images/logo_home_x.png" alt="ReifenDirkt.ch" class="logo_home"></a>
+</div>
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Reifen <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/"><b>Alle PKW Reifen</b></a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="Sommerreifen.html"><span class="ico_mini mini_1"></span> Sommerreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Winterreifen.html"><span class="ico_mini mini_2"></span> Winterreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Ganzjahresreifen.html"><span class="ico_mini mini_3"></span> Ganzjahresreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="LeichtLKW-Reifen.html"><span class="ico_mini mini_4"></span> LLKW-Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Offroadreifen.html"><span class="ico_mini mini_5"></span> Offroad-/ 4x4-Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Run-flat-Reifen.html"><span class="ico_mini mini_7"></span> Runflat-Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Rennreifen.html"><span class="ico_mini mini_0"></span> Rennreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Oldtimerreifen.html"><span class="ico_mini mini_8"></span> Oldtimer-/ Weisswandreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Runderneuerte_Reifen.html"><span class="ico_mini mini_6"></span> Runderneuerte Reifen</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Kompletträder <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="komplettrad.html"><b>Alle Komplettr&auml;der</b></a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Alukomplettraeder_Sommer.html"><span class="ico_mini mini_1"></span> Alufelgen mit Sommerreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Ganzjahreskomplettrad.html"><span class="ico_mini mini_3"></span> Alufelgen mit Ganzjahresreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Alukomplettraeder_Winter.html"><span class="ico_mini mini_2"></span> Alufelgen mit Winterreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Stahlkomplettraeder_winter.html"><span class="ico_mini mini_2"></span> Stahlfelgen mit Winterreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Stahlkomplettraeder_ganzjahr.html"><span class="ico_mini mini_3"></span> Stahlfelgen mit Ganzjahresreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Stahlkomplettraeder_sommer.html"><span class="ico_mini mini_1"></span> Stahlfelgen mit Sommerreifen</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Felgen <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="felgenarten.html">Felgen ohne Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="alufelgen.html">Alufelgen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Stahlfelgen.html">Stahlfelgen</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Spezial- & LKW-Reifen <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="LKW-Reifen.html"><span class="ico_mini mini_9"></span> LKW-Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Schlepperreifen.html"><b>Alle Spezial-/ Schlepperreifen</b></a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Anhaengerreifen.html"><span class="ico_mini mini_10"></span> Anh&auml;ngerreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Anhaengerreifen-Diagonal.html"><span class="ico_mini mini_10"></span> Anh&auml;ngerreifen Diagonal</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Bau_--und-Forstmaschinen_MPT_.html" x-wt-event="navigation_as_mpt"><span class="ico_mini mini_0"></span> Bau.- und Forstmaschinen (MPT)</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Erdbewegungsmaschinen-_-Bagger.html"><span class="ico_mini mini_0"></span> Erdbewegungsmaschinen / Bagger</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Golfcartreifen.html"><span class="ico_mini mini_0"></span> Golfcartreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Industriereifen-Luft.html"><span class="ico_mini mini_0"></span> Industriereifen Luft</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Kleinreifen_-Maeher.html"><span class="ico_mini mini_0"></span> Kleinreifen / M&auml;her</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Landwirtschaftsreifen.html"><span class="ico_mini mini_0"></span> Landwirtschaftsreifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="IND-Quad-_-ATV.html"><span class="ico_mini mini_0"></span> Quad / ATV</a>
+</ul>
+</li>
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Motorradreifen <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="Motorradreifen.html" title="Motorradreifen">Alle Motorradreifen</a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="Motorradreifen_Chopper_Cruiser.html">Chopper/Cruiser</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Enduro.html">Enduro</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Motocross.html">Motocross</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Quad___ATV.html">Quad / ATV</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Rennsport.html">Rennsport</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Roller___Moped.html">Roller / Moped</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Supersport_Strasse.html">Supersport Strasse</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Tourensport_Diagonal.html">Tourensport Diagonal</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Tourensport_Radial.html">Tourensport Radial</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="Motorradreifen_Winterreifen.html">Winterreifen</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">Zubehör <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="zubehoer.html">Zubehörübersicht</a></li>
+<li role="separator" class="divider"></li> 
+<li><a href="Motoroel.html">Motor&ouml;l</a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="Schneeketten.html">Schneeketten</a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="Bremsen.html">Bremsen</a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="Katalysatoren.html" x-wt-event="navigation_katalysatoren">Katalysatoren</a></li>
+<li role="separator" class="divider"></li>	
+<li><a href="autoteile-hersteller.html">Autoteile Hersteller</a></li>
+</ul>
+</li>
+</ul>
+</div></div></nav>
+<form action="https://www.reifendirekt.ch/cgi-bin/rshop.pl" name="main_form" class="pure-form" method="get">
+<input type="hidden" name="dsco" value="104" />
+<input name="kategorie" type="hidden" value="6"><div class="main_back">
+<div id="tabblock">
+<div class="tabmain">
+<input class="tabradio" id="tab1" type="radio" name="tabs" checked>
+<label for="tab1">Über Größe</label><input class="tabradio" id="tab2" type="radio" name="tabs"><label for="tab2" style="align:right;">Über PKW-Auswahl</label>
+<div class="tabcontent">  
+<div id="content1">
+<span class="reifensuche">Reifensuche</span>
+<div class="row row-centered">
+<div class="col-xs-4">Breite<br><select name="Breite" size="1"  onChange="if(document.forms[0].Breite.value<20||document.forms[0].Breite.value.indexOf('x')!=-1){document.forms[0].Quer.value=''}else{if(document.forms[0].Quer.value<1){document.forms[0].Quer.value=65}}" class="sel" id="premierSel1"><option>T145
+<option>T165
+<option>P235
+<option>T155
+<option>T175
+<option>T125
+<option>T185
+<option>H78
+<option>T115
+<option>T135
+<option>4.75/5.25
+<option>4.00/4.50
+<option>4.80
+<option>4.00
+<option>4.50
+<option>4.75/5.00
+<option>4.40
+<option>4.40/4.50
+<option>5.60
+<option>5.00
+<option>5.20
+<option>5.90
+<option>5.25/5.50
+<option>5.50
+<option>5.00/5.25
+<option>6.40
+<option>6.00
+<option>6.50/7.00
+<option>6.50
+<option>6.70
+<option>6.00/6.50
+<option>6.40/7.00
+<option>7.50
+<option>7.25
+<option>7.5
+<option>7.00
+<option>8.20
+<option>12
+<option>13
+<option>14
+<option>15/16
+<option>17R400
+<option>27x8.50
+<option>30x9.50
+<option>31x11.50
+<option>31x10.50
+<option>32x11.50
+<option>33x13.50
+<option>33x12.50
+<option>33x10.50
+<option>33
+<option>35x13.50
+<option>35x12.50
+<option>37x12.50
+<option>37x13.50
+<option>125
+<option>130
+<option>135
+<option>145
+<option>150
+<option>155
+<option>165
+<option>170
+<option>175
+<option>180
+<option>185
+<option>190
+<option>195
+<option>200
+<option selected>205
+<option>210
+<option>215
+<option>220
+<option>225
+<option>235
+<option>240
+<option>245
+<option>255
+<option>265
+<option>270
+<option>275
+<option>285
+<option>295
+<option>305
+<option>315
+<option>325
+<option>335
+<option>345
+<option>355
+<option>450
+<option>475
+<option>550
+<option>640
+</select>
+</div>
+<div class="col-xs-4">Höhe<br><select name="Quer" size="1" class="sel"><option value="">
+<option value="7.00">7.00
+<option value="10">10
+<option value="25">25
+<option value="30">30
+<option value="35">35
+<option value="40">40
+<option value="45">45
+<option value="50">50
+<option value="55" selected>55
+<option value="60">60
+<option value="65">65
+<option value="70">70
+<option value="75">75
+<option value="80">80
+<option value="85">85
+<option value="90">90
+<option value="140">140
+<option value="160">160
+<option value="500">500
+<option value="525">525
+<option value="600">600
+<option value="670">670
+<option value="690">690
+</select>
+</div>
+<div class="col-xs-4">Zoll<br><select name="Felge" size="1" class="sel">
+				<option value="">
+<option value="10">10
+<option value="12">12
+<option value="13">13
+<option value="14">14
+<option value="15">15
+<option value="16" selected>16
+<option value="17">17
+<option value="18">18
+<option value="19">19
+<option value="20">20
+<option value="21">21
+<option value="22">22
+<option value="23">23
+<option value="24">24
+<option value="40">40
+<option value="45">45
+<option value="340">340
+<option value="365">365
+<option value="390">390
+<option value="400">400
+<option value="415">415
+<option value="460A">460A
+<option value="500A">500A
+</select>
+</div>
+</div>
+<img src="images/Reifen.gif" alt="Reifen Finden" border="0" class="searchimg"><br>
+<select name="sowigan" class="sel"><option value="">Alle</option><option value="GAN">Ganzjahres</option>
+<option value="RunFlat">Runflat-Reifen</option>
+<option value="So" selected>Sommer</option>
+<option value="Wi">Winter</option>
+</select><input name="more_" value="Mehr Optionen" class="small_button" type="submit"><br>
+<input name="suchen" id="suchen4" value="Reifen Finden" class="pure-button pure-button-primary" type="submit">
+</div>
+<div id="content2">
+<span class="reifensuche">Über PKW-Auswahl</span></form>
+<form action="/cgi-bin/rshop.pl" method="get">
+<input type="hidden" name="dsco" value="104" />
+<div id="rsmPKWSuche">
+<input type="hidden" name="search_tool" value="carchooser" />
+<input type="hidden" id="carchooser" name="carchooser" value="" />
+<input type="hidden" name="tyresadvice" value="tyresadvice" />
+<input type="hidden" name="kategorie" value="" />
+
+<style type="text/css">
+<!--
+div.show_waiting{
+  position:absolute;
+  width:80px;
+  height:80px;
+  background-color:#FFF;
+  border:1px solid #000;
+  text-align:center;
+  background-image:url(/simg/loading.gif);
+  background-repeat:no-repeat;
+  background-position:center 80%;
+  z-index:10;padding:5px;
+  }
+-->
+</style>
+<div id="show_waiting" class="show_waiting" style="display:none;">loading...</div>	
+<script type="text/javascript">
+<!-- Begin
+waitbox('show_waiting','block');  
+function waitbox(box, stat){
+document.getElementById(box).style.display=stat;
+}
+// End -->
+</script>
+<div id="pkwHerstellerDiv"><label for="pkwHersteller">Hersteller:</label><br>
+<input type="hidden" name="Hersteller" value="" />
+<select name="Hersteller_a" id="pkwHersteller" onChange="form.submit();" style="width:260px;">
+<option value="">Bitte wählen</option>
+<option value='ALFA ROMEO'>Alfa Romeo</option>
+<option value='ALPINA'>Alpina</option>
+<option value='ASTON MARTIN'>Aston Martin</option>
+<option value='AUDI'>Audi</option>
+<option value='BENTLEY'>Bentley</option>
+<option value='BMW'>BMW</option>
+<option value='BMW M'>BMW M</option>
+<option value='BUGATTI'>Bugatti</option>
+<option value='CADILLAC'>Cadillac</option>
+<option value='CHEVROLET'>Chevrolet</option>
+<option value='CHRYSLER'>Chrysler</option>
+<option value='CITROEN'>Citroen</option>
+<option value='DACIA'>Dacia</option>
+<option value='DAEWOO'>Daewoo</option>
+<option value='DAIHATSU'>Daihatsu</option>
+<option value='DODGE'>Dodge</option>
+<option value='FERRARI'>Ferrari</option>
+<option value='FIAT'>Fiat</option>
+<option value='FORD'>Ford</option>
+<option value='HONDA'>Honda</option>
+<option value='HYUNDAI'>Hyundai</option>
+<option value='INFINITI'>Infiniti</option>
+<option value='ISUZU'>Isuzu</option>
+<option value='IVECO'>Iveco</option>
+<option value='JAGUAR'>Jaguar</option>
+<option value='JEEP'>Jeep</option>
+<option value='KIA'>KIA</option>
+<option value='LADA'>Lada</option>
+<option value='LAMBORGHINI'>Lamborghini</option>
+<option value='LANCIA'>Lancia</option>
+<option value='LAND ROVER'>Land Rover</option>
+<option value='LEXUS'>Lexus</option>
+<option value='MAN'>MAN</option>
+<option value='MASERATI'>Maserati</option>
+<option value='MAYBACH'>Maybach</option>
+<option value='MAZDA'>Mazda</option>
+<option value='MCLAREN'>Mclaren</option>
+<option value='MERCEDES-BENZ'>Mercedes-Benz</option>
+<option value='MG'>MG</option>
+<option value='MINI'>Mini</option>
+<option value='MITSUBISHI'>Mitsubishi</option>
+<option value='NISSAN'>Nissan</option>
+<option value='OPEL'>Opel</option>
+<option value='PEUGEOT'>Peugeot</option>
+<option value='PONTIAC'>Pontiac</option>
+<option value='PORSCHE'>Porsche</option>
+<option value='PROTON'>Proton</option>
+<option value='RENAULT'>Renault</option>
+<option value='ROLLS-ROYCE'>Rolls-Royce</option>
+<option value='ROVER'>Rover</option>
+<option value='SAAB'>Saab</option>
+<option value='SEAT'>Seat</option>
+<option value='SKODA'>Skoda</option>
+<option value='SMART'>Smart</option>
+<option value='SSANGYONG'>Ssangyong</option>
+<option value='SUBARU'>Subaru</option>
+<option value='SUZUKI'>Suzuki</option>
+<option value='TESLA'>Tesla</option>
+<option value='TOYOTA'>Toyota</option>
+<option value='VOLKSWAGEN'>Volkswagen</option>
+<option value='VOLVO'>Volvo</option>
+</select>
+</div><div id="pkwModellDiv" style="display: none;"><br><label for="pkwModell">Modellreihe:</label><br><select id="pkwModell" style="width:260px;">
+<option value=''>Bitte wählen</option>;
+</select>
+</div>
+<div id="pkwVersionDiv" style="display: none;"><br><label for="pkwVersion">Modellbezeichnung:</label><br><select id="pkwVersion" style="width:260px;">
+<option value=''>Bitte wählen</option>
+</select>
+</div>
+<div id="pkwKBADiv" style="display: none;"><br><label for="pkwKBA">Fahrzeugtyp:</label><br><select id="pkwKBA" style="width:260px;">
+<option value=''>Bitte wählen</option>
+</select>
+</div>
+<div id="pkwDimensionDiv" style="display: none;"><br><label for="rsmone_size">Reifendimension:</label><a name="Suche über PKW:" class="popup" onmouseover="return overlib('<p><br>Beachten Sie bzgl. der Angaben zu Erstausrüstungen und Serienbereifungen, dass passende Reifengrößen von bestimmten Fahrzeug-Optionen, Ausstattungsmerkmalen oder Änderungen der Fahrzeughersteller beeinflusst werden können. Unsere Informationen zu Erstausrüstungen und Serienbereifungen basieren jeweils auf den uns aktuell verfügbaren Herstellerangaben.<br></p><br><p><br>Stellen Sie vor dem Kauf unbedingt sicher, dass die angebotenen Artikel zu den vorgeschriebenen Fahrzeug-Optionen und Ausstattungsmerkmalen Ihres Fahrzeugs passen. In der Regel können Sie diese Informationen im Fahrzeugschein finden, bei vielen Fahrzeugen auch auf einem Typenschild am Türpfosten oder Tankdeckel. Wenn Sie sich nicht sicher sein sollten, welche Reifen an Ihrem Fahrzeug montiert sind, lesen Sie die Reifengröße an der Seitenwand der montierten Reifen ab. Bitte haben Sie Verständnis dafür, dass wir für eine falsche Produktauswahl keine Gewährleistung übernehmen können.<br></p><br>', CAPTION, 'Suche über PKW:', FGCOLOR, '#ffffff', BGCOLOR, '#3B6CA6', BORDER, 1, TEXTSIZE, 2, CAPTIONSIZE, 2, WIDTH, 400);" onmouseout="return nd();"><i class="fa fa-info-circle"></i></a><br>
+<select id="rsmone_size" size="1" class="s_br" name="one_size_a_a" style="width:260px;">
+</select>
+</div><div id="rsmError" style="display: none;"><p>Für das gewählte Fahrzeug liegen uns leider keine weiteren Daten vor. Bitte wählen Sie Ihren gewünschten Reifen 
+über die Reifendimension.</p></div><input type="hidden" id="rsmSelect" name="rsmSelect" value="Bitte wählen" /><div id="rsm_submit_button"><br>
+<p class="s_op"><input name="hersuchen" value="Typenliste anzeigen" type="submit" onclick="waitbox('show_waiting','block');" rsm="Angebote anzeigen" class="pure-button pure-button-primary"  /></p></div>
+<script type="text/javascript">
+<!--
+waitbox('show_waiting','none');
+-->
+</script>
+</div>
+</div>
+</div>	
+</div>
+</div>
+</div>
+</div>
+
+    <div class="content container hidden-xs">
+      <div class="row block icon_block">
+        <div class="col-xs-6 col-sm-6 col-md-3">
+            <img src="images/img_ico_big4.png" class="img-responsive hover-h" alt="Größe oder PKW auswählen">
+            <img src="images/img_ico_big4o.png" class="img-responsive hover-v" alt="Größe oder PKW auswählen">
+          <h5>Größe oder PKW auswählen</h5>
+        </div>
+        <div class="col-xs-6  col-sm-6 col-md-3">
+            <img src="images/img_ico_big1.png" class="img-responsive hover-h" alt="Die richtigen Reifen finden">
+            <img src="images/img_ico_big1o.png" class="img-responsive hover-v" alt="Die richtigen Reifen finden">
+          <h5>Die richtigen Reifen finden</h5>
+        </div>
+        <div class="col-xs-6  col-sm-6 col-md-3">
+              <img src="images/img_ico_big2.png" class="img-responsive hover-h" alt="Lieferung und Montagepartner">
+              <img src="images/img_ico_big2o.png" class="img-responsive hover-v" alt="Lieferung und Montagepartner">
+           <h5>Lieferung und Montagepartner</h5>
+        </div>
+        <div class="col-xs-6  col-sm-6 col-md-3">
+              <img src="images/img_ico_big3.png" class="img-responsive hover-h" alt="Sichere Bezahlung und Bestellung">
+              <img src="images/img_ico_big3o.png" class="img-responsive hover-v" alt="Sichere Bezahlung und Bestellung">
+           <h5>Sichere Bezahlung und Bestellung</h5>
+        </div>
+      </div>
+    </div>
+
+<div class="container offer_box">
+
+<div class="col-md-6">
+<h2>Discounts und beste Preise</h2>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+<li data-target="#myCarousel" data-slide-to="3"></li>
+<li data-target="#myCarousel" data-slide-to="4"></li>
+	  
+    </ol>
+    <div class="carousel-inner">
+<div class="item active"><a href="Dunlop_Fahr_meine_Karre.html">
+<img src="https://ssl.delti.com/simg/teaser_box/1521197768375.jpg" alt="Fahr meine Karre">
+<div class="carousel-caption">
+<h3></h3>
+<p></p>
+</div></a>	</div>
+<div class="item"><a href="/cgi-bin/rshop.pl?details=Ordern&amp;typ=R-231971&amp;ranzahl=4&amp;dsco=104"><img src="https://ssl.delti.com/tyre-pictures/Dunlop/Profil_Sport_BluResponse_neu.jpg" alt="Dunlop Sport BluResponse"><div class="carousel-caption"><h3>Das besondere Angebot</h3><p>Dunlop Sport BluResponse 205/55 R16 91V 76.10 CHF</p></div></a>	</div>
+<div class="item"><a href="/cgi-bin/komplettrad.pl?dsco=104">
+<img src="images/slider-1.jpg" alt="Alu-Kompletträder">
+<div class="carousel-caption">
+<h3>Alu-Kompletträder</h3>
+<p>Garantiert günstig</p>
+</div></a>	</div>
+<div class="item"><a href="/cgi-bin/oshop.pl?dsco=104">
+<img src="images/slider-2.jpg" alt="Motoröl günstig kaufen">
+<div class="carousel-caption">
+<h3>Motoröl günstig kaufen</h3>
+<p>Garantiert günstig</p>
+</div></a>	</div>
+<div class="item"><a href="/cgi-bin/rchain.pl?dsco=104">
+<img src="images/slider-3.jpg" alt="Set Schneeketten">
+<div class="carousel-caption">
+<h3>Set Schneeketten</h3>
+<p>Garantiert günstig</p>
+</div></a></div>
+	
+</div>
+	
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right"></span>
+<span class="sr-only">Next</span></a>
+</div>
+</div>
+
+
+<div class="col-md-6 l_offer_box hidden-xs">
+<h2>Unsere Vorteile</h2>
+<div class="row">
+<div class="col-md-2 col-sm-3"><img src="images/ico-5.png" alt="" class="img-ico-left"></div><div class="col-md-10 col-sm-9"><h6>Schnelle Lieferung</h6></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-sm-3"><img src="images/ico-4.png" alt="" class="img-ico-left"></div><div class="col-md-10 col-sm-9"><h6>+ 2.000 Service Partner</h6></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-sm-3"><img src="images/ico-2.png" alt="" class="img-ico-left"></div><div class="col-md-10 col-sm-9"><h6>Sichere Bezahlung und Bestellung</h6></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-sm-3"><img src="images/ico-3.png" alt="" class="img-ico-left"></div><div class="col-md-10 col-sm-9"><h6>30 Tage Rückgaberecht</h6></div>
+</div><div class="row">
+<div class="col-md-2 col-sm-3"><img src="images/ico_05.png" alt="" class="img-ico-left"></div><div class="col-md-10 col-sm-9"><h6>TÜV-geprüfter Online-Shop</h6></div>
+</div></div>
+
+</div>
+<div class="container">
+	<style>
+	#view_more {display:none;}
+	</style>
+<a target="more"></a>
+	
+<div id="category-description">
+<br />
+<br />
+<h1 class="s_hstyle">Mit einem Klick zu Ihrem Wunsch-Reifen</h1>
+	
+<p class="s_pstyle">Sie benötigen einen neuen Reifen oder gleich einen kompletten Satz? ReifenDirekt.ch bietet Ihnen die passenden Produkte von dutzenden Herstellern - als größter Internet-Reifenhandel in Europa haben wir zehntausende Räder sowie die geeigneten Felgen auf Lager. Für die bequeme Suche haben wir einen <b>Reifenkonfigurator</b> entwickelt. Dabei haben Sie die Wahl zwischen der Suche anhand der Größe oder über Marke, Modell und Typ des Fahrzeugs. Die Suchergebnisliste verfügt über eine Sortier- und Filterfunktion, sodass Sie ganz bequem online den Pneu finden, der Ihren Vorstellungen entspricht. Egal ob Premiummarke oder günstiger Reifen, Sie erhalten Ihre Bestellung innerhalb weniger Tage. Alternativ ist eine Lieferung an eine unserer <a href="https://www.reifendirekt.ch/Montagepartner.html" title="Montagestationen">Montagestationen</a> möglich, die es auch in Ihrer Nähe gibt. Im Laufe des Bestellprozesses können Sie sich für diese Variante entscheiden und einen Servicepartner finden, der sich dann um den Reifenwechsel kümmert. Sie müssen nur noch einen Termin dafür vereinbaren.
+<span id="view_more_span"><a href="#more" onclick="$('#view_more').css('display','block');$('#view_more_span').css('display','none');" class="s_pstyle"> <i class="fa fa-plus-square-o fa-lg"></i></a></span>
+		<div id="view_more">
+</p><p class="s_pstyle">Gute Reifen sind wichtig, denn nur so kommen Sie sicher ans Ziel. Auf die Qualität sollten Sie allerdings nicht nur beim Kauf achten, sondern auch im Alltag. Ein regelmäßiger Check des Radzustands verhindert böse Überraschungen. Beschädigungen durch Risse oder Nägel sind ebenso gefährlich wie ein abgefahrenes Profil. Eine Mindestprofiltiefe von 1,6 mm wird in der Schweiz durch ein Gesetz vorgeschrieben und gegebenenfalls kontrolliert. Das Fahrverhalten verschlechtert sich allerdings schon bei 3 mm (<a href="https://www.reifendirekt.ch/Sommerreifen.html">Sommerreifen</a>) bzw. 4 mm (<a href="https://www.reifendirekt.ch/Winterreifen.html">Winterreifen</a>). Dann kann es vor allem bei schlechten Witterungs- bzw. Straßenverhältnissen kritisch werden, beispielsweise im Winter in den Schweizer Alpen. Bestellen Sie also rechtzeitig günstig auf ReifenDirekt.ch, um sich mit einem Klick Ihren Wunsch in unserem Online-Reifenhandel zu erfüllen.</p></p>
+<h2 class="s_hstyle">Dank Reifenkonfigurator schnell zum passenden Pneu</h2>
+<p class="s_pstyle"><p class="s_pstyle">Wer neue Reifen kaufen will, muss die Größe wissen. Diese kann vom alten Rad abgelesen werden. Da dies nicht immer möglich ist, haben Sie bei uns die Möglichkeit, mithilfe des Reifenkonfigurators die passenden Produkte zu finden. Nach der Auswahl von Hersteller, Modell und Typ des Autos werden alle Reifen angezeigt, die für das jeweilige Fahrzeug zugelassen sind. Die Suchergebnisse lassen sich nach Marke, Preis und weiteren Kriterien sortieren. Sie können beispielsweise auch direkt nach RunFlat- oder <a href="https://www.reifendirekt.ch/Runderneuerte_Reifen.html">runderneuerten Reifen</a> suchen. Hierbei helfen Ihnen Kundenmeinungen und Testergebnisse, die richtige Wahl zu treffen. So finden Sie genau den Pneu, der Ihren Vorstellungen entspricht. Auf Wunsch kann dieser mit Felgen aus Alu oder Stahl kombiniert werden, wobei wir die Kompletträder auswuchten, bevor sie sich auf den Weg zu Ihnen machen.</p></p>
+<h3 class="s_hstyle">Qualität finden über das EU-Reifenlabel</h3>
+<p class="s_pstyle"><p class="s_pstyle">Wenn Sie sich für einen Reifen interessieren, für den es noch keine Kundenbewertungen oder Testberichte gibt, können Sie sich am <a href="https://www.reifendirekt.ch/reifenfreigabe" title="EU-Reifenlabel">EU-Reifenlabel</a> orientieren. Es informiert den Kunden über Rollwiderstand, Nasshaftung und Geräuschentwicklung. So können kostenbewusste Autofahrer einen Reifen finden, der wenig Sprit verbraucht. Auch nach diesen Kriterien kann die Liste sortiert werden. Bei Rollwiderstand und Nasshaftung gilt: Klasse A ist sehr gut. Die Abrollgeräusche werden hingegen in Dezibel angegeben. Je leiser der Pneu, desto niedriger der Wert. <b>Reifen günstig online kaufen</b> hat also viele Vorteile: Mal abgesehen vom niedrigeren Preis gegenüber dem lokalen <b>Reifenhändler</b> können Sie ganz in Ruhe in unserem Sortiment stöbern und die Produkte miteinander vergleichen. Wer mindestens zwei Reifen kauft, spart zudem die Versandkosten in der Schweiz. Unser Internet-Reifenhandel bietet Ihnen nicht nur ein umfangreiches Sortiment, sondern auch viele wertvolle Tipps und Informationen rund um den Reifen und die passenden Felgen.
+	<span id="view_less_on_click_span"><a href="#more" onClick="$('#view_more').css('display','none');$('#view_more_span').css('display','inline');" class="s_pstyle"><i class="fa fa-minus-square-o fa-lg"></i></a></span>
+
+	</div>
+
+</p>
+</div>
+</div><p align="center"><small>Die Preise gelten (wenn nicht anders erwähnt) pro Stück und sind inkl. MwSt und Versandkosten innerhalb der Schweiz.</small></p>
+</form>
+	<div class="container"></div>
+</form>	 
+<form action="/cgi-bin/stationssuche.pl" method="post">	 
+	 <input type="hidden" name="dsco" value="104" />
+<div class="container mon_search">
+<div class="row">
+<div class="col-md-5 hidden-xs"><img src="images/rb3.jpg" alt="Wir montieren Ihre Reifen!"></div>
+<div class="col-md-7">
+<div class="find-lable">
+<h4>Wir montieren Ihre Reifen!</h4>
+<p>Wählen Sie einen unserer Partner ganz in Ihrer Nähe:</p>
+<input type="text" name="plz" placeholder="Ihre PLZ!" value="">
+<input type="submit" name="submit_search" value="Partner Finden">
+</div>
+</div>
+</div>
+</div>
+</form>	 
+<form action="/cgi-bin/rd-newsletter.pl" method="get">	 
+	 <input type="hidden" name="dsco" value="104" />
+ <div class="bg-orang-grad">
+ <div class="container">
+ <div class="row">
+	 <div class="hidden-sm hidden-xs hidden-md col-lg-5">
+	<img src="images/rb4.png" alt="" class="castom_img_shearch">
+	 </div>
+ <div class="col-xs-12 col-sm-12 col-lg-7">
+ <h4>Newsletter Anmeldung</h4>
+ <p>Bestellen Sie jetzt den kostenlosen ReifenDirekt.ch-Newsletter und verpassen Sie keine Aktionen mehr! </p>
+ <input type="text" name="user" placeholder="E-Mail-Adresse" value="">
+ <input type="submit" name="submit_search" value="Anmelden">
+ </div>
+ </div>
+ </div>
+ </div>
+</div><div class="clear"></div>
+	
+<div class="footerNavA hidden-xs">
+<div class="container">
+<div class="row footerY">
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>Rubriken</h4>
+<ul id="footerNav">
+ <li><a href="Sommerreifen.html">Sommerreifen</a></li>
+ <li><a href="Winterreifen.html">Winterreifen</a></li>
+ <li><a href="Ganzjahresreifen.html">Ganzjahresreifen</a></li>
+ <li><a href="LeichtLKW-Reifen.html">LeichtLKW-Reifen</a></li>
+ <li><a href="4x4-Reifen.html">Off-Road/4x4 SUV Reifen</a></li>
+ </ul>
+</div>
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>&nbsp;</h4>
+<ul id="footerNav">
+ <li><a href="Leichtlaufreifen.html">Leichtlaufreifen</a></li>
+ <li><a href="Run-flat-Reifen.html">Runflat-Reifen</a></li>
+ <li><a href="LKW-Reifen.html">LKW-Reifen</a></li>
+ <li><a href="Schlepperreifen.html">Spezial-/Schlepperreifen</a></li>
+ <li><a href="PKW-Reifen.html">PKW-Reifen</a></li>
+</ul>
+</div>
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>&nbsp;</h4>
+<ul id="footerNav">
+ <li><a href="Off-Road-Reifen.html">Off-Road-Reifen</a></li>
+ <li><a href="LLKW-Reifen.html">LLKW-Reifen</a></li>
+ <li><a href="Reifenmarken.html">Reifenmarken</a></li>
+ <li><a href="https://www.reifendirekt.ch/rshop/Reifen/">Reifen</a></li>
+ <li><a href="https://www.reifendirekt.ch/motorradreifen/">Motorradreifen</a></li>
+ <li><a href="Mischbereifung.html">Mischbereifung</a></li>
+ </ul>
+</div>
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>&nbsp;</h4>
+<ul id="footerNav">
+ <li><a href="top-reifenprofile-uebersicht.html" x-wt-event="footer_top-treads">Top Profile</a></li>
+ <li><a href="reifendimension.html" x-wt-event="footer_tires_dimensions">Reifen nach Gr&ouml;ße</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="/Testurteile-Reifen.html">Testurteile-Reifen</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="/Automarke-Reifen.html">Reifen nach Automarken</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="/dot-2018.html">Produktionsjahr 2018 garantiert</a></li>
+ <li><a href="/ersatzteile/pkw/">Autoteile nach Fahrzeughersteller</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="footerNav">
+<div class="container">
+<div class="row footerY">
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>Kundenservice</h4>
+<ul id="footerNav">
+<li><a href="/">Reifen Direkt Home</a></li>
+<li><a href="DErezept.html">Liefer- und
+Zahlungsangebote</a></li>
+<li><a href="AGBs.html">AGB</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+<li><a href="https://ssl.delti.com/cgi-bin/yourorder.pl?dsco=104">Meine Bestellung</a></li>
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="Newsletter.html">Newsletter</a></li>
+</ul>
+<h4>Auszeichnung</h4>
+<div style="overflow: visible; width: 250px; margin-left: -10px; padding-top: 10px; padding-bottom: 20px;"><a href="Bridgestone-Approved-Website.html" style="margin-right:25px;"><img src="//image.delti.com/simg/landingpages/rd_lp_bridgestone-approve-website_2017.png" alt="GOLD für Reifendirekt.de von Bridgestone und dem TÜV Rheinland" style="max-width:90px" border="0" vspace="0"></a>
+<a target="_blank" style="float:right;" href="/simg/Michelin-Approved-Website_DE.pdf" x-wt-event="footer_approved_michelin" x-wt-event-ajax="1"><img src="//image.delti.com/simg/Michelin-Approved-Website.png" alt="Michelin Approved Website" width="130" height="83" vspace="0" border="0" /></a>
+<center><a target="_blank" href="/spdf/Recommended_Onlineshop_DE_2018.pdf" x-wt-event="footer_approved_continental" x-wt-event-ajax="1"><img src="//image.delti.com/simg/conti_approved.png" width="80" height="77" hspace="0" vspace="0" border="0" /></a></center></div>
+</div>
+<div class="col-md-3 col-xs-6 footerX">	
+<h4>Unternehmen</h4>
+<ul id="footerNav">
+<li><a href="About.html">&Uuml;ber uns</a></li>
+<li><a href="jobs.html">Karriere bei Delticom</a>
+<li><a href="affiliate-partnerprogramm.html">Affiliate-Partnerprogramm</a></li>
+<li><a href="https://www.delti.com/Investor_Relations/" target="_blank">Investor Relations</a></li>
+<li><a href="https://www.delti.com/press/deutsch/" target="_blank">Presse</a></li>
+<li><a href="Kundenmeinungen.html">Kunden &uuml;ber uns</a></li>
+ <li><a href="Impressum.html">Impressum</a></li>
+</ul>
+<h4>Unsere Zahlungsarten</h4>
+<div class="pay_white"><img src="//image.delti.com/simg/p-visa.png" alt="visa" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-mastercard.png" alt="mastercard" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-amex.png" alt="amex" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-paypal.png" alt="paypal" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-sofort.png" alt="sofort" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-banktransfer.png" alt="banktransfer" width="47" height="30" hspace="2" border="0" /><img src="//image.delti.com/simg/p-ssl.png" alt="ssl" width="63" height="30" hspace="2" border="0" /></div>
+</div>
+<div class="col-md-3 footerX hidden-xs">
+<h4>Hilfe & Beratung</h4>
+<ul id="footerNav">
+<li><a href="/FAQs/">F.A.Q.</a></li>
+<li><a href="hilfe-beim-bestellen.html">Hilfe beim Bestellen</a></li>
+<li><a href="/Advice/">Hilfe beim Reifenfinden</a></li>
+<li><a href="Reifen-ABC.html">Reifen-ABC</a></li>
+<li><a href="reifennews.html">Reifeninfos</a></li>
+<li><a href="Reifenurteile.html">Reifenurteile</a></li>
+<li><a href="reifendruck-kontrollsystem.html">Reifendruck Kontrollsystem</a></li>
+<li><a href="Montagepartner.html">Montagestation</a></li>
+<li><a href="/cgi-bin/reifenneumontage.pl?dsco=104">Anmeldung Montagepartner</a></li>
+<li><a href="Reifenversicherung.html">Reifenversicherung</a></li>
+<li><a href="Versicherungen.html">Autoversicherung</a></li>
+</ul>
+</div>
+<div class="col-md-3 footerX hidden-xs">
+<section class="footer-iframe-trustplot">
+	<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+	<div style="padding:10px;border-radius:10px;background-color:white;">
+	<div class="trustpilot-widget" data-locale="de-CH" data-template-id="539ad0ffdec7e10e686debd7" data-businessunit-id="4b5f7cd80000640005054206" data-style-height="350px" data-style-width="100%" data-theme="light" data-stars="4,5">
+	<a href="https://ch.trustpilot.com/review/www.reifendirekt.ch" target="_blank">Trustpilot</a>
+	</div>
+	</div>
+	</section>
+<div id="Trusted">
+<!---- Trusted_test --->---
+</div>
+</div>
+</div>
+<p>
+</p>
+</div>
+<div id="footerCopy">ReifenDirekt.ch - ein Angebot der Delticom AG 18.03.2018 09:11</div>
+<div id="footerCopy">
+</div>
+</div>
+ <div class="bg-footer-darck">
+ <div class="container">
+ <div class="col-xs-12 col-sm-4 col-md-3">
+ <div class="logo-footer">
+ <a href="https://www.delti.com/" target="_blank"><img src="images/logo-footer.png" alt="Delticom AG"></a>
+ </div>
+ </div>
+ <div class="col-xs-12 col-sm-4 col-md-3 ss-link hidden-xs">
+ <ul>
+ <li><a href="https://www.instagram.com/tyres_by_delticom/" target="_blank"><img src="images/instagram.png" alt="instagram"></a></li>
+ <li><a href="https://twitter.com/ReifenDirekt" target="_blank"><img src="images/twitter.png" alt="twitter"></a></li>
+ <li><a href="https://plus.google.com/+reifendirekt/posts" target="_blank"><img src="images/Google-P.png" alt="Google-P"></a></li>
+ <li><a href="https://www.youtube.com/user/Reifentv/videos" target="_blank"><img src="images/youtube.png" alt="youtube"></a></li>
+ <li><a href="https://www.facebook.com/reifendirekt.ch" target="_blank"><img src="images/facebook.png" alt="facebook"></a></li>
+ </ul>
+ </div>
+ <div class="col-xs-12 col-sm-8 col-md-6" id="flaggenFooterOuter">
+ 
+<ul id="tyre-shops">
+<li><a id="flags_footer_de" href="https://www.reifendirekt.de" x-wt-event="footer_shops_rdde" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Reifen-Shop Deutschland"></a></li>
+<li><a id="flags_footer_fr" href="https://www.123pneus.fr" x-wt-event="footer_shops_rdfr" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="pneus-shop france"></a></li>
+<li><a id="flags_footer_ch" href="https://www.reifendirekt.ch" x-wt-event="footer_shops_rdch" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Reifen-Shop Schweiz"></a></li>
+<li><a id="flags_footer_se" href="https://www.dackonline.se" x-wt-event="footer_shops_rdse" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Dack-shop Sverige"></a></li>
+<li><a id="flags_footer_it" href="https://www.gommadiretto.it" x-wt-event="footer_shops_rdit" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Gomme Italia"></a></li>
+<li><a id="flags_footer_no" href="https://www.dekkonline.com" x-wt-event="footer_shops_rdno" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Dekk Norge"></a></li>
+<li><a id="flags_footer_dk" href="https://www.daekonline.dk" x-wt-event="footer_shops_rddk" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Danske dæk shop"></a></li>
+<li><a id="flags_footer_nl" href="https://www.autobandenmarkt.nl" x-wt-event="footer_shops_rdnl" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Banden-Shop Nederland"></a></li>
+<li><a id="flags_footer_uk" href="https://www.mytyres.co.uk" x-wt-event="footer_shops_rduk" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Tyres-shop UK"></a></li>
+<li><a id="flags_footer_us" href="https://www.tires-direct.com" x-wt-event="footer_shops_rdus" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="us-tire-shop"></a></li>
+<li><a id="flags_footer_es" href="https://www.neumaticos-online.es" x-wt-event="footer_shops_rdes" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Neumaticos-Shop España"></a></li>
+<li><a id="flags_footer_at" href="https://www.reifendirekt.at" x-wt-event="footer_shops_rdat" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Reifen-Shop Österreich"></a></li>
+<li><a id="flags_footer_si" href="https://www.gume-direkt.com" x-wt-event="footer_shops_rdsi" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Pnevmatike Sloveniji"></a></li>
+<li><a id="flags_footer_be" href="https://www.123pneus.be" x-wt-event="footer_shops_rdbe" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Pneus-Shop Belgique"></a></li>
+<li><a id="flags_footer_fi" href="https://www.rengas-online.com" x-wt-event="footer_shops_rdfi" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="rengas shop"></a></li>
+<li><a id="flags_footer_cz" href="https://www.pneushop.cz" x-wt-event="footer_shops_rdcz" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Pneumatik CZ"></a></li>
+<li><a id="flags_footer_sk" href="https://www.pneumatikypriamo.com" x-wt-event="footer_shops_rdsk" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Pneumatík SK"></a></li>
+<li><a id="flags_footer_pt" href="https://www.pneucity.com" x-wt-event="footer_shops_rdpt" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="pneus-shop-portugal"></a></li>
+<li><a id="flags_footer_ie" href="https://www.eiretyres.com" x-wt-event="footer_shops_rdie" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Tyres-Shop Ireland"></a></li>
+<li><a id="flags_footer_hu" href="https://www.gumik.hu" x-wt-event="footer_shops_rdhu" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Gumik Hungária"></a></li>
+<li><a id="flags_footer_pl" href="https://www.oponytanio.pl" x-wt-event="footer_shops_rdpl" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Opony PL"></a></li>
+<li><a id="flags_footer_ro" href="https://www.cauciucuridirect.ro" x-wt-event="footer_shops_rdro" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Cauciucuri RO"></a></li>
+<li><a id="flags_footer_gr" href="https://www.elastika-online.gr" x-wt-event="footer_shops_rdgr" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="??ast ??a a?t?????ta 4x4 ?a ?µ?f??t se t"></a></li>
+<li><a id="flags_footer_jp" href="https://www.tires.jp" x-wt-event="footer_shops_rdjp" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="JP"></a></li>
+<li><a id="flags_footer_ru" href="https://www.avto-shina.ru" x-wt-event="footer_shops_rdru" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="RU"></a></li>
+<li><a id="flags_footer_ca" href="https://www.tires-easy.ca" x-wt-event="footer_shops_rdca" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Tire CA"></a></li>
+<li><a id="flags_footer_bg" href="https://www.barzgumve.com" x-wt-event="footer_shops_rdbg" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="BG"></a></li>
+<li><a id="flags_footer_hr" href="https://www.gume.com.hr" x-wt-event="footer_shops_rdhr" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="HR"></a></li>
+<li><a id="flags_footer_ee" href="https://www.reifendirekt.co.ee" x-wt-event="footer_shops_rdee" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Rehvide EE"></a></li>
+<li><a id="flags_footer_lt" href="https://www.reifendirekt.lt" x-wt-event="footer_shops_rdlt" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Padangø LT"></a></li>
+<li><a id="flags_footer_lv" href="https://www.reifen-direkt.lv" x-wt-event="footer_shops_rdlv" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Riepas LV"></a></li>
+<li><a id="flags_footer_mx" href="https://www.llantera-mia.mx" x-wt-event="footer_shops_rdmx" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Llantas Méxicos"></a></li>
+<li><a id="flags_footer_rs" href="https://www.autogume.rs" x-wt-event="footer_shops_rdrs" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Gume Srbiji"></a></li>
+<li><a id="flags_footer_ua" href="https://www.shyny.com.ua" x-wt-event="footer_shops_rdua" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="UA"></a></li>
+<li><a id="flags_footer_tr" href="https://www.lastik-online.com.tr" x-wt-event="footer_shops_rdtr" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="TR"></a></li>
+<li><a id="flags_footer_is" href="https://www.123dekk.is" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Dekk fyrir Ísland"></a></li>
+<li><a id="flags_footer_com" href="https://www.reifendirekt.com" x-wt-event="footer_shops_rdeu" target="_blank"><img src="//image.delti.com/simg/leer.gif" style="width: 22px;height: 13px;" alt="Tyres Shop for other countries"></a></li>
+</ul> 
+ </div>
+ </div>
+ </div> 
+<div class="container hidden-xs footerNavB">
+<div class="row footerX">
+<div class="col-md-3 col-xs-6">
+<h4>Automarken</h4>
+<ul id="footerNav">
+<li><a href="Advice/BMW-Reifen.html">BMW Reifen</a></li>
+ <li><a href="Advice/Smart-Reifen.html">Smart Reifen</a></li>
+ <li><a href="Advice/Mercedes-Benz-Reifen.html">Mercedes Reifen</a></li>
+ <li><a href="Advice/Volkswagen-Reifen.html">VW Reifen</a></li>
+ <li><a href="Advice/Audi-Reifen.html">Audi Reifen</a></li>
+ <li><a href="Advice/Porsche-Reifen.html">Porsche Reifen</a></li>
+ <li><a href="Advice/Opel-Reifen.html">Opel Reifen</a></li>
+ <li><a href="Advice/Ford-Reifen.html">Ford Reifen</a></li>
+ <li><a href="Advice/Mazda-Reifen.html">Mazda Reifen</a></li>
+ <li><a href="Advice/Peugeot-Reifen.html">Peugeot Reifen</a></li>
+ 
+</ul>
+</div>
+<div class="col-md-3 col-xs-6">
+<h4>Reifen nach Größe</h4>
+<ul id="footerNav">
+<li><a href="reifen-groessen/255-35-r19-reifen.html">255/35 R19</a></li>
+ <li><a href="reifen-groessen/195-55-r16-reifen.html">195/55 R16</a></li>
+ <li><a href="reifen-groessen/225-55-r17-reifen.html">225/55 R17</a></li>
+ <li><a href="reifen-groessen/195-45-r16-reifen.html">195/45 R16</a></li>
+ <li><a href="reifen-groessen/205-45-r17-reifen.html">205/45 R17</a></li>
+ <li><a href="reifen-groessen/225-35-r18-reifen.html">225/35 R18</a></li>
+ <li><a href="reifen-groessen/225-45-r18-reifen.html">225/45 R18</a></li>
+ <li><a href="reifen-groessen/205-50-r16-reifen.html">205/50 R16</a></li>
+ <li><a href="reifen-groessen/215-55-r16-reifen.html">215/55 R16</a></li>
+ <li><a href="reifen-groessen/225-40-r18-reifen.html">225/40 R18</a></li>
+ 
+</ul>
+</div>
+<div class="col-md-3 col-xs-6">
+<h4>Reifenmarken</h4>
+<ul id="footerNav">
+<li><a href="Goodyear_Reifen.html">Goodyear Reifen</a></li>
+ <li><a href="Dunlop_Reifen.html">Dunlop Reifen</a></li>
+ <li><a href="Yokohama_Reifen.html">Yokohama Reifen</a></li>
+ <li><a href="Michelin_Reifen.html">Michelin Reifen</a></li>
+ <li><a href="Continental_Reifen.html">Continental Reifen</a></li>
+ <li><a href="Cooper_Reifen.html">Cooper Reifen</a></li>
+ <li><a href="Fulda_Reifen.html">Fulda Reifen</a></li>
+ <li><a href="Bridgestone_Reifen.html">Bridgestone Reifen</a></li>
+ <li><a href="Nokian_Reifen.html">Nokian Reifen</a></li>
+ <li><a href="Toyo_Reifen.html">Toyo Reifen</a></li>
+ <li><a href="Avon_Reifen.html">Avon Reifen</a></li>
+ 
+</ul>
+</div>
+<div class="col-md-3 col-xs-6">
+<h4>Reifenprofile</h4>
+<ul id="footerNav">
+<li><a href="reifen/michelin/alpin-5.html">Michelin ALPIN 5</a></li>
+ <li><a href="reifen/michelin/pilot-sport-3.html">Michelin Pilot Sport 3</a></li>
+ <li><a href="reifen/michelin/energy-saver-.html">Michelin ENERGY SAVER +</a></li>
+ <li><a href="reifen/continental/wintercontact-ts-850.html">Continental WinterContact TS 850</a></li>
+ <li><a href="reifen/nokian/wr-d3.html">Nokian WR D3</a></li>
+ <li><a href="reifen/goodyear/ultra-grip-8.html">Goodyear ULTRA GRIP 8</a></li>
+ <li><a href="reifen/continental/sportcontact-5.html">continental sportcontact 5</a></li>
+ <li><a href="reifen/dunlop/sport-maxx-rt.html">Dunlop Sport Maxx RT</a></li>
+ <li><a href="reifen/nokian/wr-a3.html">Nokian WR A3</a></li>
+ <li><a href="reifen/vredestein/snowtrac-3.html">Vredestein SNOWTRAC 3</a></li>
+ 
+</ul>
+</div>
+</div>
+</div>
+	 
+<script src="/sjs/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="/sjs/jquery/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/sjs/jquery/jquery-ui-1.12.1/css/smoothness/jquery-ui.min.css" type="text/css"/>
+<script src="/sjs/jquery/jquery.menu-aim.js" type="text/javascript"></script>
+<script src="/sjs/jquery/jquery.cookie.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ssl.delti.com/sjs/overlib.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://ssl.delti.com/sjs/banner_rotation.min.js"></script>
+<script src="https://adtm.delti.com/b2c/p/bad655d6483c25d821dac12cb3ce71e1556cfe64/satelliteLib-246d9334a8fac8f7242fe07a80421dd5e091a6aa.js"></script>
+<!--[if (gt IE 6)|!(IE)]><!-->
+<script src="/cgi-bin/LibRSM/rsmWebservice.pl?function=javascript&file=pkwsuchmaske" type="text/javascript"></script>
+<!--<![endif]-->
+<span id="-- SVX11e6b34474ae0d00ffa30da06a6d652b -- 101102 --"></span>
+<span id="-- 18.03.2018 09:11 --"></span>
+<script type="text/javascript">
+digitalData={};
+digitalData.pageInstanceID="prod_RD_homepage";
+digitalData.page={ pageInfo: { pageId: "homepage", pageName: "Home", shopName: "RD", country: "CH", language: "de", statusCode: 200}};
+digitalData.page.pageInfo.campaignID = "";
+</script>
+<script type="text/javascript">_satellite.pageBottom();</script>
+</body>
+</html>

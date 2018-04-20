@@ -1,0 +1,1739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:fb="http://ogp.me/ns/fb#"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74047220-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74047220-1');
+</script>
+<link rel="apple-touch-icon" sizes="57x57" href="https://bbsradio.com/sites/default/files/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://bbsradio.com/sites/default/files/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://bbsradio.com/sites/default/files/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://bbsradio.com/sites/default/files/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://bbsradio.com/sites/default/files/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://bbsradio.com/sites/default/files/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://bbsradio.com/sites/default/files/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://bbsradio.com/sites/default/files/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bbsradio.com/sites/default/files/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://bbsradio.com/sites/default/files/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bbsradio.com/sites/default/files/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://bbsradio.com/sites/default/files/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bbsradio.com/sites/default/files/icons/favicon-16x16.png">
+<link rel="manifest" href="https://bbsradio.com/sites/default/files/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://bbsradio.com/sites/default/files/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification" content="wNQWve5Tz6sJoRHyTDGYfsFeFZ4c_ndgou-jt784SM4" />
+<link rel="shortcut icon" href="https://bbsradio.com/bbs_radio_favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="yandex-verification" content="53c2e6bfdcabb330" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<meta name="msvalidate.01" content="19FA96E55CEA7EEE60A3B71E5F908BB8" />
+<meta name="description" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<meta name="abstract" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<meta name="keywords" content="talk radio, internet talk radio, live talk radio, radio shows, talk shows, talk radio shows, radio station, radio program, broadcasting, podcasting, broadcast, podcast, internet radio" />
+<meta name="robots" content="follow, index" />
+<meta name="news_keywords" content="talk radio, internet talk radio, live talk radio, radio shows, talk shows, talk radio shows, radio station, radio program, broadcasting, podcasting, broadcast, podcast, internet radio" />
+<meta name="rating" content="general" />
+<meta name="generator" content="Drupal Core" />
+<meta name="rights" content="2017 BBS Network, Inc., BBS Radio" />
+<link rel="image_src" href="https://bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<link rel="canonical" href="https://bbsradio.com" />
+<meta name="original-source" content="https://bbsradio.com/" />
+<link rel="next" href="https://bbsradio.com/?page=1" />
+<meta http-equiv="content-language" content="en" />
+<meta name="geo.position" content="39.7355982;-121.6367412" />
+<meta name="geo.placename" content="BBS Radio" />
+<meta name="geo.region" content="US-CA" />
+<meta name="icbm" content="39.7355982, -121.6367412" />
+<meta property="fb:admins" content="507332254" />
+<meta property="fb:app_id" content="107947000674" />
+<meta property="og:site_name" content="BBS Radio" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bbsradio.com/" />
+<meta property="og:title" content="Talk Radio, Live talk radio shows. We do talk radio right." />
+<meta property="og:description" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<meta property="og:see_also" content="https://bbsradio.com/host-your-own-talk-show" />
+<meta property="og:image" content="https://bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<meta property="og:image:url" content="https://bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<meta property="og:image:secure_url" content="https://bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="268" />
+<meta property="og:image:height" content="238" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@bbsradio" />
+<meta name="twitter:site:id" content="18014996" />
+<meta name="twitter:creator" content="@bbsradio" />
+<meta name="twitter:creator:id" content="18014996" />
+<meta name="twitter:url" content="https://bbsradio.com/" />
+<meta name="twitter:title" content="Original live internet talk radio shows. We do talk radio right." />
+<meta name="twitter:description" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<meta name="twitter:image" content="https://bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<meta name="twitter:image:width" content="268" />
+<meta name="twitter:image:height" content="238" />
+<meta itemprop="name" content="Original live internet talk radio shows. We do talk radio right." />
+<link rel="author" href="https://bbsradio.com/about" />
+<meta itemprop="description" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<link rel="publisher" href="https://bbsradio.com/" />
+<meta itemprop="image" content="https://bbsradio.com/https//bbsradio.com/banner_exchange/new_artwork/resized/banner_286x238.jpg" />
+<meta name="twitter:app:name:iphone" content="BBS Radio" />
+<meta name="twitter:app:id:iphone" content="com.bbsradio.bbsonline" />
+<meta name="twitter:app:name:ipad" content="BBS Radio" />
+<meta name="dcterms.title" content="Original live internet talk radio shows. We do talk radio right." />
+<meta name="twitter:app:id:ipad" content="com.bbsradio.bbsonline" />
+<meta name="dcterms.creator" content="BBS Network, Inc. - BBS Radio" />
+<meta name="dcterms.subject" content="talk radio, internet talk radio, live talk radio, radio shows, talk shows, talk radio shows, radio station, radio program, broadcasting, podcasting, broadcast, podcast, internet radio" />
+<meta name="twitter:app:name:googleplay" content="BBS Radio" />
+<meta name="twitter:app:id:googleplay" content="com.bbs.radioapp" />
+<meta name="dcterms.description" content="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." />
+<meta name="dcterms.publisher" content="BBS Network, Inc. - BBS Radio" />
+<meta name="dcterms.contributor" content="BBS Radio Talk Show Hosts" />
+<meta name="dcterms.date" content="Sunday, March 18, 2018 12:20 am" />
+<meta name="dcterms.type" content="InteractiveResource" />
+<meta name="dcterms.language" content="en" />
+<meta name="dcterms.rights" content="BBS Network, Inc. - BBS Radio" />
+<meta name="msvalidate.01" content="19FA96E55CEA7EEE60A3B71E5F908BB8" />
+<meta name="google-site-verification" content="wNQWve5Tz6sJoRHyTDGYfsFeFZ4c_ndgou-jt784SM4" />
+<meta name="p:domain_verify" content="ae945302e0e849efa5626dfcc1acbfc1" />
+<meta name="yandex-verification" content="c0ff7f221210e0e6" />
+  <title>Original live internet talk radio shows. We do talk radio right.</title>
+  <link type="text/css" rel="stylesheet" href="https://bbsradio.com/sites/default/files/advagg_css/css__xRDCTL3mgSWxD73xU58O3DQV6gwShsASCnqyidxkduc__4YrB8cCZlx_19nN1v8EYcWUn2kVubyp8oMQlrjYaHiY__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.css" media="all" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="https://bbsradio.com/sites/default/files/advagg_css/css__rsn9CYpSTBeJdKbCgYyEIv6ClN3i1hpbo0CY9AX3xRg__QEBPIj9yXk7VzWyOSfXOlMiwGeIvHqaM92QXoftJ0Fg__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.css" media="all" />
+<![endif]-->
+
+<!--[if lte IE 6]>
+<link type="text/css" rel="stylesheet" href="https://bbsradio.com/sites/default/files/advagg_css/css__1wGo39_DHWq6Qb7FOQSBwR1V0N4oB3KsAbISK_u-7qk__PREYrR8WF4tAKTxNFEN5HiYizFzC8MiyK4pZ1Sb73kc__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.css" media="all" />
+<![endif]-->
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var fonts=document.cookie.split("advaggf");for(var key in fonts){var font=fonts[key].split("="),pos=font[0].indexOf("ont_");-1!==pos&&(window.document.documentElement.className+=" "+font[0].substr(4).replace(/[^a-zA-Z0-9\-]/g,""))}
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.google_analytics_uacct = "UA-74047220-1";
+//--><!]]>
+</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.7/jquery.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js__H5AFmq1RrXKsrazzPq_xPQPy4K0wUKqecPjczzRiTgQ__ZHqvWr-79k4Y5DRTd0KcuNHgFp9UJZlb3B0Bi5eGu3M__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js"></script>
+<script type="text/javascript" src="https://bbsradio.com/sites/all/libraries/mediaelement/build/mediaelement-and-player.min.js?v=2.1.6"></script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js___Y_xINh5Jco_KgVUNWVGF8Tyd4-j2OXXDg9L6D4kJqg__lvsKRr1IJSydOFuUTmE3SZ_Za7UjdNzN8LCy5KTfPms__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js"></script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js__LOTzmTjOEyBYTRa73tu6Fj3qY7yfNxJxX3y1JUwojnc__MyFm8b4AOXDl-mTndwodnIvD3HQonUazektInL1IeoE__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js" defer="defer" async="async"></script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js__OGe1pLi2a1ALYp-vtW7icUlWmM3OXBbV2puuBegQJMw__uFfIz4EfszL-hJMd8VJl56JGcmZ3Yvs3n_SX4lfADPY__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-74047220-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("set", "page", location.pathname + location.search + location.hash);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js__HxTbhN-HTG8H6pU8ZNTXLhmTeg8fhzG_sbeVLz0gBqU__K4ApKepJPcurZyZkfZbfF4bND8mRif4uimvll4yTanU__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js" defer="defer" async="async"></script>
+<script type="text/javascript" src="https://bbsradio.com/sites/default/files/advagg_js/js__kCTMSslIdBNTWPFpQw-VzD92BXYxwolmRmIZsNrGy7k__tznPr7Tb7lBxCTc_udnSae3Q52Vw7Ie7EZ8BAq3K2eQ__r3q2vtfrFureIIYEFO81PHaoXBAukd-eCVDIqdsmwxI.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings,{"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"bbslook","theme_token":"CXEuzmRRcqCmzXS3JmsippuF6P1DbHfw_wsbBmilZu0","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/libraries\/mediaelement\/build\/mediaelementplayer.min.css":1,"sites\/all\/modules\/views_slideshow\/views_slideshow.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/linkedin\/linkedin_auth\/linkedin_auth.css":1,"sites\/all\/modules\/linkedin\/linkedin_profile\/linkedin_profile.css":1,"sites\/all\/modules\/linkedin\/linkedin_status\/linkedin_status.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/panels\/plugins\/layouts\/flexible\/flexible.css":1,"public:\/\/ctools\/css\/255d30622438ede460770032885f7337.css":1,"sites\/all\/modules\/custom_search\/custom_search.css":1,"sites\/all\/modules\/views_slideshow\/views_slideshow_controls_text.css":1,"sites\/all\/modules\/views_slideshow\/contrib\/views_slideshow_cycle\/views_slideshow_cycle.css":1,"sites\/default\/files\/honeypot\/honeypot.css":1,"sites\/all\/themes\/bbslook\/css\/html-reset.css":1,"sites\/all\/themes\/bbslook\/css\/wireframes.css":1,"sites\/all\/themes\/bbslook\/css\/layout-fixed.css":1,"sites\/all\/themes\/bbslook\/css\/page-backgrounds.css":1,"sites\/all\/themes\/bbslook\/css\/tabs.css":1,"sites\/all\/themes\/bbslook\/css\/calendar.css":1,"sites\/all\/themes\/bbslook\/css\/pages.css":1,"sites\/all\/themes\/bbslook\/css\/blocks.css":1,"sites\/all\/themes\/bbslook\/css\/navigation.css":1,"sites\/all\/themes\/bbslook\/css\/views-styles.css":1,"sites\/all\/themes\/bbslook\/css\/nodes.css":1,"sites\/all\/themes\/bbslook\/css\/comments.css":1,"sites\/all\/themes\/bbslook\/css\/forms.css":1,"sites\/all\/themes\/bbslook\/css\/fields.css":1,"sites\/all\/themes\/bbslook\/css\/ckeditor.css":1,"sites\/all\/themes\/bbslook\/css\/responsive-mobile.css":1,"sites\/all\/themes\/bbslook\/css\/responsive-desktop.css":1,"sites\/all\/themes\/bbslook\/css\/print.css":1,"sites\/all\/themes\/bbslook\/css\/ie7.css":1,"sites\/all\/themes\/bbslook\/css\/ie6.css":1},"js":{"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.7.2\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/mediaelement\/build\/mediaelement-and-player.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.js":1,"sites\/all\/libraries\/fontfaceobserver\/fontfaceobserver.js":1,"sites\/all\/modules\/views_slideshow\/js\/views_slideshow.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/custom_bbs\/js\/custom-bbs.js":1,"sites\/all\/modules\/mediaelement\/mediaelement.js":1,"sites\/all\/modules\/custom_search\/js\/custom_search.js":1,"sites\/all\/modules\/views\/js\/base.js":1,"misc\/progress.js":1,"sites\/all\/modules\/views_autorefresh\/views_autorefresh.js":1,"sites\/all\/modules\/views\/js\/ajax_view.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"sites\/all\/modules\/advagg\/advagg_font\/advagg_font.js":1,"sites\/all\/modules\/clock\/clock.js":1,"sites\/all\/libraries\/jquery.cycle\/jquery.cycle.all.min.js":1,"sites\/all\/modules\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"sites\/all\/modules\/ctools\/js\/jump-menu.js":1,"sites\/all\/themes\/bbslook\/js\/AC_RunActiveContent.js":1,"sites\/all\/themes\/bbslook\/js\/header_button_swap.js":1,"sites\/all\/themes\/bbslook\/js\/local_time_script.js":1,"sites\/all\/themes\/bbslook\/js\/show_main_link_click.js":1,"sites\/all\/themes\/bbslook\/js\/jquery.ui.datepicker.js":1,"sites\/all\/themes\/bbslook\/js\/ckeditor.styles.js":1,"sites\/all\/themes\/bbslook\/js\/responsive.js":1,"sites\/all\/themes\/bbslook\/js\/customJs.js":1}},"mediaelementAll":true,"custom_search":{"form_target":"_self","solr":0},"views_autorefresh":{"station_1-panel_pane_9":{"interval":"120000","ping":null,"incremental":null,"nodejs":false,"timestamp":1521357634},"station_2-panel_pane_9":{"interval":"132000","ping":null,"incremental":null,"nodejs":false,"timestamp":1521357634}},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:da7bc65e8ae4237cb9fb4a73f4db8f4a":{"view_name":"station_1","view_display_id":"panel_pane_9","view_args":"","view_path":"home-page","view_base_path":null,"view_dom_id":"da7bc65e8ae4237cb9fb4a73f4db8f4a","pager_element":0},"views_dom_id:00a6075ef21b4b59f1b039385c59f310":{"view_name":"station_2","view_display_id":"panel_pane_9","view_args":"","view_path":"home-page","view_base_path":null,"view_dom_id":"00a6075ef21b4b59f1b039385c59f310","pager_element":0}}},"urlIsAjaxTrusted":{"\/views\/ajax":true,"\/":true,"\/home-page?destination=home-page":true},"viewsSlideshow":{"slider_content-default":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0}},"viewsSlideshowControls":{"slider_content-default":{"bottom":{"type":"viewsSlideshowControlsText"}}},"viewsSlideshowCycle":{"#views_slideshow_cycle_main_slider_content-default":{"num_divs":6,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"slider_content-default","effect":"fade","transition_advanced":1,"timeout":5000,"speed":1000,"delay":0,"sync":1,"random":0,"pause":1,"pause_on_click":0,"play_on_hover":0,"action_advanced":1,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_in_middle":0,"pause_when_hidden":1,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"pause_after_slideshow":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"wait_for_image_load_timeout":3000,"cleartype":0,"cleartypenobg":0,"advanced_options":"{}"}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackUrlFragments":1},"advagg_font_cookie":1,"advagg_font_no_fout":0,"time_zone":"America\/Los_Angeles","date_format":"g:i:s A (D) T","update":1,"local":0,"offset_name":"PDT","offset_seconds":"-25200","daylight_savings_time":"1","advagg_font":{"times-new-roman":"Times New Roman","courier-new":"Courier New"}});
+//--><!]]>
+</script>
+</head>
+<body class="html front not-logged-in two-sidebars page-home-page page-panels" >
+      <div id="skip-link">
+      <a href="#main-menu" class="element-invisible element-focusable">Jump to navigation</a>
+    </div>
+      <div id="page-wrapper"><div id="page">
+
+  <div id="header"><div class="section clearfix">
+
+    
+    
+    
+      <div class="region region-header">
+    <div id="block-block-2" class="block block-block first last odd">
+
+      
+  <div class="content">
+     <style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+
+#zmain{margin-left:auto; margin-right:auto; width:1024px;}
+#zwrapper{float:left; background-position: top left; background-repeat: repeat-y;}
+#zheader{height:90px; border-width:0px;}
+.zcolumn{width:342px; float:left; background-color:#000000;}
+.zcenter{width:350px; float:left; background-color:#000000;}
+.zcolumn2{width:332px; float:left; background-color:#000000;}
+.zcaps{width:1024px; float:left; padding:0px;}
+.zcolumn div, .center div {padding:0px;}
+.zcolumn2 div, .center div {padding:0px;}
+/*--><!]]>*/
+</style>
+<div id="zmain"> 
+  <div id="zwrapper"> 
+    <div class="zcaps" id="zheader"> <a href="https://bbsradio.com/" title="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." alt="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting."><img class="org_header_banner" alt="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." src="https://bbsradio.com/sites/default/files/images_on_site/header/BBS_banner2_1024-x-90.jpg" title="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." width="1024" height="90" /> 
+      <img class="resp_header_banner" alt="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." src="https://bbsradio.com/sites/default/files/images_on_site/header/header-banner-2.png" title="Original live internet talk radio shows. We do talk radio right. Professional broadcasting, global podcasting." width="202" height="91" /> 
+      </a></div>
+    <div class="zcolumn"> 
+      <div> <a alt="Live Talk Radio Station 1" class="regular" href="https://bbsradio.com/station1schedule" title="Live Talk Radio Station 1"><img alt="Live Talk Radio Station 1" id="Image1" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(&#039;Image1&#039;,&#039;&#039;,&#039;/sites/default/files/images_on_site/header/nav-HOVER_01.jpg&#039;,1)" src="https://bbsradio.com/sites/default/files/images_on_site/header/nav_01.jpg" title="Live Talk Radio Station 1" width="342" height="36" /></a></div>
+    </div>
+    <div class="zcenter"> 
+      <div> <a alt=" Live Talk Radio Station 2" class="regular" href="https://bbsradio.com/station2schedule" title="Live Talk Radio Station 2"><img alt="BBS Live Talk Radio Station 2" id="Image2" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(&#039;Image2&#039;,&#039;&#039;,&#039;/sites/default/files/images_on_site/header/nav-HOVER_02.jpg&#039;,1)" src="https://bbsradio.com/sites/default/files/images_on_site/header/nav_02.jpg" title="Live Talk Radio Station 2" width="350" height="36" /></a></div>
+    </div>
+    <div class="zcolumn2"> 
+      <div> <a alt="New Indie Music on the Radio Station" class="regular" href="https://bbsradio.com/bbsradio24hourmusic" title="New Indie Music on the Radio Station"><img alt="New Indie Music on the Radio Station" id="Image3" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(&#039;Image3&#039;,&#039;&#039;,&#039;/sites/default/files/images_on_site/header/nav-HOVER_03.jpg&#039;,1)" src="https://bbsradio.com/sites/default/files/images_on_site/header/nav_03.jpg" title="New Indie Music on the Radio Station" width="331" height="36" /></a></div>
+    </div>
+</div></div>   </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	  </div></div><!-- /.section, /#header -->
+  <div class="resp-menu-items">
+  	<span class="hamburg_icon"><img src="https://bbsradio.com/sites/all/themes/bbslook/images/hamburger-icon.png" /></span>
+  	  		<span class="login_link">Login</span>
+  	  	  </div>
+  <div id="main-wrapper"><div id="main" class="clearfix">
+	  <div class="region region-sidebar-first column sidebar"><div class="section">
+    <div id="block-views-find-a-show-block" class="block block-views first odd">
+
+      
+  <div class="content">
+    <div class="view view-find-a-show view-id-find_a_show view-display-id-block view-dom-id-d1064d522a536ae0d6330bd1ec732ab5">
+        
+  
+  
+      <div class="view-content">
+      <form action="/" method="post" id="ctools-jump-menu" accept-charset="UTF-8"><div><div class="container-inline"><div class="form-item form-type-select form-item-jump">
+ <select class="ctools-jump-menu-select form-select" id="edit-jump" name="jump"><option value="" selected="selected">Find Talk Radio Show</option><option value="01b02ce4660c1940cf73d670a0545880::https://bbsradio.com/eyetalk">  
+          https://bbsradio.com/eyetalk  </option><option value="b5a5fed56992415336853a07d8d1f772::https://bbsradio.com/2012journeytoevolution">  
+          https://bbsradio.com/2012journeytoevolution  </option><option value="5032e599b79c8f00470c94d8fb18f7b4::https://bbsradio.com/abirdietoldmeso">  
+          https://bbsradio.com/abirdietoldmeso  </option><option value="db3f2fa5e3918682f03bba9558b8dd7a::https://bbsradio.com/afiresidechat">  
+          https://bbsradio.com/afiresidechat  </option><option value="12b5d693726b2fd5983ace8a7c3ce317::https://bbsradio.com/ahustlersspirit">  
+          https://bbsradio.com/ahustlersspirit  </option><option value="588e31115669713c5ea0e6524b04fc4a::https://bbsradio.com/alinktoheaven">  
+          https://bbsradio.com/alinktoheaven  </option><option value="dc878ab3cf8971dc76fcdff064702245::https://bbsradio.com/astarforthenight">  
+          https://bbsradio.com/astarforthenight  </option><option value="f8f093427cd1762fde161f68691c6d1f::https://bbsradio.com/awalktootherside">  
+          https://bbsradio.com/awalktootherside  </option><option value="5937c9d4d0585415968f70178f3e7bc9::https://bbsradio.com/abstractillusionradio">  
+          https://bbsradio.com/abstractillusionradio  </option><option value="90f2e53a198ae0b819d9053ace897d26::https://bbsradio.com/acrosstheveil">  
+          https://bbsradio.com/acrosstheveil  </option><option value="207e0b6ece6a846e0eb29387e58d23b1::https://bbsradio.com/adamaspeaks">  
+          https://bbsradio.com/adamaspeaks  </option><option value="f3230d6efee2097417e40bfc433d6121::https://bbsradio.com/admirablefriends">  
+          https://bbsradio.com/admirablefriends  </option><option value="a0addf6ccdd1a02e26e32263462e0055::https://bbsradio.com/advancedliving">  
+          https://bbsradio.com/advancedliving  </option><option value="58388e09054088a70f41cbb8c0d684db::https://bbsradio.com/adventuresintoreality">  
+          https://bbsradio.com/adventuresintoreality  </option><option value="ca2d623a0445611b158661f78bceffcd::https://bbsradio.com/adventuresintosovereignty">  
+          https://bbsradio.com/adventuresintosovereignty  </option><option value="92254408a72700034d693a851cccb272::https://bbsradio.com/affirmationsforliving">  
+          https://bbsradio.com/affirmationsforliving  </option><option value="f3cad3a1927a63388a6c817b81a92093::https://bbsradio.com/akashicwisdom">  
+          https://bbsradio.com/akashicwisdom  </option><option value="f789acb23714bf991de3d05c75e9aa32::https://bbsradio.com/alchemyoflight">  
+          https://bbsradio.com/alchemyoflight  </option><option value="9a138913bddbd2996c26fe59e994905c::https://bbsradio.com/allpawspettalk">  
+          https://bbsradio.com/allpawspettalk  </option><option value="88df36624966e873a89032f049893572::https://bbsradio.com/americanfreedomwatchradio">  
+          https://bbsradio.com/americanfreedomwatchradio  </option><option value="10e80cc5a1e4020fc72008c7cd93c054::https://bbsradio.com/americantruthandreality">  
+          https://bbsradio.com/americantruthandreality  </option><option value="100f05b7b7b6f64fd40862dd031057e0::https://bbsradio.com/americantruthfinders">  
+          https://bbsradio.com/americantruthfinders  </option><option value="8f4daf1a5b2d7c734ea31a2ae0589be8::https://bbsradio.com/angelanswers">  
+          https://bbsradio.com/angelanswers  </option><option value="82feb2850879d0cf5936a5ffb2482121::https://bbsradio.com/angelcoaches">  
+          https://bbsradio.com/angelcoaches  </option><option value="7d0f1681fe5c42c6a82009dc82998e71::https://bbsradio.com/angelcomedyrelief">  
+          https://bbsradio.com/angelcomedyrelief  </option><option value="fde4eacc5e05538a65140fd15217f262::https://bbsradio.com/angeltalk">  
+          https://bbsradio.com/angeltalk  </option><option value="389cc001bd67e4bfbe2ffddff7baa34c::https://bbsradio.com/angelicempowerment">  
+          https://bbsradio.com/angelicempowerment  </option><option value="daafdfac55ed01d281498994e173afa6::https://bbsradio.com/angelsarenearus">  
+          https://bbsradio.com/angelsarenearus  </option><option value="b07e8a1c1a57b87d465c68091d4d3cac::https://bbsradio.com/arcturianascensionprocess">  
+          https://bbsradio.com/arcturianascensionprocess  </option><option value="b199e122209b656838db940601d57610::https://bbsradio.com/asyouwishtalkradio">  
+          https://bbsradio.com/asyouwishtalkradio  </option><option value="d8ea95ad2ac3b0f485bcb5d5916f7fdf::https://bbsradio.com/ascendedmastersatwork">  
+          https://bbsradio.com/ascendedmastersatwork  </option><option value="16e52857901285a30884efac110cd611::https://bbsradio.com/ascensionkeystoselfmastery">  
+          https://bbsradio.com/ascensionkeystoselfmastery  </option><option value="40734c4f98dccb46523e5fddadeee29f::https://bbsradio.com/ascensionroad">  
+          https://bbsradio.com/ascensionroad  </option><option value="fbf51818495ddf27381bc747110f7415::https://bbsradio.com/ascensionsecretsofstgermain">  
+          https://bbsradio.com/ascensionsecretsofstgermain  </option><option value="a0e45e741ddd65fb4b632b7141d83023::https://bbsradio.com/askevie">  
+          https://bbsradio.com/askevie  </option><option value="abe73951a11a8fa2043b91aba19a596c::https://bbsradio.com/askkadian">  
+          https://bbsradio.com/askkadian  </option><option value="2c569d11f1815c27387d0f514156f192::https://bbsradio.com/askyourangels">  
+          https://bbsradio.com/askyourangels  </option><option value="fc148482627de018ec66b9316b9d3fc9::https://bbsradio.com/astrologyawareness">  
+          https://bbsradio.com/astrologyawareness  </option><option value="8fb0853b60d95f98d7c6fd3259eec1be::https://bbsradio.com/athenastarradio">  
+          https://bbsradio.com/athenastarradio  </option><option value="1ae678eaf12e4db4994c96f60457491a::https://bbsradio.com/aurorasfrequencies">  
+          https://bbsradio.com/aurorasfrequencies  </option><option value="bcf133c5542ea2c9aa1b7a297a926a39::https://bbsradio.com/awakenyourdivinepotential">  
+          https://bbsradio.com/awakenyourdivinepotential  </option><option value="492090520b136903fb83883ce067036d::https://bbsradio.com/awakenyourhighermind">  
+          https://bbsradio.com/awakenyourhighermind  </option><option value="c993be48c01929d5d7e181e80f1d364b::https://bbsradio.com/awakeningmatters">  
+          https://bbsradio.com/awakeningmatters  </option><option value="9a057b915a9a48d664a3628349028427::https://bbsradio.com/awarenessofthesoul">  
+          https://bbsradio.com/awarenessofthesoul  </option><option value="51bdbe465b1f035be01a5c132a463e40::https://bbsradio.com/bawarenation">  
+          https://bbsradio.com/bawarenation  </option><option value="21cfbfc04e45ee7ebf285371a56f6714::https://bbsradio.com/back2eden">  
+          https://bbsradio.com/back2eden  </option><option value="5a25ed99367b0db9ca36cbd3c1a0c507::https://bbsradio.com/bbsexpeditions">  
+          https://bbsradio.com/bbsexpeditions  </option><option value="43411007d7a949320a7f205f314f2e6c::https://bbsradio.com">  
+          https://bbsradio.com  </option><option value="f2cf24ff8cdfae72ad8b5e92eae29976::https://bbsradio.com/betweentwoworlds">  
+          https://bbsradio.com/betweentwoworlds  </option><option value="d504a07781406d180d61c4e5223c71a9::https://bbsradio.com/beyondreality">  
+          https://bbsradio.com/beyondreality  </option><option value="0da07563e56ce2cae9b5446c40e0cdb3::https://bbsradio.com/beyondthematrix">  
+          https://bbsradio.com/beyondthematrix  </option><option value="d10b3231b5b93f143f26f1ac20ef8922::https://bbsradio.com/bizzbuzz">  
+          https://bbsradio.com/bizzbuzz  </option><option value="f1b8e91e1373840f953e20bdcdccd6c6::https://bbsradio.com/bodytalklive">  
+          https://bbsradio.com/bodytalklive  </option><option value="1edb38642373349da6d7daff54cfcd8c::https://bbsradio.com/breakoutwithbd">  
+          https://bbsradio.com/breakoutwithbd  </option><option value="a40d0b658eab66465a9e02bd2aac024c::https://bbsradio.com/bridges">  
+          https://bbsradio.com/bridges  </option><option value="f3cdbfdf892431bab775205c594f8478::https://bbsradio.com/bridgingwisdom">  
+          https://bbsradio.com/bridgingwisdom  </option><option value="199cc1c60d3225de86cd803327e85574::https://bbsradio.com/brightlightspathfinders">  
+          https://bbsradio.com/brightlightspathfinders  </option><option value="88cd7757994c042a6d81f271b87488cb::https://bbsradio.com/britsgotyournumber">  
+          https://bbsradio.com/britsgotyournumber  </option><option value="ae5578a728d06a9a9a28bf96148cbfcd::https://bbsradio.com/businessandmoneymentors">  
+          https://bbsradio.com/businessandmoneymentors  </option><option value="48741856db1277ddebee65357e8aefad::https://bbsradio.com/cameronssportsandlife">  
+          https://bbsradio.com/cameronssportsandlife  </option><option value="9b6843126c4e10b100574c1526176e0b::https://bbsradio.com/cancelthecabal">  
+          https://bbsradio.com/cancelthecabal  </option><option value="823dbb8cea4a7298c299c403c0327136::https://bbsradio.com/carielsheartlink">  
+          https://bbsradio.com/carielsheartlink  </option><option value="10c63eb035542c8951ffa723eabb94de::https://bbsradio.com/catchatanddogtalk">  
+          https://bbsradio.com/catchatanddogtalk  </option><option value="73c03c39f2f37e1c5f488d7f9ec1d8d8::https://bbsradio.com/catcrazy">  
+          https://bbsradio.com/catcrazy  </option><option value="008ed8897f306b745fc28cf87b3d0d0a::https://bbsradio.com/catalytic">  
+          https://bbsradio.com/catalytic  </option><option value="a5e3507407a7fc13e0f9e2f15c48e044::https://bbsradio.com/channelu">  
+          https://bbsradio.com/channelu  </option><option value="70d32e38e1fb873af47eb925d5e6148e::https://bbsradio.com/chatwithdrblack">  
+          https://bbsradio.com/chatwithdrblack  </option><option value="5ad80869644a572f5d6376d7b1cd98ca::https://bbsradio.com/choicesalongtheway">  
+          https://bbsradio.com/choicesalongtheway  </option><option value="925ee5172ed195306b0769d0b590a66a::https://bbsradio.com/ciconfrontingtheissues">  
+          https://bbsradio.com/ciconfrontingtheissues  </option><option value="92cc7ecaff2e0da1232f792a63ab5286::https://bbsradio.com/clayandiron">  
+          https://bbsradio.com/clayandiron  </option><option value="3bc49e5b4d0ca89a8b34058c7f84874a::https://bbsradio.com/clearconsciencepettalk">  
+          https://bbsradio.com/clearconsciencepettalk  </option><option value="655773f2b75652565fc72d55b7992faa::https://bbsradio.com/clearmindwithgenie">  
+          https://bbsradio.com/clearmindwithgenie  </option><option value="b1732c9450de616dd321e7558e4bae6f::https://bbsradio.com/cleverminds">  
+          https://bbsradio.com/cleverminds  </option><option value="5e257016a5caf70255de9a3aea189c4b::https://bbsradio.com/commonsense">  
+          https://bbsradio.com/commonsense  </option><option value="fdec761a556f88d74ff80d348330a38c::https://bbsradio.com/commonsensepreparedness">  
+          https://bbsradio.com/commonsensepreparedness  </option><option value="1e52d86095e6cbb374b97af7b0c66ee4::https://bbsradio.com/communitytalk">  
+          https://bbsradio.com/communitytalk  </option><option value="394aa3dad18428c8c789309b38a8f11a::https://bbsradio.com/connectthedots">  
+          https://bbsradio.com/connectthedots  </option><option value="0670e00aa0d3cf5cc88771f49115bde4::https://bbsradio.com/connectingspirittogether">  
+          https://bbsradio.com/connectingspirittogether  </option><option value="19fd6a7876ccfdd4a86376f4182a6f90::https://bbsradio.com/connectingthelight">  
+          https://bbsradio.com/connectingthelight  </option><option value="7ccba1a8cd1b64e2f6dbc5204f523abd::https://bbsradio.com/consciousconversations">  
+          https://bbsradio.com/consciousconversations  </option><option value="b43ea83f15a715fbc1dc8ef5fad67dd7::https://bbsradio.com/consciouscreating">  
+          https://bbsradio.com/consciouscreating  </option><option value="72cd20a81a4a1f3cc6cd21a29bd214cf::https://bbsradio.com/consciouscreation">  
+          https://bbsradio.com/consciouscreation  </option><option value="740167565add62b5a0e7c8ab66117641::https://bbsradio.com/consciousfitness">  
+          https://bbsradio.com/consciousfitness  </option><option value="d569b813394a0f66940c1b60272afb41::https://bbsradio.com/consciousthoughtwithleo">  
+          https://bbsradio.com/consciousthoughtwithleo  </option><option value="07ba5cfb5bcc7e964bfdd87c5faae594::https://bbsradio.com/conversationswithmarykeene">  
+          https://bbsradio.com/conversationswithmarykeene  </option><option value="b84f5a03ade488b077bec8430b762159::https://bbsradio.com/cosmicconnections">  
+          https://bbsradio.com/cosmicconnections  </option><option value="1658142cc962e3662ed4172efc8fc70e::https://bbsradio.com/cosmiclove">  
+          https://bbsradio.com/cosmiclove  </option><option value="32ab4d3a3dd6df6574b6c16b10a79d99::https://bbsradio.com/cosmicradio">  
+          https://bbsradio.com/cosmicradio  </option><option value="d5f7751d424b58194c3c3a6f6085d85f::https://bbsradio.com/countryjoeschickenshow">  
+          https://bbsradio.com/countryjoeschickenshow  </option><option value="3c9eee8583db5b71c949e63962fab16f::https://bbsradio.com/createabundancenow">  
+          https://bbsradio.com/createabundancenow  </option><option value="712ae3e3ab49a8f563fa09dc054dbf62::https://bbsradio.com/creationlightshiphealings">  
+          https://bbsradio.com/creationlightshiphealings  </option><option value="fbbd8085135bc73549131f7c4280e1e3::https://bbsradio.com/creativecosmos">  
+          https://bbsradio.com/creativecosmos  </option><option value="8a489c7fdfe4f243b0c28242591a143c::https://bbsradio.com/crystaltemplepresents">  
+          https://bbsradio.com/crystaltemplepresents  </option><option value="dadac2233711e757443f1b5ed76087bd::https://bbsradio.com/currentsituations">  
+          https://bbsradio.com/currentsituations  </option><option value="9bffafd8c8f93a3414f93fe7f462072a::https://bbsradio.com/cybershaman">  
+          https://bbsradio.com/cybershaman  </option><option value="ef723b4dae30f97edab178bf6315a528::https://bbsradio.com/daretodream">  
+          https://bbsradio.com/daretodream  </option><option value="f5606f26371b1845c7d5a01fdce05d6e::https://bbsradio.com/debsthehoroscopelady">  
+          https://bbsradio.com/debsthehoroscopelady  </option><option value="1ba0b1d804e39885f37ef357162a7a06::https://bbsradio.com/deepbrainradio">  
+          https://bbsradio.com/deepbrainradio  </option><option value="c53a7e6ca9a449e35955d6227d03727a::https://bbsradio.com/deepeninthedivine">  
+          https://bbsradio.com/deepeninthedivine  </option><option value="edc98e2c92ad092e1d4339f2caf9ea26::https://bbsradio.com/dennislewinmusic">  
+          https://bbsradio.com/dennislewinmusic  </option><option value="d9e2d2e8fa21b2ab8aa74791f9bc40f0::https://bbsradio.com/destinybydivineradio">  
+          https://bbsradio.com/destinybydivineradio  </option><option value="a4cf5c1d80753ba33b2f9ebf64326c3a::https://bbsradio.com/divineintervention">  
+          https://bbsradio.com/divineintervention  </option><option value="f21f1e4582187d247a4a9af1b0d68aeb::https://bbsradio.com/divinemanifesting">  
+          https://bbsradio.com/divinemanifesting  </option><option value="1b0c4b60ed7858b714be89bcf71963bc::https://bbsradio.com/dogtravelexperts">  
+          https://bbsradio.com/dogtravelexperts  </option><option value="ceaab393161e0ea3bb8014ec7f94a98d::https://bbsradio.com/doglishradio">  
+          https://bbsradio.com/doglishradio  </option><option value="eb01bbfc2d0d1a7b6ba0ff253e1af423::https://bbsradio.com/donnaseeboshow">  
+          https://bbsradio.com/donnaseeboshow  </option><option value="3f263a4d8ab800c7d15f16096a41a317::https://bbsradio.com/dontpanicitsorganic">  
+          https://bbsradio.com/dontpanicitsorganic  </option><option value="653e18a83d68c3e12fba73221103b27b::https://bbsradio.com/dowsingforhealth">  
+          https://bbsradio.com/dowsingforhealth  </option><option value="8cb20d43f5f0efc5dec58f8855ed7fea::https://bbsradio.com/drbellshealthscienceandenergyshow">  
+          https://bbsradio.com/drbellshealthscienceandenergyshow  </option><option value="4b981bf79a1b6efdab4c1b0a322f241d::https://bbsradio.com/drdaleswellnesscenter">  
+          https://bbsradio.com/drdaleswellnesscenter  </option><option value="3439ccca450dafbde61421caa13a9b47::https://bbsradio.com/drgina">  
+          https://bbsradio.com/drgina  </option><option value="b43f71788477d841ec4cd3b0417edec8::https://bbsradio.com/drlindapsychictalk">  
+          https://bbsradio.com/drlindapsychictalk  </option><option value="29f3684df7e2332d1ce82e405982a127::https://bbsradio.com/drloveconnection">  
+          https://bbsradio.com/drloveconnection  </option><option value="eabf526464dda0834ff4d03d93359f9d::https://bbsradio.com/drmolinashow">  
+          https://bbsradio.com/drmolinashow  </option><option value="ad01681db58e62825bb5afa0dcd60ddc::https://bbsradio.com/drpaulsinthehouse">  
+          https://bbsradio.com/drpaulsinthehouse  </option><option value="aa84c7c9b368ae0a7acf85295ae3b00c::https://bbsradio.com/dreamworld">  
+          https://bbsradio.com/dreamworld  </option><option value="df797a014a1d1308513af917ca36e5a7::https://bbsradio.com/dreampath">  
+          https://bbsradio.com/dreampath  </option><option value="43026cc5df2de139a66036d783322669::https://bbsradio.com/dresserafterdark">  
+          https://bbsradio.com/dresserafterdark  </option><option value="fe09f86dacdfaf27bfae93590b89b83e::https://bbsradio.com/eansplace">  
+          https://bbsradio.com/eansplace  </option><option value="d79a80233adcf53fee979adb1008c096::https://bbsradio.com/earthfiles">  
+          https://bbsradio.com/earthfiles  </option><option value="4de33c5de72e312f5f2b3d44d81ec240::https://bbsradio.com/earthharmonydivinations">  
+          https://bbsradio.com/earthharmonydivinations  </option><option value="734b67706c70d22cc6612213e7205584::https://bbsradio.com/edgeofwonderradio">  
+          https://bbsradio.com/edgeofwonderradio  </option><option value="f10f1b1f73e9429bdc27707fdfce6453::https://bbsradio.com/eileenangelreadings">  
+          https://bbsradio.com/eileenangelreadings  </option><option value="90bd6367a29aec98014d77a6e2d25bfe::https://bbsradio.com/encrypted">  
+          https://bbsradio.com/encrypted  </option><option value="cd00d0f51f28611224fe6a6191bcd5c6::https://bbsradio.com/endingfamilydestruction">  
+          https://bbsradio.com/endingfamilydestruction  </option><option value="7e4b05f59a97690822190efffed014cb::https://bbsradio.com/endonsmysticgarden">  
+          https://bbsradio.com/endonsmysticgarden  </option><option value="23c25dfbf6d7f843c19ce344465ef6e2::https://bbsradio.com/energymedicineradio">  
+          https://bbsradio.com/energymedicineradio  </option><option value="a3d724a421eb66cc78cbbb29fbf63a94::https://bbsradio.com/enlightenedmedicine">  
+          https://bbsradio.com/enlightenedmedicine  </option><option value="6153ccbd58bac002c1b520ad9d2559f3::https://bbsradio.com/enlightenmenthour">  
+          https://bbsradio.com/enlightenmenthour  </option><option value="6e431f916c405ca1d775bd336c32403a::https://bbsradio.com/equisportnews">  
+          https://bbsradio.com/equisportnews  </option><option value="08f15df63402f7ce1cef078ea690b19a::https://bbsradio.com/esologicradio">  
+          https://bbsradio.com/esologicradio  </option><option value="feb3ae52b5d1dfc15cca0f6752761a79::https://bbsradio.com/etfirstcontactradio">  
+          https://bbsradio.com/etfirstcontactradio  </option><option value="7ad1802d021b04c1611889e193040fd5::https://bbsradio.com/ethealing">  
+          https://bbsradio.com/ethealing  </option><option value="389255544e6261f25bedd88eca1a69d4::https://bbsradio.com/etyoga">  
+          https://bbsradio.com/etyoga  </option><option value="71fddf97acced1c47efa8f5ef6ec92fa::https://bbsradio.com/eveningtrial">  
+          https://bbsradio.com/eveningtrial  </option><option value="da9c39ba0d74b504a2b6229c0361605c::https://bbsradio.com/everydayisanewday">  
+          https://bbsradio.com/everydayisanewday  </option><option value="2822de1cd8b04bd6ebd68cf08f40e6e2::https://bbsradio.com/evescorner">  
+          https://bbsradio.com/evescorner  </option><option value="27edb21f14d5ab1dc99703be665918a5::https://bbsradio.com/evidentfootprints">  
+          https://bbsradio.com/evidentfootprints  </option><option value="bde96a341c5d59d2a5f67f8beca84c56::https://bbsradio.com/evolve2b">  
+          https://bbsradio.com/evolve2b  </option><option value="d15f61d96d92ea409f5f7aa35bbffdb7::https://bbsradio.com/evolverplanetradio">  
+          https://bbsradio.com/evolverplanetradio  </option><option value="6f1f75300473ba2127d02ed14dc157ce::https://bbsradio.com/exposingthemasterswithin">  
+          https://bbsradio.com/exposingthemasterswithin  </option><option value="c9f082b4043ee7bf477852b262d44d7a::https://bbsradio.com/financialsanitynow">  
+          https://bbsradio.com/financialsanitynow  </option><option value="da20bf7f9d40ecb5ec3fc67a25e15a1c::https://bbsradio.com/findyoursoulmate">  
+          https://bbsradio.com/findyoursoulmate  </option><option value="8fdf726422b8134af72989d460b98325::https://bbsradio.com/findingourwayto5thdimension">  
+          https://bbsradio.com/findingourwayto5thdimension  </option><option value="55c32180638ad7231b057adb42b0607b::https://bbsradio.com/finetuneyou">  
+          https://bbsradio.com/finetuneyou  </option><option value="5cf53e593f8c5a705ef2355800471fef::https://bbsradio.com/flowdreaming">  
+          https://bbsradio.com/flowdreaming  </option><option value="e02c9e3160a25f979455f9f4d56b74d2::https://bbsradio.com/flyinghigher">  
+          https://bbsradio.com/flyinghigher  </option><option value="b246e3e05a62268f58e133804ef9c3bf::https://bbsradio.com/forabeautifulyou">  
+          https://bbsradio.com/forabeautifulyou  </option><option value="5bceffe8df0bab1637843b32f4144a54::https://bbsradio.com/fortheloveofdog">  
+          https://bbsradio.com/fortheloveofdog  </option><option value="143c7738da365f4395e423d7a3e3483c::https://bbsradio.com/forumforworldpeace">  
+          https://bbsradio.com/forumforworldpeace  </option><option value="8134d259436801b8bac6b613952fbd3c::https://bbsradio.com/fourleggedlife">  
+          https://bbsradio.com/fourleggedlife  </option><option value="8ee0319e524e5cb277ae44b44aec70cd::https://bbsradio.com/freeenergynow">  
+          https://bbsradio.com/freeenergynow  </option><option value="3d5a6eb8cfc58add9c2ab401edfb41af::https://bbsradio.com/freedomtotravel">  
+          https://bbsradio.com/freedomtotravel  </option><option value="1fd9317f367b5d82ef70049bfbba8857::https://bbsradio.com/freedomsflameradio">  
+          https://bbsradio.com/freedomsflameradio  </option><option value="d5f6ae6b58a63fa4eb7d8017db304480::https://bbsradio.com/frommymindtoyours">  
+          https://bbsradio.com/frommymindtoyours  </option><option value="0aede3573f6f633879036fc1c93af8dd::https://bbsradio.com/fromshelterdogtoservicedog">  
+          https://bbsradio.com/fromshelterdogtoservicedog  </option><option value="782d862dd3fc6dac2855993f17b5db5a::https://bbsradio.com/funandlearnwithinnergarden">  
+          https://bbsradio.com/funandlearnwithinnergarden  </option><option value="5f254c47165a16b35cf8ddc20063c613::https://bbsradio.com/galacticconnection">  
+          https://bbsradio.com/galacticconnection  </option><option value="0c00db2f35ecf84a7f3a401a6174f647::https://bbsradio.com/galactichealing">  
+          https://bbsradio.com/galactichealing  </option><option value="812c0a4cb839911a09cc0fdd90fe213e::https://bbsradio.com/galacticroundtable">  
+          https://bbsradio.com/galacticroundtable  </option><option value="baffc123c627ddbe4632138556ae6dea::https://bbsradio.com/gettingthere">  
+          https://bbsradio.com/gettingthere  </option><option value="82e9ef2964b00b79e2423a8d1d817b33::https://bbsradio.com/gharsansar">  
+          https://bbsradio.com/gharsansar  </option><option value="9ead01ba24d386429b697340b74706e3::https://bbsradio.com/gimmeshelter">  
+          https://bbsradio.com/gimmeshelter  </option><option value="76847a21365e25915b2692fea3457e29::https://bbsradio.com/globalfamilylive">  
+          https://bbsradio.com/globalfamilylive  </option><option value="e08f8a42f5158320082bfe0e83e4b814::https://bbsradio.com/gnobosmysticalnumerology">  
+          https://bbsradio.com/gnobosmysticalnumerology  </option><option value="9d06da11555468c2163f936b7e622772::https://bbsradio.com/goddessalchemy">  
+          https://bbsradio.com/goddessalchemy  </option><option value="e8a5dd83431d59e26894e59530d551a0::https://bbsradio.com/godergy">  
+          https://bbsradio.com/godergy  </option><option value="be20fdb38a3dea461145842f14e300ff::https://bbsradio.com/goingglobalforspirit">  
+          https://bbsradio.com/goingglobalforspirit  </option><option value="d0f96f9a26def1fe9c447251761ac77d::https://bbsradio.com/goldenmemoriespianorequests">  
+          https://bbsradio.com/goldenmemoriespianorequests  </option><option value="42cdb27dc9fd68845603a5ee1dc89654::https://bbsradio.com/goodnews">  
+          https://bbsradio.com/goodnews  </option><option value="e515c5253d5019ad9a18bf7a20544c2f::https://bbsradio.com/grassrootstalks">  
+          https://bbsradio.com/grassrootstalks  </option><option value="e8062129ae851d5fe9a1f7661d734d5b::https://bbsradio.com/growingupindigo">  
+          https://bbsradio.com/growingupindigo  </option><option value="117bdbb72e55f24f55c1bb7c31ff7eb6::https://bbsradio.com/gypsy4u">  
+          https://bbsradio.com/gypsy4u  </option><option value="14c5604dd72fa0317c7dff30ca523785::https://bbsradio.com/hairheadandheart">  
+          https://bbsradio.com/hairheadandheart  </option><option value="06608104260440f16601a739d3f66006::https://bbsradio.com/happinesshangout">  
+          https://bbsradio.com/happinesshangout  </option><option value="9727db0127fc5cfaf6cf14e99c879ee1::https://bbsradio.com/happyhourradio">  
+          https://bbsradio.com/happyhourradio  </option><option value="c3ada1a9e4c08fd1a15e8b5f03e58842::https://bbsradio.com/hardnewsonfriday">  
+          https://bbsradio.com/hardnewsonfriday  </option><option value="01489e25fe21ca16edd0225feb19a9fd::https://bbsradio.com/hauntedvoices">  
+          https://bbsradio.com/hauntedvoices  </option><option value="316b71c33f13b462c17ec1628a6fd5b4::https://bbsradio.com/havingitall">  
+          https://bbsradio.com/havingitall  </option><option value="fe20f64dad7291a9bcdf0fee9b61feb7::https://bbsradio.com/head2headsportstalk">  
+          https://bbsradio.com/head2headsportstalk  </option><option value="e7852dfd4c6f39bdd759e87ce3e676c4::https://bbsradio.com/healersofthelight">  
+          https://bbsradio.com/healersofthelight  </option><option value="2630f9d64da2bf17e567e6c462438559::https://bbsradio.com/healingtheheart">  
+          https://bbsradio.com/healingtheheart  </option><option value="430da31fdbee899759eaf863de190e43::https://bbsradio.com/healingthroughconsciousness">  
+          https://bbsradio.com/healingthroughconsciousness  </option><option value="edcdc2206913b535553ff0266b224380::https://bbsradio.com/healthdisclosure">  
+          https://bbsradio.com/healthdisclosure  </option><option value="d8ddde6841a3d261a131ee5a2dd15832::https://bbsradio.com/healthfrontiers">  
+          https://bbsradio.com/healthfrontiers  </option><option value="98f90c141718a08c0892604d30ceef60::https://bbsradio.com/healthyliving">  
+          https://bbsradio.com/healthyliving  </option><option value="9ee02f6a4abb508eeddb3e1aee937079::https://bbsradio.com/herewestand">  
+          https://bbsradio.com/herewestand  </option><option value="3329b2c0f190a23326fd33251fe23f8b::https://bbsradio.com/herestoyourhealth">  
+          https://bbsradio.com/herestoyourhealth  </option><option value="9ee29bb6b6e1616a5b3eda3c2f5b042f::https://bbsradio.com/higherdimensions">  
+          https://bbsradio.com/higherdimensions  </option><option value="3730bb708b844f3bf492842fa47009f5::https://bbsradio.com/highertruthradioshow">  
+          https://bbsradio.com/highertruthradioshow  </option><option value="427cfafa5dbb7952a8b59552f77ab2f5::https://bbsradio.com/hisgospelpower">  
+          https://bbsradio.com/hisgospelpower  </option><option value="2836e4294079f2915825542e3e4a0abe::https://bbsradio.com/historyandyou">  
+          https://bbsradio.com/historyandyou  </option><option value="132934f72d03c4b051025c4e04e5f494::https://bbsradio.com/hollowearthnetwork">  
+          https://bbsradio.com/hollowearthnetwork  </option><option value="379ca5e36f8747e5a5db4a4b61da9662::https://bbsradio.com/hollowgramradioshow">  
+          https://bbsradio.com/hollowgramradioshow  </option><option value="bde29919d73b7d278be1fd18e6bfeeaa::https://bbsradio.com/honoryourpet">  
+          https://bbsradio.com/honoryourpet  </option><option value="ce24fbcbfe8817c1726f072527a05d17::https://bbsradio.com/howtonotgetscrewed">  
+          https://bbsradio.com/howtonotgetscrewed  </option><option value="9483d97c1bd06d4f23df1205ae421245::https://bbsradio.com/howlingwithpapapooch">  
+          https://bbsradio.com/howlingwithpapapooch  </option><option value="8f1ad143a9b19faab0ff4df297cd3db4::https://bbsradio.com/hypnosisandtmdiscussionhour">  
+          https://bbsradio.com/hypnosisandtmdiscussionhour  </option><option value="b63ba80909ddafbca7122e077becbf34::https://bbsradio.com/hypnotized">  
+          https://bbsradio.com/hypnotized  </option><option value="9a697a2c8f463982204d36c318d9559a::https://bbsradio.com/idreamediwashuman">  
+          https://bbsradio.com/idreamediwashuman  </option><option value="8410fe5f22f94ac92ba0ce5d3d91312f::https://bbsradio.com/igotyournumber">  
+          https://bbsradio.com/igotyournumber  </option><option value="ec88b409ea7259b90c383948f961ab9f::https://bbsradio.com/illuminatingnow">  
+          https://bbsradio.com/illuminatingnow  </option><option value="5040ee005f0a8dc2d04bb81307b417c6::https://bbsradio.com/illuminationfromthecouncilsoflight">  
+          https://bbsradio.com/illuminationfromthecouncilsoflight  </option><option value="c5fb6d8a7eec599e50dc9e8cb06e32f6::https://bbsradio.com/imjustsayin50">  
+          https://bbsradio.com/imjustsayin50  </option><option value="84e9197dfb76cc39a11d3a57362f7819::https://bbsradio.com/infiniteloveradio">  
+          https://bbsradio.com/infiniteloveradio  </option><option value="08bd0dc2b55cf8eb4b73fdf5bc99f241::https://bbsradio.com/innerdialogue">  
+          https://bbsradio.com/innerdialogue  </option><option value="637a1a56659508d1c7bd6e1ea1301de8::https://bbsradio.com/innergardenonlinechapel">  
+          https://bbsradio.com/innergardenonlinechapel  </option><option value="c33cc945d213c35916f244a96009ddbf::https://bbsradio.com/innerviews">  
+          https://bbsradio.com/innerviews  </option><option value="22a02074a74b5be6d0cfbf73976319aa::https://bbsradio.com/innerviewswithkimberlyrose">  
+          https://bbsradio.com/innerviewswithkimberlyrose  </option><option value="303459b9c22fe7820c46bea68cbb685b::https://bbsradio.com/insightout">  
+          https://bbsradio.com/insightout  </option><option value="bd7f301db1e4a6107c5b6c13cd043ee3::https://bbsradio.com/insights">  
+          https://bbsradio.com/insights  </option><option value="5aa83bebe0ac948edef5210fb20abb2d::https://bbsradio.com/inspirepossibilityshow">  
+          https://bbsradio.com/inspirepossibilityshow  </option><option value="0c2442478487b52fd1f5f470154f9621::https://bbsradio.com/inspiring">  
+          https://bbsradio.com/inspiring  </option><option value="a351c945e61de18416abba0f0d991953::https://bbsradio.com/intuition101">  
+          https://bbsradio.com/intuition101  </option><option value="83b945a01d93ce8c55339e26c5ab95b7::https://bbsradio.com/itistime">  
+          https://bbsradio.com/itistime  </option><option value="1b459e48b371ee81339af91188ef7ebb::https://bbsradio.com/itsacrazyworld">  
+          https://bbsradio.com/itsacrazyworld  </option><option value="2bbbfee914cb70f94d145646babb2487::https://bbsradio.com/itsadogslife">  
+          https://bbsradio.com/itsadogslife  </option><option value="2ecb011bf294e4644e9182db4c5a349c::https://bbsradio.com/itsallinthestars">  
+          https://bbsradio.com/itsallinthestars  </option><option value="143e357610d36bd42275e739ce4c0eb1::https://bbsradio.com/jimfridastalkshow">  
+          https://bbsradio.com/jimfridastalkshow  </option><option value="5814a44b570aa2aac140fce073794548::https://bbsradio.com/joewho">  
+          https://bbsradio.com/joewho  </option><option value="b5f95111d9796a48e835f7520ddc6aee::https://bbsradio.com/johnbarboursworld">  
+          https://bbsradio.com/johnbarboursworld  </option><option value="f27cc83f224973f99a3ad09e19f8a8a8::https://bbsradio.com/josephvarleypresents">  
+          https://bbsradio.com/josephvarleypresents  </option><option value="e35d317e9784cb00e9dd1d41d4579d57::https://bbsradio.com/journeyswithrebecca">  
+          https://bbsradio.com/journeyswithrebecca  </option><option value="0dd2be10d57db9579f61ee666b4ea7cf::https://bbsradio.com/joytotheworld">  
+          https://bbsradio.com/joytotheworld  </option><option value="85f38d6e24e612cdd0aab38e69cf320f::https://bbsradio.com/judgeeve">  
+          https://bbsradio.com/judgeeve  </option><option value="cb60e07a127ff055b3d93aca94ddf5b1::https://bbsradio.com/judithconradradio">  
+          https://bbsradio.com/judithconradradio  </option><option value="514cc7cec3d5b4fd0e868ac160e96f9c::https://bbsradio.com/judithconradshow">  
+          https://bbsradio.com/judithconradshow  </option><option value="814272f816e5e052c882921b4c0a6a1a::https://bbsradio.com/juicytrafficstorieswithliz">  
+          https://bbsradio.com/juicytrafficstorieswithliz  </option><option value="5d35291924a5811f38254ddd7053e3d3::https://bbsradio.com/juliemeerpsychicmedium">  
+          https://bbsradio.com/juliemeerpsychicmedium  </option><option value="a0ebc591e8afc4a948946475650bad79::https://bbsradio.com/kickass">  
+          https://bbsradio.com/kickass  </option><option value="a1663e2581d9850feecaec66ec5a542a::https://bbsradio.com/kjtalkradio">  
+          https://bbsradio.com/kjtalkradio  </option><option value="bff6144480bd9617457e1137dc76d46b::https://bbsradio.com/knowingspirit">  
+          https://bbsradio.com/knowingspirit  </option><option value="b3bfec05a26b20921837e1a904584fbe::https://bbsradio.com/kozmickids">  
+          https://bbsradio.com/kozmickids  </option><option value="601abb16a03695597deea59c1ce2a3f7::https://bbsradio.com/languageontrial">  
+          https://bbsradio.com/languageontrial  </option><option value="ef5659c9f0992715accf83b2ddfbc5ee::https://bbsradio.com/latenightlivechat">  
+          https://bbsradio.com/latenightlivechat  </option><option value="81ce8fd7fef1050eb266a50ee5697902::https://bbsradio.com/laughtersaveslives">  
+          https://bbsradio.com/laughtersaveslives  </option><option value="0877e6b330483ebe17a1b4bc0f86a32d::https://bbsradio.com/leaderofthepack">  
+          https://bbsradio.com/leaderofthepack  </option><option value="4d20b8cc1d4ab52cd0018cdf05bec701::https://bbsradio.com/legacyinvestmentandforums">  
+          https://bbsradio.com/legacyinvestmentandforums  </option><option value="0bfee6e40c5939784c1422c1583aff3f::https://bbsradio.com/lenalive">  
+          https://bbsradio.com/lenalive  </option><option value="697964f19029777136b779b36e2cd882::https://bbsradio.com/letscreatemagic">  
+          https://bbsradio.com/letscreatemagic  </option><option value="db09686ded2227a98cb768e9ac792939::https://bbsradio.com/letsfindout">  
+          https://bbsradio.com/letsfindout  </option><option value="2a8bb48981d7bd46f5f4ee587c8a94dc::https://bbsradio.com/letstalkhealing">  
+          https://bbsradio.com/letstalkhealing  </option><option value="9628ae9a991c39c292ea05ec59b3496a::https://bbsradio.com/letstalkrelationships">  
+          https://bbsradio.com/letstalkrelationships  </option><option value="1183ad74dbf6eeedb921670cdde08fb6::https://bbsradio.com/lettinggo">  
+          https://bbsradio.com/lettinggo  </option><option value="54832a970e38f0b01c4a67082782612a::https://bbsradio.com/lifechangesshow">  
+          https://bbsradio.com/lifechangesshow  </option><option value="17a646e50c6abebfe11600bab6b2fa37::https://bbsradio.com/lifewiththegirlfriends">  
+          https://bbsradio.com/lifewiththegirlfriends  </option><option value="c607c598cdc475bec15bf8068aae2dda::https://bbsradio.com/livefromordinarymiracles">  
+          https://bbsradio.com/livefromordinarymiracles  </option><option value="413f16ccea8144e05645f4f602da4356::https://bbsradio.com/livefrompullmannationalmonument">  
+          https://bbsradio.com/livefrompullmannationalmonument  </option><option value="8b46a879041a5d0a5025de8620ef30cf::https://bbsradio.com/livelaughandbeyou">  
+          https://bbsradio.com/livelaughandbeyou  </option><option value="2d851a4ed28f86175b5f4403583f7722::https://bbsradio.com/livingandlovinglife">  
+          https://bbsradio.com/livingandlovinglife  </option><option value="d170dbce1d625bb4a04449b1099333f4::https://bbsradio.com/livingwell">  
+          https://bbsradio.com/livingwell  </option><option value="9fdd0f7655ebb7892110874d9518d29d::https://bbsradio.com/livingyoursoulsjourney">  
+          https://bbsradio.com/livingyoursoulsjourney  </option><option value="dd7d380d6ca73e1a1fdde931107e4f66::https://bbsradio.com/llresearchquocommunications">  
+          https://bbsradio.com/llresearchquocommunications  </option><option value="dd69c46082f8ba9fd33ecfdb8643d930::https://bbsradio.com/lovemyrenovationproject">  
+          https://bbsradio.com/lovemyrenovationproject  </option><option value="0f4f2cf4106edd829011b29edcb31223::https://bbsradio.com/lovescurriculum">  
+          https://bbsradio.com/lovescurriculum  </option><option value="7fbfd77a56c96b490f18f53d51648abd::https://bbsradio.com/loxtawkradio">  
+          https://bbsradio.com/loxtawkradio  </option><option value="832d2e6cf3640933a8f6717394cca190::https://bbsradio.com/magicmonday">  
+          https://bbsradio.com/magicmonday  </option><option value="9ed611f3ef6f5c24e0733d5171c75b6a::https://bbsradio.com/magicalworldofnumbers">  
+          https://bbsradio.com/magicalworldofnumbers  </option><option value="e3ff4173f87d0814b21f8ead7a5105b4::https://bbsradio.com/marevasjourneys">  
+          https://bbsradio.com/marevasjourneys  </option><option value="2bbc33be8832ac6ef3e499b29c41d097::https://bbsradio.com/marketingwiththemasters">  
+          https://bbsradio.com/marketingwiththemasters  </option><option value="8baec4bebdf6fb66141ebc83f474a44c::https://bbsradio.com/matrixliberatus">  
+          https://bbsradio.com/matrixliberatus  </option><option value="dfddcc2bd12ba72efefa7c6a9f81e2bd::https://bbsradio.com/matrixradiolive">  
+          https://bbsradio.com/matrixradiolive  </option><option value="dad250acf42bb805e5ca1dce5aae00f0::https://bbsradio.com/matthewandfriendshour">  
+          https://bbsradio.com/matthewandfriendshour  </option><option value="3a64f464436f15fe269672139a85d064::https://bbsradio.com/mediuminourmidst">  
+          https://bbsradio.com/mediuminourmidst  </option><option value="91fda0751ad057936eda79403340d677::https://bbsradio.com/meetingbrenda">  
+          https://bbsradio.com/meetingbrenda  </option><option value="1a886be01c0f06feaa02b20fd813bc83::https://bbsradio.com/melnellen">  
+          https://bbsradio.com/melnellen  </option><option value="a8e73e5894b7d6c3faba8b977210416b::https://bbsradio.com/mervoworld">  
+          https://bbsradio.com/mervoworld  </option><option value="03a67d706f466c9fe6c194ebb5f9477d::https://bbsradio.com/metamondays">  
+          https://bbsradio.com/metamondays  </option><option value="a3074943ed39f4726ff210d2ffc0a238::https://bbsradio.com/metaphysicalstraighttalk">  
+          https://bbsradio.com/metaphysicalstraighttalk  </option><option value="5bef5650db7c7e284bc0a794a3912192::https://bbsradio.com/metisvoicesradio">  
+          https://bbsradio.com/metisvoicesradio  </option><option value="e9cebaff9423ff3a4bfe9dbdc438c4b0::https://bbsradio.com/mindcontrolledamerica">  
+          https://bbsradio.com/mindcontrolledamerica  </option><option value="8bc0d51484181698b8c6013e165f085d::https://bbsradio.com/mindgoal">  
+          https://bbsradio.com/mindgoal  </option><option value="6f62eb7d951dafddb61a16c923512420::https://bbsradio.com/miraclehour">  
+          https://bbsradio.com/miraclehour  </option><option value="b7a1f2be12c088441160fc183945b989::https://bbsradio.com/miracleshappen">  
+          https://bbsradio.com/miracleshappen  </option><option value="401dbf86f9a1107df650143eee037036::https://bbsradio.com/missionpossible">  
+          https://bbsradio.com/missionpossible  </option><option value="e7d44541ee4d3f63471ad2e59e61d823::https://bbsradio.com/modifiedperceptions">  
+          https://bbsradio.com/modifiedperceptions  </option><option value="c0fccc645f29504cec83606507c9d4f7::https://bbsradio.com/mondoeros">  
+          https://bbsradio.com/mondoeros  </option><option value="19c477222f1fd3b7aafac4f352ed6a0c::https://bbsradio.com/moneysexpower">  
+          https://bbsradio.com/moneysexpower  </option><option value="0a50f2b8b04c86e15762da934d3ca60c::https://bbsradio.com/morningskyatnight">  
+          https://bbsradio.com/morningskyatnight  </option><option value="624e6ea570ba4e3f33879388b7d5d1d0::https://bbsradio.com/mountshastamagic">  
+          https://bbsradio.com/mountshastamagic  </option><option value="2d2854fe2d3af772f3a719073a6bc0da::https://bbsradio.com/mrdestiny">  
+          https://bbsradio.com/mrdestiny  </option><option value="47c876dcc50616d16921cb04f20952bc::https://bbsradio.com/nancyatnoon">  
+          https://bbsradio.com/nancyatnoon  </option><option value="76db34139cfb4edc4809c82df0123172::https://bbsradio.com/nancysmetaphysicalworldandmore">  
+          https://bbsradio.com/nancysmetaphysicalworldandmore  </option><option value="e75a7f3afb5c1e645514ab11cac4aed3::https://bbsradio.com/naturalsolutionsradio">  
+          https://bbsradio.com/naturalsolutionsradio  </option><option value="86c6a872e33bf8bba11400aaaf39cca5::https://bbsradio.com/newclearvisions">  
+          https://bbsradio.com/newclearvisions  </option><option value="2e50e8a38663d97833f801c8364f17b8::https://bbsradio.com/newconsciousnessnewworld">  
+          https://bbsradio.com/newconsciousnessnewworld  </option><option value="94e757035a7ea03c48324793f15428fb::https://bbsradio.com/newearthjourney">  
+          https://bbsradio.com/newearthjourney  </option><option value="7feacebb117b33ae8eca230429571c8a::https://bbsradio.com/newrealities">  
+          https://bbsradio.com/newrealities  </option><option value="07c45bf7824adaa8d7492dec5025ebec::https://bbsradio.com/newredeamingspirituality">  
+          https://bbsradio.com/newredeamingspirituality  </option><option value="68d466008f6b5d9ac482c02477d9f786::https://bbsradio.com/newyiddishrepradiohour">  
+          https://bbsradio.com/newyiddishrepradiohour  </option><option value="8faa1d6eac38f8666f24deaa530cbcf8::https://bbsradio.com/newsforthesoul">  
+          https://bbsradio.com/newsforthesoul  </option><option value="ead33806b99bc00404808576aa726f6d::https://bbsradio.com/nobizlikeshowbiz">  
+          https://bbsradio.com/nobizlikeshowbiz  </option><option value="081b2a5f7f9dcf2fc98eebecf2cce000::https://bbsradio.com/nonreligiouschristiannews">  
+          https://bbsradio.com/nonreligiouschristiannews  </option><option value="b9ada851bc46d85a4ff92a60a9a6f65a::https://bbsradio.com/nowthatsweird">  
+          https://bbsradio.com/nowthatsweird  </option><option value="7674d7a9c3996768e3e63e6aec5796e1::https://bbsradio.com/odyssey">  
+          https://bbsradio.com/odyssey  </option><option value="329ae32c86284be2acb6b7bf319f7cfc::https://bbsradio.com/ofcourseradio">  
+          https://bbsradio.com/ofcourseradio  </option><option value="292b611e168440c06b2f6bfd8c4de644::https://bbsradio.com/offthebookshelf">  
+          https://bbsradio.com/offthebookshelf  </option><option value="9b668cd07c40bec1fcdb6672dd92bb9b::https://bbsradio.com/ononeaccord">  
+          https://bbsradio.com/ononeaccord  </option><option value="41c27626b96794bd4977400a60c4fb7c::https://bbsradio.com/dsx">  
+          https://bbsradio.com/dsx  </option><option value="aa3ad68e691429d42aa59aa7cd977378::https://bbsradio.com/onthelevel">  
+          https://bbsradio.com/onthelevel  </option><option value="e0e1eda7efb325e095fef36e7ea44d89::https://bbsradio.com/onehourwithanzara">  
+          https://bbsradio.com/onehourwithanzara  </option><option value="93eb6a25dd485bdd576e16b835624676::https://bbsradio.com/oneofakindpsychicmedium">  
+          https://bbsradio.com/oneofakindpsychicmedium  </option><option value="b7eed9b55dcdd65fb78c88c19bc9885e::https://bbsradio.com/openingthedoorsofheaven">  
+          https://bbsradio.com/openingthedoorsofheaven  </option><option value="f32af5c2529cfecc4ee1af400b4c8cae::https://bbsradio.com/otherware">  
+          https://bbsradio.com/otherware  </option><option value="e50dd3655f13cd5996a608171dd903a7::https://bbsradio.com/outof">  
+          https://bbsradio.com/outof  </option><option value="39584a23dcb805723b6c89a1d5bc7c3e::https://bbsradio.com/overcominglifethreateningdiseases">  
+          https://bbsradio.com/overcominglifethreateningdiseases  </option><option value="a37c4288d2673d1e722be800804d87d7::https://bbsradio.com/paradigmshifters">  
+          https://bbsradio.com/paradigmshifters  </option><option value="65587b2ac046d992bc4c1f9ae3415fb9::https://bbsradio.com/paranormalinvestigatorradio">  
+          https://bbsradio.com/paranormalinvestigatorradio  </option><option value="fcabdc5a65c10a55e5244646f5364e62::https://bbsradio.com/paranormaltruthandreality">  
+          https://bbsradio.com/paranormaltruthandreality  </option><option value="a5083b3f6f8a9f6d8982ec0343a03256::https://bbsradio.com/passionateliving">  
+          https://bbsradio.com/passionateliving  </option><option value="caaab629e2271ad42c2e55972b927547::https://bbsradio.com/pathofpower">  
+          https://bbsradio.com/pathofpower  </option><option value="e499a7c24e31ca2c9dc2a8c5d37f9a88::https://bbsradio.com/peacefulplanet">  
+          https://bbsradio.com/peacefulplanet  </option><option value="68567faedbcc445fd92ba24ca2eeb7b2::https://bbsradio.com/peopleinfurcoats">  
+          https://bbsradio.com/peopleinfurcoats  </option><option value="1fb1ce80002396ae8125fddb81989e7a::https://bbsradio.com/peoplesquestiontime">  
+          https://bbsradio.com/peoplesquestiontime  </option><option value="ab9d5be2608baf78294f32276b7ea62f::https://bbsradio.com/permacultureproject">  
+          https://bbsradio.com/permacultureproject  </option><option value="ac976eab5bb64e687beebe2a97f62159::https://bbsradio.com/personalplanetaryhealingmeditation">  
+          https://bbsradio.com/personalplanetaryhealingmeditation  </option><option value="ab7e93669c4f9fc425fce8fc35d68bad::https://bbsradio.com/petfoodadvisors">  
+          https://bbsradio.com/petfoodadvisors  </option><option value="d7004c813e84318ef1af05eea0e69df9::https://bbsradio.com/petpod">  
+          https://bbsradio.com/petpod  </option><option value="bb1c55e864242ba4009133d9260dad31::https://bbsradio.com/petsafetycrusader">  
+          https://bbsradio.com/petsafetycrusader  </option><option value="501d9a5eea39fd67ceb98ab2096177f4::https://bbsradio.com/petstellthetruth">  
+          https://bbsradio.com/petstellthetruth  </option><option value="023e5533f08db830da89aeb012b8e4da::https://bbsradio.com/piercingtheveil">  
+          https://bbsradio.com/piercingtheveil  </option><option value="f9100e3d8b6f6e4fd40dd9b42dee8a17::https://bbsradio.com/planetradio">  
+          https://bbsradio.com/planetradio  </option><option value="78cb006c511b9b5208d56be8e168c244::https://bbsradio.com/planetaryawarenessnetwork">  
+          https://bbsradio.com/planetaryawarenessnetwork  </option><option value="6300455526cb73f429e814a99e7c386a::https://bbsradio.com/podfireradio">  
+          https://bbsradio.com/podfireradio  </option><option value="df76ebe589b13e86150f493212ac5599::https://bbsradio.com/prepareforchange">  
+          https://bbsradio.com/prepareforchange  </option><option value="2c1dfc875e436c855878b11e25b42072::https://bbsradio.com/prophecykeepersradio">  
+          https://bbsradio.com/prophecykeepersradio  </option><option value="777422d3a4714f36d71e999d1fee71af::https://bbsradio.com/provocativeenlightenment">  
+          https://bbsradio.com/provocativeenlightenment  </option><option value="80042af353b2d37397b53924ddb9b120::https://bbsradio.com/psychicconnection">  
+          https://bbsradio.com/psychicconnection  </option><option value="3b89bb60cedc8d703d1b6717edcb49f9::https://bbsradio.com/psychictherapistshow">  
+          https://bbsradio.com/psychictherapistshow  </option><option value="a0a4a392581c2d5ecd4d0e035138dfee::https://bbsradio.com/purposetalkradio">  
+          https://bbsradio.com/purposetalkradio  </option><option value="01e07df77cba14d705938f7289168a38::https://bbsradio.com/quantummindfulnessradio">  
+          https://bbsradio.com/quantummindfulnessradio  </option><option value="3227083a9e00fcf6b3776f28dbaa3ad9::https://bbsradio.com/quynsempowermenthour">  
+          https://bbsradio.com/quynsempowermenthour  </option><option value="880bfa1374cbd8b349d98fe02d32c616::https://bbsradio.com/radiancebydesign">  
+          https://bbsradio.com/radiancebydesign  </option><option value="5eb8e834ab9eb698b18b4e290b16f5e1::https://bbsradio.com/radiofreearfcom">  
+          https://bbsradio.com/radiofreearfcom  </option><option value="f57eb43c00a98c7249df409193b0b11a::https://bbsradio.com/radiofreedc">  
+          https://bbsradio.com/radiofreedc  </option><option value="507575babc94f673812f9ca19ffa59ee::https://bbsradio.com/radiofreekanata">  
+          https://bbsradio.com/radiofreekanata  </option><option value="dee326814b034f8d93f8459842402791::https://bbsradio.com/radiorodeo">  
+          https://bbsradio.com/radiorodeo  </option><option value="2b8c4bad93ce5b9c005f2ebcd1d7a444::https://bbsradio.com/randirobics">  
+          https://bbsradio.com/randirobics  </option><option value="aab08e49bf9490e0a7add5094e46947e::https://bbsradio.com/reachforitradioshow">  
+          https://bbsradio.com/reachforitradioshow  </option><option value="5b53ef7058a0f4fe92aa4674b4147eaf::https://bbsradio.com/reachingforthegold">  
+          https://bbsradio.com/reachingforthegold  </option><option value="66de01236fc09cbbc348ceadd76d21c9::https://bbsradio.com/reachingintothestars">  
+          https://bbsradio.com/reachingintothestars  </option><option value="f1ab88a45904f90c215677cd5c7ab2cf::https://bbsradio.com/readerofheartsradio">  
+          https://bbsradio.com/readerofheartsradio  </option><option value="9d0c58bc7fc3311b5f5db4f482b76b72::https://bbsradio.com/realestate">  
+          https://bbsradio.com/realestate  </option><option value="a617550a717afb11c81de9aeea8cab4b::https://bbsradio.com/reconnectingwithyoursource">  
+          https://bbsradio.com/reconnectingwithyoursource  </option><option value="e3f5d4bb2429264fd0d7653319fa6388::https://bbsradio.com/rediceradio">  
+          https://bbsradio.com/rediceradio  </option><option value="dfbe36c333306120e92e7e7827cc7d82::https://bbsradio.com/relationshiphelpshow">  
+          https://bbsradio.com/relationshiphelpshow  </option><option value="a17032646b4108e8186a04d78f98d979::https://bbsradio.com/relationshiprevelations">  
+          https://bbsradio.com/relationshiprevelations  </option><option value="dfb8d2121e3e102b64794b9221c81c60::https://bbsradio.com/returntoshamballa">  
+          https://bbsradio.com/returntoshamballa  </option><option value="1cc7e68fcf914e7f6a97b4a2715fc1bc::https://bbsradio.com/reverendrich">  
+          https://bbsradio.com/reverendrich  </option><option value="e8d9fa8714c73ebfe9c6d88f2b59003d::https://bbsradio.com/richkemplive">  
+          https://bbsradio.com/richkemplive  </option><option value="4c0f53f7316f9b166b0fdcf322347bd1::https://bbsradio.com/rightsradio">  
+          https://bbsradio.com/rightsradio  </option><option value="7758e47096aee0635d394d482c6ca364::https://bbsradio.com/riobravomusiclive">  
+          https://bbsradio.com/riobravomusiclive  </option><option value="508dc8f8889ef977ac4640393815db60::https://bbsradio.com/riskinvestigatorsreport">  
+          https://bbsradio.com/riskinvestigatorsreport  </option><option value="bb5025f2b6e3a1c4a013a9d58a2483c1::https://bbsradio.com/ritamoorepsychicmedium">  
+          https://bbsradio.com/ritamoorepsychicmedium  </option><option value="185b3445415f7bf7a075dde233ce1b6b::https://bbsradio.com/robynquailshow">  
+          https://bbsradio.com/robynquailshow  </option><option value="5a73df4875b186866bcaf0abd4ba99fa::https://bbsradio.com/rockmysoulradio">  
+          https://bbsradio.com/rockmysoulradio  </option><option value="deb8a944ecc43e524ed0df8804d7fb2e::https://bbsradio.com/rockintalk">  
+          https://bbsradio.com/rockintalk  </option><option value="ade67c0fee2a46f3e49eb19ba777890d::https://bbsradio.com/ronpaulradio">  
+          https://bbsradio.com/ronpaulradio  </option><option value="ace50ae71cf7850c55d0ff53634afd0f::https://bbsradio.com/sashatalks">  
+          https://bbsradio.com/sashatalks  </option><option value="e73daebeba0e6ff45b0af93adf44c88c::https://bbsradio.com/satsangwithg">  
+          https://bbsradio.com/satsangwithg  </option><option value="fa7e5bdc06f93f06b53a9dc2021f0e7f::https://bbsradio.com/satsangwithshusara">  
+          https://bbsradio.com/satsangwithshusara  </option><option value="5bf8e319471c2047c8fe49e4a1d856ff::https://bbsradio.com/sbfmradio">  
+          https://bbsradio.com/sbfmradio  </option><option value="e46ec71fb8305da6cd856a5bc371fbd4::https://bbsradio.com/schoolhp">  
+          https://bbsradio.com/schoolhp  </option><option value="7358163e9814950bb10a24c52d43e707::https://bbsradio.com/sciencesoundandspirituality">  
+          https://bbsradio.com/sciencesoundandspirituality  </option><option value="4558f547d52e6bd519e0406c789b891f::https://bbsradio.com/scoutflorida">  
+          https://bbsradio.com/scoutflorida  </option><option value="d82d1d5de55c7e4195f02c3d0c370692::https://bbsradio.com/searchforcalling">  
+          https://bbsradio.com/searchforcalling  </option><option value="f28f122f6e4401ca2afc3c65c3428f9f::https://bbsradio.com/secretsofthehiddenrealms">  
+          https://bbsradio.com/secretsofthehiddenrealms  </option><option value="45396c345d5e3a7f2b9df536abce1f50::https://bbsradio.com/serenity">  
+          https://bbsradio.com/serenity  </option><option value="935d5ad82db3acedef5591ccd7c53008::https://bbsradio.com/sexandhappiness">  
+          https://bbsradio.com/sexandhappiness  </option><option value="8189b0f1c617b283b77157ef5ba0013a::https://bbsradio.com/shadowpolitics">  
+          https://bbsradio.com/shadowpolitics  </option><option value="decfaa46b4413032b437a976b03d3094::https://bbsradio.com/shamanskeep">  
+          https://bbsradio.com/shamanskeep  </option><option value="1322a2609147ba4b36ad99ab67450149::https://bbsradio.com/shiptoshore">  
+          https://bbsradio.com/shiptoshore  </option><option value="444662bf5c689fd00bba418df1213e2b::https://bbsradio.com/shuemsoulexperience">  
+          https://bbsradio.com/shuemsoulexperience  </option><option value="155ba8c47c76a5f0a6667c857ed16dbc::https://bbsradio.com/sightforsound">  
+          https://bbsradio.com/sightforsound  </option><option value="6fddb7239474ac1a59abcfc75f0b1f4b::https://bbsradio.com/signsandseasons">  
+          https://bbsradio.com/signsandseasons  </option><option value="11de839c137fe199ef490c9683889c1c::https://bbsradio.com/signsoflife">  
+          https://bbsradio.com/signsoflife  </option><option value="01e58ceb0dde34b853930635901fc89e::https://bbsradio.com/skywatchhour">  
+          https://bbsradio.com/skywatchhour  </option><option value="46f01fcef70e53534723c46b38ee34f8::https://bbsradio.com/soccerhour">  
+          https://bbsradio.com/soccerhour  </option><option value="eeac6667373b29d8c81f2a67a7612d79::https://bbsradio.com/socialworktoday">  
+          https://bbsradio.com/socialworktoday  </option><option value="f201ade67c41ec4d4ac9ae78034b00ac::https://bbsradio.com/soldiersofchrist">  
+          https://bbsradio.com/soldiersofchrist  </option><option value="4ade106fa32aa91dd7b522a6152331d7::https://bbsradio.com/solutions">  
+          https://bbsradio.com/solutions  </option><option value="7bf37ad67b493b84807b0385a548c5ee::https://bbsradio.com/soulodyssey">  
+          https://bbsradio.com/soulodyssey  </option><option value="446477d07ebee39d00c56af189258b6d::https://bbsradio.com/soulmatesandlovebeyond">  
+          https://bbsradio.com/soulmatesandlovebeyond  </option><option value="d34b45b8ea805c2c57706f8f7e2ce0ce::https://bbsradio.com/soundhealing">  
+          https://bbsradio.com/soundhealing  </option><option value="515ff3c1201351bdcd3a37b8c14de245::https://bbsradio.com/soundhealth">  
+          https://bbsradio.com/soundhealth  </option><option value="f0dfcadb656417710153718833279360::https://bbsradio.com/sovereignmindradio">  
+          https://bbsradio.com/sovereignmindradio  </option><option value="f9b2c40e14e692879afec397e91ed187::https://bbsradio.com/spectrumradionetwork">  
+          https://bbsradio.com/spectrumradionetwork  </option><option value="f1ba40844f65190a9906e48751cc3756::https://bbsradio.com/spiralnetwerk">  
+          https://bbsradio.com/spiralnetwerk  </option><option value="7d5a4d767a0a583a84bac9fa7f409e90::https://bbsradio.com/spiritnetworkradio">  
+          https://bbsradio.com/spiritnetworkradio  </option><option value="9aeac7dfbe22ebcad8854ec5b4856ca8::https://bbsradio.com/spiritswork">  
+          https://bbsradio.com/spiritswork  </option><option value="ac754bb6cf9c7c7a1c499e7852cf6611::https://bbsradio.com/spiritualactivist">  
+          https://bbsradio.com/spiritualactivist  </option><option value="06ca13f5d6135e9394db007b8e6a3994::https://bbsradio.com/spiritualemergencytraining">  
+          https://bbsradio.com/spiritualemergencytraining  </option><option value="ce3036fa6ad20a6dc4b61c0765d0d172::https://bbsradio.com/spiritualhollywood">  
+          https://bbsradio.com/spiritualhollywood  </option><option value="d9749c57f6338c180f2dd11c5f6c85f8::https://bbsradio.com/spiritualpolitician">  
+          https://bbsradio.com/spiritualpolitician  </option><option value="83db60ed60c86e98d91540f55052ffbb::https://bbsradio.com/spirituallynaked">  
+          https://bbsradio.com/spirituallynaked  </option><option value="426dcbd5356daae448548bb681a35ae2::https://bbsradio.com/spiritually-raw">  
+          https://bbsradio.com/spiritually-raw  </option><option value="328c9e39548499c32e76a8b9036aa046::https://bbsradio.com/spoutingoff">  
+          https://bbsradio.com/spoutingoff  </option><option value="4818cf95efa959f9cbeb3eebc341019f::https://bbsradio.com/sriandkiralive">  
+          https://bbsradio.com/sriandkiralive  </option><option value="ca00a5e9d6a2cf6b93a17884e5eea98b::https://bbsradio.com/stargateroundtable">  
+          https://bbsradio.com/stargateroundtable  </option><option value="4f8a8b14bf943c5232faddb6629e50d2::https://bbsradio.com/starlightradio">  
+          https://bbsradio.com/starlightradio  </option><option value="b1e7405a8366fba9fb4451ce47bc2b5a::https://bbsradio.com/starseedenergyradio">  
+          https://bbsradio.com/starseedenergyradio  </option><option value="d1a6601288ef36f7f5568cd195154a20::https://bbsradio.com/starshiponeradio">  
+          https://bbsradio.com/starshiponeradio  </option><option value="fd22f791ee65c81cce845a7061e6106e::https://bbsradio.com/startingyourfoodhustle">  
+          https://bbsradio.com/startingyourfoodhustle  </option><option value="b7ebcabf74a23279f18dde47ee3572af::https://bbsradio.com/steadyhealthradio">  
+          https://bbsradio.com/steadyhealthradio  </option><option value="66156c6f799f2c2d5fcb74f3b4420d4e::https://bbsradio.com/stopguessingaboutyourhealth">  
+          https://bbsradio.com/stopguessingaboutyourhealth  </option><option value="c9df45c00026cec61c15eda53df2ea33::https://bbsradio.com/straightfromtheheart">  
+          https://bbsradio.com/straightfromtheheart  </option><option value="c0181c4b8a2ea5ecbb1ce4ca3d70b421::https://bbsradio.com/straightupsextalk">  
+          https://bbsradio.com/straightupsextalk  </option><option value="fdd44ec6517a52e28dd2115518b44cc3::https://bbsradio.com/streamtalklive">  
+          https://bbsradio.com/streamtalklive  </option><option value="f2a292d156968dbe5f4f8d8966a8edd5::https://bbsradio.com/stuartvenertellsitlikeitis">  
+          https://bbsradio.com/stuartvenertellsitlikeitis  </option><option value="d6458e919babee4afcc5cf363e255775::https://bbsradio.com/successwithmcintosh">  
+          https://bbsradio.com/successwithmcintosh  </option><option value="c7a8b4b31e02781a60496e35d2947e3b::https://bbsradio.com/sunofgoduniversity">  
+          https://bbsradio.com/sunofgoduniversity  </option><option value="2de58b91fa80681dae9a1b91489f27ac::https://bbsradio.com/sundayswithpapajeff">  
+          https://bbsradio.com/sundayswithpapajeff  </option><option value="54c0df7e6e2bc87095afe72fa6c6665e::https://bbsradio.com/swingerslifestyletalkradio">  
+          https://bbsradio.com/swingerslifestyletalkradio  </option><option value="a0955e11ff57577aa239d924d46466d4::https://bbsradio.com/synchronizeduniverse">  
+          https://bbsradio.com/synchronizeduniverse  </option><option value="90d84facdbee34999fbdde81f24b8af2::https://bbsradio.com/takeanotherlook">  
+          https://bbsradio.com/takeanotherlook  </option><option value="8a98e79db63d7997ecc2e3cb74d46ff9::https://bbsradio.com/talktruthradio">  
+          https://bbsradio.com/talktruthradio  </option><option value="92622d3241de05fa2e49dc2989d02313::https://bbsradio.com/talkingwithlyderianlive">  
+          https://bbsradio.com/talkingwithlyderianlive  </option><option value="555fcfc703a2c7b3661977f3e1b8e43d::https://bbsradio.com/talkingwiththegs">  
+          https://bbsradio.com/talkingwiththegs  </option><option value="1614b89b30be970be4a67cd4168050e0::https://bbsradio.com/tallkatspsychic101">  
+          https://bbsradio.com/tallkatspsychic101  </option><option value="0f33a054997c964249ea2ea002ac2df6::https://bbsradio.com/tantracafe">  
+          https://bbsradio.com/tantracafe  </option><option value="c6ba13a15699d3c04cc0d3cf9cdfd1bc::https://bbsradio.com/teentraintalkradio">  
+          https://bbsradio.com/teentraintalkradio  </option><option value="8ee78b8650fc2c9bcd4473451414f297::https://bbsradio.com/templeofhealthradioshow">  
+          https://bbsradio.com/templeofhealthradioshow  </option><option value="f21bccc4c66a48fd88a935f164b1b664::https://bbsradio.com/terrynazontalksastrology">  
+          https://bbsradio.com/terrynazontalksastrology  </option><option value="e84f74577dc7fba395ebe46418c87149::https://bbsradio.com/the2">  
+          https://bbsradio.com/the2  </option><option value="6593afc2e3e63ecd42ea5e2baeaa177a::https://bbsradio.com/thealbertlewisshow">  
+          https://bbsradio.com/thealbertlewisshow  </option><option value="6ffc7573d4b15149466cb890818c7a2f::https://bbsradio.com/theallendavisshow">  
+          https://bbsradio.com/theallendavisshow  </option><option value="cf08402c9223e90c3328dcfa01d79231::https://bbsradio.com/theallowloveshow">  
+          https://bbsradio.com/theallowloveshow  </option><option value="b01c0aa284a057ec71088375e8bf2318::https://bbsradio.com/theandrewstrickshow">  
+          https://bbsradio.com/theandrewstrickshow  </option><option value="aa3cf41e5dacf8e17982adce205a2aa2::https://bbsradio.com/theantimatterradioshow">  
+          https://bbsradio.com/theantimatterradioshow  </option><option value="7434f9b08636e9fd9e9677dc3103bf3b::https://bbsradio.com/thebeautyfiles">  
+          https://bbsradio.com/thebeautyfiles  </option><option value="5277696a996f30d02e625e4e68281a03::https://bbsradio.com/thebelladangeloshow">  
+          https://bbsradio.com/thebelladangeloshow  </option><option value="74d7c8d0ae3887c0c63aaad2e839dc63::https://bbsradio.com/thebezmonjonesshow">  
+          https://bbsradio.com/thebezmonjonesshow  </option><option value="25bd39b76e25d89856bbeb5f9558ae42::https://bbsradio.com/thebigdzone">  
+          https://bbsradio.com/thebigdzone  </option><option value="9e316fdbd735ab4831c32a989ca4aa97::https://bbsradio.com/thebullpen">  
+          https://bbsradio.com/thebullpen  </option><option value="3c726a95312da69afc2405d7e7081aa6::https://bbsradio.com/theconnection">  
+          https://bbsradio.com/theconnection  </option><option value="5d091caecf341d135f67491cf873e26f::https://bbsradio.com/theconsciouscommunicator">  
+          https://bbsradio.com/theconsciouscommunicator  </option><option value="4c6f1c348065a90f34b898accace2150::https://bbsradio.com/theconversation">  
+          https://bbsradio.com/theconversation  </option><option value="4b5337dc179b10afcf94880d671e40d4::https://bbsradio.com/thecosmiccode">  
+          https://bbsradio.com/thecosmiccode  </option><option value="92942b4cd4e4d758c6bfdc201c516ddb::https://bbsradio.com/thecosmicpoet">  
+          https://bbsradio.com/thecosmicpoet  </option><option value="460c38e603630abde322995ff06965df::https://bbsradio.com/thecreativefield">  
+          https://bbsradio.com/thecreativefield  </option><option value="fbd92413498954ab77f248b109566246::https://bbsradio.com/thecrimsonpill">  
+          https://bbsradio.com/thecrimsonpill  </option><option value="d93aa17d9f2ce394a0ecefbddcba7eb3::https://bbsradio.com/thedearvenusshow">  
+          https://bbsradio.com/thedearvenusshow  </option><option value="5ea8ecf85559ec9a4ef4f018767fbec3::https://bbsradio.com/thedivineenergy">  
+          https://bbsradio.com/thedivineenergy  </option><option value="c51353430fb14d0fd7e596f724de6350::https://bbsradio.com/thedonandwynnshow">  
+          https://bbsradio.com/thedonandwynnshow  </option><option value="158339158cea66d6c26fc86ccb0cb91c::https://bbsradio.com/thedrpatshow">  
+          https://bbsradio.com/thedrpatshow  </option><option value="880f952ebdfce21fc6a99955fa4af3d4::https://bbsradio.com/theeclecticvisionaryshow">  
+          https://bbsradio.com/theeclecticvisionaryshow  </option><option value="ee641af573bd36cfb4cf74f96cd56de2::https://bbsradio.com/theemylouieshow">  
+          https://bbsradio.com/theemylouieshow  </option><option value="5c4ec53ca617e88e4c5c9a8fd4244a05::https://bbsradio.com/theexpansionpoint">  
+          https://bbsradio.com/theexpansionpoint  </option><option value="0aefa8e50c9d71683e792e4b9d320fa2::https://bbsradio.com/theexpertvet">  
+          https://bbsradio.com/theexpertvet  </option><option value="236b810778cf8be3f5b0e34514f8a875::https://bbsradio.com/thefreedommessage">  
+          https://bbsradio.com/thefreedommessage  </option><option value="139fde19f75ac36faf93591c358cdb0d::https://bbsradio.com/thegalacticroundtable">  
+          https://bbsradio.com/thegalacticroundtable  </option><option value="b0b6080d52f2eb4b58614f9fe10e4e4a::https://bbsradio.com/thegraybrain">  
+          https://bbsradio.com/thegraybrain  </option><option value="5c62d5df8c162c70858819f369dc8c97::https://bbsradio.com/theguardiansoftheholygrail">  
+          https://bbsradio.com/theguardiansoftheholygrail  </option><option value="9ba4ca2152ad00a94fafda1adacc5a3b::https://bbsradio.com/thehardtruth">  
+          https://bbsradio.com/thehardtruth  </option><option value="850bfe9742892e53dee4aa14e00b3cb9::https://bbsradio.com/thehealinghour">  
+          https://bbsradio.com/thehealinghour  </option><option value="f2be3e519c64ab4a1671e4bed24eef76::https://bbsradio.com/theherblady">  
+          https://bbsradio.com/theherblady  </option><option value="6de62843cc4cb6aac1a987777e64ab18::https://bbsradio.com/thehillaryraimoshow">  
+          https://bbsradio.com/thehillaryraimoshow  </option><option value="4a9639db7931e5cfdca0c7e5e978eb06::https://bbsradio.com/theholistichealthshow">  
+          https://bbsradio.com/theholistichealthshow  </option><option value="de0d1c3cee642399386f991accf1dc5c::https://bbsradio.com/thehundredthmonkeyradio">  
+          https://bbsradio.com/thehundredthmonkeyradio  </option><option value="d3d886197aea174d6c2c42d9ab41b07e::https://bbsradio.com/theimpossibletruth">  
+          https://bbsradio.com/theimpossibletruth  </option><option value="34d3ab5147d1b265f2fc647a72eb8240::https://bbsradio.com/theinbox">  
+          https://bbsradio.com/theinbox  </option><option value="6063cbced7e71508348ca78eb2638340::https://bbsradio.com/theinfiniteconsciousness">  
+          https://bbsradio.com/theinfiniteconsciousness  </option><option value="08a4507f492dc6b9faa0e4664e16ab9e::https://bbsradio.com/theinsighthour">  
+          https://bbsradio.com/theinsighthour  </option><option value="df99e63b8fb96a301f1af5c674744eb4::https://bbsradio.com/thejohnmartintalkshow">  
+          https://bbsradio.com/thejohnmartintalkshow  </option><option value="b0886ad77eb53732ec42df525d9d96d5::https://bbsradio.com/thejourney8">  
+          https://bbsradio.com/thejourney8  </option><option value="5cc61c76189a2101f82283a469c2cdf1::https://bbsradio.com/thejoyfulmanifestationshow">  
+          https://bbsradio.com/thejoyfulmanifestationshow  </option><option value="2795678a90e0c485170b06cf1ce37890::https://bbsradio.com/thekerrieoconnorshow">  
+          https://bbsradio.com/thekerrieoconnorshow  </option><option value="6940d0ef1afd56aa7ca8907e2c29a576::https://bbsradio.com/thelategreatusa">  
+          https://bbsradio.com/thelategreatusa  </option><option value="76432b0cf14bacf3c7533ce806a7473a::https://bbsradio.com/themessage">  
+          https://bbsradio.com/themessage  </option><option value="3d987971a8308dda8c9498bf2bace02f::https://bbsradio.com/themessenger">  
+          https://bbsradio.com/themessenger  </option><option value="93dad979ad7d3b1bee8a6562ae803675::https://bbsradio.com/themetaphysicalhour">  
+          https://bbsradio.com/themetaphysicalhour  </option><option value="2097a42e64b5d0a6cddf96f97a0b008b::https://bbsradio.com/themichaelgoggershow">  
+          https://bbsradio.com/themichaelgoggershow  </option><option value="23f587e55a6ae84146f7a0af1d9ac061::https://bbsradio.com/themilitaryexchange">  
+          https://bbsradio.com/themilitaryexchange  </option><option value="396425207922ee39a635683bdce1b891::https://bbsradio.com/themiraclecafe">  
+          https://bbsradio.com/themiraclecafe  </option><option value="145f5d7a4828e26828ca031274130cce::https://bbsradio.com/themysticoracle">  
+          https://bbsradio.com/themysticoracle  </option><option value="c4bcf3baf230f18ed6a0f1e060e8eca5::https://bbsradio.com/themysticalworldwelivein">  
+          https://bbsradio.com/themysticalworldwelivein  </option><option value="31e631ff4b02396234e12ba1eef3b69c::https://bbsradio.com/thenewnow">  
+          https://bbsradio.com/thenewnow  </option><option value="4ab487c80a6fe13b3616b098a34e8317::https://bbsradio.com/thenightlynews">  
+          https://bbsradio.com/thenightlynews  </option><option value="9a9ea161a5fc8a447f5c85d9c11b1414::https://bbsradio.com/theonyoradiodialshow">  
+          https://bbsradio.com/theonyoradiodialshow  </option><option value="718c7926759a5e4e28e687feaeeab6b8::https://bbsradio.com/thepaulrichardpriceshow">  
+          https://bbsradio.com/thepaulrichardpriceshow  </option><option value="db25cb74ac410a4bf2b040d17e9c1a64::https://bbsradio.com/thepeacebrainshow">  
+          https://bbsradio.com/thepeacebrainshow  </option><option value="a31644a05adbef58d06071556fadb35d::https://bbsradio.com/thepeoplespeak">  
+          https://bbsradio.com/thepeoplespeak  </option><option value="94b850bba8225e2cbf8db674f9dc6a6b::https://bbsradio.com/thepinopescishow">  
+          https://bbsradio.com/thepinopescishow  </option><option value="a3b26a337182ab3c6b115f9ad52ac0a9::https://bbsradio.com/thepoliticalfix">  
+          https://bbsradio.com/thepoliticalfix  </option><option value="0dff0ba57a8d90c191f501d821157068::https://bbsradio.com/thepoppoffradioshow">  
+          https://bbsradio.com/thepoppoffradioshow  </option><option value="a3809e3899ecc111f4fb2a6337c97ff8::https://bbsradio.com/therainmaker">  
+          https://bbsradio.com/therainmaker  </option><option value="a123b01cd51fdced91443a754968fbf4::https://bbsradio.com/therayshashoshow">  
+          https://bbsradio.com/therayshashoshow  </option><option value="069b341404007599c30199c30042fcad::https://bbsradio.com/theroyalpriesthoodnation">  
+          https://bbsradio.com/theroyalpriesthoodnation  </option><option value="aec3b1abaf67de52505303c890cd73a5::https://bbsradio.com/thescripturesalonebibleschool">  
+          https://bbsradio.com/thescripturesalonebibleschool  </option><option value="558813053b4d20f8101d578734409036::https://bbsradio.com/theshamefreezone">  
+          https://bbsradio.com/theshamefreezone  </option><option value="44a04997e746fb2cf25e492b65d8725b::https://bbsradio.com/thesimpletruth">  
+          https://bbsradio.com/thesimpletruth  </option><option value="ccfa01d0a08367ac616b611004f16455::https://bbsradio.com/thesixthsense">  
+          https://bbsradio.com/thesixthsense  </option><option value="b957951cd64438482351b43ef97c79c9::https://bbsradio.com/theskeptichour">  
+          https://bbsradio.com/theskeptichour  </option><option value="cd33af7a7ba29ccab7ba11d2b3ec90b2::https://bbsradio.com/thespiritrevolution">  
+          https://bbsradio.com/thespiritrevolution  </option><option value="d045c38ad1bf5e113349ae0855047fac::https://bbsradio.com/thesportsdoctor">  
+          https://bbsradio.com/thesportsdoctor  </option><option value="9d13f3f5a091859b2460d94dd3f7cd8b::https://bbsradio.com/thespringoflifeshow">  
+          https://bbsradio.com/thespringoflifeshow  </option><option value="942babfea0197de3cad1059dcc967d70::https://bbsradio.com/thesuperpower">  
+          https://bbsradio.com/thesuperpower  </option><option value="dd9e9f8ce797fc1bb4b0fb3db34d2294::https://bbsradio.com/thesupernatural">  
+          https://bbsradio.com/thesupernatural  </option><option value="7764db4ad233f7a1a144fe4c6cd89b1f::https://bbsradio.com/thetazzandpaulashow">  
+          https://bbsradio.com/thetazzandpaulashow  </option><option value="120850bceb55ea59f62766a516e2d3a0::https://bbsradio.com/thetembaspiritshow">  
+          https://bbsradio.com/thetembaspiritshow  </option><option value="562d49f0a6d5b6c00c82649a7caac7f8::https://bbsradio.com/thetnthour">  
+          https://bbsradio.com/thetnthour  </option><option value="438995c9e49d45ae0759f01cf0f6eb5b::https://bbsradio.com/thetonysandsshow">  
+          https://bbsradio.com/thetonysandsshow  </option><option value="3df1ab00239d91514565d0441d3b66f2::https://bbsradio.com/thetruehistory">  
+          https://bbsradio.com/thetruehistory  </option><option value="f547b67a329210e97af05298517327de::https://bbsradio.com/thetruetestament">  
+          https://bbsradio.com/thetruetestament  </option><option value="1f557a58b4ad3bc2453ac7e176238881::https://bbsradio.com/thetrueworld">  
+          https://bbsradio.com/thetrueworld  </option><option value="a02ea939b4154cc6642f78d3c117d4d4::https://bbsradio.com/thetruthaboutdebtrelief">  
+          https://bbsradio.com/thetruthaboutdebtrelief  </option><option value="da3b0d8d2b892d83cf1c67bbcb19b6f8::https://bbsradio.com/thetruthaboutstemcells">  
+          https://bbsradio.com/thetruthaboutstemcells  </option><option value="1a25669d9301950af916c82c74dba8a6::https://bbsradio.com/thetruthzone">  
+          https://bbsradio.com/thetruthzone  </option><option value="ae0c1797e4192c419d39d75fbd9c080e::https://bbsradio.com/thetylermillershow">  
+          https://bbsradio.com/thetylermillershow  </option><option value="ef31b56e200a9a19977befe508d4f6f2::https://bbsradio.com/theurbanfarmproject">  
+          https://bbsradio.com/theurbanfarmproject  </option><option value="2f1801022cf77c2aaf62de406b5a390f::https://bbsradio.com/theveteransnewshour">  
+          https://bbsradio.com/theveteransnewshour  </option><option value="f749dde01ea3608c1fb90291b91c196b::https://bbsradio.com/thevikkifordshow">  
+          https://bbsradio.com/thevikkifordshow  </option><option value="bcb4d3fe365e94a8aa1d98cbb4651e62::https://bbsradio.com/thevoiceoflove">  
+          https://bbsradio.com/thevoiceoflove  </option><option value="18bae16542928dcb82cf1adddbddcd72::https://bbsradio.com/thevoiceoftheashtarcommand">  
+          https://bbsradio.com/thevoiceoftheashtarcommand  </option><option value="ad20ae4a6a61e4d87f22afc76f5331ce::https://bbsradio.com/thevoyeurwindow">  
+          https://bbsradio.com/thevoyeurwindow  </option><option value="2fd33f9c67f04fc309ceb6fc57ec67ef::https://bbsradio.com/thewagsimaginaryradioshow">  
+          https://bbsradio.com/thewagsimaginaryradioshow  </option><option value="3ba48e576feb7880856657465f0b96b2::https://bbsradio.com/thewarreport">  
+          https://bbsradio.com/thewarreport  </option><option value="04034f369bb535aac63f461ee9f355d8::https://bbsradio.com/thewynnfreeconferencecalllive">  
+          https://bbsradio.com/thewynnfreeconferencecalllive  </option><option value="f2a31d7cb229193df587b9aca97ea9c3::https://bbsradio.com/thesearethedays">  
+          https://bbsradio.com/thesearethedays  </option><option value="f5d7bec193415ab40b497b1edbf7b20a::https://bbsradio.com/thirdstreamview">  
+          https://bbsradio.com/thirdstreamview  </option><option value="b516fca8c5c96208d29b629a771ba04e::https://bbsradio.com/timefortravelradio">  
+          https://bbsradio.com/timefortravelradio  </option><option value="161b89fcf0ad9cb33403ac1bdf702625::https://bbsradio.com/timeshareradio">  
+          https://bbsradio.com/timeshareradio  </option><option value="795842d43c40423caf5bf75bcab1705b::https://bbsradio.com/tntradio">  
+          https://bbsradio.com/tntradio  </option><option value="a04158f8c412b7fec747c7ad65805c66::https://bbsradio.com/todaysentrepreneurs">  
+          https://bbsradio.com/todaysentrepreneurs  </option><option value="dd0de8af77853b06a8b80cdece982aa4::https://bbsradio.com/totaleducationshow">  
+          https://bbsradio.com/totaleducationshow  </option><option value="d8ab3da4b160fb039a2f8435edc52d47::https://bbsradio.com/towardthelight">  
+          https://bbsradio.com/towardthelight  </option><option value="6a76529d6d018683a62744ca1fadefb7::https://bbsradio.com/townhallmeetings">  
+          https://bbsradio.com/townhallmeetings  </option><option value="86ce201509163269c8a941cf71461fc0::https://bbsradio.com/transcendenceworldmovement">  
+          https://bbsradio.com/transcendenceworldmovement  </option><option value="0e511a38db315cbfc627f4035c6ec2af::https://bbsradio.com/transitionradioshow">  
+          https://bbsradio.com/transitionradioshow  </option><option value="8ee857380b990bf98ed5fafb81d09715::https://bbsradio.com/tribulationnews">  
+          https://bbsradio.com/tribulationnews  </option><option value="8f296ca26b34127ab6627ad120854f99::https://bbsradio.com/trueconfessionsradioshow">  
+          https://bbsradio.com/trueconfessionsradioshow  </option><option value="b78c1732ff061980deb4d3c71484f7f2::https://bbsradio.com/truthfromsource">  
+          https://bbsradio.com/truthfromsource  </option><option value="8795777dbce60273b1aa106e099cb910::https://bbsradio.com/truthhertzradio">  
+          https://bbsradio.com/truthhertzradio  </option><option value="f1692969657ed800a7032a8df587de5d::https://bbsradio.com/truthordarewithsophie">  
+          https://bbsradio.com/truthordarewithsophie  </option><option value="f19741875e10606fae0c576b1afda06d::https://bbsradio.com/truthtalk">  
+          https://bbsradio.com/truthtalk  </option><option value="78af67ac9a5c405568e70ff7015a1ce4::https://bbsradio.com/ufosandtheparanormal">  
+          https://bbsradio.com/ufosandtheparanormal  </option><option value="65b9e754ffffd120fda97858c014f314::https://bbsradio.com/universalsoullove">  
+          https://bbsradio.com/universalsoullove  </option><option value="361c6a6d1fcf129e8ef46b48b4d2d84c::https://bbsradio.com/universalspiritualconnection">  
+          https://bbsradio.com/universalspiritualconnection  </option><option value="4e58b7ad3cbbcf72ece71bed8b17c528::https://bbsradio.com/untoldmysteries">  
+          https://bbsradio.com/untoldmysteries  </option><option value="a758d3d20a013d2190381aaa1e47278a::https://bbsradio.com/vibrationalupgrade">  
+          https://bbsradio.com/vibrationalupgrade  </option><option value="7b5ac3ea0d22b980cb6952bc3ec8b97e::https://bbsradio.com/victormorrowshow">  
+          https://bbsradio.com/victormorrowshow  </option><option value="92704f8071b7eb682eb96647743b1bda::https://bbsradio.com/visiblebynumbers">  
+          https://bbsradio.com/visiblebynumbers  </option><option value="924a73cd09bc1fc0faedc784ad1dbc59::https://bbsradio.com/vocalprofilinglive">  
+          https://bbsradio.com/vocalprofilinglive  </option><option value="915175ccac52d8899a12e4a24d98341e::https://bbsradio.com/voicesofjupiter">  
+          https://bbsradio.com/voicesofjupiter  </option><option value="3cac7ca31bd4a82615563791bf9f2b64::https://bbsradio.com/walkingwithspirit">  
+          https://bbsradio.com/walkingwithspirit  </option><option value="0bee413db51fbe62cb0e641ecae46f65::https://bbsradio.com/warriorofthelight">  
+          https://bbsradio.com/warriorofthelight  </option><option value="d71b0c24e87956c8b3e74b892a68fde3::https://bbsradio.com/wellroundedcorners">  
+          https://bbsradio.com/wellroundedcorners  </option><option value="962a58dbc293968b1f9f39c351cfa9f6::https://bbsradio.com/whataworld">  
+          https://bbsradio.com/whataworld  </option><option value="cfdedf9244b5fbeff9a8bd2fe43b2152::https://bbsradio.com/whatsailingamerica">  
+          https://bbsradio.com/whatsailingamerica  </option><option value="f50e12441f5e76df115b9cb663bb8630::https://bbsradio.com/whenpigsfly">  
+          https://bbsradio.com/whenpigsfly  </option><option value="57c61454f7ff95eb15efd6094ff8bc29::https://bbsradio.com/wheregenealogyandspiritconnect">  
+          https://bbsradio.com/wheregenealogyandspiritconnect  </option><option value="51ebcf9665b73ac880e8eaafd6f8be8f::https://bbsradio.com/whispersfromtheheartradio">  
+          https://bbsradio.com/whispersfromtheheartradio  </option><option value="860df525e7d1202e868cb82dd04ecf56::https://bbsradio.com/whyamisohappy">  
+          https://bbsradio.com/whyamisohappy  </option><option value="ea52e2a52567272a482f0802a2c24617::https://bbsradio.com/whylifeis">  
+          https://bbsradio.com/whylifeis  </option><option value="5d2fb01885fcb3e5982c71e650348b8f::https://bbsradio.com/wildcardfridays">  
+          https://bbsradio.com/wildcardfridays  </option><option value="e963c81f134f47cce27ad5b1bf8447ef::https://bbsradio.com/windowsintoeternity">  
+          https://bbsradio.com/windowsintoeternity  </option><option value="75d5fd26594822a157539a5cd76217ba::https://bbsradio.com/wishuponastar">  
+          https://bbsradio.com/wishuponastar  </option><option value="d740ff3c909555edc7d517251f88ba6a::https://bbsradio.com/wkrplive">  
+          https://bbsradio.com/wkrplive  </option><option value="9ec59a5806b53880a103fed16d1db9b0::https://bbsradio.com/womenreconnecting">  
+          https://bbsradio.com/womenreconnecting  </option><option value="d0dc0dfd0bab43648292f9ddbbe7dda3::https://bbsradio.com/woodlandstarsradio">  
+          https://bbsradio.com/woodlandstarsradio  </option><option value="47bf5481682e20e39a984689cd6f05b6::https://bbsradio.com/wordofmouth">  
+          https://bbsradio.com/wordofmouth  </option><option value="251b3dceed620fd3df17163349f97d8b::https://bbsradio.com/wparanormal">  
+          https://bbsradio.com/wparanormal  </option><option value="cd6c80e917993d8c23ed44927000a10f::https://bbsradio.com/xsquaredradio">  
+          https://bbsradio.com/xsquaredradio  </option><option value="06880100f7e485a710bc490605cf2589::https://bbsradio.com/xtrology">  
+          https://bbsradio.com/xtrology  </option><option value="4318052567ce380c8d95b111fcafba7b::https://bbsradio.com/youboutready">  
+          https://bbsradio.com/youboutready  </option><option value="476926a790c4364a5f59225c14c631af::https://bbsradio.com/yougotquestionswegotanswers">  
+          https://bbsradio.com/yougotquestionswegotanswers  </option><option value="e8cee5e2a03f58f2ba94a887d081b656::https://bbsradio.com/yourdestinyarchitect">  
+          https://bbsradio.com/yourdestinyarchitect  </option><option value="4f8e07a4393c9a46ff3f3a1910813e35::https://bbsradio.com/yourdogsbestfriend">  
+          https://bbsradio.com/yourdogsbestfriend  </option><option value="c7dd67c79a7f2bc584a2ded9069adb33::https://bbsradio.com/yourhourofpower">  
+          https://bbsradio.com/yourhourofpower  </option><option value="faca5557412d0aca4cbe087e310f479c::https://bbsradio.com/yourinnerthoughts">  
+          https://bbsradio.com/yourinnerthoughts  </option><option value="0249b2ff455e545e6fda7c7f7b8a26ed::https://bbsradio.com/zenways">  
+          https://bbsradio.com/zenways  </option><option value="cdac3931afb933d52fc99ab69509d3ab::https://bbsradio.com/zeropoint">  
+          https://bbsradio.com/zeropoint  </option><option value="f0d8e1dc4fcb17df8c559055049e18d8::https://bbsradio.com/zetaglobalradiozgr">  
+          https://bbsradio.com/zetaglobalradiozgr  </option><option value="3d0bef2252930e8674ea3f14537848f7::https://bbsradio.com/zoneinnutritionandexercise">  
+          https://bbsradio.com/zoneinnutritionandexercise  </option><option value="7af48b8c89d3a4e20e7dd96fe792cbdf::https://bbsradio.com/zurispeaks">  
+          https://bbsradio.com/zurispeaks  </option></select>
+</div>
+<input class="ctools-jump-menu-button form-submit" type="submit" id="edit-go" name="op" value="Go" /></div><input type="hidden" name="form_build_id" value="form-IdV1I1j3U4t5SMaAR4k0nEmSXhUWqriwoQ9X4FHyQKE" />
+<input type="hidden" name="form_id" value="ctools_jump_menu" />
+<input type="hidden" name="honeypot_time" value="1521356413|7RMd8BtkhlS6PQRThrZ6g_hGAsPPfz8ZHQm4DbaoE1U" />
+<div class="bbspage-textfield"><div class="form-item form-type-textfield form-item-bbspage">
+  <label for="edit-bbspage">Leave this field blank </label>
+ <input autocomplete="off" type="text" id="edit-bbspage" name="bbspage" value="" size="20" maxlength="128" class="form-text" />
+</div>
+</div></div></form>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+<div id="block-system-main-menu" class="block block-system block-menu even">
+
+        <h2 class="block-title">Main Menu</h2>
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/" title="BBS Radio&#039;s live internet talk radio home page" class="active">BBS Radio Home</a></li>
+<li class="expanded"><a href="/station1and2schedule" title="BBS Radio main live talk radio schedule for station 1 and station 2 show broadcasts">Main Radio Schedule</a><ul class="menu"><li class="first leaf"><a href="/station1schedule" title="BBS Talk Radio Station 1 Show Program Schedule">Radio Station 1</a></li>
+<li class="last leaf"><a href="/station2schedule" title="BBS Talk Radio Station 2 Show Program Schedule">Radio Station 2</a></li>
+</ul></li>
+<li class="expanded"><a href="/host-your-own-talk-show">Host Your Own Talk Show</a><ul class="menu"><li class="first leaf"><a href="/experience-live-talk-radio-done-right" title="Experience Live Talk Radio Done Right
+">Experience Talk Radio</a></li>
+<li class="leaf"><a href="/reasons-to-broadcast" title="Find out all the fantastic reasons to broadcast your talk show programs throughout the word with a diamond level platform and service at an impossibly low price. You will be impressed!">Reasons to Broadcast</a></li>
+<li class="leaf"><a href="/reasons-to-podcast" title="Find out all the fantastic reasons to podcast your talk show programs throughout the world with a diamond level platform and service at an impossibly low price. You will be impressed!">Reasons to Podcast</a></li>
+<li class="leaf"><a href="/payment" title="BBS Radio Slot fees for broadcasting, hosting a talk radio show on the BBS Radio Network. Also Payment Information">Pricing and Payments</a></li>
+<li class="leaf"><a href="/gettingstarted" title="Broadcast Information You May require as a quick synopsis!">Getting Started</a></li>
+<li class="leaf"><a href="/calendar-timing-on-show/station-1">Available Time Slots 1</a></li>
+<li class="leaf"><a href="/calendar-timing-on-show/station-2">Available Time Slots 2</a></li>
+<li class="last leaf"><a href="/node/add/become-a-talk-radio-host" title="(USER) Fill out this form to Host Your Own Talk Show on the BBS Radio Network, Internet Talk Radio at it&#039;s Best!">Connect with Us Now</a></li>
+</ul></li>
+<li class="leaf"><a href="/user/register">Be a Show Host</a></li>
+<li class="expanded"><a href="/headlinedguestspage">Headlined Show Guests</a><ul class="menu"><li class="first last leaf"><a href="/node/add/become-a-talk-radio-guest" title="(USER) Fill out this form to Become A Talk Show Guest on the BBS Radio Network!">Be a Show Guest</a></li>
+</ul></li>
+<li class="expanded"><a href="/newsroom" title="The Newsroom.  A news room for all things new in media, at the BBS Radio network, including: features articles and columns; blogger blurbs; show highlights from episode descriptions; upcoming programs highlighted; upcoming interviews with featured guests; and new indie artists &amp; bands playing on the network.">The Newsroom</a><ul class="menu"><li class="first leaf"><a href="/columns-featured" title="Find all the Featured Columns / Articles written by the BBS Radio Columnists - a growing distinction in global awareness!">Featured Columns</a></li>
+<li class="leaf"><a href="/columns-blog" title="Find all the Featured Blogs written by the BBS Radio Bloggers - a growing distinction in global awareness!">Featured Blogs</a></li>
+<li class="leaf"><a href="/columns-headlined" title="Find all the Featured Guests on BBS Radio Talk Show Programs!">Featured Guests</a></li>
+<li class="leaf"><a href="/columns-upcoming" title="Find all the Headlined Shows on BBS Radio Talk Show Programs!">Headlined Shows</a></li>
+<li class="leaf"><a href="/columns-indie" title="Find all the New Indie Music Artists on BBS Radio station streams, playing between Talk Show Programs!">New Indie Music</a></li>
+<li class="last leaf"><a href="/videos" title="Check out the BBS Radio videos!">Videos to Watch</a></li>
+</ul></li>
+<li class="expanded active"><a href="/all-talk-radio-shows">TALK RADIO SHOWS</a><ul class="menu"><li class="first leaf"><a href="/station1and2" title="Current line-up of live internet talk radio shows broadcasting on BBS Radio">Live Broadcasters</a></li>
+<li class="leaf active"><a href="/podcasters">Podcasters</a></li>
+<li class="last leaf"><a href="/past-talk-show-archives" title="BBS Radio&#039;s Podcast Library: Podcasters &amp; Podcasts is an ensemble of Live Podcasters to Past Broadcasters.">Past Broadcasters</a></li>
+</ul></li>
+<li class="leaf"><a href="/showcategories">Talk Show Categories</a></li>
+<li class="expanded"><a href="/bbsradio24hourmusic" title="Our 24-hour indie music station. We carry only the best indie music, indie bands and indie artists on the planet. We&#039;ll be your favorite!">Indie Music Station</a><ul class="menu"><li class="first last leaf"><a href="/node/add/submit-indie-music">Submit Indie Music</a></li>
+</ul></li>
+<li class="leaf"><a href="/audio-talk-show-bloopers" title="BBS Talk Radio Show Bloopers">Program Bloopers</a></li>
+<li class="leaf"><a href="https://bbsradio.com/cgi-bin/webbbs/webbbs_config.pl">Trusted News Trader</a></li>
+<li class="collapsed"><a href="/phone-apps" title="Download for free the BBS Radio Android phone Application and the free BBS Radio iPhone Application. One touch listening options for BBS Talk Station 1 and Talk Station 2 live streaming of talk radio shows. One touch access to toll-free call in numbers to speak live to a host on air. One touch access to BBS Radio&#039;s website, Show Schedule, Email, and Social Sites like Facebook, Twitter and Linkedin. This Application will make listening to BBS Radio simple, fun and rewarding, and it look fantastic!">iPhone and Android Apps</a></li>
+<li class="leaf"><a href="/referral-program">Referral Program</a></li>
+<li class="leaf"><a href="/advertise" title="Advertise with the BBS Network">Advertise with Us</a></li>
+<li class="leaf"><a href="/affiliate-partners">Affiliates and Partners</a></li>
+<li class="leaf"><a href="/newsletter" title="Subscribe to the BBS Radio Newsletter">Join our Newsletter</a></li>
+<li class="expanded"><a href="/calendar-node-field-event-when" title="Special Events Calendar, Information from BBS Radio Guests, Hosts and Member Users!">Special Events Calendar</a><ul class="menu"><li class="first last leaf"><a href="/how-to-feature-your-events" title="How to feature your events, gatherings, workshops, conferences, expos, concerts, etc.">Feature Your Events</a></li>
+</ul></li>
+<li class="leaf"><a href="/players" title="Syndicate BBS Radio by grabbing the player streams for relay and/or the embed codes">More Listener Options</a></li>
+<li class="leaf"><a href="/banners" title="Grab BBS Radio Banners to place on your web site and link to BBSRadio.com">Grab our Banners</a></li>
+<li class="collapsed"><a href="/bbs-radio-station-audio-promo-spots">Grab our Audio Drops </a></li>
+<li class="leaf"><a href="/broadcast-policy" title="BBS Radio Broadcast Policy">Broadcast Policy</a></li>
+<li class="leaf"><a href="/privacy" title="BBS Radio Privacy Policy">Privacy Policy</a></li>
+<li class="leaf"><a href="/disclaimer" title="BBS Radio Disclaimer">Disclaimer</a></li>
+<li class="leaf"><a href="/contact-bbs-radio" title="Contact BBS Radio Staff using this form! Select from a category (subject matter) drop down list to direct your question to the appropriate department!">Contact Us</a></li>
+<li class="leaf"><a href="/search" title="Keyword search and Advanced search functions for extracting information located within BBS Radio!">Search Us</a></li>
+<li class="leaf"><a href="/glossary">Glossary</a></li>
+<li class="leaf"><a href="/popular/today" title="Get a quick look at Today&#039;s Most popular content on BBS Radio&#039;s website! And the most popular content of all time, based purely on the number of visitor to the content!">Popular Content Today</a></li>
+<li class="expanded"><a href="/rss.xml" title="RSS Feed for BBS Radio talk shows and highlighted guests. The feed provides all of the show data and guest highlighted information. Get the FREE BBS Radio Feed that provides you almost instant updates on the latest BBS Radio Talk Show episodes that are entered into the New BBS Radio Website. This data includes the BBS Radio Talk Show Name hyper-linked for immediate playback, and the date the show first aired live on the BBS Radio Network - including all other episode information, and upcoming highlighted guests.">All Inclusive RSS Feed</a><ul class="menu"><li class="first last leaf"><a href="/bbs-radio-talk-show-feeds.xml" title="Get the FREE BBS Radio Feed that provides you almost instant updates on the latest BBS Radio Talk Show episodes that are entered into the New BBS Radio Website. This data includes the BBS Radio Talk Show Name hyper-linked for immediate playback, and the date the show first aired live on the BBS Radio Network.">Talk Show Podcast Feed</a></li>
+</ul></li>
+<li class="expanded"><a href="/sitemap" title="Displays a site map off Categories and Tags associated with Music Spun on the Network, BBS Radio Hosts, BBS Radio Talk Shows and Guests on the BBS Radio Network. This Sitemap includes the number of items linked to each term, tag and/or category, and provides RSS feeds for each particular term, tag and/or category, FREE RSS Feeds.">Sitemap with RSS Feeds</a><ul class="menu"><li class="first last collapsed"><a href="https://bbsradio.com/sitemap.xml" title="BBS Radio Complete XML Map | Sitemap - This is the most complete sitemap for BBS Radio&#039;s Website, which includes most all content on the website that is important to website visitors">Full Sitemap in XML</a></li>
+</ul></li>
+<li class="leaf"><a href="/feedback-for-bbs-radio" title="Listener and Visitor Feedback to BBS Radio Staff and the BBS Radio Hosts. We are heartfelt in saying, THANK YOU ALL, very much! We love you!">Your Feedback</a></li>
+<li class="last leaf"><a href="/about" title="About BBS Radio, BBS Network, Inc. and its founders Donald Newsom and Douglas Newsom.">About Us</a></li>
+</ul>  </div>
+
+</div><!-- /.block -->
+<div id="block-search-form" class="block block-search odd">
+
+        <h2 class="block-title">Search</h2>
+    
+  <div class="content">
+    <form class="search-form" role="search" action="/" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search this site </label>
+ <input title="Enter the terms you wish to search for." class="custom-search-box form-text" placeholder="" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
+</div>
+<div class="form-item form-type-select form-item-custom-search-types">
+  <label for="edit-custom-search-types">Search In </label>
+ <select class="custom-search-selector custom-search-types form-select" id="edit-custom-search-types" name="custom_search_types"><option value="c-all" selected="selected">-All Content-</option><option value="c-add_music_artist_cd">Add Music Artist CD</option><option value="c-archive_descriptions">Archive Descriptions</option><option value="c-article">Article</option><option value="c-audio_clip_uploads">Audio Clip Uploads</option><option value="c-page">Basic page</option><option value="c-become_a_talk_radio_guest">Become a Talk Radio Guest</option><option value="c-blog">Blog entry</option><option value="c-date">Date</option><option value="c-highlight_upcoming_guest">Highlight Upcoming Guest</option><option value="c-music_playing_on_bbs_raadio">Music Playing on BBS Radio</option><option value="c-panel">Panel</option><option value="c-program_handouts">Program Handouts</option><option value="c-show_feedback">Show Feedback</option><option value="c-show_guest_headliners">Show Guest Headliners</option><option value="c-special_events">Special Events</option><option value="c-submit_indie_music">Submit Indie Music</option><option value="c-talk_show_include">Talk Show Include</option><option value="c-upcoming_show_topics">Upcoming Show Topics</option><option value="c-video_uploads">Video Uploads</option></select>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-PKglkUYtO3m8tQx5XR15-dPcZ1frzQ6RRYGHHBlH2zw" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+
+</div><!-- /.block -->
+<div id="block-block-13" class="block block-block last even">
+
+      
+  <div class="content">
+     <div class="left-advertisements"> 
+  <p class="rtecenter"><a href="https://selfascension.com/product-category/self-ascension-home-study/" title="Mystical Metaphysical Home Study" target="_blank"><img alt="Mystical Metaphysical Home Study" src="https://bbsradio.com/sites/default/files/advertising/banner-ad-hosts-11-23-15/mystical-home-150x300.jpg" title="Mystical Metaphysical Home Study" width="150" height="300" /></a></p>
+  <p class="rtecenter"><a href="http://www.creationlightship.com/" title="Lightship Healings with Ron Amitron" target="_blank"><img alt="Lightship Healings with Ron  Amitron" src="https://bbsradio.com/sites/default/files/images_on_site/creation_lightship4.jpg" title="Lightship Healings with Ron Amitron" width="150" height="288" /></a></p>
+  <p class="rtecenter"><a href="https://www.drupalgeeks.com/" title="Drupal Geeks website coders and developers" target="_blank"><img alt="Drupal Geeks" src="https://bbsradio.com/sites/default/files/advertising/banner_ad/drupal-geeks.jpg" title="Drupal Geeks" width="150" height="61" /></a></p>
+  <p class="rtecenter"><a href="http://www.eceti.org/" title="Check out the Eceti UFO Sanctuary" target="_blank"><img alt="Check out the Eceti UFO Sanctuary" src="https://bbsradio.com/sites/default/files/images_on_site/eceti_advert.gif" title="Check out the Eceti UFO Sanctuary" width="150" height="124" /></a></p>
+</div>
+   </div>
+
+</div><!-- /.block -->
+  </div></div><!-- /.section, /.region -->
+    <div id="content" class="column"><div class="section">
+                  <a id="main-content"></a>
+                    <h1 class="title" id="page-title">Original live internet talk radio shows. We do talk radio right.</h1>
+                                <div class="region region-help">
+    <div id="block-system-main" class="block block-system first last odd">
+
+      
+  <div class="content">
+    <div class="panel-flexible panels-flexible-35 clearfix" >
+<div class="panel-flexible-inside panels-flexible-35-inside">
+<div class="panels-flexible-row panels-flexible-row-35-4 panels-flexible-row-first clearfix ">
+  <div class="inside panels-flexible-row-inside panels-flexible-row-35-4-inside panels-flexible-row-inside-first clearfix">
+<div class="panels-flexible-region panels-flexible-region-35-region_left_top panels-flexible-region-first ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-35-region_left_top-inside panels-flexible-region-inside-first">
+<div class="panel-pane pane-node"  >
+  
+        <h2 class="pane-title">
+      Station 1 Show Status    </h2>
+    
+  
+  <div class="pane-content">
+    <div id="node-3134" class="node node-status-of-show-station-1 node-promoted node-teaser clearfix">
+
+  
+      
+  
+  
+  <div class="content">
+      </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+
+  
+  </div>
+  </div>
+</div>
+<div class="panels-flexible-region panels-flexible-region-35-region_tops panels-flexible-region-last ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-35-region_tops-inside panels-flexible-region-inside-last">
+<div class="panel-pane pane-node"  >
+  
+        <h2 class="pane-title">
+      Station 2 Show Status    </h2>
+    
+  
+  <div class="pane-content">
+    <div id="node-3133" class="node node-status-of-show-station-2 node-promoted node-teaser clearfix">
+
+  
+      
+  
+  
+  <div class="content">
+      </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+
+  
+  </div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="panels-flexible-row panels-flexible-row-35-3 clearfix ">
+  <div class="inside panels-flexible-row-inside panels-flexible-row-35-3-inside clearfix">
+<div class="panels-flexible-region panels-flexible-region-35-region_top panels-flexible-region-first panels-flexible-region-last ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-35-region_top-inside panels-flexible-region-inside-first panels-flexible-region-inside-last">
+<div class="panel-pane pane-custom pane-1"  >
+  
+        <h2 class="pane-title">
+      Original live internet talk radio shows. We do talk radio right!    </h2>
+    
+  
+  <div class="pane-content">
+     <div align="center">
+  <p><font>TO LISTEN TO OUR LIVE TALK RADIO STATIONS<br />
+    <a href="https://bbsradio.com/players" title="More Options to listen to Talk Radio or for stream relaying and syndication" alt="More Options to listen to Talk Radio or for stream relaying and syndication">Click Here for all listening options</a><br /><br />
+	Talk Radio Station 1 &amp; 2 Flash Player<br /><a onclick="window.open('bbs_player/bbs_fplayer_jp.php','_blank','left=100,top=0,width=750,height=480,status=no,resizable=yes,scrollbars=no');return false" href="https://bbsradio.com/bbs_player/bbs_fplayer_jp.php" title="Tune into Talk Radio and listen to the broadcasts on our Flash Player">https://bbsradio.com/bbs_player/bbs_fplayer_jp.php</a><br />
+	Talk Radio Station 1 HTML5 Player<br /><a class="BBSRadiostations" href="https://bbsradio.com/html5_player/html5_player.htm" title="BBS Talk Radio Station #1 HTML5 Native Audio Player at 64K">https://bbsradio.com/html5_player/html5_player.htm</a><br />
+	Talk Radio Station 2 HTML5 Player<br /><a class="BBSRadiostations" href="https://bbsradio.com/html5_player/html5_player2.htm" title="BBS Talk Radio Station #2 HTML5 Native Audio Player at 64K">https://bbsradio.com/html5_player/html5_player2.htm</a><br />
+	<br />DOWNLOAD OUR FREE APPS TO LISTEN &amp; INTERACT</font><br />
+	<a href="https://play.google.com/store/apps/details?id=com.bbs.radioapp&amp;hl=en" target="_Blank" alt="Download for free the BBS Radio Android phone Application. One touch listening options for BBS Talk Radio Station 1 and Talk Radio Station 2 live streaming of talk radio shows. One touch access to toll-free call in numbers to speak live to a host on air. One touch access to BBS Radio's website, Show Schedule, Email, and Social Sites like Facebook, Twitter and Linkedin. This Application will make listening to BBS Radio simple, fun and rewarding, and it look fantastic!" title="Download for free the BBS Radio Android phone Application. One touch listening options for BBS Talk Radio Station 1 and Talk Radio Station 2 live streaming of talk radio shows. One touch access to toll-free call in numbers to speak live to a host on air. One touch access to BBS Radio's website, Show Schedule, Email, and Social Sites like Facebook, Twitter and Linkedin. This Application will make listening to BBS Radio simple, fun and rewarding, and it look fantastic!">Android Phone App from the Google Play Android Market</a><br /><a href="https://itunes.apple.com/us/app/bbs-radio/id864799909" target="_Blank" alt="Download for free the BBS Radio iPhone and Ipad Application. One touch listening options for BBS Talk Radio Station 1 and Talk Radio Station 2 live streaming of talk radio shows. One touch access to toll-free call in numbers to speak live to a host on air. One touch access to BBS Radio's website, Show Schedule, Email, and Social Sites like Facebook, Twitter and Linkedin. This Application will make listening to BBS Radio simple, fun and rewarding, and it look fantastic!" title="Download for free the BBS Radio iPhone and Ipad Application. One touch listening options for BBS Talk Radio Station 1 and Talk Radio Station 2 live streaming of talk radio shows. One touch access to toll-free call in numbers to speak live to a host on air. One touch access to BBS Radio's website, Show Schedule, Email, and Social Sites like Facebook, Twitter and Linkedin. This Application will make listening to BBS Radio simple, fun and rewarding, and it look fantastic!">iPhone and iPad App from the iTunes Apple App Store</a><br />	
+	<br />LISTEN-IN BY PHONE TO THE RADIO BROADCASTS<br />
+    <font color="#AAAAAA">STATION 1 - </font>712-775-4842<font color="#8080FF"> 
+    - press 1</font><br />
+    <font color="#AAAAAA">STATION 1 - </font>701-719-4207<font color="#8080FF"> 
+    - direct</font>  <br />
+    <font color="#AAAAAA">STATION 2 - </font>712-775-4842<font color="#8080FF"> 
+    - press 2</font><br />
+    <font color="#AAAAAA">STATION 2 - </font>701-719-3600<font color="#8080FF"> 
+    - direct</font>  <br />
+	<font>CALL TO INTERACT ONLY DURING LIVE SHOWS</font><br />
+    <font color="#AAAAAA">STATION 1 - </font>888-627-6008 
+    USA/Canada <font color="#8080FF">or</font> Direct 323-744-4831<br />
+    <font color="#AAAAAA">STATION 2 - </font>888-429-5471 
+    USA/Canada <font color="#8080FF">or</font> Direct 323-744-4841</p>
+</div>
+<p class="rtejustify">Live Talk Radio! Tune in Free to Original Live internet talk radio 
+  shows, or any of our podcasts archived since 2005, with no membership, log-in or signup required. <a href="http://www.bbsnetwork.net/" target="_Blank" title="BBS Network - BBS Network, Inc., bbsnetwork.net - A New Age in Media">BBS 
+  Network, Inc.</a> is a network that networks powerful and original talk radio 
+  programming. We do talk radio right! BBS Radio helps create, produce and distribute 
+  <u>original</u><strong> </strong> talk radio of all types and and in all genres. 
+  We engineer and produce over 120 hours of original live talk radio every week. 
+  Broadcasts are also made available as on-demand podcasts, globally syndicated 
+  and archived, and available for free all over the world. If you are a radio 
+  station wishing to carry our live professional broadcasts and/or our globally 
+  syndicated program podcasts it's easy and free. <a href="https://bbsradio.com/affiliate-partners" title="Register as a BBS Radio affiliate partner by simply carrying our programming on your radio station. Affiliate Partners">Become 
+  an Affiliate Partner</a>.</p>
+<p class="rtejustify">The BBS Radio network is one of first corporations in the 
+  world to provide remotely engineered live internet talk radio. We are a pioneer 
+  of internet talk radio, a true icon! As a leader in this industry we have helped 
+  define the landscape while bringing our talk show hosts the very best of everything. 
+  Many protocols for this industry, now well established, originated right here 
+  at BBS Radio!</p>
+<p class="rtejustify">The network has an extremely diverse variety of thought 
+  provoking talk shows ranging from family entertainment to clean energy, metaphysics 
+  to divination, non-mainstream political commentary to alternative health and 
+  so much more. To learn more <a href="https://bbsradio.com/about">click here</a>. 
+  It really is a network of powerful personalities providing illuminating information.</p>
+<p class="rtejustify">Enjoy listening to original live talk radio and an exciting 
+  mix of the very best indie music on the planet! We will be your favorite! <a href="https://bbsradio.com/host-your-own-talk-show">Learn 
+  more</a> about hosting your own talk show!</p>   </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-slider-content"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="view view-slider-content view-id-slider_content view-display-id-default view-dom-id-2171538e40f39b4e9c2c67635f1947e9">
+        
+  
+  
+      <div class="view-content">
+      
+  <div class="skin-default">
+    
+    <div id="views_slideshow_cycle_main_slider_content-default" class="views_slideshow_cycle_main views_slideshow_main"><div id="views_slideshow_cycle_teaser_section_slider_content-default" class="views-slideshow-cycle-main-frame views_slideshow_cycle_teaser_section">
+  <div id="views_slideshow_cycle_div_slider_content-default_0" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-1 views-row-first views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_0'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd views-row-first">
+  <div id="node-63366" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-shadow-politics-march-18-2018">Headlined, Shadow Politics, March 18, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-shadow-politics-march-18-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/sharon-pratt.jpg?itok=s-l4YVQ4" width="350" height="250" alt="Sharon Pratt" title="Sharon Pratt" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/shadowpolitics">Shadow Politics</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p>Our guest this week is Sharon Pratt, Former Mayor of the District of Columbia from 1991 to 1995 and Founder of Pratt Consulting LLC. A Howard University and Howard University Law School honors graduate, Sharon Pratt is one of a handful of women with the experience of running a major government  enterprise; first African American woman elected mayor of a major American city (Washington, DC); first woman elected an officer of the Potomac Electric Power Company (Pepco); the first woman elected treasurer of the National Democratic Party (DNC); and founder of Pratt Consulting LLC. </p></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+<div id="views_slideshow_cycle_div_slider_content-default_1" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-2 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_1'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+  <div id="node-63212" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-people-speak-march-25-2018">Headlined, The People Speak, March 25, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-people-speak-march-25-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/umaymah.JPG?itok=dZ0bxsj3" width="350" height="250" alt="" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/thepeoplespeak">The People Speak</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p>Umaymah Mohammad talks to host Elizabeth Valencia about her organization - Young Muslim Collective.</p>
+ </div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+<div id="views_slideshow_cycle_div_slider_content-default_2" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-3 views_slideshow_cycle_hidden views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_2'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+  <div id="node-63197" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-sri-and-kira-live-march-25-2018">Headlined, Sri and Kira Live, March 25, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-sri-and-kira-live-march-25-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/clarity-mar-25.jpg?itok=B84EzU2h" width="350" height="250" alt="" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/sriandkiralive">Sri &amp; Kira Live</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p><strong>Living without BS!  What the Retrograde will reveal!</strong></p>
+<p>March!  Wow!  Here we are and the Mercury retrograde has now come forward in its direct position and will carry us through early May!  This has been a month of HONESTY and expansion, of release and re-claiming our true self.</p>
+<p>So how does your life look when you honestly clear out the BS and get Clear?  How can the energy of this “long” retrograde assist you?  What is ready to reveal as we culminate the first three months of 2018 and unify Shanti, Bhakti and Ananda?</p></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+<div id="views_slideshow_cycle_div_slider_content-default_3" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-4 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_3'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+  <div id="node-63153" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-sri-and-kira-live-march-18-2018">Headlined, Sri and Kira Live, March 18, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-sri-and-kira-live-march-18-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/breath-thanks-sun.jpg?itok=6fntfmCq" width="350" height="250" alt="" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/sriandkiralive">Sri &amp; Kira Live</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p><span style="font-size:16px;"><strong>The Four Knowns &amp; Your Breath</strong></span></p>
+<p><span style="font-size:12px;"><strong>At the heart of all mastery are the undeniable truths that sustain us and remind us that we are not alone, that we are in harmony with our divine presence and that we are supported!  </strong></span></p>
+<p><span style="font-size:12px;"><strong>As Mid March arises so does the gift of fully harvesting the vast energies as a supportive experience!  Yes..that really can happen and it begins with your reconnection to the mysterious yet clear, Four Knowns!  When you call forward these spiritual truths and learn the Breath that ignites them, your mastery is assured!</strong></span></p></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+<div id="views_slideshow_cycle_div_slider_content-default_4" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-5 views_slideshow_cycle_hidden views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_4'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+  <div id="node-62624" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-john-barbours-world-march-19-2018">Headlined, John Barbours World, March 19, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-john-barbours-world-march-19-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/daniel-sheehan.jpg?itok=1uJro1va" width="350" height="250" alt="" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/johnbarboursworld">John Barbour&#039;s World</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p>Daniel Sheehan - Lawyer and Activist joins John Barbour to discuss his humanitarian work.</p>
+ </div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+<div id="views_slideshow_cycle_div_slider_content-default_5" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-6 views_slideshow_cycle_hidden views-row-last views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_slider_content-default_5'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+  <div id="node-62098" class="node node-upcoming-show-topics view-mode-search_result clearfix">
+
+  
+        <h2 class="node-title"><a href="/upcoming/headlined-every-day-new-day-april-18-2018">Headlined, Every Day is a New Day, April 18, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-post-add-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/upcoming/headlined-every-day-new-day-april-18-2018"><img src="https://bbsradio.com/sites/default/files/styles/slider_image/public/upcomingshow/picture-6-24-17/every-day-new-day-regina-huber.JPG?itok=UbRfSNID" width="350" height="250" alt="Guest Regina Huber, Transform Your Performance in Business" title="Every Day is a New Day with Kim O&#039;Neill - 4/18/18 @ 7PM PST" /></a></div></div></div><div class="field field-name-field-your-show-link field-type-field-reference field-label-inline clearfix"><div class="field-label">Talk Show Link Add on:&nbsp;</div><div class="field-items"><div class="field-item even"><div class="field-reference-delta"><a href="/everydayisanewday">Every Day is a New Day</a></div></div></div></div><div class="field field-name-field-post-upcoming-information field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"> <p><u><strong><span style="font-size:18px;"><span style="font-family:arial, helvetica, sans-serif;">Every Day is a New Day Show with Host Kim O'Neill</span></span></strong></u></p>
+<p><strong><span style="font-size:14px;"><span style="font-family:arial, helvetica, sans-serif;">Wednesday, April 18, 2018 @ 7PM PST</span></span></strong></p>
+<p><span style="font-size:14px;"><span style="font-family:arial, helvetica, sans-serif;">Guest <strong><span style="font-size:16px;">Regina Huber</span></strong>, Transformational Leadership Coach for Business Women, will be sharing with us how she got to where she is today, as well as importance of focusing on our strengths, having an empowering mindset and why she wrote a book on how to speak up.</span></span></p></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+</div>
+</div>
+</div>
+</div>
+          <div class="views-slideshow-controls-bottom clearfix">
+        <div id="views_slideshow_controls_text_slider_content-default" class="views-slideshow-controls-text views_slideshow_controls_text">
+  <span id="views_slideshow_controls_text_previous_slider_content-default" class="views-slideshow-controls-text-previous views_slideshow_controls_text_previous">
+  <a href="#" rel="prev">Previous</a>
+</span>
+  <span id="views_slideshow_controls_text_pause_slider_content-default" class="views-slideshow-controls-text-pause views_slideshow_controls_text_pause  views-slideshow-controls-text-status-play"><a href="#">Pause</a></span>
+  <span id="views_slideshow_controls_text_next_slider_content-default" class="views-slideshow-controls-text-next views_slideshow_controls_text_next">
+  <a href="#" rel="next">Next</a>
+</span>
+</div>
+      </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="panels-flexible-row panels-flexible-row-35-main-row panels-flexible-row-last clearfix">
+  <div class="inside panels-flexible-row-inside panels-flexible-row-35-main-row-inside panels-flexible-row-inside-last clearfix">
+<div class="panels-flexible-region panels-flexible-region-35-center panels-flexible-region-first panels-flexible-region-last">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-35-center-inside panels-flexible-region-inside-first panels-flexible-region-inside-last">
+<div class="panel-pane pane-views pane-banner-advertisements"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="view view-banner-advertisements view-id-banner_advertisements view-display-id-default view-dom-id-3c323a1feefe2b7de11f46500e7d4323">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div id="node-3120" class="node node-banner-advertisements node-promoted view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-sri-and-kira-live-0">Large Banner, Sri and Kira Live</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/sriandkiralive" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-3-22-16/radioadbbs2.jpg" width="568" height="220" alt="Listen to Sri and Kira Live on BBS Radio Sundays at noon PT - Station 1" title="Listen to Sri and Kira Live on BBS Radio Sundays at noon PT - Station 1" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div id="node-54390" class="node node-banner-advertisements node-promoted view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-shadow-politics">Large Banner, Shadow Politics</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/shadowpolitics" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-3-22-16/shadow-politics-d.jpg" width="568" height="180" alt="Shadow Politics with Senator Michael D Brown and Maria Sanchez" title="Shadow Politics with Senator Michael D Brown and Maria Sanchez" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <div id="node-63382" class="node node-banner-advertisements view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-bbs-radio">Large Banner, BBS Radio</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/riobravomusiclive" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-6-24-17/rio-bravo-music-live-new-banner2.jpg" width="566" height="354" alt="Rio Bravo Music Live with Dougie Crockett, a friend to the singer, songwriter" title="Rio Bravo Music Live with Dougie Crockett, a friend to the singer, songwriter" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <div id="node-61583" class="node node-banner-advertisements view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-john-barbours-world-4">Large Banner, John Barbours World</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.cbs.com/shows/criminal_minds/" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-6-24-17/criminalminds2017johnbarbour.jpg" width="566" height="231" alt="Criminal Minds on CBS on Wednesday 9pm Central Time" title="Criminal Minds on CBS on Wednesday 9pm Central Time" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <div id="node-56746" class="node node-banner-advertisements view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-live-pullman-national-monument-0">Large Banner, Live From Pullman National Monument</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/livefrompullmannationalmonument" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-3-22-16/livefrompnm3.jpg" width="559" height="217" alt="Live From Pullman National Monument" title="Live From Pullman National Monument" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    <div id="node-22993" class="node node-banner-advertisements view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-bbs-radio-1">Large Banner, BBS Radio</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.alternativesforhealing.com/" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-3-22-16/afh-563x1502.jpg" width="568" height="150" alt="Alternatives For Healing - Directory for finding Natural Health Solutions and Practitioners" title="Alternatives For Healing - Directory for finding Natural Health Solutions and Practitioners" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-7 views-row-odd views-row-last">
+    <div id="node-15927" class="node node-banner-advertisements view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/hostad2/large-banner-bbs-radio-0">Large Banner, BBS Radio</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-ads-banner-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://iamdeewallace.com" target="_blank" title="Talk Show Sponsors and Advertisers Information Link"><img src="https://bbsradio.com/sites/default/files/advertising/banner-ad-3-22-16/dee-wallace-b-lg3.jpg" width="568" height="313" alt="Conscious Creation with Dee Wallace" title="Conscious Creation with Dee Wallace" /></a></div></div></div>  </div>
+
+  
+  
+</div><!-- /.node -->
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-highlighting-guests"  >
+  
+        <h2 class="pane-title">
+      Featured Talk Show Guest Appearances - Headlines &amp; Highlights    </h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-highlighting-guests view-id-highlighting_guests view-display-id-default view-dom-id-e1e4f0417718447238bd7f6f50abb506">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div id="node-63365" class="node node-highlight-upcoming-guest node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/highlight/featured-guest-sharon-pratt-march-18-2018">Featured, Guest, Sharon Pratt March 18, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-highlight-talk-show field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-2570" class="node node-talk-show-include node-promoted node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/talkshow/shadow-politics">Shadow Politics</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-include-banner field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/shadowpolitics"><img src="https://bbsradio.com/sites/default/files/bbsradiotalkshows/banners-2-05-17/shadow-politics-c.jpg" width="568" height="180" alt="Shadow Politics with U.S. Senator Michael D. Brown and Maria Sanchez" title="Shadow Politics with U.S. Senator Michael D. Brown and Maria Sanchez" /></a></div></div></div><div class="field field-name-field-include-show-page field-type-link-field field-label-inline clearfix"><div class="field-label">Talk Show:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/shadowpolitics">Shadow Politics</a></div></div></div><div class="field field-name-field-include-host-name field-type-user-reference field-label-inline clearfix"><div class="field-label">Show Host:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/users/maria-sanchez">Maria Sanchez</a></div><div class="field-item odd"><a href="/users/senator-michael-brown">Senator Michael Brown</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/talkshow/shadow-politics" rel="tag" title="Shadow Politics">Read more<span class="element-invisible"> about Shadow Politics</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div><div class="field field-name-field-highlight-broadcasting-dat field-type-datetime field-label-inline clearfix"><div class="field-label">Broadcasting Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single">Sunday, March 18, 2018 04:00 pm</span></div></div></div><div class="field field-name-field-highlight-guest field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-63363" class="node node-show-guest-headliners view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/guestson/guest-sharon-pratt">Guest, Sharon Pratt</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-past-guest-name field-type-text field-label-inline clearfix"><div class="field-label">Guest Name:&nbsp;</div><div class="field-items"><div class="field-item even">Sharon Pratt</div></div></div><div class="field field-name-field-past-guest-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://prattconsulting.com/" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-pics-6-24-17/sharon-pratt.jpg" width="400" height="235" alt="Sharon Pratt" title="Sharon Pratt" /></a></div></div></div><div class="field field-name-field-past-guest-website field-type-link-field field-label-inline clearfix"><div class="field-label">Guest Website:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="http://prattconsulting.com/" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link">http://prattconsulting.com/</a></div></div></div><div class="field field-name-field-past-guest-category field-type-taxonomy-term-reference field-label-above"><div class="field-label">Guest Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/show-broadcast-categories/history">History</a></div><div class="field-item odd"><a href="/show-broadcast-categories/news">News</a></div><div class="field-item even"><a href="/show-broadcast-categories/politics-government">Politics &amp; Government</a></div><div class="field-item odd"><a href="/show-broadcast-categories/self-help">Self Help</a></div><div class="field-item even"><a href="/show-broadcast-categories/society-and-culture">Society and Culture</a></div><div class="field-item odd"><a href="/show-broadcast-categories/variety">Variety</a></div></div></div><div class="field field-name-field-past-guest-occupation field-type-text field-label-inline clearfix"><div class="field-label">Guest Occupation:&nbsp;</div><div class="field-items"><div class="field-item even">Former Mayor of the District of Columbia from 1991 to 1995 and Founder of Pratt Consulting LLC.</div></div></div><div class="field field-name-field-past-guest-biography field-type-text-long field-label-above"><div class="field-label">Guest Biography:&nbsp;</div><div class="field-items"><div class="field-item even"> <p>Former Washington, D.C. Mayor Sharon Pratt was born on January 30, 1944 in Washington, D.C. Pratt is the daughter of Mildred Petticord and Carlisle Edward Pratt. Pratt graduated from Roosevelt High School in 1961 and earned her B.S. degree in political science in 1965 from Howard University. Pratt attended Howard University Law School where she earned her J.D. degree in 1968.</p>
+<p>Pratt served as in-house counsel for the Joint Center for Political Studies from 1970 to 1971. From 1971 to 1976, she worked as an associate for the law firm Pratt &amp; Queen PC. In 1972, Pratt became a law professor at the Antioch School of Law in Washington, D.C., and worked there until 1976 when she became the Associate General Counsel for the Potomac Electric Power Company, known as PEPCO. In 1982, Pratt directed the failed mayoral campaign for Patricia Robert Harris. That same year, Pratt married Arrington Dixon, a Democratic Washington, D.C. City Councilman. Pratt was promoted to the Director of Consumer Affairs for the Potomac Electric Power Company in 1979 and then later to Vice President of Consumer Affairs in 1983. In 1988, Pratt announced that she would challenge Mayor Marion Barry in the 1990 mayoral election in Washington, D.C. Pratt was elected Mayor of Washington D.C., the first African American female to hold this position. In 1994, she lost her bid for re-election as mayor to Marion Barry. From 1997 to 2001, Pratt served as the President of @ The Center, a start-up electrical marketplace for Africa. In 2002, Pratt began Pratt Consulting, working with companies and governments developing Homeland Security/Emergency Management Plans. She is also the Executive Vice President for BI Solutions.</p>
+<p>Pratt’s past and present board memberships include: the Center For Creative Leadership, the Democratic National Convention, Society for PSP, Emmitsburg St. Mary’s College Board, Opportunity Funding Corporation and a trustee at Howard University. Pratt is also the recipient of the Presidential Award from the NAACP, <em>Glamour</em> magazine’s Woman of the Year Award, the Congressional Black Caucus’ Mary McCleod Bethune-W.E. Dubois Award and the Clean Cities Award.</p>
+<p>Pratt is divorced, has two children, Aimee A. Dixon and Drew Willliams, and is also a grandmother.</p>
+<p>Pratt was interviewed by <em>The HistoryMakers</em> on July 26, 2007.</p>
+ </div></div></div>  </div>
+
+  <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment/reply/63363%23comment-form">Log in</a> or <a href="/user/register?destination=comment/reply/63363%23comment-form">register</a> to post comments</span></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/highlight/featured-guest-sharon-pratt-march-18-2018" rel="tag" title="Featured, Guest, Sharon Pratt March 18, 2018">Read more<span class="element-invisible"> about Featured, Guest, Sharon Pratt March 18, 2018</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div id="node-63035" class="node node-highlight-upcoming-guest node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/highlight/featured-guest-jp-sottile-march-19-2018">Featured, Guest, JP Sottile March 19, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-highlight-talk-show field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-12888" class="node node-talk-show-include node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/talkshow/john-barbours-world">John Barbours World</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-include-banner field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/johnbarboursworld"><img src="https://bbsradio.com/sites/default/files/bbsradiotalkshows/banners-3-22-16/jbbanner1.png" width="539" height="353" alt="John Barbour&#039;s World with John Barbour" title="John Barbour&#039;s World with John Barbour" /></a></div></div></div><div class="field field-name-field-include-show-page field-type-link-field field-label-inline clearfix"><div class="field-label">Talk Show:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/johnbarboursworld">John Barbours World</a></div></div></div><div class="field field-name-field-include-host-name field-type-user-reference field-label-inline clearfix"><div class="field-label">Show Host:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/users/john-barbour">John Barbour</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/talkshow/john-barbours-world" rel="tag" title="John Barbours World">Read more<span class="element-invisible"> about John Barbours World</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div><div class="field field-name-field-highlight-broadcasting-dat field-type-datetime field-label-inline clearfix"><div class="field-label">Broadcasting Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single">Monday, March 19, 2018 05:00 pm</span></div></div></div><div class="field field-name-field-highlight-guest field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-13357" class="node node-show-guest-headliners view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/guestson/guest-jp-sottile">Guest, JP Sottile</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-past-guest-name field-type-text field-label-inline clearfix"><div class="field-label">Guest Name:&nbsp;</div><div class="field-items"><div class="field-item even">JP Sottile</div></div></div><div class="field field-name-field-past-guest-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://NewsVandal.com" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-pics-3-22-16/jpsottile2.jpg" width="400" height="400" alt="JP Sottile" title="JP Sottile" /></a></div></div></div><div class="field field-name-field-past-guest-website field-type-link-field field-label-inline clearfix"><div class="field-label">Guest Website:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="http://NewsVandal.com" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link">http://NewsVandal.com</a></div></div></div><div class="field field-name-field-past-guest-category field-type-taxonomy-term-reference field-label-above"><div class="field-label">Guest Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/show-broadcast-categories/education">Education</a></div><div class="field-item odd"><a href="/show-broadcast-categories/news">News</a></div><div class="field-item even"><a href="/show-broadcast-categories/politics-government">Politics &amp; Government</a></div><div class="field-item odd"><a href="/show-broadcast-categories/tv-film">TV &amp; Film</a></div></div></div><div class="field field-name-field-past-guest-occupation field-type-text field-label-inline clearfix"><div class="field-label">Guest Occupation:&nbsp;</div><div class="field-items"><div class="field-item even">Freelance Journalist, Radio Host, Documentary Filmmaker</div></div></div><div class="field field-name-field-past-guest-biography field-type-text-long field-label-above"><div class="field-label">Guest Biography:&nbsp;</div><div class="field-items"><div class="field-item even"> <p>JP SOTTILE is a freelance journalist, published historian, radio co-host and documentary filmmaker. His credits include a stint on the NewsHour news desk, C-SPAN, and as a newsmagazine producer for ABC affiliate WJLA in Washington. <a href="http://jpsottile.com/" rel="nofollow">Joseph “JP” Sottile</a> is a two-time Washington Regional Emmy Award Winner. Documentary film credits include: writer, director, producer of The Warning and various production and photography credits on other public interest films. His weekly show, Inside the Headlines w/ The Newsvandal, co-hosted by James Moore, airs every Friday on <a href="http://www.kruufm.com/" rel="nofollow">KRUU-FM</a> in Fairfield, Iowa. He is the Newsvandal.</p> </div></div></div><div class="field field-name-field-past-book-cover field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://NewsVandal.com" target="_blank" rel="nofollow" title="Featured Talk Show Guest Product or Service Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guestbookpics3/newsvanadaltwitterphoto-01.png" width="400" height="400" alt="Newsvandal" title="Newsvandal" /></a></div></div></div><div class="field field-name-field-past-product-book-link field-type-link-field field-label-inline clearfix"><div class="field-label">Product | Book Link:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="http://NewsVandal.com" target="_blank" rel="nofollow" title="Featured Talk Show Guest Product or Service Website Link">http://NewsVandal.com</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment/reply/13357%23comment-form">Log in</a> or <a href="/user/register?destination=comment/reply/13357%23comment-form">register</a> to post comments</span></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/highlight/featured-guest-jp-sottile-march-19-2018" rel="tag" title="Featured, Guest, JP Sottile March 19, 2018">Read more<span class="element-invisible"> about Featured, Guest, JP Sottile March 19, 2018</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <div id="node-63280" class="node node-highlight-upcoming-guest node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/highlight/featured-guest-daniel-sheehan-march-19-2018">Featured, Guest, Daniel Sheehan March 19, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-highlight-talk-show field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-12888" class="node node-talk-show-include node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/talkshow/john-barbours-world">John Barbours World</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-include-banner field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/johnbarboursworld"><img src="https://bbsradio.com/sites/default/files/bbsradiotalkshows/banners-3-22-16/jbbanner1.png" width="539" height="353" alt="John Barbour&#039;s World with John Barbour" title="John Barbour&#039;s World with John Barbour" /></a></div></div></div><div class="field field-name-field-include-show-page field-type-link-field field-label-inline clearfix"><div class="field-label">Talk Show:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/johnbarboursworld">John Barbours World</a></div></div></div><div class="field field-name-field-include-host-name field-type-user-reference field-label-inline clearfix"><div class="field-label">Show Host:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/users/john-barbour">John Barbour</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/talkshow/john-barbours-world" rel="tag" title="John Barbours World">Read more<span class="element-invisible"> about John Barbours World</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div><div class="field field-name-field-highlight-broadcasting-dat field-type-datetime field-label-inline clearfix"><div class="field-label">Broadcasting Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single">Monday, March 19, 2018 05:00 pm</span></div></div></div><div class="field field-name-field-highlight-guest field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-62621" class="node node-show-guest-headliners view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/guestson/guest-daniel-sheehan">Guest, Daniel Sheehan</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-past-guest-name field-type-text field-label-inline clearfix"><div class="field-label">Guest Name:&nbsp;</div><div class="field-items"><div class="field-item even">Daniel Sheehan</div></div></div><div class="field field-name-field-past-guest-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.lakotalaw.org" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-pics-6-24-17/daniel-sheehan.jpg" width="400" height="400" alt="Daniel Sheehan" title="Daniel Sheehan" /></a></div></div></div><div class="field field-name-field-past-guest-website field-type-link-field field-label-inline clearfix"><div class="field-label">Guest Website:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://www.lakotalaw.org" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link">https://www.lakotalaw.org</a></div></div></div><div class="field field-name-field-past-guest-category field-type-taxonomy-term-reference field-label-above"><div class="field-label">Guest Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/show-broadcast-categories/earth-space">Earth &amp; Space</a></div><div class="field-item odd"><a href="/show-broadcast-categories/education">Education</a></div><div class="field-item even"><a href="/show-broadcast-categories/history">History</a></div><div class="field-item odd"><a href="/show-broadcast-categories/news">News</a></div><div class="field-item even"><a href="/show-broadcast-categories/politics-government">Politics &amp; Government</a></div><div class="field-item odd"><a href="/show-broadcast-categories/society-and-culture">Society and Culture</a></div></div></div><div class="field field-name-field-past-guest-occupation field-type-text field-label-inline clearfix"><div class="field-label">Guest Occupation:&nbsp;</div><div class="field-items"><div class="field-item even">Lawyer/Activist</div></div></div><div class="field field-name-field-past-guest-biography field-type-text-long field-label-above"><div class="field-label">Guest Biography:&nbsp;</div><div class="field-items"><div class="field-item even"> <h3 class="-hide -show@medium">Daniel Sheehan, Esq.</h3>
+<div class="Modal-text">
+<p>A Harvard-trained attorney, Daniel has participated in some of the most important public interest cases of the last 40 years. His lawsuits have involved the Watergate and Iran-Contra Scandals, the Pentagon Papers, and the killing of Karen Silkwood. In 1973-74, he served as amicus counsel to the American Civil Liberties Union in regards to the occupation of Wounded Knee. In 1980, he co-founded the Christic Institute, a nonprofit public interest law center that—among many others cases—prosecuted members of the Ku Klux Klan in Greensboro, North Carolina, and represented victims of the Three Mile Island disaster in Pennsylvania. In his work with LPLP, Daniel has been a principal attorney in drafting the legal strategy for the federal Justice Department’s lawsuit against the State of South Dakota for its violations of the Indian Child Welfare Act . Having been present at the Standing Rock resistance camps, he is familiar with principal parties in the opposition to the Dakota Access pipeline and has asked to be defense counsel for several water protectors facing severe charges—including Chase Iron Eyes and Holy Elk. He is one of the small number of attorneys to be invited to join  the Mni Wiconi Legal Defense and Offense Committee, along with Bruce Ellison.</p>
+<p>LAKOTA PEOPLE'S LAW PROJECT</p>
+</div>
+<div class="Section-body Section-body--twocol">
+<p>In 2004, a group of grandmothers in Lakota country—an area comprised of nine Indian reservations in North and South Dakota—asked us to investigate and help them prevent South Dakota's Department of Social Services from removing their grandchildren from their families. The investigation uncovered that drugging and routine patterns of physical and mental abuse of Native children in foster care were leading to high levels of youth suicide. These atrocities are in direct violation of the Indian Child Welfare Act (ICWA), a federal law put into place in 1978. In response, we formed The Lakota People’s Law Project (LPLP) to help put a stop to the cycles of injustice leading to the slow genocide of the Lakota.</p>
+<p>Our first program, the ongoing Lakota Child Rescue Project, launched in 2005 to address the actions we discovered, and to assist in the return of Lakota children to their families, tribes, and communities. This mission has expanded to include the creation of a tribal foster care program funded with direct Title IV-E funds from the federal government, bypassing the state of South Dakota. </p>
+<p>It was natural for us to expand our mission when the Dakota Access pipeline (DAPL) threatened the Lakota’s sacred lands and water. The injustices perpetrated against the Lakota during the peaceful and prayerful resistance to DAPL further demonstrate the government’s blatant pattern of contempt and disregard for the Lakota and their sovereignty.</p>
+<p>LPLP engages in ongoing efforts to reclaim ancestral lands, and to stop all threats to Lakota land and resources. We believe that Native peoples possess inherent sovereignty and the right to autonomous rule and self-determination. The Lakota flourished for centuries before Europeans arrived on these lands, and their tradition of living in relation to all things is more important today than ever before. We are committed to working with the Lakota toward the revitalization of their people and culture. Learn more about our campaigns and discover how you can get involved!</p>
+</div>
+ </div></div></div><div class="field field-name-field-past-book-cover field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-book-pics-6-24-17/danielsheehanlogo.jpeg" width="400" height="128" alt="" /></div></div></div>  </div>
+
+  <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment/reply/62621%23comment-form">Log in</a> or <a href="/user/register?destination=comment/reply/62621%23comment-form">register</a> to post comments</span></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/highlight/featured-guest-daniel-sheehan-march-19-2018" rel="tag" title="Featured, Guest, Daniel Sheehan March 19, 2018">Read more<span class="element-invisible"> about Featured, Guest, Daniel Sheehan March 19, 2018</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <div id="node-63369" class="node node-highlight-upcoming-guest node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/highlight/featured-guest-mark-susnow-march-19-2018">Featured, Guest, Mark Susnow March 19, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-highlight-talk-show field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-2518" class="node node-talk-show-include node-promoted node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/talkshow/angel-answers">Angel Answers</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-include-banner field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/angelanswers"><img src="https://bbsradio.com/sites/default/files/bbsradiotalkshows/banners-3-22-16/angel-answers-banner-new.jpg" width="567" height="187" alt="Angel Answers with Amy Toy" title="Angel Answers with Amy Toy " /></a></div></div></div><div class="field field-name-field-include-show-page field-type-link-field field-label-inline clearfix"><div class="field-label">Talk Show:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/angelanswers">Angel Answers</a></div></div></div><div class="field field-name-field-include-host-name field-type-user-reference field-label-inline clearfix"><div class="field-label">Show Host:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/users/amy-toy">Amy Toy</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/talkshow/angel-answers" rel="tag" title="Angel Answers">Read more<span class="element-invisible"> about Angel Answers</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div><div class="field field-name-field-highlight-broadcasting-dat field-type-datetime field-label-inline clearfix"><div class="field-label">Broadcasting Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single">Monday, March 19, 2018 11:00 pm</span></div></div></div><div class="field field-name-field-highlight-guest field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-54357" class="node node-show-guest-headliners view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/guestson/guest-mark-susnow">Guest, Mark Susnow</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-past-guest-name field-type-text field-label-inline clearfix"><div class="field-label">Guest Name:&nbsp;</div><div class="field-items"><div class="field-item even">Mark Susnow</div></div></div><div class="field field-name-field-past-guest-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.inspirepossibility.com/" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-pics-3-22-16/mark-susnow.jpg" width="327" height="388" alt="Mark Susnow" title="Mark Susnow" /></a></div></div></div><div class="field field-name-field-past-guest-website field-type-link-field field-label-inline clearfix"><div class="field-label">Guest Website:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="http://www.inspirepossibility.com/" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link">http://www.inspirepossibility.com/</a></div></div></div><div class="field field-name-field-past-guest-category field-type-taxonomy-term-reference field-label-above"><div class="field-label">Guest Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/show-broadcast-categories/literature">Literature</a></div><div class="field-item odd"><a href="/show-broadcast-categories/health-lifestyle">Health &amp; Lifestyle</a></div><div class="field-item even"><a href="/show-broadcast-categories/philosophy">Philosophy</a></div><div class="field-item odd"><a href="/show-broadcast-categories/psychology">Psychology</a></div><div class="field-item even"><a href="/show-broadcast-categories/mental-health">Mental Health</a></div><div class="field-item odd"><a href="/show-broadcast-categories/personal-development">Personal Development</a></div><div class="field-item even"><a href="/show-broadcast-categories/self-help">Self Help</a></div><div class="field-item odd"><a href="/show-broadcast-categories/motivational">Motivational</a></div><div class="field-item even"><a href="/show-broadcast-categories/access-consciousness">Access Consciousness</a></div></div></div><div class="field field-name-field-past-guest-occupation field-type-text field-label-inline clearfix"><div class="field-label">Guest Occupation:&nbsp;</div><div class="field-items"><div class="field-item even">Thought leader, wisdom teacher, author and life coach</div></div></div><div class="field field-name-field-past-guest-biography field-type-text-long field-label-above"><div class="field-label">Guest Biography:&nbsp;</div><div class="field-items"><div class="field-item even"> <p>Mark Susnow, JD, knows change. He is a recognized thought leader, wisdom teacher, author and life coach, who inspires others to believe in themselves and to envision possibilities, not yet considered. He is passionate about life being an exciting journey of discovery. His enthusiastic and inspiring talks on change, leadership and connection thoroughly convey this message. A former trial attorney and musician for 25 years, he integrates what it takes to be successful in the world with the inner wisdom unfolded to him through years of yoga and meditation. In his former career he was covered by The New York Times, Rolling Stone Magazine, Boston Globe and The San Francisco Chronicle.</p>
+<p>He is the author of Dancing on the River: Navigating Life’s Changes and the soon to be released the Soul of Possibility which is considered to be a fable for our times….and he is the host of the Inspire Possibility Show.</p>
+ </div></div></div>  </div>
+
+  <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment/reply/54357%23comment-form">Log in</a> or <a href="/user/register?destination=comment/reply/54357%23comment-form">register</a> to post comments</span></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/highlight/featured-guest-mark-susnow-march-19-2018" rel="tag" title="Featured, Guest, Mark Susnow March 19, 2018">Read more<span class="element-invisible"> about Featured, Guest, Mark Susnow March 19, 2018</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+  </div>
+  <div class="views-row views-row-5 views-row-odd views-row-last">
+    <div id="node-63321" class="node node-highlight-upcoming-guest node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/highlight/featured-guest-dr-robert-puff-march-21-2018">Featured, Guest, Dr Robert Puff  March 21, 2018</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-highlight-talk-show field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-18153" class="node node-talk-show-include node-teaser clearfix">
+
+  
+        <h2 class="node-title"><a href="/talkshow/happiness-hangout">Happiness Hangout</a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-include-banner field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/happinesshangout"><img src="https://bbsradio.com/sites/default/files/bbsradiotalkshows/banners-2-05-17/happiness-hangout-c.jpg" width="568" height="212" alt="Happiness Hangout with Lori Peters" title="Happiness Hangout with Lori Peters" /></a></div></div></div><div class="field field-name-field-include-show-page field-type-link-field field-label-inline clearfix"><div class="field-label">Talk Show:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://bbsradio.com/happinesshangout">Happiness Hangout</a></div></div></div><div class="field field-name-field-include-host-name field-type-user-reference field-label-inline clearfix"><div class="field-label">Show Host:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/users/lori-peters">Lori Peters</a></div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/talkshow/happiness-hangout" rel="tag" title="Happiness Hangout">Read more<span class="element-invisible"> about Happiness Hangout</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div><div class="field field-name-field-highlight-broadcasting-dat field-type-datetime field-label-inline clearfix"><div class="field-label">Broadcasting Date:&nbsp;</div><div class="field-items"><div class="field-item even"><span class="date-display-single">Wednesday, March 21, 2018 05:00 pm</span></div></div></div><div class="field field-name-field-highlight-guest field-type-node-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="node-62454" class="node node-show-guest-headliners view-mode-full clearfix">
+
+  
+        <h2 class="node-title"><a href="/guestson/guest-dr-robert-puff">Guest, Dr Robert Puff </a></h2>
+    
+  
+  
+  <div class="content">
+    <div class="field field-name-field-past-guest-name field-type-text field-label-inline clearfix"><div class="field-label">Guest Name:&nbsp;</div><div class="field-items"><div class="field-item even">Dr Robert Puff </div></div></div><div class="field field-name-field-past-guest-picture field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.happinesspodcast.org" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link"><img src="https://bbsradio.com/sites/default/files/pastshowheadliners/guest-pics-6-24-17/robert-puff.jpg" width="400" height="400" alt="Pic" title="Pic" /></a></div></div></div><div class="field field-name-field-past-guest-website field-type-link-field field-label-inline clearfix"><div class="field-label">Guest Website:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="http://www.happinesspodcast.org" target="_blank" rel="nofollow" title="Featured Talk Show Guest Main Website Link">http://www.happinesspodcast.org</a></div></div></div><div class="field field-name-field-past-guest-category field-type-taxonomy-term-reference field-label-above"><div class="field-label">Guest Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="/show-broadcast-categories/entertainment">Entertainment</a></div><div class="field-item odd"><a href="/show-broadcast-categories/personal-development">Personal Development</a></div><div class="field-item even"><a href="/show-broadcast-categories/inspirational">Inspirational</a></div><div class="field-item odd"><a href="/show-broadcast-categories/motivational">Motivational</a></div></div></div><div class="field field-name-field-past-guest-occupation field-type-text field-label-inline clearfix"><div class="field-label">Guest Occupation:&nbsp;</div><div class="field-items"><div class="field-item even">Clinical Psychologist</div></div></div><div class="field field-name-field-past-guest-biography field-type-text-long field-label-above"><div class="field-label">Guest Biography:&nbsp;</div><div class="field-items"><div class="field-item even"> <p>Dr. Robert Puff is an internationally recognized clinical psychologist, professional speaker to business and organizations and host of the Happiness Podcast. He has authored 13 books on a variety of topics, including relationships, anger management, holistic success and happiness.  He is regularly sought by the media for his expertise on a variety of healthy living issues and has been quoted in the media over 1000 times. The Happiness Podcast, which has been downloaded over 4 million times since its inception, focuses on ways for all of us to find happiness. For years, Dr. Puff has been a regular blogger for Psychology Today.  </p>
+ </div></div></div>  </div>
+
+  <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment/reply/62454%23comment-form">Log in</a> or <a href="/user/register?destination=comment/reply/62454%23comment-form">register</a> to post comments</span></li>
+</ul>
+  
+</div><!-- /.node -->
+</div></div></div>  </div>
+
+  <ul class="links inline"><li class="node-readmore first last"><a href="/highlight/featured-guest-dr-robert-puff-march-21-2018" rel="tag" title="Featured, Guest, Dr Robert Puff  March 21, 2018">Read more<span class="element-invisible"> about Featured, Guest, Dr Robert Puff  March 21, 2018</span></a></li>
+</ul>
+  
+</div><!-- /.node -->
+  </div>
+    </div>
+  
+      <h2 class="element-invisible">Pages</h2><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a title="Go to page 2" href="/home-page?page=1">2</a></li>
+<li class="pager-next"><a title="Go to next page" href="/home-page?page=1">next ›</a></li>
+<li class="pager-last last"><a title="Go to last page" href="/home-page?page=1">last »</a></li>
+</ul></div>  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+                      </div></div><!-- /.section, /#content -->
+
+    
+      <div class="region region-sidebar-second column sidebar"><div class="section">
+    <div id="block-block-4" class="block block-block first odd">
+
+      
+  <div class="content">
+     <div class="right-advertisements" align="CENTER">
+<form action="https://www.bbstalkradio.com/cgi-bin/dada/mail.cgi" alt="Sign up for the BBS Radio Newsletter" method="get" title="Sign up for the BBS Radio Newsletter" class="rtecenter"><img alt="BBS Radio Social Networks" height="51" src="https://bbsradio.com/sites/default/files/images_on_site/social_networking.png" title="BBS Radio Social Networks" usemap="#SOCIAL" width="145" /><map name="SOCIAL" id="SOCIAL"><area alt="BBS Radio Linkedin Link" coords="124,27,139,42" href="https://www.linkedin.com/company/1285358" shape="rect" target="_blank" title="BBS Radio Linkedin Link" /> <area alt="BBS Radio Facebook Link" coords="9,7,38,36" href="https://www.facebook.com/BBSRadio" shape="rect" target="_blank" title="BBS Radio Facebook Link" /> <area alt="BBS Radio's RSS Feed of all New BBS Talk Radio Network Show Episodes" coords="92,20,114,42" href="https://bbsradio.com/bbs-radio-talk-show-feeds.xml" shape="rect" target="_blank" title="BBS Radio's RSS Feed of all New BBS Talk Radio Network Show Episodes" /> <area alt="BBS Radio Twitter Link" coords="55,10,80,35" href="https://twitter.com/bbsradio" shape="rect" target="_blank" title="BBS Radio Twitter Link" /></map><br /><font color="#FFFFFF" face="Georgia, Times New Roman, Times, serif" size="2"><strong><i><font color="#6666FF">BBS</font> Radio®<br /><a alt="Information on the BBS Radio Newsletter" href="https://bbsradio.com/newsletter" title="Information on the BBS Radio Newsletter">Newsletter</a></i></strong><br /><font color="#C0C0C0" face="Verdana, Arial, Helvetica, sans-serif" size="1">enter email &amp; submit</font></font><br /><input name="f" type="hidden" value="subscribe" /> <input name="email" onfocus="this.value='';" size="14" type="text" value="email address" /> <input name="list" type="hidden" value="newlist" /> <input type="submit" value="Submit" /></form>
+</div>   </div>
+
+</div><!-- /.block -->
+<div id="block-clock-clock" class="block block-clock even">
+
+      
+  <div class="content">
+    <div class="clock">12:20:34 AM (Sun) PDT</div>  </div>
+
+</div><!-- /.block -->
+<div id="block-block-33" class="block block-block odd">
+
+      
+  <div class="content">
+     <div class="right-advertisements">
+<p class="rtecenter"><strong>Customer Service Only</strong><br />
+888-710-8061 US/Canada<br />
+323-744-4828 Direct<br />
+10am to 10pm pacific time</p>
+</div>   </div>
+
+</div><!-- /.block -->
+<div id="block-user-login" class="block block-user even">
+
+        <h2 class="block-title">User login</h2>
+    
+  <div class="content">
+    <form action="/home-page?destination=home-page" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-5Gm8d4TarVP4RkzMEIvlmz5D8nfKlmZ_e7runwP3_2Q" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form>  </div>
+
+</div><!-- /.block -->
+<div id="block-block-38" class="block block-block odd">
+
+      
+  <div class="content">
+     <div class="right-advertisements">
+<div align="center"><font color="#f05EFA"><strong>STATION 1</strong></font><br />
+<a href="https://bbsradio.com/bbs_player/bbs_fplayer_jp.php" title="Tune into Talk Radio and listen to the broadcasts on our Flash Player"><img alt="BBS Radio Flash Player icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/flash_v2-48x58.png" title="BBS Radio Flash Player icon" width="48" /></a> <a class="BBSRadiostations" href="https://bbsradio.com/html5_player/html5_player.htm" title="BBS Radio Station #1 HTML5 Native Audio Player at 64K"><img alt="BBS Radio Native HTML5 Audio Player icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/html5_player-48x58.png" title="BBS Radio Native HTML5 Audio Player icon" width="48" /></a> <a href="http://162.241.241.125:2199/start/bbsradio" title="BBS Radio Station #1 Regular Audio Players at 128K, for iTunes, VLC, Real One, Microsoft, and Quicktime"><img alt="BBS Radio Regular Audio Players icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/flash_alternative3-48x58.png" title="BBS Radio Regular Audio Players icon" width="48" /></a><br />
+<font color="#BBBBBB" size="1">select for <a href="https://bbsradio.com/players" title="More Listener Options, and options for stream relaying, or syndication">more listener options</a> </font></p>
+<p><font color="#f05EFA"><strong>STATION 2</strong></font><br />
+<a href="https://bbsradio.com/bbs_player/bbs_fplayer_jp.php" title="Tune into Talk Radio and listen to the broadcasts on our Flash Player"><img alt="BBS Radio Flash Player icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/flash_v2-48x58.png" title="BBS Radio Flash Player icon" width="48" /></a> <a class="BBSRadiostations" href="https://bbsradio.com/html5_player/html5_player2.htm" title="BBS Radio Station #2 HTML5 Native Audio Player at 64K"><img alt="BBS Radio Native HTML5 Audio Player icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/html5_player-48x58.png" title="BBS Radio Native HTML5 Audio Player icon" width="48" /></a> <a href="http://162.241.241.125:2199/start/bbsradio2" title="BBS Radio Station #2 Regular Audio Players at 128K, for iTunes, VLC, Real One, Microsoft, and Quicktime"><img alt="BBS Radio Regular Audio Players icon" height="58" src="https://bbsradio.com/sites/default/files/resize/images_on_site/player_icons/flash_alternative3-48x58.png" title="BBS Radio Regular Audio Players icon" width="48" /></a><br />
+<font color="#BBBBBB" size="1">select for <a href="https://bbsradio.com/players" title="More Listener Options, and options for stream relaying, or syndication">more listener options</a> </font></p>
+<p><font color="#f05EFA">LISTEN BY PHONE</font><br />
+<font color="#FF0080">STATION 1</font><br />
+<font color="#485068" size="+1">701-719-4207 </font><br />
+<font color="#485068">712-775-4842</font> <span style="color:#8080FF;">Press 1</span><br />
+<font color="#FF0080">STATION 2</font><br />
+<font color="#485068" size="+1">701-719-3600 </font><br />
+<font color="#485068">712-775-4842</font> <span style="color:#8080FF;">Press 2</span></p>
+<p><font color="#f05EFA">CALL TO INTERACT</font><br />
+<font color="#8080FF"><font color="#FF0080">STATION 1</font><br />
+<font color="#485068" size="+1">888-627-6008</font><br />
+Direct 323-744-4831<br />
+<font color="#777777">Skype 530-636-6080</font><br />
+<font color="#FF0080">STATION 2</font><br />
+<font color="#485068" size="+1">888-429-5471</font><br />
+Direct 323-744-4841</font></div>
+</div>
+   </div>
+
+</div><!-- /.block -->
+<div id="block-block-35" class="block block-block even">
+
+      
+  <div class="content">
+     <div class="right-advertisements">
+<p class="rtecenter"><a href="https://bbsradio.com/newsroom" title="The Newsroom, where all the News comes together!"><img alt="The Newsroom, where all the News comes together!" src="https://bbsradio.com/sites/default/files/images_on_site/bbs_banners/the_newsroom.png" title="The Newsroom, where all the News comes together!" width="179" height="54" /></a></p>
+<p class="rtecenter"><a href="https://play.google.com/store/apps/details?id=com.bbs.radioapp&amp;hl=en" title="Download for free the BBS Radio Android phone Application"><img alt="Download the BBS Radio Android Phone App from the Google Play Android Market" src="https://bbsradio.com/sites/default/files/images_on_site/andoid-app-bbs.png" title="Download the BBS Radio Android Phone App from the Google Play Android Market" width="180" height="62" /></a></p>
+<p class="rtecenter"><a href="https://itunes.apple.com/us/app/bbs-radio/id864799909" title="Download for free the BBS Radio iPhone and Ipad Application"><img alt="Download the BBS Radio iPhone and iPad App from the iTunes Apple App Store" src="https://bbsradio.com/sites/default/files/images_on_site/apple-app-bbs.png" title="Download the BBS Radio iPhone and iPad App from the iTunes Apple App Store" width="180" height="62" /></a></p>
+</div>
+   </div>
+
+</div><!-- /.block -->
+<div id="block-block-30" class="block block-block odd">
+
+      
+  <div class="content">
+     <div class="right-advertisements">
+<p class="rtecenter"><a href="https://bbsradio.com/affiliate-partners" title="Many of BBS Radio's Affiliate Broadcasters and Partners"><img alt="Many of BBS Radio&#039;s Affiliate Broadcasters and Partners" src="https://bbsradio.com/sites/default/files/affiliate_partners/2018_affiliate_partners.png" title="Many of BBS Radio&#039;s Affiliate Broadcasters and Partners" width="180" height="120" /></a></p>
+</div>
+   </div>
+
+</div><!-- /.block -->
+<div id="block-block-8" class="block block-block last even">
+
+      
+  <div class="content">
+     <div class="right-advertisements">
+<p class="rtecenter"><a href="https://bbsradio.com/host-your-own-talk-show" title="Join our line-up of the Distinguished Talk Radio Personalities!"><img alt="Join our line-up of the Distinguished Talk Radio Personalities!" src="https://bbsradio.com/sites/default/files/images_on_site/banner_120-x-240.jpg" title="Join our line-up of the Distinguished Talk Radio Personalities!" width="120" height="240" /></a></p>
+<p class="rtecenter"><a href="https://bbsradio.com/strange.php" title="strange pictures, interesting photos, unusual images of aliens, ufos, sun, moon, mars, crop circles, maps, templar stone and torture"><img alt="strange pictures, interesting photos, unusual images of aliens, ufos, sun, moon, mars, crop circles, maps, templar stone and torture" src="https://bbsradio.com/sites/default/files/images_on_site/strange_pictures2.png" title="strange pictures, interesting photos, unusual images of aliens, ufos, sun, moon, mars, crop circles, maps, templar stone and torture" width="174" height="44" /></a></p>
+<p class="rtecenter"><a href="https://www.positivessl.com" style="font-family:arial;font-size:10px;color:rgb(33,33,33);text-decoration:none;"><img alt="SSL Certificate" src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" title="SSL Certificate" /></a></p>
+<div class="rtecenter" style="font-family:arial;font-weight:bold;font-size:15px;color:#86BEE0;"><a href="https://www.positivessl.com" style="color:#86BEE0;text-decoration:none;">SSL Certificate</a></div>
+</div>
+<p> </p>
+   </div>
+
+</div><!-- /.block -->
+  </div></div><!-- /.section, /.region -->
+
+  </div></div><!-- /#main, /#main-wrapper -->
+
+    <div class="region region-footer">
+    <div id="block-block-1" class="block block-block first last odd">
+
+      
+  <div class="content">
+     <div align="center"><a href="https://bbsradio.com/host-your-own-talk-show" alt="Host Your Own Talk Show on BBS Radio" title="Host Your Own Talk Show on BBS Radio"><img class="org_footer_banner" alt="Host Your Own Talk Show on BBS Radio" src="https://bbsradio.com/sites/default/files/images_on_site/header/BBS_banner4_1024-x-90.jpg" title="Host Your Own Talk Show on BBS Radio" width="1024" height="90" /><img class="resp_footer_banner" alt="Host Your Own Talk Show on BBS Radio" src="https://bbsradio.com/sites/default/files/images_on_site/header/footer-banner-2.png" title="Host Your Own Talk Show on BBS Radio" width="320" height="113" /></a><br /> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">©2005-2018 <a href="https://bbsradio.com/" title="If it's not mainstream, it's on BBS Radio." alt="If it's not mainstream, it's on BBS Radio.">BBS Radio</a><a href="http://tsdr.uspto.gov/#caseNumber=86426620&amp;caseType=SERIAL_NO&amp;searchType=statusSearch" title="BBS Radio is a registered trademark of BBS Network, Inc.">®</a> | <a href="https://www.bbstalkradio.com/" title="BBS Talk Radio - BBSTalkRadio.com - Start Your Own Radio Program">BBS Talk Radio</a>™ | BBS<a href="http://tsdr.uspto.gov/#caseNumber=87258215&amp;caseType=SERIAL_NO&amp;searchType=statusSearch" title="BBS is a registered trademark of BBS Network, Inc.">®</a> ALL RIGHTS RESERVED - If it's not mainstream, it's on BBS Radio®. <em>We do talk radio right!</em><br /></font><br /></div>   </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+
+</div></div><!-- /#page, /#page-wrapper -->
+
+  </body>
+</html>

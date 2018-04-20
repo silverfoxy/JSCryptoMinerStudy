@@ -1,0 +1,1 @@
+<a href="https://www.bladehq.com/">Moved Permanently</a>.

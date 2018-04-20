@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="/splash">/splash</a></p>

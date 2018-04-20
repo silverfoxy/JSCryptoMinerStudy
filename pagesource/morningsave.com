@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://morningsave.com/">https://morningsave.com/</a></p>

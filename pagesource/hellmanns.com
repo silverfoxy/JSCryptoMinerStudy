@@ -1,0 +1,1 @@
+<h1>Redirecting To <a href="http://www.hellmanns.com/">hellmanns.com</a> </h1>

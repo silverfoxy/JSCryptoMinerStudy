@@ -1,0 +1,929 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="de"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie10 lt-ie9 lt-ie8" lang="de"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie10 lt-ie9" lang="de"> <![endif]-->
+<!--[if IE 9]> <html class="lt-ie10" lang="de"> <![endif]-->
+<!--[if !IE]> <html lang="de"><![endif]-->
+<head>
+  <title>scook - die Plattform für Lehrer und ihre Schüler</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+<meta name="robots" content="index,follow"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="/blueprint/js/jquery-1.10.2.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker"></script>
+<script type="text/javascript" src="/blueprint/js/scook/packery.pkgd.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker"></script>
+
+<script type="text/javascript">
+  var ScookWebappContext = {
+    site: "scook",
+    baseUri: "/blueprint/servlet",
+    contextPath: "/blueprint"
+  };
+</script>
+
+<script type="text/javascript">
+    (function(document,navigator,standalone) {
+        // prevents links from apps from oppening in mobile safari
+        // this javascript must be the first script in your <head>
+        if ((standalone in navigator) && navigator[standalone]) {
+            var curnode, location=document.location, stop=/^(a|html)$/i;
+            document.addEventListener('click', function(e) {
+                curnode=e.target;
+                while (!(stop).test(curnode.nodeName)) {
+                    curnode=curnode.parentNode;
+                }
+                // Condidions to do this only on links to your own app
+                // if you want all links, use if('href' in curnode) instead.
+                if(
+                        'href' in curnode && // is a link
+                                (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+                                (	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+                                        chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+                        ) {
+                    e.preventDefault();
+                    location.href = curnode.href;
+                }
+            },false);
+        }
+    })(document,window.navigator,'standalone');
+
+    if (!Array.prototype.find) {
+      Array.prototype.find = function(predicate) {
+        'use strict';
+        if (this == null) {
+          throw new TypeError('Array.prototype.find called on null or undefined');
+        }
+        if (typeof predicate !== 'function') {
+          throw new TypeError('predicate must be a function');
+        }
+        var list = Object(this);
+        var length = list.length >>> 0;
+        var thisArg = arguments[1];
+        var value;
+
+        for (var i = 0; i < length; i++) {
+          value = list[i];
+          if (predicate.call(thisArg, value, i, list)) {
+            return value;
+          }
+        }
+        return undefined;
+      };
+    }
+</script>
+<meta name="keywords" content="Schulbuch online,digitales Schulbuch,Schulbuch als E-Book,Schulbuch digital,Schulbuch als App,Schulbuch online nutzen,digitales Bücherregal,digital lehren,digitales Materialangebot,Material passend zum Schulbuch,Unterricht online vorbereiten,Unterrichtsvorbereitung online,Unterricht digital vorbereiten"/>
+<meta name="description" content="scook ist eine Plattform für Lehrer und ihre Schüler. Die Plattform stellt Schulbücher und Lehrinhalte bereit und bietet Funktionen zur Vernetzung." />
+<link rel="shortcut icon" type="image/x-icon" href="/blob/322/ffb5a77b1a5ae32eec2c1bd51f1711ec/scook-home-favicon.ico"/>
+<meta  name="pbe" content="css" />
+<link rel="stylesheet" type="text/css" href="/resources/322/0/-2106781197/scook.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/yui/3.14.0/yui/yui-min.js"></script>
+  <script type="text/javascript" src="//cdn.optimizely.com/js/4249010236.js"></script>
+  <script type="text/javascript" src="/resources/322/0/-1298829434/scook.js"></script>
+<script type="text/javascript">
+      var econdaSiteId = "www.scook.de";
+    </script>
+  <script type="text/javascript">
+      if (/*@cc_on!@*/false) {
+          document.documentElement.className += ' lt-ie10';
+      }
+  </script>
+  <script type="text/javascript">
+
+      var ScookUser = {
+          rolle: "",
+          anonymous: true,
+          authenticated: false,
+          accessToken: undefined,
+          refreshToken: undefined
+      };
+
+  </script>
+
+</head>
+
+
+<body class="loggedOut page-startseite BODY-CSS-FROM-HOME">
+<noscript>
+  <div class="box-requirements box-nojs">
+    <div class="content">
+      <h1>Ihr Javascript ist deaktiviert.</h1>
+      <p>scook ist eine moderne Internet-Anwendung mit vielen Funktionen für Schüler und Lehrer. Aber dafür benötigen wir leider Javascript!</p>
+      <p>Bitte passen Sie Ihre Browser-Einstellungen an.</p>
+      <p><a href="http://enable-javascript.com/de/">Hier erfahren Sie, wie das geht.</a>
+      </p>
+    </div>
+  </div><!-- /.box-nojs -->
+</noscript>
+
+<div class="box-requirements box-legacybrowser" style="display: none;">
+  <div class="content">
+    <h1>Ihr Browser ist zu alt. Bitte aktualisieren Sie ihn und rufen scook erneut auf.</h1>
+    <p>scook ist eine moderne Internet-Anwendung mit vielen Funktionen für Schüler und Lehrer. Aber dafür benötigen wir einen modernen Web-Browser. Wir unterstützen alle aktuellen Versionen von Firefox, Chrome, Safari und Internet Explorer.</p>
+    <p><a href="http://windows.microsoft.com/de-de/internet-explorer/download-ie">Hier finden Sie die aktuelle Version vom Internet Explorer.</a></p>
+    <p><a href="http://www.whatbrowser.org/intl/de/">Hier finden Sie Alternativen</a></p>
+  </div>
+</div><!-- /.box-legacybrowser -->
+
+<div class="page_margins" id="top">
+  <div id="page-header">
+  <div id="header_content">
+    <div class="header-wrapper">
+      <div class="logoBox">
+          <a href="/scook/home"></a>
+      </div>
+      <div class="head-spacer"></div>
+      <div class="claim">
+        <h1>
+                  </h1>
+              <h1>
+              Die Plattform für Lehrer und Schüler</h1>
+          </div>
+      <div class="help-label">
+            <a href="/scook/faq">Hilfe</a>
+            </div>
+      <div class="content-box">
+    <script type="text/javascript">
+        function resendActivationMailForm(ctrl, e) {
+            e.preventDefault();
+
+            var $loginBox = $('#page-header').find('.header-wrapper .content-box .loginBox .flyout-content');
+            var $resendActivationButton = $(ctrl);
+            var $errorBox = $loginBox.find('.error-content');
+            var successText = 'Vielen Dank, Sie haben einen neuen Aktivierungscode angefordert. Diesen erhalten Sie in Kürze per E-Mail. Der Vorgang kann einige Minuten dauern. Bitte überprüfen Sie Ihr Postfach und klicken auf den Link in der Nachricht.';
+
+            if ($resendActivationButton.hasClass('disabled')) {
+                return;
+            }
+
+            $resendActivationButton.addClass('disabled');
+            $errorBox.fadeOut('slow');
+
+            var ajaxOptions = {
+                url: '/action/scook/148/action/actionLogin',
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                data: {
+                    mail: $('input#mail').val(),
+                    password: $('input#password').val(),
+                    resendActivationMail: true
+                }
+            };
+
+            $.ajax(ajaxOptions).success(function (data) {
+                // show info box
+                $errorBox.text(successText).removeAttr('class').removeAttr('id').addClass('info-content').fadeIn('slow');
+            });
+        }
+
+        function clearStorage() {
+          if(window.sessionStorage) {
+            window.sessionStorage.clear();
+          }
+        }
+    </script>
+
+<div class="loginBox form js-touchlistener">
+  <div class="content">
+    <ul class="flyout-wrapper">
+      <li class="first"><span class="login-label">Login</span></li>
+      <li class="flyout-content">
+        <form id="loginForm" class="ajax" action="/action/scook/148/action/actionLogin" method="post"><div class="form-line">
+        <div class="form-element">
+            <label for="mail">E-Mail-Adresse:</label>
+            <input id="mail" name="mail" type="email" value=""/></div>
+        <div class="error" data-path="mail">
+          </div>
+      </div>
+    <div class="form-line">
+        <div class="form-element">
+            <label for="password">Passwort:</label>
+            <input id="password" name="password" type="password" value=""/></div>
+        <div class="error" data-path="password">
+          </div>
+      </div>
+
+    <div class="form-line">
+        <style>
+            label[for="rememberMe"] {
+                margin-left: 10px;
+                vertical-align: text-bottom;
+            }
+        </style>
+
+        <div class="form-element form-link col col-6of12">
+            <a href="/scook/passwort-vergessen">Passwort vergessen?</a>
+        </div>
+        <div class="form-element col col-6of12 align--right">
+            <input id="rememberMe" name="rememberMe" title="Beim n&auml;chsten Besuch werden Sie automatisch angemeldet. Vorsicht bei gemeinsam genutzten Rechnern!" type="checkbox" value="true"/><input type="hidden" name="_rememberMe" value="on"/><label for="rememberMe" title="Beim nächsten Besuch werden Sie automatisch angemeldet. Vorsicht bei gemeinsam genutzten Rechnern!">Angemeldet bleiben</label>
+        </div>
+    </div>
+
+    <div class="form-line">
+        <style>
+            .btn-submit {
+                width: 154px;
+                padding-right: 0 !important;
+            }
+
+            .icon-block-before-chevronRight:before {
+                line-height: inherit !important;
+            }
+
+            .btn-spinner.is-spinning #send {
+                font-size: 0;
+                background-position: center center;
+                height: 31px; /* for IE */
+            }
+
+            .btn-spinner.is-spinning .icon-block-before-chevronRight:before {
+                display: none;
+            }
+        </style>
+        <div class="form-element align--right form-submit btn-spinner">
+            <button value="Anmelden" id="send" type="submit" onclick="clearStorage()" class="btn-submit btn-alternate icon-block-before-chevronRight">Anmelden</button>
+        </div>
+    </div>
+
+</form><section class="secondary">
+            <div><span>Neu bei scook?</span> <a style="color: #32a0e6; text-decoration: underline;" href="/scook/registrierung">Jetzt kostenlos registrieren!</a></div>
+          </section>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+<script type="text/javascript" src='/blueprint/libs/angular/angular.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/libs/angular-route/angular-route.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript"
+                src='/blueprint/libs/angular-sanitize/angular-sanitize.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript"
+                src='/blueprint/libs/angular-translate/angular-translate.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript"
+                src='/blueprint/libs/angular-animate/angular-animate.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/scook-common/scook-common.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/directives/directives.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/diagnosis/diagnosis.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/book-viewer/book-viewer.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript"
+                src='/blueprint/build/materialshelf/materialshelf.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/productshelf/productshelf.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+        <script type="text/javascript" src='/blueprint/build/dashboard/dashboard.min.js;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'></script>
+
+        <link rel="stylesheet" type="text/css"
+              href='/blueprint/build/directives/assets/styles/directives.min.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+        <link rel="stylesheet" type="text/css"
+              href='/blueprint/build/scook-common/assets/styles/scook-common.min.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+        <link rel="stylesheet" type="text/css"
+              href='/blueprint/build/diagnosis/assets/styles/diagnosis.min.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+        <link rel="stylesheet" type="text/css"
+              href='/blueprint/build/materialshelf/assets/styles/materialshelf.min.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+        <link rel="stylesheet" type="text/css"
+              href='/blueprint/build/productshelf/assets/styles/productshelf.min.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+        <link rel="stylesheet" type="text/css" href='/blueprint/libs/fontello/css/scook-icons.css;jsessionid=73A24DCD0F9D9C677EFAB427577F2382.deliveryWorker'>
+
+        <div class="page" ng-app="dashboard">
+            <div class="hero-wrapper">
+                <div class="hero-container">
+                  <div class="hero-content">
+                    <h1 class="hero-title">Besser lernen. Und lehren.</h1>
+                    <p class="hero-text">Ob Schulbuch, Unterrichtsmaterial oder interaktive Übungen
+                      – scook ist die digitale Lösung für alle, die den Unterricht zeitgemäß
+                      erleben möchten.</p>
+                    <a href="/scook/information" class="hero-link">MEHR ERFAHREN</a>
+                    <a href="/scook/registrierung" class="hero-action">JETZT KOSTENLOS
+                      REGISTRIEREN</a>
+                  </div>
+                </div>
+                <div class="hero-unlock-box">
+                  <span class="hero-unlock-box-text">Hier Code eingeben:</span>
+                  <div unlock-box class="hero-unlock-box-control"></div>
+                </div>
+              </div>
+            <input id="is-nonauthentificated-start" type="hidden" value=""/>
+<div class="page-centered">
+  <div id="page-main" >
+    <div id="row1" class="clearfix">
+        <div id="col1" class="main width100 unknown-width">
+              <div class="clearfix" id="col1_content">
+                <div notification-box class="notification-box"></div>
+<div class="gutter-spacer"></div>
+<div class="column-spacer"></div>
+<div class="">
+<div  class="SCwidgetBox box js-touchlistener widget-grey">
+
+    <div class="widgetTitle">
+
+  <a href="/action/scook/608/action/meinebuecher" >
+      <h3 >Bücher</h3>
+  </a>
+  </div>
+<div class="widgetContent " style="">
+        <div class="box-content">
+            <div  class=" unknown-width">
+    <a href="/action/scook/608/action/meinebuecher">
+      <figure class="cm-image uncropped ">
+    <div class="image-float-container">
+    <img  id=" "  src="/blob/65374/5747a5b339cfc9fa740867f4a35d0b51/allebuecherimage-data.jpg"  alt=" Drei Buchcover zeigen eine Auswahl der auf scook nutzbaren Schulbücher." />
+  </div>
+  </figure>
+</a>
+    </div>
+<div class="text">
+                <div><p>Die digitale Version des Schulbuchs.</p></div></div>
+        </div>
+    </div>
+
+    <div class="widgetFooter">
+                <a href="/action/scook/608/action/meinebuecher" class="more">Jetzt finden</a>
+            </div>
+        </div>
+<div  class="SCwidgetBox box js-touchlistener widget-grey">
+
+    <div class="widgetTitle">
+
+  <a href="/scook/medien-arbeitshefte" >
+      <h3 >Medien zum Arbeitsheft</h3>
+  </a>
+  </div>
+<div class="widgetContent " style="">
+        <div class="box-content">
+            <div  class=" unknown-width">
+    <a href="/scook/medien-arbeitshefte">
+      <figure class="cm-image uncropped ">
+    <div class="image-float-container">
+    <img  id=" "  src="/blob/445874/41451300574924cd49bc518c664cf3ff/teaserbild-medien-zu-arbeitsheften-data.png"  alt=" " />
+  </div>
+  </figure>
+</a>
+    </div>
+<div class="text">
+                <div><p>Jetzt ganz einfach Audios und Übungen zu deinem Arbeitsheft finden. Wir zeigen dir, wie es geht. </p></div></div>
+        </div>
+    </div>
+
+    <div class="widgetFooter">
+                <a href="/scook/medien-arbeitshefte" class="more">Mehr erfahren</a>
+            </div>
+        </div>
+<div  class="SCwidgetBox box  widget-weiterwissen widget-weiterwissen-dashboard unknown-width">
+    <div class="widgetTitle">
+
+  <a href="/widget/scook/weiterwissen" >
+      <span class="title-icon">&#58927;</span>
+  <h3 >Weiterwissen</h3>
+  </a>
+  </div>
+<div class="widgetContent gallery-content">
+    <div class="box-content gallery-wrap">
+      <div class="gallery">
+        <div id ="482806" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/482810/scook5x3/238/143/15a196accddfbcbcc8958d499061ea51/tU/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="240" data-src="/image/482810/scook5x3/240/144/15a196accddfbcbcc8958d499061ea51/cC/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="298" data-src="/image/482810/scook5x3/298/179/15a196accddfbcbcc8958d499061ea51/Rz/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="446" data-src="/image/482810/scook5x3/446/268/15a196accddfbcbcc8958d499061ea51/Dl/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="462" data-src="/image/482810/scook5x3/462/277/15a196accddfbcbcc8958d499061ea51/AP/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="469" data-src="/image/482810/scook5x3/469/281/15a196accddfbcbcc8958d499061ea51/Op/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="500" data-src="/image/482810/scook5x3/500/300/15a196accddfbcbcc8958d499061ea51/KT/welttag-des-kompliments.jpg"> </span>
+              <span data-max-width="720" data-src="/image/482810/scook5x3/720/432/15a196accddfbcbcc8958d499061ea51/mN/welttag-des-kompliments.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/482810/scook5x3/238/143/15a196accddfbcbcc8958d499061ea51/tU/welttag-des-kompliments.jpg"  alt=" Ein etwas verschämtes Mädchen, das sich leicht zur Seite dreht. " title=" Kleine Komplimente mit großen Wirkungen. " />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Unterrichtsideen">
+              Unterrichtsideen</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Unterrichtsideen/Deutsch">
+            Deutsch</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/unterrichtsideen/sachunterricht/482806" >
+                11 Impulse (nicht nur) zum Welttag des Kompliments</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="469966" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/475414/scook5x3/238/143/b11f1fbe25f2f90278233f91ea3edc25/Fg/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="240" data-src="/image/475414/scook5x3/240/144/b11f1fbe25f2f90278233f91ea3edc25/CG/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="298" data-src="/image/475414/scook5x3/298/179/b11f1fbe25f2f90278233f91ea3edc25/UD/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="446" data-src="/image/475414/scook5x3/446/268/b11f1fbe25f2f90278233f91ea3edc25/Jp/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="462" data-src="/image/475414/scook5x3/462/277/b11f1fbe25f2f90278233f91ea3edc25/qT/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="469" data-src="/image/475414/scook5x3/469/281/b11f1fbe25f2f90278233f91ea3edc25/Ut/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="500" data-src="/image/475414/scook5x3/500/300/b11f1fbe25f2f90278233f91ea3edc25/qv/digitale-tipps-7.jpg"> </span>
+              <span data-max-width="720" data-src="/image/475414/scook5x3/720/432/b11f1fbe25f2f90278233f91ea3edc25/up/digitale-tipps-7.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/475414/scook5x3/238/143/b11f1fbe25f2f90278233f91ea3edc25/Fg/digitale-tipps-7.jpg"  alt=" Ein Schüler sitzt im Unterricht, hält ein Reagenzglas in der Hand und bedient ein Tablet." title=" Durch kreatives, forschendes Lernen machen sich Schüler schon früh mit dem Handwerkszeug des wissenschaftlichen Arbeitens vertraut." />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber">
+              Ratgeber</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber/Medienkompetenz">
+            Medienkompetenz</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/ratgeber/medienkompetenz/469966" >
+                Gute Ideen für den Unterricht (7)</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="463316" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/463318/scook5x3/238/143/2cffa3c50a4976c0a711cd854e449797/cE/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="240" data-src="/image/463318/scook5x3/240/144/2cffa3c50a4976c0a711cd854e449797/Jq/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="298" data-src="/image/463318/scook5x3/298/179/2cffa3c50a4976c0a711cd854e449797/bX/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="446" data-src="/image/463318/scook5x3/446/268/2cffa3c50a4976c0a711cd854e449797/el/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="462" data-src="/image/463318/scook5x3/462/277/2cffa3c50a4976c0a711cd854e449797/mj/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="469" data-src="/image/463318/scook5x3/469/281/2cffa3c50a4976c0a711cd854e449797/rh/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="500" data-src="/image/463318/scook5x3/500/300/2cffa3c50a4976c0a711cd854e449797/xD/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <span data-max-width="720" data-src="/image/463318/scook5x3/720/432/2cffa3c50a4976c0a711cd854e449797/UB/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/463318/scook5x3/238/143/2cffa3c50a4976c0a711cd854e449797/cE/schueler-erstellen-erklaervideos--drei-praxistipps.jpg"  alt=" Eine Gruppe im Hintergrund (verschwommen) und eine Kamera, die filmt." title=" Kreativ, digital und medienorientiert: Erklärvideos." />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber">
+              Ratgeber</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber/Medienkompetenz">
+            Medienkompetenz</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/ratgeber/medienkompetenz/463316" >
+                Schüler erstellen Erklärvideos: Drei Praxistipps</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="466688" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/466694/scook5x3/238/143/aa0252db2323a9cc8e44173f507deb5/PK/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="240" data-src="/image/466694/scook5x3/240/144/aa0252db2323a9cc8e44173f507deb5/cQ/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="298" data-src="/image/466694/scook5x3/298/179/aa0252db2323a9cc8e44173f507deb5/oF/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="446" data-src="/image/466694/scook5x3/446/268/aa0252db2323a9cc8e44173f507deb5/uX/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="462" data-src="/image/466694/scook5x3/462/277/aa0252db2323a9cc8e44173f507deb5/gd/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="469" data-src="/image/466694/scook5x3/469/281/aa0252db2323a9cc8e44173f507deb5/iX/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="500" data-src="/image/466694/scook5x3/500/300/aa0252db2323a9cc8e44173f507deb5/Ip/weltkugel-globus-erde.jpg"> </span>
+              <span data-max-width="720" data-src="/image/466694/scook5x3/720/432/aa0252db2323a9cc8e44173f507deb5/kz/weltkugel-globus-erde.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/466694/scook5x3/238/143/aa0252db2323a9cc8e44173f507deb5/PK/weltkugel-globus-erde.jpg"  alt=" " title=" Eine Unterrichtstätigkeit im Ausland ist eine attraktive Gelegenheit für Lehrerinnen und Lehrer." />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber">
+              Ratgeber</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber/Lehrerleben">
+            Lehrerleben</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/ratgeber/lehrerleben/466688" >
+                Als Lehrer im Ausland unterrichten</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="466690" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/466698/scook5x3/238/143/43fd84f97176ec88b9f728a78c64a21/Zr/schueler-programmieren.jpg"> </span>
+              <span data-max-width="240" data-src="/image/466698/scook5x3/240/144/43fd84f97176ec88b9f728a78c64a21/RF/schueler-programmieren.jpg"> </span>
+              <span data-max-width="298" data-src="/image/466698/scook5x3/298/179/43fd84f97176ec88b9f728a78c64a21/bS/schueler-programmieren.jpg"> </span>
+              <span data-max-width="446" data-src="/image/466698/scook5x3/446/268/43fd84f97176ec88b9f728a78c64a21/Cg/schueler-programmieren.jpg"> </span>
+              <span data-max-width="462" data-src="/image/466698/scook5x3/462/277/43fd84f97176ec88b9f728a78c64a21/Xq/schueler-programmieren.jpg"> </span>
+              <span data-max-width="469" data-src="/image/466698/scook5x3/469/281/43fd84f97176ec88b9f728a78c64a21/mQ/schueler-programmieren.jpg"> </span>
+              <span data-max-width="500" data-src="/image/466698/scook5x3/500/300/43fd84f97176ec88b9f728a78c64a21/Dm/schueler-programmieren.jpg"> </span>
+              <span data-max-width="720" data-src="/image/466698/scook5x3/720/432/43fd84f97176ec88b9f728a78c64a21/jg/schueler-programmieren.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/466698/scook5x3/238/143/43fd84f97176ec88b9f728a78c64a21/Zr/schueler-programmieren.jpg"  alt=" Neuer Inhalt" title=" Programmieren in der Schule ist ein recht junger Trend, der den heranwachsenden Generationen großes Potenzial bietet. " />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber">
+              Ratgeber</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber/Medienkompetenz">
+            Medienkompetenz</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/ratgeber/medienkompetenz/466690" >
+                Programmieren lernen: Coding mit Grundschulkindern</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="282384" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/295396/scook5x3/238/143/30753ffb5a0892eb81cc8175c8713697/UP/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="240" data-src="/image/295396/scook5x3/240/144/30753ffb5a0892eb81cc8175c8713697/nd/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="298" data-src="/image/295396/scook5x3/298/179/30753ffb5a0892eb81cc8175c8713697/Ja/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="446" data-src="/image/295396/scook5x3/446/268/30753ffb5a0892eb81cc8175c8713697/CQ/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="462" data-src="/image/295396/scook5x3/462/277/30753ffb5a0892eb81cc8175c8713697/EW/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="469" data-src="/image/295396/scook5x3/469/281/30753ffb5a0892eb81cc8175c8713697/vs/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="500" data-src="/image/295396/scook5x3/500/300/30753ffb5a0892eb81cc8175c8713697/zm/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <span data-max-width="720" data-src="/image/295396/scook5x3/720/432/30753ffb5a0892eb81cc8175c8713697/to/abitur-abivorbereitung-abipruefung.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/295396/scook5x3/238/143/30753ffb5a0892eb81cc8175c8713697/UP/abitur-abivorbereitung-abipruefung.jpg"  alt=" Schüler sitzen über Büchern und lernen." title=" Abiturprüfungen locker meistern." />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen">
+              Weiterwissen</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Lerntipps%20&amp;%20Methoden">
+            Lerntipps &amp; Methoden</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/abitur/282384" >
+                Abivorbereitung leicht gemacht – Teil 1</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="318846" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/318876/scook5x3/238/143/b1420a51e6996d7eabaf75957a3473a5/nF/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="240" data-src="/image/318876/scook5x3/240/144/b1420a51e6996d7eabaf75957a3473a5/Lf/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="298" data-src="/image/318876/scook5x3/298/179/b1420a51e6996d7eabaf75957a3473a5/Jc/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="446" data-src="/image/318876/scook5x3/446/268/b1420a51e6996d7eabaf75957a3473a5/Ya/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="462" data-src="/image/318876/scook5x3/462/277/b1420a51e6996d7eabaf75957a3473a5/NU/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="469" data-src="/image/318876/scook5x3/469/281/b1420a51e6996d7eabaf75957a3473a5/Uq/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="500" data-src="/image/318876/scook5x3/500/300/b1420a51e6996d7eabaf75957a3473a5/CM/power-point-anleitung-referat.jpg"> </span>
+              <span data-max-width="720" data-src="/image/318876/scook5x3/720/432/b1420a51e6996d7eabaf75957a3473a5/GG/power-point-anleitung-referat.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/318876/scook5x3/238/143/b1420a51e6996d7eabaf75957a3473a5/nF/power-point-anleitung-referat.jpg"  alt=" Ein Laptop steht auf einem Schreibtisch." title=" Tipps für eine richtig gute Power-Point-Präsentation!" />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen">
+              Weiterwissen</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Lerntipps%20&amp;%20Methoden">
+            Lerntipps &amp; Methoden</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/lerntipps%20&amp;%20methoden/318846" >
+                So geht’s: Eine PowerPoint-Präsentation erstellen</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="469964" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/470008/scook5x3/238/143/9d23fcc83928d1f3f73ab6b6cbc9c219/Xp/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="240" data-src="/image/470008/scook5x3/240/144/9d23fcc83928d1f3f73ab6b6cbc9c219/bT/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="298" data-src="/image/470008/scook5x3/298/179/9d23fcc83928d1f3f73ab6b6cbc9c219/uc/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="446" data-src="/image/470008/scook5x3/446/268/9d23fcc83928d1f3f73ab6b6cbc9c219/rS/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="462" data-src="/image/470008/scook5x3/462/277/9d23fcc83928d1f3f73ab6b6cbc9c219/rg/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="469" data-src="/image/470008/scook5x3/469/281/9d23fcc83928d1f3f73ab6b6cbc9c219/CW/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="500" data-src="/image/470008/scook5x3/500/300/9d23fcc83928d1f3f73ab6b6cbc9c219/xk/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <span data-max-width="720" data-src="/image/470008/scook5x3/720/432/9d23fcc83928d1f3f73ab6b6cbc9c219/HG/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/470008/scook5x3/238/143/9d23fcc83928d1f3f73ab6b6cbc9c219/Xp/wie-du-dich-nach-einer-schlechten-note-motivierst.jpg"  alt=" Drei Mädchen in einer Bibliothek schauen gemeinsam auf Laptop und Bücher. " title=" Eine schlechte Note heißt noch nichts. " />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen">
+              Weiterwissen</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Sch%C3%BCler%20schreiben">
+            Schüler schreiben</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/sch%C3%BCler%20schreiben/469964" >
+                Wie du dich nach einer schlechten Note wieder motivierst</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="462180" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <!--h1>B - empty imageSettings -</h1-->
+          <div data-image-rwd="image-rwd" class="image-rwd">
+                <span data-max-width="238" data-src="/image/463130/scook5x3/238/143/95ea2dbd1c6df0e7a504999150215a98/sg/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="240" data-src="/image/463130/scook5x3/240/144/95ea2dbd1c6df0e7a504999150215a98/nu/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="298" data-src="/image/463130/scook5x3/298/179/95ea2dbd1c6df0e7a504999150215a98/KH/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="446" data-src="/image/463130/scook5x3/446/268/95ea2dbd1c6df0e7a504999150215a98/yh/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="462" data-src="/image/463130/scook5x3/462/277/95ea2dbd1c6df0e7a504999150215a98/wH/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="469" data-src="/image/463130/scook5x3/469/281/95ea2dbd1c6df0e7a504999150215a98/kZ/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="500" data-src="/image/463130/scook5x3/500/300/95ea2dbd1c6df0e7a504999150215a98/gD/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <span data-max-width="720" data-src="/image/463130/scook5x3/720/432/95ea2dbd1c6df0e7a504999150215a98/DR/klassenfahrten--ziele--packlisten--finanzierung.jpg"> </span>
+              <figure class="cm-image">
+      <img  id=" "  src="/image/463130/scook5x3/238/143/95ea2dbd1c6df0e7a504999150215a98/sg/klassenfahrten--ziele--packlisten--finanzierung.jpg"  alt=" Gang durch Reisebus mit Sicht zur Frontscheibe, wo untergehende Sonne zu sehen ist. " title=" Mit der richtigen Planung steht einer entspannten Klassenfahrt nichts im Weg. " />
+    </figure>
+</div>
+            </div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen">
+              Weiterwissen</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Schulzeit%20&amp;%20Freizeit">
+            Schulzeit &amp; Freizeit</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/schulzeit%20&amp;%20freizeit/462180" >
+                Klassenfahrten-Packliste: Diese Dinge müssen mit</a>
+            </p>
+      </div>
+  </div>
+</div>
+<div id ="391208" class="teaserBox box  gallery-item">
+  <div class="content">
+    <div class="box-img gallery-img">
+      <figure class="cm-image uncropped ">
+      <img  id=" "  src="/blob/391212/e3ac59d2ba9568cbc36012400dcab936/vokabeltrainer-langzeittraining-lenrtipps-data.png"  alt=" Cornelsen-Vokabeltrainer Icon" title=" Mit dieser App erleichtern Sie Ihren Schülern das Pauken der Vokabeln." />
+    </figure>
+</div>
+      <div class="gallery-text">
+        <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber">
+              Ratgeber</a>
+          
+          >
+          <a class="gallery-category-link" href="/widget/scook/weiterwissen/Ratgeber/Medienkompetenz">
+            Medienkompetenz</a>
+        <p class="gallery-title">
+              <a class="gallery-item-link" href="/widget/scook/weiterwissen/ratgeber/medienkompetenz/391208" >
+                App-Tipp: Vokabeltrainer passend zum Schulbuch </a>
+            </p>
+      </div>
+  </div>
+</div>
+</div>
+    </div>
+      <table class="gallery-controls">
+        <tr>
+          <td><a id="prev" class="gallery-controls-arrows icon-chevronLeft"></a></td>
+          <td class="gallery-controls-seperator">
+          </td>
+          <td><a id="next" class="gallery-controls-arrows icon-chevronRight"></a></td>
+        </tr>
+        <tr>
+          <td></td>
+            <td class="gallery-controls-dots">
+            </td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="widgetFooter">
+      <a href="/widget/scook/weiterwissen" class="more">Zur Artikel-Übersicht</a>
+    </div>
+  </div>
+<div  class="SCwidgetBox box js-touchlistener widget-grey">
+
+    <div class="widgetTitle">
+
+  <a href="/scook/material" >
+      <h3 >Unterrichtsmaterial</h3>
+  </a>
+  </div>
+<div class="widgetContent " style="">
+        <div class="box-content">
+            <div  class=" unknown-width">
+    <a href="/scook/material">
+      <figure class="cm-image uncropped ">
+    <div class="image-float-container">
+    <img  id=" "  src="/blob/65402/ce8b6b785a2424779fb6bbf4453f41fe/bild-material-home-data.jpg"  alt=" Material" />
+  </div>
+  </figure>
+</a>
+    </div>
+<div class="text">
+                <div><p>Hochwertige Inhalte zum Schulbuch.</p></div></div>
+        </div>
+    </div>
+
+    <div class="widgetFooter">
+                <a href="/scook/material" class="more">Jetzt mehr</a>
+            </div>
+        </div>
+<div  class="SCwidgetBox box js-touchlistener widget-grey">
+
+    <div class="widgetTitle">
+
+  <a href="/scook/schueler" >
+      <h3 >Schülerinnen und Schüler</h3>
+  </a>
+  </div>
+<div class="widgetContent " style="">
+        <div class="box-content">
+            <div  class=" unknown-width">
+    <a href="/scook/schueler">
+      <figure class="cm-image uncropped ">
+    <div class="image-float-container">
+    <img  id=" "  src="/blob/166696/56c75e7c8017e3028f2040639cd8f2ae/schueler-am-tablet-data.jpg"  alt=" Ein Schüler arbeit lächelnd an seinem Tablet für die Schule." />
+  </div>
+  </figure>
+</a>
+    </div>
+<div class="text">
+                <div><p>Dein Schulbuch als E-Book: Entdecke scook für dich!</p></div></div>
+        </div>
+    </div>
+
+    <div class="widgetFooter">
+                <a href="/scook/schueler" class="more">Mehr erfahren</a>
+            </div>
+        </div>
+<div  class="SCwidgetBox box js-touchlistener widget-white">
+
+    <div class="widgetTitle">
+
+  <a href="/scook/aktuell" >
+      <span class="title-icon">&#58951;</span>
+  <h3 >scook aktuell</h3>
+  </a>
+  </div>
+<div class="widgetContent remove-padding" style="">
+        <div class="box-content">
+            <div  class=" unknown-width">
+    <a href="/scook/aktuell">
+      <figure class="cm-image uncropped ">
+      <img  id=" "  src="/blob/470752/93e51ee6c758617fa69cf40652721a7e/kachelbild-vokabeltrainer-app-data.png"  alt=" Neuer Inhalt" title=" Vokabeltrainer App von Cornelsen" />
+    </figure>
+</a>
+    </div>
+<div class="text">
+                <div><p>Die Vokabeltrainer-App zum Aktionspreis für nur 2,29€ pro In-App-Kauf bis zum 30.04.2018</p></div></div>
+        </div>
+    </div>
+
+    <div class="widgetFooter">
+                <a href="/scook/aktuell" class="more">Mehr erfahren</a>
+            </div>
+        </div>
+</div>
+</div>
+            </div>
+          </div>
+    </div><!-- /#page-main-->
+</div><!-- /.page-centered -->
+
+<footer id="page-footer">
+  <ul class="footerNav">
+      <li class="first">
+            <ul>
+          <li class="first">
+          <h4>Über scook</h4>
+<ul class="nav-items">
+    <li class="nav-item first">
+        <a href="/scook/ueber-scook/5108" >
+  Was kann scook für mich tun?</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/information" >Das kann scook</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/freischaltung" >scook nutzen</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/kosten" >
+  Was kostet scook?</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/verlage" >Verlage</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/neue-funktionen" >Neue Funktionen</a>
+</li>
+    <li class="nav-item last">
+        <a href="/scook/webinar" >Webinar</a>
+</li>
+    </ul>
+</li>
+        <li class="last">
+          <h4>Angebote und Produkte</h4>
+<ul class="nav-items">
+    <li class="nav-item first">
+        <a href="/scook/e-books" >E-Books</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/unterrichtsmanager" >Unterrichtsmanager</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/medien-arbeitshefte" >Medien zu Arbeitsheften</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/interaktive-uebungen" >Interaktive Übungen</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/diagnose" >Diagnose &amp; Fördern</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/offline" >scook Offline</a>
+</li>
+    <li class="nav-item last">
+        <a href="/scook/mobile" >scook Apps</a>
+</li>
+    </ul>
+</li>
+        </ul>
+          </li>
+        <li class="">
+            <ul>
+          <li class="first">
+          <h4>Service &amp; Information</h4>
+<ul class="nav-items">
+    <li class="nav-item first">
+        <a href="/scook/registrierung" >Registrierung</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/lizenzen" >Lizenzbedingungen</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/faq" >Hilfe &amp; FAQ</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/datenschutz" >Datenschutz</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/agb" >AGB</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/kontakt" >Kontakt</a>
+</li>
+    <li class="nav-item last">
+        <a href="/scook/impressum" >Impressum</a>
+</li>
+    </ul>
+</li>
+        <li class="last">
+          <h4>Aktuelles</h4>
+<ul class="nav-items">
+    <li class="nav-item first">
+        <a href="/scook/daz" >DaZ - Deutsch als Zweitsprache</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/inklusion" >Inklusion</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/medienkunde" >Medienkompetenz</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/lehrergesundheit" >Lehrergesundheit</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/zukunft" >Deine Zukunft</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/lerntipps" >Lerntipps für Schüler</a>
+</li>
+    <li class="nav-item ">
+        <a href="/scook/abitur" >Abitipps für Schüler</a>
+</li>
+    <li class="nav-item last">
+        <a href="/scook/referat" >Dein perfektes Referat</a>
+</li>
+    </ul>
+</li>
+        </ul>
+          </li>
+        </ul>
+  </footer>
+</div> <!-- close page -->
+      </div> <!-- close page-margins -->
+
+<!--<textarea style="position: absolute; width:300px; height:200px" id="traceWnd"></textarea>-->
+</body>
+
+</html>

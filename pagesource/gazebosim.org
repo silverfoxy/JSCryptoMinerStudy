@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html ng-app="gazebo">
+<head>
+  <base href="/">
+  <title>Gazebo </title>
+  <meta name="description" content="The Gazebo robot simulation"/>
+  <meta name="author" content="OSRF"/>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/gazebo-bf4fa5386fb996df2ace5eef6b817d43.ico" />
+  <link rel="stylesheet" media="all" href="/assets/application-c997d435508a8f51122f58e2b7eb6997.css" data-turbolinks-track="true" />
+  <script src="/assets/application-72464cabf99a5194678d67dfdc7ebf94.js" data-turbolinks-track="true"></script>
+ <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="/assets/chartkick-d37b7af44aa7ad71a3a355f5b289ad78.js"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JfIbBHHZhZUoa/YHApI65TBmHsUGvFgMsXAZgtTVZUp6n3efiJ0VmnnkCvC/0OWSJUN7cXIZDpOQZA3l8N/4wA==" />
+</head>
+<body>
+
+<a id="top"></a>
+
+<div class="wrap">
+
+<div id="nav" class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"
+              data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img
+        src="/assets/masthead-65b2611d7b2a196cbdc153633763f6ac.png" alt="gazebo" height='20'/></a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class=''><a href="/tutorials">Tutorials</a></li>
+        <li class=''><a href='/download'>Download</a></li>
+        <li class=''><a href="/blog.html">Blog</a></li>
+        <li class=''><a href="/media">Media</a></li>
+        <li class=''><a href="/dashboard">Dashboard</a></li>
+        <li class=''><a href="/projects">Projects</a></li>
+      </ul>
+
+
+      <!-- Search box form -->
+      <div class="col-sm-3 col-md-3 pull-right">
+        <form class="navbar-form" role="search" action="search"
+              id="cse-search-box-form-id">
+          <div class="input-group">
+            <input type="text" class="form-control" placeHolder="Search"
+                   name="Q" id="cse-search-input-box-id" autocomplete="off">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+  <div class="jumbotron">
+  <div class="row" style="padding:0; margin:0">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center jumboopaque">
+
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <p><img src="/assets/gazebo_vert-d59f8ce05baa76341741db4c5299eefc.png"
+            alt="gazebo_big" height="200"></p>
+            <h3>Robot simulation made easy.</h3>
+          </div>
+
+          <div class="row">
+            <div class="text-center"> 
+              <p>
+              <a href="/download" class="btn btn-primary btn-lg anchorLink jumbo-button" role="button"><span class="glyphicon glyphicon-download-alt"></span> Download <small>(9.0.0)</small></a>
+
+              <a href="http://bitbucket.org/osrf/gazebo" class="btn btn-custom btn-lg jumbo-button" role="button"><span><img src="/assets/bitbucket_32x32-8c7a86aa992bcc424cbe4bf4d191c0b1.png" alt="bitbucket" class="bitbucket-icon"/></span> View on Bitbucket</a>
+              </p>
+
+            </div> <!-- col-md-6 text-center -->
+          </div> <!-- row -->
+        </div> <!-- col-md-7 -->
+
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-xs-12">
+              <a href="http://sdformat.org" class="jumbotron_link_button" style="border-color: rgba(41, 125, 13, 1)">SDFormat : <small>Robot and simulation model format</small>
+                <img class="img img-responsive pull-right" src="/assets/sdf_carousel-9f9d5c1087db3d19f2226a5773cd8706.png" style="width: 22px" alt="sdformat"/></a>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <a href="http://ignitionrobotics.org" class="jumbotron_link_button" style="border-color: rgba(241, 98, 59, 1)">Ignition : <small>Libraries for robot applications</small>
+                <img class="img img-responsive pull-right" style="width: 22px"
+                src="/assets/ignition_logo-88f0071b04c2dd03cec935beb99fe332.png" alt="ignition"/>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-7">
+          <ul class='jumbo-list'>
+            <a class='jumbo-list-item' href='#getstarted'>Get Started</a>
+            <a class='jumbo-list-item' href='#features'>Features</a>
+            <a class='jumbo-list-item' href='#status'>Status</a>
+          </ul>
+        </div>
+
+        <div class="col-md-5 text-right visible-md visible-lg">
+          <a href="//plus.google.com/u/0/115981436296571800301?prsrc=3" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/google_gray_inverted-efae73251a3f872bcbd10f39100b683e.png" alt="Google+" class="footer-social"/></a>
+          <a href="https://www.youtube.com/channel/UCJyqf9XJpDoM9XnpAwW6WxA" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/youtube_gray_inverted-41ae1f573b9fd3cb52729eeff85c8d46.png" alt="YouTube" class="footer-social"/></a>
+          <a href="https://twitter.com/GazeboSim" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/twitter_gray_inverted-b635aae01bf036c1deccad4194cd3f62.png" alt="YouTube" class="footer-social"/></a>
+        </div>
+      </div>
+
+    </div> <!-- jumboopaque -->
+  </div> <!-- row -->
+</div> <!-- jumbotron -->
+
+
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4">
+    <h1>Why Gazebo?</h1>
+    <p>Robot simulation is an essential tool in every roboticist's toolbox. A well-designed simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo offers the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. At your fingertips is a robust physics engine, high-quality graphics, and convenient programmatic and graphical interfaces. Best of all, Gazebo is free with a vibrant community.</p>
+  </div> <!-- col-md-4 -->
+
+  <div class="col-md-4 home-blog">
+    <a href="blog" style="color: #000000; text-decoration: none;"><h1>The Latest</h1></a>
+        <!--<a href="blog.rss"><img src="<= asset_path 'rss-logo.png'%>"
+          alt="rsslogo" height="20"/></a></h1>-->
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4><a href='blog/gazebo9'>Gazebo 9.0.0 Release</a></h4>
+        <p><small>2018-01-25</small></p>
+        <div class="row">
+          <div class="col-xs-12">
+            <p><div class="row">
+  <div class="col-xs-12">
+    <a href="/download" class="btn btn-primary btn-lg" role="button" style="margin-bottom:4px"><span class="glyphicon glyphicon-download-alt"></span> Download <small>(9.0.0)</small></a>
+
+    <p>
+    <a href='https://bitbucket.org/osrf/gazebo/src/default/Changelog.md'>Changelog</a> |
+    <a href='https://bitbucket.org/osrf/gazebo/src/default/Migration.md'>Migration Guide</a> |
+    <a href='/#status'>Roadmap</a>
+    </p>
+
+    <h4>Release Highlights</h4>
+
+    <ul>
+      <li><b>Gazebo 9</b>
+        <ul>
+          <li><a href="http://gazebosim.org/tutorials?tut=parallel&cat=physics">Parallel threaded islands in ODE</a></li>
+          <li>Improved shadows</li>
+          <li>Camera lens flare</li>
+          <li>Attach lights to links</li>
+          <li>Joystick plugin (to be released in 9.1.0)</li>
+          <li><a href="http://gazebosim.org/tutorials?tut=gravity_compensation&cat=plugins">Gravity compensation plugin</a></li>
+        </ul>
+      </li>
+      <li><b><a href="https://ignitionrobotics.org/libs/cmake">Ignition CMake 0.4</a></b>
+        <ul>
+          <li>Beta version of a consolidated set of CMake scripts.</li>
+        </ul>
+      </li>
+      <li><b><a href="https://ignitionrobotics.org/libs/math">Ignition Math 4</a></b>
+        <ul>
+          <li>Graph class and algorithms</li>
+        </ul>
+      </li>
+      <li><b><a href="https://ignitionrobotics.org/libs/msgs">Ignition Msgs 1 </a> & <a href="https://ignitionrobotics.org/libs/common">Ignition Common 1</a></b>
+        <ul>
+          <li>First 1.0 release of both libraries.</li>
+        </ul>
+      </li>
+      <li><b><a href="https://ignitionrobotics.org/libs/transport">Ignition Transport 4</a></b>
+        <ul>
+          <li>Zero-copy on publish.</li>
+          <li>Support for publishing and receiving raw bytes.</li>
+          <li>Basic authentication for topics.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>
+    We are proud to announce the release of Gazebo 9. This version of Gazebo
+    has long term support with an end-of-life on January 25, 2023.
+    </p>
+
+    <p>
+    An ongoing effort over the past few years has been to break out Gazebo's
+    internal libraries into a set of libraries under the
+    <a href="https://ignitionrobotics.org">Ignition Robotics</a> project.
+    These libraries will move Gazebo away from a large monolithic
+    code base. An additional goal is to increase development transparency
+    and adoption of features that may have been hidden behind the veil of
+    Gazebo.
+    </p>
+
+    <p>
+    While still in the early stages of development, a few of the Ignition
+    libraries are ready for broad public consumption. These libraries
+    include <a href="https://ignitionrobotics.org/libs/math">Ignition Math</a>, <a href="https://ignitionrobotics.org/libs/msgs">Messages</a>, and <a href="https://ignitionrobotics.org/libs/transport">Transport</a>. Libraries higher on the
+    dependency stack, such as <a href="https://ignitionrobotics.org/libs/rendering">Rendering</a>, <a href="https://ignitionrobotics.org/libs/sensors">Sensors</a>, <a href="https://ignitionrobotics.org/libs/physics">Physics</a>, and <a href="https://ignitionrobotics.org/libs/gui">GUI</a> will see
+    progress toward 1.0 releases over this year.
+    </p>
+
+    <p>
+    The 2018 roadmap for Gazebo and the Ignition libraries will be forthcoming in the next couple weeks.
+    </p>
+
+    <p>
+    The sections below describe a few projects in a bit more detail.  Enjoy the new release, and thanks for all the contributions,
+    </p>
+
+    <p>&nbsp;&nbsp;<i>Gazebo Development Team</i></p>
+
+
+    <h4>Ignition Robotics Documentation Platform</h4>
+
+    <p>
+    An updated documentation platform has been created for Ignition Robotics at <a href="https://ignitionrobotics.org">ignitionrobotics.org</a>. This website details the available libraries, along with a brief description for each and links to API documentation and tutorials, which are sparse at this point. A version history for each library is also displayed with links to the version's documentation.
+    </p>
+
+    <h4>Ignition Fuel</h4>
+
+    <p>
+    Around the time of the <a href="http://gazebosim.org/tutorials?tut=gravity_compensation&cat=plugins">DARPA Robotics Challenge</a>, Gazebo faced the problem of where and how to host simulation models and related assets. At the time, we opted to use a <a href="https://bitbucket.org/osrf/gazebo_models">Bitbucket repository</a> along with a <a href="http://models.gazebosim.org">clone backed by Apache</a>.
+    </p>
+
+    <p>
+    Gazebo has since outgrown the Bitbucket and Apache approach. Key
+    problems that we have encountered are scalability, up-time, hosting
+    meta-data, inclusion of worlds and other assets, and ease of use. After
+    studying available options, such as using S3, we decided to provide a new
+    simulation asset hosting service called <a
+      href="https://ignitionfuel.org">Ignition Fuel</a>.
+    </p>
+
+    <p>
+    Ignition Fuel is in Beta, and does not replace the
+    existing Bitbucket+Apache solution. When Fuel moves out of beta, there
+    will be an extended transition period where both hosting solutions will
+    be active and maintained. The exact time frame will be determined when we
+    are comfortable with the state of Fuel.
+    </p>
+
+    <p>
+    On Ignition Fuel you can find a list of available models. Logging into
+    the site allows you to upload new models. There is also information
+    about how to access the models programmatically through a REST API.
+    Gazebo 9 optionally uses this API to list and download models from Fuel.
+    In the <a href="https://ignitionrobotics.org/tutorials/fuel_tools/1.0/index.html">
+    tutorial section of Ignition Fuel Tools</a>, you can find examples of how
+    to manage models from a Fuel server programmatically.
+    </p>
+
+    <p>
+    The primary difference between Fuel and other asset hosting sites is
+    that the models hosted on Fuel will contain not only visual information
+    but also simulation information, such as links, joint, and inertia. Fuel
+    will also move toward inclusion of worlds and potentially simulation
+    plugins.
+    </p>
+
+    <h4>Ignition Transport Highlight</h4>
+
+    <p>
+    Gazebo makes heavy use of asynchronous message passing. For example, the
+    Gazebo GUI operates in a separate process from the server and relies on
+    message passing to display information and transmit user requests.
+    Gazebo's current internal communication uses a home-grown strategy based
+    on <a href="https://developers.google.com/protocol-buffers/">Protobuf</a> and <a href="http://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html">boost::asio</a>. This has performed well but
+    requires maintenance and has become a bit outdated.
+    </p>
+
+    <p>
+    Development of Ignition Transport provided the opportunity to choose
+    a new strategy that would reduce our maintenance effort and offer new
+    features. <a href="http://zeromq.org">ZeroMQ</a> has been chosen as a
+    replacement to <a href="http://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html">boost::asio</a>, and <a href="https://developers.google.com/protocol-buffers/">Protobuf</a> remains as the message definition.
+    <a href="http://zeromq.org">ZeroMQ</a> is an open source
+    communication library that is used across numerous domains, and has
+    a large and active <a href="http://zeromq.org/community">community</a>.
+    In addition to these aspects, <a href="http://zeromq.org">ZeroMQ</a> has a
+    well <a href="https://rfc.zeromq.org/">established feature and change process</a>,
+    <a href="http://zeromq.org/area:results">known performance</a>,
+    numerous <a href="http://zeromq.org/bindings:_start">language bindings</a>,
+    <a href="http://zeromq.org/intro:get-the-software">cross-platform support</a>
+    , and security through
+    <a href="https://rfc.zeromq.org/spec:24/ZMTP-PLAIN">authentication</a> and
+    <a href="https://rfc.zeromq.org/spec:25/ZMTP-CURVE/">encryption</a>.
+    </p>
+
+    In addition to the features provided by ZeroMQ, Ignition Transport provides
+    discovery, and command line tools for topic introspection and
+    publication of messages. Upcoming features include data logging,
+    and integration of encryption and UDP provided in ZeroMQ.
+
+    A series of benchmark tests of Ignition Transport were recently performed
+    to evaluate the library's performance and establish a baseline. We will
+    start with a few definitions for clarity.
+
+    <ul>
+      <li><b>Intraprocess</b>: Publisher and subscriber in same process.</li>
+      <li><b>Interprocess</b>: Publisher and subscriber in separate processes on the same physical machine.</li>
+
+      <li><b>Wireless</b>: Publisher and subscriber on separate machines where one computer was connected to wireless access point and the other hardwired to the LAN.</li>
+
+      <li><b>Latency</b>: Latency was measured by publishing a message on <i>topicA</i>, and then waiting for a response on <i>topicB</i>. The time between publication and reception of the response was divided in half to compute the one-way latency time.</li>
+
+      <li><b>Throughput</b>: Throughput was measured by rapidly publishing <i>N</i> messages. Once the <i>N</i> messages have been published, the publisher waits for <i>N</i> responses. The time from start of publication to reception of all <i>N</i> messages is used to compute throughput.</li>
+    </ul>
+
+    <p>
+    Tests were performed on Ubuntu Xenial with the Linux 4.5.2 kernel,
+    on a Intel i7-5930K desktop PC. The <a href="https://bitbucket.org/ignitionrobotics/ign-transport/src/e1f18126c67eb4b5b895d32483d61d5b6a1eafb8/example/bench.cc?at=default&fileviewer=file-view-default">test program</a>, called <a href="https://bitbucket.org/ignitionrobotics/ign-transport/src/e1f18126c67eb4b5b895d32483d61d5b6a1eafb8/example/bench.cc?at=default&fileviewer=file-view-default">bench</a>, is publicly available. Use the `-h` command line option with <i>bench</i> for usage information. Latency and throughput results are below. Click on dataset label, such as "Interprocess", to enable or disable the data.
+    </p>
+
+    <div class="video-container">
+      <canvas id="latencySmall"></canvas>
+    </div>
+    <div class="video-container">
+      <canvas id="latencyLarge"></canvas>
+    </div>
+
+    <div class="video-container">
+      <canvas id="throughputSmall"></canvas>
+    </div>
+    <div class="video-container">
+      <canvas id="throughputLarge"></canvas>
+    </div>
+
+    <p>
+    These results can be used as one reference point, but they are by no
+    means an exhaustive or comprehensive study of Ignition Transport.
+    </p>
+
+  </div>
+</div>
+
+    <script>
+      var ctxLatencySmall = document.getElementById("latencySmall").getContext('2d');
+      var latencySmall = new Chart(ctxLatencySmall, {
+        type: 'line',
+        responsive: true,
+        title: 'Latency Small',
+        data: {
+          labels: ["259B", "524B", "1KB", "2KB", "4KB", "8KB", "16KB", "32KB", "64KB"],
+          datasets: [
+          {
+            label: 'Interprocess',
+            fill: false,
+            data: [
+              52.854500,
+              57.056000,
+              55.987500,
+              52.647500,
+              63.684000,
+              64.200000,
+              76.442000,
+              105.556500,
+              170.509000,
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+            ],
+            borderWidth: 1
+          },
+          {
+           label: 'Intraprocess',
+            fill: false,
+            data: [
+              13.079500,
+              12.043000,
+              12.890000,
+              12.731000,
+              11.103000,
+              12.282500,
+              14.566000,
+              15.133000,
+              18.452500,
+            ],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Wireless',
+            fill: false,
+            data: [
+              569.027500,
+              514.057000,
+              638.013500,
+              883.545500,
+              1317.183500,
+              1799.942500,
+              2654.243000,
+              4611.055500,
+              7568.756000,
+            ],
+            backgroundColor: [
+              'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Latency Small Messages",
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Microseconds'
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Message size'
+              },
+            }]
+
+          }
+        }
+    });
+    var ctxLatencyLarge = document.getElementById("latencyLarge").getContext('2d');
+    var latencyLarge = new Chart(ctxLatencyLarge, {
+      type: 'line',
+      responsive: true,
+      data: {
+        labels: ["32KB", "64KB", "128KB", "256KB", "512KB", "1MB", "2MB", "4MB"],
+        datasets: [
+        {
+            label: 'Interprocess',
+            fill: false,
+            data: [
+              105.556500,
+              170.509000,
+              344.816500,
+              425.295000,
+              975.005000,
+              1636.206500,
+              3065.280500,
+              6899.827000
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+            ],
+            borderWidth: 1
+          },
+          {
+           label: 'Intraprocess',
+            fill: false,
+            data: [
+              15.133000,
+              18.452500,
+              30.692500,
+              54.994000,
+              98.629000,
+              171.976000,
+              393.346500,
+              701.828500,
+            ],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Wireless',
+            fill: false,
+            data: [
+              4611.055500,
+              7568.756000,
+              13751.748500,
+              23576.180000,
+              46112.246000,
+              82791.489000,
+            ],
+            backgroundColor: [
+              'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Latency Large Messages",
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Microseconds'
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Message size'
+              },
+            }]
+
+          }
+        }
+    });
+
+    var ctxThroughputSmall = document.getElementById("throughputSmall").getContext('2d');
+    var throughputSmall = new Chart(ctxThroughputSmall, {
+        type: 'line',
+        responsive: true,
+        data: {
+          labels: ["259B", "524B", "1KB", "2KB", "4KB", "8KB", "16KB", "32KB", "64KB"],
+          datasets: [
+          {
+            label: 'Interprocess',
+            fill: false,
+            data: [
+              16.920363,
+              27.322404,
+              58.179924,
+              118.453572,
+              260.957212,
+              421.080286,
+              608.980213,
+              898.742350,
+              1098.536200,
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+            ],
+            borderWidth: 1
+          },
+          {
+           label: 'Intraprocess',
+            fill: false,
+            data: [
+              11.689308,
+              24.046512,
+              45.305111,
+              95.145815,
+              197.160263,
+              382.726665,
+              814.031520,
+              1664.361840,
+              2780.074698,
+            ],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Wireless',
+            fill: false,
+            data: [
+              1.522965,
+              2.465952,
+              2.817700,
+              2.691858,
+              4.129562,
+              4.259924,
+              5.035067,
+              5.887992,
+              5.978145,
+            ],
+            backgroundColor: [
+              'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Throughput Small Messages",
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Megabytes per second (MB/s)'
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Message size'
+              },
+            }]
+
+          }
+        }
+    });
+
+    var ctxThroughputLarge = document.getElementById("throughputLarge").getContext('2d');
+    var throughputLarge = new Chart(ctxThroughputLarge, {
+        type: 'line',
+        responsive: true,
+        data: {
+          labels: ["32KB", "64KB", "128KB", "256KB", "512KB", "1MB", "2MB", "4MB"],
+          datasets: [
+          {
+            label: 'Interprocess',
+            fill: false,
+            data: [
+              898.742350,
+              1098.536200,
+              1169.610145,
+              1553.526785,
+              2060.845485,
+              1777.087291,
+              1193.193798,
+              881.726268
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+            ],
+            borderWidth: 1
+          },
+          {
+           label: 'Intraprocess',
+            fill: false,
+            data: [
+              1664.361840,
+              2780.074698,
+              3869.566532,
+              5578.644585,
+              6185.416063,
+              6012.674668,
+              5500.409780,
+              6160.355390
+            ],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Wireless',
+            fill: false,
+            data: [
+              5.887992,
+              5.978145,
+              5.030884,
+              4.401461,
+              4.247665,
+              4.008619
+            ],
+            backgroundColor: [
+              'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Throughput Large Messages",
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Megabytes per second (MB/s)'
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Message size'
+              },
+            }]
+
+          }
+        }
+    });
+
+    </script>
+
+</p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- row -->
+
+  </div> <!-- col-md-4 -->
+
+  <div class="col-md-4">
+    <h1>Useful Links</h1>
+    <div class="row">
+      <div class="col-md-2 col-xs-2">
+           <img class="useful-img"
+                src="/assets/answers_icon-a1478a32473e0ec10c881d79ee99681d.png" alt="answers"/>
+      </div> <!-- col-md-2 col-xs-2 -->
+
+      <div class="col-md-10 col-xs-10 usefullink-item">
+        <h4><a href="http://answers.gazebosim.org">Answers</a></h4>
+        <p>Find answers and ask questions.</p>
+      </div> <!-- col-md-10 col-xs-10 -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="col-md-2 col-xs-2">
+        <img class="useful-img"
+             src="/assets/mail_icon-75f47d62b394a87b82485a02773a4641.png" alt="community"/>
+      </div>
+
+      <div class="col-md-10 col-xs-10 usefullink-item">
+        <h4><a href="https://community.gazebosim.org">Community</a></h4>
+        <p>Join for discussions and announcements.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-xs-2">
+        <img class="useful-img"
+             src="/assets/tps_icon-699023fab810060884e1bd73e56c09f6.png" alt="robot_models"/>
+      </div>
+
+      <div class="col-md-10 col-xs-10 usefullink-item">
+        <h4><a href="https://bitbucket.org/osrf/gazebo_models/src">Simulation Models</a></h4>
+        <p>Robots, objects, and other simulation models.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-xs-2">
+        <img class="useful-img"
+             src="/assets/commandline_icon-5a100ee65a7f17890861b39e47f16188.png" alt="source code"/>
+      </div>
+
+      <div class="col-md-10 col-xs-10 usefullink-item">
+        <h4><a href="https://bitbucket.org/osrf/gazebo">Source code</a></h4>
+        <p>Get Gazebo's source code.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <a id="features"></a>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10"><hr/></div>
+
+  <div class="col-md-1" style="margin-top:10px">
+    <a href='#top'><small>Top</small><span class="glyphicon glyphicon-arrow-up"></span></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Features</h1>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/dynamics_icon-81c9b91cd71b61b69138756c5869256b.png"
+                 alt='Dynamics Simulation'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Dynamics Simulation</h3>
+          </div>
+        </div>
+        <p>Access multiple high-performance physics engines including <a href='http://opende.sourceforge.net/'>ODE</a>, <a href='http://bulletphysics.org/wordpress/'>Bullet</a>, <a href='https://simtk.org/home/simbody/'>Simbody</a>, and <a href='http://dartsim.github.io/'>DART</a>.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/graphics_icon-7fb8d261fffdfb9b7d884a117da5f940.png"
+                 alt='Advanced 3D Graphics'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Advanced 3D Graphics</h3>
+          </div>
+        </div>
+        <p>Utilizing <a href='http://www.ogre3d.org/'>OGRE</a>, Gazebo provides realistic rendering of environments including high-quality lighting, shadows, and textures.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/sensors_icon-d149552b9ae007a9977ea6afb2a2e274.png"
+                 alt='Sensors and Noise'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Sensors and Noise</h3>
+          </div>
+        </div>
+        <p>Generate sensor data, optionally with noise, from laser range finders, 2D/3D cameras, Kinect style sensors, contact sensors, force-torque, and more.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/plugins_icon-6fd4d193d9eefdbce694bce096b3639b.png"
+                 alt='Plugins'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Plugins</h3>
+          </div>
+        </div>
+        <p>Develop custom plugins for robot, sensor, and environmental control. Plugins provide direct access to Gazebo's <a href='api.html'>API</a>.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/tps_icon-699023fab810060884e1bd73e56c09f6.png"
+                 alt='Robot Models'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Robot Models</h3>
+          </div>
+        </div>
+        <p>Many robots are provided including PR2, Pioneer2 DX, iRobot Create, and TurtleBot. Or build your own using <a href='http://sdformat.org'>SDF</a>.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/tcp_icon-d25ab62703ad2f196415e4d937139857.png"
+                 alt='TCP/IP Transport'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>TCP/IP Transport</h3>
+          </div>
+        </div>
+        <p>Run simulation on remote servers, and interface to Gazebo through socket-based message passing using Google <a href='https://code.google.com/p/protobuf/'>Protobufs</a>.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/cloudsim_icon-e1f6af1772027137d49118a12bf3f9f7.png"
+                 alt='Cloud Simulation'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Cloud Simulation</h3>
+          </div>
+        </div>
+        <p> Use <a href='http://cloudsim.io'>CloudSim</a> to run Gazebo on Amazon AWS and <a href='gzweb.html'>GzWeb</a> to interact with the simulation through a browser.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well feature-well">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 homefeature-img">
+            <img class="pull-left feature-img"
+                 src="/assets/commandline_icon-5a100ee65a7f17890861b39e47f16188.png"
+                 alt='Command Line Tools'/>
+          </div>
+          <div class="col-md-8 col-xs-8 homefeature-title">
+            <h3>Command Line Tools</h3>
+          </div>
+        </div>
+        <p>Extensive command line tools facilitate simulation introspection and control.</p>
+      </div>
+    </div>
+</div>
+
+  <a id="getstarted"></a>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10"><hr/></div>
+
+  <div class="col-md-1" style="margin-top:10px">
+    <a href='#top'><small>Top</small><span class="glyphicon glyphicon-arrow-up"></span></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Get Started</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h4>Get your feet wet</h4>
+    <ol>
+      <li><b><a href="/tutorials?tut=quick_start">Quick Start</a></b> <p>A simple set of steps to get Gazebo up and running rapidly.</p></li>
+      <li><b><a href="/hotkeys">GUI Hotkeys</a></b> <p>Description of Gazebo's hotkeys and mouse interactions.</p></li>
+      <li><b><a href="/tutorials">Tutorials</a></b> <p>The best way to start using Gazebo is to run through the <a href="tutorials">tutorials</a>. These tutorials cover both basic and simple concepts through a series of exercises.</p></li>
+      <li><b>Examples</b> <p>Check out the example <a href="https://bitbucket.org/osrf/gazebo/src/default/worlds/">worlds</a> and <a href="https://bitbucket.org/osrf/gazebo/src/default/examples/">programs</a> that are in the source code.</p>
+      <li><b><a href="http://answers.gazebosim.org">answers.gazebosim.org</a></b> <p>If you can't find what you are looking for, try our askbot help forum located at <a href="http://answers.gazebosim.org">answers.gazebosim.org</a>.</p></li>
+
+      <li><b><a href="https://community.gazebosim.org">community.gazebosim.org</a></b> <p>Want to exchange ideas with the rest of the community? Come to <a href="https://community.gazebosim.org">community.gazebosim.org</a>.</p></li>
+    </ol>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Information Sources</h4>
+    <ol>
+      <li><a href='tutorials?tut=components&cat=get_started'><b>Gazebo Overview</b></a> <p>A high-level description of Gazebo and its various components.</p></li>
+      <li><a href="/api.html"><b>Gazebo API</b></a> <p>Doxygen generated documentation for the Gazebo libraries.</p></li>
+      <li><a href="/msgs.html"><b>Protobuf Messages</b></a> <p>A complete list of all the protobuf messages used by Gazebo</p></li>
+      <li><a href="/sdf.html"><b>SDFormat Specification</b></a><p>SDFormat is an XML file format that defines environments and models. This specification defines all the XML elements for describing world and models. </p></li>
+    </ol>
+  </div>
+</div>
+
+  <a id="status"></a>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10"><hr/></div>
+
+  <div class="col-md-1" style="margin-top:10px">
+    <a href='#top'><small>Top</small><span class="glyphicon glyphicon-arrow-up"></span></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Project Status</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h4>Gazebo 10.0 Progress</h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-warning"
+        role="progressbar" aria-valuenow="2.9626623376623376" aria-valuemin="0"
+        aria-valuemax="73" data-toggle="tooltip" data-placement="left"
+        title="Development phase" style='width: 2.9626623376623376%;'>
+      </div>
+      <div class="progress-bar progress-bar-info" role="progressbar"
+        aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="18"
+        data-toggle="tooltip" data-placement="left" title="Feature Freeze"
+        style='width: 0.0%;'>
+      </div>
+      <div class="progress-bar progress-bar-success" role="progressbar"
+        aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="9"
+        data-toggle="tooltip" data-placement="left" title="Code Freeze"
+        style='width: 0.0%;'>
+      </div>
+    </div>
+
+    <div class='col-xs-3 text-left'
+      style='border-left: 1px solid black; margin-top: -15px'>
+      Jan 25 2018 
+    </div>
+
+    <div class='col-xs-6' style='margin-top: -15px'>
+      <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 33%;">
+          Development
+        </div>
+        <div class="progress-bar progress-bar-info" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 34%;">
+          Feature freeze
+        </div>
+        <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 33%;">
+          Code freeze
+        </div>
+      </div>
+    </div>
+
+    <div class='col-xs-3 text-right'
+      style='border-right: 1px solid black; margin-top: -15px'>
+      Jan 24 2019 
+    </div>
+    </br>
+
+    <div class='col-xs-offset-3 col-xs-6' style='margin-top: -15px'>
+      <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 33%;">
+          Jan 25 2018 
+        </div>
+        <div class="progress-bar progress-bar-info" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 34%;">
+          Jan  3 2019 
+        </div>
+        <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"
+          style="width: 33%;">
+          Jan 17 2019 
+        </div>
+      </div>
+    </div>
+    </br>
+
+    <h4>Release Schedule and Roadmap</h4>
+    <p>Gazebo will release a new major version once a year on the last week of January. Even numbered releases will have a life-span of two years, and odd five years.</p>
+    <p>The following roadmap is a best guess at the available features for each version. At the time of release more or fewer features may be available.</p>
+    <p>Refer documentation in downstream applications, such as ROS, for version compatiblilty.</p>
+
+    <div class='panel-group' id='accordion'>
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion1_9'>Gazebo 1.9</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2013-07-24</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2015-07-27</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'></span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion1_9'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Split out SDFormat into a separate package</li>
+                  <li>Improved ROS support</li>
+                  <li>Added Sonar, Force-torque, and pressure sensors</li>
+                  <li>Allow user camera to follow objects</li>
+                  <li>Basic OS X support</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion2_2'>Gazebo 2.2</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2013-11-07</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2016-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu P,Q,R,S</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion2_2'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Improved shadow maps</li>
+                  <li>Breakable walls</li>
+                  <li>Visualize moment of inertia</li>
+                  <li>Graphically resize simple shapes</li>
+                  <li>Wireless transceiver sensor models</li>
+                  <li>OpenAL audio support</li>
+                  <li>Terrain paging</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion3_0'>Gazebo 3.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2014-04-11</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2015-07-27</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu P,R,S,T</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion3_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Unified command line tool</li>
+                  <li>Lightmaps for improved rendering realism</li>
+                  <li>Destructable simple shapes</li>
+                  <li>Import DEM</li>
+                  <li>Split in Debian packages, moving to Debian inclusion of Gazebo</li>
+                  <li>Beta OSX support</li>
+                  <li>Bullet support</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion4_0'>Gazebo 4.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2014-07-28</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2016-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu P,S,T</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion4_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Vehicle suspension models</li>
+                  <li>More tutorials and documentation</li>
+                  <li>Oculus Rift support</li>
+                  <li>Razer Hydra support</li>
+                  <li>Copy and paste models via GUI</li>
+                  <li>Custom road textures</li>
+                  <li>Support DART 4.1</li>
+                  <li>New extruded polyline geometry</li>
+                  <li>Fixed actor animations</li>
+                  <li>Added KMeans class</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion5_0'>Gazebo 5.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2015-01-26</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2017-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu T,U,V</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion5_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>C++11 integration</li>
+                  <li>GUI overlay support</li>
+                  <li>Clone running simulations</li>
+                  <li>Improved building editor</li>
+                  <li>Javascript interface</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion6_0'>Gazebo 6.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2015-07-27</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2017-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu T,U,V</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion6_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li><a href='http://gazebosim.org/tutorials?tut=install_on_windows&cat=install'>Windows support, when compiling from source</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=oculus&cat=rendering'>Support for Oculus 2</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=hydrodynamics&cat=physics'>Hydrodynamics plugin</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=aerodynamics&cat=physics'>Improved aerodynamics plugin</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=preset_manager&cat=physics'>Multiple physics profiles per world</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=apply_force_torque&cat=tools_utilities'>Apply forces and torques via the GUI</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=extrude_svg&cat=model_editor_top'>Import shapes by extruding SVG files</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=extrude_svg&cat=model_editor_top'>Collision bitmask support in SDF</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=elevators&cat=plugins'>Elevator</a> and teleport plugins</li>
+                  <li><a href='http://gazebosim.org/api/code/dev/classgazebo_1_1ActuatorPlugin.html'>Actuator plugin that enforces torque limit based on joint velocity</a></li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion7_1'>Gazebo 7.1</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2016-01-25</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2021-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu T,V,W</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion7_1'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Nested models</li>
+                  <li><a href='http://ignitionrobotics.org/libraries/math'>Ignition Math integration</a></li>
+                  <li>Improve documentation for first time users</li>
+                  <li>Improved log recording and playback</li>
+                  <li>GUI design tools such as cut/copy/paste, and undo</li>
+                  <li><a href='https://bitbucket.org/osrf/gazebo/pull-request/1866'>Wide angle camera sensor</a></li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=torsional_friction&cat=physics'>Torsional friction</a></li>
+                  <li><a href='https://bitbucket.org/osrf/gazebo/pull-request/1872'>Battery class and plugin.</a></li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion8_2'>Gazebo 8.2</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2017-12-10</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2019-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu X,Y</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion8_2'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>GUI plotting utility and system instrospection</li>
+                  <li>GUI model editor</li>
+                  <li>Generalization of Actor animations</li>
+                  <li>QT 5 support</li>
+                  <li>Import OBJ files</li>
+                  <li>Support for Wind</li>
+                  <li>Quadcopter simulation</li>
+                  <li>Built-in video recording</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion9_0'>Gazebo 9.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2018-01-25</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2023-01-25</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'>Ubuntu X, A</span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion9_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>Gravity compensation plugin</li>
+                  <li><a href='https://dartsim.github.io/'>DART</a> 6 integration with closed kinematic loops</li>
+                  <li>Integration with <a href='https://ignitionfuel.org'>Ignition Fuel</a></li>
+                  <li>Joystick plugin</li>
+                  <li><a href='http://gazebosim.org/tutorials?tut=parallel&cat=physics'>Parallel threaded islands in ODE</a></li>
+                  <li>Improved shadows</li>
+                  <li>Camera lens flare</li>
+                  <li>Attach lights to links</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion10_0'>Gazebo 10.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2019-01-24</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2021-01-24</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'></span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion10_0'
+                   class="panel-collapse collapse in">
+            <div class="panel-body">
+              <ul>
+                  <li>Import FBX mesh files</li>
+                  <li>GUI movie maker</li>
+                  <li>Terrain GUI editor</li>
+                  <li>Physics plugin API</li>
+                  <li>Hydrax integration for improved water simulation</li>
+                  <li>Photo-realistic rendering pipeline</li>
+                  <li>Reference geometries for link alignment with kinematic constraints</li>
+                  <li>GUI console (display server messages)</li>
+                  <li>Graphically resize inertias</li>
+                  <li>Change physics engine via the GUI</li>
+                  <li>Improve performance and support for laptops</li>
+                  <li>Integrate network simulation(ns-3 or EMANE)</li>
+                  <li>Deformable shapes</li>
+                  <li>Rewind and replay simulation</li>
+                  <li>Wind simulation</li>
+                  <li>Scripting interfaces</li>
+                  <li>Improve SDF/URDF support</li>
+                  <li>Break-out command line tools to Ignition Tools</li>
+                  <li>Visualize plugin state</li>
+                  <li>Save plugin state to log files</li>
+                  <li>Support integration of quadcopter controllers with simulation</li>
+                  <li>OSX binary installation</li>
+                  <li>Windows binary installation</li>
+                  <li>Graphical tool to aid in validating physics</li>
+                  <li>Break out rendering library to Ignition Rendering</li>
+                  <li>Break out common library to Ignition Common</li>
+                  <li>Update Cloudsim</li>
+                  <li>Ignition Transport integration</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion'
+                href='#collapseVersion11_0'>Gazebo 11.0</a> <small data-toggle='tooltip' data-placement='top' title='Release date'>2020-01-29</small>
+              <span class='badge pull-right' style="background-color:#b20d0b" data-toggle='tooltip' data-placement='top' title='End of life date'>EOL 2025-01-29</span>
+              
+              <span class='badge pull-right hidden-xs' style='background-color:#456B91; margin-right:5px; margin-left:5px'></span>
+              <span class='badge pull-right hidden-xs' style='background-color:#DD4814; margin-right:5px; margin-left:5px'></span>
+            </h4>
+          </div> <!-- panel-heading -->
+              <div id='collapseVersion11_0'
+                   class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                  <li>In GUI tutorials</li>
+                  <li>Global and local navigation for mobile robots</li>
+                  <li>Integration of MoveIt and/or Reflexxes</li>
+                  <li>Constructive Solid Geometry support in the model editor</li>
+              </ul>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-collapse -->
+        </div> <!-- panel -->
+    </div> <!-- panel-group -->
+  </div> <!-- progress -->
+    
+
+  <div class="col-md-6">    
+    <h4>Versioning</h4>
+    Gazebo uses <a href='http://semver.org/'>semantic versioning</a>, a package numbering scheme that specifies ABI/API compatibility between releases. A version consists of three numbers separated by decimal points: MAJOR.MINOR.PATCH:
+
+    <ul>
+      <li> MAJOR version changed when incompatible ABI/API changes are made
+      <li> MINOR version changed when functionality has been added in a backwards-compatible manne
+      <li> PATCH version changed when backwards-compatible bug fixes are released
+    </ul>
+    <h4>Tick-tock Release Cycle</h4>
+    <p>
+    A tick-tock release cycle allows easy migration to new software
+    versions. Obsolete Gazebo code is marked as deprecated for one major
+    release. Deprecated code produces compile-time warnings. These warning
+    serve as notification to users that their code should be upgraded. The
+    next major release will remove the deprecated code.
+    </p>
+    <p>Example where function <i>foo</i> is deprecated and replaced by function <i>bar</i>:
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Gazebo v1.0</th>
+          <th>Gazebo v2.0</th>
+          <th>Gazebo v3.0</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i>void foo();</i></td>
+          <td>
+            <table>
+              <tr>
+                <td><i>// Deprecated, see void bar()</i></td>
+              </tr>
+              <tr>
+                <td>void foo() GAZEBO_DEPRECATED(2.0);</i></td>
+              </tr>
+
+              <tr>
+                <td>void bar();</i></td>
+              </tr>
+            </table>
+          <td><i>void bar();</i></td>
+        </tr>
+      </tbody>
+      </table>
+    </p>
+
+    <a href="/statistics" class="btn btn-primary btn-lg jumbo-button" role="button"> Statistics </a>
+
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-md-12">
+    <h4>Physics Engine Support</h4>
+    <p>Gazebo supports the ODE, Bullet, Simbody and DART physics engines. By default Gazebo is compiled with support for ODE. In order to use the other engines, first make sure they are <a href='/tutorials?cat=install'>installed</a> and then compile Gazebo from <a href='/tutorials?tut=install_from_source&cat=install'>source</a>.
+    </p>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Physics Engine</th>
+          <th>Gazebo Version</th>
+          <th>Availability</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href='http://www.ode.org/'>ODE</a></td>
+          <td>1.9+</td>
+          <td><a href='/download'>Binary</a>,<a href='/tutorials?cat=install'>Source</a></td>
+          <td>Default engine. Gazebo maintains a <a href="https://bitbucket.org/osrf/gazebo/src/default/deps/opende/">fork</a> of ODE which has diverged from the upstream package.</td>
+        </tr>
+        <tr>
+          <td><a href='http://bulletphysics.org/'>Bullet</a></td>
+          <td>3.0+</td>
+          <td><a href='/tutorials?cat=install'>Source</a></td>
+          <td>Gazebo requires libbullet2.82, available in the OSRF repository and to be included in Ubuntu Utopic.</td>
+        </tr>
+        <tr>
+          <td><a href='https://simtk.org/home/simbody/'>Simbody</a></td>
+          <td>3.0+</td>
+          <td><a href='/tutorials?cat=install'>Source</a></td>
+          <td>Simbody packages are hosted in the OSRF repository. Expected to appear in Ubuntu Utopic official repositories.</td>
+        </tr>
+        <tr>
+          <td><a href='http://dartsim.github.io/'>DART</a></td>
+          <td>3.0+</td>
+          <td><a href='/tutorials?cat=install'>Source</a></td>
+          <td>DART packages are hosted in dartsim PPA. DART is in the process of moving toward inclusion in Ubuntu.</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan='4'>
+            <h6>We are developing a physics plugin framework to resolve dependency issues. Each physics engine will interface to Gazebo through a plugin, avoiding the need to compile Gazebo with support for each engine.</h6>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10"><hr/></div>
+
+  <div class="col-md-1" style="margin-top:10px">
+    <a href='#top'><small>Top</small><span class="glyphicon glyphicon-arrow-up"></span></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>History</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>Gazebo development began in the fall of 2002 at the University of Southern California. The original creators were Dr. Andrew Howard and his student Nate Koenig. The concept of a high-fidelity simulator stemmed from the need to simulate robots in outdoor environments under various conditions. As a complementary simulator to Stage, the name Gazebo was chosen as the closest structure to an outdoor stage. The name has stuck despite the fact that most users of Gazebo simulate indoor environments.</p>
+
+    <p>Over the years, Nate continued development of Gazebo while completing his PhD. In 2009, John Hsu, a Senior Research Engineer at Willow, integrated ROS and the PR2 into Gazebo, which has since become one the primary tools used in the ROS community. A few years later in the Spring of 2011, Willow Garage started providing financial support for the development of Gazebo. In 2012, Open Source Robotics Foundation (OSRF) spun out of Willow Garage and became the steward of the Gazebo project. After significant development effort by a team of talented individuals, OSRF used Gazebo to run the Virtual Robotics Challenge, a component in the <a href="http://www.theroboticschallenge.org">DARPA Robotics Challenge</a>, in July of 2013.</p>
+
+    <p>OSRF continues development of Gazebo with support from a diverse and active community. Stay tuned for more exciting developments related to robot simulation.</p>
+  </div>
+</div>
+
+  </div>
+
+<script type="text/javascript">
+  /*$('.carousel').carousel({
+    interval: 3000
+  });
+  */
+
+  $('body').on('click','#carousel .carousel-control',function() {
+    $(this).closest('.carousel').carousel( $(this).data('slide') );
+  });
+</script>
+
+</div>
+
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xs-4 text-left">
+        <p class="">&copy;2014 Open Source Robotics Foundation</p>
+      </div>
+
+      <div class="col-md-4 col-xs-4 text-center">
+        <p class="">Gazebo is open-source licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
+      </div>
+
+      <div class="col-md-4 col-xs-4 text-right">
+        <a href="//plus.google.com/u/0/115981436296571800301?prsrc=3" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/google_gray-c25fa34eb7684172151bab44dbf83b27.png" alt="Google+" class="footer-social"/></a>
+        <a href="https://www.youtube.com/channel/UCJyqf9XJpDoM9XnpAwW6WxA" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/youtube_gray-ba23c9db23bca4edc8b91703eab6516b.png" alt="YouTube" class="footer-social"/></a>
+        <a href="https://twitter.com/GazeboSim" rel="publisher" target="_top" class="footer-social-link"><img src="/assets/twitter_gray-1228a4af80496a4e8b5e37b2eda0f40b.png" alt="YouTube" class="footer-social"/></a>
+      </div>
+    </div> <!-- row -->
+  </div> <!-- container -->
+</div> <!-- footer -->
+
+</body>
+</html>

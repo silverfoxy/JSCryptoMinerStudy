@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Yollar.az</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta Name="author" Content="Kutukov Denis, denis@yollar.az">
+<meta Name="copyright" Content="2013 MATRIX LLC. All rights reserved.">
+<meta name="keywords" content="xəritə, видеорегистратор" />
+<meta name="description" content="" />
+<script type="text/javascript">
+
+if (navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(BlackBerry)/i)) {    /* Проверка на мобильное устройство */
+
+                if(document.referrer!="http://m.yollar.az/"){  /* Проверка на прошлый линк, если пришел не с m.yollar.az */
+
+                               location.assign("http://m.yollar.az/");   /* Переход на m.yollar.az */
+
+                }
+
+}
+
+</script>
+
+
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.boxy.js"></script>
+<link rel="stylesheet" type="text/css" href="/mg.css" />
+<link rel="stylesheet" type="text/css" href="/styles/rotator.css" />
+<script type="text/javascript" src="/js/mg.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.6.2.min.js"><\/script>');</script>
+<script type="text/javascript" src="banners/jquery.rotator_az.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#rotator1').rotator({fx:'slide',autorun: true, nav: true});
+})
+</script>
+<link type="text/css" href="/boxy.css" rel="stylesheet" />
+       <script type="text/javascript"
+            src="http://api.maps.nokia.com/2.2.4/jsl.js?with=all" charset="utf-8">
+        </script>
+        <script type="text/javascript">function initialize() {
+        /*<![CDATA[*/
+/////////////////////////////////////////////////////////////////////////////////////
+// Don't forget to set your API credentials
+//
+// Replace with your appId and token which you can obtain when you 
+// register on http://api.developer.nokia.com/ 
+//
+			nokia.Settings.set( "appId", "YOUR APP ID GOES HERE"); 
+			nokia.Settings.set( "authenticationToken", "YOUR AUTHENTICATION TOKEN GOES HERE");
+// Меняем язык интерфейса и названия географических объектов на русский.
+            nokia.Settings.set("defaultLanguage", "az-AZ");
+//			
+/////////////////////////////////////////////////////////////////////////////////////
+            var map = new nokia.maps.map.Display(document.getElementById("map"),   
+                  {    components: [ new nokia.maps.map.component.Behavior(),                                                             
+                      new nokia.maps.map.component.TypeSelector(), 
+					  new nokia.maps.map.component.ContextMenu(),                                   
+                      new nokia.maps.map.component.InfoBubbles()],                               
+                 'zoomLevel': 10,        
+                 'center':[40.45, 49.9]});
+				
+ 
+	var kml = new nokia.maps.kml.Manager();
+		// We define a callback function for parsing kml file,
+		// and then push the parsing result to map display
+		var onParsed = function (kmlManager) {
+				var resultSet;
+ 
+				// KML file was successfully loaded
+				if (kmlManager.state == "finished") {
+						// KML file was successfully parsed
+						resultSet = new nokia.maps.kml.component.KMLResultSet(kmlManager.kmlDocument, map);
+						resultSet.addObserver("state", function (resultSet) {
+								if (resultSet.state == "finished") {
+										// Retrieve map objects container from KML resultSet
+										container = resultSet.container;
+ 
+										// Add the container to the map's object collection so they will be rendered onto the map.
+										map.objects.add(container);
+ 
+										// Switch the viewport of the map do show all KML map objects within the container
+										map.zoomTo(container.getBoundingBox());
+								}
+						});
+						resultSet.create();								
+				}
+		};
+		// Add an observer to kml manager
+		kml.addObserver("state", onParsed);
+ 
+/////////////////////////////////////////////////////////////////////////////////////		
+// Start parsing a kml file with given url
+// Note: please adapt the following path to the file you want to parse.
+		  kml.parseKML("http://yollar.az/" + "dillers.kml");
+/////////////////////////////////////////////////////////////////////////////////////		
+/*]]>*/ 
+        }</script>
+<script type="text/javascript">
+function go(url){if(url.indexOf('http://') >= 0){window.open(url, "_blank")}else if(url != '' && url != 0) window.location = url}
+</script>
+<script type="text/javascript">
+var dialog;
+
+function getFRM(){
+	cnt = '<div id="bxCnt">';
+	cnt += '<form action="http://wm.yollar.az/login_action.html" method="post">';
+	cnt += '<input type="hidden" name="action" value="login" />';
+	cnt += '<input type="hidden" name="lang" value="ru" />';
+	cnt += '<input type="hidden" name="skip_auto" value="1" />';
+	cnt += '<div class="proTxt" style="width:200px;text-align:center">';
+	cnt += '<input type="text" name="user" value="control" class="inpt" /><br />';
+	cnt += '<input type="password" name="passw" value="" class="inpt" /><br />';
+	cnt += '<center>Username and password for demo login: <b>control</b></center>';
+	cnt += '<input type="image" src="img/login1.jpg" />';
+	cnt += '</div>';
+	cnt += '</form>';
+	cnt += '</div>';
+	
+	dialog = new Boxy(cnt, {title:"Log in demo mode",modal:true,closeText:"X"});
+}
+
+$(document).ready(function(){$('a.proIMG').lightBox();});
+</script>
+<link type="text/css" href="/style.css" rel="stylesheet" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/styleIE.css" />
+<![endif]-->
+</head>
+<body onload="initialize()">
+	<div id="main">
+		<!--<div class="gpsCont">
+				<div class="gpsNav1">
+			<div class="gpsNBtn" onclick="go('/?id=8&lang=1')">&nbsp;</div>
+		</div>
+        		</div>-->
+		<div class="top">
+			<table border="0" align="right">
+			<tr>
+				<td class="langs" valign="top" width="180">
+										[<a href="?id=7&lang=3">EN</a>] [<a href="?id=7&lang=2">RU</a>]<br />
+										<br style="font-size:5px" />
+					[<a href="http://yollar.az/?id=31&lang=1">Mətbuat</a>] [<a href="mailto:info@yollar.az">bizə yazmaq</a>] <br><br> [<a href="/">Baş səhifə</a>]
+				</td>
+				<td><a href="/"><img src="img/logo.jpg" alt="" height="93" width="282" /></a></td>
+			</tr>
+			</table>
+			<div class="clear"></div>
+	  </div>
+		<div class="underTop">
+			<table width="100%">
+			<tr>
+				<td valign="top">
+										<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="mArt">
+						GPS Monitorinq						</td>
+					</tr>
+					<tr>
+						<td class="mItems">
+														<a href="?id=37&lang=1">Qısa tәsviri</a><br /><br />								
+																	<a href="?id=39&lang=1">Üstünüklәr</a><br /><br />								
+																	<a href="?id=40&lang=1">Sistem özellikleri</a><br /><br />								
+																	<a href="?id=13&lang=1">Avadanlıq</a><br /><br />								
+																	<a href="?id=22&lang=1">Məlumat</a><br /><br />								
+																	<a href="?id=34&lang=1">Sual var?</a><br /><br />								
+																	<a href="?id=38&lang=1">Bizim müştərilər</a><br /><br />								
+																	<a href="?id=30&lang=1">Qiyməti hesablamaq</a><br /><br />								
+																	&nbsp;
+						</td>
+					</tr>
+					</table>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+										<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="mArt">Menyu</td>
+					</tr>
+					<tr>
+						<td class="mItems">
+														<a href="?id=1&lang=1"> Şirkət haqqında</a><br /><br />										
+																	<a href="?id=5&lang=1" style="color:red">Xəbərlər</a><br /><br />										
+																	<a href="?id=14&lang=1">Karyera</a><br /><br />										
+																	<a href="?id=2&lang=1">Əlaqə</a><br /><br />										
+																	<a href="/forum/">Forum</a><br />	&nbsp;
+						</td>
+					</tr>
+					</table>
+								    </p>
+				<p>&nbsp;</p>
+				<p><a href="/webim/client.php?locale=az" target="_blank" onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 &amp;&amp; window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open('/webim/client.php?locale=az&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'webim', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=0');this.newWindow.focus();this.newWindow.opener=window;return false;"><img src="/webim/button.php?i=webim&amp;lang=az" border="0" width="147" height="61" alt=""/></a>
+				<br><br>
+               
+<a href="http://yollar.az/to.php?url=http://www.youtube.com/user/yollar" title=""><img src="images/youtube.png" alt="" height="40" width="40" /></a>&nbsp;&nbsp;
+
+<a href="http://yollar.az/to.php?url=http://twitter.com/yollar" title=""><img src="images/twitter.png" alt="" height="40" width="40" /></a>&nbsp;&nbsp;
+
+<a href="http://yollar.az/to.php?url=http://fb.com/yollar.az" title=""><img src="images/facebook.png" alt="" height="40" width="40" /></a><br></td>
+				<td width="756">
+													<div style="position:relative">
+																	<img src="/userfiles/image/banner/tracking_az.jpg" alt="" />
+																	</div>
+													<div class="content">	
+						&laquo;Matrix&raquo; şirkәti vә &laquo;Yollar&raquo; brendi 2007-ci ildә yaradılmışdır. M&ouml;vcud olduğu m&uuml;ddәtdә şirkәt &ouml;z&uuml;n&uuml; Azәrbaycan bazarında avtomobil nәqliyyatının peyk monitorinqi &uuml;&ccedil;&uuml;n qabaqcıl innovativ hәllәrin tәmin edilmәsi sahәsindә etibarlı vә peşәkar partnyor kimi tanıtmışdır.<br /><br />Biz nәqliyyat vasitәlәrinin, mobil personalın yerlәri haqqında real vaxt rejimindә dәqiq mәlumat almağa, yanacaq sәrfinә, temperatur rejiminә, avtomobillәrin vә x&uuml;susi texnikanın әlavә mexanizmlәrinin işinә nәzarәt etmәyә imkan verәn texnologiya tәqdim edirik.<br /><br />Yollar monitorinq sistemi nәqliyyat vasitәlәrinin istifadәsini optimallaşdırmağa, avtomobillәrin istismar xәrclәrini azaltmağa, avtoparkın idarә edilmәsini avtomatlaşdırmağa, iş&ccedil;i heyәtin mәsuliyyәtini artırmağa vә y&uuml;k&uuml;n vәziyyәtinә nәzarәt etmәyә imkan verir.<br /><br />Yollar sistemi artıq beş mindәn artıq nәqliyyat vasitәsini әhatә edir vә bu rәqәm s&uuml;rәtlә artmaqdadır. Partnyorlarımız vә m&uuml;ştәrilәrimiz b&ouml;y&uuml;k vә ki&ccedil;ik şirkәtlәr, elәcә dә ayrı-ayrı şәxslәrdir. GSM operatorları ilә әmәkdaşlıq әlaqәlәrinә malik olan m&uuml;ştәrilәrimiz optimal GPRS tarif planı se&ccedil;mәk haqqında fikirlәşmir, ki&ccedil;ik &ouml;dәniş qarşılığında onlara keyfiyyәtli xidmәt tәqdim etmәklә, bu işi biz &ouml;z &uuml;zәrimizә g&ouml;t&uuml;r&uuml;r&uuml;k.<br />Biz GPS/GLONASS hәllәri sahәsindә d&uuml;nya liderlәrinin avadanlıqlarından istifadә edirik.Qoşulan &ouml;t&uuml;r&uuml;c&uuml; vә aksessuar dәsti әn tәlәbkar m&uuml;ştәrilәrin tәlәblәrinә dә cavab verir<br /><div style="text-align: center; "><strong><br />Matrix şirkәti b&uuml;t&uuml;n m&uuml;vafiq icazә vә lisenziyaları әldә etmişdir.<br /></strong></div>
+					</div>
+					<div class="bottom">
+						            <table width="759" border="0">
+            <tr>
+            <td>
+            <!-- Start news-->
+            <div style="width:378px;text-align:left;margin:0 auto">
+							<H2>Xəbərlər</H2>
+							<div class="nDate">12.12.2012</div>			<div style="line-height:70%"><a href="?id=5&nid=68&lang=1">&ldquo;Matrix&rdquo; şrkəti &ldquo;Telamtika 2012&rdquo;-da</a></div>	
+										  <div class="nDate">24.10.2012</div>			<div style="line-height:70%"><a href="?id=5&nid=65&lang=1">18-ci Azərbaycan beynəlxalq sərgisi</a></div>	
+										  <div class="nDate">23.04.2012</div>			<div style="line-height:70%"><a href="?id=5&nid=63&lang=1">Şərqi avropanın xəritələri hədiyyə!</a></div>	
+										  <div class="nDate">02.04.2012</div>			<div style="line-height:70%"><a href="?id=5&nid=59&lang=1">11-ci Azərbaycan Beynəlxalq &quot;Turizm və Səyahətlər&quot; Sərgisi</a></div>	
+										  </div><br><center><a href="?id=5&lang=1"><b>Bütün xəbərlər</b></a></center>
+<!-- End news-->
+</td>
+<td>
+<form action="http://wm.yollar.az/login_action.html" method="post">
+							<input type="hidden" name="action" value="login" />
+							<input type="hidden" name="lang" value="az" />
+							<input type="hidden" name="skip_auto" value="1" />
+							<td width="100%" style="border:1px solid #e5e5e5" valign="top">
+								<div class="authL"></div>
+								<div class="proArt" style="margin-top:10px">Sistemə giriş</div>
+								<div class="proTxt">
+									<input type="text" name="user" value="demo" class="inpt"  onblur="if (value == '') {value=defaultValue}" onfocus="if (value == defaultValue) {value =''}" /><br />
+									<input type="password" name="passw" value="demo" class="inpt"  onblur="if (value == '') {value=defaultValue}" onfocus="if (value == defaultValue) {value =''}" /><br />
+									<input type="image" src="img/login1.jpg" class="btn" />
+								</div></td></form>
+</td>
+</tr>
+</table>
+											</div>
+					<div>&nbsp;	  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- yollar -->
+</div>
+				</td>
+			</tr>
+			</table>
+	  </div>
+		<div style="float:left;margin-left:180px;height:50px">&copy;2008-2018, MATRIX LLC.<br /> All rights reserved. <span class="white">           </span></div>
+	</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18344361-1']);
+  _gaq.push(['_setDomainName', '.yollar.az']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

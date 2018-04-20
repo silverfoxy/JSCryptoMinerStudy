@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/Organization">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="googlebot" content="index, follow"/>
+    <meta name="google-site-verification" content="cZpg6mIdHoTAAcAhG1Sdau_oJKcuGJM0agYR8cU7SsM"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+    <!-- Dados estruturados -->
+        <meta itemprop="name" content="QMágico - Educação do seu jeito"/>
+    <meta itemprop="description" content="O QMágico é um negócio social focado em desenvolver tecnologias para a personalização do aprendizado."/>
+    <meta itemprop="image" content="http://www.qmagico.com.br/static/images/logo/fb-logo.png"/>
+    <meta itemprop="url" content="http://www.qmagico.com.br"/>
+    <meta itemprop="email" content="contato@qmagico.com.br"/>
+    
+    <title>QMágico | A nova geração de tecnologia educacional</title>
+
+        <meta name="description" content="Esqueça as soluções que você conhece. Junte-se às escolas e professores que já estão na nova geração da educação."/>
+
+    <!-- OpenGraph -->
+    <meta property="fb:app_id" content="571440966248394"/>
+    <meta property="og:locale" content="pt_BR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="QMágico - Educação do seu jeito"/>
+        <meta property="og:url" content="http://www.qmagico.com.br/"/>
+    <meta property="og:title" content="QMágico - Educação do seu jeito"/>
+    <meta property="og:description" content="O QMágico é um negócio social focado em desenvolver tecnologias para a personalização do aprendizado."/>
+        <meta property="og:image" content="http://www.qmagico.com.br/static/images/logo/fb-logo.png"/>
+
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/static/images/ico/apple-touch-icon-57-precomposed.png"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/css/qmagico-institucional-novo.css"/>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-25728526-1', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+
+    <script src="//cdn.optimizely.com/js/3723791292.js"></script><!-- Optimizely -->
+
+    <!-- Bibliotecas -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/ajax.js"></script>
+
+    <script>
+        window.app = angular.module('InstitutionalApp', ['inst_ajax']);
+        app.config(function($interpolateProvider){
+            $interpolateProvider.startSymbol('{[{');
+            $interpolateProvider.endSymbol('}]}');
+        });
+        window.test_version = "default"; // Setar aqui com o optimizely um indentificador para este teste caso exista
+
+        // Criar um usuário visitante ou atualizar o que já existe
+        app.run(function(Ajax, $interval) {
+            var successCallback = function(result) {
+                if (!localStorage.getItem("visitorId") && jQuery.isNumeric(result.data)) {
+                    localStorage.setItem("visitorId", result.data);
+                }
+            };
+            Ajax.post('/rest_api/visitor_rest_api/api/salvar_perfil', {
+                perfil_dict: angular.toJson({
+                    visitor_id: localStorage.getItem("visitorId") || "",
+                    test_version: window.test_version,
+                    user_agent: navigator.userAgent})
+            }).then(successCallback);
+
+            // Ficar atualizando permanência do usuário de 15 em 15 segundos
+            $interval(function(){
+                Ajax.post('/rest_api/visitor_rest_api/api/salvar_perfil', {
+                    perfil_dict: angular.toJson({
+                        visitor_id: localStorage.getItem("visitorId") || "",
+                        update_duration: true,
+                        test_user_id: localStorage.getItem("testUserId") || "",
+                        user_agent: navigator.userAgent})
+                }).then(successCallback);
+            }, 15000);
+        });
+    </script>
+
+    <script type="text/javascript" src="/static/js/directives.js"></script>
+    <script type="text/javascript" src="/static/js/novo/taskbar.js"></script>
+    <script type="text/javascript" src="/static/js/novo/taskbar-menu.js"></script>
+    <script type="text/javascript" src="/static/js/controladores/quem_eh_vc_ctrl.js"></script>
+    <script type="text/javascript" src="/static/js/controladores/captura_email_ctrl.js"></script>
+
+        <script type="text/javascript" src="/static/js/novo/home-cover.js"></script>
+    <script type="text/javascript" src="/static/js/components/form_experimente.js"></script>
+</head>
+<body ng-app="InstitutionalApp" class="">
+    <!-- SDK Facebook -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=571440966248394";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+        <div ng-controller="quemEhVcCtrl">
+        <!-- Questionário -->
+        <div class="pool" ng-show="mostrarPergunta" ng-cloak>
+            <p><strong>Queremos conhecê-lo!</strong>&nbsp;Você é:</p>
+            <div class="pool-btn">
+                <a href class="btn btn-blue-light" ng-click="enviarPerfil('Diretor(a)')">Diretor<span class="u-hide-phone">&nbsp;/ Coordenador</span></a>
+                <a href class="btn btn-blue-light" ng-click="enviarPerfil('Professor(a)')">Professor</a>
+                <a href class="btn btn-blue-light" ng-click="enviarPerfil('Pai/Mãe')">Aluno<span class="u-hide-phone">&nbsp;/ Familiar</span></a>
+            </div>
+            <p href class="pool-info-small" ng-click="enviarPerfil('Outro')">Não sou da área de educação.</p>
+        </div>
+
+        <div id="taskbar" ng-controller="MenuCtrl" ng-class="{'taskbar-pool': mostrarPergunta}">
+            <div class="taskbar-logo">
+                <a href="/">
+                    <img src="/static/img/home/qmagico.png" alt="logomarca do qmágico"/>
+                </a>
+            </div>
+
+            <div class="taskbar-links" ng-click="toggleMenu()" ng-show="showMenu">
+                <a href="http://blog.qmagico.com.br/" target="_blank">Blog</a>
+                <a href="/tecnologia/qsimulado_com_questoes_do_enem">Simulado ENEM</a>
+                <a href="/plataforma/cadernos">Plataforma</a>
+                <a href="/projetos/sala_de_aula_invertida">Projetos</a>
+                <a href="/contato">Contato</a>
+                <a class="login-link" href="/entrar">Entrar</a>
+            </div>
+
+            <a class="btn btn-big btn-red btn-taskbar ng-hide" href scroll-to="#comece-agora-nome">Comece agora</a>
+
+            <i class="fa fa-bars taskbar-menu-icon" ng-click="toggleMenu()"></i>
+        </div>
+    </div>
+
+    <main class="page-home">
+    <!-- Capa -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-content-info">
+                <h1>A nova geração de tecnologia educacional.</h1>
+                <p class="header-content-info-small">Junte-se às escolas e professores que já estão na nova geração da educação.</p>
+                <p>&nbsp;</p>
+                <a class="btn btn-big btn-red" href scroll-to="#comece-agora-nome">Comece agora</a>
+            </div>
+        </div>
+
+        <div class="plugins-sociais">
+            <div class="social-plugin">
+                <div class="fb-like" data-href="http://www.qmagico.com.br" data-width="0" data-height="0" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+            </div>
+            <div class="social-plugin">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.qmagico.com.br" data-via="qmagico" data-lang="pt">Tweetar</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                </script>
+            </div>
+            <div class="social-plugin">
+                <script src="https://apis.google.com/js/platform.js" async defer></script>
+                <g:plusone size="medium"></g:plusone>
+            </div>
+        </div><!-- !social-plugins -->
+    </div>
+
+    <!-- Funcionalidades -->
+    <div class="box-content box-content-white">
+        <div class="u-max-width-content">
+            <h2 class="box-content-info-title">Permita que seus alunos aprendam a<br/>qualquer hora e em qualquer lugar</h2>
+
+            <div class="box-content-info-slider">
+                <div class="box-content-info-slider-left">
+                    <img src="/static/img/home/dispositivos.png" alt="QMágico em dispositivos móveis. Notebooks, tablets e celulares." style="max-width:409px;"/>
+                </div>
+
+                <div class="box-content-info-slider-right">
+                    <h3 class="box-content-info-slider-subtitle">Funciona em qualquer dispositivo</h3>
+                    <p class="box-content-info-slider-content"><strong>Você pode acompanhar o registro de atividades dos seus alunos</strong> em tempo real, de qualquer computador, tablet ou celular.</p>
+                </div>
+            </div>
+
+            <div class="box-content-info-slider">
+                <div class="box-content-info-slider-left">
+                    <h3 class="box-content-info-slider-subtitle">Ensine de forma engajante</h3>
+                    <p class="box-content-info-slider-content">Além de poder estudar e realizar tarefas de qualquer lugar, <strong>os alunos gostam de interagir com as atividades</strong>, com a sensação de que estão em uma rede social.</p>
+                </div>
+
+                <div class="box-content-info-slider-right">
+                    <img src="/static/img/home/comentarios.png" alt="Exemplo do sistema de comentários do QMágico" style="max-width:410px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rotinas -->
+    <div class="box-content box-content-blue">
+        <h2 class="box-content-info-title" style="display:block; max-width:inherit;">Ganhe tempo e melhore o<br/>aprendizado de seus alunos</h2>
+
+        <div class="box-content-info-three">
+            <div class="box-content-info-link">
+                <i class="fa fa-graduation-cap bcil-icon-blue"></i>
+                <h3>Modelo pedagógico</h3>
+                <p>O QMágico potencializa suas ações pedagógicas, possui integração com diversas tecnologias e práticas educacionais.</p>
+            </div>
+
+            <div class="box-content-info-link">
+                <i class="fa fa-book bcil-icon-blue"></i>
+                <h3>Ensino híbrido</h3>
+                <p>Esteja preparado para o futuro, inove sua prática de educar em sala de aula por meio de plataformas e sites, expandindo suas possibilidades.</p>
+            </div>
+
+            <div class="box-content-info-link">
+                <i class="fa fa-desktop bcil-icon-blue"></i>
+                <h3>Sala de aula invertida</h3>
+                <p>Professores podem compartilhar materiais antes da aula ou criar atividades para casa com correção automática.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-content box-content-white p-padding-bottom-4">
+        <h2 class="box-content-info-title">Conheça alguns dos nossos materiais educativos:</h2>
+        <br/>
+        <nav class="qmagico-max-size-container material-card-wrapper">
+            <a href="http://meu.qmagico.com.br/e-book-aproximar-os-pais-do-aprendizado" class="material-card" target="_blank">
+                <img src="/static/images/material-card/aproximar-os-pais-do-aprendizado-dos-alunos.png" alt="Baixe o e-Book: Melhores práticas para aproximar os pais do aprendizado dos alunos"/>
+            </a>
+            <a href="http://meu.qmagico.com.br/ebook-segredos-do-planejamento-pedagogico" class="material-card" target="_blank">
+                <img src="/static/images/material-card/plano-pedagogico-perfeito.png" alt="Baixe o e-Book: Os segredos do plano pedagógico perfeito"/>
+            </a>
+            <a href="http://meu.qmagico.com.br/e-book-gestao-pedagogica" class="material-card" target="_blank">
+                <img src="/static/images/material-card/como-usar-a-tecnologia-a-favor-de-sua-escola.png" alt="Baixe o e-Book: Como usar a tecnologia a favor de sua escola"/>
+            </a>
+        </nav>
+    </div>
+
+    <form-experimente></form-experimente>
+</main>
+
+    <div id="footer">
+        <div class="footer-social-links">
+            <a href="http://facebook.com/qmagico" class="fsl-facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="http://blog.qmagico.com.br/" class="fsl-wordpress" target="_blank"><i class="fa fa-wordpress"></i></a>
+            <a href="http://twitter.com/qmagico" class="fsl-twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="http://linkedin.com/company/2475684" class="fsl-linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="http://github.com/qmagico" class="fsl-github" target="_blank"><i class="fa fa-github-alt"></i></a>
+            <!--<a href="http://youtube.com/user/qmagicovideo" class="fsl-youtube" target="_blank"><i class="fa fa-youtube-play"></i></a>-->
+            <a href="http://plus.google.com/102262413047622400059" class="fsl-google-plus" target="_blank"><i class="fa fa-google-plus"></i></a>
+        </div>
+
+        <div class="top-links">
+            <a href="/sobre">Quem somos</a>
+            <a href="/tecnologia">Tecnologia</a>
+            <a href="/pedagogia">Pedagogia</a>
+            <a href="/inteligencia">Inteligência</a>
+            <a href="/contato">Fale conosco</a>
+        </div>
+
+        <div class="bottom-links">
+            <a href="/contato/entre_para_o_time">Entre para o time</a>
+            <a href="/contato/suporte">Suporte</a>
+            <a href="/parceiros/logo">Parceiros</a>
+        </div>
+    </div>
+    
+    <div ng-controller="capturaEmailCtrl" ng-show="show_captura_popup" class="popup-captura-email-wrapper ng-hide">
+        <div class="popup-captura-email-overlay" ng-click="closePopupCaptura()"></div>
+        <div class="popup-captura-email-table">
+            <div class="popup-captura-email-table-cell">
+                <div class="popup-captura-email" ng-class="{'popup-captura-email-enviado': capturaEnviado}">
+                    <div class="popup-captura-email-icone-wrapper">
+                        <div class="popup-captura-email-icone">
+                            <img ng-hide="capturaEnviado" src="/static/svgs/email-enviado.svg" alt="">
+                            <img ng-show="capturaEnviado" src="/static/svgs/sucesso.svg" alt="">
+                        </div>
+                    </div>
+                    <div ng-hide="capturaEnviado" class="popup-captura-email-content">
+                        <h2 class="popup-captura-email-title">Mantenha-se informado!</h2>
+                        <p>Junte-se a <span class="popup-captura-email-highlight">40 mil pessoas</span> que recebem notícias exclusivas sobre tecnologia na educação.</p>
+                        <form name="capturaEmailForm" class="form-default" ng-submit="enviarForm()">
+                            <input type="hidden" name="identificador" ng-model="identificador" ng-init="identificador='captura-newsletter-institucional'" ng-model="identificador">
+
+                            <div class="fd-input">
+                                <input class="input" name="name" ng-model="name" placeholder="Nome completo" required/>
+                            </div>
+
+                            <div class="fd-input">
+                                <input class="input" name="email" type="email" ng-model="email" placeholder="E-mail" required/>
+                                <i class="fa fa-envelope fd-input-icon"></i>
+                            </div>
+
+                            <div class="fd-input">
+                                <select name="cargo" ng-model="cargo" class="input" required>
+                                    <option value="">Sua atividade na escola</option>
+                                    <option value="Diretor(a)">Diretor(a)</option>
+                                    <option value="Coordenador(a)">Coordenador(a)</option>
+                                    <option value="Mantenedor(a)">Mantenedor(a)</option>
+                                    <option value="Supervisor(a)">Supervisor(a)</option>
+                                    <option value="Responsável de T.I">Responsável de T.I</option>
+                                    <option value="Professor(a)">Professor(a)</option>
+                                    <option value="Secretaria">Secretaria</option>
+                                    <option value="Estudante">Estudante</option>
+                                    <option value="Pai/Mãe">Pai/Mãe</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <button href ng-disabled="enviandoCaptura" class="btn btn-big btn-red">
+                                <span ng-show="enviandoCaptura">Enviando...</span>
+                                <span ng-hide="enviandoCaptura">Inscrever</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div ng-show="capturaEnviado" class="popup-captura-email-content">
+                        <h2 class="popup-captura-email-title">Inscrição realizada com sucesso!</h2>
+                        <p>Obrigado pelo seu interesse em receber as novidades do QMágico. :)</p>
+
+                        <button href ng-click="closePopupCaptura()" class="btn btn-big btn-red">
+                            Continuar navegando
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script de monitoramento do RD Station -->
+    <script type="text/javascript" async="true" src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/c652f6e4-f176-4f6a-8a8a-a8f6d438e827-loader.js" ></script>
+    <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/integration/stable/rd-js-integration.min.js"></script>
+</body>
+</html>

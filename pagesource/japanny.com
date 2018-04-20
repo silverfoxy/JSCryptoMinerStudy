@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.japanny.com/">redirected</a>.</body></html>

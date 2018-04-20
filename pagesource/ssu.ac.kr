@@ -1,0 +1,64 @@
+<script type="text/javascript" src="/html/js/jquery142/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	j$ = jQuery;
+</script>
+<script src="/html/js/jquery/cookie.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var domainStr = "ssu.ac.kr|soongsil.ac.kr";
+		var domainArr = domainStr.split("|");
+		var domain = document.domain;
+		var subdomain = "";
+		var isMobile = false;
+		var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson');
+
+		// check user agent for mobile site
+		
+		for (var mobileWord in mobileKeyWords){
+			if (navigator.userAgent.match(mobileKeyWords[mobileWord]) != null){
+				isMobile = true;
+				break;
+			}
+		}
+		
+		if (isMobile && (domain == "www.ssu.ac.kr" || domain =="ssu.ac.kr" ) ) {
+			// redirect to mobile site
+			location.href = "http://m.ssu.ac.kr/html/themes/m/html/index.jsp";
+
+		} else {
+			// redirect to normal site
+			for (var i=0; i<domainArr.length; i++) {
+				if (domain.indexOf(domainArr[i])>-1) {
+					if (domain.indexOf("." + domainArr[i])>-1) {
+						subdomain = domain.substr(0, domain.indexOf("." + domainArr[i]));
+					} else {
+						subdomain = "www";
+					}
+
+					break;
+				}	
+			}
+
+			if (subdomain == "www" || subdomain == "new") {
+			// 평상시  시작 korean site				
+				if ($.cookie("kor_default_mode")=="text") {
+					location.href = "/web/kor/home_text";
+				} else {
+					location.href = "/web/kor/home_visual";
+				}			
+			// 평상시  끝
+			//수강신청시 시작
+			//	  location.href= "/html/themes/kor/html/intro_temp/intro_2_20180213.html";
+            //수강신청시 끝				  				
+			} else if (subdomain == "m") {
+			
+				location.href = "http://m.ssu.ac.kr/html/themes/m/html/index.jsp";
+
+			} else {
+				// other sites
+				location.href = "/web/" + subdomain;
+			}
+
+		}
+	});
+</script>

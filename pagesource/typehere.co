@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Chris Kalani - chriskalani.com">
+	<meta name="description" content="A persistent textarea that will hold on to your shit.">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta property="og:image" content="http://typehere.co/kevin.jpg" />
+	<meta property="og:title" content="Type Here" />
+	
+	<title>Type Here</title>
+	
+	<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { background: transparent; border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; vertical-align: baseline; }
+		ol,ul { list-style: none; }
+		blockquote,q { quotes: none; }
+		blockquote:before,blockquote:after,q:before,q:after { content: none; }
+		:focus { outline: 0; }
+		del { text-decoration: line-through; }
+		table { border-collapse: collapse; border-spacing: 0; }
+		
+		body { font-family: Helvetica, Arial, sans-serif; font-size: 1.8em; padding: 0; margin: 0; }
+		
+		body, html {
+		  height: 100%;
+		  width: 100%;
+		  overflow: hidden;
+		}
+		
+		textarea#content {
+		  float: left;
+		  width: 95%;
+		  height: 95%;
+		  font-size: 1em;
+		  resize: none;
+		  padding: 40px;
+		  line-height: 1.3em;
+		  border: none;
+		  margin: 0;
+		}
+		
+	</style>
+</head>
+<body>
+
+  <textarea type="text" id="content" placeholder="" autofocus="true"></textarea>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script>
+
+function resizeBox() {
+    var windowWidth = $(window).width() - 85;
+    $('#content').css('width', windowWidth);
+}
+
+$(function() {
+
+  resizeBox();
+  
+  $(window).resize(resizeBox);
+
+  $('#content').val(localStorage.content);
+
+  $('#content').live( "keyup", function() {
+    var content = $('#content').val();
+    localStorage.content = content;
+  });
+
+});
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1043696-14', 'typehere.co');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

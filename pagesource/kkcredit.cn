@@ -1,0 +1,73 @@
+<!doctype html> <html class="no-js" ng-app="cclApp" ng-controller="InitWechatConfigCtrl"> <head> <base href="/"> <meta charset="utf-8"> <title>卡卡贷</title> <link rel="shortcut icon" href="bitbug_favicon.ico"> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"> <meta name="apple-mobile-web-app-capable" content="yes"> <meta name="apple-mobile-web-app-status-bar-style" content="black"> <meta name="format-detection" content="telephone=no"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.18764af7.css"> <link rel="stylesheet" href="styles/main.968e05ee.css"> <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> <script type="text/javascript">var addressURL = window.location.href;
+    		if('http://www.kkcredit.cn/' == addressURL || 'https://www.kkcredit.cn/' == addressURL || 'http://www.kakadai.com/' == addressURL){
+    			var str = 'http://www.kkcredit.cn/kakadai/index.html';
+    			window.location.href = str;
+    		}
+		var resize=function(){
+			document.body.style.fontSize=screen.availWidth*1.5/6.4;
+		}</script>  <body onload="resize()"> <script>function addLoading(){
+	        var loadingWrapper = document.createElement('div');
+	        loadingWrapper.setAttribute('class','ccl-loading');
+	        loadingWrapper.setAttribute('id','loadingWrapper');
+	        /*loadingWrapper.style.width=window.screen.width+'px';
+	        loadingWrapper.style.height=window.screen.height+'px';
+	        loadingWrapper.style.position='fixed';
+	        loadingWrapper.style.left= 0;
+	        loadingWrapper.style.top= 0;
+	        loadingWrapper.style.backgroundColor='rgba(0,0,0,0.4)'; */
+	        var loadingGIF = document.createElement('img');
+	        loadingGIF.src='images/ccltoweixin/loadingWX.gif';
+	         loadingGIF.setAttribute('class','wx-loadingGIF');
+	        loadingWrapper.appendChild(loadingGIF);
+	        document.body.appendChild(loadingWrapper);
+	　　		 //document.body.style.overflow='hidden';
+	    }
+	    addLoading();</script> <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <!-- Add your site or application content here --> <div class="container"> <div ng-view=""></div> </div> <!--[if lt IE 9]>
+    <script src="scripts/oldieshim.77528eaf.js"></script>
+    <![endif]--> <script src="scripts/vendor.5c9627f8.js"></script> <script type="text/javascript">$(document).ready(function(){
+			var addressURL = window.location.href;
+    		if('http://www.kkcredit.cn/' == addressURL || 'http://www.kakadai.com/' == addressURL){
+    			var str = 'http://www.kkcredit.cn/kakadai/index.html';
+    			window.location.href = str;
+    		}else{
+    			$.ajax({
+           			type:"POST",
+           			dataType:"json",
+           			contentType:"application/json;charset=utf-8",
+           			data:"{\"address\":\""+addressURL + "\"}",
+           			url:"http://www.kkcredit.cn/ccl/data/ws/rest/weixin/config/query",
+           			async:true,
+       				success:function(response){
+           				 wx.config({
+            		            debug: false,
+            		            appId: response.data.appId,
+            		            timestamp: response.data.timestamp,
+            		            nonceStr: response.data.nonceStr,
+            		            signature: response.data.signature,
+            		            jsApiList: ['chooseImage','uploadImage','closeWindow','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ']
+            		        });
+           				  wx.error(function (res) {
+           					  //alert("系统正在快速升级，请稍后再试。。。");
+           					});
+           			},
+       	    		error:function(){
+       	    			//alert("系统正在快速升级，请稍后再试。。。");
+       	    		}
+           		});  	
+    		}
+   			
+    		
+		
+		});</script> <script src="scripts/scripts.9b30a770.js"></script> <div class="modal fade" id="callphone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-body"> <p style="text-align:center;font-weight:bold;font-size:larger"> &nbsp;客服热线 <br> 400-180-9860 </p> <br> <br> <p style="text-align:center"> 推荐您关注卡卡贷微信公众号，客服将在线解答您的问题。 </p> </div> <div class="modal-footer"> <button type="button" class="btn btn-primary" onclick="callphoneHide()">确定</button> </div> </div><!-- 窗体结束 --> </div> </div> <script type="text/javascript">function callphoneOpen(){
+				 $("#callphone").modal("show");					
+			    }
+		    function callphoneHide(){
+		    	$("#callphone").modal("hide");	
+		    }
+		    function delLoading(){
+	             var loadingWrapper = document.getElementById('loadingWrapper');
+	             document.body.removeChild(loadingWrapper);
+	         } 
+		    delLoading();</script>  <div class="modal fade" id="loading" data-backdrop="static" data-keyboard="false" style="z-index: 9999"> <div class="modal-dialog"><div style="border:none;margin-left:50%;top:30px" id="loadingSpinner" class="modal-content"> </div></div></div>

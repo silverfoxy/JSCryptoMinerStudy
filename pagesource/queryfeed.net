@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+  <title>Queryfeed | Read Twitter, Google Plus and Facebook on RSS</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="Read Twitter, Google Plus and Facebook on RSS">
+  <meta name="keywords" content="RSS, Facebook, Twitter, reader, agregator, google reader, convert to, convert">
+  <meta name="author" content="Ivan Grishaev">
+
+  <link rel="alternate" type="application/rss+xml" title="Queryfeed" href="/pages/feed.xml" />
+
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="//yandex.st/share/share.js" charset="utf-8"></script>
+  <script src="/public/js/jquery.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- /favicons -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33533163-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </head>
+    <body>
+
+        <style>
+
+            li {
+                list-style-type: none;
+            }
+
+            .hero-unit {
+                background-color: #fff;
+                margin-bottom: -40px;
+                padding-top: 25px;
+            }
+
+            .modal-footer {
+                background-color: #fff;
+                text-align: left;
+            }
+
+            #tips {
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .separator {
+              margin-bottom: 25px;
+            }
+
+            .center {
+              text-align: center;
+            }
+
+            .dropdown form, .paypal form {
+                margin: 0;
+            }
+
+            #dashboard {
+                width: 800px;
+                margin-left:  -400px !important;
+            }
+
+            #dashboard .modal-body {
+                max-height: 600px;
+            }
+
+        </style>
+
+
+        <div class="container">
+
+            <div class="hero-unit offset1">
+
+                <div class="row">
+                    <ul class="nav nav-pills span8">
+                        <li><a href="/pages/about">About</a></li>
+                        <li><a href="/pages/pricing">Pricing</a></li>
+                        <li><a href="/pages/">Updates</a></li>
+                        <li><a href="http://feedback.queryfeed.net/" target="_blank">Feedback</a></li>
+                        <li><a href="/pages/feed.xml">RSS</a></li>
+
+                        
+                        <li class="pull-right">
+                            <div class="dropdown">
+                                <a class="btn btn-primary dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" href="#">
+                                    Sign in
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li>
+                                        <form method="post" action="/auth/tw/init">
+                                            <button class="btn btn-link" type="submit">via Twitter</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="post" action="/auth/fb/init">
+                                            <button class="btn btn-link" type="submit">via Facebook</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                
+
+              <h1><a href="/">Queryfeed</a></h1>
+
+		      <p>Read Twitter, Google Plus and Facebook on RSS</p>
+
+            </div>
+
+
+            <div class="row">
+                <div class="span-4 offset2">
+                    <h4>Classical Twitter Search</h4>
+                    <p>Searches tweets using official <a href="https://dev.twitter.com/rest/reference/get/search/tweets">Twitter API</a>.</p>
+                    <form class="form-search" method="GET" action="/twitter">
+
+                        
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span5" id="q-twitter" size="16" type="text" name="q" placeholder="Search term (see examples below)"><button type="submit" class="btn">Search</button>
+
+<p style="font-size: 10pt">
+<a href="#" rel="tooltip" title="Search by hashtag" onClick="javascript: $('#q-twitter').val('#hashtag');">#hashtag</a>,
+<a href="#" rel="tooltip" title="Sent from the user @username" onClick="javascript: $('#q-twitter').val('from:username');">from:username</a>,
+<a href="#" rel="tooltip" title="Sent to the user @username" onClick="javascript: $('#q-twitter').val('to:username');">to:username</a>,
+<a href="#" rel="tooltip" title="Mentioning @username" onClick="javascript: $('#q-twitter').val('@username');">@username</a>,
+<a href="#" rel="tooltip" title='Containing either "love" or "hate" (or both)' onClick="javascript: $('#q-twitter').val('love OR hate');">love OR hate</a>,
+<a href="#twitter-tips" data-toggle="modal" rel="tooltip" title="All available patterns">more patterns...</a>
+</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="geocode_form" class="control-group">
+                            <div class="controls">
+                                <label>
+                                    How to compose a title
+                                    <select name="title-type">
+                                        <option value="user-name-both">User Name + @username</option>
+                                        <option value="user-name-screen">@username</option>
+                                        <option value="user-name-full">User Name </option>
+                                        <option value="tweet-text-full">Tweet text</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="geocode_form" class="control-group">
+                            <div class="controls">
+                                <label>
+                                    Geographical restrictions
+                                    <input class="span3" id="twitter_geocode" type="text" name="geocode" placeholder="latitude,longitude,radius">
+                                    <p><small>Use geocode to strict tweets location.
+                                            <br>Radius units must be specified as either "mi" (miles) or "km" (kilometers).
+                                            <br>Example: <a href="#" onClick="javascript: $('#twitter_geocode').val('37.781157,-122.398720,1km');">37.781157,-122.398720,1km</a></small></p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="omit-direct"> Omit direct messages (started with @someuser)
+                          </label>
+                        </div>
+
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="omit-retweets"> Omit retweets (started with RT)
+                          </label>
+                        </div>
+
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="attach"> Show images as attachments
+                          </label>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <div class="span-9 offset2">
+                    <h4>Alternative Twitter Search</h4>
+                    <p>Parses Twitter pages, so the results are quite close to what you see in Twitter in realtime.</p>
+                    <form class="form-search" method="GET" action="/tw">
+
+                        
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                  <input class="span5" size="16" type="text" name="q"
+                                         placeholder="Search term">
+                                  <button type="submit" class="btn">Search</button>
+                                </div>
+                            </div>
+                            <small>
+                                Possible patterns:<br>
+                                @nasa &mdash; tweets from <a href="https://twitter.com/nasa">NASA</a> official account<br>
+                                #nasa &mdash; tweets by the hashtag <a href="https://twitter.com/hashtag/nasa?f=tweets">#nasa</a><br>
+                                nasa &mdash; tweets from the search result by the word <a href="https://twitter.com/search?q=nasa&f=tweets">"nasa"</a><br>
+                            </small>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="explict" disabled>
+                                Include sensitive data (Pro users only)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="span-9 offset2">
+                    <h4>Google+</h4>
+                    <p>Searches activities: posts, articles, photos, etc.</p>
+                    <form class="form-search" method="GET" action="/plus">
+
+                        
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                  <input class="span5" id="q-plus" size="16" type="text" name="q"
+                                         placeholder="Search term">
+                                  <button type="submit" class="btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span-9 offset2">
+                    <h4>Facebook</h4>
+                    <p>Searches Facebook pages.</p>
+                    <form class="form-search" method="GET" action="/facebook">
+
+                        
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span5" id="q-facebook" size="16"
+                                           type="text" name="q" placeholder="Search term">
+                                    <button type="submit" class="btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span-9 offset2">
+                    <h4>Instagram</h4>
+                    <p>Searches photos by a username or hashtag.</p>
+                    <form class="form-search" method="GET" action="/instagram">
+
+                        
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span5" id="q-instagram" size="16"
+                                           type="text" name="q" placeholder="Search term">
+                                    <button type="submit" class="btn">Search</button>
+                                </div>
+                            </div>
+
+                            <small>
+                                Possible patterns are:<br>
+
+                                username &mdash; user's photos, e.g.
+                                <a href="https://www.instagram.com/nasa/">nasa</a>,
+                                <a href="https://www.instagram.com/bbc/">bbc</a>,
+                                <a href="https://www.instagram.com/nike/">nike</a>
+                                <br>
+
+                                #hashtag &mdash; photos tagged with that hashtag, e.g.
+                                <a href="https://www.instagram.com/explore/tags/nasa/">#nasa</a>,
+                                <a href="https://www.instagram.com/explore/tags/news/">#news</a>,
+                                <a href="https://www.instagram.com/explore/tags/sport/">#sport</a>
+                                <br>
+
+                                geo:number &mdash; photos from geo-location, e.g.
+                                <a href="https://www.instagram.com/explore/locations/213385402/">geo:213385402 (London)</a>,
+                                <a href="https://www.instagram.com/explore/locations/31499759/">geo:31499759 (Rome)</a>,
+                                <a href="https://www.instagram.com/explore/locations/212988663/">geo:212988663 (New York)</a>.
+
+                                <br>Note: take the geo-number from the URL on the Instagram search page.<br>
+                            </small>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="span-3 offset2">
+                        <p>&copy; Queryfeed, 2012&mdash;2016<br>
+                            <a href="mailto:admin@queryfeed.net">admin@queryfeed.net</a><br>
+                            <a href="http://feedback.queryfeed.net/" target="_blank">Leave feedback</a><br>
+                        </p>
+                    </div>
+                    <div class="span-5">
+                        <p>
+                            Follow us on <br>
+                            <a href="https://twitter.com/queryfeed">Twitter</a> and <a href="https://facebook.com/queryfeed">Facebook</a>
+                        </p>
+                    </div>
+                    <div class="span-5">
+
+<small>Share Queryfeed with</small>
+<script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+<div class="ya-share2" data-services="twitter,facebook,linkedin,gplus,vkontakte"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="modal hide" id="dashboard">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Dashboard</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="span-12">
+                <h4>Account info</h4>
+                <p>
+                    <a href=""></a></br>
+                    
+                        <em>email was not set</em><br>
+                    
+                    First time signed in
+                    
+                    
+                    at 3/18/18 11:30 AM<br>
+                    Is subscription enabled: <br>
+                    Account type:
+                        
+                        free
+                        <br>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span-12">
+                <h4>Paypal subscription</h4>
+
+                <p>Once you have enabled the monthly subscription, you will perform queries better. See the <a href="/pages/pricing">Pricing page</a> for more details. You can see all the operations in your <a href="https://www.paypal.com/myaccount/activity">Paypal history</a>. You may cancel the subcription any time you want.</p>
+
+                
+            </div>
+        </div>
+        <div class="row">
+            
+                <div class="span-4 paypal">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="custom" value="">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="4HMPZZYAFGYEY">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+                </div>
+                <div class="span-4">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="custom" value="">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="KGUNWBLBX2684">
+<input type="image" src="https://www.paypalobjects.com/ru_RU/RU/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal — более безопасный и легкий способ оплаты через Интернет!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+                </div>
+
+            
+        </div>
+        
+        <div class="row">
+            <div class="span-4">
+                <p><small>
+                        The right button is for Russian users only, because Paypal sets price in rubles for them.<br>
+                        Если вы из России, нажмите кнопку справа, т.к. Пейпал выставляет цены россиянам в рублях.
+                </small></p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="modal hide" id="twitter-tips">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Twitter Search Terms Examples</h3>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Example</th>
+        <th>Finds tweets...</th>
+      </tr><tr>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>twitter search</td>
+        <td>containing both "twitter" and "search". This is the default operator</td>
+      </tr>
+      <tr>
+        <td>"happy hour"</td>
+        <td>containing the exact phrase "happy hour"</td>
+      </tr>
+      <tr>
+        <td>love OR hate</td>
+        <td>containing either "love" or "hate" (or both)</td>
+      </tr>
+      <tr>
+        <td>beer -root</td>
+        <td>containing "beer" but not "root"</td>
+      </tr>
+      <tr>
+        <td>#haiku</td>
+        <td>containing the hashtag "haiku"</td>
+      </tr>
+      <tr>
+        <td>from:twitterapi</td>
+        <td>sent from the user @twitterapi</td>
+      </tr>
+      <tr>
+        <td>to:twitterapi</td>
+        <td>sent to the user @twitterapi</td>
+      </tr>
+      <tr>
+        <td>place:opentable:2</td>
+        <td>about the place with OpenTable ID 2</td>
+      </tr>
+      <tr>
+        <td>place:247f43d441defc03</td>
+        <td>about the place with Twitter ID 247f43d441defc03</td>
+      </tr>
+      <tr>
+        <td>@twitterapi</td>
+        <td>mentioning @twitterapi</td>
+      </tr>
+      <tr>
+        <td>superhero since:2011-05-09</td>
+        <td>containing "superhero" and sent since date "2011-05-09" (year-month-day).</td>
+      </tr>
+      <tr>
+        <td>twitterapi until:2011-05-09</td>
+        <td>containing "twitterapi" and sent before the date "2011-05-09".</td>
+      </tr>
+      <tr>
+        <td>movie -scary :)</td>
+        <td>containing "movie", but not "scary", and with a positive attitude.</td>
+      </tr>
+      <tr>
+        <td>flight :(</td>
+        <td>containing "flight" and with a negative attitude.</td>
+      </tr>
+      <tr>
+        <td>traffic ?</td>
+        <td>containing "traffic" and asking a question.</td>
+      </tr>
+      <tr>
+        <td>hilarious filter:links</td>
+        <td>containing "hilarious" and with a URL.</td>
+      </tr>
+      <tr>
+        <td>news source:tweet_button</td>
+        <td>containing "news" and entered via the Tweet Button</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+<script>
+  $("[rel=tooltip]").tooltip();
+</script>
+
+    </body>
+</html>

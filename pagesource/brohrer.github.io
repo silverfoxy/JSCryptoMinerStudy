@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Brandon Rohrer: Publications and posts.">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <base target="_blank">
+
+    <title>Brandon Rohrer </title>
+    </head>
+
+  <body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title">Brandon Rohrer </h1>
+          <!--<h2 id="project_tagline">Posts, Presentations and Papers</h2>-->
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner"  style="font-size: 20px;">
+        <table>
+          <tr>
+            <td>
+              <a href="blog.html">Blog</a>
+            </td>
+            <td>
+              <a href="blog.html">
+                <img src="images/pen.png" 
+                alt="blog" style="height: 55px;">
+              </a>          
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="becca.html">Becca</a>
+            </td>
+            <td>
+            <a href="becca.html">
+                <img src="https://github.com/brohrer/becca-docs/raw/master/figs/logo_plate.png" 
+                alt="BECCA on github" style="height: 35px;">
+            </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="http://www.youtube.com/c/BrandonRohrer">Videos</a>
+            </td>
+            <td>
+              <a href="http://www.youtube.com/c/BrandonRohrer">
+                <img src="images/youtube.jpeg" 
+                alt="Videos" style="height: 45px;">
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <a href="https://twitter.com/_brohrer_">@_brohrer_</a>
+            </td>
+            <td>
+              <a href="https://twitter.com/_brohrer_">
+                <img src="images/twitter_icon_color.png" 
+                alt="Twitter" style="height: 60px;">
+              </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="https://www.linkedin.com/in/brohrer">Resume</a>
+            </td>
+            <td>
+              <a href="https://www.linkedin.com/in/brohrer">
+                <img src="images/linkedin.png" 
+                alt="LinkedIn profile" style="height: 60px;">
+              </a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <a href="https://github.com/brohrer/publications/blob/master/README.md">Publications</a>
+            </td>
+            <td>
+              <a href="https://github.com/brohrer/publications/blob/master/README.md">
+                <img src="images/paper.jpg" 
+                alt="Publication list" style="height: 60px;">
+              </a>
+            </td>
+          </tr>
+
+          </table>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <!--
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <section class="clearfix">
+          <a href="blog.html"><span>Blog</span></a>
+          &nbsp &nbsp &nbsp
+          <a href="index.html"><span>Publications</span></a>
+        </section>
+      </footer>
+    </div>
+    -->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-10180621-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>

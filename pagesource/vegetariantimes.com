@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.vegetariantimes.com/">https://www.vegetariantimes.com/</a></p>

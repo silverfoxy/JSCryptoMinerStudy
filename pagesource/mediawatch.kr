@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-5843131098147467",
+enable_page_level_ads: true
+});
+</script>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta property="og:url"					content="http://www.mediawatch.kr/" />
+<meta property="og:type"				content="article" />
+<meta property="og:title"				content="미디어워치" />
+<meta property="og:description"			content="언론을 바꾸고 세상을 바꾼다!! 월간 미디어워치" />
+<meta property="og:image"				content="http://www.mediawatch.kr/data/design/logo/default_image_share_20160906115520.png" />
+<meta name="twitter:url"				content="http://www.mediawatch.kr/" />
+<meta name="twitter:title"				content="미디어워치" />
+<meta name="twitter:card"				content="photo" />
+<meta name="twitter:image"				content="http://www.mediawatch.kr/data/design/logo/default_image_share_20160906115520.png" />
+<link rel="canonical" href="http://www.mediawatch.kr/" />
+<link rel="apple-touch-icon-precomposed" href="/data/skin/layout/1/m17/images/favicon72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/data/skin/layout/1/m17/images/favicon144.png">
+<link rel="shortcut icon" href="/data/skin/layout/1/m17/images/favicon.ico">
+<link rel="icon" href="/data/skin/layout/1/m17/images/favicon.ico" type="image/x-icon">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/data/rss/news.xml">
+<link type="text/css" rel="stylesheet" href="/data/skin/layout/1/m17/images/css/index_cache.css">
+<link type="text/css" rel="stylesheet" href="/data/skin/content/1/theme_title/index_cache.css">
+<link type="text/css" rel="stylesheet" href="/data/skin/content/1/widget/index.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="/data/skin/layout/1/m17/images/css/ie_cache.css">
+<![endif]-->
+<title>미디어워치</title><link href="/data/cache/skin/1/index-cnts.css?20090508101900" type="text/css" rel="stylesheet" />
+<meta name="subject" content="미디어워치" />
+<meta name="copyright" content="미디어워치" />
+<meta name="keywords" content="미디어워치" />
+<meta name="title" content="미디어워치" />
+<meta name="description" content="언론을 바꾸고 세상을 바꾼다!! 월간 미디어워치" />
+
+<script type='text/javascript' src='/plugin/jquery/jquery-1.3.2.min.js'></script>
+<script type='text/javascript' src='/js/common/jquery.cookie.js'></script>
+<script type='text/javascript' src='/plugin/jquery/jquery-ui-1.7.2.custom.min.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery.floatobject-1.0.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery.uploadify-v2.1.0/swfobject.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery.uploadify-v2.1.0/jquery.uploadify.v2.1.0.min.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery.newsticker.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery-galleryview/jquery.easing.1.3.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery-galleryview/jquery.galleryview-1.1.js'></script>
+<script type='text/javascript' src='/plugin/jquery/plugins/jquery-galleryview/jquery.timers-1.1.2.js'></script>
+<script type='text/javascript' src='/js/iecontrol.js'></script>
+<script type='text/javascript' src='/js/xml_supports.js'></script>
+<script type='text/javascript' src='/js/menu.js'></script>
+<script type='text/javascript' src='/js/mynews.js'></script>
+<script type='text/javascript' src='/js/input.js'></script>
+<script type="text/javascript" src="/js/common/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/js/common/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/common/swipe.js"></script>
+<script type="text/javascript" src="/js/common/jquery.bxslider.js"></script>
+<script type="text/javascript" src="/js/common/jquery.sticky.js"></script>
+<script type="text/javascript" src="/js/common/icheck.js"></script>
+<script type="text/javascript" src="/js/common/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="/js/common/jquery.easy-ticker.js"></script>
+<script type="text/javascript">
+	var jQuery11 = $.noConflict(true);
+</script>
+<script type="text/javascript" src="/js/common/style.js"></script>
+
+<script>
+function ajaxGetSkinContent(layout_tpl, lay_no)
+{
+	$("#btn_more_" + lay_no).hide();
+	$("#btn_more_loading_" + lay_no).show();
+	if($("#skin_content_" + lay_no).attr("data-page") === undefined)
+	{
+		$("#skin_content_" + lay_no).attr("data-page", 1);
+	}
+	var page = Number($("#skin_content_" + lay_no).attr("data-page")) + 1;
+	var mode = "get_skin_content";
+	var parameter = "mode=" + mode + "&layout_tpl=" + layout_tpl + "&lay_no=" + lay_no + "&ajax_page=" + page + "&sec_no=";
+
+	$.ajax({
+		url: "/news/ajax.php",
+		data: parameter,
+		dataType: "json",
+		type:"POST",
+		error: function(error) {
+			console.log(error); 
+			return; 
+		},
+		success: function(data){
+
+			if(data.error_code)
+			{
+				console.log(data.error_message);
+				return false;
+			}
+			$("#skin_content_" + lay_no).append($(data.html).find("#skin_content_" + lay_no).html());
+			$("#skin_content_" + lay_no).attr("data-page", page);
+
+			if($(data.html).find("#skin_content_" + lay_no).children().length >= $("#skin_content_" + lay_no).attr("data-count"))
+			{
+				$("#btn_more_" + lay_no).show();
+			}
+			$("#btn_more_loading_" + lay_no).hide();
+		},
+	});
+}
+</script>
+
+</head>
+<body>
+
+<div class="body_wrap">
+	
+<!-- HEADER -->
+<!-- 접근성 메뉴 -->
+<ul class="accessibility">
+	<li><a href="#gnb">주메뉴 바로가기</a></li>
+	<li><a href="#container">본문 바로가기</a></li>
+</ul>
+
+<!-- 상단 네비게이터 -->
+<div class="wrapper top_nav">
+	<div>
+		
+		<ul class="tn_left_txt">
+			<li><a href="/home/page.html?code=company">회사소개</a></li>
+			<li><a href="/home/page.html?code=recruit">인재채용</a></li>
+		</ul>
+		
+		
+		<div class="tpop">
+			<a href="javascript:void(0);" class="btn_r_toggle">기사제보 및 독자투고</a>
+			<div class="tpop_wrap" style="display: none;">
+				<h3><img src="/data/skin/layout/1/m17/images/request/tit_request.png" alt="독자 여러분의 소중한 제보와 투고를 기다립니다."></h3>
+				<div class="tpop_con">
+					<dl>
+						<dt>미디어워치 대표 이메일</dt>
+						<dd><a href="mailto:mediasilkhj@gmail.com">mediasilkhj@gmail.com</a></dd>
+					</dl>
+					<!--
+					<dl>
+						<dt>연구진실성검증센터 대표 이메일</dt>
+						<dd><a href="mailto:center4integrity@gmail.com">center4integrity@gmail.com</a></dd>
+					</dl>
+					<dl>
+						<dt>외신감시센터 대표 이메일</dt>
+						<dd><a href="mailto:c4monitoring@gmail.com">c4monitoring@gmail.com</a></dd>
+					</dl>
+					-->
+					<dl>
+						<dt>전화 연락처</dt>
+						<dd>02-720-8828</dd>
+					</dl>
+					<dl>
+						<dt>팩스 연락처</dt>
+						<dd>02-720-8838</dd>
+					</dl>
+					
+					<div class="tpop_bot">
+						<p>전화 가능 시간 : 평일 10:00~18:00 (주말, 공휴일은 쉽니다)</p>
+						<b>* 이메일은 휴일없이 매일 상시로 검토합니다.</b>
+					</div>
+				</div>
+				<a href="javascript:void(0);" class="btn_r_close">닫기</a>
+			</div>
+		</div>
+		
+		<a href="http://www.mediawatch.kr/home/page.html?code=support" class="tlink t01"><span class="blind">후원안내</span></a>
+		<a href="http://www.mediawatch.kr/home/media.html" class="tlink t02" style="margin-left: 0;"><span class="blind">정기구독</span></a>
+		
+		<ul class="tn_right">
+						
+						<li><a href="/member/member_join.html">회원가입</a></li>
+			<li><a href="/member/member_login.html" class="icon_login">로그인</a></li>
+					</ul>
+		
+	</div>
+</div>
+
+<!-- 헤더 -->
+<div id="header" class="wrapper">
+	<div>
+		
+		<div class="head_top">
+			<div>
+				<h1><b><a href='/' target='_top' onfocus='blur()'><img src='/data/design/logo/toplogo_20170301110016.png' width=359 height=100 alt='미디어워치' class='png24' /></a></b></h1>
+				<div class="ht_left"><hr class='spc' style='height:10px;'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 웹 헤더 좌측 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:260px;height:90px"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="4778878146"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+				<div class="ht_right"><hr class='spc' style='height:25px;'>
+<div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 웹 헤더 우측 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:260px;height:90px"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="5329542482"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="wrapper head_cen">
+	<div>
+		<div class="pr">
+						
+			<!-- GNB 서브 세로형-->
+			<ul id="gnb" class="vertical">
+								<li>
+					<a href="/news/section.html?sec_no=194"  >미디어워치TV</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=161"  >미디어워치</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=192"  >포린미디어워치</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=162"  >폴리틱스워치</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=190"  >자유통일강대국코리아</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=195"  >현대사상</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=189"  >아카데미워치</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=164"  >사이언스워치</a>
+									</li>
+								<li>
+					<a href="/news/section.html?sec_no=193"  >호남본부</a>
+									</li>
+							</ul>
+			<script type="text/javascript">
+			jQuery11(function(){
+				
+				var gnbMenu = jQuery11('#gnb > li');
+				
+				gnbMenu.hover(function(){
+					jQuery11(this).children('a').addClass('on');
+					jQuery11(this).children('ul').stop().fadeIn(200);
+				}, function(){
+					jQuery11(this).children('a').removeClass('on');
+					jQuery11(this).children('ul').hide();
+				});
+				
+				jQuery11('#gnb > li').on('mouseover',function(){
+					var li = jQuery11(this).find("li").find("span");
+					var max = 0;
+					for(var i = 0; i < li.length; i++)
+					{
+						if(max < $(li[i]).outerWidth(true) + 1)
+						{
+							max = $(li[i]).outerWidth(true) + 1;
+						}
+					}
+					jQuery11(this).find("ul").css('width', max);
+				});
+			});
+			</script>
+						
+			<!-- 검색 -->
+			<div class="search_box">
+				<form method="GET" action="/news/search_result.html">
+					<fieldset>
+						<legend>기사검색</legend>
+						<div class="search_con">
+							<label for="search" class="i_label">검색어를 입력해주세요</label>
+							<input id="search" name="search" type="text" class="i_text">
+							<a href="javascript:void(0)" class="btn_search_close"><span>닫기</span></a>
+						</div>
+						<a href="javascript:void(0)" class="btn_all_search">검색창 열기</a>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+
+<!-- STICKY BANNER -->
+<div class="top_banner">
+    <div class="banner_wrap">
+         <div class="banner_left">
+	         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 좌측날개 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="2364175830"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+         </div>
+         <div class="banner_right">
+	         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 우측날개 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="5457243037"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+         </div>
+    </div> 
+</div>
+
+<!-- CONTENT -->
+<div class="wrapper">
+	<div id="main_con">
+		
+		<div class="column col73 pb00">
+			<div>
+				<div>
+					<div class="hdl_019 hcon1861" style="height: 0;">
+	
+	
+	<div class="slide_wrap" id="columnCon1861">
+		<ul id="columnSlide1861" class="photo_box">
+						<li>
+				<a href="/news/article.html?no=253095" >
+										<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215209882715_9f76d2_313x208_c0.png" alt="‘조던 피터슨 현상’, 좌파의 자본주의 비판 논리 무너뜨리는 영상 화제" height="210"></span>
+										<div class="art_box">
+						<em>현대사상 (사상/이론)</em>
+						<h3 class="clamp c2">‘조던 피터슨 현상’, 좌파의 자본주의 비판 논리 무너뜨리는 영상 화제</h3>
+												<h4 class="ofe">“빈익빈 부익부, 자본주의 산물이란 해석 틀려… 모든 생산 체계의 속성”</h4>
+								
+												<p class="clamp c4 ffd">자본주의·시장경제를 부정하는 좌파들의논리를 설득력있게 반박하는 한 캐나다 저명 대학 교수의 동영상 팟캐스트가 한국에서도 유투브와 페이스북을 중심으로 화제를 모으며 팬덤까지 형성하고 있다. 토론토대학교 심리학과 교수인 조던 피터슨(Jordan B. Peterson)은 작년 9월 1일과 올해 1월 30일(현지시각), 미국의 시사 팟캐스트 ‘조 로건 익스피리언스’(Joe Rogan Experience)에 출연해고전적 자유주의자의 입장에서자본주의·시장경제체제가 ‘빈익빈 부익부’ 현상을 낳는다는 칼 마르크스(KarlMarx) 식의 낡은 분석을 조목조목 파헤치고 반박하고 나섰다.(관련 동영상 :빈익빈 부익부가 자본주의만의 산물이라고?) 조던 피터슨 교수는 이른바 정치적 올바름(Political Correctness)과 극성 페미니즘 등 좌익 이데..</p>
+										
+						
+					</div>
+				</a>
+			</li>
+						<li>
+				<a href="/news/article.html?no=253092" >
+										<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_1521437784816_cd3a4f_313x208_c0.png" alt="﻿변희재, “남북회담 전후 김정은-문재인 ‘연방제 개헌안’ 올라올 수도”" height="210"></span>
+										<div class="art_box">
+						<em>폴리틱스워치 (정치/사회)</em>
+						<h3 class="clamp c2">﻿변희재, “남북회담 전후 김정은-문재인 ‘연방제 개헌안’ 올라올 수도”</h3>
+												<h4 class="ofe">“지금 개헌한은 위장전술이고, 남북회담 전후로 진짜 ‘연방제 개헌안’ 올라올 가능성 높아”</h4>
+								
+												<p class="clamp c4 ffd">문재인 정부가 오는 26일 헌법 개정안을 발의한다고 발표한 가운데, 변희재 미디어워치 대표고문은 “(이번에 발의되는 개헌안은) 위장전술일 가능성이 높다”고 전망했다. 변희재 대표는 지난 17일 대구 반월당 동아백화점앞에서 개최된 자유통일 애국우파 집회에서 연설자로 나서 “이번에 국민헌법자문특별위원회(자문위)가 (문재인에게) 올린 개헌안엔 연방제 통일안 조항이 없다”며 “김정은과의 남북회담 전후로 진짜 연방제 개헌안이 올라올 가능성이 아주 높다”고 분석했다. 그는 문재인 정부가 북한과 연방제 통일을 하기 위해선 ‘대한민국의 영토는 한반도와 그 부속도서로 한다’는 헌법 제3조의 본문과, ‘대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일정책을 수립하고 이를 추진한다’는 헌법 제4조의 본문 수정이 불가피..</p>
+										
+						
+					</div>
+				</a>
+			</li>
+						<li>
+				<a href="/news/article.html?no=253091" >
+										<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15214288296427_e9de90_313x208_c0.jpg" alt="[변희재칼럼] 홍준표, 박대통령에 화풀이 말고 서울시장 선거나 출마하라!" height="210"></span>
+										<div class="art_box">
+						<em>폴리틱스워치 (정치/사회)</em>
+						<h3 class="clamp c2">[변희재칼럼] 홍준표, 박대통령에 화풀이 말고 서울시장 선거나 출마하라!</h3>
+												<h4 class="ofe">박원순, 안철수 3자 대결에서 한자리수 득표가 겁나 피하는 것 아닌가.</h4>
+								
+												<p class="clamp c4 ffd">홍준표 자유한국당 대표는 18일 "아직도 박근혜 (전 대통령) 동정심을 팔아 정치적 연명을 시도하는 세력과는 결별할 수 밖에 없다"고 떠들었다. 홍 대표는 이날 자신의 페이스북에 "박근혜 미망에 갇혀서 보수 우파 분열을 획책하는 일부 극우들의 준동에 좌파들만 미소짓고 있다"고 했다. 홍 대표는 "지금의 대한민국을 좌파천국으로 만든 책임은 바로 우리에게 있다. 정치는 무한책임이고 결과책임"이라며 "박 전 대통령을 동정하는 것과 정치적 책임을 묻는 것은 엄격히 분리해야 한다"고 했다. 홍 대표는 "극히 일부에 불과 하지만 탄핵 시 오락가락 행보로 무소신 정치 행각을 벌인 당내 분들도 이제 자중하길 바란다"며 "이제 박근혜 책임론도 국민의 선택이니 받아 들이고 새롭게 중산층과 서민을 위한 신보수주의로 거듭나는 한국당의 기치 아래 뭉쳐야 한다"고 주장했..</p>
+										
+						
+					</div>
+				</a>
+			</li>
+						<li>
+				<a href="/news/article.html?no=253090" >
+										<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_1521369183622_8949bd_313x208_c0.jpg" alt="사쿠라이 요시코, “문재인이 연방제와 개헌으로 한국 적화 시도”" height="210"></span>
+										<div class="art_box">
+						<em>포린미디어워치 (해외언론)</em>
+						<h3 class="clamp c2">사쿠라이 요시코, “문재인이 연방제와 개헌으로 한국 적화 시도”</h3>
+												<h4 class="ofe">“문재인은 적어도 이념에 있어서는 한국을 북한풍의 국가로 개조하려고 하고 있다”</h4>
+								
+												<p class="clamp c4 ffd">김정은과 한국 집권 좌파 세력의 북핵포기를 빙자한 연방제 추진 및 대남적화 기도와 관련, 미국 언론과 일본 언론에서는 연일 경고음이 나오고 있다. 남북대화·미북대화을 앞두고 그저 감상에나 젖어있는 한국 언론과는 크게 대조적인 모습이다. 17일, ‘주간 다이아몬드(週刊ダイヤモンド)’는 일본의 대표적인 반공우파 논객 사쿠라이 요시코(櫻井よしこ) 국가기본연구소(国家基本問題研究所) 이사장의 ‘한국의 사회주의화 및 북한화가 진행 중, 문대통령과 보수파 간의 대립에 주목(韓国の社会主義化や北朝鮮化が進行中　文大統領と保守派のせめぎ合いに注目)’ 제하 칼럼을 게재했다. 칼럼은 같은 날짜로 사쿠라이 요시코 이사장의 홈페이지에도 같이 공개됐다. 갑작스런 북한의 남북대화·미북대화 제안은 무슨 저의? 사쿠라이 씨는 칼럼 서두에서 먼저..</p>
+										
+						
+					</div>
+				</a>
+			</li>
+					</ul>
+	</div>
+	
+		<script type="text/javascript">
+	jQuery11(function(){
+	 
+		var slider = jQuery11('#columnSlide1861').bxSlider({
+		    auto: true,
+            hideControlOnEnd: true,
+            useCSS: false,
+            speed: 500,
+            pause: 4000,
+            onSliderLoad: function(){
+		        jQuery11(".hcon1861").css("height", "inherit");
+		    }
+		});
+		
+        jQuery11('#columnCon1861 .bx-controls-direction a').click(function(e){
+            var i = $(this).index();
+            slider.goToSlide(i);
+            slider.stopAuto();
+            restart=setTimeout(function(){
+                slider.startAuto();
+                },500);
+
+            return false;
+        });
+	});
+	</script>
+		
+</div><hr class='skin_margin' style='height:15px;'>
+<div class='com_ban' style='padding-bottom:20px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=337" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1513308488.png" width="100%" border="0" alt="배너" /></a></div>
+					<div class="column inner">
+						<div>
+							<div>
+								<div class="arl_022">
+	
+	
+	<ul>
+		
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=252923">
+					<h2 class="clamp c2">[특집] 과학계 마피아 꿈꾸나? ‘변화를 꿈꾸는 과학기술인 네트워크(ESC)’</h2>
+										<h3 class="ofe">‘좌파적 사고방식’ 확산이 설립목적인  '좌익' 시민단체,  ‘변화를 꿈꾸는 과학기술인 네트워크(Engineers and Scientists for Change)’의 실체</h3>
+					
+										<div>
+												<p class="ffd clamp c3">윤태웅 교수와 정재승 교수의 위선적 연구윤리 문제, 반과학 문제가 불거지면서 이들이 리더십을 발휘하고 있는 과학 관련 단체인 ‘변화를 꿈꾸는 과학기술인 네트워크(Engineers and Scientists for Change, 이하 ESC)’에도 이목이 쏠리고 있다. ESC 는 ‘과학적 사고방식을 대한민국에 확산시키는 것’을 설립목적으로 하여 지난 2016년도에 설립된 대중과학자들 및 과학비평가들 중심의 ‘과학’ 시민단체로 알려져 있다. 그러나 ESC 의 진짜 실체는 ‘좌파적 사고방식을 대한민국에 확산시키는 것’이 설립목적인 '좌익' 시민단체라는 지적도 일각에서 강하게 제기되고 있다. 실제로 본지가 언론, 출판 등을 통해 발표된 ESC 측 주요 인사들의 주장을 직접 살펴본 결과, 이들은 비단 천안함 피격 사건 문제 외에도 과학이 주제 또는 소재가..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180103/art_15164755725603_fcf44b_90x60_c0.jpg" alt="[특집] 과학계 마피아 꿈꾸나? ‘변화를 꿈꾸는 과학기술인 네트워크(ESC)’"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=252889">
+					<h2 class="clamp c2">[알림] ‘서울대 진실위’ 및 ‘각 연구기관 진실위’ 허위결론 사례 제보 받습니다</h2>
+										<h3 class="ofe">전국 연구기관, 교육기관 연구진실성위원회의 허위결론 사례들을 수집해 이를 공론화할 예정</h3>
+					
+										<div>
+												<p class="ffd clamp c3">연구진실성검증센터가 서울대학교 연구진실성위원회를 포함한 대한민국의 연구기관들과 교육기관들 산하 연구진실성위원회의 허위결론 사례들에 대한 제보를 받습니다. 근래에 인권위를 비롯하여 투명성이 부족한 유사사법기관들이 엉터리 결론으로써 개인들의 인권을 침해하는 사례가 속출하고 있습니다. 학교 연구진실성위원회의 경우는 연구부정행위를 은폐하는 것을 넘어 학내 권력투쟁의 일환으로 허위결론으로써 연구자들에게 누명을 씌우는 사례까지 나타나고 있을 정도입니다. 연구진실성검증센터는 더 이상 이런 상황을 방치할 수 없다고 판단, 전국 연구기관, 교육기관 연구진실성위원회의 허위결론 사례들을 수집해 이를 공론화하고자 합니다. 실체적 진실과는 무관하게 연구진실성위원회의 허위결론으로 인해 무고를 한 이로 몰리거나 누명을 쓴 이..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180102/art_15155550231641_c1a668_90x60_c0.jpg" alt="[알림] ‘서울대 진실위’ 및 ‘각 연구기관 진실위’ 허위결론 사례 제보 받습니다"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				
+		
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="hdl_003">
+	
+	
+	
+	<ul>
+		
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253087">
+					<h2 class="ofe">존 볼턴, “김정은이 미국 대통령 앞에서 사기 치면 후세인 꼴이 될 것”</h2>
+										<h3 class="ofe">“트럼프 대통령은 김정은으로부터 원하는 답변을 듣지 못하면 그냥 회담장을 박차고 나와야 한다”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">차기 백악관 안보보좌관 1순위로 계속 손꼽히고 있는 존 볼턴(John Bolton) 전 유엔대사가 김정은에게 미국 대통령 앞에서 사기를 치면 후세인 꼴이 될 것이라고 강하게 경고했다. 지난 3월 10일(현지시각), 폭스뉴스(Fox News)의 ‘저널 에디토리얼 리포트(Journal Editorial report)’ 코너, '트럼프 대통령과 김정은과의 회담에서 무슨 일이 있을 것인가(What to expect from Trump's meeting with Kim Jong Un)' 주제 대담에 출연한 존 볼턴 전 유엔대사는 트럼프 대통령의 미북정상회담 수락과는 별개로 북한에 군사옵션은 여전히 살아있다면서 강경한 주장을 쏟아냈다. 존 볼턴은 일전에도 월스트리트저널에 기고한 칼럼을 통해 선제북폭의 법적, 도덕적 정당성을 설파하기도 하는 등, 미국 조야에서 북한과의 전쟁 여론을..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15212879822682_5dbc3d_90x60_c0.jpg" alt="존 볼턴, “김정은이 미국 대통령 앞에서 사기 치면 후세인 꼴이 될 것”"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253086">
+					<h2 class="ofe">고든 창, “트럼프 대통령, 문재인의 종북 행보 막기 위해 북한과 대화”</h2>
+										<h3 class="ofe">“문재인의 반미 성향을 감안했을 때, 그가 한미 동맹을 와해시키려는 것을 미국은 절대 용인해서는 안된다”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">남북대화·미북대화 정국이 펼쳐졌으나 일본 조야만이 아니라 미국 조야에서도 한국의 집권좌파세력에 대한 의구심은 증폭되고 있다. 이번에는트럼프 대통령의 기습적인 미북정상회담 수락이 한국 문재인 대통령의 반미종북 행보를 더 이상 용납하지 않겠다는 메시지라는 미국발 분석이 나왔다. 지난 3월 11일(현지 시각), 미국의 초정파(超政派) 매체인 ‘데일리 비스트(Daily Beast)‘는 ‘트럼프의 기습적 미북 회담 수락, 신의 한수인가(Trump’s Impulsive Yes to Historic Kim Summit: Inglorious or Brilliant?)’ 제하,고든 창(Gordon Chang)의 칼럼을 게재했다. 고든 창은 한국에도 잘 알려진미국의 대표적인 동북아 외교안보 전문가다. 이번 칼럼에서 고든 창은 “갑작스러운 트럼프 대통령의 김정은과의 정상회담 수락..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15212792675161_debc11_90x60_c0.jpg" alt="고든 창, “트럼프 대통령, 문재인의 종북 행보 막기 위해 북한과 대화”"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253085">
+					<h2 class="ofe">日 유칸후지, 한국 반일좌파가 공개한 ‘위안부 학살 영상’ 반박 칼럼 게재</h2>
+										<h3 class="ofe">위안부 안전 위해 후방배치 지시했던 일본군, 학살할 동기 없었다...일본군 장교 회고록 제시</h3>
+					
+										<div>
+												<p class="ffd clamp c3">일본 산케이신문의 자매지 ‘유칸후지(夕刊フジ)’가 근래 한국에서 반일좌파 언론을 중심으로 집중 보도한 ‘일본군의 위안부 학살 영상’에 대해 역사적 사실이 아니라고 반론을 제기했다. 유칸후지는 3월 3일자로, ‘‘위안부 학살 기록’ 신빙성 의문 “새로운 발견 아니다”, 저널리스트 이시이 다카아키 씨 긴급 기고’ 제하의 칼럼을 게재했다. (원문 바로가기: 『慰安婦虐殺記錄』に大疑義　「新発見ではない」ジャーナリスト・石井孝明氏緊急寄稿) 안보와 전쟁사를 전문으로 하는 언론인인 이시이 다카아키(石井孝明) 씨는이 칼럼에서우선 ‘위안부 학살기록’과 관련 “사진은 여성을 위한 아시아평화국민기금이 발행한 〈‘위안부’ 문제 조사보고·1999(「慰安婦」問題調査報告・１９９９)〉 에 수록된 논문, ‘윈난·버마 최전선의 위안부들..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15211900302471_79f3b3_90x60_c0.jpg" alt="日 유칸후지, 한국 반일좌파가 공개한 ‘위안부 학살 영상’ 반박 칼럼 게재"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253084">
+					<h2 class="ofe">日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”</h2>
+										<h3 class="ofe">“경제 제재로 조선 인민군 전체가 굶고 있는 상황에서 일부 간부들은 김정은 제거를 위한 쿠데타를 조건으로 명운을 걸기 시작했다”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">미국 중앙정보국(CIA)이 그간 북한에 반김정은 세력을 암암리에 육성해왔고 쿠데타 유도 준비도 마쳤다는 일본발 보도가 나왔다. 최근 김정은이 갑작스럽게 미북정상회담 제의를 하고 나온 것이 이와 무관치 않을 것이라는게 전문가들의 분석이다. 일본의 반공우파 매체인 유칸후지(夕刊フジ)는 온라인판 자크자크(zakzak)를 통해, 6일자로 카가 코우에이(加賀孝英) 기자의 ‘트럼프, 문재인 “무시”하고 북한 공격, 미 정보당국 관계자 “북한 내부 반 김정은 일파 만드는 것 성공”(トランプ氏、文氏“無視”で北朝鮮攻撃へ　米情報当局関係者「内部に反正恩一派つくることに成功」)’ 제하 기사를 내보냈다. 김정은판‘코드네임 제로니모(Code Name Geronimo)’를 준비했던 미국 기사는 먼저 제임스 매티스 미국 국방부 장관이 올해 초에 “..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_1521185123514_11c1e1_90x60_c0.jpg" alt="日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253089">
+					<h2 class="ofe">[입자생물학 Essay] 6. 현상우주의 절대온도</h2>
+										<h3 class="ofe">현상우주의 절대온도는 우리가 속한 물질차원에 제한된 절대온도</h3>
+					
+										<div>
+												<p class="ffd clamp c3">[편집자주] 미디어워치는 입자생물학자이자 생명과학 철학서 ‘라이프사이언스’(해조음 출판사)의 저자인 이돈화 씨(블로그주소 http://blog.naver.com/gi1982)의 생명과학 철학 에세이들을 특별 연재합니다. 많은 성원 부탁드립니다. 물질의 구조는 우리가 살고 있는 물질차원의 에너지결합방식에 의해 결정되고, 에너지결합방식은 온도의 고저(高低)에 대한 한계성(限界性, limitation)을 결정하고, 온도는 에너지의 활성과 이동을 조절하며, 에너지의 활성은 에너지의 극성(極性, polarity)을 창출하고, 극성에 의해 양분된 물질입자들은 계(界, system)의 영속성(永續性)을 확보하기 위한 음양조화의 본능적 재조합에 의해 생명체를 탄생시킨다. 온도는 차원의 물질구조와 에너지결합방식과 연관되므로, 다양한 물리적 속성을 가지는 모..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15213503675061_4f80fb_90x60_c0.jpg" alt="[입자생물학 Essay] 6. 현상우주의 절대온도"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253088">
+					<h2 class="ofe">박근혜 대통령 진실과 청렴 내세운 대한애국당, 협박 상해 전과자들 공천 논란</h2>
+										<h3 class="ofe">변희재, "박대통령 이름 걸려면,  급 안되는 인물 아예 선거 내보내지 말아야"</h3>
+					
+										<div>
+												<p class="ffd clamp c3">박근혜 대통령의 진실, 청렴, 정의를 내세워온 조원진 대표의 대한애국당의 지자체 선거 후보자들 중 협박, 상해 등 공직자로선 부적합한 전과 기록이 드러나 논란이 되고 있다. 동두천시 나선거구 시의원 출마자 이현우 후보는 음주운전으로 100만원, 협박으로 100만원씩 벌금형을 선고받았다. 이현우 후보는 덕정고등학교를 졸업, 코리아시큐리티CCTV 대표라 경력을 적었다. 또한 대구 북구 제1선거구 시의원 출마자 김덕수 후보도 불실기재공잔자 기록등 행사와 상해 등의 혐의로 각각 100만원씩 벌금형을 받았다. 김덕수 후보는 협성고등학교를 졸업한 후 요식업 덕성물회를 운영한다고 경력을 공개했다. 이중 협박과 상해 등은 박대통령의 진실, 청렴을 내세운 세력의 이미지와 너무 안 맞는 범죄라, 미디어워치 독자까페에서 논란이 분분하다. 이에 앞서 대한애..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15212965420169_1d2140_90x60_c0.jpg" alt="박근혜 대통령 진실과 청렴 내세운 대한애국당, 협박 상해 전과자들 공천 논란"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253081">
+					<h2 class="ofe">다케사다 히데시, “김정은이 통일 코리아 대통령 될 수도”</h2>
+										<h3 class="ofe">한국의 종북좌파 세력과 북한의 조선노동당 세력이 주도하는 연방제 통일 분위기에서 ‘김정은 대통령’이 한반도에서 탄생할는지도 모른다</h3>
+					
+										<div>
+												<p class="ffd clamp c3">한국의 종북좌파 세력과 북한의 조선노동당 세력이 주도하는 연방제 통일 분위기에서 ‘김정은 대통령’이 한반도에서 탄생할는지도 모른다는 불길한 예측이 이웃 일본 언론을 통해 흘러나오고 있다. 일본의 대표적인 반공우파 매체인 유칸후지(夕刊フジ)의 온라인판 자크자크(zakzak)는, 9일자로 다쿠쇼쿠(拓殖) 대학 특임교수인 다케사다 히데시(武貞秀士)의 ‘통일코리아 분위기가 고조되면 김정은 대통령이 탄생할 가능성도(統一コリアムード高まれば金正恩大統領が誕生する可能性も)’ 제하 칼럼을 게재했다. 다케사다 교수의 해당 칼럼은 일본의국제시사 격월간지로역시 반공우파 매체로 잘 알려진 사피오(SAPIO) 3·4월호에 먼저 게재됐던 것이다. 다케사다 교수는 일본 방위성 방위연구소에서 교관으로 36년간 근무한 인사로, 최근까지 한국의 연..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_1521112876374_918578_90x60_c0.jpg" alt="다케사다 히데시, “김정은이 통일 코리아 대통령 될 수도”"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253080">
+					<h2 class="ofe">﻿변희재 “검찰, 태블릿PC 문제로 왜 나를 기소 못하고 있나”</h2>
+										<h3 class="ofe">“검찰이 태블릿PC 조작했다고 말했는데도 기소 못해”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">변희재 미디어워치 대표고문이 손석희의 태블릿PC 조작보도 문제와 관련, “특검, 검찰은 왜 나만 기소를 못하고 있냐”고 따져 물었다. 15일 낮 12시, 서초동 특검사무실 앞에서는 미디어워치 독자모임 주최태블릿PC 관련특검 규탄 집회가 열렸다. 현장에서변희재 대표는 “작년 2월 손석희가 나를 고소했는데 태블릿PC가 최순실 것이라면 1년이 지난 지금까지 왜 내가 기소가 되지 않는지 특검은 생각해보라”고 목소리를 높였다. 이번 집회에는 김창진 전 교장, 변희재 미디어워치 대표고문 신동욱 공화당 총재, 선글라스맨 오영국씨 등을 포함, 150여명의 미디어워치 독자들이 참석했다. 변희재 대표는 이날 특검이 검찰에 태블릿PC 관련 재수사를 요청해야 한다고 강조했다. 아울러 태블릿PC에 대한 증거 채택 철회와 JTBC 김필준 기자와 박헌영 K스포츠재..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15211115709256_766527_90x60_c0.jpg" alt="﻿변희재 “검찰, 태블릿PC 문제로 왜 나를 기소 못하고 있나”"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253079">
+					<h2 class="ofe">자유총연맹 ‘친문’ 인사 차기 총재 내정설 돌아</h2>
+										<h3 class="ofe">박종환 전 충북경찰청장, 총재추천위원회 구성원들과 모임 가져</h3>
+					
+										<div>
+												<p class="ffd clamp c3">한국자유총연맹(이하 자총) 차기 총재로 친문 인사가 내정될 것이라는 소문이 연맹 인사들을 중심으로 확산되고 있다. 뉴데일리 15일자 단독보도'''문재인 절친' 자유총연맹 총재 내정설 확산'제하 기사에 따르면, 이미 연맹 내부에선 현재 문재인 대통령과 가까운 사이로 알려진 박종환 전 충북경찰청장이 차기 총재에 내정될 것이라는 소문이 파다한 상황이다. 한 연맹 관계자는 뉴데일리와의 인터뷰에서 “내부에서 돌고 있는 소문인 것은 맞다. 청와대에서 내정했다는 설이 돌고 있는 상황이다”고 말했다. 이 매체는 “박종환 전 청장은 14일 서울의 모처에서 자유총연맹 핵심 관계자들과 비공개 회동을 갖기도 했다”며 “뉴데일리가 확인한 결과, 박종환 전 청장은 이날 서울 을지로에 소재한 한 식당에서 자유총연맹 전국 시·도 지부 회장들과 만났다”고도 보도..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15210993458899_4d440b_90x60_c0.jpg" alt="자유총연맹 ‘친문’ 인사 차기 총재 내정설 돌아"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253077">
+					<h2 class="ofe">﻿15일(목) 12시, 서초동 특검사무실 앞서 ‘특검 잡으러 가즈아’ 집회</h2>
+										<h3 class="ofe">변희재 “검찰, 즉각 김필준 박헌영 체포해 이들의 기획을 수사해야 할 것”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">미디어워치가 15일(목) 낮 12시, 서초동 특검사무실 앞에서 ‘특검 잡으러 가즈아’ 집회를 개최, 태블릿PC에 대한 증거 채택 철회와 JTBC 김필준 기자와 박헌영 K스포츠재단 과장에 대한 체포 수사를 촉구할 예정이다. 이번 집회에 참석하고자 하는 시민들은 서울 지하철2호선 교대역에서4번 출구로 나와350미터가량 직진해서초동 D타워 앞에 모이면된다.이날 집회 30분전인 오전 11시 30분부터는 해당 장소에서 ‘손석희의 저주’ 피켓팅도 같이 진행된다. 앞서 노승일 K스포츠재단 부장은 경향신문과의 인터뷰를 통해 JTBC 김필준 기자와 박헌영 K스포츠재단 과장과의 밀접한 관계를 폭로하면서 그간 JTBC가 주장하던 태블릿PC 입수와 관련 알리바이를 모두 무너뜨렸다. 노 부장은 “앞서 박헌영 과장이 JTBC 김모 기자를 접촉해서 JTBC &lt;뉴스..</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_15210294202253_f20abc_90x60_c0.jpg" alt="﻿15일(목) 12시, 서초동 특검사무실 앞서 ‘특검 잡으러 가즈아’ 집회"></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				
+		
+	</ul>
+
+</div><hr class='skin_margin' style='height:15px;'>
+<div class="hdl_003">
+	
+	
+	
+	<ul>
+		
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253076">
+					<h2 class="ofe">﻿﻿문재인 3.1절 기념사… 역사전문가들, "북한 날조 자료 인용했나”</h2>
+										<h3 class="ofe">이영훈 교수 “(문재인의 3.1절 기념사는) 역사의 더 없는 날조, 이 나라는 점점 북한을 닮아간다”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253075">
+					<h2 class="ofe">[변희재성명서] 특검은 JTBC 손석희의 태블릿PC 증거채택을 포기하라</h2>
+										<h3 class="ofe">3월 15일, 오전 11시 30분 교대역 특검 사무실에서 미디어워치 집회</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253073">
+					<h2 class="ofe">중국 시진핑, 또 한국 문재인 특사 하대...두 번 당하고도 입다문 청와대</h2>
+										<h3 class="ofe">취임 땐 사드 핑계 댄 청와대, 이번엔 변명도 궁색</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253069">
+					<h2 class="ofe">벤 샤피로, “한국의 문재인은 주한미군 주둔하는 것 싫어한다”</h2>
+										<h3 class="ofe">“트럼프 대통령이 결국 미국우선주의의 이름으로 주한미군을 철수시킬 수도 있을 것이다”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253067">
+					<h2 class="ofe">무토 전 주한일본대사 “남북, 비자금 제공 논의했을 것”</h2>
+										<h3 class="ofe">“서훈 국정원장, 과거 대북송금에 모두 개입...이번에도 논의했어도 이상하지 않다”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253065">
+					<h2 class="ofe">[변희재성명서] 검찰은 JTBC 김필준과 더블루K 박헌영을 즉각 체포 수사하라!</h2>
+										<h3 class="ofe">3월 15일 오전 11시 30분, 교대역 특검 사무실 앞에서 기자회견 가진후 김필준과 박헌영 체포 의뢰서를 검찰에 제출할 것</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253064">
+					<h2 class="ofe">‘친문매체’ 경향신문 노승일 인터뷰, “태블릿PC는 손석희가 책임져야”</h2>
+										<h3 class="ofe">노승일과 고영태 VS 손석희와 박헌영 ‘태블릿PC 진실공방’ 구도 형성</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253062">
+					<h2 class="ofe">﻿변희재, “‘김정은 망명’과 ‘북한 내부 쿠데타’도 염두에 둬야”</h2>
+										<h3 class="ofe">“김정은, 트럼프 속여서 핵 만드는 것 불가능… 걸리면 평양은 불바다”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253060">
+					<h2 class="ofe">﻿박수현 예비후보, 내연녀 공천 논란인가 예비부인 공천 논란인가</h2>
+										<h3 class="ofe">한겨레 인터뷰서 “그 여성분은  (결혼 가능성도 고려하며)  좋은 감정으로 만나는 사이”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253059">
+					<h2 class="ofe">변희재 “방심위 4월 태블릿 조작 심의? 박 대통령 재판 뒤에 하겠다는 꼼수“</h2>
+										<h3 class="ofe">“내일이라도 당장 손석희 중징계 할 수 있는 사안이 있다”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253058">
+					<h2 class="ofe">‘핵폐기’ 없는 미북대화는 북폭 명분만 더할 것...걸프전의 교훈</h2>
+										<h3 class="ofe">미국의 대화는 곧 명분쌓기...미국, 걸프전 공습 개시 직전까지도 이라크와 대화노력</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253063">
+					<h2 class="ofe">[입자생물학 Essay] 5. 전자기에너지결합에 의한 생명현상 발현</h2>
+										<h3 class="ofe">물질의 전자친화력과 극성은 생명현상의 원동력</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253057">
+					<h2 class="ofe">월스트리트저널(WSJ), “선제북폭은 법적, 도덕적으로도 정당”</h2>
+										<h3 class="ofe">선제타격이야말로 ‘필연적 전제조건’을 충족하는 완벽하게 합법적인 방안이라는 내용의 월스트리트저널 칼럼, 미국 조야에서 화제</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253056">
+					<h2 class="ofe">[변희재성명서] 방심위는 JTBC 손석희가 자백한 것부터 즉각 중징계 내려라!</h2>
+										<h3 class="ofe">3월 8일 방통심의위 앞에서 손석희 중징계 촉구 집회 성명서</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253055">
+					<h2 class="ofe">﻿내일(8일) 목동 방심위 앞에서 JTBC 태블릿 보도 심의 촉구 집회</h2>
+										<h3 class="ofe">변희재 “방심위에서 태블릿 관련 구체적으로 뭘 어떻게 심의하는지 알릴 계획”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253054">
+					<h2 class="ofe">﻿엇갈리는 南·北 목소리… “핵 보유는 정당, 시비거리 안된다”</h2>
+										<h3 class="ofe">13년 전 김정일 “북한은 핵무기를 가져야 할 이유가 없다” 발언 돌이켜봐야</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253053">
+					<h2 class="ofe">우병우 전 수석, 구치소에서 ‘손석희의 저주’ 읽는다</h2>
+										<h3 class="ofe">법률방송 단독보도, 우 전 수석 ‘손석희의 저주’, ‘인생의 밀도’ 2권 영치품으로 받아</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253052">
+					<h2 class="ofe">김경재 자유총연맹 총재 퇴임… “호남과 보수는 함께 가야”</h2>
+										<h3 class="ofe">한반도에 전쟁 없애려는 집권자들의 노력은 이해 ... 대화 노력이 실패했을 경우도 대비해야</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253051">
+					<h2 class="ofe">브라이트바트(Breitbart), “한국은 북한의 현금인출기인가”</h2>
+										<h3 class="ofe">또 현금인출용 남북정상회담? 한국은 속더라도 미국도 또 속을지 궁금</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				<li class="no_img"> 
+			<div class="art_box">
+				<a href="/news/article.html?no=253050">
+					<h2 class="ofe">﻿﻿안희정 여비서 성추행 추문… 김대중 여비서 혼외자녀 문제는?</h2>
+										<h3 class="ofe">극좌 매체 오마이뉴스 “DJ 평전에 쓰려했던 '숨겨놓은 딸' 이야기”</h3>
+					
+									</a>
+
+							</div>
+		</li>
+				
+		
+	</ul>
+
+</div><hr class='skin_margin' style='height:20px;'>
+
+							</div>
+						</div>
+						<div>
+							<div class="pl20">
+								<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=325" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1511960479.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=250" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1496374140.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=241" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1491894502.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=249" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1496373683.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=161" class="t01">미디어워치</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=161" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=252900" class="ofe" title="‘언론 홍위병’과 문재인 방송장악...해법은?"><span>1</span>‘언론 홍위병’과 문재인 방송장악...해법은?</a></li>
+				<li><a href="/news/article.html?no=250846" class="ofe" title="[뉴스검증] 중앙일보 ‘최태민=라스푸틴’ 기사, 최악 오보로 판명되자 조용히 삭제"><span>2</span>[뉴스검증] 중앙일보 ‘최태민=라스푸틴’ 기사, 최악 오보로 판명되자 조용히 삭제</a></li>
+				<li><a href="/news/article.html?no=252688" class="ofe" title="KBS공영노조, “언론노조, ‘홍위병’ 당장 그만두라”"><span>3</span>KBS공영노조, “언론노조, ‘홍위병’ 당장 그만두라”</a></li>
+				<li><a href="/news/article.html?no=252653" class="ofe" title="KBS 공영노조, “흥진호…나라의 근본 흔들리는 중대사건”"><span>4</span>KBS 공영노조, “흥진호…나라의 근본 흔들리는 중대사건”</a></li>
+				<li><a href="/news/article.html?no=252632" class="ofe" title="﻿[기자수첩] 세계화에 역행하는 국내 언론"><span>5</span>﻿[기자수첩] 세계화에 역행하는 국내 언론</a></li>
+				<li><a href="/news/article.html?no=252604" class="ofe" title="바른언론연대, “정부는 네이버 뉴스조작 철저히 수사하라”"><span>6</span>바른언론연대, “정부는 네이버 뉴스조작 철저히 수사하라”</a></li>
+				<li><a href="/news/article.html?no=252603" class="ofe" title="“방송사 경영진 교체는 법치 무력화하는 것”"><span>7</span>“방송사 경영진 교체는 법치 무력화하는 것”</a></li>
+				<li><a href="/news/article.html?no=252572" class="ofe" title="MBC, “김성수 ‘MBC사장’ 인사는 정상, 다른 인사는 적폐?”"><span>8</span>MBC, “김성수 ‘MBC사장’ 인사는 정상, 다른 인사는 적폐?”</a></li>
+				<li><a href="/news/article.html?no=252551" class="ofe" title="KBS공영노조, “문재인 정권 퇴진 운동 벌일 것”"><span>9</span>KBS공영노조, “문재인 정권 퇴진 운동 벌일 것”</a></li>
+				<li><a href="/news/article.html?no=252536" class="ofe" title="KBS공영노조, “KBS가 좌파의 선전매체가 됐단 말인가?”"><span>10</span>KBS공영노조, “KBS가 좌파의 선전매체가 됐단 말인가?”</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:20px;'>
+<div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=162" >폴리틱스워치</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=162" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=253092" class="ofe" title="﻿변희재, “남북회담 전후 김정은-문재인 ‘연방제 개헌안’ 올라올 수도”"><span>1</span>﻿변희재, “남북회담 전후 김정은-문재인 ‘연방제 개헌안’ 올라올 수도”</a></li>
+				<li><a href="/news/article.html?no=253091" class="ofe" title="[변희재칼럼] 홍준표, 박대통령에 화풀이 말고 서울시장 선거나 출마하라!"><span>2</span>[변희재칼럼] 홍준표, 박대통령에 화풀이 말고 서울시장 선거나 출마하라!</a></li>
+				<li><a href="/news/article.html?no=253088" class="ofe" title="박근혜 대통령 진실과 청렴 내세운 대한애국당, 협박 상해 전과자들 공천 논란"><span>3</span>박근혜 대통령 진실과 청렴 내세운 대한애국당, 협박 상해 전과자들 공천 논란</a></li>
+				<li><a href="/news/article.html?no=253083" class="ofe" title="윤병철 순천시장 출마자, “친환경 대중교통 500원 트램버스 도입”과 “공무원 희년제 실시” 공약 발표"><span>4</span>윤병철 순천시장 출마자, “친환경 대중교통 500원 트램버스 도입”과 “공무원 희년제 실시” 공약 발표</a></li>
+				<li><a href="/news/article.html?no=253080" class="ofe" title="﻿변희재 “검찰, 태블릿PC 문제로 왜 나를 기소 못하고 있나”"><span>5</span>﻿변희재 “검찰, 태블릿PC 문제로 왜 나를 기소 못하고 있나”</a></li>
+				<li><a href="/news/article.html?no=253079" class="ofe" title="자유총연맹 ‘친문’ 인사 차기 총재 내정설 돌아"><span>6</span>자유총연맹 ‘친문’ 인사 차기 총재 내정설 돌아</a></li>
+				<li><a href="/news/article.html?no=253077" class="ofe" title="﻿15일(목) 12시, 서초동 특검사무실 앞서 ‘특검 잡으러 가즈아’ 집회"><span>7</span>﻿15일(목) 12시, 서초동 특검사무실 앞서 ‘특검 잡으러 가즈아’ 집회</a></li>
+				<li><a href="/news/article.html?no=253075" class="ofe" title="[변희재성명서] 특검은 JTBC 손석희의 태블릿PC 증거채택을 포기하라"><span>8</span>[변희재성명서] 특검은 JTBC 손석희의 태블릿PC 증거채택을 포기하라</a></li>
+				<li><a href="/news/article.html?no=253065" class="ofe" title="[변희재성명서] 검찰은 JTBC 김필준과 더블루K 박헌영을 즉각 체포 수사하라!"><span>9</span>[변희재성명서] 검찰은 JTBC 김필준과 더블루K 박헌영을 즉각 체포 수사하라!</a></li>
+				<li><a href="/news/article.html?no=253064" class="ofe" title="‘친문매체’ 경향신문 노승일 인터뷰, “태블릿PC는 손석희가 책임져야”"><span>10</span>‘친문매체’ 경향신문 노승일 인터뷰, “태블릿PC는 손석희가 책임져야”</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:20px;'>
+<div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=193" >호남본부</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=193" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=253094" class="ofe" title="대한무궁화대상 수상 동인회장에 (사)21세기경제사회연구원 유준상 이사장 선출"><span>1</span>대한무궁화대상 수상 동인회장에 (사)21세기경제사회연구원 유준상 이사장 선출</a></li>
+				<li><a href="/news/article.html?no=253072" class="ofe" title="[포토] 제주국제울트라마라톤대회 이모저모"><span>2</span>[포토] 제주국제울트라마라톤대회 이모저모</a></li>
+				<li><a href="/news/article.html?no=253071" class="ofe" title="[포토]활빈단 "제주도를 북미회담 장소로 정하자""><span>3</span>[포토]활빈단 "제주도를 북미회담 장소로 정하자"</a></li>
+				<li><a href="/news/article.html?no=253068" class="ofe" title=""도전하는 자가 아름답다" 제주국제울트라마라톤 대회 성료"><span>4</span>"도전하는 자가 아름답다" 제주국제울트라마라톤 대회 성료</a></li>
+				<li><a href="/news/article.html?no=253066" class="ofe" title="[포토] 활빈단, 의원직 사퇴번복 민병두-더불어민주당 겨냥 " 미투가 심심풀이 땅콩이냐""><span>5</span>[포토] 활빈단, 의원직 사퇴번복 민병두-더불어민주당 겨냥 " 미투가 심심풀이 땅콩이냐"</a></li>
+				<li><a href="/news/article.html?no=253061" class="ofe" title="활빈단 " 표리부동 안희정 키운 文대통령도 사죄하라!""><span>6</span>활빈단 " 표리부동 안희정 키운 文대통령도 사죄하라!"</a></li>
+				<li><a href="/news/article.html?no=253049" class="ofe" title="[포토] 활빈단, 대북특사단에 "비핵화 확답 받아와라""><span>7</span>[포토] 활빈단, 대북특사단에 "비핵화 확답 받아와라"</a></li>
+				<li><a href="/news/article.html?no=253036" class="ofe" title="[기동취재]충북 음성 소재 금강공업 인근 주민들, 호흡기· 피부질환 환경피해 대책마련 호소"><span>8</span>[기동취재]충북 음성 소재 금강공업 인근 주민들, 호흡기· 피부질환 환경피해 대책마련 호소</a></li>
+				<li><a href="/news/article.html?no=253033" class="ofe" title="정우택 의원,‘자랑스러운 충청인 대상’수상"><span>9</span>정우택 의원,‘자랑스러운 충청인 대상’수상</a></li>
+				<li><a href="/news/article.html?no=253028" class="ofe" title="활빈단 "통일부 천해성 차관과 국방부 관계자를 이적행위로 고발할 것""><span>10</span>활빈단 "통일부 천해성 차관과 국방부 관계자를 이적행위로 고발할 것"</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:20px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=202" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1482107535.jpg" width="100%" border="0" alt="배너" /></a></div><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/review_list_all.html?rvw_no=0" class="t01">객원칼럼니스트</a><span class="ics ics04"></span></h2>
+			</div>
+
+	
+	<ul class="rate_list">
+				
+	</ul>
+	
+</div><div class="arl_043">
+		<div class="tit_set ts05 ">
+		<h2><a href="/news/review_list_all.html?rvw_no=67" >최석영 한일비교문화비평가</a></h2>
+				<a href="/news/review_list_all.html?rvw_no=67" class="btn_art_more"><span class="ics ics02"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<div class="art_box">
+		<div class="top_art">
+	
+												<a href="/news/article.html?no=239760">
+				<i class="ofe">도쿄대 ‘한류스타’ 강상중의 이상한 논리</i>
+				<div>
+					<span><img src="http://www.mediawatch.kr/data/cache/public/photos/201304/tp_239760_1365336326_118x78_c0.jpg" alt="" width="118" height="78"></span>
+					<b class="clamp c4 ffd">한국에서도 유명한 재일교포로 강상중(姜?中)이란 사람이 있다. 한국인 최초의 도쿄대 교수로 더 잘 알려진 강상중은 일본에서도 일본사회를 대표하는 지식인 중 하나로 꼽히며, 발간하는 서적마다 베스트셀러를 기록하는 인기 작가이기도 하다. 그의 서적은 한국에서도 발간돼 꽤 많은 독자를 확보하고 있다. 한국에서 서적을 출간할 때마다 초청행사가 벌어지곤 하는데, 얼마 전엔 올해를 끝으로 도쿄대 교수직에서 퇴임한다는 기사가 화제가 되기도 했다. 김일성과 김정일이 한반도의‘영웅’? 그러나 필자는 일본의 대표적‘멘토’로 자리 잡은 그의 서적을 접하면서 이해가 안 가는 부분이 적지 않았다. 대표적으로, 일본사회에 대해선 늘 날카로운 비판을 하면서도 한국과 북한에 대해선 그런 날 선 비판을 좀처럼 찾아볼 수 없다는 점이 있다. 게다가 객관적으로 보면 도저히 긍정적 평가를 내릴 수 없는 것들에 대해 지나치게 칭송하는 모습을 엿볼 수 있다. 편파성까지 느끼게 된다. 예를 들어 2005년 고단샤(講談社)에서 출판한‘강상중에게 물어보다!(姜?中にきいてみた！)란 서적에서 그는 한반도 사정을 설명하며 다음과 같은 희한한 논리를 펼친다. “만약 한국뿐만이 아니라 북한까지 넣어서 7000만</b>
+				</div>
+			</a>
+										
+			
+		</div>
+		
+		<ul class="art_list">
+											</ul>
+	</div>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="arl_043">
+		<div class="tit_set ts05 ">
+		<h2><a href="/news/review_list_all.html?rvw_no=76" >양기화 의학박사</a></h2>
+				<a href="/news/review_list_all.html?rvw_no=76" class="btn_art_more"><span class="ics ics02"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<div class="art_box">
+		<div class="top_art">
+	
+												<a href="/news/article.html?no=236776">
+				<i class="ofe">‘PD수첩-광우병’ 편 방송은 과연 무죄인가?</i>
+				<div>
+					<span><img src="http://www.mediawatch.kr/data/cache/public/photos/201208/tp_236776_1344321593_118x78_c0.jpg" alt="" width="118" height="78"></span>
+					<b class="clamp c4 ffd">방송프로그램을 제작하는 과정에서 제작진은 늘 사실여부를 적극적으로 확인한다. 정확하지 않은 사실을 전해 프로그램의 신뢰를 떨어트리는 행위는 종국엔 프로그램의 존폐로까지 이어지기 때문이다.실제로 일본에서는 소각로와 관련해 다이옥신이 사회적으로 이슈가 되던 1990년대 말, 다이옥신 관련보도에서 데이터를 잘못 인용해 TV프로그램이 폐지된 사건이 있었다. TV아사히의 메인뉴스프로그램인‘뉴스 스테이션’은 1999년 2월1일 도코로자와 지역의 농작물이 다이옥신에 오염됐다는 내용으로 구성된 16분짜리 특집을 방송했다.관계당국이 농작물의 다이옥신 검사결과를 내놓지 않자 민간연구소에 검사를 의뢰했고, 그 결과를 인용하는 과정에서 문제가 있었다. 뿐만 아니라 보도과정에서“일본 대기오염은 다른 나라 10배 정도이고, 도코로자와는 일본평균의 5~10배 됩니다.”라는 발언이 섞이면서 마치 도코로자와 지역의 시금치가 세계수준의 100배나 될 정도로 다이옥신에 심각하게 오염돼있다는 내용으로 시청자들에게 전달된 것이다.도코로자와 지역의 야채 값은 폭락했고 시금치는 4분의 1 가격에도 팔리지 않았다는 것인데, 막상 도코로자와농협이 조사한 야채의 다이옥신 검사수치는 안전한 범위였다는 것이</b>
+				</div>
+			</a>
+										
+			
+		</div>
+		
+		<ul class="art_list">
+											</ul>
+	</div>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="arl_043">
+		<div class="tit_set ts05 ">
+		<h2><a href="/news/review_list_all.html?rvw_no=68" >김태영 공학기술 비평가</a></h2>
+				<a href="/news/review_list_all.html?rvw_no=68" class="btn_art_more"><span class="ics ics02"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<div class="art_box">
+		<div class="top_art">
+	
+												<a href="/news/article.html?no=234327">
+				<i class="ofe">극히 가능성이 낮았던 암초설</i>
+				<div>
+					<span><img src="http://www.mediawatch.kr/data/cache/public/photos/201112/tp_234327_1323000607_118x78_c0.jpg" alt="" width="118" height="78"></span>
+					<b class="clamp c4 ffd">사고 해역에 암초 따위는 전혀 없었다는 것은 이미 확실하게 밝혀진 사실이지만, 이종인 씨의 주장처럼 암초에 부딪혀서 함정의 어느 부분에 균열이 생기고 이로 인해 침수가 발생하여‘배의 양쪽이 무거워지면서 부러졌’을 가능성은 과연 얼마나 될까? 그리고 과연 배의 어느 한 부위에 구멍이 생기면 배가 필연적으로 침몰 할 수밖에 없는 것일까?이러한 주장은 배가 물위에서 뜨는 기본원리에 대해 극히 무지하고 매우 제한적인 상식밖에 없는 사람이 아니라면 도저히 할 수 없는 주장이다. 일반인들에게는 잘 알려지지 않았지만 소위‘Open Moon Pool’(wet porch)라는 선박용어가 있다. 심해유정을 뚫거나 해양연구용 특수선이 심해 잠수정이나 기타 장비 혹은 잠수부들의 접근을 용이하게 할 목적으로 선체의 하부에 의도적으로 구멍을 뚫어 놓는 구조물에 대한 이론적인 설명을 위한 용어인 것이다.(사진 자료 출처 http://en.wikipedia.org/wiki/Moon_pool) 일반상식으로는 믿기 힘들겠지만, 시멘트로 만든 배나 부유식구조물도 상당수 있다. 먼 바다에서 석유시추를 하는 Off-Shore 해상구조물의 맨 밑바닥에 위치한 거대한 시멘트 콘크리트 원유저장 탱크</b>
+				</div>
+			</a>
+										
+			
+		</div>
+		
+		<ul class="art_list">
+											</ul>
+	</div>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="arl_043">
+		<div class="tit_set ts05 ">
+		<h2><a href="/news/review_list_all.html?rvw_no=77" >김진만 과학비평가</a></h2>
+				<a href="/news/review_list_all.html?rvw_no=77" class="btn_art_more"><span class="ics ics02"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<div class="art_box">
+		<div class="top_art">
+	
+												<a href="/news/article.html?no=238518">
+				<i class="ofe">최원철 교수의 불법 의료기기 사용 혐의, 식약청이 적극 단속해야</i>
+				<div>
+					<span><img src="http://www.mediawatch.kr/data/cache/public/photos/201301/tp_238518_1358853218_118x78_c0.jpg" alt="" width="118" height="78"></span>
+					<b class="clamp c4 ffd">최원철 교수가 단국대로 자리를 옮겼고, 거의 같은 시기에 충북대 의대 한정호 교수를 명예훼손 혐의로 고소했다 ( 넥시아 효과 논란 재점화되나 )최원철 교수가 단국대에서 얻은 직책은 넥시아 글로벌센터 추진위원장(부총장)이라고 한다. 최교수가 경희대에서 단국대로 자리를 옮기면서도 넥시아만큼은 놓지 않고 있는 것을 보면 정말이지 아징스(넥시아 임상시험 약)에 대한 임상결과가 얼마나 인상적인 것인지 무척 궁금하다. 한정호 교수의 건승을 응원하며, 다만 필자는 이 지점에서 최원철 교수의 위험성이 아징스나 넥시아같은 의약품의 문제보다도 그가 사용하는 불법적, 비과학적 의료장비의 문제가 더 크다는 점을 새삼 지적해보고자 한다. 인터넷 곳곳에서는 최원철 교수가 라디오닉스( 파동의학, radionics ) 계열의 장비를 여러 의료행위, 특히 암의 진단에 사용한 이야기들이 발견되고 있다. 헌데 라디오닉스 계열의 장비는 매우 조잡하고 오진의 위험이 워낙 커서 의료용으로 잘못 이용될 경우 환자에게 심각한 위해를 가할 수 있다. 당연히 이는 정식 의료용 기기로 허가받지 못했다.
+
+뿐만 아니라 최원철 교수는 생혈(어혈분석) 검진도 자주 언급해왔다. 허나 암시야 현미경을 이용한 이러한</b>
+				</div>
+			</a>
+										
+			
+		</div>
+		
+		<ul class="art_list">
+											</ul>
+	</div>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div style='width:100%; text-align:center;'><img src='http://www.mediawatch.kr/data/design/content/imgswf_1472024556.jpg' alt='이미지' border='0' /></div>
+<hr class='spc' style='height:20px;'>
+<hr class='spc' style='height:20px;'>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div class="pl20"><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=333" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1512977037.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=212" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1486823493.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=295" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510560929.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=365" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1519272940.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=278" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1503013228.jpg" width="100%" border="0" alt="배너" /></a></div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 우측상단_180207 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:260px;height:260px"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="2560941129"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=189" class="t01">아카데미워치</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=189" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=252945" class="ofe" title="정재승 교수 논문조작 의혹, 국제과학학술지에서도 조사 들어가"><span>1</span>정재승 교수 논문조작 의혹, 국제과학학술지에서도 조사 들어가</a></li>
+				<li><a href="/news/article.html?no=252936" class="ofe" title="[단독] 정재승 교수 논문실적 조작 의혹, 형사처벌 가능성까지..."><span>2</span>[단독] 정재승 교수 논문실적 조작 의혹, 형사처벌 가능성까지...</a></li>
+				<li><a href="/news/article.html?no=252925" class="ofe" title="[단독] 서울대 진실위 설립멤버, 과학기술학자 홍성욱 교수도 이중게재 의혹"><span>3</span>[단독] 서울대 진실위 설립멤버, 과학기술학자 홍성욱 교수도 이중게재 의혹</a></li>
+				<li><a href="/news/article.html?no=252920" class="ofe" title="네이처, “공론화를 시켜야 연구부정행위 문제가 해결될 가능성 높아진다”"><span>4</span>네이처, “공론화를 시켜야 연구부정행위 문제가 해결될 가능성 높아진다”</a></li>
+				<li><a href="/news/article.html?no=252923" class="ofe" title="[특집] 과학계 마피아 꿈꾸나? ‘변화를 꿈꾸는 과학기술인 네트워크(ESC)’"><span>5</span>[특집] 과학계 마피아 꿈꾸나? ‘변화를 꿈꾸는 과학기술인 네트워크(ESC)’</a></li>
+				<li><a href="/news/article.html?no=252912" class="ofe" title="[단독] ‘스타과학자’ 카이스트 정재승 교수, 자기복제 및 논문조작 의혹"><span>6</span>[단독] ‘스타과학자’ 카이스트 정재승 교수, 자기복제 및 논문조작 의혹</a></li>
+				<li><a href="/news/article.html?no=252903" class="ofe" title="[단독] 좌익계 과학단체 대표인 윤태웅 고려대 교수, 상습 연구윤리위반 의혹"><span>7</span>[단독] 좌익계 과학단체 대표인 윤태웅 고려대 교수, 상습 연구윤리위반 의혹</a></li>
+				<li><a href="/news/article.html?no=252889" class="ofe" title="[알림] ‘서울대 진실위’ 및 ‘각 연구기관 진실위’ 허위결론 사례 제보 받습니다"><span>8</span>[알림] ‘서울대 진실위’ 및 ‘각 연구기관 진실위’ 허위결론 사례 제보 받습니다</a></li>
+				<li><a href="/news/article.html?no=252733" class="ofe" title="이준구 교수, 동아일보 칼럼을 ‘가짜뉴스’라 비아냥댔다가, 무식만 탄로나고 사과 ‘촌극’"><span>9</span>이준구 교수, 동아일보 칼럼을 ‘가짜뉴스’라 비아냥댔다가, 무식만 탄로나고 사과 ‘촌극’</a></li>
+				<li><a href="/news/article.html?no=252668" class="ofe" title="지도교수의 학적 착취에 맞대응하는 4가지 방법"><span>10</span>지도교수의 학적 착취에 맞대응하는 4가지 방법</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=355" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1516009503.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=346" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1515653885.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=349" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1515656810.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=87" target="_self"><img src="http://www.mediawatch.kr/data/banner/banner_1488373775.png" width="100%" border="0" alt="배너" /></a></div><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=190" class="t01">자유통일강대국코리아</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=190" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=253085" class="ofe" title="日 유칸후지, 한국 반일좌파가 공개한 ‘위안부 학살 영상’ 반박 칼럼 게재"><span>1</span>日 유칸후지, 한국 반일좌파가 공개한 ‘위안부 학살 영상’ 반박 칼럼 게재</a></li>
+				<li><a href="/news/article.html?no=253076" class="ofe" title="﻿﻿문재인 3.1절 기념사… 역사전문가들, "북한 날조 자료 인용했나”"><span>2</span>﻿﻿문재인 3.1절 기념사… 역사전문가들, "북한 날조 자료 인용했나”</a></li>
+				<li><a href="/news/article.html?no=253073" class="ofe" title="중국 시진핑, 또 한국 문재인 특사 하대...두 번 당하고도 입다문 청와대"><span>3</span>중국 시진핑, 또 한국 문재인 특사 하대...두 번 당하고도 입다문 청와대</a></li>
+				<li><a href="/news/article.html?no=252964" class="ofe" title="﻿﻿검찰, 정대협 비판했다는 사유로 엄마부대 주옥순 대표에 징역 1년 6개월 구형"><span>4</span>﻿﻿검찰, 정대협 비판했다는 사유로 엄마부대 주옥순 대표에 징역 1년 6개월 구형</a></li>
+				<li><a href="/news/article.html?no=252878" class="ofe" title="“위안부 문제 배경에 중국의 한·미·일 이간질 책략”...미국 반공우파의 시각"><span>5</span>“위안부 문제 배경에 중국의 한·미·일 이간질 책략”...미국 반공우파의 시각</a></li>
+				<li><a href="/news/article.html?no=252847" class="ofe" title="日 산케이, “징용노동자 관련 한국의 MBC 방송사가 사실왜곡”"><span>6</span>日 산케이, “징용노동자 관련 한국의 MBC 방송사가 사실왜곡”</a></li>
+				<li><a href="/news/article.html?no=252782" class="ofe" title="日 산케이, “위안부 관련 한국의 역사왜곡 문제, 배후에 북한 있다는 의심”"><span>7</span>日 산케이, “위안부 관련 한국의 역사왜곡 문제, 배후에 북한 있다는 의심”</a></li>
+				<li><a href="/news/article.html?no=252778" class="ofe" title="“일제 징용노동 문제 과장됐다” 한국인 연구자 논문, 일본 최고 권위 연구기관 게재"><span>8</span>“일제 징용노동 문제 과장됐다” 한국인 연구자 논문, 일본 최고 권위 연구기관 게재</a></li>
+				<li><a href="/news/article.html?no=252774" class="ofe" title="﻿﻿﻿﻿‘제국의 위안부 소송 지원 모임’, 박유하 교수 돕기 나선다"><span>9</span>﻿﻿﻿﻿‘제국의 위안부 소송 지원 모임’, 박유하 교수 돕기 나선다</a></li>
+				<li><a href="/news/article.html?no=252769" class="ofe" title="日 산케이, “전시기 노무동원, 한일 임금차별 없었다” 한국인 이우연 박사의 논문 소개"><span>10</span>日 산케이, “전시기 노무동원, 한일 임금차별 없었다” 한국인 이우연 박사의 논문 소개</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=205" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1484405514.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=182" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1473226729.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=305" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510574788.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=307" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510575080.jpg" width="100%" border="0" alt="배너" /></a></div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 메인우측 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:260px;height:260px"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="9968167834"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=192" class="t01">포린미디어워치</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=192" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=253090" class="ofe" title="사쿠라이 요시코, “문재인이 연방제와 개헌으로 한국 적화 시도”"><span>1</span>사쿠라이 요시코, “문재인이 연방제와 개헌으로 한국 적화 시도”</a></li>
+				<li><a href="/news/article.html?no=253087" class="ofe" title="존 볼턴, “김정은이 미국 대통령 앞에서 사기 치면 후세인 꼴이 될 것”"><span>2</span>존 볼턴, “김정은이 미국 대통령 앞에서 사기 치면 후세인 꼴이 될 것”</a></li>
+				<li><a href="/news/article.html?no=253086" class="ofe" title="고든 창, “트럼프 대통령, 문재인의 종북 행보 막기 위해 북한과 대화”"><span>3</span>고든 창, “트럼프 대통령, 문재인의 종북 행보 막기 위해 북한과 대화”</a></li>
+				<li><a href="/news/article.html?no=253084" class="ofe" title="日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”"><span>4</span>日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”</a></li>
+				<li><a href="/news/article.html?no=253081" class="ofe" title="다케사다 히데시, “김정은이 통일 코리아 대통령 될 수도”"><span>5</span>다케사다 히데시, “김정은이 통일 코리아 대통령 될 수도”</a></li>
+				<li><a href="/news/article.html?no=253069" class="ofe" title="벤 샤피로, “한국의 문재인은 주한미군 주둔하는 것 싫어한다”"><span>6</span>벤 샤피로, “한국의 문재인은 주한미군 주둔하는 것 싫어한다”</a></li>
+				<li><a href="/news/article.html?no=253067" class="ofe" title="무토 전 주한일본대사 “남북, 비자금 제공 논의했을 것”"><span>7</span>무토 전 주한일본대사 “남북, 비자금 제공 논의했을 것”</a></li>
+				<li><a href="/news/article.html?no=253057" class="ofe" title="월스트리트저널(WSJ), “선제북폭은 법적, 도덕적으로도 정당”"><span>8</span>월스트리트저널(WSJ), “선제북폭은 법적, 도덕적으로도 정당”</a></li>
+				<li><a href="/news/article.html?no=253051" class="ofe" title="브라이트바트(Breitbart), “한국은 북한의 현금인출기인가”"><span>9</span>브라이트바트(Breitbart), “한국은 북한의 현금인출기인가”</a></li>
+				<li><a href="/news/article.html?no=253045" class="ofe" title="미국, 호주·일본과 대중국 포위 전략 가동해 아시아 태평양 패권 잡나"><span>10</span>미국, 호주·일본과 대중국 포위 전략 가동해 아시아 태평양 패권 잡나</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=288" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1505291790.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=302" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510573210.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=330" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1512819444.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=331" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1512819577.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=237" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1491301583.jpg" width="100%" border="0" alt="배너" /></a></div><div class="arl_007">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=194" class="t01">미디어워치TV</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=194" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul>
+		
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253062">
+					<h2 class="ofe">﻿변희재, “‘김정은 망명’과 ‘북한 내부 쿠데타’도 염두에 둬야”</h2>
+										<h3 class="ofe">“김정은, 트럼프 속여서 핵 만드는 것 불가능… 걸리면 평양은 불바다”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">변희재 대표가 “김정은이 망명하거나, 북한 내부에서 그를 제거하는 사태도 벌어질 수 있다는 점을 염두에 둬야 할 것 같다”며 파격적인 예측을 내놨다. 변희재 미디어워치 대표고문은 9일 미디어워치TV ‘시사폭격’ 354회 방송(34살 130킬로의 김정은, 핵폐기 체제변화 후폭풍을 버틸 수 없다)에서북한 김정은이 비핵화 문제와 관련, 미국과 접촉할 의사를 밝힌 것과 관련해이같이 밝혔다. 변 대표는 이날 “만약 지금 김정은이 쇼를 하고 있는 것이라면 도저히 실현 불가능한 쇼를 하는 것”이라며 “쇼라기 보단 겁을 먹어서 이번 기회에 한번 살아보려고 궤도에서 이탈해나가는 것이 아닌가라고 생각한다”고 추측했다.  김정은 자신의 공언처럼 북한의 비핵화를 실현한다면 ‘핵 강국’을 주창하던 북한 내부 세력에 의해 그가 제거 당할 가능성이 크고, 반대로 또다시 핵을 개발한다면 미국의 북폭 가능성이 높다는 게 변 대표고문의 설명이다. 즉 이번 발표로 인해 김정은이 핵을 개발할 수도, 비핵화를 할 수도 없는 처지에 놓였다는 것. 때문에 김정은의 미·북 대화 추진의 저의에는 ‘망명’이라는 수가 깔려있을 수 있다는 분석이다. 변 대표는 북한 내부 조직의 비핵화 움직임에 대해선 “(김</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15205823516827_7c3fca_90x60_c0.jpg" alt=""></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253038">
+					<h2 class="ofe">변희재 “미국의 북폭은 누구도 막을 수 없는 상황으로 가고 있다”</h2>
+										<h3 class="ofe">“6월 이전 유력, 그 전에 김정은·문재인 백기투항 안하면 둘 다 제거된다”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">북폭(北爆)으로 가는 열차는 이제 누구도 멈춰 세울 수 없다는 분석이 나왔다. 국내외 정치상황을 고려하면 가장 유력한 시기는 6월 이전이다. 변희재 본지 대표고문은 27일자 시사폭격 331회에서 ‘미국, 김정은과 문재인 백기투항 안하면 북폭으로 둘 모두 제거한다’는 제목으로 날카로운 안보 논평을 쏟아냈다. 미국 상대로 비밀작전 짜는 김정은과 문재인 변 대표고문은 우선 김정은의 특사 김영철과 문재인의 회담 내용이 철저한 비밀에 부쳐지고 있는 현 상황에 우려를 표했다. 그는 “문재인은 북에게 무엇을 전달하고 논의했는지 국민에게 다 감추고 있다”며 “처음엔 비핵화 얘기는 안 했다더니, 다음날엔 비핵화에 대해서 구체적인 방안을 얘기했다고 하고, 다시 그 다음날엔 무슨 안을 전달한 건 아니다라고 자꾸만 ‘익명의 관계자’가 튀어나와서 수시로 말을 바꿔댄다”고 지적했다. 그러면서 “북의 신뢰를 쌓았다고 하는데, 결국 문재인과 김정은이 미국을 어떻게 속일지 ‘작전’을 짰다는 것 아니냐”고 그는 반문했다. 미국은 북폭을 결심...존 볼튼 발언에 주목해야 이어 “그러거나 말거나 미국은 이미 결정을 끝냈다”고 단언했다. 또한 “미국의 북폭은 누구도 막을 수 없는 상황으로 가고</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180209/art_15198068962936_bef34a_90x60_c0.jpg" alt=""></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				
+		
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=341" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1514975829.png" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=235" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1494392853.gif" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=320" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1511160414.png" width="100%" border="0" alt="배너" /></a></div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 우측하단_180207 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:260px;height:260px"
+     data-ad-client="ca-pub-5843131098147467"
+     data-ad-slot="8360062710"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><hr class='spc' style='height:10px;'>
+<div class="pvw_002 hcon2228" style="height: 0;">
+	
+		<div class="tit_set ts08">
+		<h2><a href="/news/article_list_all.html" >포토이슈</a></h2>
+			</div>
+	
+	<div class="slide_wrap">
+		<div>
+			<ul id="picSlide2228" class="photo_box">
+												<li>
+					<a href="/news/article.html?no=253095">
+												<img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215209882715_9f76d2_190x143_c0.png" alt="" width="190" height="143">
+												<b><span class="clamp c2">‘조던 피터슨 현상’, 좌파의 자본주의 비판 논리 무너뜨리는 영상 화제</span></b>
+						<span></span>
+					</a>
+				</li>
+																<li>
+					<a href="/news/article.html?no=253094">
+												<img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215069314676_f33dd1_190x143_c0.jpg" alt="" width="190" height="143">
+												<b><span class="clamp c2">대한무궁화대상 수상 동인회장에 (사)21세기경제사회연구원 유준상 이사장 선출</span></b>
+						<span></span>
+					</a>
+				</li>
+																<li>
+					<a href="/news/article.html?no=253092">
+												<img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_1521437784816_cd3a4f_190x143_c0.png" alt="" width="190" height="143">
+												<b><span class="clamp c2">﻿변희재, “남북회담 전후 김정은-문재인 ‘연방제 개헌안’ 올라올 수도”</span></b>
+						<span></span>
+					</a>
+				</li>
+																											</ul>
+		</div>
+		
+		<div>
+			<ul id="thumbPager2228" class="thumb_page">
+												<li>
+										<a data-slide-index="0" href=""><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215209882715_9f76d2_59x44_c0.png" width="59" height="44" /><span></span></a>
+										
+				</li>
+																<li>
+										<a data-slide-index="1" href=""><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215069314676_f33dd1_59x44_c0.jpg" width="59" height="44" /><span></span></a>
+										
+				</li>
+																<li>
+										<a data-slide-index="2" href=""><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_1521437784816_cd3a4f_59x44_c0.png" width="59" height="44" /><span></span></a>
+										
+				</li>
+																											</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	jQuery11(function(){
+	 
+		var thumbslider = jQuery11('#picSlide2228').bxSlider({
+		    auto: true,
+		    mode: 'vertical',
+		    pagerCustom: '#thumbPager2228',
+		    onSlideAfter: function() {
+		        thumbslider.stopAuto();
+		        thumbslider.startAuto();
+		    },
+            onSliderLoad: function(){
+		        jQuery11(".hcon2228").css("height", "inherit");
+		    }
+		});
+        
+	});
+	</script>
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="arl_009">
+		<div class="tit_set ts08">
+		<h2><a href="/news/article_list_all.html" ><b>많이 본</b> 기사</a></h2>
+			</div>
+	
+	<ul class="rate_list">
+						<li><a href="/news/article.html?no=252977" class="ofe"><span class="i_rate r01">1</span>최영미 시인의 미투 詩 성추행 전력자, 만년 노벨상 후보 고은?</a></li>
+								<li><a href="/news/article.html?no=253050" class="ofe"><span class="i_rate r02">2</span>﻿﻿안희정 여비서 성추행 추문… 김대중 여비서 혼외자녀 문제는?</a></li>
+								<li><a href="/news/article.html?no=250846" class="ofe"><span class="i_rate r03">3</span>[뉴스검증] 중앙일보 ‘최태민=라스푸틴’ 기사, 최악 오보로 판명되자 조용히 삭제</a></li>
+								<li><a href="/news/article.html?no=252982" class="ofe"><span>4</span>고은 시인 연상된다는 이문열 단편 ‘사로잡힌 악령’ 읽어보니</a></li>
+								<li><a href="/news/article.html?no=252964" class="ofe"><span>5</span>﻿﻿검찰, 정대협 비판했다는 사유로 엄마부대 주옥순 대표에 징역 1년 6개월 구형</a></li>
+								<li><a href="/news/article.html?no=252888" class="ofe"><span>6</span>美 폭스 뉴스, “김정은의 의도는 남북 대화를 통한 서울 장악”</a></li>
+								<li><a href="/news/article.html?no=252832" class="ofe"><span>7</span>[단독] 김한수 데리고 있었다는 유영하 변호사 사무실에 가보니</a></li>
+								<li><a href="/news/article.html?no=253084" class="ofe"><span>8</span>日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”</a></li>
+								<li><a href="/news/article.html?no=252839" class="ofe"><span>9</span>[변희재칼럼] JTBC 손석희 사면초가, 최후가 멀지 않았다</a></li>
+								<li><a href="/news/article.html?no=252971" class="ofe"><span>10</span>‘태블릿PC 조작보도’ 손석희, 서지현 검사로 윤석열 지검장 치나?</a></li>
+					</ul>
+	
+</div><hr class='skin_margin' style='height:15px;'>
+<div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban' style='padding-bottom:1px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=227" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1488357920.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=369" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1520477552.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=304" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510573429.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class="arl_003">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=164" class="t01">사이언스워치</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=164" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul class="rate_list">
+				<li><a href="/news/article.html?no=250784" class="ofe" title="과학적 회의주의 잡지 한국판 ‘스켑틱’, 최순실 건으로 정치선동 나서"><span>1</span>과학적 회의주의 잡지 한국판 ‘스켑틱’, 최순실 건으로 정치선동 나서</a></li>
+				<li><a href="/news/article.html?no=248865" class="ofe" title="‘똑똑한 사람들이 왜 이상한 것을 믿을까’ (해리엇 홀의 서평)"><span>2</span>‘똑똑한 사람들이 왜 이상한 것을 믿을까’ (해리엇 홀의 서평)</a></li>
+				<li><a href="/news/article.html?no=248844" class="ofe" title="‘통합암치료’란 무엇인가"><span>3</span>‘통합암치료’란 무엇인가</a></li>
+				<li><a href="/news/article.html?no=248843" class="ofe" title="‘통합의학’이란 무엇인가"><span>4</span>‘통합의학’이란 무엇인가</a></li>
+				<li><a href="/news/article.html?no=248841" class="ofe" title="‘대체의학’과 ‘보완의학’이란 무엇인가"><span>5</span>‘대체의학’과 ‘보완의학’이란 무엇인가</a></li>
+				<li><a href="/news/article.html?no=248821" class="ofe" title="임플란트가 아닌 닭똥으로 치료하라는 '동의보감'"><span>6</span>임플란트가 아닌 닭똥으로 치료하라는 '동의보감'</a></li>
+				<li><a href="/news/article.html?no=248799" class="ofe" title="개고기가 건강에 좋은 한의학적 이유?!"><span>7</span>개고기가 건강에 좋은 한의학적 이유?!</a></li>
+				<li><a href="/news/article.html?no=248736" class="ofe" title="과학이 한의학에 반대하다 (II)"><span>8</span>과학이 한의학에 반대하다 (II)</a></li>
+				<li><a href="/news/article.html?no=248734" class="ofe" title="과학이 한의학에 반대하다 (I)"><span>9</span>과학이 한의학에 반대하다 (I)</a></li>
+				<li><a href="/news/article.html?no=248733" class="ofe" title="코크란연합의 각 질환별 침술 효과 분석"><span>10</span>코크란연합의 각 질환별 침술 효과 분석</a></li>
+				
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=306" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1510574881.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=362" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1517027091.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=89" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1470791555.jpg" width="100%" border="0" alt="배너" /></a></div><div class='com_ban' style='padding-bottom:10px;'><a href="http://www.mediawatch.kr/news/banner_click.php?no=91" target="_blank"><img src="http://www.mediawatch.kr/data/banner/banner_1470791595.jpg" width="100%" border="0" alt="배너" /></a></div><div class="arl_007">
+		<div class="tit_set ts06 tsw">
+		<h2><a href="/news/section_list_all.html?sec_no=195" class="t01">현대사상</a><span class="ics ics04"></span></h2>
+				<a href="/news/section_list_all.html?sec_no=195" class="btn_art_more"><span class="ics ics01"><span class="blind">더보기</span></span></a>
+			</div>
+
+	
+	<ul>
+		
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=253095">
+					<h2 class="ofe">‘조던 피터슨 현상’, 좌파의 자본주의 비판 논리 무너뜨리는 영상 화제</h2>
+										<h3 class="ofe">“빈익빈 부익부, 자본주의 산물이란 해석 틀려… 모든 생산 체계의 속성”</h3>
+					
+										<div>
+												<p class="ffd clamp c3">자본주의·시장경제를 부정하는 좌파들의논리를 설득력있게 반박하는 한 캐나다 저명 대학 교수의 동영상 팟캐스트가 한국에서도 유투브와 페이스북을 중심으로 화제를 모으며 팬덤까지 형성하고 있다. 토론토대학교 심리학과 교수인 조던 피터슨(Jordan B. Peterson)은 작년 9월 1일과 올해 1월 30일(현지시각), 미국의 시사 팟캐스트 ‘조 로건 익스피리언스’(Joe Rogan Experience)에 출연해고전적 자유주의자의 입장에서자본주의·시장경제체제가 ‘빈익빈 부익부’ 현상을 낳는다는 칼 마르크스(KarlMarx) 식의 낡은 분석을 조목조목 파헤치고 해체했다.(관련 동영상 :빈익빈 부익부가 자본주의만의 산물이라고?) 조던 피터슨 교수는 이른바 정치적 올바름(Political Correctness)과 극성 페미니즘 등 좌익 이데올로기를 통렬하게 비판함으로써, 근래북미권과 서유럽권에서는 ‘조던 피터슨 현상(Peterson Phenomenon)’을 불러일으켰을 정도로 20대, 30대 청년들에게 큰 인기를 구가하고 있는 학자다.(관련기사 :[트렌드] We에 지친 I들의 반란 : 서구 2030을 열광시킨 피터슨 현상) 이날 방송에서 조던 피터슨 교수는 “사회의 모든</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180312/art_15215209882715_9f76d2_90x60_c0.png" alt=""></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				<li > 
+			<div class="art_box">
+				<a href="/news/article.html?no=252310">
+					<h2 class="ofe">좌파주의는 바로 대학 교수의 아편이다</h2>
+										<h3 class="ofe">“현대의 지식인은 광신도에 못지않다. 레이몽 아롱(Raymond Aron)이 표현했듯이, 좌파주의는 간단히 말해 “지식인의 아편”이다.“</h3>
+					
+										<div>
+												<p class="ffd clamp c3">※본 글은 미국 파사데나대학(Pasadena City College)의 철학과 교수인 에드워드 페저(Edward C. Feser)가 2004년 2월 16일, 테크센트럴스테이션(Tech Central Station)이라는 웹기반 매체에 기고한‘The Opium of the Professors’라는 에세이를, 원 저자의 허락을 얻어 미디어워치 편집부 현대사상팀이 번역해 공개하는 것이다. 이 글은 앞서 소개한 에드워드 페저 교수의 다른 에세이인‘왜 대학은 좌파 세력에 의해 지배되고 있는가’에서 제기된 문제의식의 연속선상에 있는 글이다. 한국에서도 386 좌파 지식인을 사변적 도덕의식으로 무장된 중세 조선의 양반 사림파로 비유하는 경우가 종종 있는데, 미국에서도 좌파 지식인들을 중세시대 사제로 비유해 지적하고 있다는 점이 흥미롭다. 좌파 지식인들의 아집 문제는 비단 보수우파 뿐만이 아니라‘뉴욕타임스(NewYork Times)’같은 진보좌파 매체에서도 여러번 성토되고 있는 문제다. 에드워드 페저의 글과 함께 다음 글들도 참고하기 바란다. 진보가 절대적으로 옳다는 배타적인 신념이 트럼프의 지지율을 살찌운다 (뉴욕타임스 - 뉴스페퍼민트 번역) “진보의 편협함을 자백합니다</p>
+																		<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20170730/art_15013641990808_99fce2_90x60_c0.jpg" alt=""></span>
+											</div>
+									</a>
+
+							</div>
+		</li>
+				
+		
+	</ul>
+	
+</div><hr class='skin_margin' style='height:10px;'>
+<div class="ext_008_01">
+	
+	
+	<div id="tabBox2230" class="tab_box">
+		<ul class="tab_link col03">
+						<li><a href="#tabBox2230_0"><span>조회순</span></a></li>
+						<li><a href="#tabBox2230_1"><span>댓글순</span></a></li>
+						<li><a href="#tabBox2230_2"><span>공유순</span></a></li>
+					</ul>
+		
+		<div class="tab_wrap">	
+			
+
+						<div id="tabBox2230_0">
+				
+				<div class="art_box">
+										<ul class="rate_list ico_set01">
+																		<li>
+								<a href="/news/article.html?no=252977">
+									<b class="on">1</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180206/art_15179367284773_3b2351_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">최영미 시인의 미투 詩 성추행 전력자, 만년 노벨상 후보 고은?</h2>
+																		<i>9999+</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253050">
+									<b class="on">2</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15202625713768_630e41_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">﻿﻿안희정 여비서 성추행 추문… 김대중 여비서 혼외자녀 문제는?</h2>
+																		<i>9999+</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=250846">
+									<b class="on">3</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20161147/art_1479718717_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">[뉴스검증] 중앙일보 ‘최태민=라스푸틴’ 기사, 최악 오보로 판명되자 조용히 삭제</h2>
+																		<i>9999+</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=252982">
+									<b >4</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180206/art_15180680130351_edf9a2_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">고은 시인 연상된다는 이문열 단편 ‘사로잡힌 악령’ 읽어보니</h2>
+																		<i>9999+</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=252964">
+									<b >5</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180205/art_15175661597314_03590f_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">﻿﻿검찰, 정대협 비판했다는 사유로 엄마부대 주옥순 대표에 징역 1년 6개월 구형</h2>
+																		<i>9999+</i>
+																	</a>
+							</li>
+											</ul>
+				</div>
+				
+			</div>
+						<div id="tabBox2230_1">
+				
+				<div class="art_box">
+										<ul class="rate_list ico_set02">
+																		<li>
+								<a href="/news/article.html?no=253043">
+									<b class="on">1</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180309/art_15200392369308_3d300d_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">[변희재성명] 자유한국당 홍준표는 신혜식의 폭행 감금 불법난동 책임져라!</h2>
+																		<i>2</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253062">
+									<b class="on">2</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15205823516827_7c3fca_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">﻿변희재, “‘김정은 망명’과 ‘북한 내부 쿠데타’도 염두에 둬야”</h2>
+																		<i>1</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253058">
+									<b class="on">3</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15204824210414_f0998f_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">‘핵폐기’ 없는 미북대화는 북폭 명분만 더할 것...걸프전의 교훈</h2>
+																		<i>1</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253053">
+									<b >4</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15203884509349_176d5d_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">우병우 전 수석, 구치소에서 ‘손석희의 저주’ 읽는다</h2>
+																		<i>1</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253041">
+									<b >5</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180309/art_15200565749595_41eaf8_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">신혜식, 홍준표 버리고 나간 정규재에 직격탄...자유한국당 앞날 있나</h2>
+																		<i>1</i>
+																	</a>
+							</li>
+											</ul>
+				</div>
+				
+			</div>
+						<div id="tabBox2230_2">
+				
+				<div class="art_box">
+										<ul class="rate_list ico_set03">
+																		<li>
+								<a href="/news/article.html?no=252888">
+									<b class="on">1</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180102/art_1515497436215_3678b7_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">美 폭스 뉴스, “김정은의 의도는 남북 대화를 통한 서울 장악”</h2>
+																		<i>249</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253084">
+									<b class="on">2</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180311/art_1521185123514_11c1e1_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">日 유칸후지, “미국 CIA, 북한에 쿠데타 유도 준비 끝마쳐”</h2>
+																		<i>194</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=252982">
+									<b class="on">3</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180206/art_15180680130351_edf9a2_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">고은 시인 연상된다는 이문열 단편 ‘사로잡힌 악령’ 읽어보니</h2>
+																		<i>172</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=250846">
+									<b >4</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20161147/art_1479718717_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">[뉴스검증] 중앙일보 ‘최태민=라스푸틴’ 기사, 최악 오보로 판명되자 조용히 삭제</h2>
+																		<i>139</i>
+																	</a>
+							</li>
+													<li>
+								<a href="/news/article.html?no=253050">
+									<b >5</b>
+									<span><img src="http://www.mediawatch.kr/data/cache/public/photos/20180310/art_15202625713768_630e41_90x60_c0.jpg" alt=""></span>
+									<h2 class="clamp c2">﻿﻿안희정 여비서 성추행 추문… 김대중 여비서 혼외자녀 문제는?</h2>
+																		<i>116</i>
+																	</a>
+							</li>
+											</ul>
+				</div>
+				
+			</div>
+				
+		</div>
+		<script>
+			$( "#tabBox2230" ).tabs({ selected: 2 });
+		</script>
+	</div>
+</div><hr class='skin_margin' style='height:10px;'>
+<div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div><div class='com_ban'><a href="http://www.mediawatch.kr/news/banner_click.php?no=" target="_self"> </a></div></div>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+
+<div class="wrapper con_bg">
+	<div>
+		
+		<div class="column col03">
+			<div>
+				<div>
+					
+				</div>
+			</div>
+			<div>
+				<div>
+					
+				</div>
+			</div>
+			<div>
+				<div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+</div>
+
+<!-- FOOTER -->
+<div class="wrapper" id="footer">
+	<div>
+		<div class="foot_wrap">
+			
+			<h6><b><a href='/' target='_top' onfocus='blur()'><img src='/data/design/logo/taillogo_20170407113313.jpg' alt='로고' width=150 height=45  /></a></b></h6>
+			
+			<div class="foot_con">
+				<ul>
+					<li><a href="/home/page.html?code=company">회사소개</a></li>
+					<li><a href="/home/page.html?code=introduce">직원소개</a></li>
+					<li><a href="/home/page.html?code=recruit">인재채용</a></li>
+					<li><a href="/home/page.html?code=support">후원안내</a></li>
+					<li><a href="/home/page.html?code=ad">광고안내</a></li>
+					<li><a href="/home/page.html?code=partner">투자안내</a></li>
+					<li><a href="/home/page.html?code=map">찾아오시는 길</a></li>
+					<li><a href="/home/page.html?code=policy">개인정보취급방침</a></li>
+					<li><a href="/home/page.html?code=policy2">청소년보호정책 (책임자 : 황의원)</a></li>
+					<li class="bgnone"><a href="/home/page.html?code=email">이메일 무단수집거부</a></li>
+					<!--<li><a href="/home/page.html?code=report">기사제보</a></li>
+					<li><a href="/home/page.html?code=contact">문의하기</a></li>-->
+				</ul>
+				
+				<p class="ffd">
+					Copyrights 2006 All Rights Reserved | 대표전화 : 02-720-8828 | FAX : 02-720-8838   | 대표이메일 : mediasilkhj@gmail.com | 사업장 주소 : 서울시 영등포구 은행로3 삼희익스콘벤처타워 510호 (우07237) | 발행연월일 2013년 3월 27일 | 정기간행물 등록번호 : 서울, 다08208 , 영등포, 라00483 | 인터넷신문 등록번호 : 서울, 아02558 | 사업자등록번호((주)미디어실크에이치제이) : 101-86-45323 | 대표이사 : 황의원 | 발행인 : 황의원 | 편집인 : 황의원 | 청소년보호책임자 : 황의원
+				</p>
+				
+				<b>
+					<a href="http://www.mediaon.co.kr/" target="_blank">
+						<img src="/data/skin/layout/1/m17/images/img/logo_sponsor.png" width="105" height="12" alt="powered by mediaOn" />
+					</a>
+				</b>
+				
+				<p class="ffd mt00"><span class="fwb mr00">UPDATE</span>: 2018년 03월 20일 15시 00분</p>
+				
+				<!-- RSS --->
+				<a href="/news/rss.php" target="_blank" class="btn_rss" title="RSS2.0 최신 기사 지원 서비스"><img src="/data/skin/layout/1/m17/images/com/btn_rss.gif" alt="rss"></a>
+				<!--// RSS --->
+			</div>
+			
+		</div>
+		
+		<div class="btn_top_wrap"><div><a href="javascript:void(0)" onClick="goToByScroll()" class="btn_top" style="display: none;">최상단으로</a></div></div>
+		
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+var gtracker_type = 1;	// 0:접속자,1:페이지뷰
+document.write(unescape("%3Cscript src='/weblog/gtracker.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89718542-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+	<!--
+	if(navigator.userAgent.match(/android/i) || navigator.userAgent.match(/(iphone)|(ipod)|(ipad)/i))
+	{
+		var btn_mobile = '\
+	<div class="btn_mobile">\
+		<a href="/?mobile_reset"><img src="/data/skin/layout/1/m17/images/btn/btn_mobile_ver.png" /></a>\
+	</div>\
+		';
+		document.writeln(btn_mobile);
+	}
+	//-->
+</script>
+
+<script type="text/javascript" src="/data/skin/layout/1/m17/images/js/style.js"></script>
+
+</div>
+</body>
+</html>
+
+<!-- MAKE FILE (2018-03-20 16:54:42) -->

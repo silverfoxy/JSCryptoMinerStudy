@@ -1,0 +1,789 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="robots" content="noodp"> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Language" content="en-ca"/>
+
+<title>Toronto Transit Commission - TTC</title>
+<meta name="description" content="The Toronto Transit Commission is the quick, convenient and safe way to get around Toronto. The subway system is linked with buses and streetcars to get you around Toronto on one fare, provided it's a one-way trip with no stopovers. You can travel on the TTC every day. "/>
+<meta name="keywords" content="Toronto, transit, bus, streetcar, subway, RT, SRT, Metropass, ttc"/>
+
+<meta name="google-translate-customization" content="508e5ec0f119adfe-1735ad33e20ad652-g5651fc41286cc1ca-a"></meta>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css?v=1"/>
+<link rel="stylesheet" type="text/css" media="screen" href="/css/homepage.css?v=1"/>
+<link rel="stylesheet" type="text/css" media="print" href="/css/print.css"/>
+<![if!IE]>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home-3.css?v=1"/>
+<![endif]>
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" media="screen" href="/css/home-3IE.css?v=1"/>
+<![endif]-->
+<link  rel="stylesheet" id="cssSize" type="text/css" media="screen" href="/css/widths.css" />
+
+<script src="/js/unslider/jquery-latest.min.js"></script>
+<script src="/js/unslider/unslider.min.js"></script>
+<script type="text/javascript">
+	var jQuery_latest = $.noConflict(true);
+</script>
+
+<script language="JavaScript" src="/trip_planner_static/Javascript/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/js/widths.js"></script>
+<script type="text/javascript" src="/js/homestretch.js"></script>
+<script type="text/javascript" src="/js/home-1.js"></script>
+<script type="text/javascript" src="/js/tripplanner/input_rollover.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/tripplanner/input_rollover.css" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+
+
+<script type='text/javascript' src='/Trip_planner/Autocomplete/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='/Trip_planner/Autocomplete/poi.js'></script>
+
+
+<link rel="stylesheet" type="text/css" href="/Trip_planner/Autocomplete/jquery.autocomplete.css" />
+<script type='text/javascript' src='/trip_planner_static/Javascript/jquery.bgiframe.min.js'></script>
+<script type="text/javascript">
+window.setTimeout(function(){
+    $(".twitter-timeline").contents().find(".timeline-header").contents().find(".customisable-highlight").html("@TTCnotices");;
+  }, 1500);
+jQuery(function() {
+
+	//$("#ttc-schedule-search-link").click();
+	//$("#ttc-trip-planner-link").click();
+	//$("#ttc-regional-trip-planner-link").click();
+
+	var unslider = jQuery_latest('.banner').unslider({
+		keys: true,
+		dots: true,
+		delay: 9000
+		});
+
+/*
+	jQuery_latest(".banner ul li a").focus(function(){
+		jQuery_latest(".banner ul").css("left", "-" + jQuery_latest(".banner ul li a").index(this) * 100 + "%");
+		jQuery_latest('.dots .dot').eq(jQuery_latest(".banner ul li a").index(this)).addClass('active').siblings().removeClass('active');
+	});
+*/
+
+	function log(event, data, formatted) {
+		$("<li>").html( !data ? "No match!" : "Selected: " + formatted).appendTo("#result");
+	}
+	
+	function formatItem(row) {
+		return row[0] + " (<strong>id: " + row[1] + "</strong>)";
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+	$("#trip-plan-start").autocomplete(poi, {
+		minChars: 3,
+		max: 12,
+		autoFill: false,
+		mustMatch: false,
+		matchContains: true,
+		max: 600,
+		scrollHeight: 220,
+		width: 340,
+		formatItem: function(data, i, total) {
+			return data[0];
+		}
+	});
+	$("#trip-plan-end").autocomplete(poi, {
+		minChars: 3,
+		max: 12,
+		autoFill: false,
+		mustMatch: false,
+		matchContains: true,
+		max: 600,
+		scrollHeight: 220,
+		width: 340,
+		formatItem: function(data, i, total) {
+			return data[0];
+		}
+	});
+
+	$("#ttc-trip-planner").submit(function() { 
+    		$('#trip-plan-start').removeAttr('autocomplete'); 
+		$('#trip-plan-end').removeAttr('autocomplete');
+	}); 
+});
+
+var whichSubmit = "";
+
+function validateTripForm(thisForm) {
+
+var vError='';
+
+		if (thisForm.StartDetail.value=='')
+		{
+			/* vError += 'Your trip needs an origin. Check the from.\n'; */
+			vError += 'Every trip needs a starting point. Check the "From" address.\n';
+		}
+		if (thisForm.EndDetail.value=='') 
+		{
+			/* vError += 'Your trip needs a destination. Check the to.\n'; */
+			vError += 'Every trip needs a destination. Check the "To" address.\n';
+		}
+	
+		if (thisForm.StartDetail.value.toLowerCase()==thisForm.EndDetail.value.toLowerCase() && thisForm.StartDetail.value!='') 
+		{
+				vError += "The origin and destination (\"From\" and \"To\" addresses) can't be the same.\n";
+		}
+
+
+		if ((vError == '') || (whichSubmit=="More"))
+		{
+			return true;
+		}
+		else if(thisForm.EndDetail.value.toLowerCase()==thisForm.StartDetail.value.toLowerCase() && thisForm.StartDetail.value!='')
+			vError = vError + '\n\nPlease go back and check your trip.\n\n';
+		else
+			vError = 'Some parts of the form were left blank.\n\n' + vError + '\n\nPlease go back and check your trip.\n\n';
+
+		alert(vError);
+		return false;
+}
+
+
+$(document).ready(function(){
+    // fix for IE < 11
+    if ($("<input />").attr("required") === undefined) {
+        $(document).submit( function(e) {
+            $(this)
+                    .find("input, select, textarea")
+                    .filter("[required]")
+                    .filter(function() { return this.value == ''; })
+                    .each(function() {
+                        e.preventDefault();
+                    });
+        });
+
+    }
+	
+	// redirect https to http
+	if (window.location.protocol == "https:") {
+		window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
+	}
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4610307-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<style>
+.twitterHeader {
+	padding: 8px;
+	border-width: 0 0 1px;
+	box-shadow: 0 0 0 -3px rgba(0,0,0,0);
+	-webkit-transition: box-shadow .3s ease-out;
+	-moz-transition: box-shadow .3s ease-out;
+	-o-transition: box-shadow .3s ease-out;
+	transition: box-shadow .3s ease-out;
+	position: relative;
+	z-index: 100;
+	margin-bottom: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+} 
+
+</style>
+
+</head>
+
+<body>
+<!---Google Tag Manager--->
+<noscript><iframe src="file://www.googletagmanager.com/ns.html?id=GTM-P2FJF4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2FJF4');</script>
+<!-- End Google Tag Manager -->
+
+
+<!--////////////FACEBOOK LIKE BUTTON/////////////-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--/////////////////////////////////////////////-->
+<div id="ttc-main-container">
+	<div id="ttc-main-header">
+                <div class="ttc-jump">
+                        <a href="#top" class="ttc-jump-link">Skip to main content of this page.</a>
+                </div>
+		<div id="ttc-main-logo">
+			<h1>
+				<a href="/index.jsp">
+					<img src="images/ttc-main-logo.gif" alt="TTC Logo"/><br />
+				</a>
+			</h1>
+		</div>
+		<ul id="utility-nav">
+			<li class="utility-active"><span class="access">The current page is </span><h2><span class="active first">Home</span></h2></li>
+			<li><a href="/Trip_planner/index.jsp">Trip Planner</a></li>
+			<li><a href="/Customer_Service/index.jsp">Customer Service</a></li>
+			<li><a href="/News/index.jsp">News</a></li>
+			<li><a href="/WheelTrans/index.jsp">Wheel-Trans</a></li>
+			<li><a href="/TTC_Accessibility/index.jsp">Accessibility</a></li>
+		</ul>
+
+	</div>
+        <a name="top"></a>
+	<div id="ttc-grid-content" class="homepage">
+		<div id="ttc-quicklinks-schedules-maps">
+			<h3>
+				<a href="/Routes/index.jsp"><span class="navhead navfirst">Schedules &amp; Maps</span>
+				</a>
+			</h3>
+			<ul id="schedules-maps">
+				<li><a href="/Subway/index.jsp" id="subway">Subway</a></li>
+				<li><a href="/Routes/Buses.jsp" id="bus">Bus</a></li>
+				<li><a href="/Routes/Streetcars.jsp" id="streetcar">Streetcar</a></li>
+				<li><a href="/Routes/General_Information/Maps/index.jsp" id="maps">Maps</a></li>
+			</ul>
+			<form method="get" action="/Search/routesearch.jsp" id="ttc-schedule-search" class="expandable open">
+				<h4>Find a schedule:</h4>
+				<div>	
+					<label for="ttc-route-search">Enter a route name or number</label>
+					<input id="ttc-route-search" maxlength="25" name="searchText" required/>
+					<input type="submit" value="Find" class="btn find" id="route-search-input" title="Find a schedule"/>
+				</div>
+			</form>
+			<form method="post" action="/Trip_planner/index.jsp" id="ttc-trip-planner" class="expandable open" onSubmit="return validateTripForm(this)">
+				<input name="FormState" 	type="hidden"	value="Valid"/>
+				<input name="Date"		type="hidden"	value="Today"/>
+				<input name="TripDirection" 	type="hidden"	value="DEP" />
+				<input name="qtp" 		type="hidden"	value="true" />
+				<h4>
+					<a id="ttc-trip-planner-link" href="#ttc-trip-planner">Trip Planner</a></h4>
+ 
+<div>
+					<p><strong><a href="/Trip_planner/index.jsp">Plan your trip</a></strong> anywhere in the Greater Toronto and Hamilton Area (GTHA)</p>
+                    
+					
+				</div>
+			</form>
+			<form>
+				<div id="ttc-cash-fares">
+					<h4><a href="/Fares_and_passes/Prices/index.jsp">Cash fares:</a></h4>
+					<dl id="ttc-fares">
+						<dt class="fare-type">Adult</dt><dd class="fare-amount">$3.25</dd>
+						
+						<dt class="fare-type">Senior(65+)/<br/>Student(13-19)</dt><dd class="fare-amount">$2.10</dd>
+						<dt class="fare-type">Child (12 and under) </dt><dd>Free</dd>
+					</dl>
+				</div>
+			</form>
+
+<!----Proof of Payment image ---->
+<div style="margin: 20px 0px 15px 10px;">
+	<a href="/Fares_and_passes/Fare_information/Proof-of-Payment.jsp"><img alt="Proof of Payment - TTC" border="0" height="196" hspace="0" src="images/Features/G-04-B155-POP.png" width="196"></a>
+</div>
+<!----end of Proof of Payment image ---->
+
+
+			<form class="expandable open" id="widget-test" style="height:290px;padding-bottom:55px">
+				<h4>Next Vehicle (beta)</h4>     
+				<div id="widget-container" style="height:290px; width:95%;">
+					<p style="margin-left:9px; margin-top:5px">
+						<a href="/Riding_the_TTC/Frequently_Asked_Questions/TransitApp.jsp">What is this?<span class="access"> Read the Next Vehicle Frequently Asked Questions.</span></a>
+						<span class="access"> The Next Vehicle feature, is provided by Transit App. Enter your current location and you will be presented with the nearest TTC train, bus, or streetcar. The results of searching possible routes for the Next Vehicle will appear below. Enter the summary of routes by pressing the Tab key. For each route, there are one or more options, labelled as tabs. Navigate between routes using the Tab and Shift + Tab keys, and among the options using the arrow keys.</span>
+					</p>
+					<h5 style="margin-left:9px; margin-top:5px">Enter Your Location:</h5>
+					<a id="transit-nearby" href="http://thetransitapp.com">Nearby Routes by Transit App</a>
+					<script>window.transit = { code: 'ttc', lat: 43.666878, lng: -79.393386 }; !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://api.thetransitapp.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","transit-wjs");</script>
+					<script type="text/javascript">
+						function checkWidget()
+						{
+							if($("#widget-test").hasClass("closed"))
+							{	
+								$("#widget-test").css('height', '290px');
+								$("#widget-container").hide();
+							}
+							else
+							{
+							$("#widget-test").css('height', '50px');
+							$("#widget-container").show();
+							}
+						}
+					</script>
+				</div>
+			</form>
+		</div>
+		<div id="ttc-quicklinks-fares-passes">
+			<h3><a href="/Fares_and_passes/index.jsp"><span class="navhead">Fares &amp; Passes</span></a></h3>
+            <div id="ttc-central-column">
+				<div class="banner">
+					<ul>
+						
+	<li>
+<a href="/Fares_and_passes/Passes/Day_Pass/Extended_Day_Pass.jsp" target="_self">		
+<img alt="Day Pass Logo"  border="0" height="328" hspace="0" src="images/hero-features/MBDP.jpg" width="480"/>
+		<p class="slider-header">Celebrate March Break with the TTC</p>
+</a>
+		<p class="slider-description">
+			
+				This March Break, we&#39;re extending our weekend Day Pass deal to help you and your group get around the city for just $12.50 a day!
+			
+		</p>
+	</li>
+
+	<li>
+<a href="/theTTCway/index.jsp" target="_self">		
+<img alt="The TTC Way logo"  border="0" height="325" src="images/hero-features/The_TTC_Way_Hero.jpg" width="477"/>
+		<p class="slider-header">The TTC Way </p>
+</a>
+		<p class="slider-description">
+			
+				A key piece in our 2018-2022 Corporate Plan.
+			
+		</p>
+	</li>
+
+	<li>
+<a href="/News/2018/March/03_08_18NR_ride_free_StPatsDay.jsp" target="_self">		
+<img alt="Streetcar with Jameson wrap for St Patrick's Day"  border="0" height="325" src="images/hero-features/St_Pats_SC.jpg" width="477"/>
+		<p class="slider-header">St. Patrick&#39;s Day</p>
+</a>
+		<p class="slider-description">
+			
+				Take a free ride on the 501 Queen, 504 King and 514 Cherry routes on March 17 from 4 p.m. to 2:30 a.m., courtesy of our friends at Jameson Irish Whiskey.
+			
+		</p>
+	</li>
+
+	<li>
+<a href="/Jobs/Transit_Operator_Recruitment/index.jsp" target="_self">		
+<img alt="TTC bus on Toronto street"  border="0" src="images/hero-features/TOR-Hero.png"/>
+		<p class="slider-header">Drive your career forward</p>
+</a>
+		<p class="slider-description">
+			
+				We&#39;re looking for Transit Operators to join our award-winning team! The TTC is one of Greater Toronto&#39;s Top Employers for 2017 and in the Top 25 Best Places to Work in Canada.
+			
+		</p>
+	</li>
+
+	<li>
+<a href="/TTC_Business/Advertising_on_TTC/Sketching_the_line.jsp" target="_self">		
+<img alt="Sketching the Line entries"  border="0" height="325" src="images/hero-features/sketch_hero_2018.jpg" width="477"/>
+		<p class="slider-header">Sketching the Line 2018</p>
+</a>
+		<p class="slider-description">
+			
+				TTC and Pattison Outdoor Advertising are now accepting submissions
+			
+		</p>
+	</li>
+
+					</ul>
+				</div>
+			</div>
+			
+
+	<div id="ttc-homepage-promos">
+
+
+		<div class="promo">
+			<div class="promo-content">
+				<h4>Line 3 Scarborough subway closure</h4>
+
+
+There will be no service on Line 3 Scarborough on March 17 and 18.				
+
+					
+				
+				<ul>
+					<li><a href="Service_Advisories/Subway_closures/Mar_17-18_Kennedy_to_McCowan.jsp" target="_self" title="Subway closure">Subway closure</a></li>
+				</ul>
+				
+			</div>
+			<img alt="Train travelling on line 3 Scarborough"  border="0" height="108" hspace="0" src="images/Features/line_3_subway.jpg" width="145"/>
+		</div>
+		
+
+
+<div class="clear"></div>
+
+
+
+		<div class="promo">
+			<div class="promo-content">
+				<h4>Service Adjustments Due to Strike</h4>
+
+
+Strike action at York University is resulting in route diversions and service delays.				
+
+					
+				
+				<ul>
+					<li><a class="null" href="Service_Advisories/Route_diversions/York_U_Strike.jsp" target="_self" title="">Service adjustments due to strike</a></li>
+				</ul>
+				
+			</div>
+			<img alt="Bus on street"  border="0" height="108" src="images/Features/bus_on_street.jpg" width="145"/>
+		</div>
+<div class="clear"></div>
+		
+
+
+<!-- 3 and 4 -->
+
+
+
+<div class="clear"></div>
+
+
+<!-- 5 and 6 -->
+
+
+		<div class="promo">
+			<div class="promo-content">
+				<h4>2018-2022 Corporate Plan</h4>
+
+
+The TTC has come a long way. Now, to become the world-class transit system the Toronto of the future needs, we are advancing to the next level.				
+
+
+				
+				
+				<ul>
+					<li><a href="PDF/700101_TTC%20Corporate%20Plan.pdf" target="_self" title="">Five-Year Corporate Plan 2018-2022</a></li>
+				</ul>
+				
+			</div>
+			<img alt="Corporate Plan "  border="0" class="img-border" height="103" hspace="0" src="images/Features/CorpPlan2018.jpg" width="139"/>
+		</div>
+		
+
+
+<div class="clear"></div>
+
+		<div class="promo">
+			<div class="promo-content">
+				<h4>Public meetings about SmartTrack/GO stations in Toronto </h4>
+
+
+Your feedback is important. In March the City of Toronto, Metrolinx and the TTC will be hosting public meetings to provide information about the new SmartTrack/GO stations being planned for Toronto.				
+
+
+					
+				
+				<ul>
+					<li><a href="Public_Meetings/SmartTrack.jsp" target="_self" title="">Public Meetings</a></li>
+				</ul>
+				
+			</div>
+			<img alt="An audience listening to a speaker at a public meeting."  border="0" height="103" hspace="0" src="images/Public_Meetings/public_meeting_01.jpg" width="137"/>
+		</div>
+		
+
+
+	</div>
+
+		</div>
+		<div id="ttc-quicklinks-riding-ttc">
+			<h3>
+				<a href="/Riding_the_TTC/index.jsp">
+					<span class="navhead">Riding the TTC</span>
+				</a>
+			</h3>	
+		</div>
+		<div id="ttc-quicklinks-service-alerts">
+			<h3>
+				<a href="/Service_Advisories/index.jsp">
+					<span class="navhead navlast">Service Advisories</span>
+				</a>
+			</h3>
+            <div class="ttc-service-alert">
+				<div class="ttc-service-alert"><h6><img src="/images/fixedImages/ttc-alert-icon-img.gif" alt="Attention" />Service Alerts</h6><div class="alert-content"><p><a href="/Service_Advisories/all_service_alerts.jsp">There are 4 alerts currently affecting TTC service.  Find out more.</a></p></div></div>
+
+	    	</div>
+			<ul class="service-alerts-last">
+				<li><a href="/Service_Advisories/Elevators_and_escalators/index.jsp">Elevators and escalators</a></li>
+				<li><a href="/Service_Advisories/Subway_closures/index.jsp">Scheduled subway closures</a></li>
+				<li><a href="/Service_Advisories/Route_diversions/index.jsp">Route diversions</a></li>
+				<li><a href="/Service_Advisories/Accessible_service/index.jsp">Accessible streetcar service</a></li>
+                <li><a href="/Service_Advisories/Service_changes/index.jsp">Service changes</a></li>
+				<li><a href="/Service_Advisories/Service_changes/Bus_stop_relocations-LRT.jsp">Bus stop relocations due to Eglinton LRT construction</a></li>
+				<li><a href="/Service_Advisories/Construction/index.jsp">Construction notices</a></li>
+			</ul>
+	
+			<h4><a href="/Service_Advisories/My_ttc_e_services/index.jsp">My TTC e-Services</a></h4>			
+			<ul class="service-alerts-last">
+				<li><a href="/Service_Advisories/My_ttc_e_services/index.jsp">Register with My TTC e-Services or sign in to update your profile</a></li>	
+			</ul>	
+                
+            <h4 class="orange-header"><a href="/About_the_TTC/Projects/index.jsp">TTC Construction Projects</a></h4> 			
+				<ul class="ttc-ece">
+					<li>Learn more about <a href="/About_the_TTC/Projects/index.jsp">construction projects</a> in your area</li>	
+				</ul>	
+            
+            <a href="http://ttcshop.ca" target="_blank" rel="noopener noreferrer"><h4 class="right-column-purple">TTCshop.ca</h4> 			
+				<ul class="shop-ttc">
+					<li>Visit  TTCshop.ca, your official source for TTC merchandise.</li>	
+				</ul>	</a>
+			
+ 
+
+
+
+
+
+<h4 class="right-column-blue"><a href="/Public_Meetings/index.jsp">Upcoming Meetings</a></h4>
+<ul>
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+				<li>Board Meeting<br/>Tuesday, March 20</li>
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</ul>
+
+			<div style="height:200px;margin-top:12px;border-top: 1px solid #bfd3dc;border-bottom: 1px solid #bfd3dc;border-right: 1px solid #bfd3dc;">			
+				<div class="twitterHeader">
+					<span style="float:right;">
+						<a href="https://twitter.com/ttcnotices" class="twitter-follow-button" data-show-count="false" data-size="small" data-show-screen-name="false">Follow us on Twitter @TTCnotices</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</span>
+					<span style="float:left;"><a style="color: #292f33;" href="https://twitter.com/ttcnotices" title="Tweets from Official TTC Tweets"><b>@TTCnotices</b></a></span>
+				</div>
+				<div style="height:162px;overflow-y:scroll;">
+					<a class="twitter-timeline" href="https://twitter.com/ttcnotices" data-widget-id="565540635864997888" data-chrome="nofooter noheader"
+	  				data-tweet-limit="5" data-show-replies="false" height="162" width="300" ></a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- SEARCH -->
+	<div id="ttc-main-search">
+	  <form method="post" action="/Search/results.jsp">
+	    <label for="nav-search">Search TTC.ca:</label>
+	    <input type="hidden" name="site" value="default_collection"/>
+	    <input type="hidden" name="reffer" value="true" />
+	    <input type="hidden" name="client" value="results.jsp"/>
+	    <input type="hidden" name="proxystylesheet" value="ttc_stylesheet-iframe"/>
+	    <input type="hidden" name="output" value="xml_no_dtd"/>
+	    <input class="text" name="q" id="nav-search" type="text" />
+	    <input class="text" name="contrast" type="hidden" value="" />
+	    <input value="Search" class="btn" name="sa" id="search-input" title="Search TTC" type="submit"/>
+	  </form>
+	</div>
+</div>
+
+<div id="ttc-sub-footer">
+	<div id="ttc-grid-content2">
+		<div>
+			<ul>
+				<li><a href="/Fares_and_passes/Prices/index.jsp">Prices</a></li>			
+				<li><a href="/Fares_and_passes/Prices/Fare_Sellers.jsp">Fare Seller Locations</a></li>
+				<li><a href="/Fares_and_passes/Fare_information/Seniors_students_and_children/index.jsp">Post-Secondary Students, Seniors, Students and Children</a></li>		
+			<li><a href="/Fares_and_passes/Fare_information/Proof_of_payment.jsp">Proof-of-Payment (POP)</a></li>		
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li><a href="/Fares_and_passes/PRESTO/index.jsp">PRESTO</a></li>
+				<li><a href="/Fares_and_passes/Passes/Metropass/index.jsp">Metropass</a></li>
+				<li><a href="/Fares_and_passes/Passes/Day_Pass/index.jsp">Day Pass</a></li>
+				<li><a href="/Fares_and_passes/Passes/Weekly_pass.jsp">Weekly Pass</a></li>	
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li><a href="/Riding_the_TTC/Airport_service.jsp">Service to Toronto Pearson International Airport</a></li>
+				<li><a href="/Riding_the_TTC/Safety_and_Security/index.jsp">Safety and Security</a></li>
+				<li><a href="/TTC_Accessibility/index.jsp">Accessibility</a></li>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li><a href="/Riding_the_TTC/Frequently_Asked_Questions/index.jsp">Frequently Asked Questions</a></li>
+				<li><a href="/Riding_the_TTC/Parking/index.jsp">Parking</a></li>
+				<li><a href="/Customer_Service/Lost_articles.jsp">Lost Articles</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- FOOTER -->
+<div id="ttc-footer">
+  <div class="ttc-footer-content border">
+    <h6 class="access">Corporate and site information</h6>
+    
+      <ul id="ttc-contact-left">
+        <li class="first"><a href="/About_the_TTC/index.jsp">About the TTC</a></li>
+        <li><a href="/Jobs/index.jsp">Jobs</a></li>
+        <li><a href="/TTC_Business/index.jsp">Business with the TTC</a></li>
+        <li><a href="/Public_Meetings/index.jsp">Public Meetings</a></li>
+      </ul>
+      <ul id="ttc-contact">
+        <li class="first"><a href="/TTC_Surveys/index.jsp">Customer Surveys</a></li>
+        <li><a href="/Contact_Us/index.jsp">Contact Us</a></li>
+        <li><a href="/Sitemap/index.jsp">Site Map</a></li>
+      </ul>
+      <ul style="clear:both; list-style:none; float:left;">
+
+      <li style="float:left; padding: 1px 3px 0 0; margin-top:-2px; margin-right:0px;">
+      <span class="access"> Use Google Translate to read our website in other languages </span>
+      </li>
+      <li style="float:left; padding: 1px 3px 0 0; margin-top:-2px; margin-right:0px;">
+      <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+window.setTimeout((function(){
+$('#google_translate_element .goog-te-gadget-icon').remove();
+$('#google_translate_element .goog-te-gadget-simple').css('border','none');
+$('#google_translate_element .goog-te-menu-value span').eq(0).html('Translate page');
+$('#google_translate_element .goog-te-menu-value span').eq(0).css('color', 'black');
+//$('#google_translate_element .goog-te-gadget-simple').css('height','15px');
+}), 1500);
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+         
+      </li>
+      </ul>
+      <ul style="list-style:none; float:right;">
+      <span class="access">Click the Facebook Like button to like TTC.ca</span>
+      <!--////////////FACEBOOK LIKE BUTTON/////////////-->
+		<li style="float:left; padding: 1px 3px 0 0; margin-top:-2px; margin-right:8px;"><div class="fb-like" data-href="https://www.facebook.com/TorontoTransitCommission" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="trebuchet ms" data-colorscheme="dark"></div></li>
+      <!--/////////////////////////////////////////////-->
+
+        <li  style="float:left; padding:1px 3px 0 0;"><a href="/Social_Media/index.jsp">
+        <img style="margin:0 3px -2px 0;" src="/images/fixedImages/youtube_footer_icon.gif" alt="youtube" />
+        <img style="margin:0 3px -2px 0;" src="/images/fixedImages/linkdin_footer_icon.gif" alt="Linkedin" /> 
+        <img style="margin:0 0 -2px 0;" src="/images/fixedImages/twitter_footer_icon.gif" alt="twitter" /> 
+        <img style="margin:0 3px -2px;" src="/images/fixedImages/facebook_footer_icon.gif" alt="facebook" /> Social Media</a></li>
+        
+        <li  style="float:left; padding:1px 8px 0;"><img style="margin:0 3px -2px 0;" src="/images/fixedImages/mobile_icon.gif" alt="mobile icon" /><a href="http://m.ttc.ca"> Mobile Site</a></li>
+        <li style="float:left; padding:1px 8px 0;"><a href="/RSS/index.jsp"><img style="margin:0 3px -2px 0;" src="/images/fixedImages/rss_icon_small.gif" alt="" /> RSS Feeds</a></li>
+      </ul>
+    
+  </div>
+  <div class="ttc-footer-content">
+    
+      <ul id="ttc-related-links">
+        <li class="first"><a href="/Privacy/index.jsp">Privacy Policy</a></li>
+        <li><a href="/Terms_and_conditions_of_use/index.jsp">Terms of Use</a></li>
+        <li><a href="/Riding_the_TTC/TTC_Bylaws/index.jsp">TTC By-law No. 1</a></li>
+        <li><a href="/Related_Links/index.jsp">Related Links</a></li>
+      </ul>
+    
+    <p id="ttc-copyright">Toronto Transit Commission, Copyright 1997-2017</p>
+  </div>
+</div>
+<div id="ttc-footer-stretch"></div>
+
+</body>
+</html>

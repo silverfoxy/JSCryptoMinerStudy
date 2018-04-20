@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="baidu_union_verify" content="fa039528e51a3ffc6565fb61e9efe996">
+<meta name="baidu-tc-verification" content="50ab2a647c7650cd0f17b1a9de12d89d" />
+<meta http-equiv="keywords" content="IT,大数据,Hadoop,Spark,Storm,Flink,Dubbo,Docker,Kubernetes,编程,源码分析,架构,机器学习">
+<meta name="description" content="本站是个人IT技术博客，涉及大数据开源项目架构、使用经验、个人总结，旨在传播IT技术知识，号召程序员积极讨论，使更多程序员从分享中受益。" />
+<meta name="viewport" content="width=device-width" />
+<title>简单之美 | 简单之美，难得简单，享受简单的唯美。</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://shiyanjun.cn/xmlrpc.php" />
+
+
+<link rel="alternate" type="application/rss+xml" title="简单之美 &raquo; Feed" href="http://shiyanjun.cn/feed" />
+<link rel="alternate" type="application/rss+xml" title="简单之美 &raquo; 评论Feed" href="http://shiyanjun.cn/comments/feed" />
+<link rel='stylesheet' id='mediamaven_style-css'  href='http://shiyanjun.cn/wp-content/themes/media-maven/style.css?ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://shiyanjun.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/themes/media-maven/library/js/modernizr-2.6.1.min.js?ver=2.6.1'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/themes/media-maven/library/js/scripts.js?ver=1.0.0'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://shiyanjun.cn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://shiyanjun.cn/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.9.2" />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url('http://shiyanjun.cn/wp-content/themes/media-maven/library/images/bg.jpg'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<body class="home blog custom-background single-author">
+<div id="container">
+	<header id="branding" role="banner">
+      <div id="inner-header" class="clearfix">
+		<hgroup id="site-heading">
+			<h1 id="site-title"><a href="http://shiyanjun.cn/" title="简单之美" rel="home">简单之美</a></h1>
+			<h2 id="site-description">简单之美，难得简单，享受简单的唯美。</h2>
+		</hgroup>
+
+		<nav id="access" role="navigation">
+			<h1 class="assistive-text section-heading">Main menu</h1>
+			<div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+			<div class="menu"><ul id="menu-%e6%88%91%e7%9a%84%e8%8f%9c%e5%8d%95" class="menu"><li id="menu-item-167" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-167"><a href="http://shiyanjun.cn">首页</a></li>
+<li id="menu-item-118" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-118"><a href="http://shiyanjun.cn/archives/category/programming">编程语言</a></li>
+<li id="menu-item-113" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-113"><a href="http://shiyanjun.cn/archives/category/opensource">开源技术</a></li>
+<li id="menu-item-1607" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1607"><a href="http://shiyanjun.cn/archives/category/container">容器技术</a></li>
+<li id="menu-item-226" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-226"><a href="http://shiyanjun.cn/archives/category/machinelearning">机器学习</a></li>
+<li id="menu-item-788" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-788"><a href="http://shiyanjun.cn/archives/category/algorithm">算法</a></li>
+<li id="menu-item-126" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-126"><a href="http://shiyanjun.cn/archives/category/database">数据库</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-121"><a href="http://shiyanjun.cn/archives/category/server">服务器</a></li>
+<li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199"><a href="http://shiyanjun.cn/about">关于</a></li>
+</ul></div>			<form role="search" method="get" id="searchform" class="searchform" action="http://shiyanjun.cn/">
+				<div>
+					<label class="screen-reader-text" for="s">搜索：</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="搜索" />
+				</div>
+			</form>		</nav><!-- #access -->
+        
+
+      </div>
+
+
+	</header><!-- #branding -->
+    <div id="content" class="clearfix">
+        
+        <div id="main" class="col620 clearfix" role="main">
+
+			
+								
+					<article id="post-1804" class="post-1804 post type-post status-publish format-standard hentry category-spark category-opensource tag-spark tag-spark-2-0-0">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1804.html" title="阅读文章《Spark Shuffle过程分析：Reduce阶段处理流程》" rel="bookmark">Spark Shuffle过程分析：Reduce阶段处理流程</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1804.html" title="22:58:46" rel="bookmark"><time class="entry-date" datetime="2018-02-28T22:58:46+00:00">2018-02-28 22:58:46</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>Spark在Map阶段调度运行的ShuffleMapTask，最后会生成.data和.index文件，可以通过我的这篇文章 Spark Shuffle过程分析：Map阶段处理流程 了解具体流程和详情。同时，在Executor上运行一个ShuffleMapTask，返回了一个MapStatus对象，下面是ShuffleMapTask执行后返回结果的相关代码片段：
+
+    var writer: ShuffleWriter[Any, Any] = null
+    try {
+      val manager = SparkEnv.get.shuffleManager
+      writer = manager.getWriter[Any, Any](dep.shuffleHandle, partitionId, context)
+      writer.write(rdd.iterator(partition, context).asInstanceOf[Iterator[_ &lt;: Product2[Any, Any]]])
+      writer.stop(success = true).get
+    } catch {
+      case e: Exception =&gt;
+        try {
+          if (writer != null) {
+            writer.stop(success = false)
+          }
+        } catch {
+          case e: Excep</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/spark" title="查看Spark中的全部文章" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/spark" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/tag/spark-2-0-0" rel="tag">Spark-2.0.0</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1804.html#respond" title="《Spark Shuffle过程分析：Reduce阶段处理流程》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1804.html">阅读(156)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1804 -->
+				
+					<article id="post-1785" class="post-1785 post type-post status-publish format-standard hentry category-flink category-opensource tag-flink tag-flink-1-4-0">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1785.html" title="阅读文章《Apache Flink：使用EventTime与WaterMark进行流数据处理》" rel="bookmark">Apache Flink：使用EventTime与WaterMark进行流数据处理</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1785.html" title="07:50:20" rel="bookmark"><time class="entry-date" datetime="2018-01-09T07:50:20+00:00">2018-01-09 07:50:20</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>在实际开发过程中，我们可能需要接入各种流数据源，比如在线业务用户点击流数据、监控系实时收集到的事件流数据、从传感器采集到的实时数据，等等，为了处理方便他们可能会写入Kafka消息中间件集群中某个/某些topic中，或者选择其它的缓冲/存储系统。这些数据源中数据元素具有固定的时间属性，是在流数据处理系统之外的其它系统生成的。比如，上亿用户通过手机终端操作触发生成的事件数据，都具有对应的事件时间；再特殊一点，可能我们希望回放（Replay）上一年手机终端用户的历史行为数据，与当前某个流数据集交叉分析才能够得到支持某类业务的特定结果，这种情况下，基于数据所具有的事件时间进行处理，就具有很重要的意义了。
+下面，我们先从Flink支持的3个与流数据处理相关的时间概念（Time Notion）：ProcessTime、EventTime、IngestionTime。有些系统对时间概念的抽象有其它叫法，比如，Google Cloud Dataflow中称为时间域（Time Domain）。在Flink中，</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/flink" title="查看Flink中的全部文章" rel="tag">Flink</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/flink" rel="tag">Flink</a>, <a href="http://shiyanjun.cn/archives/tag/flink-1-4-0" rel="tag">Flink-1.4.0</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1785.html#comments" title="《Apache Flink：使用EventTime与WaterMark进行流数据处理》上的评论">评论(2)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1785.html">阅读(835)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1785 -->
+				
+					<article id="post-1775" class="post-1775 post type-post status-publish format-standard hentry category-flink category-opensource tag-flink tag-flink-1-4-0">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1775.html" title="阅读文章《Apache Flink：Keyed Window与Non-Keyed Window》" rel="bookmark">Apache Flink：Keyed Window与Non-Keyed Window</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1775.html" title="20:11:44" rel="bookmark"><time class="entry-date" datetime="2018-01-06T20:11:44+00:00">2018-01-06 20:11:44</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>Apache Flink中，Window操作在流式数据处理中是非常核心的一种抽象，它把一个无限流数据集分割成一个个有界的Window（或称为Bucket），然后就可以非常方便地定义作用于Window之上的各种计算操作。本文我们主要基于Apache Flink 1.4.0版本，说明Keyed Window与Non-Keyed Window的基本概念，然后分别对与其相关的WindowFunction与WindowAllFunction的类设计进行分析，最后通过编程实践来应用。
+基本概念
+Flink将Window分为两类，一类叫做Keyed Window，另一类叫做Non-Keyed Window。为了说明这两类Window的不同，我们看下Flink官网给出的，基于这两种类型的Window编写代码的结构说明。
+基于Keyed Window进行编程，用户代码基本结构如下所示：
+
+stream
+       .keyBy(...)               &lt;-  keyed versus Non-Keyed windows
+       .window(...)              &lt;-  required: &quot;assigner&quot;
+      [.trigger(...)]            &lt;-  optional</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/flink" title="查看Flink中的全部文章" rel="tag">Flink</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/flink" rel="tag">Flink</a>, <a href="http://shiyanjun.cn/archives/tag/flink-1-4-0" rel="tag">Flink-1.4.0</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1775.html#respond" title="《Apache Flink：Keyed Window与Non-Keyed Window》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1775.html">阅读(339)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1775 -->
+				
+					<article id="post-1768" class="post-1768 post type-post status-publish format-standard hentry category-maven category-opensource tag-maven tag-nexus">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1768.html" title="阅读文章《Nexus Repository OSS 3安装配置使用》" rel="bookmark">Nexus Repository OSS 3安装配置使用</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1768.html" title="11:22:28" rel="bookmark"><time class="entry-date" datetime="2018-01-04T11:22:28+00:00">2018-01-04 11:22:28</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>Nexus Repository OSS 3是一个开源的仓库管理系统，提供了更加丰富的功能，而且安装、配置、使用起来也更加简单方便。OSS 3版本主要支持的仓库（Repository）包括如下：
+
+bower
+docker
+maven
+npm
+nuget
+pypi
+raw
+rubygems
+yum
+
+其中，对于上述每种类型的Nexus仓库，都分别具有如下主要3种类型：
+hosted：本地仓库，可以将我们内部使用的一些Maven项目，发布到该类型仓库，供内部开发人员使用。
+proxy：代理仓库，用来代理远程公共仓库，比如Maven中央仓库。
+group：仓库组，用来合并多个类型（hosted/proxy）的仓库。
+这里，我们主要以支持Java编程的Maven项目依赖管理和构建进行实践，Nexus版本为nexus-3.7.0-04。
+安装配置
+下载Nexus Repository Manager软件包：
+
+wget https://sonatype-download.global.ssl.fastly.net/nexus/3/nexus-3.7.0-04-unix.tar.gz
+tar xvzf nexus-3.7.0-04-unix.tar.gz
+
+解压缩后可以看到，生成nexus-3.7.0-04和sonatype-wor</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/maven" title="查看Maven中的全部文章" rel="tag">Maven</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/maven" rel="tag">Maven</a>, <a href="http://shiyanjun.cn/archives/tag/nexus" rel="tag">Nexus</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1768.html#respond" title="《Nexus Repository OSS 3安装配置使用》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1768.html">阅读(370)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1768 -->
+				
+					<article id="post-1759" class="post-1759 post type-post status-publish format-standard hentry category-flink category-opensource tag-flink">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1759.html" title="阅读文章《Apache Flink 1.4.0：Standalone集群模式实践》" rel="bookmark">Apache Flink 1.4.0：Standalone集群模式实践</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1759.html" title="22:42:53" rel="bookmark"><time class="entry-date" datetime="2017-12-29T22:42:53+00:00">2017-12-29 22:42:53</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>Apache Flink是一个开源的流处理框架，提供了分布式的、高性能的、高可用的特性，同时能够为流式应用程序提供多种编程语言的API，更多有关Flink的内容，不再累述，请参考官方文档，本文主要以Flink Standalone集群安装配置、编程实践为主。
+Flink集群安装配置
+首先，选择一主二从共3个节点来安装配置Flink Standalone集群：
+
+Master：ali-bj01-tst-cluster-001.xiweiai.cn
+Worker：ali-bj01-tst-cluster-002.xiweiai.cn
+Worker：ali-bj01-tst-cluster-003.xiweiai.cn
+
+为了方便安装文件远程拷贝，单独创建一个hadoop用户，并打通从Master节点使用ssh到Worker节点之间的免密码登录。
+在Master节点上下载、准备Flink 1.4.0安装文件，执行如下命令：
+
+wget http://mirror.bit.edu.cn/apache/flink/flink-1.4.0/flink-1.4.0-bin-hadoop26-scala_2.11.tgz
+tar xvzf flink-1.4.0-bin-hadoop26-scala_2.11.tgz
+
+接着，修改Flink配置文件flink-1.4.0/conf/fli</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/flink" title="查看Flink中的全部文章" rel="tag">Flink</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/flink" rel="tag">Flink</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1759.html#comments" title="《Apache Flink 1.4.0：Standalone集群模式实践》上的评论">评论(1)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1759.html">阅读(524)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1759 -->
+				
+					<article id="post-1745" class="post-1745 post type-post status-publish format-standard hentry category-beam category-opensource tag-beam">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1745.html" title="阅读文章《使用Apache Beam实现实时监控统计》" rel="bookmark">使用Apache Beam实现实时监控统计</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1745.html" title="01:18:17" rel="bookmark"><time class="entry-date" datetime="2017-11-30T01:18:17+00:00">2017-11-30 01:18:17</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>网站使用Apache服务器，对于请求网站资源的事件被记录到日志中，我们需要基于该日志文件的数据进行实时监控统计，通过读取IP库数据可以得到每个访问IP的所属地域（国内按城市，国外按国家，IP库中没有的按未知处理）。其实，整个流程我们可以通过Flume收集聚合多个子站日志文件数据，并写入到下游的Kafka消息中间件集群中，然后可以直接从Kafka中进行消费，实现实时监控统计，最后结果更新到Redis中去。
+为了简单，我们这里只是通过输入的日志文件作为数据源，下游直接通过Apache Beam来进行实时分析处理，结果输出到多个按时间分组的文件中。我们实现的实时监控功能目标，如下所示：
+
+输入事件日志文件，以及IP库文件；
+基于日志文件中的事件时间，每间隔5分钟输出一个统计文件，结果文件中包含“地域”和“访问次数”。
+
+下面是文件格式示例。
+事件日志文件的格式，示例如下所示：
+
+113.246.155.26 - - [10/Dec/2017:01:03:28 +0800] &quot;GET /wp-conte</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/beam" title="查看Beam中的全部文章" rel="tag">Beam</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/beam" rel="tag">Beam</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1745.html#respond" title="《使用Apache Beam实现实时监控统计》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1745.html">阅读(775)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1745 -->
+				
+					<article id="post-1738" class="post-1738 post type-post status-publish format-standard hentry category-spark category-opensource category-machinelearning tag-pyspark tag-spark">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1738.html" title="阅读文章《基于YARN集群构建运行PySpark Application》" rel="bookmark">基于YARN集群构建运行PySpark Application</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1738.html" title="08:40:03" rel="bookmark"><time class="entry-date" datetime="2017-10-18T08:40:03+00:00">2017-10-18 08:40:03</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>Spark Application可以直接运行在YARN集群上，这种运行模式，会将资源的管理与协调统一交给YARN集群去处理，这样能够实现构建于YARN集群之上Application的多样性，比如可以运行MapReduc程序，可以运行HBase集群，也可以运行Storm集群，还可以运行使用Python开发机器学习应用程序，等等。
+我们知道，Spark on YARN又分为client模式和cluster模式：在client模式下，Spark Application运行的Driver会在提交程序的节点上，而该节点可能是YARN集群内部节点，也可能不是，一般来说提交Spark Application的客户端节点不是YARN集群内部的节点，那么在客户端节点上可以根据自己的需要安装各种需要的软件和环境，以支撑Spark Application正常运行。在cluster模式下，Spark Application运行时的所有进程都在YARN集群的NodeManager节点上，而且具体在哪些NodeManager上运行是由YARN的调度策略所决定的。
+对比这两种模式，最关键的是Spark Application运行时Driver所在的节</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/spark" title="查看Spark中的全部文章" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>, <a href="http://shiyanjun.cn/archives/category/machinelearning" title="查看机器学习中的全部文章" rel="tag">机器学习</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/pyspark" rel="tag">PySpark</a>, <a href="http://shiyanjun.cn/archives/tag/spark" rel="tag">Spark</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1738.html#comments" title="《基于YARN集群构建运行PySpark Application》上的评论">评论(8)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1738.html">阅读(1,655)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1738 -->
+				
+					<article id="post-1728" class="post-1728 post type-post status-publish format-standard hentry category-hadoop category-opensource tag-cdh tag-hadoop">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1728.html" title="阅读文章《CDH-5.7.0：基于Parcels方式离线安装配置》" rel="bookmark">CDH-5.7.0：基于Parcels方式离线安装配置</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1728.html" title="16:04:10" rel="bookmark"><time class="entry-date" datetime="2017-09-28T16:04:10+00:00">2017-09-28 16:04:10</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>CDH是Cloudera公司提供的Hadoop发行版，它在原生开源的Apache Hadoop基础之上，针对特定版本的Hadoop以及Hadoop相关的软件，如Zookeeper、HBase、Flume、Sqoop等做了兼容性开发，我们在安装CDH发行版的Hadoop时就无需进行额外繁琐的兼容性测试。
+以往安装配置使用Apache Hadoop时，完全需要手动在服务器上，通过命令和脚本进行安装配置，比较复杂而繁琐。使用CDH，我们可以通过Cloudera提供的CM（Cloudera Manager）来进行安装，CM是一个面向Hadoop相关软件的强大SCM工具，它提供了通过Web界面向导的方式进行软件的安装配置，此外还提供了比较基础、友好的监控、预警功能，通过Web UI展示各种已安装软件的资源使用情况、系统运行状态等等。
+如果使用CM来管理CDH平台，因为CM使用了监控管理、运行状态数据采集、预警等等很多服务，所以在集群服务器资源使用方面也会比通常的Apache Hadoop版本多很多，如果所需要的Hadoop集群规模超大，比如成百上千个节点，使</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/hadoop" title="查看Hadoop中的全部文章" rel="tag">Hadoop</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/cdh" rel="tag">CDH</a>, <a href="http://shiyanjun.cn/archives/tag/hadoop" rel="tag">Hadoop</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1728.html#comments" title="《CDH-5.7.0：基于Parcels方式离线安装配置》上的评论">评论(1)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1728.html">阅读(1,153)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1728 -->
+				
+					<article id="post-1702" class="post-1702 post type-post status-publish format-standard hentry category-opensource category-architecture tag-hadoop tag-spark">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1702.html" title="阅读文章《PB级海量数据服务平台架构设计实践》" rel="bookmark">PB级海量数据服务平台架构设计实践</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1702.html" title="08:10:57" rel="bookmark"><time class="entry-date" datetime="2017-08-29T08:10:57+00:00">2017-08-29 08:10:57</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>基于PB级海量数据实现数据服务平台，需要从各个不同的角度去权衡，主要包括实践背景、技术选型、架构设计，我们基于这三个方面进行了架构实践，下面分别从这三个方面进行详细分析讨论：
+实践背景
+该数据服务平台架构设计之初，实践的背景可以从三个维度来进行说明：当前现状、业务需求、架构需求，分别如下所示：
+当前现状
+收集了当前已有数据、分工、团队的一些基本情况，如下所示：
+
+数据收集和基础数据加工有专门的Team在做，我们是基于收集后并进行过初步加工的基础数据，结合不同行业针对特定数据的需求进行二次加工的。
+数据二次加工，会集成基础数据之外的其它有业务属性的数据，比如引入第三方POI数据等。
+原始数据每天增量大约30~40TB左右。
+计算集群采用Spark on YARN部署模式，大约400个节点。
+所有数据各种属性、行为信息，都是围绕大约40亿的移动设备ID进行很多倍膨胀，比如每天使用微信App的设备的行为信息。
+参与该平台的研发人员，对实际数据</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>, <a href="http://shiyanjun.cn/archives/category/architecture" title="查看架构中的全部文章" rel="tag">架构</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/hadoop" rel="tag">Hadoop</a>, <a href="http://shiyanjun.cn/archives/tag/spark" rel="tag">Spark</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1702.html#respond" title="《PB级海量数据服务平台架构设计实践》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1702.html">阅读(3,195)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1702 -->
+				
+					<article id="post-1693" class="post-1693 post type-post status-publish format-standard hentry category-spark category-opensource category-machinelearning">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1693.html" title="阅读文章《基于Spark ML Pipeline构建机器学习应用》" rel="bookmark">基于Spark ML Pipeline构建机器学习应用</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1693.html" title="23:57:35" rel="bookmark"><time class="entry-date" datetime="2017-07-30T23:57:35+00:00">2017-07-30 23:57:35</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>使用机器学习的方法可以解决越来越多的实际问题，它在现实世界中的应用越来越广泛，比如智能风控、欺诈检测、个性化推荐、机器翻译、模式识别、智能控制，等等。
+机器学习分类
+我们都知道，机器学习可以分为三大类：监督学习（Supervised Learning）、无监督学习（Unsupervised Learning）和强化学习（Reinforcement Learning），下面简单介绍一下它们含义：
+
+监督学习
+
+监督学习是根据给定的标签（Label）已知的训练数据集，通过选定的算法在该训练数据集上进行训练学习，最后得到一个可以描述该数据集规律的预测函数，也就是我们所说的模型。有了模型，对于未知标签的输入数据，可以通过该预测函数预测出它的标签。典型的监督学习方法，如分类、回归等。
+
+无监督学习
+
+无监督学习是根据给定的标签（Label）未知的训练数据集，通过训练学习从训练数据集中发现隐藏的模式或结构。典型的无监督学习方法，如聚类分析。
+
+强化学习
+
+强化学习是人工智能中的策略学</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/spark" title="查看Spark中的全部文章" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>, <a href="http://shiyanjun.cn/archives/category/machinelearning" title="查看机器学习中的全部文章" rel="tag">机器学习</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1693.html#comments" title="《基于Spark ML Pipeline构建机器学习应用》上的评论">评论(1)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1693.html">阅读(1,980)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1693 -->
+				
+					<article id="post-1671" class="post-1671 post type-post status-publish format-standard hentry category-kubernetes category-container category-opensource tag-kubernetes">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1671.html" title="阅读文章《Kubernetes基础篇：主要特性、基本概念与总体架构》" rel="bookmark">Kubernetes基础篇：主要特性、基本概念与总体架构</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1671.html" title="11:37:21" rel="bookmark"><time class="entry-date" datetime="2017-06-30T11:37:21+00:00">2017-06-30 11:37:21</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>本文试图将Kubernetes的基础相关知识描述清楚，让一个从来没有Kubernetes实践的开发人员，能够非常容易地理解Kubernetes是什么，能够做哪些事情，以及使用它能带来的好处是什么。
+Kubernetes是什么
+Kubernetes是一个开源的容器编排引擎，它支持自动化部署、大规模可伸缩、应用容器化管理。我们在完成一个应用程序的开发时，需要冗余部署该应用的多个实例，同时需要支持对应用的请求进行负载均衡，在Kubernetes中，我们可以把这个应用的多个实例分别启动一个容器，每个容器里面运行一个应用实例，然后通过内置的负载均衡策略，实现对这一组应用实例的管理、发现、访问，而这些细节都不需要应用开发和运维人员去进行复杂的手工配置和处理。
+Kubernetes是Google基于内部Borg开源的容器编排引擎，关于Borg的设计，可以查看对应的论文《Large-scale cluster management at Google with Borg》。这里，我们先说一说Borg系统，它是Google内部的集群管理系统，使用它</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/container/kubernetes" title="查看Kubernetes中的全部文章" rel="tag">Kubernetes</a>, <a href="http://shiyanjun.cn/archives/category/container" title="查看容器技术中的全部文章" rel="tag">容器技术</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/kubernetes" rel="tag">Kubernetes</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1671.html#comments" title="《Kubernetes基础篇：主要特性、基本概念与总体架构》上的评论">评论(2)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1671.html">阅读(2,973)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1671 -->
+				
+					<article id="post-1655" class="post-1655 post type-post status-publish format-standard hentry category-spark category-opensource tag-spark tag-spark-2-0-0">
+		<header class="entry-header"> <!-- 首页文章列表标题属性 -->
+		<h1 class="entry-title"><a href="http://shiyanjun.cn/archives/1655.html" title="阅读文章《Spark Shuffle过程分析：Map阶段处理流程》" rel="bookmark">Spark Shuffle过程分析：Map阶段处理流程</a></h1>
+
+				<div class="entry-meta">
+			<span class="sep"><i title="发表时间" class="icon-calendar"></i></span> <a href="http://shiyanjun.cn/archives/1655.html" title="23:13:44" rel="bookmark"><time class="entry-date" datetime="2017-05-26T23:13:44+00:00">2017-05-26 23:13:44</time></a> <span class="byline"> <span class="sep"> &nbsp;&nbsp;<i title="文章作者" class="icon-user"></i></span> <span class="author vcard"><a class="url fn n" href="http://shiyanjun.cn/archives/author/yanjun" title="查看作者 Yanjun 的全部文章" rel="author">Yanjun</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+		<div class="entry-content post_content">
+		<p>默认配置情况下，Spark在Shuffle过程中会使用SortShuffleManager来管理Shuffle过程中需要的基本组件，以及对RDD各个Partition数据的计算。我们可以在Driver和Executor对应的SparkEnv对象创建过程中看到对应的配置，如下代码所示：
+
+    // Let the user specify short names for shuffle managers
+    val shortShuffleMgrNames = Map(
+      &quot;sort&quot; -&gt; classOf[org.apache.spark.shuffle.sort.SortShuffleManager].getName,
+      &quot;tungsten-sort&quot; -&gt; classOf[org.apache.spark.shuffle.sort.SortShuffleManager].getName)
+    val shuffleMgrName = conf.get(&quot;spark.shuffle.manager&quot;, &quot;sort&quot;)
+    val shuffleMgrClass = shortShuffleMgrNames.getOrElse(shuffleMgrName.toLowerCase, shuffleMgrName)
+    val shuffleManager = instantiateClass[ShuffleManager](shuffleMgrClass)
+
+如果需要修改</p>			</div><!-- .entry-content -->
+
+<!-- 首页文章摘要下面分类、标签信息 -->
+	<div class="entry-meta">
+								<span class="cat-links">
+				<i title="文章分类" class="icon-folder-open"></i> <a href="http://shiyanjun.cn/archives/category/opensource/spark" title="查看Spark中的全部文章" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术中的全部文章" rel="tag">开源技术</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+			
+						<span class="tag-links">
+				<i title="文章标签" class="icon-tags"></i> <a href="http://shiyanjun.cn/archives/tag/spark" rel="tag">Spark</a>, <a href="http://shiyanjun.cn/archives/tag/spark-2-0-0" rel="tag">Spark-2.0.0</a>			</span>
+			<span class="sep">&nbsp;&nbsp;</span>
+					
+				<span class="comments-link">
+				<i title="文章评论" class="icon-comments"></i>  <a href="http://shiyanjun.cn/archives/1655.html#respond" title="《Spark Shuffle过程分析：Map阶段处理流程》上的评论">评论(0)</a></span>
+		
+		
+		<span class="sep">&nbsp;&nbsp;</span>
+		<span class="views-link">
+				<i title="文章阅读" class="icon-eye-open"></i>  <a href="http://shiyanjun.cn/archives/1655.html">阅读(2,173)</a></span>
+
+		</div>
+
+
+
+
+
+	
+	<footer class="entry-meta">
+		
+</article><!-- #post-1655 -->
+				
+				<div class="pagination"><span>第 1 页, 共 11 页</span><span class="current">1</span><a href='http://shiyanjun.cn/page/2' class="inactive">2</a><a href='http://shiyanjun.cn/page/3' class="inactive">3</a><a href='http://shiyanjun.cn/page/4' class="inactive">4</a><a href='http://shiyanjun.cn/page/5' class="inactive">5</a><a href="http://shiyanjun.cn/page/2">下页 &rsaquo;</a><a href="http://shiyanjun.cn/page/11">末页 &raquo;</a></div>
+
+			
+        </div> <!-- end #main -->
+
+        		<div id="sidebar" class="widget-area col300" role="complementary">
+					<div class="widget-wrap"><aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">最新文章</h2>		<ul>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1804.html">Spark Shuffle过程分析：Reduce阶段处理流程</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1785.html">Apache Flink：使用EventTime与WaterMark进行流数据处理</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1775.html">Apache Flink：Keyed Window与Non-Keyed Window</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1768.html">Nexus Repository OSS 3安装配置使用</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1759.html">Apache Flink 1.4.0：Standalone集群模式实践</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1745.html">使用Apache Beam实现实时监控统计</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1738.html">基于YARN集群构建运行PySpark Application</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1728.html">CDH-5.7.0：基于Parcels方式离线安装配置</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1702.html">PB级海量数据服务平台架构设计实践</a>
+						</li>
+					<li>
+				<a href="http://shiyanjun.cn/archives/1693.html">基于Spark ML Pipeline构建机器学习应用</a>
+						</li>
+				</ul>
+		</aside></div><div class="widget-wrap"><aside id="text-6" class="widget widget_text"><h2 class="widget-title">在线文档</h2>			<div class="textwidget">1. <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/" target="_blank">Python Cookbook 3rd</a></br>
+2. <a href="https://jimmysong.io/kubernetes-handbook/" target="_blank">Kubernetes Handbook</a></br>
+3. <a href="https://kaisery.github.io/trpl-zh-cn/" target="_blank">Rust程序设计</a>(<a href="https://doc.rust-lang.org/book/second-edition/">英文版</a>)</br>
+4. <a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/" target="_blank">TensorFlow官方文档中文版</a></br>
+5. <a href="http://docs.scala-lang.org" target="_blank">Scala官方文档</a></br>
+6. <a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">Awesome Machine Learning</a></br>
+7. <a href="https://docs.hacknode.org/gopl-zh/" target="_blank">Go语言圣经中文版</a></br></div>
+		</aside></div><div class="widget-wrap"><aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">文章分类</h2>		<ul>
+	<li class="cat-item cat-item-100"><a href="http://shiyanjun.cn/archives/category/container" title="查看容器技术下的所有文章">容器技术</a> (3)
+<ul class='children'>
+	<li class="cat-item cat-item-104"><a href="http://shiyanjun.cn/archives/category/container/docker" title="查看Docker下的所有文章">Docker</a> (2)
+</li>
+	<li class="cat-item cat-item-105"><a href="http://shiyanjun.cn/archives/category/container/kubernetes" title="查看Kubernetes下的所有文章">Kubernetes</a> (1)
+</li>
+	<li class="cat-item cat-item-101"><a href="http://shiyanjun.cn/archives/category/container/swarm" title="查看Swarm下的所有文章">Swarm</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://shiyanjun.cn/archives/category/opensource" title="查看开源技术下的所有文章">开源技术</a> (99)
+<ul class='children'>
+	<li class="cat-item cat-item-86"><a href="http://shiyanjun.cn/archives/category/opensource/akka" title="查看Akka下的所有文章">Akka</a> (3)
+</li>
+	<li class="cat-item cat-item-97"><a href="http://shiyanjun.cn/archives/category/opensource/beam" title="查看Beam下的所有文章">Beam</a> (2)
+</li>
+	<li class="cat-item cat-item-84"><a href="http://shiyanjun.cn/archives/category/opensource/crunch" title="查看Crunch下的所有文章">Crunch</a> (1)
+</li>
+	<li class="cat-item cat-item-36"><a href="http://shiyanjun.cn/archives/category/opensource/dubbo" title="查看Dubbo下的所有文章">Dubbo</a> (4)
+</li>
+	<li class="cat-item cat-item-88"><a href="http://shiyanjun.cn/archives/category/opensource/elasticsearch" title="查看ElasticSearch下的所有文章">ElasticSearch</a> (1)
+</li>
+	<li class="cat-item cat-item-95"><a href="http://shiyanjun.cn/archives/category/opensource/flink" title="查看Flink下的所有文章">Flink</a> (4)
+</li>
+	<li class="cat-item cat-item-79"><a href="http://shiyanjun.cn/archives/category/opensource/flume" title="查看Flume下的所有文章">Flume</a> (2)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://shiyanjun.cn/archives/category/opensource/hadoop" title="查看Hadoop下的所有文章">Hadoop</a> (24)
+</li>
+	<li class="cat-item cat-item-62"><a href="http://shiyanjun.cn/archives/category/opensource/hive" title="查看Hive下的所有文章">Hive</a> (2)
+</li>
+	<li class="cat-item cat-item-82"><a href="http://shiyanjun.cn/archives/category/opensource/hue" title="查看Hue下的所有文章">Hue</a> (1)
+</li>
+	<li class="cat-item cat-item-61"><a href="http://shiyanjun.cn/archives/category/opensource/impala" title="查看Impala下的所有文章">Impala</a> (2)
+</li>
+	<li class="cat-item cat-item-93"><a href="http://shiyanjun.cn/archives/category/opensource/mahout" title="查看Mahout下的所有文章">Mahout</a> (1)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://shiyanjun.cn/archives/category/opensource/maven" title="查看Maven下的所有文章">Maven</a> (2)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://shiyanjun.cn/archives/category/opensource/mina" title="查看Mina下的所有文章">Mina</a> (6)
+</li>
+	<li class="cat-item cat-item-73"><a href="http://shiyanjun.cn/archives/category/opensource/mybatis" title="查看Mybatis下的所有文章">Mybatis</a> (1)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://shiyanjun.cn/archives/category/opensource/oozie" title="查看Oozie下的所有文章">Oozie</a> (4)
+</li>
+	<li class="cat-item cat-item-85"><a href="http://shiyanjun.cn/archives/category/opensource/pig" title="查看Pig下的所有文章">Pig</a> (1)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://shiyanjun.cn/archives/category/opensource/solr" title="查看Solr下的所有文章">Solr</a> (5)
+</li>
+	<li class="cat-item cat-item-68"><a href="http://shiyanjun.cn/archives/category/opensource/spark" title="查看Spark下的所有文章">Spark</a> (14)
+</li>
+	<li class="cat-item cat-item-46"><a href="http://shiyanjun.cn/archives/category/opensource/spring" title="查看Spring下的所有文章">Spring</a> (1)
+</li>
+	<li class="cat-item cat-item-67"><a href="http://shiyanjun.cn/archives/category/opensource/sqoop" title="查看Sqoop下的所有文章">Sqoop</a> (3)
+</li>
+	<li class="cat-item cat-item-35"><a href="http://shiyanjun.cn/archives/category/opensource/storm" title="查看Storm下的所有文章">Storm</a> (5)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://shiyanjun.cn/archives/category/opensource/thrift" title="查看Thrift下的所有文章">Thrift</a> (2)
+</li>
+	<li class="cat-item cat-item-38"><a href="http://shiyanjun.cn/archives/category/opensource/webservices" title="查看Web Services下的所有文章">Web Services</a> (1)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://shiyanjun.cn/archives/category/opensource/zookeeper" title="查看ZooKeeper下的所有文章">ZooKeeper</a> (3)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://shiyanjun.cn/archives/category/database" title="查看数据库下的所有文章">数据库</a> (5)
+<ul class='children'>
+	<li class="cat-item cat-item-20"><a href="http://shiyanjun.cn/archives/category/database/nosql" title="查看NoSQL数据库下的所有文章">NoSQL数据库</a> (4)
+	<ul class='children'>
+	<li class="cat-item cat-item-10"><a href="http://shiyanjun.cn/archives/category/database/nosql/hbase" title="查看HBase下的所有文章">HBase</a> (3)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://shiyanjun.cn/archives/category/database/nosql/redis" title="查看Redis下的所有文章">Redis</a> (1)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://shiyanjun.cn/archives/category/database/rdb" title="查看关系数据库下的所有文章">关系数据库</a> (1)
+	<ul class='children'>
+	<li class="cat-item cat-item-49"><a href="http://shiyanjun.cn/archives/category/database/rdb/mysql" title="查看MySQL下的所有文章">MySQL</a> (1)
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://shiyanjun.cn/archives/category/server" title="查看服务器下的所有文章">服务器</a> (4)
+<ul class='children'>
+	<li class="cat-item cat-item-78"><a href="http://shiyanjun.cn/archives/category/server/ganglia" title="查看Ganglia下的所有文章">Ganglia</a> (1)
+</li>
+	<li class="cat-item cat-item-37"><a href="http://shiyanjun.cn/archives/category/server/haproxy" title="查看HAProxy下的所有文章">HAProxy</a> (1)
+</li>
+	<li class="cat-item cat-item-76"><a href="http://shiyanjun.cn/archives/category/server/memcached" title="查看Memcached下的所有文章">Memcached</a> (1)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://shiyanjun.cn/archives/category/server/nginx" title="查看Nginx下的所有文章">Nginx</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://shiyanjun.cn/archives/category/machinelearning" title="查看机器学习下的所有文章">机器学习</a> (12)
+</li>
+	<li class="cat-item cat-item-43"><a href="http://shiyanjun.cn/archives/category/architecture" title="查看架构下的所有文章">架构</a> (1)
+</li>
+	<li class="cat-item cat-item-70"><a href="http://shiyanjun.cn/archives/category/algorithm" title="查看算法下的所有文章">算法</a> (8)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://shiyanjun.cn/archives/category/programming" title="查看编程语言下的所有文章">编程语言</a> (4)
+<ul class='children'>
+	<li class="cat-item cat-item-3"><a href="http://shiyanjun.cn/archives/category/programming/java" title="查看Java下的所有文章">Java</a> (2)
+</li>
+	<li class="cat-item cat-item-74"><a href="http://shiyanjun.cn/archives/category/programming/nodejs" title="查看Node.js下的所有文章">Node.js</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://shiyanjun.cn/archives/category/programming/php" title="查看PHP下的所有文章">PHP</a> (1)
+</li>
+</ul>
+</li>
+		</ul>
+</aside></div><div class="widget-wrap"><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">文章存档</h2>		<ul>
+	<li><a href='http://shiyanjun.cn/archives/date/2018/02'>2018年二月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2018/01'>2018年一月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/12'>2017年十二月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/11'>2017年十一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/10'>2017年十月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/09'>2017年九月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/08'>2017年八月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/07'>2017年七月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/06'>2017年六月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/05'>2017年五月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/04'>2017年四月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/03'>2017年三月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/02'>2017年二月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2017/01'>2017年一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2016/11'>2016年十一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2016/09'>2016年九月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2016/04'>2016年四月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2016/02'>2016年二月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/12'>2015年十二月</a>&nbsp;(5)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/11'>2015年十一月</a>&nbsp;(4)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/10'>2015年十月</a>&nbsp;(2)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/09'>2015年九月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/08'>2015年八月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/07'>2015年七月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/06'>2015年六月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/05'>2015年五月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/04'>2015年四月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/03'>2015年三月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/02'>2015年二月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2015/01'>2015年一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/12'>2014年十二月</a>&nbsp;(2)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/11'>2014年十一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/10'>2014年十月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/09'>2014年九月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/08'>2014年八月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/07'>2014年七月</a>&nbsp;(2)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/06'>2014年六月</a>&nbsp;(2)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/05'>2014年五月</a>&nbsp;(2)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/04'>2014年四月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/03'>2014年三月</a>&nbsp;(14)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/02'>2014年二月</a>&nbsp;(4)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2014/01'>2014年一月</a>&nbsp;(1)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2013/12'>2013年十二月</a>&nbsp;(3)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2013/11'>2013年十一月</a>&nbsp;(5)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2013/10'>2013年十月</a>&nbsp;(6)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2013/09'>2013年九月</a>&nbsp;(13)</li>
+	<li><a href='http://shiyanjun.cn/archives/date/2013/08'>2013年八月</a>&nbsp;(21)</li>
+		</ul>
+</aside></div><div class="widget-wrap"><aside id="colorful_tag_cloud-2" class="widget widget_colorful_tag_cloud"><h2 class="widget-title">全站标签</h2><a href='http://shiyanjun.cn/archives/tag/pig' class='tag-link-85' title='1' style='font-size: 12pt; color: #00a650'>Pig</a>
+<a href='http://shiyanjun.cn/archives/tag/jvm' class='tag-link-42' title='1' style='font-size: 12pt; color: #00a650'>JVM</a>
+<a href='http://shiyanjun.cn/archives/tag/mahout' class='tag-link-93' title='1' style='font-size: 12pt; color: #00a650'>Mahout</a>
+<a href='http://shiyanjun.cn/archives/tag/%e6%8e%92%e5%ba%8f' class='tag-link-71' title='8' style='font-size: 21.8319327731pt; color: #f0f'>排序</a>
+<a href='http://shiyanjun.cn/archives/tag/maven' class='tag-link-29' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Maven</a>
+<a href='http://shiyanjun.cn/archives/tag/spark' class='tag-link-68' title='14' style='font-size: 25.3109243697pt; color: #f49bc1'>Spark</a>
+<a href='http://shiyanjun.cn/archives/tag/node-js' class='tag-link-75' title='1' style='font-size: 12pt; color: #00a650'>Node.js</a>
+<a href='http://shiyanjun.cn/archives/tag/php' class='tag-link-5' title='1' style='font-size: 12pt; color: #00a650'>PHP</a>
+<a href='http://shiyanjun.cn/archives/tag/yarn' class='tag-link-65' title='2' style='font-size: 14.7226890756pt; color: #f16522'>YARN</a>
+<a href='http://shiyanjun.cn/archives/tag/nexus' class='tag-link-108' title='1' style='font-size: 12pt; color: #00a650'>Nexus</a>
+<a href='http://shiyanjun.cn/archives/tag/hbase' class='tag-link-10' title='4' style='font-size: 18.0504201681pt; color: #0f0'>HBase</a>
+<a href='http://shiyanjun.cn/archives/tag/flink-1-4-0' class='tag-link-109' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Flink-1.4.0</a>
+<a href='http://shiyanjun.cn/archives/tag/dubbo' class='tag-link-36' title='4' style='font-size: 18.0504201681pt; color: #0f0'>Dubbo</a>
+<a href='http://shiyanjun.cn/archives/tag/jregex' class='tag-link-26' title='1' style='font-size: 12pt; color: #00a650'>JRegex</a>
+<a href='http://shiyanjun.cn/archives/tag/spring' class='tag-link-46' title='1' style='font-size: 12pt; color: #00a650'>Spring</a>
+<a href='http://shiyanjun.cn/archives/tag/solrcloud' class='tag-link-27' title='1' style='font-size: 12pt; color: #00a650'>SolrCloud</a>
+<a href='http://shiyanjun.cn/archives/tag/sql' class='tag-link-24' title='1' style='font-size: 12pt; color: #00a650'>SQL</a>
+<a href='http://shiyanjun.cn/archives/tag/elasticsearch' class='tag-link-88' title='1' style='font-size: 12pt; color: #00a650'>ElasticSearch</a>
+<a href='http://shiyanjun.cn/archives/tag/jax-ws' class='tag-link-39' title='1' style='font-size: 12pt; color: #00a650'>JAX-WS</a>
+<a href='http://shiyanjun.cn/archives/tag/%e5%88%86%e7%b1%bb' class='tag-link-90' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>分类</a>
+<a href='http://shiyanjun.cn/archives/tag/springcloud' class='tag-link-98' title='1' style='font-size: 12pt; color: #00a650'>SpringCloud</a>
+<a href='http://shiyanjun.cn/archives/tag/pyspark' class='tag-link-107' title='1' style='font-size: 12pt; color: #00a650'>PySpark</a>
+<a href='http://shiyanjun.cn/archives/tag/hadoop2' class='tag-link-25' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>Hadoop2</a>
+<a href='http://shiyanjun.cn/archives/tag/akka' class='tag-link-86' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>Akka</a>
+<a href='http://shiyanjun.cn/archives/tag/cdh' class='tag-link-106' title='1' style='font-size: 12pt; color: #00a650'>CDH</a>
+<a href='http://shiyanjun.cn/archives/tag/hdfs' class='tag-link-72' title='5' style='font-size: 19.2605042017pt; color: #2f3192'>HDFS</a>
+<a href='http://shiyanjun.cn/archives/tag/web-services' class='tag-link-40' title='1' style='font-size: 12pt; color: #00a650'>Web Services</a>
+<a href='http://shiyanjun.cn/archives/tag/mina-2' class='tag-link-31' title='6' style='font-size: 20.3193277311pt; color: #00f'>Mina</a>
+<a href='http://shiyanjun.cn/archives/tag/java' class='tag-link-3' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Java</a>
+<a href='http://shiyanjun.cn/archives/tag/id3' class='tag-link-57' title='1' style='font-size: 12pt; color: #00a650'>ID3</a>
+<a href='http://shiyanjun.cn/archives/tag/hadoop' class='tag-link-9' title='30' style='font-size: 30pt; color: #ee1d24'>Hadoop</a>
+<a href='http://shiyanjun.cn/archives/tag/libsvm' class='tag-link-32' title='2' style='font-size: 14.7226890756pt; color: #f16522'>libsvm</a>
+<a href='http://shiyanjun.cn/archives/tag/hwi' class='tag-link-77' title='1' style='font-size: 12pt; color: #00a650'>HWI</a>
+<a href='http://shiyanjun.cn/archives/tag/nginx' class='tag-link-17' title='1' style='font-size: 12pt; color: #00a650'>Nginx</a>
+<a href='http://shiyanjun.cn/archives/tag/solr' class='tag-link-11' title='5' style='font-size: 19.2605042017pt; color: #2f3192'>Solr</a>
+<a href='http://shiyanjun.cn/archives/tag/kubernetes' class='tag-link-105' title='1' style='font-size: 12pt; color: #00a650'>Kubernetes</a>
+<a href='http://shiyanjun.cn/archives/tag/%e8%81%9a%e7%b1%bb' class='tag-link-89' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>聚类</a>
+<a href='http://shiyanjun.cn/archives/tag/mapreduce' class='tag-link-34' title='13' style='font-size: 24.8571428571pt; color: #005b7e'>MapReduce</a>
+<a href='http://shiyanjun.cn/archives/tag/swarm' class='tag-link-101' title='1' style='font-size: 12pt; color: #00a650'>Swarm</a>
+<a href='http://shiyanjun.cn/archives/tag/memcached' class='tag-link-76' title='1' style='font-size: 12pt; color: #00a650'>Memcached</a>
+<a href='http://shiyanjun.cn/archives/tag/hue' class='tag-link-82' title='1' style='font-size: 12pt; color: #00a650'>Hue</a>
+<a href='http://shiyanjun.cn/archives/tag/hessian' class='tag-link-41' title='1' style='font-size: 12pt; color: #00a650'>Hessian</a>
+<a href='http://shiyanjun.cn/archives/tag/dbscan' class='tag-link-87' title='1' style='font-size: 12pt; color: #00a650'>DBSCAN</a>
+<a href='http://shiyanjun.cn/archives/tag/mybatis' class='tag-link-73' title='1' style='font-size: 12pt; color: #00a650'>Mybatis</a>
+<a href='http://shiyanjun.cn/archives/tag/k-medoids' class='tag-link-91' title='1' style='font-size: 12pt; color: #00a650'>k-medoids</a>
+<a href='http://shiyanjun.cn/archives/tag/thrift' class='tag-link-22' title='4' style='font-size: 18.0504201681pt; color: #0f0'>Thrift</a>
+<a href='http://shiyanjun.cn/archives/tag/jstorm' class='tag-link-83' title='1' style='font-size: 12pt; color: #00a650'>JStorm</a>
+<a href='http://shiyanjun.cn/archives/tag/docker' class='tag-link-104' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Docker</a>
+<a href='http://shiyanjun.cn/archives/tag/k-means' class='tag-link-64' title='2' style='font-size: 14.7226890756pt; color: #f16522'>K-means</a>
+<a href='http://shiyanjun.cn/archives/tag/tomcat' class='tag-link-28' title='1' style='font-size: 12pt; color: #00a650'>Tomcat</a>
+<a href='http://shiyanjun.cn/archives/tag/hadoop-1-2-1' class='tag-link-80' title='11' style='font-size: 23.7983193277pt; color: #8fc63d'>Hadoop-1.2.1</a>
+<a href='http://shiyanjun.cn/archives/tag/beam' class='tag-link-97' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Beam</a>
+<a href='http://shiyanjun.cn/archives/tag/haproxy' class='tag-link-37' title='1' style='font-size: 12pt; color: #00a650'>HAProxy</a>
+<a href='http://shiyanjun.cn/archives/tag/sqoop' class='tag-link-67' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>Sqoop</a>
+<a href='http://shiyanjun.cn/archives/tag/c4-5' class='tag-link-60' title='1' style='font-size: 12pt; color: #00a650'>C4.5</a>
+<a href='http://shiyanjun.cn/archives/tag/svm' class='tag-link-33' title='1' style='font-size: 12pt; color: #00a650'>SVM</a>
+<a href='http://shiyanjun.cn/archives/tag/flume' class='tag-link-79' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Flume</a>
+<a href='http://shiyanjun.cn/archives/tag/kafka' class='tag-link-81' title='1' style='font-size: 12pt; color: #00a650'>Kafka</a>
+<a href='http://shiyanjun.cn/archives/tag/zookeeper' class='tag-link-23' title='4' style='font-size: 18.0504201681pt; color: #0f0'>ZooKeeper</a>
+<a href='http://shiyanjun.cn/archives/tag/spark-2-0-0' class='tag-link-96' title='6' style='font-size: 20.3193277311pt; color: #00f'>Spark-2.0.0</a>
+<a href='http://shiyanjun.cn/archives/tag/impala' class='tag-link-61' title='2' style='font-size: 14.7226890756pt; color: #f16522'>Impala</a>
+<a href='http://shiyanjun.cn/archives/tag/hive' class='tag-link-62' title='3' style='font-size: 16.5378151261pt; color: #bc8cbf'>Hive</a>
+<a href='http://shiyanjun.cn/archives/tag/redis' class='tag-link-21' title='1' style='font-size: 12pt; color: #00a650'>Redis</a>
+<a href='http://shiyanjun.cn/archives/tag/ganglia' class='tag-link-78' title='1' style='font-size: 12pt; color: #00a650'>Ganglia</a>
+<a href='http://shiyanjun.cn/archives/tag/oozie' class='tag-link-15' title='4' style='font-size: 18.0504201681pt; color: #0f0'>Oozie</a>
+<a href='http://shiyanjun.cn/archives/tag/storm' class='tag-link-35' title='5' style='font-size: 19.2605042017pt; color: #2f3192'>Storm</a>
+<a href='http://shiyanjun.cn/archives/tag/eureka' class='tag-link-99' title='1' style='font-size: 12pt; color: #00a650'>Eureka</a>
+<a href='http://shiyanjun.cn/archives/tag/mysql' class='tag-link-49' title='1' style='font-size: 12pt; color: #00a650'>MySQL</a>
+<a href='http://shiyanjun.cn/archives/tag/%e5%86%b3%e7%ad%96%e6%a0%91' class='tag-link-58' title='2' style='font-size: 14.7226890756pt; color: #f16522'>决策树</a>
+<a href='http://shiyanjun.cn/archives/tag/cf' class='tag-link-92' title='1' style='font-size: 12pt; color: #00a650'>CF</a>
+<a href='http://shiyanjun.cn/archives/tag/flink' class='tag-link-95' title='4' style='font-size: 18.0504201681pt; color: #0f0'>Flink</a>
+<a href='http://shiyanjun.cn/archives/tag/crunch' class='tag-link-84' title='1' style='font-size: 12pt; color: #00a650'>Crunch</a></aside></div><div class="widget-wrap"><aside id="get-recent-comments" class="widget widget_get_recent_comments"><h2 class="widget-title">最新评论</h2><div id="get_recent_comments_wrap"><ul>	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59922" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">bigdata</a>: java.lang.NoClassDefFoundError : org/apache/hadoop/fs/Remote...</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59921" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">你好</a>: Kafka集群可以正常在虚拟机内生产消费数据，但是在zkCl i.sh中查看也没有/brokers/ids，，这是哪...</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59920" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">yihongg001</a>: 这个回复暖心度爆棚了！。。。</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59918" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">bigdata</a>: Exception in thread &#8220;main&#8221;...</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59915" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">bigdata</a>: 调了些后，现在storm UI上出现这个错误 java.lang.RuntimeException:...</li>
+	<li><a href="http://shiyanjun.cn/archives/548.html#comment-59914" title="使用libsvm实现文本分类, 2013-12-13 23:43:05">周汝南</a>: 请问代码你调通了么？求指点</li>
+	<li><a href="http://shiyanjun.cn/archives/548.html#comment-59913" title="使用libsvm实现文本分类, 2013-12-13 23:43:05">周汝南</a>: 请问这个代码你跑通了么？</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59909" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">bigdata</a>: Exception in thread &#8220;main&#8221;...</li>
+	<li><a href="http://shiyanjun.cn/archives/934.html#comment-59906" title="Kafka+Storm+HDFS整合实践, 2014-10-21 19:24:19">你好</a>: 运行KafkaSpout 时老是报错找不到Node /brokers/ids/1，楼主知道怎么解决吗？ 28064...</li>
+	<li><a href="http://shiyanjun.cn/archives/1785.html#comment-59809" title="Apache Flink：使用EventTime与WaterMark进行流数据处理, 2018-01-09 07:50:20">53c734b0d206e08fc34e9184ebe0c19b</a>: 写得很好~~~！！！！</li>
+	<li><a href="http://shiyanjun.cn/archives/1785.html#comment-59808" title="Apache Flink：使用EventTime与WaterMark进行流数据处理, 2018-01-09 07:50:20">小李飞菜刀</a>: 写得很好~~~！！！！ 有几个疑问，请赐教，谢谢！！ 假设允许最大延时是30秒，消息时间戳和消息到达顺序如下图（不 能直接贴图）：...</li>
+	<li><a href="http://shiyanjun.cn/archives/1728.html#comment-59802" title="CDH-5.7.0：基于Parcels方式离线安装配置, 2017-09-28 16:04:10">yahya</a>: 博主你好，我可以利用单主机的虚拟机来搭建小型的集群吗？</li>
+</ul></div></aside></div><div class="widget-wrap"><aside id="text-5" class="widget widget_text"><h2 class="widget-title">友情链接</h2>			<div class="textwidget">- <a href="https://kiswo.com/" target="_blank">One Rain's Blog</a></br>
+- <a href="http://coolshell.cn/" target="_blank">酷壳网</a></br>
+- <a href="http://rootsongjc.github.io/" target="_blank">Jimmy Song's Blog</a></br>
+</div>
+		</aside></div><div class="widget-wrap"><aside id="text-4" class="widget widget_text"><h2 class="widget-title">  </h2>			<div class="textwidget"><p><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000041007'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000041007%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script><br />
+<!--<br />
+<a target="_blank" href="https://www.upyun.com/"><img src="http://upfiles.b0.upaiyun.com/logo/180x90.png" alt="UPYUN"></a><br />
+--></p>
+</div>
+		</aside></div>		</div><!-- #secondary .widget-area -->
+
+    </div> <!-- end #content -->
+        
+	<footer id="colophon" role="contentinfo">
+		<div id="site-generator">
+			COPYRIGHT © 2013-2018 <a href="http://www.shiyanjun.cn/" rel="designer"><strong>简单之美</strong></a>            <span class="sep"> | </span>
+             Powered by <a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">WORDPRESS</a>
+<span class="sep"> | </span>
+			 <a href="http://www.miitbeian.gov.cn/">京ICP备14038454号</a>
+            		</div>
+		<div id="partnership">
+			<a target="_blank" href="https://www.upyun.com/"><img src="https://www.upyun.com/assets/league/90X45.png" title="UPYUN"></a>
+			<!-- <a target="_blank" href="https://www.upyun.com/"><img src="https://www.upyun.com/static/img/%E5%B8%B8%E7%94%A82.07990f9.png" title="UPYUN"></a> -->
+		</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div id="wp-auto-top"><div id="wp-auto-top-top"></div><div id="wp-auto-top-bottom"></div></div><script> var commentPositionId = '#comments';var wpAutoTopSpeed = 5;</script><style>
+   #wp-auto-top{position:fixed;top:85%;right:50%;display:block;margin-right:-49%; z-index:9999;}
+   #wp-auto-top-top,#wp-auto-top-comment,#wp-auto-top-bottom{background:url(http://shiyanjun.cn/wp-content/plugins/wp-auto-top/img/29.png) no-repeat;position:relative;cursor:pointer;height:25px;width:29px;margin:10px 0 0;}
+   #wp-auto-top-comment{background-position:left -30px;height:32px;}#wp-auto-top-bottom{background-position:left -68px;}
+   #wp-auto-top-comment:hover{background-position:right -30px;}
+   #wp-auto-top-top:hover{background-position:right 0;}
+   #wp-auto-top-bottom:hover{background-position:right -68px ;}
+   </style><script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.9'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://shiyanjun.cn/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeEmacs.css?ver=3.0.9";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '帮助';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = '无法找到Brush：';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush不能设置 html-script选项';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = 1;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type='text/javascript' src='http://shiyanjun.cn/wp-content/plugins/wp-auto-top/wp-auto-top.js?ver=3.9.2'></script>
+
+</body>
+</html>

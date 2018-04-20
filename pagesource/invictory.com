@@ -1,0 +1,1 @@
+<a href='http://www.invictory.com'>Moved Permanently</a>.

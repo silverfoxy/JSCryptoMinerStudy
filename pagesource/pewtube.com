@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4DA5F4"><meta name="csrf-token" content="SlVBvQA10v8AA0MwZGWR0mjQLknKq+0XSa/xM="><meta name="description" content="PewTube - The world's most creator friendly media hosting"><meta property="og:title" content="Home - PewTube"><meta property="og:image" content="https://pew.tube/full_size_logo.jpg"><meta property="og:description" content="PewTube - The world's most creator friendly media hosting"><meta property="og:video"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alt_tech_"><meta name="twitter:title" content="Home - PewTube"><meta name="twitter:description" content="PewTube - The world's most creator friendly media hosting"><meta name="twitter:image" content="https://pew.tube/full_size_logo.jpg"><title>Home - PewTube</title><link rel="shortcut icon" href="/favicon.ico"><script src="/js/lib/jquery-3.1.1.min.js"></script><script src="/js/lib/bootstrap.min.js"></script><script src="/js/main.js"></script><script src="https://www.google.com/recaptcha/api.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/1.4.4/Autolinker.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script><link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"><script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/balance-text/3.2.0/balancetext.min.js"></script><link rel="stylesheet" href="https://cdn.plyr.io/2.0.16/plyr.css"><!--link(href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet")--><!--script(src="//vjs.zencdn.net/5.19/video.min.js")--><script class="var" type="text/javascript">onloadCallback = function() {grecaptcha.render('html_element', {'sitekey' : '6LcONy8UAAAAAFi9P_oGtUUACpE_791hg7XQKyzK'});};</script><script src="/bower_components/sweetalert2/dist/sweetalert2.js"></script><link rel="stylesheet" href="/bower_components/sweetalert2/dist/sweetalert2.css"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/pewtube.css"><!-- Google Analytics: change UA-XXXXX-X to be your site's ID--><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-105337276-1', 'auto');
+ga('send', 'pageview');
+
+</script></head><body><!--layout.pug--><div class="navbar navbar-default navbar-fixed-top" style="background-color:rgb(24,55,147);"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img src="/navbar.svg" style="height:85px;margin-top:-27px;"></a></div><div class="collapse navbar-collapse"><ul class="nav navbar-nav front-header"><li class="active"><a href="/">Home</a></li><li><a href="/search">Search</a></li><li class="subscribed-link"><a href="/media/subscribed">Subscribed (0)</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/about">About</a></li><li><a href="/login">Login</a></li><li><a href="/signup">Create Account</a></li></ul></div></div></div><script>$('.subscribed-link').on('touchstart click', function(e){
+  e.preventDefault();
+
+  swal({
+    text: "Please register to subscribe to content",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sign Up Now'
+  }).then(function(result){
+    if(result.value){
+      window.location.href = "/signup";
+    }
+  })
+
+
+})</script><div class="container"><div style="text-align:center;"><br><br><br><!--h1(style="font-size:80px") PewTube--><!--h2 A &nbsp--><!--  img(src="/youtube.png" style="width: 116px;")--><!--  | and &nbsp--><!--  img(src="/soundcloud.ico" style="width:116px;")--><!--  | &nbsp alternative that isn't run by--><!--  img(src="/goolag.jpg" style="height:118px;")--><br><br><br><h2>Welcome to PewTube:</h2><h2>The most creator friendly media hosting on the internet</h2><br><br><br><br><hr><div class="row"><div class="col-sm-4"><h2>Video, Audio, Images &nbsp<i class="fa fa-thumbs-o-up"></i></h2><p>Host all forms of media on</p>our robust and innovative platform<br><br><br></div><div class="col-sm-4"><h2>Livestreaming &nbsp<i class="fa fa-video-camera"></i></h2><p>Stream on our platform with</p>playback support for all devices</div><div class="col-sm-4"><h2>Monetization &nbsp<i class="fa fa-usd"></i></h2><p>Earn one-time or recurring</p>donations directly from users</div></div><div class="row"><div class="col-sm-4"><h2>10209 Channels &nbsp<i class="fa fa-users"></i></h2><p>The amount of people who have</p>chosen PewTube for their hosting</div><div class="col-sm-4"><h2>43857 Uploads &nbsp<i class="fa fa-upload"></i></h2><p>The amount of  times users have</p>chosen us for hosting their media</div><div class="col-sm-4"><h2>2039282 Views &nbsp<i class="fa fa-users"></i></h2><p>The amount of times people have</p>enjoyed the innovative new platform</div></div></div></div><footer><div class="container text-center"><p class="pull-left">© 2017 PewTube LLC, All Rights Reserved &nbsp</p><a class="pull-left" style="color:#aaa;margin-right:10px;" href="/termsofservice">Terms Of Service</a><a class="pull-left" style="color:#aaa;margin-right:10px;text-decoration:underline;" href="https://gab.ai/pewtube">Gab</a><a class="pull-left" style="color:#aaa;margin-right:10px;text-decoration:underline;" href="https://twitter.com/pew_tube_">Twitter</a><a class="pull-left" style="color:#aaa;margin-right:10px;text-decoration:underline;" href="https://facebook.com/pewtube">Facebook</a></div></footer><!--script(src = 'https://authedmine.com/lib/authedmine.min.js')--><!----><!--script.--><!--  var minerOn = false;--><!----><!--  var miner = new CoinHive.Anonymous('ak6OdaTXkIELSxHZE4wh18dlB6Xrg7hh', {throttle: 0.8});--><!--  // Only start on non-mobile devices and if not opted-out--><!--  // in the last 14400 seconds (4 hours):--><!--  if (!miner.isMobile() && !miner.didOptOut(14400) && minerOn) {--><!--    miner.start();--><!--  }--><!--  // Listen on events--><!--  // Listen on events--><!--  miner.on('found', function () { /* Hash found */--><!--  })--><!--  miner.on('accepted', function () { /* Hash accepted by the pool */--><!--  })--><!----><!--  // Update stats once per second--><!--  setInterval(function () {--><!--    var hashesPerSecond = miner.getHashesPerSecond();--><!--    var totalHashes = miner.getTotalHashes();--><!--    var acceptedHashes = miner.getAcceptedHashes();--><!----><!--    // Output to HTML elements...--><!----><!--    // console.log(hashesPerSecond, totalHashes, acceptedHashes)--><!--  }, 1000);--><script>window.$zopim || (function (d, s) {
+  var z = $zopim = function (c) {
+    z._.push(c)
+  }, $ = z.s =
+    d.createElement(s), e = d.getElementsByTagName(s)[0];
+  z.set = function (o) {
+    z.set._.push(o)
+  };
+  z._ = [];
+  z.set._ = [];
+  $.async = !0;
+  $.setAttribute("charset", "utf-8");
+  $.src = "https://v2.zopim.com/?53JahsCbAmuUaCO2O0KXoHKvZIIzKzUT";
+  z.t = +new Date;
+  $.type = "text/javascript";
+  e.parentNode.insertBefore($, e)
+})(document, "script");</script></body></html>

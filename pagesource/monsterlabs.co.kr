@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--기본 meta 설정-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+		<!-- image -->
+		<meta http-equiv="Cache-Control", content="no-store, no-cache, must-revalidate">
+		<meta http-equiv="Cache-Control", content="no-cache">
+		<meta http-equiv="Pragma" content="no-cache">
+
+		<!-- 네이버 -->
+		<meta name="naver-site-verification" content="55af2f50c3cb005f745f84368f9f4ebd1a089a8f"/>
+
+
+		<!--OG 설정-->
+		<meta property="og:type" content="website">
+
+
+		<meta property="og:title" content="한성컴퓨터">
+		<meta property="og:description" content="좋은 컴퓨터를 만드는 사람들!">
+		<meta property="og:image" content="http://monsterlabs.co.kr/img/inc/header/glo_logo.png">
+		<title>좋은 컴퓨터를 만드는 사람들 - 한성컴퓨터</title>
+
+
+		<link rel="canonical" href="http://monsterlabs.co.kr/">
+
+
+		<!--파비콘 설정-->
+		<link rel="shortcut icon" href="/hansung.ico">
+
+		<link rel="stylesheet" type="text/css" href="/css/normalize_new.css" />
+		<link rel="stylesheet" type="text/css" href="/css/inc/header_new.css" />
+		<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="/lib/bxslider/jquery.bxslider.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+
+		<script type="text/javascript">
+			//Prototype edit script : use publick function
+			//DO NOT EDIT THIS
+			Number.prototype.number_format = function(round_decimal) {
+				if(!round_decimal) round_decimal=0;
+				return this.toFixed(round_decimal).replace(/(\d)(?=(\d{3})+$)/g, "$1,");
+			};
+			String.prototype.number_unformat = function(){
+				return this.replace(/,/gi, '');
+			}
+			String.prototype.trim = function(){
+				return this.replace(/(^\s*)|(\s*$)/g, "");
+			}
+			String.prototype.trim_all = function(str){
+				return this.replace(/\s/gi, '');
+			}
+
+
+			// 팝업
+			function pop(type){
+				switch(type){
+					case "as" : 
+						var url="http://www.hansungcom.co.kr/HS_AS/WebCheck/popCheck.php"; 
+						var width = "620px";
+						var height = "420px";
+						var scrollbars_str = "scrollbars=no";
+						break;
+					case "nomem" : 
+						var url="/src/nonmember/nonmember_form.html"; 
+						var width = "800px";
+						var height = "420px";
+						var scrollbars_str = "scrollbars=yes";
+						break;
+					case "notice" : 
+						var url="/src/notice/notice170922.html"; 
+						var width = "910px";
+						var height = "800px";
+						var left = "100";
+						var scrollbars_str = "scrollbars=no";
+						break;
+					case "notice2" : 
+						var url="/src/notice/notice170720_2.html"; 
+						var width = "740px";
+						var height = "630px";
+						var left = "300";
+						var scrollbars_str = "scrollbars=no";
+						break;
+					case "lunar_new_year" : 
+						var url="/src/notice/lunar_new_year.html";
+						var width = "742px";
+						var height = "850px";
+						var scrollbars_str = "scrollbars=no";
+						break;
+				}
+				var pop = window.open(url, type, "width="+width+",height="+height+",left="+left+", location=no,resizable=no,scrollbars=yes");
+			}
+
+			// 검색
+			function f_search(){
+				if($("#query").val()==""){
+					$("#query").focus();
+				}else{
+					$("#query_form").submit();
+				}
+			}
+
+			// 상단 배너
+			function setCookie(name, value, expiredays){
+				var todayDate = new Date();
+				todayDate.setDate(todayDate.getDate()+expiredays);
+				document.cookie = name+"="+escape(value)+"; path=/; expires="+todayDate.toGMTString() +";"
+			}
+
+			function top_banner(name){
+				var nameOfCookie = name +"=";
+				var x = 0;
+				while(x <= document.cookie.length){
+					var y = (x+nameOfCookie.length);
+					if( document.cookie.substring(x, y) == nameOfCookie ){
+						if( (endOfCookie=document.cookie.indexOf(";", y)) == -1 )
+						endOfCookie = document.cookie.length;
+						return unescape(document.cookie.substring(y, endOfCookie));
+					}
+					x = document.cookie.indexOf(" ", x)+1;
+					if( x == 0) break;
+				}
+				return "";
+			}
+
+
+			$(document).ready(function(){
+				//공지사항
+				$("#notice_list").bxSlider({
+					mode:"vertical",
+					pager:false,
+					auto:true,
+					pause: 5000,
+					controls:false
+				});
+
+
+				//검색박스 이벤트
+				$("#query").keyup(function(e){
+					var code = parseInt(e.which);
+
+					switch(code){
+						case 13: $("#btn_search").trigger("click"); break;
+					}
+				});
+
+
+				$("#top_banner_close").on("click", function(){
+					if( $("#top_disable_chk").is(":checked") ){
+						setCookie("top_banner", "disabled", 1);
+					}
+					$("#topBanner").hide();
+				});
+
+				// 상단 배너
+				if(top_banner("top_banner") == "disabled"){
+					$("#topBanner").hide();
+				}else{
+					$("#topBanner").show();
+				}
+			});
+		</script>
+
+	<!-- Google Analytics Script 20150805 -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-60891988-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
+
+
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMG7X7"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KMG7X7');</script>
+	<!-- End Google Tag Manager -->
+	</head>
+
+<body>
+
+<div id="wrap">
+
+	<div id="topBanner" style="background:#000000;display:none;">
+		<div>
+			<div class="img">
+				<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=184">
+					<img src="/img/index/main/top/top_banner1.jpg" alt="EH57 검색페이지">
+				</a>
+			</div>
+			<div class="today"><label style="cursor:pointer;"><input type="checkbox" id="top_disable_chk"> 오늘하루 열지않기</label></div>
+			<a class="close" id="top_banner_close" style="cursor:pointer;"><img src="/img/inc/header_new/btn_banner_close.png" alt="닫기"></a>
+		</div>
+	</div>
+
+
+	<div id="header">
+		<div id="gnb">
+			<div>
+				<ul>
+					<li class="login"><a href="/src/login/?to=/">로그인</a></li>
+					<li><a href="/src/join">회원가입</a></li>
+					<li class="mypage"><a href="/src/mypage/?my_menu=page_my_qna">마이페이지</a></li>
+					<li><a href="javascript:pop('nomem');">주문조회</a></li>
+					<li><a href="/src/order/cart.html">장바구니</a></li>
+					<li><a href="/src/customer_center/">고객센터</a></li>
+					<li><a href="/src/community/">커뮤니티</a></li>
+					<li class="notice"><a href="/src/customer_center/">공지사항</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="lnb">
+			<div>
+				<h1><a href="/"><img src="/img/inc/header_new/top_logo.png" alt="컬러도, 메탈도, 게이밍도 한성컴퓨터" /></a></h1>
+				<div class="top-notice" style="width:450px;">
+					<div class="notice-label"><img src="/img/inc/header_new/notice_label.png" alt="알려드립니다"></div>
+					<div class="notice-wrap" style="width:330px;">
+						<ul id="notice_list">
+
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=162" rel="162">[공지] 택배 AS접수 진행절차 안내</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=161" rel="161">[공지] 2018년 무술년 (戊戌年) 새해인사</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=155" rel="155">[공지] 분당 직영 서비스센터 이전안내</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=152" rel="152">[공지] 한성컴퓨터 본사,고객센터 이전안내</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=148" rel="148">[공지] 한성컴퓨터 배송시스템 안내</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=147" rel="147">[공지] 한성컴퓨터 모니터 무결점 품질 보증 제도 안내</a></li>
+							<li><a href="/src/customer_center/read.html?menu=notice&wr_id=90" rel="90">[공지] 한성컴퓨터 알루미늄 제품, 임의적 하판개봉 금지 (2017.04.03 추가 - TFG13 A36X 모델,A56X,A26X 포함)</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div id="search">
+					<form id="query_form" method="get" action="/src/search/" onsubmit="f_search();return false;">
+						<span class="black_box"><input type="text" name="query" id="query" value="" /></span>
+						<button id="btn_search">검색</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="snb">
+
+			<div>
+				<div class="snb_cate type-normal">
+					<div class="total-category">
+						<a href="#"><img src="/img/inc/header_new/btn_menu.png" alt="전체카테고리"></a>
+					</div>
+					<div class="snb_category">
+						<ul>
+							<li>
+								<a href="/src/category?category=2|0">노트북</a>
+								<div class="submenu-wrap submenu1">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=2|8">11형 이하 노트북</a></li>
+											<li><a href="/src/category?category=2|59">12형대 노트북</a></li>
+											<li><a href="/src/category?category=2|9">13형대 노트북</a></li>
+											<li><a href="/src/category?category=2|10">14형대 노트북</a></li>
+											<li><a href="/src/category?category=2|11">15형대 노트북</a></li>
+											<li><a href="/src/category?category=2|12">17형대 노트북</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=1|0">데스크탑</a>
+								<div class="submenu-wrap submenu2">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=1|1">인터넷/사무용</a></li>
+											<li><a href="/src/category?category=1|2">가정/멀티미디어용</a></li>
+											<li><a href="/src/category?category=1|3">3D게임/그래픽용</a></li>
+											<li><a href="/src/category?category=1|4">고성능/전문가용</a></li>
+											<li><a href="/src/category?category=1|5">NAS/서버</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=9|0">올인원/미니PC</a>
+								<div class="submenu-wrap submenu3">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=9|63">올인원PC</a></li>
+											<li><a href="/src/category?category=9|64">미니PC</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=13|0">모니터</a>
+								<div class="submenu-wrap submenu4">
+									<div>
+										<ul>
+											<li><a href="/src/category/?category=13|96">22형</a></li>
+											<li><a href="/src/category/?category=13|101">23형</a></li>
+											<li><a href="/src/category/?category=13|97">24형</a></li>
+											<li><a href="/src/category/?category=13|98">27형</a></li>
+											<li><a href="/src/category/?category=13|100">32형</a></li>
+											<li><a href="/src/category/?category=13|103">35형</a></li>
+											<li><a href="/src/category/?category=13|102">40형</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=4|20">주변기기</a>
+								<div class="submenu-wrap submenu5">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=4|20">키보드/키캡</a></li>
+											<li><a href="/src/category?category=4|21">마우스/패드</a></li>
+											<li><a href="/src/category?category=4|22">스피커/헤드셋</a></li>
+											<li><a href="/src/category?category=4|13">노트북 악세사리</a></li>
+											<!--<li><a href="/src/category?category=4|17">태블릿 악세사리</a></li>//-->
+											<li><a href="/src/category?category=4|76">게이밍 의자</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=11|0">전자칠판</a>
+								<div class="submenu-wrap submenu6">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=11|0">전자칠판</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="/src/category?category=7|0">리퍼브</a>
+								<div class="submenu-wrap submenu7">
+									<div>
+										<ul>
+											<li><a href="/src/category?category=7|45">케이스</a></li>
+											<li><a href="/src/category?category=7|46">노트북</a></li>
+											<li><a href="/src/category?category=7|47">올인원</a></li>
+											<li><a href="/src/category?category=7|48">미니PC</a></li>
+											<li><a href="/src/category?category=7|49">주변기기</a></li>
+											<li><a href="/src/category?category=7|73">모니터</a></li>
+											<li><a href="/src/category?category=7|72">부품</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div><!--//snb_category-->
+					<div class="header-event">
+						<a href="/src/community/list.html?menu=page_comm_event"><img src="/img/inc/header_new/label_event.png" alt="이벤트"></a>
+					</div>
+				</div><!--//snb_cate-->
+			</div>
+
+
+			<!-- 전체 카테고리 -->
+			<div class="snb-total">
+				<div>
+
+					<div class="total-submenu">
+						<ul class="m1">
+							<li><a href="/src/category?category=2|8">11형 이하 노트북</a></li>
+							<li><a href="/src/category?category=2|59">12형대 노트북</a></li>
+							<li><a href="/src/category?category=2|9">13형대 노트북</a></li>
+							<li><a href="/src/category?category=2|10">14형대 노트북</a></li>
+							<li><a href="/src/category?category=2|11">15형대 노트북</a></li>
+							<li><a href="/src/category?category=2|12">17형대 노트북</a></li>
+						</ul>
+
+						<ul class="m2">
+							<li><a href="/src/category?category=1|1">인터넷/사무용</a></li>
+							<li><a href="/src/category?category=1|2">가정/멀티미디어용</a></li>
+							<li><a href="/src/category?category=1|3">3D게임/그래픽용</a></li>
+							<li><a href="/src/category?category=1|4">고성능/전문가용</a></li>
+							<li><a href="/src/category?category=1|5">NAS/서버</a></li>
+						</ul>
+
+						<ul class="m3">
+							<li><a href="/src/category?category=9|63">올인원PC</a></li>
+							<li><a href="/src/category?category=9|64">미니PC</a></li>
+						</ul>
+
+						<ul class="m4">
+							<li><a href="/src/category/?category=13|96">22형</a></li>
+							<li><a href="/src/category/?category=13|101">23형</a></li>
+							<li><a href="/src/category/?category=13|97">24형</a></li>
+							<li><a href="/src/category/?category=13|98">27형</a></li>
+							<li><a href="/src/category/?category=13|99">30형</a></li>
+							<li><a href="/src/category/?category=13|100">32형</a></li>
+							<li><a href="/src/category/?category=13|103">35형</a></li>
+							<li><a href="/src/category/?category=13|102">40형</a></li>
+						</ul>
+
+						<ul class="m5">
+							<li><a href="/src/category?category=4|20">키보드/키캡</a></li>
+							<li><a href="/src/category?category=4|21">마우스/패드</a></li>
+							<li><a href="/src/category?category=4|22">스피커/헤드셋</a></li>
+							<li><a href="/src/category?category=4|13">노트북 악세사리</a></li>
+							<li><a href="/src/category?category=4|17">태블릿 악세사리</a></li>
+						</ul>
+
+						<ul class="m6">
+							<li><a href="/src/category?category=11|0">전자칠판</a></li>
+						</ul>
+
+						<ul class="m7">
+							<li><a href="/src/category?category=7|45">케이스</a></li>
+							<li><a href="/src/category?category=7|46">노트북</a></li>
+							<li><a href="/src/category?category=7|47">올인원PC</a></li>
+							<li><a href="/src/category?category=7|48">미니PC</a></li>
+							<li><a href="/src/category?category=7|49">주변기기</a></li>
+							<li><a href="/src/category?category=7|73">모니터</a></li>
+							<li><a href="/src/category?category=7|72">부품</a></li>
+						</ul>
+
+						<ul class="m8">
+							<li><a href="/src/customer_center/">공지사항</a></li>
+							<li><a href="/src/customer_center/?cc_menu=tbl_cc_faq">자주묻는 질문</a></li>
+							<li><a href="/src/customer_center/?cc_menu=inc_cc_as">A/S안내</a></li>
+							<li><a href="/src/customer_center/?cc_menu=inc_cc_store">고객센터안내</a></li>
+							<li><a href="/src/customer_center/?cc_menu=tbl_cc_download">다운로드센터</a></li>
+							<li><a href="/src/mypage/?my_menu=page_my_qna">1:1문의</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<!-- //전체 카테고리 -->
+
+
+		</div><!--//snb-->
+
+	</div><!--end of #header-->	<link rel="stylesheet" type="text/css" href="/css/index_new.css" />
+	<script type="text/javascript" src="/js/main.js"></script>
+
+	<style type="text/css">
+		* {
+			color:#444;
+			font-family: Nanum Gothic, dotum, arial, sans-serif;
+		}
+	</style>
+
+
+	<!-- layer pop -->
+	<div class="dim-layer">
+		<!-- background -->
+		<div class="dimBg">
+		</div>
+
+		<!-- content -->
+		<div id="layer2" class="pop-layer">
+			<div class="pop-container">
+				<div class="pop-conts">
+					<p class="ctxt mb20">
+						<div class="title_wrap">
+							<div>
+								<h3 class="title">한전 측 공사로 인한 고객센터 운영 공지</h3>
+							</div>
+							<span class="one_day_cl">하루동안 창 닫기<input name="layer_close" type="checkbox" value="n" /></span>
+						</div>
+
+						<div class="contents_wrap">
+							안녕하세요 한성컴퓨터입니다.<br />
+							1월 31일(화) 금일, 한전 측 공사로 인하여 오후 1시 30분부터 30분~1시간 가량 <br />
+							고객지원센터(02-3272-1003, 02-3272-1002)의 전화가 일시 중단됩니다. <br />
+							급하신 문의건에 대해서는 <br />
+							자사 홈페이지 내 1:1문의게시판으로 남겨주시면 최대한 빠른 답변 드리도록 하겠습니다.<br />
+							감사합니다.
+						</div>
+					</p>
+
+					<div class="btn-r">
+						<a class="btn-layerClose">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 왼쪽배너 -->
+	<div class="left_quick_banner">
+		<ul>
+			<li>
+				<a href="/src/search/?query=%EB%AF%B8%EB%8B%88%EC%8A%88%ED%8A%B8">
+					<img src="/img/index/main/left/left_banners214.jpg" alt="" />
+				</a>
+			</li>
+			<li>
+				<a href="http://www.monsterlabs.co.kr/src/category/read.html?pn=9705">
+					<img src="/img/index/main/left/left_banners113.jpg" alt="" />
+				</a>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="section">
+
+		<!-- 메인 슬라이드배너 -->
+		<div class="visual_slide">
+			<div>
+				<ul>
+					<li style="background-color:#000000;">
+						<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=184">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders140.jpg" alt="HE58 BossMonster STORM 기획전 랜딩" />
+						</a>
+					</li>
+					<li style="background-color:#ffffff;">
+						<a href="/src/event/read.html?event_num=200">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders152.jpg" alt="BossMonster Frozen DX4 RGB" />
+						</a>
+					</li>
+					<li style="background-color:#1a1a18;">
+						<a href="http://monsterlabs.co.kr/src/category/read.html?pn=14564">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders144.jpg" alt="GTune GC220" />
+						</a>
+					</li>
+					<li style="background-color:#000000;">
+						<a href="/src/search/?query=파이어+DX4">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders63.png" alt="보스몬스터 파이어" />
+						</a>
+					</li>
+					<li style="background-color:#373737;">
+						<a href="/src/search/?query=GC300">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders124.jpg" alt="GC300 series" />
+						</a>
+					</li>
+					<li style="background-color:#c2c2c2 ;">
+						<a href="http://www.monsterlabs.co.kr/src/search/?query=TFG13S">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders110.png" alt="TFG13S" />
+						</a>
+					</li>
+					<li style="background-color:#000000;">
+						<a href="http://www.monsterlabs.co.kr/src/category/read.html?pn=14886">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders147.jpg" alt="ULTRON 2779UH HDR 4K" />
+						</a>
+					</li>
+					<li style="background-color:#ffffff;">
+						<a href="http://www.monsterlabs.co.kr/src/category/read.html?pn=14448">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders141.jpg" alt="Ultron 2467 풀스크린" />
+						</a>
+					</li>
+					<li style="background-color:#222222;">
+						<a href="/src/search/?query=ES57">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders84.jpg" alt="ES57" />
+						</a>
+					</li>
+					<li style="background-color:#79828b;">
+						<a href="http://www.monsterlabs.co.kr/src/category/read.html?pn=9487">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/visual/visual_sliders154.jpg" alt="BOSSMONSTER N0.9" />
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="section">
+		<div class="box-wrap">
+
+			<!-- 카테고리 바로가기 -->
+			<div class="main_category">
+				<h4><img src="/img/index/main/cate_title.png" alt="한성컴퓨터 어떤 제품을 찾으세요?" /></h4>
+				<ul class="cate">
+					<li class="cate_01"><a href="/src/category?category=2|0"><span><img src="/img/index/main/cate1.png" alt="" /></span><em>노트북</em></a></li>
+					<li class="cate_02"><a href="/src/category?category=1|0"><span><img src="/img/index/main/cate2.png" alt="" /></span><em>데스크탑</em></a></li>
+					<li class="cate_03"><a href="/src/category?category=9|63"><span><img src="/img/index/main/cate3.png" alt="" /></span><em>올인원PC</em></a></li>
+					<li class="cate_04"><a href="/src/category?category=9|64"><span><img src="/img/index/main/cate4.png" alt="" /></span><em>미니PC</em></a></li>
+					<li class="cate_05"><a href="/src/category?category=4|20"><span><img src="/img/index/main/cate5.png" alt="" /></span><em>키보드/마우스</em></a></li>
+					<li class="cate_06"><a href="/src/category?category=13|0"><span><img src="/img/index/main/cate6.png" alt="" /></span><em>모니터</em></a></li>
+					<li class="cate_07"><a href="/src/category?category=11|0"><span><img src="/img/index/main/cate7.png" alt="" /></span><em>전자칠판</em></a></li>
+				</ul>
+			</div>
+
+			<!-- 이벤트/팝업존/링크 -->
+			<div class="main_banners">
+				<div class="event_list">
+					<ul>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=196">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders148.jpg" alt="2779 출시기념 이벤트" />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=200">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders151.jpg" alt="BossMonster DX4 RGB 출시기념 SSD 더블업 이벤트" />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=147">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders122.jpg" alt="8세대 CPU 탑재제품 기획전" />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=198">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders149.jpg" alt="윈도우탑재PC 포토상품평 쓰고 문상받기 이벤트" />
+							</a>
+						</li>
+						<li>
+							<a href="/src/event/read.html?event_num=184">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders143.jpg" alt="EH58 BossMonster STORM 기획전 랜딩" />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=199">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders150.jpg" alt="EX78 144Hz 출시 예약판매 이벤트 " />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=191">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders145.jpg" alt="GC220 출시기념 이벤트 !!" />
+							</a>
+						</li>
+						<li>
+							<a href="http://www.monsterlabs.co.kr/src/event/read.html?event_num=187">
+								<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_sliders142.jpg" alt="Intel 8세대 슈퍼UP 그뤳잇! 키프티콘 증정이벤트" />
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="banners">
+					<div class="banner1">
+						<a href="/src/event/read.html?event_num=156">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_banners210.jpg" alt="IHS 무상 업그레이드" />
+						</a>
+					</div>
+					<div class="banner2">
+						<a href="/src/community/list.html?menu=page_comm_event">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_banners412.png" alt="이벤트 가기" />
+						</a>
+					</div>
+					<div class="banner3">
+						<a href="/src/event/read.html?event_num=149">
+							<img src="http://www.monsterlabs.co.kr//img/index/main/event/event_banners311.jpg" alt="G4600업그레이드" />
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 인기제품 -->
+			<div class="hit_wrap">
+				<h4><img src="/img/index/main/hit_title.png" alt="가장 많이 찾는 인기 제품입니다" /></h4>
+				<div class="hit_list">
+					<ul>
+<li>
+								<a href='/src/category/read.html?pn=9326'>
+									<div class='photo'><img src='/img/itemimg/big/9326_1.jpg' alt='XH57 BossMonster Hero456GT' /><span class='white'></span></div>
+									<p class='title'>BOSSMONSTER, 데스크탑을 삼키다!</p>
+									<p class='p-name'>XH57 BossMonster Hero456GT</p>
+									<p class='price'>판매가격 <em>669,000<span>원</span></em></p>
+								</a>
+								<span class='label-event'><img src='/img/index/main/label_event_01.png' alt='event' /></span>
+								<span class='label-event-txt'>카비레이크를 삼킨 XH57 BossMonster 시리즈!</span>
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=14431'>
+									<div class='photo'><img src='/img/itemimg/big/14431_1.jpg' alt='EH58 BossMonster STORM84' /><span class='white'></span></div>
+									<p class='title'>완벽한 게이밍PC로 진화중~!</p>
+									<p class='p-name'>EH58 BossMonster STORM84</p>
+									<p class='price'>판매가격 <em>1,249,000<span>원</span></em></p>
+								</a>
+								<span class='label-event'><img src='/img/index/main/label_event_01.png' alt='event' /></span>
+								<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=6570'>
+									<div class='photo'><img src='/img/itemimg/big/6570_1.jpg' alt='미니슈트 A4560S 인터넷/오피스용 ' /><span class='white'></span></div>
+									<p class='title'>풀 알루미늄을 입은 공간절약형 미니PC~</p>
+									<p class='p-name'>미니슈트 A4560S 인터넷/오피스용 </p>
+									<p class='price'>판매가격 <em>349,000<span>원</span></em></p>
+								</a>
+								
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=12598'>
+									<div class='photo'><img src='/img/itemimg/big/12598_1.jpg' alt='BossMonster Frozen DX4 Ti8708KS' /><span class='white'></span></div>
+									<p class='title'>세상에서 가장 강력한 화이트!</p>
+									<p class='p-name'>BossMonster Frozen DX4 Ti8708KS</p>
+									<p class='price'>판매가격 <em>2,679,000<span>원</span></em></p>
+								</a>
+								<span class='label-event'><img src='/img/index/main/label_event_01.png' alt='event' /></span>
+								<span class='label-event-txt'>올~!화이트 보스몬스터 프로즌!</span>
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=9189'>
+									<div class='photo'><img src='/img/itemimg/big/9189_1.jpg' alt='smarter mini x7 5S' /><span class='white'></span></div>
+									<p class='title'>PC가 작아질수록 공간은 더 스마트 해진다</p>
+									<p class='p-name'>smarter mini x7 5S</p>
+									<p class='price'>판매가격 <em>499,000<span>원</span></em></p>
+								</a>
+								
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=7205'>
+									<div class='photo'><img src='/img/itemimg/big/7205_1.jpg' alt='smarter K2700-5S' /><span class='white'></span></div>
+									<p class='title'>스마트하게 즐기는 올인원 라이프</p>
+									<p class='p-name'>smarter K2700-5S</p>
+									<p class='price'>판매가격 <em>649,000<span>원</span></em></p>
+								</a>
+								
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=13942'>
+									<div class='photo'><img src='/img/itemimg/big/13942_1.jpg' alt='ULTRON 2435V 프리싱크 리얼75' /><span class='white'></span></div>
+									<p class='title'>선택의 고민을 없앤 초슬림 베젤모니터</p>
+									<p class='p-name'>ULTRON 2435V 프리싱크 리얼75</p>
+									<p class='price'>판매가격 <em>129,000<span>원</span></em></p>
+								</a>
+								
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li><li>
+								<a href='/src/category/read.html?pn=12079'>
+									<div class='photo'><img src='/img/itemimg/big/12079_1.jpg' alt='ULTRON 3547UC' /><span class='white'></span></div>
+									<p class='title'>21:9 대화면으로 빠져드는 게이밍의 신세계</p>
+									<p class='p-name'>ULTRON 3547UC</p>
+									<p class='price'>판매가격 <em>329,000<span>원</span></em></p>
+								</a>
+								<span class='label-event'><img src='/img/index/main/label_event_01.png' alt='event' /></span>
+								<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+								<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+							</li>					</ul>
+				</div>
+			</div>
+			<!-- //인기제품 -->
+
+			<!-- 배너 -->
+			<div class="main_banners2">
+				<div class="banner4">
+					<a href="http://www.monsterlabs.co.kr/src/category/read.html?pn=13776">
+						<img src="/img/index/main/middle/middle_banners115.jpg" alt="게이밍에 한층더 다가간다" />
+					</a>
+				</div>
+				<div class="banner5">
+					<a href="/src/category/?category=7|0">
+						<img src="/img/index/main/middle/middle_banners216.jpg" alt="리퍼비쉬" />
+					</a>
+				</div>
+
+				<div class="banner6">
+					<div style="float:left;width:300px;height:250px;" id="dccn-285c563f61"></div>
+				</div>
+			</div>
+			<!-- //배너 -->
+
+		</div>
+	</div><!--//section -->
+
+
+	<div class="section recommend">
+		<div class="box-wrap">
+			<h4><img src="/img/index/main/recomm_title.png" alt="한성컴퓨터에서 추천드립니다" /></h4>
+			<div class="recomm_wrap">
+				<ul>
+
+					<!-- 노트북 -->
+					<li>
+						<div class="recomm_list">
+							<ul>
+<li>
+									<a href='/src/category/read.html?pn=14440'>
+										<div class='photo'><img src='/img/itemimg/big/14440_1.jpg' alt='EH58 BossMonster STORM87W IHS 144' /><span class='white'></span></div>
+										<p class='title'>완벽한 게이밍PC로 진화중~!</p>
+										<p class='p-name'>EH58 BossMonster STORM87W IHS 144</p>
+										<p class='price'>판매가격 <em>1,669,000<span>원</span></em></p>
+									</a>
+									<span class='label-event'><img src='/img/index/main/label_event.png' alt='event' /></span>
+									<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=10784'>
+										<div class='photo'><img src='/img/itemimg/big/10784_1.jpg' alt='U58 ForceRecon 6757S' /><span class='white'></span></div>
+										<p class='title'>슬림하고 가벼운 바디에 담은 강력한 퍼포먼스!</p>
+										<p class='p-name'>U58 ForceRecon 6757S</p>
+										<p class='price'>판매가격 <em>599,000<span>원</span></em></p>
+									</a>
+									<span class='label-event'><img src='/img/index/main/label_event.png' alt='event' /></span>
+									<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=10744'>
+										<div class='photo'><img src='/img/itemimg/big/10744_1.jpg' alt='TFG13S 82541T' /><span class='white'></span></div>
+										<p class='title'>휴대성,퍼포먼스 그리고 스타일 단하나도 포기할 수 없다면</p>
+										<p class='p-name'>TFG13S 82541T</p>
+										<p class='price'>판매가격 <em>649,000<span>원</span></em></p>
+									</a>
+									<span class='label-event'><img src='/img/index/main/label_event.png' alt='event' /></span>
+									<span class='label-event-txt'>TFG13, 울트라북의 한계를 깨다!</span>
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=9019'>
+										<div class='photo'><img src='/img/itemimg/big/9019_1.jpg' alt='ES57 BOSSMONSTER Ultra' /><span class='white'></span></div>
+										<p class='title'></p>
+										<p class='p-name'>ES57 BOSSMONSTER Ultra</p>
+										<p class='price'>판매가격 <em>1,399,000<span>원</span></em></p>
+									</a>
+									
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=12394'>
+										<div class='photo'><img src='/img/itemimg/big/12394_1.jpg' alt='EX58 BOSSMONSTER Lv.84 3E60' /><span class='white'></span></div>
+										<p class='title'>또 한번의 진화!</p>
+										<p class='p-name'>EX58 BOSSMONSTER Lv.84 3E60</p>
+										<p class='price'>판매가격 <em>1,549,000<span>원</span></em></p>
+									</a>
+									<span class='label-event'><img src='/img/index/main/label_event.png' alt='event' /></span>
+									<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=12402'>
+										<div class='photo'><img src='/img/itemimg/big/12402_1.jpg' alt='EX58 BOSSMONSTER Lv.87 7K70' /><span class='white'></span></div>
+										<p class='title'>또 한번의 진화!</p>
+										<p class='p-name'>EX58 BOSSMONSTER Lv.87 7K70</p>
+										<p class='price'>판매가격 <em>2,399,000<span>원</span></em></p>
+									</a>
+									<span class='label-event'><img src='/img/index/main/label_event.png' alt='event' /></span>
+									<span class='label-event-txt'>게이밍제품, 8세대로 8로미!</span>
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li><li>
+									<a href='/src/category/read.html?pn=9406'>
+										<div class='photo'><img src='/img/itemimg/big/9406_1.jpg' alt='X57K BOSSMONSTER Lv.74' /><span class='white'></span></div>
+										<p class='title'>더강력하고 더 슬림해져서 돌아왔다</p>
+										<p class='p-name'>X57K BOSSMONSTER Lv.74</p>
+										<p class='price'>판매가격 <em>879,000<span>원</span></em></p>
+									</a>
+									
+									<span class='label-free'><img src='/img/index/main/label_free.png' alt='무료배송' /></span>
+								</li>							</ul>
+						</div>
+					</li>
+					<!-- //노트북 -->
+
+					<!-- 데스크탑/올인원 -->
+					<li>
+						<div class="recomm_list">
+							<ul class="recomm_desk_list">
+
+							</ul>
+						</div>
+					</li>
+					<!-- //데스크탑/올인원 -->
+
+					<!-- 주변기기 -->
+					<li>
+						<div class="recomm_list">
+							<ul class="recomm_etc_list">
+
+							</ul>
+						</div>
+					</li>
+					<!-- //주변기기 -->
+
+				</ul>
+			</div>
+
+		</div>
+	</div><!--//section -->
+
+
+	<div class="section">
+		<div class="box-wrap">
+
+			<div class="banner7">
+				<a href="/src/category/?category=9|63|154">
+					<img src="/img/index/main/line/line_banner17.jpg" alt="smarter K2700" />
+				</a>
+			</div>
+
+			<!-- 용도별 추천PC -->
+			<div class="use_wrap">
+				<h4><img src="/img/index/main/recomm2_title.png" alt="용도별 추천PC를 만나보세요" /></h4>
+				<div class="use_tab">
+					<ul>
+						<li class="on"><a href="#useType1">노트북</a></li>
+						<li><a href="#useType2">데스크탑</a></li>
+					</ul>
+				</div>
+
+				<!-- 노트북 -->
+				<div class="use_list" id="useType1">
+					<ul>
+
+						<!-- 인터넷/사무용 -->
+						<li>
+							<dl class="note_inter">
+								<dt><img src="/img/index/main/use_title1.png" alt="인터넷/사무용" /></dt>
+								<dd>
+									<ul>
+<li>
+											<a href='/src/category/read.html?pn=3844'>
+												<div class='photo'><img src='/img/itemimg/big/3844_1.jpg' alt='B35 ForceRecon 3207' /><span class='white'></span></div>
+												<p class='title'>B35 ForceRecon 3207</p>
+												<p class='price'>259,000<span>원</span></p>
+											</a>
+										</li><li>
+											<a href='/src/category/read.html?pn=13264'>
+												<div class='photo'><img src='/img/itemimg/big/13264_1.jpg' alt='B35 ForceRecon 3327' /><span class='white'></span></div>
+												<p class='title'>B35 ForceRecon 3327</p>
+												<p class='price'>309,000<span>원</span></p>
+											</a>
+										</li><li>
+											<a href='/src/category/read.html?pn=13252'>
+												<div class='photo'><img src='/img/itemimg/big/13252_1.jpg' alt='B35 ForceRecon 3327SH' /><span class='white'></span></div>
+												<p class='title'>B35 ForceRecon 3327SH</p>
+												<p class='price'>379,000<span>원</span></p>
+											</a>
+										</li><li>
+											<a href='/src/category/read.html?pn=8421'>
+												<div class='photo'><img src='/img/itemimg/big/8421_1.jpg' alt='H57 DGA4560SH' /><span class='white'></span></div>
+												<p class='title'>H57 DGA4560SH</p>
+												<p class='price'>569,000<span>원</span></p>
+											</a>
+										</li>									</ul>
+								</dd>
+							</dl>
+						</li>
+
+						<!-- 가정/멀티미디어용 -->
+						<li>
+							<dl class="note_multi">
+
+							</dl>
+						</li>
+
+						<!-- 3D게임/그래픽용 -->
+						<li>
+							<dl class="note_game">
+
+							</dl>
+						</li>
+
+						<!-- 고성능/전문가용 -->
+						<li>
+							<dl class="note_pro">
+
+							</dl>
+						</li>
+
+					</ul>
+				</div>
+
+				<!-- 데스크탑 -->
+				<div class="use_list" id="useType2" style="display:none;">
+					<ul>
+
+						<!-- 인터넷/사무용 -->
+						<li>
+							<dl class="desk_inter">
+
+							</dl>
+						</li>
+
+						<!-- 가정용/멀티미디어용 -->
+						<li>
+							<dl class="desk_multi">
+
+							</dl>
+						</li>
+
+						<!-- 3D게임/그래픽용 -->
+						<li>
+							<dl class="desk_game">
+
+							</dl>
+						</li>
+
+						<!-- 고성능/전문가용 -->
+						<li>
+							<dl class="desk_pro">
+
+							</dl>
+						</li>
+
+					</ul>
+				</div>
+
+			</div><!--//use-wrap -->
+
+
+			<!-- 서비스센터 위치안내, FAQ, 자료실 -->
+			<div class="main_guide_wrap">
+				<div class="guide1"><a href="/src/customer_center/?cc_menu=inc_cc_store"><img src="/img/index/main/guide1.png" alt="AS센터" /></a></div>
+				<div class="guide2"><a href="/src/customer_center/?cc_menu=tbl_cc_faq"><img src="/img/index/main/guide2.png" alt="F&Q" /></a></div>
+				<div class="guide3"><a href="/src/customer_center/?cc_menu=tbl_cc_download"><img src="/img/index/main/guide3.png" alt="다운로드센터" /></a></div>
+			</div>
+
+
+			<!-- 고객만족센터 -->
+			<div class="customer_center">
+				<div class="center-info">
+					<h4><span>CUSTOMER CENTER</span> <br>한성컴퓨터 고객만족센터</h4>
+					<p>한성컴퓨터 방문을 환영합니다.고객님의 문의사항에 최선을 <br>다해 답변하는 한성컴퓨터가 되겠습니다.</p>
+					<p>통화량이 많아 연결이 어려운 경우, 1:1문의에 문의사항을 <br>남겨주시면 신속히 답변드리도록 하겠습니다.</p>
+					<div class="bank-info">
+						<dl>
+							<dt>입금계좌안내</dt>
+							<dd>
+								<p>주문 결제 : (주)한성컴퓨터<br>우리 은행  1005-301-076521</p>
+								<p>A/S 결제 : (주)한성컴퓨터<br>기업 은행  534-000909-04-026</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+
+				<div class="center-counsel">
+					<h5>A/S 문의</h5>
+					<div class="time">
+						<p>평일: 10:00 ~ 17:00</p>
+						<p>점심시간: 12:00~13:00</p>
+						<p>토요일, 일요일 및 공휴일 휴무</p>
+					</div>
+					<div class="tel">
+						<ul>
+							<li><em>1666-3172</em><p>데스크탑 (기사방문 출장A/S)</p></li>
+							<li><em>02-3272-1003</em><p>노트북/ 태블릿 (택배, 방문A/S)</p></li>
+							<li><em>02-3272-1002</em><p>주변기기 (택배, 방문A/S)</p></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="center-counsel">
+					<h5>구입 문의</h5>
+					<div class="time">
+						<p>평일: 09:00 ~ 18:00</p>
+						<p>점심시간: 12:00~13:00</p>
+						<p>토요일, 일요일 및 공휴일 휴무</p>
+					</div>
+					<div class="tel">
+						<ul>
+							<li><em>1644-5714</em><p>데스크탑 구입상담</p></li>
+							<li><em>02-715-5714</em><p>노트북/태블릿 구입상담</p></li>
+							<li><em>02-3272-1002</em><p>주변기기: 구입상담</p></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="center-counsel center-counsel3">
+					<h5>조달, 특판, 렌탈 문의</h5>
+					<div class="time">
+						<p>평일: 10:00 ~ 18:00</p>
+						<p>점심시간: 12:00~13:00</p>
+						<p>토요일, 일요일 및 공휴일 휴무</p>
+					</div>
+					<div class="tel">
+						<ul>
+							<li><em>070-7595-7176</em><p>조달(정부기관, 군) <br>지자체 구매상담</p></li>
+							<li><em>070-7595-7130</em><p>기업 특판 구매 / 렌탈 문의</p></li>
+						</ul>
+					</div>
+				</div>
+
+			</div><!--//customer_center -->
+
+		</div>
+	</div><!--//section-->
+
+
+
+	<!-- mediacube script 2016-10-04-->
+	<img src='//pixel.mathtag.com/event/img?mt_id=862861&mt_adid=151611&v1=&v2=&v3=&s1=&s2=&s3=' width='1' height='1' />
+
+	<script type="text/javascript">
+		var ccs_cc_args = ccs_cc_args || [];
+		(function () {
+			var o = ccs_cc_args; o.push(['_SKey', '62dfe7a3']); o.push(['_ZoneId', '285c563f61']); 
+			var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+			sc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.cnetcontent.com/jsc/h.js';
+			var n = document.getElementsByTagName('script')[0]; n.parentNode.insertBefore(sc, n);
+		})();
+
+		$(document).ready(function(){
+
+			// inc/header.inc 수정해야함.
+
+
+			// 공지 popup
+			//if(top_banner("lunar_new_year") != "disabled"){
+				//pop("lunar_new_year");
+			//}
+
+
+			// 여름휴가 popup
+			//if(top_banner("notice2") != "disabled"){
+			//	pop("notice2");
+			//}
+/*
+			// 공지 layer
+			if( top_banner("lunar_new_layer") != "disabled" ){
+				layer_popup();
+			}
+*/
+		});
+	</script>
+
+		<link rel="stylesheet" type="text/css" href="/css/inc/footer_new.css">
+
+		<script type="text/javascript" src="/js/ui.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("div.view-list > ul > li .close").on("click", function(){
+					var obj = $(this);
+					var key = obj.data("key");
+
+					$.ajax({
+						type: "post",
+						url : "/inc/ajax/ajax_cart_edit.php",
+						data : {table:"myitem", mode:"cart_del", cart_key:key},
+						success: function(rep){
+							obj.parent().remove();
+
+							var count_today = ($("a.today-view em").html() - 1);
+							if( count_today == 0 ){
+								$("div.today-view-wrap").hide();
+							}
+							$("a.today-view > em").html(count_today);
+						}
+					});
+				});
+			});
+		</script>
+
+		<!-- footer ----------------------------------------------------------------------------- -->
+		<div id="f_gnb">
+			<div>
+				<div>
+					<h5>좋은 컴퓨터를 만드는 사람들</h5>
+					<ul>
+						<li><a href="/src/info/?menu=page_info_history">회사소개</a></li>
+						<li>|</li>
+						<li><a href="/src/customer_center/?cc_menu=inc_cc_license">이용약관</a></li>
+						<li>|</li>
+						<li><a href="/src/customer_center/?cc_menu=inc_cc_privacy">개인정보취급방침</a></li>
+						<li>|</li>
+						<li><a href="http://www.kca.go.kr" target="_blank">소비자보호원</a></li>
+						<li>|</li>
+						<li><a href="http://www.ecmc.or.kr" target="_blank">전자거래분쟁조정위원회</a></li>
+						<li>|</li>
+						<li><a href="mailto:webmaster@monsterlabs.co.kr?Subject=제휴문의">제휴문의</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div>
+				<div>
+					<div style="float:left;width:250px;text-align:left;padding:0;">
+						<a href="/"><img src="/img/inc/footer/logo.png" style="margin-top:30px;" /></a>
+					</div>
+					<div style="float:left;width:400px;height:120px;border-right:solid 1px #5c5c5c;margin-right:50px;">
+						<p><strong>(주) 한성컴퓨터</strong></p>
+						<p>서울 금천구 디지털로 9길 73, 2층 (가산동 60-14) <a href="/src/info/?menu=page_info_way">[찾아오시는길]</a></p>
+						<p>
+							대표이사 : 한동열 | 사업자등록번호 : 106-86-17410
+							<a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2007302009530202054&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=1068617410&amp;stdate=&amp;enddate=" target="_blank"">[사업자정보확인]</a></p>
+						<p>개인정보 관리자 : 남훈우 | 통신판매신고 : 제 2017-서울금천-1046호</p>
+						<p>
+							이메일 :
+							<a href="mailto:webmaster@monsterlabs.co.kr?Subject=무엇을 도와드릴까요?">webmaster@monsterlabs.co.kr</a>
+						</p>
+						<p>전화 : 02-715-5714 | 팩스 : 02-714-5714</p>
+					</div>
+					<div style="float:left;width:360px;height:120px;">
+						<p><strong>고객센터</strong></p>
+						<p>전국 10개 직영 서비스센터 안내 <a href="/src/customer_center/?cc_menu=inc_cc_store">[찾아오시는 길]</a></p>
+						<p>서울/천안/대전/전주/분당/광주/대구/부산/창원/강릉</p>
+						<p>&nbsp;</p>
+						<p>서울본점 주소 : 서울 금천구 디지털로 9길 73, 2층</p>
+						<p>전화 : 02-3272-1003 <a href="/src/customer_center/?cc_menu=tbl_cc_faq">[전화전 클릭]</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 오른쪽 퀵메뉴 -->
+		<div class="right_quick">
+			<ul class="quick1">
+				<li><a href="/src/customer_center/?cc_menu=inc_cc_as"><img src="/img/index/main/right_quick1.png" alt="A/S안내"></a></li>
+				<li><a href="/src/customer_center/?cc_menu=inc_cc_store"><img src="/img/index/main/right_quick2.png" alt="센터위치"></a></li>
+				<li><a href="/src/customer_center/?cc_menu=tbl_cc_faq"><img src="/img/index/main/right_quick3.png" alt="FAQ"></a></li>
+				<li><a href="/src/mypage/?my_menu=page_my_qna"><img src="/img/index/main/right_quick4.png" alt="1:1문의"></a></li>
+				<li><a href="javascript:pop('as');"><img src="/img/index/main/right_quick5.png" alt="서비스조회"></a></li>
+				<li><a href="/src/customer_center/?cc_menu=tbl_cc_download"><img src="/img/index/main/right_quick6.png" alt="자료실"></a></li>
+			</ul>
+			<div class="quick2">
+				<ul>
+					<li><a href="/src/order/cart.html" class="cart">장바구니</a></li>
+					<li><a href="javascript:pop('nomem');" class="orderlist">주문조회</a></li>
+					<li><a href="/src/mypage/?my_menu=page_my_qna" class="counsel">상담문의</a></li>
+					<li><a href="#view" class="today-view">오늘본상품 <em>0</em></a></li>
+				</ul>
+
+				<!-- 오늘 본 상품 레이어 -->
+				<div class="today-view-wrap">
+					<div class="view-list">
+						<ul>
+
+						</ul>
+					</div>
+					<div class="arr"></div>
+
+				</div>
+				<!-- //오늘 본 상품 레이어 -->
+
+			</div>
+			<ul class="quick3">
+				<li><a href="http://blog.naver.com/monsterlabs" target="_blank"><img src="/img/index/main/quick_blog.png" alt="블로그"></a></li>
+				<li><a href="https://www.facebook.com/hansungpc" target="_blank"><img src="/img/index/main/quick_facebook.png" alt="페이스북"></a></li>
+				<li><a href="https://www.youtube.com/channel/UCG3XdK2mV4yeXw8irWl5MXw" target="_blank"><img src="/img/index/main/quick_youtube.png" alt="유튜브"></a></li>
+                <li><a href="http://tv.naver.com/monsterlabs" target="_blank"><img src="/img/index/main/quick_navertv.png" alt="네이버 TV"></a></li>
+				<li><a href="https://www.instagram.com/hansung_computer/" target="_blank"><img src="/img/index/main/quick_insta.png" alt="인스타그램"></a></li>
+
+			</ul>
+		</div>
+
+
+	</div><!--//wrap-->
+
+	<!-- gnb background -->
+	<div class="black-bg"></div>
+	<!-- header -->
+	<!-- Google 리마케팅 태그 코드  2014-10-14-->
+	<!--------------------------------------------------
+	리마케팅 태그를 개인식별정보와 연결하거나 민감한 카테고리와 관련된 페이지에 추가해서는 안 됩니다. 리마케팅 태그를 설정하는 방법에 대해 자세히 알아보려면 다음 페이지를 참조하세요. http://google.com/ads/remarketingsetup
+	--------------------------------------------------->
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 927222312;
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+	fbq('init', '1709666585981181');
+	fbq('track', "PageView");</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=1709666585981181&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+
+
+	<!-- naver Code -->
+	<script type="text/javascript" 
+	src="http://wcs.naver.net/wcslog.js"></script> 
+	<script type="text/javascript"> 
+	if(!wcs_add) var wcs_add = {}; 
+	wcs_add["wa"] = "4b21b73a286b40"; 
+	wcs_do(); </script>
+	<!-- naver Code -->
+
+
+
+
+	<!-- footer -->
+	<!-- RealClick 리얼타겟팅 Checking Script V.20130115 Start-->
+	<script type='text/javascript'>
+		function loadrtgJS(b,c){var d=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript";null!=c&&(a.charset="euc-kr");a.src=b;d.appendChild(a)}function load_rtg(b){loadrtgJS(("https:"==document.location.protocol?" https://":" http://")+b,"euc-kr")}load_rtg("event.realclick.co.kr/rtarget/rtget.js?rtcode=hansuhn");
+	</script>
+	<!-- RealClick 리얼타겟팅 Checking Script V.20130115 End -->
+
+	
+	<!-- 네이버 프리미엄 로그분석 시작 -->
+	<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
+	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"> </script> 
+	<script type="text/javascript"> 
+		if (!wcs_add) var wcs_add={}; 
+		wcs_add["wa"] = "s_4ac36125801";
+		if (!_nasa) var _nasa={};
+		wcs.checkoutWhitelist = ["www.monsterlabs.co.kr","monsterlabs.co.kr","tmp.monsterlabs.co.kr"];
+		wcs.inflow();
+		wcs_do(_nasa);
+	</script>
+	<!-- 네이버 프리미엄 로그분석 끝 -->
+
+
+	<!--  CPCGUARD SCRIPT V6.0 -->
+	<script type="text/javascript">
+		if(!document.getElementById("include_cpc_script")){
+		 (function(){
+		  var _script = document.createElement("script"); _script.id= "include_cpc_script"; _script.type = "text/javascript"; _script.charset = "utf-8"; _script.async = true; _script.src = "//nsc1.cpcguard.com/new/cpc_script.js"; 
+		  var _node = document.getElementsByTagName("script")[0]; _node.parentNode.insertBefore(_script, _node);
+		 })();
+		}
+	</script>
+	<!-- CPCGUARD SCRIPT END -->
+
+
+	<!-- WIDERPLANET  SCRIPT START 2017.1.4 -->
+	<div id="wp_tg_cts" style="display:none;"></div>
+	<script type="text/javascript">
+		var wptg_tagscript_vars = wptg_tagscript_vars || [];
+		wptg_tagscript_vars.push(
+		(function() {
+			return {
+				wp_hcuid:"",   /*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
+						*주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+				ti:"33267",	/*광고주 코드*/
+				ty:"Home",	/*트래킹태그 타입*/
+				device:"web"	/*디바이스 종류 (web 또는 mobile)*/
+			};
+		}));
+	</script>
+	<script type="text/javascript" async src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+	<!-- // WIDERPLANET  SCRIPT END 2017.1.4 -->
+
+	<!--트래킹코드 2017-04-27-->
+	<img src='//pixel.mathtag.com/event/img?mt_id=1169400&mt_adid=151611&mt_exem=&mt_excl=&v1=&v2=&v3=&s1=&s2=&s3=' width='1' height='1' />
+
+	<!--한성컴퓨터 커뮤니티, BBS e-Theme 2017-12-05-->
+	<script type="application/ld+json">
+	{
+	"@context": "http://schema.org",
+	"@type": "brand",
+	"name": "한성컴퓨터 커뮤니티, BBS e-Theme",
+	"url": "http://www.monsterlabs.co.kr/",
+	"sameAs": [
+	"https://www.facebook.com/hansungpc",
+	"http://blog.naver.com/monsterlabs",
+	"http://post.naver.com/my.nhn?memberNo=1896800",
+	"http://tv.naver.com/monsterlabs",
+	"https://www.youtube.com/channel/UCG3XdK2mV4yeXw8irWl5MXw",
+	"https://www.instagram.com/hansung_computer",
+	"http://storefarm.naver.com/ihansung"
+	 ]
+	}
+	</script>
+</body>
+</html>

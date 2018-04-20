@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Live on MayapurTV</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url" content="http://www.mayapur.tv" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="I found something wonderful" />
+    <meta property="og:description" content="And I want to share it with you" />
+    <meta property="og:image" content="http://www.mayapur.tv/images/ogpick.jpg" />
+    <meta property="og:image:width" content="380" />
+    <meta property="og:image:height" content="200" />
+    <!-- <meta property="fb:admins" content="100002287821959" />
+    end of Facebook og tags -->
+
+    <link rel="stylesheet" type="text/css" href="css/style109.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="https://mayapurtv.eu-1.evennode.com/socket.io/socket.io.js"></script>
+  <!--<script type="text/javascript" src="//player.wowza.com/player/latest/wowzaplayer.min.js"></script>-->
+<!--<script type="text/javascript" src="http://player.wowza.com/player/1.0.05.4378/wowzaplayer.min.js"></script>-->
+<script type="text/javascript" src="http://player.wowza.com/player/1.1.04.4934/wowzaplayer.min.js"></script>
+
+      </head>
+<body>
+
+ <!--Load Facebook SDK for JavaScript - this is used by the temple share button -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="lights-out"></div>
+
+	<div id="topbar-links"></div>
+	<div id="topbar">	
+		<div id="topbar-donate">SUPPORT</div>
+			<div id="topbar-dropdown"><img src="http://www.mayapur.tv/images/topbar-dropdown.png" /></div>
+			<div id="topbar-no-dropdown"></div>
+			<!--<div id="topbar-share-container"><div class="addthis_inline_share_toolbox"></div></div>-->
+			<div id="topbar-channelname"></div>
+		<div id="topbar-logo"></div>
+	</div>
+	<div id="deletme" style="display:none"><textarea id="demo" rows="16" cols="120" style="font-size:13px"></textarea></div>
+
+<div id="video-wrapper">
+	<div id="banner-wrapper">
+    		<div id="banner-background"><img src="http://www.mayapur.tv/images/bottomblack.jpg" /></div>
+		<div id="banner-templepic" ><img src="http://www.mayapur.tv/images/landing.jpg" /><img id="banner-logo" src="http://www.mayapur.tv/images/isk_logo.png" /><div id="banner-statusmessage"></div></div>
+		<!--<div id="banner-templepic" ><img src="http://www.mayapur.tv/images/sacinandanaswami.jpg" /><img id="banner-logo" src="http://www.mayapur.tv/images/isk_logo.png" /></div>-->
+	</div>
+	<div class="clear"></div>
+	<div id="upper-menu-bar" >
+		<div id="upper-menu-twitter"><a href="https://twitter.com/MayapurLiveTV" class="twitter-follow-button" data-show-count="false">Follow @MayapurLiveTV</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+		<div id="upper-menu-facebook"><div class="fb-like" data-href="https://www.facebook.com/Mayapur.tv/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></div>
+		<div id="upper-menu-clock"></div>
+		<div id="upper-menu-viewer-count-holder">VIEWERS:<div id="upper-menu-viewer-count"></div></div>
+		<div id="upper-menu-lightsout"><img id="slight-switch-on" src="http://www.mayapur.tv/images/bulb1.png" /><img id="slight-switch-off" src="http://www.mayapur.tv/images/bulb2.png" /></div>
+		<div id="upper-menu-hidef">
+			<div class="onoff-holder">
+				<div class="onoffswitch">
+					<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" >
+					<label class="onoffswitch-label" for="myonoffswitch">
+						<span class="onoffswitch-inner"></span>
+					</label>
+				</div>
+			</div>
+			<div id="upper-menu-golive">Go LIVE</div>
+			<div id="upper-menu-start-slideshow">PLAY SLIDES</div>
+			<div id="upper-menu-stop-slideshow">PAUSE SLIDES</div>
+		</div>
+		<div id="upper-menu-share-button">SHARE <img src="http://www.mayapur.tv/images/shareico.png" /></div>
+		<div id='upper-menu-schedule-button'>SCHEDULE</div>
+		<div id='upper-menu-sastra-button'>SASTRA</div>
+	</div>
+	<div id="vidHolder">
+		<div id="vidOverflow">
+
+
+		<div id="video"></div>
+
+	
+			<div id="theSlideshow"></div>
+
+			<div id="WowzaPlayer">
+				<div id="playerElement" style="width:100%; height:100%; padding:0;position:absolute;top:0px"></div>
+			</div>
+		
+
+			<div id="vid-slideshow-paused"><img src="http://www.mayapur.tv/images/paused.png" /></div>
+
+		<div id="vid-offline-holder"><div id="vid-splash-pic"><img src="http://www.mayapur.tv/images/splashgrey.jpg" /></div><div id="vid-promo-play-button"></div></div>
+
+		<div id="vid-ustream"></div>
+
+		<div id="vid-shoutcast"></div>
+
+		<div id="vid-slide-in-holder">
+			<div id="vid-slide-in">
+				<div id="vid-slide-close"></div>
+				<div id="vid-slide-in-body">
+					<div id="vid-slide-in-topline">This is a slide-in</div>
+					<div id="vid-slide-in-bottomline"></div>
+				</div>
+			</div>
+		</div>
+							
+		<div id="vid-translation-flags"></div>
+
+			<div id="force-login-holder" style="display:none;width:100%;height:100%;background-color:red;opacity: 0.8;position:absolute;top:0;left:0;">
+				<div style="color:white;margin-top:20px;"><H1>Please login to use this channel</H1></div>
+				<!--<form id="form1disabled" name="form1disabled" method="post" style="width:250px;text-align: center;margin: 0 auto;position: absolute;  position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">	
+					<div style="width: 70px;float: left;text-align: right;">
+						<div  style="padding: 5px 3%;color:white;">Email:&nbsp;</div><br>
+						<div  style="padding: 5px 3%;color:white;">Password:&nbsp;</div>
+					</div>
+					<div style="width: 50%;float: left;">
+						<input name="myusernamedisabled" type="text" id="force-myusername" placeholder="Email" style="padding: 5px 3%;">
+						<br><br>
+						<input name="mypassworddisabled" type="password" id="force-mypassword" placeholder="Password"  style="padding: 5px 3%;margin-top:3px"><br>
+					</div><br>
+					<input type="submit" name="Submit" value="Login" class="submit" style="float:right;width:65px;height:30px;padding: 5px 0;border: 0px solid;color: #fff;font-size: 14px;border-radius: 5px;background: #999;margin-top:10px;">
+					<div onclick='window.open("http://www.mayapur.tv/forgottenpassword.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=0, width=300, height=300")' id="forceforgotpass" style="float:left;width:140px;margin-top:15px;color:white;">forgotten password?</div>
+				</form>-->
+
+					<div class="registr" id="add-form1-above" onclick='window.open("http://www.mayapur.tv/registerme.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=0, width=300, height=540")'>Need a chat ID? Register here.</div>
+			</div>
+
+
+
+
+  
+		<div id="sastra-holder-overlay" class="holder-overlay">
+			<div class="title-overlay">RECENT CLASS TEXT</div>
+			<div id="sastra-content-overlay"></div>
+			<img id="closeSastraIcon-overlay" src="http://www.mayapur.tv/images/windowCloseBlack.jpg" />
+		</div>
+		<div id="schedule-holder-overlay" class="holder-overlay">
+			<div class="title-overlay">PROGRAM SCHEDULE</div>
+			<div id="schedule-content-overlay"></div>
+			<img id="closeScheduleIcon-overlay" src="http://www.mayapur.tv/images/windowCloseBlack.jpg" />
+ 		</div>
+ 
+		<div id="announcements-black-bkgnd">
+			<div id="announcements-holder">
+				<ul id="announcementInteractive"></ul>
+				<div id="announcements-content"></div>
+				<div id="announcements-insert"></div>
+
+			</div>	
+				<div id="slide-left"></div>
+				<div id="slide-right"><img src="http://www.mayapur.tv/images/right-arrow-up.png"/></div>
+				<div id="announce-button-holder"></div>
+		</div>
+		<div id="iphonePlayer" style="z-index:29;"></div>
+		<!--<div id="iphonePlayer" ><audio src="http://www.mayapur.tv/images/sp_chant.mp3" controls loop autoplay></audio></div>-->
+
+
+		<div id="chat-ask-form">
+<div class="chat-ask-close"><img src="http://www.mayapur.tv/images/closebtn.png"/></div>
+
+<span style="color: red;font-weight:bold;font-size:9pt;">&nbsp;&nbsp;&nbsp;Not logged in? Ask your question here:</span>
+  			<div id="question" class="panel">
+				<input type="hidden" name="subject" value="Question from live channel" />
+				<p><label for="q_name">&nbsp;&nbsp;&nbsp;Name</label><br /><input id="q_name" type="text" name="name" class="name" value=""  maxlength="50"/></p>
+				<p><label for="question">&nbsp;&nbsp;&nbsp;Ask a Question</label><br /><textarea name="question" id="question_box"  maxlength="300"></textarea></p>
+				<p><button type="button" id="chat-question-button" style="margin-left: 7px">Submit</button></p>
+			</div>
+		</div>
+
+
+<div id="devotee-appeal-buttons"><div id="appeal-logo-button"><img src="http://www.mayapur.tv/images/appeal-logo.png"/></div><div id="appeal-help-button"><img src="http://www.mayapur.tv/images/appealHelp.png"/></div><div id="appeal-start-button"><img src="http://www.mayapur.tv/images/appeal-logo.png"/></div></div>
+
+
+</div>
+
+
+
+	
+</div>
+	<div id="beside-video"  >
+		<div id="chat-moveable-container">
+				<div id="chat-msg-archive">
+					<div id="chat-msgs"></div>
+					<div id="chat-top-buttons">
+						<div title="increase chat font-size" id="aplus"></div>
+						<div title="decrease chat font-size" id="aminus"></div>
+						<div  title="Keep this chat when I change channel" id="chat-lock"></div>
+						<div id="i-am-singing"></div>
+						<div id="chat-logout"></div>
+						<div id="chat-box-label">Conversation<img src="http://www.mayapur.tv/images/chat-down.png" /></div>
+					</div>
+				<div id="login-table">
+					<div id="chat-console">
+						<form id="chat-message-form">
+							<input type="hidden" id="chat-channel" />
+							<input type="hidden" id="chat-username" />
+							<input type="hidden" id="chat-usertemple" />
+							<input type="hidden" id="chat-userrole" />
+							<textarea id="chat-message"></textarea>
+							<br>
+							
+							<!--<select name=greeting id="greeting">
+								<option name=one value=one selected='selected'> Haribol</option>
+								<option name=two value=two> AGTSP </option>
+								<option name=three value=three> Hare Krishna </option>
+								<option name=four value=three> PAMHO </option>
+							</select>-->
+							<select name=chatters id="chatters"></select>
+							<button id="chat-button" type="submit" name="chat-button" value="Chat">Chat</button>
+							<!--<button id="comment-button" type="submit" name="comment-button" value="Comment"/>Comment</button>-->
+						</form>
+					</div>
+					<div id="login-holder"><div id="add-form1-here"></div>
+						<form id="form1" name="form1" method="post">	
+							<div onclick='window.open("http://www.mayapur.tv/forgottenpassword.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=0, width=300, height=300")' id="forgotpass">forgotten password?</div>
+							<input name="myusername" type="text" id="myusername" placeholder="Email"><input name="mypassword" type="password" id="mypassword" placeholder="Password">
+							<br><input type="submit" name="Submit" value="Login" id="submit">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="checkbox" style="color: white;"><input type="checkbox" value="remember-me" id="remember_me" style="vertical-align: center;position:relative;top: 3px;">&nbsp;&nbsp;remember&nbsp;me</label>
+						</form>
+					</div>
+				</div>
+				<div id="comment-box-label">Comments<img src="http://www.mayapur.tv/images/chat-up.png" /></div>
+				<div id="chat-comments"></div>
+				<div id="chat-names-container">
+					<div id="devotee-box-label">Devotees Online<!--<img src="http://www.mayapur.tv/images/chat-down.png" />--></div>
+					<div id="chat-names"></div>
+				</div>
+				<div class="registr" onclick='window.open("http://www.mayapur.tv/registerme.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=0, width=300, height=540")'>Not got a chat ID? Register here.</div>
+			</div>
+			<ul id='recordings-moveable-container'></ul>
+			<div  id="twitter-tmline"><a class="twitter-timeline" href="https://twitter.com/MayapurLiveTV">Tweets by MayapurLiveTV</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+		</div>
+		<div id="chat-or-recordings">Switch to Recordings Archive</div>
+	</div>
+</div>
+	<div class="clear"></div>
+	<div id='channels-main-widescreen-holder'></div>
+	<div id="lower-menu"><div id="lower-menu-channels">CHANNELS</div><div id="lower-menu-videos">VIDEOS</div><div id="lower-menu-chat">CHAT</div></div>
+	<div id="main-lower-content"><div id="channel-list-plain-moveable-container"><div id="channel-list-plain"></div></div>
+	<div id='channels-main-container'>
+		
+		<div id="channels-main-heading"><div class="channels-main-not-widescreen">Live ISKCON Temples</div> <div id="channels-main-picorlist">Switch to text view:</div><img id="channels-main-picorlist-icon" src='http://www.mayapur.tv/images/listb.png' /></div>
+		<ul id='channels-main-livesection' class="channels-main-ul"></ul>
+		<hr class="channels-main-removehr">
+
+		<div id="SrilaPrabhupada" class="channels-main-everysection"><div class="channels-main-not-widescreen">Srila Prabhupada</div></div>
+		<ul id='livethumb-prabhupada' class="channels-main-ul">
+			<li class="PrabhupadaTV2FPrabhupadaTV channels-main-permanent-channel listview-li" data-name="PrabhupadaTV2FPrabhupadaTV" data-stream="allTemples%2FPrabhupadaTV%2FPrabhupadaTV"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/PrabhupadaTV.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">PrabhupadaTV</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FPrabhupadaMemories channels-main-permanent-channel listview-li" data-name="_definst_2FPrabhupadaMemories" data-stream="allTemples%2F_definst_%2FPrabhupadaMemories"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/pPrabhupadaMemories.jpg' /><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Prabhupada Memories</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="PrabhupadaTV2FAmala-bhaktaSwamiHr channels-main-permanent-channel listview-li" data-name="PrabhupadaTV2FAmala-bhaktaSwamiHr" data-stream="allTemples%2FPrabhupadaTV%2FAmala-bhaktaSwamiHr"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/ambhsw.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Amala-bhakta Swami readings</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="PrabhupadaTV2FPrabhupadaRadioHr channels-main-permanent-channel listview-li" data-name="PrabhupadaTV2FPrabhupadaRadioHr" data-stream="allTemples%2FPrabhupadaTV%2FPrabhupadaRadioHr"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/PrabhupadaTV.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Prabhupada Radio</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>
+		</ul>
+		<hr class="channels-main-removehr">
+
+		<div id="DevoteeChannels" class="channels-main-everysection"><div class="channels-main-not-widescreen">Devotee Interactive Classes</div></div>
+		<ul id='livethumb-preachers' class="channels-main-ul">
+
+		</ul>
+		<hr class="channels-main-removehr">
+
+		<div id="DandavatsVideo" class="channels-main-everysection"><div class="channels-main-not-widescreen">Dandavats Video Collection</div></div>
+		<ul id='livethumb-dandavats' class="channels-main-ul">
+			<li class="_definst_2FDandavatsNewswall channels-main-permanent-channel listview-li" data-name="_definst_2FDandavatsNewswall" data-stream="allTemples%2F_definst_%2FDandavatsNewswall" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bDandavatsNewswall.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Dandavats Newswall</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FD27vatsTV channels-main-permanent-channel listview-li" data-name="_definst_2FD27vatsTV" data-stream="allTemples%2F_definst_%2FD%27vatsTV" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bDvatsTV.jpg' /><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">D'vatsTV</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FDandavatsLatest channels-main-permanent-channel listview-li" data-name="_definst_2FDandavatsLatest" data-stream="allTemples%2F_definst_%2FDandavats+Latest" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bDandavatsLatest.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Dandavats Latest</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FTOVP channels-main-permanent-channel listview-li" data-name="_definst_2FTOVP" data-stream="allTemples%2F_definst_%2FTOVP"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bTOVP.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">TOVP</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FKCMelodies channels-main-permanent-channel listview-li" data-name="_definst_2FKCMelodies" data-stream="allTemples%2F_definst_%2FKCMelodies"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bKCMelodies.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">KC Melodies</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FRecentISKCONClasses channels-main-permanent-channel listview-li" data-name="_definst_2FRecentISKCONClasses" data-stream="allTemples%2F_definst_%2FRecentISKCONClasses"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/recentclass.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Recent ISKCON Classes</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="PrabhupadaTV2FKCinGreekHr channels-main-permanent-channel listview-li" data-name="PrabhupadaTV2FKCinGreekHr" data-stream="allTemples%2FPrabhupadaTV%2FKC+in+GreekHr"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/kcingreek.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">KC in Greek</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FBhakTV channels-main-permanent-channel listview-li" data-name="_definst_2FBhakTV" data-stream="allTemples%2F_definst_%2FBhakTV"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/bhaktv.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">BhakTV</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>
+		</ul>
+		<hr class="channels-main-removehr">
+
+		<div id="TempleRecordings" class="channels-main-everysection"><div class="channels-main-not-widescreen">Temple Recordings</div></div>																																																		
+		<ul id='livethumb-recordings' class="channels-main-ul">							
+			<!--<li class="LosAngeles2FLAClasses channels-main-permanent-channel listview-li" data-name="LosAngeles2FLAClasses" data-stream="allTemples%2FLosAngeles%2FLA+Classes"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/laclasses.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">LA Classes</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>--><li class="_definst_2FMayapurMangalArati channels-main-permanent-channel listview-li" data-name="_definst_2FMayapurMangalArati" data-stream="miniVids%2F_definst_%2FMayapurMangalArati"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/mangalarati.jpg'/><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">Mayapur Mangal Arati</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>
+		</ul>
+
+		<hr class="channels-main-removehr">
+		<div id="Radio" class="channels-main-everysection"><div class="channels-main-not-widescreen">Radio Krishna Centrale</div></div>
+		<ul id='livethumb-radio' class="channels-main-ul">
+			<!--<li class="_definst_2FKalachandji" data-name="_definst_2FKalachandji" data-stream="allTemples%2F_definst_%2FKalachandji" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/tovvp.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">Radio Kalachandji from Dallas</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></li>-->
+			<li class="_definst_2FRKC1" data-name="_definst_2FRKC1" data-stream="allTemples%2F_definst_%2FRKC1" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/rkc1.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">Radio Krishna Centrale Terni</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></li>
+			<li class="_definst_2FRKC2" data-name="_definst_2FRKC2" data-stream="allTemples%2F_definst_%2FRKC2" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/rkc2.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">Radio Krishna Centrale Music</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></li>
+			<li class="_definst_2FMayapurRadio" data-name="_definst_2FMayapurRadio" data-stream="allTemples%2F_definst_%2FMayapur+Radio" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/tovvp.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">MayapurTV Audio</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="PrabhupadaTV2FKCRadioHr" data-name="PrabhupadaTV2FKCRadioHr" data-stream="allTemples%2FPrabhupadaTV%2FKC+RadioHr" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/kcradio.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">KC Radio</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li><li class="_definst_2FHHJayapatakaSwami" data-name="_definst_2FHHJayapatakaSwami" data-stream="allTemples%2F_definst_%2FHH+Jayapataka+Swami" data-deletable="never"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/jps_thumb.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="channels-all-hdflag"></div><div class="channels-main-who">HH Jayapataka Swami Radio</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>
+		</ul>
+		<hr class="channels-main-removehr">
+		<div id="OfflineTemples" class="channels-main-everysection"><img src='http://www.mayapur.tv/images/thumbs/down1.png'/><div class="channels-main-not-widescreen">All Channels </div></div>
+		<ul id='channels-main-offline' class="channels-main-ul">			
+		</ul>
+	</div>
+</div>
+			<!--<li class="Udhampur2FHHNavaYogendraSwami channels-main-permanent-channel listview-li" data-name="Udhampur2FHHNavaYogendraSwami" data-stream="allTemples%2FUdhampur%2FHH+Nava+Yogendra+Swami"><img class="channels-main-liveflag-thumb" src='http://www.mayapur.tv/images/thumbs/NavaYogendraSwami.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">HH Nava Yogendra Swami</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>-->
+			<!--<li class="BhaktiVikasSwami2FHHBhaktiVikasaSwami channels-main-permanent-channel listview-li" data-name="BhaktiVikasSwami2FHHBhaktiVikasaSwami" data-stream="allTemples%2FBhaktiVikasSwami%2FHHBhaktiVikasaSwami"><img class="channels-main-picture" src='http://www.mayapur.tv/images/thumbs/BhaktiVikasSwami.jpg'/><div class="channels-main-liveflag"></div><div class="channels-main-text-holder"><div class="hdthing"></div><div class="channels-main-who">HH Bhakti Vikasa Swami</div><div class="channels-main-viewers-holder">Viewers: <div class="channels-all-viewers"></div></div></div></li>-->
+<!--</div>-->
+	<br><br>
+
+<div id="share-modal" class="modal">
+  <!-- Modal content -->
+<div class="modal-content">
+	<span class="share-close">&times;</span>
+	<br>
+	<h1>Share</h1>
+	<br>
+	<p id="share-link">Hello, I'm TEXT 1</p><br><br><br><hr>
+	<button id="share-copy-button">COPY LINK</button>
+	<div id="modal-share-container"><div class="addthis_inline_share_toolbox"></div></div>
+	<br>
+	<br><br>	
+</div> 
+</div>
+
+<div id="myModal" class="modal">
+  <!-- Old Donation Modal content -->
+  </div>    
+ </div>
+
+<!--<div id="deletme"><textarea id="demo" rows="16" cols="200" style="font-size:13px"></textarea></div>-->
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+<div style="width:100%;max-width: 818px;margin:auto;">
+		<img src="http://www.mayapur.tv/images/sp3.jpg" style="width:100%">
+</div>
+
+<br><br>
+
+	<div class="main-block-width1">
+
+<div id="scrollHere"></div>
+<h1>Support devotional broadcasting - <span style="color:red;font-weight:bold;">Make a donation today</span></h1><br>
+<div id="donate-round-buttons"><!--<div id="donate-stripe"><img src="http://www.mayapur.tv/images/striperoundsm.png"/></div>--><div id="donate-paypal"><img src="http://www.mayapur.tv/images/payproundsm.png"/></div><div id="donate-instamojo"><img src="http://www.mayapur.tv/images/instamoroundsm.png"/></div><div id="donate-bank"><img src="http://www.mayapur.tv/images/bnkroundsm.png"/></div></div>
+<h1><span style="color:red;font-weight:bold;">YES - </span>I want to help the MayapurTV devotee service.</h1><br>
+
+	 <div class="block-donation"><img id="background-pic" src="http://www.mayapur.tv/images/ln.jpg"/>
+<div id="grey-trans"></div>
+     <div class="block-donation_left">
+      <!-- <h3>I would like to give a..</h3>-->
+  <form id="donate-form" method="get" action="https://secure.mayapur.tv/civicrm/contribute/transact?reset=1&id=1">
+        <input type="hidden" name="reset" value="1" />
+        <input type="hidden" name="amount" />
+	<ul>
+        <li class="block-donation_provider"  style="padding-top:0px;display:none" >
+            <div class="provider">
+               <input type='radio' name="block-provider" value="A" id="block-provider-stripe"/>
+                <label for="block-provider-stripe" style="font-size:8px;font-weight: normal" id="block-provider-stripe-label"><br>Card Payment<div>International</div></label>
+
+               <input type='radio' name="block-provider" value="B" id="block-provider-paypal" checked/>
+                <label for="block-provider-paypal"  style="font-size:8px;font-weight: normal" id="block-provider-paypal-label"><br>Paypal<div>International</div></label>
+
+               <input type='radio' name="block-provider" value="C" id="block-provider-instamojo"/>
+                <label for="block-provider-instamojo" style="font-size:8px;font-weight: normal"><br>Instamojo<div>India only</div></label>
+            
+               <input type='radio' name="block-provider" value="D" id="block-provider-transfer"/>
+                <label for="block-provider-transfer" style="font-size:8px;font-weight: normal"><br>Bank Transfer<div>UK only</div></label>
+
+            </div>
+          </li>
+<br>
+          <li class="block-donation_currency" style="padding-bottom:20px">
+            <div class="currency">
+               <input type='radio' name="block-currency" value="Pounds" id="block-currency-pound" checked/>
+                <label for="block-currency-pound">&pound;</label>
+
+               <input type='radio' name="block-currency" value="Dollars" id="block-currency-dollar"/>
+                <label for="block-currency-dollar">$</label>
+
+               <input type='radio' name="block-currency" value="Euros" id="block-currency-euro"/>
+                <label for="block-currency-euro">&euro;</label>
+            </div>
+          </li>
+
+         <li class="donation-frequency" style="width: 100%;padding-bottom:20px">
+           <input type='radio' name="block-frequency" value="Subscribe" id="donation_monthly" checked/>
+           <label for="donation_monthly">Monthly Subscription</label>
+
+           <input type='radio' name="block-frequency" value="Donate" id="donation_single"/>
+           <label for="donation_single">One-off Donation</label>
+         </li>
+
+          <li class="block-donation_amount" style="padding-bottom:20px">
+               <input type='radio' name="block-amount"  value="10" id="block-donation_monthly1"/>
+                <label for="block-donation_monthly1" style="margin-left:5px;">&pound;10</label>
+
+               <input type='radio' name="block-amount" value="20" id="block-donation_monthly2"/>
+                <label for="block-donation_monthly2">&pound;20</label>
+
+               <input type='radio' name="block-amount" value="30" id="block-donation_monthly3"  checked/>
+                <label for="block-donation_monthly3">&pound;30</label>
+<br>
+               <input type='radio' name="block-amount"  value="40" id="block-donation_monthly4"/>
+                <label for="block-donation_monthly4">&pound;40</label>
+
+               <input type='radio' name="block-amount" value="50" id="block-donation_monthly5"/>
+                <label for="block-donation_monthly5">&pound;50</label>
+
+               <input type='radio' name="block-amount" value="108" id="block-donation_monthly6"/>
+                <label for="block-donation_monthly6">&pound;108</label>
+
+               <input type='radio' name="block-amount" value="any" id="block-donation_monthly7"/>
+                <label for="block-donation_monthly7"  style="width: 223px">A different amount</label>
+
+          </li>
+       </ul>
+       </form>
+<div id="donate-now"><!--<button type="submit" form="donate-form" value="Submit" style="background: url(http://www.mayapur.tv/images/donate-red.jpg);width:179px;height:53px;border:0px"></button>--></div>
+
+<div class="donate-bank-bkgnd">
+     <div class="donate-bank-content">
+          <!--<span class="donate-bank-close">&times;</span>-->
+          <div id="donation-form-holder" >
+	     <br>
+	     <div><em> UK Donor payments direct to the UK ISKCON Account</em> </div>
+	     <h1>The ISKCON UK Bank Account:</h1>
+               Account Name: 'ISKCON Ltd 
+Mayapur TV',<br>
+               Account Number: 34770968,<br>
+               sort code 30-99-21<br>
+               <br>
+               Address:
+               Lloyds TSB
+               <p>
+                    67 High Street<br>
+                    Watford<br>
+                    Herts<br>
+                    WD17 2DU<br>
+               </p>
+               <br>
+               Please e-mail payments@mayapur.tv with information on the deposits/standing orders you make so we can check up on them.<br>
+               Thank you
+          </div>    
+     </div>
+
+		<div class="donate-instamojo-button">
+			<a href="https://www.instamojo.com/IskconTV/donation-fb57a/" rel="im-checkout" data-behaviour="remote" data-style="dark" data-text="Donate to MayapurTV" data-token="0ae0c6b9a952d574527d739079bdfcad"></a>
+			<script src="https://d2xwmjc4uy2hr5.cloudfront.net/im-embed/im-embed.min.js"></script>
+		</div>
+	<div class="donate-subscribe-any">
+<br><br>
+<h3>When you click the red paypal button, the secure Paypal form will appear. Tick the 'Make this recurring (monthly)' box for monthly subscrptions</h3><br>
+<img src="http://www.mayapur.tv/images/tickthebox.jpg" /><br><br><br><br>
+<button type="button" id="tick-the-box">I've got it!</button>
+		</div>
+
+</div>
+
+</div>
+ <div class="block-donation_right">
+       <h3>Your donation will:</h3>
+       <hr>
+       <ul>
+        <li>inspire a worldwide audience of devotees</li>
+         <li>provide a broadcasting solution for all ISKCON Temples</li>
+         <li>fund the entire broadcast from Sri Dham Mayapur, ISKCON world HQ</li>
+         <li>develop ISKCON Cable TV broadcasting in West Bengal</li>
+ <hr>
+         <li>Our viewers provide all the finance for the above activities - MayapurTV depends on viewer generosity</li>
+       </ul>
+
+     </div>
+</div>
+
+
+
+<div id="donor-special">
+
+<!--<fieldset class="defaultlist">
+			<legend>Special Donor Opportunities</legend>
+
+
+<div class="donor-special-section-holder">
+<div class="donor-special-section-left">
+<h3>Donations of £250</h3>
+<strong><em>(or equivalent):</em></strong><br>
+A yajna in your name (or the names of those you choose) in Sri Mayapur Dham.<br>
+Our next yajna is on 05 June 2017 (Pandava Nirjala Ekadasi)<br>
+</div>
+<div class="donor-special-section-right">
+<br>
+<iframe src="https://player.vimeo.com/video/206544093" width="160" height="90" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br>
+</div>
+</div>
+
+<div class="donor-special-section-holder">
+<div class="donor-special-section-left">
+<h3>Donations of £500</h3>
+<strong><em>(or equivalent):</em></strong><br>
+You get a plaque within the new Studio in Sri Mayapur Dham.<br>
+You also get to take part in the Yajna.<br>
+</div>
+<div class="donor-special-section-right">
+<br>
+<img src="http://www.mayapur.tv/images/brass1.jpg"  width="160" height="90"/>
+</div>
+</div>
+
+<div class="donor-special-section-holder">
+<div class="donor-special-section-left">
+<h3>Donations of £1000</h3>
+<strong><em>(or equivalent):</em></strong><br>
+Treasure a piece of cloth from the deities for a lifetime.<br>
+You also get the Yajna and a plaque in the studio.<br>
+</div>
+<div class="donor-special-section-right">
+<br>
+<img src="http://www.mayapur.tv/images/deitydr.jpg" height="90"/>
+</div>
+</div>
+
+<div class="donor-special-section-holder">
+<div class="donor-special-section-left">
+<h3>Interested?</h3>
+<br>
+Please click the red button.
+</div>
+<div class="donor-special-section-right">
+<br>
+<img src="http://www.mayapur.tv/images/donate-green.jpg"/>
+</div>
+</div>
+
+
+</fieldset>-->
+</div>
+
+
+<br><br>
+
+
+
+
+
+<div style="display:none">
+<div class="main-block-width1">
+	<div id="donrToggle" class="donation-block">
+<div class="donr-title"><div class="donr-title-button">September 2017 MayapurTV Donors</div></div>
+			<div id="donr">
+<br>
+
+<h3>Donors and Subscribers for September 2017</h3>
+<br>
+<div class="donations">
+DONATIONS <br>
+HH Jayapataka Swami Rs 5,000<br>
+Eric Barriere EUR 20<br>
+Stuart Winchester £ 10<br>
+Kalyan Kumar Srusti £ 10<br>
+Prakash Veeraraghavan $108<br>
+Predrag Vecic $15<br>
+Stuart Winchester £10<br>
+Ekta Shah £15<br>
+Sukania Venugopal £20<br>
+Debashish Nath £20<br>
+Deeptish Tulsi EUR 108<br>
+Evelyn Martin EUR 30<br>
+<br>
+MONTHLY SUBSCRIBERS <br>
+from Paypal:<br>
+Alfred Ford $ 108<br>
+Lynn Walker £ 108<br>
+Manharlal Patel $ 10<br>
+Sladjana Lindqvist EUR 10<br>
+Manisha Parmar £ 10<br>
+Satya P Somani $10<br>
+Sandip Bhatt $ 30<br>
+Lelihana Pillai $ 10<br>
+Michelle Asin $ 15<br>
+Margot Cordua EUR 25<br>
+Janis Pukalskis EUR 20<br>
+Ankur Sethi $15<br>
+Vinodkumar Dattani £ 10<br>
+Riccardo De Pol EUR 10<br>
+I Dewa Sumitra $ 21<br>
+Kamalini Darling $ 5<br>
+A Kothari £ 10<br>
+Russell Pet $ 30<br>
+Sulabh Agarwal £ 10<br>
+Malini Nitai dasi £ 5<br>
+John Vandelicht $ 15<br>
+Pramod Dakka $ 30<br>
+Vijay Patel $ 15<br>
+Amratlal Divani £ 10<br>
+Jahnava Sundari Liberman $ 11<br>
+Clive Holland £ 10<br>
+Danguole Yakobson $ 30<br>
+Jereme Crow £ 10<br>
+Krushanaben Dhru $ 10<br>
+Ross Burroughs £ 30<br>
+Naresh Velupula $ 21<br>
+Mahamantra das £ 10<br>
+<br>
+from Bank Account<br>
+Mayapur Madhav das £5<br>
+Radha Mohan das £10<br>
+Dr. Kapil Chawla £10<br>
+Cakradari das £10<br>
+Pushkaraj and Hara £20<br>
+Sushil Kumar Sesh Lahkani £10<br>
+V Mistry £10<br>
+Achyuta Rupa das £10<br>
+H Patel  £30<br>
+V Sankaramani  £10<br>
+N Janssens  £10<br>
+S Nayani Sarvajna Krishan  £11<br>
+N and Ms Sadhoo (Nalini DD)  £10<br>
+Julia Burroughs  £40<br>  
+V Sampat Jaitra  £11<br>
+Mrilani Radhika dasi £10.00<br> 
+Sachin Kotak (Sacinandana Karuna das) £20<br>
+<br>
+from Instamojo<br>
+To be announced
+<br>
+
+</div>
+			</div>
+						
+			</div>
+</div>
+			</div>
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+<br>
+	<div class="main-block-width1">
+		<div id="serversToggle" class="donation-block"><div class="donr-title">MayapurTV Activities</div>
+			<div id="servers">
+
+<h3>MayapurTV maintains servers which cover:</h3>
+<ul style="padding-left:20px"><li>streaming video and audio</li><li>
+storing and play-back of recordings </li><li>
+website.hosting</li>
+</ul><br>
+<h3>MayapurTV provides services to ISKCON Preachers and Temples:</h3>
+<ul style="padding-left:20px"><li>Live streaming and recording storage</li><li>
+Unbranded players for Temple websites</li><li>
+Admin software for Temple channes (local time, class text etc)</li><li>
+Forwarding to Temple Facebook pages</li><li>
+Community help and tech support via a Facebook forum.</li>
+</ul><br>
+<h3>MayapurTV operates the live broadcast from Sri Dham Mayapur:</h3>
+<ul style="padding-left:20px"><li>Providing all equipment</li><li>
+Maintaining six full-time staff members (three camera, one mixing, one audio and one floating)</li><li>
+Covering all live broadcast expenses</li>
+</ul><br>
+<h3>MayapurTV creates software programs</h3>
+<ul style="padding-left:20px"><li>All our software needs are met by a hard-working team of skilled volunteers, both on the server and client side. </li>
+</ul><br>
+
+<h3>MayapurTV serves the devotee  community</h3>
+<ul style="padding-left:20px"><li>Devotees away from association can participate online in classes and festivals.</li><li>
+They can get inspiration in the early morning to join in their local temple morning program.</li><li>
+They can chat to other devotees and make friendships online.</li>
+</ul>
+
+
+
+			</div>
+		</div>
+<br><br>
+		<div id="dhamToggle" class="donation-block"><div class="donr-title">Serve the Holy Dham</div>
+
+			<div id="dham">
+<h3>Why serve Sri Dham Mayapur?</h3>
+
+<br><p>Sri Dham Mayapur was built by the hand of Srimati Radharani Herself. Scripture states that from this merciful place the world will find enlightenment. </p>
+
+<br><p>The Internet broadcast from Sri Dham Mayapur reaches a worldwide audience of tens of thousands of people. CableTV reaches over 3 million homes in West Bengal, and by Airtel satellite many more across India make a connection with Sri Dham Mayapur.</p>
+
+<br><p>This broadcast is funded by viewers donations, and MayapurTV is our donors great service to Srila Prabhupada and the previous acharyas. Together we can make the broadcast of such quality it will touch the heart of people from all faiths and backgrounds and bring them closer to Krishna.</p>
+
+<br><p>Since the time of Bhaktivinode Thakur, promoting Sri Dham Mayapur has been a major focus for every Gaudiya Acharya, culminating with Srila Prabhupada and the construction of the Vedic Planetarium Temple. MayapurTV is our donors' contribution to this endeavour.</p>
+<br>
+			</div>
+		</div>
+	
+</div>
+
+<br>
+
+
+<div class="main-block-width1">
+		<div class="donation-block" id="whereToggle">
+<div class="donr-title">Where the money goes</div>
+			<div id="where" style="width=100%">
+<br><br>
+				
+				<div style="display: inline-block;  max-width: 350px;vertical-align: top">
+					<h3>How the money is spent</h3>
+<br><br> In the West, all personnel are voluntary, the programmers, accounts, technical help, donor care, e-mailing, dbase management, fund-raising etc.
+<br><br>The Mayapur broadcast has six full-time staff, costing about Rs 60,000 per month.
+<br><br>Servers cost about Rs 30,000 per month
+<br><br>Expenses also include equipment maintenance and purchase costs for the Sri Mayapur broadcast.
+<br><br>This valuable service is entirely funded by MayapurTV viewers.
+<br><br>
+</div>
+<div style="display: inline-block;vertical-align: top"><img src="http://www.mayapur.tv/images/exps.jpg"/></div>
+
+				
+			</div>
+</div>
+			</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="fred-etc"></div>
+
+<br><br><br><br>
+
+<div style="position:relative;">
+<div id="footer-behind"></div>
+	<footer class="footer-distributed main-block-width">
+		<div class="footer-left">
+			<ul class="footer-links">
+				<li><a href="http://www.mayapur.tv/pages/broadcast">Broadcast with us</a></li>
+				<!--<li><a href="#">Membership</a></li>
+				<li><a href="#">Prayers</a></li>-->
+				<li><a href="JavaScript:newPopup('http://www.vaisnavacalendar.info/calendar-file-downloads/html-calendar-files');" target="_blank">Calendar</a></li>
+				<li><a href="JavaScript:newPopup('http://www.mayapur.tv/pages/disclaimer/');" target="_blank">Disclaimer</a></li>
+				<!--<li><a href="JavaScript:newPopup('http://www.mayapur.tv/pages/sp-chanting/');" target="_blank">SP Chanting</a></li>-->
+			</ul>
+			
+		</div>
+
+			<div class="footer-center">
+<ul class="footer-links">
+				<!--<li><a href="#">Get an online mentor</a></li>-->
+			</ul>
+
+				<div class="footer-icons">
+		<div id="footer-twitter"><a href="https://twitter.com/MayapurLiveTV" class="twitter-follow-button" data-show-count="false">Follow @MayapurLiveTV</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+		<div id="footer-facebook"><div class="fb-like" data-href="https://www.facebook.com/Mayapur.tv/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></div>
+
+				</div>
+				
+
+			</div>
+			<div class="footer-right">
+				<li>Contact us - info@mayapur.tv</li> <!--<p><a href="mailto:info@mayapur.tv">info@mayapur.tv</a></p>-->
+<br>				India: MayapurTV Broadcast Dept.<br>Sri Mayapur Chandrodaya Mandir<br>District Nadia, West Bengal<br>
+				<br>
+				UK: Iskcon Central Office<br>1 Watford Road<br>Radlett, Herts
+				<br>			
+			</div>
+			<div id="footer-below">
+				India: MayapurTV Broadcast Dept. Sri Mayapur Chandrodaya Mandir, District Nadia, West Bengal<br>
+				UK: Iskcon Central Office, 1 Watford Road, Radlett, Herts<br><br>
+				<div class="footer-company-name">MayapurTV &copy; 2017</div>
+			</div>
+			
+		</footer>
+</div>
+
+
+
+<div id="pc-view"></div>
+<div id="tablet-view"></div>
+<div id="mobile-view"></div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5933d668aff82910"></script>
+<script type="text/javascript" src="js/codeappleF.js"></script>
+<!--<script type="text/javascript" src="flashContent/swfobject.js"></script>-->
+</body>
+</html>

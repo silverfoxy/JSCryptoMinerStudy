@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.polarprofilters.com/">redirected</a>.</body></html>

@@ -1,0 +1,1 @@
+Art server is alive.

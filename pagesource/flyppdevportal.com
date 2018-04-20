@@ -1,0 +1,1 @@
+<HTML> <HEAD><META HTTP-EQUIV=Refresh CONTENT="0; url=http://answers.flyppdevportal.com/">  </HEAD> </HTML>

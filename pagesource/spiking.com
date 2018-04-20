@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]> <html lang="zxx" dir="ltr" class="no-js ie-old"> <![endif]-->
+<!--[if IE 9 ]> <html lang="zxx" dir="ltr" class="no-js ie9"> <![endif]-->
+<!--[if IE 10 ]> <html lang="zxx" dir="ltr" class="no-js ie10"> <![endif]-->
+<!--[if (gt IE 10)|!(IE)]><!-->
+<html lang="zxx" dir="ltr" class="no-js">
+<!--<![endif]-->
+
+<head>
+	
+    <!-- ANALYTICS                                 -->
+    
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92552474-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-92552474-1');
+			</script>	
+    
+    <!-- META TAGS                                 -->
+    
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile specific meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    
+    <!-- PAGE TITLE & SEO METAS                    -->
+    
+	<title>Spiking - NASDAQ, NYSE, AMEX, SGX, HKEX & BM Stock Market Exchange, Investing & Trading</title>
+	
+	<meta name="google-site-verification" content="knpHM_u7X7vA0d4Cz1zQJAPqY7whV3F2Iv9HUQO755Y" />
+    <meta name="description" content="Keeping up with NYSE New York Stock Exchange, NASDAQ Stock Market, SGX Singapore Exchange, HKEX Hong Kong Stock Exchange and Bursa Malaysia is faster than ever! By consolidating the latest published disclosures, Spiking provides you with verified stock market data, arriving almost instantly on the app." />
+    <meta name="keywords" content="market, exchange, s&p, stash, hood, best, robin, investing, etoro, business, game, learn, amex, mobile, etf, top, singapore, malaysia, hong, kong, investments, options, yahoo, tracker, mobile, klse, coinbase, world, note, top" />
+	
+	<meta property="og:image" content="https://s3-ap-southeast-1.amazonaws.com/spiking/web/app_icon/icon.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spiking.com/" />
+    <meta property="og:site_name" content="Spiking.com" />
+    <meta property="og:title" content="Spiking - NASDAQ, NYSE, AMEX, SGX, HKEX & BM Stock Market Exchange, Investing & Trading" />
+    <meta property="og:description" content="Keeping up with NYSE New York Stock Exchange, NASDAQ Stock Market, SGX Singapore Exchange, HKEX Hong Kong Stock Exchange and Bursa Malaysia is faster than ever! By consolidating the latest published disclosures, Spiking provides you with verified stock market data, arriving almost instantly on the app." />
+	<meta property="fb:app_id" content="1540465139556203">
+	
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Spiking - NASDAQ, NYSE, AMEX, SGX, HKEX & BM Stock Market Exchange, Investing & Trading" />
+    <meta name="twitter:description" content="Keeping up with NYSE New York Stock Exchange, NASDAQ Stock Market, SGX Singapore Exchange, HKEX Hong Kong Stock Exchange and Bursa Malaysia is faster than ever! By consolidating the latest published disclosures, Spiking provides you with verified stock market data, arriving almost instantly on the app." />
+    <meta name="twitter:image" content="https://s3-ap-southeast-1.amazonaws.com/spiking/web/app_icon/icon.png" />
+	<link rel="canonical" href="https://spiking.com/" />
+    
+    <!-- PAGE FAVICON                              -->
+    
+    <link href='https://s3-ap-southeast-1.amazonaws.com/spiking/web/favicon32_32.png' rel='icon' type='image/png'>
+
+    
+    <!-- GOOGLE FONTS                              -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
+
+    
+    <!-- Include CSS Filess                        -->
+    
+	
+    <!-- Bootstrap -->
+    <link href="/assets/tpl/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="/assets/tpl/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Linearicons -->
+    <link href="/assets/tpl/vendors/linearicons/css/linearicons.css" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link href="/assets/tpl/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/tpl/vendors/owl-carousel/owl.theme.min.css" rel="stylesheet">
+
+    <!-- Flex Slider -->
+    <link href="/assets/tpl/vendors/flexslider/flexslider.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/assets/tpl/css/base.css" rel="stylesheet">
+    <link href="/assets/tpl/css/style.css" rel="stylesheet">
+	
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="/assets/css/global.css">
+	
+	<!-- Particles -->
+	<link rel="stylesheet" media="screen" href="/assets/particles/css/style.css">
+	
+	<!-- Footer -->
+	<link rel="stylesheet" href="/assets/css/footer-distributed.css">
+			
+	<style>
+	.deal-single .deal-store-logo 
+	{
+		z-index: 10;
+		width: 50px;
+		position: absolute;
+		bottom: 15px;
+		left: 15px;
+		background: #fff;
+		height: 50px;
+		border-radius: 5px;
+	}
+	.deal-thumbnail::before
+	{
+		opacity:1;
+	}
+	
+	.rating .rate-allow .fa:hover::before, .rating .rate-allow .fa:hover ~ .fa::before, .rating .rating-stars .fa.star-active::before, .rating .rating-stars .fa.star-active ~ .fa::before
+	{
+		background-image: url("https://s3-ap-southeast-1.amazonaws.com/spiking/web/content/bull_fill.png");
+		width: 15px;
+		height: 15px;
+		content: "";
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+		background-position: center;
+		background-size: cover;
+	}
+	
+	.fa-star-o::before 
+	{
+		background-image: url("https://s3-ap-southeast-1.amazonaws.com/spiking/web/content/bull_non_fill.png");
+		width: 15px;
+		height: 15px;
+		content: "";
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+		background-position: center;
+		background-size: cover;
+	}
+	
+	.slider-ribbon
+	{
+		font-size: 10px;
+		position: absolute;
+		top: 17px;
+		right: -33px;
+		width: 120px;
+		padding: 1px;
+		color: #fff;
+		text-align: center;
+		text-transform: uppercase;
+		z-index: 2;
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+	}
+	
+	.footer-container 
+	{
+		margin: 0;
+		font-size: 12px;
+		line-height: 15px;
+		color: #647d89;
+		font-weight: 500;
+		font-kerning: auto;
+		font-family: 'Montserrat', sans-serif;
+		margin:0 auto;
+	}
+	
+	.footer
+	{
+		background-color: #1e2b35;
+		line-height: 2em;
+		padding: 10px 0;
+	}
+	
+	.deal-thumbnail
+	{
+		cursor: pointer;
+	}
+	</style>
+	
+	<!-- Facebook Pixel Code -->
+						<script>
+						!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+						n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+						n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+						t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+						document,'script','https://connect.facebook.net/en_US/fbevents.js');
+						fbq('init', 1627093350861456); // Insert your pixel ID here.
+						fbq('track', 'PageView');
+						</script>
+						<noscript><img height="1" width="1" style="display:none"
+						src="https://www.facebook.com/tr?id=1627093350861456&ev=PageView&noscript=1"
+						/></noscript>
+						<!-- DO NOT MODIFY -->
+						<!-- End Facebook Pixel Code --></head>
+
+<body id="body" class="wide-layout preloader-active">
+
+    <!--[if lt IE 9]>
+        <p class="browserupgrade alert-error">
+        	You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        </p>
+    <![endif]-->
+
+    <noscript>
+        <div class="noscript alert-error">
+            For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="http://www.enable-javascript.com/" target="_blank">
+		 instructions how to enable JavaScript in your web browser</a>.
+        </div>
+    </noscript>
+
+    
+    <!-- PRELOADER                                 -->
+    
+    <!-- Preloader -->
+<div id="preloader" class="preloader">
+	<div class="loader-cube" style="transform:none; width:150px; height:150px; position:absolute; left:50%; top:50%; margin:-75px 0 0 -75px;">
+		<img src="data:image/gif;base64,R0lGODlhLAEsAeYAAObo6rrBy/H3//X5/9Hj/mmi/KW20pS8/eLt/pyy1dXY3KvL/WWX50OK/LrU/lGT/MTa/pvB/cPHzSh6+zmF+9rc4DSB+4Oy/Y2r2tzp/nqt/fj7/4Gl3sjL0Vya/KHF/XSp/GKe/PP09i19+8nd/unx//r8/9/i5bXR/svU47DO/oi1/ay60I25/e70/87R1nig4UiO/FmR6vf4+UyQ/M3g/rfI4/7+/zB++/z9/5Su13Cm/DqC9evs7vv7/Ji36Obw//3+/9fm/u/w8q3C5bW+zIWq5KbI/bC8zuzz/0iJ8Nvj76K85sza7+Xp8XGd4+/y+MTV77rQ86y+27TB1cLN39Pc7KW63Nfg8FeW/EGG83yj36G/8I+x57DJ8evw+Y6186rE736p73Gj8eft+Ke51VyV8E2L77/P6VOR88fY9IOt8DWA9p+22lKO7b/V+ODl7UaK9Ian3Iew8d7n9lCO8mKa8it7+3+w/b/X/j+I+yx7+Xim7r/DySd5+////yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOklu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">
+	</div>
+</div>
+<!-- End Preloader -->    
+    <!-- WRAPPER                                   -->
+    
+    <div id="pageWrapper" class="page-wrapper">
+        <!-- –––––––––––––––[ HEADER ]––––––––––––––– -->
+        <header id="mainHeader" class="main-header">
+
+	<!-- Top Bar -->
+	<!--<div class="top-bar bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-4 is-hidden-sm-down">
+					<ul class="nav-top nav-top-left list-inline t-left">
+						<li><a href="javascript:$zopim.livechat.window.show();"><i class="fa fa-support"></i>Have a Question?</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<!-- End Top Bar -->
+
+	<!-- Header Header -->
+	<div class="header-header bg-white">
+		<div class="container">
+			<div class="row row-rl-0 row-tb-20 row-md-cell">
+				<div class="brand col-md-3 t-xs-center t-md-left valign-middle">
+					<a href="/" class="logo">
+						<img src="https://s3-ap-southeast-1.amazonaws.com/spiking/spiking_black.png" alt="" width="150">
+					</a>
+				</div>
+				<div class="header-search col-md-9">
+					<div class="row row-tb-10 ">
+						<div class="col-sm-8">
+							<form class="search-form" method="get" action="/search.php">
+								<div class="input-group">
+									<input type="text" name="search" value="" class="form-control input-lg search-input" placeholder="Enter Keyword Here ..." required="required" maxlength="300">
+									<div class="input-group-btn">
+										<div class="input-group">
+											<select name="type" class="form-control input-lg search-select" required="required">
+												<option value="investors" >Investors</option>
+												<option value="companies" >Companies</option>
+												<option value="users" >Users</option>
+											</select>
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-lg btn-search btn-block">
+													<i class="fa fa-search font-16"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-4 t-xs-center t-md-right">
+							<div class="header-cart" style="padding-left:0;width: 65px;">
+								<a href="/notifications.php">
+									<div style="text-align: right;"><span class="lnr lnr-alarm" style="font-size: 34px;font-weight: normal;position: relative;right: 5px;"></span>
+									</div>
+									<span class="title">Notifications</span>
+								</a>
+							</div>
+							<div class="header-wishlist ml-20">
+								<a href="/account.php">
+									<div><span class="lnr lnr-license" style="font-size: 34px;font-weight: normal;"></span>
+									</div>
+									<span class="title">Deals</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Header Header -->
+
+	<!-- Header Menu -->
+	<div class="header-menu bg-blue">
+		<div class="container">
+			<nav class="nav-bar">
+				<div class="nav-header">
+					<span class="nav-toggle" data-toggle="#header-navbar" style="padding:20px 4px;">
+						<i></i>
+						<i></i>
+						<i></i>
+					</span>
+				</div>
+				<div id="header-navbar" class="nav-collapse">
+					<ul class="nav-menu">
+						<li >
+							<a href="/">Home</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://blog.spiking.com">Blog</a>
+						</li>
+						<li >
+							<a target="_blank" href="/about">About</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://spiking.eventbrite.com#live_events">Events</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://angel.co/spiking/jobs">Jobs</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://spiking.zendesk.com">FAQ</a>
+						</li>
+						<li >
+							<a target="_blank" href="/download">Why Spiking?</a>
+						</li>
+					</ul>
+				</div>
+				<div class="nav-menu nav-menu-fixed" style="background: #314555 !important;">
+												<a href="/login.php" style="padding:0; background:none;"><i class="fa fa-user" style="padding-right:10px;"></i>Log In or Sign Up</a>
+										</div>
+			</nav>
+		</div>
+	</div>
+	<!-- End Header Menu -->
+
+</header>        <!-- –––––––––––––––[ HEADER ]––––––––––––––– -->
+
+        <!-- –––––––––––––––[ PAGE CONTENT ]––––––––––––––– -->
+        <main id="mainContent" class="main-content">
+							<!-- particles.js container -->
+				<div class="particles-container" style="display:block; position:relative;">
+					<div style="position:absolute; text-align: center; width: 100%; height: 100%; color: #fff;">
+						<div style="width:100%; height:100%; display: flex; flex-direction: column; justify-content: center; align-items: center; flex-wrap: wrap;">
+							<h1 style="font-size:50px;font-weight: bold;">Invest alongside the Leading investors</h1>
+							<h2 style="font-size:25px; margin-bottom:30px;">Powered by Spiking's Artificial Intelligence &amp; Behavorial Finance</h2>
+							<a href="/download.php" class="btn homepage-btn" style="text-transform:none; margin-bottom:30px;border-radius:3px; max-width:90%;">Invest and earn more with Spiking</a>
+							<p>
+								<a href="https://spiking.com/itunes" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/spiking/web/app_icon/appstore.svg" style="display:inline-block; max-width:75%;"></a>
+								<a href="https://spiking.com/android" target="_blank"><img style="display:inline-block; max-width:75%; margin-left:15px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/web/app_icon/googleplay.svg"></a>
+							</p>
+						</div>
+					</div>
+					<div id="particles-js"></div>
+				</div>
+			            <div class="page-container ptb-10">
+                <div class="container">
+							
+                    <!--<div class="section deals-header-area ptb-30">
+                        <div class="row row-tb-20">
+                            <div class="col-xs-12 col-md-4 col-lg-3">
+                                <aside>
+                                    <ul class="nav-coupon-category panel">
+                                        <li><a href="#"><i class="fa fa-cutlery"></i>Food &amp; Drink<span>40</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-calendar"></i>Events<span>42</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-female"></i>Beauty<span>48</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-bolt"></i>Fitness<span>33</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-image"></i>Furniture<span>50</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-umbrella"></i>Fashion<span>33</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i>Shopping<span>37</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-home"></i>Home &amp; Graden<span>30</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-plane"></i>Travel<span>48</span></a>
+                                        </li>
+                                        <li class="all-cat">
+                                            <a class="font-14" href="#">All Categories</a>
+                                        </li>
+                                    </ul>
+                                </aside>
+                            </div>
+                            <div class="col-xs-12 col-md-8 col-lg-9">
+                                <div class="header-deals-slider flexslider" id="header-deals-slider">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="deal-single panel item">
+                                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/assets/img/satya-nadella1.jpg">
+													<div class="slider-ribbon">Featured</div>
+                                                    <ul class="deal-actions top-10 left-10" style="display:none;">
+                                                        <li class="like-deal">
+                                                            <span>
+                                                                <i class="fa fa-heart"></i>
+                                                            </span>
+                                                        </li>
+                                                        <li class="share-btn">
+                                                            <div class="share-tooltip fade">
+                                                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                                                            </div>
+                                                            <span><i class="fa fa-share-alt"></i></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fa fa-camera"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="deal-about p-20 pos-a bottom-0 left-0">
+                                                        <div class="rating mb-10">
+                                                            <span class="rating-stars" data-rating="5">
+                                                                <i class="fa fa-star-o star-active"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                            <span class="rating-reviews color-light">
+                                                                ( <span class="rating-count">241</span> Bullish )
+                                                            </span>
+                                                        </div>
+                                                        <h3 class="deal-title mb-10 ">
+                                                            <a href="deal.php" class="color-light color-h-lighter">Natya Sadella, Microsoft CEO bought 1M USD of Microsoft shares</a>
+                                                        </h3>
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deal-single panel item">
+                                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9"  data-bg-img="/assets/img/elon-musk-owner-spacex-tesla-motors-solar-city.jpg">
+													<div class="slider-ribbon">Featured</div>
+                                                    <ul class="deal-actions top-10 left-10" style="display:none;">
+                                                        <li class="like-deal">
+                                                            <span>
+                                                                <i class="fa fa-heart"></i>
+                                                            </span>
+                                                        </li>
+                                                        <li class="share-btn">
+                                                            <div class="share-tooltip fade">
+                                                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                                                            </div>
+                                                            <span><i class="fa fa-share-alt"></i></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fa fa-camera"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="deal-about p-20 pos-a bottom-0 left-0">
+                                                        <div class="rating mb-10">
+                                                            <span class="rating-stars" data-rating="5">
+                                                                <i class="fa fa-star-o star-active"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                            <span class="rating-reviews color-light">
+                                                            ( <span class="rating-count">132</span> Bullish )
+                                                            </span>
+                                                        </div>
+                                                        <h3 class="deal-title mb-10 ">
+                                                            <a href="deal.php" class="color-light color-h-lighter">Elon Musk, Tesla CEO bought 10M USD of Tesla shares</a>
+                                                        </h3>
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deal-single panel item">
+                                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9"  data-bg-img="/assets/img/15cook-superJumbo.jpg">
+													<div class="slider-ribbon">Featured</div>
+                                                    <ul class="deal-actions top-10 left-10" style="display:none;">
+                                                        <li class="like-deal">
+                                                            <span>
+                                                                <i class="fa fa-heart"></i>
+                                                            </span>
+                                                        </li>
+                                                        <li class="share-btn">
+                                                            <div class="share-tooltip fade">
+                                                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                                                            </div>
+                                                            <span><i class="fa fa-share-alt"></i></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fa fa-camera"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="deal-about p-20 pos-a bottom-0 left-0">
+                                                        <div class="rating mb-10">
+                                                            <span class="rating-stars" data-rating="5">
+                                                                <i class="fa fa-star-o star-active"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                            <span class="rating-reviews color-light">
+                                                            ( <span class="rating-count">160</span> Bullish )
+                                                            </span>
+                                                        </div>
+                                                        <h3 class="deal-title mb-10 ">
+                                                            <a href="deal.php" class="color-light color-h-lighter">Tim Cook, Apple CEO bought 140M USD of Apple shares</a>
+                                                        </h3>
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+										                    <!--<div class="section explain-process-area ptb-30">
+                        <div class="row row-rl-10">
+                            <div class="col-md-4">
+								<h6 class="store-name ptb-10" style="text-align: center;font-weight: bold;background: #417dc1;color: #fff; border-top-right-radius: 3px;border-top-left-radius: 3px;">STEP 1</h6>
+                                <div class="item panel prl-15 ptb-20">
+                                    <div class="row row-rl-5 row-xs-cell">
+                                        <div class="col-xs-4 valign-middle">
+                                            <img class="pr-10" src="/assets/tpl/images/icons/tablet.png" alt="">
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <h5 class="mb-10 pt-5">Tap on the power of AI & Behavorial Finance</h5>
+                                            <p class="color-mid">Find the best deals that are going to spike!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+								<h6 class="store-name ptb-10" style="text-align: center;font-weight: bold;background: #417dc1;color: #fff; border-top-right-radius: 3px;border-top-left-radius: 3px;">STEP 2</h6>
+                                <div class="item panel prl-15 ptb-20">
+                                    <div class="row row-rl-5 row-xs-cell">
+                                        <div class="col-xs-4 valign-middle">
+                                            <img class="pr-10" src="/assets/tpl/images/icons/online-shop-6.png" alt="">
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <h5 class="mb-10 pt-5">Connect The Dots based on AI Curated News</h5>
+                                            <p class="color-mid">Save the hassle on finding news!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+								<h6 class="store-name ptb-10" style="text-align: center;font-weight: bold;background: #417dc1;color: #fff; border-top-right-radius: 3px;border-top-left-radius: 3px;">STEP 3</h6>
+                                <div class="item panel prl-15 ptb-20">
+                                    <div class="row row-rl-5 row-xs-cell">
+                                        <div class="col-xs-4 valign-middle">
+                                            <img class="pr-10" src="/assets/tpl/images/icons/money.png" alt="">
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <h5 class="mb-10 pt-5">Trade Alongside The Big Boys and Make money</h5>
+                                            <p class="color-mid">Gives you the psychological edge when it come to investing</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+															
+                    <section class="section latest-deals-area ptb-30" >
+
+						<header class="panel ptb-15 prl-20 pos-r mb-30">
+                            <h3 class="section-title font-18"><img style="width: 25px; margin-right: 10px; position: relative; bottom: 2px;"src="https://s3-ap-southeast-1.amazonaws.com/spiking/spiking_mobile/sg_flag.png">SGX</h3>
+							<a href="/deals.php?market=SGX" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                        </header>
+                        <div class="row row-masnory row-tb-20 mb-30">
+							<div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9151.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">2 invested</span>
+					<br>
+					<a href="/v/chanhengfai"><img title="Chan Heng Fai - Millionaire" alt="Chan Heng Fai" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/1872.jpg"></a><a href="/v/hengfaibusine1"><div title="Hengfai Business Development Pte. Ltd. - Millionaire" data-id="27" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/03 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9151"></a><a href="/SGX/40V"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/688.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9151">SINGAPORE EDEVELOPMENT LTD</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$526.6K</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9151" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9146.jpg">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">2 invested</span>
+					<br>
+					<a href="/v/kohweeseng"><img title="Koh Wee Seng - Billionaire" alt="Koh Wee Seng" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/162.jpg"></a><a href="/v/kohleehwee"><div title="Koh Lee Hwee - Millionaire" data-id="48" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/04 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9146"></a><a href="/SGX/5UF"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/521.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9146">MAXI-CASH FIN SVCS CORP LTD</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$1.1M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9146" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9154.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">2 invested</span>
+					<br>
+					<a href="/v/phileocapital"><div title="Phileo Capital Limited - Millionaire" data-id="49" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a><a href="/v/ngshinein"><img title="Ng Shin Ein - Blue Whale" alt="Ng Shin Ein" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/150747.png"></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/05 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9154"></a><a href="/SGX/U09"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/809.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9154">UPP HOLDINGS LIMITED</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$1.3M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9154" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9147.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">1 invested</span>
+					<br>
+					<a href="/v/sinkwongwahan"><img title="Sin Kwong Wah Andrew - Millionaire" alt="Sin Kwong Wah Andrew" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/1442.jpg"></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/07 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9147"></a><a href="/SGX/M03"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/541.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9147">MIYOSHI LIMITED</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$582.8K</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9147" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9144.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">1 invested</span>
+					<br>
+					<a href="/v/ongsekchongso1"><div title="Ong Sek Chong & Sons Pte. Ltd. - Millionaire" data-id="61" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/12 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9144"></a><a href="/SGX/L03"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/465.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9144">LIAN BENG GROUP LTD</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$2.8M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9144" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/9145.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">1 invested</span>
+					<br>
+					<a href="/v/temasekholdings"><img title="Temasek Holdings (Private) Limited - Billionaire" alt="Temasek Holdings (Private) Limited" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/11250_1.png"></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/04/17 09:00:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=9145"></a><a href="/SGX/B2F"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/sgx/510.PNG">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=9145">M1 LIMITED</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>SGX</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$3.2M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">SGD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=9145" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div>
+                        </div>						
+						<header class="panel ptb-15 prl-20 pos-r mb-30">
+                            <h3 class="section-title font-18"><img style="width: 25px; margin-right: 10px; position: relative; bottom: 2px;"src="https://s3-ap-southeast-1.amazonaws.com/spiking/spiking_mobile/usa_flag.png">US</h3>
+							<a href="/deals.php?market=US" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                        </header>
+                        <div class="row row-masnory row-tb-20">
+							<div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/8347.jpg">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">2 invested</span>
+					<br>
+					<a href="/v/akkarajusrinivas"><div title="Akkaraju Srinivas - Millionaire" data-id="2" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a><a href="/v/springhornjerem"><div title="Springhorn Jeremy P. - Blue Whale" data-id="3" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#EF6125; text-align:center; font-weight:bold; ">W</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/03/20 22:30:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=8347"></a><a href="/NASDAQ/SYRS"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/newus/3068.jpg">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=8347">Syros Pharmaceuticals Inc.</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>NASDAQ</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$3.1M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">USD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=8347" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/8386.png">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">2 invested</span>
+					<br>
+					<a href="/v/silverlakesumer"><div title="Silver Lake Sumeru (offshore) Aiv Gp, Ltd. - Millionaire" data-id="4" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a><a href="/v/silverlakeoffsh"><div title="Silver Lake (offshore) Aiv Gp Iii, Ltd. - Millionaire" data-id="5" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/03/22 22:30:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=8386"></a><a href="/NASDAQ/SGH"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/newus/13646.jpg">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=8386">Smart Global Holdings Inc.</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>NASDAQ</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$33M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">USD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=8386" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/8395.jpg">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">3 invested</span>
+					<br>
+					<a href="/v/rappmichael"><div title="Rapp Michael - Millionaire" data-id="7" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a><a href="/v/anidoarmando"><div title="Anido Armando - Millionaire" data-id="8" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a><a href="/v/fickenscherjamese"><div title="Fickenscher James E - Millionaire" data-id="9" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#90AA3C; text-align:center; font-weight:bold; ">M</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/03/27 22:30:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=8395"></a><a href="/NASDAQ/ZYNE"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/newus/3508.jpeg">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=8395">Zynerba Pharmaceuticals Inc.</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>NASDAQ</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$1.4M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">USD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=8395" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/8417.jpg">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">1 invested</span>
+					<br>
+					<a href="/v/murphyglenn"><img title="Murphy Glenn - Millionaire" alt="Murphy Glenn" class="investor-list-icons" style="cursor:pointer; border-radius: 50%; width: 35px; height:35px; margin-right:5px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/profile/newsg/103375.png"></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/03/28 22:30:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=8417"></a><a href="/NASDAQ/LULU"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/newus/2087.png">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=8417">Lululemon Athletica Inc.</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>NASDAQ</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$5.5M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">USD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=8417" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div><div class="col-sm-6 col-lg-4"><div class="deal-single panel"><figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="https://s3-ap-southeast-1.amazonaws.com/spiking/web/deals/8434.jpg">
+			<div class="card-lead-investor-image" style="position:absolute; padding:10px; color:#fff; padding-left:15px;">
+					<span style="color:#fff; font-size:14px;">1 invested</span>
+					<br>
+					<a href="/v/sorosfundmanage"><div title="Soros Fund Management Llc - Billionaire" data-id="21" class="anonymous-investor-list-icons" style="margin-right:5px; cursor:pointer; color:#fff; display:inline-block; border-radius: 50%; width: 35px; background:#590A30; text-align:center; font-weight:bold; ">B</div></a>
+								</div>
+			<div class="time-left bottom-15 right-20 font-md-14">
+				<span>				
+Spiking in <span data-countdown="2018/03/29 22:30:00"></span>
+</span>
+			</div><a class="deal_link" href="/deal.php?deal_id=8434"></a><a href="/NASDAQ/SIGM"><div class="deal-store-logo">
+					<img style="max-width:50px; max-height:50px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; padding: 3px;" src="https://s3-ap-southeast-1.amazonaws.com/spiking/pics/company/newus/2906.png">
+				</div></a></figure><div class="bg-white pt-15 pl-15 pr-15">
+			<div>
+				<div class="rating mb-10" style="display:none;">
+					<span class="rating-stars rate-allow" data-rating="5">
+	<i class="fa fa-star-o star-active"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star-o"></i>
+</span>
+					<span class="rating-reviews">
+	( <span class="rating-count">132</span> Bullish )
+					</span>
+				</div><h3 class="deal-title" style="text-align:center; max-width:100%; overflow:hidden;  white-space:nowrap; font-weight:900;"><a href="deal.php?deal_id=8434">Sigma Designs Inc.</a></h3>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-map-marker icon-margin mr-10"></i>NASDAQ</div>
+							<div style="text-align:center; overflow:hidden; max-width:100%; " class="deal-meta list-inline color-mid"><i class="fa fa-dot-circle-o icon-margin mr-10"></i>EARNINGS</div></div><div class="deal-price pos-r mb-15">
+					<div class="card-lead-investor ">
+									<div style="float:left;text-align: left;"><span style="color:#717f86 !important;">Total Invested</span><br><h3 style="float: left;padding: 0;font-size: 25px; font-weight:600;" class="price text-right">$8.8M</h3> <span style="color:#417dc1 !important; position:relative; top:10px;">USD</span></div>
+									<div style="float:right;text-align: right;"><span style="color:#fff !important;">VIEW</span><br> <a href="/deal.php?deal_id=8434" class="btn btn-o btn-xs " style="height: 30px;line-height: 24px;width: 100px;">VIEW</a></div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>
+						</div></div></div>
+                        </div>
+						<br><span style="font-size:8px;">*Estimated earnings announcement dates</span>
+                    </section>
+					
+										
+					                    <section class="section latest-news-area blog-area blog-grid blog-3-col ptb-30">
+                        <header class="panel ptb-15 prl-20 pos-r mb-30">
+                            <h3 class="section-title font-18">Latest Videos</h3>
+                            <a target="_blank" href="https://www.youtube.com/channel/UC1WFqM0wBU3oN24d72Ss3PQ/" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                        </header>
+
+                        <div class="row row-tb-20">
+
+                            <!-- Blog Post -->
+                            <div class="blog-post col-xs-12 col-sm-6 col-md-4">
+                                <article class="entry panel">
+                                    <figure class="entry-media embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube.com/embed/J2K-mx59X04?showinfo=0&controls=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </figure>
+                                    <div class="entry-wrapper pt-20 pb-10 prl-20">
+                                        <header class="entry-header">
+                                            <h4 class="entry-title mb-10 mb-md-15 font-xs-16 font-sm-18 font-md-16 font-lg-16">
+												<a href="https://www.youtube.com/watch/J2K-mx59X04?showinfo=0&controls=0">Spiking - Fundamental versus Technical Analysis</a>
+											</h4>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p class="entry-summary">The Differences. Technical analysts typically begin their analysis with charts, while fundamental...</p>
+                                        </div>
+                                        <footer class="entry-footer text-right">
+                                            <a href="https://www.youtube.com/watch/J2K-mx59X04?showinfo=0&controls=0" class="more-link btn btn-link">Watch Video <i class="icon fa fa-long-arrow-right"></i></a>
+                                        </footer>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- End Blog Post -->
+
+                            <!-- Blog Post -->
+                            <div class="blog-post col-xs-12 col-sm-6 col-md-4">
+                                <article class="entry panel">
+                                    <figure class="entry-media embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube.com/embed/5K-rpEK5Zf4?showinfo=0&controls=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </figure>
+                                    <div class="entry-wrapper pt-20 pb-10 prl-20">
+                                        <header class="entry-header">
+                                            <h4 class="entry-title mb-10 mb-md-15 font-xs-16 font-sm-18 font-md-16 font-lg-16">
+                    							<a href="bhttps://www.youtube.com/watch/5K-rpEK5Zf4?showinfo=0&controls=0">How to study Rowsley’s third revival in a decade?</a>
+                    						</h4>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p class="entry-summary">Rowsley's third revival act in a decade should prompt caution...</p>
+                                        </div>
+                                        <footer class="entry-footer text-right">
+                                            <a href="https://www.youtube.com/watch/5K-rpEK5Zf4?showinfo=0&controls=0" class="more-link btn btn-link">Watch Video <i class="icon fa fa-long-arrow-right"></i></a>
+                                        </footer>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- End Blog Post -->
+
+                            <!-- Blog Post -->
+                            <div class="blog-post col-xs-12 col-sm-6 col-md-4">
+                                <article class="entry panel">
+                                    <figure class="entry-media embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube.com/embed/zVVM90bZ_FE?showinfo=0&controls=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </figure>
+                                    <div class="entry-wrapper pt-20 pb-10 prl-20">
+                                        <header class="entry-header">
+                                            <h4 class="entry-title mb-10 mb-md-15 font-xs-16 font-sm-18 font-md-16 font-lg-16">
+												<a href="https://www.youtube.com/watch/zVVM90bZ_FE?showinfo=0&controls=0">IBM Connect - Clemen Chiang Ask Me Anything with e27</a>
+											</h4>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p class="entry-summary">IBM sees a cognitive future and wants startups to take part in it. IBM Connect2017 is bringing together over 150 startup founders...</p>
+                                        </div>
+                                        <footer class="entry-footer text-right">
+                                            <a href="https://www.youtube.com/watch/zVVM90bZ_FE?showinfo=0&controls=0" class="more-link btn btn-link">Watch Video <i class="icon fa fa-long-arrow-right"></i></a>
+                                        </footer>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- End Blog Post -->
+
+                        </div>
+                    </section>
+										
+					                    <section class="section subscribe-area ptb-40 t-center">
+                        <div class="newsletter-form">
+                            <h4 class="mb-20"><i class="fa fa-envelope-o color-green mr-10"></i>Sign up for our weekly email newsletter</h4>
+                            <p class="mb-20 color-mid">Get to know the latest investment opportunities first-hand</p>
+                            <form method="post" action="#">
+                                <div class="input-group mb-10">
+                                    <span class="input-group-btn">
+                                        <button class="btn" type="submit" onclick="showMailPopup(); return false;" style="border-radius:3px;">Click here to Subscribe</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <p class="color-muted"><small>We’ll never share your email address with a third-party.</small> </p>
+                        </div>
+                    </section>
+					                </div>
+            </div>
+
+
+        </main>
+        <!-- –––––––––––––––[ END PAGE CONTENT ]––––––––––––––– -->
+        <!--<section class="footer-top-area pt-70 pb-30 pos-r bg-blue">
+	<div class="container">
+		<div class="row row-tb-20">
+			<div class="col-sm-12 col-md-7">
+				<div class="row row-tb-20">
+					<div class="footer-col col-sm-6">
+						<div class="footer-about">
+							<img class="mb-40" src="assets/images/logo_light.png" width="250" alt="">
+							<p class="color-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolores quidem mollitia id ipsa nisi necessitatibus iure repudiandae aperiam, odit ipsam dolor fugiat corporis nesciunt illo nemo minus.</p>
+						</div>
+					</div>
+					<div class="footer-col col-sm-6">
+						<div class="footer-top-twitter">
+							<h2 class="color-lighter">Twitter Feed</h2>
+							<ul class="twitter-list">
+								<li class="single-twitter">
+									<p class="color-light"><i class="ico fa fa-twitter"></i><a href="#">@masum_rana :</a> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore in reprehenderit.</p>
+								</li>
+								<li class="single-twitter">
+									<p class="color-light"><i class="ico fa fa-twitter"></i><a href="#">@masum_rana :</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione id corrupti iusto cupiditate omnis.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-5">
+				<div class="row row-tb-20">
+					<div class="footer-col col-sm-6">
+						<div class="footer-links">
+							<h2 class="color-lighter">Quick Links</h2>
+							<ul>
+								<li><a href="deals_grid.html">Latest Deals</a>
+								</li>
+								<li><a href="coupons_grid.html">Newest Coupons</a>
+								</li>
+								<li><a href="contact_us_02.html">Contact Us</a>
+								</li>
+								<li><a href="404.html">Error 404</a>
+								</li>
+								<li><a href="terms_conditions.html">Terms of Use</a>
+								</li>
+								<li><a href="faq.html">FAQs</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-col col-sm-6">
+						<div class="footer-top-instagram instagram-widget">
+							<h2>Instagram Widget</h2>
+							<div class="row row-tb-5 row-rl-5">
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_01.jpg" alt="">
+								</div>
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_02.jpg" alt="">
+								</div>
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_03.jpg" alt="">
+								</div>
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_04.jpg" alt="">
+								</div>
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_05.jpg" alt="">
+								</div>
+
+
+								<div class="instagram-widget__item col-xs-4">
+									<img src="assets/images/instagram/instagram_06.jpg" alt="">
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="payment-methods t-center">
+					<span><img src="assets/images/icons/payment/paypal.jpg" alt=""></span>
+					<span><img src="assets/images/icons/payment/visa.jpg" alt=""></span>
+					<span><img src="assets/images/icons/payment/mastercard.jpg" alt=""></span>
+					<span><img src="assets/images/icons/payment/discover.jpg" alt=""></span>
+					<span><img src="assets/images/icons/payment/american.jpg" alt=""></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>-->    </div>
+	<!-- –––––––––––––––[ FOOTER ]––––––––––––––– -->
+		<div class="footer">
+	<div class="container footer-container">
+		<div class="footer-distributed">
+			<div class="footer-right">
+
+				<p class="footer-links social-links">
+					<a target="_blank" href="https://www.facebook.com/stockspiking"><i class="fa fa-facebook" aria-hidden="true" style="margin-left:0;"></i></a>
+					<a target="_blank" href="https://twitter.com/StockSpiking"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<a target="_blank" href="https://www.instagram.com/stockspiking/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a target="_blank" href="https://blog.spiking.com"><i class="fa fa-medium" aria-hidden="true"></i></a>
+					<a target="_blank" href="https://www.linkedin.com/company/10619159"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</p>
+
+				<a target="_blank" href="http://wearemadeinsg.com/" style="color:#647d89;">Made with <i class="fa fa-heart" aria-hidden="true" style="color:#ed2c43;"></i> in SG.</a>
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a target="_blank" href="https://spiking.com/tos">Terms Of Service</a>
+					·
+					<a target="_blank" href="https://spiking.com/privacy">Privacy Policy</a>
+					·
+					<a target="_blank" href="https://spiking.zendesk.com">Contact Us</a>
+				</p>
+
+				<p>© 2018 Aly Pte. Ltd.</p>
+			</div>
+		</div>
+	</div>
+</div>    <!-- –––––––––––––––[ END FOOTER ]––––––––––––––– -->
+    
+    <!-- END WRAPPER                               -->
+    
+
+
+    
+    <!-- BACK TO TOP                               -->
+    
+    <div id="backTop" class="back-top is-hidden-sm-down">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </div>
+
+    
+    <!-- SCRIPTS                                   -->
+    
+
+    <!-- (!) Placed at the end of the document so the pages load faster -->
+
+    
+    <!-- Initialize jQuery library                 -->
+    
+    <script src="/assets/tpl/js/jquery-1.12.3.min.js"></script>
+	
+    
+    <!-- Latest compiled and minified Bootstrap    -->
+    
+    <script type="text/javascript" src="/assets/tpl/js/bootstrap.min.js"></script>
+
+    
+    <!-- JavaScript Plugins                        -->
+    
+    <!-- (!) Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- Modernizer JS -->
+    <script src="/assets/tpl/vendors/modernizr/modernizr-2.6.2.min.js"></script>
+    
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="/assets/tpl/vendors/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- FlexSlider -->
+    <script type="text/javascript" src="/assets/tpl/vendors/flexslider/jquery.flexslider-min.js"></script>
+
+    <!-- Coutdown -->
+    <script type="text/javascript" src="/assets/tpl/vendors/countdown/jquery.countdown.js"></script>
+
+    
+    <!-- Custom Template JavaScript                -->
+    
+    <script type="text/javascript" src="/assets/tpl/js/main.js"></script>
+	
+	<!-- Particles -->
+	<script src="/assets/particles/particles.js"></script>
+	<script src="/assets/particles/js/app.js"></script>
+	
+	<script>
+	$(".deal-thumbnail").click(function(){
+		window.location=$(this).find("a.deal_link").attr("href"); 
+		return false;
+	});
+
+	$(".deal-thumbnail a").click(function (e) {
+		e.stopPropagation();
+	});
+	</script>
+	
+	<!-- MailChimp -->
+	<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+	<script type="text/javascript">
+	function showMailPopup() {
+		document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+		document.cookie = "MCPopupSubscribed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+		require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"77b9e253d3476c76aae9a0cdd","lid":"3b04e30de6"})});
+	};
+	</script>	
+	<!-- Start of spiking Zendesk Widget script -->
+						<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="spiking.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
+							/*]]>*/</script>
+						<!-- End of spiking Zendesk Widget script --></body>
+
+</html>

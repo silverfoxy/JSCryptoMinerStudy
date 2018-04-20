@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- GOOGLE ADSENSE -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2058585023280102",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- END -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]><![endif]-->
+<title>Port Authority of New York &amp; New Jersey</title>
+<link rel="stylesheet" type="text/css" href="/css/template_home.css"/>
+<link rel="stylesheet" type="text/css" href="/css/new.css" />
+<link rel="stylesheet" type="text/css" href="/css/tabs-home-2.css"/>
+<link rel="stylesheet" type="text/css" href="/css/arc-thickbox.css"/>
+<!--[if (gt IE 7)|!(IE)]><!-->
+<link rel="stylesheet" href="/css/firefox_fix.css" />
+<!--<![endif]-->
+
+<script language="JavaScript" type="text/javascript">
+
+var tabNum = 0;
+
+function heroRotate()
+{
+	if (tabNum < 3)
+	{
+		tabNum++;
+	}
+	else
+	{
+		tabNum=1;
+	}
+
+	document.getElementById('simpleTabs-nav-' + tabNum).click();
+	
+	/*
+    $("#simpleTabsHero685").simpleTabs({
+                fadeSpeed: "medium", // @param : low, medium, fast
+                defautContent: tabNumFunc(tabNum), // @param : number ( simpleTabs-nav-number)
+                autoNav: "false", // @param : true or false
+                closeTabs : "false" // @param : true or false;
+    });         
+	*/
+	
+	heroRotateWait();
+}
+
+
+function heroRotateWait()
+{
+	window.setTimeout( 'heroRotate()', 14000);
+	 
+}
+
+function latestTwitter()
+{
+	xmlHttpT=GetXmlHttpObject();
+	if (xmlHttpT==null)
+	{
+		alert ("Browser does not support HTTP Request");
+		return;
+	}
+	
+	// https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=PANYNJ
+	var tab = document.getElementById('tabletwitter');
+	for(var i = tab.rows.length;i>0;i--)
+	{
+		tab.deleteRow(i -1);
+	}
+	
+	var url = 'ajax-twitter-rss-feed.cfm';	
+	url=url + '?maxposts=1';
+	url=url + '&sid=' + Math.random();
+	
+	xmlHttpT.onreadystatechange=latestTwitterCallBack;		
+	xmlHttpT.open("GET",url,false);
+	xmlHttpT.send(null);		
+}
+
+
+function latestTwitterCallBack()
+{
+	var postArray = new Array();
+	var fieldNameValueArray = new Array();
+	var fieldNameArray = new Array();
+	var fieldValueArray = new Array();
+	var fieldNameValuePair = new Array();
+	var fieldName;
+	var fieldValue;
+		
+	var title='';
+	var description='';
+	var pubDate='';
+
+	if (xmlHttpT.readyState==4 || xmlHttpT.readyState=="complete")
+	{		
+		//alert(xmlHttpT.responseText.slice(2500));
+		//alert(xmlHttpT.responseText);
+		if (xmlHttpT.responseText != '')
+		{
+			postArray = xmlHttpT.responseText.split('~');	// Twitter uses '|' in feed.
+			for (var i=0;i<postArray.length;i++)
+			{					
+				fieldNameValueArray = postArray[i].split('^');
+				for (var j=0;j<fieldNameValueArray.length;j++)
+				{
+					fieldNameValuePair = fieldNameValueArray[j].split('=');
+					fieldName = fieldNameValuePair[0];
+					fieldValue = fieldNameValuePair[1];		
+					switch(fieldName.toLowerCase())
+					{
+						case 'title':
+							title = fieldValue;
+							break;						
+						case 'description':
+							description = fieldValue;
+							break;	
+						case 'pubdate':
+							pubDate = fieldValue;
+							break;	
+					}
+				}		
+				addPost(pubDate, title, description);				
+			}
+		}
+	} 
+}
+
+
+function addPost(pubDate, title, description)
+{	
+	var tr;
+	var td;
+	var tab = document.getElementById('tabletwitter');
+		
+	tr = tab.insertRow(-1);		
+	td = tr.insertCell(0);
+	
+	//Fri, 03 May 2013 21:15:24 +0000
+	var dateArray = new Array();
+	dateArray = pubDate.split(' ');
+	var tempDay = dateArray[1];
+	if (dateArray[1].substring(0,1)=='0') 
+	{
+		tempDay = dateArray[1].substring(1,2);
+	}
+	
+	var formattedDate = dateArray[2] + ' ' + tempDay + ', ' + dateArray[3];
+	var milTime = new Date( 'Jan 1, 1970 ' + dateArray[4]);   
+	var formattedTime = (milTime.toLocaleString().split( '1970 '))[1];  
+
+	td.innerHTML = '<span style="font-size:11px;">' + formattedDate + ', ' + formattedTime + '</span>' + '<br /><span style="font-size:11px; color:#2368a9; font-weight:800;">' + description + '</span>';	
+	//td.style=.fontSize = '11px';
+	//td.style.display = 'none';
+
+
+	//td = tr.insertCell(0);
+	//td.className = 'small';
+	//td.innerHTML = '<br />' & title;
+}
+
+
+function highlightAlerts()
+{
+	var facilityList = 'ewr,jfk,lga,swf,path,bus,btt,port';
+	var facilityArray = new Array();
+	facilityArray = facilityList.split(',');
+	var tabSuffixList = 'b,c,d,e,f,g,h,i';
+	var tabSuffixArray = new Array();
+	tabSuffixArray = tabSuffixList.split(',');
+	
+	for (i=0;i<tabSuffixArray.length;i++)
+	{	
+		showAlerts(facilityArray[i],tabSuffixArray[i],false);
+	}
+}
+
+var tabClickedSuffix= '';
+var tabClickedClassName = '';
+
+function unselectTab(oldTabClickedSuffix,clickedTabSuffix,clickedClassName)
+{
+	if (oldTabClickedSuffix.length > 0)
+	{
+		document.getElementById('simpleTabs-nav-' + oldTabClickedSuffix).className = tabClickedClassName;	
+		tabClickedSuffix = clickedTabSuffix;
+		tabClickedClassName = clickedClassName;
+	}
+	else
+	{
+		oldTabClickedSuffix = clickedTabSuffix;
+		document.getElementById('simpleTabs-nav-' + oldTabClickedSuffix).className = tabClickedClassName;	
+		tabClickedSuffix = clickedTabSuffix;
+		tabClickedClassName = clickedClassName;
+	}
+}
+
+
+/* Cross-browser function that handles XML Http Request: */
+function GetXmlHttpObject()
+{
+	var xmlHttp=null;
+	try{
+		// Firefox, Opera 8.0+, Safari
+		xmlHttp=new XMLHttpRequest();
+		}catch (e){
+		//Internet Explorer
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+			}catch (e){
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	return xmlHttp;
+} 
+
+</script>
+<style>
+.facilityLeft {
+  float: left;
+  width: 185px;
+}
+.facilityCenter {
+  float: left;
+  width: 155px;
+}
+.facilityRight {
+  float: left;
+}
+.facilityBTLeft {
+  float: left;
+  width: 120px;
+}
+.facilityBTCenter {
+  float: left;
+  width: 180px;
+}
+.facilityBTRight {
+  float: left;
+  width: 150px;
+}
+.BTRLeft {
+  float: left;
+  width: 300px;
+}
+.BTRCenter {
+  float: left;
+  width: 140px;
+}
+.BTRRight {
+  float: left;
+  width: 150px;
+}
+#page .facilityBTLeft p, #page .facilityBTCenter p, #page .facilityBTRight p, #page .BTRLeft p, #page .BTRCenter p, #page .BTRRight p {
+  text-align: left;
+}
+#page p.airportParking {
+  background-color: #ffffff;
+  color: #084887;
+  font-weight: bold;
+  margin-left: 8px;
+  padding: 6px 0 3px 0;
+  text-align: center;
+  width: 100%;
+}
+#page .fullDiv p, #page .halfLeftDiv p, #page .halfLeftDiv p, #page .halfRightDiv p {
+  margin-bottom: 8px;
+}
+#columnLeftColumnWrapperLeft p {
+  line-height: 1.4;
+  margin-top: .25em;
+}
+#columnLeftColumnWrapperLeft h3 {
+  margin: .6em 0 0 8px;
+}
+#columnLeftColumnWrapperRight h2#airports {
+  background-image: url(/img/heading_module_bg_airports.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#tunnels_bridges {
+  background-image: url(/img/heading_module_bg_tunnels_bridges.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#path {
+  background-image: url(/img/heading_module_bg_path.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#world_trade_center {
+  background-image: url(/img/heading_module_bg_wtc.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#bus_terminals {
+  background-image: url(/img/heading_module_bg_bus_terminals.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#building_region {
+  background-image: url(/img/heading_module_bg_building_region.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#building_regional {
+  background-image: url(/img/heading_module_bg_bus_terminals.gif);
+  padding: 11px 0 0 46px;
+}
+#columnLeftColumnWrapperRight h2#cargo {
+  background-image: url(/img/heading_module_bg_cargo.gif);
+  padding: 11px 0 0 46px;
+}
+.smallicon {
+  cursor: pointer;
+}
+#alertsAll {
+  border: none;
+}
+.smallicon1 {
+  cursor: pointer;
+}
+#page div.basic p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: .5em;
+}
+#page div.basic {
+  background-color: #f5fafe;
+}
+#ewralerts, #jfkalerts, #lgaalerts, #swfalerts, #pathalerts, #busalerts, #bttalerts, #portalerts {
+  color: #555555;
+  font-size: 11px;
+}
+#simpleTabs2 .simpleTabs-nav #simpleTabs-nav-b {
+  margin-left: 94px;
+}
+#columnLeftColumnWrapperRight h2, #columnLeftColumnWrapperLeft h2 {
+  font-size: 16px;
+}
+.ruleDarker {
+  border-top: 1px solid #d3e0ee;
+  color: #d3e0ee;
+  margin-left: 8px;
+  width: 434px;
+}
+#tweetdate {
+  height: 20px;
+  font-size: 11px;
+  margin-left: 80px;
+  margin-top: 8px;
+}
+#page #columnRight p.photoCaption {
+  color: #2368a9;
+  font-size: 10px;
+  margin: 4px 0 0 0;
+  text-align: center;
+}
+#page .alertsCaption {
+  background-image: url(/img/form_tab_home_bottom_cap_bg.gif);
+  background-repeat: no-repeat;
+  color: #2368a9;
+  font-size: 10px;
+  margin: 2px 0 0 0;
+  padding: 5px 0 5px 0;
+  text-align: center;
+}
+#page #simpleTabsHero685 .simpleTabs-nav li {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+#page div.rssRow h2 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+#page div.rssRow p {
+  margin-top: 0.2em;
+}
+#page img.minusMargin {
+  margin-top: -2px;
+}
+</style>
+</head>
+<!-- <body> -->
+<body onLoad="heroRotate();">
+<!-- <body onLoad="latestTwitter('json'); heroRotate();"> -->
+<div id="wrapper">
+  <!-- BEGIN header  -->
+  <div id="header">
+    <div class="imghead2" style="float:right">
+      <img src="/img/shim.gif" alt="" width="314" height="11" border="0" />
+    </div>
+    <div class="imghead" style="float:left">
+      <a href="/"><img src="/img/mh_panynj.gif" alt="Port Authority of New York &amp; New Jersey" width="260" height="37" border="0" /></a>
+      <noscript>
+      <p class="noScriptHead">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off.<br /> To see this page as it is meant to appear please use a Javascript enabled browser.</p>
+      </noscript>
+    </div>
+    <br class="clearfloat" />
+  </div>
+  <!-- END header  --> 
+  <!-- BEGIN page content -->
+  <div id="page">
+    <!-- BEGIN left content  -->
+    <div id="columnLeft">
+      <div id="simpleTabs2">
+        <div class="simpleTabs-nav">
+          <ul>
+            <li id="simpleTabs-nav-b" onclick="unselectTab(tabClickedSuffix,'b',this.className); showAlerts('ewr','b',true);">Newark<br /> Airport</li>
+            <li id="simpleTabs-nav-c" onclick="unselectTab(tabClickedSuffix,'c',this.className); showAlerts('jfk','c',true);">JFK<br /> Airport</li>
+            <li id="simpleTabs-nav-d" onclick="unselectTab(tabClickedSuffix,'d',this.className); showAlerts('lga','d',true);">LaGuardia<br /> Airport</li>
+            <li id="simpleTabs-nav-e" onclick="unselectTab(tabClickedSuffix,'e',this.className); showAlerts('swf','e',true);">Stewart<br /> Airport</li>
+            <li id="simpleTabs-nav-f" onclick="unselectTab(tabClickedSuffix,'f',this.className); showAlerts('path','f',true);" style="padding-top:16px; padding-bottom:14px; margin-bottom:auto;">PATH</li>
+            <li id="simpleTabs-nav-g" onclick="unselectTab(tabClickedSuffix,'g',this.className); showAlerts('bus','g',true);">Bus<br /> Terminals</li>
+            <li id="simpleTabs-nav-h" onclick="unselectTab(tabClickedSuffix,'h',this.className); showAlerts('btt','h',true);">Bridges and<br /> Tunnels</li>
+            <li id="simpleTabs-nav-i" onclick="unselectTab(tabClickedSuffix,'i',this.className); showAlerts('port','i',true);">Port of<br /> NY/NJ</li>
+            <li id="simpleTabs-nav-a" style="padding-top:12px;background:none;border:none;"><img src="/img/icon_collapse_up.gif" alt="Collapse up" width="16" height="24" border="0" /></li>
+          </ul>
+        </div>
+        <div id="simpleTabs-content-b" class="simpleTabs-content" style="display:none;">
+          <h2>Newark Liberty International Airport Alerts</h2>
+          <div id="alertsewr">
+            <span id="ewralerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-c" class="simpleTabs-content" style="display:none;">
+          <h2>John F. Kennedy  International Airport Alerts</h2>
+          <div id="alertsjfk">
+            <span id="jfkalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-d" class="simpleTabs-content" style="display:none;">
+          <h2>LaGuardia Airport Alerts</h2>
+          <div id="alertslga">
+            <span id="lgaalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-e" class="simpleTabs-content" style="display:none;">
+          <h2>Stewart International Airport Alerts</h2>
+          <div id="alertsswf">
+            <span id="swfalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-f" class="simpleTabs-content" style="display:none;">
+          <h2>PATH Alerts</h2>
+          <div id="alertspath">
+            <span id="pathalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-g" class="simpleTabs-content" style="display:none;">
+          <h2>Bus Terminal Alerts</h2>
+          <div id="alertsbus">
+            <span id="busalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-h" class="simpleTabs-content" style="display:none;">
+          <h2>Bridge and Tunnel Alerts</h2>
+          <div id="alertsbtt">
+            <span id="bttalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <div id="simpleTabs-content-i" class="simpleTabs-content" style="display:none;">
+          <h2>Port Alerts</h2>
+          <div id="alertsport">
+            <span id="portalerts">Please wait.&nbsp; &nbsp;<img src="/img/loadingAnimation.gif" alt="" class="iconFooter" width="208" height="13" /><br /> <br /> </span>
+          </div>
+        </div>
+        <p class="alertsCaption">FACILITIES HIGHLIGHTED IN YELLOW ARE CURRENTLY BROADCASTING ALERTS -- CLICK RESPECTIVE TAB TO VIEW DETAILS.</p>
+      </div>
+      
+      <!-- HERO MODULES -->
+      <div id="hero">
+        <div id="alertsAll">
+          <span id="allAlerts"></span>
+        </div>
+        <div id="simpleTabsHero685" class="weatherhero">
+          <!-- COMMUTER CHAT --> 
+          <!--  <div id="simpleTabs-content-1" class="simpleTabs-content">
+            <a href="alerts-advisories/advisories-port-authority-bus-terminal.html" target="_blank"><img src="photo/bus-terminals/2016-12-05-CommuterChat_Q4_681x196.jpg" alt="PA Commuter Chat" width="681" height="196" border="0" /></a>
+          </div>
+          <!-- END -->
+          <!-- PATH EXTENSION --> 
+             <!-- <div id="simpleTabs-content-1" class="simpleTabs-content"> <a href="/path/path-extension.html"><img src="/photo/path/hero_path_exension_681x196.jpg" alt="PATH Extension Scoping Meetings" width="681" height="196" border="0" /></a></div>
+          <!-- END -->
+          <!-- BB WEEKEND --> 
+              <div id="simpleTabs-content-1" class="simpleTabs-content"> <a href="http://www.panynj.gov/alerts-advisories/advisories-bayonne-bridge.cfm"><img src="photo/bridges-tunnels/2018-03-16-BBNCP-PartialWeekendClosure_681x196.jpg" alt="Bayonne Bridge Weekend Closure" width="681" height="196" border="0" /></a></div>
+          <!-- END --> 
+          <!-- PUBLIC TRANSIT SECURITY AWARENESS --> 
+               <!-- <div id="simpleTabs-content-1" class="simpleTabs-content"> <a href="http://www.lookoutforsafety.com/" target="_blank"><img src="photo/police/hero_transit_security_awareness.jpg" alt="Public Transit Security Awareness" width="681" height="196" border="0" /></a></div>
+          <!-- END -->
+           <!-- BUDGET BOOK --> 
+             <div id="simpleTabs-content-2" class="simpleTabs-content"> <a href="http://corpinfo.panynj.gov/pages/budget/" target="_blank"><img src="photo/home/hero_budget_book_031618.jpg" alt="2018 Budget" width="681" height="196" border="0" /></a></div>
+          <!-- END -->
+          <!-- EMPLOYEE CODE OF ETHICS --> 
+             <div id="simpleTabs-content-3" class="simpleTabs-content"> <a href="http://corpinfo.panynj.gov/documents/Employee-Code-of-Ethics/" target="_blank"><img src="photo/home/hero_employee_code_of_ethics.jpg" alt="Employee Code of Ethics" width="681" height="196" border="0" /></a></div>
+          <!-- END --> 
+          <!-- AIRPORT SECURITY ID OFFICE --> 
+            <!-- <div id="simpleTabs-content-1" class="simpleTabs-content"> <a href="/airports/security-id-office.html"><img src="photo/airports/hero_airport_security-id-office.jpg" alt="Employee Code of Ethics" width="681" height="196" border="0" /></a></div>
+          <!-- END --> 
+          <!-- GOETHALS -->
+          <!-- <div id="simpleTabs-content-3" class="simpleTabs-content">
+            <img src="photo/bridges-tunnels/2017-06-12-GB-SpanOpen_681x196.jpg" alt="Open Application May 22-June 26" width="681" height="196" usemap="#Map" border="0" />
+            <map name="Map" id="Map">
+              <area shape="rect" coords="454,128,566,153" href="bridges-tunnels/goethals-bridge-replacement-gallery.html" />
+              <area shape="rect" coords="454,161,567,184" href="http://www.panynj.gov/press-room/press-item.cfm?headLine_id=2722" />
+            </map>
+          </div>
+          <!-- END --> 
+          <!-- Navigational Clearance Project -->
+          <!-- <div id="simpleTabs-content-4" class="simpleTabs-content">
+            <a href="http://www.panynj.gov/press-room/press-item.cfm?headLine_id=2721" target="_blank"><img src="photo/bridges-tunnels/navigational-clearance-project-complete.jpg" alt="Open Application May 22-June 26" width="681" height="196" border="0" /></a>
+          </div>
+          <!-- END --> 
+          <!-- WTC Green Market -->
+          <!-- <div id="simpleTabs-content-4" class="simpleTabs-content">
+            <a href="https://www.westfield.com/westfieldworldtradecenter/events/all-events/greenmarket-at-oculus-plaza/41493" target="_blank"><img src="photo/home/pa_home_wtcgreenmarketmod.681x196.jpg" alt="WTC Green Market" width="681" height="196" border="0" /></a>
+          </div>
+          <!-- END --> 
+          <!-- HERO BANNER NAV-->
+          <div class="simpleTabs-nav">
+            <ul>
+              <!--<li id="simpleTabs-nav-1" onclick="tabNum=1;">Commuter Chat</li>  --> 
+             <!-- <li id="simpleTabs-nav-1" onclick="tabNum=1;">PATH Extension</li> -->
+         <!-- <li id="simpleTabs-nav-1" onclick="tabNum=1;">Transit Security Awareness</li> -->
+              <li id="simpleTabs-nav-1" onclick="tabNum=1;">Bayonne Weekend</li>
+              <li id="simpleTabs-nav-2" onclick="tabNum=2;">2018 Budget</li>
+              <li id="simpleTabs-nav-3" onclick="tabNum=3;">Employee Code of Ethics</li>
+             
+              <!-- <li id="simpleTabs-nav-1" onclick="tabNum=1;">Airport Security ID Office</li> -->
+              <!-- <li id="simpleTabs-nav-2" onclick="tabNum=2;">Penn Station Repairs</li> -->
+              
+             <!-- <li id="simpleTabs-nav-3" onclick="tabNum=3;">Goethals Bridge</li> -->
+             <!-- <li id="simpleTabs-nav-4" onclick="tabNum=4;">Navigational Clearance Project</li> -->
+              <!--<li id="simpleTabs-nav-4" onclick="tabNum=4;">Green Market Tuesday</li>-->
+              <!-- END HERO BANNER NAV-->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="weatherAlert">
+        <a href="/alerts-advisories/inclement-weather.html"><img src="/photo/alerts/hero_snow_advisory-plow.jpg" class="photo" alt="Weather Advisory" width="681" height="196" border="0"/></a>
+      </div>
+      <!-- END HERO MODULES --> 
+      <!-- BEGIN lower left wrapper  -->
+      <div id="columnLeftColumnWrapperLeft">
+        <div class="formDiv">
+          <h2>Service Alerts</h2>
+          <p class="marbottom10">Get  service alerts on your phone, other mobile device, or email.  <br /> <a href="/alerts-advisories/">Click here</a> for the Alerts page.</p>
+        </div>
+        <div class="formDiv">
+          <h2>Follow us on Twitter &nbsp;<span><img src="/img/icon_twitter.gif" alt="Twitter" width="26" height="26" align="middle" /></span></h2>
+          <p class="marbottom10">Stay up to date on  Port Authority facilities and services via our Twitter feed Twitter @PANYNJ. &nbsp; <a href="https://twitter.com/PANYNJ" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @PANYNJ</a> 
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
+          <!--<hr  class="homeDoubleTop">
+          <h3>Recent posts:</h3>
+          <div style="padding:8px;">
+            <table id="tabletwitter" style="width:100%;">
+              <a class="twitter-timeline" href="https://twitter.com/PANYNJ" data-widget-id="365428748436258816" border-color="#ffffff" data-chrome="noheader nofooter transparent noscrollbar" data-link-color="#084887" data-tweet-limit="1">Tweets by @PANYNJ</a> 
+              <script>
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+				if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+				alert(js.contentWindow.document.body.innerHTML);
+				</script>
+            </table>
+          </div>-->
+        </div>
+        <div class="formDiv">
+          <h2>News</h2>
+          <h3>Press Room</h3>
+          <div id="press">
+          </div>
+          <p><a href="/press-room/press-releases.cfm">Click here to see all current and archived Press Releases<img src="/img/icon_next.gif" alt="" width="19" height="13" class="nexticon" /></a></p>
+          <hr class="homeDoubleTop">
+          <hr class="homeDoubleBottom">
+          <p style="font-size:11px; margin-bottom:14px;"><a href="/about/newsletters.html">Sign up for our Growing the Region newsletter<img src="/img/icon_next.gif" alt="" width="19" align="absbottom" border="0" height="13" /></a></p>
+        </div>
+      </div>
+      <div id="columnLeftColumnWrapperRight">
+        <div class="fullDiv">
+          <h2 id="airports"><a href="/airports/">Airports</a></h2>
+          <div class="facilityLeft">
+            <p><a href="/airports/jfk.html">John F. Kennedy</a><br /> <a href="http://twitter.com/JFKairport" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @JFKairport</a></p>
+            <p><a href="/airports/stewart.html">Stewart</a><br /> <a href="http://twitter.com/SWFairport" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @SWFairport</a> </p>
+          </div>
+          <div class="facilityCenter">
+            <p><a href="/airports/laguardia.html">LaGuardia</a><br /> <a href="http://twitter.com/LGAairport" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @LGAairport</a> </p>
+            <p><a href="/airports/newark-liberty.html">Newark Liberty</a><br /> <a href="http://twitter.com/EWRairport" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @EWRairport</a> </p>
+          </div>
+          <div class="facilityRight">
+           <!-- <p><a href="/airports/atlantic-city.html">Atlantic City</a></p> -->
+            <p><a href="/airports/teterboro.html">Teterboro</a></p>
+          </div>
+          <!-- <div class="facilityLeft">
+            <p><a href="/airports/jfk.html">John F. Kennedy</a></p>
+            <p><a href="/airports/stewart.html">Stewart</a></p>
+            <!-- <p><a href="#">Atlantic City</a></p> --> 
+          <!--</div>
+          <div class="facilityCenter">
+            <p><a href="/airports/laguardia.html">LaGuardia</a></p>
+            <p><a href="/airports/teterboro.html">Teterboro</a></p>
+          </div>
+          <div class="facilityRight">
+            <p><a href="/airports/newark-liberty.html">Newark Liberty</a></p>
+            <p><a href="/airports/atlantic-city.html">Atlantic City</a></p>
+          </div> --> 
+          <br class="clearfloat0" />
+          <hr class="marbottom10 ruleDarker" />
+          <p class="airportParking"><img src="/img/icon_parking.gif" alt="Parking icon" width="20" height="20" style="padding:0px 6px 3px 0;" border="0" align="absmiddle" />Airport Parking</p>
+          <div class="facilityLeft">
+            <p><a href="/airports/airport-parking-jfk.cfm">John F. Kennedy</a></p>
+            <p><a href="/airports/airport-parking-swf.cfm">Stewart</a></p>
+          </div>
+          <div class="facilityCenter">
+            <p><a href="/airports/airport-parking-lga.cfm">LaGuardia</a></p>
+          </div>
+          <div class="facilityRight">
+            <p><a href="/airports/airport-parking.cfm">Newark Liberty</a></p>
+          </div>
+          <br class="clearfloat0" />
+        </div>
+        <div class="fullDiv">
+          <h2 id="tunnels_bridges"><a href="/bridges-tunnels/">Bridges and Tunnels</a></h2>
+          <div class="facilityLeft">
+            <p><a href="/bridges-tunnels/george-washington-bridge.html">George Washington Bridge </a></p>
+            <p><a href="/bridges-tunnels/bayonne-bridge.html">Bayonne Bridge</a></p>
+            <p><a href="/bridges-tunnels/tolls.html">Toll Rates</a></p>
+          </div>
+          <div class="facilityCenter">
+            <p><a href="/bridges-tunnels/goethals-bridge.html">Goethals Bridge</a></p>
+            <p><a href="/bridges-tunnels/outerbridge-crossing.html">Outerbridge Crossing</a></p>
+            <p><a href="/bridges-tunnels/e-zpass.html"><img src="/img/icon_e_zpass_th.gif" alt="" width="61" height="19" class="nexticon minusMargin" />&nbsp;&nbsp;Information</a></p>
+          </div>
+          <div class="facilityRight">
+            <p><a href="/bridges-tunnels/holland-tunnel.html">Holland Tunnel</a></p>
+            <p><a href="/bridges-tunnels/lincoln-tunnel.html">Lincoln Tunnel</a></p>
+          </div>
+          <br class="clearfloat0" />
+        </div>
+        <div class="fullDiv">
+          <h2 id="bus_terminals"><a href="/bus-terminals/">Bus Terminals</a></h2>
+          <div class="facilityBTLeft">
+            <p><a href="/bus-terminals/port-authority-bus-terminal.html">Port Authority <br /> Bus Terminal</a></p>
+          </div>
+          <div class="facilityBTCenter">
+            <p><a href="/bus-terminals/george-washington-bridge-bus-station.html">George Washington Bridge <br /> Bus Station</a></p>
+          </div>
+          <div class="facilityBTRight">
+            <p><a href="/bus-terminals/journal-square-transportation-center.html">Journal Square <br /> Transportation Center</a></p>
+          </div>
+          <br class="clearfloat0" />
+        </div>
+        <div class="fullDiv">
+          <h2 id="path"><a href="/path/">PATH</a></h2>
+          <div class="facilityLeft">
+            <p><a href="/path/maps.html">Map</a></p>
+            <p><a href="/path/schedule.html">Schedules</a></p>
+            <p><a href="/path/smartlink.html">SmartLink Card</a></p>
+            <p><a href="https://twitter.com/PATHTrain" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @PATH</a> </p>
+          </div>
+          <div class="facilityRight">
+            <a href="/path/path-rail-system-map.html?KeepThis=true&TB_iframe=true&height=305&width=445" class="thickbox" alt="PATH Rail System Map" title="PATH Rail System Map" ><img src="/photo/home/path_map_section_small.gif" alt="" class="photo" width="256" height="86" style="margin-top:6px;" /></a>
+          </div>
+          <br class="clearfloat0" />
+        </div>
+        <div class="halfLeftDiv">
+          <h2 class="h2Larger" id="world_trade_center"><a href="/wtcprogress/">World Trade Center</a></h2>
+          <p><a href="/wtcprogress/">World Trade Center Progress</a></p>
+          <p><a href="https://www.facebook.com/wtcprogress" target="_blank">Follow WTCProgress on Facebook</a></p>
+        </div>
+        <div class="halfRightDiv">
+          <h2 id="cargo"><a href="/transporting-cargo.html">Transporting Cargo</a></h2>
+          <p><a href="/port/">Port of New York and New Jersey</a></p>
+          <p><a href="/air-cargo/">Air Cargo</a></p>
+        </div>
+        <br class="clearfloat0" />
+        <div class="fullDiv">
+          <h2 id="building_region"><a href="/building-region.html"><span class="oneLine">Building The Region</span></a></h2>
+          <div class="BTRLeft">
+            <p><a href="/airports/ewr-redevelopment/" target="_blank">Newark Terminal One Redevelopment</a></p>
+            <p><a href="/bridges-tunnels/goethals-bridge-replacement.html">Goethals Bridge Replacement</a></p>
+            <p><a href="/bayonnebridge/">Bayonne Bridge 'Raise the Roadway'</a></p>
+            <p><a href="/airports/lgareimagined/">LaGuardia Central Terminal</a></p>
+          </div>
+          <div class="BTRRight">
+            <p><a href="bridges-tunnels/restoring-the-george.html">Restoring the George</a></p>
+            <!-- <p><a href="/thehelixfix/">The Helix Fix</a></p> --> 
+            <!-- <p><a href="path/33rdstreetlineclosures.html">PATH Signal System</a></p> -->
+            <p style="margin-bottom:.75em;"><a href="/wtcprogress/">World Trade Center</a></p>
+            <p><a href="/bus-terminals/pabt-master-plan.html">Midtown Bus Master Plan</a></p>
+          </div>
+        </div>
+      </div>
+      <br class="clearfloat0" />
+    </div>
+    <!-- END left content  --> 
+    <!-- BEGIN right content  -->
+    <div id="columnRight">
+      <div class="promoRounded">
+        <h2 class="oneLine">The Port Authority Moves the Region</h2>
+        <p class="welcomeIntro">The  Port Authority of NY &amp; NJ builds, operates, and maintains critical  transportation and trade assets. Its network of aviation, rail, surface  transportation and seaport facilities annually moves millions of people and  transports vital cargo throughout the New York/New Jersey region. The Port  Authority also owns and manages the 16-acre World Trade Center site, home to  the iconic One World Trade Center.</p>
+        <div class="marbottom10">
+          <img src="/img/shim_c4d8e9.gif" alt="" class="marginZero" border="0" height="4" width="215">
+        </div>
+      </div>
+      <div class="promoRound">
+        <div class="top">
+          <img src="/img/shim.gif" alt="" width="215" height="8" border="0" />
+        </div>
+        <div class="promoRoundIcon">
+          <img src="/img/promo_icon_alert_red.gif" alt="" width="68" height="52" border="0" />
+        </div>
+        <div class="promoRoundText">
+          <h2><a href="/alerts-advisories/advisories.html">Planned Weekly Construction<img src="/img/icon_link_arrow.gif" alt="" width="11" height="9" border="0" /></a></h2>
+          <p>Learn More</p>
+        </div>
+        <br class="clearfloat0" />
+        <div class="bottom">
+          <img src="/img/shim.gif" alt="" width="215" height="8" border="0" />
+        </div>
+      </div>
+      <!-- WTC PROGRESS -->
+      <div class="promoRoundLg">
+        <img src="/img/promo_lg_wtc_1.jpg" alt="" width="215" height="136" border="0" />
+        <h2>World Trade Center Progress</h2>
+        <p>Redesigned and updated One  World Trade Center Progress site is now available. </p>
+        <p><a href="/wtcprogress/">Learn more<img src="/img/icon_link_arrow.gif" alt="" width="11" height="9" border="0" /></a></p>
+      </div>
+      <!-- END --> 
+      <!-- INTERVISTAS REPORT -->
+      <div class="promoRoundLg">
+        <img src="img/promo_quarter_intervista_report_2016.jpg" alt="" width="215" height="89" border="0" /> 
+        <!--   <p>The official blog of <br />
+          The Port Authority of <br />
+          New York and New Jersey.</p> -->
+        <p><a href="pdf/intervista-report-072116.pdf" target="_blank">Summary Report: Potential Impacts of Increases in Wages and Benefits on the PANYNJ<img src="/img/icon_link_arrow.gif" alt="" width="11" height="9" border="0" /></a></p>
+      </div>
+      <!-- END --> 
+      <!-- MAINTENANCE WORKERS -->
+      <div class="promoRoundLg">
+        <img src="photo/home/promo_rounded_maintenance_workers_2016.jpg" alt="photo of a PAPD Inspector" width="215" height="136" border="0" />
+        <h2>Now Hiring: General Maintenance Workers</h2>
+        <p><a href="https://pastaff.panynj.gov/psc/applicant/APPLICANT/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?Page=HRS_APP_JBPST&amp;Action=U&amp;FOCUS=Applicant&amp;SiteId=1&amp;JobOpeningId=25817&amp;PostingSeq=1&amp;utm_source=website&amp;utm_medium=website&amp;utm_campaign=general_maintainers_snow_removal" target="_blank">Apply Today<img src="/img/icon_link_arrow.gif" alt="" width="11" height="9" border="0" /></a></p>
+      </div>
+      <!-- END --> 
+      <!-- PORTFOLIO MOD -->
+      <div class="promoRoundLg">
+        <img src="img/promo_portfolio_90px_high.jpg" alt="" width="215" height="89" border="0" />
+        <h2>Portfolio</h2>
+        <p>The official blog of <br /> The Port Authority of <br /> New York and New Jersey.</p>
+        <p><a href="http://portfolio.panynj.gov" target="_blank">Learn more<img src="/img/icon_link_arrow.gif" alt="" width="11" height="9" border="0" /></a></p>
+      </div>
+      <!-- END --> 
+      <!-- GREEN INITATIVE -->
+      <div class="promoRound">
+        <div class="top">
+          <img src="/img/shim.gif" alt="" border="0" height="8" width="215">
+        </div>
+        <div class="promoRoundIcon">
+          <img src="/img/promo_icon_green_initiatives.gif" alt="" border="0" height="52" width="68">
+        </div>
+        <div class="promoRoundText">
+          <h2><a href="/about/environmental-initiatives.html">Green Initiatives<img src="/img/icon_link_arrow.gif" alt="" border="0" height="9" width="11"></a></h2>
+          <p>More on our sustainability efforts.</p>
+        </div>
+        <br class="clearfloat0">
+        <div class="bottom">
+          <img src="/img/shim.gif" alt="" border="0" height="8" width="215">
+        </div>
+      </div>
+      <!-- END --> 
+      <!-- TWITTER: w/o twitter logo -->
+      <div class="promoRoundExternal">
+        <div class="top">
+          <img src="/img/shim.gif" alt="" width="215" height="8" border="0" />
+        </div>
+        <div class="promoRoundIcon">
+          <img src="img/promo-logo-oem.png" alt="" width="68" height="68" border="0" />
+        </div>
+        <div class="promoRoundText2">
+          <h2><a href="http://twitter.com/portauthoem" target="_blank">Follow Port Authority Office of Emergency Management <br /> on Twitter<img src="/img/icon_link_external.gif" alt="" width="18" height="10" border="0" /></a></h2>
+        </div>
+        <br class="clearfloat0" />
+        <div class="bottom">
+          <img src="/img/shim.gif" alt="" width="215" height="8" border="0" />
+        </div>
+      </div>
+      <!-- END --> 
+      <!-- SUSPISIOUS ACTIVITY -->
+      <div class="promoRound">
+        <div class="top">
+          <img src="/img/shim.gif" alt="" border="0" height="8" width="215">
+        </div>
+        <div class="promoRoundIcon">
+          <img src="/img/promo_icon_papdbadge.gif" alt="" border="0" height="52" width="68">
+        </div>
+        <div class="promoRoundText2">
+          <h2><a href="/police/report-suspicious-activity.html">Report Suspicious Activity<img src="/img/icon_link_arrow.gif" alt="" border="0" height="9" width="11"></a></h2>
+        </div>
+        <br class="clearfloat0">
+        <div class="bottom">
+          <img src="/img/shim.gif" alt="" border="0" height="8" width="215">
+        </div>
+      </div>
+      <!-- END -->
+    </div>
+    <!-- END right content  --> 
+    <br class="clearfloat0" />
+  </div>
+  <!-- END page content --> 
+  <!-- BEGIN navigation -->
+  <div id="nav2_wrapper">
+    <!-- BEGIN breadcrumb navigation --> 
+    <!--  <div id="breadcrumb">
+        <p>&nbsp;</p>
+      </div> --> 
+    <!-- END breadcrumb navigation -->
+    <div id="nav2_div">
+      <!-- BEGIN search -->
+      <div id="searchDivH">
+        <form id="formSearch" name="formSearch" method="get" action="/search/results.html">
+          <input type="text" name="query" size="38" maxlength="255" value="Search" class="search" onfocus="this.value='';" />
+          <input type="image" src="/img/search_button.gif" class="searchgo" width="24" height="24" border="0" alt="Go" />
+        </form>
+      </div>
+      <br class="clearfloat0" /> 
+      <!-- END search -->
+    </div>
+  </div>
+  <!-- BEGIN navigation, 1st level -->
+  <div id="nav1_wrapper">
+    <div id="nav1_div">
+      <ul class="nav1_menu">
+        <li id="corporateNav"><a href="/port-authority-ny-nj.html">Port Authority of NY &amp; NJ</a>
+          <ul>
+            <li>
+              <div>
+                <div id="corporateNavDiv">
+                  <div>
+                    <h2><a href="/about/"><img src="/img/icon_nav1_regional_initiatives.gif" alt="" width="21" height="19" border="0" />About the Port Authority<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:175px"/>
+                    <p>&gt; <a href="/about/facilities-services.html">Facilities and Services</a><br /> &gt; <a href="/about/environmental-initiatives.html">Environmental Initiatives</a><br /> &gt; <a href="/about/history-port-authority.html">History of the Port Authority</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="/business-opportunities/"><img src="/img/icon_nav1_busness_opp.gif" alt="" width="21" height="19" border="0" />Business Opportunities<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:173px"/>
+                    <p>&gt; <a href="/business-opportunities/become-vendor.html">Become a Vendor</a><br />&gt; <a href="/business-opportunities/supplier-diversity.html">Supplier Diversity</a><br />&gt; <a href="/business-opportunities/bid-proposal-advertisements.html">View Open Solicitations</a><br />&gt; <a href="https://www.panynj.gov/special-events/index.cfm">Special Events, Films<br /><span class="gn_2line">and Photo Shoots at</span><br /><span class="gn_2line">Port Authority Facilities</span></a></p>
+                  </div>
+                  <div class="corpSolo">
+                    <h2><a href="/careers/"><img src="/img/icon_nav1_careers.gif" alt="" width="21" height="19" border="0" />Careers<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:158px"/>
+                    <h2><a href="/police/"><img src="/img/icon_nav1_pa_police.gif" alt="" width="23" height="17" border="0" />Port Authority Police<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:158px"/>
+                    <h2><a href="/inspector-general/"><img src="/img/icon_nav1_pa_police.gif" alt="" width="23" height="17" border="0" />Inspector General<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:158px"/>
+                    <h2><a href="/press-room/"><img src="/img/icon_nav1_press_room.gif" alt="" width="20" height="15" border="0" />Press Room<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                  </div>
+                  <br class="clearfloat0" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li id="buildingRegNav"><a href="/building-region.html">Building the Region</a>
+          <ul>
+            <li>
+              <div>
+                <div id="buildingRegNavDiv">
+                  <div>
+                    <h2><a href="http://www.wtcprogress.com"><img src="/img/icon_nav1_wtc.gif" alt="" width="21" height="19" border="0" />World Trade Center<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:193px"/>
+                    <p>&gt; <a href="http://www.wtcprogress.com">World Trade Center Progress</a><br /> &gt; <a href="http://www.onewtc.com" target="_blank">One World Trade Center</a></p>
+                    <hr style="width:193px" class="buildRegRule" />
+                  </div>
+                  <div>
+                    <h2><a href="/real-estate-development/"><img src="/img/icon_nav1_real_estate.gif" alt="" width="21" height="19" border="0" />Real Estate &amp; Development<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:193px" class="buildRegRule" />
+                  </div>
+                  <div>
+                    <h2><a href="/capital-program/"><img src="/img/icon_nav1_cap_program_delivery.gif" alt="" width="21" height="19" border="0" />Capital Program<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                  </div>
+                  <br class="clearfloat0" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li id="commTravNav"><a href="/commuting-traveling.html">Commuting &amp; Traveling</a>
+          <ul>
+            <li>
+              <div>
+                <div id="commTravNavDiv">
+                  <div>
+                    <h2><a href="/airports/"><img src="/img/icon_nav1_airports.gif" alt="" width="21" height="19" border="0" />Airports<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:128px"/>
+                    <p>&gt; <a href="/airports/jfk.html">John F. Kennedy (JFK)</a><br /> &gt; <a href="/airports/newark-liberty.html">Newark Liberty (EWR)</a><br /> &gt; <a href="/airports/laguardia.html">LaGuardia (LGA)</a><br /> &gt; <a href="/airports/stewart.html">Stewart (SWF)</a><br /> &gt; <a href="/airports/teterboro.html">Teterboro (TEB)</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="/path/"><img src="/img/icon_nav1_path.gif" alt="" width="21" height="19" border="0" />PATH Rail<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:97px"/>
+                    <p>&gt; <a href="/path/schedule.html">Maps &amp; Stations</a><br /> &gt; <a href="/path/fares.html">Fares</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="/bridges-tunnels/"><img src="/img/icon_nav1_bridge_tunnel.gif" alt="" width="21" height="19" border="0" />Bridges &amp; Tunnels<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:156px"/>
+                    <p>&gt; <a href="/bridges-tunnels/george-washington-bridge.html">George Washington Bridge</a><br /> &gt; <a href="/bridges-tunnels/holland-tunnel.html">Holland Tunnel</a><br /> &gt; <a href="/bridges-tunnels/lincoln-tunnel.html">Lincoln Tunnel</a></p>
+                    <hr style="width:156px"/>
+                    <p>&gt; <a href="/bridges-tunnels/bayonne-bridge.html">Bayonne Bridge</a><br /> &gt; <a href="/bridges-tunnels/goethals-bridge.html">Goethals Bridge</a><br /> &gt; <a href="/bridges-tunnels/outerbridge-crossing.html">Outerbridge Crossing</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="/bus-terminals/"><img src="/img/icon_nav1_bus_terminals.gif" alt="" width="21" height="19" border="0" />Bus Terminals<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:221px"/>
+                    <p>&gt; <a href="/bus-terminals/port-authority-bus-terminal.html">Port Authority Bus Terminal</a><br /> &gt; <a href="/bus-terminals/george-washington-bridge-bus-station.html">George Washington Bridge Bus Station</a><br /> &gt; <a href="/bus-terminals/journal-square-transportation-center.html">Journal Square Transportation Center</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="/alerts-advisories/"><img src="/img/icon_nav1_alert.gif" alt="" width="21" height="19" border="0" />Alerts &amp; Advisories<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:149px"/>
+                    <h2><a href="/bridges-tunnels/e-zpass.html"><img src="/img/icon_nav1_ezpass.gif" alt="" width="21" height="19" border="0" />E-ZPass<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:149px"/>
+                    <p class="nav1External"><a href="/commuting-traveling/ferry-transportation.html"><img src="/img/icon_link_external_left.gif" alt="" width="17" height="11" border="0" />Ferries</a><br /> <a href="/commuting-traveling/passenger-cruise-ships.html"><img src="/img/icon_link_external_left.gif" alt="" width="17" height="11" border="0" />Passenger Cruise Ships</a></p>
+                  </div>
+                  <br class="clearfloat0" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li id="transCargoNav"><a href="/transporting-cargo.html">Transporting Cargo</a>
+          <ul>
+            <li>
+              <div>
+                <div id="transCargoNavDiv">
+                  <div>
+                    <h2><a href="/port/"><img src="/img/icon_nav1_seaport.gif" alt="" width="21" height="19" border="0" />Port of New York &amp; New Jersey<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:217px"/>
+                    <h2><a href="/air-cargo/"><img src="/img/icon_nav1_airports.gif" alt="" width="21" height="19" border="0" />Air Cargo<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:217px"/>
+                    <h2><a href="/truckers-resources/"><img src="/img/icon_nav1_truck.gif" alt="" width="21" height="19" border="0" />Trucker's Resources<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:217px"/>
+                    <h2><a href="/gmap/"> <img src="/img/icon_nav1_gmap.png" alt="" width="21" height="19" border="0" />Regional Goods Movement Action Program<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                  </div>
+                  <br class="clearfloat0" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li id="corporateInfoNav"><a href="http://corpinfo.panynj.gov/">Corporate Information</a>
+          <ul>
+            <li>
+              <div>
+                <div id="corporateInfoNavDiv">
+                  <div>
+                    <h2><a href="http://corpinfo.panynj.gov/pages/governance-ethics/"><img src="/img/icon_nav1_governance.gif" alt="" width="21" height="19" border="0" />Governance and Ethics<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:166px"/>
+                    <p>&gt; <a href="http://corpinfo.panynj.gov/pages/board-of-commissioners/">Board of Commissioners</a><br /> 
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/pa-leadership/">PA Leadership</a><br /> 
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/by-laws/">By-Laws</a><br /> 
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/transparency-in-governance/">Transparency in Governance</a><br /> 
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/board-committee-charters/">Board Committee Charters</a><br />
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/code-of-ethics-for-commissioners/">Code of Ethics for<br />
+                    <span class="gn_2line">Commisioners</span></a><br /> 
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/employee-code-of-ethics/">Employee Code of Ethics</a><br />
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/code-of-ethics-for-vendors/">Code of Ethics for Vendors</a><br />
+                    &gt; <a href="http://corpinfo.panynj.gov/pages/false-claims-policy/">False Claims Policy</a></p>
+
+                  </div>
+                  <div>
+                    <h2><a href="http://corpinfo.panynj.gov/pages/financial-information/"><img src="/img/icon_nav1_financial_info.gif" alt="" width="21" height="19" border="0" />Financial Information<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:166px"/>
+                    <p>&gt; <a href="http://corpinfo.panynj.gov/pages/budget/">Budget</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/capital-plan/">Capital Plan</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/consolidated-bonds-notes/">Consolidated Bonds &amp; Notes</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/financial-statements/">Financial Statements</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/quarterly-condensed-financial-statementsunaudited/">Quarterly Condensed<br /><span class="gn_2line">Financial Statements</span><br /><span class="gn_2line">(Unaudited)</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/annual-reports/">Annual Reports</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="http://corpinfo.panynj.gov/pages/board-meeting-information/"><img src="/img/icon_nav1_board_info.gif" alt="" width="21" height="19" border="0" />Board Information<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:170px"/>
+                    <p>&gt; <a href="http://corpinfo.panynj.gov/pages/board-meeting-schedule-agenda/">Current Agenda &amp; Schedule</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/speaker-registration/">Speaker Registration</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/committee-meeting-schedule-agenda/">Committee Meeting<br /><span class="gn_2line">Schedule</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/board-minutes-contract-authorizations/">Minutes &amp; Contract<br /><span class="gn_2line">Authorizations</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/board-committee-meeting-videos/">Meeting Videos</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/board-committee-meeting-presentations/">Meeting Presentations<br /><span class="gn_2line">&amp; Transcripts</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/special-panel-implementation/">Special Panel Implementation</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/rules-regulations/">Rules &amp; Regulations</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/business-transactions/">Business Transactions</a></p>
+                  </div>
+                  <div>
+                    <h2><a href="http://corpinfo.panynj.gov/pages/public-records-access/"><img src="/img/icon_nav1_public_records_access.gif" alt="" width="21" height="19" border="0" />Public Records Access<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:170px"/>
+                    <p>&gt; <a href="http://corpinfo.panynj.gov/documents/Access-to-Port-Authority-Public-Records/">Public Records Access Policy</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/public-records-access-form/">Public Records Access Form</a><br /> &gt; <a href="http://corpinfo.panynj.gov/documents/Access-to-Personal-Information/">Access to Personal<br /><span class="gn_2line">Information Policy</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/public-records-fulfilled-requests/">Public Records Fulfilled<br /><span class="gn_2line">Requests</span></a><br /> &gt; <a href="http://corpinfo.panynj.gov/documents/Public-Records-Access-Policy-List-of-Immediately-Available-Records/">List of Immediately Available<br /><span class="gn_2line">Records</span></a></p>
+                  </div>
+                  <div>
+                    <h2><a href="http://corpinfo.panynj.gov/pages/transparency/"><img src="/img/icon_nav1_transparency.gif" alt="" width="21" height="19" border="0" />Transparency<img src="/img/icon_nav1_next.gif" alt="" width="19" height="19" border="0" /></a></h2>
+                    <hr style="width:153px"/>
+                    <p>&gt; <a href="http://corpinfo.panynj.gov/pages/port-leases/">Port Leases</a><br />&gt; <a href="http://corpinfo.panynj.gov/pages/employee-payroll-information/">Employee Payroll</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/employee-overtime-hours/">Employee Overtime Hours</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/pa-traffic-volume/">PA Traffic &amp; Volume</a><br /> &gt; <a href="http://corpinfo.panynj.gov/pages/public-hearing-transcripts-tolls-and-fares/">Public Hearing Transcripts</a></p>
+                  </div>
+                  <br class="clearfloat0" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div id="nav1_right_div">
+        <!--  <span class="sm">A</span>&nbsp;<span class="md">A</span>&nbsp;<span class="lg">A</span>  -->
+      </div>
+      <br class="clearfloat0" />
+    </div>
+  </div>
+  <!-- END navigation, 1st level  --> 
+  <!-- END navigation: breadcrumb, 3rd level, 2nd level, 1st level --> 
+  <!-- BEGIN footer -->
+  <div id="footer">
+    <div class="floatleft">
+      <a href="/"><img src="/img/pa_logo.gif" alt="Port Authority of New York &amp; New Jersey" id="paLogoFooter" width="314" height="11" border="0" /></a>
+    </div>
+    <div class="floatright">
+      <div id="searchDivF">
+        <form id="formSearchF" name="formSearchF" method="get" action="/search/results.html">
+          <input type="text" name="query" size="38" maxlength="255" value="Search" class="search" onfocus="this.value='';" />
+          <input type="image" src="/img/search_button.gif" class="searchgo" width="24" height="24" border="0" alt="Go" />
+        </form>
+      </div>
+    </div>
+    <br class="clearfloat0" />
+    <div id="footerContent">
+      <div id="fcCol1">
+        <p class="customSpace"> <img src="/img/icon_ft_information.gif" alt="" class="iconFooter" width="21" height="22" /><a href="/port-authority-ny-nj.html" class="fTitle">Port Authority Information</a><br /> <a href="/about/environmental-initiatives.html">Environmental Initiatives</a><br /> <a href="/about/history-port-authority.html">History of the Port Authority</a><br /> <a href="/titleVI/">Title VI / Nondiscrimination Program</a></p>
+        <img src="/img/shim_548fbf.gif" alt="" height="8" class="ruleF_2" />
+        <p class="ftBottom"> <img src="/img/icon_ft_press_room.gif" alt="" class="iconFooter" width="18" height="18" /><a href="/press-room/" class="fTitle">Press Room</a></p>
+      </div>
+      <div id="fcCol2">
+        <p> <img src="/img/icon_ft_security.gif" alt="" class="iconFooter" width="22" height="22" /><a href="/police/" class="fTitle">Safety &amp; Security</a><br /> <a href="/police/parking-tickets.html">Parking Tickets</a><br /> <a href="/police/impound-lots.html">Impound Lots</a></p>
+        <p class="customSpace"> <img src="/img/icon_ft_money.gif" alt="" class="iconFooter" width="29" height="22" /><a href="/inspector-general/index.html" class="fTitle">Report Fraud</a> </p>
+        <img src="/img/shim_548fbf.gif" alt="" class="ruleF_2" />
+        <p class="ftBottom"> <img src="/img/icon_ft_alert.gif" alt="" class="iconFooter" width="22" height="20" /><a href="http://www.airportinfoalerts.com/" target="_blank" class="fTitle">Alerts &amp; Advisories</a></p>
+      </div>
+      <div id="fcCol3">
+        <p class="customSpace"> <img src="/img/icon_ft_business.gif" alt="" class="iconFooter" width="22" height="18" /><a href="/business-opportunities/" class="fTitle">Doing Business with Us</a><br /> <a href="/business-opportunities/become-vendor.html">Become a Vendor</a><br /> <a href="/business-opportunities/bid-proposal-advertisements.html">View Open Solicitations</a><br /> <a href="/business-opportunities/supplier-diversity.html">Supplier Diversity</a><br /> <a href="/business-opportunities/advertising-facilities.html">Advertising Opportunities</a><br /> </p>
+        <img src="/img/shim_548fbf.gif" alt="" class="ruleF_2" />
+        <p class="ftBottom"> <img src="/img/icon_ft_careers.gif" alt="" class="iconFooter" width="27" height="22" /><a href="/careers/" class="fTitle">Careers</a> </p>
+      </div>
+      <div id="fcCol4">
+        <p class="customSpace"><img src="/img/icon_ft_social_media_30.gif" alt="" class="iconFooter" width="30" height="22" /><a href="/social-media/social-media.html" class="fTitle">Social Media</a></p>
+        <p class="customSpace"><img src="/img/icon_ft_contact_30.gif" alt="" class="iconFooter" width="30" height="22" /><a href="/contact/contact-us.html" class="fTitle">Contact Us</a></p>
+        <p class="customSpace"><img src="/img/icon_ft_feedback_30.gif" alt="" class="iconFooter" width="30" height="22" /><a href="/feedback/" class="fTitle">Feedback</a></p>
+        <p class="customSpace"><img src="/img/icon_ft_question_30.gif" alt="" class="iconFooter" width="30" height="22" /><a href="/faqs/" class="fTitle">Frequently Asked Questions</a></p>
+        <p class="ftBottom"><img src="/img/icon_ft_lost_found_30.gif" alt="" class="iconFooter" width="30" height="22" /><a href="/police/lost-found.html" class="fTitle">Lost &amp; Found</a> </p>
+      </div>
+      <br class="clearfloat0" />
+      <div class="fcBottom">
+        <img src="/img/shim.gif" alt="" width="600" height="1" border="0" />
+      </div>
+    </div>
+    <div id="footerBase">
+      <img src="/img/shim.gif" alt="" width="600" height="14" border="0" />
+    </div>
+  </div>
+  <div id="footerTerms">
+    <p><a href="/disclaimer.html">Web Site Disclaimer</a><br /> <span class="copyright">&copy; 2001-<span id="year">CurrentYear</span> The Port Authority of New York and New Jersey. All Rights Reserved.</span></p>
+  </div>
+  <div id="footerPA">
+    <p>The Port Authority of New York and New Jersey<br /> (212) 435-7000&nbsp; &#8226; &nbsp;4 World Trade Center, 150 Greenwich Street, New York, NY 10007</p>
+  </div>
+  <!-- END footer --> 
+  <!-- START Jim Cooper request, 3/28/17 --> 
+  <a href="mailto:jcamole@panynj.gov" style="display:none">&nbsp;</a> 
+  <!-- END Jim Cooper request, 3/28/17 -->
+</div>
+<script type="text/javascript" src="/js/alerts-directions-weather-airports.js"></script> 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.js"><\/script>')</script> 
+<script type="text/javascript" src="/js/plugins.panynj.js"></script> 
+<script type="text/javaScript">$(document).ready(function(){misc()});</script> 
+<script type="text/javascript" src="/js/thickbox.js"></script> 
+<script src="/js/jquery.zrssfeed.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+function showAlerts(a,b,alertTabClicked)
+{	
+		$("#" + a + "alerts").html('<span id="' + a + 'alerts"><br /></span>');
+ 
+/*		$("#" + a + "alerts").rssfeed('http://rss.paalerts.com/rss.aspx?' + a + '&sid=' + Math.random(), {
+	    limit: 8,
+			header: false,
+			snippet: false,
+			hours: 48
+	  }, 
+		function() {
+			var alertCount = $("#" + "alerts" + a + " div").length;
+			//alert(alertCount);
+			//var alertCount = $(".rssRow").length;
+			if(alertCount===0){
+				//$("#alerts").hide();
+				//$("#" + "alerts" + a).hide();
+				$("#" + a + "alerts").html('<span style="font-size:12px;">There are no alerts at this time.</span><br /><br />');
+			}
+			else{
+					$("#" + "simpleTabs-nav-" + b).attr(	"class" , "alert");
+			}	
+			if (alertTabClicked) $("#" + "simpleTabs-nav-" + b).attr(	"class" , "active");	
+		});  
+*/
+
+  var feed = '';	
+  $.ajax({
+    url: "http://query.yahooapis.com/v1/public/yql",
+    jsonp: "callback",  
+    // tell jQuery we're expecting JSONP
+    dataType: "jsonp"
+    
+  });
+$.YQL = function(query, callback) {
+ 
+    if (!query || !callback) {
+        throw new Error('$.YQL(): Parameters may be undefined');
+    }
+ 
+    var encodedQuery = encodeURIComponent(query.toLowerCase()),
+        url = 'http://query.yahooapis.com/v1/public/yql?q='
+            + encodedQuery + '&format=json&callback=?';
+ 
+    $.getJSON(url, callback);
+ 
+};
+// tell YQL what we want
+//('select * from html where url="' + site + '"')
+//  $.YQL("select * from rss (0,8) where url='http://rss.paalerts.com/rss.aspx?EWR'", function(data) {
+	$.YQL("select * from rss (0,8) where url='http://rss.paalerts.com/rss.aspx?" + a + "'", function(data) {
+	 var feed = data.query.results.item; // get feed as array of entries
+	 //alert(data.query.count);
+     //alert(data.query.results.item[1].title); 
+	 var feedList = '';
+	 var timeLimit = 48*60*60*1000;
+	 if (feed.length < 8) {
+			feed.length = feed.length;
+		} else {
+			feed.length = 8;
+		}
+	
+	  for (var i = 0; i < feed.length; i++) {
+		  
+		  var mdNow = new Date();
+		  var entry = feed[i];
+		  var publDate;			
+				
+		// Format published date
+		  var entryDate = new Date(entry.pubDate);
+		  //var publDate = entryDate.toLocaleDateString() + ' ' + entryDate.toLocaleTimeString();//doesn't work in IE11	  
+		  var mdPubDateTime = new Date(entryDate);
+		  var mddesc
+		  
+		  if (mdNow.getTime() - mdPubDateTime.getTime() < timeLimit){
+		  feedList +='<div class="rssRow">' + '<h2 class="localtime">' + new Date(feed[i].pubDate).toLocaleDateString() + ' ' + new Date(feed[i].pubDate).toLocaleTimeString() + '</h2>'
+		   		  						
+		   //feedList +='<p>'
+		   //feedList += '<a href="' + feed[i].link + '">'
+		   //feedList += feed[i].title + '</a><br />'
+		   feedList +='<p>' + feed[i].description + '</p>' + '</div>'; }
+	  }
+	 //document.getElementById('alerts' + a ).innerHTML = feedList;
+	 jQuery("#" + "alerts" + a ).html(feedList);	
+
+			var alertCount = 0;
+			var alertCount = $("#" + "alerts" + a + " div").length;
+			//alert(alertCount);
+			//var alertCount = $(".rssRow").length;
+			if(alertCount===0){
+				//$("#alerts").hide();
+				//$("#" + "alerts" + a).hide();
+				$("#" + a + "alerts").html('<span style="font-size:12px;">There are no alerts at this time.</span><br /><br />');
+			}
+			else{
+					$("#" + "simpleTabs-nav-" + b).attr(	"class" , "alert");
+			}	
+			if (alertTabClicked) $("#" + "simpleTabs-nav-" + b).attr(	"class" , "active");	
+			
+   });	
+}
+
+</script> 
+<script type="text/JavaScript">
+$(document).ready(function(){
+  $('#press').html('<p><img src="/img/loadingAnimation.gif" alt="loading" width="190" height="13" /></p>');
+  $('#press').load('/press-room/press-releases.cfm?MaxRows=1 p.pressitem:lt(6)');
+});
+</script> 
+<!-- <script type="text/javascript" src="/js/jquery.cuteTime.min.js"></script> --> 
+<script>
+$(".showhide").click(function() {
+		$('.localtime');
+	});	
+</script> 
+<script type="text/JavaScript">
+$(document).ready(function(){
+	highlightAlerts();
+});
+</script> 
+<!-- GOOGLE --> 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63729883-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+<!-- END --> 
+<!-- Google Tag Manager -->
+<noscript>
+<iframe src="//www.googletagmanager.com/ns.html?id=GTM-5DZH2R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5DZH2R');</script> 
+<!-- End Google Tag Manager -->
+</body>
+</html>

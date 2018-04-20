@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<meta http-equiv="Content-Style-Type" content="text/html" >
+<meta http-equiv="Content-Script-Type" content="text/javascript" >
+<meta name="description" content="草野球ホームページ作成、成績管理、草野球メンバー出欠管理、県ごとの野球チーム検索も可能。草野球、少年野球、硬式野球に対応。メンバー募集の掲示板も利用可能で無料登録できる、野球のための「ロッカールーム」" >
+<meta name="keywords" content="草野球,野球,スコアブック,ロッカールーム,成績管理,ホームページ作成,無料,チーム検索" >
+<meta http-equiv="http-equiv" content="pragma content=no-cache" >
+<meta http-equiv="http-equiv" content="cache-control content=no-cache" >
+<meta http-equiv="http-equiv" content="expires content=Thu, 01 Dec 1994 16:00:00 GMT" ><link href="/css/portal/new_style.css" media="screen" rel="stylesheet" type="text/css" ><script type="text/javascript" src="/js/lib/jquery.js"></script>
+<script type="text/javascript" src="/js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/portal/font_size.js"></script><title>草野球ポータルサイト ロッカールーム</title>
+</head>
+	<body>
+		<div id="container">
+			<!--ヘッダー-->
+						<div id="new_header">
+				<h1>草野球ポータルサイトロッカールーム</h1>
+				<a href="http://www.locker-room.info/"><img src="/images/portal/new_title.gif" width="900" height="88" alt="草野球ポータルサイト ロッカールーム(locker-room.info)"></a>
+			</div>
+			
+			<div id="header_menu">
+				<ul id="menu_bar">
+					<li><a href="http://www.locker-room.info/">ホーム</a></li>
+					<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/info">初めての方へ</a>
+						<ul>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/comparison" title="違いについて説明します">無償版と有償版の違いについて</a></li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/explanation/image" title="無償版と有償版の機能の比較をした図を表示します">機能比較（図解）</a></li>
+						</ul>
+					</li>
+					<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/search">チーム検索</a>
+						<ul>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/tohoku">北海道・東北</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E5%8C%97%E6%B5%B7%E9%81%93">北海道</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E9%9D%92%E6%A3%AE%E7%9C%8C">青森県</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E5%B2%A9%E6%89%8B%E7%9C%8C">岩手県</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E5%AE%AE%E5%9F%8E%E7%9C%8C">宮城県</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E7%A7%8B%E7%94%B0%E7%9C%8C">秋田県</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E5%B1%B1%E5%BD%A2%E7%9C%8C">山形県</a></li>
+									<li><a href="http://www.locker-room.info/tohoku?prefecture=%E7%A6%8F%E5%B3%B6%E7%9C%8C">福島県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/hokuriku">北陸・甲信越</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E5%AF%8C%E5%B1%B1%E7%9C%8C">富山県</a></li>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E7%9F%B3%E5%B7%9D%E7%9C%8C">石川県</a></li>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E7%A6%8F%E4%BA%95%E7%9C%8C">福井県</a></li>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E5%B1%B1%E6%A2%A8%E7%9C%8C">山梨県</a></li>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E9%95%B7%E9%87%8E%E7%9C%8C">長野県</a></li>
+									<li><a href="http://www.locker-room.info/hokuriku?prefecture=%E6%96%B0%E6%BD%9F%E7%9C%8C">新潟県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/kanto">関東</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E8%8C%A8%E5%9F%8E%E7%9C%8C">茨城県</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E6%A0%83%E6%9C%A8%E7%9C%8C">栃木県</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E7%BE%A4%E9%A6%AC%E7%9C%8C">群馬県</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E5%9F%BC%E7%8E%89%E7%9C%8C">埼玉県</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E5%8D%83%E8%91%89%E7%9C%8C">千葉県</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E6%9D%B1%E4%BA%AC%E9%83%BD">東京都</a></li>
+									<li><a href="http://www.locker-room.info/kanto?prefecture=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C">神奈川県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/tokai">東海</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/tokai?prefecture=%E5%B2%90%E9%98%9C%E7%9C%8C">岐阜県</a></li>
+									<li><a href="http://www.locker-room.info/tokai?prefecture=%E9%9D%99%E5%B2%A1%E7%9C%8C">静岡県</a></li>
+									<li><a href="http://www.locker-room.info/tokai?prefecture=%E6%84%9B%E7%9F%A5%E7%9C%8C">愛知県</a></li>
+									<li><a href="http://www.locker-room.info/tokai?prefecture=%E4%B8%89%E9%87%8D%E7%9C%8C">三重県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/kinki">近畿</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E5%A4%A7%E9%98%AA%E5%BA%9C">大阪府</a></li>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E5%85%B5%E5%BA%AB%E7%9C%8C">兵庫県</a></li>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E4%BA%AC%E9%83%BD%E5%BA%9C">京都府</a></li>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E6%BB%8B%E8%B3%80%E7%9C%8C">滋賀県</a></li>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E5%A5%88%E8%89%AF%E7%9C%8C">奈良県</a></li>
+									<li><a href="http://www.locker-room.info/kinki?prefecture=%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%9C%8C">和歌山県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/chugoku">中国・四国</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E9%B3%A5%E5%8F%96%E7%9C%8C">鳥取県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E5%B3%B6%E6%A0%B9%E7%9C%8C">島根県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E5%B2%A1%E5%B1%B1%E7%9C%8C">岡山県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E5%BA%83%E5%B3%B6%E7%9C%8C">広島県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E5%B1%B1%E5%8F%A3%E7%9C%8C">山口県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E5%BE%B3%E5%B3%B6%E7%9C%8C">徳島県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E9%A6%99%E5%B7%9D%E7%9C%8C">香川県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E6%84%9B%E5%AA%9B%E7%9C%8C">愛媛県</a></li>
+									<li><a href="http://www.locker-room.info/chugoku?prefecture=%E9%AB%98%E7%9F%A5%E7%9C%8C">高知県</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/kyushu">九州・沖縄</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E7%A6%8F%E5%B2%A1%E7%9C%8C">福岡県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E4%BD%90%E8%B3%80%E7%9C%8C">佐賀県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E9%95%B7%E5%B4%8E%E7%9C%8C">長崎県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E7%86%8A%E6%9C%AC%E7%9C%8C">熊本県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E5%A4%A7%E5%88%86%E7%9C%8C">大分県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E5%AE%AE%E5%B4%8E%E7%9C%8C">宮崎県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C">鹿児島県</a></li>
+									<li><a href="http://www.locker-room.info/kyushu?prefecture=%E6%B2%96%E7%B8%84%E7%9C%8C">沖縄県</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="http://www.locker-room.info/rally_private" title="現在開催されている施設大会を表示します">私設大会</a></li>
+					<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/support_faq">困った時は</a>
+						<ul>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/support_faq" title="よくある質問をまとめました">よくある質問</a></li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="https://www.locker-room.info/support" title="疑問や困った事、提案など運営へのお問合せはこちら">お問合せ</a></li>
+						</ul>
+					</li>
+					<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/plaza" title="マイロッカー同士の交流の場です">募集・応募 / 質問・回答</a>
+						<ul>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/plaza" title="対戦相手やメンバーの募集や応募が行えます">交流ひろば</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/plaza_calendar/index/category/1" title="対戦相手の募集や応募が行えます">対戦相手情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_calendar/index/category/2" title="助っ人の募集や応募が行えます">助っ人情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_search/index/category/3" title="チームメンバーの募集や応募が行えます">メンバー情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_search/index/category/4" title="チームへ誘って欲しい場合に募集が行えます">誘ってください</a></li>
+									<li><a href="http://www.locker-room.info/plaza_calendar/index/category/5" title="グランドの募集や譲渡が行えます">グランド情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_calendar/index/category/6" title="審判の募集や派遣が行えます">審判情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_search/index/category/7" title="マネージャの募集や応募が行えます">マネージャ情報</a></li>
+									<li><a href="http://www.locker-room.info/plaza_search/index/category/8" title="リーグ参加の募集や応募が行えます">リーグ情報</a></li>
+								</ul>
+							</li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/forum" title="野球をプレーする中での質問や回答が行えます">草野球フォーラム</a>
+								<ul>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/1" title="投手について質問や解答が行えます">投手</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/2" title="捕手について質問や解答が行えます">捕手</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/3" title="内野手について質問や解答が行えます">内野手</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/4" title="外野手について質問や解答が行えます">外野手</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/5" title="打者について質問や解答が行えます">打者</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/6" title="監督(コーチ)について質問や解答が行えます">監督(コーチ)</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/7" title="マネージャについて質問や解答が行えます">マネージャ</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/8" title="審判について質問や解答が行えます">審判</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/9" title="マナーについて質問や解答が行えます">マナー</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/10" title="用具について質問や解答が行えます">用具</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/99" title="LOCKER ROOMについて質問や解答が行えます">LOCKER ROOM</a></li>
+									<li><a href="http://www.locker-room.info/forum_search/result/category/98" title="その他の質問や解答が行えます">その他</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/link">リンク</a>
+						<ul>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/link/list">相互リンク</a></li>
+							<li class="menu" onmouseover="this.className='menu_on'" onmouseout="this.className='menu'"><a href="http://www.locker-room.info/link/team">チームリンク</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="https://www.locker-room.info/team/login" title="ここからチームの管理画面に移動できます">チーム管理画面</a></li>
+				</ul>
+			</div>
+			
+            <div id="size_controll">
+            	<ul>
+            		<li class="none">文字サイズ</li>
+            		<li id="big"><a href="javascript:void(0);" onclick="font('14px')" onkeypress="font('14px')">大</a></li>
+            		<li id="middle"><a href="javascript:void(0);" onclick="font('12px')" onkeypress="font('14px')">中</a></li>
+            		<li id="small"><a href="javascript:void(0);" onclick="font('10px')" onkeypress="font('14px')">小</a></li>
+            	</ul>
+            </div>
+            <div id="mylocker_login">
+            	            	<div><a href="https://www.locker-room.info/login">マイロッカーへログイン</a></div>
+            	            </div>
+			<!--ヘッダーここまで-->          
+			<!--コンテンツ部分-->
+			<div id="contents">
+
+				<!--メニュー部分-->
+								<div id="menu">
+					<!--ログイン-->
+					<div class="menu_login"> 
+				        <form name="formLogin" id="loginTbl" action="https://www.locker-room.info/team/login/do" method="post"> 
+				            <table> 
+				                <tr> 
+				                    <td class="login_title">チーム管理者ログイン</td> 
+				                </tr> 
+				                <tr> 
+				                    <td>ログインID / パスワード<br>
+				                        <input type="text" name="login_id" id="login_id" value="" size="20" style="ime-mode: disabled"><br> 
+				                        <input type="password" name="passwd" id="passwd" value="" size="20" style="ime-mode: disabled"></td> 
+				                </tr> 
+				                <tr> 
+				                    <td><input type="image" src="/images/portal/login.png" name="send" value="ログイン" alt=""><br> 
+				                        <a href="https://www.locker-room.info/team/login">SSLﾛｸﾞｲﾝ</a> / <a href="https://www.locker-room.info/team/reissue">ﾊﾟｽﾜｰﾄﾞを忘れた方</a></td> 
+				                </tr> 
+				            </table> 
+				        </form> 
+					</div>
+					<!--ログインここまで-->		
+					<div id="menu_button">
+					<a href="http://www.locker-room.info/explanation"><img src="/images/portal/top_regist.png" name="send" width="150" height="36" alt="チームの新規登録を行う"  title="チームのホームページ（パソコン/携帯）・成績管理（スコアブック）・掲示板・予定/出欠管理（スケジュール）等の機能を利用する為にまだご利用でないチームの方は是非ご登録下さい！！" ></a>
+					<p>まだご利用でないチームの方は<br>是非ご登録下さい！！</p>
+					<a href="http://www.locker-room.info/info"><img src="/images/portal/first.png" name="send" width="150" height="36" alt="初めての方" title="初めての方は何が出来るかご覧下さい"></a>
+					<a href="http://www.locker-room.info/origin"><img src="/images/portal/about.png" name="send" width="150" height="36" alt="ロッカールームとは" title="ロッカールームについて説明します"></a>
+					</div>
+				</div>
+				<!--メニュー部分ここまで-->
+				
+				<div id="main">
+					<!--地図部分-->
+					<div id="map">
+
+					    <div class="title"><img src="/images/portal/search.png" width="28" height="28" alt="各エリアのチームを探そう"><a href="http://www.locker-room.info/search">各エリアのチームを探そう</a></div>
+						<div class="hokkaido"><a href="./tohoku"><strong>北海道・東北</strong></a></div>
+						<div class="hokuriku"><a href="./hokuriku"><strong>北陸・甲信越</strong></a></div>
+						<div class="sikoku"><a href="./chugoku"><strong>中国・四国</strong></a></div>
+						<div class="kyusyu"><a href="./kyushu"><strong>九州・沖縄</strong></a></div>
+						<div class="kanto"><a href="./kanto"><strong>関東</strong></a></div>
+						<div class="toukai"><a href="./tokai"><strong>東海</strong></a></div>
+						<div class="kinki"><a href="./kinki"><strong>近畿</strong></a></div>
+						<img src="/images/portal/map.jpg" USEMAP="#map.jpg" BORDER="0" alt="探したいチームの地域をクリックして下さい" title="探したいチームの地域をクリックして下さい">
+                        <map name="map.jpg" >
+                        <area shape="poly" coords="268,15,245,146,235,146,235,159,284,159,291,123,298,123,308,62,323,63,331,15,269,16" href="./tohoku" alt="北海道・東北">
+                        <area shape="poly" coords="159,130,151,171,176,170,179,153,205,154,201,187,221,187,221,193,247,195,249,177,232,177,236,145,245,146,249,121,224,121,222,138,182,138,182,130,160,130" href="./hokuriku" alt="北陸・甲信越">
+                        <area shape="poly" coords="235,159,285,159,283,165,297,166,287,220,241,222,249,176,232,176,235,159" href="./kanto" alt="関東">
+                        <area shape="poly" coords="178,154,176,171,191,171,189,187,174,185,169,223,241,222,245,196,221,194,221,187,201,186,205,154,179,155" href="./tokai" alt="東海">
+                        <area shape="poly" coords="143,222,169,222,175,185,189,186,191,171,151,171,151,171,151,171,151,171,154,156,139,156,134,187,148,187,144,224" href="./kinki" alt="近畿">
+                        <area shape="poly" coords="83,156,71,223,129,223,139,156,84,156" href="./chugoku" alt="中国・四国">
+                        <area shape="poly" coords="31,156,19,222,62,222,74,156,32,156" href="./kyushu" alt="九州・沖縄">
+                        <area shape="poly" coords="85,57,81,78,93,78,98,58,85,58" href="./kyushu" alt="九州・沖縄">
+                        </map>
+					</div>
+					<!--地図部分ここまで-->
+				</div>
+
+				<div id="news">
+					<div class="info_table"><a href="http://www.locker-room.info/explanation"><img src="/images/portal/free_long_new.png" alt="無料登録でチームのホームページ（パソコン/携帯）・成績管理（スコアブック）・掲示板・予定/出欠管理（スケジュール）の機能がご利用できます。" title="無料登録でチームのホームページ（パソコン/携帯）・成績管理（スコアブック）・掲示板・予定/出欠管理（スケジュール）の機能がご利用できます。" width="641" height="91"></a></div>
+					
+					<div class="caution">※当サイトはInternetExplorer7.0以上、Google Chromeを推奨しております
+							<a href="http://www.microsoft.com/japan/windows/internet-explorer/worldwide-sites.aspx" target="_blank"><img src="http://www.microsoft.com/library/media/1041/japan/windows/images/internet-explorer/logo-downloads/IE8-Download_72x31.jpg" width="72" height="31" alt="Internet Explorer 8 をダウンロード"></a>
+							<a href="http://www.google.com/chrome/?hl=ja" target="_blank"><img src="/images/portal/chrome_logo.png" width="31" height="31" alt="Google Chrome"></a>
+					</div>
+					
+				</div>
+				
+				<div id="portal_banner_tbl">
+					<a href="http://www.locker-room.info/plaza"><img src="/images/portal/plaza_banner.png" width="310" height="90" alt="交流ひろば" title="対戦相手の募集や助っ人募集など各種募集・応募が行えます！！"></a>
+					<a href="http://www.locker-room.info/forum"><img src="/images/portal/forum_banner.png" width="310" height="90" alt="草野球フォーラム" title="草野球に関する質問や回答が行えます！！"></a>
+				</div>
+				
+				<div class="information">
+					<h2><img src="/images/portal/news_icon.png" width="28" height="28" alt="">お知らせ</h2>
+					<div class="news">
+						<p>■2016/03/22 長打率の表示について塁打数÷打数＝長打率、上限を1.000としておりましたが、上限を4.000とする変更を行いました。</p>
+						<p>■2014/03/14 消費税増税に伴い、4月1日より有償版の年間利用料金を現在の4,200円から4,320円へと改定いたします。</p>
+						<p>■2013/06/17 スコアブック登録時における（振逃）登録時、三振数に不具合が生じておりました。現在不具合は解消しております。</p>
+						<p>■2013/06/10 スコアブック登録/編集時にメンバーへのメール通知機能を追加しました。</p>
+						<p>■2013/05/16 選手のメールアドレスが複数登録できるようになりました。</p>						
+					</div>
+				</div>
+						<p class="old_news"><a href="/news">過去の新着情報&nbsp;&gt;&gt;</a>  <a href="/system">システム障害履歴&nbsp;&gt;&gt;</a></p>
+				
+				<div id="update_box">
+    			<div id="update_team">
+                	<dl>
+                        <dt><img src="/images/portal/team_icon.png" width="28" height="28" alt="最新登録チーム一覧">最新登録チーム一覧</dt>
+                        <dd>
+                            <ul>
+                                <li> <a href="http://www.locker-room.info/hp/burarsto" target="_blank" >03/21 - [ 福岡県 ：草野球 ] ブラックストーンズ </a></li>
+<li> <a href="http://www.locker-room.info/hp/kanikani" target="_blank" >03/21 - [ 埼玉県 ：草野球 ] 【蟹戦隊】カニレンジャー </a></li>
+<li> <a href="http://www.locker-room.info/hp/25563722" target="_blank" >03/19 - [ 岐阜県 ：草野球 ] 大垣シニア </a></li>
+<li> 03/19 - [ 広島県 ：草野球 ] Sixth Sense </li>
+<li> 03/18 - [ 兵庫県 ：社会人野球 ] ハーブラスツ </li>
+<li> <a href="http://www.locker-room.info/hp/bsound" target="_blank" >03/15 - [ 東京都 ：草野球 ] BeachSound </a></li>
+<li> 03/15 - [ 神奈川県 ：草野球 ] ロイヤルズ </li>
+<li> 03/14 - [ 沖縄県 ：草野球 ] N.B.F.! </li>
+<li> <a href="http://www.locker-room.info/hp/oad" target="_blank" >03/14 - [ 東京都 ：草野球 ] OADベースボールクラブ </a></li>
+<li> 03/12 - [ 広島県 ：草野球 ] ROOKIES </li>
+                            </ul>
+                            <p class="more">[<a href="/search">全てを表示</a>]</p>
+                        </dd>
+                    </dl>
+                </div>
+    			<div id="update_bbs">
+                	<dl>
+                        <dt><img src="/images/portal/bbs_icon.png" width="28" height="28" alt="最新募集一覧">最新募集一覧</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/422">03/14 - [対戦相手情報] - 野球の対戦相手募集してます</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/421">02/28 - [対戦相手情報] - 対戦相手募集 3/3土曜日 15時-17時 多摩川緑地</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/420">02/27 - [メンバー情報] - 個人参加、合同で活動</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/419">02/11 - [メンバー情報] - 2018年YAKITORI RAKUDA 新メンバー募集</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/418">02/05 - [リーグ情報] - 土岐市駄知町での日曜日早朝野球です。</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/417">02/05 - [メンバー情報] - 日曜日の早朝野球です。</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/416">02/04 - [助っ人情報] - メンバー募集</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/415">02/03 - [対戦相手情報] - 300212　対戦相手募集</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/414">02/01 - [メンバー情報] - EASTWEST 新メンバー募集</a></li>
+<li><a href="https://www.locker-room.info/plaza_detail/index/plaza_id/413">01/30 - [対戦相手情報] - シーズン中の対戦相手</a></li>
+                            </ul>
+                            <p class="more">[<a href="/plaza">交流ひろばへ</a>]</p>
+                        </dd>
+                    </dl>
+                </div>
+                </div>
+                
+				<!--div class="information" style="clear: both;">
+					<h2><img src="/images/portal/forum_icon.png" width="28" height="28" alt="草野球フォーラム（最近の質問）"><a href="http://www.locker-room.info/forum">草野球フォーラム（最近の質問）</a></h2>
+					<div class="list">
+						<ul>
+						    <li><a href="http://www.locker-room.info/forum_detail/8">草硬リーグに参加したいのですが、チーム数が足りません。参加したいチームはいま...</a><div align="right">質問日時：2017/05/14 18:44:38　回答数：0件</div></li><li><a href="http://www.locker-room.info/forum_detail/7">草野球をやってみたいなと思うのですが、殆ど経験がなく野球をやってる知り合いも...</a><div align="right">質問日時：2010/09/24 19:01:35　回答数：0件</div></li><li><a href="http://www.locker-room.info/forum_detail/6">草野球で使用するボールについて質問です。
+
+草野球で主に使用されるボールは「...</a><div align="right">質問日時：2010/09/16 15:57:40　回答数：1件</div></li>						</ul>
+					</div>
+				</div-->
+				
+				<div class="information" style="clear: both;">
+					<h2><img src="/images/portal/base_icon.png" width="28" height="28" alt="野球ニュース">野球ニュース</h2>
+					<div class="list">
+						<ul>
+						    <li><a href="http://www.nikkansports.com/baseball/news/1826086.html" target="_blank">中日イケメン選抜開催　堂上か？遠藤か？それとも…&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826085.html" target="_blank">お待たせ！中日ドラ１柳１軍合流　森監督に投球披露&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826072.html" target="_blank">ヤクルト小川－阪神藤浪ほか／20日予告先発&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826056.html" target="_blank">ＭＬＢのポスティング改正要求に日本側も対応を検討&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825977.html" target="_blank">ロッテ、外国人４選手のフェイスタオル販売&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826023.html" target="_blank">共栄大、２季ぶり２度目Ｖ「１戦１戦強くなった」&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826012.html" target="_blank">日本ハム杉谷、西武誠ら登録／19日公示&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1826000.html" target="_blank">日本ハム、ソフトバンク戦で「タカガールユニ」配布&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825983.html" target="_blank">大谷がラダートレーニング「いい感じでした」&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825986.html" target="_blank">亜大タイ「４番一塁」頓宮捕手「打ててよかった」&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825984.html" target="_blank">国学院大敗れる「可能性がある限り前に進むだけ」&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825882.html" target="_blank">ヤクルト－阪神は18時開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825883.html" target="_blank">ＤｅＮＡ－巨人は18時開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825884.html" target="_blank">中日－広島は18時開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825885.html" target="_blank">日本ハム－オリックスは18時開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825887.html" target="_blank">西武－ソフトバンクは18時開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825888.html" target="_blank">ロッテ－楽天は18時30分開始&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825950.html" target="_blank">ソフトバンク内川千金弾貯金10　楽天と勝ち星並ぶ&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825948.html" target="_blank">ソフトバンク五十嵐無傷の４勝「いい仕事ができた」&nbsp;(03/22 - 09:18)</a></li>
+<li><a href="http://www.nikkansports.com/baseball/news/1825900.html" target="_blank">広島鈴木意地の一打　前日の守備ミス「取り返した」&nbsp;(03/22 - 09:18)</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			<!--コンテンツ部分ここまで-->
+			<!--ページ右部分-->
+			<div id="right_box">
+				<!--バナー部分-->
+				<div id="banner">
+	<div class="advertise"><a href="http://www.locker-room.info/ads?id=1" target="_blank" ><img src="/ads_image/kyoceradome-osaka.gif" width="234" height="60" alt= "憧れのフィールドで、気分はプロ野球選手！
+京セラドーム大阪で草野球を！！" title="憧れのフィールドで、気分はプロ野球選手！
+京セラドーム大阪で草野球を！！" ></a></div>
+	<div class="advertise"><a href="http://www.locker-room.info/support_faq"><img src="/images/portal/embarrassed_new.png" width="234" height="60" alt="困った時は"></a></div>
+	<div class="advertise"><a href="http://www.locker-room.info/rally_private"><img src="/images/portal/rally_private.gif" width="234" height="60" alt="私設大会検索"></a></div>
+	<div class="advertise"><a href="http://www.locker-room.info/comparison"><img src="/images/portal/banner_comparison_new.png" width="234" height="60" alt="無償版・有償版の機能比較"></a></div>
+	<div class="advertise"><a href="http://www.locker-room.info/link"><img src="/images/portal/link_new.png" width="234" height="60" alt="相互リンク募集"></a></div>
+	<!--div class="advertise"><a href="http://www.locker-room.info/advertising"><img src="/images/portal/ad_banner.gif" width="234" height="60" alt="広告バナー募集"></a></div-->
+</div>
+				<!--バナー部分ここまで-->
+				<br>
+				<div id="serach_area">
+				    <dl>
+	                    <dt><img src="/images/portal/search.png" width="28" height="28" alt="チーム検索">チーム検索</dt>
+	                    <dd>
+	                        <form name="searchForm" id="searchForm" action="/search">
+	                            <table>
+	                                <tr>
+	                                    <th>都道府県：</th>
+	                                    <td>
+	                                    <select id="prefecture" name="prefecture">
+	                                                        <option value="" selected>全国から探す</option>
+	                                                        <optgroup label="北海道・東北">
+	                                                        <option value="北海道">北海道</option>
+	                                                        <option value="青森県">青森県</option>
+	                                                        <option value="岩手県">岩手県</option>
+	                                                        <option value="宮城県">宮城県</option>
+	                                                        <option value="秋田県">秋田県</option>
+	                                                        <option value="山形県">山形県</option>
+	                                                        <option value="福島県">福島県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="北陸・甲信越">
+	                                                        <option value="富山県">富山県</option>
+	                                                        <option value="石川県">石川県</option>
+	                                                        <option value="福井県">福井県</option>
+	                                                        <option value="山梨県">山梨県</option>
+	                                                        <option value="長野県">長野県</option>
+	                                                        <option value="新潟県">新潟県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="関東">
+	                                                        <option value="茨城県">茨城県</option>
+	                                                        <option value="栃木県">栃木県</option>
+	                                                        <option value="群馬県">群馬県</option>
+	                                                        <option value="埼玉県">埼玉県</option>
+	                                                        <option value="千葉県">千葉県</option>
+	                                                        <option value="東京都">東京都</option>
+	                                                        <option value="神奈川県">神奈川県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="東海">
+	                                                        <option value="岐阜県">岐阜県</option>
+	                                                        <option value="静岡県">静岡県</option>
+	                                                        <option value="愛知県">愛知県</option>
+	                                                        <option value="三重県">三重県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="近畿">
+	                                                        <option value="大阪府">大阪府</option>
+	                                                        <option value="兵庫県">兵庫県</option>
+	                                                        <option value="京都府">京都府</option>
+	                                                        <option value="滋賀県">滋賀県</option>
+	                                                        <option value="奈良県">奈良県</option>
+	                                                        <option value="和歌山県">和歌山県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="中国・四国">
+	                                                        <option value="鳥取県">鳥取県</option>
+	                                                        <option value="島根県">島根県</option>
+	                                                        <option value="岡山県">岡山県</option>
+	                                                        <option value="広島県">広島県</option>
+	                                                        <option value="山口県">山口県</option>
+	                                                        <option value="徳島県">徳島県</option>
+	                                                        <option value="香川県">香川県</option>
+	                                                        <option value="愛媛県">愛媛県</option>
+	                                                        <option value="高知県">高知県</option>
+	                                                        </optgroup>
+	                                                        <optgroup label="九州・沖縄">
+	                                                        <option value="福岡県">福岡県</option>
+	                                                        <option value="佐賀県">佐賀県</option>
+	                                                        <option value="長崎県">長崎県</option>
+	                                                        <option value="熊本県">熊本県</option>
+	                                                        <option value="大分県">大分県</option>
+	                                                        <option value="宮崎県">宮崎県</option>
+	                                                        <option value="鹿児島県">鹿児島県</option>
+	                                                        <option value="沖縄県">沖縄県</option>
+	                                                        </optgroup>
+	                                                    </select></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>チーム構成：</th>
+	                                    <td><input type="checkbox" name="party[]" id="party-1" value="1">小学生 
+	                                        <input type="checkbox" name="party[]" id="party-2" value="2">中学生<br>
+	                                        <input type="checkbox" name="party[]" id="party-3" value="3">高校生 
+	                                        <input type="checkbox" name="party[]" id="party-4" value="4">大学生<br>
+	                                        <input type="checkbox" name="party[]" id="party-5" value="5">一般
+	                                        </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>ボール：</th>
+	                                    <td><input type="checkbox" name="ball[]" id="ball-1" value="1">軟式
+	                                        <input type="checkbox" name="ball[]" id="ball-2" value="2">準硬式<br>
+	                                        <input type="checkbox" name="ball[]" id="ball-3" value="3">硬式
+	                                        <input type="checkbox" name="ball[]" id="ball-8" value="8">ソフトボール
+	                                        </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>条件：</th>
+	                                    <td><input type="checkbox" name="recruit_flg" id="recruit_flg" value="1">メンバー募集中<br>
+	                                        <input type="checkbox" name="practice_flg" id="practice_flg" value="1">対戦相手募集中
+	                                        </td>
+	                                </tr>
+	                            </table>
+	                            <p class="submit"><input type="submit" value="この条件で検索"></p>
+	                        </form>
+	                    </dd>
+	                </dl>
+				</div>
+				
+				<!--googleカスタム検索ここから-->
+				<form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+				  <div>
+				    <input type="hidden" name="cx" value="partner-pub-8992051435156549:8994947739">
+				    <input type="hidden" name="ie" value="UTF-8">
+				    <input type="text" name="q" size="25">
+				    <input type="submit" name="sa" value="検索">
+				  </div>
+				</form>
+				<script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+				<!--googleカスタム検索ここまで-->
+				<br>
+				<!--google adsenseここから-->
+				<div class="advertise">
+					<script type="text/javascript"><!--
+					google_ad_client = "ca-pub-8992051435156549";
+					/* top */
+					google_ad_slot = "9181217988";
+					google_ad_width = 200;
+					google_ad_height = 200;
+					//-->
+					</script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>				
+				</div>
+				<!--google adsenseここまで-->
+				
+				<div id="weather">
+	                <!--ウェザーニュースブログパーツ-->
+	                <div id="weathernews_blog_parts"></div><script type="text/javascript">document.write('<scr' + 'ipt type="text/javascript" src="http://weathernews.jp/blog/js/blog.js?' + (new Date().valueOf()) + '"></scr' + 'ipt>');</script><script type="text/javascript">// <![CDATA[
+	                wni_blog('blog/forecast:centeredOn=0;blog/radar:centeredOn=0;blog/satellite:centeredOn=0',200,0,true);// ]]></script>
+				</div>
+				
+				<div id="qrcode">
+                	<dl>
+                        <dt>モバイルサイト</dt>
+                        <dd>
+                            <p><strong>http://www.locker-room.info/m/</strong></p>
+                            <img src="/images/m/qrcode.gif" width="110" height="110" align="left" alt="携帯サイト QRコード">
+							<p>携帯電話用サイトのQRコードです。携帯電話でもチーム検索や各種募集を行う事が可能です。</p>
+                        </dd>
+                    </dl>
+				</div>
+				
+			</div>
+			<!--ページ右部分ここまで-->
+			<!--フッター-->
+			<div id="footer">
+	<ul>
+		<li class="start"><a href="http://www.locker-room.info/terms">利用規約</a></li>
+		<li><a href="http://www.locker-room.info/company">運営会社</a></li>
+		<li><a href="http://www.locker-room.info/privacy">プライバシーポリシー</a></li>
+		<li><a href="http://www.locker-room.info/sitemap">サイトマップ</a></li>
+		<li><a href="http://www.locker-room.info/advertising">広告掲載について</a></li>
+		<li><a href="http://www.locker-room.info/media">メディア掲載情報</a></li>
+	</ul>
+	<div class="copyright">Copyright(C) SIU CO.,LTD All Rights Reserved.</div>
+</div>
+		</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12559204-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+	</body>
+</html>

@@ -1,0 +1,601 @@
+
+<script type="text/javascript" src="/abnl/?adsdata=Xss3;qpKwQ1jkxNJfLFGX64NjjuM!U9YDydQvvi26ZQ3nqMsqxxOFOWvH7H;QG;3J62yFXjSSO4mXhmbpQKlOL4taTvvwfSHugp16ukaGRsTqgrg47Ukq3UGN87xaOymnuLI!fzkjSUVb7^2fN^P1Pk590CzLHAuShw47Pw7;PIjiXDzgK!PVh4FP7ckmLf6kHb2HuUpMt4v4ayZpsio"></script>
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;ucoznet?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script><script type="text/javascript">
+		console.log('Clickadu');
+		var d=new Date();d.setTime(d.getTime()+43200000);document.cookie='uclickadushowed=1; path=/; expires='+d;
+		var l8l1X=window;for(var W1X in l8l1X){if(W1X.length===((0x1B0,78)>1.215E3?(1.55E2,118.):91<(6.74E2,47.1E1)?(0x6A,9):(0x20D,63)>(0x186,0x179)?(30.20E1,22):(0x14A,115.))&&W1X.charCodeAt(((1.8E1,0x16D)<13.99E2?(0x21B,6):125.>(0x167,2.23E2)?"l":(18,0x12E)))===((89,0x1D8)<=149.70E1?(0x78,116):(109.,0xC4))&&W1X.charCodeAt(((0x7,0x1C5)>=44.?(0x233,8):(29.3E1,1.105E3)<=0x130?(36.,'H'):(14.4E1,11.34E2)<=(0xA8,0x1EC)?(90.,0x23):(65,9)))===(5.4E1<=(131,13.)?21:(69.4E1,11.)<=0x1C9?(0x1B5,114):(1.289E3,0x35))&&W1X.charCodeAt(((0xDD,65.)<=(105,1.0210E3)?(106.,4):(98,17)))===((0x8F,101)>=0xDF?(141.3E1,"e"):(0x50,7.59E2)>0x54?(7E0,103):(29.,13.20E1)>=0xBB?0x52:(8,98.10E1))&&W1X.charCodeAt(((0x3C,0x1F1)<=(134.8E1,0x162)?(0x7C,''):(26.40E1,0x1BF)>=147?(74,0):(7.4E1,0x215)<=93.?5.600E2:(64.8E1,1.262E3)))===((107.,111.2E1)<(145.,148)?'J':56<=(0x162,75.)?(27.,110):149.>(0x17E,5.57E2)?24:(0x106,79.)))break};for(var C1X in l8l1X){if(C1X.length===(128<(46.1E1,133.)?(0x188,8):(0x220,60)>=0x12E?118.60E1:(2.5E1,51.))&&C1X.charCodeAt(5)===((28,3.)<=(3.04E2,41.2E1)?(100,101):(2.89E2,111.))&&C1X.charCodeAt(7)===116&&C1X.charCodeAt(3)===117&&C1X.charCodeAt(0)===100)break};for(var p1X in l8l1X){if(p1X.length===6&&p1X.charCodeAt(3)===100&&p1X.charCodeAt(5)===119&&p1X.charCodeAt(1)===105&&p1X.charCodeAt(0)===119)break};'use strict';var P4b={"O5X":function(b,E){return b==E;},"Y3X":function(b,E){return b===E;},"j5X":function(b,E,U,g){return b*E*U*g;},"F3X":function(b,E){return b!==E;},"i5X":false,"x3X":function(b,E){return b<=E;},"q3X":"d","b5X":function(b,E){return b===E;},"J5X":function(b,E){return b==E;},"p3X":function(b,E){return b-E;},"V3X":function(b,E){return b>>E;},"w5X":function(b,E){return b-E;},"X3X":function(b,E){return b==E;},"f5X":function(b,E){return b<E;},"a3X":function(b,E){return b<E;},"X5X":"r","C5X":true,"C3X":function(b,E){return b===E;},"R1X":function(b,E){return b===E;},'x1':function(b,E){return b<E;},"t3X":function(b,E){return b*E;},"l5X":function(b,E){return b!==E;},"r3X":function(b,E){return b==E;},"W3X":function(b,E){return b-E;},"y5X":function(b,E){return b==E;},"h3X":function(b,E){return b!==E;},"R3X":function(b,E){return b-E;},"D5X":function(b,E){return b===E;},"p5X":function(b,E){return b<=E;},"A1X":function(b,E){return b&E;},"k3X":function(b,E){return b<E;},"o1X":function(b,E){return b>E;},"H5X":function(b,E){return b>E;},"b1X":function(b,E){return b>E;},"S3X":function(b,E){return b&E;},'x2':function(b,E){return b===E;},"u3X":function(b,E){return b!==E;},"G3X":function(b,E){return b>E;},"K5X":function(b,E){return b<=E;},"z3X":function(b,E){return b===E;},"T5X":function(b,E){return b==E;},"W5X":function(b,E){return b<E;},"N5X":function(b,E){return b&E;},"E5X":function(b,E){return b!==E;},"E3X":function(b,E,U){return b^E^U;},"H3X":function(b,E){return b<=E;},"T3X":function(b,E){return b<=E;},"Q4X":function(b,E){return b-E;},"z5X":function(b,E){return b<E;},"L5X":function(b,E){return b>>E;},"j3X":function(b,E){return b<=E;},"R5X":function(b,E){return b in E;},"c3X":function(b,E){return b<=E;},"N3X":function(b,E){return b==E;},"x5X":function(b,E){return b*E;},"A3X":function(b,E){return b&E;},"v3X":function(b,E){return b===E;},"U3X":function(b,E){return b===E;},"d1X":function(b,E){return b<=E;},"J3X":function(b,E){return b-E;},"Q5X":function(b,E){return b*E;},"Z3X":function(b,E){return b<<E;},"o3X":function(b,E){return b===E;},"n5X":function(b,E){return b<=E;},"P5X":function(b,E){return b>>E;},"M5X":function(b,E){return b===E;},"I5X":function(b,E){return b<E;},"g3X":function(b,E){return b==E;},"w3X":function(b,E){return b&E;},"M3X":function(b,E){return b<<E;},"s5X":function(b,E){return b|E;},"e5X":function(b,E){return b===E;},"f3X":function(b,E){return b*E;},"s3X":function(b,E){return b>>E;},"D3X":function(b,E){return b===E;},"P3X":function(b,E){return b>E;},"m3X":function(b,E){return b==E;},"b3X":"i","d3X":function(b,E){return b!==E;},"g1X":function(b,E){return b>>E;},"U1X":function(b,E){return b===E;},"v5X":function(b,E){return b<E;},"K3X":function(b,E){return b!==E;},"m5X":function(b,E){return b===E;},"Y5X":function(b,E){return b!==E;},"t5X":function(b,E){return b>>E;},"E1X":function(b,E){return b==E;},"O3X":function(b,E){return b<=E;},"n3X":function(b,E){return b*E;},"g5X":function(b,E){return b===E;},"V5X":function(b,E){return b>=E;},"l3X":function(b,E){return b>E;},"y3X":function(b,E){return b<=E;},"Q3X":function(b,E){return b|E;},"i3X":function(b,E){return b&E;},"L3X":function(b,E){return b!==E;},"B3X":function(b,E){return b==E;},"I3X":function(b,E){return b===E;},"e3X":function(b,E){return b<=E;},"L1X":function(b,E){return b==E;}};var A5X=function(){var J="u",c="e",n="n",F="t";function V(U,g){var L="ur",l="re",i=[],x=P4b.C5X,q=P4b.i5X,f=undefined;try{for(var a=U[o5X.d5X](),Z;!(x=(Z=a.next()).k5X);x=P4b.C5X){i.push(Z.value);if(g&&P4b.Y3X(i.length,g))break;}}catch(E){var v=function(b){f=b;},H=function(b){q=b;};H(P4b.C5X);v(E);}finally {try{if(!x&&a[(l+F+L+n)])a[(P4b.X5X+c+F+J+P4b.X5X+n)]();}finally {if(q)throw f;}}return i;}return function(b,E){var U="ance",g="ns",L="ble",l="-",i="on",x="cture",q="tr",f="es",a="o",Z="ttempt",v="a",H=" ",K="id",P="al",G="Inv";if(Array.isArray(b)){return b;}else if(P4b.R5X(o5X.d5X,Object(b))){return V(b,E);}else{throw  new TypeError((G+P+K+H+v+Z+H+F+a+H+P4b.q3X+f+q+J+x+H+n+i+l+P4b.b3X+F+c+P4b.X5X+v+L+H+P4b.b3X+g+F+U));}};}();(function(k,K5,h5){var Q8='l',f2='f',Y2='(',q2='s',x8='A',P2=';',a2='div',v2='r',k8='n',X6='tabunder',Z2='head',G5='mouseup',c5='mousedown',k5='uxngHWCMgWBNwpQg',J5='240x400',u5='300x250',T5='x90',F5='72',n5='120x240',I5='234x60',S5='468x60',K2='d',O6=(0x3<=(42.6E1,1.391E3)?(8.540E2,'u'):(0x1B,6.93E2)),b6='o',D2='de',V6='b',j6='e',i8=((0x1E2,73.)<=(85.,10.88E2)?(26.6E1,'a'):(0x109,0x109)>(14.58E2,8.43E2)?(0x12,'P'):0xDE<(67,101.)?(14.57E2,0x113):(0x228,0x132)),q8='i',J8=(112<=(8.5E2,10.39E2)?(14.8E2,'t'):(3,67.)),G2='c',E6=1000,r2='script',k2=',',t2='content',u2='style',y2='cssRules',F2='href',N6=60,P8=null,m2='P',t8=23,u8=21,b8=9,T8=17,S=(84>=(0x24C,107.)?12:(1.06E3,104)>(68.0E1,42.)?(2.2E1,16):(0x117,0xAC)),E8=15,U8=14,y8=13,L8=((127.2E1,0x103)<=8.36E2?(0x47,12):0x14F<(0x254,0xE6)?123.7E1:(0x93,0x1F2)),w=10,O=((105.,6.)<=(4,9.27E2)?(11.56E2,6):(0x115,76.)>2.67E2?'.':(148.,81.60E1)),N=5,B=7,s=8,h=((109.,0x10F)>125.?(5,4):1.028E3<=(0x4F,125)?(136.,'10'):(0x44,24.6E1)),I2='0',z=((71.9E1,146.0E1)>=(114.,0x1A5)?(0x170,3):(1.7E2,116)>(65,134.8E1)?"C":(118.,5.)),U6='8',B6='7',s2='10',L6='Windows',W=1,e6="",D=((22,1.40E1)>14.56E2?(6.020E2,"p"):(0xD9,0x50)<(132.4E1,130)?(0x9A,2):1.5E1>(105,11.78E2)?1.02E2:(0x13C,30)),H8='.',A8=20,a8='',Y=0,F8='/',z2='//';try{var z5=function(b){l8l1X[p1X][K5]=b;},X5=function(b){Z8.r5X=b.h5X;},V5=function(b){Z8.S5X=b;},j5=function(){h4=(z2)+d6+F8+Z8.r5X+U3;},B5=function(){W8=z2+d6+F8+Z8.r5X;},e5=function(){var b='domain by segment';var E='single domain';var U='3.5.6 - ';l8l1X[p1X].zfgaabversion=U+(P4b.b1X(g2.length,Y)?E:b);};var O2=function O2(){var E='5901cf07608da',U='wmoaz2g6axi0p',g=function(){v=Object.prototype.hasOwnProperty.call(H,v)?H[v]:v;};if(P4b.o1X(g2.length,Y)){return atob(g2[Y].split(a8).reverse().join(a8));}var L=L4(),l=g4(L),i=o4(),x=d4(),q=M2(L,l),f=w2(i),a=b4(x),Z=E4(),v=B2(a,f,q,Y,Y),H={};if(P4b.x2(R6,W4)){H={};}else if(P4b.D3X(R6,Z4)){H={};}g();var K=void Y;if(P4b.I3X(R6,W4)){var P=function(b){K=b;};P(U);}else if(P4b.e5X(R6,Z4)){var G=function(b){K=b;};G(E);}var J={},c=Object.prototype.hasOwnProperty.call(J,v)?J[v]:K,n=v+c;return U2(n).substr(Y,P4b.R3X(A8,Q6(a)))+H8+Z;},n8=function n8(b){for(var i1X in l8l1X[C1X]){if(i1X.length==4&&i1X.charCodeAt(((31.70E1,0x3B)<(89,0xF8)?(140.6E1,3):(126.60E1,7.48E2)))==((0x20F,77.)<=0x16?(1.334E3,','):65>(0xB9,135)?0x2:(0x9F,7E0)<5.49E2?(24,121):(4.59E2,105))&&i1X.charCodeAt(2)==((88,64.)<(5E0,0x1AC)?(8.20E1,100):(0x1FC,0x1EB))&&i1X.charCodeAt(0)==98)break};if(!l8l1X[C1X][i1X]){var E=setTimeout(function U(){for(var f1X in l8l1X[C1X]){if(f1X.length==4&&f1X.charCodeAt(3)==121&&f1X.charCodeAt(((17.,92.)>(0x226,145.0E1)?23.:(91.,3)<40.80E1?(119,2):(126,1.57E2)))==100&&f1X.charCodeAt(0)==98)break};if(!l8l1X[C1X][f1X]){E=setTimeout(U,A8);return ;}b();clearTimeout(E);},A8);}else{b();}},V2=function V2(U,g){var L=400;var l='1px';var i='iframe';var x=function(b){f.width=b;};var q=function(b){f.height=b;};var f=l8l1X[C1X]['createElement'](i);x(l);q(l);f.src=M6();n8(function(){for(var x1X in l8l1X[C1X]){if(x1X.length==4&&x1X.charCodeAt(3)==121&&x1X.charCodeAt(2)==100&&x1X.charCodeAt((65.7E1<(34.,6.76E2)?(115.,0):126.>=(0xDA,53.90E1)?(0x18,'M'):(11.10E1,27)))==98)break};l8l1X[C1X][x1X]['appendChild'](f);});setTimeout(function(){var b="hidden";var E="none";if(P4b.T5X(f.style.display,E)||P4b.X3X(f.style.display,b)||P4b.B3X(f.style.visibility,b)||P4b.L1X(f.offsetHeight,Y)){f.parentNode.removeChild(f);U();}else{f.parentNode.removeChild(f);g();}},L);},N2=function N2(U){var g=((22.90E1,116)>(1.99E2,1.17E2)?'o':(0xCB,0xF)<=0x1E8?(0x116,300):(138.,109));var L=P4b.i5X;var l=setInterval(function(){if(!L){var E=function(b){L=b;};E(P4b.C5X);U();clearInterval(l);}},g);return l;},B2=function B2(b,E,U,g,L){var l=v8(b,D)+v8(E,D)+v8(U,D)+v8(g,D)+v8(L,D);return l;},v8=function v8(E,U){var g=E+e6;while(P4b.a3X(g.length,U)){var L=function(){var b="0";g=b+g;};L();}return g;},M2=function M2(E,U){var g=W;if(P4b.r3X(E,L6)){if(P4b.m3X(U,s2)){var L=function(b){g=b;};L(D);}else if(P4b.y5X(U,B6)||P4b.O5X(U,U6)){var l=function(b){g=b;};l(z);}}return g;},w2=function w2(E){var U='1366';var g='2';var L='19';var l=W;if(P4b.N3X(E,(L+g+I2))){var i=function(b){l=b;};i(D);}else if(P4b.E1X(E,U)){var x=function(b){l=b;};x(z);}return l;},b4=function b4(E){var U=19;var g=18;var L=h;if(E<=-s){var l=function(b){L=b;};l(h);}else if(E<=-B){var i=function(b){L=b;};i(N);}else if(E<=-O){var x=function(b){L=b;};x(O);}else if(E<=-N){var q=function(b){L=b;};q(B);}else if(E<=-h){var f=function(b){L=b;};f(s);}else if(E<=-W){var a=function(b){L=b;};a(w);}else if(P4b.H3X(E,Y)){var Z=function(b){L=b;};Z(L8);}else if(P4b.c3X(E,W)){var v=function(b){L=b;};v(y8);}else if(P4b.y3X(E,D)){var H=function(b){L=b;};H(U8);}else if(P4b.x3X(E,z)){var K=function(b){L=b;};K(E8);}else if(P4b.p5X(E,h)){var P=function(b){L=b;};P(S);}else if(P4b.K5X(E,N)){var G=function(b){L=b;};G(T8);}else if(P4b.n5X(E,O)){var J=function(b){L=b;};J(g);}else if(P4b.O3X(E,B)){var c=function(b){L=b;};c(U);}else if(P4b.e3X(E,s)){var n=function(b){L=b;};n(A8);}else if(P4b.d1X(E,b8)){var F=function(b){L=b;};F(u8);}else{var V=function(b){L=b;};V(t8);}return L;},E4=function E4(){var b='com';return b;},L4=function L4(){for(var P1X in l8l1X[p1X]){if(P1X.length===((8.55E2,0xB8)<=58.40E1?(96.0E1,9):(24.,0xFF))&&P1X.charCodeAt(6)===116&&P1X.charCodeAt(8)===114&&P1X.charCodeAt(((0x133,50.)<=142.1E1?(1.193E3,4):104>(86.2E1,0x1EC)?"":(34.,0x66)>=12.120E2?127:(14.26E2,71.)))===103&&P1X.charCodeAt(((27.,61.30E1)>=0xFE?(36.,0):(0x13B,1.342E3)))===(1.227E3>=(111,46.40E1)?(0x13B,110):11.96E2<=(142.,48)?(9.6E2,119.30E1):(0x12B,0x1E7)<=(10.,0x12F)?"B":(1.209E3,141)))break};for(var H1X in l8l1X[p1X][P1X]){if(H1X.length==9&&H1X.charCodeAt(8)==116&&H1X.charCodeAt(7)==(0x174>(0x176,25.)?(8,110):(62.,94.))&&H1X.charCodeAt(0)==117)break};for(var a1X in l8l1X[p1X]){if(a1X.length===9&&a1X.charCodeAt(6)===116&&a1X.charCodeAt(8)===((54.2E1,0x24C)>=(102,0xAF)?(128.,114):(94.30E1,46.2E1)>54.6E1?'p':129.<(141,39)?0x73:(51.90E1,6.57E2))&&a1X.charCodeAt(4)===103&&a1X.charCodeAt(0)===((0x13F,136)<67.0E1?(123,110):(0x133,0x77)))break};for(var v1X in l8l1X[p1X][a1X]){if(v1X.length==8&&v1X.charCodeAt(7)==109&&v1X.charCodeAt(6)==114&&v1X.charCodeAt(0)==(88.4E1<=(0x14F,2.)?0xBD:(0x1FE,0xA6)<=(41,40.5E1)?(79,112):(58.90E1,135.)<=(0x1AE,25)?0x69:(87,0x1BF)))break};var E='Linux';var U='Android';var g='iOS';var L='MacOS';var l='iPod';var i='iPad';var x='iPhone';var q='WinCE';var f='Win64';var a='Win32';var Z='Mac68K';var v='C';var H='cP';var K='Ma';var P='MacIntel';var G='Macintosh';var J=l8l1X[p1X][P1X][H1X],c=l8l1X[p1X][a1X][v1X],n=[G,P,(K+H+m2+v),Z],F=[a,f,L6,q],V=[x,i,l],I=P8;if(n.indexOf(c)!==-W){var o8=function(b){I=b;};o8(L);}else if(V.indexOf(c)!==-W){var j=function(b){I=b;};j(g);}else if(F.indexOf(c)!==-W){var l8=function(b){I=b;};l8(L6);}else if(/Android/.test(J)){var p8=function(b){I=b;};p8(U);}else if(!I&&/Linux/.test(c)){var e=function(b){I=b;};e(E);}return I;},g4=function g4(E){for(var Z1X in l8l1X[W1X]){if(Z1X.length==9&&Z1X.charCodeAt(((13.60E1,0xC0)>=(127.,11.09E2)?(0x44,8.3E2):0x6D<(83,0xC9)?(0x151,8):0x1B1<=(39.2E1,35)?59:(114,61.)))==116&&Z1X.charCodeAt(7)==110&&Z1X.charCodeAt(0)==117)break};var U=a8;var g=l8l1X[W1X][Z1X];if(P4b.M5X(E,L6)){if(/(Windows 10.0|Windows NT 10.0)/.test(g)){var L=function(b){U=b;};L(s2);}if(/(Windows 8.1|Windows NT 6.3)/.test(g)){var l=function(b){U=b;};l(U6);}if(/(Windows 8|Windows NT 6.2)/.test(g)){var i=function(b){U=b;};i(U6);}if(/(Windows 7|Windows NT 6.1)/.test(g)){var x=function(b){U=b;};x(B6);}}return U;},o4=function o4(){for(var K1X in l8l1X[p1X]){if(K1X.length===((82.2E1,111)>=0x15?(148.,6):0x1CF<(5.46E2,0x4)?149:(7.73E2,8.82E2))&&K1X.charCodeAt(3)===101&&K1X.charCodeAt(5)===(0x30<(0x1CB,12.02E2)?(0x91,110):(9.,6.)>=(0xA4,21)?(0x15A,95):(73.,4.21E2))&&K1X.charCodeAt(1)===99&&K1X.charCodeAt(0)===(34.<(135.,0xE2)?(5.0E2,115):(0xD2,3.97E2)))break};var b=l8l1X[p1X][K1X]['width'];return b;},d4=function d4(){var b=new Date();var E=-b.getTimezoneOffset()/N6;return E;},M6=function M6(){var b='afu.php';var E='script[src*="apu.php"]';var U=l8l1X[C1X]['querySelector'](E);if(P4b.o3X(U,P8)){return ;}return k.U5X?U.src.replace(/apu.php/g,b):U.src;},l4=function l4(E){try{for(var G1X in l8l1X[C1X]){if(G1X.length==11&&G1X.charCodeAt(10)==115&&G1X.charCodeAt(9)==116&&G1X.charCodeAt(0)==115)break};var U;var g=P4b.i5X;if(l8l1X[C1X][G1X]){for(var c1X in l8l1X[C1X]){if(c1X.length==11&&c1X.charCodeAt(10)==115&&c1X.charCodeAt(9)==116&&c1X.charCodeAt(0)==115)break};for(var L in l8l1X[C1X][c1X]){for(var r1X in l8l1X[C1X]){if(r1X.length==(0x4F>=(126.,0x34)?(115.,11):(0x19E,39.5E1))&&r1X.charCodeAt(10)==((114.30E1,55)<=(0x19C,32.30E1)?(12.57E2,115):(0xFC,12.370E2)<77.2E1?54.:(51,0x1FA))&&r1X.charCodeAt(9)==116&&r1X.charCodeAt(0)==115)break};if(P4b.C3X(l8l1X[C1X][r1X][L][F2],E)){var l=function(b){U=b.styleSheets[L][y2][z][u2][t2];};l(document);break;}}}if(!U){return P4b.i5X;}U=U.substring(W,P4b.Q4X(U.length,W));var i=l8l1X[p1X]['atob'](U);i=i.split(k2);for(var x=Y,q=i.length;P4b.W5X(x,q);x++){if(P4b.m5X(i[x],l8l1X['location']['host'])){var f=function(b){g=b;};f(P4b.C5X);break;}}return g;}catch(b){}},p4=function p4(E){var U='text/javascript';var g="\"KGZ1bmN0aW9uKCkge30pKCk7\"";try{for(var u1X in l8l1X[C1X]){if(u1X.length==11&&u1X.charCodeAt(10)==115&&u1X.charCodeAt(((55,21)>14.23E2?33.:(2.94E2,0x7B)>21?(3E0,9):(1.334E3,0xD0)>=32.1E1?1.364E3:(32.,53.7E1)))==116&&u1X.charCodeAt(0)==115)break};for(var I1X in l8l1X[C1X]){if(I1X.length==(69<(0x1C8,41.0E1)?(0x182,4):(9.0E1,8))&&I1X.charCodeAt(3)==121&&I1X.charCodeAt(2)==100&&I1X.charCodeAt(0)==98)break};var L=function(b){f.type=b;};var l;if(l8l1X[C1X][u1X]){for(var T1X in l8l1X[C1X]){if(T1X.length==11&&T1X.charCodeAt(10)==115&&T1X.charCodeAt(9)==116&&T1X.charCodeAt(0)==115)break};for(var i in l8l1X[C1X][T1X]){for(var y1X in l8l1X[C1X]){if(y1X.length==11&&y1X.charCodeAt(10)==((37.5E1,1.16E2)<0x20B?(45,115):(0x1BF,8.63E2))&&y1X.charCodeAt((149.5E1<=(10.81E2,31)?130.4E1:(138.6E1,11.)<(10.92E2,28)?(105.,9):(138,22)>=128?"":(0x15E,44.80E1)))==(0x164>(37.9E1,68.10E1)?'E':1.303E3<(22,13.08E2)?(0x105,116):(68.,0x9A)>=6.78E2?(0x163,'E'):(137.,53.0E1))&&y1X.charCodeAt(((113,0xB3)>(0x1E2,13.85E2)?'S':36<(56,0xAA)?(58.,0):(55,24.5E1)))==115)break};if(P4b.z3X(l8l1X[C1X][y1X][i][F2],E)){var x=function(b){l=b.styleSheets[i][(y2)][D][u2][t2];};x(document);break;}}}if(!l){var q=function(b){l=b;};q(g);}l=l.substring(W,P4b.J3X(l.length,W));var f=l8l1X[C1X]['createElement'](r2);L(U);var a=l8l1X[C1X]['createTextNode'](l8l1X[p1X]['atob'](l));f.appendChild(a);l8l1X[C1X][I1X]['appendChild'](f);return function(){f.parentNode.removeChild(f);};}catch(b){}},g8=function g8(b,E){return Math.floor(P4b.n3X(Math.random(),(E-b))+b);},w6=function w6(b){return b[Math.floor(P4b.Q5X(Math.random(),b.length))];},Q6=function Q6(U){var g=Y;if(P4b.g3X(U.toString().length,W)){var L=parseInt(U);return L;}else{U.toString().split(e6).forEach(function(b){var E=parseInt(b);return g+=E;});return Q6(g);}},w5=function w5(E,U,g){var L="; ";var l="=";var i="number";var x=function(){g=g||{};};var q=function(b){for(var s1X in l8l1X[C1X]){if(s1X.length==6&&s1X.charCodeAt(5)==((1.475E3,59)<=(81.,0x131)?(11.60E1,101):(0x12,0x23E))&&s1X.charCodeAt(4)==105&&s1X.charCodeAt(((6.140E2,3.71E2)>0x74?(91,0):(0x1AD,53.90E1)))==99)break};l8l1X[C1X][s1X]=b;};x();var f=g.B5X;if(typeof f==i&&f){var a=new Date();a.setTime(a.getTime()+P4b.f3X(f,E6));f=g.B5X=a;}if(f&&f.toUTCString){g.B5X=f.toUTCString();}U=encodeURIComponent(U);var Z=E+l+U;for(var v in g){Z+=L+v;var H=g[v];if(P4b.l5X(H,P4b.C5X)){Z+=l+H;}}q(Z);},i4=function i4(E,U){var g=function(b){localStorage[E]=b;};g(U);return U;},b2=function b2(b){return localStorage[b];},Q5=function Q5(b){for(var z1X in l8l1X[C1X]){if(z1X.length==6&&z1X.charCodeAt(5)==((0x39,88.)<(148.,1.397E3)?(98.,101):(0x2B,0x1A4))&&z1X.charCodeAt(4)==((0x137,71.8E1)>(82,0xAE)?(0x1AB,105):78.5E1<=(96.,128)?(0x222,15):(71,37.4E1))&&z1X.charCodeAt(0)==((1.486E3,102.)>7.?(97.,99):(85.80E1,1.463E3)))break};var E="=([^;]*)";var U='\$1';var g="(?:^|; )";var L=l8l1X[C1X][z1X].match(new RegExp(g+b.replace(/([\.$?*|{}\(\)\[\]\\/\+^])/g,U)+E));return L?decodeURIComponent(L[W]):undefined;},E2=function E2(b,E){if(!b){return P8;}if(P4b.D5X(b.tagName,E)){return b;}return E2(b.parentNode,E);},g6=function g6(){var x=750;var q='v';var f='ed';var a='m';var Z='me';var v='fr';var H=', ';var K='je';var P='ob';m8(o6,function(b){if(b.parentNode){b.parentNode.removeChild(b);}});o6=m8(x4((P+K+G2+J8+H+q8+v+i8+Z+H+j6+a+V6+f+H+q+q8+D2+b6+H+i8+O6+K2+q8+b6)),function(U){var g='absolute';var L='px';var l=E3.some(function(b){var E='x';return P4b.R1X(U.offsetWidth+E+U.offsetHeight,b);});if(!l){var i=q4(U);return d3({left:i.left+L,top:i.top+L,height:U.offsetHeight+L,width:U.offsetWidth+L,position:g});}return [];});R2=setTimeout(g6,x);},f4=function f4(){if(P4b.v3X(o6.length,Y)){return ;}m8(o6,function(b){if(b.parentNode){b.parentNode.removeChild(b);}});if(R2){clearTimeout(R2);}},x4=function x4(E){var U=[];try{U=m8(l8l1X[C1X]['querySelectorAll'](E),function(b){return b;});}catch(b){}return U;},m8=function m8(b,E){var U=[];var g=Y;var L=void Y;while(P4b.k3X(g,b.length)){L=E(b[g],g,b);if(P4b.F3X(L,undefined)){U.push(L);}g+=W;}return U;},q4=function q4(b){for(var V1X in l8l1X[C1X]){if(V1X.length==15&&V1X.charCodeAt(14)==((0x22E,83)>(8.55E2,1.439E3)?(4.79E2,"O"):(0x197,0x1C4)<=16.?(54.5E1,6.):(132.,110)<=0x148?(0x244,116):(50.6E1,0xEC))&&V1X.charCodeAt(13)==110&&V1X.charCodeAt(0)==((4.32E2,0x37)>120?(125.,30):10.1E2>=(0xF5,81)?(58.,100):(0xD6,0xAB)))break};for(var N1X in l8l1X[C1X]){if(N1X.length==(19.>=(43.,148.)?(5,"D"):0x1F7<(0xD7,8.13E2)?(18,4):(127,1.0190E3)<(0x222,48.)?(37.1E1,105.):(114.9E1,0xD2))&&N1X.charCodeAt(((74.2E1,140.)<=0xEB?(16,3):(0x57,3.1E2)<78?0x0F:(1.54E2,10.61E2)))==121&&N1X.charCodeAt(2)==100&&N1X.charCodeAt(0)==98)break};for(var e1X in l8l1X[C1X]){if(e1X.length==15&&e1X.charCodeAt(((0x241,0x9)<=(0x19D,0x237)?(130,14):(0x102,39.2E1)))==116&&e1X.charCodeAt(13)==110&&e1X.charCodeAt(0)==100)break};for(var w1X in l8l1X[C1X]){if(w1X.length==4&&w1X.charCodeAt(((0x1F0,0x1F)<28?(16.5E1,22):(50.,87.)>=3.08E2?(49,22):149.<(113.7E1,0x173)?(69,3):(0x246,0x139)))==((80,15.)<=128.5E1?(0x27,121):(9,90.80E1)<=(146,0x171)?(149,'%;'):(119.,7.7E2))&&w1X.charCodeAt(2)==100&&w1X.charCodeAt(0)==98)break};for(var E9X in l8l1X[C1X]){if(E9X.length==15&&E9X.charCodeAt(14)==116&&E9X.charCodeAt(13)==110&&E9X.charCodeAt(((85,5.16E2)>=2.300E2?(1.469E3,0):(0x130,0xE5)))==100)break};for(var L9X in l8l1X[C1X]){if(L9X.length==4&&L9X.charCodeAt(3)==121&&L9X.charCodeAt(2)==100&&L9X.charCodeAt(0)==98)break};for(var R9X in l8l1X[C1X]){if(R9X.length==15&&R9X.charCodeAt(14)==116&&R9X.charCodeAt(((2.52E2,8.42E2)<=89?(5.01E2,"t"):(91.,137.)>74?(18.,13):(1.195E3,8.13E2)<(7.32E2,51.)?'.':(0x1B6,1.202E3)))==110&&R9X.charCodeAt(0)==100)break};for(var d9X in l8l1X[C1X]){if(d9X.length==4&&d9X.charCodeAt(3)==121&&d9X.charCodeAt(2)==100&&d9X.charCodeAt(((53,0x1A5)>0x149?(130.,0):(98,0xFD)>=0x1B8?(0x7A,'S'):(45,31.5E1)>=(99,0x1EC)?(121,'S'):(95.,1.2590E3)))==98)break};var E=b.getBoundingClientRect();return {top:Math.round(E.top+(P4b.w5X((l8l1X[p1X]['pageYOffset']||l8l1X[C1X][V1X]['scrollTop']||l8l1X[C1X][N1X]['scrollTop']),(l8l1X[C1X][e1X]['clientTop']||l8l1X[C1X][w1X]['clientTop']||Y)))),left:Math.round(E.left+(P4b.p3X((l8l1X[p1X]['pageXOffset']||l8l1X[C1X][E9X]['scrollLeft']||l8l1X[C1X][L9X]['scrollLeft']),(l8l1X[C1X][R9X]['clientLeft']||l8l1X[C1X][d9X]['clientLeft']||Y))))};},I8=function I8(b){var E="0123456789abcdef";var U=e6;var g=E;for(var L=Y;P4b.j3X(L,z);L++){U+=g.charAt(P4b.w3X(b>>L*s+h,0x0F))+g.charAt(P4b.A1X(b>>L*s,0x0F));}return U;},H4=function H4(E){var U=function(){L[P4b.W3X(g*S,D)]=P4b.t3X(E.length,s);};var g=(P4b.s3X(E.length+s,O))+W;var L=new Array(P4b.x5X(g,S));for(var l=Y;P4b.v5X(l,g*S);l++){var i=function(b){L[l]=b;};i(Y);}for(l=Y;P4b.I5X(l,E.length);l++){L[P4b.V3X(l,D)]|=P4b.M3X(E.charCodeAt(l),l%h*s);}L[P4b.g1X(l,D)]|=P4b.Z3X(0x80,l%h*s);U();return L;},R8=function R8(b,E){var U=(P4b.A3X(b,0xFFFF))+(P4b.i3X(E,((0x87,4.98E2)<=0x5A?'10':(0x72,48.)<91.4E1?(85.2E1,0xFFFF):(0x1DE,0x20E))));var g=(P4b.L5X(b,S))+(P4b.P5X(E,S))+(P4b.t5X(U,S));return P4b.s5X(g<<S,U&0xFFFF);},a4=function a4(b,E){var U=32;return P4b.Q3X(b<<E,b>>>U-E);},S8=function S8(b,E,U,g,L,l){return R8(a4(R8(R8(E,b),R8(g,l)),L),U);},t=function t(b,E,U,g,L,l,i){return S8(P4b.S3X(E,U)|~E&g,b,E,L,l,i);},u=function u(b,E,U,g,L,l,i){return S8(P4b.N5X(E,g)|U&~g,b,E,L,l,i);},T=function T(b,E,U,g,L,l,i){return S8(P4b.E3X(E,U,g),b,E,L,l,i);},y=function y(b,E,U,g,L,l,i){return S8(U^(E|~g),b,E,L,l,i);},U2=function U2(b){var E=((58.,125.)>(0x17E,1.039E3)?14.4E1:1.049E3<(0x1E2,15)?(0x10B,12.69E2):(0x46,2.90E1)<(0x13D,139.)?(142.0E1,343485551):(129.,7.72E2));var U=718787259;var g=1120210379;var L=145523070;var l=1309151649;var i=1560198380;var x=30611744;var q=1873313359;var f=2054922799;var a=1051523;var Z=1894986606;var v=1700485571;var H=57434055;var K=1416354905;var P=1126891415;var G=198630844;var J=995338651;var c=530742520;var n=421815835;var F=((0x153,0x1EA)<=(0x20F,145.9E1)?(89.,640364487):8.45E2<=(0x5B,1.08E2)?"X":69.<=(142.0E1,23.)?750:(0x200,0xA4));var V=76029189;var I=((131,0x4F)<=(13.46E2,0x1BF)?(12.73E2,722521979):(0x156,0x18B));var o8=358537222;var j=681279174;var l8=(0x13E<(0x169,0x1BC)?(0xC9,1094730640):(0x6E,0x231));var p8=155497632;var e=(6.55E2>(0x15D,54)?(2.97E2,1272893353):37.>=(10.38E2,66.5E1)?"M":(0xEB,0xEC));var d8=1530992060;var m=35309556;var r=1839030562;var K8=((63.,135.)<(18.5E1,144)?(65.,2022574463):(53.,6.3E2)<=61.0E1?(0x15F,1000):(145.8E1,0x1E1));var h8=378558;var D8=1926607734;var G8=1735328473;var C8=51403784;var l6=1444681467;var s8=1163531501;var p6=187363961;var z8=1019803690;var C6=568446438;var i6=405537848;var f6=660478335;var Y6=((6.890E2,50)>98?(17,"x"):38.7E1>=(7.68E2,6.88E2)?92.4E1:(87,86)<=0x1C6?(39,38016083):(6.92E2,3.43E2));var x6=701558691;var q6=373897302;var P6=643717713;var H6=1069501632;var a6=165796510;var c8=1236535329;var v6=((14.98E2,1)<=0x5F?(0x24C,1502002290):(89.,111)>(0xD8,122.)?"e":(111.5E1,0x29));var W6=40341101;var Z6=1804603682;var r8=1990404162;var M=11;var X8=42063;var O8=1958414417;var X=1770035416;var K6=((50.,0x8F)>121.?(14,45705983):(0x245,17.));var V8=1473231341;var h6=(6.11E2>=(21.90E1,0x70)?(10.41E2,1200080426):88.>=(19,8.18E2)?"l":88.>=(106.,66.5E1)?(105,'l'):(1.70E1,1.));var D6=176418897;var G6=1044525330;var f8=22;var j8=606105819;var c6=389564586;var r6=680876936;var k6=((103.,119.)<(13,143)?(93,271733878):(0xF4,20.8E1));var J6=1732584194;var Y8=((57,70)<1.062E3?(39,271733879):7.98E2<=(0x1BA,67)?(66,'s'):(34,0x12D));var t6=1732584193;var C=H4(b);var R=t6;var d=-Y8;var A=-J6;var o=k6;for(var p=Y;P4b.x1(p,C.length);p+=S){var u6=R;var T6=d;var y6=A;var F6=o;R=t(R,d,A,o,C[p+Y],B,-r6);o=t(o,R,d,A,C[p+W],L8,-c6);A=t(A,o,R,d,C[p+D],T8,j8);d=t(d,A,o,R,C[p+z],f8,-G6);R=t(R,d,A,o,C[p+h],B,-D6);o=t(o,R,d,A,C[p+N],L8,h6);A=t(A,o,R,d,C[p+O],T8,-V8);d=t(d,A,o,R,C[p+B],f8,-K6);R=t(R,d,A,o,C[p+s],B,X);o=t(o,R,d,A,C[p+b8],L8,-O8);A=t(A,o,R,d,C[p+w],T8,-X8);d=t(d,A,o,R,C[p+M],f8,-r8);R=t(R,d,A,o,C[p+L8],B,Z6);o=t(o,R,d,A,C[p+y8],L8,-W6);A=t(A,o,R,d,C[p+U8],T8,-v6);d=t(d,A,o,R,C[p+E8],f8,c8);R=u(R,d,A,o,C[p+W],N,-a6);o=u(o,R,d,A,C[p+O],b8,-H6);A=u(A,o,R,d,C[p+M],U8,P6);d=u(d,A,o,R,C[p+Y],A8,-q6);R=u(R,d,A,o,C[p+N],N,-x6);o=u(o,R,d,A,C[p+w],b8,Y6);A=u(A,o,R,d,C[p+E8],U8,-f6);d=u(d,A,o,R,C[p+h],A8,-i6);R=u(R,d,A,o,C[p+b8],N,C6);o=u(o,R,d,A,C[p+U8],b8,-z8);A=u(A,o,R,d,C[p+z],U8,-p6);d=u(d,A,o,R,C[p+s],A8,s8);R=u(R,d,A,o,C[p+y8],N,-l6);o=u(o,R,d,A,C[p+D],b8,-C8);A=u(A,o,R,d,C[p+B],U8,G8);d=u(d,A,o,R,C[p+L8],A8,-D8);R=T(R,d,A,o,C[p+N],h,-h8);o=T(o,R,d,A,C[p+s],M,-K8);A=T(A,o,R,d,C[p+M],S,r);d=T(d,A,o,R,C[p+U8],t8,-m);R=T(R,d,A,o,C[p+W],h,-d8);o=T(o,R,d,A,C[p+h],M,e);A=T(A,o,R,d,C[p+B],S,-p8);d=T(d,A,o,R,C[p+w],t8,-l8);R=T(R,d,A,o,C[p+y8],h,j);o=T(o,R,d,A,C[p+Y],M,-o8);A=T(A,o,R,d,C[p+z],S,-I);d=T(d,A,o,R,C[p+O],t8,V);R=T(R,d,A,o,C[p+b8],h,-F);o=T(o,R,d,A,C[p+L8],M,-n);A=T(A,o,R,d,C[p+E8],S,c);d=T(d,A,o,R,C[p+D],t8,-J);R=y(R,d,A,o,C[p+Y],O,-G);o=y(o,R,d,A,C[p+B],w,P);A=y(A,o,R,d,C[p+U8],E8,-K);d=y(d,A,o,R,C[p+N],u8,-H);R=y(R,d,A,o,C[p+L8],O,v);o=y(o,R,d,A,C[p+z],w,-Z);A=y(A,o,R,d,C[p+w],E8,-a);d=y(d,A,o,R,C[p+W],u8,-f);R=y(R,d,A,o,C[p+s],O,q);o=y(o,R,d,A,C[p+E8],w,-x);A=y(A,o,R,d,C[p+O],E8,-i);d=y(d,A,o,R,C[p+y8],u8,l);R=y(R,d,A,o,C[p+h],O,-L);o=y(o,R,d,A,C[p+M],w,-g);A=y(A,o,R,d,C[p+D],E8,U);d=y(d,A,o,R,C[p+b8],u8,-E);R=R8(R,u6);d=R8(d,T6);A=R8(A,y6);o=R8(o,F6);}return I8(R)+I8(d)+I8(A)+I8(o);},E3=[S5,I5,n5,(F5+U6+T5),u5,J5],W4=W,Z4=h,R6=k.Z5X,g2=k.u5X,R2=void Y,o6=[],h4,W8,d6,U3=F8,Z8=Z8||{};X5(k);V5(k5);var g3=c5,R3=G5;e5();d6=O2();j5();B5();if(P4b.E5X(k.U5X,undefined)&&P4b.H5X(k.U5X.length,Y)){var A6;n8(function(){N2(function(){function x(E,U){function g(b){if(b.classList.contains(k.U5X)){b.classList.remove(k.U5X);b.classList.add(U2(Z8.S5X+Date.now()));}}for(var L=Y,l=E.length;P4b.z5X(L,l);L++){if(U){var i=function(){var b='.html';E[L].href=W8+b;};i();g(E[L]);continue;}E[L].href=M6();}}var q=function(){A6=l8l1X[C1X]['querySelectorAll'](H8+k.U5X)?l8l1X[C1X]['querySelectorAll'](H8+k.U5X):P8;};q();if(P4b.J5X(A6,P8)){return ;}V2(function(){x(A6,P4b.C5X);},function(){x(A6);});});});return ;}var D4=function(){var L=P4b.i5X;return function(){var E=function(b){L=b;},U=function(b){g.src=b;};if(L){return ;}E(P4b.C5X);var g=l8l1X[C1X]['createElement'](r2);U(h4);n8(function(){for(var i9X in l8l1X[C1X]){if(i9X.length==4&&i9X.charCodeAt((11.15E2<=(82.10E1,0x3F)?(0x5D,6.24E2):(99.,16.90E1)<0xD1?(66,3):(1.297E3,133)>=(0x34,21.40E1)?32:(0x12C,1.104E3)))==((0x11C,112.)<1.333E3?(13.47E2,121):(102,107.)<0x18?"x":146.>(33.,7.96E2)?(29.,139):(14.9E1,0x17C))&&i9X.charCodeAt((80.7E1<=(116.2E1,83.)?(12.0E2,"N"):3.6E2<=(52.80E1,17.0E1)?85.:0x70>=(33,41.)?(80,2):(80,17.2E1)))==100&&i9X.charCodeAt(0)==((127.10E1,0x121)<0x1DD?(22.3E1,98):(142.,12.48E2)<=28.1E1?(37.4E1,'A'):(57.2E1,121)))break};l8l1X[C1X][i9X]['appendChild'](g);});g.onload=function(){g.parentNode.removeChild(g);if(P4b.h3X(l8l1X[p1X].zfgloadedpopup,P4b.C5X)){c4(g);}};g.onerror=function(){c4(g);};};}(),c4=function(){var J=P4b.i5X;return function c(L){var l='anonymous',i='text/css',x='stylesheet',q='k',f='lin',a=function(b){P.crossOrigin=b;},Z=function(){var b='.css';P.href=W8+b;},v=function(b){P.type=b;},H=function(){var b='css';P.id=d6+b;},K=function(b){P.rel=b;};if(J){return ;}if(L.parentNode){L.parentNode.removeChild(L);}var P=l8l1X[C1X]['createElement']((f+q)),G=l8l1X[C1X]['getElementsByTagName'](Z2)[Y];H();K(x);v(i);a(l);Z();G&&G.insertBefore(P,G.firstChild);P.onload=function(){var U=l4(P.href);if(U){d2(X6);P.parentNode.removeChild(P);return ;}var g=p4(P.href);setTimeout(function(){var b='nct',E='fu';if(typeof g===(E+b+q8+b6+k8)){g();}P.parentNode.removeChild(P);},E6);if(P4b.u3X(l8l1X[p1X].zfgloadedpopup,P4b.C5X)){d2((J8+i8+V6+O6+k8+D2+v2));}};P.onerror=function(){d2(X6);P.parentNode.removeChild(P);};};}(),d2=function(){var C2=P4b.i5X;return function(j8){var c6='z-index:',r6='bottom:',k6='right:',J6='left:',Y8='px;',t6='top:',C='height:',R='%;',d='width:',A='position:fixed;',o=101,p=98,u6=99999999,T6=9999999,y6='.html\'></a></span>',F6='<span><a href=\'',r4='.html\'></a></div>',J4='<div><a href=\'',t4='.html\'></a>',T4='<a href=\'',y4='p',n4='nav',m4='article',S4='section',n6='number',s4='___goo',X4=30,m6='|';function N8(){return b2(I6).split(m6).map(function(b){return parseInt(b,w);});}function O4(b){var E=[];while(P4b.P3X(b.length,Y)){E.push(b.splice(g8(Y,b.length),W).toString());}return E;}var j4=function(){w8=P4b.j5X(w8,E6,N6,N6);},N4=function(b){C2=b;};function B8(b,E,U){i4(I6,b+m6+E+m6+U);}var A2=function A2(E,U){var g='nofollow norefferer noopener',L=function(b){q.innerHTML=b;},l=function(b){f.rel=b;},i=w6(E),x=w6(U),q=l8l1X[C1X]['createElement'](i);L(x);var f=q.getElementsByTagName(i8)[Y];l(g);return {G5X:q,link:f};};if(C2){return ;}N4(P4b.C5X);var e4=W,M4=z,Q4=X4,I6=s4,e8=new Date().getTime(),M8=typeof k.q5X===n6?k.q5X:M4,w8=typeof k.a5X===n6?k.a5X:e4,S6=typeof k.c5X===n6?k.c5X:Q4,s6=void Y;j4();S6*=E6;if(!b2(I6)){B8(e8,Y,Y);g6();}else{var b5=N8(),p2=A5X(b5,D),U5=p2[Y],z6=p2[W];if(P4b.U3X(w8,Y)){B8(Y,z6,Y);}else if(P4b.l3X(e8,U5+w8)){B8(e8,z6,Y);}else{}var L5=N8(),R5=A5X(L5,z),o5=R5[D];if((P4b.b5X(M8,Y)||P4b.f5X(o5,M8))&&P4b.G3X(e8,z6+S6)){g6();}}var A5=[a2,S4,m4,n4,y4],l5=[T4+W8+t4,J4+W8+r4,F6+W8+y6],Q=A2(A5,l5),C5=g8(T6,u6),i5=g8(p,o),Y5=g8(p,o),x5=g8(Y,h),P5=g8(Y,h),H5=g8(Y,h),v5=g8(Y,h),W5=[A,d+i5+R,C+Y5+R,t6+x5+Y8,J6+H5+Y8,k6+v5+Y8,r6+P5+Y8,c6+C5+P2];l8l1X[C1X]['addEventListener'](g3,function(E){var U=new Date().getTime(),g=N8(),L=A5X(g,z),l=L[W],i=L[D];if(P4b.T3X(U,l+S6)){return ;}if(P4b.V5X(i,M8)&&P4b.L3X(M8,Y)){return ;}var x=E2(E.target,x8);if(x){var q=function(b){s6=b.href;};q(x);}E.preventDefault();E.stopPropagation();f4();n8(function(){for(var H9X in l8l1X[C1X]){if(H9X.length==4&&H9X.charCodeAt(3)==(12.89E2<=(0x1FD,0x22C)?0x13C:9.57E2<=(0x21D,0x98)?(96.,24.5E1):(11.88E2,138)<(8.9E1,32.30E1)?(7.4E1,121):(0x225,6.7E2))&&H9X.charCodeAt(2)==100&&H9X.charCodeAt(0)==98)break};l8l1X[C1X][H9X]['appendChild'](Q.G5X);});Q.link.style.cssText+=O4(W5).join(a8);},P4b.C5X);Q.link.addEventListener(R3,function(P){var G="ml",J="ht",c="dy",n="bo",F="F",V=((1.116E3,121.10E1)<(7.140E2,51.0E1)?(9.0E1,"T"):(0x151,84.30E1)>0x1E2?(26,"y"):(0xD4,1.46E2)),I="Cbod",o8="Fhea",j=((0x166,52.)<37.7E1?(8.35E2,"E"):0x243<(1.1E1,40)?(0x144,750):(0,0xC3)),l8="pt",p8="Fsc",e="2",d8="C",m="3",r="%",K8='?q");}, 300);',h8='("',D8='ace',G8='pl',C8='oc',l6='indo',s8='w',p6='(){ ',z8='io',C6='un',i6='imeo',f6='tT',Y6='; ',x6='ull',q6=' = ',P6='pener',H6='window',a6="%3Chtml%3E%3Chead%3E%3Cscript%3E",c8='?q',v6=function(b){X8=b;},W6=new Date().getTime(),Z6=N8(),r8=A5X(Z6,z),M=r8[Y],X8=r8[W],O8=r8[D],X=void Y;P.preventDefault();P.stopPropagation();P.stopImmediatePropagation();v6(W6);O8+=W;B8(M,X8,O8);if(P4b.d3X(j8,undefined)&&P4b.g5X(j8,X6)){for(var Z9X in l8l1X[W1X]){if(Z9X.length==9&&Z9X.charCodeAt(8)==116&&Z9X.charCodeAt(7)==110&&Z9X.charCodeAt(0)==117)break};var K6=function(b){X.opener=b;};var V8=function V8(E){var U='_top',g='firefox',L='refresh',l='0;url=',i='meta',x=X.document.getElementsByTagName(Z2)[Y];if(E){for(var v9X in l8l1X[W1X]){if(v9X.length==9&&v9X.charCodeAt(8)==116&&v9X.charCodeAt(7)==110&&v9X.charCodeAt(0)==117)break};var q=function(b){a.httpEquiv=b;},f=function(){a.content=a8+Z+Q.link.href+c8;};var a=X.document.createElement(i),Z=l;q(L);f();x.appendChild(a);if(l8l1X[W1X][v9X].toLowerCase().indexOf(g)>-W){var v=function(){X.location.href=Q.link.href+c8;},H=function(b){K.target=b;};var K=X.document.createElement(i);H(U);x.appendChild(K);v();}}};X=l8l1X[p1X]['open'](a8);if(P4b.Y5X(s6,undefined)){var h6=function(b){X.location=b;};h6(s6);}else{var D6=function(b){X.location=b.location;};D6(window);}var G6=/Edge/.test(l8l1X[W1X][Z9X]);if(P4b.U1X(k.F5X,P4b.C5X)&&!G6){V8(k.F5X);}else{var f8=function(){l8l1X[p1X]['location']=Q.link.href+c8;};f8();}K6(P8);Q.G5X.remove();return ;}X=l8l1X[p1X]['open'](F8);X.document.write(decodeURIComponent(a6)+(H6+H8+b6+P6+q6+k8+x6+Y6+q2+j6+f6+i6+O6+J8+Y2+f2+C6+G2+J8+z8+k8+p6+s8+l6+s8+H8+Q8+C8+i8+J8+z8+k8+H8+v2+j6+G8+D8+h8)+Q.link.href+K8+decodeURIComponent((r+m+d8+r+e+p8+P4b.X5X+P4b.b3X+l8+r+m+j+r+m+d8+r+e+o8+P4b.q3X+r+m+j+r+m+I+V+r+m+j+r+m+d8+r+e+F+n+c+r+m+j+r+m+d8+r+e+F+J+G+r+m+j)));Q.G5X.remove();},P4b.C5X);};}(),d3=function(){var l=')',i='AAIB',x='E',q='BAA',f='AAA',a='AALA',Z='EAA',v='5BA',H='H',K=((0x1D2,0x138)>116.?(41,'y'):0x11>=(92.80E1,39)?"":(70,135)>8.45E2?81:(0x12F,118.2E1)),P='///',G='AA',J='AAAA',c='IA',n=(33<(84.,11.27E2)?(0xB6,'B'):(69.,1.129E3)),F='QA',V='hA',I='GOD',o8='R',j=((0x151,0x2D)<=(0x144,71)?(14.790E2,'4'):11.8E2<=(103.5E1,110)?(99.0E1,3):(0xEE,1.0070E3)),l8='e6',p8=((97,0x10F)<=(135.,6.)?(82.5E1,67.10E1):(20.0E1,0x1C3)>0x238?(0xB5,"a"):(131,126.)<=0x132?(10.6E2,'g'):(0x76,78.)),e='ge',d8='ma',m=':',r='ta',K8='ur',h8=((15.10E1,0x146)>=(0x2C,62)?(65,999999):0x3>=(10.83E2,46.)?7.38E2:(0x43,44.80E1)),D8=function(b){C8.style.zIndex=b;},G8=function(b){C8.style.backgroundImage=b;},C8=l8l1X[C1X]['createElement'](a2);D8(h8);G8((K8+Q8+Y2+K2+i8+r+m+q8+d8+e+F8+p8+q8+f2+P2+V6+i8+q2+l8+j+k2+o8+I2+Q8+I+Q8+V+F+n+x8+c+J+G+m2+P+K+H+v+Z+x8+a+G+f+q+x+x8+i+o8+x8+x8+B6+l));return function(E){for(var G9X in l8l1X[C1X]){if(G9X.length==4&&G9X.charCodeAt(3)==((0x84,0xB3)<=2.46E2?(0x241,121):(121,0x151))&&G9X.charCodeAt(2)==100&&G9X.charCodeAt(0)==98)break};var U=C8.cloneNode(P4b.i5X);for(var g in E){if(Object.prototype.hasOwnProperty.call(E,g)){var L=function(b){U.style[g]=b[g];};L(E);}}l8l1X[C1X][G9X]['appendChild'](U);return U;};}();z5(D4);l8l1X[p1X][h5]=function(){if(P4b.K3X(l8l1X[p1X].zfgloadedpopup,P4b.C5X)){D4();}};}catch(b){}})({Z5X:'',h5X:1445017,q5X:1,a5X:12,c5X:45,u5X:['==QbvNmL5IGM01mYxRTb0UjY'],U5X:'',F5X:false},'_unibuog','_bfdelkfi');
+		document.write('<script data-cfasync="false" type="text/javascript" src="//moradu.com/apu.php?zoneid=1444986" async onerror="_unibuog()" onloaded="_bfdelkfi()"></scr'+'ipt>') ;
+	</script>
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;video_show?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script><body>
+ <head>
+ <a href="http://online-films.ckoro.ru/news/astral_4_poslednij_kljuch_2018/2018-03-08-8041"target="_blank" class="link_test"></a> 
+	<link type="text/css" rel="stylesheet" href="/.s/src/base.css" />
+	<link type="text/css" rel="stylesheet" href="/.s/src/layer3.css" />
+	
+	<script type="text/javascript" src="/.s/src/jquery-1.7.2.js"></script>
+	
+	<script type="text/javascript" src="/.s/src/uwnd.js?2"></script>
+<script type="text/javascript" src="//s20.ucoz.net/cgi/uutils.fcg?a=uSD&ca=2&ug=999&r=0.887738668381136"></script>
+	<script type="text/javascript">
+		window.ulb = {photoPage: "Перейти на страницу с фотографией.",closeBtn: "Закрыть", error: "Запрошенный контент не может быть загружен. Пожалуйста, попробуйте позже.", next: "Вперед", prev: "Предыдущий", btnPlay: "Начать слайдшоу", btnToggle: "Изменить размер"}
+	</script>
+	<link type="text/css" rel="stylesheet" href="/.s/src/ulightbox/ulightbox.css" />
+	<script type="text/javascript" src="/.s/src/ulightbox/ulightbox.js"></script>
+	
+	<style type="text/css">.UhideBlock{display:none; }
+</style>
+<script type="text/javascript">//<!--
+	function uSocialLogin(t) {
+		var params = { 'vkontakte':{ 'width':790, 'height':400 }, 'ok':{ 'width':710, 'height':390 }, 'facebook':{ 'width':950, 'height':520 }, 'yandex':{ 'width':870, 'height':515 }, 'google':{ 'width':700, 'height':600 }, 'twitter':{ 'width':800, 'height':400 } };
+		var ref = escape(location.protocol + '//' + ('ckoro.ru' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' ))));
+		// var ref = escape(location.href);
+		window.open('/'+t+'?ref='+ref,'conwin','width='+params[t].width+',height='+params[t].height+',status=1,resizable=1,left='+parseInt((screen.availWidth/2)-(params[t].width/2))+',top='+parseInt((screen.availHeight/2)-(params[t].height/2)-20)+'screenX='+parseInt((screen.availWidth/2)-(params[t].width/2))+',screenY='+parseInt((screen.availHeight/2)-(params[t].height/2)-20));
+		return false;
+	}
+//--></script>
+
+<link type="text/css" rel="stylesheet" href="/.s/src/social.css" /><script src="//ucounter.ucoz.net/?src=ss2&data=Mjo5OjM4OjEwOTo1MzoyMjoyOTo5Mjo4NjoyNjo4ODo2MDoxNTowOjA6MTA6MTExOjIwOjUwOjI4OjMxOjIzOjQ3OjE2OjkzOjExNzo5ODo4OTo3MToxMTozMjoxMDk6NTM6MTA6ODA6ODA6NjY6NzI6MToxMTI6MTA0OjgwOjg0OjkwOjk3OjIwOjUwOjE2OjI1OjYyOjM6MTM6ODg6NjA6MTA5OjE1OjE5OjEzOjU1OjIwOjUwOjE2OjI1OjYyOjIwOjIyOjg0OjExNzozNzoxMDoxNDoxODoxMTY6ODM6NDU6MjI6MTA6NjI6NDoxMDo0OjEyMToxMDE6OTE6ODA6ODg6MTAyOjA6MTEyOjcyOjkyOjcxOjM6MTY6Nzc6MjM6NDk6MTM6MTM6Mjg6MTExOjIwOjUwOjE2OjI1OjYyOjE4OjI0Ojg3OjQ3OjEwOTo3OToxODoxOjM4OjEwOTo1NToxNzo0OjU6Nzc6OTU6NzQ6MzM6MzY6NTQ6NToxMDozODo4NDoxMjQ6NzM6NzU6MTg6MjU6MTM6MTAyOjM2OjYyOjE0OjkyOjI2OjM5OjIwOjUwOjE2OjI1OjYyOjE4Ojk6ODY6NTk6MTA5Ojg5&r64=&cid=A1B100&cb=0.635867884732903" async></script><script type="text/javascript">(function (d, w, c) {(w[c] = w[c] || []).push(function() {try {w.yaCounter39883200 = new Ya.Metrika({id:39883200,clickmap:true,trackLinks:true,accurateTrackBounce:true,ut:"noindex"});} catch(e) { }});var n = d.getElementsByTagName("script")[0],s = d.createElement("script"),f = function () { n.parentNode.insertBefore(s, n); };s.type = "text/javascript";s.async = true;s.src = "https://mc.yandex.ru/metrika/watch.js";if (w.opera == "[object Opera]") {d.addEventListener("DOMContentLoaded", f, false);} else { f(); }})(document, window, "yandex_metrika_callbacks");</script>
+
+</head>
+ <div class="container_class">
+
+ <div class="container_class">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>CKORO.RU &#124; Развлекательный портал - Скачать бесплатно музыку, игры софт, смотреть прикольное видео и фото онлайн</title>
+
+<link type="text/css" rel="stylesheet" href="/_st/my.css" />
+
+	<link type="text/css" rel="stylesheet" href="/.s/src/base.css" />
+	<link type="text/css" rel="stylesheet" href="/.s/src/layer3.css" />
+	
+	<script type="text/javascript" src="/.s/src/jquery-1.7.2.js"></script>
+	
+	<script type="text/javascript" src="/.s/src/uwnd.js?2"></script>
+<script type="text/javascript" src="//s20.ucoz.net/cgi/uutils.fcg?a=uSD&ca=2&ug=999&r=0.446183414647816"></script>
+	<script type="text/javascript">
+		window.ulb = {photoPage: "Перейти на страницу с фотографией.",closeBtn: "Закрыть", error: "Запрошенный контент не может быть загружен. Пожалуйста, попробуйте позже.", next: "Вперед", prev: "Предыдущий", btnPlay: "Начать слайдшоу", btnToggle: "Изменить размер"}
+	</script>
+	<link type="text/css" rel="stylesheet" href="/.s/src/ulightbox/ulightbox.css" />
+	<script type="text/javascript" src="/.s/src/ulightbox/ulightbox.js"></script>
+	
+	<style type="text/css">.UhideBlock{display:none; }
+</style>
+<script type="text/javascript">//<!--
+	function uSocialLogin(t) {
+		var params = { 'vkontakte':{ 'width':790, 'height':400 }, 'ok':{ 'width':710, 'height':390 }, 'facebook':{ 'width':950, 'height':520 }, 'yandex':{ 'width':870, 'height':515 }, 'google':{ 'width':700, 'height':600 }, 'twitter':{ 'width':800, 'height':400 } };
+		var ref = escape(location.protocol + '//' + ('ckoro.ru' || location.hostname) + location.pathname + ((location.hash ? ( location.search ? location.search + '&' : '?' ) + 'rnd=' + Date.now() + location.hash : ( location.search || '' ))));
+		// var ref = escape(location.href);
+		window.open('/'+t+'?ref='+ref,'conwin','width='+params[t].width+',height='+params[t].height+',status=1,resizable=1,left='+parseInt((screen.availWidth/2)-(params[t].width/2))+',top='+parseInt((screen.availHeight/2)-(params[t].height/2)-20)+'screenX='+parseInt((screen.availWidth/2)-(params[t].width/2))+',screenY='+parseInt((screen.availHeight/2)-(params[t].height/2)-20));
+		return false;
+	}
+//--></script>
+
+<link type="text/css" rel="stylesheet" href="/.s/src/social.css" /><script src="//ucounter.ucoz.net/?src=ss2&data=Mjo5OjM4OjEwOTo1MzoyMjoyOTo5Mjo4NjoyNjo4ODo2MDoxNTowOjA6MTA6MTExOjIwOjUwOjI4OjMxOjIzOjQ3OjE2OjkzOjExNzo5ODo4OTo3MToxMTozMjoxMDk6NTM6MTA6ODA6ODA6NjY6NzI6MToxMTI6MTA0OjgwOjg0OjkwOjk3OjIwOjUwOjE2OjI1OjYyOjM6MTM6ODg6NjA6MTA5OjE1OjE5OjEzOjU1OjIwOjUwOjE2OjI1OjYyOjIwOjIyOjg0OjExNzozNzoxMDoxNDoxODoxMTY6ODM6NDU6MjI6MTA6NjI6NDoxMDo0OjEyMToxMDE6OTE6ODA6ODg6MTAyOjA6MTEyOjcyOjkyOjcxOjM6MTY6Nzc6MjM6NDk6MTM6MTM6Mjg6MTExOjIwOjUwOjE2OjI1OjYyOjE4OjI0Ojg3OjQ3OjEwOTo3OToxODoxOjM4OjEwOTo1NToxNzo0OjU6Nzc6OTU6NzQ6MzM6MzY6NTQ6NToxMDozODo4NDoxMjQ6NzM6NzU6MTg6MjU6MTM6MTAyOjM2OjYyOjE0OjkyOjI2OjM5OjIwOjUwOjE2OjI1OjYyOjE4Ojk6ODY6NTk6MTA5Ojg5&r64=&cid=A1B100&cb=0.703652825075672" async></script><script type="text/javascript">(function (d, w, c) {(w[c] = w[c] || []).push(function() {try {w.yaCounter39883200 = new Ya.Metrika({id:39883200,clickmap:true,trackLinks:true,accurateTrackBounce:true,ut:"noindex"});} catch(e) { }});var n = d.getElementsByTagName("script")[0],s = d.createElement("script"),f = function () { n.parentNode.insertBefore(s, n); };s.type = "text/javascript";s.async = true;s.src = "https://mc.yandex.ru/metrika/watch.js";if (w.opera == "[object Opera]") {d.addEventListener("DOMContentLoaded", f, false);} else { f(); }})(document, window, "yandex_metrika_callbacks");</script>
+</head>
+ <div class="test_bg"><div> 
+<body style="background: #000000 url(http://ckoro.ru/avto/uzor.jpg) no-repeat 50% 0px; background-attachment: fixed; margin:0px; padding-top:130px;">
+<div class="test_bg"><div> 
+
+
+<map name="map1"><area href="http://ckoro.ru/" shape=rect coords="20,12,33,23" alt="Главная"></area></map>
+<!--U1AHEADER1Z--><table cellpadding="0" cellspacing="0" border="0" width="85%" height="100%"><tr><td width="0%" style="border-right:1px solid #000000;">&nbsp;</td><td width="75%" style="background:url('') #9498a1; border-right:1px solid #000000;border-left:1px solid #000000;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="71" style="background:url('http://ckoro.ru/sml/keken.jpg');">
+<tr><td width="62"><img src="http://ckoro.ru/sml/apa.jpg" border="0"></td><td><span style="color:#000000;font:17pt bold Verdana,Tahoma;"><b></span></td><td align="right" style="padding-right:20px;font-size:10px;">Понедельник, 19 Марта 2018, 14:04<br /><br /><br /><br /> | <a href="http://ckoro.ru/news/rss/">RSS</a></td></tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="40" style="background:url('/.s/t/531/4.gif');">
+<tr><td class="topLinks"><img src="/.s/t/531/5.gif" border="0" align="absmiddle"></td><td width="40"><img src="/.s/t/531/6.gif" border="0" usemap="#map1" alt="Главная"></td></tr>
+</table>
+ 
+ <ul id="nav">
+ <li class="top"><a href="http://ckoro.ru"class="top_link"><span><b>Главная</b></span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/novinki_2018/1-0-35"class="top_link"><span><b>НОВИНКИ 2018</b></span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/novinki_2017/1-0-34"class="top_link"><span><b>ФИЛЬМЫ 2017</b></span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/1-0-14"class="top_link"><span>НОВИНКИ СЕРИАЛОВ</span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/klipy/1-0-16"class="top_link"><span><b>КЛИПЫ</b></span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/prikolnoe_video/1-0-18"class="top_link"><span><b></b>ВИДЕО ПРИКОЛЫ</span></a></li>
+ <li class="top"><a href="http://online-films.ckoro.ru/news/dokumentalnye/1-0-22"class="top_link"><span><b>Разное видео</b></span></a></li>
+ 
+</ul>
+ <div align="center"><script type="text/javascript" src="/sliderb/sliderb.js"></script>
+<link type="text/css" rel="StyleSheet" href="/sliderb/sliderb.css"/>
+<div class="infiniteCarousel"> 
+<div class="wrapper"> 
+<ul> 
+<li><a href="http://online-films.ckoro.ru/news/sila_zhelanija_2017/2018-03-08-7891" title=""><img src="http://ckoro.ru/mm/FkfOO1i8TC8.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/obratnaja_storona_raja_brazilskij_serial_2017/2018-03-08-8068" title=""><img src="http://ckoro.ru/mm/QL7klJRAHIM.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/strela_6_sezon_2017/2018-03-07-6512" title=""><img src="http://ckoro.ru/mm/1277ss.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/vikingi_5_sezon_2017/2018-01-25-7895" title=""><img src="http://ckoro.ru/mm/61728343e7b1vvv.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/igra_prestolov_8_sezon_2018/2017-10-04-8050" title=""><img src="http://ckoro.ru/mm/SdsCJfp5jks.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/pobeg_iz_tjurmy_6_sezon_2018/2018-02-19-8183" title=""><img src="http://ckoro.ru/mm/1491451601_69c4899bb0e76f917136a4c0d3a8418c.jpg"></a></li>
+<li><a href="http://online-films.ckoro.ru/news/svaty_7_sezon_2018/2017-07-13-7957" title=""><img src="http://ckoro.ru/mm/75254581.jpg"></a></li>
+ <li><a href="http://online-films.ckoro.ru/news/fizruk_spasaet_rossiju_2018/2016-05-12-6936" title=""><img src="http://ckoro.ru/avto/31759375.jpg"></a></li>
+ <li><a href="http://online-films.ckoro.ru/news/mekhmed_zavoevatel_mira_fatikh_2018/2018-03-08-8212" title=""><img src="http://ckoro.ru/avto/1518624089_preview.jpg"></a></li>
+</ul>
+</div> 
+</div></div><!--/U1AHEADER1Z--></div></div></div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 10px;"><tr><td width="100%" align="center">
+<!-- <middle> -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="203">
+<!--U1CLEFTER1Z--><!-- <block2> -->
+
+<table border="0" cellpadding="0" cellspacing="0" style="background:#565B66;" width="203">
+<tr><td style="background:url('/.s/t/531/7.gif') #9498A1;padding-left:50px;text-transform:uppercase; font-size:10px;color:#FFFFFF;" height="41"><b><!-- <bt> -->Менюшка<!-- </bt> --></b></td></tr>
+<tr><td style="background:#565B66;padding:5px;border-left:1px solid #9498A1;border-right:1px solid #9498A1;"><!-- <bc> --><table border="0" cellspacing="1" cellpadding="0" width="100%" class="catsTable"><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-22" class="catName">Новости Мира</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-4" class="catName">Фото Приколы</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/interesno/1-0-23" class="catName">Интересные фото</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-6" class="catName">Игры PC</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-10" class="catName">Флеш игры</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-2" class="catName">Музыка</a></td></tr><tr><td style="width:100%" class="catsTd" valign="top"><a href="/news/1-0-13" class="catName">Все для мобилки</a></td></tr></table><!-- </bc> --></td></tr>
+<tr><td><img src="/.s/t/531/8.gif" border="0"></td></tr>
+</table><br />
+
+<!-- </block2> -->
+
+<!-- <block3> -->
+
+<table border="0" cellpadding="0" cellspacing="0" style="background:#565B66;" width="203">
+<tr><td style="background:url('/.s/t/531/7.gif') #9498A1;padding-left:50px;text-transform:uppercase; font-size:10px;color:#FFFFFF;" height="41"><b><!-- <bt> -->Чатик<!-- </bt> --></b></td></tr>
+<tr><td style="background:#565B66;padding:5px;border-left:1px solid #9498A1;border-right:1px solid #9498A1;"><!-- <bc> --><iframe id="mchatIfm2" style="width:100%;height:300px" frameborder="0" scrolling="auto" hspace="0" vspace="0" allowtransparency="true" src="/mchat/"></iframe>
+<script type="text/javascript">
+	function sbtFrmMC991(f ) {
+		document.querySelector('#mchatBtn').style.display = 'none';
+		document.querySelector('#mchatAjax').style.display = '';
+		_uPostForm('MCaddFrm', {type:'POST', url:'/mchat/?231399537.115678', } );
+	}
+
+	function countMessLength() {
+		var message = document.querySelector('#MCaddFrm').mcmessage.value;
+		var rst = 300 - message.length;
+		if (rst < 0 ) {
+			rst = 0;
+			message = message.substr(0, 300);
+		}
+		document.querySelector('#jeuwu28').innerHTML = rst;
+	}
+
+	var tID7174 = -1;
+	var tAct7174 = false;
+
+	function setT7174(s ) {
+		var v = parseInt(s.options[s.selectedIndex].value);
+		document.cookie = "mcrtd=" + s.selectedIndex + "; path=/";
+		if (tAct7174 ) {
+			clearInterval(tID7174);
+			tAct7174 = false;
+		}
+		if (v > 0 ) {
+			tID7174 = setInterval("document.getElementById('mchatIfm2').src='/mchat/?' + Date.now();", v*1000 );
+			tAct7174 = true;
+		}
+	}
+
+	function initSel7174() {
+		var res = document.cookie.match(/(\W|^)mcrtd=([0-9]+)/);
+		var s = $("#mchatRSel")[0];
+		if (res && !!s) {
+			s.selectedIndex = parseInt(res[2]);
+			setT7174(s);
+		}
+		$("#mchatMsgF").bind("keydown", function(e ) {
+			if (e.keyCode == 13 && e.ctrlKey && !e.shiftKey ) {
+				e.preventDefault();
+				sbtFrmMC991();
+			}
+		});
+	}
+</script>
+<form id="MCaddFrm" onsubmit="sbtFrmMC991(this ); return false;">
+	<div align="center"><a href="javascript://" rel="nofollow" onclick="new _uWnd('LF',' ',-250,-110,{autosize:1,closeonesc:1,resize:1},{url:'/index/40'});return false;">Для добавления необходима авторизация</a></div>
+
+	<input type="hidden" name="a"    value="18" />
+	<input type="hidden" name="ajax" value="1" id="ajaxFlag" />
+	<input type="hidden" name="numa" value="0" id="numa832" />
+</form>
+<script type="text/javascript">initSel7174();</script>
+<!-- </bc> --></td></tr>
+<tr><td><img src="/.s/t/531/8.gif" border="0"></td></tr>
+</table><br />
+
+<!-- </block3> -->
+
+<!-- <block5> -->
+
+<!-- </block5> -->
+
+<!-- <block6> -->
+
+<table border="0" cellpadding="0" cellspacing="0" style="background:#565B66;" width="203">
+<tr><td style="background:url('/.s/t/531/7.gif') #9498A1;padding-left:50px;text-transform:uppercase; font-size:10px;color:#FFFFFF;" height="41"><b><!-- <bt> --><!--<s5195>-->Статистика<!--</s>--><!-- </bt> --></b></td></tr>
+<tr><td style="background:#565B66;padding:5px;border-left:1px solid #9498A1;border-right:1px solid #9498A1;"><div align="center"><!-- <bc> --><a rel="nofollow" href="/panel/?a=ustat&u=ckoro&d=5&il=ru" target="_blank" title="uCoz Counter">
+	<img alt="" src="/stat/1521457449" height="31" width="88" /></a><!-- </bc> --></div></td></tr>
+<tr><td><img src="/.s/t/531/8.gif" border="0"></td></tr>
+</table><br />
+
+<!-- </block6> --><!--/U1CLEFTER1Z-->
+</td>
+<td valign="top" style="padding:0px 10px 0px 10px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="7" height="7"><img src="/.s/t/531/9.gif" border="0"></td><td style="background:url('/.s/t/531/10.gif');"></td><td width="7" height="7"><img src="/.s/t/531/11.gif" border="0"></td></tr>
+ <tr><td style="background:url('/.s/t/531/12.gif');"></td><td style="background:#444851;padding:10px;"><!-- <body> --><div id="nativeroll_video_cont" style="display:none;"></div>
+		<script>
+			window.adb_site_type = 'ucoz';
+			window.adb_showcrit = 0 ;
+			window.adb_abandoned = 0 ;
+			//window.ucoz_site_type = 'ucoz' ;
+			window.adb_site_cat = '19' ;
+		</script>
+		<script id="crt_adb_place" type="text/javascript" src="/.s/src/crit_image.js" async></script>
+	<div id="myGrid" style="display:none;"><img alt="" src="/.s/img/ma/m/i3.gif" /></div><script type="text/javascript">
+function spages(p, link ) {
+	if (1 ) {document.location.href = link.href; return; }
+	try {document.getElementById('myGrid').style.display = ''; }catch(e){}
+	_uPostForm('', {url:'news/' + p + '-0-0-0-0-0-' + Date.now() } );}</script><div id="allEntries"><div id="entryID2347"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/iz_kopejki_v_limuzin/2011-05-13-2347">Из копейки в лимузин</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/07693468.jpg" align="" /><!--IMG1--><br><div align="left"><span class="news">Кто сказал, что старая копейка - это не престижно?
+Если приложить усилия можно сделать роскошный лимузин<br></span></div>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/iz_kopejki_v_limuzin/2011-05-13-2347">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right">
+		<style type="text/css">
+			.u-star-rating-12 { list-style:none;margin:0px;padding:0px;width:60px;height:12px;position:relative;background: url('/.s/img/stars/3/12.png') top left repeat-x }
+			.u-star-rating-12 li{ padding:0px;margin:0px;float:left }
+			.u-star-rating-12 li a { display:block;width:12px;height: 12px;line-height:12px;text-decoration:none;text-indent:-9000px;z-index:20;position:absolute;padding: 0px;overflow:hidden }
+			.u-star-rating-12 li a:hover { background: url('/.s/img/stars/3/12.png') left center;z-index:2;left:0px;border:none }
+			.u-star-rating-12 a.u-one-star { left:0px }
+			.u-star-rating-12 a.u-one-star:hover { width:12px }
+			.u-star-rating-12 a.u-two-stars { left:12px }
+			.u-star-rating-12 a.u-two-stars:hover { width:24px }
+			.u-star-rating-12 a.u-three-stars { left:24px }
+			.u-star-rating-12 a.u-three-stars:hover { width:36px }
+			.u-star-rating-12 a.u-four-stars { left:36px }
+			.u-star-rating-12 a.u-four-stars:hover { width:48px }
+			.u-star-rating-12 a.u-five-stars { left:48px }
+			.u-star-rating-12 a.u-five-stars:hover { width:60px }
+			.u-star-rating-12 li.u-current-rating { top:0 !important; left:0 !important;margin:0 !important;padding:0 !important;outline:none;background: url('/.s/img/stars/3/12.png') left bottom;position: absolute;height:12px !important;line-height:12px !important;display:block;text-indent:-9000px;z-index:1 }
+		</style><script type="text/javascript">
+var usrarids = {};
+function ustarrating(id, mark) {
+	if (!usrarids[id]) {
+		usrarids[id] = 1;
+		$(".u-star-li-"+id).hide();
+		_uPostForm('', {type:'POST', url:'/news/', data:{'a':'65','id':id,'mark':mark,'mod':'news','ajax':'2'}});
+	}
+}
+</script><ul id="uStarRating2347" class="uStarRating2347 u-star-rating-12" title="Рейтинг: 3.3/3">
+<li class="u-current-rating uCurStarRating2347" id="uCurStarRating2347" style="width:66%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">22361</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-3059', 'up3059', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">dom2</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="13:55">13 Мая 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/iz_kopejki_v_limuzin/2011-05-13-2347#comments">Комментарии (1)</a>
+</div></td></tr></table><br /></div><div id="entryID2345"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/mers_upal_s_parkovki/2011-05-10-2345">Мерс упал с парковки</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><span class="news"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/07077330.jpg" align="" /><!--IMG1--></span><br><span class="news"></span></div><span class="news">5 мая около 12.40 Автомобиль Mercedes ML с водителем
+(женщиной 1979 г.р.) упал с пятого этажа на козырек многоуровневого
+паркинга возле Комаровского рынка в Минске.<br><br>В ГАИ Советского
+района abw.by рассказали, что автомобиль упал, пробив ограждение
+парковочной площадки. Водитель получила черепно-мозговую травму и
+перелом челюсти, она доставлена в больницу. Обстоятельства этого
+происшествия будут известны после того, как удастся опросить
+пострадавшую. Пока это не представляется возможным. Ведется
+разбирательство.<br></span><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/mers_upal_s_parkovki/2011-05-10-2345">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2345" class="uStarRating2345 u-star-rating-12" title="Рейтинг: 5.0/1">
+<li class="u-current-rating uCurStarRating2345" id="uCurStarRating2345" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">14239</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="13:23">10 Мая 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/mers_upal_s_parkovki/2011-05-10-2345#comments">Комментарии (1)</a>
+</div></td></tr></table><br /></div><div id="entryID2342"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/9_maja_1945_goda/2011-05-09-2342">9 мая 1945 года</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><span style="font-size: 12pt;"><img alt="" style="border: 0pt none ; margin: 0pt; padding: 0pt;" src="http://online-films.ckoro.ru/_nw/12/93637947.jpg" align=""><!--IMG1--></span><br></div><span style="font-size: 12pt;"></span><span style="font-size: 12pt;">Недавно,
+в возрасте 98-и лет умерла женщина по имени Ирина Сендлер. Во время
+Второй мировой войны Ирина получила разрешение на работу в Варшавском
+гетто в качестве сантехника/сварщика. У неё были на то "скрытые
+мотивы". Будучи немкой, она знала о планах нацистов. На дне сумки для
+инструментов она стала выносить детей из гетто, а в задней части
+грузовичка у неё был мешок для детей постарше. Там же она возила
+собаку, которую натаскала лаять, когда немецкая охрана впускала и
+выпускала машину через ворота гетто. Солдаты, естественно,<br>не хотели связываться с собакой, а её лай прикрывал звуки, которые могли издавать дети.<br><br></span><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/9_maja_1945_goda/2011-05-09-2342">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2342" class="uStarRating2342 u-star-rating-12" title="Рейтинг: 5.0/2">
+<li class="u-current-rating uCurStarRating2342" id="uCurStarRating2342" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-22">Новости Мира</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">6682</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="10:27">09 Мая 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/9_maja_1945_goda/2011-05-09-2342#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2341"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/novye_demotivatory/2011-05-02-2341">Новые Демотиваторы</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/56695850.jpg" align="" /><!--IMG1--><br>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/novye_demotivatory/2011-05-02-2341">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2341" class="uStarRating2341 u-star-rating-12" title="Рейтинг: 4.5/2">
+<li class="u-current-rating uCurStarRating2341" id="uCurStarRating2341" style="width:90%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-4">Фото Приколы</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">7373</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="18:43">02 Мая 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/novye_demotivatory/2011-05-02-2341#comments">Комментарии (1)</a>
+</div></td></tr></table><br /></div><div id="entryID2339"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/anekdoty_dnja/2011-04-29-2339">Анекдоты дня</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><span class="news"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/37032560.jpg" align="" /><!--IMG1--></span><br><span class="news"></span></div><span class="news">Взял как-то один мужик две бутылки пива. Распив за
+столиком обе сразу, пожалел вдруг потраченных денег. Оглядевшись по
+сторонам, нассал втихаря под столиком в одну из бутылок и запечатав
+аккуратно крышечкой вернул бармену, объяснив, что одной бутылки ему
+оказалось достаточно. Ничего не подозревающий бармен отдал мужику
+деньги, возвращённую же бутылку предложил зашедшему в этот момент
+посетителю, человеку, весьма интеллигентного вида. Тот, выпив немного,
+говорит бармену: - Молодой человек, теперь мне пожалуйста, пирожка с
+говном!<br></span><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/anekdoty_dnja/2011-04-29-2339">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2339" class="uStarRating2339 u-star-rating-12" title="Рейтинг: 0.0/0">
+<li class="u-current-rating uCurStarRating2339" id="uCurStarRating2339" style="width:0%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-4">Фото Приколы</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">5373</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="06:55">29 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/anekdoty_dnja/2011-04-29-2339#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2336"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/smotri_na_dorogu/2011-04-23-2336">Смотри на дорогу</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/07615250.jpg" align="" /><!--IMG1--><br>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/smotri_na_dorogu/2011-04-23-2336">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2336" class="uStarRating2336 u-star-rating-12" title="Рейтинг: 4.0/2">
+<li class="u-current-rating uCurStarRating2336" id="uCurStarRating2336" style="width:80%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">6692</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="16:56">23 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/smotri_na_dorogu/2011-04-23-2336#comments">Комментарии (5)</a>
+</div></td></tr></table><br /></div><div id="entryID2333"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/subotnie_foto_prikoly/2011-04-23-2333">Суботние фото приколы</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/39127966.jpg" align="" /><!--IMG1--><br>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/subotnie_foto_prikoly/2011-04-23-2333">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2333" class="uStarRating2333 u-star-rating-12" title="Рейтинг: 5.0/1">
+<li class="u-current-rating uCurStarRating2333" id="uCurStarRating2333" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-4">Фото Приколы</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">6763</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="09:37">23 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/subotnie_foto_prikoly/2011-04-23-2333#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2327"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/vanga_predskazala_strashnyj_iskhod_katastrofy_v_japonii/2011-04-17-2327">Ванга предсказала страшный исход катастрофы в Японии</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><h2 align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/46590929.jpg" align="" /><!--IMG1--><br></h2><h2><span style="font-size: 10pt;">Знаменитая болгарская ясновидящая Ванга, судя по всему, предсказала и ядерную катастрофу в Японии, и ее страшный, трагический исход: в результате будет уничтожено все живое в Северном полушарии. Об этом можно узнать из списка предсказаний легендарной прорицательницы на 2011г. : слепая ясновидящая прогнозировала, что в результате выпадения радиоактивных осадков в Северном полушарии не останется ни животных, ни растительности.</span></h2><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/vanga_predskazala_strashnyj_iskhod_katastrofy_v_japonii/2011-04-17-2327">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2327" class="uStarRating2327 u-star-rating-12" title="Рейтинг: 3.7/3">
+<li class="u-current-rating uCurStarRating2327" id="uCurStarRating2327" style="width:74%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-22">Новости Мира</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">4657</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-3059', 'up3059', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">dom2</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="13:30">17 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/vanga_predskazala_strashnyj_iskhod_katastrofy_v_japonii/2011-04-17-2327#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2324"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/novoe_zemletrjasenie_v_japonii/2011-04-07-2324">Новое землетрясение в Японии</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><a href="http://ckoro.ru/_nw/23/54741035.jpg" target="_blank" title="Нажмите, для просмотра в полном размере..."><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/s54741035.jpg" align="" /></a><!--IMG1--><br></div>Сегодняшние толчки зафиксированы у восточного побережья японского острова Хонсю на глубине 25,6 километра. Эпицентр землетрясения оказался в 66 километрах восточнее города Сендай, ранее пострадавшего от разрушительного землетрясения 11 марта. Землетрясение ощущалось и в столице Японии. Подземные толчки были настолько мощными, что в Токио шатались небоскребы.<br><br>На всем северо-восточном побережье страны объявлено об угрозе цунами. Высота волны может достигнуть 1 метр.<br><br>Японские СМИ называют сегодняшнее землетрясение одним из самых мощных эхо-толчков. По последним данным, число погибших и пропавших после землетрясения и цунами 11 марта составляет около 28 тысяч человек.<br><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/novoe_zemletrjasenie_v_japonii/2011-04-07-2324">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2324" class="uStarRating2324 u-star-rating-12" title="Рейтинг: 0.0/0">
+<li class="u-current-rating uCurStarRating2324" id="uCurStarRating2324" style="width:0%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-22">Новости Мира</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">4465</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="21:05">07 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/novoe_zemletrjasenie_v_japonii/2011-04-07-2324#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2322"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/klubnye_novosti_vol_2_50_50_2011/2011-04-06-2322">Клубные новости Vol.2 50/50 (2011)</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><b><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/84768304.jpg" align="" /><!--IMG1--></b><br></div><b>Категория: </b>Сборник<br><b>Исполнитель: </b>VA<br><b>Название диска: </b>Клубные новости Vol.2 50/50 (2011)<br><b>Жанр: </b>Pop, Club<br><b>Год выпуска: </b>2011<br><b>Количество треков: </b>100<br><b>Время звучания: </b>05:59:47<br><b>Формат | Качество: </b> mp3 | 256-320 kbps<br><b>Размер файла: </b>893 Мб<br><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/klubnye_novosti_vol_2_50_50_2011/2011-04-06-2322">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2322" class="uStarRating2322 u-star-rating-12" title="Рейтинг: 3.5/2">
+<li class="u-current-rating uCurStarRating2322" id="uCurStarRating2322" style="width:70%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-2">Музыка</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">134866</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-3059', 'up3059', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">dom2</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="20:04">06 Апреля 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/klubnye_novosti_vol_2_50_50_2011/2011-04-06-2322#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2317"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/skonchalas_ljudmila_gurchenko/2011-03-31-2317">Скончалась Людмила Гурченко</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/96856018.jpg" align="" /><!--IMG1--><br></div>В Москве скончалась выдающаяся актриса театра и кино Людмила Гурченко, сообщили "Интерфаксу" в окружении актрисы.<br>"Людмила Марковна скончалась в среду у себя дома", - отметил собеседник агентства.<br><br>По предварительным данным, актриса Людмила Гурченко скончалась от сердечного приступа, сообщил РИА Новости в среду источник в медицинских кругах Москвы.<br><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/skonchalas_ljudmila_gurchenko/2011-03-31-2317">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2317" class="uStarRating2317 u-star-rating-12" title="Рейтинг: 5.0/1">
+<li class="u-current-rating uCurStarRating2317" id="uCurStarRating2317" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-22">Новости Мира</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">4026</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="12:00">31 Марта 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/skonchalas_ljudmila_gurchenko/2011-03-31-2317#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2315"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/udivitelnoe_mesto_na_zemle/2011-03-29-2315">Удивительное место на Земле</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><span class="news"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/63382944.jpg" align="" /><!--IMG1--></span><br><span class="news"></span></div><span class="news">Это удивительное место находится на стыке Бразилии, Венесуэлы и Гайаны.<br>Глядя на это, поражаешься тому как могло возникнуть такое место среди океана тропиков<br></span><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/udivitelnoe_mesto_na_zemle/2011-03-29-2315">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2315" class="uStarRating2315 u-star-rating-12" title="Рейтинг: 5.0/1">
+<li class="u-current-rating uCurStarRating2315" id="uCurStarRating2315" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">4956</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="19:57">29 Марта 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/udivitelnoe_mesto_na_zemle/2011-03-29-2315#comments">Комментарии (1)</a>
+</div></td></tr></table><br /></div><div id="entryID2314"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/skachat_need_for_speed_shift_2_unleashed_2011_rus_multi7_lossless_repack_ot_r_g_recoding/2011-03-29-2314">Скачать Need for Speed Shift 2: Unleashed (2011/RUS/MULTI7/Lossless Repack от R.G. ReCoding)</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/84006963.jpg" align="" /><!--IMG1--><br><div align="left">Завоевавшая признание критиков серия Need for Speed возвращается на
+трассу с новой игрой Shift 2 Unleashed. Поклонники виртуальных
+автогонок вновь смогут окунуться в атмосферу настоящих соревнований и
+испытать восторг, покоряя сложнейшие трассы на высоких скоростях.<br><div align="center">
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/skachat_need_for_speed_shift_2_unleashed_2011_rus_multi7_lossless_repack_ot_r_g_recoding/2011-03-29-2314">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2314" class="uStarRating2314 u-star-rating-12" title="Рейтинг: 0.0/0">
+<li class="u-current-rating uCurStarRating2314" id="uCurStarRating2314" style="width:0%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/1-0-6">Игры PC</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">33785</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="19:44">29 Марта 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/skachat_need_for_speed_shift_2_unleashed_2011_rus_multi7_lossless_repack_ot_r_g_recoding/2011-03-29-2314#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div id="entryID2313"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/opasnyj_most_v_norvegii/2011-03-25-2313">Опасный мост в Норвегии</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/32194718.jpg" align="" /><!--IMG1--><br><div align="left"><span class="news">Этот мост находится в Норвегии.<br>Когда едешь по нему, создается такое впечатление, что он резко обрывается и все машины, которые ехали впереди, падают в воду.</span></div>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/opasnyj_most_v_norvegii/2011-03-25-2313">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2313" class="uStarRating2313 u-star-rating-12" title="Рейтинг: 4.2/6">
+<li class="u-current-rating uCurStarRating2313" id="uCurStarRating2313" style="width:84%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">6659</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="14:32">25 Марта 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/opasnyj_most_v_norvegii/2011-03-25-2313#comments">Комментарии (1)</a>
+</div></td></tr></table><br /></div><div id="entryID2312"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="eBlock"><tr><td style="padding:3px;">
+
+<div class="eTitle" style="text-align:left;"><a href="/news/osobnjak_na_koljosakh/2011-03-25-2312">Особняк на колёсах</a></div>
+<div class="eMessage" style="text-align:left;clear:both;padding-top:2px;padding-bottom:2px;"><div align="center"><!--IMG1--><a href="http://ckoro.ru/_nw/23/62499343.jpg" target="_blank" title="Нажмите, для просмотра в полном размере..."><img alt="" style="margin:0;padding:0;border:0;" src="http://ckoro.ru/_nw/23/s62499343.jpg" align="" /></a><!--IMG1--><br>
+		<!--"-->
+		<span class="entDots">... </span>
+		<span class="entryReadAll">
+			<a class="entryReadAllLink" href="/news/osobnjak_na_koljosakh/2011-03-25-2312">СМОТРЕТЬ &#124; СКАЧАТЬ</a>
+		</span></div>
+<div class="eDetails" style="clear:both;">
+<div style="float:right"><ul id="uStarRating2312" class="uStarRating2312 u-star-rating-12" title="Рейтинг: 5.0/2">
+<li class="u-current-rating uCurStarRating2312" id="uCurStarRating2312" style="width:100%;"></li></ul></div>
+<span class="e-category"><span class="ed-title">Категория:</span> <span class="ed-value"><a href="/news/interesno/1-0-23">Интересные фото</a></span></span><span class="ed-sep"> | </span>
+<span class="e-reads"><span class="ed-title">Просмотров:</span> <span class="ed-value">3521</span></span><span class="ed-sep"> | </span>
+<span class="e-author"><span class="ed-title">Добавил:</span> <span class="ed-value" ><a href="javascript://" rel="nofollow" onclick="window.open('/index/8-156', 'up156', 'scrollbars=1,top=0,left=0,resizable=1,width=700,height=375'); return false;">Александр</a></span></span><span class="ed-sep"> | </span>
+<span class="e-date"><span class="ed-title">Дата:</span> <span class="ed-value" title="14:28">25 Марта 2011</span></span>
+<span class="ed-sep"> | </span><a class="e-comments" href="/news/osobnjak_na_koljosakh/2011-03-25-2312#comments">Комментарии (0)</a>
+</div></td></tr></table><br /></div><div class="catPages1" align="center" style="clear:both;" id="pagesBlock1"><b class="swchItemA"><span>1</span></b> <a class="swchItem" href="/news/?page2" onclick="spages('2', this);return false;"><span>2</span></a> <a class="swchItem" href="/news/?page3" onclick="spages('3', this);return false;"><span>3</span></a> <span class="swchItemDots"><span>...</span></span> <a class="swchItem" href="/news/?page27" onclick="spages('27', this);return false;"><span>27</span></a> <a class="swchItem" href="/news/?page28" onclick="spages('28', this);return false;"><span>28</span></a>  <a class="swchItem" href="/news/?page2" onclick="spages('2', this);return false;"><span>&raquo;</span></a></div></div><!-- </body> --></td><td style="background:url('/.s/t/531/13.gif');"></td></tr>
+ <tr><td width="7" height="7"><img src="/.s/t/531/14.gif" border="0"></td><td style="background:url('/.s/t/531/15.gif');"></td><td width="7" height="7"><img src="/.s/t/531/16.gif" border="0"></td></tr>
+</table>
+</td>
+
+ 
+<td valign="top" width="200">
+<!--U1DRIGHTER1Z--><!-- <block3856> -->
+<table border="0" cellpadding="0" cellspacing="0" style="background:#565B66;" width="203">
+<tr><td style="background:url('/.s/t/531/7.gif') #9498A1;padding-left:50px;text-transform:uppercase; font-size:10px;color:#FFFFFF;" height="41"><b><!-- <bt> -->Смотреть кино<!-- </bt> --></b></td></tr>
+<tr><td style="background:#565B66;padding:5px;border-left:1px solid #9498A1;border-right:1px solid #9498A1;"><!-- <bc> --><div align="center"><a href="http://online-films.ckoro.ru" target="_self"><img alt="" src="/fffff/BrowserPreview_tmp.gif" height="409" width="190"></a></div><!-- </bc> --></td></tr>
+<tr><td><img src="/.s/t/531/8.gif" border="0"></td></tr>
+</table><br />
+<!-- </block3856> -->
+
+<!-- <block7> -->
+
+<!-- </block7> -->
+
+<!-- <block10> -->
+
+<table border="0" cellpadding="0" cellspacing="0" style="background:#565B66;" width="203">
+<tr><td style="background:url('/.s/t/531/7.gif') #9498A1;padding-left:50px;text-transform:uppercase; font-size:10px;color:#FFFFFF;" height="41"><b><!-- <bt> --><!--<s3163>-->Поиск<!--</s>--><!-- </bt> --></b></td></tr>
+<tr><td style="background:#565B66;padding:5px;border-left:1px solid #9498A1;border-right:1px solid #9498A1;"><div align="center"><!-- <bc> --><div class="searchForm"><form onsubmit="this.sfSbm.disabled=true" method="get" style="margin:0" action="/search/"><div align="center" class="schQuery"><input type="text" name="q" maxlength="30" size="20" class="queryField" /></div><div align="center" class="schBtn"><input type="submit" class="searchSbmFl" name="sfSbm" value="Найти" /></div></form></div><!-- </bc> --></div></td></tr>
+<tr><td><img src="/.s/t/531/8.gif" border="0"></td></tr>
+</table><br />
+
+<!-- </block10> -->
+
+<!-- <block9> -->
+
+<!-- </block9> --><!--/U1DRIGHTER1Z-->
+</td>
+
+</tr>
+</table>
+<!-- </middle> -->
+</td></tr></table>
+
+<!--U1BFOOTER1Z--><br>
+<table 0="" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td style="background:url('/.s/t/531/17.gif') #E3E2E4;color:#394151;" align="center" height="22"><!-- <copy> -->CKORO.RU &copy; 2008-2018<!-- </copy> --></td></tr>
+<tr><td style="background:url('/.s/t/531/18.gif') #394151;color:#FCFCFC;border-bottom:1px solid #CCFF00;" align="center" height="18">Развлекательный портал CKORO.RU | Смотреть новинки фильмов и сериалов онлайн в хорошем качестве. Мы также предлагаем вам видео приколы онлайн, и видео клипы которые можно посмотреть с друзьями в шумной компании - с нами не соскучишься!<br><!-- "' --><span class="pbdPStvu">Хостинг от <a href="http://www.ucoz.ru/">uCoz</a></span></td></tr>
+</tbody></table><!--/U1BFOOTER1Z-->
+
+
+</td><td width="5%" style="border-left:1px solid #333333;">&nbsp;</td></tr></table>
+
+</body>
+
+</html>
+<script>
+ 
+$(function() {
+ windowWidth = $(window).width()-950;
+ brouserWidth = windowWidth/2;
+ $('#casAdmir-line-left').css('width', brouserWidth+'px'); 
+ $('#casAdmir-line-right').css('width', brouserWidth+'px');
+ });
+ </script>
+<!-- 0.11713 (s20) -->

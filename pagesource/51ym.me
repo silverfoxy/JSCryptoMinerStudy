@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	易码 - 手机短信验证码接收平台
+</title><meta name="keywords" content="手机短信验证码,手机验证码平台,接码平台,短信验证码,验证码平台" /><meta name="description" content="代接各种网站、APP注册手机短信验证码，支持API接入，全自动接收手机验证码。" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" /><meta name="author" /><link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" />
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/Css/bootstrap.min.css" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/Css/font-awesome.css" /><link rel="stylesheet" href="/Css/flexslider.css" /><link rel="stylesheet" href="/Css/animate.min.css" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/Css/styles.css" />
+
+    <script type="text/javascript" src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/plugins/jQuery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/Js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/Js/detectmobilebrowser.js"></script>
+    <script type="text/javascript" src="/Js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/Js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Js/jquery.inview.min.js"></script>
+    <script type="text/javascript" src="/Js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/Js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="/Js/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="/Js/jquery.flexslider-min.js"></script>
+    <!--[if !IE]>-->
+    <script type="text/javascript" src="/Js/animations.js"></script>
+    <!--<![endif]-->
+    <script type="text/javascript" src="/Js/bootstrap-tooltip.js"></script>
+    <script type="text/javascript" src="/Js/bootstrap-popover.js"></script>
+
+    <script type="text/javascript" src="/Js/ymlib.js?r=1"></script>
+    <script>
+        $(function () {
+            $("#btnandroid").popover({ placement: 'top' });
+            if (jQuery.browser.mobile === true) {
+                $("#gotomobile").css('display', '');
+            }
+            $("#firstpane .menu_body:eq(0)").show();
+            $("#firstpane h3.menu_head").click(function () {
+                $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+                $(this).siblings().removeClass("current");
+            });
+            $("#secondpane .menu_body:eq(0)").show();
+            $("#secondpane h3.menu_head").mouseover(function () {
+                $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+                $(this).siblings().removeClass("current");
+            });
+
+            if (localStorage.getItem("ymusertoken") != null && localStorage.getItem("ymusertoken") != "" && localStorage.getItem("ymusername") != null && localStorage.getItem("ymusername") != "") {
+                $("#logindiv").html("<a href=\"/User/Default.aspx\">欢迎登录：" + localStorage.getItem("ymusername") + "！个人中心</a> | <a href=\"javascript:;\" id=\"logoutbtn\">退出</a>");
+            }
+            else {
+                $("#logindiv").html("<a href=\"/User/Register.aspx\">客户注册</a> | <a href=\"/User/Login.aspx\">客户登录</a>");
+            }
+
+            $('#logoutbtn').click(function () {
+                localStorage.removeItem("ymusertoken");
+                localStorage.removeItem("ymusername");
+                $("#logindiv").html("<a href=\"/User/Register.aspx\">客户注册</a> | <a href=\"/User/Login.aspx\">客户登录</a>");
+            });
+        });
+    </script>
+    <script src="/Js/baidu.js"></script>
+
+    <style id="fit-vids-style">
+        .fluid-width-video-wrapper {
+            width: 100%;
+            position: relative;
+            padding: 0;
+        }
+
+            .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+    </style>
+</head>
+
+<body data-spy="scroll">
+    <form name="form1" method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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gJHnn63kv6Hpqozor4HnoIE6NzE5MjY1ZAIQD2QWAmYPFQILMTcxKioqKjEyMzmAAeOAkOi/nuWwmue9kee7nOOAkeaCqOacrOasoeeahOmqjOivgeeggeS4uu+8mjE1NDI5OO+8jOW3peS9nOS6uuWRmOS4jeS8muWQkeaCqOe0ouWPlu+8jOmqjOivgeeggeivt+WLv+azhOa8j+OAguWbnuWkjVRE6YCA6K6i44CCZAIRD2QWAmYPFQILMTU1KioqKjc0OTR544CQ5qmZ5YWJ44CR5pys5qyh5pON5L2c55qE6aqM6K+B56CB77yaNzM3M+OAguivt+WmpeWWhOS/neeuoe+8jOS4jeimgemAj+mcsue7meS7u+S9leS6uuOAguWmgumdnuacrOS6uuaTjeS9nOivt+W/veeVpeOAgmQCEg9kFgJmDxUCCzEzMCoqKio5NjY4gQHjgJDmuKnllYbotLfjgJHlsIrmlaznmoTnlKjmiLfvvIzmraTmrKHmk43kvZznmoTpqozor4HnoIHkuLrvvJo4NDE4NDfvvIwzMOWIhumSn+WGheacieaViO+8jOWmgumdnuacrOS6uuaTjeS9nOivt+iHtOeUtTA1NzctOTYwODhkAhMPZBYCZg8VAgsxMzAqKioqOTMzOIcB44CQ5p2l5LyK5Lu944CR5oKo55qE5rOo5YaM6aqM6K+B56CBOjY2MzE4NO+8jOacieaViOaXtumXtDXliIbpkp8s5omT5q276YO95LiN5ZGK6K+J5Yir5Lq677yB5aaC6Z2e5pys5Lq65pON5L2c77yM6K+35b+955Wl6K+l55+t5L+h44CCZAIUD2QWAmYPFQILMTMxKioqKjY5OTRr44CQ5Li95Lq65Li95aaG44CR5oKo55qE6aqM6K+B56CB5pivOTMzMygyMOWIhumSn+S5i+WGheacieaViCnvvIzlpoLpnZ7mnKzkurrmk43kvZzvvIzor7flv73nlaXmraTnn63kv6HvvIFkAhUPZBYCZg8VAgsxNzEqKioqMzc0NiPjgJDkupHpm4bjgJHkupHpm4bpqozor4HnoIE6IDE0OTkwNmQCFg9kFgJmDxUCCzE3MSoqKio0NzM0V+OAkOacieW4geOAkeeZu+W9lemqjOivgeeggTM2NTjvvIwxMOWIhumSn+WGheacieaV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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+        <header id="top" class="header navbar-fixed-top">
+            <div class="container">
+                <div style="height: 20px; line-height: 20px; background-color: dimgray; text-align: center; display: none" id="gotomobile"><a href="/mobile/">亲，移动版体验更好哦！赶紧点击试试吧。</a></div>
+                <div style="line-height: 30px; width: 100%; text-align: right;" id="logindiv">...</div>
+            </div>
+            <div class="container">
+                <h1 class="logo pull-left"><a class="scrollto" href="/">
+                    <img id="logo-image" class="logo-image" src="/Images/logo.png" alt="Logo">
+                    <span class="logo-title">易码平台</span> </a></h1>
+                <!--//logo-->
+                <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        <!--//nav-toggle-->
+                    </div>
+                    <!--//navbar-header-->
+                    <div class="navbar-collapse collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="scrollto1" href="/">首页</a></li>
+                            <li class="nav-item active"><a class="scrollto1" href="/User/MobileSMSCode.aspx" style="font-weight: bold;">获取验证码</a></li>
+                            <li class="nav-item active"><a class="scrollto1" href="/helps.html" style="font-weight: bold;">新手帮助</a></li>
+                            <li class="nav-item"><a class="scrollto1" href="/#faq">常见问题</a></li>
+                            <li class="nav-item"><a class="scrollto1" href="/User/apidocs.html">API接口</a></li>
+                            <li class="nav-item"><a class="scrollto1" href="/#story">卡商加盟</a></li>
+                            <li class="nav-item"><a class="scrollto1" href="/#contact">联系客服</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div id="promo" class="promo div offset-header has-pattern">
+            <div class="container">
+                <div class="row">
+                    <div class="overview col-md-8 col-sm-12 col-xs-12">
+                        <h2 class="title animated fadeInUp delayp1" style="opacity: 0;">关于易码平台</h2>
+                        <ul class="summary animated fadeInUp delayp2" style="opacity: 0;">
+                            <li>网赚用户批量接收验证码，注册帐号</li>
+                            <li>项目最全，能接收所有合法网站验证码</li>
+                            <li>API接入，全自动接收手机验证码</li>
+                            <li>支持专属对接，转码服务费低至两分钱</li>
+                        </ul>
+                        <div class="download-area">
+                            <ul class="btn-group list-inline">
+                                <li class="ios-btn">
+                                    <a href="http://51ym-share.oss-cn-hangzhou.aliyuncs.com/DownLoad/51YMClient.rar" class="btn btn-success" rel="popover" data-content="<img src='/imagees/aex04334pnb8zzvyvvcpaeb.png'>" data-original-title="客户端PC版下载" data-html="true">客户端PC版下载</a>
+                                </li>
+                                <li class="android-btn">
+                                    <a id="btnandroid" class="btn btn-success" href="/app/Default.htm">安卓版APP下载</a>
+                                </li>
+                            </ul>
+                            <div class="note text-center">
+                                <p>
+                                    欢迎下载使用
+                                </p>
+                                <span class="left-arrow"></span><span class="right-arrow"></span>
+                            </div>
+                            <!--//note-->
+                        </div>
+                    </div>
+                    <!--//overview-->
+
+                    <!--// iPhone starts -->
+                    <div class="phone iphone iphone-black col-md-4 col-sm-12 col-xs-12 ">
+                        <div class="iphone-holder phone-holder animated fadeInRight delayp4" style="opacity: 0;">
+                            <div class="iphone-holder-inner">
+                                <div class="slider flexslider">
+                                    <ul class="slides">
+                                        <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+                                            <a href="http://www.51ym.me/app/" target="_blank">
+                                                <img src="/Images/android-slide-1.png" alt="" draggable="false"></a>
+                                        </li>
+                                        <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+                                            <a href="http://www.51ym.me/app/" target="_blank">
+                                                <img src="/Images/android-slide-2.png" alt="" draggable="false"></a>
+                                        </li>
+                                    </ul>
+                                    <ol class="flex-control-nav flex-control-paging">
+                                        <li><a class="flex-active">1</a></li>
+                                        <li><a class="">2</a></li>
+                                    </ol>
+                                    <ol class="flex-control-nav flex-control-paging"></ol>
+                                </div>
+                                <!--//flexslider  -->
+                            </div>
+                            <!--//iphone-holder-inner-->
+                        </div>
+                        <!--//iphone-holder-->
+                    </div>
+                    <!--//iphone-->
+                    <!--      // iPhone ends -->
+
+                    <!--// Android starts -->
+                    
+                    <!--//iphone-->
+                    <!--// Android ends -->
+
+                    <!--// iPad starts -->
+                    
+                    <!--//ipad-->
+                </div>
+                <!--//row-->
+            </div>
+            <!--//container-->
+        </div>
+        <!--//promo-->
+
+        <!-- ******FEATURES****** -->
+        <div id="features" class="features div spaceclsb">
+            <div class="container">
+                <div class="row">
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-cloud-upload"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">易码平台功能强大稳定易用</h3>
+                            <p>丰富的手机号码资源和齐全的验证码项目，为您打造最好用的短信验证码平台。</p>
+                            <!-- <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>-->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-refresh"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">24小时不间断轮换号码</h3>
+                            <p>平时在线号码10w+，每日可提供100W号码，24小时不间断换号，99%不缺号，缺号立即更新 </p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>-->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-trophy"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">安全.快速.稳定.简单</h3>
+                            <p>全自动接收验证码，客户端、 API接入使用方式；分布式服务器架构，毫秒响应！</p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>  -->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-map-marker"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">API作者最高分成平台</h3>
+                            <p>让利广大开发者，您的软件对接易码API可获得消费分成。</p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>-->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                </div>
+                <!--//row-->
+
+                <div class="row feature-row-last">
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-map-marker"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">卡商最高分成平台</h3>
+                            <p>卡商供卡即可获得消费分成，加入我们即可轻松赚钱</p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>-->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-users"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">专属对接灵活对接</h3>
+                            <p>支持多客户对多卡商独立对接，自行定价，平台提供转码结算服务，服务费低至两分钱</p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>  -->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-lock"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">详细的数据查询</h3>
+                            <p>您在易码的所有业务操作都有据可查，彻底杜绝多扣钱、少分成、提现不对账等情况。</p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>  -->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+                    <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="icon animated fadeInUp delayp1" style="opacity: 0;"><i class="fa fa-qq"></i></div>
+                        <!--//icon-->
+                        <div class="content">
+                            <h3 class="title">7*24小时QQ客服在线</h3>
+                            <p>有问必答，热情服务，及时响应，用心为您提供优质服务 </p>
+                            <!--  <button class="modal-trigger btn btn-link" data-toggle="modal" data-target="#feature-modal-1">Find out more</button>  -->
+                        </div>
+                        <!--//content-->
+                    </div>
+                    <!--//item-->
+                </div>
+                <!--//row-->
+            </div>
+            <!--//container-->
+        </div>
+        <!--//features-->
+
+        <div id="faq" class="faq div spacecls">
+            <div class="container">
+                <div class="row">
+                    <h2 class="title text-center animated fadeInUp delayp1" style="opacity: 0;">常见问题</h2>
+                    <div class="faq-col col-md-6 col-sm-6 col-xs-12">
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>用过的手机号码以后还能再用吗？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">手机号码是由卡商提供，随时可能会下线，若需长期使用某个号码，我们不建议您使用本平台服务。</p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>没有收到短信会扣钱吗？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">
+                                只有成功获取短信后，系统才会进行计费操作，绝对杜绝计费错误。
+                            </p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>如何充值，有哪些充值方式？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">目前支持支付宝、微信、QQ钱包支付，点击在线充值，按在线充值的提示即可自动充值好，无需人工操作</p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>是否可以获取指定地区的手机号码？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">获取号码时，可以指定号码归属地省和市进行获取，但因为缩小了取号范围可能或获取不到可用号码。</p>
+                        </div>
+                        <!--//item-->
+                    </div>
+                    <!--//faq-col-->
+                    <div class="faq-col col-md-6 col-sm-6 col-xs-12">
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>获取的手机号码已经提示被注册过怎么办？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">因运营商电话号码在停机一段时间后，会再次投放到市场中，遇到这种情况建议将其加入黑名单，以免重复获取到该号码！</p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>之前接收过验证码的号码下次是否还可以使用？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">我们不确定号码的下线时间，您可以尝试使用请指定号码获取，若未获取到，则说明该号码已离线。</p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>代收验证码有什么用？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">在注册或使用某些网上服务的时候，如果需要短信验证，可以使用我们的代收验证码服务。</p>
+                        </div>
+                        <!--//item-->
+                        <div class="item">
+                            <h3 class="question animated fadeInUp delayp2" style="opacity: 0;"><i class="fa fa-question-circle"></i>是否可以排除某些号段的手机号码？</h3>
+                            <p class="answer animated fadeInUp delayp3" style="opacity: 0;">获取号码时，可以指定一个或多个排除的号段，系统将自动为您筛选掉排除的号码段。</p>
+                        </div>
+                        <!--//item-->
+                    </div>
+                    <!--//faq-col-->
+                </div>
+                <!--//row-->
+
+            </div>
+            <!--//container-->
+        </div>
+        <!--//faq-->
+
+        <!-- ******STORY****** -->
+        <div id="story" class="story div has-pattern">
+            <div class="container">
+                <div class="row">
+                    <div class="content col-md-7 col-sm-6 col-xs-12 text-center animated fadeInLeft delayp1" style="opacity: 0;">
+                        <h2>卡商加盟赚钱</h2>
+                        <br>
+                        <p>请先下载卡商版软件，注册帐号（可一号多机使用），并联系客服审核通过后，即可开始赚钱。卡商和平台方按比例进行分成，卡商24小时可随时申请提现，提交申请后24小时内结算到账。卡商版软件兼容酷卡、嘻唰唰和摩卡叮叮等第三方软件；可同时支持短信接收、发送，做本平台业务的同时可以挂着验证码接收系统，不影响卡商正常做业务。</p>
+                        <!-- <p></p>-->
+                    </div>
+                    <!--//content-->
+                    <div class="team col-md-4 col-sm-5 col-md-offset-1 col-sm-offset-1 col-xs-12">
+                        <div class="row">
+                            <div id="promo" class="promo div">
+                                <div class="member  col-md-6 text-center animated fadeInLeft delayp2" style="opacity: 0;">
+                                    <!-- <div class="row">-->
+                                    <div class="overview">
+                                        <div class="download-area">
+                                            <ul class="btn-group list-inline">
+                                                <li class="ks-btn"><a href="javascript:alert('请联系平台客服获取')">下载卡商版软件</a></li>
+                                                <p class="name">兼容酷卡、嘻刷刷、叮叮摩卡软件，可同时收发短信</p>
+                                                <p class="title animated fadeInUp delayp1" style="opacity: 0;">支持 XP/Win7/Win8/Win10</p>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//team-->
+
+            <!--//row-->
+
+            <!--//container-->
+        </div>
+        <div id="testimonials" class="testimonials div">
+            <div class="container">
+                <div class="row">
+                    <h2 class="title text-center animated fadeInUp delayp1" style="opacity: 0;">成功案例</h2>
+                    <div class="item col-md-4 col-sm-4">
+                        <div class="quote-box animated fadeInUp delayp2" style="opacity: 0;">
+                            <i class="fa fa-quote-left"></i>
+                            <blockquote class="quote"><a href="#">@易码</a>领取各种优惠活动，撸吃，撸玩，在外面用手机版非常好用！</blockquote>
+                            <!--//quote-->
+                        </div>
+                        <!--//quote-box-->
+                        <div class="people row animated fadeInUp delayp3" style="opacity: 0;">
+                            <img class="img-rounded user-pic col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="/Images/people-1.png" alt="">
+                            <p class="details text-center pull-left"><span class="name">用户群体</span> <span class="title animated fadeInUp delayp1" style="opacity: 0;">各类自由职业着，所有人群</span> </p>
+                        </div>
+                        <!--//people-->
+                    </div>
+                    <!--//item-->
+                    <div class="item col-md-4 col-sm-4">
+                        <div class="quote-box animated fadeInUp delayp2" style="opacity: 0;">
+                            <i class="fa fa-quote-left"></i>
+                            <blockquote class="quote"><a href="#">@易码</a>匿名注册帐号免除骚扰，保护个人隐私</blockquote>
+                            <!--//quote-->
+                        </div>
+                        <!--//quote-box-->
+                        <div class="people row animated fadeInUp delayp3" style="opacity: 0;">
+                            <img class="img-rounded user-pic col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="/Images/people-2.png" alt="">
+                            <p class="details text-center pull-left"><span class="name">用户群体</span> <span class="title animated fadeInUp delayp1" style="opacity: 0;">各种高端人士</span> </p>
+                        </div>
+                        <!--//people-->
+                    </div>
+                    <!--//item-->
+                    <div class="item col-md-4 col-sm-4">
+                        <div class="quote-box animated fadeInUp delayp2" style="opacity: 0;">
+                            <i class="fa fa-quote-left"></i>
+                            <blockquote class="quote">
+                                把卡挂这里钱就哗啦啦的来了，这样赚钱太轻松了
+                            </blockquote>
+                            <!--//quote-->
+                        </div>
+                        <!--//quote-box-->
+                        <div class="people row animated fadeInUp delayp3" style="opacity: 0;">
+                            <img class="img-rounded user-pic col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="/Images/people-3.png" alt="">
+                            <p class="details text-center pull-left"><span class="name">卡商</span> <span class="title animated fadeInUp delayp1" style="opacity: 0;">Hongkong, China</span> </p>
+                        </div>
+                        <!--//people-->
+                    </div>
+                    <!--//item-->
+                </div>
+                <!--//row-->
+                <div class="row">
+                    <div class="item col-md-4 col-sm-4 col-md-offset-2 col-sm-offset-2">
+                        <div class="quote-box animated fadeInUp delayp2" style="opacity: 0;">
+                            <i class="fa fa-quote-left"></i>
+                            <blockquote class="quote">批量注册帐号刷单，网赚利器 </blockquote>
+                            <!--//quote-->
+                        </div>
+                        <!--//quote-box-->
+                        <div class="people row animated fadeInUp delayp3" style="opacity: 0;">
+                            <img class="img-rounded user-pic col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="/Images/people-4.png" alt="">
+                            <p class="details text-center pull-left"><span class="name">网赚群体</span> <span class="title animated fadeInUp delayp1" style="opacity: 0;">Berlin, Germany</span> </p>
+                        </div>
+                        <!--//people-->
+                    </div>
+                    <!--//item-->
+                    <div class="item col-md-4 col-sm-4">
+                        <div class="quote-box animated fadeInUp delayp2" style="opacity: 0;">
+                            <i class="fa fa-quote-left"></i>
+                            <blockquote class="quote">软件作者接入API </blockquote>
+                            <!--//quote-->
+                        </div>
+                        <!--//quote-box-->
+                        <div class="people row animated fadeInUp delayp3" style="opacity: 0;">
+                            <img class="img-rounded user-pic col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="/Images/people-5.png" alt="">
+                            <p class="details text-center pull-left"><span class="name">高级程序员</span> <span class="title animated fadeInUp delayp1" style="opacity: 0;">London, UK</span> </p>
+                        </div>
+                        <!--//people-->
+                    </div>
+                    <!--//item-->
+                </div>
+            </div>
+            <!--//container-->
+        </div>
+        <!--//Testimonials-->
+
+        <div id="contact" class="contact div has-pattern">
+            <div class="container">
+                <div class="row text-center">
+                    <h2 class="title animated fadeInUp delayp1" style="opacity: 0;">联系我们</h2>
+                    <div class="intro col-md-6 col-sm-12 col-xs-12 col-md-offset-3 animated fadeInUp delayp2" style="opacity: 0;">
+                        <p>
+                            我们有专业的技术、运营和客服团队，用心为您服务！<br>
+                            <br>
+                            基于云服务器与分布式部署，强大的系统容错能力，多个云节点同时并行，全天候保障系统安全、稳定、快速的运行。<br>
+                            <br>
+                            完善的分成机制，支持开发者分成。只要您接入平台，您将获得高额的分成，合作共赢。
+                        </p>
+                        <ul class="list-unstyled contact-details">
+                            <li><i class="fa fa-qq"></i>用户客服QQ：<span name="kefuqq"></span></li>
+                            <li><i class="fa fa-phone-square"></i>用户交流群：<span name="UserQQQun"></span>（仅限用户加入）</li>
+                            <li><i class="fa fa-qq"></i>卡商客服：<span name="KaShangQQ"></span></li>
+                            <li><i class="fa fa-phone-square"></i>卡商交流群：<span name="KaShangQun"></span>（仅限卡商加入，先加卡商客服申请入群。）</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--//row-->
+                <div class="row text-center">
+                </div>
+                <!--//contact-form-->
+
+            </div>
+            <!--//container-->
+
+        </div>
+        <!--//Testimonials-->
+
+
+        <!--div class="faq div spacecls" style="margin-bottom:20px;line-height:25px;">
+  <div class="container">
+    <div class="row">
+      <h2 class="title text-center animated fadeInUp delayp1" style="opacity: 0;margin-bottom:20px;">友情链接</h2>
+      <div class="col-md-12 col-xs-12 animated fadeInUp delayp1">
+         <div class="col-md-1 col-xs-6"><a href="#" target="_blank">友情链接1</a></div>
+      </div>
+    </div>
+  </div>
+</div-->
+        <div class="footer">
+            <div class="container"><small class="copyright pull-left">Copyright © 2015-2018 易码短信验证码接收平台</small> </div>
+        </div>
+        <div style="color: white; height: 0px; width: 0px; overflow: hidden">
+            <ul>
+                
+                        <li>
+                            184****7401:【红手指】您的动态验证码为 250475，请在十分钟内填写验证码。请注意不要泄露您的个人隐私。
+                        </li>
+                    
+                        <li>
+                            130****4082:【探探Tantan】您的验证码为： 4229 （此验证码10分钟内有效）
+                        </li>
+                    
+                        <li>
+                            170****2484:【万顺叫车】登录验证码：327546，如非本人操作，请忽略此短信。
+                        </li>
+                    
+                        <li>
+                            184****7232:2010 (BeeChat Verification Code)【PIN】
+                        </li>
+                    
+                        <li>
+                            155****5387:【好玩网络】验证码：365043，请在10分钟内填写。如非本人操作，请联系在线客服。
+                        </li>
+                    
+                        <li>
+                            132****2326:【双开助手】您的验证码为650428，有效期为30分钟，请勿向他人泄露。
+                        </li>
+                    
+                        <li>
+                            170****4655:【追缘无线】您手机验证码为1335，请在5分钟内使用。
+                        </li>
+                    
+                        <li>
+                            150****4244:【圈码】验证码9319，您正在登录，若非本人操作，请勿泄露。
+                        </li>
+                    
+                        <li>
+                            155****6293:【引力资讯】您的验证码是6855，30分钟内有效，请尽快验证，切勿告诉他人
+                        </li>
+                    
+                        <li>
+                            170****0120:360安全中心：124558是您本次身份验证码，30分钟内有效，360工作人员绝不会向您索取此验证码，切勿告知他人。[360]
+                        </li>
+                    
+                        <li>
+                            170****3971:【抖音短视频】8386（抖音验证码），30分钟内有效，请勿泄露
+                        </li>
+                    
+                        <li>
+                            155****0791:【智行】您的手机动态码 193748,请勿向任何单位或个人泄露。
+                        </li>
+                    
+                        <li>
+                            130****4689:【哈希世界】您的验证码为：1538，请在5分钟内输入，请勿透露给他人
+                        </li>
+                    
+                        <li>
+                            130****2701:【发耶APP】验证码3868，您正在进行身份验证，打死不要告诉别人哦！
+                        </li>
+                    
+                        <li>
+                            130****8812:【怪猫游戏】您好，您的验证码是4504
+                        </li>
+                    
+                        <li>
+                            156****2849:【必胜客】短信验证码:719265
+                        </li>
+                    
+                        <li>
+                            171****1239:【连尚网络】您本次的验证码为：154298，工作人员不会向您索取，验证码请勿泄漏。回复TD退订。
+                        </li>
+                    
+                        <li>
+                            155****7494:【橙光】本次操作的验证码：7373。请妥善保管，不要透露给任何人。如非本人操作请忽略。
+                        </li>
+                    
+                        <li>
+                            130****9668:【温商贷】尊敬的用户，此次操作的验证码为：841847，30分钟内有效，如非本人操作请致电0577-96088
+                        </li>
+                    
+                        <li>
+                            130****9338:【来伊份】您的注册验证码:663184，有效时间5分钟,打死都不告诉别人！如非本人操作，请忽略该短信。
+                        </li>
+                    
+                        <li>
+                            131****6994:【丽人丽妆】您的验证码是9333(20分钟之内有效)，如非本人操作，请忽略此短信！
+                        </li>
+                    
+                        <li>
+                            171****3746:【云集】云集验证码: 149906
+                        </li>
+                    
+                        <li>
+                            171****4734:【有币】登录验证码3658，10分钟内有效。如非本人操作，请忽略。
+                        </li>
+                    
+                        <li>
+                            130****3872:【东方头条】验证码：262409 您正在登录 东方头条 ，若非本人操作，请勿泄露。
+                        </li>
+                    
+                        <li>
+                            171****4417:【火山小视频】8685（火山小视频验证码），30分钟内有效，请勿泄露
+                        </li>
+                    
+                        <li>
+                            130****9710:【OMSMS】WhatsApp code 874-218.
+
+You can also tap on this link to verify your phone: v.whatsapp.com/874218
+                        </li>
+                    
+                        <li>
+                            184****8076:【掌淘科技】ONE的验证码：532190
+                        </li>
+                    
+                        <li>
+                            155****7443:【重庆时报】您的验证码：7721  请在1分钟内进行注册验证。如非本人操作，请忽略。
+                        </li>
+                    
+                        <li>
+                            134****3287:【iVeryOne社区】验证码850518，您正在登录iVeryOne社区，若非本人操作，请勿泄露。
+                        </li>
+                    
+                        <li>
+                            184****6531:【唱吧】 您的唱吧验证码：955807，唱吧工作人员不会以任何理由向您索要验证码
+                        </li>
+                    
+                        <li>
+                            132****6614:【万通顺达】郑州文化消费的验证码：9289
+                        </li>
+                    
+                        <li>
+                            131****2574:【腾讯科技】验证码：845180，半小时内输入有效，如非本人操作，请忽略本短信。
+                        </li>
+                    
+                        <li>
+                            131****5467:【直播TV】您的手机验证码为：793112
+                        </li>
+                    
+                        <li>
+                            130****3067:【齐聚柒柒】您的验证码为：873746，有效期10分钟，为保证账号安全，勿将验证码转告他人。如非本人操作，请忽略。
+                        </li>
+                    
+                        <li>
+                            171****4162:【今日头条】5913（今日头条验证码），30分钟内有效。此验证码用于登录你的帐号或更换绑定，验证码提供给他人可能导致帐号被盗。请勿泄露。
+                        </li>
+                    
+                        <li>
+                            155****0091:【球球大作战】验证码:117318。此验证码只用于注册球球大作战账号，请妥善保管，不要透露给任何人。如非本人操作请忽略。
+                        </li>
+                    
+                        <li>
+                            155****5831:【肯德基】528936（动态验证码），请在30分钟内填写。
+                        </li>
+                    
+                        <li>
+                            170****1185:【畅聊天下】5382 是您的派派注册验证码,当天有效
+                        </li>
+                    
+                        <li>
+                            155****5820:【美嘉影城】亲爱的镁粉，还差一步您就注册成功啦！验证码6086，请勿泄露！
+                        </li>
+                    
+                        <li>
+                            130****4674:【优酷土豆】您的短信验证码是202980。您的手机号正在使用随机密码登录服务，如非本人操作，请尽快修改密码。
+                        </li>
+                    
+                        <li>
+                            155****9645:【ShareWallet】您的验证码是：3430。请不要把验证码泄露给其他人。
+                        </li>
+                    
+                        <li>
+                            155****9173:【广汽丰田】您的验证码是：866908，有效期3分钟，若非本人操作，请忽略此条短信。
+                        </li>
+                    
+                        <li>
+                            155****0238:【哥哥游戏】您好，您的验证码为3169，请勿将验证码告知他人
+                        </li>
+                    
+                        <li>
+                            155****7870:【网易】验证码：955969，网易用户，您正在进行注册操作[验证码告知他人将导致帐号被盗，请勿泄露]
+                        </li>
+                    
+                        <li>
+                            130****1649:【酷划在线】754686(酷划验证码)，为了保护您的账号安全，验证短信请勿转发给其他人
+                        </li>
+                    
+                        <li>
+                            171****3834:【小米】2609（注册小米帐号验证码，注册后将绑定此安全手机）
+                        </li>
+                    
+                        <li>
+                            171****4802:【云短信】您的验证码为7872，五分钟有效，请勿泄露
+                        </li>
+                    
+                        <li>
+                            130****8894:Your one-time eBay pin is 7469【PIN】
+                        </li>
+                    
+                        <li>
+                            184****6514:尊敬的长安汽车客户，您的手机验证码为532148【长安汽车】
+                        </li>
+                    
+                        <li>
+                            171****6598:【大影家】您本次的验证码为“6237”，请勿将验证码告诉他人。
+                        </li>
+                    
+            </ul>
+        </div>
+    </form>
+</body>
+</html>

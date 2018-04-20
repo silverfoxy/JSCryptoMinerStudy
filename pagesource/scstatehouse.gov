@@ -1,0 +1,678 @@
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+	<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="robots" content="noimageindex">
+	    <meta charset="iso-8859-1">
+	    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+	    	    <title>South Carolina Legislature Online</title>
+	    <link rel="SHORTCUT ICON" href="/images/stateflagsmall.ico" />
+		<link rel="icon" href="/images/stateflagsmall.ico" type="image/ico" />
+
+		<link type="text/css" rel="stylesheet" href="/css/main.css" media="all" />
+				
+		<!--[if lte IE 7]>
+		<link type="text/css" rel="stylesheet" href="/css/ie7main.css" media="all" />
+		<![endif]-->
+		<!--[if gte IE 7]>
+		<link type="text/css" rel="stylesheet" href="/css/iemain.css" media="all" />
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="/css/print.css" media="print" />
+		<link type="text/css" rel="stylesheet" href="/css/supplement.css" media="screen" />
+		<!--<link type="text/css" rel="stylesheet" href="/css/zipsearch.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/vote.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/contact.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/navwrap.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/linkbar.css" media="screen" />-->
+	
+		<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+				<script type="text/javascript" src="/js/main_linux.js"></script>
+		
+
+		
+
+
+
+		<!--<script type="text/javascript" src="/js/common.js"></script>
+		<script type="text/javascript" src="/js/utils.js"></script>
+		<script type="text/javascript" src="/js/date.js"></script>
+		<script type="text/javascript" src="/js/lightbox.js"></script>
+		<script type="text/javascript" src="/js/legislation.js"></script>
+		<script type="text/javascript" src="/js/logon_lits.js"></script>
+		<script type="text/javascript" src="/js/message.js"></script>
+		<script type="text/javascript" src="/js/comm_meeting.js"></script>-->
+		<script type="text/vbscript" src="/vbs/comm_meeting.vbs"></script>
+		<!--<script type="text/javascript" src="/js/regs.js"></script>-->
+				
+	   	<script type="text/javascript">
+	    //document.onclick = function () { document.getElementById('transbox').style.display= 'none' };
+	    	var xmlhttp=false;
+			xmlhttp = create_xml_object();
+	
+			function getElement(ele)
+			{
+				var theobj = false;
+				if(typeof ele == 'string')
+					theobj = (document.getElementById)?document.getElementById(ele):document.all[ele];
+				else
+					theobj = ele;
+			
+				return theobj;
+			}
+		
+			function checkreader(friendlyalert)
+			{
+			 	/*friendlyalert=friendlyalert||false;
+			 	
+			 	var browser_info = perform_acrobat_detection();
+				if (!browser_info.acrobat)
+				{
+				 	loadadobebox('adobebox', '/adobe.php');
+					return false;
+				}
+				else if (friendlyalert)
+				{
+			 		alert(friendlyalert);
+				}*/
+				return true;
+			}
+				
+			function loadadobebox(boxname, url)
+			{
+				var response = false;
+	
+				doRequest(xmlhttp, "GET", url, false, null, null);
+				if (xmlhttp.status == 200)
+				{
+		         	response = xmlhttp.responseText;
+				}
+	
+				if(response)
+				{
+			 		var ele = document.getElementById(boxname);
+				 	if (ele)
+				 	{
+				 		ele.style.visibility = 'hidden';
+		 				ele.style.display = 'block';
+	
+		 				positionElement(ele, 'center', 'center', true);
+	
+						ele.innerHTML = response;
+					    ele.style.visibility = 'visible';
+					    ele.style.display = 'block';
+	//				    ele.scrollIntoView(true);
+					}
+				}
+				return response;
+			}
+	
+	
+			function init()
+			{
+		 		var ld=document.getElementById("loading");
+				if(ld)
+				{
+					ld.style.display = 'none';
+				}
+			}
+			
+			function openmore()
+			{
+			 	var id = document.getElementById('quicksearch');
+			 	if (id)
+			 	{
+				 	var pos = findPos(id);
+				 	id.style.zIndex = 10;
+		//		 	id.style.left = pos[0]+'px';
+		//		  	id.style.top = pos[1]+'px';
+				  	id.style.height = '295px';
+				  	id.style.position = 'absolute';
+				  	id.style.backgroundColor = '#f7f4ec';
+				  	var id2 = document.getElementById('searchmore');
+				  	if (id2)
+				  	{
+				  	 	id2.style.display = 'none';
+				  	}
+				  	var id3 = document.getElementById('contactlegislatordiv');
+				  	if (id3)
+				  	{
+				  	 	id3.style.display = 'none';
+				  	}
+				}
+			}
+		
+			function closemore()
+			{
+			 	var id = document.getElementById('quicksearch');
+			 	if (id)
+			 	{
+				  	id.style.height = '135px';
+				  	id.style.position = '';
+				  	id.style.backgroundColor = 'transparent';
+				  	var id2 = document.getElementById('searchmore');
+				  	if (id2)
+				  	{
+				  	 	id2.style.display = 'block';
+				  	}
+				  	var id3 = document.getElementById('contactlegislatordiv');
+				  	if (id3)
+				  	{
+				  	 	id3.style.display = '';
+				  	}
+				}		 	
+			}
+		
+		<!-- This script and many more are available free online at -->
+		<!-- The JavaScript Source!! http://javascript.internet.com -->
+		
+		<!-- Begin
+		function right(e) {
+		var msg = "Use of this image is strictly prohibited unless express written permission is given to the user by South Carolina Legislative Services Agency.";
+		if (navigator.appName == 'Netscape' && e.which == 3) {
+		alert(msg);
+		return false;
+		stopEvent(e);
+		}
+		if (navigator.appName == 'Microsoft Internet Explorer' && event.button==2) {
+		alert(msg);
+		return false;
+			stopEvent(event);
+		}
+		else return true;
+		}
+		
+	function trap() 
+	{
+		if(document.images)
+		{
+			for(i=0;i<document.images.length;i++)
+			{
+				if(document.images[i].className == 'allowcontextmenu')
+				{
+					// this should have no scripting
+				}
+				else
+				{
+				 	document.images[i].onmousedown = right;
+					document.images[i].oncontextmenu = function(){ return false; };
+					//document.images[i].onmouseup = right;
+				}
+			}
+		}
+	}
+
+	function findfwtext(texttofind) 
+	{
+	 	var fwtextele = document.getElementById('fwtext');
+		if(fwtextele)
+		{
+			fwtextele.value = texttofind;
+		}
+	}	
+		// End -->
+		</script>
+
+		<script type="text/javascript">
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36207109-1']);
+  _gaq.push(['_setDomainName', 'scstatehouse.gov']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  
+      $(document).ready(function(){
+          var anchors = $('div#contentsection a');
+
+          //console.log('anchors...'+anchors.length);
+          if(anchors.length > 0){
+            //console.log('setting up event handler...');
+            anchors.click(function(){
+              var a = $(this).attr('href');
+              if(_gaq && (a.substr(-3) == 'htm' || a.substr(-4) == 'html' || a.substr(-3) == 'doc' || a.substr(-4) == 'docx' || a.substr(-3) == 'pdf' || a.substr(-3) == 'xls' || a.substr(-4) == 'xlsx')) {
+                //console.log(a);
+                _gaq.push(['_trackPageview', $(this).attr('href')]);
+              }
+
+            });
+          }
+      });
+
+</script>
+	</head>
+	
+		
+	<body class="home"  onload="init(); trap();">
+	<noscript>Your browser does not support JavaScript!  This page will not render correctly.</noscript> 
+
+
+	
+	<div id="adobebox" style="position:absolute; width:400px; height:150px; border:2px solid #555555; background-color:#cccccc; display:none;"></div>
+	<div id="container" >	
+				<div id="header" class="nodisplay" style="text-align:center; height:100px;" >
+									<img id="headerimg" class="nodisplay" alt="South Carolina Legislature" title="South Carolina Legislature" src="/images/header8.png" />
+								
+							<!--	<div class="award"><span style="color:#831224; font-weight:bold; font-size:1.5em;">*</span> Recipient of<br>the Notable State Documents Award<br>by the<br>South Carolina<br>State Library.</div>-->
+				
+				
+			</div>
+			<div class="printdisplay"><img border="0" src="/images/titleprint.jpg" alt="South Carolina Legislature" title="South Carolina Legislature" alt="South Carolina Legislature" title="South Carolina State Legislature" /><br /><hr /><br /></div>
+	
+			<div id="pagebody" >
+	
+	
+<!--<div id="topmessage">
+<br style="display:block; margin-top:10px;">
+Searches and data queries will be unavailable beginning Friday, August 19, 2016, from 8:00 PM until Saturday, August 20th at 8:00 AM<br>due to scheduled maintenance.</div>-->
+				<!-- Prompt IE 8/7/6 users to upgrade to a newer browser. -->
+				<!--[if lte IE 8]>
+				<div class="oldframe">In order to improve your experience using this website, please <a href="http://browsehappy.com/">upgrade your browser</a>.</div>
+				<![endif]-->
+			
+			
+			
+			<div id="menu" class="nodisplay">
+				<ul class="nodisplay">
+				<li class="homeselected"><a style="color:black;" href="/index.php">Home</a></li>
+<li><a href="/senate.php">Senate</a></li>
+<li><a href="/house.php">House</a></li>
+<li><a href="/committeeinfo.php">Committee&nbsp;Postings&nbsp;and&nbsp;Reports</a></li>
+<li><a href="/council.php">Legislative Council</a></li>
+<li><a href="/citizens.php">Citizens&#39; Interest</a></li>
+<li><a href="/publications.php">Publications</a></li>
+		    	</ul>
+			</div>
+			<div id="search" class="nodisplay" style="height: 28px;"><div class="nodisplay" style="float:right; margin:6px 20px 0px 0;">
+							<!--<a style="color:#f7f4ec; height:15px;" href="#" onClick="rsswindow();"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>-->
+<!--				<a style="color:#f7f4ec; height:15px;" href="/splashpage/splashpage.html"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a> -->
+				<a style="color:#f7f4ec; height:15px;" href="/onlineservices/index.php"><img border="0" src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>
+			<!--	<a style="color:#f7f4ec; height:15px;" href="/maintenance_portal.php"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>-->
+						</div></div>
+			
+	
+					<div id="sidebar" class="nodisplay">
+	<div id="vidlinks" style="height: 50px;">
+						<!--<img src="/images/videobutton12d.png">-->
+											<ul id="vidsidemenu">
+	<li id="vidinnermenu" style="font-size:16px; margin: 0 0 5px 0;">Chamber Video</li>
+<li id="sbroadcast" style="float: left; width:50%;">
+<a id="liveS" style="width: 100%; text-decoration:underline;" href="javascript:void(0);" onClick="live_stream('S', false, false, '0')">Senate</a><br><a id="liveaudioS" style="margin:-3px 0 0 0; text-decoration:underline; width: 100%; font-size: 8px;" href="javascript:void(0);" onClick="live_stream('S', false, false, '1');">(Audio Only)</a>
+</li>
+<li id="hbroadcast" style="float: left; width:50%;">
+<a id="liveH" style="width: 100%; text-decoration:underline;" href="javascript:void(0);" onClick="live_stream('H', false, false, '0')">House</a><br><a id="liveaudioH" style="margin:-3px 0 0 0; text-decoration:underline; width: 100%; font-size: 8px;" href="javascript:void(0);" onClick="live_stream('H', false, false, '1');">(Audio Only)</a>
+</li>
+						</ul>
+					</div>
+					<div id="commvidlinks"><a href="/video/schedule.php">Video&nbsp;Schedule</a><a style="border-top:1px solid #fff; padding-top:12px;" href="/video/archives.php">Video Archives</a></div>
+										<div id="sidemenu">
+						<ul id="innermenu">
+		
+							<li><a href="/howdoi.php">How do I...</a></li>
+										
+							
+								
+							<li><a href="/legislation.php">Legislation</a></li>
+							<li><a href="javascript:litswindow();">Track Legislation</a></li>
+							
+									<li><a href="#" onclick="multisearchwindow('INTROMANUAL');">Multi-Criteria Search</a></li>
+									<li><a href="/research.php">Research</a></li>
+	
+								<li class="nolink" onMouseOver="var ele=document.getElementById('manual'); if(ele){ele.style.display='block';}" onMouseOut="var ele=document.getElementById('manual'); if(ele){ele.style.display='none';}"><div class="nolinkdiv">Legislative Manual</div>
+								<div id="manual" class="sidesubmenu">
+<!--									<div class="sidediv topelement"><a href="https://secure.scstatehouse.gov/cgi-bin/webstore.exe" target="_blank">Purchase Manual</a></div>-->
+									<div class="sidediv topelement"><a href="javascript:#" onClick="alert('We are sorry, but we are unable to process online transactions at this time.\n\nIf you would still like to make a purchase, please contact us directly at (803) 212-4490 during normal business hours (8:30am - 5:00pm EST).');">Purchase Manual</a></div>
+									<div class="sidediv bottomelement"><a href="/man17/manual17.php">View Manual Online</a></div>
+								</div>
+							</li>
+							<li><a href="/studentpage/index.shtml">Student Connection</a></li>
+							<li><a href="/visit.php">Visiting the State House</a></li>
+							<li><a href="/archives.php">Archives</a></li>
+							<li><a href="http://www.sc.gov/Pages/agencyListingA-Z.aspx" target="_blank">State Agency Websites</a></li>
+							<!--<li><a href="/stateagencysites.php">State Agency Websites</a></li>-->
+							<li><a href="/citizensinterestpage/media.php">Media Links</a></li>
+				 		</ul>
+			    	</div>
+	
+					<div id="side_ad">
+						<A href="http://www.sc.gov/" target="_blank"><img border=0 src="/images/scgov3.jpg" alt="SC.gov" title="SC.gov" /></a>
+													<A href="http://www.statelibrary.sc.gov" target="_blank"><img border=0 src="/images/scsl_logo_rgb_web.png" alt="StateLibrary.SC.gov" title="StateLibrary.SC.gov" /></a>
+											</div>	    	
+			</div>
+
+	
+	<script type="text/javascript"> 
+		if ( '' === '1'){
+		 	
+			var link = document.getElementById('contactLegislatorLink');
+			if (link != 'undefined' && link != null){
+				link.style.display = 'none'; 
+				link.style.visibility = 'hidden';
+			}
+		}
+		if ( '' === '1'){
+		 	setTimeout(function(){
+				var link2 = document.getElementById('sendMsgLink');
+				if (link2 != 'undefined' && link2 != null){
+					link2.style.display = 'none'; 
+					link2.style.visibility = 'hidden';
+				};
+			}, 20);
+			
+		}  
+	</script>
+ 
+			<div class="mainpanel" oncontextmenu="right(event); return false;">
+				<div style="float:left; width: 565px; margin: 0; padding: 0; ">
+					<div id="mainmessage" class="mainmessage" oncontextmenu="stopEvent(event); return false;">
+The 2nd regular session of the 122nd South Carolina General Assembly<br />will convene on Tuesday, January 9, 2018
+					</div>
+				</div>
+
+				<div id="senatebox">
+					<a class="chamberlink" style="margin:20px 0 0 30px;" href="/senate.php" oncontextmenu="stopEvent(event);">Senate</a>
+					<!--<ul class="list2">
+						<li><a href="/sessphp/sencal.php" oncontextmenu="stopEvent(event);">Calendars</a></li>
+						<li><a href="/committee.php?chamber=S" oncontextmenu="stopEvent(event);">Committees</a></li>
+
+						<li><a href="/sessphp/sjournal.php" oncontextmenu="stopEvent(event);">Journals</a></li>
+						<li><a href="/votehistory.php?chamber=S" oncontextmenu="stopEvent(event);">Roll Call Votes</a></li>
+
+						<li><a href="/member.php?chamber=S" oncontextmenu="stopEvent(event);">Senators</a></li>
+						<li><a href="http://redistricting.scsenate.gov/" target="_blank" oncontextmenu="stopEvent(event);">Redistricting</a></li>
+					</ul>
+					<div style="clear:both; width: 0; height: 0; margin:0; padding:0;"></div>-->
+					<ul class="list">
+						<li><a href="/dashboard/senate.php" oncontextmenu="stopEvent(event);" class="dashboard" target="senatedashboard">Chamber Dashboard</a></li>
+						<li><a href="/sessphp/sencal.php" oncontextmenu="stopEvent(event);">Calendars</a></li>
+						<li><a href="/committee.php?chamber=S" oncontextmenu="stopEvent(event);">Committees</a></li>
+						<li><a href="/sessphp/sjournal.php" oncontextmenu="stopEvent(event);">Journals</a></li>
+						<li><a href="/votehistory.php?chamber=S" oncontextmenu="stopEvent(event);">Roll Call Votes</a></li>
+						<li><a href="/member.php?chamber=S" oncontextmenu="stopEvent(event);">Senators</a></li>
+						 <li><a href="/sessphp/sintros.php" oncontextmenu="stopEvent(event);">Introduced Legislation</a></li> 
+					<!--<li><a href="/sessphp/prefil17.php" oncontextmenu="stopEvent(event);">Prefiled Legislation</a></li>-->
+					<!--<li><a href="/sessphp/sctoday.htm" oncontextmenu="stopEvent(event);">Current Calendar</a></li>
+						<li><a href="/sess121_2015-2016/sj15/senjour.htm" oncontextmenu="stopEvent(event);">Current Journal</a></li>
+						<li><a href="/amendments.php?PAGE=CURRENT&chamber=S" oncontextmenu="stopEvent(event);">Current Amendment</a></li>
+						<li><a href="/sessphp/intros.htm" oncontextmenu="stopEvent(event);">Current Intro Sheet</a></li>-->
+					</ul>
+
+					<div style="width: 185px; height:140px; margin: 45px 0 0 -10px; padding: 0; background-color: #fafbf5; background-color: #f7f4ec; background-color: transparent; border: 0px solid #bbb; font-weight: bold;">
+						<h2>South Carolina Law</h2>
+						<ul class="sclaw" >
+							<li><a href="/newlaws.php" oncontextmenu="stopEvent(event);">Ratifications &amp; Acts</a></li>
+							<li><a href="/code/statmast.php" oncontextmenu="stopEvent(event);">Code of Laws</a></li>
+							<li><a href="/coderegs/statmast.php" oncontextmenu="stopEvent(event);">Code of Regulations</a></li>
+							<li><a href="/scconstitution/scconst.php" oncontextmenu="stopEvent(event);">Constitution</a></li>
+							<li><a href="/state_register.php" oncontextmenu="stopEvent(event);">State Register</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="housebox">
+					<a class="chamberlink" style="margin:0 0 20px 80px; width:160px;" href="/house.php" oncontextmenu="stopEvent(event);">House of Representatives</a>
+					<!--<ul class="list2" style="margin-left:60px;">
+						<li><a href="/sessphp/houcal.php" oncontextmenu="stopEvent(event);">Calendars</a></li>
+						<li><a href="/committee.php?chamber=H" oncontextmenu="stopEvent(event);">Committees</a></li>
+						
+						<li><a href="/sessphp/hjournal.php" oncontextmenu="stopEvent(event);">Journals</a></li>
+						<li><a href="/votehistory.php?chamber=H" oncontextmenu="stopEvent(event);">Roll Call Votes</a></li>
+
+						<li><a href="/member.php?chamber=H" oncontextmenu="stopEvent(event);">Representatives</a></li>
+						<li><a href="http://redistricting.schouse.gov/" target="_blank" oncontextmenu="stopEvent(event);">Redistricting</a></li>
+					</ul>
+					<div style="clear:both; width: 0; height: 0; margin:0; padding:0;"></div>-->
+					<ul class="list">
+						<li><a href="/dashboard/house.php" oncontextmenu="stopEvent(event);" class="dashboard" target="housedashboard">Chamber Dashboard</a></li>					
+						<li><a href="/sessphp/houcal.php" oncontextmenu="stopEvent(event);">Calendars</a></li>
+						<li><a href="/committee.php?chamber=H" oncontextmenu="stopEvent(event);">Committees</a></li>
+						<li><a href="/sessphp/hjournal.php" oncontextmenu="stopEvent(event);">Journals</a></li>
+						<li><a href="/votehistory.php?chamber=H" oncontextmenu="stopEvent(event);">Roll Call Votes</a></li>
+						<li><a href="/member.php?chamber=H" oncontextmenu="stopEvent(event);">Representatives</a></li>
+						 <li><a href="/sessphp/hintros.php" oncontextmenu="stopEvent(event);">Introduced Legislation</a></li> 
+					<!--<li><a href="/sessphp/prefil17.php" oncontextmenu="stopEvent(event);">Prefiled Legislation</a></li>-->
+						<!-- <li><a href="/sessphp/hctoday.htm" oncontextmenu="stopEvent(event);">Current Calendar</a></li>
+						<li><a href="/sess121_2015-2016/hj15/houjour.htm" oncontextmenu="stopEvent(event);">Current Journal</a></li>
+						<li><a href="/currentbill.php?PAGE=CURRENT&chamber=H" oncontextmenu="stopEvent(event);">Current Bill</a></li>
+						<li><a href="/amendments.php?PAGE=CURRENT&chamber=H" oncontextmenu="stopEvent(event);">Current Amendment</a></li>
+						<li><a href="/sessphp/introh.htm" oncontextmenu="stopEvent(event);">Current Intro Sheet</a></li>-->
+					</ul>
+					
+	<!--<li id="searchmore" style="display:block;"><span style="display: inline-block; width: 110px; height: 12px;"><a style="width:100px;" title="More search category choices" alt="More search category choices" href="javascript:void(0);" onClick="document.indexsearchform.search.value='FIRST'; document.indexsearchform.searchtext.value=''; document.indexsearchform.submit();">More...</a></span></li>-->				
+	
+					<div id="quicksearchwrap">
+						<h2 style="margin-left:-15px;" >Quick Search</h2>
+						<div id="quicksearch" class="quicksearch" >
+							<form id="indexsearchform" name="indexsearchform" method="POST" action="/search.php">
+								<input type="hidden" name="search" value="index" />
+								<ul>
+									<li><span>Search&nbsp;for:</span></li>
+									<li><input id="searchtext" name="searchtext" type="text" oncontextmenu="stopEvent(event);"/></li>
+									<li><a id="searchlink" href="javascript:void(0);" onClick="document.indexsearchform.submit();"><img id="searchicon" src="images/searchbutton2.png" /></a></li>
+						    	</ul>
+						    	<ul class="choices" style="margin-left:-15px;">
+						    		<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_fullsite" name="category" value="FULLSITE" /><label for="searchchoice_fullsite"><span style="display: inline-block; width: 110px; height: 12px;">Google Site Search</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_billnumber" name="category" value="BILL" /><label for="searchchoice_billnumber"><span style="display: inline-block; width: 110px; height: 12px;">Bill Number</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_legislation" name="category" value="LEGISLATION" CHECKED /><label for="searchchoice_legislation"><span style="display: inline-block; width: 110px; height: 12px;">Legislation</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_budget" name="category" value="BUDGET" /><label for="searchchoice_budget"><span style="display: inline-block; width: 110px; height: 12px;">Budget</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_codeoflaws" name="category" value="CODEOFLAWS" /><label for="searchchoice_codeoflaws"><span style="display: inline-block; width: 110px; height: 12px;">Code of Laws</span></label></li>
+									<li id="searchmore" style="display:block;"><span style="display: inline-block; width: 110px; height: 12px;"><a style="width:100px;" title="More search category choices" alt="More search category choices" href="javascript:void(0);" onClick="openmore(); return false;"  oncontextmenu="stopEvent(event);">More...</a></span></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_codeofregs" name="category" value="CODEOFREGS" /><label for="searchchoice_codeofregs"><span style="display: inline-block; width: 110px; height: 12px;">Code of Regulations</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_constitution" name="category" value="CONSTITUTION" /><label for="searchchoice_constitution"><span style="display: inline-block; width: 110px; height: 12px;">Constitution</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_housejournals" name="category" value="HOUSEJOURNALS" /><label for="searchchoice_housejournals"><span style="display: inline-block; width: 110px; height: 12px;">House Journals</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_senatejournals" name="category" value="SENATEJOURNALS" /><label for="searchchoice_senatejournals"><span style="display: inline-block; width: 110px; height: 12px;">Senate Journals</span></label></li>
+									<li><input type="radio" style="margin:0 10px 0 0; height: 14px;" id="searchchoice_billsummary" name="category" value="SUMMARY" /><label for="searchchoice_billsummary"><span style="display: inline-block; width: 110px; height: 12px;">Bill Summary</span></label></li>
+									<li id="hidemore" style="display:block;"><span style="display: inline-block; width: 110px; height: 12px;"><a style="width:100px;" title="Hide more search category choices" alt="Hide more search category choices" href="javascript:void(0);" onClick="closemore(); return false;" oncontextmenu="stopEvent(event);">Hide More...</a></span></li>
+								</ul>
+							</form>
+						</div>
+					</div>
+				</div>
+			
+				<div id="findlegislatordiv" style="float:left; width: 175px; height:140px; margin: 53px 0 0 1px; padding: 0; background-color: #fafbf5; border: 1px solid #bbb; " oncontextmenu="stopEvent(event);return false;">
+					<form id="legislatorsearch" name="legislatorsearch" method="POST" action="/legislatorssearch.php">
+					<!--<form id="legislatorsearch" name="legislatorsearch" method="POST" action="/legislatorssearch.php" onsubmit="alert('This feature is currently unavailable as data is being updated.'); return false;">-->
+					<input type="hidden" name="op" value="SEARCH">
+					<h2 class="boxheader">Find Your Legislators</h2>
+					<div style="padding:0px 5px 5px 5px;">
+						<p style="margin:-8px 5px 5px 5px; font-size:10px;">Submit your address to find your Senators and Representatives</p>
+						<span style="display:inline-block; width:40px; font-size:10px;">Address</span> <input style="width:115px; font-size:11px;" type="text" name="address" oncontextmenu="stopEvent(event);"><br>
+						<span style="display:inline-block; width:40px; font-size:10px;">City</span> <input style="width:85px; font-size:11px;" type="text" name="city" oncontextmenu="stopEvent(event);"><span style="font-size:10px;">, SC</span><br>
+<!--						<span style="display:inline-block; width:165px; font-size:10px; text-align:center;">- or -</span><br>-->
+						<span style="display:inline-block; width:40px; font-size:10px;">Zip</span> <input style="width:40px; font-size:11px;" type="text" name="zip5" maxlength="5" oncontextmenu="stopEvent(event);"><!-- -<input style="width:30px; font-size:11px;" type="text" name="zip4" maxlength="4" oncontextmenu="stopEvent(event);">--></span><br>
+						<div id="findlegislatorbuttondiv" style="text-align:center; width: 175px;">
+							<input id="findlegislatorbutton" style="width:125px;" type="submit" value="Find Legislators">
+						</div>
+					</div>
+					</form>
+				</div>
+				<div id="votingrecorddiv" style="float:left; width: 175px; height:140px; margin: 53px 0 0 17px; padding: 0; background-color: #fafbf5; border: 1px solid #bbb; " oncontextmenu="stopEvent(event); return false;">
+					<form id="votingrecord" name="votingrecord" method="POST" action="/votehistory.php">
+					<!--<form id="votingrecord" name="votingrecord" method="POST" action="/votehistory.php" onsubmit="alert('This feature is currently unavailable as data is being updated.'); return false;">-->
+					<h2 class="boxheader">Legislative Voting Record</h2>
+					<input type="hidden" name="chamber" value="S">
+					<div style="padding:0px 10px;">
+						<input style="margin:0 5px 0 0;" type="radio" name="type" value="CHAMBER" CHECKED onclick="this.form.chamber.value = 'S';"><label><span style="font-size:10px;">Senate</span></label><br>
+						<input style="margin:0 5px 0 0;" type="radio" name="type" value="CHAMBER" onclick="this.form.chamber.value = 'H';"><label><span style="font-size:10px;">House</span></label><br>
+						<input style="margin:0 5px 0 0;" type="radio" name="type" value="BILL"><label><span style="font-size:10px;">Bill</span><input style="margin:0 0 0 5px;" type="text" name="bill_number" size="4" maxlength="4" onKeyUp="this.form.type[2].checked = true;" oncontextmenu="stopEvent(event);"></label><br>
+						<input style="margin:0 5px 0 0;" type="radio" name="type" value="SPONSOR"><select style="font-size:10px; width:130px;" name="sponsor" onChange="this.form.type[3].checked = true;">
+							<option value="0">Choose a Legislator</option><option value=11363635>Alexander, Terry  </option><option value=13636362>Alexander, Thomas C. </option><option value=15340908>Allen, Karl B. </option><option value=15909089>Allison, Merita A. </option><option value=21590907>Anderson, Carl L. </option><option value=38636359>Anthony, Michael A. </option><option value=52272721>Arrington, Katherine E. </option><option value=66477265>Atkinson, Lucas  </option><option value=67045447>Atwater, Todd K. </option><option value=97727261>Bales, Jimmy C. Ed.D.</option><option value=102272715>Ballentine, Nathan  </option><option value=102840897>Bamberg, Justin T. </option><option value=103409079>Bannister, Bruce W. </option><option value=140340893>Bedingfield, Eric M. </option><option value=140624984>Bennett, Linda  </option><option value=141193165>Bennett, Sean M. </option><option value=141477256>Bernstein, Beth E. </option><option value=144318165>Blackwell, Bart T. </option><option value=170454525>Bowers, William K. </option><option value=171590889>Bradley, Jeffrey A. </option><option value=187499978>Brawley, Wendy C. </option><option value=220454519>Brown, Robert L. </option><option value=234090881>Bryant, Bruce M. </option><option value=238636335>Bryant, Kevin L. </option><option value=257954515>Burns, James Mikell </option><option value=301136328>Campbell, Paul G., Jr.</option><option value=302272691>Campsen, George E. III</option><option value=328409052>Cash, Richard J. </option><option value=329545415>Caskey, Micajah P. IV</option><option value=351704504>Chumley, William M. </option><option value=353551095>Clary, Gary E. </option><option value=353977231>Clemmons, Alan D. </option><option value=356818139>Climer, Wes  </option><option value=363636320>Clyburn, William  </option><option value=372727228>Cobb-Hunter, Gilda  </option><option value=374999955>Cogswell, William Scott, Jr.</option><option value=377840864>Cole, J. Derham, Jr.</option><option value=388636317>Collins, Neal A. </option><option value=402272679>Corbin, Thomas D. </option><option value=412499951>Corley, Christopher A. </option><option value=422727222>Courson, John E. </option><option value=428977222>Crawford, Heather Ammons </option><option value=438636311>Cromer, Ronnie W. </option><option value=439772675>Crosby, William E. </option><option value=451136310>Daning, Joseph S. </option><option value=456249946>Davis, Sylleste H. </option><option value=456818127>Davis, Tom  </option><option value=463636308>Delleney, F. Gregory, Jr.</option><option value=479545397>Dillard, Chandra E. </option><option value=489772669>Douglas, MaryGail K. </option><option value=497727213>Duckworth, Gregory D. </option><option value=529545391>Elliott, Jason  </option><option value=539772663>Erickson, Shannon S. </option><option value=556818115>Fanning, Mike  </option><option value=570454477>Felder, R. Raye </option><option value=585795385>Finlay, Kirkman  III</option><option value=608238564>Forrest, Cally R. </option><option value=608522655>Forrester, P. Michael </option><option value=623863562>Fry, Russell W. </option><option value=629545379>Funderburk, Laurie Slade </option><option value=632954470>Gagnon, Craig A. </option><option value=635227197>Gambrell, Mike  </option><option value=675568101>Gilliard, Wendell G. </option><option value=682386282>Goldfinch, Stephen L. </option><option value=702272643>Govan, Jerry N., Jr.</option><option value=711363551>Gregory, Chauncey K. </option><option value=729545367>Grooms, Lawrence K. </option><option value=742045366>Hamilton, Daniel P. </option><option value=743749911>Hardee, Kevin  </option><option value=770454453>Hart, Christopher R. </option><option value=802272631>Hayes, Jackie E. </option><option value=819318084>Hembree, Greg  </option><option value=820454447>Henderson, Phyllis J. </option><option value=824999901>Henderson-Myers, Rosalyn D. </option><option value=829545355>Henegan, Patricia Moore </option><option value=832954446>Herbkersman, William G. </option><option value=834658991>Hewitt, Lee  </option><option value=835227173>Hill, Jonathon D. </option><option value=848863535>Hiott, David R. </option><option value=849715808>Hixon, William M. </option><option value=874999895>Hosey, Lonnie  </option><option value=879545349>Howard, Leon  </option><option value=897727165>Huggins, Chip  </option><option value=912499891>Hutto, Brad  </option><option value=920454435>Jackson, Darrell  </option><option value=924999889>Jefferson, Joseph H., Jr.</option><option value=938636251>Johnson, Jeffrey E. </option><option value=947727159>Johnson, Kevin L. </option><option value=957954431>Jordan, Wallace H., Jr.</option><option value=994318063>Kimpson, Marlon E. </option><option value=1002272607>King, John Richard C. </option><option value=1006818061>Kirby, Roger K. </option><option value=1023863514>Knight, Patsy G. </option><option value=1068181690>Leatherman, Hugh K., Sr.</option><option value=1111363503>Loftis, Dwight A. </option><option value=1120454411>Long, Steven Wayne </option><option value=1125568047>Lowe, Phillip D. </option><option value=1126136229>Lucas, James H. </option><option value=1127840774>Mace, Nancy  </option><option value=1129545319>Mack, David J. III</option><option value=1130965774>Magnuson, Josiah  </option><option value=1131533956>Malloy, Gerald  </option><option value=1178408950>Martin, Richard  </option><option value=1179545313>Martin, Shane R. </option><option value=1185227131>Massey, A. Shane </option><option value=1186363494>Matthews, John W., Jr.</option><option value=194318159>Matthews, Margie Bright </option><option value=1215908945>McCoy, Peter M., Jr.</option><option value=1217045309>McCravy, John R. III</option><option value=1229545307>McEachern, Joseph A. </option><option value=1234090761>McElveen, J. Thomas  III</option><option value=1256818031>McGinnis, Timothy A </option><option value=1276136211>McKnight, Cezar E. </option><option value=279545421>McLeod, Mia S. </option><option value=1323863478>Merrill, James H. </option><option value=1344318021>Mitchell, Harold , Jr.</option><option value=1379545289>Moss, Dennis C. </option><option value=1386931652>Moss, V. Stephen </option><option value=1394318015>Murphy, Chris  </option><option value=1402272559>Neal, Joseph H. </option><option value=1418607785>Newton, Brandon Michael </option><option value=1418749830>Newton, Wm. Weston J. </option><option value=1419318012>Nicholson, Floyd  </option><option value=1421590739>Norman, Ralph W. </option><option value=1493181639>Norrell, Mandy Powers </option><option value=1433096420>Ott, Russell L. </option><option value=1434090737>Parks, J. Anne </option><option value=1454545280>Peeler, Harvey S., Jr.</option><option value=1457812326>Pendarvis, Marvin R. </option><option value=1481533914>Pitts, Michael A. </option><option value=1484090731>Pope, Thomas E. </option><option value=1497727093>Putnam, Joshua A. </option><option value=1499999820>Quinn, Rick  </option><option value=1511363455>Rankin, Luke A. </option><option value=1527272544>Reese, Glenn G. </option><option value=1547727087>Rice, Rex F. </option><option value=1553408905>Ridgeway, Robert L. III</option><option value=1564346404>Rivers, Michael F., Sr.</option><option value=1564488449>Rivers, Samuel , Jr.</option><option value=1567045267>Robinson-Simpson, Leola C. </option><option value=1614772534>Rutherford, J. Todd </option><option value=1616477079>Ryhal, Mike  </option><option value=1617045261>Sabb, Ronnie A. </option><option value=1629545259>Sandifer, William E. III</option><option value=1640908894>Scott, John L., Jr.</option><option value=1649431621>Senn, Sandy  </option><option value=1649999802>Setzler, Nikki G. </option><option value=1656817983>Shealy, Katrina Frye </option><option value=1665908891>Sheheen, Vincent A. </option><option value=1697727069>Simrill, J. Gary </option><option value=1703408887>Smith, G. Murrell, Jr.</option><option value=1703977069>Smith, Garry R. </option><option value=1711363431>Smith, James E., Jr.</option><option value=1742045246>Sottile, F. Michael </option><option value=1743749791>Spires, L. Kit </option><option value=1747727063>Stavrinakis, Leonidas E. </option><option value=1774999787>Stringer, Tommy M. </option><option value=1784090695>Talley, Scott  </option><option value=1785227059>Tallon, Edward R., Sr.</option><option value=1811363419>Taylor, Bill  </option><option value=1812499783>Thayer, Anne J. </option><option value=1815908873>Thigpen, Ivory Torrey </option><option value=1827840690>Timmons, William  </option><option value=1838636143>Toole, McLain R. </option><option value=1841477052>Trantham, Ashley  </option><option value=1847727051>Turner, Ross  </option><option value=1874999775>Verdin, Daniel B. III</option><option value=1898863409>Weeks, J. David </option><option value=1903408863>West, John Taliaferro IV</option><option value=1907386135>Wheeler, William W. III</option><option value=1907954316>Whipper, J. Seth </option><option value=1911363407>White, W. Brian </option><option value=1914204316>Whitmire, William R. </option><option value=1938636131>Williams, Kent M. </option><option value=1942045222>Williams, Robert Q. </option><option value=1942613404>Willis, Mark N. </option><option value=1993181579>Young, Ronald  </option><option value=1996590730>Young, Tom , Jr.</option><option value=1998863577>Yow, Richard L. </option>						</select>
+						<div id="votingrecordbuttondiv" style="text-align:center; width: 175px;">
+							<input id="votingrecordbutton" style="width:125px;" type="submit" value="Get Voting Record">
+						</div>
+					</div>
+					</form>
+				</div>
+				<div id="contactlegislatordiv" style="float:left; width: 175px; height:140px; margin: 53px 0 0 17px; padding: 0; background-color: #fafbf5; border: 1px solid #bbb;" oncontextmenu="stopEvent(event); return false;">
+					<form id="contactlegislator" name="contactlegislator" method="POST" action="/email.php" onsubmit="if(this.C.selectedIndex == 0){ return false; }">
+					<!--<form id="contactlegislator" name="contactlegislator" method="POST" action="/email.php" onsubmit="alert('This feature is currently unavailable as data is being updated.'); return false;">-->
+						<input type="hidden" name="T" value="M">
+						<h2 class="boxheader">Contact Your Legislator</h2>
+						<div style="padding:5px; text-align:center;">
+							<p style="margin:-5px 5px 5px 5px; font-size:10px;">E-mail your Legislator by selecting the name and clicking Contact&nbsp;Legislator</p>
+							<select id="C" name="C" style="margin:8px 0 0 0; font-size:10px; width:130px;">
+							<option value="0">Choose a Legislator</option><option value="SMEMBERS">All Senators</option><option value="HMEMBERS">All Representatives</option><option value=11363635>Alexander, Terry  </option><option value=13636362>Alexander, Thomas C. </option><option value=15340908>Allen, Karl B. </option><option value=15909089>Allison, Merita A. </option><option value=21590907>Anderson, Carl L. </option><option value=38636359>Anthony, Michael A. </option><option value=52272721>Arrington, Katherine E. </option><option value=66477265>Atkinson, Lucas  </option><option value=67045447>Atwater, Todd K. </option><option value=97727261>Bales, Jimmy C. Ed.D.</option><option value=102272715>Ballentine, Nathan  </option><option value=102840897>Bamberg, Justin T. </option><option value=103409079>Bannister, Bruce W. </option><option value=140340893>Bedingfield, Eric M. </option><option value=140624984>Bennett, Linda  </option><option value=141193165>Bennett, Sean M. </option><option value=141477256>Bernstein, Beth E. </option><option value=144318165>Blackwell, Bart T. </option><option value=170454525>Bowers, William K. </option><option value=171590889>Bradley, Jeffrey A. </option><option value=187499978>Brawley, Wendy C. </option><option value=220454519>Brown, Robert L. </option><option value=234090881>Bryant, Bruce M. </option><option value=238636335>Bryant, Kevin L. </option><option value=257954515>Burns, James Mikell </option><option value=301136328>Campbell, Paul G., Jr.</option><option value=302272691>Campsen, George E. III</option><option value=328409052>Cash, Richard J. </option><option value=329545415>Caskey, Micajah P. IV</option><option value=351704504>Chumley, William M. </option><option value=353551095>Clary, Gary E. </option><option value=353977231>Clemmons, Alan D. </option><option value=356818139>Climer, Wes  </option><option value=363636320>Clyburn, William  </option><option value=372727228>Cobb-Hunter, Gilda  </option><option value=374999955>Cogswell, William Scott, Jr.</option><option value=377840864>Cole, J. Derham, Jr.</option><option value=388636317>Collins, Neal A. </option><option value=402272679>Corbin, Thomas D. </option><option value=412499951>Corley, Christopher A. </option><option value=422727222>Courson, John E. </option><option value=428977222>Crawford, Heather Ammons </option><option value=438636311>Cromer, Ronnie W. </option><option value=439772675>Crosby, William E. </option><option value=451136310>Daning, Joseph S. </option><option value=456249946>Davis, Sylleste H. </option><option value=456818127>Davis, Tom  </option><option value=463636308>Delleney, F. Gregory, Jr.</option><option value=479545397>Dillard, Chandra E. </option><option value=489772669>Douglas, MaryGail K. </option><option value=497727213>Duckworth, Gregory D. </option><option value=529545391>Elliott, Jason  </option><option value=539772663>Erickson, Shannon S. </option><option value=556818115>Fanning, Mike  </option><option value=570454477>Felder, R. Raye </option><option value=585795385>Finlay, Kirkman  III</option><option value=608238564>Forrest, Cally R. </option><option value=608522655>Forrester, P. Michael </option><option value=623863562>Fry, Russell W. </option><option value=629545379>Funderburk, Laurie Slade </option><option value=632954470>Gagnon, Craig A. </option><option value=635227197>Gambrell, Mike  </option><option value=675568101>Gilliard, Wendell G. </option><option value=682386282>Goldfinch, Stephen L. </option><option value=702272643>Govan, Jerry N., Jr.</option><option value=711363551>Gregory, Chauncey K. </option><option value=729545367>Grooms, Lawrence K. </option><option value=742045366>Hamilton, Daniel P. </option><option value=743749911>Hardee, Kevin  </option><option value=770454453>Hart, Christopher R. </option><option value=802272631>Hayes, Jackie E. </option><option value=819318084>Hembree, Greg  </option><option value=820454447>Henderson, Phyllis J. </option><option value=824999901>Henderson-Myers, Rosalyn D. </option><option value=829545355>Henegan, Patricia Moore </option><option value=832954446>Herbkersman, William G. </option><option value=834658991>Hewitt, Lee  </option><option value=835227173>Hill, Jonathon D. </option><option value=848863535>Hiott, David R. </option><option value=849715808>Hixon, William M. </option><option value=874999895>Hosey, Lonnie  </option><option value=879545349>Howard, Leon  </option><option value=897727165>Huggins, Chip  </option><option value=912499891>Hutto, Brad  </option><option value=920454435>Jackson, Darrell  </option><option value=924999889>Jefferson, Joseph H., Jr.</option><option value=938636251>Johnson, Jeffrey E. </option><option value=947727159>Johnson, Kevin L. </option><option value=957954431>Jordan, Wallace H., Jr.</option><option value=994318063>Kimpson, Marlon E. </option><option value=1002272607>King, John Richard C. </option><option value=1006818061>Kirby, Roger K. </option><option value=1023863514>Knight, Patsy G. </option><option value=1068181690>Leatherman, Hugh K., Sr.</option><option value=1111363503>Loftis, Dwight A. </option><option value=1120454411>Long, Steven Wayne </option><option value=1125568047>Lowe, Phillip D. </option><option value=1126136229>Lucas, James H. </option><option value=1127840774>Mace, Nancy  </option><option value=1129545319>Mack, David J. III</option><option value=1130965774>Magnuson, Josiah  </option><option value=1131533956>Malloy, Gerald  </option><option value=1178408950>Martin, Richard  </option><option value=1179545313>Martin, Shane R. </option><option value=1185227131>Massey, A. Shane </option><option value=1186363494>Matthews, John W., Jr.</option><option value=194318159>Matthews, Margie Bright </option><option value=1215908945>McCoy, Peter M., Jr.</option><option value=1217045309>McCravy, John R. III</option><option value=1229545307>McEachern, Joseph A. </option><option value=1234090761>McElveen, J. Thomas  III</option><option value=1256818031>McGinnis, Timothy A </option><option value=1276136211>McKnight, Cezar E. </option><option value=279545421>McLeod, Mia S. </option><option value=1344318021>Mitchell, Harold , Jr.</option><option value=1379545289>Moss, Dennis C. </option><option value=1386931652>Moss, V. Stephen </option><option value=1394318015>Murphy, Chris  </option><option value=1418607785>Newton, Brandon Michael </option><option value=1418749830>Newton, Wm. Weston J. </option><option value=1419318012>Nicholson, Floyd  </option><option value=1493181639>Norrell, Mandy Powers </option><option value=1433096420>Ott, Russell L. </option><option value=1434090737>Parks, J. Anne </option><option value=1454545280>Peeler, Harvey S., Jr.</option><option value=1457812326>Pendarvis, Marvin R. </option><option value=1481533914>Pitts, Michael A. </option><option value=1484090731>Pope, Thomas E. </option><option value=1497727093>Putnam, Joshua A. </option><option value=1499999820>Quinn, Rick  </option><option value=1511363455>Rankin, Luke A. </option><option value=1527272544>Reese, Glenn G. </option><option value=1547727087>Rice, Rex F. </option><option value=1553408905>Ridgeway, Robert L. III</option><option value=1564346404>Rivers, Michael F., Sr.</option><option value=1564488449>Rivers, Samuel , Jr.</option><option value=1567045267>Robinson-Simpson, Leola C. </option><option value=1614772534>Rutherford, J. Todd </option><option value=1616477079>Ryhal, Mike  </option><option value=1617045261>Sabb, Ronnie A. </option><option value=1629545259>Sandifer, William E. III</option><option value=1640908894>Scott, John L., Jr.</option><option value=1649431621>Senn, Sandy  </option><option value=1649999802>Setzler, Nikki G. </option><option value=1656817983>Shealy, Katrina Frye </option><option value=1665908891>Sheheen, Vincent A. </option><option value=1697727069>Simrill, J. Gary </option><option value=1703408887>Smith, G. Murrell, Jr.</option><option value=1703977069>Smith, Garry R. </option><option value=1711363431>Smith, James E., Jr.</option><option value=1742045246>Sottile, F. Michael </option><option value=1743749791>Spires, L. Kit </option><option value=1747727063>Stavrinakis, Leonidas E. </option><option value=1774999787>Stringer, Tommy M. </option><option value=1784090695>Talley, Scott  </option><option value=1785227059>Tallon, Edward R., Sr.</option><option value=1811363419>Taylor, Bill  </option><option value=1812499783>Thayer, Anne J. </option><option value=1815908873>Thigpen, Ivory Torrey </option><option value=1827840690>Timmons, William  </option><option value=1838636143>Toole, McLain R. </option><option value=1841477052>Trantham, Ashley  </option><option value=1847727051>Turner, Ross  </option><option value=1874999775>Verdin, Daniel B. III</option><option value=1898863409>Weeks, J. David </option><option value=1903408863>West, John Taliaferro IV</option><option value=1907386135>Wheeler, William W. III</option><option value=1907954316>Whipper, J. Seth </option><option value=1911363407>White, W. Brian </option><option value=1914204316>Whitmire, William R. </option><option value=1938636131>Williams, Kent M. </option><option value=1942045222>Williams, Robert Q. </option><option value=1942613404>Willis, Mark N. </option><option value=1993181579>Young, Ronald  </option><option value=1996590730>Young, Tom , Jr.</option><option value=1998863577>Yow, Richard L. </option>							</select>
+							<div id="contactlegislatorbuttondiv" style="text-align:center; width: 175px;">
+								<input id="contactlegislatorbutton" style="width:125px;" type="submit" value="Contact Legislator">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="rightpanel">
+				<div id="scheduleS">
+					<div class="scheduleheader"><a href="/meetings.php?chamber=S" style="color:white;">Senate Meeting Schedule</a><!--<a style="margin-left:5px;" href="/pagefeeds.php"><img border=0 style="align:right;" src="/images/rss-14.png" /></a>--></div>
+					<div class="scheduletwitter"><a style="margin-left:5px; color: #ffffff;" href="https://twitter.com/scsenate" target="_blank"><img border=0 title="Follow on Twitter" src="/images/social-icon-twitter.png"/>&nbsp;&nbsp;&nbsp;Follow on Twitter</a></div>
+					<div class="schedulebody">				
+<ul><div style="font-weight:bold; background-color:#eeeeee; padding:2px 0 2px 5px; text-decoration:underline;">TODAY, March 21</div><li><div style="font-weight:bold;">8:00 am - 10:00 am</div><div style="padding:0 0 0 5px;">Legislative Breakfast: SC Association of Municipal Power System and Piedmont Municipal Power Agency<br>Blatt Room 112<br></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Medical Affairs Subcommittee<br>Gressette Room 308<br><a href="/agendas/122s8123.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8123" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8123, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8123" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8123, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Education Lottery Scholarship Subcommittee on <a HREF="/billsearch.php?billnumbers=1123&session=122&summary=B&headerfooter=1">S.1123</a><br>Gressette Room 207<br><a href="/agendas/122s8149.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">General Committee on <a HREF="/billsearch.php?billnumbers=920&session=122&summary=B&headerfooter=1">S.920</a>, <a HREF="/billsearch.php?billnumbers=1033&session=122&summary=B&headerfooter=1">S.1033</a> and <a HREF="/billsearch.php?billnumbers=4705&session=122&summary=B&headerfooter=1">H.4705</a><br>Gressette Room 209<br><a href="/agendas/122s8060.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Senate Finance Standing Subcommittee on State Retirement System<br>Gressette Room 105<br><a href="/agendas/122s8119.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8119" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8119, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8119" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8119, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Judiciary Subcommittee on <a HREF="/billsearch.php?billnumbers=504&session=122&summary=B&headerfooter=1">S.504</a> and <a HREF="/billsearch.php?billnumbers=1096&session=122&summary=B&headerfooter=1">S.1096</a><br>Gressette Room 408<br><a href="/agendas/122s8144.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">Judiciary Subcommittee on <a HREF="/billsearch.php?billnumbers=277&session=122&summary=B&headerfooter=1">S.277</a>, <a HREF="/billsearch.php?billnumbers=382&session=122&summary=B&headerfooter=1">S.382</a>, <a HREF="/billsearch.php?billnumbers=981&session=122&summary=B&headerfooter=1">S.981</a>, <a HREF="/billsearch.php?billnumbers=1121&session=122&summary=B&headerfooter=1">S.1121</a> and <a HREF="/billsearch.php?billnumbers=4889&session=122&summary=B&headerfooter=1">H.4889</a><br>Gressette Room 408<br><a href="/agendas/122s8147.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">Fish, Game and Forestry Committee<br>Gressette Room 308<br><a href="/agendas/122s8152.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">L.C.I. Labor and Employment Subcommittee on <a HREF="/billsearch.php?billnumbers=361&session=122&summary=B&headerfooter=1">S.361</a>, <a HREF="/billsearch.php?billnumbers=567&session=122&summary=B&headerfooter=1">S.567</a> and <a HREF="/billsearch.php?billnumbers=1027&session=122&summary=B&headerfooter=1">S.1027</a><br>Gressette Room 307<br><a href="/agendas/122s8105.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">11:00 am</div><div style="padding:0 0 0 5px;">Education Legislative Oversight Subcommittee on John de la Howe School<br>Gressette Room 207<br><a href="/agendas/122s8139.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">12:00 noon - 2:00 pm</div><div style="padding:0 0 0 5px;">Legislative Luncheon: South Carolina Human Services Provider Association<br>State House Grounds<br></div><br></li><li><div style="font-weight:bold;">12:00 pm</div><div style="padding:0 0 0 5px;">Senate<br>State House, Senate Chamber<br><div id="live'S'" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream('S', false, false, '0')">Live Broadcast</a></div><div id="liveaudio'S'" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream('S', false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><div style="font-weight:bold; background-color:#eeeeee; margin-left:-5px; padding:2px 0 2px 5px; text-decoration:underline;">Thursday, March 22</div><li><div style="font-weight:bold;">8:00 am - 10:00 am</div><div style="padding:0 0 0 5px;">Legislative Breakfast: Leadership South Carolina<br>Blatt Room 112<br></div><br></li><li><div style="font-weight:bold;">9:15 am</div><div style="padding:0 0 0 5px;">Higher Education Subcommittee on <a HREF="/billsearch.php?billnumbers=542&session=122&summary=B&headerfooter=1">S.542</a>, <a HREF="/billsearch.php?billnumbers=711&session=122&summary=B&headerfooter=1">S.711</a>, <a HREF="/billsearch.php?billnumbers=3068&session=122&summary=B&headerfooter=1">H.3068</a> and <a HREF="/billsearch.php?billnumbers=4931&session=122&summary=B&headerfooter=1">H.4931</a><br>Gressette Room 407<br><a href="/agendas/122s8137.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">L.C. I. Committee<br>Gressette Room 308<br><a href="/agendas/122s8104.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8104" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8104, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8104" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8104, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">Transportation<br>Gressette Room 209<br><a href="/agendas/122s8102.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">Judiciary Subcommittee on <a HREF="/billsearch.php?billnumbers=560&session=122&summary=B&headerfooter=1">S.560</a>, <a HREF="/billsearch.php?billnumbers=580&session=122&summary=B&headerfooter=1">S.580</a>, <a HREF="/billsearch.php?billnumbers=820&session=122&summary=B&headerfooter=1">S.820</a> and <a HREF="/billsearch.php?billnumbers=3329&session=122&summary=B&headerfooter=1">H.3329</a><br>Gressette Room 207<br><a href="/agendas/122s8145.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><div style="font-weight:bold; background-color:#eeeeee; margin-left:-5px; padding:2px 0 2px 5px; text-decoration:underline;">Wednesday, March 28</div><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">L.C.I. Commerce Subcommittee on <a HREF="/billsearch.php?billnumbers=797&session=122&summary=B&headerfooter=1">S.797</a><br>Gressette Room 307<br><a href="/agendas/122s8153.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li></ul>
+						<span><a href="/meetings.php?chamber=S">More Info</a></span><br><br>
+					</div>
+				</div>
+				<div id="scheduleH"> 
+					<div class="scheduleheader"><a href="/meetings.php?chamber=H" style="color:white;">House Meeting Schedule</a><!--<a style="margin-left:5px;" href="/pagefeeds.php"><img border=0 style="align:right;" src="/images/rss-14.png" /></a>--></div>
+					<div class="scheduletwitter"><a style="margin-left:5px; color: #ffffff;" href="https://twitter.com/schouse" target="_blank"><img border=0 title="Follow on Twitter" src="/images/social-icon-twitter.png"/>&nbsp;&nbsp;&nbsp;Follow on Twitter</a></div>
+					<div class="schedulebody">
+<ul><div style="font-weight:bold; background-color:#eeeeee; padding:2px 0 2px 5px; text-decoration:underline;">TODAY, March 21</div><li><div style="font-weight:bold;">8:00 am - 10:00 am</div><div style="padding:0 0 0 5px;">Legislative Breakfast: SC Association of Municipal Power System and Piedmont Municipal Power Agency<br>Blatt Room 112<br></div><br></li><li><div style="font-weight:bold;">8:30 am</div><div style="padding:0 0 0 5px;">Agriculture Subcommittee<br>Blatt Room 410<br><a href="/agendas/122h8087.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9.00 AM</div><div style="padding:0 0 0 5px;">E.P.W. Full Committee on <a HREF="/billsearch.php?billnumbers=4039&session=122&summary=B&headerfooter=1">H.4039</a>, <a HREF="/billsearch.php?billnumbers=4322&session=122&summary=B&headerfooter=1">H.4322</a>, <a HREF="/billsearch.php?billnumbers=4466&session=122&summary=B&headerfooter=1">H.4466</a>, <a HREF="/billsearch.php?billnumbers=4480&session=122&summary=B&headerfooter=1">H.4480</a>, <a HREF="/billsearch.php?billnumbers=4803&session=122&summary=B&headerfooter=1">H.4803</a>, <a HREF="/billsearch.php?billnumbers=4973&session=122&summary=B&headerfooter=1">H.4973</a> and <a HREF="/billsearch.php?billnumbers=5042&session=122&summary=B&headerfooter=1">H.5042</a><br>Blatt Room 433<br><a href="/agendas/122h8103.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8103" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8103, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8103" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8103, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">L.C.I. Public Utilities Subcommittee<br>Blatt Room 403<br><a href="/agendas/122h8095.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">House Legislative Ethics Committee<br>Blatt Room 511<br><a href="/agendas/122h8056.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Legislative Group (Rep. Pat Henegan)<br>Blatt Room 321<br></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">3-M Subcommittee I, Health and Environmental Affairs<br>Blatt Room 427<br><a href="/agendas/122h8111.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">10:00 am</div><div style="padding:0 0 0 5px;">House of Representatives<br>State House, House Chamber<br><div id="live'H'" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream('H', false, false, '0')">Live Broadcast</a></div><div id="liveaudio'H'" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream('H', false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">11:00 am</div><div style="padding:0 0 0 5px;">Junior Leadership Pickens County<br>Blatt Room 305<br></div><br></li><li><div style="font-weight:bold;">12:00 noon - 2:00 pm</div><div style="padding:0 0 0 5px;">Legislative Luncheon: South Carolina Human Services Provider Association<br>State House Grounds<br></div><br></li><li><div style="font-weight:bold;">Upon adjournment of the House</div><div style="padding:0 0 0 5px;">L.C.I. Real Estate Subcommittee<br>Blatt Room 403<br><a href="/agendas/122h8096.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">Upon adjournment of the House</div><div style="padding:0 0 0 5px;">Full Ways and Means Committee<br>Blatt Room 521<br><a href="/agendas/122h8148.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8148" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8148, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8148" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8148, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">30 minutes after the House adjourns</div><div style="padding:0 0 0 5px;">Agriculture Subcommittee<br>Blatt Room 410<br><a href="/agendas/122h8088.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">3:00 pm</div><div style="padding:0 0 0 5px;">3-M Subcommittee II, Occupational Regulation and Licensing Boards<br>Blatt Room 427<br><a href="/agendas/122h8112.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">1 hour after adjournment of the House</div><div style="padding:0 0 0 5px;">South Carolina Energy Caucus<br>Blatt Room 108<br><a href="/agendas/122h8150.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">1 hour after the House adjourns</div><div style="padding:0 0 0 5px;">E.P.W. K-12 Subcommittee on <a HREF="/billsearch.php?billnumbers=4386&session=122&summary=B&headerfooter=1">H.4386</a>, <a HREF="/billsearch.php?billnumbers=4876&session=122&summary=B&headerfooter=1">H.4876</a>, <a HREF="/billsearch.php?billnumbers=4963&session=122&summary=B&headerfooter=1">H.4963</a>, <a HREF="/billsearch.php?billnumbers=4966&session=122&summary=B&headerfooter=1">H.4966</a>, <a HREF="/billsearch.php?billnumbers=4972&session=122&summary=B&headerfooter=1">H.4972</a> and <a HREF="/billsearch.php?billnumbers=5008&session=122&summary=B&headerfooter=1">H.5008</a><br>Blatt Room 110<br><a href="/agendas/122h8106.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8106" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8106, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8106" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8106, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><div style="font-weight:bold; background-color:#eeeeee; margin-left:-5px; padding:2px 0 2px 5px; text-decoration:underline;">Thursday, March 22</div><li><div style="font-weight:bold;">8:00 am - 10:00 am</div><div style="padding:0 0 0 5px;">Legislative Breakfast: Leadership South Carolina<br>Blatt Room 112<br></div><br></li><li><div style="font-weight:bold;">8:30 am</div><div style="padding:0 0 0 5px;">Agriculture, Natural Resources and Environmental Affairs Committee<br>Blatt Room 410<br><a href="/agendas/122h8089.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">3-M Subcommittee IV, Social Services, Mental Health and Children's Affairs<br>Blatt Room 427<br><a href="/agendas/122h8113.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Business, Commerce, and Administrative Subcommittee of the Regulations and Administrative Procedures Committee<br>Blatt Room 317<br><a href="/agendas/122h8098.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8098" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8098, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8098" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8098, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Criminal Laws Subcommittee<br>Blatt Room 511<br><a href="/agendas/122h8025.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Full Labor, Commerce and Industry Committee<br>Blatt Room 403<br><a href="/agendas/122h8097.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;"><span style="font-weight:bold; color:red;">CANCELED</span><br>Criminal Laws Subcommittee<br>Blatt Room 511<br><a href="/agendas/122h8120.pdf" target="_blank">Agenda Available</a><br>
+</div><br></li><li><div style="font-weight:bold;">9:00 am</div><div style="padding:0 0 0 5px;">Leadership Orangeburg and Junior Leadership Orangeburg<br>Blatt Rom 108<br></div><br></li><li><div style="font-weight:bold;">11:00 am</div><div style="padding:0 0 0 5px;">Leadership Cherokee<br>Blatt Room 305<br></div><br></li><li><div style="font-weight:bold;">30 minutes after the House adjourns</div><div style="padding:0 0 0 5px;">Healthcare and Regulatory Subcommittee of the Legislative Oversight Committee<br>Blatt Room 321<br><a href="/agendas/122h7923.pdf" target="_blank">Agenda Available</a><br>
+<div id="live7923" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(7923, false, false, '0')">Live Broadcast</a></div><div id="liveaudio7923" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(7923, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><li><div style="font-weight:bold;">Upon adjournment of the House</div><div style="padding:0 0 0 5px;">Economic Development, Transportation and Natural Resources Subcommittee of the Legislative Oversight Committee<br>Blatt Room 110<br><a href="/agendas/122h8063.pdf" target="_blank">Agenda Available</a><br>
+<div id="live8063" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8063, false, false, '0')">Live Broadcast</a></div><div id="liveaudio8063" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(8063, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li><div style="font-weight:bold; background-color:#eeeeee; margin-left:-5px; padding:2px 0 2px 5px; text-decoration:underline;">Thursday, April 5</div><li><div style="font-weight:bold;">Immediately upon adjournment of the House</div><div style="padding:0 0 0 5px;">Education and Cultural Subcommittee of the Legislative Oversight Committee<br>Blatt Room 321<br><a href="/agendas/122h7979.pdf" target="_blank">Agenda Available</a><br>
+<div id="live7979" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(7979, false, false, '0')">Live Broadcast</a></div><div id="liveaudio7979" style="margin:0 0 0 20px;">
+<a href="javascript:void(0);" onClick="live_stream(7979, false, false, '1')">Live Broadcast - Audio Only</a></div></div><br></li></ul>
+						<span><a href="/meetings.php?chamber=H">More Info</a></span><br><br>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+	<script type="text/javascript"> 
+		if ( '' === '1'){
+		 	openmore();
+			$('#hidemore').hide();
+		}
+	</script>
+
+<script type="text/javascript">
+<!--
+	function move_buttons()
+	{
+		var ele = document.getElementById('contactlegislatordiv');
+		var ele2 = document.getElementById('contactlegislatorbutton');
+		var mypos = '';
+		if (ele && ele2)
+		{
+			mypos = findPos(ele);
+			ele2.style.position = 'absolute';
+			positionElement(ele2, (mypos[0]+25), (mypos[1]+113));
+		}
+		ele = document.getElementById('votingrecorddiv');
+		ele2 = document.getElementById('votingrecordbutton');
+		mypos = '';
+		if (ele && ele2)
+		{
+			mypos = findPos(ele);
+			ele2.style.position = 'absolute';
+			positionElement(ele2, (mypos[0]+25), (mypos[1]+113));
+		}
+		ele = document.getElementById('findlegislatordiv');
+		ele2 = document.getElementById('findlegislatorbutton');
+		mypos = '';
+		if (ele && ele2)
+		{
+			mypos = findPos(ele);
+			ele2.style.position = 'absolute';
+			positionElement(ele2, (mypos[0]+25), (mypos[1]+113));
+		}
+	}
+
+		var xmlhttp=false;
+		xmlhttp = create_xml_object();
+
+	window.onresize = function(){ move_buttons();}
+	move_buttons();
+//-->
+</script>
+				
+		
+				</div>		 <!-- pagebody -->
+				
+				<div id="footer" class="nodisplay" style="height: 30px;" onContextMenu="return false;">
+			<div id="footerdiv" style="margin:0;">
+				South Carolina Legislative Services Agency * 223 Blatt Building * 1105 Pendleton Street * Columbia, SC 29201<!-- * 803-212-4420--><br>
+				
+								<a href="/disclaimer.php">Disclaimer</a> * <a href="/policies.php">Policies</a> * <a href="/credits.php">Photo Credits</a> * <a href="/contact.php">Contact Us</a>
+							</div>
+		</div>
+		<div id="printfooter" class="printdisplay serifNormal" align=center style="font-size: 8pt;">
+			<br>
+			<br>
+			<hr>
+			Legislative Services Agency
+			<br>
+			h t t p : / / w w w . s c s t a t e h o u s e . g o v
+		</div>
+	
+		</div>	<!-- container or main in mobile page-->
+</body>
+</html>

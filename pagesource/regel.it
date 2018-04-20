@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Regel - La scuola digitale | Regel.it</title>
+	<meta name="Description" content="Regel è il servizio web modulare pensato per tutti gli utenti della scuola: docenti, studenti, segreteria, dirigente scolastico, genitori, personale.">
+	<!-- mobile responsive meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<!-- Ladda Button -->
+	<link rel="stylesheet" href="js/Ladda-master/dist/ladda.min.css">
+	<!-- Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+
+	<!-- Google recaptcha -->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<!-- Banner accettazione Cookie -->
+	<link rel="stylesheet" type="text/css" href="/lib/cookieconsent2/3.0.3/cookieconsent.min.css" />
+	<script src="/lib/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+	<script>
+	window.addEventListener("load", function(){
+	window.cookieconsent.initialise({
+	  "palette": {
+		"popup": {
+		  "background": "#000000"
+		},
+		"button": {
+		  "background": "#f1d600"
+		}
+	  },
+	  "content": {
+		"message": "Per offrirti il miglior servizio possibile, in questo sito utilizziamo i cookies. Continuando la navigazione ne autorizzi l'uso.",
+		"dismiss": "X",
+		"link": "Ulteriori informazioni ",
+		"href": "privacy-e-note-legali"
+	  }
+	})});
+	</script>
+
+	<style>
+	/* Setto l'altezza ed il colore del messaggio dei cookie */
+	.cc-window{
+		padding: 0.2em 1.8em!important;
+		background-color: rgba(0,0,0,0.5)!important;
+	}
+
+	*.mybutton {
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		border-radius: 0 !important;
+		font-size: 90% !important;
+		font-family: sans-serif !important;
+		font-weight: bold;
+		display:inline;
+	}
+	.btn-danger {
+		background-color: #e85817;
+	}
+	.testata {
+		margin-top:100px;
+	}
+	.testata-banner {
+		margin-top:100px;
+	}
+	h1.my-main-title {
+		font-size:50px !important;
+		margin-top:0px !important;
+		margin-bottom:20px !important;
+	}
+	h2.my-main-title {
+		font-size:22px !important;
+	}
+	h1.my-landing-panel {
+		font-size:28px;
+		font-weight:bold;
+		line-height: 120%;
+		color:#1154A1;
+		margin-top:15px !important;
+		margin-bottom:0px !important;
+	}
+	h2.my-landing-panel {
+		font-size:16px;
+		font-weight:bold;
+		color:#1154A1;
+	}
+
+	@media only screen and (max-width: 1020px) {
+		h1.my-main-title {
+			font-size:28px !important;
+			line-height: 120%;
+		}
+		h2.my-main-title {
+			font-size:14px !important;
+			line-height: 120% !important;
+		}
+		h1.my-landing-panel {
+			font-size:16px;
+		}
+		h2.my-landing-panel {
+			font-size:12px;
+			line-height: 120%;
+			margin-top:5px;
+		}
+		*.mybutton {
+			font-size: 50% !important;
+			white-space: normal;
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		.testata {
+			margin-top:10px;
+		}
+		.testata-banner {
+			margin-top:40px;
+		}
+	}
+	</style>
+
+</head>
+<body>
+
+<div class="boxed_wrapper">
+
+
+    <!-- INCLUDO IL MENU ORIZZONTALE -->
+    <script type="text/javascript">
+
+	var numPag = 0;
+	var ACT_ID_PAGINA = 0;
+
+	//funzione di caricamento degli annunci e dei bottoni per il paginate
+	function loadAnnunci(actId, paginate, limit){
+
+		if(actId=='')
+			actId=0;
+		if(paginate=='')
+			paginate=0;
+		if(limit=='')
+			limit=0;
+
+		$.ajax({
+			type: "POST",
+			url: "/json/annunci.php",
+			data:{
+				ACTION: 'getAnnunci',
+				PAGINATE: paginate,
+				ACT_ID: actId,
+				LIMIT: limit
+			},
+			dataType: "json",
+			success: function(e) {
+				if(e.success===true) {
+					ACT_ID_PAGINA = actId;
+					//console.log(ACT_ID_PAGINA);
+					if(location.pathname.substring(1)!="altri-servizi/"+actId && actId > 0) {
+						//console.log(location.pathname.substring(1));
+						//ACT_ID_PAGINA = actId;
+						window.location.replace("/altri-servizi/"+actId);
+					} else {
+
+						if(paginate==1) {
+								//creo i bottoni per le relative pagine (in base al numero di prodotti che ho)
+								//arrotondo in eccesso il numero di annunci diviso 9
+								var pagine = Math.ceil(e.results[0].N / 9);
+								numPag = pagine;
+
+								//svuoto il paginate
+								$('.page_pagination').empty();
+
+								//if(pagine>1)
+								$('.page_pagination').append('<li><a href="#" class="tran3s" id="tran3s-left"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>');
+
+								for (var i = 1; i < pagine+1; i++) {
+									//creo il bottone
+									$('.page_pagination').append('<li><a href="#" onclick="loadAnnunci(0,0,'+i+')" class="tran3s" id="pagination-a-'+i+'">'+i+'</a></li>');
+								}
+
+								//if(pagine>1)
+								$('.page_pagination').append('<li><a href="#" class="tran3s" id="tran3s-right"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>');
+
+
+								//attivo la classe active al primo
+								$('#pagination-a-1').addClass('active');
+
+								//e poi carico le prime 9
+								loadAnnunci(actId,0,1);
+
+						} else {
+							//svuoto la div con i prodotti
+							$('#row-prodotti').empty();
+							//e li ricarico corretti
+							$.each( e.results, function( k, v ) {
+								$('#row-prodotti').append(generateDivAnnuncio(v.ANN_ID,v.ANN_TITOLO,v.ANN_DESC_ABB,v.AIM_FILE,v.AIM_NOME,v.ANN_PREZZO));
+							});
+
+							var plus = parseInt(limit)+1;
+							var minus = parseInt(limit)-1;
+
+							//attivo la classe corrispondente
+							$('.tran3s').removeClass('active');
+							$('#pagination-a-'+limit).addClass('active');
+
+							//aggiorno l'onclick delle frecce direzionali
+							if(limit < numPag)
+								$('#tran3s-right').attr("onclick","loadAnnunci("+actId+",0,"+plus+")");
+							else
+								$('#tran3s-right').click(function(e) { e.preventDefault(); });
+
+							if(limit>1)
+								$('#tran3s-left').attr("onclick","loadAnnunci("+actId+",0,"+minus+")");
+							else
+								$('#tran3s-left').click(function(e) { e.preventDefault(); });
+
+
+						}
+					}
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	}
+
+	//funzione di caricamento delle categorie degli annunci
+	function loadAnnunciCat(){
+		$.ajax({
+			type: "POST",
+			url: "/json/annunci.php",
+			data:{
+				ACTION: 'getCategorie'
+			},
+			dataType: "json",
+			success: function(e) {
+				if(e.success===true) {
+					$.each( e.results, function( k, v ) {
+						$('#ul-categorie-list').append('<li><a href="#" onclick="loadAnnunci('+v.ACT_ID+',1,0)">'+v.ACT_NOME+' ( '+v.NUM_PRODOTTI+' )</a></li>');
+					});
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	}
+
+	//funzione di creazione della div
+	function generateDivAnnuncio(annId,titolo,descab,file,nome,prezzo){
+
+		var div = '<div class="col-md-4 col-sm-6 col-xs-12 hover-effect">\
+						<div class="single-shop-item">\
+							<div class="img-box">';
+
+		div += '<img src="/doc/prodotti/'+annId+'/'+file+'" alt="'+nome+'" height="268" width="268">\
+				<div class="default-overlay-outer">\
+									<div class="inner">\
+										<div class="content-layer">';
+
+		div += '<a href="/altri-servizi-articolo/'+annId+'" class="thm-btn thm-tran-bg">'+prezzo+'</a>\
+										</div>\
+									</div>\
+								</div>\
+							</div>\
+							<div class="content-box">\
+								<h4><a href="/altri-servizi-articolo/'+annId+'">'+titolo.toUpperCase()+'</a></h4>\
+							</div>\
+						</div>\
+					</div>';
+					//<div class="item-price">'+descab+'</div>\
+		return div;
+
+	}
+
+
+	//funzione di caricamento dell'elenco delle news
+	function loadNews(){
+		$.ajax({
+			type: "POST",
+			url: "/json/news.php",
+			data:{
+				ACTION: 'getElenco'
+			},
+			dataType: "json",
+			success: function(e) {
+				if(e.success===true) {
+					$.each( e.results, function( k, v ) {
+
+						var testo= [];
+						var txt='';
+
+						testo=v.testo.split(' ');
+						if(testo.length >= 50){
+
+							testo= [];
+							testo=v.testo.split(' ',50);
+
+						}else{
+							testo= [];
+							testo=v.testo.split(' ');
+
+						}
+
+						for (i = 0; i < testo.length; i++) {
+							txt += testo[i] + " ";
+						}
+
+						$('#ul-news-list').append(' <section class="bg three-column p-t-60">\
+								<div class="container">\
+									<div class="row">\
+									    <div class="col-md-2 col-md-offset-2  col-sm-2 col-xs-2 text-right"></div>\
+										 <div class="col-md-8  col-sm-10 col-xs-10">\
+											<a href="news-dettaglio/'+v.id+'" class="a-news"><h2>'+v.titolo+'</h2></a>\
+											<div class="section-title"></div>\
+											<p>'+v.data_format+'</p>\
+											<p class="margin_top_20 txt-news">'+txt+'</p>\
+											<br/>\
+												<a href="news-dettaglio/'+v.id+'">Leggi di più </a>\
+										</div>\
+									</div>\
+								</div>\
+							</section>');
+					});
+				}
+			},
+			error: function(result) {
+
+			}
+		});
+	}
+
+	//funzione che permette la visualizzazione del dettaglio di una news
+
+	function loadDettaglioNews(NEWS_ID){
+		$.ajax({
+			type: "POST",
+			url: "/json/news.php",
+			data:{
+				ACTION: 'getDettaglio',
+				NEWS_ID: NEWS_ID
+			},
+			dataType: "json",
+			success: function(e) {
+				if(e.success===true) {
+					console.log(e);
+					console.log(e.storico);
+					console.log(e.storico[0].titolo);
+					$.each( e.storico, function(index, news ) {
+
+						$('#news-storico').append('<li>\
+																				<div class="text-box">\
+																					<p>\
+																						<a href="/news-dettaglio/'+news.id+'" class="a-news">\
+																						'+news.titolo+'\
+																						</a>\
+																					<br\>'+news.data_format+'\
+																					</p>\
+																				</div>\
+																			</li>');
+
+					});
+
+
+
+					$('#dettaglio').append('<div class="row">\
+															<div class="col-md-12 col-sm-12 col-xs-12 p-b-30">\
+																<h1>'+e.results[0].titolo+'</h1>\
+																<div class="section-title bg-regel"></div>\
+																<div class="text margin_top_20">\
+																	<p class="f-s-20 font-b-400">'+e.results[0].sommario+'</p>\
+																</div>\
+															</div>\
+															<div class="col-md-12 col-sm-12 col-xs-12 txt-news">'+e.results[0].testo+'</div>\
+														</div>');
+					var titolo=e.results[0].titolo.toLowerCase();
+					$('#titBread').text(titolo.charAt(0).toUpperCase() + titolo.slice(1));
+
+
+				}
+
+			},
+			error: function(result) {
+
+			}
+		});
+	}
+
+</script>
+<header class="top-bar">
+    <div class="container">
+        <div class="clearfix">
+            <ul class="top-bar-text float_left">
+                <li><!--<i class="icon-technology-1"></i>--><a href="/amministrazione-scuola">Amministrazione</a></li>
+                <li><!--<i class="icon-technology-1"></i>--><a href="/didattica-scuola">Didattica</a></li>
+                <li><!--<i class="icon-technology-1"></i>--><a href="/modulistica-scuola">Modulistica</a></li>
+                <li><!--<i class="icon-technology-1"></i>--><a href="/personale-scuola">Personale</a></li>
+                <li><!--<i class="icon-technology-1"></i>--><a href="/rilevatore-di-presenze">Rilevazione presenze</a></li>
+                <li><!--<i class="icon-technology-1"></i>--><a href="/portale-scuola">Portale scuola</a></li>
+                <!--<li>< ! - - <i class="icon-technology-1"></i> - - ><a href="/altri-servizi">Altri servizi e prodotti</a></li>-->
+                <!--<li><i class="icon-note"></i>Mail@Fortuneteam.com</li>
+                <li><i class="icon-world"></i>Apple St, New York, NY 10012, USA</li>-->
+            </ul>
+
+            <!-- <ul class="social float_right">
+                <li><a href="/preventivo">Chiedi un preventivo</a></li>
+            </ul> -->
+            <!--<ul class="social float_right">
+                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+            </ul>-->
+        </div>
+
+
+    </div>
+</header>
+    <!-- END - INCLUDO IL MENU ORIZZONTALE -->
+
+
+
+<section class="theme_menu stricky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="main-logo">
+    <a href="/"><img src="/images/logo/logo.png" alt=""></a>
+</div>
+            </div>
+
+            <div class="col-md-9 menu-column">
+
+                <!-- INCLUDO IL MENU ORIZZONTALE -->
+                <nav class="menuzord" id="main_menu">
+    <div id="main-logo-mobile" class="main-logo-mobile">
+        <img src="/images/logo/logo.png" alt="Regel - La scuola digitale">
+    </div>
+    <ul class="menuzord-menu">
+        <li id="li-home-menu" class="li-home-menu"><a href="/">Home</a></li>
+
+        <li><a href="#">Il Servizio</a>
+            <ul class="dropdown">
+                <li><a href="/amministrazione-scuola">Amministrazione</a></li>
+                <li><a href="/didattica-scuola">Didattica</a></li>
+                <li><a href="/modulistica-scuola">Modulistica</a></li>
+                <li><a href="/personale-scuola">Personale</a></li>
+				<li><a href="/rilevatore-di-presenze">Rilevazione presenze</a></li>
+                <li><a href="/portale-scuola">Portale scuola</a></li>
+                <li id="altri-servizi-menu" class="altri-servizi-menu"><a href="/altri-servizi">Altri servizi e prodotti</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/utenti">Dalla parte degli utenti</a></li>
+
+        <!--<li><a href="/rilevatore-di-presenze">Rilevazione presenze</a></li>-->
+
+        <li><a href="/risorse-gratuite">Risorse gratuite</a></li>
+
+        <li><a href="/il-team">Chi siamo</a></li>
+
+        <li id="chiedi-preventivo" class="chiedi-preventivo"><a href="/preventivo">Chiedi un preventivo</a></li>
+
+        <li><a href="/contatti">Contatti</a></li>
+
+
+    </ul><!-- End of .menuzord-menu -->
+
+</nav> <!-- End of #main_menu -->
+                <!-- END - INCLUDO IL MENU ORIZZONTALE -->
+
+            </div>
+
+
+            <!-- COLONNA A DESTRA DEL MENU - 300px -->
+            <!--div class="right-column">
+    <div class="right-area">
+        <div class="nav_side_content">
+            <div class="search_option">
+                <button class="search tran3s dropdown-toggle color1_bg" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <form action="#" class="dropdown-menu" aria-labelledby="searchDropdown">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+                        <!--<div class="cart_select">
+                            <button><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="color1_bg">(0)</span></button>
+                        </div>--> <!-- End of .cart_select ->
+        </div>
+        <div class="link_btn float_right">
+            <a href="#" class="thm-btn">ACCEDI <i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
+    </div>
+
+</div-->
+            <!-- END - COLONNA A DESTRA DEL MENU - 300px -->
+
+        </div>
+
+
+   </div> <!-- End of .container -->
+</section>
+
+
+
+<!-- <div class="inner-banner has-base-color-overlay" style="background: url(images/background/Banner-sito-Regel-Fiera-vers.2.jpg);"> -->
+<div class="inner-banner has-base-color-overlay" style="background: linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/background/tablet-1910018_1920_cut.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size:cover;">
+    <!-- <div class="container"> -->
+	<div class="container" style="height:400px;">
+		<!--
+		<div class="hidden-xl hidden-lg hidden-md hidden-sm col-xs-12">
+			<h1 class="mobile my-main-title" ><strong>Regel</strong><br>la scuola digitale</h1>
+			<h2 class="f-r-12 mobile my-main-title">Documentare. Gestire. Comunicare.<br>
+				Il servizio web per far crescere la scuola</h2>
+		</div>
+		-->
+		<div class="col-md-6 col-sm-6 col-xs-12 testata" style="min-width:299px;">
+			<h1 class="mobile my-main-title" ><strong>Regel</strong><br>la scuola digitale</h1>
+			<h2 class="f-r-12 mobile my-main-title">Amministrare. Comunicare. Documentare.<br>
+				I servizi web per gestire la scuola</h2>
+		</div>
+
+		<!--div class="col-md-6 col-sm-6 col-xs-12 testata-banner">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="min-width:260px; background:#ffffff; border-radius: 15px; border-style: solid; border-width: 2px; border-color: #1154A1;">
+
+				<div class="col-md-4 col-sm-4 col-xs-4 col-sm-push-8 col-xs-push-8 text-right">
+					<img  src="/images/logo/didacta-logo-blu-small.png" alt="" style="margin-top:15px;">
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-8 col-sm-pull-4 col-xs-pull-4">
+					<h1 class="f-r-12 mobile my-landing-panel">Regel alla Fiera<br>
+						Didacta Italia 2017</h1>
+					<h2 class="f-r-12 mobile my-landing-panel">Firenze, 27/29 settembre 2017</h2>
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 30px; margin-bottom: 20px;">
+					<button id="button_fiera" type="button" class="mybutton btn btn-danger">PRENOTA IL TUO INCONTRO IN FIERA</button>
+				</div>
+			</div>
+		</div-->
+
+
+    </div>
+</div>
+
+
+    <!--<section class="sec-padd-top">
+    <div class="container">
+        <p class="text-center p-b-20"><i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i></p>
+            <div class="section-title center">
+
+                <h2>Un servizio, molti utenti</h2>
+                <p>La scuola digitale. Per tutti</p>
+            </div>
+
+    </div>
+    </section>-->
+
+
+
+    <section class="sec-padd-top">
+    <div class="container">
+        <!--<div class="section-title center">
+            <h2>Our Smart Approach</h2>
+        </div>-->
+        <div class="row m-b-10">
+            <!--<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item active center">
+                    <a href="/utenti">
+                    <div class="icon_box">
+                        <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i>
+
+                    </div>
+
+                        <h4>Un servizio, molti utenti</h4>
+                    <p>La scuola digitale. Per tutti</p>
+                    </a>
+                </div>
+            </div>-->
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+                <div class="item  center">
+                    <a href="/amministrazione-scuola">
+                    <div class="icon_box">
+                        <!--<span class="icon-science"></span>-->
+                        <i class="fa fa-folder-open-o fa-3x" style="color:#E6332A" aria-hidden="true"></i>
+                    </div>
+                    <h4>Amministrazione</h4>
+                    <p>Gestire i documenti, risparmiare tempo</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item center">
+                    <a href="/didattica-scuola">
+                    <div class="icon_box">
+                        <!--<span class="icon-science"></span>-->
+                        <i class="fa fa-graduation-cap fa-3x" style="color:#1D70B7" aria-hidden="true"></i>
+                    </div>
+                    <h4>Didattica</h4>
+                    <p>Gli strumenti per la classe e per i docenti</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item center">
+                    <a href="/modulistica-scuola">
+                    <div class="icon_box">
+                        <!--<span class="icon-mathematics"></span>-->
+                        <i class="fa fa-files-o fa-3x" style="color:#F39200" aria-hidden="true"></i>
+
+                    </div>
+
+                        <h4>Modulistica</h4>
+                    <p>Form online semplici da creare e compilare</p>
+                    <!--<p><strong><i class="fa fa-arrow-circle-o-right fa-3x style="color:white""></i></strong>
+                    </p>-->
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+ <section class="sec-padd-top">
+    <div class="container">
+        <!--<div class="section-title center">
+            <h2>Our Smart Approach</h2>
+        </div>-->
+        <div class="row m-b-10">
+            <!--<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item active center">
+                    <a href="/utenti">
+                    <div class="icon_box">
+                        <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i>
+
+                    </div>
+
+                        <h4>Un servizio, molti utenti</h4>
+                    <p>La scuola digitale. Per tutti</p>
+                    </a>
+                </div>
+            </div>-->
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+                <div class="item  center">
+                    <a href="/amministrazione-scuola">
+                    <div class="icon_box">
+                        <i class="fa fa-id-card-o fa-3x" style="color:#3AA935" aria-hidden="true"></i>
+                    </div>
+                    <h4>Personale</h4>
+                    <p>La soluzione per la gestione dei dipendenti</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item center">
+                    <a href="/rilevatore-di-presenze">
+                    <div class="icon_box">
+                        <!--<span class="icon-science"></span>-->
+                        <!--<i class="fa fa-graduation-cap fa-3x" style="color:#1D70B7" aria-hidden="true"></i>-->
+						<img src = "images/icons/icona-rilevatore.png" alt = "Rilevazione Presenze">
+                    </div>
+                    <h4>Rilevazione presenze</h4>
+                    <p>Dati certi e subito disponibili</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-20">
+                <div class="item center">
+                    <a href="/modulistica-scuola">
+                    <div class="icon_box">
+						<i class="fa fa-laptop fa-3x" style="color:#951B81" aria-hidden="true"></i>
+                    </div>
+                    <h4>Portale scuola</h4>
+                    <p>La piattaforma per comunicare con il mondo</p>
+                    </a>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!--
+<section class="growth-service style-3 sec-padd-bottom">
+    <div class="container">
+        <!--<div class="section-title center">
+            <h2>Our Smart Approach</h2>
+        </div>-->
+<!--
+        <div class="row">
+
+            <div class="col-md-4 col-md-offset-2 col-sm-12 col-xs-12 m-b-20">
+                <div class="item center">
+                    <a href="/personale-scuola">
+                    <div class="icon_box">
+                        <!--<span class="icon-science"></span>-->
+<!--
+                        <i class="fa fa-id-card-o fa-3x" style="color:#3AA935" aria-hidden="true"></i>
+                    </div>
+                    <h4>Personale</h4>
+                    <p>La soluzione per la gestione dei dipendenti</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 m-b-20">
+                <div class="item center">
+                    <a href="/portale-scuola">
+                    <div class="icon_box">
+                        <!--<span class="icon-science"></span>-->
+<!--
+                        <i class="fa fa-laptop fa-3x" style="color:#951B81" aria-hidden="true"></i>
+                    </div>
+                    <h4>Portale scuola</h4>
+                    <p>La piattaforma per comunicare con il mondo</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+-->
+
+<section class="growth-service style-3 p-t-60 p-b-60 m-t-50 m-b-50 sec-padd-bottom">
+    <div class="container">
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 margin-n-bot">
+				<div class="link_btn text-center">
+					<a href="/doc/catalogo/Catalogo-Regel-per-sito.pdf" class="thm-btn"  target="_blank">Scarica il catalogo <i class="fa fa-arrow-circle-o-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+    </div>
+</section>
+
+
+
+
+<section class="three-column p-t-60 p-b-60 m-t-50 m-b-50 bg">
+    <div class="container">
+        <p class="text-center p-b-20"><i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i> <i class="fa fa-user-o fa-3x" style="color:#444" aria-hidden="true"></i></p>
+        <div class="center">
+
+            <h2>Un servizio, molti utenti</h2>
+						<div class="section-title center"></div>
+            <p class="margin_top_20">La scuola è un microcosmo di utenti <br/>Regel è pensato per offrire a ciascuno gli strumenti di cui ha bisogno</p>
+        </div>
+				<br/>
+				<br/>
+        <div class="link_btn text-center">
+        	<a href="/utenti" class="thm-btn">SCOPRI DI PIù <i class="fa fa-arrow-circle-o-right"></i></a>
+    		</div>
+
+    </div>
+</section>
+
+
+<section class="p-t-60 m-t-50">
+    <div class="container">
+        <div class="center">
+            <h2> Informarsi e Formarsi con Regel</h2>
+						<div class="section-title center"></div>
+            <p class="margin_top_20">Strumenti e opportunità per conoscere il servizio e migliorare la scuola digitale</p>
+						<br/>
+						<br/>
+						<br/>
+        </div>
+    </div>
+</section>
+
+<section class="service richiedi-desktop" id="richiedi-desktop">
+    <div class="row">
+        <div class="no-padd item col-md-3 col-sm-6 col-xs-12">
+            <div class="center">
+                <div class="icon_box">
+                    <i class="fa fa-desktop fa-3x" aria-hidden="true"></i>
+                    <h4>Demo</h4>
+                </div>
+            </div>
+			<a href="/demo">
+				<div class="overlay-box center">
+					<div class="icon_box">
+						<i class="fa fa-desktop fa-2x" style="color:white" aria-hidden="true"></i>
+						<h4>Demo</h4>
+					</div>
+					<div class="text">
+						<p class="p-l-30 p-r-20">Scopri come funziona Regel<br>
+						Bastano pochi clic per provare il nostro servizio</p>
+					</div>
+					<div class="link">
+						<a href="/demo" class="default_link">scopri di più <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</a>
+        </div>
+        <div class="no-padd item col-md-3 col-sm-6 col-xs-12">
+            <div class="center">
+                <div class="icon_box">
+                    <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
+                    <h4>Formazione</h4>
+                </div>
+            </div>
+			<a href="/formazione-scuola-e-web">
+				<div class="overlay-box center">
+					<div class="icon_box">
+						<i class="fa fa-question-circle-o fa-2x" style="color:white" aria-hidden="true"></i>
+						<h4>Formazione</h4>
+					</div>
+					<div class="text">
+						<p class="p-l-20 p-r-20">I nostri corsi di formazione a scuola e online</p>
+					</div>
+					<div class="link">
+						<a href="/formazione-scuola-e-web" class="default_link">scopri di più <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</a>
+        </div>
+        <div class="no-padd item col-md-3 col-sm-6 col-xs-12">
+            <div class="center">
+                <div class="icon_box">
+                    <i class="fa fa-video-camera fa-3x" aria-hidden="true"></i>
+                    <h4>Videoconferenza</h4>
+                </div>
+            </div>
+			<a href="/videoconferenza">
+				<div class="overlay-box center">
+					<div class="icon_box">
+						<i class="fa fa-video-camera fa-2x" style="color:white" aria-hidden="true"></i>
+						<h4>Videoconferenza</h4>
+					</div>
+					<div class="text">
+						<p class="p-l-20 p-r-20">Se vuoi saperne di più, possiamo conoscerci di persona</p>
+					</div>
+					<div class="link">
+						<a href="/videoconferenza" class="default_link">scopri di più <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</a>
+        </div>
+        <div class="no-padd item col-md-3 col-sm-6 col-xs-12">
+            <div class="center">
+                <div class="icon_box">
+                    <i class="fa fa-headphones fa-3x" aria-hidden="true"></i>
+                    <h4>Assistenza</h4>
+                </div>
+            </div>
+			<a href="/assistenza-e-supporto">
+				<div class="overlay-box center">
+					<div class="icon_box">
+						<i class="fa fa-headphones fa-2x" style="color:white" aria-hidden="true"></i>
+						<h4>Assistenza</h4>
+					</div>
+					<div class="text">
+						<p class="p-l-20 p-r-30">Hai bisogno di assistenza?<br>
+							Uno di noi è sempre disponibile per darti una mano</p>
+					</div>
+					<div class="link">
+						<a href="/assistenza-e-supporto" class="default_link">scopri di più <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="richiedi-mobile" id="richiedi-mobile">
+	<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+	    <div class="item  center">
+	        <a href="/demo">
+	        <div class="icon_box">
+	            <!--<span class="icon-science"></span>-->
+	            <i class="fa fa-desktop fa-3x" aria-hidden="true"></i>
+	        </div>
+	        <h4>Demo</h4>
+	        <p>Scopri come funziona Regel<br/>Bastano pochi clic per provare il nostro servizio</p>
+	        </a>
+	    </div>
+	</div>
+
+	<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+	    <div class="item  center">
+	        <a href="/formazione-scuola-e-web">
+	        <div class="icon_box">
+	            <!--<span class="icon-science"></span>-->
+	            <i class="fa fa-question-circle-o fa-3x"  aria-hidden="true"></i>
+	        </div>
+	        <h4>Formazione</h4>
+	        <p>I nostri corsi di formazione a scuola e online</p>
+	        </a>
+	    </div>
+	</div>
+
+	<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+	    <div class="item  center">
+	        <a href="/videoconferenza">
+	        <div class="icon_box">
+	            <!--<span class="icon-science"></span>-->
+	            <i class="fa fa-video-camera fa-3x"  aria-hidden="true"></i>
+	        </div>
+	        <h4>Videoconferenza</h4>
+	        <p>Se vuoi saperne di più, possiamo conoscerci di persona</p>
+	        </a>
+	    </div>
+	</div>
+
+	<div class="col-md-4 col-sm-12 col-xs-12 growth-service style-3 m-b-10">
+	    <div class="item  center">
+	        <a href="/assistenza-e-supporto">
+	        <div class="icon_box">
+	            <!--<span class="icon-science"></span>-->
+	            <i class="fa fa-headphones fa-3x"  aria-hidden="true"></i>
+	        </div>
+	        <h4>Assistenza</h4>
+	        <p>Hai bisogno di assistenza?<br>
+							Uno di noi è sempre disponibile per darti una mano</p>
+	        </a>
+	    </div>
+	</div>
+
+
+</section>
+
+
+
+  <section class="p-t-60 m-t-50 p-b-60">
+    <div class="container">
+        <div class="center">
+            <h2>Tieniti aggiornato</h2>
+						<div class="section-title center"></div>
+            <p class="margin_top_20">La scuola cambia in fretta: la newsletter Regel ti aiuta a stare al passo</p>
+        </div>
+
+        <div class="row">
+            <div class="form-column column col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
+            </div>
+            <!--Form Column-->
+            <div class="form-column column col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center" >
+
+				<div class="col-md-12" >
+					<!-- Login Corretto -->
+					<div class="alert alert-success fade in radius-bordered alert-shadowed" style="display:none" >
+						<!--button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+						</button-->
+						<i class="glyphicon glyphicon-ok"></i>&nbsp;<strong id="newsletter-ok"></strong>
+					</div>
+					<!-- Login Errato -->
+					<div class="alert alert-danger fade in radius-bordered alert-shadowed"  style="display:none">
+					 	<!--button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button-->
+					 	<i class="glyphicon glyphicon-warning-sign"></i>&nbsp;<strong id="newsletter-error"></strong>
+					</div>
+
+				</div>
+
+
+                <!--Login Form-->
+                <div class="styled-form register-form">
+                    <form method="post" id="frmnewsletter" >
+
+                      <div class="form-group text-right">
+                    <!--      <span class="adon-icon"><span class="fa fa-user"></span></span> -->
+                          <input type="text" name="nome" value="" placeholder="Nome *" class="required form-control" autocomplete="false">
+                      </div>
+                      <div class="form-group text-right">
+                    <!--      <span class="adon-icon"><span class="fa fa-user"></span></span> -->
+                          <input type="text" name="cognome" value="" placeholder="Cognome *" class="required form-control"  autocomplete="false">
+                      </div>
+                      <div class="form-group text-right">
+                      <!--    <span class="adon-icon"><span class="fa fa-envelope-o"></span></span> -->
+                          <input type="email" name="email" value="" placeholder="Email *" class="required form-control"  autocomplete="false">
+                      </div>
+
+						<div class="form-group text-left p-b-30">
+
+							<h5 class="p-t-20 color_black">Privacy *</h5>
+							<a href="/privacy-e-note-legali" target="_blank">
+								Autorizzo il trattamento dei miei dati personali ai sensi del Dlgs 196 del 30 giugno 2003.
+							</a>
+							<input type="checkbox" name="privacy" id="privacy" value="1" class="required">
+
+						</div>
+
+						<div class="clearfix"></div>
+						<div class="form-group text-left">
+							 <div id="recaptcha-newsletter" class="g-recaptcha" data-sitekey="6Ld2axkUAAAAAATp7FovU9atsQ4KC6ASPkfntcMW"></div>
+							<div class="recaptcha-error-message hidden">Dimostra di non essere un robot</div>
+							<label id="form_captcha-error" class="err-mess pull-left">Campo obbligatorio</label>
+							<div class="text-right">
+								<h5 class="color_black m-right-15">* Campi obbligatori </h5>
+							</div>
+						</div>
+
+
+						<div class="clearfix"></div>
+
+						<div class="clearfix">
+							<div class="form-group pull-left">
+							   <div class="col-md-2 col-sm-4 col-xs-4 pull-left">
+									<button class="thm-btn thm-tran-bg"  id="btn-submit-newsletter" type="submit" data-style="zoom-in" data-size="s" data-spinner-color="#48c7ec"><span class="ladda-label">Iscriviti</span></button>
+								</div>
+							</div>
+						</div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    </section>
+
+<div class="container"><div class="border-bottom"></div></div>
+
+
+
+<footer class="main-footer">
+
+    <!-- INCLUDO IL FOOTER -->
+    <!--Widgets Section-->
+    <div class="widgets-section">
+        <div class="container">
+            <div class="row">
+                <!--Big Column-->
+                <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="row clearfix">
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-md-7 col-sm-7 col-xs-12">
+                            <div class="footer-widget about-widget">
+                                <figure class="footer-logo m-12-n"><a href="/"><img src="/images/logo/logo-footer.png" alt=""></a></figure>
+
+                                <div class="widget-content">
+                                    <div class="text m-10-n">
+                                    <h4 class="p-b-20">Regel - La scuola digitale</h4>
+									<p>Documentare. Gestire. Comunicare.<br>
+									Il servizio web per far crescere la scuola
+									</p> </div>
+                                    <!--<div class="link">
+                                        <a href="#" class="default_link">More About us <i class="fa fa-angle-right"></i></a>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--Footer Column-->
+                        <div class="footer-column col-md-5 col-sm-5 col-xs-12">
+                            <div class="footer-widget links-widget">
+                                <h3>Il servizio</h3>
+                                <div class="section-title"></div>
+                                <div class="widget-content">
+                                    <ul class="list">
+                                        <li><a href="/amministrazione-scuola">Amministrazione</a></li>
+                                        <li><a href="/didattica-scuola">Didattica</a></li>
+                                        <li><a href="/modulistica-scuola">Modulistica</a></li>
+                                        <li><a href="/personale-scuola">Personale</a></li>
+                                        <li><a href="/rilevatore-di-presenze">Rilevazione presenze</a></li>
+                                        <li><a href="/portale-scuola">Portale scuola</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Big Column-->
+                <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="row clearfix">
+
+
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-widget contact-widget">
+                                <h3>Contatti</h3>
+                                <div class="section-title"></div>
+                                <div class="widget-content">
+                                    <ul class="contact-info">
+                                        <li><span class="icon fa fa-home"></span>Via G. Matteotti, 1<br>
+                                            28077 - Prato Sesia (No)</li>
+                                        <li><span class="icon fa fa-phone"></span> Tel. 0163 03 50 50</li>
+                                        <li><span class="icon fa fa-paper-plane"></span>info@regel.it</li>
+                                        <!--li><span class="icon fa fa-skype"></span>karon.cm</li-->
+                                    </ul>
+                                </div>
+                                <!--<ul class="social">-->
+                                    <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+                                    <!--<li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                </ul>-->
+                            </div>
+                        </div>
+
+	                     <!--Footer Column-->
+                        <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-content">
+									<figure class="footer-logo"><img src="/images/logo/mepa.png" alt=""></figure>
+								    <h4 class="miur-footer center">Azienda accreditata <br>dal M.I.U.R.</h4>
+									<br>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
+    <!-- END - INCLUDO IL FOOTER -->
+
+
+
+     <!--Footer Bottom-->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="pull-left copy-text">
+                <p>© 2018 Karon s.r.l.</p>
+
+            </div><!-- /.pull-right -->
+            <div class="pull-right get-text">
+                <ul>
+                    <!--<li><a href="#">Legal</a></li>
+                    <li><a href="#">Sitemap</a></li>-->
+					<li><a href="/doc/catalogo/Catalogo-Regel-per-sito.pdf" target="_blank">Catalogo</a></li>
+					<li><a href="/news">News</a></li>
+                    <li><a href="/privacy-e-note-legali">Privacy e note legali</a></li>
+                    <li><a href="/condizioni-di-vendita">Condizioni di vendita</a></li>
+                </ul>
+            </div><!-- /.pull-left -->
+        </div><!-- /.container -->
+    </section>
+
+</footer>
+
+<!-- Scroll Top Button -->
+	<button class="scroll-top tran3s color2_bg">
+		<span class="fa fa-angle-up"></span>
+	</button>
+	<!-- pre loader  -->
+	<div class="preloader"></div>
+
+
+	<!-- jQuery js -->
+	<script src="js/jquery.js"></script>
+	<!-- bootstrap js -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery ui js -->
+	<script src="js/jquery-ui.js"></script>
+	<!-- owl carousel js -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- jQuery validation -->
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/validate_messages_it.js"></script>
+	<!-- google map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRvBPo3-t31YFk588DpMYS6EqKf-oGBSI"></script>
+	<script src="js/gmap.js"></script>
+	<!-- mixit up -->
+	<script src="js/wow.js"></script>
+	<script src="js/jquery.mixitup.min.js"></script>
+	<script src="js/jquery.fitvids.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+	<script src="js/menuzord.js"></script>
+
+	<!-- revolution slider js -->
+	<script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+	<!-- fancy box -->
+	<script src="js/jquery.fancybox.pack.js"></script>
+	<script src="js/jquery.polyglot.language.switcher.js"></script>
+	<script src="js/nouislider.js"></script>
+	<script src="js/jquery.bootstrap-touchspin.js"></script>
+	<script src="js/SmoothScroll.js"></script>
+	<script src="js/jquery.appear.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/imagezoom.js"></script>
+	<script id="map-script" src="js/default-map.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/newsletter.js"></script>
+	<script src="js/Ladda-master/dist/spin.min.js"></script>
+	<script src="js/Ladda-master/dist/ladda.min.js"></script>
+	<script src="js/google_analytics.js"></script>
+
+
+</div>
+
+<script type="text/javascript">
+$().ready(function() {
+	$('#button_fiera').on('click', function(event) {
+		event.preventDefault(); // To prevent following the link (optional)
+		window.location.assign('fiera-didacta');
+	});
+});
+</script>
+
+</body>
+</html>

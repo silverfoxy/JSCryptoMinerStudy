@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Fate/Grand Order台灣中文資料站" />
+<meta name="keywords" content="Fate/Grand Order,FGO,Fate/GO,TYPE-MOON,Fate,Saber,Archer,Lancer,Rider,Caster,Assassin,Berserker,Shielder,Ruler" />
+<title>Fate/GO 茹西教王的理想鄉</title>
+<link rel="icon" href="fgo-vz/favicon.ico" type="image/vnd.microsoft.icon">
+<link href="fgo-vz/common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="fgo-vz/common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<link href="fgo-vz/common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="fgo-vz/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="fgo-vz/common/js/sidebar.js"></script>
+<script type="text/javascript" src="fgo-vz/common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="fgo-vz/common/js/scrollTop.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70142247-1', 'auto');
+  ga('require', 'linkid');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+</head>
+<body onload="">
+<!--二欄橫幅主要區塊開始-->
+<div style='position:relative;'>
+    <!--選單區塊開始-->
+    <div id="div_right_sidebar"><a href='fgo-vz/'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar01.png);'>首頁</div></a><a href='fgo-vz/http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar17.png);'>留言討論區</div></a><a href='fgo-vz/servant.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar05.png);'>Servant</div></a><a href='fgo-vz/skill.html'><div class='sidebar' style='background-image:url(fgo-vz/common/images/sidebar00.png);'>技能</div></a><a href='fgo-vz/noble_phantasm.html'><div class='sidebar' style='background-image:url(fgo-vz/common/images/sidebar00.png);'>寶具</div></a><a href='fgo-vz/lv100.html'><div class='sidebar' style='background-image:url(fgo-vz/common/images/sidebar00.png);'>HP與ATK</div></a><a href='fgo-vz/hidden.html'><div class='sidebar' style='background-image:url(fgo-vz/common/images/sidebar00.png);'>隱藏數値</div></a><a href='fgo-vz/craft_essence.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar09.png);'>概念禮裝</div></a><a href='fgo-vz/item_drop.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar15.png);'>素材道具</div></a><a href='fgo-vz/quest.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar04.png);'>關卡</div></a><a href='fgo-vz/master_equip.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar03.png);'>Master相關</div></a><a href='fgo-vz/donate.html'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='fgo-vz/https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(fgo-vz/common/images/sidebar08.png);'>意見回饋</div></a><a href='fgo-vz/event_xmas2016.html' title='「第二代是Alter醬 ～2016聖誕節～」期間限定活動'><div class='sidebar_event' style='background-image:url(fgo-vz/common/images/2016/11/banner_100995021.png);'></div></a><a href='fgo-vz/event_xmas2016.html#midashi_11' title='「聖誕節2016Pick Up召喚」'><div class='sidebar_event' style='background-image:url(fgo-vz/common/images/2016/11/summon_20161207_zdfwc.jpg);'></div></a><a href='fgo-vz/news_161130.html' title='「阿提拉Pick&#32;Up召喚」'><div class='sidebar_event' style='background-image:url(fgo-vz/common/images/2016/11/summon_20161207_x5kp4.jpg);'></div></a><a href='fgo-vz/news_161122.html' title='「天草四郎Pick Up召喚」'><div class='sidebar_event' style='background-image:url(fgo-vz/common/images/2016/11/banner_101014285.png);'></div></a></div>
+    <!--選單區塊結束-->
+    <!--主要內容區塊開始-->
+    <div id="div_content"><div class="container">
+<article class="content textsize" style="width:840px;">
+<img src='fgo-vz/common/images/pc_logo.png' style="vertical-align:bottom;"/>
+<a href="fgo-vz/update.html"><div class='sidebar' style='background-image:url(fgo-vz/common/images/sidebar00.png);float:right;margin-top:80px;margin-right:40px;'>更新履歷</div></a>
+<div style="clear:left;"></div>
+<!-- <h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>因官方變更加密方式，新Servant與概念禮裝的圖片尚無法取得</dd></dl></h1> -->
+<!-- 反正沒人贊助，不用對任何人負責... -->
+<script>
+$(function(){
+	$(".accordion dt.act").on("click", function() {
+		$(this).next("dd").slideToggle();
+		$(this).toggleClass("open");
+	});
+});
+</script>
+<dl class="accordion"><dt class="act">
+<h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>引用本站的翻譯請註明本站名稱或網址<span class="arrowAC">&nbsp;</span></dd></dl></h1>
+</dt><dd class="acd"><p>
+本站不像其他網站可以分工合作統整資料<br>
+而是獨自一人憑藉熱忱製作分享<br>
+引用本站的翻譯請註明本站名稱或網址
+</p></dd></dl>
+
+<dl class="accordion"><dt class="act">
+<h1 class="headline5"><dl><dt class="date">★☆★</dt><dd>本週Master任務(11/27 23:00～12/4 22:59)<span class="arrowAC">&nbsp;</span></dd></dl></h1>
+</dt><dd class="acd"><p>
+<table class="tablesorter" style="width:95%">
+<tr><th>任務</th><th>獎勵</th></tr>
+<tr><td>No.1：通過這週全部的Master任務</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.2：擊倒15名持有<a href="fgo-vz/hidden.html#indi1" class="hint">『男性』</a>特性的敵人</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.3：擊倒15名持有<a href="fgo-vz/hidden.html#indi2001" class="hint">『人型』</a>特性的敵人</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.4：擊倒10名持有<a href="fgo-vz/hidden.html#indi2005" class="hint">『猛獸』</a>特性的敵人</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.5：擊倒5名持有<a href="fgo-vz/hidden.html#indi303" class="hint">『善』</a>屬性的Servant</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.6：擊倒5名持有<a href="fgo-vz/hidden.html#indi304" class="hint">『惡』</a>屬性的Servant</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+<tr><td>No.7：擊倒3名持有<a href="fgo-vz/hidden.html#indi2002" class="hint">『龍』</a>特性的Servant</td><td><img src="fgo-vz/common/images/icon/items/16.png" class="itemS" title="聖晶片" /></td></tr>
+</table>
+</p></dd></dl>
+<a href='fgo-vz/news_160628a.html'><h1 class="headline3"><dl><dt class="date">7/6</dt><dd>【重要】Ver.1.11.0以後，關於從推薦環境以外的遊玩<span class="arrow">&nbsp;</span></dd></dl></h1></a>
+<a href='fgo-vz/news_160926.html'><h1 class="headline3"><dl><dt class="date">9/26</dt><dd>關於「瑪琇・基利艾拉特」角色配音(CV)擔任的變更<span class="arrow">&nbsp;</span></dd></dl></h1></a>
+<div style="margin:0px auto;width:728px;height:90px;background:url('fgo-vz/common/images/info_banner.png');">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- FGOT2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3881979894805188"
+     data-ad-slot="5322095555"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!-- <a href='fgo-vz/news_161104.html'><h1 class="headline4"><dl><dt class="date">11/4</dt><dd>【來自迦勒底廣報局】關於11月下旬的遊戲更新<span class="arrow">&nbsp;</span></dd></dl></h1></a> -->
+
+<h1 class="headline3"><dl><dt class="date">11/28</dt><dd>期間限定活動「第二代是Alter醬 ～2016聖誕節～」</dd></dl></h1>
+<p>
+<a href='fgo-vz/event_xmas2016.html'><img src="fgo-vz/common/images/2016/11/banner_100995021.png" width=400 /></a>
+<a href='fgo-vz/news_161128.html'><img src="fgo-vz/common/images/2016/11/banner_101002898.png" width=400 /></a><br>
+<a href='fgo-vz/news_161122.html'><img src="fgo-vz/common/images/2016/11/banner_101014285.png" width=400 /></a>
+<a href='fgo-vz/news_161130.html'><img src="fgo-vz/common/images/2016/11/summon_20161207_x5kp4.jpg" width=400 /></a>
+<div class="paragraph_details">
+<table class="noborder nopadding"><tr><td width=200>
+・<a href="fgo-vz/news_161121.html">11/22定期維修</a>(14:00實施)
+</td><td width=200>
+<a href="fgo-vz/news_161122a.html">11/24臨時維修</a>(AM0:00實施)
+</td><td width=200>
+・<span class="notice"><a href="fgo-vz/news_161125.html">11/28定期維修</a></span>(13:00實施)
+</td><td width=200>
+</td></tr>
+</table>
+</div>
+<hr>
+<span class="notice">☟資料尚未齊全</span><br>
+<strong><font color="#094a98">◆</font>Servant<font color="#094a98">◆</font></strong>
+<div class="paragraph_details">
+・新增Servant<br>
+<a href='fgo-vz/svtData.html?no=141'><img src='fgo-vz/common/images/icon/faces/3026000.png' class='itemM' title='貞德・Alter・聖誕・Lily' /></a>
+<a href='fgo-vz/svtData.html?no=142'><img src='fgo-vz/common/images/icon/faces/2020000.png' class='itemM' title='伊絲塔' /></a>
+<br>
+・絆等級上限變更至Lv.10<br>
+<a href='fgo-vz/svtData.html?no=129'><img src='fgo-vz/common/images/icon/faces/2026000.png' class='itemM' title='阿爾托莉亞・潘德拉剛' /></a>
+<a href='fgo-vz/svtData.html?no=136'><img src='fgo-vz/common/images/icon/faces/5028000.png' class='itemM' title='伊莉雅絲菲爾' /></a>
+<a href='fgo-vz/svtData.html?no=140'><img src='fgo-vz/common/images/icon/faces/3003000.png' class='itemM' title='弗拉德三世〔EXTRA〕' /></a>
+<a href='fgo-vz/svtData.html?no=138'><img src='fgo-vz/common/images/icon/faces/1010000.png' class='itemM' title='伊莉莎白・巴托里〔Brave〕' /></a>
+<a href='fgo-vz/svtData.html?no=139'><img src='fgo-vz/common/images/icon/faces/6008000.png' class='itemM' title='克麗奧佩脫拉' /></a>
+<a href='fgo-vz/svtData.html?no=137'><img src='fgo-vz/common/images/icon/faces/2027000.png' class='itemM' title='克洛伊・馮・愛因茲貝倫' /></a>
+<a href='fgo-vz/svtData.html?no=133'><img src='fgo-vz/common/images/icon/faces/6024000.png' class='itemM' title='斯卡哈' /></a>
+<a href='fgo-vz/svtData.html?no=135'><img src='fgo-vz/common/images/icon/faces/9004000.png' class='itemM' title='瑪爾大' /></a>
+<br>
+・新增寶具解放<br>
+<a href='fgo-vz/svtData.html?no=93'><img src='fgo-vz/common/images/icon/faces/9002000.png' class='itemM' title='天草四郎' /></a>
+<br>
+</div>
+<br><strong><font color="#094a98">◆</font>概念禮裝<font color="#094a98">◆</font></strong>
+<div class="paragraph_details">
+・新增概念禮裝<br>
+<a href='fgo-vz/ceData.html?no=387'><img src='fgo-vz/common/images/icon/faces/9402070.png' class='itemM' title='静穏なひと時' /></a>
+<a href='fgo-vz/ceData.html?no=388'><img src='fgo-vz/common/images/icon/faces/9402160.png' class='itemM' title='聖夜の読書' /></a>
+<a href='fgo-vz/ceData.html?no=389'><img src='fgo-vz/common/images/icon/faces/9402080.png' class='itemM' title='聖者の招待' /></a>
+<a href='fgo-vz/ceData.html?no=390'><img src='fgo-vz/common/images/icon/faces/9402090.png' class='itemM' title='聖夜の晩餐' /></a><br>
+<a href='fgo-vz/ceData.html?no=391'><img src='fgo-vz/common/images/icon/faces/9301380.png' class='itemM' title='チャンピオンカップ' /></a>
+<a href='fgo-vz/ceData.html?no=392'><img src='fgo-vz/common/images/icon/faces/9301390.png' class='itemM' title='夢幻召喚（インストール）' /></a>
+<a href='fgo-vz/ceData.html?no=393'><img src='fgo-vz/common/images/icon/faces/9301400.png' class='itemM' title='運命の蛇' /></a>
+<a href='fgo-vz/ceData.html?no=394'><img src='fgo-vz/common/images/icon/faces/9301410.png' class='itemM' title='ホーリー・ナックル' /></a>
+<a href='fgo-vz/ceData.html?no=395'><img src='fgo-vz/common/images/icon/faces/9301420.png' class='itemM' title='最低限のたしなみ' /></a>
+<a href='fgo-vz/ceData.html?no=396'><img src='fgo-vz/common/images/icon/faces/9301430.png' class='itemM' title='痛覚共有' /></a>
+<a href='fgo-vz/ceData.html?no=397'><img src='fgo-vz/common/images/icon/faces/9301440.png' class='itemM' title='地の底の信仰' /></a>
+<a href='fgo-vz/ceData.html?no=398'><img src='fgo-vz/common/images/icon/faces/9301450.png' class='itemM' title='ハロウィンへの招待状' /></a>
+<br>
+</div>
+<br><strong><font color="#094a98">◆</font>活動相關<font color="#094a98">◆</font></strong>
+<div class="paragraph_details">
+<a href='fgo-vz/svtData.html?no=59'><img src='fgo-vz/common/images/icon/faces/9001000.png' class='itemM' title='貞德' /></a>
+<a href='fgo-vz/svtData.html?no=93'><img src='fgo-vz/common/images/icon/faces/9002000.png' class='itemM' title='天草四郎' /></a>
+<a href='fgo-vz/svtData.html?no=106'><img src='fgo-vz/common/images/icon/faces/11003000.png' class='itemM' title='貞德〔Alter〕' /></a>
+<a href='fgo-vz/svtData.html?no=11'><img src='fgo-vz/common/images/icon/faces/2001000.png' class='itemM' title='Emiya' /></a>
+<a href='fgo-vz/svtData.html?no=1'><img src='fgo-vz/common/images/icon/faces/8001000.png' class='itemM' title='瑪琇・基利艾拉特' /></a>
+<a href='fgo-vz/svtData.html?no=27'><img src='fgo-vz/common/images/icon/faces/4014000.png' class='itemM' title='牛若丸' /></a>
+<a href='fgo-vz/svtData.html?no=95'><img src='fgo-vz/common/images/icon/faces/2018000.png' class='itemM' title='子吉爾' /></a><br>
+<a href='fgo-vz/svtData.html?no=117'><img src='fgo-vz/common/images/icon/faces/6019000.png' class='itemM' title='風魔小太郎' /></a>
+<a href='fgo-vz/svtData.html?no=32'><img src='fgo-vz/common/images/icon/faces/5002000.png' class='itemM' title='吉爾・德・雷' /></a>
+<a href='fgo-vz/svtData.html?no=125'><img src='fgo-vz/common/images/icon/faces/2014000.png' class='itemM' title='俵藤太' /></a>
+<a href='fgo-vz/svtData.html?no=21'><img src='fgo-vz/common/images/icon/faces/3009000.png' class='itemM' title='雷奧尼達一世' /></a>
+<a href='fgo-vz/svtData.html?no=40'><img src='fgo-vz/common/images/icon/faces/6002000.png' class='itemM' title='咒腕的哈桑' /></a>
+<a href='fgo-vz/svtData.html?no=45'><img src='fgo-vz/common/images/icon/faces/6014000.png' class='itemM' title='瑪塔・哈里' /></a>
+<a href='fgo-vz/svtData.html?no=53'><img src='fgo-vz/common/images/icon/faces/7009000.png' class='itemM' title='阿斯忒里歐' /></a><br>
+</div>
+</p>
+
+<table class="table_non" style="width:100%;"><tbody><tr><td style="width:55%; vertical-align:top;">
+            <a class="twitter-timeline"  href="https://twitter.com/fgoproject" data-widget-id="708633784703328256">官方推特</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</td><td style="width:45%; vertical-align:top;">
+<div style="margin:0px auto;width:336px;height:280px;background:url('fgo-vz/common/images/info_banner2.png');">
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<!-- FGOT -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-3881979894805188"
+     data-ad-slot="9891895951"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</td></tr></tbody></table>
+
+</article>
+</div>
+<div id="gotop"><a href="#"><img src="fgo-vz/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+    </div>
+    <!--主要內容區塊結束-->
+</div>
+<!--二欄橫幅主要區塊結束-->
+</body>
+</html>

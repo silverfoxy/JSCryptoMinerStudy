@@ -1,0 +1,1 @@
+<script language="javascript">top.location="http://www.waterchem2018.com";</script>

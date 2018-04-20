@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Dominion Online Web Client" />
+        <meta name="keywords" content="dominion, boardgame, shuffle it" />
+        <meta name="author" content="Shuffle iT" />
+        <meta http-equiv="expires" content="0">
+        <title>Dominion Online</title>
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="css/dominion-webclient-head-1.3.12.1.min.css"/>
+        <script src="connection-properties.js"></script>
+        <script src="js/dominion-webclient-head-1.3.12.1.min.js"></script>
+    </head>
+    <body data-ng-app="Webclient" ng-controller="PageDisplayController as pageDisplay" class="{{pageDisplay.getLanguageClass()}}">
+    <div class="loading-page">
+            <img class="dom-icon unselectable" ng-if="pageDisplay.shouldShowLoadingPage" src="images/dom-icon-black.png"/>
+            <div class="loading-spinner unselectable" ng-if="pageDisplay.shouldShowLoadingPage"></div>
+        </div>
+        <div class="login-page"
+             ng-include="'html/login-page-1.3.12.1.html'"
+             ng-if="pageDisplay.shouldShowLoginPage"
+             ng-controller="LoginController as login"
+             ng-style="pageDisplay.loginStyle"
+             oncontextmenu="return shouldEnableRightContextMenu">
+        </div>
+        <div class="lobby-page"
+             ng-include="'html/lobby-page-1.3.12.1.html'"
+             ng-if="pageDisplay.shouldShowLobbyPage"
+             ng-show="pageDisplay.lobbyPageIsReady"
+             ng-style="pageDisplay.lobbyStyle"
+             ng-controller="LobbyController as lobby"
+             ng-click="pageDisplay.onClick()"
+             oncontextmenu="return shouldEnableRightContextMenu">
+        </div>
+        <div ng-if="!pageDisplay.shouldKillGame">
+            <div class="game-page"
+                 ng-include="'html/game-page-1.3.12.1.html'"
+                 ng-if="pageDisplay.shouldShowGamePage"
+                 ng-show="pageDisplay.gamePageIsReady"
+                 ng-controller="GameDisplayController as gameDisplay"
+                 ng-style="pageDisplay.gameStyle"
+                 ng-click="pageDisplay.onClick()"
+                 oncontextmenu="return shouldEnableRightContextMenu">
+            </div>
+        </div>
+        <div class="score-page"
+             ng-include="'html/score-page-1.3.12.1.html'"
+             ng-if="pageDisplay.shouldShowScorePage"
+             ng-style="pageDisplay.scoreStyle"
+             ng-click="pageDisplay.onClick()"
+             oncontextmenu="return shouldEnableRightContextMenu">
+        </div>
+        <modal-main-windows></modal-main-windows>
+        <link rel="stylesheet" type="text/css" href="css/dominion-webclient-body-1.3.12.1.min.css"/>
+        <script src="js/dominion-webclient-body-1.3.12.1.min.js"></script>
+    </body>
+</html>

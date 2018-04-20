@@ -1,0 +1,1 @@
+<a href='http://www.mindvalleyacademy.com/'>Moved Permanently</a>.

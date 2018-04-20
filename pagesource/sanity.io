@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.sanity.io/">https://www.sanity.io/</a></p>

@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link type="text/css" rel="stylesheet" href="frogtown.css">
+		<link type="text/css" rel="stylesheet" href="core.css">
+		<title>Deck Builder - Frogtown</title>
+		<meta name="description" content="A beautiful MTG deck builder that includes an easy to use search tool, in browser playtesting, and exporting to play in Tabletop Simulator. Creating decks for Magic has never been easier!">
+	</head>
+	<body>
+		<div id="mainDisplay">
+			<div class="cardBox">
+				<form class="filters form-inline">
+					<div class="input-group filterName">
+						<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						<input type="text" class="form-control" id="inputName" placeholder="Name">
+					</div>
+
+					<div class="input-group nodisp" data-filtertype="text">
+						<div class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></div>
+						<input type="text" class="form-control" placeholder="Text Contains">
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="color">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Colors <span class="caret black"></button>
+						<ul class="dropdown-menu colorSelection">
+							<li data-value="any"><a href="#"><span>Any Selected</span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="all"><a href="#"><span>All Selected</span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="White"><a href="#"><span class="glyphicon glyphicon-tint White"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Blue"><a href="#"><span class="glyphicon glyphicon-tint Blue"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Black"><a href="#"><span class="glyphicon glyphicon-tint Black"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Red"><a href="#"><span class="glyphicon glyphicon-tint Red"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Green"><a href="#"><span class="glyphicon glyphicon-tint Green"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="Colorless"><a href="#"><span class="glyphicon glyphicon-ban-circle"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="noothers"><a href="#">No Others <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="exportfeatures">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Export Features <span class="caret black"></button>
+						<ul class="dropdown-menu exportFeatureSelection">
+							<li data-value="requireccghq"><a href="#"><span>HQ Export</span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="coloridentity">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Color Identity <span class="caret black"></button>
+						<ul class="dropdown-menu colorIdentitySelection">
+							<li data-value="any"><a href="#"><span>Any Selected</span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="all"><a href="#"><span>All Selected</span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="White"><a href="#"><span class="glyphicon glyphicon-tint White"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Blue"><a href="#"><span class="glyphicon glyphicon-tint Blue"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Black"><a href="#"><span class="glyphicon glyphicon-tint Black"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Red"><a href="#"><span class="glyphicon glyphicon-tint Red"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-value="Green"><a href="#"><span class="glyphicon glyphicon-tint Green"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="Colorless"><a href="#"><span class="glyphicon glyphicon-ban-circle"></span> <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-value="noothers"><a href="#">No Others <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="supertype">
+						<input type="text" list="superTypeDataList" class="form-control" placeholder="Supertype">
+						<datalist id="superTypeDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="type">
+						<input type="text" list="typeDataList" class="form-control" placeholder="Type">
+						<datalist id="typeDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="subtype">
+						<input type="text" list="subTypeDataList" class="form-control" placeholder="Subtype">
+						<datalist id="subTypeDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="power">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-fire" title="Power"></span></span>
+							<input type="number" class="form-control short min" placeholder="min" min="0">
+							<span class="input-group-addon">to</span>
+							<input type="number" class="form-control short max" placeholder="max" min="0">
+						</div>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="toughness">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-heart-empty" title="Toughness"></span></span>
+							<input type="number" class="form-control short min" placeholder="min" min="0">
+							<span class="input-group-addon">to</span>
+							<input type="number" class="form-control short max" placeholder="max" min="0">
+						</div>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="cmc">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-usd" title="CMC"></span></span>
+							<input type="number" class="form-control short min" placeholder="min" min="0">
+							<span class="input-group-addon">to</span>
+							<input type="number" class="form-control short max" placeholder="max" min="0">
+						</div>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="rarity">
+						<input type="text" list="rarityDataList" class="form-control" placeholder="Rarity">
+						<datalist id="rarityDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="set">
+						<input type="text" list="setDataList" class="form-control" placeholder="Set">
+						<datalist id="setDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group nodisp" data-filtertype="legality">
+						<input type="text" list="legalityDataList" class="form-control" placeholder="Legality">
+						<datalist id="legalityDataList">
+						</datalist>
+					</div>
+
+					<div class="btn-group addFilterSection">
+						<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-filter TrueWhite"></span> Filters <span class="caret TrueWhite"></span></button>
+						<ul class="dropdown-menu">
+							<li data-filtertype="text"><a href="#">Text <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="exportfeatures"><a href="#">Export Features <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="color"><a href="#">Color <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="coloridentity"><a href="#">Color Identity <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="supertype"><a href="#">Supertype <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="type"><a href="#">Type <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="subtype"><a href="#">Subtype <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="power"><a href="#">Power <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="toughness"><a href="#">Toughness <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="cmc"><a href="#">CMC <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="rarity"><a href="#">Rarity <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="set"><a href="#">Set <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li data-filtertype="legality"><a href="#">Legality <span class="glyphicon glyphicon-ok nodisp"></span></a></li>
+							<li role="separator" class="divider"></li>
+							<li data-filtertype="clearall"><a href="#">Clear Filters</a></li>
+						</ul>
+					</div>
+				</form>
+				<div id="output"></div>
+			</div>
+			<div class="deckSection">
+				<div class="deckButtonSection">
+					<div class="sortSelection">
+						<button type="button" id="btnStackType" class="btn btn-default" data-active="true"><span class="glyphicon glyphicon-align-justify"></span> <span class="btnLabel">Stacking by Category</span></button>
+						<input type="text" id="inputSortType" list="deckSortTypes" class="form-control" placeholder="Type">
+						<datalist id="deckSortTypes"></datalist>
+					</div>
+				</div>
+				<h2 class="currentDeckTitle"></h2><h3 class="totalCardCount"></h3>
+				<div class="primaryDeckButtonSection nodisp">
+					<a type="button" class="btn btn-info" id="btnPlayTest" href="#" title="Draw some sample hands and play against a gold fish"> Play test</a>
+					<button type="button" class="btn btn-default" id="btnShareDeck" title="Get a copyable link to this deck"> Share</button>
+					<button type="button" class="btn btn-default" id="btnBulkImport" title="Add cards in bulk by name"> Bulk add</button>
+					<button type="button" class="btn btn-default" id="btnCloneDeck" title="Add a copy of this deck to your deck list"> Clone</button>
+					<div class="btn-group exportActions">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span> Export</button>
+						<ul class="dropdown-menu">
+							<li><a href="#" id="btnExportPlaintext">Plain text</a></li>
+							<li><a href="#" id="btnExportTTS">Tabletop Simulator</a></li>
+						</ul>
+					</div>
+					<div id="divTTSButton" class="nodisp">
+						<a id="btnTTSButton" class="btn btn-default"></a>
+					</div>
+					<div id="divBulkInput" class="deckExpando input-group nodisp">
+						<textarea class="form-control custom-control" rows="10" style="resize:none"></textarea>
+						<span class="input-group-addon btn btn-primary">Submit</span>
+					</div>
+					<div id="divPlainExport" class="deckExpando nodisp">
+						<textarea class="form-control custom-control" rows="10" style="resize:none"></textarea>
+					</div>
+					<div id="divShareLink" class="deckExpando btn-group nodisp">
+						<input type="text" class="form-control"></input>
+					</div>
+				</div>
+				<div class="decklist">
+					<div>
+						<h3><span class="glyphicon glyphicon-refresh TrueWhite"></span> Loading deckmaker resources...</h3>
+						<div class="progress"><div class="progress-bar noTransition"></div></div>
+					</div>
+				</div>
+			</div>
+			<div id="directory">
+				<h2><a href="/">Frogtown</a></h2>
+				<div id="mainNav">
+					<div><a href="/me.html">Me</a></div>
+					<div><a href="/browse.html">Browse</a></div>
+					<div><a href="/tools.html">Tools</a></div>
+					<div><a href="/help.html">Help</a></div>
+				</div>
+				<h2>Your Decks</h2>
+				<div class="dirList">
+				</div>
+			</div>
+		</div>
+		<div id="ieWarning" class="warning nodisp">
+			<h3>Browser Warning</h3>
+			<p>IE and Edge have very poor performance with drag and drop interfaces, as well as very slow response times when apps make frequent server requests. These are two features Frogtown uses extensively, it is recommended you use a different browser when editing decks.</p>
+			<a href="#" class="closePopup">Close Warning</a>
+		</div>
+		<div id="versionWarning" class="warning nodisp">
+			<h3>Version Warning</h3>
+			<p>Frogtown makes heavy use of the relatively new browser feature called "grid display" so it may not render properly on your browser. Please update your browser to use Frogtown as intended.</p>
+			<a href="#" class="closePopup">Close Warning</a>
+		</div>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-83955368-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="authentication.js"></script>
+		<script src="frogtown.js"></script>
+		<script src="cardSearch.js"></script>
+		<script src="cardDisplay.js"></script>
+		<script src="filterBehavior.js"></script>
+		<script src="deckBehavior.js"></script>
+		<script src="deckManagerBehavior.js"></script>
+		<script src="Resources/Maps/nameMap.js"></script>
+		<script src="Resources/Maps/multiverseIdMap.js"></script>
+		<script src="Resources/Maps/imageMap.js"></script>
+		<script src="Resources/Maps/typeMap.js"></script>
+		<script src="Resources/Maps/cmcMap.js"></script>
+		<script src="Resources/Maps/colorIdentityMap.js"></script>
+		<script src="Resources/Maps/colorMap.js"></script>
+		<script src="Resources/Maps/powerMap.js"></script>
+		<script src="Resources/Maps/rarityMap.js"></script>
+		<script src="Resources/Maps/setMap.js"></script>
+		<script src="Resources/Maps/superTypeMap.js"></script>
+		<script src="Resources/Maps/toughnessMap.js"></script>
+		<script src="Resources/Maps/setNameMap.js"></script>
+		<script src="Resources/Maps/printingMap.js"></script>
+		<script src="Resources/Maps/legalityMap.js"></script>
+		<script src="Resources/Maps/subTypeMap.js"></script>
+		<script src="Resources/Maps/textMap.js"></script>
+		<script src="Resources/Maps/backMultiverseIdMap.js"></script>
+	</body>
+</html>

@@ -1,0 +1,1064 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+    	<meta name="google-site-verification" content="ospAJ8HsAXF8WpfKypgLA3Rvn1qCqOHC9UyiJ-hqfD0" />
+        <title>Accueil - SNCF TRANSILIEN</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+    	<meta name="apple-mobile-web-app-status-bar-style" content="default" />    
+    	<meta name="apple-touch-fullscreen" content="yes">
+    	<meta name="format-detection" content="telephone=no" />
+    	   	
+
+		<link rel="stylesheet" media="screen" href="/assets/stylesheets/compteclient/bootstrap.min.css">
+		
+        <link rel="stylesheet" media="screen" href="/assets/stylesheets/jquery-ui-1.10.3.css">
+        <link rel="stylesheet" media="screen" href="/assets/stylesheets/main.css">
+        
+        
+	<meta name="author" content="SNCF">
+ 	<meta name="apple-itunes-app" content="app-id=945434433">
+ 	<meta name="google-play-app" content="app-id=com.sncf.fusion">
+ 	
+	<link rel="stylesheet" href="/assets/stylesheets/jquery.smartbanner.css" type="text/css" media="screen">
+	
+ 	<link rel="stylesheet" media="screen" href="/assets/stylesheets/compteclient/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/compteclient/main.css">
+	
+	<link rel="stylesheet" media="screen" href="/assets/stylesheets/home.css">
+	
+
+        <link rel="shortcut icon" type="image/png" href="/assets/images/logo72.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/logo114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/logo72.png" />
+		<link rel="apple-touch-icon-precomposed" href="/assets/images/logo72.png" />
+		<link rel="apple-touch-icon" href="/assets/images/logo72.png" />
+		
+		<script src="/assets/javascripts/compteclient/vendors/jquery-1.12.1.min.js" type="text/javascript"></script>
+        
+        <script src="/assets/javascripts/compteclient/vendors/bootstrap.min.js" type="text/javascript"></script>
+        
+        <script src="/assets/javascripts/jquery-ui-1.10.3.js" type="text/javascript"></script>
+        
+        <script src="/assets/javascripts/compteclient/app.js" type="text/javascript"></script>
+        
+        <script src="/assets/javascripts/extensions.js" type="text/javascript"></script>
+        
+        <script src="/assets/javascripts/globals.js" type="text/javascript"></script>
+        
+        <!-- TAGCOMMANDER START //-->	
+		<SCRIPT language="javascript">	
+			
+		var lang;
+		if(getCookie("mobiLang") == null)
+		{
+			lang = 'fr';
+		}else{
+			lang = getCookie("mobiLang");
+		}
+		
+		//<![CDATA[	
+		//TC Declared Variables	
+			var tc_vars = new Array();	
+		    var tc_vars = {	
+			
+				
+			// Users	
+			"user_id" : "", // ID Visiteur si loggué, vide sinon		
+				
+			// Variables de trafic	
+			"id_connection" : "non_connecte", // Type de connexion utilisateur	
+			
+			"id_langue" : lang, // Type de langue du site	
+				
+			"pagename" : "accueil" // Nom de la page	
+			
+		}
+		</SCRIPT>	
+        
+		<SCRIPT type="text/javascript" src='//cdn.tagcommander.com/3473/uat/tc_TRANSILIENMOBI_1.js'></SCRIPT> 
+		<NOSCRIPT>
+			<IFRAME src="//redirect3473.tagcommander.com/utils/noscript.php?id=TRANSILIENMOBI_1&mode=iframe&pagename=&order_id=&order_amount_tf_without_sf=" width="1" height="1"></IFRAME>
+		</NOSCRIPT>
+		<!-- TAGCOMMANDER END //-->
+        
+		
+	<script type="text/javascript">
+	
+	function deleteFavorisItinerary(id, idElm, element) {
+		favElmToDelete = element;
+		var depart = $("#departureFavItinerary_"+idElm).html();
+		var dest = $("#arrivalFavItinerary_"+idElm).html();
+		
+		localStorage.setItem("favItineraryToDelete", id);
+		$('#favorites_modal').modal('show');
+		
+		$('#recapDepartFav').html(depart);
+		$('#recapDestinationFav').html(dest);
+		$('#deleteFavTitle').html('Etes-vous sûr de vouloir supprimer cet itinéraire favori ?');
+		if(dest.length == 0){
+			
+			$("#recapDestinationFavPrefix").hide();
+		}else{
+			$("#recapDestinationFavPrefix").show();
+		}
+		$('#removeFavValidateBtn').attr('onclick', 'confirmDeleteFavorisItinerary();');
+	}
+	
+	function confirmDeleteFavorisItinerary() {
+		$.ajax({
+	        url: "/deleteFavItinerary",
+	        dataType: "json",
+	        type: "post",
+	        data: 'id=' + localStorage.getItem("favItineraryToDelete"),
+	        success: function( data ) 		       	
+	       	{
+	        	$(favElmToDelete).parent().parent().remove();
+	        	if($("#favorisContent").children().length == 0){
+	        		location.reload();
+	        	}
+	       	},
+	        error: function(data)
+	        {
+	        	console.log("error when sending deleteFavItinerary with ajax post");
+	        	console.log("error : ", data.errors);
+	        	console.log("message : ", data.message);
+	        }
+	    });
+	}
+	
+	function deleteFavorisNextDeparture(id, idElm, element) {
+		favElmToDelete = element;
+		var depart = $("#departureFavNextDeparture_"+idElm).html();
+		var dest = $("#arrivalFavNextDeparture_"+idElm).html();
+		
+		localStorage.setItem("favNextDepartureToDelete", id);
+		$('#favorites_modal').modal('show');
+		
+		$('#recapDepartFav').html(depart);
+		$('#recapDestinationFav').html(dest);
+		
+		$('#deleteFavTitle').html('Etes-vous sûr de vouloir supprimer ce prochain départ favori ?');
+		if(dest == undefined || dest.length == 0){
+			
+			$("#recapDestinationFavPrefix").hide();
+		}else{
+			$("#recapDestinationFavPrefix").show();
+		}
+		
+		$('#removeFavValidateBtn').attr('onclick', 'confirmDeleteFavorisNextDeparture();');
+	}
+	
+	function confirmDeleteFavorisNextDeparture(){
+		$.ajax({
+	        url: "/deleteFavNextDeparture",
+	        dataType: "json",
+	        type: "post",
+	        data: 'id=' + localStorage.getItem("favNextDepartureToDelete"),
+	        success: function( data ) 
+	       	{
+	        	$(favElmToDelete).parent().parent().remove();
+	        	if($("#favorisContent").children().length == 0){
+	        		location.reload();
+	        	}
+	       	},
+	        error: function(data)
+	        {
+	        	console.log("error when sending deleteFavItinerary with ajax post");
+	        	console.log("error : ", data.errors);
+	        	console.log("message : ", data.message);
+	        }
+	    });
+	}
+
+	$(document).ready(function () {
+		if(lsAvailable() && cookiesEnabled() && localStorage.getItem("welcomeShown")!="YES" && getCookie("welcomeCookie")==null)
+		{
+
+			window.location.href="welcome";
+			return;
+		}
+		
+		
+		if(localStorage.getItem("accepted_cookies")){
+			var cookieAccepted = JSON.parse(localStorage.getItem("accepted_cookies"));
+			
+			var savedDate = new Date(cookieAccepted.acceptedDate);
+			
+			var savedDatePlusOneYear = new Date(cookieAccepted.acceptedDate);
+			savedDatePlusOneYear.setFullYear(savedDatePlusOneYear.getFullYear() + 1);
+			
+			var currentDate = new Date();
+			
+			if(savedDatePlusOneYear > currentDate){
+				$("#cookieBanner").hide();
+			}else{
+				localStorage.removeItem("accepted_cookies");
+				$("#cookieBanner").show();
+			}
+		}
+
+		//Eviter que le champ invisible sur la home ne prenne sa place
+		//$('.textAndPicto').addClass('hide');
+
+		var html = "";
+		if(0 > 1)
+		{
+
+			if (0 > 0 || 0 > 0)
+			{
+
+				 if (0 > 0)
+	                {
+                        var cpt=0;
+                                            
+	                   
+	                }
+
+				 if (0 > 0)
+	                {        
+	                    var cpt=0;
+	                    
+	                  
+	                }
+
+				$("#favorisContent").html('');
+				$("#favorisContent").html(html);
+				$("#noHistory").hide();
+				$("#userLoggedOut").hide();
+				
+			}else{
+					
+				$("#noHistory").show();	
+				$("#userLoggedOut").hide();
+			}
+		}else{
+			$("#noHistory").hide();
+			$("#userLoggedOut").show();
+		}
+		
+		$("#favorisContent").hide();
+		
+        $(".itineraryFav").click(function(event) {
+	        var elmId = this.id;
+	        var favId = elmId.substring(7, elmId.length);
+	        
+              
+	    });
+
+
+		$("#favorisNav").click(function (){
+			var $this = $(this);
+			var $favorisContent = $("#favorisContent");
+			var $accessibiliteSpan = $("#favorisNav .cache");
+
+			if ($favorisContent.is(":visible"))
+			{
+				$accessibiliteSpan.find(".cache_afficher").show();
+				$accessibiliteSpan.find(".cache_masquer").hide();
+				$favorisContent.hide('slow');
+				$("#imgPlus").show();
+				$("#imgMoins").hide();
+			}
+			else
+			{
+				$accessibiliteSpan.find(".cache_afficher").hide();
+				$accessibiliteSpan.find(".cache_masquer").show();
+				$favorisContent.show('slow');
+				$("#imgPlus").hide();
+				$("#imgMoins").show();
+			}
+
+			//tc_events_3(this, 'clic', {Evt_Categorie:'home_dernieres_recherches_expand', Evt_Action:'Click',Type :'event'});
+		});
+		
+		
+		//Pour afficher le panneau incitant l'utilisateur � se connecter (Au click sur "mes favoris" sur le navigationdrawer -> header.scala.html)
+		if(localStorage.getItem("showConnectionPanel") === "true"){
+			$("#favorisNav").click();
+			localStorage.setItem("showConnectionPanel", "false");
+		}
+				
+		
+	});
+	
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+	
+	function generateFavItineraryHrefParams(departureType, departureLambertX, departureLambertY, departureLibelle, arrivalType, arrivalLambertX, arrivalLambertY, arrivalLibelle){
+		var href = "";
+		
+		href += 'idOrigin='+departureType+'||||||'+departureLambertX+'|'+departureLambertY+'|!!;!!;!!;';
+		href += '&nomOrigin=' + encodeURIComponent(decodeHtml(departureLibelle));
+		href += '&idDest='+arrivalType+'||||||'+arrivalLambertX+'|'+arrivalLambertY+'|!!;!!;!!;';
+		href += '&nomDest=' + encodeURIComponent(decodeHtml(arrivalLibelle));
+		
+		return href;
+	}
+	
+// 	function deleteFavorisItinerary(id, element) {
+// 		$.ajax({
+// 	        url: "/deleteFavItinerary",
+// 	        dataType: "json",
+// 	        type: "post",
+// 	        data: 'id=' + id,
+// 	        success: function( data ) 
+// 	      	{
+// 	        	$(element).parent().parent().remove();
+// 	        	if($("#favorisContent").children().length == 0){
+// 	        		location.reload();
+// 	        	}
+// 	       	},
+// 	        error: function(data)
+// 	        {
+// 	        	console.log("error when sending deleteFavItinerary with ajax post");
+// 	        	console.log("error : ", data.errors);
+// 	        	console.log("message : ", data.message);
+// 	        }
+// 	    });
+// 	}
+	
+	function generateFavNextDepartureHrefParams(idOrigine, nameOrigine, idDest, nameDest){
+		var href = "";
+		
+		href += 'idOrigin='+idOrigine;
+		href += '&nomOrigin=' + encodeURIComponent(nameOrigine);
+		href += '&idDest='+idDest;
+		href += '&nomDest=' + encodeURIComponent(nameDest);
+		
+		return href;
+	}
+	
+// 	function deleteFavorisNextDeparture(id, element) {
+// 		$.ajax({
+// 	        url: "/deleteFavNextDeparture",
+// 	        dataType: "json",
+// 	        type: "post",
+// 	        data: 'id=' + id,
+// 	        success: function( data ) 
+// 	      	{
+// 	        	$(element).parent().parent().remove();
+// 	        	if($("#favorisContent").children().length == 0){
+// 	        		location.reload();
+// 	        	}
+// 	       	},
+// 	        error: function(data)
+// 	        {
+// 	        	console.log("error when sending deleteFavNextDeparture with ajax post");
+// 	        	console.log("error : ", data.errors);
+// 	        	console.log("message : ", data.message);
+// 	        }
+// 	    });
+// 	}
+	
+	
+	function openCookieModal(){
+		$("#cookies_modal").modal("show");
+	}
+	
+	function acceptCookies(){
+		$("#cookieBanner").hide();
+		var cookieAccepted = {
+			"accepted" : true,
+			"acceptedDate" : new Date()
+		};
+		localStorage.setItem("accepted_cookies", JSON.stringify(cookieAccepted));
+	}
+	
+
+	</script>
+
+
+        <script type="text/javascript">
+		
+		String.prototype.replaceAll = function(search, replacement) {
+		    var target = this;
+		    return target.split(search).join(replacement);
+		};
+        
+		
+		$(document).ready(function () {
+			//add the correct marginTop to the menu drawer, to place it right bellow the toolbar
+			var marginTop = document.getElementById("header").clientHeight;
+			var marginLeft = $("#container").offset().left;
+			var elm = document.getElementById("mySidenav");
+			if(elm !== null){			
+				elm.style.marginTop = marginTop+"px";
+				elm.style.marginLeft = marginLeft +"px";
+			}
+			
+			setTheme();
+			
+			$("#navIcon").click(function(){
+				if($("#cache_afficher").css("display") === "inline"){
+					$("#cache_afficher").css("display",  "none");
+					$("#cache_masquer").css("display",  "inline");
+				}else{
+					$("#cache_afficher").css("display",  "inline");
+					$("#cache_masquer").css("display",  "none");
+				}	
+			});
+			
+			if(getCookie("mobiLang") === "en"  || getCookie("mobiLang") === "es"){
+				$("#favorisNav").hide();
+				$("#burgerIcon").hide();
+				$("#profilIcon").hide();
+				$("#alertEmail").hide();
+				$("#addFav").hide();
+
+			}else{
+				$("#favorisNav").show();
+				$("#burgerIcon").show();
+				$("#profilIcon").show();
+				$("#alertEmail").show();
+				$("#addFav").show();
+			}
+			
+			
+			//pour coller le header en haut de la page quand la bannière de pub est visible
+			var yPosition; // save original y position of the header here
+
+			window.onload = function(){ // once entire page is loaded this function is fired
+			    // save original y position of header before it is scrolled
+			    yPosition = document.getElementById("header").offsetTop;
+			}
+
+			window.onscroll = function(){ // scrolling fires this function      
+
+			    var header = document.getElementById("header"); // for cleaner code
+
+			    // compare original y position of header to y position of page			    
+			    if( yPosition <= window.pageYOffset*2 ){ 
+
+			        // snap header to the top by changing css values
+			        header.style.position = "fixed";
+			        header.style.top = "0px"; 
+
+			    }else{          
+
+			        // re-position to original flow of content
+			        header.style.position = "fixed";
+			        header.style.top = ""; // set to default         
+			    }               
+			} 
+			//****************************************************************************
+			
+		});
+		
+		// open / close the navigation drawer menu
+		function openCloseNav() {
+			var width = document.getElementById("mySidenav").offsetWidth;
+			
+			$("mySidenav").css("margin-top", "71px");
+			
+			if(width == 0){
+				document.getElementById("drawerIcon").src="/assets/images/Navigation/burgermenu_close.png";
+				document.getElementById("mySidenav").style.display = "block";
+			    document.getElementById("mySidenav").style.width = "100%";
+			    //$("body").css("overflow","hidden");
+			    
+			 	// Disable scrolling on iOS browser.
+			    document.ontouchmove = function(event){
+			        event.preventDefault();
+			    }
+			}else{
+				document.getElementById("drawerIcon").src="/assets/images/Navigation/burgermenu.png";
+			    document.getElementById("mySidenav").style.width = "0";
+			    document.getElementById("mySidenav").style.display = "none";
+			    $("body").css("overflow","auto");
+			    
+			 	// Enable scrolling on iOS browser.
+			    document.ontouchmove = function (e) {
+			      return true;
+			    }
+			}//if
+		}
+		
+		// switch the contrast of all website
+		function switchContrast() {
+		
+			if (typeof(Storage) !== "undefined") {
+			    // Store
+			    if(localStorage.getItem("theme") === "default"){  
+			    	localStorage.setItem("theme", "contrasted");
+			    }else {
+			    	localStorage.setItem("theme", "default"); 
+			    }
+			} else {
+			    console.log("Sorry, your browser does not support Web Storage...");
+			}			
+		}
+		
+		// set the stored theme if selected or let the default one 
+		function setTheme() {
+			if (typeof(Storage) !== "undefined") {
+			    // Store
+			    if(localStorage.getItem("theme") === null 
+			    		|| localStorage.getItem("theme") === "undefined" 
+			    		|| localStorage.getItem("theme") === "default"){  
+			    	
+			    	localStorage.setItem("theme", "default");
+			    	// set text 
+			    	document.getElementById("contrastLink").innerHTML= "Accentuer les contrastes";
+			    	
+			    }else if (localStorage.getItem("theme") === "contrasted") {
+			    	// load the contrastedTheme.css and apply it
+			    	var head  = document.getElementsByTagName("head")[0];
+			        var link  = document.createElement("link");
+			        link.id   = "contrastedTheme";
+			        link.rel  = "stylesheet";
+			        link.type = "text/css";
+			        link.href = "/assets/stylesheets/contrastedTheme.css";
+			        link.media = "all";
+			        head.appendChild(link);
+		    	
+			    	localStorage.setItem("theme", "contrasted");
+			    	// set text 
+			    	document.getElementById("contrastLink").textContent= "Supprimer l’accentuation des contrastes";
+			    }
+		    
+			} else {
+			    console.log("Sorry, your browser does not support Web Storage...");
+			}		
+		}
+
+		try {
+			// try to use localStorage
+			localStorage.test = 2;        
+		} catch (e) {
+		    // there was an error so...
+		    alert('Votre navigateur est en mode «Privé».\n\nAfin de vous proposer une expérience de navigation personnalisée, et ainsi profiter pleinement de toutes les fonctionnalités, nous vous invitons à repasser temporairement en navigation classique.');
+	    }
+			  
+			  
+			  //web push notification Accengage
+			  (function(w,e,b,s,d,k,a,r,g){
+				  w['AccengageWebSDKObject']=s;w[s]=w[s]||[];w[s].i=[1*new Date(),w,e,1];
+				  w[s].p=[k+'/pushweb/assets'];a=e.createElement(b),r=e.getElementsByTagName(b)[0];
+				  a.async=1;a.src='https://websdk.accengage.net/'+d+'/init.js';
+				  r.parentNode.insertBefore(a,r);
+				})(window,document,'script','ACC','v2','transilien-by.accengage.net');
+			  
+			  var ACC = ACC || [];
+			  ACC.push(["push:showAlert"]);
+		
+		</script>
+		
+		
+		<style>
+			#acc-alert.acc-alert--hidden {
+				display:none;
+				}
+				#acc-alert {
+				position:fixed;
+				box-shadow:0 1px 4px rgba(0,0,0,.3);
+				font-family:Arial,Helvetica,sans-serif;
+				background-color:#FBFBFB;
+				overflow:hidden;
+				z-index:999;
+				}
+				#acc-alert-body {
+				background-image:linear-gradient(toleft,#3FA9F5 ,#1D71B8 );
+				background-repeat:no-repeat;
+				background-size:100% 10px;
+				position:relative;
+				height:auto;
+				z-index:1;
+				margin-bottom:50px;
+				}
+				#acc-alert-close{
+				position: absolute;
+				top: 6px;
+				height: 12px;
+				width: 12px;
+				opacity: 0.5;
+				z-index: 2;
+				right: 5px;
+				}
+				#acc-alert-close:hover{
+				opacity: 1;
+				}
+				#acc-alert-close:before, #acc-alert-close:after{
+				position: absolute;
+				left: 3px;
+				content: " ";
+				width: 2px;
+				background-color: #000000;
+				height: 13px;
+				}
+				#acc-alert-close:before{
+				transform: rotate(45deg);
+				}
+				#acc-alert-close:after{
+				transform: rotate(-45deg);
+				}
+				#acc-alert-content {
+				position:relative;
+				left:0;
+				right:0;
+				width:auto;
+				color:#333333;
+				}
+				#acc-alert-subcontent {
+				line-height:18px;
+				margin-top:7px;
+				margin-bottom:4px;
+				font-size:12px;
+				letter-spacing:initial;
+				}
+				#acc-alert-buttons {
+				position:absolute;
+				bottom:0;
+				text-align:center;
+				height:50px;
+				line-height:45px;
+				letter-spacing:.4px;
+				}
+				#acc-alert-buttons a {
+				position:relative;
+				display:inline-block;
+				text-align:center;
+				text-decoration:none;
+				margin-right:10px;
+				border-radius:3px;
+				line-height:35px;
+				font-family:Arial,Helvetica,sans-serif;
+				font-size:16px;
+				}
+				#acc-alert-buttons a:last-child {
+				margin-right:0;
+				}
+				#acc-alert-buttons .acc--acceptLink {
+				border-bottom:1px solid #3A0006A ;
+				background:#0093D0 ;
+				color:#FFF;
+				}
+				#acc-alert-buttons .acc--acceptLink:hover {
+				color:#FFF ;
+				background-color:#0093D0;
+				}
+				#acc-alert-buttons .acc--denyLink {
+				background-color:#0093D0 ;
+				color:#FFF ;
+				border-bottom:1px solid #0093D0 ;
+				}
+				#acc-alert-buttons .acc--denyLink:hover {
+				background-color:#0093D0 ;
+				}
+				#acc-alert.acc-alert--desktop {
+				box-sizing:border-box;
+				top:10px;
+				right:10px;
+				width:400px;
+				height:auto;
+				min-height:150px;
+				}
+				.acc-alert--desktop #acc-alert-body {
+				padding:25px 20px 10px;
+				}
+				.acc-alert--desktop #acc-alert-buttons {
+				width:100%;
+				}
+				.acc-alert--desktop #acc-alert-buttons a {
+				width:120px;
+				height:35px;
+				min-width:84px;
+				}
+				#acc-alert.acc-alert--mobile {
+				box-sizing:initial;
+				width:100%;
+				bottom:0;
+				}
+				.acc-alert--mobile #acc-alert-body {
+				background-size:100% 5px;
+				width:100%;
+				left:50%;
+				transform:translateX(-50%);
+				padding:20px 15px 10px;
+				}
+				.acc-alert--mobile #acc-alert-close{
+				position: absolute;
+				top: 6px;
+				height: 12px;
+				width: 12px;
+				opacity: 0.5;
+				z-index: 2;
+				right: 20px;
+				}
+				.acc-alert--mobile #acc-alert-content {
+				padding-left:10px;
+				padding-right:5px;
+				}
+				.acc-alert--mobile #acc-alert-buttons {
+				width:100%;
+				left:50%;
+				bottom:0;
+				transform:translateX(-50%);
+				padding:8px 8px 0;
+				}
+				.acc-alert--mobile #acc-alert-buttons a {
+				height:35px;
+				line-height:35px;
+				width:155px;
+				max-width:47%;
+				padding:0;
+				}
+				@media all and min-width650px{
+				#acc-alert.acc-alert--mobile {
+				background-color:rgba(0,0,0,0);
+				box-shadow:none;
+				padding-top:15px;
+				}
+				.acc-alert--mobile #acc-alert-body {
+				min-width:650px;
+				background-color:#FFF;
+				width:60%;
+				max-width:1200px;
+				box-shadow:0 1px 7px rgba(0,0,0,.3);
+				padding-bottom:50px;
+				margin-bottom:0;
+				z-index:1;
+				}
+				.acc-alert--mobile #acc-alert-close{
+				position: absolute;
+				top: 6px;
+				height: 12px;
+				width: 12px;
+				opacity: 0.5;
+				z-index: 2;
+				right: 20px;
+				}
+				.acc-alert--mobile #acc-alert-buttons {
+				width:60%;
+				background-color:#FFF;
+				min-width:650px;
+				max-width:1200px;
+				z-index:2;
+				}
+				.acc-alert--mobile #acc-alert-content {
+				margin:0 auto;
+				padding:0 30px;
+				}
+				}
+		</style>
+    </head>
+    <body>
+    	<div id="container">
+        
+
+    
+
+
+
+<div id="header">
+	
+	
+		
+		<div id="burgerIcon">
+			<button type="button" class="navIcon" id="navIcon" onclick="openCloseNav()">
+				<span class="cache" stylte="display: none:">
+					<span id="cache_afficher" style="display: inline;">Afficher le</span>
+					<span id="cache_masquer" style="display: none;">Masquer le</span>
+				</span>
+				<img id="drawerIcon" src="/assets/images/Navigation/burgermenu.png" alt='menu'>
+			</button>
+		</div>
+		
+		<div id="mySidenav" class="sidenav">
+		  <ul id="navigationDrawer">
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/"; openCloseNav();'>Accueil</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/train"; openCloseNav();'>Prochains départs</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/itineraire"; openCloseNav();'>Itinéraires</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="hide contrasted-blue-background"><a href="#" onclick='window.location.href="/"; openCloseNav(); localStorage.setItem("showConnectionPanel", true);'>Mes favoris</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/trafic"; openCloseNav();'>Infos trafic / Alertes</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/historique"; openCloseNav();'>Dernières recherches</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/preferences"; openCloseNav();'>Options de mobilité</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+			  <li class="contrasted-blue-background"><a href="#" onclick='window.location.href="/contacts"; openCloseNav();'>Contactez-nous</a><img src="/assets/images/Navigation/chevronblanc.png" alt=""></li>
+		  </ul>
+		</div>
+		
+		<a class="headerTitle"><img onclick='window.location.href="/";' class="logo-nscf" src="/assets/images/CompteClient/logo_SNCF.gif" alt="SNCF"><span class="titre_prehome" onclick='window.location.href="/";'>TRANSILIEN</span></a>
+		<div id="profilIcon" class="profilIcon"><a href="/connection"> <img src="/assets/images/CompteClient/avatar_not_connected.png" alt='Mon compte (actuellement déconnecté)'></a></div>
+	
+	
+	
+	
+	
+</div>
+
+
+    
+
+
+<div id="title" class="contrasted-blue-background">
+	
+	
+	<div class="textAndPicto">
+    	<button id="favorisNav">
+    		<div class="rightside">
+	    		<img class="picto_en_tete" src="/assets/images/Home/starplein.png" alt="">
+	    		<div>
+	    			<span class="cache">
+		    			<span class="cache_afficher">Afficher</span>
+		    			<span class="cache_masquer">Masquer</span>
+		    		</span>
+	    			Mes favoris
+	    		</div>
+	    	</div>
+	    	<div class="leftside">
+	    		<div class="scareplus">
+	    			<img id="imgPlus" src="/assets/images/Home/expandbas.png" alt="">
+	    			<img id="imgMoins" src="/assets/images/Home/expandhaut.png" alt="">
+	    		</div>
+	    	</div>
+    	</button>
+    	<ul id="favorisContent">
+    	
+
+				<div id="noHistory">
+					<h5>MES ITINÉRAIRES FAVORIS</h5>
+	               	<p>Vous effectuez régulièrement un même trajet, mais plusieurs itinéraires sont possibles. Le plus pertinent n’est pas toujours le même en fonction du jour et de l’horaire. Enregistrer un itinéraire favori vous facilitera vos recherches!<br>Vous pourrez alors consulter le trajet le plus adapté au moment de votre recherche, en sélectionnant votre itinéraire favori depuis la page d’accueil ou dans la rubrique itinéraires.<br>Pour enregistrer un itinéraire favori, il vous suffit d’effectuer une recherche d’itinéraire et de cliquer sur « Ajouter aux favoris ».</p>
+	               	
+	               	<h5>MES PROCHAINS DÉPARTS FAVORIS</h5>
+	               	<p>Vous partez régulièrement de la même gare et vous souhaitez connaître en un coup d’oeil les horaires des prochains départs de vos trains, enregistrez un prochain départ favori !<br>Vous pourrez alors consulter les horaires des prochains trains au départ de vos gares, directement sur la page d’accueil ou dans la rubrique prochains départs.<br>Pour enregistrer un prochain départ favori, il vous suffit d’effectuer une recherche de Prochain Départ et de cliquer sur « Ajouter aux favoris ».</p>
+               	</div>
+
+				<div class="userLoggedOut" id="userLoggedOut">
+				
+					<p class="centerText">Vous n’avez pas encore de compte client, créez votre compte pour retrouver vos favoris</p>
+				
+					<div class="button">
+				    	<a alt="" class="contrasted-blue-background button" href="/inscription">
+				    		Créer mon compte
+				    	</a>
+				    </div>
+				    
+				    <a class="contrasted-blue-text loginText" href="/connection">Me connecter</a>
+				
+				</div>
+			
+    	</ul>
+    </div>
+</div>
+
+    
+
+<div id="content" class="content">
+       
+    
+     <!-- Modal remove favorite-->
+     <div id="account">
+     <div class="modal fade" id="favorites_modal" tabindex="-1" role="dialog" aria-labelledby="exitModal">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-body">
+                     <div class="text-right">
+                         <button class="btn btn-link cancel_modal glyphicon glyphicon-remove"></button>
+                     </div>
+                     
+                     <h2 id="deleteFavTitle">Etes-vous sûr de vouloir supprimer cet itinéraire favori ?</h2>
+
+                     <div id="recap">
+                         <h3>De</h3>
+                         <p id="recapDepartFav"></p>
+                         <h3 id="recapDestinationFavPrefix">À</h3>
+                         <p id="recapDestinationFav"></p>
+                     </div>
+
+                     <button type="button" id="removeFavValidateBtn" class="btn btn-success cancel_modal btn-block">Supprimer des favoris</button>
+                     <button type="button" class="btn btn-default cancel_modal btn-block">Annuler</button>
+
+                 </div>
+             </div>
+         </div>
+     </div>
+ 	</div>
+ 	
+ 	 <!-- Modal cookies-->
+     <div id="account">
+     <div class="modal fade" id="cookies_modal" tabindex="-1" role="dialog" aria-labelledby="exitModal">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-body">
+                     <div class="text-right">
+                         <button class="btn btn-link cancel_modal glyphicon glyphicon-remove"></button>
+                     </div>
+                     
+                     <h1 id="cookieTitle">Message sur les cookies</h1>
+					 <br>
+					 <p class="justifiedText">Certaines pages du site peuvent contenir un marqueur témoin (:« cookie :»). Ces marqueurs ne permettent pas de vous identifier, ils permettent seulement d’enregistrer des informations relatives à  la navigation de votre ordinateur sur notre Site. Vous pouvez vous opposer à l’enregistrement de cookies en configurant votre navigateur (modalités précisées sur le site internet de la CNIL, rubrique vos libertés / vos traces / les cookies). Le refus d’installation des cookies pourra entraîner l’impossibilité d’accéder à certains services.</p>
+
+                     <button type="button" id="acceptCookieBtn" class="btn btn-success cancel_modal btn-block" onclick="acceptCookies()">Ok, j’ai compris</button>
+
+                 </div>
+             </div>
+         </div>
+     </div>
+ 	</div>
+
+    
+    <a id="bandeauLink" href="https://transilien.mobi/train" target="_blank">
+    <div id="bandeau" style=" background-color: rgb(242,242,242)" >
+
+	    	<div id="bandeautext" style="witdh:85%;"'>
+		    	<span style="color: rgb(108,27,120)">
+		    		Jeudi 22 mars : mouvement social interprofessionnel
+		    	</span>
+		    	<br />
+		    	<span style="color: rgb(108,27,120)">
+		    		Le trafic est en moyenne de 1 train sur 3 en Ile de France. Vérifiez les horaires avant de partir dans la rubrique "prochains départs".
+		    	</span>
+		    	<span class="cache_masquer">(nouvelle fen&ecirc;tre)</span>
+	    	</div>
+	    	
+		    	<div id="bandeauFleche" >
+		    			<img alt="" class="arrow" src="/assets/images/ProchainsTrains/prochain_train_chevron_noir.png">
+		   		</div>
+	   		
+
+   </div>
+   </a>
+    
+   
+    <ul id="pictoNav">
+    	<li>
+		    <a class="linkV scare fleft contrasted-blue-background" href="train">
+		    	 <div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+				    <div class="centerImg"><div><img class="mediumPicto" src="/assets/images/Home/garehome.png" alt=""></div></div>
+				    <p>Prochains Départs</p>
+			    </div>
+		    </a>
+	    </li>
+	    <li>
+		    <a class="linkV scare fleft contrasted-blue-background" href="itineraire">
+		    	<div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+			    	<div class="centerImg"><div><img class="mediumPicto" src="/assets/images/Home/itinerairehome.png" alt=""></div></div>
+			    	<p>Itinéraires</p>
+			    </div>
+		    </a>
+	   	</li>
+	    <li>
+		    <a class="linkV scare fleft contrasted-blue-background" href="trafic">
+		    	<div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+			    	<div class="centerImg"><div><img class="mediumPicto" src="/assets/images/Home/home_picto_trafic.png" alt=""></div></div>
+			    	<p>Infos trafic / Alertes</p>
+			    </div>
+		    </a>
+		</li>
+	    <li>
+		    <a class="linkG scare fleft" href="historique">
+		    	<div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+			    	<div class="centerImg"><div><img class="mediumPicto" src="/assets/images/Home/home_picto_historique.png" alt=""></div></div>
+			    	<p>Dernières recherches</p>
+			    </div>
+		    </a>
+	    </li>
+	    <li>
+		    <a class="linkG scare fleft" onclick='window.location.href="/preferences";'>
+		    	<div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+			    	<div class="centerImg"><div><img class="picto" src="/assets/images/ProchainsTrains/prochain_train_picto_pmr_blanc.png" alt=""></div></div>
+			    	<p>Options de mobilité</p>
+			    </div>
+		    </a>
+	   	</li>
+	    <li>
+		    <a class="linkG scare fleft" href="contacts">
+		    	<div style="width: 0px; height: 100%; display: inline-block; text-align: center; vertical-align: middle;"></div>
+		    	<div class="center">
+			    	<div class="centerImg"><div><img class="smallPicto" alt="" src="/assets/images/Home/home_picto_contact.png"></div></div>
+			    	<p>Contactez-nous</p>
+			    </div>
+		    </a>
+	    </li>
+    </ul>
+    <div style="clear: both"></div>
+    
+</div>
+    
+	<div class="cookieBanner" id="cookieBanner">
+		<img class="imgCookieInfo" src="/assets/images/Home/KSFB_blue_standard.png" alt='Accéder aux alertes de la ligne'>
+	    <div class="texteTravaux whiteFont"><p role="alert">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’interêts.<br><a onclick="openCookieModal()">Pour en savoir plus et paramétrer vos cookies</a></p></div>
+	    <img class="imgCloseCookie" onclick="acceptCookies()" src="/assets/images/Home/cookies_close.png" alt='Accéder aux alertes de la ligne'>
+	</div>
+
+    
+<ul id="footer">
+
+
+	<li><a class="contrasted-black-text" href="/aide" onclick='updateWelcome();'>Aide</a></li>
+	
+	<li><a class="contrasted-black-text" href="/contacts/avis" onclick='updateWelcome();'>Votre avis sur le site mobile</a></li>
+	<li><a class="contrasted-black-text" href="/actualites" onclick='updateWelcome();'>Actualités SNCF</a></li>
+	<li><a class="contrasted-black-text" href="/noctilien" onclick='updateWelcome();'>Noctilien</a></li>
+	
+	<li>
+		<a class="langLink contrasted-black-text" href="/updateLang?lang=fr" lang="fr" hreflang="fr" onclick='updateLang("fr");'>Français /</a>
+		<a class="langLink contrasted-black-text" href="/updateLang?lang=en" lang="en" hreflang="en" onclick='updateLang("en");'>English <span id="hideIfEspagnol">/</span></a>
+		<a class="langLink contrasted-black-text" href="/updateLang?lang=es" lang="es" hreflang="es" onclick='updateLang("es");'>Español</a>
+
+	</li>
+	
+	<li><a class="optinLink contrasted-black-text" href="https://mon-transilien.com/webApp/tra_inscript?utm_campaign=footer&utm_medium=digital&utm_source=siteTNmobi" hreflang="fr">S’inscrire aux actualités Transilien</a></li>
+	
+	<li><a class="contrasted-black-text" href="/mentions" onclick='updateWelcome();'>Mentions légales</a></li>
+	<li><a class="contrasted-black-text" href="http://www.transilien.com" onclick='updateWelcome();'>www.transilien.com</a></li>
+	<li><a class="contrasted-black-text" href="" onclick="switchContrast()" id="contrastLink"></a>
+
+	<p class="appVersion">V3.0.2</p>
+
+</ul>
+
+
+<span id="hiddenLang" lang="fr"></span>
+
+    
+
+<script src="/assets/javascripts/jquery.smartbanner.js"></script>
+<script type="text/javascript"> $.smartbanner({
+	 title: 'SNCF', // Remplace le titre par d�faut (qui est le tag <title> par d�faut)
+	 author: null, // Remplace l'auteur par d�faut(qui est le <meta name="author">)
+	 price: 'Gratuit', // Prix de l'app 
+	 inAppStore: 'Dans l’App Store', // Texte � cot� du prix (ios)
+	 inGooglePlay: 'Dans Google Play', // Texte � cot� du prix (Android)
+	 icon: '/assets/images/sncf_114.png', // URL de l'icone (qui est la balise <link> par d�faut si on set � "null")
+	 iconGloss: null, // Force l'effet gloss (true ou false)
+	 button: 'AFFICHER', // Texte sur le bouton d'installation
+	 speedIn: 300, // Dur�e de l'animation d'apparition
+	 speedOut: 400, // Dur�e de l'animation de disparition
+	 daysHidden: 15, // Nombre de jours pendant lesquels la banni�re sera cach�e
+	 //apr�s la fermeture(0 = toujours afficher)
+	 daysReminder: 90, // Nombre de jours pendant lesquels la banni�re sera cach�e
+	 //apr�s le clic sur VIEW(0 = toujours afficher)
+	 force: null // Force l'affichage de la banni�re Android ou iOS
+	 }); </script>
+
+
+
+        </div>
+        
+        <SCRIPT type="text/javascript" src='//cdn.tagcommander.com/3473/uat/tc_TRANSILIENMOBI_3.js'></SCRIPT> 
+		<NOSCRIPT>
+			<IFRAME src="//redirect1781.tagcommander.com/utils/noscript.php?id=Transilien_3&mode=iframe&pagename=&order_id=&order_amount_tf_without_sf=" width="1" height="1"></IFRAME>
+		</NOSCRIPT>
+    </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+            <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+            <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+            <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+            <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+            <head><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link rel="shortcut icon" href="/themes/turku56/images/favicon.ico">
+<link rel="apple-touch-icon" href="/themes/turku56/images/apple-touch-icon.png">
+<meta name="Generator" content="DSpace 5.6">
+<link href="/themes/turku56/styles/main.css" rel="stylesheet">
+<link type="text/css" href="/static/css/creativecommons/cc-icons.min.css" rel="stylesheet">
+<link type="application/rss+xml" rel="alternate" href="/feed/rss_1.0/site">
+<link type="application/rss+xml" rel="alternate" href="/feed/rss_2.0/site">
+<link type="application/atom+xml" rel="alternate" href="/feed/atom_1.0/site">
+<link type="application/opensearchdescription+xml" rel="search" href="http://www.utupub.fi:80/open-search/description.xml" title="DSpace">
+<script>
+                //Clear default text of emty text areas on focus
+                function tFocus(element)
+                {
+                if (element.value == ' '){element.value='';}
+                }
+                //Clear default text of emty text areas on submit
+                function tSubmit(form)
+                {
+                var defaultedElements = document.getElementsByTagName("textarea");
+                for (var i=0; i != defaultedElements.length; i++){
+                if (defaultedElements[i].value == ' '){
+                defaultedElements[i].value='';}}
+
+                   //AM: If isbn is set, save it to localstorage for urn-generation
+                    var idType = document.getElementsByName("dc_identifier_qualifier");
+                    var idValue = document.getElementsByName("dc_identifier_value");
+                    var isbnValue = document.getElementsByName("dc_identifier_isbn");
+
+                    if (idValue.length == 0 && isbnValue.length > 0){
+                        if (isbnValue[0].value != ""){
+                            localStorage.setItem("form_isbn_id", isbnValue[0].value);
+                        }else if(isbnValue[0].value == ""){
+                            localStorage.removeItem("form_isbn_id");
+                        }
+                    }else if(idValue.length > 0 && isbnValue.length == 0){
+                        if (idType[0].value == "isbn" && idValue[0].value != ""){
+                            localStorage.setItem("form_isbn_id", idValue[0].value);
+                        } else if(idValue[0].value == ""){
+                            localStorage.removeItem("form_isbn_id");
+                        }
+                    }
+
+                }
+                //Disable pressing 'enter' key to submit a form (otherwise pressing 'enter' causes a submission to start over)
+                function disableEnterKey(e)
+                {
+                var key;
+
+                if(window.event)
+                key = window.event.keyCode;     //Internet Explorer
+                else
+                key = e.which;     //Firefox and Netscape
+
+                if(key == 13)  //if "Enter" pressed, then disable!
+                return false;
+                else
+                return true;
+                }
+            </script><!--[if lt IE 9]>
+                <script src="/themes/turku56/vendor/html5shiv/dist/html5shiv.js"> </script>
+                <script src="/themes/turku56/vendor/respond/dest/respond.min.js"> </script>
+                <![endif]--><script src="/themes/turku56/vendor/modernizr/modernizr.js"> </script>
+<title>Etusivu</title>
+</head><body>
+<header>
+<div role="navigation" class="navbar navbar-default navbar-static-top">
+<div id="navbarheader" class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="/">
+<div id="ds-header-logo"></div>
+</a>
+<div id="mobileLinks" class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+<ul class="nav nav-pills pull-left ">
+<li class="dropdown" id="ds-language-selection-xs">
+<button data-toggle="dropdown" class="dropdown-toggle navbar-toggle navbar-link" role="button" href="#" id="language-dropdown-toggle-xs"><b aria-hidden="true" class="visible-xs glyphicon glyphicon-globe"></b></button>
+<ul data-no-collapse="true" aria-labelledby="language-dropdown-toggle-xs" role="menu" class="dropdown-menu pull-right">
+<li role="presentation">
+<a id="langlink" href="javascript:document.repost.locale.value='lfi'; document.repost.submit();">Suomeksi</a>
+</li>
+<li role="presentation">
+<a id="langlink" href="javascript:document.repost.locale.value='len'; document.repost.submit();">In English</a>
+</li>
+</ul>
+</li>
+<li>
+<form method="get" action="/login" style="display: inline">
+<button class="navbar-toggle navbar-link"><b aria-hidden="true" class="visible-xs glyphicon glyphicon-user"></b></button>
+</form>
+</li>
+</ul>
+<button data-toggle="offcanvas" class="navbar-toggle" type="button"><span class="sr-only">N&auml;yt&auml;/piilota sivun navigointi</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+</div>
+</div>
+<div id="langSelectionWrapper" class="navbar-header pull-right hidden-xs">
+<ul class="nav navbar-nav pull-left" id="languageSelection">
+<form method="post" name="repost" action="">
+<input type="hidden" name="type"><input type="hidden" name="locale"><input value="" type="hidden" name="author">
+</form>
+<li role="presentation">
+<a id="langlink" href="javascript:document.repost.locale.value='lfi'; document.repost.submit();">Suomeksi</a>
+</li>
+<li role="presentation">
+<a id="langlink" href="javascript:document.repost.locale.value='len'; document.repost.submit();">In English</a>
+</li>
+</ul>
+<ul class="nav navbar-nav pull-left">
+<li>
+<a href="/login"><span class="hidden-xs">Kirjaudu</span></a>
+</li>
+</ul>
+<button type="button" class="navbar-toggle visible-sm" data-toggle="offcanvas"><span class="sr-only">N&auml;yt&auml;/piilota sivun navigointi</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+</div>
+</div>
+<span id="ds-color-stripe"></span>
+</div>
+</header>
+<div class="trail-wrapper hidden-print">
+<div class="container">
+<div id="topsearchbar" class="row">
+<div class="col-xs-12">
+<ul class="breadcrumb">
+<li>
+<i aria-hidden="true" class="glyphicon glyphicon-home"></i>&nbsp;
+            Etusivu</li>
+</ul>
+<div class="ds-option-set" id="ds-search-option">
+<form method="get" class="" id="ds-search-form" action="/discover">
+<fieldset>
+<div class="input-group">
+<input placeholder="Hae" type="text" class="ds-text-field form-control" name="query"><span class="input-group-btn"><button title="Siirry" class="ds-button-field btn btn-primary"><span aria-hidden="true" class="glyphicon glyphicon-search"></span></button></span>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden" id="no-js-warning-wrapper">
+<div id="no-js-warning">
+<div class="notice failure">JavaScript is disabled for your browser. Some features of this site may not work without it.</div>
+</div>
+</div>
+<div class="container" id="main-container">
+<div class="row row-offcanvas row-offcanvas-right">
+<div class="horizontal-slider contentwrapper clearfix">
+<div class="col-xs-12 col-sm-12 col-md-9 main-content">
+<div>
+<h2 class="ds-div-head page-header first-page-header">UTUPub</h2>
+<div id="file_news_div_news" class="ds-static-div primary">
+<p class="ds-paragraph">UTUPub on Turun yliopiston avoin julkaisuarkisto, joka korvaa yliopistossa aiemmin k&auml;yt&ouml;ss&auml; olleen Doria-julkaisuarkiston. UTUPub sis&auml;lt&auml;&auml; Turun yliopiston opinn&auml;ytet&ouml;it&auml; kuten v&auml;it&ouml;skirjoja, lisensiaatint&ouml;it&auml; ja pro gradu -tutkielmia sek&auml; pro gradu -tutkielmien tiivistelmi&auml;. Opinn&auml;ytet&ouml;iden lis&auml;ksi julkaisuarkistoon on tallennettu muita Turun yliopiston tiedekuntien ja laitosten julkaisuja.</p>
+</div>
+
+<div id="aspect_artifactbrowser_CommunityBrowser_div_browserwrapper" class="ds-static-div">
+<h2 class="ds-div-head page-header">Kokoelmat</h2>
+<div id="aspect_artifactbrowser_CommunityBrowser_div_comunity-browser" class="ds-static-div primary">
+<p class="ds-paragraph">Valitse yhteis&ouml;, jonka kokoelmia haluat selata.</p>
+<div id="aspect_artifactbrowser_CommunityBrowser_referenceSet_community-browser" class="ds-static-div community-browser-wrapper">
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-2 col-sm-1"></div>
+<div class="ds-static-div col-xs-10 col-sm-11">
+<a href="/handle/10024/5788" name="community-browser-link">Turun yliopisto </a> [8961]</div>
+</div>
+<div id="collapse-10024_5788" class="ds-static-div sub-tree-wrapper">
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143699" name="community-browser-link">Erillisteokset ja sarjat </a> [335]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143701" name="community-browser-link">Lisensiaatintutkielmat</a> [17]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143706" name="community-browser-link">Opinn&auml;ytet&ouml;iden tiivistelm&auml;t (ei kokoteksti&auml;) </a> [5217]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143702" name="community-browser-link">Pro gradu -tutkielmat ja diplomity&ouml;t sek&auml; syvent&auml;vien opintojen opinn&auml;ytety&ouml;t (kokotekstit) </a> [1792]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143703" name="community-browser-link">Pro gradu -tutkielmat ja diplomity&ouml;t sek&auml; syvent&auml;vien opintojen opinn&auml;ytety&ouml;t (rajattu n&auml;kyvyys) </a> [1]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/10024/143705" name="community-browser-link">V&auml;it&ouml;skirjat</a> [1599]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="aspect_discovery_SiteRecentSubmissions_div_site-home" class="ds-static-div primary repository">
+<h2 class="ds-div-head page-header">Viimeksi lis&auml;tty</h2>
+<div id="aspect_discovery_SiteRecentSubmissions_div_site-recent-submission" class="ds-static-div secondary recent-submission">
+<ul class="ds-artifact-list list-unstyled">
+<!-- External Metadata URL: cocoon://metadata/handle/10024/144732/mets.xml?sections=dmdSec,fileSec&fileGrpTypes=THUMBNAIL,ORIGINAL-->
+<li class="ds-artifact-item odd">
+<div class="item-wrapper row">
+<div class="col-sm-3 hidden-xs">
+<div class="thumbnail artifact-preview">
+<a href="/handle/10024/144732" class="image-link"><img class="img-responsive" alt="Pikkukuva" src="/themes/turku56/../../static/icons/nofile.png"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="artifact-description">
+<h4 class="artifact-title">
+<a href="/handle/10024/144732">&rdquo;No, parhaas tapaukses t&auml;s ollaan pelastettu monen nuoren el&auml;m&auml;.&rdquo; : Tapaustutkimus elektronisen urheilun ja digitaalisen pelaamisen hy&ouml;dynt&auml;misest&auml; nuorisoty&ouml;ss&auml;</a><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft_id=http%3A%2F%2Fwww.utupub.fi%2Fhandle%2F10024%2F144732&amp;rfr_id=info%3Asid%2Fdspace.org%3Arepository&amp;">
+                    ﻿ 
+                </span>
+</h4>
+<div class="artifact-info">
+<span class="author h4"><small><span>Sabell, Annika</span></small></span>  <span class="publisher-date h4"><small>(<span class="publisher">Turun yliopisto</span>, <span class="date">21.03.2018</span>)</small></span>
+</div>
+<div class="artifact-abstract">T&auml;ss&auml; tutkimuksessa tarkastelen digitaalisen pelaamisen hy&ouml;dynt&auml;mist&auml; Suomessa ja erityisesti Turun kaupungin nuorisopalveluissa teht&auml;v&auml;ss&auml; nuorisoty&ouml;ss&auml;. Tutkin yksityiskohtaisemmin Turun kaupungin nuorisopalvelujen Turku ...</div>
+</div>
+</div>
+</div>
+</li>
+<!-- External Metadata URL: cocoon://metadata/handle/10024/144735/mets.xml?sections=dmdSec,fileSec&fileGrpTypes=THUMBNAIL,ORIGINAL-->
+<li class="ds-artifact-item even">
+<div class="item-wrapper row">
+<div class="col-sm-3 hidden-xs">
+<div class="thumbnail artifact-preview">
+<a href="/handle/10024/144735" class="image-link"><img class="img-responsive" alt="Pikkukuva" src="/themes/turku56/../../static/icons/nofile.png"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="artifact-description">
+<h4 class="artifact-title">
+<a href="/handle/10024/144735">Aivojen MRI-pohjainen atrofia, haitta-aste sek&auml; kognitio RRMS- ja SPMS-potilailla uudelleenpoimintamenetelm&auml;t apukeinona</a><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft_id=http%3A%2F%2Fwww.utupub.fi%2Fhandle%2F10024%2F144735&amp;rfr_id=info%3Asid%2Fdspace.org%3Arepository&amp;">
+                    ﻿ 
+                </span>
+</h4>
+<div class="artifact-info">
+<span class="author h4"><small><span>Viitala, Matias</span></small></span>  <span class="publisher-date h4"><small>(<span class="publisher">Turun yliopisto</span>, <span class="date">21.03.2018</span>)</small></span>
+</div>
+<div class="artifact-abstract">T&auml;ss&auml; tutkielmassa tarkastellaan ja verrataan MS-taudin kahden etenemismuodon potilaita, aaltomaisesti etenev&auml;n MS-taudin potilaita (RRMS-potilaat) sek&auml; toissijaisesti etenev&auml;n MS-taudin potilaita (SPMS-potilaat), aivojen ...</div>
+</div>
+</div>
+</div>
+</li>
+<!-- External Metadata URL: cocoon://metadata/handle/10024/144734/mets.xml?sections=dmdSec,fileSec&fileGrpTypes=THUMBNAIL,ORIGINAL-->
+<li class="ds-artifact-item odd">
+<div class="item-wrapper row">
+<div class="col-sm-3 hidden-xs">
+<div class="thumbnail artifact-preview">
+<a href="/handle/10024/144734" class="image-link"><img class="img-responsive" alt="Pikkukuva" src="/themes/turku56/../../static/icons/nofile.png"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="artifact-description">
+<h4 class="artifact-title">
+<a href="/handle/10024/144734">Sis&auml;isen vetysitoutumisen vaikutus j&auml;k&auml;lien fenolisten yhdisteiden bioaktiivisuuteen</a><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft_id=http%3A%2F%2Fwww.utupub.fi%2Fhandle%2F10024%2F144734&amp;rfr_id=info%3Asid%2Fdspace.org%3Arepository&amp;">
+                    ﻿ 
+                </span>
+</h4>
+<div class="artifact-info">
+<span class="author h4"><small><span>Lausti, Niklas</span></small></span>  <span class="publisher-date h4"><small>(<span class="publisher">Turun yliopisto</span>, <span class="date">21.03.2018</span>)</small></span>
+</div>
+<div class="artifact-abstract">J&auml;k&auml;list&auml; on l&ouml;ydetty satoja yhdisteit&auml;, joista monet ovat tyypillisi&auml; vain j&auml;k&auml;lille. N&auml;iden yhdisteiden hy&ouml;dynt&auml;mist&auml; rajoittaa j&auml;k&auml;l&auml;n hidas-kasvuisuus. Yhdisteist&auml; j&auml;k&auml;lien sis&auml;lt&auml;m&auml;t polyfenolit ovat kiinnostavia ...</div>
+</div>
+</div>
+</div>
+</li>
+<!-- External Metadata URL: cocoon://metadata/handle/10024/144733/mets.xml?sections=dmdSec,fileSec&fileGrpTypes=THUMBNAIL,ORIGINAL-->
+<li class="ds-artifact-item even">
+<div class="item-wrapper row">
+<div class="col-sm-3 hidden-xs">
+<div class="thumbnail artifact-preview">
+<a href="/handle/10024/144733" class="image-link"><img class="img-responsive" alt="Pikkukuva" src="/themes/turku56/../../static/icons/nofile.png"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="artifact-description">
+<h4 class="artifact-title">
+<a href="/handle/10024/144733">Koodausteoriaa lukiolaiselle</a><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft_id=http%3A%2F%2Fwww.utupub.fi%2Fhandle%2F10024%2F144733&amp;rfr_id=info%3Asid%2Fdspace.org%3Arepository&amp;">
+                    ﻿ 
+                </span>
+</h4>
+<div class="artifact-info">
+<span class="author h4"><small><span>Ruus, Stella</span></small></span>  <span class="publisher-date h4"><small>(<span class="publisher">Turun yliopisto</span>, <span class="date">21.03.2018</span>)</small></span>
+</div>
+<div class="artifact-abstract">Opinn&auml;ytety&ouml; Koodausteoriaa lukiolaiselle on tarkoitettu oppimateriaaliksi.&#13;
+&#13;
+Tutkielma soveltuu matematiikasta tai matematiikan yliopisto-opinnoista kiinnostuneelle lukiolaiselle itsen&auml;iseen opiskeluun. Tutkielmaa voi ...</div>
+</div>
+</div>
+</div>
+</li>
+<!-- External Metadata URL: cocoon://metadata/handle/10024/144738/mets.xml?sections=dmdSec,fileSec&fileGrpTypes=THUMBNAIL,ORIGINAL-->
+<li class="ds-artifact-item odd">
+<div class="item-wrapper row">
+<div class="col-sm-3 hidden-xs">
+<div class="thumbnail artifact-preview">
+<a href="/handle/10024/144738" class="image-link"><img class="img-responsive" alt="Pikkukuva" src="/themes/turku56/../../static/icons/nofile.png"></a>
+</div>
+</div>
+<div class="col-sm-9">
+<div class="artifact-description">
+<h4 class="artifact-title">
+<a href="/handle/10024/144738">Ven&auml;j&auml;n kansalliset intressit arktisella alueella : turvallisuuspoliittisen argumentaation muutos 2008&ndash;2016</a><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft_id=http%3A%2F%2Fwww.utupub.fi%2Fhandle%2F10024%2F144738&amp;rfr_id=info%3Asid%2Fdspace.org%3Arepository&amp;">
+                    ﻿ 
+                </span>
+</h4>
+<div class="artifact-info">
+<span class="author h4"><small><span>Sulin, Jouni</span></small></span>  <span class="publisher-date h4"><small>(<span class="publisher">Turun yliopisto</span>, <span class="date">21.03.2018</span>)</small></span>
+</div>
+<div class="artifact-abstract">Tutkielmassa k&auml;sitell&auml;&auml;n Ven&auml;j&auml;n keskeisi&auml; arktiseen politiikkaan liittyvi&auml; kansallisia intressej&auml; sek&auml; arktista aluetta koskevaa turvallisuuspoliittista argumentaatiota vuosina 2008&ndash;2016, leikkauspisteen&auml; Krimin haltuunotto ...</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<p id="aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more" class="ds-paragraph recentSubmissionViewMore">
+<a href="/recent-submissions">N&auml;yt&auml; lis&auml;&auml;</a>
+</p>
+</div>
+</div>
+</div>
+<div class="visible-xs visible-sm">
+<footer>
+<div class="row">
+<hr>
+<div class="col-xs-7 col-sm-8">
+<div class="hidden-print">Turun yliopiston kirjasto | Turun yliopisto</div>
+</div>
+<div class="col-xs-5 col-sm-4 hidden-print">
+<div class="pull-right">
+<a href="/contact">julkaisut@utu.fi</a> | <a href="/feedback">L&auml;het&auml; palautetta</a>
+</div>
+</div>
+</div>
+<a class="hidden" href="/htmlmap">&nbsp;</a>
+<p>&nbsp;</p>
+</footer>
+</div>
+</div>
+<div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+<div class="word-break hidden-print" id="ds-options">
+<h2 class="ds-option-set-head  h6">Kaikki aineistot</h2>
+<div id="aspect_viewArtifacts_Navigation_list_browse" class="list-group">
+<a href="/browse?type=dateissued" class="list-group-item ds-option">Julkaisuajat</a><a href="/browse?type=author" class="list-group-item ds-option">Tekij&auml;t</a><a href="/browse?type=title" class="list-group-item ds-option">Nimekkeet</a><a href="/browse?type=subject" class="list-group-item ds-option">Asiasanat</a><a href="/browse?type=faculty" class="list-group-item ds-option">Tiedekunta</a><a href="/browse?type=department" class="list-group-item ds-option">Laitos</a><a href="/browse?type=studysubject" class="list-group-item ds-option">Oppiaine</a><a href="/community-list" class="list-group-item ds-option">Yhteis&ouml;t ja kokoelmat</a>
+</div>
+<div id="aspect_viewArtifacts_Navigation_list_browse2" class="list-group"></div>
+<h2 class="ds-option-set-head  h6">Omat tiedot</h2>
+<div id="aspect_viewArtifacts_Navigation_list_account" class="list-group">
+<a href="/login" class="list-group-item ds-option">Kirjaudu sis&auml;&auml;n</a><a href="/register" class="list-group-item ds-option">Rekister&ouml;idy</a>
+</div>
+<div id="aspect_viewArtifacts_Navigation_list_context" class="list-group"></div>
+<div id="aspect_viewArtifacts_Navigation_list_administrative" class="list-group"></div>
+<h2 class="ds-option-set-head  h6">Silm&auml;ile</h2>
+<div id="aspect_discovery_Navigation_list_discovery" class="list-group">
+<a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Sis&auml;lt&ouml;tyyppi</span></a><a href="/discover?filtertype=text_content&filter_relational_operator=equals&filter=fulltext" class="list-group-item ds-option">fulltext (3737)</a><a href="/discover?filtertype=text_content&filter_relational_operator=equals&filter=abstractOnly" class="list-group-item ds-option">abstractOnly (2917)</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Opinn&auml;ytteen taso</span></a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DPro+gradu+-tutkielma%7Cen%3DMaster%27s+thesis%7C" class="list-group-item ds-option">Pro gradu -tutkielma</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DArtikkeliv%C3%A4it%C3%B6skirja%7Cen%3DDoctoral+dissertation+%28article-based%29%7C" class="list-group-item ds-option">Artikkeliv&auml;it&ouml;skirja</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DSyvent%C3%A4vien+opintojen+kirjallinen+ty%C3%B6%7Cen%3DSecond+Cycle+degree+thesis%7C" class="list-group-item ds-option">Syvent&auml;vien opintojen kirjallinen ty&ouml;</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DMonografiav%C3%A4it%C3%B6skirja%7Cen%3DDoctoral+dissertation+%28monograph%29%7C" class="list-group-item ds-option">Monografiav&auml;it&ouml;skirja</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DDiplomity%C3%B6%7Cen%3DMaster%27s+thesis%7C" class="list-group-item ds-option">Diplomity&ouml;</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DSivuaineen+tutkielma%7Cen%3DMinor%27s+thesis%7C" class="list-group-item ds-option">Sivuaineen tutkielma</a><a href="/discover?filtertype=ontasot&filter_relational_operator=equals&filter=fi%3DLisensiaatinty%C3%B6%7Cen%3DLicentiate+thesis%7C" class="list-group-item ds-option">Lisensiaatinty&ouml;</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Tiedekunta</span></a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DTurun+kauppakorkeakoulu%7Cen%3DTurku+School+of+Economics%7C" class="list-group-item ds-option">Turun kauppakorkeakoulu</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DL%C3%A4%C3%A4ketieteellinen+tiedekunta%7Cen%3DFaculty+of+Medicine%7C" class="list-group-item ds-option">L&auml;&auml;ketieteellinen tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DHumanistinen+tiedekunta%7Cen%3DFaculty+of+Humanities%7C" class="list-group-item ds-option">Humanistinen tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DLuonnontieteiden+ja+tekniikan+tiedekunta%7Cen%3DFaculty+of+Science+and+Engineering%7C" class="list-group-item ds-option">Luonnontieteiden ja tekniikan tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DKasvatustieteiden+tiedekunta%7Cen%3DFaculty+of+Education%7C" class="list-group-item ds-option">Kasvatustieteiden tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DYhteiskuntatieteellinen+tiedekunta%7Cen%3DFaculty+of+Social+Sciences%7C" class="list-group-item ds-option">Yhteiskuntatieteellinen tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DOikeustieteellinen+tiedekunta%7Cen%3DFaculty+of+Law%7C" class="list-group-item ds-option">Oikeustieteellinen tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DErillislaitokset%7Cen%3DSpecial+Units%7C" class="list-group-item ds-option">Erillislaitokset</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DMatemaattis-luonnontieteellinen+tiedekunta%7Cen%3DFaculty+of+Mathematics+and+Natural+Sciences%7C" class="list-group-item ds-option">Matemaattis-luonnontieteellinen tiedekunta</a><a href="/discover?filtertype=faculty&filter_relational_operator=equals&filter=fi%3DLuonnontieteiden+ja+tekniikan+tiedekunta%7Cen%3DFaculty+of+Mathematics+and+Natural+Sciences%7C" class="list-group-item ds-option">Luonnontieteiden ja tekniikan tiedekunta</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Laitos</span></a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DMarkkinoinnin+ja+kansainv%C3%A4lisen+liiketoiminnan+laitos%7Cen%3DDepartment+of+Marketing+and+International+Business%7C" class="list-group-item ds-option">Markkinoinnin ja kansainv&auml;lisen liiketoiminnan laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DLaskentatoimen+ja+rahoituksen+laitos%7Cen%3DDepartment+of+Accounting+and+Finance%7C" class="list-group-item ds-option">Laskentatoimen ja rahoituksen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DHistorian%2C+kulttuurin+ja+taiteiden+tutkimuksen+laitos%7Cen%3DSchool+of+History%2C+Cultural+Research+and+Art+Studies%7C" class="list-group-item ds-option">Historian, kulttuurin ja taiteiden tutkimuksen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DJohtamisen+ja+yritt%C3%A4jyyden+laitos%7Cen%3DDepartment+of+Management+and+Entrepreneurship%7C" class="list-group-item ds-option">Johtamisen ja yritt&auml;jyyden laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DKieli-+ja+k%C3%A4%C3%A4nn%C3%B6stieteiden+laitos%7Cen%3DSchool+of+Languages+and+Translation+Studies%7C" class="list-group-item ds-option">Kieli- ja k&auml;&auml;nn&ouml;stieteiden laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DKliininen+laitos%7Cen%3DInstitute+of+Clinical+Medicine%7C" class="list-group-item ds-option">Kliininen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DOikeustieteellinen+tiedekunta%7Cen%3DFaculty+of+Law%7C" class="list-group-item ds-option">Oikeustieteellinen tiedekunta</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DKasvatustieteiden+laitos%7Cen%3DDepartment+of+Education%7C" class="list-group-item ds-option">Kasvatustieteiden laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DTulevaisuuden+teknologioiden+laitos%7Cen%3DDepartment+of+Future+Technologies%7C" class="list-group-item ds-option">Tulevaisuuden teknologioiden laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DOpettajankoulutuslaitos%7Cen%3DDepartment+of+Teacher+Education%7C" class="list-group-item ds-option">Opettajankoulutuslaitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DBiol%C3%A4%C3%A4ketieteen+laitos%7Cen%3DInstitute+of+Biomedicine%7C" class="list-group-item ds-option">Biol&auml;&auml;ketieteen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DSosiaalitieteiden+laitos%7Cen%3DDepartment+of+Social+Research%7C" class="list-group-item ds-option">Sosiaalitieteiden laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DTaloustieteen+laitos%7Cen%3DDepartment+of+Economics%7C" class="list-group-item ds-option">Taloustieteen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DTurun+kauppakorkeakoulu%2C+Porin+yksikk%C3%B6%7Cen%3DTurku+School+of+Economics%2C+Pori%7C" class="list-group-item ds-option">Turun kauppakorkeakoulu, Porin yksikk&ouml;</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DBiokemian+laitos%7Cen%3DDepartment+of+Biochemistry%7C" class="list-group-item ds-option">Biokemian laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DFilosofian%2C+poliittisen+historian+ja+valtio-opin+laitos%7Cen%3DDepartment+of+Philosophy%2C+Contemp.History+and+Political+Sc.%7C" class="list-group-item ds-option">Filosofian, poliittisen historian ja valtio-opin laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DFysiikan+ja+t%C3%A4htitieteen+laitos%7Cen%3DDepartment+of+Physics+and+Astronomy%7C" class="list-group-item ds-option">Fysiikan ja t&auml;htitieteen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DHammasl%C3%A4%C3%A4ketieteen+laitos%7Cen%3DInstitute+of+Dentistry%7C" class="list-group-item ds-option">Hammasl&auml;&auml;ketieteen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DHoitotieteen+laitos%7Cen%3DDepartment+of+Nursing+Science%7C" class="list-group-item ds-option">Hoitotieteen laitos</a><a href="/discover?filtertype=department&filter_relational_operator=equals&filter=fi%3DMatematiikan+ja+tilastotieteen+laitos%7Cen%3DDepartment+of+Mathematics+and+Statistics%7C" class="list-group-item ds-option">Matematiikan ja tilastotieteen laitos</a><a href="/search-filter?field=department" class="list-group-item ds-option">... Katso lis&auml;&auml;</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Oppiaine</span></a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DLaskentatoimi+ja+rahoitus%7Cen%3DAccounting+and+Finance%7C" class="list-group-item ds-option">Laskentatoimi ja rahoitus</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DKansainv%C3%A4linen+liiketoiminta%7Cen%3DInternational+Business%7C" class="list-group-item ds-option">Kansainv&auml;linen liiketoiminta</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DMarkkinointi%7Cen%3DMarketing%7C" class="list-group-item ds-option">Markkinointi</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DJohtaminen+ja+organisointi%7Cen%3DManagement+and+Organisation%7C" class="list-group-item ds-option">Johtaminen ja organisointi</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DOikeustiede%2C+OTM-tutkinto%7Cen%3DLaw%2C+Master+of+Laws%7C" class="list-group-item ds-option">Oikeustiede, OTM-tutkinto</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DKasvatustiede%2C+kasvatustieteiden+laitos%7Cen%3DEducational+Sciences%7C" class="list-group-item ds-option">Kasvatustiede, kasvatustieteiden laitos</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DTietoj%C3%A4rjestelm%C3%A4tiede%7Cen%3DInformation+Systems+Science%7C" class="list-group-item ds-option">Tietoj&auml;rjestelm&auml;tiede</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DTaloustiede%7Cen%3DEconomics%7C" class="list-group-item ds-option">Taloustiede</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DKulttuurituotanto+ja+maisemantutkimus%2C+Pori%7Cen%3DCultural+Production+and+Landscape+Studies%7C" class="list-group-item ds-option">Kulttuurituotanto ja maisemantutkimus, Pori</a><a href="/discover?filtertype=studysubject&filter_relational_operator=equals&filter=fi%3DToimitusketjujen+johtaminen%7Cen%3DOperations+and+Supply+Chain+Management%7C" class="list-group-item ds-option">Toimitusketjujen johtaminen</a><a href="/search-filter?field=studysubject" class="list-group-item ds-option">... Katso lis&auml;&auml;</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Tekij&auml;</span></a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Sundberg%2C+Pekka" class="list-group-item ds-option">Sundberg, Pekka (15)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Lehtonen%2C+Teijo" class="list-group-item ds-option">Lehtonen, Teijo (14)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Tapaninen%2C+Ulla" class="list-group-item ds-option">Tapaninen, Ulla (13)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Haanp%C3%A4%C3%A4%2C+Leena" class="list-group-item ds-option">Haanp&auml;&auml;, Leena (8)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Posti%2C+Antti" class="list-group-item ds-option">Posti, Antti (8)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Holma%2C+Elisa" class="list-group-item ds-option">Holma, Elisa (7)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Lappalainen%2C+Jouni" class="list-group-item ds-option">Lappalainen, Jouni (7)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Koponen%2C+Aki" class="list-group-item ds-option">Koponen, Aki (6)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=S%C3%A4ntti%2C+Tero" class="list-group-item ds-option">S&auml;ntti, Tero (6)</a><a href="/discover?filtertype=author&filter_relational_operator=equals&filter=Dervin%2C+Fred" class="list-group-item ds-option">Dervin, Fred (5)</a><a href="/search-filter?field=author" class="list-group-item ds-option">... Katso lis&auml;&auml;</a><a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Julkaisuaika</span></a><a href="/discover?filtertype=dateIssued&filter_relational_operator=equals&filter=%5B2000+TO+2018%5D" class="list-group-item ds-option">2000 - 2018 (8932)</a><a href="/discover?filtertype=dateIssued&filter_relational_operator=equals&filter=%5B1900+TO+1999%5D" class="list-group-item ds-option">1900 - 1999 (9)</a><a href="/discover?filtertype=dateIssued&filter_relational_operator=equals&filter=%5B1800+TO+1899%5D" class="list-group-item ds-option">1800 - 1899 (1)</a><a href="/discover?filtertype=dateIssued&filter_relational_operator=equals&filter=%5B1741+TO+1799%5D" class="list-group-item ds-option">1741 - 1799 (10)</a>
+</div>
+<div>
+<h2 class="ds-option-set-head h6">RSS-sy&ouml;te</h2>
+<div class="ds-option-set list-group" id="ds-feed-option">
+<a class="list-group-item" href="/feed/rss_1.0/site"><img alt="sy&ouml;te" class="btn-xs" src="/static/icons/feed.png">RSS 1.0</a><a class="list-group-item" href="/feed/rss_2.0/site"><img alt="sy&ouml;te" class="btn-xs" src="/static/icons/feed.png">RSS 2.0</a><a class="list-group-item" href="/feed/atom_1.0/site"><img alt="sy&ouml;te" class="btn-xs" src="/static/icons/feed.png">Atom</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden-xs hidden-sm">
+<footer>
+<div class="row">
+<hr>
+<div class="col-xs-7 col-sm-8">
+<div class="hidden-print">Turun yliopiston kirjasto | Turun yliopisto</div>
+</div>
+<div class="col-xs-5 col-sm-4 hidden-print">
+<div class="pull-right">
+<a href="/contact">julkaisut@utu.fi</a> | <a href="/feedback">L&auml;het&auml; palautetta</a>
+</div>
+</div>
+</div>
+<a class="hidden" href="/htmlmap">&nbsp;</a>
+<p>&nbsp;</p>
+</footer>
+</div>
+</div>
+<script>if(!window.DSpace){window.DSpace={};}window.DSpace.context_path='';window.DSpace.theme_path='/themes/turku56/';</script><script src="/themes/turku56/scripts/theme.js"> </script><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-4529429-2');
+              ga('send', 'pageview');
+       </script>
+</body></html>

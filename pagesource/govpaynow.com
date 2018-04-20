@@ -1,0 +1,1 @@
+<meta HTTP-EQUIV="REFRESH" content="0; url=https://www.govpaynow.com/gps/user/">

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en" dir="rtl"><head><title>رهن و اجاره خانه و آپارتمان، خرید و فروش خانه و مسکن در ایران | آلونک</title><base href="/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="آلونک وبسایت و اپلیکیشن تخصصی آگهی املاک و  بستر ارتباط متقاضیان ملک و مشاوران املاک معتبر است. در آلونک برای خرید و اجاره آپارتمان مسکونی اداری ویلا مستغلات کلنگی زمین تجاری پنت‌هاوس در تهران، کرج، مازندران و اصفهان جستجو کنید و اطلاعات هر محله را بررسی کنید"><meta name="samandehi" content="772434202"/><meta name="fragment" content="!"><meta name="theme-color" content="#01b0ff"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Alounakcompany"/><meta name="twitter:title" content="رهن و اجاره خانه و آپارتمان، خرید و فروش خانه و مسکن در ایران | آلونک"/><meta name="twitter:description" content="آلونک وبسایت و اپلیکیشن تخصصی آگهی املاک و  بستر ارتباط متقاضیان ملک و مشاوران املاک معتبر است. در آلونک برای خرید و اجاره آپارتمان مسکونی اداری ویلا مستغلات کلنگی زمین تجاری پنت‌هاوس در تهران، کرج، مازندران و اصفهان جستجو کنید و اطلاعات هر محله را بررسی کنید"><meta name="twitter:image" content="/assets/images/logo.png"/><meta name="twitter:image:alt" content="آلونک"/><meta property="og:type" content="website"/><meta property="og:title" content="رهن و اجاره خانه و آپارتمان، خرید و فروش خانه و مسکن در ایران | آلونک"/><meta property="og:locale" content="fa_IR"/><meta property="og:url" content="https://www.alounak.com"/><meta property="og:image" content="/assets/images/logo.png"/><meta property="og:site_name" content="آلونک"/><meta name="apple-itunes-app" content="app-id=1180823140"/><meta name="google-play-app" content="app-id=ir.alounak.user"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="manifest" href="/manifest.json"/><script type="application/ld+json">{
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "https://www.alounak.com",
+      "logo": "https://www.alounak.com/assets/images/logo.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+98-021-96863006",
+        "contactType": "customer support"
+      }],
+      "sameAs": [
+        "https://twitter.com/Alounakcompany",
+        "https://instagram.com/alounak",
+        "https://www.linkedin.com/company/17878740",
+        "https://telegram.me/alounak"
+      ]
+    }</script><link href="styles.e8e09a5da2c58717ff51.bundle.css" rel="stylesheet"/></head><body><!-- <script src="https://blog.superfeedr.com/feed-api/superfeedr.js"></script> --><!-- <script src="assets/scripts/superfeedr.js"></script> --><!-- <img src="/assets/images/beta.png" alt="" id="beta"> --><noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=cb9zo1IWx810mh" style="display:none" height="1" width="1" alt=""/></noscript><alounak-app></alounak-app><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.16286cde992a53adbc8d.bundle.js"></script><script type="text/javascript" src="scripts.23695a771932562ec479.bundle.js"></script><script type="text/javascript" src="main.f978a5d24f367cb55a50.bundle.js"></script></body></html>

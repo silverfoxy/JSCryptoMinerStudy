@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>Бесплатный файлообменник без регистрации, загрузить файл </title>
+
+<META http-equiv="content-type" content="text/html; charset=windows-1251">
+<META name="description" content="Файлообменник Fayloobmennik.net быстрый способ обмена файлами до 2Гб, удобный хостинг файлов и загрузка без регистрации">
+<META name="keywords" content="обмен файлами, файлообменник бесплатный, файлообменник без регистрации, быстрый файлообменник ">
+<meta name="google-site-verification" content="xeonDjv_esAZKK46lkRwS8Tv77QrTSoujCFb0Gvyupo" />
+
+
+<LINK rel="stylesheet" type="text/css" href="/style.css">
+		
+<link rel="shortcut icon" href="/favicon.ico">
+
+<!-- jquery -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!-- jquery -->
+
+
+<script type="text/javascript" src="/js/functions.js"></script>
+<script type="text/javascript" src="/js/my.js"></script>
+
+</head>
+<body>
+
+<div id="banner_top" align="center"></div>
+<div class="line_down" align="center"></div>
+
+<div align="center">
+	<div class="content" align="left">
+		<div id="banner">
+        
+
+		</div>
+		<div id="up_page" align="left">
+			<p><span><A href="/uploadmanager.html" title="Программа для закачки файлов" id="menu_14" >Программа для закачки файлов</A></span>
+ | <span><A href="/faq.html" title="Вопросы-Ответы по работе файлообменника" id="menu_19" >FAQ</A></span>
+ | <span><A href="/public/news.html" title="ознакомиться с новостями файлообменника" id="menu_15" >Новости</A></span>
+<br>
+			<a href="/auth/reg.html" class="menu_auth">регистрация</a> | <a href="/auth.html" class="menu_auth">вход</a>
+		</p>
+		</div>
+	</div>
+
+	<div class="content" align="left">
+		<div id="logo" align="left"></div>
+		<div id="menu_big" align="left">
+			<A href="/" class="link_green">Загрузить файл</A> 
+			<A href="/files/list.html" class="link_red">Скачать файлы</A> 
+			<A href="/guest.html" class="link_blue">Оставить мнение</A>
+					</div>
+		<div id="menu_other" align="left">Полезное: <A href="/uploadmanager.html">программа для закачки</A> <A href="/topmp3.html">ТОП музыкальных файлов</A> </div>
+
+		<div class="empty"></div>
+
+
+
+		<div class="block_upload_i">
+		<IMG src="/img/ico/upload_ico.png" width="39" height="41" align="left" border="0" hspace="10">
+		<h3>Загрузить свой файл</h3>
+		<p class="note">В форме приведенной ниже нажмите кнопку обзор и выберите файл который вы хотите разместить у нас. После загрузки вы получите ссылку для скачивания.<br></p>
+		<script type="text/javascript" src="/js/jquery.progressbar.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#uploadprogressbar").progressBar();
+	});
+
+	function accept_form() {
+		if (document.getElementById('accept').checked == true) {
+			document.getElementById('sending').disabled = false;
+		}
+		else {
+			document.getElementById('sending').disabled = true;
+		}
+	}
+	
+	function beginUpload() {
+		document.getElementById('sending').disabled = true;
+		document.getElementById('iframe').className='nohint';
+		$("#uploadprogressbar").fadeIn();
+
+		var i = setInterval(function() {
+            $.ajax({
+                url: "/files_apc.php?APC_UPLOAD_PROGRESS=5ab070903387b",
+                cache: false,
+                success: function(data){
+                	/*if (data == null || data == 100 ) {
+						clearInterval(i);
+						location.reload(true);
+						return;
+					}*/
+					$("#uploadprogressbar").progressBar(data);
+				}
+			});
+		}, 1000);
+		return true;
+	}
+</script>
+		<style type="text/css">
+			table tr { vertical-align: top; }
+			table td { padding: 3px; }
+			div.contentblock { padding-bottom: 25px; }	
+			#uploadprogressbar { display: none; }
+		</style>
+
+<FORM action="http://fayloobmennik.cloud/files/save_new.html" method="POST" enctype="multipart/form-data" name="send" id="uploadform" onsubmit="beginUpload();" target="iframe">
+
+	<div class="index_form1">
+
+<input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="5ab070903387b" />
+<table width="95%">
+  <tbody>
+    <tr>
+      <td width="250">Выберите файл <strong>(MAX 2000mb)</strong>:</td>
+      <td><INPUT type="file" name="file" size="13"></td>
+    </tr>
+</table>
+
+<DIV style="color: #585858;">
+	<table width="100%">
+		<tr>
+		<td width="250">Описание</td>
+		<td><INPUT type="text" name="file_note" style="width: 100%;" maxlength="200"></td>
+		</tr>
+		<tr>
+			<td>Ваш e-mail</td>
+		<td><INPUT type="text" name="file_user_email" style="width: 100%;" maxlength="200"></td>
+				</tr>
+		<tr>
+		<td>Пароль к файлу</td>
+		<td><INPUT type="text" name="file_user_password" style="width: 100%;" maxlength="200"></td>
+		</tr>
+	</tbody>
+	</table>
+		<p class="note"><strong>Чтобы скрыть файл от посторонних, укажите пароль! Он будет выслан на e-mail, если заполните это поле.</strong></p>
+		</DIV>
+
+</div>
+	<div class="index_form2">
+
+<p><INPUT type="checkbox" name="accept" id="accept" onchange="accept_form();"><strong>Согласен с <A href="/pravila.html">правилами сервиса</A></strong></p>
+<INPUT class="send_file" type="submit" id="sending" name="send" value="Загрузить" disabled="true">
+<div class="progressbar" id="uploadprogressbar">0%</div><br>
+<iframe name="iframe" frameborder="0" height="80" width="400" class="hint" id="iframe" scrolling="no" ></iframe>
+
+	</div>
+
+
+</FORM>
+
+
+			</div>
+
+
+
+
+
+		<div class="block_files_i"><div align="center"><strong>Последние загрузки</strong></div><table width="100%" cellpadding="0" border="0" cellspacing="0" style="">
+  <tbody>
+		    <tr style="background-color : #ECECEC">
+      <td><A href="/7226403" title="f.fb2.514945-515064.zip">f.fb2.514945-515064.zip</A></td>
+      <td align="right">62.66 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/7226402" title="FB2.649566-649686.zip">FB2.649566-649686.zip</A></td>
+      <td align="right">47.54 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/7226401" title="20.03.2018.rar">20.03.2018.rar</A></td>
+      <td align="right">90.00 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/7226399" title="Feniks 2.avi">Feniks 2.avi</A></td>
+      <td align="right">104.85 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/7226397" title="Office2016-x86.exe">Office2016-x86.exe</A></td>
+      <td align="right">703.89 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/7226391" title="gera BP.rar">gera BP.rar</A></td>
+      <td align="right">810.24 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/7226382" title="20180320015345_1.jpg">20180320015345_1.jpg</A></td>
+      <td align="right">105.80 kB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/7226381" title="Лабораторные.zip">Лабораторные.zip</A></td>
+      <td align="right">3.60 kB</td>
+    </tr>
+			  </tbody>
+</table>
+	</div>
+
+		<div class="block_files_i"><div align="center" style="color: #862525"><strong>Популярные файлы</strong></div><table width="100%" cellpadding="0" border="0" cellspacing="0" style="">
+  <tbody>
+		    <tr style="background-color : #ECECEC">
+      <td><A href="/6339537" title="Avantgarde-8.zip">Avantgarde-8.zip</A></td>
+      <td align="right">121.49 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/3477957" title="ColorOS_Lenovo_P78_FINAL_Light.zip">ColorOS_Lenovo_...zip</A></td>
+      <td align="right">515.92 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/3209321" title="Трофейная рыбалка.exe">Трофейная рыбалка.exe</A></td>
+      <td align="right">629.00 kB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/1250134" title="Minecraft пиратка.exe">Minecraft пиратка.exe</A></td>
+      <td align="right">679.00 kB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/4937148" title="FHx-v5(A).apk">FHx-v5(A).apk</A></td>
+      <td align="right">43.01 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/3555407" title="en-en_thorne_slang_1_0.zip">en-en_thorne_sl...zip</A></td>
+      <td align="right">1.66 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/443531" title="msvcr100.dll">msvcr100.dll</A></td>
+      <td align="right">808.33 kB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/1425806" title="steam_api.dll">steam_api.dll</A></td>
+      <td align="right">119.12 kB</td>
+    </tr>
+			  </tbody>
+</table>
+	</div>
+
+		<div class="block_news_i"><div align="center" style="color: #1c3965"><strong>Новости проекта</strong></div><p>
+	<a href="/public/news/view/21.html">11.10.2013 - </a><a href="/public/news/view/21.html"><strong>Авария на одном из серверов</strong></a></p>
+<p>
+	<a href="/public/news/view/20.html">12.08.2013 - </a><a href="/public/news/view/20.html"><strong>Полное снятие ограничений</strong></a></p>
+<p>
+	<a href="/public/news/view/19.html">06.07.2012 - </a><a href="/public/news/view/19.html"><strong>DDOS атака</strong></a></p>
+<p>
+	<a href="/public/news/view/18.html">31.12.2011 - </a><a href="/public/news/view/18.html"><strong>С новым, 2012 годом!</strong></a></p>
+<p>
+	<a href="/public/news/view/17.html">28.12.2011 - </a><a href="/public/news/view/17.html"><strong>Мгновенное пополнение счёта и бонусы</strong></a></p>
+<p>
+	<a href="/public/news/view/16.html">29.11.2011 - </a><a href="/public/news/view/16.html"><strong>Изменения в правилах</strong></a></p>
+<p>
+	<a href="/public/news/view/15.html">15.08.2011 - </a><a href="/public/news/view/15.html"><strong>Дешевле, больше, быстрее!</strong></a></p>
+<p>
+	<a href="/public/news/view/14.html">02.08.2011 - </a><a href="/public/news/view/14.html"><strong>Технические работы</strong></a></p>
+<p>
+	<a href="/public/news/view/13.html">02.08.2011 - </a><a href="/public/news/view/13.html"><strong>Скачать быстро без СМС</strong></a></p>
+</div>
+		
+		<div class="block_files_i"><div align="center" style="color: #862525"><strong>Популярные mp3</strong></div><table width="100%" cellpadding="0" border="0" cellspacing="0" style="">
+  <tbody>
+		    <tr style="background-color : #ECECEC">
+      <td><A href="/4419306" title="Bad Boy - Pul Va Qarz [Dramma Style](VOYMP3.COM).mp3">Bad Boy - Pul V...mp3</A></td>
+      <td align="right">4.25 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/4182811" title="Dilxiroj_minus_(VOYMP3.COM).mp3">Dilxiroj_minus_...mp3</A></td>
+      <td align="right">4.22 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/4442517" title="Bahrom Nazarov - Pari (VOYMP3.COM).mp3">Bahrom Nazarov ...mp3</A></td>
+      <td align="right">3.24 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/4186382" title="Jivoy (to'y bop music tez).mp3">Jivoy (to'y bop...mp3</A></td>
+      <td align="right">1.50 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/4379926" title="23.11.14 parab.mp3">23.11.14 parab.mp3</A></td>
+      <td align="right">45.92 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/7169281" title="?айрат Н?ртас - Ж?мба? ?ыз [www.ori-kuan.kz].mp3">?айрат Н?ртас -...mp3</A></td>
+      <td align="right">7.01 MB</td>
+    </tr>
+			    <tr style="background-color : #ECECEC">
+      <td><A href="/4209102" title="ZARUBEJ_-_DJ_MAKAR-_DALE_DON_DALE_MIX_(VOYMP3.COM).mp3">ZARUBEJ_-_DJ_MA...mp3</A></td>
+      <td align="right">2.75 MB</td>
+    </tr>
+			    <tr style="background-color : white;">
+      <td><A href="/4186380" title="Sardor_Mamadaliyev-Qoshi_qarolar_minus(VOYMP3.COM).mp3">Sardor_Mamadali...mp3</A></td>
+      <td align="right">3.84 MB</td>
+    </tr>
+			  </tbody>
+</table>
+	</div>
+
+
+		<div class="empty"></div>
+	</div>
+		
+	<div id="banner3"></div>
+	
+	<div class="content" align="left">
+		<div class="empty"></div>
+	
+		<div class="content" align="left">
+
+<div id="banner2">
+</div>
+		
+
+	
+		<div id="info">
+		<h1>Бесплатный файлообменник без регистрации, загрузить файл </h1>
+		<p><span style="font-size:10px;">При помощи сервиса fayloobmennik.net Вы без труда и регистраций сможете обмениваться личными файлами с друзьями и коллегами, быстро загружая файлы и сохраняя на сервере. После загрузки Вы получите ссылку, которую сможете размещать на блогах, форумах, личных сайтах, а также отправлять друзьям по электронной почте. Наш хостинг бесплатный, работает без каких-либо ограничений. Сразу после выбора файла начинается его загрузка, после которой Вы незамедлительно получаете рабочую ссылку. Кроме того, наш файлообменник уникален тем, что Вы можете в полной мере насладиться всем спектром удобных функций, не проходя при этом утомительную процедуру регистрации. Мы ломаем стереотипы - теперь для того, чтобы скачать файлы, Вам не придется пересмотреть множество рекламных баннеров, отправлять текстовые сообщения на короткий номер, или покупать «голд аккаунты» за огромные деньги. Все это в прошлом. Если контент не нарушает действующего законодательства Российской федерации, Вы можете легко его загрузить, будь то игра, фильм, музыка, программа, или электронная книга. Если Вы устали от торрентов с их перебоями, наш быстрый файлообменник станет достойной альтернативой. Загрузка на наш хостинг осуществляется напрямую через браузер и не требует установки дополнительных приложений. Все, что Вам нужно - это нажать кнопку «обзор» и выбрать интересующий файл на жестком диске и загрузить его. Если Вы хотите обратить внимание на свой материал, можете создать пост на блоге, с подробным описанием и, конечно же, фотографиями. Ограничение по размеру для одного файла на нашем сервисе составляет 2000 мегабайт, однако Вы всегда можете воспользоваться архиватором (к примеру, популярным WinRar), разбить материал на тома, и загрузить его отдельными файлами. При помощи той же системы Вы можете объединить несколько небольших файлов в одном архиве для экономии времени. Если Вы цените простоту в обращении и надежность, fayloobmennik.net создан для Вас. Итак, подведя итоги Вы должны были заметить что наш сервис бесплатный, без регистрации, а самое главное это быстрый обмен файлами</span></p>
+		</div>
+
+
+	</div>
+</div>
+
+
+<div class="empty"></div>
+<div id="banner4" align="center"></div>
+
+<div class="line_down" align="center"></div>
+
+<div id="down" align="center">
+<span><A href="/pravila.html" title="ознакомиться с правилами размещения на сервисе" id="menu_13" >Правила</A></span>
+ | <span><A href="/about.html" title="Информация о нас" id="menu_3" >О нас</A></span>
+ | <span><A href="/adv.html" title="Информация о размещении рекламы на сайте" id="menu_18" >Реклама</A></span>
+<br><br><br>
+	&copy; 2009-2018 <A href="http://www.fayloobmennik.net/">Файлообменник</A>: закачай, скачай, поделись.<br>
+    Фотолинк - <a href="http://www.fotolink.su/">фотохостинг</a>
+</div>
+
+<br>
+<noindex>
+<DIV align="center" style="width: 100%;">
+<div style="width: 120px;">
+<!-- место для счётчиков -->
+
+
+
+
+<!-- место для счётчиков -->
+</div><br />
+
+</DIV><br>
+</noindex>
+
+
+
+<!-- Yandex.Metrika -->
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+<div style="display:none;"><script type="text/javascript">
+try { var yaCounter1663429 = new Ya.Metrika(1663429);
+yaCounter1663429.clickmap();
+yaCounter1663429.trackLinks({external: true});
+} catch(e){}
+</script></div>
+<noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1663429" alt="" /></div></noscript>
+<!-- /Yandex.Metrika -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+<html><head><title>Object moved</title><script type="text/javascript" src="dtagent_ICA23bjrx_6000500341013.js" data-dtconfig="rid=RID_2418|rpid=906138626|domain=marykay.ru|tp=500,50,0,1|cors=1|bandwidth=1800_m|lab=1|reportUrl=https://uem.marykay.com/dynaTraceMonitor|agentUri=dtagent_ICA23bjrx_6000500341013.js"></script></head><body>
+<h2>Object moved to <a href="https://www.marykay.ru/">here</a>.</h2>
+</body></html>

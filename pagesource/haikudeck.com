@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://haikudeck.com/">https://haikudeck.com/</a></p>

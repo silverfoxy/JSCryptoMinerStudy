@@ -1,0 +1,564 @@
+
+<div class="maindiv">
+	<!doctype html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title></title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://www.htmedia.in/xmlrpc.php">
+	
+	<link rel="stylesheet" href="http://www.htmedia.in/wp-content/themes/htltheme/style.css" type="text/css"  />
+	<!--[if lt IE 9]>
+	<script src="http://www.htmedia.in/wp-content/themes/htltheme/js/html5.js"></script>
+	<![endif]-->
+	<script language="javascript" type="text/javascript">
+    var selectedDiv = "";
+    
+    function LoadSubMenu(dvCurrentSubMenuID, dvSubMenuID)
+    {
+        var dvSubMenu = document.getElementById(dvSubMenuID);
+        var dvCurrentSubMenu = document.getElementById(dvCurrentSubMenuID);
+        
+        if (dvSubMenu && dvCurrentSubMenu)
+        {
+            dvSubMenu.innerHTML = dvCurrentSubMenu.innerHTML;
+        }
+    }
+    
+    function SelectMenuItem(dvCurrentSubMenuID, dvSubMenuID)
+    {
+        //alert(dvCurrentSubMenuID);
+        selectedDiv = dvCurrentSubMenuID;       
+        LoadSubMenu(dvCurrentSubMenuID, dvSubMenuID);
+    } 
+    
+    function OnTopMenuBarMouseOver()
+    {
+        IsOnMenuBar = true;
+    }
+    
+      function KeyDownHandlerOfGenericSearch(event,btn)
+   {    
+           var sb;      
+        var x;
+      if (event.which == 13)             
+        {   
+        sb = document.getElementById('ctl00_menuControl_txtSearch');
+            if(sb!=null)
+            {
+                if (sb.value.length>0)
+                {
+                  x="SearchResults.aspx?q="+sb.value; 
+                  window.document.open(null);
+                  window.open(x,'_self');
+                  
+                  return false;
+                 
+                }
+            }
+       }
+        if (event.keyCode == 13)             
+        {
+            sb = document.getElementById('ctl00_menuControl_txtSearch');
+            
+            if(sb!=null)
+            {
+                if (sb.value.length>0)
+                {
+                  x="SearchResults.aspx?q="+sb.value; 
+                  window.focus();
+                  window.open(x,'_self');
+                
+                }
+            }
+        }
+        return false;     
+        
+        
+    }
+  function MouseOverImage(imageid)
+    { 
+      imageid.src="Images/SearchButton2.gif";  
+        return false;
+    }
+    
+    function MouseOutImage(imageid)
+    { 
+      imageid.src="Images/SearchButton1.gif";  
+        return false;
+    }
+  function gotourl()
+    {        
+       
+        var sb;      
+        var x;
+        sb = document.getElementById('ctl00_menuControl_txtSearch');
+     
+        if(sb!=null)
+        {
+        if (sb.value.length>0)
+        {
+          x="SearchResults.aspx?q="+sb.value; 
+          window.open(x,'_self');
+        }
+        }
+        return true;
+        
+    }
+   var IsOnMenuBar = false;
+        function OnMainMouseOver()
+        {
+        
+
+            if(IsOnMenuBar == false)
+            {
+                var menu = document.getElementById("ctl00_menuControl_hdnMenuItem").value;
+                var submenu = document.getElementById("ctl00_menuControl_hdnSubMenuItem").value;
+                if (menu && submenu)
+                {
+                //alert(menu+">>>>>"+submenu);
+                    LoadSubMenu(menu, submenu);
+                }
+            }
+            IsOnMenuBar = false
+           
+        }
+	function ShowHide(cat, value)
+	{
+	
+		var panelid = "ctl00_ContentPlaceHolder1_ExpendandCollapse1_Panel_" +  cat;
+		var expanderid = "ctl00_ContentPlaceHolder1_ExpendandCollapse1_imgCollapse_" +  cat;
+		var panelCtrl = document.getElementById(panelid);
+		var expenderCtrl = document.getElementById(expanderid);
+		if (panelCtrl && panelCtrl.style.display != "none")
+		{
+			panelCtrl.style.display = "none";
+			expenderCtrl.innerHTML = "+ " + value;
+		}
+		else
+		{
+			panelCtrl.style.display = "block";
+			expenderCtrl.innerHTML = "- " + value;
+		}
+	}
+	
+function ShowHideFAQItem(questionId,questionText)
+    {
+        var divAnswer = document.getElementById("divAnswer_" + questionId);
+        var divQuestion = document.getElementById("divQuestion_" + questionId);
+        var hdrQuestion = document.getElementById("hdrQuestion_" + questionId);
+        var newSign = "";
+        var cropLength = 0;
+        var str=questionText;
+        
+
+        if (divAnswer && divAnswer.style.display != "none")
+        {
+            divAnswer.style.display = "none";
+            newSign = "+&nbsp;";
+            hdrQuestion.className = '';
+            divQuestion.innerHTML = newSign + "" +str;
+        }
+        else
+        {
+            divAnswer.style.display = "block";
+            newSign = "-&nbsp;";
+            hdrQuestion.className = 'selected';
+            divQuestion.innerHTML = newSign + "" +str;
+        
+        }
+        
+       
+        
+     
+    }		
+function savedata()    {
+	var dpid=document.getElementsByName("ctl00$ContentPlaceHolder1$dpid")[0].value;
+	
+	var name=document.getElementsByName("ctl00$ContentPlaceHolder1$name")[0].value;
+	
+	var email=document.getElementsByName("ctl00$ContentPlaceHolder1$email")[0].value;
+
+	var contact=document.getElementsByName("ctl00$ContentPlaceHolder1$contact")[0].value;
+
+    var total=document.getElementsByName("ctl00$ContentPlaceHolder1$txttotal")[0].value;
+ var contact=document.getElementsByName("ctl00$ContentPlaceHolder1$contact")[0].value;
+ var Hidden1=document.getElementsByName("ctl00$ContentPlaceHolder1$Hidden1")[0].value;
+
+
+  // var lbltotal=document.getElementsByName("LeadUserControl1_lbltotalnew")[0].value;
+ 		
+		if(dpid=="")
+		{
+			alert("Please Registered Folio/DP Id - ClientId")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$dpid")[0].focus()
+		}
+		else if(name=="")
+		{
+			alert("Please Enter Full Name")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$name")[0].focus()
+		}
+		
+		else if(!isString(name))
+		{
+		    alert("Please Enter A to Z or a to z")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$name")[0].focus()
+		}
+		
+		else if(email=="")
+		{
+			alert("Please Enter email address")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$email")[0].focus()
+		}
+		
+		else if(!validate(email))
+	  	  {
+		    alert("Please enter valid email address i.e abc@xyz.com");
+		    document.getElementsByName("ctl00$ContentPlaceHolder1$email")[0].focus()
+		  
+	  	  }
+	  	  
+	  	  else if(!IsNumeric(contact))
+	  	  {
+		    alert("Please enter valid Contact no")
+		    document.getElementsByName("ctl00$ContentPlaceHolder1$contact")[0].focus()
+		  
+	  	  }
+
+		else if(total=="")
+		{
+			alert("Please Enter Total")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$txttotal")[0].focus()
+		}
+		else if (Hidden1!=total)
+		{
+		alert("Incorrect Math Result. Please try again..")
+			document.getElementsByName("ctl00$ContentPlaceHolder1$txttotal")[0].focus()
+		
+		}
+
+		else if(emailvalidate(email)=="")
+		{
+		}
+		else
+		{
+			//location.href="insertdata.php";
+			xmlHttp=GetXmlHttpObject()
+			if (xmlHttp==null)
+			 {
+			 alert ("Browser does not support HTTP Request")
+			 return
+			 }
+			var url="insertdata.html"
+			url=url+"?dpid="+dpid+"&name="+name+"&email="+email+"&contact="+contact+"&agree="+rdbagree1
+			url=url+"&sid="+Math.random()				
+			xmlHttp.onreadystatechange=changedatasave
+			xmlHttp.open("GET.html",url,true)
+			xmlHttp.send(null)
+
+		}
+
+	return false;
+}
+  
+  
+  
+  
+  function isString(textObj) {
+   var newValue = textObj;
+   var newLength = newValue.length;
+   var extraChars=". -";
+   var search;
+   for(var i = 0; i != newLength; i++) {
+      aChar = newValue.substring(i,i+1);
+      
+      if(!isNaN(textObj))
+      {  
+          return false;
+      }
+      aChar = aChar.toUpperCase();
+      search = extraChars.indexOf(aChar);
+      if(search == -1 && (aChar < "A" || aChar > "Z") ) {
+         return false;
+      }
+   }
+   return true;
+}  
+
+function IsNumeric(strString)
+   {
+   
+   var strValidChars = "0123456789+-,";
+   var strChar;
+   var blnResult = true;
+
+ 
+   //  test strString consists of valid characters listed above
+   for (i = 0; i < strString.length && blnResult == true; i++)
+      {
+      strChar = strString.charAt(i);
+      if (strValidChars.indexOf(strChar) == -1)
+         {
+         blnResult = false;
+         }
+      }
+   return blnResult;
+   }
+  
+  
+  function validate(email) {
+   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+   var address = email;
+   if(reg.test(address) == false) {
+     
+      return false;
+   }
+   return true;
+}		
+
+
+function ShowHideHistoryPanel(btnExpanderID,valueplus, valueminus)
+    {
+        var divHistory = document.getElementById("historyquickdetail");
+        var btnExpander = document.getElementById(btnExpanderID);
+        if (divHistory && divHistory.style.display != "none")
+        {
+            divHistory.style.display = "none";
+            btnExpander.innerHTML = "+ " + valueplus;
+        }
+        else
+        {
+            divHistory.style.display = "block";
+            btnExpander.innerHTML = "- " + valueminus;
+        }
+    }  
+
+
+</script>
+<script src="http://www.htmedia.in/wp-content/themes/htltheme/js/jquery.js"></script>	
+	<link rel="alternate" type="application/rss+xml" title="HT Media Ltd. &raquo; Feed" href="http://www.htmedia.in/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="HT Media Ltd. &raquo; Comments Feed" href="http://www.htmedia.in/?feed=comments-rss2" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.htmedia.in\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;return g&&g.fillText?(g.textBaseline="top",g.font="600 32px Arial","flag"===a?(g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3):"diversity"===a?(g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e):("simple"===a?g.fillText(h(55357,56835),0,0):g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.htmedia.in/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.5' type='text/css' media='all' />
+<link rel='stylesheet' id='yendif-player-plugin-player-styles-css'  href='http://www.htmedia.in/wp-content/plugins/yendif-player/public/assets/libraries/yendifplayer.css?ver=2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://www.htmedia.in/wp-includes/css/dashicons.min.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='yendif-player-plugin-dashicon-styles-css'  href='http://www.htmedia.in/wp-content/themes/htltheme/style.css?ver=2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='yendif-player-plugin-gallery-styles-css'  href='http://www.htmedia.in/wp-content/plugins/yendif-player/public/assets/css/gallery.css?ver=2.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.htmedia.in/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://www.htmedia.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.htmedia.in/wp-content/plugins/yendif-player/public/assets/libraries/yendifplayer.js?ver=2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var yendifplayer_config = {"analytics":"","autoplay":"0","autoplaylist":"0","controlbar":"1","currenttime":"1","desc_chars_limit":"150","download":"0","duration":"1","embed":"0","engine":"flash","fullscreen":"1","keyboard":"1","license":"","logo":"","loop":"0","no_of_cols":"2","no_of_rows":"2","playbtn":"1","playpause":"1","progress":"1","ratio":"1.0000","responsive":"0","share":"0","show_desc":"1","show_views":"1","sort_order":"latest","theme":"black","thumb_height":"80","thumb_width":"145","title_chars_limit":"75","volume":"0.5","volumebtn":"1","playlistWidth":"250","playlistHeight":"125","playlistPosition":"right","swf":"http:\/\/www.htmedia.in\/wp-content\/plugins\/yendif-player\/public\/assets\/libraries\/player.swf","site_url":"http:\/\/www.htmedia.in","page_title":"Hello world!"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.htmedia.in/wp-content/plugins/yendif-player/public/assets/js/config.js?ver=2.3'></script>
+<link rel='https://api.w.org/' href='http://www.htmedia.in/?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.htmedia.in/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.htmedia.in/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.4.3" />
+</head>
+<body>
+<div id="main" onmouseover="javascript:OnMainMouseOver()">
+
+	<div id="topcurvecontainer">
+	
+		<div id="topleftcurve"></div>
+		<div id="middlecurve"></div>
+		<div id="rightcurve"></div>
+		
+	</div>
+	
+	<div id="mainbody">
+	
+		<div id="contentstrutcre">
+		
+			<div id="topnavigation1" style="display: none">
+			
+				<div class="leftcurve"></div>
+				
+					<div class="linkcontent">
+					
+						<ul id="ctl00_menuControl_ulMenu1"></ul>
+						
+					</div>
+					
+				<div class="rightcurve"></div>
+				
+			</div>
+			
+			<div class="MenuBG" style="display: none">
+			
+				<div id="ctl00_menuControl_dvMenu"></div>
+				
+			</div>
+			
+			<div id="ctl00_menuControl_dvSubMenu1" class="SubMenuBG" style="display: none"></div>
+			
+			<div id="ctl00_menuControl_logocontainer" onMouseOver="javascript: SelectMenuItem('', 'ctl00_menuControl_ulSubMenu')">
+			
+				<div id="logo">
+				
+					<h1><a href="http://www.htmedia.in/" id="ctl00_menuControl_A1"><img src="http://www.htmedia.in/wp-content/themes/htltheme/images/ht_logo.gif" id="ctl00_menuControl_Img1" width="137" height="20" alt="HT Media" /></a></h1>
+					<div class="brand"><img src="http://www.htmedia.in/wp-content/themes/htltheme/images/newtagline.jpg" id="ctl00_menuControl_Img2" width="190" height="15" alt="Enriching &amp; Empowering India" /></div>
+					
+				</div>
+				
+			</div>
+			
+			
+					
+					
+<div id="ctl00_menuControl_dvMenuTopArea" class="clearfix" onMouseOver="javascript: SelectMenuItem('', 'ctl00_menuControl_ulSubMenu')">&nbsp;</div>
+			
+			<div id="topnavigation">
+			
+				<div id="ctl00_menuControl_dvNavigation" class="homeglobalbar">
+				
+					<div onMouseOver="OnTopMenuBarMouseOver()">
+					
+						<div class="navigationtop">
+						
+							<ul id="ctl00_menuControl_ulMenu">
+							
+								<li><span><a href='http://www.htmedia.in/?page_id=7' onMouseOver="javascript: LoadSubMenu('ctl00_menuControl_dvSubMenu_MenuItem-HTMedia-AboutUs', 'ctl00_menuControl_ulSubMenu')">ABOUT US</a></span></li><li ><span><a href='http://www.htmedia.in/?page_id=12' onMouseOver="javascript: LoadSubMenu('ctl00_menuControl_dvSubMenu_MenuItem-HTMedia-Businesses', 'ctl00_menuControl_ulSubMenu')">BUSINESSES</a></span></li>
+								<li ><span><a href='http://www.htmedia.in/?page_id=14' onMouseOver="javascript: LoadSubMenu('ctl00_menuControl_dvSubMenu_MenuItem-HTMedia-Investor', 'ctl00_menuControl_ulSubMenu')">INVESTOR RELATIONS</a></span></li>
+								<li ><span><a href='http://www.htmedia.in/?page_id=16' onMouseOver="javascript: LoadSubMenu('ctl00_menuControl_dvSubMenu_MenuItem-HTMedia-Careers', 'ctl00_menuControl_ulSubMenu')">CAREERS</a></span></li>
+								<li ><span><a href='http://www.htmedia.in/?page_id=18' onMouseOver="javascript: LoadSubMenu('ctl00_menuControl_dvSubMenu_MenuItem-HTMedia-ContactUs', 'ctl00_menuControl_ulSubMenu')">CONTACT US</a></span></li>
+							</ul>
+							
+						</div>
+						
+					</div>	
+<div id="ctl00_menuControl_dvMenuBottomArea" onMouseOver="javascript: SelectMenuItem('', 'ctl00_menuControl_ulSubMenu')">&nbsp;</div>
+					
+					<div id="ctl00_menuControl_divBreadCrumb" class="breadcrumbstyle"></div>
+					
+				</div>
+				
+			</div>
+	<div class="content">
+	<div id="mainimage">
+	
+	<img src="http://www.htmedia.in/wp-content/themes/htltheme/images/header2.png" width="925" />
+	
+	 <div style="width:920px;height:28px; margin-top:-29px;" align="center">
+       <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=20'  style="text-decoration:none;"><font color="#e2fbfe"><b>PRINT-ENGLISH</b></font></a></label>
+        &nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp; 
+	   <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=22'  style="text-decoration:none;"><font color="#e2fbfe"><b>PRINT-HINDI</b></font></a></label>
+		&nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp;   
+	   <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=24'  style="text-decoration:none;"><font color="#e2fbfe"><b>INTERNET</b></font></a></label>		
+		&nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp;   
+	   <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=26'  style="text-decoration:none;"><font color="#e2fbfe"><b>RADIO</b></font></a></label>	
+		&nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp;   
+	   <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=28'  style="text-decoration:none;"><font color="#e2fbfe"><b>EDUCATION</b></font></a></label>	
+		&nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp;   
+	  <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=30'  style="text-decoration:none;"><font color="#e2fbfe"><b>EVENTS & SOLUTIONS</b></font></a></label>	
+		&nbsp; &nbsp; &nbsp; <font color="#e2fbfe"><b>|</b></font> &nbsp;   
+	  <label style="margin-left:20px;"> <a href='http://www.htmedia.in/?page_id=32'  style="text-decoration:none;"><font color="#e2fbfe"><b>PARTNERSHIPS</b></font></a></label>	
+		
+		&nbsp; &nbsp; &nbsp;	
+		   </div>
+     <!--   <object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,45,0' width='931px' height='269px'><param name='movie' value='HTMLCorpImages/HTMediaCorpSite/Flash/HomepageFlash/Flash/HTMFlash.swf'><param name='quality' value='high'><param name='menu' value='false'><param name='allowFullScreen' value='false' /><param name='wmode' value='transparent' /><param name='allowScriptAccess' value='sameDomain' /><!--<embed src='HTMLCorpImages/HTMediaCorpSite/Flash/HomepageFlash/Flash/HTMFlash.swf' quality='high' bgcolor='#ffffff' allowScriptAccess='sameDomain' allowFullScreen='false' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width='931px' height='269px'  pluginspage='http://www.macromedia.com/go/getflashplayer' />--><!--</object><noscript>Please upgrade your Flash Player Version to view this content.<a href='http://www.macromedia.com/go/getflash/'>Get Flash</a></noscript>-->
+    </div>
+		<div id="contentarea">		
+			
+	<div class="twocells">
+            
+            <div style="font-size: large; font-family: Arial; color: #00AFEE;" align="center">
+                Annual Report 2016-17</div>
+           
+<!--<div data-configid="2700833/15039126" style="width:280px; height:315px;" class="issuuembed"></div><script type="text/javascript" src="
+www.htmedia.in/wp-content/uploads/e.issuu.com/embed.js" async="true"></script>-->
+		  
+		  <!--<iframe style="width:280px; height:315px;" src="//e.issuu.com/embed.html#2700833/15039126" frameborder="0" allowfullscreen></iframe>-->
+          
+		  <iframe style="width:280px; height:315px;" src="//e.issuu.com/embed.html#2700833/52666821" frameborder="0" allowfullscreen></iframe>
+          
+         <!--<div style="font-size:15px; font-family: Arial; color: #00AFEE; padding:10px 10px 0 0; float:left;">
+        <a href="www.htmedia.in/wp-content/uploads/annual-report-2014-15/index.html">Visit microsite for Annual Report 2014-15</a> 
+         </div>-->
+        </div>
+		<div class="twocells">
+            <a href="http://www.htmedia.in/?page_id=16"><img title="Care" src="http://www.htmedia.in/wp-content/uploads/2016/05/1b21c661-82f6-4862-a798-feca33573669HiRes.jpg" alt="Care" height="118" width="200" border="0" /></a><span><h1><A href="http://www.htmedia.in/?page_id=16">Careers at HT Media</A></h1></span><span><P>The diverse culture at HT empowers people to dream, dream big and see those dreams come true. Working with the company is not just about possessing a job but moving up the pyramid of one's goals and ambitions. The company is committed to enhancing the core skills and competencies of its people while also aiding their personal growth and development. </P>
+<P>Media is the sunrise sector and is poised for growth. The brand HT Media is a force to reckon with. With&nbsp;a growth rate of 30 per</em></strong></i></b>...<span class='more'><a href="http://www.htmedia.in/?page_id=16">more</a></span></span>
+        </div>
+		<div class="latestnews">
+            <ul><span><h1 class='notoppadding'>Latest News</h1></span><li><span>HT Media Launches its Second Radio Station</em></strong></i></b>... <span class='more'><a href="http://www.htmedia.in/?page_id=61">more</a></span></span></li><li><span>Bridge School holds 2nd Graduation Day</em></strong></i></b>... <span class='more'><a href="http://www.htmedia.in/?page_id=61">more</a></span></span></li><li><span>AGM Notice Attendance Slip Proxy Form and Route map FY14-15</em></strong></i></b>... <span class='more'><a href="http://www.htmedia.in/?page_id=61">more</a></span></span></li><!--<li><span>HT Launches New Weekend Supplement In Mumbai – ht48hours</em></strong></i></b>... <span class='more'><a href="www.htmedia.in/?page_id=61">more</a></span></span></li>--></ul><div class='homeviewall'> <a href="http://www.htmedia.in/?page_id=61" class='more'>View all</a></div> 
+            
+            <br />
+            
+            <br />
+			<a href="http://www.htmedia.in/?page_id=55"><img src="http://www.htmedia.in/wp-content/uploads/2016/05/mgmt.gif" />
+            <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"
+                width="295" height="66">
+                <param name="movie" value="HTMLCorpImages/HTMediaCorpSite/Flash/Ht_Media1.swf">
+                <param name="quality" value="high">
+                <embed src="HTMLCorpImages/HTMediaCorpSite/Flash/Ht_Media1.swf"
+                    quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"
+                    width="295" height="66"></embed>
+            </object>-->
+            
+        </div>
+	</div>
+	
+	<div id="disclaimer">
+
+	<div class="disclaimerleftcurve"></div>
+	
+	<div class="copymiddlebg">
+	
+		<div class="contentleft">&copy; 2018 HT Media Limited</div>
+		
+		<div class="contentright">
+			<a href="http://www.htmedia.in/?page_id=46" id="ctl00_A2" title="Sitemap">
+			Sitemap</a> &nbsp;|&nbsp; <a href="http://www.htmedia.in/?page_id=48" id="ctl00_A3" title="Privacy Policy">Privacy Policy</a> &nbsp;|&nbsp; <a href="http://www.htmedia.in/?page_id=50" id="ctl00_A4" title="Terms of Use">
+			Terms of Use</a>
+		</div>
+		
+	</div>
+	
+	<div class="disclaimerrightcurve"></div>
+	
+</div>
+
+</div>
+</div>
+<div id="bottomcurve">
+	<div class="bottomleftcurve">
+	</div>
+	<div class="bottommiddlebg">
+	</div>
+	<div class="bottomrightcurve">
+	</div>
+</div>
+</div>
+<script type='text/javascript' src='http://www.htmedia.in/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.htmedia.in\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.htmedia.in/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.5'></script>
+<script type='text/javascript' src='http://www.htmedia.in/wp-includes/js/wp-embed.min.js?ver=4.4.3'></script>
+</body>
+
+</html></div>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html ng-app="animefun">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="fragment" content="#!" />
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+
+    <!--meta-->
+    <title ng-bind="MetaService.title">Anime4FUN | Anime în limba română, manga, știri și multe altele</title>
+    <meta name="description" ng-if="false" content="Urmăriți și descărcați anime și manga traduse în limba română. Știri din anime, propria ta listă și multe altele doar la Anime4FUN. Pentru că noi știm ce înseamnă distracția." />
+    <meta name="{{'description'}}" content="{{MetaService.description}}" />
+    <meta content='anime, romana, rosub, desene, fansub, manga, stiri, anime4fun' name='keywords' />
+
+    <meta property="og:url" content="{{MetaService.url}}" />
+    <meta property="og:title" content="{{MetaService.title}}" />
+    <meta property="og:description" content="{{MetaService.description}}" />
+    <meta property="og:image" content="{{MetaService.image}}" />
+
+    <link rel="search" href="/OSD.xml" type="application/opensearchdescription+xml" title="Anime4FUN" />
+
+    <link rel="stylesheet" href="/Content/css/bootstrap.css">
+    <link rel="stylesheet" href="/Content/css/site.css" />
+
+    <link ng-if="!HelperService.IsPrerender()" href='https://fonts.googleapis.com/css?family=Oswald&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese'
+          rel='stylesheet' type='text/css'>
+    <link ng-if="!HelperService.IsPrerender()" href='https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese'
+          rel='stylesheet' type='text/css'>
+    <link ng-if="!HelperService.IsPrerender()" href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link ng-if="!HelperService.IsPrerender()" href='https://fonts.googleapis.com/css?family=Ubuntu:400,500&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+    <!--<link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet' type='text/css'>-->
+    <link ng-if="!HelperService.IsPrerender()" href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+
+    <!--scripts-->
+    <script src="/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/angular-resource.min.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
+    <script src="/Scripts/angular-cookies.min.js"></script>
+    <script src="/Scripts/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="/Scripts/ng-infinite-scroll.min.js" type="text/javascript"></script>
+    <script src="/Scripts/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="/Scripts/ng-file-upload.min.js"></script>
+    <script src="/Scripts/angular-google-analytics.min.js"></script>
+
+    <script src="/Scripts/app.js" type="text/javascript"></script>
+    <script src="/Scripts/site.js" type="text/javascript"></script>
+    <script src="/Scripts/ad.js" type="text/javascript"></script>
+
+
+
+    <!--    Services-->
+    <script src="/Scripts/API.js" type="text/javascript"></script>
+    <script src="/Scripts/Services/HelperService.js" type="text/javascript"></script>
+    <script src="/Scripts/Services/AuthService.js" type="text/javascript"></script>
+    <script src="/Scripts/Services/MetaService.js" type="text/javascript"></script>
+    <script src="/Scripts/Services/AnimeService.js" type="text/javascript"></script>
+    <script src="/Scripts/Services/AnimeListService.js" type="text/javascript"></script>
+
+    <!--Controllers-->
+    <script src="/Scripts/Controllers/AnimeController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AnimeProjectsController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/UserController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/IndexController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/EpisodeController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/LoginController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/CommentController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/LatestCommentsController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/RecoverPasswordController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/NavbarController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/ChatBarController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/StaffController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AnimeListController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/CashController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/BannerController.js" type="text/javascript"></script>
+    <!--Admin scripts-->
+    <script src="/Scripts/Controllers/AdminStaffController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AdminSourcesController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AdminAnimeController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AdminEpisodeController.js" type="text/javascript"></script>
+    <script src="/Scripts/Controllers/AdminEpisodeStatusController.js" type="text/javascript"></script>
+
+    <!--Directives-->
+    <script src="/Scripts/Directives/userBar.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/newEpisodes.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/episodesList.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/episodesListExpandable.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/sideBar.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/announcements.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/topOngoing.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/topUsers.js" type="text/javascript"></script>
+    <script src="/Scripts/Directives/charactersGame.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!--topbar-->
+    <!--<div class="top-bar">
+
+    </div>-->
+
+    <div class="background"></div>
+
+    <div id="container">
+        <div class="user-bar-blur"></div>
+        <user-bar></user-bar>
+
+        <div id="header" ng-controller="BannerController as bannerCtrl" ng-style="{'background-image':'url(\''+bannerCtrl.banner.link+'\')', 'background-position':bannerCtrl.banner.position}">
+            <!--Anime4FUN-->
+        </div>
+
+        <div class="scroller_anchor"></div>
+        <nav class="navbar navbar-default scroller" role="navigation" ng-controller="NavbarController as ctrl">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Anime4FUN</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Anime <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/proiecte-anime">Toate proiectele</a></li>
+                                <li><a href="#">Pack anime terminate</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Votează anime</a></li>
+                            </ul>
+                        </li>-->
+                        <li><a href="/proiecte-anime">Anime</a></li>
+                        <li><a href="http://tracker.anime4fun.ro">Tracker torrente</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Staff <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/staff">Echipa noastră</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/recrutare">Alătură-te și TU!</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/recrutare">Alătură-te și TU!</a></li>
+                        <li><a href="/despre">Despre noi</a></li>
+                        <li><a href="/ghiceste-personajul">Joc!</a></li>
+
+                        <li class="dropdown" ng-if="ctrl.user!==null && ctrl.user.rang>1">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:red !important">FUNCȚII STAFF <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li ng-show="ctrl.user.rang>2"><a href="/admin/staff">Modifică staff</a></li>
+                                <li ng-show="ctrl.user.rang>2"><a href="/admin/sources">Modifică surse</a></li>
+                                <li ng-show="ctrl.user.rang>1"><a href="/admin/animes">Adaugă anime</a></li>
+                                <li ng-show="ctrl.user.rang>1"><a href="/admin/episodes">Adaugă episod</a></li>
+                                <li ng-show="ctrl.user.rang>1"><a href="/admin/status">Status surse (NOU!)</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" style="text-align: left" class="form-control" placeholder="Căutare..." ng-model="ctrl.searchText" ng-keyup="ctrl.search($event)">
+                        </div>
+                    </form>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+
+
+        <div class="pagecontainer">
+
+
+            <div class="row bigrow" style="position:relative;">
+
+                <!--Reclame-->
+                <div ng-controller="CashController as ctrl">
+                    <div ng-if="HelperService.ShowAds" ng-hide="currentPath=='/'">
+                        <div style="position:absolute;left:-150px;top:5px;" ng-include="'/Views/ads/160x600.html'"> </div>
+                        <div style="position:absolute;right:-141px;top:5px;" ng-include="'/Views/ads/160x600.html'"> </div>
+                    </div>
+                    <div class="ng-hide" ng-show="ui.adBlocker && ui.sadGirl" style="position:fixed;left:calc(50% - 200px);top:calc(50% - 210px);width:400px;background-color:rgba(255,255,255,0.8);text-align:center;border:1px solid #3fbccb;z-index:1000;">
+                        <span style="font-size:24px;padding:5px;">Folosind AdBlocker o faci pe micuța asta să plângă :( </span>
+                        <br />
+                        <br />
+                        <span style="font-size:14px">Click pe ea ca să o liniștești...</span>
+                        <a href="javascript:void(0)" ng-click="closeSadGirl()">
+                            <img style="width:400px;" src="/Images/cry-girl.gif" />
+                        </a>
+                    </div>
+                </div>
+
+                <ng-view autoscroll="true"></ng-view>
+
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="prevent-scroll" ng-controller="ChatBarController as ctrl" style="width:100%;height:40px;position:fixed;bottom:0;left:0;background-color:#041E37;z-index:1000;padding:3px;color:white;font-size:20px">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" class="form-control" placeholder="Căutare..." style="width:calc(100% - 375px);" ng-model="ctrl.searchText" ng-keyup="ctrl.search($event)" />
+            <div class="chat-button noselect" ng-click="ctrl.showHideChat()" ng-class="ctrl.chatHidden?'':'selected'">Chat</div>
+            <div class="chat" ng-hide="ctrl.chatHidden" ng-if="ctrl.chatClosed">
+                <div ng-if="!HelperService.IsPrerender()" ng-include="'/Views/Templates/chat.html'"> </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--message and loading-->
+    <div id="message" class="alert"></div>
+    <div id="loading" class="loading"></div>
+
+
+    <!--Shared-->
+    <ng-include ng-if="!HelperService.IsPrerender()" src="'/Views/Shared/LoginTemplate.html'"></ng-include>
+
+
+    <!--Extra scripts-->
+    <div ng-if="!HelperService.IsPrerender()" ng-include="'/Views/Templates/facebook-api.html'"> </div>
+
+    <script>
+
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into Facebook.';
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function(response) {
+                console.log('Successful login for: ' + response.name);
+                console.log(response);
+                document.getElementById('status').innerHTML =
+                  'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+
+        function logmein(){
+            FB.login(function(response) {
+                // handle the response
+                if (response.status === 'connected') {
+                    console.log(response);
+                    FB.api('/me?fields=id,name,picture,email,about,first_name,last_name,birthday,gender', function(response) {
+                        console.log(response);
+                    });
+                }
+
+            }, {scope: 'email'});
+        }
+    </script>
+
+    <!--Snow-->
+   <!--<script type="text/javascript" src="/Scripts/snowstorm-min.js"></script>-->
+
+</body>
+
+</html>

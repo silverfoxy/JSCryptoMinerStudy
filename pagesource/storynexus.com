@@ -1,0 +1,1 @@
+{"Message":"User: anonymous is not authorized to perform: es:ESHttpGet on resource: datastore"}

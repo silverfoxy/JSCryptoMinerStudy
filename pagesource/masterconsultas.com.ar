@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>MasterConsultas</title>
+		   
+	<!--CSS-->
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="css/master.css" rel="stylesheet" type="text/css">
+	<link href="css/fonts.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+
+
+	<!--SCRIPT-->
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/jquery.scrollTo_min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/jquery.tinyscrollbar.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <link href="css/colorbox.css" rel="stylesheet" type="text/css">
+    <script src="js/menu.js"></script>
+    <script src="js/footer.js"></script>
+
+    <script src="js/jquery.cslider.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/banners.js"></script>
+    
+    
+    <!--SCROLL POP UP-->
+	<script src="js/jquery.tinyscrollbar.min.js"></script>
+	<!--FIN SCROLL POP UP-->
+
+	<link rel="stylesheet" type="text/css" href="css/style2.css" />
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="css/nojs.css" />
+	</noscript>
+
+
+	<script>
+		$(document).ready(function(){
+			
+			$('.legales').click(function () {
+				if (!$(this).hasClass('animado')) {
+					$(this).addClass('animado');
+                    $('#cboxLoadedContent').css('overflow', 'hidden');
+					$('.desplegable').animate({'height':200},{
+						duration: 1000,
+						step: function(){
+							$.colorbox.resize();
+						},
+						complete: function() {
+							$('.desplegable').animate({'opacity':1},200)
+						}
+					});
+				}
+			});
+
+            loadBanner("principal");
+
+            $.getJSON("data/accesos-index.json").done(function(data){
+                var itemsHTML = '';
+                $.each(data.top, function(n, novedad){
+					if(novedad.link[0] != "@"){
+                        novedad.blank = true;
+                    } else {                        
+						novedad.link = novedad.link.slice(1);
+                    }
+
+                    itemsHTML += '<div class="acces">' +
+                                     '<h6' + (novedad.destacado === 0 ? '' : ' class="red"') + '>' + novedad.supra_titulo + '</h6>' +
+                                     '<h1>' + novedad.title + '</h1>' +
+                                     '<div class="img_acc"><img src="assets/' + novedad.image + '" width="158" height="73"></div>' +
+                                     '<div class="txt_acces">' + novedad.text + '</div>' +
+                                     '<a ' + ((novedad.blank)? 'target="blank"' : '') + ' href="' + novedad.link + '"><div class="vermas ' + (novedad.destacado === 0 ? '' : 'red') + '"></div></a>' +
+                                 '</div>';
+                });
+
+                $('.cont_acces').html(itemsHTML);
+
+                itemsHTML = '';
+                $.each(data.bottom, function(n, novedad){
+                    if(novedad.link[0] != "@"){
+                        novedad.blank = true;
+                    } else {
+                        novedad.link = novedad.link.slice(1);
+                    }
+
+                    itemsHTML += '<div style="background-image:url(assets/' + novedad.image + ')" class="ban_ch uno_s">' +
+                                     '<div class="frases_banner primero">' + novedad.title +  '<span class="frases_banner_dest"></span></div>' +
+                                     '<div class="frases_banner_red primero">'+novedad.text+'</div>' +
+                                     '<a ' + ((novedad.blank)? 'target="blank"' : '') + ' href="' + novedad.link + '"><div class="ingresar primero"></div></a>' +
+                                 '</div>';
+                });
+
+                $('.cont_ban_ch').html(itemsHTML);
+            });
+
+          /*$('#head').load('header.html');*/
+
+
+
+			
+		});
+	</script>
+  
+ <!--GOOGLE ANALITYCS-->  
+<script>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+try{
+var pageTracker = gat._getTracker("UA-4493543-1");
+pageTracker._trackPageview();
+}catch(err){ var _catch_no_error = '';}
+
+</script>
+</head>
+
+<body>
+
+
+<!--BANNER-->
+<div class="baner">
+
+
+<!-- JS -->
+
+</div>
+<!--FIN BANNER-->
+
+<!--ACCESOS-->
+<div class="accesos">
+	<!--CONT ACCES-->
+    <div class="cont_acces">
+        <!--
+        <div class="acces dif">
+        	<h6 class="red">MasterCard E-Resumen</h6>
+            <h1>Consulte sus gastos</h1>
+                 
+            <div class="vermas_red"></div>
+            
+        </div>
+        -->
+
+        <!-- JS -->
+        
+    </div>
+    
+    <!--CONT BANNERS CHICOS-->
+    <div class="cont_ban_ch">
+
+        <!-- JS -->
+
+    </div>
+	<!--FIN CONT BANNERS CHICOS-->
+
+</div>
+<div class="limpia"></div>
+       
+</body>
+</html>

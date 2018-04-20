@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Online Prozentrechner</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Webbasierender und leicht bedienbarer Online Prozentrechner.">
+	<meta name="keywords" content="Online,Prozentrechner">
+	<meta name="author" content="Matth&auml;us Li&szlig;">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="Prozentrechner.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<style type="text/css">
+		html { width:100%; height:100%; margin:0px; padding:0px; }
+		body { width:100%; height:100%; margin:0px; padding:0px; background-color:#326293; background-image:url(images/Background.jpg); background-repeat:repeat-x; }
+		
+		#AppHeader { position:relative; padding:7px 10px; text-align:center; background:linear-gradient(180deg,#505050,#101010); border-top-style:solid; border-top-width:1px; border-top-color:#707070; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#000000; box-shadow:0px 1px 2px #101010; z-index:3; }
+		a.AppTitle { font-family:Arial,Verdana; font-size:16px; font-weight:bold; color:#FFFFFF; text-shadow:1px 1px 1px #000000; text-decoration:none; }
+		a.AppTitle:hover { color:#72B4E4; text-decoration:none; }
+		
+		#Slogan { position:relative; text-align:center; padding:20px 10px 0px 10px; }
+		a.Slogan { font-family:Arial,Verdana; font-size:40px; font-weight:normal; color:#DEDEDE; text-decoration:none; text-shadow:1px 1px 2px #326293; }
+		a.Slogan:hover { text-decoration:none; color:#FFFFFF; }
+		#Description { position:relative; text-align:center; padding:5px 10px 0px 10px; font-family:Arial,Verdana; font-size:16px; font-weight:normal; color:#101010; }
+		
+		.legal { font-family:Arial,Verdana; font-size:14px; font-weight:normal; color:#2D2D2D; }
+		a.legal { font-family:Arial,Verdana; font-size:14px; font-weight:normal; color:#092C57; text-decoration:none; }
+		a.legal:hover { text-decoration:underline; }
+		div.footer { font-family:Arial,Verdana; font-size:12px; font-weight:normal; color:#9D9D9D; text-shadow:1px 1px 1px #000000; }
+		a.footer { font-family:Arial,Verdana; font-size:12px; font-weight:normal; color:#BEBEBE; text-decoration:none; text-shadow:1px 1px 1px #000000; }
+		a.footer:hover { color:#DEDEDE; text-decoration:underline; }
+		
+		.label { font-family:Arial,Verdana; font-size:14px; font-weight:bold; color:#202020; }
+		.text { font-family:Arial,Verdana; font-size:13px; font-weight:normal; color:#333333; }
+		input.percent { font-family:Arial,Verdana; font-size:13px; font-weight:normal; color:#333333; width:50px; text-align:center; border-style:solid; border-width:1px; border-color:#202020; }
+		input.value { font-family:Arial,Verdana; font-size:13px; font-weight:normal; color:#333333; width:70px; text-align:center; border-style:solid; border-width:1px; border-color:#202020; }
+		input.result { font-family:Arial,Verdana; font-size:13px; font-weight:normal; color:#333333; background-color:#DEDEDE; width:70px; text-align:center; border-style:solid; border-width:1px; border-color:#202020; }
+		select { font-family:Arial,Verdana; font-size:13px; font-weight:normal; color:#333333; border-style:solid; border-width:1px; border-color:#202020; }
+		
+		.lxButton { -moz-box-shadow:inset 0px 1px 0px 0px #bee2f9; -webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9; box-shadow:inset 0px 1px 0px 0px #bee2f9; background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf)); background:-moz-linear-gradient(top, #63b8ee 5%, #468ccf 100%); background:-webkit-linear-gradient(top, #63b8ee 5%, #468ccf 100%); background:-o-linear-gradient(top, #63b8ee 5%, #468ccf 100%); background:-ms-linear-gradient(top, #63b8ee 5%, #468ccf 100%); background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf',GradientType=0); background-color:#63b8ee; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; border:1px solid #3866a3; display:block; cursor:pointer; color:#14396a; font-family:Arial,Verdana; font-size:16px; font-weight:bold; padding:5px 20px; text-decoration:none; text-shadow:0px 1px 0px #7cacde; text-align:center; }
+		.lxButton:hover { background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee)); background:-moz-linear-gradient(top, #468ccf 5%, #63b8ee 100%); background:-webkit-linear-gradient(top, #468ccf 5%, #63b8ee 100%); background:-o-linear-gradient(top, #468ccf 5%, #63b8ee 100%); background:-ms-linear-gradient(top, #468ccf 5%, #63b8ee 100%); background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee',GradientType=0); background-color:#468ccf; }
+		.lxButton:active { position:relative; top:1px; }
+	</style>
+	
+	<script type="text/javascript" src="scripts/calculate.js"></script>
+</head>
+
+<body>
+	<div id="AppHeader"><a class="AppTitle" href="https://prozentrechner.net">Online Prozentrechner</a></div>
+	
+		
+	<!-- Slogan -->
+	<div id="Slogan">
+		<a class="Slogan" href="https://prozentrechner.net">Prozentrechnen einfach und schnell</a>
+	</div>
+	
+	<!-- Description -->
+	<div id="Description">
+		Berechnet schnell und einfach den Prozentwert, Prozentsatz oder den Grundwert.
+	</div>
+	
+	<!-- Application -->
+	<div style="position:relative; margin:auto; width:517px; height:462px; background-image:url(images/AppWindow.png); background-repeat:no-repeat; margin-top:30px;">
+		<!-- Panel -->
+		<div style="position:absolute; left:50px; top:73px; width:430px; height:310px;">
+			<!-- Row 1 -->
+			<div style="position:absolute; left:0px; top:0px; width:430px; height:20px;" class="label">
+				Berechnen nach Fragestellung:
+			</div>
+			<div style="position:absolute; left:0px; top:30px; width:310px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">Wieviel sind</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Percent1" class="percent" type="text" size="5" maxlength="5" value="" onclick="clearFields('Percent1');"></td>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">% von</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value1" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value1');"></td>
+						<td align="left" valign="middle" class="text">?</td>
+					</tr>
+				</table>
+			</div>
+			<div style="position:absolute; left:320px; top:30px; width:110px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle"><input id="Result1" class="result" type="text" size="9" maxlength="9" value="" readonly></td>
+					</tr>
+				</table>
+			</div>
+			<!-- Row 2 -->
+			<div style="position:absolute; left:0px; top:65px; width:310px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value2_1" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value2_1');"></td>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">sind wieviel Prozent von</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value2_2" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value2_2');"></td>
+						<td align="left" valign="middle" class="text">?</td>
+					</tr>
+				</table>
+			</div>
+			<div style="position:absolute; left:320px; top:65px; width:110px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Result2" class="result" type="text" size="9" maxlength="9" value="" readonly></td>
+						<td align="left" valign="middle" class="text">%</td>
+					</tr>
+				</table>
+			</div>
+			<!-- Row 3 -->
+			<div style="position:absolute; left:0px; top:100px; width:310px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value3" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value3');"></td>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">sind</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Percent3" class="percent" type="text" size="5" maxlength="5" value="" onclick="clearFields('Percent3');"></td>
+						<td align="left" valign="middle" class="text">% von wieviel?</td>
+					</tr>
+				</table>
+			</div>
+			<div style="position:absolute; left:320px; top:100px; width:110px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle"><input id="Result3" class="result" type="text" size="9" maxlength="9" value="" readonly></td>
+					</tr>
+				</table>
+			</div>
+			<!-- Row 4 -->
+			<div style="position:absolute; left:0px; top:140px; width:430px; height:20px;" class="label">
+				Wie hoch ist die prozentuale Zunahme/Abnahme...
+			</div>
+			<div style="position:absolute; left:0px; top:170px; width:310px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">von</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value4_1" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value4_1');"></td>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;">zu</td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value4_2" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value4_2');"></td>
+						<td align="left" valign="middle" class="text">?</td>
+					</tr>
+				</table>
+			</div>
+			<div style="position:absolute; left:320px; top:170px; width:110px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Result4" class="result" type="text" size="9" maxlength="9" value="" readonly></td>
+						<td align="left" valign="middle" class="text">%</td>
+					</tr>
+				</table>
+			</div>
+			<!-- Row 5 -->
+			<div style="position:absolute; left:0px; top:210px; width:430px; height:20px;" class="label">
+				Prozentuale Zunahme/Abnahme zu einem Wert:
+			</div>
+			<div style="position:absolute; left:0px; top:240px; width:400px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Value5" class="value" type="text" size="9" maxlength="9" value="" onclick="clearFields('Value5');"></td>
+						<td align="left" valign="middle" class="text" style="padding-right:5px;"><select id="InDe" size="1"><option>Zunahme</option><option>Abnahme</option></select></td>
+						<td align="left" valign="middle" style="padding-right:5px;"><input id="Percent5" class="percent" type="text" size="5" maxlength="5" value="" onclick="clearFields('Percent5');"></td>
+						<td align="left" valign="middle" class="text">%</td>
+					</tr>
+				</table>
+			</div>
+			<div style="position:absolute; left:320px; top:240px; width:110px; height:30px;">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle"><input id="Result5" class="result" type="text" size="9" maxlength="9" value="" readonly></td>
+					</tr>
+				</table>
+			</div>
+			<!-- Buttons -->
+			<div style="position:absolute; left:0px; top:280px; width:430px; height:30px;">
+				<input class="text" type="button" value=" Berechnen " onclick="Calculate()"> <input class="text" type="button" value=" Felder l&ouml;schen " onclick="clearAll()"> <input class="text" type="button" value=" Beispiel " onclick="Example()">
+			</div>
+		</div>
+	</div>
+	
+	<!-- Ads -->
+	<div style="position:relative; margin:auto; text-align:center; padding:10px 0px 5px 0px;">
+		<div style="position:relative; width:360px; margin:auto;">
+			<a class="lxButton" href="https://secure.shareit.com:443/shareit/product.html?productid=300739669&languageid=2&backlink=http%3A%2F%2Fprozentrechner.net&nolselection=1&currencies=EUR">Prozentrechner.net Desktop-Version</a>
+			<a class="lxButton" style="margin-top:5px;" href="index.php?id=kreditrechner">Online Kreditrechner</a>
+		</div>
+	</div>
+	
+	
+	<!-- Footer -->
+	<div class="footer" style="position:relative; margin:auto; padding:20px 0px; text-align:center;">
+		Copyright &copy; 2018 <a class="footer" href="http://www.lissworx.de">Lissworx.de</a>. Alle Rechte vorbehalten. | <a class="footer" href="index.php?id=nutzungsbedingungen">Nutzungsbedingungen</a> | <a class="footer" href="index.php?id=impressum">Impressum</a>
+	</div>
+</body>
+	
+</html>

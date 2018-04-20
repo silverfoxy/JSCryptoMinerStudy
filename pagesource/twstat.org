@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>twstat: Twitterのグラフィカル分析</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="diwth=device-width, initial-scale=1" />
+<meta name="author" content="twstat" />
+<meta name="robots" content="noarchive" />
+<link rel="icon" href="/favicon.png" />
+<link href="https://unpkg.com/ace-css@1.1.0/css/ace.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<style type="text/css">html{height:100%}body{font-size:15px;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3",Hiragino Kaku Gothic ProN,Arial,"メイリオ",Meiryo,sans-serif;word-wrap:break;height:100%;background-color:#f5f5f5;line-height:1.8}.container{max-width:80rem;margin-left:auto;margin-right:auto;padding:.3em}.before-footer{min-height:100%}.major{padding:0 .2em}.minor{padding:0 .4em}header{}footer{background-color:#eee;height:3.2em;margin-top:-3.2em}h1{font-size:1.6rem}ul{padding-left:2em}a{text-decoration:none}a:hover{text-decoration:underline}hr{border-color:#eee}label{font-size:.95em;cursor:pointer}input{padding:.5rem;vertical-align:middle;font-size:1em}input:focus,textarea:focus{box-shadow:0 0 0 2px rgba(61,153,112,0.4);outline:0}input,textarea,select{box-sizing:border-box;margin:0;border:1px solid #ccc;border-radius:3px}textarea{line-height:1.4}select{height:2.25rem;padding:.5rem;background-color:white}.btn{font-weight:normal}.menu{color:white;margin-right:1em}.menu:hover{}.menu-icon{font-size:6em}.tab{padding:1em}.tab{color:black}.tab:hover{text-decoration:none}.active{border-bottom:4px solid #07c;color:#07c}.elem{padding:.7em;border:1px solid #ddd;background-color:#fff}.history{text-align:right;width:100%;overflow-x:auto!important;white-space:nowrap;-ms-overflow-style:-ms-autohiding-scrollbar;-webkit-overflow-scrolling:touch}.box2{margin-bottom:1.2em}.status{padding:.4em .4em 0 .4em;margin-bottom:1.2em;border:1px solid #ddd;background-color:white}.icon{margin:.2em 0 0 0;width:65px;float:left}a.author{color:black}a.author:hover{color:#0074d9;text-decoration:none}.author-name{margin:0 .3em 0 0;font-weight:bold}.author-name:hover{color:#0074d9;text-decoration:underline}.author-id{color:#777;text-decoration:none!important}.date{color:#777}.text{clear:both;overflow:auto}.text img{margin:1.5em 0 .5em 0;max-height:500px}.text iframe{margin:1.5em 0 .5em 0}.box{border:1px solid #ddd;height:250px}.share-textarea{height:5.5em}.element{padding:.7em;border:1px solid #ddd;background-color:#fff}.profile-icon{width:200px}.profile-detail{color:#777}.profile-detail b{color:black;margin:0 0 0 .5em}.list-count{list-style:none;padding-left:0}.list-count a{color:black}.calendar{width:100%}.calendar td{height:2.5em;text-align:center;line-height:1}.calendar-month{cursor:pointer;color:#07c}.calendar-day{cursor:pointer;color:blue}.n-many{background-color:#88d5f5}.n-few{background-color:#cce9ff}.n-none{color:#999;background-color:#eee}.underline-blue{border-bottom:2px solid #07c}.bg-blue-1{background-color:#019cdb}.bg-blue-2{background-color:#07c}.bg-green-1{background-color:#76c424}.bg-orange-1{background-color:#f2a51a}.bg-silver-1{background-color:#eee}.white a{color:white}.gray-1{color:#777}.black-1{color:#888}.lg{font-size:110%}.not-allowed{cursor:not-allowed}.clear{clear:both}.fa{cursor:pointer}.fa-reply:hover,.fa-retweet:hover,.fa-twitter:hover{color:#07c}.fa-heart:hover{color:red}@media(min-width:40em){}@media(min-width:52em){}@media(min-width:64em){body{font-size:16px}.major{padding:0 1em 0 0}.minor{padding:0}.menu{margin-right:1em}.lg-text{clear:none}.lg-status{padding:1em 1em 0 1em;margin-bottom:1.2em;border:1px solid #ddd}.box{height:400px}}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114212462-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-114212462-1');
+</script>
+</head>
+<body>
+<div class="before-footer">
+<header class="clearfix py1 md-mb2 white bg-navy">
+<div class="container">
+<a class="menu ml1" href="/">twstat</a>
+<a class="menu sm" href="/signup/">登録</a>
+<a class="menu sm" href="/analyysi/">ツイート分析</a>
+<a class="menu sm" href="https://shibe.org/">質問箱</a>
+</div>
+</header>
+<div class="clearfix container mb4">
+<div class="lg center">
+<h1 class="navy">twstat</h1>
+<p>twstatはツイートをグラフィカルに分析するためのツールです。</p>
+<p>Twitterのユーザ名を入力するだけで、ツイートの傾向などを簡単に知ることができます。</p>
+<form method="get" action="/go/">
+<span class="h5">@</span> <input id="search" class="col-8 md-col-6 lg-col-3" name="user" type="text" placeholder="">
+<button class="btn btn-primary bg-navy">Go</button>
+</form>
+</div>
+<div class="col-11 md-col-8 lg-col-6 mx-auto">
+<div class="element mt4">
+<h4>最近のアクセス</h4>
+<ul class="list-count">
+<li><a href="/rhiromin/graph/">ろみちゃま @rhiromin</a></li>
+<li><a href="/kusu_drums/graph/">くす @kusu_drums</a></li>
+<li><a href="/suzu__mat/graph/">すず @suzu__mat</a></li>
+<li><a href="/rikoman3344/graph/">りこ＠セフレ求む💕 @rikoman3344</a></li>
+<li><a href="/elk_nta/graph/">K_ni_shi @elk_nta</a></li>
+<li><a href="/Shibakoko107/graph/">koko @Shibakoko107</a></li>
+<li><a href="/hormonyaki/graph/">ヤマシー @hormonyaki</a></li>
+<li><a href="/usotuki_urara/graph/">うらら @usotuki_urara</a></li>
+<li><a href="/mibasket/graph/">みぃたん @mibasket</a></li>
+<li><a href="/zyxix/graph/">張藝興 @zyxix</a></li>
+<li><a href="/artkmc84/graph/">さやん @artkmc84</a></li>
+<li><a href="/rpdanm/graph/">段宜恩 @rpdanm</a></li>
+<li><a href="/a_ffws/graph/">ひかり @a_ffws</a></li>
+<li><a href="/koyumaru0109/graph/">こゆき @koyumaru0109</a></li>
+<li><a href="/koyumammy/graph/">sayori @koyumammy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr/>
+</div>
+<footer class="h5 lg-h4 py1 white bg-navy">
+<div class="container">
+<a class="menu ml1" href="/about/">このサイトについて</a>
+<a class="menu" href="/contact/">お問い合わせ</a>
+<a class="menu" href="/del/">削除依頼</a>
+</div>
+</footer>
+<script type="text/javascript">var get_status=function(that){var $status=$(that).parent().parent().parent();return{user:encodeURIComponent($status.data('user')),id:$status.data('id'),referer:encodeURIComponent(window.location.href),};};var load_more=function(){$('.load-more').click(function(){var $this=$(this);$this.unbind();$this.find('i').addClass('fa fa-spinner fa-spin');$.ajax({type:'GET',url:'/load_more/',dataType:'json',data:{user:$this.data('user'),ymd:$this.data('ymd'),q:$this.data('q'),size:$this.data('size'),id:$this.data('id'),},timeout:5000,}).done(function(data,status,xhr){$this.removeClass('load-more').unbind().html('読み込み完了');$this.parent().after(data.statuses+data.load_more);}).fail(function(xhr,errorType,error){}).always(function(){load_more();});});};var tw='https://twitter.com';$(document).ready(function(){$('.share-graph').click(function(){var text=encodeURIComponent($(this).prev().val());window.open(tw+'/intent/tweet?text='+text);});$('.ymd').click(function(){location.href='/'+$('#user').data('user')+'/ymd/?q='+$(this).data('ymd');});$('.fa-reply').click(function(){var status=get_status(this);window.open(tw+'/intent/tweet?text=@'+status.user+'&in-reply-to='+status.id+'&original_referer='+status.referer);});$('.fa-retweet').click(function(){var status=get_status(this);window.open(tw+'/intent/retweet?tweet_id='+status.id+'&original_referer='+status.referer);});$('.fa-heart').click(function(){var status=get_status(this);window.open(tw+'/intent/like?tweet_id='+status.id+'&original_referer='+status.referer);});$('.post-tweet').click(function(){var status=get_status(this);window.open(tw+'/'+status.user+'/status/'+status.id);});load_more();});</script>
+</body>
+</html>

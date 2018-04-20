@@ -1,0 +1,1 @@
+﻿</head><META http-equiv="refresh" content="0;URL=http://www.alhadeeqa.com/sa/"><body></html>

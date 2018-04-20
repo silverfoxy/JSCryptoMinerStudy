@@ -1,0 +1,1427 @@
+
+
+
+<style>
+
+html,body
+{
+margin: 0px;
+}
+
+.small
+{
+font-size:x-small;	
+}
+
+#loginBox
+{
+position:absolute;
+z-index:10;
+top:0px;
+left:10px;	
+color:black;
+}
+
+#login a:link {color:white;text-decoration:none; font-size:small;}
+#login a:active{color:white;text-decoration:none}
+#login a:visited{color:white;text-decoration:none}
+#login
+{
+font-family:Verdana, Geneva, sans-serif;
+z-index:9999;
+font-size:small;
+position:fixed;
+top:0px;
+left:0px;
+width:100%;
+text-align:left;
+margin:0px;
+background-color:#44619d;
+text-decoration:none;
+}
+</style>
+
+<script>
+fbtemplate=0;
+premiumUser=0;
+premiumUserName="";
+premiumUserPW="";
+function showFields()
+	{
+	t=$("#login").css("top");
+	z=$("#loginBox").css("top")
+	console.log("TOP POS = "+t+" "+z);
+	if(t=="auto"){console.log(1);$("#loginBox").css("top","-75px");}
+	z=t=$("#loginBox").css("top")
+	console.log("TOP POS = "+t+" "+z);
+	document.getElementById("login").style.display="block";
+	document.getElementById("loginFields").style.display="block"
+	}
+
+function hideFields()
+{
+	document.getElementById("loginFields").style.display="none"
+}
+
+function showLoginDetails()
+{
+document.getElementById("loginBtn").style.display="none"
+document.getElementById("loggedIn").innerHTML="<a href='#'>Logged in as "+	premiumUserName +"</a> | <a href='javascript:logout()'>Logout</a> | <a target='_blank' href='//www.classtools.net'>Home</a> | <a target='_blank' href='//www.classtools.net/fform.php'>Contact</a> |  <a target='_blank' href='//www.classtools.net/_SEARCH/index.php'>PowerSearch</a> | ";
+if(typeof savethefave == 'function') 
+	{document.getElementById("loggedIn").innerHTML+="<span id='favBar'><a href='javascript:savethefave()'>Add to Favourites</a> | </span>";}
+//IMPORTANT NOTE: "savethefave" belongs in the PARENT page, so can be customised in terms of specifying title / location of widget. This function in turn calls savefave() on THIS page.
+if(typeof removAds == 'function') {removAds()}
+document.getElementById("loggedIn").innerHTML+="<a href='javascript:viewfavs()'>View Favourites</a> | ";
+document.getElementById("loggedIn").innerHTML+='<a target="_blank" href="//www.classtools.net/templates/_ac.php">Account Status</a> | '
+document.getElementById("loggedIn").style.display="block"
+
+if(fbtemplate==1)
+	{
+	$('body').css({"padding":"20px 0 0 0"});
+	$('fixeddiv').css({"top":"5px"});
+	$("#loginDiv").hide();
+	$("#login").show();
+	}
+}
+
+
+
+function logout()
+{
+$.ajax({ url: '//www.classtools.net/templates/_logout.php',
+			dataType: 'json',
+			type: 'post',
+			async:false,//wait for response before doing something
+			success: function(data) 
+				{
+				document.getElementById("loginBtn").style.display="block"
+				document.getElementById("loggedIn").style.display="none"
+				premiumUser=0;
+                }
+			});	
+	
+}
+
+
+function viewfavs()
+{self.location="//www.classtools.net/classtools_premium/user_templates.php?"+premiumUserName}
+
+function saveFave(theLoc,theTitle)
+{
+	
+	temp=self.location+""
+	$.ajax({ url: '//www.classtools.net/classtools_premium/add_template_to_user_profile.php',
+			 data: {
+					widgetLoc:theLoc,
+					premTitle:theTitle
+			 		},
+			dataType: 'json',
+			type: 'post',
+			success: function(data) 
+				{
+				alert(data.theResult)
+                }
+			});
+
+}
+
+function doLoginNow()
+{
+subUsr=document.getElementById("username").value;
+subPw=document.getElementById("thepw").value;
+doLogin(subUsr,subPw)
+}
+
+function doLogin(subUsr,subPw)//can be called from above, or from the icons.swf 
+{
+	$.ajax({ url: '//www.classtools.net/templates/_login_manual.php',
+			 data: {
+					submUsr:subUsr,
+					submPw:subPw
+			 		},
+			dataType: 'json',
+			type: 'post',
+			async:false,//wait for response before doing something
+			success: function(data) 
+				{
+				hideFields();
+				if(data.success==1)
+					{
+					premiumUser=1
+					premiumUserName=subUsr;
+					premiumUserPW=subPw;
+					showLoginDetails()
+					}
+				else
+					{
+					alert(data.theResult)
+					}
+					
+                }
+			});
+
+}
+
+</script>
+
+<div id="login">
+<table><tr><td>
+
+    <div id="loginBtn"><a href="//www.classtools.net" target="_blank">Classtools.net Home</a> | <a href="javascript:showFields()">Premium Login</a> | <a target='_blank' href="https://www.facebook.com/Classtools">Facebook Fanpage</a>
+     | <a target='_blank' href="//www.classtools.net/_SEARCH/index.php">PowerSearch</a>
+      | <a target='_blank' href="//www.classtools.net/fform.php">Contact</a>
+    </div>
+    
+    <div id="loggedIn">
+    </div>
+
+	<div id="loginBox">
+        <div id="loginFields" style="display:none">
+          <table width="10%" border="0" bgcolor="yellow" cellpadding="3px">
+            <tr>
+              <td>Username</td>
+              <td>
+                <input type="text" name="username" id="username"></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" name="thepw" id="thepw"></td>
+              <td><input type="button" name="button" id="button" value="Submit" onClick="doLoginNow()"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="small"><a target='_blank' href='//www.activehistory.co.uk/classtools_premium/index.htm'><span style="color:black">Not a member? Join Now!</span></a></td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+   </div>
+
+</td></tr></table>
+</div>
+<script>
+if(premiumUser==1)
+	{
+	showLoginDetails();
+	hideFields();
+	}
+fbtemplate=0;
+wheel=0;
+
+if(wheel==1)
+	{
+	//$("#loginDiv").hide();
+	$('#login').css({"padding":"0px","margin":"0px","top":"auto","bottom":"0px","background-color":"black"});
+	$('#loginBox').css({"top":"auto","bottom":"40px"});
+	
+	$("#login").show();
+	}
+	
+
+    if(typeof jQuery == 'undefined'){
+        var oScriptElem = document.createElement("script");
+        oScriptElem.type = "text/javascript";
+        oScriptElem.src = "/templates/jquery.js";
+        document.head.insertBefore(oScriptElem, document.head.getElementsByTagName("script")[0])
+    }
+
+</script><!doctype html>
+<html lang="en">
+    <head>
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@classtools">
+<meta name="twitter:creator" content="@russeltarr">
+<meta name="twitter:title" content="ClassTools.net: Create your own interactive learning resources">
+<meta name="twitter:description" content="Dozens of templates, quiz generators and learning tools for use in the classroom">
+<meta name="twitter:image" content="//www.classtools.net/classtools_premium/logo.gif">
+    
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="verify-v1" content="pJJPmbxleZpHxhCQqqR1bo64Nn9CHha8MUB2tCeHKzk=" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ClassTools.net</title>
+       <meta name="keywords" content="flash,games,interactive,tools,education,school,teacher,international,school,toulouse" />
+<meta name="description" content="Create free educational games and tools in flash" />
+        <meta name="keywords" content="masonry layout">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="cubeportfolio-elements/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="cubeportfolio/css/cubeportfolio.min.css">
+        <link rel="stylesheet" type="text/css" href="cubeportfolio-elements/css/main.css">
+        
+        
+        
+        <link href="select2/select2.css" rel="stylesheet"/>
+    
+        <style>
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700);
+BODY {background:#0031FA url("templates/bg.jpg") 0 0 repeat-x; margin-top:40px}		
+/* set width and height for items */
+.grid-masonry .cbp-item {
+    /* @editable properties */
+    width: 277px;
+}
+
+.text
+{
+font-family: 'Open Sans',sans-serif;
+}
+
+.grid-masonry .height1,
+.grid-masonry .cbp-item-height-1 {
+    /* @editable properties */
+    height: 195px;
+}
+
+.grid-masonry .height2,
+.grid-masonry .cbp-item-height-2 {
+    /* @editable properties */
+    height: 410px;
+}
+
+
+		</style>
+        
+   <script>
+   function dotemp()
+{
+	
+	var e = document.getElementById("select");
+var strUser = e.options[e.selectedIndex].value;
+self.location=strUser
+	}
+        
+   
+   </script> 
+   
+
+  
+    </head>
+    <body>
+        
+        
+
+        <div class="wrapper">
+
+<!--
+            <div id="filters-container" class="filters-alignRight">
+                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All<div class="cbp-filter-counter"></div></div>
+                <div data-filter=".identity" class="cbp-filter-item">Identity<div class="cbp-filter-counter"></div></div>
+                <div data-filter=".web-design" class="cbp-filter-item">Web Design<div class="cbp-filter-counter"></div></div>
+                <div data-filter=".graphic" class="cbp-filter-item">Graphic<div class="cbp-filter-counter"></div></div>
+            </div>
+            
+-->
+
+            <div id="grid-container" class="grid-masonry">
+                <ul>
+                    
+                    
+                     <!--INTRO-->
+                     <li class="cbp-item height2" style="background-color:yellow">
+                         <div>
+                                <img src="cubeportfolio-elements/img/intro.jpg" alt="" width="100%">
+                                
+                  <span align="center" >
+                  <form id="temp" name="temp">
+                    <div align="center">
+                      <select name="select" id="select" onChange="javascript:dotemp()">
+                        <option selected="selected" value="">Select or search for a template:</option>
+                        <option value="http://www.classtools.net/FB/home-page">Fakebook</option>
+                        <option value="http://www.classtools.net/arcade/index.php">Arcade Game / Flashcard Generator</option>
+                        <option value="http://www.classtools.net/eyesay">Eyesay! Essay Analyser</option>
+                        <option value="http://www.classtools.net/random-name-picker/">Roulette Wheel (random name picker)</option>
+                        <option value="http://www.classtools.net/twitter4teachers/">Teachers to follow on Twitter</option>
+                        <option value="http://www.classtools.net/crossword">Crossword Generator</option>
+                        <option value="http://www.classtools.net/soundboard">Audience Soundboard</option>
+						<option value="http://www.classtools.net/3D">3D Gallery</option>
+                        <option value="http://www.classtools.net/newsfeed/create.php">Newsfeed (Running Dictation) Generator</option>
+                        <option value="http://www.classtools.net/timeliner/index.php">3D Turbo Timeline Generator</option>
+                        
+                        <option value="http://www.classtools.net/connect">Connect Fours</option>
+                        <option value="http://www.classtools.net/pac">PacMan</option>
+                        <option value="http://www.classtools.net/arcade/index.php">Arcade Game</option>
+                        <option value="http://www.classtools.net/timer/">Countdown Timer</option>
+                        <option value="http://www.classtools.net/mapgame/">Mission: Mapquest</option>
+                      <option value="http://www.classtools.net/crossword/">Crossword Generator</option>  
+                    <option value="http://www.classtools.net/QR/">QR Treasure Hunt</option>
+                        <option value="http://www.classtools.net/brainybox">BrainyBox</option>
+                        <option value="http://www.classtools.net/breakingnews">Breaking News</option>
+                        <option value="http://www.classtools.net/headline_generator">Headline Generator</option>
+                        <option value="http://www.classtools.net/solo-hexagons/">Hexagons Generator</option>
+                        <option value="http://www.classtools.net/calendar.php">Dates for Schools</option>
+                        <option value="http://www.classtools.net/twister/">Twister: Fake Tweets</option>
+                        <option value="http://www.classtools.net/SMS/">SMS: Fake Conversation Generator</option>
+                        <option value="http://www.classtools.net/citation-generator/">Citation/QR/ShortURL Generator</option>
+                        <option value="http://www.classtools.net/qwikslides/">QwikSlides</option>
+                        <option value="http://www.classtools.net/education-games-php/venn_intro">Venn</option>
+                        <option value="http://www.classtools.net/education-games-php/jigsaw">Jigsaw</option>
+                        <option value="http://www.classtools.net/education-games-php/postIt">Post-It (labelling tool)</option>
+                        <option value="http://www.classtools.net/education-games-php/dustbin">Dustbin Game</option>
+                        <option value="http://www.classtools.net/education-games-php/diamond9">Diamond 9</option>
+                        <option value="http://www.classtools.net/education-games-php/fruit_machine">Fruit Machine (random name picker)</option>
+                        
+                        <option value="http://www.classtools.net/telescopic/">Telescopic Topic</option>
+                        <option value="http://www.classtools.net/tweetpics/">TweetPics</option>
+                        <option value="http://www.classtools.net/quotes/widget.php">QuoteRotator</option>
+                        <option value="http://www.classtools.net/main_area/keywordchecker/index.php">KeyWord Checker</option>
+                        <option value="http://www.activehistory.co.uk/plagiarizr/">Plagiarizr: Plagiarism Checker</option>
+                        <option value="http://www.classtools.net/education-games-php/turningPage">Animated Book</option>
+                         <option value="http://www.classtools.net/newsfeed/create.php">Newsfeed (Running Dictation) Generator</option>
+                    <option value="http://www.classtools.net/education-games-php/target">Target</option>
+                        <option value="http://www.classtools.net/education-games-php/fishbone">Fishbone</option>
+                        <option value="http://www.classtools.net/education-games-php/burger">Burger Diagram</option>
+                        <option value="http://www.classtools.net/education-games-php/timeline">Timeline</option>
+                        <option value="http://www.classtools.net/education-games-php/livingGraph">Living Graph</option>
+                        <option value="http://www.classtools.net/education-games-php/priority_chart">Priority Chart</option>
+                        <option value="http://www.classtools.net/education-games-php/lights_out">Lights Out!</option>
+                        <option value="http://www.classtools.net/education-games-php/source_analyser">Source Analyser</option>
+                        <option value="http://www.classtools.net/education-games-php/cycle">Learning Cycle</option>
+                        <option value="http://www.classtools.net/_SEARCH/">PowerSearch</option>
+                        
+                        
+                  </select>
+                    </div>
+                  </form>
+              </span>
+                              <table width="100%" border="0" cellpadding="1">
+                                  <tr>
+                                    <td align="center"><a href="//www.classtools.net/fform.php"><img style="text-align:center" src="images/contact.png" alt="" width="25px" /></a></td>
+                                    <td align="center"><a href="//www.classtools.net/_SEARCH/"><img src="images/search.png" alt="" width="25px" /></a></td>
+                                  
+                                  <td align="center"><a href="https://www.facebook.com/Classtools/"><img style="text-align:center" src="images/facebook.png" alt="" width="25px" /></a></td>
+                                  
+                                  <td align="center"><a href="http://www.twitter.com/classtools"><img style="text-align:center" src="images/twitter2.png" alt="" width="25px" /></a></td>
+                                  
+                                  </tr>
+                              </table>
+                              <br>
+                              <img src="cubeportfolio-elements/img/intro2.jpg" alt="" width="100%">
+                            </div>
+                            
+                    </li>
+                    
+                    
+                    
+                     <!--PRACPED  
+                     <li class="cbp-item height2">
+                        <a class="cbp-caption" href="http://www.practicalpedagogies.net">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/pracped.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Practical Pedagogies!</div>
+                                        <div class="caption-desc">A unique teacher-training conference</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>-->
+                    
+                       
+                    <!--FAKEBOOK-->
+                     <li class="cbp-item height2">
+                        <a class="cbp-caption" href="//www.classtools.net/FB/home-page">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/1.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Fakebook</div>
+                                        <div class="caption-desc">Create a fictional social profile</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     <!--RANDOM NAME PICKER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/random-name-picker/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/4.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Random Name Picker</div>
+                                        <div class="caption-desc">Input a name / word list, convert into a spinning wheel!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     <!--ARCADE GAME GENERATOR-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/arcade/index.php">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/8.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Arcade Game Generator</div>
+                                        <div class="caption-desc">Input your questions and answers, get 5 quizzes at once!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                   
+                    <!--BADGEMAKER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/badgemaker">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/badgemaker.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Badgemaker!</div>
+                                        <div class="caption-desc">Create badges for teams, or debate / roleplay characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--TURBO TIMELINE-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/timeliner">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/turbotimeline.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Turbo Timeline!</div>
+                                        <div class="caption-desc">Create an animated 3D timeline of key events</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     <!--NEWSFEED-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/newsfeed/create.php">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/newsfeed.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Newsfeed Generator</div>
+                                        <div class="caption-desc">Input your story, students then have to take notes against the clock!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                  
+                    
+                      <!--PACMAN-->
+                    <li class="cbp-item height2">
+                        <a class="cbp-caption" href="//www.classtools.net/arcade/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/pacman.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">PacMan Quiz Generator</div>
+                                        <div class="caption-desc">Turn your quiz questions into a PacMan quiz!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--TOOLBOX-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/blog">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/toolbox.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Tarr's Toolbox</div>
+                                        <div class="caption-desc">Scores of teaching ideas and resources!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                     <!--HEXAGONS-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/solo-hexagons/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="hexagon/pics/hex.gif" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Hexagons Generator</div>
+                                        <div class="caption-desc">Convert a list of items into hexagons for categorisation</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                   
+                    
+                    
+                  
+                   
+                      
+                   
+                    
+                     
+                    
+                    
+                      
+                   
+                    
+                     <!--HTML5 COUNTDOWN TIMER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/timer">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/timer.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">HTML5 Countdown Timer</div>
+                                        <div class="caption-desc">Choose your own video, save a link!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+					
+					
+					
+                    
+                    
+                    <!--SMS-->
+                    <li class="cbp-item height2">
+                        <a class="cbp-caption" href="//www.classtools.net/SMS/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/6.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">SMS Generator</div>
+                                        <div class="caption-desc">Create a fictional SMS chat</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                  
+                     
+                    
+                    
+                  
+                    <!--QR-->
+                     <li class="cbp-item height2">
+                        <a class="cbp-caption" href="//www.classtools.net/QR/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/qr.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">QR Treasure Hunt Generator</div>
+                                        <div class="caption-desc">A fun, simple way to get students using their mobile devices to continue learning outside of lesson time</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     <!--CONNECT FOURS-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/connect">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/21.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">"Connect Fours" Quiz Generator</div>
+                                        <div class="caption-desc">Generate a quiz to help students spot the connections between topic keywords!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                 
+                    
+                     <!--BREAKING NEWS-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/breakingnews">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/breaking.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Breaking News Generator</div>
+                                        <div class="caption-desc">Create a newsflash for a historical/fictional event!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--PLAYDATES-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/playdatesright">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/playdates.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Play Your Dates Right!</div>
+                                        <div class="caption-desc">Convert a timleine into an interactive quiz!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                     <!--EYESAY-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/eyesay">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/eyesay.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">EyeSay!</div>
+                                        <div class="caption-desc">A tool for visualising essay style and structure.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                     <!--POWERSEARCH-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/_SEARCH">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/powersearch.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">PowerSearch!</div>
+                                        <div class="caption-desc">Find ready-made ClassTools resources to use with your students!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--TWITTER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/twitter4teachers/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/twitter.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Teachers on Twitter</div>
+                                        <div class="caption-desc">Automated lists of teachers to follow, organised by subject!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--HAD-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/citation-generator/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/7.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Citation/QR/ShortURL Generator</div>
+                                        <div class="caption-desc">Just provide a title, author or web address!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                   
+                    
+                   <!--HEADLINE GENERATOR-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/headline_generator">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/23.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Headline Generator</div>
+                                        <div class="caption-desc">Summarise a key fact / event as a headline and associated image</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <!--CROSSWORD GENERATOR-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/crossword">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/crossword.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Crossword Generator</div>
+                                        <div class="caption-desc">Input your questions and answers, get an interactive crossword!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     
+                    
+                     <!--Soundboard-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/soundboard">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/soundboard.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Audience Soundboard</div>
+                                        <div class="caption-desc">Great for use during classroom quizzes/debates!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    <!--MOVIETEXT-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/movietext">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/movietext.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Movie Text Scroller</div>
+                                        <div class="caption-desc">Create an engaging starter/plenary reading!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                      
+                    
+					
+                    
+                      <!--3D-->
+                     <li class="cbp-item height2">
+                        <a class="cbp-caption" href="//www.classtools.net/3D">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/3D.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">3D Gallery</div>
+                                        <div class="caption-desc">Create your own virtual museum exhibition!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                   
+					
+                    
+					
+                    <!--FLASH COUNTDOWN TIMER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/timer">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/2.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Flash Countdown Timer</div>
+                                        <div class="caption-desc">Choose your own music to accompany it!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                 
+                    
+                   
+                    
+                    
+                    <!--FRUIT MACHINE-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/fruit_machine">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/9.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Fruit Machine</div>
+                                        <div class="caption-desc">A random name/word picking tool</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                   
+                        <!--MISSION:MAPQUEST-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/mapgame/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/10.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Mission: MapQuest</div>
+                                        <div class="caption-desc">Create your own Google Maps Treasure Hunt</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <!--FACEBOOK-->
+                     <li class="cbp-item height2">
+                        <a class="cbp-caption" href="https://www.facebook.com/Classtools">
+                            <div class="cbp-caption-defaultWrap">
+                                <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FClasstools&amp;width=292&amp;height=410&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true&amp;appId=100973876663691" scrolling="no" frameborder="0" style="border:none; overflow:hidden; background-color:yellow; width:292px; height:410px;" allowTransparency="true"></iframe>
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">ClassTools on Facebook</div>
+                                        <div class="caption-desc">Join the fanpage!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--TWISTER-->
+                    <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/twister/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/5.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Twister!</div>
+                                        <div class="caption-desc">Create a fake tweet from a fictional / historical character</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     
+                    
+                    
+                    
+                    
+                    
+                    <!--DUSTBIN-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/dustbin">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/dustbin.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Dustbin Game Generator</div>
+                                        <div class="caption-desc">Students have to drag and drop answers into the correct 'bin'</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <!--DIAMOND9-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/diamond9">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/11.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Diamond 9 Template</div>
+                                        <div class="caption-desc">Drag and Drop nine factors into an order of priority</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <!--VENN-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/venn_intro">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/13.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Venn Diagram Template</div>
+                                        <div class="caption-desc">Spot connections between factors, embed/save the results</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                     <!--BURGER-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/burger">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/14.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Burger Diagram Template</div>
+                                        <div class="caption-desc">A simple essay-planning tool</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <!--FISHBONE-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/fishbone">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/12.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Fishbone Diagram</div>
+                                        <div class="caption-desc">Categorise, subdivide, summarise your ideas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                 
+                    
+                    
+                    
+                     <!--BRAINYBOX-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/brainybox/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/15.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">BrainyBox</div>
+                                        <div class="caption-desc">Create a 3D, animated, multimedia summary cube</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                     <!--QWIKSLIDES-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/qwikslides/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/16.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Qwikslides</div>
+                                        <div class="caption-desc">Create a multimedia presentation in seconds!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                     
+                     
+                     
+                     
+                       <!--DATES FOR SCHOOLS-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/calendar.php">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/17.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Dates for Schools</div>
+                                        <div class="caption-desc">A Google Calendar of useful dates for school assemblies, fundraisers etc</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                       <!--TARGET-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/target">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/20.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Target Diagram</div>
+                                        <div class="caption-desc">Categorise and subdivide to create a revision summary</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                       <!--LIGHTS OUT-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/lights_out">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/19.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Lights Out!</div>
+                                        <div class="caption-desc">Cover an image and slowly reveal it to the audience</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                       <!--TELESCOPIC TOPIC-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/telescopic/">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/18.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Telescopic Topic</div>
+                                        <div class="caption-desc">Create a spring-loaded summary of an essential topic for revision</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!--TIMELINE-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/timeline">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/timeline.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Timeline Tool</div>
+                                        <div class="caption-desc">Create a simple timeline of events</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                   <!--LIVING GRAPH-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/livingGraph">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/lgraph.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Living Graph</div>
+                                        <div class="caption-desc">Create a 'timeline with attitude'!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    <!--POSTIT-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/postIt">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/postit.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">PostIt (Labelling Tool)</div>
+                                        <div class="caption-desc">Upload, then annotate an image.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <!--JIGSAW-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/education-games-php/jigsaw">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/jigsaw.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Jigsaw Diagram</div>
+                                        <div class="caption-desc">The Jigsaw template is designed to allow students to make connections between various factors in an engaging manner.<br>The "pieces" of the jigsaw can have text written into them. When they are dragged next to each other, they "snap" into place.<br>The pieces can be colour coded as appropriate.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                     <!--KEYWORD-->
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/main_area/keywordchecker/index.php">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="cubeportfolio-elements/img/keyword.jpg" alt="" width="100%">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">Keyword Checker</div>
+                                        <div class="caption-desc">This tool checks if an essay uses the most important key terms for a topic.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <!--QUOTEROTATOR
+                     <li class="cbp-item height1">
+                        <a class="cbp-caption" href="//www.classtools.net/quotes/widget.php">
+                            <div class="cbp-caption-defaultWrap">
+                                <iframe src="//www.classtools.net/quotes/index.php?subject=Education&theme=Randomised&font=Chelsea Market" frameBorder="0" width="100%" height="195"></iframe>
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="caption-alignCenter">
+                                    <div class="caption-body">
+                                        <div class="caption-title">QuoteRotator</div>
+                                        <div class="caption-desc">Embed a Quote, RSS or Twitter feed into your blog, website or wiki!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>-->
+                    
+                    
+                </ul>
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script type="text/javascript" src="cubeportfolio-elements/js/main.js"></script>
+        
+		
+		
+		<div class='bubbleScroll'>
+    <div class='bubbleScroll_inner'>
+    <a href='#' class='bubbleScroll_close_button'>x</a>
+    <span id="haveyoutried" style="font-weight:bold;font-size:large">Have you tried...?</span>
+	<a id="teaserURL" style="text-decoration:none;" href="">
+     <img id="teaserImg" style="max-height:150px" src="cubeportfolio-elements/img/1.jpg" alt="" width="100%">
+	 </a> 
+	 <br><span style="font-weight:bold;background:yellow" id="teaserTxt">text</span>
+	
+	 
+</p>
+   
+    </div>
+    </div>
+	
+	<style>
+	a:visited{color:blue;}
+	
+	</style>
+	<link href="bubbleScroll/css/bubbleScroll.css" rel="stylesheet" type="text/css">
+    <script src="bubbleScroll/js/jquery.cookie.min.js" type="text/javascript"></script>
+    <script src="bubbleScroll/js/jquery.bubbleScroll.min.js" type="text/javascript"></script>
+		<script src="select2/select2.js"></script>
+		
+<script>
+teasers=new Array()
+
+
+teasers.push("7*Citation Generator*Just provide a title, author or web address!*//www.classtools.net/citation-generator")
+teasers.push("8*Arcade Game Generator*Input your questions and answers, get 5 quizzes at once!*//www.classtools.net/arcade/index.php")
+teasers.push("1*Fakebook*Create a fictional social profile*//www.classtools.net/FB/home-page")
+teasers.push("timer*Multi-Timer*Create multiple, multimedia timers!*//www.classtools.net/timer")
+
+teasers.push("2*Countdown Timer*Choose your own music to accompany it!*//www.classtools.net/education-games-php/timer")
+teasers.push("10*Mission: MapQuest*Create your own Google Maps Treasure Hunt*//www.classtools.net/mapgame/")
+teasers.push("6*SMS Generator*Create a fictional SMS chat*//www.classtools.net/SMS/")
+teasers.push("qr*QR Treasure Hunt Generator*A fun, simple way to get students using their mobile devices to continue learning outside of lesson time*//www.classtools.net/QR")
+teasers.push("3*Hexagons Generator*Convert a list of items into hexagons for categorisation*//www.classtools.net/solo-hexagons")
+teasers.push("9*Fruit Machine*A random name/word picking tool*//www.classtools.net/education-games-php/fruit_machine")
+teasers.push("4*Random Name Picker*Input a name / word list, convert into a spinning wheel!*//www.classtools.net/random-name-picker")
+teasers.push("5*Twister!*Create a fake tweet from a fictional / historical character*//www.classtools.net/twister")
+teasers.push("7*Citation/QR/ShortURL Generator*Just provide a title, author or web address!*//www.classtools.net/citation-generator")
+teasers.push("dustbin*Dustbin Game Generator*Students have to drag and drop answers into the correct 'bin'*//www.classtools.net/education-games-php/dustbin")
+teasers.push("11*Diamond 9 Template*Drag and Drop nine factors into an order of priority*//www.classtools.net/education-games-php/diamond9")
+teasers.push("13*Venn Diagram Template*Spot connections between factors, embed/save the results*//www.classtools.net/education-games-php/venn_intro")
+teasers.push("14*Burger Diagram Template*A simple essay-planning tool*//www.classtools.net/education-games-php/burger")
+teasers.push("12*Fishbone Diagram*Categorise, subdivide, summarise your ideas*//www.classtools.net/education-games-php/fishbone")
+teasers.push("15*BrainyBox*Create a 3D, animated, multimedia summary cube*//www.classtools.net/brainybox")
+teasers.push("16*Qwikslides*Create a multimedia presentation in seconds!*//www.classtools.net/qwikslides")
+teasers.push("17*Dates for Schools*A Google Calendar of useful dates for school assemblies, fundraisers etc*//www.classtools.net/calendar.php")
+teasers.push("20*Target Diagram*Categorise and subdivide to create a revision summary*//www.classtools.net/education-games-php/target")
+teasers.push("19*Lights Out!*Cover an image and slowly reveal it to the audience*//www.classtools.net/education-games-php/lights_out")
+teasers.push("18*Telescopic Topic*Create a spring-loaded summary of an essential topic for revision*//www.classtools.net/telescopic")
+teasers.push("timeline*Timeline Tool*Create a simple timeline of events*//www.classtools.net/education-games-php/timeline")
+teasers.push("lgraph*Living Graph*Create a 'timeline with attitude'!*//www.classtools.net/education-games-php/livingGraph")
+teasers.push("postit*PostIt (Labelling Tool)*Upload, then annotate an image.*//www.classtools.net/education-games-php/postIt")
+teasers.push("jigsaw*Jigsaw Diagram*The Jigsaw template is designed to allow students to make connections between various factors in an engaging manner.*//www.classtools.net/education-games-php/jigsaw")
+teasers.push("keyword*Keyword Checker*This tool checks if an essay uses the most important key terms for a topic.*//www.classtools.net/main_area/keywordchecker/index.php")
+teasers.push("pacman*PacMan Quiz Generator*Turn your test questions into an interactive arcade game!.*//www.classtools.net/pac")
+teasers.push("breaking*Breaking News Generator*Create your own 'newsflash' for a historical/fictional event!*//www.classtools.net/breakingnews")
+teasers.push("crossword*HTML5 Crossword Generator*Create your own interactive crossword!*//www.classtools.net/crossword")
+teasers.push("soundboard*Audience Soundboard*Great for atmospherics in classroom debates!*//www.classtools.net/soundboard")
+teasers.push("23*Headline Generator*Get students to summarise key facts/events as headlines!*//www.classtools.net/headline_generator")
+teasers.push("eyesay*EyeSay!*A new tool for visualising essay style and structure*//www.classtools.net/eyesay")
+
+
+function loadTeaser()
+{
+rand=Math.floor(Math.random()*teasers.length)
+
+s=teasers[rand].split("*");
+$('#teaserImg').attr('src', 'cubeportfolio-elements/img/'+s[0]+'.jpg');
+
+$('#teaserTxt').html("<a href='"+s[3]+"'><b>"+s[1]+"</b></a><br>"+s[2]);
+$('#teaserURL').attr('href', s[3]);
+
+}
+
+$(document).ready(function() 
+	{ 
+	$("#select").select2(); 
+	$("#select")[0].selectedIndex = 0;
+	//setTimeout('$(".bubbleScroll").bubbleScroll({bubbleStyle: "circle",alwaysVisible: true })',3000);//or square, false
+	loadTeaser()
+	});
+</script>
+    </body>
+</html>
+
+
+    
+    </body>
+</html>

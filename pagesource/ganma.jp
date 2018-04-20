@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="ganma-web2" ng-controller="DocumentController" data-ng-class="deviceName">
+<head>
+    <title ng-bind="setting.title">GANMA!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimal-ui">
+    <meta name="fragment" content="!">
+    <meta property="og:type" content="{{setting.type}}">
+    <meta property="og:title" content="{{setting.ogTitle}}">
+    <meta property="og:site_name" content="GANMA!">
+    <meta property="og:description" content="{{setting.description}}">
+    <meta property="og:url" content="{{setting.url}}">
+    <meta property="og:image" content="{{setting.image}}">
+    <meta property="fb:app_id" content="270617089762688">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@GANMA_JPN"/>
+    <meta name="twitter:creator" content="@comicsmart"/>
+    <meta name="twitter:title" content="{{setting.twitterTitle}}"/>
+    <meta name="twitter:description" content="{{setting.overview}}"/>
+    <meta name="twitter:image" content="{{setting.thumbnailImage}}"/>
+    <meta name="twitter:app:name:iphone" content="GANMA!"/>
+    <meta name="twitter:app:id:iphone" content="709003148"/>
+    <meta name="twitter:app:url:iphone" content="https://itunes.apple.com/jp/app/safecast/id709003148"/>
+    <meta name="twitter:app:name:ipad" content="GANMA!"/>
+    <meta name="twitter:app:id:ipad" content="709003148"/>
+    <meta name="twitter:app:url:ipad" content="https://itunes.apple.com/jp/app/safecast/id709003148"/>
+    <meta name="twitter:app:name:googleplay" content="GANMA!"/>
+    <meta name="twitter:app:id:googleplay" content="com.COMICSMART.GANMA"/>
+    <meta name="twitter:app:url:googleplay"
+          content="https://play.google.com/store/apps/details?id=com.COMICSMART.GANMA"/>
+    <meta name="description"
+          ng-if="head.description"
+          content="{{setting.description}}">
+    <meta name="keywords"
+          ng-if="head.keywords"
+          content="{{setting.keywords}}">
+
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="shortcut icon" href="/favicon.ico?20150323" type="image/vnd.microsoft.icon"/>
+    <link rel="apple-touch-icon" href="/ganmaicon152.png?20150323">
+    <link rel="apple-touch-icon" sizes="76x76" href="/ganmaicon76.png?20150323">
+    <link rel="apple-touch-icon" sizes="120x120" href="/ganmaicon120.png?20150323">
+    <link rel="apple-touch-icon" sizes="152x152" href="/ganmaicon152.png?20150323">
+    <meta name="apple-mobile-web-app-title" content="GANMA!"/>
+
+    <link ng-if="setting.rssUrl" rel="alternate" type="application/rss+xml"
+          title="RSS Feed" ng-href="{{setting.rssUrl}}"/>
+
+    <base href="/"/>
+
+    <style>
+        /* important style for angularjs . do not remove */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+    <script src="infra/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="infra/libs/velocity/0.7.0/jquery.velocity.min.js"></script>
+
+    <script src="infra/libs/angularjs/1.3.20/angular.min.js"></script>
+    <script src="infra/libs/angularjs/1.3.20/angular-route.min.js"></script>
+    <script src="infra/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="infra/libs/lodash/3.10.2/lodash.min.js"></script>
+    <script src="infra/libs/angular-seo/angular-seo.js"></script>
+    <script src="infra/libs/angulartics/angulartics.min.js"></script>
+    <script src="infra/libs/angulartics/angulartics-ga.min.js"></script>
+    <script src="ganma.js?_ts=1517289263564"></script>
+<link rel="stylesheet" href="theme/css/style.css?_ts=1517289263564">
+<link rel="stylesheet" href="app.css?_ts=1517289263564">
+<script type="text/ng-template" id="/view/global/NavigationBar.html"><header class="common-navigate-header position-fixed clearfix"
+        ng-controller="NavigationBarController"
+        fixed-on-top-over-scroll-at="{{marginTop}}"
+        is-always-fixed="{{isFixedOnTop}}">
+    <div class="clearfix">
+        <h1 ng-if="isActive('/')" scroll-top><a href="/">
+            <img src="/theme/images/common/logo.png" alt="GANMA!" width="179" height="40">
+        </a></h1>
+        <h1 ng-if="!isActive('/')">
+            <a href="/"><img src="/theme/images/common/logo.png" alt="GANMA!" width="179" height="40">
+        </a></h1>
+        <nav>
+            <ul class="clearfix">
+                <li><a ng-class="{active: isActive('/about')}" ng-href="/about">GANMA!とは</a></li>
+                <li><a href="http://store.ganma.jp/" target="_blank">関連商品</a></li>
+                <li><a ng-class="{active: isActive('/wanted')}"  ng-href="/wanted">マンガ家募集</a></li>
+                <li><a ng-class="{active: isActive('/announcement')}" ng-href="/announcement">お知らせ</a></li>
+
+                <!-- session loading -->
+                <li ng-if="session.loading">
+                    ...
+
+                </li>
+
+                <!-- session 読み込みおわり & 無し -->
+                <li ng-if="!session.loading && !session.user">
+                    <a href="javascript:;" style="font-size: 13px;" ng-click="login();$event.stopPropagation();">ログイン</a>
+                </li>
+
+                <li ng-if="!session.loading && !session.user" class="nav-free-regist">
+                    <a ng-click="signup();$event.stopPropagation();" style="cursor: pointer">無料会員登録</a>
+                </li>
+
+                <!-- ログイン済み -->
+                <li ng-if="!session.loading && session.user">
+                    <header-account-popup ng-controller="NavigationPopupController">
+                        <div class="header-account-name">
+                            <a ng-href="/mypage/account" ng-click="closeHeaderPopup()">{{session.user.nickName||"(ニックネーム未登録)"}}</a>さん
+                        </div>
+                        <div class="header-account-box arrow-top"
+                             ng-include="'view/global/HeaderPopup.html'"></div>
+                    </header-account-popup>
+                </li>
+            </ul>
+        </nav>
+        <header-popup class="common-header-popup" ng-if="session && !session.isEmpty"></header-popup>
+    </div>
+</header></script>
+<script type="text/ng-template" id="/view/global/AppDownloadBar.html"><aside ng-controller="AppDownloadBarController" id="smartbanner">
+
+    <div class="smartbanner-container">
+
+        <div class="big-close-black" data-ng-click="close()"></div>
+
+        <div class="smartbanner-app-information">
+
+            <img src='/ganmaicon152.png?20161221' class="smartbanner-app-icon" data-ng-click="download()">
+
+            <div class="smartbanner-app-description" data-ng-click="download()">
+
+                <div>GANMA! - 漫画アプリ</div>
+
+                <div>100作以上の新作マンガ無料</div>
+            </div>
+
+            <div class="smartbanner-app-download">
+
+                ＼制限ナシ／
+                <div class="smartbanner-app-download-button" data-ng-click="download()">
+                    <strong>開く</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+</script>
+<script type="text/ng-template" id="/view/global/AnnouncementBar.html"><aside data-ng-controller="AnnouncementBarController"
+       style="display: block; z-index:1"
+       class="notice"
+       plus-top="#smartbanner aside.common-navigate-header"
+       plus-top-watch="globalPartsVisibility()">
+    <div class="clearfix">
+        <time datetime="{{announcement.releaseTime | date: 'yyyy-MM-dd'}}"
+              ng-bind="announcement.releaseTime | date: 'M/dd'" auto-sizing></time>
+        <p><a ng-href="/announcement/{{announcement.id}}" ng-bind="'【' + announcement.category + '】' + announcement.title || '&nbsp;'">&nbsp;</a>
+        </p>
+        <i class="close-white" ng-click="close()"></i>
+    </div>
+</aside></script>
+<script type="text/ng-template" id="/view/global/HeaderPopup.html"><div>
+    <p class="header-account-head"><a ng-href="/mypage/bookmark" ng-click="closeHeaderPopup()">お気に入り</a></p>
+    <ul class="header-story-list" ng-show="!bookmarks.loading">
+        <div ng-repeat="bookmark in bookmarks.data | limitTo: 3">
+            <li><a ng-href="/{{bookmark.magazine.alias.getOrElse(bookmark.magazine.id)}}" ng-click="closeHeaderPopup()">
+                <p class="header-story-title">{{bookmark.magazine.title}}</p>
+
+                <p class="header-story-author">{{bookmark.magazine.author.getOrElse('').penName}}</p>
+                <time>
+                    {{bookmark.magazine.newestStoryInformation.isEmpty ? '' : '最新話 '+(bookmark.magazine.newestStoryInformation.get()|releaseTime4Free:session.user.isPremium|date:"yyyy/MM/dd").toString()+' 配信'}}
+                </time>
+                <img ng-src="{{bookmark.magazine.squareImage.asImage(60)}}" alt="{{bookmark.magazine.title}}"></a>
+            </li>
+        </div>
+    </ul>
+    <div ng-if="bookmarks.data.length === 0">
+        <p class="header-no-favorite">お気に入りが追加されていません</p>
+    </div>
+</div>
+<div>
+    <p class="header-account-head"><a ng-href="/mypage/history" ng-click="closeHeaderPopup()">閲覧履歴</a></p>
+    <ul class="header-story-list" ng-show="!histories.loading">
+        <div ng-repeat="history in histories.data | limitTo:3">
+            <li><a ng-href="/{{history.magazine.alias.getOrElse(history.magazine.id) + '/' + history.story.id + '/' + history.pageOffset}}" ng-click="closeHeaderPopup()">
+                <p class="header-story-title">{{history.magazine.title}}</p>
+                <p class="header-story-author" ng-if="history.magazine.author.isDefined">{{history.magazine.author.get().penName}}</p>
+                <p class="header-story-author" ng-if="history.magazine.author.isEmpty">{{history.magazine.subTitle.getOrElse("&nbsp;")}}</p>
+                <time>{{history.timestamp | date:"yyyy/MM/dd"}}</time>
+                <img ng-src="{{history.magazine.squareImage.asImage(60)}}" alt="{{history.magazine.title}}"></a>
+            </li>
+        </div>
+    </ul>
+    <div ng-if="histories.data.length === 0">
+        <p class="header-no-history">閲覧履歴がありません</p>
+    </div>
+</div>
+
+<div>
+    <p class="header-account-head"><a ng-href="/mypage/account" ng-click="closeHeaderPopup()">アカウント</a></p>
+
+    <div ng-if="!session.user.isPremium">
+        <p><a href="/mypage/account" ng-click="closeHeaderPopup()" class="header-account-status header-account-status-free">無料会員</a></p>
+    </div>
+
+    <div ng-if="session.user.isPremium">
+        <p><a href="/mypage/account" ng-click="closeHeaderPopup()" class="header-account-status header-account-status-premium">プレミアム会員<br><span>{{session.user.premiumActiveTo | date:"yyyy年MM月dd日"}}まで</span></a></p>
+    </div>
+    <p class="header-logout" ng-click="logout();$event.stopPropagation()" ng-if="session">ログアウト</p>
+
+    <div ng-if="!session.user.isPremium">
+        <p class="header-premium-lead"><a ng-href="/upgrade" ng-click="closeHeaderPopup()"><span>最新話の先読みが<br>出来るようになります</span><span>プレミアム会員<span>(月額300円～)</span>になる</span></a></p>
+    </div>
+</div>
+</script>
+<script type="text/ng-template" id="/view/global/Footer.html"><footer ng-controller="FooterController">
+    <p>
+        <small class="top-footer-text">
+            当サービスの作品はフィクションです。実在の人物や団体名などには一切関係ありません。
+        </small>
+    </p>
+    <div>
+        <nav>
+            <ul class="footer-nav-txt">
+                <li><a ng-href="/qa">Q&amp;A</a></li>
+                <li><a ng-href="https://krs.bz/comicsmart/m?f=53&e_445={{session.user.id}}">お問い合わせ</a></li>
+                <li><a ng-href="/terms">利用規約</a></li>
+                <li><a ng-href="/communityGuideline">コミュニティガイドライン</a></li>
+                <li><a ng-href="/copyright">著作物の取り扱いについて</a></li>
+            </ul>
+            <ul class="footer-nav-txt">
+                <li><a ng-href="/privacy">個人情報保護の基本方針</a></li>
+                <li><a ng-href="/privacy/about">個人情報の取り扱いについて</a></li>
+                <li><a ng-href="/privacy/number">個人番号及び特定個人情報の適正な取扱いに関する基本方針</a></li>
+            </ul>
+            <ul class="footer-nav-store clearfix">
+                <li><a ng-href="{{_STORE_IOS_URL}}" target="_blank"><img src="theme/images/common/footer-app-store.png"
+                                                                         alt="App Store" width="140" height="40"></a>
+                </li>
+                <li><a ng-href="{{_STORE_ANDROID_URL}}" target="_blank"><img
+                        src="theme/images/common/footer-google-play.png" alt="Google Play" width="116" height="40"></a>
+                </li>
+            </ul>
+        </nav>
+        <p data-ng-hide="setting.loading" class="view-small">
+            <small><img src="/theme/images/top/jasrac.png?150805" alt="JASRAC許諾第9014835002Y45038号" width="161"
+                        height="27"></small>
+        </p>
+        <p class="footer-small">
+            <small><a href="http://comicsmart.co.jp" target="_blank"><img
+                    src="theme/images/common/footer-comic-smart.png"
+                    alt="COMICSMART" width="95" height="22"></a>©COMICSMART
+                INC.
+            </small>
+        </p>
+
+        <ul class="footer-sns clearfix">
+            <li style="width: 63px;">
+                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                        ng-src="{{tweetUrl}}"
+                        class="twitter-share-button twitter-tweet-button twitter-share-button"
+                        title="Twitter Tweet Button" data-twttr-rendered="true"
+                        style="width: 68px;height: 20px;"></iframe>
+
+            </li>
+            <li ng-if="templatesIncluded">
+                <iframe ng-src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fganma.jp&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=412242882162213"
+                        scrolling="no" frameborder="0" style="border:none;overflow:hidden;width: 73px;height:20px;"
+                        allowTransparency="true"></iframe>
+            </li>
+            <li ng-if="setting.rssUrl" class="rss"><a ng-href="{{setting.rssUrl}}" target="_blank">
+                <img src="theme/images/icon/feed/feed-icon-28x28.png" width="20" height="20"></a></li>
+
+        </ul>
+    </div>
+</footer>
+</script>
+<script type="text/ng-template" id="/view/global/Modal.html"><div ng-controller="ModalController" id="overlay" ng-hide="!modal" style="width: 100%; height: 100%; z-index: 1000; position: fixed; top:0; left: 0; overflow: auto;
+            opacity: 0; background-color: rgba(0, 0, 0, 0.7);">
+    <div style="position: absolute; width:{{modal.width}}; height: {{modal.height}}" centering ng-click="$event.stopPropagation()">
+        <div ng-include="modal.template"></div>
+    </div>
+</div></script>
+<script type="text/ng-template" id="/view/global/ErrorMessagePopup.html"><aside class="status-error status-txt" ng-controller="ErrorMessagePopupController"
+       error-message-animation. style="padding-top:0px; z-index: 1100; display:none; transition: none;" ng-click="close()">
+    <div>
+        <p>{{errorMsg}}</p>
+    </div>
+</aside>
+</script>
+<script type="text/ng-template" id="/view/top/Top.html"><div ng-controller="TopController">
+    <nav class="view-nav clearfix">
+        <ul class="clearfix" ng-click="switchMode()">
+            <li title="グリッドのレイアウトで表示します" ng-class="{active: isActive('custom')}" class="view-nav-grid"><i></i></li>
+            <li title="リストのレイアウトで表示します" ng-class="{active: isActive('release')}" class="view-nav-list"><i></i></li>
+        </ul>
+    </nav>
+    <div ng-if="setting.visualMode === 'custom'" ng-include="'/view/top/Custom.html'"></div>
+    <div ng-if="setting.visualMode !== 'custom'" ng-include="'/view/top/List.html'"></div>
+    <p data-ng-hide="setting.loading" class="view-banner">
+        <a ng-href="/wanted">
+            <img src="/theme/images/top/banner-writer-recruit.png" alt="連載作家募集！" width="960" height="80">
+        </a>
+    </p>
+    <p class="page-top" scroll-top>
+        <a href="">ページのトップへ</a>
+    </p>
+</div></script>
+<script type="text/ng-template" id="/view/top/Custom.html"><div class="view-grid-wrap active" data-ng-controller="CustomTopController">
+    <loading-data></loading-data>
+
+    <div class="view-grid view-grid-layout-{{box.style}} clearfix" data-ng-repeat="box in customTop.boxes">
+        <section data-ng-repeat="panel in box.panels">
+            <a data-ng-if="panel.type === 'magazine'" ng-include="'/view/top/panel/MagazinePanel.html'"
+               data-ng-href="/{{panel.aliasOrId}}"></a>
+            <a data-ng-if="panel.type === 'channel'" ng-include="'/view/top/panel/ChannelPanel.html'"
+               data-ng-href="/channel/{{panel.aliasOrId}}"></a>
+            <a data-ng-if="panel.type === 'image'" ng-include="'/view/top/panel/ImagePanel.html'"
+               data-ng-href="{{panel.link.url | ganmaSchemeFilter}}" target="{{panel.link.type}}"></a>
+            <a data-ng-if="panel.type === 'video'" ng-include="'/view/top/panel/VideoPanel.html'"
+               data-ng-href="{{panel.link.url | ganmaSchemeFilter}}" target="{{panel.link.type}}"></a>
+        </section>
+    </div>
+</div></script>
+<script type="text/ng-template" id="/view/top/List.html"><div ng-controller="ListTopController" class="view-list-wrap clearfix active">
+    <nav class="view-list-nav">
+        <ul>
+            <li ng-class="{active: setting.visualMode === 'release'}" data-ng-click="location('/list/release')">配信日順</li>
+            <li ng-class="{active: setting.visualMode === 'popular'}" data-ng-click="location('/list/popular')">ランキング</li>
+            <li ng-class="{active: setting.visualMode === 'complete'}" data-ng-click="location('/list/complete')">完結作</li>
+        </ul>
+    </nav>
+
+    <loading-data></loading-data>
+
+    <section class="active">
+        <h2 data-ng-if="setting.visualMode === 'release'">配信日順</h2>
+        <h2 data-ng-if="setting.visualMode === 'popular'">ランキング</h2>
+        <h2 data-ng-if="setting.visualMode === 'complete'">完結作</h2>
+        <section ng-repeat="cell in cellDataSources" class="view-list">
+            <a ng-href="/{{cell.aliasOrId}}">
+                <h3>{{cell.title}}</h3>
+                <ul class="tag clearfix">
+                    <li ng-if="cell.flags|flags2schedule"
+                        class="tag-{{(cell.newestStoryInformation.getOrElse(null)|cssFlag:session.user.isPremium)}}">
+                        {{cell.flags|flags2schedule:true}}
+                    </li>
+                    <li class="tag-new-series" ng-if="cell.flags.isNew">新連載</li>
+                    <li class="tag-end-series" ng-if="cell.flags.isFinish">完結</li>
+                    <li class="tag-mg" ng-if="cell.flags.isMGAward">月間MG賞</li>
+                    <li class="tag-pr" ng-if="cell.flags.isPR">PR</li>
+                </ul>
+                <h4>{{cell.newestStoryInformation.isEmpty ? '' : ('【'+cell.newestStoryInformation.get().title+'】' +
+                    cell.newestStoryInformation.get().subTitle.getOrElse(''))}}</h4>
+
+                <div class="clearfix">
+                    <span data-ng-bind="cell.newestStoryInformation.isDefined ? cell.newestStoryInformation.get().author.penName : ''"></span>
+                    <time class="delivery">{{cell.newestStoryInformation.isEmpty ? '' :
+                        (cell.newestStoryInformation.get() | releaseTime4Free:session.user.isPremium | date:'yyyy/MM/dd'
+                        + ' 配信')}}
+                    </time>
+                </div>
+                <img data-ng-src="{{cell.image.asImage(80)}}" src=""></a>
+        </section>
+    </section>
+</div>
+</script>
+<script type="text/ng-template" id="/view/magazine/detail/Detail.html"><div ng-controller="MagazineDetailController">
+    <loading-data></loading-data>
+    <div ng-if="!loading">
+
+        <div ng-if="!magazine && errorType == 'premiumOnly'"
+             ng-include="'/view/global/PremiumOnly.html'" class="notFountPage">&nbsp;</div>
+
+        <div ng-if="magazine">
+            <nav class="breadcrumb-nav clearfix">
+                <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span
+                        itemprop="title">トップ</span></a></div>
+                <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span
+                        itemprop="title">{{magazine.title}}</span>
+                </div>
+            </nav>
+
+
+            <article class="detail-article">
+                <section>
+                    <h2><img src="{{magazine.rectangleWithLogoImage.asImage(960)}}" alt="{{magazine.title}}"
+                             width="960"></h2>
+
+                    <div class="detail-body">
+                        <h3>{{magazine.title}}</h3>
+
+                        <p class="detail-day" ng-if="magazine.flags|flags2schedule">
+                            {{magazine.flags|flags2schedule}}</p>
+
+                        <p class="detail-day detail-end-series" ng-if="magazine.flags.isFinish">
+                            完結</p>
+
+                        <div class="clearfix">
+                            <div class="detail-body-left">
+                                <p>{{magazine.description}} </p>
+
+                                <div ng-switch="magazine.author.isDefined">
+                                    <div ng-switch-when="false">&nbsp;</div>
+                                    <div ng-switch-default>
+                                        <figure class="clearfix">
+                                            <div><img src="{{magazine.author.get().profileImage.asImage(76)}}"
+                                                      alt="{{magazine.author.get().penName}}"></div>
+                                            <figcaption>
+                                                <h4>{{magazine.author.get().penName}}</h4>
+
+                                                <p>{{magazine.author.get().profile}}</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-body-right">
+                                <ul class="detail-action"
+                                    ng-if="!magazine.isEmptyMagazine(session.user.isPremium)">
+                                    <li ng-if="!magazine.series.isEmpty && session.user">
+                                        <a ng-href="{{openPagePosition()}}" class="detail-action-all">続きから読む</a>
+                                    </li>
+                                    <li ng-if="!magazine.series.isEmpty">
+                                        <a ng-href="{{openHead()}}" class="detail-action-some">第１話へ</a>
+                                    </li>
+                                    <li ng-if="magazine.series.isEmpty">
+                                        <a ng-href="{{openHead()}}" class="detail-action-all">最初から</a>
+                                    </li>
+                                    <li ng-if="magazine.series.isEmpty">
+                                        <a ng-href="{{openTail()}}" class="detail-action-some">最後へ</a>
+                                    </li>
+
+
+                                    <li ng-controller="BookmarkButtonController">
+                                        <a ng-click="toggle();$event.stopPropagation()"
+                                           ng-class="{
+                                        'detail-favorite-plus': !isBookmarked() ,
+                                        'detail-action-some': !isBookmarked() ,
+                                        'detail-favorite-complete': isBookmarked() ,
+                                        'detail-action-all': isBookmarked()}"
+                                           style="cursor: pointer;">お気に入り</a>
+                                    </li>
+                                </ul>
+                                <ul class="share-sns" ng-controller="ShareButtonController">
+                                    <li>
+                                        <a href="javascript:void(0)" ng-click="twitterShareLink()" alt="Tweetする">
+                                            Twitter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" ng-click="facebookShareLink()" alt="シェアする">
+                                            Facebook
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p>このマンガをシェアする！</p>
+                            </div>
+                        </div>
+
+                        <!--関連リンク-->
+                        <div ng-include="'/view/magazine/detail/RelatedLink.html'"/>
+
+                        <ol reversed="reversed" class="story">
+                            <li ng-if="magazine.upcoming.isDefined && session.user.isPremium">
+                                <div>
+                                    <div class="story-left">
+                                        <div class="story-num">
+                                            <span class="unavailable {{(indexes.length + 1)|storyNumFontFit}}">{{indexes.length + 1}}</span>
+                                        </div>
+                                        <span>{{magazine.upcoming.get().body}}</span>
+                                    </div>
+                                    <div class="story-right">
+                                        <time datetime="{{magazine.upcoming.get().scheduledDate | date:'yyyy/MM/dd'}}"
+                                              class="story-schedule delivery bold">
+                                            {{magazine.upcoming.get().scheduledDate | date:'yyyy/MM/dd'}} 配信予定
+                                        </time>
+                                    </div>
+                                </div>
+                            </li>
+                            <li ng-if="magazine.upcoming.isDefined && !session.user.isPremium"
+                                class="story-premium-block">
+                                <a ng-href="/upgrade?{{magazine.alias.getOrElse(magazine.id)}}">
+                                    <div class="story-left">
+                                        <div class="story-num">
+                                            <span class="unavailable {{(indexes.length + 1)|storyNumFontFit}}">{{indexes.length + 1}}</span>
+                                        </div>
+                                        <span>{{magazine.upcoming.get().body}}</span>
+                                    </div>
+                                    <div class="story-right">
+                                        <div class="detail-premium bold">プレミアム会員先読み (月額300円～)</div>
+                                        <time datetime="{{magazine.upcoming.get().scheduledDate | date:'yyyy/MM/dd'}}"
+                                              class="story-schedule delivery bold">
+                                            {{magazine.upcoming.get().scheduledDate | date:'yyyy/MM/dd'}} 配信予定
+                                        </time>
+                                    </div>
+                                </a>
+                            </li>
+                            <li ng-repeat="item in indexes.slice().reverse()"
+                                ng-if="!magazine.isEmptyMagazine(session.user.isPremium)">
+                                <a ng-href="{{open(item)}}">
+                                    <div class="story-left">
+                                        <div class="story-num">
+                                            <span class="available {{(indexes.length - $index)|storyNumFontFit}}">{{indexes.length - $index}}</span>
+                                        </div>
+                                        <div ng-if="magazine.series.isDefined" style="display: inline"> <!-- 単行本 -->
+                                            <span>【{{item._story.title}}】</span>
+
+                                            <div class="story-sub-title" ng-if="item._story.subTitle.isDefined">
+                                                {{item._story.subTitle.get()}}
+                                            </div>
+                                        </div>
+                                        <div ng-if="magazine.series.isEmpty" style="display: inline"> <!-- 編成本 -->
+                                            <span>【{{item._story.title}}】</span>
+
+                                            <div class="story-sub-title">
+                                                {{item._story.series.title}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="story-right">
+                                        <div class="detail-premium detail-premium-override bold"
+                                             style="vertical-align: middle;" ng-if="!item.story.freeSpec.isFree">
+                                            プレミアム会員先読み
+                                        </div>
+                                        <time datetime="{{item._story| releaseTime4Free:session.user.isPremium | date:'yyyy/MM/dd'}}"
+                                              class="story-schedule delivery">
+                                            {{item._story| releaseTime4Free:session.user.isPremium | date:'yyyy/MM/dd'}}
+                                            配信
+                                        </time>
+                                    </div>
+                                </a>
+                            </li>
+                            <li ng-if="magazine.isEmptyMagazine(session.user.isPremium)">
+                                <a>
+                                    <div class="story-left">
+                                        <div class="story-sub-title">
+                                            現在公開しておりません
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+            </article>
+
+            <div ng-include="'/view/recommendation/RecommendationMagazine.html'"/>
+
+            <aside class="recommend-list lower-recommend-list">
+            </aside>
+            <p class="page-top" scroll-top><a href="">ページのトップへ</a></p>
+        </div>
+    </div>
+</div></script>
+<script type="text/ng-template" id="/view/recommendation/RecommendationMagazine.html"><aside class="recommend-list lower-recommend-list" ng-controller="RecommendationMagazineController">
+    <span ng-if="recommendationMagazines.length !== 0">
+        <h2>その他のGANMA!作品</h2>
+        <ul class="recommend-manga">
+            <li ng-repeat="recommendationMagazine in recommendationMagazines">
+                <a ng-href="/{{ recommendationMagazine.magazine.alias.getOrElse(recommendationMagazine.magazine.id) }}">
+                    <figure>
+                        <div><img width="220" ng-src="{{ recommendationMagazine.magazine.rectangleWithLogoImage.asImage(220) }}" alt=""></div>
+                        <figcaption>
+                            <h3>{{ recommendationMagazine.magazine.title }}</h3>
+                            <p>{{ recommendationMagazine.magazine.author.value.penName }}</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+        </ul>
+    </span>
+</aside></script>
+<script type="text/ng-template" id="/view/magazine/viewer/Viewer.html"><div ng-controller="MagazineViewerController" id="js-viewer" class="gMaximize">
+    <div ng-if="loading" class="gMaximize">
+        <img centering src="/view/common/directives/loader/type1_32_ffffff.gif" style="width: 32px;height: 32px">
+    </div>
+
+
+    <div ng-if="!loading" class="gMaximize">
+
+        <!-- ロゴ -->
+        <div class="manga-header manga-trigger active gSelectDisable">
+            <a data-ng-href="/"><img src="/theme/images/common/logo-mini.png" alt="トップへ戻る" title="トップへ戻る"
+                 width="20" height="20" class="watermark"></a>
+        </div>
+
+        <!-- ヘッダ -->
+        <div ng-include="'/view/magazine/viewer/header.html'"></div>
+
+        <!-- メニュー表示あたり判定(上) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 80px; z-index: 3;"
+             ng-click="menu.visible=true"
+             ng-mouseover="menu.visible=true"></div>
+
+        <!-- ビューアオーバーレイ -->
+        <div class="overlay" style="display: block; "
+             animated-show="menu.visible"
+             hide-delay="{{menu.hideDelay}}"
+             active-opacity="0.7"
+             ng-click="menu.visible=false"></div>
+
+        <!-- ビューア -->
+        <div magazine-viewer="parsed" initial-page="page"
+             style="width:100%;height:100%;">
+        </div>
+
+        <!-- フッタ -->
+        <div ng-include="'/view/magazine/viewer/footer.html'"></div>
+
+    </div>
+</div>
+</script>
+<script type="text/ng-template" id="/view/magazine/viewer/header.html"><section class="manga-section-top manga-section"
+         animated-show="menu.visible"
+         hide-delay="{{menu.hideDelay}}"
+         style="display: none;">
+    <div data-ng-click="openMenuOrClose()" class="manga-head">
+        <h2>{{viewer.currentPageMeta.title||"&nbsp;"}}</h2>
+        <h3>{{viewer.currentPageMeta.subTitle||"&nbsp;"}}</h3>
+        <h2>{{viewer.currentPageMeta.author || "&nbsp;"}}</h2>
+    </div>
+    <div class="manga-subheader clearfix">
+        <div class="clearfix">
+            <ul class="manga-action">
+                <li ng-controller="BookmarkButtonController">
+
+                    <a ng-click="toggle();$event.stopPropagation()" title="お気に入りに追加"
+                       ng-class="{
+                       'manga-action-lock': !session.user ,
+                       'manga-action-favorite': !isBookmarked() ,
+                       'manga-action-favorite-complete': isBookmarked() }"
+                       class="manga-action-normal ">お気に入り</a>
+                </li>
+                <li><a ng-click="openCommentDialog();$event.stopPropagation()" title="コメントする"
+                       ng-class="{ 'manga-action-lock': !session.user }"
+                       class="manga-action-comment manga-action-normal">コメント</a></li>
+                <li><a title="次の話へ移動する"
+                       ng-click="viewer.moveNextItem();$event.stopPropagation()"
+                       class="manga-action-next manga-action-normal">次の話へ</a></li>
+            </ul>
+            <ul class="manga-sns" ng-controller="ShareButtonController" >
+                <li ng-show="canShow()">
+                    <a href="javascript:void(0)" ng-click="twitterShareLink()" alt="Tweetする">
+                        <img src="/theme/images/manga/sns-twitter.png" alt="Twitter" width="23" height="19">
+                        <img src="/theme/images/manga/sns-twitter-active.png" alt="Twitter" width="23" height="19">
+                    </a>
+                </li>
+                <li ng-show="canShow()">
+                    <a href="javascript:void(0)" ng-click="facebookShareLink()" alt="シェアする">
+                        <img src="/theme/images/manga/sns-facebook.png" alt="Facebook" width="14" height="27">
+                        <img src="/theme/images/manga/sns-facebook-active.png" alt="Facebook" width="14" height="27">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div ng-controller="ViewerRecommendController" class="manga-recommend recommend-list">
+        <ul class="clearfix" style="width: 980px;text-align: center;">
+            <li ng-repeat="recommend in recommends.slice(0, 7)"><a
+                    ng-href="/{{ recommend.magazine.alias.getOrElse(recommend.magazine.id) }}">
+                <figure>
+                    <div><img ng-src="{{ recommend.magazine.rectangleImage.asImage(120) }}" alt="" width="120"></div>
+                    <figcaption>
+                        <p>{{ recommend.magazine.title }}<br>
+                            <span ng-if="recommend.magazine.author.isDefined">{{recommend.magazine.author.get().penName}}</span>
+                        </p>
+                    </figcaption>
+                </figure>
+            </a></li>
+        </ul>
+    </div>
+</section></script>
+<script type="text/ng-template" id="/view/magazine/viewer/footer.html"><section class="manga-section-btm manga-section "
+         animated-show="menu.visible"
+         hide-delay="{{menu.hideDelay}}"
+         style="display: none;">
+    <div>
+        <ul class="clearfix">
+            <li><a ng-href="{{_STORE_IOS_URL}}" target="_blank"><img
+                    src="/theme/images/manga/app-store.png" alt="App Store" height="35"></a></li>
+            <li><a ng-href="{{_STORE_ANDROID_URL}}" target="_blank"><img
+                    src="/theme/images/manga/google-play.png" alt="Google Play" height="35"></a></li>
+        </ul>
+    </div>
+    <div>{{viewer.storyCurrentPage+1}} / {{viewer.storyTotalPages}}</div>
+</section></script>
+<script type="text/ng-template" id="/view/magazine/viewer/pages/DualPage.html"><div loading class="gMaximize gSelectDisable" ng-controller="SimplePageScopeController">
+    <!-- 画像 -->
+    <div style="width: 50%;height: 100%;float:left; padding: 0; margin: 0; border: none">
+        <img ng-src="{{pageObject.left|| '/view/magazine/viewer/pages/sentinel.png'}}" fit valigh="center"
+             align="right">
+    </div>
+    <div style="width: 50%;height: 100%;float:left; padding: 0; margin: 0; border: none; position: relative">
+        <img ng-src="{{pageObject.right|| '/view/magazine/viewer/pages/sentinel.png'}}" fit valigh="center"
+             align="left">
+    </div>
+
+    <!-- 矢印・広告制御-->
+    <div class="manga-img-section gMaximize"
+         style="position: absolute; top:0; left:0; z-index:1 ">
+        <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existPrev()" ng-click="viewer.movePrev();$event.stopPropagation();" class="manga-right-arrow"></a>
+        <a ng-show="pageObject.rightHref.isDefined" class="manga-right-ad"
+           fit-ad-link="{{pageObject.rightHref.getOrElse('').type}}" img-target="left"
+           href="{{pageObject.rightHref.getOrElse('').url}}" target="_blank"
+           analytics-on="click" analytics-event="{{pageObject.rightHref.getOrElse('').url}}"
+           analytics-category="外部リンク" analytics-label="{{pageObject.meta.title}} {{pageObject.meta.subTitle}}"></a>
+
+        <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existNext()" ng-click="viewer.moveNext();$event.stopPropagation();" class="manga-left-arrow"></a>
+        <a ng-show="pageObject.leftHref.isDefined" class="manga-left-ad"
+           fit-ad-link="{{pageObject.leftHref.getOrElse('').type}}" img-target="right"
+           href="{{pageObject.leftHref.getOrElse('').url}}" target="_blank"
+           analytics-on="click" analytics-event="{{pageObject.leftHref.getOrElse('').url}}"
+           analytics-category="外部リンク" analytics-label="{{pageObject.meta.title}} {{pageObject.meta.subTitle}}"></a>
+    </div>
+</div></script>
+<script type="text/ng-template" id="/view/magazine/viewer/pages/SinglePage.html"><div loading class="gMaximize gSelectDisable" ng-controller="SimplePageScopeController">
+    <img src="{{pageObject.url}}" fit valigh="center" align="center">
+
+    <!-- 矢印・広告制御 -->
+    <div class="manga-img-section gMaximize"
+         style="position: absolute; top:0; left:0; z-index:1 ">
+        <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existPrev()" ng-click="viewer.movePrev();$event.stopPropagation();"
+           class="manga-right-arrow"></a>
+        <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existNext()" ng-click="viewer.moveNext();$event.stopPropagation();"
+           class="manga-left-arrow"></a>
+        <a ng-show="pageObject.href.isDefined"
+           fit-ad-link="{{pageObject.href.getOrElse('').type}}" img-target="center"
+           href="{{pageObject.href.getOrElse('').url}}" target="_blank"
+           analytics-on="click" analytics-event="{{pageObject.href.getOrElse('').url}}"
+           analytics-category="外部リンク" analytics-label="{{pageObject.meta.title}} {{pageObject.meta.subTitle}}"></a>
+    </div>
+</div></script>
+<script type="text/ng-template" id="/view/magazine/viewer/pages/UpcomingPage.html"><div class="gSelectEnable gTouchScroll js-exchange" ng-controller="UpcomingController"
+     style="position: relative; overflow-y: scroll; width: 100%; height: 100%;cursor:pointer" click-page-move>
+    <div class="exchange js-exchange">
+        <div class="exchange-inner" style="cursor:auto">
+            <section>
+                <div class="exchange-head-wrap clearfix">
+                    <div class="exchange-head-img">
+                        <a ng-href="/{{viewer.magazine.alias.getOrElse(viewer.magazine.id)}}">
+                            <img ng-src="{{viewer.magazine.rectangleWithLogoImage.asImage(312)}}"
+                                 alt="" width="312">
+                        </a>
+                    </div>
+                    <div class="exchange-sub-head">
+                        <div data-ng-click="openMenuOrClose()">
+                            <h2>
+                                <a ng-href="/{{viewer.magazine.alias.getOrElse(viewer.magazine.id)}}">{{pageObject.meta.title}}</a>
+                            </h2>
+                            <h3>{{pageObject.meta.subTitle}}</h3>
+                            <h2>{{pageObject.meta.author}}</h2>
+                        </div>
+
+                        <div ng-if="!session.user.isPremium">
+                            <p class="next-story-info">
+                                無料会員向けの次回配信は <span class="bold">{{upcoming.scheduledDate|date:"M月d日"}}({{upcoming.scheduledDate|date2jpDayOfWeek}})！</span>
+                            </p>
+
+                            <p><a ng-href="/upgrade" class="next-story-read next-story-premium">最新話先読み (月額300円～)</a></p>
+                        </div>
+
+                        <div ng-if="session.user.isPremium">
+                            <p class="next-story-info">
+                                プレミアム会員向けの次回配信は <span class="bold">{{upcoming.scheduledDate|date:"M月d日"}}({{upcoming.scheduledDate|date2jpDayOfWeek}})！</span>
+                            </p>
+
+                            <p><a ng-href="/{{viewer.magazine.alias.getOrElse(viewer.magazine.id)}}"
+                                  class="next-story-top">作品紹介へ</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <aside class="recommend-list next-story-recommend clearfix" ng-controller="ViewerRecommendController">
+                    <h2>その他のGANMA!作品</h2>
+                    <ul class="recommend-manga">
+                        <li ng-repeat="recommend in recommends.slice(0, 6)">
+                            <a ng-href="/{{ recommend.magazine.alias.getOrElse(recommend.magazine.id) }}">
+                                <figure>
+                                    <div><img ng-src="{{ recommend.magazine.rectangleWithLogoImage.asImage(220) }}"
+                                              alt="" width="220">
+                                    </div>
+                                    <figcaption>
+                                        <h3>{{ recommend.magazine.title }}</h3>
+
+                                        <p ng-if="recommend.magazine.author.isDefined">
+                                            {{recommend.magazine.author.get().penName}}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        <li>
+                    </ul>
+                </aside>
+            </section>
+        </div>
+    </div>
+
+    <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existPrev()" style="z-index: -1"
+       ng-click="viewer.movePrev();$event.stopPropagation();" class="exchange-right-arrow"></a>
+    <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existNext()" style="z-index: -1"
+       ng-click="viewer.moveNext();$event.stopPropagation();" class="exchange-left-arrow"></a>
+
+</div>
+</script>
+<script type="text/ng-template" id="/view/magazine/viewer/pages/exchange/exchange.html"><div class="gSelectEnable gTouchScroll js-exchange" ng-controller="ExchangeController"
+     style="position: relative; overflow-y: scroll; width: 100%; height: 100%; cursor: pointer" click-page-move>
+
+    <div class="exchange" stop-event-propagation="click">
+        <section>
+            <div class="exchange-head" data-ng-click="openMenuOrClose()">
+                <img class="magazine-image" data-ng-src="{{viewer.magazine.rectangleWithLogoImage.asImage(310)}}">
+                <div>
+                    <p class="title">{{pageObject.meta.title}}</p>
+                    <p class="subtitle">{{pageObject.story.title.isEmpty ? '' : pageObject.story.title.value}}</p>
+                    <p class="subtitle">{{pageObject.story.subTitle.isEmpty ? '' : pageObject.story.subTitle.value}}</p>
+                    <p class="author">{{pageObject.meta.author}}</p>
+                    <img class="heart" src="/theme/images/manga/heart-on@2x.png">
+                    <span class="heart-score">{{heartString}}</span>
+                </div>
+            </div>
+
+            <div class="exchange-buttons">
+                <div class="exchange-next-story-btn" ng-show="viewer.existNext()">
+                    <button ng-click="viewer.moveNextItem(); $event.stopPropagation();">
+                        次の話へ
+                    </button>
+                </div>
+
+                <div class="exchange-magazine-detail-btn" ng-show="!viewer.existNext()">
+                    <button data-ng-click="openMenuOrClose()">
+                        作品紹介へ
+                    </button>
+                </div>
+
+                <div ng-controller="BookmarkButtonController"
+                     ng-class="{'exchange-bookmark-before-btn': !isBookmarked(), 'exchange-bookmark-after-btn': isBookmarked()}">
+                    <button ng-click="toggle();$event.stopPropagation();"
+                            ng-class="{'exchange-btn-lock': !session.user}">
+                        お気に入り
+                    </button>
+                </div>
+
+                <div class="exchange-comment-btn" ng-controller="CommentController">
+                    <button type="button"
+                            ng-class="{'exchange-btn-lock':!session.user}"
+                            ng-click="showCommentModal(pageObject.story, viewer.magazine)">
+                        コメント
+                    </button>
+                </div>
+            </div>
+
+            <ul class="share-sns" ng-controller="ShareButtonController">
+                <li>
+                    <a href="javascript:void(0)" ng-click="twitterShareLink()" alt="Tweetする">
+                        Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" ng-click="facebookShareLink()" alt="シェアする">
+                        Facebook
+                    </a>
+                </li>
+            </ul>
+            <p>このマンガをシェアする！</p>
+        </section>
+
+        <div class="exchange-link-store">
+            <span>応援するならアプリをダウンロード！</span>
+            <a ng-href="{{_STORE_IOS_URL}}" target="_blank">
+                <img class="ios" src="/theme/images/manga/app-store.png">
+            </a>
+            <a ng-href="{{_STORE_ANDROID_URL}}" target="_blank">
+                <img class="android" src="/theme/images/manga/google-play.png">
+            </a>
+        </div>
+
+        <!-- 投稿一覧 -->
+        <section ng-include="'/view/magazine/viewer/pages/exchange/exchange_contribution.html'"></section>
+
+        <p class="page-top" scroll-top=".js-exchange"><a href="">ページのトップへ</a></p>
+    </div>
+
+    <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existPrev()" style="z-index: -1"
+       ng-click="viewer.movePrev(); $event.stopPropagation()" class="exchange-right-arrow"></a>
+    <a ng-class="{hideArrow: hideArrow}" ng-show="viewer.existNext()" style="z-index: -1"
+       ng-click="viewer.moveNext(); $event.stopPropagation()" class="exchange-left-arrow"></a>
+</div>
+</script>
+
+
+</head>
+<body ng-cloak
+      ng-class="{ fullscreen: setting.fullscreen, nonFullscreen: !setting.fullscreen, 'wanted-about-wrap': setting.noneBackground }">
+
+<!-- feedly -->
+<img ng-src="{{setting.image}}" style="display: none" class="webfeedsFeaturedVisual" width="{{setting.imageWidth}}"/>
+
+<!-- アプリ -->
+<div ng-if="globalPartsVisibility().appDownload" ng-cloak
+     ng-include="'/view/global/AppDownloadBar.html'"
+></div>
+
+<!-- HeaderMenu -->
+<div ng-if="globalPartsVisibility().header" ng-cloak
+     ng-include="'/view/global/NavigationBar.html'"></div>
+
+<!-- お知らせ -->
+<div ng-if="globalPartsVisibility().announcement" ng-cloak
+     ng-include="'/view/global/AnnouncementBar.html'"></div>
+
+<main role="main" class="{{setting.mainClass}}"
+      plus-padding-top="#smartbanner aside.notice .common-navigate-header"
+      plus-padding-top-watch="globalPartsVisibility()"
+>
+    <div ng-view autoscroll></div>
+</main>
+
+<!-- Footer -->
+<div ng-if="globalPartsVisibility().footer" ng-cloak
+     ng-include="'/view/global/Footer.html'"></div>
+
+<!-- Modal Dialog -->
+<div ng-cloak ng-include="'/view/global/Modal.html'"></div>
+
+<!-- ErrorMessagePopup -->
+<div ng-cloak ng-include="'/view/global/ErrorMessagePopup.html'"></div>
+
+<!-- OkMessagePopup -->
+<div ng-cloak ng-include="'/view/global/OkMessagePopup.html'"></div>
+
+</body>
+</html>

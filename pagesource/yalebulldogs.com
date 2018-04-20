@@ -1,0 +1,1 @@
+The URL has moved to <a href="/index">here</a>

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Bredbandskollen</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EDGE" />
+
+
+        <!-- Nedan hämtade från johns exempel -->
+        <meta http-equiv="Expires" content ="0" />
+        <meta http-equiv="Pragma" content ="no-cache" />
+        <meta http-equiv="Cache-Control" content ="no-cache" />
+        <meta name="description" content="Verktyg för att kontrollera vilken hastighet bredbandet har för att skicka och ta emot data."/>
+        <meta name="apple-itunes-app" content="app-id=296380480">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link type="text/css" rel="stylesheet" href="/assets/css/min/bundle.4.4.min.css" />
+        <script src="/assets/js/lib/closure-library/closure/goog/base.js"></script>
+        
+        <script>
+            if (typeof bredbandskollen === 'undefined') {
+                var bredbandskollen = {
+                    debug: false,
+                    fakeProgress: true,
+                    progressInterval: 300,
+                    disableClock: false,
+                    customIP: false,
+                    customPIP: false,
+                    forceSurvey: false,
+                    locale: 'sv',
+                    lang: {
+                        'continue': 'Fortsätt',
+                        'back':     'Tillbaka',
+                        'send':     'Skicka',
+                    },
+                    agents: {}
+                };
+            }
+        </script>
+
+        <script type="text/javascript" src="/assets/js/min/bundle.header.4.4.min.js"></script>
+
+         <script type="text/javascript" >
+            var myDebug = "";
+            var myIpAddress = "54.81.119.14";
+         </script>
+
+         <!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-2802166-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+         <script src="/assets/js/ga/saveToGoogle.js"></script>
+
+         <style type="text/css">
+            .brand-nav *, .brand-nav :after, .brand-nav :before {
+                box-sizing: border-box;
+            }
+            /* Bakgrund, fullbredds-wrapper */
+            .brand-nav {
+                width: 100%; background: #323232; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-size: 11px;
+                line-height: 12px; color: #b3b3b3; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; position: relative; }
+
+            .brand-nav:before,
+            .brand-nav:after {
+                content: " ";
+                display: table;
+            }
+
+            .brand-nav:after {
+                clear: both;
+            }
+            .brand-nav-fullgrid { position: relative; display: block; width: 1160px; margin: 0 auto; }
+            .brand-nav a { text-decoration: none; }
+            .brand-nav a:hover { text-decoration: none; }
+            /* Länkmeny */
+            .brand-nav-list { width: 100%; margin: 0; padding: 0; list-style: none; margin-bottom: 0; list-style: none; }
+            .brand-nav-list > li, .brand-nav-list > li > section { position: relative; float: left; margin: 0; padding: 0; }
+            .brand-nav-list > li > .brand-nav-headline, .brand-nav-list > li > section { display: block; padding: 9px 10px; color: #b3b3b3; transition: none; }
+            .brand-nav-list > li { padding: 0; line-height: normal; }
+            .brand-nav-list > li > .brand-nav-headline { padding: 8px 8px 9px 8px; }
+            /* Utfälld yta vid hover */
+            .brand-nav-list > li > section {
+                z-index: 10000; float: none; position: absolute; left: -9999px; width: auto; margin: 0; padding: 0;
+                background: #fff; list-style: none; font-size: 18px; line-height: 24px;
+                box-shadow: 8px 0 6px -6px rgba(0,0,0,0.2), -8px 0 6px -6px rgba(0,0,0,0.2), 0 8px 6px -6px rgba(0,0,0,0.2);
+            }
+            .brand-nav-list > li > section > a span.linkedelement { display: block; float: left; width: 220px; padding: 12px 20px; }
+            .brand-nav-list > li > section > a span.filcontent { width: 220px; color: #000; }
+            .brand-nav-list > li > section > a span.fillinktext { display: block; margin-top: 5px; font-size: 11px; color: #000; }
+            .brand-nav-list > li > section > a span.fillinktext:hover { color: #4d4d4d; }
+            .brand-nav-list > li:hover { background: #fff; }
+            .brand-nav-list > li:hover > section { left: 0; }
+            .brand-nav-list > li:hover > .brand-nav-headline, .brand-nav-list > li:hover > section { color: #000; }
+            .brand-nav-list > li > section > .brand-nav-icon { width: 50px; }
+            .brand-nav-logo-text { float: left; padding: 11px 5px 0 0; }
+            .brand-nav-logo-symbol { width: 28px; height: 28px; margin-top: 2px; opacity: 0.5; }
+            .brand-nav-logo:hover .brand-nav-logo-symbol { opacity: 1; }
+            .brand-nav-logo-bg { fill: transparent; }
+            .brand-nav-logo-part { fill: #fff; }
+            .brand-nav-logo:hover .brand-nav-logo-bg { fill: #ffdf00; }
+            .brand-nav-logo:hover .brand-nav-logo-part { fill: #2d83c0; }
+            .brand-nav > .brand-nav-fullgrid > .brand-nav-logo { display: block; float: right; padding: 0; font-size: 11px; color: #b3b3b3; }
+            .brand-nav > .brand-nav-fullgrid > .brand-nav-logo > span { display: block; margin-top: 0; }
+            .brand-nav > .brand-nav-fullgrid > .hide.brand-nav-logo { display: none; }
+            .brand-nav-fullgrid {
+                width: auto;
+                        padding: 0 15px 0 10px;		}
+            @media ( max-width: 1023px ) {
+                .brand-nav {
+                    display: none;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="browser-warnings">
+            <div class="browser-warning hidden removable" id="cookieInfo">
+                Den här webbplatsen använder cookies för att förbättra din användarupplevelse. Genom att fortsätta använda webbplatsen samtycker du till att cookies används. <a target="_blank" href="http://support.bredbandskollen.se/support/solutions/articles/1000025829-anv-nder-ni-cookies-kakor">Läs mer</a> <button id="hideCookieInfo" type="button">Ok</button>
+            </div>
+            <div class="browser-warning hidden" id="installFlash">
+                För att använda tjänsten måste du installera flash. <a target="_blank" href="http://get.adobe.com/flashplayer/">Ladda ned flash</a>            </div>
+            <div class="browser-warning hidden" id="upgradeFlash">
+                Din flashversion är utdaterad. Du behöver uppdatera din version av flash för att använda tjänsten. <a target="_blank" href="http://get.adobe.com/flashplayer/">Ladda ned flash</a>            </div>
+            <div class="browser-warning features">
+                Din webbläsare är för gammal! Bredbandskollen kan därför fungera eller se annorlunda ut. <a target="_blank" href="http://support.bredbandskollen.se/support/solutions/articles/1000030328%3E">läs mer här</a>            </div>
+            <noscript>
+                <div class="browser-warning">
+                    Du behöver javascript påslaget för att använda tjänsten. Läs mer <a target="_blank" href="http://enable-javascript.com">här</a>                </div>
+            </noscript>
+        </div>
+
+        <section class="brand-nav">
+	<section class="brand-nav-fullgrid">
+		<a href="https://www.iis.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-logo">
+			<span class="brand-nav-logo-text">En webbplats fr&aring;n</span>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7" xml:space="preserve" class="brand-nav-logo-symbol">
+				<g>
+					<rect x="0" y="0" fill="#FFE100" width="141.7" height="141.7" class="brand-nav-logo-bg"></rect>
+					<g>
+						<path fill="#3284BF" d="M104.7,56.2h17.8c0-0.4,0.1-1.1,0.1-1.9c0-13.3-10.5-22.7-24.3-22.7s-24.4,9.6-24.4,23.2
+							c0,14.4,11.4,18.8,21.1,22.5c6.6,2.6,10.1,4.7,10.1,8.6c0,4.1-2.6,6.9-6.8,6.9c-4.3,0-7.1-3.3-7.1-7.9V84H72.9
+							c0,0.4-0.1,1.1-0.1,1.7c0,14.4,10.8,24,25.4,24c14.4,0,25.4-9.8,25.4-24c0-15.1-11.3-19.7-21.3-23.3c-7.4-2.7-10.7-4.6-10.7-8.6
+						c0-3.6,2.6-6.2,6.3-6.2c4,0,6.8,2.9,6.8,7.6V56.2z" class="brand-nav-logo-part"></path>
+						<rect x="47.8" y="32.2" fill="#3284BF" width="19.1" height="24" class="brand-nav-logo-part"></rect>
+						<rect x="19.1" y="32.2" fill="#3284BF" width="19.1" height="24" class="brand-nav-logo-part"></rect>
+						<rect x="19.1" y="65.7" fill="#3284BF" width="19.1" height="43.1" class="brand-nav-logo-part"></rect>
+						<rect x="47.8" y="65.7" fill="#3284BF" width="19.1" height="43.1" class="brand-nav-logo-part"></rect>
+					</g>
+				</g>
+			</svg>
+		</a>
+		<ul class="brand-nav-list">
+			<li>
+				<a href="https://www.iis.se/domaner/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">Dom&auml;ner</a>
+				<section>
+					<a href="http://www.iis.se/domaner/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">Registrera din .se- eller .nu-dom&auml;n h&auml;r</span>
+							<span class="fillinktext">Till dom&auml;ner &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://internetdagarna.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">Internetdagarna</a>
+				<section>
+					<a href="http://internetdagarna.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">Sveriges viktigaste m&ouml;tesplats f&ouml;r alla som jobbar med internet</span>
+							<span class="fillinktext">Till internetdagarna.se &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://www.goto10.se?utm_medium=fox&amp;utm_campaign=Fox&amp;utm_source=www_internetmuseum_se" class="brand-nav-headline">Goto 10</a>
+					<section>
+					<a href="https://www.goto10.se?utm_medium=fox&amp;utm_campaign=Fox&amp;utm_source=www_internetmuseum_se">
+						<span class="linkedelement">
+							<span class="filcontent">Kostnadsfri start- och mötesplats för alla som vill utveckla sin internetidé</span>
+							<span class="fillinktext">Till goto10.se ›</span>
+						</span>
+					</a>
+					</section>
+
+			</li>
+			<li>
+				<a href="http://www.svenskarnaochinternet.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">Svenskarna &amp; internet</a>
+				<section>
+					<a href="http://www.svenskarnaochinternet.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">Sveriges viktigaste unders&ouml;kning om svenskarnas internetvanor</span>
+							<span class="fillinktext">Till svenskarnaochinternet.se &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://www.iis.se/blogg/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">IIS-bloggen</a>
+				<section>
+					<a href="https://www.iis.se/blogg/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">Nyheter och kommentarer fr&aring;n internetv&auml;rlden</span>
+							<span class="fillinktext">Till IIS-bloggen &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://www.iis.se/fakta/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox#typ=internetguider" class="brand-nav-headline">Internetguider</a>
+				<section>
+					<a href="https://www.iis.se/fakta/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox#typ=internetguider">
+						<span class="linkedelement">
+							<span class="filcontent">Gratis kunskap om internet, paketerat i l&auml;ttillg&auml;ngliga guider</span>
+							<span class="fillinktext">Till internetguider &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://www.internetfonden.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">Internetfonden</a>
+				<section>
+					<a href="https://www.internetfonden.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">Finansierar projekt som syftar till att f&ouml;rb&auml;ttra internet i Sverige</span>
+							<span class="fillinktext">Till internetfonden.se &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+			<li>
+				<a href="https://www.internetmuseum.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox" class="brand-nav-headline">Internetmuseum</a>
+				<section>
+					<a href="https://www.internetmuseum.se/?utm_source=www.bredbandskollen.se&amp;utm_medium=fox&amp;utm_campaign=Fox">
+						<span class="linkedelement">
+							<span class="filcontent">H&auml;r tar vi dig med p&aring; en resa genom den svenska internethistorien</span>
+							<span class="fillinktext">Till internetmuseum.se &rsaquo;</span>
+						</span>
+					</a>
+				</section>
+			</li>
+		</ul>
+	</section>
+</section>
+
+        <!-- facebook sharing -->
+        <div id="fb-root"></div>
+        <script type="text/javascript" src="/assets/js/fb/shareonfb.js"></script>
+        <!-- end facebook -->
+
+        <header class="banner">
+            <div class="choose-language">
+        <label for="chooseLanguageToggle"><i class="fontcon-nav-globe"></i> Svenska</label>
+    <input id="chooseLanguageToggle" type="checkbox">
+
+    <div class="languages">
+                <a href="/lang/en">English</a>
+                <a href="/lang/no">Norsk</a>
+                <a href="/lang/dk">Dansk</a>
+            </div>
+</div>            <div class="graphic header-graphic">
+                <div class="shapes">
+                    <span class="cloud c-o-15 c-cumulus cloud-1"></span>
+                    <span class="cloud c-o-5 c-cumulus c-big cloud-2"></span>
+                    <span class="cloud c-o-15 c-cirrus cloud-3"></span>
+                    <span class="cloud c-o-5 c-cirrus c-big cloud-4"></span>
+                    <span class="cloud c-o-10 c-stratus cloud-5"></span>
+                    <span class="beam g-o-10 b-alpha beam-1"></span>
+                    <span class="beam g-o-12 b-beta beam-2"></span>
+                    <span class="beam g-o-2 b-gamma beam-3"></span>
+                    <span class="beam g-o-15 b-delta beam-4"></span>
+                    <span class="beam g-o-8 b-epsilon beam-5"></span>
+                    <span class="beam g-o-12 b-zeta beam-6"></span>
+                </div>
+            </div>
+            <div class="wrapper">
+                <a href="/" class="logo text-only" id="mainLogo">Bredbandskollen</a>
+            </div>
+            <nav class="navigation">
+                <div class="wrapper">
+                                        <ul class="caps nav">
+                        <li>
+                            <a href="/" class="active"><i class="fontcon-nav-home"></i>Hem</a>
+                        </li>
+                        <li>
+                            <a href="/guide"><i class="fontcon-nav-guide"></i>Åtgärdsguide</a>
+                        </li>
+                        <li>
+                            <a href="/map"><i class="fontcon-nav-mobile"></i>Täckningskarta</a>
+                        </li>
+                        <li>
+                            <a href="/reports"><i class="fontcon-text-document"></i>Rapporter</a>
+                        </li>
+                        <li>
+                            <a class="nav-help" href="http://support.bredbandskollen.se/support/solutions"><i class="fontcon-questionmark"></i>Support</a>
+                        </li>
+                        <li>
+                            <a href="/ipv6"><i class="fontcon-flow-branch"></i>IPV6</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+<script type="text/javascript">
+    /*
+        'Mailresult_ST_Part1' => 'Här nedan är mätresultaten från din senaste mätning på Bredbandskollen.se. Tänk på att med en ADSL-uppkoppling (internet via telefonjacket) eller en 3G-anslutning (via mobiltelefonen) kan hastigheten du tar emot trafik med vara betydligt högre än den när du skickar. Det är fullt normalt.\n\n\nMed vänliga hälsningar\nBredbandskollen TPTEST\n\n\nMätresultat ',
+        'Mailresult_ST_Send' => 'SKICKA',
+        'Mailresult_ST_Recieve' => 'TA EMOT',
+        'Mailresult_ST_Expected' => 'FÖRVÄNTAT',
+        'Mailresult_ST_Latency' => 'SVARSTID',
+        'Mailresult_ST_Speedunit' => 'Mbit/sek',
+        'Mailresult_ST_Ms' => 'msek',
+        'Mailresult_ST_Server' => 'MÄTSERVER',
+        'Mailresult_ST_Part2' => 'Teknisk information om mätningen',
+        'Mailresult_ST_Part3' => 'Ett flash-script i användarens webbläsare skickar och tar emot tcp-trafik ifrån någon av TPTEST-mätservrarna. Dessa servrar står utplacerade på någon av Netnods knutpunkter i Stockholm, Malmö, Göteborg, Sundsvall och Oslo. Läs mer om Bredbandskollen TPTEST och hur mätningen går till på https://www.bredbandskollen.se/'
+    */
+    var FromPhph_Mailresult_Hello = "Hej";
+    var FromPhph_Mailresult_Part1 = "Här nedan är mätresultaten från din senaste mätning på Bredbandskollen. Tänk på att med en ADSL-uppkoppling (internet via telefonjacket) eller en 3G-anslutning (via mobiltelefonen) kan hastigheten du tar emot trafik med vara betydligt högre än den när du skickar. Det är fullt normalt.\n\n\nMed vänliga hälsningar\nBredbandskollen TPTEST\n\n\nMätresultat ";
+    var FromPhph_Mailresult_Send = "SKICKA";
+    var FromPhph_Mailresult_Recieve = "TA EMOT";
+    var FromPhph_Mailresult_Expected = "FÖRVÄNTAT";
+    var FromPhph_Mailresult_Latency = "SVARSTID";
+    var FromPhph_Mailresult_Speedunit = "Mbit/sek";
+    var FromPhph_Mailresult_Ms = "msek";
+    var FromPhph_Mailresult_Server = "MÄTSERVER";
+    var FromPhph_Mailresult_Part2 = "Teknisk information om mätningen";
+    var FromPhph_Mailresult_Part3 = "Ett flash-script i användarens webbläsare skickar och tar emot tcp-trafik ifrån någon av TPTEST-mätservrarna. Dessa servrar står utplacerade på någon av Netnods knutpunkter i Stockholm, Malmö, Göteborg, Sundsvall och Oslo. Läs mer om Bredbandskollen TPTEST och hur mätningen går till på https://www.bredbandskollen.se/";
+
+    //Dessa 5 variabler behövs för att lokalisera dropdowns i utvärderingen
+    var FromPhph_conntypeAdsl = "adsl";
+    var FromPhph_conntypeMobile = "mobilt";
+    var FromPhph_conntypeCable = "kabeltv";
+    var FromPhph_conntypeFibre = "fiber";
+    var FromPhph_conntypeUpTo = "Upp till";
+
+    //Lokalisera "okänd" för uppkoppling & isp
+    var FromPhph_UnknownConnection = "Okänd";
+
+    var FromPhph_ChooseMethod = "- Välj Uppkopplingstyp -";
+    var FromPhph_ChooseConn = "- Välj abonnemang -";
+    var FromPhph_NoChooseConn = "- Uppkopplingstyp ej valt -";
+    /*
+    'Result_ST_ChooseMethod' => '- Välj Uppkopplingstyp -', // Sätts idag via javascript/index.populate. måste ses över
+    'Result_ST_ChooseConn' => '- Välj abbonnemang -', // Sätts idag via javascript/index.populate. måste ses över
+    'Result_ST_Dim_ChooseConn' => '- Uppkopplingstyp ej valt -', // Sätts idag via javascript/index.populate. måste ses över
+    */
+
+    var FromPhph_EarlierText1 = "DATUM";
+    var FromPhph_EarlierText2 = "TA EMOT FILER";
+    var FromPhph_EarlierText3 = "SKICKA FILER";
+    var FromPhph_EarlierText4 = "SVARSTID";
+    var FromPhph_EarlierSpeedUnit = "Mbit/s";
+    var FromPhph_EarlierSpeedUnitMs = "ms";
+    /*
+    'Pop_ST_EarlierText1' => 'DATUM',               // Hanteras via app.js
+    'Pop_ST_EarlierText2' => 'TA EMOT FILER',       // Hanteras via app.js
+    'Pop_ST_EarlierText3' => 'SKICKA FILER',        // Hanteras via app.js
+    'Pop_ST_EarlierText4' => 'SVARSTID',            // Hanteras via app.js
+    'Pop_ST_EarlierSpeedUnit' => 'Mbit/s',          // Hanteras via app.js
+    'Pop_ST_EarlierSpeedUnitMs' => 'ms'             // Hanteras via app.js
+    */
+    var FromPhph_head1 = "Ditt resultat är";
+    var FromPhph_EvalGood = "bra";
+    var FromPhph_EvalAcceptable = "acceptabelt";
+    var FromPhph_EvalBad = "dåligt";
+    var FromPhph_Text_Good = "Jämfört med din utlovade hastighet är ditt mätresultat bra.";
+    var FromPhph_Text_Acceptable = "Ditt mätresultat är acceptabelt. Med hjälp av guiden nedan kanske du kan förbättra din hastighet ytterligare.";
+    var FromPhph_Text_Bad = "Jämfört med din utlovade hastighet är ditt mätresultat dåligt. Med hjälp av guiden nedan kan du förbättra din hastighet ytterligare.";
+
+    //Till gråa infoboxen undermätresultatet
+    var FromPhph_connBoxHead1 = "Uppkopplingstyp:";
+    var FromPhph_connBoxHead2 = "Svarstid:";
+    var FromPhph_connBoxHead3 = "Leverantör:";
+    var FromPhph_connBoxHead4 = "Mätserver:";
+    var FromPhph_connBoxHead5 = "Mätningen utfördes:";
+
+    /*
+    'Result_ST_head1' => 'Ditt resultat är', //hanteras via app.js
+    'Result_ST_EvalGood' => 'Bra',              //hanteras via app.js
+    'Result_ST_EvalAcceptable' => 'Acceptabelt',//hanteras via app.js
+    'Result_ST_EvalBad' => 'Dåligt',            //hanteras via app.js
+    'Result_ST_Text_NoCompare' => 'Genom att ange typ av uppkoppling och vilken hastighet du betalar för, kan du få en utvärdering på om ditt mätresultat är bra eller dåligt.', //hanteras via app.js
+    'Result_ST_Text_Good' => 'Jämfört med din utlovade hastighet är ditt mätresultat bra.',//hanteras via app.js
+    'Result_ST_Text_Acceptable' => 'Ditt mätresultat är acceptabelt. Med hjälp av guiden nedan kanske du kan förbättra din hastighet ytterligare.',//hanteras via app.js
+    'Result_ST_Text_Bad' => 'ämfört med din utlovade hastighet är ditt mätresultat dåligt. Med hjälp av guiden nedan kan du förbättra din hastighet ytterligare.', //hanteras via app.js
+    */
+    //alert('FromPhph_Text_Bad: ' + FromPhph_Text_Bad);
+
+    var FromPhph_progressFeedDown = "Tar emot data...";
+    var FromPhph_progressFeedUp = "Skickar data...";
+    var FromPhph_progressFeedDone = "Mätningen är klar";
+    var FromPhph_progressFeedInterupt = "Mätningen har avbrutits då mätmotorn inte är i fokus!";
+
+    var FromPhph_MailResultTextThanks = "Tackar, ditt resultat är nu skickat till den angivna mailadressen.";
+    var FromPhph_ContactSupportThanks = "Tack, din fråga är skickad.";
+    var FromPhph_ContactSupportSubject = "Supportärende via webbplats";
+
+    /*
+    'Measure_ST_progressFeedDown' => 'Tar emot data...', //hanteras via client.js
+    'Measure_ST_progressFeedUp' => 'Skickar data...',//hanteras via client.js
+    'Measure_ST_progressFeedDone' => 'Mätningen är klar',//hanteras via client.js
+    */
+
+    var FromPhph_EarlierNavigationfeed_1 = "Visar";
+    var FromPhph_EarlierNavigationfeed_2 = "till";
+    var FromPhph_EarlierNavigationfeed_3 = "av totalt";
+    var FromPhph_EarlierNavigationfeed_4 = "mätningar";
+    var FromPhph_EarlierPreviousSet = "Föregående";
+    var FromPhph_EarlierNextSet = "Nästa";
+    var FromPhph_CancelMeasure = "Avbryt";
+</script>
+
+<div class="container" id="container">
+    <section class="leader">
+        <div class="graphic header-graphic">
+            <div class="shapes">
+                <span class="cloud c-o-15 c-cumulus cloud-1"></span>
+                <span class="cloud c-o-5 c-cumulus c-big cloud-2"></span>
+                <span class="cloud c-o-15 c-cirrus cloud-3"></span>
+                <span class="cloud c-o-5 c-cirrus c-big cloud-4"></span>
+                <span class="cloud c-o-10 c-stratus cloud-5"></span>
+                <span class="beam g-o-10 b-alpha beam-1"></span>
+                <span class="beam g-o-12 b-beta beam-2"></span>
+                <span class="beam g-o-2 b-gamma beam-3"></span>
+                <span class="beam g-o-15 b-delta beam-4"></span>
+                <span class="beam g-o-8 b-epsilon beam-5"></span>
+                <span class="beam g-o-12 b-zeta beam-6"></span>
+                <span class="hill g-o-15 h-everest hill-1">
+                    <span class="h-left"></span>
+                    <span class="h-right"></span>
+                </span>
+                <span class="hill g-o-10 h-kebenekaise hill-2">
+                    <span class="h-left"></span>
+                    <span class="h-right"></span>
+                </span>
+                <span class="hill g-o-20 h-blanc hill-3">
+                    <span class="h-left"></span>
+                    <span class="h-right"></span>
+                </span>
+                <span class="hill g-o-20 h-k2 hill-4">
+                    <span class="h-left"></span>
+                    <span class="h-right"></span>
+                </span>
+                <span class="hill g-o-15 h-k2 hill-5">
+                    <span class="h-left"></span>
+                    <span class="h-right"></span>
+                </span>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="grid">
+                <div class="grid__item eight-twelfths">
+                    <div class="pitch">
+                        <p><strong>Bredbandskollen</strong> är ett enkelt sätt för dig att mäta din internethastighet och få hjälp att förbättra den.</p>
+                    </div>
+                </div><!--
+                --><div class="grid__item four-twelfths">
+                <ul id="plateMenu" class="menu plate">
+                    <li id="advancedMeasureLink" style="display: none">
+                        <a href="#advancedMeasure" class="fancybox-inline">» Avancerad mätning <span class="tip-popup"></span></a>
+                    </li>
+                    <li>
+                        <a id="getPrev" name="getPrev" href="#prevMeasure" class="fancybox-inline">» Tidigare mätresultat</a>
+                    </li>
+                    <li>
+                        <a class="video" title="Vad är Bredbandskollen" href="https://www.youtube.com/watch?v=X6XBsIJTzOk?fs=1&amp;autoplay=1&hl=sv&cc_lang_pref=sv">» Vad är Bredbandskollen</a>
+                    </li>
+                    <li>
+                        <a href="http://support.bredbandskollen.se/support/solutions/articles/1000025830" target="_blank">» Läs hur vi sparar dina mätningar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <a id="startMeasure" name="startMeasure" href="#" class="btn primary hidden" data-url="/" data-measure-again="Mät igen">Starta mätningen!</a>
+
+        <script type="text/javascript">
+            var startMeasure = document.getElementById("startMeasure");
+            var dataUrl = "/";
+            if (myDebug != "") {
+                dataUrl = "/?debug=" + myDebug;
+            }
+
+            startMeasure.setAttribute("data-url", dataUrl);
+        </script>
+    </section>
+
+    <div class="clock hidden" id="clock">
+        <div class="gauge"></div>
+        <div class="pointer" id="clockPointer"></div>
+    </div>
+
+    <div class="content">
+        <div class="wrapper">
+            <div class="narrow">
+                <section class="results">
+                    <div id="jtestswf" style="position:absolute;"><p>And here is the SWF</p></div> <!-- flash div with agent.swf -->
+                    <div class="grid" id="thePrintArea" style="background-color:#fff;">
+                        <div class="speed" id="downloadSpeedBox">
+                            <strong class="bandwidth"><span id="downloadSpeedInt" style="text-align:right;">0</span><span id="theDownComma">,</span><span id="downloadSpeedDec" style="text-align:left;">00</span> Mbit/s</strong>
+                            <span class="label" style="margin-left:0px"><i class="fontcon-arrow-down"></i> Nedladdning</span>
+                        </div>
+                        <div class="speed" id="uploadSpeedBox">
+                            <strong class="bandwidth"><span id="uploadSpeedInt" style="text-align:right;">0</span><span id="theUpComma">,</span><span id="uploadSpeedDec" style="text-align:left;">00</span> Mbit/s</strong>
+                            <span class="label" style="margin-left:0px"><i class="fontcon-arrow-up"></i> Uppladdning</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <span class="status hide" id="statusText">Initierar mätning...</span>
+                        <ul class="progressbar nav" id="progressBar">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div id="measureResult">
+                <div id="measureResultLoading">
+                    <div class="spinner"></div>
+                </div>
+
+                <div id="measureResultContent" style="display: none;">
+                    <section class="measure-info">
+                        <div id="errorInlineWarning" style="display: none;" class="warning-block">
+                            <i class="fontcon-nav-guide"></i>
+                            <p>Något gick fel och mätningen kunde inte slutföras.<br>Klicka <a href="#errorMeasureInfo" class="fancybox-inline">här</a> för mer information.</p>
+                        </div>
+
+                        <div id="errorInlineWarningLight" style="display: none;" class="warning-block">
+                            <i class="fontcon-nav-guide"></i>
+                            <p>Mätmotorn stötte på störningar under din mätning. Därför kan ditt mätresultat vara opålitligt. Klicka <a href="#errorMeasureInfoLight" class="fancybox-inline">här</a> för mer information.</p>
+                        </div>
+
+                        <div class="connection-info" id="printConnectionInfo">
+                            <i class="fontcon-info"></i>
+                            <p id="conntype" class="conntype"></p>
+                        </div>
+
+                        <div class="more">
+                            <a href="#" class="bold-link download-result" id="doPrint">Ladda hem resultatbild</a>
+                        </div>
+                    </section>
+                    <section class="measure-result bordered-section" id="chooseConnectionTypeView" style="display: none">
+                        <aside class="measure-result-graphic">
+                        </aside>
+                        <div class="measure-result-description">
+                            <h1><span>Är ditt mätresultat bra eller dåligt?</span> <span class="good"></span></h1> <!-- Ditt resultat är BRA, glöm ej att sätta klassen efter avslutad mätning -->
+
+                            <p>Genom att ange typ av uppkoppling och vilken hastighet du betalar för, kan du få en utvärdering på om ditt mätresultat är bra eller dåligt.</p> <!-- Denna sträng ska sättas efter avslutat mätning till en av tre, beroende på resultatet. Om inget resultat, låt default stå. -->
+                            <div class="hidden-box change-settings" id="changeSettings">
+                                <select class="select" id="provider" style="width: 185px" name="provider">
+                                    <option value="0"></option> <!-- Välj uppkopplingsmetod -->
+                                </select>
+                                <select class="select" id="speed" style="width: 185px" name="speed" disabled>
+                                    <option value="0"></option> <!-- Välj abonnemang -->
+                                </select>
+
+                                <button type="button" class="btn btn-small" id="revaluate">Utvärdera</button> <!-- Utvärdera -->
+                            </div>
+                        </div>
+                    </section>
+                    <section class="measure-result bordered-section" id="measureResultView" style="display: none">
+                        <aside class="measure-result-graphic">
+                            <article class="measure-grade measure-grade-wait" id="gradeGraphic"><span></span></article>
+                        </aside>
+                        <div class="measure-result-description">
+                            <h1><span id="Span_Result_ST_head1">Är ditt mätresultat bra eller dåligt?</span> <span class="good" id="Span_Result_ST_evalString"></span></h1>
+
+                            <p id="P_Result_ST_text">Genom att ange typ av uppkoppling och vilken hastighet du betalar för, kan du få en utvärdering på om ditt mätresultat är bra eller dåligt.</p>
+
+                            <ol class="numbered-list">
+                                <li>Gå igenom <a href="/guide" id="Li_Result_ST_ToGuide_part2" >guiden</a> och lär dig hur du enkelt kan förbättra hastigheten</li> <!-- Gå igenom guiden nedan och lär dig hur du enkelt kan förbättra hastigheten -->
+                                <li id="_Li_Result_ST_ContactOperator">Kontakta din bredbandsleverantör om du fortfarande är missnöjd</li> <!-- Kontakta operatör -->
+                                                                <li>Vänd dig till <a href="http://www.telekomradgivarna.se" target="_blank" id="Li_Result_ST_Telekomradgivarna_part2">Telekområdgivarna</a> om du inte får rätt mot din leverantör</li> <!-- Vänd dig till Telekområdgivarna om du inte får rätt mot din leverantör -->
+                                                                <li>Har du frågor om Bredbandskollen så kan du kontakta vår <a href="#contactSupport" class="fancybox-inline-reset" onclick="bredbandskollen.app.writeLogToAgent(true);" id="_Li_Result_ST_Support_part2">support</a></li>
+                                <li>Sök i <a href="https://support.bredbandskollen.se/support/solutions" target="_top">Bredbandskollens kunskapsdatabas</a></li>
+                            </ol>
+
+                            <footer class="measure-actions more">
+                                <span class="changeConnectionButton"><a href="#" id="changeConnection" name="changeConnection" class="bold-link">Ändra Uppkopplingstyp</a></span>
+                            </footer>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="advancedMeasure" class="advanced-measure">
+    <h2>Avancerad mätning</h2>
+    <p>Här kan du själv bestämma vilken mätserver och mätmetod du vill använda för din mätning.</p>
+
+    
+    <div class="block-spinner"></div>
+
+    <form method="post" action="" style="display: none">
+        <div>
+            <label>Välj mätserver</label>
+            <select name="server"></select>
+        </div>
+
+        <div>
+            <label>Välj mätmetod</label>
+            <select name="method">
+                <option value="websockets" selected>Websockets</option>
+            </select>
+        </div>
+        <div class="submit"><button type="submit" class="btn btn-small">Starta mätningen</button></div>
+
+        <select name="servers_ws" style="display: none;">
+        </select>
+    </form>
+</div>
+
+<div id="explainMeasure" class="explain-measure">
+    <h2>Så här fungerar mätningen</h2>
+    <p>        <ol>
+    <li>En förmätning genomförs för att skapa en grov uppfattning om vilken bandbredd användaren har. Underlaget från mätningen visar hur stor datamängd som ska skickas och tas emot i testerna nedan.</li>
+    <li>Baserat på en uppskattad geografisk position av användaren utses den mätserver som ligger närmast.</li> 
+    <li>10 http-förfrågningar skickas till närmaste mätserver och en snittsvarstid räknas ut.</li>
+    <li>Två bildfiler hämtas parallellt med http från mätservern. Storleken på bildfilerna avgörs genom förmätningen. Tiden för överföringen används för att räkna ut användarens nedlänk-bandbredd eller den bandbredd med vilken användaren kan ta emot data.</li> 
+    <li>Slumpmässig data skickas via http-post till mätservern (två parallella sessioner). Förmätningen avgör hur stor mängd data som skickas. Tiden för överföringen används för att räkna ut användarens upplänk-bandbredd eller den bandbredd med vilken användaren kan skicka data. Resultaten av mätningen presenteras för användaren och lagras i databasen och associeras med en cookie så att användaren kan gå tillbaka till sina tidigare mätningar vid ett senare tillfälle.</li>
+</ol>    </p>
+</div>
+
+<div id="emailResult" class="email-result">
+    <h2>Maila Resultat</h2>
+    <div class="theFormPart1">
+        <p>Fyll i formuläret nedan. Klicka sedan på Skicka.</p>
+        <div class="theForm">
+            <form method="post" id="sendMailForm" action="">
+                <label>Mailadress</label>
+                <input type="email" name="theMail" id="theMail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}$" size="35">
+
+                <div class="submit">
+                    <button type="submit" class="btn btn-small" id="mailresult">Skicka</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="theFormPart2" style="display: none; overflow: hidden !important;">
+        <p>Tackar, ditt resultat är nu skickat till den angivna mailadressen.</p>
+    </div>
+</div>
+
+<div id="contactSupport" class="contact-support">
+    <h2>Kontakta support</h2>
+
+    <div class="supportFormPart1">
+        <p>Fyll i formuläret nedan och klicka på Skicka.</p>
+        <div class="theSupportForm">
+            <form method="post" id="contactSupportForm" action="">
+                <label>Ditt namn</label>
+                <input type="text" name="theName" id="theName" size="35" required><br><br>
+                <label>Mailadress</label>
+                <input type="email" name="theEmail" id="theEmail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}$" size="35"><br><br>
+                <label>Ärende</label>
+                <textarea rows="4" cols="50" name="theProblem" id="theProblem" required></textarea><br><br>
+                <button type="submit" class="btn btn-small" id="contactSupportButton">Skicka</button>
+            </form>
+        </div>
+    </div>
+    <div class="supportFormPart2"style="display: none;">
+        <p>Tack, din fråga är skickad.</p>
+        <p><a href="#" class="global-close-fancybox btn btn-small">Stäng</a></p>
+    </div>
+</div>
+
+<div id="prevMeasure" class="prev-measure">
+    <h2>Tidigare mätningar</h2>
+    <div class="theEarlierResults" align="right">--</div>
+    <a class="btn btn-small" href="/api.php?module=Report&method=exportReportCSV" onclick="javascript:saveGoogleAnalyticEvent('supportFunctions', 'init', 'exportCSV');">Exportera till CSV</a>
+</div>
+
+<div id="abortMeasure" class="abort-measure">
+    <h2>Mätningen är inte längre i fokus och har därför avbrutits.</h2>
+    <p>För att mätmotorn ska fungera krävs att den får tillräckligt med systemresurser av operativsystemet. Om inte mätsidan är synlig och i fokus i din webbläsare kan detta inträffa. Därför har vi avbrutit din mätning. Mät igen och invänta mätresultatet innan du du använder datorn igen.</p>
+</div>
+
+<div id="pepperflashInfo" class="abort-measure">
+    <h2>Mätresultatet kan vara opålitligt!</h2>
+    <p>Om du använder dig av webbläsaren Chrome på Windows och mäter på en tjänst som har 150 Mbit/s eller mer i anslutningshastighet så finns det en viss risk att mätresultatet inte är tillförlitligt. Detta har att göra med Chromes egen version av Flash. Läs mer <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/1000032428">här</a>. Vi rekommenderar att du dubbelkollar ditt mätresultat med en annan webbläsare t.ex. Internet Explorer eller Firefox. Se också till att du uppdaterar ditt operativsystem eftersom detta sannolikt kommer förbättra dina mätresultat.</p>
+</div>
+
+<div id="errorMeasureInfo" class="fail-measure">
+    <h2>Hela eller delar av mätningen kunde inte genomföras!</h2>
+    <p class="errorMeasureInfoInner">Bredbandskollen kunde inte genomföra en fullständig mätning på ditt bredband. Vill du veta mer så kan du få information i vår <a target="_blank" href="https://support.bredbandskollen.se">hjälp</a>.<br><br>Vi rekommenderar att du dubbelkollar ditt mätresultat med en annan webbläsare.<br><br>Detaljerat felmeddelande från server [om detta finns]:<br></p>
+</div>
+
+<div id="flashErrorPopup" class="fail-measure">
+    <h2>Problem med Flash</h2>
+
+    <div id="flashErrorPopup_MacPushApp" style="display: none">
+        <p style="text-align:center" class="_errorMeasureInfoInner"><p align="center" style="font-size:25px">Bredbandskollen finns nu som app för din Mac!</p><p align="center" style="padding:10px;"><a href="https://itunes.apple.com/se/app/bredbandskollen/id1147976909?mt=12" class="btn" onclick="javascript:saveGoogleAnalyticEvent('problem', 'flash', 'openUrlMacApp')" target="_blank">Hämta gratis</a></p><p align="center" style="font-size:14px">För att istället få hjälp med att felsöka flash i webbläsaren så klicka <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">här</a>.</p><p style="display:none;text-align:center;font-size:14px" class="fail-measure__flash-version"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</p></p>
+    </div>
+
+    <div id="flashErrorPopup_firefox" style="display: none">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad.<br/><br/>I din webbläsare (Firefox) kan problemet antagligen lösas genom att ta bort flashblockerande tillägg och se till att Flash player är aktiverad. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+
+    <div id="flashErrorPopup_chrome" style="display: none">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad. Google (som utvecklar din webbläsare Chrome) strävar efter att uppmuntra till öppna webbstandarder och kan därför blockera Flash för Bredbandskollen. Andra orsaker kan vara flashblockerande tillägg eller att flash helt och hållet är inaktiverat i dina inställningar.<br><br>Eftersom Flash är integrerat med Chrome så kan du alltid aktivera det och köra Bredbandskollen i denna webbläsare. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+
+    <div id="flashErrorPopup_safari" style="display: none">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad.<br/><br/>Om du kör version 10 av Safari är flash blockerat som standard. Då måste du manuellt aktivera flash i Safaris inställningar. Om du däremot har en äldre version av Safari kan problemet antagligen lösas genom att se till att Flash player är installerad och aktiv samt genom att bort eventuella flashblockerande tillägg. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+
+    <div id="flashErrorPopup_edge" style="display: none">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad.<br/><br/>
+I din webbläsare (Edge) kan problemet antagligen lösas genom att se till att Flash player inte är inaktiverar och att webbläsaren är uppdaterad. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+
+    <div id="flashErrorPopup_ie" style="display: none">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad.<br/><br/>I din webbläsare (Internet Explorer) kan problemet antagligen lösas genom att se till att Flash player är installerad och aktiv samt att ActiveX-filtrering är avslaget. Om du kör en Windows-version högre än 7 så är Flash integrerat med webbläsaren. Se då till att webbläsaren är uppdaterad. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+
+    <div id="flashErrorPopup_general">
+        <p class="errorMeasureInfoInner">Något gick fel då sidan lästes in. För att mäta krävs att Flash Player är installerad. Vi rekommenderar av säkerhetskäl att den senaste versionen av Flash Player är installerad.<br/><br/>Flash Player verkar inte ha lästs in korrekt i din webbläsare. Om du kör en flashblockerare så måste du aktivt vitlista (tillåta) flash för vår domän www.bredbandskollen.se i dess inställningar, alternativt stänga av blockeraren helt. Mer utförliga instruktioner finns i vår <a target="_blank" href="https://support.bredbandskollen.se/support/solutions/articles/1000226015">hjälp</a>.<br/><br/><span class="fail-measure__flash-version" style="display: none"><b>Varning</b></br>Din version av Flash Player är osäker. Du bör uppdatera.<br/>Installerad version av Flash: {installedVersion} <br/>Rekommenderad version av Flash: {requiredVersion}</span></p>
+    </div>
+</div>
+
+<div id="errorMeasureInfoLight" class="fail-measure">
+    <h2>Opålitligt mätresultat</h2>
+    <p class="errorMeasureInfoInnerLight">Bredbandskollen kunde inte genomföra en helt problemfri mätning på ditt bredband. Vill du veta mer så kan du få information i vår <a target="_blank" href="https://support.bredbandskollen.se">hjälp</a>.<br><br>Vi rekommenderar att du dubbelkollar ditt mätresultat med en annan webbläsare.<br><br>Detaljerat felmeddelande från server [om detta finns]:<br></p>
+</div>
+		<footer class="contentinfo">
+						<div class="footer-top">
+				<div class="wrapper">
+										<div class="grid">
+						<div class="grid__item six-twelfths">
+							<div class="box">
+								<a href="https://support.bredbandskollen.se/support/solutions/articles/1000253368-hur-genomf%C3%B6r-vi-m%C3%A4tningen-rent-tekniskt-" target="_blank" class="no-link-styling">
+			<div class="icon"><img src="https://static.iis.se/bredbandskollen/img/bbk-watch.png" width="50" height="50" /></div>
+
+			<h2>Bredbandskollen utan Flash</h2>
+			<p>
+				Bredbandskollen är nu ombyggd så att den fungerar i alla webbläsare, utan insticksprogrammet Flash.
+			</p>
+		</a>							</div>
+							<div class="box">
+								<a href="https://www.bredbandskollen.se/reports" class="no-link-styling">
+			<div class="icon"><img src="https://static.iis.se/bredbandskollen/img/bbk-rapport.png" width="50" height="50" /></div>
+			<h2>Vi tar pulsen på Bredbandssverige</h2>
+			<p>Visste du att Internetstiftelsen i Sverige, IIS, som står bakom Bredbandskollen, varje år tar fram rapporter som visar var det är snabbast surf i Sverige?</p>
+		</a>							</div>
+						</div><!-- 
+						--><div class="grid__item six-twelfths">
+							<div class="box box-blog">
+								<a target="_blank" href="https://support.bredbandskollen.se/support/solutions">
+			<h2>Så använder du Bredbandskollen</h2>
+			<p class="box-content">
+				Bredbandskollen är enkel att använda, bara starta mätningen och jämför resultatet med det du utlovats av din 
+				internetleverantör. Använd webbmätning på din dator och våra mätappar i din mobiltelefon. Om något inte 
+				fungerar, hör av dig till support@bredbandskollen.se.
+			</p>
+
+			<aside>
+				<img src="https://static.iis.se/bredbandskollen/img/bbk-community.png" alt="" height="80">
+			</aside>
+		</a>							</div>
+						</div>
+					</div>
+										
+					<div class="grid">
+						<div class="grid__item four-twelfths">
+							<div class="more-stuff">
+								<i class="fontcon-nav-mobile"></i>
+								<div class="more-stuff-content">
+									<h2>Bredbandskollen i mobilen</h2>
+									<p>Snabbt internet i din telefon? Hämta vår app för <a href="https://itunes.apple.com/app/bredbandskollen/id296380480?mt=8" target="_blank">IOS</a> eller <a href="https://play.google.com/store/apps/details?id=se.iis.bbk" target="_blank">Android</a></p>
+								</div>
+							</div>
+						</div><!--
+						--><div class="grid__item four-twelfths">
+							<div class="more-stuff">
+								<i class="fontcon-facebook"></i>
+								<div class="more-stuff-content">
+									<h2>Följ Bredbandskollen</h2>
+									<p>Om du tycker som vi, att Bredbandskollen är toppen, kan du följa oss på <a href="https://www.facebook.com/bredbandskollen" target="_blank">Facebook</a> och <a href="https://twitter.com/bredbandskollen" target="_blank">Twitter</a>.</p>
+								</div>
+							</div>
+						</div><!--
+						--><div class="grid__item four-twelfths">
+							<div class="more-stuff">
+								<i class="fontcon-bars"></i>
+								<div class="more-stuff-content">
+									<h2>Bredbandskollen statistik</h2>
+									<p>Hur använder vi internet i Sverige? Ta reda på det i våra <a href="/reports">Rapporter »</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="footer-bottom">
+				<div class="graphic footer-graphic">
+					<div class="shapes">
+						<span class="beam g-o-5 b-eta beam-1"></span>
+						<span class="beam g-o-7 b-theta beam-2"></span>
+						<span class="beam g-o-10 b-iota beam-3"></span>
+						<span class="beam g-o-5 b-kappa beam-4"></span>
+						<span class="beam g-o-3 b-lambda beam-5"></span>
+						<span class="beam g-o-8 b-mu beam-6"></span>
+						<span class="beam g-o-6 b-nu beam-7"></span>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="grid">
+						<div class="plate linklist">
+							<div class="grid__item four-twelfths">
+                                
+								<a href="https://www.iis.se/" target="_blank">iis.se</a>
+								<span>IIS – Internetstiftelsen i Sverige</span>
+                                
+								<a href="https://www.iis.se/lar-dig-mer/guider/" target="_blank">iis.se/guider</a>
+								<span>Gratis guider om internet</span>
+                               
+							</div><!--
+						--><div class="grid__item four-twelfths">
+                            
+								<a href="https://www.internetfonden.se/" target="_blank">internetfonden.se</a>
+								<span>Ansök om finansiering</span>
+                                
+								<a href="https://internetdagarna.se/" target="_blank">internetdagarna.se</a>
+								<span>Events & seminarier om internet</span>
+							</div><!--
+						--><div class="grid__item four-twelfths">
+                            
+								<a href="http://www.internetstatistik.se/" target="_blank">internetstatistik.se</a>
+								<span>Statistik om internetanvändning</span>
+                                
+								<a href="https://www.webbstjarnan.se/" target="_blank">webbstjärnan.se</a>
+								<span>Webbtävling för skolelever</span>
+                            
+							</div>
+						</div>
+					</div>
+					<div class="text--center">
+						<a href="https://support.bredbandskollen.se/support/solutions/1000047566" target="_blank">Om Bredbandskollen</a>  •  <a href="https://support.bredbandskollen.se/support/solutions/folders/1000074650" target="_blank">Om cookies och datalagring</a>
+					</div>
+				</div>
+				
+			</div>
+		</footer>
+		
+		<div id="mobilePopup" class="mobile-popup">
+			<h2>Ladda ned vår App</h2>
+			<p>Bredbandskollen är inte optimerad för mobilen och kräver flash för att fungera. Istället har vi en app som du kan ladda ner via App Store (iOS) eller Google Play (Android) genom att klicka på rätt grafik nedan.</p>
+			<p>
+				<a href="https://play.google.com/store/apps/details?id=se.iis.bbk"><img alt="Get it on Google Play" src="/assets/img/google-play-badge_h45.png" /></a>				
+				<a href="https://geo.itunes.apple.com/us/app/bredbandskollen/id296380480?mt=8" style="display:inline-block;overflow:hidden;background:url('/assets/img/badge_appstore-lrg.svg') no-repeat;background-size: 100%;width:152px;height:45px;"></a>
+			</p>
+		</div>
+	</body>
+	
+		<script type="text/javascript" src="/assets/js/min/bundle.libs.4.4.min.js"></script>
+<script type="text/javascript" src="/assets/js/min/bundle.global.4.4.min.js"></script>
+<script type="text/javascript" src="/assets/js/min/bundle.default.4.4.min.js"></script>
+
+</html>

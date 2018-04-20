@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://salespage.flippa.com">https://salespage.flippa.com</a></p>

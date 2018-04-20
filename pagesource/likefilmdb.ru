@@ -1,0 +1,213 @@
+<!doctype html><html lang="ru"><head><title>База данных о фильмах</title><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"><link rel="canonical" href="/"><meta name="description" content="Вы можете найти у нас фильмы, максимально похожие на ваши любимые по сюжету и жанру. Также мы собираем информацию о персонажах к каждому фильму, цитаты и подборки фильмов."><meta property="og:description" content="Вы можете найти у нас фильмы, максимально похожие на ваши любимые по сюжету и жанру. Также мы собираем информацию о персонажах к каждому фильму, цитаты и подборки фильмов."><meta property="og:title" content="База данных о фильмах"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/static/unity/css/u.css?"></head><body><div class="uiStandartTemplateHeaderWrapper"><div class="uiStandartTemplateHeader"><style>
+		
+		
+		
+		
+		
+			
+		
+		
+					.headNav, .uiStandartTemplateHeaderWrapper {
+  min-height:75px;max-height: 75px;
+  background: #181818;
+		
+		
+		
+}
+.uiStandartTemplateHeaderWrapper { height:52px; font-size:1.25em; height:75px; }
+.headNav { padding-left:25px; }		
+.headNav ul {
+  float: left;
+}
+.headNav li {
+  float: left;
+}
+.headNav .headNavLink {
+  display: block;
+  padding: 0 10px;
+  color: #666666;
+  cursor: pointer;
+	line-height:40px;
+		
+}
+.headNav .headNavLink:hover {
+	color: #FFF;
+						text-decoration:none;
+}
+.headNav li.active .headNavLink, .headNav li.active .headNavLink:hover, .headNav .headNavLink:active {
+	color: #FFF;
+							
+}
+							
+							.headNav .hm { opacity:0.45; }
+							.headNav .active .hm, .headNav a:hover .hm { opacity:1; }
+ 		
+		
+		.headSearch { float:left; width:300px;  padding-top: 20px; }
+				
+.headAddSearch { display:none; }
+		
+					@media (max-width: 900px) {
+						.headNav, .uiStandartTemplateHeaderWrapper { min-height:330px; }
+						.headNav a { float:left;min-width:300px; }
+						.headAddSearch { display:block; }
+						.headSearch { padding:0 0 0 10px; }
+					}
+		
+		
+					</style><div class="headNav"><ul><li class="active"><a href="/" class="headNavLink"><div class="hm" style="background:url(/static/images/decorations/homeico.png) no-repeat;width:21px;height:18px;float:left;margin-top:12px;margin-right:8px;"></div> LikeFilmDB</a></li><li ><a class="headNavLink" href="/what-to-see/">Что посмотреть?</a></li><li ><a class="headNavLink" href="/top/">ТОП 300</a></li><li ><a class="headNavLink" href="/people/">Личности</a></li><li ><a class="headNavLink" href="/character/">Персонажи</a></li><li ><a class="headNavLink" href="/series/">Серии фильмов</a></li></ul><div class="headSearch"><form method="GET" action="/search/"><table><tr><td><input name="query"></td><td><input type="submit" value="Найти"></td></tr></table></form></div></div><div class="uiClear"></div></div></div><div class="uiStandartTemplateWrapper"><div class="uiStandartTemplateMain"><style>
+				
+				
+						@media (min-width:1220px) {
+						.uiStandartTemplateHeader  { max-width:1220px !important; }
+						.uiMenuHsAdaptiveRoot  { margin:0 !important;   }
+						.uiStandartTemplateWrapper  { max-width:1220px !important; }
+						.uiStandartTemplate { padding:0px; }
+						.altLB { float:right; width:210px; padding-left:20px;padding-bottom:20px; }
+						.uiStandartContentMaximum { float:left; width:940px; padding:0px; margin-left:10px; } /* use new wrapper for global setData */
+	.altNavChain li { display:block; float:left; }
+	.altNavChainWrapper { overflow:hidden; }
+	.moreStyleNav { display:block !important; }
+}
+						@media (max-width:600px) {
+							.altNavChain li { display:block; float:left; width:100%;  }
+						}
+						</style><style>
+			.moreStyleNav { display:none; }
+			</style><div class="uiStandartContentMaximum"><h1>База данных о фильмах</h1><style>
+.altNavChainWrapper { width:100%; }
+.altNavChain { width:100%; float:left; border-bottom:1px solid #bdc3c7; list-style:none; margin:0; padding:0; margin-bottom:30px;  }
+.altNavChain a { display:block; float:left; padding:10px; }
+.altNavChain li.active { display:block; float:left; padding:10px; border-bottom:5px solid #bdc3c7;color:#000; }
+.altNavChain a.active { border-bottom:5px solid #bdc3c7;color:#000; }
+.altNavChain div.active { display:block; float:left; padding:10px; border-bottom:5px solid #bdc3c7;color:#000; }
+			
+</style><div class="clear"></div>Вы можете найти у нас фильмы, максимально похожие на ваши любимые по сюжету и жанру. Также мы собираем информацию о персонажах к каждому фильму, цитаты и подборки фильмов.<div class="uiMargin"></div><div class="uiH2"><a href="/film/">Каталог фильмов</a></div><div class="uiStandartHighlightImage"><div class="uiStandartListWrapper"><div class="uiStandartListSimple"><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/pjatdesjat-ottenkov-serogo-2015/similar/"><img src="/static/images/film/5/thumb/9999.jpg" width="155" height="220"></a><br><a href="/film/pjatdesjat-ottenkov-serogo-2015/similar/">Фильмы похожие на 50 оттенков серого (2015)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/prostushka-2015/similar/"><img src="/static/images/film/5/thumb/10018.jpg" width="155" height="220"></a><br><a href="/film/prostushka-2015/similar/">Фильмы похожие на Простушка (2015)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/divergent-2014/similar/"><img src="/static/images/film/1/thumb/295.jpg" width="155" height="220"></a><br><a href="/film/divergent-2014/similar/">Фильмы похожие на Дивергент (2014)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/sumerki-2008/similar/"><img src="/static/images/film/2/thumb/3059.jpg" width="155" height="220"></a><br><a href="/film/sumerki-2008/similar/">Фильмы похожие на Сумерки (2008)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/gordost-i-predubezhdenie-2005/similar/"><img src="/static/images/film/2/thumb/3437.jpg" width="155" height="220"></a><br><a href="/film/gordost-i-predubezhdenie-2005/similar/">Фильмы похожие на Гордость и Предубеждение (2005)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/golodnye-igry-2012/similar/"><img src="/static/images/film/1/thumb/296.jpg" width="155" height="220"></a><br><a href="/film/golodnye-igry-2012/similar/">Фильмы похожие на Голодные игры (2012)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/otorva-2008/similar/"><img src="/static/images/film/3/thumb/4864.jpg" width="155" height="220"></a><br><a href="/film/otorva-2008/similar/">Фильмы похожие на Оторва (2008)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/interstellar-2014/similar/"><img src="/static/images/film/1/thumb/474.jpg" width="155" height="220"></a><br><a href="/film/interstellar-2014/similar/">Фильмы похожие на Интерстеллар (2014)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/povorot-ne-tuda-2003/similar/"><img src="/static/images/film/2/thumb/2835.jpg" width="155" height="220"></a><br><a href="/film/povorot-ne-tuda-2003/similar/">Фильмы похожие на Поворот не туда (2003)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/pila-2003/similar/"><img src="/static/images/film/2/thumb/3885.jpg" width="155" height="220"></a><br><a href="/film/pila-2003/similar/">Фильмы похожие на Пилу (2003)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-filosofskijj-kamen-2001/similar/"><img src="/static/images/film/1/thumb/207.jpg" width="155" height="220"></a><br><a href="/film/garri-potter-i-filosofskijj-kamen-2001/similar/">Фильмы похожие на Гарри Поттер (2001)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/dnevnik-pamjati-2004/similar/"><img src="/static/images/film/1/thumb/81.jpg" width="155" height="220"></a><br><a href="/film/dnevnik-pamjati-2004/similar/">Фильмы похожие на Дневник памяти (2004)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/zolushka-2015/similar/"><img src="/static/images/film/5/thumb/9952.jpg" width="155" height="220"></a><br><a href="/film/zolushka-2015/similar/">Фильмы похожие на Золушку (2015)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/nachalo-2010/similar/"><img src="/static/images/film/1/thumb/8.jpg" width="155" height="220"></a><br><a href="/film/nachalo-2010/similar/">Фильмы похожие на Начало</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/vlastelin-kolec-bratstvo-kolca-2001/similar/"><img src="/static/images/film/1/thumb/26.jpg" width="155" height="220"></a><br><a href="/film/vlastelin-kolec-bratstvo-kolca-2001/similar/">Фильмы похожие на Властелин колец (2001)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/tri-metra-nad-urovnem-neba-2010/similar/"><img src="/static/images/film/1/thumb/808.jpg" width="155" height="220"></a><br><a href="/film/tri-metra-nad-urovnem-neba-2010/similar/">Фильмы похожие на 3 метра над уровнем неба (2010)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/ljusi-2014/similar/"><img src="/static/images/film/1/thumb/303.jpg" width="155" height="220"></a><br><a href="/film/ljusi-2014/similar/">Фильмы похожие на Люси (2014)</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/zakonoposlushnyjj-grazhdanin-2009/similar/"><img src="/static/images/film/1/thumb/594.jpg" width="155" height="220"></a><br><a href="/film/zakonoposlushnyjj-grazhdanin-2009/similar/">Фильмы похожие на Законопослушный гражданин</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/lol-rzhunimagu-2008/similar/"><img src="/static/images/film/2/thumb/4400.jpg" width="155" height="220"></a><br><a href="/film/lol-rzhunimagu-2008/similar/">Фильмы похожие на Лол</a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/kod-da-vinchi-2006/similar/"><img src="/static/images/film/1/thumb/2683.jpg" width="155" height="220"></a><br><a href="/film/kod-da-vinchi-2006/similar/">Фильмы похожие на Код да винчи</a></div></div></div></div></div><h2>Популярные персонажи</h2><div class="uiStandartListWrapper"><div class="uiStandartListSimple"><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/4038-ragnar-lodbrok/" style="background:url(/static/images/character/1/thumb/4038-ragnar-lodbrok.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/4038-ragnar-lodbrok/">Рагнар Лодброк</a></div><div class="uiPersonOriginal">Ragnarr Lodbrok</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/639-toni-stark-zheleznyjj-chelovek/" style="background:url(/static/images/character/1/thumb/639-toni-stark-zheleznyjj-chelovek.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/639-toni-stark-zheleznyjj-chelovek/">Тони Старк (Железный человек)</a></div><div class="uiPersonOriginal">Tony Stark (Iron Man)</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/1876-behtmen/" style="background:url(/static/images/character/1/thumb/1876-behtmen.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/1876-behtmen/">Бэтмен</a></div><div class="uiPersonOriginal">Batman</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/1875-supermen/" style="background:url(/static/images/character/1/thumb/1875-supermen.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/1875-supermen/">Супермен</a></div><div class="uiPersonOriginal">Superman</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/864-albus-dambldor/" style="background:url(/static/images/character/1/thumb/864-albus-dambldor.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/864-albus-dambldor/">Альбус Персиваль Вульфрик Брайан Дамблдор</a></div><div class="uiPersonOriginal">Albus Percival Wulfric Brian Dumbledore</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/502-optimus-prajjm/" style="background:url(/static/images/character/1/thumb/502-optimus-prajjm.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/502-optimus-prajjm/">Оптимус Прайм</a></div><div class="uiPersonOriginal">Optimus Prime</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/271-dzhejjms-bond/" style="background:url(/static/images/character/1/thumb/271-dzhejjms-bond.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/271-dzhejjms-bond/">Джеймс Бонд</a></div><div class="uiPersonOriginal">James Bond</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/4037-dart-vejder-ehnakin-skajuoker/" style="background:url(/static/images/character/1/thumb/4037-dart-vejder-ehnakin-skajuoker.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/4037-dart-vejder-ehnakin-skajuoker/">Дарт Вейдер (Энакин Скайуокер)</a></div><div class="uiPersonOriginal">Darth Vader (Anakin Skywalker)</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/644-loki/" style="background:url(/static/images/character/1/thumb/644-loki.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/644-loki/">Локи</a></div><div class="uiPersonOriginal">Loki</div></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><div class="uiPersonAvatar"><div class="uiPersonAvatarPretty"><a href="/character/553-kitniss-ehverdin/" style="background:url(/static/images/character/1/thumb/553-kitniss-ehverdin.jpg) no-repeat;"></a></div></div><div class="uiPersonName"><a href="/character/553-kitniss-ehverdin/">Китнисс Эвердин</a></div><div class="uiPersonOriginal">Katniss Everdeen</div></div></div></div></div><div class="uiH2">Популярные серии фильмов</div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/garri-potter-i-filosofskijj-kamen-2001/"><img src="/static/images/film/1/thumb/207.jpg" width="155" height="220" alt="Гарри Поттер и философский камень 2001"></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMediaed264cb8ba42fa44872b194b536e7741','232','//www.youtube.com/embed/aOE2x3wrPJE?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMediaed264cb8ba42fa44872b194b536e7741" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/1/thumb/207.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/garri-potter-i-filosofskijj-kamen-2001/" class="uiH2">Гарри Поттер и философский камень (2001)</a><div id="filmRate207" style="margin:10px 0 0px -5px;"></div><div id="filmRateResponse207" style="margin:0 0 10px 0"></div><p>Жизнь десятилетнего Гарри Поттера нельзя назвать сладкой: его&nbsp;родители умерли, едва ему&nbsp;исполнился год, а&nbsp;от дяди и&nbsp;тётки, взявших сироту на&nbsp;воспитание, достаются лишь тычки да&nbsp;подзатыльники. Но&nbsp;в одиннадцатый день рождения Гарри всё&nbsp;меняется. Странный гость, неожиданно появившийся на&nbsp;пороге, приносит письмо, из&nbsp;которого мальчик узнаёт, что&nbsp;на самом деле он&nbsp;чистокровный волшебник и&nbsp;принят в&nbsp;Хогвартс&nbsp;&#151;&nbsp;школу магии. А&nbsp;уже через пару недель Гарри будет мчаться в&nbsp;поезде Хогвартс-экспресс навстречу новой жизни, где&nbsp;его ждут невероятные приключения, верные друзья и&nbsp;самое главное&nbsp;&#151;&nbsp;ключ к&nbsp;разгадке тайны смерти его&nbsp;родителей.</p></div></div><div style="float:left;width:100%;margin:5px 0 0 0;padding:25px 0;border-top:1px solid #EEE;"><a href="/series/harry-potter/" class="uiH3">Серия фильмов - Гарри Поттер</a></div><div style="float:left;width:100%;margin-bottom:35px;padding:15px 0 25px 0;border-bottom:1px solid #EEE;"><div class="uiStandartListWrapper"><div class="uiStandartListSimple"><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-filosofskijj-kamen-2001/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/207.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и философский камень (2001)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-tajjnaja-komnata-2002/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1434.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Тайная комната (2002)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-uznik-azkabana-2004/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/212.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и узник Азкабана (2004)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-kubok-ognja-2005/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1433.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Кубок огня (2005)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-orden-feniksa-2007/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1435.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Орден Феникса (2007)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-princ-polukrovka-2009/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1431.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Принц-полукровка (2009)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-dary-smerti-chast-i-2010/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1430.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Дары Смерти: Часть I (2010)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/garri-potter-i-dary-smerti-chast-ii-2011/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/210.jpg"></div><div style="width:100%;text-align:center;">
+										Гарри Поттер и Дары Смерти: Часть II (2011)</div></a></div></div></div></div></div><div class="uiMargin"></div><div class="uiClear"></div><div style="margin:0 0 25px 0"></div><!--EOF-UPB-FILM--><!--EOF-UPB2-FILM--><!--EOF-UPB3-FILM--><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/matrica-1999/"><img src="/static/images/film/1/thumb/32.jpg" width="155" height="220" alt="Матрица 1999"></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMedia2138e847e6e24ffe0c5bfee7625ce453','232','//www.youtube.com/embed/YihPA42fdQ8?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMedia2138e847e6e24ffe0c5bfee7625ce453" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/1/thumb/32.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/matrica-1999/" class="uiH2">Матрица (1999)</a><div id="filmRate32" style="margin:10px 0 0px -5px;"></div><div id="filmRateResponse32" style="margin:0 0 10px 0"></div><p>Жизнь Томаса Андерсона разделена на две части: днём он самый обычный офисный работник, получающий нагоняи от начальства, а ночью превращается в хакера по имени Нео, и нет места в сети, куда он не смог бы дотянуться. Но однажды всё меняется — герой, сам того не желая, узнаёт страшную правду: всё, что его окружает — не более, чем иллюзия, Матрица, а люди — всего лишь источник питания для искусственного интеллекта, поработившего человечество. И только Нео под силу изменить расстановку сил в этом ставшем вдруг чужим и страшным мире.</p></div></div><div style="float:left;width:100%;margin:5px 0 0 0;padding:25px 0;border-top:1px solid #EEE;"><a href="/series/matrix/" class="uiH3">Серия фильмов - Матрица</a></div><div style="float:left;width:100%;margin-bottom:35px;padding:15px 0 25px 0;border-bottom:1px solid #EEE;"><div class="uiStandartListWrapper"><div class="uiStandartListSimple"><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/matrica-1999/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/32.jpg"></div><div style="width:100%;text-align:center;">
+										Матрица (1999)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/matrica-perezagruzka-2003/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/no-avatar-small.jpg"></div><div style="width:100%;text-align:center;">
+										Матрица: Перезагрузка (2003)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/matrica-revoljucija-2003/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/1453.jpg"></div><div style="width:100%;text-align:center;">
+										Матрица: Революция (2003)</div></a></div></div></div></div></div><div class="uiMargin"></div><div class="uiClear"></div><div style="margin:0 0 25px 0"></div><!--EOF-UPB-FILM--><!--EOF-UPB2-FILM--><!--EOF-UPB3-FILM--><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/chuzhojj-1979/"><img src="/static/images/film/1/thumb/344.jpg" width="155" height="220" alt="Чужой 1979"></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMediad65df8f1399cc0b4741241b013fe8e36','232','//www.youtube.com/embed/SDSZKRxitCE?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMediad65df8f1399cc0b4741241b013fe8e36" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/1/thumb/344.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/chuzhojj-1979/" class="uiH2">Чужой (1979)</a><div id="filmRate344" style="margin:10px 0 0px -5px;"></div><div id="filmRateResponse344" style="margin:0 0 10px 0"></div><p>В далеком будущем возвращающийся на Землю грузовой космический корабль перехватывает исходящий с неизвестной планеты неопознанный сигнал. Экипаж принимает решение совершить посадку и разобраться, в чем дело. Оказавшись на планете, астронавты повсюду обнаруживают неопознанные предметы, по виду напоминающие гигантские коконы&#133;</p></div></div><div style="float:left;width:100%;margin:5px 0 0 0;padding:25px 0;border-top:1px solid #EEE;"><a href="/series/alien/" class="uiH3">Серия фильмов - Чужой</a></div><div style="float:left;width:100%;margin-bottom:35px;padding:15px 0 25px 0;border-bottom:1px solid #EEE;"><div class="uiStandartListWrapper"><div class="uiStandartListSimple"><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/chuzhojj-1979/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/344.jpg"></div><div style="width:100%;text-align:center;">
+										Чужой (1979)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/chuzhie-1986/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/1/thumb/993.jpg"></div><div style="width:100%;text-align:center;">
+										Чужие (1986)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/chuzhojj-3-1992/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/no-avatar-small.jpg"></div><div style="width:100%;text-align:center;">
+										Чужой 3 (1992)</div></a></div></div><div class="uiStandartListElement" style="width:160px;"><div class="uiStandartListElementInside"><a href="/film/chuzhojj-4-voskreshenie-1997/" class="thumb"><div style="width:100%;text-align:center"><img width="70" src="/static/images/film/no-avatar-small.jpg"></div><div style="width:100%;text-align:center;">
+										Чужой 4: Воскрешение (1997)</div></a></div></div></div></div></div><div class="uiMargin"></div><div class="uiClear"></div><div style="margin:0 0 25px 0"></div><!--EOF-UPB-FILM--><!--EOF-UPB2-FILM--><!--EOF-UPB3-FILM--><div class="uiH2">Новые рецензии зрителей</div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/chelovek-pauk-vozvrashchenie-domoj-2017/"><img src="/static/images/film/7/thumb/56147.jpg" width="155" height="220" alt=""></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMedia4f04f17c70b1251b6fce5cb198131203','232','//www.youtube.com/embed/g0d8fXVLYTA?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMedia4f04f17c70b1251b6fce5cb198131203" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/7/thumb/56147.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/chelovek-pauk-vozvrashchenie-domoj-2017/" class="uiH2">Человек-паук: Возвращение домой</a><p>Очень позитивный фильм про школьную жизнь Человека Паука. Приятная актёрская игра, отличная операторская работа и разносторонние персонажи дают 2 часа приятных ощущений от просмотра....</p><p><a href="/film/chelovek-pauk-vozvrashchenie-domoj-2017/#lastReview">Читать дальше</a></p></div></div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/kult-chaki-2017/"><img src="/static/images/film/7/thumb/57386.jpg" width="155" height="220" alt=""></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMedia3896e8ab42c6205249dcf689a4be97b5','232','//www.youtube.com/embed/kf0qFLuiBsY?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMedia3896e8ab42c6205249dcf689a4be97b5" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/7/thumb/57386.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/kult-chaki-2017/" class="uiH2">Культ Чаки</a><p></p><p><a href="/film/kult-chaki-2017/#lastReview">Читать дальше</a></p></div></div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/po-soobrazheniyam-sovesti-2016/"><img src="/static/images/film/7/thumb/55849.jpg" width="155" height="220" alt=""></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMedia8a4db43ffaae7a77747321d9995fca14','232','//www.youtube.com/embed/HpW6qzO4LHI?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMedia8a4db43ffaae7a77747321d9995fca14" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/7/thumb/55849.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/po-soobrazheniyam-sovesti-2016/" class="uiH2">По соображениям совести</a><p>Рядовой Досс, прекрасно сыгранный <a href="/people/andrew-garfield-6873/">Эндрю Гарфилд</a> - уклонист, но не самый обычный. Он отказывается брать оружие в руки, но при этом хочет идти воевать в роли санитара. 
+С большим скрипом его пускают на войну с японцами, где он совершил один из самых гранд...</p><p><a href="/film/po-soobrazheniyam-sovesti-2016/#lastReview">Читать дальше</a></p></div></div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/kubo-legenda-o-samurae-2016/"><img src="/static/images/film/7/thumb/55068.jpg" width="155" height="220" alt=""></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMedia842b8ad41750df97020d81b12ef103f1','232','//www.youtube.com/embed/V2PN5XfnhpI?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMedia842b8ad41750df97020d81b12ef103f1" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/7/thumb/55068.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/kubo-legenda-o-samurae-2016/" class="uiH2">Кубо. Легенда о самурае</a><p>Великолепный, трогательный и безумно креативный мультфильм, который скорее всего не слишком подходит для детей. В этом произведении так много глубоких мыслей, что его просмотр скорее всего тронет сердца взрослых дядь и тёть, чем детей....</p><p><a href="/film/kubo-legenda-o-samurae-2016/#lastReview">Читать дальше</a></p></div></div><div class="uiSectionV1Wrapper"><div class="uiSectionV1Preview"><div class="uiStandartHighlightImage"><a href="/film/mir-dikogo-zapada-2016/"><img src="/static/images/film/7/thumb/54972.jpg" width="155" height="220" alt=""></a></div></div><div class="uiSectionV1Media"><div class="uiClear"></div><a href="#" onclick="uiMediaOnClickGetMedia('uiMediaOnClickGetMediaff509053b351fb10b4306bef0921245d','232','//www.youtube.com/embed/SV5lzrbNDx0?rel=0&autoplay=1');return false;"><div id="uiMediaOnClickGetMediaff509053b351fb10b4306bef0921245d" style="position:relative;" class="uiMediaOnClickElement"><div style="background:#000 url(/static/images/film/7/thumb/54972.jpg) no-repeat center;width:100%;height:232px;"></div><div class="uiMediaOnClickButtonWrap"></div></div></a><div class="uiClear"></div></div><div class="uiSectionV1Content"><a href="/film/mir-dikogo-zapada-2016/" class="uiH2">Мир Дикого Запада (сериал 2016 – ...)</a><p>Потрясающий сюжет, отличный кастинг и красивая картинка - всё это вы увидите в данном сериале, который стоит посмотреть фанатам фильмов <a href="/film/dobro-pozhalovat-v-raj-2014/">Добро пожаловать в рай (2014)</a>, <a href="/film/surrogaty-2009/">Суррогаты (2009)</a> и <a href="/film/chernoe-zerkalo-1981/">Черное зеркало (1981)</a>....</p><p><a href="/film/mir-dikogo-zapada-2016/#lastReview">Читать дальше</a></p></div></div><div class="uiClear"></div><div class="uiMargin"></div><div class="uiClear"></div><div id="universalArticleSection"></div></div><div class="altLB"><div class="moreStyleNav"><div class="movieWrapper"><div class="movieList"><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/game/guessmovie/" class="thumb"><img width="120" height="90" src="/static/images/decorations/guessmovie-banner.jpg"></a><div style="text-align:center;"><a href="/game/guessmovie/">Угадай фильм по кадру</a></div></div></div><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/list/filmy-pro-tancy/" class="thumb"><img width="120" height="90" src="/static/images/list/7.jpg"></a><div style="text-align:center;"><a href="/list/filmy-pro-tancy/">Фильмы про танцы</a></div></div></div><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/list/filmy-pro-iskusstvennyjj-intellekt/" class="thumb"><img width="120" height="90" src="/static/images/list/1.jpg"></a><div style="text-align:center;"><a href="/list/filmy-pro-iskusstvennyjj-intellekt/">Фильмы про искусственный интеллект</a></div></div></div><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/list/filmy-pro-izmenenie-proshlogo-ili-budushhego/" class="thumb"><img width="120" height="90" src="/static/images/list/4.jpg"></a><div style="text-align:center;"><a href="/list/filmy-pro-izmenenie-proshlogo-ili-budushhego/">Фильмы про путешествия во времени</a></div></div></div><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/list/filmy-pro-razdvoenie-lichnosti/" class="thumb"><img width="120" height="90" src="/static/images/list/3.jpg"></a><div style="text-align:center;"><a href="/list/filmy-pro-razdvoenie-lichnosti/">Фильмы про раздвоение личности</a></div></div></div><div class="simpleMovie"><div class="r" style="width:160px;"><a href="/list/molodezhnye-filmy-uzhasov/" class="thumb"><img width="120" height="90" src="/static/images/list/2.jpg"></a><div style="text-align:center;"><a href="/list/molodezhnye-filmy-uzhasov/">Молодежные фильмы ужасов</a></div></div></div></div></div></div></div></div><div class="uiClear"></div></div><style>
+					
+		 .ui-global-wrapper, .ui-global-wrapper-simple {
+ 	min-width:320px;
+ 	max-width:1220px;
+			
+ }
+			
+ .ui-global-wrapper {
+ 	margin:0 auto;
+			
+ }
+						.unicateBg {
+			
+background:#3E454D;
+			
+			}
+.ui-global-wrapper a { color:#fff; }
+						.uxfooter3010 { width:210px; margin-left:10px;margin-right:20px; margin-bottom:20px; color:#fff; }
+.uxfooter3010 ul { list-style:none; }
+.uxfooter3010 i { margin-right:10px; }
+.uxfooter3010 a { color:#fff; }
+.uxfooter3010 li { margin:10px 0; }
+ </style><div style="width:100%;margin-top:20px;padding-top:20px;padding-bottom:40px;float:left;" class="unicateBg"><div class="ui-global-wrapper"><div style="padding:20px 0;"><div class="uxfooter3010" style="float:left;"><span style="color:#fff;font-size:20px;"  class="uiFontLobster">Популярное</span><nav><ul><li><a href="/list/podrostkovye-filmy-pro-shkolu-i-ljubov-/">Подростковые фильмы про школу и любовь</a></li><li><a href="/list/filmy-pro-iskusstvennyjj-intellekt/">Фильмы про искусственный интеллект</a></li><li><a href="/list/filmy-pro-spartu/">Фильмы про спарту</a></li></ul></nav></div><div class="uxfooter3010" style="float:left;"><span style="color:#fff;font-size:20px;"  class="uiFontLobster">Сервисы</span><nav><ul><li><a href="/game/guessmovie/">Угадай фильм по кадру</a></li><li><a href="/top/">ТОП 300</a></li><li><a href="/film/">Каталог фильмов</a></li></ul></nav></div><div class="uxfooter3010" style="float:left;"><span style="color:#fff;font-size:20px;"  class="uiFontLobster">Сообщество</span><nav><ul><li><a href="https://www.youtube.com/channel/UCJoP0J9PT4sC0O_sB9DWbcQ"><i class="fa fa-youtube "></i> YouTube</a></li><li><a href="https://vk.com/likefilmdb"><i class="fa fa-vk"></i>Вконтакте</a></li></ul></nav></div><div class="uxfooter3010" style="float:left;"><span style="color:#fff;font-size:20px;"  class="uiFontLobster">Контакты</span><nav><ul><li><a href="/info/feedback/"><i class="fa fa-envelope-o"></i>Форма обратной связи</a></li></ul></nav></div><div class="uxfooter3010" style="float:left;"><span style="color:#fff;font-size:20px;"  class="uiFontLobster">LikeFilmDB</span><nav><ul><li><a href="/info/about/">О проекте</a></li><li>&copy; 2014 - 2018 likefilmdb.ru</li></ul></nav></div></div></div><!--ui-global-wrapper--></div><div style="display:none;"><script src="/static/unity/js/u.js?"></script><script src="/static/js/advertisement.js"></script><script>
+					$(function() {
+						
+				var $rateYo207 = $("#filmRate207").rateYo({
+					rating: 4.6,
+					numStars: 10,
+					starWidth: "20px",
+					fullStar:true
+			
+				});
+							
+			
+				$("#filmRate207").click(function () {
+ 
+    /* get rating */
+    var rating = $rateYo207.rateYo("rating");
+							$.post("/film/garri-potter-i-filosofskijj-kamen-2001/", {starRate:rating,specialId:207}, function(data) { $("#filmRateResponse207").html(data); });
+							
+							});			
+							
+					      
+				
+				
+			 
+				var $rateYo32 = $("#filmRate32").rateYo({
+					rating: 4.5,
+					numStars: 10,
+					starWidth: "20px",
+					fullStar:true
+			
+				});
+							
+			
+				$("#filmRate32").click(function () {
+ 
+    /* get rating */
+    var rating = $rateYo32.rateYo("rating");
+							$.post("/film/matrica-1999/", {starRate:rating,specialId:32}, function(data) { $("#filmRateResponse32").html(data); });
+							
+							});			
+							
+					      
+				
+				
+			 
+				var $rateYo344 = $("#filmRate344").rateYo({
+					rating: 4,
+					numStars: 10,
+					starWidth: "20px",
+					fullStar:true
+			
+				});
+							
+			
+				$("#filmRate344").click(function () {
+ 
+    /* get rating */
+    var rating = $rateYo344.rateYo("rating");
+							$.post("/film/chuzhojj-1979/", {starRate:rating,specialId:344}, function(data) { $("#filmRateResponse344").html(data); });
+							
+							});			
+							
+					      
+				
+				
+			 $.get("/ajax/", { act:"universalArticleSection"}, function(data) { $("#universalArticleSection").html(data); }); 
+					
+					if( window.canRunAds === undefined ){
+							if ($(".uiA-adaptive").length) {
+								$(".uiA-adaptive").html('<div class="uiStandartHighlightImage"><a href="https://www.youtube.com/watch?v=gH-GICyU8Rs" target="_blank"><img src="/static/images/decorations/8-banner.jpg"></a></div>');
+							}
+							if ($(".uxA-temp").length) {
+								$(".uxA-temp").html('<div class="uiStandartHighlightImage"><a href="https://www.youtube.com/watch?v=Hff3KRFkolU" target="_blank"><img src="/static/images/decorations/28-banner.jpg"></a></div>');
+							}
+						}
+					
+					
+					});
+					</script><!-- Yandex.Metrika counter --><script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter25393346 = new Ya.Metrika({ id:25393346, clickmap:true, trackLinks:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script><noscript><div><img src="https://mc.yandex.ru/watch/25393346" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100779973-2', 'auto');
+  ga('send', 'pageview');
+
+</script><script>document.write('<img style="position:absolute; left:-9999px;" src="/ajax/?act=intervention&u=' + escape(document.URL) + '&r=' + escape(document.referrer) + '&mr=' + Math.random() + '">');</script></div></body></html><!-- 
+	 2018-03-21 08:54:37 35 0.353 2816
+ -->

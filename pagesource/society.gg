@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <base href="/#/">
+  <meta charset="utf-8">
+  <meta name="description" content="The most exclusive CS:GO betting platform with unique games &amp; a excellent community.">
+  <meta name="fragment" content="!">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta name="theme-color" content="#222122"/>
+  <title ng-bind="$root.title">Society.gg | The most exclusive CS:GO betting platform.</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?buster=nupb0"> -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <!--<script src= "http://player.twitch.tv/js/embed/v1.js?buster=nupb0" id="mainScript" tag="nupb0" async ></script>-->
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="/css/app.css?buster=nupb0">
+
+  <!-- lines below are for style themes support
+  <link rel="stylesheet" ng-if="!$root.hideRegularTheme" href="/css/app.css?buster=nupb0">
+  <link rel="stylesheet" ng-if="$root.user.themePath" ng-href="{{$root.user.themePath}}?{{$root.currentVersion}}">
+  -->
+
+  <script type="text/javascript">
+      var rcponloadCallback = function() {
+          console.log("RECAPTCHA loaded.");
+      };
+      console.log("Move along, nothing to see here!");
+  </script>
+  <script type="text/javascript">
+      window.conf = {
+        gameIds: {
+          "CS:GO": '730',
+          "Dota 2": '570',
+          "TF2": '440',
+          "H1Z1:JS": '295110',
+          "H1Z1:KOTK": '433850'
+        },
+
+        recaptcha_key: "6LckwRwTAAAAABigDuqT-U7p2S_mLq5e2QglAOVt", //google recaptha api key
+
+        // http://35.185.211.54 - Dev server
+        remote_url: "", // for HTTP requests, if falsy - serving origin is hit  
+        remote_checkhost: true,//use remote_url only if page accessed from one of the "remote_users_hosts" array?  
+
+        // //35.185.211.54 - Dev server
+        remote_socket_url: "", // for a webSocket connection, used ONLY if host is among "remote_users_hosts" array; Different socket urls are wired base on host in app.controller.js. 
+         
+        remote_users_hosts: ['localhost'], //used in remote checks above, if you need to - do NOT remove completely, leave as [] instead.
+        society_hosts: ['society.gg'],//used for
+        //'onSociety' check, hides logo and some other stuff if false
+
+
+
+        dummy_data: false, //use some built in dummy data, only for FE testing.
+        dev_mode: false, //bypass some checks here and there, turn off for production.
+        jukebox_test: false //playing test song each time could be annoying - separate switch just for that.
+
+      };
+
+      window.prepareUrl = function(url, fallback){
+          if (!fallback) fallback = '';
+          var prefix = '';
+          if (conf.remote_url && (!conf.remote_checkhost || ~conf.remote_users_hosts.indexOf(window.location.hostname))) {
+            prefix = conf.remote_url;
+          }
+          if (!prefix) prefix = fallback;
+          return prefix + url;
+      };
+
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=rcponloadCallback&render=explicit"
+      async defer>
+  </script>
+</head>
+
+<body ng-class="{
+    isMobile:$root.isMobile,
+    chat_hidden:$root.sidebarView=='none',
+    chat_shown:$root.sidebarView!='none',
+    bannerOpen:$root.system.banner || $root.warningBanner
+  }">
+  <div ng-class="app" class="app" ui-view></div>
+  <!-- inject:js -->
+  <script src="/js/app.js?buster=nupb0" id="mainScript" tag="nupb0" async ></script>
+  <!-- endinject -->
+
+
+  <script type="text/javascript">
+    window.$crisp=[];window.CRISP_WEBSITE_ID='8dadb0bf-5783-44d7-aefa-7c6cefdc0cc4';(function(){d=document;s=d.createElement('script');s.src='https://client.crisp.chat/l.js';s.async=1;d.getElementsByTagName('head')[0].appendChild(s);})();
+    $crisp.push(["do", "chat:hide"])
+  </script>
+</body>
+</html>

@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de" xml:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <meta charset="utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<META NAME="copyright" CONTENT="Copyright by Moviebreak.de">
+<META NAME="Content-Language" CONTENT="de">
+<META NAME="distribution" CONTENT="Global">
+<META NAME="revisit-after" CONTENT="1 days">
+<META NAME="robots" CONTENT="INDEX,FOLLOW,NOODP">
+<META NAME="page-topic" CONTENT="Film, Kino, DVD">
+<META NAME="audience" content="All">
+<meta name="google-site-verification" content="5HsFgFplwinPMXQ_ZVekOIA-DSH-I6EZ5A5QdFbq3Lc" />
+
+<title>Moviebreak ist Deutschlands Community für Filmbegeisterte | Moviebreak.de</title>
+<meta content="Moviebreak ist Deutschlands Community für Filmbegeisterte" name="description" />
+<meta content="film, filmstarts, filmdatenbank, movie, filmtagebuch" name="keywords" />
+<link href="http://www.moviebreak.de/" rel="canonical" />
+<meta content="Moviebreak ist Deutschlands Community für Filmbegeisterte | Moviebreak.de" property="og:title" />
+<meta content="Moviebreak ist Deutschlands Community für Filmbegeisterte" property="og:description" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.moviebreak.de/" />
+<meta property="og:site_name" content="moviebreak.de" />
+<meta property="fb:app_id" content="526569477387173" />
+<meta property="fb:pages" content="349537228498986" />
+
+<!-- for Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Moviebreak.de" />
+<meta name="twitter:description" content="Moviebreak ist Deutschlands Community für Filmbegeisterte." />
+
+<!-- Favicon -->
+<link rel="icon" href="http://www.moviebreak.de/favicon.ico" type="image/x-icon">  
+
+<link href="/assets/application-0e74fb6d1beb97bd48fed5168cbb2a76.css" media="screen" rel="stylesheet" />
+
+<!-- Included JS Files  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js" type="text/javascript"></script>
+<script src="/assets/application-6bc6d5e64791f3e3859592e6d0dd7b38.js"></script>
+
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="YGRqiXX8A4Ncd29gENDrC5/oWpSdcxL7mavYQdZUmNE=" name="csrf-token" />
+
+<link href="/stories" rel="alternate" title="ATOM" type="application/atom+xml" />
+<link href="/stories.rss" rel="alternate" title="RSS" type="application/rss+xml" />
+
+
+  <script>
+    var _gaq=[['_setAccount','UA-38636139-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+</head>
+<body 
+  class="homes index "
+  data-subscription-namespace="/" 
+  data-user-login="" data-user-nimda=""
+  data-facebook-id="526569477387173">
+  <div id="fb-root"></div>
+
+  <div id="flash-messages">
+
+</div>
+
+  <div id="ns-box" class="ns-box"></div>
+  
+  <div id="app">
+    <div id="tweets-pane" class="tweets-pane" data-turbolinks-permanent>
+	<a href="#" id="close-tweets-pane" class="close fa fa-angle-right"></a>
+	<div id="tweets">
+
+		<div class="tweets--header" data-room="users" data-resource-id="online">
+			<div class="tweets--header-content">
+				<span class="tweets--headline">Chat</span>
+
+				<a href="#" @click.prevent="onlineUsersOpen = !onlineUsersOpen" class="tweets-subheadline">
+					<span class="left dot green"></span>
+					{{ onlineUsers.length }} User Online
+					<i v-bind:class="onlineUsersOpen ? 'fa-caret-up' : 'fa-caret-down'" class="fa"></i>
+				</a>
+			</div>
+
+			<div class="users-list" v-show="onlineUsersOpen">
+				<a v-for="user in onlineUsers" v-bind:href="'/users/' + user.login" class="users-list--item">
+					<img v-bind:src="user.avatar" class="avatar">
+				</a>
+			</div>
+		</div>
+
+
+		<div class="tweets-list">
+			<div v-for="(idx, tweet) in tweets | orderBy 'number' -1" class="tweets-item">
+				<a v-bind:href="tweet.url" class="item-avatar">
+					<img v-bind:src="tweet.photo" class="avatar">
+				</a>
+
+				<div class="item-content">
+					<h4 class="item-title">
+						<a class="inherit underline-hover" v-bind:href="tweet.url">{{ tweet.login }}</a>
+					</h4>
+
+					<div class="item-text">
+						{{{ tweet.body | format }}}
+					</div>
+
+					<div class="item-footer">
+						<span class="time">{{ tweet.created_at }}</span>
+
+						<a href="#" class="item-delete" v-show="tweet.deleteable" @click.prevent="deleteTweet(tweet)">
+							<i class="fa fa-trash-o"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<p class="text-center space-top-2" v-show="loading">Wird geladen...</p>
+
+			<div class="text-center space-top-2" v-show="!allLoaded && !loading">
+				<a href="#" @click.prevent="loadTweets">Mehr laden</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+    <header class="main-header">
+  <div class="header--left--actions">
+    <div class="has-dropdown">
+      <i id="nav-toggle" class="flaticon-navicon header--icon header--navicon"></i>
+
+      <div class="dropdown nav-dropdown">
+        <i class="fa fa-caret-up arrow arrow--left"></i>
+        <div class="inner">
+          <ul>
+            <li><a href="/stories">News</a></li>
+            <li><a href="/film">Filme</a></li>
+            <li><a href="/film/kritiken">Kritiken</a></li>
+            <li><a href="/top_lists">Top-Listen</a></li>
+            <li><a href="/film/all">Archiv</a></li>
+            <li><a href="/top_lists">Top-Listen</a></li>
+            <li><a href="/serien">Serien</a></li>
+            <li><a href="/features">Specials</a></li>
+            <li><a href="/gewinnspiele">Gewinnspiele</a></li>
+            <li><a href="/users">Feed</a></li>
+            <li><a href="/lists">User-Listen</a></li>
+            <li><a href="/film/filmstarts">Im Kino</a></li>
+            <li><a href="/film/vorschau">Vorschauen</a></li>
+            <li><a href="/film/user_kritiken">User-Kritiken</a></li>
+            <li><a href="/film/top">Top 100</a></li>
+            <li><a href="/stats">Hall of Fame</a></li>
+            <li><a href="/users/all">Alle User</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" @click.prevent="handleSearchView" class="header--search-trigger header--icon">
+      <i class="flaticon-search"></i>
+    </a>
+  </div>
+
+  <a class="header--logo" href="/"><img alt="Mb icon@2x" class="header--logo--img" src="/assets/logos/mb-icon@2x-7b13c3184a613c71eac86fd811bb80ee.png" /></a>
+
+  <div class="header--side">
+    <div class="header--nav-items">
+      <a class="header--nav-item " href="/stories">News</a>
+      <a class="header--nav-item " href="/film">Filme</a>
+      <a class="header--nav-item " href="/film/kritiken">Kritiken</a>
+      <a class="header--nav-item " href="/serien">Serien</a>
+      <a class="header--nav-item " href="/top_lists">Top-Listen</a>
+      <a class="header--nav-item " href="/features">Specials</a>
+      <a class="header--nav-item " href="/gewinnspiele">Gewinnspiele</a>
+      <a class="header--nav-item " href="/users">Feed</a>
+      
+      <div class="has-dropdown">
+        <a class="header--nav-item more" data-toggle="nav" href="#">. . .</a>
+
+        <div class="dropdown">
+          <i class="fa fa-caret-up arrow"></i>
+          <div class="inner">
+            <ul>
+              <li><a href="/film/all">Archiv</a></li>
+              <li><a href="/lists">User-Listen</a></li>
+              <li><a href="/film/filmstarts">Im Kino</a></li>
+              <li><a href="/film/vorschau">Vorschauen</a></li>
+              <li><a href="/film/user_kritiken">User-Kritiken</a></li>
+              <li><a href="/film/top">Top 100</a></li>
+              <li><a href="/stats">Hall of Fame</a></li>
+              <li><a href="/users/all">Alle User</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form @submit.prevent="" class="header--search-form" v-bind:class="{'active': mobileSearchActive}">
+    <a href="#" class="header--search-form--icon close" v-if="isSearchView || mobileSearchActive" @click.prevent="handleSearchView">&#xd7;</a>
+    <i class="flaticon-search header--search-form--icon" v-else></i>
+    <input type="text" placeholder="Ich suche nach..." class="header--search-form--field" v-model="q"
+           @keydown.esc="q = ''" @keydown.down.prevent="down" @keydown.up.prevent="up" v-el:search-input>
+  </form>
+
+  <div class="header--right--actions">
+      <a href="#" id="tweets-button" class="relative" title="chat">
+        <i class="fa fa-comments-o update--icon chat"></i>
+        <span id="messages-counter" class="update--count online" data-count="0" data-turbolinks-permanent></span>
+      </a>
+      <a href="/signup" class="header--login-btn hidden-xs">Beitreten</a>
+      <a href="#" class="header--login-btn" @click.prevent="showModal = true">Login</a>
+  </div>
+</header>
+
+    <div class="main-container">
+      <div class="search-container" v-show="isSearchView">
+	<search :q="q" :active.sync="isSearchView"></search>
+</div>
+
+<script type="text/template" id="search-container">
+	<div class="search--content container">
+		<div class="search--results">
+			<header class="search--results-header">
+				<span class="title">Ergebnisse für "{{ q }}"</span>
+				<span class="sub-title">{{ results.length }} Ergebnisse</span>
+			</header>
+
+			<ul class="search--results-items" v-show="itemsCount && !loading">
+				<li v-for="(idx, item) in results | filterBy filter in 'type' | orderBy 'score' -1 | limitBy limit">
+					<a href="{{ item.url }}" class="search--results-item" v-bind:class="[item.type, (currentIdx == idx) ? 'selected' : '']">
+						<div class="search--item-photo">
+							<img :src="item.photo">
+						</div>
+						<div class="search--item-content">
+							<p class="search--item-title">{{ item.title }} 
+								<span class="search--item-subtitle" v-show="item.subtitle">({{ item.subtitle }})</span>
+							</p>
+							<p v-show="item.body">{{ item.body }}</p>
+							<p class="search--item-subheading" v-show="item.subheading">{{ item.subheading }}</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			
+			<p v-else>
+				<span v-show="loading">Wird nach "{{ q }}" gesucht...</span>
+				<span v-else>Hmmm. Keine Ergebnisse gefunden. :(</span>
+			</p>
+		</div>
+
+		<aside class="search--filters">
+			<div class="search-filters-content">
+				<label class="search--label">Typ</label>
+
+				<filter-tab :results="results" title="Top" type=""></filter-tab>
+				<filter-tab :results="results" title="Filme" type="movie"></filter-tab>
+				<filter-tab :results="results" title="Serien" type="show"></filter-tab>
+				<filter-tab :results="results" title="Stars" type="people"></filter-tab>
+				<filter-tab :results="results" title="News" type="story"></filter-tab>
+			</div>
+		</aside>
+	</div>
+</script>
+
+<script type="text/template" id="filter-tab">
+	<span class="search--filter-btn" @click="onClick" v-bind:class="{'active': activeClass }">
+		{{ title }} <span class="search--tab-counter" v-show="itemsCount">({{ itemsCount }})</span>
+	</span>
+</script>
+
+      <div class="activity-view hide" v-show="isMentionsView">
+  <span class="close-view-button" @click="toggleMentionsView">&#xd7;</span>
+
+  <header class="hero">
+    <h1 class="hero-title">Erwähnungen</h1>
+  </header>
+
+  <div class="container mid7 pad-5">
+    <div id="mentions">
+      <p class="pad-top-5 text-center"><i class="fa fa-circle-o-notch fa-spin fa-3x"></i></p>
+    </div>
+  </div>
+</div>
+
+<div class="activity-view hide" v-show="isActivityView">
+	<span class="close-view-button" @click="toggleActivityView">&#xd7;</span>
+
+	<header class="hero">
+		<h1 class="hero-title">Benachrichtigungen</h1>
+	</header>
+
+	<div class="mid7 pad-5">
+		<div class="clearfix col-xs-12 space-2">
+	    <a class="red right" data-confirm="Bist du sicher?" data-method="delete" data-remote="true" href="/notifications/all">Alle löschen</a>
+	  </div>
+
+    <div id="notifications">
+    	<p class="pad-top-5 text-center"><i class="fa fa-circle-o-notch fa-spin fa-3x"></i></p>
+    </div>
+  </div>
+</div>
+      
+      <div v-show="isMainView">
+        <div class="nice-tiles fill-parent block clearfix">
+
+	<div class="tiles-row tiles-3">
+
+		<div class="tile-wrap double-h">
+			
+<div class="tile has-overlay pointer touchcarousel-item" style='background-image:url(http://assets-cache0.moviebreak.de/system/bilder/slider_item/image/5aab71b86e73334f06390200/big_YWNRH_FMD.jpg);'>
+	<a href="http://www.moviebreak.de/film/you-were-never-really-here" class="overlay inherit">
+		<div class="hero-header txt-shdw">
+			<div class="filmkritik category">Filmkritik</div>
+		</div>
+		<div class="body txt-shdw">
+			<h2 class="title underline-hover"> Joaquin Phoenix auf Rachefeldzug - Kritik zu &quot;A Beautiful Day&quot;</h2>
+		</div>
+	</a>
+</div>
+
+		</div>
+		
+		<div class="tile-wrapper double-w">
+			<div class="tiles-row tiles-2">
+					<div class="tile-wrap">
+						
+<div class="tile has-overlay pointer touchcarousel-item" style='background-image:url(http://assets-cache0.moviebreak.de/system/bilder/slider_item/image/5aaaad4a6e73337595920000/big_nn.jpg);'>
+	<a href="http://www.moviebreak.de/top_lists/zum-75-geburtstag-die-10-besten-filme-von-david-cronenberg" class="overlay inherit">
+		<div class="hero-header txt-shdw">
+			<div class="special category">Special</div>
+		</div>
+		<div class="body txt-shdw">
+			<h2 class="title underline-hover">Zum 75. Geburtstag - Die 10 besten Filme von David Cronenberg</h2>
+		</div>
+	</a>
+</div>
+
+					</div>
+					<div class="tile-wrap">
+						
+<div class="tile has-overlay pointer touchcarousel-item" style='background-image:url(http://assets-cache0.moviebreak.de/system/bilder/slider_item/image/5aa960586e733302ca650100/big_gVtxvD7DBQJojua6J0I9t7p48i.jpg);'>
+	<a href="http://www.moviebreak.de/film/tomb-raider-1" class="overlay inherit">
+		<div class="hero-header txt-shdw">
+			<div class="filmkritik category">Filmkritik</div>
+		</div>
+		<div class="body txt-shdw">
+			<h2 class="title underline-hover">Neustart für Lara Croft - Kritik zu &quot;Tomb Raider&quot;</h2>
+		</div>
+	</a>
+</div>
+
+					</div>
+			</div>
+
+			<div class="tile-wrapper double-w">
+				<div class="tiles-row tiles-2">
+						<div class="tile-wrap">
+							
+<div class="tile has-overlay pointer touchcarousel-item" style='background-image:url(http://assets-cache0.moviebreak.de/system/bilder/slider_item/image/5aa6e6a36e73336670400000/big_x3.jpg);'>
+	<a href="http://www.moviebreak.de/film/annihilation" class="overlay inherit">
+		<div class="hero-header txt-shdw">
+			<div class="filmkritik category">Filmkritik</div>
+		</div>
+		<div class="body txt-shdw">
+			<h2 class="title underline-hover">Wo kommen wir her, wo gehen wir hin? - Kritik zu &quot;Auslöschung&quot;</h2>
+		</div>
+	</a>
+</div>
+
+						</div>
+						<div class="tile-wrap">
+							
+<div class="tile has-overlay pointer touchcarousel-item" style='background-image:url(http://assets-cache0.moviebreak.de/system/bilder/slider_item/image/5aaa82596e73330ca2670200/big_v1_Kinostarts_der_Woche.png);'>
+	<a href="http://www.moviebreak.de/features/abenteuer-in-der-natur-die-kinostarts-der-woche" class="overlay inherit">
+		<div class="hero-header txt-shdw">
+			<div class="special category">Special</div>
+		</div>
+		<div class="body txt-shdw">
+			<h2 class="title underline-hover">Die Kinostarts der Woche</h2>
+		</div>
+	</a>
+</div>
+
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+<div class="fill-parent panel-dark">
+  <div class="container pad-top-4">
+    <header class="nice-header">
+      <h4>Neue Kritiken</h4>
+      <a class="button" href="/film/kritiken">Mehr Kritiken</a>
+    </header>
+
+    <ul id="reviews-box" class="poster-list-w-review row hide-last-2 row-pad12">
+        
+
+
+
+<li data-resource-id="58f30f306e73336a87800700"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/you-were-never-really-here" title="You Were Never Really Here">
+    <div class="poster-wrap"><img alt="Big a beautiful day 2017 filmplakat rcm590x842u" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/58f30f306e73336a87800700/big_a-beautiful-day-2017-filmplakat-rcm590x842u.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/58f30f306e73336a87800700/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/58f30f306e73336a87800700/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">8.0</div>
+  </div>
+
+  <a class="inherit" href="/film/you-were-never-really-here" title="You Were Never Really Here">
+    <h4 class="title">A Beautiful Day</h4>
+  
+    <p class="sub">Mystery, Drama, Thriller</p>
+
+</a>
+</li>
+        
+
+
+
+<li data-resource-id="582083406e73333c4f210000"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/hangman-2" title="Hangman">
+    <div class="poster-wrap"><img alt="E1pehgurvepyeglsox0xmmtplm0" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/e1pehGURvePYeGlsOx0XmMTpLm0.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/582083406e73333c4f210000/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/582083406e73333c4f210000/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">4.0</div>
+  </div>
+
+  <a class="inherit" href="/film/hangman-2" title="Hangman">
+    <h4 class="title">Hangman - The Killing Game</h4>
+  
+    <p class="sub">Mystery, Krimi, Thriller</p>
+
+</a>
+</li>
+        
+
+
+
+<li data-resource-id="564c8fdf6d6f766b6d3e0000"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/tomb-raider-1" title="Tomb Raider">
+    <div class="poster-wrap"><img alt="Epyn2nx9t8sol70erw47q29zufo" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/564c8fdf6d6f766b6d3e0000/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/564c8fdf6d6f766b6d3e0000/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">5.5</div>
+  </div>
+
+  <a class="inherit" href="/film/tomb-raider-1" title="Tomb Raider">
+    <h4 class="title">Tomb Raider</h4>
+  
+    <p class="sub">Action, Abenteuer</p>
+
+</a>
+</li>
+        
+
+
+
+<li data-resource-id="5820d5c36e73333c4f4b0700"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/lady-bloodfight" title="Lady Bloodfight">
+    <div class="poster-wrap"><img alt="Big 81pgmww7 al. sl1181 " class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/5820d5c36e73333c4f4b0700/big_81PgMww7-aL._SL1181_.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/5820d5c36e73333c4f4b0700/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/5820d5c36e73333c4f4b0700/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">2.0</div>
+  </div>
+
+  <a class="inherit" href="/film/lady-bloodfight" title="Lady Bloodfight">
+    <h4 class="title">Lady Bloodfight - Fight for your life </h4>
+  
+    <p class="sub">Action, Drama, Krimi</p>
+
+</a>
+</li>
+        
+
+
+
+<li data-resource-id="554cc9136d6f765300201100"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/annihilation" title="Auslöschung">
+    <div class="poster-wrap"><img alt="E3p2ed0sbmq6rsos4dct3aeepr" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/e3P2Ed0sbmQ6RsoS4dcT3aeEPR.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/554cc9136d6f765300201100/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/554cc9136d6f765300201100/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">8.5</div>
+  </div>
+
+  <a class="inherit" href="/film/annihilation" title="Auslöschung">
+    <h4 class="title">Auslöschung</h4>
+  
+    <p class="sub">Abenteuer, Drama, Fantasy</p>
+
+</a>
+</li>
+        
+
+
+
+<li data-resource-id="59b7899c6e733318f6991500"
+    class="col-md-2 col-sm-3 col-xs-6 pad12 space-4">
+
+  <a class="poster" href="/film/chasing-the-dragon" title="Chasing the Dragon">
+    <div class="poster-wrap"><img alt="Lc0xgnzmsfe3ua1umqhlbijsy4" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/Lc0XGNZmsFe3uA1UMqhlBiJSY4.jpg" /></div>
+
+</a>
+  <div class="meta-data">
+    <div class="actions left">
+      <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/59b7899c6e733318f6991500/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+      <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/59b7899c6e733318f6991500/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+      
+    </div>
+
+      <div class="rate right">6.5</div>
+  </div>
+
+  <a class="inherit" href="/film/chasing-the-dragon" title="Chasing the Dragon">
+    <h4 class="title">Chasing the Dragon</h4>
+  
+    <p class="sub">Action, Krimi, Biografie</p>
+
+</a>
+</li>
+    </ul>
+  </div>
+</div>
+
+<div class="flex-container">
+
+  <div class="prime-content pad-5">
+    <div class="fluidbox">
+      <div class="items-listing pad-top-3">
+
+        <header class="nice-header space-1">
+  <h4>News</h4>
+  <a class="button rss" href="/stories.rss">RSS</a>
+</header>
+
+        <div class="items" id="stories" data-room="stories" data-resource-id="new">
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11728/fans-koennen-es-kaum-erwarten-avengers-infinity-war-bricht-vorverkauf-rekord" title="Fans können es kaum erwarten: &quot;Avengers: Infinity War&quot; bricht Vorverkauf-Rekord" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aacdf406e733320fa160500/xmgAsda5sPNpx5ghJibJ80S7Pfx.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11728/fans-koennen-es-kaum-erwarten-avengers-infinity-war-bricht-vorverkauf-rekord" title="Fans können es kaum erwarten: &quot;Avengers: Infinity War&quot; bricht Vorverkauf-Rekord" class="inherit">
+      <h4>Fans können es kaum erwarten: &quot;Avengers: Infinity War&quot; bricht Vorverkauf-Rekord</h4>
+      <p class="text">Nachdem wir euch gestern den neuen Trailer zum kommenden Superhelden-Marvel-Finale Avengers: Infinity War präsentieren konnten (hier findet ihr den Trailer), gab es danach einen richtigen Run auf d...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/OnealRedux">OnealRedux</a> <span class="middotDivider"></span> am 17. Mär. 2018 <span class="right">2 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11727/melissa-mccarthy-als-faelscherin-im-ersten-trailer-zu-can-you-ever-forgive-me" title="Melissa McCarthy als Fälscherin im ersten Trailer zu &quot;Can You Ever Forgive Me?&quot;" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aacb2ee6e733320fa660400/can-you-ever-forgive-me-mit-melissa-mccarthy.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11727/melissa-mccarthy-als-faelscherin-im-ersten-trailer-zu-can-you-ever-forgive-me" title="Melissa McCarthy als Fälscherin im ersten Trailer zu &quot;Can You Ever Forgive Me?&quot;" class="inherit">
+      <h4>Melissa McCarthy als Fälscherin im ersten Trailer zu &quot;Can You Ever Forgive Me?&quot;</h4>
+      <p class="text">Melissa McCarthy ist vor allem als Ulknudel in Filmen wie Taffe Mädels, Brautalarm oder Tammy - Voll abgefahren bekannt. Ab und an löst sie sich aber auch von diesem Rollentypus, etwa in St. Vincen...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 17. Mär. 2018 <span class="right">1 Kommentar</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11726/drei-jahre-beziehung-in-der-rueckschau-erster-trailer-zur-komoedie-der-jahrestag" title="Drei Jahre Beziehung in der Rückschau: Erster Trailer zur Komödie &quot;Der Jahrestag&quot;" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aac1bab6e733320fa590200/inline_0000s_0001_happy-anniversary.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11726/drei-jahre-beziehung-in-der-rueckschau-erster-trailer-zur-komoedie-der-jahrestag" title="Drei Jahre Beziehung in der Rückschau: Erster Trailer zur Komödie &quot;Der Jahrestag&quot;" class="inherit">
+      <h4>Drei Jahre Beziehung in der Rückschau: Erster Trailer zur Komödie &quot;Der Jahrestag&quot;</h4>
+      <p class="text">Seit drei Jahren sind Molly und Sam ein Paar. In Sams Augen läuft alles prima, doch am  Jahrestag ihrer Beziehung gesteht ihm Molly, dass sie nicht zufrieden ist. Gemeinsam erinnern sich die Zwei a...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 17. Mär. 2018 <span class="right">0 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11725/sneak-peek-zur-mini-serie-patrick-melrose-mit-benedict-cumberbatch-erschienen" title="Sneak Peek zur Mini-Serie &quot;Patrick Melrose&quot; mit Benedict Cumberbatch erschienen" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aac16f66e7333063acb0300/7-patrick-melrose.w1200.h630.png')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11725/sneak-peek-zur-mini-serie-patrick-melrose-mit-benedict-cumberbatch-erschienen" title="Sneak Peek zur Mini-Serie &quot;Patrick Melrose&quot; mit Benedict Cumberbatch erschienen" class="inherit">
+      <h4>Sneak Peek zur Mini-Serie &quot;Patrick Melrose&quot; mit Benedict Cumberbatch erschienen</h4>
+      <p class="text">Mit seiner Arbeit bei Deutschland 83 erregte Regisseur Edward Berger die Aufmerksamkeit amerikanischer Produzenten, die ihm nun die Mini-Serie Patrick Melrose inszenieren ließen. Darin spielt Bened...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 17. Mär. 2018 <span class="right">1 Kommentar</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11724/die-wartezeit-verkuerzen-rick-und-morty-melden-sich-vor-dem-start-der-4-staffel-mit-einem-musikvideo-zurueck" title="Die Wartezeit verkürzen: Rick und Morty melden sich vor dem Start der 4. Staffel mit einem Musikvideo zurück" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aabf7826e7333063aeb0200/Run-The-Jewels-Oh-Mama-video-1521211661-640x373.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11724/die-wartezeit-verkuerzen-rick-und-morty-melden-sich-vor-dem-start-der-4-staffel-mit-einem-musikvideo-zurueck" title="Die Wartezeit verkürzen: Rick und Morty melden sich vor dem Start der 4. Staffel mit einem Musikvideo zurück" class="inherit">
+      <h4>Die Wartezeit verkürzen: Rick und Morty melden sich vor dem Start der 4. Staffel mit einem Musikvideo zurück</h4>
+      <p class="text">Während die dritte Staffel der beliebten Zeichentrickerie Rick and Morty im Oktober letzten Jahres ihr Finale abfeuerte, lässt die Bekanntgabe des Startdatums der nächsten Staffel aktuell noch auf ...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Macky">Macky</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">3 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11723/matthias-schweighoefer-rennt-um-sein-leben-im-trailer-zur-zweiten-staffel-you-are-wanted" title="Matthias Schweighöfer rennt um sein Leben im Trailer zur zweiten Staffel &quot;You  Are Wanted&quot;" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aabd1a06e7333063af90100/you-are-wanted-staffel-2-trailer.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11723/matthias-schweighoefer-rennt-um-sein-leben-im-trailer-zur-zweiten-staffel-you-are-wanted" title="Matthias Schweighöfer rennt um sein Leben im Trailer zur zweiten Staffel &quot;You  Are Wanted&quot;" class="inherit">
+      <h4>Matthias Schweighöfer rennt um sein Leben im Trailer zur zweiten Staffel &quot;You  Are Wanted&quot;</h4>
+      <p class="text">Genau wie die Konkurrenz von Netflix verrät Amazon Prime zwar keine genauen Zahlen, laut dem Streamingdienst war die deutsche Thriller-Serie You Are Wanted aber wohl ein großer Erfolg und gehörte w...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">9 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11717/marvel-studios-haben-neuen-trailer-zu-avengers-infinity-war-veroeffentlicht" title="Marvel Studios haben neuen Trailer zu &quot;Avengers: Infinity War&quot; veröffentlicht" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aaabf536e73337595f80000/v-vingadores-guerra-infinita2.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11717/marvel-studios-haben-neuen-trailer-zu-avengers-infinity-war-veroeffentlicht" title="Marvel Studios haben neuen Trailer zu &quot;Avengers: Infinity War&quot; veröffentlicht" class="inherit">
+      <h4>Marvel Studios haben neuen Trailer zu &quot;Avengers: Infinity War&quot; veröffentlicht</h4>
+      <p class="text">Ende November des letzten Jahres veröffentlichten die Marvel Studios den ersten Trailer zu The Avengers: Infinity War. Danach zeigten sich die Verantwortlichen eher geizig, was neues Bewegtbildmate...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">8 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11721/fuer-koenigin-und-vaterland-ridley-scott-im-gespraech-fuer-verfilmung-von-graphic-novel-queen-und-country" title="Für Königin und Vaterland: Ridley Scott im Gespräch für Verfilmung von Graphic Novel &quot;Queen &amp; Country&quot;" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aabb0646e73334f06230300/Queen___Country1.png')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11721/fuer-koenigin-und-vaterland-ridley-scott-im-gespraech-fuer-verfilmung-von-graphic-novel-queen-und-country" title="Für Königin und Vaterland: Ridley Scott im Gespräch für Verfilmung von Graphic Novel &quot;Queen &amp; Country&quot;" class="inherit">
+      <h4>Für Königin und Vaterland: Ridley Scott im Gespräch für Verfilmung von Graphic Novel &quot;Queen &amp; Country&quot;</h4>
+      <p class="text">Nach eigenen Aussagen von The Wrap, befindet sich zurzeit Regisseur Ridley Scott (Alien: Covenant) im Gespräch für eine Umsetzung der beliebten Action-Graphic Novel Queen &amp; Country. So soll The 20t...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/OnealRedux">OnealRedux</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">5 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11720/sequel-zu-happy-death-day-soll-im-mai-gedreht-werden" title="Sequel zu &quot;Happy Death Day&quot; soll im Mai gedreht werden" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aaba2036e73334f06f00200/eGx5OfOdvM0gkHdmkLe3hcJuEIT.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11720/sequel-zu-happy-death-day-soll-im-mai-gedreht-werden" title="Sequel zu &quot;Happy Death Day&quot; soll im Mai gedreht werden" class="inherit">
+      <h4>Sequel zu &quot;Happy Death Day&quot; soll im Mai gedreht werden</h4>
+      <p class="text">Und Täglich Grüßt Das Murmeltier trifft auf Slasher-Horror. So könnte man die Horror-Komödie Happy Death Day wohl am einfachsten und auch am treffendsten beschreiben. Der Film, der von Blumhouse pr...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">1 Kommentar</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11719/amazon-entfernt-deutsche-synchronfassung-von-the-looming-tower-wegen-mangelnder-qualitaet" title="Amazon entfernt deutsche Synchronfassung von &quot;The  Looming Tower&quot; wegen mangelnder Qualität" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aab9de86e7333063ac50000/l3IrMpBfdEDgbzGnX7UENDKuDZZ.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11719/amazon-entfernt-deutsche-synchronfassung-von-the-looming-tower-wegen-mangelnder-qualitaet" title="Amazon entfernt deutsche Synchronfassung von &quot;The  Looming Tower&quot; wegen mangelnder Qualität" class="inherit">
+      <h4>Amazon entfernt deutsche Synchronfassung von &quot;The  Looming Tower&quot; wegen mangelnder Qualität</h4>
+      <p class="text">Seit kurzem bietet Amazon seinen Kunden die Drama Serie The Looming Tower zum Stream an. Auch die deutsch synchronisierte Fassung ist seit einigen Tagen dort erhältlich, bzw. war erhältlich. Amazon...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">14 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11718/seht-den-finalen-trailer-zu-overboard-mit-anna-faris" title="Seht den finalen Trailer zu &quot;Overboard&quot; mit Anna Faris" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aab95546e73334f06b90200/maxresdefault.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11718/seht-den-finalen-trailer-zu-overboard-mit-anna-faris" title="Seht den finalen Trailer zu &quot;Overboard&quot; mit Anna Faris" class="inherit">
+      <h4>Seht den finalen Trailer zu &quot;Overboard&quot; mit Anna Faris</h4>
+      <p class="text">Ein bisschen Hollywood-Gossip zu Beginn: Goldie Hawn und Kurt Russell sind nun schon seit Ewigkeiten zusammen. Wo andere Paare nach einiger Zeit die Scheidungspapiere zücken, leben Russell und Hawn...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">1 Kommentar</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11722/das-abenteuer-geht-weiter-seht-ein-paar-film-clips-zu-fuenf-freunde-und-das-tal-der-dinosaurier" title="Das Abenteuer geht weiter: Seht ein paar Film-Clips zu &quot;Fünf Freunde und das Tal der Dinosaurier&quot;" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aabbc446e733320fa390000/5652056.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11722/das-abenteuer-geht-weiter-seht-ein-paar-film-clips-zu-fuenf-freunde-und-das-tal-der-dinosaurier" title="Das Abenteuer geht weiter: Seht ein paar Film-Clips zu &quot;Fünf Freunde und das Tal der Dinosaurier&quot;" class="inherit">
+      <h4>Das Abenteuer geht weiter: Seht ein paar Film-Clips zu &quot;Fünf Freunde und das Tal der Dinosaurier&quot;</h4>
+      <p class="text">Seit 2011 erleben die Fünf Freunde - basierend auf der berühmten Jugendbuchreihe von Enid Blyton - regelmäßig ein Abenteuer nach dem nächsten und somit beginnt mit Fünf Freunde und das Tal der Dino...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/OnealRedux">OnealRedux</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">0 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+            
+<div class="item row row-pad10 space-4">
+  <a href="/stories/11716/us-reboot-von-the-grudge-zwei-hauptdarsteller-sind-bekannt" title="US-Reboot von &quot;The Grudge&quot;: Zwei Hauptdarsteller sind bekannt" 
+    class="col-xs-12 col-sm-4 pad10 nopad-mob">
+    <div class="photo space-1" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/story/photo/5aaaba906e73337595e20000/jLtAbxJvYdveTr3AeBZyzf9dkOM.jpg')"></div>
+  </a>
+
+  <div class="body col-xs-12 col-sm-8 pad10 pad-mob">
+    <a href="/stories/11716/us-reboot-von-the-grudge-zwei-hauptdarsteller-sind-bekannt" title="US-Reboot von &quot;The Grudge&quot;: Zwei Hauptdarsteller sind bekannt" class="inherit">
+      <h4>US-Reboot von &quot;The Grudge&quot;: Zwei Hauptdarsteller sind bekannt</h4>
+      <p class="text">Anfang der 2000er war der große Trend in Hollywood bekannte wie gefeierte Vertreter des sogenannten Nippon-Horror neu zu verfilmen. Daraus resultierten Werke wie Ring, Pulse oder auch The Grudge - ...</p>
+    </a>
+
+    <div class="sub space-top-0">
+      Von <a class="link" href="/users/Stu">Stu</a> <span class="middotDivider"></span> am 16. Mär. 2018 <span class="right">5 Kommentare</span>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <a class="button right" href="/stories">Mehr News</a>
+
+      </div>
+    </div>
+  </div>
+
+  <aside class="side-content">
+    <div class="wrap">
+      <div class="space-3 clearfix fill-parent">
+	<div class="side-header clearfix space-1">
+    <div class="left heading-content">
+      <h4 class="side-headline">Specials</h4>
+    </div>
+    <div class="right heading-content">
+    	<a href="/features">Alle Specials</a>
+    </div>
+  </div>
+
+
+	<div class="items fill-parent">
+		  <a href="/features/abenteuer-in-der-natur-die-kinostarts-der-woche" title="Abenteuer in der Natur - Die Kinostarts der Woche" class="feature-item inherit fill-parent block space-1 smaller">
+		  	<div class="photo center-bg overlay" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/feature/photo/5aa8f4f66e73334d2ba60b00/v3_Kinostarts_der_Woche.png');">
+					<div class="item-banner sonstiges">Sonstiges</div>
+					<div class="likes-and-comments f14">
+  <ul>
+    <li class="likes_count inl-block" data-room="likes_count" data-resource-id="Feature/5aa8f4f66e73334d2ba60b00">
+    	<span class="like-count-value">
+	<i class="fa fa-heart-o active"></i>
+	<span class="likes-counter">15</span>
+</span>
+    </li>
+    <li class="comments_count inl-block" data-room="comments_count" data-resource-id="Feature/5aa8f4f66e73334d2ba60b00">
+    	<span class="comment-count-value">
+	<i class="fa fa-comment-o active"></i>
+	<span class="comments-counter">9</span>
+</span>
+
+    </li>
+  </ul> 
+</div>	
+			  </div>
+
+			  <div class="overlay flex center-center">
+					<div class="text text-center pad20">
+						<h5 class="f20 fw3">Abenteuer in der Natur - Die Kinostarts der Woche</h5>
+					</div>
+				</div>
+		  </a>
+		  <a href="/features/criminal-minds-staffel-12-kritik" title="&quot;Criminal Minds&quot; - Staffel 12 - Kritik" class="feature-item inherit fill-parent block space-1 smaller">
+		  	<div class="photo center-bg overlay" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/feature/photo/5aa946486e733338db1d0200/v3_98a6c43176cd96e52f57f189deea.png');">
+					<div class="item-banner serien">Serien</div>
+					<div class="likes-and-comments f14">
+  <ul>
+    <li class="likes_count inl-block" data-room="likes_count" data-resource-id="Feature/5aa946486e733338db1d0200">
+    	<span class="like-count-value">
+	<i class="fa fa-heart-o active"></i>
+	<span class="likes-counter">1</span>
+</span>
+    </li>
+    <li class="comments_count inl-block" data-room="comments_count" data-resource-id="Feature/5aa946486e733338db1d0200">
+    	<span class="comment-count-value">
+	<i class="fa fa-comment-o "></i>
+	<span class="comments-counter">0</span>
+</span>
+
+    </li>
+  </ul> 
+</div>	
+			  </div>
+
+			  <div class="overlay flex center-center">
+					<div class="text text-center pad20">
+						<h5 class="f20 fw3">&quot;Criminal Minds&quot; - Staffel 12 - Kritik</h5>
+					</div>
+				</div>
+		  </a>
+		  <a href="/features/nummer-schlefaz-sharknado-4-plus-5-kritik" title="#SchleFaZ - &quot;Sharknado 4+5&quot; - Kritik" class="feature-item inherit fill-parent block space-1 smaller">
+		  	<div class="photo center-bg overlay" style="background-image:url('http://assets-cache0.moviebreak.de/system/bilder/feature/photo/5aa9395a6e733302ca990000/v3_tele-5_sharknado-5_website_teaser-fce5f844-1280x620.jpg');">
+					<div class="item-banner heimkino">Heimkino</div>
+					<div class="likes-and-comments f14">
+  <ul>
+    <li class="likes_count inl-block" data-room="likes_count" data-resource-id="Feature/5aa9395a6e733302ca990000">
+    	<span class="like-count-value">
+	<i class="fa fa-heart-o active"></i>
+	<span class="likes-counter">4</span>
+</span>
+    </li>
+    <li class="comments_count inl-block" data-room="comments_count" data-resource-id="Feature/5aa9395a6e733302ca990000">
+    	<span class="comment-count-value">
+	<i class="fa fa-comment-o active"></i>
+	<span class="comments-counter">4</span>
+</span>
+
+    </li>
+  </ul> 
+</div>	
+			  </div>
+
+			  <div class="overlay flex center-center">
+					<div class="text text-center pad20">
+						<h5 class="f20 fw3">#SchleFaZ - &quot;Sharknado 4+5&quot; - Kritik</h5>
+					</div>
+				</div>
+		  </a>
+	</div>
+</div>
+
+      
+<div class="space-1 clearfix fill-parent">
+  <div class="side-header clearfix space-1">
+    <div class="left heading-content">
+      <h4 class="side-headline">Retro-Kritiken</h4>
+    </div>
+    <div class="right heading-content">
+      <a href="/film/kritiken">Mehr Kritiken</a>
+    </div>
+  </div>
+
+  <ul id="reviews-box" class="poster-list-w-review row row-pad3">
+      <li data-resource-id="5128be722851af66e0007c57" class="col-lg-4 col-xs-6 pad3 space-4 ">
+        <a class="fill poster" href="/film/brugge-sehen-dot-dot-dot-und-sterben" title="Brügge sehen...und sterben?"><div class="poster-wrap"><img alt="Xlmqfkxy5wm5nz5fkog9kntgtuo" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/xLmQfKxy5WM5nz5FKOg9knTGtUO.jpg" /></div></a>
+        <div class="meta-data">
+          <div class="actions left">
+            <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/5128be722851af66e0007c57/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+            <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/5128be722851af66e0007c57/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+            
+          </div>
+
+            <div class="rate right">8.5</div>
+        </div>
+
+        <a class="inherit" href="/film/brugge-sehen-dot-dot-dot-und-sterben" title="Brügge sehen...und sterben?">
+          <h4 class="title light-weight">Brügge sehen... und sterben?</h4>
+
+          <p class="sub">Komödie, Drama, Krimi</p>
+</a>      </li>
+      <li data-resource-id="512ca8cdf11c0cc9e702cdb3" class="col-lg-4 col-xs-6 pad3 space-4 ">
+        <a class="fill poster" href="/film/der-triebmorder" title="La bestia uccide a sangue freddo"><div class="poster-wrap"><img alt="Fpvsunwti3mqcyxiudwqchpviq" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/FpvsunwtI3mqCyXIudWqChPViq.jpg" /></div></a>
+        <div class="meta-data">
+          <div class="actions left">
+            <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/512ca8cdf11c0cc9e702cdb3/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+            <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/512ca8cdf11c0cc9e702cdb3/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+            
+          </div>
+
+            <div class="rate right">5.5</div>
+        </div>
+
+        <a class="inherit" href="/film/der-triebmorder" title="La bestia uccide a sangue freddo">
+          <h4 class="title light-weight">Das Schloss der blauen Vögel</h4>
+
+          <p class="sub">Mystery, Horror, Thriller</p>
+</a>      </li>
+      <li data-resource-id="512c4b0ff11c0c0aa601dcad" class="col-lg-4 col-xs-6 pad3 space-4 ">
+        <a class="fill poster" href="/film/der-traum-meines-lebens" title="Summertime"><div class="poster-wrap"><img alt="Nwq3c1gejklp4tlqfjghmljrtor" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/nWq3C1GEjkLP4TlQFjGHMLJrTOR.jpg" /></div></a>
+        <div class="meta-data">
+          <div class="actions left">
+            <a class=" movie-action seen-film" data-method="post" data-remote="true" href="/actions/512c4b0ff11c0c0aa601dcad/seen_movie?resource=Movie" rel="nofollow" title="Habe ich gesehen"><i class='flaticon-seen-o'></i> </a>
+
+            <a class=" movie-action want-film" data-method="post" data-remote="true" href="/actions/512c4b0ff11c0c0aa601dcad/want_movie?resource=Movie" rel="nofollow" title="Will ich sehen"><i class='flaticon-want-o'></i> </a>
+
+            
+          </div>
+
+            <div class="rate right">6.0</div>
+        </div>
+
+        <a class="inherit" href="/film/der-traum-meines-lebens" title="Summertime">
+          <h4 class="title light-weight">Der Traum meines Lebens</h4>
+
+          <p class="sub">Romanze, Drama</p>
+</a>      </li>
+  </ul>
+</div>
+
+
+      <div class="space-3 clearfix fill-parent">
+  <div class="side-header clearfix space-1">
+    <div class="left heading-content">
+      <h4 class="side-headline">Gewinnspiele</h4>
+    </div>
+    <div class="right heading-content">
+      <a href="/gewinnspiele">Alle ansehen</a>
+    </div>
+  </div>
+
+  <div class="row">
+        <div class="col-xs-12 space-1">
+    <a href="/gewinnspiele/im-strudel-der-geheimdienste-wir-verlosen-den-spannenden-thriller-operation-duval-das-geheimprotokoll-auf-dvd" class="ranking-item flex inherit">
+
+      <div class="photo fill">
+        <img alt="Im Strudel der Geheimdienste: Wir verlosen den spannenden Thriller &quot;Operation Duval - Das Geheimprotokoll&quot; auf DVD" src="http://assets-cache0.moviebreak.de/system/bilder/raffle/banner/5aabca3f6e7333063ac10100/v2_71iZ9DDLfwL._SL1200_.jpg" />
+      </div>
+
+      <div class="body">
+        <h4>Im Strudel der Geheimdienste: Wir verlosen den spannenden Thriller &quot;Operation Duval - Das Geheimprotokoll&quot; auf DVD</h4>
+      </div>
+    </a>
+  </div>
+
+        <div class="col-xs-12 space-1">
+    <a href="/gewinnspiele/fuer-fans-und-kids-wir-verlosen-das-hoerspiel-lego-r-city-20-bergpolizei" class="ranking-item flex inherit">
+
+      <div class="photo fill">
+        <img alt="Für Fans und Kids: Wir verlosen das Hörspiel &quot;LEGO®City 20: Bergpolizei&quot;" src="http://assets-cache0.moviebreak.de/system/bilder/raffle/banner/5aa655dd6e7333073ca60200/v2_81H-W7oKX3L._SL1200_.jpg" />
+      </div>
+
+      <div class="body">
+        <h4>Für Fans und Kids: Wir verlosen das Hörspiel &quot;LEGO®City 20: Bergpolizei&quot;</h4>
+      </div>
+    </a>
+  </div>
+
+        <div class="col-xs-12 space-1">
+    <a href="/gewinnspiele/traumhaft-wir-verlosen-den-gefeierten-anime-a-silent-voice-auf-dvd-und-bd" class="ranking-item flex inherit">
+
+      <div class="photo fill">
+        <img alt="Traumhaft: Wir verlosen den gefeierten Anime &quot;A Silent Voice&quot; auf DVD und BD" src="http://assets-cache0.moviebreak.de/system/bilder/raffle/banner/5aa654116e7333073c950200/v2_71XgkPJSEsL._SL1024_.jpg" />
+      </div>
+
+      <div class="body">
+        <h4>Traumhaft: Wir verlosen den gefeierten Anime &quot;A Silent Voice&quot; auf DVD und BD</h4>
+      </div>
+    </a>
+  </div>
+
+  </div>
+</div>
+
+      <div class="space-3 clearfix fill-parent">
+
+  <div class="side-header clearfix space-1">
+    <div class="left heading-content">
+      <h4 class="side-headline">Kinocharts</h4>
+    </div>
+    <nav data-id="charts" class="right heading-content tabs">
+      <a href="#" class="tab-switch">USA <i class="fa fa-caret-down arrow"></i></a>
+      <a href="#" class="tab-switch">GER <i class="fa fa-caret-down arrow"></i></a>
+    </nav>
+  </div>
+
+  <div data-id="charts" class="tabs">
+    <div class="tab row">
+        <div class="col-xs-12 space-1">
+  <a href="/film/black-panther" class="ranking-item flex inherit">
+    <div alt="Black Panther" class="photo fill"><div class="poster-wrap"><img alt="Uxzzxijgpiy7slzfvmotpv8wjka" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/uxzzxijgPIY7slzFvMotPv8wjKA.jpg" /></div></div>
+
+    <div class="body">
+      <small>15.02.2018</small>
+      <h4 class="title underline-hover">Black Panther</h4>
+
+        <div class="chart-data">
+          <p>Wochenende: <span>$192,0 Mio.</span></p>
+          <!-- <p>Gesamt: <span>-</span></p> -->
+          <p>Budget: <span>$200 Mio.</span></p>
+        </div>
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/peter-rabbit" class="ranking-item flex inherit">
+    <div alt="Peter Hase" class="photo fill"><div class="poster-wrap"><img alt="Mhq694ufoftkxjhbmb4pmece8ud" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/mHQ694uFOfTKXjhBMB4PMEce8UD.jpg" /></div></div>
+
+    <div class="body">
+      <small>Startet in 4 Tagen</small>
+      <h4 class="title underline-hover">Peter Hase</h4>
+
+        <div class="chart-data">
+          <p>Wochenende: <span>$17,3 Mio.</span></p>
+          <!-- <p>Gesamt: <span>$48 Mio.</span></p> -->
+          <p>Budget: <span>$50 Mio.</span></p>
+        </div>
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/fifty-shades-of-grey-3-befreite-lust" class="ranking-item flex inherit">
+    <div alt="Fifty Shades of Grey - Befreite Lust" class="photo fill"><div class="poster-wrap"><img alt="Jjpj4s3dwzzvi4vw8xfi4vqa1q8" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/jjPJ4s3DWZZvI4vw8Xfi4Vqa1Q8.jpg" /></div></div>
+
+    <div class="body">
+      <small>08.02.2018</small>
+      <h4 class="title underline-hover">Fifty Shades of Grey - Befreite Lust</h4>
+
+        <div class="chart-data">
+          <p>Wochenende: <span>$16,9 Mio.</span></p>
+          <!-- <p>Gesamt: <span>$76 Mio.</span></p> -->
+          <p>Budget: <span>$55 Mio.</span></p>
+        </div>
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/jumanji-2" class="ranking-item flex inherit">
+    <div alt="Jumanji: Willkommen im Dschungel" class="photo fill"><div class="poster-wrap"><img alt="Bxrz5ihbejh7wmidbudq0u2xbmr" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg" /></div></div>
+
+    <div class="body">
+      <small>21.12.2017</small>
+      <h4 class="title underline-hover">Jumanji: Willkommen im Dschungel</h4>
+
+        <div class="chart-data">
+          <p>Wochenende: <span>$7,9 Mio.</span></p>
+          <!-- <p>Gesamt: <span>$378 Mio.</span></p> -->
+          <p>Budget: <span>$100 Mio.</span></p>
+        </div>
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/the-15-17-to-paris" class="ranking-item flex inherit">
+    <div alt="The 15:17 to Paris" class="photo fill"><div class="poster-wrap"><img alt="Qxjq0vbcujkjhjmuwzxi408ngwd" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/qxJQ0VBCuJkJhJmuWzxI408ngwd.jpg" /></div></div>
+
+    <div class="body">
+      <small>19.04.2018</small>
+      <h4 class="title underline-hover">The 15:17 to Paris</h4>
+
+        <div class="chart-data">
+          <p>Wochenende: <span>$7,7 Mio.</span></p>
+          <!-- <p>Gesamt: <span>$25 Mio.</span></p> -->
+          <p>Budget: <span>$30 Mio.</span></p>
+        </div>
+    </div>
+  </a>
+</div>
+    </div>
+    <div class="tab row">
+        <div class="col-xs-12 space-1">
+  <a href="/film/fifty-shades-of-grey-3-befreite-lust" class="ranking-item flex inherit">
+    <div alt="Fifty Shades of Grey - Befreite Lust" class="photo fill"><div class="poster-wrap"><img alt="Jjpj4s3dwzzvi4vw8xfi4vqa1q8" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/jjPJ4s3DWZZvI4vw8Xfi4Vqa1Q8.jpg" /></div></div>
+
+    <div class="body">
+      <small>08.02.2018</small>
+      <h4 class="title underline-hover">Fifty Shades of Grey - Befreite Lust</h4>
+
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/black-panther" class="ranking-item flex inherit">
+    <div alt="Black Panther" class="photo fill"><div class="poster-wrap"><img alt="Uxzzxijgpiy7slzfvmotpv8wjka" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/uxzzxijgPIY7slzFvMotPv8wjKA.jpg" /></div></div>
+
+    <div class="body">
+      <small>15.02.2018</small>
+      <h4 class="title underline-hover">Black Panther</h4>
+
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/die-kleine-hexe" class="ranking-item flex inherit">
+    <div alt="Die Kleine Hexe" class="photo fill"><div class="poster-wrap"><img alt="Mini 5a70d3cfd5096" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/58c1bed16e73334ed17e0900/mini_5a70d3cfd5096.jpg" /></div></div>
+
+    <div class="body">
+      <small>01.02.2018</small>
+      <h4 class="title underline-hover">Die Kleine Hexe</h4>
+
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/wonder" class="ranking-item flex inherit">
+    <div alt="Wunder" class="photo fill"><div class="poster-wrap"><img alt="Mini 5a0d86e73b5b6" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/585032c56e73337229302300/mini_5a0d86e73b5b6.jpg" /></div></div>
+
+    <div class="body">
+      <small>25.01.2018</small>
+      <h4 class="title underline-hover">Wunder</h4>
+
+    </div>
+  </a>
+</div>
+        <div class="col-xs-12 space-1">
+  <a href="/film/the-maze-runner-the-death-cure" class="ranking-item flex inherit">
+    <div alt="Maze Runner - Die Auserwählten in der Todeszone" class="photo fill"><div class="poster-wrap"><img alt="Mini 5a4b7819680c4" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/55b1c5e76d6f7619a13b0600/mini_5a4b7819680c4.jpg" /></div></div>
+
+    <div class="body">
+      <small>01.02.2018</small>
+      <h4 class="title underline-hover">Maze Runner - Die Auserwählten in der Todeszone</h4>
+
+    </div>
+  </a>
+</div>
+    </div>
+  </div>
+</div>
+
+      <div class="space-3 clearfix fill-parent">
+  <div class="side-header clearfix space-1">
+    <div class="left heading-content">
+      <h4 class="side-headline">Im Kino</h4>
+    </div>
+    <div class="right heading-content">
+      <a href="/film/filmstarts">Alle Kinostarts</a>
+    </div>
+  </div>
+
+  <div class="row">
+        <div class="col-xs-12 space-1">
+          <a href="/film/tomb-raider-1" class="ranking-item flex inherit">
+            <div alt="Tomb Raider" class="photo fill"><div class="poster-wrap"><img alt="Epyn2nx9t8sol70erw47q29zufo" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg" /></div></div>
+            <div class="body">
+              <small>15.03.2018</small>
+              <h4>Tomb Raider</h4>
+              <p>Action, Abenteuer</p>
+            </div>
+
+              <div class="flex vertical-center">
+                <div class="rating-circle colored"data-dimension="50" data-text="5.5" data-width="1" data-fontsize="14" data-fgcolor="#ffbb00" data-bgcolor="rgba(0, 0, 0, 0.04)" data-fill="transparent" data-total="10" data-part="5.5">
+                </div>
+              </div>
+          </a>
+        </div>
+        <div class="col-xs-12 space-1">
+          <a href="/film/unsere-erde-2" class="ranking-item flex inherit">
+            <div alt="Unsere Erde 2" class="photo fill"><div class="poster-wrap"><img alt="Small unsere erde 2 posterjpg" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/5a4a40716e73333f85b50e00/small_unsere-erde-2-posterjpg.jpg" /></div></div>
+            <div class="body">
+              <small>15.03.2018</small>
+              <h4>Unsere Erde 2</h4>
+              <p>Family, Dokumentarfilm</p>
+            </div>
+
+              <div class="flex vertical-center">
+                <div class="rating-circle colored"data-dimension="50" data-text="7.0" data-width="1" data-fontsize="14" data-fgcolor="#ffbb00" data-bgcolor="rgba(0, 0, 0, 0.04)" data-fill="transparent" data-total="10" data-part="7.0">
+                </div>
+              </div>
+          </a>
+        </div>
+        <div class="col-xs-12 space-1">
+          <a href="/film/mary-magdalene" class="ranking-item flex inherit">
+            <div alt="Maria Magdalena" class="photo fill"><div class="poster-wrap"><img alt="Small maria magdalena" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/571a8db36e73337753bd2300/small_maria-magdalena.jpg" /></div></div>
+            <div class="body">
+              <small>15.03.2018</small>
+              <h4>Maria Magdalena</h4>
+              <p>Drama</p>
+            </div>
+
+              <div class="flex vertical-center">
+                <div class="rating-circle colored"data-dimension="50" data-text="5.5" data-width="1" data-fontsize="14" data-fgcolor="#ffbb00" data-bgcolor="rgba(0, 0, 0, 0.04)" data-fill="transparent" data-total="10" data-part="5.5">
+                </div>
+              </div>
+          </a>
+        </div>
+        <div class="col-xs-12 space-1">
+          <a href="/film/winchester" class="ranking-item flex inherit">
+            <div alt="Winchester - Das Haus der Verdammten" class="photo fill"><div class="poster-wrap"><img alt="Small 5a777918af19a" class="poster " src="http://assets-cache0.moviebreak.de/system/bilder/movie/poster/59010bdf6e73333fa3e20000/small_5a777918af19a.jpg" /></div></div>
+            <div class="body">
+              <small>15.03.2018</small>
+              <h4>Winchester - Das Haus der Verdammten</h4>
+              <p>Horror, Fantasy, Biografie</p>
+            </div>
+
+              <div class="flex vertical-center">
+                <div class="rating-circle colored"data-dimension="50" data-text="5.5" data-width="1" data-fontsize="14" data-fgcolor="#ffbb00" data-bgcolor="rgba(0, 0, 0, 0.04)" data-fill="transparent" data-total="10" data-part="5.5">
+                </div>
+              </div>
+          </a>
+        </div>
+        <div class="col-xs-12 space-1">
+          <a href="/film/der-hauptmann" class="ranking-item flex inherit">
+            <div alt="Der Hauptmann" class="photo fill"><div class="poster-wrap"><img alt="3zhuck8sjinoytpwiucijtgpniz" class="poster " src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/3zhucK8SJInoYTpwIUCiJTgpNIZ.jpg" /></div></div>
+            <div class="body">
+              <small>15.03.2018</small>
+              <h4>Der Hauptmann</h4>
+              <p>Drama, Historie, Kriegsfilm</p>
+            </div>
+
+          </a>
+        </div>
+  </div>
+</div>
+    </div>
+  </aside>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="yellow-panel pad-top-2 pad-2 text-center">
+  <div class="global-watched space-top-1"  data-room="global_watched" data-resource-id="hours_watched">
+    <p class="mf16 f20 text-color space-1 pad7">Zusammen haben wir <strong>118 Jahre</strong>, <strong>0 Monate</strong>, <strong>1 Woche</strong>, <strong>0 Tage</strong>, <strong>21 Stunden</strong> und <strong>4 Minuten</strong> geschaut.</p>
+
+  </div>
+    <div class="midlineDivider"></div>
+    <p class="mf16 f24 space-2">Schließe dich uns an.</p>
+    <div class="icons-footer fill-parent space-3 clearfix">
+      <span class="item">
+        <i class="flaticon-seen"></i>
+        <span class="label">Gesehen</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-want"></i>
+        <span class="label">Watchlist</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-fave"></i>
+        <span class="label">Bewerten</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-heart"></i>
+        <span class="label">Favoriten</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-collect"></i>
+        <span class="label">Sammlung</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-list"></i>
+        <span class="label">Listen</span>
+      </span>
+      <span class="item">
+        <i class="flaticon-review"></i>
+        <span class="label">Kritiken</span>
+      </span>
+      <span class="item">
+        <i class="fa fa-bar-chart"></i>
+        <span class="label">Statistiken</span>
+      </span>
+    </div>
+    <a class="pseudo-btn wider black" href="/signup">Beitreten</a>
+</footer>
+
+<footer class="main-footer light fill-parent f14 clearfix very-dark pad-top-4 pad-4">
+  <div class="container nopad-mob">
+    <div class="section col-md-3 col-sm-4 col-xs-6">
+      <h4 class="hdl">Moviebreak</h4>
+
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/seiten/team">Team</a></li>
+        <li><a href="/seiten/faq">FAQ</a></li>
+        <li><a class="attract" href="/seiten/we-want-you">Join us</a></li>
+
+      </ul>
+
+
+      <div class="copyright">© 2018 movie<strong>break</strong>.de</div>
+    </div>
+
+    <div class="section col-md-3 col-sm-4 col-xs-6 some-links">
+      <h4 class="hdl">Nützliche Links</h4>
+      <ul class="links">
+        <li><a data-remodal-target="ajax" data-remote="true" href="/feedbacks/new">Feedback</a></li>
+        <li><a href="/seiten/version-history">v0.2</a></li>
+        <li><a href="/seiten/datenschutz">Datenschutz</a></li>
+        <li></li>
+        <li><a href="/seiten/impressum">Impressum</a></li>
+        <li><a data-method="put" data-remote="true" data-toggle="theme" href="/change_theme" rel="nofollow"><span class='left dot gray'></span> Dark Mode</a></li>
+      </ul>
+    </div>
+
+
+    <div class="section social col-md-3 col-sm-4 col-xs-12 right">
+      <ul class="links">
+        <li><a class="youtube" href="https://www.youtube.com/channel/UCkmX8siKcFI8sqiqTtH0wdw" target="_blank"><i class="fa fa-youtube"></i> <span>Youtube</span></a></li>
+        <li><a class="facebook" href="https://www.facebook.com/pages/Moviebreak/349537228498986" target="_blank"><i class="fa fa-facebook"></i> <span>Facebook</span></a></li>
+        <li><a class="twitter" href="https://twitter.com/moviebreak_de" target="_blank"><i class="fa fa-twitter"></i> <span>Twitter</span></a></li>
+        <li><a class="medium" href="https://medium.com/@moviebreak" target="_blank"><i class="fa fa-medium"></i> <span>Medium</span></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="remodal-bg">
+  <div class="remodal" data-remodal-id="ajax" data-remodal-options="hashTracking: false">
+    <div class="content">
+      <h1 class="text-center"><i class="fa fa-spinner fa-spin"></i></h1>
+    </div>
+  </div>
+</div>
+
+    <script type="text/template" id="modal-template">
+  <div class="modal" v-show="show" transition="modal">
+    <span class="modal--close-button" @click="show = false">&#xd7;</span>
+
+    <div class="modal-container">
+      <div class="modal-header hidden-xs">
+        <slot name="header">
+          <img alt="Mb icon@2x" src="/assets/logos/mb-icon@2x-7b13c3184a613c71eac86fd811bb80ee.png" />
+        </slot>
+      </div>
+      
+      <div class="modal-body">
+        <slot name="body">
+          <h1 class="hidden-xs">Anmelden</h1>
+          <p class="login-feedback-text">&nbsp;</p>
+  
+          <form action="/session" method="post" data-remote="true" accept-charset="utf-8">
+              <div class="modal--form-group">
+                <input type="text" name="login" placeholder="Benutzername" class="modal--form-field" required />
+              </div>
+
+              <div class="modal--form-group">
+                <input type="password" name="password" placeholder="Passwort" class="modal--form-field" required />
+                <p class="modal--forgot-link">
+                  <a href="/passwort_vergessen">Passwort vergessen?</a>
+                </p>
+              </div>
+
+              <input type="hidden" name="remember_me" value="true">
+              
+              <button class="button button-full" data-disable-with="Anmeldung läuft...">Anmelden</button>
+
+              <p class="login-sub-link">Kein Account? <a href="/signup" class="link">Registrieren!</a></p>
+          </form>
+
+          <p class="or">oder</p>
+          
+          <a href="#" class="facebook-link button button-full blue">Mit Facebook anmelden</a>
+        </slot>
+      </div>
+    </div>
+  </div>
+</script>
+
+<modal :show.sync="showModal"></modal>
+  </div>
+</body>
+</html>

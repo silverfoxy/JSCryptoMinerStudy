@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html><head><title>PSK Automatic Propagation Reporter</title>
+<meta name="verify-v1" content="dPycTSuOJdlhwvMW9XCX3sFA2BBA2fUoCmjYnx2zKaE=" />
+<meta name="verify-v1" content="LaJwCQq85AsVbKcrWV12oPIJ+OThlCgYRveUuOeP5uc=" />
+<meta name="google-site-verification" content="gMf1XrBA0QE8Of4XiKW57P-a8ubdLVwZCQ0N466CaTA" />
+<meta name="google-site-verification" content="AqaJgDwd_8WE78q3EdF97GPfH1P3AbalpdoS6KmPW1E" />
+<meta name="tinfoil-site-verification" content="aa67b66ea6f00e4cec81166c3ef02a8839663246" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearchpsk.xml" title="pskreporter search" />
+<link rel="canonical" href="https://pskreporter.info/" />
+</head>
+<body style="margin: 0px 0px 0px 0px">
+<div style="color: #ccc; background-color: #333; left:0; display:block; " width="100%">
+<div style="padding-left: 8px; padding-top: 2px; padding-bottom: 2px; padding-right: 8px;">
+<div itemscope itemtype="http://schema.org/WebSite">
+  <meta itemprop="url" content="https://www.pskreporter.info/"/>
+  <form method="get" action="/pskmap" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+    <meta itemprop="target" content="https://www.pskreporter.info/pskmap?callsign={callsign}"/>
+	Callsign:
+    <input itemprop="query-input" type="text" name="callsign" width="12" required/>
+    <input type="submit" name="search" value="Find"/>
+</div>
+</div>
+</div>
+<div style="margin: 0px 8px 8px 8px">
+<h1>PSK Automatic Propagation Reporter</h1>
+This started out as a project to automatically gather reception records of PSK activity and then
+make those records available in near realtime to interested parties &mdash; typically the 
+amateur who initiated the communication. The way that it works is that many amateurs will 
+run a client that will monitor received traffic for callsigns (the pattern 'de callsign callsign') and, when seen, will report this fact. This is of interest to the amateur who transmitted 
+adn they will be able to see where their signal was received. The pattern chosen is typically
+part of a standard CQ call. The duplicate check is to make sure that the callsign is not
+corrupted. The rules for protocols like FT8 are different as the callsigns are protected by error correction. You do still need to 
+call CQ in order for your signal to be reported.
+<p>
+The way that this would be used is that an amateur would call CQ and could then (within a few
+minutes) see where his signal was received. This can be useful in determining propagation
+conditions or in adjusting antenna and/or radio parameters. It will also provide an archive
+of reception records that can be used for research purposes. 
+<p>
+There is a <a href="/pskmap.html">map display</a> of this information.
+<p>
+There also a page of <a href="/cgi-bin/pskstats.pl">statistics</a> about the project.
+<p>
+If this is interesting to you, then please contact me at the email address below to see if there is a client for your digital mode decoding 
+application, or you can contact the author of your package directly, and point him at this page.
+<p>
+<em>Note:</em> This system does not transmit any signals over the air, it just makes use of existing signals that are being transmitted by people calling CQ. This approach is different to some other propagation reporting tools, and has the advantage that adding more monitoring stations provides better coverage <em>without</em> consuming any bandwidth. Also, you don't need to have an amateur radio license to participate. All that is needed is an antenna, a radio and a computer, and you can start monitoring. You will need to pick a 'callsign' to send in reports under &mdash; pick something with your country prefix on it, such as W/SWL/BOSTON for US, shortwave listener in Boston.
+<h2>Current Uses</h2>
+Many of the monitoring stations like to use this for bragging rights. It is also interesting to see how long it takes to spot 100 different countries. 
+(A well placed station with a decent antenna can do this within a week of monitoring, but the best systems can do it within a single day). 
+<p>
+The data being gathered also includes more than just PSK spots, it include JT65 and FT8 -- with FT8 the overwhelming majority at the moment.
+<h2>WSJT-X</h2>
+This is the client that most people use for decoding FT8. It includes integration with PSK reporter. To enable reporting, you need to enter the following
+information into the <em>settings</em> or <em>preferences</em> panel. 
+<ul>
+<li>On the <em>general</em> tab, you should enter your callsign and your locator. Enter at least a six character locator as it marks your location on the map with more accuracy.</li>
+<li>On the <em>frequencies</em> tab, you should specify your antenna (on a per-band basis).</li>
+<li>On the <em>reporting</em> tab, just check the checkbox to enable PSK Reporter Spotting.</li>
+</ul>
+<h2>Digital Master 780</h2>
+The reporting client is now integrated into the current version of DM780
+(part of <a href="http://hrd.ham-radio.ch/">Ham Radio Deluxe</a>). This makes it a painless operation to install and use. There are typically over 100 active monitors
+during the day, mostly in North America and Europe, which means that your call is likely to be heard. More monitors from other parts of the world would be much appreciated.
+<p>
+To enable reporting in DM780, you need to go to the 'Tools' menu item, and then select the 'PSK Reporter' option. This will open a dialog box, and you just check the 'send updates' checkbox, and you are done. Now, whenever the SuperBrowser detects a callsign, this information will be forwarded to the database and made available for other interested parties to view.
+<h2>fldigi 3.1</h2>
+<a href="http://www.w1hkj.com/Fldigi.html">fldigi 3.1</a> (a multiplatform digital mode program) now has builtin support for logging data to the pskreporter web site.
+This program is popular on Linux, and also, being multiplatform, they could not use the DLL that I provide for generating the logging
+messages. However, with only a small amount of help from me, they managed (in fairly short order) to build their own implementation of the
+message generator, and start racking up the spots.
+<p>To actually make it work in fldigi you need the information from <a href="http://groups.yahoo.com/group/digitalradio/message/30238">this message</a>. 
+<p>
+<tt>
+Short answer: you want to click the Spot button in the main window.
+<p>
+Long answer: pressing initialize with the autospot box checked should
+reveal a Spot button at the top right cornet of the main window. If it
+is unlit, the autospotter receives no data and never calls the PSK
+Reporter module. This may seem superfluous, but the underlying spotting
+"framework" is supposed to be able to accommodate other things besides
+PSK reporter (none of which has yet materialised). The Spot button
+would then toggle all of that potentially expensive pattern matching.
+</tt>
+<h2>Airlink Express</h2>
+Reporting to PSK Reporter is as simple as clicking on the <img src="airlinkicon.png"> icon on the log bar. This feature is only active when
+the multi channel display is selected. Whether logging to PSK Reporter is active is saved in the preferences, so setting it is a one time activity.
+<h2>JT65-HF</h2>
+This (as its name suggests) decodes JT65 traffic and then can log it. The master source for download appears to be <a href="http://groups.google.com/group/jt65-hf/files">the JT65-HF group</a>, but I'm not sure.
+<h2>ROS</h2>
+This handles a mode called ROS that is good for weak signal work. There is controversy over whether this mode is legitimate in the US. Connecting this
+to pskreporter was non-trivial as the interface layer was written in Visual Basic. It turned out that the original version of the DLL didn't work 
+correctly when using that calling convention.
+<h2>UR5EQF Logger</h2>
+This is a Russian logging program -- the interesting thing about this is that I had no contact with the author. It does use my DLL for sending data to the pskreporter website.
+<h2>For Developers</h2>
+There is a version of a <a href="PSKReporter.pdf">Windows API specification</a> that can be used to submit the data records. 
+There is a <a href="pskreporter.zip">PSK Reporter SDK</a> that can be download. This includes the documentation, DLL, header file, etc. This should 
+be easier to use than generating the protocol directly. There is also a <a href="http://wd5eae.org/Software.html#PSKReporter">Delphi wrapper</a> that makes it easy to call
+from Delphi applications -- thanks to <a href="http://wd5eae.org/">WD5EAE</a>.
+<p>
+The code used by fldigi can be found in their <a href="http://git.berlios.de/cgi-bin/gitweb.cgi?p=fldigi;a=blob;f=src/spot/pskrep.cxx;h=6aec2e8f7eb56f1c8451bd134de11a8569e08515;hb=HEAD">GIT repository</a>. This is under the GPL so it may, or may not, be useful in other programs.
+<p>
+
+There is a <a href="/pskdev.html">complete description</a> of the protocol used to submit the information, together with 
+information on a test server to use.
+<h2>Best Frequency</h2>
+There is also a web service to provide the 'best frequency' to listen on to hear PSK31 traffic in your grid square at the current time.
+This is useful if you leave your radio unattended, yet controlled by software.
+<p>
+The basic URL is 
+<a href="/cgi-bin/psk-freq.pl">http://pskreporter.info/cgi-bin/psk-freq.pl</a>
+which will return data indicating the best frequency for your location (based on geolocating your IP address). If there is insufficient data, then no frequency will be returned.
+<p>
+The parameters to this script are:
+<ul><li>grid= the two letter grid square. This will override the geolocation of your ip address.
+<li>freq= comma seperated list of frequencies (in hz) that you are prepared to listen to. This should be the VFO frequency for each band. The response frequency will be one of these.
+</ul>
+<p>
+The response document (if it contains any frequencies) will be a text/plain document, and the first word on the first line will be the integer
+frequency that is recommended. There are various other numbers in the document, whose meanings are not defined and may change.
+<h2>Similar Approaches</h2>
+There is a very similar site for the WSPR protocol called <a href="http://wsprnet.org">WSPRnet.org</a>. WSPR is a very weak signal digital mode protocol 
+that uses very little bandwidth, but is not suitable for conversations.
+<hr noshade=1>
+<a href=mailto:pjsg-psk&#64;nospam.gladstonefamily.net><address>Philip Gladstone</address></a>
+Server Hosting provided by <a href="https://www.fastserv.com/">Fast Serv Networks, LLC</a>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-160136-5");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</div>
+</body>
+</html>

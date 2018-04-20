@@ -1,0 +1,899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head>
+<title>Live NHL Stream. Watch free NHL Hockey streamings online.</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="Watch free NHL Live Streamings. Hockey online broadcasts. Playback on Mobile or PC." />
+  <meta name="keywords" content="nhl,live,stream,watch,free,hockey,vivo,online,national,league,weekend,finals,regular,season,championship,nhl draft, nhl schedule,nhl streams reddit,nhl scores,live nhl,espn live,nhl 2017" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" href="http://static.sportsbay.org/images/nhl-logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" integrity="sha256-fDZ6wHbmob72H9d6oq3P6/F3Hc+wHBjdi6FTsUvvQjs=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share-kit/1.0.15/css/social-share-kit.css" integrity="sha256-pM0IKCSjvgmXH5yrRDA9fZ3c0HI14i5zrOKSVKLiUkg=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" integrity="sha256-AWqwvQ3kg5aA5KcXpX25sYKowsX97sTCTbeo33Yfyk0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://static.sportsbay.org/sportsbay/style3.css" />
+</head>
+<body class="nhl-hockey">
+<div id="ticker" class="score-on">
+    <div class="game-container">
+        <div id="box_loader"><div class="pr pr_baw pr_big" id="box_loader_pr"><div class="pr_bt"></div><div class="pr_bt"></div><div class="pr_bt"></div></div></div>
+        <div class="scorestrip hidden-xs clearfix">
+            <div class="game-list clearfix">
+                <div id="scoreStripGames">
+                </div>
+                <script id="scoreStripGamesTemplate" type="text/x-handlebars-template">
+                    <div class="scoreStripGames owl-carousel owl-theme owl-loaded owl-drag">
+                    {{#each dates}}
+                        {{#each games}}
+                        <div class="item {{#ifCond linescore.currentPeriodTimeRemaining '!=' 'END'}} {{status.abstractGameState}} {{status.detailedState}}{{else}} Pre-Game{{/ifCond}}">
+                            <div class="info">
+                                <div class="info-content away clearfix">
+                                    <img src="http://static.sportsbay.org/images/teams/Logo-{{#replace 'é' 'e'}}{{#replace ' ' '-'}}{{teams.away.team.name}}{{/replace}}{{/replace}}.svg" class="logo"/>
+                                    <div class="code">{{teams.away.team.abbreviation}}</div>
+                                    <div class="score">
+                                        {{#ifCond status.abstractGameState '==' 'Preview'}}
+                                            {{teams.away.leagueRecord.wins}}-{{teams.away.leagueRecord.losses}}
+                                        {{else}}
+                                            {{teams.away.score}}
+                                        {{/ifCond}}
+                                    </div>
+                                </div>
+                                <div class="info-content home clearfix">
+                                    <img src="http://static.sportsbay.org/images/teams/Logo-{{#replace 'é' 'e'}}{{#replace ' ' '-'}}{{teams.home.team.name}}{{/replace}}{{/replace}}.svg" class="logo"/>
+                                    <div class="code">{{teams.home.team.abbreviation}}</div>
+                                    <div class="score">
+                                        {{#ifCond status.abstractGameState '==' 'Preview'}}
+                                            {{teams.home.leagueRecord.wins}}-{{teams.home.leagueRecord.losses}}
+                                        {{else}}
+                                            {{teams.home.score}}
+                                        {{/ifCond}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="status">
+                                <span class="desc">
+                                    {{#ifCond status.abstractGameState '==' 'Final'}}
+                                        FINAL
+                                    {{/ifCond}}
+                                    {{#ifCond status.abstractGameState '==' 'Live'}}
+                                        {{linescore.currentPeriodOrdinal}} {{linescore.currentPeriodTimeRemaining}}
+                                    {{/ifCond}}
+                                    {{#ifCond status.abstractGameState '==' 'Preview'}}
+                                        <span class="timedate">{{gameDate}}</span>
+                                    {{/ifCond}}
+                                </span>
+                                <span class="rz-text">RZ</span></div>
+                                <i class="bar red-bar"></i>
+                                <i class="bar blue-bar"></i>
+                                <i class="bar orange-bar"></i>
+                                <i class="bar green-bar"></i>
+                                {{#ifCond status.abstractGameState '!=' 'Final'}}
+                                    <a class="tickerwatch" href="/game/{{#replace ' ' '-'}}{{#replace '.' ''}}{{#replace 'é' 'e'}}{{teams.away.team.name}}-{{teams.home.team.name}}{{/replace}}{{/replace}}{{/replace}}.html">WATCH</a>
+                                {{/ifCond}}
+                            </div>
+                        {{/each}}
+                    {{/each}}
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+</div><nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="http://static.sportsbay.org/images/nhl-logo.svg" height="70px"><span class="logo">Live NHL Stream</span></a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class='nav-item'><a href='/' class='nav-link'><i class='fa fa-home'></i> Home</a></li><li class='nav-item'><a href='/schedule' class='nav-link'><i class='fa fa-calendar'></i> Schedule</a></li>
+                  <li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='/partners' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+                      <i class='fa fa-users'></i> Partners
+                    </a>
+                    <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                        <a class='dropdown-item' href='http://live-nfl.stream'><img src='http://static.sportsbay.org/images/nfl-logo.png' height='30px' alt='NFL'> NFL Live Streams</a>
+                        <a class='dropdown-item' href='http://live-nba.stream'><img src='http://static.sportsbay.org/images/nba-logo.png' height='30px' alt='NBA'> NBA Live Streams</a>
+                        <a class='dropdown-item' href='http://live-nhl.stream'><img src='http://static.sportsbay.org/images/nhl-logo.png' height='30px' alt='NHL'> NHL Live Streams</a>
+                        <a class='dropdown-item' href='http://mlb-live.stream'><img src='http://static.sportsbay.org/images/mlb-logo.png' height='30px' alt='MLB'> MLB Live Streams</a>
+                        <a class='dropdown-item' href='http://mls-live.stream'><img src='http://static.sportsbay.org/images/mls-logo.png' height='30px' alt='MLS'> MLS Live Streams</a>
+                        <a class='dropdown-item' href='http://epl-live.stream'><img src='http://static.sportsbay.org/images/epl-logo2.png' height='30px' alt='EPL'> Premier League Live Streams</a>
+                        <a class='dropdown-item' href='http://bundesliga-live.stream'><img src='http://static.sportsbay.org/images/bundesliga-logo.png' height='30px' alt='Bundesliga'> Bundesliga Live Streams</a>
+                        <a class='dropdown-item' href='http://ligue1-live.stream'><img src='http://static.sportsbay.org/images/ligue1-logo.png' height='30px' alt='Ligue '> Ligue 1 Live Streams</a>
+                        <a class='dropdown-item' href='http://calcio-live.stream'><img src='http://static.sportsbay.org/images/calcio-logo.png' height='30px' alt='Calcio'> Calcio Live Streams</a>
+                        <a class='dropdown-item' href='http://football-live.stream'><img src='http://static.sportsbay.org/images/football-logo.png' height='30px' alt='Football'> Football Live Streams</a>
+                        <a class='dropdown-item' href='http://formula1-live.stream'><img src='http://static.sportsbay.org/images/formula1-logo.png' width='30px' alt='Formula 1'> Formula 1 Live Streams</a>
+                        <a class='dropdown-item' href='http://ufc-live.stream'><img src='http://static.sportsbay.org/images/ufc-logo.svg' width='30px' alt='UFC'> UFC Live Streams</a>
+                        <a class='dropdown-item' href='http://sportsbay.org'><img src='http://static.sportsbay.org/images/sportsbay-logo.png' height='30px' alt='SportsBay'> SportsBay</a>
+                    </div>
+                  </li>
+                  <li class='nav-item'><a href='/' class='nav-link'><i class='fa fa-envelope'></i> Contact Us</a></li>        </ul>
+                <div id="scoretoggle" class="checkbox switcher">
+            <label for="test1">
+                <small><a>Scores</a></small>
+                <input type="checkbox" id="test1" value="" checked="checked">
+                <span><small></small></span>
+            </label>
+        </div>
+                        <a id="teams" class="btn btn-outline-white" href="#"><i class="fa fa-shield"></i> Teams</a>
+              </div>
+  </div>
+</nav>
+
+<div class="section sectionsemi container" id="teamlist">
+  <div id="clubs-menu">
+    <ul>
+        <li class="clubs-menu-logo">
+        <a href="/teams/anaheim-ducks/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Anaheim-Ducks.svg" alt="Anaheim-Ducks Logo" title="Anaheim Ducks Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/arizona-coyotes/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Arizona-Coyotes.svg" alt="Arizona-Coyotes Logo" title="Arizona Coyotes Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/boston-bruins/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Boston-Bruins.svg" alt="Boston-Bruins Logo" title="Boston Bruins Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/buffalo-sabres/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Buffalo-Sabres.svg" alt="Buffalo-Sabres Logo" title="Buffalo Sabres Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/calgary-flames/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Calgary-Flames.svg" alt="Calgary-Flames Logo" title="Calgary Flames Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/carolina-hurricanes/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Carolina-Hurricanes.svg" alt="Carolina-Hurricanes Logo" title="Carolina Hurricanes Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/chicago-blackhawks/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Chicago-Blackhawks.svg" alt="Chicago-Blackhawks Logo" title="Chicago Blackhawks Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/colorado-avalanche/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Colorado-Avalanche.svg" alt="Colorado-Avalanche Logo" title="Colorado Avalanche Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/columbus-blue-jackets/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Columbus-Blue-Jackets.svg" alt="Columbus-Blue-Jackets Logo" title="Columbus Blue Jackets Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/dallas-stars/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Dallas-Stars.svg" alt="Dallas-Stars Logo" title="Dallas Stars Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/detroit-red-wings/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Detroit-Red-Wings.svg" alt="Detroit-Red-Wings Logo" title="Detroit Red Wings Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/edmonton-oilers/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Edmonton-Oilers.svg" alt="Edmonton-Oilers Logo" title="Edmonton Oilers Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/florida-panthers/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Florida-Panthers.svg" alt="Florida-Panthers Logo" title="Florida Panthers Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/los-angeles-kings/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Los-Angeles-Kings.svg" alt="Los-Angeles-Kings Logo" title="Los Angeles Kings Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/minnesota-wild/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Minnesota-Wild.svg" alt="Minnesota-Wild Logo" title="Minnesota Wild Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/canadiens/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Montreal-Canadiens.svg" alt="Montreal-Canadiens Logo" title="Montreal Canadiens Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/nashville-predators/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Nashville-Predators.svg" alt="Nashville-Predators Logo" title="Nashville Predators Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/new-jersey-devils/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-New-Jersey-Devils.svg" alt="New-Jersey-Devils Logo" title="New Jersey Devils Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/new-york-islanders/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Islanders.svg" alt="New-York-Islanders Logo" title="New York Islanders Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/new-york-rangers/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Rangers.svg" alt="New-York-Rangers Logo" title="New York Rangers Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/ottawa-senators/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Ottawa-Senators.svg" alt="Ottawa-Senators Logo" title="Ottawa Senators Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/philadelphia-flyers/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Philadelphia-Flyers.svg" alt="Philadelphia-Flyers Logo" title="Philadelphia Flyers Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/pittsburgh-penguins/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Pittsburgh-Penguins.svg" alt="Pittsburgh-Penguins Logo" title="Pittsburgh Penguins Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/san-jose-sharks/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-San-Jose-Sharks.svg" alt="San-Jose-Sharks Logo" title="San Jose Sharks Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/st-louis-blues/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-St.-Louis-Blues.svg" alt="St-Louis-Blues Logo" title="St. Louis Blues Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/tampa-bay-lightning/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Tampa-Bay-Lightning.svg" alt="Tampa-Bay-Lightning Logo" title="Tampa Bay Lightning Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/toronto-maple-leafs/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Toronto-Maple-Leafs.svg" alt="Toronto-Maple-Leafs Logo" title="Toronto Maple Leafs Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/vancouver-canucks/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Vancouver-Canucks.svg" alt="Vancouver-Canucks Logo" title="Vancouver Canucks Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/vegas-golden-knights/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Vegas-Golden-Knights.svg" alt="Vegas-Golden-Knights Logo" title="Vegas Golden Knights Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/washington-capitals/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Washington-Capitals.svg" alt="Washington-Capitals Logo" title="Washington Capitals Live Stream">
+        </a></li>
+        <li class="clubs-menu-logo">
+        <a href="/teams/winnipeg-jets/">
+        <img src="http://static.sportsbay.org/images/teams/Logo-Winnipeg-Jets.svg" alt="Winnipeg-Jets Logo" title="Winnipeg Jets Live Stream">
+        </a></li>
+    </ul>
+  </div>
+</div><div class="container" id="main">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-xl-8">
+        <div class="row" id="schedule">
+            <div class="col-sm-8">
+                <h2>NHL Hockey Live Streams</h2>
+            </div>
+            <div class="col-sm-4 text-right">
+                <select class="form-control" id="changedate">
+                    <option value="Europe/Bucharest">Eastern European Time</option>
+                    <option value="Europe/Brussels">Central European Time</option>
+                    <option value="Africa/Casablanca">Western European Time</option>
+                    <option value="America/Anguilla">Atlantic Standard Time</option>
+                    <option value="EST" selected="">Eastern Standard Time</option>
+                    <option value="America/Belize">Central Standard Time </option>
+                    <option value="America/Phoenix">Mountain Standard Time</option>
+                    <option value="Pacific/Pitcairn">Pacific Standard Time</option>
+                </select>
+            </div> 
+        </div>
+            <div id="events">
+        <table class="table">
+          <tbody id="pagedContent">
+            <tr class="date"><td colspan="4"><i class="fa fa-calendar"></i> Tuesday, March 20, 2018</td></tr><tr id="20016" class="vevent" onclick="location.href='/game/pittsburgh-penguins-new-york-islanders.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Pittsburgh Penguins events." href="/teams/pittsburgh-penguins">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Pittsburgh-Penguins.svg" alt="Pittsburgh Penguins" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List New York Islanders events." href="/teams/new-york-islanders">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Islanders.svg" alt="New York Islanders" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20016/1/pittsburgh-penguins-new-york-islanders-live.html">Pittsburgh Penguins @ New York Islanders<span class="value-title" title="Pittsburgh Penguins @ New York Islanders"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20016/1/pittsburgh-penguins-new-york-islanders-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Pittsburgh Penguins/New York Islanders/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20017" class="vevent" onclick="location.href='/game/columbus-blue-jackets-new-york-rangers.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Columbus Blue Jackets events." href="/teams/columbus-blue-jackets">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Columbus-Blue-Jackets.svg" alt="Columbus Blue Jackets" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List New York Rangers events." href="/teams/new-york-rangers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Rangers.svg" alt="New York Rangers" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20017/1/columbus-blue-jackets-new-york-rangers-live.html">Columbus Blue Jackets @ New York Rangers<span class="value-title" title="Columbus Blue Jackets @ New York Rangers"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20017/1/columbus-blue-jackets-new-york-rangers-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Columbus Blue Jackets/New York Rangers/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20018" class="vevent" onclick="location.href='/game/dallas-stars-washington-capitals.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Dallas Stars events." href="/teams/dallas-stars">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Dallas-Stars.svg" alt="Dallas Stars" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Washington Capitals events." href="/teams/washington-capitals">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Washington-Capitals.svg" alt="Washington Capitals" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20018/1/dallas-stars-washington-capitals-live.html">Dallas Stars @ Washington Capitals<span class="value-title" title="Dallas Stars @ Washington Capitals"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20018/1/dallas-stars-washington-capitals-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Dallas Stars/Washington Capitals/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20019" class="vevent" onclick="location.href='/game/edmonton-oilers-carolina-hurricanes.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Edmonton Oilers events." href="/teams/edmonton-oilers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Edmonton-Oilers.svg" alt="Edmonton Oilers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Carolina Hurricanes events." href="/teams/carolina-hurricanes">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Carolina-Hurricanes.svg" alt="Carolina Hurricanes" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20019/1/edmonton-oilers-carolina-hurricanes-live.html">Edmonton Oilers @ Carolina Hurricanes<span class="value-title" title="Edmonton Oilers @ Carolina Hurricanes"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20019/1/edmonton-oilers-carolina-hurricanes-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Edmonton Oilers/Carolina Hurricanes/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20020" class="vevent" onclick="location.href='/game/florida-panthers-ottawa-senators.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:30+01:00">19:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Florida Panthers events." href="/teams/florida-panthers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Florida-Panthers.svg" alt="Florida Panthers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Ottawa Senators events." href="/teams/ottawa-senators">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Ottawa-Senators.svg" alt="Ottawa Senators" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20020/1/florida-panthers-ottawa-senators-live.html">Florida Panthers @ Ottawa Senators<span class="value-title" title="Florida Panthers @ Ottawa Senators"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20020/1/florida-panthers-ottawa-senators-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Florida Panthers/Ottawa Senators/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20021" class="vevent" onclick="location.href='/game/philadelphia-flyers-detroit-red-wings.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:30+01:00">19:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Philadelphia Flyers events." href="/teams/philadelphia-flyers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Philadelphia-Flyers.svg" alt="Philadelphia Flyers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Detroit Red Wings events." href="/teams/detroit-red-wings">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Detroit-Red-Wings.svg" alt="Detroit Red Wings" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20021/1/philadelphia-flyers-detroit-red-wings-live.html">Philadelphia Flyers @ Detroit Red Wings<span class="value-title" title="Philadelphia Flyers @ Detroit Red Wings"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20021/1/philadelphia-flyers-detroit-red-wings-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Philadelphia Flyers/Detroit Red Wings/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20022" class="vevent" onclick="location.href='/game/toronto-maple-leafs-tampa-bay-lightning.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T01:30+01:00">19:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Toronto Maple Leafs events." href="/teams/toronto-maple-leafs">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Toronto-Maple-Leafs.svg" alt="Toronto Maple Leafs" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Tampa Bay Lightning events." href="/teams/tampa-bay-lightning">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Tampa-Bay-Lightning.svg" alt="Tampa Bay Lightning" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20022/1/toronto-maple-leafs-tampa-bay-lightning-live.html">Toronto Maple Leafs @ Tampa Bay Lightning<span class="value-title" title="Toronto Maple Leafs @ Tampa Bay Lightning"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20022/1/toronto-maple-leafs-tampa-bay-lightning-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Toronto Maple Leafs/Tampa Bay Lightning/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20023" class="vevent" onclick="location.href='/game/los-angeles-kings-winnipeg-jets.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T02:00+01:00">20:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Los Angeles Kings events." href="/teams/los-angeles-kings">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Los-Angeles-Kings.svg" alt="Los Angeles Kings" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Winnipeg Jets events." href="/teams/winnipeg-jets">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Winnipeg-Jets.svg" alt="Winnipeg Jets" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20023/1/los-angeles-kings-winnipeg-jets-live.html">Los Angeles Kings @ Winnipeg Jets<span class="value-title" title="Los Angeles Kings @ Winnipeg Jets"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20023/1/los-angeles-kings-winnipeg-jets-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Los Angeles Kings/Winnipeg Jets/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20024" class="vevent" onclick="location.href='/game/colorado-avalanche-chicago-blackhawks.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T02:30+01:00">20:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Colorado Avalanche events." href="/teams/colorado-avalanche">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Colorado-Avalanche.svg" alt="Colorado Avalanche" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Chicago Blackhawks events." href="/teams/chicago-blackhawks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Chicago-Blackhawks.svg" alt="Chicago Blackhawks" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20024/1/colorado-avalanche-chicago-blackhawks-live.html">Colorado Avalanche @ Chicago Blackhawks<span class="value-title" title="Colorado Avalanche @ Chicago Blackhawks"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20024/1/colorado-avalanche-chicago-blackhawks-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Colorado Avalanche/Chicago Blackhawks/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20025" class="vevent" onclick="location.href='/game/vancouver-canucks-vegas-golden-knights.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T04:00+01:00">22:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Vancouver Canucks events." href="/teams/vancouver-canucks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Vancouver-Canucks.svg" alt="Vancouver Canucks" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Vegas Golden Knights events." href="/teams/vegas-golden-knights">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Vegas-Golden-Knights.svg" alt="Vegas Golden Knights" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20025/1/vancouver-canucks-vegas-golden-knights-live.html">Vancouver Canucks @ Vegas Golden Knights<span class="value-title" title="Vancouver Canucks @ Vegas Golden Knights"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20025/1/vancouver-canucks-vegas-golden-knights-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Vancouver Canucks/Vegas Golden Knights/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20026" class="vevent" onclick="location.href='/game/new-jersey-devils-san-jose-sharks.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-21T04:30+01:00">22:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List New Jersey Devils events." href="/teams/new-jersey-devils">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-Jersey-Devils.svg" alt="New Jersey Devils" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List San Jose Sharks events." href="/teams/san-jose-sharks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-San-Jose-Sharks.svg" alt="San Jose Sharks" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20026/1/new-jersey-devils-san-jose-sharks-live.html">New Jersey Devils @ San Jose Sharks<span class="value-title" title="New Jersey Devils @ San Jose Sharks"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20026/1/new-jersey-devils-san-jose-sharks-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/New Jersey Devils/San Jose Sharks/NHL Hockey">HD</a></td>
+</tr>
+<tr class="date"><td colspan="4"><i class="fa fa-calendar"></i> Wednesday, March 21, 2018</td></tr><tr id="20027" class="vevent" onclick="location.href='/game/arizona-coyotes-buffalo-sabres.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-22T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Arizona Coyotes events." href="/teams/arizona-coyotes">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Arizona-Coyotes.svg" alt="Arizona Coyotes" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Buffalo Sabres events." href="/teams/buffalo-sabres">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Buffalo-Sabres.svg" alt="Buffalo Sabres" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20027/1/arizona-coyotes-buffalo-sabres-live.html">Arizona Coyotes @ Buffalo Sabres<span class="value-title" title="Arizona Coyotes @ Buffalo Sabres"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20027/1/arizona-coyotes-buffalo-sabres-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Arizona Coyotes/Buffalo Sabres/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20028" class="vevent" onclick="location.href='/game/montr-al-canadiens-pittsburgh-penguins.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-22T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Montreal Canadiens events." href="/teams/montreal-canadiens">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Montreal-Canadiens.svg" alt="Montreal Canadiens" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Pittsburgh Penguins events." href="/teams/pittsburgh-penguins">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Pittsburgh-Penguins.svg" alt="Pittsburgh Penguins" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20028/1/montr-al-canadiens-pittsburgh-penguins-live.html">Montréal Canadiens @ Pittsburgh Penguins<span class="value-title" title="Montréal Canadiens @ Pittsburgh Penguins"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20028/1/montr-al-canadiens-pittsburgh-penguins-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Montreal Canadiens/Pittsburgh Penguins/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20029" class="vevent" onclick="location.href='/game/boston-bruins-st-louis-blues.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-22T02:00+01:00">20:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Boston Bruins events." href="/teams/boston-bruins">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Boston-Bruins.svg" alt="Boston Bruins" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List St. Louis Blues events." href="/teams/st-louis-blues">
+                <img src="http://static.sportsbay.org/images/teams/Logo-St.-Louis-Blues.svg" alt="St. Louis Blues" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20029/1/boston-bruins-st-louis-blues-live.html">Boston Bruins @ St. Louis Blues<span class="value-title" title="Boston Bruins @ St. Louis Blues"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20029/1/boston-bruins-st-louis-blues-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Boston Bruins/St. Louis Blues/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20030" class="vevent" onclick="location.href='/game/anaheim-ducks-calgary-flames.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-22T03:30+01:00">21:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Anaheim Ducks events." href="/teams/anaheim-ducks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Anaheim-Ducks.svg" alt="Anaheim Ducks" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Calgary Flames events." href="/teams/calgary-flames">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Calgary-Flames.svg" alt="Calgary Flames" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20030/1/anaheim-ducks-calgary-flames-live.html">Anaheim Ducks @ Calgary Flames<span class="value-title" title="Anaheim Ducks @ Calgary Flames"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20030/1/anaheim-ducks-calgary-flames-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Anaheim Ducks/Calgary Flames/NHL Hockey">HD</a></td>
+</tr>
+<tr class="date"><td colspan="4"><i class="fa fa-calendar"></i> Thursday, March 22, 2018</td></tr><tr id="20031" class="vevent" onclick="location.href='/game/tampa-bay-lightning-new-york-islanders.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Tampa Bay Lightning events." href="/teams/tampa-bay-lightning">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Tampa-Bay-Lightning.svg" alt="Tampa Bay Lightning" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List New York Islanders events." href="/teams/new-york-islanders">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Islanders.svg" alt="New York Islanders" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20031/1/tampa-bay-lightning-new-york-islanders-live.html">Tampa Bay Lightning @ New York Islanders<span class="value-title" title="Tampa Bay Lightning @ New York Islanders"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20031/1/tampa-bay-lightning-new-york-islanders-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Tampa Bay Lightning/New York Islanders/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20032" class="vevent" onclick="location.href='/game/new-york-rangers-philadelphia-flyers.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List New York Rangers events." href="/teams/new-york-rangers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-York-Rangers.svg" alt="New York Rangers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Philadelphia Flyers events." href="/teams/philadelphia-flyers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Philadelphia-Flyers.svg" alt="Philadelphia Flyers" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20032/1/new-york-rangers-philadelphia-flyers-live.html">New York Rangers @ Philadelphia Flyers<span class="value-title" title="New York Rangers @ Philadelphia Flyers"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20032/1/new-york-rangers-philadelphia-flyers-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/New York Rangers/Philadelphia Flyers/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20033" class="vevent" onclick="location.href='/game/arizona-coyotes-carolina-hurricanes.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Arizona Coyotes events." href="/teams/arizona-coyotes">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Arizona-Coyotes.svg" alt="Arizona Coyotes" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Carolina Hurricanes events." href="/teams/carolina-hurricanes">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Carolina-Hurricanes.svg" alt="Carolina Hurricanes" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20033/1/arizona-coyotes-carolina-hurricanes-live.html">Arizona Coyotes @ Carolina Hurricanes<span class="value-title" title="Arizona Coyotes @ Carolina Hurricanes"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20033/1/arizona-coyotes-carolina-hurricanes-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Arizona Coyotes/Carolina Hurricanes/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20034" class="vevent" onclick="location.href='/game/florida-panthers-columbus-blue-jackets.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Florida Panthers events." href="/teams/florida-panthers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Florida-Panthers.svg" alt="Florida Panthers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Columbus Blue Jackets events." href="/teams/columbus-blue-jackets">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Columbus-Blue-Jackets.svg" alt="Columbus Blue Jackets" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20034/1/florida-panthers-columbus-blue-jackets-live.html">Florida Panthers @ Columbus Blue Jackets<span class="value-title" title="Florida Panthers @ Columbus Blue Jackets"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20034/1/florida-panthers-columbus-blue-jackets-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Florida Panthers/Columbus Blue Jackets/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20035" class="vevent" onclick="location.href='/game/edmonton-oilers-ottawa-senators.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:30+01:00">19:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Edmonton Oilers events." href="/teams/edmonton-oilers">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Edmonton-Oilers.svg" alt="Edmonton Oilers" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Ottawa Senators events." href="/teams/ottawa-senators">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Ottawa-Senators.svg" alt="Ottawa Senators" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20035/1/edmonton-oilers-ottawa-senators-live.html">Edmonton Oilers @ Ottawa Senators<span class="value-title" title="Edmonton Oilers @ Ottawa Senators"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20035/1/edmonton-oilers-ottawa-senators-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Edmonton Oilers/Ottawa Senators/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20036" class="vevent" onclick="location.href='/game/washington-capitals-detroit-red-wings.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T01:30+01:00">19:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Washington Capitals events." href="/teams/washington-capitals">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Washington-Capitals.svg" alt="Washington Capitals" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Detroit Red Wings events." href="/teams/detroit-red-wings">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Detroit-Red-Wings.svg" alt="Detroit Red Wings" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20036/1/washington-capitals-detroit-red-wings-live.html">Washington Capitals @ Detroit Red Wings<span class="value-title" title="Washington Capitals @ Detroit Red Wings"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20036/1/washington-capitals-detroit-red-wings-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Washington Capitals/Detroit Red Wings/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20037" class="vevent" onclick="location.href='/game/toronto-maple-leafs-nashville-predators.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T02:00+01:00">20:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Toronto Maple Leafs events." href="/teams/toronto-maple-leafs">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Toronto-Maple-Leafs.svg" alt="Toronto Maple Leafs" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Nashville Predators events." href="/teams/nashville-predators">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Nashville-Predators.svg" alt="Nashville Predators" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20037/1/toronto-maple-leafs-nashville-predators-live.html">Toronto Maple Leafs @ Nashville Predators<span class="value-title" title="Toronto Maple Leafs @ Nashville Predators"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20037/1/toronto-maple-leafs-nashville-predators-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Toronto Maple Leafs/Nashville Predators/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20038" class="vevent" onclick="location.href='/game/vancouver-canucks-chicago-blackhawks.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T02:30+01:00">20:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Vancouver Canucks events." href="/teams/vancouver-canucks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Vancouver-Canucks.svg" alt="Vancouver Canucks" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Chicago Blackhawks events." href="/teams/chicago-blackhawks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Chicago-Blackhawks.svg" alt="Chicago Blackhawks" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20038/1/vancouver-canucks-chicago-blackhawks-live.html">Vancouver Canucks @ Chicago Blackhawks<span class="value-title" title="Vancouver Canucks @ Chicago Blackhawks"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20038/1/vancouver-canucks-chicago-blackhawks-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Vancouver Canucks/Chicago Blackhawks/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20039" class="vevent" onclick="location.href='/game/los-angeles-kings-colorado-avalanche.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T03:00+01:00">21:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Los Angeles Kings events." href="/teams/los-angeles-kings">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Los-Angeles-Kings.svg" alt="Los Angeles Kings" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Colorado Avalanche events." href="/teams/colorado-avalanche">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Colorado-Avalanche.svg" alt="Colorado Avalanche" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20039/1/los-angeles-kings-colorado-avalanche-live.html">Los Angeles Kings @ Colorado Avalanche<span class="value-title" title="Los Angeles Kings @ Colorado Avalanche"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20039/1/los-angeles-kings-colorado-avalanche-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Los Angeles Kings/Colorado Avalanche/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20040" class="vevent" onclick="location.href='/game/vegas-golden-knights-san-jose-sharks.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-23T04:00+01:00">22:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Vegas Golden Knights events." href="/teams/vegas-golden-knights">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Vegas-Golden-Knights.svg" alt="Vegas Golden Knights" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List San Jose Sharks events." href="/teams/san-jose-sharks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-San-Jose-Sharks.svg" alt="San Jose Sharks" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20040/1/vegas-golden-knights-san-jose-sharks-live.html">Vegas Golden Knights @ San Jose Sharks<span class="value-title" title="Vegas Golden Knights @ San Jose Sharks"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20040/1/vegas-golden-knights-san-jose-sharks-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Vegas Golden Knights/San Jose Sharks/NHL Hockey">HD</a></td>
+</tr>
+<tr class="date"><td colspan="4"><i class="fa fa-calendar"></i> Friday, March 23, 2018</td></tr><tr id="20041" class="vevent" onclick="location.href='/game/montr-al-canadiens-buffalo-sabres.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-24T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Montreal Canadiens events." href="/teams/montreal-canadiens">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Montreal-Canadiens.svg" alt="Montreal Canadiens" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Buffalo Sabres events." href="/teams/buffalo-sabres">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Buffalo-Sabres.svg" alt="Buffalo Sabres" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20041/1/montr-al-canadiens-buffalo-sabres-live.html">Montréal Canadiens @ Buffalo Sabres<span class="value-title" title="Montréal Canadiens @ Buffalo Sabres"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20041/1/montr-al-canadiens-buffalo-sabres-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Montreal Canadiens/Buffalo Sabres/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20042" class="vevent" onclick="location.href='/game/new-jersey-devils-pittsburgh-penguins.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-24T01:00+01:00">19:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List New Jersey Devils events." href="/teams/new-jersey-devils">
+                <img src="http://static.sportsbay.org/images/teams/Logo-New-Jersey-Devils.svg" alt="New Jersey Devils" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Pittsburgh Penguins events." href="/teams/pittsburgh-penguins">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Pittsburgh-Penguins.svg" alt="Pittsburgh Penguins" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20042/1/new-jersey-devils-pittsburgh-penguins-live.html">New Jersey Devils @ Pittsburgh Penguins<span class="value-title" title="New Jersey Devils @ Pittsburgh Penguins"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20042/1/new-jersey-devils-pittsburgh-penguins-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/New Jersey Devils/Pittsburgh Penguins/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20043" class="vevent" onclick="location.href='/game/vancouver-canucks-st-louis-blues.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-24T02:00+01:00">20:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Vancouver Canucks events." href="/teams/vancouver-canucks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Vancouver-Canucks.svg" alt="Vancouver Canucks" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List St. Louis Blues events." href="/teams/st-louis-blues">
+                <img src="http://static.sportsbay.org/images/teams/Logo-St.-Louis-Blues.svg" alt="St. Louis Blues" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20043/1/vancouver-canucks-st-louis-blues-live.html">Vancouver Canucks @ St. Louis Blues<span class="value-title" title="Vancouver Canucks @ St. Louis Blues"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20043/1/vancouver-canucks-st-louis-blues-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Vancouver Canucks/St. Louis Blues/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20044" class="vevent" onclick="location.href='/game/anaheim-ducks-winnipeg-jets.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-24T02:00+01:00">20:00</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Anaheim Ducks events." href="/teams/anaheim-ducks">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Anaheim-Ducks.svg" alt="Anaheim Ducks" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Winnipeg Jets events." href="/teams/winnipeg-jets">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Winnipeg-Jets.svg" alt="Winnipeg Jets" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20044/1/anaheim-ducks-winnipeg-jets-live.html">Anaheim Ducks @ Winnipeg Jets<span class="value-title" title="Anaheim Ducks @ Winnipeg Jets"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20044/1/anaheim-ducks-winnipeg-jets-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Anaheim Ducks/Winnipeg Jets/NHL Hockey">HD</a></td>
+</tr>
+<tr id="20045" class="vevent" onclick="location.href='/game/boston-bruins-dallas-stars.html\';">
+    <td class="time dtstart"><span class="value-title" title="2018-03-24T02:30+01:00">20:30</span></td>
+    <td class="teamtd">
+                    <a class="team teamleft" title="List Boston Bruins events." href="/teams/boston-bruins">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Boston-Bruins.svg" alt="Boston Bruins" />
+            </a> 
+                    <span class="at">@</span>
+            <a class="team" title="List Dallas Stars events." href="/teams/dallas-stars">
+                <img src="http://static.sportsbay.org/images/teams/Logo-Dallas-Stars.svg" alt="Dallas Stars" />
+            </a>
+            </td>
+    <td class="event">        
+        <a class="url summary hidden-xs-down" title="Click to here to play live stream." href="/watch/20045/1/boston-bruins-dallas-stars-live.html">Boston Bruins @ Dallas Stars<span class="value-title" title="Boston Bruins @ Dallas Stars"></span></a>
+    </td>
+    <td class="play"><a class="btn btn-gray" title="Click to here to play live stream." href="/watch/20045/1/boston-bruins-dallas-stars-live.html">WATCH</a> <a class="btn btn-hd hidden-lg-down" title="Watch in HD" href="/play/Boston Bruins/Dallas Stars/NHL Hockey">HD</a></td>
+</tr>
+            </tbody>
+          </table>
+      </div>
+                </div> 
+    <div class="col-xl-4">
+        
+
+<div class="box text-center" style="padding-bottom:0" id="social">
+    <div class="sec-header hidden-xl-up">
+        <h3 class="text-left">Follow us on social media</h3>
+    </div>
+    <div>
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLive-nhlstream-191310491449552&small_header=true&adapt_container_width=true" width="340" height="72" style="border:none;overflow:hidden;margin-top: 4px;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+    <div style="border-bottom: 1px solid #e7e7e7; margin-bottom: 11px;">
+        <i class="fa fa-instagram" style="float: left;margin-top: 21px;margin-left: 8px;"></i> 
+        <iframe src="//instagram.com/p/Be37CvBBc-x/embed/" height="54" width="312" frameborder="0" scrolling="no" style="padding-right: 23px;vertical-align: bottom; height:54px !important;"></iframe>
+    </div>
+    <div>
+        <i class="fa fa-twitter" style="float: left;margin-top: 6px;margin-left: 8px;"></i> <iframe src="https://platform.twitter.com/widgets/follow_button.html?lang=en&amp;screen_name=LiveNHLStream&amp;show_count=true&amp;show_screen_name=true&amp;size=l" width="293" height="29" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+    
+</div>
+
+<div class="box text-center ad300" id="ad" style="padding:4px 0 0">
+    <small>Advertisement</small>
+    <script type='text/javascript'>
+var adParams = {p: '75992889', size: '300x250', serverdomain: 'speednetwork14'   };
+</script>
+<script type='text/javascript' src='http://creative.speednetwork14.com/speednetwork14/tags/xbanner/xbanner.js?ap=1300'></script>
+    
+    <!--<iframe src="http://images.futbolbase.us/anies2.html" width="300" height="250" style="border: none;" frameborder="0" scrolling="no"></iframe>-->
+    <a href="#" class="btn btn-sm btn-primary" onClick="this.parentNode.parentNode.removeChild(this.parentNode);">Close ad</a>
+</div>
+                <div class="section">
+<div class="sec-header">
+    <h1><img src="http://static.sportsbay.org/images/nhl-logo.svg" height="60px" style="margin-right:10px"> Watch NHL Hockey Online</h1>
+</div>
+    
+<p>So what’s the best thing you can do? Watch it live right now from Live NHL Stream!</p>
+    
+<p>Our website is dedicated to the hockey fans out there. We believe that there is this sensation that bring joy to anyone who can witness the live match clearly and on time. Watch Sports Live provides NHL live streams that will give you total thrills each time you watch them.</p>
+
+<p>What’s good about our service?</p>
+
+<p>At Live NHL Stream, we provide you with the best quality videos. Moreover, we always update our streams to the most recent live games. Our commitment is to ensure that viewers get the most of our site with the numerous popular matches all year long. With Live NHL Stream, you can watch online hockey games absolutely for free no signing up needed.</p>
+
+<p>Our high definition videos ensure you that you will see your favorite team and players clearly. You will enjoy the game like your watching it on tv. While other live stream only provides you with low quality videos, we guarantee our videos give you the best online streaming experience.</p>
+    
+<div class="sec-header">
+    <h2>Why you should watch hockey on Live NHL Stream?</h2>
+</div>
+<ul>
+    <li>No sign up or subscription required.</li>
+    <li>Updated streaming links by the minute.</li>
+    <li>Watching your favorite match today is just a click away.</li>
+</ul>
+    
+<p>When you watch hockey match online from Live NHL Stream, you will get a great user experience with the user interface we use. For watching sports like hockey, your pc or tablet has to run smooth in terms of internet connection. Once you have that, you can go on watching up till the end without any interruption.</p>
+    
+<p>To watch hockey match online on Live NHL Stream, simply click on the video links below and a button of ‘HD video’ will show up in short. Wait till the video to load, sit back, relax and enjoy the game!</p>
+
+</div>    </div>
+  </div>
+  <hr>
+        <footer class="text-center">
+          <p><strong>Disclaimer</strong>: None of the videos are hosted by this site. Streams hosted on external sites like Youtube and embedded here. This site is not responsible for the legality of the content. For legal issues, please contact appropriate media file owners/hosters.<br><br>  NHL, the NHL Shield, the word mark and image of the Stanley Cup and NHL Conference logos are registered trademarks of the National Hockey League. All NHL logos and marks and NHL team logos and marks as well as all other proprietary materials depicted herein are the property of the NHL and the respective NHL teams. All company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+          <p><strong>&copy; 2018 - Live NHL Stream</strong></p><br><br>
+      </footer>
+    </div> <!-- /container -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha256-+kIbbrvS+0dNOjhmQJzmwe/RILR/8lb/+4+PUNVW09k=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js" integrity="sha256-zG8v+NWiZxmjNi+CvUYnZwKtHzFtdO8cAKUIdB8+U9I=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js" integrity="sha256-Mbm+oB/+8ujzEer9u83ZRKEhlPohbY9USJ4VpxiNR9w=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share-kit/1.0.15/js/social-share-kit.min.js" integrity="sha256-pZkANNk3OAr66HhVKttd7M9iCrFXwPhkomTxzWykRKQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js" integrity="sha256-s5TTOyp+xlSmsDfr/aZhg0Gz+JejYr5iTJI8JxG1SkM=" crossorigin="anonymous"></script>
+    <script src="http://static.sportsbay.org/sportsbay/javascript.js"></script>
+    <script>        
+            if ($(window).height() > 769) {
+            $( "#teamlist" ).show();
+        }
+        Handlebars.registerHelper("ifCond",function(e,t,s,n){switch(t){case"==":return e==s?n.fn(this):n.inverse(this);case"===":return e===s?n.fn(this):n.inverse(this);case"!=":return e!=s?n.fn(this):n.inverse(this);case"!==":return e!==s?n.fn(this):n.inverse(this);case"<":return e<s?n.fn(this):n.inverse(this);case"<=":return e<=s?n.fn(this):n.inverse(this);case">":return e>s?n.fn(this):n.inverse(this);case">=":return e>=s?n.fn(this):n.inverse(this);case"&&":return e&&s?n.fn(this):n.inverse(this);case"||":return e||s?n.fn(this):n.inverse(this);default:return n.inverse(this)}}),Handlebars.registerHelper("replace",function(e,t,s){return s.fn(this).split(e).join(t)});var slingshot=function(e,t,s){$.getJSON(e,function(e){var n=$(t).html(),r=Handlebars.compile(n)(e);$(s).html(r),$(".scoreStripGames").owlCarousel({autoWidth:!0,dots:!1,nav:!0,navText:"",slideBy:3})}).done(function(){$(".timedate").each(function(e,t){var s=$(t),n=moment.tz(s.text(),"GMT").clone().tz("America/New_York").format("ddd h:mm A")+" ET";s.text(n)})})};function loadScores(){var e,t,s;e=(t=new Date).getFullYear(),s=t.getMonth()+1,yt=t.getDate()-1,tm=t.getDate()+1,yt<10&&(yt="0"+yt),tm<10&&(tm="0"+tm),s<10&&(s="0"+s),ytim=e+"-"+s+"-"+yt,ttim=e+"-"+s+"-"+tm,slingshot("https://statsapi.web.nhl.com/api/v1/schedule?startDate="+ytim+"&endDate="+ttim+"&expand=schedule.teams,schedule.linescore","#scoreStripGamesTemplate","#scoreStripGames")}loadScores(),setInterval(function(){loadScores()},3e4);    </script>
+    <div style="visibility:hidden"><img name="viewers" src="http://whos.amung.us/cwidget/sportsbay/000000ffffff.png"></div>
+    <div id="overlay"></div>
+    <style>
+    #overlay {
+        background: rgba(255, 0, 181, 0.001);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        text-align: center;
+        display:none;
+        z-index:999999999;
+        color:white;
+    }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31578238-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)};
+        gtag('js', new Date());
+        gtag('config', 'UA-31578238-1');
+    
+        
+        function setCookie() {
+            var now = new Date();
+            var time = now.getTime();
+            time += 3600 * 1000;
+            now.setTime(time);
+            document.cookie = 
+            'poper=1' + 
+            '; expires=' + now.toUTCString() + 
+            '; path=/';
+        }
+
+        if(document.cookie && document.cookie.indexOf('poper=') != -1){
+            var popopened = true;
+        } else {
+            var popopened = false;
+        }
+        $(document).ready(function() {
+          if(!popopened){
+            $('#overlay').show();
+          }
+        });
+        $(document).on('touchstart click', '*', function() {
+          if(!popopened){
+              window.open("http://bromson.com/redirect?tid=707249&&ref=", '_blank');
+              $('#overlay').hide();
+              popopened = true;
+              setCookie();
+          }
+          return;
+        });
+    </script>
+
+    
+      </body>
+</html>

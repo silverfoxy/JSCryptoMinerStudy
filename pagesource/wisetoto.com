@@ -1,0 +1,1 @@
+<script type="text/javascript">location.replace('http://www.wisetoto.com/');</script>

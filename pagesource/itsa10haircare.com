@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://itsa10haircare.com/">redirected</a>.</body></html>

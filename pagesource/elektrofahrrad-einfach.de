@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="de"  xmlns:fb="http://ogp.me/ns/fb#">
+    <head>
+        <meta charset="iso-8859-15" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="https://www.elektrofahrrad-einfach.de/" />
+                <meta name="language" content="de" />
+        <meta name="ICBM" content="49.5874, 10.9543">
+        <meta name="geo.position" content="49.5874;10.9543">
+        
+        <meta name="DC.title" content="elektrofahrrad-einfach.de Shop">
+        <meta name="description" content="Im Elektrofahrrad Shop finden Sie Elektrofahrräder (auch Pedelec oder Ebike genannt) sowie Zubehör in großer Auswahl und mit detaillierter Beschreibung." />
+        <meta name="keywords" content="" />
+        
+        <title>Elektrofahrrad kaufen & Pedelec Zubehör - elektrofahrrad-einfach.de</title>
+        
+            <link href="templates/elfaei2/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+            <link href="templates/elfaei2/css/bootstrap-theme.css" media="all" rel="stylesheet" type="text/css">
+            <link href="templates/elfaei2/css/style.css?v=27.02.18" media="all" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" type="text/css" href="templates/elfaei2/module/paypal_ratenkauf/xt_paypal_installments.css" />
+            <link href="templates/elfaei2/jquery-ui-1.7.2.custom.css" media="all" rel="stylesheet" type="text/css"> 
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><link rel="stylesheet" href="templates/elfaei2/amazon-checkout.css" type="text/css" /><script type="text/javascript" src="AmazonAdvancedPayment/js/static.js"></script>
+<script type="text/javascript">
+window.onAmazonLoginReady = function() {
+	amazon.Login.setClientId('amzn1.application-oa2-client.361af8d733ab4b6495c15bfb3165c0b6');
+};
+$(document).ready(function(){
+    $('.buyProductWithAmazonButton').click(function(e){
+        e.preventDefault();
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+        var t = url.split('?');
+        var qs = '';
+        if(t[1]){
+            qs = t[1];
+        }
+        var baseUrl = 'https://www.elektrofahrrad-einfach.de/checkout_amazon_handler.php';
+        baseUrl = baseUrl.replace('https:', '').replace('http:', '');
+        if(qs){
+            var connector = (baseUrl.indexOf('?')==-1?'?':'&');
+        }
+        $(this).replaceWith('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" />');
+        $.post(baseUrl+connector+qs, form.serialize(), function(){
+            $('#payWithAmazonDiv > img').click();
+        })
+    });
+    $('#logoff_link, a[href*="logoff.php"]').click(function() {
+		amazonLogout();
+	});
+    });
+
+
+function initAmazon(){
+    var amazonOrderReferenceId;
+
+                
+	                        var authRequest;
+	                        if($('.amazonLoginWr').length > 0){
+	                            
+	                           $('.amazonLoginWr').each(function(){
+		                            OffAmazonPayments.Button($(this).attr('id'), "A2RS8NKIISR03O", {
+				                            type: "LwA", 
+				                            size:'medium',
+				                            color:'Gold',
+				                            language:'de-DE',
+				                            authorization: function() {
+				                            loginOptions =  {scope: "profile postal_code payments:widget payments:shipping_address", popup: false};
+				                            authRequest = amazon.Login.authorize (loginOptions, 'https://www.elektrofahrrad-einfach.de/checkout_amazon_login_processing.php');
+			                            },    
+			                            onSignIn: function(orderReference) {
+			                                var amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+				                            $.ajax({
+					                            type: 'GET',
+					                            url: 'https://www.elektrofahrrad-einfach.de/checkout_amazon_handler.php',
+					                            data: 'handleraction=setusertoshop&access_token=' + authRequest.access_token + '&amazon_id=' + amazonOrderReferenceId,
+					                            success: function(htmlcontent){
+						                            if (htmlcontent == 'error') {
+							                            alert('An error occured - please try again or contact our support');
+						                            } else {
+							                            window.location = htmlcontent;
+						                            }					   
+					                            }
+				                            });				
+			                            },
+			                            onError: function(error) {
+				                            console.log(error); 
+			                            }
+		                            });
+		                            
+		                            
+		                      });
+	                        }
+	                        	                        if($('#payWithAmazonDiv').length > 0){
+		                        OffAmazonPayments.Button("payWithAmazonDiv", "A2RS8NKIISR03O", {
+				                        type: "PwA", 
+				                        size:'medium',
+				                        color:'Gold',
+				                        language:'de-DE',
+				                        authorization: function() {
+				                        loginOptions =  {scope: "profile postal_code payments:widget payments:shipping_address", popup: false};
+				                        authRequest = amazon.Login.authorize (loginOptions, 'https://www.elektrofahrrad-einfach.de/checkout_amazon_login_processing.php?action=checkout');
+			                        },
+			                        onSignIn: function(orderReference) {
+				                        amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+				
+				                        $('#payWithAmazonDiv').html('<img src="https://images-na.ssl-images-amazon.com/images/G/01/cba/images/global/Loading._V192259297_.gif" /> Bitte warten Sie, Sie werden gleich weitergeleitet');
+				                        $.ajax({
+						                        type: 'GET',
+						                        url: 'https://www.elektrofahrrad-einfach.de/checkout_amazon_handler.php',
+						                        data: 'handleraction=setusertoshop&access_token=' + authRequest.access_token + '&amazon_target=checkout&amazon_id=' + amazonOrderReferenceId,
+						                        success: function(htmlcontent){
+						                                    if (htmlcontent == 'error') {
+							                                    alert('An error occured - please try again or contact our support');
+						                                    } else {
+							                                   window.location = htmlcontent;
+						                                    }			
+						                        }
+				                        });
+			                        },
+			                        onError: function(error) {
+				                        console.log(error); 
+			                        }
+		                        });
+		                        	                        }
+	                        }
+</script>
+<script type='text/javascript' src='https://static-eu.payments-amazon.com/OffAmazonPayments/de/lpa/js/Widgets.js'></script>        <link rel="icon" href="favicon.ico">
+        
+        
+        <script type="text/javascript"><!--
+    var selected;
+    var submitter = null;
+
+    function submitFunction() {
+        submitter = 1;
+    }
+    function popupWindow(url) {
+                    window.open(url, 'popupWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=800,height=800,screenX=150,screenY=150,top=150,left=150')
+    }
+
+    function selectRowEffect(object, buttonSelect) {
+      if (!selected) {
+        if (document.getElementById) {
+          selected = document.getElementById('defaultSelected');
+        } else {
+          selected = document.all['defaultSelected'];
+        }
+      }
+
+                    if (selected)
+                        selected.className = 'moduleRow';
+      object.className = 'moduleRowSelected';
+      selected = object;
+
+    // one button is not an array
+      if (document.getElementById('payment'[0])) {
+                        document.getElementById('payment'[buttonSelect]).checked = true;
+      } else {
+        //document.getElementById('payment'[selected]).checked=true;
+      }
+    }
+
+    function rowOverEffect(object) {
+                    if (object.className == 'moduleRow')
+                        object.className = 'moduleRowOver';
+    }
+
+    function rowOutEffect(object) {
+                    if (object.className == 'moduleRowOver')
+                        object.className = 'moduleRow';
+    }
+
+    function popupImageWindow(url) {
+                    window.open(url, 'popupImageWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,copyhistory=no,width=100,height=100,screenX=150,screenY=150,top=150,left=150')
+    }
+    //--></script>
+    <!--[if lte IE 7]>
+<link href="templates/elfaei2/css/patches/patch_3col_fixed.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+    <script type="text/javascript" src="templates/elfaei2/js/jquery.min.js"></script>   
+    <script type="text/javascript" src="script/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="script/jquery.preload.js"></script>
+    <script type="text/javascript">jQuery.noConflict()</script>
+    <link rel="stylesheet" type="text/css" href="css/structured_autocomplete.css">
+    <script type="text/javascript" src="templates/elfaei2/js/bootstrap.min.js"></script> 
+    <script type="text/javascript">
+    (function() {
+        var flDataMain = "https://cdn.findologic.com/autocomplete/38B75BA7693D845D9BDBF5B9C6857342/autocomplete.js";
+        var flAutocomplete = document.createElement('script'); 
+        flAutocomplete.type = 'text/javascript'; 
+        flAutocomplete.async = true;
+        flAutocomplete.src = "https://cdn.findologic.com/autocomplete/require.js";
+        var s = document.getElementsByTagName('script')[0];
+        flAutocomplete.setAttribute('data-main', flDataMain);
+        s.parentNode.insertBefore(flAutocomplete, s);
+    })();
+    </script>
+    </head>
+    <body>
+
+<script>
+    function rueckDiv() {
+        $("#rueckDiv").load("script/rueckrufDiv.html");
+    }
+    
+    function showDiv(){
+        $("#infobox").show(1000);;
+    }
+            
+    function hideDiv(){
+            $("#infobox_button").show();
+            $("#infobox").hide(1000);
+        }
+    
+    function hide_cookie_consent() {
+        $("#cookie_consent").hide();
+    }
+</script>
+
+<div id="cookie_consent" class="text-center">
+    <div class="col-xs-12">Diese Webseite benutzt <a target="_blank" href="content/Datenschutzerklaerung.html">Cookies</a>, um Ihnen den bestmöglichen Service zu bieten. <a onclick="hide_cookie_consent()">Ich stimme zu</a></div>
+</div>
+<div id="top-info-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 top-info-bar-left"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Kostenloser Versand ab 100 &euro;</div>
+            <div class="col-xs-4 top-info-bar-center"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 30 Tage Rückgaberecht</div>
+            <div class="col-xs-4 top-info-bar-right"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Hotline (Mo-Fr 10-18 Uhr): 0911-13137530</div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default" role="navigation" id="main-top-navigation">
+    <div class="container">
+        <div class="row">       
+            <div class="col-xs-12 col-sm-4" id="main-top-navigation-logo">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="https://www.elektrofahrrad-einfach.de"><img src="templates/elfaei2/img/elektrofahrrad-einfach-de-logo.png" class="img-responsive ee-logo" alt="elektrofahrrad-einfach.de - Logo" /></a>
+                </div>
+            </div>
+
+            
+<div class="col-xs-9 col-sm-6" id="main-top-navigation-search">
+    <form id="quick_find" action="https://www.elektrofahrrad-einfach.de/findologic.php" method="get" class="navbar-form" role="search">
+        <div class="navbar-searchbox" >
+            <div class="input-group">
+                <input type="text" name="keywords" id="flAutocompleteInputText" class="form-control" placeholder="suchen..."  />
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default searchBtn">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <script type="text/javascript">autocompleteField = jQuery("#flAutocompleteInputText");</script>
+    <script type="text/javascript" src="script/structured_autocomplete.js"></script>
+
+
+            <div class="col-xs-3 col-sm-2" id="main-top-navigation-trust">
+                <a href="https://www.trustedshops.com/shop/certificate.php?shop_id=X1442C3B89D929AE11AC36B1459B0DF35"><img src="templates/elfaei2/img/trustedshops-small.gif" class="main-top-navigation-trust-img" alt="elektrofahrrad-einfach.de ist Trusted-Shops zertifiziert" /></a>
+                
+            <div id="main-top-navigation-cart">
+            <a href="https://www.elektrofahrrad-einfach.de/shopping_cart.php" rel="nofollow"><img src="templates/elfaei2/img/warenkorb_leer.gif" alt="Warenkorb" class="main-top-navigation-trust-img" title="ihr warenkorb ist leer"/></a>
+        </div>
+    
+            </div>
+        </div>
+        <div class="row">
+            <div class="collapse navbar-collapse" id="main-top-navigation-menu">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown dropdown-large">
+                        <a href="Elektrofahrraeder" class="dropdown-toggle" data-toggle="dropdown">Elektrofahrräder<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-large row menu-fahrrad" role="menu">
+                            <li>
+                                <ul>
+                                    <li class="col-sm-7 dropdown-title dropdown_padding"><a href="Elektrofahrraeder">Elektrofahrräder</a></li>
+                                    <li class="col-sm-5 dropdown-title dropdown_show dropdown_padding"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=310,311,312,321,473,472,506,507&minimumPrice=799&maximumPrice=14999">Elektrofahrrad Ratgeber</a></li>
+                                </ul>
+                            <li/>
+                            <li class="col-sm-3 dropdown_padding">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=314,317,318,320&minimumPrice=799&maximumPrice=14999">Alltag</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=314&minimumPrice=799&maximumPrice=14999">E-Bike City</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=317&minimumPrice=799&maximumPrice=14999">E-Bike Trekking</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=320&minimumPrice=799&maximumPrice=14999">E-Bike Urban</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=318&minimumPrice=799&maximumPrice=14999">E-Bike Klapprad</a><br /></li>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder">Sportlich</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=315&minimumPrice=799&maximumPrice=14999">E-Mountainbike</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=481&minimumPrice=799&maximumPrice=14999">E-Fatbike</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=478&minimumPrice=799&maximumPrice=14999">E-Bike Rennrad</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=319&minimumPrice=799&maximumPrice=14999">E-Bike Touren</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=316&minimumPrice=799&maximumPrice=14999">E-Bike Cross</a><br /></li>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=313,477,503&minimumPrice=799&maximumPrice=14999">Spezielle Modelle</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=477&minimumPrice=799&maximumPrice=14999">E-Bike 29er</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=503&minimumPrice=799&maximumPrice=14999">E-Bike Jugend</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[36]=313&minimumPrice=799&maximumPrice=14999">E-Bike Lasten</a><br /></li>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder">> Alle Elektrofahrräder</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4 dropdown_padding">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=310,311,312,321,473,472,506,507&minimumPrice=799&maximumPrice=14999">Motorart</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=312&minimumPrice=799&maximumPrice=14999">E-Bike mit Mittelmotor</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=310&minimumPrice=799&maximumPrice=14999">E-Bike mit Vorderradmotor</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=311&minimumPrice=799&maximumPrice=14999">E-Bike mit Hinterradmotor</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=321,473,472,506,507&minimumPrice=799&maximumPrice=14999">E-Bike mit Bosch Motor</a></li>
+                                    <li><a href="Elektrofahrraeder">> Alle Motoren</a><br /></li>
+                                    <li class="dropdown-header"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=75,19,9,76,1,45,97,2,3,10&minimumPrice=799&maximumPrice=14999">Beliebteste Marken</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=75&minimumPrice=799&maximumPrice=14999">Conway E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=19&minimumPrice=799&maximumPrice=14999">Focus E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=9&minimumPrice=799&maximumPrice=14999">Haibike E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=76&minimumPrice=799&maximumPrice=14999">Hercules E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=1&minimumPrice=799&maximumPrice=14999">Kalkhoff E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=45&minimumPrice=799&maximumPrice=14999">Kettler E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=97&minimumPrice=799&maximumPrice=14999">Kreidler E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=2&minimumPrice=799&maximumPrice=14999">Victoria E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=3&minimumPrice=799&maximumPrice=14999">Wheeler E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[0]=10&minimumPrice=799&maximumPrice=14999">Winora E-Bikes</a></li>
+                                    <li><a href="Elektrofahrraeder">> Alle Marken</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-6 dropdown-title dropdown_hide dropdown_padding"><a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter[37]=310,311,312,321,473,472,506,507&minimumPrice=799&maximumPrice=14999">Elektrofahrrad Ratgeber</a></li>
+                            <li class="col-sm-5 dropdown_padding">
+                                <ul>
+                                    <li class="dropdown-header dropdown_categories">
+                                        <a href="Pedelecs">Pedelecs: Kurz erklärt</a>
+                                        <a href="Pedelecs"><img src="images/Pedelec.png" alt="Pedelecs"></a>
+                                        <br />
+                                    </li>
+                                    <li class="dropdown-header dropdown_categories">
+                                        <a href="E-Bikes">E-Bikes: Viele gute Gründe</a>
+                                        <a href="E-Bikes"><img src="images/EBike.png" alt="E-Bikes"></a>
+                                        <br />
+                                    </li>
+                                    <li class="dropdown-header dropdown_categories">
+                                        <a href="content/Elektrobike-Kaufberater.html">Elektrobike Kaufberater 2017</a>
+                                        <a href="content/Elektrobike-Kaufberater.html"><img src="images/Elektrobike_Kaufberater.png" alt="Kaufberater"></a>
+                                        <br />
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-large">
+                        <a href="Fahrraeder" class="dropdown-toggle" data-toggle="dropdown">Fahrräder<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-large row" role="menu">
+                            <li>
+                                <ul>
+                            <li><a href="Elektrofahrraeder">Pedelecs</a></li>
+                            <li><a href="Fahrraeder/29er">29er</a></li>
+                            <li><a href="Fahrraeder/Cityraeder">Cityräder</a></li>
+                            <li><a href="Fahrraeder/Crossraeder">Crossräder</a></li>
+                            <li><a href="Fahrraeder/Cyclocross">Cyclocross</a></li>
+                            <li><a href="Fahrraeder/Dreirad">Dreirad</a></li>
+                            <li><a href="Fahrraeder/Fitnessbikes">Fitnessbikes</a></li>
+                            <li><a href="Fahrraeder/Jugendfahrrad">Jugendfahrrad</a></li>
+                            <li><a href="Fahrraeder/Kinderfahrraeder">Kinderfahrräder</a></li>
+                            <li><a href="Fahrraeder/Lastenrad">Lastenrad</a></li>
+                            <li><a href="Fahrraeder/Mountainbikes">Mountainbikes</a></li>
+                            <li><a href="Fahrraeder/MTB-Fullsuspension">MTB Fullsuspension</a></li>
+                            <li><a href="Fahrraeder/Rennrad">Rennrad</a></li>
+                            <li><a href="Fahrraeder/Tandem">Tandem</a></li>
+                            <li><a href="Fahrraeder/Trekkingraeder">Trekkingräder</a></li>
+                            <li><a href="Fahrraeder/Urban-Bike">Urban Bike</a></li>
+                        </ul>
+                    </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-large">
+                        <a href="Elektrofahrrad-Umbausaetze" class="dropdown-toggle" data-toggle="dropdown">Elektrofahrrad Umbausätze<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-large row menu-umbaus" role="menu">
+                            <li>
+                                <ul>
+                                    <li class="dropdown-header"><a href="Elektrofahrrad-Umbausaetze">Elektrofahrrad Umbausatz</a></li>
+                            <li><a href="Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze">Pedelec Umbausatz</a></li>
+                            <li><a href="Elektrofahrrad-Umbausaetze/E-Bike-Umbausaetze">E-Bike Umbausatz</a></li>
+                        </ul>
+                    </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-large">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Teile<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Einzelkomponenten">Elektrofahrrad-Komponenten</a></li>
+                                    <li><a href="Einzelkomponenten/Akkus">Akkus</a></li>
+                                    <li><a href="Einzelkomponenten/Motoren">Motoren</a></li>
+                                    <li><a href="Einzelkomponenten/Controller">Controller</a></li>
+                                    <li><a href="Einzelkomponenten/Zubehoer">Zubehör</a><br /></li>
+                                    <li class="dropdown-header"><a href="Pedelec-Tuning">Pedelec Tuning</a></li>
+                                    <li><a href="Pedelec-Tuning/36V-Panasonic-Tuning">36V Panasonic Tuning</a></li>
+                                    <li><a href="Pedelec-Tuning/BionX-Tuning">BionX Tuning</a></li>
+                                    <li><a href="Pedelec-Tuning/Bosch-Tuning">Bosch Tuning</a></li>
+                                    <li><a href="Pedelec-Tuning/Impulse-Tuning">Impulse Tuning</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Fahrradteile">Fahrradteile</a></li>
+                                    <li><a href="Fahrradteile/Bremsen">Bremsen</a></li>
+                                    <li><a href="Fahrradteile/Fahrradstaender">Fahrradständer</a></li>
+                                    <li><a href="Fahrradteile/Griffe">Griffe</a></li>
+                                    <li><a href="Fahrradteile/Pedale">Pedale</a></li>
+                                    <li><a href="Fahrradteile/Saettel">Sättel</a></li>
+                                    <li><a href="Fahrradteile/Schutzbleche">Schutzbleche</a></li>
+                                    <li><a href="Fahrradteile/Reifen">Reifen</a></li>
+                                    <li><a href="Fahrradteile/Schlaeuche">Schläuche</a></li>
+                                    <li><a href="Fahrradteile/Ketten">Ketten</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Fahrradzubehoer">Fahrradzubehör</a></li>
+                                    <li><a href="Fahrradzubehoer/Beleuchtung">Beleuchtung</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradcomputer">Fahrradcomputer</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradhandschuhe">Fahrradhandschuhe</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradklingeln">Fahrradklingeln</a></li>
+                                    <li><a href="Fahrradzubehoer/Helme">Helme</a></li>
+                                    <li><a href="Fahrradzubehoer/Trinkflaschen-Halter">Trinkflaschen & Halter</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradschloesser">Fahrradschlösser</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradkoerbe">Fahrradkörbe</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradtaschen">Fahrradtaschen</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradanhaenger">Fahrradanhänger</a></li>
+                                    <li><a href="Fahrradzubehoer/Pumpen">Pumpen</a></li>
+                                    <li><a href="Fahrradzubehoer/Kettenwerkzeug">Kettenwerkzeug</a></li>
+                                    <li><a href="Fahrradzubehoer/Pflegemittel">Pflegemittel</a></li>
+                                    <li><a href="Fahrradzubehoer/Fahrradtraeger">Fahrradträger</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header"><a href="Werkzeug">Werkzeug</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> 
+                    <li><a href="SALE"  class="single-top-link"><img src="templates/elfaei2/img/restposten-reduziert.gif" title="Sonderangebote und Schnäppchen"/> SALE</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown dropdown-large">
+                        <a href="login.php" class="dropdown-toggle" data-toggle="dropdown" rel="nofollow">Mein Konto<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                    <li>
+                                <ul>
+                                                        <li><a href="login.php"  rel="nofollow" >Anmelden/Registrieren</a></li>
+                                                        <li><a href="https://www.elektrofahrrad-einfach.de/shopping_cart.php"  rel="nofollow" >Warenkorb</a></li>
+                            <li><a href="https://www.elektrofahrrad-einfach.de/checkout_shipping.php"  rel="nofollow" >Kasse</a></li>
+                        </ul>  
+                    </li>   
+                        </ul>  
+                    </li>   
+                    <li class="dropdown dropdown-large">
+                        <a href="content/Shop-Infos.html" class="dropdown-toggle" data-toggle="dropdown">Hilfe & Infos<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-large row menu-shopinfos">
+                    <li>
+                        <ul>
+                            <li><a href="content/Shop-Infos.html" rel="nofollow">Shop-Infos</a></li>
+                            <li><a href="content/ueber-uns.html" rel="nofollow">Über uns</a></li>
+                            <li><a href="content/Kontakt.html">Kontakt</a></li>
+                            <li><a href="http://www.ebike-forum.net" target="_blank">E-Bike Forum</a></li>
+                        </ul>
+                    </li> 
+                </ul>
+                    </li> 
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div> 
+    </div>
+
+</nav>
+
+
+
+<main role="main">
+    
+    <div class="container">
+                <div class="row no_pad">
+            
+                            <div class="col-xs-12 no_pad no_marg">
+                    
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 no_pad no_marg">
+            <div id="carousel-generic" class="carousel slide no_pad" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-generic" data-slide-to="2"></li>
+                  <li data-target="#carousel-generic" data-slide-to="3"></li>
+                  <li data-target="#carousel-generic" data-slide-to="4"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    
+                  <div class="item active">
+                      <a href="SALE"><img src="images/banner-pedelec-sale.jpg"  alt="Pedelec Sale - Pedelec Angebote und Schnäppchen"/></a>
+                      <div class="carousel-caption" >
+                          <a href="SALE"><button type="button" class="btn megabutton">Ansehen <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+                    </div>
+                  </div>
+                  <div class="item">
+                      <a href="products/Elektrofahrraeder/Rittberger-B400A-Damen.html"><img src="images/Rittberger_Pedelecs_Banner3.jpg"  alt="Rittberger Pedelecs"/></a>
+                      <div class="carousel-caption">
+                          <a href="products/Elektrofahrraeder/Rittberger-B400A-Damen.html"><button type="button" class="btn megabutton">Zum Produkt <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+                        </div>
+                  </div>
+                  <div class="item">
+                      <a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter%5B40%5D=531&minimumPrice=799&maximumPrice=8899"><img src="images/pedelec2018.jpg"  alt="Pedelec Saison 2018 - neue Modelle"/></a>
+                      <div class="carousel-caption">
+                          <a href="Elektrofahrraeder#page=undefined&products_sorter=0&filter%5B40%5D=531&minimumPrice=799&maximumPrice=8899"><button type="button" class="btn megabutton">Alle Modelle <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+                        </div>
+                  </div>
+                  <div class="item">
+                      <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html"><img src="images/banner-elfei-v3.jpg"  alt="ELFEi V3 Pedelec Umbausatz"/></a>
+                      <div class="carousel-caption" >
+                          <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html"><button type="button" class="btn megabutton">zum Produkt <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+                    </div>
+                  </div>
+                  <div class="item">
+                      <a href="Elektrofahrrad-Umbausaetze"><img src="images/banner-pedelec-umbausatz.jpg"  alt="Elektrofahrrad Umbausätze"/></a>
+                      <div class="carousel-caption" >
+                          <a href="Elektrofahrrad-Umbausaetze"><button type="button" class="btn megabutton">Alle Bausätze <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">zurück</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">vor</span>
+                </a>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 sp-superoffer superoffer-pad-right superoffer-pad-right-mobile">
+            <div class="sp-superoffer-content">
+                <div class="row">
+                    <div class="sp-superoffer-content-text col-xs-8">
+                        <a href="Einzelkomponenten/Akkus" class="heading_a">Pedelec Ersatzakkus</a>
+                        <a href="Einzelkomponenten/Akkus">Über 60 Akku-Typen von über 20 Herstellern</a>
+                    </div>
+                    <div class="sp-superoffer-content-img col-xs-4 text-center">
+                        <a href="Einzelkomponenten/Akkus"><img border="0" src="images/pedelec-ersatzakku.png" alt="Pedelec Ersatzakku" title="Ersatzakkus für Pedelecs"/> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 sp-superoffer">
+            <div class="sp-superoffer-content">
+                <div class="row">
+                    <div class="sp-superoffer-content-text col-xs-8">
+                        <a href="SALE" class="heading_a">Sale & Schnäppchen</a>
+                        <a href="SALE">Wir haben ordentlich reduziert!</a> 
+                    </div>
+                    <div class="sp-superoffer-content-img col-xs-4 text-center">
+                        <a href="SALE"><img border="0" src="images/sale-sparen2.png" alt="SALE - Sparen mit Schnäppchen" title="SALE & SONDERANGEBOTE"/> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-11 col-md-4 sp-superoffer superoffer-pad-left sp-superoffer-width-100-sm">
+            <div class="sp-superoffer-content">
+                <div class="row">
+                    <div class="sp-superoffer-content-text col-xs-8">
+                        <a href="blog/ard-ratgeber-auto-und-verkehr-elfei-umbausatz-im-test-446/" class="heading_a">Umbausätze im ARD-Test</a>
+                        <a href="blog/ard-ratgeber-auto-und-verkehr-elfei-umbausatz-im-test-446/">ARD-Sendung Ratgeber Auto und Verkehr .</a>
+                    </div>
+                    <div class="sp-superoffer-content-img col-xs-4">
+                        <a href="blog/ard-ratgeber-auto-und-verkehr-elfei-umbausatz-im-test-446/"><img border="0" src="images/pedelec-test-ard-screen.jpg" alt="Pedelec Test der ARD Screenshot" title="Pedelec Test der ARD" class="img-responsive"/></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 sp-superoffer superoffer-pad-right center-md superoffer-pad-right-mobile">
+            <div class="sp-superoffer-content sp-superoffer-line-2">
+                <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-Mittelmotor-Umbausatz-250W.html" class="heading_a center-md">ELFEi Mittelmotor Umbausatz</a>
+                <div class="row">
+                    <div class="sp-superoffer-content-img col-md-6">
+                        <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-Mittelmotor-Umbausatz-250W.html"  title="Elfei Mittelmotor Pedelec Umbausatz"><img border="0" src="images/mittelmotor_umbausatz.jpg" alt="ELFEi 250W Mittelmotor Umbausatz" /></a>
+                    </div>
+                    <div class="sp-superoffer-content-text col-md-6">
+                        <ul>
+                            <li>Bürstenloser 250W Mittelmotor</li>
+                            <li>Nachrüstbar an jedes Fahrrad</li>
+                            <li>Mit Freilauf</li>
+                        </ul>
+                        <br />
+                        <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-Mittelmotor-Umbausatz-250W.html" class="sp-price  center-md">599,00 EUR*</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 sp-superoffer center-md">
+            <div class="sp-superoffer-content sp-superoffer-line-2">
+                <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html" class="heading_a center-md">ELFEi V3 Umbausatz</a>
+                <div class="row">
+                    <div class="sp-superoffer-content-img col-md-6">
+                    <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html"><img  border="0" src="images/elfei-v3-pedelec-umbausatz.jpg" alt="ELFEI V3 Pedelec Umbausatz" title="ELFEi V3 Pedelec Umbausatz Hinterrad"/></a>
+                    </div>
+                    <div class="sp-superoffer-content-text col-md-6">
+                        <ul>
+                            <li>Made in Germany</li>
+                            <li>verbesserte V3-Version</li>
+                            <li>Akku mit 14,5 Ah</li>
+                            <li>für <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Vorderrad.html" title="ELFEi Pedelec Umbausatz Vorderrad">Vorderrad</a> oder <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html"  title="ELFEi Pedelec Umbausatz Hinterrad">Hinterrad</a></li>
+                        </ul>
+                        <br />
+                        <a href="products/Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze/ELFEi-V3-Umbausatz-Hinterrad.html" class="sp-price">1.249,00 EUR*</a>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+<div class="container sp-advantages">   
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <a href="#Vorteile"><strong>Ihre Vorteile bei <br />elektrofahrrad-einfach.de:</strong></a><span class="break-md"><br /></span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="row">
+                    <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Kostenloser Versand ab 100 &euro;</a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Kostenloser Rückversand ab 100 &euro;</a><br />
+                    <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 30 Tage Rückgaberecht</a><br />
+                    <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Bestpreis Garantie</a><br />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="row">
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Top Bewertungen </a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Fachhandelsqualität </a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Gute Beratung</a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Schneller Versand</a><br />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="row">
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Kauf auf Rechnung</a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Käuferschutz</a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Datenschutz</a><br />
+                   <a href="#Vorteile"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Zahlung per SSL-Verschlüsselung</a><br />
+            </div> 
+        </div>
+     </div>   
+</div>   
+
+<div class="container start-neue-artikel-box">
+    
+
+
+
+<span class="heading_a">Beliebte Artikel:</span>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Impulse-8-8G-116AH.html"><img src="images/product_images/thumbnail_images/7816_0.jpg" alt="Kalkhoff Sahel Impulse 8 8G 11,6AH" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Impulse-8-8G-116AH.html"  class="heading_b">Kalkhoff Sahel Impulse 8 8G 11,6AH</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Impulse-8-8G-116AH.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.499,00 EUR</span></span><br />   1.599,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Yupik-E-Feather-E-Fatbike-2018.html"><img src="images/product_images/thumbnail_images/12823_0.jpg" alt="Yupik E-Feather E-Fatbike (2018)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Yupik-E-Feather-E-Fatbike-2018.html"  class="heading_b">Yupik E-Feather E-Fatbike (2018)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Yupik-E-Feather-E-Fatbike-2018.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.599,00 EUR</span></span><br />   1.799,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Select-s7R-2017.html"><img src="images/product_images/thumbnail_images/13347_0.jpg" alt="Kalkhoff Select s7R (2017)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Select-s7R-2017.html"  class="heading_b">Kalkhoff Select s7R (2017)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Select-s7R-2017.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.499,00 EUR</span></span><br />   1.799,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Compact-i8R-2017.html"><img src="images/product_images/thumbnail_images/13363_0.jpg" alt="Kalkhoff Sahel Compact i8R (2017)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Compact-i8R-2017.html"  class="heading_b">Kalkhoff Sahel Compact i8R (2017)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kalkhoff-Sahel-Compact-i8R-2017.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.399,00 EUR</span></span><br />   1.749,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Hercules-Roberta-R7-2017.html"><img src="images/product_images/thumbnail_images/13974_0.jpg" alt="Hercules Roberta R7 (2017)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Hercules-Roberta-R7-2017.html"  class="heading_b">Hercules Roberta R7 (2017)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Hercules-Roberta-R7-2017.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.399,00 EUR</span></span><br />   1.899,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kreidler-Vitality-Eco-6-Edition-2017.html"><img src="images/product_images/thumbnail_images/16862_0.jpg" alt="Kreidler Vitality Eco 6 Edition (2017)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kreidler-Vitality-Eco-6-Edition-2017.html"  class="heading_b">Kreidler Vitality Eco 6 Edition (2017)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Kreidler-Vitality-Eco-6-Edition-2017.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.799,00 EUR</span></span><br />   2.099,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Rittberger-B400A-Herren.html"><img src="images/product_images/thumbnail_images/17613_0.jpg" alt="Rittberger B400A Herren" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Rittberger-B400A-Herren.html"  class="heading_b">Rittberger B400A Herren</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Rittberger-B400A-Herren.html" class="sp-price"><span class="productOldPrice">ehemalige UVP <span class="productOldPricePrice"> 2.799,00 EUR</span></span><br />   1.699,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Raleigh-Dover-Impulse-7-2017.html"><img src="images/product_images/thumbnail_images/20605_0.png" alt="Raleigh Dover Impulse 7 (2017)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Raleigh-Dover-Impulse-7-2017.html"  class="heading_b">Raleigh Dover Impulse 7 (2017)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/Raleigh-Dover-Impulse-7-2017.html" class="sp-price"><span class="productOldPrice">UVP <span class="productOldPricePrice"> 1.899,99 EUR</span></span><br />   1.399,00 EUR*</a><br />
+         
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 start_angebot">
+        <div class="start_angebot-inner">
+                    <div>
+                <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/elby-City-2018.html"><img src="images/product_images/thumbnail_images/21086_0.jpg" alt="elby City (2018)" class="thumb_img" /></a>
+            </div>
+          
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/elby-City-2018.html"  class="heading_b">elby City (2018)</a>
+        <a href="https://www.elektrofahrrad-einfach.de/products/Elektrofahrraeder/elby-City-2018.html" class="sp-price"><span class="productOldPrice">UVP <span class="productOldPricePrice"> 3.299,00 EUR</span></span><br />   2.649,00 EUR*</a><br />
+         
+        </div>
+    </div>
+</div>
+
+
+<div class="mini-text">
+    * alle Preise inkl. MwSt. und ggf. zzgl. <a href="popup_content.php?coID=1" target="_blank">Versand</a>
+</div> 
+</div>
+
+<div class="container">
+    <div class="row">  
+        <div class="sp-box-brands text-left" >
+            <span class="heading_a">Unsere Marken:</span>
+            <a href ="marken/kalkhoff.html"><img src="images/manufacturers/kalkhoff-klein.jpg" alt="Kalkhoff" /></a>
+            <a href ="marken/haibike.html"><img src="images/manufacturers/haibike-klein.jpg" alt="Haibike" /></a>
+            <a href ="bionx"><img src="images/manufacturers/bionx-umbausaetze.jpg" alt="BionX" /></a>
+            <a href ="marken/shimano.html"><img src="images/manufacturers/shimano-klein.jpg" alt="Shimano" /></a>
+            <a href ="marken/gocycle.html"><img src="images/manufacturers/gocycle-klein.jpg" alt="Gocycle" /></a>
+            <a href ="marken/elfei.html"><img src="images/manufacturers/elfei-klein.jpg" alt="ELFEi" /></a>
+            <a href ="marken/focus.html"><img src="images/manufacturers/focus-klein.jpg" alt="Focus" /></a>
+            <a href ="marken/thule.html"><img src="images/manufacturers/thule-klein.jpg" alt="Thule" /></a>
+            <a href ="marken/schwalbe.html"><img src="images/manufacturers/schwalbe-klein.jpg" alt="Schwalbe" /></a>
+            <a href ="marken/wheeler.html"><img src="images/manufacturers/wheeler_klein.jpg" alt="Wheeler" /></a>
+            <div class="text-right"><a href ="marken">alle Marken...</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row pad-sm">  
+        <br />
+        <h2 class="heading_b pad_top_20">Was ist ein Elektrofahrrad?</h2>
+        <p>Ein <strong>Elektrofahrrad</strong> ist ein Fahrrad   mit elektrischem Hilfsantrieb. Es gibt verschiedene Bezeichnugen wie <strong>Pedelec</strong>, <strong>E-Bike</strong> und <strong>Elektrorad</strong>, die aber teilweise nicht korrekt angewendet werden.</p>
+        <p>Ein <strong>Pedelec</strong> ist ein Elektrofahrrad, bei dem der elektrische Hilfsantrieb mit einer Nennleistung von h&ouml;chstens 250 Watt   lediglich die Tretbewegung des Fahrers unterst&uuml;tzt und den Fahrer bis zu einer H&ouml;chstgeschwindigkeit von 25 km/h unterst&uuml;tzt. Bei h&ouml;heren Geschwindigkeiten schaltet sich der Zusatzantrieb des Elektrofahrrads ab. Ein Pedelec gilt offiziell als Fahrrad, unterliegt keiner Helmpflicht und darf auf Radwegen gefahren werden.</p>
+        <p>Ein <strong>E-Bike</strong> hingegen ist ein Elektrofahrrad, welches mittels eines Gasgriffs auch ohne Treten bewegt werden kann. Die erlaubte H&ouml;chstgeschwindigkeit f&uuml;r   ein E-Bike Elektrofahrrad liegt bei 20 km/h. Rechtlich gesehen gilt ein E-Bike als Leichtmofa, ben&ouml;tigt eine Betriebserlaubnis und ist versicherungspflichtig. Dann gibt es noch die Klasse der <strong>S-Pedelecs</strong>, der sogenannten schnellen Pedelecs, welche eine Nennleistung von bis zu 500 Watt und eine maximale H&ouml;chstgeschwindigkeit von 45 km/h haben d&uuml;rfen. Wie beim normalen Pedelec <strong>Elektrofahrrad</strong> darf der Motor nur bei gleichzeitigem Treten des Fahrers unterst&uuml;tzen. Wie ein E-Bike ben&ouml;tigt ein S-Pedelec eine Betriebserlaubnis, ist versicherungspflichtig und der Fahrer muss zudem noch eine Fahrerlaubnis der Klasse M vorweisen. Eine Helmpflicht gibt es f&uuml;r S-Pedelecs und E-Bikes nicht.</p>
+        <br />
+        <h2 class="heading_b pad_top_20">Was ist ein Elektrofahrrad-Umbausatz?</h2>
+        <p>Mit einem <strong><a href="Elektrofahrrad-Umbausaetze">Elektrofahrrad-Umbausatz</a></strong>  machen Sie aus jedem &quot;normalen&quot; Fahrrad in kurzer Zeit ein vollwertiges Elektrofahrrad.&nbsp;Zu den Bauteilen eines solchen Umbausatzes&nbsp;z&auml;hlt der   <strong>Elektromotor</strong>, der als Nabenmotor wahlweise im Vorderrad oder im Hinterrad untergebracht wird. Wahlweise liefern wir den Motor komplett fertig eingespeicht als ganzes Rad zum leichten Einbau.&nbsp;Des Weiteren&nbsp;geh&ouml;rt die elektronische   Motorsteuerung, auch <strong>Controller</strong> genannt, zum Elektrofahrrad-Umbausatz dazu. Je nach Hersteller ist ein <strong>Tret-   oder Drehmomentsensor</strong> mit dabei, der erkennt, ob der Fahrer tritt, damit der   Motor wei&szlig;, wann er unterst&uuml;tzen muss. Au&szlig;erdem sind bei allen unseren   Elektrofahrrad-Umr&uuml;sts&auml;tzen die passenden <strong>Akkus</strong> gleich mit dabei. </p>
+        <p>Bei <strong>Elektrofahrrad Umbausätzen</strong> unterscheidet man wischen einem <a href="Elektrofahrrad-Umbausaetze/Pedelec-Umbausaetze">Pedelec-Umbausatz</a> und einem <a href="Elektrofahrrad-Umbausaetze/E-Bike-Umbausaetze">E-Bike Umbausatz</a>. Ein <strong>Pedelec</strong> gilt rechtlich weiterhin als Fahrrad und darf ohne Zulassung auf Radwegen fahren. Ein <strong>E-Bike</strong> gilt nicht mehr als Fahrrad und benötigt eine Zulassung. Alle Unterschiede finde Sie bei <a href="Elektrofahrrad-Umbausaetze">Elektrofahrrad-Umbausätzen</a>.</p>
+        <br />
+        <h2 id="Vorteile" class="heading_b pad_top_20">Ihre Vorteile bei elektrofahrrad-einfach.de:</h2>  
+        <div class="row"> 
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Kostenloser Versand</span><br />Ab einem Bestellwert von 100 EUR versenden wir innerhalb Deutschlands <a href="popup_content.php?coID=1" target="_blank" rel="nofollow">versandkostenfrei</a><br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Kostenloser Rückversand</span><br />Ab einem Bestellwert von 100 EUR ist auch der <a href="content/Shop-Infos.html#rueckversand" rel="nofollow">Rückversand</a> innerhalb Deutschlands für Sie kostenlos<br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 30 Tage Rückgaberecht</span><br />Wir erweitern Ihr <a href="content/Shop-Infos.html" rel="nofollow">Rückgaberecht</a> auf 30 Tage <br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Bestpreis Garantie</span><br />Bei uns erhalten Sie den besten Preis - <a href="content/Shop-Infos.html" rel="nofollow">garantiert</a><br /><br />
+                
+                
+                
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Top Bewertungen</span><br /> Wir sind <a href="https://www.trustedshops.de/bewertung/info_X1442C3B89D929AE11AC36B1459B0DF35.html?utm_source=shop&utm_medium=link&utm_content=trustcard&utm_campaign=trustbadge" target="_blank" rel="nofollow">Trusted-Shops zertifiziert</a> mit hunderten positiven Bewertungen<br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Fachhandelsqualität</span><br />Wir sind offizieller Vertriebs- und Servicepartner zahlreicher Hersteller<br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Gute Beratung</span><br />Kostenlose Beratung durch unsere Experten auf allen Kanälen ist bei uns selbstverständlich <br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Schneller Versand</span><br />Bei Bestellungen bis 12 Uhr versenden wir lagernde Ware meist noch am gleichen Tag  <br /><br />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Kauf auf Rechnung</span><br />Erst die Ware, dann das Geld - wir bieten <a href="content/Shop-Infos.html#zahlung" rel="nofollow">Rechnungskauf</a> ohne Aufpreis an<br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Käuferschutz</span><br />Sie haben bei allen Bestellungen den <a href="https://www.trustedshops.de/bewertung/info_X1442C3B89D929AE11AC36B1459B0DF35.html?utm_source=shop&utm_medium=link&utm_content=trustcard&utm_campaign=trustbadge" target="_blank" rel="nofollow">Trusted-Shops-Käuferschutz</a>. Die Kosten dafür übernehmen wir<br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Datenschutz</span><br />Wir erheben nur so viele Daten wie unbedingt nötig und geben diese niemals an Unbefugte weiter <br /><br />
+                <span class="heading_c"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Zahlung per SSL-Verschlüsselung</span><br />der Zahlungsvorgang ist durch neueste <a href="https://sealinfo.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&dn=WWW.ELEKTROFAHRRAD-EINFACH.DE&lang=de" target="_blank" rel="nofollow">SSL-Verschlüsselungstechnologie</a> abgesichert<br /><br />
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Criteo -->
+ 
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+<script type="text/javascript">
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push(
+{ event: "setAccount", account: 7044 },
+{ event: "setSiteType", type: "d" },
+{ event: "setEmail", email: [""] },
+{ event: "viewHome" }
+);
+</script>
+ 
+<!-- Criteo EOF -->
+                </div>
+            
+        </div>
+
+    </div>   
+    
+ 
+     
+</main>
+<div id="infobox" onclick="hideDiv()">
+    <div id="infobox_inner">
+        
+        <ul>
+            <li><span class="glyphicon glyphicon-ok"></span> Kostenloser Versand ab 100 &euro;</li>
+            <li><span class="glyphicon glyphicon-ok"></span> 30 Tage Rückgaberecht </li>
+            <li><span class="glyphicon glyphicon-ok"></span> Top Bewertungen </li>
+            <li><span class="glyphicon glyphicon-ok"></span> Fachhandelsqualität </li>
+            <li><span class="glyphicon glyphicon-ok"></span> Bestpreis Garantie </li>
+            <li><span class="glyphicon glyphicon-ok"></span> Gute Beratung</li>
+            <li><span class="glyphicon glyphicon-ok"></span> Schneller Versand </li>  
+            <li><span class="glyphicon glyphicon-ok"></span> Kauf auf Rechnung</li>
+            <li><span class="glyphicon glyphicon-ok"></span> Käuferschutz </li>
+        </ul>
+        <div class="infobox_div">
+        <span class="glyphicon glyphicon-phone-alt"></span><div class="infobox_description"><b>Telefon</b><br>
+        0911-13137530</div><br><br>
+        </div>
+        <div class="infobox_div">
+        <span class="glyphicon glyphicon-time"></span><div class="infobox_description"><b>Supportzeiten</b><br>
+        Mo-Fr, 10:00 - 18:00 Uhr</div><br><br>
+        </div>
+        <div class="infobox_div">
+        <span class="glyphicon glyphicon-envelope"></span><div class="infobox_description"><b>Email</b><br>
+        info@elektrofahrrad-einfach.de</div><br><br>
+        </div>
+        <div class="infobox_div">
+        <span class="glyphicon glyphicon-home"></span><div class="infobox_description"><b>Kontaktdaten</b><br>
+        <a href="content/Kontakt.html">Kontakt</a></div><br><br>
+        </div>
+        <div class="infobox_div">
+        <span class="glyphicon glyphicon-earphone"></span><div class="infobox_description"><b>Rückruf</b><br>
+            nutzen Sie unseren<br>
+            <a onclick="rueckDiv()"><strong>Rückrufservice</strong></a></div><br><br>
+        </div>
+    </div>
+    
+        <!-- BoldChat Live Chat Button HTML v4.00 (Type=Web,ChatButton=elektrofahrrad-einfach.de static button 1,Website=Elektrofahrrad-einfach.de) -->
+        <div>
+        <a href="https://livechat.boldchat.com/aid/426203459468744355/bc.chat?resize=true&amp;cbdid=8773924257429667116&amp;wdid=858848212938964335" target="_blank" onclick="window.open((window.pageViewer &amp;&amp; pageViewer.link || function(link){return link;})(this.href + (this.href.indexOf('?')>=0 ? '&amp;' : '?') + 'url=' + escape(document.location.href)), 'Chat1009105589644159948', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=640,height=480');return false;">
+        <div><script language="JavaScript" type="text/javascript"> var bccbId = Math.random(); document.write(unescape('%3Cimg alt="Live chat by BoldChat" src="' + (('https:' == document.location.protocol) ? 'https:' : 'http:') + '//cbi.boldchat.com/aid/426203459468744355/bc.cbi?cbdid=8773924257429667116&amp;wdid=858848212938964335" border="0" width="100%" id=' + bccbId + ' /%3E')); var bccb = {id: bccbId, bdid: '8773924257429667116', rdid: null, type: 'chat'}; var _bcvma = _bcvma || []; if(window.pageViewer && pageViewer.addButton) pageViewer.addButton(button); else _bcvma.push(['addButton', bccb]);</script></div>
+        </a>
+        </div>
+        <!-- /BoldChat Live Chat Button HTML v4.00 -->
+    
+</div>
+
+<div id="infobox_button" onclick="showDiv()">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><br/><br/>
+<span class="glyphicon glyphicon-phone-alt"></span><br/>
+<span class="glyphicon glyphicon-time"></span><br/>
+<span class="glyphicon glyphicon-envelope"></span><br/>
+<span class="glyphicon glyphicon-home"></span><br/>
+<span class="glyphicon glyphicon-earphone"></span><br/>
+
+</div>
+<footer role="contentinfo">
+    <div class="container-fluid footer footer-level-0">    
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-10 text-left-md no_marg no_pad">
+                    <strong>Unsere Zahlungsarten:</strong><span class="break-md"><br /></span>
+                    <img src="templates/elfaei2/img/pp-logo.png" alt="Paypal" title="Paypal" />
+                    <img src="templates/elfaei2/img/visa.png" alt="Visa" title="Visa"/>
+                    <img src="templates/elfaei2/img/mastercard.png" alt="Mastercard" title="Mastercard"/>
+                    <img src="templates/elfaei2/img/amazon.png" alt="Amazon Payments" title="Amazon Payments" />
+                    <img src="templates/elfaei2/img/nachnahme.png" alt="Nachnahme" title="Nachnahme"/>
+                    <img src="templates/elfaei2/img/vorkasse.png" alt="Vorkasse" title="Vorkasse"/>
+                    <img src="templates/elfaei2/img/rechnung.png" alt="Rechnungskauf" title="Rechnungskauf"/>
+                    <img src="templates/elfaei2/img/sofort.png" alt="Sofortüberweisung" title="Sofortüberweisung"/>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-2 text-right-md footer-ssl no_marg no_pad">
+                    Sichere Zahlung mit SSL-Verschlüsselung
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+    <div class="container-fluid footer footer-level-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 footer-level-1-first no_marg no_pad">
+                    <strong>Über uns</strong>
+                    <br />
+                    <a href="content/ueber-uns.html">Über uns</a><br/>
+                    <a href="blog">Blog</a><br/>
+                    <a href="content/Unsere-AGBs.html" rel="nofollow" >AGB</a><br/>
+                    <a href="content/Datenschutzerklaerung.html" rel="nofollow" >Datenschutz</a><br/>
+                    <a href="affiliate_affiliate.php">Partnerprogramm</a><br />
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 footer-level-1-first">
+                    <strong>Kontakt</strong>
+                    <br/>
+                    <a href="content/Kontakt.html" rel="nofollow" >Kontakt</a><br/>
+                    <a href="impressum.html" rel="nofollow" target="_blank">Impressum</a><br/>
+                    <a href="http://www.ebike-forum.net" rel="nofollow" target="_blank">E-Bike Forum</a><br/>
+                    <a href="content/Haendler.html" rel="nofollow" >H&auml;ndler</a><br/>
+                    <a href="content/Fahrradladen-Nuernberg.html" >Filiale Nürnberg</a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 footer-level-1-first">
+                    <strong>Bestellung</strong>
+                    <br/>
+                    <a href="content/Shop-Infos.html#ablauf" rel="nofollow" >Ablauf</a><br/>
+                    <a href="content/Shop-Infos.html#zahlung" rel="nofollow" >Zahlung</a><br/>
+                    <a href="content/Shop-Infos.html#versand" rel="nofollow" >Versand</a><br/>
+                    <a href="content/Shop-Infos.html#lieferzeit" rel="nofollow" >Lieferzeit</a><br/>
+                    <a href="content/Batterieentsorgung.html" rel="nofollow" >Batterieentsorgung</a><br/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 footer-level-1-first">
+                    <strong>Sie finden uns auch bei:</strong>
+                    <br /><br />
+                    <a href="http://www.facebook.com/pages/Elektrofahrrad-einfachde/159749627407266" target="_blank" title="elektrofahrrad-einfach.de auf Facebook" rel="nofollow"><img src="templates/elfaei2/img/social-icons/facebook.gif" alt="Elektrofahrrad-einfach.de auf Facebook"/></a>
+                    <a href="https://twitter.com/#!/elektrorad" target="_blank" title="elektrofahrrad-einfach.de auf Twitter" rel="nofollow"><img src="templates/elfaei2/img/social-icons/twitter.gif" alt="Elektrofahrrad-einfach.de auf Twitter" /></a>
+                    <a href="http://www.youtube.com/user/ELFEIcom?ob=0&feature=results_main" target="_blank"  title="elektrofahrrad-einfach.de auf Youtube" rel="nofollow"><img src="templates/elfaei2/img/social-icons/youtube.gif" alt="Elektrofahrrad-einfach.de auf Youtube"/></a>
+                    <a href="https://plus.google.com/+Elektrofahrrad-einfachDe/posts" target="_blank" title="elektrofahrrad-einfach.de auf Google+" rel="nofollow"><img src="templates/elfaei2/img/social-icons/gplus.png" alt="Elektrofahrrad-einfach.de auf Google+"/></a>
+                    <a href="blog/feed/" target="_blank" title="elektrofahrrad-einfach.de - Blog als RSS-Feed"><img src="templates/elfaei2/img/social-icons/rss.png" alt="Elektrofahrrad-einfach.de Blog RSS Feed"/></a>
+                    <br />
+                </div>
+            </div>
+<hr>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 footer-level-1-second no_marg no_pad">
+                   
+                    <div class="footer-dhl-img">    
+                        <img src="templates/elfaei2/img/dhl-gogreen.jpg" alt="Versand mit DHL GoGreen"/>
+                    </div>   
+                    <div class="footer-dhl-text">
+                    <span class="footer-dhl-text">Klimaneutraler Versand mit DHL GoGreen zu Ihrer Wunschadresse und Packstation</span>
+                    </div>
+                 
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8  footer-level-1-second text-right-md no_marg no_pad">
+                   
+                    
+                                                <a href="http://www.idealo.de/preisvergleich/Shop/288283.html" target="_blank" >
+                            <img src="https://img.idealo.com/folder/Shop/288/2882/288283/s1_rating_extern2_nopartnercheck.png" alt="elektrofahrrad-einfach.de bei idealo.de">
+                        </a>
+                                                <a href="https://sealinfo.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&dn=WWW.ELEKTROFAHRRAD-EINFACH.DE&lang=de" target="_blank"  rel="nofollow" ><img src="templates/elfaei2/img/thawte_logo.gif" alt="Thawte SSL zertifiziert" id="thawte-img"/></a>
+                    <!-- Trusted Shops Siegel -->
+                    <div id="tsBox">
+                        <div id="tsInnerBox">
+                             <div id="tsSeal">
+                                 <a target="_blank" href="https://www.trustedshops.com/shop/certificate.php?shop_id=X1442C3B89D929AE11AC36B1459B0DF35" rel="nofollow"><img src="templates/elfaei1/img/trustedshops.gif" title="Klicken Sie auf das G&uuml;tesiegel, um die G&uuml;ltigkeit zu pr&uuml;fen!"></a>
+                             </div>
+                             <div id="tsText">
+                                 elektrofahrrad-einfach.de ist ein von Trusted Shops gepr&uuml;fter Onlineh&auml;ndler  mit Zertifikat und K&auml;uferschutz.
+                             </div>
+                             <div class="clearer"></div>
+                        </div>
+                    </div>
+                    <!-- / Trusted Shops Siegel -->
+                    
+                </div>
+                
+            </div>
+            <p id="rueckDiv"></p>
+        </div>
+    </div>
+
+    <div class="container-fluid footer footer-level-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 no_marg no_pad">
+                        Copyright &copy; 2008-2018 Elektrofahrrad-einfach.de          
+                </div>
+                <div class="col-xs-12 col-md-8 text-right-md no_marg no_pad">
+                        eldisto GmbH - Ipsheimer Str. 9 - 90431 Nürnberg - Tel: 0911-13137530 (Mo-Fr, 10:00 - 18:00 Uhr)
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><script type="text/javascript">(function () { 
+    var _tsid = 'X1442C3B89D929AE11AC36B1459B0DF35'; 
+    _tsConfig = { 
+      'yOffset': '0', /* offset from page bottom */
+      'variant': 'reviews', /* text, default, small, reviews, custom, custom_reviews */
+      'customElementId': '', /* required for variants custom and custom_reviews */
+      'trustcardDirection': '', /* for custom variants: topRight, topLeft, bottomRight, bottomLeft */
+      'customBadgeWidth': '', /* for custom variants: 40 - 90 (in pixels) */
+      'customBadgeHeight': '', /* for custom variants: 40 - 90 (in pixels) */
+      'disableResponsive': 'false', /* deactivate responsive behaviour */
+      'disableTrustbadge': 'false', /* deactivate trustbadge */
+      'trustCardTrigger': 'mouseenter' /* set to 'click' if you want the trustcard to be opened on click instead */
+    };
+    var _ts = document.createElement('script');
+    _ts.type = 'text/javascript'; 
+    _ts.charset = 'utf-8'; 
+    _ts.async = true; 
+    _ts.src = '//widgets.trustedshops.com/js/' + _tsid + '.js'; 
+    var __ts = document.getElementsByTagName('script')[0];
+    __ts.parentNode.insertBefore(_ts, __ts);
+  })();
+</script><!-- BEGIN: Google Trusted Stores --><script type="text/javascript">var gts = gts || [];
+
+  gts.push(["id", "504886"]);
+  gts.push(["badge_position", "BOTTOM_LEFT"]);
+  gts.push(["locale", "de_DE"]);
+  gts.push(["google_base_subaccount_id", "6011292"]);
+
+  (function() {
+    var gts = document.createElement("script");
+    gts.type = "text/javascript";
+    gts.async = true;
+    gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(gts, s);
+  })();</script><!-- END: Google Trusted Stores --><script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-5099161-2");
+		// Cookied already: 
+		pageTracker._trackPageview();
+	} catch(err) {}
+</script><div style="display: none">
+<script type="text/javascript">
+    var google_tag_params = {
+    ecomm_prodid: '',
+    ecomm_pagetype: 'Startseite',
+    ecomm_totalvalue: ''
+    };</script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1068092326;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script><script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script><noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1068092326/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
+    </div>
+</body>
+</html>

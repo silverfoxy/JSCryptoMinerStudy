@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<meta name="robots" content="index, nofollow">
+<meta name="description" content="The FPDF site">
+<meta name="keywords" content="FPDF, PDF, PHP, class, library, generator, free">
+<title>FPDF</title>
+</head>
+<frameset cols='114,*'>
+<frame src='en/menu.php' frameborder='0' marginwidth='0' marginheight='0' noresize scrolling='no'>
+<frame src='en/home.php' frameborder='0' marginwidth='6' marginheight='8' noresize name='main'>
+<noframes>
+<body>
+FPDF: a free PHP class to generate PDF files
+</body>
+</noframes>
+</frameset>
+</html>

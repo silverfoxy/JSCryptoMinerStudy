@@ -1,0 +1,1421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="Mon, 27 Nov 2017 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+    <meta name="srv" />
+    <meta charset="utf-8" />
+    <title>GAfutures.org | Georgia Student Finance Commission</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />
+        <meta name="description" content="Helping Georgians of all ages plan for and succeed in college" />
+            <meta name="keywords" content="apply online applications in Georgia,HOPE scholarship,Transcript for college in Georgia,money for Georgia students,money for Georgia colleges,Georgia financial aid for adults,grants in Georgia,college loans in Georgia,career exploration in Georgia,explore careers in Georgia,help students prepare for college in Georgia,prepare for college in Georgia,financial aid in Georgia,student loans Georgia,going back to school in Georgia,loan repayment options in Georgia,Help Georgia students prep for SAT,Help Georgia students prep for ACT,Help Georgia students prep for COMPASS,changing careers in Georgia,postsecondary success in Georgia,college scholarships in Georgia" />
+    <meta name="author" content="tba" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="/jqueryui/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap-switch.css">   
+    <link rel="stylesheet" href="/css/doc.css">
+    <link rel="stylesheet" type="text/css" href="/Css/template-v17.0.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/newcolor.css">
+    <link rel="stylesheet" type="text/css" href="/Css/megamenu.css" />    
+    <link rel="stylesheet" href="/fonts/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Css/Font-CSS.css" />
+    <link href="/css/TextStyles.css" rel="stylesheet" type="text/css" />
+    <script src="/scripts/GSFCScripts/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/jqueryui/jquery-ui.theme.min.css" />
+    <link href="/Css/search-widget.css" rel="stylesheet" />
+    <script type="text/javascript" src="/scripts/GSFCScripts/jQueryUI-v1.11.2.js"></script>
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/jqueryui/jquery-ui.min.js"></script>
+    <link href="/css/sitemap.css" rel="stylesheet" type="text/css" />
+    <link href="/Css/admindropdown.css" rel="stylesheet" />
+	<link href="/Css/checs.css" type="text/css" rel="stylesheet" />
+    <!-- Google Tag Manager -->
+    <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5KRF4B');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <script type="text/javascript">
+        offset = -5.0
+        clientDate = new Date();
+        utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
+        serverDate = new Date(utc + (3600000 * offset));
+        var d = new Date(serverDate).getHours();
+        var t = new Date(serverDate).getMinutes();
+        if (d >= 0 && d < 3 && t > 0 && t < 60) {
+            var maintenance_page = 'https://www.gafutures.org/maintenance.html';
+            window.location.replace(maintenance_page);
+        }
+		
+        var dom = {};
+        dom.query = jQuery.noConflict(true);
+        dom.query(document).ready(function () {
+		var ipaddress = 'https://www.gafutures.org/webapi/api/ipaddress';
+		var API_KEY = '74941efe-6158-46a8-a2ea-078084a00859';
+			$.ajax({
+					url: ipaddress,
+					headers:{ "Authorization": API_KEY }
+					}).done(function(data) {
+					$('meta[name=srv]').attr('content', data.IPAddress.slice(-3) + ' ' + data.MachineName);
+				});
+
+
+            var getQueryString = function (field, url) {
+                var href = url ? url : window.location.href;
+                var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+                var string = reg.exec(href);
+                return string ? string[1] : null;
+            };
+
+            var action = getQueryString('action');
+            if (action == 'resetpassword') {
+                $('#signin').modal('hide');
+                $('.modal-backdrop').remove();
+                $('#ForgotPassword').modal('show');
+            }
+            else if (action == 'forgotusername') {
+                $('#signin').modal('hide');
+                $('.modal-backdrop').remove();
+                $('#Forgotusername').modal('show');
+            }
+            else if (action == 'signin') {
+                //TFS 1260
+                //var chgusername = readCookie('chgusername');
+                var chgusername = sessionStorage.getItem('chgusername');
+                if (chgusername == null || chgusername == "" || chgusername == undefined) {
+                    $('#Forgotusername').modal('hide');
+                    $('.modal-backdrop').remove();
+                    $('#signin').modal('show');
+                }
+                else {
+                    window.location.hash = 'my-profile';
+                    //location.reload();
+                }
+            }
+            else if (action == 'create') {
+                //$('#signin').modal('show');
+                // $('#create_tab').tab('show');
+                var create_account = 'https://www.gafutures.org/create-account';
+                window.location.replace(create_account);
+            }
+			
+			else if (action == 'ConfirmProfilePassword') {
+                //Show Confirm Box here
+                $('#ConfirmProfilePassword').modal('show');
+            }
+
+            // TFS 1032: Autocomplete: disable umbraco
+            $(document).on('focus', ':input', function () {
+                $(this).attr('autocomplete', 'off');
+            });
+        });
+        function Upper(thicnl) {
+            thicnl.value = thicnl.value.toLocaleUpperCase();
+        }
+
+    </script>
+	
+	<script src="/jScripts/bootstrap.js"></script>
+    <script src="/jScripts/bootstrap-switch.js"></script>
+    <script src="/jScripts/jquery.zaccordion.min.js"></script>
+    <script src="/jScripts/css_browser_selector.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('.carousel').carousel({
+                    interval: 7000
+                });
+                 $(".navbar-toggle").on('click', function() {
+			            $('#mobile_menu').slideToggle('slow');
+			    });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('#newsTab a:first').tab('show')
+        });
+    </script>
+
+    <style type="text/css">
+        .chrome .navbar-form.navbar-right:last-child {
+            margin-left: -43px;
+            margin-top: -53px;
+            margin-right: 51px;
+        }
+
+        .safari .navbar-form.navbar-right:last-child {
+            margin-left: -43px;
+            margin-top: -53px;
+            margin-right: 27px;
+        }
+
+        .create_account_body {
+            height: 554px;
+            overflow-y: scroll;
+        }
+
+        input:optional:invalid {
+            border: 1px solid #000;
+        }
+    </style>
+
+    
+
+    
+    <script>
+        $(document).ready(function () {
+            $(".collapsed").click(function () {
+                $(this).find("span").toggleClass("fa-caret-left").addClass("fa-caret-down");
+            });
+        });
+    </script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/favi/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favi/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favi/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favi/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favi/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favi/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favi/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favi/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favi/apple-icon-180x180.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favi/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favi/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favi/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favi/favicon-16x16.png">
+    <link rel="manifest" href="/favi/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favi/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body data-ng-app="gsfcApp">   
+    <div id="divBody">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KRF4B"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <script>
+            _gaq = {};
+            _gaq.push = function() {
+            ga('send', 'pageview', arguments[0][1]);
+            };
+        </script>
+        <!-- End Google Tag Manager -->
+        
+
+<script>
+    (function () {
+        //var cx = '003713356052718107850:barn2absh7o';
+        var cx = '014791753699459562254:barn2absh7o';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//cse.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);        
+    })();
+
+    $(document).ready(function (e) {       
+        // var username = readCookie('chgusername'); TFS 1260
+        var username = sessionStorage.getItem("chgusername");
+        if (username == null) {
+            $("#topbuttons_signin").removeClass("hideElement");
+        }
+
+        var mobileIndex = readCookie('active_mobilemenu');
+
+        var urlPathname = window.location.pathname;
+        var shortUrl = urlPathname.substring(1, urlPathname.lastIndexOf("/"));
+        var urlSegmentArray = shortUrl.split('/');
+        if (urlSegmentArray.length < 2) {
+            createCookie('active', 0);
+        }
+
+        if (!$('#mobile_menu > li').hasClass("active")) {
+            $('#mobile_menu > li').eq(mobileIndex).addClass('active');
+        }
+
+        var index = readCookie('active'); 
+        $('#menu_secondlevel > li').removeClass('active');
+        $('#menu_secondlevel > li').eq(index).addClass('active');
+
+
+        $('#menu_secondlevel').on('click', 'li a', function (e) {
+            if ($(this).closest('li').children('ul').length < 1 && $(this).parent().attr('class') != 'dropdown-header') {
+                createCookie('active', $(this).parent().index());
+            }
+        });
+
+        $('.megamenu').on('click', 'li a', function (e) {
+            $('.megamenu').parent('li').removeClass('active');
+            $(this).parent().parent().parent().addClass('active');
+            createCookie('active', $(this).parent().parent().parent().index());
+        });
+
+
+        $('#mobile_menu').on('click', 'li a', function (e) {
+            createCookie('active_mobilemenu', $(this).parent().index());
+            createCookie('active', 0);
+        });
+        $('#li_menularge').on('click', 'a', function (e) {
+            createCookie('active', 0);
+        });
+
+        //TFS 1455
+        var isShared = readCookie('sharedAccountID');
+        var AdminTypeID;
+        var SchoolType;
+        var EditCollege;
+
+        var output = JSON.parse(readCookie('gafutures'));
+        if (output != null) {
+            AdminTypeID = output['account_type'];
+            SchoolType = output['institution_type'];
+            EditCollege = output['college_access'];
+        }
+        
+
+
+        if (isShared == null) {
+            $('#AccessLevel').css("display", "block")
+            //TFS 1273
+            if (AdminTypeID == 1) {
+                $('#AccessLevel').text('School/Institution Administrator');
+                if (SchoolType == 1) {
+                    $("#liEditCollege").css('display', 'block');
+                }
+            }
+            else if (AdminTypeID == 2) {
+                $('#AccessLevel').text('School/Institution User');
+                if (SchoolType == 1 && EditCollege == 'Y') {
+                    $("#liEditCollege").css('display', 'block');
+                }
+            }
+            else if (AdminTypeID == 3) {
+                $('#AccessLevel').text('District Administrator');
+            }
+            else if (AdminTypeID == 4) {
+                $('#AccessLevel').text('GSFC User');
+            }
+            else if (AdminTypeID == 21) {
+                $("#liEditCollege").css('display', 'block');
+                $('#AccessLevel').text('GSFC Administrator');
+            }
+            //TFS 1273
+        }
+        else {
+            $('#AccessLevel').css("display", "none")
+        }
+        //TFS 1455
+    });
+   
+
+</script>
+<script src='//www.google.com/jsapi' type='text/javascript'></script>
+ 
+
+<div class="container-fluid" >
+    <header>
+        <div class="container">
+            <div class="row header-full-width">
+                <div class="col-md-2">
+                    <a href="/">
+                                <div class="site-logo">
+                                    <img src="/media/1116/logo-temp.jpg" class="img-responsive" alt="Georgia Student Finance Commission Logo" />
+                                </div>
+
+                    </a>
+                </div>
+                <div class="col-md-10 mt10" data-ng-controller="navigationController">
+                    <div class="top-button-container">
+                        <form method="post" class="form-inline navbar-form  g-search-box" role="search">
+                            <div class="form-group">
+                                <gcse:search></gcse:search>
+                            </div>
+                        </form>
+                        <div class="topbuttons hideElement" data-ng-show="SignIn.loading" id="topbuttons_signin">
+
+                            <a class="btn btn-green btn-lg pull-right bttn bttn-primary ml10" href="/help/">
+                                Help&nbsp;<i class="fa fa-question-circle"></i>
+                            </a>
+                            <button id="login_btn" type="button" class="btn btn-primary btn-lg pull-right bttn bttn-primary" data-target="#signin" data-toggle="modal">Sign In</button>
+                            <button id="create_btn" type="button" class="btn btn-default btn-lg pull-right bttn bttn-default">Create an Account</button>
+                        </div>
+                        <div class="topbuttons ng-cloak" data-ng-show="SignOut.loading">
+
+                            <a style="margin-left:11px;" class="btn btn-green btn-lg pull-right bttn bttn-primary" href="/help/">
+                                Help&nbsp;<i class="fa fa-question-circle"></i>
+                            </a>
+
+                            <button id="login_btn" type="submit" class="btn btn-primary btn-lg pull-right bttn bttn-primary" data-ng-click="LogOut()">Sign Out</button>
+                            <div class="pull-right signed-in">
+                                <p style="margin-bottom:5px !important;"><a  href="/my-gafutures/" class="ng-cloak welcome-font" style="font-size:1em;" ng-bind="'Welcome&nbsp;'+user.firstName | limitTo:17"></a></p>
+                                <span class="school"><a style="font-size:1em;" href="/my-gafutures/" class="ng-cloak" ng-bind="user.Institution | limitTo:25"> </a></span>
+                                <b><span id="AccessLevel" style="color:#006094;"></span></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-11 navigation pull-right nav-top-margin">
+                    
+                    <div class="row navbar-right">
+                        <ul id="mobile_menu" class="nav nav-tabs menu top-nav" role="tablist">
+                            <li class='active'>
+                                <a href="/">
+                                    <i class="fa fa-home fa-2x fa-filler"></i>
+                                </a>
+                                </li>
+    <li>
+        <a href="/hope-state-aid-programs/">
+                <i class="fa fa-lg fa-block fa-gift"></i>
+            HOPE &amp; State Aid Programs
+           
+        </a>
+    </li>
+    <li>
+        <a href="/federal-aid-scholarships/">
+                <i class="fa fa-lg fa-block fa-money"></i>
+            Federal Aid &amp; Scholarships
+           
+        </a>
+    </li>
+    <li>
+        <a href="/college-planning/">
+                <i class="fa fa-lg fa-block fa-graduation-cap"></i>
+            College Planning
+           
+        </a>
+    </li>
+    <li>
+        <a href="/career-exploration/">
+                <i class="fa fa-lg fa-block fa-paper-plane"></i>
+            Career Exploration
+           
+        </a>
+    </li>
+    <li>
+        <a href="/resources/">
+                <i class="fa fa-lg fa-block fa-book"></i>
+            Resources
+           
+        </a>
+    </li>
+    <li>
+        <a href="/about-us/">
+                <i class="fa fa-lg fa-block fa-fax"></i>
+            About Us
+           
+        </a>
+    </li>
+    <li>
+        <a href="/my-gafutures/">
+                <i class="fa fa-lg fa-block fa-cog"></i>
+            My GAfutures
+           
+        </a>
+    </li>
+                        </ul>
+                    </div>
+                </div><!--navigation-->
+            </div> <!--header-full-width-->
+        </div> <!--container-->
+    </header>
+
+</div> <!--container fluid-->
+<!--end of header-->
+
+
+        
+
+
+
+
+
+
+
+
+
+    
+<div class="container-fluid color">
+    <div class="container slider">
+        <div class="row">
+            <div class="col-xs-12 carous">
+                <!-- carousel -->
+                <div id="carousel-generic" class="carousel slide">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators slider-indicators">
+                            <li data-target="#carousel-generic" data-slide-to="0" class="active">
+
+                                
+
+                                <div class="grow pic">
+                                    <img data-src="/media/31380/time-for-fafsa-2-18-01-1.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" src="/media/31380/time-for-fafsa-2-18-01-1.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" class="carouselimg" alt="Spread the word: Fill out the FAFSA!" />
+                                </div>
+                                <h2>Spread the word: Fill out the FAFSA!</h2>
+                                <p>Get the facts and fill it out now to det&hellip;</p>
+                                
+                                <p class="clear"></p>
+                            </li>
+                            <li data-target="#carousel-generic" data-slide-to="1">
+
+                                
+
+                                <div class="grow pic">
+                                    <img data-src="/media/31267/fin-aid-programs-2-18-01.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" src="/media/31267/fin-aid-programs-2-18-01.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" class="carouselimg" alt="Find State Financial Aid Programs" />
+                                </div>
+                                <h2>Find State Financial Aid Programs</h2>
+                                <p>From high school to college and beyond, &hellip;</p>
+                                
+                                <p class="clear"></p>
+                            </li>
+                            <li data-target="#carousel-generic" data-slide-to="2">
+
+                                
+
+                                <div class="grow pic">
+                                    <img data-src="/media/113449/get-ahead-dual-enrollment.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" src="/media/113449/get-ahead-dual-enrollment.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131643753760000000" class="carouselimg" alt="Dual Enrollment" />
+                                </div>
+                                <h2>Earn College Credits in High School</h2>
+                                <p>When it comes to college, more time mean&hellip;</p>
+                                
+                                <p class="clear"></p>
+                            </li>
+                            <li data-target="#carousel-generic" data-slide-to="3">
+
+                                
+
+                                <div class="grow pic">
+                                    <img data-src="/media/187525/hope-career-grant-12-17-01.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131647076410000000" src="/media/187525/hope-career-grant-12-17-01.png?anchor=center&amp;mode=crop&amp;width=115&amp;height=78&amp;rnd=131647076410000000" class="carouselimg" alt="HOPE Career Grant" />
+                                </div>
+                                <h2>Learn Skills for a High-Demand Career</h2>
+                                <p>The HOPE Career Grant offers FREE tuitio&hellip;</p>
+                                
+                                <p class="clear"></p>
+                            </li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                            <div class="item active">
+                                <img data-src="/media/31381/time-for-fafsa-2-18-01-1.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" src="/media/31381/time-for-fafsa-2-18-01-1.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" alt="Spread the word: Fill out the FAFSA!" />
+                                <div class="carousel-caption slider-caption">
+                                    <h2>Spread the word: Fill out the FAFSA!</h2>
+                                    <p>Get the facts and fill it out now to determine your eligibility for financial aid to help pay for college.</p>
+                                    <a href="/federal-aid-scholarships/fafsa/"><button type="button" class="btn btn-default bttn bttn-default btn-slider">Learn more</button></a>
+                                    <br class="clear" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img data-src="/media/31266/fin-aid-programs-2-18-01.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" src="/media/31266/fin-aid-programs-2-18-01.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" alt="Find State Financial Aid Programs" />
+                                <div class="carousel-caption slider-caption">
+                                    <h2>Find State Financial Aid Programs</h2>
+                                    <p>From high school to college and beyond, there may be a state financial aid program to help you pay for your education.</p>
+                                    <a href="https://www.gafutures.org/hope-state-aid-programs/"><button type="button" class="btn btn-default bttn bttn-default btn-slider">Learn more</button></a>
+                                    <br class="clear" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img data-src="/media/113450/get-ahead-dual-enrollment.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" src="/media/113450/get-ahead-dual-enrollment.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131643753760000000" alt="Dual Enrollment" />
+                                <div class="carousel-caption slider-caption">
+                                    <h2>Earn College Credits in High School</h2>
+                                    <p>When it comes to college, more time means more money. Save both with Dual Enrollment. Find out if you're eligible and how to participate!</p>
+                                    <a href="https://www.gafutures.org/hope-state-aid-programs/scholarships-grants/dual-enrollment/"><button type="button" class="btn btn-default bttn bttn-default btn-slider">Learn more</button></a>
+                                    <br class="clear" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img data-src="/media/187526/hope-career-grant-12-17-01.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131647076410000000" src="/media/187526/hope-career-grant-12-17-01.png?anchor=center&amp;mode=crop&amp;width=720&amp;height=465&amp;rnd=131647076410000000" alt="HOPE Career Grant" />
+                                <div class="carousel-caption slider-caption">
+                                    <h2>Learn Skills for a High-Demand Career</h2>
+                                    <p>The HOPE Career Grant offers FREE tuition for 17 high-demand programs in careers where there are more jobs than skilled workers.</p>
+                                    <a href="https://www.gafutures.org/hope-state-aid-programs/hope-zell-miller-grants/hope-career-grant/"><button type="button" class="btn btn-default bttn bttn-default btn-slider">Learn more</button></a>
+                                    <br class="clear" />
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="slider-control">
+                        <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+                            <span class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+                            <span class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div> <!--end carousel-->
+            </div>
+        </div>
+    </div>
+</div> <!-- end container slider-->
+<div class="container main">
+    <div class="row">
+        <div class="col-md-9 leftcolumn award-slider">
+            <h2 class="secton_label_color mid-slider-title">Award Recipients: Their Stories</h2>
+            <div class="accordion">
+                <div id="accordionm">
+<div>
+                            <div>
+                                <h4>
+                                    
+                                        <img data-src="/media/1013/laura-vinson-302by320.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131643620260000000" src="/media/1013/laura-vinson-302by320.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131643620260000000" alt="REACH Georgia" />
+                                    
+                                </h4>
+                            </div>
+                            <div class="content">
+                                <div>
+                                        <h2 class="persona_role_1">REACH Georgia</h2>
+                                        <p><p><span>Part of the inaugural class of REACH Georgia Scholars, Laura Vinson is achieving her academic dreams.</span></p>
+<p><span>Learn more about</span><span> <a href="https://www.gafutures.org/hope-state-aid-programs/award-recipients/#Laura" title="Laura Vinson">Laura</a> </span><span>and the<span> <a data-id="1975" href="/hope-state-aid-programs/scholarships-grants/reach-georgia/" title="REACH Georgia">REACH Georgia Program</a>.</span></span></p></p>                                </div>
+                            </div>
+                        </div>
+<div>
+                            <div>
+                                <h4>
+                                    
+                                        <img data-src="/media/1011/miguel-rarimez-320-by-302.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131641188870000000" src="/media/1011/miguel-rarimez-320-by-302.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131641188870000000" alt="HOPE Scholarship" />
+                                    
+                                </h4>
+                            </div>
+                            <div class="content">
+                                <div>
+                                        <h2 class="persona_role_2">HOPE Scholarship</h2>
+                                        <p><p>Unexpected family events forced Miguel Ramirez to drop out, but with the HOPE Scholarship he returned and graduated with honors.</p>
+<p> </p>
+<p>Learn more about <a href="https://www.gafutures.org/hope-state-aid-programs/award-recipients/#Miguel" title="Miguel Ramirez">Miguel</a> and the <a data-id="1747" href="/hope-state-aid-programs/hope-zell-miller-scholarships/hope-scholarship/" title="HOPE Scholarship">HOPE Scholarship</a>.</p></p>                                </div>
+                            </div>
+                        </div>
+<div>
+                            <div>
+                                <h4>
+                                    
+                                        <img data-src="/media/1012/qasim-hassan-302-by-320.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131641188870000000" src="/media/1012/qasim-hassan-302-by-320.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131641188870000000" alt="Zell Miller Scholarship" />
+                                    
+                                </h4>
+                            </div>
+                            <div class="content">
+                                <div>
+                                        <h2 class="persona_role_3">Zell Miller Scholarship</h2>
+                                        <p><p><span>The journey of Qasim Hassan went from early childhood challenges</span><span><span> </span></span><span>to class valedictorian and a Zell Miller Scholarship</span><span>.</span></p>
+<p> </p>
+<p>Learn more about <a href="https://www.gafutures.org/hope-state-aid-programs/award-recipients/#Qasim" title="Qasim Hassan">Qasim</a> and the <a data-id="1729" href="/hope-state-aid-programs/hope-zell-miller-scholarships/zell-miller-scholarship/" title="Zell Miller Scholarship">Zell Miller Scholarship</a>.</p></p>                                </div>
+                            </div>
+                        </div>
+<div>
+                            <div>
+                                <h4>
+                                    
+                                        <img data-src="/media/1014/gsfc-in-the-news-no-border.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131514306970000000" src="/media/1014/gsfc-in-the-news-no-border.jpg?anchor=center&amp;mode=crop&amp;width=302&amp;height=320&amp;rnd=131514306970000000" alt="GSFC In The News" />
+                                    
+                                </h4>
+                            </div>
+                            <div class="content">
+                                <div>
+                                        <h2 class="persona_role_4">GSFC In The News</h2>
+                                        <p><p>From profiles on high-achieving Georgians taking advantage of one of our programs to important information on higher education, check out news links from across the state concerning the Georgia Student Finance Commission.</p>
+<p> </p>
+<p>Learn more about <a data-id="2524" href="/about-us/communications/gsfc-in-the-news/" title="GSFC In The News">GSFC In The News</a>.</p></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 rightcolumn">
+                <h2 class="secton_label_color" style="width: 100%">NEWS YOU CAN USE</h2>
+    <div class="newstabs">
+        <ul class="nav nav-tabs nav-justified" id="newsTab">
+            <li class="active"><a href="#tab1" data-toggle="tab">Trending</a></li>
+            <li><a href="#tab2" data-toggle="tab">Shortcuts</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <ul class="tabbuttons">
+                            <li><a href="https://apps.gsfc.org/securenextgen/dsp_stem_course_listings.cfm">STEM Weighted Courses Directory <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://apps.gsfc.org/SecureNextGen/dsp_award_amounts.cfm">2017-2018 Award Amounts <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://www.gafutures.org/about-us/outreach/gsfc-outreach/representative-territory-map/">Find Your GSFC Outreach Rep <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="/media/187458/college-connector-final-reduced-digital.pdf">Georgia&#39;s College Connector 2017-2018 <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="/resources/quick-guides/">GAfutures Quick Guides and FAQs <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="/hope-state-aid-programs/state-aid-applications/">State Financial Aid Applications <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://www.gafutures.org/hope-state-aid-programs/scholarships-grants/dual-enrollment/">MOWR is Now Dual Enrollment <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="tab2">
+                <ul class="tabbuttons">
+                            <li><a href="https://apps.gsfc.org/GSFA/FinalStatusReport.pdf">2017 Final HOPE GPA Calc Report <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://www.gafutures.org/hope-state-aid-programs/scholarships-grants/dual-enrollment/application-procedure-and-deadline/">Dual Enrollment Funding Application <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://apps.gsfc.org/gsfa/gsfapps_index_ng.cfm">GSFAPPS <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="/my-gafutures/#hopegpa">Your HOPE GPA <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://gsfc.georgia.gov/regulations-2017-2018">2017 – 2018 State Program Regulations <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://gsfc.georgia.gov/february-quarterly-newsletter-1">GSFC Quarterly Newsletter <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                            <li><a href="https://apps.gsfc.org/main/ga411info/find_events_near_me.cfm">GSFC Events Near Me <span class="glyphicon glyphicon-chevron-right hiden"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        </div> <!-- end rightcolumn-->
+    </div>
+</div> <!-- end container main-->
+<div class="container bottommodules">
+    <div class="row">
+        <div class="col-md-4 leftbottom-box">
+            <div class="websites">
+                <h3 class="">Administrative Section</h3>
+                <ul class="ulwebsites">
+                        <a href="https://apps.gsfc.org/secureNG/MainModule.cfm">
+                            <li>
+                                <img data-src="/media/31240/stars.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131128028460000000" src="/media/31240/stars.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131128028460000000" class="imgwebsites" alt="STARS" />
+
+                                <h4>STARS</h4>
+                                <p>Tracking for eligible high school educators and counselors.</p>
+                            </li>
+                        </a>
+                        <a href="https://apps.gsfc.org/secureNG/MainModule.cfm">
+                            <li>
+                                <img data-src="/media/31239/surfer2.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131128028630000000" src="/media/31239/surfer2.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131128028630000000" class="imgwebsites" alt="SURFER" />
+
+                                <h4>SURFER</h4>
+                                <p>Electronic reporting for eligible postsecondary institutions.</p>
+                            </li>
+                        </a>
+                        <a href="https://control.xap.com/">
+                            <li>
+                                <img data-src="/media/31390/xapcontrolcenter.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131134860740000000" src="/media/31390/xapcontrolcenter.jpg?anchor=center&amp;mode=crop&amp;width=80&amp;height=73&amp;rnd=131134860740000000" class="imgwebsites" alt="XAP Control Center" />
+
+                                <h4>XAP Control Center</h4>
+                                <p>XAP Corporation's control center for college and university clients.</p>
+                            </li>
+                        </a>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="col-md-5 middlecolum">
+            <div class="middlec">
+                    <h3 class=""></h3>
+                    <h4></h4>
+                    <p><a class="twitter-timeline" href="https://twitter.com/GAfutures" data-widget-id="708362785869176832" width="120%" height="410">Tweets by @GAfutures</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
+                    <p class="clear"></p>
+            </div>
+        </div>
+        <div class="col-md-3 rightcolumn">
+            	
+<div id="accordionbottom">
+	<div class="panel-group" id="accordionb">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionb" href="#collapseOneb">College Money Matters</a>
+					</h4>
+				</div>
+				
+							
+				<div id="collapseOneb" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<!-- <img data-src="/media/177957/money-matters-accordion-01-1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131356795570000000" src="/media/177957/money-matters-accordion-01-1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131356795570000000" class="acbimg" alt="College Money Matters"> -->
+                        
+						<img data-src="/media/177957/money-matters-accordion-01-1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131356795570000000" src="/media/177957/money-matters-accordion-01-1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131356795570000000" class="acbimg img-responsive" alt="money-matters-accordion-01-1">
+						<p>College Money Matters can help you get financially fit before, during and after college.</p>
+						<a href="/college-planning/college-money-matters"><button type="button" class="btn btn-default bttn bttn-default navbar-btn">Learn more</button></a>
+						
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionb" href="#collapseTwob">GATRACS</a>
+					</h4>
+				</div>
+				
+							
+				<div id="collapseTwob" class="panel-collapse collapse">
+					<div class="panel-body">
+						<!-- <img data-src="/media/1031/gatracs1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131160606260000000" src="/media/1031/gatracs1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131160606260000000" class="acbimg" alt="GATRACS"> -->
+                        
+						<img data-src="/media/1031/gatracs1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131160606260000000" src="/media/1031/gatracs1.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131160606260000000" class="acbimg img-responsive" alt="gatracs1">
+						<p>The Georgia Transfer Articulation Cooperative Services (GATRACS) makes college transfers easy.</p>
+						<a href="https://portal.gatracs.org"><button type="button" class="btn btn-default bttn bttn-default navbar-btn">Learn more</button></a>
+						
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionb" href="#collapseThreeb">EMBARK Georgia</a>
+					</h4>
+				</div>
+				
+							
+				<div id="collapseThreeb" class="panel-collapse collapse">
+					<div class="panel-body">
+						<!-- <img data-src="/media/31294/embark-logo-smaller.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131057154970000000" src="/media/31294/embark-logo-smaller.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131057154970000000" class="acbimg" alt="EMBARK Georgia"> -->
+                        
+						<img data-src="/media/31294/embark-logo-smaller.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131057154970000000" src="/media/31294/embark-logo-smaller.png?anchor=center&amp;mode=crop&amp;width=243&amp;height=179&amp;rnd=131057154970000000" class="acbimg img-responsive" alt="embark-logo-smaller">
+						<p>Resources for students who have experienced foster care or homelessness.</p>
+						<a href="https://embarkgeorgia.org/"><button type="button" class="btn btn-default bttn bttn-default navbar-btn">Learn more</button></a>
+						
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container-fluid footer" id="divFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 ftr_bdr">
+                    <h3 class="persona_role_link_3">Main Menu</h3>
+                    <ul class="footer">
+                        <li><a href="/">Home</a></li>
+                            <li><a href="/hope-state-aid-programs/">HOPE &amp; State Aid Programs</a></li>
+                            <li><a href="/federal-aid-scholarships/">Federal Aid &amp; Scholarships</a></li>
+                            <li><a href="/college-planning/">College Planning</a></li>
+                            <li><a href="/career-exploration/">Career Exploration</a></li>
+                            <li><a href="/resources/">Resources</a></li>
+                            <li><a href="/about-us/">About Us</a></li>
+                            <li><a href="/my-gafutures/">My GAfutures</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 ftr_bdr">
+                    <h3 class="persona_role_link_1">Resources</h3>
+                    <ul class="footer">
+
+                            <li><a href="/college-search">College Search</a></li>
+                            <li><a href="/scholarship-search/">Scholarship Search</a></li>
+                            <li><a href="https://gafutures.xap.com/College_Planning/Applications_and_Transcripts/Apply_to_College/Apply_to_College.aspx">College Applications</a></li>
+                            <li><a href="/my-gafutures/my-transcript/">High School Transcripts</a></li>
+                            <li><a href="/resources/marketing-materials/">Marketing Materials</a></li>
+                            <li><a href="/resources/quick-guides/">GAfutures Training/FAQs</a></li>
+                    </ul>
+                </div>
+                <!--<div class="col-xs-2 col-sm-2 col-md-2 ftr_bdr">
+                <h3 class="persona_role_link_1"><br></h3>
+                <ul class="footer">
+
+                    </ul>
+                </div>-->
+                <div class="col-sm-3 ftr_bdr text-center">
+                    <h3 class="persona_role_link_2">Our Websites</h3>
+                    <p class="clear"></p>
+                    <a href="http://gsfc.georgia.gov/" target="_blank"  class="no-txdeco">
+                        <img src="/images/GSFC%20logo%2079x79-01.png" border="0" alt="Georgia Student Finance Commission logo" title="Administrator of more than 20 state- and lottery-funded scholarships, grants and service-cancelable loan programs that ensure Georgians have an opportunity to access education beyond high school." />
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="http://pathways2gsfa.org" target="_blank" class="no-txdeco">
+                        <img src="/images/Pathways2GSFA Logo-small.png" border="0" alt="Georgia Student Finance Authority logo" title="Helping borrowers to manage student loans and financial ‎obligations to GSFA." />
+                    </a>
+                    <a href="http://reachga.org" target="_blank" class="no-txdeco">
+                        <img src="/images/reach-logo.png" border="0" alt="Reach Georgia logo" title="Needs-based mentorship and scholarship program designed to encourage students, starting in middle school, to persist in their educational pursuits." />
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="https://www.path2college529.com" target="_blank" class="no-txdeco">
+                        <img src="/images/529-path2college-logo.png" border="0" alt="Pathways logo" title="Discover everything you need to know about saving for college, what the Path2College 529 Plan can do to help, and how to help maximize your savings even on a modest budget." />
+                    </a>
+                </div>
+
+                <div class="col-sm-2 ftr_bdr">
+                    <h3 class="persona_role_link_5">External Links</h3>
+                    <ul class="footer">
+                            <li><a href="http://www.gadoe.org/Pages/Home.aspx">Georgia DOE</a></li>
+                            <li><a href="https://studentaid.ed.gov/sa/">Federal Student Aid</a></li>
+                            <li><a href="https://tcsg.edu/">TCSG</a></li>
+                            <li><a href="http://www.usg.edu/">USG</a></li>
+                            <li><a href="http://www.georgiacolleges.org/">GICA</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <h3 class="persona_role_link_3">Social Media</h3>
+                        <div class="social-media">
+                            <div><a href="https://www.facebook.com/Gafutures" target="_blank"><img src="/images/facebook-logo.png"></a></div>
+                            <div><a href="https://twitter.com/Gafutures" target="_blank"><img src="/images/twitter-logo.png"></a></div>
+                            
+                            <div><a href="https://www.youtube.com/channel/UCyRATRXM5BetK3tdPQyzOtQ" target="_blank"><img src="/images/youtube-logo.png"></a></div>
+                            <br class="clear" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="container-fluid copyright" id="divCopyRight">
+        <p class="copyr"><a href="/media/31306/website-terms-of-use.pdf" target="_blank">Terms of Use</a> | <a href="/media/31305/privacy-policy.pdf" target="_blank">Privacy Statement </a>| <a href="/about-us/site-map/">Site Map</a> | <a href="/copyright-section/need-help">Need Help?</a></p>
+        <p class="copyr">
+            &copy;
+            <script language="JavaScript" type="text/javascript">document.write((new Date()).getFullYear());</script> All rights reserved
+        </p>
+        <p class="copyr">
+            <img src="/images/copyrightimg.png" class="copyright-logos" alt="Georgia Student Finance Commission" /> 
+        </p>
+    </div>
+</div>
+    <!-- Create an Account popup box -->
+    <div class="modal fade" id="signin" role="dialog" data-ng-controller="CreateAccountController">
+
+        <div class="" id="loginModal">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="close()">X</button>
+                <h3 style="color: black;">Have an Account?</h3>
+            </div>
+            <div class="modal-body well">
+                
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a id="login_tab" href="#login" data-toggle="tab">Sign In</a></li>
+                        <li class=""><a id="create_tab" href="https://www.gafutures.org/create-account" data-toggle="tab">Create Account</a></li>
+                    </ul>
+
+                    <div id="myTabContent" class="nav-tab-container-login" style="margin-top:0;">
+                        <div class="tab-pane active in" id="login" data-ng-controller="signupController">
+                            <input id="reqvallogin" type="text" data-ng-model="user.reqvallogin" ng-hide="true" />
+                            <form method="post" id="login_formGAF" name="login_form" class="form-horizontal" data-ng-submit="signIn(login_form)" novalidate>
+                                <fieldset>                                    
+                                    <div id="divSignInDisplay" style="display: block">
+                                        <div class="control-group">
+                                        <small>                                           
+                                            If you have a GAcollege411 account, you may Sign In with that Username and Password.                                           
+                                            If you cannot Sign In with your GAcollege411 account, create a new GAfutures account.
+                                            If you have a STARS/SURFER account, use your STARS/SURFER Username (lowercase) and Password to Sign In.
+                                        </small>
+                                            <!-- Username -->
+                                        <label class="control-label" for="username">Username &nbsp;&nbsp; <a href="" id="lnkForgotUN" aria-hidden="true" data-dismiss="modal" data-target="#Forgotusername" data-toggle="modal">Forgot Username?</a></label>
+                                            
+                                            <div class="controls">
+                                            <input type="text" autofocus id="username" data-ng-model="user.username" name="username" placeholder="Username is lowercase"  class="input-100p" ng-pattern="UsernamePattern" maxlength="49" Style="text-transform: lowercase;" validate-on-blur>
+                                                <span style="color:red" ng-show="login_form.username.$error.pattern">We’ve detected that your username may be from our former websites, please refer to <a href="https://www.gafutures.org/resources/quick-guides/general-frequently-asked-questions/" target="_blank">this FAQ</a> before signing-in</span>
+                                            
+                                        </div>
+                                            <!-- Password-->
+                                        <label class="control-label" for="password">Password &nbsp;&nbsp;<a href="" id="lnkForgotPWD" aria-hidden="true" data-dismiss="modal" data-target="#ForgotPassword" data-toggle="modal">Forgot Password?</a></label>
+                                            <div class="controls">
+                                            <input type="password" id="password" data-ng-model="user.password" name="password" placeholder="Password is case sensitive" class="input-100p" maxlength="20">                                            
+                                            </div>
+                                        <button class="btn btn-success" type="submit" ng-click="buttonClick = true">Sign In</button>                                    
+                                    </div>                                  
+                                    </div>
+                                    
+                                    <div id="divShareAccount" style="display: none">
+                                        <div class="control-group">
+                                            <label>Select Account</label>
+                                            <select data-ng-model="user.shrAccount" id="shrAccount" class="input-xlarge" data-ng-options="sharedAccount.Share_Username as sharedAccount.Share_Name for sharedAccount in sharedAccounts">
+                                                <option value="">Yourself</option>
+                                            </select>
+                                        </div>
+                                        <div class="control-group">
+                                            <button class="btn btn-success" type="submit" ng-click="SelectSharedAccount(user.shrAccount)">Go</button>
+
+                                        </div>
+                                    </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="cancel()">Cancel</button>
+        </div>
+    </div>
+    
+    <!-- SignIn popup box -->
+    <!-------Forgot Username--------------->
+    <div class="modal" id="Forgotusername" role="dialog" data-ng-controller="CreateAccountController">
+        <div class="" id="loginModal">
+            <input id="reqFUN" type="text" data-ng-model="user.reqFUN" ng-hide="true" />
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="close()">X</button>
+                <h3 id="mainHead" style="color: black;">Forgot Your Username?</h3>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div id="myTabContent" class="tab-content ">
+
+                        <div class="tab-pane active in" id="forgotusername">
+                            <form method="post" name="ForgotUsername_form" id="tabUsername" data-ng-submit="ForgotUsernameSubmit(ForgotUsername_form)" novalidate>
+                                <fieldset>
+                                    <label style="font-size: 17px;font-weight:normal">Email my username to me</label><br/>
+                                    <p>Field marked with <span style="color: #E74C3C">&nbsp;&#42;</span> are required.</p>
+                                    <div class="control-group">
+                                        
+                                        
+                                            <label>Enter the email address associated with your GAfutures account<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                            <input type="email" name="emailFUN" id="emailFUN" class="input-xlarge" data-ng-model="user.emailFUN" ng-required="true" maxlength="49" validate-on-blur>
+                                            <span style="color:red" data-ng-show="ForgotUsername_form.emailFUN.$error.email">Invalid email</span>
+                                            <span style="color:red" data-ng-show="ForgotUsername_form.emailFUN.$error.required && SubmitFUNClick && user.reqFUN">Email is required</span>
+                                            <div>&nbsp</div>
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <button class="btn btn-success" type="submit" ng-click="SubmitFUNClick=true">Submit</button>
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------->
+    <!-------Forgot Password--------------->
+    <div class="modal fade" id="ForgotPassword" role="dialog" data-ng-controller="CreateAccountController">
+        <input id="reqFPWD" type="text" data-ng-model="user.reqFPWD" ng-hide="true" />
+        <div class="" id="loginModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="close()">X</button>
+                <h3 id="mainHead" style="color: black;">Reset Password</h3>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div id="myTabContent" class="tab-content ">
+
+                        <div class="tab-pane active in create_account_body" id="forgotpassword">
+                            <form method="post" name="ForgotUPassword_form" id="tabPassword" novalidate>
+                                <fieldset>
+                                    
+                                    <label>Please choose one:</label>
+                                    <p>Fields marked with <span style="color: #E74C3C">&nbsp;&#42;</span> are required.</p>
+                                    <div class="control-group">
+                                      
+                                        <div id="divrbnEmailPWD"><input id="rbnEmailPWD" name="rbnEmailPWD" type="radio" data-ng-model="user.rbnEmailPWD" data-ng-init="user.rbnEmailPWD=false" data-ng-click="rbnEmailPWD_click()">&nbsp Email a temporary password to me<br /></div>
+                                        <div data-ng-show="EmailPwd.loading">
+                                            <input id="reqFEmail" type="text" data-ng-model="user.reqFEmail" ng-hide="true" />
+                                            <label>Enter username<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                            <input type="text" name="UsernameEmail" id="UsernameEmail" class="input-xlarge" data-ng-model="user.UsernameEmail" data-ng-required="user.reqFEmail" ng-pattern="CreateUsernamePattern" placeholder="Username is lowercase" Style="text-transform: lowercase;" maxlength="49" title="Must be between 6 to 49 characters and cannot contain (&#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space)" validate-on-blur>
+                                            <span style="color:red" data-ng-show="ForgotUPassword_form.UsernameEmail.$error.required && SubmitEmail && user.reqFPWD">Username is required</span><br />
+                                            
+                                            
+                                            <ul style="color:red" ng-show="ForgotUPassword_form.UsernameEmail.$error.pattern"><li>A username must be between 6 and 49 characters</li><li>Not contain &#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space</li></ul>
+                                            <label>Enter the email address associated with your GAfutures account<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                            <input type="email" name="emailPwd" id="emailPwd" class="input-xlarge" data-ng-model="user.emailPwd" data-ng-required="user.reqFEmail" maxlength="49" validate-on-blur>
+                                            <span style="color:red" data-ng-show="ForgotUPassword_form.emailPwd.$error.email">Invalid email</span>
+                                            <span style="color:red" data-ng-show="ForgotUPassword_form.emailPwd.$error.required && SubmitEmail && user.reqFPWD">Email is required</span>
+                                            <div>&nbsp</div>
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <button class="btn btn-success" type="submit" data-ng-click="ForgotPasswordEmail(ForgotUPassword_form);SubmitEmail=true">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="divrbnSecPWD"><input id="rbnSecPWD" type="radio" data-ng-model="user.rbnSecPWD" data-ng-init="user.rbnSecPWD=false" data-ng-click="rbnSecPWD_click()" />&nbsp I want to use my security questions to reset my password<br /></div>
+                                        <div data-ng-show="SecQuestPwd.loading">
+                                            <input id="reqFSec" type="text" data-ng-model="user.reqFSec" ng-hide="true" />
+                                            <label>Enter username<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                            <input type="text" name="UsernamePwd" id="UsernamePwd" class="input-xlarge" data-ng-model="user.UsernamePwd" data-ng-required="user.reqFSec" ng-pattern="CreateUsernamePattern" placeholder="Username is lowercase" Style="text-transform: lowercase;" maxlength="49" title="Must be between 6 to 49 characters and cannot contain (&#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space)" validate-on-blur>
+                                                <span style="color:red" data-ng-show="ForgotUPassword_form.UsernamePwd.$error.required && SubmitFUNClicked && user.reqFPWD">Username is required</span><br />
+                                                
+                                                
+                                                <ul style="color:red" ng-show="ForgotUPassword_form.UsernamePwd.$error.pattern"><li>A username must be between 6 and 49 characters</li><li>Not contain &#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space</li></ul>
+                                                <div>&nbsp</div>
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <button class="btn btn-success" id="btnSecQuest" type="submit" ng-click="btnSecQuest(ForgotUPassword_form);SubmitFUNClicked=true">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div data-ng-show="SecQuestwithPwd.loading">
+                                                {{user.SecQwpwd1}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                                <input type="text" name="SectxtQwpwd1" id="SectxtQwpwd1" class="input-xlarge" data-ng-model="user.SectxtQwpwd1" maxlength="70" data-ng-required="user.wpwdsecreq" validate-on-blur>
+                                                <span style="color:red" data-ng-show="ForgotUPassword_form.SectxtQwpwd1.$error.required && wpwdsubmits && user.reqFPWD">Required field</span><br />
+                                                {{user.SecQwpwd2}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                                <input type="text" name="SectxtQwpwd2" id="SectxtQwpwd2" class="input-xlarge" data-ng-model="user.SectxtQwpwd2" maxlength="70" data-ng-required="user.wpwdsecreq" validate-on-blur>
+                                                <span style="color:red" data-ng-show="ForgotUPassword_form.SectxtQwpwd2.$error.required && wpwdsubmits && user.reqFPWD">Required field</span><br />
+                                                {{user.SecQwpwd3}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                                <input type="text" name="SectxtQwpwd3" id="SectxtQwpwd3" class="input-xlarge" data-ng-model="user.SectxtQwpwd3" maxlength="70" data-ng-required="user.wpwdsecreq" validate-on-blur>
+                                                <span style="color:red" data-ng-show="ForgotUPassword_form.SectxtQwpwd3.$error.required && wpwdsubmits && user.reqFPWD">Required field</span><br />
+                                                <input id="wpwdsecreq" type="text" data-ng-model="user.wpwdsecreq" ng-hide="true" />
+                                                <div>&nbsp</div>
+                                            <span data-ng-show="tempPwd.loading">Your temporary password is: <span style="color: #0e27ea"><strong>{{user.SecQwNewPwd}}</strong></span><br /> Copy this password. Click Sign in (top of the page) and enter it there.</span>
+                                                <div class="controls">
+                                                    <button class="btn btn-success" id="btnwpwd" type="submit" ng-click="btnwpwdclick(ForgotUPassword_form);wpwdsubmits=true">Submit</button>
+                                                </div>
+                                            </div>
+                                            <div data-ng-show="SecQuestwithoutPwd.loading">
+                                        
+                                                <label>
+                                                    Important! Our records indicate that this is the first time your GAcollege411 account is being used on GAfutures.  For security, and based on the data you provided in your GAcollege411 account, please answer 3 of these questions below exactly as you did in your Gacollege411 account. Thank you.
+                                                </label>
+                                                <div Id="Seclastnamewopwd" style="display:none">
+                                                    <label>Last Name</label>
+                                                <input type="text" name="lastnamewopwd" id="lastnamewopwd" class="input-xlarge" data-ng-model="user.lastnamewopwd" maxlength="49" ng-pattern="/^(?!.*--)(?:[\s,.`'-]*[\u00C0-\u017F\a-zA-Z\pL][\s,.`'-]*){2,}$/" validate-on-blur>
+                                                    <span style="color:red" ng-show="ForgotUPassword_form.lastnamewopwd.$error.pattern">Cannot contain invalid characters or be at less than 2 characters in length</span>
+                                                </div>
+                                                <div Id="SecSSNwopwd" style="display:none">
+                                                    <label>Social security number</label>
+                                                    <input type="text" name="SSNwopwd" id="SSNwopwd" class="input-xlarge" data-ng-model="user.SSNwopwd" ng-pattern="/[0-9]{9,9}/" maxlength="9" title="only numbers are allowed and must be 9 numbers." validate-on-blur>
+                                                    <span style="color: red" ng-show="ForgotUPassword_form.SSNwopwd.$error.pattern">only numbers are allowed and must be 9 numbers.</span>
+                                                </div>
+                                                <div Id="SecDOBwopwd" style="display:none">
+                                                    <label>Date of birth (mm/dd/yyyy)</label>
+                                                    <input type="text" name="DOBwopwd" id="DOBwopwd" class="input-xlarge" data-ng-model="user.DOBwopwd" datepicker data-ng-init="user.DOBwopwd" ng-pattern="/^\d{2}\/\d{2}\/\d{4}$/" maxlength="10" validate-on-blur>
+                                                    <span style="color: red" ng-show="ForgotUPassword_form.DOBwopwd.$error.pattern">Invalid date</span>
+                                                </div>
+                                                <div Id="SecgrdYearwopwd" style="display:none">
+                                                    <label>Year of High School Graduation</label>
+                                                    <input type="text" name="grdYearwopwd" id="grdYearwopwd" class="input-xlarge" data-ng-model="user.grdYearwopwd" ng-pattern="/[0-9]{4,4}/" title="only numbers are allowed and must be 4 numbers." maxlength="4" validate-on-blur>
+                                                    <span style="color: red" ng-show="ForgotUPassword_form.grdYearwopwd.$error.pattern">only numbers are allowed and must be 4 numbers</span>
+                                                </div>
+                                                <div Id="Secphonewopwd" style="display:none">
+                                                    <label>Contact Phone</label>
+                                                    <input type="text" name="phonewopwd" id="phonewopwd" class="input-xlarge" data-ng-model="user.phonewopwd" ng-pattern="/^[0-9]+$/" maxlength="49" title="only numbers are allowed." validate-on-blur>
+                                                    <span style="color: red" ng-show="ForgotUPassword_form.phonewopwd.$error.pattern">only numbers are allowed</span>
+                                                </div>
+                                                <div Id="Secemailwopwd" style="display:none">
+                                                    <label>Email</label>
+                                                    <input type="email" name="emailwopwd" id="emailwopwd" class="input-xlarge" data-ng-model="user.emailwopwd" maxlength="49" validate-on-blur>
+                                                    <span style="color: red" data-ng-show="ForgotUPassword_form.emailwopwd.$error.email">Invalid email</span>
+                                                </div>
+                                                <div Id="Secaddresswopwd" style="display:none">
+                                                    <label>All numbers entered in your street address</label>
+                                                    <input type="text" name="addresswopwd" id="addresswopwd" class="input-xlarge" data-ng-model="user.addresswopwd" ng-pattern="/^[0-9]+$/" validate-on-blur>
+                                                    <span style="color: red" ng-show="ForgotUPassword_form.addresswopwd.$error.pattern">only numbers are allowed</span>
+                                                </div>
+                                            <span data-ng-show="tempwoutPwd.loading">Your temporary password is: <span style="color: #0e27ea">{{user.SecQwotNewPwd}}</span><br /> Copy this password. Click Sign in(top of the page) and enter it there.</span>                                           
+                                                <div>&nbsp</div>
+                                                <div class="controls">
+                                                    <button class="btn btn-success" id="btnwoutpwd" type="submit" ng-click="btnwoutpwdclick(ForgotUPassword_form)">Submit</button>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------->
+    <!-------Change Password--------------->
+    <div class="modal fade" id="ChangePassword" role="dialog" data-ng-controller="CreateAccountController">
+        <input id="reqChgPWD" type="text" data-ng-model="user.reqChgPWD" ng-hide="true" />
+        <div class="" id="loginModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="close()">X</button>
+                <h3 id="mainHead" style="color: black;">Change your password</h3>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div id="myTabContent" class="tab-content ">
+
+                        <div class="tab-pane active in" id="chgPassword">
+                            <form method="post" name="ChangePassword_form" id="tabChgPassword" novalidate>
+                                <fieldset> 
+                                    <p>Fields marked with <span style="color: #E74C3C">&nbsp;&#42;</span> are required.</p>
+                                    <div class="control-group">
+                                        <label>Current Password or temporary password<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                        <input type="password" name="chgPassword" id="chgPassword" class="input-xlarge" data-ng-model="user.chgPassword" ng-required="true" maxlength="20" validate-on-blur>
+                                        <span style="color:red" data-ng-show="ChangePassword_form.chgPassword.$error.required && SubmitChgPwd && user.reqChgPWD">Password is required</span>
+                                        <label>
+                                            New Password<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                            Your new password must be at least 8 characters long and contain 1 number, 1 special character, 1 uppercase character, 1 lowercase character and not contain ';`"—  .
+                                        </label>
+                                        <input type="password" name="chgNewPassword" id="chgNewPassword" class="input-xlarge" data-ng-model="user.chgNewPassword" ng-required="true" maxlength="20" ng-pattern="/(?=^.{8,}$)(?!.*(.)\1\1\1\1)(?=.*\d)(?=.*\W+)(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=^.((?!;).)*$)(?=^.((?!-).)*$)(?=^.((?!`).)*$)(?=^.((?!').)*$)(?=^.((?!&quot;).)*$).*/" validate-on-blur>
+                                        <span style="color:red" data-ng-show="ChangePassword_form.chgNewPassword.$error.required && SubmitChgPwd && user.reqChgPWD">New Password is required</span><br/>
+                                        <span style="color:red" data-ng-show="ChangePassword_form.chgNewPassword.$error.pattern">Password must be at least 8 characters long and must contain:</span>
+                                        <ul style="color:red" ng-show="ChangePassword_form.chgNewPassword.$error.pattern"><li>1 number</li><li>1 special character</li><li> 1 uppercase</li><li> 1 lowercase</li><li>Not contain ';`"—</li></ul>
+                                        <label>Confirm Password<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                        <input type="password" name="confirmChgPassword" id="confirmChgPassword" class="input-xlarge" data-ng-model="user.confirmChgPassword" ng-required="true" maxlength="20" ng-pattern="/(?=^.{8,}$)(?!.*(.)\1\1\1\1)(?=.*\d)(?=.*\W+)(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=^.((?!;).)*$)(?=^.((?!-).)*$)(?=^.((?!`).)*$)(?=^.((?!').)*$)(?=^.((?!&quot;).)*$).*/" match-validator="chgNewPassword" validate-on-blur>
+                                        <span style="color:red" data-ng-show="ChangePassword_form.confirmChgPassword.$error.required && SubmitChgPwd && user.reqChgPWD">Confirm password is required</span>
+                                        <ul style="color:red" ng-show="ChangePassword_form.confirmChgPassword.$error.pattern">Password must be at least 8 characters long and must contain:<li>1 number</li><li>1 special character</li><li> 1 uppercase</li><li> 1 lowercase</li><li>Not contain ';`"—</li></ul>
+                                        <span style="color:red" data-ng-show="ChangePassword_form.confirmChgPassword.$error.match  && user.reqChgPWD">Password don't match</span>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button class="btn btn-success" type="submit" ng-click="ChangePassword(ChangePassword_form);SubmitChgPwd=true;">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------->
+    <!-------Account Lock--------------->
+    <div class="modal fade" id="popModal" role="dialog" data-ng-controller="CreateAccountController">
+        <input id="reqUnlock" type="text" data-ng-model="user.reqUnlock" ng-hide="true" />
+        <div class="" id="loginModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-ng-click="close()">X</button>
+                <h3 id="mainHead" style="color: black;">Unlock your account here</h3>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <div id="myTabContent" class="tab-content ">
+
+                        <div class="tab-pane active in" id="divunlockAccount">
+                            <form method="post" name="unlockAccount_form" id="tabunlockAccount" novalidate>
+                                <fieldset>
+                                    <div class="control-group">
+                                        <div data-ng-show="SecQuestUserUnlock.loading">
+                                            <input id="reqUnlockUser" type="text" data-ng-model="user.reqUnlockUser" ng-hide="true" />
+                                            <label>Enter username<span style="color: #E74C3C">&nbsp;&#42;</span></label>
+                                            <input type="text" name="UsernameUnlockUser" id="UsernameUnlockUser" class="input-xlarge" data-ng-model="user.UsernameUnlockUser" data-ng-required="user.reqUnlockUser" ng-pattern="CreateUsernamePattern" placeholder="Username is lowercase" Style="text-transform: lowercase;" maxlength="49" title="Must be between 6 to 49 characters and cannot contain (&#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space)" validate-on-blur>
+                                            <span style="color:red" data-ng-show="unlockAccount_form.UsernameUnlockUser.$error.required && SubmitUnlockUser && user.UsernameUnlockUser">Username is required</span><br />
+                                            
+                                            
+                                            
+                                            <ul style="color:red" ng-show="unlockAccount_form.UsernameUnlockUser.$error.pattern"><li>A username must be between 6 and 49 characters</li><li>Not contain &#39 &#59; &#44; &#38 &#34; &#47; &#92; &#96; &#45; and space</li></ul>
+                                            <div>&nbsp</div>
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <button class="btn btn-success" id="btnUnlockUser" type="submit" ng-click="btnUnlockUser(unlockAccount_form);SubmitUnlockUser=true">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div data-ng-show="SecQuestUnlock.loading">
+                                            {{user.SecQwUnlock1}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                            <input type="text" name="SectxtQwUnlock1" id="SectxtQwUnlock1" class="input-xlarge" data-ng-model="user.SectxtQwUnlock1" data-ng-required=" user.reqUnlock" validate-on-blur>
+                                            <span style="color: red" data-ng-show="unlockAccount_form.SectxtQwUnlock1.$error.required && unlocksubmits && user.reqUnlock">Required field</span><br />
+                                            {{user.SecQwUnlock2}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                            <input type="text" name="SectxtQwUnlock2" id="SectxtQwUnlock2" class="input-xlarge" data-ng-model="user.SectxtQwUnlock2" data-ng-required=" user.reqUnlock" validate-on-blur>
+                                            <span style="color: red" data-ng-show="unlockAccount_form.SectxtQwUnlock2.$error.required && unlocksubmits && user.reqUnlock">Required field</span><br />
+                                            {{user.SecQwUnlock3}}<span style="color: #E74C3C">&nbsp;&#42;</span><br />
+                                            <input type="text" name="SectxtQwUnlock3" id="SectxtQwUnlock3" class="input-xlarge" data-ng-model="user.SectxtQwUnlock3" data-ng-required="user.reqUnlock" validate-on-blur>
+                                            <span style="color: red" data-ng-show="unlockAccount_form.SectxtQwUnlock3.$error.required && unlocksubmits && user.reqUnlock">Required field</span><br />
+                                            <div>&nbsp</div>
+                                            <div class="controls">
+                                                <button class="btn btn-success" id="btnUnlock" type="submit" ng-click="btnUnlockClick(unlockAccount_form);unlocksubmits=true">Submit</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------->
+
+    <script>
+        $('a.taphover').on('touchstart', function (e) {
+            'use strict'; //satisfy the code inspectors
+            var link = $(this); //preselect the link
+            if (link.hasClass('hover')) {
+                return true;
+            } else {
+                link.addClass('hover');
+                $('a.taphover').not(this).removeClass('hover');
+                e.preventDefault();
+                return false; //extra, and to make sure the function has consistent return points
+            }
+        });
+    </script>
+
+
+    <script src="/jScripts/jquery.newheights.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('ul.block1').newHeights();            
+        })
+    </script>
+    <script>
+        if ($(window).width() < 768) {
+            $("#accordionm").zAccordion({
+                startingSlide: 0,
+                auto: true,
+                tabWidth: "9%",
+                width: "100%",
+                height: 270,
+                trigger: "mouseover"
+            });
+            $("h4 a img")
+        }
+        else {
+            $("#accordionm").zAccordion({
+                startingSlide: 0,
+                auto: true,
+                tabWidth: "9%",
+                width: "100%",
+                height: 350,
+                trigger: "mouseover"
+            });
+        }
+
+    </script>
+	
+    <script>
+        $(document).ready(function () {
+            $('#create_btn').on('click', function () {
+                //$('#create_tab').tab('show')
+                var create_account = 'https://www.gafutures.org/create-account';
+                window.location.replace(create_account);
+            })
+
+            $('#login_btn').on('click', function () {
+                $('#login_tab').tab('show')
+            })
+
+            var APICommon = 'https://www.gafutures.org/webapi/api/';
+            var APICommon_value = document.createElement("INPUT");
+            APICommon_value.type = "hidden";
+            APICommon_value.name = "APICommon_Url";
+            APICommon_value.value = APICommon;
+            document.forms[0].appendChild(APICommon_value);           
+
+            var Logout_XAP = document.createElement("INPUT");
+            Logout_XAP.type = "hidden";
+            Logout_XAP.name = "Logout_XAP";
+            Logout_XAP.value = 'https://gafutures.xap.com/Career/Home/LogOff?call=true';
+            document.forms[0].appendChild(Logout_XAP);          
+
+            var API_KEY = document.createElement("INPUT");
+            API_KEY.type = "hidden";
+            API_KEY.name = "API_KEY";
+            API_KEY.value = '74941efe-6158-46a8-a2ea-078084a00859';
+            document.forms[0].appendChild(API_KEY);
+
+            var Reacceptance_Date = document.createElement("INPUT");
+            Reacceptance_Date.type = "hidden";
+            Reacceptance_Date.name = "ReacceptDate";
+            Reacceptance_Date.value = '6-02-2016';
+            document.forms[0].appendChild(Reacceptance_Date);
+			
+			var homelink = document.createElement("INPUT");
+            homelink.type = "hidden";
+            homelink.name = "homelink_Url";
+            homelink.value = '';
+            document.forms[0].appendChild(homelink);
+
+        });
+
+    </script>
+    <input id="hidIUDS" type="hidden" value='/docs/DSA_UserLevel.pdf'/>
+    <input id="hidIADADS" type="hidden" value='/docs/DSA_EntityLevel.pdf' />
+</body>
+
+
+<!-- Libaries -->
+<script src="/jqueryui/chosen.jquery.js"></script>
+<script src="/scripts/libs/angular.min.js"></script>
+<script src="/scripts/GSFCScripts/bootbox.min.js"></script>
+
+<!--College Search-->
+<script src="/jScripts/ui-bootstrap-tpls-1.3.1.js"></script>
+<script src="/jScripts/angular-chosen.js"></script>
+<script src="/scripts/libs/underscore-min.js"></script>
+
+
+<!-- ngApp -->
+<script src="/scripts/ng-app/gsfc.app-v18.0.js"></script>
+<!-- Modules -->
+<script src="/scripts/ng-app/directives/jquery-date.js"></script>
+<script src="/scripts/ng-app/directives/sameas.js"></script>
+<script src="/scripts/ng-app/directives/showErrors.js"></script>
+<script src="/scripts/ng-app/directives/inputValidation.js"></script>
+
+<!-- Models -->
+<script src="/scripts/ng-app/models/api.models.js"></script>
+
+<!-- Services -->
+<script src="/scripts/ng-app/services/signup.api.service.js"></script>
+<script src="/scripts/ng-app/services/broadcast.service.js"></script>
+<script src="/scripts/ng-app/services/ForgotUsernamePassword.service.js"></script>
+
+<!-- Controllers -->
+<script src="/scripts/ng-app/controllers/ForgotUsernamePasswordController-1.0.js"></script>
+<script src="/scripts/ng-app/controllers/signup.controller-1.0.js"></script>
+<script src="/scripts/ng-app/controllers/navigation.controller-1.0.js"></script>
+
+<script type="text/javascript">
+    //Uncommented by PS for BUG 67 in TFS
+    var mygafutures = 'https://www.gafutures.org/?action=signin';
+    //TFS 1260
+    //var username = readCookie('chgusername');
+    var username = sessionStorage.getItem('chgusername');
+    if (username == '' || username == null || username == 'null') {
+        $('a[href*="my-gafutures"]').attr("href", mygafutures)
+    }
+
+    // This function is to passing hash in the URL for my profile
+    $('a[href*="my-profile"]').click(function () {
+        var hash = window.location.hash;
+        window.location.hash = 'my-profile';
+        location.reload();
+    });
+
+
+    $('#create_tab').click(function () {
+        var create_account = 'https://www.gafutures.org/create-account';
+        window.location.replace(create_account);
+    });
+
+    var schoolID;
+    var SchoolName;
+    var SchoolType;
+    var AccontID;
+    var AdminTypeID;
+    var output;
+    
+    if (output != null) {
+        var schoolID = output['institution_id'];
+        var SchoolName = output['institution_name'];
+        var SchoolType = output['institution_type'];
+        var AccontID = output['id'];
+        var AdminTypeID = output['account_type'];        
+        if (AdminTypeID == null || AdminTypeID == "null") {
+            $("a[href='https://gafqa.gsfc.org/AdminGeneralMgmnt']").css('display', 'none');
+        }
+        else {
+            $("a[href='https://gafqa.gsfc.org/AdminGeneralMgmnt']").attr('href', 'https://gafqa.gsfc.org/AdminGeneralMgmnt' + "?" + encodeURIComponent("uname=" + username + "&sID=" + schoolID + "&sName=" + SchoolName + "&sType=" + SchoolType + "&acc=" + AccontID + "&adID=" + AdminTypeID))
+
+        }
+    }
+    
+</script>
+
+
+
+</html>

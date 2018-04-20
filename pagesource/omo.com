@@ -1,0 +1,1 @@
+<h1>Redirecting To <a href="http://www.omo.com/">omo.com</a> </h1>

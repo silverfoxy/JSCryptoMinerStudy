@@ -1,0 +1,1118 @@
+<!doctype html>
+<html>
+<head>
+
+<title>株式会社BMEX</title>
+<meta name="keywords" lang="jp" content="BMEX,ビットコイン,Blockchain,CXトレーダー,アプリ,ビットコインATM,マイニング">
+<meta name="description" lang="jp" content="株式会社BMEXは日本を拠点とするビットコイン取引所・サービスプロバイダーです。">
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width">
+
+<link rel="shortcut icon" href="img/favicon.ico" />
+
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/index2.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+<!-- <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDBTnnZziF9T2u42OLSGDeoHOoafalzt3g&callback=initMap"></script> -->
+
+<script type="text/javascript" src="https://code.highcharts.com/stock/highstock.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+<!-- Show Rate -->
+<script src="./js/rate-updater-sk.js" async="async"></script>
+<!-- <script src="./js/rate-updater-api.js" async="async"></script> -->
+<!-- Show Rate -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+  mode: 'vertical',
+  minSlides:3,
+  maxSlides:3,
+});
+});
+</script>
+<script type="text/javascript">
+$(window).on('scroll resize load click',function() {
+    var wH = $(window).scrollTop();
+    var wH = $(window).scrollTop();
+    var wl = $(window).scrollLeft();
+    var wid = $(window).width();
+	var servise_H=wid/4;
+    var wd = wid-1100;
+    var wd = wd/2;
+	
+	$(".service>div>box").css('height',servise_H+'px');
+	$(".service>div>box").css('width',servise_H+'px');
+	
+	if(wid<1100){
+    	$(".navi2").css('left','-'+wl+'px');
+	}
+	else if(wid>1100){
+    	$(".navi2").css('left','0');
+    	$(".navi2").css('padding-left',wd+'px');
+    	$(".navi2").css('padding-right',wd+'px');
+	}
+
+	if(wH > 92){
+		$('.navi2').css('top','0'); 
+		$('.sidemenu-btn_mb').css('top','11px'); 
+		$('#menubox').css('top','65px'); 
+    	$('.check:checked ~ .sidemenu-btn').css('top',' 86px'); 
+		
+   	}
+    if(wH <92){ 
+		$('.navi2').css('top','-120px'); 
+		$('.sidemenu-btn_mb').css('top','-100px'); 
+		$('.full .sankaku').css('top','-5px'); 
+		$('#menubox').css('top','0'); 
+    	$('.check:checked ~ .sidemenu-btn').css('top','140px'); 
+    }
+});
+
+function clickcheck(){
+	$('#email').css('background','');
+	$('#name').css('background','');
+	$('#text_span').css('display','none');
+	$('#email_span').css('display','none');
+	var name=$("#name").val();
+	var email=$("#email").val();
+	
+	if(name == "" || email == ""){
+		if(name == ""){
+			$('#name').css('background','#FFE3E3');
+			$('#text_span').css('display','');
+		}
+		if(email == ""){
+			$('#email').css('background','#FFE3E3');
+			$('#email_span').css('display','');
+		}
+	}else{
+		document.getElementById('Messagecheck').style.display = '';
+		$('#mail1').text(name);
+		$('#mail2').text(email);
+	}
+}
+
+function mailMagRegister() {
+	document.getElementById('Messagecheck').style.display = 'none';
+	$.post(
+		'https://www.bmex.biz/api/mailmag', 
+		$('#RegisterForm').serialize()
+	).done(function(data) {
+		if(data.suceeded) {
+			showMessage('OK');
+			window.setTimeout(function () {
+				window.location.href = '/index.html';
+			}, 3000);
+		}
+		else {
+			showMessage(data.reason);
+		}
+	}).fail(function() {
+		showMessage('ServerError');
+	});
+}
+
+function showMessage(message) {
+	document.getElementById('RegistrationOk').style.display = 'none';
+	document.getElementById('RegistrationEmailBad').style.display = 'none';
+	document.getElementById('RegistrationEmailInUse').style.display = 'none';
+	document.getElementById('RegistrationServerError').style.display = 'none';
+
+	if(message  === 'OK') {
+		document.getElementById('RegistrationOk').style.display = '';
+	}
+	else if(message === 'BadEmail') {
+		document.getElementById('RegistrationEmailBad').style.display = '';
+	}
+	else if(message === 'ExistingEmail') {
+		document.getElementById('RegistrationEmailInUse').style.display = '';
+	}
+	else {
+		document.getElementById('RegistrationServerError').style.display = '';
+	}
+
+	document.getElementById('MessageBox').style.display = '';
+}
+
+ function initMap() {
+  
+  var latlng2 = new google.maps.LatLng(35.709214, 139.665896); 
+  var latlng3 = new google.maps.LatLng(35.662703, 139.735207); 
+  var latlng4 = new google.maps.LatLng(35.662098, 139.734233); 
+  var latlng5 = new google.maps.LatLng(35.282181, 139.667491); 
+  var latlng6 = new google.maps.LatLng(35.779983, 140.316773); 
+  var latlng7 = new google.maps.LatLng(36.063268, 140.122388); 
+  var latlng8 = new google.maps.LatLng(31.592522, 130.541140); 
+  var latlng9 = new google.maps.LatLng(34.577877, 136.539599); 
+  var latlng_c = new google.maps.LatLng(35.700733, 139.742819); 
+  
+  var myOptions = {
+   zoom: 12, 
+   center:latlng_c,
+   mapTypeId: google.maps.MapTypeId.ROADMAP 
+  };
+
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
+  
+
+  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng2, 
+        map : map         
+      });
+  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng3, 
+        map : map         
+      });
+  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng4, 
+        map : map         
+      });  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng5, 
+        map : map         
+      });  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng6, 
+        map : map         
+      });  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng7, 
+        map : map         
+      });  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng8, 
+        map : map         
+      });  var marker = new google.maps.Marker({
+	          icon: new google.maps.MarkerImage(
+                    'img/icon_map_company.png',                 
+                    new google.maps.Size(55,73),   
+                    new google.maps.Point(0,0)
+                    ),
+        position : latlng9, 
+        map : map         
+      });
+
+
+ var mapStyle = [
+      {
+          "stylers": [
+            { "saturation": -100 }
+          ]
+      }
+    ];
+    var mapType = new google.maps.StyledMapType(mapStyle);
+    map.mapTypes.set('GrayScaleMap', mapType);
+    map.setMapTypeId('GrayScaleMap');
+	  
+ }
+</script>
+
+<script type="text/javascript">
+
+function getTradeHistory(callback) {
+	$.ajax({
+		url: window.location.origin + ( window.location.href.indexOf('/test')!=-1? '/test/api/tradehistory':'/api/tradehistory')
+	}).done(function(data) {
+		if(data.chart) {
+			callback(data);
+		}
+	});
+}
+
+function getTrades(callback) {
+	$.ajax({
+		url: window.location.origin + ( window.location.href.indexOf('/test')!=-1? '/test/api/trades':'/api/trades')
+	}).done(function(data) {
+		if(data.suceeded) {
+			callback(data)
+		}
+	});	
+}
+
+function setup() {
+	getTrades(function(trades) {
+        //var base=trades.LastPrice.toFixed(0);
+        //var usiro = base.substr(-3) ;
+        //var mae = base.replace(usiro,"");
+		
+        document.getElementById('DaysRangeMin').innerHTML = trades.DaysRangeMin;
+        document.getElementById('DaysRangeMax').innerHTML = trades.DaysRangeMax;
+        document.getElementById('LastPrice2').innerHTML = trades.LastPrice;
+	});
+
+	getTradeHistory(function(trades) {
+		$('#RateContainer').highcharts('StockChart', {
+			rangeSelector : {
+				selected : 2
+			},
+
+			title : {
+				text : 'ビットコイン・日本円為替レート推移'
+			},
+
+            credits: {
+                enabled: false
+            },
+
+			series : [{
+				name : 'BTC - JPY',
+				data : trades.chart,
+				lineWidth : 1,
+				marker : {
+					enabled : false,
+					radius : 2
+				},
+				tooltip : {
+					valueDecimals : 2
+				}
+			}]
+		});
+	});
+}
+</script>
+<script>
+   $(function(){
+		$("#menu_list").accordion({
+			active: false,
+			collapsible:true,
+			autoHeight:false,
+		});
+		
+	$(".menu_list_inner").accordion({
+		active: false,
+		collapsible:true,
+		autoHeight:false,
+		});
+$(".share_link").click(function(){
+	window.location.href="donation/share.html";
+});
+	});
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86870401-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+
+</head>
+
+<body  onload="setup();">
+<!--<div style="background-color:#333540;opacity:0.6;width:100%;height: 2000px;display:block;position: absolute;z-index: 0;"></div>
+-->	
+    <img src="img/img_video.png" style="position:fixed;left:0;right:0;top:0;bottom:0;min-width:100%;min-height:100%;width: auto;height: auto;z-index:-8; opacity:0" class="videocover">
+	<video autoplay loop muted poster="img/img_video.png">
+        <source src="video/BMEXtop.mp4 ">
+        <source src="video/BMEXtop_v.m4v">
+        <source src="video/BMEXtop.webm">
+        <img src="img/img_video.png">
+	</video>
+    
+	<input type="checkbox" class="check" id="checked_mb">
+	<header>
+		<p>最高水準のセキュリティでお客様のビットコインを安全に保管します。</p>
+        <a href="https://account.bmex.biz/entry/entryInput" target="_blank"><img class="img_bank" src="img/img_index_bank.png"></a>
+        <div class="clear"></div>
+        
+		<div class="navi">
+			<h1 class="logo"><a href="index.html"><img src="img/logo.png" srl="BMEX"></a></h1>
+			<ul>
+            	<li class="navi_01"><a href="contents01.html">BMEX取引所<br><span>BMEX BTC Exchange</span></a>
+                </li>
+                <li class="navi_01"><a href="personal.html">サービス<br><span> Services</span></a>
+                	
+                </li>
+                <li class="navi_02"><a href="donation/share.html">仮想通貨で寄付<br><span>Donation</span></a>
+                	
+                </li>
+				<li class="navi_03"><a href="currency.html">仮想通貨について<br><span>About Virtual Currency</span></a>
+                	
+                </li>
+				<li class="navi_04"><a href="company.html">BMEXについて<br><span>About BMEX</span></a>
+                	
+                </li>
+				<li class="navi_05"><a href="contact.bin">サポート<br><span>Support</span></a>
+                	
+                </li>
+			</ul>
+            
+        <label class="sidemenu-btn" for="checked_mb">
+           <span class="bar top"></span>
+           <span class="bar middle"></span>
+           <span class="bar bottom"></span>
+           <span class="menu_txt">MENU</span>
+        </label>
+        <label class="close-menu" for="checked_mb"></label>
+        </div>
+		<div class="navi2">
+			<h1 class="logo"><a href="index.html"><img src="img/logo_color.png" srl="BMEX"></a></h1>
+			<ul>
+            	<li class="navi_00"><a href="contents01.html">BMEX取引所<br><span>BMEX BTC Exchange</span></a>
+                	<div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>BMEX取引所<span>BMEX BTC Exchange</span></h3>
+                                <div class="menu_btn"><a href="contents01.html"><img src="img/btn_service.png"><p><span>＞</span> サービス内容</p></a></div>
+                                <div class="menu_btn"><a href="description01.html"><img src="img/btn_description.png"><p><span>＞</span> 商品説明</p></a></div>
+                                <div class="menu_btn"><a href="cost.html"><img src="img/btn_commission.png"><p><span>＞</span> 手数料・費用</p></a></div>
+                               <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>
+            	<li class="navi_01"><a href="personal.html">サービス<br><span>Services</span></a>
+                	<div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>サービス <span>Services</span></h3>
+                                <div class="menu_btn_q"><a href="personal.html#p_002"><img src="img/btn_wallet.png"><p><span>＞</span> Walletアプリ</p></a></div>
+                                <div class="menu_btn_q"><a href="personal.html#corp_000"><img src="img/btn_smart.png"><p><span>＞</span>BMEX Register</p></a></div>
+                                <div class="menu_btn_q"><a href="personal.html#p_001"><img src="img/btn_btm.png"><p><span>＞</span> BTM</p></a></div>
+                                <div class="menu_btn_q"><a href="personal.html#p_003"><img src="img/btn_otc.png"><p><span>＞</span> CXトレーダー</p></a></div>
+                               <div class="clear"></div> 
+                                <div class="menu_btn_q"><a href="personal.html#cafe"><img src="img/btn_cafe.png"><p><span>＞</span> BMEX Cafe</p></a></div>
+                               <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>
+				<li class="navi_02"><a href="donation/share.html">仮想通貨で寄付<br><span>Donation</span></a>
+                </li>
+				<!--<li class="navi_02"><a href="corporate.html">法人向けサービス<br><span>Corporate Services</span></a><div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>法人向けサービス <span>Corporate Services</span></h3>
+                                <div class="menu_btn"><a href="business.html"><img src="img/btn_business.png"><p><span>＞</span>法人口座開設</p></a></div>
+                                <div class="menu_btn"><a href="corporate.html#corp_000"><img src="img/btn_smart.png"><p><span>＞</span>BMEX Register</p></a></div>
+                              
+                               <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>-->
+				<li class="navi_03"><a href="currency.html">仮想通貨について<br><span>About Virtual Currency</span></a>
+                	<div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>仮想通貨について <span>About Virtual Currency</span></h3>
+                                <!--<div class="menu_btn"><a href="currency.html#c_001"><img src="img/btn_newsbtc.png"><p><span>＞</span> ビットコイン市場情報</p></a></div>-->
+                                <div class="menu_btn"><a href="currency.html#c_002"><img src="img/btn_ethereum.png"><p><span>＞</span> イーサリアム（Ethereum）とは？</p></a></div>
+                                <div class="menu_btn"><a href="currency.html#c_003"><img src="img/btn_glossary.png"><p><span>＞</span> ビットコイン用語集</p></a></div>
+                               <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>
+				<li class="navi_04"><a href="company.html">BMEXについて<br><span>About BMEX</span></a>
+                	<div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>BMEXについて <span>About BMEX</span></h3>
+                                <div class="menu_btn"><a href="company.html"><img src="img/btn_company.png"><p><span>＞</span> 会社概要</p></a></div>
+                                <div class="menu_btn"><a href="ceo.html"><img src="img/btn_chris.png"><p><span>＞</span> 代表メッセージ</p></a></div>
+                                <div class="menu_btn"><a href="partner.html"><img src="img/btn_partner.png"><p><span>＞</span> パートナー</p></a></div>
+                               <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>
+				<li class="navi_05"><a href="contact.bin">サポート<br><span>Support</span></a>
+                	<div class="submenu">
+                    	<div class="full">
+                    		<div class="w1100">
+                    			<div class="sankaku"></div>
+                            	<h3>サポート <span>Support</span></h3>
+                                <div class="menu_btn"><a href="contact.bin"><img src="img/btn_contact.png"><p><span>＞</span> お問い合わせ</p></a></div>
+                               	<div class="menu_btn"><a href="faq.html"><img src="img/btn_faq.png"><p><span>＞</span> FAQ</p></a></div>
+                                <div class="clear"></div> 
+                            </div>
+                    	</div>
+                    </div>
+                </li>
+			</ul>
+        </div>
+	</header>
+        
+    <label class="sidemenu-btn_mb" for="checked_mb">
+       <span class="bar top"></span>
+       <span class="bar middle"></span>
+       <span class="bar bottom"></span>
+    </label>
+    <label class="close-menu" for="checked_mb"></label>
+    
+    <div id="menubox">
+       <ul>
+        <li class="yajirushi"><a href="index.html"><img src="img/icon_menu_home.png" style="vertical-align: top; width:18px;margin:0 2px;"> ホーム</a></li>
+            <div id="menu_list">
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> 取引所について</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>   
+                            	<div class="jquery-ui-accordion-contents contetns_1 menu_list_inner">
+                                	<li><div class="jquery-ui-accordion-title">┗ <div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> サービス内容</div>
+                                	    <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                                            <ul>   
+                                                <li class="yajirusi_mid"><a href="contents01.html">┗ 総合口座開設</a></li>
+                                                <li class="yajirusi_mid"><a href="contents02.html">┗ レバレッジ取引口座開設</a></li>
+                                                <li class="yajirusi_mid"><a href="contents04.html">┗ 取引時間</a></li>
+                                                <li class="yajirusi_mid"><a href="contents05.html">┗ 入出金</a></li>
+                                                <li class="yajirusi_mid"><a href="contents06.html">┗ 仮想通貨の送受金</a></li>
+                                                <li class="yajirusi_mid"><a href="contents07.html">┗ 顧客資産の分別管理について</a></li>
+                                            </ul>
+                                        </div>
+                                	</li>
+                                </div>
+                                <div class="jquery-ui-accordion-contents contetns_1 menu_list_inner">
+                                	<li><div class="jquery-ui-accordion-title">┗ <div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> 商品説明</div>
+                                	    <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                                            <ul>   
+                                                <li class="yajirusi_mid"><a href="description01.html">┗ 現物取引(仮想通貨交換)</a></li>
+                                                <li class="yajirusi_mid"><a href="description02.html">┗ レバレッジ取引</a></li>
+                                            </ul>
+                                        </div>
+                                	</li>
+                                </div>
+                                <li class="yajirusi_mid"><a href="cost.html">┗ 手数料・費用</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> サービス</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>   
+                                <li class="yajirusi_mid"><a href="personal.html">┗ サービス TOP</a></li>
+                                <li class="yajirusi_mid"><a href="personal.html#p_002">┗ Walletアプリ</a></li>
+                                <li class="yajirusi_mid"><a href="personal.html#corp_000">┗ BMEX Register</a></li>
+                                <li class="yajirusi_mid"><a href="personal.html#p_001">┗ BTM</a></li>	
+                                <li class="yajirusi_mid"><a href="personal.html#p_003">┗ CXトレーダー</a></li>
+                                <li class="yajirusi_mid"><a href="personal.html#cafe">┗ BMEX Cafe</a></li>
+                            </ul>
+                        </div>
+                </li><!--<li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> 法人向けサービス</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul> 
+                            <li class="yajirusi_mid"><a href="corporate.html">┗ 法人向けサービス TOP</a></li> 
+                                <li class="yajirusi_mid"><a href="business.html">┗ 法人口座開設</a></li>
+                            </ul>
+                        </div>
+                </li>-->
+                
+        		<li class="yajirushi share_link"><a href="donation/share.html"><img src="img/icon_menu_home.png" style="vertical-align: top; width:18px;margin:0 2px;"> 仮想通貨で寄付</a></li>
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> 仮想通貨について</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>  
+                            	<li class="yajirusi_mid"><a href="currency.html">┗ 仮想通貨について TOP</a></li>   
+                                <!--<li class="yajirusi_mid"><a href="currency.html#c_001">┗ ビットコイン市場情報</a></li>-->
+                                <li class="yajirusi_mid"><a href="currency.html#c_002">┗ イーサリアムとは？</a></li>
+                                <li class="yajirusi_mid"><a href="currency.html#c_003">┗ ビットコイン用語集</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> BMEXについて</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>   
+                                <li class="yajirusi_mid"><a href="company.html">┗ 会社概要</a></li>
+                                <li class="yajirusi_mid"><a href="ceo.html">┗ 代表メッセージ</a></li>
+                                <li class="yajirusi_mid"><a href="partner.html">┗ パートナー</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> サポート</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>   
+                            	<li class="yajirusi_mid"><a href="contact.bin">┗ お問い合わせ</a></li>
+                                <div class="jquery-ui-accordion-contents contetns_1 menu_list_inner">
+                                	<li><div class="jquery-ui-accordion-title">┗ <div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> FAQ</div>
+                                	    <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                                            <ul>   
+                                                <li class="yajirusi_mid"><a href="faq.html">┗ 現物取引(仮想通貨交換)</a></li>
+                                                <li class="yajirusi_mid"><a href="faq2.html">┗ レバレッジ取引</a></li>
+                                                <li class="yajirusi_mid"><a href="faq3.html">┗ BMEX Pay 取扱説明書</a></li>
+                                                <li class="yajirusi_mid"><a href="faq4.html">┗ その他</a></li>
+                                            </ul>
+                                        </div>
+                                	</li>
+                                </div>
+                            </ul>
+                        </div>
+                </li>
+                <li class="plus"><div class="jquery-ui-accordion-title"><div class="maru"><span class="bar_tate"></span><span class="bar_yoko"></span></div> その他</div>
+                
+                        <div class="jquery-ui-accordion-contents contetns_1" id="inner">
+                            <ul>   
+                            	<li class="yajirusi_mid"><a href="https://trade.bmex.biz/bmex-web/login" target="_blank">┗ BMEX取引所ログイン</a></li>
+                            	<li class="yajirusi_mid"><a href="https://account.bmex.biz/entry/entryInput" target="_blank">┗ 新規口座開設</a></li>
+                            	<li class="yajirusi_mid"><a href="sitemap.html">┗ サイトマップ</a></li>
+                            	<li class="yajirusi_mid"><a href="news.html">┗ ニュース一覧</a></li>
+                            </ul>
+                        </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <a href="https://trade.bmex.biz/bmex-web/login" target="_blank"><img src="img/img_login.png" class="jp"></a>
+    <a href="faq.html"><img src="img/img_faq.png" class="faq"></a>
+    <a href="contact.bin"><img src="img/img_contact.png" class="contact"></a>
+    <!--<a href="http://jp.newsbtc.com" target="_blank"><img src="img/img_newsbtc.png" class="newsbtc"></a>-->
+   	
+	<div class="top">
+    	<!--<img src="img/japan_no1.png" class="no1">       --> 
+        <div class="clear"></div>
+        
+        <h2>デジタル通貨を<br>
+        もっと便利にもっと身近に</h2>
+        
+    	<img src="img/japan_no1.png" class="no1">
+        <div class="trade_box">
+        	<div class="btc_box" ><span class="buyprice_btcjpy">---</span></div>
+        	<div class="btc_box box2" ><span class="sellprice_btcjpy">---</span></div>
+          <div class="btc_box box3" ><span class="buyprice_bchjpy">---</span></div>
+          <div class="btc_box box4" ><span class="sellprice_bchjpy">---</span></div>
+        	<div class="btc_box box5" ><span class="buyprice_ethjpy">---</span></div>
+        	<div class="btc_box box6" ><span class="sellprice_ethjpy">---</span></div>
+        	<div class="btc_box box7" ><span class="buyprice_ltcjpy">---</span></div>
+        	<div class="btc_box box8" ><span class="sellprice_ltcjpy">---</span></div>
+        	<div class="btc_box box9" ><span class="buyprice_xrpjpy">---</span></div>
+        	<div class="btc_box box10" ><span class="sellprice_xrpjpy">---</span></div>
+
+            <br>
+            <br>            
+            <br>
+            <!--<a href="https://trade.bmex.biz/bmex-web/login" target="_blank"><img src="img/torihiki_banner.png" class="tob_banner"></a><br>-->
+        	<a href="https://account.bmex.biz/entry/entryInput" target="_blank"><div class="bank">口座開設はこちら</div></a>
+        	<a href="https://trade.bmex.biz/bmex-web/login" target="_blank"><div class="login"><img src="img/icon_bmex.png"> <span>BMEX取引所へ<br></span>ログイン</div></a>
+            <a href="news/news_20180215.html"><img src="img/start_banner.png" class="start_banner"></a>
+            <a href="donation/share.html"><img src="img/donation_banner.png" class="tob_banner"></a>
+        	<div class="clear"></div>
+        </div>
+        
+        <!--<p>Partner</p>
+        <div class="partner">
+			<div class="primebit_"><a href="https://www.bitpoint.co.jp" target="_blank"><img src="img/logo_bitpoint_top.png"></a></div>
+            <div class="primebit"><a href="http://www.primecast.co.jp/" target="_blank"><img src="img/logo_primecast.png"></a></div>
+        	<div class="clear"></div>
+        </div>
+        <img src="img/img_under_partner.png" class="partner_mb" style="display:block; margin:0 auto;">-->
+	</div>
+    
+    <div class="news_box">
+        <div class="news_right"></div>
+    	<div class="w1100">
+            <div class="news_title">News BMEX</div>
+            <div class="news_title mb"></div>
+            <div class="sankaku"></div>
+            <div class="news_list ">
+                <ul class="bxslider">
+				<li class=" news">					  
+                        <span>2018.03.19</span><img src="img/tag_news.png"><a href="news/news_20180319.html">BMEX CAFEオープンのお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.03.09</span><img src="img/tag_news.png"><a href="news/news_20180309_2.html">BTCおよびBCH受金アドレスの変更について</a></li> 
+				<li class=" news">					  
+                        <span>2018.03.09</span><img src="img/tag_maintain.png"><a href="news/news_20180309.html">セキュリティ強化に伴う臨時システムメンテナンスのお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.03.07</span><img src="img/tag_news.png"><a href="news/news_20180307.html">BMEX Pay 修正完了のお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.03.01</span><img src="img/tag_news.png"><a href="news/news_20180301.html">BMEX Payの不具合に関するお詫び</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.26</span><img src="img/tag_news.png"><a href="news/news_20180226_2.html">株式会社フィンテックパートナーズとの業務提携に関するお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.26</span><img src="img/tag_news.png"><a href="news/news_20180226.html">BMEX CAFE オープン延期のお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.22</span><img src="img/tag_news.png"><a href="news/news_20180222.html">BCCティッカー・シンボル変更のお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.19</span><img src="img/tag_news.png"><a href="news/news_20180219.html">XRPアドレス有効化費用について</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.15</span><img src="img/tag_news.png"><a href="news/news_20180215.html">BMEX Wallet 移行サポート受付開始のお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.15</span><img src="img/tag_maintain.png"><a href="news/news_20180215_2.html">リップル（XRP）取扱対応に伴うシステムメンテナンスのお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.14</span><img src="img/tag_news.png"><a href="news/news_20180214.html">確定申告に利用可能な情報（データ）提供に関するお知らせ</a></li> 
+				<li class=" news">					  
+                        <span>2018.02.13</span><img src="img/tag_news.png"><a href="news/news_20180213_2.html">ISO27001（ISMS）認証取得のお知らせ</a></li> 
+                <li class=" news">					  
+                        <span>2018.02.13</span><img src="img/tag_news.png"><a href="news/news_20180213.html">BMEX CAFE オープンに関するお知らせ</a></li> 
+                <li class=" news">					  
+                        <span>2018.01.30</span><img src="img/tag_news.png"><a href="news/news_20180129_2.html">【続報】BMEX Wallet サービス終了のお知らせ</a></li> 
+                <li class=" news">					  
+                        <span>2018.01.30</span><img src="img/tag_news.png"><a href="news/news_20180129.html">事務所移転（東京オフィス）のお知らせ</a></li> 
+                <li class=" news">					  
+                        <span>2018.01.19</span><img src="img/tag_news.png"><a href="news/news_20180119_2.html">ビットコインウォレットアプリ『BMEX Wallet』新規ダウンロード終了のお知らせ</a></li> 
+                <li class=" news">					  
+                        <span>2018.01.19</span><img src="img/tag_maintain.png"><a href="news/news_20180119.html">システムメンテナンスのお知らせ</a></li>
+                <li class=" news">					  
+                        <span>2018.01.12</span><img src="img/tag_maintain.png"><a href="news/news_20180112.html">ライトコイン（LTC）取扱対応に伴うシステムメンテナンスのお知らせ</a></li>
+                <li class=" news">					  
+                        <span>2018.01.11</span><img src="img/tag_news.png"><a href="news/news_20180111.html">ライトコイン・リップルのお取引開始について</a></li>
+					<!-- <li class=" news">					  
+                        <span>2018.01.04</span><img src="img/tag_news.png"><a href="news/news_20180104.html">ライトコイン・リップルのお取引開始について</a></li> -->
+					<li class=" news">					  
+                        <span>2017.12.28</span><img src="img/tag_news.png"><a href="news/news_20171228.html">（認定）特定非営利活動法人 シェア＝国際保健協力市民の会への仮想通貨による寄付月次報告</a></li>
+					<li class=" news">					  
+                        <span>2017.12.26</span><img src="img/tag_maintain.png"><a href="news/news_20171226.html">臨時システムメンテナンスのお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.12.25</span><img src="img/tag_news.png"><a href="news/news_20171225_2.html">BMEX Pay（仮想通貨ウォレット）リリースに関するお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.12.25</span><img src="img/tag_news.png"><a href="news/news_20171225.html">BMEX Walletからビットコインの送金（送付）ができない件について</a></li>
+					<li class=" news">					  
+                        <span>2017.12.19</span><img src="img/tag_news.png"><a href="news/news_20171219.html">年末年始のお取引・営業時間のお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.12.19</span><img src="img/tag_news.png"><a href="news/news_20171219_2.html">【お詫び】ＢＭＥＸサポートセンター対応の遅延について</a></li>
+					<li class=" news">					  
+                        <span>2017.12.08</span><img src="img/tag_news.png"><a href="news/news_20171208_2.html">12月11日に予期されるビットコイン分岐に向けた対応について</a></li>
+					<li class=" news">					  
+                        <span>2017.12.08</span><img src="img/tag_news.png"><a href="news/news_20171208.html">1注文当たりの上限数の変更に関するお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.12.05</span><img src="img/tag_maintain.png"><a href="news/news_20171205.html">システムメンテナンスのお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.12.01</span><img src="img/tag_news.png"><a href="news/news_20171201.html">（認定）特定非営利活動法人 シェア＝国際保健協力市民の会への仮想通貨による寄付受付を開始</a></li>
+					<li class=" news">					  
+                        <span>2017.11.29</span><img src="img/tag_news.png"><a href="news/news_20171129.html">iOS11.1以降をお使いのお客様へ　BMEX Wallet不具合のお知らせ</a></li>
+					<li class=" news">					  
+                        <span>2017.11.24</span><img src="img/tag_maintain.png"><a href="news/news_20171124.html">11月24日に予期されるビットコイン分岐に向けた対応について</a></li>
+                  <li class=" news">					  
+                        <span>2017.11.22</span><img src="img/tag_maintain.png"><a href="news/news_20171122.html">臨時システムメンテナンスのお知らせ</a></li>
+					 
+                  <li class=" news">					  
+                        <span>2017.11.13</span><img src="img/tag_news.png"><a href="news/news_20171113.html">2017年11月14日付ビットコインキャッシュのハードフォークに向けた対応について</a></li>
+					
+                  <li class=" news">
+                        <span>2017.11.10</span><img src="img/tag_news.png"><a href="news/news_20171110.html">10月25日に予期されるビットコイン分岐に向けた対応について（第3報）</a></li>
+                  
+                  <li class=" news">
+                        <span>2017.10.26</span><img src="img/tag_maintain.png"><a href="news/news_20171026.html">インフラ増強に伴うシステムメンテナンスのお知らせ</a></li>
+                  
+                  <li class=" news">
+                        <span>2017.10.24</span><img src="img/tag_maintain.png"><a href="news/news_20171024.html">10月25日に予期されるビットコイン分岐に向けた対応について（第2報）</a></li>
+                  
+                	<li class=" news">
+                        <span>2017.10.20</span><img src="img/tag_maintain.png"><a href="news/news_20171020.html">10月25日に予期されるビットコイン分岐に向けた対応について</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.10.13</span><img src="img/tag_maintain.png"><a href="news/news_20171013.html">インフラ増強に伴うシステムメンテナンスのお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.09.26</span><img src="img/tag_maintain.png"><a href="news/news_20170926.html">当社利用システムのメンテナンスに伴うサービス停止のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.09.22</span><img src="img/tag_news.png"><a href="news/news_20170922.html">仮想通貨交換業者登録に係る申請書提出のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.25</span><img src="img/tag_news.png"><a href="news/news_20170825.html">ビットコインキャッシュ（BCC）取引対応に伴うシステムメンテナンスのお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.18</span><img src="img/tag_news.png"><a href="news/news_20170818.html">ビットコインキャッシュの取引について（8/27予定）</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.04</span><img src="img/tag_news.png"><a href="news/news_20170804_2.html">夏季休業中のお取引・営業時間のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.04</span><img src="img/tag_news.png"><a href="news/news_20170804.html">ビットコインキャッシュ送付・預入サービス利用開始のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.03</span><img src="img/tag_news.png"><a href="news/news_20170803.html">ビットコインキャッシュ送付・預入サービス利用開始時期の延長について</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.02</span><img src="img/tag_news.png"><a href="news/news_20170802_2.html">ビットコイン送付・預入サービス再開のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.02</span><img src="img/tag_news.png"><a href="news/news_20170802.html">８月１日に予期されるビットコイン分岐に向けた対応について（第3報）</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.08.01</span><img src="img/tag_news.png"><a href="news/news_20170801.html">本日20:00からのビットコイン現物取引などのサービス停止措置について</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.07.28</span><img src="img/tag_news.png"><a href="news/news_20170728.html">８月１日に予期されるビットコイン分岐に向けた対応について（続報）</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.07.24</span><img src="img/tag_news.png"><a href="news/news_20170724.html">ビットコイン送付・預入サービス再開のお知らせ</a></li>
+                    
+                	<li class=" news">
+                        <span>2017.07.21</span><img src="img/tag_news.png"><a href="news/news_20170721.html">2017年7月23日に起こり得る分岐に係る対応方針と一部機能の停止について</a></li>
+                    
+                    <li class=" news">
+                        <span>2017.07.19</span><img src="img/tag_news.png"><a href="news/news_20170719.html">8月1日に予期されるビットコイン分岐に向けた対応について</a></li>
+                    <li class=" news">
+                        <span>2017.07.14</span><img src="img/tag_maintain.png"><a href="news/news_20170714.html">臨時システムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.07.06</span><img src="img/tag_maintain.png"><a href="news/news_20170706.html">セキュリティパッチの定期的な適用対応に伴うシステムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.06.02</span><img src="img/tag_maintain.png"><a href="news/news_20170602.html">臨時システムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.05.26</span><img src="img/tag_news.png"><a href="news/news_20170526.html">新取引所システムへの移行に伴う「サービス内容変更」のお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.05.26</span><img src="img/tag_maintain.png"><a href="news/news_20170526_2.html">新取引所システムへの移行に伴う執行中注文の取扱い及びシステムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.05.23</span><img src="img/tag_maintain.png"><a href="news/news_20170523_2.html">ETH/JPYの取引再開のお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.05.23</span><img src="img/tag_maintain.png"><a href="news/news_20170523.html">イーサリアムのお取引一時停止のお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.05.19</span><img src="img/tag_maintain.png"><a href="news/news_20170519.html">当社カバー先のインフラ増強に伴うシステムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.04.28</span><img src="img/tag_maintain.png"><a href="news/news_20170428.html">臨時システムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.04.25</span><img src="img/tag_maintain.png"><a href="news/news_20170421_2.html">[BMEXウォレット]一部機能の不具合に関しまして</a></li>
+                    <li class=" news">
+                        <span>2017.04.20</span><img src="img/tag_news.png"><a href="news/news_2017042001.html">ゴールデンウィーク中のお取引・営業時間のお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.04.20</span><img src="img/tag_maintain.png"><a href="news/news_20170420.html">公開用取引API対応に伴うシステムメンテナンスのお知らせ</a></li>
+                    <li class=" news">
+                        <span>2017.04.03</span><img src="img/tag_news.png"><a href="news/news_20170403.html">4月1日より仮想通貨交換業に関する登録制の導入</a></li>
+                    <li class=" news">
+                        <span>2017.03.30</span><img src="img/tag_news.png">ビットコイン、イーサリアムの現物取引サービスを開始いたしました。</li>
+                    <li class=" news">
+                        <span>2017.03.14</span><img src="img/tag_maintain.png"><a href="news/news_20170314.html">[BMEXウォレット] 緊急システムメンテナンスについて</a></li>
+                        
+                    <li class=" news">
+                        <span>2016.11.02</span><img src="img/tag_news.png">株式会社BMEXは、この度、ホームページをリニューアル致しました。
+                  	</li>
+               	</ul>
+            </div>
+            <a class="news_link" href="news.html">
+            	<img src="img/icon_news2.png">
+            </a>
+            <div class="clear"></div>
+    	</div>
+    </div>
+    
+    <div class="service">
+    	<div class="bitrank">
+        	<a href="contents01.html"><img src="img/sankaku_01.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+            <div class="box"><a href="contents01.html"><img src="img/img_contents.png"></a></div>
+            <h5>SERVICES</h5>
+            <h4 class="another_font">BMEX BTC Exchange</h4>
+            <div class="inner">
+            	<p>BMEX取引所より口座開設やレバレッジ取引など様々なサービスを提供いたします。</p>
+                <a href="contents01.html"><div class="learn_more">LEARN MORE</div></a>
+            </div>
+        </div>
+    	<div class="qlue">
+        	<a href="personal.html#p_002"><img src="img/sankaku_02.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+            <div class="box"><a href="personal.html#p_002"><img src="img/img_app.png"></a></div>
+            <h5>SERVICES</h5>
+            <h4 class="another_font">BMEX Pay</h4>
+            <div class="inner">
+            	<p>BMEX Payはビットコインやイーサリアムといった仮想通貨を手軽に扱えるウォレットです。わかりやすく直感的なデザインが、あなたの取引スピードを向上させます。</p>
+               <a href="personal.html#p_002"> <div class="learn_more">LEARN MORE</div></a>
+            </div>
+        </div>
+    	<div class="bitcoin_atm">
+        	<a href="personal.html#p_001"><img src="img/sankaku_r_01.png" class="hover_no"><img src="img/sankaku_r_w.png" class="hover_on"></a>
+            <div class="box"><a href="atm.html"><img src="img/img_bitcoin_atm.png" class=" fl_R"></a></div>
+            <h5>SERVICES</h5>
+            <h4 class="another_font">Bitcoin ATM</h4>
+            <div class="inner">
+            	<p>ビットコインは気になるけれど、どこの取引所がいいのか分からないし、登録も面倒。そんな方には手軽にビットコインを買うことができるビットコインATMがおすすめです。</p>
+                <a href="personal.html#p_001"><div class="learn_more">LEARN MORE</div></a>
+            </div>
+        </div>
+        <div class="bitcoin_mining">
+        	<a href="personal.html#p_003"><img src="img/sankaku_04.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+            <div class="box"><a href="personal.html#p_003"><img src="img/img_otc_trader.png"></a></div>
+            <h5>SERVICES</h5>
+            <h4><span class="another_font">CX</span> トレーダー</h4>
+            <div class="inner">
+            	<p>BMEX社では、オフラインのネットワークを活用し利便性の高いCX（Crypt Exchange）トレーダーソフトウェアの普及を目指しています。</p>
+                <a href="personal.html#p_003"><div class="learn_more">LEARN MORE</div></a>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        </div><div class="service_mb">
+            <div class="bitrank">
+                <a href="contents01.html"><img src="img/sankaku_01.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+                <div class="box"><a href="contents01.html"><img src="img/img_contents.png" class=" fl_R"></a></div>
+                <h5>SERVICES</h5>
+                <h4 class="another_font">BMEX BTC Exchange</h4>
+                <div class="inner">
+                    <p>BMEX取引所より口座開設やレバレッジ取引など様々なサービスを提供いたします。</p>
+                   <a href="contents01.html"> <div class="learn_more">LEARN MORE</div></a>
+                </div>
+                <div class="clear"></div>
+             </div>
+            <div class="qlue">
+                <a href="personal.html#p_002"><img src="img/sankaku_02.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+                <div class="box"><a href="personal.html#p_002"><img src="img/img_app.png" class=" fl_R"></a></div>
+                <h5>SERVICES</h5>
+                <h4 class="another_font">BMEX Pay</h4>
+                <div class="inner">
+                    <p>BMEX Payはビットコインやイーサリアムといった仮想通貨を手軽に扱えるウォレットです。わかりやすく直感的なデザインが、あなたの取引スピードを向上させます。</p>
+                   <a href="personal.html#p_002"> <div class="learn_more">LEARN MORE</div></a>
+                </div>
+                <div class="clear"></div>
+             </div>
+            <div class="otc_trader">
+                <a href="personal.html#p_001"><img src="img/sankaku_03.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+                <div class="box"><a href="atm.html"><img src="img/img_bitcoin_atm.png" class=" fl_R"></a></div>
+                <h5>SERVICES</h5>
+                <h4 class="another_font">Bitcoin ATM</h4>
+                <div class="inner">
+                    <p>ビットコインは気になるけれど、どこの取引所がいいのか分からないし、登録も面倒。そんな方には手軽にビットコインを買うことができるビットコインATMがおすすめです。</p>
+                    <a href="personal.html#p_001"><div class="learn_more">LEARN MORE</div></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="bitcoin_mining">
+                <a href="personal.html#p_003"><img src="img/sankaku_04.png" class="hover_no"><img src="img/sankaku_w.png" class="hover_on"></a>
+                <div class="box"><a href="personal.html#p_003"><img src="img/img_otc_trader.png"></a></div>
+                <h5>SERVICES</h5>
+                <h4><span class="another_font">CX</span> トレーダー</h4>
+                <div class="inner">
+                    <p>BMEX社では、オフラインのネットワークを活用し利便性の高いCX（Crypt Exchange）トレーダーソフトウェアの普及を目指しています。</p>
+                    <a href="personal.html#p_003"><div class="learn_more">LEARN MORE</div></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+	
+	
+            <div class="box_right">
+                <!-- <div class="sub_tit"><h2><span>Greeting</span><br>代表メッセージ</h2></div>
+    			
+                <div class="ceo01">
+                	<div class="w1100">
+                    	<p><span>アナログな現場で育んできた信頼と、<br>デジタルな思考と技術をコラボレーションし、</span></p>
+                    	<h4>仮想通貨を、<br>もっと便利に、もっと身近に。</h4>
+                    	<p>　ビットコインに代表される「デジタル仮想通貨」が世界的に注目を集めています。いまだ社会的にも解決するべき課題が残っているものの、急速な技術改善と普及の波の中で、わが日本においてもこれらの法整備が進められ、今や仮想通貨に関しては、世界をリードする取り組みが行われております。<br>
+                        　仮想通貨を取り扱う金融の世界は、経営者の質や人材、事業計画性が求められる一方で、ビットコイン価格や取引価格帯、取引量といったデータで企業の業績や信用力を評価することの多い、デジタル志向の強い最先端のITビジネスです。<br>
+                        　それに加えて、私どもがこれまでも現場で仮想通貨の可能性をきめ細かく説明することでお客様から多くの信頼をいただいてきたことは、まさにアナログ志向も併せもった会社としての強みであると考え、継続的な充実に取り組んでまいりました。<br>
+                        　BMEXは、日本における仮想通貨用のATMやソフトウェア開発の取り組みを第1期とし、第2期となる2017年には「仮想通貨交換所」をオープン、改革第2フェーズに入っています。<br>
+                        　仮想通貨やブロックチェーンの発展のためにはさらに多くの取り組みが必要ですが、今後も常に現場に身を寄せて、そこから生まれるニーズや、そこで抱えている様々な課題や問題を自分事として捉えたうえで、必要なソリューションや求められる新製品・新サービスを打ち出していくといった、アナログ活動とデジタル志向のコラボレーションを図りながら、お客様の課題と社会課題の双方に真剣に向き合ってまいる所存です。<br>
+                        　「仮想通貨を、もっと便利に、もっと身近に」を理念に、更なるビットコインをはじめとした仮想通貨の普及とブロックチェーンに関連した技術発展を推進し、より多くの皆様に仮想通貨の魅力をお伝えし“ナンバー１取引所”・“ベストパートナー”となるべく取り組んでまいります。<br>
+                        　これからもBMEXにご期待ください。
+                        </p>
+                        <p class="sign"><span>代表取締役</span> 古里 英文</p>
+                    </div>
+                 </div>-->
+
+                <div class="sub_tit"><h2><span>Business purpose</span><br>事業目的</h2></div>
+                <div class="ceo02">
+                	<div class="w1100">
+                        <h4>日本が世界におけるデジタル通貨（仮想通貨、暗号通貨）<br>バンキングの中心地になるために</h4>
+                        <p>弊社BMEXは、日本を世界におけるデジタル通貨（仮想通貨、暗号通貨）バンキングの中心地とすることを、第1の事業目的として設立されました。<br>
+                        <br>
+                        近代以降も、車、ラジオ、テレビ、電話、コンピュータ、携帯電話といった枚挙にいとまのない、さまざまなインフラの開発・実用化を、日本は歴史の中で繰り返し実現してきました。<br>
+                        世界はいま、デジタル通貨とその技術（ブロックチェーン技術）の登場により、大きな転換点に立っています。デジタル通貨と現行の法定通貨制度との関係は、情報とインターネットとの関係に相当します。ビットコインは、「インターネット用のお金」ではなく、「お金のためのインターネット、つまりインターネットを利用したお金システム」なのです。<br>
+                        デジタル通貨とブロックチェーン技術は、世界全体に新たな金融（支払・送金、貯蓄・投資等）の仕組みをもたらしました。<br>
+                        <br>
+                        わたしたちBMEXは、デジタル通貨・ブロックチェーン技術に新たな価値を付加し、日本から世界に向けて発信しようとしています。BMEX社は、他国からも新規のデジタル通貨技術の一貫した導入を行います。そして、日本の企業文化の特長である、仕事に対する独自の取り組み方や職業倫理の強みを活かし、ブロックチェーン技術の開発に焦点を絞った、既存技術の再創造・再活用・向上を行ってまいります。そうした高度な技術は、日本でより洗練されたのち、世界に向けて輸出されます。世界のどこを見ても、日本ほど信頼に足る国はありません。日本は世界中の信頼を得ています。<br>
+                        われわれは、新たな決済システムを創造していきます。新世代デジタル通貨の創造です。日本は再び、世界の舞台で主役となるのです。
+                        </p>
+                    </div>
+                </div>
+                    
+        	</div>	
+	
+    
+    <!--<div class="blockchain_box">
+        <h3>ブロックチェーンは、近々ビッグデータになります。</h3>
+        <p>ビットコインのブロックチェーン技術は、急速にビッグデータの領域に突入し、殆どの企業にとって従来からのデータ処理技能を不十分な物にするでしょう。<br>
+        <br>
+        大手企業は、データ解析を稼働する機能としてのブロックチェーン・データ上の大量かつ迅速な検索を必要としています。民間部門に加えて、ビットコイン・ブロックチェーンは大型化し続け、多数の企業へとブロックチェーンのビッグデータを操作する能力と、企業ブロックチェーン・ソフトウェア無く管理する事を困難とさせています。<br>
+        <br>
+        全ての規模の銀行と企業において、「国際的で素早いデータ認証の技能」が必要不可欠となります。<br>
+        </p>
+    	<a href="corporate.html#corp_002"><div class="learn_more">LEARN MORE</div></a>
+    </div>-->
+    
+    <!--<div class="mail_box">
+    	<div class="left"></div>
+    	<div class="right">
+        	<div class="w1100">
+                <h3 class="another_font"><span>メールマガジン</span><br>Mail Magazine</h3>
+                
+            	<p>メールアドレスをご登録いただくだけで、<br>
+				最新のビットコインの情報をお届けします！<br>
+				ご登録は無料です。<br></p>
+                <form name="RegisterForm" id="RegisterForm">
+                 <input autocomplete="off" type="text" id="name" name="name" placeholder="お名前">
+                 <p id ="text_span" style="color:red; display:none; margin:0;">お名前を入力してください。</p>
+                 <input autocomplete="off"  type="email" id="email" name="email" placeholder="メールアドレス">
+                 <p id ="email_span" style="color:red; display:none; margin:0;">メールアドレスを入力してください。</p>
+                 <input type="button" id="check" class="btn_touroku" value="登録する" onClick="clickcheck()">
+                 <div style="position: fixed; display: block; width: 100%; top: 28%;;z-index: 1001;left:0; right:0;">
+                    <div id="Messagecheck" style="display: none; margin-left: auto; margin-right: auto; width: 700px; height: 380px; background: white; border: 1px solid #fff; box-shadow:5px 5px 20px #555; position:relative;">
+                       		<img class="batu" src="img/batu.png" onClick="document.getElementById('Messagecheck').style.display = 'none'">
+								<div class="icon_box blue">
+                                    <p>以下の内容で登録を行います。</p>
+                                    <p style="font-size:13px;">※メールアドレスに誤りがある場合、正しく登録することができませんので、<br>十分にご注意してください。</p>
+                                </div>
+                                <div id="mailcheck" style="" class="regist_error">
+                                    <div>お名前　　　　： <span id="mail1" style="font-weight:bold;"></span></div>
+                                    <div>メールアドレス： <span id="mail2" style="font-weight:bold;"></span></div>
+                                </div>
+                            
+                            
+                            <div style="width:auto;display: block; position: absolute; bottom: 5px; right: 0;left:0;top:auto;bottom:0px; margin:auto;">
+                                <input type="button" value="キャンセル" class="btn_touroku left_btn" style="width: 200px;" onClick="document.getElementById('Messagecheck').style.display = 'none'"></input>
+                            	<input type="button" value="登録する" class="btn_touroku right_btn" onClick="mailMagRegister()">
+                            </div>
+                        
+                    </div>
+                </div>
+			 </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>-->
+  	<div style="position: fixed; display: block; width: 100%; top: 28%;;z-index: 1001;">
+<div id="MessageBox" style="display: none; margin-left: auto; margin-right: auto; width: 700px; height: 380px; background: white; border: 1px solid #fff; box-shadow:5px 5px 20px #555;">
+<div style="display: block; width: 100%; height: 100%; position: relative;">
+<div style="display: block; position: absolute;  width: 100%; height:200px;">
+<img class="batu" src="img/batu.png" onClick="document.getElementById('MessageBox').style.display = 'none'">
+    <div id="RegistrationOk" style="display: none">
+    	<div class="icon_box">
+            <img src="img/icon_touroku.png">
+        	<p>新規登録をありがとうございます。</p>
+        </div>
+        <div class="regist_error">
+            <span>メールマガジンへの登録が完了いたしました。<br>
+			「メールマガジンへの登録完了のお知らせ」メールを送信いたしましたので<br>ご確認ください。</span>
+        </div>
+    </div>
+    <div id="RegistrationEmailBad" style="display: none;">
+        <div class="icon_box red">
+            <img src="img/icon_error.png">
+            <p>ご入力頂いた情報で、新規登録を受付できませんでした。</p>
+        </div>
+        <div class="regist_error">
+            <span>理由：ご入力頂いたメールアドレスが正しくありません。<br>
+        　　　（例：yourname@example.com）</span>
+        </div>
+    </div>
+    <div id="RegistrationEmailInUse" style="display: none;">
+        <div class="icon_box red">
+            <img src="img/icon_error.png">
+            <p>ご入力頂いた情報で、新規登録を受付できませんでした。</p>
+        </div>
+        <div class="regist_error">
+            <span>理由：入力されたメールアドレスは既に登録されています</span>
+        </div>
+    </div>
+    
+    <div id="RegistrationServerError" style="display: none;">
+        <div class="icon_box red">
+            <img src="img/icon_error.png">
+            <p>ご入力頂いた情報で、新規登録を受付できませんでした。</p>
+        </div>
+        <div class="regist_error">
+            <p><span>理由：通信中にエラーが発生しました。</span></p>
+        </div>
+    </div>
+</div>
+
+<div style="display: block; position: absolute; bottom: 5px; right: 0;left:0;top:auto;bottom:0px; margin:auto;">
+<input type="button" value="閉じる" class="btn_touroku" style="width: 200px;" onClick="document.getElementById('MessageBox').style.display = 'none'"></input>
+</div>
+
+</div>
+</div>
+</div>
+    <div class="other_box">
+    	<div class="w1100">
+        	<div class="rate_box">
+        	<div class="box_ind_24h"><h3>最後取引価格</h3>
+       	 	<h5><span id="LastPrice2">---</span><span> JPY</span></h5></div>
+            
+        	<div class="box_ind_day"><h3>24時間内<br>最小/最大取引価格</h3>
+        	<h5><span id="DaysRangeMin">---</span><span> JPY</span><br>
+        	<span id="DaysRangeMax">---</span><span> JPY</span></h5></div>
+        	<div class="clear"></div>
+        	</div>    
+            <div id="RateContainer" class="kaiban"></div>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbmex.biz%2F&tabs=timeline&width=445&height=495&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="445" height="495" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <div class="clear"></div>
+        </div>
+   	</div>
+    
+    <!--<div class="map_box" style="position:relative;">
+        <div class="map_headr">
+            <h3 class="another_font"><span>BTM設置場所</span><br>
+            BTM <c>Location</c></h3>
+        </div>
+         <div id="map_canvas" style="width:100%; height:450px; position:absolute; top:0;"></div>
+    </div>-->
+
+    <div class="footer">
+            <div class="btn_box">
+				<div class="fl_r">
+				<ul>
+                    <li><a href="sitemap.html">> サイトマップ</a></li>
+                    <li><a href="privacy.html">> プライバシーポリシー</a></li>
+                    <li><a href="contents07.html">> 顧客資産の分別管理について</a></li>
+                    <li><a href="sitepolicy.html">> サイトポリシー</a></li>
+                    <li><a href="asfpolicy.html">> 反社会的勢力に対する基本方針</a></li>
+                    <li><a href="signage.html">> 特定商取引法に基づく表記</a></li>
+                    <li><a href="regulations.html">> 規程集</a></li>
+				</ul>
+                </div>	
+                <div class="norton">
+<script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=www.bmex.biz&amp;size=XS&amp;use_flash=NO&amp;use_transparent=YES&amp;lang=ja"></script><br /> <a href="http://www.symantec.com/ja/jp/ssl-certificates/" target="_blank"  style="color:#fff; text-decoration:none; font:bold 12px 'ＭＳ ゴシック',sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">SSL/TLSとは？</a>
+</div>
+
+                <div class="iso">
+                	<img src="img/iso.png">
+                <p>ISO/IEC 27001:2013 / JIS Q 27001:2014</p>
+            </div>
+                <img src="img/logo_footer.png" class="fl_R">
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

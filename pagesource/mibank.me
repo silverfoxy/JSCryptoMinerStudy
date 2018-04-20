@@ -1,0 +1,506 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
+<title>마이뱅크</title>
+
+<meta name='title' content='마이뱅크'>
+<meta name="description" content="환율, 환전, 해외여행자보험, 유학생보험, 해외장기체류보험, P2P대출, 재테크, 예금/적금/대출 금리비교">
+
+<!-- Naver //-->
+<meta name="naver-site-verification" content="cacf794622f86103a98af31a559a6ee76eba27ee"/>
+
+<!-- FaceBook Meta Tag-->
+<meta property='fb:app_id' content='395799250569977'/>
+<meta property='og:title' content='마이뱅크'/>
+<meta property='og:type' content='article'/>
+<meta property='og:url' content='https://www.mibank.me'/>
+<meta property='og:image' content='/images/mibank/ko/mibank_link_cover.png'/>
+<meta property='og:site_name' content='mibank.me'/>
+<meta property='og:description' content='환율, 환전, 해외여행자보험, 유학생보험, 해외장기체류보험, P2P대출, 재테크, 예금/적금/대출 금리비교'/>
+<!--// FaceBook Meta Tag-->
+
+<!-- CSS //-->
+<link rel="shortcut icon" href="/images/mibank/ko/favicon.ico">
+<!-- link rel='stylesheet' type='text/css' href='http://common.mk.co.kr/common/css/2014/mibank/index_20150216.css' -->
+<link rel='stylesheet' type='text/css' href='/css/index_20160310.css'>
+<link rel="stylesheet" type="text/css" href="/css/MKpopup.css">
+
+<!-- JS //-->
+<!-- script src="//code.jquery.com/jquery-1.11.0.min.js"></script -->
+<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/js/MKcommon.js"></script>
+<script type="text/javascript" src="/js/MKpopup.js"></script>
+<script type="text/javascript" src="/js/MKcookies.js"></script>
+<script type="text/javascript" src="/js/MKselect.js"></script>
+
+<!-- Naver 로그분석 //-->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript"> 
+if (!wcs_add) var wcs_add={};
+wcs_add["wa"] = "s_3fcc4d979c8d";
+if (!_nasa) var _nasa={};
+wcs.inflow();
+wcs_do(_nasa);
+</script>
+ 
+<!-- Facebook Pixel Code //-->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '217683908576366');
+fbq('track', "PageView");
+fbq('track', 'ViewContent');
+
+</script>
+<noscript><img height="1" width="1" style="display:none" src="//www.facebook.com/tr?id=217683908576366&ev=PageView&noscript=1"/></noscript>
+
+<script type="text/javascript">
+//구글
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-56021062-1', 'auto');
+ga('send', 'pageview');
+
+//모바일 전환
+var agent = navigator.userAgent;
+var page = location.pathname;
+if(agent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || agent.match(/LG|SAMSUNG|Samsung/) != null) {
+	location.href = '/mobile/index.php';
+}
+
+//slide
+var setSlide = function() {
+	//default
+	var slide = $('#JS_slide');
+	var paging = $('#JS_paging').find('a');
+	var width = slide.width();
+	var speed = 2000;
+	var index = 0; //현재 노출 index
+	var list = slide.find('> li');
+	var max = list.size();
+	var time = null;
+
+	if(max <= 1) return;
+	
+	//view
+	var setView = function(option) {
+		var option = option || {};
+		list.css('z-index', '0');
+		if(typeof option.index == 'number') { //index btn
+			index = option.index;
+			list.eq(index).animate({opacity: 1});
+			list.not(':eq('+(index)+')').animate({opacity: 0});
+		}else if(typeof option.mode == 'string') { //next, prev btn
+			list
+			.eq(index)
+			.css("z-index", "5")
+			.animate(
+				{
+					opacity: 0
+				}, 
+				{
+					duration: speed,
+					queue: false,
+					specialEasing : "swing",
+					complete: function() {
+						
+					} 
+				}
+			);
+			switch(option.mode) {
+				case 'next':
+					//animate
+					if(typeof option.index == 'undefined') {
+						index++;
+					}
+					if(max-1 < index) index = 0;
+					list
+					.eq(index)
+					.css("z-index", "10")
+					.animate(
+						{
+							opacity: 1
+						}, 
+						{
+							duration: speed,
+							queue: false 
+						}
+					);
+					break;
+				case 'prev':
+					//animate
+					index--;
+					if(0 > index) index = max-1;
+					list
+					.eq(index)
+					.css("z-index", "10")
+					.animate(
+						{
+							opacity: 1
+						}, 
+						{ 
+							duration: speed, 
+							queue: false 
+						}
+					);
+					break;
+				default :
+					return;
+			}
+		}
+		//slide
+		//list.hide();
+		//list.eq(index).show();
+
+		//paging index
+		paging.removeClass('on');
+		paging.eq(index).addClass('on');
+	};
+	
+	//자동 슬라이드
+	var setAuto = function() {
+		time = setStartTime(function(){ setView({'mode':'next'}); }, 5000);
+	};
+
+	//페이징 버튼
+	paging.on('click', function() {
+		setCloseTime(time);
+		setView({'index': $(paging).index(this)});
+		setAuto();
+	});
+
+	//자동 설정
+	setAuto();
+};
+
+//외화배송, 여행자보험
+var setServicePopup = function(type) {
+	var win = {
+		"width": Math.round(window.innerWidth || document.documentElement.clientWidth),
+		"height": Math.round(window.innerHeight || document.documentElement.clientHeight)
+	};
+	var width = win.width / 4 > 480 ? win.width / 4 : 480;
+	var height = win.height / 2 > 700 ? win.height / 2 : 700;
+	var left = Math.round(win.width / 2) - Math.round(width / 2);
+	var top = Math.round(win.height / 2) - Math.round(height / 2);
+	if(left < 0) left = 0;
+	if(top < 0) top = 0;
+
+	var open;
+	switch(type) {
+		case 'travel': //여행자보험
+			open = window.open('https://travel.mibank.me/', 'travel', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',menubar=no,status=no,location=no,scrollbars=yes,resizable=no');
+			open.focus();
+			break;
+		case 'airport': //외화배송
+			open = window.open('https://airport.mibank.me/', 'airport', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',menubar=no,status=no,location=no,scrollbars=yes,resizable=no');
+			open.focus();
+			break;
+	}
+};
+
+$(document).ready(function() {
+	setSlide(); //슬라이드
+
+	//언어변경
+	/*
+	$('#JS_lang_select').on('change', function() {
+		var current = 'ko';
+		var lang = $(this).val();
+		if(current != lang) {
+			var url = '/exchange/saving/index.php?lang=' + lang;
+			window.location.replace(url);
+		}
+	});
+	*/
+	MKselect('JS_select_text', function(value) {
+		var current = 'ko';
+		var lang = value;
+		if(lang != '' && current != lang) {
+			var url = '/exchange/saving/index.php?lang=' + lang;
+			window.location.replace(url);
+		}	
+	}).on();
+
+	//메뉴관련
+	var JS_menu = $('.JS_menu');
+	var JS_sub_list = $('.JS_sub_list');
+	var JS_sub = $('.JS_sub');
+	//마우스
+	(function() {
+		var time = null;
+		var setTimeStop = function() {
+			window.clearTimeout(time);
+		};
+		var setTimeStart = function() {
+			setTimeStop();
+			time = window.setTimeout(function() {
+				JS_sub_list.hide();
+			}, 300);
+		};
+		var setMenuDown = function() {
+			var link = $(this).data('link');
+			if(link) {
+				window.location.href = link;
+			}
+		};
+		var setMenuOver = function() {
+			var layer = $(this).data('layer');
+
+			setTimeStop();
+			if(layer) {
+				JS_sub_list.each(function() {
+					if($(this).attr('id') !== layer) {
+						$(this).hide();
+					}else if($(this).is(':hidden')) {
+						$(this).show();
+					}
+				});
+			}else {
+				JS_sub_list.hide();
+			}
+		};
+		JS_menu.on('click', setMenuDown);
+		JS_menu.on('mouseover', setMenuOver);
+		JS_menu.on('mouseout', setTimeStart);
+		JS_sub.on('mouseover', setTimeStop);
+		JS_sub.on('mouseout', setTimeStart);
+	})();
+});
+</script>
+<script type="text/javascript">
+//현재 접속위치
+var setUserLocation = function() {
+	//주소 -> 좌표변환
+	var getAddr2coord = function(address, callback) {
+		$.ajax({
+			url : '//apis.daum.net/local/geo/addr2coord',
+			async: false, //비동기 여부
+			type : 'get',
+			data : {"apikey": "0a141d8dd522330f6d33f95bcde476c4677ef750", "q": address, "output": "json"},
+			beforeSend: function() {
+				//요청전
+			},
+			complete: function() {
+				//요청완료
+			},
+			error: function() {
+				//요청실패
+				if(typeof callback == 'function') {
+					callback();
+				}
+			},
+			dataType: "jsonp",
+			jsonp : "callback",
+			success: function(json) {
+				if(!json) return;
+				//console.dir(json);
+				if(typeof callback == 'function') {
+					callback(json);
+				}
+			}
+		});	
+	};
+	//시도명, 구군명으로 정보 조회
+	var getSidoGugun = function(sido, gugun) {
+		if(!sido || !gugun) return;
+		var data = {};
+		$.ajax({
+			url : '/ajax/select_address_code.php',
+			async: false, //비동기 여부
+			type : 'post',
+			data : {"sido": sido, "gugun": gugun},
+			beforeSend: function() {
+				//요청전
+			},
+			complete: function() {
+				//요청완료
+			},
+			error: function() {
+				//요청실패
+			},
+			//dataType: "jsonp",
+			//jsonp : "callback",
+			success: function(json) {
+				if(!json) return;
+				//console.dir(json);
+				if(json['msg'] == 'success' && json.sido_code && json.gugun_code) {
+					data = {"sido_code": json.sido_code, "gugun_code": json.gugun_code}
+				}
+			}
+		});
+
+		return data;
+	};
+	$.ajax({
+		url : '/ajax/whois.php',
+		async: false, //비동기 여부
+		//type : 'get',
+		//data : {},
+		beforeSend: function() {
+			//요청전
+		},
+		complete: function() {
+			//요청완료
+		},
+		error: function() {
+			//요청실패
+		},
+		//dataType: "jsonp",
+		//jsonp : "callback",
+		success: function(json) {
+			try {
+				if(json.whois.korean.ISP.netinfo.addr) {
+					//var address = json.whois.korean.ISP.netinfo.addr;
+					var address = json.whois.korean.user.netinfo.addr;
+					if(address) {
+						//주소 -> 좌표변환
+						getAddr2coord(address, function(json) {
+							//console.dir(json);
+							var sido = '';
+							var gugun = '';
+							if(json.channel && json.channel.result > 0) {
+								sido = json.channel.item[0].localName_1; //시도
+								gugun = json.channel.item[0].localName_2; //구군
+								//시도 구군 -> 코드변환
+								if(sido && gugun) {
+									var data = getSidoGugun(sido, gugun);
+									if(data && data.sido_code && data.gugun_code) {
+										//쿠키저장
+										MKcookies.setItem("mibank_location", '{"sido_code": ' + data.sido_code + ', "gugun_code": ' + data.gugun_code + '}', null, '/');
+									}
+								}
+							}
+						});
+					}
+				}
+			}catch(e) {}
+		}
+	});
+};
+setUserLocation();</script></head>
+<body>
+	<div id="wrap">
+
+		<!-- header -->
+		<div class="header">
+			<div class="top">
+				<h1 class="logo"><a href="/index.php"><img src="/images/mibank/ko/l_mibank.png" alt="mibankme"></a></h1>
+				<div class="menu">
+					<ul>
+						<span class="ico_m_new" style="top:28px; left:520px"></span>
+						<li>
+							<a href="/exchange/bank/index.php" class="JS_menu m_exchange" data-layer="JS_sub_exchange" data-link="">환율</a>
+							<ul id="JS_sub_exchange" class="JS_sub_list submenu" style="display:none">
+								<li class="JS_sub"><a href="/exchange/bank/index.php">환율best</a></li>
+								<li class="JS_sub"><a href="#none" onclick="setServicePopup('airport')">공항환전</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="/deposit/yegeum/index.php" class="JS_menu m_deposit" data-layer="JS_sub_deposit" data-link="">예금</a>
+							<ul id="JS_sub_deposit" class="JS_sub_list submenu" style="display:none">
+								<li class="JS_sub"><a href="/deposit/yegeum/index.php">예금best</a></li>
+								<!-- 2017.01.05 --><!-- 20160603 수정 --><li class="JS_sub"><a href="https://p2p.mibank.me/invest/">재테크</a></li><!--// 20160603 수정 --><!-- //2017.01.05 -->
+							</ul>
+						</li>
+						<li><a href="/loan/credit/index.php" class="JS_menu m_loan" data-layer="JS_sub_loan" data-link="">대출</a>
+							<ul id="JS_sub_loan" class="JS_sub_list submenu" style="display:none">
+								<li class="JS_sub"><a href="/loan/credit/index.php">대출best</a></li>
+								<!-- 2017.01.05 --><li class="JS_sub"><a href="https://p2p.mibank.me/">비상금</a></li><!-- //2017.01.05 -->
+							</ul>
+						</li>
+						<li><a href="https://p2p.mibank.me/" class="JS_menu m_p2p">p2p</a></li>
+						<li><a href="#none" onclick="setServicePopup('travel')"  class="JS_menu m_insurance">여행보험</a></li>
+						<li><a href="#none" onclick="setServicePopup('travel')"  class="JS_menu m_long">장기체류보험</a></li>
+						<li><a href="/calculator/finance/repayment.php" class="JS_menu m_calculator">계산기</a></li>
+					</ul>
+				</div>
+				<div class="menu_r">
+					<ul>
+                        <li><a href="https://partner.mibank.me/" target="_blank" class="m_biztown">비즈타운</a></li>
+					</ul>
+				</div>
+			</div>				
+		</div>
+		<!--// header -->
+
+		<!-- slide -->
+		<div id="slide">
+			<ul id="JS_slide">
+				<li class="slide_1" style="opacity:1;">
+					<p>복잡하고 불편한 금융...</p>
+				</li>
+				<li class="slide_2" style="opacity:0;">
+					<p>쉽고 편리하게<i>!</i></p>
+				</li>
+				<li class="slide_3" style="opacity:0;">
+					<p>마이뱅크는<br>새로운 금융을 이야기합니다!</p>
+				</li>
+			</ul>
+			<div class="btn_right">
+			
+				<div><a href="#none" onclick="setServicePopup('travel')">해외여행자보험</a></div>
+				<div><a href="#none" onclick="setServicePopup('travel')">해외장기체류보험</a></div>
+			<!--
+				<div><a href="https://travel.mibank.me/">해외여행자보험</a></div>
+				<div><a href="https://travel.mibank.me/">해외장기체류보험</a></div>
+				-->
+				<div><a href="#none" onclick="setServicePopup('airport')">인천공항 환전</a></div>
+			</div>
+			<div id="JS_paging" class="paging">
+				<a class="on" href="#none">1</a> <a href="#none">2</a> <a href="#none">3</a>
+			</div>
+		</div>
+		<!--// slide -->
+
+		<!-- container -->
+		<div id="container">
+			<div class="content">
+				<div class="con_txt">
+					마이뱅크, 차원이 다릅니다<i>!</i>
+				</div>
+				<div class="col_div">
+					<div class="col_3">
+						<div class="ico"><img src="/images/mibank/ko/ic_easy.png" alt="easy"></div>
+						<div class="tit">Easy</div>
+						<p class="con">금융이 쉽고 편리해 집니다.</p>
+					</div>
+					<div class="col_3">
+						<div class="ico"><img src="/images/mibank/ko/ic_profitable.png" alt="profitable"></div>
+						<div class="tit">Profitable</div>
+						<p class="con">내게 유리한 금융상품을 제시합니다.</p>
+					</div>
+					<div class="col_3">
+						<div class="ico"><img src="/images/mibank/ko/ic_different.png" alt="different"></div>
+						<div class="tit">Different</div>
+						<p class="con">차원이 다른 새로운 금융입니다.</p>
+					</div>
+				</div>
+				<div class="btn_app">
+					<a href="//play.google.com/store/apps/details?id=me.mibank" target="_blank" class="btn_android"><img src="/images/mibank/ko/bt_index_android.png" alt="안드로이드 앱 다운로드"></a>
+					<a href="//itunes.apple.com/kr/app/maibaengkeu/id944134670" target="_blank" class="btn_ios"><img src="/images/mibank/ko/bt_index_ios.png" alt="IOS 앱 다운로드"></a>
+				</div>
+			</div>
+		</div>
+		<!--// container -->
+
+		<!-- footer -->
+		<div id="footer">
+			<div class="footer_con">
+				Copyright ⓒ 2016 mibank Inc. All rights reserved
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

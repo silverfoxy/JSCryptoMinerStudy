@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+  Python Tutor: https://github.com/pgbovine/OnlinePythonTutor/
+  Copyright (C) Philip Guo (philip@pgbovine.net)
+  LICENSE: https://github.com/pgbovine/OnlinePythonTutor/blob/master/LICENSE.txt
+-->
+
+<head>
+
+<title>Python Tutor - Visualize Python, Java, C, C++, JavaScript, TypeScript, and Ruby code execution</title>
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+
+  <!-- let Webpack take care of everything -->
+  <script type="text/javascript" src="build/index.bundle.js?e19fdeb290" charset="utf-8"></script>
+
+<!-- insert google-analytics.txt contents here -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34795707-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+
+<div class="mainBodyPane">
+
+<table class='layoutTbl'>
+  <tr>
+    <td>
+
+<div class="activityPane" id="learnPane">
+
+<h1><span id="learnHeading">VISUALIZE CODE AND GET LIVE HELP</span>
+<div class="smallH1">
+Learn Python, Java, C, C++, JavaScript, and Ruby
+</div>
+</h1>
+
+<p><a href="visualize.html"><b>Python Tutor</b></a>, created
+by <a
+href="http://pgbovine.net/">Philip Guo</a> (<a href="https://twitter.com/pgbovine">@pgbovine</a>),
+helps people overcome a fundamental
+barrier to learning programming: understanding what happens as the
+computer runs each line of code.</p>
+
+<p>Write code in your web browser, see it visualized step by step, and
+get live help from volunteers.</p>
+
+<p>
+Related services:
+<a href="java.html"><b>Java Tutor</b></a>,&nbsp;
+<a href="c.html"><b>C Tutor</b></a>,&nbsp;
+<a href="cpp.html"><b>C++ Tutor</b></a>,&nbsp;
+<a href="javascript.html"><b>JavaScript Tutor</b></a>,&nbsp;
+<a href="ruby.html"><b>Ruby Tutor</b></a>
+</p>
+
+<p>So far, <b>over 3.5 million people in over 180 countries</b> have
+used Python Tutor to visualize over 50 million pieces of code, often as
+a supplement to textbooks, lectures, and online tutorials.</p>
+
+<div id="startLink">
+  <a href="visualize.html">Visualize your code and get live help now</a>
+</div>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/McYTtgl8ogI" frameborder="0" allowfullscreen></iframe>
+
+<p>Here is a Python example:</p>
+
+<div id="demoViz"></div>
+
+<p>
+<b><a
+href="http://pgbovine.net/publications.htm#Online_Python_Tutor_web_based_program_visualization_SIGCSE_2013">Read</a></b>
+the original research paper &ndash; Philip J. Guo. Online Python Tutor: Embeddable
+Web-Based Program Visualization for CS Education. SIGCSE 2013.
+</p>
+
+<h1 style="margin-top: 35px;"><span id="embedHeading">GET LIVE HELP</span> <span class="smallH1">from volunteers around the world</span></h1>
+
+<p>Hit the &ldquo;Get live help!&rdquo; button to allow anyone on the website
+    to join your session. You can chat about your code and navigate
+    visualizations together to receive free real-time tutoring. Watch this
+    <a target="_blank"
+    href="https://www.youtube.com/watch?v=oDY7ScMPtqI"><b>video
+    demo</b></a>.
+</p>
+
+<p>
+<b><a href="http://pgbovine.net/publications.htm#Codechella_multiuser_program_visualizations_VLHCC_2015">Read</a></b>
+an older live help paper &ndash; Philip J. Guo, Jeffery White, Renan
+Zanelatto. Codechella: Multi-User Program Visualizations for Real-Time
+Tutoring and Collaborative Learning. VL/HCC 2015.
+</p>
+
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<div id="footer">
+
+<p>Copyright &copy; <a href="http://pgbovine.net/">Philip Guo</a>. All rights reserved.</p>
+
+</div>
+
+
+</body>
+</html>

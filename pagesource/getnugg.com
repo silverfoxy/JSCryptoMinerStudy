@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://www.getnugg.com/">https://www.getnugg.com/</a></p>

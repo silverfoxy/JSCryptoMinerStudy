@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="Copyright XSERVER Inc." />
+<meta name="robots" content="INDEX,FOLLOW" />
+<title>エックスサーバー サーバー初期ページ</title>
+<style type="text/css">
+
+* {
+	margin : 0 ;
+	padding : 0 ;
+	font-size : 100% ;
+}
+
+body {
+	font-size : 75% ;
+	text-align : center ;
+	font-family:"ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3" ;
+	line-height : 1.4 ;
+}
+
+#container {
+	width : 540px ;
+	margin : 15px auto 30px ;
+}
+
+#container #header {
+	width : 540px ;
+	height : 52px ;
+	background : url(default_page.png) 0 0 no-repeat ;
+}
+
+#container #header a {
+	display : block ;
+	text-indent : -500em ;
+	overflow : hidden ;
+	width : 292px ;
+	height : 40px ;
+	margin : 0 auto ;
+}
+
+#container dl#contents {
+	height : 108px ;
+	margin-bottom : 8px ;
+	background : url(default_page.png) left bottom no-repeat ;
+}
+
+dl#contents dt {
+	width : 540px ;
+	text-align : center ;
+	line-height : 30px ;
+	height : 30px ;
+	font-weight : bold ;
+	font-size : 115% ;
+}
+
+dl#contents dd {
+	text-align : left ;
+	padding : 8px 12px ;
+	position : relative ;
+}
+
+dl#contents dd #message {
+	position : absolute ;
+	top : 50px ;
+	left : 30px ;
+}
+
+address {
+	font-style : normal ;
+}
+
+</style>
+</head>
+<body>
+
+<div id="base">
+	<div id="container">
+    	<div id="header">
+        	<a href="https://www.xserver.ne.jp/">Xserver Hosting Service</a>
+        </div>
+        <!-- /header -->
+
+		<dl id="contents">
+        	<dt>このウェブスペースへは、まだホームページがアップロードされていません。</dt>
+            <dd>
+            	<p>早速、エックスサーバー上へファイルをアップロードしてみましょう。<br />
+                アップロードの方法などは、<a href="https://www.xserver.ne.jp/man_ftp_setting.php">サポートマニュアル</a>をご参照ください。</p>
+
+                <div id="message">
+                    <a href="https://www.xserver.ne.jp/">エックスサーバー・サイトトップページ</a>
+                </div>
+            </dd>
+		</dl>
+
+        <div id="footer">
+        	<address>Copyright &copy; XSERVER Inc. All Rights Reserved.</address>
+        </div>
+
+	<!--//container--></div>
+<!--//base--></div>
+
+</body>
+</html>

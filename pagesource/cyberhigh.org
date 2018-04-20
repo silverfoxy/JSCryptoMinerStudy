@@ -1,0 +1,991 @@
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cyber High Home</title>
+
+	<link type="text/css" rel="stylesheet" href="Styles/app.css" />
+	<link type="text/css" rel="stylesheet" href="Styles/custom.css?v2016211052" />
+	<link type="text/css" rel="stylesheet" href="Styles/jquery-ui.min.css" />
+	<script type="text/javascript" src="Scripts/modernizr.js"></script>
+	<script type="text/javascript" src="Scripts/global.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="Scripts/String.js"></script>
+	<script type="text/javascript" src="Scripts/Site.master.js"></script>
+
+	<!-- Fix for grid issues in IE8 caused by REM see http://foundation.zurb.com/forum/posts/241-foundation-5-and-ie8t
+      also requires jquery 1.9.1 included -->
+	<!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+      <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+      <script src="http://html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <![endif]-->
+
+	<script type="text/javascript">
+
+		var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		
+		$(document).ready(function () {
+			SiteMaster.LoadMainNavBarLinks();
+			SiteMaster.LoadFooterLinks();
+
+			var url = document.location.href;
+			var currentFileName = url.substring(url.lastIndexOf("/") + 1, url.length);
+			
+			if (currentFileName == "") {	//home page
+				$('#divCTAButton').hide();				
+			};
+		});
+
+		function contactUsSubmitted() {
+			$('#divContactUs').foundation('reveal', 'close');
+			$('#divContactUsSubmitted').foundation('reveal', 'open');
+			setTimeout(function () { $('#divContactUsSubmitted').foundation('reveal', 'close'); }, 6000);
+		}
+
+		function demoRequestSubmitted() {
+			$('#divDemoRequest').foundation('reveal', 'close');
+			$('#divDemoRequestSubmitted').foundation('reveal', 'open');
+			setTimeout(function () { $('#divDemoRequestSubmitted').foundation('reveal', 'close'); }, 6000);
+		}
+
+		function pricingRequestSubmitted() {
+			$('#divPricingRequest').foundation('reveal', 'close');
+			$('#divContactUsSubmitted').foundation('reveal', 'open');
+			setTimeout(function () { $('#divContactUsSubmitted').foundation('reveal', 'close'); }, 6000);
+		}
+
+		function additionalInfoRequestSubmitted() {
+			$('#divAdditionalInfoRequest').foundation('reveal', 'close');
+			$('#divContactUsSubmitted').foundation('reveal', 'open');
+			setTimeout(function () { $('#divContactUsSubmitted').foundation('reveal', 'close'); }, 6000);
+		}
+
+		function callBackRequestSubmitted() {
+			$('#divCallBackRequest').foundation('reveal', 'close');
+			$('#divContactUsSubmitted').foundation('reveal', 'open');
+			setTimeout(function () { $('#divContactUsSubmitted').foundation('reveal', 'close'); }, 6000);
+		}
+
+		function showContactUs() {
+			$('#txtContact_Organization').val('');
+			$('#txtContact_FName').val('');
+			$('#txtContact_LName').val('');
+			$('#txtContact_Email').val('');
+			$('#txtContact_Phone').val('');
+			$('#txtContact_Phone').mask('(999) 999-9999');
+			$('#txtContact_PhoneExt').val('');
+			$('#txtContact_PhoneExt').mask('99999');
+			$('#txtContact_Reason').val('');
+			$('#valContactUsEmailFormat').hide();
+			$('#valContactValidation').hide();
+			$('#divContactUs').foundation('reveal', 'open');
+			$('#txtContact_Organization').focus();
+		}
+		
+		function showDemoRequest() {
+			$('#txtDemo_FName').val('');
+			$('#txtDemo_LName').val('');
+			$('#txtDemo_Organization').val('');
+			$('#txtDemo_Email').val('');
+			$('#txtDemo_Phone').val('');
+			$('#txtDemo_Phone').mask('(999) 999-9999');
+			$('#txtDemo_PhoneExt').val('');
+			$('#txtDemo_PhoneExt').mask('99999');
+			$('#txtDemo_Reason').val('');
+			$('#valDemoRequestEmailFormat').hide();
+			$('#valDemoRequestValidation').hide();
+			$('#divDemoRequest').foundation('reveal', 'open');
+			$('#txtDemo_Organization').focus();
+		}
+
+		function showPricingInfoRequest() {
+			$('#txtPricingContact_Organization').val('');
+			$('#txtPricingContact_FName').val('');
+			$('#txtPricingContact_LName').val('');
+			$('#txtPricingContact_Email').val('');
+			$('#txtPricingContact_Phone').val('');
+			$('#txtPricingContact_Phone').mask('(999) 999-9999');
+			$('#txtPricingContact_PhoneExt').val('');
+			$('#txtPricingContact_PhoneExt').mask('99999');
+			$('#txtPricingContact_Reason').val('');
+			$('#valPricingContactUsEmailFormat').hide();
+			$('#valPricingContactValidation').hide();
+			$('#divPricingRequest').foundation('reveal', 'open');
+			$('#valPricingContactEmailFormat').hide();
+			$('#txtPricingContact_Organization').focus();
+		}
+
+		function showAdditionalInfoRequest() {
+			$('#txtAdditionalInfoContact_Organization').val('');
+			$('#txtAdditionalInfoContact_FName').val('');
+			$('#txtAdditionalInfoContact_LName').val('');
+			$('#txtAdditionalInfoContact_Email').val('');
+			$('#txtAdditionalInfoContact_Phone').val('');
+			$('#txtAdditionalInfoContact_Phone').mask('(999) 999-9999');
+			$('#txtAdditionalInfoContact_PhoneExt').val('');
+			$('#txtAdditionalInfoContact_PhoneExt').mask('99999');
+			$('#txtAdditionalInfoContact_Reason').val('');
+			$('#valAdditionalInfoContactUsEmailFormat').hide();
+			$('#valAdditionalInfoContactValidation').hide();
+			$('#divAdditionalInfoRequest').foundation('reveal', 'open');
+			$('#valAdditionalInfoContactEmailFormat').hide();
+			$('#txtAdditionalInfoContact_Organization').focus();
+		}
+
+		function showCallBackRequest() {
+			$('#txtCallBackContact_Organization').val('');
+			$('#txtCallBackContact_FName').val('');
+			$('#txtCallBackContact_LName').val('');
+			$('#txtCallBackContact_Email').val('');
+			$('#txtCallBackContact_Phone').val('');
+			$('#txtCallBackContact_Phone').mask('(999) 999-9999');
+			$('#txtCallBackContact_PhoneExt').val('');
+			$('#txtCallBackContact_PhoneExt').mask('99999');
+			$('#txtCallBackContact_Reason').val('');
+			$('#valCallBackContactUsEmailFormat').hide();
+			$('#valCallBackContactValidation').hide();
+			$('#divCallBackRequest').foundation('reveal', 'open');
+			$('#valCallBackContactEmailFormat').hide();
+			$('#txtCallBackContact_Organization').focus();
+		}
+
+		function contactRequestSubmitted(contactType) {
+			switch (contactType) {
+				case '2': // Demo Request
+					$('#divDemoRequest').foundation('reveal', 'close');
+					$('#divDemoRequestSubmitted').foundation('reveal', 'open');
+					setTimeout(function () { $('#divDemoRequestSubmitted').foundation('reveal', 'close'); }, 6000);
+					break;
+				default:
+					$('#divContactUs').foundation('reveal', 'close');
+					$('#divContactUsSubmitted').foundation('reveal', 'open');
+					setTimeout(function () { $('#divContactUsSubmitted').foundation('reveal', 'close'); }, 6000);
+					break;
+			}
+		}
+
+		function submitContactRequest(contactType, organization, firstName, lastName, email, phone, phoneExt, reason) {
+			var dataString = '{' + String.format("'contactType':'{0}', 'organization':'{1}', 'firstName':'{2}', 'lastName':'{3}', 'email':'{4}', 'phone':'{5}', 'phoneExt':'{6}', 'reason':'{7}', 'url':'{8}'",
+					contactType,
+					organization,
+					firstName,
+					lastName,
+					email,
+					phone,
+					phoneExt,
+					reason,
+					window.location.href
+				) + '}';
+				$.ajax({
+					type: "POST",
+				url: "WebServices/GlobalWM.asmx/SubmitContactRequest",
+					data: dataString,
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+				success: contactRequestSubmitted(contactType),
+					error: function (xhr, ajaxOptions, thrownError) {
+					console.log("Contact Request failed - " + xhr.status + " - " + thrownError);
+					}
+				});
+			}
+
+		function ContactUs_Submit() {
+			if (validateContactUsFields()) {
+				submitContactRequest('1',
+											$('#txtContact_Organization').val(),
+											$('#txtContact_FName').val(),
+											$('#txtContact_LName').val(),
+											$('#txtContact_Email').val(),
+											$('#txtContact_Phone').val(),
+											$('#txtContact_PhoneExt').val(),
+											$('#txtContact_Reason').val());
+		}
+		}
+
+		function DemoRequest_Submit() {
+			if (validateDemoRequestFields()) {
+				submitContactRequest('2',
+											$('#txtDemo_Organization').val(),
+					$('#txtDemo_FName').val(),
+					$('#txtDemo_LName').val(),
+					$('#txtDemo_Email').val(),
+					$('#txtDemo_Phone').val(),
+					$('#txtDemo_PhoneExt').val(),
+											$('#txtDemo_Reason').val());
+					}
+			}
+
+		function PricingInfo_Submit() {
+			if (validatePricingRequestFields()) {
+				submitContactRequest('3',
+											$('#txtPricingContact_Organization').val(),
+											$('#txtPricingContact_FName').val(),
+											$('#txtPricingContact_LName').val(),
+											$('#txtPricingContact_Email').val(),
+											$('#txtPricingContact_Phone').val(),
+											$('#txtPricingContact_PhoneExt').val(),
+											$('#txtPricingContact_Reason').val());
+		}
+		}
+
+		function AdditionalInfo_Submit() {
+			if (validateAdditionalInfoRequestFields()) {
+				submitContactRequest('4',
+											$('#txtAdditionalInfoContact_Organization').val(),
+											$('#txtAdditionalInfoContact_FName').val(),
+											$('#txtAdditionalInfoContact_LName').val(),
+											$('#txtAdditionalInfoContact_Email').val(),
+											$('#txtAdditionalInfoContact_Phone').val(),
+											$('#txtAdditionalInfoContact_PhoneExt').val(),
+											$('#txtAdditionalInfoContact_Reason').val());
+			}
+		}
+
+		function CallBackRequest_Submit() {
+			if (validateCallBackRequestFields()) {
+				submitContactRequest('5',
+											$('#txtCallBackContact_Organization').val(),
+											$('#txtCallBackContact_FName').val(),
+											$('#txtCallBackContact_LName').val(),
+											$('#txtCallBackContact_Email').val(),
+											$('#txtCallBackContact_Phone').val(),
+											$('#txtCallBackContact_PhoneExt').val(),
+											$('#txtCallBackContact_Reason').val());
+			}
+		}
+
+		function validateEmail(inputControl, validatorControl) {
+			var email = $(inputControl).val();
+			var isValid = email !== '' && emailRegex.test(email);
+
+			if (isValid || email === '') { $(validatorControl).hide(); }
+			else { $(validatorControl).show(); }
+			return isValid;
+		}
+
+		function validateContactUsFields() {
+			var isValid = $('#txtContact_FName').val() !== ''
+				&& $('#txtContact_LName').val() !== ''
+				&& $('#txtContact_Organization').val() !== ''
+				&& $('#txtContact_Email').val() !== ''
+				&& $('#txtContact_Phone').val() !== ''
+				&& $('#txtContact_Reason').val() !== '';
+
+			if (isValid) { $('#valContactValidation').hide(); }
+			else { $('#valContactValidation').show(); }
+			return isValid && validateEmail(txtContact_Email, valContactUsEmailFormat);
+		}
+
+		function validateDemoRequestFields() {
+			var isValid = $('#txtDemo_FName').val() !== ''
+				&& $('#txtDemo_LName').val() !== ''
+				&& $('#txtDemo_Organization').val() !== ''
+				&& $('#txtDemo_Email').val() !== ''
+				&& $('#txtDemo_Phone').val() !== ''
+				&& $('#txtDemo_Reason').val() !== '';
+
+			if (isValid) { $('#valDemoRequestValidation').hide(); }
+			else { $('#valDemoRequestValidation').show(); }
+			return isValid && validateEmail(txtDemo_Email, valDemoRequestEmailFormat);
+		}
+
+		function validatePricingRequestFields() {
+			var isValid = $('#txtPricingContact_FName').val() !== ''
+				&& $('#txtPricingContact_LName').val() !== ''
+				&& $('#txtPricingContact_Organization').val() !== ''
+				&& $('#txtPricingContact_Email').val() !== ''
+				&& $('#txtPricingContact_Phone').val() !== ''
+				&& $('#txtPricingContact_Reason').val() !== '';
+
+			if (isValid) { $('#valPricingContactValidation').hide(); }
+			else { $('#valPricingContactValidation').show(); }
+			return isValid && validateEmail(txtPricingContact_Email, valPricingContactEmailFormat);
+		}
+
+		function validateAdditionalInfoRequestFields() {
+			var isValid = $('#txtAdditionalInfoContact_FName').val() !== ''
+				&& $('#txtAdditionalInfoContact_LName').val() !== ''
+				&& $('#txtAdditionalInfoContact_Organization').val() !== ''
+				&& $('#txtAdditionalInfoContact_Email').val() !== ''
+				&& $('#txtAdditionalInfoContact_Phone').val() !== ''
+				&& $('#txtAdditionalInfoContact_Reason').val() !== '';
+
+			if (isValid) { $('#valAdditionalInfoContactValidation').hide(); }
+			else { $('#valAdditionalInfoContactValidation').show(); }
+			return isValid && validateEmail(txtAdditionalInfoContact_Email, valAdditionalInfoContactEmailFormat);
+		}
+
+		function validateCallBackRequestFields() {
+			var isValid = $('#txtCallBackContact_FName').val() !== ''
+				&& $('#txtCallBackContact_LName').val() !== ''
+				&& $('#txtCallBackContact_Organization').val() !== ''
+				&& $('#txtCallBackContact_Email').val() !== ''
+				&& $('#txtCallBackContact_Phone').val() !== ''
+				&& $('#txtCallBackContact_Reason').val() !== '';
+
+			if (isValid) { $('#valCallBackContactValidation').hide(); }
+			else { $('#valCallBackContactValidation').show(); }
+			return isValid && validateEmail(txtCallBackContact_Email, valCallBackContactEmailFormat);
+		}
+
+	</script>
+
+	
+	
+	<script type="text/javascript" src="Scripts/Default.aspx.js"></script>
+
+
+
+	<!-- Google Analytics Script -->
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-59950923-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+	<form name="aspnetForm" method="post" action="" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjEwNDQyMTMxMw9kFgJmD2QWAgIDD2QWAgIBD2QWBAIDDw8WAh4LTmF2aWdhdGVVcmwFGWh0dHA6Ly93d3cuY3liZXJoaWdoLm9yZy9kZAIFDw8WAh8ABRxodHRwczovL3dvcmxkLmN5YmVyaGlnaC5vcmcvZGRkFaxaR4k4wtbTB6J1wIsJsH4JcROhigRQAJ7lG3IehFE=" />
+
+
+<script src="/ScriptResource.axd?d=_aB-pwK54ysPtI4IzKqdts8tnQVvZXuQZKZ2YrXOqBQcpiMWalBCBmhVqAHOy6_eEIEG0YohpI991YLATg6IfNbJkybLwiRxXM73eKV5twF1d446pp2kxac92IZVmj7IzdO9TfFtONWz83x2CR0LLdC4zXTOHFmWMarccrSuwQDDdhb8j55fyDWQ9j0vkRpf0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="WebServices/GlobalWM.asmx/jsdebug" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+		
+		<!-- FCOE Banner START -->
+		<div id="fcoe-banner">
+			<div class="row">
+				<div class="large-2 medium-12 columns">
+					<div class="fcoe-logo"><a href="http://www.fcoe.org" target="blank"></a></div>
+				</div>
+				<div class="large-4 medium-4 show-for-large-up columns">
+					<h6 class="antialiased">Fresno County Superintendent of Schools</h6>
+				</div>
+				<div class="large-6 medium-6 show-for-large-up columns">
+					<h6 class="antialiased">Jim A. Yovino, Superintendent</h6>
+				</div>
+			</div>
+		</div>
+		<!-- FCOE Banner END -->
+
+
+		<!-- Nameplate START -->
+		<div class="row" id="nameplate">
+			<div class="large-6 medium-6 small-12 columns logo-column">
+				<a id="ctl00_lnkHome" class="logo" href="http://www.cyberhigh.org/"><img class="cyber-high-logo" src="Images/cyberhigh_logo.png" alt="Cyber High - Online Learning Solutions" /></a>
+			</div>
+			<div class="large-6 medium-6 small-12 columns">
+				<div class="nameplate-contact hide-for-small right">
+					<p class="mail right antialiased"><a href="Contact.aspx">Contact Cyber High</a></p>
+					<p class="phone right antialiased">(800) 987-PASS</p>
+				</div>
+				<div class="nameplate-links right">
+					<a href="mailto:support@cyberhigh.org" class="button tiny hide-for-medium-up">Send an Email</a>
+					<div class="button tiny demo" onclick="showDemoRequest();">request a demo</div>
+					<a id="ctl00_lnkCyberHigh" class="button tiny login" href="https://world.cyberhigh.org/">login</a>
+				</div>
+			</div>
+		</div>
+		<!-- Nameplate END -->
+
+
+		<!-- Primary Nav START -->
+		<nav class="top-bar row" id="primary-nav" data-topbar>
+
+			<ul class="title-area">
+				<!-- Title Area -->
+				<li class="name"></li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section"></section>
+		</nav>
+		<!-- Primary Nav END -->
+
+		
+	<!-- Hero START -->
+	<div class="row" id="hero">
+			<div class="panel">
+                <video width="940" height="380" controls="controls">
+                    <source src="images/CyberHigh.mp4" type="video/mp4" />
+                </video>
+				
+			</div>
+	</div>
+	<!-- Hero END -->
+	
+	<!-- Info-panels START -->
+	<div class="row" id="info-panels">
+		<div class="large-4 medium-6 columns info-panel">
+			<div class="educators">
+				<h4>Cyber High<br/> for Teachers</h4>
+				<p><br />Cyber High's reporting features, forums, and free online support help teachers drive student success. Teachers give 110%; see how Cyber High gives back.</p>
+				<a href="ForTeachers.aspx" class="button small">learn more <span> </span></a>
+			</div>
+		</div>
+		<div class="large-4 medium-6 columns info-panel">
+			<div class="students">
+				<h4>Cyber High<br/> for Students</h4>
+				<p>Cyber High's interactive digital experience motivates students through game based features, multi-media, performance projects, and manipulative elements. See why students prefer Cyber High.</p>
+				<a href="ForStudents.aspx" class="button small">learn more <span> </span></a>
+			</div>
+		</div>
+		<div class="large-4 medium-12 columns">
+			<div class="difference">
+				<h4>The Cyber High Difference</h4>
+				<div id="divDifferenceLinks"></div>
+			</div>
+		</div>
+	</div>
+	<!-- InfoPanels END -->
+	
+	<script type="text/javascript">
+
+		Default.LoadDifferenceLinks();
+
+	</script>
+
+
+
+		<!-- Footer START -->
+		<div id="page-footer">
+			<div class="row">
+				<div class="large-3 medium-3 small-12 columns">
+					<h4>Links</h4>
+					<div id="divFooterLinks"></div>
+				</div>
+				<div class="large-6 medium-6 small-12 columns">
+					<h4>About</h4>
+					<p>
+						Cyber High, a non-profit entity owned and operated by the Fresno County Superintendent of Schools, creates pathways to success through standards-based, digital curriculum that fosters critical thinking, provides active and collaborative learning opportunities, and engages students in rigorous coursework. Courses are designed to enhance analytical and problem-solving skills, to increase graduation rates, to prepare students for online testing, and to promote college and career readiness. Our curriculum is widely used for original credit, credit recovery and remediation, acceleration, targeted intervention, and as part of blended learning environments.
+					</p>
+					<h4>Contact Us</h4>
+					<p class="addr">
+						2840 E Floradora Ave. Fresno, CA 93703<br />
+						(800) 987-PASS
+					</p>
+				</div>
+				<div class="large-3 medium-3 small-12 columns">
+					<a class="fcoe-link" href="http://www.fcoe.org" target="blank">http://www.fcoe.org</a>
+				</div>
+			</div>
+			<div class="footer-runner">
+				<div class="row">
+					<p>Cyber High &copy; 2014 | All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+		<!-- Footer END -->
+
+		<!-- This is needed to make reveal work (DO NOT REMOVE) -->
+		
+
+		<div id="divContactUs" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<!-- Editable Region START -->
+				<div class="modal-form">
+					<div class="row">
+						<div class="small-11">
+							<div class="small-6">
+								<img src="Images/cyberhigh_logo.png" />
+							</div>
+							<div class="small-6 small-offset-3">
+								<h4>Contact Us</h4>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_Organization" class="right inline">Organization:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_Organization" placeholder="Organization">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_FName" class="right inline">First Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_FName" placeholder="Enter your first name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_LName" class="right inline">Last Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_LName" placeholder="Enter your last name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_Email" class="right inline">E-mail:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_Email" placeholder="example@example.com" onblur=" validateEmail(this, valContactUsEmailFormat); " />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_Phone" class="right inline">Phone:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_Phone" class="phone-us" placeholder="(___) ___-____" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtContact_PhoneExt" class="right inline">
+										Extension:&nbsp;
+									</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtContact_PhoneExt" class="phone-us" placeholder="(optional)" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<label>
+										What is your reason for contacting us?
+										<textarea id="txtContact_Reason"></textarea>
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<input type="button" class="button small" value="Send Message" onclick=" ContactUs_Submit(); " />
+									<div style="display: inline;">
+										<ul>
+											<li id="valContactValidation" class="contactUs-validator">Please fill in all fields above.</li>
+											<li id="valContactUsEmailFormat" class="contactUs-validator">Please enter a valid email address.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Editable Region END -->
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+
+		<div id="divDemoRequest" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<!-- Editable Region START -->
+				<div class="row">
+					<div class="small-11">
+						<div class="small-6">
+							<img src="Images/cyberhigh_logo.png" />
+						</div>
+						<div class="small-9 small-offset-3">
+							<h4>Request a Demo</h4>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_Organization" class="right inline">School Name:&nbsp;</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_Organization" placeholder="Enter your school name">
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_FName" class="right inline">First Name:&nbsp;</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_FName" placeholder="Enter your first name">
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_LName" class="right inline">Last Name:&nbsp;</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_LName" placeholder="Enter your last name">
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_Email" class="right inline">E-mail:&nbsp;</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_Email" placeholder="example@example.com" onblur=" validateEmail(this, valDemoRequestEmailFormat); ">
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_Phone" class="right inline">Phone:&nbsp;</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_Phone" class="phone-us" placeholder="(___) ___-____" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-3 columns">
+								<label for="txtDemo_PhoneExt" class="right inline">
+									Extension:&nbsp;
+								</label>
+							</div>
+							<div class="small-9 columns">
+								<input type="text" id="txtDemo_PhoneExt" class="phone-us" placeholder="(optional)" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-9 small-offset-3 columns">
+								<label>
+									What is your reason for contacting us?
+									<textarea id="txtDemo_Reason"></textarea>
+								</label>
+							</div>
+						</div>
+						<div class="row" style="margin-bottom: 10px;">
+							<div class="small-9 small-offset-3 columns" style="font-style: italic; font-size: 10px;">
+								To request a Cyber High demo, you must be a teacher or administrator of a school or district. If you are a parent or student interested in our program, please refer personnel at your school to this website.
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-9 small-offset-3 columns">
+								<input type="button" class="button small" value="Submit Request" onclick=" DemoRequest_Submit(); " />
+								<div style="display: inline;">
+									<ul>
+										<li id="valDemoRequestValidation" class="demo-request-validator">Please fill in all fields above.</li>
+										<li id="valDemoRequestEmailFormat" class="demo-request-validator">Please enter a valid email address.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="close-reveal-modal">&#215;</a>
+
+				<!-- Editable Region END -->
+			</div>
+		</div>
+
+		<div id="divPricingRequest" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<!-- Editable Region START -->
+				<div class="modal-form">
+					<div class="row">
+						<div class="small-11">
+							<div class="small-6">
+								<img src="Images/cyberhigh_logo.png" />
+							</div>
+							<div class="small-10 small-offset-3">
+								<h4>Request Pricing Information</h4>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_Organization" class="right inline">Organization:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_Organization" placeholder="Organization">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_FName" class="right inline">First Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_FName" placeholder="Enter your first name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_LName" class="right inline">Last Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_LName" placeholder="Enter your last name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_Email" class="right inline">E-mail:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_Email" placeholder="example@example.com" onblur=" validateEmail(this, valPricingContactEmailFormat); " />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_Phone" class="right inline">Phone:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_Phone" class="phone-us" placeholder="(___) ___-____" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtPricingContact_PhoneExt" class="right inline">
+										Extension:&nbsp;
+									</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtPricingContact_PhoneExt" class="phone-us" placeholder="(optional)" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<label>
+										Request Notes:
+										<textarea id="txtPricingContact_Reason"></textarea>
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<input type="button" class="button small" value="Send Message" onclick="PricingInfo_Submit(); " />
+									<div style="display: inline;">
+										<ul>
+											<li id="valPricingContactValidation" class="contactUs-validator">Please fill in all fields above.</li>
+											<li id="valPricingContactEmailFormat" class="contactUs-validator">Please enter a valid email address.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Editable Region END -->
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+
+		<div id="divAdditionalInfoRequest" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<!-- Editable Region START -->
+				<div class="modal-form">
+					<div class="row">
+						<div class="small-11">
+							<div class="small-6">
+								<img src="Images/cyberhigh_logo.png" />
+							</div>
+							<div class="small-6 small-offset-3">
+								<h4>Request Additional Information</h4>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_Organization" class="right inline">Organization:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_Organization" placeholder="Organization">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_FName" class="right inline">First Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_FName" placeholder="Enter your first name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_LName" class="right inline">Last Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_LName" placeholder="Enter your last name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_Email" class="right inline">E-mail:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_Email" placeholder="example@example.com" onblur=" validateEmail(this, valAdditionalInfoContactEmailFormat); " />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_Phone" class="right inline">Phone:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_Phone" class="phone-us" placeholder="(___) ___-____" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtAdditionalInfoContact_PhoneExt" class="right inline">
+										Extension:&nbsp;
+									</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtAdditionalInfoContact_PhoneExt" class="phone-us" placeholder="(optional)" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<label>
+										What is your reason for contacting us?
+										<textarea id="txtAdditionalInfoContact_Reason"></textarea>
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<input type="button" class="button small" value="Send Message" onclick=" AdditionalInfo_Submit(); " />
+									<div style="display: inline;">
+										<ul>
+											<li id="valAdditionalInfoContactValidation" class="contactUs-validator">Please fill in all fields above.</li>
+											<li id="valAdditionalInfoContactEmailFormat" class="contactUs-validator">Please enter a valid email address.</li>
+										</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Editable Region END -->
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+
+		<div id="divCallBackRequest" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<!-- Editable Region START -->
+				<div class="modal-form">
+					<div class="row">
+						<div class="small-11">
+							<div class="small-6">
+								<img src="Images/cyberhigh_logo.png" />
+							</div>
+							<div class="small-6 small-offset-3">
+								<h4>Request A Call Back</h4>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_Organization" class="right inline">Organization:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_Organization" placeholder="Organization">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_FName" class="right inline">First Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_FName" placeholder="Enter your first name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_LName" class="right inline">Last Name:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_LName" placeholder="Enter your last name">
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_Email" class="right inline">E-mail:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_Email" placeholder="example@example.com" onblur="validateEmail(this, valCallBackContactEmailFormat);" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_Phone" class="right inline">Phone:&nbsp;</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_Phone" class="phone-us" placeholder="(___) ___-____" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-3 columns">
+									<label for="txtCallBackContact_PhoneExt" class="right inline">
+										Extension:&nbsp;
+									</label>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" id="txtCallBackContact_PhoneExt" class="phone-us" placeholder="(optional)" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<label>
+										What is your reason for contacting us?
+											<textarea id="txtCallBackContact_Reason"></textarea>
+									</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 small-offset-3 columns">
+									<input type="button" class="button small" value="Send Message" onclick="CallBackRequest_Submit();" />
+									<div style="display: inline;">
+										<ul>
+											<li id="valCallBackContactValidation" class="contactUs-validator">Please fill in all fields above.</li>
+											<li id="valCallBackContactEmailFormat" class="contactUs-validator">Please enter a valid email address.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Editable Region END -->
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+
+		<div id="divContactUsSubmitted" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<div style="width: 100%; text-align: center;">
+					<h4>Thank you for contacting the Cyber High team!</h4>
+				</div>
+				<p>We will get back to you very soon.</p>
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+
+		<div id="divDemoRequestSubmitted" class="reveal-modal" data-reveal>
+			<div class="reveal-modal-inner">
+				<div style="width: 100%; text-align: center;">
+					<h4>Thank you, your request has been sent!</h4>
+				</div>
+				<p>We will send demo account information to the email address you used when you filled in the form.</p>
+				<a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
+		<a href="Contact.aspx" style="color: black;">
+			<div id="divCTAButton" class="cta-button">
+				For More Information...
+			</div>
+		</a>
+	<!-- Final Scripts -->
+		<!-- 1.9.1 for IE8 grid issues (see head) -->
+		<script type="text/javascript" src="Scripts/includes.js"></script>
+		<script type="text/javascript" src="Scripts/app.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.mask.min.js"></script>
+
+	</form>
+</body>
+</html>

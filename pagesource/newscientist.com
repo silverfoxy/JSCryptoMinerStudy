@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec"  class="no-js">
+    <head>
+                <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+        <meta name="thumbnail" content="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/ns-logo-for-featured-image.jpg" />
+        <title>New Scientist | Science news and science articles from New Scientist</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="/wp-content/themes/new-scientist/img/layup/new-sci-favicon.ico" />
+        <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            
+<!-- This site is optimized with the Yoast SEO plugin v5.0.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Science news and science articles from New Scientist"/>
+<meta name="keywords" content="science, science news, science jobs, space, technology, physics, biology, astronomy, health, medicine, mathematics, science videos, science picture"/>
+<link rel="canonical" href="https://www.newscientist.com/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Science news and science articles from New Scientist" />
+<meta name="twitter:title" content="New Scientist | Science news and science articles from New Scientist" />
+<meta name="twitter:site" content="@newscientist" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.newscientist.com\/","name":"New Scientist","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.newscientist.com\/search\/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<meta name="google-site-verification" content="g3dfps28FN9AWREDHbKZdxR7HO8J8CndDmvLVebFaXg" />
+<!-- / Yoast SEO plugin. -->
+
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.newscientist.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='ns-jobs-style-css'  href='https://www.newscientist.com/wp-content/plugins/rbi-jobs-widget//css/jobs_style.min.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-lightbox-fancybox-css'  href='https://www.newscientist.com/wp-content/plugins/responsive-lightbox/assets/fancybox/jquery.fancybox-1.3.4.css?ver=1.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wsl-widget-css'  href='https://www.newscientist.com/wp-content/plugins/wordpress-social-login/assets/css/style.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='new-scientist-style-min-css'  href='https://www.newscientist.com/wp-content/themes/new-scientist/css/build/homepage.min.css?ver=20180315' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.newscientist.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/ns-authentication/js/ns-authentication-main.min.js?ver=201802'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/rbi-geo-widget/js/geo-widget.min.js?ver=201802'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var nsjobs = {"jobsurl":"https:\/\/www.newscientist.com\/wp-content\/plugins\/rbi-jobs-widget\/ajax_jobs.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/rbi-jobs-widget//js/rbi-jobs-fe.min.js?ver=201802'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/responsive-lightbox/assets/fancybox/jquery.fancybox-1.3.4.js?ver=1.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rlArgs = {"script":"fancybox","selector":"lightbox","customEvents":"","activeGalleries":"1","modal":"0","showOverlay":"1","showCloseButton":"1","enableEscapeButton":"1","hideOnOverlayClick":"1","hideOnContentClick":"0","cyclic":"0","showNavArrows":"1","autoScale":"1","scrolling":"yes","centerOnScroll":"1","opacity":"1","overlayOpacity":"70","overlayColor":"#666","titleShow":"1","titlePosition":"outside","transitions":"fade","easings":"swing","speeds":"300","changeSpeed":"300","changeFade":"100","padding":"5","margin":"5","videoWidth":"1080","videoHeight":"720","woocommerce_gallery":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=1.7.2'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/themes/new-scientist/scripts/jquery.cookiesdirective.js?ver=201802'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ns_ajax_endpoints = {"joblink":"https:\/\/www.newscientist.com\/wp-content\/plugins\/ns-job-link\/joblink.php","getIPOK":"https:\/\/www.newscientist.com\/wp-content\/plugins\/ns-ip-login\/getipokay.php","doLogin":"https:\/\/www.newscientist.com\/wp-content\/plugins\/ns-ip-login\/dolog-in.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/themes/new-scientist/js/build/core-rs.min.js?ver=201802'></script>
+<link rel='https://api.w.org/' href='https://www.newscientist.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.newscientist.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://d1o50x50snmhul.cloudfront.net/wp-includes/wlwmanifest.xml" /> 
+
+    <script type="text/javascript">
+        dataLayer = [{"authType":"noauth","barrierType":"None","siteSection":"Home Page","visitorType":"noauth","subject":"None"}];
+    </script>
+    <script type='text/javascript'>
+(function() {
+	var useSSL = 'https:' == document.location.protocol;
+	var src = (useSSL ? 'https:' : 'http:') +
+	'//www.googletagservices.com/tag/js/gpt.js';
+	document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+var gptAdSlots = [];
+googletag.cmd.push(function() {
+var mapping = googletag.sizeMapping().
+addSize([320, 300], [88, 1]).
+addSize([750, 300], [728, 90]). // Banner Landscape tablet
+addSize([990, 300], [[970, 250], [970,90], [728,90]]).build();
+var mapping1 = googletag.sizeMapping().
+addSize([320, 300], [[300, 100], [320, 50], [320, 100]]).
+addSize([750, 300], []).build();
+var mapping2 = googletag.sizeMapping().
+addSize([0, 0], []). 
+addSize([1024, 300], [[300, 250],[300, 600],[300, 1050],[160, 600]]).build();
+var mapping3 = googletag.sizeMapping().
+addSize([0, 0], [1, 1]).build(); //out of page unit
+var mapping4 = googletag.sizeMapping().
+addSize([0, 0], []). 
+addSize([320, 300], [[300, 250],[300, 600]]).
+addSize([1024, 300], []).build();
+gptAdSlots[0] = googletag.defineSlot('/21632812681/NewScientist/Homepage-banner', [[728, 90]], 'banner-below-nav-leader').defineSizeMapping(mapping).addService(googletag.pubads());
+gptAdSlots[1] = googletag.defineSlot('/21632812681/NewScientist/Homepage-banner', [[320, 50]], 'banner-below-nav').defineSizeMapping(mapping1).addService(googletag.pubads());
+gptAdSlots[2] = googletag.defineSlot('/21632812681/NewScientist/Homepage-sidebar', [[300, 250]], 'mpu-sidebar').defineSizeMapping(mapping2).addService(googletag.pubads());
+gptAdSlots[3] = googletag.defineOutOfPageSlot('/21632812681/NewScientist/OutOfPage', 'out-of-page-unit').addService(googletag.pubads()).setTargeting("mtfIFPath","/doubleclick/");
+gptAdSlots[4] = googletag.defineSlot('/21632812681/NewScientist/Homepage-mid-editorial', [[300, 250]], 'mpu-mid-article').defineSizeMapping(mapping4).addService(googletag.pubads());
+googletag.pubads().setTargeting("UserLoginStatus", "logged out");
+googletag.pubads().setTargeting("UserType", "nologin");
+googletag.pubads().setTargeting("key", ["homepage","nologin"]);
+googletag.pubads().setTargeting("nssection", "homepage");
+googletag.pubads().collapseEmptyDivs();
+googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+});
+</script>
+    <script>
+        var _roost = _roost || [];
+        _roost.push(["segments_add", "anonymous"]);
+        _roost.push(['autoprompt', false]);
+        _roost.push(['onload', function(){
+            _roost.showBell();
+        }]);
+    </script>
+    <script src='//cdn.goroost.com/roostjs/c072e8af58b447bc83060053e3696812' async></script>
+        <meta name="p:domain_verify" content="c64e8f4ac4f50bca3404abba4882a79d"/>
+        <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="New Scientist | Science news and science articles from New Scientist"/>
+    <meta property="og:url" content="https://www.newscientist.com/" />
+    <meta property="og:site_name" content="New Scientist" />
+    <meta property="og:description" content="Science news and science articles from New Scientist"/>            <script src="https://tags.crwdcntrl.net/c/7077/cc_af.js"></script>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-B92N"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'});
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-B92N');</script>
+    <!-- End Google Tag Manager -->
+    <script type='text/javascript'>
+(function (d) {
+    var apc = d.createElement('script'), fs;
+    apc.type = 'text/javascript';
+    apc.charset = 'UTF-8';
+    apc.async = true;
+    apc.src = 'https://a248.e.akamai.net/swordfishinc.download.akamai.com/145199/live/p/696/3b4ad0c4.js';
+    fs = d.getElementsByTagName('script')[0];
+    fs.parentNode.insertBefore(apc, fs);
+})(document);
+</script><style type="text/css">.layout { float: left;}aside#bottombar .ns-slider { padding: 10px 0; }.article-index #page_navigation { display: none;}@media (min-width: 530px) { /*========== When the latest news does not appear on the barrier==========*/ .barrier-menu.sticky-drop-down { top: 45px !important; }}@media screen and ( max-width: 1100px ) { /*#inarticle_wrapper_div { display: none !important; }*/ #ns-slider-ns_slider_headline_widget-112233 { display: none !important; }}</style><!-- Generated by Simple CSS - https://wordpress.org/plugins/simple-css/ -->    <link rel="alternate" type="application/rss+xml" title="New Scientist - Home" href="https://www.newscientist.com/feed/home?cmpid=RSS|NSNS-Home&utm_medium=RSS&utm_source=NSNS&utm_campaign=Home&utm_content=Home">
+        <script type="text/javascript">
+        var ajaxurl = 'https://www.newscientist.com/wp-admin/admin-ajax.php';
+    </script>
+    
+<!--Plugin WP Missed Schedule Active - Secured with Genuine Authenticity KeyTag-->
+
+<!-- This site is patched against a big problem not solved since WordPress 2.5 -->
+
+        <!--[if LTE IE 8]>
+            <link rel="stylesheet" type="text/css" href="/wp-content/themes/new-scientist/css/ie-7-8.css">
+            <script type="text/javascript" src="/wp-content/themes/new-scientist/scripts/modernizr.custom.55328.js"></script>
+        <![endif]-->
+        <!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="/wp-content/themes/new-scientist/css/ie-7.css">
+        <![endif]-->
+        <!--[if !IE 7]>
+            <style type="text/css">
+                #page {display:table;height:100%}
+            </style>
+        <![endif]-->
+
+            </head>
+
+    <body class=" home blog  ">
+                <aside id="topbar"></aside>
+        <aside id="bottombar"></aside>
+                      
+        <header role="masthead">
+            <div class="masthead-container">
+                <div id="newscientist-logo"><a href="https://www.newscientist.com"><h1 class="site-logo">New Scientist</h1></a>            </div>
+                            <div class="masthead-latest-news">
+                    <h2 id="subASave"><a href="http://subscription.newscientist.com/packages/newscientist-2018-Q1.php?promCode=10720&packageCodes=PAT&offerCode=Q&utm_campaign=2018-Global-subsbutton-Q1&utm_source=NSNS" target="_blank">SUBSCRIBE AND SAVE 49%</a></h2><h3><a href="https://subscribe.newscientist.com/myaccount/Login.aspx?utm_campaign=MYACC-header-topheader" target="_blank" class="header-marketing-links">MANAGE MY SUBSCRIPTION</a></h3><h3><a href="http://subscription.newscientist.com/packages/studenttwo.php?promCode=9824&packageCodes=TP&offerCode=Q&utm_campaign=NSNS|Subs|2017-Global-header-student-subscribe" target="_blank" class="header-marketing-links">STUDENT</a></h3><h3><a href="http://landing.newscientist.com/educational-access/" target="_blank" class="header-marketing-links">Schools and universities</a></h3><h3><a href="http://subscription.newscientist.com/packages/newscientist-2018-Q1-gift.php?promCode=10721&packageCodes=PAT&offerCode=6M&utm_source=NSNS&utm_campaign=2018-Global-giftheader-Q1" target="_blank" class="header-marketing-links">GIVE A GIFT</a></h3>
+
+                </div>
+                
+        </div>
+    </header>
+
+        <nav role="banner" id="main-nav">
+        <div class="nav-content-wrapper">
+                <a id="simple-menu" href="#sidr">
+
+                    <svg id="menu-button" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                    <rect y="32" width="40" height="8"/>
+                    <rect width="40" height="8"/>
+                    <rect y="16" width="40" height="8"/>
+                    </svg>
+
+                    <span>MENU</span>
+
+                </a>
+            <div class="menu-main-container"><ul id="menu-main" class="menu"><li id="menu-item-238" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-238"><a href="/" class="ns-header-nav-link">HOME</a></li>
+<li id="menu-item-146" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-146"><a href="/section/news/" class="ns-header-nav-link">NEWS</a></li>
+<li id="menu-item-147" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-147"><a href="/subject/technology/" class="ns-header-nav-link">TECHNOLOGY</a></li>
+<li id="menu-item-148" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-148"><a href="/subject/space/" class="ns-header-nav-link">SPACE</a></li>
+<li id="menu-item-149" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-149"><a href="/subject/physics/" class="ns-header-nav-link">PHYSICS</a></li>
+<li id="menu-item-150" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-150"><a href="/subject/health/" class="ns-header-nav-link">HEALTH</a></li>
+<li id="menu-item-151" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-151"><a href="/subject/earth/" class="ns-header-nav-link">EARTH</a></li>
+<li id="menu-item-152" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-152"><a href="/subject/humans/" class="ns-header-nav-link">HUMANS</a></li>
+<li id="menu-item-153" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-153"><a href="/subject/life/" class="ns-header-nav-link">LIFE</a></li>
+<li id="menu-item-2070431" class="ns-header-nav-link menu-item menu-item-type-post_type menu-item-object-page menu-item-2070431"><a href="https://www.newscientist.com/topics/" class="ns-header-nav-link">TOPICS</a></li>
+<li id="menu-item-277" class="ns-header-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-277"><a href="/science-events/" class="ns-header-nav-link">EVENTS</a></li>
+<li id="menu-item-236" class="nav-jobs menu-item menu-item-type-custom menu-item-object-custom menu-item-236"><a target="_blank" href="http://jobs.newscientist.com/?cmpid=ILC|JOBS|NSNAV-JOBSLINK" class="nav-jobs">JOBS</a></li>
+</ul></div>
+
+            <ul id="nav-tools">
+                                  <li class="subscribe-wrapper" id="nav-sub-button"><a href="http://subscription.newscientist.com/packages/newscientist-2018-Q1.php?promCode=10736&packageCodes=PAT&offerCode=Q&utm_campaign=2018-Global-navbar-Q1&utm_source=NSNS" target="new" class="subscribe" rel="nofollow">Subscribe</a></li>
+                                <li><div class="search">
+
+                        <div id="search-button">
+                            <span>SEARCH</span>
+
+                            <svg version="1.1" id="search-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 width="15px" height="15px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+                            <g>
+                            <g>
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M19.401,15.854l-5.116-5.114
+                                  c1.333-2.791,0.851-6.229-1.462-8.541c-2.933-2.933-7.689-2.933-10.622,0c-2.935,2.933-2.935,7.686,0,10.619
+                                  c2.311,2.311,5.752,2.793,8.543,1.461l5.115,5.113c0.699,0.697,1.831,0.697,2.53,0l1.012-1.012
+                                  C20.099,17.684,20.099,16.552,19.401,15.854z M3.97,11.049c-1.955-1.955-1.955-5.125,0-7.08c1.957-1.954,5.127-1.954,7.083,0
+                                  c1.957,1.955,1.957,5.125,0,7.08C9.097,13.005,5.927,13.005,3.97,11.049z"/>
+                            </g>
+                            </g>
+                            </svg>
+                        </div>
+
+                        <ul class="sub" id="search-sub">
+                            <li class="search-form-list-item">
+                                <div class="search-form">
+								  <form action="/search/" class="custom-search-form">
+				  					<input type="text" name="q" class="custom-search-form__text-field"/>
+				  					<input type="submit" value="Search" class="gcse-search-button"/>
+								  </form>
+								</div>
+                            </li>
+                                                    </ul>
+                    </div>
+                </li>
+                <li>
+
+                    <div class="account">
+
+                                                    <div id="account-button">
+                                <!-- <a href="#" id="account-button"> -->
+                                <span>LOG IN</span>
+                                <svg version="1.1" id="login-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     width="17px" height="17px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+
+                                <g display="none">
+                                <g display="inline">
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#020000" d="M19.401,15.854l-5.116-5.114
+                                      c1.333-2.791,0.851-6.229-1.462-8.541c-2.933-2.933-7.689-2.933-10.622,0c-2.935,2.933-2.935,7.686,0,10.619
+                                      c2.311,2.311,5.752,2.793,8.543,1.461l5.115,5.113c0.699,0.697,1.831,0.697,2.53,0l1.012-1.012
+                                      C20.099,17.684,20.099,16.552,19.401,15.854z M3.97,11.049c-1.955-1.955-1.955-5.125,0-7.08c1.957-1.954,5.127-1.954,7.083,0
+                                      c1.957,1.955,1.957,5.125,0,7.08C9.097,13.005,5.927,13.005,3.97,11.049z"/>
+                                </g>
+                                </g>
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M1.804,15.464c0,0,2.066,4.269,8.224,4.37
+                                      c4.44,0.071,8.157-4.37,8.157-4.37l-4.809-1.574c0,0-0.859-0.699-0.963-0.989c-0.104-0.292,1.219-1.375,0.903-1.052
+                                      c-0.315,0.324,1.013-3.891,1.022-4.883c0.012-0.993,0.123-1.978,0-2.967c-0.122-0.989-0.547-1.417-1.022-1.978
+                                      c-0.478-0.561-2.117-1.854-3.312-1.854c-1.196,0-2.716,1.21-3.313,1.854C6.093,2.664,6.012,3.212,5.668,3.998
+                                      c-0.345,0.786-0.032,1.868,0,2.967c0.03,1.1,0.694,4.543,1.023,4.883c0.297,0.308,0.951,0.607,0.904,1.052
+                                      c-0.047,0.441-0.964,0.989-0.964,0.989L1.804,15.464z"/>
+                                </svg>
+                                <!-- </a> -->
+                            </div>
+                            <ul class="sub" id="account-sub">
+                                <li class="login-list-item">
+                                    <form action="/ns-login.php" METHOD="POST" class="nav-login-form" autocomplete="off">
+    <input type="hidden" name="form-name" value="form-login-menu">
+    <input type="hidden" name="redirect" value="/"\">    <div>
+        <label for="email">Email address</label>
+        <input id="email" NAME="email" TYPE="text" SIZE="30"/>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" NAME="password" TYPE="password" SIZE="30"/>
+    </div>
+
+    <input type="submit" value="Log in" class="green-button"/>
+</form>                                    
+<!--
+	wsl_render_auth_widget
+	WordPress Social Login 2.3.3.
+	http://wordpress.org/plugins/wordpress-social-login/
+-->
+
+<div class="wp-social-login-widget">
+
+	<div class="wp-social-login-connect-with">Connect with:</div>
+
+	<div class="wp-social-login-provider-list">
+
+		<a rel="nofollow" href="https://www.newscientist.com/wp-login.php?action=wordpress_social_authenticate&#038;mode=login&#038;provider=Facebook&#038;redirect_to=https%3A%2F%2Fwww.newscientist.com%2F" title="Connect with Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook">
+			Facebook
+		</a>
+
+		<a rel="nofollow" href="https://www.newscientist.com/wp-login.php?action=wordpress_social_authenticate&#038;mode=login&#038;provider=Google&#038;redirect_to=https%3A%2F%2Fwww.newscientist.com%2F" title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">
+			Google
+		</a>
+
+	</div>
+
+	<div class="wp-social-login-widget-clearing"></div>
+
+</div>
+
+<!-- wsl_render_auth_widget -->
+
+                                    <a class="register" href="/registration">Create an account</a>
+                                    <a class="register" href="/lost-password">Forgotten password</a>
+                                    <a class="link-subs" href="/activate">Activate subscription</a>
+                                    <a class="link-subs oa-login" href="/educational-access">Educational access</a>
+                                </li>
+                            </ul>
+                                                </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <!-- NewScientist/Header/ Doubleclick ads -->
+
+            <div class="leaderboard-container">
+            <div id="banner-below-nav" class="ad-leaderboard">
+                <h5>Advertisement</h5>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('banner-below-nav');
+                    });
+                </script>
+            </div>
+
+            <div id="banner-below-nav-leader" class="ad-leaderboard">
+                <h5>Advertisement</h5>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('banner-below-nav-leader');
+                    });
+                </script>
+            </div>
+        </div>
+        
+    <main role="container" id="main-container">
+                    <section>
+                			<div class="textwidget"><style>
+.signpost {
+  padding: 10px !important;
+}
+
+.signpost h3 {
+  font-size: 16px !important;
+}
+</style></div>
+		<a href="https://www.eventbrite.co.uk/e/instant-expert-consciousness-tickets-42241730152?aff=ticker" target=\"_blank\" class="signpost__link"><div class="signpost" style="background-color: #faa61a !important;">
+<h3>Book now – </h3><p> Get to grips with consciousness at our next Instant Expert event in London</p>
+</div>
+</a>
+            </section>
+            
+<div class="layout">
+    <div class="layout__main-column">
+        <section class="article-wrapper article-wrapper--no-border">
+            
+		<div id="video-gallery" class="royalSlider videoGallery rsDefault">
+		
+		<div data-href="https://www.newscientist.com/article/mg23731690-800-how-concrete-and-condoms-could-turn-a-greenhouse-gas-green/" class="rsContent">
+			<a class="rsImg" href="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-800x533.jpg">
+			<a href="https://www.newscientist.com/article/mg23731690-800-how-concrete-and-condoms-could-turn-a-greenhouse-gas-green/" class="rsTmb">
+				<h5>How concrete and condoms could turn a greenhouse gas green</h5>
+				<img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-800x533.jpg" class="attachment-big-article-and-featured size-big-article-and-featured wp-post-image" alt="carbon artwork" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140016/bratislav_new-sci_ccu-final-800x533.jpg 800w" sizes="(max-width: 800px) 100vw, 800px" />				<span>We need to suck CO<sub>2</sub> from the air to solve the climate crisis, but what do we do with it? A budding industry is turning the gas into useful stuff</span>
+			</a>
+			</a>
+		</div>
+
+		
+		<div data-href="https://www.newscientist.com/article/mg23731690-700-why-the-big-bang-was-not-the-beginning/" class="rsContent">
+			<a class="rsImg" href="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-800x533.jpg">
+			<a href="https://www.newscientist.com/article/mg23731690-700-why-the-big-bang-was-not-the-beginning/" class="rsTmb">
+				<h5>Why the big bang was not the beginning</h5>
+				<img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-800x533.jpg" class="attachment-big-article-and-featured size-big-article-and-featured wp-post-image" alt="Big Bang" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12140908/gs1136796-800x533.jpg 800w" sizes="(max-width: 800px) 100vw, 800px" />				<span><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;First hints are emerging of a universe that existed before our own: an alien world of chaos where time, space and geometry were yet to form&quot;}" data-sheets-userformat="{&quot;2&quot;:513,&quot;3&quot;:[null,0],&quot;12&quot;:0}">First hints are emerging of a universe that existed before our own: an alien world of chaos where time, space and geometry were yet to form</span></span>
+			</a>
+			</a>
+		</div>
+
+		
+		<div data-href="https://www.newscientist.com/article/2053929-a-brief-history-of-stephen-hawking-a-legacy-of-paradox/" class="rsContent">
+			<a class="rsImg" href="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-800x533.jpg">
+			<a href="https://www.newscientist.com/article/2053929-a-brief-history-of-stephen-hawking-a-legacy-of-paradox/" class="rsTmb">
+				<h5>A brief history of Stephen Hawking: A legacy of paradox</h5>
+				<img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-800x533.jpg" class="attachment-big-article-and-featured size-big-article-and-featured wp-post-image" alt="Stephen Hawking" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2015/08/73149807-800x533.jpg 800w" sizes="(max-width: 800px) 100vw, 800px" />				<span>He was an icon for many reasons, but as we remember Stephen Hawking, his remarkable contribution to science is undoubtedly his greatest legacy</span>
+			</a>
+			</a>
+		</div>
+
+				</div>
+
+		        </section>
+        <section class="article-wrapper">
+            <h2 class="article-wrapper__heading">RECOMMENDED</h2><ul class='article-list'><li class='article-list__item article-list__item--no-border article-card article-card--3col '>  <a href="https://www.newscientist.com/article/mg23731691-100-the-genius-within-how-to-be-smart-in-the-21st-century/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-300x200.jpg" class="article-card__image wp-post-image" alt="brain pills" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12130712/gettyimages-520153286-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/review/" class="link--culture">
+                  Review              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/mg23731691-100-the-genius-within-how-to-be-smart-in-the-21st-century/">
+              <h2 class="article-card__heading blue-hover-link"><i>The Genius Within</i>: How to be smart in the 21st century</h2>
+              <p class="article-card__strap"><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Boosting IQ is a hot topic in self-improvement. But a riveting new read leaves some big questions hanging&quot;}" data-sheets-userformat="{&quot;2&quot;:513,&quot;3&quot;:[null,0],&quot;12&quot;:0}">Boosting IQ is a hot topic in self-improvement. But a riveting new read leaves some big questions hanging</span></p>
+          </a>
+      </div>
+</li><li class='article-list__item article-card article-card--3col'>  <a href="https://www.newscientist.com/article/2164018-the-fda-wants-to-cut-the-nicotine-in-cigarettes-by-a-third/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-300x200.jpg" class="article-card__image wp-post-image" alt="A packet of cigarettes" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16180741/cxm6kt-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2164018-the-fda-wants-to-cut-the-nicotine-in-cigarettes-by-a-third/">
+              <h2 class="article-card__heading blue-hover-link">The FDA wants to cut the nicotine in cigarettes by a third</h2>
+              <p class="article-card__strap">Tobacco companies could be forced to slash the amount of nicotine in US cigarettes, under radical plans from the Food and Drug Administration</p>
+          </a>
+      </div>
+</li><li class='article-list__item article-card article-card--3col'>  <a href="https://www.newscientist.com/article/2163983-bacteria-killing-nanofibres-could-make-clothes-that-stop-disease/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-300x200.jpg" class="article-card__image wp-post-image" alt="Nanofibres in protective gear could stop diseases spreading" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16155433/gettyimages-459813046-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163983-bacteria-killing-nanofibres-could-make-clothes-that-stop-disease/">
+              <h2 class="article-card__heading blue-hover-link">Bacteria-killing nanofibres could make clothes that stop disease</h2>
+              <p class="article-card__strap">Antimicrobial fabric could slow the spread of diseases like Ebola. These nanofibres kill viruses and bacteria, and their active ingredient recharges in daylight</p>
+          </a>
+      </div>
+</li></ul>        </section>
+        <section class="article-wrapper">
+            <h2 class="article-wrapper__heading">LATEST CHOICE</h2><ul class="article-list"><li><ul class="article-list__row"><li class="article-list__item article-list__item--no-border article-card article-card--3col">  <a href="https://www.newscientist.com/article/mg23731690-900-new-shades-the-controversial-quest-to-fix-colour-blindness/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-300x200.jpg" class="article-card__image wp-post-image" alt="Beach scenes take on a different vibe when you&#039;re colour blind. Left to right: Full colour vision, deuteranopia, tritanopia, protanopia" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13112000/colourblind-beach-scene-1200x800-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/feature/" class="link--features">
+                  Feature              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/mg23731690-900-new-shades-the-controversial-quest-to-fix-colour-blindness/">
+              <h2 class="article-card__heading blue-hover-link">New shades: The controversial quest to 'fix' colour blindness</h2>
+              <p class="article-card__strap">Worldwide, 300 million people lack full colour vision. We try out a pair of specs that aim to "fix" colour blindness, and ask if that's something we want to do</p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163986-astrophysicist-jocelyn-bell-burnell-explores-bachs-cosmic-music/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-300x200.jpg" class="article-card__image wp-post-image" alt="Two viola players" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16162413/max-mandel-is-love-what-you-think-it-is-general-crop-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/preview/" class="link--culture">
+                  Preview              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163986-astrophysicist-jocelyn-bell-burnell-explores-bachs-cosmic-music/">
+              <h2 class="article-card__heading blue-hover-link">Astrophysicist Jocelyn Bell Burnell explores Bach's cosmic music</h2>
+              <p class="article-card__strap">A London concert by the Orchestra of the Age of Enlightenment this Sunday says as much about J. S. Bach’s original audience as it does about today’s cosmology</p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163969-mystery-of-neutrino-masses-may-be-explained-by-dark-matter-force/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-300x200.jpg" class="article-card__image wp-post-image" alt="Neutrino tracks in a detector" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16143715/a1380053-neutrino_particle_interaction_event-spl-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163969-mystery-of-neutrino-masses-may-be-explained-by-dark-matter-force/">
+              <h2 class="article-card__heading blue-hover-link">Mystery of neutrino masses may be explained by dark matter force</h2>
+              <p class="article-card__strap">Dark matter and neutrinos are both cosmic loners – they don’t interact with much. But dark matter could give neutrinos their mass through a weak repellant force</p>
+          </a>
+      </div>
+</li></ul></li><li><ul class="article-list__row"><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163970-bottled-water-is-bad-but-microplastics-arent-the-reason/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-300x200.jpg" class="article-card__image wp-post-image" alt="Bottled water in a factory" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16144455/kg1w11-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/insight/" class="link--news">
+                  Insight              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163970-bottled-water-is-bad-but-microplastics-arent-the-reason/">
+              <h2 class="article-card__heading blue-hover-link">Bottled water is bad – but microplastics aren’t the reason</h2>
+              <p class="article-card__strap">Microplastic particles may taint some bottled water, but the ecological cost of bottles is a better reason to turn on the tap instead</p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163949-electrodes-fitted-behind-your-ear-can-make-you-walk-faster/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-300x200.jpg" class="article-card__image wp-post-image" alt="People walking" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16140644/superstock_1566-912269-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163949-electrodes-fitted-behind-your-ear-can-make-you-walk-faster/">
+              <h2 class="article-card__heading blue-hover-link">Electrodes fitted behind your ear can make you walk faster</h2>
+              <p class="article-card__strap">A type of electrical skull stimulation makes us step out faster with longer strides – a finding that could help people with balance disorders to walk more easily</p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163941-killer-kettles-show-security-an-afterthought-for-connected-homes/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-300x200.jpg" class="article-card__image wp-post-image" alt="Operating smart kettle" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16120535/gettyimages-673017306-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/comment/" class="link--news">
+                  Comment              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163941-killer-kettles-show-security-an-afterthought-for-connected-homes/">
+              <h2 class="article-card__heading blue-hover-link">Killer kettles show security an afterthought for connected homes</h2>
+              <p class="article-card__strap">The internet of things is coming thick and fast but so are the warnings that security of devices is poor. The lack of action is alarming, says <strong>Paul Marks</strong></p>
+          </a>
+      </div>
+</li></ul></li><li><ul class="article-list__row"><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163935-earthquake-ai-makes-it-easier-to-predict-devastation-of-strikes/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-300x200.jpg" class="article-card__image wp-post-image" alt="A researcher pointing at seismograph readings recorded from a massive quake near Sumatra&#039;s in 2005." srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/16110537/gettyimages-52489704-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163935-earthquake-ai-makes-it-easier-to-predict-devastation-of-strikes/">
+              <h2 class="article-card__heading blue-hover-link">Earthquake AI makes it easier to predict devastation of strikes</h2>
+              <p class="article-card__strap">A new computer system can identify seismic activity with twice the accuracy of the current best algorithms and is nearly as good as human experts</p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/mg23731691-500-feedback-goob-the-lifestyle-brand-written-by-predictive-text/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-300x200.jpg" class="article-card__image wp-post-image" alt="dog cartoon" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/12132545/goob-2-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/feedback/" class="link--regulars">
+                  Feedback              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/mg23731691-500-feedback-goob-the-lifestyle-brand-written-by-predictive-text/">
+              <h2 class="article-card__heading blue-hover-link">Feedback: Goob, the lifestyle brand written by predictive text</h2>
+              <p class="article-card__strap"><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Home of the Chicago Dad Soothing Mortgage Advice Salve. Plus: rainbow-infused water, the dirty business of keeping a mountain clean, and more&quot;}" data-sheets-userformat="{&quot;2&quot;:641,&quot;3&quot;:[null,0],&quot;10&quot;:0,&quot;12&quot;:0}">Home of the Chicago Dad Soothing Mortgage Advice Salve. Plus: rainbow-infused water, the dirty business of keeping a mountain clean, and more</span></p>
+          </a>
+      </div>
+</li><li class="article-list__item article-card article-card--3col">  <a href="https://www.newscientist.com/article/2163867-the-novichok-spy-attack-was-brazen-it-needs-a-tough-response/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-300x200.jpg" class="article-card__image wp-post-image" alt="Military personnel in protective clothing removes vehicles from a car park in Salisbury, Britain, 11 March 2017" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/15182116/rexfeatures_9454376aa-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/comment/" class="link--news">
+                  Comment              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163867-the-novichok-spy-attack-was-brazen-it-needs-a-tough-response/">
+              <h2 class="article-card__heading blue-hover-link">The Novichok spy attack was brazen – it needs a tough response</h2>
+              <p class="article-card__strap">Hard-line regimes once tried to hide their attempts to poison defectors. Now they make them blatant. Tougher responses are required, says <strong>David Hambling</strong></p>
+          </a>
+      </div>
+</li></ul></li></ul>
+        </section>
+        <section class="article-wrapper">
+            <h2 class="article-wrapper__heading">EDITOR'S CHOICE</h2><ul class='article-list'><li class='article-list__item article-list__item--no-border article-card article-card--row-details'>
+  <a href="https://www.newscientist.com/article/2163649-stephen-hawking-tributes-pour-in-as-physicist-dies-aged-76/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-300x200.jpg" class="article-card__image wp-post-image" alt="Stephen Hawking 1942-2018" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14075319/gettyimages-476665123-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/daily-news/" class="link--news">
+                  Daily news              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/2163649-stephen-hawking-tributes-pour-in-as-physicist-dies-aged-76/">
+              <h2 class="article-card__heading blue-hover-link">Stephen Hawking: Tributes pour in as physicist dies aged 76</h2>
+              <p class="article-card__strap">World-famous theoretical physicist Stephen Hawking died on Wednesday morning, and tributes are flowing in</p>
+          </a>
+      </div>
+</li>
+<li class='article-list__item article-card article-card--row-details'>
+  <a href="https://www.newscientist.com/article/mg23731682-300-mussel-pain-the-crisis-engulfing-our-freshwater-molluscs/" class="article-card__image-link-wrapper">
+      <img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-300x200.jpg" class="article-card__image wp-post-image" alt="shell" srcset="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-150x100.jpg 150w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-300x200.jpg 300w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-768x512.jpg 768w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-600x400.jpg 600w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205.jpg 1200w, https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/06120424/nationalgeographic_1436205-800x533.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" />  </a>
+      <div class="article-card__details">
+          <span class="article-card__eyebrow article-card__eyebrow">
+              <a href="/article-type/feature/" class="link--features">
+                  Feature              </a>
+          </span>
+          <a href="https://www.newscientist.com/article/mg23731682-300-mussel-pain-the-crisis-engulfing-our-freshwater-molluscs/">
+              <h2 class="article-card__heading blue-hover-link">Mussel pain: The crisis engulfing our freshwater molluscs</h2>
+              <p class="article-card__strap">Freshwater mussels are among the planet’s most endangered animals. Extreme conservation measures are the last hope for these unsung ecological heroes</p>
+          </a>
+      </div>
+</li>
+</ul>        </section>
+    </div>
+    <div class="layout__tertiary-sidebar">
+        <section class="cover-promo promo-card">
+                    <div class="cover-container">
+
+            <a href="/issue/3169"><h3 class="promo-card__heading">THIS WEEK'S ISSUE</h3></a>
+            <div class="content">
+                <a href="/issue/3169" class="cover-widget-link"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/13140900/nsc_20180317-304x400.jpg" ></a>
+
+                <!-- </ul>
+            </div>-->
+                <div class="cover-promo-button-wrapper">
+                    <a class="subscribe-button cover-widget-link" href="/issues/">PAST ISSUES</a>
+                                          <a class="subscribe-button cover-widget-link" href="http://subscription.newscientist.com/packages/newscientist-2018-Q1.php?promCode=10718&packageCodes=PAT&offerCode=Q&utm_campaign=2018-Global-subsmagbutton-Q1&utm_source=NSNS" rel="nofollow">SUBSCRIBE</a>
+                                        <!-- <a class="app-button" href="/app-download">-->
+                    <a class="subscribe-button cover-widget-link" href="/app-download">
+                    <!-- <div class="app-button-text">GET THE <span>APP</span></div> -->
+                        GET THE APP
+                    </a>
+                    <a class="subscribe-button cover-widget-link" href="https://subscribe.newscientist.com/myaccount/renewal.aspx?intcmp=RENEW-homepage-cover">RENEW</a>
+                </div>
+            </div>
+        </div>
+                </section>
+        <section class="ad-unit-mpu promo-card">
+            <div id="mpu-sidebar" class="mpu">
+	<h5>Advertisement</h5>
+	<script type='text/javascript'>
+		googletag.cmd.push(function () {
+			googletag.display('mpu-sidebar');
+		});
+	</script>
+</div>            <div id="mpu-mid-article" class="mpu">
+                <h5>Advertisement</h5>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function() { googletag.display('mpu-mid-article'); });
+                </script>
+            </div>
+        </section>
+        <div class="homepage-promo-container">
+            <section class="trending promo-box promo-card">
+                <h3 class="promo-card__heading">Popular</h3>
+                            <ul class="no-bullets">                <li>
+                    <a href="https://www.newscientist.com/article/2053929-a-brief-history-of-stephen-hawking-a-legacy-of-paradox/"><h4 class="blue-hover-link">A brief history of Stephen Hawking: A legacy of paradox</h4></a>
+                    <!--  <span class="time">3 days ago</span> -->
+                </li>
+                            <li>
+                    <a href="https://www.newscientist.com/article/2163910-our-ancestors-mated-with-the-mystery-denisovan-people-twice/"><h4 class="blue-hover-link">Our ancestors mated with the mystery &#8216;Denisovan&#8217; people – twice</h4></a>
+                    <!--  <span class="time">2 days ago</span> -->
+                </li>
+                            <li>
+                    <a href="https://www.newscientist.com/article/mg23731690-700-why-the-big-bang-was-not-the-beginning/"><h4 class="blue-hover-link">Why the big bang was not the beginning</h4></a>
+                    <!--  <span class="time">3 days ago</span> -->
+                </li>
+                        </ul>
+                                                </section>
+                                <section class="sponsored-content promo-box promo-card">
+                        <div class="ns-article-list-widget ns-third-party-widget ">
+	<h3 class="widget-title">
+					<a href="https://www.newscientist.com/round-up/innovating-in-hiv/">Innovating in HIV</a>
+			</h3>
+	
+			
+	
+	  					<!-- Third Party Details -->
+  					<section class="third-party-article">
+  					<p>Sponsored by</p>
+                    <a href="https://www.newscientist.com/round-up/innovating-in-hiv/" target="_blank"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/01/21203807/gilead_logo_2c_cmyk_pos-300x83.png" /></a>
+					</section>
+                   	   
+                		
+			<ul>
+								<li>
+				
+				
+				
+						       		       			       
+					       
+				
+				                 			
+			
+				<a href="https://www.newscientist.com/article/mg23731680-600-the-global-treatment-plan-helping-to-control-the-hiv-epidemic/?utm_source=third-party-widget&amp;utm_medium=third-party-widget&amp;utm_term=gilead&amp;utm_campaign=gilead">
+				<h4 class="blue-hover-link">The global treatment plan helping to control the HIV epidemic</h4>
+				</a>
+						         					<!-- Third Party Details -->
+  					<section class="third-party-article">
+                                        <a href="https://www.newscientist.com/round-up/innovating-in-hiv/" target="_blank"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/01/21203807/gilead_logo_2c_cmyk_pos-300x83.png" /></a>
+					</section>
+                              
+                                			</li>
+								<li>
+				
+				
+				
+						                       			
+			
+				<a href="https://www.newscientist.com/article/dn26316-perfect-storm-turned-hiv-from-local-to-global-killer/?utm_source=third-party-widget&amp;utm_medium=third-party-widget&amp;utm_term=gilead&amp;utm_campaign=gilead">
+				<h4 class="blue-hover-link">&#8216;Perfect storm&#8217; turned HIV from local to global killer</h4>
+				</a>
+						                       			</li>
+								<li>
+				
+				
+				
+						                       			
+			
+				<a href="https://www.newscientist.com/article/mg19526123-800-the-hidden-tragedy-of-africas-hiv-crisis/?utm_source=third-party-widget&amp;utm_medium=third-party-widget&amp;utm_term=gilead&amp;utm_campaign=gilead">
+				<h4 class="blue-hover-link">The hidden tragedy of Africa&#8217;s HIV crisis</h4>
+				</a>
+						                       			</li>
+				</ul>
+			</div>NEW SCIENTIST EVENTS<div class="textwidget"><p><a href="https://www.newscientist.com/science-events/?cmpid=ILC%7cNSNS%7c2018-GLOBAL-springie%7chomepage-righthand&amp;utm_medium=ILC&amp;utm_source=NSNS&amp;utm_campaign=springIE&amp;utm_content=homepage-righthand" rel="attachment wp-att-2158346"><img class="alignnone size-inset-image wp-image-2158346" src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/02/26165621/ns_event_generic2018_homepage-image_new1_850x439_72.jpg" alt="New Scientist upcoming events" width="300" height="155" /></a></p>
+</div>NEW SCIENTIST LIVE<div class="textwidget"><p><a href="https://live.newscientist.com/?amp;intcmp=ILC|NSNSL|2018-GLOBAL-NsLive18&amp;utm_medium=ILC&amp;utm_source=NSNSL&amp;utm_campaign=homepagebutton" rel="attachment wp-att-2161849"><img class="alignnone size-inset-image wp-image-2161849" src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/02/21163246/nslive2018-homepagebutton1-300x155.jpg" alt="New Scientist Live 2018" width="300" height="155" /></a></p>
+</div>DISCOVERY<div class="textwidget"><p><a href="www.newscientist.com/discovery/?cmpid=DIS|DISC|2017-04-DISC|homepagead&amp;utm_medium=DIS&amp;utm_source=DISC&amp;utm_campaign=genericdiscovery&amp;utm_content=homepagead" rel="attachment wp-att-2129745"><img class="alignnone size-full wp-image-2129745" src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2017/05/03152829/nsdiscovery_turing_300x155.jpg" alt="NSDiscovery_Turing_300x155" width="300" height="155" /></a></p>
+</div>THE COLLECTION<div class="textwidget"><p><a href="https://www.newscientist.com/thecollection/?cmpid=ILC|NSNS|2016-GLOBAL-homepagelink&amp;utm_medium=ILC&amp;utm_source=NSNS&amp;utm_campaign=homepagelink" rel="attachment wp-att-2156430"><img class="alignnone size-inset-image wp-image-2156430" src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2017/12/13175121/bz18_websiteimage-300x141.jpg" alt="BZ18_WebSiteImage" width="300" height="141" /></a></p>
+</div>                    </section>
+                
+            <section class="connect promo-box true promo-card">
+                <h3 class="promo-card__heading">FOLLOW US</h3>
+                <div class="addthis_toolbox addthis_32x32_style addthis_default_style">
+                    <ul>
+                        <li>
+                            <a class="addthis_button_facebook_follow" addthis:userid="newscientist"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/facebook.png" /></a>
+                        </li>
+                        <li>
+                            <a class="addthis_button_twitter_follow" addthis:userid="newscientist"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/twitter.png" /></a>
+                        </li>
+                        <li>
+                            <a class="addthis_button_google_follow" addthis:userid="+NewScientist" href="https://plus.google.com/+NewScientist" rel="publisher"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/gplus.png" /></a>
+                        </li>
+                        <li>
+                            <a class="addthis_button_linkedin_follow" addthis:userid="528037" addthis:usertype="company"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/linkedin.png" /></a>
+                        </li>
+                        <li>
+                            <a class="addthis_button_pinterest_follow" addthis:userid="newscientist"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/pinterest.png" /></a>
+                        </li>
+                        <li>
+                            <a class="addthis_button_instagram_follow" addthis:userid="newscientist"><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/themes/new-scientist/img/furniture/social/instagram.png" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<section id="pre-footer">
+	      <div class="jobsearch" data-homepage="y" data-template="default_template" data-pageid="1888485" data-jdisplay="4">
+
+      </div>
+
+      </section>
+
+</main>
+
+<footer class="footer" role="colophon">
+
+    
+    <div class="register-signup-promo">
+        <div class="footer-wrapper">
+            <div class="instructions">
+                <span>Sign up to our newsletter</span>
+                <span>Enter your email address to get started</span>
+            </div>
+            <div class="input">
+                <form action="/registration/" method="GET">
+                    <input type="hidden" name="newsletter" value="true">
+                    <input type="hidden" name="disable_errors" value="true">
+<input type="hidden" id="registrationonce" name="registrationonce" value="a9f4dac067" /><input type="hidden" name="_wp_http_referer" value="/" />                    <input type="text" size="40" name="email">
+                    <input type="submit" class="green-button" value="Join">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-navigation">
+        <div class="footer-wrapper">
+            <div class="footer-list">
+<div class="menu-footer-about-us-container"><ul id="menu-footer-about-us" class="menu"><li id="menu-item-316" class="ns-footer-nav-link menu-item menu-item-type-post_type menu-item-object-page menu-item-316"><a href="https://www.newscientist.com/contact-us/" class="ns-footer-nav-link">Contact us</a></li>
+<li id="menu-item-341" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a href="/help/" class="ns-footer-nav-link">FAQ</a></li>
+<li id="menu-item-241" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="http://mediacentre.newscientist.com/" class="ns-footer-nav-link">About us</a></li>
+<li id="menu-item-2050157" class="ns-footer-nav-link menu-item menu-item-type-post_type menu-item-object-page menu-item-2050157"><a href="https://www.newscientist.com/in307-whos-who-at-new-scientist/" class="ns-footer-nav-link">Who&#8217;s who</a></li>
+<li id="menu-item-342" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a href="http://subscription.newscientist.com/advertise/index.htm" class="ns-footer-nav-link">Advertise with us</a></li>
+<li id="menu-item-343" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-343"><a href="http://experience.newscientist.com/mediacentre/?intcmp=NSNS-NewScientist-FOOTER&#038;utm_medium=ILC&#038;utm_source=NSNS&#038;utm_campaign=NewScientist&#038;utm_content=footer" class="ns-footer-nav-link">Advertise jobs with us</a></li>
+<li id="menu-item-242" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-242"><a href="/in9-privacy-policy/" class="ns-footer-nav-link">Privacy and terms</a></li>
+<li id="menu-item-243" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-243"><a href="/in209-guide-for-freelancers/" class="ns-footer-nav-link">Write for us</a></li>
+<li id="menu-item-244" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="http://jobs.newscientist.com/?cmpid=ILC|JOBS|NSJOB-JOBSLINK" class="ns-footer-nav-link">Science jobs</a></li>
+<li id="menu-item-344" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-344"><a href="http://www.cafepress.co.uk/newscientist" class="ns-footer-nav-link">Shop</a></li>
+<li id="menu-item-2050451" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-2050451"><a href="/rss-feeds" class="ns-footer-nav-link">RSS feeds</a></li>
+<li id="menu-item-2061928" class="ns-footer-nav-link menu-item menu-item-type-post_type menu-item-object-page menu-item-2061928"><a href="https://www.newscientist.com/in216-syndication-information/" class="ns-footer-nav-link">Syndication information</a></li>
+<li id="menu-item-2076129" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-2076129"><a href="/science-events/" class="ns-footer-nav-link">Events</a></li>
+<li id="menu-item-2107634" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2107634"><a href="/discovery/">Travel</a></li>
+<li id="menu-item-2116214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2116214"><a href="/thecollection/">The Collection</a></li>
+</ul></div>            </div>
+            <div class="footer-list">
+<div class="menu-footer-subscription-container"><ul id="menu-footer-subscription" class="menu"><li id="menu-item-173" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="http://subscription.newscientist.com/packages/newscientist-2018-Q1.php?promCode=10722&#038;packageCodes=PAT&#038;offerCode=Q&#038;intcmp=NSNS|Subs|2018-Global-subsfooter-Q1&#038;utm_source=NSNS&#038;utm_campaign=2018-Global-subsfooter-Q1" class="ns-footer-nav-link">Subscribe</a></li>
+<li id="menu-item-225" class="ns-footer-nav-link menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="https://www.newscientist.com/my-account/" class="ns-footer-nav-link">Account settings</a></li>
+<li id="menu-item-239" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-239"><a href="http://subscription.newscientist.com/packages/newscientist-2018-Q1-gift.php?promCode=10723&#038;packageCodes=PAT&#038;offerCode=6M&#038;intcmp=NSNS|Subs|2018-Global-subsfooter-Q1&#038;utm_source=NSNS&#038;utm_campaign=2018-Global-subsfooter-Q1" class="ns-footer-nav-link">Gift subscriptions</a></li>
+<li id="menu-item-240" class="ns-footer-nav-link menu-item menu-item-type-custom menu-item-object-custom menu-item-240"><a href="http://subscription.newscientist.com/packages/studenttwo.php?promCode=9825&#038;packageCodes=PTA&#038;offerCode=Q&#038;intcmp=SUBS-2017-Control-subscribe-Q1" class="ns-footer-nav-link">Student subscriptions</a></li>
+<li id="menu-item-2102484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2102484"><a href="http://landing.newscientist.com/educational-access/">Educational subscriptions</a></li>
+<li id="menu-item-2104172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2104172"><a href="http://landing.newscientist.com/corporate-access/">Corporate subscriptions</a></li>
+</ul></div>            </div>
+        </div>
+    </div>
+    <div class="footer-subscription">
+        <div class="footer-wrapper">
+            <div class="footer-app-button-wrapper">
+
+
+                <div id="iosapp" class="footer-app-button">
+                    <a href="/app-download" target="_blank">
+                        <svg version="1.1" id="US_UK_Download_on_the" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             x="0px" y="0px" width="135px" height="40px" viewBox="0 0 135 40" enable-background="new 0 0 135 40" xml:space="preserve">
+                            <g>
+                                <path fill="#A6A6A6" d="M130.197,40H4.729C2.122,40,0,37.872,0,35.267V4.726C0,2.12,2.122,0,4.729,0h125.468
+                                      C132.803,0,135,2.12,135,4.726v30.541C135,37.872,132.803,40,130.197,40L130.197,40z"/>
+                                <path d="M134.032,35.268c0,2.116-1.714,3.83-3.834,3.83H4.729c-2.119,0-3.839-1.714-3.839-3.83V4.725
+                                      c0-2.115,1.72-3.835,3.839-3.835h125.468c2.121,0,3.834,1.72,3.834,3.835L134.032,35.268L134.032,35.268z"/>
+                                <g>
+                                    <g>
+                                        <path fill="#FFFFFF" d="M30.128,19.784c-0.029-3.223,2.639-4.791,2.761-4.864c-1.511-2.203-3.853-2.504-4.676-2.528
+                                              c-1.967-0.207-3.875,1.177-4.877,1.177c-1.022,0-2.565-1.157-4.228-1.123c-2.14,0.033-4.142,1.272-5.24,3.196
+                                              c-2.266,3.923-0.576,9.688,1.595,12.859c1.086,1.553,2.355,3.287,4.016,3.226c1.625-0.067,2.232-1.036,4.193-1.036
+                                              c1.943,0,2.513,1.036,4.207,0.997c1.744-0.028,2.842-1.56,3.89-3.127c1.255-1.78,1.759-3.533,1.779-3.623
+                                              C33.507,24.924,30.161,23.647,30.128,19.784z"/>
+                                        <path fill="#FFFFFF" d="M26.928,10.306c0.874-1.093,1.472-2.58,1.306-4.089c-1.265,0.056-2.847,0.875-3.758,1.944
+                                              c-0.806,0.942-1.526,2.486-1.34,3.938C24.557,12.205,26.016,11.382,26.928,10.306z"/>
+                                    </g>
+                                </g>
+                                <g>
+                                    <path fill="#FFFFFF" d="M53.645,31.504h-2.271l-1.244-3.909h-4.324l-1.185,3.909h-2.211l4.284-13.308h2.646L53.645,31.504z
+                                          M49.755,25.955L48.63,22.48c-0.119-0.355-0.342-1.191-0.671-2.507h-0.04c-0.131,0.566-0.342,1.402-0.632,2.507l-1.105,3.475
+                                          H49.755z"/>
+                                    <path fill="#FFFFFF" d="M64.662,26.588c0,1.632-0.441,2.922-1.323,3.869c-0.79,0.843-1.771,1.264-2.942,1.264
+                                          c-1.264,0-2.172-0.454-2.725-1.362h-0.04v5.055h-2.132V25.067c0-1.026-0.027-2.079-0.079-3.159h1.875l0.119,1.521h0.04
+                                          c0.711-1.146,1.79-1.718,3.238-1.718c1.132,0,2.077,0.447,2.833,1.342C64.284,23.949,64.662,25.127,64.662,26.588z M62.49,26.666
+                                          c0-0.934-0.21-1.704-0.632-2.31c-0.461-0.632-1.08-0.948-1.856-0.948c-0.526,0-1.004,0.176-1.431,0.523
+                                          c-0.428,0.35-0.708,0.807-0.839,1.373c-0.066,0.264-0.099,0.48-0.099,0.65v1.6c0,0.698,0.214,1.287,0.642,1.768
+                                          s0.984,0.721,1.668,0.721c0.803,0,1.428-0.31,1.875-0.928C62.266,28.496,62.49,27.68,62.49,26.666z"/>
+                                    <path fill="#FFFFFF" d="M75.699,26.588c0,1.632-0.441,2.922-1.324,3.869c-0.789,0.843-1.77,1.264-2.941,1.264
+                                          c-1.264,0-2.172-0.454-2.724-1.362H68.67v5.055h-2.132V25.067c0-1.026-0.027-2.079-0.079-3.159h1.875l0.119,1.521h0.04
+                                          c0.71-1.146,1.789-1.718,3.238-1.718c1.131,0,2.076,0.447,2.834,1.342C75.32,23.949,75.699,25.127,75.699,26.588z M73.527,26.666
+                                          c0-0.934-0.211-1.704-0.633-2.31c-0.461-0.632-1.078-0.948-1.855-0.948c-0.527,0-1.004,0.176-1.432,0.523
+                                          c-0.428,0.35-0.707,0.807-0.838,1.373c-0.065,0.264-0.099,0.48-0.099,0.65v1.6c0,0.698,0.214,1.287,0.64,1.768
+                                          c0.428,0.48,0.984,0.721,1.67,0.721c0.803,0,1.428-0.31,1.875-0.928C73.303,28.496,73.527,27.68,73.527,26.666z"/>
+                                    <path fill="#FFFFFF" d="M88.039,27.772c0,1.132-0.393,2.053-1.182,2.764c-0.867,0.777-2.074,1.165-3.625,1.165
+                                          c-1.432,0-2.58-0.276-3.449-0.829l0.494-1.777c0.936,0.566,1.963,0.85,3.082,0.85c0.803,0,1.428-0.182,1.877-0.544
+                                          c0.447-0.362,0.67-0.848,0.67-1.454c0-0.54-0.184-0.995-0.553-1.364c-0.367-0.369-0.98-0.712-1.836-1.029
+                                          c-2.33-0.869-3.494-2.142-3.494-3.816c0-1.094,0.408-1.991,1.225-2.689c0.814-0.699,1.9-1.048,3.258-1.048
+                                          c1.211,0,2.217,0.211,3.02,0.632l-0.533,1.738c-0.75-0.408-1.598-0.612-2.547-0.612c-0.75,0-1.336,0.185-1.756,0.553
+                                          c-0.355,0.329-0.533,0.73-0.533,1.205c0,0.526,0.203,0.961,0.611,1.303c0.355,0.316,1,0.658,1.936,1.027
+                                          c1.145,0.461,1.986,1,2.527,1.618C87.77,26.081,88.039,26.852,88.039,27.772z"/>
+                                    <path fill="#FFFFFF" d="M95.088,23.508h-2.35v4.659c0,1.185,0.414,1.777,1.244,1.777c0.381,0,0.697-0.033,0.947-0.099l0.059,1.619
+                                          c-0.42,0.157-0.973,0.236-1.658,0.236c-0.842,0-1.5-0.257-1.975-0.77c-0.473-0.514-0.711-1.376-0.711-2.587v-4.837h-1.4v-1.6h1.4
+                                          v-1.757l2.094-0.632v2.389h2.35V23.508z"/>
+                                    <path fill="#FFFFFF" d="M105.691,26.627c0,1.475-0.422,2.686-1.264,3.633c-0.883,0.975-2.055,1.461-3.516,1.461
+                                          c-1.408,0-2.529-0.467-3.365-1.401s-1.254-2.113-1.254-3.534c0-1.487,0.43-2.705,1.293-3.652c0.861-0.948,2.023-1.422,3.484-1.422
+                                          c1.408,0,2.541,0.467,3.396,1.402C105.283,24.021,105.691,25.192,105.691,26.627z M103.479,26.696
+                                          c0-0.885-0.189-1.644-0.572-2.277c-0.447-0.766-1.086-1.148-1.914-1.148c-0.857,0-1.508,0.383-1.955,1.148
+                                          c-0.383,0.634-0.572,1.405-0.572,2.317c0,0.885,0.189,1.644,0.572,2.276c0.461,0.766,1.105,1.148,1.936,1.148
+                                          c0.814,0,1.453-0.39,1.914-1.168C103.281,28.347,103.479,27.58,103.479,26.696z"/>
+                                    <path fill="#FFFFFF" d="M112.621,23.783c-0.211-0.039-0.436-0.059-0.672-0.059c-0.75,0-1.33,0.283-1.738,0.85
+                                          c-0.355,0.5-0.533,1.132-0.533,1.895v5.035h-2.131l0.02-6.574c0-1.106-0.027-2.113-0.08-3.021h1.857l0.078,1.836h0.059
+                                          c0.225-0.631,0.58-1.139,1.066-1.52c0.475-0.343,0.988-0.514,1.541-0.514c0.197,0,0.375,0.014,0.533,0.039V23.783z"/>
+                                    <path fill="#FFFFFF" d="M122.156,26.252c0,0.382-0.025,0.704-0.078,0.967h-6.396c0.025,0.948,0.334,1.673,0.928,2.173
+                                          c0.539,0.447,1.236,0.671,2.092,0.671c0.947,0,1.811-0.151,2.588-0.454l0.334,1.48c-0.908,0.396-1.98,0.593-3.217,0.593
+                                          c-1.488,0-2.656-0.438-3.506-1.313c-0.848-0.875-1.273-2.05-1.273-3.524c0-1.447,0.395-2.652,1.186-3.613
+                                          c0.828-1.026,1.947-1.539,3.355-1.539c1.383,0,2.43,0.513,3.141,1.539C121.873,24.047,122.156,25.055,122.156,26.252z
+                                          M120.123,25.699c0.014-0.632-0.125-1.178-0.414-1.639c-0.369-0.593-0.936-0.889-1.699-0.889c-0.697,0-1.264,0.289-1.697,0.869
+                                          c-0.355,0.461-0.566,1.014-0.631,1.658H120.123z"/>
+                                </g>
+                                <g>
+                                    <g>
+                                        <path fill="#FFFFFF" d="M49.05,10.009c0,1.177-0.353,2.063-1.058,2.658c-0.653,0.549-1.581,0.824-2.783,0.824
+                                              c-0.596,0-1.106-0.026-1.533-0.078V6.982c0.557-0.09,1.157-0.136,1.805-0.136c1.145,0,2.008,0.249,2.59,0.747
+                                              C48.723,8.156,49.05,8.961,49.05,10.009z M47.945,10.038c0-0.763-0.202-1.348-0.606-1.756c-0.404-0.407-0.994-0.611-1.771-0.611
+                                              c-0.33,0-0.611,0.022-0.844,0.068v4.889c0.129,0.02,0.365,0.029,0.708,0.029c0.802,0,1.421-0.223,1.857-0.669
+                                              S47.945,10.892,47.945,10.038z"/>
+                                        <path fill="#FFFFFF" d="M54.909,11.037c0,0.725-0.207,1.319-0.621,1.785c-0.434,0.479-1.009,0.718-1.727,0.718
+                                              c-0.692,0-1.243-0.229-1.654-0.689c-0.41-0.459-0.615-1.038-0.615-1.736c0-0.73,0.211-1.329,0.635-1.794s0.994-0.698,1.712-0.698
+                                              c0.692,0,1.248,0.229,1.669,0.688C54.708,9.757,54.909,10.333,54.909,11.037z M53.822,11.071c0-0.435-0.094-0.808-0.281-1.119
+                                              c-0.22-0.376-0.533-0.564-0.94-0.564c-0.421,0-0.741,0.188-0.961,0.564c-0.188,0.311-0.281,0.69-0.281,1.138
+                                              c0,0.435,0.094,0.808,0.281,1.119c0.227,0.376,0.543,0.564,0.951,0.564c0.4,0,0.714-0.191,0.94-0.574
+                                              C53.725,11.882,53.822,11.506,53.822,11.071z"/>
+                                        <path fill="#FFFFFF" d="M62.765,8.719l-1.475,4.714h-0.96l-0.611-2.047c-0.155-0.511-0.281-1.019-0.379-1.523h-0.019
+                                              c-0.091,0.518-0.217,1.025-0.379,1.523l-0.649,2.047h-0.971l-1.387-4.714h1.077l0.533,2.241c0.129,0.53,0.235,1.035,0.32,1.513
+                                              h0.019c0.078-0.394,0.207-0.896,0.389-1.503l0.669-2.25h0.854l0.641,2.202c0.155,0.537,0.281,1.054,0.378,1.552h0.029
+                                              c0.071-0.485,0.178-1.002,0.32-1.552l0.572-2.202H62.765z"/>
+                                        <path fill="#FFFFFF" d="M68.198,13.433H67.15v-2.7c0-0.832-0.316-1.248-0.95-1.248c-0.311,0-0.562,0.114-0.757,0.343
+                                              c-0.193,0.229-0.291,0.499-0.291,0.808v2.796h-1.048v-3.366c0-0.414-0.013-0.863-0.038-1.349h0.921l0.049,0.737h0.029
+                                              c0.122-0.229,0.304-0.418,0.543-0.569c0.284-0.176,0.602-0.265,0.95-0.265c0.44,0,0.806,0.142,1.097,0.427
+                                              c0.362,0.349,0.543,0.87,0.543,1.562V13.433z"/>
+                                        <path fill="#FFFFFF" d="M71.088,13.433h-1.047V6.556h1.047V13.433z"/>
+                                        <path fill="#FFFFFF" d="M77.258,11.037c0,0.725-0.207,1.319-0.621,1.785c-0.434,0.479-1.01,0.718-1.727,0.718
+                                              c-0.693,0-1.244-0.229-1.654-0.689c-0.41-0.459-0.615-1.038-0.615-1.736c0-0.73,0.211-1.329,0.635-1.794s0.994-0.698,1.711-0.698
+                                              c0.693,0,1.248,0.229,1.67,0.688C77.057,9.757,77.258,10.333,77.258,11.037z M76.17,11.071c0-0.435-0.094-0.808-0.281-1.119
+                                              c-0.219-0.376-0.533-0.564-0.939-0.564c-0.422,0-0.742,0.188-0.961,0.564c-0.188,0.311-0.281,0.69-0.281,1.138
+                                              c0,0.435,0.094,0.808,0.281,1.119c0.227,0.376,0.543,0.564,0.951,0.564c0.4,0,0.713-0.191,0.939-0.574
+                                              C76.074,11.882,76.17,11.506,76.17,11.071z"/>
+                                        <path fill="#FFFFFF" d="M82.33,13.433h-0.941l-0.078-0.543h-0.029c-0.322,0.433-0.781,0.65-1.377,0.65
+                                              c-0.445,0-0.805-0.143-1.076-0.427c-0.246-0.258-0.369-0.579-0.369-0.96c0-0.576,0.24-1.015,0.723-1.319
+                                              c0.482-0.304,1.16-0.453,2.033-0.446V10.3c0-0.621-0.326-0.931-0.979-0.931c-0.465,0-0.875,0.117-1.229,0.349l-0.213-0.688
+                                              c0.438-0.271,0.979-0.407,1.617-0.407c1.232,0,1.85,0.65,1.85,1.95v1.736C82.262,12.78,82.285,13.155,82.33,13.433z
+                                              M81.242,11.813v-0.727c-1.156-0.02-1.734,0.297-1.734,0.95c0,0.246,0.066,0.43,0.201,0.553c0.135,0.123,0.307,0.184,0.512,0.184
+                                              c0.23,0,0.445-0.073,0.641-0.218c0.197-0.146,0.318-0.331,0.363-0.558C81.236,11.946,81.242,11.884,81.242,11.813z"/>
+                                        <path fill="#FFFFFF" d="M88.285,13.433h-0.93l-0.049-0.757h-0.029c-0.297,0.576-0.803,0.864-1.514,0.864
+                                              c-0.568,0-1.041-0.223-1.416-0.669s-0.562-1.025-0.562-1.736c0-0.763,0.203-1.381,0.611-1.853c0.395-0.44,0.879-0.66,1.455-0.66
+                                              c0.633,0,1.076,0.213,1.328,0.64h0.02V6.556h1.049v5.607C88.248,12.622,88.26,13.045,88.285,13.433z M87.199,11.445v-0.786
+                                              c0-0.136-0.01-0.246-0.029-0.33c-0.059-0.252-0.186-0.464-0.379-0.635c-0.195-0.171-0.43-0.257-0.701-0.257
+                                              c-0.391,0-0.697,0.155-0.922,0.466c-0.223,0.311-0.336,0.708-0.336,1.193c0,0.466,0.107,0.844,0.322,1.135
+                                              c0.227,0.31,0.533,0.465,0.916,0.465c0.344,0,0.619-0.129,0.828-0.388C87.1,12.069,87.199,11.781,87.199,11.445z"/>
+                                        <path fill="#FFFFFF" d="M97.248,11.037c0,0.725-0.207,1.319-0.621,1.785c-0.434,0.479-1.008,0.718-1.727,0.718
+                                              c-0.691,0-1.242-0.229-1.654-0.689c-0.41-0.459-0.615-1.038-0.615-1.736c0-0.73,0.211-1.329,0.635-1.794s0.994-0.698,1.713-0.698
+                                              c0.691,0,1.248,0.229,1.668,0.688C97.047,9.757,97.248,10.333,97.248,11.037z M96.162,11.071c0-0.435-0.094-0.808-0.281-1.119
+                                              c-0.221-0.376-0.533-0.564-0.941-0.564c-0.42,0-0.74,0.188-0.961,0.564c-0.188,0.311-0.281,0.69-0.281,1.138
+                                              c0,0.435,0.094,0.808,0.281,1.119c0.227,0.376,0.543,0.564,0.951,0.564c0.4,0,0.715-0.191,0.941-0.574
+                                              C96.064,11.882,96.162,11.506,96.162,11.071z"/>
+                                        <path fill="#FFFFFF" d="M102.883,13.433h-1.047v-2.7c0-0.832-0.316-1.248-0.951-1.248c-0.311,0-0.562,0.114-0.756,0.343
+                                              s-0.291,0.499-0.291,0.808v2.796h-1.049v-3.366c0-0.414-0.012-0.863-0.037-1.349h0.92l0.049,0.737h0.029
+                                              c0.123-0.229,0.305-0.418,0.543-0.569c0.285-0.176,0.602-0.265,0.951-0.265c0.439,0,0.805,0.142,1.096,0.427
+                                              c0.363,0.349,0.543,0.87,0.543,1.562V13.433z"/>
+                                        <path fill="#FFFFFF" d="M109.936,9.504h-1.154v2.29c0,0.582,0.205,0.873,0.611,0.873c0.188,0,0.344-0.016,0.467-0.049
+                                              l0.027,0.795c-0.207,0.078-0.479,0.117-0.814,0.117c-0.414,0-0.736-0.126-0.969-0.378c-0.234-0.252-0.35-0.676-0.35-1.271V9.504
+                                              h-0.689V8.719h0.689V7.855l1.027-0.31v1.173h1.154V9.504z"/>
+                                        <path fill="#FFFFFF" d="M115.484,13.433h-1.049v-2.68c0-0.845-0.316-1.268-0.949-1.268c-0.486,0-0.818,0.245-1,0.735
+                                              c-0.031,0.103-0.049,0.229-0.049,0.377v2.835h-1.047V6.556h1.047v2.841h0.02c0.33-0.517,0.803-0.775,1.416-0.775
+                                              c0.434,0,0.793,0.142,1.078,0.427c0.355,0.355,0.533,0.883,0.533,1.581V13.433z"/>
+                                        <path fill="#FFFFFF" d="M121.207,10.853c0,0.188-0.014,0.346-0.039,0.475h-3.143c0.014,0.466,0.164,0.821,0.455,1.067
+                                              c0.266,0.22,0.609,0.33,1.029,0.33c0.465,0,0.889-0.074,1.271-0.223l0.164,0.728c-0.447,0.194-0.973,0.291-1.582,0.291
+                                              c-0.73,0-1.305-0.215-1.721-0.645c-0.418-0.43-0.625-1.007-0.625-1.731c0-0.711,0.193-1.303,0.582-1.775
+                                              c0.406-0.504,0.955-0.756,1.648-0.756c0.678,0,1.193,0.252,1.541,0.756C121.068,9.77,121.207,10.265,121.207,10.853z
+                                              M120.207,10.582c0.008-0.311-0.061-0.579-0.203-0.805c-0.182-0.291-0.459-0.437-0.834-0.437c-0.342,0-0.621,0.142-0.834,0.427
+                                              c-0.174,0.227-0.277,0.498-0.311,0.815H120.207z"/>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div id="androidappnew" class="footer-app-button">
+                    <a href="/app-download?utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" /></a>
+                </div>
+            </div>
+
+            <!-- <div class="relx-logo">
+            </div> -->
+            <div class="copyright">
+                &copy; Copyright New Scientist Ltd.
+            </div><!-- .copyright -->
+
+            <div class="backtotop">
+                <a href="#navigation">Back to top</a>
+            </div>
+        </div>
+    </div>
+</footer><!-- #colophon -->
+
+<!-- NewScientist/Footer/ Doubleclick ads -->
+<div id="out-of-page-unit"><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('out-of-page-unit'); });</script></div><script data-cfasync="false" type="text/javascript">
+var addthis_config = {"data_track_clickback":true,"ui_atversion":300,"ignore_server_config":true};
+var addthis_share = {};
+</script>
+                <!-- AddThis Settings Begin -->
+                <script data-cfasync="false" type="text/javascript">
+                    var addthis_product = "wpp-5.3.6";
+                    var wp_product_version = "wpp-5.3.6";
+                    var wp_blog_version = "4.4.2";
+                    var addthis_plugin_info = {"info_status":"enabled","cms_name":"WordPress","plugin_name":"Share Buttons by AddThis","plugin_version":"5.3.6","anonymous_profile_id":"wp-c691e6469fda6063730d0399ced7d131","plugin_mode":"WordPress","select_prefs":{"addthis_per_post_enabled":true,"addthis_above_enabled":true,"addthis_below_enabled":true,"addthis_sidebar_enabled":true,"addthis_mobile_toolbar_enabled":true,"addthis_above_showon_home":false,"addthis_above_showon_posts":false,"addthis_above_showon_pages":false,"addthis_above_showon_archives":false,"addthis_above_showon_categories":false,"addthis_above_showon_excerpts":false,"addthis_below_showon_home":false,"addthis_below_showon_posts":false,"addthis_below_showon_pages":false,"addthis_below_showon_archives":false,"addthis_below_showon_categories":false,"addthis_below_showon_excerpts":false,"addthis_sidebar_showon_home":false,"addthis_sidebar_showon_posts":false,"addthis_sidebar_showon_pages":false,"addthis_sidebar_showon_archives":false,"addthis_sidebar_showon_categories":false,"addthis_mobile_toolbar_showon_home":false,"addthis_mobile_toolbar_showon_posts":false,"addthis_mobile_toolbar_showon_pages":false,"addthis_mobile_toolbar_showon_archives":false,"addthis_mobile_toolbar_showon_categories":false,"sharing_enabled_on_post_via_metabox":true},"page_info":{"template":"home","post_type":""}};
+                    if (typeof(addthis_config) == "undefined") {
+                        var addthis_config = {"data_track_clickback":true,"ui_atversion":300,"ignore_server_config":true};
+                    }
+                    if (typeof(addthis_share) == "undefined") {
+                        var addthis_share = {};
+                    }
+                    if (typeof(addthis_layers) == "undefined") {
+                        var addthis_layers = {};
+                    }
+                </script>
+                <script
+                    data-cfasync="false"
+                    type="text/javascript"
+                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ns.html "
+                    async="async"
+                >
+                </script>
+                <script data-cfasync="false" type="text/javascript">
+                    (function() {
+                        var at_interval = setInterval(function () {
+                            if(window.addthis) {
+                                clearInterval(at_interval);
+                                addthis.layers(addthis_layers);
+                            }
+                        },1000)
+                    }());
+                </script>
+                <link rel='stylesheet' id='addthis_output-css'  href='https://www.newscientist.com/wp-content/plugins/addthis/css/output.css?ver=4.4.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.newscientist.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-content/plugins/simple-iframe-buster/js/iframe-buster.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.newscientist.com/wp-includes/js/wp-embed.min.js?ver=4.4.2'></script>
+
+<!--Plugin WP Missed Schedule Active - Secured with Genuine Authenticity KeyTag-->
+
+<!-- This site is patched against a big problem not solved since WordPress 2.5 -->
+
+<!--wp_footer--><!-- Debug: AUTH[noauth] QC[34] RB[] SB[] T[0.68659400939941] PM[22.151584]-->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+var _analytics_scr = document.createElement('script');
+_analytics_scr.type = 'text/javascript'; _analytics_scr.async = true; _analytics_scr.src = '/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=956850964';
+var _analytics_elem = document.getElementsByTagName('script')[0]; _analytics_elem.parentNode.insertBefore(_analytics_scr, _analytics_elem);
+})();
+// ]]>
+</script></body>
+</html>
+
+<!-- Dynamic page generated in 0.792 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2018-03-17 12:01:10 -->
+
+<!-- super cache -->

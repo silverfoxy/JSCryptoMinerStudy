@@ -1,0 +1,1 @@
+<center>przekierowanie...</center>

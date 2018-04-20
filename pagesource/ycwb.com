@@ -1,0 +1,1 @@
+<!doctype html><html><frameset rows="100%"><frame src="http://www.ycwb.com"><noframes>请点击下面链接: <a href="http://www.ycwb.com">link</a></noframes></frameset></html>

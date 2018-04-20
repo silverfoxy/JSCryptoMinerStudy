@@ -1,0 +1,830 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title> Data Basin </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-Language" content="en" />
+        <meta http-equiv="Cache-Control" content="No-Cache" />
+        <meta http-equiv="Pragma" content="No-Cache" />
+        <meta name="copyright" content="(c) Copyright 2018 Data Basin." />
+
+        
+        
+        
+
+        
+        
+
+        <meta name="description" content="  Data Basin is a science-based mapping and analysis platform that supports learning, research, and sustainable environmental stewardship.  " />
+        <meta name="keywords" content="Data Basin, conservation, conservation science, sustainability, environmental stewardship , mapping, maps, spatial analysis, spatial data, gis " />
+        <meta name="MSSmartTagsPreventParsing" content="true" />
+
+        
+
+        <link rel="stylesheet" type="text/css" href="//db-static-content.s3.amazonaws.com/versions/507/dijit/themes/tundra/tundra.css" />
+
+        
+    <link rel="icon" type="image/png" href="//db-static-content.s3.amazonaws.com/versions/507/img/icon-favicon.png" />
+
+
+        
+        
+            <link href="//db-static-content.s3.amazonaws.com/versions/507/css/build/core.css" rel="stylesheet" type="text/css" media="screen" crossorigin="anonymous" />
+        
+
+        <link rel="apple-touch-icon" href="//db-static-content.s3.amazonaws.com/versions/507/img/apple-touch-icon.png">
+
+        
+        <script type="text/javascript" src="//db-static-content.s3.amazonaws.com/versions/507/locale/en/jsi18n.js"></script>
+        <script type="text/javascript">
+            var localeString = "en";
+        </script>
+
+        <script type="text/javascript" src="//db-static-content.s3.amazonaws.com/versions/507/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="//db-static-content.s3.amazonaws.com/versions/507/lib/jquery/jquery.iframe-transport.js"></script>
+
+        
+
+        <script type="text/javascript">
+            dojoConfig = {
+                
+                async: false,
+                parseOnLoad: false,
+                dojoBlankHtmlUrl: '//db-static-content.s3.amazonaws.com/versions/507/dijits/blank.html',
+                locale: localeString,
+                packages: [
+                    
+                        {'name': 'dojo', 'location': '../dojo'},
+                        {'name': 'dijit', 'location': '../dijit'},
+                        {'name': 'dojox', 'location': '../dojox'},
+                        {'name': 'dijits', 'location': '//db-static-content.s3.amazonaws.com/versions/507/dijits'},
+                        {'name': 'esri', 'location': '//db-static-content.s3.amazonaws.com/versions/507/esri'},
+                        {'name': 'dgrid', 'location': '//db-static-content.s3.amazonaws.com/versions/507/dgrid'},
+                        {'name': 'put-selector', 'location': '//db-static-content.s3.amazonaws.com/versions/507/put-selector'},
+                        {'name': 'xstyle', 'location': '//db-static-content.s3.amazonaws.com/versions/507/xstyle'}
+                    
+                ]
+            };
+        </script>
+        <script type="text/javascript" src="//db-static-content.s3.amazonaws.com/versions/507/dojo/dojo.js"></script>
+
+        
+
+        <script type="text/javascript" src="/gateways/gateway_display_data.js"></script>
+        <script type="text/javascript" src="/urls.js"></script>
+
+        
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+
+                    
+                        _gaq.push(['_setCustomVar', 1, 'Logged In', 'No', 2]);
+                    
+
+                    
+                        _gaq.push(
+                            ['_setAccount', 'UA-7128841-1'],
+                            ['_trackPageview']
+                        );
+                    
+
+                    (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(ga, s);
+                    })();
+
+            </script>
+        
+
+        
+
+        <!-- Core dojo requires for things used everywhere - see baseIncludes.jsp for complete list -->
+        <script type="text/javascript">
+            // Globals
+            var staticURL = '//db-static-content.s3.amazonaws.com/versions/507/';
+            var g_domain = 'databasin.org';
+            var g_pushHost = 'comet.databasin.org';
+
+            // Global placeholders initialized later
+            var Util, IO;
+
+            // Debug globals
+            
+
+            var userID = null;
+            var g_csrfCookieName = "csrftoken";
+            var g_userInfo=null;
+            var g_userBookmarkTreeUrl = null;
+            var g_isContentAdmin = false;
+            var g_adminForGateways = [];
+            var g_gatewayId = null;
+            var g_gatewayName = null;
+            var g_gatewaySearchGroups = null;
+            var g_gatewayGroupsDisabled = false;
+            var g_gatewayMembersDisabled = false;
+            var g_gatewayPagesDisabled = true;
+            var g_gatewayDefaultExtent = null;
+            var g_captchaPublicKey = '6Lco6sMSAAAAAIAXCQNby9ykorjcJCUtxPS71wWL';
+            var g_rss2jsonKey = '0w2b4krtbfd2eru7ymibtawikqoi5w9y43lvcrev';
+
+            
+
+            
+
+            g_displayData = g_gatewayDisplayData[g_gatewayId];
+
+            require([
+                'dojo/_base/lang',
+                'dojo/parser',
+                'dojo/ready',
+                'dojo/dom',
+                'dojo/has',
+                'dojo/cookie',
+                'dijits/utils/util',
+                'dijits/utils/io',
+                'dojo/domReady!',
+                'dojo/_base/sniff'
+            ],
+            function(
+                lang,
+                parser,
+                ready,
+                dom,
+                has,
+                cookie,
+                _generalUtils,
+                _ioUtils
+            ){
+                var loadingOverlay = dom.byId('LoadingOverlay');
+
+                // Setup global instances
+                Util = _generalUtils.getInstance();
+                IO = _ioUtils.getInstance();
+
+                setTimeout(lang.hitch(this, function() { Util.hide(loadingOverlay); }), 15000);
+
+                ready(1, function() {
+                    
+                    
+                    require(['//db-static-content.s3.amazonaws.com/versions/507/dist-javascript/common.js'], function (common) {
+                        require(['//db-static-content.s3.amazonaws.com/versions/507/dist-javascript/base.js'], function (base) {
+                            /* base exposes actionTypes so actions can be called directly in the DOM */
+                            store.dispatch({
+                                'type': actionTypes.UPDATE_USER_INFO,
+                                'userInfo': {
+                                    'userId': userID,
+                                    
+                                }
+                            });
+                            store.dispatch({
+                                'type': actionTypes.UPDATE_SITE_STATE,
+                                'siteState': {
+                                    'staticUrl': '//db-static-content.s3.amazonaws.com/versions/507/',
+                                    'siteName': 'Data Basin',
+                                    'gateway': null,
+                                    'isGatewayLocalized': false,
+                                    'languages': JSON.parse('[{"code": "en", "name": "English", "bidi": false, "name_local": "English"}, {"code": "es", "name": "Spanish", "bidi": false, "name_local": "espa\u00f1ol"}]'),
+                                    'currentLanguage': 'English'
+                                }
+                            });
+
+                            
+    
+    require(['//db-static-content.s3.amazonaws.com/versions/507/dist-javascript/siteHeaderBar.js'], function (header) {});
+
+                        });
+                    });
+
+                    parser.parse().then(function() { Util.hide(loadingOverlay); });
+                });
+            });
+        </script>
+
+        
+    
+    
+
+    <script type="text/javascript">
+        var gAnnounceSubscriber = null;
+        var gUserSubscriber = null;
+
+        require([
+            'dojo/_base/lang',
+            'dojo/dom',
+            'dojo/on',
+            'dojo/ready',
+            'dojo/query',
+            'dijit/registry',
+            'dijit/Tooltip',
+            /* DOM Includes */
+            'dijit/Dialog',
+            'dijits/simpleContainer',
+            'dijits/alert',
+            'dijits/items/listItem',
+            'dijits/form/searchField',
+            'dijits/form/dropDownButton',
+            'dijits/auth/actionDialog',
+            'dojo/domReady!'
+        ],
+        function(
+            lang,
+            dom,
+            on,
+            ready,
+            query,
+            registry,
+            Tooltip
+        ) {
+            ready(function() {
+                
+                    if (registry.byId('LoginButton')) {
+                        on(registry.byId('LoginButton'), 'showmenu', function () {
+                            var widget = registry.byId('LoginButton');
+
+                            // Focus username input
+                            query('input[type=text]:first-of-type.dijitInputInner', widget.menuNode).forEach(function (node) {
+                                node.focus();
+                            });
+                        });
+
+                        new Tooltip({
+                            connectId: 'USGSLoginButton',
+                            label: gettext('This option is available to Department of Interior employees and is required in order to import secure resources from Science Base.'),
+                            position: ['below']
+                        });
+                    }
+                
+
+                
+                    require([
+                        'dojox/io/xhrPlugins',
+                        'dijits/messages/subscriber',
+                        'dijits/messages/notificationTooltipDialog'
+                    ],
+                    function(
+                        xhrPlugins,
+                        Subscriber,
+                        NotificationTooltipDialog
+                    ) {
+                        if (window.WebSocket) {
+                            gAnnounceSubscriber = new Subscriber({
+                                url: 'wss://comet.databasin.org/subscribe-ws/announce_production'
+                            });
+                        }
+                        else {
+                            gAnnounceSubscriber = new Subscriber({
+                                url: 'https://comet.databasin.org/subscribe-lp/announce_production',
+                                longPolling: true
+                            });
+                        }
+
+                        gAnnounceSubscriber.on('alert', function(data) {
+                            require(['dijits/popups/messagePopup'], function(MessagePopup) {
+                                MessagePopup.getInstance().show(data.message, 'System Alert');
+                            });
+                        });
+
+                        
+                    });
+                
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        require([
+            "dojo/_base/lang",
+            "dojo/dom",
+            "dojo/on",
+            "dojo/ready",
+            "dojo/query",
+            "dojo/dom-attr",
+            "dijits/popups/youtubePopup",
+            /* Non parameter includes */
+            "dijits/imageMessageRotator",
+            "dijits/rss/rssFeedDisplay",
+            "dijits/items/listItem",
+            "dojox/widget/AutoRotator",
+            "dojox/widget/rotator/Fade",
+            "dojo/domReady!"
+        ],
+        function(
+            lang,
+            dom,
+            on,
+            ready,
+            query,
+            domAttr,
+            YoutubePopup
+         ){
+            ready(function() {
+                
+                    on(dom.byId("ImageMessageRotator"), ".imageMessageRotatorTab:click", function(event){
+                        _gaq.push(['_trackEvent', 'home', 'imageMessageRotator', event.target.title]);
+                    });
+                
+                query(".screencastImageWrapper").forEach(function(node) {
+                    on(node,"click",lang.hitch(this, function(node) {
+                        YoutubePopup.getInstance().show(
+                            domAttr.get(node,"data-youtubeID"),
+                            domAttr.get(node,"title")
+                        );
+                    },node));
+                });
+            });
+        });
+    </script>
+
+    </head>
+
+    
+
+    <body  id="DataBasin"   class="tundra" >
+
+        <div id="LoadingOverlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:#FFFFFF; z-index:1110;">
+            <div style="background: transparent url(//db-static-content.s3.amazonaws.com/versions/507/img/spinner-circle-blue.gif) no-repeat center; height:100%; width:100%;"></div>
+        </div>
+
+        
+
+    <div id="SiteHeaderBar"></div>
+
+    
+
+    <div id="PageContainer" class="basicPage">
+        
+
+        <div id="SiteHeader">
+            <div id="SiteHeaderRight">
+                <div id="UpperRightSearch">
+                    <div data-dojo-type="dijits/form/searchField"
+                         searchFieldFilter=""
+                         searchScopeFilter=""
+                         searchScopeLabel=""
+                         searchScopeInverse=""
+                         searchTypeFilter=""
+                         placeholder=""
+                         style="width:200px;">
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <div id="SiteHeaderLeft"><div>
+    <a href="/">
+        <img id="SiteLogo" src="//db-static-content.s3.amazonaws.com/versions/507/img/dataBasinLogo-trans.png" style="height: 50px; padding: 10px 5px 4px 10px;" />
+    </a>
+</div>
+</div>
+            <div style="clear:both;"></div>
+        </div>
+
+        <div id="MainNav">
+    <table  cellspacing="0">
+        <tr>
+        	
+
+<td class="dropDownContainer" id="MainNav_getStarted">
+    
+    <h3>Get&nbsp;Started</h3>
+    
+    <div class="dropDownMenu" style="width:200px;">
+        <div class="dropDownMenuInner">
+            <ul>
+                
+                
+                    
+                        <li>
+                            <div style="font-size:smaller;color: #555555;line-height: 1.2;margin-bottom: 4px;">
+                                <p style="margin-bottom:0;">
+                                Data Basin is a science-based mapping and analysis platform that supports learning, research, and sustainable environmental stewardship.
+                                <a href="/about">More about Data Basin&hellip;</a>
+                                </p>
+                            </div>
+                        </li>
+                        <div class="separator light" style="margin-bottom:0;"></div>
+                    
+                
+                <a href="/tour"><li>Take a Tour</li></a>
+                <a href="/videos"><li>View Videos &amp; Webinars</li></a>
+                <a href="/showcase"><li>Browse the Showcase</li></a>
+                <a href="/search/"><li>Search Geographies or Keywords</li></a>
+                <a href="/maps/11e0a90b800a41819461bd48702df2db/active"><li>Explore a Sample Map</li></a>
+                
+                    <a href="/auth/create_account"><li>Become a Member</li></a>
+                
+            </ul>
+            <ul>
+                <a href="/help"><li class="strong"><span class="helpNavLink">?</span>Help</li></a>
+                <a href="/services/services"><li class="strong"><span class="helpNavLink">&nbsp;</span>Support Services</li></a>
+                <a href="/glossary"><li class="strong"><span class="helpNavLink">&nbsp;</span>Glossary</li></a>
+            </ul>
+        </div>
+    </div>
+</td>
+
+        	
+
+<td class="dropDownContainer" id="MainNav_explore">
+    <h3>Explore</h3>
+    <div class="dropDownMenu" style="width:292px;">
+        <div class="dropDownMenuInner">
+            
+            <ul>
+                <a href="/showcase"><li><div class="inlineMiddle Icons_28px blueRibbonIcon"></div>Showcase</li></a>
+            </ul>
+            
+            <ul>
+                <a href="/articles/"><li><div class="inlineMiddle Icons_28px articleIcon"></div>Guides &amp; Case Studies</li></a>
+                <a href="/galleries/"><li><div class="inlineMiddle Icons_28px galleryIcon"></div>Galleries</li></a>
+                
+                <a href="/maps/"><li><div class="inlineMiddle Icons_28px mapIcon"></div>Maps</li></a>
+                <a href="/datasets/"><li><div class="inlineMiddle Icons_28px datasetIcon"></div>Datasets</li></a>
+            </ul>
+        </div>
+    </div>
+</td>
+
+        	
+
+<td class="dropDownContainer" id="MainNav_create">
+    <h3>Create</h3>
+
+    <div class="dropDownMenu" style='width:215px;'>
+        <div class="dropDownMenuInner">
+            <ul>
+                <a href="/maps/new" target="_blank">
+                    <li id="main_nav_left__newMap"><div class="inlineMiddle Icons_28px mapIcon"></div>Create a Map</li>
+                </a>
+                <a href="/datasets/import">
+                    <li id="main_nav_left__newDataset"><div class="inlineMiddle Icons_28px datasetIcon"></div>Import a Dataset</li>
+                </a>
+                <a href="/groups/new">
+                    <li id="main_nav_left__newGroup"><div class="inlineMiddle Icons_28px groupIcon"></div>Create a Group</li>
+                </a>
+                <a href="/galleries/new">
+                    <li id="main_nav_left__newGallery"><div class="inlineMiddle Icons_28px galleryIcon"></div>Create a Gallery</li>
+                </a>
+
+                
+
+                
+                
+            </ul>
+        </div>
+    </div>
+</td>
+
+        	
+
+<td class="dropDownContainer" id="MainNav_community">
+    
+    <h3>Community</h3>
+    
+    <div class="dropDownMenu" style="width:196px;">
+        <div class="dropDownMenuInner">
+            <ul>
+                <h6>Meet&hellip;</h6>
+                
+                    <a href="/people/"><li><div class="inlineMiddle Icons_28px personIcon"></div>Members</li></a>
+                
+                <a href="/groups/"><li><div class="inlineMiddle Icons_28px groupIcon"></div>Groups</li></a>
+                <a href="/people/databasin-team"><li><div class="inlineMiddle peerReviewIcon_24px level2"></div>Data Basin Team</li></a>
+                
+            </ul>
+            
+            <ul>
+                <h6>Join in&hellip;</h6>
+                <a href="/events"><li><div class="inlineMiddle Icons_28px eventsIcon"></div>Events</li></a>
+                
+                    <a href="/auth/create_account">
+                        <li><div class="button small dark inlineMiddle"
+                                 style="margin:2px 6px 2px 3px;width:14px;padding:0 4px;font-size:1.4em;line-height:1;float:left;clear:both;">+</div>
+                            Become a Member
+                        </li>
+                    </a>
+                
+                <a href="/making_difference"><li><div class="inlineMiddle Icons_28px favicon"></div>Donate</li></a>
+            </ul>
+            
+        </div>
+    </div>
+</td>
+
+            
+
+<td class="dropDownContainer" id="MainNav_myWorkspace">
+    <h3>My Workspace</h3>
+
+    <div class="dropDownMenu" style="right:14px;width:275px;">
+        <div class="dropDownMenuInner">
+            <div>
+                <div class="block">
+                    <p>
+                    Your workspace is your dashboard for accessing and managing your content, bookmarks, and groups, as well as viewing messages and seeing your recently viewed content.
+                    </p>
+                </div>
+
+                
+                    <div class="block">
+                        <p>You need to be signed in to access your workspace.</p>
+
+                        <div class="separator light"></div>
+
+                        <a class="button small round bright" href="/auth/login">Sign In</a>
+
+                        &nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;
+
+                        <a href="/auth/create_account">Sign Up</a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</td>
+
+        </tr>
+    </table>
+</div>
+
+        <div id="PageContent" class="">
+            <div id="PageBreadcrumbs" class="breadcrumbs">
+    <ul class="inline nomargin nopadding">
+        
+    </ul>
+</div>
+
+            <div id="ContentBody" class="">
+                
+    
+
+    <div id="ImageMessageRotator" data-dojo-type="dijits/imageMessageRotator">
+        <div class="rotatorTab" title="What is Data Basin?" style="padding:15px;">
+        Data Basin is a science-based mapping and analysis platform that supports learning, research, and sustainable environmental stewardship.
+        </div>
+        <div class="rotatorTab" title="What can I do?" style="padding-top:8px;">
+            <ul class="nomargin outside">
+                <li>Explore and organize data &amp; information</li>
+                <li>Create custom visualizations, drawings, &amp; analyses</li>
+                <li>Use collaborative tools in groups</li>
+                <li>Publish datasets, maps, &amp; galleries</li>
+                <li>Develop decision-support and custom tools</li>
+            </ul>
+            <a href="/tour" class="right highlight">Take a tour</a>
+            <div class="clear"></div>
+        </div>
+        <div class="rotatorTab" title="Who is using Data Basin?" style="padding:15px;">
+        Data Basin is used by over 21000 scientists, natural resource practitioners, students & educators, and interested citizens from diverse sectors and geographies.
+        </div>
+        <div class="rotatorTab" title="How do I start exploring?" style="padding:15px;">
+            <ul class="nomargin outside">
+                <li><a href="/tour">Take a tour</a></li>
+                <li><a href="/showcase">Browse the showcase</a></li>
+                <li><a href="/search/">Search by geographies or keywords</a></li>
+                <li><a href="/maps/11e0a90b800a41819461bd48702df2db/active">Try a sample map</a></li>
+                <li><a href="/services/gateways/list">Explore gateways</a></li>
+                
+                    <li><a href="/auth/create_account">Become a member</a></li>
+                
+            </ul>
+        </div>
+        <img src="//db-static-content.s3.amazonaws.com/versions/507/img/img-home-1.jpg" class="rotatorImage" />
+    </div>
+
+    <ul class="block actionBlock roundBorder3 inline">
+        <li>Get started quickly with Data Basin</li>
+        <a href="/tour"><li class="button round bright">Take a Tour</li></a>
+    </ul>
+
+    
+
+    <div class="threeColumn">
+
+        <div class="column">
+            <h5 style="margin-bottom:5px;">Explore Data Basin Guides &amp; Case Studies&hellip;</h5>
+            <div class="separator light" style="height:1px;margin-right:10px;"></div>
+                <div class="block tight" style="height:340px;">
+                <div data-dojo-type="dojox/widget/AutoRotator"
+                     data-dojo-props="transition:'dojox.widget.rotator.crossFade', duration:6000"
+                     class="rotator"  id="protectedAreasArticleRotator" data-dojo-id="protectedAreasArticleRotator"
+                     style="position:relative;">
+                    
+                    <div class="pane">
+                         <img src="https://databasin2-filestore.s3.amazonaws.com/c5f4d540073247189709a144ebd49d7c/images/mainImage.png?v=1486778074" style="width:270px;margin:0 0 5px 0"/>
+                         <a href="/articles/c5f4d540073247189709a144ebd49d7c"><h5>New mapping methodology and ranking system for estuarine-upland transition zones is now available for San Francisco Bay</h5></a>
+                        
+                        
+                            <p>Brian Fulfrost of Brian Fulfrost and Associates and David Thomson with San Francisco Bay Bird Observatory (SFBBO), have developed a new mapping methodology and ranking system for transition zones called San Francisco Bay Estuarine-Terrestrial Zone Decision Support System . </p> <p>The...</p>
+                        
+                        <div class="textRight">
+                            <a class="highlight" href="/articles/c5f4d540073247189709a144ebd49d7c">read more</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="pane">
+                         <img src="https://databasin2-filestore.s3.amazonaws.com/e3fe145bb0ea42cdb9e785c1942fc23d/images/mainImage.png?v=1469723352" style="width:270px;margin:0 0 5px 0"/>
+                         <a href="/articles/e3fe145bb0ea42cdb9e785c1942fc23d"><h5>Building a Network of Grassland Landscapes in the Midwest: Change Strategies for the Future of Grassland Birds</h5></a>
+                        
+                        
+                            <p>The Midwest Grasslands Network recognizes that successful grassland conservation needs to take effect at larger scales and in permanent ways in order to halt the long-term declines of grassland bird populations. In 2015 the Network convened a seminar to develop strategies for scaling up...</p>
+                        
+                        <div class="textRight">
+                            <a class="highlight" href="/articles/e3fe145bb0ea42cdb9e785c1942fc23d">read more</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="pane">
+                         <img src="https://databasin2-filestore.s3.amazonaws.com/c4f8da25e50341ab822f6e01fc7eeb56/images/mainImage.png?v=1491289286" style="width:270px;margin:0 0 5px 0"/>
+                         <a href="/articles/c4f8da25e50341ab822f6e01fc7eeb56"><h5>Delivering Usable Climate Change Information to Sagebrush Managers</h5></a>
+                        
+                        
+                            <p>Climate change is adding uncertainty to the long-term effectiveness of current land management strategies. Information is needed to adjust these strategies for projected increased climate variability, longer droughts, more intense rainfall events, warmer summers, reduced water provision and...</p>
+                        
+                        <div class="textRight">
+                            <a class="highlight" href="/articles/c4f8da25e50341ab822f6e01fc7eeb56">read more</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="pane">
+                         <img src="https://databasin2-filestore.s3.amazonaws.com/3c5bc60f85964022aac4e193cd8881bc/images/mainImage.png?v=1444067489" style="width:270px;margin:0 0 5px 0"/>
+                         <a href="/articles/3c5bc60f85964022aac4e193cd8881bc"><h5>DRECP Climate Console Guide and Case Study</h5></a>
+                        
+                        
+                            <p>The Desert Renewable Energy Conservation Plan (DRECP) Climate Console is a user friendly web based mapping application designed to allow users to explore climate projections to better understand how climate change could alter ecosystems in the California desert. Leveraging the power of Data Basin...</p>
+                        
+                        <div class="textRight">
+                            <a class="highlight" href="/articles/3c5bc60f85964022aac4e193cd8881bc">read more</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="pane">
+                         <img src="https://databasin2-filestore.s3.amazonaws.com/897687ce52ab4a88bb3e2c6b589594d6/images/mainImage.png?v=1434559983" style="width:270px;margin:0 0 5px 0"/>
+                         <a href="/articles/897687ce52ab4a88bb3e2c6b589594d6"><h5>California Condor: Soaring Again in the Western Skies</h5></a>
+                        
+                        
+                            <p>The California condor is returning from the edge of extinction to once again soaring the skies over southern California. </p> <p>This is its story...</p> <p>The California condor (Gymnogyps californianus), with a wingspan of 9.5 feet and weighing up to 25 pounds, is the largest land bird in North...</p>
+                        
+                        <div class="textRight">
+                            <a class="highlight" href="/articles/897687ce52ab4a88bb3e2c6b589594d6">read more</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            
+            <div id="HomePageBenefitsBlock" class="block dropShadowLight roundBorder3">
+                <h5>Explore Data Basin Mapping Tools</h5>
+                <p>
+                With the Data Basin full-screen mapping tools, you can:
+                </p>
+                <ul style="margin-top:2px;padding-top:0;">
+                        <li>View and analyze geospatial conservation data</li>
+                        <li>Collaborate with colleagues using sharing and commenting tools</li>
+                        <li>Generate custom analyses and summary reports of your data</li>
+                        <li><a href="/services/services">And much more...</a></li>
+                </ul>
+                <div class="screencastImageWrapper"
+                     style="height:192px"
+                     data-youtubeID="eWZd-z-sDAQ"
+                     title="How to Create a Map">
+                    <div class="screencastOverlay"></div>
+                    <h2 class="screencastTitle">How to Create a Map</h2>
+                    <img class="screencastImage" src="//db-static-content.s3.amazonaws.com/versions/507/img/screencasts/CreatingAMap.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="block tight homeGatewaysBlock">
+                <div class="gatewaysHeader" style="height:115px;">
+                    <h3 style="display:inline-block;vertical-align:-250%;margin-left:5px;text-shadow:1px 1px #555;font-size:3em;color:white;">Gateways</h3>
+                </div>
+
+                <div class="block tight">
+                    <p style="font-size:1.2em;line-height:1.2;">
+                    Gateways are unique spaces for finding curated spatial data. They build upon the existing Data Basin framework and are customized to meet the needs of a target audience. Customizations can include custom mapping and analysis tools.
+                    </p>
+                </div>
+
+                <div class="button round textCenter dropShadowMedium" style="margin-top:5px;">
+                    <a href="/services/gateways/list">
+                    <h4 style="margin:5px 0px;line-height:1.1;font-size:1.2em;">See All Gateways</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="singleColumn">
+        <div class="column">
+            <div class="separator light" style="margin-top:10px;"></div>
+            <div id="HomePageEventsBlock" class="block">
+                <h3>Upcoming Events</h3>
+                <div data-dojo-type="dijits/rss/rssFeedDisplay"
+                     count=3
+                     feedUrl="http://consbio.org/newsroom/feeds/events/databasin"
+                     titlesOnly="true">
+                </div>
+                <div class="clear">
+                    <a class="highlight" href="/events">see more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            </div>
+        </div>
+
+        <div id="SiteFooter">
+            
+
+
+    <div id="AdContainer">
+        <script type="text/javascript">
+            require(["dojox/widget/AutoRotator","dojox/widget/rotator/Fade"]);
+        </script>
+
+        <div data-dojo-type="dojox/widget/AutoRotator"
+             data-dojo-props="transition:'dojox.widget.rotator.crossFade', duration:10000"
+             data-dojo-id="footerAdRotator" id="footerAdRotator"
+             class="rotator" style="position:relative;">
+
+            <div class="pane">
+                <a href="http://www.wilburforce.org/" id="AdMessage1" class="inlineMiddle">
+                    The Wilburforce Foundation provides funding to maintain and develop Data Basin.
+                </a>
+            </div>
+            <div class="pane">
+                <a href="http://www.kresge.org/" id="AdMessage2" class="inlineMiddle">
+                    Additional funding for Data Basin is provided by the Kresge Foundation.
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+            
+
+<div id="SiteFooterNav" class="clear">
+    <ul>
+        
+
+
+<li><a href="/about">ABOUT </a></li>
+<li><a href="/pages/terms-service">TERMS OF USE</a></li>
+
+<li><a href="/services/services">SUPPORT SERVICES</a></li>
+
+<li><a href="/services/contact">CONTACT US</a></li>
+
+    <li><a href="/making_difference">DONATE</a></li>
+
+
+    </ul>
+
+    <div id="SiteFooterNavRight">
+        
+
+        <a href="http://www.consbio.org">
+            
+            &copy; 2018 Conservation Biology Institute<img id="CBI_Logo" class="inlineMiddle" src="//db-static-content.s3.amazonaws.com/versions/507/img/cbi_logo_sm.svg" />
+        </a>
+    </div>
+    <br style="clear:both;" />
+</div>
+
+        </div>
+    </div>
+
+
+
+        <div id="JSLogHistory" style="display: none;"></div>
+
+        <noscript>
+            <div id="JavascriptDisabledOverlay">
+                <p class="warning" >Oops!</p>
+                <p>
+                    You have JavaScript disabled. Data Basin depends on JavaScript to do it's job.
+                    To continue using Data Basin, use your browser tools to enable JavaScript and then refresh this page.
+                </p>
+            </div>
+        </noscript>
+    </body>
+</html>

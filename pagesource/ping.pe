@@ -1,0 +1,379 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+    <HEAD>
+        <TITLE>Ping and mtr from multiple locations </TITLE>
+        <meta name="GENERATOR" content="Hands">
+        <meta http-equiv="content-type" Content="text/html;charset=utf-8">
+        <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta name="description" http-equiv="description" content="The Best Ping+MTR combination Ever.">
+
+        <script src="/js/jquery-2.3.1.min.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-248212-40', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        
+    </HEAD>
+
+<body>
+
+
+
+
+
+
+<script type="text/javascript">
+function getAverage ( a ) {
+    var sum = 0;
+    for( var i = 0; i < a.length; i++ ){
+        sum += parseFloat( a[i], 10 ); //don't forget to add the base
+    }
+
+    var avg = sum/a.length;
+    return avg;
+}
+
+function isNumber(n){
+    return typeof(n) != "boolean" && !isNaN(parseFloat(n));
+}
+
+function stDev(values){
+    var avg = getAverage(values);
+    var squareDiffs = values.map(function(value){
+        var diff = value - avg;
+        var sqrDiff = diff * diff;
+        return sqrDiff;
+    });
+    var avgSquareDiff = getAverage(squareDiffs);
+
+    var stdDev = Math.sqrt(avgSquareDiff);
+    return stdDev;
+} 
+
+var STR_PAD_LEFT = 1;
+var STR_PAD_RIGHT = 2;
+var STR_PAD_BOTH = 3;
+
+function str_pad(str, len, pad, dir) {
+
+    if (typeof(len) == "undefined") { var len = 0; }
+    if (typeof(pad) == "undefined") { var pad = ' '; }
+    if (typeof(dir) == "undefined") { var dir = STR_PAD_RIGHT; }
+
+    if (len + 1 >= str.length) {
+
+        switch (dir){
+
+            case STR_PAD_LEFT:
+                str = Array(len + 1 - str.length).join(pad) + str;
+            break;
+
+            case STR_PAD_BOTH:
+                var right = Math.ceil((padlen = len - str.length) / 2);
+                var left = padlen - right;
+                str = Array(left+1).join(pad) + str + Array(right+1).join(pad);
+            break;
+
+            default:
+                str = str + Array(len + 1 - str.length).join(pad);
+            break;
+
+        } // switch
+
+    }
+
+    return str;
+
+}
+
+function lameCenterElement( element ) {
+    /* we must center manually or else html2canvas will make a blurry image (due to subpixel-level rendering) */
+    width = $(window).width();
+    containerWidth = $(element).width();
+    leftMargin = Math.round ( ( width - containerWidth ) / 2 );
+    if ( leftMargin < 0 ) leftMargin = 0;
+    $(element).css("marginLeft", leftMargin);    
+}
+
+
+function doSuperCrazyShit ( pinger_id, pinger_location, pinger_provider, request_id, ip, signature ) {
+
+
+    var totalMtrQueries = 0;
+    var mtrReport = '';
+    var latencyValues = new Array();
+    var totalPingQueries = 0;
+    var totalPingerresponsesReceived = 0;
+    var lostCount = 0;
+    var best = 0;
+    var last;
+    var worst = 0;
+    var maxIterations = 100;
+    var maxMtrQueries = 30;
+    var maxPingQueries = 300;
+    var htmlEntity = 'ping-' + pinger_id;
+
+    var canvas = document.getElementById('canvas-' + pinger_id);
+    var canvasContext = canvas.getContext('2d');
+
+
+
+
+    function pollMTR(){
+
+        var mtr_url = "./pinger.php?action=mtr_report&pinger=" + pinger_id + "&request_id=" + request_id + "&ip=" + ip + "&signature=" + signature;
+
+        var o_MtrGet = $.get( mtr_url ) 
+            .done ( function ( data ) {
+                totalMtrQueries = totalMtrQueries + 1;
+
+                mtrReport = data.trim();
+                if ( mtrReport == '' ) {
+                    if ( totalMtrQueries < maxMtrQueries ) {
+                        setTimeout(pollMTR, 11000);
+                    }
+                    return true;
+                }
+
+                $('#td-' + pinger_id + '-mtr-report-loading').toggle ( false );
+
+                $('#td-' + pinger_id + '-mtr-report-show').toggle ( true );
+                $('#td-' + pinger_id + '-mtr-report-show').fadeTo (400, 0.9);
+                $('#' + htmlEntity + '-mtr').closest('TR').after("<tr id='" + htmlEntity + "-mtr-report' " + " style='display:none; background-color:#001800;outline: 1px solid #102510'><td colspan=99><PRE>" + mtrReport + "</PRE></td></tr>");
+                $('#' + htmlEntity + '-mtr').click ( function () {
+                    $('#' + htmlEntity + '-mtr-report').toggle();
+                });
+
+
+            });
+      
+        
+    }
+
+
+    function pollPing(){
+
+        var ping_url = "./pinger.php?action=ping&pinger=" + pinger_id + "&request_id=" + request_id + "&ip=" + ip  + "&signature=" + signature;
+        
+
+        var o_PingGet = $.get( ping_url ) 
+            .done ( function ( data ) {
+                totalPingQueries = totalPingQueries + 1;
+                
+                // pinger offline?
+                if ( totalPingQueries > 5  && totalPingerresponsesReceived == 0 ) {
+                    $('#' + htmlEntity + '-loss').html ( '<span style="color:#a0a0a0">location</span>' );
+                    $('#' + htmlEntity + '-sent').html ( '<span style="color:#a0a0a0">offline</span>' );
+                }
+
+                last = data.trim();
+                if ( last == '' ) {
+                    if ( totalPingerresponsesReceived < maxIterations && totalPingQueries < maxPingQueries ) {
+                        setTimeout(pollPing, 2100);
+                    }
+                    return true;
+                }
+
+                totalPingerresponsesReceived = totalPingerresponsesReceived + 1;
+
+                if ( isNumber ( last ) ) {
+                    last = Math.round ( last * 100 ) / 100;
+                    latencyValues.push ( last );
+                    if ( best == 0 || best > last ) {
+                        best = last;
+                    }
+                    if ( worst == 0 || worst < last ) {
+                        worst = last;
+                    }                
+                }
+                
+                var s_last = last;
+                if ( last == 'timeout' ) {
+                    s_last = "&ndash;";
+                    lostCount = lostCount  + 1;
+                }
+
+                var s_stdev = Math.round ( stDev(latencyValues) * 100 ) / 100;
+                if (isNaN(s_stdev)) s_stdev = "&ndash;"; // handle NaN value
+
+                var s_average = Math.round ( getAverage(latencyValues) * 100 ) / 100;
+                if (isNaN(s_average)) s_average = "&ndash;"; // handle NaN value
+
+                var s_loss = Math.round ( lostCount / totalPingerresponsesReceived * 1000 ) / 10;
+
+                var s_best = best;
+                if (s_best == 0) s_best = "&ndash;"; 
+
+                var s_worst = worst;
+                if (s_worst == 0) s_worst = "&ndash;"; 
+
+                $('#' + htmlEntity + '-loss').html ( s_loss + "%" );
+                $('#' + htmlEntity + '-sent').html ( totalPingerresponsesReceived );
+                $('#' + htmlEntity + '-last').html ( s_last );
+                $('#' + htmlEntity + '-avg').html ( s_average );
+                $('#' + htmlEntity + '-best').html ( s_best );
+                $('#' + htmlEntity + '-worst').html ( s_worst );
+                $('#' + htmlEntity + '-stdev').html ( s_stdev );
+
+                var value = last;
+                color = '009000';
+                if ( value == 'timeout' ) {
+                    value = 600;
+                    color = 'ff0000';
+                } else if ( value > 450 ) {
+                    color = 'f0a030';
+                    if ( value > 600 ) {
+                        value = 600;
+                    }
+                } else if ( value > 350 ) {
+                    color = 'd0d000';
+                }
+
+                var scale = Math.sqrt (600) / 20;
+                var size = Math.floor(Math.sqrt (value) / scale );
+                if ( size < 1 ) size = 1;
+                var x = ( totalPingerresponsesReceived - 1 ) * 2;
+                var y = 20 - size;
+                canvasContext.fillStyle = '#' + color;
+                canvasContext.fillRect ( x, y, 2, size);
+
+
+                //var ss = totalPingerresponsesReceived + " " + maxIterations + " " +  totalPingQueries + " " + maxPingQueries + " " + color;
+                //$('#' + htmlEntity + '-debug').html ( ss );
+
+                var s = "";
+                s = s + str_pad(pinger_location, 25) + " ";
+                s = s + str_pad(pinger_provider, 20) + " ";
+                s = s + str_pad(s_loss.toString() + "%", 6) + " ";
+                s = s + str_pad(totalPingerresponsesReceived.toString(), 6) + " ";
+                s = s + str_pad(s_last.toString(), 6) + " ";
+                s = s + str_pad(s_average.toString(), 6) + " ";
+                s = s + str_pad(s_best.toString(), 6) + " ";
+                s = s + str_pad(s_worst.toString(), 6) + " ";
+                s = s + str_pad(s_stdev.toString(), 6) + " ";
+
+
+                $('#string-' + pinger_id).html(s);
+                var tmp =  $('#dataForBuffer').text();
+                $('#copy-button').attr('data-clipboard-text', tmp);
+
+
+                if ( totalPingerresponsesReceived < maxIterations && totalPingQueries < maxPingQueries ) {
+                    setTimeout(pollPing, 2100);
+                }
+
+
+
+            });
+      
+        
+    }
+
+
+    //var intervalHandler= window.setInterval(pollPing,1100);
+    pollPing();
+    pollMTR();
+
+ 
+
+
+}
+
+
+</script>
+
+<style>
+    body {
+        background-color:#000000;
+        color:white;
+        font-family: Consolas, "Courier New", Courier, monospace;
+        font-size:14px;
+    }
+    pre {
+        color:#30e050;
+        font-size:14px;
+        line-height: 130%;
+        font-family: Consolas, "Courier New", Courier, monospace;
+    }
+    pre a {
+        color:#104718;
+        text-decoration: underline;
+    }    
+    pre a span {
+        /*dirty trick to change color of underline */
+        color:#30e050;
+        text-decoration: none;
+    }
+
+    #page-div { 
+        /* for html2canvas */
+        background-color: #000000;
+        padding:5px; 
+    }
+    a {
+        color:#f0f0ff;
+    }
+    table {
+        line-height: 0.8em; /*for html2canvas */
+        border-spacing: 0px 0px;
+        font-family: Consolas, "Courier New", Courier, monospace;
+    }
+    td {
+        width:66px;
+        cursor: default;
+        text-align:left;
+        padding-top:0px;
+        padding-bottom:1px;
+        padding-right:7px;
+        padding-left:3px;
+        margin:0px;
+        white-space:nowrap;
+    }
+    td:first-child {
+        width:140px;
+    }
+    td:nth-child(2) {
+        width:150px;
+    }
+    th {
+        padding-top:5px;
+        padding-bottom:3px;
+        padding-right:7px;
+        padding-left:3px;
+        margin:0px;        
+        text-align:left;
+        color:yellow;
+        color:black;
+        background-color:#009000;
+    }
+    tr {
+        margin:0px;
+        padding:0px;
+    }
+</style>
+<div id='page-div' style=' width: 1050px; '>
+
+<form action=/ping.php method="post">
+    Ping: <input id="input_ip" type="text" name="q" value="" autofocus>    <input type="submit" value="Go">
+</form>
+<br/>
+<noscript>
+<b style='color:yellow'>Sorry, none of this goodness is possible without javascript. We tried...</b>
+<br/><br/>
+</noscript>
+
+Your IP: 54.80.217.80, IP Location: United States        <div id="ipwhois" style="margin-top:30px;">
+        </div>
+        <script type="text/javascript">
+        $(function()
+        {
+            $("#ipwhois").load("ipwhois.php?ip=54.80.217.80");
+        });
+        </script>

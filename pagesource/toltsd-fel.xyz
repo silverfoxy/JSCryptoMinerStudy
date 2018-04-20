@@ -1,0 +1,1971 @@
+<!doctype html> 
+<html prefix="og: http://ogp.me/ns#"> 
+<html dir="ltr" lang="en-US"> 
+<head> 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>Töltsd fel - online sorozat, online film, videók tárhelye</title>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="description" content="online sorozat, online sorozatok."><link rel="stylesheet" type="text/css" href="/style.css?v=1.0" media="screen" />
+<link rel="stylesheet" href="/o/css/bootstrap.custom.css?v=1.01"/>
+<link rel="stylesheet" href="/o/css/font-awesome.css?v=1"/>
+<link rel="stylesheet" href="/o/css/owl.carousel.css"/>
+<link rel="stylesheet" href="/o/css/owl.theme.css"/>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]><script src="html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="/o/js/jquery.min.js"></script>
+<script>
+if((typeof jQuery == "undefined") || !window.jQuery ){ 
+var script = document.createElement("script"); 
+script.type = "text/javascript"; 
+script.src = "/o/js/jquery.js";
+document.getElementsByTagName('head')[0].appendChild(script);
+}
+</script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300|Roboto:400,500,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" type="text/css" media="all" />
+<script>
+function makeComp (input){
+    input = input.toLowerCase ();
+    var output = '';
+    for (var i = 0; i < input.length; i ++)
+    {
+        if (input.charAt (i) == 'a')
+            output = output + '[aá]'
+        else if (input.charAt (i) == 'e')
+            output = output + '[eé]';
+        else if (input.charAt (i) == 'i')
+            output = output + '[ií]';
+        else if (input.charAt (i) == 'o' || input.charAt (i) == 'ö' || input.charAt (i) == 'ő' || input.charAt (i) == 'ó')
+            output = output + '[oóőö]';
+        else if (input.charAt (i) == 'u' || input.charAt (i) == 'ü' || input.charAt (i) == 'ű' || input.charAt (i) == 'ú')
+            output = output + '[uúűü]'
+        else
+            output = output + input.charAt (i);
+    }
+    return output;
+}
+
+$(document).ready(function(){
+$('#search_box').keyup(function(){ 
+$('#suggest-results').html('');
+var timer;
+var output = '';
+var num = 0;
+var max = 10;
+clearTimeout(timer);
+
+output = '<center style="padding:10px;"><img src="/o/loaders.gif"></center>';	
+
+if($("#search_box").val().length > 3 ){
+timer = setTimeout(function(){
+			var searchField = $("#search_box").val();
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ max = 5; }
+			var regex = new RegExp(makeComp(searchField), "i");
+			var regex2 = new RegExp(makeComp(searchField), "i");
+			var regex3 = new RegExp(makeComp(searchField), "i");
+			output = ''; output += '<a class="rsg" onclick="CloseResult()" href="javascript:void(0)"><img style="float:right; padding-top:2px;" src="/o/close_button.gif"></a><ul>';
+            $.getJSON('/api/search.json?q=1521685136', function(data) {
+              $.each(data, function(key, val){
+                if ((val.cat_name.search(regex) != -1) && num <= max || (val.cat_eng.search(regex2) != -1) && num <= max || (val.year.search(regex3) != -1) && num <= max) {
+                  output += '<li><a href="http://toltsd-fel.xyz/' + val.url + '-online">';
+                  output += '<span style="float:left; padding-right:10px;"><img style="width:35px !important; height:51px !important;" src="/o/c/' + val.cat_id + '.jpg"></span>';
+                  output += '<span style="font-weight: bold; display: block;line-height: 1;">' + val.cat_name + '</span>';
+				  output += '<span style="font-size:10px;">Év: ' + val.year + '</span></a></li>';
+                  num++;
+                }
+                if (num == 7) {
+                    num++;
+                }
+              });
+if(num == 0){ output = '<center style="padding:10px;">Nincs találat a keresett kifejezésre!</center>'; }
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ output += '<li style="text-align: center;"><a href="/channels.php?year=' + $("#search_box").val() + '">Összes ' + $("#search_box").val() + ' sorozat</a></li>'; }
+output += '</ul>';
+$('#suggest-results').show();
+$('#suggest-results').html(output);
+}); 
+
+}, 1500);
+}else{ output = '<center style="padding:10px;">Legalább 4 karakter kell a kereséshez!</center>'; }
+$('#suggest-results').show();
+$('#suggest-results').html(output);
+});
+
+});
+
+function CloseResult() {
+document.getElementById("suggest-results").innerHTML = "";
+document.getElementById("suggest-results").style.border = "0px";
+document.getElementById("search_box").value = "";
+return;
+}
+</script>
+</head>
+<body class="body-home">
+<div class="fixed-top">
+<div class="row block" style="position:relative;">
+<div class="logo-wrapper">
+<a id="show-sidebar" href="javascript:void(0)" title="Show sidebar"><i class="icon icon-bars"></i></a>
+<a href="/" class="logo"><img src="/o/logo-png56c8e60ecd666.png"></a>
+<br style="clear:both;"/>
+</div>
+
+<div class="header">
+<div class="searchWidget">
+<div class="form-group form-material floating">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="icon icon-search"></i></span>
+                    <div class="form-control-wrap">
+                      <input type="text" id="search_box" autocomplete="off" class="form-control input-lg empty" name="tag" value ="">
+                      <label class="floating-label">Kereséshez kezd el gépelni a sorozat nevét vagy évszámát</label>
+					  <div id="suggest-results"> </div>
+                    </div>
+                    <!--<span class="input-group-btn"><button class="btn btn-default" type="submit">Search</button></span>!-->
+                  </div>
+                </div>
+</div>
+
+<div class="user-quick">
+<a data-target="#search-now" data-toggle="modal" href="javascript:void(0)" class="btn btn-default btn-small" id="show-search"><i class="icon icon-search"></i></a>	
+ 
+<a id="loginNow" data-target="#login-now" data-toggle="modal" href="javascript:void(0)" class="btn btn-primary btn-small" title="Bejelentkezés"><i class="icon icon-key"></i> <span>Bejelentkezés</span></a></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="wrapper" class="container haside">
+
+
+<div class="row block page p-home">
+<div id="sidebar" class=" animated zoomInLeft"> 
+<div class="sidescroll">
+
+<div class="sidebar-nav blc"><ul>
+<li class="lihead"><a href="/"><span class="iconed"><i class="icon icon-home"></i></span> Kezdőlap</a></li>
+<li class="lihead"><a href="/channels.php"><span class="iconed"><i class="icon icon-play-circle"></i></span> Sorozatok</a></li>
+<li class="lihead"><a href="/request.php"><span class="iconed"><i class="icon icon-question-circle"></i></span> Kérések</a></li>
+<li class="lihead"><a href="https://www.facebook.com/toltsdfel/" target="_blank"><span class="iconed"><i class="icon icon-facebook-official"></i></span> Facebook Oldalunk</a></li>
+<li class="lihead"><a href="/contact.php"><span class="iconed"><i class="icon icon-envelope"></i></span>Kapcsolat</a></li>
+</ul>
+</div>
+
+<div class="blc mtop20 odet">
+Több mint 28.000 online sorozat, az online sorozatok megtekintése ingyenes, az epizódok regisztráció nélkül megtekinthetőek!
+<p class="small"><a href="javascript:showLogin()" class="btn btn-primary btn-small btn-block mtop20"><i class="icon icon-key"></i>Bejelentkezés</a> </p></div>
+
+<div class="blc" style="height:300px">&nbsp;</div>
+</div>
+</div><div id="home-content" class="main-holder col-md-12">
+<style>
+a.link-heading{color: #000 !important;}
+a.link-heading:hover{color: #167ac6!important;}
+.owl-theme .owl-controls .owl-buttons .owl-prev {top:25px!important}
+.owl-theme .owl-controls .owl-buttons .owl-next {top:25px!important}
+</style>
+<h3 class="loop-heading loop-carousel"><a href="http://toltsd-fel.xyz/channels.php?order=featured" class="link-heading pv_tip" data-original-title="Még több Kiemelt Videóhoz kattints ide"><i class="icon icon-chevron-right"> </i> Kiemelt Videók</a></h3>
+<div class="homeLoader sLoad"><img src="./o/loaders.gif"/></div>
+<div class="loop-content owl-carousel hide">
+<div id="video-49719" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49719" title="Amerikai Horror Story 7. évad 3. rész" href="http://toltsd-fel.xyz/video/49719/amerikai-horror-story-7-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49719.jpg" alt="Amerikai Horror Story 7. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 10</span>
+<span class="timer" alt="43:19 perc"><i class="icon icon-clock-o"></i> 43:19</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49719/amerikai-horror-story-7-evad-3-resz/online/" title="">Amerikai Horror Story 7. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49716" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49716" title="Marvel's Runaways 1. évad 10. rész" href="http://toltsd-fel.xyz/video/49716/marvel-s-runaways-1-evad-10-resz/online/">
+<span class="clip"><img src="/o/noimage2.png" alt="Marvel's Runaways 1. évad 10. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 46</span>
+<span class="timer" alt="48:26 perc"><i class="icon icon-clock-o"></i> 48:26</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49716/marvel-s-runaways-1-evad-10-resz/online/" title="">Marvel's Runaways 1. évad 10. rész</a></h4>
+</div>
+</div>
+<div id="video-49714" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49714" title="Az Árnyak 2. évad 3. rész" href="http://toltsd-fel.xyz/video/49714/az-arnyak-2-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49714.jpg" alt="Az Árnyak 2. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 26</span>
+<span class="timer" alt="52:59 perc"><i class="icon icon-clock-o"></i> 52:59</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49714/az-arnyak-2-evad-3-resz/online/" title="">Az Árnyak 2. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49712" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49712" title="Ash vs Evil Dead 3. évad 4. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49712/ash-vs-evil-dead-3-evad-4-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49712.jpg" alt="Ash vs Evil Dead 3. évad 4. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 50</span>
+<span class="timer" alt="27:13 perc"><i class="icon icon-clock-o"></i> 27:13</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49712/ash-vs-evil-dead-3-evad-4-resz-magyar-felirattal/online/" title="">Ash vs Evil Dead 3. évad 4. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49699" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49699" title="iZombie 4. évad 4. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49699/izombie-4-evad-4-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49699.jpg" alt="iZombie 4. évad 4. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 106</span>
+<span class="timer" alt="41:47 perc"><i class="icon icon-clock-o"></i> 41:47</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49699/izombie-4-evad-4-resz-magyar-felirattal/online/" title="">iZombie 4. évad 4. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49688" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49688" title="Britannia 1. évad 9. rész" href="http://toltsd-fel.xyz/video/49688/britannia-1-evad-9-resz/online/">
+<span class="clip"><img src="/o/t/49688.jpg" alt="Britannia 1. évad 9. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 123</span>
+<span class="timer" alt="41:14 perc"><i class="icon icon-clock-o"></i> 41:14</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49688/britannia-1-evad-9-resz/online/" title="">Britannia 1. évad 9. rész</a></h4>
+</div>
+</div>
+<div id="video-49680" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49680" title="A SHIELD ügynökei 5. évad 13. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49680/a-shield-ugynokei-5-evad-13-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49680.jpg" alt="A SHIELD ügynökei 5. évad 13. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 168</span>
+<span class="timer" alt="41:44 perc"><i class="icon icon-clock-o"></i> 41:44</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49680/a-shield-ugynokei-5-evad-13-resz-magyar-felirattal/online/" title="">A SHIELD ügynökei 5. évad 13. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49679" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49679" title="Képmás 1. évad 9. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49679/kepmas-1-evad-9-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49679.jpg" alt="Képmás 1. évad 9. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 63</span>
+<span class="timer" alt="52:15 perc"><i class="icon icon-clock-o"></i> 52:15</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49679/kepmas-1-evad-9-resz-magyar-felirattal/online/" title="">Képmás 1. évad 9. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49675" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49675" title="The Walking Dead 8. évad 12. rész" href="http://toltsd-fel.xyz/video/49675/the-walking-dead-8-evad-12-resz/online/">
+<span class="clip"><img src="/o/t/49675.jpg" alt="The Walking Dead 8. évad 12. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 348</span>
+<span class="timer" alt="46:04 perc"><i class="icon icon-clock-o"></i> 46:04</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49675/the-walking-dead-8-evad-12-resz/online/" title="">The Walking Dead 8. évad 12. rész</a></h4>
+</div>
+</div>
+<div id="video-49674" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49674" title="Modern család 9. évad 7. rész" href="http://toltsd-fel.xyz/video/49674/modern-csalad-9-evad-7-resz/online/">
+<span class="clip"><img src="/o/t/49674.jpg" alt="Modern család 9. évad 7. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 143</span>
+<span class="timer" alt="20:35 perc"><i class="icon icon-clock-o"></i> 20:35</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49674/modern-csalad-9-evad-7-resz/online/" title="">Modern család 9. évad 7. rész</a></h4>
+</div>
+</div>
+<div id="video-49669" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49669" title="The Walking Dead 8. évad 12. rész (feliratos)" href="http://toltsd-fel.xyz/video/49669/the-walking-dead-8-evad-12-resz-feliratos-/online/">
+<span class="clip"><img src="/o/noimage2.png" alt="The Walking Dead 8. évad 12. rész (feliratos)" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 2 129</span>
+<span class="timer" alt="45:42 perc"><i class="icon icon-clock-o"></i> 45:42</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49669/the-walking-dead-8-evad-12-resz-feliratos-/online/" title="">The Walking Dead 8. évad 12. rész (feliratos)</a></h4>
+</div>
+</div>
+<div id="video-49657" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49657" title="Gotham 4. évad 14. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49657/gotham-4-evad-14-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49657.jpg" alt="Gotham 4. évad 14. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 255</span>
+<span class="timer" alt="43:09 perc"><i class="icon icon-clock-o"></i> 43:09</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49657/gotham-4-evad-14-resz-magyar-felirattal/online/" title="">Gotham 4. évad 14. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49656" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49656" title="The Walking Dead 8. évad 12. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49656/the-walking-dead-8-evad-12-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49656.jpg" alt="The Walking Dead 8. évad 12. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 3 102</span>
+<span class="timer" alt="45:42 perc"><i class="icon icon-clock-o"></i> 45:42</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49656/the-walking-dead-8-evad-12-resz-magyar-felirattal/online/" title="">The Walking Dead 8. évad 12. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49650" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49650" title="Marvel's Runaways 1. évad 9. rész" href="http://toltsd-fel.xyz/video/49650/marvel-s-runaways-1-evad-9-resz/online/">
+<span class="clip"><img src="/o/t/49650.jpg" alt="Marvel's Runaways 1. évad 9. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 135</span>
+<span class="timer" alt="45:10 perc"><i class="icon icon-clock-o"></i> 45:10</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49650/marvel-s-runaways-1-evad-9-resz/online/" title="">Marvel's Runaways 1. évad 9. rész</a></h4>
+</div>
+</div>
+<div id="video-49648" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49648" title="Válás 2. évad 8. rész" href="http://toltsd-fel.xyz/video/49648/valas-2-evad-8-resz/online/">
+<span class="clip"><img src="/o/t/49648.jpg" alt="Válás 2. évad 8. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 91</span>
+<span class="timer" alt="31:34 perc"><i class="icon icon-clock-o"></i> 31:34</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49648/valas-2-evad-8-resz/online/" title="">Válás 2. évad 8. rész</a></h4>
+</div>
+</div>
+<div id="video-49641" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49641" title="Csak színház és más semmi 3. évad 3. rész" href="http://toltsd-fel.xyz/video/49641/csak-szinhaz-es-mas-semmi-3-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49641.jpg" alt="Csak színház és más semmi 3. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 152</span>
+<span class="timer" alt="52:02 perc"><i class="icon icon-clock-o"></i> 52:02</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49641/csak-szinhaz-es-mas-semmi-3-evad-3-resz/online/" title="">Csak színház és más semmi 3. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49638" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49638" title="A mi kis falunk 2. évad 7. rész" href="http://toltsd-fel.xyz/video/49638/a-mi-kis-falunk-2-evad-7-resz/online/">
+<span class="clip"><img src="/o/t/49638.jpg" alt="A mi kis falunk 2. évad 7. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 830</span>
+<span class="timer" alt="42:29 perc"><i class="icon icon-clock-o"></i> 42:29</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49638/a-mi-kis-falunk-2-evad-7-resz/online/" title="">A mi kis falunk 2. évad 7. rész</a></h4>
+</div>
+</div>
+<div id="video-49637" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49637" title="Gyilkos elmék 13. évad 16. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49637/gyilkos-elmek-13-evad-16-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49637.jpg" alt="Gyilkos elmék 13. évad 16. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 185</span>
+<span class="timer" alt="42:36 perc"><i class="icon icon-clock-o"></i> 42:36</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49637/gyilkos-elmek-13-evad-16-resz-magyar-felirattal/online/" title="">Gyilkos elmék 13. évad 16. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49632" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49632" title="Rejtjelek 3. évad 14. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49632/rejtjelek-3-evad-14-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49632.jpg" alt="Rejtjelek 3. évad 14. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 378</span>
+<span class="timer" alt="42:05 perc"><i class="icon icon-clock-o"></i> 42:05</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49632/rejtjelek-3-evad-14-resz-magyar-felirattal/online/" title="">Rejtjelek 3. évad 14. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49631" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49631" title="Rejtjelek 3. évad 13. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49631/rejtjelek-3-evad-13-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49631.jpg" alt="Rejtjelek 3. évad 13. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 295</span>
+<span class="timer" alt="42:08 perc"><i class="icon icon-clock-o"></i> 42:08</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49631/rejtjelek-3-evad-13-resz-magyar-felirattal/online/" title="">Rejtjelek 3. évad 13. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49629" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49629" title="Megborulva 2. évad 7. rész" href="http://toltsd-fel.xyz/video/49629/megborulva-2-evad-7-resz/online/">
+<span class="clip"><img src="/o/t/49629.jpg" alt="Megborulva 2. évad 7. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 67</span>
+<span class="timer" alt="29:35 perc"><i class="icon icon-clock-o"></i> 29:35</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49629/megborulva-2-evad-7-resz/online/" title="">Megborulva 2. évad 7. rész</a></h4>
+</div>
+</div>
+<div id="video-49628" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49628" title="Megborulva 2. évad 6. rész" href="http://toltsd-fel.xyz/video/49628/megborulva-2-evad-6-resz/online/">
+<span class="clip"><img src="/o/t/49628.jpg" alt="Megborulva 2. évad 6. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 32</span>
+<span class="timer" alt="31:17 perc"><i class="icon icon-clock-o"></i> 31:17</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49628/megborulva-2-evad-6-resz/online/" title="">Megborulva 2. évad 6. rész</a></h4>
+</div>
+</div>
+<div id="video-49627" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49627" title="Megborulva 2. évad 5. rész" href="http://toltsd-fel.xyz/video/49627/megborulva-2-evad-5-resz/online/">
+<span class="clip"><img src="/o/t/49627.jpg" alt="Megborulva 2. évad 5. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 26</span>
+<span class="timer" alt="29:58 perc"><i class="icon icon-clock-o"></i> 29:58</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49627/megborulva-2-evad-5-resz/online/" title="">Megborulva 2. évad 5. rész</a></h4>
+</div>
+</div>
+<div id="video-49626" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49626" title="Megborulva 2. évad 4. rész" href="http://toltsd-fel.xyz/video/49626/megborulva-2-evad-4-resz/online/">
+<span class="clip"><img src="/o/t/49626.jpg" alt="Megborulva 2. évad 4. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1</span>
+<span class="timer" alt="30:02 perc"><i class="icon icon-clock-o"></i> 30:02</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49626/megborulva-2-evad-4-resz/online/" title="">Megborulva 2. évad 4. rész</a></h4>
+</div>
+</div>
+<div id="video-49625" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49625" title="Homeland: A belső ellenség 7. évad 5. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49625/homeland-a-belso-ellenseg-7-evad-5-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49625.jpg" alt="Homeland: A belső ellenség 7. évad 5. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 300</span>
+<span class="timer" alt="50:25 perc"><i class="icon icon-clock-o"></i> 50:25</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49625/homeland-a-belso-ellenseg-7-evad-5-resz-magyar-felirattal/online/" title="">Homeland: A belső ellenség 7. évad 5. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49623" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49623" title="Képmás 1. évad 5. rész" href="http://toltsd-fel.xyz/video/49623/kepmas-1-evad-5-resz/online/">
+<span class="clip"><img src="/o/t/49623.jpg" alt="Képmás 1. évad 5. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 109</span>
+<span class="timer" alt="56:12 perc"><i class="icon icon-clock-o"></i> 56:12</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49623/kepmas-1-evad-5-resz/online/" title="">Képmás 1. évad 5. rész</a></h4>
+</div>
+</div>
+<div id="video-49621" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49621" title="Válás 2. évad 7. rész" href="http://toltsd-fel.xyz/video/49621/valas-2-evad-7-resz/online/">
+<span class="clip"><img src="/o/t/49621.jpg" alt="Válás 2. évad 7. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1</span>
+<span class="timer" alt="30:45 perc"><i class="icon icon-clock-o"></i> 30:45</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49621/valas-2-evad-7-resz/online/" title="">Válás 2. évad 7. rész</a></h4>
+</div>
+</div>
+<div id="video-49620" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49620" title="Family Guy 15. évad 10. rész" href="http://toltsd-fel.xyz/video/49620/family-guy-15-evad-10-resz/online/">
+<span class="clip"><img src="/o/t/49620.jpg" alt="Family Guy 15. évad 10. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 274</span>
+<span class="timer" alt="21:36 perc"><i class="icon icon-clock-o"></i> 21:36</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49620/family-guy-15-evad-10-resz/online/" title="">Family Guy 15. évad 10. rész</a></h4>
+</div>
+</div>
+<div id="video-49619" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49619" title="Lángoló Chicago 6. évad 13. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49619/langolo-chicago-6-evad-13-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49619.jpg" alt="Lángoló Chicago 6. évad 13. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 127</span>
+<span class="timer" alt="38:42 perc"><i class="icon icon-clock-o"></i> 38:42</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49619/langolo-chicago-6-evad-13-resz-magyar-felirattal/online/" title="">Lángoló Chicago 6. évad 13. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49618" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49618" title="Rólunk szól 2. évad 17. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49618/rolunk-szol-2-evad-17-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49618.jpg" alt="Rólunk szól 2. évad 17. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 147</span>
+<span class="timer" alt="42:19 perc"><i class="icon icon-clock-o"></i> 42:19</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49618/rolunk-szol-2-evad-17-resz-magyar-felirattal/online/" title="">Rólunk szól 2. évad 17. rész magyar felirattal</a></h4>
+</div>
+</div>
+</div>
+<center></center>
+
+<h3 class="loop-heading loop-carousel"><a href="http://toltsd-fel.xyz/channels.php?order=last" class="link-heading pv_tip" data-original-title="Még több Most nézett videóhoz kattints ide"><i class="icon icon-chevron-right"> </i> Épp Most Nézik</a></h3>
+<div class="homeLoader sLoad"><img src="./o/loaders.gif"/></div>
+<div class="loop-content owl-carousel hide">
+<div id="video-14481" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="14481" title="A Mentalista 6.  évad 3. rész" href="http://toltsd-fel.xyz/video/14481/a-mentalista-6-evad-3-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/BcFErSG.jpg" alt="A Mentalista 6.  évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 100</span>
+<span class="timer" alt="40:21 perc"><i class="icon icon-clock-o"></i> 40:21</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/14481/a-mentalista-6-evad-3-resz/online/" title="">A Mentalista 6.  évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-12588" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="12588" title="Csajok, szilikon - Nem ettől lesz Paradicsom 1. évad 85. rész" href="http://toltsd-fel.xyz/video/12588/csajok-szilikon-nem-ettol-lesz-paradicsom-1-evad-85-resz/online/">
+<span class="clip"><img src="/o/t/12588.jpg" alt="Csajok, szilikon - Nem ettől lesz Paradicsom 1. évad 85. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 908</span>
+<span class="timer" alt="43:50 perc"><i class="icon icon-clock-o"></i> 43:50</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/12588/csajok-szilikon-nem-ettol-lesz-paradicsom-1-evad-85-resz/online/" title="">Csajok, szilikon - Nem ettől lesz Paradicsom 1. évad 85. rész</a></h4>
+</div>
+</div>
+<div id="video-49684" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49684" title="Elif - A szeretet útján 1. évad 132. rész" href="http://toltsd-fel.xyz/video/49684/elif-a-szeretet-utjan-1-evad-132-resz/online/">
+<span class="clip"><img src="/o/t/49684.jpg" alt="Elif - A szeretet útján 1. évad 132. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 2 881</span>
+<span class="timer" alt="42:33 perc"><i class="icon icon-clock-o"></i> 42:33</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49684/elif-a-szeretet-utjan-1-evad-132-resz/online/" title="">Elif - A szeretet útján 1. évad 132. rész</a></h4>
+</div>
+</div>
+<div id="video-7744" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="7744" title="Végtelen Szerelem 1. évad 105. rész" href="http://toltsd-fel.xyz/video/7744/vegtelen-szerelem-1-evad-105-resz/online/">
+<span class="clip"><img src="/o/noimage.png" alt="Végtelen Szerelem 1. évad 105. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 881</span>
+<span class="timer" alt="46:46 perc"><i class="icon icon-clock-o"></i> 46:46</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/7744/vegtelen-szerelem-1-evad-105-resz/online/" title="">Végtelen Szerelem 1. évad 105. rész</a></h4>
+</div>
+</div>
+<div id="video-49676" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49676" title="Az élőholtak kora 1. évad 3. rész" href="http://toltsd-fel.xyz/video/49676/az-eloholtak-kora-1-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49676.jpg" alt="Az élőholtak kora 1. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 162</span>
+<span class="timer" alt="42:23 perc"><i class="icon icon-clock-o"></i> 42:23</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49676/az-eloholtak-kora-1-evad-3-resz/online/" title="">Az élőholtak kora 1. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-10963" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="10963" title="Riverdale 2. évad 4. rész magyar felirattal" href="http://toltsd-fel.xyz/video/10963/riverdale-2-evad-4-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/10963.jpg" alt="Riverdale 2. évad 4. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11 985</span>
+<span class="timer" alt="41:50 perc"><i class="icon icon-clock-o"></i> 41:50</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/10963/riverdale-2-evad-4-resz-magyar-felirattal/online/" title="">Riverdale 2. évad 4. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-12509" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="12509" title="Szulejmán 1. évad 262. rész" href="http://toltsd-fel.xyz/video/12509/szulejman-1-evad-262-resz/online/">
+<span class="clip"><img src="/o/t/12509.jpg" alt="Szulejmán 1. évad 262. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 173</span>
+<span class="timer" alt="47:34 perc"><i class="icon icon-clock-o"></i> 47:34</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/12509/szulejman-1-evad-262-resz/online/" title="">Szulejmán 1. évad 262. rész</a></h4>
+</div>
+</div>
+<div id="video-1742" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="1742" title="A hidegsebész 3. évad 1. rész" href="http://toltsd-fel.xyz/video/1742/a-hidegsebesz-3-evad-1-resz/online/">
+<span class="clip"><img src="/o/noimage.png" alt="A hidegsebész 3. évad 1. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 3 975</span>
+<span class="timer" alt="40:42 perc"><i class="icon icon-clock-o"></i> 40:42</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/1742/a-hidegsebesz-3-evad-1-resz/online/" title="">A hidegsebész 3. évad 1. rész</a></h4>
+</div>
+</div>
+<div id="video-37948" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="37948" title="A SHIELD ügynökei 3. évad 18. rész" href="http://toltsd-fel.xyz/video/37948/a-shield-ugynokei-3-evad-18-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/4ZVkyMG.jpg" alt="A SHIELD ügynökei 3. évad 18. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 30</span>
+<span class="timer" alt="42:59 perc"><i class="icon icon-clock-o"></i> 42:59</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/37948/a-shield-ugynokei-3-evad-18-resz/online/" title="">A SHIELD ügynökei 3. évad 18. rész</a></h4>
+</div>
+</div>
+<div id="video-14483" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="14483" title="A Mentalista 6.  évad 5. rész" href="http://toltsd-fel.xyz/video/14483/a-mentalista-6-evad-5-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/IVTd6RU.jpg" alt="A Mentalista 6.  évad 5. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 104</span>
+<span class="timer" alt="39:49 perc"><i class="icon icon-clock-o"></i> 39:49</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/14483/a-mentalista-6-evad-5-resz/online/" title="">A Mentalista 6.  évad 5. rész</a></h4>
+</div>
+</div>
+<div id="video-47263" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="47263" title="Fear the Walking Dead 3. évad 12. rész" href="http://toltsd-fel.xyz/video/47263/fear-the-walking-dead-3-evad-12-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/oVzdhc2.jpg" alt="Fear the Walking Dead 3. évad 12. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 28</span>
+<span class="timer" alt="41:33 perc"><i class="icon icon-clock-o"></i> 41:33</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/47263/fear-the-walking-dead-3-evad-12-resz/online/" title="">Fear the Walking Dead 3. évad 12. rész</a></h4>
+</div>
+</div>
+<div id="video-10563" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="10563" title="Bosszú vagy szerelem 1. évad 7. rész" href="http://toltsd-fel.xyz/video/10563/bosszu-vagy-szerelem-1-evad-7-resz/online/">
+<span class="clip"><img src="/o/noimage.png" alt="Bosszú vagy szerelem 1. évad 7. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 8 015</span>
+<span class="timer" alt="44:21 perc"><i class="icon icon-clock-o"></i> 44:21</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/10563/bosszu-vagy-szerelem-1-evad-7-resz/online/" title="">Bosszú vagy szerelem 1. évad 7. rész</a></h4>
+</div>
+</div>
+<div id="video-12443" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="12443" title="Lucifer 3. évad 14. rész magyar felirattal" href="http://toltsd-fel.xyz/video/12443/lucifer-3-evad-14-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/12443.jpg" alt="Lucifer 3. évad 14. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 4 991</span>
+<span class="timer" alt="44:07 perc"><i class="icon icon-clock-o"></i> 44:07</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/12443/lucifer-3-evad-14-resz-magyar-felirattal/online/" title="">Lucifer 3. évad 14. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-14484" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="14484" title="A Mentalista 6.  évad 6. rész" href="http://toltsd-fel.xyz/video/14484/a-mentalista-6-evad-6-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/pMFFURE.jpg" alt="A Mentalista 6.  évad 6. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 143</span>
+<span class="timer" alt="41:21 perc"><i class="icon icon-clock-o"></i> 41:21</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/14484/a-mentalista-6-evad-6-resz/online/" title="">A Mentalista 6.  évad 6. rész</a></h4>
+</div>
+</div>
+<div id="video-49506" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49506" title="A holnap legendái 3. évad 13. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49506/a-holnap-legendai-3-evad-13-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49506.jpg" alt="A holnap legendái 3. évad 13. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 496</span>
+<span class="timer" alt="42:00 perc"><i class="icon icon-clock-o"></i> 42:00</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49506/a-holnap-legendai-3-evad-13-resz-magyar-felirattal/online/" title="">A holnap legendái 3. évad 13. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-12555" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="12555" title="American Crime Story 2. évad 1. rész magyar felirattal" href="http://toltsd-fel.xyz/video/12555/american-crime-story-2-evad-1-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/12555.jpg" alt="American Crime Story 2. évad 1. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 235</span>
+<span class="timer" alt="52:34 perc"><i class="icon icon-clock-o"></i> 52:34</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/12555/american-crime-story-2-evad-1-resz-magyar-felirattal/online/" title="">American Crime Story 2. évad 1. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49486" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49486" title="Feriha 1. évad 3. rész" href="http://toltsd-fel.xyz/video/49486/feriha-1-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49486.jpg" alt="Feriha 1. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 060</span>
+<span class="timer" alt="42:01 perc"><i class="icon icon-clock-o"></i> 42:01</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49486/feriha-1-evad-3-resz/online/" title="">Feriha 1. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-28779" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="28779" title="Vikingek 2.  évad 1. rész" href="http://toltsd-fel.xyz/video/28779/vikingek-2-evad-1-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/rczdDcl.jpg" alt="Vikingek 2.  évad 1. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 302</span>
+<span class="timer" alt="46:09 perc"><i class="icon icon-clock-o"></i> 46:09</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/28779/vikingek-2-evad-1-resz/online/" title="">Vikingek 2.  évad 1. rész</a></h4>
+</div>
+</div>
+<div id="video-2820" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="2820" title="Trónok harca 6. évad 9. rész magyarul beszélő" href="http://toltsd-fel.xyz/video/2820/tronok-harca-6-evad-9-resz-magyarul-beszelo/online/">
+<span class="clip"><img src="/o/t/2820.jpg" alt="Trónok harca 6. évad 9. rész magyarul beszélő" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 71 546</span>
+<span class="timer" alt="59:14 perc"><i class="icon icon-clock-o"></i> 59:14</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/2820/tronok-harca-6-evad-9-resz-magyarul-beszelo/online/" title="">Trónok harca 6. évad 9. rész magyarul beszélő</a></h4>
+</div>
+</div>
+<div id="video-49710" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49710" title="Elif - A szeretet útján 1. évad 133. rész" href="http://toltsd-fel.xyz/video/49710/elif-a-szeretet-utjan-1-evad-133-resz/online/">
+<span class="clip"><img src="/o/t/49710.jpg" alt="Elif - A szeretet útján 1. évad 133. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 470</span>
+<span class="timer" alt="53:52 perc"><i class="icon icon-clock-o"></i> 53:52</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49710/elif-a-szeretet-utjan-1-evad-133-resz/online/" title="">Elif - A szeretet útján 1. évad 133. rész</a></h4>
+</div>
+</div>
+<div id="video-1674" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="1674" title="A mentalista 7. évad 12-13. rész" href="http://toltsd-fel.xyz/video/1674/a-mentalista-7-evad-12-13-resz/online/">
+<span class="clip"><img src="/o/noimage.png" alt="A mentalista 7. évad 12-13. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 685</span>
+<span class="timer" alt="1:22:59 perc"><i class="icon icon-clock-o"></i> 1:22:59</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/1674/a-mentalista-7-evad-12-13-resz/online/" title="">A mentalista 7. évad 12-13. rész</a></h4>
+</div>
+</div>
+<div id="video-4838" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="4838" title="MacGyver (2016) 1. évad 7. rész (feliratos)" href="http://toltsd-fel.xyz/video/4838/macgyver-2016-1-evad-7-resz-feliratos-/online/">
+<span class="clip"><img src="/o/noimage.png" alt="MacGyver (2016) 1. évad 7. rész (feliratos)" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 436</span>
+<span class="timer" alt="43:36 perc"><i class="icon icon-clock-o"></i> 43:36</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/4838/macgyver-2016-1-evad-7-resz-feliratos-/online/" title="">MacGyver (2016) 1. évad 7. rész (feliratos)</a></h4>
+</div>
+</div>
+<div id="video-14486" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="14486" title="A Mentalista 6.  évad 8. rész" href="http://toltsd-fel.xyz/video/14486/a-mentalista-6-evad-8-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/4eCtNaX.jpg" alt="A Mentalista 6.  évad 8. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 252</span>
+<span class="timer" alt="41:22 perc"><i class="icon icon-clock-o"></i> 41:22</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/14486/a-mentalista-6-evad-8-resz/online/" title="">A Mentalista 6.  évad 8. rész</a></h4>
+</div>
+</div>
+<div id="video-11323" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="11323" title="Oltári csajok 1. évad 18. rész" href="http://toltsd-fel.xyz/video/11323/oltari-csajok-1-evad-18-resz/online/">
+<span class="clip"><img src="/o/t/11323.jpg" alt="Oltári csajok 1. évad 18. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 5 493</span>
+<span class="timer" alt="43:09 perc"><i class="icon icon-clock-o"></i> 43:09</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/11323/oltari-csajok-1-evad-18-resz/online/" title="">Oltári csajok 1. évad 18. rész</a></h4>
+</div>
+</div>
+<div id="video-39094" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="39094" title="NCIS 6. évad 24. rész" href="http://toltsd-fel.xyz/video/39094/ncis-6-evad-24-resz/online/">
+<span class="clip"><img src="http://srnet.eu/o/t/4MnFiak.jpg" alt="NCIS 6. évad 24. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11</span>
+<span class="timer" alt="41:01 perc"><i class="icon icon-clock-o"></i> 41:01</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/39094/ncis-6-evad-24-resz/online/" title="">NCIS 6. évad 24. rész</a></h4>
+</div>
+</div>
+<div id="video-9421" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="9421" title="Megtört szívek 3. évad 58. rész" href="http://toltsd-fel.xyz/video/9421/megtort-szivek-3-evad-58-resz/online/">
+<span class="clip"><img src="/o/noimage.png" alt="Megtört szívek 3. évad 58. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 9 263</span>
+<span class="timer" alt="38:18 perc"><i class="icon icon-clock-o"></i> 38:18</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/9421/megtort-szivek-3-evad-58-resz/online/" title="">Megtört szívek 3. évad 58. rész</a></h4>
+</div>
+</div>
+<div id="video-49237" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49237" title="Álmodj velem! 1. évad 40. rész" href="http://toltsd-fel.xyz/video/49237/almodj-velem-1-evad-40-resz/online/">
+<span class="clip"><img src="/o/t/49237.jpg" alt="Álmodj velem! 1. évad 40. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 560</span>
+<span class="timer" alt="42:32 perc"><i class="icon icon-clock-o"></i> 42:32</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49237/almodj-velem-1-evad-40-resz/online/" title="">Álmodj velem! 1. évad 40. rész</a></h4>
+</div>
+</div>
+<div id="video-12473" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="12473" title="A védelmező 1. évad 11. rész" href="http://toltsd-fel.xyz/video/12473/a-vedelmezo-1-evad-11-resz/online/">
+<span class="clip"><img src="/o/t/12473.jpg" alt="A védelmező 1. évad 11. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 552</span>
+<span class="timer" alt="41:12 perc"><i class="icon icon-clock-o"></i> 41:12</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/12473/a-vedelmezo-1-evad-11-resz/online/" title="">A védelmező 1. évad 11. rész</a></h4>
+</div>
+</div>
+<div id="video-4500" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="4500" title="Impastor 2. évad 3. rész (feliratos)" href="http://toltsd-fel.xyz/video/4500/impastor-2-evad-3-resz-feliratos-/online/">
+<span class="clip"><img src="/o/noimage.png" alt="Impastor 2. évad 3. rész (feliratos)" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 245</span>
+<span class="timer" alt="20:55 perc"><i class="icon icon-clock-o"></i> 20:55</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/4500/impastor-2-evad-3-resz-feliratos-/online/" title="">Impastor 2. évad 3. rész (feliratos)</a></h4>
+</div>
+</div>
+<div id="video-8325" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="8325" title="Végtelen Szerelem 2. évad 19. rész (feliratos)" href="http://toltsd-fel.xyz/video/8325/vegtelen-szerelem-2-evad-19-resz-feliratos-/online/">
+<span class="clip"><img src="/o/noimage.png" alt="Végtelen Szerelem 2. évad 19. rész (feliratos)" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 3 049</span>
+<span class="timer" alt="2:17:54 perc"><i class="icon icon-clock-o"></i> 2:17:54</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/8325/vegtelen-szerelem-2-evad-19-resz-feliratos-/online/" title="">Végtelen Szerelem 2. évad 19. rész (feliratos)</a></h4>
+</div>
+</div>
+</div>
+<center></center>
+
+<h3 class="loop-heading loop-carousel"><a href="http://toltsd-fel.xyz/channels.php?order=new" class="link-heading pv_tip" data-original-title="Még több új epizódhoz kattints ide"><i class="icon icon-chevron-right"> </i> Legfrisebb Epizódok</a></h3>
+<div class="homeLoader sLoad"><img src="./o/loaders.gif"/></div>
+<div class="loop-content owl-carousel hide">
+<div id="video-49720" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49720" title="Kártyavár 4. évad 5. rész" href="http://toltsd-fel.xyz/video/49720/kartyavar-4-evad-5-resz/online/">
+<span class="clip"><img src="/o/t/49720.jpg" alt="Kártyavár 4. évad 5. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11</span>
+<span class="timer" alt="47:20 perc"><i class="icon icon-clock-o"></i> 47:20</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49720/kartyavar-4-evad-5-resz/online/" title="">Kártyavár 4. évad 5. rész</a></h4>
+</div>
+</div>
+<div id="video-49719" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49719" title="Amerikai Horror Story 7. évad 3. rész" href="http://toltsd-fel.xyz/video/49719/amerikai-horror-story-7-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49719.jpg" alt="Amerikai Horror Story 7. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 10</span>
+<span class="timer" alt="43:19 perc"><i class="icon icon-clock-o"></i> 43:19</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49719/amerikai-horror-story-7-evad-3-resz/online/" title="">Amerikai Horror Story 7. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49718" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49718" title="Jean-Claude Van Johnson 1. évad 6. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49718/jean-claude-van-johnson-1-evad-6-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49718.jpg" alt="Jean-Claude Van Johnson 1. évad 6. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 15</span>
+<span class="timer" alt="33:43 perc"><i class="icon icon-clock-o"></i> 33:43</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49718/jean-claude-van-johnson-1-evad-6-resz-magyar-felirattal/online/" title="">Jean-Claude Van Johnson 1. évad 6. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49717" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49717" title="Frontier 2. évad 2. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49717/frontier-2-evad-2-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49717.jpg" alt="Frontier 2. évad 2. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 13</span>
+<span class="timer" alt="45:28 perc"><i class="icon icon-clock-o"></i> 45:28</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49717/frontier-2-evad-2-resz-magyar-felirattal/online/" title="">Frontier 2. évad 2. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49716" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49716" title="Marvel's Runaways 1. évad 10. rész" href="http://toltsd-fel.xyz/video/49716/marvel-s-runaways-1-evad-10-resz/online/">
+<span class="clip"><img src="/o/noimage2.png" alt="Marvel's Runaways 1. évad 10. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 46</span>
+<span class="timer" alt="48:26 perc"><i class="icon icon-clock-o"></i> 48:26</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49716/marvel-s-runaways-1-evad-10-resz/online/" title="">Marvel's Runaways 1. évad 10. rész</a></h4>
+</div>
+</div>
+<div id="video-49714" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49714" title="Az Árnyak 2. évad 3. rész" href="http://toltsd-fel.xyz/video/49714/az-arnyak-2-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49714.jpg" alt="Az Árnyak 2. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 26</span>
+<span class="timer" alt="52:59 perc"><i class="icon icon-clock-o"></i> 52:59</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49714/az-arnyak-2-evad-3-resz/online/" title="">Az Árnyak 2. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49713" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49713" title="Frontier 2. évad 1. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49713/frontier-2-evad-1-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49713.jpg" alt="Frontier 2. évad 1. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 31</span>
+<span class="timer" alt="45:28 perc"><i class="icon icon-clock-o"></i> 45:28</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49713/frontier-2-evad-1-resz-magyar-felirattal/online/" title="">Frontier 2. évad 1. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49712" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49712" title="Ash vs Evil Dead 3. évad 4. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49712/ash-vs-evil-dead-3-evad-4-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49712.jpg" alt="Ash vs Evil Dead 3. évad 4. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 50</span>
+<span class="timer" alt="27:13 perc"><i class="icon icon-clock-o"></i> 27:13</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49712/ash-vs-evil-dead-3-evad-4-resz-magyar-felirattal/online/" title="">Ash vs Evil Dead 3. évad 4. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49711" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49711" title="Feriha 1. évad 10. rész" href="http://toltsd-fel.xyz/video/49711/feriha-1-evad-10-resz/online/">
+<span class="clip"><img src="/o/t/49711.jpg" alt="Feriha 1. évad 10. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 585</span>
+<span class="timer" alt="45:40 perc"><i class="icon icon-clock-o"></i> 45:40</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49711/feriha-1-evad-10-resz/online/" title="">Feriha 1. évad 10. rész</a></h4>
+</div>
+</div>
+<div id="video-49710" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49710" title="Elif - A szeretet útján 1. évad 133. rész" href="http://toltsd-fel.xyz/video/49710/elif-a-szeretet-utjan-1-evad-133-resz/online/">
+<span class="clip"><img src="/o/t/49710.jpg" alt="Elif - A szeretet útján 1. évad 133. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 1 470</span>
+<span class="timer" alt="53:52 perc"><i class="icon icon-clock-o"></i> 53:52</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49710/elif-a-szeretet-utjan-1-evad-133-resz/online/" title="">Elif - A szeretet útján 1. évad 133. rész</a></h4>
+</div>
+</div>
+<div id="video-49709" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49709" title="Álmodj velem! 1. évad 55. rész" href="http://toltsd-fel.xyz/video/49709/almodj-velem-1-evad-55-resz/online/">
+<span class="clip"><img src="/o/t/49709.jpg" alt="Álmodj velem! 1. évad 55. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 443</span>
+<span class="timer" alt="42:25 perc"><i class="icon icon-clock-o"></i> 42:25</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49709/almodj-velem-1-evad-55-resz/online/" title="">Álmodj velem! 1. évad 55. rész</a></h4>
+</div>
+</div>
+<div id="video-49708" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49708" title="A varázslók 1. évad 3. rész" href="http://toltsd-fel.xyz/video/49708/a-varazslok-1-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49708.jpg" alt="A varázslók 1. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 38</span>
+<span class="timer" alt="41:16 perc"><i class="icon icon-clock-o"></i> 41:16</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49708/a-varazslok-1-evad-3-resz/online/" title="">A varázslók 1. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49707" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49707" title="A varázslók 1. évad 2. rész" href="http://toltsd-fel.xyz/video/49707/a-varazslok-1-evad-2-resz/online/">
+<span class="clip"><img src="/o/t/49707.jpg" alt="A varázslók 1. évad 2. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 51</span>
+<span class="timer" alt="41:23 perc"><i class="icon icon-clock-o"></i> 41:23</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49707/a-varazslok-1-evad-2-resz/online/" title="">A varázslók 1. évad 2. rész</a></h4>
+</div>
+</div>
+<div id="video-49706" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49706" title="MacGyver (2016) 1. évad 6. rész" href="http://toltsd-fel.xyz/video/49706/macgyver-2016-1-evad-6-resz/online/">
+<span class="clip"><img src="/o/t/49706.jpg" alt="MacGyver (2016) 1. évad 6. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 24</span>
+<span class="timer" alt="42:33 perc"><i class="icon icon-clock-o"></i> 42:33</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49706/macgyver-2016-1-evad-6-resz/online/" title="">MacGyver (2016) 1. évad 6. rész</a></h4>
+</div>
+</div>
+<div id="video-49705" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49705" title="MacGyver (2016) 1. évad 5. rész" href="http://toltsd-fel.xyz/video/49705/macgyver-2016-1-evad-5-resz/online/">
+<span class="clip"><img src="/o/t/49705.jpg" alt="MacGyver (2016) 1. évad 5. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 21</span>
+<span class="timer" alt="39:42 perc"><i class="icon icon-clock-o"></i> 39:42</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49705/macgyver-2016-1-evad-5-resz/online/" title="">MacGyver (2016) 1. évad 5. rész</a></h4>
+</div>
+</div>
+<div id="video-49704" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49704" title="MacGyver (2016) 1. évad 4. rész" href="http://toltsd-fel.xyz/video/49704/macgyver-2016-1-evad-4-resz/online/">
+<span class="clip"><img src="/o/t/49704.jpg" alt="MacGyver (2016) 1. évad 4. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 24</span>
+<span class="timer" alt="41:34 perc"><i class="icon icon-clock-o"></i> 41:34</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49704/macgyver-2016-1-evad-4-resz/online/" title="">MacGyver (2016) 1. évad 4. rész</a></h4>
+</div>
+</div>
+<div id="video-49703" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49703" title="MacGyver (2016) 1. évad 3. rész" href="http://toltsd-fel.xyz/video/49703/macgyver-2016-1-evad-3-resz/online/">
+<span class="clip"><img src="/o/t/49703.jpg" alt="MacGyver (2016) 1. évad 3. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 21</span>
+<span class="timer" alt="41:35 perc"><i class="icon icon-clock-o"></i> 41:35</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49703/macgyver-2016-1-evad-3-resz/online/" title="">MacGyver (2016) 1. évad 3. rész</a></h4>
+</div>
+</div>
+<div id="video-49702" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49702" title="MacGyver (2016) 1. évad 2. rész" href="http://toltsd-fel.xyz/video/49702/macgyver-2016-1-evad-2-resz/online/">
+<span class="clip"><img src="/o/t/49702.jpg" alt="MacGyver (2016) 1. évad 2. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 32</span>
+<span class="timer" alt="42:53 perc"><i class="icon icon-clock-o"></i> 42:53</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49702/macgyver-2016-1-evad-2-resz/online/" title="">MacGyver (2016) 1. évad 2. rész</a></h4>
+</div>
+</div>
+<div id="video-49701" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49701" title="Shadowhunters - A végzet ereklyéi 3. évad 1. rész (angol)" href="http://toltsd-fel.xyz/video/49701/shadowhunters-a-vegzet-ereklyei-3-evad-1-resz-angol-/online/">
+<span class="clip"><img src="/o/t/49701.jpg" alt="Shadowhunters - A végzet ereklyéi 3. évad 1. rész (angol)" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 94</span>
+<span class="timer" alt="42:03 perc"><i class="icon icon-clock-o"></i> 42:03</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49701/shadowhunters-a-vegzet-ereklyei-3-evad-1-resz-angol-/online/" title="">Shadowhunters - A végzet ereklyéi 3. évad 1. rész (angol)</a></h4>
+</div>
+</div>
+<div id="video-49700" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49700" title="MacGyver (2016) 1. évad 1. rész" href="http://toltsd-fel.xyz/video/49700/macgyver-2016-1-evad-1-resz/online/">
+<span class="clip"><img src="/o/t/49700.jpg" alt="MacGyver (2016) 1. évad 1. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 118</span>
+<span class="timer" alt="43:11 perc"><i class="icon icon-clock-o"></i> 43:11</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49700/macgyver-2016-1-evad-1-resz/online/" title="">MacGyver (2016) 1. évad 1. rész</a></h4>
+</div>
+</div>
+<div id="video-49699" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49699" title="iZombie 4. évad 4. rész magyar felirattal" href="http://toltsd-fel.xyz/video/49699/izombie-4-evad-4-resz-magyar-felirattal/online/">
+<span class="clip"><img src="/o/t/49699.jpg" alt="iZombie 4. évad 4. rész magyar felirattal" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 106</span>
+<span class="timer" alt="41:47 perc"><i class="icon icon-clock-o"></i> 41:47</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49699/izombie-4-evad-4-resz-magyar-felirattal/online/" title="">iZombie 4. évad 4. rész magyar felirattal</a></h4>
+</div>
+</div>
+<div id="video-49698" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49698" title="Végtelen Szerelem 2. évad 103. rész" href="http://toltsd-fel.xyz/video/49698/vegtelen-szerelem-2-evad-103-resz/online/">
+<span class="clip"><img src="/o/t/49698.jpg" alt="Végtelen Szerelem 2. évad 103. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 105</span>
+<span class="timer" alt="44:01 perc"><i class="icon icon-clock-o"></i> 44:01</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49698/vegtelen-szerelem-2-evad-103-resz/online/" title="">Végtelen Szerelem 2. évad 103. rész</a></h4>
+</div>
+</div>
+<div id="video-49697" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49697" title="Végtelen Szerelem 2. évad 102. rész" href="http://toltsd-fel.xyz/video/49697/vegtelen-szerelem-2-evad-102-resz/online/">
+<span class="clip"><img src="/o/t/49697.jpg" alt="Végtelen Szerelem 2. évad 102. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 100</span>
+<span class="timer" alt="45:11 perc"><i class="icon icon-clock-o"></i> 45:11</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49697/vegtelen-szerelem-2-evad-102-resz/online/" title="">Végtelen Szerelem 2. évad 102. rész</a></h4>
+</div>
+</div>
+<div id="video-49696" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49696" title="Végtelen Szerelem 2. évad 101. rész" href="http://toltsd-fel.xyz/video/49696/vegtelen-szerelem-2-evad-101-resz/online/">
+<span class="clip"><img src="/o/t/49696.jpg" alt="Végtelen Szerelem 2. évad 101. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 68</span>
+<span class="timer" alt="43:44 perc"><i class="icon icon-clock-o"></i> 43:44</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49696/vegtelen-szerelem-2-evad-101-resz/online/" title="">Végtelen Szerelem 2. évad 101. rész</a></h4>
+</div>
+</div>
+<div id="video-49695" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49695" title="Végtelen Szerelem 2. évad 100. rész" href="http://toltsd-fel.xyz/video/49695/vegtelen-szerelem-2-evad-100-resz/online/">
+<span class="clip"><img src="/o/t/49695.jpg" alt="Végtelen Szerelem 2. évad 100. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 66</span>
+<span class="timer" alt="44:04 perc"><i class="icon icon-clock-o"></i> 44:04</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49695/vegtelen-szerelem-2-evad-100-resz/online/" title="">Végtelen Szerelem 2. évad 100. rész</a></h4>
+</div>
+</div>
+<div id="video-49694" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49694" title="Végtelen Szerelem 2. évad 99. rész" href="http://toltsd-fel.xyz/video/49694/vegtelen-szerelem-2-evad-99-resz/online/">
+<span class="clip"><img src="/o/t/49694.jpg" alt="Végtelen Szerelem 2. évad 99. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 52</span>
+<span class="timer" alt="44:38 perc"><i class="icon icon-clock-o"></i> 44:38</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49694/vegtelen-szerelem-2-evad-99-resz/online/" title="">Végtelen Szerelem 2. évad 99. rész</a></h4>
+</div>
+</div>
+<div id="video-49693" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49693" title="Végtelen Szerelem 2. évad 98. rész" href="http://toltsd-fel.xyz/video/49693/vegtelen-szerelem-2-evad-98-resz/online/">
+<span class="clip"><img src="/o/t/49693.jpg" alt="Végtelen Szerelem 2. évad 98. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 49</span>
+<span class="timer" alt="44:38 perc"><i class="icon icon-clock-o"></i> 44:38</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49693/vegtelen-szerelem-2-evad-98-resz/online/" title="">Végtelen Szerelem 2. évad 98. rész</a></h4>
+</div>
+</div>
+<div id="video-49692" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49692" title="Végtelen Szerelem 2. évad 97. rész" href="http://toltsd-fel.xyz/video/49692/vegtelen-szerelem-2-evad-97-resz/online/">
+<span class="clip"><img src="/o/t/49692.jpg" alt="Végtelen Szerelem 2. évad 97. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 47</span>
+<span class="timer" alt="45:10 perc"><i class="icon icon-clock-o"></i> 45:10</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49692/vegtelen-szerelem-2-evad-97-resz/online/" title="">Végtelen Szerelem 2. évad 97. rész</a></h4>
+</div>
+</div>
+<div id="video-49691" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49691" title="Végtelen Szerelem 2. évad 96. rész" href="http://toltsd-fel.xyz/video/49691/vegtelen-szerelem-2-evad-96-resz/online/">
+<span class="clip"><img src="/o/t/49691.jpg" alt="Végtelen Szerelem 2. évad 96. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 50</span>
+<span class="timer" alt="45:34 perc"><i class="icon icon-clock-o"></i> 45:34</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49691/vegtelen-szerelem-2-evad-96-resz/online/" title="">Végtelen Szerelem 2. évad 96. rész</a></h4>
+</div>
+</div>
+<div id="video-49690" class="video">
+<div class="video-thumb">
+<a class="clip-link" data-id="49690" title="Végtelen Szerelem 2. évad 95. rész" href="http://toltsd-fel.xyz/video/49690/vegtelen-szerelem-2-evad-95-resz/online/">
+<span class="clip"><img src="/o/t/49690.jpg" alt="Végtelen Szerelem 2. évad 95. rész" /><span class="vertical-align"></span></span>
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 49</span>
+<span class="timer" alt="45:04 perc"><i class="icon icon-clock-o"></i> 45:04</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/video/49690/vegtelen-szerelem-2-evad-95-resz/online/" title="">Végtelen Szerelem 2. évad 95. rész</a></h4>
+</div>
+</div>
+</div>
+<center></center>
+
+<style>
+.sorozat-listazo{ width:165px !important; height:248px !important; }
+.sorozat-lista{ width:165px !important; }
+//.owl-theme .owl-controls .owl-buttons .owl-prev {top:90px!important}
+//.owl-theme .owl-controls .owl-buttons .owl-next {top:90px!important}
+</style>
+
+<h3 class="loop-heading loop-carousel"><a href="http://toltsd-fel.xyz/channels.php?order=view_weekly" class="link-heading pv_tip" data-original-title="Még több Felkapott Sorozathoz kattints ide"><i class="icon icon-chevron-right"> </i> Felkapott Sorozatok</a></h3>
+<div class="homeLoader sLoad"><img src="./o/loaders.gif"/></div>
+<div class="loop-content owl-carousel hide srnet-video-list srnet-video-home">
+<div id="video-1066" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1066" title="Elif - A szeretet útján online sorozat" href="http://toltsd-fel.xyz/elif-a-szeretet-utjan-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1066.jpg" alt="Elif - A szeretet útján online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 73 086</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2014</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/elif-a-szeretet-utjan-online" title="Elif - A szeretet útján online sorozat">Elif - A szeretet útján</a></h4>
+</div>
+</div>
+<div id="video-679" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="679" title="The Walking Dead online sorozat" href="http://toltsd-fel.xyz/the-walking-dead-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/679.jpg" alt="The Walking Dead online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 41 970</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2010</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/the-walking-dead-online" title="The Walking Dead online sorozat">The Walking Dead</a></h4>
+</div>
+</div>
+<div id="video-61" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="61" title="A Grace klinika online sorozat" href="http://toltsd-fel.xyz/a-grace-klinika-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/61.jpg" alt="A Grace klinika online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 54 229</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2005</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/a-grace-klinika-online" title="A Grace klinika online sorozat">A Grace klinika</a></h4>
+</div>
+</div>
+<div id="video-1090" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1090" title="Riverdale online sorozat" href="http://toltsd-fel.xyz/riverdale-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1090.jpg" alt="Riverdale online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 43 633</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2016</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/riverdale-online" title="Riverdale online sorozat">Riverdale</a></h4>
+</div>
+</div>
+<div id="video-1077" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1077" title="Álmodj velem! online sorozat" href="http://toltsd-fel.xyz/almodj-velem--online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1077.jpg" alt="Álmodj velem! online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 40 902</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2016</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/almodj-velem--online" title="Álmodj velem! online sorozat">Álmodj velem!</a></h4>
+</div>
+</div>
+<div id="video-1106" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1106" title="Feriha online sorozat" href="http://toltsd-fel.xyz/feriha-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1106.jpg" alt="Feriha online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 15 639</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2011</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/feriha-online" title="Feriha online sorozat">Feriha</a></h4>
+</div>
+</div>
+<div id="video-1184" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1184" title="Megtört szívek online sorozat" href="http://toltsd-fel.xyz/megtort-szivek-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1184.jpg" alt="Megtört szívek online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 9 136</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2014</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/megtort-szivek-online" title="Megtört szívek online sorozat">Megtört szívek</a></h4>
+</div>
+</div>
+<div id="video-1091" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1091" title="Oltári csajok online sorozat" href="http://toltsd-fel.xyz/oltari-csajok-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1091.jpg" alt="Oltári csajok online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 17 129</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2017</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/oltari-csajok-online" title="Oltári csajok online sorozat">Oltári csajok</a></h4>
+</div>
+</div>
+<div id="video-1068" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1068" title="A bosszú online sorozat" href="http://toltsd-fel.xyz/a-bosszu-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1068.jpg" alt="A bosszú online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 17 621</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2013</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/a-bosszu-online" title="A bosszú online sorozat">A bosszú</a></h4>
+</div>
+</div>
+<div id="video-847" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="847" title="Lucifer online sorozat" href="http://toltsd-fel.xyz/lucifer-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/847.jpg" alt="Lucifer online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 17 465</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2016</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/lucifer-online" title="Lucifer online sorozat">Lucifer</a></h4>
+</div>
+</div>
+<div id="video-1100" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1100" title="Végtelen Szerelem online sorozat" href="http://toltsd-fel.xyz/vegtelen-szerelem-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1100.jpg" alt="Végtelen Szerelem online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 8 861</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2015</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/vegtelen-szerelem-online" title="Végtelen Szerelem online sorozat">Végtelen Szerelem</a></h4>
+</div>
+</div>
+<div id="video-1145" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1145" title="Fatmagül online sorozat" href="http://toltsd-fel.xyz/fatmagul-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1145.jpg" alt="Fatmagül online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 8 699</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2010</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/fatmagul-online" title="Fatmagül online sorozat">Fatmagül</a></h4>
+</div>
+</div>
+<div id="video-714" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="714" title="Vámpírnaplók online sorozat" href="http://toltsd-fel.xyz/vampirnaplok-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/714.jpg" alt="Vámpírnaplók online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 10 199</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2009</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/vampirnaplok-online" title="Vámpírnaplók online sorozat">Vámpírnaplók</a></h4>
+</div>
+</div>
+<div id="video-552" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="552" title="Odaát online sorozat" href="http://toltsd-fel.xyz/odaat-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/552.jpg" alt="Odaát online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 15 675</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2005</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/odaat-online" title="Odaát online sorozat">Odaát</a></h4>
+</div>
+</div>
+<div id="video-375" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="375" title="Gyilkos elmék online sorozat" href="http://toltsd-fel.xyz/gyilkos-elmek-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/375.jpg" alt="Gyilkos elmék online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11 737</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2005</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/gyilkos-elmek-online" title="Gyilkos elmék online sorozat">Gyilkos elmék</a></h4>
+</div>
+</div>
+<div id="video-723" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="723" title="Vikingek online sorozat" href="http://toltsd-fel.xyz/vikingek-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/723.jpg" alt="Vikingek online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 14 023</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2013</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/vikingek-online" title="Vikingek online sorozat">Vikingek</a></h4>
+</div>
+</div>
+<div id="video-98" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="98" title="A Mentalista online sorozat" href="http://toltsd-fel.xyz/a-mentalista-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/98.jpg" alt="A Mentalista online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11 596</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2008</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/a-mentalista-online" title="A Mentalista online sorozat">A Mentalista</a></h4>
+</div>
+</div>
+<div id="video-1110" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1110" title="Ana három arca online sorozat" href="http://toltsd-fel.xyz/ana-harom-arca-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1110.jpg" alt="Ana három arca online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 7 956</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2016</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/ana-harom-arca-online" title="Ana három arca online sorozat">Ana három arca</a></h4>
+</div>
+</div>
+<div id="video-137" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="137" title="Agymenők online sorozat" href="http://toltsd-fel.xyz/agymenok-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/137.jpg" alt="Agymenők online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 10 676</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2007</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/agymenok-online" title="Agymenők online sorozat">Agymenők</a></h4>
+</div>
+</div>
+<div id="video-653" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="653" title="Született feleségek online sorozat" href="http://toltsd-fel.xyz/szuletett-felesegek-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/653.jpg" alt="Született feleségek online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 5 537</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2004</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/szuletett-felesegek-online" title="Született feleségek online sorozat">Született feleségek</a></h4>
+</div>
+</div>
+<div id="video-1036" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1036" title="Korhatáros szerelem online sorozat" href="http://toltsd-fel.xyz/korhataros-szerelem-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1036.jpg" alt="Korhatáros szerelem online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 19 111</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2017</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/korhataros-szerelem-online" title="Korhatáros szerelem online sorozat">Korhatáros szerelem</a></h4>
+</div>
+</div>
+<div id="video-1084" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1084" title="Csajok, szilikon - Nem ettől lesz Paradicsom online sorozat" href="http://toltsd-fel.xyz/csajok-szilikon-nem-ettol-lesz-paradicsom-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1084.jpg" alt="Csajok, szilikon - Nem ettől lesz Paradicsom online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 17 442</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2016</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/csajok-szilikon-nem-ettol-lesz-paradicsom-online" title="Csajok, szilikon - Nem ettől lesz Paradicsom online sorozat">Csajok, szilikon - Nem ettől lesz Paradicsom</a></h4>
+</div>
+</div>
+<div id="video-835" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="835" title="Flash - A Villám online sorozat" href="http://toltsd-fel.xyz/flash-a-villam-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/835.jpg" alt="Flash - A Villám online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 13 151</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2014</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/flash-a-villam-online" title="Flash - A Villám online sorozat">Flash - A Villám</a></h4>
+</div>
+</div>
+<div id="video-534" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="534" title="NCIS - Tengerészeti Helyszínelők online sorozat" href="http://toltsd-fel.xyz/ncis-tengereszeti-helyszinelok-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/534.jpg" alt="NCIS - Tengerészeti Helyszínelők online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 8 463</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2003</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/ncis-tengereszeti-helyszinelok-online" title="NCIS - Tengerészeti Helyszínelők online sorozat">NCIS - Tengerészeti Helyszínelők</a></h4>
+</div>
+</div>
+<div id="video-305" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="305" title="Egyszer volt, hol nem volt online sorozat" href="http://toltsd-fel.xyz/egyszer-volt-hol-nem-volt-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/305.jpg" alt="Egyszer volt, hol nem volt online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 5 740</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2011</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/egyszer-volt-hol-nem-volt-online" title="Egyszer volt, hol nem volt online sorozat">Egyszer volt, hol nem volt</a></h4>
+</div>
+</div>
+<div id="video-133" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="133" title="A zöld íjász online sorozat" href="http://toltsd-fel.xyz/a-zold-ijasz-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/133.jpg" alt="A zöld íjász online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 11 222</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2012</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/a-zold-ijasz-online" title="A zöld íjász online sorozat">A zöld íjász</a></h4>
+</div>
+</div>
+<div id="video-521" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="521" title="Modern Család online sorozat" href="http://toltsd-fel.xyz/modern-csalad-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/521.jpg" alt="Modern Család online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 4 539</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2009</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/modern-csalad-online" title="Modern Család online sorozat">Modern Család</a></h4>
+</div>
+</div>
+<div id="video-943" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="943" title="A mi kis falunk online sorozat" href="http://toltsd-fel.xyz/a-mi-kis-falunk-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/943.jpg" alt="A mi kis falunk online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 12 720</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2017</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/a-mi-kis-falunk-online" title="A mi kis falunk online sorozat">A mi kis falunk</a></h4>
+</div>
+</div>
+<div id="video-842" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="842" title="Rejtjelek online sorozat" href="http://toltsd-fel.xyz/rejtjelek-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/842.jpg" alt="Rejtjelek online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 8 710</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2015</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/rejtjelek-online" title="Rejtjelek online sorozat">Rejtjelek</a></h4>
+</div>
+</div>
+<div id="video-1092" class="video sorozat-lista">
+<div class="video-thumb sorozat-listazo">
+<a class="clip-link" data-id="1092" title="Piszkos pénz, tiszta szerelem online sorozat" href="http://toltsd-fel.xyz/piszkos-penz-tiszta-szerelem-online">
+<span class="clip"><img class="sorozat-listazo" src="/o/c/1092.jpg" alt="Piszkos pénz, tiszta szerelem online sorozat" /><span class="vertical-align"></span></span> 
+<span class="overlay"></span>
+</a>
+<span class="watched"><i class="icon icon-eye"></i> 4 556</span>
+<!--<span class="imdb_vote"><img src="./o/imdb.png"> -</span>!-->
+<span class="timer">2014</span>
+</div>
+<div class="video-data">
+<h4 class="video-title"><a href="http://toltsd-fel.xyz/piszkos-penz-tiszta-szerelem-online" title="Piszkos pénz, tiszta szerelem online sorozat">Piszkos pénz, tiszta szerelem</a></h4>
+</div>
+</div>
+
+</div>
+<center></center>
+</div>
+
+</div>
+</div>
+<a href="#" id="linkTop" class="backtotop"><i class="icon-angle-double-up"></i></a>
+
+<footer align="center" style="text-align:center; margin-left:auto; margin-right:auto;">
+<a href="https://whos.amung.us/stats/p3l0v33d6w/" target="_blank">
+<div id="whos_log"><img id="whois_track" src="http://whos.amung.us/swidget/p3l0v33d6w/1521685136">
+</div>
+</a>
+
+<script id="_waue81">
+function reloadScript2() {
+document.getElementById("whois_track").remove();
+var s=document.createElement("img"); 
+var n = Date.now(); 
+s.id="whois_track";
+s.src="http://whos.amung.us/swidget/p3l0v33d6w/"+n;
+document.getElementById("whos_log").appendChild(s); 
+setTimeout(function() { reloadScript2(); }, 30000);
+}
+
+reloadScript2();
+</script>
+
+<!-- Start Login Modal -->
+<div class="modal fade" id="login-now" aria-hidden="true" aria-labelledby="login-now" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-sidebar modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+<h4 class="modal-title"><i class="icon icon-key"></i> Bejelentkezés</h4>
+</div>
+<div class="modal-body">
+<div class="panel">
+<div class="row">
+
+
+<form method="post" action="" class="mtop10 modal-form">
+<div class="form-group form-material floating">
+<input type="email" class="form-control" name="email" required data-error="Hibas email cím!" />
+<label class="floating-label"><i class="icon icon-envelope"></i> Email</label>
+</div>
+<div class="form-group form-material floating">
+<input type="password" class="form-control" name="password" required data-error="Hibas jelszó!" />
+<label class="floating-label"><i class="icon icon-key"></i> Jelszó</label>
+</div>
+<div class="form-group clearfix">
+<div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg pull-left">
+<input type="checkbox" id="inputCheckbox" name="remember" checked=checked>
+<label for="inputCheckbox"><i class="icon icon-unlock"></i> Bejelentkezve marad</label>
+</div>
+<a class="pull-right" style="padding-top:5px;" href="/login.php?p=lost_pw">Elfelejtetted a jelszavad ?</a>
+</div>
+<input type="hidden" name="action" value="login"/>
+<button type="submit" class="btn btn-primary btn-block mtop20">Bejelentkezés</button>
+</form>
+<p class="mtop10">Nincs még hozzáférésed?</p>
+<p>Kattints <a href="/signup.php">IDE</a> az ingyenes regisztrációhoz!</p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Bezárás</button>
+</div>
+</div>
+</div>
+</div>
+<!-- End Login Modal -->
+<script>
+$(document).ready(function(){
+$('#search_box2').keyup(function(){ 
+$('.mobile_results').html('');
+var timer;
+var output = '';
+var num = 0;
+var max = 10;
+clearTimeout(timer);
+
+output = '<center style="padding:10px;"><img src="/o/loaders.gif"></center>';	
+
+if($("#search_box2").val().length > 3 ){
+timer = setTimeout(function(){
+			var searchField = $("#search_box2").val();
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ max = 5; }
+			var regex = new RegExp(makeComp(searchField), "i");
+			var regex2 = new RegExp(makeComp(searchField), "i");
+			var regex3 = new RegExp(makeComp(searchField), "i");
+			output = ''; output += '<a class="rsg" onclick="CloseResult()" href="javascript:void(0)"><img style="float:right; padding-top:2px;" src="/o/close_button.gif"></a><ul>';
+            $.getJSON('/api/search.json', function(data) {
+              $.each(data, function(key, val){
+                if ((val.cat_name.search(regex) != -1) && num <= max || (val.cat_eng.search(regex2) != -1) && num <= max || (val.year.search(regex3) != -1) && num <= max) {
+                  output += '<li><a href="/' + val.url + '-online">';
+                  output += '<span style="float:left; padding-right:10px;"><img style="width:35px !important; height:51px !important;" src="/o/c/' + val.cat_id + '.jpg"></span>';
+                  output += '<span style="font-weight: bold; display: block;line-height: 1;">' + val.cat_name + '</span>';
+				  output += '<span style="font-size:10px;">Év: ' + val.year + '</span></a></li>';
+                  num++;
+                }
+                if (num == 7) { num++; }
+              });
+if(num == 0){ output = '<center style="padding:10px;">Nincs találat a keresett kifejezésre!</center>'; }
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ output += '<li style="text-align: center;"><a href="/channels.php?year=' + $("#search_box2").val() + '">Összes ' + $("#search_box2").val() + ' sorozat</a></li>'; }
+output += '</ul>';
+$('.mobile_results').show();
+$('.mobile_results').html(output);
+}); 
+
+}, 1500);
+}else{ output = '<center style="padding:10px;">Legalább 4 karakter kell a kereséshez!</center>'; }
+$('.mobile_results').show();
+$('.mobile_results').html(output);
+});
+
+});
+</script>
+
+<!-- Start Search Modal -->
+<div class="modal fade" id="search-now" aria-hidden="true" data-backdrop="false" aria-labelledby="search-now" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-sidebar" style="width:100%;">
+<div class="modal-content" style="position:absolute; top:40px; width:99%;">
+<div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+<div>
+<div class="panel panel-transparent">
+<div class="row">
+<form action="" method="get" id="searchform">
+<div class="form-group form-material floating">
+                    <div class="form-control-wrap">
+                      <input type="text" autocomplete="off" id="search_box2" class="form-control input-lg empty" name="tag" value ="">
+                      <label class="floating-label"><i class="icon icon-search"></i> Sorozat Keresés...</label>
+					  <div id="suggest-results" style="overflow: scroll; width:99%; height:80% !important; position:fixed; top:104px !important;" class="mobile_results"> </div>
+                    </div>
+                    <!--<span class="input-group-btn"><button class="btn btn-default" type="submit">Search</button></span>!-->
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Search Modal -->
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script type="text/javascript">
+var next_time = '0';
+var nv_lang = 'Next video starting soon';
+var select2choice = 'Select option';
+</script>
+
+<script type="text/javascript" src="/o/js/bootstrap.js"></script>
+<script type="text/javascript" src="/o/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.imagesloaded.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="/o/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.emoticons.js"></script>
+<script type="text/javascript" src="/o/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.minimalect.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.validarium.js"></script>
+<script type="text/javascript" src="/o/js/jquery.tagsinputv2.js?v=12"></script>
+<script type="text/javascript" src="/o/js/jquery.grid-a-licious.min.js"></script>
+<script type="text/javascript" src="/core.js?v=1"></script>
+
+<footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73768626-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html> <html> <head>  <title>HomeClips - Best Amateur Site With Homemade Movies &amp; Sexy Milf Videos</title>   <title>HomeClips - Homemade amateur movies and contests</title> <meta name="keywords" content=""> <meta name="description" content="Homeclips: The Explicit Video Section Of Voyeurwebs Amateur Community">  <meta charset="utf-8">  <link rel="shortcut icon" href="/public/default/images/favicons/hc-favicon.png" type="image/png">  <link rel="stylesheet" href="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/css/all.css"> <link rel="stylesheet" href="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/css/styles-hc.css">   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,700"> <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!--[if lte IE 8]> <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/libs/ie/selectivizr-min.js"></script> <link rel="stylesheet" type="text/css" href="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/css/ie.css"/> <link rel="stylesheet" type="text/css" href="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/css/hc-ie.css"/> <![endif]--> <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> </head> <body>  <div class="header-bg"></div> <div class="wrapper"> <div class="header"> <a href="/" class="logo "></a> <div class="header-tabs"> <ul> <li class="first"><a href="https://www.redclouds.com">Explicit RedClouds</a></li> <li><a href="https://www.voyeurweb.com">Free VoyeurWeb</a></li> <li class="selected"><a href="https://www.homeclips.com">HomeClips Videos</a></li> <li><a href="https://www.funbags.com">FunBags Archives</a></li> <li><a href="https://wiki.voyeurweb.com/index.php/Main_Page">Sex Wiki</a></li> <div class="clear"></div> </ul> </div>  <div class="auth-register"> <a href="/user/signin" class="login-btn">Log In</a> <a href="https://secure.homeclips.com" class="register-btn">Register</a> </div>  <div class="search"> <form id="search-form"> <button type="submit" class="search-icon"></button> <input type="text" id="fast-search" placeholder="Search by Keyword" autocomplete="off"> </form> </div> <a class="btn btn-white" href="/contributions/create">Upload</a> <a class="btn btn-white wide" href="/contributions/create">Upload Your Contribution</a> <div class="clear"></div> </div> <div class="main-menu"> <ul class="main-menu-nav"> <li class="icon icon-home"> <a href="/">Home</a> </li> <li class="icon icon-tour"> <a href="/freetour">Free Tour</a> </li> <li class="icon icon-ranks"> <a href="/ranks/homeclips/2018-03">Current Contest Ranks</a> </li> <li class="icon icon-winners"> <a href="/ranks/homeclips/2018-02">Last Month Winners</a> </li> <li class="icon icon-entrance"> <a href="/user/signin">Members Entrance</a> </li> <li class="join-now last-item"> <a href="https://secure.homeclips.com">Join Now!</a> </li> <div class="clear"></div> </ul> </div>    <div class="content"> <div class="main-page"> <div class="page-top"> <a href="https://secure.homeclips.com" class="banner-one left"></a> <div class="welcome-text"> <p class="link">Welcome to HomeClips</p> <p class="white-text">The Explicit Video Section of VoyeurWeb!</p> <p class="text">HomeClips is just like VoyeurWeb and RedClouds, but with full motion video and sound. No professionals allowed! All content is previously unpublished and provided happily by everyday amateurs. Video clips which are too hardcore to be posted in the Erotic Clips section of VoyeurWeb are shown here: hardcore sex, blowjobs, anal, threesomes and even a few explicit nude in public! Everything is better with exciting hardcore video.</p> <p class="text">The original amateur sex video site for watching and posting homemade clips of girlfriends, wives, coworkers and couples going really wild. Online since 1999! Updated Daily, more than 300 clips available! Every clip published as high quality streaming video and in a download version for private use. HomeClips runs on Windows, Mac, Linux, iPhone, iPad and Android. A picture tells more than 1000 words and a video tells more than 1000 pictures...</p> </div> <div class="clear"></div> </div> <a href="/freetour" class="banner-two"></a> <div class="last-month-winners"> <div class="main-page-title"> <p>Last month's winners</p> <a href="/ranks/homeclips/2018-02" class="btn btn-transparent">View complete list</a> <div class="clear"></div> </div> <div class="winners-photos">   <a href="/contributions/view/3280424-picnic-with-suzie-part-2" data-image-tile="https://hwcdn.homeclips.com/albums/3280424/tile/161375-picnic-with-suzie-part-2.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3280424/thumb/161375-picnic-with-suzie-part-2.jpg"> <div class="item-data"> <span class="link">Picnic With Suzie - Part 2</span> <span class="nickname">Suzie</span> <div class="item-rate"> <p class="item-prize">   US $700.00   </p> <div class="item-rating"> <div style="width: 90%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3279897-nye-fun" data-image-tile="https://hwcdn.homeclips.com/albums/3279897/tile/161345-nye-fun.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3279897/thumb/161345-nye-fun.jpg"> <div class="item-data"> <span class="link">NYE Fun</span> <span class="nickname">Annie</span> <div class="item-rate"> <p class="item-prize">   US $450.00   </p> <div class="item-rating"> <div style="width: 89.7%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3279915-morning-bj-and-cim" data-image-tile="https://hwcdn.homeclips.com/albums/3279915/tile/161347-morning-bj-and-cim.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3279915/thumb/161347-morning-bj-and-cim.jpg"> <div class="item-data"> <span class="link">Morning BJ And CIM</span> <span class="nickname">Olga</span> <div class="item-rate"> <p class="item-prize">   US $300.00   </p> <div class="item-rating"> <div style="width: 89.5%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3278945-sleeping-naked-leads-to-hot-sex" data-image-tile="https://hwcdn.homeclips.com/albums/3278945/tile/161280-sleeping-naked-leads-to-hot-sex.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3278945/thumb/161280-sleeping-naked-leads-to-hot-sex.jpg"> <div class="item-data"> <span class="link">Sleeping Naked Leads To Hot Sex</span> <span class="nickname">Jessica</span> <div class="item-rate"> <p class="item-prize">   US $200.00   </p> <div class="item-rating"> <div style="width: 89.4%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3279582-holiday-facial" data-image-tile="https://hwcdn.homeclips.com/albums/3279582/tile/161316-holiday-facial.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3279582/thumb/161316-holiday-facial.jpg"> <div class="item-data"> <span class="link">Holiday Facial</span> <span class="nickname">Kylee Summers</span> <div class="item-rate"> <p class="item-prize">   US $125.00   </p> <div class="item-rating"> <div style="width: 88%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3280799-yearning-for-valentine-s-day" data-image-tile="https://hwcdn.homeclips.com/albums/3280799/tile/161400-yearning-for-valentines-day.jpg" class="one-item winners"> <img src="https://hwcdn.homeclips.com/albums/3280799/thumb/161400-yearning-for-valentines-day.jpg"> <div class="item-data"> <span class="link">Yearning For Valentine&#039;s Day</span> <span class="nickname">Sonja</span> <div class="item-rate"> <p class="item-prize">    </p> <div class="item-rating"> <div style="width: 87.7%"></div> </div> <div class="clear"></div> </div> </div> </a>   <div class="clear"></div> </div> </div> <a href="/freetour" class="banner-three"></a>  <a href="/contributions/view/3282109-weekend-getaway" data-image-tile="https://hwcdn.homeclips.com/albums/3282109/tile/161471-weekend-getaway.jpg" class="top-places"> <div class="place-title">Current <span>1st</span> Place Contribution</div> <div class="place-wrapper"> <div class="thumb-video-tile"></div> <img src="https://hwcdn.homeclips.com/albums/3282109/thumb/161471-weekend-getaway.jpg"> <div class="nickname"> <p class="link">Alena</p> </div> </div> </a>  <div class="what-to-expect"> <p class="expect-title">What to Expect in HomeClips</p> <div class="expectation"> <div class="eighteen-and-older"></div> <p>Who is displayed as HomeClips.com</p> <span class="text">The only true amateur sex video site? All persons displayed at HomeClips.com are of legal age, which means 18 years or older. Additionally persons who are of legal age, but simply look younger, are not displayed at HomeClips.com.</span> <div class="clear"></div> </div> <div class="expectation"> <div class="pro-models"></div> <p>What is not in HomeClips.com?</p> <span class="text">There are absolutely no professional models, paid actresses, movies showing extreme fetishes, obscenity or beastiality at HomeClips.</span> <div class="clear"></div> </div> <div class="expectation"> <div class="underage"></div> <p>Zero Tolerance Policy</p> <span class="text">Any attempt to upload underage pornography to any of our servers, services, sites or forums will be reported to the authorities of the country of the sender. An additional notice will be send to the FBI. No exceptions - zero tolerance.</span> <div class="clear"></div> </div> </div> <div class="clear"></div> <a href="/contributions/create" class="banner-four"></a>  <a href="/contributions/view/3280927-she-asked-why" data-image-tile="https://hwcdn.homeclips.com/albums/3280927/tile/161408-she-asked-why.jpg" class="top-places"> <div class="place-title">Current <span>2nd</span> Place Contribution</div> <div class="place-wrapper"> <div class="thumb-video-tile"></div> <img src="https://hwcdn.homeclips.com/albums/3280927/thumb/161408-she-asked-why.jpg" alt="2nd Place Contribution HomeClips"> <div class="nickname"> <p class="link">Kristi</p> </div> </div> </a>  <div class="most-popular"> <div class="place-title"> <p>Most Popular Home Clips</p> <a href="/ranks/homeclips/2018-02" class="btn btn-transparent">View More Popular Models</a> <div class="clear"></div> </div>   <a href="/contributions/view/3281984-suck-and-fuck-pt-2" data-image-tile="https://hwcdn.homeclips.com/albums/3281984/tile/161460-suck-and-fuck-pt-2.jpg" class="one-item"> <img src="https://hwcdn.homeclips.com/albums/3281984/thumb/161460-suck-and-fuck-pt-2.jpg" class="photo" alt="Suck and Fuck Pt 2"> <div class="item-data"> <span class="link">Suck and Fuck Pt 2</span> <span class="nickname">Kylee Summers</span> <div class="item-rate"> <p class="item-views">43,347</p> <div class="item-rating"> <div style="width: 84.2%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3281729-cat-cums-on-j-s-cock-and-he-spunks-on-her-face" data-image-tile="https://hwcdn.homeclips.com/albums/3281729/tile/161440-cat-cums-on-js-cock-and-he-spunks-on-her-face.jpg" class="one-item"> <img src="https://hwcdn.homeclips.com/albums/3281729/thumb/161440-cat-cums-on-js-cock-and-he-spunks-on-her-face.jpg" class="photo" alt="Cat Cums On J&#039;s Cock And He Spunks On Her Face"> <div class="item-data"> <span class="link">Cat Cums On J&#039;s Cock And He Spunks On Her Face</span> <span class="nickname">Scarlet Cat</span> <div class="item-rate"> <p class="item-views">61,986</p> <div class="item-rating"> <div style="width: 83.5%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3281756-getting-her-off" data-image-tile="https://hwcdn.homeclips.com/albums/3281756/tile/161442-getting-her-off.jpg" class="one-item"> <img src="https://hwcdn.homeclips.com/albums/3281756/thumb/161442-getting-her-off.jpg" class="photo" alt="Getting Her Off"> <div class="item-data"> <span class="link">Getting Her Off</span> <span class="nickname">Kitten and Myself</span> <div class="item-rate"> <p class="item-views">28,202</p> <div class="item-rating"> <div style="width: 75.9%"></div> </div> <div class="clear"></div> </div> </div> </a>    <a href="/contributions/view/3280927-she-asked-why" data-image-tile="https://hwcdn.homeclips.com/albums/3280927/tile/161408-she-asked-why.jpg" class="one-item"> <img src="https://hwcdn.homeclips.com/albums/3280927/thumb/161408-she-asked-why.jpg" class="photo" alt="She Asked Why"> <div class="item-data"> <span class="link">She Asked Why</span> <span class="nickname">Kristi</span> <div class="item-rate"> <p class="item-views">327,486</p> <div class="item-rating"> <div style="width: 89.6%"></div> </div> <div class="clear"></div> </div> </div> </a>   <div class="clear"></div> </div> <div class="clear"></div> <a href="/freetour" class="banner-five"></a> </div> </div>  </div>
+<div class="footer-bg">
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <ul>
+            <li>Policies</li>
+            <li><a href="/page/2257">18 U.S.C. 2257</a></li>
+            <li><a href="/page/terms-conditions">Terms & Conditions</a></li>
+            <li><a href="/page/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/page/refund-policy">Refund Policy</a></li>
+        </ul>
+        <ul>
+            <li>Support</li>
+            <li><a href="https://support.voyeurweb.com">Need Help?</a></li>
+            <li><a href="/page/faq">FAQ</a></li>
+        </ul>
+        <div class="copyright">
+            <p class="copy">Copyright 1998-2018 HomeClips All Rights Reserved.</p>
+            <p>All models, actors, actresses and other persons that appear in any visual portrayal of actual or
+                simulated sexually explicit conduct appearing on, or otherwise contained in, this Website were over the
+                age of eighteen (18) at the time the visual image was produced.</p>
+            <p>Another High Quality Adult Site created and directed by the world famous Free Voyeurweb All models
+                displayed are 18 years old or older. Further information about our content.</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="shim"></div>
+
+    <script>
+        $(function () {
+            $('.shim').fadeIn('fast');
+            $('.age-confirmation').fadeIn('fast');
+
+            $('.age-enter').click(function (e) {
+                e.preventDefault();
+
+                document.cookie = "age_verified=1; path=/; expires=" + new Date(new Date().getTime() + 1000 * 3600 * 24 * 7).toUTCString();
+
+                $('.shim').fadeOut('fast');
+                $('.age-confirmation').fadeOut('fast');
+            });
+        });
+    </script>
+    <div class="modal-window delete-confirmation age-confirmation hide">
+        <div class="close-btn transparent">
+            <span></span>
+        </div>
+        <div class="confrimation-title">
+            <div class="delete-text">
+                <p class="modal-window-title">AGE VERIFICATION</p>
+                <p class="modal-window-text" style="margin-top:10px">By entering this website, you agree that you're of
+                    legal age in your state to access this website. Falsifying your age is illegal and punishable by
+                    law!</p>
+                <p class="modal-window-text" style="margin-top:20px;">Are you over the age of 18?</p>
+            </div>
+            <div class="clear"></div>
+            <div class="confirmation-btns" style="padding-left: 93px;">
+                <a href="" class="btn btn-transparent age-enter">YES</a>
+                <a href="https://disney.com" class="btn btn-transparent">NO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="special-offer-3750 special-offer-popup hide" data-show-time="10" data-cookie-name="hide_special_offer_3750" data-cookie-days="1"> <div class="special-offer-3750-wrap"> <a href="#" class="special-offer-3750-close" onclick="return close_special_offer_popup()"></a> <a href="https://secure.homeclips.com/memberships?offer_type=offer_3750&utm_source=homeclips&utm_campaign=offer_3750&utm_content=adv&utm_medium=popup" class="special-offer-3750-join special-offer-action-btn"></a> </div> </div> 
+
+    <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/libs/core.js"></script>
+    <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/libs/select.js"></script>
+    <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/main.js"></script>
+    
+ <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/special-offer/main.js"></script>  <script src="https://hwcdn.voyeurweb.com/build/ZfCtYYWWRND8/public/default/js/contributions/video_tile.js"></script> <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33744481-1']);
+    _gaq.push(['_setDomainName', 'homeclips.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

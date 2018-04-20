@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fa-IR" class="slider_on site_peymantablo site_775118 plan_3 theme_12525 module_system module_1995 page_home access_0 level_0 lang_persian wide_off dir_rtl mode_page wide_screen"> 
+	<head>
+		<title>پیمان تابلو</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel='alternate' href="http://peymantablo.ir/feed" title='پیمان تابلو' type='application/rss+xml' />		<link rel="stylesheet" type="text/css" href="http://cdnfa.com/8.1.786/themes/theme_12525/theme.rtl.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="http://cdnfa.com/8.1.786/themes/theme_12525/theme.print.rtl.css" media="print" />
+		<link rel="shortcut icon" href="https://cdnfa.com/peymantablo/57cb/uploads/logo.jpg" type="image/x-icon" />
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<style type="text/css" media="screen">
+#side_top{ display:none;}#side_left{ width:22.2%;}#side_center{ width:77.8%;}#side_right{ width:0%;display:none;}
+#side_bottom{ display:none;}
+#brands_list a{text-align:center;padding: 8px 0;display:block;line-height:30px;}
+#header_logo{background-image: url('https://cdnfa.com/peymantablo/57cb/uploads/hooman/new/hooman.gif');}</style><meta name="generator" content="ShopFA 8.1.786" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="http://peymantablo.ir/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="http://peymantablo.ir/" />
+<meta property="og:url" content="http://peymantablo.ir/" />
+<meta property="og:site_name" content="پیمان تابلو" />
+<meta name="title" content="پیمان تابلو" />
+<meta name="twitter:title" content="پیمان تابلو" />
+<meta property="og:title" content="پیمان تابلو" />
+<meta name="keywords" content="پیمان تابلو " />
+<script type="text/javascript" src="http://cdnfa.com/8.1.786/global/js/jquery.js"></script>
+<script type="text/javascript" src="http://cdnfa.com/8.1.786/global/js/jquery.kcms.js"></script>
+<script type="text/javascript" src="http://cdnfa.com/8.1.786/global/js/jquery.nivo_slider.js"></script>
+<script type="text/javascript" src="http://cdnfa.com/8.1.786/global/js/jquery.bootstrap.js"></script>
+<script type="text/javascript" src="http://cdnfa.com/8.1.786/global/js/jquery.janebi.js"></script>
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-38355338-1', 'auto', {'allowLinker': true});ga('require', 'linker');ga('linker:autoLink', ['peymantablo.ir'] );ga('set', 'userId', '911307067');ga('send', 'pageview');
+
+$(document).ready(function(){
+    
+  
+$('#slider').nivoSlider({
+	effect:'fade',
+	slices:1,
+	animSpeed:500,
+	pauseTime:5000,
+	startSlide:0,
+	directionNav:true,
+	directionNavHide:false, 
+	controlNav:true,
+	controlNavThumbs:true,
+  controlNavThumbsFromRel:false,
+	controlNavThumbsSearch: '.jpg',
+	controlNavThumbsReplace: '_thumb.jpg',
+	keyboardNav:true,
+	pauseOnHover:true,
+	manualAdvance:false,
+	captionOpacity:1.0,
+	beforeChange: function(){},
+	afterChange: function(){},
+	slideshowEnd: function(){}
+});
+
+delete_item();
+
+var items = 0;	
+$(".add_to_basket").on('click', function() {
+		if($(this).attr('disabled')=='disabled' )
+			return false;
+		var spl 	= (this.id).split("_");
+		var item 			= spl[1];
+		$("#add_"+item).attr('disabled','disabled');
+		
+	loading(1);
+	$.ajax({
+	type: "POST",
+	url: "http://peymantablo.ir/basket",
+	data: { data: "add_product", id: item},  
+	timeout: (60 * 1000),
+	success: function(responses){
+			eval (responses);
+			//$("#basket_items").text(0); 
+			if( $("#post_id_" + item).length > 0){
+				$("#post_id_" + item).animate({ opacity: 0 }, 500, function() {
+					$("#post_id_" + item).before(response).remove();
+				});				
+				$("#post_id_" + item).animate({ opacity: 0 }, 500);
+				$("#post_id_" + item).animate({ opacity: 1 }, 500);
+				loading(0);
+			} else {
+				$("#basket li:first").before(response);
+				$("#basket li:first").hide();
+				$("#basket li:first").show("slow"); 
+				//$("#basket_items").html(0); 
+				
+				loading(0);
+				delete_item();
+			}
+	 	$("#add_"+item).removeAttr('disabled');
+	 	
+	},
+	error: function( objAJAXRequest, strError  ){
+		alert(strError);
+	}
+	
+ });
+ return false;
+});
+
+
+	function delete_item()
+	{
+	$('#floatbasket').on('click', 'a.delete_item', function() {
+		//var item = $(this).data('delete');
+		var spl = (this.id).split("_");
+		var item = spl[1];
+		
+		loading(1);
+		$.ajax({  
+		type: "POST",  
+		url: "http://peymantablo.ir/basket",
+		data: { data: "delete_product", id: item},   
+			success: function(responses) {
+				eval (responses);
+				$("#post_id_" + item).slideUp("slow",  function() { $(this).remove();});
+				loading(0);
+			}  
+			});  
+	});
+	}
+
+	
+});
+
+</script>
+<script type="application/ld+json">
+[{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/peymantablo.ir\/","potentialAction":{"@type":"SearchAction","target":"http:\/\/peymantablo.ir\/search?q={search_term_string}","query-input":"required name=search_term_string"}}]
+</script>
+	</head>
+	<body>
+		<div id="loading">Loading...</div>
+		<noscript>Javascript غیرفعال است!</noscript>
+		<div id='page'>
+				<!-- header -->
+				<div id='header' class='clearfix'>
+	        <div class='container'>	
+		        <div id='header_box' class='clearfix'>
+							<div id='menu_nav_box'><ul id='menu_nav'><li><a href='http://peymantablo.ir/'>صفحه اصلی</a></li><li><a id='nav_signin'   href="http://peymantablo.ir/signin">ورود</a></li> <li><a id='nav_sitemap'   href="http://peymantablo.ir/sitemap">نقشه سایت</a></li> <li><a id='nav_track-order'   href="http://peymantablo.ir/track-order">پیگیری سفارش</a></li> <li><a id='nav_product-index'   href="http://peymantablo.ir/product-index">فهرست محصولات</a></li> <li><a id='nav_contact'   href="http://peymantablo.ir/contact">تماس با ما</a></li></ul></div>
+							<a id='header_logo' href="http://peymantablo.ir/">
+								<h1>پیمان تابلو</h1>
+								<h2>از صفر تا صد تابلو با پیمان تابلو</h2>
+							</a>
+							<div id="static_pic"></div>
+							
+							<div class='search_area'>
+								<div id="search_right_bg"></div>
+								<form method='get' action='http://peymantablo.ir/search' class='searchform clearfix'>
+									<input type='text' name='q' class='q' maxlength='255' placeholder='جستجو...' value='' />
+									<button type="submit" class='search_button' value=' '></button>
+								</form>
+							</div>
+							<div id='basketbox'><span id='baskethead'><span id="basket_items">0</span></span><span id='baskearrow'></span><div id='floatbasket'><div id="floatbs_head"><span>سبد خرید</span></div><div id='floatbasket_body'><div id='basket'><div id='basket_free' style=''>سبد خرید شما خالی است</div>
+<ul><li></li></ul>	
+<div id='checkout' style='display:none'>مجموع: <span id='sum_basket'>0</span> تومان <a class='btn btn-primary btn-custom' id='checkout_link' href='http://peymantablo.ir/basket'><i class='icon-shopping-cart icon-white'></i> سفارش</a></div>
+<!--<br class='clear' />-->
+	</div></div></div></div>
+							<div id='header_datetime'>شنبه 26 اسفند 1396 - 09:56</div>
+							<div id='company_tel'>پشتیبانی و مشاوره: 88311574-021</div>						</div>
+						<div id='category_header'></div>
+						<div id='horizontal_cat_menu'></div>
+					</div>		
+				</div>
+				<!-- /header -->
+		    <!--<div class="container-fluid">-->
+				<div class='container'>
+                    <!-- main -->
+					<div id='main'>
+						<div id="side_top"></div>
+                        <div id="side_right"></div>
+					    <div id="side_center"><div class='box clearfix' id='box_header_slide'>
+<div class='theme-light slider-wrapper'>
+    <div id='slider' class='nivoSlider'>
+       <a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/1c70a7.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/b0498b.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/968a28.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/eb9e56.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/1e1987.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/477faa.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/573b15.png'  alt='' ></a>
+<a class='fill'><img src='http://cdnfa.com/peymantablo/57cb/headers/3de167.png'  alt='' ></a>
+
+    </div>
+    	<div id='htmlcaption1' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption2' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption3' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption4' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption5' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption6' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption7' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+<div id='htmlcaption8' class='nivo-html-caption'>	<h2></h2>	<h3></h3></div>
+    
+</div>
+</div><div id='side_menu'><div id='category_menu'><ul class='clearfix sf-menu sf-js-enabled sf-shadow sf-vertical'><li id='__46260'><a  href="http://peymantablo.ir/automatic_equipment">تجهیزات قطع/وصل اتوماتیک</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/automatic_cir">کلید اتوماتیک</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/automatic_cir/compact-variable">کامپکت قابل تنظیم</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/automatic_cir/compact-fix">کامپکت غیر قابل تنظیم</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/automatic_cir/havaee">هوایی</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/mcb">کلید مینیاتوری [mcb]</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/mcb/single-phase">تک فاز (تک پل)</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/mcb/two-phase">دو فاز (دو پل)</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/mcb/three-phase">سه فاز (سه پل)</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/mcb/four-contact">چهار پل (چهار پل)</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/mcb/miniatori-1-odo-pol-dc">یک پل و دو پل DC</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/magnetic_contactor">کنتاکتور</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/magnetic_contactor/bobin-380-volt">380 ولت</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/magnetic_contactor/bobin-220-volt">220 ولت</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/magnetic_contactor/platins">قطعات جانبی کنتاکتور</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/metasoltor_thermal_overload_relasys">بیمتال و کلید حرارتی</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/metasoltor_thermal_overload_relasys/metasol">بیمتال</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/metasoltor_thermal_overload_relasys/thermal-overload-relase">کلید حرارتی</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/relay">انواع رله فیندر</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/relay/single-contact">تک کنتاکت</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/relay/two-contact">دو کنتاکت</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/relay/tree-contact">سه کنتاکت</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/relay/reale">چهار کنتاکت</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/photocell_switch">فتوسل</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/photocell_switch/six-ten-am">6 و 10 آمپر</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/photocell_switch/sixt-twnfive-am">16 و 25 آمپر</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/remote_control">کنترل از راه دور</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/remote_control/wireless">بیسیمی</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/remote_control/wireless_push">بیسیمی-فشاری</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/micro-switch">میکرو سوئیچ</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/micro-switch/micro-switch-mini">مینی میکرو سوئیچ</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/micro-switch/micro-switch-leveraged-pulley">میکر سوئیچ اهرمی،قرقره ای</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/automatic_equipment/ssr">رله الکترونیکی (SSR)</a><ul class=''><li><a href="http://peymantablo.ir/automatic_equipment/ssr/ssr-single-phase">(SSR)  تک فاز</a></li>
+<li><a href="http://peymantablo.ir/automatic_equipment/ssr/-ssr-three-phase">(SSR) سه فاز</a></li>
+</ul></li>
+</ul></li>
+<li id='__46255'><a  href="http://peymantablo.ir/manual_cir">تجهیزات قطع/وصل دستی</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/selector">کلید گردان [سلکتوری]</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/selector/single-cintact">تک فاز (مدار فرمان)</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/selector/tow-contact">دو فاز</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/selector/three-contact">سه فاز</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/selector/4-pol-3-faz-noll">چهار پل (سه فاز + نول)</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/selector/slktor-haye-moard-ekhtesaasi">سلکتور های موارد اختصاصی</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/push_button">شاسی فشاری</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/push_button/push-button-start">تکی (Start/Stop) فلزی</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/push_button/bacalit">تکی (Start/Stop) باکالیت</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/push_button/push-button-with-light-start">تکی چراغ دار (Start/Stop)</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/push_button/double-switches-stop-start">دوبل (Start/Stop)</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/push_button/double-switches-with-light-stop-start">دوبل چراغ دار (Start/Stop)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/emergency">شاسی امر جنسی [قارچی]</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/emergency/with-lock">قفل شو</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/emergency/with-switch">سوئیچ خور</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/residual_current_cb_rccb">کلید محافظ جان [جریان نشتی]</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/residual_current_cb_rccb/ordinary-residual-current-cb-rccb">محافظ جان عادی</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/residual_current_cb_rccb/conventional-residual-current-cb-rccb">محافظ جان ترکیبی</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/control_switch">کلید فرمان</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/control_switch/one-way">یک طرفه</a></li>
+<li><a href="http://peymantablo.ir/manual_cir/control_switch/two-way">دو طرفه</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/manual_cir/aircond_mcb">کلید کولر</a><ul class=''><li><a href="http://peymantablo.ir/manual_cir/aircond_mcb/smart">هوشمند (تایمر دار)</a></li>
+</ul></li>
+</ul></li>
+<li id='__46388'><a  href="http://peymantablo.ir/electrical-measuring-instrument">لوازم اندازه گیری</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/amper-metr">آمپر متر و مولتی متر</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/amper-metr/dijitai-single">دیجیتالی(تکی)</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/amper-metr/dijital-molti">دیجیتال (مولتی)</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/amper-metr/analog">آنالوگ</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/volt_metr">ولت متر</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/volt_metr/dijital">دیجیتال</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/volt_metr/analog-22">آنالوگ</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/frkans_mtr">فرکانس و کسینوس فی متر</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/frkans_mtr/frequency-meter-dig">فرکانس متر دیجیتال</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/frkans_mtr/cosin-fi-meter-digital">کسینوس فی متر دیجیتال</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/timer">تایمر</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/timer/timer-second-minout">تک رنج ثانیه _ دقیقه</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/timer/molty-rang">مولتی رنج</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/timer/day-week-year">روزانه، هفتگی،سالیانه (نجومی)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/phase_control_realy">کنترل فاز</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/phase_control_realy/three-phase-noll">سه فاز + نول</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/phase_control_realy/3-phase">سه فاز</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/curent-transformer-c-t">ترانس جریان C T (امپر)</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/curent-transformer-c-t/class-0-5">کلاس0.5</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/curent-transformer-c-t/class-1">کلاس 1</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/curent-transformer-c-t/class-0">کلاس 3 (هریس)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/transformer">ترانس کاهنده ولتاژ (ترانس ایزوله)</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/transformer/220vac">220 به 110 ولت AC</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/transformer/220vacto12-24ac">220 به 12 یا 24 ولت AC</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/transformer/380-be-220-olt-ac">380 یا 220 به 220 ولت AC</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/-rectifier">دیود یکسو کننده (RECTIFIER)</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/-rectifier/rect-single-phase">تک فاز</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/control-sath-maiaat">کنترل سطح مایعات</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/control-sath-maiaat/aanaalog">آنالوگ</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/control-sath-maiaat/diigiitaal">دیجیتال</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/dimr-sanati">دیمر صنعتی</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/dimr-sanati/tk-faz">تک فاز</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/dimr-sanati/3-faz">سه فاز</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/trmostat-digital">ترموستات</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/trmostat-digital/digitalll">دیجیتال</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/trmostat-digital/analoggg">آنالوگ</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/counters">شمارنده</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/counters/digitalcounter">دیجیتال</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical-measuring-instrument/powersupply">منبع تغذیه (سوئیچینگ)</a><ul class=''><li><a href="http://peymantablo.ir/electrical-measuring-instrument/powersupply/pskfkhb">کف خواب</a></li>
+<li><a href="http://peymantablo.ir/electrical-measuring-instrument/powersupply/dinrail-power-supply">ریلی</a></li>
+</ul></li>
+</ul></li>
+<li id='__46411'><a  href="http://peymantablo.ir/wier_cabl">سیم،کابل و ملزومات</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/wire">سیم</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/wire/wire-single">سیم تک رشته</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/wire/wier-2">سیم دو رشته نایلون (تخت)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/wire/sim-afshan-earth">سیم ارت</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/cabl">کابل</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/cabl/cabl-two">کابل دو رشته</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cabl/cabl-molty-wire">کابل چند رشته ای</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/cable-wrap">چسب برق و  نوار آپارات</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/cable-wrap/anvaa-noarchsb-bargh-lnt-bargh">انواع نوارچسب (لنت برق)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cable-wrap/navar-aparat-ab-bandi">نوار آپارات (آب بندی کابل)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/cabl_gland">گلند</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/cabl_gland/metal">برنجی معمولی</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cabl_gland/glnd-flzi-armr-dar">برنجی آرمر دار</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cabl_gland/glnd-flzi-armr-dar-zed-enfejar">برنجی آرمر دار ضد انفجار</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cabl_gland/plas">پلاستیکی pG</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/cablshoo">کابلشو و سرسیم</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/cablshoo/cabeshoo">کابل شو مسی</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cablshoo/kablsho-bimtal">کابلشو بیمتال</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cablshoo/wire-shoo">سر سیم (وایر شو)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cablshoo/anvaa-mf">انواع مف</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cablshoo/number-kable">شماره و حروف لاتین سیم  وکابل (پرس کابلشو)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/priz">پریز تابلویی</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/priz/tk-faze">پریز تک فاز</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/priz/priz-to-kar-3-phase">پریز سه فاز (تو کار تابلویی)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/priz/priz-raily">پریز تک فاز ریلی</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/priz/three-phase-priz">پریز سه فاز چدنی (سیار)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/priz/jabe-tk-va-3-faz-kargahi">جعبه تک و سه فاز کارگاهی</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/cable_equip">ملزومات کابل</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/cable_equip/heat-shring">روکش حرارتی (شرینگ)</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cable_equip/cable_tie">بست کمر بندی کابل</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/cable_equip/navar-form-sim">نوار فرم سیم</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/wier_cabl/lolh-flksi-bell">لوله فلکسی بل</a><ul class=''><li><a href="http://peymantablo.ir/wier_cabl/lolh-flksi-bell/ba-roksh">با روکش</a></li>
+<li><a href="http://peymantablo.ir/wier_cabl/lolh-flksi-bell/bedoone-roksh">بدون روکش</a></li>
+</ul></li>
+</ul></li>
+<li id='__46428'><a  href="http://peymantablo.ir/electrical_box">باکس تابلو و ملحقات</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/metal_box">باکس فلزی</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/metal_box/metall-box">تابلوی فلزی ایستاده (سلول)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/metal_box/metall-bax-wa">تابلوی فلزی دیواری (روکار)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/metal_box/metall-box-w">تابلوی فلزی دیواری (تو کار)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/metal_box/jabe-taghsim-flzi-daikast">جعبه تقسیم فلزی (آلومینیوم)</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/box">باکس غیر فلزی</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/box/abs">تابلو پلاستیکی (ABS)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/box/piman-tablo-tablo-bargh-tablo-poli-krbnat-box-poli-krbnat-list-gheymat">تابلو پلی کربنات درب شفاف</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/box/jabe-taghsim-plastiki-abs">جعبه تقسیم پلاستیک ABS</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/noll_eart_copper">شینه مسی و  فانتزی  نول و ارت</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/noll_eart_copper/shine-noll">شینه فانتزی نول</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/noll_eart_copper/earth">شینه فانتزی ارت</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/noll_eart_copper/noll-copper">شینه مسی نول</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/noll_eart_copper/shinh-fantezi">شینه مسی ارت</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/insulater">مقره</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/insulater/resin">استوانه ای (رزینی)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/insulater/etekaii">چکمه ای ، اتکایی و پله ای</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/terminal_rail">ترمینال و ریل مینیاتوری</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/terminal_rail/terminal">ترمینال ریلی ، جمپر و ...</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/terminal_rail/trminal-shakhh-i">ترمینال شاخه ای پلاستیکی</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/terminal_rail/trminal-shakhh-i-bakalit">ترمینال شاخه ای پلی آمید</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/terminal_rail/raill-miniatori">ریل گالوانیزه مینیاتوری</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/other_equip">ملحقات تابلو</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/other_equip/busbar">شینه مینیاتوری (باسبار)</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/other_equip/busbar/single-three-phas">تک فاز / سه فاز</a></li>
+</ul></li>
+<li><a href="http://peymantablo.ir/electrical_box/other_equip/jib_naghshe_drb_tablo">جیب نقشه درب تابلو</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/other_equip/fan_filter">فن و فیلتر (تابلویی)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/other_equip/signal-lamp">انواع لامپ سیگنال تابلوئی</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/other_equip/drposh-koor-kon-miniatori">درپوش (کور کن) مینیاتوری</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/other_equip/emergency_sp">آژیر تابلو</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/hitr-rtobt-gir-tabloii">هیتر رطوبت گیر تابلویی</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/hitr-rtobt-gir-tabloii/hitr-tabloii-50-va-100-oat">هیتر تابلویی 50 و 100 وات</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/hitr-rtobt-gir-tabloii/hitr-tabloii-150-oat">هیتر تابلویی 150 وات</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/basbar-3-phase">جعبه (باکس) باسبار تک و سه فاز</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/basbar-3-phase/box-single-phase">جعبه باسبار تک فاز (فازونول)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/basbar-3-phase/box-tree-phase">جعبه باسبار سه فاز و نول</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/fuse">فیوز و پایه فیوز</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/fuse/box-fuse">پایه ترمینال فیوز خور (رعد)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/fuse/fuse-cariers">پایه فیوز سکسیونری (کریر)</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/fuse/fioz-shishe-i-astoanh-i-silndri-chaghoii-fshngi">فیوز شیشه ای استوانه ای سیلندری چاقوئی فشنگی</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/fuse/feshangi">فیوز بکسی</a></li>
+<li><a href="http://peymantablo.ir/electrical_box/fuse/payeh-fioz-shishe-i">پایه فیوز شیشه ای</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/electrical_box/trmostat-tabloii-rili">ترموستات تابلوئی ریلی</a><ul class=''><li><a href="http://peymantablo.ir/electrical_box/trmostat-tabloii-rili/analog-rili">آنالوگ ریلی</a></li>
+</ul></li>
+</ul></li>
+<li id='__46785'><a  href="http://peymantablo.ir/zsh">ملزومات بانک خازنی</a><ul class='clearfix mosaicflow' data-item-selector='.mosaicflow__item' data-min-item-width='145'><li class='mosaicflow__item'><a href="http://peymantablo.ir/zsh/capacitor">خازن سیلندری</a><ul class=''><li><a href="http://peymantablo.ir/zsh/capacitor/up-to-20">تا 20 کیلو وار</a></li>
+<li><a href="http://peymantablo.ir/zsh/capacitor/from-20-to-50">از 20 تا 50 کیلو وار</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/zsh/capa">خازن کتابی</a><ul class=''><li><a href="http://peymantablo.ir/zsh/capa/khazn-mkabi-12-5-tarrahi-50-kilo-oar">کتابی 12.5 تا 50 کیلو وار</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/zsh/regolator">رگلاتور</a><ul class=''><li><a href="http://peymantablo.ir/zsh/regolator/6-step">شش پله</a></li>
+<li><a href="http://peymantablo.ir/zsh/regolator/8-steps">هشت پله</a></li>
+<li><a href="http://peymantablo.ir/zsh/regolator/12-steps">دوازده پله</a></li>
+</ul></li>
+<li class='mosaicflow__item'><a href="http://peymantablo.ir/zsh/capacitive_contactor">کنتاکتور خازنی</a><ul class=''><li><a href="http://peymantablo.ir/zsh/capacitive_contactor/capacitor_contactor">کنتاکتور خازنی تا 20 کیلو وار</a></li>
+<li><a href="http://peymantablo.ir/zsh/capacitive_contactor/capacitor-20-60">کنتاکتور خازنی از 20 تا 60 کیلو وار</a></li>
+</ul></li>
+</ul></li>
+</ul></div></div>
+	
+	<div class='box' id='box_special_products'><div class='content'>
+	<div class='content_header'>
+		<h2>محبوبترین کالاها</h2>
+
+	</div>
+	<div class='content_body'>
+		<ul class='products'>
+	<li id='product_238158' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/238158' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/463456.jpg" alt='کلید کولر هوشمند (تایمر دار) RAMA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/238158' >کلید کولر هوشمند (تایمر دار) RAMA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>98,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_238158' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='خاموش کردن کولر پس از زمان تنظیم شده ( از یک دقیقه تا 9 ساعت) ، روشن کردن کولر پس از زمان تنظیم شده ( از یک دقیقه تا 9 ساعت) ، خاموش و روشن کردن کولر در زمان تنظیم شده بطور متوالی از 15 دقیقه تا 9 ساعت بطور مثال 30 دقیقه روشن 45 دقیقه خاموش(یکسال گارانتی)' data-original-title='کلید کولر هوشمند (تایمر دار) RAMA'></a>	
+</li>
+	<li id='product_329907' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329907' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443583.jpg" alt='پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329907' >پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>158,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_329907' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 63 آمپر دیواری آلمانی (Walther) پریز (نر و مادگی) سه فاز 63 آمپر ، 3P+ N+E 63A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_232194' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/232194' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/236762.jpg" alt='تایمر پریز دار (24 ساعته) قابل برنامه ریزی آنالوگ با خروجی پریز 16 آمپر (بدون ذخیره) theben timer 026' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/232194' >تایمر پریز دار (24 ساعته) قابل برنامه ریزی آنالوگ با خروجی پریز 16 آمپر (بدون ذخیره) theben timer 026</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>71,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_232194' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='با قابلیت ورود مستقیم دو شاخه به پریز ساعت فرمان ، قابلیت برنامه ریزی جهت خاموش و روشن نمودن لوازم و تجهیزات برقی در 24 ساعت ، تبن ، ساخت آلمان' data-original-title='تایمر پریز دار (24 ساعته) قابل برنامه ریزی آنالوگ با خروجی پریز 16 آمپر (بدون ذخیره) theben timer 026'></a>	
+</li>
+	<li id='product_262933' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/262933' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/433110.jpg" alt='فن تابلوئی 220 ولت AC با ابعاد (12*12) بلبرینگی (عرض 4)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/262933' >فن تابلوئی 220 ولت AC با ابعاد (12*12) بلبرینگی (عرض 4)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>24,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_262933' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='فن تابلوئی 220 ولت AC با ابعاد (12*12) سانتیمتر (بلبرینگی )،عرض 4 سانتی متر (چهار گوش)' data-original-title='فن تابلوئی 220 ولت AC با ابعاد (12*12) بلبرینگی (عرض 4)'></a>	
+</li>
+	<li id='product_306370' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/306370' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/532216.jpg" alt='دیمر صنعتی تک فاز 1000VA سینا' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/306370' >دیمر صنعتی تک فاز 1000VA سینا</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>33,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_306370' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='دیمر صنعتی تک فاز 1000 ولت آمپر سینا ، دارای فیوز محافظ و چراغ LED نشان دهنده' data-original-title='دیمر صنعتی تک فاز 1000VA سینا'></a>	
+</li>
+</ul>		<div class='clearfix'></div>
+	</div>
+</div></div><div class='box' id='box_products'><div class='content'>
+	<div class='content_header'>
+		<h2>جدیدترین کالاها</h2>
+
+	</div>
+	<div class='content_body'>
+		<ul class='products'>
+	<li id='product_368749' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/368749' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/556002.jpg" alt='جعبه تقسیم برق (درب شفاف) پلاستیکی 8*12*21 World-Plast' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/368749' >جعبه تقسیم برق (درب شفاف) پلاستیکی 8*12*21 World-Plast</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>15,800 تومان</span>
+		</div>
+							<a id='add_368749' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه تقسیم برق (درب پیچ خور شفاف) پلاستیکی (ABS) چهار گوش طول آن 21 سانتیمتر ، عرض آن 12 سانتیمتر و عمق آن 8 سانتیمتر (IP65) محصول world plast ترکیه' data-original-title='جعبه تقسیم برق (درب شفاف) پلاستیکی 8*12*21 World-Plast'></a>	
+</li>
+	<li id='product_368794' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/368794' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/556114.jpg" alt='جعبه تقسیم برق (درب شفاف) پلاستیکی World-Plast 15*15*8' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/368794' >جعبه تقسیم برق (درب شفاف) پلاستیکی World-Plast 15*15*8</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>17,500 تومان</span>
+		</div>
+							<a id='add_368794' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه تقسیم برق (درب پیچ خور شفاف) پلاستیکی (ABS) چهار گوش طول آن 15سانتیمتر ، عرض آن 15سانتیمتر و عمق آن 8 سانتیمتر (IP65) محصول world plast ترکیه' data-original-title='جعبه تقسیم برق (درب شفاف) پلاستیکی World-Plast 15*15*8'></a>	
+</li>
+	<li id='product_365487' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/365487' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/547851.jpg" alt='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/365487' >جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)</a></h3>
+		<div class='product_thumb_price price ' >
+									<span class='old_price red'>241,000</span> 
+						<span>221,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_off'> </div>
+				</div>
+							<a id='add_365487' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه پریز کارگاهی سه فاز IP66 پارسا روکار دارای یک مینیاتوری سه فاز  63 آمپر و 2 عدد مینیاتوری 16 آمپر تک فاز و یک عدد پریز پنج شاخه 63 آمپر 380V سه فاز والتر آلمان و دو عدد پریز تک فاز 16 آمپر در طرفین تابلو به همراه یک عدد پنج شاخه سه فاز والتر آلمان' data-original-title='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)'></a>	
+</li>
+	<li id='product_362033' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/362033' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/538933.jpg" alt='دیمر صنعتی تک فاز 10000VA سینا' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/362033' >دیمر صنعتی تک فاز 10000VA سینا</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>104,000 تومان</span>
+		</div>
+							<a id='add_362033' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='دیمر صنعتی تک فاز 10000 ولت آمپر سینا ، دارای فیوز محافظ و چراغ LED نشان دهنده' data-original-title='دیمر صنعتی تک فاز 10000VA سینا'></a>	
+</li>
+	<li id='product_238158' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/238158' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/463456.jpg" alt='کلید کولر هوشمند (تایمر دار) RAMA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/238158' >کلید کولر هوشمند (تایمر دار) RAMA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>98,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_238158' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='خاموش کردن کولر پس از زمان تنظیم شده ( از یک دقیقه تا 9 ساعت) ، روشن کردن کولر پس از زمان تنظیم شده ( از یک دقیقه تا 9 ساعت) ، خاموش و روشن کردن کولر در زمان تنظیم شده بطور متوالی از 15 دقیقه تا 9 ساعت بطور مثال 30 دقیقه روشن 45 دقیقه خاموش(یکسال گارانتی)' data-original-title='کلید کولر هوشمند (تایمر دار) RAMA'></a>	
+</li>
+	<li id='product_344756' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/344756' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/487499.jpg" alt='جعبه پریز کارگاهی تَک و سه فاز (IP66) آمپراژ 16 (PARSA)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/344756' >جعبه پریز کارگاهی تَک و سه فاز (IP66) آمپراژ 16 (PARSA)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/344756'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه پریز کارگاهی تک و سه فاز IP66 مارک پارسا (روکار) دارای یک عدد مینیاتوری سه فاز و یک عدد مینیاتوری تک فاز و یک عدد پریز پنج شاخه 16آمپر 380 ولت سه فاز والتر آلمان و دو عدد پریز تک فاز 16 آمپر در طرفین تابلو به همراه یک عدد پنج شاخه سه فاز والتر آلمان' data-original-title='جعبه پریز کارگاهی تَک و سه فاز (IP66) آمپراژ 16 (PARSA)'></a>	
+</li>
+	<li id='product_344772' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/344772' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/487498.jpg" alt='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/344772' >جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)</a></h3>
+		<div class='product_thumb_price price ' >
+									<span class='old_price red'>130,000</span> 
+						<span>120,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_off'> </div>
+				</div>
+							<a id='add_344772' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه پریز کارگاهی تک و سه فاز IP66 مارک پارسا (روکار) دارای یک عدد مینیاتوری سه فاز و دو عدد مینیاتوری تک فاز و یک عدد پریز پنج شاخه 32 آمپر 380 ولت سه فاز والتر آلمان و دو عدد پریز تک فاز 16 آمپر در طرفین تابلو به همراه یک عدد پنج شاخه سه فاز والتر آلمان' data-original-title='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)'></a>	
+</li>
+	<li id='product_329916' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329916' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443593.jpg" alt='پریز (نر و مادگی) سه فاز 16 آمپر (تابلوئی) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329916' >پریز (نر و مادگی) سه فاز 16 آمپر (تابلوئی) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>30,000 تومان</span>
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/329916'><span>موجود نیست</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 16 آمپر تابلوئی آلمانی (Walther) پریز (نر و مادگی) سه فاز 16 آمپر ، 3P+ N+E 16A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 16 آمپر (تابلوئی) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329915' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329915' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/462481.jpg" alt='پریز (نر و مادگی) سه فاز 32 آمپر (تابلوئی) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329915' >پریز (نر و مادگی) سه فاز 32 آمپر (تابلوئی) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>40,000 تومان</span>
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/329915'><span>موجود نیست</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 32 آمپر تابلوئی آلمانی (Walther) پریز (نر و مادگی) سه فاز 32 آمپر ، 3P+ N+E 32A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 32 آمپر (تابلوئی) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329914' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329914' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/462478.jpg" alt='پریز (نر و مادگی) سه فاز 63 آمپر (تابلوئی) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329914' >پریز (نر و مادگی) سه فاز 63 آمپر (تابلوئی) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>140,000 تومان</span>
+		</div>
+							<a id='add_329914' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 63 آمپر تابلوئی آلمانی (Walther) پریز (نر و مادگی) سه فاز 63 آمپر ، 3P+ N+E 63A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 63 آمپر (تابلوئی) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329913' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329913' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/462484.jpg" alt='پریز (نر و مادگی) تک فاز 16 آمپر (تابلوئی) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329913' >پریز (نر و مادگی) تک فاز 16 آمپر (تابلوئی) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>27,000 تومان</span>
+		</div>
+							<a id='add_329913' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) تک فاز 16 آمپر ، 2P+E 16A 200 -  250 V ، (تابلوئی) فاز و نول و ارت ، والتر آلمان (دارای استاندارد CE اروپا)' data-original-title='پریز (نر و مادگی) تک فاز 16 آمپر (تابلوئی) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329910' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329910' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/462489.jpg" alt='پریز (نر و مادگی) تک فاز 32 آمپر (تابلوئی) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329910' >پریز (نر و مادگی) تک فاز 32 آمپر (تابلوئی) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>40,000 تومان</span>
+		</div>
+							<a id='add_329910' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) تک فاز 32 آمپر ، 2P+E 32A 220 V ، تابلوئی فاز و نول و ارت ، والتر آلمان (دارای استاندارد CE اروپا)' data-original-title='پریز (نر و مادگی) تک فاز 32 آمپر (تابلوئی) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329909' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329909' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443591.jpg" alt='پریز (نر و مادگی) سه فاز 16 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329909' >پریز (نر و مادگی) سه فاز 16 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>39,000 تومان</span>
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/329909'><span>موجود نیست</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 16 آمپر (دیواری )آلمانی (Walther) پریز (نر و مادگی) سه فاز 16 آمپر ، 3P+ N+E 16A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 16 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329908' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329908' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443584.jpg" alt='پریز (نر و مادگی) سه فاز 32 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329908' >پریز (نر و مادگی) سه فاز 32 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>48,000 تومان</span>
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/329908'><span>موجود نیست</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 32 آمپر دیواری آلمانی (Walther) پریز (نر و مادگی) سه فاز 32 آمپر ، 3P+ N+E 32A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 32 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329907' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329907' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443583.jpg" alt='پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329907' >پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>158,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_special'> </div>
+				</div>
+							<a id='add_329907' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 63 آمپر دیواری آلمانی (Walther) پریز (نر و مادگی) سه فاز 63 آمپر ، 3P+ N+E 63A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 63 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329905' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329905' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/462469.jpg" alt='پریز (نر و مادگی) سه فاز 125 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329905' >پریز (نر و مادگی) سه فاز 125 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>430,000 تومان</span>
+		</div>
+							<a id='add_329905' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) سه فاز 125 آمپر دیواری آلمانی (Walther) پریز (نر و مادگی) سه فاز 125 آمپر ، 3P+ N+E 125A 220 -400 V ، دیواری سه فاز و نول و ارت ،  والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) سه فاز 125 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329855' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329855' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443577.jpg" alt='پریز (نر و مادگی) تک فاز 16 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329855' >پریز (نر و مادگی) تک فاز 16 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>32,000 تومان</span>
+		</div>
+							<a id='add_329855' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) تک فاز 16 آمپر ، 2P+E 16A 200 -  250 V ، دیواری فاز و نول و ارت ، والتر آلمان (دارای استاندارد CE اروپا)' data-original-title='پریز (نر و مادگی) تک فاز 16 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329854' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329854' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443576.jpg" alt='پریز (نر و مادگی) تک فاز 32 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329854' >پریز (نر و مادگی) تک فاز 32 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>45,000 تومان</span>
+		</div>
+							<a id='add_329854' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) تک فاز 32 آمپر ، 2P+E 32A 220 V ، دیواری فاز و نول و ارت ، والتر آلمان (دارای استاندارد CE اروپا)' data-original-title='پریز (نر و مادگی) تک فاز 32 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_329852' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/329852' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/443575.jpg" alt='پریز (نر و مادگی) تک فاز 63 آمپر (دیواری) آلمانی (Walther)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/329852' >پریز (نر و مادگی) تک فاز 63 آمپر (دیواری) آلمانی (Walther)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>69,000 تومان</span>
+		</div>
+							<a id='add_329852' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='پریز (نر و مادگی) تک فاز 63 آمپر دیواری آلمانی (Walther) پریز (نر و مادگی) تک فاز 63 آمپر ، 2P+E 63A 220 V ، دیواری فاز و نول و ارت ، والتر آلمان ( دارای استاندارد CE اروپا )' data-original-title='پریز (نر و مادگی) تک فاز 63 آمپر (دیواری) آلمانی (Walther)'></a>	
+</li>
+	<li id='product_306172' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/306172' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/386056.jpg" alt='رله کنترل سطح مایعات (آنالوگ) Micro Max Electronic' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/306172' >رله کنترل سطح مایعات (آنالوگ) Micro Max Electronic</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>37,000 تومان</span>
+		</div>
+							<a id='add_306172' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='رله کنترل سطح مایعات (آنالوگ) شرکت میکرو الکترونیک ایران' data-original-title='رله کنترل سطح مایعات (آنالوگ) Micro Max Electronic'></a>	
+</li>
+	<li id='product_354052' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/354052' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/514712.jpg" alt='کنترل سطح مایعات Borna Electronics LMR' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/354052' >کنترل سطح مایعات Borna Electronics LMR</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>49,400 تومان</span>
+		</div>
+							<a id='add_354052' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='کنترل سطح مایعات مدل LMR برنا الکترونیک (بدون الکترود)' data-original-title='کنترل سطح مایعات Borna Electronics LMR'></a>	
+</li>
+	<li id='product_302854' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/302854' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/379957.jpg" alt='تایمر دو زمانه مولتی رنج - مولتی ولت ANLY' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/302854' >تایمر دو زمانه مولتی رنج - مولتی ولت ANLY</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>155,000 تومان</span>
+		</div>
+							<a id='add_302854' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='تایمر دو زمانه مولتی رنج - مولتی ولت ، ولتاز تغذیه  240~24 ولت AC/DC ، پلاتین 5 آمپر ، رنج زمانی از ا ثانیه تا 300 ساعت ، آنلی ، ساخت تایوان' data-original-title='تایمر دو زمانه مولتی رنج - مولتی ولت ANLY'></a>	
+</li>
+	<li id='product_341333' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/341333' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/479895.jpg" alt='کنتاکت کمکی کلید مینیاتوری Schneider electric' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/341333' >کنتاکت کمکی کلید مینیاتوری Schneider electric</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>42,000 تومان</span>
+		</div>
+							<a id='add_341333' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='دارای یک پلاتین بسته و یک پلاتین باز 415 ولت، 3 آمپر ، اشنایدر الکتریک اصلی' data-original-title='کنتاکت کمکی کلید مینیاتوری Schneider electric'></a>	
+</li>
+	<li id='product_283791' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/283791' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/390729.jpg" alt='مولتی متر سه فاز (مجموعه) دیجیتال (C.P.I.G)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/283791' >مولتی متر سه فاز (مجموعه) دیجیتال (C.P.I.G)</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>94,500 تومان</span>
+		</div>
+							<a id='add_283791' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='مولتی متر سه فاز (مجموعه) دیجیتال شرکت ابزار دقیق شیراز (C.P.I.G) این دستگاه می تواند ولتاژ های خطی و فازی ، فرکانس ،توان ، و جریان خطوط سه فاز را نشان دهد' data-original-title='مولتی متر سه فاز (مجموعه) دیجیتال (C.P.I.G)'></a>	
+</li>
+	<li id='product_335130' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/335130' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/460705.jpg" alt='دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 25-30 آمپر' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/335130' >دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 25-30 آمپر</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>10,000 تومان</span>
+		</div>
+							<a id='add_335130' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='دیود یکسو کننده ولتاژ AC به DC تک فاز 
+(دیود پل) 25-30 آمپر' data-original-title='دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 25-30 آمپر'></a>	
+</li>
+	<li id='product_283527' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/283527' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/341426.jpg" alt='دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 10 آمپر' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/283527' >دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 10 آمپر</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>8,000 تومان</span>
+		</div>
+							<a id='add_283527' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='دیود یکسو کننده ولتاژ AC به DC تک فاز 
+(دیود پل)10 آمپر' data-original-title='دیود یکسو کننده ولتاژ AC به DC تک فاز (دیود پل) 10 آمپر'></a>	
+</li>
+	<li id='product_351339' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/351339' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/506281.jpg" alt='کنتاکت کمکی کلید حرارتی Schneider electric' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/351339' >کنتاکت کمکی کلید حرارتی Schneider electric</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>20,000 تومان</span>
+		</div>
+							<a id='add_351339' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='کنتاکت کمکی کلید حرارتی اشنایدر الکتریک (یک باز یک بسته 1NC+1NO) قابل نصب در کنار کلید حرارتی' data-original-title='کنتاکت کمکی کلید حرارتی Schneider electric'></a>	
+</li>
+	<li id='product_359981' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/359981' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/532321.jpg" alt='راه انداز موتور (کلید حرارتی) 24تا 32 آمپر اشنایدر الکتریک (اصلی)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/359981' >راه انداز موتور (کلید حرارتی) 24تا 32 آمپر اشنایدر الکتریک (اصلی)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/359981'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='راه انداز موتور (کلید حرارتی) 24تا 32 آمپر اشنایدر الکتریک (اصلی) با قدرت قطع تا 100 کیلو آمپر در ولتاژ400 تا 415 ولت (نسبت به آمپر) SCHNEIDER electric' data-original-title='راه انداز موتور (کلید حرارتی) 24تا 32 آمپر اشنایدر الکتریک (اصلی)'></a>	
+</li>
+	<li id='product_359980' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/359980' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/532320.jpg" alt='راه انداز موتور (کلید حرارتی) 20 تا 25 آمپر اشنایدر الکتریک (اصلی)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/359980' >راه انداز موتور (کلید حرارتی) 20 تا 25 آمپر اشنایدر الکتریک (اصلی)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/359980'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='راه انداز موتور (کلید حرارتی) 20 تا 25 آمپر اشنایدر الکتریک (اصلی) با قدرت قطع تا 100 کیلو آمپر در ولتاژ 400 تا 415 ولت (نسبت به آمپر) SCHNEIDER electric' data-original-title='راه انداز موتور (کلید حرارتی) 20 تا 25 آمپر اشنایدر الکتریک (اصلی)'></a>	
+</li>
+	<li id='product_359979' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/359979' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/532319.jpg" alt='راه انداز موتور (کلید حرارتی) 17تا 23 آمپر اشنایدر الکتریک (اصلی)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/359979' >راه انداز موتور (کلید حرارتی) 17تا 23 آمپر اشنایدر الکتریک (اصلی)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/359979'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='راه انداز موتور (کلید حرارتی) 17تا 23 آمپر اشنایدر الکتریک (اصلی) با قدرت قطع تا 100 کیلو آمپر در ولتاژ400 تا 415 ولت (نسبت به آمپر) SCHNEIDER electric' data-original-title='راه انداز موتور (کلید حرارتی) 17تا 23 آمپر اشنایدر الکتریک (اصلی)'></a>	
+</li>
+	<li id='product_359978' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/rah-andaz-motor-kelid-hrarti-13ta-18-ampr-ashnaidr-alktrik-asli' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/532318.jpg" alt='راه انداز موتور (کلید حرارتی) 13تا 18 آمپر اشنایدر الکتریک (اصلی)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/rah-andaz-motor-kelid-hrarti-13ta-18-ampr-ashnaidr-alktrik-asli' >راه انداز موتور (کلید حرارتی) 13تا 18 آمپر اشنایدر الکتریک (اصلی)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/rah-andaz-motor-kelid-hrarti-13ta-18-ampr-ashnaidr-alktrik-asli'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='راه انداز موتور (کلید حرارتی) 13تا 18 آمپر اشنایدر الکتریک (اصلی) با قدرت قطع تا 100 کیلو آمپر در ولتاژ400 تا 415 ولت (نسبت به آمپر) SCHNEIDER electric' data-original-title='راه انداز موتور (کلید حرارتی) 13تا 18 آمپر اشنایدر الکتریک (اصلی)'></a>	
+</li>
+	<li id='product_261899' class='product_thumb '>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/261899' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/296659.jpg" alt='راه انداز موتور (کلید حرارتی) 9تا 14 آمپر اشنایدر الکتریک (اصلی)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/261899' >راه انداز موتور (کلید حرارتی) 9تا 14 آمپر اشنایدر الکتریک (اصلی)</a></h3>
+		<div class='product_thumb_price price ' >
+		</div>
+							<a class='btn btn-product btn-custom' href='http://peymantablo.ir/product/261899'><span>توضیحات بیشتر</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='راه انداز موتور (کلید حرارتی) 9تا 14 آمپر اشنایدر الکتریک (اصلی) با قدرت قطع تا 100 کیلو آمپر در ولتاژ400 تا 415 ولت (نسبت به آمپر) SCHNEIDER electric' data-original-title='راه انداز موتور (کلید حرارتی) 9تا 14 آمپر اشنایدر الکتریک (اصلی)'></a>	
+</li>
+	<li id='product_339210' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/339210' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/474018.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 2000VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/339210' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 2000VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>565,000 تومان</span>
+		</div>
+							<a id='add_339210' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تکفاز) 2000 ولت آمپر  (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 2000VA'></a>	
+</li>
+	<li id='product_316818' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/316818' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451654.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 1000VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/316818' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 1000VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>355,000 تومان</span>
+		</div>
+							<a id='add_316818' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تکفاز) (یا 220 به 220 ولت )1000ولت آمپر  (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 1000VA'></a>	
+</li>
+	<li id='product_316817' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/316817' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451636.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 500VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/316817' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 500VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>215,000 تومان</span>
+		</div>
+							<a id='add_316817' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تکفاز) (یا220 به 220 ولت)500 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 500VA'></a>	
+</li>
+	<li id='product_316816' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/316816' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451616.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 400VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/316816' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 400VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>165,000 تومان</span>
+		</div>
+							<a id='add_316816' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تک فاز) (یا 220 به 220 ولت) 400 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 400VA'></a>	
+</li>
+	<li id='product_316807' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/316807' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451615.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 300VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/316807' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 300VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>136,000 تومان</span>
+		</div>
+							<a id='add_316807' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تک فاز) 300 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 300VA'></a>	
+</li>
+	<li id='product_316805' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/316805' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451609.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 200VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/316805' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 200VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>92,000 تومان</span>
+		</div>
+							<a id='add_316805' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تک فاز) (یا 220 به 220 ولت) 200 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 200VA'></a>	
+</li>
+	<li id='product_312953' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/312953' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451608.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 150VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/312953' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 150VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>82,000 تومان</span>
+		</div>
+							<a id='add_312953' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تک فاز) 150 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 150VA'></a>	
+</li>
+	<li id='product_312948' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/312948' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/451655.jpg" alt='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 100VA' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/312948' >ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 100VA</a></h3>
+		<div class='product_thumb_price price ' >
+								<span>69,000 تومان</span>
+		</div>
+							<a id='add_312948' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='ترانس کاهنده ولتاژ 380 (دو فاز) به 220 ولت (تک فاز) 100 ولت آمپر (ترانس ایزوله)' data-original-title='ترانس کاهنده ولتاژ 380 به 220 ولت ایزوله 100VA'></a>	
+</li>
+</ul>
+	<div class="pageslist"><div class=" btn-group "><span data-page='1' class='btn btn-custom btn-inverse btn-large btn-lg'>1</span><a data-page='2' href='http://peymantablo.ir/?page=2' title='2' class='btn btn-default btn-large btn-lg'>2</a><a data-page='3' href='http://peymantablo.ir/?page=3' title='3' class='btn btn-default btn-large btn-lg'>3</a><span class='btn btn-large btn-default btn-lg disabled'>...</span><a data-page='42' href='http://peymantablo.ir/?page=42' title='42' class='btn btn-default btn-large btn-lg'>42</a><a data-page="2" title="صفحه بعد" href="http://peymantablo.ir/?page=2" class="next btn btn-large btn-default btn-lg"><i class="icon-backward glyphicon glyphicon-backward"></i></a></div></div>		<div class='clearfix'></div>
+	</div>
+</div></div></div>
+						<div id="side_left"><div class='box' id='box_sideblock'><div class="block">
+    <div class="block_head clearfix"><h3 class="block_header">نماد اعتماد الکترونیکی</h3></div>
+	<div class="block_body clearfix"><p style="text-align: center;"><img src="https://cdnfa.com/peymantablo/57cb/uploads/hooman/new/9999.png" border="0" alt="" width="291" height="144" /></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-family: tahoma, arial, helvetica, sans-serif; color: #000000; font-size: 8pt;"><span style="font-size: 10pt; color: #993300;">خیابان سمیه، بعد از تقاطع شهید مفتح،<br />بن بست پروانه، پلاک 3، طبقه&nbsp;2</span></span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-size: 8pt;"><span style="font-family: tahoma,arial,helvetica,sans-serif;"><span style="color: #ff0000;"><span style="color: #993300;">(تماس: 9:00تا 17:00،پنجشنبه ها9:00 الی 12:00)</span> </span></span><span style="font-family: tahoma,arial,helvetica,sans-serif;"><strong><span style="color: #ff0000;"><br /></span></strong></span></span></p>
+<hr />
+<p style="text-align: center;"><img src="http://trustseal.enamad.ir/logo.aspx?id=13554&amp;p=lznbvjymfujyfujyaods" border="0" alt="" onclick="window.open(&quot;http://trustseal.enamad.ir/Verify.aspx?id=13554&amp;p=nbpdfuixyncryncrodsh&quot;, &quot;Popup&quot;,&quot;toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30&quot;)" style="cursor: pointer;" /></p>
+<hr />
+<p style="text-align: center;"><a href="http://peymantablo.ir/certificate" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/senfi-logo.jpg" border="0" alt="" width="98" height="151" /></a></p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><a href="account" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/hooman/new/78.png" border="0" alt="" /></a>&nbsp;</p>
+<hr />
+<p style="text-align: center;"><a href="http://peymantablo.ir/katalogue" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/hooman/new/new/new/45.png" border="0" alt="" /></a></p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p><a href="http://www.behpardakht.com/" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/bbb (1).jpg" border="0" alt="" style="display: block; margin-left: auto; margin-right: auto;" /></a></p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><a href="https://telegram.me/peymantablo" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/t_log.png" border="0" alt="" /></a></p>
+<hr />
+<p style="text-align: center;"><a href="http://peymantablo.ir/rahnama_kharid" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/hooman/new/new/new/new/عغ.png" border="0" alt="" width="144" height="138" /></a></p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><a href="/req" target="_blank"><img src="https://cdnfa.com/peymantablo/57cb/uploads/estelam.jpg" border="0" alt="" /></a></p>
+<p style="text-align: center;">&nbsp;</p></div>
+	<div class="block_bottom"></div>
+</div></div><div class='box clearfix' id='box_bestsells'><div id='bestsells' class='clearfix'><header><div class='bestsell_underline'><span><img src='http://cdnfa.com/8.1.786/themes/theme_12525/img/LastPeriodSaleCounter.gif'></span></div></header><ul class='bestsellslist clearfix'><ul class='products'>
+	<li id='product_365487' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/365487' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/547851.jpg" alt='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/365487' >جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)</a></h3>
+		<div class='product_thumb_price price ' >
+									<span class='old_price red'>241,000</span> 
+						<span>221,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_off'> </div>
+				</div>
+							<a id='add_365487' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه پریز کارگاهی سه فاز IP66 پارسا روکار دارای یک مینیاتوری سه فاز  63 آمپر و 2 عدد مینیاتوری 16 آمپر تک فاز و یک عدد پریز پنج شاخه 63 آمپر 380V سه فاز والتر آلمان و دو عدد پریز تک فاز 16 آمپر در طرفین تابلو به همراه یک عدد پنج شاخه سه فاز والتر آلمان' data-original-title='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 63 (PARSA)'></a>	
+</li>
+	<li id='product_344772' class='product_thumb  price_on'>
+	
+		<div class='thumb_image'>	
+  		<a href='http://peymantablo.ir/product/344772' class='imagelink'><img class="product_thumb_image" src="http://cdnfa.com/peymantablo/57cb/files/thumb/487498.jpg" alt='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)' /></a>
+  	</div>	
+  	<div class='thumb_body'>
+		<h3><a href='http://peymantablo.ir/product/344772' >جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)</a></h3>
+		<div class='product_thumb_price price ' >
+									<span class='old_price red'>130,000</span> 
+						<span>120,000 تومان</span>
+		</div>
+				<div class='product_thumb_badges'>
+					<div class='thumb_badge badge_off'> </div>
+				</div>
+							<a id='add_344772' class='btn btn-product add_to_basket btn-custom' href='#add'><i class='icon-shopping-cart icon-white'></i> <span>افزودن به سبد</span></a>
+		  	</div>
+  	<a href='#' class='quickview' data-trigger='hover' data-toggle='popover' data-placement='top' data-content='جعبه پریز کارگاهی تک و سه فاز IP66 مارک پارسا (روکار) دارای یک عدد مینیاتوری سه فاز و دو عدد مینیاتوری تک فاز و یک عدد پریز پنج شاخه 32 آمپر 380 ولت سه فاز والتر آلمان و دو عدد پریز تک فاز 16 آمپر در طرفین تابلو به همراه یک عدد پنج شاخه سه فاز والتر آلمان' data-original-title='جعبه پریز کارگاهی تک و سه فاز (IP66) آمپراژ 32 (PARSA)'></a>	
+</li>
+</ul>
+	</ul></div></div><div class='box' id='box_side_brands'><div class="block">
+    <div class="block_head clearfix"><h3 class="block_header"><a href='http://peymantablo.ir/brands'>لیست برندها</a></h3></div>
+	<div class="block_body clearfix"><div class='clearfix'><ul id='brands_list' ><li><a title='Autonics | آتونیکس | کره جنوبی' href='http://peymantablo.ir/brands/autonics'><img src='http://cdnfa.com/s/brand/thumb/autonics.jpg' alt='Autonics | آتونیکس | کره جنوبی' /></a></li><li><a title='China | KEF' href='http://peymantablo.ir/brands/kef'><img src='http://cdnfa.com/s/brand/thumb/kef.jpg' alt='China | KEF' /></a></li><li><a title='آدونیس  |adonis | ایران  |' href='http://peymantablo.ir/brands/aadonis'><img src='http://cdnfa.com/s/brand/thumb/adoka.jpg' alt='آدونیس  |adonis | ایران  |' /></a></li><li><a title='اشنایدر | schneider | فرانسه |' href='http://peymantablo.ir/brands/schneider'><img src='http://cdnfa.com/s/brand/thumb/shnider.png' alt='اشنایدر | schneider | فرانسه |' /></a></li><li><a title='ال-اس|کره|' href='http://peymantablo.ir/brands/ls'><img src='http://cdnfa.com/s/brand/thumb/ls.jpg' alt='ال-اس|کره|' /></a></li><li><a title='ان اس اس | taiwan  | تایوان |' href='http://peymantablo.ir/brands/nss'><img src='http://cdnfa.com/s/brand/thumb/nss.jpg' alt='ان اس اس | taiwan  | تایوان |' /></a></li><li><a title='ای تی آی | ETI |' href='http://peymantablo.ir/brands/eti'><img src='http://cdnfa.com/s/brand/thumb/eti.jpg' alt='ای تی آی | ETI |' /></a></li><li><a title='تبن  |theben  |آلمان  |' href='http://peymantablo.ir/brands/theben'><img src='http://cdnfa.com/s/brand/thumb/theben.jpg' alt='تبن  |theben  |آلمان  |' /></a></li><li><a title='تری ام | 3M | چین |' href='http://peymantablo.ir/brands/3m'><img src='http://cdnfa.com/s/brand/thumb/3m.jpg' alt='تری ام | 3M | چین |' /></a></li><li><a title='تی سی | TC | هند' href='http://peymantablo.ir/brands/tc'><img src='http://cdnfa.com/s/brand/thumb/tc.jpg' alt='تی سی | TC | هند' /></a></li><li><a title='رز ایران | rose iran | ایران' href='http://peymantablo.ir/brands/rose_iran'><img src='http://cdnfa.com/s/brand/thumb/rose_iran.jpg' alt='رز ایران | rose iran | ایران' /></a></li><li><a title='رعد  | Iran |  ایران  |' href='http://peymantablo.ir/brands/raad'><img src='http://cdnfa.com/s/brand/thumb/raad.jpg' alt='رعد  | Iran |  ایران  |' /></a></li><li><a title='رله فیندر  |Italy  | ایتالیا  |' href='http://peymantablo.ir/brands/finder'><img src='http://cdnfa.com/s/brand/thumb/finder.jpg' alt='رله فیندر  |Italy  | ایتالیا  |' /></a></li><li><a title='ریتال  |  Rittal  | ایران  |' href='http://peymantablo.ir/brands/rittal'><img src='http://cdnfa.com/s/brand/thumb/rittal.jpg' alt='ریتال  |  Rittal  | ایران  |' /></a></li><li><a title='سی تی ال | CTL | انگلستان |' href='http://peymantablo.ir/brands/ctl'><img src='http://cdnfa.com/s/brand/thumb/ctl.jpg' alt='سی تی ال | CTL | انگلستان |' /></a></li><li><a title='سی پی آی جی  |Iran |C.P.I.G|' href='http://peymantablo.ir/brands/c_p_i_g'><img src='http://cdnfa.com/s/brand/thumb/c_p_i_g.jpg' alt='سی پی آی جی  |Iran |C.P.I.G|' /></a></li><li><a title='شیوا امواج  |Iran  |ایران  |' href='http://peymantablo.ir/brands/shiva_amvaj'><img src='http://cdnfa.com/s/brand/thumb/shiva_amvaj.jpg' alt='شیوا امواج  |Iran  |ایران  |' /></a></li><li><a title='فراکو | frako | آلمان' href='http://peymantablo.ir/brands/frako'><img src='http://cdnfa.com/s/brand/thumb/frako.jpg' alt='فراکو | frako | آلمان' /></a></li><li><a title='لیفاسا  |lifasa | اسپانیا  |' href='http://peymantablo.ir/brands/lifasa'><img src='http://cdnfa.com/s/brand/thumb/lifasa.jpg' alt='لیفاسا  |lifasa | اسپانیا  |' /></a></li><li><a title='لیندر | LINDER |' href='http://peymantablo.ir/brands/linder'><img src='http://cdnfa.com/s/brand/thumb/linder.jpg' alt='لیندر | LINDER |' /></a></li><li><a title='مارولین | Marrolin | چین' href='http://peymantablo.ir/brands/marrolin'><img src='http://cdnfa.com/s/brand/thumb/marrolin.jpg' alt='مارولین | Marrolin | چین' /></a></li><li><a title='مگ الکتریک | Iran  | ایران  |' href='http://peymantablo.ir/brands/mag'><img src='http://cdnfa.com/s/brand/thumb/mag.jpg' alt='مگ الکتریک | Iran  | ایران  |' /></a></li><li><a title='میکرو|micro|ایران|' href='http://peymantablo.ir/brands/micro'><img src='http://cdnfa.com/s/brand/thumb/microo.jpg' alt='میکرو|micro|ایران|' /></a></li><li><a title='هریس  |Iran  |ایران  |' href='http://peymantablo.ir/brands/harris'><img src='http://cdnfa.com/s/brand/thumb/haris.png' alt='هریس  |Iran  |ایران  |' /></a></li><li><a title='هیوندای|korea|کره|' href='http://peymantablo.ir/brands/korea'><img src='http://cdnfa.com/s/brand/thumb/korea.jpg' alt='هیوندای|korea|کره|' /></a></li><li><a title='وئر | WOER | چین' href='http://peymantablo.ir/brands/woer'><img src='http://cdnfa.com/s/brand/thumb/woer.jpeg' alt='وئر | WOER | چین' /></a></li><li><a title='واصل الکتریک الوند | Parsa | ایران' href='http://peymantablo.ir/brands/vasel_electric_parsa'><img src='http://cdnfa.com/s/brand/thumb/vasel_electric_parsa.jpg' alt='واصل الکتریک الوند | Parsa | ایران' /></a></li><li><a title='ورلد پلاست | ترکیه' href='http://peymantablo.ir/brands/world-plast'><img src='http://cdnfa.com/s/brand/thumb/world-plast.jpg' alt='ورلد پلاست | ترکیه' /></a></li><li><a title='پلی موٍث | plymouth | اسپانیا |' href='http://peymantablo.ir/brands/plymouth'><img src='http://cdnfa.com/s/brand/thumb/plymouth.jpg' alt='پلی موٍث | plymouth | اسپانیا |' /></a></li><li><a title='چینت  |chnt  |  چین  |' href='http://peymantablo.ir/brands/chnt'><img src='http://cdnfa.com/s/brand/thumb/chnt.jpg' alt='چینت  |chnt  |  چین  |' /></a></li><li><a title='کلاته | Kalate' href='http://peymantablo.ir/brands/kalate'><img src='http://cdnfa.com/s/brand/thumb/kalate.jpg' alt='کلاته | Kalate' /></a></li><li><a title='کلوته | Klaute' href='http://peymantablo.ir/brands/klaute'><img src='http://cdnfa.com/s/brand/thumb/klaute.jpg' alt='کلوته | Klaute' /></a></li><li><a title='کلید تی آر اس |Iran | ایران  |' href='http://peymantablo.ir/brands/t_r_s'><img src='http://cdnfa.com/s/brand/thumb/t_r_s.jpg' alt='کلید تی آر اس |Iran | ایران  |' /></a></li><li><a title='کلید کاوه  |Iran  | ایران  |' href='http://peymantablo.ir/brands/kaveh'><img src='http://cdnfa.com/s/brand/thumb/kaveh.png' alt='کلید کاوه  |Iran  | ایران  |' /></a></li></ul><br class='clear' /></div></div>
+	<div class="block_bottom"></div>
+</div></div><div class='box' id='box_block_stat'><div class="block">
+    <div class="block_head clearfix"><h3 class="block_header">آمار</h3></div>
+	<div class="block_body clearfix"><ul>
+<li id='stat_products_count'>تعداد کالا: 1661</li>
+<li id='stat_today_hit'>بازدید امروز: 586</li>
+<li id='stat_yesterday_hit'>بازدید دیروز: 1871</li>
+<li id='stat_total_hit'>بازدید کل: 1985737</li>
+</ul></div>
+	<div class="block_bottom"></div>
+</div></div><div class='box' id='box_news'><div id='news'><header><div class='news_underline'><span><img src='http://cdnfa.com/8.1.786/themes/theme_12525/img/latestnews.gif'><span>تازه ترین خبرها</span></span></div></header><ul class='news_menu'><li><a href='http://peymantablo.ir/weblog/306155'>ترانس های جریان CT</a></li><li><a href='http://peymantablo.ir/weblog/235795'>بانک خازنی</a></li><li><a href='http://peymantablo.ir/weblog/235794'>نوار آپارات</a></li><li><a href='http://peymantablo.ir/weblog/235785'>تایمر ها</a></li><li><a href='http://peymantablo.ir/weblog/235470'>کلید های اتوماتیک</a></li></ul></div></div></div>
+						<div id="side_bottom"></div>
+						<br class='clear' />
+					</div>
+					<!-- /main -->
+				</div>
+			</div>
+			<!-- footer -->
+			<div id="footer">
+					<div class='container'>
+						<div id='footer_right'>
+						  <div id="footer_links"><div><h3><a href='http://peymantablo.ir/'>دسترسی سریع</a></h3><ul class='menu_footer'><!--home--><li><a class='page_46242' href='http://peymantablo.ir/weblog'>مطالب مفید</a></li>
+<li><a class='page_54453' href='http://peymantablo.ir/track-order'>پیگیری سفارش</a></li>
+<li><a class='page_90627' href='http://peymantablo.ir/productstrs'>نحوه ارسال کالا</a></li>
+<li><a class='page_78096' href='http://peymantablo.ir/about-us'>درباره ما</a></li>
+</ul>
+</div></div>
+						</div>
+												
+					</div>
+					<div id="copyright">
+						<div class='container'>
+							<div class="en">
+								<span>Copyright &copy; peymantablo.ir</span> 
+							</div>  
+							<a target='_blank' id='shopfa_logo' title='فروشگاه ساز' href='https://shopfa.com'><img src='https://shopfa.com/shopfa.png' alt='فروشگاه ساز' /></a>						</div>
+					</div>	
+			<!--</div>-->
+			<!-- /footer -->
+			
+			
+		</div>
+				</body>
+<!-- 
+
+Cooked by ShopFA v8.1.786
+ -->
+</html>

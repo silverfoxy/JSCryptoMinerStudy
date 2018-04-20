@@ -1,0 +1,689 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>BrightSite by bright.net Internet Services</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="Author" content="Webmaster, webmaster@comnetteam.com" />
+    <meta name="Designer" content="Webmaster, webmaster@comnetteam.com" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="revisit" content="7 days">
+    <meta name="robots" content="all">
+    <link rel="SHORTCUT ICON" HREF="http://bright.net/config/bright_net/images/favicon/favicon.ico">
+    <script language="javascript" type="text/javascript">
+		
+		// remote scripting library
+		// (c) copyright 2005 modernmethod, inc
+		var sajax_debug_mode = false;
+		var sajax_request_type = "GET";
+		
+		function sajax_debug(text) {
+			if (sajax_debug_mode)
+				alert("RSD: " + text)
+		}
+ 		function sajax_init_object() {
+ 			sajax_debug("sajax_init_object() called..")
+ 			
+ 			var A;
+			try {
+				A=new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try {
+					A=new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (oc) {
+					A=null;
+				}
+			}
+			if(!A && typeof XMLHttpRequest != "undefined")
+				A = new XMLHttpRequest();
+			if (!A)
+				sajax_debug("Could not create connection object.");
+			return A;
+		}
+		function sajax_do_call(func_name, args) {
+			var i, x, n;
+			var uri;
+			var post_data;
+			
+			//uri = "";
+			uri = location.href; // hack from Sajax forums to get $_GET vars to work
+			if (sajax_request_type == "GET") {
+				if (uri.indexOf("?") == -1) 
+					uri = uri + "?rs=" + escape(func_name);
+				else
+					uri = uri + "&rs=" + escape(func_name);
+				for (i = 0; i < args.length-1; i++) 
+					uri = uri + "&rsargs[]=" + escape(args[i]);
+				uri = uri + "&rsrnd=" + new Date().getTime();
+				post_data = null;
+			} else {
+				post_data = "rs=" + escape(func_name);
+				for (i = 0; i < args.length-1; i++) 
+					post_data = post_data + "&rsargs[]=" + escape(args[i]);
+			}
+			
+			x = sajax_init_object();
+			x.open(sajax_request_type, uri, true);
+			if (sajax_request_type == "POST") {
+				x.setRequestHeader("Method", "POST " + uri + " HTTP/1.1");
+				x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			}
+			x.onreadystatechange = function() {
+				if (x.readyState != 4) 
+					return;
+				sajax_debug("received " + x.responseText);
+				
+				var status;
+				var data;
+				status = x.responseText.charAt(0);
+				data = x.responseText.substring(2);
+				if (status == "-") 
+					alert("Error: " + data);
+				else  
+					args[args.length-1](data);
+			}
+			x.send(post_data);
+			sajax_debug(func_name + " uri = " + uri + "/post = " + post_data);
+			sajax_debug(func_name + " waiting..");
+			delete x;
+		}
+		
+				
+		// wrapper for get_module_data		
+		function x_get_module_data() {
+			sajax_do_call("get_module_data",
+				x_get_module_data.arguments);
+		}
+		
+				
+		// wrapper for get_module_data		
+		function x_get_module_data() {
+			sajax_do_call("get_module_data",
+				x_get_module_data.arguments);
+		}
+		
+				
+		// wrapper for get_module_output		
+		function x_get_module_output() {
+			sajax_do_call("get_module_output",
+				x_get_module_output.arguments);
+		}
+		
+				
+		// wrapper for get_cartoon_output		
+		function x_get_cartoon_output() {
+			sajax_do_call("get_cartoon_output",
+				x_get_cartoon_output.arguments);
+		}
+		
+				
+		// wrapper for set_bg_color		
+		function x_set_bg_color() {
+			sajax_do_call("set_bg_color",
+				x_set_bg_color.arguments);
+		}
+		
+				
+		// wrapper for set_module_color		
+		function x_set_module_color() {
+			sajax_do_call("set_module_color",
+				x_set_module_color.arguments);
+		}
+		
+				
+		// wrapper for return_module_name		
+		function x_return_module_name() {
+			sajax_do_call("return_module_name",
+				x_return_module_name.arguments);
+		}
+		
+				
+		// wrapper for remove_module		
+		function x_remove_module() {
+			sajax_do_call("remove_module",
+				x_remove_module.arguments);
+		}
+		
+				
+		// wrapper for add_change_module		
+		function x_add_change_module() {
+			sajax_do_call("add_change_module",
+				x_add_change_module.arguments);
+		}
+		
+				
+		// wrapper for set_notepad_data		
+		function x_set_notepad_data() {
+			sajax_do_call("set_notepad_data",
+				x_set_notepad_data.arguments);
+		}
+		
+				
+		// wrapper for set_notepad_color		
+		function x_set_notepad_color() {
+			sajax_do_call("set_notepad_color",
+				x_set_notepad_color.arguments);
+		}
+		
+				
+		// wrapper for empty_modules		
+		function x_empty_modules() {
+			sajax_do_call("empty_modules",
+				x_empty_modules.arguments);
+		}
+		
+				
+		// wrapper for used_modules		
+		function x_used_modules() {
+			sajax_do_call("used_modules",
+				x_used_modules.arguments);
+		}
+		
+				
+		// wrapper for set_module_settings		
+		function x_set_module_settings() {
+			sajax_do_call("set_module_settings",
+				x_set_module_settings.arguments);
+		}
+		
+				
+		// wrapper for display_fs_module		
+		function x_display_fs_module() {
+			sajax_do_call("display_fs_module",
+				x_display_fs_module.arguments);
+		}
+		
+		
+    </script>
+    <script type="text/javascript">
+      var my_username = "";
+
+      function color_change(this_class,my_id) {
+        var my_value = document.getElementById(my_id).value;
+        var my_value = document.getElementById(my_id).value;
+        changecss(this_class,"backgroundColor","#"+my_value);
+        if(this_class == ".module_title") {
+          changecss(".module_bullet","color","#"+my_value);
+          if((this_color == "#") || (this_color == "#e8e8e8") || (this_color == "#ffff44") || (this_color == "#ffffff")) {
+            changecss(this_class,"color","#000000");
+          }
+          else {
+            changecss(this_class,"color","#ffffff");
+          }
+          do_set_module_color();
+        }
+        else if(this_class == ".portal_body") {
+          do_set_bg_color();
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      function do_set_bg_color() {
+        var color_name = document.getElementById("bgColorSelect").value;
+        x_set_bg_color(color_name,set_bg_color_cb);
+      }
+      function set_bg_color_cb(phpData) {
+        phpDataArray = phpData.split("+"+":");
+        phpData = (phpDataArray[1]) ? phpDataArray[1] : phpData;
+        if(phpData == 0) {
+          alert("There was an error updating your color.");
+        }
+        else {
+          changecss(".portal_body","backgroundColor",phpData);
+        }
+      }
+
+      function do_set_module_color() {
+        var color_name = document.getElementById("tableColorSelect").value;
+        x_set_module_color(color_name,set_module_color_cb);
+      }
+      function set_module_color_cb(phpData) {
+        phpDataArray = phpData.split("+"+":");
+        phpData = (phpDataArray[1]) ? phpDataArray[1] : phpData;
+        if(phpData == 0) {
+          alert("There was an error updating your color.");
+        }
+        else {
+          var this_color = phpData;
+          changecss(".module_title","backgroundColor",phpData);
+          changecss(".link_bar_link a:hover","backgroundColor",phpData);
+          if((this_color == "#") || (this_color == "#e8e8e8") || (this_color == "#ffff44") || (this_color == "#ffffff")) {
+            changecss(".module_title","color","#000000");
+            changecss(".module_bullet","color","#000000");
+            changecss(".module_title","borderColor","#000000");
+            changecss(".link_bar_link a:hover","color","#000000");
+          }
+          else {
+            changecss(".module_title","color","#ffffff");
+            changecss(".module_bullet","color",phpData);
+            changecss(".module_title","borderColor",phpData);
+            changecss(".link_bar_link a:hover","color","#ffffff");
+          }
+        }
+      }
+      function do_tab_control(tab_id,action) {
+        if(action == "add_new") {
+          if(text = prompt("Enter a name for your new tab:")) {
+            document.getElementById("tab_name").value = text;
+            document.getElementById("tab_action").value = action;
+            document.tab_control.submit();
+          }
+          else {
+            return false;
+          }
+        }
+        else if(action == "delete") {
+          if(yes = confirm("Are you sure you want to delete this tab?")) {
+            document.getElementById("tab_action").value = action;
+            document.tab_control.submit();
+          }
+          else {
+            return false;
+          }
+        }
+        else if(action == "rename") {
+          if(text = prompt("Enter a new name for this tab:")) {
+            document.getElementById("tab_name").value = text;
+            document.getElementById("tab_action").value = action;
+            document.tab_control.submit();
+          }
+          else {
+            return false;
+          }
+        }
+        else {
+          return false;
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      var module_array = new Array();
+      
+      function do_get_module_data() {
+        for(i=1;i<=18;i++) {
+          if(module_array[i]) {
+            x_get_module_data(i,module_array[i],get_module_data_cb);
+          }
+        }
+      }
+      function get_module_data_cb(phpData) {
+        phpDataArray = phpData.split("+"+":");
+        phpData = (phpDataArray[1]) ? phpDataArray[1] : phpData;
+        moduleArray = phpData.split("___&&&___");
+        document.getElementById("module_id_"+moduleArray[0]).innerHTML = moduleArray[1];
+      }
+    </script>
+    <script type="text/javascript">
+      function location_select(id) {
+        var loc = document.getElementById(id).value;
+        location.href = loc;
+      }
+      function location_select_new_window(id) {
+        var loc = document.getElementById(id).value;
+        if((loc != "") && (loc != "#")) {
+          window.open(loc,'_blank');
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      function do_set_notepad_data() {
+        //alert("Temporarily down.");
+        //return;
+        // get data
+        var my_data = document.getElementById('note').value;
+        // send to php
+        x_set_notepad_data(my_username,my_data,set_notepad_data_cb);
+      }
+      function set_notepad_data_cb(phpData) {
+        phpDataArray = phpData.split("+"+":");
+        phpData = (phpDataArray[1]) ? phpDataArray[1] : phpData;
+        if(phpData != 1) {
+          alert("There was an error updating your data.");
+        }
+      }
+
+      function do_set_notepad_color() {
+        // get data
+        var my_color = document.getElementById('noteColor').value;
+        changecss(".notepad","backgroundColor","#"+my_color);
+        // send to php
+        x_set_notepad_color(my_username,my_color,set_notepad_color_cb);
+      }
+      function set_notepad_color_cb(phpData) {
+        phpDataArray = phpData.split("+"+":");
+        phpData = (phpDataArray[1]) ? phpDataArray[1] : phpData;
+        if(phpData != 1) {
+          alert("There was an error updating your color.");
+        }
+        //if(isNaN(phpData)) {
+        //  alert(phpData);
+        //}
+      }
+    </script>
+    <script type="text/javascript" src="http://bright.net/functions/js/CalendarPopup.js"></script>
+    <SCRIPT LANGUAGE="JavaScript">
+      var cal = new CalendarPopup();
+      cal.showYearNavigation();
+    </SCRIPT>
+    <script type="text/javascript" src="http://bright.net/functions/js/changecss.js"></script>
+    <script type="text/javascript" src="http://bright.net/functions/js/popUp.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://bright.net/css/main.css" title="style" />
+    <link rel="stylesheet" type="text/css" href="http://bright.net/css/link_bar.css" title="style" />
+    <link rel="stylesheet" type="text/css" href="http://bright.net/css/tab_bar.css" title="style" />
+    <style type="text/css">
+      .portal_body {
+        background-color: #e8e8e8;
+      }
+      .module_title {
+        border-color: #1212c7;
+        background-color: #1212c7;
+        color: #ffffff;
+        text-shadow: 2px 2px 2px #000000;
+        background-image: url(http://bright.net/images/trans_overlay.png) !important;
+        background-image: url();
+        background-repeat: repeat-x;
+      }
+      .module_bullet {
+        color: #1212c7;
+      }
+      .link_bar_link a:hover {
+        background-color: #1212c7;
+        color: #ffffff;
+      }
+      #invis_container {
+        background-image: url(http://bright.net/images/portal_bg.png);
+        background-repeat: repeat-y;
+        border-bottom: 1px solid #ffffff;
+        /*border-right: 1px solid #999999;*/
+      }
+      .tab_bar_link a,#tab_bar,.tab_bar_link a:hover {
+        border-color: #1212c7;
+      }
+      .tab_bar_active_tab a,.tab_bar_active_tab a:hover {
+        border-bottom-color: #ffffff;
+      }
+    </style>
+    <style type="text/css">
+      .notepad {
+        background-color: #pants
+;
+      }
+    </style>
+  </head>
+  <body class='portal_body'>
+    <div id='container'>
+      <div id='content'>
+        <div style='text-align:none;'>
+          <div id='logo' class='f-left'>
+            <a href='http://bright.net/index.php'><img src='http://bright.net/config/bright_net/images/logo/logo.gif' border='0'></a>
+          </div>
+          <div id='services_container'>
+            <div id='services_top'>
+              <span>&nbsp;</span>
+            </div>
+            <div id='services_bottom'>
+              <div class='features_1 features_1_3 f-left features_first'><a href='http://bright.net/global_access.php' target='_blank'><img src='http://bright.net/images/featured_services/global_access-banner.gif' alt='Global Access' border='0'></a></div>
+              <div class='features_1 features_1_3 f-left features_middle'><a href='http://mail.bright.net' target='_blank'><img src='http://bright.net/images/featured_services/webmail-top.gif' alt='Web Mail' border='0'></a></div>
+              <div class='features_1 features_1_3 f-left features_last'><a href='http://bright.net/mymail/' target='_blank'><img src='http://bright.net/images/featured_services/msg_center.gif' alt='MyMail' border='0'></a></div>
+              <div class='f-clear'></div>
+            </div>
+          </div>
+          <div class='f-clear'></div>
+        </div>
+        <br />
+<!--
+        <div id="link_bar_links" align='center'>
+          <div id='IEforceWidth'>
+            <a href='http://bright.net/index.php'>Home</a>
+            <a href='http://bright.net/contact.php'>Contact Us</a>
+            <a href='http://bright.net/services.php'>Standard Services</a>
+            <a href='http://bright.net/services-pro.php'>Pro Services</a>
+            <a href='http://bright.net/user_utilities.php'>User Utilities</a>
+            <a href='http://support.bright.net/' target='_blank'>Support</a>
+          </div>
+        </div>
+-->
+    <div id='center_link_bar'>
+      <div id='link_bar_left'>
+<span class='link_bar_link'><a href='http://bright.net/index.php'>Home</a></span> <span class='link_bar_link'><a href='http://bright.net/contact.php'>Contact Us</a></span> <span class='link_bar_link'><a href='http://bright.net/services.php'>Standard Services</a></span> <span class='link_bar_link'><a href='http://bright.net/services-pro.php'>Pro Services</a></span> <span class='link_bar_link'><a href='http://bright.net/user_utilities.php'>User Utilities</a></span> <span class='link_bar_link'><a href='http://support.bright.net/' target='_blank'>Support</a></span>       </div>
+      <div id='link_bar_right'>
+<span class='link_bar_link'><a href='/login.php'>Log In To Customize BrightSite</a></span>       </div>
+      <div style='clear:both;'></div>
+    </div>
+
+        <div id='full_width'>
+          <!-- START $RIGHT_SIDE DUMP HERE -->
+<script src='https://www.cniteam.com/functions/js/jquery.js'></script>
+<script>
+  var module_array = new Array();
+  $(function() {
+    for(i in module_array) {
+      // alert(i+" == "+module_array[i]);
+      get_module_data_via_ajax(i);
+    }
+  });
+  function get_module_data_via_ajax(module) {
+    $.ajax({
+      url:".ajax.module_data.php",
+      data:"module="+module,
+      success: function(return_array) {
+        // alert(return_array);
+        $("#module_id_"+module).html(return_array);
+      }
+    });
+  }
+</script>
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>Info Center</div>
+  <div class='module_data'><div align='left'>
+<form name=jsMenu' style='border-left:0;margin-left:0;padding-left:0;'>
+  <span class='module_bullet'>&curren;</span> <select name='select_userutil' id='ic_select_userutil' size='1' onchange='location_select(this.id)' class='sm'>
+    <option value='/user_utilities.php'>User Utilities</option>
+    <option value='/access'>Access Numbers</option>
+    <option value='http://portal.bright.net/virus/'>Anti-Virus Center</option>
+    <option value='/bandwidth_usage.php'>Bandwidth Usage</option>
+    <option value='/password.php'>Change Password</option>
+    <option value='/du.php'>Check Webspace</option>
+    <option value='/email_help.php'>Email Support</option>
+    <option value='/safety/'>Internet Safety</option>
+    <option value='/mail_account_manager.php'>Mail Account Manager</option>
+    <option value='/mymail/'>My Mail</option>
+    <option value='http://acc.bright.net/users.html'>Online Time</option>
+    <option value='http://mail.bright.net'>Web Mail</option>
+    <option value='http://getmyspeed.com/'>Speed Test</option>
+  </select>
+</form>
+<form name=jsMenu' style='border-left:0;margin-left:0;padding-left:0;'>
+  <span class='module_bullet'>&curren;</span> <select name='select_services' id='ic_select_services' size='1' onchange='location_select(this.id)' class='sm'>
+    <option value='/services.php'>Standard Services</option>
+    <option value='/services.php#alwayson'>Always-on Access</option>
+    <option value='/services.php#dialup'>Dial-up Access</option>
+    <option value='/services.php#globalroaming'>Global Roaming</option>
+    <option value='/services.php#mailfilter'>Mail Filtering</option>
+    <option value='/services.php#learning'>Online Learning</option>
+    <option value='/services.php#webfilter'>Web Filtering</option>
+  </select>
+</form>
+<form name=jsMenu' style='border-left:0;margin-left:0;padding-left:0;'>
+  <span class='module_bullet'>&curren;</span> <select name='select_services-pro' id='ic_select_services-pro' size='1' onchange='location_select(this.id)' class='sm'>
+    <option value='/services-pro.php'>Pro Services</option>
+    <option value='/services-pro.php#mailfilter'>Corp. Mail Filtering</option>
+    <option value='/services-pro.php#webfilter'>Corp. Web Filtering</option>
+    <option value='/services-pro.php#dedicated'>Dedicated Access</option>
+    <option value='/services-pro.php#registration'>Domain Registration</option>
+    <option value='/services-pro.php#ecommerce'>e-Commerce</option>
+    <option value='/services-pro.php#faxbyemail'>Fax-by-Email</option>
+    <option value='/services-pro.php#managedserver'>Managed Server</option>
+    <option value='/services-pro.php#colocation'>Server Co-location</option>
+    <option value='/services-pro.php#training'>Web-based Training</option>
+    <option value='/services-pro.php#design'>Web Design</option>
+    <option value='/services-pro.php#hosting'>Web Hosting</option>
+  </select>
+</form>
+<form name=jsMenu' style='border-left:0;margin-left:0;padding-left:0;'>
+  <span class='module_bullet'>&curren;</span> <select name='select_policyother' id='ic_select_policyother' size='1' onchange='location_select(this.id)' class='sm'>
+    <option value='#'>Policies/Other</option>
+    <option value='/legal/antispam.php'>Anti-Spam Bill</option>
+    <option value='/terms/commercial.php'>Commercial e-Mail</option>
+    <option value='/legal/copy.php'>Copyright Info</option>
+    <option value='/terms/index.php'>Customer Terms</option>
+    <option value='/policy/opensrs_domain.php'>Domain Dispute</option>
+    <option value='/terms/forum.php'>Forum Terms</option>
+    <option value='/policy/relaying.php'>Mail Relay Policy</option>
+    <option value='/policy/opensrs_reg.php'>OpenSRS Agreement</option>
+    <option value='/other/overview.php'>Overview</option>
+    <option value='/terms/privacy.php'>Privacy Policy</option>
+    <option value='/policy/spam.php'>Spam Policy</option>
+    <option value='/policy/report.php'>Spam Reporting</option>
+    <option value='/policy/spam2.php'>Spam Updates</option>
+  </select>
+</form>
+  <br />
+  <span class='module_bullet'>&curren;</span> <a href='/contact.php'>Contact bright.net</a><br />
+  <br />
+<div align='center'>
+<form method='get' action='http://www.ask.com/web' target='_blank'><input type='text' class='text' name='q' size='12' maxlength='255' value='' style='width:125px;' /> <input type='submit' class='submit' value='Web Search' /><input type='hidden' name='search' value='search' /></form><br />
+</div>
+</div>
+
+</div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>BrightSite Login</div>
+  <div class='module_data'>  <div align='center'>
+   <form action='login.php' method='post'>
+    <table border='0' style='background-color:#ffffff;border:0px solid #999999;width:235px;'>
+      <tr>
+        <td class='cellBorder0' align='right'>Username: </td>
+        <td class='cellBorder0' align='left'>
+          <input type='text' name='username' class='textMedium' />
+        </td>
+      </tr>
+      <tr>
+        <td class='cellBorder0' align='right'>Password: </td>
+        <td class='cellBorder0' align='left'>
+          <input type='password' name='password' class='textMedium' />
+        </td>
+      </tr>
+      <tr>
+        <td class='cellBorder0' align='right'>
+          <span class='small'>Remember Me: </span>
+        </td>
+        <td class='cellBorder0' align='left'>
+          <input type='checkbox' name='createCookie' value='TRUE' checked />
+        </td>
+      </tr>
+      <tr>
+        <td class='cellBorder0' colspan='2' align='center'>
+          <input type='submit' value='Log In' class='submit' />
+        </td>
+      </tr>
+      <tr>
+        <td class='cellBorder0 small' colspan='2' align='center'>
+          <br /><br />BrightSite is a customizable homepage brought to you by bright.net Internet Services. To access BrightSite simply enter your bright.net username and password above and click "Log In" to begin.
+        </td>
+      </tr>
+    </table>
+   </form>
+  </div>
+</div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>bright.net News</div>
+  <div class='module_data'><div align='left'>
+<div style='text-align:center;font-weight:bold;color:red;font-size:16px;'>ALERT!</div><div style='text-align:center;color:red;'>bright.net will never send an email asking you to update your account information. Please do not respond to any emails asking you to do so.</div><br /><br /><div align='center'><b>NOW HIRING!</b></div><div align='left'>We are now hiring for the following positions:<br />
+<span class='module_bullet'>¤</span> <a href='http://www.cniteam.com/job_tech_support.php' target='_blank'>Call Support Technician</a><br />
+<span class='module_bullet'>¤</span> <a href='http://www.cniteam.com/job_cust_service.php' target='_blank'>Customer Service Representative</a><br />
+<span class='module_bullet'>¤</span> <a href='http://www.cniteam.com/job_net_tech.php'>Network Technician</a><br />
+<!--<span class='module_bullet'>¤</span> <a href='http://www.cniteam.com/job_net_tech_ii.php'>Network Technician, Level II</a>--><br />
+</div></div>
+
+</div>
+</div></div>
+
+<div class='module_row'></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>World News</div>
+  <div class='module_data'>  <div align='left'>
+<!-- Cached: 2018-03-22 19:17:18 -->
+
+    <span class='module_bullet'>&curren;</span> <a href='https://www.npr.org/sections/parallels/2018/03/22/596162877/in-mexico-candidates-move-away-from-cambridge-analytica?utm_medium=RSS&amp;utm_campaign=world' target='_blank'>In Mexico, Candidates Move Away From Cambridge Analytica</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.npr.org/sections/thetwo-way/2018/03/22/596142560/the-trash-patch-in-the-pacific-is-many-times-bigger-than-we-thought?utm_medium=RSS&amp;utm_campaign=world' target='_blank'>The Trash Patch In The Pacific Is Many Times Bigger Than We Thought</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.npr.org/2018/03/22/596180009/volunteer-network-in-ireland-helps-women-get-access-to-abortions?utm_medium=RSS&amp;utm_campaign=world' target='_blank'>Volunteer Network In Ireland Helps Women Get Access To Abortions</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.npr.org/2018/03/22/596179981/what-newly-proposed-tariffs-on-china-mean-for-the-u-s-business-community?utm_medium=RSS&amp;utm_campaign=world' target='_blank'>What Newly Proposed Tariffs On China Mean For The U.S. Business Community</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.npr.org/sections/thetwo-way/2018/03/22/596167727/dow-drops-724-points-amid-fears-of-a-u-s-trade-war-with-china?utm_medium=RSS&amp;utm_campaign=world' target='_blank'>Dow Drops 724 Points Amid Fears Of A U.S. Trade War With China</a></div>
+</div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>Virus &amp; Malware News</div>
+  <div class='module_data'>  <div align='left'>
+<!-- Cached: 2018-03-22 19:22:40 -->
+
+    <span class='module_bullet'>&curren;</span> <a href='https://www.virusbulletin.com/blog/2018/03/vb2017-paper-life-story-ipt-inept-persistent-threat-actor/' target='_blank'>VB2017 paper: The life story of an IPT - Inept Persistent Threat actor</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.virusbulletin.com/blog/2018/03/five-reasons-submit-vb2018-paper-weekend/' target='_blank'>Five reasons to submit a VB2018 paper this weekend</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.virusbulletin.com/blog/2018/03/first-partners-vb2018-announced/' target='_blank'>First partners of VB2018 announced</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.virusbulletin.com/blog/2018/03/vb2018-looking-technical-and-non-technical-talks/' target='_blank'>VB2018: looking for technical and non-technical talks</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.virusbulletin.com/blog/2018/03/partner-vb2018-extra-visibility-among-industry-peers/' target='_blank'>Partner with VB2018 for extra visibility among industry peers</a></div>
+</div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>Weather [The Weather Channel]</div>
+  <div class='module_data'><div align='center'>
+<form action='/functions/php/modules/weather.php' method='get'>
+Zip Code: <input type='text' class='text' name='change_zip' size='5' maxlength='5'><br />
+<br />
+<input type='submit' class='submit' value='Check Weather'>
+</form>
+</div>
+</div>
+</div></div>
+
+<div class='module_row'></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>ITunes Top Songs</div>
+  <div class='module_data'>  <div align='left'>
+<!-- Cached: 2018-03-22 19:23:29 -->
+
+    <span class='module_bullet'>&curren;</span> <a href='https://itunes.apple.com/album/in-my-blood/1359906692?i=1359907549&amp;uo=1&amp;v0=9990' target='_blank'>1. In My Blood - Shawn Mendes</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://itunes.apple.com/album/found-tonight/1358792601?i=1358792602&amp;uo=1&amp;v0=9990' target='_blank'>2. Found / Tonight - Ben Platt &amp; Lin-Manuel Miranda</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://itunes.apple.com/album/meant-to-be-feat-florida-georgia-line/1251713683?i=1251713725&amp;uo=1&amp;v0=9990' target='_blank'>3. Meant to Be (feat. Florida Georgia Line) - Bebe Rexha</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://itunes.apple.com/album/gods-plan/1337998105?i=1337998107&amp;uo=1&amp;v0=9990' target='_blank'>4. God's Plan - Drake</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://itunes.apple.com/album/whatever-it-takes/1349124524?i=1349124529&amp;uo=1&amp;v0=9990' target='_blank'>5. Whatever It Takes - Imagine Dragons</a></div>
+</div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>Amazon.com</div>
+  <div class='module_data'><iframe src='http://rcm-na.assoc-amazon.com/e/cm?t=brigh-20&o=1&p=27&l=qs1&f=ifr' width='180' height='150' frameborder='0' scrolling='no'></iframe></div>
+</div></div>
+
+<div class='module_container'><div class='module' id='module_id_'>
+  <div class='module_title'>Deal News</div>
+  <div class='module_data'>  <div align='left'>
+<!-- Cached: 2018-03-22 19:23:29 -->
+
+    <span class='module_bullet'>&curren;</span> <a href='https://www.dealnews.com/Callaway-Apparel-Clearance-Sale-Extra-30-off-free-shipping/17220614.html?iref=rss-dealnews-todays-edition' target='_blank'>Callaway Apparel Clearance Sale: Extra 30% off + free shipping</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.dealnews.com/Coach-Womens-HC6097-Optical-Glasses-for-55-free-shipping/17220632.html?iref=rss-dealnews-todays-edition' target='_blank'>Coach Women's HC6097 Optical Glasses for $55 + free shipping</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.dealnews.com/Edox-Mens-Les-Vauberts-Chronograph-Watch-for-199-free-shipping/17220461.html?iref=rss-dealnews-todays-edition' target='_blank'>Edox Men's Les Vauberts Chronograph Watch for $199 + free shipping</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.dealnews.com/CAP-Strength-Standard-Bench-100-lb.-Weights-for-70-free-shipping/17220482.html?iref=rss-dealnews-todays-edition' target='_blank'>CAP Strength Standard Bench, 100-lb. Weights for $70 + free shipping</a><br />
+    <span class='module_bullet'>&curren;</span> <a href='https://www.dealnews.com/J.Crew-Factory-Shirts-Buy-1-get-1-free-free-shipping-w-100/17220602.html?iref=rss-dealnews-todays-edition' target='_blank'>J.Crew Factory Shirts Buy 1, get 1 free + free shipping w/ $100</a></div>
+</div>
+</div></div>
+
+<div class='module_row'></div>
+
+
+          <!-- STOP $RIGHT_SIDE DUMP HERE -->
+        </div>
+        <div class='f-clear'></div>
+      </div>
+      <div id='footer'>bright.net is a service mark of <a href ='http://www.comnetteam.com/' target ='_blank'>Com Net, Inc.</a></div>
+    </div>
+  </body>
+</html>

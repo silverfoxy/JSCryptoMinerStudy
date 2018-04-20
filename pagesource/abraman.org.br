@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="iso-8859-1">    
+        <title>Abraman</title>
+<meta name='author' content='Aprimorar Desenvolvimento - http://www.aprimorar.com'/>
+
+
+<!-- Site CSS e Reset -->
+        <link rel="stylesheet" type="text/css" href="http://www.abraman.org.br/reset.css"/>
+        
+                	<link rel="stylesheet" type="text/css" href="http://www.abraman.org.br/estilos.css"/>
+                
+                
+        
+        <!-- Favicon -->
+        <link rel="icon" href="http://www.abraman.org.br/favicon.png" type="image/x-icon" />
+
+        <!-- RSS -->
+        <link type="application/rss+xml" rel="alternate" href="http://www.abraman.org.br/_rss/" />
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jquery-1.6.2.min.js"></script>
+
+        <!-- FancyBox(Modal de imagens uma ou varias) -->
+        <link rel="stylesheet" type="text/css" href="http://www.abraman.org.br/js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+        <script type="text/javascript" src="http://www.abraman.org.br/js/fancybox/jquery.fancybox-1.3.4.js"></script>
+
+        <!-- Cycle -->
+        <script type="text/javascript" src="http://www.abraman.org.br/js/chili-1.7.pack.js"></script>
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jquery.cycle.all.min.js"></script>
+
+        <!-- Ajax -->
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jquery.form.js"></script>
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jquery.aprimorar.js"></script>
+
+        <!-- Masked input -->
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jquery.maskedinput-1.3.js"></script>
+        
+        <!-- PopUp jqModal -->
+        <link rel="stylesheet" type="text/css" href="http://www.abraman.org.br/js/jqModal.css" media="screen" />
+        <script type="text/javascript" src="http://www.abraman.org.br/js/jqModal.js"></script>
+
+        
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    
+                     $("a.showimgmodal").fancybox();
+                    
+                    //Para igualar as alturas da sidebar e do conteudo principal					   
+                    var altura1 = $("#sidebar").height();
+                    var altura2 = $("#principal").height();
+                    if (altura1>=altura2){
+                        $("#principal").css('height',altura1);
+                    } else{
+                        $("#sidebar").css('height',altura2);
+                    }
+
+                    //Colocar margens
+                    $('.noticias-home li:even').css('margin-right','15px');
+                   // $('.publicidade li:even').css('margin-right','15px');
+
+                    //Banner		
+                    $('#imgcycle').cycle({
+                        fx:'fade',
+                        speed:'slow',
+                        timeout:5000,
+                        pager:'#navslide',
+                        pagerEvent:'mouseover'
+                    });
+					
+					$('#cycle').cycle({
+                        fx:'fade',
+                        speed:'slow',
+                        timeout:5000,
+                        pager:'#navslide_hotsite',
+                        pagerEvent:'mouseover'
+                    });
+                        
+                     $('.cycleEventos').cycle({
+                        fx:'fade',
+                        speed:'slow',
+                        timeout:5000
+                    });
+
+                    $('#cycleParceiros').cycle({
+                        fx:'fade',
+                        speed:'slow',
+                        timeout:5000
+                    });
+
+                    //PlaceHolder
+                    $('.limpavel').live('focusin',function(){
+                        $(this).prev('label').hide();
+                    }).live('focusout',function(){
+                        var valor = $(this).val();
+                        if(valor==''){
+                            $(this).prev('label').show();
+                        }
+                    }).live('keyup',function(){
+                        var valor = $(this).val();
+                        if(valor==''){
+                            $(this).prev('label').show();
+                        }else{
+                            $(this).prev('label').hide();
+                        }
+                    });	
+
+                    $('#formpesquisa').submit(function(){
+                        //se o campo nde pesquisa estiver vazio
+                        if($('#search').val() == ''){
+                            // exibe a mensagem de erro
+                            $("#vazio").show().delay(2000).fadeOut('fast');
+                                return false;
+                        }else{
+                                                        return true;
+                                                }
+                    });
+
+                    //Escritorios
+                    $('#Map area').mouseover(function(){
+                        var uf = $(this).attr('lang');
+                        $('#mapas img').hide();
+                        $('#mapas img[lang='+uf+']').show();
+                        $('.endereco').hide();
+                        $('.endereco[lang='+uf+']').show();
+                    });	
+
+                    $(".tel").mask("(99)9999-9999");
+
+                    //Agenda
+                    $('#cycleagenda').cycle({
+                        fx:'fade',
+                        speed:'slow',
+                        timeout:8000,
+                        next:'.prox-agenda',
+                        prev:'.voltar-agenda'
+                    });	
+
+                    //Submenu
+                    $("#menu li a").click(function(){
+                             var menu = $(this).attr("lang");
+                            if($('.'+menu).is(':visible')){
+                                    $('.'+menu).hide();
+                                    return false;
+                            }
+                            $('.submenu-principal').hide();    
+                            $('.'+menu).show();              
+                    });
+                    
+                    var myOpen = function(hash){hash.w.fadeIn('2000').show();};
+                    var myClose=function(hash) { hash.w.fadeOut('2000',function(){ hash.o.remove(); }); };
+                    
+                    $('#popup').jqm({
+                            onShow: myOpen,
+                            onHide: myClose
+                    }).jqmShow();
+                    
+                    $(".sub-1").mouseover(function(){
+                        $("#sub-1").css('visibility','visible');
+                    }).mouseout(function(){
+                        $("#sub-1").css('visibility','hidden');
+                    });					
+                
+                    $(".sub-2").mouseover(function(){
+                        $("#sub-2").css('visibility','visible');
+                    }).mouseout(function(){
+                        $("#sub-2").css('visibility','hidden');
+                    });					
+                
+                    $(".sub-3").mouseover(function(){
+                        $("#sub-3").css('visibility','visible');
+                    }).mouseout(function(){
+                        $("#sub-3").css('visibility','hidden');
+                    });					
+                
+                    $(".sub-4").mouseover(function(){
+                        $("#sub-4").css('visibility','visible');
+                    }).mouseout(function(){
+                        $("#sub-4").css('visibility','hidden');
+                    });					                   
+					
+					$(".submenu").mouseover(function(){
+                        $(this).css('visibility','visible');
+                    }).mouseout(function(){
+                        $(this).css('visibility','hidden');
+                    });
+					
+					 //Caixa de Login
+                    $("#indicacao").fancybox({
+                        'scrolling'		: 'no',
+                        'titleShow'		: false,
+                        'onClosed'		: function() {
+                        $("#login_error").hide();
+                        }
+                    });
+                    
+                    
+                });
+                    
+                function jqForm(nomeForm,divResult,aguarde,after){
+                    jqPost(nomeForm,divResult,null,null,aguarde,after);
+                }	
+            </script> 
+        
+
+    </head>
+    <body>                 
+        <!-- Topo -->
+        <div id="tudo">
+        	<!-- Popup -->
+            
+                            <div id="popup" class="jqmWindow">
+                    <a href="#" class="jqmClose"><span style="font-size:12px">FECHAR</span> <strong>X</strong></a>
+                    <!--<img id="fechar-pesquisador" src="http://www.abraman.org.br/layout/close.png" class="jqmClose" alt="Fechar" title="Fechar"/>-->
+                    <br />
+                    <a href='http://www.abraman.org.br/_Banners/clique/227' target='_self'><img src='http://www.abraman.org.br/Banners/227/chtt32018.png' alt='' title='' /></a>
+                    <div class="clear"></div>
+                </div>     
+               
+        
+            <div id="logo">
+            	<a href="http://www.abraman.org.br/index.php" title="Abraman"><img src="http://www.abraman.org.br/elementos/imagens/logo.png" alt="Abraman" title="Abraman"></a>
+            </div>
+            <div id="topo">
+                
+
+    <script>
+        $(document).ready(function(){
+            $('.idiomas > a > img').click(function(){
+                url = $(this).attr('src');
+                lingua = url.split('/');
+                if(lingua[5]=='en.png')
+                window.location = 'http://translate.google.com.br/translate?hl=pt-BR&sl=pt&tl=en&u=http%3A%2F%2Fwww.abraman.org.br%2F';
+                else if(lingua[5]=='sp.png')
+                window.location = 'http://translate.google.com.br/translate?sl=pt&tl=es&js=n&prev=_t&hl=pt-BR&ie=UTF-8&layout=2&eotf=1&u=http%3A%2F%2Fwww.abraman.org.br%2F&act=url';
+                else if(lingua[5]=='pt.png')
+                window.location = 'http://www.abraman.org.br/';
+                return false;
+            });
+        });
+    </script>
+  
+
+<div class="idiomas">
+	<span style="font-size:11px;font-style:italic;color:#fff;float:left;margin-left:25px">Rio de Janeiro, 22 de março de 2018 03:01</span>
+    <a href="#" title="Ver em Portugu&ecirc;s"><img src="http://www.abraman.org.br/elementos/imagens/pt.png" alt="Ver em Portugu&ecirc;s" title="Ver em Portugu&ecirc;s" /></a>
+    <a href="#" title="See in English"><img src="http://www.abraman.org.br/elementos/imagens/en.png" alt="See in English" title="See in English" /></a>
+    <a href="#" title="Ver en Espa&ntilde;ol"><img src="http://www.abraman.org.br/elementos/imagens/sp.png" alt="Ver en Espa&ntilde;ol" title="Ver en Espa&ntilde;ol" /></a>            
+</div>                <div class="clear espaco-pq"></div>
+                <div id="busca">
+                    <div class="clear espaco-pq"></div>
+                    <form name="formpesquisa" id="formpesquisa" action="http://www.abraman.org.br/_Search/buscar/default"  method="post">
+                        Pesquise na Abraman:<br/>
+                        <input value="" name="busca" type="submit" id="submitpesquisa" class="bt-busca"/>
+                        <div class="errocampo" id="vazio"><span>Digite algo</span></div>
+                        <input class="campo-busca" type="text" name="search" id="search" value=""/>
+                    </form>
+                </div>
+                <div class="clear espaco-pq"></div>
+                <div class="midias">
+                    <!-- Obtendo twitter, facebbok e youtube  home-->
+                    
+
+                                            <a href="http://www.facebook.com/pages/Associa%C3%A7%C3%A3o-Brasileira-de-Manuten%C3%A7%C3%A3o-e-Gest%C3%A3o-de-Ativos/342779275801534" title="Facebook"><img src="http://www.abraman.org.br/Links/2/4.png" alt="Facebook" title="Facebook"/></a>
+                                                <a href="http://www.linkedin.com/company/2942032?trk=tyah" title="Linkedin"><img src="http://www.abraman.org.br/Links/21/445.png" alt="Linkedin" title="Linkedin"/></a>
+                                                <a href="http://twitter.com/abraman_org" title="Twitter"><img src="http://www.abraman.org.br/Links/1/3.png" alt="Twitter" title="Twitter"/></a>
+                                                <a href="http://www.youtube.com/channel/UCxGsvhikq-d_0kTzXWgzDWw" title="Youtube"><img src="http://www.abraman.org.br/Links/3/5.png" alt="Youtube" title="Youtube"/></a>
+                                        </div>                
+            </div>
+            <div class="clear"></div>
+
+            <div class="clear espaco-md"></div>
+            <div id="conteudo">
+                
+                <ul id="menu">
+                    <li><a href="http://www.abraman.org.br/index.php" lang="Home">Home</a></li>
+                    
+                        
+                        <li><a href="http://www.abraman.org.br/institucional" lang="Institucional" title="Institucional" >Institucional</a></li>
+                    
+                        
+                        <li><a href="http://www.abraman.org.br/sidebar/congresso/cbm" lang="Congresso" title="Congresso" target="_parent">Congresso</a></li>
+                    
+                        
+                        <li><a href="http://www.abraman.org.br/global-forum" lang="Global Forum" title="Global Forum" >Global Forum</a></li>
+                    
+                        
+                        <li><a href="http://www.abraman.org.br/contato" lang="Contato" title="Contato" >Contato</a></li>
+                                    </ul>
+
+                
+
+                <div id="banner">
+                                        	
+                                        <div id="navslide"></div>
+                    <div id="imgcycle">
+                                                    <div id="figura-banner">
+                                <a href='http://www.abraman.org.br/_Banners/clique/220' target='_blank'><img src='http://www.abraman.org.br/Banners/220/vsemaseINSC2.jpg' alt='' title='' /></a>
+                            </div>
+                                                    <div id="figura-banner">
+                                <a href='http://www.abraman.org.br/_Banners/clique/221' target='_self'><img src='http://www.abraman.org.br/Banners/221/33cbmgaInsc2.jpg' alt='' title='' /></a>
+                            </div>
+                                                    <div id="figura-banner">
+                                <a href='http://www.abraman.org.br/_Banners/clique/219' target='_blank'><img src='http://www.abraman.org.br/Banners/219/BannerMBAGA.jpg' alt='' title='' /></a>
+                            </div>
+                                                    <div id="figura-banner">
+                                <a href='http://www.abraman.org.br/_Banners/clique/222' target='_blank'><img src='http://www.abraman.org.br/Banners/222/Cursos20181SEM.jpg' alt='' title='' /></a>
+                            </div>
+                                            </div>
+                </div><!-- /banner --> 
+                
+                <div class="clear"></div> 
+				
+                                    
+                    
+	<script>
+		$(function(){
+			$('.pai-filho').click(function(){
+				var url = $(this).attr('dir');
+				$('.'+url).toggle();
+			});
+		});
+	</script>
+
+ 
+ <div id="sidebar">
+    <div id="refreshLogin">
+    	
+
+
+  
+
+<h1>Login</h1>
+<h2>ACESSO AO CONTEÚDO RESTRITO</h2>
+
+<div class="caixa-login">
+	        <form action="http://www.abraman.org.br/_ajax/tpl_ajax_login/_usuarios/usuario" method="post" enctype="multipart/form-data" name="loginarearestrita" id="loginarearestrita" onsubmit="return false;">
+            <input type="hidden" name="formulario" value="loginarearestrita">
+            <label class="rotulo-login">Usuário</label><br>
+            <input name="login" type="text" class="campo-login"><br>
+            <label class="rotulo-login">Senha</label><br>
+            <input name="senha" type="password" class="campo-senha">
+            <input name="Enviar" type="submit" class="botao-logar" onclick="jqForm('loginarearestrita','refreshLogin','divaguardelogin');">
+            <div class="clear espaco-pq"></div>
+            <div id="divaguardelogin"  class="loading">
+                <img src="http://www.abraman.org.br/elementos/imagens/loading.gif" alt="Loading" title="Loading" />
+            </div>
+       </form>
+    </div>
+
+<!--<a href="#" class="link-login" title="">Esqueceu sua senha / usuário?</a><br>-->
+
+<!--<a href="http://www.abraman.org.br/login/como-acessar" class="link-login" title="Como Acessar">Como acessar?</a>-->
+<a href="http://www.abraman.org.br/associar-atualizar/associe-se" title="Associe-se" class="right"><img src="http://www.abraman.org.br/elementos/imagens/btn-associar.png" title="Associe-se" alt="Associe-se"/></a>    </div>
+
+    <div class="clear espaco-pq"></div>
+
+    <!-- Obtendo itens do Sidebar (Menu Lateral) -->
+
+    
+
+    <br />
+    <h1 style="text-align:center;">Produtos &AMP; Servi&ccedil;os</h1>
+    <ul class="menu-lateral">
+                    <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai-filho" style="cursor:pointer" dir="congresso">
+                    <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o titulo, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo-->
+                    <a href="#" title="Congresso" onclick="return false">Congresso</a>
+                </li>
+                <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o Resumo de calendarios, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo das filhas desta-->
+                                    <!-- Obtem as categorias filhas no menu lateral -->
+                                        	
+                    
+                                            <li class="filho congresso" style="display:none"><a href="http://www.abraman.org.br/sidebar/congresso/cbm" title="CBMGA">Congresso Brasileiro de Manuten&ccedil;&atilde;o e Gest&atilde;o de Ativos</a></li> 
+                                            <li class="filho congresso" style="display:none"><a href="http://www.abraman.org.br/sidebar/congresso/expoman_3" title="EXPOMAN">EXPOMAN</a></li> 
+                                    
+                <!-- Caso nÃƒÂ£o, exibe a categoria com link -->
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai">
+                    <a href="http://www.abraman.org.br/sidebar/calendarios" title="Calend&aacute;rios" >Cursos e Eventos</a>
+                </li>
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai">
+                    <a href="http://www.abraman.org.br/sidebar/pos-graduacoes-e-mbas" title="P&oacute;s-gradua&ccedil;&otilde;es e MBA's" >P&oacute;s-gradua&ccedil;&otilde;es e MBA's</a>
+                </li>
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai-filho" style="cursor:pointer" dir="outras-certificacoes">
+                    <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o titulo, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo-->
+                    <a href="#" title="Certifica&ccedil;&otilde;es Profissionais" onclick="return false">Certifica&ccedil;&otilde;es Profissionais</a>
+                </li>
+                <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o Resumo de calendarios, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo das filhas desta-->
+                                    <!-- Obtem as categorias filhas no menu lateral -->
+                                        	
+                    
+                                            <li class="filho outras-certificacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/outras-certificacoes/pnqc" title="PNQC">PNQC</a></li> 
+                                            <li class="filho outras-certificacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/outras-certificacoes/smrp" title="SMRP / CMRP">SMRP / CMRP</a></li> 
+                                            <li class="filho outras-certificacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/outras-certificacoes/cama" title="WPiAM / CAMA">WPiAM / CAMA</a></li> 
+                                    
+                <!-- Caso nÃƒÂ£o, exibe a categoria com link -->
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai">
+                    <a href="http://www.abraman.org.br/sidebar/documento-nacional" title="Documento Nacional" >Documento Nacional</a>
+                </li>
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai-filho" style="cursor:pointer" dir="bibliotecas-e-publicacoes">
+                    <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o titulo, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo-->
+                    <a href="#" title="Publica&ccedil;&otilde;es" onclick="return false">Publica&ccedil;&otilde;es</a>
+                </li>
+                <!-- Se estiver em CalendÃƒÂ¡rios aqui deve aparecer o Resumo de calendarios, caso nÃƒÂ£o, aparece por preferncia o resumo e na falta o titulo das filhas desta-->
+                                    <!-- Obtem as categorias filhas no menu lateral -->
+                                        	
+                    
+                                            <li class="filho bibliotecas-e-publicacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/bibliotecas-e-publicacoes/revista-manutencao" title="Revista Manuten&ccedil;&atilde;o">Revista Manuten&ccedil;&atilde;o</a></li> 
+                                            <li class="filho bibliotecas-e-publicacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/bibliotecas-e-publicacoes/apostilas-artigos-boletins-e-trabalhos-tecnicos" title="Artigos, Boletins e Trabalhos T&eacute;cnicos">Artigos, Boletins e Trabalhos T&eacute;cnicos</a></li> 
+                                            <li class="filho bibliotecas-e-publicacoes" style="display:none"><a href="http://www.abraman.org.br/sidebar/bibliotecas-e-publicacoes/newsletter" title="Newsletter">Newsletter</a></li> 
+                                    
+                <!-- Caso nÃƒÂ£o, exibe a categoria com link -->
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai">
+                    <a href="http://www.abraman.org.br/sidebar/links-uteis" title="Links &Uacute;teis" >Links &Uacute;teis</a>
+                </li>
+                                <!-- Caso esteja destacada, nÃ£o tem link e exibe as fillhas-->
+                            <li class="pai">
+                    <a href="http://www.abraman.org.br/sidebar/pas55" title="GEST&Atilde;O DE ATIVOS E PAS 55" >GEST&Atilde;O DE ATIVOS E PAS 55</a>
+                </li>
+                        </ul>
+</div><!-- /sidebar -->
+                
+                
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        //Para igualar as alturas da sidebar e do conteudo principal					   
+        var altura1 = $("#sidebar").height();
+        var altura2 = $("#principal").height() - 112;
+        if (altura1>=altura2){
+            $("#principal").css('height',altura1);
+        } else{
+            $("#sidebar").css('height',altura2);
+        }
+    });
+                    
+    function jqForm(nomeForm,divResult,aguarde,after){
+        jqPost(nomeForm,divResult,null,null,aguarde,after);
+    }	
+</script> 
+
+
+<div id="principal">
+    <!--Obtendo as 2 notícias da home-->
+    
+
+    <span class="titulo">Not&iacute;cias <a href="http://www.abraman.org.br/noticias" title="Not&iacute;cias" class="ver-todas">Ver Todas</a></span>
+
+    <ul class="noticias-home">
+                <li>
+            <div class="left">
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018_1" title="33&deg; CBMGA / EXPOMAN 2018" class="tit-not">33&deg; CBMGA / EXPOMAN 2018</a>
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018_1" title="33&deg; CBMGA / EXPOMAN 2018" class="resumo-not">ATEN&Ccedil;&Atilde;O! Prorrogado o prazo de inscri&ccedil;&atilde;o dos Trabalhos T&eacute;cnicos e envio das Sinopses!</a>
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018_1" title="33&deg; CBMGA / EXPOMAN 2018" class="leia-not">Leia mais</a>
+            </div>
+            <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018_1" title="33&deg; CBMGA / EXPOMAN 2018">
+                <img src="http://www.abraman.org.br/Materiais/640/3167_118x102.jpg" alt="33&deg; CBMGA / EXPOMAN 2018" title="33&deg; CBMGA / EXPOMAN 2018" class="right"/>
+            </a>
+        </li>
+                <li>
+            <div class="left">
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018" title="33&deg; CBMGA / EXPOMAN 2018" class="tit-not">33&deg; CBMGA / EXPOMAN 2018</a>
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018" title="33&deg; CBMGA / EXPOMAN 2018" class="resumo-not">Comiss&atilde;o Organizadora lan&ccedil;a Chamada para Trabalhos T&eacute;cnicos</a>
+                <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018" title="33&deg; CBMGA / EXPOMAN 2018" class="leia-not">Leia mais</a>
+            </div>
+            <a href="http://www.abraman.org.br/noticias/33-cbmga-expoman-2018" title="33&deg; CBMGA / EXPOMAN 2018">
+                <img src="http://www.abraman.org.br/Materiais/639/3165_118x102.jpg" alt="33&deg; CBMGA / EXPOMAN 2018" title="33&deg; CBMGA / EXPOMAN 2018" class="right"/>
+            </a>
+        </li>
+            </ul>
+    <div class="clear"></div>
+    <!--    <div class="clear espaco-pq"></div>
+        <a href="#" class="link-final" title="">CLIQUE E CADASTRE-SE PARA RECEBER NOTÍCIAS E INFORMAÇÕES SOBRE A ABRAMAN</a>-->
+
+    <br/>
+
+    <div class="agenda">
+        <a href="#" class="voltar-agenda">Voltar Agenda</a>
+        <a href="#" class="prox-agenda">Próximo Agenda</a>
+        <a href="http://www.abraman.org.br/sidebar/calendarios"><span class="tit-principal-agenda">Agenda</span></a>
+
+        <!-- Obtendo eventos da categoria calendários, dentro de sidebar-->
+        
+
+        <div id="cycleagenda">
+            <ul class="eventos">
+                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-azul">
+                                                        09/04 A 11/04                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-cinza">Gestão de Indicadores (KPI) e Custos na Manutenção</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/gestao-de-indicadores-kpi-e-custos-na-manutencao" title="Gestão de Indicadores (KPI) e Custos na Manutenção" class="link-cinza">Curitiba - PR</a>
+                </li>
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-azul">
+                                                        09/04 A 12/04                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-cinza">Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/planejamento-programacao-e-controle-de-manutencao-06-a-09-de-marco-de-2017" title="Planejamento, Programação e Controle de Manutenção - 09 a 12 de abril de 2018" class="link-cinza">São Paulo - SP</a>
+                </li>
+                            </ul>
+            <ul class="eventos">
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-azul">
+                                                        16/04 A 17/04                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-cinza">Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gemga" title="Gestão Estratégica da Manutenção e a Gestão de Ativos - 16 e 17 de abril de 2018" class="link-cinza">Belo Horizonte - MG</a>
+                </li>
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-azul">
+                                                        23/04 A 24/04                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-cinza">Análise de Falhas  - 23 e 24 de abril de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-v-sp-ms/analise-de-falha-19-e-20-de-dezembro-de-2016" title="Análise de Falhas  - 23 e 24 de abril de 2018" class="link-cinza">Filial V - São Paulo</a>
+                </li>
+                            </ul>
+            <ul class="eventos">
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-azul">
+                                                        24/04 A 27/04                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-cinza">SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/sap-pm-suportando-a-gestao-da-manutencao" title="SAP - PM SUPORTANDO A GESTÃO DA MANUTENÇÃO - 24 a 27 de abril de 2018" class="link-cinza">Curitiba - PR</a>
+                </li>
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-azul">
+                                                        02/05 A 04/05                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-cinza">Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/manutencao-sustentabilidade-e-gestao-de-ativos-as-melhores-praticas-para-uma-manutencao-sustentavel-cl" title="Auditoria e Otimização da Manutenção - 02 a 04 de maio de 2018" class="link-cinza">Rio de Janeiro - RJ</a>
+                </li>
+                            </ul>
+            <ul class="eventos">
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-azul">
+                                                        07/05 A 11/05                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-cinza">Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-cinza">Representação Regional Sul</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/manutencao-de-maquinas-eletricas-rotativas-de-alta-e-media-tensao_2" title="Manutenção de Máquinas Elétricas Rotativas de Média e Alta Tensão - 07 a 11 de maio de 2018" class="link-cinza">Londrina - PR</a>
+                </li>
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-azul">
+                                                        15/05 A 18/05                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-cinza">Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-cinza">Representação Regional Sul</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/planejamento-e-controle-de-manutencao-pcm_4" title="Planejamento e Controle de Manutenção - PCM - 15 a 18 de maio de 2018" class="link-cinza">Curitiba - PR</a>
+                </li>
+                            </ul>
+            <ul class="eventos">
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-azul">
+                                                        17/05 A 18/05                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-cinza">GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-iv-rj/gestao-de-paradas-com-tecnicas-do-pmi-30-e-31-de-maio-de-2017" title="GESTÃO DE PARADAS COM TÉCNICAS DO PMI - 17 e 18 de maio de 2018" class="link-cinza">Belo Horizonte - MG</a>
+                </li>
+                                                <li>
+                                            <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-azul">
+                                                        23/05 A 25/05                        </a>
+                                        <br/>
+                                        
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-cinza">Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018</a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-azul">Responsável:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-cinza"></a><br>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-azul">Local:</a>
+                    <a href="http://www.abraman.org.br/sidebar/calendarios/filial-vi-rs/-manutencao-produtiva-total-tpm-12-a-15-de-agosto-de-2013_2" title="Manutenção Produtiva Total - TPM  - 23 a 25 de maio de 2018" class="link-cinza"></a>
+                </li>
+                                            </ul>
+        </div>
+    </div>
+
+    <div class="revista">
+        <!-- Banner revista home -->
+        
+
+                <a href='http://www.abraman.org.br/_Banners/clique/226' target='_self'><img src='http://www.abraman.org.br/Banners/226/164Banner.jpg' alt='' title='' /></a>
+            </div>
+
+    <div class="clear"></div>
+
+    <div class="pos-agenda">
+        <form name="formpesquisa" id="formpesquisa" action="http://www.abraman.org.br/_Search/buscar/default"  method="post">
+            <h5>Encontre o curso, evento ou seminário de seu interesse</h5>
+            <p class="left">
+                Busca por <input name="" type="checkbox" value=""> Palavra-chave
+                <input name="" type="checkbox" value=""> Data
+                <input name="" type="checkbox" value=""> Filial
+            </p>
+            <input name="search" type="text" class="campo-senha" value="" style="width:80px; margin-left:5px;">
+            <input name="busca" type="submit" class="botao-logar">
+        </form>
+    </div>
+    <br/>
+    <div class="parceiros">
+        
+        <span class="tit">Parceiros</span>
+        <a href="http://www.abraman.org.br/parceiros" title="Parceiros" class="ver-todos-parceiros">Ver Todos</a>
+
+        <div id="cycleParceiros" style="margin-top: 15px;">
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/15/105_163x50.jpg" alt="ABM" title="ABM"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/22/519_163x50.jpg" alt="ABTCP" title="ABTCP"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/23/3161_163x50.jpg" alt="APMI" title="APMI"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/16/107_163x50.jpg" alt="FIM" title="FIM"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/17/108_163x50.jpg" alt="Global Forum" title="Global Forum"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/19/143_163x50.jpg" alt="IBP" title="IBP"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/6/104_163x50.jpg" alt="ICZ" title="ICZ"/>
+            </a>
+                        <a href="http://www.abraman.org.br/parceiros" title="Parceiros">
+                <img src="http://www.abraman.org.br/Links/8/518_163x50.jpg" alt="M&amp;T" title="M&amp;T"/>
+            </a>
+                    </div>
+    </div>
+
+    <div class="clear espaco-md"></div>
+    <br />
+
+    
+
+    <span class="titulo">Associe-se <a href="http://www.abraman.org.br/associar-atualizar/associe-se" title="Associe-se" class="ver-todas">CONHE&Ccedil;A TODAS AS VANTAGENS DE SER UM ASSOCIADO ABRAMAN</a></span>
+    <span class="titulo">Atualize seu Cadastro  <a href="http://www.abraman.org.br/associar-atualizar/associe-se" title="Atualize seu Cadastro " class="ver-todas">MANTENHA SEUS DADOS EM DIA</a></span>
+
+    <div class="clear espaco-md"></div>
+
+    <div id="refreshNewsletter">
+        
+    <script>
+        $(function(){
+           $('.limpavel').each(function(){
+               if($(this).val() != ''){
+                   $(this).prev().hide();
+               }
+           });
+        });
+        function validadados(){
+            var vouenviar = true;
+            $('.limpavel').each(function(){
+                if($(this).val() == ''){					
+                    $(this).prev().prev().show().delay(5000).fadeOut('fast');
+                    vouenviar = false;
+                    return false;
+                }else
+                    vouenviar = true
+            });
+            if(vouenviar)
+                jqForm('newsletterForm','refreshNewsletter','divaguardenews');
+        }
+    </script>
+
+
+
+
+    
+    <div class="box newsletter">
+        <h1 style="display:inline">Newsletter</h1>
+        <span class="imprensa"><a href="http://www.abraman.org.br/sidebar/bibliotecas-e-publicacoes/newsletter" class="chamada" style="float:right;background:none">VER TODAS</a></span>
+        <div class="clear espaco-pq"></div>
+        <form action="http://www.abraman.org.br/_ajax/tpl_ajax_newsletter/_Newsletter/cadastrar" method="post" enctype="multipart/form-data" onsubmit="return false;" name="newsletterForm" id="newsletterForm">
+            <input type="hidden" name="formulario" value="newsletterForm">
+            <ul>
+                <li>
+                    <div class="errocampo" style="width:102px;font-size:12px;"><span>Preencha o nome!</span></div>
+                    <label for="nome">NOME</label>
+                    <input type="text" name="nome" value="" class="limpavel campo-login" />
+                </li>
+                <li>
+                    <div class="errocampo" style="width:102px;font-size:12px;"><span>Preencha o email!</span></div>
+                    <label for="email">EMAIL</label>
+                    <input type="text" name="email" value="" class="limpavel campo-login" />
+                </li>
+                <li>
+                    <input type="submit" class="botao-news" value="Cadastrar" onClick="javascript:validadados();" /><span class="rotulo">Receba nossas not&iacute;cias por email</span>
+                    <div id="divaguardenews" style="position:absolute;margin:-15px 0 0 205px;display:none"><img src="http://www.abraman.org.br/elementos/imagens/loading.gif" title="Loading" alt="Loading" /></div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    </div>
+
+    <!-- Obtendo os formularios de imprensa -->
+    
+
+    <!-- Obtendo as outras categorias de imprensa -->
+    
+
+    <div class="box imprensa">
+        <h1>Imprensa</h1>
+        <div class="clear espaco-pq"></div>
+        <div style="position:absolute;filter:alpha(opacity=0);opacity:0.001;z-index:10;">
+<h2><a href="https://www.cheap-ray-ban.co.uk/" title="cheap ray bans sunglasses">cheap ray bans sunglasses uk</a></h2></div>
+                <a href="http://www.abraman.org.br/imprensa/formularios/contato-com-nossa-assessoria-de-imprensa" title="CONTATO COM NOSSA ASSESSORIA DE IMPRENSA" class="chamada">CONTATO COM NOSSA ASSESSORIA DE IMPRENSA</a><br/>
+                <a href="http://www.abraman.org.br/imprensa/formularios/credenciamento-para-cobertura-de-eventos" title="CREDENCIAMENTO PARA COBERTURA DE EVENTOS" class="chamada">CREDENCIAMENTO PARA COBERTURA DE EVENTOS</a><br/>
+        
+        <div class="clear"></div>
+
+                <a href="http://www.abraman.org.br/imprensa/downloads" title="Downloads" class="links-finais">Downloads</a>
+            </div>
+</div> 
+                <!-- /principal -->
+                <div class="clear"></div>
+                
+                            
+            </div><!-- /conteudo --> 
+             
+            <ul class="publicidade">
+                
+                            </ul>     
+            <div class="clear"></div>
+            <div id="rodape">
+                               
+                <div class="">ABRAMAN - Associa&ccedil;&atilde;o Brasileira de Manuten&ccedil;&atilde;o e Gest&atilde;o de Ativos<br />
+Av. Marechal C&acirc;mara, 160 - Sala 320 - Edif&iacute;&shy;cio Orly - Rio de Janeiro - RJ - Brasil<br />
+CEP 20020 080 - Telefone: (55) (21) 3231 7000 - Fax: (55) (21) 3231 7002</div>
+                <div style="position:absolute;width:125px;right:0;margin:-30px 30px 0 0;">
+                	<span style="font-size:10px;float:left;padding-bottom:5px;">Desenvolvido por:</span>
+                	<a href="http://www.aprimorar.com" title="Aprimorar Desenvolvimento" target="_blank"><img src="http://www.abraman.org.br/elementos/imagens/logo-aprimorar.png" width="65" style="margin-right:5px;"></a>
+                    <a href="http://www.quilombocomunicacao.com" title="Quilombo Comunicaçao" target="_blank"><img src="http://www.abraman.org.br/elementos/imagens/logo-quilombo.png" width="50"></a>
+                </div>
+            </div>
+        </div><!-- /tudo -->
+    </body>
+            <!-- Google Analytics -->
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34361325-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    
+</html>

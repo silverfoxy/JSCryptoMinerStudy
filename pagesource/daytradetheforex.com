@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://daytradetheforex.com/31-euro-open-strategy">redirected</a>.</body></html>

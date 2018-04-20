@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.baligam.co.il/">redirected</a>.</body></html>

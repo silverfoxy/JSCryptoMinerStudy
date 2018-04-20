@@ -1,0 +1,256 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>酒店预订网</title>
+<LINK href="Style/style.css" type=text/css rel=stylesheet>
+
+<Script language="JavaScript" type="text/JavaScript" src="/JS/Public.js"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/JavaScript" src="/Hotel/JS/calendar.js"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/JavaScript" src="/Hotel/JS/Date2.js"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/JavaScript" src="/Hotel/JS/JSDateFunction.js"></SCRIPT>
+<script language="javascript" type="text/javascript">
+function HotelSearchCheck()
+    {
+	if(document.form1.City.value == ""){
+						alert("请填写正确的目的地!");
+						return false;
+	}
+	if (document.form1.StartDate.value.length==0){
+	    alert("请选择或填写入住日期！");
+		document.form1.StartDate.focus();
+		return false
+	}	
+	if(!isDateString(document.form1.StartDate.value)){
+		alert("入住日期不符合格式规范或无效的日期！");
+		document.form1.StartDate.focus();
+		return false
+	}
+	if (stringToDate(document.form1.StartDate.value,true)<stringToDate("2018-3-20",true)){
+	    alert("入住日期不能早于2018-3-20！");
+		document.form1.StartDate.focus();
+		return false
+	}
+	if (compareDate1(today1,document.form1.StartDate.value)){
+		alert('本系统不支持晚于或等于'+document.form1.StartDate.value+'号的网上预订，如有需要请与酒店预订部联系，我们会竭诚为您服务。');
+		document.form1.StartDate.focus();
+		return false
+	}
+	if (document.form1.DepDate.value.length==0){
+		alert("请请选择或填写离店时间！");
+		document.form1.DepDate.focus();
+		return false
+	}	
+	if(!isDateString(document.form1.DepDate.value)){
+		alert("离店时间不符合格式规范或无效的日期！");
+		document.form1.DepDate.focus();
+		return false
+	}
+	if (stringToDate(document.form1.DepDate.value,true)<=stringToDate(document.form1.StartDate.value,true)){
+		alert("离店时间不能早于或等于入住时间"+document.form1.StartDate.value+"！");
+		document.form1.DepDate.focus();
+		return false
+	}
+
+	document.form1.action = "/SearchResult.asp";
+	return true;
+}
+</script>		
+</head>
+
+<body>
+
+
+
+<table width="1000"  border="0" align="center" cellpadding="0" cellspacing="0" style="background:url(/hotel/images/head_bg.jpg) repeat-x; height:101px;"  > 
+	<tr>
+		<td width="220" valign="top" style="border-bottom:#333333 1px solid; font-size:14px"><img src="/images/logo.gif" height="50" width="100" />精品酒店</td>
+		<td valign="bottom" style="border-bottom:#333333 1px solid; font-size:14px"><a href="/">首页</a></td> 
+		<td align="right" style="border-bottom:#333333 1px solid;">
+			<div >
+				<SCRIPT language=JavaScript>
+					var week; 
+					if(new Date().getDay()==0)     week=" 星期日"
+					if(new Date().getDay()==1)     week=" 星期一"
+					if(new Date().getDay()==2)     week=" 星期二" 
+					if(new Date().getDay()==3)     week=" 星期三"
+					if(new Date().getDay()==4)     week=" 星期四"
+					if(new Date().getDay()==5)     week=" 星期五"
+					if(new Date().getDay()==6)     week=" 星期六"
+					document.write(new Date().getFullYear()+"年"+(new Date().getMonth()+1)+"月"+new Date().getDate()+"日");
+					document.write("<span id='clock'></span>"); 
+					var now,hours,minutes,seconds,timeValue; 
+					function showtime(){
+					now = new Date(); 
+					hours = now.getHours(); 
+					minutes = now.getMinutes(); 
+					seconds = now.getSeconds(); 
+					timeValue = (hours >= 12) ? " 下午 " : " 上午 "; 
+					timeValue += ((hours > 12) ? hours - 12 : hours) + "点"; 
+					timeValue += ((minutes <10)?"0":"") + minutes+"分"; 
+					timeValue += ((seconds <10)?"0":"") + seconds+"秒"; 
+					clock.innerHTML = timeValue; 
+					setTimeout("showtime()",100); 
+					} 
+					showtime(); 
+					document.write("&nbsp;"+week);  
+					//--> 
+				</SCRIPT> 
+				<font color="#ffff00">预订电话：400-172-1188</font>
+				<a target="_self" href="javascript:homePage();">设为首页</a>&nbsp;|&nbsp;
+				<a target="_self" href="javascript:addBookmark();">加入收藏</a>
+			</div>
+		</td>
+		<td style="border-bottom:#333333 1px solid;">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3" valign="bottom">
+		<h1>&nbsp;&nbsp;恒硕酒店网</h1>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="right" valign="top">
+		
+							<form action="" method="post" name="form1" id="form1" style="padding:0px;margin:0px;" onSubmit="return HotelSearchCheck()">
+								<input type="hidden" value="" name="HR" id="HR">	
+								
+								城市 ：<input id=City name=City onblur=showSearch(this,1) type="text" class="text" size="20" maxlength="20"  style="width:60px;height:15px; COLOR: #b2b2b2" onfocus=showSearch(this) onClick="this.value=''" onKeyUp="suggest.display(this,'cityName',event)" value="">
+								&nbsp;&nbsp;&nbsp;&nbsp;入住日期:
+								<input class="text" name="StartDate" type="text" style="width:70px;height:16px; "  id="StartDate"  onclick="event.cancelBubble=true;showCalendar('StartDate',false,'StartDate',null,null,'DateID');"> 
+								&nbsp;<span class="Text">离店日期:</span>
+								<input class="text" name="DepDate"  type="text" style="width:70px;height:16px; "   id="DepDate"    onclick="event.cancelBubble=true;showCalendar('DepDate',false,'DepDate','StartDate',null,'DateID');">
+								酒店名 ：</label><input class="text" name="HotelName" type="text"  style="width:80px;height:15px; COLOR: #b2b2b2" id="HotelName" value="" onClick="this.value=''">
+												&nbsp;
+							 <input name="image"  type="image" style="vertical-align:bottom" src="/hotel/images/button_getrates.gif">	&nbsp;&nbsp;
+								</Form>
+		
+		</td>
+		<td></td>
+	</tr>
+	
+</table>
+
+
+<table width="1000"  border="0" cellpadding="0" cellspacing="0" align="center"  class="main">
+	<tr>
+		<td align="center" valign="top">
+		<table  border="0" cellpadding="0" cellspacing="0" align="top">
+	<tr>
+		<td width="160" valign="top" valign="top">
+			<img src="/hotel/images/left_pic.jpg">
+		</td>
+		<td valign="top">
+			<div class="menu fl">
+				<ul>
+						<li><a href="/" id="left_Home" class="cur"><span>Homepage</span><br>
+								网站首页</a></li>
+						<li><a href="/SearchResult.asp" id="left_OnlineBooking"><span>
+								On-line Booking</span><br>
+								酒店预订</a></li>
+						<li><a href="/help.asp" id="left_AboutUs"><span>Help</span><br>
+								预订帮助</a></li>
+						<li><a href="/about.asp" id="left_Facilities"><span>About us</span><br>
+								关于我们</a></li>
+						<li><a href="/contact.asp" id="left_Location"><span>Contact us</span><br>
+								联系我们</a></li>
+						
+				</ul>
+			</div>
+		</td>
+	</tr>
+</table>
+		</td>
+		<td align="center" >
+			<table  border="0" cellpadding="0" >
+				<tr><td>
+			         <div class="main_m ">
+                <div class="m_t">
+                    <img src="/hotel/images/menu_t_03.png"></div>
+                <div class="m_b">
+                    <img src="/hotel/images/menu_b_03.png"></div>
+                <div class="main_content">
+                    <div>
+                        <img src="/hotel/images/PIC.jpg"></div>
+                    <div class="introduction">
+                        <div class="h1">
+                            </div>
+                        <div class="content">
+						
+						<p>
+						    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本网站-“恒硕酒店网”由合肥正杰信息咨询有限公司负责开发与运营，以网站系统为工具，以数字化资源整合为手段，提供信息时代的快捷高效的沟通服务。在这里,我们能让酒店的信息得到更高效直接的展示。让客人按健即可完成预订传达，提供无纸化的自助化预订服务。<br>
+											
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作高效率的基础在于沟通的畅顺，在数字化、信息化时代，我们志在建立起手指按键就能达成无障碍的清晰沟通服务。<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在酒店信息资源上：我们并没有与每一间做了展示的酒店签约，而是利用互联网的开放性，利用技术进行采集；<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从展示上：和其它一些网络公司对比，有些网站比较强调自己平台，强调通过其平台能提供不同酒店的预订服务，并且其平台也不同的酒店进行对比，他们是平台在前，酒店在后；我们淡化平台，强调酒店本身。通过技术与推广，让酒店信息得更多的展示，让想了解这间酒店的人，更加容易更加直接地找到酒店，而不是先找到某个网站平台；我们用干净、惟一的方式展示酒店，并且不进行酒店之间的对比；<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从技术上：我们对一部分酒店同时进行了单一的网站展示，不进行太多的关联性对比，因为内容的相关性更强，在包括搜索引擎的各类网络资源中，酒店的信息会得到更多更直接的展示；<br>
+		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从定位上：总有一部分客人想直接地了解酒店，而不是在某个平台上万间酒店中浏览挑选对比，而我们采取的是更加直接，快捷推广展示方式就是针对这类客人；<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经营模式上：我们在展示酒店信息的同时，也提供恒硕酒店网预订，我们并不直接收取客人的任何费用，只是将客人的信息转到第三方渠道，再由第三方渠道将预订信息发到酒店，预订的客人也是到了酒店才支付费用。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们的追求：高效快捷，精确简洁！<br>
+					
+					</p>
+
+
+						
+						
+                        </div>
+                    </div>
+                    <div class="fl ">
+                        <div class="p1">
+                            <img src="/hotel/images/theme-promotion.jpg"></div>
+                        <div class="call">
+                            <h2>
+                                联系方式</h2>
+                            <p>
+                                订房专线：400-172-1188<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+								
+								
+								
+            </div>
+		</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<table width="1000"  border="0" align="center" cellpadding="0" cellspacing="0" style="background:url(/Hotel/images/end_bg.jpg); "  > 	
+	<tr>
+		<td width="30%">
+		<img src="/hotel/images/theme-telbssh.jpg" />
+		</td>
+		<td align="left" width="70%" style="line-height:20px">
+			<a href="/">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/contact.asp">联系我们</a>
+			合肥正杰信息咨询有限公司 如您有任何建议或投诉，请联系hotel-reservations@foxmail.com<br />
+			<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备17053090号-1</a>   &nbsp;&nbsp;Copyright 1999-2013, All rights reserved.
+		</td>
+	</tr>
+</table>
+
+
+<div style="display:none">
+
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/16368617.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?81a1ee19c74968b3f29695e5e6062d31";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+
+</body>
+</html>

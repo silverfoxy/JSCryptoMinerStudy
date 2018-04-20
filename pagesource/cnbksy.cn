@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/public/common/image/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/public/common/image/favicon.ico" type="image/x-icon"/>
+    <link rel="bookmark" href="/public/common/image/favicon.ico" type="image/x-icon"/>
+    <title>全国报刊索引</title>
+    <meta name='_csrf_parameter' content='_csrf'/><meta name='_csrf_header' content='X-XSRF-TOKEN'/><meta name='_csrf' content='7a20dea6-c85f-423e-94d5-4755d2008664'/>
+    <link rel="stylesheet" href="/public/plugin/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/layui/css/layui.css">
+    <link href="/public/plugin/iCheck/skins/minimal/red.css" rel="stylesheet">
+    <link href="/public/portal/style/bksyPortal.css?version=V20180308"
+          rel="stylesheet" type="text/css"/>
+    <script src="/public/plugin/jquery/jquery-1.11.3.js"></script>
+    <script src="/public/layui/layui.js"></script>
+    <script type="text/javascript" src="/public/plugin/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/plugin/bootstrap/dist/js/bootstrap-hover-dropdown.min.js"></script>
+    <script type="text/javascript" src="/public/plugin/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="/public/plugin/iCheck/icheck.js"></script>
+    <script src="/public/plugin/handlebars/handlebars.js"></script>
+    <script src="/public/portal/js/app4O.js?version=V20180308"></script>
+    <link href="/public/plugin/toastr/toastr.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/public/plugin/xss/xss.js"></script>
+    <script language="JavaScript" src="/public/plugin/toastr/toastr.js"></script>
+    <script src="/public/common/js/common.js?version=V20180308"></script>
+    <script type="text/javascript">
+        $(function () {
+            var infomsg = "";
+            if (infomsg != "") {
+                msgError(infomsg);
+            }
+            $('.toggle').each(function () {
+                $('div:first', this).addClass('first');
+                $('div:last', this).addClass('last');
+            });
+        });
+        //关闭左侧广告
+        $(function () {
+            //$('.sideLeft').animate({right:'10px'},1000);
+            $('.slClose .close').click(function () {
+                $('.sideLeft').hide();
+                $('.slClose').hide();
+            });
+        });
+        //关闭右侧广告
+        $(function () {
+            //$('.sideRight').animate({right:'10px'},1000);
+            $('.srClose .close').click(function () {
+                $('.sideRight').hide();
+                $('.srClose').hide();
+            });
+        });
+        //关闭顶部广告
+        $(function () {
+            //$('.sideRight').animate({right:'10px'},1000);
+            $('.topAd .close').click(function () {
+                $('.topAd').hide();
+            });
+        });
+        //定时器自动关闭顶部广告
+        $(function closeTopAd() {
+            setTimeout("hide()", 10000);
+        });
+        function hide() {
+            $('.topAd').hide();
+        }
+    </script>
+    <style type="text/css">
+        body {
+            background: #522625;
+        }
+
+        #homeContainer {
+            width: 1250px;
+            margin: 0 auto;
+        }
+
+        #noticePanel {
+            position: relative;
+            float: right;
+            right: 68px;
+            top: 432px;
+        }
+
+        .sideLeft {
+            background-color: #FFEFDC;
+            height: 330px;
+            width: 8%;
+            top: 170px;
+            left: 3px;
+            position: fixed;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        /*.sideLeft .close{width:12px; height:22px; line-height:22px;display:block; float:right;}*/
+        .sideRight {
+            background-color: #FFEFDC;
+            height: 330px;
+            width: 8%;
+            top: 170px;
+            right: 3px;
+            position: fixed;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        /*.sideRight .close{width:12px; height:22px; line-height:22px;display:block; float:left;}*/
+        .topAd {
+            width: auto;
+            min-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        /*.topAd.close{width:12px; height:22px; line-height:22px;display:block; float:left;}*/
+
+        .btn-link{
+            color:white;
+            font-size: 16px;
+        }
+
+        .dropdown-menu{
+            background-color: transparent;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            border: none;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown-menu > li > a{
+            color: white;
+            font-size: 16px;
+        }
+
+        .dropdown-menu > li > a:hover,
+
+        .dropdown-menu > li > a:focus {
+            color: #262626;
+            background-color: transparent;
+        }
+
+        label {
+            display: inline-block;
+            /*font-weight: bold;*/
+            margin-bottom: 5px;
+            max-width: 100%;
+            font-weight: normal;
+            color: black
+        }
+    </style>
+<link rel="stylesheet" href="/public/plugin/typeahead/typeahead.css">
+<script type="text/javascript" src="/public/plugin/typeahead/typeahead.bundle.js"></script>
+<script type="text/javascript">
+    var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+            console.log(q);
+            var matches, substringRegex;
+            matches = [];
+            var count = 0;
+            substrRegex = new RegExp(q, 'i');
+            $.each(strs, function (i, str) {
+                if (substrRegex.test(str) && count < 4) {
+                    count++;
+                    matches.push(str);
+                }
+            });
+            cb(matches);
+        };
+    };
+
+    var searchHint=function (fields,hideclass) {
+        bksy.post("/common/hints", null, function (result) {
+            var conditions = result;
+            $.each(fields, function (index, item) {
+                $(item).typeahead({
+                        hint: true,
+                        highlight: true,
+                        minLength: 1
+                    },
+                    {
+                        name: 'conditions',
+                        source: substringMatcher(conditions)
+                    });
+            });
+            if(hideclass) {
+                $(".twtypeahead").removeClass("twtypeahead");
+            }
+        });
+    };
+
+    var applyHint=function (item,otherdata) {
+        $(item).typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'conditions',
+                source: substringMatcher(otherdata)
+            });
+    };
+</script></head>
+<body>
+<div id="homeContainer">
+    <div id="header">
+        <div class="headerLine"></div>
+        <div id="topBar">
+            <table>
+                <tr>
+                    <!--<td><a href="/signUp" class="white pdh-10">注册</a></td>-->
+                    <!--<td class="splitter"></td>-->
+                    <td><a href="/login" class="white pdh-10">登录</a></td>
+                    <td class="splitter"></td>
+                    <td>
+                        <div class="theme3">
+<div class="btn-group langswitch">
+    <a type="button" class="btn btn-link dropdown-toggle"
+            data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">
+        简体中文
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="/home/changeLanguage?locale=zh_TW&_csrf=7a20dea6-c85f-423e-94d5-4755d2008664" data-ajax=true
+               data-ajax-method="POST"
+               data-ajax-success="window.location.reload()"><span>繁體中文</span></a></li>
+        <li><a href="/home/changeLanguage?locale=en&_csrf=7a20dea6-c85f-423e-94d5-4755d2008664" data-ajax=true
+               data-ajax-method="POST"
+               data-ajax-success="window.location.reload()"><span>English</span></a></li>
+    </ul>
+</div>                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="headerLogo">
+            <a href="/"><img src="/public/common/image/blank.gif" height="66" width="330"></a>
+        </div>
+    </div>
+    <div id="content" class="ctx">        <div id="searchBox">
+<script type="text/javascript" src="/public/handlebars/range.handlebars.js?version=V20180308"></script>
+<script type="text/javascript" src="/public/handlebars/type.handlebars.js?version=V20180308"></script>
+<div class="searchRange" >
+    <ul id="searchRange">
+        <li><input type="checkbox" class="icheckbox" checked id="searchAll" name="searchAll"/><label
+                for="searchAll">所有资源</label></li>
+    </ul>
+</div>
+<div class="searchInput">
+    <table cellpadding="0" cellspacing="0" style="border:none;width:100%;">
+        <tr>
+                <td><input id="searchText" type="text" name="searchText" class="cls_search_text" value=''></td>
+            <td style="width:61px;">
+                <div id="searchButton"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="searchType">
+    <ul id="searchType">
+        <li><input type="radio" name="searchTypeOption" checked id="atAll" name="artileType"/><label for="atAll">全部类型</label>
+        </li>
+    </ul>
+    <div class="fr pr">
+        <a href="/search/advance">高级检索</a>&nbsp;&nbsp;&nbsp;
+        <a href="/search/special">专业检索</a>
+        &nbsp;&nbsp;&nbsp;<a href="/literature">文献导航</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        //从首页选中的内容传递过来
+        var ranges = ''.split(",");
+        var types = ''.split(",");
+
+        searchHint([$("#searchText")]);
+
+        //文章类型和文献分类联动的选择控制
+        //by Simon.HJ.Song
+        bksy.post("/common/searchOptions", null,function (result) {
+            {
+                var findfail = false;
+                var allfail = true;
+                $.each(result.type, function () {
+                    if (types.indexOf(this.value) != -1) {
+                        this.checked = true;
+                        allfail = false;
+                    }
+                    else {
+                        findfail = true;
+                    }
+                });
+                if (findfail && !allfail) {
+                    $("#atAll").prop("checked", false);
+                }
+                else {
+                    setTimeout(function () {
+                        $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+                            $(this).iCheck('uncheck');
+                        });
+                    }, 100);
+
+                    $.each(result.type, function () {
+                        this.checked = false;
+                    });
+                }
+                $("#searchType").append(Handlebars.templates.type({data: result.type}));
+                if (ranges.length == 1) {
+                    for (var ix = 0; ix < result.range.length; ix++) {
+                        if (result.range[ix].value == ranges[0]) {
+                            if ('' == Enumerable.from(result.range[ix].linked).select("$.value").toArray().join(",")) {
+                                $("#atAll").prop("checked", true);
+                            }
+                            break;
+                        }
+                    }
+                }
+                $('#searchType input').on('ifClicked', function (event) {
+                    that = $(this);
+                    if (that.attr("id") == "atAll") {
+                        $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+                            $(this).iCheck('uncheck');
+                        });
+                        if (that.prop("checked")) {
+                            setTimeout(function () {
+                                $("#atAll").iCheck("check");
+                            }, 100);
+                            return false;
+                        }
+                    }
+                    else {
+                        if (!that.prop("checked")) {
+                            var ret = true;
+                            $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+                                if (this.id != that.attr("id")) {
+                                    ret &= $(this).prop("checked");
+                                }
+                            });
+                            if (ret) {
+//                                $("#atAll").iCheck('check');
+//                                setTimeout(function () {
+//                                    $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+//                                        $(this).iCheck('uncheck');
+//                                    });
+//                                }, 100);
+                            }
+                            else {
+                                $("#atAll").iCheck('uncheck');
+                            }
+                        }
+                        else {
+                            var ret = false;
+                            if (!ret) {
+                                $("#atAll").iCheck('check');
+                                $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+                                    $(this).iCheck('uncheck');
+                                });
+                            }
+                            else {
+                                $("#atAll").iCheck('uncheck');
+                            }
+                        }
+                    }
+                }).iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+            }
+            {
+                findfail = false;
+                allfail = true;
+                $.each(result.range, function () {
+                    if (ranges.indexOf(this.value) != -1) {
+                        this.checked = true;
+                        allfail = false;
+                    }
+                    else {
+                        findfail = true;
+                    }
+                });
+                if (findfail && !allfail) {
+                    $("#searchAll").iCheck('uncheck');
+                    setTimeout(function () {
+                        refreshRT(result, null);
+                    }, 100);
+                }
+                else {
+                    setTimeout(function () {
+                        $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                            $(this).iCheck('uncheck');
+                        });
+                    }, 100);
+                }
+
+                $("#searchRange").append(Handlebars.templates.range({data: result.range}));
+                $('#searchRange input').on('ifClicked', function (event) {
+                    that = $(this);
+                    if (that.attr("id") == "searchAll") {
+                        $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                            $(this).iCheck('uncheck');
+                        });
+                        if (that.prop("checked")) {
+                            setTimeout(function () {
+                                $("#searchAll").iCheck("check");
+                            }, 100);
+                            return false;
+                        }
+                    }
+                    else {
+                        if (!that.prop("checked")) {
+                            var ret = true;
+                            $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                                if (this.id != that.attr("id")) {
+                                    ret &= $(this).prop("checked");
+                                }
+                            });
+                            if (ret) {
+                                $("#searchAll").iCheck('check');
+                                setTimeout(function () {
+                                    $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                                        $(this).iCheck('uncheck');
+                                    });
+                                }, 100);
+                            }
+                            else {
+                                $("#searchAll").iCheck('uncheck');
+                            }
+                        }
+                        else {
+                            var ret = false;
+                            $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                                if (this.id != that.attr("id")) {
+                                    ret |= $(this).prop("checked");
+                                }
+                            });
+                            if (!ret) {
+                                $("#searchAll").iCheck('check');
+                            }
+                            else {
+                                $("#searchAll").iCheck('uncheck');
+                            }
+                        }
+                    }
+                    refreshRT(result, that);
+                }).iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+            }
+            if (ranges[0] != "") {
+                setTimeout("doSearching();", 200);
+            }
+        });
+
+        function refreshRT(result, that) {
+            // 上面选了全部，那么就不要隐藏
+            if ($("#searchAll").prop("checked") || (that != null && that.attr("id") == "searchAll" && !$("#searchAll").prop("checked"))) {
+                $("#searchType > li").removeClass("invisible");
+            }
+            else {
+                var pt1 = false, pt2 = false, pt3 = false;
+                $("#searchRange > li:not(.invisible) input:not(#searchAll)").each(function () {
+                    if ((that == null && $(this).prop("checked")) || ( that != null && (($(this).prop("checked") && this.id != that.attr("id")) || (this.id == that.attr("id") && !that.prop("checked"))))) {
+                        for (var i = 0; i < result.range.length && (!(pt1 && pt2 && pt3)); i++) {
+                            if (result.range[i].id == $(this).prop("id")) {
+                                for (var j = 0; j < result.range[i].linked.length && (!(pt1 && pt2 && pt3)); j++) {
+                                    if (result.range[i].linked[j].id == "pt1") {
+                                        pt1 = true;
+                                    } else if (result.range[i].linked[j].id == "pt2") {
+                                        pt2 = true;
+                                    } else {
+                                        pt3 = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                if (pt1) {
+                    $("#ptpt1").removeClass("invisible");
+                }
+                else {
+                    $("#ptpt1").addClass("invisible");
+                }
+                if (pt2) {
+                    $("#ptpt2").removeClass("invisible");
+                }
+                else {
+                    $("#ptpt2").addClass("invisible");
+                }
+                if (pt3) {
+                    $("#ptpt3").removeClass("invisible");
+                }
+                else {
+                    $("#ptpt3").addClass("invisible");
+                }
+                var ret = false;
+                var allt = true;
+                $("#searchType > li:not(.invisible) input:not(#atAll)").each(function () {
+                    ret = ret || $(this).prop("checked");
+                    allt = allt && $(this).prop("checked");
+                });
+                if (!ret) {
+                    $("#atAll").iCheck('check');
+                }
+                if (!allt && ret) {
+                    $("#atAll").iCheck('uncheck');
+                }
+            }
+        }
+
+        function doSearch() {
+            var params = prepareRequest();
+                console.log(params)
+                if (!params.searchContent || params.searchContent.trim() == "" || params.searchContent.trim() == "*") {
+                    msgError("不支持进行空检，请输入检索内容!");
+                    return;
+                }
+            if (window.location.href.indexOf("search") == -1) {
+                window.location.href = '/search' + "?" + $.param(params);
+            }
+            else {
+                doSearching();
+            }
+        }
+
+        //检索按钮相应函数
+        $('.cls_search_text').keypress(function (event) {
+            if (event.keyCode == "13") {
+                if (typeof(facetComponent) != "undefined") {
+                    facetComponent.clearFacets();
+                }
+                doSearch();
+            }
+        });
+
+        $('#searchButton').click(function () {
+            if (typeof(facetComponent) != "undefined") {
+                facetComponent.clearFacets();
+            }
+            doSearch();
+        });
+
+        function searchAuthor(author) {
+            bksy.formPost("/search/author", {"author": author},{target: "_blank"});
+        }
+    });
+
+
+</script>        </div>
+        <div id="showPanel">
+            <table>
+                <tr>
+                    <td style="width:30px;">
+                        <div id="leftNav"></div>
+                    </td>
+                    <td style="width:160px;">
+                        <div class="picHeaderWrapper">
+                            <div style=" width:130px;height: 29px;"></div>
+                            <div class="cls_pic picUnSelecedEffect">
+                                <a id="firstLink" href="/product/productDescription?id=24&isProduct=false">
+                                    <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041b1491604ac82835451d30539dcaa767"/>
+                                    <span id="shine" class="shine">&nbsp;</span>
+                                </a>
+                            </div>
+                            <div class="gTitle ">
+                                <a href="" <!--style="font-size:16px;"-->>图述百年——中国近代文献图库(1833~1949)</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td id="id_picSliderBg">
+                        <div class="picSliderBg">
+                            <div class="picPosition">
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8') no-repeat;">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            时报（1904～1939）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc') no-repeat;">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            新闻报（1893～1949）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646') no-repeat;">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            字林洋行中英文报纸全文数据库(1850～1951)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8') no-repeat;">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            晚清期刊全文数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5') no-repeat;">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            民国时期期刊全文数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e') no-repeat;">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            晚清期刊篇名数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903') no-repeat;">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            民国时期期刊篇名数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de') no-repeat;">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            现刊索引数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81') no-repeat;">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            “一带一路”专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd') no-repeat;">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            自由贸易试验区建设专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec') no-repeat;">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            科技创新中心专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8') no-repeat;">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            时报（1904～1939）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc') no-repeat;">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            新闻报（1893～1949）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646') no-repeat;">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            字林洋行中英文报纸全文数据库(1850～1951)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8') no-repeat;">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            晚清期刊全文数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5') no-repeat;">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            民国时期期刊全文数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e') no-repeat;">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            晚清期刊篇名数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903') no-repeat;">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            民国时期期刊篇名数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de') no-repeat;">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            现刊索引数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81') no-repeat;">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            “一带一路”专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd') no-repeat;">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            自由贸易试验区建设专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec') no-repeat;">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            科技创新中心专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8') no-repeat;">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44046f1d00378ec45035344dda6ac83adae8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=202&isProduct=true">
+                                            时报（1904～1939）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc') no-repeat;">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404f89ece4ccfe4e9f6380459fdd6d238bc"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=122&isProduct=true">
+                                            新闻报（1893～1949）</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646') no-repeat;">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44041d26b7d35dc35d2cfef88f3b49255646"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=20&isProduct=false">
+                                            字林洋行中英文报纸全文数据库(1850～1951)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8') no-repeat;">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404e3be918f7163d61c585a285c638d78d8"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=11&isProduct=false">
+                                            晚清期刊全文数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5') no-repeat;">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042834bb8dfa1ee1f7cd095828d871a1b5"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=12&isProduct=false">
+                                            民国时期期刊全文数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e') no-repeat;">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c440410cc758271f18bd3586e6c8c105c621e"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=13&isProduct=false">
+                                            晚清期刊篇名数据库(1833～1911)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903') no-repeat;">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44045611ed9232864fe10b3105c51efd2903"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=14&isProduct=false">
+                                            民国时期期刊篇名数据库(1911～1949)</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de') no-repeat;">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404c8f5c93d189378fa2831e4e36fc710de"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=15&isProduct=false">
+                                            现刊索引数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81') no-repeat;">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44049c52fa81b72bce378c7b3bc921a02e81"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=22&isProduct=false">
+                                            “一带一路”专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd') no-repeat;">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c44042a2f5de3710a0316943329ae4cfaedfd"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=21&isProduct=false">
+                                            自由贸易试验区建设专题数据库</a>
+                                    </div>
+                                </div>
+                                <div class="picWrapper">
+                                    <div class="gHeader"></div>
+                                    <div class="picUnSelecedEffect cls_pic"
+                                         style="background: url('/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec') no-repeat;">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            <img style="width:130px;height: 94px;" src="/common/file/1d3290aa7ae3af419454f4cafd1c497ba00e2cf215eee1bc77343115235c4404bdf4c265ddc425a3ef45dc6ee7628fec"/></a>
+                                    </div>
+                                    <div class="gTitle ">
+                                        <a href="/product/productDescription?id=23&isProduct=false">
+                                            科技创新中心专题数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width:30px;">
+                        <div id="rightNav"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var  holderlight=false;
+        var ele=$("#shine");
+
+        function am() {
+            if (!holderlight) {
+                var seed = Math.floor(Math.random() * (3000) + 1000);
+                ele.css("background-position", "-200px 0");
+                ele.animate({backgroundPositionX: 100, backgroundPositionY: 0}, seed, am);
+            }
+        }
+
+        $(function () {
+            //无缝滚动代码
+            var step = 1;
+            var delay = 20;
+            var direction = -1;//默认向左滚动 1 右边  -1 左边
+
+            var size = $('#id_picSliderBg .picWrapper').length;
+            var width = 150 * size;
+            $('#id_picSliderBg .picPosition').css("width", width);
+            var timer = buildTimer(direction);
+
+            function buildTimer(direction) {
+                return setInterval(scroll(direction), delay);
+            }
+
+            function _scroll(direction) {
+                var left = $('#id_picSliderBg .picPosition').position().left;
+                //alert(left+ "," + width/2 )
+                if (left < -(width / 3)) {
+                    $('#id_picSliderBg .picPosition').css("left", "0px");
+                }
+                else if (left > 0) {
+                    $('#id_picSliderBg .picPosition').css("left", (-(width / 3 - 1)) + "px");
+                }
+                else {
+                    $('#id_picSliderBg .picPosition').css("left", left + direction * step + "px");
+                }
+            }
+
+            function scroll(direction) {
+                return function () {
+                    _scroll(direction);
+                }
+            }
+
+            $('.picWrapper').mouseenter(function () {
+                clearInterval(timer);
+                $(this).find(".cls_pic").removeClass('picUnSelecedEffect');
+                $(this).find(".cls_pic").addClass('picSelecedEffect');
+            });
+
+            $('.picWrapper').mouseleave(function () {
+                $(this).find(".cls_pic").removeClass('picSelecedEffect');
+                $(this).find(".cls_pic").addClass('picUnSelecedEffect');
+                timer = buildTimer(direction);
+            });
+            $('#rightNav').mouseenter(function () {
+                clearInterval(timer);
+                direction = 1;
+                timer = buildTimer(direction);
+            });
+            $('#leftNav').mouseenter(function () {
+                clearInterval(timer);
+                direction = -1;
+                timer = buildTimer(direction);
+            });
+
+            am();
+            $("#firstLink").hover(function () {
+                ele.stop();
+                ele.css("background-position", "-200px 0");
+                holderlight = true;
+            }, function () {
+                holderlight = false;
+                am();
+            });
+        });
+
+        function prepareRequest() {
+            var content = null;
+            if ($(".cls_search_text").length > 0){
+                if ($(".cls_search_text").length == 1){
+                    content = $(".cls_search_text").val();
+                }else {
+                    content = $(".cls_search_text:eq(1)").val();
+                }
+            }
+            var range = $("#searchRange > li:not(.invisible) input:checked:not(#searchAll)").map(function () {
+                return $(this).val();
+            }).get().join(",");
+
+            if ($("#searchAll").prop("checked")) {
+                range = $("#searchRange > li:not(.invisible) input:not(#searchAll)").map(function () {
+                    return $(this).val();
+                }).get().join(",");
+            }
+
+            var type = $("#searchType > li:not(.invisible) input:checked:not(#atAll)").map(function () {
+                return $(this).val();
+            }).get().join(",");
+
+            if ($("#atAll").prop("checked")) {
+                type = $("#searchType > li:not(.invisible) input:not(#atAll)").map(function () {
+                    return $(this).val();
+                }).get().join(",");
+            }
+            return {
+                author: typeof(authorCondition) == "undefined" ? null : authorCondition,
+                searchContent: content,
+                categories: range,
+                types: type
+            };
+        }
+    </script>
+    <div id="footer">
+<div class="text-center customWrap copyrightId">
+    <a href="/account/disclaimer" style="color:#5172a8;">免责声明</a>&nbsp; &nbsp;Copyright 2015 全国报刊索引 ICP备案信息：沪ICP备11036419&nbsp;<a href="http://218.1.116.100/shlib_tsdc/st/news/xuk.html" target="_blank" style="white-space: normal;">增值电信业务经营许可证：沪B2-20110088</a> <a style="visibility:hidden;" href="http://webscan.360.cn/index/checkwebsite/url/www.cnbksy.cn" name="f59128b6ad8cafb8a5f3ff91f10fb5d4">360网站安全检测平台</a>
+</div>
+<style>
+    .copyrightId a{
+        color: #333;
+    }
+</style>    </div>
+</div>
+</body>
+</html>

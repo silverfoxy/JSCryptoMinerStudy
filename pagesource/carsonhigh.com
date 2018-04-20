@@ -1,0 +1,2 @@
+<html><head><meta name="google-site-verification" content="TTVTI-NL-2Q8qug8fFFn50hXhWBibL0ECqGXCt2IJGQ" />
+<meta http-equiv="refresh" content="0; url=new/main/index.html"><title>CHS Web site</title></head><body></body></html>

@@ -1,0 +1,689 @@
+<!DOCTYPE HTML>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta property="og:admins" content="1520460718232403">
+<meta property="og:title" content="Wasabi - Learn Japanese Online">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Wasabi provides 1 on 1 online Japanese lessons with native speakers. Our main focus is on speaking practice for learners aiming to live in Japan or work with Japanese.">
+<meta property="og:url" content="https://www.wasabi-jpn.com/">
+<meta property="og:image" content="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/facebookog.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Wasabi - Learn Japanese Online">
+<meta name="description" content="Wasabi provides 1 on 1 online Japanese lessons with native speakers. Our main focus is on speaking practice for learners aiming to live in Japan or work with Japanese.">
+<meta name="google-site-verification" content="oGCMT05DU5pZF9npWPaM19MGfKtxyZiiSuNKp7pnEpA">
+<meta name="keywords" content="Learn Japanese online">
+<meta name="msapplication-tileimage" content="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/cropped-logo-270x270.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="wasabi_jpn_com">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wasabi - Learn Japanese Online</title>
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//ajax.googleapis.com">
+<link rel="dns-prefetch" href="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+<link href="https://plus.google.com/109742755409513608787" rel="publisher">
+<link rel="https://api.w.org/" href="https://www.wasabi-jpn.com/wp-json/">
+<link rel="icon" href="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/cropped-logo-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/cropped-logo-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/cropped-logo-180x180.png">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" id="jquery-ui-theme-css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css?ver=1.11.4" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="https://www.wasabi-jpn.com/wp-content/cache/head-cleaner/css/862f32a206f3cef4363ebf2fd227b93e.css" media="all">
+<link rel="stylesheet" id="validate-engine-css-css" href="https://www.wasabi-jpn.com/wp-content/plugins/wysija-newsletters/css/validationEngine.jquery.css?ver=2.7.2" type="text/css" media="all">
+<link rel="stylesheet" id="base-css-css" href="https://www.wasabi-jpn.com/wp-content/themes/xeory_extension/base.css?2&#038;ver=4.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="main-css-css" href="https://www.wasabi-jpn.com/wp-content/themes/child-xeory_extension/style.css?1&#038;ver=4.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2" type="text/css" media="all">
+<link rel="stylesheet" id="jquery-ui-timepicker-css" href="https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.css?ver=4.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="wp-members-css" href="https://www.wasabi-jpn.com/wp-content/plugins/wp-members/css/generic-no-float.css?ver=3.1.6.1" type="text/css" media="all">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript" src="https://www.wasabi-jpn.com/wp-content/cache/head-cleaner/js/1e45d91d230e5cd88b707b7877952bfd.js"></script>
+<meta data-pso-pv="1.2.1" data-pso-pt="front" data-pso-th="7e0ea93a29f0fd970b8ff541c4ebe730"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script pagespeed_no_defer="" data-pso-version="20170403_083938">window.dynamicgoogletags={config:[]};dynamicgoogletags.config=["ca-pub-3686666758944573",[[]],[[[[null,[[120,139]],null,19,1,1],[null,[[260,279],[340,359],[400,459]],null,29,1,1],[null,[[280,299]],null,30,1,1],[null,[[360,399],[460,519]],null,33,1,1]],[[["BODY",0,null,[]],["10px","10px",1],1,[4],null,0,null,null,2],[["HEADER",0,null,[]],["10px","10px",1],3,[2],null,0,null,null,3],[["DIV",null,null,["front-service-inner"]],["10px","10px",1],0,[1],null,0,null,null,8],[["DIV",null,"front-service",[]],["10px","10px",1],3,[1],null,0,null,null,6],[["DIV",null,null,["p_btn"]],["30px","10px",1],0,[1],null,0,null,null,10],[["DIV",null,"front-company",[]],["10px","10px",1],3,[1],null,0,null,null,6],[["DIV",null,"front-contents",[]],["10px","10px",1],3,[1],null,0,null,null,6],[["DIV",null,"recent_post_content",[]],["10px","40px",1],3,[1],null,0,null,null,6],[["DIV",null,"footer-brand-area",[]],["10px","10px",1],0,[1],null,0,null,null,6],[["DIV",null,"footer-brand-area",[]],["10px","32px",0],3,[1],null,0,null,null,6],[["DIV",null,"footer-gnav-container",[]],["10px","10px",0],3,[3],null,0,null,null,10],[["DIV",null,"footer-sns",[]],["10px","10px",0],3,[3],null,0,null,null,10],[["DIV",null,null,["mb-board"]],["10px","10px",0],0,[5],null,0,null,null,3],[["BODY",0,null,[]],["10px","10px",1],2,[5],null,0,null,null,2],[["DIV",0,null,["front-service-inner"],1],["10px","28px",0],0,[0],null,0,null,null,11],[["DIV",0,null,["front-service-inner"],2],["10px","10px",0],0,[0],null,0],[["DIV",0,null,["front-service-inner"],3],["10px","10px",0],0,[0],null,0],[["DIV",0,null,["front-service-inner"],-1],["10px","28px",0],3,[0],null,0,null,null,11]],["5804489440","7281222648","8757955846","1234689048","2711422247"],["DIV",null,null,["front-service-inner"]],"20170214_040801",2]],"WordPressFront","5754117047",null,0.01,null,[null,1494914686057],0.01,0,null,null,"https://www.wasabi-jpn.com"];(function(){var h=this,aa=function(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
+else if("function"==b&&"undefined"==typeof a.call)return"object";return b},p=function(a){return"number"==typeof a},ba=function(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}},r=function(a,b){function c(){}c.prototype=b.prototype;a.Ra=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.Ta=function(a,c,f){for(var d=Array(arguments.length-2),e=2;e<arguments.length;e++)d[e-2]=arguments[e];return b.prototype[c].apply(a,
+d)}};var ca=String.prototype.trim?function(a){return a.trim()}:function(a){return a.replace(/^[\s\xa0]+|[\s\xa0]+$/g,"")},da=function(a,b){return a<b?-1:a>b?1:0},ea=function(a){return String(a).replace(/\-([a-z])/g,function(a,c){return c.toUpperCase()})};var fa=Array.prototype.forEach?function(a,b,c){Array.prototype.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e="string"==typeof a?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)};var ga=function(a){ga[" "](a);return a};ga[" "]=function(){};var ia=function(a,b){var c=ha;Object.prototype.hasOwnProperty.call(c,a)||(c[a]=b(a))};var t;a:{var ja=h.navigator;if(ja){var ka=ja.userAgent;if(ka){t=ka;break a}}t=""}var v=function(a){return-1!=t.indexOf(a)};var la=v("Opera"),w=v("Trident")||v("MSIE"),ma=v("Edge"),na=v("Gecko")&&!(-1!=t.toLowerCase().indexOf("webkit")&&!v("Edge"))&&!(v("Trident")||v("MSIE"))&&!v("Edge"),oa=-1!=t.toLowerCase().indexOf("webkit")&&!v("Edge"),pa=function(){var a=h.document;return a?a.documentMode:void 0},qa;
+a:{var ra="",sa=function(){var a=t;if(na)return/rv\:([^\);]+)(\)|;)/.exec(a);if(ma)return/Edge\/([\d\.]+)/.exec(a);if(w)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(oa)return/WebKit\/(\S+)/.exec(a);if(la)return/(?:Version)[ \/]?(\S+)/.exec(a)}();sa&&(ra=sa?sa[1]:"");if(w){var ta=pa();if(null!=ta&&ta>parseFloat(ra)){qa=String(ta);break a}}qa=ra}
+var ua=qa,ha={},va=function(a){ia(a,function(){for(var b=0,c=ca(String(ua)).split("."),d=ca(String(a)).split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",k=d[f]||"";do{g=/(\d*)(\D*)(.*)/.exec(g)||["","","",""];k=/(\d*)(\D*)(.*)/.exec(k)||["","","",""];if(0==g[0].length&&0==k[0].length)break;b=da(0==g[1].length?0:parseInt(g[1],10),0==k[1].length?0:parseInt(k[1],10))||da(0==g[2].length,0==k[2].length)||da(g[2],k[2]);g=g[3];k=k[3]}while(0==b)}return 0<=b})},wa;var xa=h.document;
+wa=xa&&w?pa()||("CSS1Compat"==xa.compatMode?parseInt(ua,10):5):void 0;var x=function(){},ya="function"==typeof Uint8Array,z=function(a,b,c){a.a=null;b||(b=[]);a.Va=void 0;a.M=-1;a.l=b;a:{if(a.l.length){b=a.l.length-1;var d=a.l[b];if(d&&"object"==typeof d&&"array"!=aa(d)&&!(ya&&d instanceof Uint8Array)){a.R=b-a.M;a.G=d;break a}}a.R=Number.MAX_VALUE}a.Ua={};if(c)for(b=0;b<c.length;b++)d=c[b],d<a.R?(d+=a.M,a.l[d]=a.l[d]||y):a.G[d]=a.G[d]||y},y=[],A=function(a,b){if(b<a.R){b+=a.M;var c=a.l[b];return c===y?a.l[b]=[]:c}c=a.G[b];return c===y?a.G[b]=[]:c},Aa=function(a){a=
+A(za,a);return null==a?a:+a},B=function(a,b,c){b<a.R?a.l[b+a.M]=c:a.G[b]=c},C=function(a,b,c){a.a||(a.a={});if(!a.a[c]){var d=A(a,c);d&&(a.a[c]=new b(d))}return a.a[c]},D=function(a,b,c){a.a||(a.a={});if(!a.a[c]){for(var d=A(a,c),e=[],f=0;f<d.length;f++)e[f]=new b(d[f]);a.a[c]=e}b=a.a[c];b==y&&(b=a.a[c]=[]);return b},Ba=function(a,b,c){a.a||(a.a={});c=c||[];for(var d=[],e=0;e<c.length;e++)d[e]=E(c[e]);a.a[b]=c;B(a,b,d)},Ca=function(a){if(a.a)for(var b in a.a){var c=a.a[b];if("array"==aa(c))for(var d=
+0;d<c.length;d++)c[d]&&E(c[d]);else c&&E(c)}},E=function(a){Ca(a);return a.l};x.prototype.toString=function(){Ca(this);return this.l.toString()};var Da=function(a){var b;if("array"==aa(a)){for(var c=Array(a.length),d=0;d<a.length;d++)null!=(b=a[d])&&(c[d]="object"==typeof b?Da(b):b);return c}if(ya&&a instanceof Uint8Array)return new Uint8Array(a);c={};for(d in a)null!=(b=a[d])&&(c[d]="object"==typeof b?Da(b):b);return c};var Ea=function(a,b){this.events=[];this.Ga=b||h;var c=null;b&&(b.google_js_reporting_queue=b.google_js_reporting_queue||[],this.events=b.google_js_reporting_queue,c=b.google_measure_js_timing);this.ia=null!=c?c:Math.random()<a};Ea.prototype.disable=function(){fa(this.events,this.ya,this);this.events.length=0;this.ia=!1};Ea.prototype.ya=function(a){var b=this.Ga.performance;a&&b&&b.clearMarks&&(b.clearMarks("goog_"+a.uniqueId+"_start"),b.clearMarks("goog_"+a.uniqueId+"_end"))};var Fa=function(){var a=!1;try{var b=Object.defineProperty({},"passive",{get:function(){a=!0}});h.addEventListener("test",null,b)}catch(c){}return a}();var Ha=function(){var a=Ga;try{var b;if(b=!!a&&null!=a.location.href)a:{try{ga(a.foo);b=!0;break a}catch(c){}b=!1}return b}catch(c){return!1}},Ia=function(a,b){for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&b.call(void 0,a[c],c,a)};var Ja=function(a,b,c,d,e){this.la=c||4E3;this.H=a||"&";this.wa=b||",$";this.T=void 0!==d?d:"trn";this.Sa=e||null;this.va=!1;this.V={};this.Ja=0;this.L=[]},Ma=function(a,b,c,d){b=b+"//"+c+d;var e=Ka(a)-d.length-0;if(0>e)return"";a.L.sort(function(a,b){return a-b});d=null;c="";for(var f=0;f<a.L.length;f++)for(var g=a.L[f],k=a.V[g],m=0;m<k.length;m++){if(!e){d=null==d?g:d;break}var l=La(k[m],a.H,a.wa);if(l){l=c+l;if(e>=l.length){e-=l.length;b+=l;c=a.H;break}else a.va&&(c=e,l[c-1]==a.H&&--c,b+=l.substr(0,
+c),c=a.H,e=0);d=null==d?g:d}}f="";a.T&&null!=d&&(f=c+a.T+"="+(a.Sa||d));return b+f+""},Ka=function(a){if(!a.T)return a.la;var b=1,c;for(c in a.V)b=c.length>b?c.length:b;return a.la-a.T.length-b-a.H.length-1},La=function(a,b,c,d,e){var f=[];Ia(a,function(a,k){(a=Na(a,b,c,d,e))&&f.push(k+"="+a)});return f.join(b)},Na=function(a,b,c,d,e){if(null==a)return"";b=b||"&";c=c||",$";"string"==typeof c&&(c=c.split(""));if(a instanceof Array){if(d=d||0,d<c.length){for(var f=[],g=0;g<a.length;g++)f.push(Na(a[g],
+b,c,d+1,e));return f.join(c[d])}}else if("object"==typeof a)return e=e||0,2>e?encodeURIComponent(La(a,b,c,d,e+1)):"...";return encodeURIComponent(String(a))};var Ra=function(a,b,c,d){var e=Pa;if((c?e.Pa:Math.random())<(d||e.za))try{var f;b instanceof Ja?f=b:(f=new Ja,Ia(b,function(a,b){var c=f,d=c.Ja++,e={};e[b]=a;a=[e];c.L.push(d);c.V[d]=a}));var g=Ma(f,e.Ma,e.Ba,e.La+a+"&");g&&Qa(g)}catch(k){}},Qa=function(a){h.google_image_requests||(h.google_image_requests=[]);var b=h.document.createElement("img");b.src=a;h.google_image_requests.push(b)};var Sa;if(!(Sa=!na&&!w)){var Ta;if(Ta=w)Ta=9<=Number(wa);Sa=Ta}Sa||na&&va("1.9.1");w&&va("9");var F=function(a,b,c,d){this.top=a;this.right=b;this.bottom=c;this.left=d};F.prototype.floor=function(){this.top=Math.floor(this.top);this.right=Math.floor(this.right);this.bottom=Math.floor(this.bottom);this.left=Math.floor(this.left);return this};var Ua=document,Va=window;var Wa=!!window.google_async_iframe_id,Ga=Wa&&window.parent||window;var Pa,G;if(Wa&&!Ha()){var Xa="."+Ua.domain;try{for(;2<Xa.split(".").length&&!Ha();)Ua.domain=Xa=Xa.substr(Xa.indexOf(".")+1),Ga=window.parent}catch(a){}Ha()||(Ga=window)}G=Ga;var Ya=new Ea(1,G);Pa=new function(){this.Ma="http:"===Va.location.protocol?"http:":"https:";this.Ba="pagead2.googlesyndication.com";this.La="/pagead/gen_204?id=";this.za=.01;this.Pa=Math.random()};
+if("complete"==G.document.readyState)G.google_measure_js_timing||Ya.disable();else if(Ya.ia){var Za=function(){G.google_measure_js_timing||Ya.disable()};G.addEventListener?G.addEventListener("load",Za,Fa?void 0:!1):G.attachEvent&&G.attachEvent("onload",Za)};var H=function(a){this.na={};this.na.c=a;this.o=[];this.u=null;this.v=[];this.ea=0};H.prototype.g=function(a){for(var b=0;b<this.o.length;b++)if(this.o[b]==a)return this;this.o.push(a);return this};var $a=function(a,b){a.u=a.u?a.u:b;return a};H.prototype.C=function(a){for(var b=0;b<this.v.length;b++)if(this.v[b]==a)return this;this.v.push(a);return this};
+H.prototype.getData=function(a){var b=this.na,c={},d;for(d in b)c[d]=b[d];0<this.ea&&(c.t=this.ea);c.err=this.o.join();c.warn=this.v.join();if(this.u){c.excp_n=this.u.name;c.excp_m=this.u.message&&this.u.message.substring(0,512);if(b=this.u.stack){d=this.u.stack;try{-1==d.indexOf("")&&(d="\n"+d);for(var e;d!=e;)e=d,d=d.replace(/((https?:\/..*\/)[^\/:]*:\d+(?:.|\n)*)\2/,"$1");b=d.replace(/\n */g,"\n")}catch(f){b=""}}c.excp_s=b}c.w=0<a.innerWidth?a.innerWidth:null;c.h=0<a.innerHeight?a.innerHeight:
+null;return c};var bb=function(a,b){ab(a,a.Ea,a.X,b)},ab=function(a,b,c,d){var e=d.u;d=d.getData(a.K);a.Ha?(d.type=b,a.K.console.log(d),e&&a.K.console.error(e)):0<c&&(d.r=c,Ra(b,d,"jserror"!=b,c))};var I=function(a){return a.dynamicgoogletags=a.dynamicgoogletags||{}};var J=function(a){z(this,a,cb)};r(J,x);var cb=[4];J.prototype.getId=function(){return A(this,3)};var K=function(a){z(this,a,null)};r(K,x);var db=function(a){z(this,a,null)};r(db,x);var L=function(a){return C(a,J,1)},fb=function(a){z(this,a,eb)};r(fb,x);var eb=[1];fb.prototype.i=function(){return D(this,db,1)};fb.prototype.pa=function(a){Ba(this,1,a)};var M=function(a){z(this,a,gb)};r(M,x);var gb=[2];M.prototype.ka=function(){return A(this,3)};M.prototype.qa=function(a){B(this,3,a)};var hb=function(a){z(this,a,null)};r(hb,x);var N=function(a){z(this,a,ib)};r(N,x);var ib=[1,2,3];N.prototype.i=function(){return D(this,db,2)};
+N.prototype.pa=function(a){Ba(this,2,a)};var O=function(a){z(this,a,jb)};r(O,x);var jb=[3];O.prototype.A=function(){return A(this,1)};O.prototype.D=function(){return C(this,fb,2)};O.prototype.O=function(){return A(this,4)};O.prototype.ka=function(){return A(this,5)};O.prototype.qa=function(a){B(this,5,a)};O.prototype.N=function(){return C(this,kb,9)};var kb=function(a){z(this,a,null)};r(kb,x);var lb=function(a){this.m=a;this.sa=[]};lb.prototype.f=function(){return 0<D(this.m,N,3).length?D(this.m,N,3)[0]:null};var mb=function(a){var b=["adsbygoogle-placeholder"];a=a.className?a.className.split(/\s+/):[];for(var c={},d=0;d<a.length;++d)c[a[d]]=!0;for(d=0;d<b.length;++d)if(!c[b[d]])return!1;return!0};var nb=function(a,b){for(var c=0;c<b.length;c++){var d=b[c],e=ea(d.Wa);a[e]=d.value}},qb=function(a,b){var c=ob;b.setAttribute("data-adsbygoogle-status","reserved");b={element:b};(c=c&&c.Na)&&(b.params=c);pb(a).push(b)},pb=function(a){return a.adsbygoogle=a.adsbygoogle||[]};var rb=function(a,b){if(!a)return!1;a=b.getComputedStyle?b.getComputedStyle(a,null):a.currentStyle;if(!a)return!1;a=a.cssFloat||a.styleFloat;return"left"==a||"right"==a},sb=function(a){for(a=a.previousSibling;a&&1!=a.nodeType;)a=a.previousSibling;return a?a:null},tb=function(a){return!!a.nextSibling||!!a.parentNode&&tb(a.parentNode)};var ub=function(a,b){var c=a.length;if(null!=c)for(var d=0;d<c;d++)b.call(void 0,a[d],d)};var vb=function(a,b,c,d){this.ma=a;this.$=b;this.aa=c;this.P=d};vb.prototype.query=function(a){var b=[];try{b=a.querySelectorAll(this.ma)}catch(f){}if(!b.length)return[];a=b;b=a.length;if(0<b){for(var c=Array(b),d=0;d<b;d++)c[d]=a[d];a=c}else a=[];a=wb(this,a);p(this.$)&&(b=this.$,0>b&&(b+=a.length),a=0<=b&&b<a.length?[a[b]]:[]);if(p(this.aa)){b=[];for(c=0;c<a.length;c++){var d=xb(a[c]),e=this.aa;0>e&&(e+=d.length);0<=e&&e<d.length&&b.push(d[e])}a=b}return a};
+vb.prototype.toString=function(){return JSON.stringify({nativeQuery:this.ma,occurrenceIndex:this.$,paragraphIndex:this.aa,ignoreMode:this.P})};
+var wb=function(a,b){if(null==a.P)return b;switch(a.P){case 1:return b.slice(1);case 2:return b.slice(0,b.length-1);case 3:return b.slice(1,b.length-1);case 0:return b;default:throw Error("Unknown ignore mode: "+a.P);}},xb=function(a){var b=[];ub(a.getElementsByTagName("p"),function(a){100<=yb(a)&&b.push(a)});return b},yb=function(a){if(3==a.nodeType)return a.length;if(1!=a.nodeType||"SCRIPT"==a.tagName)return 0;var b=0;ub(a.childNodes,function(a){b+=yb(a)});return b},zb=function(a){return 0==a.length||
+isNaN(a[0])?a:"\\"+(30+parseInt(a[0],10))+" "+a.substring(1)};var Ab=function(a,b){var c=0,d=A(a,6);if(void 0!==d)switch(d){case 0:c=1;break;case 1:c=2;break;case 2:c=3}var d=null,e=A(a,7);if(A(a,1)||a.getId()||0<A(a,4).length){var f=a.getId(),g=A(a,1),e=A(a,4),d=A(a,2);a=A(a,5);var k="";g&&(k+=g);f&&(k+="#"+zb(f));if(e)for(f=0;f<e.length;f++)k+="."+zb(e[f]);d=(e=k)?new vb(e,d,a,c):null}else e&&(d=new vb(e,A(a,2),A(a,5),c));return d?d.query(b):[]},Bb=function(a,b){if(a==b)return!0;if(!a||!b||A(a,1)!=A(b,1)||A(a,2)!=A(b,2)||a.getId()!=b.getId()||A(a,7)!=A(b,
+7)||A(a,5)!=A(b,5)||A(a,6)!=A(b,6))return!1;a=A(a,4);b=A(b,4);if(a||b)if(a&&b&&a.length==b.length)for(var c=0;c<a.length;c++){if(a[c]!=b[c])return!1}else return!1;return!0};var Cb=function(a){a=a.document;return("CSS1Compat"==a.compatMode?a.documentElement:a.body)||{}},Db=function(a){return void 0===a.pageYOffset?(a.document.documentElement||a.document.body.parentNode||a.document.body).scrollTop:a.pageYOffset};var Eb=function(a,b){b=L(b);if(!b)return null;a=Ab(b,a);return 0<a.length?a[0]:null},Gb=function(a,b){b=Fb(a,b,!0);return p(b)&&!(b<=Cb(a).clientHeight)},Hb=function(a,b){return a.body?b-a.body.getBoundingClientRect().top:b},Fb=function(a,b,c){if(!c||!p(A(b,8))){var d=Eb(a.document,b);if(d){var e=null!=C(b,K,2)?A(C(b,K,2),3):void 0;c=a.document.createElement("div");c.className="googlepublisherpluginad";var f=c.style;f.textAlign="center";f.width="100%";f.height="0px";f.clear=e?"both":"none";Ib(c,d,
+A(b,3));d=c.getBoundingClientRect().top+Db(a);c.parentNode.removeChild(c);B(b,8,d)}}b=A(b,8);return p(b)?b-Db(a):null},Jb={0:0,1:1,2:2,3:3},Kb={0:"auto",1:"horizontal",2:"vertical",3:"rectangle"},Lb=function(a,b){a.sort(function(a,d){a=Fb(b,a,!0);a=p(a)?a:Number.POSITIVE_INFINITY;d=Fb(b,d,!0);d=p(d)?d:Number.POSITIVE_INFINITY;return a-d})},Ib=function(a,b,c){switch(Jb[c]){case 0:b.parentNode&&b.parentNode.insertBefore(a,b);break;case 3:if(c=b.parentNode){var d=b.nextSibling;if(d&&d.parentNode!=c)for(;d&&
+8==d.nodeType;)d=d.nextSibling;c.insertBefore(a,d)}break;case 1:b.insertBefore(a,b.firstChild);break;case 2:b.appendChild(a)}if(1!=b.nodeType?0:"INS"==b.tagName&&mb(b))b.style.display="block"};var ob=new function(){this.ha="googlepublisherpluginad";this.Na={google_tag_origin:"pso"}},P=function(a){this.b=a;this.j=[];this.da=0;this.o=[];this.v=[];this.Y=null;this.oa=!1},Mb=function(a,b){a=C(a.f(),J,4);if(!(a&&b&&A(b,1)==A(a,1)&&b.getId()==a.getId()&&p(A(b,2))&&p(A(b,5))))return!1;a=A(a,4);b=A(b,4);if(a.length!=b.length)return!1;for(var c=0;c<a.length;++c)if(b[c]!=a[c])return!1;return!0},Nb=function(a){var b=p(void 0)?void 0:20,c=a.f(),d=c.i(),e=C(c,J,4);if(!(a.oa||0>=b)&&e&&0!=Ab(e,a.b.document).length){a.oa=
+!0;for(var c=[],f=0;f<d.length;++f){var g=d[f],k=L(g);if(Mb(a,k)){var m=A(k,2),k=A(k,5);null!=m&&null!=k&&0<=m&&0<=k&&(!c[m]||A(L(c[m]),5)<k)&&(c[m]=g)}}k=0;d=Ab(e,a.b.document);for(m=0;m<c.length&&k<b;++m){var e=k,f=a,l=d[m],g=c[m],k=b-k,u=f.f().i(),q=0;if(l&&g){l=xb(l).length;switch(A(L(g),6)){case 0:case 1:--l;break;case 2:l-=2}for(var n=A(L(g),5)+1;n<l&&q<k;++n){var Oa=new g.constructor(Da(E(g))),Hc=L(Oa);B(Hc,5,n);u.push(Oa);q++}}q&&f.f().pa(u);k=e+q}}};
+P.prototype.g=function(a){for(var b=0;b<this.o.length;++b)if(this.o[b]==a)return;this.o.push(a)};P.prototype.C=function(a){for(var b=0;b<this.v.length;++b)if(this.v[b]==a)return;this.v.push(a)};
+var Ob=function(a,b,c){var d=Jb[A(b,3)],e=Eb(a.b.document,b);if(e){var f=L(b)?A(L(b),2):void 0,g;a:{g=a.b;if(null!=f)switch(d){case 0:g=rb(sb(e),g);break a;case 3:g=rb(e,g);break a;case 2:f=e.lastChild;g=rb(f?1==f.nodeType?f:sb(f):null,g);break a}g=!1}if(!g&&(c||2!=d||tb(e))&&(c=1==d||2==d?e:e.parentNode,!c||(1!=c.nodeType?0:"INS"==c.tagName&&mb(c))||!(0>=c.offsetWidth)))a:if(A(b,7))a.C(8);else{b:if(A(b,5))c=A(b,5);else{if(c=Q(a).f())if(c=A(c,3),a.da<c.length){c=c[a.da++];break b}a.g(4);c=null}if(null!=
+c){B(b,7,!0);d=[];(g=a.O())&&d.push(g);g=Q(a).sa;for(f=0;f<g.length;++f)d.push(g[f]);p(A(b,9))&&d.push("pso-lv-"+A(b,9));var k=a.b.document;g=a.A();var f=A(b,6),f=null!=f?Kb[f]:f,m=C(b,K,2),l={};m&&(l.ra=A(m,1),l.ga=A(m,2),l.xa=!!A(m,3));var m=c,u=ob,q=k.createElement("div"),n=q.style;n.textAlign="center";n.width="100%";n.height="auto";n.clear=l.xa?"both":"none";l.Ka&&nb(n,l.Ka);k=k.createElement("ins");n=k.style;n.display="block";n.margin="auto";n.backgroundColor="transparent";l.ra&&(n.marginTop=
+l.ra);l.ga&&(n.marginBottom=l.ga);l.ta&&nb(n,l.ta);q.appendChild(k);k.setAttribute("data-ad-format",f?f:"auto");if(f=u&&u.ha)q.className=f;k.className="adsbygoogle";k.setAttribute("data-ad-client",g);m&&k.setAttribute("data-ad-slot",m);d.length&&k.setAttribute("data-ad-channel",d.join("+"));Ib(q,e,A(b,3));try{qb(a.b,k)}catch(Oa){A(b,5)!=c&&a.da--;B(b,7,!1);a.C(6);q&&q.parentNode&&q.parentNode.removeChild(q);break a}a.j.push(q)}}}},Pb=function(a,b){for(var c=Number.POSITIVE_INFINITY,d=0;d<a.j.length;++d)var e=
+a.j[d].getBoundingClientRect().top,f=a.j[d].getBoundingClientRect().bottom,c=Math.min(c,b<e?e-b:f<b?b-f:0);return c},Q=function(a){a=I(a.b).ps||null;if(!a)throw Error("No placementState");return a},Qb=function(a,b){var c=Q(a).m;if(!c||!c.A())return a.g(5),!1;c=D(c,N,3)[0];return c?A(c,3).length<b?(a.g(4),a.g(5),!1):!0:(a.g(5),!1)};P.prototype.A=function(){return Q(this).m.A()||""};P.prototype.O=function(){return Q(this).m.O()||void 0};P.prototype.D=function(){return Q(this).m.D()||new fb};
+P.prototype.f=function(){var a=Q(this).f();if(!a)throw Error("No mConfig");return a};var Rb=function(a){a=A(a.f(),6);return null!=a&&0<a};var Sb=function(){this.I=this.J=this.ba=null};var R=function(a){P.call(this,a)};r(R,P);R.prototype.apply=function(a){var b;(b=Q(this).m)&&b.A()&&b.D()?b=!0:(this.g(5),b=!1);if(b){b=this.D().i();for(var c=0;c<b.length;c++){var d=b[c];A(d,7)||Ob(this,d,a)}}};R.prototype.B=function(){return(0==this.D().i().length||0<this.j.length)&&0==this.o.length};var Tb=function(a){P.call(this,a);if(Qb(this,0)){a=this.D().i();for(var b=this.f().i(),c=0;c<a.length;c++){var d=a[c],e;a:{e=d;var f=b;if(e&&L(e))for(var g=0;g<f.length;g++){var k=f[g];if(A(e,3)==A(k,3)&&Bb(L(e),L(k))){e=k;break a}}e=null}e&&C(e,K,2)&&(e=C(e,K,2),d.a||(d.a={}),f=e?E(e):e,d.a[2]=e,B(d,2,f))}}};r(Tb,R);var Vb=function(a,b){var c=void 0===b.pageXOffset?(b.document.documentElement||b.document.body.parentNode||b.document.body).scrollLeft:b.pageXOffset,d=Db(b);if(a.getBoundingClientRect)return a=a.getBoundingClientRect(),Ub(a)?new F(a.top+d,a.right+c,a.bottom+d,a.left+c):new F(0,0,0,0);b=b.document.createRange();b.selectNodeContents(a);return b.collapsed?new F(0,0,0,0):b.getBoundingClientRect?(a=b.getBoundingClientRect(),Ub(a)?new F(a.top+d,a.right+c,a.bottom+d,a.left+c):new F(0,0,0,0)):new F(0,0,0,
+0)},Ub=function(a){return!!a&&p(a.top)&&!isNaN(a.top)&&p(a.right)&&!isNaN(a.right)&&p(a.bottom)&&!isNaN(a.bottom)&&p(a.left)&&!isNaN(a.left)};var $b=function(a){this.K=a;this.Fa=Wb(a);this.ua=S("ins.adsbygoogle",a);this.fa=Xb(a);this.Oa=S("[__lsu_res=reserved]",a);this.U=[];a=Yb(this);for(var b=0;b<a.length;b++)this.U.push(new Zb(a[b]))},Wb=function(a){var b=a.googletag;if(!b||"function"!=typeof b.pubads)return S("div[id^=div-gpt-ad]",a);var c=[];try{for(var d=b.pubads().getSlots(),b=0;b<d.length;b++){var e=d[b].getSlotElementId(),f=a.document.getElementById(e);null!=f&&c.push(f)}}catch(g){Ra("ladd_evt",{ok:0,err:g.toString()},!0,.1)}return c},
+Xb=function(a){return S("iframe[id^=aswift_],iframe[id^=google_ads_frame]",a)},S=function(a,b){return Array.prototype.slice.call(b.document.querySelectorAll(a))},Yb=function(a){return[].concat(a.Fa,a.ua,a.fa,a.Oa)},Zb=function(a){this.Ca=a;this.W=null};var T=function(a){P.call(this,a)};r(T,P);T.prototype.apply=function(){};T.prototype.B=function(){var a;if(Rb(this)){a=this.b;var b=Wb(a);a=0<[].concat(b,S("ins.adsbygoogle",a),Xb(a),S("[__lsu_res=reserved]",a)).length}else a=!0;return a};var ac=function(a){P.call(this,a);this.F=null};r(ac,P);
+ac.prototype.apply=function(a){if(a&&Qb(this,2)){Nb(this);a=Cb(this.b).clientHeight||640;null==this.F&&(this.F=new $b(this.b));var b=this.F.fa.length;if(!(5<=b)){var b=Math.min(2,5-b),c=this.f().i();Lb(c,this.b);for(var d=0;d<c.length&&this.j.length<b;++d){var e=c[d];if(Gb(this.b,e)){var f=Fb(this.b,e,!0);if(void 0!==f){var g;a:{g=this.F;for(var k=a,m=f,l=0;l<g.U.length;l++){var u=m,q=k,n;n=g.U[l];n.W||(n.W=Vb(n.Ca,g.K));n=n.W;if(n.top-q<u&&u<n.bottom+q){g=!0;break a}}g=!1}g||Pb(this,f)<a||Ob(this,
+e,!0)}}}0==this.j.length&&this.C(1)}}};ac.prototype.B=function(){return Rb(this)?0<Yb(this.F).length:!0};var bc=function(a){P.call(this,a);this.Z=!1};r(bc,T);
+bc.prototype.apply=function(a){if(a&&!this.Z){var b;a:{var c=this.b.document;b=c.body;if(a&&b){a=this.A();var d=ob,e=c.createElement("div");e.style.display="block";if(d=d&&d.ha)e.className=d;c=c.createElement("ins");c.className="adsbygoogle";c.setAttribute("data-ad-client",a);c.setAttribute("data-reactive-ad-format","1");c.style.display="none";e.appendChild(c);Ib(e,b,2);try{qb(this.b,c)}catch(f){this.C(6);e&&e.parentNode&&e.parentNode.removeChild(e);b=5;break a}this.j.push(e);b=0}else b=4}this.Z=
+0==b}};bc.prototype.B=function(){return this.Z&&T.prototype.B.call(this)};var cc=function(a){P.call(this,a);a=Cb(a).clientHeight;this.Aa=.1*a;this.Ia=.75*a};r(cc,P);
+cc.prototype.apply=function(a){if(Qb(this,3)&&!this.B()){Nb(this);var b=this.f().i();Lb(b,this.b);var c;c=this.Aa;var d;d=document;d=d.querySelectorAll?d.querySelectorAll("header,#header,#masthead,.header,.site-header"):[];for(var e=d.length,f=0<e?d[0]:null,g=1;g<e;g++)d[g].getBoundingClientRect().top<f.getBoundingClientRect().top&&(f=d[g]);(d=f)&&(d=d.getBoundingClientRect())&&d.top!=d.bottom&&d.left!=d.right&&(c=Math.min(c,Hb(document,d.bottom)));for(d=0;d<b.length&&3>this.j.length;d++){e=b[d];
+var f=c,g=this.b.document,k=Fb(this.b,e,!1);!p(k)||Hb(g,k)<f?f=!1:(f=Pb(this,k),f=this.Ia<f);f&&(f=Gb(this.b,e),g=A(e,6)||0,f&&0==g&&B(e,6,3),!f&&a||Ob(this,e,a))}}};cc.prototype.B=function(){return 3==this.j.length};var U={};U[16]=R;U[17]=R;U[19]=T;U[29]=ac;U[33]=T;U[30]=bc;U[28]=cc;U[34]=cc;U[32]=Tb;U[1]=R;U[8]=T;U[11]=R;var dc=[19,29,33,30,16,32,17,34],ec=[16,19,33,30,17,1,6,8,11];var fc=function(a,b){a=a.google_ad_modifications=a.google_ad_modifications||{};(a.ad_channels=a.ad_channels||[]).push(b)};var gc=function(a){return 0>a||99<a?null:10>a?"0"+a:""+a};var hc=function(a,b){a=a.google_ad_modifications=a.google_ad_modifications||{};a=a.loeids=a.loeids||[];for(var c=0;c<b.length;c++)a.push(b[c])};var ic=function(a,b,c){this.ja=a;this.Da=c?c:new kb};ic.prototype.N=function(){return this.Da||new kb};var jc=function(a){if(!p(a))return!1;for(var b=0;b<dc.length;++b)if(a==dc[b])return!1;return!0},oc=function(){var a=V,b=kc,c=lc,d=b.f();if(!d)return mc(16);var e=null,f;a:{var g=D(d,M,1);for(f=0;f<g.length;++f){for(var k=!0,m=0;m<ec.length;++m)A(g[f],4)==ec[m]&&(k=!1);if(k){g=[];0==d.i().length&&g.push("PsoInvalidVariant");0==A(d,3).length&&g.push("PsoNoAdSlotCodes");f=g;break a}}f=[]}g=c.ja;if(0==f.length)a:{e=D(d,M,1);if(p(g))for(f=0;f<e.length;f++)if(k=e[f],U[A(k,4)])for(var m=D(k,hb,2),l=0;l<
+m.length;l++){var u=m[l],q=A(u,1),u=A(u,2);if(p(q)&&p(u)&&g>=q&&g<=u){e=k;break a}}e=null}else for(k=0;k<f.length;++k)b.sa.push(f[k]);if(!e){f=D(d,M,1);e={};for(k=0;k<f.length;k++)e[A(f[k],4)]=!0;f=null;e[19]||e[8]?f=19:e[16]||e[1]?f=16:0<d.i().length&&0<A(d,3).length&&e[34]&&(f=34);null!=f?(e=new M,B(e,6,3),B(e,4,f),16!=f&&19!=f&&e.qa("pso-ama-fallback")):e=null}(f=!e)||(!p(g)||800>g?f=!1:820>g?(hc(a,["26835111"]),f=!0):(840>g&&hc(a,["26835112"]),f=!1));if(f)return mc(16);(g=e.ka())&&fc(a,g);g=!0;
+A(c.N(),2)&&(Date.now?Date.now():+new Date)<A(c.N(),2)||(fc(a,"pso-ama-exd"),g=!1);A(b.m,11)&&(fc(a,"pso-ama-stl-tmp"),g=!1);g&&fc(a,"pso-ama-elig");2==A(e,6)&&(b=A(e,1),null!=b&&hc(a,[""+b]));if(g&&(2==A(e,6)||1==A(e,6))){d=D(d,M,1);if(null===c.ja)c=[];else{b={};c=[];for(g=0;g<d.length;g++)f=nc(d[g]),null==f||b[f]||(b[f]=!0,c.push(f));b=nc(e);if(null!=b){d=[];b=gc(b);g=!1;if(b)for(f=0;f<c.length;f++)k=gc(c[f]),b==k&&(g=!0),k&&d.push("950"+b+k);g||(d=[]);c=d}else c=[]}hc(a,c)}a=new Sb;a.ba=A(e,5);
+a.J=A(e,4);return a},mc=function(a){var b=new Sb;b.J=a;return b},pc=function(a){a=a.google_ad_modifications=a.google_ad_modifications||{};a.remove_ads_by_default=!0;a.ad_whitelist=[{ad_tag_origin:"pso"}];a.ad_blacklist=[];a.space_collapsing="slot"},nc=function(a){var b;switch(A(a,6)){case 1:b=A(a,4);break;case 2:b=A(a,7)}return null!=b?b:null};var qc=function(a){this.document=a};var W=function(a){H.call(this,a)};r(W,H);W.prototype.getData=function(a){var b=W.Ra.getData.call(this,a),c;a:{c=(new qc(a.document)).document.getElementsByTagName("script");for(var d=0;d<c.length;++d)if(c[d].hasAttribute("data-pso-version")){c=c[d].getAttribute("data-pso-version");break a}c=null}b.sv=c;if(d=I(a).ps||null){c=d.m;var d=d.f(),e=b.wpc;b.wpc=null!=e?e:c.A();b.su=A(c,14);b.tn=c.O();b.ev=d&&A(d,5)}if(a=I(a).ss||null)b.s=a.J,b.st=a.ba;return b};var rc=null,sc=!1,vc=function(a){var b=tc,c=uc;b.addEventListener?(a&&b.addEventListener("DOMContentLoaded",a,!1),c&&b.addEventListener("load",c,!1)):b.attachEvent&&c&&b.attachEvent("onload",c)},xc=function(a){p(rc)&&a.clearInterval&&(a.clearInterval(rc),rc=null);sc||wc(a,!1);wc(a,!0)},yc=function(a,b){try{xc(b);var c=I(b).ss||null;if(c&&c.I){var d=c.I,e=d.B(),f=d.o,g=d.v,k=d.Y,m=d.j.length;e||0!=m||f.push(6);for(var l=new W(m),c=0;c<g.length;c++)l.C(g[c]);if(e&&0==f.length&&null===k)ab(a,a.Qa,a.ca,
+l);else{for(e=0;e<f.length;e++)l.g(f[e]);bb(a,$a(l,k))}}else bb(a,(new W(0)).g(2))}catch(u){bb(a,$a((new W(0)).g(1),u))}I(b).loaded=!0},wc=function(a,b){b||(sc=!0);if((a=I(a).ss||null)&&a.I){a=a.I;try{a.apply(b)}catch(c){a.g(1),null===a.Y&&(a.Y=c)}}},zc=function(){wc(window,!1)};var X=new function(a){this.Qa="pso_success";this.Ea="pso_failure";this.X=this.ca=.01;this.Ha=!1;this.K=a}(window);
+try{var V=window,za,Ac=I(V).config;za=Ac?new O(Ac):null;if(!za)throw Error("No config");var Bc=Aa(10),Cc=Aa(7);X.ca=null!=Bc?Bc:X.ca;X.X=null!=Cc?Cc:X.X;var kc=new lb(za),Dc=kc;I(V).ps=Dc;var Y,lc;if(v("iPad")||v("Android")&&!v("Mobile")||v("Silk")||!(v("iPod")||v("iPhone")||v("Android")||v("IEMobile")))Y=mc(16);else{var Ec,Fc=/^#([^=]*)=(\d+)$/.exec(V.location.hash);if((Ec=Fc&&3==Fc.length&&"pso_strategy"==Fc[1]?+Fc[2]:null)&&U[Ec]){Y=mc(Ec);var Gc=V;jc(Ec)&&pc(Gc)}else{var Ic=V,Jc=kc.m.N(),Z;try{var Kc=
+parseInt(Ic.localStorage.getItem("PSO_EXP0"),10);Z=isNaN(Kc)?null:Kc}catch(a){Z=null}if(null==Z){Z=Math.floor(1024*Math.random());var Lc=Z;try{Ic.localStorage.setItem("PSO_EXP0",Lc.toString())}catch(a){}}lc=new ic(Z,0,Jc);Y=oc()}if(1==Y.ba){var Mc=V;jc(Y.J)&&pc(Mc)}}if(!Y)throw Error("No strategyState created!");var Nc=Y;I(V).ss=Nc;var Oc=V,Pc=Y,Qc=Pc.J;if(p(Qc)){var Rc=U[Qc];Qc&&Rc&&(Pc.I=new Rc(Oc))}var tc=V,uc=ba(yc,X,tc),Sc=ba(xc,tc);switch(tc.document.readyState){case "complete":uc();break;case "interactive":Sc();
+vc();break;default:var Tc=tc,Uc=pb(Tc);Uc.loaded||(Uc.onload=zc);rc=Tc.setInterval(zc,10);vc(Sc)}}catch(a){bb(X,$a(new W(0),a))};})();
+</script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64577249-1', 'auto');
+  ga('send', 'pageview');
+
+</script><meta name="google-site-verification" content="C0N7K5-SKcBHc0PwWYGO4fhrmotnBdjxX5mktdD5rlc" />
+<meta name="p:domain_verify" content="1f4f1412700bbd5a0c8c1f5385cf9d96"/>
+
+</head>
+
+<body class="home blog one-column default" itemschope="itemscope" itemtype="http://schema.org/WebPage">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSVC5L7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4&appId=";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<header id="header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+  <div class="wrap clearfix">
+        <h1 id="logo" itemprop="headline">
+      <a href="https://www.wasabi-jpn.com"><img src="https://www.wasabi-jpn.com/wp-content/uploads/2016/11/logo_wasabi.png" alt="Wasabi - Learn Japanese Online" /></a><br />
+    </h1>    <!-- start global nav  -->
+    
+    <div id="header-right" class="clearfix">
+      
+        
+        <div id="header-gnav-area">
+      <nav id="gnav" role="navigation" itemscope="itemscope" itemtype="http://scheme.org/SiteNavigationElement">
+      <div id="gnav-container" class="gnav-container"><ul id="gnav-ul" class="clearfix"><li id="menu-item-6908" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6908 for-business"><a href="https://www.wasabi-jpn.com/for-business/">For Business</a></li>
+<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-84 "><a href="https://www.wasabi-jpn.com/curriculum/">Wasabi Lessons</a>
+<ul class="sub-menu">
+	<li id="menu-item-5194" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5194 "><a href="https://www.wasabi-jpn.com/curriculum/">One-on-one Lessons</a></li>
+	<li id="menu-item-611" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-611 "><a href="https://www.wasabi-jpn.com/curriculum/list-of-worksheets/">Lesson Worksheets</a></li>
+	<li id="menu-item-3390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3390 "><a href="https://www.wasabi-jpn.com/curriculum/how-users-learn-japanese-with-wasabi/">Student Voices</a></li>
+</ul>
+</li>
+<li id="menu-item-883" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-883 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning</a>
+<ul class="sub-menu">
+	<li id="menu-item-5195" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5195 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning Material</a></li>
+	<li id="menu-item-3713" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3713"><a href="https://www.wasabi-jpn.com/how-to-learn-japanese/complete-roadmap-how-to-speak-japanese/">Roadmap</a></li>
+	<li id="menu-item-3715" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3715"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-wasabi-japanese-pronunciation-lessons/">Pronunciation</a></li>
+	<li id="menu-item-5433" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5433 how-to-speak-japanese"><a href="https://www.wasabi-jpn.com/category/how-to-speak-japanese/">How to Speak Japanese</a></li>
+	<li id="menu-item-3714" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3714"><a href="https://www.wasabi-jpn.com/japanese-grammar/wasabis-online-japanese-grammar-reference/">Grammar Reference</a></li>
+	<li id="menu-item-3716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3716"><a href="https://www.wasabi-jpn.com/japanese-lessons/japanese-grammar-with-instantaneous-composition-method/">Grammar Exercise</a></li>
+	<li id="menu-item-3717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3717"><a href="https://www.wasabi-jpn.com/japanese-lessons/fairy-tales-and-short-stories-with-easy-japanese/">Read-aloud (N4)</a></li>
+	<li id="menu-item-3718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3718"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-read-aloud-method">Read-aloud (N3)</a></li>
+	<li id="menu-item-3719" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3719"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-intensive-reading/">Manga</a></li>
+</ul>
+</li>
+<li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-86 about"><a href="https://www.wasabi-jpn.com/about/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-5201" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5201 "><a href="https://www.wasabi-jpn.com/about/">About Wasabi</a></li>
+	<li id="menu-item-609" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-609 contact-form"><a href="https://www.wasabi-jpn.com/about/contact-form/">Contact Form</a></li>
+	<li id="menu-item-610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610 term-of-use"><a href="https://www.wasabi-jpn.com/about/term-of-use/">Terms of Use</a></li>
+</ul>
+</li>
+<li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87 "><a href="https://www.wasabi-jpn.com/qa/">Q&#038;A</a></li>
+<li id="menu-item-5214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5214 login"><a href="https://www.wasabi-jpn.com/login/">LOGIN</a></li>
+</ul></div>  
+      </nav>
+    </div>
+        
+    </div><!-- /header-right -->
+    
+          
+
+      <div id="header-nav-btn">
+        <a href="#"><i class="fa fa-align-justify"></i></a>
+      </div>
+      
+      </div>
+</header>
+
+
+  <nav id="gnav-sp">
+    <div class="wrap">
+    
+    <div class="grid-wrap">
+            <div id="header-cont-about" class="grid-3">
+          <h4>Wasabi</h4>
+                  </div>
+        <div id="header-cont-content" class="grid-6">
+          <h4>Contents</h4>
+                <div id="gnav-container-sp" class="gnav-container"><ul id="gnav-ul-sp" class="clearfix"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6908 for-business"><a href="https://www.wasabi-jpn.com/for-business/">For Business</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-84 "><a href="https://www.wasabi-jpn.com/curriculum/">Wasabi Lessons</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5194 "><a href="https://www.wasabi-jpn.com/curriculum/">One-on-one Lessons</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-611 "><a href="https://www.wasabi-jpn.com/curriculum/list-of-worksheets/">Lesson Worksheets</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3390 "><a href="https://www.wasabi-jpn.com/curriculum/how-users-learn-japanese-with-wasabi/">Student Voices</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-883 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5195 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning Material</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3713"><a href="https://www.wasabi-jpn.com/how-to-learn-japanese/complete-roadmap-how-to-speak-japanese/">Roadmap</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3715"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-wasabi-japanese-pronunciation-lessons/">Pronunciation</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5433 how-to-speak-japanese"><a href="https://www.wasabi-jpn.com/category/how-to-speak-japanese/">How to Speak Japanese</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3714"><a href="https://www.wasabi-jpn.com/japanese-grammar/wasabis-online-japanese-grammar-reference/">Grammar Reference</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3716"><a href="https://www.wasabi-jpn.com/japanese-lessons/japanese-grammar-with-instantaneous-composition-method/">Grammar Exercise</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3717"><a href="https://www.wasabi-jpn.com/japanese-lessons/fairy-tales-and-short-stories-with-easy-japanese/">Read-aloud (N4)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3718"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-read-aloud-method">Read-aloud (N3)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3719"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-intensive-reading/">Manga</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-86 about"><a href="https://www.wasabi-jpn.com/about/">About</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5201 "><a href="https://www.wasabi-jpn.com/about/">About Wasabi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-609 contact-form"><a href="https://www.wasabi-jpn.com/about/contact-form/">Contact Form</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610 term-of-use"><a href="https://www.wasabi-jpn.com/about/term-of-use/">Terms of Use</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87 "><a href="https://www.wasabi-jpn.com/qa/">Q&#038;A</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5214 login"><a href="https://www.wasabi-jpn.com/login/">LOGIN</a></li>
+</ul></div>        </div>
+        <div id="header-cont-sns" class="grid-3">
+          <h4>Social Media</h4>
+          <ul>
+            <li class="header-twitter"><a href=""><i class="fa fa-twitter"></i> twitter</a></li>
+            <li class="header-facebook"><a href=""><i class="fa fa-facebook-square"></i> facebook</a></li>
+            <li class="header-google"><a href=""><i class="fa fa-google-plus"></i> google+</a></li>
+            <li class="header-feedly"><a href=""><i class="fa fa-rss-square"></i> feedly</a></li>
+          </ul>
+        </div>
+        
+    </div>
+    
+    </div>
+  </nav>
+
+
+
+
+
+<div id="main_visual">
+  <div class="wrap">
+    <h2>Learn Japanese with the Best Tutors and Materials</h2>
+    <p>We have prepared a goal-oriented method to learn Japanese effectively and efficiently</p>
+  </div><!-- .wrap -->
+ <!--<a href="https://www.wasabi-jpn.com/member-registration/" style="text-decoration: none;"><div class="Top_button">Sign up as a student and book a lesson plan until <br>December 18th to receive up to 2 free lessons!</div></a>-->
+ <div style="margin:35px auto 0"><iframe src="//player.vimeo.com/video/192903555?background=1&loop=0" width="100%" height="260" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+ <div class="banner" style="margin: 0 auto">
+        <a href="//my.wasabi-jpn.com/campaign/new-year-2018/?lang=en" target="_blank">
+          <img src="//my.wasabi-jpn.com/campaign/new-year-2018/_resource/images/mypage-banner.jpg" style="width: 100%;">
+        </a>
+</div>
+   <!--<div class="p_btn" style="text-align: center;margin-top:-129px"><a style="width:15%" href="https://www.wasabi-jpn.com/arrangement-form/">Book Plan</a><br /></div>-->
+<!--<a href="https://www.wasabi-jpn.com/member-registration/" style="text-decoration: none;"><div class="Top_button">Create Free Account</div></a>-->
+
+</div>
+
+<div id="content">
+
+  <div id="main">
+    <div class="main-inner">
+      <div id="recent_post_content" class="front-loop front-main-cont">
+    <header class="category_title main_title front-cont-header" style="padding:5px 0">
+    <h2 style="border:none"><i class="fa fa-clock-o"></i> Latest Posts</h2>
+    <div class="tri-border"><span></span></div>
+  </header>
+  
+  
+  <div class="wrap">
+    <div class="front-loop-cont">
+      
+      <article id="post-7057" class="popular_post_box recent-1 post-7057 post type-post status-publish format-standard has-post-thumbnail hentry category-live-seminar firstpost">
+        <a href="https://www.wasabi-jpn.com/how-to-speak-japanese/live-seminar/wasabi-how-to-say-this-is-my-in-japanese/" class="wrap-a">          <div class="post-thumbnail">
+            <img width="237" height="158" src="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi04-300x200.jpg" class="attachment-300x158 size-300x158 wp-post-image" alt="NewBannerNaomi04" srcset="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi04-300x200.jpg 300w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi04.jpg 600w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi04-304x203.jpg 304w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi04-237x158.jpg 237w" sizes="(max-width: 237px) 100vw, 237px" />          </div>
+                    <p class="p_category">Live Seminar</p>
+          <h3>Wasabi &#8211;  How to say “This is my …” in Japanese</h3>
+          <p class="p_date"><span class="date-mj">16/03</span><span class="date-y">2018</span></p></a>
+        </article>
+
+        
+      <article id="post-7053" class="popular_post_box recent-2 post-7053 post type-post status-publish format-standard has-post-thumbnail hentry category-live-seminar">
+        <a href="https://www.wasabi-jpn.com/how-to-speak-japanese/live-seminar/how-to-use-ittekimasu-itterasshai-tadaima-okaeri-in-japanese/" class="wrap-a">          <div class="post-thumbnail">
+            <img width="237" height="158" src="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerHidee03-300x200.jpg" class="attachment-300x158 size-300x158 wp-post-image" alt="NewBannerHidee03" srcset="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerHidee03-300x200.jpg 300w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerHidee03.jpg 600w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerHidee03-304x203.jpg 304w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerHidee03-237x158.jpg 237w" sizes="(max-width: 237px) 100vw, 237px" />          </div>
+                    <p class="p_category">Live Seminar</p>
+          <h3>いってきます, いってらっしゃい, ただいま &#038; おかえり: Use &#038; Distinction in Japanese</h3>
+          <p class="p_date"><span class="date-mj">09/03</span><span class="date-y">2018</span></p></a>
+        </article>
+
+        
+      <article id="post-7045" class="popular_post_box recent-3 post-7045 post type-post status-publish format-standard has-post-thumbnail hentry category-live-seminar">
+        <a href="https://www.wasabi-jpn.com/how-to-speak-japanese/live-seminar/how-to-use-i-adjectives-in-japanese/" class="wrap-a">          <div class="post-thumbnail">
+            <img width="237" height="158" src="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi03-300x200.jpg" class="attachment-300x158 size-300x158 wp-post-image" alt="NewBannerNaomi03" srcset="https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi03-300x200.jpg 300w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi03.jpg 600w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi03-304x203.jpg 304w, https://www.wasabi-jpn.com/wp-content/uploads/2018/03/NewBannerNaomi03-237x158.jpg 237w" sizes="(max-width: 237px) 100vw, 237px" />          </div>
+                    <p class="p_category">Live Seminar</p>
+          <h3>How to use I-Adjectives in Japanese</h3>
+          <p class="p_date"><span class="date-mj">06/03</span><span class="date-y">2018</span></p></a>
+        </article>
+
+        
+      <article id="post-7042" class="popular_post_box recent-4 post-7042 post type-post status-publish format-standard has-post-thumbnail hentry category-live-seminar">
+        <a href="https://www.wasabi-jpn.com/how-to-speak-japanese/live-seminar/how-to-use-otsukaresama-and-gokurousama-in-japanese/" class="wrap-a">          <div class="post-thumbnail">
+            <img width="237" height="158" src="https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerHidee02-300x200.jpg" class="attachment-300x158 size-300x158 wp-post-image" alt="NewBannerHidee02" srcset="https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerHidee02-300x200.jpg 300w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerHidee02.jpg 600w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerHidee02-304x203.jpg 304w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerHidee02-237x158.jpg 237w" sizes="(max-width: 237px) 100vw, 237px" />          </div>
+                    <p class="p_category">Live Seminar</p>
+          <h3>How to use “おつかれさま” and “ごくろうさま” in Japanese</h3>
+          <p class="p_date"><span class="date-mj">23/02</span><span class="date-y">2018</span></p></a>
+        </article>
+
+        
+      <article id="post-6947" class="popular_post_box recent-5 post-6947 post type-post status-publish format-standard has-post-thumbnail hentry category-live-seminar">
+        <a href="https://www.wasabi-jpn.com/how-to-speak-japanese/live-seminar/how-to-count-to-10-and-beyond-in-japanese/" class="wrap-a">          <div class="post-thumbnail">
+            <img width="237" height="158" src="https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerNaomi02-300x200.jpg" class="attachment-300x158 size-300x158 wp-post-image" alt="NewBannerNaomi02" srcset="https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerNaomi02-300x200.jpg 300w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerNaomi02.jpg 600w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerNaomi02-304x203.jpg 304w, https://www.wasabi-jpn.com/wp-content/uploads/2018/02/NewBannerNaomi02-237x158.jpg 237w" sizes="(max-width: 237px) 100vw, 237px" />          </div>
+                    <p class="p_category">Live Seminar</p>
+          <h3>How to count to 10 (and beyond) in Japanese</h3>
+          <p class="p_date"><span class="date-mj">09/02</span><span class="date-y">2018</span></p></a>
+        </article>
+
+              </div><!-- /front-root-cont -->
+    </div>
+  </div>
+<!-- ここからテストソース -->
+
+<!--<div id="front-service" class="front-main-cont">
+
+  <header class="category_title main_title front-cont-header">
+    <div class="cont-icon"><i class="none"></i></div>
+    <h2 class="cont-title">Wasabi Study Methods</h2>
+    <p class="cont-ruby">A New Innovative Online Japanese Lessons That Will Spice up Your Life</p>
+    <div class="tri-border"><span></span></div>
+  </header>
+
+
+  <div class="wrap">
+    <div class="front-service-inner">
+
+                <section id="front-service-1" class="c_box">
+            <div class="c_title">
+              <h3>One-on-one Lessons</h3>
+              <p class="c_english"></p>
+            </div>
+            <div class="c_text">
+              <h4></h4>
+              <p>Our lesson curriculum is designed by a Japanese linguist, in order for you to reach CEFR C1 level (Advanced Japanese) and to achieve these aims: "to travel in Japan," "to live in Japan" or "to work with Japanese". From our precisely designed worksheets, you will be able to acquire grammar and take one more step forward in mastering practical skills for daily interactions in Japanese. All Wasabi tutors are certified Japanese teachers or have undergone training as volunteer tutors. </p>
+                            <p class="c_btn"><a href="https://www.wasabi-jpn.com/curriculum/" class="btn">Learn about Wasabi lessons</a></p>
+                          </div>
+          </section>
+                    <section id="front-service-1" class="c_box">
+            <div class="c_title">
+              <h3>Free Self-Study Materials</h3>
+              <p class="c_english"></p>
+            </div>
+            <div class="c_text">
+              <h4></h4>
+              <p>Wasabi provides various learning materials, for example grammar reference sheets, grammar exercises, pronunciation, fairy tales, radio podcasts, and manga. Even if you have are nervous about interacting with your tutors, you can easily overcome your weaknesses and enhance your strengths on your own. By utilizing time outside of your lessons, you will effectively improve your Japanese.</p>
+                            <p class="c_btn"><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/" class="btn">Check out the materials</a></p>
+                          </div>
+          </section>
+              
+    </div>
+  </div>
+
+</div>-->
+<!-- サービス紹介 -->
+<div id="front-service" class="front-main-cont">
+
+  <header class="category_title main_title front-cont-header">
+    <div class="cont-icon"><i class="none"></i></div>
+    <h2 class="cont-title">Wasabi Study Methods</h2>
+    <p class="cont-ruby">A New Innovative Online Japanese Lessons That Will Spice up Your Life</p>
+    <div class="tri-border"><span></span></div>
+  </header>
+
+
+  <div class="wrap">
+    <div class="front-service-inner">
+                <section id="front-service-1" class="c_box">
+            <div class="c_title">
+              <h3>One-on-one Lessons</h3>
+              <p class="c_english"></p>
+            </div>
+            <div class="c_text">
+              <h4></h4>
+              <p>Our lesson curriculum is designed by a Japanese linguist, in order for you to reach CEFR C1 level (Advanced Japanese) and to achieve these aims: "to travel in Japan," "to live in Japan" or "to work with Japanese". From our precisely designed worksheets, you will be able to acquire grammar and take one more step forward in mastering practical skills for daily interactions in Japanese. All Wasabi tutors are certified Japanese teachers or have undergone training as volunteer tutors. </p>
+                            <p class="c_btn"><a href="https://www.wasabi-jpn.com/curriculum/" class="btn">Learn about Wasabi lessons</a></p>
+                          </div>
+          </section>
+                    <section id="front-service-1" class="c_box">
+            <div class="c_title">
+              <h3>Free Self-Study Materials</h3>
+              <p class="c_english"></p>
+            </div>
+            <div class="c_text">
+              <h4></h4>
+              <p>Wasabi provides various learning materials, for example grammar reference sheets, grammar exercises, pronunciation, fairy tales, radio podcasts, and manga. Even if you have are nervous about interacting with your tutors, you can easily overcome your weaknesses and enhance your strengths on your own. By utilizing time outside of your lessons, you will effectively improve your Japanese.</p>
+                            <p class="c_btn"><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/" class="btn">Check out the materials</a></p>
+                          </div>
+          </section>
+              
+    </div>
+  </div>
+
+</div><!-- /front-contents -->
+
+<!-- 会社概要 -->
+<div id="front-company" class="front-main-cont">
+  
+  <header class="category_title main_title front-cont-header">
+    <div class="cont-icon"><i class="fa fa-building-o"></i></div>
+    <h2 class="cont-title">Wasabi Basic Plan & Wasabi Intensive Plan</h2>
+    <p class="cont-ruby"></p>
+    <div class="tri-border"><span></span></div>
+  </header>
+
+
+  <section id="front-contents-1" class="c_box c_box_left no-company-map">
+    <div class="c_img_box">
+          </div>
+
+    <div class="wrap">
+      <div class="c_box_inner">
+        <dl id="front-company-1"><dt><span>2 plan</span></dt><dd><span> JPY 7,560 (USD 66 or EUR 63 -22th Nov 2016) 4 per month <br>JPY 14,040 (USD 123 or EUR 117 -22th Nov 2016) 8 per month</span></dd></dl><dl id="front-company-2"><dt><span>Private Lessons</span></dt><dd><span>One-on-one lessons via Skype</span></dd></dl><dl id="front-company-3"><dt><span>Time</span></dt><dd><span>50 minutes / lesson</span></dd></dl><dl id="front-company-4"><dt><span>Focus</span></dt><dd><span>Speaking, Listening, Grammar</span></dd></dl><dl id="front-company-5"><dt><span>Private Tutor</span></dt><dd><span>We will help you find a good tutor match. Your tutor will continuously be in charge of your lessons.</span></dd></dl><dl id="front-company-6"><dt><span>Available Lesson Hours</span></dt><dd><span>9:00 am to the next day 2:00 am (Japan Standard Time) from Monday to Sunday.</span></dd></dl>            <div class="p_btn" style="text-align: center;"><a style="width:35%" href="http://my.wasabi-jpn.com/signup/?lang=en">Create Free Account</a></div>
+      </div>
+    </div>
+  </section>
+</div><!-- front-company -->
+
+
+
+<!-- カテゴリー紹介 -->
+<!--<div id="front-contents" class="front-main-cont">
+    <header class="category_title main_title front-cont-header">
+    <div class="cont-icon"><i class="fa fa-heart"></i></div>
+    <h2 class="cont-title">Student Voices</h2>
+    <p class="cont-ruby"></p>
+    <div class="tri-border"><span></span></div>
+  </header>
+
+        <section id="front-contents-1" class="c_box c_box_left">
+        <div class="wrap">
+          <div class="c_box_inner">
+            <div class="c_title">
+              <div></div>
+              <p class="c_number">1</p>
+              <h3>Ms. Reka Farkas</h3>
+              <p class="c_english">From Hungary, Intermediate Level (JLPT N4)</p>
+            </div>
+                  <img class="c_img_box" style="background-image:url(https://www.wasabi-jpn.com/wp-content/uploads/2016/05/Reka.jpg)">
+            <div class="c_text">
+              <h4></h4>
+              <p>I enjoyed my lessons with Wasabi. Because it's one-on-one Skype lessons it is very practical, especially for those of us who are working and do not have the time to attend traditional schools. The tutors are very professional and helpful, not to mention patient and encouraging, which is very important. Your materials are very nicely composed and put forth into lessons that are easy for the student to follow.<br />
+</p>
+                            <p class="c_btn"><a href="https://www.wasabi-jpn.com/curriculum/how-users-learn-japanese-with-wasabi/" class="btn">Read More</a></p>
+                          </div>
+          </div>
+        </div>
+      </section>
+      </div>--><!-- /front-contents -->
+
+<!-- カテゴリー紹介ここまで -->
+
+<!-- ここまでテストソース  -->
+    </div><!-- /wrap -->
+  </div><!-- /recent_post_content -->
+  
+  <div id="front-service" class="front-main-cont">
+
+    <header class="category_title main_title front-cont-header">
+    <div class="cont-icon"><i class="fa fa-heart"></i></div>
+    <h2 class="cont-title">Student Voices</h2>
+    <p class="cont-ruby"></p>
+    <div class="tri-border"><span></span></div>
+  </header>
+  <div class="wrap">
+    <div class="front-service-inner">
+
+                <section id="front-service-1" class="c_box">
+            <div class="c_title">
+                              <h3>Ms. Reka Farkas</h3>
+            <p class="c_english">From Hungary, Intermediate Level (JLPT N4)</p>
+              
+            </div>
+            <div class="c_text">
+              <h4></h4>
+              <p>I enjoyed my lessons with Wasabi. Because it's one-on-one Skype lessons it is very practical, especially for those of us who are working and do not have the time to attend traditional schools. The tutors are very professional and helpful, not to mention patient and encouraging, which is very important. Your materials are very nicely composed and put forth into lessons that are easy for the student to follow.<br />
+</p>
+                                          <p class="c_btn"><a href="//www.wasabi-jpn.com/curriculum/how-users-learn-japanese-with-wasabi/" class="btn" style="background: #FF6C00">Read More</a></p>
+              
+                          </div>
+          </section>
+                    <section id="front-service-1" class="c_box">
+                       <img class="c_img_box" src="//www.wasabi-jpn.com/wp-content/uploads/2016/05/Reka.jpg" style="border-radius: 50%;
+    width: 400px;
+    height: 400px;">
+                    </section>
+              
+    </div>
+  </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Wasabi -->
+<ins class="adsbygoogle"
+     style="display:block;text-align: center; margin: 40px 0 -57px 0;"
+     data-ad-client="ca-pub-3686666758944573"
+     data-ad-slot="1218219048"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div><!-- /main-inner -->
+</div><!-- /main -->
+</div><!-- /content -->
+<footer id="footer">
+  <div class="footer-01">
+    <div class="wrap">
+          <div id="footer-brand-area" class="row">
+        <div class="footer-logo gr6">
+        Wasabi - Learn Japanese Online        </div>
+        <div class="footer-address gr6">
+                  </div>
+      </div><!-- /footer-brand-area -->
+    
+      <div id="footer-content-area" class="row">
+        <div id="footer-list-area" class="gr6">
+          <div class="row">
+          
+            
+        
+            <div id="footer-cont-content" class="gr4">
+              <h4>Contents</h4>
+      <div id="footer-gnav-container" class="gnav-container"><ul id="footer-gnav-ul" class="clearfix"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6908 for-business"><a href="https://www.wasabi-jpn.com/for-business/">For Business</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-84 "><a href="https://www.wasabi-jpn.com/curriculum/">Wasabi Lessons</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5194 "><a href="https://www.wasabi-jpn.com/curriculum/">One-on-one Lessons</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-611 "><a href="https://www.wasabi-jpn.com/curriculum/list-of-worksheets/">Lesson Worksheets</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3390 "><a href="https://www.wasabi-jpn.com/curriculum/how-users-learn-japanese-with-wasabi/">Student Voices</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-883 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5195 "><a href="https://www.wasabi-jpn.com/curriculum/self-learning-japanese/">Self-Learning Material</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3713"><a href="https://www.wasabi-jpn.com/how-to-learn-japanese/complete-roadmap-how-to-speak-japanese/">Roadmap</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3715"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-wasabi-japanese-pronunciation-lessons/">Pronunciation</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5433 how-to-speak-japanese"><a href="https://www.wasabi-jpn.com/category/how-to-speak-japanese/">How to Speak Japanese</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3714"><a href="https://www.wasabi-jpn.com/japanese-grammar/wasabis-online-japanese-grammar-reference/">Grammar Reference</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3716"><a href="https://www.wasabi-jpn.com/japanese-lessons/japanese-grammar-with-instantaneous-composition-method/">Grammar Exercise</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3717"><a href="https://www.wasabi-jpn.com/japanese-lessons/fairy-tales-and-short-stories-with-easy-japanese/">Read-aloud (N4)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3718"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-read-aloud-method">Read-aloud (N3)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3719"><a href="https://www.wasabi-jpn.com/japanese-lessons/materials-for-japanese-lessons-intensive-reading/">Manga</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-86 about"><a href="https://www.wasabi-jpn.com/about/">About</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5201 "><a href="https://www.wasabi-jpn.com/about/">About Wasabi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-609 contact-form"><a href="https://www.wasabi-jpn.com/about/contact-form/">Contact Form</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610 term-of-use"><a href="https://www.wasabi-jpn.com/about/term-of-use/">Terms of Use</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87 "><a href="https://www.wasabi-jpn.com/qa/">Q&#038;A</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5214 login"><a href="https://www.wasabi-jpn.com/login/">LOGIN</a></li>
+</ul></div>    </div>
+    
+            <div id="footer-cont-sns" class="gr4">
+              <h4>Social Medias</h4>
+              <li class="header-youtube"><a target="_blank" href="https://www.youtube.com/channel/UCxn3gpU0BgXVue7MSUSRifA"><i class="fa fa-youtube-play"></i>Youtube</a></li>
+              <div id="footer-sns" class="sp-hide"><ul><li class="header-twitter"><a target="_blank" href="https://twitter.com/wasabi_jpn_com"><i class="fa fa-twitter"></i>Twitter</a></li><li class="header-facebook"><a href="https://www.facebook.com/wasabi.japanese" target="_blank"><i class="fa fa-facebook-square"></i>Facebook</a></li><li class="header-google"><a target="_blank" href="https://plus.google.com/109742755409513608787"><i class="fa fa-google-plus"></i>Google+</a></li><li class="header-feedly"><a target="_blank" href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttps://www.wasabi-jpn.com/feed/"><i class="fa fa-rss-square"></i>Feedly</a></li></ul></div>            </div>
+          </div>
+        </div>
+        <div class="gr6">
+          <div class="row">
+                <div id="footer-facebook" class="gr12 text-right">
+            <div class="fb-page" data-href="https://www.facebook.com/wasabi.japanese" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/wasabi.japanese"><a href="https://www.facebook.com/wasabi.japanese"></a></blockquote></div></div>
+        </div>
+                
+          </div>
+        </div>
+      </div>
+      
+      
+      
+    </div><!-- /wrap -->
+  </div><!-- /footer-01 -->
+  <div class="footer-02">
+    <div class="wrap">
+      <p class="footer-copy">
+        Copyright &copy; 2018 Wasabi - Learn Japanese Online. All rights reserved.
+      </p>
+    </div><!-- /wrap -->
+  </div><!-- /footer-02 -->
+  </footer>
+<div class="chat">
+<style type="text/css" media="screen">
+.footer_text{
+  position: relative;
+  top:2px;
+}
+</style>
+<link rel="stylesheet" href="https://cafetalk.com/support/resources/css/chat.min.css?20180210">
+<div id='sbChatFrame' style="display: none;"><header id='chatWidgetHeader'><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.145 7.961-9.91 7.961-1.937 0-3.383-.397-4.394-.644-1 .613-1.595 1.037-4.272 1.82.535-1.373.723-2.748.602-4.265-.838-1-2.025-2.4-2.025-4.872-.001-4.415 4.485-8.007 9.999-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.418.345 2.775.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006zm1.024 13.975c0 .566-.458 1.025-1.024 1.025-.565 0-1.024-.459-1.024-1.025 0-.565.459-1.024 1.024-1.024.566 0 1.024.459 1.024 1.024zm1.141-8.192c-.498-.505-1.241-.783-2.09-.783-1.786 0-2.941 1.271-2.941 3.237h1.647c0-1.217.68-1.649 1.261-1.649.519 0 1.07.345 1.117 1.004.052.694-.319 1.046-.788 1.493-1.157 1.1-1.179 1.633-1.173 2.842h1.643c-.01-.544.025-.986.766-1.785.555-.598 1.245-1.342 1.259-2.477.008-.758-.233-1.409-.701-1.882z'></path></svg><strong>Got a question?</strong><div id='closeSBChatWidget'><svg viewBox='0 0 15.1 8.9' data-reactid='.1.3.0.1.0'><polygon class='olark-top-bar-arrow' points='0.2,1.4 7.6,8.9 15.1,1.4 13.7,0 7.6,6 1.6,0' data-reactid='.1.3.0.1.0.0'></polygon></svg></div></header><div id="sbXvi" style="height:100%;"></div></div>
+
+</div>
+<a href="#" class="pagetop"><span><i class="fa fa-angle-up"></i></span></a>
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'ja'}
+</script><script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"https:\/\/www.wasabi-jpn.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.4.2'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-sliderAccess.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/themes/xeory_extension/lib/js/app.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-content/themes/xeory_extension/lib/js/jquery.pagetop.js?ver=4.5.3'></script>
+<script type='text/javascript' src='https://www.wasabi-jpn.com/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+
+<script>
+(function($){
+
+$(function(){
+  $("body").append('<div id="sbChatWidgetButton"><div id="sbChatAttentionGrabber"></div><div id="sbClickToChat"><svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.145 7.961-9.91 7.961-1.937 0-3.383-.397-4.394-.644-1 .613-1.595 1.037-4.272 1.82.535-1.373.723-2.748.602-4.265-.838-1-2.025-2.4-2.025-4.872-.001-4.415 4.485-8.007 9.999-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.418.345 2.775.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006zm1.024 13.975c0 .566-.458 1.025-1.024 1.025-.565 0-1.024-.459-1.024-1.025 0-.565.459-1.024 1.024-1.024.566 0 1.024.459 1.024 1.024zm1.141-8.192c-.498-.505-1.241-.783-2.09-.783-1.786 0-2.941 1.271-2.941 3.237h1.647c0-1.217.68-1.649 1.261-1.649.519 0 1.07.345 1.117 1.004.052.694-.319 1.046-.788 1.493-1.157 1.1-1.179 1.633-1.173 2.842h1.643c-.01-.544.025-.986.766-1.785.555-.598 1.245-1.342 1.259-2.477.008-.758-.233-1.409-.701-1.882z"/></svg><strong class="footer_text">Got a question?</strong></div></div>');
+  $("#sbChatWidgetButton").click(function(){$(this).hide();$("#sbXvi").append("<iframe src='https://cafetalk.com/support/chat/popup/?lang=en&client_site=wasabi&name=&custom_user_id=0'></iframe>");$("#sbChatFrame").show();}); 
+  $("#closeSBChatWidget").click(function(){$("#sbChatFrame").fadeOut('fast',function(){ $("#sbXvi").html(""); $("#sbChatWidgetButton").show();});});
+});
+
+$(function() {
+    $("#header-fnav").hide();
+  $("#header-fnav-area").hover(function(){
+    $("#header-fnav").fadeIn('fast');
+  }, function(){
+    $("#header-fnav").fadeOut('fast');
+  });
+});
+
+
+// グローバルナビ-サブメニュー
+$(function(){
+  $(".sub-menu").css('display', 'none');
+  $("#gnav-ul li").hover(function(){
+    $(this).children('ul').fadeIn('fast');
+  }, function(){
+    $(this).children('ul').fadeOut('fast');
+  });
+});
+
+// トップページメインビジュアル
+//$(function(){
+  //h = $(window).height();
+  //hp = h * .3;
+  //$('#main_visual').css('height', h + 'px');
+  //$('#main_visual .wrap').css('padding-top', hp + 'px');
+//});
+
+//$(function(){
+  //if(window.innerWidth < 768) {
+  //h = $(window).height();
+  //hp = h * .2;
+  //$('#main_visual').css('height', h + 'px');
+  //$('#main_visual .wrap').css('padding-top', hp + 'px');
+  //}
+//});
+
+$(function() {
+      var show = $('.showbar');
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 700) {
+          show.addClass('show');
+        } else {
+          show.removeClass('show');
+        }
+      });
+      show.click(function () {
+        //$('body, html').animate({ scrollTop: 0 }, 500);
+        $('.button')[0].click();
+        //return false;
+      });
+    });
+// sp-nav
+$(function(){
+  var header_h = $('#header').height();
+  $('#gnav-sp').hide();
+  $('#gnav-sp').css('top', header_h);
+  $('#header-nav-btn a').click(function(){
+    $('#gnav-sp').slideToggle();
+    $('body').append('<p class="dummy"></p>');
+  });
+  $('body').on('click touchend', '.dummy', function() {
+    $('#gnav-sp').slideUp();
+    $('p.dummy').remove();
+    return false;
+  });
+});
+
+})(jQuery);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<meta name="applicable-device" content="pc,mobile">
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+<meta http-equiv="Cache-Control" content="no-transform" /> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta content="温州新闻,温州日报,温州新闻,温州新闻门户网" />
+
+
+<title>温州日报瓯网 - 温州新闻门户网 - 温州日报主办</title>
+<meta name="title" content="温州日报瓯网 - 温州新闻门户网 - 温州日报主办">
+<meta name="subject"  content="温州新闻门户网-瓯网,是温州日报旗下的门户网">
+<meta name="description" content="温州日报瓯网是重要的温州新闻门户网,报道温州新闻,国内国际重大新闻,并提供丰富的互动栏目,是了解温州的网络平台">
+<meta name="keywords" content="温州新闻,温州日报,温州新闻门户网">
+<link href="/Template/ow2016/css/wzrb.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/favicon.ico"> 
+<script type="text/javascript" src="/Template/ow2016/js/jquery-1.8.3.min.js"></script>
+<script src="/Template/ow2016/js/slider.js"></script>
+<script type="text/javascript" src="/Template/ow2016/js/JScript.js"></script>
+</head><style>
+.inc_banner_top{width:1020px;height:80px;margin:0 auto 10px;}
+.inc_banner_top img{width:1020px;height:80px;}
+</style>
+<body style="background:#fafbfc;">
+<!--飘浮及门联-->
+<script>
+    function getPageScroll() {
+        var xScroll, yScroll;
+        if (self.pageXOffset) {
+            xScroll = self.pageXOffset;
+        } else if (document.documentElement && document.documentElement.scrollLeft) {
+            xScroll = document.documentElement.scrollLeft;
+        } else if (document.body) {
+            xScroll = document.body.scrollLeft;
+        }
+        if (self.pageYOffset) {
+            yScroll = self.pageYOffset;
+        } else if (document.documentElement && document.documentElement.scrollTop) {
+            yScroll = document.documentElement.scrollTop;
+        } else if (document.body) {
+            yScroll = document.body.scrollTop;
+        }
+        arrayPageScroll = new Array(xScroll, yScroll);
+        return arrayPageScroll;
+    }
+
+
+    function GetPageSize() {
+        var xScroll, yScroll;
+        if (window.innerHeight && window.scrollMaxY) {
+            xScroll = document.body.scrollWidth;
+            yScroll = window.innerHeight + window.scrollMaxY;
+        } else if (document.body.scrollHeight > document.body.offsetHeight) {
+            xScroll = document.body.scrollWidth;
+            yScroll = document.body.scrollHeight;
+        } else {
+            xScroll = document.body.offsetWidth;
+            yScroll = document.body.offsetHeight;
+        }
+        var windowWidth, windowHeight;
+        if (self.innerHeight) {
+            windowWidth = self.innerWidth;
+            windowHeight = self.innerHeight;
+        } else if (document.documentElement && document.documentElement.clientHeight) {
+            windowWidth = document.documentElement.clientWidth;
+            windowHeight = document.documentElement.clientHeight;
+        } else if (document.body) {
+            windowWidth = document.body.clientWidth;
+            windowHeight = document.body.clientHeight;
+        }
+        if (yScroll < windowHeight) {
+            pageHeight = windowHeight;
+        } else {
+            pageHeight = yScroll;
+        }
+        if (xScroll < windowWidth) {
+            pageWidth = windowWidth;
+        } else {
+            pageWidth = xScroll;
+        }
+        arrayPageSize = new Array(pageWidth, pageHeight, windowWidth, windowHeight)
+        return arrayPageSize;
+    }
+
+    var AdMoveConfig = new Object();
+    AdMoveConfig.IsInitialized = false;
+    AdMoveConfig.ScrollX = 0;
+    AdMoveConfig.ScrollY = 0;
+    AdMoveConfig.MoveWidth = 0;
+    AdMoveConfig.MoveHeight = 0;
+    AdMoveConfig.Resize = function () {
+        var winsize = GetPageSize();
+        AdMoveConfig.MoveWidth = winsize[2];
+        AdMoveConfig.MoveHeight = winsize[3];
+        AdMoveConfig.Scroll();
+    }
+    AdMoveConfig.Scroll = function () {
+        var winscroll = getPageScroll();
+        AdMoveConfig.ScrollX = winscroll[0];
+        AdMoveConfig.ScrollY = winscroll[1];
+    }
+    addEvent(window, "resize", AdMoveConfig.Resize);
+    addEvent(window, "scroll", AdMoveConfig.Scroll);
+
+    function AdMove(id) {
+        if (!AdMoveConfig.IsInitialized) {
+            AdMoveConfig.Resize();
+            AdMoveConfig.IsInitialized = true;
+        }
+        var obj = document.getElementById(id);
+        obj.style.position = "absolute";
+        var W = AdMoveConfig.MoveWidth - obj.offsetWidth;
+        var H = AdMoveConfig.MoveHeight - obj.offsetHeight;
+        var x = W * Math.random(), y = H * Math.random();
+        var rad = (Math.random() + 1) * Math.PI / 6;
+        var kx = Math.sin(rad), ky = Math.cos(rad);
+        var dirx = (Math.random() < 0.5 ? 1 : -1), diry = (Math.random() < 0.5 ? 1 : -1);
+        var step = 1;
+        var interval;
+        this.SetLocation = function (vx, vy) { x = vx; y = vy; }
+        this.SetDirection = function (vx, vy) { dirx = vx; diry = vy; }
+        obj.CustomMethod = function () {
+            obj.style.left = (x + AdMoveConfig.ScrollX) + "px";
+            obj.style.top = (y + AdMoveConfig.ScrollY) + "px";
+            rad = (Math.random() + 1) * Math.PI / 6;
+            W = AdMoveConfig.MoveWidth - obj.offsetWidth;
+            H = AdMoveConfig.MoveHeight - obj.offsetHeight;
+            x = x + step * kx * dirx;
+            if (x < 0) { dirx = 1; x = 0; kx = Math.sin(rad); ky = Math.cos(rad); }
+            if (x > W) { dirx = -1; x = W; kx = Math.sin(rad); ky = Math.cos(rad); }
+            y = y + step * ky * diry;
+            if (y < 0) { diry = 1; y = 0; kx = Math.sin(rad); ky = Math.cos(rad); }
+            if (y > H) { diry = -1; y = H; kx = Math.sin(rad); ky = Math.cos(rad); }
+        }
+        this.Run = function () {
+            var delay = 10;
+            interval = setInterval(obj.CustomMethod, delay);
+            obj.onmouseover = function () { clearInterval(interval); }
+            obj.onmouseout = function () { interval = setInterval(obj.CustomMethod, delay); }
+        }
+    }
+</script>
+<div id="img1" style="POSITION: absolute; Z-INDEX: 10000; LEFT: 2px; visibility: visible;">
+								<a href="http://news.66wz.com/cms_udf/2017/zdpyc/index.shtml" target="_blank">
+								 <img src="http://www.wzrb.com.cn/Template/ow2016/images/toppic.jpg" width="300" height="139" border="0"/>
+								</a>
+</div>
+<script type="text/javascript">
+    var ad1 = new AdMove("img1");
+    ad1.Run();
+</script>
+<!--飘浮及门联end-->
+
+<!--首页背景end-->
+<div style="width:100%;padding-top:85px;background:url(/Template/ow2016/images/newyear2017-1.jpg) top center no-repeat;text-align:center;margin:0 auto;">
+    <div style="margin:0 auto;width:1020px;background:#fff;">
+
+<!--首页横幅2-->
+<div class="inc_banner_top"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=169"charset='utf-8'></script></div>
+<div class="inc_banner_top"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=168"charset='utf-8'></script></div>
+<!--首页横幅2 end-->
+
+
+
+
+<div class="main_box">
+<!-- 登录条 -->
+<script language="javascript">
+    //addLoadEvent(lanmuBind);
+    var searchid = 0;
+    function lanmuBind() {
+        jQuery('#s0').bind('click', function () { jQuery('#x2').toggle(); });
+        jQuery('#x2 a').bind('click', function () {
+            jQuery('#x2').hide();
+            jQuery('#s0').html(jQuery(this).html());
+            searchid = jQuery(this).attr('s');
+
+        });
+        jQuery('#search_bnt').bind('click', function () { Searcah(); });
+    }
+
+    function Searcah() {
+        var text = jQuery('#txtsearchkey'),
+            textstr = text.val();
+
+        if (textstr.length == 0) {
+            //alert('请输入搜索关键字!');
+            text.focus();
+            return;
+        }
+        console.log(encodeURI(textstr));
+        var url = "",type = 11;//parseInt(searchid)
+        switch (type) {
+            case 1:
+                document.charset = 'gbk';
+                Postwith('http://bbs.wzrb.com.cn/search.php?mod=forum', { formhash: GetFormHash(), srchtxt: textstr, searchsubmit: 'yes' });
+                break;
+            case 3:
+                url = "http://epaper.wzrb.com.cn/SearchList.aspx?sreachstr=" + textstr;
+                break;
+            case 2:
+                url = "http://wen.wzrb.com.cn/Question_list.aspx?skey=" + textstr;
+                break;
+            default:
+                url = "http://www.wzrb.com.cn/search_" + encodeURI(textstr) + "_1.html";
+                break;
+        }
+        if (url != '')
+            window.location = url;
+    }
+</script>
+    <!--<div id="topnologindiv" class="login_top">
+        <ul>
+            <p><a href="javascript:void(0)" onclick="SetHome(this,window.location)" >把瓯网设为首页</a></p>
+            <li>
+                用户名
+                <input id="txtusername" type="text" size="12" />
+                密码
+                <input id="txtpassword" type="password" size="12" />
+                <button onclick="UserLogin()">登录</button>
+                <a href="http://blog.wzrb.com.cn/member.php?mod=register">注册</a>
+            </li>
+        </ul>
+    </div>-->
+<!-- 登录条 end -->
+<!-- logo/nav -->
+    <div style="background:#fff;width:100%;">
+        <div class="logo_box"><ul><li><a href="http://www.wzrb.com.cn"><img src="/Template/ow2016/images/logo.png" alt="logo" /></a></li></ul></div>
+        <div class="nav_box">
+            <div class="search">
+                <input type="text" size="20" placeholder="请输入搜索关键词" id="txtsearchkey" />
+                <a href="javascript:;" onclick="Searcah()"><img src="/Template/ow2016/images/search_bt.gif" /></a>
+            </div>
+            <script>
+                $(function () {
+                    $('.nav li').hover(
+			 	     function () {
+			 	         $(this).find('div.nav_content').show();
+			 	     },
+				     function () {
+				         $(this).find('div.nav_content').hide();
+				     }
+			    );
+                })
+	  	    </script>
+            <div class="nav f_yahei">
+                <ol>
+                    <li>
+                        <div class="nav_css"><a href="http://www.wzrb.com.cn/ArticleClass_525.html" target="_blank" style="color:#f00;">
+                            聚焦十九大时光</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav_css"><a href="index.html">新闻</a></div>
+                        <div class="nav_content" style="display:none;">
+                            <p><a href="ArticleClass_13.html" target="_blank">温州城</a></p>
+                            <p><a href="ArticleClass_12.html" target="_blank">看神州</a></p>
+                            <p><a href="ArticleClass_228.html" target="_blank">全球眼</a></p>
+                            <p><a href="http://channel.wzrb.com.cn/topic.aspx" target="_blank">文化</a></p>
+                            <p><a href="http://www.wzrb.com.cn/ArticleClass_115.html" target="_blank">要闻</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav_css"><a href="http://wlwz.wenzhou.gov.cn/" target="_blank">网络问政</a></div>
+                        <div class="nav_content" style="display:none;">
+                            <p><a href="http://wlwz.wenzhou.gov.cn/" target="_blank">问政中心</a></p>
+                            <p><a href="http://lc.wzrb.com.cn/" target="_blank">问鹿城</a></p>
+                            <p><a href="http://lc.wzrb.com.cn/w" target="_blank">微发布</a></p>
+                            <p><a href="http://channel.wzrb.com.cn/source/zqms/index.aspx" target="_blank">政情民声站</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav_css"><a href="http://www.wzrb.com.cn/ArticleClass_518.html" target="_blank">教育</a></div>
+                        <div class="nav_content" style="display:none;">
+                            <p><a href="http://www.wzrb.com.cn/company/5/list.html" target="_blank">学生记者团</a></p>
+                        </div>
+                    </li>
+                    <li>
+                       <div class="nav_css"><a href="ArticleClass_516.html" target="_blank">智库</a></div>
+                       <!-- <div class="nav_content" style="display:none;">
+                            <p><a href="ArticleClass_516.html" target="_blank">论文</a></p>
+                            <p><a href="ArticleClass_513.html" target="_blank">广告</a></p>
+                        </div>-->
+                       <!-- <div class="nav_css"><a href="http://www.wzrb.com.cn/ArticleClass_515.html" target="_blank">智库</a></div>
+                        <div class="nav_content" style="display:none;">
+                            <p><a href="ArticleClass_516.html" target="_blank">论文</a></p>
+                            <p><a href="ArticleClass_513.html" target="_blank">广告</a></p>
+                        </div>-->
+                        <div class="nav_content" style="display:none;">
+                            <p><a href="ArticleClass_513.html" target="_blank">广告</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav_css"><a href="http://www.wzrb.com.cn/Topic_1.html" target="_blank">专题</a></div>
+                    </li>
+                   	<li>
+                        <div class="nav_css"><a href="http://www.wzrb.com.cn/piclist.html" target="_blank">图闻</a></div>
+                    </li>
+                    <li>
+                        <div class="nav_css"><a href="http://www.wzrb.com.cn/" target="_blank">数字报</a></div>
+                        <div class="nav_content" style="display:none;">
+                            <!--<p><a href="http://epaper.wzrb.com.cn/" target="_blank">温州日报</a></p>
+                            <p><a href="http://epaper.wzrb.com.cn/default.aspx?etype=4" target="_blank">科技金融时报</a></p>-->
+                            <p><a href="http://epaper.wzrb.com.cn/dfssd" target="_blank">洞头新闻</a></p>
+                            <p><a href="http://epaper.wzrb.com.cn/dspy" target="_blank">都市平阳</a></p>
+                            <p><a href="http://epaper.wzrb.com.cn/default.aspx?etype=8" target="_blank">今日龙湾</a></p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="nav_bg"></div>
+    </div>
+<!-- logo/nav end--><!-- 头条 -->
+<div class="headlines">
+            <p class="f_yahei"><a href="http://news.cctv.com/2018/03/17/ARTIcA4InJwnZGbUSl3H8cAZ180317.shtml">十三届全国人大一次会议选举产生新一届国家领导人  　　　　　　　　习近平全票当选国家主席中央军委主席</a></p>
+        <p style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;"> </p>
+        </div>
+<!-- 头条 end-->
+<!-- banner -->
+<div class="banner_box">
+        <div id="banner_tabs" class="flexslider">
+            <ul class="slides">
+ 		        <li>
+			        <a  href="http://www.wzrb.com.cn/article848565show.html" target="_blank">
+				        <img width="698" height="340"  src="http://img.wzrb.com.cn/articlefile/20180317/20180317418915.png" alt="温州市水产批发市场蝤蛑全“松绑”" />
+			        </a>
+                    <div class="banner_font">
+                        <p class="f_yahei">温州市水产批发市场蝤蛑全“松绑”</p>
+                          <br/>
+                        <p>&emsp;&emsp;昨天，温州市水产批发交易市场所有蝤蛑“松绑”，41家蝤蛑经营户被要求签订不售“过度捆绑蝤蛑”的承诺书，并通知各自供货商按照不绑绳的要求供货。</p>
+                        <span>来源：温州日报瓯网</span>
+                    </div>
+		        </li>
+		        <li>
+			        <a  href="http://www.wzrb.com.cn/article848564show.html" target="_blank">
+				        <img width="698" height="340"  src="http://img.wzrb.com.cn/articlefile/20180317/20180317157937.png" alt="绿水绕村郭 民宅入画来" />
+			        </a>
+                    <div class="banner_font">
+                        <p class="f_yahei">绿水绕村郭 民宅入画来</p>
+                          <br/>
+                        <p>&emsp;&emsp;近年来，平阳县昆阳镇鸣山村以生态环境综合治理为总抓手，突出抓好沿河拆违建绿、生态修复、畜禽禁养长效管理等工作，加强临河垃圾收集处置、沿河各类污染源监管和生态环境的长效机制建设，全面推进水环境连片整治。</p>
+                        <span>来源：温州日报瓯网</span>
+                    </div>
+		        </li>
+		        <li>
+			        <a  href="http://www.wzrb.com.cn/article848556show.html" target="_blank">
+				        <img width="698" height="340"  src="http://img.wzrb.com.cn/articlefile/20180317/20180317471079.png" alt="这车价值700万 可移动观测台风" />
+			        </a>
+                    <div class="banner_font">
+                        <p class="f_yahei">这车价值700万 可移动观测台风</p>
+                          <br/>
+                        <p>&emsp;&emsp;昨天，一台价值近700万元的移动台风观测车从湖北运抵温州，这是国网浙江省电力公司首台移动台风观测车，它将成为温州抗击台风的利器。</p>
+                        <span>来源：温州日报瓯网</span>
+                    </div>
+		        </li>
+		        <li>
+			        <a  href="http://www.wzrb.com.cn/article848542show.html" target="_blank">
+				        <img width="698" height="340"  src="http://img.wzrb.com.cn/articlefile/20180317/20180317035456.png" alt="温州女生赵新芊入选“奥运之星”" />
+			        </a>
+                    <div class="banner_font">
+                        <p class="f_yahei">温州女生赵新芊入选“奥运之星”</p>
+                          <br/>
+                        <p>&emsp;&emsp;日前，中国铁人三项运动协会公布2018年铁人三项“奥运之星”跨界跨项选才集训的14人名单，其中8男6女，乐清18岁女生赵新芊榜上有名，她是我省唯一一名入选的运动员。</p>
+                        <span>来源：温州日报瓯网</span>
+                    </div>
+		        </li>
+		        <li>
+			        <a  href="http://www.wzrb.com.cn/article848541show.html" target="_blank">
+				        <img width="698" height="340"  src="http://img.wzrb.com.cn/articlefile/20180317/20180317289710.png" alt="八部经典话剧让我们一次看个够" />
+			        </a>
+                    <div class="banner_font">
+                        <p class="f_yahei">八部经典话剧让我们一次看个够</p>
+                          <br/>
+                        <p>&emsp;&emsp;由温州大剧院主办的2018话剧节将于3月24日全面开票。从5月一直持续至8月，温州大剧院陆续引入全国各地的话剧精品，将上演8部经典话剧共11场演出，让温州观众在自家门口一次看个够！</p>
+                        <span>来源：温州日报瓯网</span>
+                    </div>
+		        </li>
+	        </ul>
+	        <ul class="flex-direction-nav">
+		        <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+		        <li><a class="flex-next" href="javascript:;">Next</a></li>
+	        </ul>
+	        <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+		        <li><a>1</a></li>
+		        <li><a>2</a></li>
+		        <li><a>3</a></li>
+                <li><a>4</a></li>
+                <li><a>5</a></li>
+	        </ol>
+        </div>
+     <script type="text/javascript">
+                $(function () {
+                    var bannerSlider = new Slider($('#banner_tabs'), {
+                        time: 5000,
+                        delay: 400,
+                        event: 'hover',
+                        auto: true,
+                        mode: 'fade',
+                        controller: $('#bannerCtrl'),
+                        activeControllerCls: 'active'
+                    });
+                    $('#banner_tabs .flex-prev').click(function () {
+                        bannerSlider.prev()
+                    });
+                    $('#banner_tabs .flex-next').click(function () {
+                        bannerSlider.next()
+                    });
+                })
+    </script>
+    </div>
+<!-- banner end-->
+<!-- 广告 2 列-->
+<div class="ad_banna">
+    <ul>
+        <li><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=144" charset='utf-8'></script></li>
+        <li><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=145" charset='utf-8'></script></li>
+    </ul>
+</div>
+<!-- 广告 2 列 end-->
+<script>
+    $(document).ready(function () {
+        $(".inc_p_font").each(function () {
+            var maxwidth = 70;
+            if ($(this).text().length > maxwidth) {
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '...');
+            }
+        });
+    }); 
+</script>
+<!-- news_content-->
+    <div class="news_content">
+        <!-- left-->
+        <div class="left">
+            <!-- 温州城-->
+            <div class="wznews">
+                <div class="title"><a href="ArticleClass_13.html" title="温州城"><span>更多</span></a><h1>温州城</h1><img src="/Template/ow2016/images/news_bg.gif" /></div>
+                <div class="picNews_tr f_yahei">
+                    <ul>
+                        <li><a href="http://www.wzrb.com.cn/article848567show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317241668.jpg" alt="爱心灯光三次点亮红日亭" /></a></li>
+                        <li>
+                            <a href="http://www.wzrb.com.cn/article848567show.html" target="_blank"><h2>爱心灯光三次点亮红日亭</h2></a>
+                            <p class="inc_p_font">鹿城供电16年持续为温州慈善地标“保驾护航”。</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><a href="http://www.wzrb.com.cn/article848566show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317113809.jpg" alt="瞿溪会市今天开始 赶集攻略请收好" /></a></li>
+                        <li>
+                            <a href="http://www.wzrb.com.cn/article848566show.html" target="_blank"><h2>瞿溪会市今天开始 赶集攻略请收好</h2></a>
+                            <p class="inc_p_font">今年的“二月初一”瓯海瞿溪会市今天开市，为期五天。</p>
+                        </li>
+                    </ul>
+</div>
+                <div class="news f_yahei">
+                    <ul>
+                         <li><p><a href="http://www.wzrb.com.cn/article848603show.html" target="_blank">龙湾市监局开展网络订餐“清网”行动</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848602show.html" target="_blank">网络贷款迟迟未到手 原是朋友偷偷转走了</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848601show.html" target="_blank">瑞安桐浦油菜花节 本月20日开幕</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848600show.html" target="_blank">瓯海推出政府代办制度 打造营商好环境</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848580show.html" target="_blank">两岸民宿高峰论坛24日在温举行</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848574show.html" target="_blank">瓯海打造温州医疗康养中心城市核心区</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848573show.html" target="_blank">鹿城开启“最严模式”整治市容乱象</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848559show.html" target="_blank">2018温州国际时尚文博会下周启幕</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848557show.html" target="_blank">多管齐下，整治营商环境</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848555show.html" target="_blank">“七进”试点工作再推进 提升城市安全美誉度</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848553show.html" target="_blank">港温联动资本市场研讨会举行</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848546show.html" target="_blank">温州派五千强将担任营商专员</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848545show.html" target="_blank">51个城镇列入 全省达标任务</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848537show.html" target="_blank">苍南人在家门口也可做司法鉴定</a></p></li>
+                    </ul>
+ </div>
+            </div>
+            <!-- 温州城 end -->
+            <!-- 看神州-->
+            <div class="wznews">
+                <div class="title"><a href="ArticleClass_12.html" title="看神州"><span>更多</span></a><h1>看神州</h1><img src="/Template/ow2016/images/news_bg.gif" /></div>
+                <div class="pictd_box f_yahei">
+                            <dl>
+                                <dt><a href="http://www.wzrb.com.cn/article848568show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317075941.jpg"  alt="杭州：明前西湖龙井头茬开采"  /></a></dt>
+                                <dt><a href="http://www.wzrb.com.cn/article848568show.html" target="_blank"><h2>杭州：明前西湖龙井头茬开采</h2></a></dt>
+                            </dl>
+                            <dl>
+                                <dt><a href="http://www.wzrb.com.cn/article848538show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317053978.jpg"  alt="90岁李嘉诚正式宣布退休"  /></a></dt>
+                                <dt><a href="http://www.wzrb.com.cn/article848538show.html" target="_blank"><h2>90岁李嘉诚正式宣布退休</h2></a></dt>
+                            </dl>
+                </div>
+                <div class="news f_yahei">
+                    <ul>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848617show.html" target="_blank">人民日报社论：国家的掌舵者 人民的领路人</a></p></li>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848591show.html" target="_blank">中科院９００余项专利拍卖首秀山东</a></p></li>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848590show.html" target="_blank">民政部：全力保障清明节群众祭扫活动</a></p></li>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848589show.html" target="_blank">台湾花莲地震 大陆台商捐款逾5000万</a></p></li>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848588show.html" target="_blank">工商总局查处“3·15”晚会曝光案例</a></p></li>
+                        <li><p><a  href="http://www.wzrb.com.cn/article848587show.html" target="_blank">2020年我国基本完成农村人居环境整治</a></p></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 看神州 end -->
+            <!-- 全球眼-->
+            <div class="wznews">
+                <div class="title"><a href="ArticleClass_228.html" title="全球眼"><span>更多</span></a><h1>全球眼</h1><img src="/Template/ow2016/images/news_bg.gif" /></div>
+                <div class="pictd_box f_yahei">
+                            <dl>
+                                <dt><a href="http://www.wzrb.com.cn/article848585show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317479818.jpg" alt="俄外长：美威胁对叙发动军事打击令人无法接受" /></a></dt>
+                                <dt><a href="http://www.wzrb.com.cn/article848585show.html" target="_blank"><h2>俄外长：美威胁对叙发动军事打击令人无法接受</h2></a></dt>
+                            </dl>
+                            <dl>
+                                <dt><a href="http://www.wzrb.com.cn/article848584show.html" target="_blank"><img src="http://img.wzrb.com.cn/articlefile/20180317/20180317121067.jpg" alt="东京上演迪士尼婚纱秀" /></a></dt>
+                                <dt><a href="http://www.wzrb.com.cn/article848584show.html" target="_blank"><h2>东京上演迪士尼婚纱秀</h2></a></dt>
+                            </dl>
+                </div>
+                <div class="news f_yahei">
+                    <ul>
+                        <li><p><a href="http://www.wzrb.com.cn/article848597show.html" target="_blank">沙特王储称若伊朗造核弹将仿效 </a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848596show.html" target="_blank">土美拟在叙北部建安全区 </a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848595show.html" target="_blank">中国对黎巴嫩医疗设备援助项目顺利交接</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848594show.html" target="_blank">韩美领导人通电话讨论半岛局势</a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848593show.html" target="_blank">日本2017年家暴案件超过7万件 </a></p></li>
+                        <li><p><a href="http://www.wzrb.com.cn/article848592show.html" target="_blank">英驱逐23名俄外交官 </a></p></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 全球眼 end -->
+        </div>
+        <!-- left end-->
+        <!-- right-->
+        <div class="right">
+            <!-- 瓯网专题 -->
+            <div class="sub_box">
+                <div class="title"><a href="http://www.wzrb.com.cn/Topic_1.html"><span>更多</span></a><h1 class="f_yahei">专题</h1></div>
+                 <dl class="f_yahei">
+                    <dt><a href="http://app.wzrb.com.cn/history/20170512/index.aspx" target="_blank" ><img src="http://img.wzrb.com.cn/articlefile/20170512/20170512075621.jpg" /></a></dt>
+                    <dt>
+                        <a href="http://app.wzrb.com.cn/history/20170512/index.aspx" target="_blank" ><h2>打造“铁三角” 再创新辉煌</h2></a>
+                        <dd>推进“大拆大整”“大建大美”</dd>
+                    </dt>
+                </dl>
+<dl class="f_yahei">
+                    <dt><a href="http://www.wzrb.com.cn/2018_2_channel/index.htm" target="_blank" ><img src="http://img.wzrb.com.cn/articlefile/20180109/20180109395003.jpg" /></a></dt>
+                    <dt>
+                        <a href="http://www.wzrb.com.cn/2018_2_channel/index.htm" target="_blank" ><h2>措施跟不上 “共享”难共享</h2></a>
+                        <dd>措施跟不上 “共享”难共享</dd>
+                    </dt>
+                </dl>
+<dl class="f_yahei">
+                    <dt><a href="http://www.wzrb.com.cn/2018_3_channel/index.htm" target="_blank" ><img src="http://img.wzrb.com.cn/articlefile/20180109/20180109591120.jpg" /></a></dt>
+                    <dt>
+                        <a href="http://www.wzrb.com.cn/2018_3_channel/index.htm" target="_blank" ><h2>二孩把奶爸“带”回家</h2></a>
+                        <dd>二孩把奶爸“带”回家</dd>
+                    </dt>
+                </dl>
+<dl class="f_yahei">
+                    <dt><a href="http://www.wzrb.com.cn/cs_channel/index.htm" target="_blank" ><img src="http://img.wzrb.com.cn/articlefile/20161230/20161230128225.jpg" /></a></dt>
+                    <dt>
+                        <a href="http://www.wzrb.com.cn/cs_channel/index.htm" target="_blank" ><h2>重生——失散二十一载 亲娘捐肾救女</h2></a>
+                        <dd>重生——失散二十一载 亲娘捐肾救女</dd>
+                    </dt>
+                </dl>
+            </div>
+            <!-- 瓯网专题 end -->
+            <!-- 论文/广告/智库 -->
+            <div class="ad_paper">
+                <script>
+                    $(function () {
+                        $('.ad_nav li').mouseover(function () {
+                            var _t = $(this), p = _t.closest('ul'), index = p.find("li").index(_t);
+                            if (!_t.hasClass('on')) {
+                                p.find('li').removeClass('on');
+                                var contentDiv = p.closest('div').next('div.ad_content'); //$('div.tabs_contentDiv');//
+                                var span = contentDiv.find('div');
+                                span.hide();
+                                span.eq(index).show();
+                                _t.addClass('on');
+                            }
+                        })
+                    })
+	            </script>
+                <div class="ad_nav f_yahei">
+                    <ul>
+                        <li class="on">智库</li>
+                        <li>广告</li>
+                    </ul>
+                </div>
+                <div class="ad_content">
+                    <div class="content f_yahei">
+                        <p><a href="article783268show.html" target="_blank">【求索｜实践前沿】加强规范化建设 打造“安监铁军”</a></p>
+<p><a href="http://www.wzrb.com.cn/article845825show.html" target="_blank">推动全面从严治党 向纵深发展</a></p>
+<p><a href="http://www.wzrb.com.cn/article840578show.html" target="_blank">高层建筑消防安全 不容忽视</a></p>
+<p><a href="http://www.wzrb.com.cn/article840577show.html" target="_blank">温州发展新能源汽车的思考与建议</a></p>
+<p><a href="http://www.wzrb.com.cn/article840576show.html" target="_blank">“两个毫不动摇”</a></p>
+<p><a href="http://www.wzrb.com.cn/article840575show.html" target="_blank">不忘初心 改革创新</a></p>
+<p><a href="http://www.wzrb.com.cn/article839186show.html" target="_blank">业委会能代表业主起诉吗？ “谁主张谁举证”证明责任怎么分配？</a></p>
+<p><a href="http://www.wzrb.com.cn/article839185show.html" target="_blank">习近平总书记 关于全面从严治党的 最新重要论述</a></p>
+<p><a href="http://www.wzrb.com.cn/article839184show.html" target="_blank">努力建设一流应用型大学</a></p>
+<p><a href="http://www.wzrb.com.cn/article839183show.html" target="_blank">抢抓机遇直面问题 乘势而上再创辉煌</a></p>
+<p><a href="http://www.wzrb.com.cn/article834513show.html" target="_blank">常抓不懈 挺纪在前</a></p>
+<p><a href="http://www.wzrb.com.cn/article834512show.html" target="_blank">建设山清水秀的农村政治生态</a></p>
+                    </div>
+                    <div class="content f_yahei" style="display:none;">
+                        <p><a href="http://www.wzrb.com.cn/article842884show.html" target="_blank">金诚集团与赵英俊相约“创造进化”，会有怎样的惊喜？</a></p>
+<p><a href="http://www.wzrb.com.cn/article842883show.html" target="_blank">象办2018年终盛典，风雨砥砺任重道远</a></p>
+<p><a href="http://www.wzrb.com.cn/article842879show.html" target="_blank">优学派电话手表UW5全新上市，呵护孩子寒假安全</a></p>
+<p><a href="http://www.wzrb.com.cn/article842878show.html" target="_blank">品质供应商，从欧神诺做起</a></p>
+<p><a href="http://www.wzrb.com.cn/article842877show.html" target="_blank">降央卓玛天籁之音《我以茶之名》火爆了整个朋友圈</a></p>
+<p><a href="http://www.wzrb.com.cn/article842876show.html" target="_blank">前后双摄金立S11S 加持全面屏销量更喜人</a></p>
+<p><a href="http://www.wzrb.com.cn/article842875show.html" target="_blank">寻找最懂你的鞋tigrisso蹀愫轻定制服务革新消费选择</a></p>
+<p><a href="http://www.wzrb.com.cn/article842874show.html" target="_blank">KK直播稀有剧种春晚  展中华文化魅力</a></p>
+<p><a href="http://www.wzrb.com.cn/article842873show.html" target="_blank">索尼全画幅微单A7RII 紧跟青春步伐拍出生命律动</a></p>
+<p><a href="http://www.wzrb.com.cn/article842872show.html" target="_blank">速美超级家o2o互联网整体家装，线上签约立辨真伪</a></p>
+<p><a href="http://www.wzrb.com.cn/article842871show.html" target="_blank">速美超级家掀起新家装时代，年轻快时尚，轻松乐筑家</a></p>
+<p><a href="http://www.wzrb.com.cn/article842870show.html" target="_blank">从上山捡柴到年销售数亿元，钱勇军炸出中国臭豆腐界的黑色经典</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- 论文/广告/智库 end-->
+            <!--首页右小广告图-->
+            <div class="ad_banner_rs"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=148"charset='utf-8'></script></div></div>
+        <!-- right end-->
+    </div>
+<!-- news_content end-->
+    <!--首页横幅3-->
+<!--    <div class="inc_banner_top"><a href="http://news.66wz.com/system/2017/12/01/105046872.shtml" target=_blank><img src="http://www.wzrb.com.cn/Template/ow2016/images/banner12-4.jpg" width=1020 height=80 /></a></div>-->
+    <div class="ad_banner_ic"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=162"charset='utf-8'></script></div>
+    <!--首页横幅3 end-->
+<!-- 网络问政-->
+    <div class="wen_wlwz">
+        <div class="title f_yahei"><h1>网络问政</h1></div>
+        <div class="content">
+                    	<h3 class="f_yahei"><a href="http://wlwz.wenzhou.gov.cn/artshow_15484.html"  target="_blank">3月19日市民政局局长白楠生接听12345政务服务热线</a></h3>
+               <dl class="f_yahei"><dt><img src="" onerror="this.style.display='none'" width="80" height="110"  /></dt>
+               <dd>为构建政府与群众沟通的桥梁，3月19日（周一）下午2:30-4：00，市民政局局长白楠生将到市政府现场接听12345政务服务热线，听取广大群众对社区建设、社会组织、社工人才、养老服务、殡葬服务、婚姻收养等方面工作的意见和建议。<br /><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4133/" target="_blank" >进入直播室</a></dd></dl>
+                       <p class="f_yahei">往期回顾</p>
+               <ul>
+                        <li><span><a href="/article-15477.html" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15477.html" target="_blank">中国电信温州分公司总经理胡伟良</a>
+                </li>
+                        <li><span><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4120/" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15398.html" target="_blank">温州交运集团董事长李长江接听</a>
+                </li>
+                        <li><span><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4119/" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15382.html" target="_blank">温州综合行政执法局狄鸿鹄局长接</a>
+                </li>
+                        <li><span><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4118/" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15375.html" target="_blank">浙南产业集聚区管委会主任徐蓬勃</a>
+                </li>
+                        <li><span><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4117/" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15355.html" target="_blank">生态园管委会主任郑华接听12345</a>
+                </li>
+                        <li><span><a href="http://www.wenzhou.gov.cn/vipchat/home/site/21/4117/" target="_blank">【网上实录】</a></span>
+                    <a href="http://wlwz.wenzhou.gov.cn/artshow_15229.html" target="_blank">温州市环保局局长潘黄星接听1234</a>
+                </li>
+                       </ul>
+        </div>
+        <div class="list">
+            <script>
+                $(function () {
+                    $('.wen_nav li').mouseover(function () {
+                        var _t = $(this), p = _t.closest('ul'), index = p.find("li").index(_t);
+                        if (!_t.hasClass('on')) {
+                            p.find('li').removeClass('on');
+                            var contentDiv = p.closest('div').next('div.wen_content'); //$('div.tabs_contentDiv');//
+                            var span = contentDiv.find('ul');
+                            span.hide();
+                            span.eq(index).show();
+                            _t.addClass('on');
+                        }
+                    })
+                })
+	        </script>
+            <div class="wen_nav f_yahei">
+                <ul>
+                    <a href="http://wlwz.wenzhou.gov.cn/wzlist_99_3_1.html"><li class="on">热门件</li></a>
+                    <a href="http://wlwz.wenzhou.gov.cn/wzlist_1_0_1.html"><li>最新件</li></a>
+                    <a href="http://wlwz.wenzhou.gov.cn/wzlist_1_3_1.html"><li>已办理</li></a>
+                </ul>
+            </div>
+            <div class="wen_content f_yahei">
+                <ul><table width="100%" border="0" cellspacing="0" cellpadding="0" class="dlist">
+                      <tr>
+                        <th width="100" height="36">受理编号</th>
+                        <th width="370" align="left">标题</th>
+                        <th width="160" align="left">问政单位</th>
+                        <th width="100" align="left">问政人</th>
+                        <th width="100">时间</th>
+                        <th width="80">办理状态</th>
+                        <th width="90">满意度</th>
+                  </tr>
+                                            <tr>
+                       <td>10049418</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49418.html" target="_blank">体育馆停车管理</a></td>
+                        <td class="a2">市体育局</td>
+                        <td class="a3">玩转乾坤</td>
+                        <td>2018-03-09</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049298</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49298.html" target="_blank">咨询下医保门诊病历本和市民卡的问题</a></td>
+                        <td class="a2">市人力社保局 </td>
+                        <td class="a3">899999</td>
+                        <td>2018-03-07</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049219</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49219.html" target="_blank">新双南线四标段何时开工，广化南路（六虹桥路到...</a></td>
+                        <td class="a2">瓯海区政府</td>
+                        <td class="a3">wuaxiao5...</td>
+                        <td>2018-03-06</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049201</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49201.html" target="_blank">改造或拆迁</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">问政7038...</td>
+                        <td>2018-03-06</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049096</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49096.html" target="_blank">关于中级工程师评副高级工程师事项</a></td>
+                        <td class="a2">市人力社保局 </td>
+                        <td class="a3">13717699...</td>
+                        <td>2018-03-05</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049030</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49030.html" target="_blank">温州市民中心</a></td>
+                        <td class="a2">市城投集团</td>
+                        <td class="a3">任阳花木...</td>
+                        <td>2018-03-04</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10048969</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_48969.html" target="_blank">关于温州人才住房政策问题的咨询</a></td>
+                        <td class="a2">市住建委</td>
+                        <td class="a3">yvonne00...</td>
+                        <td>2018-03-02</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10048787</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_48787.html" target="_blank">建议适时调配BRT车辆</a></td>
+                        <td class="a2">市交运集团</td>
+                        <td class="a3">0577607</td>
+                        <td>2018-02-28</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10048663</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_48663.html" target="_blank">关于更换工作单位后住房公积金办理</a></td>
+                        <td class="a2">市住房公积金中心</td>
+                        <td class="a3">15869666...</td>
+                        <td>2018-02-26</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10048607</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_48607.html" target="_blank">2018年浙江公务员考试进入面试名单什么时候会公...</a></td>
+                        <td class="a2">市人力社保局 </td>
+                        <td class="a3">zxcv2596</td>
+                        <td>2018-02-26</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+             </table>
+                    </ul>
+              <ul style="display:none;"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="dlist">
+                      <tr>
+                        <th width="100" height="36">受理编号</th>
+                        <th width="370" align="left">标题</th>
+                        <th width="160" align="left">问政单位</th>
+                        <th width="100" align="left">问政人</th>
+                        <th width="100">时间</th>
+                        <th width="80">办理状态</th>
+                        <th width="90">满意度</th>
+                  </tr>
+                                        <tr>
+                        <td>10050068</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50068.html" target="_blank">拆迁</a></td>
+                        <td class="a2">瓯海区政府</td>
+                        <td class="a3">jmjmjm</td>
+                        <td>2018-03-16</td>
+                        <td>处理中</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050067</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50067.html" target="_blank">浦西街和王家屿路交叉口原来利民医院在旧城改造...</a></td>
+                        <td class="a2">永嘉县政府</td>
+                        <td class="a3">yangst98...</td>
+                        <td>2018-03-16</td>
+                        <td>处理中</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050066</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50066.html" target="_blank">德信时代公园南边规划</a></td>
+                        <td class="a2">瓯海区政府</td>
+                        <td class="a3">拆迁问题...</td>
+                        <td>2018-03-16</td>
+                        <td>处理中</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050064</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50064.html" target="_blank">为什么鹿城仰义后京拆迁以96年认定合法而答复说...</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">wzwzuser...</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050062</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50062.html" target="_blank">鹿城区“白鹿引才计划”政策</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">xhq20101...</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050061</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50061.html" target="_blank">病假天数计算</a></td>
+                        <td class="a2">市人力社保局 </td>
+                        <td class="a3">liuskywa...</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050060</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50060.html" target="_blank">状元街道新周家园何时可以办理房产证？</a></td>
+                        <td class="a2">龙湾区政府</td>
+                        <td class="a3">瓯江路22</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050059</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50059.html" target="_blank">关于加快过境公路上桥（温州服装市场门口处）桥...</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">sundtrue</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050058</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50058.html" target="_blank">教练车进市区的问题</a></td>
+                        <td class="a2">市公安局</td>
+                        <td class="a3">86760298</td>
+                        <td>2018-03-16</td>
+                        <td>处理中</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                      <tr>
+                        <td>10050057</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_50057.html" target="_blank">2017年苍南县龙港镇的城市规划图</a></td>
+                        <td class="a2">苍南县政府</td>
+                        <td class="a3">千里一瓢...</td>
+                        <td>2018-03-16</td>
+                        <td>已回复</td>
+                        <td><span class="star w-1"></span></td>
+                      </tr>
+                    </table></ul>
+             <ul style="display:none;"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="dlist">
+                      <tr>
+                        <th width="100" height="36">受理编号</th>
+                        <th width="370" align="left">标题</th>
+                        <th width="160" align="left">问政单位</th>
+                        <th width="100" align="left">问政人</th>
+                        <th width="100">时间</th>
+                        <th width="80">办理状态</th>
+                        <th width="90">满意度</th>
+                  </tr>
+                                        <tr>
+                       <td>10049578</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49578.html" target="_blank">鳌江鸽巢路  </a></td>
+                        <td class="a2">平阳县政府</td>
+                        <td class="a3">土狼123</td>
+                        <td>2018-03-11</td>
+                        <td>已办结</td>
+                        <td><span class="star w1"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049575</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49575.html" target="_blank">麻烦公布下苍南县台商小镇控制性详细规划里的清...</a></td>
+                        <td class="a2">苍南县政府</td>
+                        <td class="a3">chenstry</td>
+                        <td>2018-03-11</td>
+                        <td>已办结</td>
+                        <td><span class="star w1"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049418</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49418.html" target="_blank">体育馆停车管理</a></td>
+                        <td class="a2">市体育局</td>
+                        <td class="a3">玩转乾坤</td>
+                        <td>2018-03-09</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049416</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49416.html" target="_blank">杨府山小区是否已经确定要拆除了吗？</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">玩转乾坤</td>
+                        <td>2018-03-09</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049298</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49298.html" target="_blank">咨询下医保门诊病历本和市民卡的问题</a></td>
+                        <td class="a2">市人力社保局 </td>
+                        <td class="a3">899999</td>
+                        <td>2018-03-07</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049295</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49295.html" target="_blank">关于110V高压电线直接穿过民房屋顶</a></td>
+                        <td class="a2">苍南县政府</td>
+                        <td class="a3">41960186...</td>
+                        <td>2018-03-07</td>
+                        <td>已办结</td>
+                        <td><span class="star w1"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049246</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49246.html" target="_blank">泰屿家园小区出让十分不便</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">zhang142...</td>
+                        <td>2018-03-07</td>
+                        <td>已办结</td>
+                        <td><span class="star w2"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049239</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49239.html" target="_blank">再问九山三期</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">三轮板车</td>
+                        <td>2018-03-06</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049219</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49219.html" target="_blank">新双南线四标段何时开工，广化南路（六虹桥路到...</a></td>
+                        <td class="a2">瓯海区政府</td>
+                        <td class="a3">wuaxiao5...</td>
+                        <td>2018-03-06</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+                      <tr>
+                       <td>10049201</td>
+                        <td class="a1"><a href="http://wlwz.wenzhou.gov.cn/wzshow_49201.html" target="_blank">改造或拆迁</a></td>
+                        <td class="a2">鹿城区政府</td>
+                        <td class="a3">问政7038...</td>
+                        <td>2018-03-06</td>
+                        <td>已办结</td>
+                        <td><span class="star w5"></span></td>
+                      </tr>
+             </table></ul>
+            </div>
+        </div>
+    </div>
+<!-- 网络问政 end-->
+<!--首页横幅广告4个-->
+<div style="width:1020px; margin:0 auto">
+<div style=" float:left; width:25%"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=158"charset='utf-8'></script></div>
+<div style=" float:left;width:25%"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=159"charset='utf-8'></script></div>
+<div style=" float:left;width:25%"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=160"charset='utf-8'></script></div>
+<div style=" float:left;width:25%"><script language="javascript" src="http://app.wzrb.com.cn/ashx/AD_Handler.ashx?typeto=3&classid=161"charset='utf-8'></script></div>
+</div>
+<div class="br10"></div>
+
+<!--首页横幅广告4个 end-->
+
+<!-- 新教育/要闻 -->
+    <div class="news_content" style="margin-top:10px;">
+        <div class="newEdu f_yahei">
+            <div class="title"><h1>教育</h1></div>
+            <div class="content">
+                <ul>
+                    <li class="no1_li">
+                       <dl>
+      <a  href="http://www.wzrb.com.cn/article841636show.html" target="_blank">
+            <img src="http://img.wzrb.com.cn/articlefile/20180202/2018020218973.png" />
+            <p>温州市教育局搭建“学、思、践”三大平台</p>
+      </a>
+</dl>
+<dl>
+      <a  href="http://www.wzrb.com.cn/article830502show.html" target="_blank">
+            <img src="http://img.wzrb.com.cn/articlefile/20171215/2017121518827.jpg" />
+            <p>小记者大舞台 文艺汇演展风采</p>
+      </a>
+</dl>
+                    </li>
+                    <li class="no2_li">
+                        <p><a href="http://www.wzrb.com.cn/article846074show.html" target="_blank">· 黄孟啟慈善基金会拓展多元运作</a></p>
+<p><a href="http://www.wzrb.com.cn/article846073show.html" target="_blank">· 东方学院和朝鲜大学开设公益韩语学堂</a></p>
+<p><a href="http://www.wzrb.com.cn/article846072show.html" target="_blank">· 别样开学典礼吹响“最短学期”集结号</a></p>
+<p><a href="http://www.wzrb.com.cn/article846071show.html" target="_blank">· 温医大与温大签约 共享优质教学资源</a></p>
+<p><a href="http://www.wzrb.com.cn/article844596show.html" target="_blank">· 迎接人生中的第一次考验</a></p>
+<p><a href="http://www.wzrb.com.cn/article844594show.html" target="_blank">· 在温州与世界连接</a></p>
+<p><a href="http://www.wzrb.com.cn/article841926show.html" target="_blank">· 我眼中的世界</a></p>
+<p><a href="http://www.wzrb.com.cn/article841925show.html" target="_blank">· 小镇，你走好</a></p>
+<p><a href="http://www.wzrb.com.cn/article841924show.html" target="_blank">· 威尼斯狂欢节</a></p>
+<p><a href="http://www.wzrb.com.cn/article841923show.html" target="_blank">· 一个永远年轻的人</a></p>
+<p><a href="http://www.wzrb.com.cn/article841922show.html" target="_blank">· 魅力无限的北海道</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 要闻 -->
+        <div class="focus_news f_yahei">
+            <div class="title"><h1>要闻</h1></div>
+            <ul>
+                <li>
+                    <p><a href="http://news.cctv.com/2018/03/12/ARTIkNIntXkRPdKoBRbfUufq180312.shtml" target="_blank">习近平会见韩国总统特使</a></p>
+<p><a href="http://m.news.cctv.com/2018/03/12/ARTI7GyqJ3obGk59W451TP1R180312.shtml" target="_blank">习近平出席十三届全国人大一次会议解放军和武警部队代表团全体会议</a></p>
+<p><a href="http://tv.cctv.com/2018/03/11/VIDEyyqzcbpYlTvAhlvUh6uV180311.shtml" target="_blank">[视频]全国人大举行“宪法修正案”专题记者会</a></p>
+<p><a href="http://www.wzrb.com.cn/article847223show.html" target="_blank">聆听新时代的奋进足音——2018年全国两会第三场“代表通道”现场直击</a></p>
+<p><a href="http://www.xinhuanet.com/politics/2018-03/11/c_129827243.htm" target="_blank">在重庆团，习近平为领导干部讲授“政德”课</a></p>
+<p><a href="http://www.wzrb.com.cn/article847107show.html" target="_blank">100件浙江宝藏6月浙博见 为你讲述浙江故事</a></p>
+<p><a href="http://www.wzrb.com.cn/article847106show.html" target="_blank">全国人大代表、衢州市委书记徐文光——“最多跑一次” 如何再发力</a></p>
+<p><a href="http://www.wzrb.com.cn/article847105show.html" target="_blank">浙江省政府如何开展工作？相关规则公布</a></p>
+<p><a href="http://www.wzrb.com.cn/article847104show.html" target="_blank">两会话题 | 给人才最好的时代舞台</a></p>
+<p><a href="http://www.wzrb.com.cn/article847103show.html" target="_blank">两会聚焦丨支持宁波创建国家“一带一路”建设综合试验区</a></p>
+<p><a href="http://www.wzrb.com.cn/article847102show.html" target="_blank">大家关心的这些热点问题 部长们回应了</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!-- 新教育/要闻 end-->
+<!-- 图片新闻 -->
+    <div class="picNews">
+        <div class="title f_yahei"><h1>图片新闻</h1></div>
+        <script>
+            $(function () {
+                $('.pic li').hover(
+			 			function () {
+			 			    $(this).find('div.pic_txt').show();
+			 			    $(this).find('div.pic_txt').animate({ bottom: '0', opacity: '1' });
+			 			},
+						function () {
+						    $(this).find('div.pic_txt').animate({ bottom: '0', opacity: '0' });
+						    //$(this).find('div.pro_shoppingcart').hide();
+						}
+						);
+            })
+	  	</script>
+        <div class="pic">
+            <ul>
+                <li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">八起温州典型案例曝光！看看违法互联网金融广告长什么样？</p></div>
+                    <a href="http://www.wzrb.com.cn/article848431show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316342975.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">走进文化礼堂，杭州银行瑞安支行开展3?15金融宣传</p></div>
+                    <a href="http://www.wzrb.com.cn/article848430show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316057360.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">3·15走进招商银行温州分行,体验行长级服务</p></div>
+                    <a href="http://www.wzrb.com.cn/article848429show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316213593.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">农行乐清市支行开展“3·15”金融消费者维权活动获好评</p></div>
+                    <a href="http://www.wzrb.com.cn/article848428show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316374668.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">民生消保在行动——3·15特辑之防骗手册</p></div>
+                    <a href="http://www.wzrb.com.cn/article848427show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316205538.png" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">温州银行开展系列“3.15” 金融知识宣传活动</p></div>
+                    <a href="http://www.wzrb.com.cn/article848425show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/2018031618723.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">兴业银行温州分行积极开展“3.15金融消费者权益日”宣传活动</p></div>
+                    <a href="http://www.wzrb.com.cn/article848424show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316213152.jpg" class="ow_img_add" /></a>
+                </li>
+<li>
+                    <div class="pic_txt" style="display:none;">
+                        <p class="f_yahei">稠州银行温州分行开展“3.15”宣传，普及金融知识</p></div>
+                    <a href="http://www.wzrb.com.cn/article848423show.html"><img src="http://img.wzrb.com.cn/articlefile/20180316/20180316534364.jpg" class="ow_img_add" /></a>
+                </li>
+            </ul>            
+        </div>
+    </div>
+<!-- 图片新闻 end -->
+<!-- 友情链接 -->
+    <div class="link f_yahei">
+        <div class="title"><h1>友情链接</h1></div>
+        <ul>
+            <li>
+                <a href="http://wz.people.com.cn" target="_blank" title="人民网温州频道" >人民网温州频道</a><span>-</span>
+<a href="http://www.66law.cn" target="_blank" title="法律咨询" >法律咨询</a><span>-</span>
+<a href="http://product.pchome.net" target="_blank" title="it产品" >it产品</a><span>-</span>
+<a href="http://www.lawtime.cn/ask" target="_blank" title="法律在线咨询" >法律在线咨询</a><span>-</span>
+<a href="http://www.80end.cn" target="_blank" title="80后之窗" >80后之窗</a><span>-</span>
+<a href="http://www.wabei.cn" target="_blank" title="挖贝" >挖贝</a><span>-</span>
+<a href="http://www.0577hr.com" target="_blank" title="温州人力资源网" >温州人力资源网</a><span>-</span>
+<a href="http://www.wmxa.cn" target="_blank" title="西安文明网" >西安文明网</a><span>-</span>
+<a href="http://www.hujiang.com" target="_blank" title="英语网校" >英语网校</a><span>-</span>
+<a href="http://www.315ok.com" target="_blank" title="315直通车" >315直通车</a><span>-</span>
+<a href="http://www.wztv.cn" target="_blank" title="温州广电网" >温州广电网</a><span>-</span>
+<a href="http://www.qianlongnews.com" target="_blank" title="千龙网企业频道" >千龙网企业频道</a><span>-</span>
+<a href="http://www.qhdxw.com" target="_blank" title="秦皇岛新闻" >秦皇岛新闻</a><span>-</span>
+<a href="http://www.city8.com" target="_blank" title="中国地图" >中国地图</a><span>-</span>
+<a href="http://www.9ask.cn" target="_blank" title="中顾法律网" >中顾法律网</a><span>-</span>
+<a href="http://www.57616.com" target="_blank" title="57616网址大全" >57616网址大全</a><span>-</span>
+<a href="http://www.wenzhou.gov.cn" target="_blank" title="中国温州" >中国温州</a><span>-</span>
+<a href="http://zj.sina.com.cn" target="_blank" title="新浪浙江" >新浪浙江</a><span>-</span>
+<a href="http://www.yb.jl.cn" target="_blank" title="延边风采" >延边风采</a><span>-</span>
+<a href="http://www.wz.zj.cn" target="_blank" title="温州热线" >温州热线</a><span>-</span>
+<a href="http://www.guilin.cm" target="_blank" title="桂林网" >桂林网</a><span>-</span>
+<a href="http://www.0791quanquan.com" target="_blank" title="南昌圈圈网" >南昌圈圈网</a><span>-</span>
+<a href="http://www.wzzf.cn" target="_blank" title="温州租房网" >温州租房网</a><span>-</span>
+<a href="http://www.xleju.com" target="_blank" title="喜乐居订房网" >喜乐居订房网</a><span>-</span>
+<a href="http://www.cuew.com" target="_blank" title="中国城市经济网" >中国城市经济网</a><span>-</span>
+<a href="http://www.wzsee.com" target="_blank" title="温商新闻" >温商新闻</a><span>-</span>
+<a href="http://www.qdqss.cn" target="_blank" title="青岛新闻网" >青岛新闻网</a><span>-</span>
+<a href="http://www.dezhoudaily.com" target="_blank" title="德州新闻网" >德州新闻网</a><span>-</span>
+<a href="http://www.ycmhz.com.cn" target="_blank" title="宜春" >宜春</a><span>-</span>
+<a href="http://www.dongnanshan.com" target="_blank" title="青岛百姓网" >青岛百姓网</a><span>-</span>
+<a href="http://www.szhk.com" target="_blank" title="深圳新闻" >深圳新闻</a><span>-</span>
+<a href="http://www.js811.com" target="_blank" title="军事网址大全" >军事网址大全</a><span>-</span>
+<a href="http://www.mjceo.com" target="_blank" title="广告" >广告</a><span>-</span>
+<a href="http://www.ppirc.org" target="_blank" title="政府绩效管理" >政府绩效管理</a><span>-</span>
+<a href="http://www.vcinchina.com" target="_blank" title="中国风险投资网" >中国风险投资网</a><span>-</span>
+<a href="http://www.spider.com.cn" target="_blank" title="杂志订阅" >杂志订阅</a><span>-</span>
+<a href="http://www.pchouse.com.cn" target="_blank" title="太平洋家居网" >太平洋家居网</a><span>-</span>
+<a href="http://www.9ask.cn" target="_blank" title="免费法律咨询" >免费法律咨询</a><span>-</span>
+<a href="http://www.ft22.com" target="_blank" title="工伤保险条例" >工伤保险条例</a><span>-</span>
+<a href="http://www.shoudurx.com" target="_blank" title="首都热线" >首都热线</a><span>-</span>
+<a href="http://www.022ee.com/" target="_blank" title="天津e网" >天津e网</a><span>-</span>
+<a href="http://www.yxj18.com/ " target="_blank" title="优先级新闻网" >优先级新闻网</a><span>-</span>
+                <a href="http://www.wzrb.com.cn/link.html" target="_blank"><b>更多</b></a>
+            </li>
+        </ul>
+    </div>
+<!-- 友情链接 end -->
+<!-- 底部 -->
+    <div class="inc_bot">
+        <div class="bot_nav">
+            <a href="http://www.wzrb.com.cn/map.htm" target="_blank">网站地图</a>|
+            <a href="http://www.wzrb.com.cn/article10630_227show.html" target="_blank">网站简介</a>|
+            <a href="http://www.wzrb.com.cn/article10632_227show.html" target="_blank">服务条款</a>|
+            <a href="http://www.wzrb.com.cn/article10631_227show.html" target="_blank">版权声明</a>| 
+            <a href="http://www.wzrb.com.cn/article773236show.html" target="_blank">跟帖评论自律管理承诺书</a>| 
+            <a href="http://www.wzrb.com.cn/article773335show.html" target="_blank">互联网出版许可证</a>| 
+            <a href="#" target="_blank">投诉与建议</a>| 
+            <a href="http://www.wzrb.com.cn/article10633_227show.html" target="_blank">联系方法</a>|
+            <a href="http://mail.wzrb.net/" target="_blank">日报邮箱</a>| 
+            <a href="http://www.wzrb.com.cn/article577726show.html" target="_blank">日报广告征订</a> 
+            <!--<a href="http://www.wzrb.com.cn/article577727show.html" target="_blank">瓯网广告价目</a>|-->
+        </div>
+        <p><span>Copyright &copy; 2009 - 2017 温州日报报业集团有限公司. All Rights Reserved</span><span>浙新办[2001]19号</span><span>浙ICP备09100296号</span></p>
+        <p>地址：温州公园路日报大厦2110室  值班电话：0577-88096870</p>
+        <ul>
+            <li>
+                <p>瓯网客服：<a target="_blank" href="tencent://message/?uin=837718954&Site=www.wzrb.com.cn&Menu=yes"><img border="0" SRC='/Template/ow2016/images/pagif.gif' alt=""></a>　
+                             <a href="http://www.wzrb.com.cn/rss.xml" title="rss" target="_blank"><img src="/Template/ow2016/images/rss.png" border="0"/></a>　
+                </p>
+            </li>
+            <li>
+                <p>
+                  <a href="http://www.netpolice.gov.cn/wj/wlbj_info.asp" target="_blank" rel="nofollow"><img src="/Template/ow2016/images/netpolice1.jpg" width="110" height="40" /></a>
+                  <a href="http://61.175.208.168/jb/" target="_blank" rel="nofollow"><img src="/Template/ow2016/images/jd1.gif" width="128" height="40" /></a>
+                  <!--<a href="#"><img src="images/jubao.png" width="125" height="23" title="不实信息举报中心" alt="不实信息举报中心"></a>-->
+               </p>
+            </li>
+        </ul>
+    </div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?950cf528744f2328f737789541a82790";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 底部 end -->
+<!--</div>
+    </div>-->
+</div>
+</body>
+</html>

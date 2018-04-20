@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	var hrefUrl = document.location.href;
+	var targetUrl = "/common.do?method=main"
+
+	if ( hrefUrl.indexOf("qr.nlotto.co.kr") >=0 || hrefUrl.indexOf("qr.bokgwon.or.kr") >=0 || hrefUrl.indexOf("qr.645lotto.net") >=0){
+		var urls = hrefUrl.split("v=");
+
+		if (urls.length == 2){	//QR일경우 도메인 전환 (모바일)
+			targetUrl = "http://m.nlotto.co.kr/qr.do?method=winQr&v="+ urls[1];
+		}else{	//QR이 아닌경우 모바일 메인으로 전환
+			targetUrl = "http://m.nlotto.co.kr/common.do?method=main";
+		}
+	}else{
+		var urls = hrefUrl.split("?");
+
+		if (urls.length == 2 && urls[1] == "mobile") {
+			targetUrl = "/common.do?method=main&version=mobile";
+		}
+	}
+	//document.write("hrefUrl = " + hrefUrl +"<br>");
+	//document.write("targetUrl = " + targetUrl +"<br>");
+	document.location.href=targetUrl;
+</script>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">  <title>Vigicrues : Carte de vigilance crues nationale</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="Carte de vigilance crues (prévision des inondations) : v1.7.0c">
+  <meta name="keywords" content="inondation,crue,prévision,vigilance">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.vigicrues.gouv.fr/apple-touch-icon.png?v=20171030">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.vigicrues.gouv.fr/favicon-32x32.png?v=20171030">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.vigicrues.gouv.fr/favicon-16x16.png?v=20171030">
+  <link rel="manifest" href="https://www.vigicrues.gouv.fr/manifest.json?v=20171030">
+  <!-- @TODO Un SVG carré et N/B, etc <link rel="mask-icon" href="/safari-pinned-tab.svg?v=20170929" color="#003366"> -->
+  <link rel="shortcut icon" href="https://www.vigicrues.gouv.fr/favicon.ico?v=20171030">
+  <meta name="theme-color" content="#003366">
+
+  <link rel="stylesheet" type="text/css" href="https://www.vigicrues.gouv.fr/assets/css/bootstrap.css?v=201712191500">
+  <!-- Custom SB Admin CSS (ACAI 3.0.8) -->
+  <link rel="stylesheet" type="text/css" href="https://www.vigicrues.gouv.fr/assets/css/sb-admin-2.css?v=201712191500">
+  <link rel="stylesheet" type="text/css" href="https://www.vigicrues.gouv.fr/assets/css/dataTables.bootstrap.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="https://www.vigicrues.gouv.fr/assets/css/jquery-ui.min.css"/><!-- TODO à supprimer car pose des problèmes : nécessaire pour bon affichage des onglets mais génère des parasites ailleurs -->
+  
+  <link rel="stylesheet" type="text/css" href="https://www.vigicrues.gouv.fr/assets/css/styles.css?v=201712191500">
+  <!-- CSS pour le graphe de niveau3 : TODO ne pourrait être chargé que dans la page niv3-station -->  
+  </head>
+
+
+<body class="home" style="" onload="preloadImages('./roll/niv1/img/spc1_792px.gif','./roll/niv1/img/spc2_792px.gif','./roll/niv1/img/spc3_792px.gif','./roll/niv1/img/spc4_792px.gif','./roll/niv1/img/spc5_792px.gif','./roll/niv1/img/spc6_792px.gif','./roll/niv1/img/spc7_792px.gif','./roll/niv1/img/spc8_792px.gif','./roll/niv1/img/spc9_792px.gif','./roll/niv1/img/spc10_792px.gif','./roll/niv1/img/spc11_792px.gif','./roll/niv1/img/spc12_792px.gif','./roll/niv1/img/spc14_792px.gif','./roll/niv1/img/spc18_792px.gif','./roll/niv1/img/spc19_792px.gif','./roll/niv1/img/spc20_792px.gif','./roll/niv1/img/spc21_792px.gif','./roll/niv1/img/spc22_792px.gif','./roll/niv1/img/spc23_792px.gif','./roll/niv1/img/spc24_792px.gif','./roll/niv1/img/spc25_792px.gif','./roll/niv1/img/spc200_792px.gif')">
+
+
+  <header class="header" role="banner">
+    <div class="header-wrapper">
+      <!-- Liens d'accès rapide / "div accessibilité" -->
+      <!-- @TOPROD L'ancre doit être identique à l'id de début de contenu (après la navigation principale donc celui sur l'élément main) -->
+      <!-- @TOPROD Pas d'attribut title sur le lien (élément a) s'il doit être identique à l'intitulé du lien -->
+      <div aria-labelledby="menu_access" class="hidden-xs accessibilite"><!-- hidden on mobile -->
+        <p id="menu_access" class="sr-only">Menu d'accessibilité</p>
+        <div class="container-vigi">
+          <div class="row inline_access">
+            <p class="col-xs-12 contenu_accessibilite">
+              <a href="#contenu">
+                <span>Aller au contenu</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden-xs header-min"><!-- hidden on mobile -->
+        <div class="container-vigi">
+          <div class="row">
+            <div class="col-xs-12">
+              <a href="https://www.ecologique-solidaire.gouv.fr/" class="header-min-link" target="_blank">Un site du réseau ecologique-solidaire.gouv.fr</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.header-wrapper -->
+
+    <div class="container-vigi">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="banner-logos">
+            <span class="banner-logos-wrapper">
+              <!-- (2017/09) Il y a 2 liens : l'un vers le ministère, l'autre de retour à l'accueil de Vigicrues -->
+              <a href="https://www.ecologique-solidaire.gouv.fr/" class="banner-logos-rfmin" target="_blank" title="Consulter le site du Ministère de la la Transition écologique et solidaire">
+                <img class="banner-logos-rf-img" width="124" height="85" src="https://www.vigicrues.gouv.fr/assets/img/logo-republique-francaise.svg" alt="Consulter le site du Ministère">
+                <img class="banner-logos-min-img" width="137" height="85" src="https://www.vigicrues.gouv.fr/assets/img/logo-ministere-transition-ecologique.svg" alt=""><!-- 1: laisser l'attribut alt / 2: le laisser vide donc alt="" -->
+              </a>
+              <a href="https://www.vigicrues.gouv.fr/" class="banner-logos-vigicrues" title="Retour à l'accueil - Vigicrues">
+                <img class="banner-logos-vigicrues-img" width="375" height="100" src="https://www.vigicrues.gouv.fr/assets/img/vigicrues.svg" alt="Accueil - Vigicrues">
+              </a>
+            </span>
+            <p class="banner-tagline text-center">Service d'information sur le risque de crues <br>des principaux cours d'eau en France</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Attention: le main id=contenu et inclusion des messages de services sont inclus dans ce fichier-->
+  <!-- TODO: alimenter le menu de navigation à partir du fichier de conf -->
+  <nav class="navigation navbar navbar-default" role="navigation">
+    <div class="container-vigi">
+      <!-- Toggle for mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main-collapse" aria-expanded="false">
+          <i class="icon icon-menu-open" aria-hidden="true"></i>
+          <i class="icon icon-menu-close" aria-hidden="true"></i>
+          <span class="sr-only">Afficher / Masquer menu de navigation</span>
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="collapse navbar-collapse" id="navbar-main-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown navbar-item">
+                <a href="#" class="dropdown-toggle navbar-link"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="navbar-link-logo garonne-adour" aria-hidden="true"><i class="icon icon-path1"></i><i class="icon icon-path2"></i><i class="icon icon-path3"></i></span>
+                  <span class="navbar-link-txt">Adour&ndash;&#8203;Garonne</span>
+                  <i class="icon icon-arrow" aria-hidden="true"></i><!-- no whitespace
+                  --><i class="icon icon-dash" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu navbar-lvl2-list">
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=14" class="navbar-lvl2-link">Gironde&nbsp;&ndash; Adour&nbsp;&ndash; Dordogne (bassin&nbsp;Dordogne)</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=23" class="navbar-lvl2-link">Gironde&nbsp;&ndash; Adour&nbsp;&ndash; Dordogne (bassin&nbsp;Gironde&nbsp;et&nbsp;Adour)</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=25" class="navbar-lvl2-link">Garonne&nbsp;&ndash; Tarn&nbsp;&ndash; Lot</a></li>
+                </ul>
+              </li>
+              <!-- Loire-Bretagne (-lb)-->
+              <li class="dropdown navbar-item">
+                <a href="#" class="dropdown-toggle navbar-link"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="navbar-link-logo loire-bretagne" aria-hidden="true"><i class="icon icon-path1"></i><i class="icon icon-path2"></i><i class="icon icon-path3"></i></span>
+                  <!-- &#8203; (zero-width space) permet aux items 2, 3 et 5 de passer sur 2 lignes en résolutions medium. 1 et 4 le font déjà sans ce caractères mais pas 2, 3 et 5 alors que la place manque déjà -->
+                  <span class="navbar-link-txt">Loire&ndash;&#8203;Bretagne</span>
+                  <i class="icon icon-arrow" aria-hidden="true"></i><!-- no whitespace
+                  --><i class="icon icon-dash" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu navbar-lvl2-list">
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=8" class="navbar-lvl2-link">Vilaine&nbsp;&ndash; Côtiers Bretons</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=9" class="navbar-lvl2-link">Maine&nbsp;&ndash; Loire aval</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=10" class="navbar-lvl2-link">Loire&nbsp;&ndash; Cher&nbsp;&ndash; Indre</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=11" class="navbar-lvl2-link">Allier</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=12" class="navbar-lvl2-link">Vienne&nbsp;&ndash; Charente&nbsp;&ndash; Atlantique (centre&nbsp;de&nbsp;Poitiers)</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=24" class="navbar-lvl2-link">Vienne&nbsp;&ndash; Charente&nbsp;&ndash; Atlantique (antenne&nbsp;de&nbsp;La&nbsp;Rochelle)</a></li>
+                </ul>
+              </li>
+              <li class="dropdown navbar-item">
+                <a href="#" class="dropdown-toggle navbar-link"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="navbar-link-logo seine-nord" aria-hidden="true"><i class="icon icon-path1"></i><i class="icon icon-path2"></i><i class="icon icon-path3"></i></span>
+                  <span class="navbar-link-txt">Seine&ndash;&#8203;Nord&ndash;&#8203;Est</span>
+                  <i class="icon icon-arrow" aria-hidden="true"></i><!-- no whitespace
+                  --><i class="icon icon-dash" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu navbar-lvl2-list">
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=1" class="navbar-lvl2-link">Artois&nbsp;&ndash; Picardie</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=2" class="navbar-lvl2-link">Meuse&nbsp;&ndash; Moselle</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=5" class="navbar-lvl2-link">Oise&nbsp;&ndash; Aisne</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=3" class="navbar-lvl2-link">Rhin&nbsp;&ndash; Sarre</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=6" class="navbar-lvl2-link">Seine amont&nbsp;&ndash; Marne&nbsp;amont</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=4" class="navbar-lvl2-link">Seine&nbsp;aval&nbsp;&ndash; Côtiers&nbsp;Normands</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=7" class="navbar-lvl2-link">Seine&nbsp;moyenne&nbsp;&ndash; Yonne&nbsp;&ndash; Loing</a></li>
+                </ul>
+              </li>
+              <li class="dropdown navbar-item">
+                <a href="#" class="dropdown-toggle navbar-link"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="navbar-link-logo rhone-med" aria-hidden="true"><i class="icon icon-path1"></i><i class="icon icon-path2"></i><i class="icon icon-path3"></i></span>
+                  <span class="navbar-link-txt">Rhône&ndash;&#8203;Méditerranée</span>
+                  <i class="icon icon-arrow" aria-hidden="true"></i><!-- no whitespace
+                  --><i class="icon icon-dash" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu navbar-lvl2-list">
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=18" class="navbar-lvl2-link">Rh&#244;ne amont&nbsp;&ndash; Sa&#244;ne</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=19" class="navbar-lvl2-link">Alpes du Nord</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=20" class="navbar-lvl2-link">Grand Delta</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=21" class="navbar-lvl2-link">M&#233;diterran&#233;e Ouest</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=22" class="navbar-lvl2-link">M&#233;diterran&#233;e Est</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/niv2-bassin.php?CdEntVigiCru=200" class="navbar-lvl2-link">Corse</a></li>
+                </ul>
+              </li>
+              <li class="dropdown navbar-item">
+                <a href="#" class="dropdown-toggle navbar-link"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="navbar-link-logo icon icon-outre-mer" aria-hidden="true"></i>
+                  <span class="navbar-link-txt">Outre&ndash;&#8203;mer</span>
+                  <i class="icon icon-arrow" aria-hidden="true"></i><!-- no whitespace
+                  --><i class="icon icon-dash" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu navbar-lvl2-list">
+                  <li class="navbar-lvl2-item"><a href="http://vigicrues-reunion.re/" class="navbar-lvl2-link" target="_blank">La Réunion</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/error.php?ErrorCode=973" class="navbar-lvl2-link">Guyane</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/error.php?ErrorCode=971" class="navbar-lvl2-link">Guadeloupe</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/error.php?ErrorCode=972" class="navbar-lvl2-link">Martinique</a></li>
+                  <li class="navbar-lvl2-item"><a href="https://www.vigicrues.gouv.fr/error.php?ErrorCode=974" class="navbar-lvl2-link">Mayotte</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.collapse -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container-vigi -->
+  </nav>
+
+  <!-- @TOPROD L'id doit être identique à l'ancre du lien 'Aller a contenu' dans le "menu accessibilité" ci-dessus -->
+  <main id="contenu" role="main">
+
+  
+
+<!--<main id="contenu" role="main"> est inclus dans le fichier de navigation avec les messsages de services -->
+      <div class="container-vigi home-container1">
+        <div class="row">
+          <div class="col-xs-12">
+            <!-- #1 -->
+            <div class="main-title-wrapper">
+              <h1 class="sr-only">Carte nationale</h1>
+            </div>
+
+            <!-- #2 -->
+            <div class="home-vigilance">
+              <div class="pull-left home-vigilance-max jaune">
+                <img class="pull-left" src="assets/img/indice/vigilance-crue-max-jaune.svg" width="57" alt="">
+                <div class="home-vigilance-max-content">
+                  <!-- TODO 20/03/2017 : strong class="home-vigilance-max-state : pb cette classe n'est définie que pour le jaune -->
+                  <h2 class="home-vigilance-max-title">L'état maximum de la vigilance crues métropolitaine est <strong class="label label-yellow"><!-- TODO:résoudre le pb de background du niveau de vigilance avec la couleur correpondante -->jaune</strong>.</h2>
+                  <p class="home-vigilance-max-details">
+                    <i class="icon icon-warning" aria-hidden="true"></i>
+                    Risque de crue génératrice de débordements et de dommages localisés ou de montée rapide et dangereuse des eaux, nécessitant une vigilance particulière notamment dans le cas d'activités exposées et/ou saisonnières.                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bulletin d'info remonté -->
+            <div class="bulletin-link">
+              <a class="btn btn-inverse" href="./bulletin-national.php">Accéder au bulletin d'information*</a>
+              <p class="bulletin-link-pubdate"><strong>*Production de l'information&nbsp;:</strong> <time datetime="2018-03-20 15:50">20.03.2018 à 15h50</time>&nbsp;<abbr title="Heure légale métropolitaine">HL</abbr></p>
+            </div>            
+            
+            <!-- #3 -->
+            <div class="geoloc-bulletin">
+              <h2 class="geoloc-bulletin-title">
+                <span class="geoloc-bulletin-text">Afficher les informations de mon territoire</span>
+                <!-- @TOPROD .btn-inverse par cohérence avec le bloc sur fond bleu dans la bannière à 3 colonnes et son bouton "Accéder au bulletin d'information". .btn-border est trop éloigné de ce que l'on veut -->
+                <button class="btn btn-border" id="geoloc"><i class="icon icon-target" aria-hidden="true"></i>Se géolocaliser</button>
+              </h2>
+            </div>
+
+            <!-- #4 
+            <div class="map-france-instructions">
+                <p class="map-france-instructions-txt">Cliquez sur une zone de la carte<br> pour afficher les informations locales</p>
+            </div>-->
+          </div><!-- /.row -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.container-vigi & .home-container1-->
+
+      <div class="container-vigi home-container2">
+        <div class="row">
+          <div class="col-xs-12">
+
+            <div class="home-legend-wrapper">
+              <!-- Instructions -->
+              <div class="map-france-instructions">
+                  <p class="map-france-instructions-txt">Cliquez sur une zone de la carte<br> pour afficher les informations locales</p>
+              </div>          
+          
+          
+              <div class="vigilance-map-legend">
+                <h2 class="vigilance-map-legend-title">Légende</h2>
+                
+              <div class="vigilance-map-legend-content">
+
+              <!--<div class="vigilance-map-legend-unit red">
+                <span class="vigilance-map-legend-rect" aria-hidden="true">!</span>
+                <p class="vigilance-map-legend-details">
+                  <span class="vigilance-map-legend-name">Rouge&nbsp;:</span><br>-->
+                  <!-- @TOPROD Un &nbps; doit séparer span et button. Du whitespace (tab(s), retour(s)-chariot(s), espace(s)) ou "rien" (</span><button>) ne conviennent pas
+                        @BUGFIX En 768 exactement, le bouton du bloc orange passe seul à la ligne. Arrive encore en ~772 mais c'est moins gênant que 768 -->
+                  <!--<span class="vigilance-map-legend-txt">Risque majeur</span
+                    >&nbsp;<button type="button" class="btn" data-toggle="tooltip" title="Menace directe et généralisée de la sécurité des personnes et des biens">?<span class="sr-only">Plus d'explications sur la légende Rouge</span></button>
+                </p>
+              </div>-->
+              
+              <div class="vigilance-map-legend-unit red">  <span class="vigilance-map-legend-rect" aria-hidden="true">!</span>    <p class="vigilance-map-legend-details">      <span class="vigilance-map-legend-name">Rouge&nbsp;:</span><br>      <span class="vigilance-map-legend-txt">Risque de crue majeure</span       >&nbsp;<button type="button" class="btn" data-toggle="tooltip" title="Risque de crue majeure. Menace directe et généralisée de la sécurité des personnes et des biens."><span class="btn-txt">Tout lire</span> <span class="round">?</span><span class="sr-only">Plus d'explications sur la légende Rouge</span></button>    </p></div><div class="vigilance-map-legend-unit orange">  <span class="vigilance-map-legend-rect" aria-hidden="true">!</span>    <p class="vigilance-map-legend-details">      <span class="vigilance-map-legend-name">Orange&nbsp;:</span><br>      <span class="vigilance-map-legend-txt">Risque de crue génératrice de débordements importants</span       >&nbsp;<button type="button" class="btn" data-toggle="tooltip" title="Risque de crue génératrice de débordements importants susceptibles d’avoir un impact significatif sur la vie collective et la sécurité des biens et des personnes."><span class="btn-txt">Tout lire</span> <span class="round">?</span><span class="sr-only">Plus d'explications sur la légende Orange</span></button>    </p></div>
+              <!-- @TOPROD Ces 2 éléments reçoivent les tooltips en mobile (contrainte de positionnement). Ils doivent être *vides*, pas même un espace entre > et </ car en CSS on cible :empty -->
+                <div class="vigilance-map-legend-tooltip-wrapper1"></div>
+                <div class="vigilance-map-legend-tooltip-wrapper2"></div>
+                <div class="vigilance-map-legend-tooltip-wrapper3"></div>
+
+                <div class="vigilance-map-legend-unit yellow">
+                  <span class="vigilance-map-legend-rect" aria-hidden="true">!</span>
+                  <p class="vigilance-map-legend-details">
+                    <span class="vigilance-map-legend-name">Jaune&nbsp;:</span><br>
+                    <!-- @TOPROD Un &nbps; doit séparer span et button. Du whitespace (tab(s), retour(s)-chariot(s), espace(s)) ou "rien" (</span><button>) ne conviennent pas
+                    @BUGFIX En 768 exactement, le bouton du bloc orange passe seul à la ligne. Arrive encore en ~772 mais c'est moins gênant que 768 -->
+                    <span class="vigilance-map-legend-txt">Risque de crue génératrice de débordements</span
+                      >&nbsp;<button type="button" class="btn" data-toggle="tooltip" title="Risque de crue génératrice de débordements et de dommages localisés ou de montée rapide et dangereuse des eaux, nécessitant une vigilance particulière notamment dans le cas d'activités exposées et/ou saisonnières."><span class="btn-txt">Tout lire</span> <span class="round">?</span><span class="sr-only">Plus d'explications sur la légende Jaune</span></button>
+                  </p>
+                </div>
+                <div class="vigilance-map-legend-unit green">
+                  <span class="vigilance-map-legend-rect" aria-hidden="true">!</span>
+                  <p class="vigilance-map-legend-details">
+                    <span class="vigilance-map-legend-name">Vert&nbsp;:</span><br>
+                    <span class="vigilance-map-legend-txt">Pas de vigilance particulière requise.</span>
+                  </p>
+                </div>
+
+              </div>              </div>
+            </div><!-- /.home-legend-wrapper -->
+
+            <div class="map-france js-scale-parent">
+              <div id="hovered" style="background-image: url('./ftp/img_france.png'); background-repeat: no-repeat">
+                <map name="territoire-bulletin" class="map-france-map">
+                  <area shape="poly" coords="213,415 209,414 203,410 197,404 196,401 195,397 193,394 191,390 189,388 187,384 184,381 181,379 179,371 182,369 185,366 187,363 190,360 189,357 186,354 182,353 179,351 180,348 181,344 180,340 188,338 184,336 181,337 177,340 174,341 171,339 167,337 164,338 160,336 163,334 161,331 161,327 165,325 165,322 167,320 173,322 175,317 183,317 189,316 200,325 198,333 209,334 214,332 214,326 223,317 234,318 235,314 245,313 236,302 243,283 251,280 247,258 251,252 250,237 261,238 267,233 270,223 264,217 277,222 284,218 283,225 295,231 298,234 303,236 321,235 328,232 331,227 336,226 344,233 359,232 357,239 366,245 364,249 370,250 380,250 399,259 402,252 409,256 417,254 422,264 423,271 419,272 416,279 404,279 396,283 396,287 393,299 388,297 374,311 370,308 362,313 355,311 352,319 348,318 344,324 336,324 330,326 331,332 322,334 323,342 328,343 311,350 308,355 300,344 294,345 292,355 286,358 282,367 272,360 265,360 268,366 263,371 264,379 281,393 276,401 263,393 253,376 246,381 236,382 232,389 227,385 215,388 214,397 218,399 219,410 213,415" href="./niv2-bassin.php?CdEntVigiCru=9" onmouseout="" onmouseover="swapPic(this, 9)" alt="Territoire Maine-Loire aval" title="Territoire Maine-Loire aval" />
+                  <area shape="poly" coords="720,592 717,593 712,600 709,607 710,615 704,619 704,630 706,637 708,640 708,648 703,654 683,654 676,653 670,657 662,655 661,658 655,663 647,664 644,662 637,663 631,659 629,656 622,652 619,654 611,654 608,660 606,671 608,674 606,678 602,675 597,674 599,682 582,683 581,678 555,673 549,666 555,658 553,653 537,649 535,640 531,638 533,633 529,630 530,624 520,618 519,608 528,607 535,594 527,592 527,587 530,584 526,581 528,577 533,581 537,580 540,575 546,574 545,568 556,562 553,550 556,545 561,544 560,540 565,539 566,533 571,523 573,511 578,508 579,514 586,511 591,517 594,543 613,545 617,549 618,553 621,549 623,555 631,558 637,558 644,564 652,568 660,571 664,568 670,572 677,573 682,573 689,569 691,565 685,560 684,552 685,543 690,542 685,533 693,533 694,529 701,528 704,536 709,536 709,545 716,550 725,550 730,563 723,564 724,569 717,577 723,586 720,592" href="./niv2-bassin.php?CdEntVigiCru=20" onmouseout="" onmouseover="swapPic(this, 20)" alt="Territoire Grand Delta" title="Territoire Grand Delta" />
+                  <area shape="poly" coords="606,678 608,674 606,671 608,660 611,654 619,654 622,652 629,656 631,659 637,663 644,662 647,664 655,663 661,658 662,655 670,657 676,653 683,654 703,654 708,648 708,640 706,637 704,630 704,619 710,615 709,607 712,600 717,593 720,592 728,602 739,604 750,611 770,605 772,614 760,631 762,639 760,642 752,645 750,649 740,651 739,660 733,662 728,661 722,673 715,673 713,679 705,685 713,686 710,694 704,693 694,697 692,702 682,700 677,703 671,704 666,705 660,707 658,701 650,699 645,698 640,693 628,693 630,686 627,681 610,684 606,678" href="./niv2-bassin.php?CdEntVigiCru=22" onmouseout="" onmouseover="swapPic(this, 22)" alt="Territoire Méditerranée Est" title="Territoire Méditerranée Est" />
+                  <area shape="poly" coords="395,106 400,96 409,98 401,90 402,83 407,84 402,80 404,68 408,71 404,65 404,40 415,33 432,28 435,26 441,26 437,27 457,21 461,34 460,42 466,45 470,53 476,56 479,50 490,47 496,55 497,70 502,73 507,69 509,73 515,72 520,89 522,85 531,87 538,84 544,92 548,91 543,103 547,103 549,108 545,111 544,116 536,117 528,112 516,114 500,131 498,138 489,143 482,143 479,146 477,143 474,147 466,147 460,154 437,152 415,142 415,136 423,130 410,122 413,117 411,113 395,106" href="./niv2-bassin.php?CdEntVigiCru=1" onmouseout="" onmouseover="swapPic(this, 1)" alt="Territoire Artois-Picardie" title="Territoire Artois-Picardie" />
+                  <area shape="poly" coords="544,116 556,118 562,121 556,122 560,129 557,136 561,137 566,145 573,146 579,153 578,159 583,160 586,165 592,159 598,165 597,171 603,176 612,195 609,199 616,204 615,208 621,224 610,216 606,204 601,208 584,205 579,208 577,202 573,204 562,201 559,196 545,187 538,187 535,192 525,187 523,183 517,187 516,181 501,179 496,173 489,177 487,181 476,182 477,189 472,192 468,191 467,195 458,194 456,190 453,191 443,185 435,186 430,183 431,173 415,164 417,157 408,150 409,145 415,142 437,152 460,154 466,147 474,147 477,143 479,146 482,143 489,143 498,138 500,131 516,114 528,112 536,117 544,116" href="./niv2-bassin.php?CdEntVigiCru=5" onmouseout="" onmouseover="swapPic(this, 5)" alt="Territoire Oise-Aisne" title="Territoire Oise-Aisne" />
+                  <area shape="poly" coords="556,118 561,120 575,114 575,107 582,99 586,102 580,116 586,121 584,131 592,131 602,140 608,139 611,143 617,147 619,156 636,150 651,159 662,153 679,159 683,165 686,172 682,176 684,187 698,188 695,196 689,199 689,205 695,205 702,211 698,221 716,236 714,250 721,253 715,271 708,281 707,293 703,296 691,290 686,281 682,282 679,271 670,268 664,275 652,269 643,279 635,280 633,286 625,289 623,278 627,263 623,263 621,258 623,253 620,256 618,251 628,247 630,239 625,236 625,228 621,224 615,208 616,204 609,199 612,195 603,176 597,171 598,165 592,159 586,165 583,160 578,159 579,153 573,146 566,145 561,137 557,136 560,129 556,122 562,121 556,118" href="./niv2-bassin.php?CdEntVigiCru=2" onmouseout="" onmouseover="swapPic(this, 2)" alt="Territoire Meuse-Moselle" title="Territoire Meuse-Moselle" />
+                  <area shape="poly" coords="549,666 537,670 513,691 503,691 489,705 484,717 485,725 485,753 490,755 492,762 487,763 484,759 478,758 452,771 434,762 419,769 414,760 401,755 412,746 416,746 418,743 418,736 412,728 415,722 423,726 426,722 423,720 425,712 419,704 422,699 406,684 415,677 428,680 435,673 446,681 448,676 456,679 464,676 461,670 478,660 477,655 484,652 485,642 496,640 501,636 503,629 518,622 515,618 520,618 530,624 529,630 533,633 531,638 535,640 537,649 553,653 555,658 549,666" href="./niv2-bassin.php?CdEntVigiCru=21" onmouseout="" onmouseover="swapPic(this, 21)" alt="Territoire Méditerranée Ouest" title="Territoire Méditerranée Ouest" />
+                  <area shape="poly" coords="686,172 691,182 697,182 697,177 702,176 708,178 709,185 712,181 723,184 731,178 742,188 751,187 755,189 759,187 776,194 769,208 756,223 752,250 744,268 743,276 747,281 742,305 747,315 736,328 728,329 723,327 725,323 721,322 718,315 713,314 714,304 703,296 707,293 708,281 715,271 721,253 714,250 716,236 698,221 702,211 695,205 689,205 689,199 695,196 698,188 684,187 682,176 686,172" href="./niv2-bassin.php?CdEntVigiCru=3" onmouseout="" onmouseover="swapPic(this, 3)" alt="Territoire Rhin-Sarre" title="Territoire Rhin-Sarre" />
+                  <area shape="poly" coords="301,734 288,736 283,727 273,722 268,726 261,724 256,728 247,718 246,711 234,712 221,706 211,701 214,697 209,698 208,704 203,702 201,699 207,690 207,684 198,681 193,684 192,679 186,680 183,675 195,669 206,650 218,604 221,575 225,565 237,568 228,555 221,567 231,496 236,488 237,493 252,508 258,529 261,532 255,500 240,483 229,476 228,469 231,469 230,474 233,478 243,482 272,508 284,518 273,519 278,538 284,546 284,560 288,569 292,562 300,563 293,572 300,575 295,580 293,589 297,593 294,600 301,611 294,618 298,635 301,638 308,656 308,661 313,669 313,693 316,706 312,720 300,724 301,734" href="./niv2-bassin.php?CdEntVigiCru=23" onmouseout="" onmouseover="swapPic(this, 23)" alt="Territoire Gironde-Adour" title="Territoire Gironde-Adour" />
+                  <area shape="poly" coords="229,226 235,225 234,220 229,223 226,220 221,207 225,199 225,191 223,174 218,165 213,161 209,146 212,139 206,134 207,130 224,138 236,133 244,135 246,142 241,148 249,161 245,167 254,161 261,161 271,166 291,168 299,172 313,170 321,163 333,161 323,159 318,154 326,137 347,126 377,119 395,106 411,113 413,117 410,122 423,130 415,136 415,142 409,145 408,150 417,157 415,164 431,173 430,183 419,186 414,192 400,195 389,183 392,178 383,181 385,174 381,180 384,183 390,179 387,184 397,194 401,204 399,211 415,223 417,229 415,235 419,238 417,243 420,251 422,264 417,254 409,256 402,252 399,259 380,250 370,250 364,249 366,245 357,239 359,232 344,233 336,226 331,227 328,232 321,235 303,236 298,234 295,231 283,225 284,218 277,222 264,217 270,223 267,233 261,238 250,237 240,233 236,237 230,232 229,226" href="./niv2-bassin.php?CdEntVigiCru=4" onmouseout="" onmouseover="swapPic(this, 4)" alt="Territoire Seine aval-Côtiers Normands" title="Territoire Seine aval-Côtiers Normands" />
+                  <area shape="poly" coords="721,322 712,324 707,336 715,334 717,337 711,342 698,360 682,373 684,387 665,404 663,418 669,422 665,429 658,436 657,443 653,447 649,445 648,476 639,488 640,498 634,497 628,504 618,500 592,512 591,517 586,511 579,514 578,508 573,511 567,505 571,494 577,488 575,481 563,486 568,479 568,474 560,465 567,451 566,445 570,439 566,429 569,420 567,407 572,400 572,393 567,392 578,366 574,362 572,354 574,346 580,346 585,340 582,332 585,320 590,319 594,311 606,308 607,304 612,301 620,301 625,289 633,286 635,280 643,279 652,269 664,275 670,268 679,271 682,282 686,281 691,290 703,296 714,304 713,314 718,315 721,322" href="./niv2-bassin.php?CdEntVigiCru=18" onmouseout="" onmouseover="swapPic(this, 18)" alt="Territoire Rhône amont-Saône" title="Territoire Rhône amont-Saône" />
+                  <area shape="poly" coords="657,443 668,441 677,434 673,429 677,422 682,424 689,418 706,418 705,422 710,428 707,440 713,441 712,448 716,446 723,458 717,464 710,466 709,475 721,482 722,494 733,502 728,518 721,519 717,525 709,524 701,528 694,529 693,533 685,533 690,542 685,543 684,552 685,560 691,565 689,569 682,573 677,573 670,572 664,568 660,571 652,568 644,564 637,558 631,558 623,555 621,549 618,553 617,549 613,545 594,543 591,517 592,512 618,500 628,504 634,497 640,498 639,488 648,476 649,445 653,447 657,443" href="./niv2-bassin.php?CdEntVigiCru=19" onmouseout="" onmouseover="swapPic(this, 19)" alt="Territoire Alpes du Nord" title="Territoire Alpes du Nord" />
+                  <area shape="poly" coords="231,469 232,463 238,462 237,456 236,451 240,450 233,439 229,437 238,426 235,422 232,428 227,423 223,420 217,420 213,415 219,410 218,399 214,397 215,388 227,385 232,389 236,382 246,381 253,376 263,393 276,401 285,407 292,407 294,413 305,420 303,428 297,430 302,441 310,443 317,433 329,440 338,452 340,466 349,477 362,485 355,485 352,491 340,498 332,494 324,495 323,491 315,495 309,500 299,510 290,506 284,518 272,508 243,482 233,478 230,474 231,469" href="./niv2-bassin.php?CdEntVigiCru=24" onmouseout="" onmouseover="swapPic(this, 24)" alt="Territoire Vienne-Charente-Atlantique (antenne de la Rochelle)" title="Territoire Vienne-Charente-Atlantique (antenne de la Rochelle)" />
+                  <area shape="poly" coords="165,322 163,318 161,315 143,317 139,311 133,310 127,307 122,302 114,298 109,297 105,291 96,289 93,287 87,287 80,281 72,280 70,282 57,284 60,275 49,265 38,261 57,257 62,260 66,254 63,249 55,246 51,244 46,241 39,236 38,229 43,224 40,220 46,216 53,214 62,212 65,209 68,213 78,208 82,211 85,206 89,211 95,208 105,211 109,209 109,203 114,199 118,203 130,198 139,197 140,206 146,209 159,233 162,230 170,220 179,223 184,221 185,228 202,217 207,217 208,226 229,226 230,232 236,237 240,233 250,237 251,252 247,258 251,280 243,283 236,302 245,313 235,314 234,318 223,317 214,326 214,332 209,334 198,333 200,325 189,316 183,317 175,317 173,322 167,320 165,322" href="./niv2-bassin.php?CdEntVigiCru=8" onmouseout="" onmouseover="swapPic(this, 8)" alt="Territoire Vilaine-Côtiers Bretons" title="Territoire Vilaine-Côtiers Bretons" />
+                  <area shape="poly" coords="401,755 405,750 401,748 386,743 383,747 378,737 366,737 360,731 351,730 337,724 333,730 335,738 319,738 315,735 310,739 308,735 301,734 300,724 312,720 316,706 313,693 313,669 308,661 308,656 301,638 298,635 294,618 301,611 294,600 297,593 293,589 295,580 300,575 293,572 300,563 340,561 353,568 371,568 379,578 401,569 416,569 430,554 439,555 448,561 454,551 467,538 484,531 490,534 501,542 504,550 516,565 514,572 518,572 526,581 530,584 527,587 527,592 535,594 528,607 519,608 520,618 515,618 518,622 503,629 501,636 496,640 485,642 484,652 477,655 478,660 461,670 464,676 456,679 448,676 446,681 435,673 428,680 415,677 406,684 422,699 419,704 425,712 423,720 426,722 423,726 415,722 412,728 418,736 418,743 416,746 412,746 401,755" href="./niv2-bassin.php?CdEntVigiCru=25" onmouseout="" onmouseover="swapPic(this, 25)" alt="Territoire Garonne-Tarn-Lot" title="Territoire Garonne-Tarn-Lot" />
+                  <area shape="poly" coords="430,183 435,186 443,185 453,191 456,190 458,194 467,195 473,195 485,191 491,192 491,200 502,207 503,212 509,213 504,221 508,223 507,232 513,233 509,240 504,241 506,255 510,254 512,259 520,260 528,253 536,260 537,273 548,276 552,288 556,292 553,296 558,299 561,309 561,314 568,316 582,332 585,340 580,346 574,346 572,354 565,353 555,353 550,347 547,360 543,362 544,367 540,375 535,363 526,357 519,359 516,353 509,356 506,349 503,344 497,341 502,331 491,327 487,321 479,323 475,311 470,309 465,311 458,303 449,300 439,282 429,284 425,282 430,275 422,264 420,251 417,243 419,238 415,235 417,229 415,223 399,211 401,204 397,194 387,184 390,179 384,183 381,180 385,174 383,181 392,178 389,183 400,195 414,192 419,186 430,183" href="./niv2-bassin.php?CdEntVigiCru=7" onmouseout="" onmouseover="swapPic(this, 7)" alt="Territoire Seine moyenne-Yonne-Loing" title="Territoire Seine moyenne-Yonne-Loing" />
+                  <area shape="poly" coords="422,264 430,275 425,282 429,284 439,282 449,300 458,303 465,311 470,309 475,311 479,323 487,321 491,327 502,331 497,341 503,344 506,349 509,356 516,353 519,359 526,357 535,363 540,375 544,367 543,362 547,360 550,347 555,353 565,353 572,354 574,362 578,366 567,392 572,393 572,400 567,407 569,420 566,429 570,439 566,445 567,451 560,465 568,474 568,479 563,486 575,481 577,488 571,494 567,505 573,511 571,523 566,533 565,539 560,540 561,544 556,545 553,550 556,562 545,568 536,558 528,552 521,540 523,534 520,524 527,518 532,505 532,490 523,475 526,467 522,462 525,459 514,434 514,424 499,395 489,388 493,381 486,375 480,377 479,392 474,393 472,409 482,411 487,416 486,421 469,441 462,457 447,471 444,471 439,468 429,446 433,433 443,433 445,428 434,420 429,423 421,419 412,420 411,415 416,409 411,396 384,381 376,383 366,376 364,364 349,360 346,354 311,350 328,343 323,342 322,334 331,332 330,326 336,324 344,324 348,318 352,319 355,311 362,313 370,308 374,311 388,297 393,299 396,287 396,283 404,279 416,279 419,272 423,271 422,264" href="./niv2-bassin.php?CdEntVigiCru=10" onmouseout="" onmouseover="swapPic(this, 10)" alt="Territoire Loire-Cher-Indre" title="Territoire Loire-Cher-Indre" />
+                  <area shape="poly" coords="447,471 462,457 469,441 486,421 487,416 482,411 472,409 474,393 479,392 480,377 486,375 493,381 489,388 499,395 514,424 514,434 525,459 522,462 526,467 523,475 532,490 532,505 527,518 520,524 523,534 521,540 528,552 536,558 545,568 546,574 540,575 537,580 533,581 528,577 526,581 518,572 514,572 516,565 504,550 501,542 490,534 484,531 467,538 464,534 473,528 472,518 479,515 475,501 471,498 473,490 465,490 463,481 454,482 447,471" href="./niv2-bassin.php?CdEntVigiCru=11" onmouseout="" onmouseover="swapPic(this, 11)" alt="Territoire Allier" title="Territoire Allier" />
+                  <area shape="poly" coords="311,350 346,354 349,360 364,364 366,376 376,383 384,381 411,396 416,409 411,415 412,420 421,419 429,423 434,420 445,428 443,433 433,433 429,446 439,468 444,471 439,479 430,480 426,486 419,488 415,487 413,490 405,488 393,494 387,490 383,493 379,492 374,485 362,485 349,477 340,466 338,452 329,440 317,433 310,443 302,441 297,430 303,428 305,420 294,413 292,407 285,407 276,401 281,393 264,379 263,371 268,366 265,360 272,360 282,367 286,358 292,355 294,345 300,344 308,355 311,350" href="./niv2-bassin.php?CdEntVigiCru=12" onmouseout="" onmouseover="swapPic(this, 12)" alt="Territoire Vienne-Charente-Atlantique (centre de Poitiers)" title="Territoire Vienne-Charente-Atlantique (centre de Poitiers)" />
+                  <area shape="poly" coords="582,332 568,316 561,314 561,309 558,299 553,296 556,292 552,288 548,276 537,273 536,260 528,253 520,260 512,259 510,254 506,255 504,241 509,240 513,233 507,232 508,223 504,221 509,213 503,212 502,207 491,200 491,192 485,191 473,195 467,195 468,191 472,192 477,189 476,182 487,181 489,177 496,173 501,179 516,181 517,187 523,183 525,187 535,192 538,187 545,187 559,196 562,201 573,204 577,202 579,208 584,205 601,208 606,204 610,216 621,224 625,228 625,236 630,239 628,247 618,251 620,256 623,253 621,258 623,263 627,263 623,278 625,289 620,301 612,301 607,304 606,308 594,311 590,319 585,320 582,332" href="./niv2-bassin.php?CdEntVigiCru=6" onmouseout="" onmouseover="swapPic(this, 6)" alt="Territoire Seine amont-Marne amont" title="Territoire Seine amont-Marne amont" />
+                  <area shape="poly" coords="444,471 447,471 454,482 463,481 465,490 473,490 471,498 475,501 479,515 472,518 473,528 464,534 467,538 454,551 448,561 439,555 430,554 416,569 401,569 379,578 371,568 353,568 340,561 300,563 292,562 288,569 284,560 284,546 278,538 273,519 284,518 290,506 299,510 309,500 315,495 323,491 324,495 332,494 340,498 352,491 355,485 374,485 379,492 383,493 387,490 393,494 405,488 413,490 415,487 419,488 426,486 430,480 439,479 444,471" href="./niv2-bassin.php?CdEntVigiCru=14" onmouseout="" onmouseover="swapPic(this, 14)" alt="Territoire Dordogne" title="Territoire Dordogne" />
+                  <area shape="poly" coords="754,781 764,730 763,706 757,703 755,683 749,684 751,700 739,700 722,717 722,738 730,739 722,751 732,751 728,760 738,763 735,771 754,781" href="./niv2-bassin.php?CdEntVigiCru=200" onmouseout="" onmouseover="swapPic(this, 200)" alt="Territoire Corse" title="Territoire Corse" />
+                </map>
+                <!-- @TOPROD L'attribut width doit être présent pour que le JS de redimensionnement de la zone réactive fonctionne et valoir la taille réelle de l'image -->
+                <img class="map-france-img1 js-scale-img" id="pic" src="./roll/niv1/img/francevide_792px.gif" width="792" alt="Carte de vigilance crues nationale" usemap="#territoire-bulletin">
+              </div><!-- hovered -->
+            </div><!-- map-france-->
+          </div><!-- /.row -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.container-vigi & .home-container2 -->
+
+      <aside class="link-lists" role="complementary">
+      <div class="container-vigi">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="link-list-wrapper other-links">
+              <h2>Liens utiles</h2>
+
+              <ul class="other-links-list">
+                <li class="other-links-item">Portail d&#039;accès aux données hydrométriques et hydrologiques&nbsp;(<a class="external" href="http://hydro.eaufrance.fr/" target="_blank">Banque&nbsp;Hydro</a>)</li>
+                <li class="other-links-item">Plateforme nationale collaborative des sites et repères de crues&nbsp;(<a class="external" href="http://www.reperesdecrues.developpement-durable.gouv.fr/" target="_blank">Repères&nbsp;de&nbsp;crues</a>)</li>
+                <li class="other-links-item">Les risques naturels et technologiques, près de chez vous&nbsp;(<a class="external" href="http://www.georisques.gouv.fr/" target="_blank">Géorisques</a>)</li>
+              </ul>
+            </div>
+
+                        <div class="link-list-wrapper other-vigilances">
+              <h2 class="other-vigilances-title">Carte de vigilance</h2>
+              <ul class="other-vigilances-list">
+                <li class="other-vigilances-item other-vigilances-item-meteofrance">
+                  <a href="http://france.meteofrance.com/vigilance/Accueil" target="_blank">
+                    <img src="https://www.meteofrance.com/integration/sim-portail/generated/integration/img/vigilance/mn.gif" height="70" width="71" alt="Meteofrance"
+                    ></a>Météorologique en France (<a class="other-vigilances-link external" href="http://france.meteofrance.com/vigilance/Accueil" target="_blank">Météo-France</a>)<!-- @NOTE Pas d'espace avant le V de Vigilances donc on colle > et V --></li>
+                <li class="other-vigilances-item">Météorologique en Europe (<a class="other-vigilances-link external" href="http://www.meteoalarm.eu/" target="_blank">Meteoalarm</a>)</li>
+                <!--<li class="other-vigilances-item">Routière en France (<a class="other-vigilances-link external" href="http://www.bison-fute.equipement.gouv.fr/diri/Accueil.do" target="_blank">Bison-Futé</a>)</li>-->
+              </ul>
+            </div>
+          </div><!-- /.row -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.container-vigi -->
+    </aside>
+
+  </main>
+
+  <footer class="container-fluid" role="contentinfo">
+    <h2 class="sr-only">Navigation transverse</h2>
+    <div class="row navbar footer-primary">
+      <ul class="list-inline text-center footer-primary-list">
+        <li class="footer-primary-item">
+          <a href="https://www.vigicrues.gouv.fr/rss.php" class="footer-primary-link" title="Les flux RSS de Vigicrues">Flux RSS</a>
+        </li><!-- no whitespace
+        --><li class="footer-primary-item">
+          <a href="https://www.vigicrues.gouv.fr/guide.php" class="footer-primary-link" title="Guide">Guide</a>
+        </li><!-- no whitespace
+        --><li class="footer-primary-item">
+          <a href="https://www.vigicrues.gouv.fr/faq.php" class="footer-primary-link" title="Questions fréquentes">FAQ</a>
+        </li><!-- no whitespace
+        --><li class="footer-primary-item">
+          <a href="https://www.vigicrues.gouv.fr/liens.php" class="footer-primary-link" title="Liens">Liens</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="container-vigi pied_logo">
+        <ul class="list-inline text-center footer-partner-list">
+          <li class="footer-partner-item">
+            <a href="http://www.gouvernement.fr" class="footer-partner-link" target="_blank"><img src="https://www.vigicrues.gouv.fr/assets/img/footer/dummy-logo-gouvernementfr.png" width="120" height="50" alt="gouvernement.fr"></a>
+          </li>
+          <li class="footer-partner-item">
+            <a href="https://www.service-public.fr" class="footer-partner-link" target="_blank"><img src="https://www.vigicrues.gouv.fr/assets/img/footer/dummy-logo-servicepublicfr.png" width="158" height="50" alt="Service-Public.fr"></a>
+          </li>
+          <li class="footer-partner-item">
+            <a href="https://www.legifrance.gouv.fr" class="footer-partner-link" target="_blank"><img src="https://www.vigicrues.gouv.fr/assets/img/footer/dummy-logo-legifrancegouvfr.png" width="215" height="50" alt="Légifrance"></a>
+          </li>
+          <li class="footer-partner-item">
+            <a href="http://france.fr" class="footer-partner-link" target="_blank"><img src="https://www.vigicrues.gouv.fr/assets/img/footer/dummy-logo-francefr.png" width="137" height="50" alt="france.fr"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row navbar footer-secondary">
+      <ul class="list-inline text-center footer-secondary-list">
+        <!--<li class="footer-secondary-item">
+          <a href="#" class="footer-secondary-link">Plan du site (TODO)</a>
+        </li>--><!-- no whitespace
+        --><li class="footer-secondary-item">
+          <a href="http://www2.developpement-durable.gouv.fr/Formulaire-de-saisie-de-l.html" class="footer-secondary-link" target="_blank" title="Saisir l'administration">Contact</a>
+        </li><!-- no whitespace
+        --><li class="footer-secondary-item">
+          <a href="https://www.vigicrues.gouv.fr/mentions.php" class="footer-secondary-link" title="Mentions légales">Mentions légales</a>
+        </li><!-- no whitespace
+        --><!--<li class="footer-secondary-item">
+          <a href="#" class="footer-secondary-link">Accessibilité (TODO)</a>
+        </li>--><!-- no whitespace
+        --><li class="footer-secondary-item">
+          <a href="http://www.data.gouv.fr/fr/search/?q=vigicrues" class="footer-secondary-link" target="_blank" title="Vigicrues sur data.gouv.fr">Répertoire des informations <br>publiques</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row footer-min">
+      <div class="container-vigi">
+        <p class="footer-min-txt">Vigicrues&reg;&nbsp;v1.7.0c</a>&nbsp;&ndash; Ministère de la Transition écologique et solidaire</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/jquery.js?v=201712191500"></script>
+  <script src="assets/js/bootstrap.js?v=201712191500"></script>
+  <script src="assets/js/jquery.ba-throttle-debounce.js"></script>
+  <script src="assets/js/res-res.js?v=201712191500"></script>
+  <script src="assets/js/tooltip-init.js"></script>
+  <script src="assets/js/map-area-scale.js?v=201712191500"></script>
+
+  <script type="text/javascript">
+  function swapPic(zone,nr){
+    var alsaPath = './roll/niv1/img/';
+    var pic=document.getElementById('pic');
+    pic.src = alsaPath+"spc"+nr+"_792px.gif";//  "url("+alsaPath+"spc"+nr+".gif)";
+    zone.onmouseout=function(){pic.src = alsaPath+'francevide_792px.gif'};
+
+  }
+
+  function preloadImages() {
+    var d=document;
+    if (d.images) {
+      if(!d.MM_p) d.MM_p=new Array();
+      var i,j=d.MM_p.length,a=preloadImages.arguments;
+      for(i=0; i<a.length; i++)
+        if (a[i].indexOf("#")!=0) {
+          d.MM_p[j]=new Image;
+          d.MM_p[j++].src=a[i];
+        }
+    }
+  }
+  </script>
+  <script>
+
+    document.getElementById('geoloc').addEventListener('click',getLocation);
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(displayPosition, showError, {maximumAge:600000,timeout:10000});
+        } else {
+            alert("La géolocalisation n'est pas supportée par ce navigateur.");
+        }
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("L'utilisateur a refusé les requêtes de géolocalisation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("L'information de géolocalisation est indisponible.");
+                break;
+            case error.TIMEOUT:
+                alert("La requête pour récupérer la géolocalisation de l'utilisateur a dépassé les délais.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("Une erreur inconnue s'est produite.");
+                break;
+        }
+    }
+
+    function displayPosition(position) {
+//      alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+      var url = "./services/geolocalisation/bulletin/index.php?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude+"&callback=?";
+
+      $.getJSON(url, function(json) {
+        // Redirection
+        if(json && json.GeolocInfoVigiCru && json.GeolocInfoVigiCru.CdEntVigiCru) {
+          document.location.href = "./niv2-bassin.php?CdEntVigiCru="+json.GeolocInfoVigiCru.CdEntVigiCru;
+        }
+      });
+    }
+  </script>
+
+  <script type="text/javascript">
+    <!--
+    xtnv = document;        //parent.document or top.document or document         
+    xtsd = "http://logc187";
+    xtsite = 592465;
+    xtn2 = "100";        // level 2 site ID
+    xtpage = "NationalTerritoire";        //page name (with the use of :: to create chapters)
+    xtdi = "";        //implication degree
+    xt_multc = "";      //all the xi indicators (like "&x1=...&x2=....&x3=...")
+    xt_at = "";        //user ID (string)
+    xt_ac = "";        //category ID
+    //do not modify below
+    if (window.xtparam!=null){window.xtparam+="&ac="+xt_ac+"&at="+xt_at+xt_multc;}
+    else{window.xtparam="&ac="+xt_ac+"&at="+xt_at+xt_multc;};
+    //-->
+  </script>
+  <script type="text/javascript" src="assets/js/xiti/xtcore_vigicrues.js"></script>
+  <noscript>
+  <img width="1" height="1" alt="" src="http://logc187.xiti.com/hit.xiti?s=592465&s2=100&p=NationalTerritoire&di=&at=&ac=" >
+  </noscript>  
+  
+</body>
+
+</html>

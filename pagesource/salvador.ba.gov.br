@@ -1,0 +1,2025 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" dir="ltr" >
+<head>
+<title>Prefeitura Municipal do Salvador</title>
+<meta charset="utf-8" />
+<meta name="google-site-verification" content="ypA-_27yI1DCJpGOMhNs5_r9w35KPtfHA-HicB6wK20" />
+<meta http-equiv="cache-control" content="no-cache" />
+<link rel="stylesheet" href="http://salvador.ba.gov.br/templates/salvador/css/960_12_col.css" type='text/css'/> <!-- Grid 960 -->
+<link rel="stylesheet" href="http://salvador.ba.gov.br/templates/salvador/css/bootstrap.css" type='text/css' />  <!-- Bootstrap -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+<!--link rel="stylesheet" href="http://salvador.ba.gov.br/templates/salvador/css/slider.css"--><!-- Slider -->
+<script type="text/javascript" src="http://salvador.ba.gov.br/templates/salvador/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://salvador.ba.gov.br/templates/salvador/js/bootstrap.js"></script>
+
+<script language="javascript">
+ var opc = 1; 
+jQuery("document").ready(function($){
+
+  $('#myModal').on('hidden', function(){ $(this).data('modal', null); }); //destrói modal ao fechar
+
+  //Eventos dos dropdowns de serviço
+
+	
+    $("#educacao").change(function() { opc = $("#educacao").val(); displayVals(opc);});
+    $("#maisprocurados").change(function() { opc = $("#maisprocurados").val(); displayVals(opc);});
+    $("#empreendedor").change(function() { opc = $("#empreendedor").val(); displayVals(opc);});
+    $("#cidadao").change(function() { opc = $("#cidadao").val(); displayVals(opc);});
+    $("#servidor").change(function() { opc = $("#servidor").val(); displayVals(opc);});
+    $("#emprego").change(function() { opc = $("#emprego").val(); displayVals(opc);});   
+    $("#ordem").change(function() { opc = $("#ordem").val(); displayVals(opc);});   
+    $("#infraestrutura").change(function() { opc = $("#infraestrutura").val(); displayVals(opc);});   
+    $("#cultura").change(function() { opc = $("#cultura").val(); displayVals(opc);});   
+    $("#social").change(function() { opc = $("#social").val();  displayVals(opc);});   
+    $("#moradia").change(function() { opc = $("#moradia").val(); displayVals(opc);});   
+    $("#turismo").change(function() { opc = $("#turismo").val(); displayVals(opc);});   
+    $("#saude").change(function() { opc = $("#saude").val(); displayVals(opc);});   
+    $("#financas").change(function() { opc = $("#financas").val(); displayVals(opc);});   
+    $("#transito").change(function() { opc = $("#transito").val(); displayVals(opc);});  
+
+    //começo novos servicos
+    $("#meioambiente").change(function() { opc = $("#meioambiente").val(); displayVals(opc);});
+    $("#defesacivil").change(function() { opc = $("#defesacivil").val(); displayVals(opc);});
+    $("#usosolo").change(function() { opc = $("#usosolo").val(); displayVals(opc);});
+    //fim novos servicos 
+
+  //Fim dropdowns de serviço
+  
+   $("ul.ul-educacao li").click(function() {
+    displayVals(this.value)});
+   
+   $("ul.ul-emprego li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-ordem li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-infraestrutura li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-cultura li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-social li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-moradia li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-turismo li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-saude li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-financas li").click(function() {
+    displayVals(this.value)});
+	
+   $("ul.ul-transito li").click(function() {
+    displayVals(this.value)});
+  
+  //começo novos servicos
+   $("ul.ul-meioambiente li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-defesacivil li").click(function() {
+    displayVals(this.value)});
+
+   $("ul.ul-usosolo li").click(function() {
+   displayVals(this.value)});
+
+    //fim novos servicos
+  
+  $("#imprimir").click(function() {				
+	  Imprimir(this.title);
+    });
+
+  $("#enviar").click(function() {
+      Enviar(this.title);
+    });
+  
+   $("ul.ul-maisprocurados li").click(function() {
+    displayVals(this.value)});
+
+  $(".box-especifico li").click(function() {
+    displayVals(this.value)});
+
+   
+    function displayVals(opc) {
+		
+      var opcao = opc;
+      if(opcao != '0'){
+	  
+        $.ajax({
+          cache: false,
+          type: 'post',
+          dataType: 'text',
+          url: 'http://salvador.ba.gov.br/templates/salvador/processamento.php',
+          data: {opcao: opcao},
+          beforeSend: function() {},
+          success: function(data) {
+            
+			var dado = $.parseJSON(data);                        			
+            $('#interior1').html(dado.nom_servico);			
+            $('#interior2').html(dado.nom_popular);
+            $('#interior3').html(dado.des_servico);
+            $('#interior4').html(dado.documentacao);
+            $('#interior5').html(dado.val_taxa );
+            $('#interior6').html(dado.qtd_prazo + dado.des_unid_prazo);
+            $('#interior7').html(dado.atendimento);
+			
+          },
+          error: function() {
+            alert('PHP nao encontrado');
+          }
+        });
+
+        limpaModal();		      
+	    
+		$("#imprimir").attr("title",opc);
+		$("#enviar").attr("title",opc);
+		
+		
+		
+        $("#myModal").modal();
+		
+		
+      }//fim if
+    }
+
+   });
+   
+   
+   
+   
+   function limpaModal(){
+    for ( var i = 1 ; i < 8 ; i++ ) {        
+      document.getElementById("interior" + i).style.display = "none";       
+    }
+   }
+
+   //código luquinhas
+    function Imprimir(opc) {
+
+	  if ( opc != 0 ){
+      
+	  //window.open ("templates/salvador/imprimir.php?opcao="+opc, "Imprimir informações do Serviço", "left=370px,top=220px,location=0, status=0, scrollbars=1, width=800, height=455 , titlebar=0 , menubar=0" , "");
+    window.open ("templates/salvador/imprimir.php?opcao="+opc, "Imprimir informações do Serviço", "left=230px,top=160px,location=0, status=0, scrollbars=1, width=800, height=390 , titlebar=0 , menubar=0" , ""); 
+      }
+    }
+
+    function Enviar(opc) {
+      if ( opc != 0 ){
+      window.open ("templates/salvador/enviar.php?opcao="+opc , "Enviar informações do Serviço", "left=400px,top=250px,location=0, status=0, scrollbars=1, width=400, height=200 , titlebar=0 , menubar=0" , "");
+      }
+    }   
+   //fim código luquinhas
+
+//teste
+function checkThis(y) {
+    var isVisible = document.getElementById("interior" + y);
+    
+
+    
+    if (isVisible.style.display == "none"){
+        for ( var i = 1 ; i < 8 ; i++ ) {        
+		  document.getElementById("interior" + i).style.display = "none";       
+		}
+	  
+	  document.getElementById("interior" + y).style.display = "block";
+      
+      
+    }
+    else{
+      document.getElementById("interior" + y).style.display = "none";
+    } 
+    
+  }
+//fim teste
+
+</script>
+
+<link rel="stylesheet" href="http://salvador.ba.gov.br/templates/salvador/css/style.css" type='text/css' />
+<script type="text/javascript" src="http://salvador.ba.gov.br/templates/salvador/js/script.js"></script>
+
+<!--Começo código Google Analytics-->
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52844910-1', 'auto');
+  ga('send', 'pageview');
+
+</script> -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51568122-26', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--Final código Google Analytics-->
+
+  <base href="http://salvador.ba.gov.br/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Prefeitura Municipal de Salvador - Home</title>
+  <link href="http://salvador.ba.gov.br/?view=featured" rel="canonical" />
+  <link href="/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+  <link href="/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
+  <link href="http://salvador.ba.gov.br/index.php/component/search/?format=opensearch" rel="search" title="Buscar Prefeitura Municipal de Salvador" type="application/opensearchdescription+xml" />
+  <script src="/media/system/js/mootools-core.js" type="text/javascript"></script>
+  <script src="/media/system/js/core.js" type="text/javascript"></script>
+  <script src="/media/system/js/caption.js" type="text/javascript"></script>
+  <script type="text/javascript">
+window.addEvent('load', function() {
+				new JCaption('img.caption');
+			});
+  </script>
+ 
+
+</head>
+<body id="body-home">
+
+<!-- Popup -->
+
+<!--Início Cabeçalhos-->
+  <div id="frame1">
+    <iframe style="width:100%; height:260px; border:0;" frameborder="0" scrolling="no" src="http://salvador.ba.gov.br/Cabecalho_Principal/index.html"></iframe>
+  </div>
+  <!--Final Cabeçalhos-->
+
+<div class="container_site"> 
+  <div id="content-wrapper">
+    <div class="buscar pull-right">
+      <div class="search">
+    <form action="/index.php" method="post" class="form-inline">
+    		<label for="mod-search-searchword" class="element-invisible"> </label> <input name="searchword" id="mod-search-searchword" maxlength="20"  class="inputbox search-query" type="text" size="20" value="Pesquisar no Portal..."  onblur="if (this.value=='') this.value='Pesquisar no Portal...';" onfocus="if (this.value=='Pesquisar no Portal...') this.value='';" /> <button class="button btn btn-primary" onclick="this.form.searchword.focus();">Buscar</button>    	<input type="hidden" name="task" value="search" />
+    	<input type="hidden" name="option" value="com_search" />
+    	<input type="hidden" name="Itemid" value="101" />
+    </form>
+</div>
+ 
+    </div>
+    <div class="clearfix"></div>
+          <!--jdoc:include type="modules" name="noticias" /-->
+      <div class="container_12 frame">        
+        <div id="corteIframe">
+          <iframe class="iframe" src="http://www.comunicacao.salvador.ba.gov.br/" style="border: none; height: 300px;" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="container_12">
+        <div class="servicos_cidadao">
+
+          <div class="titulo-servicos">
+            <h3>SERVIÇOS PARA OS CIDADÃOS</h3>
+          </div>
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_educacao.png">
+            </div> 
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>educação</h1>
+               <ul class="ul-educacao">
+                            
+                <li value="299">Matrícula Escolar</li>
+                                            
+                 </ul>
+				
+                <select id="educacao" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="1199" > Agendamento Primeiro Passo </option>             
+                    <option value="1230" > Apoio Educacional para Mulheres Negras </option>             
+                    <option value="1200" > Inscrição Primeiro Passo </option>             
+                    <option value="1202" > Integração Primeiro Passo </option>             
+                    <option value="299" > MatrÍcula Informatizada </option>             
+                                                                                 
+                </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_emprego.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>trabalho e renda</h1>
+               <ul class="ul-emprego">
+                            
+                <li value="1004">SIMM Hora Marcada</li>
+                                            
+                 </ul>
+                 <select id="emprego" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="1135" >  Informações sobre Concurso Público </option>             
+                    <option value="760" > Alteração do Cadastro do Empreendedor </option>             
+                    <option value="761" > Baixa/Encerramento do Cadastro do Empreendedor </option>             
+                    <option value="1157" > Declaração Anual do Simples Nacional ao MEI  </option>             
+                    <option value="1156" > Emissão de carnê de pagamento do DAS do MEI </option>             
+                    <option value="1136" > Estágio </option>             
+                    <option value="680" > Formalização do Empreendedor </option>             
+                    <option value="801" > Intermediação de vagas de Qualificação do PRONATEC </option>             
+                    <option value="1006" > Microcrédito </option>             
+                    <option value="775" > Oferta de Cursos ao Empreendedor </option>             
+                    <option value="777" > Orientação ao Empreendedor </option>             
+                    <option value="1050" > Projeto Sinaleiras </option>             
+                    <option value="80" > SIMM </option>             
+                    <option value="1004" > SIMM Hora Marcada </option>             
+                                                                                 
+                  </select>
+               
+            </div>                   
+          </div>        
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_lazer.png">
+            </div>
+          </div>
+          <div class="grid_2 omega">
+            <div class="box-servicos">
+               <h1>lazer</h1>
+                 <ul>
+                  <li><a href="http://www.salvadorvaidebike.salvador.ba.gov.br/" target="_blank">Salvador vai de bike</a></li>
+                </ul>
+                <select id="lazer" class="list-servicos" runat="server" onchange="">
+                  <option value="0" >Em breve...</option>                             
+                </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_ordem_publica.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>ordem pública</h1>
+               <ul class="ul-ordem">
+			   <li value="1089">Termo de Reclamação</li>
+                                            
+                 </ul>
+                 <select id="ordem" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="759" > Ações de Prevenção à Violência </option>             
+                    <option value="1087" > Apoio a eventos culturais </option>             
+                    <option value="1085" > Apoio a treinamentos </option>             
+                    <option value="573" > Atestado de Viabilidade de Serviços - Pessoa Jurídica </option>             
+                    <option value="992" > Atestado de Viabilidade de Serviços -Pessoa Física </option>             
+                    <option value="1219" > Audiências </option>             
+                    <option value="1229" > Balcão Itinerante </option>             
+                    <option value="1166" > Banda de Música da Guarda Municipal </option>             
+                    <option value="1221" > Cálculo de reajuste: Aluguel </option>             
+                    <option value="1225" > Cálculo de Reajuste: Plano de Saúde </option>             
+                    <option value="1224" > Cálculo Revisional: Acordos, Refinanciamentos, Renegociação </option>             
+                    <option value="650" > Cálculo revisional: antecipação de parcelas </option>             
+                    <option value="648" > Cálculo revisional: carnês, financiamentos ou empréstimos </option>             
+                    <option value="1220" > Cálculo revisional: cartão de crédito </option>             
+                    <option value="1223" > Cálculo: Atualização de Crédito </option>             
+                    <option value="1222" > Cálculo: Atualização de Débito </option>             
+                    <option value="1091" > Cancelamento de Licença </option>             
+                    <option value="588" > Coleta e Transporte de Resíduos  Domiciliares </option>             
+                    <option value="708" > Coleta e Transporte dos Resíduos da Construção e Demolição.  </option>             
+                    <option value="713" > Educação Ambiental </option>             
+                    <option value="1084" > Eventos educativos </option>             
+                    <option value="1099" > Fiscalização de ambulantes,bancas de chapa, mesas e cadeiras </option>             
+                    <option value="907" > Fiscalização de Descartes Irregulares de RCC </option>             
+                    <option value="1073" > Fiscalização de entulho de grande porte e grande empresas </option>             
+                    <option value="765" > Fiscalização de Equipamentos Públicos </option>             
+                    <option value="1100" > Fiscalização de pixação indevida em vias públicas </option>             
+                    <option value="243" > Fiscalização em Defesa do Consumidor  </option>             
+                    <option value="1101" > Fiscalização: sucatas de carros </option>             
+                    <option value="244" > Iluminação Pública - Iluminação com defeito </option>             
+                    <option value="583" > Implantação de Containers  em vias públicas. </option>             
+                    <option value="1042" > Implantação de papeleiras em vias públicas. </option>             
+                    <option value="1094" > Isenção de Taxa </option>             
+                    <option value="587" > Lavagem de  Vias e Logradouros Públicos. </option>             
+                    <option value="1074" > LIberação de Mercadorias apreendidas </option>             
+                    <option value="1093" > Licença para Alteração de Licença </option>             
+                    <option value="1088" > Licença para baiana de acarajé ou mingau </option>             
+                    <option value="1092" > Licença para Informação de Débito e Cadastro </option>             
+                    <option value="1096" > Licença para realização de eventos em logradouros públicos </option>             
+                    <option value="1090" > Licença para uso do solo </option>             
+                    <option value="1097" > Licenciamento para Ambulantes </option>             
+                    <option value="31" > Licenciamento para Feirantes </option>             
+                    <option value="724" > Limpeza de Praias. </option>             
+                    <option value="1218" > Mediação por Telefone </option>             
+                    <option value="1216" > Ofícios para Fornecedores - Solicitação de carta de Quitação </option>             
+                    <option value="1213" > Ofícios para Fornecedores - Solicitação de Contratos </option>             
+                    <option value="1215" > Ofícios para Fornecedores - Solicitação de Extrato Bancário </option>             
+                    <option value="1208" > Ofícios para Fornecedores - Solicitação de Faturas </option>             
+                    <option value="653" > Palestras </option>             
+                    <option value="586" > Placa Proibitiva de Deposição de Resíduos Sólidos  </option>             
+                    <option value="764" > Proteção Patrimonial </option>             
+                    <option value="5" > Reforma de Mausoléu em Cemitérios Municipais </option>             
+                    <option value="1081" > Resgate de Corpos </option>             
+                    <option value="762" > Resgate e captura de animais silvestres </option>             
+                    <option value="1083" > Resgate em caso de calamidade pública </option>             
+                    <option value="1082" > Resgate Naútico </option>             
+                    <option value="1080" > Resgate no Mar </option>             
+                    <option value="1086" > Segurança de competições em meio aquático </option>             
+                    <option value="728" > Serviços Especiais de Limpeza Urbana </option>             
+                    <option value="1089" > Termo de Reclamação </option>             
+                    <option value="3" > Translado de Restos Mortais em Cemitérios Municipais </option>             
+                    <option value="702" > Varrição de Vias e Logradouros Públicos </option>             
+                    <option value="1217" > Vistas/cópias de Termos de Reclamação ou Processos Adm </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_cidade.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>infraestrutura</h1>
+               <ul class="ul-infraestrutura">
+                            
+                                        
+                 </ul>
+                 <select id="infraestrutura" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="822" > Construção de Vias Públicas </option>             
+                    <option value="730" > Construção ou Reforma Prédios Públicos / Mercado Popular </option>             
+                    <option value="247" > Construção ou Reforma Quadra e ou Campo em Área Pública </option>             
+                    <option value="1021" > Erradicação de árvores em via pública </option>             
+                    <option value="750" > Estabilização de Encosta </option>             
+                    <option value="855" > Execução de atividades de defesa fitossanitária </option>             
+                    <option value="753" > Execução de obras de macrodrenagem </option>             
+                    <option value="1036" > Manutenção Conservação sistema microdrenagem - Boca de Lobo </option>             
+                    <option value="853" > Manutenção Conservação sistema microdrenagem - Caixa Sarjeta </option>             
+                    <option value="1037" > Manutenção Conservação sistema microdrenagem - Calha </option>             
+                    <option value="1034" > Manutenção Conservação sistema microdrenagem - Poço Visita </option>             
+                    <option value="1038" > Manutenção Conservação sistema microdrenagem - Vala </option>             
+                    <option value="845" > Manutenção e Conservação da Malha Viária </option>             
+                    <option value="848" > Manutenção e Conservação de escadarias </option>             
+                    <option value="1024" > Manutenção e conservação de espaços públicos - praças </option>             
+                    <option value="1019" > Manutenção e Conservação de meio-fio </option>             
+                    <option value="1127" > Manutenção e Conservação de passeio público </option>             
+                    <option value="849" > Manutenção e Conservação de túnel (drenagem) </option>             
+                    <option value="851" > Manutenção e Conservação do sistema de macrodrenagem </option>             
+                    <option value="1027" > Manutenção e Conservação gradis de viaduto </option>             
+                    <option value="1025" > Manututenção e Conservação de balaustrada. </option>             
+                    <option value="856" > Poda de árvores em via pública </option>             
+                    <option value="858" > Poda e manutenção de gramados </option>             
+                    <option value="1052" > Recuperação conservação pavimento rígido-pedras irregulares </option>             
+                    <option value="1053" > Recuperação conservação pavimentos rígidos-concreto </option>             
+                    <option value="899" > Recuperação conservação pavimentos rígidos-paralelepípedos </option>             
+                    <option value="1054" > Recuperação conservação pavimentos rígidos-piso intertravdo </option>             
+                    <option value="857" > Remoção de árvore (caída) em via pública </option>             
+                    <option value="821" > Requalificação de Pavimento Flexível </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_cultura.png">
+            </div>
+          </div>
+          <div class="grid_2 omega">
+            <div class="box-servicos">
+               <h1>cultura</h1>
+               <ul class="ul-cultura">
+                            
+                <li value="1068">Consulta ao Acervo da GESIH</li>
+                                            
+                 </ul>
+                 <select id="cultura" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="1062" > Aquisição de imagens digitais de mapas e plantas  </option>             
+                    <option value="1055" > Aquisição de imagens digitais, fotos, postais e partituras </option>             
+                    <option value="1064" > Captura de imagens digitais de documentos pesquisados </option>             
+                    <option value="1058" > Consulta ao acervo da Biblioteca Municipal (SEBES) </option>             
+                    <option value="1068" > Consulta ao Acervo da GESIH </option>             
+                    <option value="1061" > Consulta ao acervo de documentos textuais </option>             
+                    <option value="1070" > Consulta Online ao Acervo da Biblioteca do AHMS </option>             
+                    <option value="1059" > Consulta online ao acervo da Biblioteca Municipal (SEBES) </option>             
+                    <option value="1066" > Denuncia de vandalismo e situação dos monumentos </option>             
+                    <option value="1056" > Empréstimo de Livros (SEBES) </option>             
+                    <option value="1043" > Orientação à Pesquisa no Acervo Impresso e Biblioteca </option>             
+                    <option value="1063" > Transcrição de Certidão de nascimento, casamento e óbito </option>             
+                    <option value="1060" > Venda de Publicações do AHMS </option>             
+                                                                                 
+                  </select>
+                           
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_social.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>social</h1>
+               <ul class="ul-social">
+			   <li value="997">Bolsa Família</li>
+                                            
+                 </ul>
+                 <select id="social" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="380" > 1ª Via CDI-Cert. Dispensa Incorporação do Serviço Militar </option>             
+                    <option value="382" > 1ª Via CDSA-Cert. Dispensa Serv. Alternativo Serviço Militar </option>             
+                    <option value="384" > 1ª Via CI-Certificado de Isenção do Serviço Militar </option>             
+                    <option value="386" > 2ª Via CAM - Certificado de Alistamento Militar </option>             
+                    <option value="381" > 2ª Via CDI-Cert. Dispensa de Incorporação do Serviço Militar </option>             
+                    <option value="383" > 2ª Via CDSA-Cert. Dispensa Serv. Alternativo Serviço Militar </option>             
+                    <option value="385" > 2ª Via CI - Certificado de Isenção do Serviço Militar </option>             
+                    <option value="672" > Acolhimento Institucional para crianças de 08 a 12 anos </option>             
+                    <option value="687" > Acolhimento Institucional para crianças de 08 a 17 anos </option>             
+                    <option value="671" > Acolhimento Institucional para meninos de 15 a 17 anos </option>             
+                    <option value="379" > Alistamento Militar  -  CAM </option>             
+                    <option value="169" > Atendimento a mulher vítima ou em situação de violência </option>             
+                    <option value="387" > Atestado de Desobrigação do Serviço Militar </option>             
+                    <option value="1102" > Auto Atendimento </option>             
+                    <option value="998" > Auxílio Funeral </option>             
+                    <option value="1000" > Benefício de Prestação Continuada - BPC </option>             
+                    <option value="997" > Bolsa Família </option>             
+                    <option value="1002" > Bolsa Família Móvel </option>             
+                    <option value="296" > Cadastro Único para Programas Sociais do Governo Federal </option>             
+                    <option value="1001" > Carteira do Idoso </option>             
+                    <option value="1035" > Casa de Passagem / Abrigamento </option>             
+                    <option value="1039" > Casa de Pernoite - Abrigamento Temporário </option>             
+                    <option value="298" > Chamamento Público às Escolas/Creches Comunitárias </option>             
+                    <option value="388" > Declaração Provisória de Situação Militar </option>             
+                    <option value="1249" > Entrega de Cartão Primeiro Passo </option>             
+                    <option value="1177" > Formação Técnica em Artes Visuais (Jovem Aprendiz) </option>             
+                    <option value="1178" > Formação Técnica em Dança (Jovem Aprendiz) </option>             
+                    <option value="1248" > Informação Primeiro Passo </option>             
+                    <option value="1033" > Instituição de Longa Permanência para Idosos / Abrigamento </option>             
+                    <option value="1041" > Medida Socioeducativa / Adolescentes </option>             
+                    <option value="1117" > Oficina de Artes Visuais </option>             
+                    <option value="663" > Oficina de Artes Visuais com Inclusão Digital </option>             
+                    <option value="662" > Oficina de Capoeira com Inclusão Digital </option>             
+                    <option value="1118" > Oficina de Dança </option>             
+                    <option value="665" > Oficina de Esporte </option>             
+                    <option value="1179" > Oficina de Teatro </option>             
+                    <option value="666" > Oficina de Teatro com Inclusão Digital </option>             
+                    <option value="1044" > PAEFI Serv. de Proteção e Atend. Esp. a Família e Indivíduos </option>             
+                    <option value="1047" > PDEF -  Proteção Social da Pessoa com Deficiência </option>             
+                    <option value="1051" > PETI - programa de Erradicação do Trabalho Infantil </option>             
+                    <option value="995" > Programa Prato Amigo </option>             
+                    <option value="994" > Programa Sopa Legal </option>             
+                    <option value="996" > Restaurante Comunitário Prato Popular </option>             
+                    <option value="794" > Sala de Leitura </option>             
+                    <option value="81" > Seguro Desemprego </option>             
+                    <option value="1017" > Serviço de Convivência e Fortalecimento de Vínculo - SCFV </option>             
+                    <option value="1008" > Serviço de Proteção e Atendimento Integral à Família - PAIF </option>             
+                    <option value="1032" > Serviço Especializado em Abordagem Social </option>             
+                    <option value="999" > SPM - Itinerante </option>             
+                    <option value="389" > Transferência de Domicílio Militar </option>             
+                    <option value="1072" > UNIDADE DE ACOLHIMENTO INFANTO-JUVENIL </option>             
+                    <option value="1031" > Vestibular Social </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_moradia.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>moradia</h1>
+               <ul class="ul-moradia">
+                            
+                                        
+                 </ul>
+                 <select id="moradia" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="1203" > Atualização- Minha Casa Minha Vida </option>             
+                    <option value="1165" > Concessão de Posse de Terra  </option>             
+                    <option value="670" > Inscrição - Minha Casa Minha Vida </option>             
+                    <option value="673" > Orientação Técnica /Elaboração Pjto de Melhoria Habitacional </option>             
+                    <option value="1205" > Verificação de Sorteados - Minha Casa Minha Vida </option>             
+                    <option value="674" > Vistoria para elaboração do Cadastro Arquitetônico </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_turismo.png">
+            </div>
+          </div>
+          <div class="grid_2 omega">
+            <div class="box-servicos">
+               <h1>turismo</h1>
+               <ul class="ul-turismo">
+                            
+                <li value="791">Mercado Modelo - Gestão</li>
+                                            
+                 </ul>
+                 <select id="turismo" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="655" > Informações sobre o Carnaval </option>             
+                    <option value="791" > Mercado Modelo - Gestão </option>             
+                    <option value="789" > Posto de Informação Turística - Elevador Lacerda </option>             
+                    <option value="598" > Posto de Informação Turística - Mercado Modelo </option>             
+                    <option value="790" > Posto de Informação Turística - Móvel </option>             
+                    <option value="792" > Promoção Institucional Destino Salvador </option>             
+                                                                                 
+                  </select>
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_saude.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>saúde</h1>
+                <ul class="ul-saude">
+                            
+                                        
+                 </ul>
+                 <select id="saude" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="322" >  BAIXA DE RESPONSABILIDADE TÉCNICA </option>             
+                    <option value="850" > ALIMENTAÇÃO E NUTRIÇÃO </option>             
+                    <option value="1233" > ALIMENTOS DETERIORADOS/PRAZO DE VALIDADE VENCIDO/FORA DE ACO </option>             
+                    <option value="902" > ALVARA DE SAÚDE </option>             
+                    <option value="25" > ANÁLISE DE PROJETO ARQUITETÔNICO </option>             
+                    <option value="340" > Animal de grande porte atropelado ou caido em via pública </option>             
+                    <option value="832" > ATENÇÃO INTEGRAL À PESSOA COM DOENÇA FALCIFORME </option>             
+                    <option value="844" > ATENÇÃO INTEGRAL À SAÚDE BUCAL </option>             
+                    <option value="828" > ATENÇÃO INTEGRAL À SAÚDE DA CRIANÇA </option>             
+                    <option value="827" > ATENÇÃO INTEGRAL À SAÚDE DA MULHER </option>             
+                    <option value="831" > ATENÇÃO INTEGRAL À SAUDE DA PESSOA COM DEFICIÊNCIA </option>             
+                    <option value="863" > ATENÇÃO INTEGRAL À SAÚDE DA PESSOA IDOSA </option>             
+                    <option value="829" > ATENÇÃO INTEGRAL À SAÚDE DO ADOLESCENTE </option>             
+                    <option value="830" > ATENÇÃO INTEGRAL À SAÚDE DO HOMEM </option>             
+                    <option value="835" > ATENÇÃO PSICOSSOCIAL </option>             
+                    <option value="852" > ATENÇÃO PSICOSSOCIAL A DEPENDENTES QUÍMICOS </option>             
+                    <option value="883" > ATENÇÃO PSICOSSOCIAL AMBULATORIAL </option>             
+                    <option value="879" > ATENÇÃO PSICOSSOCIAL INFANTIL </option>             
+                    <option value="865" > ATENDIMENTO ODONTOLÓGICO 24 HORAS NA UPA ADROALDO ALBERGARIA </option>             
+                    <option value="866" > ATENDIMENTO ODONTOLÓGICO 24 HORAS NO PA HÉLIO MACHADO </option>             
+                    <option value="323" > AUTORIZAÇÃO ESPECIAL PARA FUNCIONAMENTO EM EVENTO, ENTIDADES </option>             
+                    <option value="338" > Avaliação zoosanitaria em casos de maus tratos a cães e gato </option>             
+                    <option value="324" > CADASTRAMENTO DE DROGARIA  PARA COMERCIALIZAR  RETINOIDE </option>             
+                    <option value="895" > Cadastramento de Estabelecimentos de Saúde - CNES </option>             
+                    <option value="325" > CADASTRAMENTO DE PRESCRITORES PARA RECEITA B E C2 </option>             
+                    <option value="336" > Campanha de vacinação antirabica animal </option>             
+                    <option value="339" > Controle população de cães e gatos </option>             
+                    <option value="877" > DIPENSAÇÃO DE INSUMOS GLICÊMICOS </option>             
+                    <option value="1129" > DISPENSAÇÃO DE MEDICAMENTOS </option>             
+                    <option value="26" > ENCERRAMENTO DE ATIVIDADE DE EMPRESA DE INTERESSE DA SAÚDE </option>             
+                    <option value="22" > Infestação de pombos </option>             
+                    <option value="21" > Inspeção para controle de roedores em domicílio </option>             
+                    <option value="6" > Inspeção para diagnostico ambiental órgão publico </option>             
+                    <option value="329" > Inspeção zoosanitaria avaliação de caramujo-Esquistossomose </option>             
+                    <option value="330" > Inspeção zoosanitaria para avaliação  caramujos africano </option>             
+                    <option value="332" > Inspeção zoosanitaria para controle de escorpiões </option>             
+                    <option value="334" > Inspeção zoosanitaria para foco de mosquito - dengue </option>             
+                    <option value="333" > Inspeção zoosanitaria para foco de mosquito - muriçocas </option>             
+                    <option value="337" > Investigação epidemiológica da raiva </option>             
+                    <option value="814" > MARCAÇÃO DE CONSULTAS E EXAMES </option>             
+                    <option value="341" > Medicamentos especiais  (não padronizados) </option>             
+                    <option value="843" > Oxigenoterapia Domiciliar </option>             
+                    <option value="854" > PROGRAMA DE CONTROLE DO TABAGISMO </option>             
+                    <option value="841" > PROGRAMA DE HANSENÍASE </option>             
+                    <option value="838" > PROGRAMA DE TUBERCULOSE </option>             
+                    <option value="24" > RENOVAÇÃO DE ALVARA DE SAÚDE </option>             
+                    <option value="993" > Saúde na Panela - Educação Alimentar e Nutricional </option>             
+                    <option value="825" > Serviço de Atendimento Móvel de Urgência </option>             
+                    <option value="1231" > SERVIÇO DE VACINAÇÃO </option>             
+                    <option value="824" > SERVIÇOS ESPECIALIZADOS EM ODONTOLOGIA </option>             
+                    <option value="864" > Unidade de Atenidmento Odontológico 24 Horas </option>             
+                    <option value="335" > Vacinação anti rabica animal (rotina) </option>             
+                    <option value="345" > Vigilância da qualidade da áqua para consumo humano </option>             
+                    <option value="346" > Vigilância da qualidade do ar  </option>             
+                    <option value="1071" > Vigilância das populações expostas a solo contaminado </option>             
+                    <option value="1069" > Vigilância em Saúde Ambiental Relacionada aos Desastres  </option>             
+                    <option value="331" > Vigilância epdemiológica para doença de chagas </option>             
+                    <option value="328" > Vigilância para leishmaniose </option>             
+                                                                                 
+                  </select>
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_financas.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>finanças e tributos</h1>
+                <ul class="ul-financas">
+                            
+                <li value="799">Averbação</li>
+                                            
+                 </ul>
+                 <select id="financas" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="704" > Alteração de Natureza de ocupação / utilização do imóvel </option>             
+                    <option value="703" > Alteração de padrão construtivo </option>             
+                    <option value="701" > Alteração do Logradouro </option>             
+                    <option value="696" > Atualização de endereço de correspondência de imóvel </option>             
+                    <option value="686" > Avaliação Especial ITIV </option>             
+                    <option value="799" > Averbação </option>             
+                    <option value="773" > Baixa da Pessoa Jurídica  </option>             
+                    <option value="755" > Baixa de Inscrição de Pessoa Física  </option>             
+                    <option value="709" > Cancelamento de insc. imobiliária por unificação de áreas </option>             
+                    <option value="707" > Cancelamento de inscrição imobiliária por desapropriação </option>             
+                    <option value="706" > Cancelamento de inscrição imobiliária por duplicidade </option>             
+                    <option value="903" > Cancelamento de Nota Fiscal Eletrônica </option>             
+                    <option value="710" > Cancelamento por inexistência </option>             
+                    <option value="870" > Certidão de Baixa </option>             
+                    <option value="727" > Certidão de Inteiro Teor </option>             
+                    <option value="682" > Certidão Negativa de Débito </option>             
+                    <option value="1244" > Certidão Negativa Imobiliária </option>             
+                    <option value="868" > Certidão Negativa Mobiliária </option>             
+                    <option value="1245" > Certidão Positiva com Efeito de Negativa Imobiliária </option>             
+                    <option value="1246" > Certidão Positiva com Efeito de Negativa Mobiliária </option>             
+                    <option value="1243" > Certidão Positiva Imobiliária </option>             
+                    <option value="1242" > Certidão Positiva Mobiliária </option>             
+                    <option value="683" > Compensação de Crédito </option>             
+                    <option value="797" > Consulta da Legislação Tributária Municipal </option>             
+                    <option value="744" > Consulta de Cadastro de Profissionais Autônomos </option>             
+                    <option value="745" > Consulta de Cadastro Estabelecimento </option>             
+                    <option value="743" > Consulta de Inscrição Imobiliária </option>             
+                    <option value="726" > Consulta de Processos </option>             
+                    <option value="751" > Consulta de Situação Fiscal (Atividades) </option>             
+                    <option value="749" > Consulta de Situação Fiscal (Imobiliário) </option>             
+                    <option value="737" > Consulta do Extrato Fiscal (Atividades) </option>             
+                    <option value="735" > Consulta do Extrato Fiscal (Imobiliário) </option>             
+                    <option value="783" > Consulta do Valor Venal Atualizado </option>             
+                    <option value="1226" > Consulta Processual  </option>             
+                    <option value="690" > Consulta VUC </option>             
+                    <option value="689" > Consulta VUP </option>             
+                    <option value="694" > Consulta VVA </option>             
+                    <option value="928" > Dação em Pagamento </option>             
+                    <option value="810" > DAM Complementar - ITIV </option>             
+                    <option value="818" > DAM ITIV - Transação Parcial </option>             
+                    <option value="918" > Declaração de ISS por Estimativa da Ativ. de Estacionamento </option>             
+                    <option value="916" > Declaração de ISS por Estimativa da Ativ. de Shows e Eventos </option>             
+                    <option value="919" > Declaração de ISS por Estimativa da Atividade Camarotes </option>             
+                    <option value="920" > Declaração de ISS por Estimativa da Atividade de Motéis </option>             
+                    <option value="782" > Declaração de ITIV </option>             
+                    <option value="699" > Declaração de Não Inscrito (imobiliário) </option>             
+                    <option value="872" > Declaração de Não Inscrito (mobiliário) </option>             
+                    <option value="779" > Declaração de Transação de Unidade Imobiliária - Eletônica </option>             
+                    <option value="778" > Declaração de Transação Imobiliária </option>             
+                    <option value="896" > Declaração Mensal de Serviços - DMS </option>             
+                    <option value="793" > Declaração Mensal Eletrônica </option>             
+                    <option value="695" > Declaração VVA (pós processo) </option>             
+                    <option value="711" > Desmembramento </option>             
+                    <option value="905" > Dúvidas sobre legislação de NFS'e </option>             
+                    <option value="729" > Emissão DAM 2ª via IPTU - TRSD </option>             
+                    <option value="734" > Emissão DAM 2ª via ISS/TFF autônomo </option>             
+                    <option value="741" > Emissão DAM 2ª via TFF Estabelecimento </option>             
+                    <option value="725" > Emissão DAM complementar (Atividades) </option>             
+                    <option value="723" > Emissão DAM complementar (Imobiliário) </option>             
+                    <option value="731" > Emissão DAM de Serviços </option>             
+                    <option value="739" > Emissão DAM Declaração Expontânea </option>             
+                    <option value="692" > Emissão DAM ITIV </option>             
+                    <option value="732" > Emissão DAM parcelamento </option>             
+                    <option value="904" > Emissão de 2ª via de senha para Nota Fiscal Eletrônica </option>             
+                    <option value="700" > Emissão de Certidão de Dados Cadastrais </option>             
+                    <option value="1227" > Emissão de DAM  </option>             
+                    <option value="893" > Emissão de Documento de Arrecadação Municipal - DAM </option>             
+                    <option value="897" > Emissão de Nota Avulsa </option>             
+                    <option value="906" > Emissão de Senha para Nota Fiscal Eletrônica </option>             
+                    <option value="757" > Emissão do Alvará e Cartão de inscrição no CGA do município </option>             
+                    <option value="752" > Emissão do Contrato do Parcelamento </option>             
+                    <option value="909" > Emissão do Termo de Indeferimento do Simples Nacional </option>             
+                    <option value="767" > Emissão Ficha Cadastral resumida </option>             
+                    <option value="796" > Emissão Nota Fiscal  Eletônica - NFSe </option>             
+                    <option value="914" > Fale Conosco </option>             
+                    <option value="722" > Fator de Correção de Construção </option>             
+                    <option value="720" > Fator de Correção de Terreno </option>             
+                    <option value="769" > Impugnação do lançamento da TFF/Estabelecimento  </option>             
+                    <option value="768" > Impugnação do lançamento do ISS/TFF Autônomo  </option>             
+                    <option value="938" > Imunidade de IPTU </option>             
+                    <option value="937" > Imunidade de ISS </option>             
+                    <option value="936" > Imunidade de ITIV </option>             
+                    <option value="770" > Inscrição e Alteração Cadastral Pessoa Física (Autônomo) </option>             
+                    <option value="772" > Inscrição e Alteração Cadastral Pessoa Jurídica  </option>             
+                    <option value="813" > Isenção de ITIV - PAR </option>             
+                    <option value="812" > Isenção de ITIV - PMCMV </option>             
+                    <option value="934" > Isenção do IPTU - Ex Combatente e Membro Marinha Mercante </option>             
+                    <option value="935" > Isenção do IPTU - Imóvel locado ao município </option>             
+                    <option value="933" > Isenção do ISS - Motorista </option>             
+                    <option value="932" > Isenção ISS - Artista/Artífice/Artesão </option>             
+                    <option value="930" > Isenção TFF - Assistência Social/Templos </option>             
+                    <option value="917" > ISS por estimativa da atividade desfile de blocos </option>             
+                    <option value="781" > ITIV  Incorporação Imobiliária Eletrônico </option>             
+                    <option value="697" > Lançamento via Habite-se </option>             
+                    <option value="921" > Não Incidência da TRSD </option>             
+                    <option value="939" > Não Incidência do ITIV </option>             
+                    <option value="811" > Orientações sobre o ITIV </option>             
+                    <option value="979" > Recebimento de Talão para Incineração </option>             
+                    <option value="891" > Recibo de Declaração Mensal de Serviços Eletrônica - DMSe  </option>             
+                    <option value="681" > Restituição de Importância </option>             
+                    <option value="774" > Restituição de Importância ISS/TFF Autônomo e TFF Empresa </option>             
+                    <option value="784" > Resumo DTI </option>             
+                    <option value="817" > Retificação de DTI </option>             
+                    <option value="719" > Revisão de área de construção </option>             
+                    <option value="712" > Revisão de área de terreno </option>             
+                    <option value="691" > Revisão do Valor Venal </option>             
+                    <option value="890" > Suporte Declaração Mensal de Serviços - DMS </option>             
+                    <option value="685" > Transferência de Crédito </option>             
+                    <option value="705" > Transferência de Tributação </option>             
+                    <option value="684" > Validação Certidão Imobiliária </option>             
+                    <option value="1247" > Validação Certidão Mobiliária </option>             
+                    <option value="776" > Validação de Alvará e Cartão do CGA </option>             
+                    <option value="698" > Validação de Certidão de Dados Cadastrais </option>             
+                                                                                 
+                  </select>
+            </div>
+          </div>
+
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_transito.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos omega">
+               <h1>trânsito e transporte</h1>
+               <ul class="ul-transito">
+                            
+                <li value="977">RESSARCIMENTO DE VALOR PAGO</li>
+                                            
+                 </ul>
+                 <select id="transito" class="list-servicos">
+                    <option value="0"> Outros serviços </option>
+                    <option value="1155" > ANALISE PARA ANUÊNCIA PRÉVIA DE PROJETO DE EDIFICAÇÃO CARACT </option>             
+                    <option value="1018" > ANÁLISE PARA IMPLANTAÇÃO DE SINALIZAÇÃO DE TRÂNSITO E SEMÁFO </option>             
+                    <option value="1121" > ANÁLISE PARA IMPLANTAÇÃO OU RETIRADA DE DEFENSAS METÁLICAS, </option>             
+                    <option value="955" > APRESENTAÇÃO DO CONDUTOR INFRATOR </option>             
+                    <option value="1159" > ATESTADO DO TRÁFEGO </option>             
+                    <option value="959" > AUTORIZAÇÃO ESPECIAL DE TRÁFEGO, CARGA E DESCARGA - AETCD </option>             
+                    <option value="1161" > AUTORIZAÇÃO PARA OBRAS E SERVIÇOS COM INTERDIÇÃO TOTAL OU PA </option>             
+                    <option value="1162" > AUTORIZAÇÃO PRÉVIA PARA EVENTOS </option>             
+                    <option value="1163" > AUTORIZAÇÃO PRÉVIA PARA EVENTOS NA VIA </option>             
+                    <option value="964" > CONSULTA DE MULTA POR INFRAÇÃO DE TRÂNSITO </option>             
+                    <option value="972" > CÓPIA DE DOCUMENTOS-INFRAÇÕES DE TRÂNSITO </option>             
+                    <option value="961" > CREDENCIAL DE ESTACIONAMENTO VAGA ESPECIAL - IDOSO </option>             
+                    <option value="958" > CREDENCIAL DE ESTACIONAMENTO VAGA ESPECIAL - PESSOA COM DEFI </option>             
+                    <option value="960" > DEFESA INTERPOSTA CONTRA A NOTIFICAÇÃO DE AUTUAÇÃO DE INFRAÇ </option>             
+                    <option value="962" > DEVOLUÇÃO DA CARTEIRA NACIONAL DE HABILITAÇÃO - CNH </option>             
+                    <option value="963" > EFEITO SUSPENSIVO DA MULTA DE TRÂNSITO </option>             
+                    <option value="1028" > ELABORAÇÃO DE PROJETO DE SINALIZAÇÃO DE TRÂNSITO PARA AS VIA </option>             
+                    <option value="969" > ESTACIONAMENTO, FORA DA VIA PÚBLICA, EM ÁREA DELIMITADA FECH </option>             
+                    <option value="1160" > ESTUDOS DE TRÁFEGO </option>             
+                    <option value="1122" > FISCALIZAÇÃO DO TRÂNSITO </option>             
+                    <option value="1023" > IMPLANTAÇÃO DO PROJETO DE SINALIZAÇÃO DE TRÂNSITO E SEMÁFORO </option>             
+                    <option value="970" > LIBERAÇÃO DE VEÍCULO APREENDIDO OU RECOLHIDO </option>             
+                    <option value="971" > MANUTENÇÃO DA SINALIZAÇÃO HORIZONTAL E VERTICAL  </option>             
+                    <option value="1075" > PROGRAMA CIDADÃO NO TRÂNSITO </option>             
+                    <option value="1076" > PROGRAMA CONDUTOR CIDADÃO </option>             
+                    <option value="1077" > PROJETO CRIANÇAS CONDUTORAS DO FUTURO </option>             
+                    <option value="966" > RECURSO INTERPOSTO CONTRA A DECISÃO DA JARI AO CETRAN </option>             
+                    <option value="967" > RECURSO INTERPOSTO CONTRA A NOTIFICAÇÃO DE IMPOSIÇÃO DE PENA </option>             
+                    <option value="975" > REGULAMENTAÇÃO DA CIRCULAÇÃO DE CAMINHÕES E TRATORES </option>             
+                    <option value="976" > REGULAMENTAÇÃO DA OPERAÇÃO DE CARGA E DESCARGA  </option>             
+                    <option value="977" > RESSARCIMENTO DE VALOR PAGO </option>             
+                                                                                 
+                  </select>
+            </div>
+          </div>
+
+          <!--Começo novos serviços-->
+          <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_meio_ambiente.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>meio ambiente</h1>
+               <ul class="ul-meioambiente">
+                            
+                <li value="842">Autorização para Eventos em Praças e Áreas Verdes</li>
+                                            
+                 </ul>
+                 <select id="meioambiente" class="list-servicos">
+                    <option value="0"> Em breve... </option>
+                    <option value="842" > Autorização para Eventos em Praças e Áreas Verdes </option>             
+                    <option value="1237" > Eventos Parque da Cidade </option>             
+                    <option value="1240" > Jardim Botânico </option>             
+                    <option value="1238" > Palestras Coleta Seletiva e Resíduos </option>             
+                    <option value="1236" > Programa Verde Perto </option>             
+                    <option value="1239" > Visita ao Horto Sagrada Família </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+
+           <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_defesa_civil.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>defesa civil</h1>
+               <ul class="ul-defesacivil">
+                            
+                <li value="9">Vistoria Defesa Civil</li>
+                                            
+                 </ul>
+                 <select id="defesacivil" class="list-servicos">
+                    <option value="0"> Outros serviços... </option>
+                    <option value="565" > Defesa Civil Itinerante - DCI </option>             
+                    <option value="1126" > Informação de Processo </option>             
+                    <option value="9" > Vistoria Defesa Civil </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+
+           <div class="grid_1">
+            <div class="box-servicos-img">
+              <img src="http://salvador.ba.gov.br//images/imagens_home/srv_uso_do_solo.png">
+            </div>
+          </div>
+          <div class="grid_2">
+            <div class="box-servicos">
+               <h1>uso do solo</h1>
+               <ul class="ul-usosolo">
+                            
+                <li value="116">Habite-se</li>
+                                            
+                 </ul>
+                 <select id="usosolo" class="list-servicos">
+                    <option value="0"> Outros serviços... </option>
+                    <option value="1130" >  Autorização Especial para Atividades não especificadas </option>             
+                    <option value="1009" > Ação Promocional Publicidade durante Carnaval </option>             
+                    <option value="786" > Alteração de Razão Social em TVL </option>             
+                    <option value="54" > Alvará - Transferência </option>             
+                    <option value="61" > Alvará de Autorização Especial para Feirão Automotivo </option>             
+                    <option value="55" > Alvará de Autorização Especial para Shows Pirotécnicos. </option>             
+                    <option value="834" > Alvará de Autorização p/ Plano de Emergência contra Incêndio </option>             
+                    <option value="28" > Alvará de Empreendimento - 2° Via </option>             
+                    <option value="889" > Alvará Especial para Localização de Central de Gás - GLP </option>             
+                    <option value="183" > Análise de Orient. Prévia - AOP para Exibição de Publicidade </option>             
+                    <option value="69" > Análise de Orient. Prévia - AOP para Parametros Urbanísticos </option>             
+                    <option value="208" > Análise de Orient.Prévia - AOP para Localização de Atividade </option>             
+                    <option value="787" > Anexação de Documentos </option>             
+                    <option value="124" > AOP para Infraestrutura de Suporte para Telecomunicações </option>             
+                    <option value="885" > Aprovação de Projeto </option>             
+                    <option value="186" > Arquivamento de Processo </option>             
+                    <option value="798" > Atualização de Bairro e/ou CEP de TVL </option>             
+                    <option value="915" > Autorização de Uso de Área Pública </option>             
+                    <option value="264" > Autorização Especial Para Atividade Indoor  </option>             
+                    <option value="1131" > Autorização Especial para Empreendimentos não especificados </option>             
+                    <option value="270" > Autorização Especial Para Eventos Esportivos </option>             
+                    <option value="574" > Autorização Especial Para Utilização de Som em Eventos </option>             
+                    <option value="196" > Autorização Para Exibição de Publicidade em Ônibus </option>             
+                    <option value="198" > Autorização para Exibição de Publicidade em Táxi </option>             
+                    <option value="58" > Autorização Para Funcionamento de Stand de Vendas </option>             
+                    <option value="860" > Autorização para Instalação de Recipientes para Entulho  </option>             
+                    <option value="71" > Autorização para Instalação de Tapume </option>             
+                    <option value="67" > Autorização para obra em logradouro público e/ou especial </option>             
+                    <option value="205" > Autorização para Publicidade em Veículos </option>             
+                    <option value="608" > Autorização para Utilização de Som em Estabelecimento </option>             
+                    <option value="203" > Cancelamento de Licença de Publicidade </option>             
+                    <option value="70" > Cancelamento de Responsabilidade Técnica </option>             
+                    <option value="612" > Certidão de Demolição </option>             
+                    <option value="91" > Certidão de Desmembramento de Área de Transcon  </option>             
+                    <option value="60" > Certidão de Inteiro Teor de Processo </option>             
+                    <option value="894" > Certificado de Conclusão da Instalação de Central de Gás </option>             
+                    <option value="940" > Cessão de Uso de Área Pública </option>             
+                    <option value="57" > CLE - Autorização Especial para Shows Espetáculos Artísticos </option>             
+                    <option value="265" > CLE -Alvará de Autorização Especial para Feiras e Congressos </option>             
+                    <option value="72" > Comunicado de Início de Obras </option>             
+                    <option value="929" > Concessão de Uso Área Pública </option>             
+                    <option value="63" > Cópias de Documentos e Plantas </option>             
+                    <option value="190" > Credenciamento Profissional na SEDUR </option>             
+                    <option value="151" > Defesa de Auto de Infração e/ou Devolução de Bens </option>             
+                    <option value="155" > Devolução de Bens apreendidos - Atividade </option>             
+                    <option value="157" > Devolução de Bens apreendidos - construção </option>             
+                    <option value="610" > Devolução de Bens apreendidos - Sonora </option>             
+                    <option value="927" > Doação de Área </option>             
+                    <option value="200" > Exibição de Publicidade de Lançamento Imobiliário </option>             
+                    <option value="614" > Exibição de Publicidade em Balão durante o Carnaval </option>             
+                    <option value="185" > Exibição de Publicidade em Faixas Rebocadas por Avião </option>             
+                    <option value="1111" > Exibição de Publicidade Livre em Entidades Carnavalescas </option>             
+                    <option value="191" > Exibição de Publicidade Permanente </option>             
+                    <option value="193" > Exibição de Publicidade Provisória </option>             
+                    <option value="1010" > Exibição Publicidade em Trio Independente durante o Carnaval </option>             
+                    <option value="1013" > Exploração Atividade Comercial durante Carnaval </option>             
+                    <option value="154" > Fiscalização de Atividade Irregular </option>             
+                    <option value="1115" > Fiscalização de Emprendimento Irregular </option>             
+                    <option value="1116" > Fiscalização de Publicidade Irregular </option>             
+                    <option value="594" > Fiscalização Poluição Sonora </option>             
+                    <option value="116" > Habite-se </option>             
+                    <option value="76" > Inclusão de Atividade em TVL </option>             
+                    <option value="926" > Investidura </option>             
+                    <option value="839" > Licença p/ Adequação à Legislação Segurança contra Incêndio </option>             
+                    <option value="126" > Licença p/ Inst.de Infraestrutura Suporte para Telecomunic </option>             
+                    <option value="149" > Licença p/Exibição de Publicidade em Blocos </option>             
+                    <option value="98" > Licença p/Instalação Equip. Prot. Contra Incêndio e Pânico </option>             
+                    <option value="82" > Licença para Amembramento   </option>             
+                    <option value="62" > Licença Para Ampliação e/ou Reforma </option>             
+                    <option value="73" > Licença para Construção  </option>             
+                    <option value="884" > Licença para Construção de Empreendimento Uniresidencial  </option>             
+                    <option value="78" > Licença para Construção de Guarita </option>             
+                    <option value="886" > Licença para Construção de Guarita ou Portões em Via Pública </option>             
+                    <option value="83" > Licença para Construção de Habitação de Interesse Social </option>             
+                    <option value="84" > Licença para Construção de Muro de Contenção </option>             
+                    <option value="87" > Licença para Construção de Muro Divisório  </option>             
+                    <option value="88" > Licença para Construção de Stand de Vendas </option>             
+                    <option value="97" > Licença para Demolição </option>             
+                    <option value="89" > Licença para Desdobro </option>             
+                    <option value="90" > Licença para Desmembramento </option>             
+                    <option value="100" > Licença Para Desmonte de Rocha </option>             
+                    <option value="195" > Licença para Exibição de Publicidade em Empenas  </option>             
+                    <option value="133" > Licença Para Instalação de Balcão Durante o Carnaval </option>             
+                    <option value="137" > Licença Para Instalação de Camarote Durante o Carnaval </option>             
+                    <option value="597" > Licença Para Instalação de Praticável Durante o Carnaval </option>             
+                    <option value="118" > Licença para Liberação de Lotes Caucionados </option>             
+                    <option value="93" > Licença para Loteamento  </option>             
+                    <option value="102" > Licença para Parcelamento em Condomínio </option>             
+                    <option value="103" > Licença para Projeto Complementar em Parcelamento do Solo </option>             
+                    <option value="104" > Licença para Reloteamento </option>             
+                    <option value="105" > Licença para Remembramento  </option>             
+                    <option value="127" > Licença para Reparos Gerais </option>             
+                    <option value="112" > Licença para Reurbanização Integrada  </option>             
+                    <option value="224" > Licença para Terraplenagem </option>             
+                    <option value="117" > Licença para Urbanização Integrada </option>             
+                    <option value="119" > Modificação de Projeto de Empreendimento </option>             
+                    <option value="123" > Modificação de Projeto de Proteção Contra Incêndio e Pânico </option>             
+                    <option value="925" > Permissão de Uso de Área Pública </option>             
+                    <option value="924" > Permuta </option>             
+                    <option value="888" > Reconsideração de Desp. Projeto de Proteção contra Incendio </option>             
+                    <option value="197" > Reconsideração de Despacho - Atividade </option>             
+                    <option value="613" > Reconsideração de Despacho - Empreendimento </option>             
+                    <option value="206" > Reconsideração de Despacho - Publicidade </option>             
+                    <option value="609" > Reconsideração de Despacho - Utilização Sonora </option>             
+                    <option value="1110" > Reconsideração de Despacho de Habite-se </option>             
+                    <option value="887" > Reconsideração de Despacho de Processos Especiais </option>             
+                    <option value="184" > Relocação de Outdoor </option>             
+                    <option value="65" > Renovação Automática de TVL </option>             
+                    <option value="30" > Renovação de Alvará - Empreendimento </option>             
+                    <option value="233" > Renovação de autoriz.p/obra em lograd. público e/ou especial </option>             
+                    <option value="892" > Renovação de Licença para a Inst.de Equipamentos de Proteção </option>             
+                    <option value="68" > Renovação de TVL </option>             
+                    <option value="923" > Resgate de Enfiteuse </option>             
+                    <option value="615" > Restituição de Valor </option>             
+                    <option value="204" > Revisão de Publicidade Permanente </option>             
+                    <option value="66" > Revisão de TVL </option>             
+                    <option value="129" > Termo ConclusãoInfraestrutura de Suporte para Telecomunica </option>             
+                    <option value="128" > Termo de Conclusão de Instalação  Equipamentos de Segurança  </option>             
+                    <option value="227" > Termo de Conclusão de Obras e/ou Serviços em Log. Públicos </option>             
+                    <option value="207" > Transferência da Titularidade Meios Publicitários </option>             
+                    <option value="922" > Transferência de Domínio Útil </option>             
+                    <option value="121" > Transferência de Responsável Técnico </option>             
+                    <option value="1104" > Viabilidade de Localização - Culto Religioso </option>             
+                    <option value="1107" > Viabilidade de Localização - Edifícios Comerciais </option>             
+                    <option value="1105" > Viabilidade de Localização - MEI </option>             
+                    <option value="1" > Viabilidade de Localização - TVL  </option>             
+                    <option value="1106" > Viabilidade Localização p/Atividades em Escritórios Virtuais </option>             
+                                                                                 
+                  </select>
+               
+            </div>
+          </div>
+          <!--Fim novos servicos-->
+
+        </div>
+        <div class="grid_3">
+          <div class="banners">
+            
+
+<div class="custom"  >
+	<p><a href="/images/PDF/arquivo_planejamento.pdf" target="_blank"> <img src="/images/banners/planejamento_2020.png" width="220" height="182" /></a></p></div>
+
+          </div>
+          <div class="banners">
+            
+
+<div class="custom"  >
+	<p style="margin-bottom: 5px;"><a href="http://www.bndes.gov.br/wps/portal/site/home" target="_blank"><img src="/images/banners/municipio_234x60.gif" width="220" height="60" /></a></p>
+<!--<p><a href="http://limpurb.salvador.ba.gov.br/formulario/" target="_blank"> <img src="/images/banners/banner_limpurb.jpg" width="220" height="90" /></a></p>-->
+<p><a href="https://www.leismunicipais.com.br/prefeitura/ba/salvador" target="_blank"><img src="/images/leis-municipais.png" width="220" height="130" /></a></p></div>
+
+          </div>
+          <div class="banners">
+            
+
+<div class="custom"  >
+	<p><a href="http://www.dom.salvador.ba.gov.br/diario-atual.php" target="_blank"><img src="/images/imagens_home/diario_oficial2.png" width="220" height="138" /></a></p>
+<p><a href="http://www.dom.salvador.ba.gov.br/" target="_blank"><img src="/images/imagens_home/edicoes_anteriores2.png" width="220" height="42" /></a></p></div>
+
+
+<div class="custom"  >
+	<!--<p style="margin-bottom: 5px;"><a href="http://pppiluminacaopublica.salvador.ba.gov.br/arquivos/Errata-PPP.pdf" target="_blank"> <img src="/images/banners/banner_ppp.png" width="220" height="90" /></a></p>
+<p><img src="/images/banners/Banner_Iluminação3.png" width="220" height="90" /></p>
+ <p><a href="http://ouvindonossobairro.salvador.ba.gov.br/" target="_blank"> <img src="/images/banners/Banner_Resultado.png" width="220" height="90" /></a></p> --></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="container_12">
+        <div class="box_pai">          
+          <div class="box_filho borda_azul">
+            <h1>SERVIÇOS MAIS PROCURADOS</h1>
+             <ul class="ul-maisprocurados">
+                            
+                
+
+<li value="729">Emissão DAM 2ª via IPTU - TRSD</li>
+            <li value="931">Isenção ITIV - Servidor Municipal</li>
+            <li value="1143"> Disponibilidade do  Contra Cheque on line</li>
+                                    
+                 </ul>
+          <select id="maisprocurados" class="list-servicos" style="width:335px;">
+                    <option value="0"> Outros serviços </option>
+            <option value="670" > Inscrição - Minha Casa Minha Vida </option>             
+                  <option value="80" > SIMM </option>             
+                  <option value="1004" > SIMM Hora Marcada </option>             
+                  <option value="902" > ALVARA DE SAÚDE </option>             
+                  <option value="22" > Infestação de pombos </option>             
+                  <option value="1021" > Erradicação de árvores em via pública </option>             
+                  <option value="299" > MatrÍcula Informatizada </option>             
+                  <option value="81" > Seguro Desemprego </option>             
+                  <option value="897" > Emissão de Nota Avulsa </option>             
+                                                                           
+                  </select>
+         
+         
+          </div>
+          <div class="box_filho borda_verde">
+            <div class="organizador">
+              <div class="organizador-img">             
+                <img src="http://salvador.ba.gov.br//images/imagens_home/logo_SIMM.png">
+              </div>
+              <div class="organizador-titulo">
+                <h2>vagas de emprego</h2>
+              </div>
+            </div>
+            <ul>
+              <li><a href="http://www.simm.salvador.ba.gov.br/index.php?menu=destaque" target="_blank">Veja vagas de emprego oferecidas pelo SIMM</a></li>
+              <li><a href="http://maisemprego.mte.gov.br/portal/pages/home.xhtml" target="_blank">Cadastre seu currículo ou pesquise sua vaga agora no SIMM</a></li>
+            </ul> 
+            <div class="vagas">
+              <a href="http://www.simm.salvador.ba.gov.br/index.php?menu=destaque" target="_blank">TODAS AS VAGAS</a>
+            </div>
+          </div>
+        </div>
+        <div class="grid_3 banners">
+          
+
+<div class="custom"  >
+	<p><a href="/images/PDF/cartilha_mandato.pdf" target="_blank"> <img src="/images/banners/cartilha.jpg" width="220" height="92" /></a></p>
+<p><a href="http://transparencia.salvador.ba.gov.br/" target="_blank"> <img src="/images/banners/banner_transparencia.jpg" width="220" height="92" /></a></p>
+<p> </p></div>
+
+
+<div class="custom"  >
+	<p><a href="http://www.alistamento.eb.mil.br/aol/inicio.action;jsessionid=0A5203E11AEDA3BA41774E8A6D348160" target="_blank"><img src="/images/banners/alistamento.jpg" width="220" height="84" style="margin-bottom: 5px;" /></a></p>
+<p> </p></div>
+
+        </div>
+      </div>
+      <div class="container_12">
+        <div class="grid_9">
+          <div class="bloco-servicos">
+            <a href="http://www.transalvador.salvador.ba.gov.br/" target="_blank"><img src="http://salvador.ba.gov.br//images/imagens_home/solicite_transito.png"></a>
+            <a href="http://www.sucom.ba.gov.br/index.php?page=12&cata=78" target="_blank"><img src="http://salvador.ba.gov.br//images/imagens_home/solicite_poluicao_sonora.png"></a>
+            <a href="http://www.compras.salvador.ba.gov.br/" target="_blank"><img src="http://salvador.ba.gov.br//images/imagens_home/solicite_licitacoes.png"></a>
+            <!--a href="http://www.saltur.salvador.ba.gov.br/" target="_blank"><img src="http://salvador.ba.gov.br//images/imagens_home/solicite_turismo.png"></a-->
+          </div>
+        </div>
+        <div class="grid_3">
+            <!--a href="https://www.leismunicipais.com.br/prefeitura/ba/salvador" target="_blank"><img src="http://salvador.ba.gov.br//images/imagens_home/leis municipais.jpg"></a-->
+        
+          <div class="banners">
+            
+
+<div class="custom"  >
+	<p><a href="http://brt.salvador.ba.gov.br/" target="_blank"> <img src="/images/banner_brt.jpg" width="220" height="182" /></a></p></div>
+
+          </div>
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="container_12 finalPortal">
+        <div class="grid_3 box-especifico">
+            <img src="http://salvador.ba.gov.br//images/imagens_home/cidadao.png">
+          <ul>              
+            
+
+<li style="cursor:pointer;" value="322"> BAIXA DE RESPONSABILIDADE TÉCNICA</li>
+            <li style="cursor:pointer;" value="1137"> Certificado de Registro Cadastral - CRC </li>
+            <li style="cursor:pointer;" value="1135"> Informações sobre Concurso Público</li>
+                          
+          </ul>
+         
+          <select id="cidadao" class="list-servicos">
+              <option value="0"> Outros serviços </option>
+              <option value="322" >  BAIXA DE RESPONSABILIDADE TÉCNICA </option>             
+                <option value="1137" >  Certificado de Registro Cadastral - CRC  </option>             
+                <option value="1135" >  Informações sobre Concurso Público </option>             
+                <option value="380" > 1ª Via CDI-Cert. Dispensa Incorporação do Serviço Militar </option>             
+                <option value="382" > 1ª Via CDSA-Cert. Dispensa Serv. Alternativo Serviço Militar </option>             
+                <option value="384" > 1ª Via CI-Certificado de Isenção do Serviço Militar </option>             
+                <option value="386" > 2ª Via CAM - Certificado de Alistamento Militar </option>             
+                <option value="381" > 2ª Via CDI-Cert. Dispensa de Incorporação do Serviço Militar </option>             
+                <option value="383" > 2ª Via CDSA-Cert. Dispensa Serv. Alternativo Serviço Militar </option>             
+                <option value="385" > 2ª Via CI - Certificado de Isenção do Serviço Militar </option>             
+                <option value="1009" > Ação Promocional Publicidade durante Carnaval </option>             
+                <option value="759" > Ações de Prevenção à Violência </option>             
+                <option value="672" > Acolhimento Institucional para crianças de 08 a 12 anos </option>             
+                <option value="687" > Acolhimento Institucional para crianças de 08 a 17 anos </option>             
+                <option value="671" > Acolhimento Institucional para meninos de 15 a 17 anos </option>             
+                <option value="1199" > Agendamento Primeiro Passo </option>             
+                <option value="850" > ALIMENTAÇÃO E NUTRIÇÃO </option>             
+                <option value="1233" > ALIMENTOS DETERIORADOS/PRAZO DE VALIDADE VENCIDO/FORA DE ACO </option>             
+                <option value="379" > Alistamento Militar  -  CAM </option>             
+                <option value="704" > Alteração de Natureza de ocupação / utilização do imóvel </option>             
+                <option value="703" > Alteração de padrão construtivo </option>             
+                <option value="786" > Alteração de Razão Social em TVL </option>             
+                <option value="760" > Alteração do Cadastro do Empreendedor </option>             
+                <option value="701" > Alteração do Logradouro </option>             
+                <option value="54" > Alvará - Transferência </option>             
+                <option value="55" > Alvará de Autorização Especial para Shows Pirotécnicos. </option>             
+                <option value="28" > Alvará de Empreendimento - 2° Via </option>             
+                <option value="69" > Análise de Orient. Prévia - AOP para Parametros Urbanísticos </option>             
+                <option value="208" > Análise de Orient.Prévia - AOP para Localização de Atividade </option>             
+                <option value="1018" > ANÁLISE PARA IMPLANTAÇÃO DE SINALIZAÇÃO DE TRÂNSITO E SEMÁFO </option>             
+                <option value="1121" > ANÁLISE PARA IMPLANTAÇÃO OU RETIRADA DE DEFENSAS METÁLICAS, </option>             
+                <option value="787" > Anexação de Documentos </option>             
+                <option value="340" > Animal de grande porte atropelado ou caido em via pública </option>             
+                <option value="1087" > Apoio a eventos culturais </option>             
+                <option value="1230" > Apoio Educacional para Mulheres Negras </option>             
+                <option value="955" > APRESENTAÇÃO DO CONDUTOR INFRATOR </option>             
+                <option value="1062" > Aquisição de imagens digitais de mapas e plantas  </option>             
+                <option value="1055" > Aquisição de imagens digitais, fotos, postais e partituras </option>             
+                <option value="186" > Arquivamento de Processo </option>             
+                <option value="832" > ATENÇÃO INTEGRAL À PESSOA COM DOENÇA FALCIFORME </option>             
+                <option value="844" > ATENÇÃO INTEGRAL À SAÚDE BUCAL </option>             
+                <option value="828" > ATENÇÃO INTEGRAL À SAÚDE DA CRIANÇA </option>             
+                <option value="827" > ATENÇÃO INTEGRAL À SAÚDE DA MULHER </option>             
+                <option value="831" > ATENÇÃO INTEGRAL À SAUDE DA PESSOA COM DEFICIÊNCIA </option>             
+                <option value="863" > ATENÇÃO INTEGRAL À SAÚDE DA PESSOA IDOSA </option>             
+                <option value="829" > ATENÇÃO INTEGRAL À SAÚDE DO ADOLESCENTE </option>             
+                <option value="830" > ATENÇÃO INTEGRAL À SAÚDE DO HOMEM </option>             
+                <option value="835" > ATENÇÃO PSICOSSOCIAL </option>             
+                <option value="852" > ATENÇÃO PSICOSSOCIAL A DEPENDENTES QUÍMICOS </option>             
+                <option value="883" > ATENÇÃO PSICOSSOCIAL AMBULATORIAL </option>             
+                <option value="879" > ATENÇÃO PSICOSSOCIAL INFANTIL </option>             
+                <option value="169" > Atendimento a mulher vítima ou em situação de violência </option>             
+                <option value="865" > ATENDIMENTO ODONTOLÓGICO 24 HORAS NA UPA ADROALDO ALBERGARIA </option>             
+                <option value="866" > ATENDIMENTO ODONTOLÓGICO 24 HORAS NO PA HÉLIO MACHADO </option>             
+                <option value="387" > Atestado de Desobrigação do Serviço Militar </option>             
+                <option value="992" > Atestado de Viabilidade de Serviços -Pessoa Física </option>             
+                <option value="696" > Atualização de endereço de correspondência de imóvel </option>             
+                <option value="1203" > Atualização- Minha Casa Minha Vida </option>             
+                <option value="1219" > Audiências </option>             
+                <option value="1102" > Auto Atendimento </option>             
+                <option value="915" > Autorização de Uso de Área Pública </option>             
+                <option value="264" > Autorização Especial Para Atividade Indoor  </option>             
+                <option value="270" > Autorização Especial Para Eventos Esportivos </option>             
+                <option value="574" > Autorização Especial Para Utilização de Som em Eventos </option>             
+                <option value="842" > Autorização para Eventos em Praças e Áreas Verdes </option>             
+                <option value="198" > Autorização para Exibição de Publicidade em Táxi </option>             
+                <option value="58" > Autorização Para Funcionamento de Stand de Vendas </option>             
+                <option value="71" > Autorização para Instalação de Tapume </option>             
+                <option value="67" > Autorização para obra em logradouro público e/ou especial </option>             
+                <option value="998" > Auxílio Funeral </option>             
+                <option value="1151" > AVALIAÇÃO DE LINHA DE ÔNIBUS </option>             
+                <option value="1148" > AVALIAÇÃO DE PONTO DE ÔNIBUS </option>             
+                <option value="1147" > AVALIAÇÃO DE PONTO DE TÁXI </option>             
+                <option value="686" > Avaliação Especial ITIV </option>             
+                <option value="338" > Avaliação zoosanitaria em casos de maus tratos a cães e gato </option>             
+                <option value="799" > Averbação </option>             
+                <option value="755" > Baixa de Inscrição de Pessoa Física  </option>             
+                <option value="761" > Baixa/Encerramento do Cadastro do Empreendedor </option>             
+                <option value="1229" > Balcão Itinerante </option>             
+                <option value="1166" > Banda de Música da Guarda Municipal </option>             
+                <option value="1000" > Benefício de Prestação Continuada - BPC </option>             
+                <option value="997" > Bolsa Família </option>             
+                <option value="1002" > Bolsa Família Móvel </option>             
+                <option value="296" > Cadastro Único para Programas Sociais do Governo Federal </option>             
+                <option value="1221" > Cálculo de reajuste: Aluguel </option>             
+                <option value="1225" > Cálculo de Reajuste: Plano de Saúde </option>             
+                <option value="1224" > Cálculo Revisional: Acordos, Refinanciamentos, Renegociação </option>             
+                <option value="650" > Cálculo revisional: antecipação de parcelas </option>             
+                <option value="648" > Cálculo revisional: carnês, financiamentos ou empréstimos </option>             
+                <option value="1220" > Cálculo revisional: cartão de crédito </option>             
+                <option value="1223" > Cálculo: Atualização de Crédito </option>             
+                <option value="1222" > Cálculo: Atualização de Débito </option>             
+                <option value="336" > Campanha de vacinação antirabica animal </option>             
+                <option value="709" > Cancelamento de insc. imobiliária por unificação de áreas </option>             
+                <option value="707" > Cancelamento de inscrição imobiliária por desapropriação </option>             
+                <option value="706" > Cancelamento de inscrição imobiliária por duplicidade </option>             
+                <option value="1091" > Cancelamento de Licença </option>             
+                <option value="70" > Cancelamento de Responsabilidade Técnica </option>             
+                <option value="710" > Cancelamento por inexistência </option>             
+                <option value="1064" > Captura de imagens digitais de documentos pesquisados </option>             
+                <option value="1001" > Carteira do Idoso </option>             
+                <option value="1035" > Casa de Passagem / Abrigamento </option>             
+                <option value="1039" > Casa de Pernoite - Abrigamento Temporário </option>             
+                <option value="612" > Certidão de Demolição </option>             
+                <option value="91" > Certidão de Desmembramento de Área de Transcon  </option>             
+                <option value="727" > Certidão de Inteiro Teor </option>             
+                <option value="60" > Certidão de Inteiro Teor de Processo </option>             
+                <option value="682" > Certidão Negativa de Débito </option>             
+                <option value="1244" > Certidão Negativa Imobiliária </option>             
+                <option value="1245" > Certidão Positiva com Efeito de Negativa Imobiliária </option>             
+                <option value="1246" > Certidão Positiva com Efeito de Negativa Mobiliária </option>             
+                <option value="1243" > Certidão Positiva Imobiliária </option>             
+                <option value="1242" > Certidão Positiva Mobiliária </option>             
+                <option value="940" > Cessão de Uso de Área Pública </option>             
+                <option value="298" > Chamamento Público às Escolas/Creches Comunitárias </option>             
+                <option value="57" > CLE - Autorização Especial para Shows Espetáculos Artísticos </option>             
+                <option value="265" > CLE -Alvará de Autorização Especial para Feiras e Congressos </option>             
+                <option value="588" > Coleta e Transporte de Resíduos  Domiciliares </option>             
+                <option value="708" > Coleta e Transporte dos Resíduos da Construção e Demolição.  </option>             
+                <option value="683" > Compensação de Crédito </option>             
+                <option value="72" > Comunicado de Início de Obras </option>             
+                <option value="1165" > Concessão de Posse de Terra  </option>             
+                <option value="929" > Concessão de Uso Área Pública </option>             
+                <option value="822" > Construção de Vias Públicas </option>             
+                <option value="730" > Construção ou Reforma Prédios Públicos / Mercado Popular </option>             
+                <option value="247" > Construção ou Reforma Quadra e ou Campo em Área Pública </option>             
+                <option value="1058" > Consulta ao acervo da Biblioteca Municipal (SEBES) </option>             
+                <option value="1068" > Consulta ao Acervo da GESIH </option>             
+                <option value="1061" > Consulta ao acervo de documentos textuais </option>             
+                <option value="744" > Consulta de Cadastro de Profissionais Autônomos </option>             
+                <option value="743" > Consulta de Inscrição Imobiliária </option>             
+                <option value="964" > CONSULTA DE MULTA POR INFRAÇÃO DE TRÂNSITO </option>             
+                <option value="726" > Consulta de Processos </option>             
+                <option value="749" > Consulta de Situação Fiscal (Imobiliário) </option>             
+                <option value="737" > Consulta do Extrato Fiscal (Atividades) </option>             
+                <option value="735" > Consulta do Extrato Fiscal (Imobiliário) </option>             
+                <option value="783" > Consulta do Valor Venal Atualizado </option>             
+                <option value="1070" > Consulta Online ao Acervo da Biblioteca do AHMS </option>             
+                <option value="1059" > Consulta online ao acervo da Biblioteca Municipal (SEBES) </option>             
+                <option value="690" > Consulta VUC </option>             
+                <option value="689" > Consulta VUP </option>             
+                <option value="694" > Consulta VVA </option>             
+                <option value="339" > Controle população de cães e gatos </option>             
+                <option value="972" > CÓPIA DE DOCUMENTOS-INFRAÇÕES DE TRÂNSITO </option>             
+                <option value="63" > Cópias de Documentos e Plantas </option>             
+                <option value="961" > CREDENCIAL DE ESTACIONAMENTO VAGA ESPECIAL - IDOSO </option>             
+                <option value="958" > CREDENCIAL DE ESTACIONAMENTO VAGA ESPECIAL - PESSOA COM DEFI </option>             
+                <option value="190" > Credenciamento Profissional na SEDUR </option>             
+                <option value="928" > Dação em Pagamento </option>             
+                <option value="810" > DAM Complementar - ITIV </option>             
+                <option value="818" > DAM ITIV - Transação Parcial </option>             
+                <option value="1157" > Declaração Anual do Simples Nacional ao MEI  </option>             
+                <option value="782" > Declaração de ITIV </option>             
+                <option value="699" > Declaração de Não Inscrito (imobiliário) </option>             
+                <option value="778" > Declaração de Transação Imobiliária </option>             
+                <option value="388" > Declaração Provisória de Situação Militar </option>             
+                <option value="695" > Declaração VVA (pós processo) </option>             
+                <option value="565" > Defesa Civil Itinerante - DCI </option>             
+                <option value="151" > Defesa de Auto de Infração e/ou Devolução de Bens </option>             
+                <option value="960" > DEFESA INTERPOSTA CONTRA A NOTIFICAÇÃO DE AUTUAÇÃO DE INFRAÇ </option>             
+                <option value="1066" > Denuncia de vandalismo e situação dos monumentos </option>             
+                <option value="711" > Desmembramento </option>             
+                <option value="962" > DEVOLUÇÃO DA CARTEIRA NACIONAL DE HABILITAÇÃO - CNH </option>             
+                <option value="155" > Devolução de Bens apreendidos - Atividade </option>             
+                <option value="157" > Devolução de Bens apreendidos - construção </option>             
+                <option value="610" > Devolução de Bens apreendidos - Sonora </option>             
+                <option value="877" > DIPENSAÇÃO DE INSUMOS GLICÊMICOS </option>             
+                <option value="1129" > DISPENSAÇÃO DE MEDICAMENTOS </option>             
+                <option value="927" > Doação de Área </option>             
+                <option value="713" > Educação Ambiental </option>             
+                <option value="963" > EFEITO SUSPENSIVO DA MULTA DE TRÂNSITO </option>             
+                <option value="729" > Emissão DAM 2ª via IPTU - TRSD </option>             
+                <option value="734" > Emissão DAM 2ª via ISS/TFF autônomo </option>             
+                <option value="725" > Emissão DAM complementar (Atividades) </option>             
+                <option value="723" > Emissão DAM complementar (Imobiliário) </option>             
+                <option value="731" > Emissão DAM de Serviços </option>             
+                <option value="739" > Emissão DAM Declaração Expontânea </option>             
+                <option value="692" > Emissão DAM ITIV </option>             
+                <option value="732" > Emissão DAM parcelamento </option>             
+                <option value="1156" > Emissão de carnê de pagamento do DAS do MEI </option>             
+                <option value="700" > Emissão de Certidão de Dados Cadastrais </option>             
+                <option value="752" > Emissão do Contrato do Parcelamento </option>             
+                <option value="1056" > Empréstimo de Livros (SEBES) </option>             
+                <option value="1249" > Entrega de Cartão Primeiro Passo </option>             
+                <option value="1021" > Erradicação de árvores em via pública </option>             
+                <option value="750" > Estabilização de Encosta </option>             
+                <option value="969" > ESTACIONAMENTO, FORA DA VIA PÚBLICA, EM ÁREA DELIMITADA FECH </option>             
+                <option value="1136" > Estágio </option>             
+                <option value="1084" > Eventos educativos </option>             
+                <option value="1237" > Eventos Parque da Cidade </option>             
+                <option value="855" > Execução de atividades de defesa fitossanitária </option>             
+                <option value="753" > Execução de obras de macrodrenagem </option>             
+                <option value="614" > Exibição de Publicidade em Balão durante o Carnaval </option>             
+                <option value="185" > Exibição de Publicidade em Faixas Rebocadas por Avião </option>             
+                <option value="1111" > Exibição de Publicidade Livre em Entidades Carnavalescas </option>             
+                <option value="1010" > Exibição Publicidade em Trio Independente durante o Carnaval </option>             
+                <option value="1013" > Exploração Atividade Comercial durante Carnaval </option>             
+                <option value="914" > Fale Conosco </option>             
+                <option value="722" > Fator de Correção de Construção </option>             
+                <option value="1099" > Fiscalização de ambulantes,bancas de chapa, mesas e cadeiras </option>             
+                <option value="154" > Fiscalização de Atividade Irregular </option>             
+                <option value="907" > Fiscalização de Descartes Irregulares de RCC </option>             
+                <option value="1115" > Fiscalização de Emprendimento Irregular </option>             
+                <option value="1073" > Fiscalização de entulho de grande porte e grande empresas </option>             
+                <option value="765" > Fiscalização de Equipamentos Públicos </option>             
+                <option value="1100" > Fiscalização de pixação indevida em vias públicas </option>             
+                <option value="1116" > Fiscalização de Publicidade Irregular </option>             
+                <option value="1150" > FISCALIZAÇÃO DO PASSE LIVRE, MEIA PASSAGEM ESCOLAR E SALVADO </option>             
+                <option value="1045" > FISCALIZAÇÃO DO TÁXI </option>             
+                <option value="1122" > FISCALIZAÇÃO DO TRÂNSITO </option>             
+                <option value="1046" > FISCALIZAÇÃO DO TRANSPORTE ESCOLAR </option>             
+                <option value="1048" > FISCALIZAÇÃO DO TRANSPORTE PÚBLICO POR ÔNIBUS </option>             
+                <option value="1049" > FISCALIZAÇÃO DO TRANSPORTE TURÍSTICO TERRESTRE </option>             
+                <option value="1154" > FISCALIZAÇÃO DOS BOXES, LOJAS, BALCÕES E VENDEDORES AMBULANT </option>             
+                <option value="243" > Fiscalização em Defesa do Consumidor  </option>             
+                <option value="594" > Fiscalização Poluição Sonora </option>             
+                <option value="1101" > Fiscalização: sucatas de carros </option>             
+                <option value="1177" > Formação Técnica em Artes Visuais (Jovem Aprendiz) </option>             
+                <option value="1178" > Formação Técnica em Dança (Jovem Aprendiz) </option>             
+                <option value="116" > Habite-se </option>             
+                <option value="244" > Iluminação Pública - Iluminação com defeito </option>             
+                <option value="583" > Implantação de Containers  em vias públicas. </option>             
+                <option value="1042" > Implantação de papeleiras em vias públicas. </option>             
+                <option value="76" > Inclusão de Atividade em TVL </option>             
+                <option value="22" > Infestação de pombos </option>             
+                <option value="1126" > Informação de Processo </option>             
+                <option value="1248" > Informação Primeiro Passo </option>             
+                <option value="655" > Informações sobre o Carnaval </option>             
+                <option value="670" > Inscrição - Minha Casa Minha Vida </option>             
+                <option value="770" > Inscrição e Alteração Cadastral Pessoa Física (Autônomo) </option>             
+                <option value="1200" > Inscrição Primeiro Passo </option>             
+                <option value="21" > Inspeção para controle de roedores em domicílio </option>             
+                <option value="6" > Inspeção para diagnostico ambiental órgão publico </option>             
+                <option value="329" > Inspeção zoosanitaria avaliação de caramujo-Esquistossomose </option>             
+                <option value="330" > Inspeção zoosanitaria para avaliação  caramujos africano </option>             
+                <option value="332" > Inspeção zoosanitaria para controle de escorpiões </option>             
+                <option value="334" > Inspeção zoosanitaria para foco de mosquito - dengue </option>             
+                <option value="333" > Inspeção zoosanitaria para foco de mosquito - muriçocas </option>             
+                <option value="1033" > Instituição de Longa Permanência para Idosos / Abrigamento </option>             
+                <option value="1202" > Integração Primeiro Passo </option>             
+                <option value="801" > Intermediação de vagas de Qualificação do PRONATEC </option>             
+                <option value="926" > Investidura </option>             
+                <option value="337" > Investigação epidemiológica da raiva </option>             
+                <option value="813" > Isenção de ITIV - PAR </option>             
+                <option value="812" > Isenção de ITIV - PMCMV </option>             
+                <option value="1094" > Isenção de Taxa </option>             
+                <option value="934" > Isenção do IPTU - Ex Combatente e Membro Marinha Mercante </option>             
+                <option value="935" > Isenção do IPTU - Imóvel locado ao município </option>             
+                <option value="933" > Isenção do ISS - Motorista </option>             
+                <option value="932" > Isenção ISS - Artista/Artífice/Artesão </option>             
+                <option value="1240" > Jardim Botânico </option>             
+                <option value="587" > Lavagem de  Vias e Logradouros Públicos. </option>             
+                <option value="1074" > LIberação de Mercadorias apreendidas </option>             
+                <option value="970" > LIBERAÇÃO DE VEÍCULO APREENDIDO OU RECOLHIDO </option>             
+                <option value="149" > Licença p/Exibição de Publicidade em Blocos </option>             
+                <option value="1093" > Licença para Alteração de Licença </option>             
+                <option value="82" > Licença para Amembramento   </option>             
+                <option value="62" > Licença Para Ampliação e/ou Reforma </option>             
+                <option value="1088" > Licença para baiana de acarajé ou mingau </option>             
+                <option value="73" > Licença para Construção  </option>             
+                <option value="884" > Licença para Construção de Empreendimento Uniresidencial  </option>             
+                <option value="78" > Licença para Construção de Guarita </option>             
+                <option value="886" > Licença para Construção de Guarita ou Portões em Via Pública </option>             
+                <option value="83" > Licença para Construção de Habitação de Interesse Social </option>             
+                <option value="84" > Licença para Construção de Muro de Contenção </option>             
+                <option value="87" > Licença para Construção de Muro Divisório  </option>             
+                <option value="100" > Licença Para Desmonte de Rocha </option>             
+                <option value="1092" > Licença para Informação de Débito e Cadastro </option>             
+                <option value="133" > Licença Para Instalação de Balcão Durante o Carnaval </option>             
+                <option value="137" > Licença Para Instalação de Camarote Durante o Carnaval </option>             
+                <option value="597" > Licença Para Instalação de Praticável Durante o Carnaval </option>             
+                <option value="102" > Licença para Parcelamento em Condomínio </option>             
+                <option value="1096" > Licença para realização de eventos em logradouros públicos </option>             
+                <option value="104" > Licença para Reloteamento </option>             
+                <option value="105" > Licença para Remembramento  </option>             
+                <option value="127" > Licença para Reparos Gerais </option>             
+                <option value="112" > Licença para Reurbanização Integrada  </option>             
+                <option value="224" > Licença para Terraplenagem </option>             
+                <option value="117" > Licença para Urbanização Integrada </option>             
+                <option value="1097" > Licenciamento para Ambulantes </option>             
+                <option value="31" > Licenciamento para Feirantes </option>             
+                <option value="724" > Limpeza de Praias. </option>             
+                <option value="1036" > Manutenção Conservação sistema microdrenagem - Boca de Lobo </option>             
+                <option value="853" > Manutenção Conservação sistema microdrenagem - Caixa Sarjeta </option>             
+                <option value="1037" > Manutenção Conservação sistema microdrenagem - Calha </option>             
+                <option value="1034" > Manutenção Conservação sistema microdrenagem - Poço Visita </option>             
+                <option value="1038" > Manutenção Conservação sistema microdrenagem - Vala </option>             
+                <option value="971" > MANUTENÇÃO DA SINALIZAÇÃO HORIZONTAL E VERTICAL  </option>             
+                <option value="845" > Manutenção e Conservação da Malha Viária </option>             
+                <option value="848" > Manutenção e Conservação de escadarias </option>             
+                <option value="1024" > Manutenção e conservação de espaços públicos - praças </option>             
+                <option value="1019" > Manutenção e Conservação de meio-fio </option>             
+                <option value="1127" > Manutenção e Conservação de passeio público </option>             
+                <option value="849" > Manutenção e Conservação de túnel (drenagem) </option>             
+                <option value="851" > Manutenção e Conservação do sistema de macrodrenagem </option>             
+                <option value="1027" > Manutenção e Conservação gradis de viaduto </option>             
+                <option value="1114" > MANUTENÇÃO E LIMPEZA DAS ESTAÇÕES AQUIDABÃ E BARROQUINHA  </option>             
+                <option value="1025" > Manututenção e Conservação de balaustrada. </option>             
+                <option value="814" > MARCAÇÃO DE CONSULTAS E EXAMES </option>             
+                <option value="299" > MatrÍcula Informatizada </option>             
+                <option value="1218" > Mediação por Telefone </option>             
+                <option value="341" > Medicamentos especiais  (não padronizados) </option>             
+                <option value="1041" > Medida Socioeducativa / Adolescentes </option>             
+                <option value="1006" > Microcrédito </option>             
+                <option value="119" > Modificação de Projeto de Empreendimento </option>             
+                <option value="775" > Oferta de Cursos ao Empreendedor </option>             
+                <option value="1117" > Oficina de Artes Visuais </option>             
+                <option value="663" > Oficina de Artes Visuais com Inclusão Digital </option>             
+                <option value="662" > Oficina de Capoeira com Inclusão Digital </option>             
+                <option value="1118" > Oficina de Dança </option>             
+                <option value="665" > Oficina de Esporte </option>             
+                <option value="1179" > Oficina de Teatro </option>             
+                <option value="666" > Oficina de Teatro com Inclusão Digital </option>             
+                <option value="1216" > Ofícios para Fornecedores - Solicitação de carta de Quitação </option>             
+                <option value="1213" > Ofícios para Fornecedores - Solicitação de Contratos </option>             
+                <option value="1215" > Ofícios para Fornecedores - Solicitação de Extrato Bancário </option>             
+                <option value="1208" > Ofícios para Fornecedores - Solicitação de Faturas </option>             
+                <option value="1043" > Orientação à Pesquisa no Acervo Impresso e Biblioteca </option>             
+                <option value="777" > Orientação ao Empreendedor </option>             
+                <option value="673" > Orientação Técnica /Elaboração Pjto de Melhoria Habitacional </option>             
+                <option value="811" > Orientações sobre o ITIV </option>             
+                <option value="843" > Oxigenoterapia Domiciliar </option>             
+                <option value="1044" > PAEFI Serv. de Proteção e Atend. Esp. a Família e Indivíduos </option>             
+                <option value="653" > Palestras </option>             
+                <option value="1238" > Palestras Coleta Seletiva e Resíduos </option>             
+                <option value="1047" > PDEF -  Proteção Social da Pessoa com Deficiência </option>             
+                <option value="925" > Permissão de Uso de Área Pública </option>             
+                <option value="924" > Permuta </option>             
+                <option value="1051" > PETI - programa de Erradicação do Trabalho Infantil </option>             
+                <option value="586" > Placa Proibitiva de Deposição de Resíduos Sólidos  </option>             
+                <option value="856" > Poda de árvores em via pública </option>             
+                <option value="858" > Poda e manutenção de gramados </option>             
+                <option value="789" > Posto de Informação Turística - Elevador Lacerda </option>             
+                <option value="598" > Posto de Informação Turística - Mercado Modelo </option>             
+                <option value="790" > Posto de Informação Turística - Móvel </option>             
+                <option value="1075" > PROGRAMA CIDADÃO NO TRÂNSITO </option>             
+                <option value="1076" > PROGRAMA CONDUTOR CIDADÃO </option>             
+                <option value="854" > PROGRAMA DE CONTROLE DO TABAGISMO </option>             
+                <option value="841" > PROGRAMA DE HANSENÍASE </option>             
+                <option value="838" > PROGRAMA DE TUBERCULOSE </option>             
+                <option value="1241" > PROGRAMA OUVINDO NOSSO BAIRRO </option>             
+                <option value="995" > Programa Prato Amigo </option>             
+                <option value="994" > Programa Sopa Legal </option>             
+                <option value="1236" > Programa Verde Perto </option>             
+                <option value="1077" > PROJETO CRIANÇAS CONDUTORAS DO FUTURO </option>             
+                <option value="1050" > Projeto Sinaleiras </option>             
+                <option value="764" > Proteção Patrimonial </option>             
+                <option value="979" > Recebimento de Talão para Incineração </option>             
+                <option value="197" > Reconsideração de Despacho - Atividade </option>             
+                <option value="613" > Reconsideração de Despacho - Empreendimento </option>             
+                <option value="1110" > Reconsideração de Despacho de Habite-se </option>             
+                <option value="1052" > Recuperação conservação pavimento rígido-pedras irregulares </option>             
+                <option value="1053" > Recuperação conservação pavimentos rígidos-concreto </option>             
+                <option value="899" > Recuperação conservação pavimentos rígidos-paralelepípedos </option>             
+                <option value="1054" > Recuperação conservação pavimentos rígidos-piso intertravdo </option>             
+                <option value="966" > RECURSO INTERPOSTO CONTRA A DECISÃO DA JARI AO CETRAN </option>             
+                <option value="967" > RECURSO INTERPOSTO CONTRA A NOTIFICAÇÃO DE IMPOSIÇÃO DE PENA </option>             
+                <option value="5" > Reforma de Mausoléu em Cemitérios Municipais </option>             
+                <option value="857" > Remoção de árvore (caída) em via pública </option>             
+                <option value="30" > Renovação de Alvará - Empreendimento </option>             
+                <option value="233" > Renovação de autoriz.p/obra em lograd. público e/ou especial </option>             
+                <option value="821" > Requalificação de Pavimento Flexível </option>             
+                <option value="1081" > Resgate de Corpos </option>             
+                <option value="923" > Resgate de Enfiteuse </option>             
+                <option value="762" > Resgate e captura de animais silvestres </option>             
+                <option value="1083" > Resgate em caso de calamidade pública </option>             
+                <option value="1082" > Resgate Naútico </option>             
+                <option value="1080" > Resgate no Mar </option>             
+                <option value="977" > RESSARCIMENTO DE VALOR PAGO </option>             
+                <option value="996" > Restaurante Comunitário Prato Popular </option>             
+                <option value="681" > Restituição de Importância </option>             
+                <option value="615" > Restituição de Valor </option>             
+                <option value="784" > Resumo DTI </option>             
+                <option value="817" > Retificação de DTI </option>             
+                <option value="719" > Revisão de área de construção </option>             
+                <option value="712" > Revisão de área de terreno </option>             
+                <option value="691" > Revisão do Valor Venal </option>             
+                <option value="794" > Sala de Leitura </option>             
+                <option value="993" > Saúde na Panela - Educação Alimentar e Nutricional </option>             
+                <option value="1086" > Segurança de competições em meio aquático </option>             
+                <option value="81" > Seguro Desemprego </option>             
+                <option value="825" > Serviço de Atendimento Móvel de Urgência </option>             
+                <option value="1017" > Serviço de Convivência e Fortalecimento de Vínculo - SCFV </option>             
+                <option value="1008" > Serviço de Proteção e Atendimento Integral à Família - PAIF </option>             
+                <option value="1231" > SERVIÇO DE VACINAÇÃO </option>             
+                <option value="1032" > Serviço Especializado em Abordagem Social </option>             
+                <option value="728" > Serviços Especiais de Limpeza Urbana </option>             
+                <option value="824" > SERVIÇOS ESPECIALIZADOS EM ODONTOLOGIA </option>             
+                <option value="80" > SIMM </option>             
+                <option value="1004" > SIMM Hora Marcada </option>             
+                <option value="999" > SPM - Itinerante </option>             
+                <option value="1089" > Termo de Reclamação </option>             
+                <option value="1063" > Transcrição de Certidão de nascimento, casamento e óbito </option>             
+                <option value="685" > Transferência de Crédito </option>             
+                <option value="389" > Transferência de Domicílio Militar </option>             
+                <option value="922" > Transferência de Domínio Útil </option>             
+                <option value="121" > Transferência de Responsável Técnico </option>             
+                <option value="705" > Transferência de Tributação </option>             
+                <option value="3" > Translado de Restos Mortais em Cemitérios Municipais </option>             
+                <option value="1123" > TRANSPORTE PÚBLICO POR ASCENSORES ELEVADOR LACERDA </option>             
+                <option value="1072" > UNIDADE DE ACOLHIMENTO INFANTO-JUVENIL </option>             
+                <option value="864" > Unidade de Atenidmento Odontológico 24 Horas </option>             
+                <option value="335" > Vacinação anti rabica animal (rotina) </option>             
+                <option value="684" > Validação Certidão Imobiliária </option>             
+                <option value="1247" > Validação Certidão Mobiliária </option>             
+                <option value="698" > Validação de Certidão de Dados Cadastrais </option>             
+                <option value="702" > Varrição de Vias e Logradouros Públicos </option>             
+                <option value="1205" > Verificação de Sorteados - Minha Casa Minha Vida </option>             
+                <option value="1031" > Vestibular Social </option>             
+                <option value="1104" > Viabilidade de Localização - Culto Religioso </option>             
+                <option value="1107" > Viabilidade de Localização - Edifícios Comerciais </option>             
+                <option value="1105" > Viabilidade de Localização - MEI </option>             
+                <option value="1" > Viabilidade de Localização - TVL  </option>             
+                <option value="1106" > Viabilidade Localização p/Atividades em Escritórios Virtuais </option>             
+                <option value="345" > Vigilância da qualidade da áqua para consumo humano </option>             
+                <option value="346" > Vigilância da qualidade do ar  </option>             
+                <option value="1071" > Vigilância das populações expostas a solo contaminado </option>             
+                <option value="1069" > Vigilância em Saúde Ambiental Relacionada aos Desastres  </option>             
+                <option value="331" > Vigilância epdemiológica para doença de chagas </option>             
+                <option value="328" > Vigilância para leishmaniose </option>             
+                <option value="1239" > Visita ao Horto Sagrada Família </option>             
+                <option value="1217" > Vistas/cópias de Termos de Reclamação ou Processos Adm </option>             
+                <option value="9" > Vistoria Defesa Civil </option>             
+                <option value="674" > Vistoria para elaboração do Cadastro Arquitetônico </option>             
+                                                                             
+          </select>
+        </div>
+        <div class="grid_3 box-especifico">
+          <img src="http://salvador.ba.gov.br//images/imagens_home/empreendedor.png">
+          <ul>
+            
+
+<li style="cursor:pointer;" value="1130"> Autorização Especial para Atividades não especificadas</li>
+            <li style="cursor:pointer;" value="61">Alvará de Autorização Especial para Feirão Automotivo</li>
+            <li style="cursor:pointer;" value="834">Alvará de Autorização p/ Plano de Emergência contra Incêndio</li>
+                    
+          </ul>
+           <select id="empreendedor" class="list-servicos">
+              <option value="0"> Outros serviços </option>
+              <option value="1130" >  Autorização Especial para Atividades não especificadas </option>             
+                <option value="61" > Alvará de Autorização Especial para Feirão Automotivo </option>             
+                <option value="834" > Alvará de Autorização p/ Plano de Emergência contra Incêndio </option>             
+                <option value="902" > ALVARA DE SAÚDE </option>             
+                <option value="889" > Alvará Especial para Localização de Central de Gás - GLP </option>             
+                <option value="183" > Análise de Orient. Prévia - AOP para Exibição de Publicidade </option>             
+                <option value="25" > ANÁLISE DE PROJETO ARQUITETÔNICO </option>             
+                <option value="1155" > ANALISE PARA ANUÊNCIA PRÉVIA DE PROJETO DE EDIFICAÇÃO CARACT </option>             
+                <option value="124" > AOP para Infraestrutura de Suporte para Telecomunicações </option>             
+                <option value="885" > Aprovação de Projeto </option>             
+                <option value="573" > Atestado de Viabilidade de Serviços - Pessoa Jurídica </option>             
+                <option value="1159" > ATESTADO DO TRÁFEGO </option>             
+                <option value="798" > Atualização de Bairro e/ou CEP de TVL </option>             
+                <option value="959" > AUTORIZAÇÃO ESPECIAL DE TRÁFEGO, CARGA E DESCARGA - AETCD </option>             
+                <option value="1131" > Autorização Especial para Empreendimentos não especificados </option>             
+                <option value="323" > AUTORIZAÇÃO ESPECIAL PARA FUNCIONAMENTO EM EVENTO, ENTIDADES </option>             
+                <option value="196" > Autorização Para Exibição de Publicidade em Ônibus </option>             
+                <option value="860" > Autorização para Instalação de Recipientes para Entulho  </option>             
+                <option value="1161" > AUTORIZAÇÃO PARA OBRAS E SERVIÇOS COM INTERDIÇÃO TOTAL OU PA </option>             
+                <option value="205" > Autorização para Publicidade em Veículos </option>             
+                <option value="608" > Autorização para Utilização de Som em Estabelecimento </option>             
+                <option value="1162" > AUTORIZAÇÃO PRÉVIA PARA EVENTOS </option>             
+                <option value="1163" > AUTORIZAÇÃO PRÉVIA PARA EVENTOS NA VIA </option>             
+                <option value="773" > Baixa da Pessoa Jurídica  </option>             
+                <option value="324" > CADASTRAMENTO DE DROGARIA  PARA COMERCIALIZAR  RETINOIDE </option>             
+                <option value="895" > Cadastramento de Estabelecimentos de Saúde - CNES </option>             
+                <option value="325" > CADASTRAMENTO DE PRESCRITORES PARA RECEITA B E C2 </option>             
+                <option value="1149" > CÁLCULO DO QUANTITATIVO DE VALE TRANSPORTE </option>             
+                <option value="203" > Cancelamento de Licença de Publicidade </option>             
+                <option value="903" > Cancelamento de Nota Fiscal Eletrônica </option>             
+                <option value="870" > Certidão de Baixa </option>             
+                <option value="868" > Certidão Negativa Mobiliária </option>             
+                <option value="894" > Certificado de Conclusão da Instalação de Central de Gás </option>             
+                <option value="797" > Consulta da Legislação Tributária Municipal </option>             
+                <option value="745" > Consulta de Cadastro Estabelecimento </option>             
+                <option value="751" > Consulta de Situação Fiscal (Atividades) </option>             
+                <option value="1226" > Consulta Processual  </option>             
+                <option value="918" > Declaração de ISS por Estimativa da Ativ. de Estacionamento </option>             
+                <option value="916" > Declaração de ISS por Estimativa da Ativ. de Shows e Eventos </option>             
+                <option value="919" > Declaração de ISS por Estimativa da Atividade Camarotes </option>             
+                <option value="920" > Declaração de ISS por Estimativa da Atividade de Motéis </option>             
+                <option value="872" > Declaração de Não Inscrito (mobiliário) </option>             
+                <option value="779" > Declaração de Transação de Unidade Imobiliária - Eletônica </option>             
+                <option value="896" > Declaração Mensal de Serviços - DMS </option>             
+                <option value="793" > Declaração Mensal Eletrônica </option>             
+                <option value="905" > Dúvidas sobre legislação de NFS'e </option>             
+                <option value="1028" > ELABORAÇÃO DE PROJETO DE SINALIZAÇÃO DE TRÂNSITO PARA AS VIA </option>             
+                <option value="741" > Emissão DAM 2ª via TFF Estabelecimento </option>             
+                <option value="904" > Emissão de 2ª via de senha para Nota Fiscal Eletrônica </option>             
+                <option value="1227" > Emissão de DAM  </option>             
+                <option value="893" > Emissão de Documento de Arrecadação Municipal - DAM </option>             
+                <option value="897" > Emissão de Nota Avulsa </option>             
+                <option value="906" > Emissão de Senha para Nota Fiscal Eletrônica </option>             
+                <option value="757" > Emissão do Alvará e Cartão de inscrição no CGA do município </option>             
+                <option value="909" > Emissão do Termo de Indeferimento do Simples Nacional </option>             
+                <option value="767" > Emissão Ficha Cadastral resumida </option>             
+                <option value="796" > Emissão Nota Fiscal  Eletônica - NFSe </option>             
+                <option value="26" > ENCERRAMENTO DE ATIVIDADE DE EMPRESA DE INTERESSE DA SAÚDE </option>             
+                <option value="1160" > ESTUDOS DE TRÁFEGO </option>             
+                <option value="200" > Exibição de Publicidade de Lançamento Imobiliário </option>             
+                <option value="191" > Exibição de Publicidade Permanente </option>             
+                <option value="193" > Exibição de Publicidade Provisória </option>             
+                <option value="720" > Fator de Correção de Terreno </option>             
+                <option value="680" > Formalização do Empreendedor </option>             
+                <option value="1023" > IMPLANTAÇÃO DO PROJETO DE SINALIZAÇÃO DE TRÂNSITO E SEMÁFORO </option>             
+                <option value="769" > Impugnação do lançamento da TFF/Estabelecimento  </option>             
+                <option value="768" > Impugnação do lançamento do ISS/TFF Autônomo  </option>             
+                <option value="938" > Imunidade de IPTU </option>             
+                <option value="937" > Imunidade de ISS </option>             
+                <option value="936" > Imunidade de ITIV </option>             
+                <option value="772" > Inscrição e Alteração Cadastral Pessoa Jurídica  </option>             
+                <option value="930" > Isenção TFF - Assistência Social/Templos </option>             
+                <option value="917" > ISS por estimativa da atividade desfile de blocos </option>             
+                <option value="781" > ITIV  Incorporação Imobiliária Eletrônico </option>             
+                <option value="697" > Lançamento via Habite-se </option>             
+                <option value="839" > Licença p/ Adequação à Legislação Segurança contra Incêndio </option>             
+                <option value="126" > Licença p/ Inst.de Infraestrutura Suporte para Telecomunic </option>             
+                <option value="98" > Licença p/Instalação Equip. Prot. Contra Incêndio e Pânico </option>             
+                <option value="88" > Licença para Construção de Stand de Vendas </option>             
+                <option value="97" > Licença para Demolição </option>             
+                <option value="89" > Licença para Desdobro </option>             
+                <option value="90" > Licença para Desmembramento </option>             
+                <option value="195" > Licença para Exibição de Publicidade em Empenas  </option>             
+                <option value="118" > Licença para Liberação de Lotes Caucionados </option>             
+                <option value="93" > Licença para Loteamento  </option>             
+                <option value="103" > Licença para Projeto Complementar em Parcelamento do Solo </option>             
+                <option value="1090" > Licença para uso do solo </option>             
+                <option value="791" > Mercado Modelo - Gestão </option>             
+                <option value="123" > Modificação de Projeto de Proteção Contra Incêndio e Pânico </option>             
+                <option value="921" > Não Incidência da TRSD </option>             
+                <option value="939" > Não Incidência do ITIV </option>             
+                <option value="792" > Promoção Institucional Destino Salvador </option>             
+                <option value="891" > Recibo de Declaração Mensal de Serviços Eletrônica - DMSe  </option>             
+                <option value="888" > Reconsideração de Desp. Projeto de Proteção contra Incendio </option>             
+                <option value="206" > Reconsideração de Despacho - Publicidade </option>             
+                <option value="609" > Reconsideração de Despacho - Utilização Sonora </option>             
+                <option value="887" > Reconsideração de Despacho de Processos Especiais </option>             
+                <option value="975" > REGULAMENTAÇÃO DA CIRCULAÇÃO DE CAMINHÕES E TRATORES </option>             
+                <option value="976" > REGULAMENTAÇÃO DA OPERAÇÃO DE CARGA E DESCARGA  </option>             
+                <option value="184" > Relocação de Outdoor </option>             
+                <option value="65" > Renovação Automática de TVL </option>             
+                <option value="24" > RENOVAÇÃO DE ALVARA DE SAÚDE </option>             
+                <option value="892" > Renovação de Licença para a Inst.de Equipamentos de Proteção </option>             
+                <option value="68" > Renovação de TVL </option>             
+                <option value="774" > Restituição de Importância ISS/TFF Autônomo e TFF Empresa </option>             
+                <option value="204" > Revisão de Publicidade Permanente </option>             
+                <option value="66" > Revisão de TVL </option>             
+                <option value="890" > Suporte Declaração Mensal de Serviços - DMS </option>             
+                <option value="129" > Termo ConclusãoInfraestrutura de Suporte para Telecomunica </option>             
+                <option value="128" > Termo de Conclusão de Instalação  Equipamentos de Segurança  </option>             
+                <option value="227" > Termo de Conclusão de Obras e/ou Serviços em Log. Públicos </option>             
+                <option value="207" > Transferência da Titularidade Meios Publicitários </option>             
+                <option value="776" > Validação de Alvará e Cartão do CGA </option>             
+                <option value="1060" > Venda de Publicações do AHMS </option>             
+                                                                             
+          </select>           
+        </div>
+        <div class="grid_3 box-especifico">
+          <img src="http://salvador.ba.gov.br//images/imagens_home/servidor.png">
+          <ul>
+              <li><a href="http://www.contrachequeonline.salvador.ba.gov.br/" target="_blank">Contracheque online</a></li>
+              <li><a href="http://www.gestaopublica.salvador.ba.gov.br/index.php?option=com_content&task=view&id=818" target="_blank">Plano de Saúde e Odontológico </a></li>
+              
+
+<li style="cursor:pointer;" value="1143"> Disponibilidade do  Contra Cheque on line</li>
+            <li style="cursor:pointer;" value="1085">Apoio a treinamentos</li>
+             
+          </ul>
+          <select id="servidor" class="list-servicos">
+              <option value="0"> Outros serviços </option>
+              <option value="1143" >  Disponibilidade do  Contra Cheque on line </option>             
+                <option value="1085" > Apoio a treinamentos </option>             
+                <option value="1134" > Convênios e Parcerias - Programa de Valorização do Servidor </option>             
+                <option value="1144" > Disponibilização de informe de imposto de renda </option>             
+                <option value="1133" > Portal para Universidade </option>             
+                                                                             
+          </select>   
+        </div>
+        <div class="grid_3 box-especifico">          
+          <!--<div class="contagem-copa">-->
+          <!--<a href="http://www.salvador.ba.gov.br/images/PDF/cartilha_eleicao_2014.pdf" target="_blank"><img style="height:271px;" src="http://salvador.ba.gov.br//templates/salvador/img/BannerEleicoes2014.jpg"></a>-->
+          <!--<a href="http://www.agenciadenoticias.salvador.ba.gov.br/index.php/pt-br/" target="_blank"><img src="/images/imagens_home/agencia_noticias_banner.jpg" width="220" height="84" style="margin-top: 17px;  margin-bottom: 15px;" /></a>-->
+          <!--a href="http://www.planejamentoestrategico.salvador.ba.gov.br/imagens/Planejamento_Completo.pdf" target="_blank"><img src="/images/planejamento_estrategico050614.jpg" alt="" style="margin-bottom:10px;" /></a-->
+          <!--<div class="banners">
+            
+          </div>
+
+          </div>   -->
+          <div class="banners">
+            
+
+<div class="custom"  >
+	<p><a href="http://pppiluminacaopublica.salvador.ba.gov.br/arquivos/ERRATA-PPP-N03.pdf" target="_blank"><img src="/images/banners/errata_maior.png" width="220" height="165" style="margin-bottom: 5px;" /></a></p>
+<p> </p></div>
+
+          </div>      
+          <div class="banners">
+            
+          </div>
+        </div>
+      </div>
+      </div> <!--Fim content wrapper-->
+</div><!--Fim container_site>
+
+
+
+<!-- Area do rodape do site da prefeitura -->
+</br>
+<!-- <div style="width: 100%;
+			padding: 8px 0;
+			background-color: #EEE;
+			margin-bottom: -8px;
+			height: 40px;">
+		<img src="http://salvador.ba.gov.br//images/SELOCOGEL.png" style="	width: 120px; margin-left: 100px; float: right; margin-right: 10px;">
+</div> -->
+
+<div id="frame3" align="center" >
+  <iframe style="width:100%; height:207px; border:0;" frameborder="0" scrolling="no" src="http://salvador.ba.gov.br/Rodape/rodape.html"></iframe>
+</div>
+
+
+<script type="text/javascript">
+/*function atualiza(P_dd,P_hh,P_mm,P_ss){
+ var faltam = '';
+   if (P_dd>999){ 
+   faltam +=P_dd;
+   }
+   if (P_dd < 1000 && P_dd >99 ) {  //se for 3 digito acrescente 1 zero a esquerda
+    faltam += '0'+P_dd
+   }
+   else if (P_dd <=99 && P_dd > 9) { //se for 2 digito acrescente 2 zero a esquerda
+       faltam +=  '00'+ P_dd;
+   }
+   else
+   if (P_dd < 10) {
+       faltam += '000' + P_dd;  // se for 1 digito acrescente 3 zero a esqueda
+     } 
+        var dig = document.getElementById('pos2');
+    if (P_dd+P_hh+P_mm+P_ss > 0){
+        var url = '/templates/salvador/images/numero_';
+      dig.innerHTML = faltam.substring(1,4);
+  }
+}
+function ContRegreciva(YY,MM,DD,HH,MI){
+   var SS = 00; //Segundos
+   var hoje = new Date(); //Dia
+   var futuro = new Date(YY,MM-1,DD,HH,MI,SS); //Data limite do contador
+   var ss = parseInt((futuro - hoje) / 1000); //Determina a quantidade total de segundos que faltam
+   var mm = parseInt(ss / 60); //Determina a quantidade total de minutos que faltam
+   var hh = parseInt(mm / 60); //Determina a quantidade total de horas que faltam
+   var dd = parseInt(hh / 24); //Determina a quantidade total de dias que faltam
+   ss = ss - (mm * 60); //Determina a quantidade de segundos
+   mm = mm - (hh * 60); //Determina a quantidade de minutos
+   hh = hh - (dd * 24); //Determina a quantidade de horas
+   atualiza(dd,hh,mm,ss); //Atual
+   setTimeout(function() { ContRegreciva(YY, MM, DD, HH, MI) }, 1000); //chamada recursiva
+      
+    }
+  
+  ContRegreciva('2014','06','13','00','00','00');*/
+</script>
+
+
+<!--Fim teste Gabriela-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+  //Put in the DIV id you want to display
+  launchWindow('#dialog');
+
+  //if close button is clicked
+  jQuery('.window .close').click(function (e) {
+  e.preventDefault();
+    jQuery('#mask').hide();
+    jQuery('.window').hide();
+  });
+
+  //if mask is clicked
+  jQuery('#mask').click(function () {
+    jQuery(this).hide();
+    jQuery('.window').hide();
+  });
+
+});
+
+  function launchWindow(id) {
+
+    //Get the screen height and width
+    var maskHeight = jQuery(document).height();
+    var maskWidth = jQuery(window).width();
+
+    //Set heigth and width to mask to fill up the whole screen
+    jQuery('#mask').css({'width':maskWidth,'height':maskHeight});
+
+    //transition effect
+    jQuery('#mask').fadeIn(1000);
+    jQuery('#mask').fadeTo("slow",0.8);
+
+    //Get the window height and width
+    var winH = jQuery(window).height();
+    var winW = jQuery(window).width();
+
+    //Set the popup window to center
+    /*jQuery(id).css(‘top', winH/2-jQuery(id).height());
+    jQuery(id).css(‘left', winW/2-jQuery(id).width()/2);*/
+
+    //transition effect
+    jQuery(id).fadeIn(2000);
+  }
+</script>
+
+</body>
+
+
+</html>
+
+
+
+
+<!--Começo teste Gabriela-->
+
+
+ <!--Começo modal-->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   
+  <!-- CORPO -->
+
+
+
+  <div class="modal-body">
+
+    <div id="topoModal">  
+      <div id="imgEnviar" style="position:absolute; right:0; padding-right:64px; margin-top:145px; ">
+        <img id="enviar" src="/templates/salvador/img/enviarEmail.png" style="cursor:pointer; width: 44px; height: 40px; padding-bottom: 6px; margin-left:525px; z-index:15;" alt="Enviar por email" title="">
+      </div>
+      <div id="imgImprimir" style="position:absolute; right:0; padding-right:03px; margin-top:134px;">
+        <img id="imprimir" src="/templates/salvador/img/imprimir.png" style="cursor:pointer; width: 48px; height: 42px; margin-top:05px" alt="Imprimir" title="">
+      </div>
+    </div>
+  
+      <div class='azul' style='background-color:#1874bd' onclick="checkThis(1);" >Nome do serviço</div>
+      <div id='interior1' style='background-color:#EEEEE0; display:none;'></div>
+
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(2);" >Nome popular</div>
+    <div id='interior2' style='background-color:#EEEEE0; display:none;'></div>
+
+      
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(3);" >Descrição</div>
+    <div id='interior3' style='background-color:#EEEEE0; display:none;'></div>
+
+
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(4);" >Documentação</div>
+    <div id='interior4' style='background-color:#EEEEE0; display:none;'></div>
+  
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(5);" >Taxa</div>
+    <div id='interior5' style='background-color:#EEEEE0; display:none;'></div>
+
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(6);" >Prazo</div>
+    <div id='interior6' style='background-color:#EEEEE0; display:none;'></div>
+     
+    <div class='azul' style='background-color:#1874bd' onclick="checkThis(7);" >Local de atendimento</div>
+    <div id='interior7' style='background-color:#EEEEE0; display:none;'></div>
+
+ </div><!-- /CORPO -->
+
+  <div class="modal-footer">
+    <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Fechar</button>
+  </div>
+
+</div>
+            <!--Fim modal-->

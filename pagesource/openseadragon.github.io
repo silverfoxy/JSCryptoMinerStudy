@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="shortcut icon" type="image/png" href="/images/logo16.png">
+    <title>OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='/css/style.css'/>
+
+    <script src="/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+       src="/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip">
+                <img border="0" width="90" src="/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.tar.gz">
+                <img border="0" width="90" src="/images/tar.png"></a>
+        </div>
+        <img class="logo" src="/images/logo.png">
+        <h1>
+            <a href="/">OpenSeadragon</a><span class="version">
+                2.3.1
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>OpenSeadragon</h2>
+
+<div class="elevator">
+    An open-source, web-based viewer for <strong>high-resolution zoomable images</strong>, implemented in pure JavaScript, for desktop and mobile.
+</div>
+
+<div class="demoarea">
+    <div class="demoheading">
+        OpenSeadragon Viewer With Default Settings
+        <span id='consolelog'></span>
+    </div>
+    <div id="contentDiv" class="openseadragon front-page"></div>
+    <div class="image-credit">Image &copy; 2012, <a href="https://www.flickr.com/photos/projectese/" target="_blank">Dario Morelli</a></div>
+</div>
+
+<script type="text/javascript">
+    // Example
+    OpenSeadragon({
+        id:              "contentDiv",
+        prefixUrl:       "/openseadragon/images/",
+        tileSources:     "/example-images/duomo/duomo.dzi"
+    });
+</script>
+
+<p>See how people are using <a href="/examples/in-the-wild/">OpenSeadragon in the wild</a>.</p>
+
+<h2 id='examples-and-features'>
+    Examples &amp; Features
+</h2>
+<ul>
+    <li>
+        <h3>Basics</h3>
+        <ul>
+            <li><a href="/examples/creating-zooming-images/">Creating Zooming Images</a></li>
+            <li><a href="/examples/viewport-coordinates/">Viewport Coordinates</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h3>Supported Tile Sources</h3>
+        <p>
+        OpenSeadragon supports several image serving protocols out of
+        the box and is actively adding support for more.  If the image
+        serving protocol you need is not supported, you can always
+        add support for yours using a custom tile source. <em>(Please help
+        us add built-in support for your required image serving
+        protocol.)</em> Each supported protocol aims to allow configuration
+        via XMLHTTPRequest, JSONP, as well as direct inline configuration.
+        </p>
+        <ul>
+            <li><a href='/examples/tilesource-legacy/'>
+                <span>Legacy Image Pyramids</span>
+            </a></li>
+            <li><a href='/examples/tilesource-iiif/'>
+                <span>IIIF (International Image Interoperability Framework)</span>
+            </a></li>
+            <li><a href='/examples/tilesource-dzi/'>
+                <span>DZI (Deep Zoom Images)</span>
+            </a></li>
+            <li><a href='/examples/tilesource-osm/'>
+                <span>OSM (Open Street Maps)</span>
+            </a></li>
+            <li><a href='/examples/tilesource-tms/'>
+                <span>TMS (Tiled Map Service)</span>
+            </a></li>
+            <li><a href='/examples/tilesource-zoomify/'>
+                <span>Zoomify</span>
+            </a></li>
+            <li><a href='/examples/tilesource-custom/'>
+                <span>Custom Tile Sources</span>
+            </a></li>
+            <!-- <li><a href='/examples/tilesource-zoomit/'>
+                <span>Pulling from Zoom.it</span>
+            </a></li> -->
+            <li><a href='/examples/tilesource-image/'>
+                <span>Simple Image</span>
+            </a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h3>Interface Elements and UI Customization</h3>
+        <p>
+        OpenSeadragon provides many optional interface elements which
+        can be easily enabled via simple configuration settings.
+        Additionally, OpenSeadragon aims to enable you to bind its
+        controls to entirely custom interfaces.
+        </p>
+        <ul>
+            <li><a href='/examples/ui-zoom-and-pan/'>
+                <span>Zoom and Pan</span>
+            </a></li>
+            <li><a href='/examples/ui-overlays/'>
+                <span>Overlays</span>
+            </a></li>
+            <li><a href='/examples/ui-viewport-navigator/'>
+                <span>Viewport Navigator</span>
+            </a></li>
+            <li><a href='/examples/ui-rotation/'>
+                <span>Rotation</span>
+            </a></li>
+            <li><a href='/examples/ui-toolbar/'>
+                <span>Toolbar</span>
+            </a></li>
+            <li><a href='/examples/ui-binding-custom-buttons/'>
+                <span>Binding Custom Buttons</span>
+            </a></li>
+            <li><a href='/examples/ui-keyboard-navigation/'>
+                <span>Keyboard Navigation</span>
+            </a></li>
+            <li><a href='/examples/ui-customize-tooltips/'>
+                <span>Customize Tooltips (I18n)</span>
+            </a></li>
+         </ul>
+    </li>
+
+    <li>
+        <h3>Multi-Image Features</h3>
+        <p>It's very common that sets of related images are required to be presented in a way that allows a user to easily navigate through them. OpenSeadragon provides simple options for this, as well as full multi-image support with complete control.</p>
+        <ul>
+            <li><a href='/examples/tilesource-sequence/'>
+                <span>Sequence Mode</span>
+            </a></li>
+            <li><a href='/examples/ui-reference-strip/'>
+                <span>Image Reference Strip</span>
+            </a></li>
+            <li><a href='/examples/tilesource-collection/'>
+                <span>Collection Mode</span>
+            </a></li>
+            <li><a href='/examples/multi-image/'>
+                <span>Full Multi-Image</span>
+            </a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h3>Developer Tools</h3>
+        <p>
+            These settings can be useful for developers who are trying
+            to add features to OpenSeadragon or when troubleshooting.
+        </p>
+        <ul>
+            <li><a href='/examples/developer-debug-mode/'>
+                <span>Debug Mode</span>
+            </a></li>
+        </ul>
+    </li>
+</ul>
+
+
+<h2 id='plugins'>Plugins</h2>
+<p>Plugins can be used to enhance OpenSeadragon. The following plugins are currently available:</p>
+<ul>
+    <li>
+        <h3>Code Plugins</h3>
+        <ul class="square-list">
+            <li><a href="https://github.com/msalsbery/OpenSeadragonImagingHelper">OpenSeadragonImagingHelper</a> provides coordinate conversion, pan, and zoom methods in a simplified coordinate system.</li>
+            <li><a href="https://github.com/MartinPluta/OpenSeadragonMultiRow">OpenSeadragonMultiRow</a> adds navigation and options for multi row image sequences.</li>
+            <li><a href="https://github.com/usnistgov/OpenSeadragonScalebar">OpenSeadragonScalebar</a> displays your image's scale in real-world measurements.</li>
+            <li><a href="https://github.com/msalsbery/OpenSeadragonViewerInputHook">OpenSeadragonViewerInputHook</a> provides hooks into an OpenSeadragon.Viewer and/or OpenSeadragon.MouseTracker for overriding/extending the default user-input event handling behavior.</li>
+            <li><a href="https://github.com/openseadragon/svg-overlay">SVG Overlay</a> allows you to add SVG elements that pan and zoom with the OpenSeadragon viewer.</li>
+            <li><a href="https://github.com/picturae/openseadragonselection">OpenSeadragonSelection</a> provides functionality for selecting a rectangular part of an image. Useful for cropping.</li>
+            <li><a href="https://github.com/picturae/openseadragonrgb">OpenSeadragonRGB</a> allows reading the rgb values of image pixels.</li>
+            <li><a href="https://github.com/usnistgov/OpenSeadragonFiltering">OpenSeadragonFiltering</a> allows you to add image filters in OpenSeadragon.</li>
+            <li><a href="https://github.com/picturae/OpenSeadragonZoomLevels">OpenSeadragonZoomLevels</a> allows restricting the image zoom to specific levels.</li>
+            <li><a href="https://github.com/picturae/OpenSeadragonMagnifier">OpenSeadragonMagnifier</a> allows you to view part of the image magnified in a navigator-like box.</li>
+            <li><a href="https://github.com/altert/OpenseadragonFabricjsOverlay">OpenSeadragonFabricjsOverlay</a> allows you to add Fabric.js canvas overlay that pans and zooms with OpenSeadragon viewer.</li>
+            <li><a href="https://github.com/altert/OpenSeadragonCanvasOverlay">OpenSeadragonCanvasOverlay</a> allows you to add canvas overlay that pans and zooms with OpenSeadragon viewer.</li>
+            <li><a href="https://github.com/eriksjolund/OpenSeadragonPaperjsOverlay">OpenSeadragonPaperjsOverlay</a> allows you to add Paper.js canvas overlay that pans and zooms with OpenSeadragon viewer.</li>
+            <li><a href="https://github.com/Pin0/openseadragon-justified-collection">OpenSeadragonJustifiedCollection</a> Openseadragon plugin for arranging collections in a justified grid layout.</li>
+            <li><a href="https://github.com/Emigre/openseadragon-annotations">OpenSeadragonAnnotations</a> allows you to draw in a SVG overlay that scales with the image. Useful to annotate and highlight regions of an image.</li>
+            <li><a href="https://github.com/thejohnhoffer/viaWebGL">OpenSeadragonGL</a> allows you to run WebGL shaders on all tiles in OpenSeadragon.</li>
+            <li><a href="https://github.com/KTGLeiden/Openseadragon-screenshot">OpenSeadragonScreenshot</a> allows you to make a screenshot of your viewport, with optional magnification.</li>
+            <li><a href="https://github.com/picturae/OpenSeadragonGuides">OpenSeadragonGuides</a> allows you to add horizontal and vertical guidelines to the Openseadragon viewer.</li>
+        </ul>
+    </li>
+    <li>
+        <h3>Icon Packs</h3>
+        <ul class="square-list">
+            <li><a href="https://github.com/peterthomet/openseadragon-flat-toolbar-icons">Flat Toolbar Icons</a>; simple, flat design toolbar icons.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2 id='browser-extension'>Browser Extension</h2>
+<p>
+    <a href="https://github.com/openseadragon/browser-extension">OpenSeadragonizer</a>
+    enables viewing any image on a webpage with OpenSeadragon.
+</p>
+<ul class="square-list">
+    <li>
+        <a href="https://chrome.google.com/webstore/detail/openseadragonizer/lbjfeiidhldnfohmhnnnjgcmgjbnibgd">
+            OpenSeadragonizer for Chrome
+        </a>
+    </li>
+    <li>
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/openseadragonizer/">
+            OpenSeadragonizer for Firefox
+        </a>
+    </li>
+</ul>
+<p>
+    You can also use the <a href="openseadragonizer">web version of OpenSeadragonizer</a> directly without installing anything.
+</p>
+
+<a name="installing"></a>
+<h2 id='download'>Download &amp; Install</h2>
+<p>
+  You can get OpenSeadragon 2.3.1 through any of these venues:
+</p>
+<ul class="square-list">
+  <li>
+    <strong>Download:</strong>
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.zip">zip</a> or
+    <a href="https://github.com/openseadragon/openseadragon/releases/download/v2.3.1/openseadragon-bin-2.3.1.tar.gz">tar.gz</a>
+  </li>
+  <li>
+    <strong>Bower:</strong> <tt>bower install openseadragon</tt>
+  </li>
+  <li>
+    <strong>npm:</strong> <tt>npm install openseadragon</tt> (<a href="https://www.npmjs.com/package/openseadragon">info</a>)
+  </li>
+  <li>
+    <strong>jsDelivr (CDN):</strong> <a href="https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/openseadragon.min.js">code</a> and <a href="https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/">images</a>
+  </li>
+  <li>
+    <strong>CDNJS (CDN):</strong> <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.3.1/openseadragon.min.js">code</a> and <a href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.3.1/images/">images</a> (<a href="https://cdnjs.com/libraries/openseadragon">info</a>)
+  </li>
+</ul>
+<p>
+    For installation instructions, see the <a href="/docs/">Getting Started</a> page in the documentation.
+</p>
+<p>
+    For creating the tiles themselves, see <a href="/examples/creating-zooming-images/">Creating Zooming Images</a>.
+</p>
+<p>
+    Older releases and source archives are
+    <a href="https://github.com/openseadragon/openseadragon/releases">
+    available on GitHub</a>.
+</p>
+
+
+<h2 id='api-documentation'>API Documentation</h2>
+<p>Available on our <a href="/docs/">documentation pages</a>.</p>
+
+
+<h2 id='support'>Support</h2>
+<p>GitHub: <a href="https://github.com/openseadragon/openseadragon/issues">issue tracker</a></p>
+<p>Twitter: <a href="https://twitter.com/openseadragon">@OpenSeadragon</a></p>
+<p>Chat: <a href="https://gitter.im/openseadragon/openseadragon">Gitter</a> (also accessible via <a href="https://irc.gitter.im/">IRC</a>)</p>
+<!-- <p>IRC: #openseadragon on irc.freenode.net (<a href="irc://irc.freenode.net/#openseadragon">launch on desktop</a> or <a href="http://webchat.freenode.net/?channels=openseadragon">chat in the browser</a>)</p> -->
+
+
+<h2 id='development'>Development</h2>
+<p>
+    OpenSeadragon is
+    <a href="https://github.com/openseadragon/openseadragon">
+    developed on GitHub</a>. You can clone the source repository with
+    <a href="http://git-scm.com/">Git</a> by running:
+    <pre>git clone git://github.com/openseadragon/openseadragon</pre>
+</p>
+
+
+<h2 id='license'>License</h2>
+<p>
+    OpenSeadragon is released under the <a href='/license/'>New BSD</a>
+    license.
+</p>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+             <li><a href='/#browser-extension'
+                    >Browser Extension</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

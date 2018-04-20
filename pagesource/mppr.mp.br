@@ -1,0 +1,1 @@
+Your system folder path does not appear to be set correctly. Please open the following file and correct this: index.php

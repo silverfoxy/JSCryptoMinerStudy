@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>limor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+var lastmouse = 0;
+var nomoreswapping = false;
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function setLastMouse(x) {
+   if (typeof x == 'string')
+     lastmouse = x;
+}
+function getLastMouse() { return lastmouse; }
+
+function swapStop() { nomoreswapping = true; }
+function swapStart() { nomoreswapping = false; }
+
+function ImageSwap(Image, Source) {
+	if (nomoreswapping)  return;
+	if (document.images) {
+		if ((typeof Image == 'string') || (typeof Image == 'number')) {
+			document.images[Image].src = Source;
+		} else if (Image && Image.src) {
+			Image.src = Source;
+		}
+	}
+}
+
+/*******************************************************************/
+
+/***************** KINGDOM ********************/
+function KingdomEnter() {
+	setLastMouse("kingdom");
+	ImageSwap('kingdom', 'treeimages/gnd/kingdom.jpg');
+}
+function KingdomLeave() {
+	ImageSwap('kingdom', 'treeimages/kingdom.jpg');
+}
+
+/***************** VICTORY ********************/
+function VictoryEnter() {
+	if (getLastMouse() == "foundation") {
+		ImageSwap('victory', 'treeimages/resc/victory_menu.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+	} else if (getLastMouse() == "wisdom") {
+		ImageSwap('kindness', 'treeimages/kindness.jpg');
+		ImageSwap('wisdom', 'treeimages/wisdom.jpg');
+	} else if (getLastMouse() == "beauty") {
+			ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_menu.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+	} else {
+	  	setLastMouse("victory");
+    }
+}
+
+function VictoryLeave() {
+	ImageSwap('victory', 'treeimages/victory.jpg');
+	ImageSwap('foundation', 'treeimages/foundation.jpg');
+	ImageSwap('beauty', 'treeimages/beauty.jpg');
+	ImageSwap('kindness', 'treeimages/kindness.jpg');
+}
+
+/*** menu handling ***/
+function victory1Over() {
+	if ((getLastMouse() == "foundation")) {
+		ImageSwap('victory', 'treeimages/resc/victory_menu_procure.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+		swapStop();
+    } else if (getLastMouse() == "beauty") {
+		ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_menu.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+	}
+}
+
+function victory1Click() {
+	if (getLastMouse() == "foundation") {
+	   location.href = "resources/procurement.html";
+    }
+}
+function Victory1Out() {
+	swapStart();
+}
+
+function victory2Over() {
+	if (getLastMouse() == "foundation") {
+		ImageSwap('victory', 'treeimages/resc/victory_menu_etch.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+		swapStop();
+    } else if (getLastMouse() == "beauty") {
+		ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_menu.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+		swapStop();
+	}
+}
+
+function victory2Click() {
+	if (getLastMouse() == "foundation") {
+	   location.href = "resources/inhouseetch.html";
+    }
+}
+function Victory2Out() {
+	swapStart();
+}
+
+function portfolio1over() {
+	if ((getLastMouse() == "beauty")) {
+		ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_04.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+		swapStop();
+    } else if (getLastMouse() == "foundation") {
+		ImageSwap('victory', 'treeimages/resc/victory_menu.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+		swapStop();
+	}
+}
+
+function portfolio1click() {
+	if (getLastMouse() == "beauty") {
+	   location.href = "portfolio/2004/index.html";
+    }
+}
+function portfolio1out() {
+	swapStart();
+}
+
+
+function portfolio2over() {
+	if ((getLastMouse() == "beauty")) {
+		ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_03.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+		swapStop();
+}     else if (getLastMouse() == "foundation") {
+		ImageSwap('victory', 'treeimages/resc/victory_menu.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+		swapStop();
+	} 
+}
+
+function portfolio2click() {
+	if (getLastMouse() == "beauty") {
+	   location.href = "portfolio/2003/index.html";
+    }
+}
+function portfolio2out() {
+	swapStart();
+}
+
+
+function portfolio3over() {
+	if ((getLastMouse() == "beauty")) {
+		ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+		ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_early.jpg');
+		ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg')
+		swapStop();
+    } 
+}
+
+function portfolio3click() {
+	if (getLastMouse() == "beauty") {
+	   location.href = "portfolio/early/index.html";
+    }
+}
+function portfolio3out() {
+	swapStart();
+}
+
+
+/***************** FOUNDATION ********************/
+function FoundationEnter() {
+	if (getLastMouse() != "foundation") {
+			ImageSwap('victory', 'treeimages/resc/victory_menu.jpg');
+		ImageSwap('foundation', 'treeimages/resc/foundation_menu.jpg');
+				setLastMouse("foundation");
+	}
+}
+
+function FoundationLeave() {
+	ImageSwap('victory', 'treeimages/victory.jpg');
+	ImageSwap('foundation', 'treeimages/foundation.jpg');
+}
+
+/***************** SPLENDOR ********************/
+function SplendorEnter() {
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_menu.jpg');
+	setLastMouse("splendor");
+}
+function SplendorLeave() {
+	ImageSwap('splendor', 'treeimages/splendor.jpg');
+}
+
+/*** menu handling ***/
+function Splendor1Out() {
+	swapStart();
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_menu.jpg');
+}
+function Splendor1Over() {
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_freshair.jpg');
+	swapStop();
+}
+function Splendor2Out() {
+	swapStart();
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_menu.jpg');
+}
+function Splendor2Over() {
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_usb232.jpg');
+	swapStop();
+}
+function Splendor3Out() {
+	swapStart();
+ 	ImageSwap('splendor', 'treeimages/tech/splendor_tech_menu.jpg');
+}
+function Splendor3Over() {
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_aether.jpg');
+	swapStop();
+}
+
+function Splendor4Out() {
+	swapStart();
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_menu.jpg');
+}
+function Splendor4Over() {
+	ImageSwap('splendor', 'treeimages/tech/splendor_tech_atmex.jpg');
+	swapStop();
+}
+
+/***************** INTELLIGENCE ***************/
+function ResearchEnter() {
+ ImageSwap('intelligence', 'treeimages/research/int_research_menu.jpg');
+ ImageSwap('strength', 'treeimages/research/strength_research_menu.jpg');
+
+ setLastMouse("intelligence");
+}
+function ResearchLeave() {
+   ImageSwap('intelligence', 'treeimages/intelligence.jpg');
+   ImageSwap('strength', 'treeimages/strength.jpg');
+   setLastMouse("intelligence");
+}
+
+/***************** BEAUTY ********************/
+function BeautyLeave() {
+	ImageSwap('beauty', 'treeimages/beauty.jpg');
+    ImageSwap('victory', 'treeimages/victory.jpg');
+	ImageSwap('kindness', 'treeimages/kindness.jpg');
+	setLastMouse("beauty");
+}
+
+function BeautyEnter() {
+	ImageSwap('beauty', 'treeimages/portfolio/beauty_portfolio_menu.jpg'); 
+	ImageSwap('victory', 'treeimages/portfolio/victory_portfolio_menu.jpg');
+	ImageSwap('kindness', 'treeimages/portfolio/kindness_portfolio_menu.jpg');
+	setLastMouse("beauty");
+}
+/***************** Wisdom ***********************/
+function WisdomEnter() {
+//	if (getLastMouse() != "wisdom") {
+		ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+		ImageSwap('wisdom', 'treeimages/make/wisdom_make_menu.jpg');
+		setLastMouse("wisdom");
+	//}
+}	
+function WisdomLeave() {
+	ImageSwap('kindness', 'treeimages/kindness.jpg');
+	ImageSwap('wisdom', 'treeimages/wisdom.jpg');
+}
+
+/*** menu handling ***/
+function wisdom1over() {
+	ImageSwap('wisdom', 'treeimages/make/wisdom_make_minty.jpg');
+	ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+	swapStop();
+}
+
+function wisdom1out() {
+	swapStart();
+	ImageSwap('wisdom', 'treeimages/make/wisdom_make_menu.jpg');
+	ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+}
+
+function wisdom2over() {
+	ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+	ImageSwap('wisdom', 'treeimages/make/wisdom_make_minipov.jpg');
+	swapStop();
+}
+
+function wisdom2out() {
+	swapStart();
+	ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+	ImageSwap('wisdom', 'treeimages/make/wisdom_make_menu.jpg');
+}
+
+function wisdom3over() {
+	ImageSwap('kindness', 'treeimages/make/kindness_make_xox.jpg');
+	swapStop();
+}
+
+function wisdom3out() {
+	swapStart();
+	ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+	ImageSwap('wisdom', 'treeimages/make/wisdom_make_menu.jpg');
+}
+
+
+
+function wisdomext1over() {
+	if ((getLastMouse() == "wisdom")) {
+		ImageSwap('kindness', 'treeimages/make/kindness_make_xox.jpg');
+		swapStop();
+	}
+}
+
+function wisdomext1click() {
+	if ((getLastMouse() == "wisdom")) {
+		location.href = "make/x0xb0x/index.html";
+	}
+}
+
+function wisdomext1out() {
+	swapStart();
+	//ImageSwap('kindness', 'treeimages/make/kindness_make_menu.jpg');
+	//ImageSwap('wisdom', 'treeimages/make/wisdom_make_menu.jpg');
+}
+
+/***************** KINDNESS **********************/
+function KindnessEnter() {
+
+}
+
+function KindnessLeave() {
+	ImageSwap('kindness', 'treeimages/kindness.jpg');
+	ImageSwap('wisdom', 'treeimages/wisdom.jpg');
+
+}
+/***************** WITHOUT END ********************/
+function CrownEnter() {
+	ImageSwap('crown', 'treeimages/pwr/crown.jpg'); 
+	setLastMouse("crown");
+}
+function CrownLeave() {
+	ImageSwap('crown', 'treeimages/crown.jpg'); 
+}
+
+
+//-->
+
+</script>
+</head>
+<body onLoad="MM_preloadImages();">
+<map name="SplendorMap">
+<area shape="rect" coords="6,147,135,177" href="techproj/freshair/index.html" 
+ onMouseOver="Splendor1Over();" onMouseOut="Splendor1Out();">
+<area shape="rect" coords="6,177,135,207" href="techproj/USB232/index.html"
+ onMouseOver="Splendor2Over();" onMouseOut="Splendor2Out();">
+<area shape="rect" coords="6,207,135,237" href="techproj/aether/index.html"
+ onMouseOver="Splendor3Over();" onMouseOut="Splendor3Out();">
+<area shape="rect" coords="6,237,135,267" href="techproj/Atmex/index.html"
+ onMouseOver="Splendor4Over();" onMouseOut="Splendor4Out();">
+</map>
+			  
+<map name="VictoryMap">
+<area shape="rect" coords="92,141,217,171" href="javascript:victory1Click()" alt="" 
+  onMouseOver="victory1Over();" onMouseOut="Victory1Out();">
+<area shape="rect" coords="92,171,217,201" href="javascript:victory2Click()"
+  onMouseOver="victory2Over();" onMouseOut="Victory2Out();">
+  <area shape="rect" coords="208,54,276,83" href="javascript:portfolio1click()"
+  onMouseOver="portfolio1over();" onMouseOut="portfolio1out();">
+  <area shape="rect" coords="209,87,276,117" href="javascript:portfolio2click()"
+  onMouseOver="portfolio2over();" onMouseOut="portfolio2out();">
+  <area shape="rect" coords="209,119,277,151" href="javascript:portfolio3click()"
+  onMouseOver="portfolio3over();" onMouseOut="portfolio3out();">
+</map>
+
+<map name="WisdomMap">
+  <area shape="rect" coords="150,193,266,224" href="make/minty/index.html" alt=""
+  onMouseOver="wisdom1over();" onMouseOut="wisdom1out();">
+  <area shape="rect" coords="150,223,268,250" href="make/minipov/index.html" alt=""
+  onMouseOver="wisdom2over();" onMouseOut="wisdom2out();">
+
+</map>
+<map name="kindnessMap">
+  <area shape="rect" coords="150,-1,266,28" href="javascript:wisdomext1click();" alt=""
+  onMouseOver="wisdomext1over();" onMouseOut="wisdomext1out();">
+</map>
+
+<center>
+  <tr> </tr>
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td> <table border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td><a href="pub/research.html" title="Research"
+			onMouseOver="ResearchEnter()" onMouseOut="ResearchLeave()">
+			<img src="treeimages/intelligence.jpg" width="290" height="250" border="0" alt="Research" name="intelligence" ></a></td>
+          </tr>
+          <tr> 
+            <td><img src="treeimages/strength.jpg" width="290" height="130" border="0" name="strength" ></td>
+          </tr>
+          <tr> 
+            <td><a href="techproj/index.html" title="Technical Projects"
+					onMouseOver="SplendorEnter()" onMouseOut="SplendorLeave()"> 
+              <img src="treeimages/splendor.jpg" alt="Technical Projects" name="splendor" width="290" height="400" 
+			 		border="0" usemap="#SplendorMap"></a></td>
+          </tr>
+        </table></td>
+      <td> <table border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td><a href="bio/index.html" title="Biography"
+					onMouseOver="CrownEnter();" onMouseOut="CrownLeave();"> <img src="treeimages/crown.jpg" alt="Biography" name="crown" width="75" height="250"
+					border="0"></a></td>
+          </tr>
+          <tr> 
+            <td><a href="portfolio/2006/index.html" title="Portfolio"
+					onMouseOver="BeautyEnter();" onMouseOut="BeautyLeave();"> 
+              <img src="treeimages/beauty.jpg" alt="Portfolio" name="beauty" width="75" height="190"
+					 border="0" ></a></td>
+          </tr>
+          <tr> 
+            <td><a href="library/procure/index.html" title="Resources" 
+	  	           onMouseOver="FoundationEnter();" onMouseOut="FoundationLeave();"> 
+              <img src="treeimages/foundation.jpg" alt="Resources" name="foundation" width="75" height="115"
+				   	border="0"></a></td>
+          </tr>
+          <tr> 
+            <td><a href="about.html" title="Kingdom"
+					onMouseOver="KingdomEnter();" onMouseOut="KingdomLeave();"> 
+              <img src="treeimages/kingdom.jpg" alt="My Kingdom" name="kingdom" width="75" height="225"
+					border="0"></a></td>
+          </tr>
+        </table></td>
+      <td> <table border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td><a href="make/index.html" title="Make" 
+					onMouseOver="WisdomEnter();" onMouseOut="WisdomLeave();"> 
+              <img src="treeimages/wisdom.jpg" alt="Make" name="wisdom" width="285" height="250"
+					border=0 usemap="#wisdomMap" ></a></td>
+          </tr>
+          <tr> 
+            <td><a href="" title="kindness"
+				onMouseOver="KindnessEnter();" onMouseOut="KindnessLeave();"> 
+              <img src="treeimages/kindness.jpg" name="kindness" width="285" height="130" 
+			border="0" usemap="#kindnessMap" ></a></td>
+          </tr>
+          <tr> 
+            <td><a href="index.html" title="identity"
+					onMouseOver="VictoryEnter();" onMouseOut="VictoryLeave();"> 
+              <img src="treeimages/victory.jpg" alt="Victory" name="victory" width="285" height="400"
+					border=0  usemap="#VictoryMap"></a></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

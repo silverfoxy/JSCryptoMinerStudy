@@ -1,0 +1,1 @@
+<html><head><meta http-equiv="refresh" content="0;url=http://www.cmswire.com/404" /></head></html>

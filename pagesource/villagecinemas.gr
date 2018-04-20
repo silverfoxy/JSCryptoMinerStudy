@@ -1,0 +1,1312 @@
+
+
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>
+	VILLAGE Cinemas
+</title>
+
+    <script src="//maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="icon" href="/favicon.ico" type="image/x-icon" /><link href="/Assets/Css/Style.css" rel="stylesheet" type="text/css" /><link href="/css/Village.css" rel="stylesheet" type="text/css" />
+	
+	<!--[if lte IE 8]>
+	<link href="Assets/Css/StyleIE8andBellow.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<!--[if lte IE 7]>
+	<link href="Assets/Css/StyleIE7andBellow.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	
+	<script src="/Assets/Scripts/Plugins/jquery-1.9.1.min.js"></script>	
+
+     <!-- include the Tools -->
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Assets/Scripts/jQueryTools/scrollable-horizontal.css" /><link rel="stylesheet" type="text/css" href="/Assets/Scripts/jQueryTools/scrollable-buttons.css" />
+
+	<script src="/Assets/Scripts/Plugins/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="/Assets/Scripts/Plugins/html5shiv-printshiv.js"></script>
+	<script src="/Assets/Scripts/Functions.js"></script>
+
+    <!--[if lte IE 8]>
+	<script>
+		createElements();
+	</script>
+	<![endif]-->
+	<script>
+	    $(document).ready(function () {
+	        iniHTML();
+	    });
+	</script>
+
+
+    <!--JQUERY RATING-->
+    <script src='/Assets/Scripts/star-rating/jquery.rating.js' type="text/javascript" language="javascript"></script>
+    <link href="/Assets/Scripts/star-rating/jquery.rating.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $('#form1 :radio.star').rating();
+        });
+    </script>
+    
+  
+
+    <script src="/Assets/Scripts/WaitForImages/jquery.waitforimages.js"></script>
+
+
+
+    <!--DDSMOOTHMENU-->
+    <link rel="stylesheet" type="text/css" href="/Assets/Scripts/ddsmoothmenu/ddsmoothmenu.css" />
+    <script type="text/javascript" src="/Assets/Scripts/ddsmoothmenu/ddsmoothmenu.js"></script>
+    <script type="text/javascript">
+        ddsmoothmenu.init({
+            mainmenuid: "smoothmenu1", //menu DIV id
+            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu', //class added to menu's outer DIV
+            //customtheme: ["#1c5a80", "#18374a"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+    </script>
+
+    <!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="/Assets/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="/Assets/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <!-- Add fancyBox - media helper (this is optional) -->
+	<script type="text/javascript" src="/Assets/Scripts/fancyapps-fancyBox-18d1712/source/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#menu_container").removeClass("opacity0");
+
+            //$('.fancybox').fancybox();
+
+
+            $(".fancybox").fancybox({
+                width: 512,
+                height: 390,
+                beforeLoad: function () {
+                    var href = this.href,
+                        width = this.width,
+                        height = this.height;
+
+                    // Check if quictime movie and change content
+                    if (href.indexOf('.mov') != -1) {
+                        this.content = '<object width="' + width + '" height="' + height + '" pluginspage="http://www.apple.com/quicktime/download" data="' + href + '" type="video/quicktime"><param name="autoplay" value="true"><param name="scale" value="tofit"><param name="controller" value="true"><param name="enablejavascript" value="true"><param name="src" value="' + href + '"><param name="loop" value="false"></object>';
+                        this.type = 'html';
+                    }
+                }
+            });
+
+            $('.fancybox-pressbox').fancybox({
+                type: 'image'
+            });
+
+            $('.fancybox-media').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+                helpers: {
+                    media: {}
+                }
+            });
+
+            $('.various').fancybox({
+                afterShow: function () {
+                    initialize();
+                }
+            });
+        });
+	</script>
+
+    <!--SELECT BOX :START-->
+    <link href="/Assets/Scripts/jquery.selectbox-0.2/css/jquery.selectbox.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/Assets/Scripts/jquery.selectbox-0.2/js/jquery.selectbox-0.2.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $(".slct").selectbox();
+	    });
+	</script>
+    <!--SELECT BOX :END-->
+
+    <!--JQUERY COOKIE MASTER : START-->
+    <script src="/Assets/Scripts/jquery-cookie-master/jquery.cookie.js"></script>
+
+    <!--CSSTree Master-->
+    <link href="/Assets/Scripts/CSSTree-master/CSSTree.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        function bookWindowProg(url, name) {
+         //   var webTicketUrl = 'https://www.villagecinemas.gr/webtickets/';
+         //   window.parent.open(webTicketUrl + url, name, 'status=yes,scrollbars=yes,resizable=yes,width=720,height=570,left=100,top=100');
+
+
+//line 1
+       //   var webTicketUrl = 'https://www.villagecinemas.gr/webtickets/';
+	//line 2
+      //    window.parent.open(webTicketUrl + url, name, 'status=yes,scrollbars=yes,resizable=yes,width=720,height=570,left=100,top=100');
+
+       
+            var webTicketUrl = 'https://www.villagecinemas.gr/webticketing' + url;
+            webTicketUrl = webTicketUrl.replace('page1.asp', '');
+
+   window.parent.open(webTicketUrl, name, 'status=yes,scrollbars=yes,resizable=yes,width=1024,height=768,left=100,top=100');
+
+
+
+        }
+        function openPopUp(url, name) {
+          //  window.open(url, name, 'status=yes,scrollbars=yes,resizable=yes,width=720,height=570,left=100,top=100');
+             window.open(url, name, 'status=yes,scrollbars=yes,resizable=yes,width=1024,height=768,left=100,top=100');
+         }
+    </script>
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10216282-1', 'villagecinemas.gr');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script><meta name="keywords" content="VILLAGE Cinemas,Κινηματογράφος,Ταινίες" /></head>
+
+<body>
+<form method="post" action="/" id="mainForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUENTM4MQ9kFgJmD2QWAmYPZBYCZg9kFgJmD2QWBAIBD2QWAgIQD2QWAmYPFgIeBFRleHQFyQM8c2NyaXB0PgogIChmdW5jdGlvbihpLHMsbyxnLHIsYSxtKXtpWydHb29nbGVBbmFseXRpY3NPYmplY3QnXT1yO2lbcl09aVtyXXx8ZnVuY3Rpb24oKXsKICAoaVtyXS5xPWlbcl0ucXx8W10pLnB1c2goYXJndW1lbnRzKX0saVtyXS5sPTEqbmV3IERhdGUoKTthPXMuY3JlYXRlRWxlbWVudChvKSwKICBtPXMuZ2V0RWxlbWVudHNCeVRhZ05hbWUobylbMF07YS5hc3luYz0xO2Euc3JjPWc7bS5wYXJlbnROb2RlLmluc2VydEJlZm9yZShhLG0pCiAgfSkod2luZG93LGRvY3VtZW50LCdzY3JpcHQnLCcvL3d3dy5nb29nbGUtYW5hbHl0aWNzLmNvbS9hbmFseXRpY3MuanMnLCdnYScpOwoKICBnYSgnY3JlYXRlJywgJ1VBLTEwMjE2MjgyLTEnLCAndmlsbGFnZWNpbmVtYXMuZ3InKTsKICBnYSgncmVxdWlyZScsICdkaXNwbGF5ZmVhdHVyZXMnKTsKICBnYSgnc2VuZCcsICdwYWdldmlldycpOwoKPC9zY3JpcHQ+ZAIDEGRkFhQCAQ9kFgJmDxYCHwAFmQM8c2NyaXB0IGRhdGEtc2VydmVyPSJBRE1BTnxodHRwOi8vYWRtYW4uZ3IvIj4oZnVuY3Rpb24oKSB7IHZhciB3cz04MTg5LCBwPScnLCBzPScxeDEnLCBrdz0nJyxhc0lmcmFtZT1mYWxzZSwgaD0nYWxwaGF0di5hZG1hbi5ncicsIHc9d2luZG93LCBkPWRvY3VtZW50OyBpZiAoIXdpbmRvdy5BZG1hbikNCmQud3JpdGUoJzxzYycrJ3JpcHQgZGF0YS13cz0iJyt3cysnIiBkYXRhLWg9IicraCsnIiBkYXRhLXM9IicrcysnIiBkYXRhLWlmcmFtZT0iJythc0lmcmFtZSsnIiBkYXRhLWt3PSInK2t3KyciIGRhdGEtcD0iJytwKyciIHNyYz0iaHR0cDovL3N0YXRpYy5hZG1hbi5nci9hZG1hbi5qcyI+PC9zYycrJ3JpcHQ+Jyk7DQplbHNlIEFkbWFuLndzKHdzLCBzLCBhc0lmcmFtZSwgaCwgcCwga3cpO30oKSk7PC9zY3JpcHQ+ZAIFD2QWCgIBDw8WAh4LTmF2aWdhdGVVcmwFJGh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9WaWxsYWdlLmdyL2RkAgMPDxYCHwEFHmh0dHBzOi8vdHdpdHRlci5jb20vdmlsbGFnZV9ncmRkAgUPDxYCHwEFIGh0dHA6Ly93d3cueW91dHViZS5jb20vdmlsbGFnZWdyZGQCBw8PFgIfAQUfaHR0cDovL2luc3RhZ3JhbS5jb20vdmlsbGFnZV9ncmRkAgkPDxYCHwEFJGh0dHA6Ly93d3cuZGFpbHltb3Rpb24uY29tL1ZpbGxhZ2VHUmRkAgcPZBYCZg8UKwACDxYEHgtfIURhdGFCb3VuZGceC18hSXRlbUNvdW50AgFkZBYCZg9kFgICAQ9kFgICAQ8PFgQfAAUOVklMTEFHRSBHUkVFQ0UfAQUTL2VsL3ZpbGxhZ2UtZ3JlZWNlL2RkAgsPZBYCAgEPFCsAAg8WBB8CZx8DAgRkZBYIZg9kFgICAQ8PFgQfAAUSzpXOmc6jzpnOpM6XzqHOmc6RHwEFE2phdmFzY3JpcHQ6dm9pZCgwKTsWAh4Hb25jbGljawVOb3BlblBvcFVwKCdodHRwczovL3d3dy52aWxsYWdlY2luZW1hcy5nci93ZWJ0aWNrZXRpbmcnLCAnzpXOmc6jzpnOpM6XzqHOmc6RJyk7ZAIBD2QWAgIBDw8WBh8ABRvOoM6RzpnOls6fzp3OpM6RzpkgzqTOqc6hzpEfAQUbL2VsL3RhaW5pZXMvcGFpem9udGFpLXRvcmEvHgZUYXJnZXQFBV9zZWxmZGQCAg9kFgICAQ8PFgYfAAUaRFZEIC8gQkxVLVJBWSAvIEJMVS1SQVkgM0QfAQU1L2VsL2V4dHJhcy9ob21lLWVudGVydGFpbm1lbnQvZHZkLWJsdS1yYXktYmx1LXJheS0zZC8fBQUFX3NlbGZkZAIDD2QWAgIBDw8WBh8ABQJUVh8BBSEvZWwvZXh0cmFzL2hvbWUtZW50ZXJ0YWlubWVudC90di8fBQUFX3NlbGZkZAIND2QWAmYPZBYCZg8PFgIeB1Zpc2libGVnZBYCAgEPFCsAAg8WBB8CZx8DAgZkZBYMZg9kFggCAw8P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KwAEAAIEZGRkZgL/////D2QFRmN0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkZm9vdGVyJGZvb3Rlcl9tZW51JGx2SXRlbXMPFCsADmRkZGRkZGQ8KwAFAAIFZGRkZgL/////D2QFRGN0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkbWVudSRsdkl0ZW1zJGN0cmw0JGN0bDAxDxQrAA5kZGRkZGRkFCsAA2RkZAIDZGRkZgL/////D2QFWWN0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkQ29udGVudFBsYWNlSG9sZGVyMSRob21lJGhvbWVfcGxheW5vdyRsdkl0ZW1zDxQrAA5kZGQCBGRkZDwrAAQAAgRkZGRmAv////8PZAVbY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRDb250ZW50UGxhY2VIb2xkZXIxJGhvbWUkYmFubmVyc19ob21lXzMkbHZJdGVtcw8UKwAOZGRkZGRkZBQrAAFkAgFkZGRmAv////8PZAU4Y3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRtZW51JGx2SXRlbXMPFCsADmRkZGRkZGQ8KwAFAAIFZGRkZgL/////D2QFP2N0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkc2xpZGVzaG93XzIkbHZJdGVtcw8UKwAOZGRkZGRkZDwrAAYAAgZkZGRmAv////8PZAVQY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRtZW51JGx2SXRlbXMkY3RybDQkY3RsMDEkY3RybDIkY3RsMDIPFCsADmRkZGRkZGQUKwADZGRkAgNkZGRmAv////8PZAVEY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRtZW51JGx2SXRlbXMkY3RybDEkY3RsMDEPFCsADmRkZGRkZGQ8KwAHAAIHZGRkZgL/////D2QFRGN0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkbWVudSRsdkl0ZW1zJGN0cmwzJGN0bDAxDxQrAA5kZGRkZGRkPCsABQACBWRkZGYC/////w9kBTxjdGwwMCRjdGwwMCRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXJEZWZhdWx0JHRvcF9tZW51JGx2SXRlbXMPFCsADmRkZGRkZGQ8KwAEAAIEZGRkZgL/////D2QFRGN0bDAwJGN0bDAwJGN0bDAwJENvbnRlbnRQbGFjZUhvbGRlckRlZmF1bHQkbWVudSRsdkl0ZW1zJGN0cmwyJGN0bDAxDxQrAA5kZGRkZGRkPCsABwACB2RkZGYC/////w9kBT5jdGwwMCRjdGwwMCRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXJEZWZhdWx0JGhlYWRlcl90b3AkbHZJdGVtcw8UKwAOZGRkZGRkZBQrAAFkAgFkZGRmAv////8PZAVQY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRtZW51JGx2SXRlbXMkY3RybDMkY3RsMDEkY3RybDEkY3RsMDIPFCsADmRkZGRkZGQUKwADZGRkAgNkZGRmAv////8PZAVcY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRDb250ZW50UGxhY2VIb2xkZXIxJGhvbWUkaG9tZV9jb21pbmdzb29uJGx2SXRlbXMPFCsADmRkZAIEZGRkPCsABAACBGRkZGYC/////w9kBVBjdGwwMCRjdGwwMCRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXJEZWZhdWx0JG1lbnUkbHZJdGVtcyRjdHJsNCRjdGwwMSRjdHJsMSRjdGwwMg8UKwAOZGRkZGRkZDwrAAQAAgRkZGRmAv////8PZAVEY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyRGVmYXVsdCRtZW51JGx2SXRlbXMkY3RybDAkY3RsMDEPFCsADmRkZGRkZGQUKwACZGQCAmRkZGYC/////w9kBVBjdGwwMCRjdGwwMCRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXJEZWZhdWx0JG1lbnUkbHZJdGVtcyRjdHJsMyRjdGwwMSRjdHJsMCRjdGwwMg8UKwAOZGRkZGRkZDwrAAcAAgdkZGRmAv////8PZGF/THxJrDbmQZK2V1jPS/LKGOU3" />
+</div>
+
+
+    <!--SKIN BANNER START-->
+    <div id="banner_skin">
+        <script data-server="ADMAN|http://adman.gr/">(function() { var ws=8189, p='', s='1x1', kw='',asIframe=false, h='alphatv.adman.gr', w=window, d=document; if (!window.Adman)
+d.write('<sc'+'ript data-ws="'+ws+'" data-h="'+h+'" data-s="'+s+'" data-iframe="'+asIframe+'" data-kw="'+kw+'" data-p="'+p+'" src="http://static.adman.gr/adman.js"></sc'+'ript>');
+else Adman.ws(ws, s, asIframe, h, p, kw);}());</script>
+    </div>
+    <!--SKIN BANNER END-->
+
+    <!--EAR BANNERS START-->
+    <div id="afti_container">
+        <div class="pagewrapper">
+            
+
+        </div>
+    </div>
+    <!--EAR BANNERS END-->
+
+    
+    <div class="pagewrapper">
+   
+        <!--HEADER START-->
+        <div id="headerwrapper">
+            <div id="logowrapper">
+                <a href="/el"><img src="/Assets/imgs/header/logo.jpg" title="Home Page" alt="" /></a>
+                <div id="socialwrapper" class="FloatRight">
+
+                    <!--SOCIAL START-->
+                    
+
+
+<ul class="icons FloatRight">
+    <li class="sprite-fb"><a id="ContentPlaceHolderDefault_social_hlFacebook" title="Facebook" href="https://www.facebook.com/Village.gr/" target="_blank"></a></li>
+    <li class="sprite-twitter"><a id="ContentPlaceHolderDefault_social_hlTwitter" title="Twitter" href="https://twitter.com/village_gr" target="_blank"></a></li>
+    <li class="sprite-youtube"><a id="ContentPlaceHolderDefault_social_hlYoutube" title="YouTube" href="http://www.youtube.com/villagegr" target="_blank"></a></li>
+    <li class="sprite-instagram"><a id="ContentPlaceHolderDefault_social_hlInstagram" title="Instagram" href="http://instagram.com/village_gr" target="_blank"></a></li>
+    <li class="sprite-wifi"><a id="ContentPlaceHolderDefault_social_hlDailyMotion" title="Daily Motion" href="http://www.dailymotion.com/VillageGR" target="_blank"></a></a></li>
+    
+    
+</ul>
+<div class="FloatRight"><span>Βρείτε μας</span></div>
+                    <!--SOCIAL END-->
+                    
+                    <div class="FloatRight">
+                        
+        <ul class="social_links FloatRight">
+            
+            <li><a id="ContentPlaceHolderDefault_header_top_lvItems_hlLink_0" href="/el/village-greece/">VILLAGE GREECE</a></li>
+        
+        </ul>
+        
+
+                    </div>
+
+                     <!--SEARCH  START-->
+                    <div id="search" class="FloatRight">
+                        
+
+
+<div>
+    <label>Αναζήτηση</label>
+    <input name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$search_box$txtSearch" type="text" id="ContentPlaceHolderDefault_search_box_txtSearch" />
+    <input type="submit" name="ctl00$ctl00$ctl00$ContentPlaceHolderDefault$search_box$btnSearch" value="GO" id="ContentPlaceHolderDefault_search_box_btnSearch" />
+</div>
+                    </div>
+                    
+                    <div class="FloatBreak"></div>
+                    
+                    <div id="header_menu">
+                        <!--TOP MENU START-->
+                        
+
+
+<ul>
+    
+            <li>
+                <h2>
+                    
+                    <a id="ContentPlaceHolderDefault_top_menu_lvItems_hlLink_0" onclick="openPopUp(&#39;https://www.villagecinemas.gr/webticketing&#39;, &#39;ΕΙΣΙΤΗΡΙΑ&#39;);" href="javascript:void(0);">ΕΙΣΙΤΗΡΙΑ</a>
+                </h2>
+            </li>
+        
+            <li>
+                <h2>
+                    
+                    <a id="ContentPlaceHolderDefault_top_menu_lvItems_hlLink_1" href="/el/tainies/paizontai-tora/" target="_self">ΠΑΙΖΟΝΤΑΙ ΤΩΡΑ</a>
+                </h2>
+            </li>
+        
+            <li>
+                <h2>
+                    
+                    <a id="ContentPlaceHolderDefault_top_menu_lvItems_hlLink_2" href="/el/extras/home-entertainment/dvd-blu-ray-blu-ray-3d/" target="_self">DVD / BLU-RAY / BLU-RAY 3D</a>
+                </h2>
+            </li>
+        
+            <li>
+                <h2>
+                    
+                    <a id="ContentPlaceHolderDefault_top_menu_lvItems_hlLink_3" href="/el/extras/home-entertainment/tv/" target="_self">TV</a>
+                </h2>
+            </li>
+        
+</ul>
+                        <!--TOP MENU END-->
+                    </div>
+                </div>
+            </div>
+
+            <!--SLIDESHOW START-->
+
+			<div id="ContentPlaceHolderDefault_slideshow_2_pnlSlideshow">
+	
+    <div id="slideshowwrapper">
+        
+        <div class="slider">
+             
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1046966/VILLAGE-CINEMAS-PACIFIC-RIM.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">PACIFIC RIM: ΕΞΕΓΕΡΣΗ</span>
+                                <div class="space3"></div>
+                                <span class="orange">Ξεσηκωθείτε!</span>
+                                <div class="btns">
+                                    <a class="btn_more" href='http://www.villagecinemas.gr/el/movie/?c=104742' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_0" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/WebTicketing/&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1028533/slider_sphera_tomb_raider.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">TOMB RAIDER: LARA CROFT</span>
+                                <div class="space3"></div>
+                                <span class="orange"></span>
+                                <div class="btns">
+                                    <a class="btn_more" href='http://www.villagecinemas.gr/el/movie/?c=104706' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_1" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/webticketing&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1028537/avengers-village-cinemas.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">ΕΚΔΙΚΗΤΕΣ: Ο ΠΟΛΕΜΟΣ ΤΗΣ ΑΙΩΝΙΟΤΗΤΑΣ</span>
+                                <div class="space3"></div>
+                                <span class="orange">H προπώληση εισιτηρίων ξεκίνησε!</span>
+                                <div class="btns">
+                                    <a class="btn_more" href='http://www.villagecinemas.gr/el/movie/?c=104758' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_2" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/webticketing&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1018988/image002.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">DISTANT SKY: NICK CAVE LIVE IN COPENHAGEN</span>
+                                <div class="space3"></div>
+                                <span class="orange">One Night Only, Πέμπτη 12 Απριλίου 2018</span>
+                                <div class="btns">
+                                    <a class="btn_more" href='http://www.villagecinemas.gr/el/movie/?c=104747' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_3" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/WebTicketing/&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1028541/slider.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">Village-order</span>
+                                <div class="space3"></div>
+                                <span class="orange">Με νέα προϊόντα!</span>
+                                <div class="btns">
+                                    <a class="btn_more" href='https://www.villagecinemas.gr/WebTicketing/ConcessionSelection' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_4" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/webticketing&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <div class="slide_img">
+                            <img src="/media/1028501/image002.jpg" />
+                        </div>
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="more_arrow"></div>
+                            <div class="details">
+                                <span class="fontLarge">ROYAL OPERA HOUSE: THE WINTER'S TALE</span>
+                                <div class="space3"></div>
+                                <span class="orange"></span>
+                                <div class="btns">
+                                    <a class="btn_more" href='http://www.villagecinemas.gr/el/movie/?c=104737' title='ΠΕΡΙΣΣΟΤΕΡΑ'>ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    <a id="ContentPlaceHolderDefault_slideshow_2_lvItems_hlTickets_5" title="ΕΙΣΙΤΗΡΙΑ" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProgSlideshow(&#39;https://www.villagecinemas.gr/webticketing&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+        </div>
+    </div>
+    
+
+</div>
+            
+            <!--SLIDESHOW END-->
+
+            <!--MENU START-->
+            <div id="mainmenuwrapper">
+                
+
+<div id="menu_container" class="opacity0">
+<div id="smoothmenu1" class="ddsmoothmenu">
+    <ul>
+        
+                <li>
+                    <a id="ContentPlaceHolderDefault_menu_lvItems_hlMenuItem_0" href="javascript:void(0)">ΤΑΙΝΙΕΣ</a>
+                    
+                    <ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_0_hlMenuItem_0" href="/el/tainies/paizontai-tora/">ΠΑΙΖΟΝΤΑΙ ΤΩΡΑ</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_0_hlMenuItem_1" href="/el/tainies/prosehos/">ΠΡΟΣΕΧΩΣ</a></li></ul>
+                </li>
+            
+                <li>
+                    <a id="ContentPlaceHolderDefault_menu_lvItems_hlMenuItem_1" href="/el/kinimatografoi/">ΚΙΝΗΜΑΤΟΓΡΑΦΟΙ</a>
+                    
+                    <ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_0" href="/el/kinimatografoi/the-mall-14-cinemas/">THE MALL 14 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_1" href="/el/kinimatografoi/rentis-20-cinemas/">ΡΕΝΤΗΣ 20 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_2" href="/el/kinimatografoi/cosmos-11-cinemas/">COSMOS 11 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_3" href="/el/kinimatografoi/faliro-9-cinemas/">ΦΑΛΗΡΟ 9 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_4" href="/el/kinimatografoi/agdimitrios-5-cinemas/">ΑΓ.ΔΗΜΗΤΡΙΟΣ 5 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_5" href="/el/kinimatografoi/pagkrati-5-cinemas/">ΠΑΓΚΡΑΤΙ 5 Cinemas</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_1_hlMenuItem_6" href="/el/kinimatografoi/volos-4-cinemas/">ΒΟΛΟΣ 4 Cinemas</a></li></ul>
+                </li>
+            
+                <li>
+                    <a id="ContentPlaceHolderDefault_menu_lvItems_hlMenuItem_2" href="javascript:void(0)">ΑΙΘΟΥΣΕΣ</a>
+                    
+                    <ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_0" href="/el/aithouses/gold-class/">Gold Class</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_1" href="/el/aithouses/vmax-sphera/">Vmax Sphera</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_2" href="/el/aithouses/vmax/">VMax</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_3" href="/el/aithouses/vkids/">Vkids</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_4" href="/el/aithouses/comfort/">Comfort</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_5" href="/el/aithouses/europa/">Europa</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_2_hlMenuItem_6" href="/el/aithouses/therina/">Θερινά</a></li></ul>
+                </li>
+            
+                <li>
+                    <a id="ContentPlaceHolderDefault_menu_lvItems_hlMenuItem_3" href="javascript:void(0)">INFO</a>
+                    
+                    <ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_hlMenuItem_0" href="/el/info/specials/">SPECIALS</a><ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_0" href="/el/info/specials/lucky-seat-mpomp-sfouggarakis/">LUCKY SEAT ΜΠΟΜΠ ΣΦΟΥΓΓΑΡΑΚΗΣ</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_1" href="/el/info/specials/lucky-seat-kingsman-i-mustiki-upiresia/">LUCKY SEAT- KINGSMAN: Η ΜΥΣΤΙΚΗ ΥΠΗΡΕΣΙΑ</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_2" href="/el/info/specials/lucky-seat-barbie/">LUCKY SEAT BARBIE</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_3" href="/el/info/specials/i-propolisi-xekinise!/">Η ΠΡΟΠΩΛΗΣΗ ΞΕΚΙΝΗΣΕ!</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_4" href="/el/info/specials/se-merikes-ores/">ΣΕ ΜΕΡΙΚΕΣ ΩΡΕΣ...</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_5" href="/el/info/specials/interstellar-diagonismos-village-e-ticket/">INTERSTELLAR ΔΙΑΓΩΝΙΣΜΟΣ VILLAGE E-TICKET</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_0_hlMenuItem_6" href="/el/info/specials/diagonismos-annabelle-lixi-kai-nikites!/">ΔΙΑΓΩΝΙΣΜΟΣ ANNABELLE - ΛΗΞΗ ΚΑΙ ΝΙΚΗΤΕΣ!</a></li></ul></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_hlMenuItem_1" href="/el/info/eisitiria/">ΕΙΣΙΤΗΡΙΑ</a><ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_1_hlMenuItem_0" href="/el/info/eisitiria/eisitiria/">ΕΙΣΙΤΗΡΙΑ</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_1_hlMenuItem_1" href="/el/info/eisitiria/cosmote-deals-for-you/">COSMOTE DEALS for YOU</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_ctl02_1_hlMenuItem_2" href="/el/info/eisitiria/foititiko/">ΦΟΙΤΗΤΙΚΟ</a></li></ul></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_hlMenuItem_2" href="/el/info/party/">PARTY</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_hlMenuItem_3" href="/el/info/bowling/">BOWLING</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_3_hlMenuItem_4" href="/el/info/dolby-atmos/">DOLBY ATMOS</a></li></ul>
+                </li>
+            
+                <li>
+                    <a id="ContentPlaceHolderDefault_menu_lvItems_hlMenuItem_4" href="javascript:void(0)">EXTRAS</a>
+                    
+                    <ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_hlMenuItem_0" href="/el/extras/nea-press-box/">ΝΕΑ & PRESS BOX</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_hlMenuItem_1" href="/el/extras/gia-etairies/">ΓΙΑ ΕΤΑΙΡΙΕΣ</a><ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_1_hlMenuItem_0" href="/el/extras/gia-etairies/ekdiloseis/">ΕΚΔΗΛΩΣΕΙΣ</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_1_hlMenuItem_1" href="/el/extras/gia-etairies/branding-promotions/">BRANDING & PROMOTIONS</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_1_hlMenuItem_2" href="/el/extras/gia-etairies/media/">MEDIA</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_1_hlMenuItem_3" href="/el/extras/gia-etairies/vouchers/">VOUCHERS</a></li></ul></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_hlMenuItem_2" href="javascript:void(0)">HOME ENTERTAINMENT</a><ul><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_2_hlMenuItem_0" href="/el/extras/home-entertainment/dvd-blu-ray-blu-ray-3d/">DVD / BLU-RAY / BLU-RAY 3D</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_2_hlMenuItem_1" href="/el/extras/home-entertainment/tv/">TV</a></li><li><a id="ContentPlaceHolderDefault_menu_lvItems_ctl01_4_ctl02_2_hlMenuItem_2" href="/el/extras/home-entertainment/video-on-demand/">VIDEO ON DEMAND</a></li></ul></li></ul>
+                </li>
+            
+    </ul>
+    <br style="clear: left" />
+</div>
+</div>
+            </div>
+            <!--MENU END-->
+
+        </div>
+        <!--HEADER END-->
+        
+
+        <!--MAIN START-->
+        <div id="mainwrapper">
+            <div id="contentwrapper" class="FloatLeft column">
+
+                <!--TOP BANNER START-->
+                <div class='ad'><script data-ws="8180" data-h="alphatv.adman.gr" data-s="728x90" src="http://static.adman.gr/adman.js"></script></div>
+                <!--TOP BANNER END-->
+
+                
+    
+
+
+<div class="home_panel home_playnow">
+
+    <input id="hdnPlayNowPaging" type="text" class="hidden" value="1" />
+    
+
+    <div class="panel_title">
+        <h2><span class="playnow">ΠΑΙΖΟΝΤΑΙ ΤΩΡΑ</span></h2>
+        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_hl_viewall" title="ΟΛΕΣ ΟΙ ΤΑΙΝΙΕΣ" href="/el/tainies/paizontai-tora/">ΟΛΕΣ ΟΙ ΤΑΙΝΙΕΣ</a>
+    </div>
+    <div class="movies_list">
+        
+                <div class="row">
+                    
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1004532/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImageBubble_0" alt="ΠΙΤΕΡ ΡΑΜΠΙΤ (ΜΕΤΑΓΛ.)" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(67 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">ΠΙΤΕΡ ΡΑΜΠΙΤ (ΜΕΤΑΓΛ.)</span><br />
+                                    <span>PETER RABBIT (GR)</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΓΟΥΙΛ ΓΚΛΑΚ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΤΙΣ ΦΩΝΕΣ ΤΟΥΣ ΔΑΝΕΙΖΟΥΝ ΟΙ:</span><br /><span>ΠΕΤΡΟΣ ΔΑΜΟΥΛΗΣ</span><br /><span>ΦΑΝΗΣ ΜΟΥΡΑΤΙΔΗΣ</span><br /><span>ΑΝΤΩΝΗΣ ΖΑΧΑΡΑΤΟΣ</span><br /><span>ΦΟΙΒΟΣ ΡΙΜΕΝΑΣ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΠΑΙΔΙΚΗ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>95 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_more_0" href="/el/movie/?c=104733">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                    
+                                    <span class="FloatRight">
+                                        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_hlTickets_0" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProg(&#39;page1.asp?page=page0&amp;cinema=&amp;movie=104733&amp;customerid=&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                            
+                            <img src="/ImageGen.ashx?image=/media/1004532/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImage_0" alt="ΠΙΤΕΡ ΡΑΜΠΙΤ (ΜΕΤΑΓΛ.)" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_box_mov_titlegr_0" title="ΠΙΤΕΡ ΡΑΜΠΙΤ (ΜΕΤΑΓΛ.)" href="/el/movie/?c=104733">ΠΙΤΕΡ ΡΑΜΠΙΤ (ΜΕΤΑΓΛ.)</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>PETER RABBIT (GR)</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1004588/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImageBubble_1" alt="PACIFIC RIM: ΕΞΕΓΕΡΣΗ" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(140 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">PACIFIC RIM: ΕΞΕΓΕΡΣΗ</span><br />
+                                    <span>PACIFIC RIM: UPRISING</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΣΤΙΒΕΝ Σ. ΝΤΙΝΑΪΤ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΡΙΝΚΟ ΚΙΚΟΥΤΣΙ</span><br /><span>ΣΚΟΤ ΙΣΤΓΟΥΝΤ</span><br /><span>ΜΠΕΡΝ ΓΚΟΡΜΑΝ</span><br /><span>ΤΣΑΡΛΙ ΝΤΕΪ</span><br /><span>ΤΖΙΝΓΚ ΤΙΑΝ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΠΕΡΙΠΕΤΕΙΑ ΦΑΝΤΑΣΙΑΣ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>111 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_more_1" href="/el/movie/?c=104742">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                    
+                                    <span class="FloatRight">
+                                        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_hlTickets_1" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProg(&#39;page1.asp?page=page0&amp;cinema=&amp;movie=104742&amp;customerid=&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                            
+                            <img src="/ImageGen.ashx?image=/media/1004588/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImage_1" alt="PACIFIC RIM: ΕΞΕΓΕΡΣΗ" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_box_mov_titlegr_1" title="PACIFIC RIM: ΕΞΕΓΕΡΣΗ" href="/el/movie/?c=104742">PACIFIC RIM: ΕΞΕΓΕΡΣΗ</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>PACIFIC RIM: UPRISING</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1019018/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImageBubble_2" alt="ΔΕΝ ΗΣΟΥΝ ΠΟΤΕ ΕΔΩ" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(62 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">ΔΕΝ ΗΣΟΥΝ ΠΟΤΕ ΕΔΩ</span><br />
+                                    <span>YOU WERE NEVER REALLY HERE</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΛΙΝ ΡΑΜΣΕΪ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΧΟΑΚΙΝ ΦΙΝΙΞ</span><br /><span>ΤΖΟΥΝΤΙΘ ΡΟΜΠΕΡΤΣ</span><br /><span>ΕΚΑΤΕΡΙΝΑ ΣΑΜΣΟΝΟΦ</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΔΡΑΜΑΤΙΚΗ ΠΕΡΙΠΕΤΕΙΑ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>90 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_more_2" href="/el/movie/?c=104739">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                    
+                                    <span class="FloatRight">
+                                        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_hlTickets_2" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProg(&#39;page1.asp?page=page0&amp;cinema=&amp;movie=104739&amp;customerid=&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                            
+                            <img src="/ImageGen.ashx?image=/media/1019018/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImage_2" alt="ΔΕΝ ΗΣΟΥΝ ΠΟΤΕ ΕΔΩ" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_box_mov_titlegr_2" title="ΔΕΝ ΗΣΟΥΝ ΠΟΤΕ ΕΔΩ" href="/el/movie/?c=104739">ΔΕΝ ΗΣΟΥΝ ΠΟΤΕ ΕΔΩ</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>YOU WERE NEVER REALLY HERE</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1028459/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImageBubble_3" alt="Η ΣΥΜΜΟΡΙΑ ΤΟΥ ΤΥΦΩΝΑ" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(40 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">Η ΣΥΜΜΟΡΙΑ ΤΟΥ ΤΥΦΩΝΑ</span><br />
+                                    <span>THE HURRICANE HEIST</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΡΟΜΠ ΚΟΕΝ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΜΑΓΚΙ ΓΚΡΕΙΣ</span><br /><span>ΤΟΜΠΙ ΚΕΜΠΕΛ</span><br /><span>ΡΑΪΑΝ ΚΟΥΑΝΤΕΝ</span><br /><span>ΡΑΛΦ ΙΝΕΣΟΝ</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΠΕΡΙΠΕΤΕΙΑ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>103 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_more_3" href="/el/movie/?c=104755">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                    
+                                    <span class="FloatRight">
+                                        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_hlTickets_3" class="btn_tickets btn_tickets_icon" href="javascript:bookWindowProg(&#39;page1.asp?page=page0&amp;cinema=&amp;movie=104755&amp;customerid=&#39;, &#39;bookWindow&#39;);"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                            
+                            <img src="/ImageGen.ashx?image=/media/1028459/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_MainImage_3" alt="Η ΣΥΜΜΟΡΙΑ ΤΟΥ ΤΥΦΩΝΑ" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_lvItems_ctrl0_box_mov_titlegr_3" title="Η ΣΥΜΜΟΡΙΑ ΤΟΥ ΤΥΦΩΝΑ" href="/el/movie/?c=104755">Η ΣΥΜΜΟΡΙΑ ΤΟΥ ΤΥΦΩΝΑ</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>THE HURRICANE HEIST</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                </div>
+            
+    </div> 
+    <!--Show More-->
+    <div id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_playnow_playnow_more" class="more"><span>ΠΕΡΙΣΣΟΤΕΡΕΣ</span></div>
+
+</div>
+
+
+
+
+
+<!-- Clone Movie Box : Start -->
+<div class="cl_movie_box_playnow hidden">
+<div class="movie_box">
+    <div class="movie_bubble">
+        <div class="movie_bubble_container">
+            <div class="img FloatLeft">
+                <img class="movie_img cl_bubbleImage" src="" />
+                <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                <span>(<span class="cl_votes"></span> ΨΗΦΟΙ)</span>
+                <div class="rating cl_rating">
+                   
+                </div>
+            </div>
+            <div class="dtls FloatLeft">
+                <span class="orange fontMed cl_titlegr"></span><br />
+                <span class="cl_titleen"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                <span class="cl_director"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                
+                <span class="cl_actors"></span>
+                
+                <div class="spacer10"></div>
+
+                <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                <span class="cl_category"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                <span><span class="cl_duration"></span> ΛΕΠΤΑ</span>
+            </div>
+            <div class="FloatBreak"></div>
+            <div class="buttons">
+                <span class="btn_more FloatLeft">
+                    <a class="cl_more" href="#">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                </span>
+                <span class="FloatRight">
+                    <a class="btn_tickets btn_tickets_icon cl_tickets" href="#"><span>ΕΙΣΙΤΗΡΙΑ</span></a>
+                </span>
+            </div>
+        </div>
+        <div class="bubble_btm"></div>                  
+    </div>
+
+    <div class="img">
+        <div class="arrow"></div>
+        <img class="cl_mainImage" src="" />
+    </div>
+    <div class="box_title"><a class="cl_more" href="#"><span class="cl_titlegr"></span></a></div>
+    <div class="box_title2 cl_titleen"></div>
+</div>
+</div>
+<!-- Clone Movie Box : End -->
+
+
+<div class="ad">
+    
+            <script data-ws="8181" data-h="alphatv.adman.gr" data-s="728x90" src="http://static.adman.gr/adman.js"></script>
+        
+</div>
+
+
+
+<div class="spacer30"></div>
+
+
+<div class="home_panel home_comingsoon">
+
+    <input id="hdnComingSoonPaging" type="text" class="hidden" value="1" />
+
+    <div class="panel_title">
+        <h2><span class="soon">ΠΡΟΣΕΧΩΣ</span></h2>
+        <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_hl_viewall" title="ΟΛΕΣ ΟΙ ΤΑΙΝΙΕΣ" href="/el/tainies/prosehos/">ΟΛΕΣ ΟΙ ΤΑΙΝΙΕΣ</a>
+    </div>
+    <div class="movies_list">
+        
+                <div class="row">
+                    
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImageBubble_0" alt="READY PLAYER ONE" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(64 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">READY PLAYER ONE</span><br />
+                                    <span>READY PLAYER ONE</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΣΤΙΒΕΝ ΣΠΙΛΜΠΕΡΓΚ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΜΠΕΝ ΜΕΝΤΕΛΣΟΝ</span><br /><span>ΤΙ ΤΖΕΪ ΜΙΛΕΡ</span><br /><span>ΣΑΪΜΟΝ ΠΕΓΚ</span><br /><span>ΟΛΙΒΙΑ ΚΟΥΚ</span><br /><span>ΜΑΡΚ ΡΑΪΛΑΝΣ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΕΠΙΣΤΗΜΟΝΙΚΗΣ ΦΑΝΤΑΣΙΑΣ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>140 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_more_0" href="/el/movie/?c=104714">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                             
+                            <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImage_0" alt="READY PLAYER ONE" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_box_mov_titlegr_0" title="READY PLAYER ONE" href="/el/movie/?c=104714">READY PLAYER ONE</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>READY PLAYER ONE</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImageBubble_1" alt="READY PLAYER ONE - DOLBY ATMOS" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(12 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">READY PLAYER ONE - DOLBY ATMOS</span><br />
+                                    <span>READY PLAYER ONE - DOLBY ATMOS</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΣΤΙΒΕΝ ΣΠΙΛΜΠΕΡΓΚ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΜΠΕΝ ΜΕΝΤΕΛΣΟΝ</span><br /><span>ΤΙ ΤΖΕΪ ΜΙΛΕΡ</span><br /><span>ΣΑΪΜΟΝ ΠΕΓΚ</span><br /><span>ΟΛΙΒΙΑ ΚΟΥΚ</span><br /><span>ΜΑΡΚ ΡΑΪΛΑΝΣ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΕΠΙΣΤΗΜΟΝΙΚΗΣ ΦΑΝΤΑΣΙΑΣ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>140 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_more_1" href="/el/movie/?c=104750">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                             
+                            <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImage_1" alt="READY PLAYER ONE - DOLBY ATMOS" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_box_mov_titlegr_1" title="READY PLAYER ONE - DOLBY ATMOS" href="/el/movie/?c=104750">READY PLAYER ONE - DOLBY ATMOS</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>READY PLAYER ONE - DOLBY ATMOS</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImageBubble_2" alt="READY PLAYER ONE 3D" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(5 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">READY PLAYER ONE 3D</span><br />
+                                    <span>READY PLAYER ONE 3D</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΣΤΙΒΕΝ ΣΠΙΛΜΠΕΡΓΚ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΜΠΕΝ ΜΕΝΤΕΛΣΟΝ</span><br /><span>ΤΙ ΤΖΕΪ ΜΙΛΕΡ</span><br /><span>ΣΑΪΜΟΝ ΠΕΓΚ</span><br /><span>ΟΛΙΒΙΑ ΚΟΥΚ</span><br /><span>ΜΑΡΚ ΡΑΪΛΑΝΣ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΕΠΙΣΤΗΜΟΝΙΚΗΣ ΦΑΝΤΑΣΙΑΣ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>140 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_more_2" href="/el/movie/?c=104715">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                             
+                            <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImage_2" alt="READY PLAYER ONE 3D" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_box_mov_titlegr_2" title="READY PLAYER ONE 3D" href="/el/movie/?c=104715">READY PLAYER ONE 3D</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>READY PLAYER ONE 3D</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                    <!--Movie Box-->
+                    <div class="movie_box">
+                        <div class="movie_bubble">
+                            <div class="movie_bubble_container">
+                                <div class="img FloatLeft">
+                                    <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=143&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImageBubble_3" alt="READY PLAYER ONE 3D DOLBY ATMOS" />
+                                    <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                                    <span>(18 ΨΗΦΟΙ)</span>
+                                    <div class="rating">
+                                        <div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars active'></div><div class='stars inactive'></div>
+                                    </div>
+                                </div>
+                                <div class="dtls FloatLeft">
+                                    
+                                    <span class="orange fontMed">READY PLAYER ONE 3D DOLBY ATMOS</span><br />
+                                    <span>READY PLAYER ONE 3D DOLBY ATMOS</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                                    <span>ΣΤΙΒΕΝ ΣΠΙΛΜΠΕΡΓΚ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                                    <span>ΜΠΕΝ ΜΕΝΤΕΛΣΟΝ</span><br /><span>ΤΙ ΤΖΕΪ ΜΙΛΕΡ</span><br /><span>ΣΑΪΜΟΝ ΠΕΓΚ</span><br /><span>ΟΛΙΒΙΑ ΚΟΥΚ</span><br /><span>ΜΑΡΚ ΡΑΪΛΑΝΣ</span><br /><span>...</span><br />
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                                    <span>ΕΠΙΣΤΗΜΟΝΙΚΗΣ ΦΑΝΤΑΣΙΑΣ</span>
+
+                                    <div class="spacer10"></div>
+
+                                    
+                                    <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                                    <span>140 ΛΕΠΤΑ</span>
+                                </div>
+                                <div class="FloatBreak"></div>
+                                <div class="buttons">
+                                    
+                                    <span class="btn_more FloatLeft">
+                                            <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_more_3" href="/el/movie/?c=104751">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bubble_btm"></div>
+                                    
+                        </div>
+
+                        <div class="img">
+                            <div class="arrow"></div>
+                             
+                            <img src="/ImageGen.ashx?image=/media/1018996/poster.jpg&width=187&Constrain=true" id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_MainImage_3" alt="READY PLAYER ONE 3D DOLBY ATMOS" />
+                        </div>
+                        <div class="box_title">
+                            <h2>
+                                <a id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_lvItems_ctrl0_box_mov_titlegr_3" title="READY PLAYER ONE 3D DOLBY ATMOS" href="/el/movie/?c=104751">READY PLAYER ONE 3D DOLBY ATMOS</a>
+                            </h2>
+                        </div>
+                        <div class="box_title2"><h3>READY PLAYER ONE 3D DOLBY ATMOS</h3></div>
+                    </div>
+                    <!--Movie Box End-->
+            
+                </div>
+            
+    </div> 
+    <!--Show More-->
+    <div id="ContentPlaceHolderDefault_ContentPlaceHolder1_home_home_comingsoon_coming_soon_more" class="more"><span>ΠΕΡΙΣΣΟΤΕΡΕΣ</span></div>
+
+</div>
+
+
+
+
+
+<!-- Clone Movie Box : Start -->
+<div class="cl_movie_box_comingsoon hidden">
+<div class="movie_box">
+    <div class="movie_bubble">
+        <div class="movie_bubble_container">
+            <div class="img FloatLeft">
+                <img class="movie_img cl_bubbleImage" src="" />
+                <span class="orange">ΚΡΙΤΙΚΗ ΚΟΙΝΟΥ:</span><br />
+                <span>(<span class="cl_votes"></span> ΨΗΦΟΙ)</span>
+                <div class="rating cl_rating">
+                   
+                </div>
+            </div>
+            <div class="dtls FloatLeft">
+                <span class="orange fontMed cl_titlegr"></span><br />
+                <span class="cl_titleen"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">ΣΚΗΝΟΘΕΣΙΑ:</span><br />
+                <span class="cl_director"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">HΘΟΠΟΙΟΙ:</span><br />
+                
+                <span class="cl_actors"></span>
+                
+                <div class="spacer10"></div>
+
+                <span class="orange">ΕΙΔΟΣ ΤΑΙΝΙΑΣ:</span><br />
+                <span class="cl_category"></span>
+
+                <div class="spacer10"></div>
+
+                <span class="orange">ΔΙΑΡΚΕΙΑ:</span><br />
+                <span><span class="cl_duration"></span> ΛΕΠΤΑ</span>
+            </div>
+            <div class="FloatBreak"></div>
+            <div class="buttons">
+                <span class="btn_more FloatLeft">
+                    <a class="cl_more" href="#">ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                </span>
+            </div>
+        </div>
+        <div class="bubble_btm"></div>                  
+    </div>
+
+    <div class="img">
+        <div class="arrow"></div>
+        <img class="cl_mainImage" src="" />
+    </div>
+    <div class="box_title"><a class="cl_more" href="#"><span class="cl_titlegr"></span></a></div>
+    <div class="box_title2 cl_titleen"></div>
+</div>
+</div>
+<!-- Clone Movie Box : End -->
+
+
+                <div class="spacer30"></div>
+            </div>
+             <!--Sidebar : START-->
+            <div id="sidebarwrapper" class="FloatLeft column">
+                
+
+
+        <div class="diafimisi"><script data-ws="8185" data-h="alphatv.adman.gr" data-s="300x250" src="http://static.adman.gr/adman.js"></script></div>
+    
+        <div class="diafimisi"><script data-ws="8186" data-h="alphatv.adman.gr" data-s="300x250" src="http://static.adman.gr/adman.js"></script></div>
+    
+        <div class="diafimisi"><script data-ws="8187" data-h="alphatv.adman.gr" data-s="300x250" src="http://static.adman.gr/adman.js"></script></div>
+    
+        <div class="diafimisi"><script data-ws="8188" data-h="alphatv.adman.gr" data-s="300x250" src="http://static.adman.gr/adman.js"></script></div>
+    
+
+            </div>
+            <!--Sidebar : END-->
+            <div class="FloatBreak"></div>
+        </div>
+        <!--MAIN END-->
+
+        <!--FOOTER START-->
+        <div id="footerwrapper">
+		    
+
+
+
+
+
+
+<div class="left_col FloatLeft">
+                
+    <div class="year"><img src="/Assets/imgs/footer/logo.gif" alt="" /> &copy; 2013</div>
+    
+    
+    <div class="footer_menu">
+        
+
+
+
+ <ul class="row">
+
+
+    
+            <li>
+                <a id="ContentPlaceHolderDefault_footer_footer_menu_lvItems_hlLink_0" href="/el/epikoinonia/" target="_self">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+            </li>
+        
+            <li>
+                <a id="ContentPlaceHolderDefault_footer_footer_menu_lvItems_hlLink_1" href="/el/village-films/" target="_self">VILLAGE FILMS</a>
+            </li>
+        
+            <li>
+                <a id="ContentPlaceHolderDefault_footer_footer_menu_lvItems_hlLink_2" href="/el/oroi-hrisis/" target="_self">ΟΡΟΙ ΧΡΗΣΗΣ</a>
+            </li>
+        
+            <li>
+                <a id="ContentPlaceHolderDefault_footer_footer_menu_lvItems_hlLink_3" href="/el/ergasia/" target="_self">ΕΡΓΑΣΙΑ</a>
+            </li>
+        
+            <li>
+                <a id="ContentPlaceHolderDefault_footer_footer_menu_lvItems_hlLink_4" href="/el/extras/gia-etairies/" target="_self">ΓΙΑ ΕΤΑΙΡΙΕΣ</a>
+            </li>
+        
+</ul>
+    </div>
+    
+
+    <div class="designed">
+        <a id="ContentPlaceHolderDefault_footer_hlDesignedBy" href="/el/#" target="_parent"><span>SITE DESIGNED BY</span></a>
+        
+
+    </div>
+    <div class="designed dev"><a href="http://www.linakis.com/" title="Linakis Digital" target="_blank"><span>SITE DEVELOPED BY</span></a></div>
+</div>
+<div class="right_col FloatLeft">
+    <div class="title">NEWSLETTER</div>
+    Συμπλήρωσε τα στοιχεία σου<br/>
+για να λαμβάνεις το newsletter μας!
+    <div class="btns">
+        <a id="ContentPlaceHolderDefault_footer_hlRegister" title="ΕΓΓΡΑΦΗ" class="nltsubscribe btn" href="/el/epikoinonia/">ΕΓΓΡΑΦΗ</a>
+    </div>
+</div>
+<div class="FloatBreak"></div>
+
+        </div>
+        <!--FOOTER END-->
+	</div>
+
+
+
+    
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+</div></form>
+</body>
+</html>

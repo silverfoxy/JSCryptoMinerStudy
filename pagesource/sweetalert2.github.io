@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83618163-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-83618163-1');
+  </script>
+  <!-- Google Analytics end -->
+
+  <title>SweetAlert2 - a beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+
+  <meta property="og:title" content="SweetAlert2">
+  <meta property="og:description" name="description" content="A beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes">
+  <meta property="og:image" content="https://sweetalert2.github.io/images/apple-touch-icon.png">
+  <meta property="og:url" content="https://sweetalert2.github.io/">
+
+  <link rel="icon" href="./images/favicon.png">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="./styles/styles.css?2">
+
+  <link rel="preload" href="https://unsplash.it/400/200/?random" as="image">
+
+  <!-- https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#f2f4f6">
+
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script> -->
+
+  <!-- This is what you need -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest/dist/sweetalert2.all.min.js"></script>
+  <!--.......................-->
+</head>
+
+<body>
+  <header>
+    <img src="./images/swal2-logo.png" class="logo" width="498" alt="SweetAlert2 logo">
+    <h1>A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes</h2>
+    <h2>Zero dependencies</h2>
+    <div class="carbonads-wrapper">
+      <script src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=sweetalert2githubio" id="_carbonads_js" async></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" async></script>
+      <div class="bsa-cpc"></div>
+    </div>
+    <div class="stats mobile-hidden">
+      Current version: <a href="https://github.com/sweetalert2/sweetalert2/releases" id="current-version" aria-label="Current version "></a> ●
+      Latest update: <a href="https://github.com/sweetalert2/sweetalert2/commits/master" id="latest-update" aria-label="Latest update "></a> ●
+      Downloads last month: <a href="https://npm-stat.com/charts.html?package=sweetalert2" id="downloads-last-month" aria-label="Downloads last month "></a>
+    </div>
+    <a class="top-right-button download" href="#download">Download</a>
+    <a href="https://unpkg.com/sweetalert2" tabindex="-1" class="top-right-button cdn" target="_blank" rel="noopener">CDN</a>
+    <a class="top-right-button donate" href="#donations">
+      <img src="./images/patreon.png" width="32" height="32" alt="">
+      <img src="./images/paypal.png" width="32" height="32" alt="">
+      <span>Donate</span>
+    </a>
+  </header>
+
+  <div class="showcase normal">
+    <h4>Normal alert</h4>
+    <button>Show normal alert</button>
+    <pre><span class="func">alert</span>(<span class="str">'You clicked the button!'</span>)</pre>
+    <div class="vs-icon"></div>
+  </div>
+
+  <div class="showcase sweet">
+    <img src="./images/swal2-logo.png" width="178" height="30" alt="SweetAlert2">
+    <button aria-label="Show SweetAlert2 success message">Show success message</button>
+    <pre>
+swal(
+  <span class="str">'Good job!'</span>,
+  <span class="str">'You clicked the button!'</span>,
+  <span class="str">'success'</span>
+)</pre>
+  </div>
+
+  <div class="center-container">
+    <p>Pretty cool huh? SweetAlert2 automatically centers itself on the page and looks great no matter if you're using a desktop computer, mobile or tablet. It's even highly customizeable, as you can see below!</p>
+  </div>
+
+  <!-- Examples -->
+  <h3 id="examples">More examples</h3>
+
+  <ul class="examples">
+
+    <li class="message">
+      <div class="ui">
+        <p>A basic message</p>
+        <button aria-label="Try me! Example: A basic message">Try me!</button>
+      </div>
+      <pre>swal(<span class="str">'Any fool can use a computer'</span>)</pre>
+    </li>
+
+    <li class="title-text">
+      <div class="ui">
+        <p>A title with a text under</p>
+        <button aria-label="Try me! Example: A title with a text under">Try me!</button>
+      </div>
+      <pre>
+swal(
+  <span class="str">'The Internet?'</span>,
+  <span class="str">'That thing is still around?'</span>,
+  <span class="str">'question'</span>
+)</pre>
+    </li>
+
+    <li class="error">
+      <div class="ui">
+        <p>A modal with a title, an error icon, a text, and a footer</p>
+        <button aria-label="Try me! Example: A modal with a title, an error icon, a text, and a footer">Try me!</button>
+      </div>
+      <pre>
+swal({
+  type: <span class="str">'error'</span>,
+  title: <span class="str">'Oops...'</span>,
+  text: <span class="str">'Something went wrong!'</span>,
+  footer: <span class="str">'&lt;a href>Why do I have this issue?&lt;/a>'</span>,
+})</pre>
+    </li>
+
+    <li id="long-text">
+      <div class="ui">
+        <p>A modal window with a long content inside:</p>
+        <button aria-label="Try me! Example: A modal window with a long content inside">Try me!</button>
+      </div>
+      <pre>
+swal({
+  imageUrl: <span class="str">'./images/robot.jpg'</span>,
+  imageHeight: <span class="val">1512</span>,
+  imageAlt: <span class="str">'A tall image'</span>
+})</pre>
+    </li>
+
+    <li class="html" id="custom-html">
+      <div class="ui">
+        <p>Custom HTML description and buttons with ARIA labels</p>
+        <button aria-label="Try me! Example: Custom HTML description and buttons">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'&lt;i&gt;HTML&lt;/i&gt; &lt;u&gt;example&lt;/u&gt;'</span>,
+  type: <span class="str">'info'</span>,
+  html:
+    <span class="str">'You can use &lt;b&gt;bold text&lt;/b&gt;, '</span> +
+    <span class="str">'&lt;a href="//github.com"&gt;links&lt;/a&gt; '</span> +
+    <span class="str">'and other HTML tags'</span>,
+  showCloseButton: <span class="val">true</span>,
+  showCancelButton: <span class="val">true</span>,
+  focusConfirm: <span class="val">false</span>,
+  confirmButtonText:
+    <span class="str">'&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt; Great!'</span>,
+  confirmButtonAriaLabel: <span class="str">'Thumbs up, great!'</span>,
+  cancelButtonText:
+  <span class="str">'&lt;i class="fa fa-thumbs-down"&gt;&lt;/i&gt;'</span>,
+  cancelButtonAriaLabel: <span class="str">'Thumbs down'</span>,
+})</pre>
+    </li>
+
+    <li id="position">
+      <div class="ui">
+        <p>A custom positioned dialog</p>
+        <button aria-label="Try me! Example: A custom positioned dialog">Try me!</button>
+      </div>
+      <pre>
+swal({
+  position: <span class="str">'top-end'</span>,
+  type: <span class="str">'success'</span>,
+  title: <span class="str">'Your work has been saved'</span>,
+  showConfirmButton: <span class="val">false</span>,
+  timer: <span class="str">1500</span>
+})</pre>
+    </li>
+
+    <li id="custom-animation">
+      <div class="ui">
+        <p>Custom animation <span class="nowrap">(<a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener" tabindex="-1">Animate.css <i class="fa fa-external-link"></i></a>)</span></p>
+        <button aria-label="Try me! Example: jQuery HTML with custom animation">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Custom animation with Animate.css'</span>,
+  animation: <span class="val">false</span>,
+  customClass: <span class="str">'animated tada'</span>
+})</pre>
+    </li>
+
+    <li class="warning confirm">
+      <div class="ui">
+        <p>A warning message, with a function attached to the "Confirm"-button...</p>
+        <button aria-label="Try me! Example: A warning message, with a function attached to the 'Confirm'-button">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Are you sure?'</span>,
+  text: <span class="str">"You won't be able to revert this!"</span>,
+  type: <span class="str">'warning'</span>,
+  showCancelButton: <span class="val">true</span>,
+  confirmButtonColor: <span class="str">'#3085d6'</span>,
+  cancelButtonColor: <span class="str">'#d33'</span>,
+  confirmButtonText: <span class="str">'Yes, delete it!'</span>
+}).<span class="tag">then</span>((result) => {
+  <span class="tag">if</span> (result.value) {
+    swal(
+      <span class="str">'Deleted!'</span>,
+      <span class="str">'Your file has been deleted.'</span>,
+      <span class="str">'success'</span>
+    )
+  }
+})</pre>
+    </li>
+
+    <li class="bootstrap-buttons" id="dismiss-handle">
+      <div class="ui">
+        <p>... and by passing a parameter, you can execute something else for "Cancel".</p>
+        <button aria-label="Try me! Example: passing a parameter, you can execute something else for 'Cancel'">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Are you sure?'</span>,
+  text: <span class="str">"You won't be able to revert this!"</span>,
+  type: <span class="str">'warning'</span>,
+  showCancelButton: <span class="val">true</span>,
+  confirmButtonColor: <span class="str">'#3085d6'</span>,
+  cancelButtonColor: <span class="str">'#d33'</span>,
+  confirmButtonText: <span class="str">'Yes, delete it!'</span>,
+  cancelButtonText: <span class="str">'No, cancel!'</span>,
+  confirmButtonClass: <span class="str">'btn btn-success'</span>,
+  cancelButtonClass: <span class="str">'btn btn-danger'</span>,
+  buttonsStyling: <span class="val">false</span>,
+  reverseButtons: <span class="val">true</span>
+}).<span class="tag">then</span>((result) => {
+  <span class="tag">if</span> (result.value) {
+    swal(
+      <span class="str">'Deleted!'</span>,
+      <span class="str">'Your file has been deleted.'</span>,
+      <span class="str">'success'</span>
+    )
+  } <span class="tag">else if</span> (
+    <span class="comment">// <a href="#handling-dismissals" tabindex="-1">Read more about handling dismissals</a></span>
+    result.dismiss === swal.DismissReason.cancel
+  ) {
+    swal(
+      <span class="str">'Cancelled'</span>,
+      <span class="str">'Your imaginary file is safe :)'</span>,
+      <span class="str">'error'</span>
+    )
+  }
+})</pre>
+    </li>
+
+    <li class="custom-image">
+      <div class="ui">
+        <p>A message with a custom image and CSS animation disabled</p>
+        <button aria-label="Try me! Example: A message with a custom image and CSS animation disabled">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Sweet!'</span>,
+  text: <span class="str">'Modal with a custom image.'</span>,
+  imageUrl: <span class="str">'https://unsplash.it/400/200'</span>,
+  imageWidth: <span class="val">400</span>,
+  imageHeight: <span class="val">200</span>,
+  imageAlt: <span class="str">'Custom image'</span>,
+  animation: <span class="val">false</span>
+})</pre>
+    </li>
+
+    <li class="custom-width-padding-background">
+      <div class="ui">
+        <p>A message with custom width, padding, background and animated Nyan Cat</p>
+        <button aria-label="Try me! Example: A message with custom width, padding and background">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Custom width, padding, background.'</span>,
+  width: <span class="val">600</span>,
+  padding: <span class="val">100</span>,
+  background: <span class="str">'#fff url(/images/trees.png)'</span>,
+  backdrop: <span class="str">`
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    center left
+    no-repeat
+  `</span>
+})</pre>
+    </li>
+
+    <li class="timer">
+      <div class="ui">
+        <p>A message with auto close timer</p>
+        <button aria-label="Try me! Example: A message with auto close timer">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Auto close alert!'</span>,
+  text: <span class="str">'I will close in 5 seconds.'</span>,
+  timer: <span class="val">5000</span>,
+  onOpen: () => {
+    swal.showLoading()
+  }
+}).<span class="tag">then</span>((result) => {
+  <span class="tag">if</span> (
+    <span class="comment">// <a href="#handling-dismissals" tabindex="-1">Read more about handling dismissals</a></span>
+    result.dismiss === swal.DismissReason.timer
+  ) {
+    console.log(<span class="str">'I was closed by the timer'</span>)
+  }
+})</pre>
+    </li>
+
+    <li class="rtl" id="rtl">
+      <div class="ui">
+        <p>Right-to-left support for Arabic, Hebrew, and other RTL languages</p>
+        <button aria-label="Try me! Example: A message with auto close timer">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'هل تريد الاستمرار؟'</span>,
+  confirmButtonText:  <span class="str">'نعم'</span>,
+  cancelButtonText:  <span class="str">'لا'</span>,
+  showCancelButton: <span class="val">true</span>,
+  showCloseButton: <span class="val">true</span>,
+  target: document.getElementById(<span class="str">'rtl-container'</span>)
+})</pre>
+    </li>
+
+    <li class="ajax-request" id="ajax-request">
+      <div class="ui">
+        <p>Ajax request example</p>
+        <button aria-label="Try me! Example: Ajax request">Try me!</button>
+      </div>
+      <pre>
+swal({
+  title: <span class="str">'Submit email to run ajax request'</span>,
+  input: <span class="str">'email'</span>,
+  showCancelButton: <span class="val">true</span>,
+  confirmButtonText: <span class="str">'Submit'</span>,
+  showLoaderOnConfirm: <span class="val">true</span>,
+  preConfirm: (email) => {
+    <span class="tag">return new</span> <span class="func">Promise</span>((resolve) => {
+      <span class="func">setTimeout</span>(() => {
+        <span class="tag">if</span> (email === <span class="str">'taken@example.com'</span>) {
+          swal.showValidationError(
+            <span class="str">'This email is already taken.'</span>
+          )
+        }
+        resolve()
+      }, <span class="val">2000</span>)
+    })
+  },
+  allowOutsideClick: () => !swal.isLoading()
+}).<span class="tag">then</span>((result) => {
+  <span class="tag">if</span> (result.value) {
+    swal({
+      type: <span class="str">'success'</span>,
+      title: <span class="str">'Ajax request finished!'</span>,
+      html: <span class="str">'Submitted email: '</span> + result.value
+    })
+  }
+})</pre>
+    </li>
+
+    <li class="chaining-modals" id="chaining-modals">
+      <div class="ui">
+        <p>Chaining modals (queue) example</p>
+        <button aria-label="Try me! Example: Chaining modals (queue)">Try me!</button>
+      </div>
+      <pre>
+swal.setDefaults({
+  input: <span class="str">'text'</span>,
+  confirmButtonText: <span class="str">'Next &amp;rarr;'</span>,
+  showCancelButton: <span class="val">true</span>,
+  progressSteps: [<span class="str">'1'</span>, <span class="str">'2'</span>, <span class="str">'3'</span>]
+})
+
+<span class="func">var</span> steps = [
+  {
+    title: <span class="str">'Question 1'</span>,
+    text: <span class="str">'Chaining swal2 modals is easy'</span>
+  },
+  <span class="str">'Question 2'</span>,
+  <span class="str">'Question 3'</span>
+]
+
+swal.queue(steps).<span class="tag">then</span>((result) => {
+  swal.resetDefaults()
+
+  <span class="tag">if</span> (result.value) {
+    swal({
+      title: <span class="str">'All done!'</span>,
+      html:
+        <span class="str">'Your answers: &lt;pre&gt;'</span> +
+          JSON.stringify(result.value) +
+        <span class="str">'&lt;/pre&gt;'</span>,
+      confirmButtonText: <span class="str">'Lovely!'</span>
+    })
+  }
+})</pre>
+    </li>
+
+    <li class="dynamic-queue" id="dynamic-queue">
+      <div class="ui">
+        <p>Dynamic queue example</p>
+        <button aria-label="Try me! Example: Dynamic queue">Try me!</button>
+      </div>
+      <pre>
+const ipAPI = <span class="str">'https://api.ipify.org?format=json'</span>
+
+swal.queue([{
+  title: <span class="str">'Your public IP'</span>,
+  confirmButtonText: <span class="str">'Show my public IP'</span>,
+  text:
+    <span class="str">'Your public IP will be received '</span> +
+    <span class="str">'via AJAX request'</span>,
+  showLoaderOnConfirm: <span class="val">true</span>,
+  preConfirm: () => {
+    <span class="tag">return</span> fetch(ipAPI)
+      .<span class="tag">then</span>(response => response.json())
+      .<span class="tag">then</span>(data => swal.insertQueueStep(data.ip)),
+      .<span class="tag">catch</span>(() => {
+        swal.insertQueueStep({
+          type: <span class="str">'error'</span>,
+          title: <span class="str">'Unable to get your public IP'</span>
+        })
+      })
+  }
+}])</pre>
+    </li>
+  </ul>
+
+
+  <!-- Download & Install -->
+  <div class="center-container download-section">
+    <h3 id="download">Download & install</h3>
+    <pre class="center">$ npm install sweetalert2</pre>
+    <p>Or</p>
+    <pre class="center">$ bower install sweetalert2</pre>
+    <p>
+      Or download from CDN:
+      <a href="https://unpkg.com/sweetalert2" target="_blank" rel="noopener" class="nowrap">unpkg.com/sweetalert2 <i class="fa fa-external-link"></i></a> |
+      <a href="https://cdn.jsdelivr.net/npm/sweetalert2" target="_blank" rel="noopener" class="nowrap">cdn.jsdelivr.net/npm/sweetalert2 <i class="fa fa-external-link"></i></a>
+    </p>
+  </div>
+
+
+  <div class="center-container">
+    <h3 id="usage">Usage</h3>
+      <p>1. Initialize the plugin by referencing the necessary files:</p>
+      <pre>&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"sweetalert2.all.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+
+<div class="mobile-hidden"><span class="comment">&lt;!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser --&gt;</span>
+&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;</div></pre>
+      <p>You can also include the stylesheet separately if desired:</p>
+      <pre>&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"sweetalert2.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="tag">href</span>=<span class="str">"sweetalert2.min.css"</span>&gt;</pre>
+      <p>Or</p>
+      <pre><span class="comment">// ES6 Modules or TypeScript</span>
+<span class="val">import</span> swal <span class="val">from</span> <span class="str">'sweetalert2'</span>
+
+<span class="comment">// CommonJS</span>
+<span class="val">const</span> swal = <span class="func">require</span>(<span class="str">'sweetalert2'</span>)</pre>
+
+    <p class="mobile-hidden">2. Call the sweetAlert2-function after the page has loaded</p>
+<pre>swal({
+  title: <span class="str">'Error!'</span>,
+  text: <span class="str">'Do you want to continue'</span>,
+  type: <span class="str">'error'</span>,
+  confirmButtonText: <span class="str">'Cool'</span>
+})</pre>
+  </div>
+
+  <div class="center-container">
+    <h3 id="frameworks-integrations">Integrations with major JS frameworks</h3>
+    <div class="frameworks-integrations">
+      <div>
+        <a href="https://github.com/sweetalert2/ngx-sweetalert2" target="_blank" aria-label="Angular integration">
+          Angular
+          <br>
+          <img src="./images/angular.svg" width="125" alt="">
+        </a>
+      </div>
+      <div>
+        <a href="https://github.com/sweetalert2/sweetalert2-react-content" target="_blank" aria-label="React integration">
+          React
+          <br>
+          <img src="./images/react.svg" width="125" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-hidden">
+    <!-- Configuration -->
+    <h3 id="configuration">Configuration</h3>
+
+    <p class="center">Here are the keys that you can use if you pass an object into sweetAlert2:</p>
+
+    <table>
+      <tr class="titles">
+        <th>
+          Argument
+        </th>
+        <th>Default value</th>
+        <th>
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td><b>title</b></td>
+        <td><i>null</i></td>
+        <td>The title of the modal, as HTML. It can either be added to the object under the key "title" or passed as the first parameter of the function.</td>
+      </tr>
+      <tr>
+        <td><b>titleText</b></td>
+        <td><i>null</i></td>
+        <td>The title of the modal, as text. Useful to avoid HTML injection.</td>
+      </tr>
+      <tr>
+        <td><b>text</b></td>
+        <td><i>null</i></td>
+        <td>A description for the modal. It can either be added to the object under the key "text" or passed as the second parameter of the function.</td>
+      </tr>
+      <tr>
+        <td><b>html</b></td>
+        <td><i>null</i></td>
+        <td>A HTML description for the modal. If "text" and "html" parameters are provided in the same time, "text" will be used.</td>
+      </tr>
+      <tr>
+        <td><b>type</b></td>
+        <td><i>null</i></td>
+        <td>The type of the modal. SweetAlert2 comes with 5 built-in types which will show a corresponding icon animation: <strong>warning</strong>, <strong>error</strong>, <strong>success</strong>, <strong>info</strong>, and <strong>question</strong>. It can either be put in the array under the key "type" or passed as the third parameter of the function.</td>
+      </tr>
+      <tr>
+        <td><b>footer</b></td>
+        <td><i>null</i></td>
+        <td>The footer of the modal. Can be either plain text or HTML.</td>
+      </tr>
+      <tr>
+        <td><b>backdrop</b></td>
+        <td><i>true</i></td>
+        <td>Whether or not SweetAlert2 should show a full screen click-to-dismiss backdrop. Can be either a <strong>boolean</strong> or a <strong>string</strong> which will be assigned to the CSS <strong>background</strong> property.</td>
+      </tr>
+      <tr>
+        <td><b>toast</b></td>
+        <td><i>false</i></td>
+        <td> Whether or not an alert should be treated as a toast notification. This option is normally coupled with the <strong>position</strong> parameter and a timer. Toasts are NEVER autofocused.</td>
+      </tr>
+      <tr>
+        <td><b>target</b></td>
+        <td><i>'body'</i></td>
+        <td>The container element for adding modal into.</td>
+      </tr>
+      <tr id="input-parameter">
+        <td><b>input</b></td>
+        <td><i>null</i></td>
+        <td>
+          Input field type, can be
+          <strong>text</strong>, <strong>email</strong>, <strong>password</strong>,
+          <strong>number</strong>, <strong>tel</strong>, <strong>range</strong>,
+          <strong>textarea</strong>, <strong>select</strong>, <strong>radio</strong>,
+          <strong>checkbox</strong>, <strong>file</strong> and <strong>url</strong>.
+        </td>
+      </tr>
+      <tr>
+        <td><b>width</b></td>
+        <td><i>null</i></td>
+        <td>Modal window width, including paddings (<i>box-sizing: border-box</i>). Can be in <strong>px</strong> or <strong>%</strong>. The default width is <strong>32rem</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>padding</b></td>
+        <td><i>null</i></td>
+        <td>Modal window padding. The default padding is <strong>1.25rem</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>background</b></td>
+        <td><i>null</i></td>
+        <td>Modal window background (CSS background property). The default background is <strong>'#fff'</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>position</b></td>
+        <td><i>'center'</i></td>
+        <td>Modal window position, can be <strong>'top'</strong>, <strong>'top-start'</strong>, <strong>'top-end'</strong>, <strong>'center'</strong>, <strong>'center-start'</strong>, <strong>'center-end'</strong>, <strong>'bottom'</strong>, <strong>'bottom-start'</strong>, or <strong>'bottom-end'</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>grow</b></td>
+        <td><i>'false'</i></td>
+        <td>Paired with window position, sets the direction the modal should grow in, can be set to <strong>'row'</strong>, <strong>'column'</strong>, <strong>'fullscreen'</strong>, or <strong>false</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>customClass</b></td>
+        <td><i>null</i></td>
+        <td>A custom CSS class for the modal.</td>
+      </tr>
+      <tr id="timer">
+        <td><b>timer</b></td>
+        <td><i>null</i></td>
+        <td>Auto close timer of the modal. Set in ms (milliseconds).</td>
+      </tr>
+      <tr>
+        <td><b>animation</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, modal CSS animation will be disabled.</td>
+      </tr>
+      <tr id="allow-outside-click">
+        <td><b>allowOutsideClick</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, the user can't dismiss the modal by clicking outside it.<br>You can also pass a custom function returning a boolean value, e.g. if you want to disable outside clicks for the loading state of a modal.</td>
+      </tr>
+      <tr id="allow-escape-key">
+        <td><b>allowEscapeKey</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, the user can't dismiss the modal by pressing the <kbd>Esc</kbd> key. You can also pass a custom function returning a boolean value, e.g. if you want to disable the <kbd>Esc</kbd> key for the loading state of a modal.</td>
+      </tr>
+      <tr id="allow-enter-key">
+        <td><b>allowEnterKey</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, the user can't confirm the modal by pressing the Enter or Space keys, unless they manually focus the confirm button. You can also pass a custom function returning a boolean value.</td>
+      </tr>
+      <tr>
+        <td><b>showConfirmButton</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, a "Confirm"-button will not be shown. It can be useful when you're using custom HTML description.</td>
+      </tr>
+      <tr id="show-cancel-button">
+        <td><b>showCancelButton</b></td>
+        <td><i>false</i></td>
+        <td>If set to <strong>true</strong>, a "Cancel"-button will be shown, which the user can click on to dismiss the modal.</td>
+      </tr>
+      <tr>
+        <td><b>confirmButtonText</b></td>
+        <td><i>'OK'</i></td>
+        <td>Use this to change the text on the "Confirm"-button.</td>
+      </tr>
+      <tr>
+        <td><b>cancelButtonText</b></td>
+        <td><i>'Cancel'</i></td>
+        <td>Use this to change the text on the "Cancel"-button.</td>
+      </tr>
+      <tr>
+        <td><b>confirmButtonColor</b></td>
+        <td><i>null</i></td>
+        <td>Use this to change the background color of the "Confirm"-button. The default color is <strong>#3085d6</strong></td>
+      </tr>
+      <tr>
+        <td><b>cancelButtonColor</b></td>
+        <td><i>null</i></td>
+        <td>Use this to change the background color of the "Cancel"-button. The default color is <strong>#aaa</strong></td>
+      </tr>
+      <tr>
+        <td><b>confirmButtonClass</b></td>
+        <td><i>null</i></td>
+        <td>A custom CSS class for the "Confirm"-button.</td>
+      </tr>
+      <tr>
+        <td><b>cancelButtonClass</b></td>
+        <td><i>null</i></td>
+        <td>A custom CSS class for the "Cancel"-button.</td>
+      </tr>
+      <tr>
+        <td><b>confirmButtonAriaLabel</b></td>
+        <td><i>''</i></td>
+        <td>Use this to change the <strong>aria-label</strong> for the "Confirm"-button.</td>
+      </tr>
+      <tr>
+        <td><b>cancelButtonAriaLabel</b></td>
+        <td><i>''</i></td>
+        <td>Use this to change the <strong>aria-label</strong> for the "Cancel"-button.</td>
+      </tr>
+      <tr>
+        <td><b>buttonsStyling</b></td>
+        <td><i>true</i></td>
+        <td>Apply default swal2 styling to buttons. If you want to use your own classes (e.g. Bootstrap classes) set this parameter to <strong>false</strong>.</td>
+      </tr>
+      <tr>
+        <td><b>reverseButtons</b></td>
+        <td><i>false</i></td>
+        <td>Set to <strong>true</strong> if you want to invert default buttons positions ("Confirm"-button on the right side).</td>
+      </tr>
+      <tr>
+        <td><b>focusConfirm</b></td>
+        <td><i>true</i></td>
+        <td> Set to <strong>false</strong> if you want to focus the first element in tab order instead of "Confirm"-button by default.</td>
+      </tr>
+      <tr>
+        <td><b>focusCancel</b></td>
+        <td><i>false</i></td>
+        <td>Set to <strong>true</strong> if you want to focus the "Cancel"-button by default.</td>
+      </tr>
+      <tr id="show-close-button">
+        <td><b>showCloseButton</b></td>
+        <td><i>false</i></td>
+        <td>Set to <strong>true</strong> to show close button in top right corner of the modal.</td>
+      </tr>
+      <tr>
+        <td><b>closeButtonAriaLabel</b></td>
+        <td><i>'Close this dialog'</i></td>
+        <td>Use this to change the <strong>aria-label</strong> for the close button.</td>
+      </tr>
+      <tr>
+        <td><b>showLoaderOnConfirm</b></td>
+        <td><i>false</i></td>
+        <td>Set to <strong>true</strong> to disable buttons and show that something is loading. Use it in combination with the <a href="#pre-confirm"><strong>preConfirm</strong></a> parameter.</td>
+      </tr>
+      <tr id="pre-confirm">
+        <td><b>preConfirm</b></td>
+        <td><i>null</i></td>
+        <td>Function to execute before confirm, may be async (Promise-returning) or sync, see <a href="#ajax-request">usage example</a>.</td>
+      </tr>
+      <tr id="image">
+        <td><b>imageUrl</b></td>
+        <td><i>null</i></td>
+        <td>Add a customized icon for the modal. Should contain a string with the path or URL to the image.</td>
+      </tr>
+      <tr>
+        <td><b>imageWidth</b></td>
+        <td><i>null</i></td>
+        <td>If imageUrl is set, you can specify imageWidth to describes image width in px.</td>
+      </tr>
+      <tr>
+        <td><b>imageHeight</b></td>
+        <td><i>null</i></td>
+        <td>Custom image height in px.</td>
+      </tr>
+      <tr>
+        <td><b>imageAlt</b></td>
+        <td><i>''</i></td>
+        <td>An alternative text for the custom image icon.</td>
+      </tr>
+      <tr>
+        <td><b>imageClass</b></td>
+        <td><i>null</i></td>
+        <td>A custom CSS class for the customized icon.</td>
+      </tr>
+      <tr id="input-placeholder">
+        <td><b>inputPlaceholder</b></td>
+        <td><i>''</i></td>
+        <td>Input field placeholder.</td>
+      </tr>
+      <tr id="input-value">
+        <td><b>inputValue</b></td>
+        <td><i>''</i></td>
+        <td>Input field initial value.</td>
+      </tr>
+      <tr id="input-options">
+        <td><b>inputOptions</b></td>
+        <td><i>{} <br> Map <br> Promise</i></td>
+        <td>If <strong>input</strong> parameter is set to <strong>"select"</strong> or <strong>"radio"</strong>, you can provide options. Object keys will represent options values, object values will represent options text values.</td>
+      </tr>
+      <tr id="input-auto-trim">
+        <td><b>inputAutoTrim</b></td>
+        <td><i>true</i></td>
+        <td>Automatically remove whitespaces from both ends of a result string. Set this parameter to <strong>false</strong> to disable auto-trimming.</td>
+      </tr>
+      <tr id="input-attributes">
+        <td><b>inputAttributes</b></td>
+        <td><i>{}</i></td>
+        <td>HTML input attributes (e.g. <strong>min</strong>, <strong>max</strong>, <strong>autocomplete</strong>, <strong>accept</strong>), that are added to the input field. Object keys will represent attributes names, object values will represent attributes values.</td>
+      </tr>
+      <tr id="input-validator">
+        <td><b>inputValidator</b></td>
+        <td><i>null</i></td>
+        <td>Validator for input field, may be async (Promise-returning) or sync, see <a href="#input-select">usage example</a>.</td>
+      </tr>
+      <tr id="input-class">
+        <td><b>inputClass</b></td>
+        <td><i>null</i></td>
+        <td>A custom CSS class for the input field.</td>
+      </tr>
+      <tr>
+        <td><b>progressSteps</b></td>
+        <td><i>[]</i></td>
+        <td>Progress steps, useful for modal queues, see <a href="#chaining-modals">usage example</a>.</td>
+      </tr>
+      <tr>
+        <td><b>currentProgressStep</b></td>
+        <td><i>null</i></td>
+        <td>Current active progress step. The default is <strong>swal.getQueueStep()</strong></td>
+      </tr>
+      <tr>
+        <td><b>progressStepsDistance</b></td>
+        <td><i>'40px'</i></td>
+        <td>Distance between progress steps.</td>
+      </tr>
+      <tr>
+        <td><b>onBeforeOpen</b></td>
+        <td><i>null</i></td>
+        <td>Function to run when modal built, but not shown yet. Provides modal DOM element as the first argument.</td>
+      </tr>
+      <tr>
+        <td><b>onOpen</b></td>
+        <td><i>null</i></td>
+        <td>Function to run when modal opens, provides modal DOM element as the first argument.</td>
+      </tr>
+      <tr>
+        <td><b>onClose</b></td>
+        <td><i>null</i></td>
+        <td>Function to run when modal closes, provides modal DOM element as the first argument.</td>
+      </tr>
+      <tr>
+        <td><b>useRejections</b></td>
+        <td><i>false</i></td>
+        <td><strong>Deprecated and will be removed in the next major release.</strong> Determines whether dismissals (outside click, cancel button, close button, <kbd>Esc</kbd> key, timer) should resolve with an object of the format <strong class="nowrap">{ dismiss: reason }</strong> or reject the promise.</td>
+      </tr>
+      <tr>
+        <td><b>expectRejections</b></td>
+        <td><i>false</i></td>
+        <td><strong>Deprecated and will be removed in the next major release.</strong> Determines whether given <strong>inputValidator</strong> and <strong>preConfirm</strong> functions should be expected to to signal validation errors by rejecting, or by their respective means (see documentation for each option). </td>
+      </tr>
+    </table>
+
+    <p class="center">
+      You can redefine default params by using <strong>swal.setDefaults(customParams)</strong>.
+    </p>
+  </div>
+
+
+  <!-- Handling Dismissals -->
+  <div class="center-container">
+    <h3 id="handling-dismissals">Handling Dismissals</h3>
+
+    <p class="center">When an alert is dismissed by the user, the Promise returned by <strong>swal()</strong> will be resolved with an object <strong class="nowrap">{ dismiss: reason }</strong> documenting the reason it was dismissed:</p>
+
+    <table class="dismiss-reasons">
+      <tr class="titles">
+        <th>Reason</th>
+        <th>Description</th>
+        <th>Related configuration</th>
+      </tr>
+      <tr>
+        <td><strong class="nowrap">swal.DismissReason.backdrop</strong></td>
+        <td>The user clicked the backdrop.</td>
+        <td><a href="#allow-outside-click">allowOutsideClick</a></td>
+      </tr>
+      <tr>
+        <td><strong class="nowrap">swal.DismissReason.cancel</strong></td>
+        <td>The user clicked the cancel button.</td>
+        <td><a href="#show-cancel-button">showCancelButton</a></td>
+      </tr>
+      <tr>
+        <td><strong class="nowrap">swal.DismissReason.close</strong></td>
+        <td>The user clicked the close button.</td>
+        <td><a href="#show-close-button">showCloseButton</a></td>
+      </tr>
+      <tr>
+        <td><strong class="nowrap">swal.DismissReason.esc</strong></td>
+        <td>The user clicked the <kbd>Esc</kbd> key.</td>
+        <td><a href="#allow-escape-key">allowEscapeKey</a></td>
+      </tr>
+      <tr>
+        <td><strong class="nowrap">swal.DismissReason.timer</strong></td>
+        <td>The timer ran out, and the alert closed automatically.</td>
+        <td><a href="#timer">timer</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Modal Types -->
+  <h3 id="modal-types">Modal Types</h3>
+  <table class="modal-types">
+    <tr>
+      <td><strong>success</strong></td>
+      <td>
+        <div class="swal2-icon swal2-success">
+          <div class="swal2-success-circular-line-left"></div>
+          <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+          <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+          <div class="swal2-success-circular-line-right"></div>
+        </div>
+      </td>
+      <td><button class="type-success" aria-label="Try me! Example: success modal">Try me!</button></td>
+    </tr>
+    <tr>
+      <td><strong>error</strong></td>
+      <td>
+        <div class="swal2-icon swal2-error">
+         <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
+        </div>
+      </td>
+      <td><button class="type-error" aria-label="Try me! Example: error modal">Try me!</button></td>
+    </tr>
+    <tr>
+      <td><strong>warning</strong></td>
+      <td><div class="swal2-icon swal2-warning"><span class="swal2-icon-text">!</span></div></td>
+      <td><button class="type-warning" aria-label="Try me! Example: warning modal">Try me!</button></td>
+    </tr>
+    <tr>
+      <td><strong>info</strong></td>
+      <td><div class="swal2-icon swal2-info"><span class="swal2-icon-text">i</span></div></td>
+      <td><button class="type-info" aria-label="Try me! Example: info modal">Try me!</button></td>
+    </tr>
+    <tr>
+      <td><strong>question</strong></td>
+      <td><div class="swal2-icon swal2-question"><span class="swal2-icon-text">?</span></div></td>
+      <td><button class="type-question" aria-label="Try me! Example: question modal">Try me!</button></td>
+    </tr>
+  </table>
+
+
+  <!-- Input Types -->
+  <h3 id="input-types">Input Types</h3>
+  <table class="input-types">
+    <tr id="input-text">
+      <td><strong>text</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: name} = <span class="func">await</span> swal({
+  title: <span class="str">'What is your name?'</span>,
+  input: <span class="str">'text'</span>,
+  inputPlaceholder: <span class="str">'Enter your name or nickname'</span>,
+  showCancelButton: <span class="val">true</span>,
+  inputValidator: (value) => {
+    <span class="tag">return</span> !value <span class="val">&&</span> <span class="str">'You need to write something!'</span>
+  }
+})
+
+<span class="tag">if</span> (name) {
+  swal({type: <span class="str">'success'</span>, title: <span class="str">'Hi, '</span> + name})
+}</pre>
+      </td>
+      <td><button class="input-type-text" aria-label="Try me! Example: input type text">Try me!</button></td>
+    </tr>
+
+    <tr id="input-email">
+      <td><strong>email</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: email} = <span class="func">await</span> swal({
+  title: <span class="str">'Input email address'</span>,
+  input: <span class="str">'email'</span>,
+  inputPlaceholder: <span class="str">'Enter your email address'</span>
+})
+
+<span class="tag">if</span> (email) {
+  swal(<span class="str">'Entered email: '</span> + email)
+}</pre>
+      </td>
+      <td><button class="input-type-email" aria-label="Try me! Example: input type email">Try me!</button></td>
+    </tr>
+
+    <tr id="input-url">
+      <td><strong>url</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: url} = <span class="func">await</span> swal({
+  input: <span class="str">'url'</span>,
+  inputPlaceholder: <span class="str">'Enter the URL'</span>
+})
+
+<span class="tag">if</span> (url) {
+  swal(<span class="str">'Entered URL: '</span> + url)
+}</pre>
+      </td>
+      <td><button class="input-type-url">Try me!</button></td>
+    </tr>
+
+    <tr id="input-password">
+      <td><strong>password</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: password} = <span class="func">await</span> swal({
+  title: <span class="str">'Enter your password'</span>,
+  input: <span class="str">'password'</span>,
+  inputPlaceholder: <span class="str">'Enter your password'</span>,
+  inputAttributes: {
+    <span class="str">'maxlength'</span>: <span class="val">10</span>,
+    <span class="str">'autocapitalize'</span>: <span class="str">'off'</span>,
+    <span class="str">'autocorrect'</span>: <span class="str">'off'</span>
+  }
+})
+
+<span class="tag">if</span> (password) {
+  swal(<span class="str">'Entered password: '</span> + password)
+}</pre>
+      </td>
+      <td><button class="input-type-password" aria-label="Try me! Example: input type password">Try me!</button></td>
+    </tr>
+
+    <tr id="input-textarea">
+      <td><strong>textarea</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: text} = <span class="func">await</span> swal({
+  input: <span class="str">'textarea'</span>,
+  inputPlaceholder: <span class="str">'Type your message here'</span>,
+  showCancelButton: <span class="val">true</span>
+})
+
+<span class="tag">if</span> (text) {
+  swal(text)
+}</pre>
+      </td>
+      <td><button class="input-type-textarea" aria-label="Try me! Example: input type textarea">Try me!</button></td>
+    </tr>
+
+    <tr id="input-select">
+      <td><strong>select</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: country} = <span class="func">await</span> swal({
+  title: <span class="str">'Select Ukraine'</span>,
+  input: <span class="str">'select'</span>,
+  inputOptions: {
+    <span class="str">'SRB'</span>: <span class="str">'Serbia'</span>,
+    <span class="str">'UKR'</span>: <span class="str">'Ukraine'</span>,
+    <span class="str">'HRV'</span>: <span class="str">'Croatia'</span>
+  },
+  inputPlaceholder: <span class="str">'Select country'</span>,
+  showCancelButton: <span class="val">true</span>,
+  inputValidator: (value) => {
+    <span class="tag">return new</span> <span class="func">Promise</span>((resolve) => {
+      <span class="tag">if</span> (value === <span class="str">'UKR'</span>) {
+        resolve()
+      } <span class="tag">else</span> {
+        resolve(<span class="str">'You need to select Ukraine :)'</span>)
+      }
+    })
+  }
+})
+
+<span class="tag">if</span> (country) {
+  swal(<span class="str">'You selected: '</span> + country)
+}</pre>
+      </td>
+      <td><button class="input-type-select" aria-label="Try me! Example: input type select">Try me!</button></td>
+    </tr>
+
+    <tr id="input-radio">
+      <td><strong>radio</strong></td>
+      <td>
+        <pre>
+<span class="comment">// inputOptions can be an object or Promise</span>
+<span class="func">var</span> inputOptions = <span class="tag">new</span> <span class="func">Promise</span>((resolve) => {
+  <span class="func">setTimeout</span>(() => {
+    resolve({
+      <span class="str">'#ff0000'</span>: <span class="str">'Red'</span>,
+      <span class="str">'#00ff00'</span>: <span class="str">'Green'</span>,
+      <span class="str">'#0000ff'</span>: <span class="str">'Blue'</span>
+    })
+  }, <span class="val">2000</span>)
+})
+
+<span class="val">const</span> {value: color} = <span class="func">await</span> swal({
+  title: <span class="str">'Select color'</span>,
+  input: <span class="str">'radio'</span>,
+  inputOptions: inputOptions,
+  inputValidator: (value) => {
+    <span class="tag">return</span> !value && <span class="str">'You need to choose something!'</span>
+  }
+})
+
+<span class="tag">if</span> (color) {
+  swal({html: <span class="str">'You selected: '</span> + result})
+}</pre>
+      </td>
+      <td><button class="input-type-radio" aria-label="Try me! Example: input type radio">Try me!</button></td>
+    </tr>
+
+    <tr id="input-checkbox">
+      <td><strong>checkbox</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: accept} = <span class="func">await</span> swal({
+  title: <span class="str">'Terms and conditions'</span>,
+  input: <span class="str">'checkbox'</span>,
+  inputValue: <span class="val">1</span>,
+  inputPlaceholder:
+    <span class="str">'I agree with the terms and conditions'</span>,
+  confirmButtonText:
+    <span class="str">'Continue &lt;i class="fa fa-arrow-right&gt;&lt;/i&gt;'</span>,
+  inputValidator: (result) => {
+    <span class="tag">return</span> !result && <span class="str">'You need to agree with T&amp;C'</span>
+  }
+})
+
+<span class="tag">if</span> (accept) {
+  swal(<span class="str">'You agreed with T&amp;C :)'</span>)
+}</pre>
+
+      </td>
+      <td><button class="input-type-checkbox" aria-label="Try me! Example: input type checkbox">Try me!</button></td>
+    </tr>
+
+    <tr id="input-file">
+      <td><strong>file</strong></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: file} = <span class="func">await</span> swal({
+  title: <span class="str">'Select image'</span>,
+  input: <span class="str">'file'</span>,
+  inputAttributes: {
+    <span class="str">'accept'</span>: <span class="str">'image/*'</span>,
+    <span class="str">'aria-label'</span>: <span class="str">'Upload your profile picture'</span>
+  }
+})
+
+<span class="tag">if</span> (file) {
+  <span class="func">var</span> reader = <span class="tag">new</span> <span class="func">FileReader</span>
+  reader.onload = (e) => {
+    swal({
+      title: <span class="str">'Your uploaded picture'</span>,
+      imageUrl: e.target.result,
+      imageAlt: <span class="str">'The uploaded picture'</span>
+    })
+  }
+  reader.readAsDataURL(file)
+}</pre>
+      </td>
+      <td><button class="input-type-file" aria-label="Try me! Example: input type file">Try me!</button></td>
+    </tr>
+
+    <tr id="input-range">
+      <td><strong>range</strong></td>
+      <td>
+        <pre>
+swal({
+  title: <span class="str">'How old are you?',</span>
+  type: <span class="str">'question',</span>
+  input: <span class="str">'range',</span>
+  inputAttributes: {
+    min: <span class="val">8</span>,
+    max: <span class="val">120</span>,
+    step: <span class="val">1</span>
+  },
+  inputValue: <span class="val">25</span>
+})</pre>
+      </td>
+      <td><button class="input-type-range" aria-label="Try me! Example: input type range">Try me!</button></td>
+    </tr>
+  </table>
+
+  <div class="center-container">
+    <p id="multiple-inputs">
+      Multiple inputs aren't supported, you can achieve them by using <strong>html</strong> and <strong>preConfirm</strong> parameters.<br>
+      Inside the <strong>preConfirm()</strong> function you can return (or, if async, resolve with) the custom result:
+    </p>
+  </div>
+  <table class="input-types">
+    <tr id="multiple-inputs">
+      <td class="mobile-hidden"></td>
+      <td>
+        <pre>
+<span class="val">const</span> {value: formValues} = <span class="func">await</span> swal({
+  title: <span class="str">'Multiple inputs'</span>,
+  html:
+    <span class="str">'&lt;input id="swal-input1" class="swal2-input"&gt;'</span> +
+    <span class="str">'&lt;input id="swal-input2" class="swal2-input"&gt;'</span>,
+  focusConfirm: <span class="val">false</span>,
+  preConfirm: () => {
+    <span class="tag">return</span> [
+      document.getElementById(<span class="str">'swal-input1'</span>).value,
+      document.getElementById(<span class="str">'swal-input2'</span>).value
+    ]
+  }
+})
+
+<span class="tag">if</span> (formValues) {
+  swal(<span class="func">JSON</span>.stringify(formValues))
+}</pre>
+
+      </td>
+      <td><button class="input-type-multiple" aria-label="Try me! Example: multiple inputs">Try me!</button></td>
+    </tr>
+
+  </table>
+
+  <div class="mobile-hidden">
+    <!-- Methods -->
+    <h3 id="methods">Methods</h3>
+    <table>
+      <tr class="titles">
+        <th>
+          Method
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td><i>swal.isVisible()</i></td>
+        <td>Determine if modal is shown.</td>
+      </tr>
+      <tr>
+        <td><i>swal.setDefaults({Object})</i></td>
+        <td>If you end up using a lot of the same settings when calling SweetAlert2, you can use setDefaults at the start of your program to set them once and for all!</td>
+      </tr>
+      <tr>
+        <td><i>swal.resetDefaults()</i></td>
+        <td>Resets settings to their default value.</td>
+      </tr>
+      <tr>
+        <td><i>swal.close()</i> or <i>swal.closeModal()</i></td>
+        <td>Close the currently open SweetAlert2 modal programmatically.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getTitle()</i></td>
+        <td>Get the modal title.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getContent()</i></td>
+        <td>Get the modal content.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getImage()</i></td>
+        <td>Get the <a href="#image">image</a>.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getActions()</i></td>
+        <td>Get the actions block (buttons container).</td>
+      </tr>
+      <tr>
+        <td><i>swal.getFooter()</i></td>
+        <td>Get the modal footer.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getConfirmButton()</i></td>
+        <td>Get the "Confirm" button.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getCancelButton()</i></td>
+        <td>Get the "Cancel" button.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getButtonsWrapper()</i></td>
+        <td><strong>Deprecated, use getActions() instead.</strong> Get the buttons wrapper.</td>
+      </tr>
+      <tr>
+        <td><i>swal.enableButtons()</i></td>
+        <td>Enable "Confirm" and "Cancel" buttons.</td>
+      </tr>
+      <tr>
+        <td><i>swal.disableButtons()</i></td>
+        <td>Disable "Confirm" and "Cancel" buttons.</td>
+      </tr>
+      <tr>
+        <td><i>swal.enableConfirmButton()</i></td>
+        <td>Enable the "Confirm"-button only.</td>
+      </tr>
+      <tr>
+        <td><i>swal.disableConfirmButton()</i></td>
+        <td>Disable the "Confirm"-button only.</td>
+      </tr>
+      <tr id="showLoading">
+        <td><i>swal.showLoading()</i> or <i>swal.enableLoading()</i></td>
+        <td>Disable buttons and show loader. This is useful with AJAX requests.</td>
+      </tr>
+      <tr id="hideLoading">
+        <td><i>swal.hideLoading()</i> or <i>swal.disableLoading()</i></td>
+        <td>Enable buttons and hide loader.</td>
+      </tr>
+      <tr>
+        <td><i>swal.isLoading()</i></td>
+        <td>Determine if modal is in the loading state. Related methods: <a href="#showLoading">swal.showLoading()</a> and  <a href="#hideLoading">swal.hideLoading()</a></td>
+      </tr>
+      <tr>
+        <td><i>swal.clickConfirm()</i></td>
+        <td>Click the "Confirm"-button programmatically.</td>
+      </tr>
+      <tr>
+        <td><i>swal.clickCancel()</i></td>
+        <td>Click the "Cancel"-button programmatically.</td>
+      </tr>
+      <tr>
+        <td><i>swal.showValidationError(error)</i></td>
+        <td>Show validation error message.</td>
+      </tr>
+      <tr>
+        <td><i>swal.resetValidationError()</i></td>
+        <td>Hide validation error message.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getInput()</i></td>
+        <td>Get the input DOM node, this method works with <a href="#input-parameter">input parameter</a>.</td>
+      </tr>
+      <tr>
+        <td><i>swal.disableInput()</i></td>
+        <td>Disable input. A disabled input element is unusable and un-clickable.</td>
+      </tr>
+      <tr>
+        <td><i>swal.enableInput()</i></td>
+        <td>Enable input.</td>
+      </tr>
+      <tr>
+        <td><i>swal.queue([Array])</i></td>
+        <td>Provide array of SweetAlert2 parameters to show multiple modals, one modal after another. See <a href="#chaining-modals">usage example</a></td>
+      </tr>
+      <tr>
+        <td><i>swal.getQueueStep()</i></td>
+        <td>Get the index of current modal in queue. When there's no active queue, <strong>null</strong> will be returned.</td>
+      </tr>
+      <tr>
+        <td><i>swal.insertQueueStep()</i></td>
+        <td>Insert a modal to queue, you can specify modal positioning with second parameter. By default a modal will be added to the end of a queue.</td>
+      </tr>
+      <tr>
+        <td><i>swal.deleteQueueStep(index)</i></td>
+        <td>Delete a modal at <strong>index</strong> from queue.</td>
+      </tr>
+      <tr>
+        <td><i>swal.getProgressSteps()</i></td>
+        <td>Progress steps getter.</td>
+      </tr>
+      <tr>
+        <td><i>swal.setProgressSteps([])</i></td>
+        <td>Progress steps setter.</td>
+      </tr>
+      <tr>
+        <td><i>swal.showProgressSteps()</i></td>
+        <td>Show progress steps.</td>
+      </tr>
+      <tr>
+        <td><i>swal.hideProgressSteps()</i></td>
+        <td>Hide progress steps.</td>
+      </tr>
+      <tr>
+        <td><i>swal.isValidParameter({String})</i></td>
+        <td>Determine if parameter name is valid.</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- Collaborators -->
+  <h3 id="collaborators">Collaborators</h3>
+  <div class="collaborators">
+    <div>
+      <a href="https://github.com/toverux" target="_blank" rel="noopener" aria-label="Morgan Touverey-Quilling">
+        <img src="https://avatars1.githubusercontent.com/u/1343250?v=4&s=100" alt=""><br>@toverux
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/birjolaxew" target="_blank" rel="noopener" aria-label="Johan Fagerberg">
+        <img src="https://avatars2.githubusercontent.com/u/4542461?v=4&s=100" alt=""><br>@birjolaxew
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/samturrell" target="_blank" rel="noopener" aria-label="Sam Turrell">
+        <img src="https://avatars1.githubusercontent.com/u/5918348?v=4&s=100" alt=""><br>@samturrell
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/acupajoe" target="_blank" rel="noopener" aria-label="Joseph Schultz">
+        <img src="https://avatars3.githubusercontent.com/u/9093699?v=4&s=100" alt=""><br>@acupajoe
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/zenflow" target="_blank" rel="noopener" aria-label="Matthew Francis Brunetti">
+        <img src="https://avatars3.githubusercontent.com/u/3198597?v=4&s=100" alt=""><br>@zenflow
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/patrickhlauke" target="_blank" rel="noopener" aria-label="Patrick H. Lauke">
+        <img src="https://avatars2.githubusercontent.com/u/895831?v=4&s=100" alt=""><br>@patrickhlauke
+      </a>
+    </div>
+  </div>
+
+  <!-- Donations -->
+  <h3 id="donations">Donations</h3>
+  <p class="center">Has SweetAlert2 helped you create an amazing application?<br> You can show your support by making a donation in one of two ways:</p>
+  <div class="donation-options">
+    <div>
+      <a href="https://www.patreon.com/limonte" target="_blank" rel="noopener" aria-label="Donate with Patreon">
+        Patreon
+        <br>
+        <img src="./images/patreon.png" width="125" alt="">
+      </a>
+    </div>
+    <div>
+      <a href class="paypal" aria-label="Donate with PayPal">
+        PayPal
+        <br>
+        <img src="./images/paypal.png" width="125" alt="">
+      </a>
+    </div>
+  </div>
+  <a href="https://github.com/sweetalert2/sweetalert2/blob/master/DONATIONS.md" class="hall-of-donators">Hall of Donators 🏆</a>
+
+
+  <!-- Contribute -->
+  <h3 id="contribute">Contribute</h3>
+  <p class="center">Feel free to fork SweetAlert2 on <a href="https://github.com/sweetalert2/sweetalert2" class="github">GitHub</a> if you have any features that you want to add!</p>
+
+
+  <!-- GitHub corner -->
+  <a href="https://github.com/sweetalert2/sweetalert2" class="github-corner" tabindex="-1"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <div id="rtl-container" dir="rtl"></div>
+  <script src="./js/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html version="XHTML+RDFa 1.0"  xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es" >
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>KN3 - Image Hosting</title>
+
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+                <script type="text/javascript" src="/static/js/uploader/js/vendor/jquery.ui.widget.js?f85fff7
+"></script>
+                <script type="text/javascript" src="/static/js/uploader/js/jquery.iframe-transport.js?f85fff7
+"></script>
+                <script type="text/javascript" src="/static/js/uploader/js/jquery.fileupload.js?f85fff7
+"></script>
+                <script type="text/javascript" src="/static/js/uploader/js/jquery.fileupload-process.js?f85fff7
+"></script>
+                <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+                <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script> -->
+                <!-- <link type="text/css" rel="stylesheet" href="/static/js/css/style.css" /> -->
+                <link type="text/css" rel="stylesheet" href="/static/js/uploader/css/jquery.fileupload-ui.css?f85fff7
+" />
+
+                <!-- <script type="text/javascript" src="/static/js/kn3.js"></script> -->
+                <link type="text/css" rel="stylesheet" href="/static/css/global.css?f85fff7
+" />
+
+				<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+		<script>
+			var googletag = googletag || {};
+			googletag.cmd = googletag.cmd || [];
+		</script>
+		<script>
+			googletag.cmd.push(function() {
+				googletag.defineSlot('/430166808/kn3/300x600', [[160, 600], [300, 250], [336, 280],[300, 600]], 'div-gpt-ad-1505402390658-0').addService(googletag.pubads());
+				googletag.pubads().enableSingleRequest();
+				googletag.enableServices();
+			});
+		</script>
+	</head>
+	<body>
+		<div class="home">
+	<div class="header">
+	<h1 class="logo">kn3.net</h1>
+</div>
+	<!-- <p id="manteinance">Enseguida volvemos :)</p> -->
+	<div class="content">
+		<div class="btn btn-success fileinput-button btnUpload">
+			<i class="icon-plus icon-white"></i>
+			<span class="uploadArea"></span>
+			<!-- The file input field used as target for the file upload widget -->
+			<input id="fileupload" type="file" name="files[]" multiple>
+		</div>
+		<div class="drugImg">(o arrastra las im&aacute;genes aqu&iacute;)</div>
+		<div id="files" class="files"></div>
+		<label id="accept-tos">
+			<input type="checkbox" />
+							I agree to the <a href="/tos" target="_blank">Terms &amp; Conditions</a>
+					</label>
+		<!-- The global progress bar -->
+		<div id="progress-container">
+			<div id="progress" class="progress">
+				<div class="progress-bar"></div>
+			</div>
+			<div id="error_message"></div>
+		</div>
+		<div id="fileQueue" class="clearfix"></div>
+		<div class="panel">
+			<div class="front">
+				<strong>Todos BBcode</strong>
+				<a class="switch"></a>
+				<textarea id="bbcode_all" name="bbcode_all"></textarea>
+			</div>
+			<div class="back">
+				<strong>Todos directos</strong>
+				<a class="switch"></a>
+				<textarea  id="direct_all" name="direct_all"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	<div class="legal">Please read our Terms of service about our image hosting before uploading anything to avoid image deletion. Porn, hate related images, copyrighted material, and any abusive content to the network is NOT ALLOWED on the site. Thanks.</div>
+	<a class="mail link">Contact Us</a> - <a href="/tos/">Terms of Use</a> - <a href="/abuse/">Report Abuse (DMCA)</a>
+</div>
+</div>
+<script type="text/javascript">
+	/*jslint unparam: true */
+	/*global window, $ */
+	var aviso = false;
+	var boxes = 0;
+	var inProcces = 0;
+	$(function () {
+		'use strict';
+		$('#fileupload').fileupload({
+			url: 'upload.php',
+			dataType: 'json',
+			maxNumberOfFiles: 99,
+			maxFileSize: 3145728,
+			acceptFileTypes: '/(\.|\/)(gif|jpe?g|png)$/i',
+			send: function (){
+				if (!$('#accept-tos > input[type=checkbox]:checked').length) {
+					if (!aviso) {
+						alert('Debe aceptar los terminos y condiciones');
+						aviso = true;
+						setTimeout(function(){ aviso = false; }, 1000);
+						return false;
+					}
+				}
+				$('#progress .progress-bar').removeClass('progress-bar-success');
+					inProcces ++;
+			},
+			progressall: function (e, data) {
+				$('.progress').show();
+				$('#error_message').hide();
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#progress .progress-bar').css('width',progress + '%');
+			},
+			done: function (e, data) {
+				//clean progress bar
+				var progressDone = parseInt(data._progress.loaded / data._progress.total * 100, 10);
+				$('#progress .progress-bar').css('width',progressDone + '%');
+				//show thumbnail and urls
+				var msg = data.result;
+				var html = '\
+					<div id="uploadify'+boxes+'" class="uploadifyQueueItem">\
+						<a target="_blank">\
+							<img width="75" height="75" border="0" class="preview" src="static/img/noimg.png" />\
+						</a>\
+					</div>';
+				$('#fileQueue').append(html);
+				var tooltip = '\
+					<div class="tooltip">\
+						<label>\
+							Enlace directo\
+							<input type="text" name="direct" value="'+msg.embed+'" />\
+						</label>\
+						<label>\
+							BBCode\
+							<input type="text" name="bbcode" value="[img='+msg.direct+']" />\
+						</label>\
+						<div class="dialog"></div>\
+						<ul class="share">\
+							<li><a href="https://twitter.com/home?status='+msg.embed+'" target="_blank" class="twitter">Twitter</a></li>\
+							<li><a href="https://www.facebook.com/sharer.php?u='+msg.embed+'" target="_blank" class="facebook">Facebook</a></li>\
+						</ul>\
+					</div>';
+				$('#uploadify'+boxes).append(tooltip);
+				$('#uploadify'+boxes+' > a').attr('href', msg.embed);
+				$('#uploadify'+boxes+' > a > img.preview').attr('src', msg.direct);
+				var bbcode = Array(), direct = Array();
+				$('input[type=text][name=bbcode]').each(function(){
+					bbcode.push($(this).val());
+				});
+				$('input[type=text][name=direct]').each(function(){
+					direct.push($(this).val());
+				});
+				$('#bbcode_all').val(bbcode.join('\n')).css('height', document.getElementById('bbcode_all').scrollHeight+'px');
+				$('#direct_all').val(direct.join('\n')).css('height', document.getElementById('direct_all').scrollHeight+'px');
+				$('.panel').show();
+
+				//reset loader
+				boxes ++; //increment boxes ids
+				if(progressDone == 100 && boxes >= inProcces){
+					$('#progress').fadeOut(1200);
+						//$('#progress .progress-bar').addClass('progress-bar-success');
+					} else {
+						$('#progress .progress-bar').css('width','0%');
+					}
+			},
+			fail: function (e, data){
+				$('#progress').hide();
+				$('#error_message').html("An error occurred: " + data.jqXHR.statusText).show();
+				boxes ++;
+			}
+		}).prop('disabled', !$.support.fileInput)
+			.parent().addClass($.support.fileInput ? undefined : 'disabled');
+	});
+	$('a.switch').bind('click', function(){
+		var obj = $(this).parent().parent('div.panel');
+		if ($(obj).hasClass('flip')) {
+			$(obj).removeClass('flip');
+		} else {
+			$(obj).addClass('flip');
+		}
+	});
+</script>
+		<script type="text/javascript">
+			var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-91290-11']); _gaq.push(['_trackPageview']);
+			(function(){
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</body>
+</html>

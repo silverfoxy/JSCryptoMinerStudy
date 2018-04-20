@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Seth Robertson Project information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <style type="text/css">
+      h1 {margin-left:auto; margin-right:auto; width:90%;}
+      h2 {margin-top:2em;}
+      h3 {margin-top:1em;margin-left:1em;}
+      ul {margin-left:1em;}
+      .i2 {margin-left:2em;}
+      body {margin-left:auto; margin-right:auto; width:70%; background-color:#ffffff;}
+    </style>
+  </head>
+  <body>
+    <h1>Information about Seth Robertson's Projects</h1>
+    <div>
+      <h2>Documentation Projects</h2>
+      <ul>
+	<li><a href="GitBestPractices">Git Best Practices</a></li>
+	<li><a href="GitFixUm">On undoing, fixing, or removing commits or mistakes in git</a></li>
+	<li><a href="GitPostProduction">Post-Production Editing using Git</a></li>
+	<li><a href="HowToPutGitOnTheWeb">How to put git on the web</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Code Project</h2>
+      <div>
+	<h3>Git Projects</h3>
+	<ul>
+	  <li><a href="http://github.com/SethRobertson/git-what-branch">git-what-branch: Finding what branch a commit was original made on, and the merge path it took</a></li>
+	  <li><a href="http://gitslave.sf.net">Gitslave: A git-submodule replacement for people doing simultaneous development on all repos</a></li>
+	</ul>
+      </div>
+      <div>
+	<h3>Baka Library/Makefile Project</h3>
+	<ul>
+	  <li><a href="http://github.com/SethRobertson/meta-baka">meta-baka: A sample gitslave superproject grouping the remaining projects together</a></li>
+	  <li><a href="http://github.com/SethRobertson/bkmk">bkmk: The baka make environment to allow easy creation of project make environments</a></li>
+	  <li><a href="http://github.com/SethRobertson/libbk">libbk: Operating system, main dispatch loop, threading, debugging/logging infrastructure, and other convenient C functions</a></li>
+	  <li><a href="http://github.com/SethRobertson/libclc">libclc: Updated third party common datastructures and memory allocations in C</a></li>
+	  <li><a href="http://github.com/SethRobertson/perlbk">perlbk: Primitive perl convenient functions</a></li>
+	</ul>
+      </div>
+      <div>
+	<h3>Other projects</h3>
+	<ul>
+	  <li><a href="http://github.com/SethRobertson/CA-baka">Simple X509 Certificate Authority/Generation Script</a></li>
+	  <li><a href="http://vtwm.org">An old school X window manager, still under support</a></li>
+	  <li><a href="http://sourceforge.net/projects/ttcp/">The classic network pipe program, often imitated (socat, netcat, etc)</a></li>
+	</ul>
+      </div>
+    </div>
+    <div>
+      <h2>About me</h2>
+      <p class="i2">Available for <a href="http://www.baka.org/resume">rent or long term lease.</a></p>
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28660801-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

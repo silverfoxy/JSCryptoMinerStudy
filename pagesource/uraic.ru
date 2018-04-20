@@ -1,0 +1,2 @@
+<html><head><title>Error</title></head><body><head><title>Просмотр каталога запрещен</title></head>
+<body><h1>Просмотр каталога запрещен</h1>Просмотр содержимого виртуального каталога запрещен.</body></body></html>

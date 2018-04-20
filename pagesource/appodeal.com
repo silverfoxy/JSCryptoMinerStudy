@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.appodeal.com/home/">redirected</a>.</body></html>

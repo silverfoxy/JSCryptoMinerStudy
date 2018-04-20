@@ -1,0 +1,1085 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr" >
+<head  prefix="og: http://ogp.me/ns#">
+    <base href="https://www.casarosada.gob.ar/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="Sitio oficial de la Casa Rosada, con noticias e información sobre el Palacio de Gobierno de la Argentina, datos sobre las visitas guiadas y fotos." />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Casa Rosada</title>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link rel="stylesheet" href="/media/system/css/modal.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.casarosada.gob.ar/modules/mod_djimageslider/assets/style.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.casarosada.gob.ar/cache/mod-presidencia/f58e07fb7fa2a59178bcd87741fe32ff.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.casarosada.gob.ar/plugins/system/presivivo/css/custom.css" type="text/css" />
+  <style type="text/css">
+#presidencia-message{
+  top: 20%;
+  left: 50%;
+  width: 308px;
+  height: 80px;
+  margin-left: -154px;
+  margin-top: -40px;
+  text-align: center;
+  background-color: #eeeeee; 
+  opacity: 0.95;
+  border: 1px solid #dbdce0; 
+  position: fixed;
+  display: none;
+  text-transform: uppercase;
+  z-index: 3;
+}
+#presidencia-message div.refresh-text{
+  display: table;
+  height: 100%; width: 100%;
+  text-align: center;
+}
+#presidencia-message div.refresh-text p{
+  margin: 0px; padding: 0px;
+  display: table-cell;
+  vertical-align: middle;
+}
+#presidencia-message div.refresh-close{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+#presidencia-message a{
+  text-decoration: underline;
+}
+
+  </style>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript"></script>
+  <script src="/media/system/js/core.js" type="text/javascript"></script>
+  <script src="/media/system/js/mootools-more.js" type="text/javascript"></script>
+  <script src="/media/system/js/modal.js" type="text/javascript"></script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript"></script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
+  <script src="/modules/mod_djimageslider/assets/powertools-1.2.0.js" type="text/javascript"></script>
+  <script src="/modules/mod_djimageslider/assets/slider.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+      var ua = navigator.userAgent;
+      var isDevice = /iPhone/i.test(ua) || /iPad/i.test(ua) || /Android\s4/i.test(ua);
+      window.addEvent('domready', function(){
+        if(isDevice && typeof wabtn4fg==='undefined')
+        {
+          wabtn4fg=1;
+          h=document.head||document.getElementsByTagName('head')[0],s=document.createElement('script');
+          s.type='text/javascript';
+          s.src='https://www.casarosada.gob.ar/templates/jm-news-portal/js/whatsapp-button.js?v=5';
+          h.appendChild(s);
+          var li = document.getElementById('whatsapp-li')
+          if( li ) li.style.display = 'inline';
+        }
+      } );
+    
+		jQuery(function($) {
+			SqueezeBox.initialize({});
+			SqueezeBox.assign($('a.modal').get(), {
+				parse: 'rel'
+			});
+		});
+		function jModalClose() {
+			SqueezeBox.close();
+		}jQuery(function($) {
+			 $('.hasTip').each(function() {
+				var title = $(this).attr('title');
+				if (title) {
+					var parts = title.split('::', 2);
+					var mtelement = document.id(this);
+					mtelement.store('tip:title', parts[0]);
+					mtelement.store('tip:text', parts[1]);
+				}
+			});
+			var JTooltips = new Tips($('.hasTip').get(), {"maxTitleChars": 50,"fixed": false});
+		});(function($){ window.addEvent('domready',function(){this.Slider89 = new DJImageSliderModule({id: '89', slider_type: 2, slide_size: 1920, visible_slides: 1, show_buttons: 0, show_arrows: 0, preload: 800},{auto: 0, transition: Fx.Transitions.linear, duration: 600, delay: 3600})}); })(document.id);
+  $(window).addEvent( 'domready', function(){
+    var  lastUpdate = null;
+    var  i = null;
+    var r = new Request.JSON({
+      method: 'get',
+      url: 'https://www.casarosada.gob.ar/',
+      data: { 'option': 'com_jaudit' },
+      onError: function(text, error){
+        console.log( error )
+      },
+      onSuccess: function(response){
+        if( response.error )
+        {
+          console.log( response.error );
+        }
+        if( response.last )
+        {
+          if( lastUpdate === null )
+          {
+            lastUpdate = response.last;
+          }
+          else if( lastUpdate != response.last )
+          {
+            $("presidencia-message").setStyle( 'display', 'block' );
+            lastUpdate = response.last;
+            // if( i !== null ){
+            //   clearInterval( i );
+            //   i = null;
+            // }
+          }
+        }
+      } 
+    } );
+    var i = setInterval( function(){
+      r.send();
+    }, 30 * 1000 );
+    r.send();
+
+    $("presidencia-message-close").addEvent('click', function(){ 
+        $("presidencia-message").setStyle( 'display', 'none'); return false; }
+    );
+
+  } );
+
+
+  </script>
+  <meta property="og:title" content="Casa Rosada" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="P&aacute;gina oficial de la Casa de Gobierno de la Naci&oacute;n Argentina" />
+  <meta property="og:site_name" content="http://www.casarosada.gob.ar" />
+  <meta property="og:url" content="https://www.casarosada.gob.ar/" />
+  <meta property="og:image" content="https://www.casarosada.gob.ar/media/presidencia/casa_rosada_avatar.png" />
+
+  	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/details.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/editor.css?v=1" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/reset.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/layout.css?v=7" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/modules.css?v=2" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/template.css" rel="stylesheet" type="text/css" />
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/menus.css" rel="stylesheet" type="text/css" />
+
+	
+	<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/animated-buttons.css" rel="stylesheet" type="text/css" />		
+	
+						<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/style1.css?v=1" rel="stylesheet" media="all" type="text/css" />	
+			<!--[if IE 7]>
+    <link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/ie7.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+<!--[if IE 8]>
+    <link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/ie8.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<link href="https://www.casarosada.gob.ar/images/faviconp.ico" rel="shortcut icon" />
+
+<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://www.casarosada.gob.ar/templates/jm-news-portal/js/bootstrap.min.js"></script>
+<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/casarosada.css?v=3" rel="stylesheet" type="text/css" />
+<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/casarosada-responsive.css" rel="stylesheet" type="text/css" />
+<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/main.css" rel="stylesheet" type="text/css" />
+<link href="https://www.casarosada.gob.ar/templates/jm-news-portal/css/font-awesome.min.css?v=4.7" rel="stylesheet" type="text/css" />
+
+        <link rel="canonical" href="https://www.casarosada.gob.ar/" />
+
+
+
+  <link href="https://www.casarosada.gob.ar/cache/tpl-jm-news-portal/style_custom_b0b4ee4863527212ee0d41b962364a17.css" rel="stylesheet" type="text/css" /><link href="https://www.casarosada.gob.ar/templates/jm-news-portal/fonts/font.css" rel="stylesheet" type="text/css" />  
+  
+  <link href="https://www.casarosada.gob.ar/cache/tpl-jm-news-portal/responsive_b0b4ee4863527212ee0d41b962364a17.css" rel="stylesheet" type="text/css" /><!-- viewport fix for some devices -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+<!--Pedido por FR -->
+<meta property="fb:pages" content="545415852301140" />
+<!--Inclusite -->
+<script type="text/javascript">
+(function(){window.incluTabOptions={incluTabVisible:!0};var i7e_e=document.createElement("script"),i7e_t=window.location.host,i7e_n={es:"es-ES",en:"en-GB",fr:"fr-FR",eu:"x-EU",ek:"x-EU",va:"x-VA",ca:"ca-ES",he:"he-IL",il:"he-IL"},i7e_r="es-ES";i7e_e.type="text/javascript";var i7e_i=document.getElementsByTagName("html")[0].getAttribute("lang"),i7e_s=document.getElementsByTagName("html")[0].getAttribute("xml:lang");return i7e_s===null?i7e_i===null?i7e_r="notDefined":i7e_r=i7e_n[i7e_i.substr(0,2)]:i7e_r=i7e_n[i7e_s.substr(0,2)],i7e_t=i7e_t.replace(/\./g,"--"),i7e_t+=".accesible.inclusite.com",i7e_e.src=document.location.protocol+"//"+i7e_t+"/inclusite/frameworks_initializer.js?lng="+i7e_r,document.getElementsByTagName("head")[0].appendChild(i7e_e),i7e_e.src})()
+</script>
+</head>
+
+<body>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KFKHZV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KFKHZV');</script>
+  <!-- End Google Tag Manager -->
+  <div id="jm-allpage" class="nofluid" >
+          <header>
+        <div class="hidden-print" >
+          
+
+<div class="custom"  >
+	<div class="custom"  >
+			<nav class="navbar navbar-top navbar-default" role="navigation">
+
+            <div class="container">
+                <div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="//www.casarosada.gob.ar/">
+                            <img alt="Brand" src="/images/modules/logo.svg" height="50">
+                            <h1 class="sr-only">Casa Rosada <small>Presidencia de la Nación</small></h1>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="dropdown" style="display: none;">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Autoridades <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/el-presidente/biografia">Presidente<br><span class="small">Mauricio Macri</span></a></li>
+                                     <li><a href="/la-vicepresidente/biografia">Vicepresidente<br><span class="small">Gabriela Michetti</span></a></li>
+                                     <li><a href="https://www.argentina.gob.ar/jefatura" target="_blank">Jefe de Gabinete de Ministros<br><span class="small">Marcos Peña</span></a></li>
+                                      <li><a href="http://www.argentina.gob.ar/secretariageneral">Secretario General<br><span class="small">Fernando de Andreis</span></a></li>
+                                   
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Información <b class="caret"></b></a>
+                                <ul class="dropdown-menu submenu" role="menu">
+
+                                <div>
+                                  
+                                                                 
+                                    <div>
+                                        <li class="dropdown-header">Información</li>
+                                        <li><a href="http://www.argentina.gob.ar/" target="_blank">Trámites y servicios</a></li>
+                                        <li><a href="/informacion/actividad-oficial">Actividad oficial</a></li>
+                                        <li><a href="http://www.argentina.gob.ar/g20" target="_blank">G20 Argentina</a></li>
+                                        <li><a href="/primeradama">Actividad Primera Dama</a></li>
+                                        <li><a href="/informacion/conferencias">Conferencias</a></li>
+                                        <li><a href="/informacion/discursos">Discursos</a></li>
+                                        <li><a href="/informacion/fotos">Fotos</a></li>
+                                        <li><a href="/informacion/videos">Videos</a></li>
+                                        <li><a href="/paseodelarepublica">Paseo de la República</a></li>
+                                        <li><a href="/informacion/que-estamos-diciendo">Qué estamos diciendo</a></li>
+                                        <li><a href="/cartajefatura"> Carta de Jefatura de Gabinete</a></li>
+                                        <li><a href="/informacion/archivo">Archivo</a></li>
+                                        <li><a href="https://audiencias.mininterior.gob.ar">Registro de audiencias</a></li>
+                                        <li><a href="/comunicaciones/">Comunicaciones</a></li>
+                                        <li><a href="https://renappo.argentina.gob.ar/" target="_blank">Registro Proveedores<br/> Publicidad Oficial</a></li>
+                                        
+                                  </div>
+                              
+                                </div>
+                                 <div>
+                                    <div>
+                                        <li class="dropdown-header">Nuestro País</li>
+                                        <li><a href="/nuestro-pais/acerca-de-argentina">Acerca de Argentina</a></li>
+                                        <li><a href="/nuestro-pais/organizacion">Organización</a></li>
+                                        <li><a href="/nuestro-pais/simbolos-nacionales">Símbolos Nacionales</a></li>
+                                        <li><a href="/nuestro-pais/historia">Historia</a></li>
+                                        <li><a href="/nuestro-pais/constitucion-nacional">Constitución Nacional</a></li>
+                                        <li><a href="/nuestro-pais/galeria-de-presidentes">Galería de Presidentes</a></li>
+                                 </div>
+                                </div>
+                              </ul>
+                            </li>
+ <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">La Casa <b class="caret"></b></a>
+                                <ul class="dropdown-menu submenu" role="menu">
+
+                                	<div>
+    									<li><a href="/la-casa-rosada/historia">Historia</a></li>
+                                        <li><a href="/la-casa-rosada/puntos-de-interes">Puntos de Interés</a></li>
+                                        <li><a href="/la-casa-rosada/visitas-guiadas">Visitas Guiadas</a></li>
+                                        <li><a href="/la-casa-rosada/museo">Museo</a></li> 
+                                    </div>
+
+                                 </ul>
+                         </li>
+
+
+  
+                                     
+
+                            <li><a href="https://www.facebook.com/casarosadaargentina/" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="https://twitter.com/casarosada" target="_blank"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="https://www.instagram.com/CasaRosadaArgentina/" target="_blank"><span class="fa fa-instagram"></span></a></li>
+                            <li><a href="https://www.youtube.com/user/casarosada" target="_blank"><span class="fa fa-youtube-play"></span></a></li>
+							<!--<li><a href="mailto:casarosada@argentina.gob.ar" target="_blank"><span class="fa fa-envelope"></span></a></li>-->
+                            <!--<li><a href="http://www.casarosada.gob.ar/buscador?searchword=&amp;searchphrase=all"><span class="glyphicon glyphicon-search"></span></a></li>-->
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+<div class="custom"  >
+				<div class="jumbotron_bar">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="list-inline pull-left">
+                      Presidencia <strong>Mauricio Macri</strong>
+                    </ul>
+                    <ul class="list-inline pull-right">
+                      <li><a onclick="jQuery('#modalContacto').modal('show')" href="javascript:void(0)">Contacto</a></li>
+                      <li><a onclick="jQuery(&quot;#modalSubscribe&quot;).modal(&quot;show&quot;);" href="javascript:void(0)">Suscribite</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+			</div>
+
+
+</div>
+
+        </div>  
+      </header>      
+     
+    
+     
+
+          <div id="jm-top-mod">
+        <div class="top count_1"><div class="rowcount_1 clearfix"><div class="top-in box1 top-row-first top-row-last"><div class="top-bg"><div class="jm-module jm-slider1 slider-home" id="Mod89">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix">
+	    	
+  <section class="jumbotron jumbotron-main jumbotron-big align-center" style="background-image: url('/images/201803/Macri_Ruta11-cropped.jpg');"></section>
+  <div class="container">          
+      <div class="row">
+          <div class="main-news">          
+            <div class="panel panel-default col-xs-12 col-md-10 col-md-offset-1 jumbotron-hero">
+              <h2><strong>Macri: "Cuidar a los argentinos también es cuidar que no sigamos teniendo tantas tragedias en las rutas"</strong></h2>
+              <p>El Presidente recorri&oacute; las obras que transformar&aacute;n en autopista un tramo de la Ruta Nacional 11, en Formosa.              <p><a class="btn btn-primary" href="/slider-principal/42234-macri-cuidar-a-los-argentinos-tambien-es-cuidar-que-no-sigamos-teniendo-tantas-tragedias-en-las-rutas" role="button">Leer nota</a></p>
+            </div>
+          </div>
+      </div>
+  </div>
+        
+  
+
+<!-- Oculto el html viejo -->
+	    </div>
+	</div>
+</div>
+</div></div></div></div>      </div>
+     
+    
+    
+
+    <div class="jm-allpage-space hide">
+                  <div id="jm-toppage">
+              <div id="jm-toppage-in">
+                  <div id="jm-toppage-wrap" class="clearfix">
+
+                                               <!-- <div id="jm-toppage-left">
+                            <div id="jm-logo-sitedesc">
+                                                                <h1 id="jm-logo"><a href="https://www.casarosada.gob.ar/" onfocus="blur()" ><img src="https://www.casarosada.gob.ar//images/modules/logo_presidencia.png" alt="Presidencia de la Nación Argentina" border="0" /></a></h1>
+                                                                                            </div>
+                        </div> -->
+                                            
+                      <!-- OK-->
+                      
+                  </div><!-- Cierre jm-toppage-wrap -->
+
+                                </div><!-- Cierre jm-toppage-in -->
+            </div><!-- Cierre jm-toppage -->
+
+      <!-- OK-->
+
+      <!-- OK-->
+
+    </div>
+
+    <div id="jm-mainpage">
+      <div id="jm-mainpage-in">
+        
+        
+        <!-- jm-main -->
+        <div id="jm-main" class="lcr scheme1 nocolumns clearfix">
+          <div id="jm-maincontent">
+            
+            <div class="negative-margin-fix">
+
+	
+    <!-- articulo -->
+    <article class="jm-allpage-in">
+
+        <div class="item-page">
+            
+                
+                
+                
+                
+                
+                        
+
+                
+                
+                
+            <div class="col-md-8 col-md-offset-2">
+
+                
+                                                
+                                    
+                                                        
+                    
+                                        
+                                
+                            </div>        
+        </div>    
+    </article>
+</div>
+            
+          </div>
+          <div id="jm-content">
+              <div class="jm-content-in">
+                  
+                                      <div id="jm-content-top2">
+                      <div class="content-top2 count_1"><div class="rowcount_1 clearfix"><div class="content-top2-in box1 content-top2-row-first content-top2-row-last"><div class="content-top2-bg"><div id='presidencia-message'>
+  <div class='refresh-text'>
+    <p>El sitio ha sido actualizado. <a href="https://www.casarosada.gob.ar/">Ir a inicio</p></a>
+  </div>
+  <div class='refresh-close'>
+    <a id='presidencia-message-close' href="#"><img src="https://www.casarosada.gob.ar/media/mod_refresh/control_cierre.png" alt='Close'></a>
+  </div>
+</div>
+</div></div></div></div>                    </div>
+                  
+                                      
+              </div><!-- Cierra jm-content-in -->
+          </div><!-- Cierra jm-content-->
+
+          
+          <!---->
+
+        </div><!-- Cierra jm-main-->
+
+      </div><!-- Cierra jm-mainpage-in -->
+    </div><!-- Cierra jm-mainpage -->
+        
+        
+    <div class="container">
+        <div class="row">
+                    <!-- Modulos FullWidth -->
+                        <section id="modulos_full_width">
+               		<div class="moduletable">
+						
+
+<div class="custom"  >
+	<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-4 col-sm-6">
+      <a href="https://www.argentina.gob.ar/elestadoentubarrio" target="_blank" class="btn btn-primary btn-lg btn-block" style="padding-left: 15px; padding-right: 15px">El Estado en tu Barrio</a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/creditoshipotecarios" target="_blank" class="btn btn-primary btn-lg btn-block" style="padding-left: 10px; padding-right: 10px">
+          Créditos Hipotecarios
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="https://www.argentina.gob.ar/tarifa-social" target="_blank" class="btn btn-primary btn-lg btn-block">Tarifa social</a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="https://www.argentina.gob.ar/redsube" target="_blank" class="btn btn-primary btn-lg btn-block" style="padding-left: 1px; padding-right: 1px">Red SUBE</a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/objetivosdegobierno" target="_blank" class="btn btn-primary btn-lg btn-block">Objetivos de Gobierno</a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/elestadodelestado" target="_blank" class="btn btn-primary btn-lg btn-block">
+         El estado del Estado
+      </a>
+    </div>
+  </div>
+</div></div>
+		</div>
+			<div class="moduletable noticiashome">
+							<h3>Últimas Noticias</h3>
+						<div class="newsflash noticiashome">
+
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/actividad-oficial/9-noticias/42257-el-presidente-macri-recibio-a-la-directora-del-fmi-christine-lagarde">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/Macri_Lagarde1-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 16 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						El presidente Macri recibió a la directora del FMI, Christine Lagarde					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/actividad-oficial/9-noticias/42248-el-presidente-recibio-a-los-atletas-del-summit-aconcagua-2018">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/macri_summit1-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Jueves 15 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						El Presidente recibió a los atletas del Summit Aconcagua 2018					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/actividad-oficial/9-noticias/42245-la-nacion-inaugura-jardines-maternales-en-santa-fe">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/jardin-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Jueves 15 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						La Nación inaugura jardines maternales en Santa Fe					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/actividad-oficial/9-noticias/42244-plan-nacional-de-vivienda-52-familias-recibieron-su-casa-en-rosario">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/viviendasrosario-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Jueves 15 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Plan Nacional de Vivienda: 52 familias recibieron su casa en Rosario					</h4>
+						</div>
+	</a>	
+</div>
+
+<div class='col-md-12'><a class='btn btn-primary' href='/informacion/ultimas-noticias'>Ver M&aacute;s Noticias</a></div>
+</div>
+
+
+
+
+		</div>
+			<div class="moduletable noticiashome">
+							<h3>Eventos Destacados</h3>
+						<div class="newsflash noticiashome">
+
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/eventos-destacados-presi/42226-cascos-blancos-reconoce-a-los-voluntarios-con-argentinavoluntaria">
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 16 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Cascos Blancos reconoce a los voluntarios con #ArgentinaVoluntaria					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/eventos-destacados-presi/42255-el-ministerio-de-transporte-invertira-un-32-mas-en-obras-durante-2018">
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 16 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Aumenta el presupuesto del Ministerio de Transporte para obras					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/eventos-destacados-presi/42253-el-grupo-eramet-anuncio-al-presidente-macri-una-importante-inversion-en-salta">
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 16 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						El Grupo Eramet le anunció a Macri una importante inversión en Salta					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/informacion/eventos-destacados-presi/42249-los-neneficiarios-de-anses-no-deben-entregar-datos-de-tarjetas-de-credito-ni-claves-bancarias">
+				
+		<div class="panel-body">
+						
+					<time>											
+							Jueves 15 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Los beneficiarios de ANSES no deben entregar datos de tarjetas de crédito ni claves bancarias					</h4>
+						</div>
+	</a>	
+</div>
+
+<div class='col-md-12'><a class='btn btn-primary' href='/informacion/eventos-destacados-presi'>Ver M&aacute;s de Eventos</a></div>
+</div>
+
+
+
+
+		</div>
+			<div class="moduletable noticiashome">
+							<h3>Gobierno Informa</h3>
+						<div class="newsflash noticiashome">
+
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/gobierno-informa/42233-la-red-de-expresos-regionales-se-licitara-a-traves-del-sistema-ppp">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/rer_tuneles-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Mi&eacute;rcoles 14 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Transporte anunció la primera etapa de la Red de Expresos Regionales					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/gobierno-informa/42215-una-muestra-del-c3-sobre-diseno-textil-llega-a-los-estados-unidos">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/ciencia-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Lunes 12 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						Una muestra del C3 sobre diseño textil llega a los Estados Unidos					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/gobierno-informa/42186-el-gobierno-lanzo-la-marca-argentina">
+				
+					<div class="panel-heading" style="background-image: url('/images/201803/Marca_Pais_Institucional2-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 09 de marzo de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						El Gobierno lanzó la “Marca Argentina”					</h4>
+						</div>
+	</a>	
+</div>
+<div class="col-sm-6 col-md-3">
+	<a class="panel" href="/gobierno-informa/42072-la-argentina-celebro-los-114-anos-de-presencia-permanente-en-la-antartida">
+				
+					<div class="panel-heading" style="background-image: url('/images/201802/ara_canal_beagle-cropped.jpg');"></div>		
+				
+		<div class="panel-body">
+						
+					<time>											
+							Viernes 23 de febrero de 2018					</time>
+					<h4 class="newsflash-title  noticiashome">
+
+						La Argentina celebró los 114 años de presencia permanente en la Antártida					</h4>
+						</div>
+	</a>	
+</div>
+
+<div class='col-md-12'><a class='btn btn-primary' href='/informacion/gobierno-informa-presi'>Ver M&aacute;s de Gobierno Informa</a></div>
+</div>
+
+
+
+
+		</div>
+	
+              </section>
+            
+                    <!-- Modulos Centered -->
+                  </div>
+        <div class="row">
+          <!-- Modulos HalfWidth -->
+                      
+              <section id="modulos_half_width" class="container">
+                <div class="row">
+                                      <section class="col-sm-12 col-md-6">
+                          
+                    </section>
+                  
+                                      <section class="col-sm-12 col-md-6">                
+                          		<div class="moduletable sitios-de-interes">
+							<h3>Sitios de interés</h3>
+						
+
+<div class="custom sitios-de-interes"  >
+	<div class="row-ministerios">	
+<!--  <a href="http://www.prensa.argentina.ar/" class="panel panel-default">
+    <div class="panel-body">
+      <h3>Sala de Prensa</h3>
+    </div>
+  </a>-->
+  <a href="http://www.argentina.gob.ar/" class="panel panel-default">
+    <div class="panel-body">
+      <h3>Argentina.gob.ar</h3>
+    </div>
+  </a>
+  <a href="http://www.youtube.com/casarosada" class="panel panel-default">
+    <div class="panel-body">
+      <h3>Casa Rosada en Youtube</h3>
+    </div>
+  </a>
+</div></div>
+		</div>
+	                
+                    </section>
+                                  </div>
+              </section>
+
+                  </div>
+    </div>        
+        
+        <div id="jm-bottompage">
+            <div id="jm-bottompage-in">
+                                
+
+              
+              
+            </div> <!-- Ciera jm-bottompage-in -->
+        </div>     <!-- Ciera jm-bottompage --> 
+
+        <!-- <p id="jm-back-top" style="display: block;"><a href="#top"><span></span>&nbsp;</a></p> -->
+
+  </div>  
+    
+  
+
+  <section id="palacio-gobierno">    
+    <div id="jm-bottom2" class="clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bottom2 count_3"><div class="rowcount_1 clearfix"><div class="bottom2-in box1 bottom2-row-first bottom2-row-last"><div class="bottom2-bg"><div class="jm-module " id="Mod166">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix">
+	    	
+
+<div class="custom"  >
+	<div id="jm-bottom2" class="clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bottom2 count_3"><div class="rowcount_1 clearfix"><div class="bottom2-in box1 bottom2-row-first bottom2-row-last"><div class="bottom2-bg"><div class="jm-module " id="Mod166">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix">
+	    	
+
+<div class="custom"  >
+	<div class="row row-extra">
+  <div class="col-md-12">
+    <h2 class="h3 section-title">Palacio de Gobierno</h2>
+  </div>
+</div>
+<div class="row row-extra row-news row-ministerios">            
+  <div class="col-sm-4 col-md-2">            
+    <a href="/salones" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/201703/Salon_Blanco1.jpg');"></div>
+      <div class="panel-body">
+        <h4>Salones<br>&nbsp;</h4>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-4 col-md-2">            
+    <a href="/galerias" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/201703/Bustos1.jpg');"></div>
+      <div class="panel-body">
+        <h4>Galerías y escaleras</h4>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-4 col-md-2">            
+    <a href="/despachos" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/201703/Presidencia5.jpg');"></div>
+      <div class="panel-body">
+        <h4>Despachos<br>&nbsp;</h4>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-4 col-md-2">            
+    <a href="/patios" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/201505/patio-P1020133.JPG');"></div>
+      <div class="panel-body">
+        <h4>Patios<br>&nbsp;</h4>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-4 col-md-2">            
+    <a href="/exteriores" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/201704/exteriores24.jpg');"></div>
+      <div class="panel-body">
+        <h4>Exteriores<br>&nbsp;</h4>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-4 col-md-2">            
+    <a href="/museo" class="panel panel-default">
+      <div class="panel-heading" style="background-image: url('/images/modules/palacio/museo.jpg');"></div>
+      <div class="panel-body">
+        <h4>Museo<br>&nbsp;</h4>
+      </div>
+    </a>
+  </div>
+</div></div>
+	    </div>
+	</div>
+</div>
+</div></div></div><div class="rowcount_1 clearfix"><div class="bottom2-in box1 bottom2-row-first bottom2-row-last"><div class="bottom2-bg"><div class="jm-module " id="Mod182">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix"></div>
+	    </div>
+	</div>
+</div>
+</div></div></div><div class="rowcount_1 clearfix"><div class="bottom2-in box1 bottom2-row-first bottom2-row-last"><div class="bottom2-bg"><div class="jm-module " id="Mod182">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix">
+	    	
+
+<div class="custom"  >
+	<!-- Modal -->
+<div id="modalSubscribe" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 id="myModalLabel" class="modal-title">Suscribite con tu mail</h4>
+      </div>
+      <div class="modal-body">
+        <form action="https://contacto.casarosada.gob.ar" method="post" name="embedded-subscribe-form" novalidate="" target="_blank" id="embedded-subscribe-form" class="validate">
+  	      <div class="form-group">
+            <input class="form-control" id="email" name="email-pop" type="email" value="" required />
+  	      </div>
+  	      <div class="form-group">
+            <div><a class="btn btn-primary pull-right modal-submit" type="button" href="#">Suscribite</a></div>
+  	      </div>
+       </form>
+       <div id="mce-responses" class="clear" />
+    </div>
+  </div>
+</div>
+<!-- codigo para abrir el modal: jQuery('#modalSubscribe').modal("show") -->
+<p>&nbsp;</p>
+<script type="text/javascript">
+	jQuery(function($){
+      $('#modalSubscribe a.modal-submit').on('click', function(e){
+         $('#modalSubscribe #email').parent().removeClass("has-error");
+         if( $('#modalSubscribe #email').val() == "" || !$('#modalSubscribe #email').val().match( /\S+@\S+/ ) )
+         {
+           $('#modalSubscribe #email').focus();
+           $('#modalSubscribe #email').parent().addClass("has-error");
+         }
+        else
+         {
+           $('#modalSubscribe form').submit();
+           $('#modalSubscribe').modal("hide");
+         }
+        e.preventDefault();
+        return false;
+      });
+    });
+</script></div>
+	    </div>
+	</div>
+</div>
+</div></div></div><div class="rowcount_1 clearfix"><div class="bottom2-in box1 bottom2-row-first bottom2-row-last"><div class="bottom2-bg"><div class="jm-module " id="Mod190">
+	<div class="jm-module-in">
+			    <div class="jm-module-content clearfix">
+	    	
+
+<div class="custom"  >
+	<!-- Modal -->
+<div id="modalContacto" class="modal fade" tabindex="-1">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              <h4 id="myModalLabel" class="modal-title">Queremos estar más y mejor comunicados, conocerte y acompañarte. Escribinos y contanos tus sueños, ideas e inquietudes. ¡Estamos en contacto!</h4>
+          </div>
+          <div class="modal-body">
+            <iframe data-src="https://contacto.casarosada.gob.ar/contacto" noborder width="100%" height="600" style="border:0px"></iframe>
+          </div>
+		</div>
+    </div>
+</div>
+<script type="text/javascript">
+  console.log('instalando');
+  jQuery(function($){
+  	var iframe = $('#modalContacto iframe');
+  	$('#modalContacto').on('show.bs.modal', function(){
+      	iframe.attr('src', iframe.attr('data-src'));
+    });
+    iframe.attr('src', iframe.attr('data-src'));
+  });
+</script>
+<!-- codigo para abrir el modal: jQuery('#modalContacto').modal("show") -->
+<p>&nbsp;</p>
+</div>
+	    </div>
+	</div>
+</div>
+</div></div></div></div>          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="main-footer">
+              <div id="jm-footer">
+          		<div class="moduletable">
+						
+
+<div class="custom"  >
+	  <div class="container hidden-print">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <h2 class="h3 section-title">Institucional</h2>
+            <div class="social-btn">
+                <ul>
+                    <li><a href="https://www.facebook.com/casarosadaargentina/" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                    <li><a href="https://twitter.com/casarosada" target="_blank"><span class="fa fa-twitter"></span></a></li>
+                    <li><a href="https://www.instagram.com/CasaRosadaArgentina/" target="_blank"><span class="fa fa-instagram"></span></a></li>
+                    <li><a href="https://www.youtube.com/user/casarosada" target="_blank"><span class="fa fa-youtube-play"></span></a></li>
+                </ul>
+            </div>
+            <br>
+            <p class="text-muted"><small>Los contenidos de Casa Rosada están licenciados bajo <a href="https://creativecommons.org/licenses/by/2.5/ar/">Creative Commons Reconocimiento 2.5 Argentina License</a></small></p>
+            <br>
+            <img class="image-responsive" alt="Casa Rosada - Presidencia de la Nación" src="/images/modules/logo.svg">
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <h2 class="h3 section-title">El Presidente</h2>
+            <ul>
+                <li><a href="/el-presidente/biografia">Biografía</a></li>
+                <li><a href="/el-presidente/cargos-y-atribuciones">Cargos y responsabilidades</a></li>
+                <li><a href="https://audiencias.mininterior.gob.ar">Registro de audiencias</a></li>
+                <li><a href="http://contacto.casarosada.gob.ar/audiencia/" target="_blank">Solicitud de audiencia</a></li>
+            </ul>
+
+<h2 class="h3 section-title">Vicepresidencia</h2>
+            <ul>
+                                        <li><a href="/la-vicepresidente">Novedades</a></li>
+                                        <li><a href="/la-vicepresidente/biografia">Biografía</a></li>
+                                        <li><a href="/la-vicepresidente/cargos-y-responsabilidades">Cargos y responsabilidades</a></li>
+</ul>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <h2 class="h3 section-title">Información</h2>
+            <ul>
+                <li><a href="http://www.argentina.gob.ar/" target="_blank">Trámites y servicios</a></li>
+                <li><a href="/informacion/ultimas-noticias">Últimas noticias</a></li>
+                <li><a href="/informacion/eventos-destacados-presi">Eventos destacados</a></li>
+                <li><a href="/informacion/gobierno-informa-presi">Gobierno informa</a></li>
+<!--            <li><a href="http://www.prensa.argentina.ar/">Sala de prensa</a></li>-->
+                <li><a href="/informacion/actividad-oficial">Actividad oficial</a></li>
+                <li><a href="/informacion/conferencias">Conferencias</a></li>
+                <li><a href="/informacion/discursos">Discursos</a></li>
+                <li><a href="/informacion/fotos">Fotos</a></li>
+                <li><a href="/informacion/videos">Videos</a></li>
+                <li><a href="/informacion/que-estamos-diciendo">Qué estamos diciendo</a></li>              
+                <li><a href="/informacion/archivo">Archivo</a></li>              
+                <li><a href="http://contacto.casarosada.gob.ar/audiencia/" target="_blank">Solicitud de audiencia</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="col-md-3 col-sm-6">
+            <h2 class="h3 section-title">Más secciones</h2>
+            <ul>
+                <h4>Nuestro País</h4>
+                <li><a href="/nuestro-pais/acerca-de-argentina">Acerca de Argentina</a></li>
+                <li><a href="/nuestro-pais/organizacion">Organización</a></li>
+                <li><a href="/nuestro-pais/simbolos-nacionales">Símbolos Nacionales</a></li>
+                <li><a href="/nuestro-pais/historia">Historia</a></li>
+                <li><a href="/nuestro-pais/constitucion-nacional">Constitución Nacional</a></li>
+                <li><a href="/nuestro-pais/galeria-de-presidentes">Galería de Presidentes</a></li>
+
+                <!-- <h4>Servicios</h4>
+                <li><a href="/servicios-al-ciudadano">Servicios al Ciudadano</a></li> -->
+                
+                <h4>La Casa Rosada</h4>
+                <li><a href="/la-casa-rosada/historia">Historia</a></li>
+                <li><a href="/la-casa-rosada/puntos-de-interes">Puntos de Interés</a></li>
+                <li><a href="/la-casa-rosada/visitas-guiadas">Visitas Guiadas</a></li>
+                <li><a href="/la-casa-rosada/museo">Museo</a></li>
+                <!--<li><a href="/la-casa-rosada/palacio">Recuperación del Palacio</a></li>-->
+
+                <!-- <h4>Gobierno</h4>
+                <li><a href="/gobierno/autoridades-nacionales">Autoridades Nacionales</a></li>
+                <li><a href="http://www.sgp.gov.ar/dno/Org%20Total/mes.pdf">Organigrama</a></li> -->
+            </ul>
+        </div>
+    </div>
+  </div></div>
+		</div>
+			<div class="moduletable">
+						
+
+<div class="custom"  >
+	<style type="text/css">
+
+#modulos_full_width .moduletable {margin-bottom:60px;}
+
+
+.presiagenda-row {background-color:#fff;}
+.presiagenda-row .no-events {padding:60px;font-size:18px;text-align:center;margin-left:0;}
+
+.sitios-de-interes {margin-bottom:90px;}
+
+
+
+
+
+
+
+</style></div>
+		</div>
+	
+        </div>
+      </footer>
+
+<script language="javascript" type="text/javascript" src="https://www.casarosada.gob.ar/templates/jm-news-portal//lib/js/doctextsizer.js"></script>
+<script type="text/javascript">
+window.addEvent('domready', function() {
+	// hide #jm-back-top first
+	document.id('jm-back-top').fade('hide');
+	// fade in #jm-back-top
+	window.addEvent('scroll', function() {
+		if (window.getScroll().y > 100) {
+			document.id('jm-back-top').fade('in');
+		} else {
+			document.id('jm-back-top').fade('out');
+		}
+	});
+	// scroll body to 0px on click
+	document.id('jm-back-top').addEvent('click', function() {
+		scroll = new Fx.Scroll(window);
+		scroll.toTop();
+	});
+});
+</script>
+<script language="javascript" type="text/javascript" src="https://www.casarosada.gob.ar/templates/jm-news-portal/lib/js/set_height.js"></script>
+<script type="text/javascript">
+	$template_path = 'https://www.casarosada.gob.ar//templates/jm-news-portal';
+</script>
+	<script language="javascript" type="text/javascript" src="https://www.casarosada.gob.ar/templates/jm-news-portal/lib/js/template_scripts.js"></script>
+<script type="text/javascript">                        
+  documenttextsizer.setup("texttoggler");
+</script>
+</body>
+</html>

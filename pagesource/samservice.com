@@ -1,0 +1,1264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	سام سرويس - صفحه اصلی
+</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="verify-v1" content="C3JztxSpgJo/0Pdgp2I2R+t4+o7VEulzzBx7txwPNQc=" /><meta name="1a9ba805eb8ee5582ef30d7649e0909c8992c783" content="a19f000e592da9011fafcd4adfe5299dd0d3941e" /><meta name="description" content="سام سرويس، نماينده انحصاری  رسمي خدمات پس از فروش محصولات صوتی تصویری، خانگی و تجهیزات کامپیوتر سامسونگ در ايران" />
+    <link rel="stylesheet" type="text/css" href="/Common/css/default.min.css" />
+    <script type="text/javascript" src="/Common/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Common/js/jquery-ui-1.10.2.custom.min.js"></script>
+    
+    
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="AspxPage/Common/css/ie7.min.css" /><![endif]-->
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W9BZ74" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9BZ74');</script>
+<!-- End Google Tag Manager -->
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">_atrk_opts = { atrk_acct:"wbtmg1awAe00ao", domain:"samservice.com",dynamic: true};(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=wbtmg1awAe00ao" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  
+    <div id="UpperMenus">
+        <div class="Holder960">
+            <div class="HeaderLogo">
+                <a href="/" target="_self" class="logo"></a>
+            </div>
+            <div id="topMenu2" style="width:530px;">
+                <ul dir="rtl">
+                    <li><span>محصولات</span>
+                        <ul class="topMenu2_Product">
+                            <li>
+                                <table width="620">
+                                    <tr>
+                                        <td id="ctl00_topMenuCatHolderTD"><div id="topMenuCatHolderDIV"><div class="photoHolder"><img src="../Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/Photo/SmallPic.jpg"/></div><div class="titleHolder"><a href="/cat/av ">صوتی و تصویری</a></div><div class="linkHolder"><a href="/category/tv">تلویزیون</a><a href="/category/hometeater">سیستم سینمای خانگی</a><a href="/cat/dvd">دی وی دی  پلیر</a><a href="/category/soundbar">ساندبار</a><a href="/category/sp3">اسپیکر360 </a></div></div><div id="topMenuCatHolderDIV"><div class="photoHolder"><img src="../Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/Photo/SmallPic.jpg"/></div><div class="titleHolder"><a href="/cat/ha ">لوازم خانگی</a></div><div class="linkHolder"><a href="/category/sidebyside">ساید بای ساید</a><a href="/category/refrigerator">یخچال فریزر</a><a href="/category/washingmachine">ماشین لباسشویی</a><a href="/category/dishwasher">ماشین ظرفشویی</a><a href="/category/microwaves">مایکروفر</a><a href="/category/vacuumcleaner">جاروبرقی</a><a href="/cat/hc">لوازم آشپز خانه توکار</a><a href="/cat/cooler">کولر گازی</a><a href="/category/air conditioner">تصفیه هوا</a><a href="/cat/airconditioner">سیستم های تهویه مطبوع</a></div></div><div id="topMenuCatHolderDIV"><div class="photoHolder"><img src="../Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/Photo/SmallPic.jpg"/></div><div class="titleHolder"><a href="/cat/ac ">موبایل و تبلت </a></div><div class="linkHolder"><a href="/category/mobile">موبایل</a><a href="/category/tablet">تبلت</a></div></div><div id="topMenuCatHolderDIV"><div class="photoHolder"><img src="../Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/Photo/SmallPic.jpg"/></div><div class="titleHolder"><a href="/cat/it ">تجهیزات کامپیوتر</a></div><div class="linkHolder"><a href="/cat/smartsignage">نمایشگر هوشمند حرفه ای</a><a href="/category/monitor">مانیتور</a><a href="/category/printer">پرینتر</a><a href="/category/tuner">تونر</a></div></div></td>
+
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span>نمايندگی‌‌ها</span>
+                        <ul class="topMenu2_agency">
+                            <li><a href="/agents/sales">نمايندگی‌‌های فروش</a></li>
+                            <li><a href="/agents/service">نمايندگی‌‌های پس از فروش</a></li>
+                        </ul>
+                    </li>
+                    <li><span>رويدادها</span>
+                        <ul class="topMenu2_usualls">
+                            <li><a href="/calendar">رویدادهای سام سرویس</a></li>
+                            <li><a href="/draw">قرعه کشی ها و جوایز</a></li>
+                        </ul>
+                    </li>
+                    <li><span>اطلاعات کاربردی</span>
+                        <ul class="topMenu2_usualls">
+                            <li><a href="/news">اخبار</a></li>
+                            <li><a href="/articles">مقالات</a></li>
+                            <li><a href="/newest_learnings">تازه ها و آموزش</a></li>
+                            <li><a href="/samsungapps">اپليکيشن های سامسونگ</a></li>
+                        </ul>
+                    </li>
+                    <li><span>خدمات و پشتیبانی</span>
+                    	  <ul class="topMenu2_usualls">
+                    	  	<li><a href="http://drm.samservice.net/requestservice.aspx">درخواست نصب و تعمیر</a></li>
+                    	  	<li><a href="http://drm.samservice.net/AcSapacityItems.aspx">ظرفیت سنجی کولر</a></li>
+                            <li><a href="http://drm.samservice.net/salerDetction.aspx">صدای مشتری</a></li>
+                            <li><a href="/warranty">شرایط گارانتی</a></li>
+                    	  </ul>
+                    </li>
+                    <li><span>همکاری با ما</span>
+                        <ul class="topMenu2_usualls">
+                            <li><a href="/job">استخدام در سام سرویس</a></li>
+                            <li><a href="/agent-apply">اخذ نمایندگی</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="topMenu1">
+                <ul class="topMenu2_usualls">
+                    <li><a href="/warranty">شرایط گارانتی</a></li>
+                    <li><a href="/about">درباره ما</a></li>
+                    <li><a href="/contact" class="lastChild">تماس با ما</a></li>
+                    
+                </ul>
+            </div>
+            <br />
+            <br />
+            <div id="searchBox">
+                
+                <input type="text" id="totalSearchField" class="searchField" />
+                <input type="button" onclick="totalSearch();" class="SearchBtn" />
+                
+            </div>
+        </div>
+    </div>
+    <div class="headerShadow"></div>
+    <div id="TotalContent">
+        <!--<div id="divSysMessage" timeoutid="0" iscalledbyserver="false">
+            <table>
+                <tr>
+                    <td>
+                        <img id="imgSysMessage" /></td>
+                    <td style="vertical-align: middle"><span id="spnSysMessage"></span></td>
+                </tr>
+            </table>
+        </div>-->
+        <form name="aspnetForm" method="post" action="./" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI2NTc3MTYwNA9kFgJmD2QWBgIBDxYCHglpbm5lcmh0bWwF+BA8ZGl2IGlkPSJ0b3BNZW51Q2F0SG9sZGVyRElWIj48ZGl2IGNsYXNzPSJwaG90b0hvbGRlciI+PGltZyBzcmM9Ii4uL0ltYWdlcy9DYXRlZ29yeS9kNzY0NzM0My1hM2Y1LTQyYjctOTk2ZC0yMjVjMzE2YTk0N2YvUGhvdG8vU21hbGxQaWMuanBnIi8+PC9kaXY+PGRpdiBjbGFzcz0idGl0bGVIb2xkZXIiPjxhIGhyZWY9Ii9jYXQvYXYgIj7YtdmI2KrbjCDZiCDYqti12YjbjNix24w8L2E+PC9kaXY+PGRpdiBjbGFzcz0ibGlua0hvbGRlciI+PGEgaHJlZj0iL2NhdGVnb3J5L3R2Ij7YqtmE2YjbjNiy24zZiNmGPC9hPjxhIGhyZWY9Ii9jYXRlZ29yeS9ob21ldGVhdGVyIj7Ys9uM2LPYqtmFINiz24zZhtmF2KfbjCDYrtin2Ybar9uMPC9hPjxhIGhyZWY9Ii9jYXQvZHZkIj7Yr9uMINmI24wg2K/bjCAg2b7ZhNuM2LE8L2E+PGEgaHJlZj0iL2NhdGVnb3J5L3NvdW5kYmFyIj7Ys9in2YbYr9io2KfYsTwvYT48YSBocmVmPSIvY2F0ZWdvcnkvc3AzIj7Yp9iz2b7bjNqp2LEzNjAgPC9hPjwvZGl2PjwvZGl2PjxkaXYgaWQ9InRvcE1lbnVDYXRIb2xkZXJESVYiPjxkaXYgY2xhc3M9InBob3RvSG9sZGVyIj48aW1nIHNyYz0iLi4vSW1hZ2VzL0NhdGVnb3J5L2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MC9QaG90by9TbWFsbFBpYy5qcGciLz48L2Rpdj48ZGl2IGNsYXNzPSJ0aXRsZUhvbGRlciI+PGEgaHJlZj0iL2NhdC9oYSAiPtmE2YjYp9iy2YUg2K7Yp9mG2q/bjDwvYT48L2Rpdj48ZGl2IGNsYXNzPSJsaW5rSG9sZGVyIj48YSBocmVmPSIvY2F0ZWdvcnkvc2lkZWJ5c2lkZSI+2LPYp9uM2K8g2KjYp9uMINiz2KfbjNivPC9hPjxhIGhyZWY9Ii9jYXRlZ29yeS9yZWZyaWdlcmF0b3IiPtuM2K7ahtin2YQg2YHYsduM2LLYsTwvYT48YSBocmVmPSIvY2F0ZWdvcnkvd2FzaGluZ21hY2hpbmUiPtmF2KfYtNuM2YYg2YTYqNin2LPYtNmI24zbjDwvYT48YSBocmVmPSIvY2F0ZWdvcnkvZGlzaHdhc2hlciI+2YXYp9i024zZhiDYuNix2YHYtNmI24zbjDwvYT48YSBocmVmPSIvY2F0ZWdvcnkvbWljcm93YXZlcyI+2YXYp9uM2qnYsdmI2YHYsTwvYT48YSBocmVmPSIvY2F0ZWdvcnkvdmFjdXVtY2xlYW5lciI+2KzYp9ix2YjYqNix2YLbjDwvYT48YSBocmVmPSIvY2F0L2hjIj7ZhNmI2KfYstmFINii2LTZvtiyINiu2KfZhtmHINiq2Yjaqdin2LE8L2E+PGEgaHJlZj0iL2NhdC9jb29sZXIiPtqp2YjZhNixINqv2KfYstuMPC9hPjxhIGhyZWY9Ii9jYXRlZ29yeS9haXIgY29uZGl0aW9uZXIiPtiq2LXZgduM2Ycg2YfZiNinPC9hPjxhIGhyZWY9Ii9jYXQvYWlyY29uZGl0aW9uZXIiPtiz24zYs9iq2YUg2YfYp9uMINiq2YfZiNuM2Ycg2YXYt9io2YjYuTwvYT48L2Rpdj48L2Rpdj48ZGl2IGlkPSJ0b3BNZW51Q2F0SG9sZGVyRElWIj48ZGl2IGNsYXNzPSJwaG90b0hvbGRlciI+PGltZyBzcmM9Ii4uL0ltYWdlcy9DYXRlZ29yeS8yOTdjNDcyNy0wMDAzLTRlOTktODJjOC1lMDAzZWM0MmEzMDcvUGhvdG8vU21hbGxQaWMuanBnIi8+PC9kaXY+PGRpdiBjbGFzcz0idGl0bGVIb2xkZXIiPjxhIGhyZWY9Ii9jYXQvYWMgIj7ZhdmI2KjYp9uM2YQg2Ygg2KrYqNmE2KogPC9hPjwvZGl2PjxkaXYgY2xhc3M9ImxpbmtIb2xkZXIiPjxhIGhyZWY9Ii9jYXRlZ29yeS9tb2JpbGUiPtmF2YjYqNin24zZhDwvYT48YSBocmVmPSIvY2F0ZWdvcnkvdGFibGV0Ij7Yqtio2YTYqjwvYT48L2Rpdj48L2Rpdj48ZGl2IGlkPSJ0b3BNZW51Q2F0SG9sZGVyRElWIj48ZGl2IGNsYXNzPSJwaG90b0hvbGRlciI+PGltZyBzcmM9Ii4uL0ltYWdlcy9DYXRlZ29yeS9jYWJiZjZiYS04MDlhLTRmZjgtODg5Yi0yYjYyMTQyNTVlMTEvUGhvdG8vU21hbGxQaWMuanBnIi8+PC9kaXY+PGRpdiBjbGFzcz0idGl0bGVIb2xkZXIiPjxhIGhyZWY9Ii9jYXQvaXQgIj7Yqtis2YfbjNiy2KfYqiDaqdin2YXZvtuM2YjYqtixPC9hPjwvZGl2PjxkaXYgY2xhc3M9ImxpbmtIb2xkZXIiPjxhIGhyZWY9Ii9jYXQvc21hcnRzaWduYWdlIj7ZhtmF2KfbjNi02q/YsSDZh9mI2LTZhdmG2K8g2K3YsdmB2Ycg2KfbjDwvYT48YSBocmVmPSIvY2F0ZWdvcnkvbW9uaXRvciI+2YXYp9mG24zYqtmI2LE8L2E+PGEgaHJlZj0iL2NhdGVnb3J5L3ByaW50ZXIiPtm+2LHbjNmG2KrYsTwvYT48YSBocmVmPSIvY2F0ZWdvcnkvdHVuZXIiPtiq2YjZhtixPC9hPjwvZGl2PjwvZGl2PmQCAg9kFgICAw9kFgoCAQ8WAh8ABY9ZPGxpICBvbmNsaWNrPSJyZXR1cm4gc2VsZWN0Q2F0RXZlbnQoMSk7Ij48c3BhbiBocmVmPSIjdGhlTGF0ZXN0Ij7YtdmI2KrbjCDZiCDYqti12YjbjNix24w8L3NwYW4+PHVsIGNsYXNzPSJyaWdodE1lbnVlcyIgaWQ9InN1Yk1lbnUxIj48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3R2IiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZDc2NDczNDMtYTNmNS00MmI3LTk5NmQtMjI1YzMxNmE5NDdmJykiPtiq2YTZiNuM2LLbjNmI2YY8L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L2hvbWV0ZWF0ZXIiIG9uY2xpY2s9ImNhdFN1YkNsaWNrKCdkNzY0NzM0My1hM2Y1LTQyYjctOTk2ZC0yMjVjMzE2YTk0N2YnKSI+2LPbjNiz2KrZhSDYs9uM2YbZhdin24wg2K7Yp9mG2q/bjDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0L2R2ZCIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3ZicpIj7Yr9uMINmI24wg2K/bjCAg2b7ZhNuM2LE8L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3NvdW5kYmFyIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZDc2NDczNDMtYTNmNS00MmI3LTk5NmQtMjI1YzMxNmE5NDdmJykiPtiz2KfZhtiv2KjYp9ixPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSJzdWJNZW51IiBocmVmPSJjYXRlZ29yeS9zcDMiIG9uY2xpY2s9ImNhdFN1YkNsaWNrKCdkNzY0NzM0My1hM2Y1LTQyYjctOTk2ZC0yMjVjMzE2YTk0N2YnKSI+2KfYs9m+24zaqdixMzYwIDwvYT48L2xpPjwvdWw+PC9saT48bGkgIG9uY2xpY2s9InJldHVybiBzZWxlY3RDYXRFdmVudCgyKTsiPjxzcGFuIGhyZWY9IiN0aGVMYXRlc3QiPtmE2YjYp9iy2YUg2K7Yp9mG2q/bjDwvc3Bhbj48dWwgY2xhc3M9InJpZ2h0TWVudWVzIiBpZD0ic3ViTWVudTIiPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvc2lkZWJ5c2lkZSIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MCcpIj7Ys9in24zYryDYqNin24wg2LPYp9uM2K88L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3JlZnJpZ2VyYXRvciIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MCcpIj7bjNiu2obYp9mEINmB2LHbjNiy2LE8L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3dhc2hpbmdtYWNoaW5lIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwJykiPtmF2KfYtNuM2YYg2YTYqNin2LPYtNmI24zbjDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvZGlzaHdhc2hlciIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MCcpIj7Zhdin2LTbjNmGINi42LHZgdi02YjbjNuMPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSJzdWJNZW51IiBocmVmPSJjYXRlZ29yeS9taWNyb3dhdmVzIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwJykiPtmF2KfbjNqp2LHZiNmB2LE8L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3ZhY3V1bWNsZWFuZXIiIG9uY2xpY2s9ImNhdFN1YkNsaWNrKCdmM2FlOGUzYS1jMjM0LTQ0YmMtODVjMS0xOTk2OTkxNjY5OTAnKSI+2KzYp9ix2YjYqNix2YLbjDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0L2hjIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwJykiPtmE2YjYp9iy2YUg2KLYtNm+2LIg2K7Yp9mG2Ycg2KrZiNqp2KfYsTwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0L2Nvb2xlciIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MCcpIj7aqdmI2YTYsSDar9in2LLbjDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvYWlyIGNvbmRpdGlvbmVyIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwJykiPtiq2LXZgduM2Ycg2YfZiNinPC9hPjwvbGk+PGxpPjxhIGNsYXNzPSJzdWJNZW51IiBocmVmPSJjYXQvYWlyY29uZGl0aW9uZXIiIG9uY2xpY2s9ImNhdFN1YkNsaWNrKCdmM2FlOGUzYS1jMjM0LTQ0YmMtODVjMS0xOTk2OTkxNjY5OTAnKSI+2LPbjNiz2KrZhSDZh9in24wg2KrZh9mI24zZhyDZhdi32KjZiNi5PC9hPjwvbGk+PC91bD48L2xpPjxsaSAgb25jbGljaz0icmV0dXJuIHNlbGVjdENhdEV2ZW50KDMpOyI+PHNwYW4gaHJlZj0iI3RoZUxhdGVzdCI+2YXZiNio2KfbjNmEINmIINiq2KjZhNiqIDwvc3Bhbj48dWwgY2xhc3M9InJpZ2h0TWVudWVzIiBpZD0ic3ViTWVudTMiPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvbW9iaWxlIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3JykiPtmF2YjYqNin24zZhDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvdGFibGV0IiBvbmNsaWNrPSJjYXRTdWJDbGljaygnMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3JykiPtiq2KjZhNiqPC9hPjwvbGk+PC91bD48L2xpPjxsaSAgb25jbGljaz0icmV0dXJuIHNlbGVjdENhdEV2ZW50KDQpOyI+PHNwYW4gaHJlZj0iI3RoZUxhdGVzdCI+2KrYrNmH24zYstin2Kog2qnYp9mF2b7bjNmI2KrYsTwvc3Bhbj48dWwgY2xhc3M9InJpZ2h0TWVudWVzIiBpZD0ic3ViTWVudTQiPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0L3NtYXJ0c2lnbmFnZSIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMScpIj7ZhtmF2KfbjNi02q/YsSDZh9mI2LTZhdmG2K8g2K3YsdmB2Ycg2KfbjDwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvbW9uaXRvciIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMScpIj7Zhdin2YbbjNiq2YjYsTwvYT48L2xpPjxsaT48YSBjbGFzcz0ic3ViTWVudSIgaHJlZj0iY2F0ZWdvcnkvcHJpbnRlciIgb25jbGljaz0iY2F0U3ViQ2xpY2soJ2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMScpIj7Zvtix24zZhtiq2LE8L2E+PC9saT48bGk+PGEgY2xhc3M9InN1Yk1lbnUiIGhyZWY9ImNhdGVnb3J5L3R1bmVyIiBvbmNsaWNrPSJjYXRTdWJDbGljaygnY2FiYmY2YmEtODA5YS00ZmY4LTg4OWItMmI2MjE0MjU1ZTExJykiPtiq2YjZhtixPC9hPjwvbGk+PC91bD48L2xpPjxsaSBvbmNsaWNrPSJyZXR1cm4gc2VsZWN0Q2F0RXZlbnQoNSk7IiA+PHNwYW4gaHJlZj0iI3RoZUxhdGVzdCIgIGNsYXNzPSJUaGVMYXN0Ij7Yotiu2LHZitmGINmF2K3YtdmI2YTYp9iqPC9zcGFuPjwvbGk+PC91bD48c2NyaXB0PmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzRdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3Zi9EeW5hbWljSGVhZGVycy9iYXNlLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzBdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3Zi9EeW5hbWljSGVhZGVycy8xLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3Zi9EeW5hbWljSGVhZGVycy8yLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzJdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3Zi9EeW5hbWljSGVhZGVycy8zLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzNdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2Q3NjQ3MzQzLWEzZjUtNDJiNy05OTZkLTIyNWMzMTZhOTQ3Zi9EeW5hbWljSGVhZGVycy80LmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzRdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cHM6Ly9zYW1zZXJ2aWNlLmNvbS9ldmVudC8xNTkiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzBdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cHM6Ly93d3cuc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvc291bmRiYXIiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cHM6Ly93d3cuc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvdHYiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQxIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzJdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cHM6Ly9zYW1zZXJ2aWNlLmNvbS9BcnRpY2xlLzI2OSI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDEiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbM10uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwczovL3d3dy5zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS9zb3VuZGJhciI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbNF0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwL0R5bmFtaWNIZWFkZXJzL2Jhc2UuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMF0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwL0R5bmFtaWNIZWFkZXJzLzEuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMV0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwL0R5bmFtaWNIZWFkZXJzLzIuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMl0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwL0R5bmFtaWNIZWFkZXJzLzMuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbM10uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvZjNhZThlM2EtYzIzNC00NGJjLTg1YzEtMTk5Njk5MTY2OTkwL0R5bmFtaWNIZWFkZXJzLzQuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbNF0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwczovL3NhbXNlcnZpY2UuY29tL2V2ZW50LzE2MCI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMF0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vd3d3LnNhbXNlcnZpY2UuY29tL2NhdC9oYyI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDIiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMV0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vd3d3LnNhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3ZhY3V1bWNsZWFuZXIiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQyIikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzJdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cHM6Ly9URUxFR1JBTS5NRS9TQU1TRVJWSUNFIjtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiSGVhZGVyQ2F0MiIpLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJkaXYiKVszXS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiYSIpWzBdLmhyZWY9Imh0dHBzOi8vd3d3Lmluc3RhZ3JhbS5jb20vc2Ftc2VydmljZW9mZmljaWFsLyI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbNF0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L0R5bmFtaWNIZWFkZXJzL2Jhc2UuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMF0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L0R5bmFtaWNIZWFkZXJzLzEuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMV0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L0R5bmFtaWNIZWFkZXJzLzIuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMl0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L0R5bmFtaWNIZWFkZXJzLzMuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbM10uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L0R5bmFtaWNIZWFkZXJzLzQuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbNF0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0L2FjIjtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiSGVhZGVyQ2F0MyIpLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJkaXYiKVswXS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiYSIpWzBdLmhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9uZXdzIjtkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiSGVhZGVyQ2F0MyIpLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJkaXYiKVsxXS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiYSIpWzBdLmhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9hcnRpY2xlcyI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMl0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvcHJpbnRlciI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDMiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbM10uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vc2Ftc3VuZ2FwcHMiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzRdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMS9EeW5hbWljSGVhZGVycy9iYXNlLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzBdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMS9EeW5hbWljSGVhZGVycy8xLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMS9EeW5hbWljSGVhZGVycy8yLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzJdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMS9EeW5hbWljSGVhZGVycy8zLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzNdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L2NhYmJmNmJhLTgwOWEtNGZmOC04ODliLTJiNjIxNDI1NWUxMS9EeW5hbWljSGVhZGVycy80LmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzRdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdC9pdCI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDQiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMF0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vQXJ0aWNsZS8xNzEiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ0IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3BsYXllciI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDQiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMl0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvbW9uaXRvciI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDQiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbM10uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvcHJpbnRlciI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDUiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbNF0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvTGFzdHMvRHluYW1pY0hlYWRlcnMvYmFzZS5qcGcpJztkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiSGVhZGVyQ2F0NSIpLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJkaXYiKVswXS5zdHlsZS5iYWNrZ3JvdW5kSW1hZ2UgPSAndXJsKEltYWdlcy9DYXRlZ29yeS9MYXN0cy9EeW5hbWljSGVhZGVycy8xLmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ1IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLnN0eWxlLmJhY2tncm91bmRJbWFnZSA9ICd1cmwoSW1hZ2VzL0NhdGVnb3J5L0xhc3RzL0R5bmFtaWNIZWFkZXJzLzIuanBnKSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDUiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMl0uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ3VybChJbWFnZXMvQ2F0ZWdvcnkvTGFzdHMvRHluYW1pY0hlYWRlcnMvMy5qcGcpJztkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiSGVhZGVyQ2F0NSIpLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJkaXYiKVszXS5zdHlsZS5iYWNrZ3JvdW5kSW1hZ2UgPSAndXJsKEltYWdlcy9DYXRlZ29yeS9MYXN0cy9EeW5hbWljSGVhZGVycy80LmpwZyknO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ1IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzRdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3d3dy5zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS90diI7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoIkhlYWRlckNhdDUiKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgiZGl2IilbMF0uZ2V0RWxlbWVudHNCeVRhZ05hbWUoImEiKVswXS5ocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvd2FzaGluZ21hY2hpbmUiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ1IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzFdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L2hvbWV0ZWF0ZXIiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ1IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzJdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3NpZGVieXNpZGUiO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJIZWFkZXJDYXQ1IikuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImRpdiIpWzNdLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJhIilbMF0uaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdC9jYW1lcmEiOzwvc2NyaXB0PmQCAw9kFgJmD2QWBAIBDxYCHgVjbGFzcwULc2VsZWN0ZWRSb3dkAg0PFgIeB1Zpc2libGVoZAIFDxYCHwAFwqkCPGRpdiBpZD0iYXJ0aWNsZXRMZWZ0TWVudUNvbnRlbnQiPjxkaXYgY2xhc3M9Im1pbmlDb250ZW50VGl0bGUiPtiq2YjYtduM2Ycg2YfYp9uMINmG2YjYsdmI2LLbjDwvZGl2PjxkaXYgY2xhc3M9ImRlc2MiPtiq2YjYtduM2Ycg2YfYp9uMINmG2YjYsdmI2LLbjCDYs9in2YUg2LPYsdmI24zYszwvZGl2PjxkaXYgY2xhc3M9InNob3dNb3JlIj48YSBocmVmPSJBcnRpY2xlLzI2OSI+2KfYt9mE2KfYudin2Kog2qnYp9mF2YQ8L2E+PC9kaXY+PC9kaXY+PGRpdiBpZD0ibmV3ZXN0TGVmdE1lbnVDb250ZW50Ij48ZGl2IGNsYXNzPSJtaW5pQ29udGVudFRpdGxlIj7aqdmE2KfYs9mH2KfbjCDYotmF2YjYsti0INii2LTZvtiy24wg2KjYpyDZhdin24zaqdix2YjZgdix2YfYp9uMINiz2KfZhdiz2YjZhtqvPC9kaXY+PGRpdiBjbGFzcz0iZGVzYyI+2qnZhNin2LPZh9in24wg2KLZhdmI2LLYtCDYoti02b7YstuMINio2Kcg2YXYp9uM2qnYsdmI2YHYsdmH2KfbjCDYs9in2YXYs9mI2Ybarw0K2YXYsdqp2LIg2KLZhdmI2LLYtCDYoti02b7YstuM2Iwg2KjYpyDZh9iv2YEg2KfZgdiy2KfbjNi0INiv2KfZhti0INiu2LHbjNiv2KfYsdin2YYg2YXYp9uM2qnYsdmI2YHYsdmH2KfbjCDYs9in2YXYs9mI2Ybar9iMINiv2LEg2KfYs9iq2YHYp9iv2Ycg2LXYrduM2K0g2Ygg2qnYp9ix2KjYsdiv24wg2YXYp9uM2qnYsdmI2YHYsSDYp9mB2KrYqtin2K0g2q/Ysdiv24zYr9mHINin2LPYqi4NCtmF2KfbjNqp2LHZiNmB2LHZh9in24wg2LPYp9mF2LPZiNmG2q8g2KjYpyDYqNin2YTYp9iq2LHbjNmGINin2LPYqtin2YbYr9in2LHYr9mH2KfbjCAg2KfZhNmF2YTZhNuMINio2YfYr9in2LTYqiDZiCDYp9uM2YXZhtuMINiq2YjZhNuM2K/YjCDYr9in2LHYp9uMINmC2KfYqNmE24zYqtmH2KfbjCDYrtin2LUg2Ygg2LjYsdmB24zYqiDZh9in24wg2YXYrtiq2YTZgSDZhduMINio2KfYtNivLg0K2KjZhyDZh9mF24zZhiDYr9mE24zZhCDYtNix2qnYqiDYs9in2YXYs9mI2YbaryDYqNinINin2LHYp9im2Ycg2qnZhNin2LMg2YfYp9uMINii2YXZiNiy2LQg2KLYtNm+2LLbjCDZhdin24zaqdix2YjZgdixINin2LIg2LTZhdinINiv2LnZiNiqINmF24wg2YbZhdin24zYryDYqtinINin2LIg2KrZhdin2YUg2KfZhdqp2KfZhtin2Kog2K/Ys9iq2q/Yp9mHINiu2YjYryDYqNix2KfbjCDbjNqpINii2LTZvtiy24wg2YTYsNiqINio2K7YtCDZhdi32YTYuSDYtNmI24zYry4NCg0K2YXYstin24zYp9uMINin2LXZhNuMINmF2KfbjNqp2LHZiNmB2LHZh9in24wg2LPYp9mF2LPZiNmG2q86DQrigKIJ2b7YrtiqINiz2KfZhNmFINmIINiv2LEg2LnbjNmGINit2KfZhCDZhNiw24zYsCDYqNinINit2YHYuCDZiNuM2KrYp9mF24zZhiDZh9inINmIINqp2YXYqtix24zZhiDZhdi12LHZgSDYsdmI2LrZhg0K4oCiCdii2LTZvtiy24wg2KjbjCDYr9ix2K/Ys9ixINio2Kcg2K3YsNmBINmF2LHYp9it2YQg2b7bjNqG24zYr9mHINi32KjYriDYutiw2KcgINio2Kcg2KfYrNin2YIg2q/Yp9iyDQrigKIJ2LnYr9mFINm+2LHYp9qp2YbYr9qv24wg2KjZiCDYr9ixINmF2YbYstmEDQrigKIJ2qnZhtiq2LHZhCDYstmF2KfZhiDYp9iq2YXYp9mFINm+2K7YqiDYutiw2KcgINmIINin2YXaqdin2YYg2KrYsdqpINmF2YbYstmEINio2K/ZiNmGINmG2q/Ysdin2YbbjCDYp9iyINiz2YjYrtiq2YYg2LrYsNinDQrZhti02KfZhtuMOiDYrtuM2KfYqNin2YYg2LTYsduM2LnYqtuMIOKAkyDYrdiv2YHYp9i12YQg2LjZgdixINmIINiv2YjYsdin2YfbjCDZgtmE2YfaqSDigJMg2qnZiNqG2Ycg2b7ZiNix2YXYtNqp2KfZhtuMIOKAkyDZvtmE2KfaqSA0NiDigJMg2LfYqNmC2Ycg2K/ZiNmFICAgINiq2YTZgdmGIDIgLSAyNjcwMDEzMDwvZGl2PjxkaXYgY2xhc3M9InNob3dNb3JlIj48YSBocmVmPSJOZXdlc3RfTGVhcm5pbmcvMjMyIj7Yp9i32YTYp9i52KfYqiDaqdin2YXZhDwvYT48L2Rpdj48L2Rpdj48ZGl2IGlkPSJhcHBzTGVmdE1lbnVDb250ZW50Ij48ZGl2IGNsYXNzPSJtaW5pQ29udGVudFRpdGxlIj7ahtqv2YjZhtmHINio2LHYp9uMINiq2YTZiNuM2LLbjNmI2YYg2YfYp9uMINmH2YjYtNmF2YbYryDZhtix2YUg2KfZgdiy2KfYsSAo2KfZvtmE24zaqduM2LTZhikg2KjZhtmI24zYs9uM2YU8L2Rpdj48ZGl2IGNsYXNzPSJkZXNjIj7ahtqv2YjZhtmHINio2LHYp9uMINiq2YTZiNuM2LLbjNmI2YYg2YfYp9uMINmH2YjYtNmF2YbYryDZhtix2YUg2KfZgdiy2KfYsSAo2KfZvtmE24zaqduM2LTZhikg2KjZhtmI24zYs9uM2YU8L2Rpdj48ZGl2IGNsYXNzPSJzaG93TW9yZSI+PGEgaHJlZj0iU2Ftc3VuZ0FwcC8xODciPtin2LfZhNin2LnYp9iqINqp2KfZhdmEPC9hPjwvZGl2PjwvZGl2PjxkaXYgaWQ9ImV2ZW50c0xlZnRNZW51Q29udGVudCI+PGRpdiBjbGFzcz0ibWluaUNvbnRlbnRUaXRsZSI+2KzYtNmG2YjYp9ix2Ycg2LnbjNiv2KfZhtmHINmF2K3YtdmI2YTYp9iqINiu2KfZhtqv24w8L2Rpdj48ZGl2IGNsYXNzPSJkZXNjIj48cD48YSBocmVmPSJodHRwczovL3NhbXNlcnZpY2UuY29tL2V2ZW50LzE2MCI+PGltZyBhbHQ9IiIgc3JjPSIvSW1hZ2VzL1VwbG9hZC9pbWFnZXMvU2l0ZS03NTJ4MjE2LmpwZyIgc3R5bGU9ImhlaWdodDoyMTZweDsgd2lkdGg6NzUycHgiIC8+PC9hPjxhIGhyZWY9Imh0dHBzOi8vc3BuMi5zYW1zZXJ2aWNlLm5ldC9GZXN0aXZhbExvZ2luLmFzcHgiPjxpbWcgYWx0PSIiIHNyYz0iL0ltYWdlcy9VcGxvYWQvaW1hZ2VzLzItOSgxKS5qcGciIHN0eWxlPSJoZWlnaHQ6MzBweDsgd2lkdGg6NzUycHgiIC8+PC9hPjwvcD4KCjxwPjxpbWcgYWx0PSIiIHNyYz0iL0ltYWdlcy9VcGxvYWQvaW1hZ2VzLzEtMigxKS5qcGciIHN0eWxlPSJoZWlnaHQ6MTAyN3B4OyB3aWR0aDo3NTJweCIgLz48L3A+Cgo8cD7ZhNin2LLZhSDYqNmHINiw2qnYsSDYp9iz2Kog2YXYrdi12YjZhNin2Kog2YXYp9uM2qnYsdmI2YHYsSDZiCDYrNin2LHZiNio2LHZgtuMINmB2KfZgtivINi02LHYp9uM2Lcg2YbYtdioINmF24wg2KjYp9i02K8u2YfZhtqv2KfZhSDYq9io2Kog2KfbjNmGINmF2K3YtdmI2YTYp9iqINin2LHYp9im2Ycg2KrYtdmI24zYsSDYtdmI2LHYqtit2LPYp9ioINiu2LHbjNivINin2YTYstin2YXbjCDZhduMINio2KfYtNivLjwvcD4KCjxwPjxzcGFuIGRpcj0iUlRMIj7Zhtin2YUg2LTYqNin24wg2KfYsdiz2KfZhCDYtNiv2Ycg2K3YqtmF2KfZiyDZhduM2KjYp9uM2LPYqiDYqNinINin2LfZhNin2LnYp9iqINir2KjYqiDYtNiv2Ycg2K/YsSDYqNix2q/ZhyDZhti12Kgg2YfZhSDYrtmI2KfZhtuMINiv2KfYtNiq2Ycg2KjYp9i02K8mbmJzcDs8L3NwYW4+LjwvcD4KCjxwPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTRweCI+PHN0cm9uZz7YtNix2KfbjNi3INis2LTZhtmI2KfYsdmHINmF2K7Yqti1INin2LPYqtin2YbZh9in24wmbmJzcDsgPHNwYW4gZGlyPSJSVEwiPtmB2KfYsdiz2Iwg2K7ZiNiy2LPYqtin2YbYjCDYrtix2KfYs9in2YYg2LHYttmI24zYjCDYotiw2LHYqNin24zYrNin2YYg2LrYsdio24zYjCDYotiw2LHYqNin24zYrNin2YYg2LTYsdmC24zYjCDYp9i12YHZh9in2YbYjCDaqdix2YXYp9mG2LTYp9mH2Iwg2qnYsdiv2LPYqtin2YbYjCDZh9ix2YXYstqv2KfZhiDZiCDYqNmI2LTZh9ixPC9zcGFuPjwvc3Ryb25nPjwvc3Bhbj48L3A+Cgo8cD48c3BhbiBzdHlsZT0iZm9udC1zaXplOjE0cHgiPjxzdHJvbmc+PHNwYW4gZGlyPSJSVEwiPjxpbWcgYWx0PSIiIHNyYz0iL0ltYWdlcy9VcGxvYWQvaW1hZ2VzLzEtMSgyKS5qcGciIHN0eWxlPSJoZWlnaHQ6MTA0NHB4OyB3aWR0aDo3NTJweCIgLz48L3NwYW4+PC9zdHJvbmc+PC9zcGFuPjwvcD4KCjxwPiZuYnNwOzwvcD4KCjxwPtio2K/bjNmH24wg2KfYs9iqINin24zZhiDYrNi02YbZiNin2LHZhyDYqNix2KfbjCDZhdiv2Kog2YXYrdiv2YjYryDYp9i52KrYqNin2LEg2K/Yp9ix2K8g2Ygg2LTYsdqp2Kog2K/YsSDZh9ixINiy2YXYp9mG24wg2YXYrtiq2KfYsSDYp9iz2Kog2qnZhyDYrNi02YbZiNin2LHZhyDYsdinINio2LHYp9uMINuM2qkg24zYpyDYqtmF2KfZhduMINmF2K/ZhNmH2Kcg2YXYqtmI2YLZgSDYs9in2LLYrzwvcD4KPC9kaXY+PGRpdiBjbGFzcz0ic2hvd01vcmUiPjxhIGhyZWY9ImV2ZW50LzE2MCI+2KfYt9mE2KfYudin2Kog2qnYp9mF2YQ8L2E+PC9kaXY+PC9kaXY+PGRpdiBpZD0iZG93bmxvYWRMZWZ0TWVudUNvbnRlbnQiPjxkaXYgY2xhc3M9Im1pbmlDb250ZW50VGl0bGUiPtmF2LPYp9io2YLZhyDZh9inPC9kaXY+PGRpdiBjbGFzcz0iZGVzYyI+PGRpdj7Zhdiz2KfYqNmC2YcmenduajvbjCDYp9uM2YbYs9iq2Kfar9ix2KfZhduMICPYqtin2LHZiNm+2YjYr9iu2KfaqTwvZGl2PgoKPGRpdj4mbmJzcDs8L2Rpdj4KCjxkaXY+2YXZiNi22YjYuTog2KfZgdiz2KfZhtmHJnp3bmo72YfYpyDZiCDZhdmO2KrZjtmEJnp3bmo72YfYp9uMINin2YLZiNin2YUg2KfbjNix2KfZhtuMPC9kaXY+Cgo8ZGl2PtmF2KzYsduMOiDZvtuM2Kwg2KfbjNmG2LPYqtin2q/Ysdin2YUgJnF1b3Q72LPYp9mFINiz2LHZiNuM2LMmcXVvdDs8L2Rpdj4KCjxkaXY+2LLZhdin2YYmenduajvYqNmG2K/bjDogJm5ic3A72LTZhtio2Ycg27Eg2YXZh9ixINu527Yg2KrYpyDahtmH2KfYsdi02YbYqNmHIDE1INmB2LHZiNix2K/bjNmGIDk3PC9kaXY+Cgo8ZGl2PiZuYnNwOzwvZGl2PgoKPGRpdj7YtNuM2YjZhyZ6d25qO9uMINiv2LHbjNin2YHYqiDYotir2KfYsTo8L2Rpdj4KCjxkaXY+Jm5ic3A7JmJ1bGw7INin2LHYs9in2YQg2YXYtNiu2LXYp9iqINmB2LHYr9uMINiy24zYsSDYqNmHINin24zZhduM2YQg2YXYs9in2KjZgtmHINio2Ycg2KLYr9ix2LMgc2Ftc2VydmljZW9mZmljaWFsQGdtYWlsLmNvbTwvZGl2PgoKPGRpdj4tINmG2KfZhTwvZGl2PgoKPGRpdj4tINmG2KfZhSDYrtin2YbZiNin2K/ar9uMICZuYnNwOyZuYnNwOzwvZGl2PgoKPGRpdj4tINmG2KfZhSDZvtiv2LEgJm5ic3A7Jm5ic3A7PC9kaXY+Cgo8ZGl2Pi0g2LTZhdin2LHZhyDZhdmE24wgJm5ic3A7Jm5ic3A7PC9kaXY+Cgo8ZGl2Pi0g2LTZh9ixINmF2K3ZhCDYs9qp2YjZhtiqICZuYnNwOyZuYnNwOzwvZGl2PgoKPGRpdj4tINi02YXYp9ix2Ycg2KrZhNmB2YYg2KvYp9io2KogJm5ic3A7Jm5ic3A7PC9kaXY+Cgo8ZGl2Pi0g2LTZhdin2LHZhyDYqtmE2YHZhiDZh9mF2LHYp9mHICZuYnNwOyZuYnNwOzwvZGl2PgoKPGRpdj4tINiq2YjYttuM2K3Yp9iqICZuYnNwOyZuYnNwOzwvZGl2PgoKPGRpdj4tINii24wg2K/bjCDYp9uM2YbYs9iq2Kfar9ix2KfZhTwvZGl2PgoKPGRpdj4mbmJzcDsgJm5ic3A7PC9kaXY+Cgo8ZGl2PiZuYnNwOyZidWxsOyDYp9ix2LPYp9mEINit2K/Yp9qp2KvYsSA1INin2YHYs9in2YbZhyDZiCAxMCDZhdiq2YQmbmJzcDs8L2Rpdj4KCjxkaXY+Jm5ic3A7PC9kaXY+Cgo8ZGl2PiZuYnNwOyZidWxsOyDYqNmHINin2LTYqtix2KfaqSDar9iw2KfYtNiq2YYg2K3Yr9in2YLZhCDbjNqp24wg2KfYsiDZhdmO2KrZjtmEJnp3bmo72YfYpyDZiCDbjNinINmC2LPZhdiq24wg2KfYsiDYp9mB2LPYp9mG2Ycg2K/YsSDZvtuM2Kwg2KfbjNmG2LPYqtin2q/Ysdin2YUg2KjYpyDYr9mIINi02LHYtyDYstuM2LE6PC9kaXY+Cgo8ZGl2Pi0gJm5ic3A72LDaqdixI9iq2KfYsdmI2b7ZiNiv2K7Yp9qpPC9kaXY+Cgo8ZGl2Pi0gJm5ic3A7INmF2YbYtNmGINm+24zYrCDYs9in2YUg2LPYsdmI24zYsyDYqNmHINmG2LTYp9mG24wgc2Ftc2VydmljZW9mZmljaWFsINix2YjbjCDYudqp2LM8L2Rpdj4KCjxkaXY+Jm5ic3A7PC9kaXY+Cgo8ZGl2PtmF2YLYsdix2KfYqjo8L2Rpdj4KCjxkaXY+27EtICZuYnNwO9mC2KfZhNioINmB2KfbjNmEINin2LHYs9in2YTbjCDYqNin24zYryDYqNmHINi12YjYsdiqIFdPUkQg2Ygg2KjYpyDYp9mG2K/Yp9iy2YcmenduajvbjCDZgtmE2YUg27HbtCDZiCDZgdmI2YbYqiBCIG5hemFuaW4g2KjYp9i02K8uPC9kaXY+Cgo8ZGl2PtuyLSAmbmJzcDvYrdiv2Kfaqdir2LEg2KrYudiv2KfYryDaqdmE2YXYp9iqINin2YHYs9in2YbZhyZ6d25qO9mH2Kcg27Hbtduw27Ag2qnZhNmF2Ycg2Ygg2YXZjtiq2Y7ZhCZ6d25qO9mH2Kcg27HbsNuw27Ag2qnZhNmF2YcgJnp3bmo72KjYp9i02K8g2qnZhyDYp9uM2YYg2KrYudiv2KfYryDYqNinINmF2LnbjNin2LEg2YbYsdmFJnp3bmo72KfZgdiy2KfYsSBXT1JEINi02YXYp9ix2LQg2K7ZiNin2YfYryDYtNivLjwvZGl2PgoKPGRpdj7bsy0gJm5ic3A72YfYsSDZgdix2K8g2YXbjCZ6d25qO9iq2YjYp9mG2K8g2K3Yr9in2qnYq9ixINu1INin2YHYs9in2YbZhyDZiCDbsduwINmF2Y7YqtmO2YQg2KjYsdin24wg2LTYsdqp2Kog2K/YsSDZhdiz2KfYqNmC2Ycg2KfYsdiz2KfZhCDaqdmG2K8g2Ygg2K/YsSDYtdmI2LHYqiDYqNix2q/YstuM2K/ZhyDYtNiv2YYg2KrZhtmH2Kcg2KjZhyDbjNqpINin2KvYsSDYrNin24zYstmHINiq2LnZhNmCINiu2YjYp9mH2K8g2q/YsdmB2KouPC9kaXY+Cgo8ZGl2Ptu0LSAmbmJzcDvYr9io24zYsdiu2KfZhtmHINit2YIg2KfYs9iq2YHYp9iv2Ycg2KfYsiDYqtmF2KfZhduMINii2KvYp9ixINin2LHYs9in2YTbjCDYqNmHINmF2LPYp9io2YLZhyDYsdinINiv2LEg2LHYs9in2YbZhyZ6d25qO9mH2KfbjCDYr9uM2KzbjNiq2KfZhCDZiCDYs9in24zYsSDZhdmI2KfYsdivINmB2LHZh9mG2q/bjCDYqNinINiw2qnYsSDZhtin2YUg2YbZiNuM2LPZhtiv2YfYjCDYqNix2KfbjCDYrtmI2K8g2YXYrdmB2YjYuCDZhduMJnp3bmo72K/Yp9ix2K8g2Ygg2obZhtin2YbahtmHINiv2LHYotmF2K/bjCDYp9iyINin24zZhiDYsdin2Ycg2K3Yp9i12YQg2LTZiNiv2Iwg2K3ZgiZ6d25qO9in2YTYqtij2YTbjNmBINi12KfYrdioINin2KvYsSDZvtix2K/Yp9iu2Kog2K7ZiNin2YfYryDYtNivLjwvZGl2PgoKPGRpdj7btS0gJm5ic3A72K/YqNuM2LHYrtin2YbZhyDYp9ix2LPYp9mEJnp3bmo72qnZhtmG2K/ZhyZ6d25qO9uMINin2KvYsSDYsdinINi12KfYrdioINmIINiq2YjZhNuM2K/aqdmG2YbYr9mHJnp3bmo724wg2KLZhiDYqtmE2YLbjCDZhduMJnp3bmo72qnZhtivINmIINmH2LHar9mI2YbZhyDZhdiz2KbZiNmE24zYqiDYr9ixINin24zZhiDZhdmI2LHYryDYqNixINi52YfYr9mHJnp3bmo724wg2YjbjCDZhduMJnp3bmo72KjYp9i02K8uPC9kaXY+Cgo8ZGl2Ptu2LSAmbmJzcDvYqNmHINiq2YXYp9mF24wg2KLYq9in2LHbjCDaqdmHINio2Ycg2YXYsdit2YTZhyZ6d25qO9uMINqG2KfZviDYqNix2LPZhtivINit2YIg2KrYp9mE24zZgSDYqti52YTZgiDYrtmI2KfZh9ivINqv2LHZgdiqINqp2Ycg2KfbjNmGINmF2KjZhNi6INio2LHYp9uMINmH2LEg2qnZhNmF2Ycg2YXYudin2K/ZhCDbtduwINiq2YjZhdin2YYg2K7ZiNin2YfYryDYqNmI2K8uPC9kaXY+Cgo8ZGl2Ptu3LSAmbmJzcDvYtNuM2YjZhyZ6d25qO9uMINin2YbYqtiu2KfYqCDYqNix2YbYr9qv2KfZhiDYqNinINiv2KfZiNix24wg2K7ZiNin2YfYryDYqNmI2K8uINix2KfbjCDZh9uM2KfYqiDYr9in2YjYsdin2YYg2YLYt9i524wg2KfYs9iqINmIINmH24zahtqv2YjZhtmHINin2LnYqtix2KfYttuMINm+2LDbjNix2YHYqtmHINmG24zYs9iqLjwvZGl2PgoKPGRpdj4mbmJzcDs8L2Rpdj4KCjxkaXY+Jm5ic3A7PC9kaXY+Cgo8ZGl2Ptii2KvYp9ixINio2LHar9iy24zYr9mHOjwvZGl2PgoKPGRpdj4mYnVsbDsgJm5ic3A72YbZgdixINin2YjZhDog2YTZiNitINiq2YLYr9uM2LHYjCDYqtmG2K/bjNizINmIINiz2Ycg2LPaqdmHJnp3bmo724wg2KrZhdin2YUg2KjZh9in2LEg2KLYstin2K/bjDwvZGl2PgoKPGRpdj4mYnVsbDsgJm5ic3A72YbZgdixINiv2YjZhTog2YTZiNitINiq2YLYr9uM2LHYjCDYqtmG2K/bjNizINmIINiv2Ygg2LPaqdmHJnp3bmo724wg2KrZhdin2YUg2KjZh9in2LEg2KLYstin2K/bjDwvZGl2PgoKPGRpdj4mYnVsbDsgJm5ic3A72YbZgdixINiz2YjZhTog2YTZiNitINiq2YLYr9uM2LHYjCDYqtmG2K/bjNizINmIINuM2qkg2LPaqdmHJnp3bmo724wg2KrZhdin2YUg2KjZh9in2LEg2KLYstin2K/bjDwvZGl2Pgo8L2Rpdj48L2Rpdj48ZGl2IGlkPSJzdXBwb3J0TGVmdE1lbnVDb250ZW50Ij48ZGl2IGNsYXNzPSJtaW5pQ29udGVudFRpdGxlIj7Zvti02KrZitio2KfZhtmKPC9kaXY+PGRpdiBjbGFzcz0iZGVzYyI+PHA+Jm5ic3A7PC9wPgoKPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KfYt9mE2KfYudin2Kog2K/YsSDZhdmI2LHYryDYtNix2KfbjNi3INmIINi22YjYp9io2Lcg2q/Yp9ix2KfZhtiq24w8L3N0cm9uZz48L3A+Cgo8cCBkaXI9IlJUTCIgc3R5bGU9Im1hcmdpbi1yaWdodDouMjVpbiI+Jm5ic3A7PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPjxzdHJvbmc+2YXYr9iqINiy2YXYp9mGINqv2KfYsdin2YbYqtuMOjwvc3Ryb25nPjwvcD4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj48c3Ryb25nPiZuYnNwO9iy2YXYp9mGINiv2YjYsdmHINqv2KfYsdin2YbYqtuMINmF2K3YtdmI2YTYp9iqINio2LEg2LHZiNuMINqp2KfYsdiqINqv2KfYsdin2YbYqtuMINiv2LHYrCDar9ix2K/bjNiv2Ycg2KfYs9iqINmIINiv2LEg2YXZiNix2K8g2YfYsSDZhdit2LXZiNmEINio2LEg2LHZiNuMPC9zdHJvbmc+IDxzdHJvbmc+2qnYp9ix2Kog2q/Yp9ix2KfZhtiq24wgKCDYt9io2YIg2LTYsdin24zYtyDZhdmG2K/YsdisINiv2LEg2b7YtNiqINqp2KfYsdiqICkg2KjZhyDYtdmI2LHYqiDZhdiz2KrZgtmEINiv2LHYrCDYtNiv2Ycg2KfYs9iqINqp2Ycg2LLZhdin2YYg2LTYsdmI2Lkg2KLZhiDYp9iyPC9zdHJvbmc+IDxzdHJvbmc+2KrYp9ix24zYriDYqtmI2YTbjNivINmF2K3YtdmI2YQg2YXbjCDYqNin2LTYry4gPC9zdHJvbmc+PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPjxzdHJvbmc+2YXYr9iqINiy2YXYp9mGINqv2KfYsdin2YbYqtuMINio2LHYp9uMINmH2LEg2YXYrdi12YjZhCDZiCDYtNix2KfbjNi3INmI24zamNmHINqv2KfYsdin2YbYqtuMINi32KjZgiDYrNiv2YjZhCDZhdiv2Kog2q/Yp9ix2KfZhtiq24wo2KzYr9mI2YQg2LTZhdin2LHZhyAxKSDYr9ixINiy24zYsSDYotmF2K/ZhyDYp9iz2KouPC9zdHJvbmc+PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPiZuYnNwOzwvcD4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj48c3Ryb25nPtis2K/ZiNmEINi02YXYp9ix2YcgMTwvc3Ryb25nPjwvcD4KCjx0YWJsZSBhbGlnbj0iY2VudGVyIiBib3JkZXI9IjEiIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgZGlyPSJydGwiIHN0eWxlPSJ3aWR0aDo3MzNweCI+Cgk8dGJvZHk+CgkJPHRyPgoJCQk8dGQgY29sc3Bhbj0iNiIgc3R5bGU9IndpZHRoOjczM3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYr9iqINiy2YXYp9mGINqv2KfYsdin2YbYqtuMPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjU1cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ar9ix2YjZhyDZhdit2LXZiNmEPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Ysdiv24zZgTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmG2KfZhSDZhdit2LXZiNmEPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdiv2Kog2LLZhdin2YYg2q/Yp9ix2KfZhtiq24wg2KfYsiDYqtin2LHbjNiuINiq2YjZhNuM2K88L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2K/YqiDYstmF2KfZhiDar9in2LHYp9mG2KrbjCDYp9iyINiq2KfYsduM2K4g2YbYtdioINuM2Kcg2YHYsdmI2LQ8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7YtNix2KfbjNi3INmI24zamNmHINqv2KfYsdin2YbYqtuMPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgcm93c3Bhbj0iOSIgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjU1cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+SEE8L3NwYW4+PC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo0N3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtuM2K7ahtin2YQg2YHYsduM2LLYsTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7aqdmF2b7Ysdiz2YjYsdmF2LnZhdmI2YTbjCAzLzXYs9in2YQg2KfYsiDYqtin2LHbjNiuINiq2YjZhNuM2K8g2LbZhdin2YbYqiDYr9in2LHYry48L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7aqdmF2b7Ysdiz2YjYsdmH2KfbjCDYp9uM2YbZiNix2KrYsTEyM9iz2KfZhCDYp9iyINiq2KfYsduM2K4g2KrZiNmE24zYryDYttmF2KfZhtiqINiv2KfYsdivPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4yPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2LPYp9uM2K8g2KjYp9uMINiz2KfbjNivINin24zZhtmI2LHYqtixPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE4INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtqp2YXZvtix2LPZiNixIDEyMyDZhdin2Ycg2KfYsiDYqtin2LHbjNiuINiq2YjZhNuM2K8g2LbZhdin2YbYqiDYr9in2LHYrzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo0N3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+Mzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2KfYtNuM2YYg2YTYqNin2LPYtNmI24zbjCDYr9ix2Kgg2KfYsiDYqNin2YTYpzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz40PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYp9i024zZhiDZhNio2KfYs9i02YjbjNuMINin2KrZiNmF2KfYqtuM2qk8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE4INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIzOXB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXZiNiq2YjYsdiv2LPYqtqv2KfZhyAxMjMg2YXYp9mHINin2LIg2KrZiNmE24zYryDYttmF2KfZhtiqINiv2KfYsdivPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz41PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYp9i024zZhiDYuNix2YHYtNmI24zbjDwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz42PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KzYp9ix2YjYqNix2YLbjDwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4tPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjIzOXB4Ij4KCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYp9uM2qnYsdmI2YHYsTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE4INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPi08L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjIzOXB4Ij4KCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjg8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KfYrNin2YIg2q/Yp9iyPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj4mbmJzcDs8L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz45PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtiq2LXZgduM2YcmbmJzcDsg2YfZiNinPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj4mbmJzcDs8L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjU1cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+QUM8L3NwYW4+PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo0N3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2qnZiNmE2LEg2q/Yp9iy24wgPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtqp2YXZvtix2LPZiNixIDUg2LPYp9mEINin2LIg2KrYp9ix24zYriDZhti12Kgg2LbZhdin2YbYqiDYr9in2LHYrzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHJvd3NwYW49IjQiIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6NTVweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5BVjwvc3Bhbj48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xMzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6MjAwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7YqtmE2YjbjNiy24zZiNmGIDwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPlBsYXNtYSAsTENELExFRDwvc3Bhbj48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjIzOXB4Ij4KCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE0PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtiv2YjYsdio24zZhiDYudqp2KfYs9uMINmIINmB24zZhNmF2KjYsdiv2KfYsduMPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj4mbmJzcDs8L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE1PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2LPbjNmG2YXYp9uMINiu2KfZhtqv24wg2YggPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+VkNEPC9zcGFuPjwvc3Ryb25nPiA8c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5EVkQsPC9zcGFuPjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9IndpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xNjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5NcDMgUGxheWVyPC9zcGFuPjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgcm93c3Bhbj0iMyIgc3R5bGU9IndpZHRoOjU1cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+SVQ8L3NwYW4+PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjQ3cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xODwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoyMDBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtm+2LHbjNmG2KrYsSA8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE0INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+LTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj4mbmJzcDs8L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE5PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYp9mG24zYqtmI2LE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjI0INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+LTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoyMzlweCI+CgkJCTxwIGRpcj0iUlRMIj4mbmJzcDs8L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NDdweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjIwPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjIwMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YHaqdizPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xNCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPi08L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgcm93c3Bhbj0iMiIgc3R5bGU9IndpZHRoOjU1cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+TW9iaWxlPC9zcGFuPjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo0N3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MjE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjAwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ZhdmI24zYp9uM2YQ8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6OTZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE4INmF2KfZhzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjIzOXB4Ij4KCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo0N3B4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MjI8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjAwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Yqtio2YTYqjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo5NnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTgg2YXYp9mHPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjk2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xOCDZhdin2Yc8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MjM5cHgiPgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+Cgk8L3Rib2R5Pgo8L3RhYmxlPgoKPGRpdiBzdHlsZT0iY2xlYXI6Ym90aDsiPiZuYnNwOzwvZGl2PgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPjxzdHJvbmc+2LTYsdin24zYtyDYudmF2YjZhduMINqv2KfYsdin2YbYqtuMIDwvc3Ryb25nPjxzdHJvbmc+Ojwvc3Ryb25nPjwvcD4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj48c3Ryb25nPtis2K/ZiNmEINi02YXYp9ix2YcgMjwvc3Ryb25nPjwvcD4KCjx0YWJsZSBhbGlnbj0icmlnaHQiIGJvcmRlcj0iMSIgY2VsbHBhZGRpbmc9IjAiIGNlbGxzcGFjaW5nPSIwIiBkaXI9InJ0bCIgc3R5bGU9IndpZHRoOjY1OHB4Ij4KCTx0Ym9keT4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7YtNix2KfbjNi3INi52YXZiNmF24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xLSDYttmF2KfZhtiqINmG2KfZhdmHINio2K/ZiNmGINmH2YjZhNmI2q/Ysdin2YUg2YHYp9mC2K8g2KfYudiq2KjYp9ixINin2LPYqi48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4yLSDYrtiv2YXYp9iqINqv2KfYsdin2YbYqtuMINmB2YLYtyDYqNix2KfbjCDYqti52YXbjNixINuM2Kcg2LPYsdmI24zYsyDYr9iz2Krar9in2Ycg2KjZiNiv2Ycg2YjYtNin2YXZhCDYp9ix2KfbjNmHINiu2K/Zhdin2Kog2LHYp9uM2q/Yp9mGINio2LHYp9uMINiq2LnZiNuM2LYg2YLYt9i52KfYqiDZiCDYr9iz2KrZhdiy2K8g2KrYudmF24zYsSDZhduMINio2KfYtNivLjwvc3Ryb25nPiA8c3Ryb25nPtmHINin24zYsdin2K/Yp9iq24wg2qnZhyDZhtin2LTbjCDYp9iyINi32LHYp9it24zYjCDZhdiq2LHbjNin2YTYjCDZhdmI2YbYqtin2pgg2LTYr9mHINqp2Ycg2K/YsSDYp9ir2LEg2KfYs9iq2YHYp9iv2Ycg2YbYsdmF2KfZhCDYp9iyINiv2LPYqtqv2KfZhyDYr9ixINi32YjZhCDYr9mI2LHZhyDar9in2LHYp9mG2KrbjCDYqNix2YjYsiDZhduMINmG2YXYp9uM2K8uINin24zZhiDYrtiv2YXYp9iqINiv2LEg2KjYsdqv24zYsdmG2K/ZhyDYqti52YjbjNi2INmC2LfYudmHINix2KfbjNqv2KfZhiDZiCDYp9is2LHYqiDYqti52YXbjNixINix2KfbjNqv2KfZhiDZhduMINio2KfYtNivLjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo2NThweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjMtINiv2LPYqtqv2KfZhyDZh9in24wg2K/Yp9ix2KfbjCDar9in2LHYp9mG2KrbjCDZh9iz2KrZhtivINqp2Ycg2K/Yp9ix2KfbjCDYqNix2q8g2LbZhdin2YbYqiDZhtin2YXZhyDYqNin2LTZhtivLiDYqNiv24zZh9uMINin2LPYqiDYrNmH2Kog2KfYs9iq2YHYp9iv2Ycg2KfYsiDYrtiv2YXYp9iqINqv2KfYsdin2YbYqtuMINin2LHYp9uM2Ycg2KjYsdqvINi22YXYp9mG2Kog2YbYp9mF2Ycg2LbYsdmI2LHbjCDYp9iz2KouPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9IndpZHRoOjY1OHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+NC0g2K7Yr9mF2KfYqiDar9in2LHYp9mG2KrbjCDZgdmC2Lcg2KrZiNiz2Lcg2YXYsdin2qnYsiDZhdis2KfYsiDZhdi52LHZgduMINi02K/ZhyDZiCDYr9ixINmF2K3ZhCDYqti52YXbjNix2q/Yp9mHINin2LHYp9uM2Ycg2YXbjCDar9ix2K/Yry48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz41LSDYrdiv2Kfaqdir2LEg2YXYr9iqINiy2YXYp9mGINm+2YjYtNi0INiu2K/Zhdin2Kog2q/Yp9ix2KfZhtiq24wg2KjYsdin24wg2q/YsdmI2Ycg2YXYrdi12YjZhNin2KogPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+VFY8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz7YjCDYrtin2Ybar9uM2Iwg2qnZiNmE2LHYjCDZhdmI2KjYp9uM2YQg2Ygg2KrYqNmE2KogMTgg2YXYp9mHINmF24wg2KjYp9i02K88L3N0cm9uZz48c3Ryb25nPi4gPC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYr9iqINiy2YXYp9mGINiv2YjYsdmHINqv2KfYsdin2YbYqtuMINmF2KfZhtuM2KrZiNixIDI0INmF2KfZhyDZhduMINio2KfYtNivLjwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2K/YqiDYstmF2KfZhiDYr9mI2LHZhyDar9in2LHYp9mG2KrbjCDYqNix2KfbjCDar9ix2YjZhyDZhdit2LXZiNmE2KfYqiA8L3N0cm9uZz48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5JVDwvc3Bhbj48L3N0cm9uZz48c3Ryb25nPiAo2YHaqdiz2Iwg2b7YsduM2YbYqtixINmIIC4gLiAuKSAxNCDZhdin2Ycg2YXbjCDYqNin2LTYry48L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdiv2Kog2LLZhdin2YYg2q/Yp9ix2KfZhtiq24wg2qnZhdm+2LHYs9mI2LEg2qnZiNmE2LHZh9in24wg2KfYs9m+24zZhNuM2KogNjAg2YXYp9mHINmF24wg2KjYp9i02K8uPC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YXYr9iqINiy2YXYp9mGINqv2KfYsdin2YbYqtuMINqp2YXZvtix2LPZiNixINin2YbZiNin2Lkg24zYrtqG2KfZhNmH2KcgNDIg2YXYp9mHINmF24wg2KjYp9i02K8uIDwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2K/YqiDYstmF2KfZhiDar9in2LHYp9mG2KrbjCDaqdmF2b7Ysdiz2YjYsSDbjNiu2obYp9mE2YfYp9uMINin24zZhtmI2LHYqtixIDEyMyDZhdin2Ycg2YXbjCDYqNin2LTYry48L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdiv2Kog2LLZhdin2YYg2q/Yp9ix2KfZhtiq24wg2YXZiNiq2YjYsSDZhNio2KfYs9i02YjbjNuMINmH2KfbjCDZhtmI2Lkg2KfbjNmG2YjYsdiq2LEgMTIzINmF2KfZhyDZhduMINio2KfYtNivLjwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPti02LHZiNi5INqv2KfYsdin2YbYqtuMINio2LHYp9uMINiv2LPYqtqv2KfZh9mH2KfbjNuMINqp2Ycg2K/Yp9ix2KfbjCDYrtiv2YXYp9iqINmG2LXYqCDYsdin24zar9in2YYg2YbZhduMINio2KfYtNmG2K/YjCDYp9iyINiq2KfYsduM2K4g2KrZiNmE24zYryDZhdit2KfYs9io2Ycg2YXbjCDar9ix2K/Yry48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz42LSDYttmF2KfZhtiqINmG2KfZhdmHINiv2LEg2LTYsdin24zYtyDYstuM2LEg2YLYp9io2YQg2KfYrNix2Kcg2YbbjNiz2Ko6PC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KfZhNmBIDog2LXYr9mF2KfYqiDZiCDYttin24zYudin2Kog2YbYp9i024wg2KfYsiDYttix2KjZhyDYjCDYs9mC2YjYtyDYjCDYrdmF2YQg2YjZhtmC2YQg2Iwg2KrZhdin2LMg24zYpyDZhtmB2YjYsCDYotioINmIINmF2YjYp9ivINi024zZhduM2KfbjNuMINiMINii2KrYtCDZiCDYrdix2KfYsdiqINiy24zYp9ivINiMINqv2LHYryDZiCDYutio2KfYsSDYtNiv24zYryDYjCDZhtmI2LPYp9mG2KfYqiDYqNix2YIg2Iwg2LHYudivINmIINio2LHZgiDZiCDYrdmI2KfYr9irINi32KjbjNi524w8L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7YqCA6INin2LPYqtmB2KfYr9mHINi62YTYtyDYp9iyINiv2LPYqtqv2KfZhyDbjNinINmF2YjYp9ix2K/bjCDYrtin2LHYrCDYp9iyINiz2KfYstqv2KfYsduMINmIINin2LPYqtin2YbYr9in2LHYr9mH2KfbjCDYqti524zbjNmGINi02K/ZhyDYqNix2KfbjCDYr9iz2Krar9in2Ycg24zYpyDYudmF2YQg2Ybaqdix2K/ZhiDYqNmHINmG2qnYp9iqINiw2qnYsSDYtNiv2Ycg2K/YsSDYr9mB2KrYsdqG2Ycg2LHYp9mH2YbZhdin24wg2K/Ys9iq2q/Yp9mHPC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KwgOiDYr9iz2Krar9in2Ycg2YfYp9uM24wg2qnZhyDYr9iz2Kraqdin2LHbjCDYtNiv2Ycg2Ygg24zYpyDYqtmI2LPYtyDYp9i02K7Yp9i124wg2KjZhyDYrNiyINmG2YXYp9uM2YbYr9qv2KfZhiDZhdis2KfYsiDYs9in2YUg2LPYsdmI24zYsyDYqti52YXbjNixINi02YjZhtivLjwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtivIDog2YfYsSDZhtmI2Lkg2K/Ys9iq2qnYp9ix24wg2Iwg2K7Yr9i02Ycg24zYpyDaqdmG2K/ZhyDYtNiv2YYg2KjYsdqG2LPYqCDYs9ix24zYp9mEINuM2Kcg2YfZiNmE2Yjar9ix2KfZhSDYjCDZhdi02K7Ytdin2Kog2K/Ys9iq2q/Yp9mHINuM2Kcg2YfYsSDZhtmI2Lkg2K/Ys9iq2qnYp9ix24wg24zYpyDYotiz24zYqCDYqNix2q8g2LbZhdin2YbYqiDZhtin2YXZhy48L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9IndpZHRoOjY1OHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+Ny0gLSDZhdi02KrYsduM2KfZhiDZhdit2KrYsdmFINiv2LEg2LXZiNix2Kog2YbbjNin2LIg2KjZhyDaqdiz2Kgg2KfYt9mE2KfYudin2Kog2KjbjNi02KrYsSDZhduMINiq2YjYp9mG2YbYryDYqNinINmF2LHaqdiyINiq2YXYp9izINiz2KfZhSDYs9ix2YjbjNizINin2LHYqtio2KfYtyDYqNix2YLYsdin2LEg2YbZhdin24zZhtivOjwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iTFRSIj48c3Ryb25nPkNhbGwgQ2VudGVyJm5ic3A7Jm5ic3A7IDwvc3Ryb25nPiZuYnNwOzxzdHJvbmc+OiZuYnNwOyZuYnNwOyAwMjEtODI1NTwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iTFRSIj48c3Ryb25nPlNNUyBDZW50ZXImbmJzcDsgOiZuYnNwOyAmbmJzcDswMjE4MjU1PC9zdHJvbmc+PC9wPgoKCQkJPHAgZGlyPSJMVFIiPjxzdHJvbmc+RTwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJSVEwiPi08L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz5tYWlsJm5ic3A7OiZuYnNwOyZuYnNwOzwvc3Ryb25nPjxhIGhyZWY9Im1haWx0bzo4MjU1QFNhbXNlcnZpY2UuY29tIj48c3Ryb25nPjgyNTVAU2Ftc2VydmljZS5jb208L3N0cm9uZz48L2E+PC9wPgoKCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJPC90Ym9keT4KPC90YWJsZT4KCjxkaXYgc3R5bGU9ImNsZWFyOmJvdGg7Ij4mbmJzcDs8L2Rpdj4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj4mbmJzcDs8L3A+Cgo8cCBkaXI9IlJUTCIgc3R5bGU9Im1hcmdpbi1yaWdodDouMjVpbiI+Jm5ic3A7PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPiZuYnNwOzwvcD4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj4mbmJzcDs8L3A+Cgo8cCBkaXI9IlJUTCIgc3R5bGU9Im1hcmdpbi1yaWdodDouMjVpbiI+Jm5ic3A7PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPiZuYnNwOzwvcD4KCjxwIGRpcj0iUlRMIiBzdHlsZT0ibWFyZ2luLXJpZ2h0Oi4yNWluIj4mbmJzcDs8L3A+Cgo8cCBkaXI9IlJUTCIgc3R5bGU9Im1hcmdpbi1yaWdodDouMjVpbiI+Jm5ic3A7PC9wPgoKPHAgZGlyPSJSVEwiIHN0eWxlPSJtYXJnaW4tcmlnaHQ6LjI1aW4iPjxzdHJvbmc+2LTYsdin24zYtyDYp9iu2KrYtdin2LXbjCDar9in2LHYp9mG2KrbjCA8L3N0cm9uZz48c3Ryb25nPjo8L3N0cm9uZz48L3A+Cgo8cCBkaXI9IlJUTCIgc3R5bGU9Im1hcmdpbi1yaWdodDouNWluIj48c3Ryb25nPtis2K/ZiNmEINi02YXYp9ix2YcgMzwvc3Ryb25nPjwvcD4KCjx0YWJsZSBhbGlnbj0icmlnaHQiIGJvcmRlcj0iMSIgY2VsbHBhZGRpbmc9IjAiIGNlbGxzcGFjaW5nPSIwIiBkaXI9InJ0bCIgc3R5bGU9IndpZHRoOjY1OHB4Ij4KCTx0Ym9keT4KCQk8dHI+CgkJCTx0ZCBjb2xzcGFuPSIzIiBzdHlsZT0id2lkdGg6NjU4cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7YtNix2KfbjNi3INin2K7Yqti12KfYtduMPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Ysdiv24zZgTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmG2KfZhSDZhdit2LXZiNmEPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxcHg7IHdpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YLYt9i52KfYqiDZiCDZgtiz2YXYqiDZh9in24zbjCDaqdmHINi02KfZhdmEINqv2KfYsdin2YbYqtuMINmG2YXbjCDYtNmI2K88L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MzZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MTIwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7bjNiu2obYp9mEINmB2LHbjNiy2LE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ZgtmB2LPZhyDZh9inINiMINmE2YjYp9iy2YUg2KrYstuM24zZhtuMINiMINio2K/ZhtmHINiu2KfYsdis24wg2Iwg2YHbjNmE2KrYsSDZiCDZhNmI2KfYstmFINmIINiq2KzZh9uM2LLYp9iqINis2KfZhtio24wg2Iwg2LTaqdiz2Krar9uMINmC2LfYudin2Kog2K/aqdmI2LHbjCA8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MzZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjI8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6MTIwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdin2LTbjNmGINmE2KjYp9iz2LTZiNuM24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ZhNmI2KfYstmFINiq2LLbjNuM2YbbjCDYjCDYqNiv2YbZhyDZiCDYp9is2LLYp9uMINii2YYg2Ygg2KrYrNmH24zYstin2Kog2KzYp9mG2KjbjC4g2K/YsSDYttmF2YYg2K7Ysdin2KjbjCDZh9in24wg2LjYp9mH2LHbjCDYr9ixINmH2Ybar9in2YUg2YbYtdioINio2LEg2LnZh9iv2Ycg2YHYsdmI2LTZhtiv2Ycg2YXbjCDYqNin2LTYryDZiCDYtNix2qnYqiDZhdiz2YjZiNmE24zYqtuMINiv2LEg2YLYqNin2YQg2KLZhiDZhtiv2KfYsdivLjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+Mzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2KfYtNuM2YYg2LjYsdmB2LTZiNuM24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ZhNmI2KfYstmFINiq2LLbjNuM2YbbjCDYjCDYqNiv2YbZhyDZiCDYp9is2LLYp9uMINii2YYg2Ygg2KrYrNmH24zYstin2Kog2KzYp9mG2KjbjC4g2K/YsSDYttmF2YYg2K7Ysdin2KjbjCDZh9in24wg2LjYp9mH2LHbjCDYr9ixINmH2Ybar9in2YUg2YbYtdioINio2LEg2LnZh9iv2Ycg2YHYsdmI2LTZhtiv2Ycg2YXbjCDYqNin2LTYryDZiCDYtNix2qnYqiDZhdiz2YjZiNmE24zYqtuMINiv2LEg2YLYqNin2YQg2KLZhiDZhtiv2KfYsdivLjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+NDwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtis2KfYsdmI2KjYsdmC24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjFweDsgd2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7ZgduM2YTYqtix2YfYpyDYjCDZhNmI2KfYstmFINiq2LLbjNuM2YbbjCDYjCDYuNix2YjZgSDZiCDZhNmI2KfYstmFINiv2KfYrtmE24wg2Iwg2KjYr9mG2Ycg2K7Yp9ix2KzbjCDZiCDYp9is2LLYp9uMINii2YYg2YjYqtis2YfbjNiy2KfYqiDYrNin2YbYqNuMPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+NTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6MTIwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdin24zaqdix2YjZgdixPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo1MDJweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmE2YjYp9iy2YUg2KrYstuM24zZhtuMINiMINi42LHZiNmBINmIINmE2YjYp9iy2YUg2K/Yp9iu2YTbjCDYjCDYqNiv2YbZhyDYrtin2LHYrNuMINmIINin2KzYstin24wg2KLZhiDZiNiq2KzZh9uM2LLYp9iqINis2KfZhtio24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz42PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtin2KzYp9mCINqv2KfYsjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zgtiz2YXYqiDZh9in24wg2K7Yp9ix2KzbjCDYjCDZgti32LnYp9iqINmF2LXYsdmB24wg2Iwg2KrYstuM24zZhtuMINiMINm+2YTYp9iz2KrbjNqp24zYjCDYtNuM2LTZhyDYr9ix2Kgg2KfYrNin2YIg2Iwg2YTYp9mF2b4g2K/Yp9iu2YQg2KfYrNin2YIg2Iwg2K/Ys9iq2q/bjNix2Ycg2YfYpyDYjCDZvtin24zZhyDZh9in24wg2Ybar9mH2K/Yp9ix2YbYr9mHINiMINiq2LrbjNuM2LEg2LHZhtqvINio2LEg2KfYq9ixINit2LHYp9ix2Kog2LLbjNin2K8g2Ygg2LnYr9mFINmG2q/Zh9iv2KfYsduMINi12K3bjNitLtiv2LEg2LbZhdmGINiu2LHYp9io24wg2YfYp9uMINi42KfZh9ix24wg2K/YsSDZh9mG2q/Yp9mFINmG2LXYqCDYqNixINi52YfYr9mHINmB2LHZiNi02YbYr9mHINmF24wg2KjYp9i02K8g2Ygg2LTYsdqp2Kog2YXYs9mI2YjZhNuM2KrbjCDYr9ixINmC2KjYp9mEINii2YYg2YbYr9in2LHYry48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz43PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtqp2YjZhNix2q/Yp9iy24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YHbjNmE2KrYsdmH2Kcg2Iwg2KjYr9mG2Ycg2Ygg2KfYrNiy2KfbjCDYotmGINiMINmI2LPYp9uM2YQg2Ygg2KrYrNmH24zYstin2Kog2KzYp9mG2KjbjCDYjCDaqdmG2KrYsdmEINin2LIg2LHYp9mHINiv2YjYsTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJoZWlnaHQ6MTlweDsgd2lkdGg6MzZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjg8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjEyMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2KrZhNmI24zYstuM2YjZhjwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPkNSVDwvc3Bhbj48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YjYs9in24zZhCDZiCDYqtis2YfbjNiy2KfYqiDYrNin2YbYqNuMINiMINio2K/ZhtmHINmIINqp2YbYqtix2YQg2KfYsiDYsdin2Ycg2K/ZiNixINmIINi12K/Zhdin2Kog2Ygg2K7Ysdin2KjbjCDZh9in24wg2YbYp9i024wg2KfYsiDYp9iq2LXYp9mEINi62YTYtyDbjNinINin2LHYqtio2KfYtyDYr9iz2Krar9in2Ycg2KjYpyDYs9in24zYsSDYr9iz2Krar9in2Ycg2YfYpyDYjCDYqtis2YfbjNiy2KfYqiDZiCDZhNmI2KfYstmFINis2KfZhtio24wg2LrbjNixINiz2KfYstqv2KfYsSDZiCDZhdi524zZiNioINiMINmH2YXahtmG24zZhiDYqNin2YLbjCDZhdin2YbYr9mGINm+2LPZhdin2YbYryDZhtin2LTbjCDYp9iyINmG2YXYp9uM2LQg2YXYs9iq2YXYsSDZhNmI2q/ZiNuMINqp2KfZhtin2YQg24zYpyDYqti12KfZiNuM2LEg2KvYp9io2Kog2Iwg2LXYr9mF2KfYqiDZiNin2LHYr9mHINio2Ycg2LXZgdit2Ycg2YbZhdin24zYtCDZhtin2LTbjCDYp9iyINm+2KfaqSDaqdix2K/ZhiDYutmE2Lcg2KjYpyDZh9ixINmI2LPbjNmE2Ycg24zYpyDZhdin2K/Zhy48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz45PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtiq2YTZiNuM2LLbjNmI2YY8L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+UGxhc21hLExDRCxMRUQ8L3NwYW4+PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDo1MDJweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmI2LPYp9uM2YQg2Ygg2KrYrNmH24zYstin2Kog2KzYp9mG2KjbjCDYjCDYqNiv2YbZhyDYjCDYqNin2LfYsduMINmH2Kcg2Iwg2LnbjNmG2qkgPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+M0Q8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4mbmJzcDsg2Iwg2qnZhtiq2LHZhCDYp9iyINix2KfZhyDYr9mI2LEg2Ygg2KjZhNmG2K/ar9mI2YfYpyDZiNi12K/Zhdin2Kog2Ygg2K7Ysdin2KjbjCDZh9in24wg2YbYp9i024wg2KfYsiDYp9iq2LXYp9mEINi62YTYtyDbjNinINin2LHYqtio2KfYtyDYr9iz2Krar9in2Ycg2KjYpyDYs9in24zYsSDYr9iz2Krar9in2Ycg2YfYpyDYjCDYqtis2YfbjNiy2KfYqiDZiCDZhNmI2KfYstmFINis2KfZhtio24wg2LrbjNixINiz2KfYstqv2KfYsSDZiCDZhdi524zZiNioINiMINmH2YXahtmG24zZhiDYqNin2YLbjCDZhdin2YbYr9mGINm+2LPZhdin2YbYryDZhtin2LTbjCDYp9iyINmG2YXYp9uM2LQg2YXYs9iq2YXYsSDZhNmI2q/ZiNuMINqp2KfZhtin2YQg24zYpyDYqti12KfZiNuM2LEg2KvYp9io2Kog2Iwg2LXYr9mF2KfYqiDZiNin2LHYr9mHINio2Ycg2b7ZhtmEINmIINi12YHYrdmHINmG2YXYp9uM2LQg2YbYp9i024wg2KfYsiDZvtin2qkg2qnYsdiv2YYg2LrZhNi3INio2Kcg2YfYsSDZiNiz24zZhNmHINuM2Kcg2YXYp9iv2YcuPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9ImhlaWdodDoxOXB4OyB3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTA8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjEyMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2K/ZiNix2KjbjNmGINi52qnYp9iz24wg2Ygg2YHbjNmE2YXYqNix2K/Yp9ix24w8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0iaGVpZ2h0OjE5cHg7IHdpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2LXYr9mF2KfYqiDZiCDYrtix2KfYqNuMINmH2KfbjCDZhtin2LTbjCDYp9iyINin2KrYtdin2YQg2LrZhNi3INuM2Kcg2KfYsdiq2KjYp9i3INiv2LPYqtqv2KfZhyDYqNinINiz2KfbjNixINiv2LPYqtqv2KfZhyDZh9in2Iwg2KrYrNmH24zYstin2Kog2Ygg2YTZiNin2LLZhSDYrNin2YbYqNuMINi624zYsdiz2KfYstqv2KfYsSDZiCDZhdi524zZiNioINiMINi12K/Zhdin2Kog2YbYp9i024wg2KfYsiDZhti12Kgg2Ygg2KjZhyDYsdmI2LIg2LHYs9in2YbbjCDZh9ixINmG2YjYuSDZgdin24zZhCDYjCDZhtix2YUg2KfZgdiy2KfYsSDbjNinPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+RmlybSB3YXJlIDwvc3Bhbj48L3N0cm9uZz48c3Ryb25nPiZuYnNwO9iM2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyINm+2KfaqSDaqdix2K/ZhiDZh9ivINuM2Kcg2KfZvtiq24zaqSDYr9iz2Krar9in2Ycg2KjYpyDZh9ixINmI2LPbjNmE2Ycg24zYpyDZhdin2K/Zhy48L3N0cm9uZz48L3A+CgoJCQk8cCBkaXI9IlJUTCI+Jm5ic3A7PC9wPgoKCQkJPHAgZGlyPSJSVEwiPiZuYnNwOzwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJ3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTE8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MTIwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Ys9uM2YbZhdin24wg2K7Yp9mG2q/bjDwvc3Ryb25nPjwvcD4KCgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5WQ0Q8L3NwYW4+PC9zdHJvbmc+IDxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPkRWRCw8L3NwYW4+PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YjYs9in24zZhCDZiCDYqtis2YfbjNiy2KfYqiDYrNin2YbYqNuMINiMINio2K/ZhtmHINiMINio2KfYt9ix24wg2YfYpyDYjCDaqdmG2KrYsdmEINin2LIg2LHYp9mHINiv2YjYsSDYjCDYqNmE2YbYr9qv2YjZh9inINiMINin2b7YqtuM2qkg2Iwg2qnYp9io2YQgPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+SERNSTwvc3Bhbj48L3N0cm9uZz48c3Ryb25nPiDZiCDYtdiv2YXYp9iqINmIINiu2LHYp9io24wg2YfYp9uMINmG2KfYtNuMINin2LIg2KfYqti12KfZhCDYutmE2Lcg24zYpyDYp9ix2KrYqNin2Lcg2K/Ys9iq2q/Yp9mHINio2Kcg2LPYp9uM2LEg2K/Ys9iq2q/Yp9mHINmH2KfYjCDYqtis2YfbjNiy2KfYqiDZiCDZhNmI2KfYstmFINis2KfZhtio24wg2LrbjNix2LPYp9iy2q/Yp9ixINmIINmF2LnbjNmI2Kgg2Iwg2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyINmG2LXYqCDZiCDYqNmHINix2YjYsiDYsdiz2KfZhtuMINmH2LEg2YbZiNi5INmB2KfbjNmEINiMINmG2LHZhSDYp9mB2LLYp9ixINuM2Kc8L3N0cm9uZz48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5GaXJtIHdhcmUgPC9zcGFuPjwvc3Ryb25nPjxzdHJvbmc+Jm5ic3A72IzYtdiv2YXYp9iqINmG2KfYtNuMINin2LIg2b7Yp9qpINqp2LHYr9mGINmH2K8g24zYpyDYp9m+2KrbjNqpINiv2LPYqtqv2KfZhyDYqNinINmH2LEg2YjYs9uM2YTZhyDbjNinINmF2KfYr9mHINuM2Kcg2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyIDwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPkNEIDwvc3Bhbj48L3N0cm9uZz48c3Ryb25nPiZuYnNwO9mH2KfbjCDYrti0INiv2KfYsSDZiCDaqdir24zZgS48L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJPC90cj4KCQk8dHI+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MzZweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPjEyPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjEyMHB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPk1wMyBQbGF5ZXI8L3NwYW4+PC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2YjYs9in24zZhCDZiCDYqtis24zYstin2Kog2KzYp9mG2KjbjCDYjCDYqNiv2YbZhyDYjCDYqNin2LfYsduMINmH2Kcg2Iwg2YfYr9mB2YjZhiDZiCDYr9iz2Krar9in2Ycg2qnZhtiq2LHZhCDYp9iyINix2KfZhyDYr9mI2LHZiCDYtdiv2YXYp9iqINmIINiu2LHYp9io24wg2YfYp9uMINmG2KfYtNuMINin2LIg2KfYqti12KfZhCDYutmE2Lcg24zYpyDYp9ix2KrYqNin2Lcg2KjYpyDYs9in24zYsSDYr9iz2Krar9in2Ycg2YfYpyDYjCDYqtis2YfbjNiy2KfYqiDZiCDZhNmI2KfYstmFINis2KfZhtio24wg2LrbjNix2LPYp9iy2q/Yp9ixINmIINmF2LnbjNmI2Kgg2Iwg2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyINmG2LXYqCDYqNmHINix2YjYstix2LPYp9mG24wg2YfYsSDZhtmI2Lkg2YHYp9uM2YQg2Iwg2YbYsdmFINin2YHYstin2LEg24zYpyZuYnNwOyA8L3N0cm9uZz48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj4mbmJzcDtGaXJtIHdhcmU8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4g2Ygg2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyINmG2LTYqtuMINio2KfYt9ix24wuPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9IndpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xMzwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtm+2LHbjNmG2KrYsSA8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6NTAycHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Ytdiv2YXYp9iqINmG2KfYtNuMINin2LIg2qnYp9i62LAg2LrbjNixINin2LPYqtin2YbYr9in2LHYryAo2KfYsiDZhti42LEg2YjYstmGINiMINin2YbYr9in2LLZhyDZiNuM2Kcg2YjYrNmI2K8g2LPZiNiy2YYgLyDZhdmG2q/ZhtmHINiv2LHaqdin2LrYsCDZhdi12LHZgduMKTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJCTx0cj4KCQkJPHRkIHN0eWxlPSJ3aWR0aDozNnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+MTQ8L3N0cm9uZz48L3A+CgkJCTwvdGQ+CgkJCTx0ZCBzdHlsZT0id2lkdGg6MTIwcHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz7Zhdin2YbbjNiq2YjYsTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDo1MDJweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtqp2YTbjNmHINmI2LPYp9uM2YQg2Ygg2KrYrNmH24zYstin2Kog2KzYp9mG2KjbjCDYjCDYqNiv2YbZhyDZhNmI2KfYstmFINiq2LLbjNuM2YbbjCDZiCDYr9in2K7ZhNuMINiMINio2KfYt9ix24wg2YfYpyDYjCDaqdmG2KrYsdmEINin2LIg2LHYp9mHINiv2YjYsSDZiCDYqNmE2YbYr9qv2YjZh9inPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCTwvdHI+CgkJPHRyPgoJCQk8dGQgc3R5bGU9IndpZHRoOjM2cHgiPgoJCQk8cCBkaXI9IlJUTCI+PHN0cm9uZz4xNTwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQkJPHRkIHN0eWxlPSJ3aWR0aDoxMjBweCI+CgkJCTxwIGRpcj0iUlRMIj48c3Ryb25nPtmH2KfYsdivPC9zdHJvbmc+PC9wPgoJCQk8L3RkPgoJCQk8dGQgc3R5bGU9IndpZHRoOjUwMnB4Ij4KCQkJPHAgZGlyPSJSVEwiPjxzdHJvbmc+2LXYr9mF2KfYqiDZhtin2LTbjCDYp9iyJm5ic3A7IDwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPkJhZCBzZWN0b3I8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4g2Iwg2KrYp9ir24zYsSDZhdmG2YHbjCDZhduM2K/Yp9mGINmF2LrZhtin2LfbjNiz24wg2Iwg2K3ZhdmEINmIINmG2YLZhCDZhtin2K/Ysdiz2Kog2Iwg2YbZiNiz2KfZhtin2Kog2KjYsdmCINmIINit2YjYp9iv2Ksg2LfYqNuM2LnbjCAuINiv2LEg2LbZhdmGINi02LHaqdiqINiv2LEg2YLYqNin2YQg2KfYt9mE2KfYudin2Kog2K/Yp9iu2YQg2YfYp9ix2K8g2K/bjNiz2qkg2YXYs9mI2YjZhNuM2KrbjCDZhtiv2KfYsdivLjwvc3Ryb25nPjwvcD4KCQkJPC90ZD4KCQk8L3RyPgoJPC90Ym9keT4KPC90YWJsZT4KCjxkaXYgc3R5bGU9ImNsZWFyOmJvdGg7Ij4mbmJzcDs8L2Rpdj4KCjxwIGRpcj0iUlRMIj48c3Ryb25nPtmF2K3YtdmI2YTYp9iq24wg2qnZhyDYr9in2LHYp9uMINmG2LXYqCDYsdin24zar9in2YYg2YfYs9iq2YbYrzwvc3Ryb25nPjwvcD4KCjx1bD4KCTxsaSBkaXI9IlJUTCI+PHN0cm9uZz7Zhdin2LTbjNmGINmE2KjYp9iz2LTZiNuM24wg2KfYqtmI2YXYp9iq24zaqTwvc3Ryb25nPjwvbGk+Cgk8bGkgZGlyPSJSVEwiPjxzdHJvbmc+2YXYp9i024zZhiDYuNix2YHYtNmI24zbjDwvc3Ryb25nPjwvbGk+Cgk8bGkgZGlyPSJSVEwiPjxzdHJvbmc+2qnZiNmE2LHar9in2LLbjCDYp9uM2YbZiNix2KrYsTwvc3Ryb25nPjwvbGk+Cgk8bGkgZGlyPSJSVEwiPjxzdHJvbmc+2KfYrNin2YIg2q/Yp9iyINmIIDwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPk9WRU48L3NwYW4+PC9zdHJvbmc+PC9saT4KCTxsaSBkaXI9IlJUTCI+PHN0cm9uZz7bjNiu2obYp9mEINmB2LHbjNiy2LHZh9in24wg2LPYp9uM2K8g2KjYp9uMINiz2KfbjNivINmIIDwvc3Ryb25nPjxzdHJvbmc+24zYrtqG2KfZhCDZgdix24zYstixINiv2KfYsdin24wg24zYriDYs9in2LIg2KfYqtmI2YXYp9iq24zaqTwvc3Ryb25nPjwvbGk+CjwvdWw+Cgo8dWw+Cgk8bGkgZGlyPSJSVEwiPjxzdHJvbmc+2KrZhNmI24zYstuM2YjZhjwvc3Ryb25nPjxzdHJvbmc+PHNwYW4gZGlyPSJMVFIiPiBQTEFTTSA8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4mbmJzcDvYjCA8L3N0cm9uZz48c3Ryb25nPjxzcGFuIGRpcj0iTFRSIj5MRUQ8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4g2YggPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+TENEPC9zcGFuPjwvc3Ryb25nPjxzdHJvbmc+IDQw2KfbjNmG2oYg2KjZhyDYqNin2YTYpzwvc3Ryb25nPjwvbGk+Cgk8bGkgZGlyPSJSVEwiPjxzdHJvbmc+2b7YsduM2YbYqtix2YfYp9uMINqG2YbYryDaqdin2LHZhyAo2K/YsSDYtdmI2LHYqiDZhti12KggPC9zdHJvbmc+PHN0cm9uZz48c3BhbiBkaXI9IkxUUiI+V2lyZWxlc3M8L3NwYW4+PC9zdHJvbmc+PHN0cm9uZz4g2Ygg2LTYqNqp2Ycg2YfYstuM2YbZhyDYrNiv2Kfar9in2YbZhyDYr9ix24zYp9mB2Kog2YXbjCDar9ix2K/Yryk8L3N0cm9uZz48L2xpPgo8L3VsPgo8L2Rpdj48L2Rpdj48ZGl2IGlkPSJhd2FyZExlZnRNZW51Q29udGVudCI+PGRpdiBjbGFzcz0ibWluaUNvbnRlbnRUaXRsZSI+24zaqSDYr9iz2Krar9in2Ycg2b7amNmIMjA3INiv2LEg2KfYs9iq2KfZhiDar9mE2LPYqtin2YY8L2Rpdj48ZGl2IGNsYXNzPSJkZXNjIj48cD7bjNqpINiv2LPYqtqv2KfZhyDZvtqY2YjbstuwNyDYr9ixINin2LPYqtin2YYg2q/ZhNiz2KrYp9mGPC9wPjwvZGl2PjxkaXYgY2xhc3M9InNob3dNb3JlIj48YSBocmVmPSJkcmF3LzkyIj7Yp9i32YTYp9i52KfYqiDaqdin2YXZhDwvYT48L2Rpdj48L2Rpdj48c2NyaXB0PmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJldmVudHNMZWZ0TWVudUNvbnRlbnQiKS5zdHlsZS5kaXNwbGF5PSdibG9jayc7PC9zY3JpcHQ+ZAIHDxYCHwAF8AU8ZGl2IGNsYXNzPSJjdWxvbW5SaWdodCI+PGEgaHJlZj0iTmV3c0RldGFpbC8yNzAiPjxpbWcgc3JjPSJJbWFnZXMvVXBsb2FkL05ld3MvYzliM2U0ZTAtNmY2Ny00MDgwLThiOGQtMzc2YWE4NjAxMDJlL3RodW1iX05ld3NQaWMuanBnIiAvPjxkaXYgY2xhc3M9InRleHRIb2xkZXIiPjxzcGFuIGNsYXNzPSJ0aXRsZSI+2K/YsduM2KfZgdiqINiq2YbYr9uM2LMg2K/ZiNix2Ycg2YfZgdiv2YfZhTwvc3Bhbj4gPHNwYW4gY2xhc3M9ImRlc2MiPiDYrdmF2KfbjNiqINin2LIg2K3ZgtmI2YIg2YXYtdix2YEg2qnZhtmG2K/ar9in2YY8L3NwYW4+IDxzcGFuIGNsYXNzPSJsaW5rIj7Yp9i32YTYp9i52KfYqiDYqNuM2LTYqtixPC9zcGFuPjwvZGl2PiA8L2E+PC9kaXY+PGRpdiBjbGFzcz0iY3Vsb21uTGVmdCI+PGEgaHJlZj0iTmV3c0RldGFpbC8yNzEiPjxpbWcgc3JjPSJJbWFnZXMvVXBsb2FkL05ld3MvZTYwYjE5NjQtM2Q1NS00NmYwLTkzMTItYTc2ZTZiOGM4Njc0L3RodW1iX05ld3NQaWMuanBnIiAvPjxkaXYgY2xhc3M9InRleHRIb2xkZXIiPjxzcGFuIGNsYXNzPSJ0aXRsZSI+2K/YsduM2KfZgdiqINiq2YbYr9uM2LMg2K/ZiNix2Ycg2YfZgdiv2YfZhSAgPC9zcGFuPiA8c3BhbiBjbGFzcz0iZGVzYyI+2K3Zhdin24zYqiDYp9iyINit2YLZiNmCINmF2LXYsdmBINqp2YbZhtiv2q/Yp9mGPC9zcGFuPiA8c3BhbiBjbGFzcz0ibGluayI+2KfYt9mE2KfYudin2Kog2KjbjNi02KrYsTwvc3Bhbj48L2Rpdj4gPC9hPjwvZGl2PmQCCQ8WAh8ABdEGPGRpdiBpZD0iRGVzY0hvbGRlciI+PGEgY2xhc3M9Im1pbmlEZXNjSG9sZGVyIiBocmVmPSJjYXQvYXYiPjxkaXYgY2xhc3M9Im1pbmlEZXNjdGl0bGUiPti12YjYqtuMINmIINiq2LXZiNuM2LHbjDwvZGl2PjxpbWcgc3JjPSJJbWFnZXMvQ2F0ZWdvcnkvZDc2NDczNDMtYTNmNS00MmI3LTk5NmQtMjI1YzMxNmE5NDdmL1Bob3RvL2Zvb3Rlci5qcGciIC8+PC9hPjwvZGl2PjxkaXYgaWQ9IkRlc2NIb2xkZXIiPjxhIGNsYXNzPSJtaW5pRGVzY0hvbGRlciIgaHJlZj0iY2F0L2hhIj48ZGl2IGNsYXNzPSJtaW5pRGVzY3RpdGxlIj7ZhNmI2KfYstmFINiu2KfZhtqv24w8L2Rpdj48aW1nIHNyYz0iSW1hZ2VzL0NhdGVnb3J5L2YzYWU4ZTNhLWMyMzQtNDRiYy04NWMxLTE5OTY5OTE2Njk5MC9QaG90by9mb290ZXIuanBnIiAvPjwvYT48L2Rpdj48ZGl2IGlkPSJEZXNjSG9sZGVyIj48YSBjbGFzcz0ibWluaURlc2NIb2xkZXIiIGhyZWY9ImNhdC9hYyI+PGRpdiBjbGFzcz0ibWluaURlc2N0aXRsZSI+2YXZiNio2KfbjNmEINmIINiq2KjZhNiqIDwvZGl2PjxpbWcgc3JjPSJJbWFnZXMvQ2F0ZWdvcnkvMjk3YzQ3MjctMDAwMy00ZTk5LTgyYzgtZTAwM2VjNDJhMzA3L1Bob3RvL2Zvb3Rlci5qcGciIC8+PC9hPjwvZGl2PjxkaXYgaWQ9IkRlc2NIb2xkZXIiPjxhIGNsYXNzPSJtaW5pRGVzY0hvbGRlciIgaHJlZj0iY2F0L2l0Ij48ZGl2IGNsYXNzPSJtaW5pRGVzY3RpdGxlIj7Yqtis2YfbjNiy2KfYqiDaqdin2YXZvtuM2YjYqtixPC9kaXY+PGltZyBzcmM9IkltYWdlcy9DYXRlZ29yeS9jYWJiZjZiYS04MDlhLTRmZjgtODg5Yi0yYjYyMTQyNTVlMTEvUGhvdG8vZm9vdGVyLmpwZyIgLz48L2E+PC9kaXY+ZAIEDxYCHwAFqxo8ZGl2IGNsYXNzPSJyb3c1SG9sZGVyIj48ZGl2IGNsYXNzPSJyaWdodEJveCI+PGRpdiBjbGFzcz0iRm9vdGVyQ2F0VGl0bGUiPtiv2LHYqNin2LHZhyDZhdinPC9kaXY+PHVsPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY29udGFjdCI+2KrZhdin2LMg2KjYpyDZhdinPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9hYm91dCI+2K/Ysdio2KfYsdmHINmF2Kc8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL3dhcnJhbnR5Ij7YtNix2KfbjNi3INqv2KfYsdin2YbYqtuMPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSJjZW50ZXJCb3giPjxkaXYgY2xhc3M9IkZvb3RlckNhdFRpdGxlIj7ahtmHINmF2K3YtdmI2YTYp9iq24wg2KrZiNmE24zYryDZhduMINqp2YbbjNmF2J88L2Rpdj48ZGl2IGlkPSJGb290ZXJNZW51cyIgY2xhc3M9IkZvb3Rlck1lbnVzIj48dWw+PGxpIGNsYXNzPSJNaW5pTWVudXRpdGxlIj48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0L2hhIiB0YXJnZXQ9Il9ibGFuayIgaWQ9Ik1pbmlNZW51dGl0bGVBIj7ZhNmI2KfYstmFINiu2KfZhtqv24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3NpZGVieXNpZGUiPtiz2KfbjNivINio2KfbjCDYs9in24zYrzwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvcmVmcmlnZXJhdG9yIj7bjNiu2obYp9mEINmB2LHbjNiy2LE8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3dhc2hpbmdtYWNoaW5lIj7Zhdin2LTbjNmGINmE2KjYp9iz2LTZiNuM24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L2Rpc2h3YXNoZXIiPtmF2KfYtNuM2YYg2LjYsdmB2LTZiNuM24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L21pY3Jvd2F2ZXMiPtmF2KfbjNqp2LHZiNmB2LE8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3ZhY3V1bWNsZWFuZXIiPtis2KfYsdmI2KjYsdmC24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdC9oYyI+2YTZiNin2LLZhSDYoti02b7Ystiu2KfZhtmHINiq2Yjaqdin2LE8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L2Nvb2xlciI+2qnZiNmE2LEg2q/Yp9iy24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L2FpcmNvbmRpdGlvbmVyIj7Yqti12YHbjNmHINmH2YjYpzwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0L3N0bSI+2LPbjNiz2KrZhSDZh9in24wg2KrZh9mI24zZhyDZhdi32KjZiNi5PC9hPjwvbGk+PC91bD48dWw+PGxpIGNsYXNzPSJNaW5pTWVudXRpdGxlIj48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0L2F2IiB0YXJnZXQ9Il9ibGFuayIgaWQ9Ik1pbmlNZW51dGl0bGVBIj7YtdmI2KrbjCDZiCDYqti12YjbjNix24w8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3R2Ij7YqtmE2YjbjNiy24zZiNmGPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS9ob21ldGVhdGVyIj7Ys9uM2LPYqtmFINiz24zZhtmF2KfbjCDYrtin2Ybar9uMPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXQvY2FtZXJhIj7Yr9mI2LHYqNuM2YYg2K/bjNis24zYqtin2YQ8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdC9kdmQiPtiv24wg2YjbjCDYr9uMINm+2YTbjNixPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS9zcGVha2VyIj7Yp9iz2b7bjNqp2LEg2KjbjCDYs9uM2YU8L2E+PC9saT48L3VsPjx1bD48bGkgY2xhc3M9Ik1pbmlNZW51dGl0bGUiPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXQvYWMiIHRhcmdldD0iX2JsYW5rIiBpZD0iTWluaU1lbnV0aXRsZUEiPtmF2YjYqNin24zZhCDZiCDYqtio2YTYqjwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvbW9iaWxlIj7ZhdmI2KjYp9uM2YQ8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdGVnb3J5L3RhYmxldCI+2KrYqNmE2Ko8L2E+PC9saT48L3VsPjx1bD48bGkgY2xhc3M9Ik1pbmlNZW51dGl0bGUiPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXQvaXQiIHRhcmdldD0iX2JsYW5rIiBpZD0iTWluaU1lbnV0aXRsZUEiPtiq2KzZh9uM2LLYp9iqINqp2KfZhdm+24zZiNiq2LE8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2NhdC9zbWFydHNpZ25hZ2UiPtmG2YXYp9uM2LTar9ixINmH2YjYtNmF2YbYryDYrdix2YHZhyDYp9uMPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS9tb25pdG9yIj7Zhdin2YbbjNiq2YjYsTwvYT48L2xpPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vY2F0ZWdvcnkvcHJpbnRlciI+2b7YsduM2YbYqtixPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9jYXRlZ29yeS90dW5lciI+2KrZiNmG2LE8L2E+PC9saT48L3VsPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImxlZnRCb3giPjxkaXYgY2xhc3M9IkZvb3RlckNhdFRpdGxlIj7ahtqv2YjZhtmHINmF24wg2KrZiNin2YbbjNmFINqp2YXaqdiq2KfZhiDaqdmG24zZhdifPC9kaXY+PHVsPjxsaT48YSBocmVmPSJodHRwOi8vc2Ftc2VydmljZS5jb20vYWdlbnRzL3NlcnZpY2UiPtmG2YXYp9uM2YbYr9qv24wg2b7YsyDYp9iyINmB2LHZiNi0PC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly9zYW1zZXJ2aWNlLmNvbS9hZ2VudHMvc2FsZXMiPtmG2YXYp9uM2YbYr9qv24wg2YHYsdmI2LQ8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL3NhbXNlcnZpY2UuY29tL2FydGljbGVzIj7ZhdmC2KfZhNin2Ko8L2E+PC9saT48L3VsPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImZvdHRlclRleHQiPtiq2YXYp9mFINit2YLZiNmCINin24zZhiDYs9in24zYqiDZhdiq2LnZhNmCINio2Ycg2LTYsdqp2KogwqvYs9in2YUg2LPYsdmI24zYs8K7INmG2YXYp9uM2YbYr9mHINix2LPZhduMINi02LHaqdiqIMKr2LPYp9mF2LPZiNmG2q/CuyDYp9iz2KouIC0gwqkgMTM5NzwvZGl2PmRk9l1k1EHyYHy+HibhWiNns39sq7RdbinIRrZyBoAgpqM=" />
+
+
+<script src="/ScriptResource.axd?d=BNG0n-XQokNSQonuBQAjB_fiTeVwLSuz5tAdHHKql2IYkbsu9MZSfTP-jdADLushIPasNhOaQwe4kXcLtecDhN9_RzI628DsFxf7F9JmiBRZb8wQ6R-4THzp0S4B6g3O7JDZHx6cOowUqWUejDCGqq4o3yseGHdN_ab3JdH4yJA1&amp;t=ffffffffad4b7194" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="FC283629" />
+            
+            
+        <link rel="stylesheet" type="text/css" href="Common/css/defaultHeader.min.css" />
+        <script type="text/javascript" src="Common/js/defaultMenu.min.js"></script>
+        <script type="text/javascript">
+            function selectCatEvent(id) {
+                var cat1 = document.getElementById("HeaderCat1");
+                var cat2 = document.getElementById("HeaderCat2");
+                var cat3 = document.getElementById("HeaderCat3");
+                var cat4 = document.getElementById("HeaderCat4");
+                var cat5 = document.getElementById("HeaderCat5");
+
+                cat1.style.display = 'none';
+                cat2.style.display = 'none';
+                cat3.style.display = 'none';
+                cat4.style.display = 'none';
+                cat5.style.display = 'none';
+
+                //cat5.style.backgroundImage = 'url(../Images/Category/Lasts/DynamicHeaders/base.jpg)';
+
+                switch (id) {
+                    case 1:
+                        cat1.style.display = 'block';
+                        break;
+                    case 2:
+                        cat2.style.display = 'block';
+                        break;
+                    case 3:
+                        cat3.style.display = 'block';
+                        break;
+                    case 4:
+                        cat4.style.display = 'block';
+                        break;
+                    case 5:
+                        cat5.style.display = 'block';
+                        break;
+                }
+
+            }
+
+            function lefMenuEvent(id) {
+                //var div1 = document.getElementById("newsLeftMenuContent");
+                var div2 = document.getElementById("eventsLeftMenuContent");
+                var div3 = document.getElementById("articletLeftMenuContent");
+                var div4 = document.getElementById("downloadLeftMenuContent");
+                var div5 = document.getElementById("supportLeftMenuContent");
+                var div6 = document.getElementById("newestLeftMenuContent");
+                var div7 = document.getElementById("awardLeftMenuContent");
+                var div8 = document.getElementById("appsLeftMenuContent");
+
+                // div1.style.display = 'none';
+                div2.style.display = 'none';
+                div3.style.display = 'none';
+                div4.style.display = 'none';
+                div5.style.display = 'none';
+                div6.style.display = 'none';
+                div7.style.display = 'none';
+                div8.style.display = 'none';
+
+                //document.getElementById("newsLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_eventsLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_eventsLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_articletLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_articletLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_downloadLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_downloadLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_supportLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_supportLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_newestLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_newestLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_awardLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_awardLeftMenu").className = "NoClass";
+                if (document.getElementById("ctl00_ContentPlaceHolder1_appsLeftMenu") != null)
+                    document.getElementById("ctl00_ContentPlaceHolder1_appsLeftMenu").className = "NoClass";
+
+                switch (id) {
+                    /*case 1:
+                    	div1.style.display = 'block';
+                    	document.getElementById("newsLeftMenu").className = "selectedRow";
+                    	break;*/
+                    case 2:
+                        div2.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_eventsLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_eventsLeftMenu").className = "selectedRow";
+                        break;
+                    case 3:
+                        div3.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_articletLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_articletLeftMenu").className = "selectedRow";
+                        break;
+                    case 4:
+                        div4.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_downloadLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_downloadLeftMenu").className = "selectedRow";
+                        break;
+                    case 5:
+                        div5.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_supportLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_supportLeftMenu").className = "selectedRow";
+                        break;
+                    case 6:
+                        div6.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_newestLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_newestLeftMenu").className = "selectedRow";
+                        break;
+                    case 7:
+                        div7.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_awardLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_awardLeftMenu").className = "selectedRow";
+                        break;
+                    case 8:
+                        div8.style.display = 'block';
+                        if (document.getElementById("ctl00_ContentPlaceHolder1_appsLeftMenu") != null)
+                            document.getElementById("ctl00_ContentPlaceHolder1_appsLeftMenu").className = "selectedRow";
+                        break;
+                }
+
+                return false;
+            }
+        </script>
+        <div class="row1">
+            <div class="HeaderPhotoHolder">
+                <div id="HeaderCat1">
+                    <div class="headerPhoto1">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto2">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto3">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto4">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerBasePhoto">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                </div>
+                <div id="HeaderCat2">
+                    <div class="headerPhoto1">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto2">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto3">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto4">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerBasePhoto">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                </div>
+                <div id="HeaderCat3">
+                    <div class="headerPhoto1">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto2">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto3">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto4">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerBasePhoto">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                </div>
+                <div id="HeaderCat4">
+                    <div class="headerPhoto1">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto2">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto3">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto4">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerBasePhoto">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                </div>
+                <div id="HeaderCat5">
+                    <div class="headerPhoto1">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto2">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto3">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerPhoto4">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                    <div class="headerBasePhoto">
+                        <a href="javascript:void(0);" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="HeaderLinkHolder">
+                <ul id="ctl00_ContentPlaceHolder1_navigation"><li  onclick="return selectCatEvent(1);"><span href="#theLatest">صوتی و تصویری</span><ul class="rightMenues" id="subMenu1"><li><a class="subMenu" href="category/tv" onclick="catSubClick('d7647343-a3f5-42b7-996d-225c316a947f')">تلویزیون</a></li><li><a class="subMenu" href="category/hometeater" onclick="catSubClick('d7647343-a3f5-42b7-996d-225c316a947f')">سیستم سینمای خانگی</a></li><li><a class="subMenu" href="cat/dvd" onclick="catSubClick('d7647343-a3f5-42b7-996d-225c316a947f')">دی وی دی  پلیر</a></li><li><a class="subMenu" href="category/soundbar" onclick="catSubClick('d7647343-a3f5-42b7-996d-225c316a947f')">ساندبار</a></li><li><a class="subMenu" href="category/sp3" onclick="catSubClick('d7647343-a3f5-42b7-996d-225c316a947f')">اسپیکر360 </a></li></ul></li><li  onclick="return selectCatEvent(2);"><span href="#theLatest">لوازم خانگی</span><ul class="rightMenues" id="subMenu2"><li><a class="subMenu" href="category/sidebyside" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">ساید بای ساید</a></li><li><a class="subMenu" href="category/refrigerator" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">یخچال فریزر</a></li><li><a class="subMenu" href="category/washingmachine" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">ماشین لباسشویی</a></li><li><a class="subMenu" href="category/dishwasher" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">ماشین ظرفشویی</a></li><li><a class="subMenu" href="category/microwaves" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">مایکروفر</a></li><li><a class="subMenu" href="category/vacuumcleaner" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">جاروبرقی</a></li><li><a class="subMenu" href="cat/hc" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">لوازم آشپز خانه توکار</a></li><li><a class="subMenu" href="cat/cooler" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">کولر گازی</a></li><li><a class="subMenu" href="category/air conditioner" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">تصفیه هوا</a></li><li><a class="subMenu" href="cat/airconditioner" onclick="catSubClick('f3ae8e3a-c234-44bc-85c1-199699166990')">سیستم های تهویه مطبوع</a></li></ul></li><li  onclick="return selectCatEvent(3);"><span href="#theLatest">موبایل و تبلت </span><ul class="rightMenues" id="subMenu3"><li><a class="subMenu" href="category/mobile" onclick="catSubClick('297c4727-0003-4e99-82c8-e003ec42a307')">موبایل</a></li><li><a class="subMenu" href="category/tablet" onclick="catSubClick('297c4727-0003-4e99-82c8-e003ec42a307')">تبلت</a></li></ul></li><li  onclick="return selectCatEvent(4);"><span href="#theLatest">تجهیزات کامپیوتر</span><ul class="rightMenues" id="subMenu4"><li><a class="subMenu" href="cat/smartsignage" onclick="catSubClick('cabbf6ba-809a-4ff8-889b-2b6214255e11')">نمایشگر هوشمند حرفه ای</a></li><li><a class="subMenu" href="category/monitor" onclick="catSubClick('cabbf6ba-809a-4ff8-889b-2b6214255e11')">مانیتور</a></li><li><a class="subMenu" href="category/printer" onclick="catSubClick('cabbf6ba-809a-4ff8-889b-2b6214255e11')">پرینتر</a></li><li><a class="subMenu" href="category/tuner" onclick="catSubClick('cabbf6ba-809a-4ff8-889b-2b6214255e11')">تونر</a></li></ul></li><li onclick="return selectCatEvent(5);" ><span href="#theLatest"  class="TheLast">آخرين محصولات</span></li></ul><script>document.getElementById("HeaderCat1").getElementsByTagName("div")[4].style.backgroundImage = 'url(Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/DynamicHeaders/base.jpg)';document.getElementById("HeaderCat1").getElementsByTagName("div")[0].style.backgroundImage = 'url(Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/DynamicHeaders/1.jpg)';document.getElementById("HeaderCat1").getElementsByTagName("div")[1].style.backgroundImage = 'url(Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/DynamicHeaders/2.jpg)';document.getElementById("HeaderCat1").getElementsByTagName("div")[2].style.backgroundImage = 'url(Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/DynamicHeaders/3.jpg)';document.getElementById("HeaderCat1").getElementsByTagName("div")[3].style.backgroundImage = 'url(Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/DynamicHeaders/4.jpg)';document.getElementById("HeaderCat1").getElementsByTagName("div")[4].getElementsByTagName("a")[0].href="https://samservice.com/event/159";document.getElementById("HeaderCat1").getElementsByTagName("div")[0].getElementsByTagName("a")[0].href="https://www.samservice.com/category/soundbar";document.getElementById("HeaderCat1").getElementsByTagName("div")[1].getElementsByTagName("a")[0].href="https://www.samservice.com/category/tv";document.getElementById("HeaderCat1").getElementsByTagName("div")[2].getElementsByTagName("a")[0].href="https://samservice.com/Article/269";document.getElementById("HeaderCat1").getElementsByTagName("div")[3].getElementsByTagName("a")[0].href="https://www.samservice.com/category/soundbar";document.getElementById("HeaderCat2").getElementsByTagName("div")[4].style.backgroundImage = 'url(Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/DynamicHeaders/base.jpg)';document.getElementById("HeaderCat2").getElementsByTagName("div")[0].style.backgroundImage = 'url(Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/DynamicHeaders/1.jpg)';document.getElementById("HeaderCat2").getElementsByTagName("div")[1].style.backgroundImage = 'url(Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/DynamicHeaders/2.jpg)';document.getElementById("HeaderCat2").getElementsByTagName("div")[2].style.backgroundImage = 'url(Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/DynamicHeaders/3.jpg)';document.getElementById("HeaderCat2").getElementsByTagName("div")[3].style.backgroundImage = 'url(Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/DynamicHeaders/4.jpg)';document.getElementById("HeaderCat2").getElementsByTagName("div")[4].getElementsByTagName("a")[0].href="https://samservice.com/event/160";document.getElementById("HeaderCat2").getElementsByTagName("div")[0].getElementsByTagName("a")[0].href="http://www.samservice.com/cat/hc";document.getElementById("HeaderCat2").getElementsByTagName("div")[1].getElementsByTagName("a")[0].href="http://www.samservice.com/category/vacuumcleaner";document.getElementById("HeaderCat2").getElementsByTagName("div")[2].getElementsByTagName("a")[0].href="https://TELEGRAM.ME/SAMSERVICE";document.getElementById("HeaderCat2").getElementsByTagName("div")[3].getElementsByTagName("a")[0].href="https://www.instagram.com/samserviceofficial/";document.getElementById("HeaderCat3").getElementsByTagName("div")[4].style.backgroundImage = 'url(Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/DynamicHeaders/base.jpg)';document.getElementById("HeaderCat3").getElementsByTagName("div")[0].style.backgroundImage = 'url(Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/DynamicHeaders/1.jpg)';document.getElementById("HeaderCat3").getElementsByTagName("div")[1].style.backgroundImage = 'url(Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/DynamicHeaders/2.jpg)';document.getElementById("HeaderCat3").getElementsByTagName("div")[2].style.backgroundImage = 'url(Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/DynamicHeaders/3.jpg)';document.getElementById("HeaderCat3").getElementsByTagName("div")[3].style.backgroundImage = 'url(Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/DynamicHeaders/4.jpg)';document.getElementById("HeaderCat3").getElementsByTagName("div")[4].getElementsByTagName("a")[0].href="http://samservice.com/cat/ac";document.getElementById("HeaderCat3").getElementsByTagName("div")[0].getElementsByTagName("a")[0].href="http://samservice.com/news";document.getElementById("HeaderCat3").getElementsByTagName("div")[1].getElementsByTagName("a")[0].href="http://samservice.com/articles";document.getElementById("HeaderCat3").getElementsByTagName("div")[2].getElementsByTagName("a")[0].href="http://samservice.com/category/printer";document.getElementById("HeaderCat3").getElementsByTagName("div")[3].getElementsByTagName("a")[0].href="http://samservice.com/samsungapps";document.getElementById("HeaderCat4").getElementsByTagName("div")[4].style.backgroundImage = 'url(Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/DynamicHeaders/base.jpg)';document.getElementById("HeaderCat4").getElementsByTagName("div")[0].style.backgroundImage = 'url(Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/DynamicHeaders/1.jpg)';document.getElementById("HeaderCat4").getElementsByTagName("div")[1].style.backgroundImage = 'url(Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/DynamicHeaders/2.jpg)';document.getElementById("HeaderCat4").getElementsByTagName("div")[2].style.backgroundImage = 'url(Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/DynamicHeaders/3.jpg)';document.getElementById("HeaderCat4").getElementsByTagName("div")[3].style.backgroundImage = 'url(Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/DynamicHeaders/4.jpg)';document.getElementById("HeaderCat4").getElementsByTagName("div")[4].getElementsByTagName("a")[0].href="http://samservice.com/cat/it";document.getElementById("HeaderCat4").getElementsByTagName("div")[0].getElementsByTagName("a")[0].href="http://samservice.com/Article/171";document.getElementById("HeaderCat4").getElementsByTagName("div")[1].getElementsByTagName("a")[0].href="http://samservice.com/category/player";document.getElementById("HeaderCat4").getElementsByTagName("div")[2].getElementsByTagName("a")[0].href="http://samservice.com/category/monitor";document.getElementById("HeaderCat4").getElementsByTagName("div")[3].getElementsByTagName("a")[0].href="http://samservice.com/category/printer";document.getElementById("HeaderCat5").getElementsByTagName("div")[4].style.backgroundImage = 'url(Images/Category/Lasts/DynamicHeaders/base.jpg)';document.getElementById("HeaderCat5").getElementsByTagName("div")[0].style.backgroundImage = 'url(Images/Category/Lasts/DynamicHeaders/1.jpg)';document.getElementById("HeaderCat5").getElementsByTagName("div")[1].style.backgroundImage = 'url(Images/Category/Lasts/DynamicHeaders/2.jpg)';document.getElementById("HeaderCat5").getElementsByTagName("div")[2].style.backgroundImage = 'url(Images/Category/Lasts/DynamicHeaders/3.jpg)';document.getElementById("HeaderCat5").getElementsByTagName("div")[3].style.backgroundImage = 'url(Images/Category/Lasts/DynamicHeaders/4.jpg)';document.getElementById("HeaderCat5").getElementsByTagName("div")[4].getElementsByTagName("a")[0].href="http://www.samservice.com/category/tv";document.getElementById("HeaderCat5").getElementsByTagName("div")[0].getElementsByTagName("a")[0].href="http://samservice.com/category/washingmachine";document.getElementById("HeaderCat5").getElementsByTagName("div")[1].getElementsByTagName("a")[0].href="http://samservice.com/category/hometeater";document.getElementById("HeaderCat5").getElementsByTagName("div")[2].getElementsByTagName("a")[0].href="http://samservice.com/category/sidebyside";document.getElementById("HeaderCat5").getElementsByTagName("div")[3].getElementsByTagName("a")[0].href="http://samservice.com/cat/camera";</script></ul>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="bodyContent">
+                <div class="rightCulomn">
+                    <div id="ctl00_ContentPlaceHolder1_showOnIndexLinkHolderPanel">
+	
+                            <ul id="rightColumnMenu">
+                                <!--<li id="newsLeftMenu" class="selectedRow"><a href="#LMCHPointer" onclick="return lefMenuEvent(1);">
+						‌اخبار</a></li>-->
+                                <li id="ctl00_ContentPlaceHolder1_eventsLeftMenu" class="selectedRow"><a href="#LMCHPointer" onclick="return lefMenuEvent(2);">
+						رويداد‌ها</a></li>
+                                <li id="ctl00_ContentPlaceHolder1_articletLeftMenu"><a href="#LMCHPointer" onclick="return lefMenuEvent(3);">
+						مقالات</a></li>
+                                <li id="ctl00_ContentPlaceHolder1_downloadLeftMenu"><a href="#LMCHPointer" onclick="return lefMenuEvent(4);">
+						مسابقه ها</a></li>
+                                <li id="ctl00_ContentPlaceHolder1_supportLeftMenu"><a href="#LMCHPointer" onclick="return lefMenuEvent(5);">
+						پشتيبانی</a></li>
+                                <li id="ctl00_ContentPlaceHolder1_newestLeftMenu"><a href="#LMCHPointer" onclick="return lefMenuEvent(6);">
+						آموزش و تازه‌ها</a></li>
+                                <li id="ctl00_ContentPlaceHolder1_awardLeftMenu"><a href="#LMCHPointer" onclick="return lefMenuEvent(7);">
+						جوایز و قرعه‌کشی</a></li>
+                                
+                            </ul>
+                        
+</div>
+                </div>
+                <div class="leftCulomn">
+                    <div class="CulomnBodyHolder">
+                        <a name="LMCHPointer" id="LMCHPointer"></a>
+                        <div id="ctl00_ContentPlaceHolder1_miniContentHolder"><div id="articletLeftMenuContent"><div class="miniContentTitle">توصیه های نوروزی</div><div class="desc">توصیه های نوروزی سام سرویس</div><div class="showMore"><a href="Article/269">اطلاعات کامل</a></div></div><div id="newestLeftMenuContent"><div class="miniContentTitle">کلاسهای آموزش آشپزی با مایکروفرهای سامسونگ</div><div class="desc">کلاسهای آموزش آشپزی با مایکروفرهای سامسونگ
+مرکز آموزش آشپزی، با هدف افزایش دانش خریداران مایکروفرهای سامسونگ، در استفاده صحیح و کاربردی مایکروفر افتتاح گردیده است.
+مایکروفرهای سامسونگ با بالاترین استانداردهای  المللی بهداشت و ایمنی تولید، دارای قابلیتهای خاص و ظرفیت های مختلف می باشد.
+به همین دلیل شرکت سامسونگ با ارائه کلاس های آموزش آشپزی مایکروفر از شما دعوت می نماید تا از تمام امکانات دستگاه خود برای یک آشپزی لذت بخش مطلع شوید.
+
+مزایای اصلی مایکروفرهای سامسونگ:
+•	پخت سالم و در عین حال لذیذ با حفظ ویتامین ها و کمترین مصرف روغن
+•	آشپزی بی دردسر با حذف مراحل پیچیده طبخ غذا  با اجاق گاز
+•	عدم پراکندگی بو در منزل
+•	کنترل زمان اتمام پخت غذا  و امکان ترک منزل بدون نگرانی از سوختن غذا
+نشانی: خیابان شریعتی – حدفاصل ظفر و دوراهی قلهک – کوچه پورمشکانی – پلاک 46 – طبقه دوم    تلفن 2 - 26700130</div><div class="showMore"><a href="Newest_Learning/232">اطلاعات کامل</a></div></div><div id="appsLeftMenuContent"><div class="miniContentTitle">چگونه برای تلویزیون های هوشمند نرم افزار (اپلیکیشن) بنویسیم</div><div class="desc">چگونه برای تلویزیون های هوشمند نرم افزار (اپلیکیشن) بنویسیم</div><div class="showMore"><a href="SamsungApp/187">اطلاعات کامل</a></div></div><div id="eventsLeftMenuContent"><div class="miniContentTitle">جشنواره عیدانه محصولات خانگی</div><div class="desc"><p><a href="https://samservice.com/event/160"><img alt="" src="/Images/Upload/images/Site-752x216.jpg" style="height:216px; width:752px" /></a><a href="https://spn2.samservice.net/FestivalLogin.aspx"><img alt="" src="/Images/Upload/images/2-9(1).jpg" style="height:30px; width:752px" /></a></p>
+
+<p><img alt="" src="/Images/Upload/images/1-2(1).jpg" style="height:1027px; width:752px" /></p>
+
+<p>لازم به ذکر است محصولات مایکروفر و جاروبرقی فاقد شرایط نصب می باشد.هنگام ثبت این محصولات ارائه تصویر صورتحساب خرید الزامی می باشد.</p>
+
+<p><span dir="RTL">نام شبای ارسال شده حتماً میبایست با اطلاعات ثبت شده در برگه نصب هم خوانی داشته باشد&nbsp;</span>.</p>
+
+<p><span style="font-size:14px"><strong>شرایط جشنواره مختص استانهای&nbsp; <span dir="RTL">فارس، خوزستان، خراسان رضوی، آذربایجان غربی، آذربایجان شرقی، اصفهان، کرمانشاه، کردستان، هرمزگان و بوشهر</span></strong></span></p>
+
+<p><span style="font-size:14px"><strong><span dir="RTL"><img alt="" src="/Images/Upload/images/1-1(2).jpg" style="height:1044px; width:752px" /></span></strong></span></p>
+
+<p>&nbsp;</p>
+
+<p>بدیهی است این جشنواره برای مدت محدود اعتبار دارد و شرکت در هر زمانی مختار است که جشنواره را برای یک یا تمامی مدلها متوقف سازد</p>
+</div><div class="showMore"><a href="event/160">اطلاعات کامل</a></div></div><div id="downloadLeftMenuContent"><div class="miniContentTitle">مسابقه ها</div><div class="desc"><div>مسابقه&zwnj;ی اینستاگرامی #تاروپودخاک</div>
+
+<div>&nbsp;</div>
+
+<div>موضوع: افسانه&zwnj;ها و مَتَل&zwnj;های اقوام ایرانی</div>
+
+<div>مجری: پیج اینستاگرام &quot;سام سرویس&quot;</div>
+
+<div>زمان&zwnj;بندی: &nbsp;شنبه ۱ مهر ۹۶ تا چهارشنبه 15 فروردین 97</div>
+
+<div>&nbsp;</div>
+
+<div>شیوه&zwnj;ی دریافت آثار:</div>
+
+<div>&nbsp;&bull; ارسال مشخصات فردی زیر به ایمیل مسابقه به آدرس samserviceofficial@gmail.com</div>
+
+<div>- نام</div>
+
+<div>- نام خانوادگی &nbsp;&nbsp;</div>
+
+<div>- نام پدر &nbsp;&nbsp;</div>
+
+<div>- شماره ملی &nbsp;&nbsp;</div>
+
+<div>- شهر محل سکونت &nbsp;&nbsp;</div>
+
+<div>- شماره تلفن ثابت &nbsp;&nbsp;</div>
+
+<div>- شماره تلفن همراه &nbsp;&nbsp;</div>
+
+<div>- توضیحات &nbsp;&nbsp;</div>
+
+<div>- آی دی اینستاگرام</div>
+
+<div>&nbsp; &nbsp;</div>
+
+<div>&nbsp;&bull; ارسال حداکثر 5 افسانه و 10 متل&nbsp;</div>
+
+<div>&nbsp;</div>
+
+<div>&nbsp;&bull; به اشتراک گذاشتن حداقل یکی از مَتَل&zwnj;ها و یا قسمتی از افسانه در پیج اینستاگرام با دو شرط زیر:</div>
+
+<div>- &nbsp;ذکر#تاروپودخاک</div>
+
+<div>- &nbsp; منشن پیج سام سرویس به نشانی samserviceofficial روی عکس</div>
+
+<div>&nbsp;</div>
+
+<div>مقررات:</div>
+
+<div>۱- &nbsp;قالب فایل ارسالی باید به صورت WORD و با اندازه&zwnj;ی قلم ۱۴ و فونت B nazanin باشد.</div>
+
+<div>۲- &nbsp;حداکثر تعداد کلمات افسانه&zwnj;ها ۱۵۰۰ کلمه و مَتَل&zwnj;ها ۱۰۰۰ کلمه &zwnj;باشد که این تعداد با معیار نرم&zwnj;افزار WORD شمارش خواهد شد.</div>
+
+<div>۳- &nbsp;هر فرد می&zwnj;تواند حداکثر ۵ افسانه و ۱۰ مَتَل برای شرکت در مسابقه ارسال کند و در صورت برگزیده شدن تنها به یک اثر جایزه تعلق خواهد گرفت.</div>
+
+<div>۴- &nbsp;دبیرخانه حق استفاده از تمامی آثار ارسالی به مسابقه را در رسانه&zwnj;های دیجیتال و سایر موارد فرهنگی با ذکر نام نویسنده، برای خود محفوظ می&zwnj;دارد و چنانچه درآمدی از این راه حاصل شود، حق&zwnj;التألیف صاحب اثر پرداخت خواهد شد.</div>
+
+<div>۵- &nbsp;دبیرخانه ارسال&zwnj;کننده&zwnj;ی اثر را صاحب و تولیدکننده&zwnj;ی آن تلقی می&zwnj;کند و هرگونه مسئولیت در این مورد بر عهده&zwnj;ی وی می&zwnj;باشد.</div>
+
+<div>۶- &nbsp;به تمامی آثاری که به مرحله&zwnj;ی چاپ برسند حق تالیف تعلق خواهد گرفت که این مبلغ برای هر کلمه معادل ۵۰ تومان خواهد بود.</div>
+
+<div>۷- &nbsp;شیوه&zwnj;ی انتخاب برندگان با داوری خواهد بود. رای هیات داوران قطعی است و هیچگونه اعتراضی پذیرفته نیست.</div>
+
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+
+<div>آثار برگزیده:</div>
+
+<div>&bull; &nbsp;نفر اول: لوح تقدیر، تندیس و سه سکه&zwnj;ی تمام بهار آزادی</div>
+
+<div>&bull; &nbsp;نفر دوم: لوح تقدیر، تندیس و دو سکه&zwnj;ی تمام بهار آزادی</div>
+
+<div>&bull; &nbsp;نفر سوم: لوح تقدیر، تندیس و یک سکه&zwnj;ی تمام بهار آزادی</div>
+</div></div><div id="supportLeftMenuContent"><div class="miniContentTitle">پشتيباني</div><div class="desc"><p>&nbsp;</p>
+
+<p dir="RTL"><strong>اطلاعات در مورد شرایط و ضوابط گارانتی</strong></p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>مدت زمان گارانتی:</strong></p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>&nbsp;زمان دوره گارانتی محصولات بر روی کارت گارانتی درج گردیده است و در مورد هر محصول بر روی</strong> <strong>کارت گارانتی ( طبق شرایط مندرج در پشت کارت ) به صورت مستقل درج شده است که زمان شروع آن از</strong> <strong>تاریخ تولید محصول می باشد. </strong></p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>مدت زمان گارانتی برای هر محصول و شرایط ویژه گارانتی طبق جدول مدت گارانتی(جدول شماره 1) در زیر آمده است.</strong></p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>جدول شماره 1</strong></p>
+
+<table align="center" border="1" cellpadding="0" cellspacing="0" dir="rtl" style="width:733px">
+	<tbody>
+		<tr>
+			<td colspan="6" style="width:733px">
+			<p dir="RTL"><strong>مدت زمان گارانتی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:55px">
+			<p dir="RTL"><strong>گروه محصول</strong></p>
+			</td>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>ردیف</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>نام محصول</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>مدت زمان گارانتی از تاریخ تولید</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>مدت زمان گارانتی از تاریخ نصب یا فروش</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL"><strong>شرایط ویژه گارانتی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="9" style="height:1px; width:55px">
+			<p dir="RTL"><strong><span dir="LTR">HA</span></strong></p>
+
+			<p dir="RTL">&nbsp;</p>
+			</td>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>1</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>یخچال فریزر</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL"><strong>کمپرسورمعمولی 3/5سال از تاریخ تولید ضمانت دارد.</strong></p>
+
+			<p dir="RTL"><strong>کمپرسورهای اینورتر123سال از تاریخ تولید ضمانت دارد</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>2</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>ساید بای ساید اینورتر</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL"><strong>کمپرسور 123 ماه از تاریخ تولید ضمانت دارد</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>3</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>ماشین لباسشویی درب از بالا</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>4</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>ماشین لباسشویی اتوماتیک</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL"><strong>موتوردستگاه 123 ماه از تولید ضمانت دارد</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>5</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>ماشین ظرفشویی</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:47px">
+			<p dir="RTL"><strong>6</strong></p>
+			</td>
+			<td style="height:1px; width:200px">
+			<p dir="RTL"><strong>جاروبرقی</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:1px; width:96px">
+			<p dir="RTL"><strong>-</strong></p>
+			</td>
+			<td style="height:1px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>7</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>مایکروفر</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>-</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>8</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>اجاق گاز</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>9</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>تصفیه&nbsp; هوا</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:55px">
+			<p dir="RTL"><strong><span dir="LTR">AC</span></strong></p>
+			</td>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>11</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>کولر گازی </strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL"><strong>کمپرسور 5 سال از تاریخ نصب ضمانت دارد</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="4" style="height:19px; width:55px">
+			<p dir="RTL"><strong><span dir="LTR">AV</span></strong></p>
+			</td>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>13</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>تلویزیون </strong><strong><span dir="LTR">Plasma ,LCD,LED</span></strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:47px">
+			<p dir="RTL"><strong>14</strong></p>
+			</td>
+			<td style="height:19px; width:200px">
+			<p dir="RTL"><strong>دوربین عکاسی و فیلمبرداری</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="height:19px; width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:47px">
+			<p dir="RTL"><strong>15</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>سینمای خانگی و </strong><strong><span dir="LTR">VCD</span></strong> <strong><span dir="LTR">DVD,</span></strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:47px">
+			<p dir="RTL"><strong>16</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong><span dir="LTR">Mp3 Player</span></strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3" style="width:55px">
+			<p dir="RTL"><strong><span dir="LTR">IT</span></strong></p>
+			</td>
+			<td style="width:47px">
+			<p dir="RTL"><strong>18</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>پرینتر </strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>14 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>-</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:47px">
+			<p dir="RTL"><strong>19</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>مانیتور</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>24 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>-</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:47px">
+			<p dir="RTL"><strong>20</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>فکس</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>14 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>-</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="width:55px">
+			<p dir="RTL"><strong><span dir="LTR">Mobile</span></strong></p>
+			</td>
+			<td style="width:47px">
+			<p dir="RTL"><strong>21</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>مویایل</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:47px">
+			<p dir="RTL"><strong>22</strong></p>
+			</td>
+			<td style="width:200px">
+			<p dir="RTL"><strong>تبلت</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:96px">
+			<p dir="RTL"><strong>18 ماه</strong></p>
+			</td>
+			<td style="width:239px">
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="clear:both;">&nbsp;</div>
+
+<p dir="RTL" style="margin-right:.25in"><strong>شرایط عمومی گارانتی </strong><strong>:</strong></p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>جدول شماره 2</strong></p>
+
+<table align="right" border="1" cellpadding="0" cellspacing="0" dir="rtl" style="width:658px">
+	<tbody>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>شرایط عمومی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>1- ضمانت نامه بدون هولوگرام فاقد اعتبار است.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>2- خدمات گارانتی فقط برای تعمیر یا سرویس دستگاه بوده وشامل ارایه خدمات رایگان برای تعویض قطعات و دستمزد تعمیر می باشد.</strong> <strong>ه ایراداتی که ناشی از طراحی، متریال، مونتاژ شده که در اثر استفاده نرمال از دستگاه در طول دوره گارانتی بروز می نماید. این خدمات در برگیرنده تعویض قطعه رایگان و اجرت تعمیر رایگان می باشد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>3- دستگاه های دارای گارانتی هستند که دارای برگ ضمانت نامه باشند. بدیهی است جهت استفاده از خدمات گارانتی ارایه برگ ضمانت نامه ضروری است.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>4- خدمات گارانتی فقط توسط مراکز مجاز معرفی شده و در محل تعمیرگاه ارایه می گردد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>5- حداکثر مدت زمان پوشش خدمات گارانتی برای گروه محصولات </strong><strong><span dir="LTR">TV</span></strong><strong>، خانگی، کولر، موبایل و تبلت 18 ماه می باشد</strong><strong>. </strong></p>
+
+			<p dir="RTL"><strong>مدت زمان دوره گارانتی مانیتور 24 ماه می باشد.</strong></p>
+
+			<p dir="RTL"><strong>مدت زمان دوره گارانتی برای گروه محصولات </strong><strong><span dir="LTR">IT</span></strong><strong> (فکس، پرینتر و . . .) 14 ماه می باشد.</strong></p>
+
+			<p dir="RTL"><strong>مدت زمان گارانتی کمپرسور کولرهای اسپیلیت 60 ماه می باشد.</strong></p>
+
+			<p dir="RTL"><strong>مدت زمان گارانتی کمپرسور انواع یخچالها 42 ماه می باشد. </strong></p>
+
+			<p dir="RTL"><strong>مدت زمان گارانتی کمپرسور یخچالهای اینورتر 123 ماه می باشد.</strong></p>
+
+			<p dir="RTL"><strong>مدت زمان گارانتی موتور لباسشویی های نوع اینورتر 123 ماه می باشد.</strong></p>
+
+			<p dir="RTL"><strong>شروع گارانتی برای دستگاههایی که دارای خدمات نصب رایگان نمی باشند، از تاریخ تولید محاسبه می گردد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>6- ضمانت نامه در شرایط زیر قابل اجرا نیست:</strong></p>
+
+			<p dir="RTL"><strong>الف : صدمات و ضایعات ناشی از ضربه ، سقوط ، حمل ونقل ، تماس یا نفوذ آب و مواد شیمیایی ، آتش و حرارت زیاد ، گرد و غبار شدید ، نوسانات برق ، رعد و برق و حوادث طبیعی</strong></p>
+
+			<p dir="RTL"><strong>ب : استفاده غلط از دستگاه یا مواردی خارج از سازگاری و استانداردهای تعیین شده برای دستگاه یا عمل نکردن به نکات ذکر شده در دفترچه راهنمای دستگاه</strong></p>
+
+			<p dir="RTL"><strong>ج : دستگاه هایی که دستکاری شده و یا توسط اشخاصی به جز نمایندگان مجاز سام سرویس تعمیر شوند.</strong></p>
+
+			<p dir="RTL"><strong>د : هر نوع دستکاری ، خدشه یا کنده شدن برچسب سریال یا هولوگرام ، مشخصات دستگاه یا هر نوع دستکاری یا آسیب برگ ضمانت نامه.</strong></p>
+
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:658px">
+			<p dir="RTL"><strong>7- - مشتریان محترم در صورت نیاز به کسب اطلاعات بیشتر می توانند با مرکز تماس سام سرویس ارتباط برقرار نمایند:</strong></p>
+
+			<p dir="LTR"><strong>Call Center&nbsp;&nbsp; </strong>&nbsp;<strong>:&nbsp;&nbsp; 021-8255</strong></p>
+
+			<p dir="LTR"><strong>SMS Center&nbsp; :&nbsp; &nbsp;0218255</strong></p>
+
+			<p dir="LTR"><strong>E</strong><strong><span dir="RTL">-</span></strong><strong>mail&nbsp;:&nbsp;&nbsp;</strong><a href="mailto:8255@Samservice.com"><strong>8255@Samservice.com</strong></a></p>
+
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="clear:both;">&nbsp;</div>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in">&nbsp;</p>
+
+<p dir="RTL" style="margin-right:.25in"><strong>شرایط اختصاصی گارانتی </strong><strong>:</strong></p>
+
+<p dir="RTL" style="margin-right:.5in"><strong>جدول شماره 3</strong></p>
+
+<table align="right" border="1" cellpadding="0" cellspacing="0" dir="rtl" style="width:658px">
+	<tbody>
+		<tr>
+			<td colspan="3" style="width:658px">
+			<p dir="RTL"><strong>شرایط اختصاصی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:36px">
+			<p dir="RTL"><strong>ردیف</strong></p>
+			</td>
+			<td style="height:1px; width:120px">
+			<p dir="RTL"><strong>نام محصول</strong></p>
+			</td>
+			<td style="height:1px; width:502px">
+			<p dir="RTL"><strong>قطعات و قسمت هایی که شامل گارانتی نمی شود</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:36px">
+			<p dir="RTL"><strong>1</strong></p>
+			</td>
+			<td style="height:1px; width:120px">
+			<p dir="RTL"><strong>یخچال فریزر</strong></p>
+			</td>
+			<td style="height:1px; width:502px">
+			<p dir="RTL"><strong>قفسه ها ، لوازم تزیینی ، بدنه خارجی ، فیلتر و لوازم و تجهیزات جانبی ، شکستگی قطعات دکوری </strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:36px">
+			<p dir="RTL"><strong>2</strong></p>
+			</td>
+			<td style="height:1px; width:120px">
+			<p dir="RTL"><strong>ماشین لباسشویی</strong></p>
+			</td>
+			<td style="height:1px; width:502px">
+			<p dir="RTL"><strong>لوازم تزیینی ، بدنه و اجزای آن و تجهیزات جانبی. در ضمن خرابی های ظاهری در هنگام نصب بر عهده فروشنده می باشد و شرکت مسوولیتی در قبال آن ندارد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:36px">
+			<p dir="RTL"><strong>3</strong></p>
+			</td>
+			<td style="height:1px; width:120px">
+			<p dir="RTL"><strong>ماشین ظرفشویی</strong></p>
+			</td>
+			<td style="height:1px; width:502px">
+			<p dir="RTL"><strong>لوازم تزیینی ، بدنه و اجزای آن و تجهیزات جانبی. در ضمن خرابی های ظاهری در هنگام نصب بر عهده فروشنده می باشد و شرکت مسوولیتی در قبال آن ندارد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:1px; width:36px">
+			<p dir="RTL"><strong>4</strong></p>
+			</td>
+			<td style="height:1px; width:120px">
+			<p dir="RTL"><strong>جاروبرقی</strong></p>
+			</td>
+			<td style="height:1px; width:502px">
+			<p dir="RTL"><strong>فیلترها ، لوازم تزیینی ، ظروف و لوازم داخلی ، بدنه خارجی و اجزای آن وتجهیزات جانبی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>5</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>مایکروفر</strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>لوازم تزیینی ، ظروف و لوازم داخلی ، بدنه خارجی و اجزای آن وتجهیزات جانبی</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>6</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>اجاق گاز</strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>قسمت های خارجی ، قطعات مصرفی ، تزیینی ، پلاستیکی، شیشه درب اجاق ، لامپ داخل اجاق ، دستگیره ها ، پایه های نگهدارنده ، تغییر رنگ بر اثر حرارت زیاد و عدم نگهداری صحیح.در ضمن خرابی های ظاهری در هنگام نصب بر عهده فروشنده می باشد و شرکت مسوولیتی در قبال آن ندارد.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>7</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>کولرگازی</strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>فیلترها ، بدنه و اجزای آن ، وسایل و تجهیزات جانبی ، کنترل از راه دور</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>8</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>تلویزیون</strong><strong><span dir="LTR">CRT</span></strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>وسایل و تجهیزات جانبی ، بدنه و کنترل از راه دور و صدمات و خرابی های ناشی از اتصال غلط یا ارتباط دستگاه با سایر دستگاه ها ، تجهیزات و لوازم جانبی غیر سازگار و معیوب ، همچنین باقی ماندن پسماند ناشی از نمایش مستمر لوگوی کانال یا تصاویر ثابت ، صدمات وارده به صفحه نمایش ناشی از پاک کردن غلط با هر وسیله یا ماده.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>9</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>تلویزیون</strong></p>
+
+			<p dir="RTL">&nbsp;<strong><span dir="LTR">Plasma,LCD,LED</span></strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>وسایل و تجهیزات جانبی ، بدنه ، باطری ها ، عینک </strong><strong><span dir="LTR">3D</span></strong><strong>&nbsp; ، کنترل از راه دور و بلندگوها وصدمات و خرابی های ناشی از اتصال غلط یا ارتباط دستگاه با سایر دستگاه ها ، تجهیزات و لوازم جانبی غیر سازگار و معیوب ، همچنین باقی ماندن پسماند ناشی از نمایش مستمر لوگوی کانال یا تصاویر ثابت ، صدمات وارده به پنل و صفحه نمایش ناشی از پاک کردن غلط با هر وسیله یا ماده.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:19px; width:36px">
+			<p dir="RTL"><strong>10</strong></p>
+			</td>
+			<td style="height:19px; width:120px">
+			<p dir="RTL"><strong>دوربین عکاسی و فیلمبرداری</strong></p>
+			</td>
+			<td style="height:19px; width:502px">
+			<p dir="RTL"><strong>صدمات و خرابی های ناشی از اتصال غلط یا ارتباط دستگاه با سایر دستگاه ها، تجهیزات و لوازم جانبی غیرسازگار و معیوب ، صدمات ناشی از نصب و به روز رسانی هر نوع فایل ، نرم افزار یا</strong><strong><span dir="LTR">Firm ware </span></strong><strong>&nbsp;،صدمات ناشی از پاک کردن هد یا اپتیک دستگاه با هر وسیله یا ماده.</strong></p>
+
+			<p dir="RTL">&nbsp;</p>
+
+			<p dir="RTL">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:36px">
+			<p dir="RTL"><strong>11</strong></p>
+			</td>
+			<td style="width:120px">
+			<p dir="RTL"><strong>سینمای خانگی</strong></p>
+
+			<p dir="RTL"><strong><span dir="LTR">VCD</span></strong> <strong><span dir="LTR">DVD,</span></strong></p>
+			</td>
+			<td style="width:502px">
+			<p dir="RTL"><strong>وسایل و تجهیزات جانبی ، بدنه ، باطری ها ، کنترل از راه دور ، بلندگوها ، اپتیک ، کابل </strong><strong><span dir="LTR">HDMI</span></strong><strong> و صدمات و خرابی های ناشی از اتصال غلط یا ارتباط دستگاه با سایر دستگاه ها، تجهیزات و لوازم جانبی غیرسازگار و معیوب ، صدمات ناشی از نصب و به روز رسانی هر نوع فایل ، نرم افزار یا</strong><strong><span dir="LTR">Firm ware </span></strong><strong>&nbsp;،صدمات ناشی از پاک کردن هد یا اپتیک دستگاه با هر وسیله یا ماده یا صدمات ناشی از </strong><strong><span dir="LTR">CD </span></strong><strong>&nbsp;های خش دار و کثیف.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:36px">
+			<p dir="RTL"><strong>12</strong></p>
+			</td>
+			<td style="width:120px">
+			<p dir="RTL"><strong><span dir="LTR">Mp3 Player</span></strong></p>
+			</td>
+			<td style="width:502px">
+			<p dir="RTL"><strong>وسایل و تجیزات جانبی ، بدنه ، باطری ها ، هدفون و دستگاه کنترل از راه دورو صدمات و خرابی های ناشی از اتصال غلط یا ارتباط با سایر دستگاه ها ، تجهیزات و لوازم جانبی غیرسازگار و معیوب ، صدمات ناشی از نصب به روزرسانی هر نوع فایل ، نرم افزار یا&nbsp; </strong><strong><span dir="LTR">&nbsp;Firm ware</span></strong><strong> و صدمات ناشی از نشتی باطری.</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:36px">
+			<p dir="RTL"><strong>13</strong></p>
+			</td>
+			<td style="width:120px">
+			<p dir="RTL"><strong>پرینتر </strong></p>
+			</td>
+			<td style="width:502px">
+			<p dir="RTL"><strong>صدمات ناشی از کاغذ غیر استاندارد (از نظر وزن ، اندازه ویا وجود سوزن / منگنه درکاغذ مصرفی)</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:36px">
+			<p dir="RTL"><strong>14</strong></p>
+			</td>
+			<td style="width:120px">
+			<p dir="RTL"><strong>مانیتور</strong></p>
+			</td>
+			<td style="width:502px">
+			<p dir="RTL"><strong>کلیه وسایل و تجهیزات جانبی ، بدنه لوازم تزیینی و داخلی ، باطری ها ، کنترل از راه دور و بلندگوها</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:36px">
+			<p dir="RTL"><strong>15</strong></p>
+			</td>
+			<td style="width:120px">
+			<p dir="RTL"><strong>هارد</strong></p>
+			</td>
+			<td style="width:502px">
+			<p dir="RTL"><strong>صدمات ناشی از&nbsp; </strong><strong><span dir="LTR">Bad sector</span></strong><strong> ، تاثیر منفی میدان مغناطیسی ، حمل و نقل نادرست ، نوسانات برق و حوادث طبیعی . در ضمن شرکت در قبال اطلاعات داخل هارد دیسک مسوولیتی ندارد.</strong></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="clear:both;">&nbsp;</div>
+
+<p dir="RTL"><strong>محصولاتی که دارای نصب رایگان هستند</strong></p>
+
+<ul>
+	<li dir="RTL"><strong>ماشین لباسشویی اتوماتیک</strong></li>
+	<li dir="RTL"><strong>ماشین ظرفشویی</strong></li>
+	<li dir="RTL"><strong>کولرگازی اینورتر</strong></li>
+	<li dir="RTL"><strong>اجاق گاز و </strong><strong><span dir="LTR">OVEN</span></strong></li>
+	<li dir="RTL"><strong>یخچال فریزرهای ساید بای ساید و </strong><strong>یخچال فریزر دارای یخ ساز اتوماتیک</strong></li>
+</ul>
+
+<ul>
+	<li dir="RTL"><strong>تلویزیون</strong><strong><span dir="LTR"> PLASM </span></strong><strong>&nbsp;، </strong><strong><span dir="LTR">LED</span></strong><strong> و </strong><strong><span dir="LTR">LCD</span></strong><strong> 40اینچ به بالا</strong></li>
+	<li dir="RTL"><strong>پرینترهای چند کاره (در صورت نصب </strong><strong><span dir="LTR">Wireless</span></strong><strong> و شبکه هزینه جداگانه دریافت می گردد)</strong></li>
+</ul>
+</div></div><div id="awardLeftMenuContent"><div class="miniContentTitle">یک دستگاه پژو207 در استان گلستان</div><div class="desc"><p>یک دستگاه پژو۲۰7 در استان گلستان</p></div><div class="showMore"><a href="draw/92">اطلاعات کامل</a></div></div><script>document.getElementById("eventsLeftMenuContent").style.display='block';</script></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row3">
+            <div class="contetn960">
+                <div id="ctl00_ContentPlaceHolder1_newsPart" class="newsPart"><div class="culomnRight"><a href="NewsDetail/270"><img src="Images/Upload/News/c9b3e4e0-6f67-4080-8b8d-376aa860102e/thumb_NewsPic.jpg" /><div class="textHolder"><span class="title">دریافت تندیس دوره هفدهم</span> <span class="desc"> حمایت از حقوق مصرف کنندگان</span> <span class="link">اطلاعات بیشتر</span></div> </a></div><div class="culomnLeft"><a href="NewsDetail/271"><img src="Images/Upload/News/e60b1964-3d55-46f0-9312-a76e6b8c8674/thumb_NewsPic.jpg" /><div class="textHolder"><span class="title">دریافت تندیس دوره هفدهم  </span> <span class="desc">حمایت از حقوق مصرف کنندگان</span> <span class="link">اطلاعات بیشتر</span></div> </a></div></div>
+            </div>
+        </div>
+        <div class="row4">
+            <div id="contetn960">
+                <div id="ctl00_ContentPlaceHolder1_middleProductsHolder"><div id="DescHolder"><a class="miniDescHolder" href="cat/av"><div class="miniDesctitle">صوتی و تصویری</div><img src="Images/Category/d7647343-a3f5-42b7-996d-225c316a947f/Photo/footer.jpg" /></a></div><div id="DescHolder"><a class="miniDescHolder" href="cat/ha"><div class="miniDesctitle">لوازم خانگی</div><img src="Images/Category/f3ae8e3a-c234-44bc-85c1-199699166990/Photo/footer.jpg" /></a></div><div id="DescHolder"><a class="miniDescHolder" href="cat/ac"><div class="miniDesctitle">موبایل و تبلت </div><img src="Images/Category/297c4727-0003-4e99-82c8-e003ec42a307/Photo/footer.jpg" /></a></div><div id="DescHolder"><a class="miniDescHolder" href="cat/it"><div class="miniDesctitle">تجهیزات کامپیوتر</div><img src="Images/Category/cabbf6ba-809a-4ff8-889b-2b6214255e11/Photo/footer.jpg" /></a></div></div>
+            </div>
+        </div>
+    
+        
+
+<script type="text/javascript">
+//<![CDATA[
+lefMenuEvent(2);//]]>
+</script>
+</form>
+        
+        
+    </div>
+    <div id="ctl00_rowDynamic" class="row5"><div class="row5Holder"><div class="rightBox"><div class="FooterCatTitle">درباره ما</div><ul><li><a href="http://samservice.com/contact">تماس با ما</a></li><li><a href="http://samservice.com/about">درباره ما</a></li><li><a href="http://samservice.com/warranty">شرایط گارانتی</a></li></ul></div><div class="centerBox"><div class="FooterCatTitle">چه محصولاتی تولید می کنیم؟</div><div id="FooterMenus" class="FooterMenus"><ul><li class="MiniMenutitle"><a href="http://samservice.com/cat/ha" target="_blank" id="MiniMenutitleA">لوازم خانگی</a></li><li><a href="http://samservice.com/category/sidebyside">ساید بای ساید</a></li><li><a href="http://samservice.com/category/refrigerator">یخچال فریزر</a></li><li><a href="http://samservice.com/category/washingmachine">ماشین لباسشویی</a></li><li><a href="http://samservice.com/category/dishwasher">ماشین ظرفشویی</a></li><li><a href="http://samservice.com/category/microwaves">مایکروفر</a></li><li><a href="http://samservice.com/category/vacuumcleaner">جاروبرقی</a></li><li><a href="http://samservice.com/cat/hc">لوازم آشپزخانه توکار</a></li><li><a href="http://samservice.com/category/cooler">کولر گازی</a></li><li><a href="http://samservice.com/category/airconditioner">تصفیه هوا</a></li><li><a href="http://samservice.com/cat/stm">سیستم های تهویه مطبوع</a></li></ul><ul><li class="MiniMenutitle"><a href="http://samservice.com/cat/av" target="_blank" id="MiniMenutitleA">صوتی و تصویری</a></li><li><a href="http://samservice.com/category/tv">تلویزیون</a></li><li><a href="http://samservice.com/category/hometeater">سیستم سینمای خانگی</a></li><li><a href="http://samservice.com/cat/camera">دوربین دیجیتال</a></li><li><a href="http://samservice.com/cat/dvd">دی وی دی پلیر</a></li><li><a href="http://samservice.com/category/speaker">اسپیکر بی سیم</a></li></ul><ul><li class="MiniMenutitle"><a href="http://samservice.com/cat/ac" target="_blank" id="MiniMenutitleA">موبایل و تبلت</a></li><li><a href="http://samservice.com/category/mobile">موبایل</a></li><li><a href="http://samservice.com/category/tablet">تبلت</a></li></ul><ul><li class="MiniMenutitle"><a href="http://samservice.com/cat/it" target="_blank" id="MiniMenutitleA">تجهیزات کامپیوتر</a></li><li><a href="http://samservice.com/cat/smartsignage">نمایشگر هوشمند حرفه ای</a></li><li><a href="http://samservice.com/category/monitor">مانیتور</a></li><li><a href="http://samservice.com/category/printer">پرینتر</a></li><li><a href="http://samservice.com/category/tuner">تونر</a></li></ul></div></div><div class="leftBox"><div class="FooterCatTitle">چگونه می توانیم کمکتان کنیم؟</div><ul><li><a href="http://samservice.com/agents/service">نمایندگی پس از فروش</a></li><li><a href="http://samservice.com/agents/sales">نمایندگی فروش</a></li><li><a href="http://samservice.com/articles">مقالات</a></li></ul></div></div><div class="fotterText">تمام حقوق این سایت متعلق به شرکت «سام سرویس» نماینده رسمی شرکت «سامسونگ» است. - © 1397</div></div>
+    <script type="text/javascript" src="../Common/js/global.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //sysHideMessage(true);
+            //function pageLoad(sender, args) {
+            //    sysHideMessage(true);
+            //}
+        });
+        function totalSearch() {
+            window.location.href = '/search-all/' + document.getElementById('totalSearchField').value + '_all';
+        }
+
+        /*function sysShowMessage(msg, type, timeout, isCalledByServer) {
+            if (msg == null || msg == undefined) { msg = ""; }
+            if (type == null || type == undefined) { type = "info"; }
+            if (timeout == null || timeout == undefined) { timeout = 0; }
+            if (isCalledByServer == undefined) { isCalledByServer = false; }
+
+            var divSysMessage = document.getElementById("divSysMessage");
+            var imgSysMessage = document.getElementById("imgSysMessage");
+            var spnSysMessage = document.getElementById("spnSysMessage");
+
+            imgSysMessage.style.display = "";
+            switch (type.toLowerCase()) {
+                case "loading":
+                    imgSysMessage.src = "Images/design/ajax-loader.gif";
+                    break;
+                case "info":
+                    imgSysMessage.src = "Images/design/information.png";
+                    break;
+                case "warning":
+                    imgSysMessage.src = "Images/design/warning.png";
+                    document.getElementById("divSysMessage").className = "divSysMessageWarning";
+                    break;
+                case "done":
+                    imgSysMessage.src = "Images/design/done.png";
+                    document.getElementById("divSysMessage").className = "divSysMessagedone";
+                    break;
+                default:
+                    imgSysMessage.style.display = "none";
+            }
+            spnSysMessage.innerHTML = msg;
+            divSysMessage.style.display = "";
+            var timeoutId = divSysMessage.getAttribute("timeoutId");
+            clearTimeout(timeoutId);
+            if (timeout > 0) {
+                timeoutId = setTimeout(sysHideMessage, timeout * 1000);
+                divSysMessage.setAttribute("timeoutId", timeoutId);
+            }
+            divSysMessage.setAttribute("isCalledByServer", (isCalledByServer ? 'true' : 'false'));
+        }
+        function sysHideMessage(isOnPageLoaded) {
+            if (isOnPageLoaded == undefined) { isOnPageLoaded = false; }
+
+            var divSysMessage = document.getElementById("divSysMessage");
+            var timeoutId = divSysMessage.getAttribute("timeoutId");
+            var isCalledByServer = (divSysMessage.getAttribute("isCalledByServer") == 'true' ? true : false);
+
+            if (!(isCalledByServer && isOnPageLoaded)) {
+                clearTimeout(timeoutId);
+                divSysMessage.style.display = "none";
+            }
+        }*/
+        $('#totalSearchField').keyup(function (event) {
+            if (event.keyCode == 13) {
+                totalSearch();
+            }
+            else {
+                if ((($(this).val().charCodeAt(0) > 0x600) && ($(this).val().charCodeAt(0) < 0x6FF)) || ($(this).val() == "")) { $('#totalSearchField').css("direction", "rtl"); }
+                else { $('#totalSearchField').css("direction", "ltr"); }
+            }
+        }
+        );
+    </script>
+    <!--<script type="text/javascript" src="/common/js/analytics.js"></script>-->
+    <div style="display:none;">
+        <a href="http://www.beyondsecurity.com/vulnerability-scanner-verification/samservice.com"><img src="https://seal.beyondsecurity.com/verification-images/samservice.com/vulnerability-scanner-2.gif" alt="Website Security Test" border="0" /></a>
+    </div>
+</body>
+</html>

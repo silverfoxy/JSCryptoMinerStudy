@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>쉐어박스</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="naver-site-verification" content="3a647937039efd271921f2523e08d7df88db24f0"/>
+<meta name="keywords" content="쉐어박스,파일공유 사이트, 영화, 드라마, 게임, 만화 등 다운로드 서비스 제공 ">
+<meta name="description" content="쉐어박스,파일공유 사이트, 영화, 드라마, 게임, 만화 등 다운로드 서비스 제공">
+<meta property="og:type" content="website">
+<meta property="og:title" content="쉐어박스">
+<meta property="og:description" content="쉐어박스,파일공유 사이트, 영화, 드라마, 게임, 만화 등 다운로드 서비스 제공">
+<meta property="og:image" content="http://sharebox.co.kr/images/main/logo_02.png">
+<meta property="og:url" content="http://sharebox.co.kr">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta name="viewport" content="width=device-width">
+<link rel="canonical" href="http://sharebox.co.kr" />
+
+<link rel="stylesheet"  href="/css/sharebox_default.css?ver=1521630226">
+<link rel="stylesheet"  href="/css/popup.css?ver=1521630226">
+</head>
+
+<div class="blackbg_ch1802_layer" id="charge_open" style="display:none">
+	<div class="blackbg_ch1802">
+		<div class="ch1802_img_open">
+				<li class="ch1802_close"  onClick="location.reload();"></li>
+				<li class="ch1802_info_open" id='bog2Val'> 0 P</li>
+
+		</div>
+	</div>
+</div>
+
+
+<div id="multiB_layer" class="blackbg_gra" style="display:none;">
+	<div class="vctn_multiB_tot">
+		<div class="multiB_tb">
+			<div class="multiB_btn" onClick="location.href='http://sub.sharebox.co.kr/sharebox_setup.exe'"></div>
+			<div class="multiB_close" onClick="location.reload('true');"></div>
+		</div>
+	</div>
+</div>
+
+<script language="javascript" src="/js/jquery-1.10.2.js"></script>
+<script language="javascript" src="/js/jquery.cookie.js"></script>
+<script language="javascript" src="/js/common.js.php"></script>
+
+
+<!-- 이관 레이어 !-->
+
+<!-- 이관 레이어 종료 !-->
+
+
+<!-- 로그인 레이어!-->
+<script type="text/javascript">
+function login_submit() {
+    var use_ssl = jQuery('#securityLoin').val();
+
+    if(jQuery('#user_id').val() == '') {
+        alert('아이디를 입력해주세요.');
+        return ;
+    } else if(jQuery('#user_pw').val() == '') {
+        alert('패스워드를 입력해주세요.');
+        return ;
+    } else {
+        if (use_ssl == 1) {
+            $.ajax({
+                type: "POST",
+                url: "https://ssl.sharebox.co.kr/login/",
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: $('form[name=base_login_form]').serialize(),
+                cache: false,
+                dataType: 'json',
+                success: function (res) {
+                    return LoginSuccessCallback(res);
+                },
+                error: function (request, status, error) {
+                    //alert('해당 네트워크는 보안로그인을 할 수 없는 환경입니다.\n일반로그인으로 접속하였습니다.');
+
+                    jQuery('#base_login_form').prop('action', '/login/');
+                    jQuery('#base_login_form').submit();
+                    return 0;
+                }
+            });
+        } else {
+            jQuery('#base_login_form').prop('action', '/login/');
+            jQuery('#base_login_form').submit();
+            return 0;
+        }
+    }
+}
+
+function LoginSuccessCallback(res) {
+    var status = res.status;
+    var msg = res.msg;
+    var login_event = res.login_event;
+    var return_url = res.return_url;
+    var caller = res.caller;
+
+    if(msg) alert(msg);
+    if(login_event) alert(login_event);
+
+    switch(caller) {
+        case 'view' :
+            try {
+                parent.opener.location.reload(); //뷰창호출부모창
+                parent.location.reload(); //뷰창
+            } catch (e) {
+                alert(e.message);
+                parent.location.reload(); //뷰창
+            }
+            break;
+        case 'page' :
+        case 'main' :
+        default :
+            try {
+                if(return_url) {
+                    parent.location.href = return_url;
+                } else {
+                    if(status != 'Alert') parent.location.reload();
+                }
+            } catch (e) {
+                alert(e.message);
+                parent.location.reload();
+            }
+            break;
+    }
+}
+
+function loginPasswdDownLayer(key) {
+	if(key==13) {
+		login_submit();
+	}
+}
+
+function popup_layer_view(val) {
+    val = val.split('_');
+	if(val[0]=='login') {
+	    if(val[1] == 'ajae'){
+	        jQuery('#eventidx').val('101');
+		} else if(val[1] == 'okdt') {
+            jQuery('#eventidx').val('133');
+        }
+		jQuery("#popup_layer_view1").attr('class','tab01 on');
+		jQuery("#popup_layer_view2").attr('class','tab02');
+//		jQuery("#menuTop_"+before_cate).attr('class','tab01 on');
+		jQuery('#popup_join_layer').hide();
+		jQuery('#popup_login_layer').show();
+	}
+	else {
+		jQuery("#popup_layer_view1").attr('class','tab01');
+		jQuery("#popup_layer_view2").attr('class','tab02 on');
+		jQuery('#popup_login_layer').hide();
+		jQuery('#popup_join_layer').show();
+	}
+}
+function seller_contetns_layer_close() {
+	jQuery('#seller_contents_list').hide();
+}
+function popup_bg_layer_close() {
+	jQuery('#popup_bg_layer').hide();
+}
+
+function scrollUp() {
+	$('.scrollbox').animate({ scrollTop: 0 }, 'fast');
+}
+
+$(document).ready(function() {
+	$('#mov_layer_close').click(function() {
+		SetCookie('mov_layer','1',1);
+		$('#open_mov_layer').hide();
+	});
+
+	$('#list_move_mov').click(function() {
+		SetCookie('mov_layer','1',1);
+		$('#open_mov_layer').hide();
+		location.href = '/storage/storage.php?section=MVO&poster_no=';
+	});
+
+    //IE9미만사용자 IE업그레이드푸쉬 레이어
+    $('.btn_byeid').click(function() {
+		SetCookie('popup_byeie','1',1);
+		$('#popup_byeie').hide();
+	});
+
+    $('#bt_layer_close').click(function() {
+        SetCookie('bt_layer','1',7);
+        $('#popup_bt1127').hide();
+    });
+});
+
+
+</script>
+
+<iframe name='execFrame' src='/append/blank.php' width='0' height='0' frameborder='0' style="display:none" ></iframe>
+<div  class="blackbg_gra" id="popup_bg_layer" style="display:none;">
+	<div class="pop_top_tot" >
+		<div class="pop_top">
+			<li class="pop_name_b">쉐어박스 로그인</li>
+			<li class="btn_close" onClick="$('#popup_bg_layer').hide();"></li>
+		</div>
+
+		<div class="popup_find">
+			<div class="find_tab">
+				<li class="tab01 on" id="popup_layer_view1" style="cursor:pointer" onClick="popup_layer_view('login');">로그인</li>
+				<li class="tab02" id="popup_layer_view2" style="cursor:pointer" onClick="popup_layer_view('join');">무료 회원가입</li>
+			</div>
+
+			<!-- 로그인 !-->
+			<div class="find_tb" id="popup_login_layer" style="display:;">
+			<form method="post" action="/login/" name="base_login_form" id="base_login_form" target="execFrame">
+				<input type="hidden" id="backurl2" name="backurl2" value="%2F">
+				<input type="hidden" id="eventidx" name="eventidx" value="">
+				<input type="hidden" name="securityLoin" id="securityLoin" value="1">
+				<input type="hidden" name="caller" id="caller" value="page">
+				<input type="hidden" name="todo" id="todo" value="exec">
+				<span>로그인 하시고 더 많은 혜택을 확인 하세요.</span>
+				<table>
+					<tr>
+						<td width="100" class="td_line tit">아이디</td>
+						<td class="td_line">
+						<input name="user_id" id="user_id" type="text" class="find_txt" style=" width:50%" maxlength="30" value="">
+							<select  class="find_txt"  style=" width:45%" name="site_set" id="site_set">
+								<option value="sharebox" >쉐어박스</option>
+								<option value="filezzim" >파일찜</option>
+								<option value="superdown" >슈퍼다운</option>
+								<option value="downday" >다운데이</option>
+								<option value="diyhard" >다이하드</option>
+								<option value="atomfile" >아톰파일</option>
+								<option value="diskpop" >디스크팝</option>
+								<option value="jjangq" >짱큐</option>
+								<option value="bomulbox" >보물박스</option>
+								<option value="downs" >다운즈</option>
+								<option value="tomfile" >톰파일</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_line tit">비밀번호</td>
+						<td class="td_line"><input name="user_pw" id="user_pw" type="password" class="find_txt" style=" width:96%" maxlength="20" onKeyDown="loginPasswdDownLayer(event.keyCode);"></td>
+					</tr>
+				</table>
+
+				<div class="btn_find"><div class="pbtn_green" style=" width:150px" onClick="login_submit();">로그인</div></div>
+			</form>
+			</div>
+			<!-- 로그인 end !-->
+
+			<!-- 회원가입 !-->
+			<div class="find_tb" id="popup_join_layer" style="display:none;">
+				<script language="javascript" src="/js/join.js.php"></script>
+				<form method="post" action="/join/" name="join_form" id="join_form" target="execFrame">
+				<input type="hidden" name="todo" value="exec">
+				<input type="hidden" id="backurl" name="backurl" value="%2F">
+				<input type="hidden" name="securityJoin" id="securityJoin" value="1">
+				<input type="hidden" name="caller" id="caller" value="page">
+				<span>지금 가입시, 매일 무료 포인트받고! 무료다운 가능! </span>
+				<table>
+					<tr>
+						<td width="100" class="td_line tit">아이디</td>
+						<td class="td_line"><input name="join_userid" id="join_userid" type="text" class="find_txt" style=" width:220px"></td>
+					</tr>
+					<tr>
+						<td class="td_line tit">비밀번호</td>
+						<td class="td_line"><input name="join_userpw" id="join_userpw" type="password" class="find_txt" style=" width:220px"></td>
+					</tr>
+					<tr>
+						<td class="td_line tit">비밀번호 확인</td>
+						<td class="td_line"><input type="password" name="join_userpw_re" id="join_userpw_re" class="find_txt" style=" width:220px"></td>
+					</tr>
+					<tr>
+						<td class="td_line tit">이메일</td>
+						<td class="td_line">
+							<input type="text"  name="join_email1" id="join_email1" class="input_join" style=" width:85px" ><span class="mar_left3 mar_rig3">@</span><input type="text"  name="join_email2" id="join_email2" class="input_join"  style=" width:90px" readonly>
+								<select name="email_select" id="email_select" class="input_join" style=" width:90px" onChange="email_change();">
+								<option value="" selected>선택하세요</option>
+								<option value="naver.com">naver.com</option>
+								<option value="nate.com">nate.com</option>
+								<option value="dreamwiz.com">dreamwiz.com</option>
+								<option value="yahoo.co.kr">yahoo.co.kr</option>
+								<option value="empal.com">empal.com</option>
+								<option value="hanafos.com">hanafos.com</option>
+								<option value="hotmail.com">hotmail.com</option>
+								<option value="gmail.com">gmail.com</option>
+								<option value="paran.com">paran.com</option>
+								<option value="korea.com">korea.com</option>
+								<option value="freechal.com">freechal.com</option>
+								<option value="chollian.net">chollian.net</option>
+								<option value="hanmail.net">hanmail.net</option>
+								<option value="1">직접입력</option>
+								</select>
+						</td>
+					</tr>
+				</table>
+				<div class="popup_use"><!-- <iframe frameborder='0' scrolling='Auto' src="/company/?todo=use_txt" scrolling="yes"  style="width:100%;height:40px; overflow-x:hidden"></iframe> --></div>
+				<div class="popup_use"><!-- <iframe frameborder='0' scrolling='Auto' src="/company/?todo=policy_txt" scrolling="yes"  style="width:100%;height:40px; overflow-x:hidden"></iframe> --></div>
+				<div class="popup_useck ">
+				<input name="agree2" id="agree2" type="checkbox" checked class="mar_rig5">이용악관에 동의
+				<input name="agree3" id="agree3" type="checkbox" checked class="mar_rig5 mar_left10">개인정보 보호방침에 동의
+				<input name="agree4" id="agree4" type="checkbox" checked class="mar_rig5 mar_left10">이벤트 수신동의
+				</div>
+				<div class="btn_find"><div class="pbtn_green" style=" width:220px" onClick="todojoin();">무료 회원가입 완료</div></div>
+				</form>
+			</div><!-- 회원가입 end !-->
+		</div><!-- popup_find end!-->
+	</div><!--pop_top_tot  end!-->
+</div><!--레이어 배경 !-->
+
+
+
+	<!-- gnb 메뉴!-->
+	<div class="gnb_menu">
+		<div class="gnb_menu_s">
+			<ul class="gnb_L">
+				<li class="gnb_L1"><a href="#" onClick="Starthomepage('http://sharebox.co.kr');"><span>시작 페이지</span></a></li>
+				<li class="gnb_L2"><a href="" onClick="AddFavoritepage('http://sharebox.co.kr','쉐어박스');"><span>즐겨찾기 등록</span></a></li>
+			</ul>
+			<ul class="gnb_R">
+				<li class="gnb_R1"><span><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');">충전소</a></span></li>
+				<li class="gnb_R2"><span><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');">출석체크</a></span></li>
+				<li class="gnb_R6"><span><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');">받은자료</a></span></li>
+				<li class="gnb_R3"><span><a href="/coupon">이용권 등록</a></span></li>
+				<li class="gnb_R4"><span><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');">친구관리</a></span></li>
+				<li class="gnb_R5"><span><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');">쪽지관리</a></span></li>
+			</ul>
+		</div>
+	</div>
+<div id="header_wrap">
+	<!-- top-->
+	<div class="top">
+		<div class="top_s" style="z-index:200;">
+			<!-- 미리보기영상  레이어!-->
+
+			<!--구글용
+			<div class="quick_menu_L">
+				<div class="banner_quick_L">
+					<div class="banner_quickL_app"  onClick="location.href='/event/?todo=view&idx=92' "></div>
+				</div>
+			</div>!-->
+			<!--쉐어용!-->
+			<div class="quick_menu_L2">
+				<div class="banner_quick_L2">
+					<div class="banner_quickL_mobile" onClick="location.href='/event/?todo=view&idx=128'"></div>
+					<div class="banner_quickL_appdown" onClick="location.href='/event/?todo=view&idx=106'"></div>
+					<!--<div class="banner_quickL_xmas" onClick="location.href='/event/?todo=view&idx=143'"></div>!-->
+				</div>
+			</div>
+
+			<!--리스트단 플로팅배너  170206 내림!-->
+
+			<!--리스트단 이벤트 플로팅배너!-->
+
+			<!-- 방통위 몰카금지 레이어
+ !-->
+
+            <div class="quick_menu2">
+                <div class="banner_quick2">
+                    <div class="quick_bg">
+                        <div class="banner_quick_top"></div>
+                        <div class="banner_quick_q1" onClick="location.href='/storage/storage.php?todo=top100'" ></div>
+                        <div class="banner_quick_q2" onClick="$('#popup_bg_layer').show();popup_layer_view('login');"></div>
+                        <div class="banner_quick_q3"  onclick="location.href='/storage/storage.php?todo=tv_table'" ></div>
+                        <div class="banner_quick_q4"  onclick="alert('로그인 후 이용 가능합니다.');"      ></div>
+                        <div class="banner_quick_q5" onClick="location.href='/coupon/'"  ></div>
+                        <!--<div class="banner_quick_q6"  onclick="alert('로그인 후 이용 가능합니다.');"  ></div>!-->
+                        <div class="banner_quick_q6"  onclick="alert('로그인 후 이용 가능합니다.');"    ></div>
+                        <div class="banner_quick_q8"  onClick="location.href='/company/?todo=helpme'" ></div>
+                        <div class="banner_quick_q7"  onClick="location.href='/event/?todo=view&idx=125'" ></div>
+                    </div>
+                </div>
+                <!-- 투데이몰 날개배너 !-->
+                <!-- <div class="banner_quick_2daymall" onClick="$('#popup_bg_layer').show();popup_layer_view('login');"></div> -->
+            </div>
+		 <!--날개트리 아이콘<div class="quick_tree" onClick="location.href='/event/?todo=view&idx=45'" ><li class="quick_tree_img"></li></div>!-->
+		  <!--onClick="$('#popup_bg_layer').show();popup_layer_view('login');"!-->
+
+			<!-- 기본로고 /images/main/logo_02.png logo_02_1507  !-->
+			<div class="logo" id="logo"><span class="top_logo" style="background:url(/images/main/logo_02.png) no-repeat"  onclick="top.location.href='/';"></span></div>
+			<div class="search" style="text-align:left;">
+				<ul class="cMenu">
+					<li class="m1"><a href="/storage/storage.php"><img src="/images/main/top_mini_nav1.jpg" ></a></li>
+					<li class="m2"><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');"><img src="/images/main/top_mini_nav2.jpg"></a></li>
+					<li class="m3"><a href="javascript:$('#popup_bg_layer').show();popup_layer_view('login');"><img src="/images/main/top_mini_nav3.jpg"></a></li>
+					<li class="m4"><a href="/cscenter/board.php"><img src="/images/main/top_mini_nav4.jpg"></a></li>
+					<li class="m5"><a href="/event/"><img src="/images/main/top_mini_nav5.jpg"></a></li>
+					<li class="m6"><a href="/event/?todo=freecharge"><img src="/images/main/top_mini_nav6.jpg"></a></li>
+				</ul>
+			    <form method="get" action="/storage/storage.php" name="search_form" id="search_form" >
+				<div class="searchBox">
+					<li class="sh_le">
+						<select name="section" id="section" class="inupt_select">
+							<option value="">통합검색</option>
+										<option value="MVO" >영화</option>
+										<option value="DRA" >드라마</option>
+										<option value="MED" >동영상</option>
+										<option value="GME" >게임</option>
+										<option value="ANI" >애니</option>
+										<option value="UTL" >유틸</option>
+										<option value="CTN" >만화</option>
+										<option value="MUS" >음악</option>
+										<option value="DOC" >문서</option>
+										<option value="IMG" >이미지</option>
+										<option value="EDU" >교육</option>
+										<option value="ETC" >기타</option>
+										<option value="SEL" >판매자</option>
+
+							<option value="NUM" >번호</option>
+						</select>
+					</li>
+					<li class="sh_ce"><input type="text" name="search_value" id="search_value" class="inupt_sh" value="" autocomplete="off" onKeyUp="try { key_complete(event.keyCode); } catch(e) { }" onclick="{ keyword_complete = 0; }" style="ime-mode:active;line-height:30px;"></li>
+					<li class="sh_ri" style="cursor:pointer" onClick="todoCheck_search();"></li>
+					<script>
+					var cDataList = "";
+					var keyword_complete = 0;
+					var keyword_save = jQuery('#search_value').val();
+					var htmls = "";
+					var list_sel_position = -1;
+					var list_sel_count = 0;
+					try{
+						setInterval(function(){ ajax_complete(); }, 100);
+					} catch(e) {}
+
+					</script>
+					<style>
+						.keyword_td:hover {
+							background-color:#eee;
+							color:#333;
+						}
+						.keyword_td  {
+							color:#333;
+							height:28px;
+							line-height:28px;
+							padding-left:15px;
+							cursor:pointer;
+						}
+					</style>
+				</div>
+				<div id="search_tags" style="background-color:#fff;border:2px solid #96c20c;text-align:left;color:#333;display:none;top:68px;position:absolute;width:400px;">
+					<span id="tags"></span>
+				</div>
+			    </form>
+			</div>
+
+            <!-- 로그인이 되어있고 성인이며 pe.kr아닐때 -->
+            <!-- 로그인이 안되어있거나 또는 성인이 아니거나 또는 pe.kr일때  -->
+                <div class="banner_top_rig"><a href="/storage/storage.php?section=MVO&poster_no=94628637"><img src="/images/banner/banner_top_rig_180321_01.jpg" alt="게이트"></a></div>
+		</div>
+	</div>
+	<!-- top end !-->
+
+	<!--메뉴시작-->
+	<div class="menu">
+		<div class="menuBox">
+			<ul class="topMenuBox">
+					<li class="menuTop_TOP " id="menuTop_TOP" onmouseover="menuOver('TOP');"
+						onClick="
+						location.href='/storage/storage.php?todo=top100';
+">
+					</li>
+					<li class="menuTop_MVO " id="menuTop_MVO" onmouseover="menuOver('MVO');"
+						onClick="
+						location.href='/storage/storage.php?section=MVO';
+">
+					</li>
+					<li class="menuTop_DRA " id="menuTop_DRA" onmouseover="menuOver('DRA');"
+						onClick="
+						location.href='/storage/storage.php?section=DRA';
+">
+					</li>
+					<li class="menuTop_MED " id="menuTop_MED" onmouseover="menuOver('MED');"
+						onClick="
+						location.href='/storage/storage.php?section=MED';
+">
+					</li>
+					<li class="menuTop_GME " id="menuTop_GME" onmouseover="menuOver('GME');"
+						onClick="
+						location.href='/storage/storage.php?section=GME';
+">
+					</li>
+					<li class="menuTop_ANI " id="menuTop_ANI" onmouseover="menuOver('ANI');"
+						onClick="
+						location.href='/storage/storage.php?section=ANI';
+">
+					</li>
+					<li class="menuTop_UTL " id="menuTop_UTL" onmouseover="menuOver('UTL');"
+						onClick="
+						location.href='/storage/storage.php?section=UTL';
+">
+					</li>
+					<li class="menuTop_CTN " id="menuTop_CTN" onmouseover="menuOver('CTN');"
+						onClick="
+						location.href='/storage/storage.php?section=CTN';
+">
+					</li>
+					<li class="menuTop_MUS " id="menuTop_MUS" onmouseover="menuOver('MUS');"
+						onClick="
+						location.href='/storage/music.php';
+">
+					</li>
+					<li class="menuTop_DOC " id="menuTop_DOC" onmouseover="menuOver('DOC');"
+						onClick="
+						location.href='/storage/storage.php?section=DOC';
+">
+					</li>
+					<li class="menuTop_IMG " id="menuTop_IMG" onmouseover="menuOver('IMG');"
+						onClick="
+						location.href='/storage/storage.php?section=IMG';
+">
+					</li>
+					<li class="menuTop_EDU " id="menuTop_EDU" onmouseover="menuOver('EDU');"
+						onClick="
+						location.href='/storage/storage.php?section=EDU';
+">
+					</li>
+					<li class="menuTop_ETC " id="menuTop_ETC" onmouseover="menuOver('ETC');"
+						onClick="
+						location.href='/storage/storage.php?section=ETC';
+">
+					</li>
+					<li class="menuTop_SEL " id="menuTop_SEL" onmouseover="menuOver('SEL');"
+						onClick="
+						location.href='/storage/storage.php?section=SEL';
+">
+					</li>
+					<li class="menuTop_REQ " id="menuTop_REQ" onmouseover="menuOver('REQ');"
+						onClick="
+						location.href='/storage/storage.php?section=REQ';
+">
+					</li>
+					<li class="menuTop_ADT " id="menuTop_ADT" onmouseover="menuOver('ADT');"
+						onClick="
+						$('#popup_bg_layer').show();popup_layer_view('login');
+">
+					</li>
+					<li class="menuTop_CTV " id="menuTop_CTV" onmouseover="menuOver('CTV');"
+						onClick="
+						 $('#popup_bg_layer').show();popup_layer_view('login');
+">
+					</li>
+					<li class="menuTop_TON " id="menuTop_TON" onmouseover="menuOver('TON');"
+						onClick="
+						location.href='/storage/toptoon.php?ref=menu_top';
+">
+					</li>
+					<li class="menuTop_BOK " id="menuTop_BOK" onmouseover="menuOver('BOK');"
+						onClick="
+						location.href='/storage/hibook.php?ref=menu';
+">
+					</li>
+					<li class="menuTop_WGE " id="menuTop_WGE" onmouseover="menuOver('WGE');"
+						onClick="
+						location.href='/storage/tazzang.php ';
+">
+					</li>
+			</ul>
+			<ul class="subMenuBox" >
+					<div id="menu_TOP" style="">
+						<a href="/storage/storage.php?todo=top100&todosub=TOP_ALL">전체</a>
+						<a href="/storage/storage.php?todo=top100&todosub=TOP_MVO">영화</a>
+						<a href="/storage/storage.php?todo=top100&todosub=TOP_DRA">드라마</a>
+						<a href="/storage/storage.php?todo=top100&todosub=TOP_MED">동영상</a>
+						<a href="/storage/storage.php?todo=top100&todosub=TOP_ANI">애니</a>
+					</div>
+					<div id="menu_MOB" style="display:none;">
+						<a href="/storage/storage.php?section=MOB_MVO" class="first">영화</a>
+						<a href="/storage/storage.php?section=MOB_DRA" >드라마</a>
+						<a href="/storage/storage.php?section=MOB_MED" >동영상</a>
+						<a href="/storage/storage.php?section=MOB_ANI" >애니</a>
+						<a href="/storage/storage.php?section=MOB_EBO" >이북</a>
+						<a href="/storage/storage.php?section=MOB_ADT" >성인</a>
+					</div>
+					<div id="menu_MVO" style="display:none;">
+						<a href="/storage/storage.php?section=MVO_001" class="first">최신/미개봉</a>
+						<a href="/storage/storage.php?section=MVO_002" >한국영화</a>
+						<a href="/storage/storage.php?section=MVO_003" >공포/스릴러</a>
+						<a href="/storage/storage.php?section=MVO_004" >SF/환타지</a>
+						<a href="/storage/storage.php?section=MVO_005" >코메디</a>
+						<a href="/storage/storage.php?section=MVO_006" >액션</a>
+						<a href="/storage/storage.php?section=MVO_007" >멜로</a>
+						<a href="/storage/storage.php?section=MVO_010" >드라마</a>
+						<a href="/storage/storage.php?section=MVO_008" >가족/유아</a>
+						<a href="/storage/storage.php?section=MVO_009" >일반</a>
+					</div>
+					<div id="menu_ALL" style="display:none;">
+						<a href="/storage/storage.php?section=ALL_001" class="first">최신순위</a>
+						<a href="/storage/storage.php?section=ALL_002" >다운순위</a>
+						<a href="/storage/storage.php?section=ALL_003" >댓글순위</a>
+					</div>
+					<div id="menu_DRA" style="display:none;">
+						<a href="/storage/storage.php?section=DRA_002" class="first">미니시리즈</a>
+						<a href="/storage/storage.php?section=DRA_001" >시트콤</a>
+						<a href="/storage/storage.php?section=DRA_003" >연속극</a>
+						<a href="/storage/storage.php?section=DRA_004" >사극</a>
+						<a href="/storage/storage.php?section=DRA_007" >미국드라마</a>
+						<a href="/storage/storage.php?section=DRA_008" >일본드라마</a>
+						<a href="/storage/storage.php?section=DRA_009" >중국드라마</a>
+						<a href="/storage/storage.php?section=DRA_005" >가족/유아</a>
+						<a href="/storage/storage.php?section=DRA_006" >일반</a>
+					</div>
+					<div id="menu_MED" style="display:none;">
+						<a href="/storage/storage.php?section=MED_001" class="first">오락</a>
+						<a href="/storage/storage.php?section=MED_002" >교양</a>
+						<a href="/storage/storage.php?section=MED_003" >스포츠</a>
+						<a href="/storage/storage.php?section=MED_004" >다큐멘터리</a>
+						<a href="/storage/storage.php?section=MED_005" >가족/유아</a>
+						<a href="/storage/storage.php?section=MED_006" >일반</a>
+					</div>
+					<div id="menu_GME" style="display:none;">
+						<a href="/storage/storage.php?section=GME_001" class="first">액션</a>
+						<a href="/storage/storage.php?section=GME_002" >시뮬레이션</a>
+						<a href="/storage/storage.php?section=GME_003" >롤플레잉</a>
+						<a href="/storage/storage.php?section=GME_004" >어드벤쳐</a>
+						<a href="/storage/storage.php?section=GME_005" >스포츠</a>
+						<a href="/storage/storage.php?section=GME_006" >가족/유아</a>
+						<a href="/storage/storage.php?section=GME_007" >에뮬</a>
+						<a href="/storage/storage.php?section=GME_008" >일반</a>
+					</div>
+					<div id="menu_ANI" style="display:none;">
+						<a href="/storage/storage.php?section=ANI_001" class="first">코메디</a>
+						<a href="/storage/storage.php?section=ANI_002" >액션</a>
+						<a href="/storage/storage.php?section=ANI_003" >연애</a>
+						<a href="/storage/storage.php?section=ANI_004" >SF/환타지</a>
+						<a href="/storage/storage.php?section=ANI_005" >공포/스릴러</a>
+						<a href="/storage/storage.php?section=ANI_006" >가족/유아</a>
+						<a href="/storage/storage.php?section=ANI_007" >일반</a>
+					</div>
+					<div id="menu_UTL" style="display:none;">
+						<a href="/storage/storage.php?section=UTL_001" class="first">문서편집</a>
+						<a href="/storage/storage.php?section=UTL_002" >동영상편집</a>
+						<a href="/storage/storage.php?section=UTL_003" >그래픽</a>
+						<a href="/storage/storage.php?section=UTL_004" >운영체제</a>
+						<a href="/storage/storage.php?section=UTL_005" >프로그래밍</a>
+						<a href="/storage/storage.php?section=UTL_006" >사운드</a>
+						<a href="/storage/storage.php?section=UTL_007" >멀티미디어</a>
+						<a href="/storage/storage.php?section=UTL_008" >레코딩</a>
+						<a href="/storage/storage.php?section=UTL_009" >시스템</a>
+						<a href="/storage/storage.php?section=UTL_010" >인터넷</a>
+						<a href="/storage/storage.php?section=UTL_011" >일반</a>
+					</div>
+					<div id="menu_CTN" style="display:none;">
+						<a href="/storage/storage.php?section=CTN_008" class="first">일반</a>
+						<a href="/storage/storage.php?section=CTN_009" >BL</a>
+						<a href="/storage/storage.php?section=CTN_004" >순정</a>
+						<a href="/storage/storage.php?section=CTN_005" ><font color="red">+19 </font>성인</a>
+					</div>
+					<div id="menu_MUS" style="display:none;">
+						<a href="/storage/music.php?section=MUS_ALL">전체</a>
+						<a href="/storage/music.php?section=MUS_001">최신음악</a>
+						<a href="/storage/music.php?section=MUS_002">장르뮤직</a>
+					</div>
+					<div id="menu_DOC" style="display:none;">
+						<a href="/storage/storage.php?section=DOC_001" class="first">교양/강좌</a>
+						<a href="/storage/storage.php?section=DOC_002" >도서</a>
+						<a href="/storage/storage.php?section=DOC_004" >일반</a>
+					</div>
+					<div id="menu_IMG" style="display:none;">
+						<a href="/storage/storage.php?section=IMG_001" class="first">일반</a>
+					</div>
+					<div id="menu_EDU" style="display:none;">
+						<a href="/storage/storage.php?section=EDU_001" class="first">어학</a>
+						<a href="/storage/storage.php?section=EDU_002" >컴퓨터일반</a>
+						<a href="/storage/storage.php?section=EDU_007" >초.중.고</a>
+						<a href="/storage/storage.php?section=EDU_004" >유아</a>
+						<a href="/storage/storage.php?section=EDU_005" >일반</a>
+						<a href="/storage/storage.php?section=EDU_006" >기타</a>
+					</div>
+					<div id="menu_PTB" style="display:none;">
+						<a href="/storage/storage.php?section=PTB_001" class="first">PSP</a>
+						<a href="/storage/storage.php?section=PTB_002" >휴대폰</a>
+						<a href="/storage/storage.php?section=PTB_004" >기타</a>
+					</div>
+					<div id="menu_ADT" style="display:none;">
+						<a href="/storage/storage.php?section=ADT_001" class="first">실시간</a>
+						<a href="/storage/storage.php?section=ADT_002" >제휴</a>
+						<a href="#" onClick="$('#popup_bg_layer').show();popup_layer_view('login');" ><font color="red"></font>성인쇼핑몰</a>
+						<a href="/event/?todo=view&idx=121">무료관</a>
+					</div>
+					<div id="menu_TON" style="display:none;">
+						<a href="/storage/toptoon.php?ref=menu" class="first">웹툰 홈</a>
+					</div>
+					<div id="menu_BOK" style="display:none;">
+						<a href="/storage/hibook.php?ref=menu">웹소설 홈</a>
+						<a href="/storage/hibook.php?redirect=best">인기 웹소설</a>
+						<a href="/storage/hibook.php?redirect=complete">완결 웹소설</a>
+					</div>
+					<div id="menu_ETC" style="display:none;">
+						<a href="/storage/storage.php?section=ETC_001" class="first">기타전체</a>
+						<a href="/storage/storage.php?section=PTB" >휴대기기</a>
+					</div>
+					<div id="menu_REQ" style="display:none;">
+						<a href="/storage/storage.php?section=REQ_RET" class="first">요청완료</a>
+						<a href="/storage/storage.php?section=REQ" >자료요청하기</a>
+					</div>
+           </ul>
+		</div><!-- menuBox end!-->
+	</div><!--menu end!-->
+
+</div><!-- header end!-->
+
+
+
+<div id="wrap">
+	<div id="contents_wrap">
+<!--left 시작!=-->
+<div class="left_wrap">
+	<!--로그인 시작!-->
+<script language="javascript">
+function loginSubmit() {
+    var use_ssl = jQuery('#securityLoin').val();
+
+    if(jQuery('#userid').val() == '') {
+            alert('아이디를 입력해주세요.');
+            return ;
+    } else if(jQuery('#userpw').val() == '') {
+            alert('패스워드를 입력해주세요.');
+            return ;
+    } else if(jQuery('#val_webs').val() != '') {
+            jQuery('#login_form').submit();
+            return ;
+    } else {
+        if(use_ssl == 1) {
+            $.ajax({
+                type: "POST",
+                url: "https://ssl.sharebox.co.kr/login/",
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: $('form[name=login_form]').serialize(),
+                cache : false,
+                dataType :'json',
+                success : function(res)
+                {
+                    return LoginSuccessCallback(res);
+                },
+                error : function(request,status,error)
+                {
+                    //alert('해당 네트워크는 보안로그인을 할 수 없는 환경입니다.\n일반로그인으로 접속하였습니다.');
+
+                    jQuery('#login_form').prop('action', '/login/');
+                    jQuery('#login_form').submit();
+                    return 0;
+                }
+            });
+        } else {
+            jQuery('#login_form').prop('action', '/login/');
+            jQuery('#login_form').submit();
+            return 0;
+        }
+    }
+}
+
+function LoginSuccessCallback(res) {
+    var status = res.status;
+    var msg = res.msg;
+    var login_event = res.login_event;
+    var return_url = res.return_url;
+    var caller = res.caller;
+
+    if(msg) alert(msg);
+    if(login_event) alert(login_event);
+
+    switch(caller) {
+        case 'view' :
+            try {
+                parent.opener.location.reload(); //뷰창호출부모창
+                parent.location.reload(); //뷰창
+            } catch (e) {
+                alert(e.message);
+                parent.location.reload(); //뷰창
+            }
+            break;
+        case 'page' :
+        case 'main' :
+        default :
+            try {
+                if(return_url) {
+                    parent.location.href = return_url;
+                } else {
+                    if(status != 'Alert') parent.location.reload();
+                }
+            } catch (e) {
+                alert(e.message);
+                parent.location.reload();
+            }
+            break;
+    }
+}
+
+function loginPasswdDown(key) {
+    if(key == 13) {
+        loginSubmit();
+    }
+}
+</script>
+<form method="post" action="/login/" name="login_form" id="login_form" target="execFrameLoginLeft">
+<input type="hidden" name="backurl" id="val_backurl" value="Lw==">
+<input type="hidden" name="webs" id="val_webs" value="">
+<input type="hidden" name="securityLoin" id="securityLoin" value="1">
+<input type="hidden" name="caller" id="caller" value="main">
+<input type="hidden" name="todo" id="todo" value="exec">
+
+
+    <div class="login_wrap">
+        <div class="login_tit_img"></div>
+        <div class="login_box">
+            <li>
+                <input type="text" name="userid" id="userid"  value="" class="input_login" style="width:90px">
+                <select  class="login_select" name="site_set" id="site_set">
+                        <option value="sharebox" >쉐어박스</option>
+                        <option value="filezzim" >파일찜</option>
+                        <option value="superdown" >슈퍼다운</option>
+                        <option value="downday" >다운데이</option>
+                        <option value="diyhard" >다이하드</option>
+                        <option value="atomfile" >아톰파일</option>
+                        <option value="diskpop" >디스크팝</option>
+                        <option value="jjangq" >짱큐</option>
+                        <option value="downs" >다운즈</option>
+                        <option value="bomulbox" >보물박스</option>
+                        <option value="tomfile" >톰파일</option>
+                </select>
+            </li>
+            <li><input type="password"  name="userpw" id="userpw" class="input_pass"  style="width:90px" onKeyDown="loginPasswdDown(event.keyCode);"></li>
+            <div class="btn_login_new"onClick="loginSubmit();">로그인</div>
+        </div>
+        <div class="login_m">
+            <li class="login_idsave"><input name="flag_saveid" id="flag_saveid" type="checkbox" class="login_ck" checked style=" margin-right:3px;float:left; " >ID저장</li>
+            <li class="login_idsave"><input name="flag_secure" id="flag_secure" type="checkbox" class="login_ck" checked style=" margin-right:3px;margin-left:10px; float:left; " >보안</li>
+            <li class="login_find">
+                    <a href="#" onclick="newWindow('/join/id_pw.php', 'id_opw', 450, 540, 'no');">ID/ PW찾기</a>
+            </li>
+        </div>
+        <div class="login_btn_join" onClick="location='/join/'"></div>
+    </div>
+<!--통합 로 그인 박스 종료!-->
+</form>
+<iframe id='execFrameLoginLeft' name='execFrameLoginLeft' src='/append/blank.php' width='0' height='0' frameborder='0' style="display:none;"></iframe>
+<!--로그인 종료 !-->
+	<!-- 좌측배너 시작!-->
+	<div class="left_banner">
+		<ul>
+			<li class="btn_down" onClick="location.href='http://app.sharebox.co.kr/sharebox_setup.exe' "></li>
+
+				<li class="left_m_charge"  onClick="location.href='/charge/#charge'"></li>
+			
+		  <!--1종
+			<li class="left_menu_okcashbag" onClick="location.href='/event/?todo=view&idx=41' "></li>	!-->				
+		<!-- !-->		
+			<li class="left_menu_sinhan6"  onclick="alert('로그인후 이용해주세요.');" ></li>
+			
+			<li class="left_menu_cardpt" onClick="$('#popup_bg_layer').show();popup_layer_view('login'); "></li> 
+			<!--<li class="left_menu_okcashbag" onClick="location.href='/event/?todo=view&idx=41' "></li>!-->
+			<!--랜덤노출 2종
+			<li class="left_menu_okcashbag" onClick="location.href='/event/?todo=view&idx=41' "></li>
+			!-->
+
+		</ul>
+	
+
+		<div class="noti">
+			<li class="noti_le" onClick="">공지사항</li>
+			<li class="noti_ri" onClick="alert('로그인이 필요합니다.');">저작권보호요청</li>
+			<li class="noti_list"><a href="/cscenter/board.php?idx=699&todo=view&todosub=notice">[공지] 불법성인컨텐츠등록 및 규정위반 제재회원명단..</a></li>
+			<li class="noti_list"><a href="/cscenter/board.php?idx=698&todo=view&todosub=notice">[공지] 불법성인컨텐츠등록 및 규정위반 제재회원명단..</a></li>
+			<li class="noti_list"><a href="/cscenter/board.php?idx=697&todo=view&todosub=notice">[공지] 불법성인컨텐츠등록 및 규정위반 제재회원명단..</a></li>
+		</div>            
+
+		<ul>
+			<li class="left_menu_adt" onClick="$('#popup_bg_layer').show();popup_layer_view('login');"></li>
+		</ul>
+
+		<div class="cs_center">
+			<li class="btn_1to1" onClick="location.href='/cscenter/board.php?todo=list&todosub=1to1' "></li>
+			<!-- <li class="btn_one"  onclick="window.open('/popup/popup_remote.htm', 'popup', 'width=593, height=650,scrollbars=no,  '); "></li> -->
+			<li class="btn_one"  onclick="window.open('http://helpu.kr/giftm', 'popup', 'width=880, height=450,scrollbars=yes,  '); "></li>
+			
+		</div>        
+		<div class="left_menu_bot"></div>
+	</div>
+	<!-- 좌측배너 종료!-->       
+</div><!-- left_wrap end!-->
+<!--중앙 시작!-->
+<div class="center_wrap">
+	<!--메인배너!-->   
+	<div class="banner_main">
+		<div class="main_over_menu">
+			<ul>
+				<li class="title">진행중인 이벤트</li>
+				<li class="line3"></li>    			
+			 	
+				<li class="event_list" onclick="location.href='/event/?todo=view&idx=147'" OnmouseOver="btn_over('1');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold ">봄맞이 반값영화!</span></li>
+				<li class="event_list" onclick="location.href='/event/?todo=view&idx=148'" OnmouseOver="btn_over('2');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold ">새학기 특집 영화할인!</span></li>
+				<li class="event_list" onclick="location.href='/event/?todo=view&idx=72'" OnmouseOver="btn_over('3');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;" >MBC 예능 300원 이용</span></li>
+				<li class="event_list" onclick="location.href='/event/?todo=view&idx=96'" OnmouseOver="btn_over('4');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;" >MBC드라마 80%할인!</span></li>
+			    <li class="event_list" onclick="location.href='/event/?todo=view&idx=110'" OnmouseOver="btn_over('5');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;" >종편채널 3사 모든 컨텐츠 100원!</span></li>
+				<!-- 				<li class="event_list" onclick="location.href='/storage/tazzang.php'" OnmouseOver="btn_over('6');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  >[웹껨] 매일 50억 지급!</span></li>
+ -->
+				<!-- 				<li class="event_list" onclick="location.href='/storage/hibook.php?bidx=2645&cidx=57874&ref=main_timg'" OnmouseOver="btn_over('7');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  >[웹소설] 친구 누나</span></li>
+ -->
+				
+				<!-- <li class="event_list" onclick="location.href='/event/?todo=view&idx=115'" OnmouseOver="btn_over('4');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;" >KBS대표예능 150원</span></li> -->
+				<!-- <li class="event_list" onclick="location.href='/event/?todo=view&idx=135'" OnmouseOver="btn_over('2');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold ">tvN 인기방송 100원!</span></li> !-->
+				<!-- 				<li class="event_list" onClick="$('#popup_bg_layer').show();popup_layer_view('login'); " OnmouseOver="btn_over('4');" Onmouseout="btn_overResume();">쉐어 인터넷방송 오픈!</li> 
+!-->
+				
+				<!-- 				<li class="event_list" onClick="$('#popup_bg_layer').show();popup_layer_view('login'); " OnmouseOver="btn_over('5');" Onmouseout="btn_overResume();"> [웹툰] 무료 인기웹툰</li>
+!-->
+
+				<!-- 				<li class="event_list" onClick="$('#popup_bg_layer').show();popup_layer_view('login'); " OnmouseOver="btn_over('6');" Onmouseout="btn_overResume();"> [웹소설] 주부의 고백</li>
+!-->
+				
+				<!-- 				<li class="event_list" onclick="location.href='/event/?todo=view&idx=138'" OnmouseOver="btn_over('6');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  >[웹껨] 판돈 매일 지급!</span></li>
+!-->
+				
+		
+				<!--<li class="event_list" onclick="location.href='/event/?todo=view&idx=106'" OnmouseOver="btn_over('3');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold fontYellow">다운전용 앱 오픈!</span></li>!-->
+				<!--<li class="event_list" onclick="location.href='/event/?todo=view&idx=105'" OnmouseOver="btn_over('4');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  >무료충전소 오픈!</span></li>!-->
+				<!--<li class="event_list" onclick="location.href='/storage/storage.php?todo=top100'" OnmouseOver="btn_over('1');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold ">인기100 할인!</span></li>!-->
+     			<!--<li class="event_list" onclick="location.href='/event/?todo=view&idx=124'" OnmouseOver="btn_over('3');" Onmouseout="btn_overResume();"><span style="letter-spacing: -.8px;"  class=" bold ">판매자 수익률 지원!</span></li>!-->
+			</ul>
+		</div>
+	
+		<div class="main_btn_left" style="cursor:pointer" onClick="btn_pre();"></div>
+		<div class="main_btn_right" style="cursor:pointer" onClick="btn_next();"></div>
+		<div class="banner_main_img" onmouseover="{ onOvers = 1; }" onmouseout="{ onOvers = 0; }">		
+			
+			
+			<img class="event_main_img" src="/images/banner/main_banner_mov180302.jpg" id="banner_brn_1" style="cursor:pointer;display:;" onClick="location.href='/event/?todo=view&idx=147'">
+			<img class="event_main_img" src="/images/banner/main_banner_mov180301.jpg" id="banner_brn_2" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=148'">
+			<img class="event_main_img" src="/images/banner/main_banner_mbc160603.jpg" id="banner_brn_3" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=72'">
+			<img class="event_main_img" src="/images/banner/main_banner_mbc1605.jpg" id="banner_brn_4" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=96'">
+			<img class="event_main_img" src="/images/banner/main_banner_tvchosun100.jpg" id="banner_brn_5" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=110'">
+			<!-- 			<img class="event_main_img" src="/images/banner/main_banner_wg180223.png" id="banner_brn_6" style="cursor:pointer;display:none;" onClick="location.href='/storage/tazzang.php'">
+ -->
+			<!-- 			<img class="event_main_img" src="/images/banner/main_banner_hibook_sh180228.jpg" id="banner_brn_7" style="cursor:pointer;display:none;" onClick="location.href='/storage/hibook.php?bidx=2645&cidx=57874&ref=main_timg'">
+ -->
+
+			
+		
+			<!-- <img class="event_main_img" src="/images/banner/main_banner_kbs4set_n.jpg" id="banner_brn_4" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=115'"> -->
+			<!-- <img class="event_main_img" src="/images/banner/main_banner_tvn170925.jpg" id="banner_brn_2" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=135'"> !-->
+			<!--  			<img class="event_main_img" src="/images/banner/main_banner_can170908.jpg" id="banner_brn_4" style="cursor:pointer;display:;" onClick="location.href='http://sharebox.co.kr/storage/planetpang.php'">
+ !-->
+
+			<!-- 			<img class="event_main_img" src="/images/banner/main_banner_toon170914.jpg" id="banner_brn_5" style="cursor:pointer;display:;" onClick="location.href='/storage/toptoon.php?&todo=freetoon'">
+ !-->
+
+			<!-- 			<img class="event_main_img" src="/images/banner/main_banner_hibook_171012.jpg" id="banner_brn_6" style="cursor:pointer;display:none;"
+			onClick="$('#popup_bg_layer').show();popup_layer_view('login');">
+ !-->
+
+			<!--	<img class="event_main_img" src="/images/banner/main_banner_freechargem.jpg" id="banner_brn_4" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=105'">	!--> 
+			<!--<img class="event_main_img" src="/images/banner/main_banner_downapp.jpg" id="banner_brn_3" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=106'">!-->
+			<!-- <img class="event_main_img" src="/images/banner/main_banner_sellerb10.jpg" id="banner_brn_3" style="cursor:pointer;display:none;" onClick="location.href='/event/?todo=view&idx=124'">!-->
+			<!-- <img class="event_main_img" src="/images/banner/main_banner_hibook_170608.jpg" id="banner_brn_5" style="cursor:pointer;display:none;"
+			onClick="$('#popup_bg_layer').show();popup_layer_view('login');"> -->
+
+		</div>
+	</div>
+
+	<!--중앙 좌측 시작!-->
+	<div class="center_left">
+		<div class="banner_coupon"><a href="/coupon/"><img src="/images/main/banner_main_coupon.jpg"></a></div>
+
+		<!-- 최신등록자료_ 영화포스터 !-->
+		<div class="ctn_box">                            
+			<div class="ctn_tit">
+				<ul>
+					<li class="ctn_tit_le1"></li>
+				</ul>  
+
+				<ul class="ctn_tit_rig">
+					<li class="ctn_m1" onClick="main_contents('poster_mvo','new');"><span>최신영화</span></li>
+					<li class="ctn_m2" onClick="main_contents('poster_mvo','hit');"><span>인기영화</span></li>
+				</ul>
+			</div>
+
+			<div class="ctn_hit">
+				<ul class="ctn_hit_ul" id="poster_mvo"><!--  --></ul>
+			</div>
+		</div>
+		<!-- 최신등록자료 종료!-->
+
+			<!-- tv 방송 !-->
+		<div class="ctn_box">                            
+			<div class="ctn_tit">
+				<ul>
+					<li class="ctn_tit_le2"></li>
+				</ul>  
+
+				<ul class="ctn_tit_rig">
+					<li class="ctn_m1" onClick="main_contents('poster_cate','dra');"><span>인기 드라마</span></li>
+					<li class="ctn_m2" onClick="main_contents('poster_cate','med');"><span>인기 방송</span></li>
+
+				</ul>
+			</div>
+
+			<div class="ctn_hit">
+				<ul class="ctn_hit_ul" id="poster_cate"><!--  --></ul>
+			</div>
+		</div>
+		<!-- 최신등록자료 종료!-->
+
+
+		<!-- 최신등록자료  !-->
+		<div class="ctn_box">
+			<div class="ctn_tit">
+				<ul>
+					<li class="ctn_tit_le3"></li>
+				</ul>
+				<ul class="ctn_tit_rig">
+					<li class="ctn_m1" onClick="main_contents('list','all');"><span>전체</span></li>
+					<li class="ctn_m2" onClick="main_contents('list','MVO');"><span>영화</span></li>
+					<li class="ctn_m3" onClick="main_contents('list','DRA');"><span>드라마</span></li>
+					<li class="ctn_m4" onClick="main_contents('list','MED');"><span>동영상</span></li>
+					<li class="ctn_m5" onClick="main_contents('list','ANI');"><span>애니</span></li>
+				</ul>
+			</div>
+			
+			<div class="ctn_best">
+				<table id="new_contents"><!--  --></table>
+			</div>
+		</div>
+
+
+
+		<!-- 다운로드베스트 종료!-->
+
+		<!-- 뮤직 사용안함 
+		<div class="ctn_box">
+			<div class="ctn_tit">
+				<ul>
+					<li class="ctn_tit_le3"></li>
+				</ul>            
+
+				<ul class="ctn_tit_rig">
+					<li class="ctn_m1" onClick="main_contents('music','all');"><span>TOP50</span></li>
+					<li class="ctn_m2" onClick="main_contents('music','MUS_002');"><span>팝</span></li>
+					<li class="ctn_m4" onClick="main_contents('music','MUS_001');"><span>일반</span></li>                    
+				</ul>
+			</div>
+
+			<div class="ctn_music">
+				<div class="music_img"><img src="/images/main/img_music.jpg" width="120" height="100" style="cursor:pointer" onclick="location.href='/storage/storage.php?section=MUS'">
+				</div>
+				<div class="music_tb">
+					<table id="music"></table>
+				</div>
+			</div>
+		</div><!-- ctn_music 다운로드뮤직 종료!-->        
+
+	</div><!-- center_left 종료!-->
+
+	<!-- 중앙 우측시작!-->
+	<div class="center_right">      
+		<div class="tv_table" onclick="location.href='/storage/storage.php?todo=tv_table'"></div>
+
+		<div class="center_right_s">
+			<div class="hom_rig_tit1"><a href="/event/"><img src="/images/main/btn_more.jpg" align="absmiddle"></a></div>
+			<ul>  
+				 <li class="hom_rig_banner26"  onclick="location.href='/event/?todo=view&idx=125'"></li>
+				 <li class="hom_rig_banner2"  onclick="location.href='/storage/music.php'"></li>
+				 <li class="hom_rig_banner27"  onclick="location.href='/event/?todo=freecharge'"></li>
+				 <li class="hom_rig_banner28"  onclick="location.href='/event/?todo=view&idx=61'"></li>
+				 <li class="hom_rig_banner5"  onclick="location.href='/event/?todo=view&idx=57'"></li>
+				<!--
+				<li class="hom_rig_banner12"  onclick="alert('로그인후 이용해주세요.');" ></li>
+!-->
+
+				<!--<li class="hom_rig_banner1_open"  onclick="alert('로그인 후 이용 가능합니다.');"></li>
+!-->
+					
+			</ul>
+
+			<div class="hom_rig_tit2"><img src="/images/main/btn_more.jpg" align="absmiddle" style="cursor:pointer" onClick="location='/storage/storage.php?section=REQ';"></div>
+
+			<ul class="req_list">
+			<li class="req_txt"><a href="javascript:ViewPopup('124711981');">나의 히어로 아카데미아2기 </a></li>	
+			<li class="req_icon"><img src="/images/icon/btn_m_req.png"></li>
+			<li class="req_txt"><a href="javascript:ViewPopup('124550058');">나홀로집에 우리말 더빙판 </a></li>	
+			<li class="req_icon"><img src="/images/icon/btn_m_req.png"></li>
+			<li class="req_txt"><a href="javascript:ViewPopup('124381748');">석조저택살인사건,... </a></li>	
+			<li class="req_icon"><img src="/images/icon/btn_m_req.png"></li>
+			<li class="req_txt"><a href="javascript:ViewPopup('124750297');">온리 더 브레이브 </a></li>	
+			<li class="req_icon"><img src="/images/icon/btn_m_req.png"></li>
+			<li class="req_txt"><a href="javascript:ViewPopup('124729884');">멜론2018년3월20일실시간top1oo </a></li>	
+			<li class="req_icon"><img src="/images/icon/btn_m_req.png"></li>
+			</ul>         
+			<!--<div class="hom_rig_bot_banner_msg" style="cursor:pointer;" onclick="alert('로그인 후 이용 가능합니다.');"></div>
+!-->
+
+		<div class="right_menu_bot2"  onClick="location='/cscenter/board.php?idx=675&todo=view&todosub=notice';"></div>
+		</div>  <!-- 중앙 center_right_s 우측종료!-->
+
+	</div> <!-- center_right end!-->
+</div> <!--center_wrap 중앙 종료!-->
+
+<script language="JavaScript">
+    // 메인 배너 클릭 롤링
+    var nBanner_count = 5;		//배너 갯수 설정
+    var nBanner_current = 1;	// 롤링 넘기는 수 설정
+    var bNum = jQuery("[id^='banner_brn']");
+    var bannerId = new Array();
+    for(var i =0; i<bNum.length; i++){
+        bannerId[i+1] = bNum[i].id;
+	}
+
+    var OverShowTime;
+    //OverShowTime = window.setInterval("btn_roll()", 3000);
+    OverShowTime = window.setInterval("btn_next()", 3000);
+
+    var onOvers = 0;
+
+    function btn_pre() {
+        if(nBanner_count == 1) return;
+        jQuery("[id^='banner_brn']").hide();
+        nBanner_current--;
+        if(nBanner_current == 0) nBanner_current = nBanner_count;
+        jQuery("#"+bannerId[nBanner_current]).show();
+    }
+    function btn_next() {
+        if(nBanner_count == 1) return;
+        jQuery("[id^='banner_brn']").hide();
+        nBanner_current++;
+        if(nBanner_current > nBanner_count) nBanner_current = 1;
+
+        jQuery("#"+bannerId[nBanner_current]).show();
+    }
+    // 일시멈춤
+    function btn_over(val) {
+        jQuery("[id^='banner_brn']").hide();
+        if(nBanner_current > nBanner_count) nBanner_current = 1;
+        jQuery("#banner_brn_"+val).show();
+        clearTimeout(OverShowTime);
+    }
+    // 일시멈춤해제
+    function btn_overResume() {
+        OverShowTime = window.setTimeout("btn_roll()", 3000);
+    }
+
+    // 롤링은 하단에 settime 설정
+</script>
+
+<script>
+main_contents('poster_mvo','new');
+main_contents('poster_cate','dra');
+main_contents('list','all');
+
+		$('.event_main_img').hide();
+		$('#' + bannerId[Math.floor((Math.random() * nBanner_count)+1)]).show();
+// 메인 배너 롤링
+function btn_roll() {
+
+	if(onOvers == 0) {
+		$('.event_main_img').hide();
+		$('#' + bannerId[Math.floor((Math.random() * nBanner_count)+1)]).show();
+	}
+	//btn_next();
+	//OverShowTime();
+}
+OverShowTime;
+
+	$('#userid').focus();
+</script>
+	</div>
+</div>
+
+
+
+<!-- 의견남기기 레이어!-->
+<div class="blackbg_gra"  style="display:none;" id="event_msg_layer">
+	<div class="pop_mag_layer">
+		<div class="pop_mag_tot">
+			<div class="pop_top">
+			<li class="pop_name_b">의견 남기기</li>
+			<li class="btn_close" onclick="$('#event_msg_layer').hide();" style="cursor:pointer;"></li>
+			</div>
+
+			<div class="pop_mag">
+				<form action="/event/?idx=5" name="event_msg" id="event_msg" method="post">
+				<input type="hidden" value="" id="referer" name="referer">
+				<input type="hidden" name="todo" value="open_write_exec">
+				<div class="pop_mag_s">
+				    <div class="mag_t"><p class="bold font12">쉐어박스는 항상 여러분의 의견을 듣습니다.</p><p class="font11">쉐어박스 이용에 불편함 또는 오작동,개선사항 및 다양한 의견을 남겨주세요.</p><p  class="font11"> 반영하여 더욱 발전하는 쉐어박스가 되도록 하겠습니다.</p></div>
+				   <table>
+				   <tr>
+				   <td width="10%" class="td_line tit">작성자</td>
+				   <td class="td_line"><span  class=""></span></td>
+				   </tr>
+				   <tr style="display:">
+				   <td class="td_line tit">내용</td>
+				   <td class="td_line"><textarea name="content" id="content" class="memo_input" style=" width:95%; height:150px;margin-bottom:10px;"></textarea></td>
+				   </tr>
+				   </table>
+				   <div class="pop_mag_btn"><span class="pbtn_green" onclick="submit_event_msg();" style="width:150px; height:25px; line-height:25px; vertical-align:middle; ">보내기</span></div>
+				 </div>
+				 </form>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script>
+	function submit_event_msg() {
+		if(document.getElementById("content").value.length < 10) {
+			alert("의견 내용을 입력해주세요. (최소 10자 이상)");
+		}
+		else {
+			try {
+				var f = document.event_msg;
+				f.submit();
+			} catch(e) {}
+		}
+	}
+
+</script>
+
+<div id="footer_wrap">
+	<div class="footer_var">
+    	<ul>
+        <a href="http://giftm.co.kr" target="blank">회사소개</a>|
+        <a href="/company/?todo=use">이용약관 </a>|
+        <a href="/cscenter/board.php">고객센터</a>|
+		<a href="/company/?todo=copyright">저작권보호센터</a>|
+        <!-- <a href="/copyright/" target="blank">저작권보호센터</a>| -->
+        <a href="#" onclick="window.open('/popup/popup_business.htm', 'business', 'width=517, height=550,scrollbars=no,  '); ">광고/상품권/제휴문의</a>|
+        <a href="/company/?todo=adolescent">청소년보호정책</a>|
+		 <a href="/company/?todo=helpme"><span>권리침해센터</span></a>|
+        <a href="/company/?todo=policy"><span class="bold">개인정보처리방침</span></a>|
+
+		<a href="#" onclick="window.open('http://helpu.kr/giftm', 'remote', 'width=880, height=450,scrollbars=yes,  '); "><span class="bold">원격코드입력</span></a>
+       </ul>
+    </div>
+	<div class="footer_s">
+		<ul>
+    	<li class="footer_le"></li>
+        <li class="footer_ce">
+     	(주) 기프트엠 | 대표자명 : 김준석  | 서울시 구로구 디지털로242 703 (구로동, 한화비즈메트로 1차) | 사업자번호 : 113-86-61971 | 통신판매 : 제2012-서울구로-0914호<br>
+       부가통신사업번호 : 제3-01-12-0073호 | 고객센터 : 1661-0872 | E-mail : help@sharebox.co.kr | FAX :02-2621-2438 | 저작권,정보보호,청소년보호책임자 : 김준석  <br>
+       Copyright ⓒ 2009 SHAREBOX Co.,Ltd. All Rights Reserved. (38) </li>
+		 </ul>
+    </div>
+</div><!--footer_wrap 종료!-->
+
+
+
+
+</body>
+</html>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62913942-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

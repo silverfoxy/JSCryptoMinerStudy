@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>amoeba</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta id="viewport" name="viewport" content="width=645, user-scalable=yes">
+	<link rel="stylesheet" type="text/css" href="/web/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/web/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/web/css/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" type="text/css" href="/common/css/progress.css" />
+	<link rel="stylesheet" type="text/css" href="/common/css/toast.css" />
+	<link rel="stylesheet" type="text/css" href="/common/css/colorbox.css" />
+	<link rel="stylesheet" type="text/css" href="/common/css/jquery.bxslider.css" />
+
+	<script>
+
+		var currentUserAgentBool = false;
+
+		if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)) {
+			//currentUserAgentBool = true;
+			self.location = "http://m.amoeba.co.kr";
+		}
+
+	</script>
+
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery-1.8.3.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/common/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/common/js/jquery.form.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery.easing.1.3.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery.masonry.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery.mousewheel.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery.mCustomScrollbar.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/megacoding.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/web/js/jquery.cookie.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/common/js/utils.js"></script>
+	<script language="JavaScript" type="text/javascript" src="/common/js/common.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/imgPreload.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/jquery.toaster.min.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/jquery.colorbox.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/jquery.bxslider.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/jquery.fitvids.js"></script>
+	<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="/common/js/google.analytics.js"></script>
+</head><body>
+<div id="wrap">
+	<div id="header">
+		<h1 class="logo">
+			<a href="/"><img src="../web/images/common/logo.png" alt="amoeba" /></a>
+		</h1>
+		<ul class="gnb">
+			<li class="on"><a href="javascript:void(0);" class="btn_dept1" id="goNews">news</a>
+			<li><a href="javascript:void(0);" class="btn_dept1" id="goGraphic">graphic&nbsp;&nbsp;dB</a></li>
+			<li><a href="javascript:void(0);" class="btn_dept1" id="goInfo">information</a></li>
+			<li><a href="javascript:void(0);" class="btn_dept1" id="goRecruit">recruit</a></li>
+		</ul>
+		<div class="banner">
+			<a href="javascript:goAcademy()" id="linkAcademy" style="display:none;"><img src="../web/images/common/logo2.png"/></a>
+			<a href="javascript:goRecruit();" id="linkRecruit"><img src="/amoeba_logo.gif"></a>
+		</div>
+		<ul class="company">
+			<li><a href="http://www.gumbook.co.kr/" target="_blank"><img src="../web/images/btn/btn_company1.png"/></a></li>
+		</ul>
+	</div>
+	<div id="container"></div>
+	<div id="footer"></div>
+</div>
+<div id="layer_popup">
+	<div class="back_ground"></div>
+	<div class="main_popup">
+		<div><img src="./academy_pop.png"/></div>
+		<a class="close" href="javascript:closeAcademy();"><img src="../common/img/btn_close3.png" alt=""></a>
+		<a class="more" href="javascript:goAcademy()"><img src="../common/img/btn_more.png" alt=""></a>
+	</div>
+</div>
+</body>
+
+<script type="text/javascript">
+	var page = params.getURLParam("page");
+	var no = params.getURLParam("no");
+	var type = params.getURLParam("type");
+	var url = "/main/index";
+	var gnb = 0;
+
+	var bodyheight = null;
+	var bodywidth = null;
+
+	$(window).resize(function() {
+		bodyheight = $(window).height();
+	});
+
+	$(document).ready(function(){
+
+		if(page!=null){
+			switch(page){
+				case 'newsview':
+					url = "/templet/newsview.html";
+					gnb = 0;
+					break;
+
+				case 'gbview':
+					url = "/templet/gbview.html";
+					gnb = 1;
+					break;
+
+				case 'information':
+					url = "/templet/information.html";
+					gnb = 2;
+					break;
+
+				case 'recruit':
+					url = "/templet/recruit.html";
+					gnb = 3;
+					break;
+			}
+		}
+
+		$.ajax({
+			url: url
+			, dataType: "html"
+			, beforeSend: function( xhr ) {
+				var $spinner = $("<img id='spinner' src='/spinner.gif'/>");
+				$("#container").html($spinner);
+				if(bodyheight == null){
+					bodyheight = $(document).height();
+				}
+				var top = bodyheight /2;
+				$spinner.css({position : "absolute", top: top, left: "50%"});
+			}
+			, success: function(data) {
+				$("#container").html(data);
+
+				if(page=="newsview"){
+					loadNews(no);
+				}
+				else if(page=="gbview"){
+					loadGb(no);
+				}
+			}
+		})
+
+		// gnb의 on 처리 ( 클릭 표시 )
+		$(".btn_dept1").each(function(){
+			$(this).parent().removeClass("on");
+		});
+
+		if(page != "academy"){
+			$(".gnb").children().eq(gnb).addClass("on");
+		}
+
+		// 아카데미 팝업 Display
+		openAcademy();
+
+	});
+
+	//리쿠르트 이미지 클릭
+	function goRecruit(){
+		$("#goRecruit").trigger("click");
+	}
+
+	// 아카데미 페이지로 이동
+	function goAcademy(){
+		$.ajax({
+			url: "./templet/academy.html"
+			,dataType: "html"
+			,success: function(data) {
+				closeAcademy();
+				$("#container").html(data);
+			}
+		});
+	}
+
+	// 아카데미 팝업 열기
+	function openAcademy(){
+		$.ajax({
+			url: "/main/academy/getData",
+			type : "get"
+		}).done(function( result ) {
+			if(result.object != null){
+				setTimeout(function(){
+// 				$("#linkRecruit").hide();
+					$("#linkAcademy").show();
+					$("#layer_popup").show();
+				},1000);
+			}
+			else{
+			}
+		});
+	}
+
+	//아카데미 팝업 닫기
+	function closeAcademy(){
+		$("#layer_popup").hide();
+	}
+
+</script>
+</html>

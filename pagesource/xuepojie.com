@@ -1,0 +1,1 @@
+<!doctype html><html><frameset rows="100%"><frame src="http://www.xuepojie.com"><noframes>请点击下面链接: <a href="http://www.xuepojie.com">link</a></noframes></frameset></html>

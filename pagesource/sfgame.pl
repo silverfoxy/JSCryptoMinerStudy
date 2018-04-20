@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Shakes & Fidget	</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Playa Games GmbH">
+	<meta name="publisher" content="Playa Games GmbH">
+	<meta name="copyright" content="Prawa autorskie: Playa Games GmbH, 2018">
+	<meta name="keywords" content="browser game">
+	<meta name="description" content="The fun Shakes & Fidget browser game">
+	<meta name="page-topic" content="">
+	<meta name="audience" content="">
+	<meta name="robots" content="index, follow">
+	<meta property="og:type" content="game">
+	<meta property="og:title" content="Shakes &amp; Fidget - darmowa gra na przeglądarkę">
+	<meta property="og:description"
+			content="Pełne humoru RPG na podstawie kultowego komiksu! Stw&oacute;rz i rozwijaj własnego bohatera w pełnym niebezpieczeństw świecie opanowanym przez plagę morderczych kr&oacute;lik&oacute;w i piekielnych oblubienic! Przeżywaj ekscytujące przygody, zbieraj doświadczenie i złoto, zdobywaj cześć oraz poważanie i zał&oacute;ż ze znajomymi własną gildię!">
+	<meta property="og:site_name" content="Shakes &amp; Fidget - darmowa gra na przeglądarkę">
+
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" >
+
+	<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/modernizr-custom.js"></script>
+<script src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/detectizr.min.js"></script>
+
+<!--<link href="https://fonts.googleapis.com/css?family=Bungee|Fira+Sans:300,400,700,900" rel="stylesheet">-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://use.typekit.net/pjf0jwp.js"></script>
+<script>
+	try {
+		Typekit.load( {
+			async: false
+		} );
+	} catch ( e ) {}
+</script>
+
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/magnific-popup.css" rel="stylesheet">
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/style_old.css" rel="stylesheet">
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/style.css" rel="stylesheet">
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/tablet.css" rel="stylesheet">
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/mobile.css" rel="stylesheet">
+<link href="https://playagames.akamaized.net/res/landingpage_new/sf2017/css/jquery.mcustomscrollbar.css" rel="stylesheet" type="text/css" >
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="pl">
+<div id="fb-root"></div>
+
+<script type="text/javascript">
+	var BASE_URL = 'https://playagames.akamaized.net/res/landingpage_new/sf2017/';
+	var query = '';
+	var cid = '';
+</script>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=655979374502758";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<script>
+		Detectizr.detect( {
+			detectScreen: false
+		} );
+		var lang = 'pl';
+		//var videoId = "Og6jldIdul4";if(lang == "de"){videoId = "EnX-hj558Is"} // default trailer
+		var videoId = "xknHeG-k_84";if(lang == "de"){videoId = "xknHeG-k_84"} // underworld trailer
+		var screenlang = "en"; if(lang == "de"){screenlang = "de"}
+		var baseurl = 'https://playagames.akamaized.net/res/landingpage_new/sf2017/';
+	</script>
+
+	<div class="wood woodleft"></div>
+	<div class="wood woodright"></div>
+
+	<div class="gradient gradient-left"></div>
+	<div class="gradient gradient-right"></div>
+	
+	<div class="speedserver-badge"></div>
+
+	<div class="wrapper-bg">
+		<div class="map"></div>
+		<!--<div class="spider"></div>
+		<div class="skeletonhand"></div>-->
+		<div class="hand-left"></div>
+	</div>
+	
+	
+	<!-- language on top -->
+	<div class="container language-container" style="position: relative;">
+		
+								<div id="language" class="dropdown">
+									<div class="flag_sprite flag_pl"></div>
+									<div class="dropdown-arrow"></div>
+								</div>
+								<div id="language-box">
+								<ul>
+
+								<li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.cn" title="" class="flag_cn flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.com.br" title="Brazil" class="flag_br flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.ca" title="Canada" class="flag_ca flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.cl" title="Chile" class="flag_cl flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.cz" title="Czech Republic" class="flag_cz flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.dk" title="Denmark" class="flag_dk flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.fr" title="France" class="flag_fr flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.co.uk" title="Great Britain" class="flag_gb flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.gr" title="Greece" class="flag_gr flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.hu" title="Hungary" class="flag_hu flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.in" title="India" class="flag_in flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.it" title="Italy" class="flag_it flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.jp" title="Japonia" class="flag_jp flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.mx" title="Mexico" class="flag_mx flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.nl" title="Netherlands" class="flag_nl flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.de" title="Niemcy" class="flag_de flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.pl" title="Polska" class="flag_pl flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.com.pt" title="Portugalia" class="flag_pt flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.ro" title="Rumania" class="flag_ro flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.ru" title="Russia" class="flag_ru flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.sk" title="Slovakia" class="flag_sk flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.es" title="Spain" class="flag_es flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.se" title="Sweden" class="flag_se flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.web.tr" title="Turkey" class="flag_tr flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.ae" title="UAE" class="flag_ae flag_sprite">&nbsp;</a></li><li class="lang_dropdown dropdown_sprite"><a href="https://www.sfgame.us" title="USA" class="flag_us flag_sprite">&nbsp;</a></li>
+								</ul>
+							</div>
+								
+	</div>
+	
+	
+	
+
+	<div class="footer-bg"></div>
+
+	<div class="wrapper-all">
+		<div class="fixed-bg"></div>
+		<div class="fixed-bg-color-top"></div>
+		<div class="fixed-bg-color-bottom"></div>
+
+		<div class="wrapper">
+
+			<div class="home">
+
+				<div class="container">
+
+
+										<a id="login" href="https://w22.sfgame.net">
+						login					</a>
+					
+
+
+					<div class="logo"></div>
+
+
+
+
+					<div class="notebook">
+						<div class="bg"></div>
+						<div class="videoOuter">
+							<div class="videoOverlay">
+								<div class="countdown">
+									<div class="countdown-bg"></div>
+									<div class="countdown-number"></div>
+									<svg>
+										<circle r="50" cx="63" cy="53"></circle>
+									</svg>
+								</div>
+							</div>
+							<div class="videoWrapper">
+								<div id="player"></div>
+							</div>
+						</div>
+
+					</div>
+					
+					
+
+
+
+					<div class="tentacle1"></div>
+					<div class="sumpf" id="sumpf1"></div>
+					<div class="sumpf" id="sumpf2"></div>
+					<div class="sumpfschlitz" id="sumpfschlitz1"></div>
+
+				</div>
+
+				<div class="maincta text-center">
+											<a href="https://w22.sfgame.net" class="cta cta-top">
+														<div class="cta-left"></div>
+							<div class="cta-center">
+								<!--<span class="cta-text cta-shadow">Rozpocznij przygodę</span>-->
+								<span class="cta-text"><span class="orange">Rozpocznij</span> przygodę</span>
+								<div class="cta-arrow"></div>
+							</div>
+							<div class="cta-right"></div>
+						</a>
+										<a href="https://itunes.apple.com/de/app/shakes-fidget-the-game/id556886960?mt=8&uo=4" class="hide-desktop badge-xl ios-visible">
+						<img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/appstore/pl_xl.png" width="352" alt="Appstore Download" />
+					</a>
+
+					<a href="https://play.google.com/store/apps/details?id=com.playagames.shakesfidget&referrer=utm_source%3D&hl=pl" class="hide-desktop badge-xl android-visible">
+						<img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/playstore/pl_xl.png" width="352" alt="Playstore Download" />
+					</a>
+
+				</div>
+
+			</div>
+
+			<div class="bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="paper">
+								<div class="app-icon" id="app-icon">
+								</div>
+								<!-- desktop -->
+								<div class="col-md-12 hide-tablet">
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class="rating rating-apple">
+											<div class="star star-apple-1"></div>
+											<div class="star star-apple-2"></div>
+											<div class="star star-apple-3"></div>
+											<div class="star star-apple-4"></div>
+											<div class="star star-apple-5 star-half"></div>
+										</div>
+										<div class="rating-number rating-number-apple">48.111</div>
+										<div class="storebadge storebadge-apple"><a href="https://itunes.apple.com/de/app/shakes-fidget-the-game/id556886960?mt=8&uo=4" target="_blank"><img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/appstore/pl_xl.png" width="326" alt="Appstore Download" /></a>
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class="rating rating-android">
+											<div class="star star-android-1"></div>
+											<div class="star star-android-2"></div>
+											<div class="star star-android-3"></div>
+											<div class="star star-android-4"></div>
+											<div class="star star-android-5 star-half"></div>
+										</div>
+										<div class="rating-number rating-number-android">501.120</div>
+										<div class="storebadge storebadge-android"><a href="https://play.google.com/store/apps/details?id=com.playagames.shakesfidget&referrer=utm_source%3D&hl=pl" target="_blank"><img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/playstore/pl_xl.png" width="326" alt="Playstore Download" /></a>
+										</div>
+									</div>
+								</div>
+								<!-- ios -->
+								<div class="col-md-12 hide-desktop ios-visible">
+									<div class="col-md-12">
+										<div class="rating rating-apple">
+											<div class="star star-apple-1" id="star-apple-1"></div>
+											<div class="star star-apple-2" id="star-apple-2"></div>
+											<div class="star star-apple-3" id="star-apple-3"></div>
+											<div class="star star-apple-4" id="star-apple-4"></div>
+											<div class="star star-apple-5 star-half" id="star-apple-5"></div>
+										</div>
+										<div class="rating-number rating-number-apple">48.111</div>
+									</div>
+								</div>
+								<!-- android -->
+								<div class="col-md-12 hide-desktop android-visible">
+									<div class="col-md-12">
+										<div class="rating rating-android">
+											<div class="star star-android-1"></div>
+											<div class="star star-android-2"></div>
+											<div class="star star-android-3"></div>
+											<div class="star star-android-4"></div>
+											<div class="star star-android-5 star-half"></div>
+										</div>
+										<div class="rating-number rating-number-android">501.120</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="slider-section">
+
+				<div class="container">
+					<div class="tentacle2"></div>
+
+					<!-- desktop screenshots -->
+					<div class="slider">
+
+						<div class="slider-left"></div>
+						<div class="slider-right"></div>
+
+						<div class="slide active slide-1"><div class="image"></div></div>
+						<div class="slide slide-2"><div class="image"></div></div>
+						<div class="slide slide-3"><div class="image"></div></div>
+						<div class="slide slide-4"><div class="image"></div></div>
+						<div class="slide slide-5"><div class="image"></div></div>
+						<div class="slide slide-6"><div class="image"></div></div>
+
+
+					</div>
+
+
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+
+		<div id="footer">
+	
+	
+
+	<div class="footer-content-wrapper">
+		<div class="footer-content">
+			<div class="cta-footer">
+				<div class="maincta text-center">
+											<a href="http://w22.sfgame.net" class="cta">
+														<div class="cta-left"></div>
+							<div class="cta-center">
+								<!--<span class="cta-text cta-shadow">Rozpocznij przygodę</span>-->
+								<span class="cta-text"><span class="orange">Rozpocznij</span> przygodę</span>
+								<div class="cta-arrow"></div>
+							</div>
+							<div class="cta-right"></div>
+						</a>
+									<a href="https://itunes.apple.com/de/app/shakes-fidget-the-game/id556886960?mt=8&uo=4" class="hide-desktop badge-xl ios-visible">
+					<img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/appstore/pl_xl.png" width="352" alt="Appstore Download" />
+				</a>
+				<a href="https://play.google.com/store/apps/details?id=com.playagames.shakesfidget&referrer=utm_source%3D&hl=pl" class="hide-desktop badge-xl android-visible">
+					<img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/badges/playstore/pl_xl.png" width="352" alt="Playstore Download" />
+				</a>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="speedserver-badge speedserver-badge-mobile"></div>
+					<div class="col-md-12 text-center">
+						<a class="social-icon twitter" href="https://twitter.com/SFgameOfficial" target="_blank"></a>
+						<a class="social-icon facebook" href="https://www.facebook.com/pages/Shakes-Fidget-The-Game/107431265996255" target="_blank"></a>
+					</div>
+					<div class="col-md-12 text-center">
+						<ul class="footer-links">
+							<li><a href="http://forum-int.sfgame.us" target="_blank">Forum</a></li>
+							<li class="divider">|</li>
+														<li><a class="ajax-popup-link" href="//www.sfgame.pl/legal/get_legal2.php?type=terms&amp;lang=pl" target="_blank">OWH</a></li>
+							<!--<li><a href="https://www.sfgame.pl/dexeg/dev/playagames/sfold/legal/index.php?type=terms&amp;mode=1&amp;lang=pl" target="_blank">OWH</a></li>-->
+							<li class="divider third">|</li>
+							<br class="hide-desktop hide-tablet show-mobile" />
+							<li><a class="ajax-popup-link" href="//www.sfgame.pl/legal/get_legal2.php?type=privacy&amp;lang=pl" target="_blank">Ochrona danych osobowych</a></li>
+							<!--<li><a href="https://www.sfgame.pl/legal/index.php?type=privacy&amp;mode=1&amp;lang=pl" target="_blank">Ochrona danych osobowych</a></li>-->
+							<li class="divider">|</li>
+							<li><a class="ajax-popup-link" href="//www.sfgame.pl/legal/get_legal2.php?type=imprint&amp;lang=pl" target="_blank">O nas</a></li>
+						<!--	<li><a href="https://www.sfgame.pl/legal/index.php?type=imprint&amp;mode=1&amp;lang=pl" target="_blank">O nas</a></li>-->
+							
+							
+						</ul>
+					</div>
+				</div>	
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+	</div>
+	
+	
+	
+	
+	
+	
+	<div id="overlay_wrapper"></div>
+	
+	<!-- world chooser layer -->
+<div id="layer_world" class="overlays">
+
+  <div class="header">
+    <div class="box sidebar table-tl"></div>
+    <div class="box content table-tc"></div>
+    <div class="box sidebar table-tr"></div>
+  </div>
+  <div class="main">
+    <div class="box sidebar  table-lc"></div>
+    <div class="box content">
+  <div class="text_flag" > <span class="sprite before_btn">&nbsp;</span> <span class="center_btn"><span class="headline">
+    Wybierz świat:    </span></span> <span class="sprite after_btn">&nbsp;</span> </div>
+  <a href="#">
+  <div class="close_button"></div>
+  </a>
+  <div class="container world">
+    <div class="inside">
+      <div class="chooser"  dir="ltr">
+        <div class="choose_lang dropdown dropdown_sprite">
+          <p class="noborder flag_pl"> <span class="flag_sprite flag_pl">&nbsp;</span> <span class="lang_ticker">
+          <a href="#" id="akt_lang_chooser">
+          Polska          </a>
+          </span> <img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/overlay/dropdown_arrow.png" class="arrow" alt="arrow" /></p>
+          <div class="scrollable">
+            <ul>
+              <li class="lang_dropdown dropdown_sprite"><span class="flag_cn flag_sprite">&nbsp;</span><a href="https://www.sfgame.cn" class="lang_cn" title=""></a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_br flag_sprite">&nbsp;</span><a href="https://www.sfgame.com.br" class="lang_br" title="Brazil">Brazil</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_ca flag_sprite">&nbsp;</span><a href="https://www.sfgame.ca" class="lang_ca" title="Canada">Canada</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_cl flag_sprite">&nbsp;</span><a href="https://www.sfgame.cl" class="lang_cl" title="Chile">Chile</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_cz flag_sprite">&nbsp;</span><a href="https://www.sfgame.cz" class="lang_cz" title="Czech Republic">Czech Republic</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_dk flag_sprite">&nbsp;</span><a href="https://www.sfgame.dk" class="lang_dk" title="Denmark">Denmark</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_fr flag_sprite">&nbsp;</span><a href="https://www.sfgame.fr" class="lang_fr" title="France">France</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_gb flag_sprite">&nbsp;</span><a href="https://www.sfgame.co.uk" class="lang_gb" title="Great Britain">Great Britain</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_gr flag_sprite">&nbsp;</span><a href="https://www.sfgame.gr" class="lang_gr" title="Greece">Greece</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_hu flag_sprite">&nbsp;</span><a href="https://www.sfgame.hu" class="lang_hu" title="Hungary">Hungary</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_in flag_sprite">&nbsp;</span><a href="https://www.sfgame.in" class="lang_in" title="India">India</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_it flag_sprite">&nbsp;</span><a href="https://www.sfgame.it" class="lang_it" title="Italy">Italy</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_jp flag_sprite">&nbsp;</span><a href="https://www.sfgame.jp" class="lang_jp" title="Japonia">Japonia</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_mx flag_sprite">&nbsp;</span><a href="https://www.sfgame.mx" class="lang_mx" title="Mexico">Mexico</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_nl flag_sprite">&nbsp;</span><a href="https://www.sfgame.nl" class="lang_nl" title="Netherlands">Netherlands</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_de flag_sprite">&nbsp;</span><a href="https://www.sfgame.de" class="lang_de" title="Niemcy">Niemcy</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_pl flag_sprite">&nbsp;</span><a href="https://www.sfgame.pl" class="lang_pl" title="Polska">Polska</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_pt flag_sprite">&nbsp;</span><a href="https://www.sfgame.com.pt" class="lang_pt" title="Portugalia">Portugalia</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_ro flag_sprite">&nbsp;</span><a href="https://www.sfgame.ro" class="lang_ro" title="Rumania">Rumania</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_ru flag_sprite">&nbsp;</span><a href="https://www.sfgame.ru" class="lang_ru" title="Russia">Russia</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_sk flag_sprite">&nbsp;</span><a href="https://www.sfgame.sk" class="lang_sk" title="Slovakia">Slovakia</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_es flag_sprite">&nbsp;</span><a href="https://www.sfgame.es" class="lang_es" title="Spain">Spain</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_se flag_sprite">&nbsp;</span><a href="https://www.sfgame.se" class="lang_se" title="Sweden">Sweden</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_tr flag_sprite">&nbsp;</span><a href="https://www.sfgame.web.tr" class="lang_tr" title="Turkey">Turkey</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_ae flag_sprite">&nbsp;</span><a href="https://www.sfgame.ae" class="lang_ae" title="UAE">UAE</a></li><li class="lang_dropdown dropdown_sprite"><span class="flag_us flag_sprite">&nbsp;</span><a href="https://www.sfgame.us" class="lang_us" title="USA">USA</a></li>            </ul>
+          </div>
+        </div>
+        <div class="choose_world dropdown  dropdown_sprite">
+          <p class="noborder"><a href="#" rel="https://w22.sfgame.net" id="act_world_p"><img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/overlay/new_flag.png" id="new_flag_top" alt="flag" /> <span id="act_world">
+            Świat w22            </span> <img src="https://playagames.akamaized.net/res/landingpage_new/sf2017/img/overlay/dropdown_arrow.png" class="arrow" alt="arrow" /></a></p>
+          <div class="scrollable" dir="ltr">
+            <ul>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w22.sfgame.net"> <span>
+                Świat w22                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w21.sfgame.net"> <span>
+                Świat w21                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w20.sfgame.net"> <span>
+                Świat w20                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w19.sfgame.net"> <span>
+                Świat w19                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w18.sfgame.net"> <span>
+                Świat w18                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://speed.sfgame.net"> <span>
+                Świat speed                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w17.sfgame.net"> <span>
+                Świat w17                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w16.sfgame.net"> <span>
+                Świat w16                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w15.sfgame.net"> <span>
+                Świat w15                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w14.sfgame.net"> <span>
+                Świat w14                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w13.sfgame.net"> <span>
+                Świat w13                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w12.sfgame.net"> <span>
+                Świat w12                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w9.sfgame.net"> <span>
+                Świat w9                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w11.sfgame.net"> <span>
+                Świat w11                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w10.sfgame.net"> <span>
+                Świat w10                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w8.sfgame.net"> <span>
+                Świat w8                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w7.sfgame.net"> <span>
+                Świat w7                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w6.sfgame.net"> <span>
+                Świat w6                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w5.sfgame.net"> <span>
+                Świat w5                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w4.sfgame.net"> <span>
+                Świat w4                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w3.sfgame.net"> <span>
+                Świat w3                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w2.sfgame.net"> <span>
+                Świat w2                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://w1.sfgame.net"> <span>
+                Świat w1                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s34.sfgame.pl"> <span>
+                Świat s34                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s33.sfgame.pl"> <span>
+                Świat s33                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s32.sfgame.pl"> <span>
+                Świat s32                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s31.sfgame.pl"> <span>
+                Świat s31                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s30.sfgame.pl"> <span>
+                Świat s30                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s29.sfgame.pl"> <span>
+                Świat s29                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s28.sfgame.pl"> <span>
+                Świat s28                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s27.sfgame.pl"> <span>
+                Świat s27                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s26.sfgame.pl"> <span>
+                Świat s26                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s25.sfgame.pl"> <span>
+                Świat s25                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s24.sfgame.pl"> <span>
+                Świat s24                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s23.sfgame.pl"> <span>
+                Świat s23                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s22.sfgame.pl"> <span>
+                Świat s22                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s21.sfgame.pl"> <span>
+                Świat s21                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s20.sfgame.pl"> <span>
+                Świat s20                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s19.sfgame.pl"> <span>
+                Świat s19                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s18.sfgame.pl"> <span>
+                Świat s18                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s17.sfgame.pl"> <span>
+                Świat s17                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s16.sfgame.pl"> <span>
+                Świat s16                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s15.sfgame.pl"> <span>
+                Świat s15                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s14.sfgame.pl"> <span>
+                Świat s14                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s13.sfgame.pl"> <span>
+                Świat s13                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s12.sfgame.pl"> <span>
+                Świat s12                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s11.sfgame.pl"> <span>
+                Świat s11                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s10.sfgame.pl"> <span>
+                Świat s10                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s9.sfgame.pl"> <span>
+                Świat s9                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s8.sfgame.pl"> <span>
+                Świat s8                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s7.sfgame.pl"> <span>
+                Świat s7                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s6.sfgame.pl"> <span>
+                Świat s6                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s5.sfgame.pl"> <span>
+                Świat s5                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s4.sfgame.pl"> <span>
+                Świat s4                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s3.sfgame.pl"> <span>
+                Świat s3                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s2.sfgame.pl"> <span>
+                Świat s2                </span> </a></li>
+                            <li class="lang_dropdown  dropdown_sprite"><a class="choose_world_click" href="https://s1.sfgame.pl"> <span>
+                Świat s1                </span> </a></li>
+                          </ul>
+          </div>
+        </div>
+      </div>
+      <div class="button" id="continue">
+        <div class="inside"> <a href="#"><span class="sprite klein before_btn">&nbsp;</span> <span class="center_btn">
+          dalej          <span class="cta-arrow"></span></span><span class="sprite klein after_btn">&nbsp;</span></a> </div>
+      </div>
+    </div>
+  </div>
+   </div> <!--  end of box-content -->
+   <div class="box sidebar  table-rc"></div>
+  </div>
+  <div class="footer">
+    <div class="box sidebar table-bl"></div>
+    <div class="box content table-bc"></div>
+    <div class="box sidebar table-br"></div>
+  </div>
+
+
+
+
+
+  <a href="#">
+  <div class="close_button"></div>
+  </a> </div>
+<!-- end world layer -->
+	
+	
+	
+	
+	<!-- speedserver layer -->
+<div id="layer_speedserver" class="overlays  max-viewport">
+  <div class="header">
+    <div class="box sidebar table-tl"></div>
+    <div class="box content table-tc"></div>
+    <div class="box sidebar table-tr"></div>
+  </div>
+  <div class="main">
+    <div class="box sidebar  table-lc"></div>
+    <div class="box content">
+            <div class="headline">
+            <p>
+              Speedserver Top 30
+             </div>
+          <a href="#">
+          <div class="close_button"></div>
+          </a>
+         <!-- <div class="pager">
+          	<div class="page active"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+          </div>-->
+          <div class="container">
+            <div class="inside screenshots" dir="ltr">
+            	
+            </div>
+            <!--<div class="description"> </div>-->
+            <!--<div class="next" id="fssPrev">
+                <div class="arrowbutton"></div>
+            </div>
+            <div class="prev" id="fssNext">
+              <div class="arrowbutton"></div>
+            </div>-->
+          </div>
+         <!-- <div class="footer">
+          		<div class="button"><a href="#">
+              <span class="sprite before_btn layer">&nbsp;</span> <span  class="center_btn">
+              do gry              <span class="cta-arrow"></span></span><span class="sprite after_btn layer">&nbsp;</span></a>
+              <div class="clear"></div>
+              </div>
+          </div>-->
+    </div>
+    <div class="box sidebar  table-rc"></div>
+  </div>
+  <div class="footer">
+    <div class="box sidebar table-bl"></div>
+    <div class="box content table-bc"></div>
+    <div class="box sidebar table-br"></div>
+  </div>
+
+  <a href="#">
+  <div class="close_button"></div>
+  </a>
+
+</div>
+<!-- end speedserver -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://playagames.akamaized.net/res/landingpage_new/sf2017/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<script src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/script.js"></script>
+
+
+<!-- overlay -->
+<script type="text/javascript" src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/jquery.magnific-popup.min.js"></script>
+<script async type="text/javascript" src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/jquery.mcustomscrollbar.js"></script>
+<script type="text/javascript" src="https://playagames.akamaized.net/res/landingpage_new/sf2017/js/gui.js"></script>
+
+<!-- Pixel -->
+<iframe id="maif_landing" name="maif" src="/map.php?a=landing&b=&c=0&d=1&e=0&g=pl&r=1521537641.3723" width="0" height="0" style="position: absolute; left:0;top:0; border: 0 none"></iframe><!-- Google Code for Remarketing Tag -->
+<!-- 
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1001760844;
+var google_conversion_label = "FCk7CKSTyQMQzNDW3QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1001760844/?value=1.00&amp;currency_code=NOK&amp;label=FCk7CKSTyQMQzNDW3QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript><!-- Google Code für ein Remarketing-Tag -->
+<!--
+Remarketing-Tags dürfen nicht mit personenbezogenen Daten verknüpft oder auf Seiten platziert werden, die sensiblen Kategorien angehören. Weitere Informationen und Anleitungen zur Einrichtung des Tags erhalten Sie unter: http://google.com/ads/remarketingsetup
+-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1007886112;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1007886112/?guid=ON&amp;script=0"/>
+</div>
+</noscript><!-- Google Code für ein Remarketing-Tag -->
+<!--
+Remarketing-Tags dürfen nicht mit personenbezogenen Daten verknüpft oder auf Seiten platziert werden, die sensiblen Kategorien angehören. Weitere Informationen und Anleitungen zur Einrichtung des Tags erhalten Sie unter: http://google.com/ads/remarketingsetup
+-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 926889450;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/926889450/?guid=ON&amp;script=0"/>
+</div>
+</noscript><!-- Google Code für ein Remarketing-Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1026250221;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1026250221/?guid=ON&amp;script=0"/>
+</div>
+</noscript><script type="text/javascript">
+/* <![CDATA[ */
+var seznam_retargeting_id = 12332;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script><script language="javascript" type="text/javascript" charset="utf-8" src="//t.playalytics.de/t.js?gameid=1&amp;eventid=1"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAPESP :: Fundação de Amparo à Pesquisa do Estado de São Paulo</title>
+<meta http-equiv="X-UA-Compatible" content="IE=100" > <!-- IE8 mode -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store"/> 
+<meta http-equiv="Pragma" content="no-cache, no-store"/> 
+<meta http-equiv="expires" content="Mon, 06 Jan 1990 00:00:01 GMT"/>
+<link rel="canonical" href="/"/>
+<link rel="stylesheet" type="text/css" href="http://www.fapesp.br/media/style.css?v=2.18"/>
+<script src="http://www.fapesp.br/media/jquery-1.8.3.min.js"></script>
+<script src="http://www.fapesp.br/media/jquery.elevatezoom.js"></script>
+<script src="http://www.fapesp.br/media/jquery.mask.min.js"></script>
+<script src="http://www.fapesp.br/media/functions.js"></script>
+<script>
+(function($) {
+	$.fn.extend({
+		tabs: function(autotab) {
+			return this.each(function() {
+				var elem = $(this), tab = $(document.createElement('ul')).prependTo(elem), divs = elem.children('div'), i = 0, timer = null;
+				// show first
+				$(divs.get(0)).show();
+				
+				divs.find('img').each(function() {
+					$(this).click(function () {
+						window.location.href = $(this).parents('div').find('a').attr('href');
+					});
+				});
+				
+				// create tabs
+				for (i=0; i < divs.length; i++) {
+					tab.append('<li'+(!i ? ' class="in"' : '')+'><b class="tl"></b><b class="tr"></b><span>'+ $(divs.get(i)).attr('rule') +'</span></li>');
+				}
+				
+				// get tabs
+				tabs = tab.children();
+				
+				// actions
+				tabs.click(function() {
+					tabs.removeClass('in');
+					$(this).addClass('in');
+					divs.hide();
+					i = tabs.index(this);
+					$(divs[i]).fadeIn('slow');
+					
+					if (autotab) {
+						resetTimer();
+					}
+				});
+				
+				if (autotab) {
+					addTimer();
+				}
+				
+				function addTimer() {
+					timer = window.setInterval(showNext, 10500);
+				}
+				
+				function resetTimer() {
+					window.clearTimeout(timer);
+					addTimer();
+				}
+				
+				function showNext() {
+					if (tabs.length > i + 1)
+						i++;
+					else
+						i = 0;
+					
+					tabs.removeClass('in');
+					$(tabs[i]).addClass('in');
+					divs.hide();
+					$(divs[i]).fadeIn('slow');
+				}
+			});
+		},
+		placeholder: function() {
+			return this.each(function() {
+				$('[placeholder]', this)
+					.focus(function() {
+						if ($(this).val() == $(this).attr('placeholder'))
+							$(this).val('').css('color', '#000');
+					})
+					.blur(function() {
+						if (!$(this).val() || $(this).val() == $(this).attr('placeholder'))
+							$(this).val(function() { return $(this).attr('placeholder') }).css('color', '#ccc');
+					})
+					.filter(':not([value])').val(function() { return $(this).attr('placeholder') }).css('color', '#ccc')
+					.parents('form').
+						bind('submit', function() {
+							$('[placeholder]', this).val(function() { return $(this).val() != $(this).attr('placeholder') ? $(this).val() : '' });
+						});
+			});
+		},
+		
+		// Text tools are functions to make simple and quick add tools to the text
+		// use the name pattern "tt" when create another function
+		tt1: function() {
+			return this.each(function() {
+				$(this).children('div').each(function() {
+					// use attr on the main element to set values in this code
+					var tt = $(
+						'<div class="media">'+
+							'<b>Instruções para apresentação de propostas</b>'+
+							'<p>'+
+								//'<small>Formatos:</small><br/>'+
+								'<a style="margin:8px 0 0 17px;" target="_blank" class="icon-html28" href="'+ $(this).attr('html') +'">HTML</a>'+
+								//'<a class="icon-pdf28">PDF</a>'+
+							'</p>'+
+						'</div>'
+					).fadeTo('fast', .5);
+					
+					$(this).prepend(tt);
+					
+					$(this).hover(
+						function() {
+							tt.fadeTo('normal', 1)
+						},
+						function() {
+							tt.fadeTo('normal', .5);
+						}
+					);
+				})
+			});
+		}
+	});
+})(jQuery);
+
+var ui = {
+	page: {
+		col: function() {
+			var u = /\/(\d+)/.exec(window.location.href)[1];
+		
+			$('#menu li a').each(function() {
+				if (/\/(\d+)/.exec($(this).attr('href'))[1] == u)
+					$(this).addClass('in');
+			});
+		}
+	}
+};
+
+// fapesp tracker
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-159627-1']);
+_gaq.push(['_trackPageview']);
+</script>
+</head>
+
+<body class="pt-br">
+<!--[if IE]><div id="ie"><![endif]--> 
+		<div id="head">
+	<div class="center">
+		<a id="logo" href="/" rel="home"></a>
+				<ul id="lang" class="inline">
+			<li class="last"><a href="/en/" hreflang="en">English</a></li>		</ul>
+				
+		<form id="srch" action="/buscar" method="get">
+			<div>
+				<input type="text" size="30" name="q" placeholder="Buscar" autocomplete="off"/>
+				<button type="submit">&nbsp;</button>
+			</div>
+		</form>
+		<script>$('#srch').placeholder()</script>
+		
+				<div id="index">
+			<a>Índice</a> 
+			<div id="index-content">
+				<ul>
+					<li><a href="/acordos/">Acordos e convênios</a></li>
+					<li><a href="http://agencia.fapesp.br">Agência FAPESP</a></li>
+					<li><a href="/cadastroagilis">Agilis</a></li>
+					<li><a href="/alphacrucis">Alpha Crucis</a></li>
+					<li><a href="/565">Alteração na concessão</a></li>
+					<li><a href="/5376">Alteração de responsabilidade e instituição</a></li>
+					<li><a href="/assessores/">Assessoria</a></li>
+                                   <li><a href="/auditoria">Auditoria e Prestação de Contas</a></li>
+					<li><a href="/auxilios/">Auxílios</a></li>
+					<li><a href="http://bv.fapesp.br/">Biblioteca Virtual</a></li>
+                                   <li><a href="http://www.fapesp.br/boaspraticas/">Boas Práticas Científicas</a></li>
+					<li><a href="/bolsas/">Bolsas</a></li>
+					<li><a href="/2615">Bolsas como itens em Auxílios</a></li>
+					<li><a href="/calendario">Calendário</a></li>
+					<li><a href="http://www.fapesp.br/financas/manualcartaobb.pdf">Cartão BB Pesquisa</a></li>
+				    <li><a href="http://cepid.fapesp.br">CEPID</a></li>
+					<li><a href="/chamadas/">Chamada de propostas</a></li>
+	                            <li><a href="/gestao">Conselho Superior e Diretoria</a></li>
+					<li><a href="/cadastroagilis">Consulta a processos</a></li>
+					<li><a href="/coordenacoes">Coordenações</a></li>
+					<li><a href="/faq">Dúvidas frequentes</a></li>
+                                   <li><a href="http://espca.fapesp.br/inicial/">Escola São Paulo de Ciência Avançada</a></li>
+					<li><a href="/equipamentosemdisponibilidade">Equipamentos em disponibilidade</a></li>
+					<li><a href="/eaip">Escritórios de Apoio Institucional</a></li>
+					<li><a href="/emu">Equipamentos Multiusuários</a></li>
+							<li><a href="/estatisticas/">Estatísticas e balanços</a></li>
+					<li><a href="/fapespweek">FAPESP Week</a></li>
+					<li><a href="/flexibilizacao">Flexibilização</a></li>
+					<li><a href="/formularios">Formulários</a></li>
+					<li><a href="/indicadores/">Indicadores</a></li>
+					<li><a href="/importacao">Importação e Exportação</a></li>
+					<li><a href="/ir">Informe de rendimentos</a></li>
+
+<li><a href="/indc">Instruções Normativas da DC</a></li>
+<li><a href="/fornecedores">Licitações e pregões</a></li>
+<li><a href="/secao/noticias">Notícias</a></li>
+<li><a href="/oportunidades/">Oportunidades</a></li>
+<li><a href="/ouvidoria">Ouvidoria</a></li>
+<li><a href="http://parques.fapesp.br">Parque de equipamentos</a></li>
+<li><a href="http://pesquisaparainovacao.fapesp.br/">Pesquisa para Inovação</a></li>
+<li><a href="/pipe">PIPE</a></li>
+<li><a href="/pite">PITE</a></li>					
+<li><a href="/pontosdeapoio">Pontos de apoio</a></li>
+<li><a href="/prestacaodecontas">Prestação de contas</a></li>
+<li><a href="/programas">Programas</a></li>
+<li><a href="/rt">Reserva Técnica</a></li>
+<li><a href="http://revistapesquisa.fapesp.br/">Revista Pesquisa FAPESP</a></li>
+<li><a href="http://www.fapesp.br/sage/">SAGe</a></li>
+<li><a href="/analise">Sistemática de análise</a></li>
+<li><a href="/sumula">Súmula Curricular</a></li>
+<li><a href="/sobre">Sobre a FAPESP</a></li>
+<li><a href="/sprint">SPRINT</a></li>
+<li><a href="/areas">Tabela de Áreas</a></li>
+<li><a href="/to">Termo de Outorga</a></li>
+<li><a href="/valores">Valores de Bolsas e diárias</a></li>
+				</ul>
+			</div>
+		</div>
+				
+		<a id="conv" class="conv" href="/converse/">Converse com a FAPESP</a>
+	</div>
+</div>
+<div id="body">
+
+<div id="header">
+	<div class="a">  
+		<div id="hilite" class="tabs"><div rule="França"><img alt="FAPESP anuncia resultado de chamada com INRIA e CNRS" src="http://www.fapesp.br/fotos/2018/11/foto_fora11608_0.jpg"/><h1><a href="/11608">FAPESP anuncia resultado de chamada com INRIA e CNRS</a></h1><p>Instituições apoiarão projeto colaborativo Brasil-França em tecnologia da informação e comunicação</p></div><div rule="IDRC"><img alt="FAPESP lança chamada de propostas com IDRC, do Canadá" src="http://www.fapesp.br/fotos/2018/11/foto_fora11599_1.jpg"/><h1><a href="/11599">FAPESP lança chamada de propostas com IDRC, do Canadá</a></h1><p>Instituições apoiarão projetos de pesquisa voltados à inclusão econômica de jovens no Brasil e em outros países da América Latina e Caribe</p></div><div rule="BBSRC"><img alt="FAPESP anuncia resultado de chamada com BBSRC" src="http://www.fapesp.br/fotos/2018/11/foto_fora11593_0.jpg"/><h1><a href="/11593">FAPESP anuncia resultado de chamada com BBSRC</a></h1><p>Dez propostas colaborativas em resistência microbiana e resistência de pragas a inseticidas na pecuária e na agricultura foram selecionadas</p></div><div rule="BMBF"><img alt="FAPESP e Ministério de Educação e Pesquisa da Alemanha lançam chamada" src="http://www.fapesp.br/fotos/2018/10/foto_fora11581_0.jpg"/><h1><a href="/11581">FAPESP e Ministério de Educação e Pesquisa da Alemanha lançam chamada</a></h1><p>Instituições apoiarão pesquisa colaborativa em Bioeconomia, com foco em agricultura sustentável, produção de alimentos e biomassa</p></div><div rule="Eleição"><img alt="FAPESP inicia processo para indicação de novo membro do Conselho Superior" src="http://www.fapesp.br/fotos/2018/10/foto_fora11558_2.jpg"/><h1><a href="/11558">FAPESP inicia processo para indicação de novo membro do Conselho Superior</a></h1><p>Instituições que desejam se credenciar para o processo de escolha de novo conselheiro devem fazê-lo até 23 de março</p></div></div><script>$('#hilite').tabs(1)</script>	</div>
+	<div class="b">
+		<h4 class="subtit">Resultados de pesquisas </h4>
+		<div class="lit">
+			<p><a href="http://agencia.fapesp.br/producao_de_enzimas_hidroliticas_por_fungos_tem_mecanismos_elucidados/27353/" target="_blank">Produ&ccedil;&atilde;o de enzimas hidrol&iacute;ticas por fungos tem mecanismos elucidados</a></p>
+<p><a href="http://agencia.fapesp.br/nanodispositivo_termoeletrico_e_baseado_em_fermions_de_majorana_/27344/" target="_blank">Nanodispositivo termoel&eacute;trico &eacute; baseado em f&eacute;rmions de Majorana</a></p>
+<p><a href="http://agencia.fapesp.br/futuro_da_agua_depende_de_diversificacao_de_fontes_e_da_reducao_de_perdas/27345/" target="_blank">Futuro da &aacute;gua depende de diversifica&ccedil;&atilde;o de fontes e da redu&ccedil;&atilde;o de perdas</a></p>
+<p><a href="http://agencia.fapesp.br/bacterias_e_fungos_desempenham_papeischave_nas_colonias_de_insetos_sociais/27328/" target="_blank">Bact&eacute;rias e fungos desempenham pap&eacute;is-chave nas col&ocirc;nias de insetos sociais</a></p>		</div>
+		
+
+<a class="newslink" href="http://www.fapesp.br/secao/noticias">Notícias da FAPESP</a>
+	</div>
+	<div class="c">
+		<h4 class="subtit">
+			<a href="/eventos/">Eventos FAPESP</a>
+		</h4>
+		<div class="lit">
+			<p>28/03&nbsp;<br /><strong><a href="/eventos/dialogo22018">Di&aacute;logo PIPE</a></strong></p>
+<p>05/04&nbsp;<br /><strong><a href="/eventos/anuncio_pipe_pape_2017">An&uacute;ncio dos selecionados nas chamadas PIPE e PIPE/PAPPE</a></strong></p>
+<p>06/04&nbsp;<br /><strong><a href="/eventos/atlas">Apresenta&ccedil;&atilde;o: Atlas Migra&ccedil;&otilde;es</a></strong></p>
+<p>&nbsp;</p>
+<ul class="bluebox">
+<li><span>&bull;</span> <a href="/2675">Informe de rendimentos</a></li>
+</ul>		</div>
+		
+
+		
+
+	</div>
+	<div class="clear"></div> 
+</div>
+<div style="margin-top: 20px">
+	<div class="boxDiv">
+		<h2 class="subtit">Fomento à pesquisa</h2>
+		<a style="border-right: 0px"  href="/instrumentosdefomento/">Instrumentos de fomento</a>
+		(<a href="/bolsas/" style="padding-left: 0px;">Bolsas</a>
+			<a href="/auxilios/">Auxílios</a>
+			<a style="border-right: 0px; padding-right: 0px"  href="/programas/">Programas</a>) 
+
+		
+<a style="border-left: 1px #aaa solid; margin-left: 5px;" href="/chamadas/">Chamadas de propostas</a>
+	<a href="/sprint">SPRINT</a>
+	       		<a href="/analise">Sistemática de análise</a>
+		<a href="/boaspraticas/">Boas práticas científicas</a>
+
+<a href="/rt">Reserva Técnica</a>
+<a href="/valores">Valores de Bolsas e diárias</a>
+
+	<a href="/oportunidades/">Oportunidades</a>	
+<a href="/emu/">Equipamentos Multiusuários</a>
+<a href="/equipamentosemdisponibilidade">Equipamentos em Disponibilidade</a>
+<a style="border-right: 0px" href="/avaliacao">Avaliação de Programas</a>
+
+ 
+
+
+		<br><h4 style="margin-top: 10px">Submissão de propostas e acompanhamento de processos:</h4><br>
+		<a href="/sage">SAGe (por meio eletrônico)</a>
+		<a href="/cadastroagilis">Agilis (por meio impresso)</a>
+		<a href="/faq">Dúvidas frequentes</a>
+		<a href="/auditoria">Auditoria e prestação de contas</a>
+		<a href="/importacao">Importação e exportação</a>
+		<a href="/pontosdeapoio">Pontos de Apoio</a>
+		<a href="/eaip">Escritórios de Apoio Institucional ao Pesquisador (EAIP)</a>		
+<a href="/scdi">Sistema de Consulta aos Dados da Instituição</a>
+<a style="border-right: 0px" href="/assessores/">Informações para assessores</a>
+
+
+	</div>
+	<div class="boxDiv">
+		<h3 class="subtit">Divulgação Científica</h3>
+		<a href="http://agencia.fapesp.br/">Agência FAPESP</a>
+		<a href="http://www.bv.fapesp.br/">Biblioteca Virtual</a>
+		<a href="/fapespweek/">FAPESP Week</a>
+ <a href="/eventos/">Outros eventos</a>
+		
+		<a href="http://www.bv.fapesp.br/namidia/">FAPESP na mídia</a>
+		<a href="/indicadores/">Indicadores</a>
+		<a href="http://pesquisaparainovacao.fapesp.br/">Pesquisa para Inovação</a>
+		<a href="/publicacoes/">Publicações e Exposições</a>
+		<a href="http://revistapesquisa.fapesp.br">Revista Pesquisa FAPESP</a>
+
+
+		<a href="/6222">Imprensa</a>
+
+	<a style="border-right: 0px" href="https://www.youtube.com/playlist?list=PLxI8Can9yAHejLuVxqSHSbXwSBqEk1Bzq" target="_blank">Programa SP Pesquisa</a>
+
+
+	</div>
+	<div class="boxDiv" style="margin-bottom: 40px">
+		<h3 class="subtit">Sobre a FAPESP</h3>
+		<a href="/sobre">A Fundação</a>
+			<a href="/gestao">Conselho Superior e Diretoria</a>
+	<a href="/coordenacoes">Coordenações</a>	
+
+<a href="/acordos/">Acordos de cooperação</a>
+<a href="/cooperacao">Cooperação internacional</a>
+
+<a href="/pi">Politica sobre Propriedade Intelectual</a>
+
+
+	<a href="/estatisticas/">Estatísticas e balanços</a>
+	<a href="http://www.bv.fapesp.br/linha-do-tempo/">Linha do Tempo</a>
+		<a href="/fornecedores">Licitações e pregões</a>
+		<a href="/portarias">Portarias e editais</a>
+		<a href="/localizacao">Localização</a>
+<a href="/ouvidoria">Ouvidoria</a>		
+<a style="border-right: 0px" href="/converse/">Converse com a FAPESP</a>
+		
+	</div>	
+		
+		
+	</div>
+<div class="clear"></div>
+
+<style>
+#header {position:relative;}
+#header .b {width:215px;}
+
+.b .lit .subtit {display:none;}
+
+
+.boxFinan .body, .boxDivul .body, .boxAbout .body {padding-top:10px;}
+.boxFinan h3, .boxDivul h3, .boxAbout h3 {color:#888; margin-bottom:10px;}
+
+.boxFinan {float:left; width:39%;}
+.boxFinan h2 {color:#000; font-size:19px;}
+.boxFinan h3 {margin:7px 0 7px 15px;}
+.boxFinan ul {margin:10px 0 15px;}
+.boxFinan li {background:url(/media/seta.jpg) no-repeat; font-size:14px; margin:2px 0 2px 35px; padding-left:16px;}
+
+.boxDivul, .boxAbout {margin-top:8px !important;}
+
+.boxDivul {float:left; margin:0 1.5%; width:29%;}
+
+.boxAbout {float:left; width:29%;}
+
+.boxDivul ul, .boxAbout ul {font-weight:bold; margin:0 0 15px 15px;}
+.boxDivul li, .boxAbout li {margin:2px 0;}
+
+
+.newslink {background:#a9aaac; color:#fff; display:block; line-height:20px; margin-top:-20px; position:absolute; text-align:center; top:100%; width:215px;}
+.newslink:hover {background:#c3c4c5; text-decoration:none;}
+
+.bluebox {font-weight:normal !important; margin:20px 0 0 0 !important; width:150px;}
+.bluebox li {margin:0 0 2px;}
+
+.boxDiv {margin-top: 5px; padding-top: 10px; border-top: 3px #aaa solid}
+.boxDiv h2 h3 h4{margin-top: 5px; margin-bottom: 5px}
+.boxDiv a {padding-left: 5px; padding-right: 8px; border-right: 1px #aaa solid; display: inline-block; margin-bottom: 10px; font-weight: bolder}
+.boxDiv a .end{border-right: 0px}
+
+
+</style>
+
+</div>
+<div id="foot">
+	<h4><a href="/">&nbsp;&nbsp;FAPESP</a></h4>
+		<a style="float:right; margin-left:20px;" href="http://www.transparencia.sp.gov.br/">
+		<img src="http://www.fapesp.br/images/banner-transparencia-220x58.jpg"/>
+	</a>
+	<a href="http://www.sic.sp.gov.br/" style="float:right;">
+		<img src="/media/sic_home2.jpg"/>
+	</a>
+		<address>
+		R. Pio XI, 1500 - Alto da Lapa - CEP 05468-901 São Paulo/SP - Brasil<br/>
+		Tel: (+55) 11 3838-4000 - Das 8h às 17h
+	</address>
+</div>
+<a href="#" class="icon_top" title="Voltar ao topo"></a>
+<style>
+.clearfix {zoom:1;}
+.clearfix:after {clear:both; content:"."; display:block; font-size:0; height:0; line-height:0; visibility:hidden;}
+</style>
+
+
+
+
+
+
+<script>
+$('#index > a').click(function() {
+	var self = this, $e = $(this);
+	
+	function show() {
+		$e.addClass('in').next().find('ul').slideDown();
+		$(document).bind('click.clickHandler', clickHandler);
+	}
+	
+	function hide() {
+		$e.removeClass('in').next().find('ul').slideUp();
+		$(document).unbind('click.clickHandler');
+	}
+	
+	function clickHandler(event) {
+		if (event.target != self)
+			hide();
+	}
+	
+	if ($e.hasClass('in')) hide(); else show();
+	//$(this).toggleClass('in').next().find('ul').slideToggle();
+});
+
+
+// IE fix
+$('#ie .sitename').append('<b class="l"></b><b class="r"></b>');
+$('#ie .box').append('<b class="tl"></b><b class="tr"></b><b class="bl"></b><b class="br"></b>');
+</script>
+<!--[if IE]></div><![endif]--> 
+
+<script type="text/javascript">
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</body>
+</html>

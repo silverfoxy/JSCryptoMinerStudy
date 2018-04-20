@@ -1,0 +1,1 @@
+<h1>Redirecting To <a href="http://www.magnumicecream.com/">magnumicecream.com</a> </h1>

@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://shiripour-marketing.com/2018-wird-dein-jahr">redirected</a>.</body></html>

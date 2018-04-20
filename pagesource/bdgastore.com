@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://shop.bdgastore.com/">redirected</a>.</body></html>

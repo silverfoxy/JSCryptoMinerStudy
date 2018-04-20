@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.farmersonly.com/?sigred=3b01b96139e09a710e8f3c8b9064743ba50adfe4">redirected</a>.</body></html>

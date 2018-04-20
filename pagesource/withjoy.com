@@ -1,0 +1,1 @@
+<a href="https://www.withjoy.com/">Temporary Redirect</a>.

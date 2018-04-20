@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://says.com/my">redirected</a>.</body></html>

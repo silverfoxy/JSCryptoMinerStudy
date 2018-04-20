@@ -1,0 +1,1361 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Trường Đại học Khoa học Xã hội và Nhân văn
+</title><link rel="Shortcut Icon" href="/logo_page.gif" /><link href="/CSS/show_img.css" rel="stylesheet" type="text/css" /><link href="/CSS/main_search.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="/Scripts/Common.js" type="text/javascript"></script>
+    <script src="Scripts/PagingContent.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/knockout-2.3.0.js"></script>
+    <script language="javascript" type="text/javascript">
+        function SearchProcess(event) {
+            if (event.keyCode == 13) {
+                OnSearch(document.getElementById('txtSearchArticle').value);
+                return false;
+            }
+            return true;
+        }
+        function OnSearch(query) {
+            PSCPortal.Services.CMS.SearchAndPaging(query, currentPage, OnSearchSuccess, OnSearchFailed);
+        }
+
+        function OnSearchSuccess(results, context, methodName) {
+            var position = results.indexOf('_');
+            totalRecords = results.substring(0, position);
+            results = results.substring(position + 1);
+            LoadContentAndPaging(results);
+        }
+        function OnSearchFailed(results, context, methodName) {
+        }
+	 function popunder() {
+            $('a').not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function () {
+                $(this).attr('href', function (index, value) {
+                    if (value != undefined) {
+                        var index = value.indexOf("Default.aspx");
+                        if (index >= 0)
+                            return value = "/" + value.substring(index, value.length);
+                    }
+                });
+            });
+            var articleId = '' != '' ? '' : '';
+            var topicId = '' != '' ? '' : '';
+            var moduleId = '' != '' ? '' : '';
+            if (articleId != '') {
+                if (window.history.state == null) {
+                    if (articleId.indexOf("/") > -1)
+                        articleId = articleId.substr(0, articleId.indexOf("/"));
+                    window.history.replaceState({ ArticleId: articleId }, "ArticleId", "/ArticleId/" + articleId + "/" + retitleUrl(''));
+                }
+            }
+            if (topicId != '') {
+                if (window.history.state == null) {
+                    if (topicId.indexOf("/") > -1)
+                        topicId = topicId.substr(0, topicId.indexOf("/"));
+                    window.history.replaceState({ TopicId: topicId }, "TopicId", "/TopicId/" + topicId + "/" + retitleUrl(''));
+                }
+            }
+            
+        }
+          
+    </script>
+        
+    
+<link href="/WebResource.axd?d=M1CNgSi6wtoCkceOiij3dAp1tHelLwlxCCJ_sRQqFHB2MMEpS4ON6qO77wL9lLZGWWtBUpu8pEM2ZKg3FN7CozLDy3paXr_n1wRT3dBYFoY9l-SJiqn9Pb7p4ybRHgMjISKtZBznwcnbflZGyJWW5A2&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=9mU__-tmEfYjcFLOda5w4-2qZZb_QJk1Opru-qKy2M3_GqSawuUhrmzQAcMKrlmYoI6XBaF41bjhiicWHLR3jrMj1dWSFg-7mPwFLvT_PGggvVyHtYvot4OejQv9EuOF-6yMBfNkBqCv9rEI5F5O9IOXQT0U4KZ9GyKKPI4IRS41&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=EFOhb0DcXTvqMJhKYH4vcT89wC4HlW73GvnxtFqr_6VWlpA69W2NR5DRrRQq1V8GIXLnHZJwNOLhBQ5t8r5f2_JmNj8bUWDxAzTRjFkIiLZAzKhEtLo3fBiuKFzquN6oDlSJRvRhLroBNxf_-dTZvg2&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=kfm8OEies6_aBvBLflSyK2UR7TMRxNc8e4usCG7p_mfjPpgNgnSJW0DT5eDBWaid8qKSGhiWzLIH5QstrzraULptRRAU5OmK7k_DsC9wKXbvOze0XXjePWeeM6J9RezFTiw6yLY8I6uHcHIDqSrD5bpRnoQJrS1KYskQPdseB3U1&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=-YX9bdMgTg2wJZ_tGe477zCmDkgt_sBB7bO-ebedLYuAxh58576z6j-7BSMMT3i6Zr6Od_GioliltgBRfoKyCpeFEQMgFIRJ4lfFVHN5EFk1D-AaVFUHf5on-8mhRFfWwY4ZRSu0px-FXNunt3WbDw2&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=Pzbg6HwMUAYIn1psRfIcEXVsFi_wzgL7F3vMXvU9Nt9HrGvxfpKE7FgyL1GMbbqIzLrij54LnpNidR0lH14MZV-O-O1QTrQ1lGLbLZjuSNNfDp_rkyoUCnYqQL4DBfLFIh7kidcBPyZbhMvukaM4g0TyAQhCqVGAR9f_c9Eo7OM1&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=fxUmLgc0F0RCCNy638QXTKEy-bKiI5uy0EfxX4zyk4boaLATJy6LtrVxcs3zkjUDv6lObaVY2q0XSmrfSJvwll7qFjIcWdGI_b6tXmLy4pF5i1695KU5YkhxO_t3bz9-laNU_LIoRMCHp0ONAXJEXg2&amp;t=636505933369131664" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body class="body" onload='popunder();'>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KPH87D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KPH87D');</script>
+<!-- End Google Tag Manager -->
+    <form name="form1" method="post" action="./" id="form1">
+<input type="hidden" name="RadScriptManager1_TSM" id="RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPaA8FDzhkNTkwNDI4YTU5Yzg3MhgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WBAURUmFkV2luZG93TWFuYWdlcjEFQmN0bDA1JHBvcnRsZXRfMDY2NzViYzUtYzc4Zi00NDFiLTg2MGQtMTc5OThhYjFkMzVjJExpc3RMaW5rV2Vic2l0ZQU+Y3RsMDUkcG9ydGxldF83NmFiZjMyNC01NDNlLTQxMWMtYjI3OS0zY2FiYTczZDRhMmUkUmFkUm90YXRvcjEFOmN0bDA1JHBvcnRsZXRfNWEwOGMyNTAtMmUxNy00MTZmLTkyN2YtZThjYzFlMDIxYjkyJFJhZE1lbnWqI5znPtDZrtuHKQWlOSkqBkZFS1JpW1QCtUgxuwlqyg==" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3avi-VN%3a5b26ea0c-07c7-4ade-acc6-bb37f156b712%3aea597d4b%3bTelerik.Web.UI%2c+Version%3d2014.2.618.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3avi-VN%3a15590aec-52e9-4282-8ed4-e91eae292c7b%3a16e4e7cd%3af7645509%3a24ee1bba%3a92fe8ea0%3af46195d3%3afa31b949%3a874f8ea2%3ac128760b%3a19620875%3a490a9d4e%3abd8f85e4%3addbfcb67%3a1e771326%3a3f6e8f3f%3ae330518b%3a2003d0b8%3a88144a7a%3ac8618e41%3a1a73651d%3a333f8d94" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="Services/PortletProxy.asmx/jsdebug" type="text/javascript"></script>
+<script src="Services/ModuleProxy.asmx/jsdebug" type="text/javascript"></script>
+<script src="Services/CMS.asmx/jsdebug" type="text/javascript"></script>
+<script src="Services/WeatherService.asmx/jsdebug" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+    <div id="RadWindowManager1" style="display:none;">
+	<!-- 2014.2.618.40 --><div id="RadWindowManager1_alerttemplate" style="display:none;">
+		<div class="rwDialogPopup radalert">			
+			<div class="rwDialogText">
+			{1}				
+			</div>
+			
+			<div>
+				<a  onclick="$find('{0}').close(true);"
+				class="rwPopupButton" href="javascript:void(0);">
+					<span class="rwOuterSpan">
+						<span class="rwInnerSpan">##LOC[OK]##</span>
+					</span>
+				</a>				
+			</div>
+		</div>
+		</div><div id="RadWindowManager1_prompttemplate" style="display:none;">
+		 <div class="rwDialogPopup radprompt">			
+			    <div class="rwDialogText">
+			    {1}				
+			    </div>		
+			    <div>
+				    <script type="text/javascript">
+				    function RadWindowprompt_detectenter(id, ev, input)
+				    {							
+					    if (!ev) ev = window.event;                
+					    if (ev.keyCode == 13)
+					    {															        
+					        var but = input.parentNode.parentNode.getElementsByTagName("A")[0];					        
+					        if (but)
+						    {							
+							    if (but.click) but.click();
+							    else if (but.onclick)
+							    {
+							        but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);							 
+							    }
+						    }
+					       return false;
+					    } 
+					    else return true;
+				    }	 
+				    </script>
+				    <input title="Enter Value" onkeydown="return RadWindowprompt_detectenter('{0}', event, this);" type="text"  class="rwDialogInput" value="{2}" />
+			    </div>
+			    <div>
+				    <a onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"				
+					    class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				    <a onclick="$find('{0}').close(null);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			    </div>
+		    </div>				       
+		</div><div id="RadWindowManager1_confirmtemplate" style="display:none;">
+		<div class="rwDialogPopup radconfirm">			
+			<div class="rwDialogText">
+			{1}				
+			</div>						
+			<div>
+				<a onclick="$find('{0}').close(true);"  class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				<a onclick="$find('{0}').close(false);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			</div>
+		</div>		
+		</div><input id="RadWindowManager1_ClientState" name="RadWindowManager1_ClientState" type="hidden" />
+</div>
+    
+    
+<link href="/Resources/ImagesPortal/main.css" rel="stylesheet" type="text/css" />
+<link href="/CSS/show_img.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Portlets/PanelBar/js/jquery-1.7.2.min.js"></script>
+<script src="/Scripts/Common.js" type="text/javascript"></script>
+<script src="/Scripts/PagingContent.js" type="text/javascript"></script>
+<link href="/Lightbox/resource/lightbox.css" rel="stylesheet" type="text/css" />
+<script src="/Lightbox/resource/lightbox_plus_min.js" type="text/javascript"></script>
+<script src="/Portlets/TopicDisplay/Scripts/jquery.blueberry.js" type="text/javascript"></script>
+<script type="text/html" id="search-binding-template">
+    <div class="blog_news">
+        <div class='topic_news_title'>
+            <a data-bind="html: 'Kết quả tìm thấy: '+Count" href='#'></a>
+        </div>
+        <div class='ct_topic_r1'>
+            <!-- ko foreach: Data -->
+            <div class="content_topic_display">
+                <div class="title_topic"><a class="title_topicdisplay" data-bind="attr: {href: '/?ArticleId='+Id}, html: Title"></a></div>
+                <div style="float: left; width: 100%; padding: 0px 0px 0px 0px; font: normal 12px Arial, Helvetica, sans-serif; line-height: 20px; text-align: justify;" data-bind="html: Highligth+'...'"></div>
+        </div>
+        <!-- /ko -->
+        <div align='center' id='pagingContentHolder' class='ct_topic_r1'></div>
+    </div>
+    </div>
+</script>
+<script language="javascript" type="text/javascript">
+    function SearchProcess(event) {
+        if (event.keyCode == 13) {
+            OnSearch(document.getElementById('txtSearchArticle').value);
+            return false;
+        }
+        return true;
+    }
+    function OnSearch(query) {
+        PSCPortal.Services.CMS.SearchAndPaging(query, currentPage, OnSearchSuccess, OnSearchFailed);
+    }
+
+    function OnSearchSuccess(results, context, methodName) {
+        var position = results.indexOf('_');
+        totalRecords = results.substring(0, position);
+        results = results.substring(position + 1);
+        LoadContentAndPaging(results);
+    }
+    function OnSearchFailed(results, context, methodName) {
+    }
+
+    function showDialogInfomation(dialogId) {
+        $.Zebra_Dialog({
+            source: { 'inline': $('#' + dialogId).html() },
+            'type': false,
+            'buttons': false,
+            'animation_speed_show': 300,
+        });
+    }
+</script>
+<div class="page">
+    <div class="wrapper">
+        <table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td colspan="3"><div id="pnTop">
+			<div id="pnTopDisplay" style="padding:0px 0px 0px 0px;width:1000px;float:left">
+				<div id='ctl05_portlet_f80a4800-43f5-4b1f-89de-55d36d21bd37' style="width:610px;float:left"><div>
+					<div class="top">
+<div class="logo"><img alt="" src="/Resources/ImagesPortal/logo.png" /></div>
+</div>
+
+				</div></div><div id='ctl05_portlet_98fefd04-d8c8-4fee-8ce9-250ebdc6ee80' style="width:150px;float:left"><div>
+					<div class="top">
+<div class="menu_top">
+<ul>
+    <li><img alt="" src="/Resources/ImagesPortal/arrow_top.png" /><a href="http://mail.hcmussh.edu.vn">Webmail </a></li>
+    <li><img alt="" src="/Resources/ImagesPortal/arrow_top.png" /><a href="/?ModuleId=586fbedb-c315-41df-bfb8-2bb7a3b2ee16">Lịch c&ocirc;ng t&aacute;c</a> </li>
+    <li><img alt="" src="/Resources/ImagesPortal/arrow_top.png" /><a href="/?ArticleId=c9168f71-3ec0-496c-b8ba-d2490977601d">Li&ecirc;n hệ</a> </li>
+    <li><img alt="" src="/Resources/ImagesPortal/arrow_top.png" /><a href="http://en.hcmussh.edu.vn">English</a> </li>
+</ul>
+</div>
+</div>
+
+				</div></div><div id='ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c' style="width:240px; float:right"><div>
+					
+<div class="toplienket" style="padding: 0px 20px;">
+    <div class="link">
+        <div class="search">
+            <input style="width: 144px; height:20px;" name="txtSearchArticle" id="txtSearchArticle" onkeydown="return SearchProcess(event);"
+                onclick="return txtSearchArticle_onclick()" type="text" /><a href="javascript:void(0)"
+                    onclick="OnSearch(document.getElementById('txtSearchArticle').value);"><img alt=""
+                        src="/Resources/ImagesPortal/icon_search.png" /></a></div>
+        <div class="lienket" style="width: 180px;">
+            <select style=" width:180px;height:19px; border:0px; background:url(/Resources/ImagesPortal/bg_web.png) no-repeat;" onchange="if (this.value!=0)window.open(this.value);" size="1">            
+                <option selected="selected">Chọn Website...</option>
+            
+                <option value="http://www.moet.gov.vn/?page=9.6">Bộ Giáo dục và Đào tạo</option>
+                
+                <option value="http://www.vnuhcm.edu.vn/">Đại học Quốc gia TP.HCM</option>
+                
+                <option value="http://www.hcmut.edu.vn/vi">Trường ĐH Bách Khoa - ĐHQGHCM</option>
+                
+                <option value="http://uit.edu.vn/">Trường ĐH CNTT, ĐHQG-HCM</option>
+                
+                <option value="http://www.hcmus.edu.vn/">Trường ĐH KHTN, ĐHQG-HCM</option>
+                
+                <option value="http://www.uel.edu.vn/">Trường ĐH Kinh tế - Luật, ĐHQG-HCM</option>
+                
+                <option value="http://www.hcmiu.edu.vn/">Trường ĐH Quốc tế, ĐHQG-HCM</option>
+                
+                <option value="http://www.vast.ac.vn/index.php?lang=en">Viện Hàn lâm khoa học và công nghệ VN</option>
+                
+                <option value="http://www.vass.gov.vn/Pages/Index.aspx">Viện Hàn lâm Khoa học Xã hội VN</option>
+                <input id="ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite_ClientState" name="ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite_ClientState" type="hidden" /><span id="ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite" style="display:none;"></span>
+        </select>
+            
+        </div>
+    </div>    
+</div>
+<style type="text/css"> 
+    .toplienket{
+        background: #073d73;
+        height:60px
+    }
+  
+</style>
+
+				</div></div><div id='ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e' style="background-color:#073d73;width:240px;float:right; height:30px"><div>
+					
+<style type="text/css">
+    .khampha{
+        padding: 10px 0px 0px 45px;
+    }
+    .khampha .RadRotator_Default .rrClipRegion
+    {
+        border: 0 !important;
+    }
+
+    .khampha .rrClipRegion .rrItemsList
+    {
+        float: left;
+        padding: 0;
+        margin: 0;
+        list-style: none !important;
+    }
+
+    .khampha .RadRotator ul.rrItemsList
+    {
+        padding: 0;
+        margin: 0;
+    }
+
+    .khampha .rrButton
+    {
+        width: 8px;
+        height: 14px;
+    }
+
+    .khampha .rrItemsList
+    {
+        top: 2px !important;
+    }
+
+    .khampha .RadRotator
+    {
+        padding-left: 10px !important;
+        padding-right: 0px !important;
+    }
+
+    .khampha .RadRotator_Default .rrClipRegion
+    {
+        margin-left: 5px;
+    }
+
+    .khampha .rrButton.rrButtonLeft
+    {
+        background-position: 0 0;
+        left: -14px;
+        top: 10px;
+        background-image: url('/Resources/ImagesPortal/arrow_L_K.png');
+    }
+
+        .khampha .rrButton.rrButtonLeft:hover
+        {
+            background-position: 0 0;
+        }
+
+    .khampha .rrButton.rrButtonRight
+    {
+        background-image: url('/Resources/ImagesPortal/arrow_R_K.png');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        right: -5px;
+        top: 10px;
+    }
+
+        .khampha .rrButton.rrButtonRight:hover
+        {
+            background-position: 0 0;
+        }
+</style>
+
+<div class="khampha">
+    <div style="float: left; padding-left: 5px;">
+    <div id="ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e_RadRotator1" class="RadRotator RadRotator_Default">
+						<div class="rrRelativeWrapper">
+							<div class="rrClipRegion">
+								<ul class="rrItemsList">
+									<li></li>
+								</ul>
+							</div><a class="rrButton rrButtonUp" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonLeft" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonRight" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonDown" href="javascript:void(0);">&nbsp;</a>
+						</div><input id="ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e_RadRotator1_ClientState" name="ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e_RadRotator1_ClientState" type="hidden" />
+					</div>
+        </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var n = $(".float-shadow img").length;
+        if (n <= 5)
+        {
+            $('.khampha .rrButton.rrButtonLeft').css("display", "none");
+            $('.khampha .rrButton.rrButtonRight').css("display", "none");
+        }
+
+        for (var i = 0; i < n; i++)
+        {
+            var c = $('.khampha .float-shadow:nth(' + i + ')').attr('href');
+            var url ="http://"+ window.location.hostname
+            if (c == url)
+            {
+                $('.khampha .rrItem:nth(' + i + ')').css("display", "none");               
+            }
+          
+        }       
+    });
+ 
+</script>
+				</div></div><div id='ctl05_portlet_32b85d00-f047-4aa4-ba46-0853c0cf14c2' style="width:800px;height:196px;float:right"><div>
+					
+<link href="/Portlets/NivoSlider/CSS/nivo-slider.css" rel="stylesheet" />
+<link href="/Portlets/NivoSlider/CSS/themes/default/default.css" rel="stylesheet" />
+<script src="/Scripts/knockout-2.3.0.js"></script>
+<script src="/Portlets/NivoSlider/Scripts/jquery.nivo.slider.js"></script>
+<script src="/Portlets/NivoSlider/Scripts/System.Utility.NivoSlider.js"></script>
+<script type="text/javascript">
+    $(function () {
+        
+        (new System.Utility.NivoSlider('ctl05_portlet_32b85d00-f047-4aa4-ba46-0853c0cf14c2_slider', '[{"Id":"49de9cb6-4b3c-4067-9bfd-49f04e8218a0","Title":"","Url":"Resources/imagesPortlet/32b85d00-f047-4aa4-ba46-0853c0cf14c2/trietlygiaoduc.jpg","Link":"http://hcmussh.edu.vn/?ArticleId=86d07ba5-8676-4cba-bef1-b63cb8068974","Order":11,"DataId":"32b85d00-f047-4aa4-ba46-0853c0cf14c2"},{"Id":"d3425c71-807e-4975-9bf7-3e07f9bb3d07","Title":"","Url":"Resources/imagesPortlet/32b85d00-f047-4aa4-ba46-0853c0cf14c2/chudenam2018.jpg","Link":"","Order":10,"DataId":"32b85d00-f047-4aa4-ba46-0853c0cf14c2"},{"Id":"2937618c-a95f-4e88-a10e-1cd51a963d36","Title":"","Url":"Resources/imagesPortlet/32b85d00-f047-4aa4-ba46-0853c0cf14c2/banner3b.jpg","Link":"","Order":9,"DataId":"32b85d00-f047-4aa4-ba46-0853c0cf14c2"},{"Id":"a40fb0c6-dbcb-4f43-9aef-3b794a4c20e4","Title":"","Url":"Resources/imagesPortlet/32b85d00-f047-4aa4-ba46-0853c0cf14c2/banner2b.jpg","Link":"","Order":8,"DataId":"32b85d00-f047-4aa4-ba46-0853c0cf14c2"},{"Id":"33134e94-c426-47ba-995d-2f82c53ab4a4","Title":"","Url":"Resources/imagesPortlet/32b85d00-f047-4aa4-ba46-0853c0cf14c2/tuyensinhab.jpg","Link":"http://tuyensinh.hcmussh.edu.vn","Order":7,"DataId":"32b85d00-f047-4aa4-ba46-0853c0cf14c2"}]')).CreateSlider();
+    });
+</script>
+<div class="container">
+    <div class="slider-wrapper theme-default">
+        <div id="ctl05_portlet_32b85d00-f047-4aa4-ba46-0853c0cf14c2_slider" class="nivoSlider">
+            <!-- ko foreach: $data -->
+            <a data-bind="attr: {href: Link}" target="_blank">
+                <img data-bind="attr: {src: '/'+Url, title: Title }" /></a>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+
+				</div></div><div id='ctl05_portlet_1e786243-5b6b-4c18-a6a4-7e1fb81b7784' style="background-color:#007399;width:200px;height:196px;float:left"><div>
+					
+<link rel="stylesheet" type="text/css" href="/Portlets/PanelBar/styles.css" media="all" />
+<script type="text/javascript">
+    $(function () {
+        // building select menu
+        $('<select />').appendTo('nav');
+
+        // building an option for select menu
+        $('<option />', {
+            'selected': 'selected',
+            'value': '',
+            'text': 'Choise Page...'
+        }).appendTo('nav select');
+
+        $('nav ul li a').each(function () {
+            var target = $(this);
+
+            $('<option />', {
+                'value': target.attr('href'),
+                'text': target.text()
+            }).appendTo('nav select');
+
+        });
+
+        // on clicking on link
+        $('nav select').on('change', function () {
+            window.location = $(this).find('option:selected').val();
+        });
+    });
+
+    // show and hide sub menu
+    $(function () {
+        $('nav ul').hover(
+  function () {
+      //show its submenu
+      var countLi = $('ul', this).children().length;
+      if (countLi > 0) {
+          if (countLi > 15 && countLi <= 30)
+              $('ul', this).css({ 'width': '400px' });
+          if (countLi > 30 && countLi <= 45)
+              $('ul', this).css({ 'width': '600px' });
+          if ($('ul', this).is(":hidden")) {
+              $('ul', this).slideDown(300);
+          }
+      }
+  },
+  function () {
+      //hide its submenu
+      $('ul', this).stop(true, false).slideDown();
+      $('ul', this).hide();
+  }
+ );
+    });
+    //end
+</script>
+<div id="fdw" class="fdw">
+    <nav>						
+                        
+                         
+            <ul>
+            <li>
+                <a target="_blank" href="#">Phòng ban</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                
+
+            <li>
+<a target="_blank" href="http://hcth.hcmussh.edu.vn">Phòng Hành chính - Tổng hợp</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tccb.hcmussh.edu.vn">Phòng Tổ chức - Cán bộ</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ctsv.hcmussh.edu.vn">Phòng Công tác Sinh viên</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://dt.hcmussh.edu.vn/">Phòng Đào tạo</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://htqt.hcmussh.edu.vn">Phòng Hợp tác Quốc tế và Phát triển Dự án Quốc tế</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://khtc.hcmussh.edu.vn">Phòng Kế hoạch - Tài chính</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ktdbcl.hcmussh.edu.vn">Phòng Khảo thí và Đảm bảo Chất lượng</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://qlkh.hcmussh.edu.vn">Phòng Quản lý Khoa học - Dự án</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://qttb.hcmussh.edu.vn">Phòng Quản trị - Thiết bị</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://sdh.hcmussh.edu.vn">Phòng Sau Đại học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ttpc.hcmussh.edu.vn">Phòng Thanh tra - Pháp chế - Sở hữu trí tuệ</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://oce.hcmussh.edu.vn">Phòng Truyền thông và Tổ chức sự kiện</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://cstd.hcmussh.edu.vn">Ban Quản lý cơ sở Thủ Đức</a>
+            </li>
+           
+ 
+ </ul>
+            </li>
+             </ul>
+             
+            <ul>
+            <li>
+                <a target="_blank" href="#">Khoa - Bộ môn</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                
+
+            <li>
+<a target="_blank" href="http://baochi.hcmussh.edu.vn">Khoa Báo chí và Truyền thông</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ctxh.hcmussh.edu.vn">Khoa Công tác xã hội</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://dialy.hcmussh.edu.vn">Khoa Địa lý</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://dothi.hcmussh.edu.vn">Khoa Đô thị học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://dongphuong.hcmussh.edu.vn">Khoa Đông phương học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://edufac.edu.vn/">Khoa Giáo dục</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tamly.hcmussh.edu.vn">Khoa Tâm lý học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://lichsu.hcmussh.edu.vn">Khoa Lịch sử</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nva.hcmussh.edu.vn">Khoa Ngữ văn Anh</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nvd.hcmussh.edu.vn">Khoa Ngữ văn Đức</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nvn.hcmussh.edu.vn">Khoa Ngữ văn Nga</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nguvanphap.hcmussh.edu.vn">Khoa Ngữ văn Pháp</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nvtq.hcmussh.edu.vn">Khoa Ngữ văn Trung Quốc</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nhanhoc.hcmussh.edu.vn">Khoa Nhân học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://fir.hcmussh.edu.vn">Khoa Quan hệ quốc tế</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tvtth.hcmussh.edu.vn">Khoa Thư viện - Thông tin học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://triethoc.hcmussh.edu.vn">Khoa Triết học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://vanhoahoc.hcmussh.edu.vn">Khoa Văn hóa học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://khoavanhoc-ngonngu.edu.vn/">Khoa Văn học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://www.vns.edu.vn/index.php/vi">Khoa Việt Nam học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://xhh.hcmussh.edu.vn">Khoa Xã hội học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://www.hanquochoc.edu.vn/cps/homepage.aspx">Khoa Hàn Quốc học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nhatban.hcmussh.edu.vn">Khoa Nhật Bản học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://dulich.hcmussh.edu.vn">Bộ môn Du lịch</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://gdtc.hcmussh.edu.vn">Bộ môn Giáo dục thể chất</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://luutru.hcmussh.edu.vn">Bộ môn Lưu trữ học - Quản trị Văn phòng </a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tbn.hcmussh.edu.vn">Bộ môn Ngữ văn Tây Ban Nha</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nvy.hcmussh.edu.vn">Bộ môn Ngữ Văn Ý</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nnh.hcmussh.edu.vn">Bộ môn Ngôn ngữ học</a>
+            </li>
+           
+ 
+ </ul>
+            </li>
+             </ul>
+             
+            <ul>
+            <li>
+                <a target="_blank" href="#">Đảng - Đoàn thể</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                
+
+            <li>
+<a target="_blank" href="http://danguy.hcmussh.edu.vn">Đảng Ủy</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://congdoan.hcmussh.edu.vn">Công đoàn</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://suctrenhanvan.edu.vn/home/">Đoàn Thanh niên - Hội Sinh viên</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ccb.hcmussh.edu.vn/">Hội Cựu chiến binh Việt Nam</a>
+            </li>
+           
+ 
+ </ul>
+            </li>
+             </ul>
+             
+            <ul>
+            <li>
+                <a target="_blank" href="http://lib.hcmussh.edu.vn/">Thư viện</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                 
+ </ul>
+            </li>
+             </ul>
+             
+            <ul>
+            <li>
+                <a target="_blank" href="#">Trung tâm - Khác</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                
+
+            <li>
+<a target="_blank" href="http://ttbiendao.hcmussh.edu.vn">Trung tâm Nghiên cứu Biển và Đảo</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://css.hcmussh.edu.vn">Trung tâm Nghiên cứu Chiến lược và Chính sách Quốc gia</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://cse.hcmussh.edu.vn/">Trung tâm Nghiên cứu Đạo đức</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://scis.hcmussh.edu.vn/">Trung tâm Nghiên cứu quốc tế (SCIS)</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://thailanct.hcmussh.edu.vn">Trung tâm Nghiên cứu Thái Lan</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tttongiao.hcmussh.edu.vn">Trung tâm Nghiên cứu Tôn giáo</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://www.cvseas.edu.vn/">Trung tâm Nghiên cứu Việt Nam - Đông Nam Á</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://cnas.hcmussh.edu.vn/">Trung tâm Nghiên cứu Bắc Mỹ (CNAS)</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ccs.hcmussh.edu.vn">Trung tâm Nghiên cứu Trung Quốc (CCS)</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://www.vanhoahoc.vn/">Trung tâm Văn hóa học lý luận và Ứng dụng </a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://cfl.hcmussh.edu.vn/">Trung tâm Ngoại ngữ</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://ttth.hcmussh.edu.vn">Trung tâm Tin học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://sejong.hcmussh.edu.vn">Trung tâm Hàn Quốc học</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://cie-ussh.hcmussh.edu.vn">Trung tâm Đào tạo quốc tế (CIE)</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://luyenthidaihocxhnv.edu.vn">Trung tâm Đào tạo và Phát triển Nguồn nhân lực</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://crd-su.hcmussh.edu.vn/">Trung tâm Phát triển Nông thôn - Saemaul Undong</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://tec.hcmussh.edu.vn">Trung tâm Thông tin Giáo dục Đài Loan</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nhanlucnhanvan.hcmussh.edu.vn">Trung tâm Tư vấn Hướng nghiệp và Phát triển Nguồn nhân lực</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://baotang.hcmussh.edu.vn">Bảo tàng Lịch sử - Văn hoá</a>
+            </li>
+           
+
+
+            <li>
+<a target="_blank" href="http://nhakhach.hcmussh.edu.vn">Nhà khách</a>
+            </li>
+           
+ 
+ </ul>
+            </li>
+             </ul>
+             
+            <ul>
+            <li>
+                <a target="_blank" href="http://alumni.hcmussh.edu.vn">Cựu sinh viên</a>
+                <ul style="display: none; width:200px; margin-left:140px;" class="sub_menu">
+            
+                 
+ </ul>
+            </li>
+             </ul>
+             
+
+       
+					</nav>
+</div>
+
+				</div></div><div id='ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92' style="padding:0px 0px 1px 0px;width:1000px;float:left"><div>
+					
+<link href="/Portlets/MenuRad/Menu.Green.css" rel="stylesheet" type="text/css" />
+<div class="menu_rad">
+
+    <div id="ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92_RadMenu" class="RadMenu RadMenu_Green rmSized" style=" z-index:1">
+						<ul class="rmRootGroup rmHorizontal">
+							<li class="rmItem rmFirst"><a class="rmLink rmRootLink" href="http://hcmussh.edu.vn/"><span class="rmText">Trang chủ</span></a></li><li class="rmItem "><a class="rmLink rmRootLink" href="Portlets/MenuRad/#"><span class="rmText">Giới thiệu</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="Default.aspx?ArticleId=70f4cae2-e630-47c5-ad0f-b6a72f944e6f"><span class="rmText">Tổng quan</span></a></li><li class="rmItem "><a class="rmLink" href="Default.aspx?ArticleId=c02f611e-1a8b-465f-a047-fd3145c1a46e"><span class="rmText">Thông điệp Hiệu Trưởng</span></a></li><li class="rmItem "><a class="rmLink" href="Default.aspx?ArticleId=01175e13-0c6f-4116-ac9e-a1551022db8d"><span class="rmText">Cơ cấu tổ chức</span></a></li><li class="rmItem "><a class="rmLink" href="Default.aspx?ArticleId=57b3394f-ec59-4ba7-bb40-c0f54bb552b5"><span class="rmText">Cơ sở vật chất</span></a></li><li class="rmItem "><a class="rmLink" href="Default.aspx?ArticleId=917f8cb9-f419-4df7-8e23-0b54c9613acd"><span class="rmText">Thành tích</span></a></li><li class="rmItem "><a class="rmLink" href="Default.aspx?ArticleId=2d1901b4-4ecc-4665-b40a-dc974082830c"><span class="rmText">Tầm nhìn và sứ mạng</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="Default.aspx?ArticleId=dde8fe98-422e-4150-aa73-4561aaf023df"><span class="rmText">Ban giám hiệu</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="Default.aspx?ArticleId=fa506861-dee1-4a3a-a4d8-1acd1e3efb20"><span class="rmText">Kiểm định chất lượng</span></a></li><li class="rmItem "><a class="rmLink rmRootLink" href="Default.aspx?ModuleId=7dbf64b8-7889-4c2d-9433-2801f48ce509"><span class="rmText">Logo - Hình ảnh</span></a></li><li class="rmItem rmLast"><a class="rmLink rmRootLink" href="Default.aspx?ArticleId=31994441-f593-46a4-929e-da67e4676e28"><span class="rmText">Ban Biên tập</span></a></li>
+						</ul><input id="ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92_RadMenu_ClientState" name="ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92_RadMenu_ClientState" type="hidden" />
+					</div>    
+
+</div>
+
+				</div></div><div id='ctl05_portlet_21eb1ceb-5bf9-4792-b9a1-f77ecb5b51de' style="width:800px;float:right;display:none"><div>
+					
+<script src="/Portlets/ImageSlide/Scripts/jquery.js" type="text/javascript"></script>
+<script src="/Portlets/ImageSlide/Scripts/jquery.innerfade.js" type="text/javascript"></script>
+<link href="/Portlets/ImageSlide/Css/CustomFade.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript">
+    jQuery.noConflict();
+</script>
+<script src="/Portlets/ImageSlide/Scripts/System.Utility.ImageInnerFade.js" type="text/javascript"></script>
+<div style="clear: both; float: left; width: 746px;">
+    <div style="clear: both; float: left; width: 746px;">
+        <div id="ctl05_portlet_21eb1ceb-5bf9-4792-b9a1-f77ecb5b51de_imgInnerFadeHolder">
+						
+        
+					</div>
+    </div>
+</div>
+
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr valign="top">
+		<td><div id="pnLeft">
+			<div id="pnLeftDisplay" style="width:233px;float:left">
+				<div id='ctl05_portlet_7f2a7dc7-2a63-4559-a5ca-91798ab0a2e3' style="width:233px;float:left"><div>
+					<p id="grow">&nbsp;</p>
+<p id="grow"><a href="http://tuyensinh.hcmussh.edu.vn/"><img alt="" src="/Resources/Images/HomePage/icon/tvts%20icon-01.jpg" /></a></p>
+<div id="grow"><a href="http://dt.hcmussh.edu.vn/Default.aspx?PageId=84e2e8e5-f266-4870-9a43-d1234ba033e8&amp;ModuleID=1ab9e7da-fcf5-4031-aea9-7209f1a704cc&amp;Role=GV" style="text-align: left;"><img alt="" width="113" height="73" src="/Resources/Images/HomePage/icon/GIANG%20VIEN%201.jpg" /></a></div>
+<div id="grow">
+<a href="http://hcmussh.edu.vn/?ArticleId=8bf0e12a-3f63-42b4-88c5-ee6c84e04a30"><img alt="" style="width: 113px; height: 73px;" src="/Resources/Images/HomePage/icon/SINH%20VIEN%201.jpg" /></a>
+</div>
+<br />
+<div id="grow">
+<a href="http://tuyensinh.hcmussh.edu.vn"><img alt="" style="width: 113px; height: 73px;" src="/Resources/Images/HomePage/icon/tuyen%20sinh%201.jpg" /></a>
+</div>
+<div id="grow">
+<a href="http://htqt.hcmussh.edu.vn"><img alt="" style="width: 113px; height: 73px;" src="/Resources/Images/HomePage/icon/HTQT%201.jpg" /></a></div>
+<div id="grow">
+<a href="http://qlkh.hcmussh.edu.vn"><img alt="" style="width: 113px; height: 73px;" src="/Resources/Images/HomePage/icon/KHOA%20HOC%201.jpg" /></a>
+</div>
+<div id="grow"><a href="http://nhanlucnhanvan.hcmussh.edu.vn"><img alt="" style="width: 113px; height: 73px;" src="/Resources/Images/HomePage/icon/VIEC%20LAM%201.jpg" /></a></div>
+<div id="grow">
+&nbsp;&nbsp;<a href="http://hcmussh.edu.vn/?TopicId=41376ab7-c035-4c79-a459-9399ebb8915c"><img alt="" style="width: 95px; height: 73px;" src="/Resources/Images/HomePage/icon/QUAN%20TRI%20DAI%20HOC%207.jpg" /></a></div>
+<div id="grow">&nbsp; &nbsp;&nbsp;<a href="http://hcmussh.edu.vn/?ArticleId=736dae22-c5f4-4fdd-90a4-0448a3c90e2a"><img alt="" style="width: 93px; height: 73px;" src="/Resources/Images/HomePage/icon/hoi%20dap%205.jpg" /></a></div>
+<p id="grow"><a href="http://hcmussh.edu.vn/?ArticleId=736dae22-c5f4-4fdd-90a4-0448a3c90e2a"><br />
+</a></p>
+<div id="grow"><a href="http://60.hcmussh.edu.vn"><img alt="" src="/Resources/Images/HomePage/Hinh%20trang%20chu/menuweb60nam.jpg" style="width: 220px;" /></a></div>
+
+				</div></div>
+			</div>
+		</div></td><td><div id="pnCenter">
+			<div id="pnCenterDisplay" style="width:524px;float:left">
+				<div id='ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb' style="width:524px;height:500px;float:left;overflow:hidden"><div>
+					
+<link href="/Portlets/TopicDisplay/Scripts/blueberry.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/Pager.js" type="text/javascript"></script>
+<script src="/Scripts/TPSlideShow.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.blueberry').blueberry();
+    });
+</script>
+<style type="text/css">    
+    .pager
+    {
+        float: left;
+        padding-left:200px;
+    }
+</style>
+<div class="sukien">
+    <div class="title">
+        <a href="/?TopicId=81682ecf-e5c6-4626-896d-75cbaf117665">
+            Tin tức -  sự kiện</a></div>
+    <div class="ct_sukien">
+        
+        <div id="ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_TPNiceSlideShowMenuWrp" class="TPNiceSlideShowMenuWrp">
+						
+            <div id="ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_SlideShowMenuId" class="TPNiceSlideShowMenu">
+							
+            
+						</div>
+        
+					</div>
+        <div id="ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_tpniceslideshow_scrollbar" class="tpniceslideshow_scrollbar-vert">
+						
+            <div id="ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_tpniceslideshow_handle" class="tpniceslideshow_handle-vert">
+							
+            
+						</div>
+        
+					</div>
+        <div id="ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_paging" class="pager">
+						
+        
+					</div>
+    </div>
+</div>
+<script type="text/javascript">
+
+        var currentPage = 1;
+        var sizeOfBlock = 5;
+        var recordInPage =4;   
+    function createPager()
+    { 
+        var pager = new Pager('ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_paging',currentPage,sizeOfBlock,recordInPage,[{"Article":{"Id":"aec2a3d3-1ddf-4600-ba81-e429f3963903","Name":"Lãnh đạo Trường viếng cố Thủ tướng Phan Văn Khải","Title":"Lãnh đạo Trường viếng cố Thủ tướng Phan Văn Khải","CreatedDate":"\/Date(1521541523000)\/","ModifiedDate":"\/Date(1521541523000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​S\u0026aacute;ng 21-3, tại Hội trường Thống Nhất (TP.HCM), l\u0026atilde;nh đạo Trường ĐH KHXH\u0026amp;NV đ\u0026atilde; đến viếng v\u0026agrave; thắp hương tri \u0026acirc;n cố Thủ tướng Phan Văn Khải.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"96a532c8-a8a4-4b51-af17-5e359d2b88b7","Name":"Ký kết thỏa thuận hợp tác với ĐH Musashi (Nhật Bản)","Title":"Ký kết thỏa thuận hợp tác với ĐH Musashi (Nhật Bản)","CreatedDate":"\/Date(1520877820000)\/","ModifiedDate":"\/Date(1520964220000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​S\u0026aacute;ng 13-3, PGS.TS V\u0026otilde; Văn Sen - Hiệu trưởng Nh\u0026agrave; trường \u0026ndash; đ\u0026atilde; k\u0026yacute; kết văn bản thỏa thuận hợp t\u0026aacute;c (MOU) với đại diện ĐH Musashi (Nhật Bản) hướng đến việc h\u0026igrave;nh th\u0026agrave;nh những chương tr\u0026igrave;nh hợp t\u0026aacute;c cụ thể trong tương lai.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"dc260197-7813-421f-bfc3-e74a21fb9b76","Name":"Trao quyết định công nhận Bí thư Đoàn trường nhiệm kỳ IX","Title":"Trao quyết định công nhận Bí thư Đoàn trường nhiệm kỳ IX","CreatedDate":"\/Date(1520921217000)\/","ModifiedDate":"\/Date(1520921217000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Ban Thường vụ Th\u0026agrave;nh Đo\u0026agrave;n TP.HCM c\u0026ocirc;ng bố quyết định c\u0026ocirc;ng nhận đồng ch\u0026iacute; Nguyễn Thị Ngọc Kh\u0026aacute;nh - Ph\u0026oacute; B\u0026iacute; thư Đo\u0026agrave;n trường - giữ chức B\u0026iacute; thư Đo\u0026agrave;n trường nhiệm kỳ 2017-2019 thay cho đồng ch\u0026iacute; Nguyễn Tất To\u0026agrave;n v\u0026igrave; chuyển c\u0026ocirc;ng t\u0026aacute;c.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"40ef0142-ec3e-48e6-8407-bd86b635544f","Name":"Sinh viên cần thi ngoại ngữ tại các cơ sở được ĐHQG-HCM công nhận","Title":"Sinh viên cần thi ngoại ngữ tại các cơ sở được ĐHQG-HCM công nhận","CreatedDate":"\/Date(1520890319000)\/","ModifiedDate":"\/Date(1520890319000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Đ\u0026acirc;y l\u0026agrave; chia sẻ của TS Phạm Tấn Hạ - Ph\u0026oacute; Hiệu trưởng Nh\u0026agrave; trường li\u0026ecirc;n quan đến việc ĐHQG-HCM vừa ban h\u0026agrave;nh quy chế chuẩn tr\u0026igrave;nh độ ngoại ngữ \u0026aacute;p dụng cho cả hệ đại học v\u0026agrave; sau đại học.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"08ad1071-af0e-4342-88f1-7435f01e4fb3","Name":"Nhiều điểm mới trong kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018","Title":"Nhiều điểm mới trong kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018","CreatedDate":"\/Date(1520581576000)\/","ModifiedDate":"\/Date(1520581576000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eBậc nghi\u0026ecirc;n cứu sinh chỉ x\u0026eacute;t tuyển m\u0026agrave; kh\u0026ocirc;ng thi tuyển hay bậc thạc sĩ mở rộng đối tượng tuyển sinh l\u0026agrave; một trong nhiều\u0026nbsp;điểm mới của kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018 Trường ĐH KHXH\u0026amp;NV.\u003c/span\u003e\u003cbr style=\"font-family: Verdana; font-size: 12px;\" /\u003e","Content":"","ArtImage":null},{"Article":{"Id":"d6bab3b0-5c3b-4b8f-9f26-1766f7c360c4","Name":"[VIDEO] Ngày Quốc tế Phụ nữ của nữ sinh Nhân văn","Title":"[VIDEO] Ngày Quốc tế Phụ nữ của nữ sinh Nhân văn","CreatedDate":"\/Date(1520571310000)\/","ModifiedDate":"\/Date(1520571310000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana; font-size: 12px;\"\u003eHạnh ph\u0026uacute;c, bất ngờ, vui vẻ... l\u0026agrave; những chia sẻ của c\u0026aacute;c nữ sinh Nh\u0026acirc;n văn khi nhận được những t\u0026igrave;nh cảm từ bạn c\u0026ugrave;ng lớp, c\u0026ugrave;ng ph\u0026ograve;ng hay từ gia đ\u0026igrave;nh, người th\u0026acirc;n. Ng\u0026ocirc;i trường c\u0026oacute; số lượng nữ sinh rất đ\u0026ocirc;ng dường như rộn r\u0026agrave;ng hơn trong ng\u0026agrave;y đặc biệt n\u0026agrave;y.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"5dc7bf73-d8b7-48cd-b76e-04d17ca865e1","Name":"Tham dự Hội thảo quốc tế Mạng lưới Năng lực truyền thông ","Title":"Tham dự Hội thảo quốc tế Mạng lưới Năng lực truyền thông ","CreatedDate":"\/Date(1520342865000)\/","ModifiedDate":"\/Date(1520342865000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Medlit Network (Mạng lưới Năng lực truyền th\u0026ocirc;ng) được ra mắt tại Hội thảo quốc tế Medlit lần 1 diễn ra trong hai ng\u0026agrave;y 5 v\u0026agrave; 6-3 tại Kuala Lumpur (Malaysia). Trường ĐH KHXH\u0026amp;NV tham dự  v\u0026agrave; đ\u0026oacute;ng g\u0026oacute;p 3 b\u0026aacute;o c\u0026aacute;o khoa học, điều phối một tiểu ban.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"b13d1a74-8312-4d39-9b91-1fbc206a7664","Name":"Làm việc với đại diện ĐH Georgia State, Hoa Kỳ","Title":"Làm việc với đại diện ĐH Georgia State, Hoa Kỳ","CreatedDate":"\/Date(1520262086000)\/","ModifiedDate":"\/Date(1520262086000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana;\"\u003e​​\u003cspan style=\"font-size: 12px;\"\u003e​Nh\u0026agrave; trường đ\u0026atilde; c\u0026oacute; buổi l\u0026agrave;m việc với đại diện Trường ĐH Georgia State, Hoa Kỳ tại cơ sở Đinh Ti\u0026ecirc;n Ho\u0026agrave;ng v\u0026agrave;o s\u0026aacute;ng 6-3 với nhiều nội dung được thảo luận.\u003c/span\u003e\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"2f004efb-ff9c-4107-9d7c-768fa7ce8a77","Name":"Sinh viên tranh tài hùng biện tiếng Nhật tại ĐH KHXH\u0026NV","Title":"Sinh viên tranh tài hùng biện tiếng Nhật tại ĐH KHXH\u0026NV","CreatedDate":"\/Date(1520169890000)\/","ModifiedDate":"\/Date(1520169890000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Chiều 3-3, 10 sinh vi\u0026ecirc;n c\u0026oacute; b\u0026agrave;i viết xuất sắc đ\u0026atilde; tranh t\u0026agrave;i trong v\u0026ograve;ng chung kết Cuộc thi H\u0026ugrave;ng biện tiếng Nhật c\u0026aacute;c trường đại học ph\u0026iacute;a nam lần 2, năm 2018 được tổ chức tại Trường ĐH KHXH\u0026amp;NV.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"3c648288-0655-40cf-af76-80449a351c13","Name":"Làm việc với Trường ĐH Tổng hợp Hữu nghị Các dân tộc Nga ","Title":"Làm việc với Trường ĐH Tổng hợp Hữu nghị Các dân tộc Nga ","CreatedDate":"\/Date(1520037221000)\/","ModifiedDate":"\/Date(1520037221000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana; font-size: 12px;\"\u003eNhiều đề nghị v\u0026agrave; lời mời hợp t\u0026aacute;c đ\u0026atilde; được đại diện Trường ĐH Tổng hợp Hữu nghị C\u0026aacute;c d\u0026acirc;n tộc Nga (RUDN) tr\u0026igrave;nh b\u0026agrave;y trong buổi l\u0026agrave;m việc với Trường ĐH KHXH\u0026amp;NV diễn ra v\u0026agrave;o s\u0026aacute;ng 2-3 tại cơ sở Đinh Ti\u0026ecirc;n Ho\u0026agrave;ng.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"1c440c59-e5f4-4daa-b2bb-1bf96d7cb19d","Name":"Cần đào tạo kỹ năng lãnh đạo cho giáo sinh tại các trường đại học","Title":"Cần đào tạo kỹ năng lãnh đạo cho giáo sinh tại các trường đại học","CreatedDate":"\/Date(1519820631000)\/","ModifiedDate":"\/Date(1519820631000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Đ\u0026acirc;y l\u0026agrave; đề t\u0026agrave;i tham luận của PGS.TS V\u0026otilde; Văn Sen - Hiệu trưởng Nh\u0026agrave; trường - trong hội thảo quốc tế về chủ đề \u0026ldquo;Mỗi gi\u0026aacute;o sinh l\u0026agrave; người l\u0026atilde;nh đạo\u0026rdquo; diễn ra tại Viện Gi\u0026aacute;o dục Quốc gia Singapore.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"96564e5e-9e46-44e8-802d-caec120e829f","Name":"Ban Giám hiệu thăm Trạm y tế Trường nhân ngày Thầy thuốc Việt Nam","Title":"Ban Giám hiệu thăm Trạm y tế Trường nhân ngày Thầy thuốc Việt Nam","CreatedDate":"\/Date(1519660255000)\/","ModifiedDate":"\/Date(1519660255000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eS\u0026aacute;ng 27-2, đại diện Ban Gi\u0026aacute;m hiệu, C\u0026ocirc;ng đo\u0026agrave;n Trường đ\u0026atilde; c\u0026oacute; buổi gặp gỡ th\u0026acirc;n mật với c\u0026aacute;n bộ, nh\u0026acirc;n vi\u0026ecirc;n Trạm y tế nh\u0026acirc;n kỷ niệm Ng\u0026agrave;y Thầy thuốc Việt Nam (27-2).\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"78bbaf0b-b217-4fc0-88b0-9f59c74add4a","Name":"Nhiều cơ hội học thạc sĩ, tiến sĩ quản trị du lịch tại Thái Lan","Title":"Nhiều cơ hội học thạc sĩ, tiến sĩ quản trị du lịch tại Thái Lan","CreatedDate":"\/Date(1519619919000)\/","ModifiedDate":"\/Date(1519619919000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eĐ\u0026acirc;y l\u0026agrave; một trong c\u0026aacute;c nội dung được trao đổi tại buổi l\u0026agrave;m việc giữa đại diện Trường Quản l\u0026yacute; Du lịch (GSTM) thuộc Viện Quản l\u0026yacute; Ph\u0026aacute;t triển Quốc gia Th\u0026aacute;i Lan với Bộ m\u0026ocirc;n Du lịch (Trường ĐH KHXH\u0026amp;NV) diễn ra v\u0026agrave;o s\u0026aacute;ng 26-2.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"81719fe7-14c0-40c3-8aa3-7c34f4167692","Name":"Những dự định cho năm mới của sinh viên Nhân văn","Title":"Những dự định cho năm mới của sinh viên Nhân văn","CreatedDate":"\/Date(1519619142000)\/","ModifiedDate":"\/Date(1519619142000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Phấn đấu đạt điểm số cao, học th\u0026ecirc;m ngoại ngữ, kỹ năng, đi du lịch\u0026hellip; l\u0026agrave; những kế hoạch trong năm mới của nhiều sinh vi\u0026ecirc;n Nh\u0026acirc;n văn.\u0026nbsp;\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"6d6d70e3-ff14-494e-874e-56b3a341e6d2","Name":"Có niềm tin, biết mình đứng ở đâu, là có sức mạnh!","Title":"Có niềm tin, biết mình đứng ở đâu, là có sức mạnh!","CreatedDate":"\/Date(1519266239000)\/","ModifiedDate":"\/Date(1519266239000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eTừ c\u0026acirc;u chuyện của U23 Việt Nam, TS Trương Minh Huy Vũ - Gi\u0026aacute;m đốc Trung t\u0026acirc;m Nghi\u0026ecirc;n cứu Quốc tế (ĐH KHXH\u0026amp;NV - ĐHQG-HCM) đ\u0026atilde; c\u0026oacute; cuộc tr\u0026ograve; chuyện với b\u0026aacute;o Tuổi Trẻ về nguồn lực của đất nước. BBT website xin dẫn lại b\u0026agrave;i phỏng vấn.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"7ec5e7f3-ebe8-4b80-8a9e-681e2b2825db","Name":"“Năm mới nghĩa tình hơn và sáng tạo phải nhiều hơn”","Title":"“Năm mới nghĩa tình hơn và sáng tạo phải nhiều hơn”","CreatedDate":"\/Date(1519047386000)\/","ModifiedDate":"\/Date(1519047386000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​\u0026ldquo;Thời 4.0 tầm nh\u0026igrave;n l\u0026agrave; số một - Nghĩa t\u0026igrave;nh hơn v\u0026agrave; s\u0026aacute;ng tạo phải nhiều hơn\u0026rdquo; - PGS.TS V\u0026otilde; Văn Sen - B\u0026iacute; thư Đảng ủy, Hiệu trưởng Nh\u0026agrave; trường - nhắn nhủ tới c\u0026aacute;n bộ, giảng vi\u0026ecirc;n Trường trong buổi gặp mặt đầu xu\u0026acirc;n diễn ra v\u0026agrave;o s\u0026aacute;ng 21-2 (nhằm m\u0026ugrave;ng 6 tết).\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"b6fb72bd-f250-4f24-bf55-43f482982162","Name":"Công nhận 2 Giáo sư và 6 Phó giáo sư là giảng viên Trường ","Title":"Công nhận 2 Giáo sư và 6 Phó giáo sư là giảng viên Trường","CreatedDate":"\/Date(1517211839000)\/","ModifiedDate":"\/Date(1517211839000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp\u003e\u003cspan style=\"font-size: 9pt; font-family: Verdana;\"\u003eNg\u0026agrave;y 1-2, Hội đồng Chức danh gi\u0026aacute;o sư Nh\u0026agrave; nước đ\u0026atilde; c\u0026ocirc;ng bố danh s\u0026aacute;ch c\u0026aacute;c ứng vi\u0026ecirc;n đạt ti\u0026ecirc;u chuẩn chức danh Gi\u0026aacute;o sư, Ph\u0026oacute; gi\u0026aacute;o sư năm 2017. Trong đ\u0026oacute;, Trường ĐH KHXH\u0026amp;NV - ĐHQG-HCM vinh dự c\u0026oacute; 2 Gi\u0026aacute;o sư, 6 Ph\u0026oacute; gi\u0026aacute;o sư.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"c8960054-136b-4d2b-8bc5-fc0012d3b431","Name":"Mở rộng diện xét tuyển vào chương trình thạc sĩ đợt 1 năm 2018 ","Title":"Mở rộng diện xét tuyển vào chương trình thạc sĩ đợt 1 năm 2018 ","CreatedDate":"\/Date(1517012145000)\/","ModifiedDate":"\/Date(1517012145000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eNg\u0026agrave;y 22-1, Nh\u0026agrave; trường đ\u0026atilde; ban h\u0026agrave;nh th\u0026ocirc;ng b\u0026aacute;o tuyển sinh sau đại học đợt 1 năm 2018. Kỳ tuyển sinh năm 2018, nh\u0026agrave; trường mở rộng diện x\u0026eacute;t tuyển (kh\u0026ocirc;ng qua thi tuyển) v\u0026agrave;o c\u0026aacute;c ng\u0026agrave;nh đ\u0026agrave;o tạo chương tr\u0026igrave;nh thạc sĩ.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"9ec52789-d871-49e5-bd67-8aab0bbcb480","Name":"Đông đảo học sinh, phụ huynh đến tìm hiểu về Trường ĐH KHXH\u0026NV","Title":"Đông đảo học sinh, phụ huynh đến tìm hiểu về Trường ĐH KHXH\u0026NV","CreatedDate":"\/Date(1516743840000)\/","ModifiedDate":"\/Date(1516743840000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp style=\"text-align: justify;\"\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eVới rất nhiều c\u0026acirc;u hỏi đến ban Tư vấn tuyển sinh Trường ĐH KHXH\u0026amp;NV, c\u0026aacute;c học sinh đều thể hiện nguyện vọng đặt ch\u0026acirc;n v\u0026agrave;o ng\u0026ocirc;i trường c\u0026oacute; bề d\u0026agrave;y 60 năm đ\u0026agrave;o tạo, nghi\u0026ecirc;n cứu. Hơn 3000 học sinh đ\u0026atilde; đến t\u0026igrave;m hiểu về Trường.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"f372d293-7ad4-4181-af83-2f78f1909d66","Name":"Ngành Báo chí và ngành Văn học nhận Giấy chứng nhận đạt chuẩn AUN-QA","Title":"Ngành Báo chí và ngành Văn học nhận Giấy chứng nhận đạt chuẩn AUN-QA","CreatedDate":"\/Date(1516703090000)\/","ModifiedDate":"\/Date(1516703090000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp style=\"text-align: justify;\"\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eTại Lễ Đ\u0026oacute;n nhận kết quả đ\u0026aacute;nh gi\u0026aacute; chất lượng quốc tế theo bộ ti\u0026ecirc;u chuẩn AUN-QA cấp cơ sở đ\u0026agrave;o tạo v\u0026agrave; chương tr\u0026igrave;nh đ\u0026agrave;o tạo v\u0026agrave;o s\u0026aacute;ng ng\u0026agrave;y 22/1, B\u0026aacute;o ch\u0026iacute; v\u0026agrave; Văn học l\u0026agrave; hai chương tr\u0026igrave;nh đ\u0026agrave;o tạo nhận Giấy chứng nhận đạt chuẩn AUN-QA.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null}],'DisplayPagerContent');
+        pager.Paging(1);
+        
+    }   
+        
+    function DisplayPagerContent(pager)
+    {
+
+        var menuHolder = document.getElementById('ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_SlideShowMenuId');
+        menuHolder.innerHTML = "";
+        
+        var datasource = pager.datasource;
+
+        //khoi tao paging
+        var start = pager.GetStartOfRecord();
+        var end = pager.GetEndOfRecord();
+        
+        //Tao mang chua cac phan tu con cua datasource
+        var arr = new Array();
+        for(j=start ; j<end ;j++)
+            {  
+               arr.push(datasource[j]);
+            }
+       
+       var slideShow = new TPSlideShow('ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_TPNiceSlideShowMenuWrp', 'ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_SlideShowMenuId', 'ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_tpniceslideshow_scrollbar', 'ctl05_portlet_c007a458-4a6e-4a36-a0a5-1d446e4b15cb_tpniceslideshow_handle',currentPage,sizeOfBlock,recordInPage,arr,[{"Article":{"Id":"aec2a3d3-1ddf-4600-ba81-e429f3963903","Name":"Lãnh đạo Trường viếng cố Thủ tướng Phan Văn Khải","Title":"Lãnh đạo Trường viếng cố Thủ tướng Phan Văn Khải","CreatedDate":"\/Date(1521541523000)\/","ModifiedDate":"\/Date(1521541523000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​S\u0026aacute;ng 21-3, tại Hội trường Thống Nhất (TP.HCM), l\u0026atilde;nh đạo Trường ĐH KHXH\u0026amp;NV đ\u0026atilde; đến viếng v\u0026agrave; thắp hương tri \u0026acirc;n cố Thủ tướng Phan Văn Khải.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"96a532c8-a8a4-4b51-af17-5e359d2b88b7","Name":"Ký kết thỏa thuận hợp tác với ĐH Musashi (Nhật Bản)","Title":"Ký kết thỏa thuận hợp tác với ĐH Musashi (Nhật Bản)","CreatedDate":"\/Date(1520877820000)\/","ModifiedDate":"\/Date(1520964220000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​S\u0026aacute;ng 13-3, PGS.TS V\u0026otilde; Văn Sen - Hiệu trưởng Nh\u0026agrave; trường \u0026ndash; đ\u0026atilde; k\u0026yacute; kết văn bản thỏa thuận hợp t\u0026aacute;c (MOU) với đại diện ĐH Musashi (Nhật Bản) hướng đến việc h\u0026igrave;nh th\u0026agrave;nh những chương tr\u0026igrave;nh hợp t\u0026aacute;c cụ thể trong tương lai.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"dc260197-7813-421f-bfc3-e74a21fb9b76","Name":"Trao quyết định công nhận Bí thư Đoàn trường nhiệm kỳ IX","Title":"Trao quyết định công nhận Bí thư Đoàn trường nhiệm kỳ IX","CreatedDate":"\/Date(1520921217000)\/","ModifiedDate":"\/Date(1520921217000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Ban Thường vụ Th\u0026agrave;nh Đo\u0026agrave;n TP.HCM c\u0026ocirc;ng bố quyết định c\u0026ocirc;ng nhận đồng ch\u0026iacute; Nguyễn Thị Ngọc Kh\u0026aacute;nh - Ph\u0026oacute; B\u0026iacute; thư Đo\u0026agrave;n trường - giữ chức B\u0026iacute; thư Đo\u0026agrave;n trường nhiệm kỳ 2017-2019 thay cho đồng ch\u0026iacute; Nguyễn Tất To\u0026agrave;n v\u0026igrave; chuyển c\u0026ocirc;ng t\u0026aacute;c.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"40ef0142-ec3e-48e6-8407-bd86b635544f","Name":"Sinh viên cần thi ngoại ngữ tại các cơ sở được ĐHQG-HCM công nhận","Title":"Sinh viên cần thi ngoại ngữ tại các cơ sở được ĐHQG-HCM công nhận","CreatedDate":"\/Date(1520890319000)\/","ModifiedDate":"\/Date(1520890319000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Đ\u0026acirc;y l\u0026agrave; chia sẻ của TS Phạm Tấn Hạ - Ph\u0026oacute; Hiệu trưởng Nh\u0026agrave; trường li\u0026ecirc;n quan đến việc ĐHQG-HCM vừa ban h\u0026agrave;nh quy chế chuẩn tr\u0026igrave;nh độ ngoại ngữ \u0026aacute;p dụng cho cả hệ đại học v\u0026agrave; sau đại học.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"08ad1071-af0e-4342-88f1-7435f01e4fb3","Name":"Nhiều điểm mới trong kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018","Title":"Nhiều điểm mới trong kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018","CreatedDate":"\/Date(1520581576000)\/","ModifiedDate":"\/Date(1520581576000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eBậc nghi\u0026ecirc;n cứu sinh chỉ x\u0026eacute;t tuyển m\u0026agrave; kh\u0026ocirc;ng thi tuyển hay bậc thạc sĩ mở rộng đối tượng tuyển sinh l\u0026agrave; một trong nhiều\u0026nbsp;điểm mới của kỳ tuyển sinh tiến sĩ, thạc sĩ năm 2018 Trường ĐH KHXH\u0026amp;NV.\u003c/span\u003e\u003cbr style=\"font-family: Verdana; font-size: 12px;\" /\u003e","Content":"","ArtImage":null},{"Article":{"Id":"d6bab3b0-5c3b-4b8f-9f26-1766f7c360c4","Name":"[VIDEO] Ngày Quốc tế Phụ nữ của nữ sinh Nhân văn","Title":"[VIDEO] Ngày Quốc tế Phụ nữ của nữ sinh Nhân văn","CreatedDate":"\/Date(1520571310000)\/","ModifiedDate":"\/Date(1520571310000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana; font-size: 12px;\"\u003eHạnh ph\u0026uacute;c, bất ngờ, vui vẻ... l\u0026agrave; những chia sẻ của c\u0026aacute;c nữ sinh Nh\u0026acirc;n văn khi nhận được những t\u0026igrave;nh cảm từ bạn c\u0026ugrave;ng lớp, c\u0026ugrave;ng ph\u0026ograve;ng hay từ gia đ\u0026igrave;nh, người th\u0026acirc;n. Ng\u0026ocirc;i trường c\u0026oacute; số lượng nữ sinh rất đ\u0026ocirc;ng dường như rộn r\u0026agrave;ng hơn trong ng\u0026agrave;y đặc biệt n\u0026agrave;y.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"5dc7bf73-d8b7-48cd-b76e-04d17ca865e1","Name":"Tham dự Hội thảo quốc tế Mạng lưới Năng lực truyền thông ","Title":"Tham dự Hội thảo quốc tế Mạng lưới Năng lực truyền thông ","CreatedDate":"\/Date(1520342865000)\/","ModifiedDate":"\/Date(1520342865000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Medlit Network (Mạng lưới Năng lực truyền th\u0026ocirc;ng) được ra mắt tại Hội thảo quốc tế Medlit lần 1 diễn ra trong hai ng\u0026agrave;y 5 v\u0026agrave; 6-3 tại Kuala Lumpur (Malaysia). Trường ĐH KHXH\u0026amp;NV tham dự  v\u0026agrave; đ\u0026oacute;ng g\u0026oacute;p 3 b\u0026aacute;o c\u0026aacute;o khoa học, điều phối một tiểu ban.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"b13d1a74-8312-4d39-9b91-1fbc206a7664","Name":"Làm việc với đại diện ĐH Georgia State, Hoa Kỳ","Title":"Làm việc với đại diện ĐH Georgia State, Hoa Kỳ","CreatedDate":"\/Date(1520262086000)\/","ModifiedDate":"\/Date(1520262086000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana;\"\u003e​​\u003cspan style=\"font-size: 12px;\"\u003e​Nh\u0026agrave; trường đ\u0026atilde; c\u0026oacute; buổi l\u0026agrave;m việc với đại diện Trường ĐH Georgia State, Hoa Kỳ tại cơ sở Đinh Ti\u0026ecirc;n Ho\u0026agrave;ng v\u0026agrave;o s\u0026aacute;ng 6-3 với nhiều nội dung được thảo luận.\u003c/span\u003e\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"2f004efb-ff9c-4107-9d7c-768fa7ce8a77","Name":"Sinh viên tranh tài hùng biện tiếng Nhật tại ĐH KHXH\u0026NV","Title":"Sinh viên tranh tài hùng biện tiếng Nhật tại ĐH KHXH\u0026NV","CreatedDate":"\/Date(1520169890000)\/","ModifiedDate":"\/Date(1520169890000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Chiều 3-3, 10 sinh vi\u0026ecirc;n c\u0026oacute; b\u0026agrave;i viết xuất sắc đ\u0026atilde; tranh t\u0026agrave;i trong v\u0026ograve;ng chung kết Cuộc thi H\u0026ugrave;ng biện tiếng Nhật c\u0026aacute;c trường đại học ph\u0026iacute;a nam lần 2, năm 2018 được tổ chức tại Trường ĐH KHXH\u0026amp;NV.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"3c648288-0655-40cf-af76-80449a351c13","Name":"Làm việc với Trường ĐH Tổng hợp Hữu nghị Các dân tộc Nga ","Title":"Làm việc với Trường ĐH Tổng hợp Hữu nghị Các dân tộc Nga ","CreatedDate":"\/Date(1520037221000)\/","ModifiedDate":"\/Date(1520037221000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-family: Verdana; font-size: 12px;\"\u003eNhiều đề nghị v\u0026agrave; lời mời hợp t\u0026aacute;c đ\u0026atilde; được đại diện Trường ĐH Tổng hợp Hữu nghị C\u0026aacute;c d\u0026acirc;n tộc Nga (RUDN) tr\u0026igrave;nh b\u0026agrave;y trong buổi l\u0026agrave;m việc với Trường ĐH KHXH\u0026amp;NV diễn ra v\u0026agrave;o s\u0026aacute;ng 2-3 tại cơ sở Đinh Ti\u0026ecirc;n Ho\u0026agrave;ng.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"1c440c59-e5f4-4daa-b2bb-1bf96d7cb19d","Name":"Cần đào tạo kỹ năng lãnh đạo cho giáo sinh tại các trường đại học","Title":"Cần đào tạo kỹ năng lãnh đạo cho giáo sinh tại các trường đại học","CreatedDate":"\/Date(1519820631000)\/","ModifiedDate":"\/Date(1519820631000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Đ\u0026acirc;y l\u0026agrave; đề t\u0026agrave;i tham luận của PGS.TS V\u0026otilde; Văn Sen - Hiệu trưởng Nh\u0026agrave; trường - trong hội thảo quốc tế về chủ đề \u0026ldquo;Mỗi gi\u0026aacute;o sinh l\u0026agrave; người l\u0026atilde;nh đạo\u0026rdquo; diễn ra tại Viện Gi\u0026aacute;o dục Quốc gia Singapore.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"96564e5e-9e46-44e8-802d-caec120e829f","Name":"Ban Giám hiệu thăm Trạm y tế Trường nhân ngày Thầy thuốc Việt Nam","Title":"Ban Giám hiệu thăm Trạm y tế Trường nhân ngày Thầy thuốc Việt Nam","CreatedDate":"\/Date(1519660255000)\/","ModifiedDate":"\/Date(1519660255000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eS\u0026aacute;ng 27-2, đại diện Ban Gi\u0026aacute;m hiệu, C\u0026ocirc;ng đo\u0026agrave;n Trường đ\u0026atilde; c\u0026oacute; buổi gặp gỡ th\u0026acirc;n mật với c\u0026aacute;n bộ, nh\u0026acirc;n vi\u0026ecirc;n Trạm y tế nh\u0026acirc;n kỷ niệm Ng\u0026agrave;y Thầy thuốc Việt Nam (27-2).\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"78bbaf0b-b217-4fc0-88b0-9f59c74add4a","Name":"Nhiều cơ hội học thạc sĩ, tiến sĩ quản trị du lịch tại Thái Lan","Title":"Nhiều cơ hội học thạc sĩ, tiến sĩ quản trị du lịch tại Thái Lan","CreatedDate":"\/Date(1519619919000)\/","ModifiedDate":"\/Date(1519619919000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eĐ\u0026acirc;y l\u0026agrave; một trong c\u0026aacute;c nội dung được trao đổi tại buổi l\u0026agrave;m việc giữa đại diện Trường Quản l\u0026yacute; Du lịch (GSTM) thuộc Viện Quản l\u0026yacute; Ph\u0026aacute;t triển Quốc gia Th\u0026aacute;i Lan với Bộ m\u0026ocirc;n Du lịch (Trường ĐH KHXH\u0026amp;NV) diễn ra v\u0026agrave;o s\u0026aacute;ng 26-2.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"81719fe7-14c0-40c3-8aa3-7c34f4167692","Name":"Những dự định cho năm mới của sinh viên Nhân văn","Title":"Những dự định cho năm mới của sinh viên Nhân văn","CreatedDate":"\/Date(1519619142000)\/","ModifiedDate":"\/Date(1519619142000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​Phấn đấu đạt điểm số cao, học th\u0026ecirc;m ngoại ngữ, kỹ năng, đi du lịch\u0026hellip; l\u0026agrave; những kế hoạch trong năm mới của nhiều sinh vi\u0026ecirc;n Nh\u0026acirc;n văn.\u0026nbsp;\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"6d6d70e3-ff14-494e-874e-56b3a341e6d2","Name":"Có niềm tin, biết mình đứng ở đâu, là có sức mạnh!","Title":"Có niềm tin, biết mình đứng ở đâu, là có sức mạnh!","CreatedDate":"\/Date(1519266239000)\/","ModifiedDate":"\/Date(1519266239000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eTừ c\u0026acirc;u chuyện của U23 Việt Nam, TS Trương Minh Huy Vũ - Gi\u0026aacute;m đốc Trung t\u0026acirc;m Nghi\u0026ecirc;n cứu Quốc tế (ĐH KHXH\u0026amp;NV - ĐHQG-HCM) đ\u0026atilde; c\u0026oacute; cuộc tr\u0026ograve; chuyện với b\u0026aacute;o Tuổi Trẻ về nguồn lực của đất nước. BBT website xin dẫn lại b\u0026agrave;i phỏng vấn.\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"7ec5e7f3-ebe8-4b80-8a9e-681e2b2825db","Name":"“Năm mới nghĩa tình hơn và sáng tạo phải nhiều hơn”","Title":"“Năm mới nghĩa tình hơn và sáng tạo phải nhiều hơn”","CreatedDate":"\/Date(1519047386000)\/","ModifiedDate":"\/Date(1519047386000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003e​\u0026ldquo;Thời 4.0 tầm nh\u0026igrave;n l\u0026agrave; số một - Nghĩa t\u0026igrave;nh hơn v\u0026agrave; s\u0026aacute;ng tạo phải nhiều hơn\u0026rdquo; - PGS.TS V\u0026otilde; Văn Sen - B\u0026iacute; thư Đảng ủy, Hiệu trưởng Nh\u0026agrave; trường - nhắn nhủ tới c\u0026aacute;n bộ, giảng vi\u0026ecirc;n Trường trong buổi gặp mặt đầu xu\u0026acirc;n diễn ra v\u0026agrave;o s\u0026aacute;ng 21-2 (nhằm m\u0026ugrave;ng 6 tết).\u003c/span\u003e","Content":"","ArtImage":null},{"Article":{"Id":"b6fb72bd-f250-4f24-bf55-43f482982162","Name":"Công nhận 2 Giáo sư và 6 Phó giáo sư là giảng viên Trường ","Title":"Công nhận 2 Giáo sư và 6 Phó giáo sư là giảng viên Trường","CreatedDate":"\/Date(1517211839000)\/","ModifiedDate":"\/Date(1517211839000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp\u003e\u003cspan style=\"font-size: 9pt; font-family: Verdana;\"\u003eNg\u0026agrave;y 1-2, Hội đồng Chức danh gi\u0026aacute;o sư Nh\u0026agrave; nước đ\u0026atilde; c\u0026ocirc;ng bố danh s\u0026aacute;ch c\u0026aacute;c ứng vi\u0026ecirc;n đạt ti\u0026ecirc;u chuẩn chức danh Gi\u0026aacute;o sư, Ph\u0026oacute; gi\u0026aacute;o sư năm 2017. Trong đ\u0026oacute;, Trường ĐH KHXH\u0026amp;NV - ĐHQG-HCM vinh dự c\u0026oacute; 2 Gi\u0026aacute;o sư, 6 Ph\u0026oacute; gi\u0026aacute;o sư.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"c8960054-136b-4d2b-8bc5-fc0012d3b431","Name":"Mở rộng diện xét tuyển vào chương trình thạc sĩ đợt 1 năm 2018 ","Title":"Mở rộng diện xét tuyển vào chương trình thạc sĩ đợt 1 năm 2018 ","CreatedDate":"\/Date(1517012145000)\/","ModifiedDate":"\/Date(1517012145000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eNg\u0026agrave;y 22-1, Nh\u0026agrave; trường đ\u0026atilde; ban h\u0026agrave;nh th\u0026ocirc;ng b\u0026aacute;o tuyển sinh sau đại học đợt 1 năm 2018. Kỳ tuyển sinh năm 2018, nh\u0026agrave; trường mở rộng diện x\u0026eacute;t tuyển (kh\u0026ocirc;ng qua thi tuyển) v\u0026agrave;o c\u0026aacute;c ng\u0026agrave;nh đ\u0026agrave;o tạo chương tr\u0026igrave;nh thạc sĩ.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"9ec52789-d871-49e5-bd67-8aab0bbcb480","Name":"Đông đảo học sinh, phụ huynh đến tìm hiểu về Trường ĐH KHXH\u0026NV","Title":"Đông đảo học sinh, phụ huynh đến tìm hiểu về Trường ĐH KHXH\u0026NV","CreatedDate":"\/Date(1516743840000)\/","ModifiedDate":"\/Date(1516743840000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp style=\"text-align: justify;\"\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eVới rất nhiều c\u0026acirc;u hỏi đến ban Tư vấn tuyển sinh Trường ĐH KHXH\u0026amp;NV, c\u0026aacute;c học sinh đều thể hiện nguyện vọng đặt ch\u0026acirc;n v\u0026agrave;o ng\u0026ocirc;i trường c\u0026oacute; bề d\u0026agrave;y 60 năm đ\u0026agrave;o tạo, nghi\u0026ecirc;n cứu. Hơn 3000 học sinh đ\u0026atilde; đến t\u0026igrave;m hiểu về Trường.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null},{"Article":{"Id":"f372d293-7ad4-4181-af83-2f78f1909d66","Name":"Ngành Báo chí và ngành Văn học nhận Giấy chứng nhận đạt chuẩn AUN-QA","Title":"Ngành Báo chí và ngành Văn học nhận Giấy chứng nhận đạt chuẩn AUN-QA","CreatedDate":"\/Date(1516703090000)\/","ModifiedDate":"\/Date(1516703090000)\/","ArticleHangDate":null,"IsPublish":true,"PathImage":"Images/choduyet.png","PageId":"73dd441c-7348-44b5-90a0-0be2c1e3cbc3","Link":"","ViewTime":0,"CountShare":1,"IsCheck":false,"SubDomainFromName":""},"Avatar":"","IsEdit":false,"Description":"\u003cp style=\"text-align: justify;\"\u003e\u003cspan style=\"font-size: 12px; font-family: Verdana;\"\u003eTại Lễ Đ\u0026oacute;n nhận kết quả đ\u0026aacute;nh gi\u0026aacute; chất lượng quốc tế theo bộ ti\u0026ecirc;u chuẩn AUN-QA cấp cơ sở đ\u0026agrave;o tạo v\u0026agrave; chương tr\u0026igrave;nh đ\u0026agrave;o tạo v\u0026agrave;o s\u0026aacute;ng ng\u0026agrave;y 22/1, B\u0026aacute;o ch\u0026iacute; v\u0026agrave; Văn học l\u0026agrave; hai chương tr\u0026igrave;nh đ\u0026agrave;o tạo nhận Giấy chứng nhận đạt chuẩn AUN-QA.\u003c/span\u003e\u003c/p\u003e","Content":"","ArtImage":null}]);
+       slideShow.createTPSlideShowMenu(); 
+    }
+    
+    createPager();
+      
+</script>
+
+				</div></div>
+			</div>
+		</div></td><td><div id="pnRight">
+			<div id="pnRightDisplay" style="width:233px;float:left">
+				<div id='ctl05_portlet_494fdb6b-86ba-414e-a648-336220f28677' style="float:left;"><div>
+					
+<div class="thongbao">
+    <div class="title">
+        <a href="/?TopicId=283d1a22-5059-4754-9f87-fbc33868365a">
+            Thông báo mới</a></div>
+    <ul>
+        
+                <li><a href="/?ArticleId=bdb616b8-71ba-4517-806c-782892bd544d" title="1/24/2018 2:55:40 AM">
+                    Thông báo tuyển sinh trình độ thạc sĩ, tiến sĩ đợt 1 năm 2018</a> </li>
+            
+                <li><a href="/?ArticleId=6c11bb4d-afc1-4db7-b00f-94f37240cebd" title="3/20/2018 7:38:58 AM">
+                    Thời khóa biểu học kỳ 2 năm học 2017 - 2018 các lớp Liên thông<img src='/Resources/Images/new.gif'></img></a> </li>
+            
+                <li><a href="/?ArticleId=0ccd4c8a-6b70-4adb-96af-1fa3016a8f07" title="3/14/2018 9:10:20 AM">
+                    Thông báo tổ chức Lễ tốt nghiệp cho sinh viên hệ Chính quy, Văn bằng 2, Vừa làm vừa học (Đợt 3 năm 2017)</a> </li>
+            
+                <li><a href="/?ArticleId=5e3cf52c-f2a1-4e7b-9b69-74cd9489ea23" title="3/14/2018 8:29:41 AM">
+                    Thông báo tuyển sinh đào tạo liên thông đại học hệ chính quy năm 2018</a> </li>
+            
+                <li><a href="/?ArticleId=6ead3a11-d3a0-4a19-9a5a-74461c59ded8" title="3/14/2018 8:23:34 AM">
+                    Thông báo tuyển sinh Đại học VB2 hệ chính quy năm 2018</a> </li>
+            
+                <li><a href="/?ArticleId=6b8052fa-3851-48e2-9ce1-7f3cb292fdad" title="3/12/2018 1:59:45 PM">
+                    Thông báo tổ chức thi chứng chỉ ứng dụng công nghệ thông tin cơ bản. Ngày thi: Sáng Thứ 7, ngày 31/03/2018</a> </li>
+            
+                <li><a href="/?ArticleId=bc914b9c-6427-439e-b5df-9bebc7dfedb2" title="3/12/2018 1:56:43 PM">
+                    Thông báo chiêu sinh lớp tin học “Sử dụng SPSS – phân tích dữ liệu trong nghiên cứu định lượng”. Học vào các buổi tối 2, 4, 6. Khai giảng 16/04/2018</a> </li>
+            
+                <li><a href="/?ArticleId=ae889d10-400b-4db4-8c80-460a052de7e2" title="3/12/2018 1:54:46 PM">
+                    Thông báo chiêu sinh lớp tin học “Sử dụng SPSS – phân tích dữ liệu trong nghiên cứu định lượng”. Học vào các buổi tối 3, 5, 7. Khai giảng 17/04/2018</a> </li>
+            
+    </ul>
+    <div class="all">
+        <a href="/?TopicId=283d1a22-5059-4754-9f87-fbc33868365a">Tất cả
+            <img src="/Resources/ImagesPortal/arrow_all.png" /></a></div>
+</div>
+
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr>
+		<td colspan="3"><div id="pnBottom">
+			<div id="pnBottomDisplay" style="padding:0px 0px 0px 0px;width:1000px;float:left">
+				<div id='ctl05_portlet_67604e34-aa1a-40ab-afc2-d6c8d32b4dab' style="width:1000px;float:left"><div>
+					
+<div style="background:#073d73; float: left">
+
+        <div class="menu_hor" style="float: left">
+            <div class="col" style="background:#007399;">
+                <div class="title_col">
+                    <a href="#">
+                        Đào tạo</a></div>
+                
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=6fe36318-4f0d-4e02-b0c7-461cae70ac2d">
+                                Đại học</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=1ebe3928-ddc9-4cd6-8ee1-0d9d48e101ec">
+                                Sau Đại học</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=86f7f794-f245-4196-9f68-2802ea14859f">
+                                Chương trình liên kết</a></li>
+                        </ul>
+                    
+            </div>
+        </div>
+    
+        <div class="menu_hor" style="float: left">
+            <div class="col" style="background:#007399;">
+                <div class="title_col">
+                    <a href="#">
+                        Sinh Viên</a></div>
+                
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=3fe6e6ef-6827-4c13-a439-d28c02bd39dd">
+                                Sinh viên hiện tại</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="http://alumni.hcmussh.edu.vn">
+                                Cựu sinh viên</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?TopicId=956d2f32-eea6-4481-9a05-c54c6fb27a64">
+                                Hội nhập</a></li>
+                        </ul>
+                    
+            </div>
+        </div>
+    
+        <div class="menu_hor" style="float: left">
+            <div class="col" style="background:#007399;">
+                <div class="title_col">
+                    <a href="#">
+                        Nghiên Cứu </a></div>
+                
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=735b6724-1407-40e6-995c-031cac043939">
+                                Nghiên cứu khoa học</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?TopicId=6ad6fb23-532b-4ff1-a9a6-1088a36f6f7e">
+                                Nhà khoa học</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="http://qlkh.hcmussh.edu.vn/">
+                                Công bố khoa học</a></li>
+                        </ul>
+                    
+            </div>
+        </div>
+    
+        <div class="menu_hor" style="float: left">
+            <div class="col" style="background:#007399;">
+                <div class="title_col">
+                    <a href="#">
+                        Hợp tác quốc tế</a></div>
+                
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=89226235-a001-4dd0-a5ec-d14158b47e75">
+                                Thông tin hợp tác</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=b4047212-d97c-4740-92a8-223d5928b9c6">
+                                Đối tác quốc tế</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=70b00fcc-6865-4f37-8a22-0754c2d62787">
+                                MOU</a></li>
+                        </ul>
+                    
+            </div>
+        </div>
+    
+        <div class="menu_hor" style="float: left">
+            <div class="col" style="background:#007399;">
+                <div class="title_col">
+                    <a href="#">
+                        Quản trị đại học</a></div>
+                
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=dc42d434-095b-46e0-b375-ac5bb36078c5">
+                                Chiến lược phát triển</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=6eaa3fcc-7e49-440d-9b83-62bf157d7add">
+                                3 công khai - Tiếp công dân</a></li>
+                        </ul>
+                    
+                        <ul>
+                            <li><a href="Default.aspx?ArticleId=e3ee01d3-023d-4ff8-9890-95ad68f027fa">
+                                Hoạt động ĐBCL</a></li>
+                        </ul>
+                    
+            </div>
+        </div>
+    
+</div>
+				</div></div><div id='ctl05_portlet_c41dc35e-23b4-494d-afa7-36ee439d59a7' style="width:650px;float:left"><div>
+					<div class="footer" style="width: 800px;">
+<div class="right_f">
+<p>Địa chỉ: 10-12 Đinh Ti&ecirc;n Ho&agrave;ng, Phường Bến Ngh&eacute;, Quận 1, TP.HCM </p>
+<p>Điện thoại: (84 - 28) 38293828, FAX: (84 - 28) 38221903</p>
+<p>&copy;2015 thuộc Trường Đại học KHXH&amp;NV - ĐHQG TP.HCM - Ph&aacute;t triển bởi PSC</p>
+</div>
+</div>
+
+				</div></div><div id='ctl05_portlet_25b9174d-4caf-427b-9fb8-0590e0f6c813' style="float:left; width:150px"><div>
+					<style type="text/css">
+    #grow {
+    display: inline-block;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    }
+    #grow:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    }
+</style>
+<div class="footer" style="width: 150px;">
+<div id="right_f">
+<a href="https://www.facebook.com/ussh.vnuhcm/"><img alt="" src="/Resources/Images/HomePage/icon/facebook-minimal.png" style="width: 16px; height: 16px;" /></a>
+<div id="grow"><a href="https://www.facebook.com/ussh.vnuhcm/"><span style="font-size: 12px; font-family: Verdana; color: white;">Facebook</span></a></div>
+</div>
+<div id="right_f">
+<a href="https://www.youtube.com/channel/UCim7li-EEbklXgVmKYhNZDw"><img alt="" src="/Resources/Images/HomePage/icon/youtube-minimal.png" style="width: 16px; height: 16px;" /></a>
+<div id="grow"><a href="https://www.youtube.com/channel/UCim7li-EEbklXgVmKYhNZDw"><span style="font-size: 12px; font-family: Verdana; color: white;">Youtube</span></a></div>
+</div>
+<div id="right_f">
+<a href="http://hcmussh.edu.vn/?ArticleId=dcc2ac60-9cc4-4e70-8ffa-cfe6b24be39a"><img alt="" src="http://hcmussh.edu.vn/Resources/Images/HomePage/icon/google-map-icon.jpg" style="width: 16px; height: 16px;" /></a>
+<div id="grow"><a href="http://hcmussh.edu.vn/?ArticleId=dcc2ac60-9cc4-4e70-8ffa-cfe6b24be39a"><span style="font-size: 12px; font-family: Verdana; color: white;">Google Map</span></a></div>
+</div>
+</div>
+
+				</div></div><div id='ctl05_portlet_8ffc07f5-f0a7-443f-8bd7-fc0fe08c00ed' style="width:200px;float:left"><div>
+					
+<div class="footer" style="width: 200px;">
+    <div class="left_f" style="width: 200px; margin-top: 15px; padding-bottom: 0px; margin-left: 0px;">
+        <table>
+            
+            <tr>
+                <td>
+                    <p style="padding-right: 10px; color: #fff;">
+                         Truy cập tháng</p>
+                </td>
+                <td>
+                    <span id="ctl05_portlet_8ffc07f5-f0a7-443f-8bd7-fc0fe08c00ed_Label4"><font color="White">104,402</font></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="padding-right: 10px; color: #fff;">
+                        Tổng truy cập</p>
+                </td>
+                <td>
+                    <span id="ctl05_portlet_8ffc07f5-f0a7-443f-8bd7-fc0fe08c00ed_Label1"><font color="White">17,780,152</font></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+				</div></div>
+			</div>
+		</div></td>
+	</tr>
+</table>
+    </div>
+</div>
+
+    
+<script type='text/javascript' language='javascript'> try{ var innerFadeInstance = new System.Utility.ImageInnerFade('ctl05_portlet_21eb1ceb-5bf9-4792-b9a1-f77ecb5b51de_imgInnerFadeHolder'); innerFadeInstance.createImageInnerFade(['DSC_0034_2.JPG','DSC_0035_3.JPG','DSC_0037_3.JPG','Ha Giang-3.JPG','IMG_1086.JPG','IMG_2541 (1).JPG','IMG_2541 (1)1.JPG','IMG_2597.JPG','IMG_25971.JPG','Ky yeu 60 nam-5.JPG','nhung-buc-thiep-chuc-tet-mau-tuat-2018-58.jpg']); }catch(e){} </script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindowManager, {"clientStateFieldID":"RadWindowManager1_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"RadWindowManager1","skin":"Default","windowControls":"[]"}, null, null, $get("RadWindowManager1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadListView, {"UniqueID":"ctl05$portlet_06675bc5-c78f-441b-860d-17998ab1d35c$ListLinkWebsite","_allowPaging":true,"_clientSettings":{"DataBinding":{"ItemPlaceHolderID":"ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite_itemPlaceholder","DataService":{}}},"_virtualItemCount":9,"clientStateFieldID":"ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite_ClientState"}, null, null, $get("ctl05_portlet_06675bc5-c78f-441b-860d-17998ab1d35c_ListLinkWebsite"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadRotator, {"_itemHeight":"10px","_itemWidth":"30px","clientStateFieldID":"ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e_RadRotator1_ClientState","frameDuration":5000,"items":[],"rotatorType":3,"scrollDuration":1000,"skin":"Default"}, null, null, $get("ctl05_portlet_76abf324-543e-411c-b279-3caba73d4a2e_RadRotator1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadMenu, {"_childListElementCssClass":null,"_skin":"Green","attributes":{},"clientStateFieldID":"ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92_RadMenu_ClientState","collapseAnimation":"{\"duration\":450}","expandAnimation":"{\"duration\":450}","itemData":[{"navigateUrl":"http://hcmussh.edu.vn/"},{"items":[{"navigateUrl":"~/Default.aspx?ArticleId=70f4cae2-e630-47c5-ad0f-b6a72f944e6f"},{"navigateUrl":"~/Default.aspx?ArticleId=c02f611e-1a8b-465f-a047-fd3145c1a46e"},{"navigateUrl":"~/Default.aspx?ArticleId=01175e13-0c6f-4116-ac9e-a1551022db8d"},{"navigateUrl":"~/Default.aspx?ArticleId=57b3394f-ec59-4ba7-bb40-c0f54bb552b5"},{"navigateUrl":"~/Default.aspx?ArticleId=917f8cb9-f419-4df7-8e23-0b54c9613acd"},{"navigateUrl":"~/Default.aspx?ArticleId=2d1901b4-4ecc-4665-b40a-dc974082830c"},{"navigateUrl":"~/Default.aspx?ArticleId=dde8fe98-422e-4150-aa73-4561aaf023df"}],"navigateUrl":"#"},{"navigateUrl":"~/Default.aspx?ArticleId=fa506861-dee1-4a3a-a4d8-1acd1e3efb20"},{"navigateUrl":"~/Default.aspx?ModuleId=7dbf64b8-7889-4c2d-9433-2801f48ce509"},{"navigateUrl":"~/Default.aspx?ArticleId=31994441-f593-46a4-929e-da67e4676e28"}]}, null, null, $get("ctl05_portlet_5a08c250-2e17-416f-927f-e8cc1e021b92_RadMenu"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

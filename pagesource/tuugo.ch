@@ -1,0 +1,113 @@
+    <!doctype html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>Tuugo</title>
+            <link rel="stylesheet" href="/resources/css/reset.css" />
+            <link rel="stylesheet" href="/resources/css/base.css" />
+            <link rel="stylesheet" href="/resources/css/low_visits.css" />
+            <!--[if IE]><link rel="stylesheet" href="/resources/css/ie8.css" /><![endif]-->
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+        </head>
+        <body class="bgBody">
+            <style>
+                .button input.submit {
+                padding-right: 36px;
+                background-position: 100% -1099px;
+                }
+            </style>
+            <div id="body">
+                <div class="body">
+                    <div id="header" class="medium">
+                        <h1 class="title"></h1>
+                        <div class="logo" style="margin-top: 5px">
+                            <a href="/" style="background-image: url(/resources/images/logotypes/logo-small.png);width:100px"></a>
+                        </div>
+                    </div>
+                    <div class="globalBlock globalBlockAbs" style="margin-left: -425px;margin-top: -227px">
+                        <div class="messageArea page403"  style="padding: 20px">
+                            <ul class="Li2" style="margin:0;">
+                                <li style="width: 336px;">
+                                    <ul class="overview">
+                                        <li>
+                                            <div class="image">
+                                                <img src="/errors/images/30.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Ooops,</strong> there seems to be a problem with your IP.<br />                                             </span>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="/errors/images/1.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Mmmm,</strong> parece que hay un problema con su IP.<br />                                             </span>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="/errors/images/12.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Mmmm,</strong> ressemble à un problème avec votre IP.<br />                                             </span>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="/errors/images/7.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Mmmm,</strong> parece um problema com seu IP.<br />                                             </span>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="/errors/images/34.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Hmm,</strong> sembra un problema con il vostro IP.<br />                                             </span>
+                                        </li>
+                                        <li style="margin-bottom:0;">
+                                            <div class="image">
+                                                <img src="/errors/images/118.gif">
+                                            </div>
+                                            <span>
+                                                <strong>Хм,</strong> похоже, проблемы с IP.<br />                                             </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li style="width: 500px;">
+                                    <div class="form" style="line-height: 14px;margin: 0 0 0 60px;">
+                                        <center><img src="/errors/images/logo_403.png" /></center>
+                                        <div class="clear40"></div>
+                                                                            </div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="footerfix">&nbsp;</div>
+                </div>
+            </div>
+            <div id="footer" class="small">
+                <div class="footer">
+                    <div class="copy">
+                        Copyright 2009 - 2018 Tuugo
+                    </div>
+                </div>
+            </div>
+            <div style="display: none">54.81.77.114</div>
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-3128626-14']);
+                _gaq.push(['_trackPageview']);
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async =
+                        true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+                        '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore
+                    (ga, s);
+                })();
+            </script>
+        </body>
+    </html>

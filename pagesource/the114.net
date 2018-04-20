@@ -1,0 +1,949 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>전화번호검색</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<meta name="keywords" content="전화번호검색,Phone,phone number,phone number search,전화번호,전화번호검색"/>
+<meta name="description" content="전화번호 사용자의 위치,주소등을 알려주는 서비스로 모르는 전화번호 검색"/>
+
+<link rel="stylesheet" type="text/css" href="/common/css/basic.css" />
+ 
+<style>
+.search_board {display:-moz-inline-block;display:-moz-inline-box;display:inline-block;width:178px;_width /**/:272px;height:28px;_height /**/:40px;
+margin-right:5px; border:4px solid #d62421; background-color:#fffff;line-height:18px;font-weight:bold;font-size:14px;color:#000;*ime-mode:active;  padding-left:6px; padding-top:2px;}
+ 
+.title {
+	font-weight: bold;
+	color: #099E01;
+
+}
+
+.write_count {
+	line-height: 150%;
+	padding: 10px 0;
+	border-bottom: 1px solid #CCCCCC;
+		font-family:Dotum, Tahoma, Sans-Serif;
+	font-size:9pt; color:#00000;
+}
+
+.section {
+	line-height: 150%;
+		font-family:Dotum, Tahoma, Sans-Serif;
+	font-size:9pt; color:#00000;
+	
+}
+ 
+</style>
+
+
+
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript"> 
+var goAction=function(act,args){ 
+	var param="";
+	var pagename="";
+	switch(act){
+
+		case "SHOW_CMT_D":{	
+					 
+					if ($("UI_CMT_UPWD_"+args).style.display=="none"){
+						$("UI_CMT_UPWD_"+args).show();						 
+						$("CMT_DEL_UPWD_"+args).focus();
+						return;
+					} 
+					break;
+				}
+		case "CMT_D":{	
+				 
+					if ($F("CMT_DEL_UPWD_"+args)==""){
+						alert("패스워드를 입력하세요.");
+						$("CMT_DEL_UPWD_"+args).focus();
+						return;
+					} 
+					$("SEQ").value = args;
+					_Handler.getCmtDelete("form_cmt");
+					break;
+				}
+		case "CMT_C":{						 
+				 
+					if($F("CMT_UNAME")==""){
+						alert("작성자를 입력하세요");
+						$("CMT_UNAME").focus();
+						return;
+					}
+			 
+					if($F("CMT_UPWD")==""){
+						alert("비밀번호를 입력하세요");
+						$("CMT_UPWD").focus();
+						return;
+					}
+					if($F("COMMENT").length<4){
+						alert("댓글은 최소4자이상 입력하셔야 합니다.");
+						$("COMMENT").focus();
+						return;
+					}
+ 
+					_Handler.getCmtWrite("form_cmt");
+					 				 
+					break;
+				}
+
+	}
+}
+var GSAjax = {
+	getData : function(url,pars,method,sync,Success,Failure,Complete){
+		var myAjax = new Ajax.Request(
+			url, 
+			{
+				method: method, 
+				parameters: pars, 
+				asynchronous:sync,
+				onSuccess : Success,
+				onFailure: Failure,
+				onComplete: Complete
+			});	
+	}
+}
+var _Handler = {
+ 
+ 
+	getCmtDelete : function(FormName){
+		$("DO").value = "CMT_D";
+		var param = Form.serialize(FormName);
+		GSAjax.getData('/common/asp/api/comp.api.asp',param,'post',true,_Handler.setCmtDelete,_Handler.FailMsg,_Handler.Complete);
+	},
+ 
+	setCmtDelete :	function(res){
+		if(res.responseText==0){
+			alert("패스워드가 맞지 않습니다.");
+			$("CMT_DEL_UPWD_"+$F("SERIAL")).value="";
+			$("CMT_DEL_UPWD_"+$F("SERIAL")).focus();
+			return;
+		}else if (res.responseText==1){
+			document.location.reload();
+		}else{
+			alert("오류가 발생하였습니다("+res.responseText+")");
+		}
+	},
+	getCmtWrite : function(FormName){
+		$("DO").value = "CMT_C";
+		var param = Form.serialize(FormName);
+		GSAjax.getData('/common/asp/api/comp.api.asp',param,'post',true,_Handler.setCmtWrite,_Handler.FailMsg,_Handler.Complete);
+	},
+ 
+	setCmtWrite :	function(res){
+
+		if(res.responseText==0){
+			alert("댓글이 등록되었습니다.");
+			document.location.reload();
+			return;
+		}else if (res.responseText==-1){
+			alert("도배 방지키 값을 잘못 입력하였습니다.");
+		}else{
+			alert("오류가 발생하였습니다("+res.responseText+")");
+		}
+	},	 
+ 
+	Complete : function(res){
+	},
+	FailMsg : function(res){
+	//	MSG.message = res.status+":"+res.statusText+":"+res.responseText;
+	//	MSG.showMessage();
+		alert(res.status+":"+res.statusText+":"+res.responseText);
+	}
+}
+</script>
+</head>
+
+<body data-spy="scroll" data-target=".subnav" >
+
+<div id="wrap">
+    <header>
+        <div class="header-container">
+            <div class="top-header">
+                <table width="1100" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="90" colspan="2" align="left" valign="top">
+                            <!--Head area S-->
+                            <div id="head_area">
+                                <table width="1100" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td id="brand"><a href="/">전화번호검색 <br>The114.net</a></td>
+                                        <td width="490" class="txt_l pd_t20" >
+                                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>										 
+											<ins class="adsbygoogle"
+												 style="display:inline-block;width:468px;height:15px"
+												 data-ad-client="ca-pub-9575285467074403"
+												 data-ad-slot="7420334977"></ins>
+											<script>
+											(adsbygoogle = window.adsbygoogle || []).push({});
+											</script>
+                                        </td>
+                                        <td width="65" class="txt_l pd_t20"></td>
+                                        <td width="305" class="pd_t20 txt_l">
+                                           
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--Head area E-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- end .top-header -->
+        </div>
+        <!-- end .header-container -->
+    </header>
+    <!-- end #header -->
+    <table width="1100" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="795" align="left" valign="top">
+                <!--Center area S-->
+                <table  border="0" cellspacing="0" cellpadding="0" class="table_box">
+                    <tr>
+                        <td valign="top"><img src="/images/table_top.gif" width="780" /></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" class="pd_l26">
+                            <!--Content area S-->
+                            <div id="content_area">
+								
+
+
+								<!-- 구글배너 728*90 -->
+                                <div class="txt_l pd_t20">
+                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<!-- THE114_728_90 -->
+									<ins class="adsbygoogle"
+										 style="display:inline-block;width:728px;height:90px"
+										 data-ad-client="ca-pub-9575285467074403"
+										 data-ad-slot="1071188973"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>
+                                </div>
+                                 
+								
+								<h1><a>최근 등록된 전화번호</a></h1>
+																
+								<div  class="section" >
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=07076781102" alt="070-7678-1102" title="070-7678-1102">070-7678-1102</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 대출</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=07070786707" alt="070-7078-6707" title="070-7078-6707">070-7078-6707</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 스팸 신고 많은 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" >
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=?0629444446?" alt="?06-2944-4446?" title="?06-2944-4446?">?06-2944-4446?</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 062-944-4446</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0264109561" alt="02-6410-9561" title="02-6410-9561">02-6410-9561</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 소프트론</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" >
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=07070790631" alt="070-7079-0631" title="070-7079-0631">070-7079-0631</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 스팸 신고 많은 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=029006708" alt="02-900-6708" title="02-900-6708">02-900-6708</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 대출 권유</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" >
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=0260222087" alt="02-6022-2087" title="02-6022-2087">02-6022-2087</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 스팸 신고 많은 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=027030963" alt="02-703-0963" title="02-703-0963">02-703-0963</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 차단이 많이 된 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" >
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=07076652464" alt="070-7665-2464" title="070-7665-2464">070-7665-2464</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 차단이 많이 된 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0215995167" alt="02-1599-5167" title="02-1599-5167">02-1599-5167</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 하나금융</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" style='display:none'>
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=0222101742" alt="02-2210-1742" title="02-2210-1742">02-2210-1742</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 차단이 많이 된 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0263939361" alt="02-6393-9361" title="02-6393-9361">02-6393-9361</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 차단이 많이 된 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" style='display:none'>
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=0317128202" alt="031-712-8202" title="031-712-8202">031-712-8202</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 리콘바이크 분당점</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=023328836" alt="02-332-8836" title="02-332-8836">02-332-8836</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 감성타코합정점</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" style='display:none'>
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=023328836" alt="02-332-8836" title="02-332-8836">02-332-8836</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 감성타코합정점</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0261054576" alt="02-6105-4576" title="02-6105-4576">02-6105-4576</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 차단이 많이 된 번호</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" style='display:none'>
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=07078478994" alt="070-7847-8994" title="070-7847-8994">070-7847-8994</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 비아그라</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=07077268469" alt="070-7726-8469" title="070-7726-8469">070-7726-8469</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 명함천사</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+															
+								<div  class="section" style='display:none'>
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=820423403405" alt="820-4234-03405" title="820-4234-03405">820-4234-03405</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : SK</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li>
+											-->
+											</ul>
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=02) 6049 1202" alt="02-) 60-49 1202" title="02-) 60-49 1202">02-) 60-49 1202</a></h2>
+										<div  class="table_IP">									 
+											<ul>
+											<li>&nbsp;<strong>사용자</strong> : 유랑 글로벌 인사팀</li>
+											<!--
+											<li>&nbsp;<strong>업체명</strong> : </li>
+											<li>&nbsp;<strong>신주소</strong> : </li>
+											<li>&nbsp;<strong>구주소</strong> : </li> 
+											-->
+											</ul>
+											 
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+				 
+								<h1><a>최근 공유된 전화번호</a></h1>
+								 <!--ajax 메타검색엔진 실시간 검색 결과물 출력 시작-->
+								
+
+								<div  class="section">
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=0314991938" alt="0314991938" title="0314991938">031-499-1938</a></h2>
+										<div  class="table_IP">									 
+											쇼트처리 임가공 업체로서 헹거및 에이프런 타입 두가..
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=16000819" alt="16000819" title="16000819">1600-0819</a></h2>
+										<div  class="table_IP">									 
+											 
+											 전구번호
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+
+								<div  class="section">
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=027928230" alt="027928230" title="027928230">02-792-8230</a></h2>
+										<div  class="table_IP">									 
+											아래와 같이 변경하여 주시기 바랍니다. 최이로 010-5..
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=01057870798" alt="01057870798" title="01057870798">010-5787-0798</a></h2>
+										<div  class="table_IP">									 
+											 
+											 인터넷영업점인데요 인터넷을 3년약정으로 1년 40만원..
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+
+								<div  class="section">
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=024705656" alt="024705656" title="024705656">02-470-5656</a></h2>
+										<div  class="table_IP">									 
+											02-470-5656 전화번호는 선우부동산중개법인주식회사 ..
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=028581870" alt="028581870" title="028581870">02-858-1870</a></h2>
+										<div  class="table_IP">									 
+											 
+											 한국정보데이터시스템(주)
+서울특별시 금천구 가산디..
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+
+								<div  class="section">
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=028581871" alt="028581871" title="028581871">02-858-1871</a></h2>
+										<div  class="table_IP">									 
+											한국정보데이터시스템(주)입니다
+
+서울특별시 금천..
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0647232007" alt="0647232007" title="0647232007">064-723-2007</a></h2>
+										<div  class="table_IP">									 
+											 
+											 전화번호 
+064 755  2016 이네요
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+
+								<div  class="section">
+								<table>
+								<tr>
+									<td>
+										<h2><a href="/?PhoneNumber=0322053064" alt="0322053064" title="0322053064">032-205-3064</a></h2>
+										<div  class="table_IP">									 
+											032 205 2807 과 동일사기범
+										</div>
+									</td>
+									
+									<td>
+										<h2><a href="/?PhoneNumber=0324465206" alt="0324465206" title="0324465206">032-446-5206</a></h2>
+										<div  class="table_IP">									 
+											 
+											 안녕하세요.사장님
+만나서반갑습니다.
+저는한국에서..
+										</div>
+									</td>
+								</tr>
+								</table>
+								</div>
+							
+							<!--DB 게시물 출력 -->
+
+
+
+
+
+							<div class="pd_t05 txt_c">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+														
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+									</div>
+
+									<!-- 구글배너 728*90 -->
+                                <div>
+									<p>
+                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<!-- NDSL_728_90 -->
+									<ins class="adsbygoogle"
+										 style="display:inline-block;width:728px;height:90px"
+										 data-ad-client="ca-pub-9575285467074403"
+										 data-ad-slot="1071188973"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>
+									</p>
+                                </div>
+							
+								
+                            </div>
+
+                            <!--Content area E-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section" align="center">
+						
+ 
+							등록 시점의 사용자 정보와 현재 사용자 정보는 상이 할 수 있으며, 잘못된 정보가 있다면 <a href="#none" onclick="window.open('/helpdesk.asp?number=','HELPDESK','width=500,height=250');">[신고]</a> 부탁드립니다.<br/>
+							copyright <span class="fc03 fb">전화번호검색 The114.net</span> All rights reserved. 
+						</td>
+                    </tr>
+					<tr>
+                        <td valign="bottom"><img src="/images/table_bottom.gif" width="780" height="26" /></td>
+                    </tr>
+                </table>
+
+                <!--Center area E-->
+            </td>
+            <td width="305" align="left" valign="top">
+                <!--Side area S-->
+                <div id="side_area">
+					 <!-- 구글배너 300*600 -->
+                    <div >
+                        <table width="300" border="0" cellspacing="0" cellpadding="0" background="/images/side_center.gif" style="background-repeat:repeat-y;">
+                            <tr>
+                                <td valign="bottom"><img src="/images/side_top.gif"  /></td>
+                            </tr>
+                            <tr>
+                                <td class="txt_l pd_l25">
+								
+								
+								<div class="txt_c pd_t10">
+									<form name="form">
+									<input type="text" name="PhoneNumber" id="PHONENUMBER" value="" placeholder="전화번호를 입력하세요" class="search_board" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									<a href="#none" onclick="form.submit();"><img src="/images/btn_search.gif"></a>
+									</form>
+
+								</div>
+								
+	 
+									<hr>
+			 
+									<div class="write_count">
+										현재 등록된 전화번호: 총 <b>4,249,175</b> 개 
+										<br />
+
+										오늘 등록된 전화번호: 총 <b>3</b> 개 
+										<br />
+
+										어제 등록된 전화번호: 총 <b>7</b> 개	                  
+									</div> 		  
+									
+									<div class="write_count">
+										<a href="https://play.google.com/store/apps/details?id=kr.co.localview.localview" target="_blank"><img src="/images/playstore.png" width="250"/></a>
+									</div>
+									<div class="section">
+														<p class="title"><u>The114?</u></p>
+														<p>모르는 전화번호를 알려주는 검색서비스입니다</p>
+														<p>전화번호의 정보를 공유하여 광고 전화, 스팸전화, <br/>보이스 피싱 등의 피해를 막을 수있습니다.</p>
+														<p>여러분이 알고계신 전화번호에 대한 정보를 <br/>공유해주세요.</p>
+									</div>       								
+								
+								
+								
+ 
+								
+								</td>
+                            </tr>
+							 
+                            <tr>
+                                <td valign="top"><img src="/images/side_bottom.gif"  /></td>
+                            </tr>
+                        </table>
+                    </div>
+					
+                    <!-- 구글배너 300*1050 -->
+                    <div class="pd_t15 txt_l">
+ 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 전화번호_300_600 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-9575285467074403"
+     data-ad-slot="6221668171"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>                   
+					</div>
+
+					<div  class="pd_t15 txt_l">
+                        <table width="300" border="0" cellspacing="0" cellpadding="0" background="/images/side_center.gif" style="background-repeat:repeat-y;">
+                            <tr>
+                                <td valign="bottom"><img src="/images/side_top.gif"  /></td>
+                            </tr>
+                            <tr>
+                                <td class="txt_l pd_l25">최근 조회된 전화번호</td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07076781102" alt="07076781102"> 070-7678-1102 -   <font color="#8d8d8d" >대출</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07070786707" alt="07070786707"> 070-7078-6707 -   <font color="#8d8d8d" >스팸 신고 많은 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=?0629444446?" alt="?0629444446?"> ?06-2944-4446? -   <font color="#8d8d8d" >062-944-4446</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0264109561" alt="0264109561"> 02-6410-9561 -   <font color="#8d8d8d" >소프트론</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07070790631" alt="07070790631"> 070-7079-0631 -   <font color="#8d8d8d" >스팸 신고 많은 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=029006708" alt="029006708"> 02-900-6708 -   <font color="#8d8d8d" >대출 권유</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0260222087" alt="0260222087"> 02-6022-2087 -   <font color="#8d8d8d" >스팸 신고 많은 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=027030963" alt="027030963"> 02-703-0963 -   <font color="#8d8d8d" >차단이 많이 된 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07076652464" alt="07076652464"> 070-7665-2464 -   <font color="#8d8d8d" >차단이 많이 된 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0215995167" alt="0215995167"> 02-1599-5167 -   <font color="#8d8d8d" >하나금융</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0222101742" alt="0222101742"> 02-2210-1742 -   <font color="#8d8d8d" >차단이 많이 된 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0263939361" alt="0263939361"> 02-6393-9361 -   <font color="#8d8d8d" >차단이 많이 된 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0317128202" alt="0317128202"> 031-712-8202 -   <font color="#8d8d8d" >리콘바이크 분당점</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=023328836" alt="023328836"> 02-332-8836 -   <font color="#8d8d8d" >감성타코합정점</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=023328836" alt="023328836"> 02-332-8836 -   <font color="#8d8d8d" >감성타코합정점</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=0261054576" alt="0261054576"> 02-6105-4576 -   <font color="#8d8d8d" >차단이 많이 된 번호</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07078478994" alt="07078478994"> 070-7847-8994 -   <font color="#8d8d8d" >비아그라</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=07077268469" alt="07077268469"> 070-7726-8469 -   <font color="#8d8d8d" >명함천사</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=820423403405" alt="820423403405"> 820-4234-03405 -   <font color="#8d8d8d" >SK</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td class="txt_l pd_l25 section"><a href="/?phonenumber=02) 6049 1202" alt="02) 6049 1202"> 02-) 60-49 1202 -   <font color="#8d8d8d" >유랑 글로벌 인사팀</font></a></td>
+                            </tr>
+							
+                            <tr>
+                                <td valign="top"><img src="/images/side_bottom.gif"  /></td>
+                            </tr>
+                        </table>
+                    </div>
+                   
+                     
+                </div>
+
+
+
+
+                <!--Side area E-->
+            </td>
+        </tr>
+        <tr>
+            <td height="20"></td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "5ce2b0d322a394";
+wcs_do();
+</script>
+
+</body>
+</html>
+
+<script type="text/javascript" src="/common/js/prototype.js?v=1.7.3"></script>

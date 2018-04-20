@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mapeia - Cálculo de rotas com pedágio, combustível, distância e tempo de viagem</title>
+    <meta name=description
+          content="Veja a sua rota no mapa e descubra os custos da sua viagem de carro. Planeje, encontre ofertas e economize!"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <link rel="icon" type="image/png" href="/images/mapeia-64x64.png" sizes="64x64"/>
+    <link rel="icon" type="image/png" href="/images/mapeia-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/images/mapeia-16x16.png" sizes="16x16"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/icons.css"/>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/mapeia.css?v=36"/>
+    <script src="https://maps.google.com/maps/api/js?v=3.29&key=AIzaSyA4Kgr4xGf_ZrQjLVNTNlaiFGD_HbmKD4c&libraries=places&language=pt-BR&region=BR"></script>
+    <script src="/scripts/jquery-1.11.3.min.js"></script>
+    <script src="/scripts/latinise.min.js"></script>
+    <script src="/scripts/turf.min.js"></script>
+    <script src="/scripts/mapeia.js?v=36"></script>
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                    '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+    <script type='text/javascript'>
+        var gptSlot1, gptSlot2, gptSlot3, gptSlot4, gptSlot5;
+        googletag.cmd.push(function () {
+            gptSlot1 = googletag.defineSlot('/85930771/MapeiaHome300x250Top', [300, 250], 'gpt-ad-1').addService(googletag.pubads());
+            gptSlot2 = googletag.defineSlot('/85930771/MapeiaHome300x250Bottom', [300, 250], 'gpt-ad-2').addService(googletag.pubads());
+            gptSlot3 = googletag.defineSlot('/85930771/MapeiaResults300x250', [300, 250], 'gpt-ad-3').addService(googletag.pubads());
+            gptSlot4 = googletag.defineSlot('/85930771/MapeiaMap728x90Bottom', [728, 90], 'gpt-ad-4').addService(googletag.pubads());
+            gptSlot5 = googletag.defineSlot('/85930771/MapeiaResults300x80', [300, 80], 'gpt-ad-5').addService(googletag.pubads());
+            googletag.pubads().disableInitialLoad();
+            googletag.enableServices();
+        });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45571763-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+<div id="left-panel">
+    <div id="left-panel-top">
+        <div id="logo">
+            <a href="/">
+                <img src="/images/mapeia-logo.png" width="121px" height="40px"/>
+            </a>
+        </div>
+    </div>
+    <div id="left-panel-main">
+        <div id="query">
+            <div id="move-waypoints">
+                <a href="#" id="swap" disabled="true"><span class="icon icon-swap_vert"></span></a>
+            </div>
+            <div id="waypoints">
+                <div class="waypoint">
+                    <input id="origin" type="text" placeholder="Digite a origem">
+                </div>
+                <div class="waypoint">
+                    <input id="destination" type="text" placeholder="Digite o destino">
+                </div>
+            </div>
+            <div id="query-bottom">
+                <div>
+                    <input id="fuel-price" type="text" placeholder="R$ / litro">
+                    <span class="icon icon-gaspump"></span>
+                </div>
+                <div>
+                    <input id="fuel-consumption" type="text" placeholder="Km / litro">
+                    <span class="icon icon-directions_car"></span>
+                </div>
+                <a href="#" id="calc">Mapear <span class="icon icon-arrow-right"></span></a>
+            </div>
+        </div>
+
+        <div class="results-panel" id="loading"></div>
+        <div class="results-panel" id="error"></div>
+        <div class="results-panel" id="results">
+            <div class="results-row">
+                <a class="result" id="time">
+                    <span class="result-label"><span class="icon-stopwatch"></span></span>
+                    <span class="result-value" id="time-value"></span>
+                    <span class="tooltip">Duração</span>
+                </a>
+                <a class="result" id="dist">
+                    <span class="result-label"><span class="icon-road"></span></span>
+                    <span class="result-value" id="dist-value"></span>
+                    <span class="tooltip">Distância</span>
+                </a>
+            </div>
+            <div class="results-row">
+                <a class="result total-result" id="fuel">
+                    <span class="result-label"><span class="icon-gaspump"></span></span>
+                    <span class="result-value" id="fuel-value"></span>
+                    <span class="tooltip">Combustível</span>
+                </a>
+                <span class="total-result" id="plus-sign">+</span>
+                <a class="result" id="tolls">
+                    <span class="result-label"><img src="/images/toll-icon-dollar-black-18.png"></span>
+                    <span class="result-value" id="toll-value"></span>
+                    <span class="tooltip">Pedágios</span>
+                </a>
+                <span class="total-result" id="equal-sign">=</span>
+                <a class="result total-result" id="total">
+                    <span class="result-value" id="total-value"></span>
+                    <span class="tooltip">Custo total</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="ad-panel result-dependent sponsor" id="sponsor-1">
+            <div id='gpt-ad-5' style='height:80px; width:300px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('gpt-ad-5');
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="ad-panel result-dependent offer" id="hotels">
+            <div class="offer-img">
+                <img src="/images/hotel.jpg">
+            </div>
+            <div class="offer-label">
+                <div>Encontre <strong>hotéis</strong> em</div>
+                <div id="hotels-city"></div>
+            </div>
+        </div>
+
+        <div class="ad-panel result-dependent offer" id="coach">
+            <div class="offer-img">
+                <img src="/images/coach.jpg">
+            </div>
+            <div class="offer-label">
+                <div>Encontre passagens</div>
+                <div>de <strong>ônibus</strong></div>
+            </div>
+        </div>
+
+        <div class="ad-panel post-results" id="ad-3">
+            <div id='gpt-ad-3' style='height:250px; width:300px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('gpt-ad-3');
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="ad-panel pre-results" id="ad-1">
+            <div id='gpt-ad-1' style='height:250px; width:300px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('gpt-ad-1');
+                        googletag.pubads().refresh([gptSlot1]);
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="ad-panel pre-results" id="ad-2">
+            <div id='gpt-ad-2' style='height:250px; width:300px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('gpt-ad-2');
+                        googletag.pubads().refresh([gptSlot2]);
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="map-ad result-dependent" id="ad-4">
+            <div id='gpt-ad-4' style='height:90px; width:728px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('gpt-ad-4');
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="map"></div>
+
+
+<script>
+    googletag.cmd.push(function () {
+        init({"lat": null, "lng": null, "address": null}, {"lat": null, "lng": null, "address": null});
+    });
+</script>
+
+</body>
+</html>

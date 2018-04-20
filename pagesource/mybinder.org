@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binder (beta)</title>
+  
+<meta id="base-url" data-url="/">
+<script src="/static/dist/bundle.js?v=5e6219ecd5ab8e9c0b83ac606ea38f59"></script>
+
+  <link id="favicon" rel="shortcut icon" type="image/png" href="/static/favicon.ico?v=7102bb857703a0fece6d039a6777fc3f" />
+  <link href="/static/dist/styles.css?v=29c46cc42adc69240d63a4ffa7455fd4" rel="stylesheet"></link>
+
+  
+<script>
+ 
+</script>
+
+
+</head>
+<body>
+  
+
+  
+  <div class="container">
+    <div class="row">
+      <div id="logo-container">
+        <img id="logo" src="/static/logo.svg?v=f9f0d927b67cc9dc99d788c822ca21c0" width="390px"  />
+      </div>
+    </div>
+  </div>
+  
+
+  
+<div id="main" class="container">
+  <div class="row">
+    <h4 class="text-center logo-subtext">(beta)</h4>
+    <div class="col-lg-10 col-lg-offset-1">
+      <div id="header" class="text-center">
+        <h3>Turn a GitHub repo into a collection of interactive notebooks</h3>
+        <div id="explanation">
+          Have a repository full of Jupyter notebooks? With Binder, open those notebooks in an executable environment, making your code immediately reproducible by anyone, anywhere.
+        </div>
+      </div>
+
+      <form id="build-form" class="form jumbotron">
+        <h4 id="form-header" class='row'>Build and launch a repository</h4>
+        <div class="form-group row">
+          <label for="repository">GitHub repo or URL</label>
+          <input class="form-control" type="text" id="repository" placeholder="GitHub repository name or link" value=""/>
+        </div>
+        <div class="form-row row">
+          <div class="form-group col-md-4">
+            <label for="ref">Git branch, tag, or commit</label>
+            <input class="form-control" type="text" id="ref" placeholder="master" value=""/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="filepath"></label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="filepath"
+                placeholder=""
+                value=""
+              />
+              <div class="input-group-btn" id="url-or-file-btn">
+                <button type="button" class="btn btn-secondary dropdown-toggle"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  title="Specify whether the path to open is a URL or a file"
+                >
+                <span id="url-or-file-selected">
+                File
+                </span>
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="#">File</a></li>
+                  <li class="dropdown-item"><a href="#">URL</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-2">
+            <div class="btn-group" id="launch-buttons">
+              <button id="submit" class="btn-submit" type="submit">launch</button>
+            </button>
+            </div>
+          </div>
+        </div>
+
+        <!--url section-->
+        <div class="url row">
+            <div class="bluedropdown">
+              <label>Copy the URL below and share your Binder with others:</label>
+            </div>
+            <div class="url-row">
+              <pre id="basic-url-snippet" data-default="Fill in the fields to see a URL for sharing your Binder."></pre>
+              <img class="icon clipboard" src="/static/images/copy-icon-black.svg?v=2b8143bdaefdc425fbf8293cd1d76843" data-clipboard-target="#basic-url-snippet" alt="Copy to clipboard">
+            </div>
+        </div>
+
+        <div class="badges row">
+            <div class="bluedropdown" id="toggle-badge-snippet">
+              <label>Copy the text below, then paste into your README to show a binder badge: <img id="badge" src="/static/images/badge.svg?v=a91770fb1255ac9f9e6cd6f5a92b5d17"></label>
+              <a id="badge-link"></a>
+              <a href="#" title="show badge snippets"><span id="badge-snippet-caret" class="glyphicon glyphicon-triangle-right"></span></a>
+
+              </button>
+            </div>
+            <div id="badge-snippets" class="hidden">
+              <!--Markdown section-->
+              <div  class="badge-snippet-row">
+                 <pre id="markdown-badge-snippet" data-default="Fill in the fields to see the markdown badge snippet."></pre>
+                 <img class="icon" src="/static/images/markdown-icon.svg?v=4e4923577a5e538ad262509d8c569fa3">
+                 <img class="icon clipboard"
+                    src="/static/images/copy-icon-black.svg?v=2b8143bdaefdc425fbf8293cd1d76843"
+                    data-clipboard-target="#markdown-badge-snippet"
+                    alt="Copy markdown link to clipboard">
+              </div>
+              <!--RST section-->
+              <div  class="badge-snippet-row">
+                  <pre id="rst-badge-snippet" data-default="Fill in the fields to see the rST badge snippet."></pre>
+                  <img class="icon" src="/static/images/rst-icon.svg?v=39f5db3a54755fe734e5311bd6288c5c">
+                  <img class="icon clipboard" src="/static/images/copy-icon-black.svg?v=2b8143bdaefdc425fbf8293cd1d76843"
+                    data-clipboard-target="#rst-badge-snippet"
+                    alt="Copy rst link to clipboard">
+              </div>
+            </div>
+        </div>
+
+        <div id="build-progress" class="progress on-build hidden row">
+          <div id="phase-failed" class="progress-bar progress-bar-danger progress-bar-striped hidden" style="width: 100%">
+            Failed
+          </div>
+          <div id="phase-waiting" class="progress-bar progress-bar-danger progress-bar-striped active hidden" style="width: 10%">
+            Waiting
+          </div>
+          <div id="phase-already-built" class="progress-bar progress-bar-warning progress-bar-striped active hidden" style="width: 90%">
+            Already built!
+          </div>
+          <div id="phase-building" class="progress-bar progress-bar-warning progress-bar-striped active hidden" style="width: 40%">
+            Building
+          </div>
+          <div id="phase-pushing" class="progress-bar progress-bar-info progress-bar-striped active hidden" style="width: 40%">
+            Pushing
+          </div>
+          <div id="phase-launching" class="progress-bar progress-bar-success progress-bar-striped active hidden" style="width: 10%">
+            Launching
+          </div>
+        </div>
+
+        <div id="log-container" class="panel panel-default on-build hidden row">
+          <div id="toggle-logs" class="panel-heading">
+            Build logs
+            <button class="btn btn-link btn-xs pull-right">show</button>
+          </div>
+          <div class="panel-body hidden">
+            <div id="log"></div>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <div id="how-it-works">
+    <h3 class="text-center">How it works</h3>
+
+    <div class="row">
+      <div class="col-md-1 col-md-offset-2 point-container">
+        <span class="point point-orange">1</span>
+      </div>
+      <div class="col-md-7 front">
+        <span class="front-em">Enter your repository information</span><br />Provide in the above form a URL or a GitHub repository that contains Jupyter notebooks, as well as a branch, tag, or commit hash. Launch will build your Binder repository. If you specify a path to a notebook file, the notebook will be opened in your browser after building.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-md-offset-2 point-container">
+        <span class="point point-red">2</span>
+      </div>
+      <div class="col-md-7 front">
+        <span class="front-em">We build a Docker image of your repository</span><br />Binder will search for a dependency file, such as requirements.txt or environment.yml, in the repository's root directory (<a href="http://mybinder.readthedocs.io/en/latest/using.html#preparing-a-repository-for-binder">more details on more complex dependencies in documentation</a>). The dependency files will be used to build a Docker image. If an image has already been built for the given repository, it will not be rebuilt. If a new commit has been made, the image will automatically be rebuilt.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-md-offset-2 point-container">
+        <span class="point point-blue">3</span>
+      </div>
+      <div class="col-md-7 front">
+        <span class="front-em">Interact with your notebooks in a live environment!</span><br />A <a href="https://jupyterhub.readthedocs.io/en/latest/">JupyterHub</a> server will host your repository's contents. We offer you a reusable link and badge to your live repository that you can easily share with others.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="container">
+    <div class="row text-center">
+      <h3>questions?<br />join the <a href="https://gitter.im/jupyterhub/binder">chat</a>, read the <a href="https://mybinder.readthedocs.io/en/latest/">docs</a>, see the <a href="https://github.com/jupyterhub/binderhub">code</a></h3>
+    </div>
+  </div>
+  
+
+  
+  <script>
+    // Only load GA if DNT is not set
+    if (navigator.doNotTrack != "1" && // Most Firefox & Chrome
+      window.doNotTrack != "1" && // IE & Safari
+      navigator.msDoNotTrack != "1" // Old IE
+  ) {
+    console.log("Loading Google Analytics, since Do Not Track is off");
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101904940-1', 'mybinder.org');
+    ga('send', 'pageview');
+  }
+  </script>
+  
+  
+</body>
+</html>

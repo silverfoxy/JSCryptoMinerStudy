@@ -1,0 +1,1 @@
+Redirect: <a href="http://www.hotelczteryporyroku.com.pl/">click here</a>

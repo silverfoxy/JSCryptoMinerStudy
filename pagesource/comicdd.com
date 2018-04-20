@@ -1,0 +1,1 @@
+<script language='javascript' src='https://count7.51yes.org/click.aspx?id=70555995&logo=12' charset='gb2312'></script>

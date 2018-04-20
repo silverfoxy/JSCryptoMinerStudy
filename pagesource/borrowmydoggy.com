@@ -1,0 +1,1 @@
+Redirecting to <a href="https://www.borrowmydoggy.com/">https://www.borrowmydoggy.com/</a>

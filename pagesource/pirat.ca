@@ -1,0 +1,1908 @@
+<!DOCTYPE html><html dir="ltr">
+<head>
+<title>Портал :: Pirat.ca :: Скачать торрент бесплатно</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="yandex-verification" content="727d8dd15d5da6bf" />
+<meta key="59f675cfb66268cf3153d2573cb06a3a" />
+<link rel="stylesheet" href="http://pirat.ca/templates/default/css/main.css?v=4" type="text/css">
+<link rel="alternate" title="Pirat.ca :: Скачать торрент бесплатно RSS feed" href="rss.php" type="application/rss+xml">
+
+<link rel="shortcut icon" href="http://pirat.ca/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="http://pirat.ca/apple-touch-icon.png">
+<link rel="search" type="application/opensearchdescription+xml" href="http://pirat.ca/opensearch_desc.xml" title="Pirat.ca :: Скачать торрент бесплатно (Forum)" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://pirat.ca/opensearch_desc_bt.xml" title="Pirat.ca :: Скачать торрент бесплатно (Tracker)" />
+<script type="text/javascript" src="http://pirat.ca/misc/js/jquery.pack.js?v=3"></script>
+<script type="text/javascript" src="http://pirat.ca/misc/js/jquery.rater.js?v=3"></script>
+<script type="text/javascript" src="http://pirat.ca/misc/js/main.js?v=3"></script>
+<script type="text/javascript" src="http://pirat.ca/misc/js/swfobject.js?v=3"></script>
+<link rel="stylesheet" type="text/css" href="http://pirat.ca/misc/js/fancybox/fancybox.css?v=4" media="screen">
+<script type="text/javascript" src="http://pirat.ca/misc/js/fancybox/jquery-fancybox.js?v=4"></script>
+<script type="text/javascript" src="http://pirat.ca/misc/js/fancybox/jquery.mousewheel.js?v=4"></script>
+<link rel="stylesheet" type="text/css" href="http://pirat.ca/misc/js/fancybox/helpers/jquery.fancybox-thumbs.css?v=4" />
+<script type="text/javascript" src="http://pirat.ca/misc/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=4"></script>
+<script type="text/javascript">
+function imgSize(href)
+{
+	var img = new Image();
+	img.onload = function() {
+		$link = $("a[href='"+href+"']");
+		$link.attr("title", "Размер изображения: "+ img.width+" x "+img.height);
+		$link.tooltip({track: true, delay: 0, showURL: false, fixPNG: true});
+	}
+	img.src = href;
+}
+$(document).ready(function() {
+	$("a.zoom").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}
+	});
+});
+</script>
+<script type="text/javascript" src="http://pirat.ca/misc/js/bbcode.js?v=3"></script>
+<script type="text/javascript">
+var postImg_MaxWidth = 500;
+var postImgAligned_MaxWidth = 500;
+var ExternalLinks_InNewWindow = '1';
+var hidePostImg = false;
+
+function copyText_writeLink(node)
+{
+	if (!is_ie) return;
+	document.write('<p style="float: right;"><a class="txtb" onclick="if (ie_copyTextToClipboard('+node+')) alert(\'Код скопирован в буфер обмена\'); return false;" href="#">скопировать в буфер обмена</a></p>');
+}
+function initPostBBCode(context)
+{
+	$('span.post-hr', context).html('<hr align="left" />');
+	initQuotes(context);
+	initExternalLinks(context);
+	initPostImages(context);
+	initSpoilers(context);
+	initMedia(context);
+}
+function initQuotes(context)
+{
+	$('div.q', context).each(function(){
+		var $q = $(this);
+		var name = $(this).attr('head');
+		var q_title = (name ? '<b>'+name+'</b> писал(а):' : '<b>Цитата</b>');
+		if ( quoted_pid = $q.children('u.q-post:first').text() ) {
+			var on_this_page = $('#post_'+quoted_pid).length;
+			var href = (on_this_page) ? '#'+ quoted_pid : './viewtopic.php?p='+ quoted_pid +'#'+ quoted_pid;
+			q_title += ' <a href="'+ href +'" title="Перейти к цитируемому сообщению"><img src="http://pirat.ca/templates/default/images/icon_latest_reply.gif" class="icon2" alt="" /></a>';
+		}
+		$q.before('<div class="q-head">'+ q_title +'</div>');
+	});
+}
+function initPostImages(context)
+{
+	if (hidePostImg) return;
+	var $in_spoilers = $('div.sp-body var.postImg', context);
+	$('var.postImg', context).not($in_spoilers).each(function(){
+		var $v = $(this);
+		var src = $v.attr('title');
+		var $img = $('<img src="'+ src +'" class="'+ $v.attr('class') +'" alt="pic" />');
+		$img = fixPostImage($img);
+		var maxW = ($v.hasClass('postImgAligned')) ? postImgAligned_MaxWidth : postImg_MaxWidth;
+		$img.bind('click', function(){ return imgFit(this, maxW); });
+		if (user.opt_js.i_aft_l) {
+			$('#preload').append($img);
+			var loading_icon = '<a href="'+ src +'" target="_blank"><img src="http://pirat.ca/images/pic_loading.gif" alt="" /></a>';
+			$v.html(loading_icon);
+			if ($.browser.msie) {
+				$v.after('<wbr>');
+			}
+			$img.one('load', function(){
+				imgFit(this, maxW);
+				$v.empty().append(this);
+			});
+		}
+		else {
+			$img.one('load', function(){ imgFit(this, maxW) });
+			$v.empty().append($img);
+			if ($.browser.msie) {
+				$v.after('<wbr>');
+			}
+		}
+	});
+}
+function initSpoilers(context)
+{
+	$('div.sp-body', context).each(function(){
+		var $sp_body = $(this);
+		var name = $.trim(this.title) || 'Скрытый текст';
+		this.title = '';
+		var $sp_head = $('<div class="sp-head folded clickable">'+ name +'</div>');
+		$sp_head.insertBefore($sp_body).click(function(e){
+			if (!$sp_body.hasClass('inited')) {
+				initPostImages($sp_body);
+				var $sp_fold_btn = $('<div class="sp-fold clickable">[Свернуть]</div>').click(function(){
+					$.scrollTo($sp_head, { duration:200, axis:'y', offset:-200 });
+					$sp_head.click().animate({opacity: 0.1}, 500).animate({opacity: 1}, 700);
+				});
+				$sp_body.prepend('<div class="clear"></div>').append('<div class="clear"></div>').append($sp_fold_btn).addClass('inited');
+			}
+			if (e.shiftKey) {
+				e.stopPropagation();
+				e.shiftKey = false;
+				var fold = $(this).hasClass('unfolded');
+				$('div.sp-head', $($sp_body.parents('td')[0])).filter( function(){ return $(this).hasClass('unfolded') ? fold : !fold } ).click();
+			}
+			else {
+				$(this).toggleClass('unfolded');
+				$sp_body.slideToggle('fast');
+			}
+		});
+	});
+}
+function initExternalLinks(context)
+{
+  	var context = context || 'body';
+  	if (ExternalLinks_InNewWindow) {
+  		$("a.postLink:not([href*='"+ window.location.hostname +"/'])", context).attr({ target: '_blank' });
+  		//$("a.postLink:not([@href*='"+ window.location.hostname +"/'])", context).replaceWith('<span style="color: red;">Ссылки запрещены</span>');
+  	}
+}
+function fixPostImage ($img)
+{
+	var banned_image_hosts = /imagebanana|hidebehind/i;  // imageshack
+	var src = $img[0].src;
+	if (src.match(banned_image_hosts)) {
+		$img.wrap('<a href="'+ this.src +'" target="_blank"></a>').attr({ src: "http://pirat.ca/images/tr_oops.gif", title: "Прочтите правила размещения скриншотов!" });
+	}
+	return $img;
+}
+function initMedia(context)
+{
+	var apostLink = $('a.postLink', context);
+	for (var i = 0; i < apostLink.length; i++) {
+		var link = apostLink[i];
+		if (typeof link.href != 'string') {
+			continue;
+		}
+		if (/^http(?:s|):\/\/www.youtube.com\/watch\?(.*)?(&?v=([a-z0-9\-_]+))(.*)?|http:\/\/youtu.be\/.+/i.test(link.href)) {
+			var a = document.createElement('span');
+			a.className = 'YTLink';
+			a.innerHTML = '<span title="Начать проигрывание на текущей странице" class="YTLinkButton">&#9658;</span>';
+			window.addEvent(a, 'click', function (e) {
+				var vhref = e.target.nextSibling.href.replace(/^http(?:s|):\/\/www.youtube.com\/watch\?(.*)?(&?v=([a-z0-9\-_]+))(.*)?|http:\/\/youtu.be\//ig, "http://www.youtube.com/embed/$3");
+				var text  = e.target.nextSibling.innerText != "" ? e.target.nextSibling.innerText : e.target.nextSibling.href;
+				$('#Panel_youtube').remove();
+				ypanel('youtube', {
+					title: '<b>' + text + '</b>',
+					resizing: 0,
+					width: 862,
+					height: 550,
+					content: '<iframe width="853" height="510" frameborder="0" allowfullscreen="" src="' + vhref + '?wmode=opaque"></iframe>'
+				});
+			});
+			link.parentNode.insertBefore(a, link);
+			a.appendChild(link);
+		}
+	}
+	$('a[href^="http://soundcloud.com/"]', context).each(function(){
+		if ($.browser.msie && $.browser.version < 9) {
+			return;
+		}
+		var $a = $(this);
+		var sc_url = $a.attr('href');
+		var $m_span = build_m_link($a);
+
+		$m_span.click(function(e){
+			e.preventDefault();
+			if (typeof SC == 'undefined') {
+				$.ajax({
+					url: "http://connect.soundcloud.com/sdk.js", dataType: "script", cache: true, global: false,
+					success: function(){ sc_embed($m_span, sc_url) }
+				});
+			}
+			else {
+				sc_embed($m_span, sc_url);
+			}
+		});
+	});
+}
+function build_m_link ($a)
+{
+	return $a.wrap('<span class="m-link" title="Начать проигрывание"></span>').after('<span class="m-icon">&#9658;</span>').parent();
+}
+function sc_embed ($m_span, sc_url)
+{
+	var $player_div = $('<div style="clear: both; margin: 8px 0 2px;"><i class="loading-1"></i></div>');
+	$m_span.after($player_div).remove();
+	SC.oEmbed(sc_url, {auto_play: false}, $player_div[0]);
+}
+$(document).ready(function(){
+  	$('div.post_wrap, div.signature').each(function(){ initPostBBCode( $(this) ) });
+});
+</script>
+<script type="text/javascript">
+var BB_ROOT       = "./";
+var cookieDomain  = ".pirat.ca";
+var cookiePath    = "/";
+var cookieSecure  = 0;
+var cookiePrefix  = "bb_";
+var LOGGED_IN     = 0;
+var InfoWinParams = 'HEIGHT=550,resizable=yes,WIDTH=780';
+
+var user = {
+  	opt_js: {},
+
+  	set: function(opt, val, days, reload) {
+  		this.opt_js[opt] = val;
+  		setCookie('opt_js', $.toJSON(this.opt_js), days);
+  		if (reload) {
+  			window.location.reload();
+  		}
+  	}
+}
+
+var ajax = new Ajax('http://pirat.ca/ajax.php', 'POST', 'json');
+
+function getElText (e)
+{
+  	var t = '';
+  	if (e.textContent !== undefined) { t = e.textContent; } else if (e.innerText !== undefined) { t = e.innerText; } else { t = jQuery(e).text(); }
+  	return t;
+}
+function escHTML (txt)
+{
+  	return txt.replace(/</g, '&lt;');
+}
+
+function collapsElement(id) {
+    if ( document.getElementById(id).style.display != "none" ) {
+        document.getElementById(id).style.display = 'none';
+    }
+    else {
+        document.getElementById(id).style.display = '';
+    }
+}
+
+</script>
+<!--[if lte IE 6]><script type="text/javascript">
+$(ie6_make_clickable_labels);
+
+$(function(){
+	$('div.menu-sub').prepend('<iframe class="ie-fix-select-overlap"></iframe>'); // iframe for IE select box z-index issue
+	Menu.iframeFix = true;
+});
+</script><![endif]-->
+<!--[if gte IE 7]><style type="text/css">
+input[type="checkbox"] { margin-bottom: -1px; }
+</style><![endif]-->
+<!--[if lte IE 6]><style type="text/css">
+.forumline th { height: 24px; padding: 2px 4px; }
+.menu-sub iframe.ie-fix-select-overlap { display: none; display: block; position: absolute; z-index: -1; filter: mask(); }
+</style><![endif]-->
+<!--[if IE]><style type="text/css">
+.post-hr { margin: 2px auto; }
+.fieldsets div > p { margin-bottom: 0; }
+</style><![endif]-->
+<style type="text/css">
+	.menu-sub, #ajax-loading, #ajax-error, var.ajax-params, .sp-title, .q-post { display: none; }
+</style>
+<style>
+@font-face {
+	font-family: "Pirat";
+	src: local("JakobCTT-Bold"),
+	url('/templates/default/css/fonts/JakobCTT-Bold.otf');
+}
+</style>
+<!--[if IE]>
+<style>
+@font-face {
+	font-family: "Pirat";
+	src: url("/templates/default/css/fonts/JakobCTT-Bold.eot");
+	src: url("/templates/default/css/fonts/JakobCTT-Bold.eot?#iefix") format("embedded-opentype");
+}
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<script type="text/javascript">
+$(function(){
+	$('#search-action').bind('change', function(){
+		if ($('#search-text').val() != '') {
+			$('#quick-search input[type="submit"]').prop({disabled: true});
+			$('#quick-search').submit();
+		}
+	});
+
+	$('#quick-search').submit(function(){
+		var action = $('#search-action').val();
+		var txt = $('#search-text').val();
+		$(this).attr('target', '');
+		if (txt=='поиск...' || txt == '') {
+			$('#search-text').val('').addClass('hl-err-block').focus();
+			return false;
+		}
+		if (action == 'mailru') {
+			$(this).attr('action', 'tracker.php#results');
+		}
+		else if (action == 'hash') {
+			window.location.href = 'viewtopic.php?h='+txt;
+			return false;
+		}
+		else {
+			$(this).attr('action', action);
+		}
+	});
+});
+</script>
+<div id="cse-form-holder" style="display: none;">
+<form action="search_cse.php" id="cse-search-box">
+<input type="hidden" name="cx" value="partner-pub-6497884261777106:7123459414" />
+<input type="hidden" name="cof" value="FORID:9" />
+<input type="hidden" name="ie" value="UTF-8" />
+<input type="text" name="q" size="60" value="" id="cse-text-match" />
+<input type="submit" name="sa" value="Поиск в Google" id="cse-submit-btn" />
+</form>
+</div>
+
+<div class="menu-sub" id="pg-jump">
+<table cellspacing="1" cellpadding="4">
+<tr><th>К странице…</th></tr>
+<tr><td>
+<form method="get" onsubmit="return go_to_page();">
+<input id="pg-page" type="text" size="5" maxlength="4" />
+<input type="submit" value="Перейти" />
+</form>
+</td></tr>
+</table>
+</div>
+<script type="text/javascript">
+function go_to_page ()
+{
+	var page_num = (parseInt( $('#pg-page').val() ) > 1) ? $('#pg-page').val() : 1;
+	var pg_start = (page_num - 1) * 10;
+	window.location = 'portal.php?cat=all&start=' + pg_start;
+	return false;
+}
+</script>
+<div id="ajax-loading"></div><div id="ajax-error"></div>
+<div id="preload" style="position: absolute; overflow: hidden; top: 0; left: 0; height: 1px; width: 1px;"></div>
+<div id="body_container">
+
+
+
+<div id="page_container">
+<a name="top"></a>
+
+<div id="page_header">
+
+<nav>
+<div id="main_nav" style="margin-top:0;">
+<ul id="main_nav_1st_group">
+<li><a id="menu-home" title="Главная" alt="Главная" href="/./index.php"></a></li>
+<li><a id="menu-chat" title="Чат" alt="Чат" href="chat_full.php"></a></li>
+<li><a id="menu-trecker" title="Поиск по трекеру" alt="Трекер" href="tracker.php"></a></li>
+<li><a id="menu-search" title="Поиск по форуму" alt="Поиск" href="search.php"></a></li>
+<li><a id="menu-terms" title="Кодекс" alt="Кодекс" href="Guidelines.html"></a></li>
+<li><a id="menu-faq" title="FAQ" alt="FAQ" href="faq.php"></a></li>
+ <li><a id="menu-portal" title="Портал" alt="Портал" href="portal.php"></a></li>
+<li><a id="menu-feed" title="Pirat.ca :: Скачать торрент бесплатно RSS feed" alt="Pirat.ca :: Скачать торрент бесплатно RSS feed" href="rss.php" target="_blank"></a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="logo" style="height: 130px;">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div style="position: absolute; left: 0; top: 22px;">
+
+<a href="/./index.php"><img id="logo-img" src="/templates/default/images/logo.gif" alt="Pirat.ca :: Скачать торрент бесплатно" /></a>
+
+</div>
+</td>
+<td>
+<div id="ad-101">
+
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="quick-search">
+<form id="quick-search" action="" method="get">
+<input type="hidden" name="fr" value="main">
+<input type="hidden" name="aux" value="pa98fj">
+<input type="hidden" name="p" value="1">
+<input id="search-text" class="searchform" type="text" style="width: 250px;" name="nm" tabindex="1" accesskey="q" placeholder="Введите текст для поиска" />&nbsp;
+<select id="search-action" style="display: none;">
+<option value="mailru" selected="selected"></option>
+</select>
+<input type="submit" id="searchbutton" value="&raquo;" style="width: 30px;">
+</form>
+</div>
+<div class="login_action"><a href="./login.php" style="color:green;" title="Авторизация">Вход на палубу</a> и регистрация&nbsp;<a href="profile.php?mode=register" title="Регистрация" style="color:#CC0000;">здесь</a></div>
+<div class="do-it">
+<td><a href="./login.php"><img src="./templates/default/images/do-it.gif" alt=""></a></td>
+</div>
+</div>
+
+
+
+
+<div id="page_content">
+<table class="main" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+<tr> 
+<td id="sidebar1">
+<div id="sidebar1-wrap">
+<div class="spacer_8"></div>
+<div class="tCenter"><a href="/./index.php" title="Форум"><img src="/images/forum.png" alt="" border="0" /></a></div>
+<div class="spacer_8"></div>
+<div class="tCenter"><img src="posters/ogorodnik.png" alt="" border="0" /></div>
+<div class="spacer_4"></div>
+<div class="tCenter"><a href="viewtopic.php?t=9216"><img src="images/sidebar/goodwill.png" alt="" border="0" /></a></div>
+<div class="spacer_8"></div>
+<div class="tCenter"><a href="index.php?c=72"><img src="images/sidebar/lenta.png" alt="" border="0" /></a></div>
+<div class="spacer_2"></div>
+<div class="tCenter"><a href="/viewtopic.php?t=137607" title="Набор в группу Seed Aid"><img src="/images/sidebar/seed.png" border="0" alt="" /></a></div>
+<div class="spacer_2"></div>
+<div class="tCenter"><a href="viewforum.php?f=2017" title="Виртуальная юридическая консультация"><img src="images/sidebar/virtuJur.png" alt="" border="0" /></a></div>
+
+<div class="spacer_8"></div>
+<div class="tCenter"><a href="http://pirat-ca.blogspot.ru" title="Блог"><img src="images/sidebar/blog.png" border="0" alt="" /></a></div>
+<div class="spacer_8"></div>
+<div class="tCenter"><a href="http://pirat.ca/viewtopic.php?t=118076" title="Свободный и открытый интернет"><img src="images/sidebar/freedom.png" border="0" alt="" /></a></div>
+<div class="spacer_10"></div>
+<div class="tCenter"><img src="images/sidebar/side3_new.png" alt="Самые скачиваемые" border="0" /></div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=945">Microsoft Windows 7 SP1 RUS-ENG x86-x64 -18in1- Activated...<wbr></a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=945">
+<img src="/thumbs/6f032eb063858b43eb5450ac32fc4a06.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=1107">Windows 7</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>16-12-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">33709 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=114194">Microsoft Windows 7 Ultimate SP1 IE10+ RUS-ENG x86-x64...</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=114194">
+<img src="/thumbs/7f60af992f68afdb489f4f5d7e592522.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=1107">Windows 7</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>16-05-2013</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">26338 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=11929">Adobe Photoshop CS5.1 Extended (v.12.1.0 Update 2) DVD [RUS...</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=11929">
+<img src="/thumbs/3b652ce33810d4f165fda6084746647f.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=424">Графические редактор...</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>28-12-2011</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">16707 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=173">Windows 7 Loader eXtreme Edition v3 503</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=173">
+<img src="/thumbs/1212f47c3f9fd807bfa39134f40c3d73.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=2255">For Windows</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=172"><span title="Глава модераторской группы" class="colorMod">Koralina</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>15-12-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">15818 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=430">Microsoft Office 2010 SP1 VL RUS-ENG x86-x64 (AIO)</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=430">
+<img src="/thumbs/c09760a06330ee05118e7655c692b82d.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=311">Офисные приложения</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>16-12-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">15012 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=107101">Microsoft Office 2013 VL RUS-ENG x86-x64 (AIO)</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=107101">
+<img src="/thumbs/7f167bed43ba57e638b3fd91498398df.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=311">Офисные приложения</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>13-11-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">12036 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=923">1С:Предприят<wbr>ие 7.7 + все конфигурации<wbr></a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=923">
+<img src="/thumbs/826b92e745b5184b68a8d5396418bc0a.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=2700">Архив</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=775"><span title="Пользователь" class="colorUser">tolkabusiness</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>16-12-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">11362 раза</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=6652">Need for Speed: The Run Limited Edition [v1.1] (2011)...</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=6652">
+<img src="/thumbs/fcdc85dfe2d81ad162a35045442227aa.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=379">Гонки (Racing)</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=5928"><span title="Глава  модераторской группы" class="colorMod">Sash HD</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>24-03-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">11266 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=129982">Windows 8.1 with Update RUS-ENG x86-x64 -12in1- Activated...<wbr></a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=129982">
+<img src="/thumbs/c30808e878f343952d413d6b1892fd46.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=2380">Windows 8</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=4766"><span title="Пользователь" class="colorUser">m0nkrus</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>17-04-2014</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">9712 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="category">
+<div class="f_tbl_wrap">
+<table class="topic" height="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pad_2 tLeft bold" colspan="2">
+<div class="topic-title bold">
+<a href="viewtopic.php?t=107160">Петля времени / Looper (Райан Джонсон / Rian Johnson) [2012...</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop tCenter" width="48%" rowspan="5">
+<div class="topic-poster">
+<a href="viewtopic.php?t=107160">
+<img src="/thumbs/a904d956e235dae8090808b7bb742609.png" alt="" />
+</a>
+</div>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Форум</div>
+<p><a href="viewforum.php?f=2459">Фильмы 2010 - 201...</a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Автор</div>
+<p><a href="http://pirat.ca/profile.php?mode=viewprofile&u=123498"><span title="Best releaser" class="colorGroup">AGKRus36</span></a></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Дата</div>
+<p><small>15-11-2012</small></p>
+</td>
+</tr>
+<tr>
+<td class="vTop">
+<div class="topic-row">Скачали</div>
+<p class="bold">9248 раз</p>
+</td>
+</tr>
+</table>
+<div class="cat_footer"></div>
+</div>
+</div>
+<div class="spacer_10"></div>
+<img width="210" class="spacer" src="http://pirat.ca/images/spacer.gif" alt="" />
+</div>
+</td>
+
+<td id="main_content">
+<div id="main_content_wrap">
+<div id="latest_news">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td width="100%">
+<h3>Новости трекера</h3>
+<table cellpadding="0">
+<tr>
+<td><div class="news_date">08-Мар&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=157678">С 8 марта!</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">14-Дек&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=146475">Набор в группу Seed Aid /*поиск и сидирование раздач*/</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">11-Ноя&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=145757">Набор в релиз-группу &quot;R.G. Mobile&quot; категории &quot;Все для Мобильных платформ&quot;</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">31-Май&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=143107">Новый анонсер, красные раздачи и статистика</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">30-Май&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=143087">РосКомИгнор или как попасть на заблокированные сайты</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">03-Мар&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=140480">Объявляется набор в релиз группу &quot;RG Proper Soft&quot;</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">04-Дек&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=137577">Фантастика, Мистика, Ужасы</a></div></article>
+</td>
+</tr>
+<tr>
+<td><div class="news_date">10-Окт&nbsp;&#151;</div></td>
+<td width="100%">
+<article><div class="drop_cap_sm news_title"><a href="./viewtopic.php?t=136026">Объявляется донабор в R.G. Music Bay</a></div></article>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+ajax.ml_codes = function(mode, code) {
+	ajax.exec({
+		action	: 'ml_codes',
+		mode	: mode,
+		code	: code
+	});
+};
+ajax.callback.ml_codes = function(data){
+    if(data.info) {
+		console.log(data.info);
+		window.location.reload();
+	}
+}
+
+$(function(){
+	$('div#ad-201').on('click', 'object#bs__2', function(e){
+		ajax.ml_codes('click', '20f01b7d4ffbf2eed229b37803fa184a95d6509f');
+	});
+});
+
+</script>
+<table id="ml_code" class="w100 tCenter" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="sm_tp_lt">&nbsp;</td>
+<td class="sm_tp">&nbsp;</td>
+<td class="sm_tp_rt">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_sd_lt">&nbsp;</td>
+<td class="sm_middle_ratio bold">
+Уважаемый Гость!<br />Вы можете поддержать проект и зарегистрироваться у наших партнеров - онлайн-стратегия MyLands. При регистрации в игре Вы получите код, который сможете активировать после регистрации на pirat.ca и получить 1000 дублонов.<br /><br />Ваш код:<br />20f01b7d4ffbf2eed229b37803fa184a95d6509f </td>
+<td class="sm_sd_rt">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<br />
+<style type="text/css">
+.portal-nav a{
+	margin-left: -4px;
+	margin-right: -4px;
+}
+.portal-nav a:first{
+	margin-left: 0px;
+}
+.portal-nav a:last{
+	margin-right: 0px;
+}
+</style>
+<div class="portal-nav tCenter">
+<a href="portal.php?cat=all">
+<img alt="Все раздачи" title="Все раздачи" src="/images/portal/all_active.png">
+</a>
+<a href="portal.php?cat=new">
+<img alt="Новинки проката" title="Новинки проката" src="/images/portal/new.png">
+</a>
+<a href="portal.php?cat=video">
+<img alt="Видео" title="Видео" src="/images/portal/video.png">
+</a>
+<a href="portal.php?cat=games">
+<img alt="Игры" title="Игры" src="/images/portal/games.png">
+</a>
+<a href="portal.php?cat=soft">
+<img alt="Софт" title="Софт" src="/images/portal/soft.png">
+</a>
+<a href="portal.php?cat=music">
+<img alt="Музыка" title="Музыка" src="/images/portal/music.png">
+</a>
+<a href="portal.php?cat=library">
+<img alt="Библиотека" title="Библиотека" src="/images/portal/library.png">
+</a>
+<a href="portal.php?cat=mobile">
+<img alt="Мобильные платформы" title="Мобильные платформы" src="/images/portal/mobile.png">
+</a>
+<a href="portal.php?cat=sport">
+<img alt="Спорт" title="Спорт" src="/images/portal/sport.png">
+</a>
+<a href="portal.php?cat=humor">
+<img alt="Юмор" title="Юмор" src="/images/portal/humor.png">
+</a>
+<a href="portal.php?cat=apple">
+<img alt="Apple soft" title="Apple soft" src="/images/portal/apple.png">
+</a>
+<a href="portal.php?cat=screencasts">
+<img alt="Видеоуроки" title="Видеоуроки" src="/images/portal/screencasts.png">
+</a>
+<a href="portal.php?cat=nixlike">
+<img alt="Nix-like OS" title="Nix-like OS" src="/images/portal/nixlike.png">
+</a>
+<a href="portal.php?cat=training">
+<img alt="Обучение" title="Обучение" src="/images/portal/training.png">
+</a>
+</div>
+<div class="nav" id="pagination">
+<p style="float: left">Страница <b>1</b> из <b>5014</b></p>
+<p style="float: right"><a class="menu-root" href="#pg-jump">Страницы</a> :&nbsp;&nbsp;<b>1</b>, <a href="portal.php?cat=all&amp;start=10">2</a>, <a href="portal.php?cat=all&amp;start=20">3</a>&nbsp;...&nbsp;<a href="portal.php?cat=all&amp;start=50110">5012</a>, <a href="portal.php?cat=all&amp;start=50120">5013</a>, <a href="portal.php?cat=all&amp;start=50130">5014</a>&nbsp;&nbsp;<a href="portal.php?cat=all&amp;start=10">След.</a></p>
+<div class="clear"></div>
+</div>
+<script src="/red/red.js"></script>
+<script type="text/javascript">
+	function hover(){
+		$(".left").stop();
+		$(".right").stop();
+		$("#btn").stop();
+		$("#btn-end").stop();
+		$(".left").animate({"left" : "337px"}, 1000);
+		$("#btn").animate({"opacity" : "0"}, 1000);
+		$(".right").animate({"right" : "337px"}, 1000);
+	}
+
+	function out(){
+		$(".left").stop();
+		$(".right").stop();
+		$("#btn").stop();
+		$("#btn-end").stop();
+		$("#btn").animate({"opacity" : "1"}, 1000);
+		$(".left").animate({"left" : "2px"}, 1000);
+		$(".right").animate({"right" : "2px"}, 1000);
+	}
+
+	$(document).ready(function(){
+		$("#arrows").on("mouseover", hover);
+		$("#arrows").on("mouseout", out);
+	});
+</script>
+<style type="text/css">
+.but{
+	font:15px Calibri, Arial, sans-serif;
+	text-shadow:1px 1px 0 rgba(255,255,255,0.4);
+	text-decoration:none !important;
+	white-space:nowrap;
+	display:inline-block;
+	vertical-align:baseline;
+	position:relative;
+	cursor:pointer;
+	padding:10px 20px;
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	background-image:url(../images/button_bg.png);
+	background-position:bottom left, top right, 0 0, 0 0;
+	background-clip:border-box;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	-moz-box-shadow:0 0 1px #fff inset;
+	-webkit-box-shadow:0 0 1px #fff inset;
+	box-shadow:0 0 1px #fff inset;
+	-webkit-transition:background-position 1s;
+	-moz-transition:background-position 1s;
+	transition:background-position 1s;
+}
+.but:hover{
+	background-position:top left;
+	background-position:top left, bottom right, 0 0, 0 0;
+}
+.but:active{
+	bottom:-1px;
+}
+.but.big{
+	font-size:30px;
+}
+.orange.but{
+	color:#693e0a !important;
+	border:1px solid #bea280 !important;	
+	background-color: #e38d27;
+	background-image:url(../images/button_bg.png), -moz-radial-gradient(center bottom, circle, rgba(232,189,45,1) 0,rgba(232,189,45,0) 100px),-moz-linear-gradient(#f1982f, #d4821f);
+	background-image:url(../images/button_bg.png), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(232,189,45,1)), to(rgba(232,189,45,0))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f1982f), to(#d4821f));
+}
+.orange.but:hover{
+	background-color:#ec9732;
+    background-image:url(../images/button_bg.png), -moz-radial-gradient(center bottom, circle, rgba(241,192,52,1) 0,rgba(241,192,52,0) 100px),-moz-linear-gradient(#f9a746, #e18f2b);
+	background-image:url(../images/button_bg.png), -webkit-gradient(radial, 50% 100%, 0, 50% 100%, 100, from(rgba(241,192,52,1)), to(rgba(241,192,52,0))),-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9a746), to(#e18f2b));
+}
+</style>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157743" class="bold" title="Перейти к релизу">Консультант Плюс. Регионы + Приложения + Беларусь. Пополнения с 05.03 по 16.03.2018</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i100.fastpic.ru/big/2018/0316/03/666e1f40c8a3df90174becb6e5c5d903.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"></div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=29004"><span title="Модераторы СПС" class="colorMod">Alek(@ndr</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;4.12&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;29&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Сегодня 14:50 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79635" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157742" class="bold" title="Перейти к релизу">Эш против Зловещих мертвецов / Ash vs Evil Dead / Сезон 3 / Серии 1-4 из 10 (Марк Бисли / Tony Tilse) [2018, США, ужасы, фэнтези, боевик, комедия, WEBRip] MVO (AlexFilm, Baibako) + Original (Eng)</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i101.fastpic.ru/big/2018/0310/9e/b5193e310566e0f6610343422886809e.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год выпуска:</span> 2018<br />
+<span class="post-b">Жанр:</span> ужасы, фэнтези, боевик, комедия<br />
+<span class="post-b">Режиссер:</span> Марк Бисли / Tony Tilse, Рик Джейкобсон / Tony Tilse, Тони Тилс / Tony Tilse<br />
+<span class="post-b">Качество видео:</span> WEBRip<br />
+<span class="post-b">Формат:</span> AVI<br />
+<span class="post-b">Перевод:</span> - Профессиональный (многоголосый закадровый) |AlexFilm|<br />
+<span class="post-b">Продолжительность:</span> ~ 00:46:00 серия</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=5820"><span title="Модератор Видео" class="colorMod">kugesan</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;2.48&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;6&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Сегодня 14:25 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79634" class="but big orange">Скачать торрент</a></div>
+
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157741" class="bold" title="Перейти к релизу">Смерть шпионам / Сезон-1 / Серии: 1-8 из 8 (Сергей Лялин) [2007, детектив, военный, SATRip-AVC]</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i100.fastpic.ru/big/2018/0320/14/540c549a4e853386763a741112d91914.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год выпуска:</span> 2007<br />
+<span class="post-b">Жанр:</span> детектив, военный<br />
+<span class="post-b">Производство:</span> Россия,Украина,Star Media<br />
+<span class="post-b">В ролях:</span> Никита Тюнин, Александр Пашутин, Александр Ефимов, Юрий Нифонтов, Валерий Золотухин, Наталья Коляканова, Алексей Серебряков, Александр Яценко, Валерий Афанасьев, Александр Песков, Валентин Варецкий, Максим Коновалов, Игорь Савочкин, Виктор Сарайкин, Александр Рапопорт, Олег Савкин, Ева Авеева, Борис Каморзин<span class="post-br"><br /></span><span class="post-b">Описание:</span> Фильм рассказывает о событиях 1944 года и об одной операции СМЕРШа - спецотдела советской контрразведки. Командование подозревает, что на освобожденной территории работает враг, который должен достать компрометирующие советское правительство документы (речь идет о тайных переговорах с немцами), оставшиеся где-то в подземелье бывшей ставки Гитлера.<span class="post-br"><br /></span><span class="post-b">Формат:</span> MKV<br />
+<span class="post-b">Аудио кодек:</span> AAC<br />
+<span class="post-b">Качество:</span> SATRip-AVC<br />
+<span class="post-b">Продолжительность:</span> 00:52:00</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=958483"><span title="РГ Сериалы" class="colorGroup">aleksan555</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;4.84&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;7&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Сегодня 13:06 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79633" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157704" class="bold" title="Перейти к релизу">Обратный отсчёт / Серии: 1-12 из 16 (Сергей Попов, Дмитрий Аверин , Максим Кубринский) [2017,детектив, SATRip-AVC]</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i102.fastpic.ru/big/2018/0312/17/dade25477f9e2412a421b5cd9fead217.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год выпуска:</span> 2017<br />
+<span class="post-b">Жанр:</span> детектив<br />
+<span class="post-b">Производство:</span> Россия,Всемирные Русские Студии<br />
+<span class="post-b">В ролях:</span> Юрий Колокольников, Полина Максимова, Алексей Ведерников , Анастасия Лазо, Дмитрий Воробьёв , Виктор Рыбчинский, Кира Кауфман, Юлия Шахмуратова, Владимир Трезубов, Анастасия Кипина, Сергей Воробьёв , Дмитрий Гудим, Пауль Орлански, Игорь Грабузов<span class="post-br"><br /></span><span class="post-b">Описание:</span> Константин Корсаков ведёт запутанные уголовные дела. Он хладнокровен и беспощаден к самому себе. Каждый день Корсаков имеет дело с жертвами злоумышленников, которые во что бы то ни стало хотят отомстить своим обидчикам. Корсакову нужно предотвратить новые преступления и удержать пострадавших от непоправимых ошибок.<span class="post-br"><br /></span><span class="post-b">Формат:</span> MKV<br />
+<span class="post-b">Аудио кодек:</span> AAC<br />
+<span class="post-b">Качество:</span> SATRip-AVC<br />
+<span class="post-b">Продолжительность:</span> 00:47:00</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=958483"><span title="РГ Сериалы" class="colorGroup">aleksan555</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;6.73&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;131&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Сегодня 11:56 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79593" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157740" class="bold" title="Перейти к релизу">(Rock) Alanis Morissette - Under Rug Swept (Japanese Edition) - 2002 [FLAC, tracks+.cue, lossless]</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i99.fastpic.ru/big/2018/0319/9e/4f6357ba1e867d120453dda66b55cf9e.jpg" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год издания:</span> 2002<br />
+<span class="post-b">Жанр:</span> Rock<br />
+<span class="post-b">Формат:</span> FLAC<br />
+<span class="post-b">Битрейт аудио:</span> lossless<br />
+<span class="post-b">Тип рипа:</span> tracks+.cue<br />
+<span class="post-b">Продолжительность:</span> 01-00-15</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=875270"><span title="Пользователь" class="colorUser">Дядя Вова</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;426&nbsp;MB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;2&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Сегодня 01:11 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79632" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=155588" class="bold" title="Перейти к релизу">Warframe (2013) {L} [ENG + RUS] (22.16.3)</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i95.fastpic.ru/big/2017/0613/57/258ec0d5f0a48a7dbc9a031d8b33af57.jpg" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Дата выхода:</span> 2013<br />
+<span class="post-b">Версия:</span> 22.16.3<br />
+<span class="post-b">Жанр:</span> MMORPG, Action, 3rd Person, Shooter, Online<br />
+<span class="post-b">Язык интерфейса:</span> английский + русский<br />
+<span class="post-b">Разработчик:</span> Digital Extremes<br />
+<span class="post-b">Таблэтка:</span> Не требуется<br />
+<span class="post-b">Издательство:</span> Digital Extremes<br />
+<span class="post-b">Платформа:</span> PC<br />
+<span class="post-b">Тип издания:</span> Лицензия<span class="post-br"><br /></span><span class="post-b">Описание:</span> Warframe — кооперативный шутер, разработанный компанией Digital Extremes для Playstation 4 и Microsoft Windows. Игрок управляет членом расы Тэнно — древним воином, который проснулся от векового анабиоза для новых войн, сражений и сопротивлений с враждебными фракциями — Гринир, расой милитаризированных людей, Корпусом, купеческой гильдией и Заражёнными. Тэнно используют костюмы, дающие им особые способности, которые называются варфреймами.</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=809831"><span title="Пользователь" class="colorUser">Irenis</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;23.01&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;183&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Вчера 22:37 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=77510" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157739" class="bold" title="Перейти к релизу">Все пары делают это / Daddy Cool (Максим Говаре / Maxime Govare) [2017 г., комедия, WEB-DL, 1080p] MVO [iTunes]</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i102.fastpic.ru/big/2018/0319/b0/c9ad67e86d0bd66138026d66ee0230b0.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год выпуска:</span> 2017 г.<br />
+<span class="post-b">Жанр:</span> комедия<br />
+<span class="post-b">Производство:</span> Франция, A Plus Image 7, Canal+ [fr], Improductibles, Les, IndГ©films 5, OCS, Universal Pictures International (UPI)<br />
+<span class="post-b">В ролях:</span> Венсан Эльбаз, Лоранс Арне, Жан Франсуа Кэйри, Грегори Фетусси, Жюльет Пиволо, Abel Mansouri Asselain, Maxence Chanfong-Dubois, Sarah Le Huu Nho, Albert Bordes<span class="post-br"><br /></span><span class="post-b">Описание:</span> «Я хочу завести детей, но у меня уже есть один ребенок — это мой парень», — подумала успешная красавица Мод и решила исправить ситуацию… выгнав бойфренда из дому! Но настоящие оболтусы так просто не сдаются, тем более если им негде жить. Отказавшись съезжать с квартиры, затейник Андриан начал мстить своей второй половине и ее новому любовнику. Он даже организовал детский сад на дому. Воспитание детей отпетым хулиганом с кучей вредных привычек должно было вдохновить Мод его простить. Но план Адриана обернулся уморительной катастрофой для обоих…<span class="post-br"><br /></span><span class="post-b">Качество видео:</span> WEB-DL<br />
+<span class="post-b">Перевод:</span> Профессиональный (многоголосый, закадровый) [iTunes]<br />
+<span class="post-b">Аудио кодек:</span> AC3<br />
+<span class="post-b">Продолжительность:</span> 01:33:45</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=490291"><span title="Пользователь" class="colorUser">moscowpan</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;3.29&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;36&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Вчера 22:29 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79631" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157703" class="bold" title="Перейти к релизу">Золотая орда / Серии: 1-10 из 16 (Тимур Алпатов) [2018,мелодрама,приключения, SATRip-AVC]</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i100.fastpic.ru/big/2018/0312/80/f4c117e5ed2f07b89c331479c3615e80.png" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Год выпуска:</span> 2018<br />
+<span class="post-b">Жанр:</span> мелодрама,приключения<br />
+<span class="post-b">Производство:</span> Россия,Марс Медиа, Амедиа Продакшн<br />
+<span class="post-b">В ролях:</span> Александр Устюгов, Рамиль Сабитов, Юлия Пересильд, Светлана Колпакова, Сабина Ахмедова, Санжар Мадиев, Сергей Пускепалис, Артур Иванов, Дина Тасбулатора, Аружан Джазильбекова, Артем Алексеев, Карина Андоленко, Сергей Соцердоцкий, Евгения Дмитриева, Лариса Домаскина, Борис Каморзин, Владимир Веревочкин, Василий Бочкарев, Максим Сапрыкин, Алтынай Ногербек, Елена Матвеева, Раджаб Гусейнов, Турар Мураталиев, Юрий Тарасов<span class="post-br"><br /></span><span class="post-b">Описание:</span> Конец XIII-го века. В столицу Руси прибывает посланник Золотой Орды – Менгу-Темир, красавец и ценитель женской красоты. Он приехал, чтобы угнать в Орду тысячи русских воинов, но готов довольствоваться лишь частью, если Великий князь Ярослав отдаст княгиню Устинью, жену его брата Бориса. Ярослав не готов нарушить законы Веры и Чести, но Борис сам идет на этот шаг, надеясь, что эта жертва обеспечит ему княжеский престол. Устинья с караваном отправляется на чужбину.<span class="post-br"><br /></span><span class="post-b">Формат:</span> MKV<br />
+<span class="post-b">Аудио кодек:</span> AAC<br />
+<span class="post-b">Качество:</span> SATRip-AVC<br />
+<span class="post-b">Продолжительность:</span> 00:51:00</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=958483"><span title="РГ Сериалы" class="colorGroup">aleksan555</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;5.96&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;460&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Вчера 21:30 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79592" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157738" class="bold" title="Перейти к релизу">Ghost of a Tale (2018) {RePack} [RUS|ENG|MULTi6] от Lizard</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i100.fastpic.ru/big/2018/0319/8e/79b70152d9c6c74bd5e3306e47eef68e.jpg" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Дата выхода:</span> 13 мар. 2018<br />
+<span class="post-b">Версия:</span> 6.39<br />
+<span class="post-b">Жанр:</span> Action / 3D / 3rd Person<br />
+<span class="post-b">Язык интерфейса:</span> Русский, английский, французский, итальянский, немецкий, испанский<br />
+<span class="post-b">Разработчик:</span> SeithCG<br />
+<span class="post-b">Таблэтка:</span> Вшита (RELOADED)<br />
+<span class="post-b">Издательство:</span> SeithCG<br />
+<span class="post-b">Платформа:</span> PC<br />
+<span class="post-b">Тип издания:</span> RePack<span class="post-br"><br /></span><span class="post-b">Описание:</span> История повествует про отважного мышонка-менестреля Тило, который отправился в полное опасностей путешествие, надеясь выбраться из подземелий крепости Тающие башни. Тающие башни — крайне небезопасное место для маленького мышонка, едва способного дать другим отпор. Лишь хитрость и проворство могут спасти Тило при встрече со смертельно опасными противниками, которые вдвое превосходят его ростом. Общайтесь с обитателями Тающих башен, заводите дружбу с бывшими врагами и сделайте все возможное, дабы отыскать свою возлюбленную Мерру.</div>
+</td>
+</tr>
+<tr>
+ <td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=969005"><span title="Пользователь" class="colorUser">Lizard</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;2.39&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;45&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Вчера 20:53 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79630" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<table class="w100" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="bg_tp_lt"></td>
+<td class="bg_tp">&nbsp;</td>
+<td class="bg_tp_rt"></td>
+</tr>
+<tr>
+<td class="row1 bg_sd_lt">&nbsp;</td>
+<td>
+<table cellpadding="0" cellspacing="0" class="body row1 w100">
+<tr>
+<td height="25" class="tCenter" colspan="2">
+<h1><a href="viewtopic.php?t=157111" class="bold" title="Перейти к релизу">Farmer&#039;s Dynasty (2017) {RePack} [ENG|MULTI5] от Lizard (обновляемая)</a></h1>
+<span class="post-hr">
+<hr>
+</span>
+</td>
+</tr>
+<tr>
+<td class="tCenter nowrap" width="200px" rowspan="3" style="padding-right: 20px;">
+<img border="1" src="http://i102.fastpic.ru/big/2018/0103/bd/c22d44b6b7714ddb5b848451d5c1dbbd.jpg" style="max-width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="tLeft">
+<div class="post_wrap"><span class="post-b">Дата выхода:</span> 14 декабря 2017<br />
+<span class="post-b">Версия:</span> 0.69 (early access)<br />
+<span class="post-b">Жанр:</span> RPG, simulation<br />
+<span class="post-b">Язык интерфейса:</span> Английский, французский, итальянский, немецкий, испанский<br />
+<span class="post-b">Разработчик:</span> UMEO Studios<br />
+<span class="post-b">Таблэтка:</span> Не требуется<br />
+<span class="post-b">Издательство:</span> Toplitz Productions<br />
+<span class="post-b">Платформа:</span> PC<br />
+<span class="post-b">Тип издания:</span> RePack<span class="post-br"><br /></span><span class="post-b">Описание:</span> Приготовьтесь создать ферму своей мечты! Вы начнете работать на небольшой ферме отца главного героя. В первую очередь вам нужно заняться ремонтом старого дома и амбара. Окунувшись в этот увлекательный мир строительства и собирательства не стоит забывать о своей семье. Каждое ваше решения будет влиять не только на успешность фермы, но и на благополучие семьи. Сможете ли вы сохранить семейные узы и при этом построить огромную плантацию? В игру входит сюжетный режим, по мере его прохождение вы будите получать различные награды, которые будут расширять вашу ферму.</div>
+</td>
+</tr>
+<tr>
+<td class="tLeft" style="vertical-align: bottom;">
+<span class="post-hr">
+<hr>
+</span>
+<div class="tLeft">
+<b>Автор:</b>&nbsp;<a href="http://pirat.ca/profile.php?mode=viewprofile&u=969005"><span title="Пользователь" class="colorUser">Lizard</span></a>&nbsp;|&nbsp;
+<b>Размер:</b>&nbsp;2.25&nbsp;GB&nbsp;|&nbsp;
+<b>Скачиваний:</b>&nbsp;183&nbsp;|&nbsp;
+<b>Добавлен:</b>&nbsp;Вчера 20:26 </div>
+</td>
+</tr>
+<tr>
+<td class="tCenter" colspan="2">
+<span class="post-hr">
+<hr>
+</span>
+<div class="download_button"><a href="http://pirat.ca/download.php?id=79007" class="but big orange">Скачать торрент</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="sm_sd_rt" width="19px">&nbsp;</td>
+</tr>
+<tr>
+<td class="sm_bt_lt">&nbsp;</td>
+<td class="sm_bt">&nbsp;</td>
+<td class="sm_bt_rt">&nbsp;</td>
+</tr>
+</table>
+<div class="nav" id="pagination">
+<p style="float: left">Страница <b>1</b> из <b>5014</b></p>
+<p style="float: right"><a class="menu-root" href="#pg-jump">Страницы</a> :&nbsp;&nbsp;<b>1</b>, <a href="portal.php?cat=all&amp;start=10">2</a>, <a href="portal.php?cat=all&amp;start=20">3</a>&nbsp;...&nbsp;<a href="portal.php?cat=all&amp;start=50110">5012</a>, <a href="portal.php?cat=all&amp;start=50120">5013</a>, <a href="portal.php?cat=all&amp;start=50130">5014</a>&nbsp;&nbsp;<a href="portal.php?cat=all&amp;start=10">След.</a></p>
+<div class="clear"></div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<div class="sand">
+<div id="page_footer">
+<div class="clear"></div>
+<br /><br />
+<div id="ad-301">
+</div>
+<div class="med bold tCenter">
+<a href="misc.php?do=info&show=copyright_holders" onclick="window.open(this.href, '', InfoWinParams); return false;">Для правообладателей</a>
+<span class="normal">&nbsp;|&nbsp;</span>
+<a href="misc.php?do=info&show=advert" onclick="window.open(this.href, '', InfoWinParams); return false;">Реклама на сайте</a>
+</div>
+<br />
+<div class="copyright tCenter">
+Powered by TorrentPier II &copy; Meithar, TorrentPier II Team<br />
+</div>
+
+<script type="text/javascript">
+		(function (d, w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+					w.yaCounter1474987 = new Ya.Metrika({
+						id:1474987,
+						clickmap:true,
+						trackLinks:true,
+						accurateTrackBounce:true,
+						webvisor:true
+					});
+				} catch(e) { }
+			});
+
+			var n = d.getElementsByTagName("script")[0],
+					s = d.createElement("script"),
+					f = function () { n.parentNode.insertBefore(s, n); };
+			s.type = "text/javascript";
+			s.async = true;
+			s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+			if (w.opera == "[object Opera]") {
+				d.addEventListener("DOMContentLoaded", f, false);
+			} else { f(); }
+		})(document, window, "yandex_metrika_callbacks");
+	</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/1474987" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+<script type="text/javascript">
+var gaJsHost = (('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.');
+document.write(unescape('%3Cscript src="' + gaJsHost + 'google-analytics.com/ga.js" type="text/javascript"%3E%3C/script%3E'));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-9187763-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</div>
+<div class="copyright tCenter">
+<b style="color:rgb(204,0,0);">!ВНИМАНИЕ!</b>
+<br />
+Сайт не предоставляет электронные версии произведений, а занимается лишь коллекционированием и каталогизацией ссылок, присылаемых и публикуемых на форуме нашими читателями. Если вы являетесь правообладателем какого-либо представленного материала и не желаете, чтобы ссылка на него находилась в нашем каталоге, свяжитесь с нами, и мы незамедлительно удалим её. Файлы для обмена на трекере предоставлены пользователями сайта, и администрация не несёт ответственности за их содержание. Просьба не заливать файлы, защищенные авторскими правами, а также файлы нелегального содержания!</div>
+</div>
+
+</div></div>
+
+<div id="top-down">
+<p id="toTop" style="display: none;">&#9650; Наверх</p>
+<p id="toBottom">&#9660; Вниз</p>
+</div>
+</div>
+</body>
+</html>

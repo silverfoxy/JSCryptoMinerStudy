@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://www.shareinvestor.com/sg">redirected</a>.</body></html>

@@ -1,0 +1,349 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="google-site-verification" content="h3MsLfqVNUyRWK6Zjox05XJKHyZaSxpWsg6AGYP8Brc" />
+	<META name="description" content="Buscador de palabras y distintas herramientas del idioma español. Palabras que empiezan, contienen o terminan con letras. Palabras formadas por un grupo de letras. Ayuda para crucigramas">
+	<META name="keywords" content="palabras, crucigramas, buscador, terminadas, empiecen, contengan, palabra, rimas, crucigrama, ayuda, formar, componer">
+	<link rel="shortcut icon" href="favicon.gif" type="image/gif" />
+<meta property="og:url" content="http://www.buscapalabras.com.ar" />	
+	<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.buscapalabras.com.ar" />	
+    <base href="https://buscapalabras.com.ar/"/>
+	<title>Buscador de palabras</title>
+		
+<link href="diccionario170329.css" rel="stylesheet" type="text/css" />		<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-19609149-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+	<body>
+	<div id="fb-root"></div>
+	
+	<script>
+	  window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '125507924522255',
+		  xfbml      : true,
+		  version    : 'v2.6'
+		});
+		verificarCookie();	  };
+
+	  (function(d, s, id){
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement(s); js.id = id;
+		 js.src = "https://connect.facebook.net/es_ES/sdk.js";
+		 fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script>
+	var tipUs=getCookie('CoBPtu');
+	var CoBPus=getCookie('CoBPus');
+	var CoBPtk=getCookie('CoBPtk');
+	var JSseccion='';
+	var homeBuscap='https://buscapalabras.com.ar/';
+	var GLprotoJS='https';
+	function verificarCookie() {
+		switch (tipUs) {
+			case "FB":
+				FBverficicarLoginEntrar();
+				break;
+			case "EM":
+				EMverficicarLoginEntrar();
+				break;
+			default:
+				if ( JSseccion == "entrar" ) {
+					FBverficicarLoginEntrar();
+				}
+				break;
+		}
+	}
+	function EMverficicarLoginEntrar() {
+		getData('sopaProc.php?ac=vl&id='+CoBPus+'&tk='+CoBPtk, true, function(request){
+			var response = request.currentTarget.response || request.target.responseText;
+			vecResp=response.split("|");
+			if ( vecResp[0] != "ERR" ) {
+				if ( JSseccion == "entrar" ) {
+					window.location = homeBuscap;
+				} else {
+					EMmostrarBarra(vecResp[1]);
+				}
+			} else {
+				if ( JSseccion == "entrar" ) {
+					$('body').css('display','block');
+				}
+			}
+		});
+	}
+	// Este es el llamado de la funcion en todo el sitio
+	function FBverficicarLoginEntrar() {
+		FB.getLoginStatus(function(response) {
+			//console.log(response);
+			if (response.status === 'connected') {
+				registrarUsuarioConectado('FB',response.authResponse.userID,'');
+				FBaccessToken = response.authResponse.accessToken;
+				var hiddenFBtk = document.getElementById('HDfbtk');
+				if (hiddenFBtk != null  ) {
+					document.getElementById("HDfbtk").value = FBaccessToken;
+				}
+
+				if ( JSseccion == "entrar" ) {
+					window.location = homeBuscap;
+				} else {
+					FBmostrarBarra();
+				}
+				//alert('BORRA:CONECTADO FB');
+			} else {
+				//alert(JSseccion);
+				if ( tipUs == "FB" ) {
+					deleteCookie('CoBPus');
+					deleteCookie('CoBPtu');
+				}
+				if ( JSseccion == "entrar" ) {
+					$('body').css('display','block');
+				}
+			}
+		});
+	};
+	function EMmostrarBarra(nombre){
+		document.getElementById("BARRAusu").innerHTML = nombre;
+		document.getElementById("barra").style.display="block";
+		document.getElementById("BOTlogPie").innerHTML = "<a href=\"#\" onclick=\"salir()\">Salir</a>";
+	}
+	function FBmostrarBarra(){
+		FB.api('/me', {fields: 'name,picture.type(small)'}, function(userData) {
+			document.getElementById("BARRAusu").innerHTML = userData.name;
+			document.getElementById("barra").style.display="block";
+			document.getElementById("BOTlogPie").innerHTML = "<a href=\"#\" onclick=\"salir()\">Salir</a>";
+		})
+	}
+	function salir() {
+		deleteCookie('CoBPus');
+		deleteCookie('CoBPtu');
+		window.location = homeBuscap;
+	}
+	function registrarUsuarioConectado(tipoUs,idUs,tkUs) {
+		//alert(tipoUs+','+idUs);
+		document.cookie="CoBPus="+idUs+"; path=/; domain=.buscapalabras.com.ar";
+		document.cookie="CoBPtu="+tipoUs+"; path=/; domain=.buscapalabras.com.ar";
+		document.cookie="CoBPtk="+tkUs+"; path=/; domain=.buscapalabras.com.ar";
+	}
+	
+	
+	function getCookie(cname) {
+		var name = cname + "=";
+		console.log(document.cookie);
+		var ca = document.cookie.split(';');
+		for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length,c.length);
+			}
+		}
+		return "";
+	}
+	
+	function deleteCookie(nombreCookie) {
+		//alert("nc="+nombreCookie);
+		document.cookie = nombreCookie+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=buscapalabras.com.ar";
+	}
+	
+	function getData(url, async, success) {
+		var xhr = new XMLHttpRequest();
+		if (!('withCredentials' in xhr)) xhr = new XDomainRequest(); // fix IE8/9
+		xhr.open('GET', url, async);
+		xhr.onload = success;
+		xhr.send();
+		return xhr;
+	}
+</script>
+
+			<div id="contenedor">
+			<div id="barra"><span id="BARRAusu"></span><a href="mi-buscapalabras.php" class="BOTbarra">Mi buscapalabras</a><div id="BOTsalir" class="BOTbarra" onclick="salir()">Salir</div></div>
+			<h1>Buscapalabras - Buscador de palabras<br /><a href="https://www.buscapalabras.com.ar"><img src="graficos/buscapalabras.gif" alt="Buscapalabras" longdesc="Logo Buscapalabras" border="0" /></a></h1>
+				<div class="menu">
+		<h3>Herramientas de búsquedas:</h3>
+		<a href="rimas.php">Buscar<br />rimas</a>
+		<a href="silabas.php">Separar en sílabas</a>
+		<a href="https://www.buscapalabras.com.ar">Buscar palabras</a>
+		<a href="conjugar-verbos.php">Conjugar verbos</a>
+		<a href="ayuda-crucigramas.php">Resolver crucigramas</a>
+		<a href="juego-separar-silabas.php">Juegos de sílabas</a>
+		<a href="escribe-numero.php">Escribir un número</a>
+		<a href="diccionario-sinonimos.php">Buscar sinónimos</a>
+		<a href="diccionario-antonimos.php">Buscar antónimos</a>
+		<a href="buscar-nombres.php">Buscar nombres</a>
+		<a href="jugar-sopa-de-letras.php" class="nuevoMenu">Jugar sopa de letras</a>
+		<a href="crear-sopa-de-letras.php" class="nuevoMenu">Crear sopa de letras</a>
+		<a href="analizar-metrica-rimas-poema.php" class="nuevoMenu doble">Analizar métrica y rimas de poemas</a>
+	</div>
+		<form id="form1" name="form1" method="post" action="buscarpalabras.php" class="formbusca">
+	<p><strong>Buscar palabras que se escriban con las mismas letras que:</strong><br />
+	<input name="palabra" maxlength="12" type="text" id="palabra"  value=""/> 
+	<input name="buscador1" type="submit" value="Buscar" /><br /><em>[ Ingresar una palabra o serie de hasta 12 letras - Por defecto busca palabras con la misma cantidad de letras]</em><br /></p>
+	<p class="opciones"><input name="digrafos" type="checkbox" value="1" />
+	<b>Considerar los dígrafos (ch y ll) como letras</b><br />
+	<input name="repetidas" type="checkbox" value="1" />
+	<b>Permitir que se repitan las letras</b> (cada letra puede aparecer mas de una vez o no aparecer)<br />
+	<input name="todaslongitudes" type="checkbox" value="1" />
+	<b>Buscar palabras de cualquier longitud</b> (Utilizando cualquiera de las letras ingresadas) </p>
+	</form>
+		<form id="form" name="form" method="post" action="buscarpalabras.php" class="formbusca">
+	<p><strong>Buscar palabras que:</strong><br />
+		<select name="tipo" id="tipo">
+	<option value="1">empiecen con</option>
+	<option value="2">terminen con</option>
+	<option value="3">tengan en cualquier parte</option>
+	</select>
+	<input name="cadena" maxlength="25" type="text" id="palabra" value="" /> 
+	<input name="buscador2" type="submit" value="Buscar" />
+	<br /><em>[ Ingresar 3 letras como mínimo - Se tienen en cuenta los acentos ]</em><br />
+	</p>
+	<!--<p align="left"><input type="checkbox" name="ignorar_acentos" id="ignorar_acentos"> ignorar acentos</p>-->
+	</form>
+	            <div class="rs">
+			<div class="g-plusone" data-href="http://www.buscapalabras.com.ar"  data-size="medium" data-annotation ="bubble"></div>
+            <div class="fb-like" href="http://www.buscapalabras.com.ar" data-send="true" data-width="" data-layout="button_count" data-show-faces="true"></div>
+            </div>
+<div class="publi">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-9154593575408035";
+		/* buscap_home_ST_728x90_sup */
+		google_ad_slot = "5383855105";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div><br /><div class="tips"><h3>Otras búsquedas interesantes:</h3><ul><li><a href="palabras-con-sus-letras-ordenadas-afabeticamente.html">Palabras con sus letras ordenadas alfabéticamente</a></li></ul>	<h4>Para estar informado de nuevas búsquedas interesantes y novedades <b>¡seguinos!</b></h4>
+	<table border="0">
+			<tr>
+		<td><div class="fb-like" data-href="https://www.facebook.com/buscapalabras.com.ar/" data-width="120" data-height="20" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div></td>
+		<td>
+		<a href="https://twitter.com/buscapalabras" class="twitter-follow-button" data-show-count="false" data-lang="es" data-dnt="true">Seguir a @buscapalabras</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</td>
+		<td>
+		<!-- Inserta esta etiqueta donde quieras que aparezca widget. -->
+		<div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/109718759291937565442" data-rel="publisher"></div>
+		</td>
+		</tr>
+		<!-- Inserta esta etiqueta después de la última etiqueta de widget. -->
+		<script type="text/javascript">
+		  window.___gcfg = {lang: 'es'};
+
+		  (function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+	
+	<tr><td><a href="https://facebook.com/buscapalabras.com.ar" target="_blank">En facebook</a></td><td><a href="https://twitter.com/buscapalabras" target="_blank">En Twitter</a></td><td><a href="https://plus.google.com/109718759291937565442" target="_blank">En Google +</a></td></tr>
+	</table>
+</div><div class="BusquedasSecuencias">
+<table align="center" border="0" >
+	<tr>
+	<td align="left" valign="top" style="font-size:12px"><b>Ultimas Búsquedas</b><br /><ul>   	
+				<li><a href="palabras-que-se-escriben-con-letras-Barrena_1001.html">Palabras que se escriban con las letras de Barrena</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-portalad_1000.html">Palabras que se escriban con las letras de portalad</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-Ciods_1001.html">Palabras que se escriban con las letras de Ciods</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-ramo.html">Palabras que se escriban con las letras de ramo</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-movitone_1001.html">Palabras que se escriban con las letras de movitone</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-altema_1001.html">Palabras que se escriban con las letras de altema</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-ceasye_1001.html">Palabras que se escriban con las letras de ceasye</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-bitozam_1001.html">Palabras que se escriban con las letras de bitozam</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-Arigo_1001.html">Palabras que se escriban con las letras de Arigo</a></li>
+   	
+				<li><a href="palabras-que-se-escriben-con-letras-aromt_1101.html">Palabras que se escriban con las letras de aromt</a></li>
+</ul><center><p class="pagina"> <b> 1 </b><a href="ultimas-palabras-buscadas-2.html">2</a> <a href="ultimas-palabras-buscadas-3.html">3</a> <a href="ultimas-palabras-buscadas-4.html">4</a> <a href="ultimas-palabras-buscadas-5.html">5</a> <a href="ultimas-palabras-buscadas-6.html">6</a> <a href="ultimas-palabras-buscadas-7.html">7</a> <a href="ultimas-palabras-buscadas-8.html">8</a> <a href="ultimas-palabras-buscadas-9.html">9</a> <a href="ultimas-palabras-buscadas-10.html">10</a> <a href="ultimas-palabras-buscadas-11.html">11</a> <a href="ultimas-palabras-buscadas-2.html">siguiente </a></center></td>
+	<!--<td align="left" valign="top" style="font-size:12px"><b>Busquedas mas populares</b><br /> 
+		 		 <ul>
+					<li><a href="palabras-que-se-escriben-con-letras-scrabble_1001.html">Palabras que se escriban con las letras de scrabble</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-hui.html">Palabras que empiecen con hui</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-contengan-blu.html">Palabras que contengan blu</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-terminen-con-eje.html">Palabras que terminen con eje</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-hia.html">Palabras que empiecen con hia</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-fli.html">Palabras que empiecen con fli</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-blu.html">Palabras que empiecen con blu</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-gle.html">Palabras que empiecen con gle</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-dre.html">Palabras que empiecen con dre</a></li>
+				</ul>
+ 
+		 		 <ul>
+					<li><a href="palabras-que-empiecen-con-llu.html">Palabras que empiecen con llu</a></li>
+				</ul>
+</td>-->
+	</tr>
+</table>
+</div><div class="publi"><div style="margin-right:60px; display:inline">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-9154593575408035";
+		/* buscap_home_ST_728x90_inf1 */
+		google_ad_slot = "8337321503";
+		google_ad_width = 300;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-9154593575408035";
+		/* buscap_home_ST_728x90_inf2 */
+		google_ad_slot = "5244254308";
+		google_ad_width = 300;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div><br />    <div class="pie">| <a href="sopa-de-letras.php">Sopa de letras</a> | <a href="rimas.php">Rimas</a> | <a href="diccionario-sinonimos.php">Sinónimos</a> | <a href="diccionario-antonimos.php">Antónimos</a> | <a href="buscar-nombres.php">Nombres</a> | <a href="analizar-metrica-rimas-poema.php">Análisis de poemas</a> | <a href="terminos.php">Uso y privacidad</a> | <a href="contacto.php">Enviarnos un mensaje</a> | <span id="BOTlogPie"><a href="entrar.php">Entrar</a></span> |.</div>
+    </div>
+    </body>
+    </html>

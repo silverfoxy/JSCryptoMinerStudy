@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.flixstervideo.com/collection/migrate">redirected</a>.</body></html>

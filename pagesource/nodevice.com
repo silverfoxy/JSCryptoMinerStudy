@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="csrf-token" content="K7BypY4DPq3ra2YJLLsjzm2idcYVUB06MxFpKBhi"><link rel="icon" type="image/x-icon" href="https://www.nodevice.com/images/favicon.ico" /><title>NoDevice — Drivers and Manuals</title><meta name="keywords" content="Drivers NoDevice" /><meta name="description" content="NoDevice — a huge collection of free drivers, user manuals and service manuals from manufacturers' official websites." /><link rel="alternate" hreflang="de" href="https://de.nodevice.com/" /><link rel="alternate" hreflang="es" href="https://www.nodevice.es/" /><link rel="alternate" hreflang="fr" href="https://www.nodevice.fr/" /><link rel="alternate" hreflang="it" href="https://www.nodevice.it/" /><link rel="alternate" hreflang="ja" href="https://www.nodevice.jp/" /><link rel="alternate" hreflang="pt" href="https://www.nodevice.com.pt/" /><link rel="alternate" hreflang="ru" href="https://ru.nodevice.com/" /><script type="text/javascript">window.page = {route: "home"};</script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script><script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><link rel="search" title="NoDevice" type="application/opensearchdescription+xml" href="https://www.nodevice.com/search/opensearch"><link rel="stylesheet" href="/build/css/public.css?id=c0efc68089e63553f88d" /><script type="text/javascript">
+	(function($) {
+		window.__gcse = {callback: function() {
+			$(':input.gsc-search-button').each(function() {
+				$(this).closest('form').find(':input.gsc-input').attr('placeholder', $(this).attr('title'));
+			});
+		}};
+		var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+		gcse.src = 'https://cse.google.com/cse.js?cx=005895113252744553987:6ny1jdrc-6m';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+	})(jQuery);
+	</script><script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-753548-1', 'auto');
+ga('send', 'pageview');
+</script><script type="text/javascript" src="/build/js/public.js?id=a86c8723b6ea02d8fbbe"></script></head><body class=""><header class="header header-second"><nav class="navbar"><div class="container"><div class="row"><div class="col col-sm-4 col-md-3"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><div class="navbar-brand"><div class="logo logo-header"><a href="https://www.nodevice.com" rel="nofollow">NODEVICE</a><span class="logo-header-slogan">Ask. Download. Be answered.</span></div></div></div></div><div class="col col-md-9 col-sm-8 navbar-hidepart"><div class="collapse navbar-collapse" id="navbar-collapse"><div class="row"><div class="col col-md-9"><div class="menu-header"><div class="row"><div class="col col-sm-6"><ul><li><a href="https://www.nodevice.com/drivers"><i class="icon-dr"></i> Drivers</a></li><li><a href="https://www.nodevice.com/service-manuals"><i class="icon-sm"></i> Repair Manuals</a></li></ul></div><div class="col col-sm-6"><ul><li><a href="https://www.nodevice.com/user-manuals"><i class="icon-um"></i> User Manuals</a></li><li><a href="https://www.nodevice.com/articles"><i class="icon-articles"></i>Articles</a></li></ul></div></div></div></div><div class="col col-md-3 col-sm-12"><div class="upload-btn upload-header"><a href="https://www.nodevice.com/upload" rel="nofollow"><div class="form-group"><div class="input-group"><i class="fa fa-plus"></i><span class="input-group-addon info"><span>Add</span></span></div></div></a></div></div></div></div></div></div></div></nav></header><main class="content type-default"><div class="home-promo"><div class="container"><div class="home-promo-panel"><div class="home-promo-panel-top"><p class="lead">A huge collection of free drivers, user manuals and service manuals</p><div class="home-promo-panel-search"><div class="search-form"><gcse:searchbox-only
+		enableHistory="true"
+		queryParameterName="q"
+		resultsUrl="https://www.nodevice.com/search"
+		newWindow="false"
+		enableAutoComplete="true"
+		autoCompleteValidLanguages="en"
+		gl="en"
+		as_sitesearch="www.nodevice.com"
+		filter="1"></gcse:searchbox-only></div></div></div><div class="home-promo-panel-bottom"><div class="home-promo-panel-stats"><div class="row"><div class="col col-md-4"><a class="promo-item item-dr clearfix" href="https://www.nodevice.com/drivers"><i class="promo-icon icon-dr"></i><span class="promo-title"><strong class="promo-title-num">108 223</strong><span class="promo-title-type">Drivers</span></span></a></div><div class="col col-md-4"><a class="promo-item item-sm clearfix" href="https://www.nodevice.com/service-manuals"><i class="promo-icon icon-sm"></i><span class="promo-title"><strong class="promo-title-num">85 348</strong><span class="promo-title-type">Repair Manuals</span></span></a></div><div class="col col-md-4"><a class="promo-item item-um clearfix" href="https://www.nodevice.com/user-manuals"><i class="promo-icon icon-um"></i><span class="promo-title"><strong class="promo-title-num">167 874</strong><span class="promo-title-type">User Manuals</span></span></a></div></div></div></div></div></div></div><div class="content-text basic-text"><div class="container"><h1>Drivers, User Manuals and Service Manuals</h1><p>NoDevice is a huge multilingual catalogue of free Windows drivers, user manuals and service manuals for computer and device adjustment and repair.</p><p>Drivers are needed to ensure correct operation of video cards, printers, monitors, network cards, sound cards, motherboards and other computer accessories and devices. There are about 100 thousand drivers available for free downloading at NoDevice.</p><p>User manuals are needed to understand devices' operation principle and get to know all functions, as well as for devices' proper adjustment. There are more than 120 thousand free user manuals in PDF format at NoDevice database. </p><p>Service manuals are needed to do devices' repair. In our catalogue there are thousands of circuit diagrams and schematics, replacement hardware lists, detailed service guides and repair manuals.</p><p>All files available at NoDevice are taken from manufacturers' official websites and tested with antivirus software. All downloads are free.</p></div></div></main><footer class="footer"><div class="container"><div class="row"><div class="col col-md-3"><div class="footer-copyright"><p><span>&copy;</span> 2005-2018 <strong>NoDevice</strong></p></div></div><div class="col col-md-7"><div class="menu-footer"><div class="row"><div class="col col-md-4"><ul><li><a href="https://www.nodevice.com/drivers">Drivers</a></li><li><a href="https://www.nodevice.com/service-manuals">Repair Manuals</a></li><li><a href="https://www.nodevice.com/user-manuals">User Manuals</a></li></ul></div><div class="col col-md-4"><ul><li><a href="https://www.nodevice.com/articles">Articles</a></li><li><a href="https://www.nodevice.com/contacts" rel="nofollow">Contact us</a></li><li><a href="https://www.nodevice.com/info/about-us" rel="nofollow">About Us</a></li></ul></div><div class="col col-md-4"><ul><li><a href="https://www.nodevice.com/info/privacy-policies" rel="nofollow">Privacy Policy</a></li><li><a href="https://www.nodevice.com/info/user-agreement" rel="nofollow">User Agreement</a></li><li><a href="https://www.nodevice.com/info/disclaimer" rel="nofollow">Disclaimer</a></li></ul></div></div></div></div><div class="col col-md-2"><div class="lang-select lang-footer"><div class="btn-group"><button type="button" class="btn btn-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag en"></span>
+				&nbsp;EN&nbsp;<span class="caret caret-up"></span></button><ul class="dropdown-menu drop-up" role="menu"><li><a href="#" data-locale="de" title="German"><span class="flag de"></span>
+							&nbsp;DE
+						</a></li><li><a href="#" data-locale="es" title="Spanish"><span class="flag es"></span>
+							&nbsp;ES
+						</a></li><li><a href="#" data-locale="fr" title="French"><span class="flag fr"></span>
+							&nbsp;FR
+						</a></li><li><a href="#" data-locale="it" title="Italian"><span class="flag it"></span>
+							&nbsp;IT
+						</a></li><li><a href="#" data-locale="ja" title="Japanese"><span class="flag ja"></span>
+							&nbsp;JA
+						</a></li><li><a href="#" data-locale="pt" title="Portuguese"><span class="flag pt"></span>
+							&nbsp;PT
+						</a></li><li><a href="#" data-locale="ru" title="Russian"><span class="flag ru"></span>
+							&nbsp;RU
+						</a></li></ul></div></div></div></div></div></footer><script type="text/javascript">
+(function (d, w, c) {
+	(w[c] = w[c] || []).push(function() {try {w.yaCounter11529478 = new Ya.Metrika({id:11529478,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});	} catch(e) { }});
+	var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); };
+	s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js";
+	if (w.opera == "[object Opera]") {d.addEventListener("DOMContentLoaded", f, false);} else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script><noscript><div><img src="https://mc.yandex.ru/watch/11529478" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body></html>

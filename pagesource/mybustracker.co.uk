@@ -1,0 +1,479 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<!-- css -->
+<link type="text/css" rel="stylesheet" href="/css/global.css?v=1.3.3" />
+<link type="text/css" rel="stylesheet" href="/templates/bt-edinburgh/template.css?v=1.3.3" />
+
+	<link type="text/css" rel="stylesheet" href="/modules/Edinburgh/BTMain/BTMain.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/Edinburgh/BTMenu/BTMenu.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/Edinburgh/BTTimeSearch/BTTimeSearch.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/Edinburgh/BTTimeSearch/jquery.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/Edinburgh/BTFooter/BTFooter.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/BTCookie/BTCookie.css?v=1.3.3" />
+	<link type="text/css" rel="stylesheet" href="/modules/BTMess/BTMess.css?v=1.3.3" />
+<!-- js -->
+<script src="/js/global.js?v=1.3.3" type="text/javascript" ></script>
+<script src="/js/ajax.js?v=1.3.3" type="text/javascript" ></script>
+	<script src="/js/jquery.js?v=1.3.3" type="text/javascript" ></script>
+	<script src="/js/jquery-ui.js?v=1.3.3" type="text/javascript" ></script>
+	<script src="/modules/Edinburgh/BTTimeSearch/BTTimeSearch.js?v=1.3.3" type="text/javascript" ></script>
+	<script src="/modules/BTCookie/BTCookie.js?v=1.3.3" type="text/javascript" ></script>
+<title>Bus tracker - Edinburgh - Real-time bus information</title>
+</head>
+<body onload="" class="">
+<div id="zoneCookie" ><div id="bt_cookie"><form name="cookieForm" id="cookieForm" action="" method="post">We use cookies to improve your experience. By viewing our content you are accepting the use of cookies. <a href="?page=Cookies">About cookies we use</a>.&nbsp<input type="button" id="continue" value="Continue" onclick="hideCookieCheck()"/><input type="hidden" name="check_cookie" id="check_cookie" value="false"/></form></div></div><div id="zoneWrapper">
+	<div id="zoneMain">
+		<div id="zoneHeader">
+			<div id="menu">
+			<ul>
+				<li><a href="/" class="active">HOME</a></li> |
+				<li><a href="?page=Help" >HELP</a></li> |
+				<li><a href="?page=HelpMobile" >USING A MOBILE PHONE</a></li> |
+				<li><a href="?page=Links" >LINKS</a></li> |
+				<li><a href="?page=Contact US" >CONTACT US</a></li> |
+			</ul>
+		</div>		</div>
+		<div id="zoneLeft">
+			<div id="timeSearch">
+ 	<div id="searchHeader"> </div>
+ 	<div id="searchMain">
+ 		<p class="searchTitle">
+ <a id="searchByMap" href="#">Search by map</a>
+</p>
+		<div id="divGoogleSearch">
+			<form method="post" id="googleSearchForm" name="googleSearchForm" action="/">
+				<input type="hidden" name="mode" value="googleSearch"/>
+<input type="hidden" name="displayMap" value="true"/>
+<input type="hidden" name="googleMapMode" id="searchGoogleMapMode" value="1"/>
+<input type="hidden" name="googleTypeAddress" id="searchGoogleTypeAddress" value=""/>
+<div id="contentGoogleAddress">
+ 					<p class="inputZone">
+ <label for="googleAddress">
+  <span id="addressSearch">Address search</span>
+  					<input type="text" class="inputOk" autocomplete="off" name="googleAddress" id="searchGoogleAddress" onkeypress="return executeActionOnEnter(function(){ if(searchListOpened) showSearchList();},event);" size="30" maxlength="255" title="for example: 'Baberton Avenue, Edinburgh', 6 letters minimum" onkeyup="updateGoogleSearch();" value=""/>
+ </label>
+ <img id="imgDoSearch" class="imgSearch" src="/modules/Edinburgh/BTTimeSearch/images/do_search.png" alt="Search" title="Search" onclick="showSearchList()"/>
+ <img id="imgClearFilter" class="imgSearch" src="/modules/Edinburgh/BTTimeSearch/images/clear_search.png" alt="Clear search" title="Clear search" onclick="clearSearch()"/>
+</p>
+				</div>
+			</form>
+		</div>
+		<p class="searchTitle">
+<a id="searchByServiceNumber" href="#">Search by service number</a>
+</p>
+		<div id="serviceSearch">
+			<form method="post" id="serviceSearchForm" name="serviceSearchForm" action="/">
+				<input type="hidden" name="mode" value="serviceSearch"/>
+<input type="hidden" name="displayMap" value="true"/>
+<input type="hidden" name="googleMapMode" value="2"/>
+<div id="contentService">
+					<p class="inputZone">
+<label for="serviceRef">
+ <span class="service">Service search</span>
+ 					<select id="serviceRef" name="serviceRef">
+ <option value="1">1 - Easter Road -- Clermiston</option>
+ <option value="3">2 - The Jewel -- Gyle</option>
+ <option value="5">3 - Mayfield -- Clovenstone</option>
+ <option value="7">4 - The Jewel -- Hillend</option>
+ <option value="9">5 - Hunter's Tryst -- The Jewel</option>
+ <option value="137">X5 - North Berwick - Semple St</option>
+ <option value="11">6 - Hanover Street - Holyrood</option>
+ <option value="13">7 - Newhaven -- Royal Infirmary</option>
+ <option value="138">X7 - Dunbar - West End Express</option>
+ <option value="15">8 - Royal Infirmary -- Muirhouse</option>
+ <option value="17">10 - Western Harbour -- Torphin</option>
+ <option value="19">11 - Hyvots Bank -- Ocean Terminal</option>
+ <option value="21">12 - Gyle -- Seafield</option>
+ <option value="23">X12 - Gogarburn -- West End</option>
+ <option value="25">14 - Greendykes -- Muirhouse</option>
+ <option value="27">15 - Penicuik -- Lochend</option>
+ <option value="29">X15 - Penicuik -- Lochend</option>
+ <option value="31">16 - Colinton -- Silverknowes</option>
+ <option value="33">18 - Gyle -- Fort Kinnaird</option>
+ <option value="35">19 - Granton -- Marine</option>
+ <option value="37">20 - Ratho -- Slateford</option>
+ <option value="41">21 - Gyle -- Royal Infirmary</option>
+ <option value="43">22 - Gyle -- Ocean Terminal</option>
+ <option value="45">23 - Greenbank -- Trinity</option>
+ <option value="47">24 - Royal Infirmary -- W Granton</option>
+ <option value="135">X24 - North Berwick - Semple St</option>
+ <option value="49">25 - Riccarton -- Restalrig</option>
+ <option value="51">X25 - Hermiston -- City Centre</option>
+ <option value="53">26 - Clerwood -- Seton Sands</option>
+ <option value="55">X26 - Port Seton -- Haymarket</option>
+ <option value="57">27 - Hunter's Tryst -- Silverknowes</option>
+ <option value="59">29 - Silverknowes -- Birkenside</option>
+ <option value="61">X29 - Birkenside -- Muirhouse</option>
+ <option value="63">30 - Musselburgh -- Clovenstone</option>
+ <option value="65">31 - East Craigs --  Hopefield</option>
+ <option value="67">X31 - Rosewell -- Haymarket</option>
+ <option value="69">33 - Westburn -- Birkenside</option>
+ <option value="71">X33 - Mayfield -- Semple St</option>
+ <option value="73">34 - Riccarton -- Ocean Terminal</option>
+ <option value="77">36 - Gyle Centre -- Ocean Terminal</option>
+ <option value="79">37 - Penicuik -- Silverknowes</option>
+ <option value="83">X37 - Deanburn -- Granton H</option>
+ <option value="87">38 - Royal Infirmary -- W Granton</option>
+ <option value="93">41 - Cramond -- King's Buildings</option>
+ <option value="95">42 - Marine -- Craigleith</option>
+ <option value="96">43 - Queensferry - St Andrew Sq</option>
+ <option value="97">X43 - Queensferry - St Andrew Sq</option>
+ <option value="98">44 - Balerno -- Wallyford</option>
+ <option value="99">X44 - Tranent -- Haymarket</option>
+ <option value="101">45 - Riccarton -- QMU</option>
+ <option value="81">47 - Ladywood -- Granton H</option>
+ <option value="85">X47 - Ladywood -- Granton H</option>
+ <option value="103">49 - Fort Kinnaird -- Rosewell</option>
+ <option value="105">61 - Standard Life Shuttle</option>
+ <option value="107">63 - Queensferry -- Riccarton</option>
+ <option value="109">67 - Hanover St -- Bush</option>
+ <option value="111">69 - Lady Nairne -- Portobello</option>
+ <option value="119">100 - Airlink</option>
+ <option value="123">104 - Haddington - West End</option>
+ <option value="125">106 - Dunbar - Musselburgh</option>
+ <option value="129">109 - Livingston - Longstone</option>
+ <option value="131">113 - Pencaitland - West Granton</option>
+ <option value="133">124 - Nth Berwick - Semple St</option>
+ <option value="139">125 - Nth Berwick HS - Musselburgh</option>
+ <option value="141">126 - Nth Berwick HS - Aberlady</option>
+ <option value="143">127 - Nth Berwick HS - Longniddry</option>
+ <option value="144">139 - Woodburn -- MCH</option>
+ <option value="145">140 - Musselburgh -- Penicuik</option>
+ <option value="121">200 - Airport -- Ocean Terminal</option>
+ <option value="122">300 - Airport -- Ocean Terminal</option>
+ <option value="39">C134 - Edinburgh University Contract</option>
+ <option value="151">N3 - Haymarket - Birkenside</option>
+ <option value="153">N7 - Ocean Terminal - Royal Infirmary</option>
+ <option value="155">N11 - Ocean Terminal - Hyvots Bank</option>
+ <option value="157">N16 - Silverknowes - Torphin</option>
+ <option value="159">N22 - Ocean Terminal - Edinburgh Airpo</option>
+ <option value="161">N25 - Leith St - Riccarton</option>
+ <option value="163">N26 - Clerwood - Seton Sands</option>
+ <option value="165">N30 - Musselburgh - Clovenstone</option>
+ <option value="169">N31 - Haymarket - Hopefield</option>
+ <option value="173">N106 - Frederick St - Dunbar</option>
+ <option value="174">N113 - Haymarket - Ormiston</option>
+ <option value="175">N124 - Frederick St - Nth Berwick</option>
+ <option value="177">CS1 - City Sightseeing Edinburgh</option>
+ <option value="179">ET1 - Edinburgh Tour Circular</option>
+ <option value="181">MA1 - Majestic Tour</option>
+ <option value="187">N34 - Leith St - Riccarton</option>
+ <option value="191">N37 - Penicuik - Silverknowes</option>
+ <option value="197">N44 - Elm Row - Balerno</option>
+ <option value="248">T50 - York Plc &lt;-&gt; EDI</option>
+</select>
+</label>
+</p>
+					<input type="button" value="Display map" id="displayServiceMap" name="subDisplayMap" onclick="goDisplayServiceMap();"/>
+<input type="button" value="Display diagram" id="displayServiceDiagram" name="subDisplayDiagram" onclick="openPopup('?module=BTMain&amp;displayDiagram=true','_blank',600,400,null,this.form);"/>
+</div>
+			</form>
+		</div>
+		<p class="searchTitle busStopCodeTitle" id="searchByBusStopTitle" title="for example: 36237628 (as shown on bus stop timetable)">
+<a id="searchByBusStop" href="#">Search by bus stop code</a>
+</p>
+		<div id="busStopSearch">
+			<h3 class="notWrapped" id="busStopQuickTitle" onclick="switchZoneForm('contentBusStopQuick', 'busStopQuickTitle');">
+<span id="quickSearch">Quick search</span>
+</h3>
+		    <form method="post" id="busStopQuickForm" name="busStopQuickForm" action="/">
+			    <input type="hidden" name="mode" value="busStopQuickSearch"/>
+<div id="contentBusStopQuick" onkeypress="return executeActionOnEnter(function(){ goDisplayDepartureQuick('busStopQuickForm','busStopCodeQuick'); },event);">
+					<p class="inputZone">
+<label for="busStopCodeQuick">
+<span class="busStopCode">Bus stop code</span> 
+					<input type="text" class="inputOk busStopCodeTitle" name="busStopCode" id="busStopCodeQuick" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onkeyup="verifFormatBusStopCodeQuick(this);"/>
+</label>
+</p>
+					<input class="displayDeparture" type="button" name="busStopQuick" id="busStopQuick" value="Display departures" onclick="goDisplayDepartureQuick('busStopQuickForm','busStopCodeQuick');"/>
+</div>
+			</form>
+		
+		    <hr/>
+<h3 class="Wrapped" id="busStopAdvancedTitle" onclick="switchZoneForm('contentBusStopAdvanced', 'busStopAdvancedTitle');">
+<span id="advancedSearch">Advanced search</span>
+</h3>
+		    <form method="post" id="busStopAdvancedForm" name="busStopAdvancedForm" action="/">
+			    <input type="hidden" name="mode" value="busStopAdvSearch"/>
+<div id="contentBusStopAdvanced" style="display: none;" onkeypress="return executeActionOnEnter(function(){ goDisplayDepartureAdv('busStopAdvancedForm','busStopCodeAdv','busStopTime'); },event);">
+					<p class="inputZone">
+<label for="busStopCodeAdv">
+<span class="busStopCode">Bus stop code</span> 
+					<input type="hidden" id="busStopCodeAdvMemo" value=""/>
+<input type="text" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" class="inputOk busStopCodeTitle" name="busStopCode" id="busStopCodeAdv" size="15" maxlength="255" onkeyup="if(this.value!=inputGetValue('busStopCodeAdvMemo')){ inputSetValue('busStopCodeAdvMemo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('busStopService'); updateBusStopCodeSearch('busStopServiceZone'); } else inputDisable('busStopService');}"/>
+</label>
+</p>
+					
+				    <p id="busStopServiceZone" class="inputZone">
+				    <label for="busStopService">
+<span class="service">Service search</span> 
+				    <select name="busStopService" id="busStopService" size="1" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+					</p>
+					
+				    <p class="inputZone">
+<label for="busStopTime">
+<span id="time">Time</span> 
+				    <input type="text" title="for example : 14:00" class="inputOk" name="busStopTime" id="busStopTime" size="7" maxlength="5" onkeyup="verifFormatHeure(this);"/>
+</label>
+</p>
+					
+					<p class="day">
+<label for="busStopDay">
+<span id="day">Day</span> 
+				    <select name="busStopDay" id="busStopDay" size="1">
+<option value="0">0 - <span id="todayFrom">today from</span> 03:10</option>
+<option value="1">1 - <span id="tomorowFrom">tomorow from</span> 03:10</option>
+<option value="2">2 - <span id="in2day">in 2 day</span> 03:10</option>
+<option value="3">3 - <span id="in3day">in 3 day</span> 03:10</option>
+</select>
+</label>
+</p>
+				
+				    <input type="button" class="displayDeparture" id="displayBusStopDepartures" name="busStop" value="Display departures" onclick="goDisplayDepartureAdv('busStopAdvancedForm','busStopCodeAdv','busStopTime');"/>
+</div>
+			</form>
+		</div>
+		<p class="searchTitle" title="Create your own sign">
+<a id="createMySign" href="#" title="Create your own sign">Create MySign</a>
+</p>
+		<div id="mySignSearch" onkeypress="return executeActionOnEnter(function(){ goDisplayDepartureMySign('mySignSearchForm'); },event);">
+		    <form method="post" id="mySignSearchForm" name="mySignSearchForm" action="/">
+				<input type="hidden" name="mode" value="mySignSearch"/>
+<p class="numberOfPassage">
+<label for="nbDeparture">
+<span id="numberOfDeparture">Number of departures</span> 
+				<select id="nbDeparture" name="nbDeparture">
+<option value="1">1</option>
+<option value="2" selected="selected">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="100">
+<span id="nbDepartureAll">all</span>
+</option>
+</select>
+</label>
+</p>
+				
+				
+				
+				
+				<h3 id="customizeTitle1" class="Wrapped" onclick="switchZoneForm('contentCustomize1', 'customizeTitle1');">
+<span class="busStop">Bus Stop</span> 1</h3>
+<div id="contentCustomize1" style="display: none;">
+	            	<p class="inputZone">
+	            	<label for="customizeCode1">
+<span class="busStopCode">Bus stop code</span>
+	            	<input type="hidden" id="customizeCode1Memo" value=""/>
+<input type="text" id="customizeCode1" name="customizeCode1" class="inputOk busStopCodeTitle" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onchange="" onkeyup="if(this.value!=inputGetValue('customizeCode1Memo')){ inputSetValue('customizeCode1Memo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('customizeService1'); inputEnable('customizeDest1'); updateAdvanceService(1,'customizeServiceZone1','customizeDestZone1');} else { inputDisable('customizeService1'); inputDisable('customizeDest1'); } }"/>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeServiceZone1">
+	            	<label for="customizeService1">
+<span class="service">Service search</span> 
+	            	<select id="customizeService1" name="customizeService1" onchange="updateAdvanceDest(1,'customizeDestZone1');" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeDestZone1">
+	            	<label for="customizeDest1">
+<span class="destination">Destination</span> 
+	            	<select id="customizeDest1" name="customizeDest1" disabled="disabled">
+<option value="0">
+<span class="destinationAll">All</span> (*)</option>
+</select>
+</label>
+</p>
+	            </div>
+<h3 id="customizeTitle2" class="Wrapped" onclick="switchZoneForm('contentCustomize2', 'customizeTitle2');">
+<span class="busStop">Bus Stop</span> 2</h3>
+<div id="contentCustomize2" style="display: none;">
+	            	<p class="inputZone">
+	            	<label for="customizeCode2">
+<span class="busStopCode">Bus stop code</span>
+	            	<input type="hidden" id="customizeCode2Memo" value=""/>
+<input type="text" id="customizeCode2" name="customizeCode2" class="inputOk busStopCodeTitle" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onchange="" onkeyup="if(this.value!=inputGetValue('customizeCode2Memo')){ inputSetValue('customizeCode2Memo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('customizeService2'); inputEnable('customizeDest2'); updateAdvanceService(2,'customizeServiceZone2','customizeDestZone2');} else { inputDisable('customizeService2'); inputDisable('customizeDest2'); } }"/>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeServiceZone2">
+	            	<label for="customizeService2">
+<span class="service">Service search</span> 
+	            	<select id="customizeService2" name="customizeService2" onchange="updateAdvanceDest(2,'customizeDestZone2');" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeDestZone2">
+	            	<label for="customizeDest2">
+<span class="destination">Destination</span> 
+	            	<select id="customizeDest2" name="customizeDest2" disabled="disabled">
+<option value="0">
+<span class="destinationAll">All</span> (*)</option>
+</select>
+</label>
+</p>
+	            </div>
+<h3 id="customizeTitle3" class="Wrapped" onclick="switchZoneForm('contentCustomize3', 'customizeTitle3');">
+<span class="busStop">Bus Stop</span> 3</h3>
+<div id="contentCustomize3" style="display: none;">
+	            	<p class="inputZone">
+	            	<label for="customizeCode3">
+<span class="busStopCode">Bus stop code</span>
+	            	<input type="hidden" id="customizeCode3Memo" value=""/>
+<input type="text" id="customizeCode3" name="customizeCode3" class="inputOk busStopCodeTitle" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onchange="" onkeyup="if(this.value!=inputGetValue('customizeCode3Memo')){ inputSetValue('customizeCode3Memo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('customizeService3'); inputEnable('customizeDest3'); updateAdvanceService(3,'customizeServiceZone3','customizeDestZone3');} else { inputDisable('customizeService3'); inputDisable('customizeDest3'); } }"/>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeServiceZone3">
+	            	<label for="customizeService3">
+<span class="service">Service search</span> 
+	            	<select id="customizeService3" name="customizeService3" onchange="updateAdvanceDest(3,'customizeDestZone3');" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeDestZone3">
+	            	<label for="customizeDest3">
+<span class="destination">Destination</span> 
+	            	<select id="customizeDest3" name="customizeDest3" disabled="disabled">
+<option value="0">
+<span class="destinationAll">All</span> (*)</option>
+</select>
+</label>
+</p>
+	            </div>
+<h3 id="customizeTitle4" class="Wrapped" onclick="switchZoneForm('contentCustomize4', 'customizeTitle4');">
+<span class="busStop">Bus Stop</span> 4</h3>
+<div id="contentCustomize4" style="display: none;">
+	            	<p class="inputZone">
+	            	<label for="customizeCode4">
+<span class="busStopCode">Bus stop code</span>
+	            	<input type="hidden" id="customizeCode4Memo" value=""/>
+<input type="text" id="customizeCode4" name="customizeCode4" class="inputOk busStopCodeTitle" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onchange="" onkeyup="if(this.value!=inputGetValue('customizeCode4Memo')){ inputSetValue('customizeCode4Memo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('customizeService4'); inputEnable('customizeDest4'); updateAdvanceService(4,'customizeServiceZone4','customizeDestZone4');} else { inputDisable('customizeService4'); inputDisable('customizeDest4'); } }"/>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeServiceZone4">
+	            	<label for="customizeService4">
+<span class="service">Service search</span> 
+	            	<select id="customizeService4" name="customizeService4" onchange="updateAdvanceDest(4,'customizeDestZone4');" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeDestZone4">
+	            	<label for="customizeDest4">
+<span class="destination">Destination</span> 
+	            	<select id="customizeDest4" name="customizeDest4" disabled="disabled">
+<option value="0">
+<span class="destinationAll">All</span> (*)</option>
+</select>
+</label>
+</p>
+	            </div>
+<h3 id="customizeTitle5" class="Wrapped" onclick="switchZoneForm('contentCustomize5', 'customizeTitle5');">
+<span class="busStop">Bus Stop</span> 5</h3>
+<div id="contentCustomize5" style="display: none;">
+	            	<p class="inputZone">
+	            	<label for="customizeCode5">
+<span class="busStopCode">Bus stop code</span>
+	            	<input type="hidden" id="customizeCode5Memo" value=""/>
+<input type="text" id="customizeCode5" name="customizeCode5" class="inputOk busStopCodeTitle" size="15" maxlength="255" title="for example: 36237628 (as shown on bus stop timetable)" alt="for example: 36237628 (as shown on bus stop timetable)" onchange="" onkeyup="if(this.value!=inputGetValue('customizeCode5Memo')){ inputSetValue('customizeCode5Memo',this.value); if(verifFormatBusStopCode(this)){ inputEnable('customizeService5'); inputEnable('customizeDest5'); updateAdvanceService(5,'customizeServiceZone5','customizeDestZone5');} else { inputDisable('customizeService5'); inputDisable('customizeDest5'); } }"/>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeServiceZone5">
+	            	<label for="customizeService5">
+<span class="service">Service search</span> 
+	            	<select id="customizeService5" name="customizeService5" onchange="updateAdvanceDest(5,'customizeDestZone5');" disabled="disabled">
+<option value="0">0 - <span class="serviceAll">All</span>
+</option>
+</select>
+</label>
+</p>
+	            	
+	            	<p class="inputZone" id="customizeDestZone5">
+	            	<label for="customizeDest5">
+<span class="destination">Destination</span> 
+	            	<select id="customizeDest5" name="customizeDest5" disabled="disabled">
+<option value="0">
+<span class="destinationAll">All</span> (*)</option>
+</select>
+</label>
+</p>
+	            </div>
+<p id="customizeDepartures">
+<input class="displayDeparture" type="button" value="Display departures" name="customize" id="displayCustomizeDepartures" onclick="goDisplayDepartureMySign('mySignSearchForm');"/>
+</p>
+			<script type="text/javascript">switchZoneForm('contentCustomize1', 'customizeTitle1')</script>
+</form>
+		</div>
+	</div> 
+	<div id="searchFooter"> </div>
+<script type="text/javascript">$(document).ready(function() { $("#searchMain").accordion({active: 0, autoHeight: false, clearStyle: true, collapsible: true}); });var stopIdValidateRegexp="^[0-9]{8}$";</script>
+</div>
+		</div>
+		<div id="zoneContent">
+			<div id="zoneContenu">
+ <div id="globalDisruption" class="" style="display: none">
+ </div>
+  <div id="maintenance" style="display: none">
+  </div>
+   <h1>Easy access to real time bus information in and around Edinburgh</h1>
+   <p>Quickly check your bus times at home, at work or on the move.</p>
+   <h3>Try our mobile site <a href="?module=mobile" target="_blank">mobile.mybustracker.co.uk</a>
+  </h3>
+  <h3>WAP phones, please use our existing site <a href="?module=wap" target="_blank">wap.mybustracker.co.uk</a>
+ </h3> 
+</div>
+		</div>
+		<div id="zoneFooter">
+			
+		<div id="footerLink">
+			<ul>
+				<li><a href="?page=Partners" >Partners</a></li>&nbsp;|
+				<li><a href="?page=Disclaimer" >Internet Disclaimer</a></li> |
+				<li><a href="?page=Cookies" >Cookies Policy</a></li> |
+				<li><a href="?page=API Key" >API key request</a></li>
+			</ul>
+			<div id="partner">
+				<ul class="icolist">
+				  <li class="one"><a href="http://www.travelinescotland.com/journeyplanner/enterJourneyPlan.do" target="_blank"><img src="modules/Edinburgh/BTFooter/images/traveline.png" alt="Traveline : journey planning assistance please click" title="Traveline : journey planning assistance" width="50" height="50" border="0" /></a></li>
+				  <li class="two"><a href="http://gordonchristie.com/edinbus/" target="_blank"><img src="modules/Edinburgh/BTFooter/images/edinbus.png" alt="iPhone EdinBus Application website" title="iPhone EdinBus Application website" width="50" height="50" border="0" /></a></li>
+				  <li class="three"><a href="http://www.rivernile.org.uk/bustracker/" target="_blank"><img src="modules/Edinburgh/BTFooter/images/android.png" alt="My Bus Edinburgh for Android" title="My Bus Edinburgh for Android" width="50" height="50" border="0" /></a></li>
+				  <li class="four"><a href="http://itunes.com/apps/edinbus/" target="_blank"><img src="modules/Edinburgh/BTFooter/images/appstore.png" alt="iPhone EdinBus Application on the AppStore" title="iPhone EdinBus Application on the AppStore" width="126" height="50" border="0" /></a></li>
+				  <li class="five"><a href="https://market.android.com/details?id=uk.org.rivernile.edinburghbustracker.android&amp;feature=search_result" target="_blank"><img src="modules/Edinburgh/BTFooter/images/google_play.png" alt="My Bus Edinburgh on Google Play" title="My Bus Edinburgh on Google Play" width="145" height="50" border="0" /></a></li>
+				</ul>
+			</div>
+		</div>
+							</div>
+	</div>
+</div><script type="text/javascript">
+var isBusStopsSearchActive=false;
+var mess_ajax_incompatibleBrowser='Your browser doesn\'t support Ajax technologies';
+var mess_ajax_updateError='Update error';
+var mess_ajax_invalidDataFormat='invalid data format';
+var mess_ajax_missingElement='element not found';
+var mess_ajax_invalidXML='invalid XML stream';
+var mess_ajax_communicationError='Communication error';
+</script>
+</body>
+</html>

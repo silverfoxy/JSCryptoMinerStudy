@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie ieold ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="ie ieold ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie ieold ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie ie9"> <![endif]-->
+<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang=it>
+<!--<![endif]-->
+<head id=www-unilibro-it>
+<meta charset=utf-8 />
+<meta http-equiv=content-language content=it-IT />
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"/>
+<title>Libreria online UNILIBRO - Vendita Libri ebook scolastici universitari</title>
+<meta name=description content="Vendita online di libri scontati, ebook, testi scolastici universitari e in lingua, cd dvd puzzle giochi e videogames, moleskine e cosmetici - spedizione gratis"/>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<link rel=canonical href="https://www.unilibro.it"/>
+<link href="//cdn.unilibro.it/styles/style-v528.min.css" rel=stylesheet type="text/css" media=all />
+<script src="//cdn.unilibro.it/scripts/jquery-1.8.3.min.js"></script>
+<script src="//cdn.unilibro.it/scripts/modernizr-2.8.3.min.js"></script>
+<script src="//cdn.unilibro.it/scripts/responsiveslides.min.js"></script>
+<meta property=og:title content='Libreria online UNILIBRO - Vendita Libri ebook scolastici universitari'/>
+<meta property=og:type content=product />
+<meta property=og:url content='https://www.unilibro.it?idaff=facebook'/>
+<meta property=og:image content=https: />
+<meta property=og:description content=''/>
+<meta property=og:site_name content=www.unilibro.it />
+<meta property=fb:admins content=100002302793918 />
+<meta property=fb:app_id content=215319188632165 />
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Libri in Anteprima" href="https://www.unilibro.it/rss/FeedRss.asp?q=Anteprime_libri"/>
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Classifica dei Libri più venduti" href="https://www.unilibro.it/rss/FeedRss.asp?q=Classifica_libri"/>
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Novità Libri" href="https://www.unilibro.it/rss/FeedRss.asp?q=Novita_libri"/>
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Dvd in Anteprima" href="https://www.unilibro.it/rss/FeedRss.asp?q=Anteprime_dvd"/>
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Classifica dei Dvd più venduti" href="https://www.unilibro.it/rss/FeedRss.asp?q=Classifica_dvd"/>
+<link rel=alternate type="application/rss+xml" title="UNILIBRO.IT: Novità Dvd" href="https://www.unilibro.it/rss/FeedRss.asp?q=Novita_dvd"/>
+<script>
+
+		var isOpen = false;
+		var isDirty = false;
+		$(function () {
+		    var scheme = 'https';
+		    //		    console.log(scheme);
+		    var subsections = $(".randomslider");
+		    $.each(subsections, function (index, elem) {
+		        var timer = parseInt($(this).attr("data-time"));
+		        $(this).responsiveSlides({
+		            auto: true,
+		            pager: true,
+		            nav: true,
+		            timeout: timer,
+		            namespace: "rs-btn-prod"
+		        });
+		    });
+
+		    var widgets = $(".staticslider");
+		    $.each(widgets, function (index, elem) {
+		        var timer = parseInt($(this).attr("data-time"));
+		        $(this).responsiveSlides({
+		            auto: false,
+		            pager: true,
+		            nav: true,
+		            timeout: timer,
+		            namespace: "rs-btn-prod"
+		        });
+		    });
+
+		    var url = location.href;
+		    if (url.indexOf("h/1/413") >= 0 || url.indexOf("v/362") >= 0) {
+		        $("<link/>", {
+		            rel: "stylesheet",
+		            type: "text/css",
+		            href: "https://cdn.unilibro.it/style/style-v51-xmas.css"
+		        }).appendTo("head");
+		    }
+		    //$.getScript("https://www.unilibro.it/include/Skin.js");
+		    $("#bottom-right").hide();
+		    $("#bottom-right").detach().appendTo($(document.body));
+		    // obbligatorio con IE9, o non fa il GET dal carrello
+		    $.ajaxSetup({ cache: false });
+
+		    // aggiungi al carrello
+		    $(".p-agg").click(function (e) {
+		        e.preventDefault();
+		        if (isDirty == true) {
+		            return;
+		        }
+		        isDirty = true;
+		        $("#bottom-right").hover(function () {
+		            isOpen = true;
+		            $("#bottom-right").stop(true, true).fadeIn('slow');
+		        });
+		        $("#bottom-right").mouseleave(function () {
+		            $("#bottom-right").fadeOut('slow');
+		            isOpen = false;
+		        });
+		        var selectedLink = $(this);
+		        var parent = selectedLink.parents("li:first");
+		        parent.mouseleave(function () {
+		            if (isOpen == false) {
+		                $("#bottom-right").fadeOut('slow');
+		            }
+		        });
+		        var itemToAdd = $(this).attr("id");
+		        if (itemToAdd != '') {
+		            // evita ripetizioni dell'evento
+		            if ($(this).data('dont') == 1) {
+		                return;
+		            }
+		            $(this).data('dont', 1);
+		            var posX = $(this).offset().left - 50;
+		            var posY = $(this).offset().top - 75;
+		            var skuToAdd = itemToAdd.substring(4);
+		            var styles = { display: "table", position: "absolute", left: posX + "px", top: posY + "px", width: "120px", height: "auto" };
+
+		            if (skuToAdd.length > 8 && skuToAdd.indexOf("99000") >= 0) {
+		                 location.href = "https://usato.unilibro.it/site/product_used.asp?idused=" + skuToAdd.replace("99000","");                         
+                        }
+                    else
+                    {
+		            $.ajax({
+		                url: "/libro/AsyncWidgets/ShoppingCart",
+		                type: "POST",
+		                data: { "id": skuToAdd },
+		                success: function (data) 
+                        {
+		                    isDirty = false;
+		                    var $response = $(data);
+		                    var res = $response.filter('a.cont-cart').attr('data-esito');
+
+		                    var okMsg = '';
+		                    switch (res) 
+                            {
+		                        case '0':
+		                            {
+		                                okMsg = "L\'articolo &egrave; gi&agrave; a carrello<br/><br/><a href='/libri/basket'>Vai alla Cassa</a>";
+		                                break;
+		                            }
+		                        case '1':
+		                            {
+		                                okMsg = "Articolo aggiunto a carrello<br/><br/><a href='/libri/basket'>Vai alla Cassa</a>";
+		                                break;
+		                            }
+		                        default:
+		                            {
+		                                okMsg = "Impossibile aggiungere l'articolo al carrello<br/><br/><a href='/libri/basket'>Vai alla Cassa</a>";
+		                                break
+		                            }
+		                    }
+		                    $('#my-cart').html($response);
+
+		                    $("#bottom-right")
+								.html(okMsg)
+								.css(styles)
+								.fadeIn().animate({ opacity: '+=0' }, 1000);
+                            
+                            if (skuToAdd == '999')                            
+                            {
+                                location.href = "/SSL/Checkout/PaymentDataPD";
+                            }
+                            
+                            if (skuToAdd.length > 8 && skuToAdd.indexOf("99000") >= 0) {
+		                        location.href = "https://usato.unilibro.it/site/product_used.asp?idused=" + skuToAdd.Replace(skuToAdd.replace("99000",""));
+		                    }
+		                },
+		                error: function (xhr, textStatus, error) {
+		                    isDirty = false;
+		                    $("#bottom-right")
+								.html("Non &egrave; stato possibile aggiungere l\'articolo a carrello")
+								.css(styles)
+								.fadeIn()
+								.animate({ opacity: '+=0' }, 2000)
+								.fadeOut('slow');
+		                }
+		            });
+                    }
+		            $(this).data('dont', 0);
+		        }
+		    });
+
+		    var showSkin = '0';
+		    var Skin = 'https://cdn.unilibro.it/immagini/skin/wp-natale-2015-1.png';
+		    var SkinBgC = '#3d8c33';
+		    var SkinHref = 'www.unilibro.it/home/h/1/413/idee-regalo-natale-2017';
+		    //var SkinHrefCs = '';		    
+		    if (showSkin == "1") {
+		        var cs = location.href.indexOf("/h/1/413") != -1;
+		        $.ajaxSetup({ cache: true });
+		        $.ajax({
+		            url: "/libro/AsyncWidgets/GetSkin4SectionLayout",
+		            type: "GET",
+		            data: { "christmasShowcase": cs },
+		            success: function (data) {
+		                $('body').attr("class", "skin-on");
+		                $('body').css({ "background-image": data.BackgroundImage, "background-color": data.BackgroundColor });
+		                //$('body').css({ "background-image": Skin, "background-color": SkinBgC });
+		                var csLink = $("a.active-skin");
+		                var exists = typeof csLink !== 'undefined';
+		                var newLink = $("<a class=\"active-skin\" href=\"http://" + SkinHref + "\" rel=\"nofollow\" target=\"_blank\"></a>");
+
+		                if (cs == true) {
+		                    newLink = $("<a class=\"active-skin\" href=\"https://www.unilibro.it/home/info/PromozioneNatale\" rel=\"nofollow\"></a>");
+		                    //newLink = $("<a class=\"active-skin\" href=\"http://" + SkinHrefCs + "\" rel=\"nofollow\"></a>");	          
+		                }
+		                if (exists) {
+		                    csLink.replaceWith(newLink);
+		                }
+		                else {
+		                    $('body').children().eq(1).before(newLink);
+		                }
+		            },
+		            error: function (xhr, textStatus, error) {
+		                //console.log("Errore: " + error);
+		            }
+		        });
+		        $.ajaxSetup({ cache: false });
+		    }
+		});
+		function htmlEncode(value)
+		{
+		    return $('<div/>').text(value).html();
+		}
+
+		function htmlDecode(value)
+		{
+		    return $('<div/>').html(value).text();
+		}
+    </script>
+</head>
+<body id=index class=skin-off data-pagetype="">
+<div id=main class=wrapper>
+<header id=main-header>
+<div class=h-sinistra>
+<div itemscope itemtype="http://schema.org/Organization">
+<a title="Unilibro Libreria Universitaria Online" itemprop=url class=logo href="https://www.unilibro.it">
+<img itemprop=logo src="//cdn.unilibro.it/immagini/v5/unilibro-n.gif" alt="Libreria Unilibro" border=0 />
+</a>
+</div>
+<div class=banner-traditional>
+<a title="Carta del Docente e Bonus Cultura 18App" href="//www.unilibro.it/home/info/CartaDelDocente">
+<img src="//cdn.unilibro.it/immagini/v5/Banner_alto_cdD.jpg" alt="Bonus Cultura" border=0 />
+</a>
+</div>
+<form name=frmricerca action="https://www.unilibro.it/find_buy/ffresult.asp" method=post id=mod-ricerca accept-charset=ISO-8859-1>
+<div id=ricerca class=droid>
+<input name=query id=campo-ricerca placeholder="Cerca per titolo, autore, regista, genere ..."/>
+<select name=ff_Nome_Pagina id=affina-ricerca>
+<option value="">tutti i prodotti</option>
+<option selected value=Default>home</option> <option value=Libro>libri</option> <option value=Scolastici>libri scolastici</option> <option value=Books>libri in lingua</option> <option value=Ebook>ebook</option> <option value=Audiolibri>audiolibri</option> <option value=Dvd>dvd</option> <option value=Game>videogame</option> <option value=Cd>cd</option> <option value=Cosmetici>cosmetici</option> <option value=Puzzle>puzzle giochi</option> <option value=Scrittura>poster scrittura</option> </select>
+</div>
+<input value=CERCA id=pulsante-cerca class="pulsante droid" type=submit>
+<a class="r-av gen droid" rel=nofollow href="https://www.unilibro.it/home/find?prodotto=Default">ricerca<br/>
+avanzata</a>
+</form>
+<form id=frmsottoricerca method=post name=frmsottoricerca style="margin:0px; visibility:visible; padding:0px; width:100%;" action="/libri/ff">
+<input type=hidden value="" id=search name=search />
+</form>
+</div>
+<div class="h-destra droid">
+<ul class=top-nav id=my-nav>
+<li><a class=gen href="https://www.unilibro.it/find_buy/login.asp">Accedi</a></li>
+<li>&nbsp;|&nbsp;</li>
+<li><a rel=nofollow href="https://www.unilibro.it/home/member/MyUnilibro">Area Cliente</a> </li>
+<li>&nbsp;|&nbsp;</li>
+<li><a href="https://www.unilibro.it/home/info/faq">Faq</a>&nbsp;&amp;&nbsp;<a href="https://www.unilibro.it/home/info">Help</a> </li>
+</ul>
+<div id=mod-cart>
+<span id=my-cart><a class=cont-cart rel=nofollow data-esito="" href="https://www.unilibro.it/libri/basket">Il tuo carrello<br/> è vuoto </a>
+<a class="mobile-cont-cart gen" href="https://www.unilibro.it/libri/basket">… </a>
+</span>
+<p class=adv-cart>
+<a href="https://www.unilibro.it/home/info/SpedizioneGratuita">Per ordini superiori a € 34,49<br/>
+<span class=gen>Spedizioni Gratuite</span></a> </p>
+</div>
+</div>
+</header>
+<nav id=nav-pri>
+<ul id=mainMenu>
+<li>
+<a class=droid href="https://www.unilibro.it/libri" id=nav-libri>libri</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/scolastici" id=nav-scolastici>libri scolastici</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/books" id=nav-libri-lingua>libri in lingua</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/ebooks" id=nav-ebook>ebook</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/audiolibri" id=nav-audiolibri>audiolibri</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/dvd" id=nav-dvd>dvd</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/videogames" id=nav-videogame>videogame</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/musica" id=nav-cd>cd</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/cosmetici" id=nav-cosmetici>cosmetici</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/giochi" id=nav-puzzle-giochi>puzzle giochi</a>
+</li>
+<li>
+<a class=droid href="https://www.unilibro.it/scrittura" id=nav-poster-scrittura>poster scrittura</a>
+</li>
+<li><a class=droid href="https://usato.unilibro.it/site/usato.asp?back=https://www.unilibro.it" id=nav-usato>usato</a></li>
+</ul>
+<div class=mobile-nav>Men&ugrave; principale
+<select onchange="location = this.options[this.selectedIndex].value;">
+<option value=Menu disabled selected>Men&ugrave; Unilibro</option>
+<option value="https://www.unilibro.it/home/basket">Il tuo Carrello</option>
+<option value="https://www.unilibro.it/home/member/orders">I tuoi Ordini</option>
+<option value="https://www.unilibro.it/home/c/AllPromos">Offerte e Promozioni</option>
+<option value="https://www.unilibro.it/home/AsyncWidgets/SectionMenu?type=libri">Reparti Libreria</option>
+<option value="https://www.unilibro.it" selected>home</option>
+<option value="https://www.unilibro.it/home/AsyncWidgets/SectionMenu?type=default"> -> reparti default</option>
+<option value="https://www.unilibro.it/libri">libri</option> <option value="https://www.unilibro.it/scolastici">libri scolastici</option> <option value="https://www.unilibro.it/books">libri in lingua</option> <option value="https://www.unilibro.it/ebooks">ebook</option> <option value="https://www.unilibro.it/audiolibri">audiolibri</option> <option value="https://www.unilibro.it/dvd">dvd</option> <option value="https://www.unilibro.it/videogames">videogame</option> <option value="https://www.unilibro.it/musica">cd</option> <option value="https://www.unilibro.it/cosmetici">cosmetici</option> <option value="https://www.unilibro.it/giochi">puzzle giochi</option> <option value="https://www.unilibro.it/scrittura">poster scrittura</option>
+<option value="https://usato.unilibro.it/site/usato.asp?back=https://www.unilibro.it">usato</option>
+</select>
+</div>
+</nav>
+<script>
+    $(document).ready(function () {
+
+        $("#pulsante-cerca").click(function (event) {
+            var txt = $("#campo-ricerca").val();
+            txt = $.trim(txt);
+            if (txt != "") {
+                if (FFParseISBN(txt) == true) {
+                    var link = "/Unilibro/Search.ff?query=" + txt.replace(" ", "+");
+                    var prodType = jQuery("#affina-ricerca option:selected").val();
+                    if (prodType != "" && prodType != "tutti i prodotti" && prodType != "home") {
+                        link = link + FFTypeFilter(prodType);
+                    }
+                    link = link + "&channel=it&productsPerPage=20&xml=true";
+                    link = htmlDecode(link);
+                    $("#search").val(link);
+                    $("#frmsottoricerca").submit();
+                }
+            }
+            event.preventDefault();
+        });
+        $.ajaxSetup({ cache: false });
+
+        var search = window.location.protocol + "//" + window.location.hostname + "/find_buy/ffresult.asp";
+        var form = $("#mod-ricerca").get(0);
+        if (typeof (form) !== 'undefined') {
+            form.setAttribute("action", search);
+        }
+        //var dominio = $("a.logo").attr("href");
+        //alert(dominio);
+        var $mustLoad = false;
+        var $unilibro = $.cookie("Unilibro_Order");
+        if ($unilibro !== null && ($unilibro.indexOf("Carrello_Id") != -1 || $unilibro.indexOf("Carrello_Id_PD") != -1)) {
+            $mustLoad = true;
+        }
+        else {
+            var $myunilibro = $.cookie("My_Unilibro");
+            if ($myunilibro !== null && $myunilibro.indexOf("shopper_id") != -1) {
+                $mustLoad = true;
+            }
+        }
+        if ($mustLoad === true) {
+            $.ajaxSetup({ cache: false });
+            $.ajax({
+                url: "/libri/AsyncWidgets/TopNav",
+                type: "GET",
+                success: function (data) {
+                    $('ul#my-nav').empty().html(data);
+                },
+                error: function (xhr, textStatus, error) {
+                }
+            });
+            $('#my-cart')
+			.html("<div class='loading-icon'><img id='img_wait' alt='attendi...' src='//cdn.unilibro.it/immagini/loading.gif' /></div>");
+            $.ajax({
+                url: "/libri/AsyncWidgets/ShoppingCart",
+                type: "GET",
+                success: function (data) {
+                    $('#my-cart').empty().html(data);
+                    $("#show-cart").hide();
+                },
+                error: function (xhr, textStatus, error) {
+                    //alert("Errore caricamento carrello: " + textStatus + ": " + error);
+                }
+            });
+
+        }
+
+        $("#my-cart").mouseenter(function () {
+            $("#show-cart").fadeIn('fast');
+        });
+
+        $("#my-cart").mouseleave(function () {
+            $("#show-cart").animate({ opacity: '+=0' }, 500).fadeOut('fast');
+        });
+        $("#slider-top").responsiveSlides({
+            pause: true,
+            speed: 100,
+            timeout: 5000
+        });
+
+        var show = 'True';
+        var section = 'libri';
+        var actionUrl = "/" + section + "/AsyncWidgets/SectionMenu";
+        //var actionUrl = "https://www.unilibro.it/home/AsyncWidgets/SectionMenu";        
+        if (show == "True") {
+            $.ajaxSetup({ cache: true });
+            $.ajax({
+                url: actionUrl,
+                type: "GET",
+                success: function (data) {                                       
+                        $("#mainMenu").replaceWith(data);
+                },
+                error: function (xhr, textStatus, error) {
+                    //alert("Errore caricamento menu: status = " + textStatus + " errore= " + error);
+                }
+            });
+        }
+    });
+
+    function FFParseISBN(txt)
+    {
+        var regex = /[^0-9]/gi;
+        txt = txt.replace(regex, "");
+        var len = txt.length;
+        var isbn = "";
+        var ean = "";
+        switch (len)
+        {
+            case 9:
+            case 10:
+                {
+                    isbn = txt.substr(0, 9);
+                    ean = "978" + isbn;
+                    break;
+                }
+            case 12:
+            case 13:
+                {
+                    ean = txt.substr(0, 12);
+                    if (txt.substr(0, 3) == "978")
+                    {
+                        isbn = txt.substr(3, 9);
+                        ean = "978" + isbn;
+                    }
+                    break;
+                }
+        }
+        if (ean != "" && $.isNumeric(ean))
+        {
+            var checkEan = 0;
+            for (var i = 1; i < 12; i += 2)
+            {
+                checkEan += (parseInt(ean.substr(i, 1)) * 3);
+            }
+            for (var i = 0; i < 12; i += 2)
+            {
+                checkEan += parseInt(ean.substr(i, 1));
+            }
+            checkEan = checkEan % 10;
+            if (checkEan != 0)
+            {
+                checkEan = 10 - checkEan;
+            }
+            txt = ean.toString() + checkEan.toString();
+            if (txt.length == 13)
+            {
+                location.href = "https://www.unilibro.it/libro/" + txt;
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function FFTypeFilter(product)
+    {
+        var filter = "";
+        switch (product.toLowerCase())
+        {
+            case "libri":
+            case "libro":
+            case "scolastici":
+            case "remainders":
+                {
+                    filter = "01";
+                    break;
+                }
+            case "libri in lingua":
+            case "books":
+                {
+                    filter = "08";
+                    break;
+                }
+            case "dvd":
+                {
+                    filter = "02";
+                    break;
+                }
+            case "cd":
+            case "colonne sonore":
+                {
+                    filter = "04";
+                    break;
+                }
+            case "game":
+            case "accessori":
+                {
+                    filter = "03";
+                    break;
+                }
+            case "mappamondi":
+            case "puzzle":
+            case "giochi":
+                {
+                    filter = "05";
+                    break;
+                }
+            case "poster":
+                {
+                    filter = "06";
+                    break;
+                }
+            case "scrittura":
+            case "moleskine":
+                {
+                    filter = "07";
+                    break;
+                }
+            case "ebook":
+                {
+                    filter = "09";
+                    break;
+                }
+            case "cofanetti":
+                {
+                    filter = "10";
+                    break;
+                }
+            default:
+                {
+                    filter = "";
+                    break;
+                }
+        }
+        if (filter != "")
+        {
+            filter = "&filterProdGroup=" + filter;
+        }
+        return filter;
+    }
+
+   
+</script>
+<div class="content cf" id=home>
+<div id=int-sect>
+<h1 class="c-libri droid">Libreria Unilibro</h1>
+<h2 class=droid>Vendita Libri OnLine</h2>
+<br/>
+</div>
+<div id=index-sect>
+<div class="int-slideshow cf" id=billboard>
+<ul class="rslides rs-interno" id=slider>
+<li>
+<div class=slide><a href="/libri/p/1723/addio-a-stephen-hawking-l-uomo-che-ha-cambiato-la-nostra-idea-dell-universo-">
+<img src="//cdn.unilibro.it/immagini/banner/hawking18-bb.jpg" alt="Addio a Stephen Hawking, l&#39;uomo che ha cambiato la nostra idea dell&#39;Universo!"/></a>
+<div class="bollino-sconto back-libri droid">-15%</div> <div class=slide-graphic>
+<h3 class="c-libri droid">Stephen Hawking 1942-2018</h3>
+<h4 class=droid>Addio a Stephen Hawking, l&#39;uomo che ha cambiato la nostra idea dell&#39;Universo!</h4>
+<p class="abstract ">Una delle menti pi&#249; brillanti dell&#39;astrofisica. A 21 anni gli era stata diagnostica la Sla. Comunicava attraverso un pc. Abbiamo voluto raccogliere qui la sua storia, e raccontarvi i suoi studi, le sue teorie e scoperte </p>
+Maggiori informazioni: <a title="Addio a Stephen Hawking, l&#39;uomo che ha cambiato la nostra idea dell&#39;Universo!" class="c-libri droid" href="/libri/p/1723/addio-a-stephen-hawking-l-uomo-che-ha-cambiato-la-nostra-idea-dell-universo-">Offerta LIBRO &gt;</a>
+</div>
+</div>
+</li>
+<li>
+<div class=slide><a href="/libri/p/1719/tutti-i-libri-protagonisti-alla-fiera-nazionale-dell-editoria-indipendente-">
+<img src="//cdn.unilibro.it/immagini/banner/bookpride-bb.jpg" alt="Tutti i Libri protagonisti alla Fiera Nazionale dell&#39;editoria indipendente!"/></a>
+<div class="bollino-sconto back-libri droid">-15%</div> <div class=slide-graphic>
+<h3 class="c-libri droid">Book Pride 2018</h3>
+<h4 class=droid>Tutti i Libri protagonisti alla Fiera Nazionale dell&#39;editoria indipendente!</h4>
+<p class="abstract ">Book Pride &#232; promosso e organizzato da Odei, Osservatorio degli editori indipendenti, associazione nata con l’obiettivo di dare voce e rappresentanza all’editoria indipendente.
+Qui raccogliamo una line-up di molti dei libri che saranno in auge alla Fiera</p>
+Maggiori informazioni: <a title="Tutti i Libri protagonisti alla Fiera Nazionale dell&#39;editoria indipendente!" class="c-libri droid" href="/libri/p/1719/tutti-i-libri-protagonisti-alla-fiera-nazionale-dell-editoria-indipendente-">Offerta LIBRO &gt;</a>
+</div>
+</div>
+</li>
+<li>
+<div class=slide><a href="/libri/p/1677/il-nuovo-romanzo-di-un-grande-autore-contemporaneo-in-promozione-">
+<img src="//cdn.unilibro.it/immagini/banner/rattaro18-bb.jpg" alt="Il nuovo romanzo di un grande autore contemporaneo in promozione!"/></a>
+<div class="bollino-sconto back-libri droid">-15%</div> <div class=slide-graphic>
+<h3 class="c-libri droid">Sara RATTARO | Uomini che Restano</h3>
+<h4 class=droid>Il nuovo romanzo di un grande autore contemporaneo in promozione!</h4>
+<p class="abstract ">&#171;Hanno un solo difetto i libri di Sara Rattaro: finiscono! E tu devi trovare un modo per sopravvivere sino al prossimo libro, alla prossima notte insonne, alle prossime lacrime&#187; (laLibridinosa.com, blogger).
+Dopo il successo de L&#39;Amore Addosso, torna in libreria una delle autrici pi&#249; amate per raccontare le nostre emozioni come se sapesse leggerci dentro.
+Ordina ora in sconto -15%</p>
+Maggiori informazioni: <a title="Il nuovo romanzo di un grande autore contemporaneo in promozione!" class="c-libri droid" href="/libri/p/1677/il-nuovo-romanzo-di-un-grande-autore-contemporaneo-in-promozione-">Offerta LIBRO &gt;</a>
+</div>
+</div>
+</li>
+<li>
+<div class=slide><a href="/libri/p/1556/auguri-papa-ti-regalo-un-libro-">
+<img src="//cdn.unilibro.it/immagini/banner/festapap&#224;_2018-bb.jpg" alt="Auguri Pap&#224;, ti regalo un libro!"/></a>
+<div class="bollino-sconto back-libri droid">-15%</div> <div class=slide-graphic>
+<h3 class="c-libri droid">FESTA del PAPA&#39; </h3>
+<h4 class=droid>Auguri Pap&#224;, ti regalo un libro!</h4>
+<p class="abstract ">Quante cose fanno i Pap&#224; per noi, tutti i giorni?
+Tante, tantissime, infinite...e allora il 19 marzo &#232; il momento giusto per ringraziarli, con un regalo pensato, utile, divertente, spensierato!
+Scegliete tra tanti Libri diversi quello pi&#249; indicato per festeggiare l&#39;uomo pi&#249; importante della vostra vita con un dono semplice, ma speciale</p>
+Maggiori informazioni: <a title="Auguri Pap&#224;, ti regalo un libro!" class="c-libri droid" href="/libri/p/1556/auguri-papa-ti-regalo-un-libro-">Offerta LIBRO &gt;</a>
+</div>
+</div>
+</li>
+<li>
+<div class=slide><a href="/libri/p/1480/tutto-il-catalogo-dei-tascabili-pickwick-in-promozione-">
+<img src="//cdn.unilibro.it/immagini/banner/pickwick18-bb.jpg" alt="Tutto il catalogo dei Tascabili Pickwick in promozione!"/></a>
+<div class="bollino-sconto back-libri droid">-25%</div> <div class=slide-graphic>
+<h3 class="c-libri droid">Bestseller PICKWICK -25%</h3>
+<h4 class=droid>Tutto il catalogo dei Tascabili Pickwick in promozione!</h4>
+<p class="abstract ">E chi l&#39;ha detto che febbraio &#232; il mese pi&#249; freddo dell&#39;anno? Per noi, che siamo teneri e romantici, &#232; il mese dell&#39;amore, della passione e anche degli sconti.
+Dal 22 febbraio e fino al 23 marzo potete acquistare tutti i titoli Pickwick con lo sconto del 25%!
+Un modo bellissimo per dimenticare il freddo pungente di questi giorni e salutare l&#39;arrivo della primavera...che tarda ad arrivare!
+</p>
+Maggiori informazioni: <a title="Tutto il catalogo dei Tascabili Pickwick in promozione!" class="c-libri droid" href="/libri/p/1480/tutto-il-catalogo-dei-tascabili-pickwick-in-promozione-">Offerta LIBRO &gt;</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<script>
+    $(function ()
+    {
+        var ul = $("#billboard ul:first-child");
+        var isHome = 'True';
+        if (isHome == 'True')
+        {
+            ul.removeClass('rs-interno').addClass('rs-index');
+            $(".slide-graphic").toggleClass("ind-s-graph", true);
+        }
+        else
+        {
+            ul.removeClass('rs-index').addClass('rs-interno');
+            $(".slide-graphic").toggleClass("ind-s-graph", false);
+        }
+    });
+</script> </div>
+<aside id=int-aside>
+<div class=box-item>
+<h3 class="c-libri droid">Libreria Unilibro Consiglia</h3>
+<ul>
+<li><a title="Sfoglia Catalogo <strong>Novità Libri 19-03-2018 </strong>" href="https://www.unilibro.it/home/v/1/Novita_libri/libri-novita-in-uscita-in-libreria"><strong>Novità Libri 19-03-2018 </strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Agende Moleskine 2018</strong>" href="https://www.unilibro.it/scrittura/p/1361/agende-moleskine-2018"><strong>Agende Moleskine 2018</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Penne Aurora</strong>" href="https://www.unilibro.it/scrittura/f/editore/aurora"><strong>Penne Aurora</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Taccuini Quo Vadis</strong>" href="https://www.unilibro.it/scrittura/f/editore/quo_vadis"><strong>Taccuini Quo Vadis</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Puzzle Ravensburger</strong>" href="https://www.unilibro.it/puzzle/f/editore/ravensburger"><strong>Puzzle Ravensburger</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Giochi per bambini Lisciani</strong>" href="https://www.unilibro.it/giochi/f/produttore/liscianigiochi"><strong>Giochi per bambini Lisciani</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Catalogo Giochi Lego</strong>" href="https://www.unilibro.it/giochi/f/produttore/lego"><strong>Catalogo Giochi Lego</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Buoni Regalo Unilibro</strong>" href="https://www.unilibro.it/home/info/BuoniRegalo"><strong>Buoni Regalo Unilibro</strong></a></li>
+</ul>
+</div>
+<div class=box-item>
+<h3 class="c-libri droid">Novit&#224; Editoriali</h3>
+<ul>
+<li><a title="Sfoglia Catalogo <strong>Il Sole 24 Ore Libri</strong>" href="https://www.unilibro.it/libri/f/editore/il_sole_24_ore"><strong>Il Sole 24 Ore Libri</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Feltrinelli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/feltrinelli"><strong>Feltrinelli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Franco Angeli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/franco_angeli"><strong>Franco Angeli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Hoepli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/hoepli"><strong>Hoepli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Mondadori Editore</strong>" href="https://www.unilibro.it/libri/f/editore/mondadori"><strong>Mondadori Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Rizzoli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/rizzoli"><strong>Rizzoli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Bompiani Editore</strong>" href="https://www.unilibro.it/libri/f/editore/bompiani"><strong>Bompiani Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Giappichelli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/giappichelli"><strong>Giappichelli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Edises Editore</strong>" href="https://www.unilibro.it/libri/f/editore/edises"><strong>Edises Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Edizioni Erickson Libri</strong>" href="https://www.unilibro.it/libri/f/editore-argomento/erickson-psicoterapia"><strong>Edizioni Erickson Libri</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Ipsoa</strong>" href="https://www.unilibro.it/libri/f/editore/ipsoa"><strong>Ipsoa</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Maggioli Editore</strong>" href="https://www.unilibro.it/libri/f/editore/maggioli_editore"><strong>Maggioli Editore</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Editori in Evidenza</strong>" href="https://www.unilibro.it/home/h/1/459/editori-in-evidenza"><strong>Editori in Evidenza</strong></a></li>
+</ul>
+</div>
+<div class=box-item>
+<h3 class="c-libri droid">Sconti &amp; Promozioni</h3>
+<ul>
+<li><a title="Sfoglia Catalogo <strong>SPEDIZIONE GRATUITA</strong>" href="https://www.unilibro.it/home/info/SpedizioneGratuita"><strong>SPEDIZIONE GRATUITA</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Catalogo Libri Remainders Nuovi a Metà Prezzo</strong>" href="https://www.unilibro.it/libri/p/200/remainders-libri-nuovi-scontati-biografie-dizionari-manuali-saggi-classici"><strong>Catalogo Libri Remainders Nuovi a Metà Prezzo</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Edizioni Libri Introvabili</strong>" href="https://www.unilibro.it/libri/p/682/libri-introvabili-edizioni-esaurite-fuori-catalogo-in-sconto-online-"><strong>Edizioni Libri Introvabili</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Ebook Gratuiti</strong>" href="https://www.unilibro.it/ebooks/h/100/118/ebook-gratuiti"><strong>Ebook Gratuiti</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Tutte le offerte attive</strong>" href="https://www.unilibro.it/home/c/AllPromos"><strong>Tutte le offerte attive</strong></a></li>
+</ul>
+</div>
+<div class=box-item>
+<h3 class="c-libri droid">Bonus Cultura</h3>
+<ul>
+<li><a title="Sfoglia Catalogo <strong>Carta Del Docente</strong>" href="https://www.unilibro.it/home/info/CartaDelDocente"><strong>Carta Del Docente</strong></a></li>
+<li><a title="Sfoglia Catalogo <strong>Bonus Cultura 18App</strong>" href="https://www.unilibro.it/home/info/BonusCultura18App"><strong>Bonus Cultura 18App</strong></a></li>
+</ul>
+</div>
+<section class=sec-skyscraper>
+<div class=campaign>
+<a href="//www.unilibro.it/home/info/CartaDelDocente" title="CARTA DEL DOCENTE">
+<img width=180 height=150 border=0 title="CARTA DEL DOCENTE" alt="CARTA DEL DOCENTE" src="//cdn.unilibro.it/immagini/v5/banner_cartaDelDocente.png"/></a>
+<a href="//www.unilibro.it/home/info/BonusCultura18App" title="Bonus Cultura 18App">
+<img width=180 height=150 border=0 title="Bonus Cultura 18App" alt="Bonus Cultura 18App" src="//cdn.unilibro.it/immagini/v5/banner_18app_b.jpg"/></a>
+</div>
+</section>
+</aside>
+<div id=main-sect>
+<section class=sec-aut>
+<div class=sec-content>
+<a href="https://www.unilibro.it/home/p/380/a-40-anni-di-distanza-rileggiamo-verita-misteri-ed-enigmi-del-caso-moro?sortBy=rad"><img class=foto-aut src="//cdn.unilibro.it/immagini/banner/moro40-bb.jpg" alt="Caso MORO 1978-2018"/></a>
+<div class=side-content>
+<a href="https://www.unilibro.it/home/p/380/a-40-anni-di-distanza-rileggiamo-verita-misteri-ed-enigmi-del-caso-moro?sortBy=rad" class="c-gen droid">
+<h3>Caso MORO 1978-2018</h3>
+</a>
+<h4 class=droid>A 40 anni di distanza rileggiamo verit&#224;, misteri ed enigmi del caso Moro</h4>
+<p class=abstract>Il 16 marzo 1978, giorno della presentazione del quarto Governo guidato da Giulio Andreotti, la Fiat 130 che trasportava Moro dalla sua abitazione alla Camera dei Deputati, fu intercettata da un commando delle Brigate Rosse all'incrocio tra via Mario Fani e via Stresa.
+Gli uomini delle BR uccisero, in pochi secondi, i cinque uomini della scorta e sequestrarono il presidente della Democrazia Cristiana. Dopo una prigionia di 55 giorni il corpo di Aldo Moro fu ritrovato in una Renault 4 rossa il 9 maggio a Roma in via Caetani.
+40 anni dopo sono ancora tanti i lati oscuri del caso più complesso e controverso della storia repubblicana del nostro paese.
+Scopri tutti i titoli di approfondimento in promozione -10%</p>
+<div class="block-vet-cont droid">
+<div class="block-vet bv-aut">
+<div class="sconto-vet ">
+<p>-15%</p>
+</div>
+<a class=c-gen href="https://www.unilibro.it/libro/fasanella-giovanni/puzzle-moro-testimonianze-documenti-inglesi-americani-desecretati-verita-sull-assassinio-leader-dc/9788861900318">
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788861900318p.jpg" alt="Il puzzle Moro. Da testimonianze e documenti inglesi e americani desecretati, la verità sull'assassinio del leader Dc prodotto di Fasanella Giovanni"/>
+</div>
+<h5>Il puzzle Moro. Da testimonianze e documenti inglesi e americani desecretati, la verit&#224; sull&#39;assassinio del leader Dc</h5>
+</a>
+<div class=prezzo-cut>€ 17,60</div>
+<div class=prezzo-vet>€ 14,96</div>
+<a href="https://www.unilibro.it/libro/fasanella-giovanni/puzzle-moro-testimonianze-documenti-inglesi-americani-desecretati-verita-sull-assassinio-leader-dc/9788861900318" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83865519></a>
+</div>
+<div class="block-vet bv-aut">
+<div class="sconto-vet ">
+<p>-15%</p>
+</div>
+<a class=c-gen href="https://www.unilibro.it/libro/damilano-marco/atomo-verita-aldo-moro-fine-politica-italia/9788807070471">
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788807070471p.jpg" alt="Un atomo di verità. Aldo Moro e la fine della politica in Italia prodotto di Damilano Marco"/>
+</div>
+<h5>Un atomo di verit&#224;. Aldo Moro e la fine della politica in Italia</h5>
+</a>
+<div class=prezzo-cut>€ 18,00</div>
+<div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/damilano-marco/atomo-verita-aldo-moro-fine-politica-italia/9788807070471" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-86062889></a>
+</div>
+<div class="block-vet bv-aut">
+<div class="sconto-vet ">
+<p>-15%</p>
+</div>
+<a class=c-gen href="https://www.unilibro.it/libro/fagiolo-roberto/topografia-caso-moro-via-fani-caetani/9788865945605">
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788865945605p.jpg" alt="Topografia del caso Moro. Da via Fani a via Caetani prodotto di Fagiolo Roberto"/>
+</div>
+<h5>Topografia del caso Moro. Da via Fani a via Caetani</h5>
+</a>
+<div class=prezzo-cut>€ 16,00</div>
+<div class=prezzo-vet>€ 13,60</div>
+<a href="https://www.unilibro.it/libro/fagiolo-roberto/topografia-caso-moro-via-fani-caetani/9788865945605" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83702349></a>
+</div>
+<div class="block-vet bv-aut">
+<div class="sconto-vet ">
+<p>-15%</p>
+</div>
+<a class=c-gen href="https://www.unilibro.it/libro/gentiloni-silveri-umberto/giorno-piu-lungo-repubblica-paese-ferito-lettere-casa-moro-durante-sequestro/9788804668886">
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804668886p.jpg" alt="Il giorno più lungo della Repubblica. Un paese ferito nelle lettere a casa Moro durante il sequestro prodotto di Gentiloni Silveri Umberto"/>
+</div>
+<h5>Il giorno pi&#249; lungo della Repubblica. Un paese ferito nelle lettere a casa Moro durante il sequestro</h5>
+</a>
+<div class=prezzo-cut>€ 18,00</div>
+<div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/gentiloni-silveri-umberto/giorno-piu-lungo-repubblica-paese-ferito-lettere-casa-moro-durante-sequestro/9788804668886" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82402302></a>
+</div>
+</div>
+<div class="aut-vedi droid"><a title="Caso MORO 1978-2018" class=c-gen href="https://www.unilibro.it/home/p/380/a-40-anni-di-distanza-rileggiamo-verita-misteri-ed-enigmi-del-caso-moro?sortBy=rad">
+vedi tutti</a></div>
+</div>
+</div>
+</section>
+<section class="sec-prod droid">
+<header>Un bestseller imperdibile</header>
+<a href="https://www.unilibro.it/libro/fasanella-giovanni/puzzle-moro-testimonianze-documenti-inglesi-americani-desecretati-verita-sull-assassinio-leader-dc/9788861900318" class=daily-thumb>
+<img src="https://cdn.unilibro.it/cover/libro/9788861900318g.jpg" alt="Il puzzle Moro. Da testimonianze e documenti inglesi e americani desecretati, la verit&#224; sull&#39;assassinio del leader Dc"/>
+</a>
+<div class="sconto-vet ">
+<p>-15 %</p>
+</div>
+<div class=sec-daily-content>
+<h4 class=droid>Il puzzle Moro. Da testimonianze e documenti inglesi e americani desecretati, la verit&#224; sull&#39;assassinio del leader Dc</h4>
+<h6>
+ultimo nuovo libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/fasanella_giovanni">Giovanni Fasanella</a>&nbsp;
+<br/>edizioni Chiarelettere, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div> <p class="abstract ">Le verità che mancavano sul più importante delitto politico del dopoguerra "Dobbiamo scoraggiare le iniziative indipendenti del governo italiano nel Mediterraneo e in Medio Oriente" (Nota interna del Foreign Office, 1970). L'autore riesce a saldare in un racconto avvincente testimonianze e documenti inediti, offrendoci per la prima volta la ricostruzione completa del contesto internazionale e delle complicità interne in cui maturò il delitto Moro. Solo così possiamo capire davvero le cause che...</p>
+Maggiori Informazioni sull'offerta online di Libreria Unilibro : <a class="c-puzzle-giochi droid" href="https://www.unilibro.it/libro/fasanella-giovanni/puzzle-moro-testimonianze-documenti-inglesi-americani-desecretati-verita-sull-assassinio-leader-dc/9788861900318">libro 9788861900318 &gt;</a>
+<br/>
+<div class=prezzo-cut>€ 17,60</div>
+<div class=prezzo-vet>€ 14,96</div>
+<a href="#" class="pulsante p-agg " id=add-83865519></a>
+<div class=clear></div>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Libri | Bestseller Novit&#224; </header> <a title="Libri | Bestseller Novit&#224; " class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/box_home_libri/libri-bestseller-novita-">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5473>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/giordano-mario/avvoltoi-italia-muore-loro-si-arricchiscono-acqua-rifiuti-trasporti-disastro-che-ci-svuota-tasche-ecco-chi-guadagna/9788804686019" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804686019g.jpg" alt="Avvoltoi. L&#39;Italia muore loro si arricchiscono. Acqua, rifiuti, trasporti. Un disastro che ci svuota le tasche. Ecco chi ci guadagna libro"/>
+</div>
+<h5>Avvoltoi. L&#39;Italia muore loro si arricchiscono. Acqua, rifiuti, trasporti. Un disastro che ci svuota le tasche. Ecco chi ci guadagna</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/giordano_mario">Mario Giordano</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/giordano-mario/avvoltoi-italia-muore-loro-si-arricchiscono-acqua-rifiuti-trasporti-disastro-che-ci-svuota-tasche-ecco-chi-guadagna/9788804686019" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83654077></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/truzzi-silvia/fai-piano-quando-torni/9788830449879" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830449879g.jpg" alt="Fai piano quando torni libro"/>
+</div>
+<h5>Fai piano quando torni</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/truzzi_silvia">Silvia Truzzi</a>&nbsp;
+<br/>edizioni Longanesi, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 16,40</div> <div class=prezzo-vet>€ 13,94</div>
+<a href="https://www.unilibro.it/libro/truzzi-silvia/fai-piano-quando-torni/9788830449879" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83865399></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/neuman-andres/vite-istantanee/9788869981197" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869981197g.jpg" alt="Vite istantanee libro"/>
+</div>
+<h5>Vite istantanee</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/neuman_andres">Andrés Neuman</a>&nbsp;
+<br/>edizioni Sur, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 14,00</div> <div class=prezzo-vet>€ 11,90</div>
+<a href="https://www.unilibro.it/libro/neuman-andres/vite-istantanee/9788869981197" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84122203></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/sanchez-clara/l-amante-silenzioso/9788811602217" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788811602217g.jpg" alt="L&#39;amante silenzioso libro"/>
+</div>
+<h5>L&#39;amante silenzioso</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/sanchez_clara">Clara Sanchez</a>&nbsp;
+<br/>edizioni Garzanti Libri, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 18,90</div> <div class=prezzo-vet>€ 16,07</div>
+<a href="https://www.unilibro.it/libro/sanchez-clara/l-amante-silenzioso/9788811602217" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84192853></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/monda-antonio/io-sono-il-fuoco/9788804687283" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804687283g.jpg" alt="Io sono il fuoco libro"/>
+</div>
+<h5>Io sono il fuoco</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/monda_antonio">Antonio Monda</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,00</div> <div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/monda-antonio/io-sono-il-fuoco/9788804687283" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83728332></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/marone-lorenzo/un-ragazzo-normale/9788807032783" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788807032783g.jpg" alt="Un ragazzo normale libro"/>
+</div>
+<h5>Un ragazzo normale</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/marone_lorenzo">Lorenzo Marone</a>&nbsp;
+<br/>edizioni Feltrinelli, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 16,50</div> <div class=prezzo-vet>€ 14,03</div>
+<a href="https://www.unilibro.it/libro/marone-lorenzo/un-ragazzo-normale/9788807032783" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83712225></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/egan-jennifer/manhattan-beach/9788804687337" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804687337g.jpg" alt="Manhattan beach libro"/>
+</div>
+<h5>Manhattan beach</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/egan_jennifer">Jennifer Egan</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 22,00</div> <div class=prezzo-vet>€ 18,70</div>
+<a href="https://www.unilibro.it/libro/egan-jennifer/manhattan-beach/9788804687337" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83713099></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/mcmanus-karen-m-/uno-di-noi-sta-mentendo/9788804685753" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804685753g.jpg" alt="Uno di noi sta mentendo libro"/>
+</div>
+<h5>Uno di noi sta mentendo</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/mcmanus_karen_m_">McManus Karen M.</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 15,00</div> <div class=prezzo-vet>€ 12,75</div>
+<a href="https://www.unilibro.it/libro/mcmanus-karen-m-/uno-di-noi-sta-mentendo/9788804685753" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83627843></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-prod droid">
+<header>Da leggere questa settimana...</header>
+<a href="https://www.unilibro.it/libro/egan-jennifer/manhattan-beach/9788804687337" class=daily-thumb>
+<img src="https://cdn.unilibro.it/cover/libro/9788804687337g.jpg" alt="Manhattan beach"/>
+</a>
+<div class="sconto-vet ">
+<p>-15 %</p>
+</div>
+<div class=sec-daily-content>
+<h4 class=droid>Manhattan beach</h4>
+<h6>
+ultimo nuovo libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/egan_jennifer">Jennifer Egan</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>disponibile per spedizione immediata! - consegna a casa tua in sole 24 ore!</div> <p class="abstract ">Con la sicurezza abbagliante dei grandi scrittori, Jennifer Egan dà vita a un romanzo destinato a entrare nel canone della letteratura cogliendo in maniera magistrale un momento decisivo nella storia degli uomini e delle donne, dell’America e del mondo intero | Una grande casa di mattoni dorati con tende da sole a strisce verdi e gialle che svolazzano dalle finestre affacciate sulla spiaggia, mancano quattro giorni a Natale e fa un freddo cane. Anna Kerrigan, dodici anni, accompagna il padre...</p>
+Maggiori Informazioni sull'offerta online di Libreria Unilibro : <a class="c-puzzle-giochi droid" href="https://www.unilibro.it/libro/egan-jennifer/manhattan-beach/9788804687337">libro 9788804687337 &gt;</a>
+<br/>
+<div class=prezzo-cut>€ 22,00</div>
+<div class=prezzo-vet>€ 18,70</div>
+<a href="#" class="pulsante p-agg " id=add-83713099></a>
+<div class=clear></div>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Audiolibri | Novit&#224;</header> <a title="Audiolibri | Novit&#224;" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/box_home_libri_new/audiolibri-novita">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=6372>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/marasco-wanda/compagnia-anime-finte-letto-wanda-marasco-audiolibro-cd-audio-mp3/9788869862632" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862632g.jpg" alt="La compagnia delle anime finte letto da Wanda Marasco. Audiolibro. CD Audio formato MP3 libro"/>
+</div>
+<h5>La compagnia delle anime finte letto da Wanda Marasco. Audiolibro. CD Audio formato MP3</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/marasco_wanda">Wanda Marasco</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,90</div> <div class=prezzo-vet>€ 14,31</div>
+<a href="https://www.unilibro.it/libro/marasco-wanda/compagnia-anime-finte-letto-wanda-marasco-audiolibro-cd-audio-mp3/9788869862632" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83704988></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/cognetti-paolo/sofia-si-veste-sempre-nero-letto-isabella-ragonese-audiolibro-cd-audio-mp3/9788869862526" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862526g.jpg" alt="Sofia si veste sempre di nero letto da Isabella Ragonese. Audiolibro. CD Audio formato MP3 libro"/>
+</div>
+<h5>Sofia si veste sempre di nero letto da Isabella Ragonese. Audiolibro. CD Audio formato MP3</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/cognetti_paolo">Paolo Cognetti</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,90</div> <div class=prezzo-vet>€ 14,31</div>
+<a href="https://www.unilibro.it/libro/cognetti-paolo/sofia-si-veste-sempre-nero-letto-isabella-ragonese-audiolibro-cd-audio-mp3/9788869862526" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83626869></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/eco-umberto/pendolo-foucault-letto-tommaso-ragno-audiolibro-3-cd-audio-mp3/9788869862472" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862472g.jpg" alt="Il pendolo di Foucault letto da Tommaso Ragno. Audiolibro. 3 CD Audio formato MP3 libro"/>
+</div>
+<h5>Il pendolo di Foucault letto da Tommaso Ragno. Audiolibro. 3 CD Audio formato MP3</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/eco_umberto">Umberto Eco</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 19,90</div> <div class=prezzo-vet>€ 17,91</div>
+<a href="https://www.unilibro.it/libro/eco-umberto/pendolo-foucault-letto-tommaso-ragno-audiolibro-3-cd-audio-mp3/9788869862472" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83290135></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/condanna-sangue-primavera-commissario-ricciardi-letto-paolo-cresta-audiolibro/9788869862595" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862595g.jpg" alt="La condanna del sangue. La primavera del commissario Ricciardi letto da Paolo Cresta. Audiolibro libro"/>
+</div>
+<h5>La condanna del sangue. La primavera del commissario Ricciardi letto da Paolo Cresta. Audiolibro</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/de_giovanni_maurizio">De Giovanni Maurizio</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,90</div> <div class=prezzo-vet>€ 14,31</div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/condanna-sangue-primavera-commissario-ricciardi-letto-paolo-cresta-audiolibro/9788869862595" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83704986></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/woolf-virginia/signora-dalloway-letto-nadia-fusini-audiolibro/9788869862649" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862649g.jpg" alt="La signora Dalloway letto da Nadia Fusini. Audiolibro libro"/>
+</div>
+<h5>La signora Dalloway letto da Nadia Fusini. Audiolibro</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/woolf_virginia">Virginia Woolf</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,90</div> <div class=prezzo-vet>€ 13,41</div>
+<a href="https://www.unilibro.it/libro/woolf-virginia/signora-dalloway-letto-nadia-fusini-audiolibro/9788869862649" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83704989></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/howard-elizabeth-jane/tempo-dell-attesa-saga-cazalet-letto-valentina-carnelutti-audiolibro-2-cd-audio-mp3-vol-/9788869862601" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862601g.jpg" alt="Il tempo dell&#39;attesa. La saga dei Cazalet letto da Valentina Carnelutti. Audiolibro. 2 CD Audio formato MP3. Vol. 2 libro"/>
+</div>
+<h5>Il tempo dell&#39;attesa. La saga dei Cazalet letto da Valentina Carnelutti. Audiolibro. 2 CD Audio formato MP3. Vol. 2</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/howard_elizabeth_jane">Howard Elizabeth Jane</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 18,90</div> <div class=prezzo-vet>€ 17,01</div>
+<a href="https://www.unilibro.it/libro/howard-elizabeth-jane/tempo-dell-attesa-saga-cazalet-letto-valentina-carnelutti-audiolibro-2-cd-audio-mp3-vol-/9788869862601" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83704987></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/howard-elizabeth-jane/anni-leggerezza-saga-cazalet-letto-valentina-carnelutti-audiolibro-2-cd-audio-mp3/9788869862502" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869862502g.jpg" alt="Gli anni della leggerezza. La saga dei Cazalet da letto da Valentina Carnelutti. Audiolibro. 2 CD Audio formato MP3 libro"/>
+</div>
+<h5>Gli anni della leggerezza. La saga dei Cazalet da letto da Valentina Carnelutti. Audiolibro. 2 CD Audio formato MP3</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/howard_elizabeth_jane">Howard Elizabeth Jane</a>&nbsp;
+<br/>edizioni Emons Edizioni, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 18,90</div> <div class=prezzo-vet>€ 17,01</div>
+<a href="https://www.unilibro.it/libro/howard-elizabeth-jane/anni-leggerezza-saga-cazalet-letto-valentina-carnelutti-audiolibro-2-cd-audio-mp3/9788869862502" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83480168></a>
+</li>
+<li class=block-vet></li> </ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Libri al Cinema</header> <a title="Libri al Cinema" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/promozione/libri-al-cinema">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5410>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/aciman-andre/chiamami-col-tuo-nome/9788823517578" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788823517578g.jpg" alt="Chiamami col tuo nome libro"/>
+</div>
+<h5>Chiamami col tuo nome</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/aciman_andre">André Aciman</a>&nbsp;
+<br/>edizioni Guanda, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 17,00</div> <div class=prezzo-vet>€ 14,45</div>
+<a href="https://www.unilibro.it/libro/aciman-andre/chiamami-col-tuo-nome/9788823517578" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82694268></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/libro/peter-rabbit-la-storia-con-le-immagini-del-film-ediz-a-colori/9788804686804" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804686804g.jpg" alt="Peter Rabbit. La storia con le immagini del film. Ediz. a colori libro"/>
+</div>
+<h5>Peter Rabbit. La storia con le immagini del film. Ediz. a colori</h5>
+</a>
+<h6>
+libro di&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-vet>€ 6,90</div>
+<a href="https://www.unilibro.it/libro/peter-rabbit-la-storia-con-le-immagini-del-film-ediz-a-colori/9788804686804" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83696043></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/stern-jeffrey-e-sadler-anthony-skarlatos-alek/ore-15-17-attacco-al-treno/9788817102001" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788817102001g.jpg" alt="Ore 15:17 attacco al treno libro"/>
+</div>
+<h5>Ore 15:17 attacco al treno</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/stern_jeffrey_e_">Stern Jeffrey E.</a>&nbsp;
+Sadler Anthony&nbsp;
+Skarlatos Alek&nbsp;
+<br/>edizioni Rizzoli, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/stern-jeffrey-e-sadler-anthony-skarlatos-alek/ore-15-17-attacco-al-treno/9788817102001" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84127607></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/mazur-robert/the-infiltrator/9788804671558" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804671558g.jpg" alt="The infiltrator libro"/>
+</div>
+<h5>The infiltrator</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/mazur_robert">Robert Mazur</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 22,00</div> <div class=prezzo-vet>€ 18,70</div>
+<a href="https://www.unilibro.it/libro/mazur-robert/the-infiltrator/9788804671558" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82495967></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/mccarten-anthony/ora-piu-buia-maggio-1940-come-churchill-ha-salvato-mondo-baratro/9788804685906" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804685906g.jpg" alt="L&#39;ora pi&#249; buia. Maggio 1940: come Churchill ha salvato il mondo dal baratro libro"/>
+</div>
+<h5>L&#39;ora pi&#249; buia. Maggio 1940: come Churchill ha salvato il mondo dal baratro</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/mccarten_anthony">Anthony McCarten</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,50</div> <div class=prezzo-vet>€ 16,58</div>
+<a href="https://www.unilibro.it/libro/mccarten-anthony/ora-piu-buia-maggio-1940-come-churchill-ha-salvato-mondo-baratro/9788804685906" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83654066></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/libro/palacio-r-j-/wonder/9788809058347" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788809058347g.jpg" alt="Wonder libro"/>
+</div>
+<h5>Wonder</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/palacio_r__j_">Palacio R. J.</a>&nbsp;
+<br/>edizioni Giunti Junior, 2013 </h6>
+<div class=fast-disp>
+libro disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-vet>€ 12,00</div>
+<a href="https://www.unilibro.it/libro/palacio-r-j-/wonder/9788809058347" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-80885305></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/carrisi-donato/la-ragazza-nella-nebbia/9788830448827" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830448827g.jpg" alt="La ragazza nella nebbia libro"/>
+</div>
+<h5>La ragazza nella nebbia</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/carrisi_donato">Donato Carrisi</a>&nbsp;
+<br/>edizioni Longanesi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 14,90</div> <div class=prezzo-vet>€ 12,67</div>
+<a href="https://www.unilibro.it/libro/carrisi-donato/la-ragazza-nella-nebbia/9788830448827" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83189588></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/fabbri-alessandro-rampoldi-ludovica-sardo-stefano/ragazzo-invisibile-seconda-generazione/9788893813921" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788893813921g.jpg" alt="Il ragazzo invisibile. Seconda generazione libro"/>
+</div>
+<h5>Il ragazzo invisibile. Seconda generazione</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/fabbri_alessandro">Alessandro Fabbri</a>&nbsp;
+Rampoldi Ludovica&nbsp;
+Sardo Stefano&nbsp;
+<br/>edizioni Salani, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 14,90</div> <div class=prezzo-vet>€ 12,67</div>
+<a href="https://www.unilibro.it/libro/fabbri-alessandro-rampoldi-ludovica-sardo-stefano/ragazzo-invisibile-seconda-generazione/9788893813921" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684699></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Coming Soon. I libri che arriveranno</header> <a title="Coming Soon. I libri che arriveranno" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Novita_libri/coming-soon-i-libri-che-arriveranno">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5055>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/casciani-susanna/sempre-d-amore-si-tratta/9788804675495" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804675495g.jpg" alt="Sempre d&#39;amore si tratta libro"/>
+</div>
+<h5>Sempre d&#39;amore si tratta</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/casciani_susanna">Susanna Casciani</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 16,00</div> <div class=prezzo-vet>€ 13,60</div>
+<a href="https://www.unilibro.it/libro/casciani-susanna/sempre-d-amore-si-tratta/9788804675495" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82805062></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/colombani-laetitia/la-treccia/9788842930358" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788842930358g.jpg" alt="La treccia libro"/>
+</div>
+<h5>La treccia</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/colombani_laetitia">Laetitia Colombani</a>&nbsp;
+<br/>edizioni Nord, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 16,90</div> <div class=prezzo-vet>€ 14,37</div>
+<a href="https://www.unilibro.it/libro/colombani-laetitia/la-treccia/9788842930358" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-85539936></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/libro/maggi-maurizio/la-coda-del-diavolo/9788830443327" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830443327g.jpg" alt="La coda del diavolo libro"/>
+</div>
+<h5>La coda del diavolo</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/maggi_maurizio">Maurizio Maggi</a>&nbsp;
+<br/>edizioni Longanesi, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-vet>€ 14,90</div>
+<a href="https://www.unilibro.it/libro/maggi-maurizio/la-coda-del-diavolo/9788830443327" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83865396></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/aramburu-fernando/anni-lenti/9788823520851" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788823520851g.jpg" alt="Anni lenti libro"/>
+</div>
+<h5>Anni lenti</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/aramburu_fernando">Fernando Aramburu</a>&nbsp;
+<br/>edizioni Guanda, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 16,50</div> <div class=prezzo-vet>€ 14,03</div>
+<a href="https://www.unilibro.it/libro/aramburu-fernando/anni-lenti/9788823520851" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-85441502></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/d-aloja-francesca/cuore-sopporta/9788804687344" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804687344g.jpg" alt="Cuore, sopporta libro"/>
+</div>
+<h5>Cuore, sopporta</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/d_aloja_francesca">Francesca D'Aloja</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/d-aloja-francesca/cuore-sopporta/9788804687344" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83713100></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/finn-a-j-/la-donna-alla-finestra/9788804686989" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804686989g.jpg" alt="La donna alla finestra libro"/>
+</div>
+<h5>La donna alla finestra</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/finn_a__j_">Finn A. J.</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/finn-a-j-/la-donna-alla-finestra/9788804686989" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83697171></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/nesbo-jo/macbeth/9788817099516" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788817099516g.jpg" alt="Macbeth libro"/>
+</div>
+<h5>Macbeth</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/nesbo_jo">Jo Nesbo</a>&nbsp;
+<br/>edizioni Rizzoli, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 20,00</div> <div class=prezzo-vet>€ 17,00</div>
+<a href="https://www.unilibro.it/libro/nesbo-jo/macbeth/9788817099516" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84111917></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/berry-steve/il-momento-della-verita/9788842930938" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788842930938g.jpg" alt="Il momento della verit&#224; libro"/>
+</div>
+<h5>Il momento della verit&#224;</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/berry_steve">Steve Berry</a>&nbsp;
+<br/>edizioni Nord, 2018 </h6>
+<div class=ant-disp>in pubblicazione</div>
+<div class=prezzo-cut>€ 18,60</div> <div class=prezzo-vet>€ 15,81</div>
+<a href="https://www.unilibro.it/libro/berry-steve/il-momento-della-verita/9788842930938" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83865434></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Dischi | Le nuove uscite</header> <a title="Dischi | Le nuove uscite" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Classifica_cd/dischi-le-nuove-uscite">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5757>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/musica/emma/cd-emma-essere-qui/0602567349488" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0602567349488g.jpg" alt="Emma - Essere Qui cd"/>
+</div>
+<h5>Emma - Essere Qui</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/emma">Emma</a>&nbsp;
+<br/>edizioni Universal, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 18,99</div>
+<a href="https://www.unilibro.it/musica/emma/cd-emma-essere-qui/0602567349488" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-85259184></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/sfera-ebbasta/cd-sfera-ebbasta-rockstar/0602567319986" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0602567319986g.jpg" alt="Sfera Ebbasta - Rockstar cd"/>
+</div>
+<h5>Sfera Ebbasta - Rockstar</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/sfera_ebbasta">Sfera Ebbasta</a>&nbsp;
+<br/>edizioni Universal, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 16,99</div>
+<a href="https://www.unilibro.it/musica/sfera-ebbasta/cd-sfera-ebbasta-rockstar/0602567319986" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-85114498></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/maneskin/cd-maneskin-chosen/0190758140520" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0190758140520g.jpg" alt="Maneskin - Chosen cd"/>
+</div>
+<h5>Maneskin - Chosen</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/maneskin">Maneskin</a>&nbsp;
+<br/>edizioni Sony, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 9,99</div>
+<a href="https://www.unilibro.it/musica/maneskin/cd-maneskin-chosen/0190758140520" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-84137472></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/francesca-michielin/cd-francesca-michielin-2640/0190758007625" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0190758007625g.jpg" alt="Francesca Michielin - 2640 cd"/>
+</div>
+<h5>Francesca Michielin - 2640</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/francesca_michielin">Francesca Michielin</a>&nbsp;
+<br/>edizioni Sony, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 15,99</div>
+<a href="https://www.unilibro.it/musica/francesca-michielin/cd-francesca-michielin-2640/0190758007625" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-84137457></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/musica/ultimo/cd-ultimo-peter-pan/8051411743132" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/8051411743132g.jpg" alt="Ultimo - Peter Pan cd"/>
+</div>
+<h5>Ultimo - Peter Pan</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/ultimo">Ultimo</a>&nbsp;
+<br/>edizioni Believe, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 12,99</div>
+<a href="https://www.unilibro.it/musica/ultimo/cd-ultimo-peter-pan/8051411743132" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-87010274></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/justin-timberlake/cd-justin-timberlake-man-of-the-woods/0190758132129" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0190758132129g.jpg" alt="Justin Timberlake - Man Of The Woods cd"/>
+</div>
+<h5>Justin Timberlake - Man Of The Woods</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/justin_timberlake">Justin Timberlake</a>&nbsp;
+<br/>edizioni Rca Records Label, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 18,99</div>
+<a href="https://www.unilibro.it/musica/justin-timberlake/cd-justin-timberlake-man-of-the-woods/0190758132129" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-85113293></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/ermal-meta/cd-ermal-meta-non-abbiamo-armi/0190758279022" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0190758279022g.jpg" alt="Ermal Meta - Non Abbiamo Armi cd"/>
+</div>
+<h5>Ermal Meta - Non Abbiamo Armi</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/ermal_meta">Ermal Meta</a>&nbsp;
+<br/>edizioni Mescal, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 15,99</div>
+<a href="https://www.unilibro.it/musica/ermal-meta/cd-ermal-meta-non-abbiamo-armi/0190758279022" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-85591340></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/musica/autori-vari/cd-sanremo-2018-2-cd-/0889854989729" class=c-cd>
+<div class="img-thumb cd-cover">
+<img src="https://cdn.unilibro.it/cover/cd/0889854989729g.jpg" alt="Sanremo 2018 (2 Cd) cd"/>
+</div>
+<h5>Sanremo 2018 (2 Cd)</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/musica/f/autore/autori_vari">Autori Vari</a>&nbsp;
+<br/>edizioni Rca Records Label, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 17,99</div>
+<a href="https://www.unilibro.it/musica/autori-vari/cd-sanremo-2018-2-cd-/0889854989729" class="pulsante p-cd"></a>
+<a href="#" class="pulsante p-agg p-agg-cd" id=add-85602349></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Dvd | Film appena usciti</header> <a title="Dvd | Film appena usciti" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Classifica_dvd/dvd-film-appena-usciti">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5966>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/donato-carrisi/blu-ray-disc-la-ragazza-nella-nebbia/5051891156821" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/5051891156821g.jpg" alt="(Blu-Ray Disc) La Ragazza nella Nebbia dvd"/>
+</div>
+<h5>(Blu-Ray Disc) La Ragazza nella Nebbia</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/donato_carrisi">Donato Carrisi</a>&nbsp;
+<br/>edizioni Warner Bros Home Video, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,50</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/donato-carrisi/blu-ray-disc-la-ragazza-nella-nebbia/5051891156821" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84236595></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 9,99</p></div>
+<a href="https://www.unilibro.it/dvd/alessio-maria-federici/terapia-di-coppia-per-amanti/5051891157798" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/5051891157798g.jpg" alt="Terapia Di Coppia Per Amanti dvd"/>
+</div>
+<h5>Terapia Di Coppia Per Amanti</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/alessio_maria_federici">Alessio Maria Federici</a>&nbsp;
+<br/>edizioni Warner Bros Home Video </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 10,50</div> <div class=prezzo-vet>€ 9,99</div>
+<a href="https://www.unilibro.it/dvd/alessio-maria-federici/terapia-di-coppia-per-amanti/5051891157798" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84283097></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/stella-meghie/noi-siamo-tutto/5051891155527" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/5051891155527g.jpg" alt="Noi Siamo Tutto dvd"/>
+</div>
+<h5>Noi Siamo Tutto</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/stella_meghie">Stella Meghie</a>&nbsp;
+<br/>edizioni Warner Bros Home Video </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,50</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/stella-meghie/noi-siamo-tutto/5051891155527" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84136023></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/joseph-cedar/incredibile-vita-di-norman-l-/8057092020678" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/8057092020678g.jpg" alt="Incredibile Vita Di Norman (L&#39;) dvd"/>
+</div>
+<h5>Incredibile Vita Di Norman (L&#39;)</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/joseph_cedar">Joseph Cedar</a>&nbsp;
+<br/>edizioni CG, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,99</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/joseph-cedar/incredibile-vita-di-norman-l-/8057092020678" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83993740></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/anthony-leondis/emoji-accendi-le-emozioni/5053083140113" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/5053083140113g.jpg" alt="Emoji - Accendi Le Emozioni dvd"/>
+</div>
+<h5>Emoji - Accendi Le Emozioni</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/anthony_leondis">Anthony Leondis</a>&nbsp;
+<br/>edizioni Universal, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,99</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/anthony-leondis/emoji-accendi-le-emozioni/5053083140113" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84136041></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/luc-besson/valerian-e-la-citta-dei-mille-pianeti/8032807070698" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/8032807070698g.jpg" alt="Valerian E La Citta&#39; Dei Mille Pianeti dvd"/>
+</div>
+<h5>Valerian E La Citta&#39; Dei Mille Pianeti</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/luc_besson">Luc Besson</a>&nbsp;
+<br/>edizioni 01 Distribution, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 18,99</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/luc-besson/valerian-e-la-citta-dei-mille-pianeti/8032807070698" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83788916></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/john-madden/miss-sloane/8032807070360" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/8032807070360g.jpg" alt="Miss Sloane dvd"/>
+</div>
+<h5>Miss Sloane</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/john_madden">John Madden</a>&nbsp;
+<br/>edizioni 01 Distribution, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 15,25</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/john-madden/miss-sloane/8032807070360" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84186125></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet promo-vet "><p>€ 13,99</p></div>
+<a href="https://www.unilibro.it/dvd/dorota-kobiela-hugh-welchman/loving-vincent/5053083143817" class=c-dvd>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/dvd/5053083143817g.jpg" alt="Loving Vincent dvd"/>
+</div>
+<h5>Loving Vincent</h5>
+</a>
+<h6>
+film di&nbsp; <a href="https://www.unilibro.it/dvd/f/regista/dorota_kobiela">Dorota Kobiela</a>&nbsp;
+Hugh Welchman&nbsp;
+<br/>edizioni Universal, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,99</div> <div class=prezzo-vet>€ 13,99</div>
+<a href="https://www.unilibro.it/dvd/dorota-kobiela-hugh-welchman/loving-vincent/5053083143817" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84139817></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>VideoGames | Le migliori Novit&#224;</header> <a title="VideoGames | Le migliori Novit&#224;" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Classifica_game/videogames-le-migliori-novita">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5031>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/xone/kingdom-come-deliverance-special-ed-/4020628816131" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/4020628816131g.jpg" alt="Kingdom Come: Deliverance Special Ed. game"/>
+</div>
+<h5>Kingdom Come: Deliverance Special Ed.</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/xone">XONE</a>&nbsp;
+<br/>edizioni Deep Silver, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 59,99</div>
+<a href="https://www.unilibro.it/videogame/xone/kingdom-come-deliverance-special-ed-/4020628816131" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83445506></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/ps4/ea-sports-ufc-3/5030948121593" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/5030948121593g.jpg" alt="EA Sports UFC 3 game"/>
+</div>
+<h5>EA Sports UFC 3</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/ps4">PS4</a>&nbsp;
+<br/>edizioni Electronic Arts, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 71,99</div>
+<a href="https://www.unilibro.it/videogame/ps4/ea-sports-ufc-3/5030948121593" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-85110468></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/xone/metal-gear-survive/4012927112045" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/4012927112045g.jpg" alt="Metal Gear Survive game"/>
+</div>
+<h5>Metal Gear Survive</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/xone">XONE</a>&nbsp;
+<br/>edizioni Konami, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 39,99</div>
+<a href="https://www.unilibro.it/videogame/xone/metal-gear-survive/4012927112045" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84798905></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/switch/monster-energy-supercross/8059617107666" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/8059617107666g.jpg" alt="Monster Energy Supercross game"/>
+</div>
+<h5>Monster Energy Supercross</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/switch">SWITCH</a>&nbsp;
+<br/>edizioni Milestone </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 59,99</div>
+<a href="https://www.unilibro.it/videogame/switch/monster-energy-supercross/8059617107666" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83794990></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/switch/rocket-league-collector-s-edition/5051891157316" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/5051891157316g.jpg" alt="Rocket League Collector&#39;s Edition game"/>
+</div>
+<h5>Rocket League Collector&#39;s Edition</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/switch">SWITCH</a>&nbsp;
+<br/>edizioni Warner Bros </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 39,90</div>
+<a href="https://www.unilibro.it/videogame/switch/rocket-league-collector-s-edition/5051891157316" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84499466></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/ps4/dissidia-final-fantasy-nt/5021290079038" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/5021290079038g.jpg" alt="Dissidia Final Fantasy NT game"/>
+</div>
+<h5>Dissidia Final Fantasy NT</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/ps4">PS4</a>&nbsp;
+<br/>edizioni Square Enix, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 69,98</div>
+<a href="https://www.unilibro.it/videogame/ps4/dissidia-final-fantasy-nt/5021290079038" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83654370></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/switch/dragon-quest-builders/84283119" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/045496421397g.jpg" alt="Dragon Quest Builders game"/>
+</div>
+<h5>Dragon Quest Builders</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/switch">SWITCH</a>&nbsp;
+<br/>edizioni Nintendo, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 49,90</div>
+<a href="https://www.unilibro.it/videogame/switch/dragon-quest-builders/84283119" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-84283119></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/videogame/xone/life-is-strange-before-the-storm-ltd-ed/5021290079724" class=c-videogame>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/game/5021290079724g.jpg" alt="Life is Strange: Before the Storm Ltd Ed game"/>
+</div>
+<h5>Life is Strange: Before the Storm Ltd Ed</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/videogames/f/console/xone">XONE</a>&nbsp;
+<br/>edizioni Square Enix, 2018 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 39,99</div>
+<a href="https://www.unilibro.it/videogame/xone/life-is-strange-before-the-storm-ltd-ed/5021290079724" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-85809986></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Giochi | ultimi arrivi</header> <a title="Giochi | ultimi arrivi" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Promo_1565/giochi-ultimi-arrivi">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5260>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/il-trivial-pursuit-dei-fumetti/9788869612220" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788869612220g.jpg" alt="Il Trivial Pursuit dei Fumetti libro"/>
+</div>
+<h5>Il Trivial Pursuit dei Fumetti</h5>
+</a>
+<h6>
+libro di&nbsp;
+<br/>edizioni Sergio Bonelli, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 24,90</div> <div class=prezzo-vet>€ 22,41</div>
+<a href="https://www.unilibro.it/libro/il-trivial-pursuit-dei-fumetti/9788869612220" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83813514></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/gioco/lego-41148-duplo-principesse-disney-frozen-il-magico-castello-di-ghiaccio-di-elsa/5702015867351" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/5702015867351g.jpg" alt="Lego 41148 - Duplo - Principesse Disney - Frozen - Il Magico Castello Di Ghiaccio Di Elsa giochi"/>
+</div>
+<h5>Lego 41148 - Duplo - Principesse Disney - Frozen - Il Magico Castello Di Ghiaccio Di Elsa</h5>
+</a>
+<h6>
+<br/>edizioni Lego, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 104,99</div> <div class=prezzo-vet>€ 94,50</div>
+<a href="https://www.unilibro.it/gioco/lego-41148-duplo-principesse-disney-frozen-il-magico-castello-di-ghiaccio-di-elsa/5702015867351" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82766278></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/gioco/lego/lego-70917-batman-movie-the-ultimate-batmobile/5702015870429" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/5702015870429g.jpg" alt="Lego 70917 | Batman Movie - The Ultimate Batmobile giochi"/>
+</div>
+<h5>Lego 70917 | Batman Movie - The Ultimate Batmobile</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/giochi/f/autore/lego">Lego</a>&nbsp;
+<br/>edizioni Lego, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 155,50</div>
+<a href="https://www.unilibro.it/gioco/lego/lego-70917-batman-movie-the-ultimate-batmobile/5702015870429" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83248635></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/gioco/ravensburger/ravensburger-26447-labirinto/4005556264476" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/4005556264476g.jpg" alt="Ravensburger 26447 - Labirinto giochi"/>
+</div>
+<h5>Ravensburger 26447 - Labirinto</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/giochi/f/autore/ravensburger">Ravensburger</a>&nbsp;
+<br/>edizioni Ravensburger, 2013 </h6>
+<div class=fast-disp>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-vet>€ 30,99</div>
+<a href="https://www.unilibro.it/gioco/ravensburger/ravensburger-26447-labirinto/4005556264476" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-12956226></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/gioco/lego-21035-architecture-museo-solomon-r-guggenheim/5702015865340" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/5702015865340g.jpg" alt="Lego 21035 - Architecture - Museo Solomon R. Guggenheim giochi"/>
+</div>
+<h5>Lego 21035 - Architecture - Museo Solomon R. Guggenheim</h5>
+</a>
+<h6>
+<br/>edizioni Lego, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 78,50</div>
+<a href="https://www.unilibro.it/gioco/lego-21035-architecture-museo-solomon-r-guggenheim/5702015865340" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82766201></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/gioco/lisciani/carotina-edu-action-torre-colori/8008324051724" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/8008324051724g.jpg" alt="Carotina - Edu-Action - La Torre Dei Colori giochi"/>
+</div>
+<h5>Carotina - Edu-Action - La Torre Dei Colori</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/giochi/f/autore/lisciani">Lisciani</a>&nbsp;
+<br/>edizioni LiscianiGiochi, 2015 </h6>
+<div class=fast-disp>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 29,99</div> <div class=prezzo-vet>€ 27,00</div>
+<a href="https://www.unilibro.it/gioco/lisciani/carotina-edu-action-torre-colori/8008324051724" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-81795701></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/gioco/lego-75159-star-wars-confidential-star-wars-direct-2/5702015593946" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/5702015593946g.jpg" alt="Lego 75159 - Star Wars - Confidential Star Wars Direct 2 giochi"/>
+</div>
+<h5>Lego 75159 - Star Wars - Confidential Star Wars Direct 2</h5>
+</a>
+<h6>
+<br/>edizioni Lego, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-vet>€ 574,99</div>
+<a href="https://www.unilibro.it/gioco/lego-75159-star-wars-confidential-star-wars-direct-2/5702015593946" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82766184></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/gioco/lego/lego-creator-speciale-collezionisti-ghostbusters-caserma-vigili-fuoco/5702015598323" class=c-puzzle-giochi>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/gioco/5702015598323g.jpg" alt="Lego Creator - Speciale Collezionisti - Ghostbusters - Caserma Dei Vigili Del Fuoco giochi"/>
+</div>
+<h5>Lego Creator - Speciale Collezionisti - Ghostbusters - Caserma Dei Vigili Del Fuoco</h5>
+</a>
+<h6>
+<a href="https://www.unilibro.it/giochi/f/autore/lego">Lego</a>&nbsp;
+<br/>edizioni Lego, 2016 </h6>
+<div class=prezzo-vet>€ 413,99</div>
+<a href="https://www.unilibro.it/gioco/lego/lego-creator-speciale-collezionisti-ghostbusters-caserma-vigili-fuoco/5702015598323" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82397448></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Classifica Unilibro. I libri pi&#249; venduti</header> <a title="Classifica Unilibro. I libri pi&#249; venduti" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Classifica_libri/classifica-unilibro-i-libri-piu-venduti">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5309>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/tuti-ilaria/fiori-sopra-l-inferno/9788830449817" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830449817g.jpg" alt="Fiori sopra l&#39;inferno libro"/>
+</div>
+<h5>Fiori sopra l&#39;inferno</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/tuti_ilaria">Ilaria Tuti</a>&nbsp;
+<br/>edizioni Longanesi, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 16,90</div> <div class=prezzo-vet>€ 14,37</div>
+<a href="https://www.unilibro.it/libro/tuti-ilaria/fiori-sopra-l-inferno/9788830449817" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83685738></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/crichton-michael/i-cercatori-di-ossa/9788811601739" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788811601739g.jpg" alt="I cercatori di ossa libro"/>
+</div>
+<h5>I cercatori di ossa</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/crichton_michael">Michael Crichton</a>&nbsp;
+<br/>edizioni Garzanti Libri, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,60</div> <div class=prezzo-vet>€ 15,81</div>
+<a href="https://www.unilibro.it/libro/crichton-michael/i-cercatori-di-ossa/9788811601739" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83671060></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/carrisi-donato/l-uomo-del-labirinto/9788830448278" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830448278g.jpg" alt="L&#39;uomo del labirinto libro"/>
+</div>
+<h5>L&#39;uomo del labirinto</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/carrisi_donato">Donato Carrisi</a>&nbsp;
+<br/>edizioni Longanesi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/carrisi-donato/l-uomo-del-labirinto/9788830448278" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83293523></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/cooper-glenn/il-debito/9788842929123" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788842929123g.jpg" alt="Il debito libro"/>
+</div>
+<h5>Il debito</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/cooper_glenn">Glenn Cooper</a>&nbsp;
+<br/>edizioni Nord, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 22,00</div> <div class=prezzo-vet>€ 18,70</div>
+<a href="https://www.unilibro.it/libro/cooper-glenn/il-debito/9788842929123" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83462204></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<a href="https://www.unilibro.it/libro/palacio-r-j-/wonder/9788809058347" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788809058347g.jpg" alt="Wonder libro"/>
+</div>
+<h5>Wonder</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/palacio_r__j_">Palacio R. J.</a>&nbsp;
+<br/>edizioni Giunti Junior, 2013 </h6>
+<div class=fast-disp>
+libro disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-vet>€ 12,00</div>
+<a href="https://www.unilibro.it/libro/palacio-r-j-/wonder/9788809058347" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-80885305></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/caboni-cristina/la-rilegatrice-di-storie-perdute/9788811673644" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788811673644g.jpg" alt="La rilegatrice di storie perdute libro"/>
+</div>
+<h5>La rilegatrice di storie perdute</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/caboni_cristina">Cristina Caboni</a>&nbsp;
+<br/>edizioni Garzanti Libri, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 17,60</div> <div class=prezzo-vet>€ 14,96</div>
+<a href="https://www.unilibro.it/libro/caboni-cristina/la-rilegatrice-di-storie-perdute/9788811673644" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83462121></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/souvenir-per-i-bastardi-di-pizzofalcone/9788806231385" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788806231385g.jpg" alt="Souvenir per i bastardi di Pizzofalcone libro"/>
+</div>
+<h5>Souvenir per i bastardi di Pizzofalcone</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/de_giovanni_maurizio">De Giovanni Maurizio</a>&nbsp;
+<br/>edizioni Einaudi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/souvenir-per-i-bastardi-di-pizzofalcone/9788806231385" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684418></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/camilleri-andrea/un-mese-con-montalbano/9788838937101" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788838937101g.jpg" alt="Un mese con Montalbano libro"/>
+</div>
+<h5>Un mese con Montalbano</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/camilleri_andrea">Andrea Camilleri</a>&nbsp;
+<br/>edizioni Sellerio Editore Palermo, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 15,00</div> <div class=prezzo-vet>€ 12,75</div>
+<a href="https://www.unilibro.it/libro/camilleri-andrea/un-mese-con-montalbano/9788838937101" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83458203></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Libri | Da leggere...</header> <a title="Libri | Da leggere..." class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/occasione/libri-da-leggere-">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=6561>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/nuzzi-gianluigi/peccato-originale-conti-segreti-verita-nascoste-ricatti-blocco-potere-che-ostacola-rivoluzione-francesco/9788861908406" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788861908406g.jpg" alt="Peccato originale. Conti segreti, verit&#224; nascoste, ricatti: il blocco di potere che ostacola la rivoluzione di Francesco libro"/>
+</div>
+<h5>Peccato originale. Conti segreti, verit&#224; nascoste, ricatti: il blocco di potere che ostacola la rivoluzione di Francesco</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/nuzzi_gianluigi">Gianluigi Nuzzi</a>&nbsp;
+<br/>edizioni Chiarelettere, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,60</div> <div class=prezzo-vet>€ 15,81</div>
+<a href="https://www.unilibro.it/libro/nuzzi-gianluigi/peccato-originale-conti-segreti-verita-nascoste-ricatti-blocco-potere-che-ostacola-rivoluzione-francesco/9788861908406" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83658616></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/king-stephen-king-owen/sleeping-beauties/9788820063269" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788820063269g.jpg" alt="Sleeping beauties libro"/>
+</div>
+<h5>Sleeping beauties</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/king_stephen">Stephen King</a>&nbsp;
+King Owen&nbsp;
+<br/>edizioni Sperling & Kupfer, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 21,90</div> <div class=prezzo-vet>€ 18,62</div>
+<a href="https://www.unilibro.it/libro/king-stephen-king-owen/sleeping-beauties/9788820063269" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83287421></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/israel-julie/i-giorni-felici-di-juniper-lemon/9788804685586" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804685586g.jpg" alt="I giorni felici di Juniper Lemon libro"/>
+</div>
+<h5>I giorni felici di Juniper Lemon</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/israel_julie">Julie Israel</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,00</div> <div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/israel-julie/i-giorni-felici-di-juniper-lemon/9788804685586" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83627827></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/gamberale-chiara/qualcosa/9788830447677" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788830447677g.jpg" alt="Qualcosa libro"/>
+</div>
+<h5>Qualcosa</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/gamberale_chiara">Chiara Gamberale</a>&nbsp;
+<br/>edizioni Longanesi, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 16,90</div> <div class=prezzo-vet>€ 14,37</div>
+<a href="https://www.unilibro.it/libro/gamberale-chiara/qualcosa/9788830447677" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82787060></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/dunne-catherine/come-cade-la-luce/9788823516595" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788823516595g.jpg" alt="Come cade la luce libro"/>
+</div>
+<h5>Come cade la luce</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/dunne_catherine">Catherine Dunne</a>&nbsp;
+<br/>edizioni Guanda, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,90</div> <div class=prezzo-vet>€ 16,07</div>
+<a href="https://www.unilibro.it/libro/dunne-catherine/come-cade-la-luce/9788823516595" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684427></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/le-carre-john/un-passato-da-spia/9788804685609" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804685609g.jpg" alt="Un passato da spia libro"/>
+</div>
+<h5>Un passato da spia</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/le_carre_john">Le Carré John</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 20,00</div> <div class=prezzo-vet>€ 17,00</div>
+<a href="https://www.unilibro.it/libro/le-carre-john/un-passato-da-spia/9788804685609" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83627829></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/grisham-john/la-grande-truffa/9788804685579" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788804685579g.jpg" alt="La grande truffa libro"/>
+</div>
+<h5>La grande truffa</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/grisham_john">John Grisham</a>&nbsp;
+<br/>edizioni Mondadori, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 22,00</div> <div class=prezzo-vet>€ 18,70</div>
+<a href="https://www.unilibro.it/libro/grisham-john/la-grande-truffa/9788804685579" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83627826></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/d-aprix-sweeney-cynthia/il-nido/9788893420037" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788893420037g.jpg" alt="Il nido libro"/>
+</div>
+<h5>Il nido</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/d_aprix_sweeney_cynthia">D'Aprix Sweeney Cynthia</a>&nbsp;
+<br/>edizioni Sperling & Kupfer, 2017 </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/d-aprix-sweeney-cynthia/il-nido/9788893420037" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82640871></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Libri Novit&#224; | Consegna in 24ore</header> <a title="Libri Novit&#224; | Consegna in 24ore" class="block-show-all c-gen" href="https://www.unilibro.it/home/v/1/Promozioni/libri-novita-consegna-in-24ore">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=5688>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/auster-paul/4-3-2-1/9788806235017" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788806235017g.jpg" alt="4 3 2 1 libro"/>
+</div>
+<h5>4 3 2 1</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/auster_paul">Paul Auster</a>&nbsp;
+<br/>edizioni Einaudi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 25,00</div> <div class=prezzo-vet>€ 21,25</div>
+<a href="https://www.unilibro.it/libro/auster-paul/4-3-2-1/9788806235017" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83371829></a>
+</li>
+<li class=block-vet>
+<a href="https://www.unilibro.it/libro/carrere-emmanuel/propizio-e-avere-ove-recarsi/9788845931512" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788845931512g.jpg" alt="Propizio &#232; avere ove recarsi libro"/>
+</div>
+<h5>Propizio &#232; avere ove recarsi</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/carrere_emmanuel">Emmanuel Carrère</a>&nbsp;
+<br/>edizioni Adelphi, 2017 </h6>
+<div class=fast-disp>
+libro disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-vet>€ 22,00</div>
+<a href="https://www.unilibro.it/libro/carrere-emmanuel/propizio-e-avere-ove-recarsi/9788845931512" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-82770317></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-10%</p></div>
+<a href="https://www.unilibro.it/libro/lagercrantz-david/uomo-che-inseguiva-sua-ombra-millennium-vol-5/9788831727808" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788831727808g.jpg" alt="L&#39;uomo che inseguiva la sua ombra. Millennium. Vol. 5 libro"/>
+</div>
+<h5>L&#39;uomo che inseguiva la sua ombra. Millennium. Vol. 5</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/lagercrantz_david">David Lagercrantz</a>&nbsp;
+<br/>edizioni Marsilio, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 21,00</div> <div class=prezzo-vet>€ 18,90</div>
+<a href="https://www.unilibro.it/libro/lagercrantz-david/uomo-che-inseguiva-sua-ombra-millennium-vol-5/9788831727808" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83287729></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/orth-maureen/caso-versace-storia-protagonisti-mistero/9788867024636" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788867024636g.jpg" alt="Il caso Versace. La storia, i protagonisti, il mistero libro"/>
+</div>
+<h5>Il caso Versace. La storia, i protagonisti, il mistero</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/orth_maureen">Maureen Orth</a>&nbsp;
+<br/>edizioni TRE60, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,00</div> <div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/orth-maureen/caso-versace-storia-protagonisti-mistero/9788867024636" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684609></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/mieli-paolo/caos-italiano-radici-nostro-dissesto/9788817095747" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788817095747g.jpg" alt="Il caos italiano. Alle radici del nostro dissesto libro"/>
+</div>
+<h5>Il caos italiano. Alle radici del nostro dissesto</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/mieli_paolo">Paolo Mieli</a>&nbsp;
+<br/>edizioni Rizzoli, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 20,00</div> <div class=prezzo-vet>€ 17,00</div>
+<a href="https://www.unilibro.it/libro/mieli-paolo/caos-italiano-radici-nostro-dissesto/9788817095747" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83287356></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/souvenir-per-i-bastardi-di-pizzofalcone/9788806231385" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788806231385g.jpg" alt="Souvenir per i bastardi di Pizzofalcone libro"/>
+</div>
+<h5>Souvenir per i bastardi di Pizzofalcone</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/de_giovanni_maurizio">De Giovanni Maurizio</a>&nbsp;
+<br/>edizioni Einaudi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 19,00</div> <div class=prezzo-vet>€ 16,15</div>
+<a href="https://www.unilibro.it/libro/de-giovanni-maurizio/souvenir-per-i-bastardi-di-pizzofalcone/9788806231385" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684418></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/weiner-matthew/heather-piu-di-tutto/9788806234553" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788806234553g.jpg" alt="Heather, pi&#249; di tutto libro"/>
+</div>
+<h5>Heather, pi&#249; di tutto</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/weiner_matthew">Matthew Weiner</a>&nbsp;
+<br/>edizioni Einaudi, 2017 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 17,00</div> <div class=prezzo-vet>€ 14,45</div>
+<a href="https://www.unilibro.it/libro/weiner-matthew/heather-piu-di-tutto/9788806234553" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684419></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-15%</p></div>
+<a href="https://www.unilibro.it/libro/santos-care/cena-segreti-notte-che-ci-ha-cambiato-futuro/9788893814249" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788893814249g.jpg" alt="La cena dei segreti. La notte che ci ha cambiato il futuro libro"/>
+</div>
+<h5>La cena dei segreti. La notte che ci ha cambiato il futuro</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/santos_care">Care Santos</a>&nbsp;
+<br/>edizioni Salani, 2018 </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 18,00</div> <div class=prezzo-vet>€ 15,30</div>
+<a href="https://www.unilibro.it/libro/santos-care/cena-segreti-notte-che-ci-ha-cambiato-futuro/9788893814249" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-83684700></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+<section class="sec-slider droid">
+<header>Remainders. Libri Nuovi Scontati: Biografie, Dizionari, Manuali, Saggi, Classici</header> <a title="Remainders. Libri Nuovi Scontati: Biografie, Dizionari, Manuali, Saggi, Classici" class="block-show-all c-gen" href="/libri/p/200/remainders-libri-nuovi-scontati-biografie-dizionari-manuali-saggi-classici?sortBy=rad">vedi tutti</a> <div class=sec-content>
+<ul class="rslides rs-prod staticslider" data-time=6715>
+<li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/costantini-emilia/rodolfo-valentino-romanzo-vita/9788897453802" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788897453802g.jpg" alt="Rodolfo Valentino. Il romanzo di una vita libro"/>
+</div>
+<h5>Rodolfo Valentino. Il romanzo di una vita</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/costantini_emilia">Emilia Costantini</a>&nbsp;
+<br/>edizioni Fivestore collana </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 9,90</div> <div class=prezzo-vet>€ 4,46</div>
+<a href="https://www.unilibro.it/libro/costantini-emilia/rodolfo-valentino-romanzo-vita/9788897453802" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-80908444></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/toti-marco/preghiera-immagine-esicasmo-tardobizantino-xiii-xiv-secolo-/9788816411777" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788816411777g.jpg" alt="La preghiera e l&#39;immagine. L&#39;esicasmo tardobizantino (XIII-XIV secolo) libro"/>
+</div>
+<h5>La preghiera e l&#39;immagine. L&#39;esicasmo tardobizantino (XIII-XIV secolo)</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/toti_marco">Marco Toti</a>&nbsp;
+<br/>edizioni Jaca Book collana Di fronte e attraverso. Storia dell'arte </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 24,00</div> <div class=prezzo-vet>€ 10,80</div>
+<a href="https://www.unilibro.it/libro/toti-marco/preghiera-immagine-esicasmo-tardobizantino-xiii-xiv-secolo-/9788816411777" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-80622168></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/dick-philip-k-/i-guardiani-del-destino/9788834717134" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788834717134g.jpg" alt="I Guardiani del Destino libro"/>
+</div>
+<h5>I Guardiani del Destino</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/dick_philip_k_">Dick Philip K.</a>&nbsp;
+<br/>edizioni Fanucci collana Collezione ventesima </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 14,00</div> <div class=prezzo-vet>€ 6,30</div>
+<a href="https://www.unilibro.it/libro/dick-philip-k-/i-guardiani-del-destino/9788834717134" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-51890892></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/brillante-giuseppe/birdwatching-europa-migliori-luoghi-osservare-uccelli/9788896159002" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788896159002g.jpg" alt="Il birdwatching in Europa. I migliori luoghi per osservare gli uccelli libro"/>
+</div>
+<h5>Il birdwatching in Europa. I migliori luoghi per osservare gli uccelli</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/brillante_giuseppe">Giuseppe Brillante</a>&nbsp;
+<br/>edizioni GEM Edizioni collana Natura </h6>
+<div class=fast-disp>
+libro in offerta disponibile<br/>
+consegna in sole 24 ore
+</div>
+<div class=prezzo-cut>€ 22,00</div> <div class=prezzo-vet>€ 9,90</div>
+<a href="https://www.unilibro.it/libro/brillante-giuseppe/birdwatching-europa-migliori-luoghi-osservare-uccelli/9788896159002" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-13026261></a>
+</li>
+</ul></li><li><ul class=block-vet-cont>	<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/chiperi-cristina/my-dilemma-is-you-vol-2/9788865086827" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788865086827g.jpg" alt="My dilemma is you. Vol. 2 libro"/>
+</div>
+<h5>My dilemma is you. Vol. 2</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/chiperi_cristina">Cristina Chiperi</a>&nbsp;
+<br/>edizioni Leggereditore collana Narrativa </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,90</div> <div class=prezzo-vet>€ 6,71</div>
+<a href="https://www.unilibro.it/libro/chiperi-cristina/my-dilemma-is-you-vol-2/9788865086827" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-81952282></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/zapelloni-u-cur-/vale-mito-valentino-rossi-pagine-de-la-gazzetta-sport-ediz-illustrata/9788817085342" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788817085342g.jpg" alt="Vale! Il mito di Valentino Rossi nelle pagine de &quot;La Gazzetta dello Sport&quot;. Ediz. illustrata libro"/>
+</div>
+<h5>Vale! Il mito di Valentino Rossi nelle pagine de &quot;La Gazzetta dello Sport&quot;. Ediz. illustrata</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/zapelloni_u_">Zapelloni U. (cur.)</a>&nbsp;
+<br/>edizioni Rizzoli collana Varia illustrati </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 35,00</div> <div class=prezzo-vet>€ 15,75</div>
+<a href="https://www.unilibro.it/libro/zapelloni-u-cur-/vale-mito-valentino-rossi-pagine-de-la-gazzetta-sport-ediz-illustrata/9788817085342" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-81869844></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/costanzo-maurizio/le-mie-tele-visioni/9788891801852" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788891801852g.jpg" alt="Le mie tele-visioni libro"/>
+</div>
+<h5>Le mie tele-visioni</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/costanzo_maurizio">Maurizio Costanzo</a>&nbsp;
+<br/>edizioni Mondadori Electa collana Madeleines. Extra </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 14,90</div> <div class=prezzo-vet>€ 6,71</div>
+<a href="https://www.unilibro.it/libro/costanzo-maurizio/le-mie-tele-visioni/9788891801852" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-81695331></a>
+</li>
+<li class=block-vet>
+<div class="sconto-vet "><p>-55%</p></div>
+<a href="https://www.unilibro.it/libro/masui-chihiro/sushi-manga-con-40-ricette-originali/9788891802477" class=c-libri>
+<div class="img-thumb book-cover">
+<img src="https://cdn.unilibro.it/cover/libro/9788891802477g.jpg" alt="Sushi manga. Con 40 ricette originali libro"/>
+</div>
+<h5>Sushi manga. Con 40 ricette originali</h5>
+</a>
+<h6>
+libro di&nbsp;
+<a href="https://www.unilibro.it/libri/f/autore/masui_chihiro">Chihiro Masui</a>&nbsp;
+<br/>edizioni Mondadori Electa collana </h6>
+<div class=forn-disp>disponibile in 3/5 gg </div>
+<div class=prezzo-cut>€ 19,90</div> <div class=prezzo-vet>€ 8,96</div>
+<a href="https://www.unilibro.it/libro/masui-chihiro/sushi-manga-con-40-ricette-originali/9788891802477" class="pulsante "></a>
+<a href="#" class="pulsante p-agg " id=add-81658303></a>
+</li>
+</ul></li>	</ul>
+</div>
+</section>
+</div>
+</div>
+<script>
+	$(function () {
+		$("#slider").responsiveSlides({
+			pager: true,
+			nav: true,
+			timeout: 7000,
+			namespace: "rs-btn"
+		});
+		$("#slider-top").responsiveSlides({
+			pause: true,
+			speed: 100,
+			timeout: 5000
+		});
+	});
+</script>
+<script>
+    $(document).ready(function ()
+    {
+        $('body').attr("data-pagetype", "home");
+    });
+</script>
+<footer id=main-footer>
+<div id=upper-footer>
+<div id=footer-news>
+<h4 class=droid>
+Newsletter</h4>
+<p id=news-msg>Iscriviti per essere informato settimanalmente su novit&agrave;, promozioni e offerte di Unilibro. (<a href="https://www.unilibro.it/home/info/privacy">Informativa sulla Privacy</a>)</p>
+<form id=mail-list-form name=form-news action="">
+<div id=footer-iscr class=droid>
+<input name=cr id=campo-news placeholder="inserisci la tua email" value="" maxlength=100 onkeydown="NewsKeyDown(event)"/>
+</div>
+<input type=button id=pulsante-news class="pulsante droid" value=iscriviti onclick="NewsSubscribe()"/>
+</form>
+</div>
+<div id=footer-social>
+<h4 class=droid>
+Social</h4>
+<p>
+Seguici sui social network</p>
+<a rel=nofollow target=_blank href="https://www.facebook.com/Unilibro" class=foot-fb>&nbsp;</a>
+<a rel=nofollow target=_blank href="https://twitter.com/Unilibro" class=foot-t>&nbsp;</a>
+<a rel=Publisher target=_blank href="https://plus.google.com/+unilibro/posts" class=foot-g>&nbsp;</a>
+</div>
+<div id=footer-menu class="droid cf">
+<h4 class=droid>
+Link utili</h4>
+<ul>
+<li><a href="https://www.unilibro.it/home/info">Info e Contatti</a></li>
+<li><a href="https://www.unilibro.it/home/info/privacy">Privacy & Cookie</a></li>
+<li><a href="https://www.unilibro.it/home/info/faq">FAQ</a></li>
+<li><a href="https://www.unilibro.it/home/info/FaqEbook">FAQ e-book</a></li>
+<li><a href="https://www.unilibro.it/home/info/BuoniRegalo">Regala un Buono!</a></li>
+</ul>
+<ul>
+<li><a target=_blank href="https://affiliati.unilibro.it/">Affiliati</a></li>
+<li><a href="https://www.unilibro.it/home/info/correntisti">Correntisti</a></li>
+<li><a href="https://www.unilibro.it/home/info/sostenitori">Sostenitori</a></li>
+<li><a href="https://www.unilibro.it/home/info/rss">RSS</a></li>
+<li><a href="http://www.lettura.it">Blog Lettura.it</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-text droid">
+<p>
+Libreria universitaria online UNILIBRO is powered by&nbsp;<a target=_blank href="http://www.icedata.it">Icedata srl</a> | P.IVA MAILTRADE 02141111209 | Search powered by FACT-Finder&copy;
+<a rel=nofollow target=_blank href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=WWW.UNILIBRO.IT&amp;lang=it" class=vr-logo>&nbsp;</a>
+</p>
+</div>
+<div class=footer-icons>&nbsp;</div>
+</footer>
+<script>
+	function NewsKeyDown(event)
+	{
+		if (event.which == 13)
+		{
+			event.preventDefault();
+			NewsSubscribe();
+		}
+	}
+	function NewsSubscribe() {
+		var email = $('#campo-news').attr('value');
+		if (IsEmail(email)) {
+			$('#footer-news').load("/libri/AsyncWidgets/Newsletter?email=" + encodeURI(email),
+				function () { }
+			);
+		}
+		else {
+			$('#news-msg').css("color","red").html("Indirizzo e-mail non valido");
+		}
+		return false;
+	}
+
+	function IsEmail(emailAddress) {
+		var pattern = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$/i);
+		return pattern.test(emailAddress);
+	}
+</script>
+</div>
+<a class=active-skin href="javascript:void(0);" rel=nofollow></a>
+<div class="visible-div droid" id=bottom-right></div>
+<script>		
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-460949-1']);
+		//_gaq.push(['_gat._forceSSL']);       // Send all hits using SSL, even from insecure (HTTP) pages.  // Fix to test
+		_gaq.push(['_gat._anonymizeIp']);
+		_gaq.push(['_trackPageview']);
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+<script src="//cdn.unilibro.it/scripts/jquery.cookie.min.js"></script>
+<script src="//cdn.unilibro.it/scripts/cookiechoices.min.js"></script>
+<script>
+        //<![CDATA[
+        document.addEventListener('DOMContentLoaded', function (event) {
+            cookieChoices.showCookieConsentBar('Per rendere possibile la navigazione e la fruizione dei servizi richiesti Libreria Unilibro utilizza cookie anche di terze parti. Continuando la navigazione accetti il loro uso.',
+            'OK', 'Maggiori Informazioni', 'https://www.unilibro.it/home/info/privacy#cookie');
+        });
+        //]]>
+    </script>
+<div id=stlivechat class=livechat></div>
+<script>
+        (function () {
+            var c = document.createElement('script');
+            c.type = 'text/javascript'; c.async = true;
+            c.src = "https://st.unilibro.it/ChatLink.ashx?config=1&id=stlivechat";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(c, s);
+        })();	
+    </script>
+</body>
+</html>

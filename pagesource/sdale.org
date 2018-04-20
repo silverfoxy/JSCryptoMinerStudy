@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Springdale Public Schools</title>
+	<style type="text/css">
+		body {
+			color:#000000;
+			background-color: whitesmoke;
+			margin:0;
+		}
+		
+		#msg {
+			z-index: 1;
+			background-color: rgba(255,0,0,0.5);
+			color: whitesmoke;
+			position: fixed;
+			padding: 0;
+			margin:  0;
+			top:  0;
+			left: 0;
+			width:  100%;
+		}
+
+		#container {
+			z-index: -1;
+			position: fixed;
+			padding: 0;
+			margin:  0;
+			top:  0;
+			left: 0;
+			width:  100%;
+			height: 100%;
+			background-color: whitesmoke;
+		}
+		
+		#newPage {
+			position: fixed;
+			padding: 0;
+			margin:  0;
+			top:  0;
+			left: 0;
+			width:  100%;
+			height: 100%;
+			background-color: whitesmoke;
+		}
+	</style>
+	<script>
+		function Main(){
+			displaymsg = "";
+			var msg = document.getElementById("msg");
+			msg.innerHTML = displaymsg;
+			var container= document.getElementById("container");
+			var hostURL = document.location.href.toLowerCase();
+		
+			var pageType	= "default";
+			var pageFolder	= "default";
+			var pageTitle	= "default";
+			
+			if ((hostURL.search("timeclock") != -1)){
+				pageType 	= "3rdParty";
+				pageFolder	= "TimeClock";
+				pageTitle	= "TimeClock (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}	
+			else if ((hostURL.search("vpn") != -1)){
+				pageType 	= "3rdParty";
+				pageFolder	= "VPN";
+				pageTitle	= "VPN (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}	
+			else if ((hostURL.search("internal") != -1)){
+				pageType 	= "SPSWebsites";
+				pageFolder	= "Internal";
+				pageTitle	= "Internal (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}				
+			else if ((hostURL.search("alc") != -1) || (hostURL.search("archer") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "HS_Archer";
+				pageTitle	= "Archer Learning Center (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}	
+			else if ((hostURL.search("hbhs") != -1) || (hostURL.search("har-ber") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "HS_Har-Ber";
+				pageTitle	= "Har-Ber High School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("shs") != -1) || (hostURL.search("springdale") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "HS_Springdale";
+				pageTitle	= "Springdale High School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("soi") != -1) || (hostURL.search("innovation") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "SOI";
+				pageTitle	= "School of Innovation (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("cjh") != -1) || (hostURL.search("central") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "JR_Central";
+				pageTitle	= "Central Jr. High (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if (hostURL.search("gjh") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "JR_George";
+				pageTitle	= "George Jr. High (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("ljh") != -1) || (hostURL.search("lakeside") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "JR_Lakeside";
+				pageTitle	= "Lakeside Jr. High (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("swjh") != -1) || (hostURL.search("southwest") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "JR_Southwest";
+				pageTitle	= "Southwest Jr. High (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("hms") != -1) || (hostURL.search("hellstern") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "MS_Hellstern";
+				pageTitle	= "Hellstern Middle School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("kms") != -1) || (hostURL.search("kelly") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "MS_Kelly";
+				pageTitle	= "JO Kelly Middle School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if (hostURL.search("sms") != -1) {
+				pageType	= "SPSWebsites";
+				pageFolder	= "MS_Sonora";
+				pageTitle	= "Sonora Middle School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if (hostURL.search("tms") != -1) {
+				pageType	= "SPSWebsites";
+				pageFolder	= "MS_Tyson";
+				pageTitle	= "Helen Tyson Middle School (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("bayyari") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Bayyari";
+				pageTitle	= "Bayyari Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("elmdale") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Elmdale";
+				pageTitle	= "Elmdale Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("george") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_George";
+				pageTitle	= "George Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("harp") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Harp";
+				pageTitle	= "Harp Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("hunt") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Hunt";
+				pageTitle	= "Hunt Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("jones") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Jones";
+				pageTitle	= "Jones Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("lee") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Lee";
+				pageTitle	= "Lee Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("monitor") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Monitor";
+				pageTitle	= "Monitor Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("parson") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_ParsonHills";
+				pageTitle	= "Parson Hills Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("shaw") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Shaw";
+				pageTitle	= "Shaw Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("smith") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Smith";
+				pageTitle	= "TG Smith Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("sonora") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Sonora";
+				pageTitle	= "Sonora Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("turnbow") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Turnbow";
+				pageTitle	= "Turnbow Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("tyson") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Tyson";
+				pageTitle	= "John Tyson Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("walker") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Walker";
+				pageTitle	= "Walker Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("westwood") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Westwood";
+				pageTitle	= " Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if(hostURL.search("young") != -1){
+				pageType	= "SPSWebsites";
+				pageFolder	= "Elem_Young";
+				pageTitle	= "Young Elementary (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("ecc") != -1) || (hostURL.search("prek") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "ecc";
+				pageTitle	= "Early Childhood Center (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("www") != -1) || (hostURL.search("district") != -1)){
+				pageType	= "SPSWebsites";
+				pageFolder	= "district";
+				pageTitle	= "Springdale Public Schools (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+			else if ((hostURL.search("cafelc") != -1) || (hostURL.search("studentcafe") != -1)){
+				pageType	= "SPSApps";
+				pageFolder	= "Cafe";
+				pageTitle	= "Student Cafe (WWW3)";
+				setPage(pageType,pageFolder,pageTitle);
+			}
+		
+//MWH - maybe try the folder that matches the URL...
+			else {
+				msg.innerHTML = msg.innerHTML + '<br>' + 'Navigation Error: This URL does not exits.  Cannot find ' + hostURL +
+				 '<br>You are seeing our district website instead.<br>&nbsp;';
+				pageFolder = "district";
+				pageTitle = "Springdale Public Schools` (WWW3)";
+				setPage(pageFolder,pageTitle);
+				 
+//				container.innerHTML = "<br>This page does not exist...";
+//				locFolder = hostURL.replace("https://","");
+//				locFolder = locFolder.replace(".sdale.org:3333/","");
+//				//var locFolder = "Elem_Lee";
+//				pageTitle = locFolder;
+//				setPage(locFolder,pageTitle);
+			}
+		}
+		
+		function setPage(locType,locFolder,locTitle){
+			if (locFolder == "Cafe"){
+				var locBase = "http://cafe.sdale.org";
+				var locPage = "";
+				var favFile = "/favicon.ico";
+				var loc = locBase + locPage;
+				var fav = locBase + favFile;
+			}
+			else{
+				var locBase = "https://www3.sdale.org/Production/";
+				var locPage = "/default.html";
+				var favFile = "/favicon.ico";
+				var loc = locBase + locType + "/" + locFolder + locPage;
+				var fav = locBase + locType + "/" + locFolder + favFile;
+			}
+			//window.location.assign(loc);
+//PROBABLY HAVE TO USE REDIRECT FOR IE8 AND PREVIOUS...SAFARI...???
+			container.innerHTML='<object id="newPage" type="text/html" data="'+loc+'" ></object>';
+			document.title = locTitle;
+			//remove FavIcon...not work in IE...
+			var dynfav = document.getElementById('dynfavicon');
+			if (dynfav){
+				document.head.removeChild(dynfav);
+			}
+			else{
+				dynfav = document.createElement('link'); //Chrome uses a link for favicon
+				dynfav.id = 'dynfavicon';
+				dynfav.rel = 'icon';
+				dynfav.href = fav;
+				document.head.appendChild(dynfav);
+			}
+		}
+		
+		function AjaxURL(url)
+		{
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					alert(xmlhttp.getAllResponseHeaders());
+					//document.getElementById('p1').innerHTML=xmlhttp.getAllResponseHeaders();
+				}
+			  }
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body onLoad="Main();">
+	<div id="msg" name="msg"></div>
+	<div id="container" name="container"></div>
+</body>
+</html>

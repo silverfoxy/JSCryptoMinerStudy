@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://any-api.com/">https://any-api.com/</a></p>

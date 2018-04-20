@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://www.us-elitegear.com/">redirected</a>.</body></html>

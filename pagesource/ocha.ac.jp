@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=1100"/>
+<title>お茶の水女子大学／ホーム</title>
+<meta name="Keywords" content="お茶の水女子大学,お茶の水女子大学公式ホームページ," />
+<meta name="Description" content="お茶の水女子大学公式ホームページ" />
+<meta name="Author" content="お茶の水女子大学" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="shortcut icon" href="/share/imgs/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/share/style/default.css" media="all"  />
+<link rel="stylesheet" type="text/css" href="/share/style/layout.css" media="all"  />
+<link rel="stylesheet" type="text/css" href="/share/style/print.css" media="print"  />
+
+<script type="text/javascript" src="/share/scripts/jquery.js"></script>
+<script type="text/javascript" src="/share/scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/share/scripts/jquery.cookie.js"></script>
+<script type="text/javascript" src="/share/scripts/common.js"></script>
+<script type="text/javascript" id="uaswitchjs"></script>
+<script type="text/javascript" src="/share/scripts/jquery.bxslider.js"></script>
+<script type="text/javascript" src="/share/scripts/jquery.matchheight.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+		$('#main_visual').fadeIn(1000); //ここのIDはさっきのと同じ
+    });
+</script>
+<script type="text/javascript" src="/share/scripts/index.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+	$.ajaxSetup({ cache: false });
+	getdata();
+	setInterval("getdata()", 60000);	//60秒
+});
+
+function getdata() {
+
+	$.get("/save_energy/data/data-m.csv", function(myData){
+		resultArray = myData.split(/\r\n|\r|\n/);
+
+		var vEneGoal = parseFloat(resultArray[1]);
+		var vEneUse  = parseFloat(resultArray[2]);
+		var vEneDate = resultArray[3];
+		var vEneTime = resultArray[4];
+		var vEnePerc = Math.round(vEneUse / vEneGoal * 100);
+
+		$("#eneDate").text(parseInt(vEneDate.substr(5, 2)) + "月" + parseInt(vEneDate.substr(8, 2)) + "日 " + vEneTime.substr(0, 5) + " 現在");
+
+		$("#eneUse" ).text(Math.round(vEneUse ).toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,') + "kw");
+		$("#eneGoal").text(Math.round(vEneGoal).toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,') + "kw");
+		$("#enePerc").text(vEnePerc.toString() + "%");
+		if (vEnePerc >= 100) {
+			$("#enePerc").addClass("over");
+		}else{
+			$("#enePerc").removeClass("over");
+		}
+	});
+}
+</script>
+</head>
+<body><!-- container -->
+<div id="container" class="indexPage"><noscript>
+  <p class="for_nojs">JavaScriptが無効なため一部の機能が動作しません。動作させるためにはJavaScriptを有効にしてください。またはブラウザの機能をご利用ください。</p>
+  </noscript><!-- header -->
+  <div id="header">
+    <p id="head_point" class="for_voice"><a href="#speak_main">メインメニューをスキップして本文へ移動</a></p>
+    <p id="header_logo"><a href="/index.html"><img src="/share/imgs/hlogo.png" alt="お茶の水女子大学トップページ" /></a></p>
+    <div id="header_content">
+      <div id="header_utilities">
+        <ul id="header_link">
+          <li><a href="/help/accessmap.html" title="交通・キャンパスマップ">交通・キャンパスマップ</a></li>
+          <li><a href="/sitemap.html" title="サイトマップ">サイトマップ</a></li>
+          <li><a href="/shozoku.html" title="お問合せ">お問合せ</a></li>
+          <li><a href="/help/info_hijouji.html" title="非常時の対応">非常時の対応</a></li>
+        </ul>
+        <ul id="header_language">
+          <li><a href="http://www.ocha.ac.jp/en/index.html" title="English"><img src="/share/imgs/btn_language_en.png" alt="English" /></a></li>
+          <li><a href="http://www.ocha.ac.jp/cn/index.html" title="簡体字"><img src="/share/imgs/btn_language_ch.png" alt="簡体字" /></a></li>
+          <li><a href="http://www.ocha.ac.jp/cn1/index.html" title="繁体字"><img src="/share/imgs/btn_language_tw.png" alt="繁体字" /></a></li>
+          <li><a href="http://www.ocha.ac.jp/kr/index.html" title="???"><img src="/share/imgs/btn_language_ko.png" alt="???" /></a></li>
+        </ul>
+      </div>
+      <ul id="header_boxes">
+        <li><a href="/shozoku.html" title="お問合せ"><img src="/share/imgs/btn_box_contactus.png" alt="お問合せ" /></a></li>
+        <li><a href="/help/info_hijouji.html" title="非常時の対応"><img src="/share/imgs/btn_box_emergency.png" alt="非常時の対応" /></a></li>
+      </ul>
+      <ul id="header_boxes_sp">
+        <li><a href="http://www.ao.ocha.ac.jp/application/howto/index.html" title="入試資料請求"><img src="/share/imgs/btn_box_request_sp.png" alt="入試資料請求" /></a></li>
+        <li><a class="pcview" href="#" title="PCレイアウト"><img src="/share/imgs/btn_box_pcview_sp.png" alt="PCレイアウト" /></a></li>
+      </ul>
+<div id="header_search">
+        <form class="search" name="search" method="get" action="http://www.ocha.ac.jp/search.html">
+          <input type="text" size="16" class="header_searchbox" id="header_searchbox" name="q"/>
+          <input type="image" class="header_searchbtn" id="header_searchbtn" alt="検索" src="/share/imgs/btn_search.png" />
+          <input type="hidden" name="cx" value="005179355032878687222:kw2m9uzwncg" /> 
+          <input type="hidden" name="cof" value="FORID:10" /> 
+          <input type="hidden" name="ie" value="UTF-8" /> 
+        </form>
+       <script src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=ja" type="text/javascript"></script>
+      </div>
+            <ul id="header_target">
+        <li><a href="/ao/index.html">受験生</a></li>
+        <li><a href="/intl/index.html">留学生</a></li>
+        <li><a href="/campuslife/index.html">在学生</a></li>
+        <li><a href="/graduate/index.html">卒業生</a></li>
+        <li><a href="/general/index.html">地域・一般の方</a></li>
+        <li><a href="/company/index.html">企業の方</a></li>
+        <li><a href="/supporter/index.html">後援会・同窓会・事業会</a></li>
+      </ul>
+    </div>
+  </div>   <div id="gNav">
+    <p id="gNav_toggleswitch"><a href=""><span id="panel-btn"><span id="panel-btn-icon"></span></span></a></p>
+    <ul>
+      <li><a href="/introduction/index.html">お茶大案内</a></li>
+      <li><a href="/education/index.html">学部・大学院</a></li>
+      <li><a href="http://www.ao.ocha.ac.jp/index.html" target="_blank">入試情報</a></li>
+      <li><a href="/program/index.html">教育・研究</a></li>
+      <li><a href="/researchs/index.html">産学連携・社会貢献</a></li>
+      <li><a href="/kokusai/index.html">留学・国際交流</a></li>
+      <li><a href="http://www.lib.ocha.ac.jp/" target="_blank">図書館</a></li>
+      <li><a href="/attached/index.html">研究所・センター</a></li>
+      <li><a href="/schools/index.html">附属学校園</a></li>
+    </ul>
+  </div><!-- mainvisual -->
+<div id="slider">
+<div id="main_visual" class="topslide">
+<ul id="main_slider">    <li><a href="/news/20170928_02.html"><img alt="国際交流留学生プラザ" src="/900/slide/d004910_d/img/001.png" /></a></li>    <li><a href="/event/201802.html"><img alt="大学院OC" src="/900/slide/g_oc2018_d/img/001.png" /></a></li>    <li><a href="http://www-w.cf.ocha.ac.jp/cos/3%E6%9C%8825%E6%97%A5%EF%BC%88%E6%97%A5%EF%BC%89%E7%AC%AC9%E5%9B%9E%E3%83%AA%E3%82%B1%E3%82%B8%E3%83%A7-%E6%9C%AA%E6%9D%A5%E3%82%B7%E3%83%B3%E3%83%9D%E3%82%B8%E3%82%A6%E3%83%A0%E9%96%8B%E5%82%AC/" target="_blank"><img alt="20180325リケジョシンポ" src="/900/slide/d005499_d/img/001.png" /></a></li>    <li><a href="http://www-w.cf.ocha.ac.jp/leader/kiin/" target="_blank"><img alt="徽音塾" src="/900/slide/slide05_d/img/001.png" /></a></li>    <li><a href="/campuslife/libextension/index.html"><img alt="附属図書館改修改築情報" src="/900/slide/d003994_d/img/001.png" /></a></li></ul>
+</div>
+</div>
+ <!-- contents -->
+<div id="contents">
+<p id="speak_main" class="for_voice">ページの本文です。</p>
+<!-- contentTop --><!-- contentTop -->
+    <div id="contentsTop">
+      <ul id="mainButtons">        <li><a href="/news/20171222_01.html"><img alt="最終講義" src="/900/4contents/d005245_d/img/001.png" /></a></li>
+        <li><a href="http://www-w.cf.ocha.ac.jp/cos/3%E6%9C%8825%E6%97%A5%EF%BC%88%E6%97%A5%EF%BC%89%E7%AC%AC9%E5%9B%9E%E3%83%AA%E3%82%B1%E3%82%B8%E3%83%A7-%E6%9C%AA%E6%9D%A5%E3%82%B7%E3%83%B3%E3%83%9D%E3%82%B8%E3%82%A6%E3%83%A0%E9%96%8B%E5%82%AC/" target="_blank"><img alt="リケジョバナー" src="/900/4contents/d005498_d/img/001.png" /></a></li>
+        <li><a href="http://www-w.cf.ocha.ac.jp/leader/kiin/" target="_blank"><img alt="徽音塾3" src="/900/4contents/d005213_d/img/001.png" /></a></li>
+        <li><a href="/contribution/category/mirai.html"><img alt="未来開拓基金" src="/900/4contents/d004079_d/img/001.png" /></a></li>
+      </ul>
+<div class="important_information">
+<div class="header">重要なお知らせ</div><!-- header -->
+<div class="content">
+<ul class="imformation_list"> <li>
+  <span>2018年3月9日</span>
+    <div>
+      <a href="/news/20180309.html" >東日本大震災七周年追悼式の当日における弔意表明について学長メッセージ</a>
+    </div>
+ </li> <li>
+  <span>2017年12月1日</span>
+    <div>
+      <a href="/news/20171201.html" >お茶の水女子大学喫煙対策について</a>
+    </div>
+ </li> <li>
+  <span>2017年9月6日</span>
+    <div>
+      <a href="/news/20170905.html" >J-ALERT（弾道ミサイル発射時）作動時の対応について</a>
+    </div>
+ </li> <li>
+  <span>2017年7月20日</span>
+    <div>
+      <a href="/news/20170720_02.html" >特定外来生物「ヒアリ」にご注意ください！</a>
+    </div>
+ </li> <li>
+  <span>2018年2月15日</span>
+    <div>
+      <a href="/campuslife/scholarship/crying.html" >日本学生支援機構　緊急・応急採用奨学金</a>
+    </div>
+ </li></ul><!-- list --> 
+</div><!-- content -->
+ <div class="informationLinks">
+  <a href="/900/importantnews/index.html"><img alt="重要なお知らせ一覧へ" src="/share/imgs/news_btn_list.png" /></a>
+ </div><!-- imformationLinks -->
+</div><!-- information -->
+    </div><!-- contentSub -->
+<div id="contentsSub">
+<div id="information">
+<h2><img alt="Information  案内" src="/share/imgs/info_ttl.png" /></h2>
+<ul>
+    <li><a title="学長メッセージ" href="/introduction/president/body/d000092.html"><img alt="学長メッセージ" src="/share/imgs/info_btn_message.png" /></a> </li>
+    <li><a title="大学紹介映像" href="/ochadai_video/index.html"><img alt="大学紹介映像" src="/share/imgs/info_btn_movie.png" /></a> </li>
+    <li><a title="入試資料請求" href="http://www.ao.ocha.ac.jp/application/howto/index.html"><img alt="入試資料請求" src="/share/imgs/info_btn_request.png" /></a> </li>
+    <li><a title="教育情報の公表事項" href="/program/project/info/edu_revue.html"><img alt="教育情報の公表事項" src="/share/imgs/info_btn_publication.png" /></a> </li>
+    <li><a title="ご寄附" href="/contribution/index.html"><img alt="ご寄附" src="/share/imgs/info_btn_donation.png" /></a> </li>
+    <li><a title="男女共同参画" href="/danjo/index.html"><img alt="男女共同参画" src="/share/imgs/info_btn_gender.png" /></a> </li>
+    <li><a title="研究者情報" onclick="ga('send', 'event', 'category', 'action', 'label', value, {'nonInteraction': 1});" href="http://researchers2.ao.ocha.ac.jp"><img alt="研究者情報" src="/share/imgs/info_btn_scholar.png" /></a> </li>
+    <li><a title="プレスリリース" href="/pressrelease/index.html"><img alt="プレスリリース" src="/share/imgs/info_btn_pressrelease.png" /></a> </li>
+    <li><a title="公募求人・調達入札" href="/whatsnew/index.html"><img alt="公募求人・調達入札" src="/share/imgs/info_btn_bid.png" /></a> </li>
+    <li><a title="お茶大なんでもＱ＆Ａ" href="/qa/index.html"><img alt="お茶大なんでもＱ＆Ａ" src="/share/imgs/info_btn_faq.png" /></a> </li>
+</ul>
+</div>
+<div id="electricity">
+<h2><a href="/save_energy/index.html"><img alt="お茶大の電力使用状況" src="/share/imgs/electricity_ttl.png" /></a></h2>
+<span id="eneDate">&nbsp;</span> <dl><dt>使用電力 </dt><dd id="eneUse"></dd><dt>目標値 </dt><dd id="eneGoal">&nbsp;</dd></dl>
+<div class="enePerc">
+<div id="enePerc">&nbsp;</div>
+</div>
+</div>
+      <!-- sns -->
+      <ul id="sns">
+        <li><a href="https://www.facebook.com/ochadai/" target="_blank"><img alt="facebook" src="/share/imgs/ico_sns_facebook.png" /></a></li>
+        <li><a href="https://twitter.com/OchadaiNews/" target="_blank"><img alt="twitter" src="/share/imgs/ico_sns_twitter.png" /></a></li>
+      </ul>
+</div>
+<!-- contentMain -->
+<div id="contentsMain">
+<div id="newsrelease">
+<h2><img alt="News Release  新着情報" src="/share/imgs/news_ttl.png" /></h2>
+<ul class="newsTabbuttons">
+    <li class="selected">一般向け </li>
+    <li>学生・教職員向け </li>
+    <li>イベント </li>
+</ul>
+<span class="newsTablinks">
+<p class="wrap1"><a href="pnews.html"><img alt="一般向け新着一覧へ" src="/share/imgs/news_btn_list.png" /></a></p>
+<p class="wrap2"><a href="snews.html"><img alt="学生・教職員向け新着一覧へ" src="/share/imgs/news_btn_list.png" /></a></p>
+<p class="wrap3"><a href="/event/index.html"><img alt="イベント一覧へ" src="/share/imgs/news_btn_list.png" /></a></p>
+</span>
+<div class="newsTabcontents">
+<ul class="wrap1">  <li>
+    <span>2018年3月16日</span>
+    <div>
+      <a href="/recruitment/index.html" >公募・求人情報に学生・キャリア支援センター講師（学生相談業務）の募集情報を掲載しました</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月16日</span>
+    <div>
+      <a href="/recruitment/index.html" >公募・求人情報にグローバルリーダーシップ研究所（非常勤講師、任期付）の募集情報を掲載しました</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月16日</span>
+    <div>
+      <a href="/event/20180215_01.html" >お茶の水女子大学附属学校園連携研究 算数・数学部会出版イベント 「データの活用」の授業～小中高の体系的指導で育てる統計的問題解決力」</a>
+      <p>日時：3月21日（水・祝）10:00～12:00<br />場所：大学本館3階306室<br />主催：人間発達教育科学研究所 教育・保育実践研究部門<br />（3/16更新：申込締切を延長しました）</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月15日</span>
+    <div>
+      <a href="/news/20180315.html" >バフンウニのゲノムを解読～研究・教育推進のためにゲノムデータベースを公開～</a>
+      <p>湾岸生物教育研究センター 清本正人准教授と筑波大学、情報・システム研究機構国立遺伝学研究所、広島大学の共同研究が発表されました</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月14日</span>
+    <div>
+      <a href="/recruitment/index.html" >公募・求人情報に生活科学部AA(非常勤職員）の募集情報を掲載しました</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月13日</span>
+    <div>
+      <a href="/danjo/op/kip/20180312_3.html" >平成29（2017）年度「第2回 小泉郁子賞」選考結果報告</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月13日</span>
+    <div>
+      <a href="/news/20180313.html" >工藤瑠璃子さんがDEIM 2018で受賞</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月9日</span>
+    <div>
+      <a href="/news/20180309_2.html" >アフガニスタン行政長官府副報道官ジャベード・ファイサル氏の来訪</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月9日</span>
+    <div>
+      <a href="/news/20180309_1.html" >本学名誉教授近藤譲先生が第68回芸術選奨文部科学大臣賞を受賞</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月8日</span>
+    <div>
+      <a href="/news/20180308.html" >尾﨑 保乃花さんがインタラクティブ発表賞を受賞</a>
+      
+    </div>
+  </li>
+ </ul>
+    <ul class="wrap2">  <li>
+    <span>2018年3月14日</span>
+    <div>
+      <a href="/campuslife/lodgings/info/result.html" >国際学生宿舎・お茶大SCC・小石川寮入寮申請結果発表</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月2日</span>
+    <div>
+      <a href="/campuslife/list_minkan_latest/index.html" >現在募集中の地方公共団体及び民間奨学団体等の奨学金の一覧を更新しました</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年2月28日</span>
+    <div>
+      <a href="/campuslife/info/anpic.html" >安否情報システム【ANPIC】の導入について</a>
+      <p>（予告）登録開始3月20日頃より。</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年2月28日</span>
+    <div>
+      <a href="/intl/menu/120ouinkai.html" >国立大学法人お茶の水女子大学創立120周年記念事業国際交流振興基金・桜蔭会国際交流奨励賞</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年2月20日</span>
+    <div>
+      <a href="/intl/studyab/900/1/soas.html" >H30年度 ロンドン大学東洋・アフリカ研究学院（SOAS）とのダブルディグリー（複数学位）プログラム</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年2月9日</span>
+    <div>
+      <a href="/news/20180209_01.html" >ベトナム研修(2018年3月10日～13日)の参加者募集</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年2月5日</span>
+    <div>
+      <a href="http://www.cf.ocha.ac.jp/gec-out/news/d005355.html" >【お知らせ】国際学生フォーラム学生発表（2018年2月13日、14日）</a>
+      <p>日時：2月13日(火) 10:00～16:30、14日(水) 13:00～15:00<br />場所：共通講義棟2号館1階102室</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年2月4日</span>
+    <div>
+      <a href="http://www.cf.ocha.ac.jp/student_support/j/menu/scc/news/2017/d005513.html" >新2年生研修を行いました。</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年2月2日</span>
+    <div>
+      <a href="/news/20170202_02.html" >一般入試（前期）アルバイトの募集</a>
+      <p>※定員に達しましたため、応募を締切りました。</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年2月2日</span>
+    <div>
+      <a href="http://www.cf.ocha.ac.jp/gec-out/news/d005343.html" target="_blank">第7回国際学生フォーラム記念講演会</a>
+      <p>タイトル：Philippine Nikkeijin Diasporas:Thinking a Sense of Home and Belonging through Migrations<br />日時：2月12日（祝・月）10:00～11:30<br />場所：共通講義棟1号館3階304室</p>
+    </div>
+  </li>
+ </ul>
+        <ul class="wrap3">  <li>
+    <span>2018年4月14日<br /></span>
+    <div>
+      <a href="/event/201802.html" >大学院オープンキャンパス2018開催</a>
+      <p>2018年4月14日（土）開催<br />※事前申込不要</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年4月14日<br /></span>
+    <div>
+      <a href="http://www.sci.ocha.ac.jp/news/2018/d005548.html" >平成31年度理学部第3年次編入学の説明会を4月14日（土）に開催します</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年4月4日<br /></span>
+    <div>
+      <a href="/event/20180306.html" >平成30年度入学式及び新入生オリエンテーション等について</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月31日<br /></span>
+    <div>
+      <a href="/event/20180219_02.html" >GEAHSS発足記念公開シンポジウム「人文社会系学協会における男⼥共同参画をめざして」</a>
+      <p>日時：3月31日（土）13:00～18:00<br />場所：お茶の水女子大学共通講義棟2号館201室<br />予約不要・参加無料</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月27日<br /></span>
+    <div>
+      <a href="/event/20180219_.html" >足立眞理子教授最終講義　</a>
+      <p>「批判理論としてのジェンダー研究：フェミニスト経済学の可能性を求めて」</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月25日<br /></span>
+    <div>
+      <a href="http://www-w.cf.ocha.ac.jp/cos/3%E6%9C%8825%E6%97%A5%EF%BC%88%E6%97%A5%EF%BC%89%E7%AC%AC9%E5%9B%9E%E3%83%AA%E3%82%B1%E3%82%B8%E3%83%A7-%E6%9C%AA%E6%9D%A5%E3%82%B7%E3%83%B3%E3%83%9D%E3%82%B8%E3%82%A6%E3%83%A0%E9%96%8B%E5%82%AC/" >理系女性教育開発共同機構開催 第9回リケジョ-未来シンポジウム「サイエンスの学びから将来の夢へ」</a>
+      <p>【3月25日（日）14時～17時】参加申込受付中（3月22日（木）締切）<br />対象：女子高校生・中学生、保護者、教員、女子大学生</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月23日<br /></span>
+    <div>
+      <a href="/campuslife/info/20171214_01.html" >平成29年度卒業式・学位記授与式</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月21日<br /></span>
+    <div>
+      <a href="/event/20180301.html" >お茶の水女子大学「人間発達教育科学研究所」平成29年度末成果報告会</a>
+      
+    </div>
+  </li>
+  <li>
+    <span>2018年3月21日<br /></span>
+    <div>
+      <a href="/event/20180215_01.html" >お茶の水女子大学附属学校園連携研究 算数・数学部会出版イベント 「データの活用」の授業～小中高の体系的指導で育てる統計的問題解決力」</a>
+      <p>日時：3月21日（水・祝）10:00～12:00<br />場所：大学本館3階306室<br />主催：人間発達教育科学研究所 教育・保育実践研究部門<br />（3/16更新：申込締切を延長しました）</p>
+    </div>
+  </li>
+  <li>
+    <span>2018年3月17日<br /></span>
+    <div>
+      <a href="/event/20180205_01.html" >浜谷望教授最終講義「47年間6大学で学んだこと」</a>
+      
+    </div>
+  </li>
+ </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div id="footer_top">
+  <!-- sns_sp -->
+  <ul id="sns_sp">
+    <li><a target="_blank" href="https://www.facebook.com/ochadai/"><img alt="facebook" src="/share/imgs/ico_sns_facebook.png" /></a></li>
+    <li><a target="_blank" href="https://twitter.com/OchadaiNews/"><img alt="twitter" src="/share/imgs/ico_sns_twitter.png" /></a></li>
+  </ul>
+  <!-- pagetop -->
+  <div id="pagetop">
+    <p><a href="#header"><img alt="ページトップへ戻る" src="/share/imgs/btn_pagetop.png" /></a></p>
+  </div>
+</div>
+
+<!-- footer -->
+<div id="footer">
+  <div id="footer_link">
+        <ul>
+      <li><a href="/save_energy/index.html" >電力使用状況</a></li>
+      <li><a href="/help/oncampus.html" >教職員メニュー</a></li>
+      <li><a href="/help/about.html" >このサイトについて</a></li>
+      <li><a href="/help/sns.html" >ソーシャルメディアポリシー</a></li>
+      <li><a href="/about/individual.html" >個人情報について</a></li>
+      <li><a href="/help/privacy.html" >プライバシーポリシー</a></li>
+      <li><a href="/help/accessmap.html" >アクセスマップ</a></li>
+      <li><a href="/sitemap.html" >サイトマップ</a></li>
+      <li><a href="/shozoku.html" >お問い合わせ</a></li>
+      <li><a href="/archive/Security_Policy.pdf" target="_blank">情報セキュリティポリシー</a></li>
+    </ul>
+
+  </div>
+
+  <div id="footer_contents">
+    <address>
+      国立大学法人お茶の水女子大学<br />
+      〒112-8610 東京都文京区大塚2-1-1<br />
+      責任者：お茶の水女子大学ホームページ運営委員会委員長<br />
+      E-mail：<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#99;&#99;&#46;&#111;&#99;&#104;&#97;&#46;&#97;&#99;&#46;&#106;&#112;">&#105;&#110;&#102;&#111;&#64;&#99;&#99;&#46;&#111;&#99;&#104;&#97;&#46;&#97;&#99;&#46;&#106;&#112;</a>
+    </address>
+    <p id="footer_logo"><a href="/index.html"><img src="/share/imgs/flogo.png" alt="お茶の水女子大学トップページ" /></a></p>
+      <ul id="footer_agent">
+        <li><span id="pc" title="PC表示">PC表示</span></li>
+        <li><span id="sp" title="スマホ表示">スマホ表示</span></li>
+      </ul>
+      <p id="copyright">Copyright &copy; OCHANOMIZU UNIVERSITY. All rights reserved.</p>
+  </div>
+</div>
+<img src="/cgi-bin/view/pageview.cgi?PAGE_KIND_CD=1&amp;PAGE_NO=&amp;OUTPUT_FG=1" style="display:none;" alt="" width="1" height="1" />
+</div></body>
+</html><!--iSign_HMAC_AES_SHA1-BEGIN:FA8A4210EDE4266027049E4A6B11E34E81E9F80A27CA397279D9FC187D037CC8:iSign_HMAC_AES_SHA1-END-->

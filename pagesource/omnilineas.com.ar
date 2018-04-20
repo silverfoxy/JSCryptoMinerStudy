@@ -1,0 +1,487 @@
+
+<!doctype html>
+<html>
+<head>
+
+<meta name="keywords" content="Bus Argentina, Viajes en bus, Argentina Omnibus, Retiro, 
+Horarios de bus, Omnilineas, Terminal de omnibus Retiro, Empresas de micros en Argentina, Semi-Cama, Cama Ejecutivo, Cama Suite, CNRT">
+<meta name="author" content="bas" >
+<meta name="copyright" content="Omnilineas 2007- and beyond...">
+<meta name="robots" content="all">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Language" content="es">
+
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/style.css?v=9a" type="text/css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css">
+
+
+<link rel="alternate" hreflang="en" href="https://www.omnilineas.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.onilinhas.com.br/argentina/">
+<link rel="alternate" hreflang="es-AR" href="https://www.omnilineas.com.ar/">
+
+
+<meta name="description" content="Informaciones sobre todas las empresas de ómnibus en la terminal de Retiro.">
+
+<title>Micros en Argentina - Horarios y Tarifas de Omnibus</title>
+</head>
+
+<!-- ================================================================== -->
+
+<body id="home">
+	<div id="container">
+		
+		
+<header>
+<div class="centrador">
+		<div class="ClipLogo_new">
+		    <a href="/" alt="Omnilineas" class="logo"></a>
+		</div>
+		<div class="ClipIdiomas">
+
+				<div id="langsel">
+						<select class="desplegable" style="width: 80px" onChange="window.location = this.value">
+	            		<option value="https://www.omnilineas.com.ar/">Español</option>
+	            		<option value="https://www.omnilineas.com/">English</option>
+	            	</select>
+	         </div>
+   	
+		</div>
+		<div class="clear"></div>
+
+</div>
+
+<div id="nav">
+	<div class="centrador">
+		<div id="MenuH">
+		    <a href="#"><span class="menu" id="mmenu"></span></a>
+		</div>
+		<ul>
+			<li><a href="/">Micros de larga distancia</a></li>
+			<li><a href="/buenos-aires/colectivos/">Colectivos urbanos</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="navega_celu">
+    <div class="botonera">
+        <a href="/" class="cinta cinton_1">Micros de larga distancia</a>
+        <span class="linea_horiz"></span>
+        <a href="/buenos-aires/colectivos/" class="cinta">Colectivos urbanos</a>
+        <span class="linea_horiz"></span>
+
+        <div class="ClipIdiomas_mobile">
+        
+				
+						<select class="desplegable" style="width: 80px" onChange="window.location = this.value">
+	            			<option value="https://www.omnilineas.com.ar/">Español</option>
+	            			<option value="https://www.omnilineas.com/">English</option>
+	            	</select>
+        </div>
+        <span class="linea_horiz pre-desplegable"></span>
+
+        <div class="desplegable_mobile">
+         		</div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div id="searchbox">
+	<div id="inputbox">
+		<div class="padding">
+			<div class="ClipTituloSearch">
+				<div class="ico-micro"></div>
+				<div class="encontra">Encontrá tu pasaje</div>
+			</div>
+			<div class="linea"></div>
+			<div class="clear"></div>
+
+			<form id="inputform" name="inputform">
+				<div id="textfields">
+					<span class="campo">
+						<span class="campo_int origen">
+							<label for="orig">Origen</label>
+                    	<input type="text" name="orig" id="inputorig" class="text ui-menu-item" value="Buenos Aires, Retiro">
+                    	</span>
+                    </span>
+
+                    <span class="campo">
+                    	<span class="campo_int destino">
+                    		<label for="destin">Destino</label>
+                    		<input type="text" name="destin" id="inputdest" class="text" value="">
+                    	</span>
+                    </span>
+<!--
+                    <span class="campo small">
+                    	<span class="campo_int">
+                    		<label for="nombre">Departure</label>
+                    		<input type="text" name="nombre" id="Name" class="text" value="">
+                    	</span>
+                    </span>
+
+                    <span class="campo small">
+                    	<span class="campo_int vuelta">
+                    		<label for="nombre">Return <span class="opcional">(optional)</span></label>
+                    		<input type="text" name="nombre" id="Name" class="text" value="">
+                    	</span>
+                    </span>
+-->
+                    <span class="ClipEnviar">
+                    	<input id="inputbuscar" type="button" name="submitbutton" value="Buscar" onClick="initsearch();">
+                    </span>
+                    
+
+				</div>
+				<div class="clear"></div>
+
+				<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+				<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+				<script src="/stops.js?v=3">
+				</script>
+
+				<script>
+				$.widget( "custom.omnicomplete", $.ui.autocomplete, {
+				options: {
+					source: cities,
+					minLength: 3,
+					response: function(event, ui) {
+			           if (ui.content.length === 0) {
+						 ui.content.push({value: "", label: "", tol: "", omn: ""});	// No encontrado
+			           }
+					}
+				},
+			    _renderItem: function( ul, item ) {
+			      if (item.omn != "") {
+						return $( "<li>" )
+						.append( "<a class='mydestac'><b>" + item.value + "</b></a>" ) 
+						.prependTo( ul );
+					} else {
+						function checkempty (cval) {
+							if (cval == "") {return "No encontrado";}
+							else return cval;
+						};
+						return $( "<li>" )
+						.append( $( "<a>" ).text( checkempty(item.value) ) )
+						.appendTo( ul );		
+					};
+			    }
+				});
+
+				function lookupcity(citnam) {
+					var myind;
+					for (myind = 0; myind < cities.length; ++myind) {
+						if (citnam == cities[myind]['value']) {
+							var returnarr = [];
+							returnarr[0] = cities[myind]['value'];
+							returnarr[1] = cities[myind]['label'];
+							returnarr[2] = cities[myind]['tol'];
+							returnarr[3] = cities[myind]['omn'];
+						return returnarr;
+						}
+					}
+					return false;
+				}	
+					
+				function initsearch() {
+				 
+					origtext = $( '#inputorig' ).val();
+					desttext = $( '#inputdest' ).val();
+
+					var origres = lookupcity(origtext);
+					var destres = lookupcity(desttext); 
+
+					if (origres === false) {
+						$( '#inputorig' ).omnicomplete('search',origtext);
+						return false;
+					}
+					if (destres === false) {
+						$( '#inputdest' ).omnicomplete('search',desttext);
+						return false;
+					}
+					
+					if (origtext == desttext) return false;
+					
+
+					if (origres[3]!="") {ores=origres[3];} 
+						else {ores=origres[2];};
+					if (destres[3]!="") {dres=destres[3];} 
+						else {dres=destres[2];};
+					window.location = "/bus/"+ores+"/"+dres+"/";
+
+				}
+					
+			  	$(function() {
+					$( "#inputorig" ).omnicomplete();
+					$( "#inputdest" ).omnicomplete();
+				});
+					
+			  	</script>
+
+				<script type="text/javascript">
+								</script>
+			</form>
+		</div>
+	</div>
+</div>
+</header> <!-- searchbox -->
+
+<script>
+	function alResize() {
+	  if ($(document).width() > 639) {
+	    $("#navega_celu").hide();
+	  }
+	};
+
+	$(document).ready( function() {
+	  $(window).resize(alResize);
+	  
+	  $("#MenuH a").click(function (evento) {
+	    evento.preventDefault();
+	    $("#navega_celu").slideToggle();
+	  });
+
+	  $('.ico-Subir').click(function(event) {
+	    event.preventDefault();
+	      $('html, body').animate({scrollTop: 0}, 500);
+	      return false;
+	  });
+
+	  alResize();
+	  
+	});
+</script>
+		<div id="content">
+			<div id="subcon">
+				<div id="homecontent">
+					<div class="ClipLeft">
+						<h1 class="bus desktop">Micros de larga distancia</h1>
+					
+						<p class="texto"><span class="bold">Omnilineas</span> informa sobre los horarios y tarifas de las empresas de micros de larga distancia en Argentina, incluyendo las salidas desde la Terminal de Ómnibus de Retiro en Buenos Aires. 
+Para consultar los servicios disponibles y los precios de los pasajes, ingrese origen y destino de su viaje en el buscador de arriba.
+<br><br>
+La mayoría de los servicios salen en forma diaria. Para chequear la tarifa del boleto hay que hacer click en
+el ícono del carrito de compras y elegir la fecha del viaje. En el paso siguiente también es posible agregar el viaje
+de regreso.
+<br><br>
+Abajo mostramos un listado de los destinos principales, para poder consultar rápidamente los 
+servicios directos y regulares que se ofrecen a los pasajeros desde la terminal de Retiro. Se incluyen 
+las ciudades más grandes del país y también algunos destinos turísticos.
+<br><br>
+						
+						</p>
+
+						<div class="ClipIconosTextos">
+							<div class="ClipElementos">
+								<div class="ico_left">
+									<div class="ico-micro gr"></div>
+								</div>
+								<div class="texto_right">
+									<p class="texto">La mayoría de las empresas de transporte permiten consultar online el precio actual 
+y la disponibilidad, y también adquirir el pasaje directamente a través de nuestro 
+carrito de compras. Para efectuar una compra se necesita una tarjeta de crédito o débito, 
+una dirección de email para recibir los pasajes electrónicos y acceso a una impresora 
+para imprimir los pasajes.</p>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="ClipElementos">
+								<div class="ico_left">
+									<div class="ico-sobre"></div>
+								</div>
+								<div class="texto_right">
+									<p class="texto">Algunas transportistas no ofrecen la venta online de pasajes, y en estos casos recomendamos 
+contactarlas directamente para comprobar precios y disponibilidad. Indicamos los datos 
+de contacto de las mismas, como los números de teléfono y los números de las boleterías 
+de Retiro. También puede visitar las páginas web de las transportistas para obtener
+más información.</p>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="ClipElementos">
+								<div class="ico_left">
+									<div class="ico-ticket"></div>
+								</div>
+								<div class="texto_right">
+									<p class="texto">Esperamos que nuestro buscador sea útil para obtener una visión general de las distintas 
+opciones de viaje y para enterarse de las empresas de ómnibus que ofrecen servicios a la 
+región de su destino. El objetivo es lograr una mayor transparencia en el mercado de pasajes 
+de micros de larga distancia y brindar un servicio fácil y seguro de venta online de boletos,
+para ayudar a todos los viajeros a armar sus itinerarios.</p>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="ClipRight">
+						<div class="ClipRight_int">
+							<a href="/beneficios/">
+								<div class="ClipFive">
+									<div class="relleno">
+										<div class="ClipChek_Info">
+											<div class="Five">5 buenas razones<br>
+												para comprar<br>
+												<span class="amarillo_italic">con nosotros!</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+							
+							<div class="highlighted">Destinos principales</div>
+							<div class="ClipThumbs">
+								<div class="ClipDestino">
+									<a href="/bus/retiro/puerto-iguazu/" class="thumb_fijo" style='background-image:url("imgs/destinos/small/iguazu_small.jpg");'></a>
+									<a href="/bus/retiro/puerto-iguazu/" class="ciudad_thumb">Puerto Iguazú</a>
+								</div>
+								<div class="ClipDestino">
+									<a href="/bus/retiro/mendoza/" class="thumb_fijo" style='background-image:url("imgs/destinos/small/mendoza_small.jpg");'></a>
+									<a href="/bus/retiro/mendoza/" class="ciudad_thumb">Mendoza</a>
+								</div>
+								<div class="ClipDestino">
+									<a href="/bus/retiro/mar-del-plata/" class="thumb_fijo" style='background-image:url("imgs/destinos/small/mar_del_plata_small.jpg");'></a>
+									<a href="/bus/retiro/mar-del-plata/" class="ciudad_thumb">Mar del Plata</a>
+								</div>
+								<div class="ClipDestino">
+									<a href="/bus/retiro/bariloche/" class="thumb_fijo" style='background-image:url("imgs/destinos/small/bariloche_small.jpg");'></a>
+									<a href="/bus/retiro/bariloche/" class="ciudad_thumb">Bariloche</a>
+								</div>
+								<div class="ClipDestino final">
+									<a href="/bus/retiro/salta/" class="thumb_fijo" style='background-image:url("imgs/destinos/small/salta_small.jpg");'></a>
+									<a href="/bus/retiro/salta/" class="ciudad_thumb">Salta</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+
+				<div id="destinationlist">
+					<div class="centrador">
+						<div class="ClipDestinos">
+	<ul>
+		<div class="col_clientes">
+			<li><a href='bus/retiro/bahia-blanca/'>Bahía Blanca</a></li>
+			<li><a href='bus/retiro/bariloche/'>Bariloche</a></li>
+			<li><a href='bus/retiro/catamarca/'>Catamarca</a></li>
+			<li><a href='bus/retiro/comodoro-rivadavia/'>C.Rivadavia</a></li>
+			<li><a href='bus/retiro/concordia/'>Concordia</a></li>
+			<li><a href='bus/retiro/cordoba/'>Córdoba</a></li>
+			<li><a href='bus/retiro/corrientes/'>Corrientes</a></li>
+			<li><a href='bus/retiro/el-calafate/'>El Calafate</a></li>
+			<li><a href='bus/retiro/esquel/'>Esquel</a></li>
+			<li><a href='bus/retiro/formosa/'>Formosa</a></li>
+			<li><a href='bus/retiro/gualeguaychu/'>Gualeguaychú</a></li>
+			<li><a href='bus/retiro/jujuy/'>Jujuy</a></li>
+			<li><a href='bus/retiro/la-rioja/'>La Rioja</a></li>
+			<!--<li><a href='bus/retiro/las-lenas/'>Las Leñas</a></li>-->
+			<li><a href='bus/retiro/mar-del-plata/'>Mar del Plata</a></li>
+			<!--<li><a href='bus/retiro/mar-del-tuyu/'>Mar del Tuyú</a></li>-->
+			<li><a href='bus/retiro/mendoza/'>Mendoza</a></li>
+			<li><a href='bus/retiro/necochea/'>Necochea</a></li>
+			<li><a href='bus/retiro/neuquen/'>Neuquén</a></li>
+			<li><a href='bus/retiro/olavarria/'>Olavarría</a></li>
+			<li><a href='bus/retiro/parana/'>Paraná</a></li>
+			<li><a href='bus/retiro/pinamar/'>Pinamar</a></li>
+			<li><a href='bus/retiro/posadas/'>Posadas</a></li>
+			<li><a href='bus/retiro/puerto-iguazu/'>Puerto Iguazú</a></li>
+			<li><a href='bus/retiro/puerto-madryn/'>Pto. Madryn</a></li>
+			<li><a href='bus/retiro/rawson/'>Rawson</a></li>
+			<li><a href='bus/retiro/resistencia/'>Resistencia</a></li>
+			<li><a href='bus/retiro/rio-cuarto/'>Río Cuarto</a></li>
+			<li><a href='bus/retiro/rio-gallegos/'>Río Gallegos</a></li>
+			<li><a href='bus/retiro/rio-grande/'>Río Grande</a></li>
+			<li><a href='bus/retiro/rosario/'>Rosario</a></li>
+			<li><a href='bus/retiro/salta/'>Salta</a></li>
+			<!--<li><a href='bus/retiro/san-antonio-de-areco/'>San Antonio de Areco</a></li>-->
+			<li><a href='bus/retiro/san-bernardo/'>San Bernardo</a></li>
+			<!--<li><a href='bus/retiro/san-clemente-del-tuyu/'>San Clemente del Tuyú</a></li>-->
+			<li><a href='bus/retiro/san-juan/'>San Juan</a></li>
+			<li><a href='bus/retiro/san-luis/'>San Luis</a></li>
+			<li><a href='bus/retiro/san-rafael/'>San Rafael</a></li>
+			<li><a href='bus/retiro/santa-fe/'>Santa Fe</a></li>
+			<li><a href='bus/retiro/santa-rosa/'>Santa Rosa</a></li>
+			<li><a href='bus/retiro/santiago-del-estero/'>Santiago del Estero</a></li>
+			<li><a href='bus/retiro/tandil/'>Tandil</a></li>
+			<li><a href='bus/retiro/trelew/'>Trelew</a></li>
+			<li><a href='bus/retiro/tucuman/'>Tucumán</a></li>
+			<li><a href='bus/retiro/ushuaia/'>Ushuaia</a></li>
+			<li><a href='bus/retiro/viedma/'>Viedma</a></li>
+			<li><a href='bus/retiro/villa-carlos-paz/'>Carlos Paz</a></li>
+			<li><a href='bus/retiro/merlo-san-luis/'>Merlo</a></li>
+			<li><a href='bus/retiro/villa-general-belgrano/'>Gral. Belgrano</a></li>
+			<li><a href='bus/retiro/villa-gesell/'>Villa Gesell</a></li>
+			<li><a href='bus/retiro/asuncion-paraguay/'>Asunción</a></li>
+			<!--<li><a href='bus/retiro/la-paz-bolivia/'>La Paz</a></li>-->
+			<li><a href='bus/retiro/lima-peru/'>Lima</a></li>
+			<li><a href='bus/retiro/montevideo-uruguay/'>Montevideo</a></li>
+			<li><a href='bus/retiro/rio-de-janeiro-brasil/'>Rio de Janeiro</a></li>
+			<!--<li><a href='bus/retiro/santa-cruz-bolivia/'>Santa Cruz</a></li>-->
+			<li><a href='bus/retiro/santiago-chile/'>Santiago de Chile</a></li>
+			<li><a href='bus/retiro/sao-paulo-brasil/'>São Paulo</a></li>
+			<li><a href='bus/retiro/san-martin-de-los-andes/'>San Martín de los Andes</a></li>
+		</div>
+	</ul>
+</div>					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- container -->
+
+
+
+
+<footer>
+	<div class="ClipBandon">
+		<div class="centrador">
+			<div class="alinea">
+				<span class="btns_1">
+					<a href="/" class="btn_footer">Micros de larga distancia</a>
+					<span class="linea_horiz footer"></span>
+					<a href="/buenos-aires/colectivos/" class="btn_footer">Colectivos urbanos</a>
+					<span class="linea_horiz footer"></span>
+				</span>
+
+				<span class="btns_2">
+					<a href="https://www.omnilineas.com.ar/condiciones/" class="btn_footer margin_left light">Términos y Condiciones</a>
+					<a href="/contacto/" class="btn_footer last light">Contacto</a>				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="ClipFinal">
+		<div class="centrador">
+			<div class="tarjetas_logos mobile"></div>
+			<span class="linea_horiz footer" style="border-bottom:1px solid #B0B0B0"></span>
+			<div class="copyright">&copy;
+				<script type="text/javascript">
+				var curdate = new Date(); 
+				var year = curdate.getFullYear(); 
+				document.write(year);
+				</script>
+			Omnilineas
+			</div>
+<img src="/omidx.php?v=62020" style="width:1px; height:1px; border: 0px;">			<span class="linea_horiz footer" style="border-bottom:1px solid #B0B0B0"></span>
+			<div class="bottom_right">
+				<a href="https://www.facebook.com/OmniLineas/"><div class="ClipFacebook"></div></a>
+						</div>
+			<div class="tarjetas_logos desktop"></div>
+			<a href="#" alt="icono subir" title="icono subir" class="ico-Subir"></a>
+		</div>
+	</div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1581575-3', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script></body>
+</html>

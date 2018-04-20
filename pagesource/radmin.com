@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="Content-Language" content="en" />
+		<meta name="keywords" content="remote control software,remote access software,access remote pc,control remote pc,access pc remotely,control pc remotely,secure remote access,remote computing,remote administration,remote desktop,remote assistance,vnc,telecommuting,help desk,remote access,system administration,remote support,remote administrator,radmin,famatech" />
+	<meta name="description" content="With Radmin, provide instant remote tech support to corporate network users. Gain secure remote access to network computers and servers." />
+	<title>Radmin: Reliable Remote Support Software for IT Pros</title>
+		<link href="//705167.ssl.1c-bitrix-cdn.ru/bitrix/cache/css/en/radmin2016/kernel_main/kernel_main.css?15106626745560" type="text/css"  rel="stylesheet" />
+<link href="//705167.ssl.1c-bitrix-cdn.ru/bitrix/cache/css/en/radmin2016/template_46f91e8cda106dc4bb92b4eae6fb5203/template_46f91e8cda106dc4bb92b4eae6fb5203.css?1519221489245038" type="text/css"  data-template-style="true"  rel="stylesheet" />
+	<script type="text/javascript">if(!window.BX)window.BX={message:function(mess){if(typeof mess=='object') for(var i in mess) BX.message[i]=mess[i]; return true;}};</script>
+<script type="text/javascript">(window.BX||top.BX).message({'JS_CORE_LOADING':'Loading...','JS_CORE_WINDOW_CLOSE':'Close','JS_CORE_WINDOW_EXPAND':'Expand','JS_CORE_WINDOW_NARROW':'Restore','JS_CORE_WINDOW_SAVE':'Save','JS_CORE_WINDOW_CANCEL':'Cancel','JS_CORE_H':'h','JS_CORE_M':'m','JS_CORE_S':'s','JS_CORE_NO_DATA':'- No data -','JSADM_AI_HIDE_EXTRA':'Hide extra items','JSADM_AI_ALL_NOTIF':'All notifications','JSADM_AUTH_REQ':'Authentication is required!','JS_CORE_WINDOW_AUTH':'Log In','JS_CORE_IMAGE_FULL':'Full size'});</script>
+<script type="text/javascript">(window.BX||top.BX).message({'LANGUAGE_ID':'en','FORMAT_DATE':'MM/DD/YYYY','FORMAT_DATETIME':'MM/DD/YYYY HH:MI:SS','COOKIE_PREFIX':'BITRIX_SM','SERVER_TZ_OFFSET':'-18000','SITE_ID':'en','USER_ID':'','SERVER_TIME':'1521401678','USER_TZ_OFFSET':'0','USER_TZ_AUTO':'Y','bitrix_sessid':'485fd0723f0d9a09f71711efb8b4de16'});</script>
+
+
+<script type="text/javascript" src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/cache/js/en/radmin2016/kernel_main/kernel_main.js?1510662975308263"></script>
+<script type="text/javascript" src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/cache/js/en/radmin2016/kernel_twim.recaptchafree/kernel_twim.recaptchafree.js?15190500174534"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadRecaptchafree&render=explicit&hl=en"></script>
+<script type="text/javascript">BX.setJSList(['/bitrix/js/main/core/core.js?142537691297612','/bitrix/js/main/core/core_ajax.js?142537690935278','/bitrix/js/main/json/json2.min.js?13611278253467','/bitrix/js/main/core/core_ls.js?142537653010330','/bitrix/js/main/session.js?14253766723170','/bitrix/js/main/core/core_window.js?142537653996525','/bitrix/js/main/core/core_fx.js?136315827916537','/bitrix/js/main/core/core_dd.js?13611281293604','/bitrix/js/main/utils.js?136112836130972','/bitrix/js/main/rating_like.js?14253765309814','/bitrix/js/twim.recaptchafree/script.js?15190500154421','/bitrix/templates/radmin2016/components/bitrix/menu/bottomMenu/script.js?1476186923469']); </script>
+<script type="text/javascript">BX.setCSSList(['/bitrix/js/main/core/css/core.css?14253769095336','/bitrix/templates/radmin2016/components/bitrix/menu/bottomMenu/style.css?14761869234598','/bitrix/templates/radmin2016/styles.css?1519221489239969']); </script>
+
+
+	<script type="text/javascript" src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/cache/js/en/radmin2016/template_0018fe3cef357927483c5493edb5adbf/template_0018fe3cef357927483c5493edb5adbf.js?1510662674648"></script>
+<script type="text/javascript">
+bxSession.Expand(1440, '485fd0723f0d9a09f71711efb8b4de16', false, '991935ce720c2c3e889b5d834fce68d7');
+</script>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/templates/radmin2016/js/jquery.color.js?14742990501712"></script>
+	<script src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/templates/radmin2016/js/jquery.modal.js?15108511136691"></script>
+	<script src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/templates/radmin2016/js/newsmwnd.js?1317038949833"></script>
+	</head>
+<body>
+<div class="whiteBg">
+	<div class="wrapper">
+		<a href="/" class="topLogo"></a>
+		<!-- top-menu -->
+		<div class="topMenu">
+
+			<a href="/download/">Download</a>
+			<a href="/ordering/">Store</a>
+			<a href="/solutions/">Solutions</a>
+			<a href="http://support.radmin.com/index.php?/en/Knowledgebase/List">Support</a>
+			<a href="/contact/">Contact us</a></div>
+<div class="clear"></div>
+		<!-- /top-menu -->
+	</div>
+</div>
+<div class="whiteBg">
+
+<div class="bannerMain">
+	<h1 style="margin-top:280px; text-shadow:#253456 2px 2px 3px;">Reliable Remote Support Software For IT Pros</h1>
+	<p class="h1Tag wrapper" style="text-shadow:#253456 2px 2px 3px;">With Radmin provide instant tech support and get secure remote access to computers in a network</p>
+	<a href="/download/Radmin_3.5.2.1_EN.zip" class="buttonOrange downloadLink">Download</a>
+</div>
+
+<div class="whiteBg">
+	<div class="lightGrayBg">
+		<div class="wrapper">
+			<div style="padding:0 0 100px;">
+				<div class="monitor" title="Radmin 3"></div>
+				<h2>Radmin 3</h2>
+				<p>Radmin is one of the most secure and reliable remote access software products today. It’s chosen by over 100,000 companies worldwide for remote tech support to employees. Governments and military, technology experts, and financial organizations rely on its vast capabilities. Radmin is a must-have tool for every IT Professional.</p>
+								<div style="margin-top:40px; margin-bottom:-60px;">
+					<a href="https://community.spiceworks.com/products/10693-radmin#reviews" target="_blank" title="Preferred by IT Pros on Spiceworks" style="display:inline-block; margin:-3px;">
+						<img src="//static.spiceworks.com/attachments/cms/0000/0587/it_pro_preferred_dark_horizontal.png" style="width:170px;">
+					</a>
+				</div>
+							</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="whiteBg" style="text-align:center;">
+	<div class="hBlock">
+		<div class="icon icon200 iconSupport"></div>
+		<h3>Remote support</h3>
+		<p>Provide internal IT support across your organization regardless of its size</p>
+		<a href="/solutions/#remoteSupport">Learn more</a>
+	</div>
+	<div class="hBlock">
+		<div class="icon icon200 iconRemote"></div>
+		<h3>System administration</h3>
+		<p>Access unattended computers and perform server maintenance remotely</p>
+		<a href="/solutions/#remoteAccess">Learn more</a>
+	</div>
+	<div class="hBlock">
+		<div class="icon icon200 iconWork"></div>
+		<h3>Work from anywhere</h3>
+		<p>Access your office computer, <span class="nobr">e-mail</span> and files from home or while on a business trip</p>
+		<a href="/solutions/#remoteWork">Learn more</a>
+	</div>
+</div>
+
+<div class="lightGrayBg">
+	<div class="wrapper">
+		<div class="kfHeader">
+			<h2>Key Features</h2>
+		</div>
+	</div>
+</div>
+<div class="vBlock">
+	<div class="vBlockContent">
+		<div class="icon icon200 iconSpeed"></div>
+		<h3>Fast</h3>
+		<p class="p1">With Radmin’s highest operating speed, using a remote computer is just like using a local one. Its special low-bandwidth optimization lets you control remote computer comfortably even on 3G connections.</p>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="vBlock">
+	<div class="vBlockContent">
+		<div class="icon icon200 iconSecurity"></div>
+		<h3>Secure</h3>
+		<p class="p1">Radmin’s security capabilities are built-in from the ground up. With Radmin, all transferred data is protected with AES256-bit encryption. No vulnerabilities have ever been found over the last 17 years since Radmin was originally developed.</p>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="vBlock">
+	<div class="vBlockContent">
+		<div class="icon icon200 iconEasy"></div>
+		<h3>User Friendly</h3>
+		<p class="p1">Radmin installs and updates quickly and instructions are very clear. For administrators of large networks, there is a <a href="//www.radmin.com/download/radmindp12.zip">special free utility</a> allowing Radmin to be automatically installed with pre-sets on user PCs.</p>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="vBlock">
+	<div class="vBlockContent">
+		<div class="icon icon200 iconDownload"></div>
+		<h3>Free 30-day trial</h3>
+		<p class="p1">Download a fully functional version of Radmin 3.5.2 and use it for 30 days free of charge. Explore Radmin’s powerful features and see for yourself how Radmin can benefit you. You are just a click away from it!</p>
+	</div>
+</div>
+<div class="clear"></div>
+
+<div class="downloadBlock">
+	<h2 style="padding:140px 0 0;">Get Started Now!</h2>
+	<a href="/download/Radmin_3.5.2.1_EN.zip" class="buttonOrange downloadLink">Download</a>
+</div>
+</div>
+	<!--ses-->
+	<style>
+/* ses */
+#err-content {display:none; width:320px; padding:40px;}
+#err-text {padding:20px 0;}
+#err-mess {width:308px; border:1px solid #999;}
+#err-complete {display:none; width:320px; font-weight:bold; padding:40px;}
+.sebar {padding:20px 0; background:#00467b; font:16px 'Open Sans Light', Arial, sans-serif; color:#fff;}
+.sebutton {border:1px solid; border-radius:2px; padding:1px 5px; text-transform:uppercase;}
+</style>
+<div align="center" class="sebar">Spelling error? Select it and press  <span class="sebutton">ctrl</span> + <span class="sebutton">enter</span></div>
+<div id="err-content">
+	<div id="err-status"></div>
+	<p><b>Spelling Error</b></p>
+	<div id="err-text"></div>
+	<p><b>Offer a solution</b> <span class="red">*</span></p>
+	<textarea id="err-mess" rows="5" maxlength="500"></textarea>
+	<br> <br> 
+	<button id="err-button" class="buttonOrange buttonSize2">Send</button>
+</div>
+<div id="err-complete"></div>
+<script type="text/javascript">
+	var se_message_1 = 'Text selection error';
+	var se_message_2 = 'Please select no more than 150 characters';
+	var se_message_3 = 'Data sending error. Code: ';
+	var se_message_4 = 'Your message has been successfully sent';
+	var se_message_5 = 'Please offer a solution';
+</script>
+<script src="//705167.ssl.1c-bitrix-cdn.ru/bitrix/templates/radmin2016/js/ses.js?14956427494618"></script>
+<!--/ses-->
+	<div class="blueBg">
+	<div class="wrapper">
+		<div class="bottomLogo"></div>
+		<a href="/lang.php?cpage=y" class="lngPanel modal">
+			<div class="lngPanelIcon icon"></div>
+			<div class="lngPanelText">English</div>
+			<div class="lngPanelSelect icon"></div>
+		</a>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="darkGrayBg">
+	<div class="wrapper" style="text-align:justify;">
+		
+
+
+	
+	
+		<div class="bottomMenu">
+						<a href="/download/" style="color:#79bde8;"><h4>Download</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="/download/">Radmin 3</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="http://www.radmin-vpn.com/">Radmin VPN</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="http://www.advanced-ip-scanner.com/">Advanced IP Scanner</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="http://www.advanced-port-scanner.com/">Advanced Port Scanner</a>
+							
+		
+	
+	
+
+			</div>	
+	
+		<div class="bottomMenu">
+						<a href="/ordering/" style="color:#79bde8;"><h4>Store</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="/ordering/">Buy Radmin online</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/ordering/#contactSales">Contact sales</a>
+							
+		
+	
+	
+
+			</div>	
+	
+		<div class="bottomMenu">
+						<a href="/solutions/" style="color:#79bde8;"><h4>Use cases</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="/solutions/#remoteSupport">Remote support</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/solutions/#remoteAccess">System administration</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/solutions/#remoteWork">Work from anywhere</a>
+							
+		
+	
+	
+
+			</div>	
+	
+		<div class="bottomMenu">
+						<a href="/partners/" style="color:#79bde8;"><h4>Partner portal</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="/partners/dealer.php">Become a partner</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/partners/support/">Partners support</a>
+							
+		
+	
+	
+
+			</div>	
+	
+		<div class="bottomMenu">
+						<a href="/support/" style="color:#79bde8;"><h4>Support</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="http://support.radmin.com/index.php?/en/Knowledgebase/List">Knowledge base</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="https://support.radmin.com/index.php?/Tickets/Submit/RenderForm/3">Submit a ticket</a>
+							
+		
+	
+	
+
+			</div>	
+	
+		<div class="bottomMenu">
+						<a href="/about/" style="color:#79bde8;"><h4>Company</h4></a>
+
+	
+	
+
+	
+	
+		
+																					<a href="/about/">About us</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/contact/">Contact us</a>
+							
+		
+	
+	
+
+	
+	
+		
+																					<a href="/privacy/">Privacy policy</a>
+							
+		
+	
+	
+
+	</div>
+<div class="clear"></div>
+	</div>
+</div>
+
+<div class="footerBottom darkGrayBg">
+	<a href="https://twitter.com/Famatech" class="icon iconSocial iconTwitter"></a>
+	<a href="https://www.facebook.com/radmin/" class="icon iconSocial iconFb"></a>
+		<div class="copy">Copyright &copy; 1999-2018 Famatech. All rights reserved.</div>
+</div>
+<div id="loader"></div>
+<script type="text/javascript">
+	$(document).on({
+		mouseenter: function () {$(this).stop().animate({backgroundColor: "#ffa033"}, 200);},
+		mouseleave: function () {$(this).stop().animate({backgroundColor: "#ff8a00"}, 200);}
+	}, ".buttonOrange");
+	$(document).ready(function(){$('.modal').click(function (e) {e.preventDefault(); $(this).modal();});});
+</script>
+<!-- Google Analytics -->
+<script>
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-2560466-1', 'auto', {'allowLinker': true});
+	ga('require', 'linker');
+	ga('linker:autoLink', [/^radmin(\.[a-z]{2,3}){1,2}$/]);
+	ga('send', 'pageview');
+</script>
+<script src='//www.google-analytics.com/analytics.js' async='async'></script>
+<!-- End Google Analytics -->
+<script type="text/javascript">
+	$('.downloadLink, .d1').click(function() {
+		var _href = $(this).attr('href');
+		_href = _href.replace(/^.*\/download\//, '');
+		_href = _href.replace('.', '');
+		ga('send', 'pageview', '/RadminDownload/' +_href);
+		//console.log(_href);
+	});
+</script>
+</body>
+</html>

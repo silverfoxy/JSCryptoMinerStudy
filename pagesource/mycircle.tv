@@ -1,0 +1,1232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en" xmlns:og="http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>myCircle.tv - Watch videos together !</title>
+	<meta name="description" content="Watch your Youtube, Vimeo, Dailymotion, Box or Dropbox videos with friends online and chat or audio talk as if you were together." />
+	<meta name="keywords" content="video, sharing, upload, synchro, chat, streaming, free, together, film, picture, watch2gether, Watch together, chat room, chatroom, playlist, video player, upload, syncronize, video synchro"> 
+	<link rel="icon" type="image/png" href="/Skins/01b/smallicon.png" />
+<script type="text/javascript">
+//GA code
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7193162-5']);
+  _gaq.push(['_trackPageview', '/main']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+	function gaTrack(code){
+		_gaq.push(['_trackPageview', code]);
+	}
+	
+	function gaEvent(category, action, label, value, no_interact ){
+		_gaq.push(['_trackEvent', category, action, label, value, no_interact]);
+	}
+	
+	function gaTrackEventRoom(evAction){
+		var tOnpage = 1;
+		var evCategory = 'room';
+		var skin = 'CONTEXT_SKIN';
+
+		setInterval(function(){gaEvent(evCategory, evAction, 'in room for ' + tOnpage + ' mn skin ' + skin + ' mode ' + mycircletv.tabsMode, tOnpage, true)},(tOnpage * 60 * 1000));
+	}
+
+function gaTrackAndGo(code, href)
+{
+	_gaq.push(['_trackPageview', code]);
+	mycircletv.consoleLog('gaTrackAndGo href : ' +	href);
+	if ( href != null ) window.location.href = '#' + href;
+}
+</script>
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="myCircle.tv - Watch videos together !" />
+<meta property="og:site_name" content="myCircle TV" />
+<meta property="og:description" content="Watch your Youtube, Vimeo, Dailymotion, Box or Dropbox videos with friends online and chat or audio talk as if you were together." />
+<meta property="og:url" content="http://www.mycircle.tv/index.php" />
+<meta property="og:image" content="http://www.mycircle.tv/Skins/01b/logo_200x200.png" />
+<meta name="apple-itunes-app" content="app-id=1068848883, app-argument=/">
+
+<script src="/Global_Resources/extlib/packedlib.js"></script>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<link href="/media/smileys.css" rel="stylesheet">
+
+<link href='/Skins/01b/style_desktop.css?v=1491992151' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+var mycircletv = mycircletv || {};
+mycircletv.cloudsNames = {"youtube":"Youtube","dailymotion":"Dailymotion","vimeo":"Vimeo","gdrive":"Google Drive","box":"Box","dropbox":"Dropbox","mycloud":"myCloud","soundcloud":"SoundCloud","twitch":"Twitch","audio":"Web audio","mixdj":"MIX.DJ","web":"Web"};
+mycircletv.debug_mode = 0 ;
+mycircletv.logFlag = false;
+
+mycircletv.jsError = function(msg)
+{
+	var req = new XMLHttpRequest();
+	req.open('GET', '/srv/jserror.php?e=' + encodeURIComponent(msg) + '&_t=' + Math.random(), true);
+	req.send(null);
+};
+
+mycircletv.consoleLog = function(msg)
+{
+	if ( mycircletv.debug_mode <= 1 ) {
+		if ( ! mycircletv.logFlag ) return;
+		/*if ( parent != window && typeof(parent.consoleLog) == 'function' ) parent.mycircletv.consoleLog(msg);
+		else */ if ( window.console && window.console.log ) window.console.log(msg);
+		return;
+	}
+	var dlog = document.getElementById('div_log');
+	if ( dlog ) {
+		var text =  document.createTextNode((new Date()).toLocaleTimeString() + ' - ' + msg);
+		if ( dlog.childNodes.length == 0 ) dlog.appendChild(text);
+		else {
+			dlog.insertBefore(document.createElement('br'),dlog.childNodes[0]);
+			dlog.insertBefore(text,dlog.childNodes[0]);
+		}
+	}
+};
+
+mycircletv.addEvent = function(elem, type, eventHandle) { 
+    if (elem == null || elem == undefined) return; 
+    if ( elem.addEventListener ) { 
+        elem.addEventListener( type, eventHandle, false ); 
+    } else if ( elem.attachEvent ) { 
+        elem.attachEvent( "on" + type, eventHandle ); 
+    } 
+};
+
+mycircletv.createXHR = function(){
+
+	var result=null;
+	
+	try { // Test pour les navigateurs : Mozilla, Opera...
+		result= new XMLHttpRequest();
+	}
+	catch (Error) {
+		try { // Test pour les navigateurs Internet Explorer > 5.0
+			result= new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (Error) {
+			try { // Test pour le navigateur Internet Explorer 5.0
+				result= new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch (Error) {
+				result= null;
+			}
+		}
+	}
+	return result;
+};
+
+mycircletv.dateHMSX = function(time) {
+	if ( time == 0 ) return '00:00';
+	return mycircletv.dateHMS(time);
+};
+
+mycircletv.dateHMS = function(time) {
+	if ( time == 0 ) return '';
+	var addZero = function(v) { return v<10 ? '0' + v : v; };
+	var t = [];
+	var m = Math.floor(time/60);
+	var h = Math.floor(m/60);
+	if ( h > 0 ) {
+		t.push(h);
+		m = m%60;
+	}
+	t.push(addZero(m));
+	t.push(addZero(Math.floor(time%60)));
+	return t.join(':');
+};
+
+mycircletv.getLocationHash = function() {
+  return window.location.hash.substring(1);
+};
+
+mycircletv.JsonRequest = function(url,data,callback)
+{
+	var req = mycircletv.createXHR();
+	req.open(data == null ? "GET":"POST", url, true);
+	if ( data != null ) {
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                  
+	}
+	req.onreadystatechange = function (aEvt) {
+		if (req.readyState == 4 ) {
+			if ( req.status == 200) {
+				var resp = req.responseText;
+				mycircletv.consoleLog('JsonRequest response : ' + resp);
+				try {
+					var result = JSON.parse(resp);
+				} catch (ex) {
+					mycircletv.consoleLog('JSON Exception : ' + ex.message);
+					callback(null);
+					return;
+				}
+				if( result.cr == 1 ) {
+					openAlert('<span class=\"alert_action\">You were disconnected. Please log in to myCircle.tv again.</span>', function() {
+							window.location = '/index.php';
+						});
+					return;
+				} else {
+					callback(result);
+					return;
+				}
+			}
+			mycircletv.consoleLog('JsonRequest error : ' + req.status);
+			callback(null);
+		}
+	}
+	req.send(data);
+};
+
+if(typeof String.prototype.trim !== 'function') {
+ String.prototype.trim = function() {
+ return this.replace(/^\s+|\s+$/, ''); 
+}
+}
+
+mycircletv.getEltOffset = function(el,debug) {
+	//console.log('getOffset el : ' + el);
+	var _x = 0;
+	var _y = 0;
+	while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+		if ( debug ) mycircletv.consoleLog('getOffset el.tagName : ' + el.tagName + ', el.id : ' + el . id + ', el.offsetLeft : ' + el.offsetLeft + ', el.offsetTop : ' + el.offsetTop);
+		_x += el.offsetLeft - el.scrollLeft;
+		_y += el.offsetTop - el.scrollTop;
+		if ( debug ) mycircletv.consoleLog('getOffset x : ' + _x + ', y : ' + _y);
+		el = el.offsetParent;
+	}
+	if ( debug ) mycircletv.consoleLog('getOffset x : ' + _x + ', y : ' + _y);
+	return { top: _y, left: _x };
+};
+
+mycircletv.humansize = function (sz)
+{
+	if (sz <= (1024 * 1024)){
+		return parseFloat(Math.round((sz / 1024) * 100) / 100).toFixed(2) + ' Kb';
+	}
+	else
+	{
+		return parseFloat(Math.round((sz / (1024 * 1024)) * 100) / 100).toFixed(2) + ' Mb';
+	}
+
+};
+
+mycircletv.pub = (function() {
+
+/********** ajout pour pub ***********/
+var pubDivs = ['pub1','pub3','pub21','pub22'];
+autoPubFlag = false;
+var slotpub1, slotpub21, slotpub22, slotpub3, divptimeout;
+var slotspub;
+var slot1, slot21, slot22, slot3;
+var currentRating = -1;
+
+function changePubs(rating)
+{
+	if ( typeof(rating) == 'undefined' ) rating = 1;
+	var oldRating = currentRating;
+	currentRating = rating;
+	if ( config_nopub || autoPubFlag ) {
+		return;
+	}
+	if ( divptimeout ) {
+		clearTimeout(divptimeout);
+		divptimeout = null;
+	}
+	/*
+	if ( rating != 0 && oldRating <= 0) {
+		clearPub();
+	} else {
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'loadvideo']);
+		displayPub();
+	}
+	*/
+	clearPub();
+	setAutoPub(5000);
+}
+
+function armPubRefresh() {
+	if ( slotspub == 0 ) return;
+	var refreshpub = Math.floor(Math.random() * 240000) + 120000;
+	mycircletv.consoleLog('armPubRefresh ' + refreshpub);
+	divptimeout = setTimeout(function(){
+		refreshSlots();
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'refresh']);
+		armPubRefresh();
+		}, refreshpub);
+}
+
+function refreshSlots() {
+	if ( slotspub == 0 || ! googletag.apiReady ) return;
+	mycircletv.consoleLog('refreshSlots slotpub1 ' + slotpub1 + ', slotpub21 ' + slotpub21 + ', slotpub22 ' + slotpub22 + ', slotpub3 ' + slotpub3);
+	if (slotpub1){
+		googletag.pubads().refresh([slot1]);
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub1']);
+	}
+	if (slotpub21){
+		googletag.pubads().refresh([slot21]);
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub2']);
+	}
+	if (slotpub22){
+		googletag.pubads().refresh([slot22]);
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub2']);
+	}
+	if (slotpub3){
+		googletag.pubads().refresh([slot3]);
+		if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub3']);
+	}
+}
+
+var pubInited = false;
+var adsensePub = 0;
+
+function displayPub()
+{
+	if ( ! adsensePub) return;
+	if ( currentRating > 0  || ! googletag.apiReady ) return;
+	if ( ! pubInited ) {
+		googletag.cmd.push(function() {
+			mycircletv.consoleLog('setPub slotpub1 ' + slotpub1 + ', slotpub21 ' + slotpub21 + ', slotpub22 ' + slotpub22 + ', slotpub3 ' + slotpub3);
+
+			if (slotpub1){
+				googletag.display("pub1");
+				if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub1']);
+			}
+			if (slotpub21){
+				googletag.display("pub21");
+				if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub21']);
+			}
+			if (slotpub22){
+				googletag.display("pub22");
+				if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub22']);
+			}
+			if (slotpub3){
+				googletag.display("pub3");
+				if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'request', 'display:pub3']);
+			}
+			armPubRefresh();
+		});
+		pubInited = true;
+	} else {
+		refreshSlots();
+		armPubRefresh();
+	}
+}
+
+function setPub(display) {
+	slotpub1 = 0;
+	slotpub21 = 0;
+	slotpub22 = 0;
+	slotpub3 = 0;
+	slotspub = 0;
+	if ( config_nopub ) return 0;
+	var pubWidth = 0;
+	if ($("#pub1").css('display') != 'none'){
+		pubWidth += slotpub1 = 160;
+		slotspub++;
+		googletag.cmd.push(function() {
+			slot1 = googletag.defineSlot('/27352005/sky_1', [160, 600],
+			"pub1").addService(googletag.pubads());
+		});
+	}
+	if ($("#pub21").css('display') != 'none'){
+		slotpub21 = 468;
+		slotspub++;
+		googletag.cmd.push(function() {
+			slot21 = googletag.defineSlot('/27352005/banner_pub_2', [468, 60],
+			"pub21").addService(googletag.pubads());
+		});
+	}
+	if ($("#pub22").css('display') != 'none'){
+		slotpub22 = 728;
+		slotspub++;
+		googletag.cmd.push(function() {
+			slot22 = googletag.defineSlot('/27352005/banner_pub_2', [728, 90],
+			"pub22").addService(googletag.pubads());
+		});
+	}
+
+	if ($("#pub3").css('display') != 'none'){
+		pubWidth += slotpub3 = 160;
+		slotspub++;
+		googletag.cmd.push(function() {
+			slot3 = googletag.defineSlot('/27352005/sky_1', [160, 600],
+			"pub3").addService(googletag.pubads());
+		});
+	}
+	googletag.cmd.push(function() {
+		googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+				if ( typeof(_gaq) != 'undefined' ) {
+					setTimeout(function() {_gaq.push(['_trackEvent', 'pub', 'rendered', 'slot']);},1100);
+				}
+				mycircletv.consoleLog('Slot has been rendered : ' + event.slot.b.d);
+				});
+		googletag.enableServices();
+	});
+	// lancer les pubs
+	if ( display == null || display == true ) displayPub();
+	return pubWidth;
+}
+
+var config_nopub = false;
+var do_resize_pub = false;
+
+function clearPub()
+{
+	if ( ! googletag.apiReady || ! pubInited ) return;
+	if (slotpub1) {
+		googletag.pubads().clear([slot1]);
+	}
+	if (slotpub21) {
+		googletag.pubads().clear([slot21]);
+	}
+	if (slotpub22) {
+		googletag.pubads().clear([slot22]);
+	}
+	if (slotpub3) {
+		googletag.pubads().clear([slot3]);
+	}
+}
+
+function resizePub(){
+	if ( config_nopub ) return;
+	if (do_resize_pub){
+        clearTimeout(do_resize_pub);
+	}
+    do_resize_pub = setTimeout(function() {
+        mycircletv.consoleLog('resizePub');
+		if ( divptimeout ) {
+			clearTimeout(divptimeout);
+			divptimeout = null;
+		}
+		if ( ! autoPubFlag ) {
+			clearPub();
+		}
+		if ( pubInited ) setPub(false);
+		//refreshSlots();
+		if ( autoPubFlag ) setAutoPub(5000);
+		else displayPub();
+    }, 500);
+}
+
+function getAutoPub(sdivpub)
+{
+	var divpub;
+	if ( typeof(sdivpub) == 'string' ) divpub = document.getElementById(sdivpub);
+	if ( ! divpub ) return;
+	var style = window.getComputedStyle(divpub,null);
+	var req = new XMLHttpRequest();
+	var url = '/srv/autopub.php?r=' + currentRating + '&w=' + style.width + '&h=' + style.height + '&divpub=' + sdivpub;
+	req.open('GET', url, true);
+	req.onreadystatechange = function (aEvt) {
+		if (req.readyState == 4 ) {
+			if ( req.status == 200) {
+				divpub.innerHTML = req.responseText;
+			} else divpub.innerHTML = '';
+		}
+	}
+	req.send(null);
+}
+
+function setAutoPub(delay)
+{
+	if ( delay == 0 ) {
+		displayPub();
+		return;
+	}
+	autoPubFlag = true;
+	if (slotpub1) getAutoPub('pub1');
+	if (slotpub3) getAutoPub('pub3');
+	if (slotpub21) getAutoPub('pub21');
+	if (slotpub22) getAutoPub('pub22');
+	if ( delay > 0 ) divptimeout = setTimeout(function() {
+			if ( currentRating > 1 ) setAutoPub(delay);
+			else clearAutoPub();
+		}, delay);
+}
+
+function clearAutoPub()
+{
+	for( var ix = 0; ix < pubDivs.length; ix++ ) {
+		var pdiv = document.getElementById(pubDivs[ix]);
+		if ( pdiv ) pdiv.innerHTML = '';
+	}
+	autoPubFlag = false;
+	displayPub();
+}
+
+
+function goAutoPub(clic)
+{
+	if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'pub', 'autopub', 'clic ' + clic, 1, true]);
+}
+
+return {
+	setPub: setPub,
+	changePubs: changePubs,
+	resizePub: resizePub,
+	setAutoPub: setAutoPub
+}
+})();
+
+function hideKeyboard(elt) {
+		
+}
+
+function onCarriageReturn (event,callback, param) {
+	
+	var KCode = (event.keyCode) ? (event.keyCode) : (event.which);
+	//mycircletv.consoleLog('onCarriageReturn KCode : ' + KCode);
+	var Char = String.fromCharCode(KCode); 
+	if (KCode==13) {
+		hideKeyboard(event.target);
+		if (param != null) callback(param);
+		else callback();
+		}
+}
+
+function dump(arr,level) {
+	var dumped_text = "";
+	if(!level) level = 0;
+	
+	//The padding given at the beginning of the line.
+	var level_padding = "";
+	for(var j=0;j<level+1;j++) level_padding += "    ";
+	
+	if(typeof(arr) == 'object') { //Array/Hashes/Objects 
+		for(var item in arr) {
+			var value = arr[item];
+			
+			if(typeof(value) == 'object') { //If it is an array,
+				dumped_text += level_padding + "'" + item + "' ...\n";
+				//dumped_text += dump(value,level+1);
+			} else {
+				dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
+			}
+		}
+	} else { //Strings/Chars/Numbers etc.
+		dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+	}
+	return dumped_text;
+}
+
+var alertCallback;
+
+function openConfirm(msg,callback)
+{
+	openAlertX(msg,true,callback);
+}
+
+function openAlertX(msg,confirm,callback)
+{
+	alertCallback = callback;
+	var dac = document.getElementById('div_alert_content');
+	if ( dac == null ) {
+		var da = document.createElement('div');
+		da.setAttribute('class', 'modal fade in');
+		da.setAttribute('id', 'div_alert');
+		dac = document.createElement('div');
+		dac.setAttribute('id', 'div_alert_content');
+		da.appendChild(dac);
+		document.body.appendChild(da);
+	}
+	dac.innerHTML = msg + '<p style="margin-top:20px"><input type="button" class="submit_button" value="OK" onclick="closeAlert(1)">' +
+		(confirm ? '&nbsp;&nbsp;<input type="button" class="submit_button" value="Cancel" onclick="closeAlert(0)">':'') + '</p';
+	$('#div_alert').modal('show');
+	setTimeout(function() {
+		var dac = document.getElementById('div_alert_content');
+		mycircletv.consoleLog('openAlertX height : ' + dac.offsetHeight);
+		var div = document.getElementById('div_alert');
+		div.style.height = (dac.offsetHeight+45) + 'px';
+		div.style.overflow = 'hidden';
+	}, 200);
+}
+
+function openAlert(msg, callback)
+{
+	openAlertX(msg,false,callback);
+}
+
+function closeAlert(cr)
+{
+	mycircletv.consoleLog('closeAlert');
+	$('#div_alert').modal('hide');
+	if ( alertCallback ) {
+		var callback = alertCallback;
+		alertCallback = null;
+		callback(cr);
+	}
+}
+</script>
+</head>
+<body>
+<script>
+function closeNotif(notif)
+{
+	document.getElementById(notif).style.display = 'none';
+}
+</script>
+	<div id="notif_ck">
+	<img class="img_close" onclick = "closeNotif('notif_ck')" title= "Close" style = "float: right; cursor: pointer"  src = "/Skins/01b/close2.png"/>	
+	<p>This website uses cookies to improve the user experience and ensure that it is functioning effectively. By using myCircle you accept this condition and this message will disapear.</p>
+	</div>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=139451632827772";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+function fbLogin() {
+	FB.login(function(response) {
+	   if (response.authResponse) {
+		 //console.log('Access token : ' + response.authResponse.accessToken);
+		 setUserId(response.authResponse.accessToken);
+	   } else {
+		 document.getElementById("err").innerHTML = "You canceled your registration through Facebook";
+	   }
+	 },{scope: 'publish_actions'});
+}
+
+function setUserId(token)
+{
+var req = new XMLHttpRequest();
+//openAlert(url);
+req.open('GET', '/fblogin.php?token=' + token + '&t=' + Math.random().toString().substring(2), true);
+req.onreadystatechange = function (aEvt) {
+  if (req.readyState == 4) {
+	 if(req.status == 200) {
+		//console.log(req.responseText);
+		finishLogin(req.responseText);
+	 } else {
+		//console.log("Erreur (" + req.status + ") on " + url + "\n" + req.responseText);
+	 }
+}
+};
+req.send(null);
+}
+</script>
+<div id="div_header" class="mc_header">
+	<a href="/" class="plink" ><img border="no" id="logo_menu" src="/Skins/01b/logo_menu.png"></a>
+	
+	
+	<div style="float:right;margin-top:15px">
+		<div id="div_logon" style="display:none;">
+			<a href="/account.php" class="plink"  style="text-decoration:none;color:inherit" title="My account"><span id="div_logon_uname"></span> <i class="fa fa-cog fa-lg"></i></a>
+			&nbsp;&nbsp;<span id="logout" title="Logout" onclick="logout()"><i class="fa fa-power-off fa-lg"></i></span>
+		</div>
+		<div id="div_logoff" style="display:inline-block;">
+			<span onclick="toggleLoginDiv('register')" >Register</span>
+			&nbsp;&nbsp;<span onclick="toggleLoginDiv('login')" >Login</span>
+		</div>
+		
+<div class="dropdown" style="display:inline-block;">
+  <button class="btn btn-default btn-mc dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+    <img src="/Skins/01b/en_flag.png" alt="lang en" border="0">
+    <span class="caret"></span>
+  </button>
+	<ul class="dropdown-menu drop-lang" role="menu" aria-labelledby="dropdownMenu2">
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="English" onclick="switchToLanguage('en');"><img src="/Skins/01b/en_flag.png" alt="lang en" border="0"></a></li>
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="Français" onclick="switchToLanguage('fr');"><img src="/Skins/01b/fr_flag.png" alt="lang fr" border="0"></a></li>
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="Español" onclick="switchToLanguage('es');"><img src="/Skins/01b/es_flag.png" alt="lang es" border="0"></a></li>
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="Português" onclick="switchToLanguage('pt');"><img src="/Skins/01b/pt_flag.png" alt="lang pt" border="0"></a></li>
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="Deutsch" onclick="switchToLanguage('de');"><img src="/Skins/01b/de_flag.png" alt="lang de" border="0"></a></li>
+
+		<li role="presentation"><a role="menuitem" tabindex="-1" href="#" title="русский" onclick="switchToLanguage('ru');"><img src="/Skins/01b/ru_flag.png" alt="lang ru" border="0"></a></li>
+	</ul>
+</div>
+&nbsp;
+	</div>
+</div>
+
+<div id = "connect_widget" class = "conn_widget" onclick="event.stopPropagation();">
+<img class="img_close" onclick = "toggleLoginDiv('close')" style = "float: right; cursor: pointer"  src = "/Skins/01b/close2.png"/>
+<div id="div_login" style="display:none">
+<table id="login_tab" style="border-collapse:separate;border-spacing:10px" cellpadding="10" style="width:100%">
+<tr><td colspan="2">
+<p id = "err" class = "err_input">&nbsp;</p>
+</td></tr>
+<tr><td>
+Email</td><td colspan>
+<input class="conn_input" type="email" name="login" id="login" />
+</td></tr>
+<tr><td>
+Password</td><td>
+<input class="conn_input" type="password" name="password" id="password" onkeydown="var KCode = (event.keyCode) ? (event.keyCode) : (event.which); var Char = String.fromCharCode(KCode); if (KCode==13) {checkLogin();}"/>
+</td></tr>
+<tr><td colspan="2" align="center" class="small_txt"><a href="javascript:getNewPwd()">Lost your password ?</a></td>
+</tr>
+<tr>
+<td colspan="2" align="center" class = "small_txt"><input id="stay_connected" type="checkbox" /> Keep me logged in</td>
+</tr>
+<tr>
+<tr>
+<td colspan="2" align="center"><input class = "submit_button" type = "button"  onclick="checkLogin()" value = "Log In" /></td>
+</tr>
+<tr>
+<td colspan="2" class = "small_txt">New to myCircle.tv ? <a href="javascript:toggleLoginDiv('register')">Create an account</a></td>
+</tr>
+<tr><td class = "small_txt" align="center" colspan = "2">Or</td></tr>
+<tr><td align = "center" colspan = "2"><span onclick = "fbLogin()" class = "submit_button">Log In with Facebook</span></td></tr>
+</table>
+</div>
+<div id="div_register" style="display:none">
+		<table id = "signup_tab" style="border-collapse:separate;border-spacing:10px" cellpadding = "10" style="margin: 0 auto;">
+			<tr>
+				<td colspan="2">
+					<h2 style="text-align:center">Join us !</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td id = "err2" class = "err_input">
+					All the fields are mandatory				</td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>
+					<input class = "conn_input" type="text" id="nom" size="40" placeholder="Name">
+				</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td >
+					<input class = "conn_input" type="text" id="email" size="40" placeholder = "Email">
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td class="err_input" align="center"><font color="#FF0000">Warning !</font> This email will be used as<br>login for your account on mycircle.tv</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input class="conn_input" type="password" id="passwd1" size="20" placeholder="Password"></td>
+			</tr>
+			<tr>
+				<td>Enter your password again</td>
+				<td><input placeholder="Enter your password again" class = "conn_input" type="password" id="passwd2" size="20" onkeydown="var KCode = (event.keyCode) ? (event.keyCode) : (event.which); var Char = String.fromCharCode(KCode); if (KCode==13) {validInscr();}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class = "very_small_txt" align="center">
+					<input id="chkterms" type = "checkbox" /> I have read and agree to 					<a target="blank" href = "/service/en/terms" target = "_blank" > the terms of use</a>.
+				</td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input class = "submit_button" type="button" value="SIGN UP" onclick="validInscr()"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class = "small_txt" style="text-align:center"><a href="javascript:toggleLoginDiv('login')">I already have an account.</a></td>
+			</tr>
+<tr><td class = "small_txt" align="center" colspan = "2">Or</td></tr>
+<tr><td align = "center" colspan = "2"><span onclick = "fbLogin()" class = "submit_button">Log In with Facebook</span></td></tr>
+		</table>
+		</div>
+</div>
+<script>
+/*
+n'est pas utilis� par le htmlSelectLang() en dropdown bootstrap
+$(document).ready(function(e) {	
+   $('#sellang').selectpicker().change(function() {
+	switchToLanguage(document.getElementById('sellang').value);
+   });
+});
+*/
+function switchToLanguage(lang)
+{
+	var uri = '/';
+	var re = new RegExp('/en/');
+	if ( re.test(uri) ) uri = uri.replace(re,'/' + lang + '/');
+	re = new RegExp('lang=en');
+	if ( re.test(uri) ) uri = uri.replace(re, 'lang=' + lang);
+	else {
+		if ( uri.indexOf('?') > 0 ) uri += '&';
+		else uri += '?';
+		uri += 'lang=' + lang;
+	}
+	if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'lang', 'en', lang, 1, true]);
+	window.location= uri + window.location.hash;
+}
+
+var validInscr_once = true;
+
+function validInscrError(msg)
+{
+	document.getElementById('err2').innerHTML = msg;
+	validInscr_once = true;
+}
+
+function validInscr()
+{
+	if ( ! validInscr_once ) return;
+	//mycircletv.consoleLog('validInscr');
+	validInscr_once = false;
+	var email = document.getElementById('email');
+	var vnom = document.getElementById('nom').value;
+	if ( ! vnom ) {
+		validInscrError("Please enter a name");
+		return;
+	}
+	if ( ! email.value || ! isEmail(email) ) {
+		validInscrError("The email address you entered does not seem valid");
+		return;
+	}
+	var pwd = document.getElementById('passwd1').value;
+	if ( pwd.length == 0 || pwd != document.getElementById('passwd2').value ) {
+		validInscrError("The passwords you entered does not match");
+		return;
+	}
+	if ( ! document.getElementById('chkterms').checked ) {
+		validInscrError("You have to accept the terms of use to go on");
+		return;
+	}
+   var req = new XMLHttpRequest();
+   var cpte = {
+		nom: vnom,
+		email : email.value,
+		password: pwd,
+		//stay_connected: document.getElementById('stay_connected').checked ? 1:0
+		};
+   req.open('GET', '/newcpte.php?cpte=' + encodeURIComponent(JSON.stringify(cpte)) +
+		'&t=' + Math.random().toString().substring(2), true);
+   req.onreadystatechange = function (aEvt) {
+	  if (req.readyState == 4) {
+		 if(req.status == 200) {
+			validInscr_once = true;
+			//console.log('newcpte : ' + req.responseText);
+			if ( req.responseText == 'ok' ) {
+				document.getElementById("err2").innerHTML = '';
+				openAlert('Thank you for joining.', function() {
+						toggleLoginDiv('login');
+						document.getElementById('login').value = document.getElementById('email').value;
+						document.getElementById('password').value = document.getElementById('passwd1').value;
+					});
+				//window.location.href = "/en/login?new=1";
+			} else document.getElementById("err2").innerHTML = req.responseText;
+		 } else {
+			//console.log("Erreur (" + req.status + ") on " + url + "\n" + req.responseText);
+		 }
+	}
+	};
+	req.send(null);
+}
+
+function toggleLoginDiv(cmd)
+{
+	var div = document.getElementById('connect_widget');
+	if ( cmd == 'close')   {
+		div.style.display = 'none';
+		return;
+	}
+	if ( div.style.display != 'inline-block' ) {
+		// mycircletv.consoleLog('toggleLoginDiv display block');
+		div.style.display = 'inline-block';
+	}
+	if ( cmd == 'register' ) {
+		document.getElementById('div_register').style.display = 'inline-block';
+		document.getElementById('div_login').style.display = 'none';
+	} else {
+		document.getElementById('div_register').style.display = 'none';
+		document.getElementById('div_login').style.display = 'inline-block';
+	}
+}
+
+function getNewPwd() {
+
+	xmlhttp=mycircletv.createXHR();
+	var login = document.getElementById("login").value;
+	xmlhttp.open("GET","/getpwd.php?login=" + login, true);
+	xmlhttp.onreadystatechange= function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			document.getElementById("err").innerHTML = xmlhttp.responseText;
+		}
+	};
+	xmlhttp.send();
+}
+
+function logout() {
+
+	xmlhttp=mycircletv.createXHR();
+	xmlhttp.open("GET","/logout.php?json=1", true);
+	xmlhttp.onreadystatechange=logoutComplete;
+	xmlhttp.send();
+	return false;
+
+	function logoutComplete() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			if ( window.location.href.indexOf('account.php') > 0 ) {
+				window.location = '/';
+				return;
+			}
+			var div = document.getElementById('div_logon');
+			div.style.display = 'none';
+			div = document.getElementById('div_logoff');
+			div.style.display = 'inline-block';
+		}
+	}
+}
+
+
+function checkLogin() {
+
+	xmlhttp=mycircletv.createXHR();
+	var login = document.getElementById("login").value;
+	var password = document.getElementById("password").value;
+	xmlhttp.open("GET","/login.php?login=" + login + '&password=' + password + (document.getElementById("stay_connected").checked ? '&stay_connected=1':''), true);
+	xmlhttp.onreadystatechange=loginComplete;
+	xmlhttp.send();
+	return false;
+
+	function loginComplete() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			finishLogin(xmlhttp.responseText);
+		}
+	}
+}
+
+function finishLogin(resp)
+{
+	// mycircletv.consoleLog('finishLogin : ' + resp);
+	var newuser = JSON.parse(resp);
+	if ( newuser.id == 0 ) {
+		document.getElementById("err").innerHTML = "Verify email / password";
+		return;
+	}
+	var div = document.getElementById('div_logoff');
+	div.style.display = 'none';
+	document.getElementById('div_logon').style.display = 'inline-block';;
+	document.getElementById('div_logon_uname').innerHTML = newuser.user_name;
+	if ( typeof(mycircletv.notifLogin) == 'function') mycircletv.notifLogin(newuser);
+	toggleLoginDiv('close');
+	if ( newuser.msgperso ) {
+		document.getElementById('notif_perso').style.display = 'block';
+		document.getElementById('notif_perso_msg').innerHTML = newuser.msgperso;
+	}
+}
+
+function displayEditField(editf)
+{
+	mycircletv.consoleLog('displayEditField');
+	var child = editf.childNodes[0];
+	child.style.display = 'inline-block';
+	child.childNodes[0].focus();
+}
+
+function disableEditField(editfield)
+{
+	editfield.childNodes[0].style.display = 'none';
+}
+
+function getToStartedFromHeader(src) {
+	var div = document.getElementById('mobile_search_div');
+	var q;
+	if ( div && div.style.display == 'block' ) q=document.getElementById("search_mobile_input").value;
+	else {
+		div = document.getElementById('div_search_options');
+		q=document.getElementById("search_head_input").value;
+	}
+	//if (q=="Search videos (or paste video link)") s="";
+	current_channel = src;
+	window.location.href="/started.php?" + (isAutomatic() ? 'ac=1&':'') + "src=" + src + "&q=" + encodeURIComponent(q);
+}
+
+</script>
+<script>
+var formvalidation_msg = new Array(
+'<span class="alert_action">The email address is not correct, \nplease check the syntax.</span>',
+'<span class="alert_action">The email address contains invalid characters, \nplease check the text before "@"</span>',
+'<span class="alert_action">The email address contains invalid characters, \nplease check the text after "@"</span>',
+'<span class="alert_action">The email address is not correct, \nplease check the text before "@"</span>',
+'<span class="alert_action">The email address is not correct, \nplease check the text after "@"</span>',
+'<span class="alert_action">The email address is not correct, \nplease check the domain suffix</span>',
+'<span class="alert_action">The email address is not correct</span>',
+'<span class="alert_action">Please complete the field</span>',
+''
+);
+</script>
+<script type="text/javascript" src="/Global_Resources/formvalidation.js"></script><!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5294716d3f23c203"></script>
+<div id="home_content">
+<div id="hp_intro">
+<div style="float:left"><img src="/Skins/01b/img_index.png"></div>
+	<div id="hp_intro_l1">SYNCHRONIZED PLAYER & CHAT</div>
+	<div id="hp_intro_l2">WATCH VIDEOS TOGETHER</div>
+	<div id="hp_intro_l3"><b>Create</b> or <b>join</b> a room and invite friends...	<i style="color:#FEE856" class="fa fa-question-circle"></i>
+	</div>
+	<div class="withinfos" style="display:inline-block;position:relative;color:#000000"><input type="text" maxlength="150" id="video_url" onkeydown="onCarriageReturn(event,lookForVideo)" placeholder="Search keywords, video url, room id" value=""><div style="display:inline-block;position:absolute;right:10px;top:18px"><img id="video_url_img" onclick="lookForVideo()" src="/Skins/01b/arrowred.png"></div>
+	<p class="err_input1" id="search_err1">&nbsp;</p>
+	<div class="dbinfos" style="margin-left: -170px;top:30px;width:500px;"><p>You can paste here the address of any video page on <strong>youtube</strong>, <strong>dailymotion</strong>, <strong>vimeo</strong>, <strong>soundcloud</strong></p>
+<p>You can try on <strong>twitch.tv</strong> too</p>
+<p>You create instantly a room where you can invite people to watch video together.</p>
+<p>You can also use this field to search by keywords on <strong>youtube</strong> or others ...</p>
+<p>You can also use this field to join a room by its code <strong>xxx-yyyy-zzz</strong></p></div>
+	</div>
+	<br>
+	<!--<div style="display:inline-block;">-->
+	<span class="searchydv"><img onclick="searchVideos('youtube')" src="/Skins/01b/youtube1.png"></span>
+	<span class="searchydv"><img onclick="searchVideos('dailymotion')" src="/Skins/01b/dailymotion1.png"></span>
+	<span class="searchydv"><img onclick="searchVideos('vimeo')" src="/Skins/01b/vimeo1.png"></span>
+	<span class="searchydv"><img onclick="searchVideos('soundcloud')" src="/Skins/01b/soundcloud1.png"></span>
+	<!--</div>-->
+	<hr style="background:#FFFFFF;height:2px;width:100px;margin-top:15px;margin-bottom:15px">
+	<span class="searchydv" style="color:#DD188A;font-size:16px;font-weight:bold;padding:8px" title="Upload ans share in a room asap" onclick="window.location='upldandgo.php'">Upload and share</span>
+	<div id="hp_intro_l4" style="padding-top:30px">100% free and no registration
+</div>
+</div>
+<div class="frise frise_with_title">
+<span class="titrefrise">Room samples</span>
+</div>
+<div id="sample_rooms"><table align="center" style="border-collapse:separate;border-spacing:5px;margin-bottom:10px"><tr>		<td valign="top" class="video_div0" onclick="window.location.href='https://www.mycircle.tv/2972-16-9292'"><div style="position:relative; padding-bottom:8px;">
+			<img class="site_thumbnail" src="https://i.ytimg.com/vi/x5Dpz6w_jz4/default.jpg" /><span class="vduration2">03:44</span></div>
+			<span class="vtitle2">Moby - The Last Day (with Skylar Grey) - Official video</span>
+				<br><span class="vsrc2">youtube</span>
+				<div class="pubrooms_infos">
+				3 videos in the playlist<br><br>		</div></td>
+		<td valign="top" class="video_div0" onclick="window.location.href='https://www.mycircle.tv/158-0837-876'"><div style="position:relative; padding-bottom:8px;">
+			<img class="site_thumbnail" src="https://i.ytimg.com/vi/aQd41nbQM-U/default.jpg" /><span class="vduration2">04:11</span></div>
+			<span class="vtitle2">MythBusters: Shark Shipwreck (360 Video)</span>
+				<br><span class="vsrc2">youtube</span>
+				<div class="pubrooms_infos">
+				4 videos in the playlist<br><br>		</div></td>
+		<td valign="top" class="video_div0" onclick="window.location.href='https://www.mycircle.tv/1056-69-6694'"><div style="position:relative; padding-bottom:8px;">
+			<img class="site_thumbnail" src="https://i.ytimg.com/vi/StmTcLIZYpM/default.jpg" /><span class="vduration2">2:00:01</span></div>
+			<span class="vtitle2">Group Therapy 180 with Above & Beyond and David Gravell</span>
+				<br><span class="vsrc2">youtube</span>
+				<div class="pubrooms_infos">
+				9 videos in the playlist<br><br>		</div></td>
+		<td valign="top" class="video_div0" onclick="window.location.href='https://www.mycircle.tv/1288-0247-90'"><div style="position:relative; padding-bottom:8px;">
+			<img class="site_thumbnail" src="https://i1.ytimg.com/vi/o2wGeMw-NEs/hqdefault.jpg" /><span class="vduration2">41:14</span></div>
+			<span class="vtitle2">Estrellas del Bicentenario HD</span>
+				<br><span class="vsrc2">youtube</span>
+				<div class="pubrooms_infos">
+				4 videos in the playlist<br><br>		</div></td>
+		<td valign="top" class="video_div0" onclick="window.location.href='https://www.mycircle.tv/12-7004-2478'"><div style="position:relative; padding-bottom:8px;">
+			<img class="site_thumbnail" src="https://i.ytimg.com/vi/aAn2WB0mOJ8/hqdefault.jpg" /><span class="vduration2">09:06</span></div>
+			<span class="vtitle2">My Top 5 Desperate Housewives Episode Endings</span>
+				<br><span class="vsrc2">youtube</span>
+				<div class="pubrooms_infos">
+<br>		</div></td>
+</tr></table></div><div class="frise frise_with_title">
+<span class="titrefrise">Service tour</span>
+</div>
+<div style="text-align:center"><span id="feature_0" class="lkfeature_off" onclick="switchFeature(event)">Introduction</span>
+<span id="feature_1" class="lkfeature_off" onclick="switchFeature(event)">Social share</span>
+<span id="feature_2" class="lkfeature_off" onclick="switchFeature(event)">Playlists</span>
+<span id="feature_3" class="lkfeature_off" onclick="switchFeature(event)">Upload & watch</span>
+</div><div class="div_feature" id="div_feature_0" style="height: 200px;overflow-y: hidden;">
+<img src="Skins/01b/bg_watch.png" alt="myCircle, a new way to share videos with friends and family" style="vertical-align: top;">
+<div>
+<h2>WATCH VIDEOS TOGETHER on myCircle.tv</h2>
+<p>With myCircle.tv, discover a new way to share videos with friends and family.</p>
+<p>Create a room and gather around the same video, at the same time<br>whether it's a <img src="Skins/01b/youtube1.png" alt="myCircle, a new way to share youtube videos with friends and family">, <img src="Skins/01b/dailymotion1.png" alt="myCircle, a new way to share dailymotion videos with friends and family"> or <img src="Skins/01b/vimeo1.png" alt="myCircle, a new way to share vimeo videos with friends and family">.</p>
+<br>
+<p>Enjoy with friends movies, events, series, mangas, gameplay, TV programs, shows, concerts….<br>
+around the myCircle.tv sync player.</p>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h2>ANSCHAUEN Videos zusammen</h2><p class="expl">Mit myCircle.tv, entdecken eine neue Möglichkeit, Videos mit Freunden und Familie zu teilen. Erstellen Sie ein Zimmer und versammeln sich um den gleichen Video, zur gleichen Zeit, ob es ein Youtube, Dailymotion oder Vimeo ist.</p><br><br><br><h2>Смотреть видео ВМЕСТЕ</h2><p class="expl">С myCircle.tv, открыть для себя новый способ обмена видео с друзьями и семьей. Создать комнату и собираются вокруг то же видео, в то же время будь то Youtube, Dailymotion или Vimeo.</p><br><br><br><h2>VER VIDEOS JUNTOS</h2><p class="expl">Con myCircle.tv, descubrir una nueva forma de compartir vídeos con amigos y familiares. Crear un ambiente y se reúnen alrededor del mismo video, al mismo tiempo, ya sea un Youtube, Dailymotion o Vimeo.</p><br><br><br><h2>Assista a vídeos JUNTOS</h2><p class="expl">Com myCircle.tv, descobrir uma nova forma de compartilhar vídeos com amigos e familiares. Crie uma sala e reunir em torno do mesmo vídeo, ao mesmo tempo, se é um Youtube, Dailymotion ou Vimeo.</p><br><br><br><h2>VIDEO'S SAMEN</h2><p class="expl">Met myCircle.tv, ontdek een nieuwe manier om video's te delen met vrienden en familie. Maak een kamer en verzamelen zich rond dezelfde video, op hetzelfde moment of het nu een Youtube, Dailymotion of Vimeo.</p><br><br><br><h2>一起观看视频</h2><p class="expl">有了myCircle.tv，发现一种新的方式与朋友和家人分享视频。创建一个房间，聚集在同一个视频，在相同的时间，无论是一个Youtube，优酷或Vimeo。</p><br><br><br><h2>一緒にビデオを見て</h2><p class="expl">myCircle.tvで、友人や家族とビデオを共有するための新しい方法を発見してください。部屋を作成し、YouTubeやDailymotionのまたはVimeoのであるかどうかと同時に、同じビデオの周りに集まる。</p><br><br><br><h2>مشاهدة الفيديو معا</h2><p class="expl">مع myCircle.tv، واكتشاف طريقة جديدة لتبادل أشرطة الفيديو مع الأصدقاء والعائلة. إنشاء غرفة والالتفاف حول نفس الفيديو، في نفس الوقت سواء كان ذلك في يوتيوب، ديلي موشن أو فيميو.</p><br><br><br><h2>Watch youtube videos with friends</h2><p class="expl">You can watch the videos online together with your friends and chat at the same time, exactly as if you where in the same place with only one single browser acces from any place on the internet.</p><br><br><br></div><div class="div_feature" id="div_feature_1" style="height: 200px;overflow-y: hidden;">
+<div>
+<h2>INVITE THROUGH SOCIAL MEDIA</h2>
+<p>Invite anyone you want to join the room through social media or by sending the room link by email.<br>You're just a click away.</p>
+</div>
+<img src="Skins/01b/bg_invite.png" alt="invite friends thru social media to Watch videos together"></div><div class="div_feature" id="div_feature_2" style="height: 200px;overflow-y: hidden;">
+<img src="Skins/01b/bg_playlist.png" alt="Manage playlist of videos to watch together">
+<div>
+<h2>ORGANIZE YOUR PLAYLIST IN REAL TIME WITH YOUR FRIENDS</h2>
+<p>Add videos instantly to a playlist during the session to organize what you want to watch next.<br>You can manage your playlist as you want to, adding, removing or reorganizing videos.</p>
+</div>
+</div><div class="div_feature" id="div_feature_3" style="height: 200px;overflow-y: hidden;">
+<div>
+<h2>UPLOAD YOUR VIDEOS TO MYCLOUD</h2>
+<p>Use myCloud to host your videos and watch them on myCircle.tv with your friends or family.</p>
+<p>You can be sure they are in a safe place, they can be watched only when you are in the room.</p>
+<p>With myCloud you watch together movies, your videos, TV series … even if they are not published on the Web.</p>
+</div>
+<img src="Skins/01b/bg_cloud.png" alt="watch your videos on myCircle.tv with your friends or family"></div><div id="div_footer">
+<div class="frise" style="width:100%;margin:5 auto;"></div>
+<div style="width:70%;margin:00 auto;">
+<span style="padding-right:170px;">
+myCircle.tv © 2018 </span>
+<span class="itemfooter">
+<a class="plink" href="/service/en/overview" >Overview</a></span>
+|
+<span class="itemfooter">
+<a class="plink" href="/service/en/solutions" >Our solutions</a>
+</span>
+|
+<span class="itemfooter">
+<a class="plink" href="/service/en/faq" >FAQ</a></span>
+|
+<span class="itemfooter">
+<a class="plink" href="/service/en/about" >About us</a></span>
+|
+<span class="itemfooter">
+<a class="plink" href="/service/en/terms" >Terms</a></span>
+|
+<span class="itemfooter">
+<a class="plink" href="/service/en/contact" >Contact us</a>
+</span>
+</div>
+<br>
+</div>
+<script>
+if ( (typeof window.onerror) != 'function' ) {
+	window.onerror = function(msg, url, line){
+		mycircletv.jsError(msg + ' (' + url + ' line ' + line +')');
+}
+}
+</script>
+</body>
+</html>
+</div>
+<script language="JavaScript">
+function toggleSearchDiv()
+{
+	var div = document.getElementById('index_search');
+	var elt = document.getElementById('bt_search_incit');
+	if ( div.style.display == 'none' ) {
+		div.style.display = 'block';
+		elt.setAttribute('class','fa fa-chevron-circle-up');
+	} else {
+		div.style.display = 'none';
+		elt.setAttribute('class','fa fa-chevron-circle-down');
+	}
+}
+
+var lookStarted = false;
+
+function callStarted(str,src)
+{
+	if ( isExtId(str) ) joinRoomX(str);
+	else {
+		window.location.href="started.php?src=" + src + "&q=" + encodeURIComponent(str);
+	}
+}
+
+function lookForVideo()
+{
+	if ( lookStarted ) return;
+	lookStarted = true;
+	document.getElementById('video_url').style.cursor='wait';
+	document.getElementById('video_url_img').style.cursor='wait';
+	callStarted(document.getElementById('video_url').value,'youtube');
+}
+
+function searchVideos(src)
+{
+	if ( ! src ) src = 'youtube';
+	callStarted(document.getElementById('video_url').value, src);
+}
+
+var rgExtId = new RegExp('^\\d{2,6}-\\d{2,6}-\\d{2,6}$');
+
+function joinRoomByExtId()
+{
+	joinRoom(document.getElementById('ext_id'));
+}
+
+function isExtId(str)
+{
+	var match = rgExtId.test(str);
+	if ( match && str.length == 12  ) return true;
+	return false;
+}
+
+function joinRoom(ext_id)
+{
+	//mycircletv.consoleLog('joinRoom : ' + ext_id.value);
+	if ( ! isExtId(ext_id.value) ) {
+		document.getElementById('search_err1').innerHTML = 'This code is not Ok';
+		ext_id.focus();
+		return;
+	}
+	joinRoomX(ext_id.value);
+}
+
+function joinRoomX(ext_id)
+{
+	if ( typeof(_gaq) != 'undefined' ) _gaq.push(['_trackEvent', 'misc', 'join', 'by_code', 1, true]);
+	xmlhttp=mycircletv.createXHR();
+	xmlhttp.open("GET","/check_ext_id.php?ext_id=" + ext_id, true);
+	xmlhttp.onreadystatechange=checkComplete;
+	xmlhttp.send();
+	return true;
+
+	function checkComplete() {
+		lookStarted = false;
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			var projpriv = JSON.parse(xmlhttp.responseText);
+			if (projpriv.id != 0){
+				window.location.href="/" + ext_id;
+			}
+			else
+			{
+		document.getElementById('search_err1').innerHTML = 'This code is unknown.';
+			}
+		}
+	}
+}
+
+var curFeature;
+var addthisdiv;
+
+function customizeAddthis()
+{
+	addthisdiv = document.getElementById('at4-share');
+	if ( addthisdiv == null || addthisdiv.nodeName != 'DIV' ) setTimeout(customizeAddthis,250);
+	else {
+		addthisdiv.style.left = '30px';
+		addthisdiv.style.top = '445px';
+		setTimeout(shareIncit,4000); 
+	}
+}
+
+function shareIncit()
+{
+	document.getElementById('share_incit').style.display = 'block';
+}
+
+
+$(document).ready(function(e) {	
+	document.getElementById(curFeature = 'feature_0').setAttribute('class','lkfeature_on');
+	document.getElementById('div_' + curFeature).style.display = 'block';
+	$("#sample_rooms").mCustomScrollbar({
+			axis:"x",
+			theme:"dark-3"
+		});
+});
+
+function switchFeature(event)
+{
+	var elt = event.target;
+	if ( elt.getAttribute('class') == 'lkfeature_on' ) return;
+	document.getElementById(curFeature).setAttribute('class','lkfeature_off');
+	document.getElementById('div_' + curFeature).style.display = 'none';
+	curFeature = elt.id;
+	elt.setAttribute('class','lkfeature_on');
+	document.getElementById('div_' + curFeature).style.display = 'block';
+}
+</script>

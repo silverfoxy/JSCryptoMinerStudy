@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<meta name="google-site-verification" content="pYslmTaMA8r47lV6yMN45VJ4ZIAmTm2lCJoR7QRi2XM" />
+	
+	<title>Old Friends - Send messages to your lost friends and classmates</title><link  href="https://fonts.googleapis.com/css?family=Delius|Lato|Roboto|Roboto+Condensed|Yanone+Kaffeesatz" rel="stylesheet" type="text/css"> 
+<link  href="https://fonts.googleapis.com/css?family=Poller+One|Reenie+Beanie:regular" rel="stylesheet" type="text/css"> 
+<link href='https://fonts.googleapis.com/css?family=Neucha|Patrick+Hand|Handlee|Coming+Soon|Short+Stack' rel='stylesheet' type='text/css'>
+
+<script type='text/javascript' src='js/jquery-3.2.0.min.js'></script>
+<!-- <script type='text/javascript' src='js/jquery-1.11.0.min.js'></script> -->
+<!-- <script type='text/javascript' src='js/jquery-ui-1.10.4.custom.min.js'></script> -->
+<script type='text/javascript' src='js/jquery-ui.1.12.1.min.js'></script>
+<!-- <script type='text/javascript' src='js/jquery.modal.min.js'></script> -->
+<!-- using the non-min of modal to change close option to disable docclose. option to do so wasn't working so I commented out the actual code in the script, bypassing the option check 2014-04-007 jb -->
+<script type='text/javascript' src='js/jquery.modal.js'></script><script type='text/javascript' src="js/jquery.validate.min.js"></script>
+<script type='text/javascript' src="js/additional-methods.min.js"></script>
+<script type='text/javascript' src="js/hash.js"></script>
+<script type='text/javascript' src="js/jquery.cycleImages.js"></script>
+<!-- 
+<script type='text/javascript' src='js/site.js'></script>
+<link rel="stylesheet" type="text/css" href="css/main.css?v=7.x">
+-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" href="css/redmond/jquery-ui-1.10.4.custom.css"/>
+<script>
+
+//var userId = 0 ;
+var userId ;
+userId = 0;
+var org = 0;
+var classof = 0;
+var linkID ;
+$.ajaxSetup({cache: false});
+var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+function storeStudentInfo(i,t,g,f,n)	//puts the clicked student info into the html, so js can see it
+	{
+		//alert('id='+i) ;
+		//alert('tbl='+t) ;
+	document.getElementById("studentID").innerHTML = i ;
+	document.getElementById("tableID").innerHTML = t ;
+	document.getElementById("studentName").innerHTML = n ;
+	document.getElementById("firstName").value = g ;
+	document.getElementById("LastName").value = f ;
+	document.getElementById('sendMsgHdg').innerHTML = 'Send message to '+document.getElementById('studentName').innerHTML;
+	document.getElementById('rptDeathHdg').innerHTML = 'Report '+document.getElementById('studentName').innerHTML+' as deceased';
+	//document.getElementById('deleteRequestHdg').innerHTML = 'Request removal of the name  '+document.getElementById('studentName').innerHTML ;
+	document.getElementById('tributeFormHdg').innerHTML = 'Leave a memory of '+document.getElementById('studentName').innerHTML;
+	document.getElementById("msgtxt").innerHTML = '' ;
+	document.getElementById("tribute").innerHTML = '' ;
+	document.getElementById("subject").innerHTML = '' ;
+	document.getElementById("theNote").innerHTML = '' ;
+
+	var fName     = document.getElementById("firstName").value ;
+	var nName     = document.getElementById("nickName").value ;
+	var lName     = document.getElementById("LastName").value ;
+	if (nName.length>2) {nName = '"'+nName+'"';}
+	var g = toProperCase(fName)+' '+toProperCase(nName) ;
+	var f = toProperCase(lName) ;
+	document.getElementById("gNames").innerHTML = g ;
+	document.getElementById("fName").innerHTML = f ;
+
+	}
+
+
+
+
+
+
+
+
+function clearStudentInfo()	//clears the student info from the html, so js won't prefill it in the Register form fields
+	{
+	document.getElementById("studentID").innerHTML = '0' ;
+	document.getElementById("tableID").innerHTML = '0' ;
+	document.getElementById("studentName").innerHTML = '' ;
+	document.getElementById("firstName").value = '' ;
+	document.getElementById("LastName").value = '' ;
+	}
+
+function pageLoadAJAX(o,c)
+	{
+	org     = o ;
+	classof = c ;
+	//alert(c) ;
+	showStickyNotesAjax(o,c) ;	
+	getClassListAjax() ;
+	cycleImages() ;
+	}
+
+function showStickyNotesAjax(o,c)
+	{
+	var loadUrl = "ajax/ajax_showStickyNotes.php";
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	//alert(c) ;
+	$("#postems").html(ajax_load).load(loadUrl, {o: o, c: c});
+	}
+
+function storeStickyAjax(o)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=storeStickyClose');
+	var s = document.getElementById("subject").value;
+	var m = document.getElementById("theNote").value;
+	var pb = document.getElementById("postedBy").value;
+	var bb = document.getElementById("beginYear");
+	var ee = document.getElementById("endYear");
+	var u = document.getElementById("thisUser").innerHTML;
+	//if (s>'') {m = s+':\<br\>'+m;}
+	var b = bb.options[bb.selectedIndex].value;
+	var e = ee.options[ee.selectedIndex].value;
+	var loadUrl = "ajax/ajax_storeSticky.php";
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {o: o, u: u, pb: pb, m: m, s: s, b: b, e: e});
+	}
+
+function showSticky(mid)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=showSticky');
+	document.getElementById("stickyNoteContent").innerHTML = document.getElementById('Sticky_'+mid).innerHTML+document.getElementById('restOfSticky_'+mid).innerHTML ;
+	}
+
+function cycleImages()
+	{
+	$('.slideshow').cycle({fx:'fade'});
+	}
+
+function getClassListAjax()
+	{
+
+	$.ajaxSetup({cache: false});
+
+	$.ajax({
+		url:"ajax/ajax_getClassList.php?s=0&c=",
+		type:"GET",
+		success:function(result){
+			document.getElementById("classListAjax").innerHTML = result ;
+
+			$(document).ready(function(){
+				$('.modalLink').modal({
+					trigger: '.modalLink',          // id or class of link or button to trigger modal
+					olay:'div.overlay',             // id or class of overlay
+					modals:'div.modal',             // id or class of modal
+					animationEffect: 'slideDown',   // overlay effect | slideDown or fadeIn | default=fadeIn
+					animationSpeed: 400,            // speed of overlay in milliseconds | default=400
+					moveModalSpeed: 'slow',         // speed of modal movement when window is resized | slow or fast | default=false
+					background: '000000',           // hexidecimal color code - DONT USE #
+					opacity: 0.3,                   // opacity of modal |  0 - 1 | default = 0.8
+					openOnLoad: false,              // open modal on page load | true or false | default=false
+					docClose: true,                 // click document to close | true or false | default=true    
+					closeByEscape: true,            // close modal by escape key | true or false | default=true
+					moveOnScroll: false,             // move modal when window is scrolled | true or false | default=false
+					resizeWindow: false,             // move modal when window is resized | true or false | default=false
+					video: 'http://player.vimeo.com/video/2355334?color=eb5a3d',    // enter the url of the video
+					videoClass:'video',             // class of video element(s)
+					close:'.closeBtn'               // id or class of close button
+					});
+				});	   //doc.ready.fn
+
+			}   // success:fn
+		});    // $.ajax()
+	}  // getClassListAjax
+
+function accountFormDisplay(u)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=accountFormDisplay');
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	$("#msgsSent").html(ajax_load).load("ajax/ajax_msgsList.php", {u: u, t: 'sent'});
+	$("#msgsRcvd").html(ajax_load).load("ajax/ajax_msgsList.php", {u: u, t: 'received'});
+	}
+
+function storeMsgAjax()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=storeMsgClose');
+	var m = document.getElementById("msgtxt").value;
+	var s = document.getElementById("studentID").innerHTML;
+	var t = document.getElementById("tableID").innerHTML;
+	var u = document.getElementById("thisUser").innerHTML;
+	var v = document.getElementById("VID").innerHTML;
+	var loadUrl = "ajax/ajax_storeMsg.php";
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+	//$("#formSubmisionResultsContent").html(ajax_load).load(loadUrl, {s: s, t: t,  m: m, u: u});
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {s: s, t: t,  m: m, u: u, v: v});
+	//$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {o: o, c: c,  g: g, f: f, p: p,  s: s, a: a});
+	}
+
+function showMsgAjaxOLD()
+	{
+	//$.ajaxSetup({cache: false});
+	//alert('showMsgAjax') ;
+	jQuery.get('ajax/ajax_logModal.php?m=showMsg');
+	$("#msgContent").html('');
+	var s = document.getElementById("studentID").innerHTML;
+	var t = document.getElementById("tableID").innerHTML;
+	//var u = document.getElementById("thisUser").innerHTML;
+	var loadUrl = "ajax/ajax_msg.php";
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+	//$("#msgContent").html(ajax_load).load(loadUrl, {s: s, t: t});
+	}
+
+function showMsgAjax(s,t,n)
+	{
+	//alert('showMsgAjax') ;
+	//alert(s) ;
+	//alert(t) ;
+	//alert(n) ;
+	jQuery.get('ajax/ajax_logModal.php?m=showMsg2');
+	$("#msgHdg").html('Message(s) for '+n);
+	$("#msgContent").html('');
+	var loadUrl = "ajax/ajax_msg.php";
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	$("#msgContent").html(ajax_load).load(loadUrl, {s: s, t: t, n: n});
+	}
+
+function showPINMsgAjax(s,t)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=showMsgFromPIN');
+	//$("#msgContent").html('');
+	//alert('showPINMsgAjax') ;
+	var p = document.getElementById("msgPIN").value;
+	//alert(p) ;
+	var loadUrl = "ajax/ajax_msg.php";
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+	$("#msgContent").html(ajax_load).load(loadUrl, {s: s, t: t, p: p});
+	}
+
+function saveMsgReqAjax(s,t,n)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=saveMsgReqAjax');
+	//$("#msgContent").html('');
+	//alert('showPINMsgAjax') ;
+	var e = document.getElementById("MRemail").value;
+	//alert(p) ;
+	var loadUrl = "ajax/ajax_msgReq.php";
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+
+	$("#msgContent").html(ajax_load).load(loadUrl, {s: s, t: t, n: n, e: e});
+	}
+
+function sendSupportAjax(o,c,u,i)
+	{
+	//alert('sendSupportAjax') ;
+	jQuery.get('ajax/ajax_logModal.php?m=sendSupportClose');
+	var m = document.getElementById("supportQuestionText").value;
+	var e = document.getElementById("email3").value;
+	var loadUrl = "ajax/ajax_sendSupport.php";
+	//alert('sendSupportAjax') ;
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	/* allow for either userID, email address and name, etc*/
+
+	$("#formSubmisionResultsContent").html(ajax_load).load(loadUrl, {o: o, c: c, u: u, i: i, m: m, e: e});
+	}
+
+function addName(o,c)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=add classmate');
+	var g = document.getElementById("missingGName").value;
+	var f = document.getElementById("missingFName").value;
+	var loadUrl = "ajax/ajax_addClassmate.php";
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {o: o, c: c,  g: g, f: f});
+	}
+
+	/*<td><input type="text" name="teacherSalutation" id="teacherGName" class="stdForm" ></td>
+	<td><input type="text" name="teacherGName" id="teacherGName" class="stdForm" ></td>
+	<td><input type="text" name="teacherFName" id="teacherFName" class="stdForm" ></td>
+	<td><input type="text" name="teacherSubjects" id="teacherSubjects" class="stdForm" ></td>
+	<td><input type="text" name="teacherAlive" id="teacherAlive" class="stdForm" ></td>*/
+
+
+function addTeacher(o,c)
+	{
+	//jQuery.get('ajax/ajax_logModal.php?m=add teacher');
+	var g = document.getElementById("teacherGName").value;
+	var f = document.getElementById("teacherFName").value;
+	var p = document.getElementById("teacherSalutation").value;
+	var s = document.getElementById("teacherSubjects").value;
+	var a = document.getElementById("teacherAlive").value;
+	var loadUrl = "ajax/ajax_addTeacher.php";
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {o: o, c: c,  g: g, f: f, p: p,  s: s, a: a});
+	}
+
+function storeTributeAjax()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=storeTributeClose');
+	var m = document.getElementById("tribute").value;
+	var s = document.getElementById("studentID").innerHTML;
+	var t = document.getElementById("tableID").innerHTML;
+	var u = document.getElementById("thisUser").innerHTML;
+
+	var loadUrl = "ajax/ajax_storeTribute.php";
+
+	$("#formSubmisionResultsContent").html(ajax_load).load(loadUrl, {s: s, t: t,  m: m, u: u});
+	}
+
+function rptDeathmodalOpen(i,t,n)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=rptDth') ;
+	$("#rptDeathHdg").text('Information about the death of '+n) ;
+	storeStudentInfo(i,t,n) ;
+	}
+
+function showRptDeathSubmit()
+	{
+	if ( $('#rptDeathForm').valid() )
+		{
+		$('#rptDeathSubmitBtn').show() ;
+		}
+	}
+
+function rptDeathModalSubmit()
+	{
+		//alert('Sorry, this feature is undergoing maintenance. Please try again tomorrow...') ;
+		//alert($('#rptDeathForm').valid()) ;
+		//alert(#rptDeathCertify').val()) ;
+	if ( $('#rptDeathForm').valid() && $('#rptDeathCertify').val()=='on' )
+		{
+		//alert('submitting form data1') ;
+		jQuery.get('ajax/ajax_logModal.php?m=rptDeathSubmitted');
+		var s = document.getElementById("studentID").innerHTML;
+		var t = document.getElementById("tableID").innerHTML;
+		var e = document.getElementById("rptDeathEmail").value;
+		var u = document.getElementById("thisUser").innerHTML;
+		var r = document.getElementById("reportedBy").value;
+		var d = document.getElementById("DeathDate").value;
+		var o = document.getElementById("obit").value;
+		var tr = document.getElementById("tribute").value;
+		var ur = document.getElementById("proof").value;
+		//alert('submitting form data2') ;
+		var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+		var loadUrl = "ajax/ajax_emailRptDeathVerifyCode.php";
+		//alert('submitting form data') ;
+		$("#formSubmisionResultsContent").html(ajax_load).load(loadUrl, {s: s, t: t, e: e, u: u, r: r, d: d, o: o, tr: tr, ur: ur });
+		}
+	}
+
+function deleteRequestModalOpen(i,t,g,f,n)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=reqDelete') ;
+	$("#deleteRequestHdg").text('Request removal of the name '+n) ;
+	storeStudentInfo(i,t,n) ;
+	}
+
+function rstPwdmodalOpen(i,t,g,f,n)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=reqPwdRst') ;
+	$("#rstPwdHdg").text('Reset password for '+n) ;
+	storeStudentInfo(i,t,n) ;
+	}
+
+function showDeleteRequestSubmit()
+	{
+	if ( $('#deleteRequestForm').valid() )
+		{
+		$('#deleteRequestSubmitBtn').show() ;
+		}
+	}
+
+function deleteRequestModalSubmit()
+	{
+	if ( $('#deleteRequestForm').valid() && $('#deleteCertify').val()=='on' )
+		{
+		//alert('submit logic here') ;
+		jQuery.get('ajax/ajax_logModal.php?m=reqDeleteSubmitted');
+		var s = document.getElementById("studentID").innerHTML;
+		var t = document.getElementById("tableID").innerHTML;
+		var e = document.getElementById("deleteRequestEmail").value;
+		//alert(document.getElementById("deleteCertify").value) ;
+		var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+		var loadUrl = "ajax/ajax_emailDeleteVerifyCode.php";
+		$("#formSubmisionResultsContent").html(ajax_load).load(loadUrl, {s: s, t: t, e: e});
+		}
+	}
+
+function clearForms()
+	{
+	showStickyNotesAjax(org,classof) ;
+	}
+
+function clearFormsAndReload()
+	{
+	document.location.reload(true) ;
+	}
+
+function loginAjax()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=loginClose');
+	var e = document.getElementById("loginEmail").value;
+	var pwd = document.getElementById("loginPassword").value;
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	var loadUrl = "ajax/ajax_login.php";
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl, {e: e, p: ''+CryptoJS.MD5(pwd)});
+		// need to add the empty str to get ajax to work
+	}
+
+function logoutAjax()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=logoutClose');
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	var loadUrl = "ajax/ajax_logout.php";
+	$("#formSubmisionResultsWithPgReloadContent").html(ajax_load).load(loadUrl);
+	}
+
+function openRegisterForm(m)
+	{
+	//alert('test') ;
+	jQuery.get('ajax/ajax_logModal.php?m='+m); 
+	$("#inputSchool").val($("#thisSchoolTxt").text()) ;
+	$("#classOf").val($("#thisClassXfer").text()) ;
+	buildName() ;
+	}
+
+function goToThisSchool()
+	{
+	var m = 'changing schools' ;
+	jQuery.get('ajax/ajax_logModal.php?m='+m) ;
+	var o = document.getElementById("org").value;
+	var c = document.getElementById("chgClassOf").value;
+	o = parseFloat(o)+12345 ;
+	c = c+'' ;
+	window.location.href = 'http://old-friends.co/class.php?s='+o+'&c='+c ;
+	}
+
+function clearChgSchoolInput()
+	{
+	//jQuery.get('ajax/ajax_logModal.php?m='+m); 
+	$("#chgSchool").val('') ;
+	$("#chgClassOf").val('') ;
+	}
+
+function clearSchoolInput()
+	{
+	//jQuery.get('ajax/ajax_logModal.php?m='+m); 
+	$("#inputSchool").val('') ;
+	$("#classOf").val('') ;
+	}
+
+function toProperCase(s)
+	{
+	return s.toLowerCase().replace( /\b((m)(a?c))?(\w)/g, function($1, $2, $3, $4, $5) { if($2){return $3.toUpperCase()+$4+$5.toUpperCase();} return $1.toUpperCase(); });
+	}
+
+function buildName()
+	{
+	var fName = document.getElementById("firstName").value ;
+	var nName = document.getElementById("nickName").value ;
+	var lName = document.getElementById("LastName").value ;
+	//alert(lName) ;
+	if (nName.length>2) {nName = '"'+nName+'"';}
+	document.getElementById("fullName").innerHTML = 'Your name will display as: <span style="color:blue; font-size: 125%; ">'+toProperCase(fName)+' '+toProperCase(nName)+' '+toProperCase(lName)+'</span>' ;
+	// need to add logic to handle "van der", "van", "de", etc
+		//alert('buildName') ;
+	saveName2StudentsList() ;
+	}
+
+function buildName2()
+	{
+	var fName = document.getElementById("firstName2").value ;
+	var lName = document.getElementById("LastName2").value ;
+	document.getElementById("fullName2").innerHTML = toProperCase(fName)+' '+toProperCase(lName)+'<br>' ;
+	// need to add logic to handle "van der", "van", "de", etc
+	}
+
+function saveName2StudentsList()
+	{
+	//alert('saveName2StudentsList') ; ;
+	jQuery.get('ajax/ajax_logModal.php?m=register02_namesAdded');
+	var tempSID   = document.getElementById("tempStudentRec").innerHTML ;
+	var fName     = document.getElementById("firstName").value ;
+	var nName     = document.getElementById("nickName").value ;
+	var lName     = document.getElementById("LastName").value ;
+	var org       = document.getElementById("org").innerHTML ;
+	var classOf   = document.getElementById("classOf").value ;
+	var tableID   = document.getElementById("tableID").innerHTML ;
+	var studentID = document.getElementById("studentID").innerHTML ;
+	if (nName.length>2) {nName = '"'+nName+'"';}
+	var g = toProperCase(fName)+' '+toProperCase(nName) ;
+	var f = toProperCase(lName) ;
+	//alert('tempSID'+tempSID) ;
+	//alert('classOf'+classOf) ;
+	//alert('org'+org) ;
+	//alert(tempSID) ;
+	if ( (tempSID <1) && (fName.length>2) && (lName.length>2) && (classOf>'1925') && (classOf<'2013') && (org>1) )
+		{
+		document.getElementById("gNames").innerHTML = g ;
+		document.getElementById("fName").innerHTML = f ;
+		//alert('saving name') ;
+		//jQuery.get('ajax/ajax_logModal.php?m=saveNameInfo');
+		//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+		var loadUrl = "ajax/ajax_nameCapture.php";
+		//alert('?g='+g+'&f='+f+'&o='+org+'&c='+classOf) ;
+		$("#tempStudentRec").load(loadUrl, {g: g, f: f, o: org, c: classOf, t: tableID, s: studentID});
+		//alert(document.getElementById("tempStudentRec").innerHTML) ;
+		// make sure that name info is replaced by last contents of form field at end
+		$("#email").attr('disabled', false);
+		$("#email").focus();
+		}
+	}
+
+function saveEmail()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=register04_saveEmail');
+	var tempSID = document.getElementById("tempStudentRec").innerHTML ;
+	var eMail = document.getElementById("email").value ;
+	var cName = document.getElementById("currentName").value ;
+	if ( (tempSID > 0) && (eMail.length>2) )
+		{
+		//alert('tempSID: '+tempSID+'; eMail: '+eMail) ;
+		//jQuery.get('ajax/ajax_logModal.php?m=saveNameInfo');
+		//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+		var loadUrl = "ajax/ajax_saveEmail.php";
+		$("#ajax_result").load(loadUrl, {s: tempSID, e: eMail, cn: cName});
+		if( $("#registerForm").validate().element($("#email"))){
+			//alert('email address validated');
+			//$('#emailCodeBtn').attr("placeholder", "click ->");
+
+			//$('#emailCodeBtn').show();
+			//$("#authCode").attr('disabled', false);
+			//$("#authCode").focus();
+
+			$("#pwd").attr('disabled', false);
+			$("#TOSagree").attr('disabled', false);
+			$("#pwd").focus();
+			  //$('#continue').attr("disabled", false);
+
+
+			document.getElementByID('api_tempSID').innerHTML=tempSID ;
+
+
+			}
+		//alert('tempSID: '+tempSID+'; eMail: '+eMail) ;
+		//$.ajax(loadUrl, {s: tempSID, e: eMail} );
+		//alert(document.getElementById("ajax_result").innerHTML) ;
+		// make sure that name info is replaced by last contents of form field at end
+		}
+	}
+
+$(function(){
+	$("#vCode").on("click", function(event){
+		//alert('vCode') ;
+		event.preventDefault();
+		//emailVcode();
+		});
+	});
+
+/*
+function emailVcode()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=register06_emailVcode');
+	var tempSID = document.getElementById("tempStudentRec").innerHTML ;
+	var eMail = document.getElementById("email").value ;
+		//alert('tempSID: '+tempSID+'eMail: '+eMail);
+	if ( (tempSID > 0) && (eMail.length>7) )
+		{
+		var loadUrl = "ajax/ajax_emailVerifyCode.php";
+		$("#authCodeMatch").load(loadUrl, {s: tempSID, e: eMail}, function() {
+		 //alert('sent');
+		 $("#emailCodeBtn").html('Code sent.. check your email') ;
+		 });
+		//alert(document.getElementById("authCodeMatch").innerHTML);
+		// make sure that name info is replaced by last contents of form field at end
+		}
+	}
+*/
+/*
+function checkCode()
+	{
+	var matchCode = document.getElementById("authCodeMatch").innerHTML ;
+	var enteredCode = document.getElementById("authCode").value ;
+		//alert('authCodeMatch: '+matchCode+' authCode: '+enteredCode);
+	if ( enteredCode !=  matchCode)
+		{
+		document.getElementById("authCode").value = '' ;
+		}
+		else
+		{
+		$("#pwd").attr('disabled', false);
+		$("#pwd").focus();
+		$("#TOSagree").attr('disabled', false);
+		$("#TOSagree").focus();
+		}
+	}
+*/
+
+function checkData()
+	{
+	// check the verification code and that all fields have valid data (or at least have data)
+	jQuery.get('ajax/ajax_logModal.php?m=register09_checkData');
+	// from classContent.php	( js <=> php )
+	var tempSID = document.getElementById("tempStudentRec").innerHTML ;
+	var gNames   = document.getElementById("gNames").innerHTML ;
+	var fName   = document.getElementById("fName").innerHTML ;
+	var IP      = document.getElementById("IP").innerHTML ;
+	
+	// register modal fields
+	var eMail    = document.getElementById("email").value ;
+	var org      = document.getElementById("org").innerHTML ;
+	var classOf  = document.getElementById("classOf").value ;
+	//var authCode = document.getElementById("authCode").value ;
+	var rawPwd   = document.getElementById("pwd").value ;
+	var pwd      = ''+CryptoJS.MD5(rawPwd) ;	// need to add the empty str to get ajax to work
+	var loadUrl = "ajax/ajax_verifyCode.php";
+	//alert('s: '+tempSID+', e: '+eMail+', o: '+org+', c: '+classOf+', g: '+gNames+', f: '+fName+', v: '+authCode+', p: '+pwd+', i: '+IP);
+	$("#ajax_result").load(loadUrl, {s: tempSID, e: eMail, o: org, c: classOf, g: gNames, f: fName, p: ''+pwd, i: IP} );
+	// add a result handler to above ajax to unlock payment div if result = "success"
+	//if ( (org>0) && (classOf>'') && (gNames>'') && (fName>'') && (eMail>'') && (authCode>'') && (rawPwd>'') && $('#TOSagree').prop('checked'))
+	if ( $('#registerForm').valid() )
+		{
+		$( "#continue" ).hide();	// check to make sure all fields validated before keeping this...
+		$( "#paymentImg" ).hide();	// check to make sure all fields validated before keeping this...
+		$( "#paymentBlock" ).show();
+		$( "#payment" ).show();
+		$( "shopifyBtn" ).show();
+		}
+	}
+
+function updateAccountInfo(s)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=updateAccountInfoClose');
+	var g   = document.getElementById("firstName2").value;
+	var f   = document.getElementById("LastName2").value;
+	var e   = document.getElementById("email2").value;
+	var p   = document.getElementById("password2").value;
+	//alert(p) ;
+	var pwd = ''+CryptoJS.MD5(p) ;	// need to add the empty str to get ajax to work
+	//alert(pwd) ;
+	if (p==='') {pwd = '';}
+	var loadUrl = "ajax/ajax_updateAccountInfo.php";
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	//alert(pwd) ;
+	$("#formSubmisionResultsWithPgReloadContent").load(loadUrl, {s: s, g: toProperCase(g), f: toProperCase(f),  e: e, p: pwd});
+	}
+
+function requestRefund(s)
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=requestRefundClose');
+	var loadUrl = "ajax/ajax_requestRefund.php";
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	$("#formSubmisionResultsWithPgReloadContent").load(loadUrl, {s: s});
+	}
+
+function editprofile(s)
+	{
+	// s = mht_Students.SID
+	jQuery.get('ajax/ajax_logModal.php?m=editProfileClose');
+	document.getElementById("SID").value = s ;
+	//var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	//alert(pwd) ;
+	$("#profileName").html(ajax_load).load("ajax/ajax_getStudentName.php", {s: s});
+	$.get('ajax/ajax_getStudentBio.php', {s: s, e: 'Y'}, function(result) {
+			$('#bio').val(result);
+		});
+	//$("#photosGallery").html(ajax_load).load("ajax/ajax_getStudentName.php", {s: s});
+	}
+
+function showprofile(s,n,p='N')
+	{
+	// s = mht_Students.SID
+	// n = name string
+	// if s, get the bio
+	// use n to display name
+	//$("#profileName2").empty() ;
+	//$("#bio2").empty() ;
+	//alert(s) ;
+	//alert(n) ;
+	//alert(p) ;
+
+	// log this action
+	jQuery.get('ajax/ajax_logModal.php?m=showProfile');
+
+	var ajax_load = '<img src="images/ajax-loader_big.gif" width="35px" alt="loading..." />';
+	$("#profileName2").html(ajax_load).load("ajax/ajax_getStudentName.php", {n: n});
+	$("#bio2"        ).html(ajax_load).load("ajax/ajax_getStudentBio.php", {s: s, e: 'N', p: p});
+	//$("#photosGallery").html(ajax_load).load("ajax/ajax_getStudentName.php", {s: s});
+	}
+
+function updateProfile()
+	{
+	jQuery.get('ajax/ajax_logModal.php?m=updateProfileClose');
+	var s   = document.getElementById("SID").value;
+	var b   = document.getElementById("bio").value;
+	//alert('s:'+s+' bio: '+b) ;
+	var loadUrl = "ajax/ajax_updateProfile.php";
+	//alert(pwd) ;
+	//$("#formSubmisionResultsContent").load(loadUrl, {s: s, b: b});
+	$("#formSubmisionResultsWithPgReloadContent").load(loadUrl, {s: s, b: b});
+	}
+
+function textCounter( field, countfield, maxlimit ) 
+	{
+	if ( field.value.length > maxlimit ) {
+	field.value = field.value.substring( 0, maxlimit );
+	field.blur();
+	field.focus();
+	return false;
+	} else {
+	countfield.value = maxlimit - field.value.length;
+	}
+	}
+
+
+function charsRemaining(field,field2,maxLimit)
+	{
+		//alert(maxLimit) ;
+		//alert(field.value.length) ;
+		//var countfield = document.getElementById(field2);
+		var warnLimit = (maxLimit - 10) ;
+		//alert(warnLimit) ;
+		var thisLen = field.value.length ;
+		//alert(thisLen) ;
+		var charsLeft = (maxlimit - field.value.length) ;
+		//alert(charsLeft) ;
+		//alert(countfield+' | '+warnLimit+' | '+charsLeft+' | ') ;
+		if ( charsLeft < warnlimit ) 
+		{	
+			//alert(charsLeft+' chars remaining') ;
+			countfield.value = charsLeft+' chars remaining' ;
+			//$.("#countfield)
+			//field.value = field.value.substring( 0, maxlimit );
+			//return false;
+		} 
+		else 
+		{
+			//alert(charsLeft+' chars remaining') ;
+			countfield.value = charsLeft+' chars remaining' ;
+		}
+	}
+
+$(function() {
+
+	$( "#inputSchool" ).autocomplete(
+	{
+		source:'ajax/ajax_ui_suggestSchool.php',
+		minLength: 5,
+		delay: 10,
+		autoFocus: true,
+		search  : function(){$(this).addClass('ui-autocomplete-loading');},
+		open    : function(){$(this).removeClass('ui-autocomplete-loading');},
+		select: function( event, ui ) {
+			event.preventDefault() ;
+			$("#inputSchool").val(ui.item.label) ; 
+			$("#org").val(ui.item.value) ; 
+			//alert($("#org").val()) ;
+			 }
+		});
+
+	$( "#chgSchoolFld" ).autocomplete(
+	{
+		source:'ajax/ajax_ui_suggestSchool.php',
+		minLength: 5,
+		delay: 10,
+		autoFocus: true,
+		search  : function(){$(this).addClass('ui-autocomplete-loading');},
+		open    : function(){$(this).removeClass('ui-autocomplete-loading');},
+		select: function( event, ui ) {
+			event.preventDefault() ;
+			$("#chgSchoolFld").val(ui.item.label) ; 
+			$("#org").val(ui.item.value) ; 
+			//alert($("#org").val()) ;
+			 }
+		});
+	});	
+
+
+</script>
+</head>
+
+<body>
+	<center>
+		<div id="header" style="margin: 0; padding: 0; width: 790px; position: relative; ">
+
+	
+	<div style="width: 750px; margin: 0 20px; padding: 0; position: relative; z-index: 20;
+			background: gray;
+			background: -webkit-linear-gradient(white, gray) ;
+			background: -o-linear-gradient(white, gray) ;
+			background: -moz-linear-gradient(white, gray) ;
+			background: linear-gradient(white, gray) ;
+		">		<img src="images/header.png"  style="width: 790px; margin: 0 -20px; padding: 0; position: relative; z-index: 25; ">
+	</div>
+
+	<table style="padding: 0 20px; width: 796px; position: absolute; left:10px; top:5px; z-index: 30 " >
+	<tr>
+		<!-- <td valign="top" align="left"><img src="IFFUlogo.gif" height="80px" width="200px" > </td> -->
+		<td id="logo" valign="top" align="left" >
+			<a href="https://old-friends.co/" style="color:gray">Old Friends</a><br>
+			<span  style="font-family: 'Delius'; font-size:12pt; color: #476373; text-shadow: none;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connecting Classmates & Old Friends</span>
+		</td>
+		<td> 
+			<!-- <img src="images/SneakPreview3.png" width="70px"> -->
+		</td>
+				<td valign="top" align="right" style="font-family: 'Lato'; font-size: 10pt; " >
+					</td>
+	</tr>
+	<tr>
+		<td colspan="3" valign="bottom" align="center" width="100%" style="padding: 15px 0 0 0; color: black;  font-size:  115%; letter-spacing: 2px ; "><!--  -webkit-text-stroke: 0.5px #fff; text-shadow: -1px -1px 0 #fff,  1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; (white outline) -->
+		<h1></h1></td>
+	</tr>
+		</table>
+</div>	<!-- header -->		<div class="content" style="clear: both; background-color: cornsilk; width:785px; height: 200px;  background-image:url('images/splash-friends.jpg'); ">
+		<div class="schoolInfo" style="font-family: 'Lato'; font-size:103%; padding: 5px 0 ; ">
+					</div>
+
+			<table style="" >
+				<tr>
+					<td valign="top" class=""  ><div style="padding: 30px; width:230px; "><b>Reconnect with your classmates and other lost friends.</b></div></td>
+					<td class="" ><div style="padding: 0; width:130px; ">&nbsp;</div></td>
+					<td valign="bottom" >
+
+
+						<div id="pickASchool" class="" style="width: 405px; "> 
+							<div id="pickASchoolHdg" class="formHeading" style="font-size: 36px; " >Choose your school<br></div>
+							<div id="pickASchoolContent" class="sendMsgContent" style=" ">
+								<form name="pickASchoolForm" id="pickASchoolForm" method="post" action="" onload="">
+										<table class="formFieldsTable w400" style="display: inline-block;" >
+											<tr>
+												<td align="left">
+													<input type="text" name="pickASchoolFld" id="pickASchoolFld" class="stdForm w350" value="" required autofocus placeholder="(Start typing the name..)">
+												</td>
+											</tr>
+											<tr>
+												<td align="left">
+													<table>
+														<tr>
+															<td align="left" valign="top" ><input type="text" name="pickClassOf" id="pickClassOf" class="stdForm" style="width:65px;" onfocus="" required placeholder="Class of.."><div id="org" style="display:none;" ></div></td>
+															<td align="left" valign="top" ><button type="button" id="goToSchool" href="#" onclick="goToThisSchool(); return false; " >Go to this school</button></td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+								</form>
+							</div>
+						</div>
+
+
+
+
+
+
+
+					</td>
+				</tr>
+			</table>
+		</div>   <!-- content -->
+				<div id="footer" style="clear: both; background-color: ivory; background-image: url('images/bg_cork.jpg'); width:785px; ">
+			<table style="width:95%" >
+			<tr>
+				<td style="color:#000000; text-align: center; font-family: 'Lato'; font-size:0.8em; ">Copyright &copy; 2009-2018 All Rights Reserved.</td>
+				<td style="text-align: center; font-family: 'Lato'; font-size:0.8em; "><a class="modalLink footerLinks" href="#TOS" onclick="jQuery.get(\'ajax/ajax_logModal.php?m=TOS\'); return false; " >Terms of Use</a></td>
+				<td style="text-align: center; font-family: 'Lato'; font-size:0.8em; "><a class="modalLink footerLinks" href="#privacyPolicy" onclick="jQuery.get(\'ajax/ajax_logModal.php?m=privacyPolicy\'); return false; " >Privacy Policy</a></td>
+				<td style="text-align: center; font-family: 'Lato'; font-size:0.8em; "><a class="modalLink footerLinks" href="#support" onclick="jQuery.get(\'ajax/ajax_logModal.php?m=contactUs\'); return false; " ><span style="font-size:200%; font-weight:bold;">Contact us</span></a></td>
+			</tr>
+			<tr>
+			<td colspan="4" style="color:#000000; text-align: center; font-family: 'Lato'; font-size:0.8em; ">
+			By providing an email address in the registration process you give us permission to contact you.<br>We send very few messages, and you can easily opt out.
+			</td>
+			</tr>
+			</table> 		</div>   <!-- footer -->
+<br><br>	</center>
+</body>
+
+<script>
+	//window.onload = pageLoadAJAX(,) ; 
+
+	$( "#pickASchoolForm" ).validate(
+		{
+		debug: false,
+		rules: 
+			{
+			classOf: 
+				{
+				required: true,
+				range: [1925, 2013]
+				}
+			},
+		messages:
+			{
+			},
+		submitHandler: function(form) 
+			{
+			return false;
+			}
+		});
+
+	// is this still needed?????????????????????????????????????????
+	$("#pickASchoolForm").on("submit", function(event) {
+		event.preventDefault();
+	});
+
+	function goToThisSchool()
+		{
+		var m = 'picking a school' ;
+		jQuery.get('ajax/ajax_logModal.php?m='+m) ;
+		var o = document.getElementById("org").value;
+		var c = document.getElementById("pickClassOf").value;
+		o = parseFloat(o)+12345 ;
+		c = c+'' ;
+		if (o>0 && c>'') 
+			{
+			window.location.href = 'http://old-friends.co/class.php?s='+o+'&c='+c ;
+			}
+			else alert('Choose a school AND a class year!') ;
+		}
+
+$(function() {
+
+	$( "#pickASchoolFld" ).autocomplete(
+	{
+		source:'ajax/ajax_ui_suggestSchool.php',
+		minLength: 5,
+		delay: 10,
+		autoFocus: true,
+		search  : function(){$(this).addClass('ui-autocomplete-loading');},
+		open    : function(){$(this).removeClass('ui-autocomplete-loading');},
+		select: function( event, ui ) {
+			event.preventDefault() ;
+			$("#pickASchoolFld").val(ui.item.label) ; 
+			$("#org").val(ui.item.value) ; 
+			//alert($("#org").val()) ;
+		 }
+	});
+});	
+</script>
+
+</html>

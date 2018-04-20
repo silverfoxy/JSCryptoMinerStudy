@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://funnelbuildersecrets.com/thewebclass">redirected</a>.</body></html>

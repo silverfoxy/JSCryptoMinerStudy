@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+<head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="keywords" content="amiga,games,ratings,reviews,lists">
+	<meta name="description" content="Amiga Lore the portal to the abime.net sites with ratings, reviews and lists">
+        <title>Amiga Lore - abime.net</title>
+	
+		
+	
+	<style type="text/css">
+	
+		#loading-mask
+		{
+		    background-color:white;
+		    height:100%;
+		    position:absolute;
+		    left:0;
+		    top:0;
+		    width:100%;
+		    z-index:20000;
+		}
+		
+		#loading
+		{
+		    height:auto;
+		    position:absolute;
+		    left:45%;
+		    top:40%;
+		    padding:2px;
+		    z-index:20001;
+		}
+		
+		#loading a
+		{
+		    color:#225588;
+		}
+		
+		#loading .loading-indicator
+		{
+		    background:white;
+		    color:#444;
+		    font:bold 13px Helvetica, Arial, sans-serif;
+		    height:auto;
+		    margin:0;
+		    padding:10px;
+		}
+		
+		#loading-msg
+		{
+		    font-size: 10px;
+		    font-weight: normal;
+		}
+		
+	</style>
+	
+		
+                
+	<link rel="stylesheet" type="text/css" href="/js/ext-4.1.1a/resources/css/ext-all.css" />
+	
+	
+</head> 
+<body>
+	<script language="javascript" type="text/javascript" src="/awjs/awstats_misc_tracker.js"></script>
+	<noscript><img src="/js/awstats_misc_tracker.js?nojs=y" height="0" width="0" border="0" style="display: none"></noscript>
+		
+	<div id="loading-mask" style=""></div>
+	<div id="loading">
+	    <div class="loading-indicator">
+    
+		<img src="/img/loreicon.png" width="36" height="36" style="margin-right:8px;float:left;vertical-align:top;"/>
+		<span id="loading-msg">Loading Lore</span>
+	    </div>
+	</div>
+	
+		
+	<script src="/js/ext-4.1.1a/ext-all.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		Ext.ns('Lore');
+	
+		Ext.BLANK_IMAGE_URL = '/img/s.gif';
+		
+		Ext.Loader.setConfig({enabled: true});
+
+		Ext.Loader.setPath('Ext.ux', '/js/ux/');
+		Ext.Loader.setPath('Ext.plugin', '/js/plugins/');
+	</script>
+	
+	<script src="/js/menubar/menubar.js" type="text/javascript"></script>
+	
+<script type="text/javascript">
+
+        var menubar = Ext.create('Ext.Toolbar',{});
+
+        menubar.add
+        ({
+                text: 'Lore',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                        {
+                                                text: 'Home Page',
+                                                href: '/',
+                                                icon: '/img/icons/menu_homepage.png'
+                                        },
+                                        {
+                                                text: 'Edit Your Rating Weightings',
+                                                href: '/ratings/edit/weightings',
+                                                icon: ''
+                                        },
+                                        
+                                                                                
+                                        {
+                                                text: 'Log in',
+                                                href: '/auth/login',
+                                                icon: ''
+                                        },
+                                        
+                                                                                
+                                        
+                                        {
+                                                text: 'Register an Account',
+                                                href: '/auth/register',
+                                                icon: ''
+                                        },
+                                        {
+                                                text: 'Lore Blogs',
+                                                href: '/blogs/list',
+                                                icon: '/img/icons/menu_blogs_main.png'
+                                        },
+                                        {
+                                                text: 'Abime News',
+                                                href: '/news/list',
+                                                icon: '/img/icons/menu_news_main.png'
+                                        },
+                                        {
+                                                text: 'About Abime',
+                                                href: '/lore/info/aboutabime',
+                                                icon: ''
+                                        },
+                                        {
+                                                text: 'Contact Lore',
+                                                href: '/lore/info/contactlore',
+                                                icon: ''
+                                        }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Abime Sites',
+                iconCls: 'bmenu',
+                deferredRender: false,
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        //height: 400,
+                        style:
+                        {
+                                overflow: 'visible'
+                        },                       
+                        items:
+                        [
+                                {
+                                        xtype: 'buttongroup',
+                                        columns: 2,
+                                        items:
+                                        [
+                                                {
+                                                        xtype: 'buttongroup',
+                                                        title: 'Home Sites',
+                                                        columns: 2,
+                                                        defaults:
+                                                        {
+                                                                xtype: 'button',
+                                                                scale: 'large',
+                                                                iconAlign: 'left',
+                                                                height: 40
+                                                        },
+                                                        items:
+                                                        [
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/hol.png" />',
+                                                                        href: 'http://hol.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Hall of Light',
+                                                                        href: 'http://hol.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/eab.png" />',
+                                                                        href: 'http://eab.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'English Amiga Board',
+                                                                        href: 'http://eab.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/amr.png" />',
+                                                                        href: 'http://amr.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Amiga Magazine Rack',
+                                                                        href: 'http://amr.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/agtw.png" />',
+                                                                        listeners:
+                                                                        {
+                                                                                click: function()
+                                                                                {
+                                                                                        window.location = "/agtw";
+                                                                                }
+                                                                        }
+                                                                },
+                                                                {
+                                                                        text: 'Amiga Games That Weren\'t',
+                                                                        listeners:
+                                                                        {
+                                                                                click: function()
+                                                                                {
+                                                                                        window.location = "/agtw";
+                                                                                }
+                                                                        }
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/apov.png" />',
+                                                                        listeners:
+                                                                        {
+                                                                                click: function()
+                                                                                {
+                                                                                        window.location = "/apov";
+                                                                                }
+                                                                        }
+                                                                },
+                                                                {
+                                                                        text: 'Amiga Point of View',
+                                                                        listeners:
+                                                                        {
+                                                                                click: function()
+                                                                                {
+                                                                                        window.location = "/apov";
+                                                                                }
+                                                                        }
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/wiki.png" />',
+                                                                        href: 'http://wiki.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Abime Wiki',
+                                                                        href: 'http://wiki.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/irc.png" />',
+                                                                        href: 'http://irc.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Abime IRC',
+                                                                        href: 'http://irc.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/modsjukebox.png" />',
+                                                                        href: 'http://mods.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Mods Jukebox',
+                                                                        href: 'http://mods.abime.net'
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/oldabime.png" />',
+                                                                        href: 'http://old.abime.net'
+                                                                },
+                                                                {
+                                                                        text: 'Old Abime Portal (Discontinued)',
+                                                                        href: 'http://old.abime.net'
+                                                                }
+                                                        ]
+                                                },
+                                                {
+                                                        xtype: 'buttongroup',
+                                                        title: 'Hosted Sites',
+                                                        columns: 2,
+                                                        defaults:
+                                                        {
+                                                                xtype: 'button',
+                                                                scale: 'large',
+                                                                iconAlign: 'left',
+                                                                height: 40
+                                                        },
+                                                        items:
+                                                        [
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/winuae.png" />',
+                                                                        href: 'http://www.winuae.net',
+                                                                        icon: ''
+                                                                },
+                                                                {
+                                                                        text: 'WinUAE',
+                                                                        href: 'http://www.winuae.net',
+                                                                        icon: ''
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/classicwb.png" />',
+                                                                        href: 'http://classicwb.abime.net',
+                                                                        icon: ''
+                                                                },
+                                                                {
+                                                                        text: 'Classic Workbench',
+                                                                        href: 'http://classicwb.abime.net',
+                                                                        icon: ''
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/winfellow.png" />',
+                                                                        href: 'http://fellow.abime.net',
+                                                                        icon: ''
+                                                                },
+                                                                {
+                                                                        text: 'WinFellow Mirror',
+                                                                        href: 'http://fellow.abime.net',
+                                                                        icon: ''
+                                                                },
+                                                                
+                                                                {
+                                                                        text: '<img width="88", height="31" src="/img/sites/greenamigaalien.png" />',
+                                                                        href: 'http://guide.abime.net',
+                                                                        icon: ''
+                                                                },
+                                                                {
+                                                                        text: 'Green Amiga Alien Guide',
+                                                                        href: 'http://guide.abime.net',
+                                                                        icon: ''
+                                                                }
+                                                        ]
+                                                }
+                                        ]
+                                }
+                        ]
+                })
+        });
+                        
+        menubar.add
+        ({
+                text: 'Games',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Game Home Page',
+                                        href: '/games',
+                                        icon: '/img/icons/menu_game_home.png'
+                                },
+                                {
+                                        text: 'Game Browser',
+                                        href: '/games/list',
+                                        icon: '/img/icons/menu_game_search.png'
+                                },
+                                {
+                                        text: 'Action Adventure',
+                                        href: '/games/genre/actionadventure',
+                                        icon: ''
+                                },                                
+                                {
+                                        text: 'Action Strategy',
+                                        href: '/games/genre/actionstrategy',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Adventure',
+                                        href: '/games/genre/adventure',
+                                        icon: ''
+                                },
+                                
+                                {
+                                        text: 'Beat-\'em-up',
+                                        href: '/games/genre/beatemup',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Duel',
+                                        href: '/games/genre/duel',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Games',
+                                        href: '/games/genre/games',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Maze game',
+                                        href: '/games/genre/mazegame',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Platform',
+                                        href: '/games/genre/platform',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Puzzler',
+                                        href: '/games/genre/puzzler',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'RPG',
+                                        href: '/games/genre/rpg',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Racing',
+                                        href: '/games/genre/racing',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Reaction & Navigation',
+                                        href: '/games/genre/reactionandnavigation',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Shooter',
+                                        href: '/games/genre/shooter',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Simulation',
+                                        href: '/games/genre/simulation',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Sport',
+                                        href: '/games/genre/sport',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Strategy',
+                                        href: '/games/genre/strategy',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Wargame',
+                                        href: '/games/genre/wargame',
+                                        icon: ''
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Lists',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },                        
+                        items:
+                        [
+                                {
+                                        text: 'Lists Home Page',
+                                        href: '/lists',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'List Browser',
+                                        href: '/lists/list',
+                                        icon: '/img/icons/menu_lists_search.png'
+                                },
+                                
+                                                                
+                                
+                                {
+                                        text: 'Create a New List',
+                                        href: '/lists/edit/list',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Quicklists',
+                                        href: '/lists/quicklist',
+                                        icon: ''
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Encyclopedia',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },                        
+                        items:
+                        [
+                                {
+                                        text: 'Main Encyclopedia Page',
+                                        href: '/encyc',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Encyclopedia Browser',
+                                        href: '/encyc/list',
+                                        icon: '/img/icons/menu_encyc_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Statistics',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },                        
+                        items:
+                        [
+                                {
+                                        text: 'Main Statistics Page',
+                                        href: '/stats',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Statistics Browser',
+                                        href: '/stats/list',
+                                        icon: '/img/icons/menu_stats_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Scene',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Main Projects & Links Page',
+                                        href: '/links',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Links',
+                                        href: '/links/list',
+                                        icon: '/img/icons/menu_links_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Help',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Main Help Page',
+                                        href: '/help',
+                                        icon: '/img/icons/menu_help_main.png'
+                                },
+                                {
+                                        text: 'Help Browser',
+                                        href: '/help/list',
+                                        icon: '/img/icons/menu_help_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Articles',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Main Articles Page',
+                                        href: '/articles',
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Article Browser',
+                                        href: '/articles/list',
+                                        icon: '/img/icons/menu_articles_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Reviews',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Main Reviews Page',
+                                        href: '/reviews',
+                                        icon: ''
+                                },
+                                
+                                                                
+                                
+                                {
+                                        text: 'Review Browser',
+                                        href: '/reviews/list',
+                                        icon: '/img/icons/menu_reviews_search.png'
+                                }
+                        ]
+                })
+        });
+        
+        menubar.add
+        ({
+                text: 'Interviews',
+                iconCls: 'bmenu',
+                menu: Ext.create('Ext.menu.Menu',
+                {
+                        style:
+                        {
+                                overflow: 'visible'
+                        },
+                        defaults:
+                        {
+                                height: 28
+                        },
+                        items:
+                        [
+                                {
+                                        text: 'Main Interviews Page',
+                                        href: '/interviews',
+                                        
+                                        icon: ''
+                                },
+                                {
+                                        text: 'Interview Browser',
+                                        href: '/interviews/list',
+                                        
+                                        icon: '/img/icons/menu_interviews_search.png'
+                                }
+                        ]
+                })
+        });
+</script>	
+	<link href="/css/global.css?r=20130212" media="screen" rel="stylesheet" type="text/css" />
+	
+	<script src="/js/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="/js/highslide/highslide.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/highslide/highslide.css" />
+	
+	<script type="text/javascript">
+		hs.graphicsDir = '/js/highslide/graphics/';
+		hs.wrapperClassName = 'wide-border';
+	</script>	
+	
+        <script type="text/javascript">
+
+        var latestratingsdata =
+        [
+                [1217,2985,10,"Chaos Engine, The","",48580,"Cedric"],[1216,145,9,"Blitz Bombers","",4746,"Wayne"],[1215,5050,10,"Robinson\'s Requiem","",48580,"Cedric"],[1214,2399,7,"Manchester United: Premier League Champions","",51030,"happymondays"],[1213,3631,8,"Lothar Matthäus Super Soccer","",51030,"happymondays"],[1212,864,7,"Legends","",51030,"happymondays"],[1211,777,7,"Jahangir Khan\'s World Championship Squash","",51030,"happymondays"],[1210,3289,7,"Arabian Nights","",51030,"happymondays"],[1209,2398,7,"Manchester United Europe","",51030,"happymondays"],[1207,332,10,"Desert Strike: Return To The Gulf","",48580,"Cedric"],[1206,1874,10,"Sensible World Of Soccer \'96/\'97","",5054,"Playaveli"],[1205,2048,10,"Speedball 2: Brutal Deluxe","",5054,"Playaveli"],[1204,1260,10,"RoboCop","",48580,"Cedric"],[1203,781,10,"James Pond 2: Codename RoboCod","",4634,"hipoonios"],[1202,1129,10,"P.P. Hammer And His Pneumatic Weapon","",4634,"hipoonios"],[1201,1449,10,"Titus The Fox: To Marrakech And Back","",48580,"Cedric"],[1200,277,10,"Darkmere: The Nightmare\'s Begun","",213,"Steve"],[1199,421,10,"Dragonstone","",48580,"Cedric"],[1198,6052,4,"Where Time Stood Still","",5059,"mailman"],[1197,1633,10,"Zool: Ninja Of The \'\'Nth\'\' Dimension","",48580,"Cedric"],[1196,872,10,"Lemmings","",49737,"Knoeki"],[1195,764,10,"Hunter","",48580,"Cedric"],[1194,421,8,"Dragonstone","",6276,"Ultron"],[1193,420,8,"Dragonstone","",6276,"Ultron"],[1192,277,7,"Darkmere: The Nightmare\'s Begun","",6276,"Ultron"],[1191,1604,5,"Xenon","",6276,"Ultron"],[1190,2048,7,"Speedball 2: Brutal Deluxe","",6276,"Ultron"],[1189,2046,7,"Speedball","",6276,"Ultron"],[1188,2983,7,"Chaos Engine, The","",6276,"Ultron"],[1187,2984,7,"Chaos Engine, The","",6276,"Ultron"],[1186,2988,3,"Chaos Engine 2, The","",6276,"Ultron"],[1185,2987,3,"Chaos Engine 2, The","",6276,"Ultron"],[1184,2909,10,"Cadaver: The Pay Off","",6276,"Ultron"],[1183,3423,10,"Cadaver: The Last Supper","",6276,"Ultron"],[1182,2985,10,"Chaos Engine, The","",6276,"Ultron"],[1181,2754,10,"Gods","",6276,"Ultron"],[1180,2385,10,"Magic Pockets","",6276,"Ultron"],[1179,2047,10,"Speedball 2: Brutal Deluxe","",6276,"Ultron"],[1178,2907,10,"Cadaver","",6276,"Ultron"],[1177,1150,10,"Prince Of Persia","",48580,"Cedric"],[1176,5832,9,"Dent A Wolf","",51451,"Ami"],[1175,2754,10,"Gods","",48580,"Cedric"],[1174,2223,10,"Superfrog","",10647,"gogoac"],[1173,1878,10,"Settlers, The","",10647,"gogoac"],[1172,1860,10,"Monkey Island 2: LeChuck\'s Revenge","",10647,"gogoac"],[1171,1872,10,"Sensible World Of Soccer 95/96","",10647,"gogoac"],[1170,2437,10,"Mega Lo Mania","",48580,"Cedric"],[1169,1872,2,"Sensible World Of Soccer 95/96","",54586,"rootuid"],[1168,3414,10,"Kick Off 2: Giants of Europe","",54586,"rootuid"],[1167,5785,10,"Kick Off 2 (Enhanced)","",54586,"rootuid"]        ];
+        
+        var latestreviewsdata =
+        [
+                [3,"Mega-lo-maniac","2012-04-17 21:30:28",7627,"TheCyberDruid",2437,"Mega Lo Mania"],[2,"Somebody wake up Hicks...","2012-04-17 20:51:47",7627,"TheCyberDruid",3230,"Alien Breed"],[1,"Awful soccer game","2012-02-14 10:00:00",100,"Codetapper",1033,"EuroSoccer \'88 / Peter Beardsley\'s International Football"]        ];
+	
+        var latestlistsdata =
+        [
+                [14,"Best Games","2013-05-31 22:37:14",3540,"onkelarie"],[12,"Best 10 games","2012-10-10 10:06:16",12498,"ArcadeHeart"],[11,"Best Games","2012-04-18 02:29:43",7627,"TheCyberDruid"],[10,"Best Games","2012-04-17 19:38:45",7627,"TheCyberDruid"],[9,"Best Games","2012-02-15 20:53:55",100,"Codetapper"],[8,"Best Games","2012-02-12 12:51:23",25,"CodyJarrett"],[1,"Lore All Time List","2010-11-05 15:17:59",0,""],[7,"Amiga Power All-Time Top 100 6","2010-03-30 12:44:04",0,""],[6,"Amiga Power All-Time Top 100 5","2010-03-30 12:44:00",0,""],[5,"Amiga Power All-Time Top 100 4","2010-03-30 12:43:58",0,""],[4,"Amiga Power All-Time Top 100 3","2010-03-30 12:43:55",0,""],[3,"Amiga Power All-Time Top 100 2","2010-03-30 12:43:52",0,""],[2,"Amiga Power All-Time Top 100 1","2010-03-30 12:42:01",0,""]        ];
+        
+        var latestarticlesdata =
+        [
+                [10,"The Battle of Waterloo","2015-06-18"],[9,"A Captive Audience","2013-02-18"],[8,"James Bond on the Amiga","2012-10-30"],[7,"Directory Opus","2012-10-01"],[6,"(Some of) The Avengers Assemble on the Amiga","2012-05-06"],[5,"The Titanic on the Amiga - 100 Years Later","2012-04-15"],[4,"Haven&rsquo;t We Met Before? No. 1: Civilization I vs Civilization V","2012-03-27"],[3,"Pandora Review - Amiga Gaming on the Go","2012-03-06"],[2,"The Story Behind Hunter","2011-06-08"],[1,"Graftgold: Amiga Alchemy","2011-06-07"]        ];
+        
+        var latestinterviewsdata =
+        [
+                [85,"Thomas Agermose Jensen","2017-02-18 09:24:17"],[84,"Niki Hemmings","2017-02-18 09:14:23"],[83,"Angelo Bod","2017-02-18 08:52:30"],[82,"Phill Boag-Butcher (Galahad/FLT^SCX)","2013-12-24 11:58:00"],[81,"Mert Börü","2013-06-17 19:50:00"],[78,"Ian G. Harling","2013-02-26 10:27:00"],[65,"Brian van de Peer","2013-02-25 19:12:00"],[77,"Antony Crowther (Ratt/W.E.M.U.S.I.C.)","2013-02-18 21:11:00"],[76,"Kim Goossens","2012-11-15 21:06:07"],[75,"Erlend Robaye (Erland Robaye, Rataplan, Erroba)","2012-11-15 20:58:26"]        ];        
+        
+	var latestblogsdata =
+        [
+                [35,"General","Great Scott! New Back to the Future 2 Maps","great_scott_new_back_to_the_future_2_maps","2015-10-21 12:00:00","<p><a href=\"http://hol.abime.net/8/gamemap\" target=\"_blank\"><img src=\"http://hol.abime.net/pic_full/screenshot/0001-0100/8_screen6.png\" alt=\"Back to the Future 2\" /></a></p><p>Great Scott! It\'s October 21st 2015 and we\'re now officially in The Future. It\'s a good day for some new <a href=\"http://hol.abime.net/8/gamemap\" target=\"_blank\">Back to the Future 2 level maps</a>. The game itself is not very good.</p>",25,"CodyJarrett"],[34,"General","The Battle of Waterloo","the_battle_of_waterloo","2015-06-18 12:00:00","<p><a href=\"../../../../articles/view/article/id/10\"><img src=\"http://hol.abime.net/pic_full/screenshot/0501-0600/521_screen92.png\" alt=\"Waterloo\" /></a></p><p>Two hundred years ago today, on the 18th June 1815, the Napoleonic Wars came to a shattering conclusion at the Battle of Waterloo. Napoleon Bonaparte faced the Duke of Wellington\'s Anglo-Allied army and Gebhard von Bl&uuml;cher\'s Prussian army. In comparison to many of Napoleon and Wellington\'s previous battles there was little room for manoeuvre at Waterloo and the Anglo-Allied and French armies faced each other in a relatively small area. The repulse of Napoleon\'s Old Guard, his last reserve of elite veterans, and the arrival of the Prussians finally sealed the victory for the Anglo-Allied and Prussian forces.</p><p><a href=\"../../../../articles/view/article/id/10\">Amiga Lore fights Waterloo all over again on the Amiga</a>.</p>",25,"CodyJarrett"],[33,"General","Where Time Stood Still","where_time_stood_still","2014-08-01 12:00:00","<p><a href=\"games/view/game/id/6052\"><img src=\"http://hol.abime.net/pic_full/screenshot/6001-6100/6052_screen10.png\" alt=\"\" /></a></p><p>EAB member Galahad, of Putty Squad fame, has converted the Atari ST version of Where Time Stood Still to the Amiga. The game, also released on the Spectrum and DOS in 1988 is an isometric action \"lost world\" adventure.</p><p>Find out more on the <a href=\"http://eab.abime.net/showthread.php?t=74528\">EAB thread</a>!</p>",25,"CodyJarrett"],[32,"Amiga Games That Weren't","Amiga Putty Squad - the 19 Year Wait Is Over!","amiga_putty_squad_the_19_year_wait_is_over","2013-12-24 12:00:00","<p><a href=\"games/view/game/id/4395\"><img src=\"http://hol.abime.net/pic_full/screenshot/4301-4400/4395_screen79.png\" alt=\"\" /></a></p><p>Christmas Eve in 2013 has brought an extra special gift in the form of the Amiga version of Putty Squad. The English Amiga Board\'s Galahad has reconstructed the full game which is now available as a download from <a href=\"http://www.system3.com/promotional-download/puttysquadamiga/\" target=\"_blank\">System 3\'s website</a>.</p><p>Read the <a href=\"../../../../games/view/game/id/4395\">Amiga Games That Weren\'t entry</a> for more information about this extra special release.</p>",25,"CodyJarrett"],[31,"General","Maptapper is Released","maptapper_is_released","2013-06-25 12:00:00","<p>If you ever wondered how the <a href=\"http://hol.abime.net/hol_search.php?N_nb_gamemap=yes\" target=\"_blank\">maps on the Hall of Light</a>&nbsp;were created then Maptapper is for you. Since the start of the year Codetapper has been working on Maptapper, a Windows application designed to facilitate the creation of maps for the Hall of Light.</p><p><a href=\"http://eab.abime.net/project-maptapper/69711-maptapper-released.html\" target=\"_blank\">Maptapper was released</a> over the weekend so you can now try it yourself.</p><p>Also check out my tutorials which explain the techniques:</p><p><a href=\"http://eab.abime.net/project-maptapper/69739-maptapper-tutorial-part-1-introduction-basics.html\">Maptapper Tutorial Part 1 - Introduction &amp; The Basics</a></p><p><a href=\"http://eab.abime.net/project-maptapper/69740-maptapper-tutorial-part-2-kid-gloves-ii.html\">Maptapper Tutorial Part 2 - Kid Gloves II</a></p><p>The <a href=\"http://eab.abime.net/project-maptapper/\" target=\"_blank\">EAB forum for Maptapper</a> is the place to go if you have questions.</p>",25,"CodyJarrett"]        ];
+        
+        var top100data =
+        [
+                [1108,1,"Populous II: Trials Of The Olympian Gods",1991,"ECS|OCS"],[1872,2,"Sensible World Of Soccer 95/96",1995,"ECS|OCS"],[2917,3,"Cannon Fodder",1993,"ECS|OCS"],[872,4,"Lemmings",1991,"ECS|OCS"],[1860,5,"Monkey Island 2: LeChuck\'s Revenge",1992,"ECS|OCS"],[1871,6,"Sensible World Of Soccer",1994,"ECS|OCS"],[568,7,"Flashback",1992,"ECS|OCS"],[2048,8,"Speedball 2: Brutal Deluxe",1995,"CD32"],[332,9,"Desert Strike: Return To The Gulf",1993,"ECS|OCS"],[547,10,"Fire & Ice: The Daring Adventures Of Cool Coyote",1992,"ECS|OCS"],[563,11,"First Samurai, The",1991,"ECS|OCS"],[611,12,"MicroProse Formula One Grand Prix",1991,"ECS|OCS"],[764,13,"Hunter",1991,"ECS|OCS"],[799,14,"Jimmy White\'s \'Whirlwind\' Snooker",1991,"ECS|OCS"],[875,15,"Lemmings 2: The Tribes",1993,"ECS|OCS"],[1102,16,"Populous",1989,"OCS"],[1166,17,"Project-X (Revised Edition)",1993,"ECS|OCS"],[1373,18,"Theme Park",1994,"AGA"],[1535,19,"Turrican II: The Final Fight",1991,"ECS|OCS"],[1890,20,"Shadow Fighter",1995,"CD32"],[2437,21,"Mega Lo Mania",1991,"ECS|OCS"],[2560,22,"Kick Off 2",1990,"ECS|OCS"],[2918,23,"Cannon Fodder",1994,"CD32"],[90,24,"Beneath A Steel Sky",1994,"ECS|OCS"],[313,25,"Delphine Collection",1995,""],[441,26,"Dungeon Master",1988,"OCS"],[629,27,"Frontier: Elite II",1993,"ECS|OCS"],[1060,28,"Pinball Illusions",1995,"CD32"],[1633,29,"Zool: Ninja Of The \'\'Nth\'\' Dimension",1992,"ECS|OCS"],[1867,30,"Sensible Soccer: European Champions v1.1 (92/93 Edition)",1992,"ECS|OCS"],[1878,31,"Settlers, The",1993,"ECS|OCS"],[2047,32,"Speedball 2: Brutal Deluxe",1990,"ECS|OCS"],[2160,33,"Stunt Car Racer",1989,"OCS"],[2240,34,"SWIV",1991,"ECS|OCS"],[2249,35,"Syndicate",1993,"ECS|OCS"],[2628,36,"Indiana Jones And The Fate Of Atlantis: The Graphic Adventure",1993,"ECS|OCS"],[2754,37,"Gods",1991,"ECS|OCS"],[2795,38,"Greatest, The",1993,""],[2903,39,"Eye Of The Beholder",1991,"ECS|OCS"],[2985,40,"Chaos Engine, The",1993,"ECS|OCS"],[3134,41,"Cruise For A Corpse",1991,"ECS|OCS"],[4395,42,"Putty Squad",2013,"AGA"],[781,43,"James Pond 2: Codename RoboCod",1991,"ECS|OCS"],[928,44,"Lotus Esprit Turbo Challenge",1990,"ECS|OCS"],[1059,45,"Pinball Illusions",1995,"AGA"],[1191,46,"Rainbow Islands",1989,"OCS"],[1262,47,"RoboCop 3",1992,"ECS|OCS"],[1859,48,"Secret Of Monkey Island, The",1991,"ECS|OCS"],[3233,49,"Alien Breed II: The Horror Continues",1993,"ECS|OCS"],[3351,50,"Award Winners Gold Edition",1994,""],[32,51,"Banshee",1994,"CD32"],[171,52,"Body Blows",1993,"ECS|OCS"],[440,53,"Dune II: The Battle For Arrakis",1993,"ECS|OCS"],[548,54,"Fire & Ice: The Daring Adventures Of Cool Coyote",1994,"CD32"],[824,55,"Jungle Strike",1994,"CD32"],[850,56,"Leander",1991,"ECS|OCS"],[857,57,"Legend (Mindscape)",1992,"ECS|OCS"],[894,58,"Lionheart",1993,"ECS|OCS"],[930,59,"Lotus Turbo Challenge 2",1991,"ECS|OCS"],[949,60,"Nebulus",1988,"OCS"],[990,61,"No Second Prize",1992,"ECS|OCS"],[1057,62,"Pinball Fantasies",1993,"CD32"],[1164,63,"Project-X",1992,"ECS|OCS"],[1181,64,"Putty",1992,"ECS|OCS"],[1394,65,"Thunderhawk AH-73M",1991,"ECS|OCS"],[1866,66,"Sensible Soccer: European Champions",1992,"ECS|OCS"],[1928,67,"Sim City",1989,"OCS"],[2109,68,"Starglider 2",1988,"OCS"],[2213,69,"Super Stardust",1995,"CD32"],[2219,70,"Super Tennis Champs",1995,"ECS|OCS"],[2223,71,"Superfrog",1993,"ECS|OCS"],[2283,72,"Oh No! More Lemmings",1991,"ECS|OCS"],[2749,73,"Goal!",1993,"ECS|OCS"],[2812,74,"Gunship 2000",1994,"CD32"],[2904,75,"Eye Of The Beholder II: The Legend Of Darkmoon",1992,"ECS|OCS"],[3030,76,"Civilization",1992,"ECS|OCS"],[3232,77,"Alien Breed Special Edition 92",1992,"ECS|OCS"],[3298,78,"Archer MacLean\'s Pool",1992,"ECS|OCS"],[31,79,"Banshee",1994,"AGA"],[81,80,"B.C. Kid",1992,"ECS|OCS"],[340,81,"Deuteros: The Next Millennium",1991,"ECS|OCS"],[474,82,"F-15 Strike Eagle II",1991,"ECS|OCS"],[478,83,"F-19 Stealth Fighter",1990,"ECS|OCS"],[480,84,"F29 Retaliator",1990,"ECS|OCS"],[486,85,"Falcon",1989,"OCS"],[630,86,"Frontier: Elite II",1993,"CD32"],[861,87,"Fables & Fiends: Book One - The Legend Of Kyrandia",1992,"ECS|OCS"],[925,88,"Lost Vikings, The",1993,"ECS|OCS"],[1037,89,"PGA European Tour",1995,"CD32"],[1038,90,"PGA Tour Golf",1991,"ECS|OCS"],[1063,91,"Pinball Prelude",1995,"AGA"],[1105,92,"Populous: The Promised Lands",1989,"OCS"],[1160,93,"Pro Tennis Tour 2",1991,"ECS|OCS"],[1189,94,"Railroad Tycoon",1991,"ECS|OCS"],[1449,95,"Titus The Fox: To Marrakech And Back",1992,"ECS|OCS"],[1480,96,"Tower Of Babel",1990,"ECS|OCS"],[1533,97,"Turrican",1990,"ECS|OCS"],[1605,98,"Xenon 2: Megablast",1989,"OCS"],[1643,99,"Zork Zero: The Revenge Of Megaboz",1989,"OCS"],[1723,100,"Wings",1990,"ECS|OCS"]        ];        
+        
+</script>
+
+<script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.cycle.lite.min.js"></script>
+
+<script src="/js/lore/index_index_index.js?r=20120518" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+        Ext.onReady(function()
+        {
+                
+Ext.define("HeaderGameSearch",
+{
+        extend: 'Ext.data.Model',
+        proxy:
+        {
+                type: 'ajax',
+                url : '/games/list/headergamesearch',
+                reader:
+                {
+                        type: 'json',
+                        root: 'items',
+                        totalProperty: 'total'
+                },
+		actionMethods:
+		{
+			read: 'POST'
+		}
+        },
+        fields:
+        [
+                {
+                        name: 'game_id'
+                },
+                {
+                        name: 'gamename'
+                },
+                {
+                        name: 'Y_released'
+                },
+                {
+                        name: 'hardware'
+                },
+                {
+                        name: 'licence'
+                },
+                {
+                        name: 'masterscores_rating'
+                },
+                {
+                        name: 'userscores_rating'
+                },
+                {
+                        name: 'developer'
+                },
+                {
+                        name: 'publisher'
+                },
+                {
+                        name: 'theorder'
+                }
+        ]
+});
+
+header_gamesearch = Ext.create('Ext.data.Store',
+{
+        pageSize: 10,
+        model: 'HeaderGameSearch'
+});
+
+var User = new Ext.toolbar.TextItem();
+User.setText('');
+var UserLevel = new Ext.toolbar.TextItem();
+//var clock = new Ext.Toolbar.TextItem('');
+
+Ext.create('Ext.Viewport',
+{
+        layout:
+        {
+                type: 'border'
+                //padding: 5
+        },
+        defaults:
+        {
+                
+        },
+        items:
+        [
+                new Ext.Panel
+		({
+                        region: 'north',
+                        id: 'northpanel',
+                        header: false,
+                        border: false,
+                        //height: 153,
+                        //margins:'4 4 4 4',
+                        items:
+                        [
+                                new Ext.Panel(
+                                {
+                                        id: 'header',
+                                        frame: false,
+                                        border: false,
+                                        header: false,
+                                        //height: 100,
+                                        margins:'1 1 1 1',
+                                        html: '<div id="thebanner" class="headerbackground"><a href="http://www.abime.net"><img src="/img/header/header5.png?r=20121001" /></a></div>'
+                                        //contentEl: 'header_content',
+                                }),
+                                menubar,
+                                new Ext.Toolbar
+                                ({
+                                        id: 'statusbar',
+                                        items:
+                                        [
+                                                new Ext.toolbar.TextItem
+                                                ({
+                                                        html:'&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.abime.net">Lore</a> / '
+                                                }),
+                                                '->',
+                                                
+						Ext.create('Ext.form.Panel',
+						{
+						
+							id: 'searchformpanel',
+							width: 320,
+							height: 23,
+							frame: false,
+							border: false,
+							items:
+							[
+								{
+									layout:
+									{
+										type: 'hbox',
+										defaultMargins:
+										{
+											top: 0,
+											right: 10,
+											bottom: 0,
+											left: 0
+										}
+									},
+									xtype : 'fieldcontainer',
+									border: '0',
+									defaults:
+									{
+										hideLabel: true
+									},
+									items :
+									[
+										{
+											xtype: 'combo',
+											id: "header_gamesearch",
+											width: 300,
+											store: header_gamesearch,
+											displayField: 'title',
+											typeAhead: false,
+											hideLabel: false,
+											fieldLabel: 'Game name',
+											labelWidth: 68,
+											hideTrigger:true,
+											anchor: '100%',
+											margin: 0,
+											listConfig:
+											{
+												loadingText: 'Searching',
+												emptyText: 'No games found',
+												getInnerTpl: function()
+												{
+													return '<a href="/games/view/game/id/{game_id}">{gamename} {hardware}</a>';
+												}
+											},
+											pageSize: false
+										}
+									]
+								}
+							]
+						}),
+                                                
+                                                							
+								Ext.create('Ext.form.Panel',
+								{
+								
+									id: 'loginformpanel',
+									width: 450,
+									height: 23,
+                                                                        frame: false,
+                                                                        border: false,
+									items:
+									[
+										{
+											layout:
+											{
+												type: 'hbox',
+												defaultMargins:
+                                                                                                {
+                                                                                                        top: 0,
+                                                                                                        right: 10,
+                                                                                                        bottom: 0,
+                                                                                                        left: 0
+                                                                                                }
+											},
+											xtype : 'fieldcontainer',
+                                                                                        border: '0',
+											msgTarget: 'side',
+											fieldLabel: '<a href="/auth/register">Register</a> &nbsp;&nbsp;&nbsp;Login',
+											labelWidth: 82,
+											defaults:
+											{
+												hideLabel: true
+											},
+											items :
+											[
+												{
+													xtype: 'textfield',
+													flex : 1,
+													name : 'username',
+													fieldLabel: 'Username',
+													allowBlank: false,
+                                                                                                        listeners:
+                                                                                                        {
+                                                                                                                specialkey: function(f,e)
+                                                                                                                {
+                                                                                                                        if (e.getKey() == e.ENTER)
+                                                                                                                        {
+                                                                                                                                Ext.getCmp("loginformpanel").login();
+                                                                                                                        }
+                                                                                                                }
+                                                                                                        }
+												},
+												{
+													xtype: 'textfield',
+													flex : 1,
+													inputType:'password',
+													name : 'password',
+													fieldLabel: 'Password',
+													allowBlank: false,
+													margins: '0',
+                                                                                                        listeners:
+                                                                                                        {
+                                                                                                                specialkey: function(f,e)
+                                                                                                                {
+                                                                                                                        if (e.getKey() == e.ENTER)
+                                                                                                                        {
+                                                                                                                                Ext.getCmp("loginformpanel").login();
+                                                                                                                        }
+                                                                                                                }
+                                                                                                        }
+												},
+												new Ext.Button
+												(
+													{
+														text:'Login',
+														style: 'padding-left: 5px;',
+														handler:function()
+														{
+															Ext.getCmp("loginformpanel").login();
+														}
+													}
+												)
+											]
+										}
+									],
+									login: function()
+									{
+										if (Ext.getCmp("loginformpanel").getForm().isValid())
+										{
+											var loginmessage = Ext.MessageBox.show
+											({
+												title: 'Log in',
+												msg: 'Logging in ...',
+												progressText: 'Authenticating...',
+												width: 300,
+												progress: true,
+												closable: false,
+												animEl: 'mb6'
+											});
+	
+											Ext.Ajax.request
+											({
+												url: '/auth/identify',
+												method: 'POST',
+												params:
+												{
+													'username': Ext.getCmp("loginformpanel").getForm().getValues().username,
+													'password': Ext.getCmp("loginformpanel").getForm().getValues().password
+												},
+												scripts: true,
+												success: function(response, thisrequest)
+												{
+													if( response.responseText == true )
+													{
+														//loginmessage.hide();
+														window.location.reload();
+													}
+													else
+													{
+														loginmessage.hide();
+	
+														Ext.MessageBox.show
+														({
+															title: 'Log In Error',
+															msg: 'Incorrect username/password!',
+															buttons: Ext.MessageBox.OK,
+															animEl: 'mb9'
+															//fn: showResult,
+															//icon: Ext.get('icons').dom.value
+														});
+	
+													}
+												},
+												failure: function(response, thisrequest)
+												{
+													loginmessage.hide();
+												}
+											});
+										}
+									}
+								})
+                                                                                        ]
+                                })
+                        ]
+                }),
+                centre
+        ]
+});
+
+        });
+
+</script>
+
+<div id="index_index_index_intro_content" class="x-hidden">
+<h1>Welcome to Amiga Lore!</h1>
+<p>Amiga Lore is an updated version of abime.net's web portal. It's your gateway to the Amiga world of the <a target="_BLANK" href="http://hol.abime.net">Hall of Light</a>, the <a target="_BLANK" href="http://eab.abime.net">English Amiga Board</a>, the <a target="_BLANK" href="http://amr.abime.net">Amiga Magazine Rack</a>, <a href="http://www.abime.net/agtw">Amiga Games That Weren't</a> and <a href="http://www.abime.net/apov">Amiga Point of View</a>. Powered by the <a target="_BLANK" href="http://hol.abime.net">HOL</a> and the <a target="_BLANK" href="http://amr.abime.net">AMR</a>!</p>
+</div>
+
+
+<div id="index_index_index_articles" class="x-hidden">
+	<div id="controls">
+		<a href="" class="prev">Prev</a>
+		<a href="" class="next">Next</a>
+	</div>
+	<div id="index_index_index_articles_content">
+		
+					
+			<div id="index_index_index_article" title="Directory Opus"><div class="index_index_index_article_header">Directory Opus</div><a href="/articles/view/article/id/7"><img src="/img/files/articles/7.png"></a><span style="top: 225px; left: 140px; width: 270px; height: 43px; padding: 7px;" id="index_index_index_article_text">The evolution of the Amiga and PC's best file manager; Directory Opus.</span></div>
+			
+						
+			<div id="index_index_index_article" title="Graftgold: Amiga Alchemy"><div class="index_index_index_article_header">Graftgold: Amiga Alchemy</div><a href="/articles/view/article/id/1"><img src="/img/files/articles/1.png"></a><span style="top: 115px; left: 115px; width: 195px; height: 52px; padding: 7px;" id="index_index_index_article_text">Lore tells the story behind the developer Graftgold!</span></div>
+			
+						
+			<div id="index_index_index_article" title="The Story Behind Hunter"><div class="index_index_index_article_header">The Story Behind Hunter</div><a href="/articles/view/article/id/2"><img src="/img/files/articles/2.png"></a><span style="top: 230px; left: 10px; width: 260px; height: 40px; padding: 5px;" id="index_index_index_article_text">Amiga Lore finds out about the classic Hunter and speaks to its programmer, Paul Holmes.</span></div>
+			
+				</div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($)
+{
+	$('#index_index_index_articles_content').cycle
+	({
+		fx: 'fade',
+		pause: 1,
+		speed: 250,
+		next: '#controls .next',
+		prev: '#controls .prev',
+		timeout: 6000
+	});
+});
+</script>	
+		
+	<script type="text/javascript">
+	
+		var hideMask = function ()
+		{
+		    Ext.get('loading').remove();
+		    Ext.fly('loading-mask').animate({
+			opacity:0,
+			remove:true
+		    });
+		};
+	
+		Ext.defer(hideMask, 250);
+	
+	</script>
+	
+		
+	        
+        <noscript style="background-color: #D4E1F2;">
+                <p style="padding: 10px;">
+                        <img src="/img/header/header3.png">
+                </p>
+                <p style="padding: 10px; font-family: tahoma,arial,verdana,sans-serif; font-size: 12px;">
+                        This website is heavily reliant on JavaScript. Please enable JavaScript to view it.
+                </p>
+                <p style="padding: 10px; font-family: tahoma,arial,verdana,sans-serif; font-size: 12px;">
+                        You can still access some of the individual websites of the Abime network directly; the <a target="_BLANK" href="http://hol.abime.net">Hall of Light</a>, the <a target="_BLANK" href="http://eab.abime.net">English Amiga Board</a> and the <a target="_BLANK" href="http://amr.abime.net">Amiga Magazine Rack</a>.
+                </p>
+                <p style="padding: 10px; font-family: tahoma,arial,verdana,sans-serif; font-size: 12px;">
+                        Alternatively, you can visit the <a href="http://old.abime.net">old Abime.net portal</a>.
+                </p>
+        </script>
+</body>
+</html>

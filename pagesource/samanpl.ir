@@ -1,0 +1,1374 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+
+    <meta name="DESCRIPTION" content="سامانه مدیریت کتابخانه نهاد کتابخانه های عمومی کشور ، با عضویت در این سامانه می توانید از کلیه کتابخانه های عمومی کشور کتاب امانت گرفته و از تمامی امکانات کتابخانه های عمومی کشور استفاده نمائید ، تمدید مدرک امانتی بدون مراجعه به کتابخانه امکانپذیر خواهد بود ." />
+    <meta name="KEYWORDS" content="عضویت کتابخانه ، کتابخانه عمومی ، نهاد کتابخانه های عمومی ، عضویت سراسری ، سامانه مدیریت کتابداری ، کتابداری ، کتاب ، امانت کتاب ، عضویت کتابخانه ، تمدید کتاب ، تمدید عضویت ، سامان ، نرم افزار مدیریت کتابخانه سامان ، عضویت در سامان ، کتابدار ، کتابداری ، کتاب تست ، کتاب رمان ، کتاب کمک درسی ، جستجوی کتاب ،سامانه کتابخانه ، saman ، samanpl ، سامان ، نرم افزار سامان" />
+    <meta name="COPYRIGHT" content="کلیه حقوق این سامانه برای نهاد کتابخانه های عمومی کشور محفوظ می باشد" />
+    <meta name="AUTHOR" content="واحد فناوری اطلاعات نهاد کتابخانه های عمومی کشور" />
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+
+    <link href="/Content/Combine/combine.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Area/Amar/spinner.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/Scripts/combine/Combine.all.js"></script>
+
+
+
+
+
+
+    <script type="text/javascript" src="/Scripts/persianDatePicker/jquery.ui.datepicker-cc.all.min.js?v=1.10.1"></script>
+
+
+
+
+    <title>نرم افزار مدیریت کتابخانه سامان | نهاد کتابخانه های عمومی کشور</title>
+
+    <script>
+
+
+        $(document).ready(function () {
+            $('#login-trigger').click(function () {
+                $(this).next('#login-content').slideToggle();
+                $(this).toggleClass('active');
+
+                if ($(this).hasClass('active'))
+                    $(this).find('span').html('&#x25B2;')
+                else
+                    $(this).find('span').html('&#x25BC;')
+            })
+
+        });
+        function UpdateWarning(content) {
+            $("#topmenu").prepend("<div class=\"DivUpdateWarning\">" + content + "</div>");
+
+        }
+        setTimeout(function () {
+            $('#MessagePopUp').fadeOut('slow');
+        }, 5000);
+    </script>
+    <style>
+        .DivUpdateWarning {
+            background-color: azure;
+            font-weight: normal;
+            font-size: medium;
+            border-radius: 5px;
+            padding: 1% 0;
+            color: crimson;
+            text-align: center;
+        }
+    </style>
+
+
+    
+
+
+    <style>
+        /*najm*/
+        /*
+
+        #Wrapper {
+                    -moz-min-width: 1280px !important;
+                    -ms-min-width: 1280px !important;
+                    -o-min-width: 1280px !important;
+                    -webkit-min-width: 1280px !important;
+                    min-width: 1280px !important;
+                }*/
+    </style>
+    <link href="/Content/css/animate.css" rel="stylesheet" />
+    <script src="/Scripts/JQuery/animatecss.js"></script>
+
+    
+    <script src="/Scripts/Area/Share/Feathers/toastr.min.js"></script>
+    
+    <link href="/Scripts/Area/Share/Feathers/toastr.min.css" rel="stylesheet" />
+
+
+
+</head>
+<div id="BrowserWarning" style="display: none; background-color: lemonchiffon; color: darkblue; vertical-align: top; text-align: center; height: 50px">
+    <br />
+    کاربر گرامی !؛ لطفا به منظور بهره گیری از کلیه قابلیت های سامانه از مرورگر  <a href="/Content/Area/Share/MasterPage/Chrome.exe">گوگل کروم </a>(ورژن 29 به بالا) و <a href="/Content/Area/Share/MasterPage/Firefox.exe">موزیلا فایرفاکس</a> (ورژن 23 به بالا) استفاده نمائید.
+    <br />
+</div>
+
+<script>
+        if (!$.browser.chrome && !$.browser.mozilla) {
+            document.getElementById('BrowserWarning').style.display = 'inherit';
+        }
+</script>
+
+
+
+<body>
+    <noscript>
+        <style>
+            .BodyContainer {
+                display: none;
+            }
+
+            #noscript {
+                display: initial !important;
+            }
+        </style>
+
+
+
+    </noscript>
+
+
+
+
+    <h3 id="noscript" style="display: none;text-align: center">شما در حال استفاده از مرورگر غیر استاندارد هستید</h3>
+
+    <div class="BodyContainer">
+        <div id="topmenu">
+            <div id="logindisplay" class="cf">
+                
+
+
+<script type="text/javascript">
+    function LoginClick(UserName, Password, RememberMe) {
+        $('#loginButton').prop('disabled', true);
+
+        if (UserName == "" || Password == "") {
+            $('#loginButton').prop('disabled', true);
+            document.getElementById("ErrorDiv").innerHTML = 'لطفاً نام کاربری و رمز عبور را وارد نمائید.';
+            document.getElementById("ErrorDiv").innerHTML = 'لطفاً نام کاربری و کلمه عبور را وارد نمائید.';
+            return;
+        }
+
+        if (!$.browser.chrome && !$.browser.mozilla) {
+            $('#loginButton').prop('disabled', true);
+            document.getElementById("ErrorDiv").innerHTML = 'به منظور استفاده بدون مشکل از سامانه از مرورگر Chrome یا FireFox استفاده نمائید.';
+        } else {
+            document.getElementById("Spinner").style.display = 'inherit';
+            $.ajax({
+                type: 'POST',
+                url: "/Account/_LoginJson",
+                data: { "UserName": UserName, "Password": Password, "RememberMe": RememberMe, "returnUrl": window.location.href.toString().split(window.location.host)[1] },
+                success: function (data) {
+
+                    if (data.result == "Success") {
+                        var ff = "";
+                        if (data.returnUrl != "Empty") {
+                            ff = data.returnUrl.toString().replace('#', '');
+                        } else {
+                            ff = "/";
+                        }
+                        window.location = ff;
+                        return;
+
+                    } else if (data.result == "VerifyRequired") {
+                        window.location = "/Account/VerifyEmail?email=" + data.email + "&userId=" + data.userId;
+                        return;
+                    }
+                    else if (data.result == "twofactorneeded")
+                    {
+                        window.location = "/Account/SendTwoFactorCode?email=" + data.email + "&userId=" + data.userId + "&ReturnUrl=" + window.location.href.toString().split(window.location.host)[1];
+                        return
+                    }
+                    else {
+                        $('#loginButton').removeAttr('disabled');
+                    }
+
+                    document.getElementById("ErrorDiv").innerHTML = data.result;
+                    document.getElementById("Spinner").style.display = 'none';
+                },
+                Error: function (data) {
+                    $('#loginButton').removeAttr('disabled');
+
+                    document.getElementById("ErrorDiv").innerHTML = 'رخداد خطا';
+                    document.getElementById("Spinner").style.display = 'none';
+                }
+            });
+        }
+
+    }
+
+    function TextBockKeyPress(e) {
+        if (e.keyCode == 13) {
+            LoginClick($('#UName').val(), $('#Password').val(), document.getElementById('RememberMe').checked);
+        }
+    }
+
+    function someFunctionForLogin() {
+
+        LoginClick($('#UName').val(), $('#Password').val(), document.getElementById('RememberMe').checked);
+    }
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    $(function () {
+        $('#loginButton').click(someFunctionForLogin);
+        $('#login-content-frm').on('submit', function (event) { event.preventDefault(); });
+
+        var validateUsername1 = function (e) {
+            var UName = $('#UName').val();
+            //var splCharsFlag = /[-!$%^#@&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(UName);
+            var persianflag = /[\u0600-\u06FF]/.test(UName);
+            if (persianflag) {
+                $('#wrongkeyboard').html('شما در حال تایپ به زبان فارسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید');
+            } else {
+                $('#wrongkeyboard').html('');
+            }
+            //if ((e.charCode >= 97 && e.charCode <= 122) || (e.charCode >= 65 && e.charCode <= 90) || splCharsFlag) {
+            //    $('#wrongkeyboard').html('');
+            //}
+            //else if (isPersian(e.key)) {
+            //    $('#wrongkeyboard').html('شما در حال تایپ به زبان فارسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید')
+            //}
+            //else {
+            //    if (!isNumeric(e.key)) {
+            //        $('#wrongkeyboard').html('شما در حال تایپ به زبانی غیر از انگلیسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید')
+            //    } else {
+            //        $('#wrongkeyboard1').html('');
+            //    }
+            //}
+        }
+
+        var usernamefield = document.getElementById('UName');
+        if (usernamefield) {
+            usernamefield.addEventListener('keypress', validateUsername1);
+            usernamefield.addEventListener('focus', validateUsername1);
+        }
+        var passwordfield = document.getElementById('Password');
+
+        var validatepassword1 =  function (e) {
+            var pass = $('#Password').val();
+             
+            //var splCharsFlag = /[-!$%^#@&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(UName);
+            var persianflag = /[\u0600-\u06FF]/.test(pass);
+            if (persianflag) {
+                $('#wrongkeyboard').html('شما در حال تایپ به زبان فارسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید');
+            } else {
+                $('#wrongkeyboard').html('');
+            }
+            //var splCharsFlag = /[-!$%^#@&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(pass);
+                
+            //if ((e.charCode >= 97 && e.charCode <= 122) || (e.charCode >= 65 && e.charCode <= 90) || splCharsFlag) {
+            //    $('#wrongkeyboard').html('');
+            //}
+            //else if (isPersian(e.key)) {
+            //    $('#wrongkeyboard').html('شما در حال تایپ به زبان فارسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید')
+            //}
+            //else {
+            //    if (!isNumeric(e.key)) {
+            //        $('#wrongkeyboard').html('شما در حال تایپ به زبانی غیر از انگلیسی می باشید لطفا نام کاربری و رمز عبور را به زبان انگلیسی تایپ کنید')
+            //    } else {
+            //        $('#wrongkeyboard1').html('');
+            //    }
+            //}
+        }
+
+        if (passwordfield) {
+            passwordfield.addEventListener('keypress', validatepassword1);
+            passwordfield.addEventListener('focus', validatepassword1);
+        }
+        function isPersian(str) {
+            var p = /^[\u0600-\u06FF\s]+$/;
+            return p.test(str);
+        }
+
+
+    })
+
+
+</script>
+
+
+<form action="/" id="login-content-frm" method="post">        <nav>
+            <ul>
+                <li id="time" class="tmenu">
+                    <a style=" display: inline-block; height: 20px; line-height: 20px; font-weight: bold; font-size: 8pt; padding: 0 8px; text-decoration: none; color: #444; text-shadow: 0 1px 0 #fff; text-align: right;">1396 اسفند 27 </a>
+
+                </li>
+                <li><a id="times" href="#" style=" display: inline-block; height: 20px; line-height: 20px; font-weight: bold; font-size: 8pt; padding: 0 8px; text-decoration: none; color: #444; text-shadow: 0 1px 0 #fff; text-align: right;"></a></li>
+                <li id="login" class="tmenu">
+                    <a id="login-trigger" href="#">
+                        ورود <span>▼</span>
+                    </a>
+                    <div id="login-content">
+                        <fieldset id="inputs" style="width: 250px">
+                            <input type="text" placeholder="نام کاربری" lang="en" name="UName" id="UName" onkeypress="TextBockKeyPress(event);" autocomplete="on" />
+                            <input type="password" placeholder="کلمه عبور" name="Password" id="Password" onkeypress="TextBockKeyPress(event);" autocomplete="on" />
+                            <span style="color:red" id="wrongkeyboard"></span>
+                        </fieldset>
+                        <fieldset id="actions" style="width: 250px">
+                            <input id="loginButton" type="submit" class="btn" value="ورود">
+                            <img id="Spinner" style="display: none; width: 20px; margin-bottom: -3px; float: left; position: relative;" src="/Content/Area/Share/Ajax/Spinner1.gif" />
+                            <input type="checkbox" id="RememberMe" name="RememberMe" />
+                            نام کاربری ذخیره شود ؟
+                            <br />
+                            <a href="/Account/ForgetPassword"> کلمه عبور را فراموش کرده ام. </a>
+                            <br /><a href="/Account/LockedPassword"> کاربری ام غیر فعال شده است. </a>
+                            <br />
+                            <div id="ErrorDiv" style="color: red;">
+                            </div>
+                        </fieldset>
+                    </div>
+                </li>
+                <li id="signup" class="tmenu">
+                    <a href="/Account/RegisterRequest">ثبت نام</a>
+                </li>
+
+                <li id="Home">
+                    <a href="/" class="CustomSprite sprite-Home1">
+                        
+
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+</form><script>
+    function isValidPassword(password) {
+        var unicodeRange = "\\u0100-\\u0105";
+        var criteria = ["A-Z", "a-z", "\\d", "!$#%", unicodeRange];
+
+        // check whether it doesn't include other characters
+        var re = new RegExp("^[" + criteria.join("") + "]{6,}$");
+        if (!re.test(password)) return false;
+
+        var minSatisfiedCondition = 3;
+        var satisfiedCount = 0;
+        for (var i = 0; i < criteria.length; i++) {
+            re = new RegExp("[" + criteria[i] + "]");
+            if (re.test(password))++satisfiedCount;
+
+        }
+        return (satisfiedCount >= minSatisfiedCondition);
+    }
+    var today = new Date();
+    var h = today.setHours('17');
+    var m = today.setMinutes('14');
+    var s = today.setSeconds('11');
+
+    $(function () {
+
+        setInterval(function () {
+
+            starttime(today);
+        }, 1000);
+
+        setInterval(function () {
+
+            getdate();
+        }, 500);
+    });
+
+
+    var t_point = false;
+    function starttime(today1) {
+        var temp = new Date(today1);
+        temp.setSeconds(temp.getSeconds() + 1);
+        today = temp;
+    }
+
+    function getdate() {
+
+        var h = String(today.getHours());
+        var m = String(today.getMinutes());
+
+        var s = String(today.getSeconds());
+        if (s.length == 1) {
+            s = '0' + s;
+
+        }
+        if (m.length == 1) {
+            m = '0' + m;
+
+        }
+        if (h.length == 1) {
+            h = '0' + h;
+
+        }
+        // console.log(h + ":" + m + ":" + s);
+        if (!t_point) {
+            document.getElementById('times').innerHTML =
+           h + "<span>:</span>" + m + "<span>:</span>" + s;
+            t_point = true;
+        } else {
+
+            document.getElementById('times').innerHTML =
+              h + "<span style='color:#eee'>:</span>" + m + "<span style='color:#eee'>:</span>" + s;
+            t_point = false;
+        }
+
+    }
+
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+
+            </div>
+        </div>
+
+        <div id="Wrapper">
+            <div id="Header">
+
+                <div id="HorizontalMenuDiv">
+
+
+
+<script type="text/javascript">
+
+    function centerAlignFull() {
+        var menuCss = document.getElementById("HorizontalMenu");
+        var LIs = menuCss.childNodes;
+        var firstLI;
+        var netWidth = 0;
+        for (var i = 0, len = LIs.length; i < len; i++) {
+            if (LIs[i].nodeName == "LI") {
+                if (!firstLI) firstLI = LIs[i];
+                netWidth += LIs[i].offsetWidth;
+            }
+        }
+        if (firstLI) firstLI.style.marginLeft = (menuCss.offsetWidth - netWidth) / 2 - 1 + "px";
+    }
+
+    var addToPageLoadEvent = function (el, eventName, eventHandler) {
+        if (el.addEventListener)
+            el.addEventListener(eventName, eventHandler, false);
+        else if (el.attachEvent) //IE
+            el.attachEvent('on' + eventName, eventHandler);
+    };
+
+    addToPageLoadEvent(window, "load", centerAlignFull);
+</script>
+
+<ul id="HorizontalMenu" class="menuTemplate1 decor1_1">
+
+        <li><a href=" " >تماس با ما</a>
+        <div class="drop dropToLeft" style="width:110px">
+                            <a href=/contactus/contactus/RecirectToFAQ/>سوالات متداول</a><br />
+                            <a href=/contactus/contactus/Create/>تماس با ما</a><br />
+            <div style='clear: both;'></div>
+        </div>
+
+        </li>
+        <li><a href=" " >جستجو</a>
+        <div class="drop dropToLeft" style="width:110px">
+                            <a href=/lsearch/lsearch/Index/>آزاد</a><br />
+                            <a href=/search/professionalsearch/Index/>پیشرفته</a><br />
+                            <a href=/search/fsearch/Index/>فهرستگان</a><br />
+            <div style='clear: both;'></div>
+        </div>
+
+        </li>
+</ul>
+<div class="clear"></div>
+
+
+
+                </div>
+
+
+
+                    <div style="align-content: center; text-align: center;">
+                        <img src="/Image/Content/HomePageBanner/banner96.gif?id=f4b3a70a-653e-4e36-b846-759cdbde9800" width="950" height="98" />
+
+
+                    </div>
+
+            </div>
+            <div>
+
+
+
+
+
+   
+
+            </div>
+
+
+
+            <div id="inner">
+
+
+                <div>
+                    <br />
+
+
+
+                    
+
+                    
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
+<script src="/Scripts/Area/Share/Public/scrollingcarousel.2.0.js"></script>
+<script src="/Scripts/Area/Search/jquery.alerts.js"></script>
+<link href="/Content/Area/Search/jquery.alerts.css" rel="stylesheet" />
+
+<script src="/Scripts/Area/Share/jquery.nicescroll.min.js"></script>
+
+
+<style>
+    .carousel-demo {
+        width: 100%;
+        text-align: center;
+        height: 150px;
+       
+      
+    }
+
+    .carousel-demo-vertical {
+        height: 140px;
+        /*width: 100%;*/
+        float: right;
+        text-align: center;
+    }
+
+    .carousel-demo li {
+        /*background:aliceblue;*/
+        border: 1px solid #fff;
+        /*color:#666;*/
+        float: left;
+        /*font-weight:bold;*/
+        font-size: 10px;
+        height: 150px;
+        list-style: none;
+        padding: 20px 0 0 0;
+        margin: 0 10px 0 0;
+        text-align: center;
+        width: 100px;
+        text-align: center;
+    }
+
+    .carousel-demo-vertical li {
+        margin: 0 0 0 0;
+    }
+
+    .blockFieldSet {
+        border: 2px;
+        border-style: solid;
+        border-color: #D1D1D1;
+        box-shadow: 3px 3px 10px #D3D3D3;
+        width: 98%;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+    }
+
+    .divHeader {
+        /*background-color: #E0FFEF;*/
+        text-align: center;
+        background-image: url('/Content/Area/Share/MasterPage/Title2222.gif');
+        font-weight: normal;
+        color: white;
+        width: 100%;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+
+    .SliderImageClass {
+        border-radius: 10px;
+        width: 90px;
+        height: 100px;
+        box-shadow: 5px 5px 5px lightgray;
+    }
+
+    .SliderLabel {
+        color: grey;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .QuickLink {
+        color: steelblue;
+        padding: 0;
+    }
+
+        .QuickLink li a {
+            color: steelblue;
+            line-height: 20px;
+        }
+</style>
+
+
+
+
+
+
+
+
+
+<table style="width: 100%" cellpadding="8px">
+    <tr style="width: 100%">
+        <td style="vertical-align: top; width: 20%">
+          
+
+        <style>
+            .nicescroll-rails-vr {
+                display: block!important;
+            }
+        </style>
+            <div >
+                 <div class="blockFieldSet" style="background:lightgreen;">
+                     <br />
+                    <div><a href="http://refah.iranpl.ir/iranpl/refahindex/" style="font-size: 12pt">سامانه رفاهی</a> </div>
+                     <br />
+                 </div>
+                <div class="blockFieldSet" id="blockFieldSet_scroll">
+                    <div class="divHeader">اطلاعیه ها</div>
+                   
+                    <br/>
+                            <div class="blockFieldSet_body" style="max-height:200px;">
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=46">دریافت فایل نورسیده‌ها</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=4">گزارش بارکدهای تکراری</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=55">فعال‌سازی کارتابل درخواست وجین</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=26">راهنمای ویرایش رده در محل</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=50">پیش‌نویس دستورالعمل‌های کتابخانه‌های عمومی</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=49">تغییر در فرایند ثبت نشریه</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=45">پیگیری کتاب‌های دیرکردی</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=5">بسیار مهم - راهنمای رفع اشکالات</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=41">نحوه دریافت آمار از سامان</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=36">تغییرات در کاربرگه و وضعیت نسخ</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=27">راهنمای تجمیع کاربران</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=40">تغییرات جدید در سامانه</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=31">راهنمای درخواست ورود اطلاعات</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=35">دستورالعمل عضویت سراسری</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=39">ارسال خودکار پیامک اخطار دیرکرد</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=33">تغییرات جدید در کاربرگه نسخ</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=23">گزارش شماره ثبت‌های تکراری</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=15">راهنمای تمدید آنلاین</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=18">راهنمای ثبت‌نام آنلاین اعضاء</a>
+                                </div>
+                                <div style="text-align: right; padding-right: 6px">
+                                    <a class="QuickLink" style="font-size: 9pt;line-height: 20px;" href="/Common/HomePageAnnouncement/Read?Id=19">نکاتی در خصوص بازخورد</a>
+                                </div>
+                                </div>
+
+                    <br/>
+                </div>
+                <script>
+
+                    $(".blockFieldSet_body").niceScroll({
+                        cursorwidth: "8px",
+                        railalign: "left"
+                    });
+                </script>
+                
+                
+
+
+
+            </div>
+
+            <br />
+
+
+        
+        <div>
+            <div class="blockFieldSet">
+                <div class="divHeader">آمار</div>
+                <div style="text-align: right; font-size: 11px; padding-right: 5px">
+
+                    <div>
+                        <img src="/Content/Area/Share/Public/icon-books.png" style="width: 24px;height: 24px" />
+                    </div>
+                    <div>
+                        کل منابع : <label style="font-weight: bold"> 37,241,384</label>
+                    </div>
+                    <div>
+                        منابع فارسی : <label style="font-weight: bold">37,002,584</label>
+                    </div>
+                    <div>
+                        منابع غیرفارسی : <label style="font-weight: bold">523,260</label>
+                    </div>
+                    <div>
+                        منابع کودک : <label style="font-weight: bold">4,281,170</label>
+                    </div>
+                    <div>
+                        منابع کمک درسی : <label style="font-weight: bold">1,533,788</label>
+                    </div>
+                    <br/>
+                    <div>
+                        <img src="/Content/Area/Share/Public/users.png" style="width: 24px;height: 24px" />
+                    </div>
+                    <div>
+                        کل اعضاء : <label style="font-weight: bold">7,814,678</label>
+                    </div>
+                    <div>
+                        اعضاء فعال : <label style="font-weight: bold">1,975,165</label>
+                    </div>
+                    <div>
+                        کاربران آنلاین : <label style="font-weight: bold">504</label>
+                    </div>
+                    <div>
+                        ثبت نام امروز : <label style="font-weight: bold">2,364</label>
+                    </div>
+
+
+
+                </div>
+                
+            </div>
+                </div>
+
+
+           <br />
+
+
+
+        </td>
+        <td   style="vertical-align: top; width: 50%; text-align: justify">
+
+            <div>
+
+                <div  style="direction:ltr; text-align:-moz-center; text-align:-webkit-center;     " >
+
+<link href="/Content/Area/Share/HomePage/SamanNews/lightslider.css" rel="stylesheet" />
+<script src="/Content/Area/Share/HomePage/SamanNews/lightslider.js"></script>
+
+<style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+            margin: 0;
+         
+		}
+          	.content-slider li{
+		    
+		    text-align: right;
+		    color: black;
+            min-height: 350px;
+            max-height : 350px;
+		}
+	
+	
+    </style> 
+<script>
+
+
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+
+		});
+    </script>
+
+	<div style="width: 480px; flex-align:center ; flex-item-align:center;">
+        <div class="item">
+            <ul id="content-slider" class="content-slider">
+               
+                <li> 
+                    <table style="direction:rtl; table-layout:fixed" >
+                        <tr>
+
+                           <td style="color:#8b8a8a; font-size:small; font-weight :bold; height:20px; width:400px ">مدیرکل منابع نهاد کتابخانه‌های عمومی کشور خبر داد؛</td>
+                            <td style="color:#8b8a8a; font-size:large; font-family :Tahoma;direction: rtl;text-align: right;float: right;font-family:'Mitra'; width:90px;">  1396/11/15   </td>
+
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#424242; font-size:medium;font-weight :bold;height:40px;">آغاز طرح &#171;مشارکت کتابداران در تأمین منابع کتابخانه‌های عمومی کشور&#187;</td>
+                        </tr>
+                        <tr>
+                            <td  colspan="2" align="middle"><img src='http://www.samanpl.ir/Image/news/4278b437-9581-4bff-b6af-bc94af89b2ab.jpg'  height="170" width="400" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style=" font-size:small;height:60px;">باقر میرعبداللهی، از اجرای آزمایشی طرح &#171;مشارکت کتابداران در تأمین منابع کتابخانه‌های عمومی کشور&#187; همزمان با ایام دهه فجر انقلاب اسلامی ایران، در کتابخانه‌های نهادی سراسر کشور، خبر داد.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#F00; font-size:x-small;height:12px; text-align:left" >
+                                
+                     
+                                 <a href="/Common/news/index/120">ادامه مطلب</a>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </li>
+                <li> 
+                    <table style="direction:rtl; table-layout:fixed" >
+                        <tr>
+
+                           <td style="color:#8b8a8a; font-size:small; font-weight :bold; height:20px; width:400px ">از سوی معاونت برنامه‌ریزی، پژوهش و فناوری اطلاعات نهاد؛</td>
+                            <td style="color:#8b8a8a; font-size:large; font-family :Tahoma;direction: rtl;text-align: right;float: right;font-family:'Mitra'; width:90px;">  1396/07/02   </td>
+
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#424242; font-size:medium;font-weight :bold;height:40px;">نحوه شرکت در آزمون کارگاه &#171;کتابخانه، کودک، تفکر&#187; اعلام شد</td>
+                        </tr>
+                        <tr>
+                            <td  colspan="2" align="middle"><img src='http://www.samanpl.ir/Image/news/1377a147-b667-454e-b374-6274f6ce8376.jpg'  height="170" width="400" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style=" font-size:small;height:60px;">معاونت برنامه‌ریزی، پژوهش و فناوری اطلاعات نهاد کتابخانه‌های عمومی کشور  نحوه شرکت فراگیران دوره &#171;تفکر، کودک و کتابخانه&#187; در آزمون ارزیابی این کارگاه آموزشی را اعلام کرد.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#F00; font-size:x-small;height:12px; text-align:left" >
+                                
+                     
+                                 <a href="/Common/news/index/119">ادامه مطلب</a>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </li>
+                <li> 
+                    <table style="direction:rtl; table-layout:fixed" >
+                        <tr>
+
+                           <td style="color:#8b8a8a; font-size:small; font-weight :bold; height:20px; width:400px "></td>
+                            <td style="color:#8b8a8a; font-size:large; font-family :Tahoma;direction: rtl;text-align: right;float: right;font-family:'Mitra'; width:90px;">  1396/05/28   </td>
+
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#424242; font-size:medium;font-weight :bold;height:40px;">اطلاع‌رسانی برنامه‌ فعالیت‌ کتابخانه‌های عمومی سراسر کشور</td>
+                        </tr>
+                        <tr>
+                            <td  colspan="2" align="middle"><img src='http://www.samanpl.ir/Image/news/085d84eb-88de-444c-9acb-0e73854bf1b1.jpg'  height="170" width="400" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style=" font-size:small;height:60px;"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color:#F00; font-size:x-small;height:12px; text-align:left" >
+                                
+                     
+                                 <a href="/Common/news/index/118">ادامه مطلب</a>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </li>
+                
+                
+
+            </ul>
+        </div>
+     </div>
+
+   
+
+                </div>
+
+                <div>
+                    <p style="font-weight: bold">اجرای طرح عضویت سراسری </p>
+                    <p>با اجرای طرح عضویت سراسری میتوانید با عضویت در یک کتابخانه از کلیه کتابخانه های سراسر کشور که به این سامانه متصل می باشند خدمات دریافت کنید . 
+                         <label style="color: blue; cursor: pointer" onclick="ShowDiv(1)">ادامه...</label>
+                    </p>
+                    <div id="div1" style="display: none;">
+                        <p>بدین منظور با مراجعه به کتابخانه و درخواست عضویت و یا تغییر عضویت کتابخانه ای به عضویت سراسری میتوانید با مراجعه به تمام کتابخانه ها از خدمات آنها استفاده نمائید .</p>
+                    </div>
+
+
+                </div>
+
+                <div>
+                    <p style="font-weight: bold">درخواست عضویت در کتابخانه</p>
+                    <p>کاربران گرامی از این پس می توانید درخواست عضویت خود را در سامانه ثبت نمائید ، جهت انجام این کار میتوانید از طریق بخش ثبت نام در بالای صفحه اقدام نمائید .
+                       <label style="color: blue; cursor: pointer" onclick="ShowDiv(2)">ادامه...</label>
+                    </p>
+                    <div id="div2" style="display: none;">
+                    <p> پس از ثبت نام می توانید با مراجعه به کتابخانه ای که درخواست را برای آن ارسال کرده اید و ارائه کارت ملی و پرداخت حق عضویت کارت عضویت خود را دریافت کنید. </p>
+                    </div>
+                </div>
+
+                <div>
+                    <p style="font-weight: bold">معرفی سامانه</p>
+                    <p>
+                        نرم افزار جامع مدیریت کتابخانه ها، توسط اداره کل فناوری اطلاعات و با همکاری اداره کل امور کتابخانه های نهاد کتابخانه های عمومی کشور، با هدف رفع مشکلات کتابخانه های نهاد در بهره گیری از نرم افزار کتابخانه ای و به منظور پیاده سازی یک سیستم جامع،تحت وب،یکپارچه و متمرکز مدیریت کتابخانه های عمومی کشور طرح ریزی و پیاده سازی شده است .
+                        <label style="color: blue; cursor: pointer" onclick="ShowDiv(3)">ادامه...</label>
+                    </p>
+
+                    <div id="div3" style="display: none;">
+                        <p> در حال حاضر 2080 کتابخانه از تمامی استان ها به این سامانه یکپارچه متصل شده اند و فرایند اتصال سایر کتابخانه ها در استان های کشور به صورت گام به گام و به موازات توسعه و بهبود سامانه به پیش می رود . با استفاده از سامانه جدید می توان هر کتابخانه ای را در هر نقطه از کشور که دسترسی به اینترنت مناسب دارند، در کوتاهترین زمان به نرم افزاری جامع و در عین حال متناسب با نیازهای یک کتابخانه عمومی و کاربران آن مجهز کرد. این سامانه ، به عنوان شبکه جامع کتابخانه های عمومی کشور، امکان امانت، عضویت، و جستجو در کلیه کتابخانه های موجود در شبکه را برای کاربران خود به سهولت فراهم میکند. برخی از مزایای مهم سامانه به شرح زیر است :</p>
+                        <p>-امکان اتصال و تجهیز کتابخانه های جدید در سامانه در کوتاهترین زمان</p>
+                        <p>-امکان جستجو در منابع کلیه کتابخانه های عمومی </p>
+                        <p>-امکان مدیریت کلیه امور کتابخانه ای (ثبت نام عضو، امانت، بازگشت، تمدید، رف خوانی، چاپ برچسب های عطف و بارکد، ثبت نسخه، ورود اطلاعات، ...) به صورت کاملا تحت وب ؛</p>
+                        <p>-امکان گزارش گیری از کلیه عملکردهای کتابخانه ها با چند کلیک</p>
+                        <p>-امکان تمدید و رزرو کتاب توسط عضو از طریق اینترنت؛</p>
+                        <p>-امکان ایجاد و پیاده سازی امانت بین کتابخانه ای در کلیه کتابخانه های عمومی نهاد در آینده نزدیک</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </td>
+        <td style="vertical-align: top; width: 20%;">
+            <div>
+
+
+
+
+                <div class="blockFieldSet">
+
+                    <a target="_blank" href="http://www.samanpl.ir/CBL/CBL/Dashboard">
+                        <img src="/Content/Area/Share/HomePage/1396.jpg" style="width:97%;border:1px solid #00a5ff" />
+                    </a>
+                    </div>
+<form action="/Home/homesearch" method="post">                        <div class="blockFieldSet">
+
+
+
+
+
+
+
+                            <div class="divHeader">جستجوی کتاب</div>
+                            <center>
+                                <p data-step="1" data-intro="در این قسمت می توانید نوع کتابخانه موردنظر خود را انتخاب کنید.">
+
+
+                                    <input Style="width:160px" id="OrgType" name="OrgType" type="text" value="10000" /><script>
+	jQuery(function(){jQuery("#OrgType").kendoComboBox({"dataSource":{"transport":{"read":{"url":"/RapidSearch/Search/GetLibOrgsType"}},"schema":{"errors":"Errors"}},"dataTextField":"OrgName","autoBind":true,"dataValueField":"OrgId","filter":"contains","placeholder":"انتخاب نوع کتابخانه..."});});
+</script>
+                                </p>
+
+
+
+                                <p data-step="1" data-intro="در این قسمت می توانید نام استان موردنظر خود را انتخاب کنید.">
+
+
+                                    <input Style="width:160px" data-val="true" data-val-number="The field OrgIdOstan must be a number." data-val-required="The OrgIdOstan field is required." id="OrgIdOstan" name="OrgIdOstan" type="text" value="10101010" /><script>
+	jQuery(function(){jQuery("#OrgIdOstan").kendoComboBox({"dataSource":{"transport":{"read":{"url":"/RapidSearch/Search/GetLibOrgsOstan","data":parentIdType}},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"dataTextField":"OrgName","autoBind":true,"dataValueField":"OrgId","filter":"contains","index":0,"placeholder":"انتخاب استان...","suggest":true,"cascadeFrom":"OrgType"});});
+</script>
+                                    <script>
+                                        function parentIdType() {
+                                            return {
+                                                parentId: $('#OrgType').val()
+                                            };
+                                        }
+                                    </script>
+                                </p>
+
+                                <p data-step="2" data-intro="در این قسمت می توانید شهر موردنظر برای جستجوی مدرک موردنظر خود را انتخاب کنید.">
+
+                                    <input Style="width:160px" data-val="true" data-val-number="The field OrgIdShahr must be a number." data-val-required="The OrgIdShahr field is required." id="OrgIdShahr" name="OrgIdShahr" type="text" value="10101010" /><script>
+	jQuery(function(){jQuery("#OrgIdShahr").kendoComboBox({"dataSource":{"transport":{"read":{"url":"/RapidSearch/Search/GetLibOrgsShahr","data":parentIdOstan}},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"dataTextField":"OrgName","autoBind":true,"dataValueField":"OrgId","filter":"contains","index":0,"placeholder":"انتخاب شهرستان...","suggest":true,"cascadeFrom":"OrgIdOstan"});});
+</script>
+                                    <script>
+                                        function parentIdOstan() {
+                                            return {
+                                                parentId: $("#OrgIdOstan").val()
+                                            };
+                                        }
+                                    </script>
+                                </p>
+                                <p data-step="3" data-intro="در این قسمت می توانید کتابخانه موردنظر برای جستجوی مدرک موردنظر خود را انتخاب کنید.">
+
+                                    <input Style="width:160px" data-val="true" data-val-number="The field OrgId must be a number." data-val-required="The OrgId field is required." id="OrgId" name="OrgId" type="text" value="10101010" /><script>
+	jQuery(function(){jQuery("#OrgId").kendoComboBox({"dataSource":{"transport":{"read":{"url":"/RapidSearch/Search/GetLibs","data":parentIdShahr}},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"dataTextField":"OrgName","autoBind":true,"dataValueField":"OrgId","filter":"contains","index":0,"placeholder":"انتخاب کتابخانه...","suggest":true,"cascadeFrom":"OrgIdShahr"});});
+</script>
+                                    <script>
+                                        function parentIdShahr() {
+                                            return {
+                                                parentId: $('#OrgIdShahr').val()
+                                            };
+                                        }
+                                    </script>
+                                </p>
+                                <input type="text" lang="fa-IR" id="QueryStatement" name="QueryStatement" placeholder="عبارت جستجو" class="k-textbox" maxlength="151" data-step="4" data-intro="در این قسمت می توانید عبارت جستجو برای جستجوی مدرک موردنظر خود را وارد کنید." />
+
+                                <input style="margin-top:5px" id="btnSearch" type="submit" value="جستجو" class="btn" tabindex="2" data-step="5" data-intro="با کلیک  بر روی این دکمه ضمن انجام جستجو با مشخصات  تعیین شده به بخش جستجوی آزاد منتقل می شوید." />
+
+                            </center>
+                        </div>
+                        <script type="text/javascript">
+
+                                        $('#btnSearch').click(function () {
+                                            $("#btnSearch").attr('disabled', true);
+                                            if (document.getElementById('QueryStatement').value == '') {
+                                                jAlert('<span style="Font-Family:Tahoma">لطفا <strong>عبارت جستجو</strong> را وارد کنید.</span>');
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            var OrgIdValue = document.getElementById('OrgId').value;
+                                            var OrgIdShahrValue = document.getElementById('OrgIdShahr').value;
+                                            var OrgIdOstanValue = document.getElementById('OrgIdOstan').value;
+                                            var OrgTypeValue = document.getElementById('OrgType').value;
+
+                                            if ($.isNumeric(OrgTypeValue) == false && OrgTypeValue != '') {
+                                                jAlert('<span style="Font-Family:Tahoma">' + ' شما استان را به صورت  ' + '<strong style="Font-weight:bold">' + OrgIdOstanValue + '</strong>' + ' وارد کرده اید که صحیح نیست .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if (OrgTypeValue == '') {
+                                                jAlert('<span style="Font-Family:Tahoma">' + 'لطفا استان موردنظر خود را انتخاب کنید .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+
+                                            if ($.isNumeric(OrgIdOstanValue) == false && OrgIdOstanValue != '') {
+                                                jAlert('<span style="Font-Family:Tahoma">' + ' شما استان را به صورت  ' + '<strong style="Font-weight:bold">' + OrgIdOstanValue + '</strong>' + ' وارد کرده اید که صحیح نیست .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if (OrgIdOstanValue == '') {
+                                                jAlert('<span style="Font-Family:Tahoma">' + 'لطفا استان موردنظر خود را انتخاب کنید .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if ($.isNumeric(OrgIdShahrValue) == false && OrgIdShahrValue != '' && OrgIdOstanValue != 10101010) {
+                                                jAlert('<span style="Font-Family:Tahoma">' + ' شما شهر را به صورت  ' + '<strong style="Font-weight:bold">' + OrgIdShahrValue + '</strong>' + ' وارد کرده اید که صحیح نیست .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if (OrgIdShahrValue == '' && OrgIdOstanValue != 10101010) {
+                                                jAlert('<span style="Font-Family:Tahoma">' + 'لطفا شهر موردنظر خود را انتخاب کنید .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if ($.isNumeric(OrgIdValue) == false && OrgIdValue != '' && OrgIdOstanValue != 10101010 && OrgIdShahrValue != 10101010) {
+                                                jAlert('<span style="Font-Family:Tahoma">' + ' شما کتابخانه را به صورت  ' + '<strong style="Font-weight:bold">' + OrgIdValue + '</strong>' + ' وارد کرده اید که صحیح نیست .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+                                            else if (OrgIdValue == '' && OrgIdOstanValue != 10101010 && OrgIdShahrValue != 10101010) {
+                                                jAlert('<span style="Font-Family:Tahoma">' + 'لطفا کتابخانه موردنظر خود را انتخاب کنید .' + '</span>');
+                                                $("#loadingPic").hide();
+                                                $("#btnSearch").removeAttr('disabled');
+                                                return false;
+                                            }
+
+                                            var SearchHomrDt = {
+                                                OrgType: $("#OrgType").val(),
+                                                QueryStatement: $("#QueryStatement").val(),
+                                                OrgIdOstan: $("#OrgIdOstan").val(),
+                                                OrgIdShahr: $("#OrgIdShahr").val(),
+                                                OrgId: $("#OrgId").val()
+                                            };
+                                            $("#btnSearch").removeAttr('disabled');
+                                        });
+                        </script>
+</form>                </div>
+            <br />
+
+
+
+            <br />
+           
+
+
+
+                <div class="blockFieldSet">
+                    <div class="divHeader">سامانه ها نهاد</div>
+                   <center>
+                
+    <div id="carousel-demo" class="carousel-demo" >
+       
+        <ul> 
+                <li><a href='http://atlas.iranpl.ir' target="_blank"><img class="SliderImageClass" src='/Content/Area/Share/HomePage/HomePageSlider/atlas.jpg' /><br/><label class="SliderLabel">اطلس کتابخانه ها</label></a></li>
+                <li><a href='http://imketab.ir' target="_blank"><img class="SliderImageClass" src='/Content/Area/Share/HomePage/HomePageSlider/istgah.jpg' /><br/><label class="SliderLabel">ایستگاه مطالعه</label></a></li>
+                <li><a href='http://www.ketabkhanesaz.ir' target="_blank"><img class="SliderImageClass" src='/Content/Area/Share/HomePage/HomePageSlider/khayer.jpg' /><br/><label class="SliderLabel">سامانه خیرین</label></a></li>
+                <li><a href='http://tashvigh.iranpl.ir' target="_blank"><img class="SliderImageClass" src='/Content/Area/Share/HomePage/HomePageSlider/tashvigh.jpg' /><br/><label class="SliderLabel">سامانه تشویق</label></a></li>
+        
+       </ul>
+
+    </div>
+</center> 
+                    <br />
+                
+                </div>
+
+                <div>
+                    <div class="blockFieldSet">
+                        <div class="divHeader">پیوند های مفید</div>
+                        <div style="text-align: right; font-size: 11px; padding-right: 5px">
+                            <ul class="QuickLink">
+                                <li><a target="_blank" href="http://www.leader.ir/">دفتر رهبر معظم انقلاب اسلامی</a></li>
+                                <li><a target="_blank" href="http://www.president.ir/fa/">دفتر رییس جمهور محترم</a></li>
+                                <li><a target="_blank" href="http://www.iranpl.ir/">نهاد کتابخانه های عمومی کشور</a></li>
+
+                                <li><a target="_blank" href="http://www.nlai.ir/">کتابخانه ملی ایران</a></li>
+
+                                <li><a target="_blank" href="http://atlas.iranpl.ir/">سامانه اطلس کتابخانه‌های عمومی</a></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <br />
+                </div>
+                
+</td>
+
+    </tr>
+</table>
+
+
+
+
+<br />
+
+
+
+
+
+<script>
+    function change() {
+        var value = $("#Field").val();
+    };
+    function changeField() {
+        var value = $("#Field").val();
+    };
+
+    if ('' == 1) {
+        alert('درخواست عضویت شما با موفقیت ثبت شد ، جهت فعال سازی حساب کاربری و دریافت کارت عضویت به کتابخانه مورد نظر خود مراجعه نمائید .');
+    }
+    if ('' == 2) {
+        alert('درخواست عضویت شما با موفقیت ثبت شد  .');
+    }
+</script>
+
+
+<script>
+    //for check in
+    function ShowDiv(i) {
+        var div = "div" + i;
+        $('#' + div).animate({
+            height: 'toggle'
+        });
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#carousel-demo1').scrollingCarousel(
+            {
+                autoScroll: true,
+                autoScrollSpeed: 30000
+            });
+        $('#carousel-demo').scrollingCarousel(
+            {
+                autoScroll: true, scrollerAlignment: 'vertical',
+                autoScrollSpeed: 8000
+
+            });
+        $('#NewBooks').scrollingCarousel(
+            {
+                autoScroll: true,
+                autoScrollSpeed: 5000,
+                scrollerAlignment: 'vertical',
+            });
+        $('#PopularBooks').scrollingCarousel(
+            {
+                autoScroll: true,
+                autoScrollSpeed: 5000,
+                scrollerAlignment: 'vertical',
+            });
+        $('#IntroBooks').scrollingCarousel(
+            {
+                autoScroll: true,
+                autoScrollSpeed: 5000,
+                scrollerAlignment: 'vertical',
+            });
+    });
+</script>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="Footer" style="text-align: center;" class="cf">
+            <label style="color: #808080; font-size: 8pt; direction: rtl; float: right">Server 06</label>
+            <label style="text-align: center; margin-right: 120px;">کلیه حقوق این سامانه برای نهاد کتابخانه های عمومی کشور محفوظ می باشد. نسخه 1.1.25.3</label>
+            <label style="color: #808080; font-size: 8pt; direction: rtl; float: left">این صفحه در مدت  8 ms ایجاد شد.</label>
+            
+        </div>
+
+
+
+
+
+        
+    </div>
+</body>
+</html>
+
+<script>
+    function Block() {
+        $("body").append("<div id='block' ></div>");
+        $('form').submit(function () {
+            $(':submit', this).click(function () {
+                return false;
+            });
+        });
+    }
+
+    function SetCookieToHideBookRequest() {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + 1);
+        document.cookie = 'ShowBookRequest=0;' + 'expires=' + exdate.toUTCString() + '; path=/';
+        document.getElementById('BookRequest').style.display = "none";
+    }
+
+    function SetCookieToHideAnnouncement() {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + 1);
+        document.cookie = 'ShowAnnouncement=0;' + 'expires=' + exdate.toUTCString() + '; path=/';
+        document.getElementById('Announcment').style.display = "none";
+    }
+
+</script>
+
+
+
+
+<link href="/Content/Area/Share/Public/FeedbackCSS/feedback.css" rel="stylesheet" />
+
+
+<script src="/Scripts/Area/Share/Public/FeedbackJS/feedback.js"></script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        Feedback({ h2cPath: '/Scripts/Area/Share/Public/FeedbackJS/html2canvas.js' });
+        if ($.browser.chrome) {
+            $("nav ul li a").css("width", "100%");
+        }
+
+        var content = "";
+        var FIREFOX = /Firefox/i.test(navigator.userAgent);
+
+        if (FIREFOX) {
+            var firefox = $.browser.version;
+            if (firefox < 30) {
+                content = "مرورگر موزیلا فایرفاکس که شما استفاده می کنید نیاز به بروزرسانی دارد. لطفا قبل از ادامه ، مرورگر خود را بروزرسانی کنید.";
+                UpdateWarning(content);
+            }
+        }
+        if ($.browser.chrome) {
+            var chromeT = $.browser.version;
+            var chrome = chromeT.substring(0, 3);
+            if (chrome < 30) {
+                content = "مرورگر گوگل کروم که شما استفاده می کنید نیاز به بروزرسانی دارد. لطفا قبل از ادامه ، مرورگر خود را بروزرسانی کنید.";
+                UpdateWarning(content);
+            }
+        }
+    });
+
+    var result = false;
+    var Url = '/Home/AuthCheck';
+    $.ajax({
+        type: 'Get',
+        url: Url,
+        success: function (data) {
+            if (!data.result) {
+                $("a").remove(".MyFeedBack");
+
+            }
+        },
+        statusCode: {
+            404: function (content) { alert('cannot find resource'); },
+            505: function (content) { alert('internal server error'); }
+        },
+        error: function (req, status, errorObj) {
+
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="/Scripts/Area/Share/Public/replaceyeke.js"></script>
+
+<script src="/Scripts/Area/Search/jquery.alerts.js"></script>
+<link href="/Content/Area/Search/jquery.alerts.css" rel="stylesheet" />
+
+<script>
+    if (document.location.hostname.search("localhost") == -1) {
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-52409333-1', 'auto');
+        ga('send', 'pageview');
+    }
+</script>

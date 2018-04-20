@@ -1,0 +1,710 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.png?1348585613" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png?1348585613" />
+<meta name="keywords"  content="Cyclism'Actu, cyclisme, velo, actu, info, news, UCI, world-tour"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<link href="tacki.css" rel="stylesheet" type="text/css" />
+<title>Toute l'actualité Tennis ATP WTA, les résultats, classements et vidéos en direct live - TennisActu</title>
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@tennisactu.net"><meta name="twitter:creator" content="@TennisActu1"><meta name="twitter:description" content="Toute l'actu du Tennis">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "content": {
+    "message": "Notre site utilise des cookies à diverses fins, notamment pour accroître la pertinence de ses recommandations et pour personnaliser vos contenus ou publicités. En continuant à utiliser ce service, vous acceptez notre utilisation des cookies.",
+    "dismiss": "OK",
+    "link": "En savoir plus"
+  }
+})});
+</script>
+
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+function extractUrlParams(url){
+   var t = url.substring(1).split('&');
+   var f = [];
+   for (var i=0; i<t.length; i++){
+      var x = t[ i ].split('=');
+      f[x[0]]=x[1];
+   }
+   return f;
+}
+function envoieRequete(url,id){
+	var xhr_object = null; var position = id; var page='';
+	if (url.match('.php')) {var next=url.split('.php'); page=next[0];  var suite=next[1].replace('?',''); } 
+	else { if (url.match('?')) {var next=url.split('?'); if (next[1]!="") {var suite=next[1];} else {var suite=next[0];} } else {var suite='';} }
+	if (suite!="") {var fin='&'+suite;} else {var fin="";}
+	var param=extractUrlParams(fin);
+	var rdep='dep='+param['dep']; var fin=fin.replace(rdep,''); fin=fin.replace('&&','');
+	   if(window.XMLHttpRequest)  xhr_object = new XMLHttpRequest();
+	  else
+	    if (window.ActiveXObject)  xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
+	// On ouvre la requete vers la page désirée
+	xhr_object.open("GET", url, true);
+	xhr_object.onreadystatechange = function(){
+	if ( xhr_object.readyState == 4 )
+	{
+	// j'affiche dans la DIV spécifiées le contenu retourné par le fichier
+	if (document.getElementById(position)) 
+		{var e = document.getElementById(position); e.innerHTML = xhr_object.responseText;}
+	// on modifie la barre d'adresse
+	if (position=='leftmain') 
+		{window.history.pushState('' ,'' , '?page='+page+''+fin); }
+	// on relance les javascripts
+	if (position=='leftmain' || position=='pic_gallery' || page=='saisie_coureur'  || page=='saisie_club') {	
+		var AllScripts=e.getElementsByTagName("script");
+		  for (var i=0; i<AllScripts.length; i++) {
+			 var s=AllScripts[i];
+			 if (s.src && s.src!="") {
+				eval(file_get_contents(s.src));
+			 }
+			 else {
+				eval(s.innerHTML);
+			 }
+		  }
+		}
+	}
+	}
+	// dans le cas du get
+	xhr_object.send(null);
+}
+function file_get_contents(url, flags, context, offset, maxLen) {
+  var tmp, headers = [],
+    newTmp = [],
+    k = 0,
+    i = 0,
+    href = '',
+    pathPos = -1,
+    flagNames = 0,
+    content = null,
+    http_stream = false;
+  var func = function(value) {
+    return value.substring(1) !== '';
+  };
+
+  // BEGIN REDUNDANT
+  this.php_js = this.php_js || {};
+  this.php_js.ini = this.php_js.ini || {};
+  // END REDUNDANT
+  var ini = this.php_js.ini;
+  context = context || this.php_js.default_streams_context || null;
+
+  if (!flags) {
+    flags = 0;
+  }
+  var OPTS = {
+    FILE_USE_INCLUDE_PATH: 1,
+    FILE_TEXT: 32,
+    FILE_BINARY: 64
+  };
+  if (typeof flags === 'number') { // Allow for a single string or an array of string flags
+    flagNames = flags;
+  } else {
+    flags = [].concat(flags);
+    for (i = 0; i < flags.length; i++) {
+      if (OPTS[flags[i]]) {
+        flagNames = flagNames | OPTS[flags[i]];
+      }
+    }
+  }
+
+  if (flagNames & OPTS.FILE_BINARY && (flagNames & OPTS.FILE_TEXT)) { // These flags shouldn't be together
+    throw 'You cannot pass both FILE_BINARY and FILE_TEXT to file_get_contents()';
+  }
+
+  if ((flagNames & OPTS.FILE_USE_INCLUDE_PATH) && ini.include_path && ini.include_path.local_value) {
+    var slash = ini.include_path.local_value.indexOf('/') !== -1 ? '/' : '\\';
+    url = ini.include_path.local_value + slash + url;
+  } else if (!/^(https?|file):/.test(url)) { // Allow references within or below the same directory (should fix to allow other relative references or root reference; could make dependent on parse_url())
+    href = this.window.location.href;
+    pathPos = url.indexOf('/') === 0 ? href.indexOf('/', 8) - 1 : href.lastIndexOf('/');
+    url = href.slice(0, pathPos + 1) + url;
+  }
+
+  var http_options;
+  if (context) {
+    http_options = context.stream_options && context.stream_options.http;
+    http_stream = !! http_options;
+  }
+
+  if (!context || http_stream) {
+    var req = this.window.ActiveXObject ? new ActiveXObject('Microsoft.XMLHTTP') : new XMLHttpRequest();
+    if (!req) {
+      throw new Error('XMLHttpRequest not supported');
+    }
+
+    var method = http_stream ? http_options.method : 'GET';
+    var async = !! (context && context.stream_params && context.stream_params['phpjs.async']);
+
+    if (ini['phpjs.ajaxBypassCache'] && ini['phpjs.ajaxBypassCache'].local_value) {
+      url += (url.match(/\?/) == null ? '?' : '&') + (new Date())
+        .getTime(); // Give optional means of forcing bypass of cache
+    }
+
+    req.open(method, url, async);
+    if (async) {
+      var notification = context.stream_params.notification;
+      if (typeof notification === 'function') {
+        // Fix: make work with req.addEventListener if available: https://developer.mozilla.org/En/Using_XMLHttpRequest
+        if (0 && req.addEventListener) { // Unimplemented so don't allow to get here
+          /*
+          req.addEventListener('progress', updateProgress, false);
+          req.addEventListener('load', transferComplete, false);
+          req.addEventListener('error', transferFailed, false);
+          req.addEventListener('abort', transferCanceled, false);
+          */
+        } else {
+          req.onreadystatechange = function(aEvt) { // aEvt has stopPropagation(), preventDefault(); see https://developer.mozilla.org/en/NsIDOMEvent
+            // Other XMLHttpRequest properties: multipart, responseXML, status, statusText, upload, withCredentials
+
+            var objContext = {
+              responseText: req.responseText,
+              responseXML: req.responseXML,
+              status: req.status,
+              statusText: req.statusText,
+              readyState: req.readyState,
+              evt: aEvt
+            }; // properties are not available in PHP, but offered on notification via 'this' for convenience
+            // notification args: notification_code, severity, message, message_code, bytes_transferred, bytes_max (all int's except string 'message')
+            // Need to add message, etc.
+            var bytes_transferred;
+            switch (req.readyState) {
+              case 0:
+                //     UNINITIALIZED     open() has not been called yet.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 1:
+                //     LOADING     send() has not been called yet.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 2:
+                //     LOADED     send() has been called, and headers and status are available.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 3:
+                //     INTERACTIVE     Downloading; responseText holds partial data.
+                bytes_transferred = req.responseText.length * 2; // One character is two bytes
+                notification.call(objContext, 7, 0, '', 0, bytes_transferred, 0);
+                break;
+              case 4:
+                //     COMPLETED     The operation is complete.
+                if (req.status >= 200 && req.status < 400) {
+                  bytes_transferred = req.responseText.length * 2; // One character is two bytes
+                  notification.call(objContext, 8, 0, '', req.status, bytes_transferred, 0);
+                } else if (req.status === 403) { // Fix: These two are finished except for message
+                  notification.call(objContext, 10, 2, '', req.status, 0, 0);
+                } else { // Errors
+                  notification.call(objContext, 9, 2, '', req.status, 0, 0);
+                }
+                break;
+              default:
+                throw 'Unrecognized ready state for file_get_contents()';
+            }
+          };
+        }
+      }
+    }
+
+    if (http_stream) {
+      var sendHeaders = http_options.header && http_options.header.split(/\r?\n/);
+      var userAgentSent = false;
+      for (i = 0; i < sendHeaders.length; i++) {
+        var sendHeader = sendHeaders[i];
+        var breakPos = sendHeader.search(/:\s*/);
+        var sendHeaderName = sendHeader.substring(0, breakPos);
+        req.setRequestHeader(sendHeaderName, sendHeader.substring(breakPos + 1));
+        if (sendHeaderName === 'User-Agent') {
+          userAgentSent = true;
+        }
+      }
+      if (!userAgentSent) {
+        var user_agent = http_options.user_agent || (ini.user_agent && ini.user_agent.local_value);
+        if (user_agent) {
+          req.setRequestHeader('User-Agent', user_agent);
+        }
+      }
+      content = http_options.content || null;
+      /*
+      // Presently unimplemented HTTP context options
+      var request_fulluri = http_options.request_fulluri || false; // When set to TRUE, the entire URI will be used when constructing the request. (i.e. GET http://www.example.com/path/to/file.html HTTP/1.0). While this is a non-standard request format, some proxy servers require it.
+      var max_redirects = http_options.max_redirects || 20; // The max number of redirects to follow. Value 1 or less means that no redirects are followed.
+      var protocol_version = http_options.protocol_version || 1.0; // HTTP protocol version
+      var timeout = http_options.timeout || (ini.default_socket_timeout && ini.default_socket_timeout.local_value); // Read timeout in seconds, specified by a float
+      var ignore_errors = http_options.ignore_errors || false; // Fetch the content even on failure status codes.
+      */
+    }
+
+    if (flagNames & OPTS.FILE_TEXT) { // Overrides how encoding is treated (regardless of what is returned from the server)
+      var content_type = 'text/html';
+      if (http_options && http_options['phpjs.override']) { // Fix: Could allow for non-HTTP as well
+        content_type = http_options['phpjs.override']; // We use this, e.g., in gettext-related functions if character set
+        //   overridden earlier by bind_textdomain_codeset()
+      } else {
+        var encoding = (ini['unicode.stream_encoding'] && ini['unicode.stream_encoding'].local_value) ||
+          'UTF-8';
+        if (http_options && http_options.header && (/^content-type:/im)
+          .test(http_options.header)) { // We'll assume a content-type expects its own specified encoding if present
+          content_type = http_options.header.match(/^content-type:\s*(.*)$/im)[1]; // We let any header encoding stand
+        }
+        if (!(/;\s*charset=/)
+          .test(content_type)) { // If no encoding
+          content_type += '; charset=' + encoding;
+        }
+      }
+      req.overrideMimeType(content_type);
+    }
+    // Default is FILE_BINARY, but for binary, we apparently deviate from PHP in requiring the flag, since many if not
+    //     most people will also want a way to have it be auto-converted into native JavaScript text instead
+    else if (flagNames & OPTS.FILE_BINARY) { // Trick at https://developer.mozilla.org/En/Using_XMLHttpRequest to get binary
+      req.overrideMimeType('text/plain; charset=x-user-defined');
+      // Getting an individual byte then requires:
+      // responseText.charCodeAt(x) & 0xFF; // throw away high-order byte (f7) where x is 0 to responseText.length-1 (see notes in our substr())
+    }
+
+    try {
+      if (http_options && http_options['phpjs.sendAsBinary']) { // For content sent in a POST or PUT request (use with file_put_contents()?)
+        req.sendAsBinary(content); // In Firefox, only available FF3+
+      } else {
+        req.send(content);
+      }
+    } catch (e) {
+      // catches exception reported in issue #66
+      return false;
+    }
+
+    tmp = req.getAllResponseHeaders();
+    if (tmp) {
+      tmp = tmp.split('\n');
+      for (k = 0; k < tmp.length; k++) {
+        if (func(tmp[k])) {
+          newTmp.push(tmp[k]);
+        }
+      }
+      tmp = newTmp;
+      for (i = 0; i < tmp.length; i++) {
+        headers[i] = tmp[i];
+      }
+      this.$http_response_header = headers; // see http://php.net/manual/en/reserved.variables.httpresponseheader.php
+    }
+
+    if (offset || maxLen) {
+      if (maxLen) {
+        return req.responseText.substr(offset || 0, maxLen);
+      }
+      return req.responseText.substr(offset);
+    }
+    return req.responseText;
+  }
+  return false;
+}
+</script>
+<!-- adsense page_level_ads mobile-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2908504529538871",
+    enable_page_level_ads: true
+  });
+</script>
+<script> // facebook
+window.fbAsyncInit = function() {
+FB.init({
+appId      : '901109329899346',
+xfbml      : true,
+version    : 'v2.2'
+});
+};
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<body>
+<!-- ///////////////////
+/////// PUBS ///////////
+//////////////////////-->
+<div id="fb-root"></div>
+<!-- BEGIN Hi-Media Media AdTag, cyclismactu.net 1x1 - v1.0 -->
+<div class="hmads_1x1" style="height:0px;">
+    <script type="text/javascript">
+        var adlSite='cyclismactu.net';
+        var adlZone='habillage';
+        var adlKv='';
+        var adlPro=window.location.protocol=='https:'?'https:':'http:';
+        document.write('<'+'sc'+'ript type="text/javascript" src="'+adlPro+'//js.himediads.com/js?lang=fr&amp;s='+adlSite+'&amp;z='+adlZone+'&amp;d='+Math.floor(Math.random()*10000000000)+'"><\/'+'sc'+'ript>');
+    </script>
+    <script type="text/javascript">if (typeof getAdLinkAdTag=='function') getAdLinkAdTag( '1x1' );</script>
+</div>
+<!-- END Hi-Media Media AdTag, cyclismactu.net 1x1 - v1.0 -->
+
+<!-- AdYoulike -->
+<script type="text/javascript">
+var aylEl = document.createElement("script");
+aylEl.setAttribute("async", "async");
+aylEl.setAttribute("src", "//fo-api.omnitagjs.com/fo-api/ot.js?Placement=1b991af3aa2c7e8987856044398c179d");
+top.document.body.appendChild(aylEl);
+</script>
+
+
+<!-- teads.tv -->
+<script type="text/javascript">
+window._ttf = window._ttf || [];
+_ttf.push({
+       pid          : 47803
+       ,lang        : "fr"
+       ,slot        : '.container #bs-example-navbar-collapse-1'
+       ,format      : "inboard"
+       ,components  : { skip: {delay : 0}}
+       ,css         : "max-width: 600px; margin: 0 auto; margin-bottom: 10px;"
+       ,before      : true
+});
+
+(function (d) {
+        var js, s = d.getElementsByTagName('script')[0];
+        js = d.createElement('script');
+        js.async = true;
+        js.src = '//cdn.teads.tv/media/format.js';
+        s.parentNode.insertBefore(js, s);
+})(window.document);
+</script>
+
+<!-- taboola -->
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u) {
+    e.async = 1;
+    e.src = u;
+    f.parentNode.insertBefore(e, f);
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0], 'http://cdn.taboola.com/libtrc/swaragency-tennisactu/loader.js');
+</script>
+
+<!-- AD6Media -->
+<script type="text/javascript" src="http://c.ad6media.fr/l.js"></script>
+
+
+<!-- ///////////////////
+/////// SITE ///////////
+//////////////////////-->
+<div id="page-outer-wrap"> 
+<div id="page-inner-wrap">
+
+<div  class="container">
+	<div id="bs-example-navbar-collapse-1" style="float:left;"></div>
+	<!-- Adikteev Mobile-->
+	<div id='akv-overlay'></div><script type='text/javascript'>
+(function(){
+p=function(e,t){
+t=t||{};var n=document.createElement('script');
+var r='https:'==window.location.protocol?'https://':'http://';
+n.setAttribute('data-cfasync',false);
+n.src=r+'cdn.adikteev.com/lib/v3/aksdk.moment?t='+((new Date).getTime()/1e3/3600).toFixed();
+n.type='text/javascript';n.async='true';
+n.onload=n.onreadystatechange=function(){
+var n=this.readyState;if(n&&n!='complete'&&n!='loaded')return;
+try{top.AKSdk.init(e,t);top.AKSdk.call_action('default_read_article_ml_app' ); }catch(r){}
+};
+try{ var i=top.document.getElementsByTagName('script')[0];i.parentNode.insertBefore(n,i); }catch(e){};
+};
+p({"mobile":"2uZ4Z-7nU-lqKWTSLmGM2D8WvHYuV7YROHiK1tPSuDk="},{});
+})()
+</script>
+
+	<header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-0 col-sm-0 col-md-12 col-lg-12" style="clear:both;float:left;margin-top:4px">
+		<form method="post" style="float:left;display:inline-block;margin-left:20px;"> <input name="login" type="text" style="width:75px;" placeholder="Identifiant"> <input name="password" type="password" style="width:75px;" placeholder="Mot de passe"> <input type="submit" value="&#62;"><br/><small><small><a href="inscription.html">Créer mon compte</a></small></small></form>
+		<form method="post" action="recherche-article.html" style="float:left;display:inline-block;margin-left:250px;"><input name="keywords" type="text" placeholder="Rechercher un article..." style="width:200px;"><input type="submit" value="&#62;" style="color:#828282;"></form>
+		<a href="http://www.tennisactu.net/rss_cyclismactu.xml" target="_blank" title="Flux RSS"><div style="float:right;margin-left:2px;height:20px;width:20px;background:url(images/icons.jpg) -4px -4px;background-repeat:no-repeat;"></div></a><a href="https://www.facebook.com/ServirGagnant/" target="_blank" title="Facebook"><div style="float:right;margin-left:2px;height:20px;width:20px;background:url(images/icons.jpg) -29px -4px;background-repeat:no-repeat;"></div></a><a href="https://twitter.com/TennisActu" target="_blank" title="Twitter"><div style="float:right;margin-left:2px;height:20px;width:20px;background:url(images/icons.jpg) -54px -4px;background-repeat:no-repeat;"></div></a>
+	</div>
+	
+	<div class="col-xs-0 col-sm-0 col-md-4 col-lg-4" style="float:left;text-align:left;padding:20px 15px 15px 15px;">
+		<!--<a href="https://www.facebook.com/ensemblevivonsvelo/" target="_blank"><img src="http://www.cyclismactu.net/themes/cyclismactu4/images/pubs/ag2r.gif" width="234" height="60"></a>-->
+		<!--<a href="TA-PREZ.pdf" target="_blank"><img src="pubs/234x60/234x60_vous_ici.jpg" width="234" height="60"></a>-->
+		<a href="http://www.tenniswarehouse-europe.com/PlayersATP.html?from=TenActu&vat=fr&lang=fr" target="_blank"><img src="pubs/234x60/234x60_TWH_atp.jpg" width="234" height="60"></a>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding:0px 5px;float:left;">
+		<div class="col-xs-10" style="float:left;"><a href="."><img src="images/logoTA.png" class="img-responsive" style="display:inline;max-height:100px;"></a></div>
+		<div class="col-xs-2" style="min-width:30px;float:right;"><label for="main-nav-check" class="toggle toggle-menu" onclick="" title="Menu">&#x2261;</label></div>
+	</div>
+	<div class="col-xs-0 col-sm-0 col-md-4 col-lg-4" style="float:right;text-align:right;padding:20px 15px 15px 15px;"> 
+		<!--<a href="TA-PREZ.pdf" target="_blank"><img src="pubs/234x60/234x60_vous_ici.jpg" width="234" height="60"></a>-->
+		<a href="http://www.tenniswarehouse-europe.com/PlayersWTA.html?from=TenActu&vat=fr&lang=fr" target="_blank"><img src="pubs/234x60/234x60_TWH_wta.jpg" width="234" height="60"></a>
+	</div>
+	</header>
+<input type="checkbox" id="main-nav-check"/>
+<div id="menu"> 	
+	<label for="main-nav-check" class="toggle" onclick="" title="Close">&times;</label>
+	<ul>
+	    <li class="cat-black"><a href="."><img src="images/home.png" title="Accueil" style="margin-top:5px;"> </a>
+			<!--
+			<label for="fof" class="toggle-sub" onclick="">&#9658;</label>
+	    	<input type="checkbox" id="fof" class="sub-nav-check"/>
+                <ul id="fof-sub" class="sub-nav">
+		    <li class="sub-heading">Cyclism'Actu <label for="fof" class="toggle" onclick="" title="Back">&#9658;</label></li>
+		    <li><a href="#about">A propos</a></li>
+		    <li><a href="mailto:contact@swar-agency.com">Contact</a></li>
+		    <li><a href="#">Portfolio</a> <label for="fof-portfolio" class="toggle-sub" onclick="">&#9658;</label>
+			<input type="checkbox" id="fof-portfolio" class="sub-nav-check"/>
+	                <ul id="fof-portfolio-sub" class="sub-nav">
+			    <li class="sub-heading">Portfolio <label for="fof-portfolio" class="toggle" onclick="" title="Back">&#9658;</label></li>
+			    <li><a href="#">Graphics &amp; Artwork</a> <label for="fof-portfolio-graphics" class="toggle-sub" onclick="">&#9658;</label>
+				<input type="checkbox" id="fof-portfolio-graphics" class="sub-nav-check"/>	
+	                	<ul id="fof-portfolio-graphics-sub" class="sub-nav">
+				    <li class="sub-heading">Graphics &amp; Artwork <label for="fof-portfolio-graphics" class="toggle" onclick="" title="Back">&#9658;</label></li>
+				    <li><a href="#">Artwork</a></li>
+				</ul>
+			    </li>
+			    <li><a href="#">Website Design</a></li>
+			</ul>
+		    </li>
+			</ul>
+			-->
+	    </li>
+		<!--<li class="cat-green col-md-0 col-lg-0"><a href="inscription.html">Inscription</a></li>-->
+	    <li class="cat-red"><a href="info-ATP.html">ATP</a></li>
+		<li class="cat-blue"><a href="info-WTA.html">WTA</a></li>
+		<li class="cat-green"><a href="info-ITF.html">ITF</a></li>
+		<li class="cat-purple"><a href="resultat-tennis.html">Résultats</a>  <label for="fast-cal" class="toggle-sub" onclick="">&#9658;</label>
+		<input type="checkbox" id="fast-cal" class="sub-nav-check"/>
+          <ul id="fast-cal-sub" class="sub-nav">
+		    <li class="sub-heading">Résultats <label for="fast-cal" class="toggle" onclick="" title="Back">&#9658;</label></li>
+			<li><a style="border-top:2px black solid;" href="resultat-tennis.html" target="_blank">Calendrier Tennis Actu</a></li>
+		    <li><a style="background-color:#ef3434!important;" href="http://www.atpworldtour.com/en/tournaments" target="_blank">Calendrier / Tableaux ATP</a></li>
+			<li><a style="background-color:#51a3ff!important;" href="http://www.wtatennis.com/calendar" target="_blank">Calendrier / Tableaux WTA</a></li>
+		    <li><a style="background-color:#5dc866!important;" href="http://www.itftennis.com/home.aspx" target="_blank">Calendrier / Tableaux ITF</a></li> 
+		 </ul>
+		</li>
+		<li class="cat-red"><a href="classement-tennis.html">Classements</a></li>
+		<li class="cat-green col-md-0 col-lg-0"><a href="recherche-article.html">Recherche</a></li>  
+	    <li class="cat-blue"><a href="">Partenaires</a> <label for="fast-apps" class="toggle-sub" onclick="">&#9658;</label>
+		<input type="checkbox" id="fast-apps" class="sub-nav-check"/>
+          <ul id="fast-apps-sub" class="sub-nav">
+		    <li class="sub-heading">Partenaires <label for="fast-apps" class="toggle" onclick="" title="Back">&#9658;</label></li>
+		    <li><a href="http://www.cyclismactu.net">Cyclism'Actu</a></li>
+		    <li><a href="http://www.tennisproplayer.com">TennisProPlayer.com | Le Jeu</a></li> 
+		 </ul>
+	    </li>
+	<li class="cat-green"><a href="tennis-direct.html">Live</a></li>
+	<li class="cat-purple"><a href="https://www.dailymotion.com/tennisactu" target="_blank">Tennis Actu TV</a></li>
+	<li class="cat-red"><a href="http://www.tenniswarehouse-europe.com/?from=TenActu&vat=fr&lang=fr" target="_blank">Tennis Shop</a></li>
+	</ul>
+</div>
+		<div id="header-pub" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+		
+			<!-- HABILLAGE LEADERBOARD -->
+		<div style="margin:5px 0px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- TA Adapt Sous Menu -->
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-client="ca-pub-2908504529538871"
+			 data-ad-slot="3413799943"
+			 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</div>
+				
+		</div>
+		<div class="page col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+			<div id="mobileBreves" class="col-xs-12 col-sm-12 col-md-0 col-lg-0" style="clear:both;float:center;"> </div>
+			<div class="main-left col-xs-12 col-sm-12 col-md-7 col-lg-9 ">
+				<div id="messageImp1521304607" style="background-color:#e5e5e5; padding:20px;margin-top:200px;margin-bottom:250px;display:none;"></div>
+			<h2>à la Une</h2>
+<span class="borderline"></span><a href="news-wta-indian-wells-kasatkina-osaka-la-finale-de-l-avenir-74589.html"><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="position:relative;background: url(http://www.tennisactu.net/photo/news/images/OSAKA%20Naomi/OsakaAO18.png) center; border:5px solid white; background-size:cover; height: 230px; font-weight:bold;">
+		<div style="float:left; clear:both; background:#51a3ff; font-weight:bold; font-size:11px; margin-top:15px; padding:4px; color:white;">WTA - Indian Wells</div>
+		<div class="caption" style="position:absolute; bottom:0; width:100%; padding:10px; font-size:14px; text-align:center; color:white;background-color: rgba(0, 0, 0, 0.5);">17/03 - Kasatkina-Osaka, la finale de l'avenir</div>
+	</div></a><a href="news-drummondville-ch-bonzi-aragone-le-point-de-la-ramasseuse-74610.html"><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="position:relative;background: url(http://www.tennisactu.net/photo/news/images/BONZI%20Benjamin/%40France3MidiPy.png) center; border:5px solid white; background-size:cover; height: 230px; font-weight:bold;">
+		<div style="float:left; clear:both; background:#51a3ff; font-weight:bold; font-size:11px; margin-top:15px; padding:4px; color:white;">Drummondville (CH)</div>
+		<div class="caption" style="position:absolute; bottom:0; width:100%; padding:10px; font-size:14px; text-align:center; color:white;background-color: rgba(0, 0, 0, 0.5);">17/03 - Bonzi-Aragone, le point de la ramasseuse</div>
+	</div></a><a href="news-indian-wells-atp-lucas-pouille-dans-le-cercle-du-top-10-74601.html"><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="position:relative;background: url(http://www.tennisactu.net/photo/news/images/POUILLE%20Lucas/MaxMonthioux%20.png) center; border:5px solid white; background-size:cover; height: 230px; font-weight:bold;">
+		<div style="float:left; clear:both; background:#51a3ff; font-weight:bold; font-size:11px; margin-top:15px; padding:4px; color:white;">Indian Wells (ATP)</div>
+		<div class="caption" style="position:absolute; bottom:0; width:100%; padding:10px; font-size:14px; text-align:center; color:white;background-color: rgba(0, 0, 0, 0.5);">16/03 - Lucas Pouille dans le cercle du Top 10</div>
+	</div></a><a href="news-indian-wells-atp-roger-federer-egale-un-record-de-2006-74575.html"><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="position:relative;background: url(http://www.tennisactu.net/photo/news/images/FEDERER%20Roger/RFBAO18.png) center; border:5px solid white; background-size:cover; height: 230px; font-weight:bold;">
+		<div style="float:left; clear:both; background:#51a3ff; font-weight:bold; font-size:11px; margin-top:15px; padding:4px; color:white;">Indian Wells (ATP)</div>
+		<div class="caption" style="position:absolute; bottom:0; width:100%; padding:10px; font-size:14px; text-align:center; color:white;background-color: rgba(0, 0, 0, 0.5);">16/03 - Roger Federer égale un record de... 2006</div>
+	</div></a><!-- derniers résultats saisis
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:10px;clear:both;float:left;">
+<h2>Derniers résultats</h2>
+<span class="borderline"></span>
+</div> -->
+<!-- articles récents et populaire -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:5px;margin-top:5px;">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="border:5px solid transparent;">
+	<h2 style="color:#d4ca56;">Récent</h2>
+	<span class="borderline"></span>
+	<a style="color:black;" href="news-atp-miami-goffin-inscrit-a-miami-pour-tester-son-oeil-74560.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Miami  Goffin inscrit à Miami pour tester son oeil </b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/GOFFIN%20David/DavidGoffin.jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Le Belge David Goffin reviendra sur les courts la semaine prochaine &agrave; Miami. Bless&eacute; &agrave; l'oeil depuis le tournoi de Rotterdam, le Belge atten...<br/><br/><small>17/03 17:32</small></p></div></a><a style="color:black;" href="news-wta-miami-maria-sharapova-forfait-blessee-a-l-avant-bras-74597.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>WTA - Miami Maria Sharapova forfait, blessée à l'avant-bras</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/SHARAPOVA%20Maria/Sharapova(1).jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Maria Sharapova a d&eacute;clar&eacute; forfait pour le tournoi de Miami, alors que les organisateurs avaient pr&eacute;vu un "super mercredi" avec Serena Willi...<br/><br/><small>17/03 17:04</small></p></div></a><a style="color:black;" href="news-wta-indian-wells-makarova-vesnina-chassent-un-12e-titre-74626.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>WTA - Indian Wells Makarova/Vesnina chassent un 12e titre</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/VESNINA%20Elena/Makarova%20Vesnina%20%40ElenaVesninaTwitter.PNG) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Au programme samedi &agrave; Indian Wells chez les femmes la finale du double qui verra un affrontement int&eacute;ressant entre la paire exp&eacute;riment&eacu...<br/><br/><small>17/03 16:45</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-del-potro-a-souffert-contre-kohlschreiber-74613.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Del Potro a souffert contre Kohlschreiber</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/DEL%20POTRO%20Juan%20Martin/ifyglo2.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Moins &eacute;vident que pr&eacute;vu pour le grand Argentin. Juan Martin Del Potro s'est qualifi&eacute; difficilement pour les demi-fiinales du tournoi d'Indi...<br/><br/><small>17/03 16:32</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-borna-coric-face-a-l-impossible-en-demies-74624.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Borna Coric face à l'impossible en demies</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/CORIC%20Borna/Coric%20indian%20wells.jpeg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">En ce samedi, se joueront les demi-finales du tableau masculin. Et cela devient une habitude dans les grands tournois, nous retrouvons une nouvelle fois Roger F...<br/><br/><small>17/03 16:01</small></p></div></a><a style="color:black;" href="news-lille-ch-douze-tricolores-dans-le-tableau-des-qualifs-74625.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>Lille (CH)  Douze tricolores dans le tableau des qualifs</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/GUEZ%20David/Guez%20%40Twitter.jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Douze Fran&ccedil;ais pr&eacute;sents dans le tableau des qualifications au Challenger de Lille. Trois d'entre eux se sont d&eacute;j&agrave; qualifi&eacute;s p...<br/><br/><small>17/03 15:49</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-qui-est-le-jeune-prodige-borna-coric-74595.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Qui est le jeune prodige Borna Coric ?</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/CORIC%20Borna/RG2017BC.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Borna Coric &eacute;clabousse actuellement de son talent le tournoi d'Indian Wells ! Avec seulement 9 jeux perdus lors des trois premiers tours,&nbsp;Borna Cori...<br/><br/><small>17/03 15:44</small></p></div></a><a style="color:black;" href="news-atp-wta-miami-2018-derniere-edition-a-key-biscayne-72433.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP/WTA - Miami 2018, dernière édition à Key Biscayne</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/Miami%20Open%202019.PNG) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Le Masters 1000 de Miami se tiendra pour la derni&egrave;re fois &agrave; Key Biscayne lors de l'&eacute;dition 2018. Le tournoi &eacute;tait organis&eacute; da...<br/><br/><small>17/03 15:17</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-une-finale-de-double-100-americaine-74623.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Une finale de double 100% américaine</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/BRYAN%20Bob%26Mike/Bryan.jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Ce samedi se disputera &agrave; Indian Wells&nbsp;en plus des demi-finales chez les Hommes, la finale de double chez les messieurs. Et le public am&eacute;ricai...<br/><br/><small>17/03 15:10</small></p></div></a>	</div>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="border:5px solid transparent;">
+	<h2 style="color:#6f9ed3;">Populaire</h2>
+	<span class="borderline"></span>
+	<a style="color:black;" href="news-media-comment-voir-l-actualite-de-tennis-actu-sur-facebook-73282.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>Media Comment voir l'Actualité de Tennis Actu sur Facebook</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/CHRONIQUE%20TENNIS%20ACTU%20-%20TOF/FacebookTennisActu.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Informations &agrave; nos internautes. Pour pouvoir continuer &agrave; recevoir les informations et les vid&eacute;os publi&eacute;es par Tennis Actu dans votre...<br/><br/><small>17/03 10:03</small></p></div></a><a style="color:black;" href="news-tennis-shop-le-test-de-la-head-prestige-precision-absolue-73198.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>Tennis Shop Le test de la Head PRESTIGE, précision absolue</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/Tennis%20Warehouse%20Europe/Head%20Prestige%20.jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Con&ccedil;ues pour les joueurs techniques &agrave; la recherche d&rsquo;un meilleur contr&ocirc;le, les nouvelles raquettes Head Prestige offrent une pr&eacute...<br/><br/><small>17/03 11:59</small></p></div></a><a style="color:black;" href="news-tennis-shop-tennis-warehouse-fete-ses-25-ans-cette-saison-73299.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>Tennis Shop Tennis Warehouse fête ses 25 ans cette saison</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/Tennis%20Warehouse%20Europe/TW25.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Tennis Warehouse f&ecirc;te ses 25 ans gr&acirc;ce &agrave; vous. N&deg;1 mondial de la vente de mat&eacute;riel de tennis en ligne, ainsi que partenaire offici...<br/><br/><small>16/03 08:08</small></p></div></a><a style="color:black;" href="news-tennis-shop-les-nike-de-rafael-nadal-sur-tennis-warehouse-73722.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>Tennis Shop Les Nike de Rafael Nadal sur Tennis Warehouse</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/Tennis%20Warehouse%20Europe/cage3_melbourne2.jpg) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">D&eacute;couvrez la nouvelle chaussure de Rafael Nadal : la Nike Zoom Cage 3 sur Tennis Warehouse Europe. Vous recherchez une chaussure apportant maintien et st...<br/><br/><small>15/03 16:46</small></p></div></a><a style="color:black;" href="news-atp-wta-miami-2018-derniere-edition-a-key-biscayne-72433.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP/WTA - Miami 2018, dernière édition à Key Biscayne</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/Miami%20Open%202019.PNG) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Le Masters 1000 de Miami se tiendra pour la derni&egrave;re fois &agrave; Key Biscayne lors de l'&eacute;dition 2018. Le tournoi &eacute;tait organis&eacute; da...<br/><br/><small>17/03 15:17</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-federer-mate-chardy-del-potro-s-en-sort-74532.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Federer mate Chardy, Del Potro s'en sort</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/DEL%20POTRO%20Juan%20Martin/Respiro_Tenis%20.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Le dernier tricolore encore en lice &agrave;&nbsp;Indian Wells,&nbsp;J&eacute;r&eacute;my Chardy, devait se surpasser pour faire parti des huit derniers en lice...<br/><br/><small>15/03 07:20</small></p></div></a><a style="color:black;" href="news-atp-wta-miami-serena-et-azarenka-invitees-bartoli-blessee-74540.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP/WTA - Miami Serena et Azarenka invitées, Bartoli blessée</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/BARTOLI%20Marion/bartolise.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Le tournoi d'Indian Wells n'est pas termin&eacute; qu'on a d&eacute;j&agrave; les yeux riv&eacute;s sur celui de Miami (du 20 mars au 1er avril)! La liste des w...<br/><br/><small>15/03 14:31</small></p></div></a><a style="color:black;" href="news-atp-miami-officiel-dominic-thiem-forfait-pour-miami-74534.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Miami  Officiel : Dominic Thiem forfait pour Miami</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/THIEM%20Dominic/jeu_set_etmatch%20.png) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Souvenez-vous lors de son troisi&egrave;me tour &agrave; Indian Wells face &agrave; Pablo Cuevas, le n&deg;6 mondial Dominic Thiem s'&eacute;tait tordu la chevi...<br/><br/><small>15/03 18:10</small></p></div></a><a style="color:black;" href="news-atp-indian-wells-federer-domine-chung-et-reste-n-1-74564.html"><div style="margin:0px 5px; padding:10px 5px;float:left;width:100%;font-size:12px;border-bottom:1px solid #e3e3e3;"><b>ATP - Indian Wells Federer domine Chung et reste n°1 !</b><br/><div style="margin:10px;background:url(http://www.tennisactu.net/photo/news/images/FEDERER%20Roger/Federer%20%40Antoine%20Couvercelle.JPG) center;background-size:cover;float:left;height:90px;width:120px;"></div> <p style="margin-top:15px;color:#5c5c5c;text-align:justify;">Deux mois apr&egrave;s leur premi&egrave;re confrontation lors de la demi-finale de&nbsp;l'Open d'Australie,&nbsp;Roger Federer et Hyeon Chung&nbsp;se retrouvai...<br/><br/><small>16/03 08:03</small></p></div></a>	</div>
+</div>
+<!-- jukebox dailymotion -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding:5px;">
+<iframe id="dm_jukebox_iframe" allowtransparency="TRUE" style="overflow:hidden; margin:0; padding:0; width: 100%; height: 422px;" marginwidth="0" marginheight="0" src="http://www.dailymotion.com/widget/jukebox?list[]=%2Fplaylist%2Fx2kdac_tennisactu_tennis-actu%2F1&skin=default&autoplay=0&automute=0" align="middle" frameborder="0" width="100%"></iframe>
+</div>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2908504529538871" data-ad-slot="9725935545" data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			
+			</div>
+			<div class="main-right col-xs-12 col-sm-12 col-md-5 col-lg-3">
+				<h2>Brèves</h2>
+				<span class="borderline"></span>
+				<div id="breves" style="border-left:3px solid transparent;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				﻿<a href="news-atp-miami-goffin-inscrit-a-miami-pour-tester-son-oeil-74560.html" title="Goffin inscrit à Miami pour tester son oeil " style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">17:32</span> ATP - Miami </b> Goffin inscrit à Miami pour tester son oeil </a><br/><a href="news-wta-miami-maria-sharapova-forfait-blessee-a-l-avant-bras-74597.html" title="Maria Sharapova forfait, blessée à l'avant-bras" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">17:04</span> WTA - Miami</b> Maria Sharapova forfait, blessée à l'avant-bras</a><br/><a href="news-wta-indian-wells-makarova-vesnina-chassent-un-12e-titre-74626.html" title="Makarova/Vesnina chassent un 12e titre" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">16:45</span> WTA - Indian Wells</b> Makarova/Vesnina chassent un 12e titre</a><br/><a href="news-atp-indian-wells-del-potro-a-souffert-contre-kohlschreiber-74613.html" title="Del Potro a souffert contre Kohlschreiber" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">16:32</span> ATP - Indian Wells</b> Del Potro a souffert contre Kohlschreiber</a><br/><a href="news-atp-indian-wells-borna-coric-face-a-l-impossible-en-demies-74624.html" title="Borna Coric face à l'impossible en demies" style="color:#28AD09;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">16:01</span> ATP - Indian Wells</b> Borna Coric face à l'impossible en demies</a><br/><a href="news-lille-ch-douze-tricolores-dans-le-tableau-des-qualifs-74625.html" title="Douze tricolores dans le tableau des qualifs" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:49</span> Lille (CH) </b> Douze tricolores dans le tableau des qualifs</a><br/><a href="news-atp-indian-wells-qui-est-le-jeune-prodige-borna-coric-74595.html" title="Qui est le jeune prodige Borna Coric ?" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:44</span> ATP - Indian Wells</b> Qui est le jeune prodige Borna Coric ?</a><br/><a href="news-atp-wta-miami-2018-derniere-edition-a-key-biscayne-72433.html" title="2018, dernière édition à Key Biscayne" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:17</span> ATP/WTA - Miami</b> 2018, dernière édition à Key Biscayne</a><br/><a href="news-atp-indian-wells-une-finale-de-double-100-americaine-74623.html" title="Une finale de double 100% américaine" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:10</span> ATP - Indian Wells</b> Une finale de double 100% américaine</a><br/><a href="news-villers-les-nancy-fut-davydenko-et-borg-se-sont-affrontes-74622.html" title="Davydenko et Borg se sont affrontés" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:04</span> Villers les Nancy (FUT)</b> Davydenko et Borg se sont affrontés</a><br/><a href="news-wta-miami-cibulkova-malade-declare-forfait-74621.html" title="Cibulkova, malade, déclare forfait" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">15:04</span> WTA - Miami </b> Cibulkova, malade, déclare forfait</a><br/><a href="news-atp-toni-nadal-le-favori-sur-terre-battue-c-est-rafa-nadal-74592.html" title="Toni Nadal : 'Le favori sur terre battue, c'est Rafa Nadal'" style="color:#28AD09;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">14:50</span> ATP </b> Toni Nadal : "Le favori sur terre battue, c'est Rafa Nadal"</a><br/><a href="news-atp-indian-wells-raonic-pret-a-donner-le-meilleur-74620.html" title="Raonic : 'Prêt à donner le meilleur'" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">14:28</span> ATP - Indian Wells</b> Raonic : "Prêt à donner le meilleur"</a><br/><a href="news-bakersfield-fut-mathias-bourgue-a-remporte-le-derby-74611.html" title="Mathias Bourgue a remporté le derby " style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">14:08</span> Bakersfield (FUT)</b> Mathias Bourgue a remporté le derby </a><br/><a href="news-atp-indian-wells-del-potro-je-dois-etre-meilleur-demain-74619.html" title="Del Potro : 'Je dois être meilleur demain.'" style="color:#28AD09;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">13:54</span> ATP - Indian Wells</b> Del Potro : "Je dois être meilleur demain."</a><br/><a href="news-wta-indian-wells-kasatkina-osaka-la-finale-de-l-avenir-74589.html" title="Kasatkina-Osaka, la finale de l'avenir" style="color:#E20F22;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">13:25</span> WTA - Indian Wells</b> Kasatkina-Osaka, la finale de l'avenir</a><br/><a href="news-wta-indian-wells-le-coup-droit-en-bout-de-course-de-halep-74618.html" title="Le coup droit en bout de course de Halep" style="color:#222;font-family: 'Roboto', sans-serif;font-size:11px;text-decoration:none;"> <b><span style="color: #bbb;">13:14</span> WTA - Indian Wells</b> Le coup droit en bout de course de Halep</a><br/><div style="float:left; width:100%;"><img src="images/down.gif" title="Plus ancien" onclick="envoieRequete('inc-breves.php?start=17','breves');"> </div>				</div>
+				
+				 <script type="text/javascript"> document.getElementById('mobileBreves').innerHTML=document.getElementById('breves').innerHTML; </script> <div style="width:100%;text-align:center;"><iframe src="https://www.winamax.fr/affiliate/adserverbetting.php?affiliate_id=TENNISACTU&size=300x250&sport=2&rotation=1" width="300" height="250" scrolling="no"></iframe></div><div style="text-align:center;margin-top:15px;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- DroiteFixe -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6323590091557071"
+     data-ad-slot="3303761462"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+		
+<!-- dernier sondage-->
+<h2>Sondage</h2>
+<span class="borderline"></span>
+<div><div style="font-size:1.8em;color:#222;margin-left:15px;">Que pensez-vous de la révolution de la Coupe Davis à venir et prônée par l'ITF ?</div><br/><form action="sondage.html" method="post"><input style="margin-top:5px;margin-left:35px;" type="radio" id="rep0" name="reponse" value="1"></input><label for="rep0" style="color:#bbb;">D'accord</label><br/><input style="margin-top:5px;margin-left:35px;" type="radio" id="rep1" name="reponse" value="2"></input><label for="rep1" style="color:#bbb;">Pas d'accord</label><br/><input style="margin-top:5px;margin-left:35px;" type="radio" id="rep2" name="reponse" value="3"></input><label for="rep2" style="color:#bbb;">Sans avis</label><br/><br/><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align:center;"><a href="sondage.html" style="color:#222;">Résultats</a></div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align:center;"><input type="hidden" name="sondage" value="202"><input style="color:black;" name="submit" value="Voter" type="submit"></div></form></div><br/><br/><!-- derniers résultats-->
+
+<!-- PUBS 300x125 -->
+<h2>Partenaires</h2>
+<span class="borderline"></span>
+<div style="text-align:center;">
+<a href="http://www.cyclismactu.net/" target="_blank"><img src="pubs/300x125/ca_sitedelannee2013.gif" style="margin-top:10px;max-width:300px;max-height:125px;"></a><a href="http://www.tenniswarehouse-europe.com/catpage-PRINCERAC-FR.html?from=TenActu&vat=fr&lang=fr" target="_blank"><img src="pubs/300x125/300x125-prince-beast_fr_2.jpg" style="margin-top:10px;max-width:300px;max-height:125px;"></a><a href="http://www.tenniswarehouse-europe.com/catpage-MALACOSTE-FR.html?from=TenActu&vat=fr&lang=fr" target="_blank"><img src="pubs/300x125/lacst18_300x125_fr.jpg" style="margin-top:10px;max-width:300px;max-height:125px;"></a><a href="TA-PREZ.pdf" target="_blank"><img src="pubs/300x125/tennisvotrepub.gif" style="margin-top:10px;max-width:300px;max-height:125px;"></a><a href="TA-PREZ.pdf" target="_blank"><img src="pubs/300x125/tennisvotrepub.gif" style="margin-top:10px;max-width:300px;max-height:125px;"></a></div>
+<!-- classement -->
+<h2>Classement Mondial ATP</h2>
+<span class="borderline"></span>
+<div style="text-align:center;">
+<table align="center" width="85%" cellspacing="0" style="padding-top:0px;min-width:200px;"><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>1</b> <img src="img/flags/16/SUI.png" title="SUI" alt="SUI" > <a href="joueur-federer-roger-8.html" style="color:black;text-decoration:none;">FEDERER Roger</a></td><td style="color:grey;width:70px;">10105 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>2</b> <img src="img/flags/16/ESP.png" title="ESP" alt="ESP" > <a href="joueur-nadal-rafael-11.html" style="color:black;text-decoration:none;">NADAL Rafael</a></td><td style="color:grey;width:70px;">9460 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>3</b> <img src="img/flags/16/CRO.png" title="CRO" alt="CRO" > <a href="joueur-cilic-marin-37.html" style="color:black;text-decoration:none;">CILIC Marin</a></td><td style="color:grey;width:70px;">4870 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>4</b> <img src="img/flags/16/BUL.png" title="BUL" alt="BUL" > <a href="joueur-dimitrov-grigor-79.html" style="color:black;text-decoration:none;">DIMITROV Grigor</a></td><td style="color:grey;width:70px;">4635 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>5</b> <img src="img/flags/16/ALL.png" title="ALL" alt="ALL" > <a href="joueur-zverev-alexander-766.html" style="color:black;text-decoration:none;">ZVEREV Alexander</a></td><td style="color:grey;width:70px;">4540 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>6</b> <img src="img/flags/16/AUT.png" title="AUT" alt="AUT" > <a href="joueur-thiem-dominic-1138.html" style="color:black;text-decoration:none;">THIEM Dominic</a></td><td style="color:grey;width:70px;">3810 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>7</b> <img src="img/flags/16/BEL.png" title="BEL" alt="BEL" > <a href="joueur-goffin-david-339.html" style="color:black;text-decoration:none;">GOFFIN David</a></td><td style="color:grey;width:70px;">3280 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>8</b> <img src="img/flags/16/ARG.png" title="ARG" alt="ARG" > <a href="joueur-del-potro-juan-martin-13.html" style="color:black;text-decoration:none;">DEL POTRO Juan Martin</a></td><td style="color:grey;width:70px;">3200 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>9</b> <img src="img/flags/16/RSA.png" title="RSA" alt="RSA" > <a href="joueur-anderson-kevin-76.html" style="color:black;text-decoration:none;">ANDERSON Kevin</a></td><td style="color:grey;width:70px;">3080 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>10</b> <img src="img/flags/16/USA.png" title="USA" alt="USA" > <a href="joueur-sock-jack-223.html" style="color:black;text-decoration:none;">SOCK Jack</a></td><td style="color:grey;width:70px;">2650 pts</td></tr></table></div>
+<!-- classement -->
+<h2>Classement Mondial WTA</h2>
+<span class="borderline"></span>
+<div style="text-align:center;">
+<table align="center" width="85%" cellspacing="0" style="padding-top:0px;min-width:200px;"><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>1</b> <img src="img/flags/16/ROU.png" title="ROU" alt="ROU" > <a href="joueur-halep-simona-172.html" style="color:black;text-decoration:none;">HALEP Simona</a></td><td style="color:grey;width:70px;">7965 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>2</b> <img src="img/flags/16/DAN.png" title="DAN" alt="DAN" > <a href="joueur-wozniacki-caroline-25.html" style="color:black;text-decoration:none;">WOZNIACKI Caroline</a></td><td style="color:grey;width:70px;">7525 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>3</b> <img src="img/flags/16/ESP.png" title="ESP" alt="ESP" > <a href="joueur-muguruza-garbine-200.html" style="color:black;text-decoration:none;">MUGURUZA Garbine</a></td><td style="color:grey;width:70px;">6175 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>4</b> <img src="img/flags/16/UKR.png" title="UKR" alt="UKR" > <a href="joueur-svitolina-elina-253.html" style="color:black;text-decoration:none;">SVITOLINA Elina</a></td><td style="color:grey;width:70px;">5480 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>5</b> <img src="img/flags/16/CZE.png" title="CZE" alt="CZE" > <a href="joueur-pliskova-karolina-362.html" style="color:black;text-decoration:none;">PLISKOVA Karolina</a></td><td style="color:grey;width:70px;">5080 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>6</b> <img src="img/flags/16/LET.png" title="LET" alt="LET" > <a href="joueur-ostapenko-jelena-822.html" style="color:black;text-decoration:none;">OSTAPENKO Jelena</a></td><td style="color:grey;width:70px;">4941 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>7</b> <img src="img/flags/16/FRA.png" title="FRA" alt="FRA" > <a href="joueur-garcia-caroline-467.html" style="color:black;text-decoration:none;">GARCIA Caroline</a></td><td style="color:grey;width:70px;">4625 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>8</b> <img src="img/flags/16/USA.png" title="USA" alt="USA" > <a href="joueur-williams-venus-49.html" style="color:black;text-decoration:none;">WILLIAMS Venus</a></td><td style="color:grey;width:70px;">4277 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>9</b> <img src="img/flags/16/CZE.png" title="CZE" alt="CZE" > <a href="joueur-kvitova-petra-23.html" style="color:black;text-decoration:none;">KVITOVA Petra</a></td><td style="color:grey;width:70px;">3086 pts</td></tr><tr style="font-size:0.9em;background:#fff;text-align:left;"><td><b>10</b> <img src="img/flags/16/ALL.png" title="ALL" alt="ALL" > <a href="joueur-kerber-angelique-21.html" style="color:black;text-decoration:none;">KERBER Angelique</a></td><td style="color:grey;width:70px;">3055 pts</td></tr></table></div>				
+				
+			</div>
+		</div>
+		<footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align:center;"><img src="images/logoTA.png" class="img-responsive" style="display:inline;max-width:200px;"></div>
+			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="about" name="about"><b>A propos de TennisActu</b><br/>TennisActu est édité par Swar-Agency<br/>1 Avenue de La Plante 5000 Namur<br/>SPRLS BE 0836.273.820</div>
+			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4"><b>Informations supplémentaires</b><br/><a href="mailto:contact@swar-agency">Devenir partenaire</a><br/><a href="mailto:contact@swar-agency">Nous contacter</a><br/><a href="//www.cyclismactu.net" target="_blank">Cyclism'Actu</a><br/>Archives</div>
+		</footer>
+		<div id="footer-under"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align:left;"><b>© TennisActu</b> Tous droits réservés ©2008-2018</div> 
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align:right;">Produit par <b><a href="http://www.swar-agency.com" target="_blank">Swar Agency</a>.</b></div> 
+		</div>
+</div>
+
+</div>
+</div>
+
+<!-- Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26472934-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!-- BEGIN Hi-Media Media AdTag, be.tennisactu.fr 1x1 - v1.0 -->
+<div class="hmads_1x1">
+
+    <script type="text/javascript">
+        (function() {
+            var utTagCountry = 'be';
+            var utTagSite = 'be.tennisactu.fr';
+            var utTagZone = 'others';
+            var utTagUrl = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+                'js.himediads.com/js' +
+                '?country=' + encodeURIComponent(utTagCountry) +
+                '&site=' + encodeURIComponent(utTagSite) +
+                '&zone=' + encodeURIComponent(utTagZone);
+            document.write('<sc' + 'ript type="text/javascript" src="' + utTagUrl + '"><\/sc' + 'ript>');
+        })();
+    </script>
+ 
+    <script type="text/javascript">
+        try {
+            window.hiMediaUt.callTag({
+                "format": "1x1",
+                "keyValues": ""
+            });
+        } catch(ex) {
+        }
+    </script>
+
+    <noscript>
+        <a href="http://rd.himediads.com/fr/jump/be.tennisactu.fr/others;sz=1x1;tile=1;ord=" target="_blank">
+            <img src="http://rd.himediads.com/fr/ad/be.tennisactu.fr/others;sz=1x1;tile=1;ord=?" width="1" height="1" alt="" />
+        </a>
+    </noscript>
+</div>
+<!-- END Hi-Media Media AdTag, be.tennisactu.fr 1x1 - v1.0 -->
+
+<!-- taboola -->
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({flush: true});
+</script>
+
+<div id='akv-overlay'></div><script type='text/javascript'>
+(function(){
+p=function(e,t){
+t=t||{};var n=document.createElement('script');
+var r='https:'==window.location.protocol?'https://':'http://';
+n.setAttribute('data-cfasync',false);
+n.src=r+'cdn.adikteev.com/lib/v3/aksdk.moment?t='+((new Date).getTime()/1e3/3600).toFixed();
+n.type='text/javascript';n.async='true';
+n.onload=n.onreadystatechange=function(){
+var n=this.readyState;if(n&&n!='complete'&&n!='loaded')return;
+try{top.AKSdk.init(e,t);top.AKSdk.call_action('default_footer' ); }catch(r){}
+};
+try{ var i=top.document.getElementsByTagName('script')[0];i.parentNode.insertBefore(n,i); }catch(e){};
+};
+p({"desktop":"Syou91mp3qW31nUOeSCpww=="},{});
+})()
+</script>
+
+<script type="text/javascript" src="adserver.js"></script>
+<script>
+if (document.getElementById('ads') == null) {
+document.getElementById('messageImp1521304607').style.display='block'; document.getElementById('messageImp1521304607').innerHTML='<b>Un bloqueur de publicité a été détecté !</b><br/>Nous souhaitons vous informer que les publicités représentent près de 90% des revenus de notre site, et permet de proposer un contenu gratuit, de répondre au frais d\'hébergement du site, domaines, et de contribuer à son développement.<br/>C\'est pourquoi nous vous serions reconnaissant de bien vouloir désactiver votre bloqueur de publicité sur notre site.<br/>Merci !<br/>';
+}
+</script>
+
+<!-- Footer Ad6 media
+<script type="text/javascript">
+/* <![CDATA[ */
+(function(){var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.src="http://19n9unh70c.s.ad6media.fr/?d="+(new Date).getTime()+"&r=";try{a.src+=encodeURIComponent(top.document.referrer)}catch(c){a.src+=encodeURIComponent(document.referrer)}a.type="text/javascript";a.async=!0;b.parentNode.insertBefore(a,b)})();/* ]]> */
+</script> 
+ -->
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CCBS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <link type="text/css" href="css/style1.css" rel="stylesheet"/>
+    <link href="css/marque.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+    <script src="js/jQuery-jcMarquee.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <link rel="stylesheet" href="css/picStyle.css">
+
+    <!--<script src="js/jquery-1.10.1.min.js"></script>-->
+    <script src="js/idangerous.swiper.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#Marquee_x').jcMarquee({ 'marquee':'x','margin_right':'10px','speed':20 });
+                // 10px代表间距，第二个20代表滚动速度
+
+            $(".main_visual").hover(function(){
+                $("#btn_prev,#btn_next").fadeIn()
+            },function(){
+                $("#btn_prev,#btn_next").fadeOut()
+            });
+
+            $dragBln = false;
+
+            $(".main_image").touchSlider({
+                flexible : true,
+                speed : 200,
+                btn_prev : $("#btn_prev"),
+                btn_next : $("#btn_next"),
+                paging : $(".flicking_con a"),
+                counter : function (e){
+                    $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+                }
+            });
+
+            $(".main_image").bind("mousedown", function() {
+                $dragBln = false;
+            });
+
+            $(".main_image").bind("dragstart", function() {
+                $dragBln = true;
+            });
+
+            $(".main_image a").click(function(){
+                if($dragBln) {
+                    return false;
+                }
+            });
+
+            timer = setInterval(function(){
+                $("#btn_next").click();
+            }, 5000);
+
+            $(".main_visual").hover(function(){
+                clearInterval(timer);
+            },function(){
+                timer = setInterval(function(){
+                    $("#btn_next").click();
+                },5000);
+            });
+
+            $(".main_image").bind("touchstart",function(){
+                clearInterval(timer);
+            }).bind("touchend", function(){
+                timer = setInterval(function(){
+                    $("#btn_next").click();
+                }, 5000);
+            });
+
+        });
+        function goHere(place) {
+
+            if(place=='header'){
+                $("html,body").animate({scrollTop:$("#header").offset().top},500);
+            }
+            if(place=='main1'){
+                $("html,body").animate({scrollTop:$("#main1").offset().top},500);
+            }
+            if(place=='main3'){
+                $("html,body").animate({scrollTop:$("#main3").offset().top},500);
+            }
+            if(place=='main4'){
+                $("html,body").animate({scrollTop:$("#main4").offset().top},500);
+            }
+            if(place=='foot'){
+                $("html,body").animate({scrollTop:$("#foot").offset().top},500);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<!--侧边漂浮边栏-->
+<div class="side_bar hide">
+    <ul>
+        <!--<li><a href="#header" style="background-color: #fed528;">返回顶部</a> </li>-->
+        <li onclick="goHere('header')"><a style="background-color: #fed528;">返回顶部</a> </li>
+        <li onclick="goHere('main1')"><a style="background-color: #a6ce39;">公司介绍</a> </li>
+        <!--<li><a href="#main2" style="background-color: #7c96f7;">公司运营</a> </li>-->
+        <li onclick="goHere('main3')"><a style="background-color: #cb3fd4;">产品功能</a> </li>
+        <li onclick="goHere('main4')"><a style="background-color: #e62469;">加盟球会</a> </li>
+        <li onclick="goHere('foot')"><a style="background-color: #ff6600;">联系我们</a> </li>
+    </ul>
+</div>
+<div class="nav clear">
+    <div class="navContent clear">
+        <div class="navLeft">
+            <div class="paddingLeft14">
+            <img src="img/logo1.png">
+            <span class="name">台风体育</span>
+            </div>
+            <span  class="navRight">
+                <ul>
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="product.html">产品</a></li>
+                    <li><a href="CCBS.html">资讯</a></li>
+                    <li><a href="index.html#foot">联系我们</a></li>
+                    <li><a href="http://sport147.cn/">球房登录</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="functionShow" id="header">
+    <div class="main_visual" style="margin-top: 80px;">
+        <div class="flicking_con">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+        <div class="main_image">
+            <ul>
+                <li><span class="img_3"></span></li>
+                <li><span class="img_4"></span></li>
+                <li><span class="img_1"></span></li>
+                <li><span class="img_2"></span></li>
+                <li><span class="img_5"></span></li>
+            </ul>
+            <a href="javascript:;" id="btn_prev"></a>
+            <a href="javascript:;" id="btn_next"></a>
+        </div>
+    </div>
+    <!--main_visual end-->
+
+    <div style="position: relative;">
+        <!--<img src="images/city.png" style="width: 100%;"/>-->
+        <!--<div class="bodyNav">-->
+            <!--<ul>-->
+                <!--<li class="active"><a href="#main1">公司介绍</a></li>-->
+                <!--<li><a href="#main2">公司运营</a></li>-->
+                <!--<li><a href="#main3">产品功能</a></li>-->
+                <!--<li><a href="#main4">加盟球会</a></li>-->
+                <!--<li><a href="#foot">联系我们</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<p class="bodyNavText">-->
+            <!--<span class="xian"></span>-->
+            <!--<span class="text">我们提供最<span style="font-size: 62px;">优质</span>可<span  style="font-size: 62px;">信赖</span>的方案与服务</span>-->
+            <!--<span class="xian"></span>-->
+        <!--</p>-->
+        <div class="titbg" id="main1">
+            <p class="tit">
+                我们是谁？
+            </p>
+            <p style="color:#666666;font-size: 12px;">WHO ARE WE?</p>
+            <img src="img/icon/xian.png" style="width: 10%;"/>
+            <div class="triangle"></div>
+        </div>
+        <div style='width: 100%;height: 600px;background-image: url("images/introBg.png");background-size: 100%;background-repeat: no-repeat;position: relative;'>
+            <div style="width: 600px;height: 100%;margin: 0 auto ;">
+            <img src="images/ccbs.png" style="width: 25%;margin-top:70px;">
+            <p style="font-size: 30px;color: #fff;margin-top: 15px;">台风体育文化发展(深圳)有限公司</p>
+                <p style="font-size: 12px; color:#fff;">Typhoon Sports&Culture Development Co.Ltd</p>
+                <p style="border: 1px solid #fff;padding:12px;width: 600px;color: #fff;;line-height: 30px;margin-top: 30px;">  台风体育文化发展（深圳）有限公司，立足于台球球房经营，以物联网为技术基础，通过去中心化的互联网科技为手段，完成了李克强总理的全民“分享经济”，以汇集众人之力共同经营台球球房为理念打造的一个台球球房服务平台公司。<br>
+                    The typhoon sports culture development (Shenzhen) Co., Ltd., based on real billiard management, networking technology as the foundation, through to the center of the Internet means of science and technology, completed the national Premier Li Keqiang's "sharing economy", in order to bring together all the force of the operating billiard room for the idea of creating a billiard room service platform.</p>
+            </div>
+        </div>
+        <!--<div class="titbg" id="main2">-->
+            <!--<p class="tit">-->
+                <!--我们能做什么？-->
+            <!--</p>-->
+            <!--<p style="color:#666666;font-size: 12px;">WHAT CAN WE DO?</p>-->
+            <!--<img src="img/icon/xian.png" style="width: 10%;"/>-->
+            <!--<div class="triangle"></div>-->
+        <!--</div>-->
+        <!--<div class="doList">-->
+            <!--<div style="width: 800px;margin: 0 auto;">-->
+            <!--<ul>-->
+                <!--<li><span></span>自助系统</li>-->
+                <!--<li><span></span>基础收银</li>-->
+                <!--<li><span></span>会员管理</li>-->
+                <!--<li><span></span>营销</li>-->
+                <!--<li><span></span>财务管理</li>-->
+                <!--<li><span></span>老板助手</li>-->
+                <!--<li><span></span>智能终端</li>-->
+                <!--<li><span></span>售后</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="titbg" id="main3">
+            <p class="tit">
+                我们的产品功能
+            </p>
+            <p style="color:#666666;font-size: 12px;">OUR PRODUCT FEATURES</p>
+            <img src="img/icon/xian.png" style="width: 10%;"/>
+            <div class="triangle"></div>
+        </div>
+        <!--<p class="tit">-->
+            <!--功能介绍-->
+        <!--</p>-->
+        <!--<p style="color:#666666;font-size: 12px;">FUNCTION</p>-->
+    <!--<img src="img/icon/xian.png" style="width: 10%;"/>-->
+    <!--<div style="margin: 0 auto;width: 300px;height: 30px;">-->
+    <!--<ul class="tab">-->
+        <!--&lt;!&ndash;<li class="active formal">专业版</li>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li class="match">联赛版</li>&ndash;&gt;-->
+    <!--</ul>-->
+    <!--</div>-->
+        <div style="width: 1000px;height: 650px;overflow: hidden;margin: 0 auto;">
+        <div style="width: 2000px;">
+        <ul class="allList">
+            <li class="formal next">
+                <p class="info">灵活便捷，适用大多数工作室运营模式，完美支持多行业</p>
+                <ul class="formalList">
+                    <li>
+                        <i class="feature_1"></i>
+                        <div class="tit">扫码开始</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_2"></i>
+                        <div class="tit">竞技补贴</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_3"></i>
+                        <div class="tit">自助点餐</div>
+                        <p>手机一键点餐，吧台自动打单出货，无需专人侍侯</p>
+                    </li>
+                    <li>
+                        <i class="feature_4"></i>
+                        <div class="tit">手机结账</div>
+                        <p>微信支付、会员卡支付、现金券支付，一部手机搞定，彻底摆脱现钞、零钞累赘！</p>
+                    </li>
+                    <li>
+                        <i class="feature_5"></i>
+                        <div class="tit">联盟汇籍</div>
+                        <p>会员全国共享，无需制卡、带卡，彻底杜绝会员卡漏洞也省了制卡的钱。</p>
+                    </li>
+                    <li>
+                        <i class="feature_6"></i>
+                        <div class="tit">社交分享</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_7"></i>
+                        <div class="tit">老板助手</div>
+                        <p>实时经营、财务报表、分析统计、球房管理.....手机一步到位，时刻掌控球房！</p>
+                    </li>
+                    <li>
+                        <i class="feature_8"></i>
+                        <div class="tit">数据分析</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <div class="more" id="more"><div>了解更多</div></div>
+                </ul>
+            </li>
+            <li class="match next">
+                <p class="info">架构严谨，场馆各部门之间协作无缝衔接，完善的CRM管理系统</p>
+                <ul class="matchList">
+                    <li>
+                        <i class="feature_1"></i>
+                        <div class="tit">扫码开始</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_2"></i>
+                        <div class="tit">竞技补贴</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_3"></i>
+                        <div class="tit">自助点餐</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_4"></i>
+                        <div class="tit">手机结账</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_5"></i>
+                        <div class="tit">联盟汇集</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_6"></i>
+                        <div class="tit">社交分享</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_7"></i>
+                        <div class="tit">老板助手</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                    <li>
+                        <i class="feature_8"></i>
+                        <div class="tit">数据分析</div>
+                        <p>手机扫码开始，AA记时，点餐，结账，无需服务员</p>
+                    </li>
+                </ul>
+                <div class="more"><div>了解更多</div></div>
+            </li>
+        </ul>
+        </div>
+        </div>
+
+        </div>
+    <div class="titbg" id="main4">
+        <p class="tit">
+            我们的加盟球会
+        </p>
+        <p style="color:#666666;font-size: 12px;">OUR FRANCHISE CLUB</p>
+        <img src="img/icon/xian.png" style="width: 10%;"/>
+        <div class="triangle"></div>
+    </div>
+    <!--<div id="mrq">-->
+    <!--<div id="Marquee_x">-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+                <!--<div><a href="#" target="_blank"><img src="images/147.png" /><span>147台球会</span></a></div>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+        <!--</div>-->
+    <div id="panda-show">
+        <!--<div class="shuffer-title"><img src="images/title.png" alt=""></div>-->
+        <div class="full">
+            <div class="content">
+                <a class="arrow-left" href="#"></a>
+                <a class="arrow-right" href="#"></a>
+                <div class="cover-left"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/1.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                <!--<div class="name">147台球会</div>-->
+                                <!--<div class="intro">选择大于努力</div>-->
+                                <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/2.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                <!--<div class="name">147台球会</div>-->
+                                <!--<div class="intro">选择大于努力</div>-->
+                                <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/3.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                <!--<div class="name">147台球会</div>-->
+                                <!--<div class="intro">选择大于努力</div>-->
+                                <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/4.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/5.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/6.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/7.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/8.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/9.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1561&extra=" target="_blank">
+                                <img src="images/club/10.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/11.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/12.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/13.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank">
+                                <img src="images/club/14.png"/>
+                                <!--<div class="shuffer-line"></div>-->
+                                <!--<div class="stars-info">-->
+                                    <!--<div class="name">147台球会</div>-->
+                                    <!--<div class="intro">选择大于努力</div>-->
+                                    <!--&lt;!&ndash;<div class="icon-shuffer-live"></div>&ndash;&gt;-->
+                                    <!--<div class="number"><i></i>广东省肇庆市端州区</div>-->
+                                <!--</div>-->
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="cover-right"></div>
+            </div>
+        </div>
+    </div>
+    <div class="titbg" id="foot">
+        <p class="tit">
+            联系我们
+        </p>
+        <p style="color:#666666;font-size: 12px;">CONTACT US</p>
+        <img src="img/icon/xian.png" style="width: 10%;"/>
+        <div class="triangle"></div>
+    </div>
+    <div style='width: 100%;height: 600px;background-image: url("images/contact.png");background-size: 100%;background-repeat: no-repeat;position: relative;'>
+        <div style="width: 800px;height: 100%;margin: 0 auto ;">
+            <img src="images/CCBSer.jpg" style="width: 25%;margin-top:100px;">
+            <p style="font-size: 30px;color: #fff;margin-top: 50px;"><img src="images/ic_phone.png" style="width: 50px;height: 50px;padding-right: 12px;"/>0755-61808147 / 13828838147
+            </p>
+            <!--<p style="font-size: 30px;color: #fff;margin-top: 50px;"><span style='background-image: url("images/ic_phone.png");width: 50px;height: 50px;background-size: 100%;background-repeat: no-repeat;float: left;'></span>0758-18828888888</p>-->
+            <!--<p style="font-size: 30px; color:#fff;margin-top: 30px;"><span style='background-image: url("images/ic_address.png");width: 50px;height: 50px;background-size: 100%;background-repeat: no-repeat;float: left;'></span>端州四路广百时代广场帝景轩5楼147台球会</p>-->
+            <p style="font-size: 30px; color:#fff;margin-top: 30px;"><img src="images/ic_address.png" style="width: 50px;height: 50px;padding-right: 12px;"/>深圳市前海深港合作区前湾一路一号A栋
+            </p>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="top">
+        <div class="link">
+            <ul>
+                <li><a href="#">链接</a> </li>
+                <li><a href="#">公司简介</a><span>＞</span></li>
+                <li><a href="#">文化理念</a><span>＞</span></li>
+                <li><a href="#">诚聘英才</a><span>＞</span></li>
+                <li><a href="#">联系我们</a><span>＞</span></li>
+            </ul>
+        </div>
+        <div class="cont">
+            <ul>
+                <li><a href="#">战略合作</a> </li>
+                <li><a href="#">深圳腾讯控股有限公司微信事业群</a></li>
+                <li><a href="#">深圳市财付通科技有限公司</a></li>
+                <li><a href="#">中国建设银行</a></li>
+                <li><a href="#">中信银行</a></li>
+                <li><a href="#">正中珠江会计师事务所</a></li>
+                <li><a href="#">广东南国德赛律师事务所</a></li>
+                <li><a href="#">深圳分汇科技有限公司</a></li>
+                <li><a href="#">欧姆龙自动化（中国）有限公司</a></li>
+            </ul>
+        </div>
+        <div class="info">
+            <!--<p>申请体验</p>-->
+            <ul>
+                <li><a href="#">售前客服</a> </li>
+                <li><a href="#">13828838147</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom">
+      <p>2016&copy;版权所有&nbsp;&nbsp;隐私政策|粤ICP备15031767号</p>
+    </div>
+</div>
+<div style="height: 1000px"></div>
+<script>
+    /*加盟球会轮播*/
+    slidesPerView=4
+    slidesPerGroup=4
+    if(document.body.clientWidth>1400){
+        slidesPerView=5
+        slidesPerGroup=5
+    }
+
+    var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        speed:1000,
+        onlyExternal : true,
+        slidesPerView :  slidesPerView,
+        slidesPerGroup : slidesPerGroup,
+        loopedSlides :20,
+        loopAdditionalSlides : 20,
+        onSlideChangeEnd: function(swiper){
+            //alert(swiper.activeIndex);
+            if(swiper.activeIndex==40){
+                swiper.swipeTo(0,0)
+            }
+        },
+
+    });
+    $('.arrow-left').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
+
+
+    window.onresize=function() {
+//	alert(document.body.clientWidth );
+
+        if(document.body.clientWidth<1400){
+            mySwiper.params.slidesPerView=mySwiper.params.slidesPerGroup=4;
+            mySwiper.reInit();
+            mySwiper.swipeTo(0,0)
+        }else if(document.body.clientWidth<1660){
+            mySwiper.params.slidesPerView=mySwiper.params.slidesPerGroup=5;
+            mySwiper.reInit();
+            mySwiper.swipeTo(0,0)
+        }else{
+            mySwiper.params.slidesPerView=mySwiper.params.slidesPerGroup=5;
+            mySwiper.reInit();
+            mySwiper.swipeTo(0,0)
+        }
+
+
+    }
+</script>
+</body>
+</html>

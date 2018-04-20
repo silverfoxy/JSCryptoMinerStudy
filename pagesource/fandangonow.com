@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.fandangonow.com/">https://www.fandangonow.com/</a></p>

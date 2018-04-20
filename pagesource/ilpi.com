@@ -1,0 +1,1 @@
+<html><head><title>Transferring you to the ILPI home page...</title><meta http-EQUIV="Refresh" content="0; URL=index.html"></head><body bgcolor="#ffffff">Automatically transferring you to the ILPI home page.<p>If you are not automatically transferred, then <a href="index.html">just use this hyperlink</a>.<p></body></html>

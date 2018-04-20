@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Play Tube</title>
+<meta name="author" content="PlayTube.pk">
+<!-- META DATA -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, user-scalable=0"/>
+<meta name="description" content="Play Tube is now offering to upload, watch, download in HD, MP3 and share YouTube videos worldwide by using our website playtube.pk without proxy or vpn." />
+<meta name="keywords" content="playtube.pk, Play Tube, Unblock YouTube, Download mp3 youtube Videos, playtube, latest movie, latest trailer, hollywood movie, download youtube video, youtube api, hindi songs, hollywood songs, sport, today news, news, drama, talk show, youtube, music, hollywood music" />
+<meta property="og:image" content="https://playtube.pk/"></meta>
+<meta name="google-site-verification" content="p7SWYWCtekvt2_O1_TgDkPbD2m2okFcZfWalhhfXCEA" />
+<META NAME="copyright" CONTENT="Copyright © 2015 Play Tube. All Rights Reserved.">
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="http://www.playtube.pk/" />
+<meta property="og:title" content=""/>
+<meta property="og:site_name" content="playtube.pk"/>
+<meta property="fb:app_id" content="playtube.pk" />
+<META NAME="language" CONTENT="EN">
+<meta name="revisit-after" content="7 days">
+<meta name="abstract" content="video sharing website ">
+<link rel="shortcut icon" type="image/x-icon" href="https://playtube.pk/favicon.ico">
+	<!-- FACEBOOK META TAGS -->
+<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://playtube.pk" />
+	<meta property="og:title" content="Play Tube" />
+	<meta property="og:description" content="Play Tube is now offering to upload, watch, download in HD, MP3 and share YouTube videos worldwide by using our website playtube.pk without proxy or vpn." />
+	<meta property="og:image" content="" />
+ 
+	
+
+	
+	<!-- STYLESHEETS -->
+        <link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/main.css?ver=3.2" />
+
+<link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/slick.css"/>
+  <link rel="stylesheet" href="https://playtube.pk/themes/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/slick-theme4963.css?ver=1.1"/>
+
+	    <link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/nick-default.css?ver=3.2" > 
+    <link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/medialibraries.css?ver=3.0" />
+	<link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/appmedialibraries.css?ver=1.9" />
+    <link rel="stylesheet" type="text/css" href="https://playtube.pk/themes/css/jquery-ui.css" />
+
+	    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- SCRIPTS -->
+
+	<script type="text/javascript" src="https://playtube.pk/themes/js/jquery.js"></script>
+	<script type="text/javascript" src="https://playtube.pk/themes/js/login.js"></script>
+	<script type="text/javascript" src="https://playtube.pk/themes/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://playtube.pk/themes/js/slick.min.js"></script>
+		<script src="https://playtube.pk/themes/js/bootstrap.js"></script>
+
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+    	    
+    	    //Code To Animate Expand 
+			animateExpand();			function animateExpand() {
+				$("#expand").animate({opacity:"0.5"});
+				$("#rell").animate({opacity:"0.5"});
+				$("#rell").animate({opacity:"1"});
+ 				$("#expand").animate({opacity:"1"}, 500, animateExpand);
+			}
+						
+			if( $("#rightbar").css('display') != 'none' )
+				$('.menu').dropit();
+			
+			$('.modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+			
+			$('.show-more').click(function(e){
+				$('#about').css({'height':'auto','overflow':'visible','background':'transparent'});
+				$(this).remove();
+			});	
+			
+			$('.section').click(function(e){
+				e.preventDefault();
+				// get target element
+				sectionId= $(this).attr('rel');
+				// hide the current element
+				selectedId=$('.link-selected').attr('rel');
+				$('#'+selectedId).slideUp();
+				
+				$('.section').each(function(e){
+					$(this).removeClass('link-selected');
+				});
+				
+				$(this).addClass('link-selected');
+				
+				$('#'+sectionId).slideDown();
+			});	
+								       		
+      		      		
+      		// Custom autocomplete instance.
+			$.widget( "app.autocomplete", $.ui.autocomplete, {
+		
+				// Which class get's applied to matched text in the menu items.
+				options: {
+					highlightClass: "bold-text"
+				},
+		
+				_renderItem: function( ul, item ) {
+
+					// Replace the matched text with a custom span. This
+					// span uses the class found in the "highlightClass" option.
+					var re = new RegExp( "(" + this.term + ")", "gi" ),
+						cls = this.options.highlightClass,
+						template = "<b>$1</b>",
+						label = item.label.replace( re, template ),
+						$li = $( "<li/>" ).appendTo( ul );
+			
+					// Create and return the custom menu item content.
+					$( "<a/>" ).attr( "href", "#" )
+							   .html( label )
+							   .appendTo( $li );
+			
+					return $li;
+			
+				}
+		
+			});
+      		
+      		$( ".autocomplete" ).autocomplete({
+			   source: function (request, response) {
+					$.getJSON("http://suggestqueries.google.com/complete/search?callback=?",{ 
+						'hl':'en','q':request.term,'client':'youtube','ds':'yt','gl':'us' 
+						},function(data){
+							var suggestions = [];
+							$.each(data[1], function(key, val) {
+								suggestions.push(val[0]);
+							});
+							suggestions.length = 6;  
+							response(suggestions);					
+                	});
+                
+				},
+				search: function( event, ui ){
+					
+				},
+				response: function( event, ui ){
+					
+				},
+				select: function( event, ui ) {
+					$("input[name=q]").val(ui.item.value);
+					$('#search').submit();
+				},
+				minLength: 3,
+				delay: 50
+			});
+			
+								
+		});
+		
+		 		 
+		
+	</script>	
+
+
+     <style>
+    	#leftbar{
+    		width: 650px;
+    	}
+    	
+    	.search .details{
+    		width: 450px;
+    	}
+    </style>
+    
+
+    
+    <style type="text/css">
+    	#tip-bar{
+    		position: absolute;
+			display: block;
+			width: 100%;
+			height: 55px;
+			line-height: 55px;
+			top: 0px;
+			left: 0px;
+			background: #FDFFF1;
+			border-bottom: 1px solid #e2e2e2;
+			font-size: 1.2em;
+			z-index: 3;
+    	}
+    	
+    	#tip-bar #canvas .close{
+    		display: block;
+			width: 22px;
+			height: 22px;
+			background: #707070;
+			text-align: center;
+			font-weight: bold;
+			margin-top: 17px;
+			float: right;
+			border-radius: 11px;
+			color: #ffffff;
+			line-height: 20px;
+			font-size: 1.1em;
+			cursor: pointer;
+    	}
+    	
+    	#tip-bar #canvas .try-now{
+    		background: #3b5998;
+    		color: #fff;
+    		padding: 5px 15px;
+    		text-decoration: none;
+    		margin-left: 0px;
+    		margin-right: 15px;
+    		font-weight: bold;
+    	}
+    	
+	
+    </style> 
+
+</head>
+<body>
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- TOP BAR -->
+	<a class="show-nav" href="javascript:void(0);"><span id="i-nav-display">Menu</span></a>
+	<div class="anim"></div>
+	<div id="topbar">
+		<div id="category">
+			<!-- LOGO -->
+			<a href="https://playtube.pk" class="logo"></a>
+			<!-- SEARCH -->
+
+				 						
+			<form method="GET" action="https://playtube.pk/search" id="search">
+				<input type="text" name="q" placeholder="Search Youtube Videos" class="autocomplete" class="form-control" />
+				<input type="submit" value=""/>
+			</form>
+		<div class="col-md-3" style="float:right">
+           <div class="sectionLogin">
+               
+
+            
+              <div class="loginButton">
+                <div class="hidden-xs">
+                  <a class="button-white" data-toggle="modal" data-target="#upload" style="margin-right: 5px; float: left;margin-left: -85px; cursor: pointer;">Upload</a>
+                </div>
+             </div>  
+              <div class="loginButton">
+              	<div class="hidden-xs">
+             
+                <a class="button-white" data-toggle="modal" data-target="#myModal" style="margin-right: 5px; cursor: pointer;">Login</a>
+
+                   <!-- Modal -->
+               </div>
+              </div>
+                          </div>   
+          </div>  
+        </div>
+      </div>
+
+
+                     <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!--div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <!--h4 class="modal-title" id="myModalLabel" style="color: red ">By uploading , you agree to be bound by all Pakistan's applicable laws and regulations. Any user promoting videos containing Religious Hatred contents will be banned and reported to Info@playtube.pk</h4>
+                      </div-->
+                      <div class="modal-body">
+                        <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=&client_id=&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.login+email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.upload+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutubepartner&access_type=offline&approval_prompt=auto" class="btn btn-danger">Login with Google</a>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">By accessing and using this Site, you agree to be bound by all Pakistan's applicable laws and regulations. Any user promoting videos containing Religious Hatred contents will be banned and reported to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfd6d1d9d0ffcfd3dec6cbcaddda91cfd4">[email&#160;protected]</a></h4>
+                      </div>
+                      <div class="modal-body">
+                        <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=&client_id=&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.login+email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.upload+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutubepartner&access_type=offline&approval_prompt=auto" class="btn btn-danger">Login with Google</a>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+								
+					</div>
+	</div>
+	
+	<!-- CATEGORY MENU -->
+	<div class="category-menu">
+		<div id="canvaser" style="overflow: visible; position: relative;">
+			<span class="title">Categories</span>
+			<a href='https://playtube.pk/category/activisim' class='each'>Activisim</a><a href='https://playtube.pk/category/animation' class='each'>Film & Animation</a><a href='https://playtube.pk/category/auto-vehicles' class='each'>Autos & Vehicles</a><a href='https://playtube.pk/category/comedy' class='each'>Comedy</a><a href='https://playtube.pk/category/education' class='each'>Education</a><a href='https://playtube.pk/category/entertainment' class='each'>Entertainment</a><a href='https://playtube.pk/category/gaming' class='each'>Gaming</a><a href='https://playtube.pk/category/howto' class='each'>Howto & Style</a><a href='https://playtube.pk/category/movies' class='each'>Movies</a><a href='https://playtube.pk/category/music' class='each'>Music</a><a href='https://playtube.pk/category/news' class='each'>News & Politics</a><a href='https://playtube.pk/category/people' class='each'>People & Blog</a><a href='https://playtube.pk/category/pets-animals' class='each'>Pets & Animals</a><a href='https://playtube.pk/category/science' class='each'>Science & Technology</a><a href='https://playtube.pk/category/shows' class='each'>Shows</a><a href='https://playtube.pk/category/sports' class='each'>Sports</a><a href='https://playtube.pk/category/trailers' class='each'>Trailers</a><a href='https://playtube.pk/category/vines' class='each'>Vines</a>			<!--a href="javascript:void(0);" class="each more-categories">More..</a>
+			<span class="category-dropdown" style="display: none;">
+							</span-->
+		</div>
+	</div>
+	     <style>
+    	#leftbar{
+    		width: 954px;
+    	}
+    	</style>
+<style type="text/css">
+
+  .below-article .rc-item .rc-headline{
+  	font-size: 11px;
+  	line-height: 15px;
+  }
+
+  .above-main-column .rc-item .rc-headline{
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+</style>
+	<!-- CONTENT HOLDER -->
+	<div id="canvas" class="canvas_var">
+		<div id="leftbar" style="margin-top: 80px;">
+			
+<!-- VIDEO FEEDS -->
+<div class="above-main-column" style="margin-bottom: -7px;margin-top: -35px;">
+<div id="rcjsload_e9f927"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+(function() {
+var referer="";try{if(referer=document.referrer,"undefined"==typeof referer||""==referer)throw"undefined"}catch(exception){referer=document.location.href,(""==referer||"undefined"==typeof referer)&&(referer=document.URL)}referer=referer.substr(0,700);
+var rcds = document.getElementById("rcjsload_e9f927");
+var rcel = document.createElement("script");
+rcel.id = 'rc_' + Math.floor(Math.random() * 1000);
+rcel.type = 'text/javascript';
+rcel.src = "https://trends.revcontent.com/serve.js.php?w=90160&t="+rcel.id+"&c="+(new Date()).getTime()+"&width="+(window.outerWidth || document.documentElement.clientWidth)+"&referer="+referer;
+rcel.async = true;
+rcds.appendChild(rcel);
+
+
+})();
+</script></div>
+			<h1 class="main">Featured </h1>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_horizontal_follow_toolbox" style="float:right;margin-top:-56px;"></div>
+			<span class="featured">
+							
+								<!-- MAIN FEATURED -->
+<a href="https://playtube.pk/watch?v=iwCdv9iR8P8" class="main" style="margin-bottom: 30px;">
+									<img src="https://ytimg.googleusercontent.com/vi/iwCdv9iR8P8/mqdefault.jpg"/>
+									<span class="description">
+										<span class="title">Ronda Rousey Discusses Her UFC Upset</span>
+										<span class="posted">Posted on Feb 16, 2016</span>
+									</span>
+									<span class="duration">06:17</span>
+								</a>
+								
+			
+<!-- OTHERS FEATURED -->
+<a href='https://playtube.pk/watch?v=C3_spbo8eVc' class='others'><span class='img'><img src='https://ytimg.googleusercontent.com/vi/C3_spbo8eVc/mqdefault.jpg' /><span class='duration'>03:46</span></span><span class='description'><span class='title'>Ellie Goulding - Vincent (Audio)</span><span class='posted'>Posted 3 weeks ago </span></span></a><a href='https://playtube.pk/watch?v=ZeGNvhAsUW8' class='others'><span class='img'><img src='https://ytimg.googleusercontent.com/vi/ZeGNvhAsUW8/mqdefault.jpg' /><span class='duration'>03:17</span></span><span class='description'><span class='title'>Ellie Goulding - O Holy Night (Audio)</span><span class='posted'>Posted 3 months ago </span></span></a><a href='https://playtube.pk/watch?v=D0_GWTy9FEM' class='others'><span class='img'><img src='https://ytimg.googleusercontent.com/vi/D0_GWTy9FEM/mqdefault.jpg' /><span class='duration'>03:59</span></span><span class='description'><span class='title'>Ellie Goulding - Something In The Way Yo...</span><span class='posted'>Posted 9 months ago </span></span></a></ul>		
+												</span>
+												<div class="visible-lg">
+												<div style="padding:5px 0px;">
+<div class="fb-page" data-href="https://www.facebook.com/playtube.pk" data-width="300" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/playtube.pk"><a href="https://www.facebook.com/playtube.pk">playtube</a></blockquote></div></div></div>
+</div>
+<div id="home2"></div>
+
+
+<div class="below-article" style="margin-bottom: -25px"; "margin-top: -6px;">
+<div id="rcjsload_4c9c0b"></div>
+<script type="text/javascript">
+(function() {
+var referer="";try{if(referer=document.referrer,"undefined"==typeof referer||""==referer)throw"undefined"}catch(exception){referer=document.location.href,(""==referer||"undefined"==typeof referer)&&(referer=document.URL)}referer=referer.substr(0,700);
+var rcds = document.getElementById("rcjsload_4c9c0b");
+var rcel = document.createElement("script");
+rcel.id = 'rc_' + Math.floor(Math.random() * 1000);
+rcel.type = 'text/javascript';
+rcel.src = "https://trends.revcontent.com/serve.js.php?w=90161&t="+rcel.id+"&c="+(new Date()).getTime()+"&width="+(window.outerWidth || document.documentElement.clientWidth)+"&referer="+referer;
+rcel.async = true;
+rcds.appendChild(rcel);
+
+
+})();
+</script>
+</div>
+
+			 </div>
+			</div>
+
+  <script>
+  $(document).ready(function(){
+    var home2 = $('#home2');
+    home2.html('Loading. Please wait...');
+    $.post('/home2',null,function(e){
+      home2.html(e);
+    });
+  });
+</script><style>
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+#footer a {
+    text-decoration: underline;
+    color: #310ee4;
+    font-weight: 700;
+}
+</style>
+<!-- FOOTER -->
+<div id="footer">
+	<div id="canvas" class="canvas_var">
+<span class="more">
+      Vines | Play Tube
+<br>The only factor which remains constant is change if we look into the into the existence of the world, the world has been gone through many changes,  the needs of people has been changed with the passage of time, in early periods of time, human existence only requires food and shelter. It is said, human upgraded to the upper level or we can say the smarter level as soon human knew how to light up the fire, 
+<br>We can say the earliest achievement was the fire. Human has developed its self with the passage of time, the invention of boards, the wheel, are one of the foundations which clearly declares the ultimate success toward modernization.  The industrialization has changed the prospects of things; industrialization has boosted the standards of life. The basic benefit of industrialization was that it worked for the assess ability of goods to all classes of human society. The era of media is a most important era of all time; this has not only diversified the concept of professionalism, but also it has included those activities into the definitions, which were never considered by any one in history as the professionals. The comedian, the musician and the entertainer, it does not mean that they never been in existence, all of these professions were present in the past but what matters is that their services were limited to the specific class of society.
+<br>The invention of the computer in the time line of change has its importance, with the invention of the internet the world has become a global village, the distances has been removed, now communication with a person who is thousands of miles away is based on some simple clicks.  With the passage of time social media started getting its roots deeper and deeper, for example, the inventor of Facebook and YouTube  never knew that what they have created will be so big that it can be used as tool for shaping the perception of people,  the world largest companies even cannot neglect their presence on social media, they know that the image of their products and services can shape through social media, the main and the most primary factor that makes social media better is that, from social media largest companies can get the direct response from the customers,  we can say that social media is  now playing its role in shaping the perception. 
+<br>Social media has gone through changes; primarily social media has been used for the sake of entertainment.  Entertainment seeker looks for the funny videos, songs and sometimes documentaries. The search of entertainment seeker has gained the great attention for the entertainers, in early time it was attempted to upload the material which includes the fun element, sometimes video material was original, but some most of the time it was fake. 
+The style for entertainer was developed that instead of pretending to be real, they started acts which were not pretended to be real. This gives a pure flavor of entertainment to the act. This style was optimized, and this has given a name vines. 
+<br>The vine online got humongous popularity, an entertainer from all over the world jumped in. This created many viners famous personalities. Now you need to be an entertainer and with pure entertainment, you can get famous.  If we look into the classification of viners, entertainers have developed different styles.  One of the styles is being or pretending to be stupid, well it is not known yet why vine viewergo for the stupidity, but it is the fact you pretend foolish you will get thousands of followers. It does not mean that all of them are like that, some of them have pure fans other than just followers. 
+<br>How can we neglect the prank style, pranking people around and at the end, you get thousands of thumbs up? Even though prank style vines has some fraudulent activities. Some time we see destructive things going to smooth. It clearly declares the entertainer in the video is just pretending. 
+In world social media it does not matter what is fake, or foolish. What matter is creativity? If you are creative social media is a place where you can be famous and rich, but please don’t pretend it real. This will lower down the quality of your entertainment if you have something entraining go for it by your style. 
+<br>Viner of the Vine can use informative approach to their work, all though some of them have used it in past, but the informative with the entertainment element can benefit the audience.
+Playtube is a place where you can see thousands of viners from all over the world, we have a selection of most entertaining material. You can download songs, funny vides and much more directly from the website.
+
+      </span><br><br>
+		<a class="links" href="/">Home</a><span class="separator">|</span><a class="links" href="https://playtube.pk/terms">Terms of Use</a><span class="separator">|</span><a class="links" href="https://playtube.pk/privacy">Privacy Policy</a><span class="separator">|</span><a class="links" href="https://playtube.pk/contact">Contact Us</a>
+		<span class="copyright">Copyright &copy; 2014-2015, All Rights Reserved</span>
+		<span class="from">By using this site you are agreeing to our terms of service.</span>
+	</div>
+</div>
+
+  <script src="https://playtube.pk/static/s.js"></script>
+
+<!-- GOOGLE ANALYTICS -->	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48478941-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- end-->
+<!-- Start Alexa Certify Javascript -->
+<!-- End Alexa Certify Javascript -->
+
+
+	<!-- AddThis Smart Layers BEGIN -->
+	<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+	
+	<script type="text/javascript">
+	  var left = 0;
+	  var callback = function(smartlayer){
+		if (left==1){
+			$('.addthis-smartlayers').hide();
+		} 
+	  };	
+	
+	  if( $(window).width() < 1000 ){	
+		  addthis.layers({
+			'theme' : 'transparent',
+			'share' : {
+			  'position' : 'right',
+			  'numPreferredServices' : 5
+			} 
+		  },callback);
+	  }else{
+	  		addthis.layers({
+			'theme' : 'transparent',
+			'share' : {
+			  'position' : 'left',
+			  'numPreferredServices' : 5
+			} 
+		  },callback);
+	  
+	  }
+	</script>
+	<!-- AddThis Smart Layers END -->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+    	
+    		$('.mobile-nav').click(function(e){
+				$('.mobile-menu').toggle();    		
+    		});
+    	
+    		var left = 0;
+    		var leftOffset = 0;
+    		$('.show-nav').click(function(e){
+    			
+    			e.preventDefault();
+    			
+				if(left==0){
+					leftOffset = $(".canvas_var").offset().left;
+					if ( window.matchMedia('(min-width: 1225px)').matches && window.matchMedia('(max-width: 1230px)').matches ){
+						$('.canvas_var').css("margin-left", "230px");
+					}else if( window.matchMedia('(min-width: 1225px)').matches ){
+						bodyWidth = $('body').innerWidth();
+						margins = parseInt( parseInt( parseInt(bodyWidth) - 200 - 985 ) / 2 ) + parseInt(200);
+						console.log(margins);
+						$('.canvas_var').css("margin-left", ""+margins+"px");
+					}
+					$('.category-menu').show();
+					left = 1;
+				}else{
+					if ( window.matchMedia('(min-width: 1225px)').matches && window.matchMedia('(max-width: 1230px)').matches){
+					   $('.canvas_var').css("margin-left", leftOffset);
+					}else if( window.matchMedia('(min-width: 1225px)').matches ){
+					   $('.canvas_var').css("margin-left", leftOffset);
+					}
+					$('.category-menu').hide();
+					left = 0;
+				}
+				
+			});
+    	
+			$('.more-categories,.category-dropdown').mouseenter(function(){
+				$('.category-dropdown').show();
+			}).mouseleave(function(){
+				$('.category-dropdown').hide();
+			});
+
+			$('.more-categories').click(function(e){
+				e.preventDefault();
+				$('.category-dropdown').toggle();
+			});
+			
+						
+			// Custom autocomplete instance.
+			$.widget( "app.autocomplete", $.ui.autocomplete, {
+		
+				// Which class get's applied to matched text in the menu items.
+				options: {
+					highlightClass: "bold-text"
+				},
+		
+				_renderItem: function( ul, item ) {
+
+					// Replace the matched text with a custom span. This
+					// span uses the class found in the "highlightClass" option.
+					var re = new RegExp( "(" + this.term + ")", "gi" ),
+						cls = this.options.highlightClass,
+						template = "<b>$1</b>",
+						label = item.label.replace( re, template ),
+						$li = $( "<li/>" ).appendTo( ul );
+			
+					// Create and return the custom menu item content.
+					$( "<a/>" ).attr( "href", "#" )
+							   .html( label )
+							   .appendTo( $li );
+			
+					return $li;
+			
+				}
+		
+			});
+			
+			$( ".autocomplete" ).autocomplete({
+			   source: function (request, response) {
+					$.getJSON("http://suggestqueries.google.com/complete/search?callback=?",{ 
+						'hl':'en','q':request.term,'client':'youtube','ds':'yt','gl':'us' 
+						},function(data){
+							var suggestions = [];
+							$.each(data[1], function(key, val) {
+								suggestions.push(val[0]);
+							});
+							suggestions.length = 6;  
+							response(suggestions);					
+                	});
+                
+				},
+				search: function( event, ui ){
+					
+				},
+				response: function( event, ui ){
+					
+				},
+				select: function( event, ui ) {
+					$("input[name=q]").val(ui.item.value);
+					$('#search').submit();
+				},
+				minLength: 3,
+				delay: 50
+			});
+			
+						
+						
+				/*if( $(window).height() > 550 ){
+					if( localStorage ) {
+													$('#canvaser').prepend('<span class="title">Personalized</span><a href="history" class="each history-button">Recently Viewed</a>');
+												}	
+				}*/
+			
+				if (window.matchMedia('(min-width: 1225px)').matches){
+					$('.show-nav')[0].click();
+				}
+			
+						
+			
+		});
+		
+		var bottom = false;  
+		var lowerbottom = false;
+		
+			
+		
+		$(window).scroll(function() {
+		   if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+		   		if( bottom == false ){
+		   			load_recommendations();
+		   			bottom = true;	
+		   		}
+		   }
+		});
+		
+				
+		$(window).bind('scroll', function() {
+			 if ($(window).scrollTop() > 50) {
+				 $('#topbar').addClass('topbar-scroll');
+			 }
+			 else {
+				 $('#topbar').removeClass('topbar-scroll');
+			 }
+		});
+		
+		
+    </script>
+    <script>
+    $(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 750;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "Show more";
+    var lesstext = "Show less";
+    
+
+    $('.more').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+    </script>
+
+</body>
+</html>

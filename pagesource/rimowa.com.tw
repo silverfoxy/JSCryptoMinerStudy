@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /> 
+<meta name="Author" content="匯豐汽車網路事業" />
+<meta name="Copyright" content="匯豐汽車網路事業" />
+<meta name="Specfication" content="1024x768, IE8" />
+<title>RIMOWA</title>
+<base href= "http://www.rimowa.com.tw/" ></base>
+<meta name="keywords" content="rimowa" />
+<meta name="description" content="rimowa" />
+<!--<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+<link rel="icon" type="image/png" href="images/favicon.png" />-->
+<link type="text/css" href="css/base.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+
+<!--[if lt IE 7]> 
+<link href="stylesheets/lte_ie6.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="plugin/highslide/highslide-ie6.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<script type="text/javascript" src="http://letskillie6.googlecode.com/svn/trunk/letskillie6.zh_TW.pack.js"></script>
+<script type="text/javascript" src="js/iepngfix_tilebg.js" language="JavaScript"></script>
+<![endif]--> 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+	var speed = 300;
+    var indx = -1;
+    var count01 = 0;
+
+	  var delay = (function(){
+	    var timer = 0;
+	    return function(callback, ms){
+	      clearTimeout (timer);
+	      timer = setTimeout(callback, ms);
+	    };
+	  })();
+
+		$(".mainMenu > li .main_xmenu01").hover(function(){
+		     if(count01 == 1){
+						  var idx01 = $(".mainMenu > li .main_xmenu01").index(this);
+						  var clstr = $(".mainMenu > li").eq(idx01).attr('class');		     
+						delay (function () {
+						  $(".mainMenu > li").children("div").slideUp(speed);
+						  $(".mainMenu > li").eq(idx01).children("div").slideDown(speed);	    
+						}, 500);
+		     }
+			   if(parseInt(indx) != parseInt($(".mainMenu > li .main_xmenu01").index(this)) && count01 == 0){
+			   	count01++;
+			   	  var idx01 = $(".mainMenu > li .main_xmenu01").index(this);
+				    var clstr = $(".mainMenu > li").eq(idx01).attr('class');
+				    if(clstr == "menuBlog"){
+				    	$(".mainMenu > li").children("div").slideUp(speed);
+				    }else{
+						  $(".mainMenu > li").children("div").slideUp(speed);
+						  $(".mainMenu > li").eq(idx01).children("div").slideDown(speed);	    
+				    }
+			  }
+			   if(indx == '' || parseInt(indx) != parseInt($(".mainMenu > li .main_xmenu01").index(this))){
+			    indx = $(".mainMenu > li .main_xmenu01").index(this);
+			   }
+			   
+		},function(){
+				delay (function () {
+				    count01 = 0;
+				}, 100);
+		});
+
+		$("#header").hover(function(){
+		},function(){
+				$(".mainMenu > li").children("div").slideUp(speed);
+				count01 = 0;
+				indx = -1;
+		});
+
+    var xshopvw_time = 7; //顯示時間
+    var xshopck01 = 0;
+    $.extend({
+        shopvw01_div:function(vct01){
+            //$('#indicator').html(vct01); //顯示計數
+             if(xshopck01 == 1){
+                vct01=0;
+                xshopck01=xshopck01+1;
+            }
+            if(xshopck01 == 3 || vct01 >= 50){
+                vct01=0;
+            }
+            if(vct01 >= xshopvw_time && xshopck01 > 0){
+              vct01=0;
+              $.xshowshop_vw01('close');
+            }
+            setTimeout("$.shopvw01_div("+(vct01+1)+")",1000);
+        }
+    });
+    $.shopvw01_div(0);
+
+  $(document).click(function(e){
+    $.xshowshop_vw01('close');
+	});
+
+	$("#seachBar ul").click(function(e) {
+	  e.stopPropagation();
+	});
+
+ $(".edmDiv ul").hover(function(){
+  	 xshopck01 = 3;
+  },function(){
+  	 xshopck01 = 5;
+  });
+
+    $.extend({
+        xshowshop_vw01:function(event01){
+        if($.trim($("#ordmail").val()) != ''){
+        	var vwstr = $(".edmDiv ul").css('display');
+				  if(event01 == "close"){
+				    if(vwstr == "block"){
+				      $(".edmDiv ul").slideUp("slow");
+				    }
+				  }else{			  
+					  var urlstr = "ordmail_check.php?opt=ordmail&ordmail="+$.trim($("#ordmail").val());
+					  $.ajax({
+					    url: urlstr,
+					    type: "GET",
+					    cache: false,
+					    dataType: "html",
+					    error:function (xhr, ajaxOptions, thrownError){
+					      alert(xhr.status);
+					      alert(xhr.responseText);
+					      alert(thrownError);
+					    },
+					    success : function(var1){
+					      $(".edmDiv ul").html(var1);
+					    }
+					  });
+					  if(event01 == "auto"){
+					    if(vwstr == "none"){
+					      xshopck01 = 1;
+					      $(".edmDiv ul").slideDown("slow");
+					      $(".edmDiv ul").setfocus();
+					    }else{
+					    	if($("#ordmail").attr("value") == "請輸入E-Mail")
+					        $(".edmDiv ul").slideUp();
+					    }
+					  }else{
+					    if(vwstr == "none"){
+					      xshopck01 = 1;
+					      $(".edmDiv ul").slideDown();
+					      $(".edmDiv ul").setfocus();
+					    }
+				    }
+				  }
+				}
+        }
+    });
+
+  $("#ordmail").focus(function () {
+	  if($("#ordmail").attr("value") == "" || $("#ordmail").attr("value") == "請輸入E-Mail" )
+	    $("#ordmail").attr("value","");
+  });
+
+  $("#ordmail").blur(function () {
+  	if($("#ordmail").attr("value") == "")
+	    $("#ordmail").attr("value","請輸入E-Mail");
+  });
+
+  $('#ordmail').click(function(e) {
+	  e.stopPropagation();
+  });
+
+  $('#ordmailbt01').click(function(e) {
+	  e.stopPropagation();
+	  $.xshowshop_vw01('auto');
+  });
+
+  });
+</script>
+
+<script type="text/javascript" src="js/jquery/jQueryTools-1.2.7/jquery.tools.min.js"></script>
+<script language="JavaScript">
+$(function() {
+
+hs.addEventListener(window, "load", function() {
+hs.htmlExpand(null, {  
+	  objectType: 'iframe',
+	  width:590, 
+	  height:400,
+	  headingText: "RIMOWA ",
+	  src: 'index_popvw.php'
+	 });
+});
+
+  $("#mainPicArea_text").tabs("#mainPicArea_list > a", {
+    effect: 'fade',
+    fadeOutSpeed: "slow",
+    rotate: true
+  }).slideshow({
+	  autoplay: true,
+	  autopause: false,
+	  clickable: false
+	});
+ });
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<link href="js/highslide/highslide.css" rel="stylesheet" type="text/css" />
+<script src="js/highslide/highslide-full.js" type="text/javascript"></script>
+<script type="text/javascript">    
+  hs.graphicsDir = 'js/highslide/graphics/';
+  hs.outlineType = 'rounded-white';
+	hs.wrapperClassName = 'draggable-header';
+	hs.allowMultipleInstances=false;
+	hs.showCredits = false;
+	hs.lang.number='';
+	hs.lang.restoreTitle ='';
+	hs.align='center';
+	hs.allowMultipleInstances=false;
+	hs.fadeInOut = true;
+	hs.dimmingOpacity = 0.75;
+	hs.dimmingDuration=200;
+	hs.cacheAjax=false;
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/sticker_news2.png','images/sticker_zodiac2.png')">
+<div id="header">
+<div class="content">
+	<a href="http://www.rimowa.com.tw/" class="logo">Logo</a>
+	<div class="edmDiv">
+		<p>訂閱電子報</p>
+		<a href="javascript:void(0);" name="ordmailbt01" id="ordmailbt01"></a><input type="text" name="ordmail" id="ordmail" value="請輸入E-Mail" size="12" />
+		<ul style="display: none;padding: 3px;"></ul>
+  </div>
+  <ul class="mainMenu">
+		<li><a class="main_xmenu01" href="history.php">品牌故事<br />History</a></li>
+		<li><a class="main_xmenu01" href="javascript:void(0);">產品系列<br />Products</a>
+			<div>
+        <ul style="margin-left: -170px;">
+<li><a href="products.php?lv01_type=T13012100016ff7">ALUMINIUM 鋁鎂合金</a></li>
+<li><a href="products.php?lv01_type=T13012100071b26">POLYCARBONATE 聚碳酸酯</a></li>
+<li><a href="products.php?lv01_type=T1609210001d2a9">台灣獨家限量箱款系列 </a></li>
+        </ul>
+			</div>
+		</li>
+		<li><a class="main_xmenu01" href="news.php">最新消息<br />News</a></li>
+		<li><a class="main_xmenu01" href="javascript:void(0);">銷售據點<br />Stores</a>
+			<div>
+        <ul style="margin-left: 10px;">
+
+<li><a href="stores.php?lv01_type=R1211260001fee2">專賣店</a></li>
+<li><a href="stores.php?lv01_type=R1211260002f95d">直營門市</a></li>
+<li><a href="stores.php?lv01_type=R12112600031933">百貨專櫃</a></li>
+        </ul>
+			</div>
+		</li>
+<!--
+		<li><a class="main_xmenu01" href="javascript:void(0);">線上購物<br />Shop</a>
+			<div>
+        <ul style="margin-left: 100px;">
+				  <li><a href="javascript:void(0);">我的購物車</a></li>
+				  <li><a href="faq.php">購物Q&A</a></li>
+        </ul>
+			</div>
+		</li>
+-->
+		<li><a class="main_xmenu01" href="javascript:void(0);">維修服務<br />Repair</a>
+			<div>
+        <ul style="margin-left: 100px;">
+          <li><a href="repair_faq.php">常見問題</a></li>
+				  <li><a href="repair_proposals.php">客戶服務</a></li>
+				  <li><a href="repair_search.php">維修進度查詢</a></li>
+				  <li><a href="repair_taiwan.php">台灣保固說明</a></li>
+				  <li><a href="repair_global.php">全球保固問題</a></li>
+        </ul>
+			</div>
+		</li>
+	</ul>
+</div>
+</div>
+
+<ul class="sideBar">
+	<!--<li><a href="news.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/sticker_news2.png',1)"><img src="images/sticker_news1.png" width="51" height="84" id="Image1" /><br />NEWS</a></li>
+  <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','images/sticker_zodiac2.png',1)"><img src="images/sticker_zodiac1.png" width="81" height="80" id="Image2" /><br>星座活動</a></li>-->
+</ul>  
+
+<div id="mainPicArea_list">
+            <a href="javascript:void(0);" style="background-image: url(uploadfile/fileadv_link01/M1708140001bb4b/Crop_1_7c5aeeff39634b4a39e7668ac859c3ad_1502681550.jpg)" title="RIMOWA"></a>
+                <a href="javascript:void(0);" style="background-image: url(uploadfile/fileadv_link01/M17081400025834/Crop_1_24ddb3436039478d58d2ed31c74cd22e_1502681757.jpg)" title="RIMOWA"></a>
+      </div>
+
+<div id="mainPicArea_text">
+      <a href="#" ></a>
+      <a href="#" ></a>
+  </div>
+
+<div id="footer">
+	<a href="contactUs.php">聯絡我們</a> ｜ <a href="javascript:void(0);">TERM OF USE</a> ｜ COPYRIGHTS &copy; RIMOWA TAIWAN　&nbsp;&nbsp;
+</div>
+</body>
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ 
+
+  ga('create', 'UA-46665294-1', 'rimowa.com.tw');
+
+  ga('send', 'pageview');
+
+ 
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107269033-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107269033-1');
+</script>
+</html>

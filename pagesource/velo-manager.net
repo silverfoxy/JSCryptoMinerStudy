@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<title>Velo Manager: Jeu de cyclisme en ligne gratuit - Jeu de vélo - Cycling Manager Online</title>
+		<meta name="description" content="<b>Velo Manager</b> - Cycling Manager Online - est un jeu de vélo en ligne gratuit (type gestion) où vous affrontez les autres managers inscrits sur le site.<br />
+Pour amener vos cyclistes vers la victoire, Velo Manager intègre une gestion du staff, des entraînements, du matériel, d'une tactique de course, et une gestion de la forme et de l'expérience...<br />
+Tous les soirs, une course est simulée entre 20h et 21h (classement actualisé toutes les 15 minutes). Remporterez-vous le classement UCV, la Coupe du Monde, ou bien les prestigieuses sélections nationales???<br />
+Venez défier les autres joueurs du jeu vélo manager sans plus attendre!"/>
+		<meta property="og:site_name"     content="VeloManager" />
+		<meta property="og:type"          content="site" />
+		<meta property="og:url"          content="" /> 
+		<meta property="fb:app_id"          content="376142172478997" />
+		<meta property="og:description"         content="Jeu de vélo en ligne, gestion de votre équipe cycliste de A à Z." />	
+		<meta property="og:image"         content="images/defaut.jpg" />
+		<base href="http://www.velo-manager.net/" >
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="icones/logoVelo2.gif" type="image/png" />
+		<link rel="icon" href="icones/logoVelo2.gif" type="image/png">
+		<link rel="apple-touch-icon" sizes="96x96" href="icones/logoVelo2.gif">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style2018-v009.css" rel="stylesheet" media="screen">
+<!-- Adsense Jouons Sport -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6292237303049595",
+    enable_page_level_ads: true
+  });
+</script>
+		
+<SCRIPT LANGUAGE="JavaScript">
+var boucleActu;
+var lefocus=0;
+window.addEventListener('load', function () {
+	boucleActu = setInterval(ecran, 60000);
+}, false);
+function ecran () {
+envoieRequete('p_ecran.php?l='+screen.width+'&h='+screen.height+'&c='+screen.colorDepth+'','info2');
+}
+function extractUrlParams(url){
+   var t = url.substring(1).split('&');
+   var f = [];
+   for (var i=0; i<t.length; i++){
+      var x = t[ i ].split('=');
+      f[x[0]]=x[1];
+   }
+   return f;
+}
+function envoieRequete(url,id){
+	var xhr_object = null; var position = id; var page='';
+	if (position!='connectes'  && position!='tchatbox') {document.getElementById(position).innerHTML ='<div style="width:80%;margin:0 auto;text-align:center;"><img src="icones/chargement.gif"></div>'; }
+	if (url.match('.php')) {var next=url.split('.php'); page=next[0];  var suite=next[1].replace('?',''); } 
+	else { if (url.match('?')) {var next=url.split('?'); if (next[1]!="") {var suite=next[1];} else {var suite=next[0];} } else {var suite='';} }
+	if (suite!="") {var fin='&'+suite;} else {var fin="";}
+	var param=extractUrlParams(fin);
+	 fin=fin.replace('&&','');
+	   if(window.XMLHttpRequest)  xhr_object = new XMLHttpRequest();
+	  else
+	    if (window.ActiveXObject)  xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
+	// On ouvre la requete vers la page désirée
+	xhr_object.open("GET", url, true);
+	xhr_object.onreadystatechange = function(){
+	if ( xhr_object.readyState == 4 )
+	{
+	// j'affiche dans la DIV spécifiées le contenu retourné par le fichier
+	if (document.getElementById(position)) 
+		{var e = document.getElementById(position); e.innerHTML = xhr_object.responseText;}
+	// on modifie la barre d'adresse
+	if (position=='leftmain' || position=='page') 
+		{window.history.pushState('' ,'' , '?page='+page+''+fin); }
+	// on relance les javascripts
+	if (position=='leftmain' || position=='page'  || position=='cache') {	
+		var AllScripts=e.getElementsByTagName("script");
+		  for (var i=0; i<AllScripts.length; i++) {
+			 var s=AllScripts[i];
+			 if (s.src && s.src!="") {
+				eval(file_get_contents(s.src));
+			 }
+			 else {
+				eval(s.innerHTML);
+			 }
+		  }
+		}
+	}
+	}
+	// dans le cas du get
+	xhr_object.send(null);
+}
+function file_get_contents(url, flags, context, offset, maxLen) {
+  var tmp, headers = [],
+    newTmp = [],
+    k = 0,
+    i = 0,
+    href = '',
+    pathPos = -1,
+    flagNames = 0,
+    content = null,
+    http_stream = false;
+  var func = function(value) {
+    return value.substring(1) !== '';
+  };
+
+  // BEGIN REDUNDANT
+  this.php_js = this.php_js || {};
+  this.php_js.ini = this.php_js.ini || {};
+  // END REDUNDANT
+  var ini = this.php_js.ini;
+  context = context || this.php_js.default_streams_context || null;
+
+  if (!flags) {
+    flags = 0;
+  }
+  var OPTS = {
+    FILE_USE_INCLUDE_PATH: 1,
+    FILE_TEXT: 32,
+    FILE_BINARY: 64
+  };
+  if (typeof flags === 'number') { // Allow for a single string or an array of string flags
+    flagNames = flags;
+  } else {
+    flags = [].concat(flags);
+    for (i = 0; i < flags.length; i++) {
+      if (OPTS[flags[i]]) {
+        flagNames = flagNames | OPTS[flags[i]];
+      }
+    }
+  }
+
+  if (flagNames & OPTS.FILE_BINARY && (flagNames & OPTS.FILE_TEXT)) { // These flags shouldn't be together
+    throw 'You cannot pass both FILE_BINARY and FILE_TEXT to file_get_contents()';
+  }
+
+  if ((flagNames & OPTS.FILE_USE_INCLUDE_PATH) && ini.include_path && ini.include_path.local_value) {
+    var slash = ini.include_path.local_value.indexOf('/') !== -1 ? '/' : '\\';
+    url = ini.include_path.local_value + slash + url;
+  } else if (!/^(https?|file):/.test(url)) { // Allow references within or below the same directory (should fix to allow other relative references or root reference; could make dependent on parse_url())
+    href = this.window.location.href;
+    pathPos = url.indexOf('/') === 0 ? href.indexOf('/', 8) - 1 : href.lastIndexOf('/');
+    url = href.slice(0, pathPos + 1) + url;
+  }
+
+  var http_options;
+  if (context) {
+    http_options = context.stream_options && context.stream_options.http;
+    http_stream = !! http_options;
+  }
+
+  if (!context || http_stream) {
+    var req = this.window.ActiveXObject ? new ActiveXObject('Microsoft.XMLHTTP') : new XMLHttpRequest();
+    if (!req) {
+      throw new Error('XMLHttpRequest not supported');
+    }
+
+    var method = http_stream ? http_options.method : 'GET';
+    var async = !! (context && context.stream_params && context.stream_params['phpjs.async']);
+
+    if (ini['phpjs.ajaxBypassCache'] && ini['phpjs.ajaxBypassCache'].local_value) {
+      url += (url.match(/\?/) == null ? '?' : '&') + (new Date())
+        .getTime(); // Give optional means of forcing bypass of cache
+    }
+
+    req.open(method, url, async);
+    if (async) {
+      var notification = context.stream_params.notification;
+      if (typeof notification === 'function') {
+        // Fix: make work with req.addEventListener if available: https://developer.mozilla.org/En/Using_XMLHttpRequest
+        if (0 && req.addEventListener) { // Unimplemented so don't allow to get here
+          /*
+          req.addEventListener('progress', updateProgress, false);
+          req.addEventListener('load', transferComplete, false);
+          req.addEventListener('error', transferFailed, false);
+          req.addEventListener('abort', transferCanceled, false);
+          */
+        } else {
+          req.onreadystatechange = function(aEvt) { // aEvt has stopPropagation(), preventDefault(); see https://developer.mozilla.org/en/NsIDOMEvent
+            // Other XMLHttpRequest properties: multipart, responseXML, status, statusText, upload, withCredentials
+
+            var objContext = {
+              responseText: req.responseText,
+              responseXML: req.responseXML,
+              status: req.status,
+              statusText: req.statusText,
+              readyState: req.readyState,
+              evt: aEvt
+            }; // properties are not available in PHP, but offered on notification via 'this' for convenience
+            // notification args: notification_code, severity, message, message_code, bytes_transferred, bytes_max (all int's except string 'message')
+            // Need to add message, etc.
+            var bytes_transferred;
+            switch (req.readyState) {
+              case 0:
+                //     UNINITIALIZED     open() has not been called yet.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 1:
+                //     LOADING     send() has not been called yet.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 2:
+                //     LOADED     send() has been called, and headers and status are available.
+                notification.call(objContext, 0, 0, '', 0, 0, 0);
+                break;
+              case 3:
+                //     INTERACTIVE     Downloading; responseText holds partial data.
+                bytes_transferred = req.responseText.length * 2; // One character is two bytes
+                notification.call(objContext, 7, 0, '', 0, bytes_transferred, 0);
+                break;
+              case 4:
+                //     COMPLETED     The operation is complete.
+                if (req.status >= 200 && req.status < 400) {
+                  bytes_transferred = req.responseText.length * 2; // One character is two bytes
+                  notification.call(objContext, 8, 0, '', req.status, bytes_transferred, 0);
+                } else if (req.status === 403) { // Fix: These two are finished except for message
+                  notification.call(objContext, 10, 2, '', req.status, 0, 0);
+                } else { // Errors
+                  notification.call(objContext, 9, 2, '', req.status, 0, 0);
+                }
+                break;
+              default:
+                throw 'Unrecognized ready state for file_get_contents()';
+            }
+          };
+        }
+      }
+    }
+
+    if (http_stream) {
+      var sendHeaders = http_options.header && http_options.header.split(/\r?\n/);
+      var userAgentSent = false;
+      for (i = 0; i < sendHeaders.length; i++) {
+        var sendHeader = sendHeaders[i];
+        var breakPos = sendHeader.search(/:\s*/);
+        var sendHeaderName = sendHeader.substring(0, breakPos);
+        req.setRequestHeader(sendHeaderName, sendHeader.substring(breakPos + 1));
+        if (sendHeaderName === 'User-Agent') {
+          userAgentSent = true;
+        }
+      }
+      if (!userAgentSent) {
+        var user_agent = http_options.user_agent || (ini.user_agent && ini.user_agent.local_value);
+        if (user_agent) {
+          req.setRequestHeader('User-Agent', user_agent);
+        }
+      }
+      content = http_options.content || null;
+      /*
+      // Presently unimplemented HTTP context options
+      var request_fulluri = http_options.request_fulluri || false; // When set to TRUE, the entire URI will be used when constructing the request. (i.e. GET http://www.example.com/path/to/file.html HTTP/1.0). While this is a non-standard request format, some proxy servers require it.
+      var max_redirects = http_options.max_redirects || 20; // The max number of redirects to follow. Value 1 or less means that no redirects are followed.
+      var protocol_version = http_options.protocol_version || 1.0; // HTTP protocol version
+      var timeout = http_options.timeout || (ini.default_socket_timeout && ini.default_socket_timeout.local_value); // Read timeout in seconds, specified by a float
+      var ignore_errors = http_options.ignore_errors || false; // Fetch the content even on failure status codes.
+      */
+    }
+
+    if (flagNames & OPTS.FILE_TEXT) { // Overrides how encoding is treated (regardless of what is returned from the server)
+      var content_type = 'text/html';
+      if (http_options && http_options['phpjs.override']) { // Fix: Could allow for non-HTTP as well
+        content_type = http_options['phpjs.override']; // We use this, e.g., in gettext-related functions if character set
+        //   overridden earlier by bind_textdomain_codeset()
+      } else {
+        var encoding = (ini['unicode.stream_encoding'] && ini['unicode.stream_encoding'].local_value) ||
+          'UTF-8';
+        if (http_options && http_options.header && (/^content-type:/im)
+          .test(http_options.header)) { // We'll assume a content-type expects its own specified encoding if present
+          content_type = http_options.header.match(/^content-type:\s*(.*)$/im)[1]; // We let any header encoding stand
+        }
+        if (!(/;\s*charset=/)
+          .test(content_type)) { // If no encoding
+          content_type += '; charset=' + encoding;
+        }
+      }
+      req.overrideMimeType(content_type);
+    }
+    // Default is FILE_BINARY, but for binary, we apparently deviate from PHP in requiring the flag, since many if not
+    //     most people will also want a way to have it be auto-converted into native JavaScript text instead
+    else if (flagNames & OPTS.FILE_BINARY) { // Trick at https://developer.mozilla.org/En/Using_XMLHttpRequest to get binary
+      req.overrideMimeType('text/plain; charset=x-user-defined');
+      // Getting an individual byte then requires:
+      // responseText.charCodeAt(x) & 0xFF; // throw away high-order byte (f7) where x is 0 to responseText.length-1 (see notes in our substr())
+    }
+
+    try {
+      if (http_options && http_options['phpjs.sendAsBinary']) { // For content sent in a POST or PUT request (use with file_put_contents()?)
+        req.sendAsBinary(content); // In Firefox, only available FF3+
+      } else {
+        req.send(content);
+      }
+    } catch (e) {
+      // catches exception reported in issue #66
+      return false;
+    }
+
+    tmp = req.getAllResponseHeaders();
+    if (tmp) {
+      tmp = tmp.split('\n');
+      for (k = 0; k < tmp.length; k++) {
+        if (func(tmp[k])) {
+          newTmp.push(tmp[k]);
+        }
+      }
+      tmp = newTmp;
+      for (i = 0; i < tmp.length; i++) {
+        headers[i] = tmp[i];
+      }
+      this.$http_response_header = headers; // see http://php.net/manual/en/reserved.variables.httpresponseheader.php
+    }
+
+    if (offset || maxLen) {
+      if (maxLen) {
+        return req.responseText.substr(offset || 0, maxLen);
+      }
+      return req.responseText.substr(offset);
+    }
+    return req.responseText;
+  }
+  return false;
+}
+function show (id)
+{
+var position = id;
+for (var n=1;n<8;n++) {
+	var name='smenu'+n;
+	if (name==position && document.getElementById(position).style.display!='block') {document.getElementById(position).style.display='block';}
+	else if (name==position && document.getElementById(position).style.display=='block') {document.getElementById(position).style.display='none';}
+	else {document.getElementById(name).style.display='none';}
+}
+
+}
+function ouvrirPopup (pFichier, pLargeur, pHauteur)
+{
+var posX = (screen.width / 1.5) - (pLargeur / 2);
+var posY = (screen.height / 4) - (pHauteur / 2);
+window.open(pFichier,"Velo-Manager.net","width=" + pLargeur + ", height=" + pHauteur + ", left=" + posX + ", top=" + posY + ", resizable=no , scrollbars=yes , toolbar=no , location=no , directories=no , status=no , menubar=no");
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "content": {
+    "message": "Notre site utilise des cookies à diverses fins, notamment pour accroître la pertinence de ses recommandations et pour personnaliser vos contenus ou publicités. En continuant à utiliser ce service, vous acceptez notre utilisation des cookies.",
+    "dismiss": "OK",
+    "link": "En savoir plus"
+  }
+})});
+</script>
+
+</head>
+	<body>
+	<div class="container">
+		
+				
+		<div class="clearfix wrapper main_content_area">
+			<header id="header_area">
+			<div class="wrapper header">
+				<div class="clearfix header_top">
+					<div class="logo floatleft">
+						<h1 style="text-decoration-none;" class="big"><a href="."><img src="icones/logoVelo2.gif" style="height:40px;"> <span>Velo</span> Manager </a></h1>
+						<h1 style="text-decoration-none;font-size:1.8em!important;" class="small"><a href="."><img src="icones/logoVelo2.gif" style="height:35px;"> <span>Velo</span> Manager </a></h1>
+					</div>
+					<!--<div class="clearfix search floatright big">
+						<form method="get" action="/recherche/">
+							<input type="text" name="q" placeholder="Recherche"/>
+							<input type="submit" />
+						</form>
+					</div>-->
+					<div id="finances" class="big" style="clear:left;float:right;margin:10px 60px 10px 10px;"></div>
+					<label for="main-nav-check" class="toggle toggle-menu floatright" onclick="" title="Menu">&#x2261;</label>
+				</div>
+			</div>
+		</header>
+		<!-- <div class="triangle"></div> -->
+		
+		 				<div class="clearfix" style="padding:8px 0px 0px 0px;width:100%;text-align:center;margin:0 auto;">
+				<!-- Header Jouons Sport Responsive -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6292237303049595"
+     data-ad-slot="2756597844"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+				</div>
+					
+		<section id="content_area" style="background-color: rgba(255, 255, 255, 0.90);">
+		
+				<input type="checkbox" id="main-nav-check"/>
+				<div id="menu"> 	
+					<label for="main-nav-check" class="toggle" onclick="" title="Close">&times;</label>
+					<ul>
+					<li><a href=".">Velo Manager</a></li>
+						<li><a href="/connexion/">Connexion</a></li>
+						<li><a href="/inscription/">Inscription</a></li>
+						<li><a href="http://velo-manager.forum-pro.fr/forum.htm" target="_blank">Forum</a></li>
+						<li><a href="missions/">Palmarès</a>  <label for="fofp" class="toggle-sub" onclick="">&#9658;</label>
+							<input type="checkbox" id="fofp" class="sub-nav-check"/>
+							<ul id="fofp-sub" class="sub-nav">
+								<li class="sub-heading">Palmarès <label for="fofp" class="toggle" onclick="" title="Back">&#9658;</label></li>
+								<li><a href="/missions/">Missions</a></li>
+								<li><a href="/bilan/">Hall of Fame</a></li>
+								<li><a href="/pal_champ_monde/">Mondiaux</a></li>
+								<li><a href="/pal_jo/">J.O.</a></li>
+								<li><a href="/pal_CDM/">Coupe du Monde</a></li>
+								<li><a href="/pal_selection/">Sélections</a></li>
+								<li><a href="?page=stats">Statistiques</a></li>
+								<li><a href="/recompenses/">Récompenses</a></li>
+							</ul></li>
+						<li class="small"><a href="/recherche/">Rechercher</a></li>
+												</ul>
+				</div>
+		
+				<div class="clearfix main_content floatleft">
+				
+				
+					<div id="messageImp1521676399" style="background-color:#e5e5e5; padding:20px;margin-top:200px;margin-bottom:250px;display:none;"></div>
+					<div id="page" style="float:left;width:100%;">
+						<div id="leftmain" >
+					<br><br><table width="95%" align="center" border="0">
+		<form method="post" action="?page=inscription">
+		<tr><td colspan="2" align="left" style="border:0;font-size:1.2em;text-align:justify;"><small><b>Velo Manager</b> - Cycling Manager Online - est un jeu de vélo en ligne gratuit (type gestion) où vous affrontez les autres managers inscrits sur le site.<br />
+Pour amener vos cyclistes vers la victoire, Velo Manager intègre une gestion du staff, des entraînements, du matériel, d'une tactique de course, et une gestion de la forme et de l'expérience...<br />
+Tous les soirs, une course est simulée entre 20h et 21h (classement actualisé toutes les 15 minutes). Remporterez-vous le classement UCV, la Coupe du Monde, ou bien les prestigieuses sélections nationales???<br />
+Venez défier les autres joueurs du jeu vélo manager sans plus attendre!<br></small></td><td rowspan="7" valign="middle"  style="border:0;"><img src="icones/logo_cyclisteVM.png" height="350px"></td></tr>
+		<tr><td style="border:0;">Manager</td><td align="left" style="border:0;"><input type="text" name="pseudo" size="20" maxlenght="25" value=""  required="required" /></td></tr>
+		<tr><td style="border:0;">Equipe</td><td align="left" style="border:0;"><input type="text" name="equipe" size="20" maxlenght="25"  value=""  required="required" /></td></tr>
+		<tr><td style="border:0;">Mot de passe</td><td align="left" style="border:0;"><input type="password" name="pass2" size="20" maxlentght="20"  required="required" /> <input type="password" name="passv" size="20" maxlenght="20"  required="required" /></td></tr>
+		<tr><td style="border:0;">E-mail:</td><td align="left" style="border:0;"><input type="email" name="mail" size="20" maxlength="70"  value="" /></td></tr>
+		<tr><td style="border:0;">Nationalité de l'équipe:</td><td align="left" style="border:0;"><select name="pays"><option value="7">Allemagne</option><option value="27">Argentine</option><option value="17">Australie</option><option value="22">Autriche</option><option value="2">Belgique</option><option value="40">Biélorussie</option><option value="25">Canada</option><option value="15">Colombie</option><option value="14">Croatie</option><option value="26">Danemark</option><option value="3">Espagne</option><option value="31">Estonie</option><option value="23">Finlande</option><option value="1">France</option><option value="36">Hongrie</option><option value="20">Irlande</option><option value="4">Italie</option><option value="37">Japon</option><option value="18">Kazakhstan</option><option value="33">Lettonie</option><option value="32">Lituanie</option><option value="16">Luxembourg</option><option value="39">Mexique</option><option value="12">Norvège</option><option value="38">Nouvelle Zélande</option><option value="41">Ouzbékistan</option><option value="8">Pays Bas</option><option value="19">Pologne</option><option value="11">Portugal</option><option value="21">République Tchèque</option><option value="28">Roumanie</option><option value="10">Royaume Uni</option><option value="9">Russie</option><option value="29">Slovaquie</option><option value="24">Slovénie</option><option value="30">Afrique du Sud</option><option value="13">Suède</option><option value="6">Suisse</option><option value="35">Ukraine</option><option value="5">USA</option><option value="34">Venezuela</option></select></td></tr>
+		<tr><td colspan="2" valign="top" style="border:0;"><input type="submit" value="Inscription"></td></tr>
+		</form><tr><td align="left" colspan="2" style="border:0;"><p style="font-size:10px;"><i>Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations vous concernant.</i></td></tr></table>					
+						</div>
+					</div>
+					<div style="clear:both;height:1px;"></div>
+									<div class="clearfix" style="padding:1px;">
+					
+						<!-- Footer Jouons Sport Responsive -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6292237303049595"
+     data-ad-slot="5963670521"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+					</div>
+									<div style="clear:both;height:1px;"></div>
+				</div>
+			<div class="clearfix sidebar_container floatright">
+				<div class="clearfix sidebar">
+					<div id="login" class="clearfix newsletter">
+					<h2 id="hreg" onclick="document.getElementById('form_register').style.display='block'; document.getElementById('hlog').style.background='white'; this.style.background='#efa415';document.getElementById('form_login').style.display='none';" style="display:inline;float:left;text-align:center;width:45%;cursor:pointer;background:white;padding-left:5px;">Inscription</h2><h2 id="hlog" onclick="document.getElementById('form_register').style.display='none';document.getElementById('hreg').style.background='white';this.style.background='#efa415';document.getElementById('form_login').style.display='block';" style="display:inline;float:right;text-align:center;width:45%;cursor:pointer;background:#efa415;padding-left:5px;">Connexion</h2>
+						<form id="form_register" style="display:none;" method="post" action="/inscription/">
+							<input type="submit" value="Inscription" id="mc-embedded-register"/>
+						</form>
+						<form id="form_login" style="display:block;" method="post" action="/office/">
+							<input type="text" placeholder="Equipe" name="equipe" id="equipe"/>
+							<input type="password" placeholder="Mot de passe" name="pass" id="pass"/>
+							<input type="submit" value="Connexion" id="mc-embedded-login"/>
+						</form>
+					</div>						<div class="clearfix single_sidebar">
+								<table width="100%" cellspacing="1"><tr><td  class="calendrier"><b>2018-03-22</b><br><b><a href="?page=stage" onclick="envoieRequete('stage.php','page');return false;">Course<br/><img src="icones/stage.png" height="40px"></a></b><br/></td></tr><tr><td  class="calendrier"><b>2018-03-23</b><br><b><a href="?page=stage" onclick="envoieRequete('stage.php','page');return false;">Course<br/><img src="icones/stage.png" height="40px"></a></b><br/><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=225" onclick="envoieRequete('eng_course.php?id=225','page');return false;">Cyclo-Cross - Panorame des Baronnies <img src="icones/france.gif" width="18px"></a> <small>(33km)</small> <a href="?page=details_course&id=225" onclick="envoieRequete('details_course.php?id=225','page');return false;"><img src="icones/info.png" width="13px"></a> <br></td></tr><tr><td  class="calendrier"><b>2018-03-24</b><br><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=979" onclick="envoieRequete('eng_course.php?id=979','page');return false;">Cyclo-cross Sablé-sur-sarthe-La flèche <img src="icones/france.gif" width="18px"></a> <small>(26km)</small> <a href="?page=details_course&id=979" onclick="envoieRequete('details_course.php?id=979','page');return false;"><img src="icones/info.png" width="13px"></a> <br></td></tr><tr><td  class="calendrier"><b>2018-03-25</b><br><img src="icones/msupercoupe.png" width="20px"><a href="?page=cup_res" onclick="envoieRequete('cup_res.php','page');return false;">Super Cup</a><br/><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=652" onclick="envoieRequete('eng_course.php?id=652','page');return false;">Cyclo-Cross La Ploueroise <img src="icones/france.gif" width="18px"></a> <small>(24km)</small> <a href="?page=details_course&id=652" onclick="envoieRequete('details_course.php?id=652','page');return false;"><img src="icones/info.png" width="13px"></a> <br><img src="icones/alliance.png" width="18px" height="16px" title="TEAM"> <a href="?page=team_s&id=1041" onclick="envoieRequete('team_s.php?id=1041','page');return false;">TTT Maastricht - Aachen <img src="icones/pb.gif" width="18px"></a> <small>(33km)</small> <a href="?page=details_course&id=1041" onclick="envoieRequete('details_course.php?id=1041','page');return false;"><img src="icones/info.png" width="13px"></a><br></td></tr><tr><td  class="calendrier"><b>2018-03-26</b><br><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=1359" onclick="envoieRequete('eng_course.php?id=1359','page');return false;">CLM-Saint-Vallier-Saint-Péray <img src="icones/france.gif" width="18px"></a> <small>(61km)</small> <a href="?page=details_course&id=1359" onclick="envoieRequete('details_course.php?id=1359','page');return false;"><img src="icones/info.png" width="13px"></a> <br></td></tr><tr><td  class="calendrier"><b>2018-03-27</b><br><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=1373" onclick="envoieRequete('eng_course.php?id=1373','page');return false;">Paris - Bruxelles <img src="icones/france.gif" width="18px"></a> <small>(217km)</small> <a href="?page=details_course&id=1373" onclick="envoieRequete('details_course.php?id=1373','page');return false;"><img src="icones/info.png" width="13px"></a> <br></td></tr><tr><td  class="calendrier"><b>2018-03-28</b><br><img src="icones/ucv.png" width="20px" title="UCV"><a href="?page=eng_course&id=772" onclick="envoieRequete('eng_course.php?id=772','page');return false;">Classique Pontoise <img src="icones/france.gif" width="18px"></a> <small>(152km)</small> <a href="?page=details_course&id=772" onclick="envoieRequete('details_course.php?id=772','page');return false;"><img src="icones/info.png" width="13px"></a> <br></td></tr></table>						</div>
+						
+												<!-- Côté Jouons Sport Responsive -->
+<div style="width:100%;text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6292237303049595"
+     data-ad-slot="3619087524"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+												<div style="width:300px;margin:0 auto;">
+						<iframe charset="UTF-8" SRC="http://www.challengevelo.com/widget.php?communaute=VM" TYPE="text/javascript"  style="border:0;height:125px;width:300px;margin:0 auto;" scrolling="no"></iframe>
+						</div>
+						
+						<div style="width:100%;text-align:center;">
+						<a href="http://www.velo-identity.net" target="_blank"><img src="http://www.challengevelo.com/images/pubs/300x100-CV-VI.gif"></a>
+						</div>
+						
+					
+						
+					
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer id="footer_top_area">
+			<div class="clearfix wrapper footer_top">
+				<div class="clearfix footer_top_container">
+					<div class="clearfix single_footer_top floatleft">
+						<h2>Qui sommes-nous ?</h2>
+						<p style="text-align:justify;">Le site <b>Velo-Manager.net</b> est géré par l'association <b>Jouons Sport</b> qui a pour but de promouvoir le sport à travers des jeux sur internet et de soutenir des actions sportives diverses axées sur la formation de jeunes sportifs.</p>
+					</div>
+					<div class="clearfix single_footer_top floatleft">
+						<h2>Le But du JEU</h2>
+						<p style="text-align:justify;"><b>Velo-Manager.net</b> à pour but de gérer une équipe cycliste de A à Z en affrontant d'autres managers réels. Il faudra pour cela gérer les entrainements, le planning de vos coureurs, votre staff, vos tactiques de course et bien d'autres détails qui vous mèneront peut-être vers les sommets du jeu !</p>
+					</div>
+					<div class="clearfix single_footer_top floatleft">
+						<h2>Nos autres sites</h2>
+						<ul>
+							<li><a href="http://www.challengevelo.com/" target="_blank">ChallengeVelo.com</a></li>
+							<li><a href="http://www.velo-identity.net/" target="_blank">Velo-Identity.net</a></li>
+							<li><a href="http://www.cars-manager.com/" target="_blank">Cars-Manager.com</a></li>
+							<li><a href="http://www.tennisproplayer.com/" target="_blank">TennisProPlayer.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<section id="footer_bottom_area">
+			<div class="clearfix wrapper footer_bottom">
+				<div class="clearfix copyright floatleft">
+					<p> Copyright &copy; Tous droits réservés par <span>Velo-Manager.net</span></p>
+				</div>
+				<div class="clearfix social floatright">
+					<ul>
+						<li><a class="tooltip" target="_blank" title="Facebook" href="https://www.facebook.com/VeloManager/"><i class="fa fa-facebook-square"></i></a></li>
+						<!--<li><a class="tooltip" target="_blank" title="Twitter" href="https://twitter.com/challenge_velo"><i class="fa fa-twitter-square"></i></a></li>-->
+						<!--<li><a class="tooltip" target="_blank" title="Google+" href=""><i class="fa fa-google-plus-square"></i></a></li>
+						<li><a class="tooltip" target="_blank" title="LinkedIn" href=""><i class="fa fa-linkedin-square"></i></a></li>
+						<li><a class="tooltip" target="_blank" title="tumblr" href=""><i class="fa fa-tumblr-square"></i></a></li>
+						<li><a class="tooltip" target="_blank" title="Pinterest" href=""><i class="fa fa-pinterest-square"></i></a></li>
+						<li><a class="tooltip" target="_blank" title="RSS Feed" href=""><i class="fa fa-rss-square"></i></a></li>
+						<li><a class="tooltip" target="_blank" title="Sitemap" href=""><i class="fa fa-sitemap"></i> </a></li>-->
+					</ul>
+				</div>
+			</div>
+		</section>
+		<div id="cache" style="display:none;"></div>
+		
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>	
+		
+		
+		<script type="text/javascript" src="js/placeholder_support_IE.js"></script>
+		
+		<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.6&appId=376142172478997";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45378787-1', 'auto');
+  ga('send', 'pageview');
+</script>
+	</div>
+	
+<script type="text/javascript" src="adserver.js"></script>
+<script>
+if (document.getElementById('ads') == null) {
+var user= ''; var vip='';
+if (user!='' && vip==0) {document.getElementById('messageImp1521676399').style.display='block'; document.getElementById('messageImp1521676399').innerHTML='<b>Un bloqueur de publicité a été détecté !</b><br/>Nous souhaitons vous informer que les publicités représentent près de 80% des revenus de notre site, cela permet de répondre au frais d\'hébergement du site, domaines, et de contribuer au développement du jeu.<br/>C\'est pourquoi nous vous serions reconnaissant de bien vouloir désactiver votre bloqueur de publicité sur notre site.<br/>Vous pouvez sinon devenir <a href="?page=vip">VIP</a>, et ce bandeau disparaitra automatiquement.<br>Merci !<br/>L\'association Jouons Sport.<br>';}
+}
+envoieRequete('finances_top.php?id=','finances');
+</script>
+<div id="cache" style="display:none;"></div>
+</body>
+</html>

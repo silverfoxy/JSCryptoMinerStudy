@@ -1,0 +1,1487 @@
+
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>7-ELEVEN‧Always Open！</title>
+ <!--● css -->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css">   
+<link rel="stylesheet" type="text/css" href="css/style.css?20170717">
+<link rel="stylesheet" type="text/css" href="css/mediaqueri.css?20170717">
+<link rel="shortcut icon" href="favicon.ico">
+
+ <!--● js-->  
+<script type="text/javascript" src="js/gaCode.js"></script> 
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/libs/css3-mediaqueries.min.js"></script>
+<script src="js/libs/TweenMax.min.js"></script>
+<script src="js/libs/jquery.mousewheel.js"></script>
+<script src="js/libs/jquery.easing.1.3.js"></script>
+<script src="js/script.js?20170714"></script>
+<script src="js/menu.js?20170714"></script>
+<script type="text/javascript" src="scripts/jquery.vticker.js"></script> 
+<script src="js/GAtracking.js"></script> 
+<script src="js/711GA.js"></script>
+<!--● ga-->  
+
+<src="images/upload/upload6.jpg"></src>
+<style>
+.m-news ul li:before {
+  height: 100%;
+  display: block;
+  vertical-align: middle;
+}
+
+</style>
+<!--判斷瀏覽器--> 
+
+<script>
+    var Today = new Date();
+    var image;
+    var request = new XMLHttpRequest();
+    var read_i = 0;
+        request.open('post', 'readxml.aspx', true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var AD_xmlData = jQuery.parseXML(request.responseText);
+            var AD_xml_count = AD_xmlData.getElementsByTagName("Ad")["0"].childElementCount;
+            image = new Array(AD_xmlData.getElementsByTagName("Ad")["0"].childElementCount);
+            var images = new Array(AD_xmlData.getElementsByTagName("Ad")["0"].childElementCount);
+            for (var AD_i = 0; AD_i <= AD_xml_count - 1; AD_i++) {
+                if (Number(Today.getFullYear()) >= Number((AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue).substr(0, 4))) {
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                        image[read_i] = AD_xmlData.getElementsByTagName("Image")[AD_i].firstChild.nodeValue;
+                        images[AD_i] = new Image();
+                        images[AD_i].src = AD_xmlData.getElementsByTagName("Image")[AD_i].firstChild.nodeValue;
+                        read_i++;
+                    }
+                    else {
+                        image[read_i] = AD_xmlData.getElementsByTagName("IndexImage")[AD_i].firstChild.nodeValue;
+                        images[AD_i] = new Image();
+                        images[AD_i].src = AD_xmlData.getElementsByTagName("IndexImage")[AD_i].firstChild.nodeValue;
+                        read_i++;
+                    }
+
+                }
+            }
+            var imageobj = new Array(read_i - 1);
+            for (var road = 0; road <= read_i - 1; road++) {
+                imageobj[road] = new Image();
+                imageobj[road].src = image[road];
+                loadImage(image[road], imageLoaded);
+            }
+        }       
+        request.send('num=0');
+        function loadImage(url, callback) {
+            var img = new Image;
+            img.src = url;
+            if (img.complete) { 
+                callback.call(img);
+                return; 
+            }
+            img.onload = function(){ 
+            callback.call(img);
+            };
+        }
+        function imgLoaded(){
+            alert(this.width);
+        }
+
+        var request_e = new XMLHttpRequest();
+        request_e.open('post', 'readxml.aspx', true);
+        request_e.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request_e.addEventListener("load", transferComplete);
+        request_e.onreadystatechange = function () {
+            if (request_e.readyState == 4 && request_e.status == 200) {
+                var obja = jQuery.parseXML(request_e.responseText);
+                var fe_img = new Array(Number(obja.getElementsByTagName("BD")["0"].childElementCount) - 1);
+                for (var xml_i = 0; xml_i <= Number(obja.getElementsByTagName("BD")["0"].childElementCount) - 1; xml_i++) {
+                    if (Number(Today.getFullYear()) > Number((obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue).substr(0, 4))) {
+                        xml_i++;
+                    }
+                    if (Number(Today.getFullYear()) == Number((obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue).substr(0, 4))) {
+                        if (Number(Today.getMonth() + 1) > Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(4, 2))) {
+                            xml_i++;
+                        }
+                        if (Number(Today.getMonth() + 1) == Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(4, 2)) && Number(Today.getDate()) > Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(6, 2))) {
+                            xml_i++;
+                        }
+                    }
+                    if (obja.getElementsByTagName("IType")[xml_i].firstChild.nodeValue == "Food" || obja.getElementsByTagName("IType")[xml_i].firstChild.nodeValue == "Event") {
+                        fr_img[xml_i] = new Image();
+                        fe_img[xml_i].src = obja.getElementsByTagName("Image")[xml_i].firstChild.nodeValue;
+                        loadImage(obja.getElementsByTagName("Image")[xml_i].firstChild.nodeValue, imageLoaded());
+                        loadImage(obja.getElementsByTagName("LogoImage")[xml_i].firstChild.nodeValue, imageLoaded());
+
+                    }
+                }
+            }
+
+        };
+        request_e.send('num=0');
+
+    }
+
+
+</script>
+<!--read food event news count -->
+<script type= text/javascript>
+    
+
+</script>
+    <!--GET_FB&IG-->
+    <script type= text/javascript>  
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        }
+        else {
+            $.ajax({
+                url: 'token.html',
+                datatype: "json",
+                type: 'get',
+                success: function (e) {
+                    var obj = JSON.parse(e)
+                    catch_ig(obj.ig);
+                    catch_fb(obj.fb);
+                    //抓取token和呼叫function
+                }
+            })
+        }
+        function catch_fb(fb) {
+            $.ajax({
+                url: fb,
+                dataType: 'jsonp',
+                cache: false,
+                type: 'get',
+                success: function (e) {
+                    var post_id = e.posts.data["1"].id.split("_");
+                    $("#fb_iframe").attr("src", "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F711open%2Fposts%2F" + post_id[1] + "&width=auto&show_text=true&height=674&appId");
+                    //$("#fb_iframe").src = "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F711open%2Fposts%2F" + post_id[1] + "&width=auto&show_text=true&height=674&appId";
+                },
+                error: function (e) {
+                }
+            })
+        }
+        function catch_ig(ig) {
+            $.ajax({
+                url: ig,
+                dataType: 'jsonp',
+                cache: false,
+                type: 'get',
+                success: function (e) {
+                    $("#Label2").text(e.data["0"].caption.text);
+                    $("#ig_a_link").attr("href", e.data["0"].link);
+                    crate_ig_div(e.data["0"].link);
+                }
+            })
+        }
+        $("._5pcr fbUserPost").height = ("#ig")["0"].clientHeight;
+    </script>
+    <!--create ig script-->
+    <script>        
+        function crate_ig_div(link) {
+            var blockquote = document.createElement("blockquote");
+            blockquote.setAttribute("class", "instagram-media");
+            blockquote.setAttribute("data-instgrm-captioned", "");
+            blockquote.setAttribute("data-instgrm-version", "7");
+            blockquote.setAttribute("style", "background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:100%; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);");
+
+            var blockquote_div1 = document.createElement("div");
+            blockquote_div1.setAttribute("style", "padding:8px;");
+            blockquote.appendChild(blockquote_div1);
+
+            var blockquote_div2 = document.createElement("div");
+            blockquote_div2.setAttribute("style", "background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;");
+            blockquote_div1.appendChild(blockquote_div2);
+
+            var blockquote_div3 = document.createElement("div");
+            blockquote_div3.setAttribute("style", "background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;");
+            blockquote_div2.appendChild(blockquote_div3);
+
+            var blockquote_p1 = document.createElement("p");
+            blockquote_p1.setAttribute("style", " margin:8px 0 0 0; padding:0 4px;");
+            blockquote_div1.appendChild(blockquote_p1);
+
+            var ig_a = document.createElement("a");
+            ig_a.setAttribute("href", link);
+            ig_a.setAttribute("style", " color:#000; font-family:Arial,sans-serif; font-size:12px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;");
+            ig_a.setAttribute("target", "_blank");
+            blockquote_p1.appendChild(ig_a);
+
+            var blockquote_p2 = document.createElement("p");
+            blockquote_p2.setAttribute("style", " color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;");
+            blockquote_div1.appendChild(blockquote_p2);
+
+            var ig_script = document.createElement("script");
+            ig_script.setAttribute("async", "");
+            ig_script.setAttribute("defer", "");
+            ig_script.setAttribute("src", "//platform.instagram.com/en_US/embeds.js");
+
+
+            try{
+                document.getElementById("ig").appendChild(blockquote);
+                document.getElementById("ig").appendChild(ig_script);
+            }
+            catch(e){
+                try {
+                    document.getElementById("ig").appendChild(blockquote);
+                    document.getElementById("ig").appendChild(ig_script);
+                }
+                catch (e) {
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" method="post" action="index.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="uFAkH3+AkJUpdyiG1xPrY+e95RZq6AqHx634OxVfDm9w3MRtu87VXr7RaI3AK7QRWugUyMhFsUFgdG+n16HAKDg/T0elQlD7ooIXIZ95sj/c0171Qy+kPa/w+qA=" />
+
+<div class="wrapper">
+	<!-- 左側選單 -->
+       <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title>
+    <script type="text/javascript" src="/js/gaCode.js"></script>
+	<style>
+	#li10{
+		letter-spacing: 48px;
+	}
+
+	</style>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $(".m-navitem-subitem").attr("style", "display:none;");
+				$('#Entertainment').attr("style","display:block;");
+            }
+            else {
+			    $('#Entertainment').remove();
+            }
+        });
+        var bool = 1;
+        var chk = false;
+        function op() {
+            //if (bool % 2 != 0) {
+            //    $(".g-nav").attr("style", "position:absolute");
+            //    $(".g-main").attr("style", "position:fixed");
+            //    $(".m-topbar").attr("style", "position:absolute");
+            //    $(".u-searchbtn").attr("style", "position: absolute;top: 12px;left: 100px;");
+            //}
+            //else {
+            //    $(".g-nav").attr("style", "position:fixed");
+            //    $(".g-main").attr("style", "position:relative");
+            //    $(".m-topbar").attr("style", "position:fixed");
+            //    $(".u-searchbtn").attr("style", "position: fixed;top: 19px;left: 73px;");
+            //}
+            //bool++;
+            //if (chk == false) {
+            //    $(".g-nav").attr("style", "position:absolute");
+            //    $(".g-main").attr("style", "position:fixed");
+            //    $(".m-topbar").attr("style", "position:absolute");
+            //    $(".u-searchbtn").attr("style", "position: absolute;top: 12px;left: 100px;");
+            //    chk = true;
+            //    return;
+            //}
+            //if (chk == true) { 
+            //    $(".g-nav").attr("style", "position:fixed");
+            //    $(".g-main").attr("style", "position:relative");
+            //    $(".m-topbar").attr("style", "position:fixed");
+            //    $(".u-searchbtn").attr("style", "position: fixed;top: 19px;left: 73px;");
+            //    chk = false;
+            //    return;
+            //}
+        }
+</script>
+	<nav class="g-nav" id="nav" >
+        <script>
+
+            </script>
+	      <!--   手機板選單按鈕 -->
+		  <a href="javascript: void(0)" id="menu-btn">
+		       <div  class="nav-toggle">
+                     <span onclick="op()"></span>
+		       </div>		       
+		  </a>
+         <!--   手機板選單按鈕 end-->
+		  <header class="m-headtop">
+              <a href="/index.aspx">
+		 	     <h1 class="u-logo">
+		 		     
+                     <img src="/images/logo.png" alt="7-ELEVEN">
+		 		  </h1>
+                  </a>
+		  </header>
+ 		  <ul class="u-menu" >
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>本期優惠 </span></a>
+ 		  			<div class="m-subitem-wrapper">
+ 		  				<div class="m-subitem">
+ 		  					  <h3>本期優惠</h3>
+ 		  					  <ul class="m-navitem-subitem">
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','A01_主題活動','/special/newsList.aspx#cont1','_self');"><span>主題活動</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','A02_精選美味','/special/newsList.aspx#cont2','_self');"><span>精選美味</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','A03_嚴選商品','/special/newsList.aspx#cont3','_self');"><span>嚴選商品</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','A04_便利生活','/special/newsList.aspx#cont4','_self');"><span>便利生活</span></a></li> 		  					  
+ 		  					  </ul>
+ 		  				</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript:gaLogOpenWin('側邊主選單','B10_CITY CAFE','http://www.citycafe.com.tw/','_blank');"><span>CITY CAFE </span></a>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>小七食堂 </span></a>
+ 		  			<div class="m-subitem-wrapper">
+ 		  				<div class="m-subitem">
+ 		  					  <h3>小七食堂</h3>
+ 		  					  <ul class="m-navitem-subitem"  style="display:block">
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B01_鮮食新品','/freshfoods/hot.aspx','_self');" ><span>鮮食新品 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B13_御飯糰','/freshfoods/1_Ricerolls/index.aspx','_self');"><span>御飯糰 </span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B15_光合','/freshfoods/2_Light/index.aspx','_self');"><span>光合</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B17_御料理','/freshfoods/3_Cuisine/index.aspx','_self');"><span>台式料理 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B32_風味小食','/freshfoods/4_Snacks/index.aspx','_self');"><span>風味小食</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B31_異國料理','/freshfoods/5_ForeignDishes/index.aspx','_self');"><span>異國料理</span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B14_涼麵','/freshfoods/6_Noodles/index.aspx','_self');"><span>涼麵</span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B12_關東煮','/freshfoods/7_Oden/index.aspx','_self');"><span>關東煮 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B16_熱狗大亨','/freshfoods/8_Bigbite/index.aspx','_self');"><span>大亨堡 </span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B11_霜淇淋','/freshfoods/9_Icecream/index.aspx','_self');"><span>北海道霜淇淋 </span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B33_思樂冰','/freshfoods/10_Slurpee/index.aspx','_self');"><span>思樂冰 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B29_麵包甜品','/freshfoods/11_bread/index.aspx','_self');"><span>麵包甜品 </span></a></li>
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B34_蒸美味','/freshfoods/12_steam/index.aspx','_self');"><span>蒸美味 </span></a></li> 
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','B35_滷味','/freshfoods/13_luwei/index.aspx','_self');"><span>滷味 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B28_組合餐','/freshfoods/breakfast/RWD/index.html','_blank');"><span>組合餐 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B23_安心秘訣','/quality/index.asp','_blank');"  ><span>安心秘訣 </span></a></li>
+ 		  					  </ul>
+ 		  				</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>自有品牌 </span></a>
+ 		  			<div class="m-subitem-wrapper">
+	 		  			<div class="m-subitem">
+	 		  					  <h3>自有品牌</h3>
+	 		  					  <ul class="m-navitem-subitem">
+	 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B30_iseLect','https://www.7-11.com.tw/is/index.html','_blank');"><span>iseLect</span></a></li>
+	 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','B21_Unidesign','http://www.7-11.com.tw/unidesign/index/','_blank');"><span>UNIDESIGN</span></a></li>
+	 		  					  </ul>
+	 		  			</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript:gaLogOpenWin('側邊主選單','B25_預購','https://www.7-11.com.tw/order/index.asp','_blank');"><span>預購 </span></a>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>寄件 </span></a>
+ 		  			<div class="m-subitem-wrapper">
+	 		  			<div class="m-subitem">
+	 		  					  <h3>寄 件</h3>
+	 		  					  <ul class="m-navitem-subitem">
+	 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C31_交貨便','/service/accept.aspx','_slef');" ><span>交貨便 </span></a></li>
+ 		  					  		<li><a href="javascript:gaLogOpenWin('側邊主選單','C37_國際交貨便)','/service/accept_International.aspx','_slef');"><span>國際交貨便</span></a></li>
+ 		  					  		<li><a href="javascript:gaLogOpenWin('側邊主選單','C32_退貨便','/service/return.aspx','_slef');"><span>退貨便</span></a></li> 
+ 		  					  		<li><a href="javascript:gaLogOpenWin('側邊主選單','C35_宅急便','http://www.t-cat.com.tw/','_blank');"><span>宅急便 </span></a></li>
+ 		  					  		<li><a href="javascript:gaLogOpenWin('側邊主選單','C36_DHL','/service/dhl.aspx','_self');"><span>DHL </span></a></li>
+ 		  					  		<li><a href="javascript:gaLogOpenWin('側邊主選單','C37_international','/service/fedex.aspx','_self');"><span>FedEx</span></a></li>
+	 		  					  </ul>
+	 		  			</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>服務 </span></a>
+ 		  			<div class="m-subitem-wrapper" id="nav6" >
+ 		  				<div class="m-subitem">
+ 		  					  <h3>服 務</h3>
+ 		  					  <ul class="m-navitem-subitem">
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C21_便利生活站','http://www.ibon.com.tw/default.aspx','_blank');"><span>便利生活站 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C22_售票系統','http://ticket.7net.com.tw/','_blank');"><span>售票系統 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C23_遊戲儲值','http://www.ibon.com.tw/payment.aspx#A011','_blank');"><span>遊戲儲值 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C24_影印傳真便','/service/copy.aspx','_slef');"><span>影印傳真便 </span></a></li> 
+                                <li><a href="javascript:gaLogOpenWin('側邊主選單','C25_ibon 列印掃描','http://www.ibon.com.tw/event/postcard/4x6.html','_blank');"><span>ibon列印掃描 </span></a></li> 
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C41_繳費便','/service/monthly.aspx','_slef');"><span>繳費便</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C42_eTag','http://www.ibon.com.tw/operate.aspx?fromPage=payment.aspx&routeIDListInfo=4;A045;0,1,14,51','_blank');"><span>eTag </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C52_商品卡','/service/card.aspx','_slef');"><span>商品卡 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C53_禮券','/service/gift.aspx','_slef');"><span>禮券 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C50_咖啡卡','http://www.citycafe.com.tw/card.aspx','_blank');"><span>咖啡卡</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C61_ibon mobile','http://www.7-11.com.tw/ibonmobile/','_blank');"><span>ibon mobile </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C62_ibon WiFi','https://www.ibonwifi.com.tw/index2.aspx','_blank');"><span>ibon WiFi </span></a></li>
+ 		  					  <!-- 	<li><a href="javascript:gaLogOpenWin('側邊主選單','C63_出國網卡','/service/simcard.aspx','_slef');"><span>出國網卡 </span></a></li> -->
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C81_發票兌換','/service/invoice.aspx','_slef');"><span>發票兌換</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C82_電子發票','http://www.ibon.com.tw/operate.aspx?fromPage=life.aspx&routeIDListInfo=4;F021;0,7,39,106','_blank');" ><span>電子發票</span></a></li>
+ 		  					  <!-- 	<li><a href="javascript:gaLogOpenWin('側邊主選單','C83_外送服務','/service/takeout.aspx','_slef');"><span>外送服務</span></a></li> -->
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C84_資源回收','/service/recycle.aspx','_slef');"><span>資源回收 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','C85_ATM','/service/atm.aspx','_slef');"><span>ATM </span></a></li>
+ 		  					  </ul>
+ 		  				</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>icash </span></a>
+ 		  			<div class="m-subitem-wrapper">
+ 		  				<div class="m-subitem">
+ 		  					  <h3>icash</h3>
+ 		  					  <ul class="m-navitem-subitem">
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F11_會員專區','https://www.openpoint.com.tw/SETMemberWebsite/Register.html','_blank');" ><span>會員專區 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F03_icash 2.0','https://www.icash.com.tw/','_blank');"><span>icash 2.0</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F04_icash  2.0聯名卡','http://www.7-11.com.tw/openpoint_event1/15_CBcard/index.html','_blank');" ><span>icash 2.0聯名卡 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F05_icash  2.0餘額查詢','http://www.7-11.com.tw/openpoint_event1/17Balanceinquiries/index.html','_blank');" ><span>icash 2.0餘額查詢 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F06_OPENPOINT點數活動','https://www.openpoint.com.tw/SETMemberWebsite/Campaign.html','_blank');" ><span>OPENPOINT點數活動 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F07_點數交換','/openpoint_event1/15_exchange/index.html','_blank');" ><span>點數交換</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','F10_點數轉贈','/openpoint_event1/15_transferpoint/index.html','_blank');" ><span>點數轉贈 </span></a></li> 
+ 		  					  </ul>
+ 		  				</div>
+ 		  			</div>
+ 		  	</li>
+ 		  	<li class="u-navitem">
+ 		  			<a href="javascript: void(0)"><span>企業 </span></a>
+ 		  			<div class="m-subitem-wrapper">
+ 		  				<div class="m-subitem">
+ 		  					  <h3>企業</h3>
+ 		  					  <ul class="m-navitem-subitem">
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D01_加盟','/fr/index.asp','_blank');"><span>加盟 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D02_招募','/careers/index.asp','_blank');"><span>招募 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D03_企業情報','/company/index.asp','_blank');"><span>企業情報 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D09_利害關係人專區','/communication.aspx','_slef');"><span>利害關係人專區 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D10_CSR企業社會責任','/company/csr.asp','_blank');"><span>CSR企業社會責任 </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D04_投資人關係','/company/ir/index.html','_blank');"><span>投資人關係</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D05_Investor Relations','/company/ir_en/','_blank');"><span>Inverstor Relations </span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D06_統一超商商場','http://www.7-11.com.tw/pcsc/mall/index.asp','_blank');"><span>統一超商商場</span></a></li>
+ 		  					  	<li><a href="javascript:gaLogOpenWin('側邊主選單','D07_好鄰居文教基金會','http://www.goodneighbor.org.tw/','_blank');"><span>好鄰居文教基金會 </span></a></li>  	
+ 		  					  </ul>
+ 		  				</div>
+ 		  			</div>
+ 		  	</li>
+           
+ 		  	<li class="u-navitem" id="Entertainment" style="display:none;">
+ 		  			<a href="javascript: void(0)" id="li10"><span>社群</span></a>
+ 		  			<div class="m-subitem-wrapper">
+ 		  				<div class="m-subitem">
+ 		  					  <h3>社群</h3>
+							  <ul class="m-navitem-subitem">
+								<li><a href="javascript:gaLogOpenWin('Entertainment','C71_7-ELEVEN APP','http://www.7-11.com.tw/app/index.html','_blank');"><span>7-ELEVEN APP</span></a></li>
+								<li><a href="javascript:gaLogOpenWin('Entertainment','OPENPOINTAPP','http://www.7-11.com.tw/openpoint_event1/appintro/index.html','_blank');"><span>OPENPOINT APP</span></a></li>
+								<li><a href="javascript:gaLogOpenWin('Entertainment','C74_ibon APP','http://www.ibon.com.tw/appinfo.aspx#gsc.tab=0','_blank');"><span>IBON APP</span></a></li>
+								<li><a href="javascript:gaLogOpenWin('Entertainment','E13_OPEN小將FB','https://www.facebook.com/OPENOPENCHAN','_blank');"><span>OPEN小將facebook</span></a></li>
+								<li><a href="javascript:gaLogOpenWin('Entertainment','C72_OPEN小將','http://www.7-11.com.tw/openichannel/index.html','_blank');"><span>OPEN小將官方網站</span></a></li>
+							  </ul>
+						</div>
+					</div>
+ 		  	</li>
+            
+             <!--<li class="u-navitem medialink" style="display:none;">
+ 		  			<a href="javascript:gaLogOpenWin('側邊主選單','E01_openichannel','/openichannel/index.aspx','_blank');"><span>openichamnel</span></a>
+ 		  	</li>-->
+ 		  </ul>
+ 		  <div class="m-navicon">
+ 		  	   <a href="javascript:gaLogOpenWin('Entertainment','9_FB','https://www.facebook.com/711open','_blank');"   class="u-fb"></a>
+ 		  	   <a href="javascript:gaLogOpenWin('Entertainment','10_Instagram','https://www.instagram.com/7eleventw/','_blank');" class="u-ig"></a>               
+               <a href="javascript:gaLogOpenWin('Entertainment','11_Media','/openichannel/index.aspx','_blank');" class="u-ichaneel"></a>
+ 		  </div>
+	</nav>
+    <body>
+</html>
+
+    <!-- 功能bar -->
+		
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<section class="m-topbar">
+		     <!-- 門市查詢、中獎名單-->
+			  <div class="m-tip">
+			  	  <a href="javascript:gaLogOpenWin('上方選單','B02_門市查詢','http://emap.pcsc.com.tw/emap.aspx','_blank');">門市查詢</a>
+			  	  <span class="shaded">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+			  	  <a href="javascript:gaLogOpenWin('上方選單','B03_中獎名單','/777.aspx','_blank');">中獎名單</a>
+			  </div>
+			  	
+			  <div class="m-itemicon clearfix" >
+			       <!-- 4顆按鈕 -->
+			  	   <ul class="u-itemicon clearfix">
+				  	     <li><a href="javascript:gaLogOpenWin('上方選單','E11_7-ELEVEN FB ','https://www.facebook.com/711open','_blank');" >Facebook</a></li>
+				  	   	 <li><a href="javascript:gaLogOpenWin('上方選單','E12_7-ELEVEN Instagram ','https://www.instagram.com/7eleventw/','_blank');" >IG</a></li>
+				  	   	 <li><a href="javascript:gaLogOpenWin('上方選單','A03_網站地圖','/sitemap.aspx','_blank');">Sitemap</a></li>
+				  	   	 <li>
+				  	   	   <a href="#">Language</a>
+				  	   	   <ul class="m-lansubmenu">
+					  	   	   	<li><a href="javascript:gaLogOpenWin('上方選單','A04_Corporate','http://www.7-11.com.tw/en/index.html','_blank');"><div class="s-lt">ENGLISH</div> Corporate</a></li>
+					  	   	   	<li><a href="javascript:gaLogOpenWin('上方選單','A0401_ENGLISH','http://www.7-11.com.tw/in/en.html','_blank');"><div class="s-lt">ENGLISH</div> Products&Services </a></li>
+					  	   	   	<li><a href="javascript:gaLogOpenWin('上方選單','A0402_日本語','http://www.7-11.com.tw/in/jp.html','_blank');"><div class="s-lt">日本語</div>  商品・サービス</a></li>
+					  	   	   	<li><a href="javascript:gaLogOpenWin('上方選單','A0403_简体中文','http://www.7-11.com.tw/in/cn.html','_blank');"><div class="s-lt">简体中文</div> 产品与服务</a></li>
+					  	   	   	<li><a href="javascript:gaLogOpenWin('上方選單','A0404_繁體中文','http://www.7-11.com.tw/in/tw.html','_blank');"><div class="s-lt">繁體中文</div> 產品與服務</a></li>
+				  	   	   </ul>
+				  	   	 </li>
+			  	   </ul>
+			  	   <!-- 搜尋bar -->
+			  	   <div class="m-search clearfix">
+			  	        <!-- 手機板搜尋按鈕 -->			  	       
+						  <a href="javascript: void(0)" class="u-searchbtn"></a>						
+			  	        <!-- 手機板搜尋按鈕 end-->
+			  	        <form  action="" method="get" class="search">
+
+        			    </form>
+                         <form  class="search">			  	   	  		
+                             <input type="search"  id="searchbox" name="search" placeholder="Search...">
+        			  		 <input  value="搜尋" class="u-schbutton" onclick="gaLogOpenWin('上方選單', '搜尋', '/search.aspx?q=' + document.getElementById('searchbox').value, 'self'); ">
+                         </form>
+			  	   </div>
+			  </div>
+		</section>
+    </form>
+</body>
+</html>
+
+   <!-- 功能bar end-->
+	<!-- 右側內容 -->
+	<section class="g-main" style="margin-top:30px;">
+        <script>
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $(".g-main").css("margin-top", "60px");
+            }
+        </script>		
+		<!-- kv -->
+		<section class="m_kvwrp" id="indexkv">
+		 
+			   <!-- Swiper -->
+			    <div class="swiper-container">
+			        <div class="swiper-wrapper" id="swiper-wrapper">
+			        </div>
+
+			        <!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next"></div>
+			        <div class="swiper-button-prev"></div>
+			    </div>
+	    <!-- Initialize Swiper -->
+	   <script>
+
+	    </script>
+                    <style>
+                        #indexkv .swiper-container .swiper-wrapper .slide5{ background: url("blog_main_images/test4.jpg") no-repeat center top; }
+                        .auto-style1 {
+                            margin-bottom: 0px;
+                        }
+                    </style>
+                    <!-- Swiper JS -->
+	                <script src="js/libs/swiper.min.js"></script>
+                    <!-- 圖片輪播 -->
+			        <script>
+			        var request_kv = new XMLHttpRequest();
+			        request_kv.open('post', 'readxml.aspx', true);
+			        request_kv.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			        request_kv.onreadystatechange = function () {
+			            if (request_kv.readyState == 4 && request_kv.status == 200) {
+			                var AD_xmlData = jQuery.parseXML(request_kv.responseText);
+			                var AD_xml_count = AD_xmlData.getElementsByTagName("Ad")["0"].childElementCount;
+			                for (var AD_i = 0; AD_i <= AD_xml_count - 1; AD_i++) {
+			                    if (Number(Today.getFullYear()) > Number((AD_xmlData.getElementsByTagName("EDate")[AD_i].firstChild.nodeValue).substr(0, 4))) {
+			                        AD_i++;
+			                    }
+			                    if (Number(Today.getFullYear()) == Number((AD_xmlData.getElementsByTagName("EDate")[AD_i].firstChild.nodeValue).substr(0, 4))) {
+			                        if (Number(Today.getMonth() + 1) > Number(AD_xmlData.getElementsByTagName("EDate")[AD_i].firstChild.nodeValue.substr(4, 2))) {
+			                            AD_i++;
+			                        }
+			                        if (Number(Today.getMonth() + 1) == Number(AD_xmlData.getElementsByTagName("EDate")[AD_i].firstChild.nodeValue.substr(4, 2)) && Number(Today.getDate()) > Number(AD_xmlData.getElementsByTagName("EDate")[AD_i].firstChild.nodeValue.substr(6, 2))) {
+			                            AD_i++;
+			                        }
+			                    }
+			                    if (Number(Today.getFullYear()) == Number((AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue).substr(0, 4))) {
+			                        if (Number(Today.getMonth() + 1) < Number(AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue.substr(4, 2))) {
+			                            AD_i++;
+			                        }
+			                        if (Number(Today.getMonth() + 1) == Number(AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue.substr(4, 2)) && Number(Today.getDate()) < Number(AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue.substr(6, 2))) {
+			                            AD_i++;
+			                        }
+			                    }
+			                    if (Number(Today.getFullYear()) >= Number((AD_xmlData.getElementsByTagName("SDate")[AD_i].firstChild.nodeValue).substr(0, 4))) {
+			                        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			                            try {
+			                                create_img(AD_xmlData.getElementsByTagName("Image")[AD_i].firstChild.nodeValue, AD_xmlData.getElementsByTagName("Url")[AD_i].firstChild.nodeValue, AD_xmlData.getElementsByTagName("GA_Title")[AD_i].firstChild.nodeValue);
+			                            }
+			                            catch (e) {
+			                                create_img(AD_xmlData.getElementsByTagName("Image")[AD_i].firstChild.nodeValue, "#");
+			                            }
+			                        }
+			                        else {
+			                            try {
+			                                create_img(AD_xmlData.getElementsByTagName("IndexImage")[AD_i].firstChild.nodeValue, AD_xmlData.getElementsByTagName("Url")[AD_i].firstChild.nodeValue, AD_xmlData.getElementsByTagName("GA_Title")[AD_i].firstChild.nodeValue);
+			                                //create_img(image[AD_i], AD_xmlData.getElementsByTagName("Url")[AD_i].firstChild.nodeValue, AD_xmlData.getElementsByTagName("GA_Title")[AD_i].firstChild.nodeValue);
+			                            }
+			                            catch (e) {
+			                                create_img(AD_xmlData.getElementsByTagName("IndexImage")[AD_i].firstChild.nodeValue, "#");
+			                            }
+			                        }
+			                    }
+			                }
+			                var effect = '';
+			                var swiper;
+			                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			                    effect = 'coverflow';
+			                }
+			                if (/edge/i.test(navigator.userAgent)) {
+			                    effect = '';
+			                }
+			                else {
+			                    effect = 'coverflow';
+			                }
+			                swiper = new Swiper('.swiper-container', {
+			                    pagination: '.swiper-pagination',
+			                    nextButton: '.swiper-button-next',
+			                    prevButton: '.swiper-button-prev',
+			                    paginationClickable: true,
+			                    slidesPerView: 'auto',
+			                    centeredSlides: true,
+			                    paginationClickable: true,
+			                    spaceBetween: 0,
+			                    loop: true,
+			                    effect: effect,
+			                    touchRatio: 0.2,
+			                    autoplay: 6000,
+			                    autoplayDisableOnInteraction: false
+			                });
+			                function create_img(img, url, title) {
+			               
+			                    var div = document.createElement("div");
+			                    div.setAttribute("class", "swiper-slide slide");
+			                    div.setAttribute("style", "background: url('" + img + "') no-repeat center top;");
+			                    var a = document.createElement("a");
+			                    if (/edge/i.test(navigator.userAgent)) {
+			                        div.setAttribute("style", "background: url('" + img + "') no-repeat center top;transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); z-index: 1; transition-duration: 0ms;");
+			                    }
+			                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			                        div.setAttribute("style", "background: url(" + img + ") no-repeat center top;"
+                                        + "background-size: 100% 100%;"
+                                        + "width:100%;"
+                                        + "padding-bottom: 68.4375%;"
+                                        + "-webkit-background-size: cover;"
+                                        + "background-size: cover");
+			                    }
+			                    else {
+			                        div.setAttribute("style", "background: url('" + img + "') no-repeat center top;transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg); z-index: 1; transition-duration: 0ms;");
+			                    }
+			                    if(url.length>6){
+			                        a.setAttribute("href", "javascript:gaLogOpenWin('大看板','" + title + "\'" + ",\'" + url + "\'" + ",'_blank'" + ");");
+			                        if (url != "#") {
+			                            //a.setAttribute("target", "blank");
+			                        }
+			                    } 
+			                    div.appendChild(a);
+			                    document.getElementById("swiper-wrapper").appendChild(div);
+			                }
+			            }
+			        }
+			        request_kv.send("num=1");
+                    </script>
+		       
+		</section>
+        <!-- 主要內容 -->
+		<section class="g-maincontent">
+		    <!--  block1 主題活動 tvc -->
+		    <section class="m-tvcwrp clearfix ">
+				 <h3 id="main_title" class="title"></h3>
+				 <div class="m-tvcarea">	
+                     	 <div  class="m-tvc "   >
+                              	 <div id="chamelPlayer" style="background: #000000;"></div>	
+                              <!--youtuber-->
+                                <script type="text/javascript">
+                                    // 2. This code loads the IFrame Player API code asynchronously.
+                                    var tag = document.createElement('script');
+                                    tag.src = "https://www.youtube.com/iframe_api";
+                                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                                    // 3. This function creates an <iframe> (and YouTube player)
+                                    //    after the API code downloads.
+                                    var player;
+                                    function onYouTubeIframeAPIReady() {
+                                        player = new YT.Player('chamelPlayer', {
+                                            height: 317,
+                                            width: 608,
+                                            videoId: '8NzfU33aqGU',
+                                            events: {
+                                                'onReady': onPlayerReady,
+                                                'onStateChange': onPlayerStateChange
+                                            },
+                                        });
+                                    }
+                                    //function onYouTubeIframeAPIReady() {	
+                                    //    player = new YT.PlayeHtqBsJhxOC4r('chamelPlayer', {
+                                    //    height: 317,
+                                    //    width: 608,
+                                    //    videoId: '8NzfU33aqGU',
+                                    //    playerVars: { 'autoplay': 0, 'wmode': 'transparent', 'playlist': '' },
+		                            //    events: {
+                                    //    'onReady': onPlayerReady,
+                                    //    'onStateChange': onPlayerStateChange
+                                    //    }
+                                    //});		
+                                    //}
+                                    // 4. The API will call this function when the video player is ready.
+                                    function onPlayerReady(event) {
+                                    event.target.playVideo();
+	                                event.target.mute();  //靜音
+                                    }
+                                     //5. The API calls this function when the player's state changes.
+                                     //   The function indicates that when playing a video (state=1),
+                                     //   the player should play for six seconds and then stop.
+                                     var done = false;
+                                     function onPlayerStateChange(event) {
+                                         event.target.playVideo();
+                                    }
+                                    function stopVideo() {
+                                       player.stopVideo();
+                                    }
+                                </script>	
+						 </div>			 	
+		 				<a id="main_link" href="javascript: void(0)"  class="m-tvc-ct border">
+		 					  <picture> 
+		 					  	 <img id="main_img" src=""> 
+		 					  </picture>
+		                      <p id="main_val"></p>
+		                      <p id="main_time" class="time"></p>
+		 				</a>
+						<!-- mobile morebtn -->
+						<a id="main_phone" href="javascript: void(0)" class="u-morebtn"> 看更多 ></a>
+						<!-- mobile morebtn -->
+                        <script>
+                            var request_news_main = new XMLHttpRequest();
+                            request_news_main.open('post', 'readxml.aspx', true);
+                            request_news_main.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            request_news_main.onreadystatechange = function () {
+                                if (request_news_main.readyState == 4 && request_news_main.status == 200) {
+                                    var objnews = jQuery.parseXML(request_news_main.responseText);
+                                    $("#main_img").attr("src", objnews.getElementsByTagName("Image")[0].firstChild.nodeValue);
+                                    $("#main_title").html(objnews.getElementsByTagName("APP_BannerTitle")[0].firstChild.nodeValue);
+                                    //$("#main_link").attr("onClick", "gaLogOpenWin('全店看板','" + objnews.getElementsByTagName("APP_BannerTitle")[0].firstChild.nodeValue + "\'," + "\'" + objnews.getElementsByTagName("Link")[0].firstChild.nodeValue + "\'" + ",'_blank'" + ");");
+                                    $("#main_link").attr("href", "javascript:gaLogOpenWin('全店看板','" + objnews.getElementsByTagName("APP_BannerTitle")[0].firstChild.nodeValue + "\'," + "\'" + objnews.getElementsByTagName("Link")[0].firstChild.nodeValue + "\'" + ",'_blank'" + ");");
+                                    $("#main_val").html(objnews.getElementsByTagName("Content")[0].firstChild.nodeValue);
+                                    $("#main_time").html("活動期間:" + objnews.getElementsByTagName("Period")[0].firstChild.nodeValue);
+                                    $("a#main_phone.u-morebtn").attr("href", "javascript:gaLogOpenWin('全店看板','" + objnews.getElementsByTagName("APP_BannerTitle")[0].firstChild.nodeValue + "\'," + "\'" + objnews.getElementsByTagName("Link")[0].firstChild.nodeValue + "\'" + ",'_blank'" + ");");
+                                    //$("a#main_phone.u-morebtn").attr("onClick", "gaLogOpenWin('全店看板','" + objnews.getElementsByTagName("APP_BannerTitle")[0].firstChild.nodeValue + "\'," + "\'" + objnews.getElementsByTagName("Link")[0].firstChild.nodeValue + "\'" + ",'_blank'" + ");");
+
+                                }
+                            };
+                            request_news_main.send("num=4");
+                        </script>
+ 				</div>
+			</section>
+			<!--  block1  end-->
+			 <!--  block2  吃喝在7-ELEVEN -->
+			 <section class="m-tvcwrp drink" >
+ 				<h3 class="title">吃喝在7-ELEVEN </h3>
+				 <!-- Swiper -->
+				    <div class="swiper-container2" id="block2">
+				        <div ID="foodswiper" class="swiper-wrapper">
+				        </div>
+                         <input type="text" ID="val"   Height="16px"></input>
+				         <div class="swiper-pagination" id="area2"></div>	           
+				    </div>
+				     <!-- Add Pagination -->
+				    <div class="swiper-container2-arrow" id="block2_arrow">	
+					    <div class="swiper-button-next"></div>
+				        <div class="swiper-button-prev"></div>
+			        </div>
+
+			<script>
+
+			</script>
+		    </section>
+			<!--  block2  end-->
+			<!--  block3  吃喝在7-ELEVEN -->
+			 <section class="m-tvcwrp event">
+ 				<h3 class="title">強檔活動 </h3>
+				 <!-- Swiper -->
+				    <div class="swiper-container2" id="block3">
+				        <div ID="eventswiper" class="swiper-wrapper">
+				        </div>
+				       	<div class="swiper-pagination" id="area3"></div>	
+				    </div>
+				    <div class="swiper-container2-arrow" id="block3_arrow">	
+					    <div class="swiper-button-next"></div>
+				        <div class="swiper-button-prev"></div>
+			        </div>
+                    
+                    <script>
+                        //讀取xml並且畫出物件完成後開啟動畫
+                        var food_num = 0;   //吃喝再7-11數量
+                        var food_img = "";
+                        var food_val = "";
+                        var food_link = "";
+                        var food_title = "";
+                        var food_time = "";
+                        var food_logoimage = "";
+                        var food_i = "";
+                        var event_num = 0;  //強檔活動數量
+                        var event_img = "";
+                        var event_val = "";
+                        var event_link = "";
+                        var event_title = "";
+                        var event_time = "";
+                        var event_logoimage = "";
+                        var event_i = "";
+                        var event_id = "";
+                        var Today = new Date();
+                        var request_e = new XMLHttpRequest();
+                        request_e.open('post', 'readxml.aspx', true);
+                        request_e.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        request_e.addEventListener("load", transferComplete);
+                        request_e.onreadystatechange = function () {
+                            if (request_e.readyState == 4 && request_e.status == 200) {
+                                var obja = jQuery.parseXML(request_e.responseText);
+                                for (var xml_i = 0; xml_i <= Number(obja.getElementsByTagName("BD")["0"].childElementCount) - 1; xml_i++) {
+                                    if (Number(Today.getFullYear()) > Number((obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue).substr(0, 4))) {
+                                        xml_i++;
+                                    }
+                                    if (Number(Today.getFullYear()) == Number((obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue).substr(0, 4))) {
+                                        if (Number(Today.getMonth() + 1) > Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(4, 2))) {
+                                            xml_i++;
+                                        }
+                                        if (Number(Today.getMonth() + 1) == Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(4, 2)) && Number(Today.getDate()) > Number(obja.getElementsByTagName("EDate")[xml_i].firstChild.nodeValue.substr(6, 2))) {
+                                            xml_i++;
+                                        }
+                                    }
+                                    if (Number(Today.getFullYear()) == Number((obja.getElementsByTagName("SDate")[xml_i].firstChild.nodeValue).substr(0, 4))) {
+                                        if (Number(Today.getMonth() + 1) < Number(obja.getElementsByTagName("SDate")[xml_i].firstChild.nodeValue.substr(4, 2))) {
+                                            xml_i++;
+                                        }
+                                        if (Number(Today.getMonth() + 1) == Number(obja.getElementsByTagName("SDate")[xml_i].firstChild.nodeValue.substr(4, 2)) && Number(Today.getDate()) < Number(obja.getElementsByTagName("SDate")[xml_i].firstChild.nodeValue.substr(6, 2))) {
+                                            xml_i++;
+                                        }
+                                    }
+
+                                    if (obja.getElementsByTagName("IType")[xml_i].firstChild.nodeValue == "Food") {
+                                        try {
+                                            food_img += obja.getElementsByTagName("Image")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            food_img += "#" + "|";
+                                        }
+                                        try {
+                                            food_link += obja.getElementsByTagName("Link")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            food_link += "#" + "|";
+                                        }
+                                        food_title += obja.getElementsByTagName("APP_BannerTitle")[xml_i].firstChild.nodeValue + "|";
+                                        try {
+                                            food_val += obja.getElementsByTagName("Content")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            food_val += "" + "|";
+                                        }
+                                        food_i += xml_i + "|";
+                                        try {
+                                            food_time += obja.getElementsByTagName("Period")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            food_time += "  " + "|";
+                                        }
+                                        try {
+                                            food_logoimage += obja.getElementsByTagName("LogoImage")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            food_logoimage += "#" + "|";
+                                        }
+                                        food_num++;
+                                    }
+                                    if (obja.getElementsByTagName("IType")[xml_i].firstChild.nodeValue == "Event") {
+                                        try {
+                                            event_img += obja.getElementsByTagName("Image")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_img += "#" + "|";
+                                        }
+                                        try {
+                                            event_id += obja.getElementsByTagName("ID")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_id += "#" + "|";
+                                        }
+                                        try {
+                                            event_link += obja.getElementsByTagName("Link")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_link += "#" + "|";
+                                        }
+                                        event_title += obja.getElementsByTagName("APP_BannerTitle")[xml_i].firstChild.nodeValue + "|";
+                                        try {
+                                            event_val += obja.getElementsByTagName("Content")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_val += "" + "|";
+                                        }
+                                        event_i += xml_i + "|";
+                                        try {
+                                            event_time += obja.getElementsByTagName("Period")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_time += " " + "|";
+
+                                        }
+                                        try {
+                                            event_logoimage += obja.getElementsByTagName("LogoImage")[xml_i].firstChild.nodeValue + "|";
+                                        }
+                                        catch (e) {
+                                            event_logoimage += "#" + "|";
+                                        }
+
+                                        event_num++;
+                                    }
+                                }
+                            }
+                                
+                            var food_title2 = "";
+                            try{
+                                food_img = food_img.split("|");
+                                food_link = food_link.split("|");
+                                food_time = food_time.split("|");
+                                food_title = food_title.split("|");
+                                food_val = food_val.split("|");
+                                food_i = food_i.split("|");
+                                food_logoimage = food_logoimage.split("|");
+                            }
+                            catch(e){}
+                            for (var j = 0; j <= food_num - 1; j++) {
+                                var swiper_slide = document.createElement("div");//div
+                                swiper_slide.setAttribute("class", "swiper-slide");
+
+                                var a = document.createElement("a"); //a
+                                a.setAttribute("class", "m-article border ");
+                                if (food_link[j].indexOf("Food") != -1) {
+                                    a.setAttribute("href", "javascript:gaLogOpenWin('吃喝在7-ELEVEN','" + food_title[j] + "','/special/article.aspx?Food=" + food_i[j] + "\',\'" + "_self');");
+                                }
+                                else {
+                                    a.setAttribute("href", "javascript:gaLogOpenWin('吃喝在7-ELEVEN','" + food_title[j] + "'," + "\'" + food_link[j] + "\'" + ",'_blank'" + ");void(0)");
+                                }
+                                swiper_slide.appendChild(a);
+
+                                var pic_div = document.createElement("div");//pic&picdiv
+                                var pic = document.createElement("img");
+                                pic_div.setAttribute("class", "picture");
+                                pic.src = food_img[j];
+                                pic.setAttribute("src", food_img[j]);
+                                pic_div.appendChild(pic);
+                                a.appendChild(pic_div);
+
+                                var logo_div = document.createElement("div");//logo&logodiv
+                                var logo = document.createElement("img");
+                                if (food_logoimage[j] != "#") {
+                                    logo.src = food_logoimage[j];
+                                }
+                                else {
+                                    //logo.src = "images/e-logo5.png";
+                                }
+                                logo_div.setAttribute("class", "m-group clearfix");
+                                logo_div.appendChild(logo);
+                                a.appendChild(logo_div);
+
+                                var p1 = document.createElement("p");
+                                p1.setAttribute("class", "headline");
+                                var p1_title = document.createTextNode(food_title[j]);
+                                p1.appendChild(p1_title);
+                                a.appendChild(p1);
+
+                                var p2 = document.createElement("p");
+                                var p2_text = document.createTextNode(food_val[j]);
+                                p2.appendChild(p2_text);
+                                a.appendChild(p2);
+
+                                var p3 = document.createElement("p");
+                                p3.setAttribute("class", "time");
+                                if (food_time[j].length > 2) {
+                                    var p3_time = document.createTextNode("活動期間:" + food_time[j]);
+                                    p3.appendChild(p3_time);
+                                    a.appendChild(p3);
+                                }
+
+                                document.getElementById("foodswiper").appendChild(swiper_slide);
+                            }
+                            try {
+                                event_img = event_img.split("|");
+                                event_id = event_id.split("|");
+                                event_link = event_link.split("|");
+                                event_time = event_time.split("|");
+                                event_title = event_title.split("|");
+                                event_val = event_val.split("|");
+                                event_i = event_i.split("|");
+                                event_logoimage = event_logoimage.split("|");
+                            }
+                            catch (e) { }
+                            for (var j = 0; j <= event_num - 1; j++) {
+                                //if (j == 0) {
+                                //    $("#main_img").attr("src", event_img[j]);
+                                //    $("#main_title").html(event_val[j]);
+                                //    $("#main_link").attr("href", event_link[j]);
+                                //    $("#main_val").html(event_val[j]);
+                                //    $("#main_time").html(event_time[j]);
+                                //    $("#main_phone").attr("href", event_link[j]);
+                                //}
+                                var swiper_slide = document.createElement("div");//div
+                                swiper_slide.setAttribute("class", "swiper-slide");
+
+                                var a = document.createElement("a"); //a
+                                a.setAttribute("class", "m-article border ");
+                                if (event_link[j].indexOf("Event") != -1) {
+                                    a.setAttribute("href", "javascript:gaLogOpenWin('強檔活動','" + event_title[j] + "','/special/article.aspx?item=Event_" + event_id[j] + "');");
+                                }
+                                else {
+                                    a.setAttribute("href", "javascript:gaLogOpenWin('強檔活動','" + event_title[j] + "'," + "\'" + event_link[j] + "\'" + ",'_blank'" + ");");
+                                }
+                                swiper_slide.appendChild(a);
+
+                                var pic_div = document.createElement("div");//pic&picdiv
+                                var pic = document.createElement("img");
+                                pic_div.setAttribute("class", "picture");
+                                pic.src = event_img[j];
+                                pic.setAttribute("src", event_img[j]);
+                                pic_div.appendChild(pic);
+                                a.appendChild(pic_div);
+
+                                var logo_div = document.createElement("div");//logo&logodiv
+                                var logo = document.createElement("img");
+                                //logo.src = event_logoimage[j];
+                                if (event_logoimage[j] != "#") {
+                                    logo.src = event_logoimage[j];
+                                }
+                                else {
+                                    //logo.src = "images/e-logo5.png";
+                                }
+                                logo_div.setAttribute("class", "m-group clearfix");
+                                logo_div.appendChild(logo);
+                                a.appendChild(logo_div);
+
+                                var p1 = document.createElement("p");
+                                p1.setAttribute("class", "headline");
+                                var p1_title = document.createTextNode(event_title[j]);
+                                p1.appendChild(p1_title);
+                                a.appendChild(p1);
+
+                                var p2 = document.createElement("p");
+                                var p2_text = document.createTextNode(event_val[j]);
+                                p2.appendChild(p2_text);
+                                a.appendChild(p2);
+
+                                var p3 = document.createElement("p");
+                                p3.setAttribute("class", "time");
+                                if (event_time[j].length > 1) {
+                                    var p3_time = document.createTextNode("活動期間:" + event_time[j]);
+                                    p3.appendChild(p3_time);
+                                    a.appendChild(p3);
+                                }
+                                document.getElementById("eventswiper").appendChild(swiper_slide);
+                            }
+
+                        };                       
+                        request_e.send('num=0');
+                        function transferComplete(evt) {
+                            var myswiper2 = new Swiper('#block2', {
+                                pagination: '.swiper-pagination',
+                                nextButton: '#block2_arrow .swiper-button-next',
+                                prevButton: '#block2_arrow .swiper-button-prev',
+                                slidesPerView: 4,
+                                paginationClickable: true,
+                                spaceBetween: 20,
+                                freeMode: true,
+                                breakpoints: {
+                                    1500: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 30
+                                    },
+                                    1400: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30
+                                    },
+                                    640: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 10
+                                    },
+                                    320: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 20
+                                    }
+                                }
+                            });
+                            var myswiper3 = new Swiper('#block3', {
+                                pagination: '.swiper-pagination',
+                                nextButton: '#block3_arrow .swiper-button-next',
+                                prevButton: '#block3_arrow .swiper-button-prev',
+                                slidesPerView: 4,
+                                paginationClickable: true,
+                                spaceBetween: 20,
+                                freeMode: true,
+                                breakpoints: {
+                                    1500: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 20
+                                    },
+                                    1400: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 20
+                                    },
+                                    640: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 10
+                                    },
+                                    320: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 20
+                                    }
+                                }
+
+                            });
+                        }
+                        
+                    </script>
+				    <!-- Initialize Swiper -->
+				    <script>
+
+			</script>
+		    </section>
+			<!-- BLOCK3 -->
+
+			<!-- BLOCK4 -->
+  			<section id="m-newswrp" class="m-newswrp">
+ 				<h3 class="title">NEWS </h3>
+			    <div  class="m-news" id="news" >	
+                    <ul id="news_ul_set"></ul>
+ 				</div>
+			</section>
+            <!--news create-->
+            <script type= text/javascript>
+                var news_num = 0;   //新聞數量
+                var news_arr = "";    //news val
+                var news_url = "";
+                var news_target = "";  //by mandy
+                var request_news = new XMLHttpRequest();
+                request_news.open('post', 'readxml.aspx', true);
+                request_news.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request_news.addEventListener("load", newscomp);
+                request_news.onreadystatechange = function () {
+                    if (request_news.readyState == 4 && request_news.status == 200) {
+                        var objnews = jQuery.parseXML(request_news.responseText);
+                        var cont = "";
+                        for (var i = 0; i <= objnews.getElementsByTagName("News")["0"].childElementCount - 1; i++) {
+                            if (Number(Today.getFullYear()) < Number((objnews.getElementsByTagName("EDate")[i].firstChild.nodeValue).substr(0, 4))) {
+                                news_url += objnews.getElementsByTagName("Url")[i].firstChild.nodeValue + "|";
+                                news_arr += objnews.getElementsByTagName("Title")[i].firstChild.nodeValue + "|";
+                                news_target += objnews.getElementsByTagName("Target")[i].firstChild.nodeValue + "|";  //by mandy
+                                news_num++;
+                            }
+                            if (Number(Today.getFullYear()) == Number((objnews.getElementsByTagName("EDate")[i].firstChild.nodeValue).substr(0, 4))) {
+                                if (Number(Today.getMonth() + 1) <= Number(objnews.getElementsByTagName("EDate")[i].firstChild.nodeValue.substr(4, 2))) {
+                                    news_url += objnews.getElementsByTagName("Url")[i].firstChild.nodeValue + "|";
+                                    news_arr += objnews.getElementsByTagName("Title")[i].firstChild.nodeValue + "|";
+                                    news_target += objnews.getElementsByTagName("Target")[i].firstChild.nodeValue + "|"; //by mandy
+                                    news_num++;
+                                }
+                            }
+                        }                     
+                    }
+                };
+                request_news.send('num=2');
+
+
+                function newscomp() {
+                    var str = news_arr.split("|");
+                    var url = news_url.split("|");
+                    var target = news_target.split("|"); //by mandy
+          
+                    for (var aa = 0; aa <= news_num - 1; aa++) {
+                        //create2(str[aa], aa);
+                        var li = document.createElement("li");
+                        li.setAttribute("id", "aa" + str[aa]);
+                        var a = document.createElement("a");
+                        a.text = str[aa];
+                        var url2 = url[aa].split('?');
+                        //by mandy
+                        if (url[aa].indexOf("/newspage.asp?NID") == -1) {
+                            a.setAttribute("href", url[aa]);
+                            // a.setAttribute("target","_blank");
+                            a.setAttribute("target", target[aa]);
+                        } else {
+                            a.setAttribute("href", "/newspage.aspx?" + url2[1]);
+                        }
+                        var ai = document.createElement("i");
+                        ai.setAttribute("class", "fa fa-angle-right");
+                        ai.setAttribute("aria-hidden", "true");
+                        a.appendChild(ai);
+                        li.appendChild(a);
+                        document.getElementById("news_ul_set").appendChild(li);
+                    }
+                    if (url.length > 3) {
+                        $(function () {
+                            $('#news').vTicker('init', {
+                                speed: 400,
+                                pause: 1000,
+                                showItems: 3,
+                            });
+                        });
+                    }
+                }
+                function create2(i, index) {
+                    //var li = document.createElement("li");
+                    //li.setAttribute("id", "aa" + i);
+                    //var a = document.createElement("a");
+                    //a.text = i;
+                    //var url2 = url[index].split('?');
+                    ////by mandy
+                    //if (url[index].indexOf("/newspage.asp?NID") == -1) {
+                    //    a.setAttribute("href", url[index]);
+                    //    // a.setAttribute("target","_blank");
+                    //    a.setAttribute("target", target[index]);
+                    //} else {
+                    //    a.setAttribute("href", "/newspage.aspx?" + url2[1]);
+                    //}
+
+
+                    //var ai = document.createElement("i");
+                    //ai.setAttribute("class", "fa fa-angle-right");
+                    //ai.setAttribute("aria-hidden", "true");
+                    //a.appendChild(ai);
+                    //li.appendChild(a);
+                    //document.getElementById("news_ul_set").appendChild(li);
+                }
+            </script>
+			<!-- BLOCK4 -->	
+		</section>
+	    <!-- BLOCK5 -->
+		<section class="m-societyswrp"> 
+		    <!-- 手機板按鈕  -->
+            <div class="mobilebtn-wrp">
+            	 <a href="javascript:gaLogOpenWin('手機_FB','B01_PCSC CITY','https://www.facebook.com/711open','_blank');" target="blank" class="u-mfb"></a>
+            	 <a href="javascript:gaLogOpenWin('手機_IG','B01_PCSC CITY','https://www.instagram.com/7eleventw/','_blank');" target="blank" class="u-mig"></a>
+                 <a href="javascript:gaLogOpenWin('手機_Ichannel','C76_openichannel','https://www.7-11.com.tw/openichannel/index.aspx','_blank');" target="blank" class="u-michannel"></a>
+                                
+            </div>
+			<!-- 手機板按鈕 end  -->
+                            <div class="pc-society-wrp">
+				<div class="m-fb">	
+						<h3 class="society-t1"></h3>
+						<!--fb  -->					
+						<div id="fb-include" >
+							<div id="fb-root"></div>
+							<script>
+							    (function (d, s, id) {
+							    var js, fjs = d.getElementsByTagName(s)[0];
+							    if (d.getElementById(id)) return;
+							    js = d.createElement(s); js.id = id;
+							    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5";
+							    fjs.parentNode.insertBefore(js, fjs);
+							    }(document, 'script', 'facebook-jssdk'));
+							</script>
+                            <iframe id="fb_iframe" src="" width="100%" height="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" data-width="369"></iframe>
+						    <script type="text/javascript">
+
+						        $(document).ready(function () {
+						            if ($("#fb_iframe")["0"].offsetheight > 170) {
+						                $("#fb_iframe").attr("height", "100%");
+						            }
+						            else {
+						                $("#fb_iframe").attr("height", $("div.pc-society-wrp").height() + 170 + "px");
+						            }
+						        });
+                            </script>
+                        </div>
+						<!-- fb end -->
+				</div>
+				<div class="m-ig">	
+				    <h3 class="society-t2"></h3>
+				    <div id="ig">
+					<!-- ig create with script-->
+					</div>
+				</div>
+				<div class="m-entertainment">
+                  <h3 class="society-t4">
+                          <img src="images/society_t4.gif" alt="app">
+                          <ul class="en-list">
+                            <li><a href="javascript:gaLogOpenWin('Entertainment','C71_7-ELEVEN APP','http://www.7-11.com.tw/app/index.html','_blank');"><img src='images/e_btn4.gif'></a> <div class="e_tt">7-ELEVEN </div></li>
+                            <li><a href="javascript:gaLogOpenWin('Entertainment','OPENPOINTAPP','http://www.7-11.com.tw/openpoint_event1/appintro/index.html','_blank');"><img src='images/e_btn5.gif'></a> <div class="e_tt">OPENPOINT</div></li>                   
+                            <li><a href="javascript:gaLogOpenWin('Entertainment','C74_ibon APP','http://www.ibon.com.tw/appinfo.aspx#gsc.tab=0','_blank');"><img src='images/e_btn8.gif'></a> <div class="e_tt">IBON</div></li> 
+                          </ul>
+                      </h3>
+					  <h3 class="society-t3">
+						  <img src="images/society_t3.gif" alt="Entertainment">
+						  <ul class="en-list">
+						  	 <li><a href="javascript:gaLogOpenWin('Entertainment','E31_LINE','http://www.7-11.com.tw/line/index.asp','_blank');"><img src='images/e_btn1.gif'></a> <div class="e_tt">LINE</div></li>
+						  	 <li><a href="javascript:gaLogOpenWin('Entertainment','E32_YouTube','https://www.youtube.com/Channel7eleven','_blank');" ><img src='images/e_btn2.gif'></a> <div class="e_tt">YouTube</div></li>
+						  	 <li><a href="javascript:gaLogOpenWin('Entertainment','E13_OPEN小將FB','https://www.facebook.com/OPENOPENCHAN','_blank');"><img src='images/e_btn3.gif'></a> <div class="e_tt">OPEN小將<br>facebook</div></li>
+						  	 <li><a href="javascript:gaLogOpenWin('Entertainment','C72_OPEN小將','http://www.openopen.com.tw/index.aspx','_blank');" target="blank"><img src='images/e_btn3.gif'></a> <div class="e_tt">OPEN小將<br>官方網站</div></li>
+						  </ul>
+					  </h3>
+                      
+                        				
+					  <h3 class="media-t1">
+						  <img src="images/media_t1.gif" alt="media">
+						  <ul class="en-list list3">
+					  	     <li><a href="javascript:gaLogOpenWin('Entertainment','C76_openichannel','/openichannel/index.aspx','_blank');"><img src='images/media_t2.gif'></a> <div class="e_tt">OPEN！CHANNEL</div></li>
+					  	     			  	
+					      </ul>
+					  </h3>	
+				</div>
+			</div>
+		</section>
+		<!-- BLOCK5 -->
+
+      <!-- 右側內容 -->
+	
+			<!-- BLOCK6 -->  											
+ 			<section class="m-blogarea">
+ 				   <!-- 左 -->
+ 				 				<div class="m-blog">
+	 				    <h3 class="title">部落格 </h3>
+	 				    <!--  -->
+	 				    <a href="javascript:gaLogOpenWin('手機_blog','blog','/blog/blog_page.aspx?id=306','_self');" class="m-blogbtn" id="blog_btn">
+                 
+		 					   <div class="picture"> 
+		 					  	 <img src='/upload3/711_blog/20180312/SAKURA_1.jpg'> 
+		 					   </div>		 					 
+		 					  <p class="headline">不如趁著午休去賞櫻吧！7-ELEVEN打造世界級的城市櫻花季，1小時內輕鬆遊遍全球五大城市的櫻花美景！</p>
+		                      <p><p></p>
+
+<p>世界各地的櫻花漸漸開始盛開，粉嫩又浪漫的櫻花總是讓人醉心，但每次拍照都是人比花多，還要到處喬角度才能拍出櫻花的美貌，想要拍出令人稱羨的櫻花網美照不用舟車勞頓或是熬夜搶機票，只花1個小時就能到世界各地去賞櫻囉！7-ELEVEN將韓國首爾、美國西雅圖、法國巴黎、美國華盛頓以及日本東京，就地還原打造出五大城市的櫻花主題特色門市，還精心於台北街頭規劃了1個小時路程的賞櫻路線！免出國也能蒐集櫻花網美照！就連CITY CAFE也換上五款城市櫻花杯，讓賞櫻的氛圍更加可愛浪漫！現在就由Dr.7帶領大家一同前往這五大城市一起賞櫻吧！</p>
+</p>
+				         </a>
+				         <!--  -->
+				         <!-- mobile morebtn -->
+						<a href="javascript:gaLogOpenWin('手機_blog','blog','/blog/blog_page.aspx?id=306','_self');" class="u-morebtn"> 看更多 ></a>
+						<!-- mobile morebtn -->
+						
+	 				</div>
+	 				<!-- 左 -->
+	 				<!-- 右 -->
+	 				<div class="m-blogright ">
+	 				    <div class="m-ibonmart">
+	 				        <h3 class="title">ibon mart 線上購物</h3>
+                            <iframe src="//mart.ibon.com.tw/711-ad/ibonmart.html" style="max-width:295px;" width="100%" height="324" scrolling="no"  allowtransparency="true" frameborder="0"></iframe>
+	
+	 				    </div>
+
+                         <!--xml產生-->
+	 				     <div class="m-op">
+	 				          <h3 class="title">OPENPOINT</h3> 	
+	 				          <a href="#" target="blank" id="op_img" class="op"><img src="images/op.jpg"></a> 
+	 				    </div>
+                         <script>
+
+                             var request_news_op = new XMLHttpRequest();
+                             request_news_op.open('post', 'readxml.aspx', true);
+                             request_news_op.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                             request_news_op.onreadystatechange = function () {
+                                 if (request_news_op.readyState == 4 && request_news_op.status == 200) {
+                                     var objnews = jQuery.parseXML(request_news_op.responseText);
+                                     $("#op_img").attr("src", objnews.getElementsByTagName("image")[0].firstChild.nodeValue);
+                                     $("#op_img").attr("href", "javascript:gaLogOpenWin('下方看板','OPENPOINT看板','" + objnews.getElementsByTagName("url")[0].firstChild.nodeValue + "','_blank')");
+                                 }
+                             };
+                             request_news_op.send("num=5");
+                         </script>
+	 				    <div class="m-pcsc">
+	 				          <h3 class="title">PCSC</h3> 
+	 				          <a href="javascript:gaLogOpenWin('下方看板','B01_PCSC CITY','/pcsc/Index.html','_blank');" class="pcsc"><img src="images/pcsc.gif"></a> 	
+	 				    </div>						
+	 				</div>
+	 				<!-- 右 -->
+			<!-- BLOCK6 -->	
+	  </section>
+      <!-- footer -->
+          
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+<footer>
+    <div class="m-ftl">
+        <img src="/images/web.gif">
+        <span class="dpmark">B 0 0 0 0 0 1 ( 0 1 )</span>
+        <span>食品業登錄字號(A-122555003-00000-0)</span>
+    </div>
+    <div class="m-ftr">
+        <div class="ft-btn">
+            <a href="javascript:gaLogOpenWin('footer','A01_常見問題','/faq.aspx','_slef');">常見問題</a> │ <a href="javascript:gaLogOpenWin('footer','A02_聯絡我們','/contactus.aspx','_slef');">聯絡我們</a> │ <a href="javascript:gaLogOpenWin('footer','02_關於我們','http://www.7-11.com.tw/company/History.asp','_blank');">關於我們</a> │ <a href="javascript:gaLogOpenWin('footer','D09_利害關係人','/communication.aspx','_slef');">利害關係人</a> │ <a href="javascript:gaLogOpenWin('footer','01_個資告知條款','/privacy.aspx','_slef');">個資告知條款</a>
+        </div>
+        <span id="pyear"></span> President Chain Store Corporation.All rights reserved.
+    </div>
+    
+   <div class="gotop">              
+       <a href="javascript: void(0)" class="gotop_btn"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
+   </div>
+    <script>
+	     var Today = new Date();
+	     document.getElementById("pyear").innerHTML="©"+Today.getFullYear();
+	</script>
+</footer>
+</body>
+</html>
+
+       
+	  </section>     
+   </div>
+</form>
+
+<!-- Advenue DMP Container - 7-11 Taiwan -->
+<script type="text/javascript" charset="UTF-8">(function(w,d,s,i,c){var f=d.createElement(s);f.type="text/javascript";f.async=true;f.src=("https:"==d.location.protocol? "https://ssl-avd.innity.net":"http://avd.innity.net")+"/"+i+"/container_"+c+".js";var g=d.getElementsByTagName(s)[0];g.parentNode.insertBefore(f, g);})(window, document, "script", "280", "58354dc21c51b1c263f448d2");</script>
+<!-- End Advenue DMP Container -->
+
+<!--Yahoo-->
+<script type="application/javascript">(function (w, d, t, r, u) {
+w[u] = w[u] || []; w[u].push({ 'projectId': '10000', 'properties': { 'pixelId': '406490' } });
+var s = d.createElement(t); s.src = r; s.async = true;
+s.onload = s.onreadystatechange = function () {
+var y, rs = this.readyState, c = w[u];
+if (rs && rs != "complete" && rs != "loaded") { return } try { y = YAHOO.ywa.I13N.fireBeacon; w[u] = []; w[u].push = function (p) { y([p]) }; y(c) } catch (e) { }
+};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr)
+})(window, document, "script", "https://s.yimg.com/wi/ytc.js", "dotq");
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+//fbq('init', '560672824079807');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=560672824079807&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+<!--Google-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 952181666;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/952181666/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+</body>
+</html>

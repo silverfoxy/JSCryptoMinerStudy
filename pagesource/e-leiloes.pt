@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>e-leiloes.pt</title>
+    <meta name="viewport" content="width=1024, initial-scale=0.5, maximum-scale=1, user-scalable=yes">
+    <meta name="description" content="e-leiloes.pt - Leilões Online de Imóveis (Apartamentos, Moradias, Terrenos, Armazéns, etc), Veículos (Automóveis, Ligeiros, Pesados, Agriculas, Motos, etc), Equipamentos, Mobiliário e Máquinas" />
+	<meta name="keywords" content="e-leiloes.pt" />
+	<meta name="robots" content="index, follow" />
+	<meta name="copyright" content="e-leiloes.pt" />
+    <link href="css/img/favicon.ico" rel="shortcut icon" type="image/ico"/>
+    <link href="css/Fonts.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="css/Styles.css?v=1" rel="stylesheet" type="text/css"/>
+    <link href="css/Elements.css?v=1" rel="stylesheet" type="text/css"/>
+    <link href="css/Tabels.css?v=1" rel="stylesheet" type="text/css"/>
+    <link href="css/MasterWeb.css?v=2" rel="stylesheet" type="text/css"/>
+    <link href="css/Accordion.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="js/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+    <link href="js/bxslider/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet" media="screen"/>
+    <link href="js/sweetalert/sweet-alert.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/sweetalert/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.4.min.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/qtip/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.collapsible.js"></script>
+    <script type="text/javascript" src="js/jquery.accordion.js"></script>
+    <script type="text/javascript" src="js/bxslider/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maskMoney.js"></script>
+    <script type="text/javascript" src="js/jquery.appear.js"></script>
+    
+    <link href="js/multiselect/bootstrap-3.0.3.css" rel="stylesheet" type="text/css" />
+    <link href="js/multiselect/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/multiselect/bootstrap-3.0.3.min.js"></script>
+    <script type="text/javascript" src="js/multiselect/bootstrap-multiselect.js"></script>
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79664453-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    
+    <meta property="fb:app_id" content="1422046321155710" />
+    <meta property="og:url" content="https://www.e-leiloes.pt/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="e-leiloes.pt" />
+    <meta property="og:description" content="Leilões Online de Imóveis (Apartamentos, Moradias, Terrenos, Armazéns, etc), Veículos (Automóveis, Ligeiros, Pesados, Agriculas, Motos, etc), Equipamentos, Mobiliário e Máquinas" />
+    <meta property="og:image" content="https://www.e-leiloes.pt/img/facebook/fb_index.jpg" />
+    <script type="text/javascript">
+        jQuery(function ($) {
+            Ler_Licitacoes();
+        });
+        function Ler_Licitacoes() {
+            $.ajax({
+                type: "POST",
+                url: "index.aspx/GetUltimasLicitacoes",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.d != "") {
+                        $("#UltimasLicitacoes").empty();
+                        $("#UltimasLicitacoes").append(data.d);
+                    }
+                }
+            });
+            setTimeout(function () { Ler_Licitacoes(); }, 30000);
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var e = document.getElementById("backbutton");
+            if (e.value == "no") { e.value = "yes"; }
+            else if (location.href.indexOf("/listagem1.aspx") == -1) { window.location.href = window.location.href; }
+        });
+        function FC_Previne2Click(bt_id, val_group) {
+            if (typeof (Page_ClientValidate) == 'function' && Page_ClientValidate(val_group) == false) {
+                return false;
+            }
+            var bt_alterar = document.getElementById(bt_id);
+            bt_alterar.disabled = true;
+        }
+        function FC_Refresh() {
+            document.getElementById('CPH_Body_BT_Refresh').click();
+        }
+        function FC_LerParametro(parametro) {
+            var url = window.location.href;
+            var regex = new RegExp("[?&]" + parametro + "(=([^&#]*)|&|#|$)");
+            var resultado = regex.exec(url);
+            if (!resultado) return '';
+            else if (!resultado[2]) return '';
+            else return decodeURIComponent(resultado[2].replace(/\+/g, " "));
+        }
+        function FC_SoInteiros(campoTexto) {
+            var e = event || campoTexto;
+            var charCode = e.which || e.keyCode;
+
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function FC_OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+        function FC_SweetAlert(var_title, var_text, var_type) {
+            swal({ title: var_title, text: var_text, type: var_type, timer: 6000 });
+        }
+        function FC_FancyBox_400(var_title, var_link) {
+            $.fancybox.open([{ title: var_title, type: 'iframe', autoSize: false, width: 440, height: 340, href: var_link, helpers: { overlay: { locked: false } } }]);
+        }
+        function FC_FancyBox_900(var_title, var_link) {
+            $.fancybox.open([{ title: var_title, type: 'iframe', autoSize: false, width: 940, height: 540, href: var_link, helpers: { overlay: { locked: false } } }]);
+        }
+        function FC_AbrirPDF(pdf) {
+            $.ajax({
+                url: "ajax-anexo.aspx"
+                , type: "POST"
+                , data: { pdf: pdf }
+                , success: function (data, textStatus) {
+                    if (data.sucesso == "false") {
+                        window.location = "erro-acesso-negado.aspx";
+                    } else {
+                        if (data.download == "false") {
+                            FC_FancyBox_900(data.nome, data.link);
+                        } else {
+                            window.location = data.link;
+                        }
+                    }
+                }
+            });
+        }
+        function SlideUltimosAdicionados() {
+            $("#UltimosAdicionados div:first").delay(4000).slideUp(800, function () {
+                var $this = $(this);
+                $this.parent().append(this);
+                $this.show();
+                SlideUltimosAdicionados();
+            });
+        }
+        function SlideMaisLicitados() {
+            $("#MaisLicitados div:first").delay(4000).slideUp(800, function () {
+                var $this = $(this);
+                $this.parent().append(this);
+                $this.show();
+                SlideMaisLicitados();
+            });
+        }
+        jQuery(function ($) {
+            $.ajax({
+                type: "POST",
+                url: "index.aspx/GetUltimosAdicionados",
+                data: "{ P_Tipo: '1' }",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.d != "") {
+                        $("#UltimosAdicionadosArea").append(data.d);
+                    }
+                    $("#UltimosAdicionados").css({
+                        "height": $("#UltimosAdicionados div:first").css("height"),
+                        "overflow": "hidden"
+                    });
+                    SlideUltimosAdicionados();
+                    $("#UltimosAdicionadosArea").show();
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "index.aspx/GetMaisLicitados",
+                data: "{ P_Tipo: '1' }",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.d != "") {
+                        $("#MaisLicitadosArea").append(data.d);
+                    }
+                    $("#MaisLicitados").css({
+                        "height": $("#MaisLicitados div:first").css("height"),
+                        "overflow": "hidden"
+                    });
+                    SlideMaisLicitados();
+                    $("#MaisLicitadosArea").show();
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "index.aspx/GetRodapeBens",
+                data: "{ P_Tipo: '1', Usr: '15E0720B54F543842B28BBA562215D25E08630AEE92145FF02ADC5FA2D04F19BCF10A333534A771DCEF4E6FEE7C27CBB67821FD80192069D162BEF59DB5F60081B8C9A58965764726381C51D49DEE71C81140C629216EE7644C2009CC1A8ABE4' }",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.d != "") {
+                        $("#RodapeBensArea").append(data.d);
+                    }
+                    $('.CategoriaIMG_bt').hover(function (event) {
+                        $('.CategoriaIMG_02', this).toggle('slide');
+                    });
+                    $('.DestaqueIMG').hover(function (event) {
+                        $('.DestaqueIMG_02', this).toggle('slide');
+                    });
+                    $('.CategoriaIMG_bt').qtip({
+                        content: {
+                            text: function (event, api) {
+                                return $(this).attr('title');
+                            },
+                            title: function (event, api) {
+                                return $(this).attr('alt');
+                            }
+                        },
+                        style: {
+                            classes: 'qtip-dark qtip-shadow qtip-rounded'
+                        },
+                        position: {
+                            my: 'bottom center',
+                            at: 'top center'
+                        },
+                        show: {
+                            effect: function (offset) {
+                                $(this).slideDown(100);
+                            }
+                        },
+                        hide: {
+                            effect: function (offset) {
+                                $(this).slideDown(100);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        jQuery(function ($) {
+            $('#Pagina').css("background", "url(img/banner/banner_1_01.jpg) no-repeat center center fixed");
+            $('#Pagina').css("background-size", "cover");
+        });
+    </script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script type="text/javascript" src="https://connect.facebook.net/pt_PT/all.js"></script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1422046321155710',
+            xfbml: true,
+            version: 'v2.6'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
+</script>
+<form method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="hDUlqBTg3nB18FjjHnrsizb+CbIE0T+P16TiQrmcY52qp7vnzZtuWOby0ezQqbdxfaf9r1eLM/bt4wiT9J8/pjDdZH0LyjnU1YBY64T9QvWEFdVvuCFXHLz0C2htot/bS365otYsj6kNSwv4sMHmXW6XZKFc/qr6T0TUUTT5QvYFEcLHSGIJ08cTzMdEMn3sqzB1ijxCHKpJDZYFD0X7W9XJB7gHY4/u4+HIpn0JkWuXyh+ruDUi3KmDCX+A1EoYbmrAtdwoYacC7vvZijD68Sbv3QW8SbrE+0DHlXxfYU+0Cld4K0GkejJ0YLWNENX5jhoxvexbRMZ74xQ2v9WV4wGYxs/KBxKnuWb0uRV4qwv1L78aACR9eXNVQlvmysTztNV9f5qck6yz49M2LX0glY1vZrsw1H4PjM1XICT7kigM1KKWmhJkm+o/cnJZD+RbVhCLEUzz2RmvDX6nxYgSQbw8dU53i/Bp+IXOEAint+YquTWM8pDWsGE1N1SDWAlavHjpxTqR6FJ+tzBOLudyLSpvjd8xhKiiEoGvGw0beCgr+OUtZ1fQAcP955UfydSEOG1I2jAAj1Zoz9pqDKJXp1UnE/HkpNk6GOrxqD31gfCOtGkFxrVBsDamQhjduXxWhwn8vZ0kPUNSrsqp4zXkIPJcFMRMw/KjX54BbyIWg6HR/4Y1q04BxEzCQH3j0DhB3n1FMCbPSmiF3q6h+FdqFwb2wFgzn26bmozOeQfqmtjWtvpk/6eeLWcxKKO7V2D8vbm+Y8cCreI/a7ekA37I0Z1Gr3EZObOutt7KU98/R+YtIJHuZ6gDdKTwL6v9wPahgpPET7ZCKg9uLUBjbFZgWmluGINSnQBxo9Y+tZObAUI=" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"pt-PT","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":".","CurrencySymbol":"€","NaNSymbol":"NaN (Não é um número)","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-Infinito","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":".","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"+Infinito","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":".","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"-","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"dddd, d\u0027 de \u0027MMMM\u0027 de \u0027yyyy HH:mm:ss","LongDatePattern":"dddd, d\u0027 de \u0027MMMM\u0027 de \u0027yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d/M","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd-MM-yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM\u0027 de \u0027yyyy","AbbreviatedDayNames":["dom","seg","ter","qua","qui","sex","sáb"],"ShortestDayNames":["D","S","T","Q","Q","S","S"],"DayNames":["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"],"AbbreviatedMonthNames":["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez",""],"MonthNames":["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",""],"IsReadOnly":true,"NativeCalendarName":"Calendário gregoriano","AbbreviatedMonthGenitiveNames":["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez",""],"MonthGenitiveNames":["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",""]},"eras":[1,"d.C.",null,0]};//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=r-sSM4pBhtXGtDxAxMba6pvNbzOzg-vdspe1hnzh1LWm8EPHeAuz7AIy0yiGuaZf4AL86eWvDKnifVHGgIUaaRrZHfAnyxc5beba7hPU9BF_I16JLE1yHgd_xw67M4tYVW57lo6MQG0Kng4-T9TPI77ZN1Fr-ed-MbZGhFwnzR0-aiQyBAe4qUK-yTDRz-Yq0&amp;t=620ef15f" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="mVqcP2kbGzvNvws2MAwXZ2fIVwJOmQDWlgv6OO369ZQJyPNkIthoM1J5mFlPOnpuxIZzoegDtf1X7f4Oy0LSsZsKj/0Xbkw3yEzvBdzvq5Wh4c9S79ml4lp+yizrmE1lvpVEiwHrMoP5OeaW/zmZS0p+uCIjAqXOjJNXzlSIP5S6zfDq42ucYQDDoHC9VaeME/ar4lmeNiY1rDjZlhVnt7YOR9PbgaH/ZpgZcxKBBPjPRBGsUaiwO1Bo//S7MJ1RI3YW3mK+zKO0fRmykG3K8k3iuTvXmwGai9zjD4Ny6jcHFECgs7YRmHkmJt3GloCx" />
+
+    <div id="Pagina">
+        <div id="PaginaArea">
+            <div id="Cabecalho">
+                <div id="CabecalhoArea">
+                    <div id="CabecalhoLogo" onclick="window.location='index.aspx';"></div>
+                    <div id="CabecalhoMenu">
+                        <div id="CabecalhoMenuLinks" class="LinkCabecalhoMenu">
+                            <a onclick="window.location='index.aspx';">Início</a>
+                            &nbsp;&nbsp;<span style="color:#2a4982;">|</span>&nbsp;&nbsp;
+                            <a onclick="window.location='faqs.aspx'">FAQ</a>
+                            &nbsp;&nbsp;<span style="color:#2a4982;">|</span>&nbsp;&nbsp;
+                            <a onclick="window.location='regras.aspx'">Regras</a>
+                            &nbsp;&nbsp;<span style="color:#2a4982;">|</span>&nbsp;&nbsp;
+                            <a onclick="window.location='contactos.aspx'">Contactos</a>
+                            
+                        </div>
+                    </div>
+                    <div id="CabecalhoLogin">
+                        <div id="CabecalhoLoginAcesso" class="LinkCabecalhoLogin"><a id="BT_Autenticacao" href="javascript:__doPostBack(&#39;ctl00$BT_Autenticacao&#39;,&#39;&#39;)">AUTENTICAÇÃO</a></div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div id="Corpo">
+                <div id="CorpoArea">
+                    <div id="CorpoPesquisa">
+                        <div id="Panel_Pesquisa">
+	
+                            <div id="PesquisaArea" style="float:left;width:980px;height:31px;">
+                                <div style="float:left;width:10px;height:31px;"></div>
+                                <a id="BT_Imoveis" href="javascript:__doPostBack(&#39;ctl00$BT_Imoveis&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadoresS" style="float:left;width:111px;height:31px;background-color:rgba(0,0,0,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Imóveis</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                                <a id="BT_Veiculos" href="javascript:__doPostBack(&#39;ctl00$BT_Veiculos&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadores" style="float:left;width:111px;height:31px;background-color:rgba(255,255,255,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Veículos</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                                <a id="BT_Equipamentos" href="javascript:__doPostBack(&#39;ctl00$BT_Equipamentos&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadores" style="float:left;width:119px;height:31px;background-color:rgba(255,255,255,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Equipamentos</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                                <a id="BT_Mobiliario" href="javascript:__doPostBack(&#39;ctl00$BT_Mobiliario&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadores" style="float:left;width:111px;height:31px;background-color:rgba(255,255,255,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Mobiliário</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                                <a id="BT_Maquinas" href="javascript:__doPostBack(&#39;ctl00$BT_Maquinas&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadores" style="float:left;width:111px;height:31px;background-color:rgba(255,255,255,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Máquinas</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                                <a id="BT_Direitos" href="javascript:__doPostBack(&#39;ctl00$BT_Direitos&#39;,&#39;&#39;)">
+                                    <div class="LinkCorpoPesquisaSeparadores" style="float:left;width:111px;height:31px;background-color:rgba(255,255,255,0.6);border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;">Direitos</div>
+                                </a>
+                                <div style="float:left;width:6px;height:31px;"></div>
+                            </div>
+                            <div style="float:left;width:980px;height:44px;">
+                                <div style="float:left;width:850px;height:44px;background-color:rgba(0,0,0,0.6);border-radius:10px;">
+                                    <div style="float:left;width:726px;height:44px;">
+                                        <div style="float:left;width:714px;height:32px;background-color:#FFFFFF;border-radius:10px;margin:6px;"><input name="ctl00$Pesquisa" type="text" id="Pesquisa" class="TB_Pesquisa" placeholder="pesquise por imóveis" /></div>
+                                    </div>
+                                    <div style="float:left;width:124px;height:44px;"><input type="submit" name="ctl00$BT_Pesquisa" value="PESQUISAR" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$BT_Pesquisa&quot;, &quot;&quot;, true, &quot;VG_Pesquisa&quot;, &quot;&quot;, false, false))" id="BT_Pesquisa" class="BT_Pesquisa" border="1" /></div>
+                                </div>
+                                <div style="float:left;width:6px;height:44px;"></div>
+                                <div class="LinkCorpoPesquisaBotoes" style="float:left;width:124px;height:44px;background-color:rgba(0,0,0,0.6);border-radius:10px;cursor:pointer;" onclick="window.location='pesquisaavancada.aspx';">AVANÇADA&nbsp;&nbsp;<img alt="" src="img/icons/icon_pesquisa_lupa.png" style="vertical-align:middle"/></div>
+                            </div>
+                            <div style="float:left;width:980px;height:6px;"></div>
+                            <div style="float:left;width:980px;height:44px;">
+                                <div id="UltimosAdicionadosArea" style="display:none;float:left;width:422px;height:44px;background-color:rgba(0,0,0,0.6);border-radius:10px;"></div>
+                                <div style="float:left;width:6px;height:44px;"></div>
+                                <div id="MaisLicitadosArea" style="display:none;float:left;width:422px;height:44px;background-color:rgba(0,0,0,0.6);border-radius:10px;"></div>
+                                <div style="float:left;width:6px;height:44px;"></div>
+                                <div class="LinkCorpoPesquisaBotoes" style="float:left;width:124px;height:44px;background-color:rgba(0,0,0,0.6);border-radius:10px;cursor:pointer;" onclick="window.location='vernomapa1.aspx';">VER NO <b>MAPA</b></div>
+                            </div>
+                        
+</div>
+                    </div>
+                    <div id="CorpoConteudo">
+                        <div id="CorpoConteudoPagina">
+    <div id="CPH_Body_Panel_Dashboard_01" class="Panel_100">
+	
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">1632</span>
+            <span class="Dashboard_01_span02">LEILÕES ATIVOS</span>
+        </div>
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">10834</span>
+            <span class="Dashboard_01_span02">LEILÕES TERMINADOS</span>
+        </div>
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">3569</span>
+            <span class="Dashboard_01_span02">NEG. PARTICULARES</span>
+        </div>
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">19953</span>
+            <span class="Dashboard_01_span02">UTILIZADORES</span>
+        </div>
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">79469</span>
+            <span class="Dashboard_01_span02">LICITAÇÕES</span>
+        </div>
+        <div class="Dashboard_01">
+            <span class="Dashboard_01_span01">5572</span>
+            <span class="Dashboard_01_span02">BENS VENDIDOS</span>
+        </div>
+    
+</div>
+    <div id="CPH_Body_Panel_Dashboard_02" class="Panel_100">
+	
+        <div class="Dashboard_02">
+            <div class="Dashboard_02_div01">ÚLTIMAS LICITAÇÕES</div>
+            <div id="UltimasLicitacoes" style="margin-top:20px;"></div>
+        </div>
+        <div class="Dashboard_02">
+            <div class="Dashboard_02_div01">CERIMÓNIAS DE ENCERRAMENTO</div>
+            <div style="float:left;padding:0px 45px;"><div style="float:left;width:100%;min-height:0px;margin-top:10px;"><iframe id="lsembed_1466111563" src="//livestream.com/accounts/1571569/events/5614627/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"></iframe></div></div>
+            
+        </div>
+    
+</div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Rodape">
+        <div id="RodapeBens">
+            <div id="RodapeBensArea"></div>
+        </div>
+        <div id="RodapeLinks">
+            <div id="RodapeLinksArea">
+                <div style="float:left;width:680px;height:20px;line-height:20px;padding:5px;">
+                    <span style="display:inline-block;height:20px;">Ordem dos Solicitadores e dos Agentes de Execução © 2016 - Todos os Direitos Reservados</span>
+                    
+                    
+                    <input type="hidden" id="backbutton" value="no">
+                </div>
+                <div style="float:left;width:280px;height:20px;line-height:20px;padding:5px;text-align:right;">
+                    
+                    <div style="display:inline-block;vertical-align:top;width:220px;height:20px;"><div class="fb-like" data-href="https://www.facebook.com/eleiloes.pt/" data-width="220" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>
+                    <div style="display:inline-block;vertical-align:top;width:20px;height:20px;margin-left:5px;"><a href="https://www.facebook.com/eleiloes.pt/" target="_blank"><img alt="" src="img/icons/icon_rodape_facebook.png" style="width:20px;height:20px;"/></a></div>
+                </div>
+            </div>
+        </div>
+        <div id="RodapeSeparador"></div>
+    </div>
+</form>
+</body>
+</html>

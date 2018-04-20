@@ -1,0 +1,1725 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title>
+    <script src="js/jquery-latest.min.cache" type="text/javascript"></script>
+    <script src="js/calender.js" type="text/javascript"></script>
+    <link href="css/front_page.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/JScript.js"></script>
+    <script type="text/javascript" src="js/j3.js"></script>
+    <link href="css/nivo-slider.css" rel="stylesheet" type="text/css" /><link href="css/slide.css" rel="stylesheet" type="text/css" />
+    <script src="js/slide.js" type="text/javascript"></script>
+    <link href="css/bgslide.css" rel="stylesheet" type="text/css" />
+    <script src="js/login.js" type="text/javascript"></script>
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        function hashing() {
+            if ($("#txtUser_Id")[0].value == "") {
+                alert("Enter UserName");
+                return false;
+            }
+            var id = $("#txtPassword")[0].value;
+            if (id != "") {
+                var salt = 'MNWUXFZ';
+                var pass_h = b64_md5(id);
+                var id2 = b64_md5(String(pass_h + salt));
+                $("#txtPassword")[0].value = id2;
+            }
+            else {
+                alert("Enter Password");
+                return false;
+            }
+            return true;
+        }
+        function hashing1() {
+            if ($("#TextBox1")[0].value == "") {
+                alert("Enter UserName");
+                return false;
+            }
+            var id = $("#TextBox2")[0].value;
+            if (id != "") {
+                var salt = 'MNWUXFZ';
+                var pass_h = b64_md5(id);
+                var id2 = b64_md5(String(pass_h + salt));
+                $("#TextBox2")[0].value = id2;
+            }
+            else {
+                alert("Enter Password");
+                return false;
+            }
+            return true;
+        }
+        function hashing2() {
+            if ($("#TextBox3")[0].value == "") {
+                alert("Enter UserName");
+                return false;
+            }
+            var id = $("#TextBox4")[0].value;
+            if (id != "") {
+                var salt = 'MNWUXFZ';
+                var pass_h = b64_md5(id);
+                var id2 = b64_md5(String(pass_h + salt));
+                $("#TextBox4")[0].value = id2;
+            }
+            else {
+                alert("Enter Password");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        var hexvalues = Array("A", "B", "C", "D", "E", "F", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+        function flashtext() {
+            var colour = '#';
+            for (var counter = 1; counter <= 6; counter++) {
+                var hexvalue = hexvalues[Math.floor(hexvalues.length * Math.random())];
+                colour = colour + hexvalue;
+            }
+            document.getElementById("lbl_tot_pen").style.color = colour;
+            document.getElementById("lbl_tot_emp").style.color = colour;
+        }
+        setInterval("flashtext()", 500);
+    </script>
+    <style type="text/css">
+        .style1
+        {
+            width: 1000px;
+            height: 150px;
+        }
+        .style12
+        {
+            height: 27px;
+        }
+        .style13
+        {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        $(function () {
+
+            $("#datepicker").datepicker({
+                inline: true
+            });
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#nivo-slider').nivoSlider();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var obj;
+            var objIndex = $('#navigation li').index($('.active_menu'));
+            var positionLeft = ["20px", "82px", "435px", "357px", "464px"];
+            var positionWidth = [$('.active_menu a').css('width'), "168px", "57px", "82px", "53px"];
+            $('#navigation li.menu_hoverbtm').css({ left: positionLeft[objIndex], width: positionWidth[objIndex] });
+            if (objIndex < 0) {
+                $('.menu_hoverbtm').hide();
+            }
+
+            $('#navigation li a').mouseover(function () {
+                obj = $(this);
+                animateMenu(obj);
+            });
+
+            $('#navigation').mouseleave(function () {
+                setMenuDefault();
+            });
+
+            $('#navigation li a').focus(function () {
+                obj = $(this);
+                animateMenu(obj);
+            });
+
+            $('#navigation li a').blur(function () {
+                setMenuDefault();
+            });
+
+            function animateMenu(obj) {
+                var position = obj.position();
+                var thiswidth = obj.width();
+                $('#navigation li.menu_hoverbtm').stop().show().animate({ left: (position.left - 5), width: (thiswidth) }, 600);
+            }
+
+
+            function setMenuDefault() {
+                $('#navigation li.menu_hoverbtm').stop().animate({ left: positionLeft[objIndex], width: positionWidth[objIndex] }, 600);
+                if (objIndex < 0) {
+                    $('.menu_hoverbtm').hide();
+                }
+            }
+
+
+        }); 
+    </script>
+    <script type="text/javascript">
+
+        function slideSwitch() {
+            var $active = $('#slideshow IMG.active');
+
+            if ($active.length == 0) $active = $('#slideshow IMG:last');
+
+            // use this to pull the images in the order they appear in the markup
+            var $next = $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+            // uncomment the 3 lines below to pull the images in random order
+
+            // var $sibs  = $active.siblings();
+            // var rndNum = Math.floor(Math.random() * $sibs.length );
+            // var $next  = $( $sibs[ rndNum ] );
+
+
+            $active.addClass('last-active');
+
+            $next.css({ opacity: 0.0 })
+        .addClass('active')
+        .animate({ opacity: 1.0 }, 1000, function () {
+            $active.removeClass('active last-active');
+        });
+        }
+
+        $(function () {
+            setInterval("slideSwitch()", 2000);
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loginform').submit(function (e) {
+                return false;
+            });
+
+            $('#modaltrigger1').login({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loginform').submit(function (e) {
+                return false;
+            });
+
+            $('#modaltrigger2').login({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loginform').submit(function (e) {
+                return false;
+            });
+
+            $('#modaltrigger3').login({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        });
+    </script> 
+</head>
+<body>
+    <form method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="Fss6G51huJCypozoSXQFR7LHxmi78qKVpVfWK8Oop3KQ3WnwPJfm19ghO+Q6Huc+O1SPTWC+Ex+Sp1jJt29b716a+9kQkBzwxv/4lL7Hpeqvwe8DdmF7yf71wBCcS9OcSV2UwHuAC44eAJaaCDFSlWmepOUq3r0d82asYzSK0VUasf/YeTKR6Nu1tiG6a4N+6vfzWOeXMgPTFbQQaclgpFyO5bQ7C4I6cD+yUVRdH+CqjEdW9hChnUSorh8acEbGgt3UMQbizcJZuhTlnwMvPatSfWiCorLIY06NVxS3AhusaGN6PxN4wligljTFVpV4WA7lgH20TaY66UrHA2X6rm+MqwZZcC7cCcRKZGMYyQgUwOUJFfwz4SB7nQy8OmuCfZkg6fr3uBVSGkQsl92oaqxM84kAAOvrcblskdpvfU2dnYsGvFNXt0mv0K0iK67HqG6DW05e6w2UmEVJf78t0Re4ZOkOgHmAuB0trLNV9zscuepBPxPTKPpHP+Oy+UjYJGD+9y/k+2um77X6ERgSiCiGS+4kQKkMKuKoIlfrmiRbMyNjd3/JDBdOaYVIBCS4ub6T/3kaTRyYgWVKos5Zrw1qr5zb4xOhcTUkXON7rz70hHzXJoPaevxUpwCxNDN6+rTBvA5iQ8D9szg6DeylwY5aV480TMEfejrDhEpO8aeYOQrB7rBTOxJt/ieCPqiQZfrIbkf/Bz8E97MG37UZmM/ut55f2EApRjgxrAZE3QjBXfb6ZUo22VfeFuEiyR4i40bG5+2JLbc09Cn0gi+0L/X0ctD5SMpDMcKx8nS/N90BxXg/9CMVu1lR3JxloRbHgNdZRrcVqsBZ0ne6aO7kJvEWOAC9qLhj2/mefxWwn5X9aqtoxgKOAb64f3pG3VrmU0Y+Y+qmbMX92athREZuhLiov5KpFajSHyekQsyHJunmO0HyBg7g59kUhMeDdL35ivxzhh4uatOEkANILB04+4qWfZEp2XRnyKu6shT3Gex+gI/mHdvGRa+4MV0+iXQfAk3KAm2zs4LcKdYOYXq0U9KlKbGlUv6trInsf0dwzdkgKK5pAkGTzt6eO3nRybJP7hCqqNuXkBwZpmJZ9wQkMFh6GuxnIXUA/+Bh3j5eDcc5cdjyBtimkPjmFGT+CuU0Bb84q92dToi1+QhtR0vSzq7FTiorptJGEJqltOV7E4vBqc30KWtOebSlUpYn/0DAW7ssyaaW0dlkDzabmUufsi4g5u+Ndp0+qRP+OGPhOaQZf16cA1clhiuuQPR8Wh4mFUNTDcgYacgFmNzbF7VA9k0rt/JMdNWhIxTbupDzyk9HWlQaegjztN6ogIBgYlu4ZUSx6infrQFTH50xCi8POC5j4hy+PIcDPzDePrcjY3ESDk9HWLl/VXITjHx4FaD7yg+HOcsq0jzXUm7OqCn9fdpGk7sz9h+Dv14ekt38cywdJR8irj2fmWQsll4dJ6JB16Kc6xykQMGhOPr4N0YM2Sk+Om8oRgTYdEUam5tAjiUEy0+ECGX9ILXDgmibfDn2ekbVS6pSGDYLNz/scekcfUE3kMZRQW3jrOtRolqklx8rORy93qy+J1h5isUq7kpfgt6/4jFM56dX2MdUJaLCgmEKkQSkpemVJ6dvGLaORdsNHDRIoYicKkUI8SXC9rwEl8NwzSR9K0e4O2GJ/YxszEPvhyGpgnyamg3NnNagLGHJY82fo94d6MWR3flhvbXbeOx99CqYEEtJt+yzce7yb1LQgfHjJIhvN3VeVBzaHbLRk7HToX8DK/q56MAs9YxBBtPzBuyH+sBe6EpKLpdTGNM8KtBCG0+hTr+hqY9zZfs5qXni/DXBPdQ8/bARR5zrHXW4qJHBjFX/IGQ/XEGrTmt8XLIK0cDgPhY/JwPAW4LWUVTZdrBVADeDHhCfy1oJopAOv/vzQB3yW4mpUGxAchvK7i0X6K0A/NAEavkxfDE4kgkH5C3sm23Lqzijf4rkeIi9HTJd+K6i2Cm6m/Q76o6C+oXpb1edp0SRfOLesaM0IFXzNqvKX7MzQJAinyoLhC7C3Qzzkg5k1MPsofYwoYi+FGbdGpfC/ziQ1at5Xt3/QdVhcpxaJsnrv/fcFAMvkddjhcevesPaLWRMmOnY1U7Woh63XUcAGzuTr2TPe1pdc5zCHGoI8y7WRf7iCLs1Bidf7lGZJkXEZIx9/ZU1cJL8wVgexcIUzNh2VP7rPeBO8ZdOQVEzC/Bfib2/hRwGh46TWOwBOPhQjI+EeZk8APg720WTgva2vk0QndJySyoqjVGmcCgzj6MllsHgDhZHNvFn6+9/Ykncu9UZZutwU8BT6kcglLTrhnZu+YWeX8pVWgXPCwmsGnM+zmjAetwd9u/fQDwOFVRoUdaTLv7+aqS+QJjS1a3hEoe1yLvHypMGW3OlyyuTuIkZUkycWQUgNg3APhsh1e/pEoY4WNcpggGqoN47GWVQOobMBfS5asv7S+7VISnVvHjzEJfTJUqhQ+Ev1jTar8cqrQNWtUD4rGIkcoKqjI+Ahd4BuQHlAKJPNpVl2BoDxX+u/uJtFaT9hyWTFVxO1r1CLtL1jWlwn9JpIGz3qJ71rEVTqhrGDibCxc0T41ZrucV3vQsV6BymxM9KchJ1o8+G743yqr0a7DPYKJICn1qbupXKeYBsTQphiZOmdQc9VPScQCcIbvZju+r8YdK6u9aQNP7Nu/5/7lGo8blEDUoIwXJihRy5fIk8h8y/pjbAeborp3uOILyet0q0HGliITPy4WUOni5gM9fP8Omp3iFy8t7d+UG4NyCTBR2o2XLmZ1GdAwk1EWajYBzmOxLFvRZqe8kTBqZ8rB0dGAeagjbCrfi90ymCt26ecdRMkVt8KBixBV0FR7ksGDqcuZMGbNYCthfByKgdn9hVgz9iDvXLkcWjGmxj2+jUs1Fw60GS1lu6ipSnzNcdLIaGeqWdPdNQqOX3yb6FX/nXNXUCR9YMoDdmUNXwiyelzDBhP4FIkAlpLJcNPcSdXhYz9Pq80ySoNJqlB70XiCSETlT0uWIHLHdNJGaRqHJRKYWyC+ICzvHhoRrLFH0OnqiT6PGoDZw6JnhnhNHoUnAEquqKGt+tpGGzcTkhtTVNlHuPtMDFtm2C1NNvt+ml4BNRePT1QLfUVdTkmNnJVF1rS4u3pbrIt1dgdSW+q7wa1WWjQmkuiv6MLtGOVur5OlwOBbIbqdQagNqxhX/Q+X1ozTTDg8JArsMtgL3O3yNCv5BZMGoAYvmOGZzdW291IcvEJBl7mqmls74CMAnDc9kNK7RPKyaShOe1y0rze9t2R18o9XUUdQBQGo/7hT6SQhCIxw/sftb3ZOQfiGbGSavsG/XaWOndG8wF3AJBSOiwHTO2Tu+GypByQphLrtkGuMBFavDtVZPAL/hXcL8gqiSKIqbnVwjsc8Di90Nsowg0qajfNYMPH52m1XylbbdbyHeqCtGoxFqkQnF9phxEpyjN+GXjUU4o/d/Mcl8zknvp8CyTjvC14ew8KfaVnQbOMtPEi2LcucBNlkUzRDZTG/l1q+R9Rkm3l2HgIrOIfxUHsd6MVuruHcbSlip5GEeMLl9nH7wkfYQThjPxnQeFarJ8GH7QfO2XOonH2QD8jPELkuhhUV9ojX21Htw9Wrxzg1IK8j3Zkgj3FPof5GW/F/G5D8jYE7GCfypU2TV9zLDoZgyFLf6VI8kWOu0RNxgL2b9I1UOClr/ibqHVtdDK3GYozrXD/oKDWywCseb8OEjDWrqbZXrnHb2iVf9LN/5ePwh60dSvBFfl1sZt5GIh+xAvi1y69ZfZue9h1KK2Tqy2RvEjPaZHv+Y/m/Z89M2lRsHVxfA4uiPeub3kZndpwnFpS0kGN5ykpI2INUkOw24wPzQPgtZXbLUcI5TIWb9jWotbwxqpDal7K93cr65N3kTNlpqgvv5xjCsAeEPlBw8uN/oE5SaIaGLKsv9XliyDkQ8fOihNV5oODmFbK9reSW2SJTyNYIaHAD9YTm4ale9D8j+i3U+WhQjJbnlalfuKoeCF/FheMpMwGCj12HpZ6Pa0wY6+pxVfrYAyFh+Q84AV38kL6aQ6Df9Iwb2dsd3QkiiIOXn01s6hnRgoFmKsyxx+xzH9cWPJommr5Xt5ex5AjHQgvXyY5WZ07pXm3oc7w+JLX6H7KDemKk0TvNQx7tS/2LwnEyVm7YofA8L2MtYRjCzIGckpCn0RzbLLad1tQyXzVLQMTHpbXvvUsIBcFdncTgPU2um2U9YI8lnE1HOJ49ikGBVj0GRMJyQ+zPhEcy9y9CXxwjcJ1HFTNDQpdNLteekmmVXpX1v0egmgtjcJfenK2F2vJZ6QdwsUkJCQDQhoWWo2b1SlqIyUkympclQ843sRM0+MiumzJmiPRsu30m+ybuNEJ1zD7DbPzVG1G5qqL8SmPIMU05UM68eEAZhGDy6Zpwz1eehJdNW/XGp07PPZtzwVIr2AoZyJ1hMppbr3Zuk+CH5jgAP+RMcUrVYHs3r4NBB59nvNeB8gQoYqR1DVsdYDUUseWjilN1xp6m/YFze1cqORH8mgKoHNsS+egYp7NGszyq5YWd7CPWLXviBRrfDcHpo69dZhpcAvoIZ3nSfgdfosYvU1V2jx5IeBOvCEXpYoWqv0BqcE7M2ul2SjENcUdeOMmGl58pYqBq7D03l47Tll0E0YIbncf5jAsCrsVtsB0thJXKMGB5GT+1k7TsAbAuvkeIhunCJyhXiiGM81LxAReiGBqjwGvbW5JQkt4oB40wagPo5Jb2wNtmhvnT0ffzZREIR10HIGlzFeN20Q2ScSI/SLy+UJunhxzQZxKWXwnM6B8JZMyI1yZO/Kf5bkraw+rqWJ1edVArgCB3QAuPsfJJe8C77c9e1lae2iwRzHmRGcwOrapa5moDCA9LhhvHe3WkmiJRLgnDPmyHSZ0xJp2gieBx808dwKzFA4PnyrlH0jtHflU9ZU7/rOz434iXIaQWHcdY1XFp5RKvtpK7kkjcn18SXOyBhMH0TD0KbObkss4OwbR3yWLOeg20ea0QaFobDHrgkkrJDJO5vMYFRgCTShvFUDL9SQaqiCipcMHORFI/soRxUH7kGYkRR5khaAsGT2WdOkmRFHuU8x4iqYtCCSQhoWeeLgvcMsAwzZEMuozPgqvhTMoU/A01OT2sc1gv57qEKUuPdTBf017CYA2zToN2ZjIfyL4vfDDTpU74qwi7gF+n3rQ9VKmlFeAa9LMFDc3Q33WTbprL1QoewBp7tZRZiZamzcS3meOjlOyHgzFWWbZxfxIUb6w2zZeLCjHwnRxtPsesZWpxXdkFN3S+/jRrbkxbZJi2VoUZ0SIy30KK7wE68XSnokKNMhN1dg7sIjfs7KWbxwsma6ysQAe/pKGYkFOeLF2dDv0b4iafMD0i+CL2DW7fd7k1wLkxzAlRRn3WdyHQC7ko5r/70JfbS8J9otVcTMxdsaH24AzlGSCdrpxKHove2QI7BAqbqoTlyBnKko72voF8fJEuGp5KKo6fjsEIrMVCrfvqHfFVrUMmZnTi5zsmTOnnJ0tzt+zeGrLH0KWtTJgrJvLI2GUVNqgnxy49QRMnfpFZcwy/DnWg9PKg96J1sPGcyYr3DFkBOiOpPJ4I7AmV2jE74SjPSMv9YCFAnd432mga3jM0ExBlMefWKQnnyYSlx80IVXKKb+xJ6w9XWf1aXPfRFt4JLqbdYPZgxpppHyNnbY1OUZ6cwOu3lK1k7T3Bq3pEReFsIh9O+7vNBSieRM6PfD7lUYQSRkKC2UW51Fy0dcj3HXsHgXJBdSU6sM0s0IK2utL67lxk+GAxTpzRZQUV7IJBbTwBFablaTov/G0rkT40awWXUWx4ydxMC1+VEh4FK9zQTOSfOBCzpeVt9hNNSivMdmYWi46mRQtPZK9DhguPtC3HL38rVeucP76XMVBMxr+B0KcaNMQLsL7km7A6pxgE5oNopcgPLQZwYF5P8ZX3q23YOpziXx3YaDCHRL4pHKJSdhz2dAidwydX2yxQbkOLFUHT5GAMEhw6XCfd4VOwy1f+sXFx4llF6bFxLrv7Wwthdn4jrmm3n++X6Mc/Tx4NHFa1Uo+OwL0FQqgXCJ5Q5zTkkSy/yx36m0/DAJWL5gVogRf7c1uHUolUrNbYtKvWtwW+jBaM6i1ho4oVRzgA2ju05Qb2m0C906ZW6KmgZibH5pAfllaXDEpQrtXE6aH9NOajywpJLYaXzjys0fXkq03IyhYC1TkDJqtzK/JFARAh+zEEZlLTmGnThwT9pOIsUMboCAtA7dNWxuSysaIE4tUPvmEM38XQiQJ6uf+A/LdRwpbnr7NjAijZgKyjTU3xDZPltJZoSF2JGVXAMHvtnIk8SZ/VMvxpm+GmYlPrIBi1jlvWJkA70P4WIQvyLaq26fBoQZRqlkTpCBQnAIeVT6Emq5WzCkn0PXycRDAVIYo42wgY8A+pFxl1rxp2w3pFVxY9b7f2sW4MNSTQcOSmpkzvLIV+/iObznaUgrNxelYD/QpWFImH1fHTywcX1Hl5WicoQfJw8Kkee/KJLPUYDiQnOl2vKg5AIIfKv3EiaAho7yrgcXoW7PtPrtFBI+e29McusQVb+n7LCUBK91GoUDF9EBvhhTphK/QFCMFa0JjRXjxhtGJmPMQ5pv50XywfUNLuIOW3T6om6DNHGyrI++tf/Y4752nvcf1ZvEbVIirT7E4ED6uc9P8p8++F6tW0RmrqeGcj3tOAxZD4lwbNdSgFu78i7ZGUjUPFB2vBwOYl0WCP0cu6oNMFiS7MFUwE2McO4yJSNSZ2XaJVCjmzvl6q7h4hVZdAv6qSM8syKYcQiYOX877arm/QQ6iVm5X7w/z5Nmpe8ep+9X7v1nOyyBZw+MUmJ/7DHLWznxHpsnyrfpMjLD6IDaInAvNzUzqRX5eA5ZAYQUhviT1HfBHp09dPUKxp088yQ7rFAly5fQlffO6BmH9n/5OO1lov80K/YgbD8fJjUMud4Z4Y+qI0anOCrtQEXJGY15xtZdDxiUZxeqQdO9pehXOU/Ff6NlWtrvROvMtHZtOPeCNPghVfUx/Fnf/nf6FYarYgOi5MT6wKBYyLzaZsGuQL1osXfxa0XQilO+Oshw3b4mmHEOfYQbcX7nQn4tYX3ucdjjxJeulPFjdX3xnWWmAUvhcaSv9LSr/+z5qqRnNFA0irGxZdIqGJpnAwpQznaSUSK/L6JmnUOGYFAq/OnKmcizxZrpxWA/GjJSbui7+M9ZoNlU9r+9lr3pJ323y40feJ0TE66BhuLhEGlgOOF79eoHQSyyjNIvcL5VL9P+wBqYF/BtIyq41AD2Z8cdZnLmj5Oaphf8DDU2Qqq2rxTWszcf/6vWGm+1g0A5wG0gwRgh8oMExbxeBuDrCigjRoPv0keL2cslhcNHbMrNj4yBwJgXNhs50iu8566BSbNroG97Wp7R9SGtQPYI0MPsEgvVK7jByqOTWxWQ80eoN+GH9+VrlG1HCHbc9e6iCO3FaqHUn+QR0gPB+Z+wbukOLz9U78LU49i1k65NbgBUcshMxDWX7ZZaBUkHflFa8TXLiwxgoYH2hEzLB9W6pnJ3McpA1/ItsqvgWExS7gJ4Vldj43esqqH9pzvE6aClm3KXvmEp3kYZo3c2ygzAN1iDCqoDlK9okPoVN51+BwY13FMUhFxMwhjaGd8e/opf90KVlGdZOKJKi5vp5fK7xVlZZoqH/Q6f9VEn/GBop1exWDMUrCXS2Nas0iXdU3X1jaym7GNinsgq2UEy6XTvzqkc7sLe0cpmWEvXPGuNvEcugGCmXEozPNkNo+6D3yLXsT0EE/18g/mtvuYlPt8x4lw7smu911jQg1/CQBq9668GZUUJg+TCKuUk8Halof7DOp2hmXXI1E5vfv5sQOKRuliqqPNsN/BezPUUQoifaz8/y1xEwILS676Nf9OOPrp4krXX0avZTF7vIM7ckoD12SAlAEt/o4IGzNyVaP9VNsbzTTppiJbM8h8oUj1ILEj43LhAOmNgKzcn7nsdAFTG8rljQRG83kQzHUzf/QQi2aL0HWsX7VfAKSqdeQqVYMiKToR3pT2P+ztdBsd7RmNUqnJWfcDoteC4Qp1sabxzLf3Pm5HYb8F6hmplrtXD+p417pBIYvhPiepP58/xznkUpqkucAwyR68F0t4Rv3/deY8cqa2a7Y8dXqHe+KoceUeMvBtXjtinWaSriYaMQ0XV0jPE3K4uYAjCKpfk35Nm0n0eU+VyW9mqbf7LeV+0gY5ddiQ5NLD+a32VPNYa4ooVdYuarDbA90U3R6pxKHskV+HH0a9/bhKmrAOYq84r7EZ6ZjZDDID+dV9WeG8SPIG2mEGimMoKl/OBiLRUozs1k1061hxh0S9xsgdcbESx5wIPOsd9c1iaWzr7GbfONNuikRjpdR1t3cF+ecX71GM18/CXT9sNuT14U00yYfwoJO+MV+UxG6jWA4w9Xg4IwS2psFiqnlj7WAMj5VV7yltJ75o6PsbBkgCDUXuGvDj8O8ENoLNrMxF+klFu5ZJL8zC1LshTqBUnmP2qLDQi1H7NFjllFQcjntBSn1Ag45jL79Fb1gXJuXizS4XL/3/xtFukE2y6ODXoE5aPrQ0C1b3KawW2r5pV86Z13j3tZ17RSUTlMp0KWXX0ybLWZjYTtPraNGUYq6LxvXwhZCNEJSOG493IOItVlSMk7ZI+J72UrflE+JcSC6fFja2znLH7iGTFDuVJbXdWV1JJtdFek84m71bvIY9yGayXxBjcBSNdnspFFqAjYZoWxAZyomkpr8ZL6NY/taRRRUTbQoMBUo6l9UKh74G7QoxjBigwUbFgmSCKlpWh2WwWH2TSNqPIJO7AYRg4YXX3Q7dMp7ZmxDO4UhuI1Y11CvVwlbLDT/jZNgyX8OAJeGs7P5vX0JRfaHe2mM4jBZydctoH/euD1BIPI4pIc7dMvJ/HoB3vG1DEweDuWHwvsZYpQkpOnLtAD65AiEi6IW7tSx+gnk/br7wa6SZWFUB9M9jUJ1QUD5CAe8kkD/JTkSVaZnFYsKbt6LWgnlhDxPBd8D973IZ9f1LFzD85zc48mCkgWqZTK4h5Wz/V2Fuv52rxcuCjBw4WS21cZNlYI3xIFCjCBHKwhlNPc6yywR9lYgbf+73aTPQxA/CuLX7Gy3xbOrQHaMpsQpNZhkI6aYefktN8Sh9vjdaHbNLBinzN8LQDuuyOBn+Vl+YeHJzKjQ+vVsymGUfxz5Gtajh/nPIFv/jZHWpLIwmT3+ypmf4KhoZ/aVNNhqb4shRvTkuGf2xQs5wCPNNgGE3h8QzdE8DpOsAGpoHX2F3bCGZUfIK9Vxej+bFPbhliKMyoZeQgP7L9C0wmbMbMp80nhJjNSGuSJfKJ3JEV97jqRMe2X303gvRMyZoEYZ3CC+oLZV7ngl+IS7SoK0sClJQfCAJ6yJpKA1BUH8EVwpwmhZS+nhA652Te2VZRj+71aM/OB41mUfMEHIfwZ1Ryd6zbcxhmprhkd5XZ/m+B51Q1XCM3Tki5aJKFdzJkhbbEIBb2Ihb+WHWt9R508yVQSZV/NrmdblOJgLCheLsyeS3wcxElcT+b5wgGHbMfyLjxiCSnIu1OZhdxlbtiAy8FxEgGET4drTkmbjNvBfxNs6wlFVi7Yh7LP5WxAfpB8xyrGUmbIL6a4K9Sp6p67JDbeeejO33DtyrogdkM/Yhvd2dYHdvFnWzd1cq2M/x2dJBwTDkxEJ+O0zi+1YFunJku/KoNg86wec0lXYoOAg8Ho/G1VOt8SV0jC7ym2BnOngJtMqt29zbKvfznhOfnynaukHEsR+G9gravpjQl5huwuXnWy9Dny9hNcXOkGxg+Ha7Z2DBI0/TlR+1HGMhguykpRD4Upmr5i1cxtH+kUDsuHZ8b1YYyq/ffEe+Ff7vlCuQU9M9sv7/h2PghMqdrJQvJRs2179xgj6kYpL/Wq0ubWvyRx7SMFL2mTFId9ZHbB9mowQ0//iBo+5lGrZ8VY1liogcUH6sFPi0PoGQG7+OQVfkQkFFspty4rXhOrJuHBWV4I/YDWOoozVfjlVL1W80ceVKQX0kzPbK84OnPsfv+Qx6t4WwoIjLzZ0Golhp7MLUv84A2a1leSvrnGMmY/anARK0L/ckOI8TJOZg+HmmbUAlJqAQsAIYKtPaQhiPMDSKeMb2K5FA16vo1yVBaZm9vmaAc8ixm3SFdbwANBTvEWZkv+H+k4TwCgx1qVS9ZXoxTLbi1JcS1Y5Tyxl99HojPrJI47WCyu2glCtpT/BshAQiWK+9TYU9OryUWL7pEWdh4NUeeYYl2MHSzwTNCT4GefrnSBfpDSmPsFq5TIFIAB7x0URh6crCeJRSrdVcPbJJWKbNkGWa54opk7Btatc5vIyozGSo/aWb7qOHEC76tPeP5qE2ow8sLdoC06NwykUn5npPlixFR7uZ25V0kudEU2jO1aRd3p5FIQZwwE74AQXzdPFvk6eYnHkSsHiDbh56uu1mhYeIwP3m3PmiaQCEdDlUzPWzpT4jiwCwrjxMe/KbayOPVjRjBy8PzGiV6AbZaMMhliG3Zwd7ON06O33byTX4JajN/gf0U9EznUFD9QrasZW9gpM9lySz/lTge61nDnb1n222+v8HkWRufP7Y9spS3oHM/9MI1/RFNtSsCDA+H7ekjCQa2lFaLWiF6DYf42Y6BRBg+ZetsSqIpKUdRrlkT6JUwPdKrwOaxbVZAiacOFE4ugUmyLbpPnCX5ikUt+spHuPkyLThH7Ltyw/CUBW1majf0KgCzoGnUr6R3T7er0tczTyp/oQ3ycob+ZCWpTlXo2efnLCX2ZpCaims8IO2tiiNhyAipt2hKYjS7zqlmAkO5RXj0k+0jWDm6hui4+RjvRUDTwGvUe9LV95YMJ5LVFog8Po77fjtBONlziUK96ot6jmkSp7zjPVUpDJvNP7D919f1oowuTsyxJuf3yiL+g38dxfBg6pO/p4/lKSNdJz7mBeLFjPWVZvCR5Hnm0FrHezjca6fup2t24qXkZJJeZTu69j1ghCUHMos6QxSBCng+BHZT4u1rKoacOMIKJyakz9xAA56LB8RSYKodO8BC09stjQLCU1T3Ct2TaEFOAW8koE5lE9qWN4IUQ4zhFIy2WbUKHnDIgTR/8aCPUXE7FRlB4JxluwT1BZubEMJSAoqBBjeuODz6gfSkq8ARZ8rAyDePF1Wiy8uInI+eja+k2ngLlQEJrukMQYpCVSJMBb7aM2JRBfh3ybrGUV+aXDxvdBD5/3XZ+QbVPAgZ0bnYR+2j3osj067zgS3rxkLcVMLtPE/+V4AvZ+oG7+XcK/lDQAQ7urFp5yNLGxMutem1MW7vVkgkvXzCtVgjzuePSSHotWevqji5mUh0uHXDiP/9bj+r8rJufgy44yqKglm4Z5Zbp5GHegykMNh3yND1TEf/Y5kIh5bNIQhuiWSXnry8UJMH5jc9LHKYntXCfelFaFk3FCbc2Wj7RqyRjwBpQ3bn8I0Y/AxttaOzvUMP+acUGXAo959/dYFuMxBYpR8hTMkpas6UGuo7gvnKDvETfYeiPB0l/j+8lxGfeLclgTRoSHglV7dq/CCFgIdwtAeQeMwhPIVIR+51/bSeRCUmiMGDkekQg2e4RNnlOKd0u9+aT2FU57zOL3cO1Uk3p5gHawIx1ROL+pHBapsWO0Ad+JPuqqIIaS99VT6crse90kcg2LhwEDoIoK0WcDvgl07AQnY6qIPpgNb7e1bnjuHYhLOZCHaHG/YFIgOJ6QGDR2ddKEe/cEa1mFew7tID3YZKcK9TTXx2eKwThkSQHIRacE0w8DvIjbzbLvbZK3dtWQPL3hYpKuNq0nSqkuidywcRC405oJOE5/MYimTTnihI8PvHhse5FeznxatBfvd4+03RAwcuO7YQSU2VkV4XXcx/kb2GUr0sSdSfX67boy+J0/5U41MJSKT6gvBFgZgWVd6YDEZ15VvISzu4qE02cTbwetgOBAdBupdlmWCTz4KK8URGsTIAUq6MEpjEtJ6kYIkukgXk3Jx5MoZeo3268qdHYC46JSw1IKYoAEiCor+RuDj3hIuTAGG7Q8UxDQQtfoSWz2bpMG2KgnWRViMLYMqxigGXvf1WhV+d+826PBQP7O84QmEOGVfuH3jDN2xSskf9mOHSGYbQ3bG5XLc/1QfEjgQEoiGbLGxbynHgqr7BNX2Oj1voETniU+NwSh7OC/Ix3kfrhV0G1K4bmKLxqNAWpavUEA6kiDqHHfZ45FPUe3tad6OqB4EX9JVnXw1mq+5G/JvVxrBG7PxLrB4xcB6/3LQI7c91ZRltNu4hS3iEnBzHav9D1YmPiGSz3ZVGeBSLLWgmIXq5MdIWqskYdV+WsAGy4TBzqvml7xs5tpihTcsrV3OOzMgv7JTPis1vhr6f11CTTQC8RvbAN5DL8Pwje9mBTpNLMoSyJb8p6GF0i62O7O1UIGg+uhsajMtDr4W4UD4voHBDaLBbu9Lcy5Ae7xGYHlfY97eFo5ggZfCfnoRAYSkTNLfvaoOtNZulukjIufDVgGSRK5aYGb6rqB8JPth686ZWquzpo0DDnEzJSbxNAgtl1/s4ExQfDKIBflAGH2to2qMJc9qWDjGzUFMDP8Jx3wFl1F7BE729BV4gMHMX8mEBlnu9gQWks6r903CSTnLNjffaC3HUiWldEsKiB/rdHb8wyBUqn94vgpESTbqTNkIaziBCMTNjFalFXighSvd5/UjQWlZY28XgOs98o8i7B893FhgSaugbaMzQAlVPTvrcQGN5XGHZ1t6P/hm8/UU6GrGzTgCyaQL4miSQTHDaL6y48Z3tAgN374l7ycWK11lCGoLQzkODQTFlgqlzSTfNuvA38P8HAbf/1OY5TlKeXGfeErlK9uQIruo44kOnu+OqTCSoXm71++/vOJMxwHfDTwnoZEuPhfY2Laf212cM333hcBD0YzJoA5Pe32k0Xf2z1wwkJP5rmPcMtpSQxneBjJPKUk7HzovV2ni8sh/vluHVTuTC1cYM45iA8p5WhWxzIVovp2/K9g0yKoGa39lXFNpmCbLD6ohnonX81o5nk+58MRGUbJ9lvuf1GQNqS/eWZdfUjCnQFn4b+o09yGPHsaKM9DMhwQfGTzohluXaJ/6K88ite9pVWGVaCHeTr5KlZJjl1k+SsiMP94BW6cVUpUveLRaSqifowEfTMhjY3+MsgEaqZ+SLrqpjiNwq6/M2KRkHAeDOKCrsh2aHmnkmnqeJcvMmGyqOyh8+TY0oESGETYxYIoo+IUqdXIdJY+/GagLEou76WW4wj+iURAha3niAYBfP6UpFfFnMPjPdElYYbDcWGl9CdxCSE93EykxMqDD+ANkHilpsM4BCSUQtkSGe9v+IyHGbH3gtOSC8gmntb6Eliov8bGsp0RiGh3U+EU2Osj03rOhFO7Hq+ie51UhbIQGnPnA32RqjeqMdEyvwU/NfZIZoL12SKMqRHEUCJ8SIQZGVJv1Pa08dv7bp7TQ/HZVWAab2+zQBY7x/RX/6BclO+/mzYr1J1nmYBcgHGs1g540IEd5wb1GKIFyEx2pIYmMMtCpN/9YoO93S3HDLPfQdlbuIILFdYNfcD/IjNf/xf91CIypWTZgksvZ2y/UBDME8Obmk1D5hciGafTQsKwL9JjRXKOtWAZLaVXi2u1l/3YTttixBkmS7692j85AM3fW/bYWFeUkGNckKK6QRShuOee2BgVNwzJVmaeLVnWVvKZgs/dmeKEN1/wNbNTHGGd8eKlO0gA0AMQuPZzF93JVRoEG6/xpOU34TgqZLUj0rz6QJg69WCLRjfKlYf+iaBpnsePtvAOkVXVvRA80o9mVd50eXF0wjXTWiCDiq0+4JEB6FEEf5n9CilJmy5Jyle6ek/aSbC2Er9x7pod86RpInq8bmd1BPhU3KD/nMttFha5E3FL5QsICUXeqN2cU+/ek4Gq8dusVU/57lmQCQvzVH8c2NOkDL2s7h9NaGkzgXaF9T699cAZKckMY9F7x4nf3qMjUcxr6z9qUwf2Bx0YE2Q9LSqWw6AamCuQprrOqX4FxleONv18ngbzENq//tbSg2PmetUfrI9jTbuxs5N6riaORXWAs1eJrFiCQ++868/hIQLs4qNGdNVP+nj1gz331bG2sl/SzElW2wl2w8knTvdM29wkJnySc2wOwUBcizq+oMGU9teOLfkk8oevYJt9A6Z1F1qJk6n9O523Q4U0/LGoyK3vqiPCO4s7/u5RkOgik6LPGw1lHi8pY9Fq/K8mYfELlvENHLu7HAYpvHew8Q7lMgaC71QeE8+nv2Sfj60gv8e38bUCQ4mIQXnNJxyTljitOyK9Jd0MGQacNBalms9mk/f5mlthaFe/dQ1+pFRDOwkx7cr7niOqSmYhLRRLKv592ErBSDzPU/9Wo4jUTkk9+kK9Ey61ktGsZA+Or24YQvaURMm3H7epJTF+JR21DIy9IbvPN7l/4BV4bUbwqctyzBrz7Lcufv4QV9ysmqxAVSjpgcdwJh1E2/ANEIck6/rP7GWV6lxVuynsl9NMkQed1XTco8jS7oJVnqhUqVs4oikk/Fz2mML7Zvc0YfZdheyiHA0wt+lrMzEbFpGm3xWJVBTSyOd1FmX+vtdEB+R/TbOV8AuJukbVyXko/IUpIwhM4zc1iIxMLrnlcxeFpOQa+ILtOHGY5FzitHVqLufYlDIyUk/t26LVgNhQEO+RnP8nKDOtB20eUT0HGhUFTz1U6emN7aNoc9nuX7nkyuIQ+95DYiOyWjtuzTMWUamAukVql/QykzcI1XDA9SBrpP+8ndUc5gRR4XFlHgajjez5Mqxzp1+HMK8eaf53w+CUBzPuaQEaP3RuaumU1nm7FfQ2POdMPIo1szqLFHazzISElNQaPmOR8kGzkmh4NQ/b+RBtRYmAbfiSlPBfFBdgz1jK2XvEL6D0h4Ygc8osKMMMf+HS6jJLhqwi6r7n0+pVXn7ZQP7D5lXPYQDY7D23ByQJvJqz9h5e3r4q+u/QawcTJAcqUtzqYutp1SUNHgW33SyEy/LHwVxHUSv6NUcOZzSrT2z1Zwmc/kWhovURn5lKhmkl+Mo3uDFCzY8fvlW7pkJ8FMS1Yg9fUkeG/WogTI0WSwv4DUoQYkTAF33uc23wWKRcbf8SHs/oTFTyqidAZTcA1gtmvLeGV2b+ReLhvD+XyYfogekikRuBohjPusW85CP92CC0TLKRsp/RfmaxcbEire+KIE0wSeX2LfUjTEAWhaMEcWUCaRxy7DRMDTrEijrXPON+V/efI+H6KnwEZCgJqY4D0rrjqC2mLLVJIr1uhsVclzLPjesb41O9yEtfoaa0Xn2djPE7DLFmiy7VtlftT8nuwPfiefJBRhfwaSElQZQ6v90H09y2D4MHng3qjBiEQ7MPUixgIbrl/+eacTvh+7qszhXwIS1peh90ojln5arzGCS37DSHb0cBqbgaNFKTn1yv0QPH/NiIC/PVssomgGMG0OWGdBpSR2Cqd6ZGguW/lP6oiPxVvP/tAtMLTyEsEAGyufhFRXqTEfBL/l9JHz3d/9p8hof21JQ1SZ8X3mfX+GZdzz0ZMocCtfNpI0NPGGoTSGXuoblSHiNTfMgXBWCPR5M/6rAi0N0CEty+4bqp6kMlp7bSMHFhEERV05tRLRvTh7AzrdqxcEYPcEBIGRLedhx9U7+j4d4zl14msQP/REWW6+82e9rCb6yurjjShZtGfeiFsFk4XZcogxxSeY0q+szVEh5oL9fK68HPZdY8y+IFGzItEIMUSErup/k8s91H7UJ4wxEmaJJ6gjf04kQV+fTuOTZ8ogkYZ3Sv4zFCLGnaU+nfHqrD2t6vVxoimyGhxTl3cR7yQUegBH+kvJCuTLFx94FxuVyDpD71uv8WotA7kYqJW6weEmCXov02swp5uWbN5mXIa1f/sYB6Y5Qk8W08TYxPpvptrwGmkJZJGCzi2bhO/kZtguPK8jwbVzsY0EvCuFNaBzHncM2/YXwpnYOT+MR/HbbLMHsbvLqsl/PEggLqooZ8AYEb776+u78AX8R4TE045DU7KEY82CEduP8JPUbr9iuGoCqBmsYyxCo/mFxLlT6lR7P25B2qIVDQgFXXwOKg320CVuJYjnfh3wUGuE7fRh3yoCRzIQkyJecZ+PWvUq0CyljddRBGoppES0O49B+HxS4VXUBu+n7qsodS5IZI18aU+dJi08GFB5VLPdYAmS8QA3/kXiqJfth+4/vdHD7+zd+RMRyg4jYGRhZPjPNtvxujqjr4V1Bhj8pAOJrKDbigkebdY/RvAAAjTKdXopNRmvb1LaVCzu+br/KRDdKwxTSchskwqsXirud2T+WYdiPAoAXQl9Xk+kjBRb9onxyTIJlcDyGN4oI+qXqTiWnE4ekfeXvOMtsUzqdVhvds3PWiwnBo31KysBEMSi0gFleep3Ky+WNN5ToJpuCWosDK3O2GTI+AaGbMpJL2AzMO5t9Of9B0rY6bQn6hbzKSnHAZhlt49YJm+XQKxuJ6CP/lWN/FDgAvO4WWCZUlc2lE6U/a6FRrxF/ilpI2hxpBzWzImcufdVzH4PJcHeS9rdCH6EM0n1CKq2+xMANemnlCb8zbbb0cM7Qblm0vGngnNHeuxIbb4PMA5n2ra681U1mXw41WPqJlFfjd45g9469oknLPij9sidJ2P4q6sbE+em4oK9lEt3eGYAdwJlfomibzjEe7fx4LtrwzwoAAA3LzPj/Micu0ujl73IIKfdS6AuhpSsE7PrTlywVhjj39CVXH2BhTKsF7zpqEi9YsTUHhsCSZOdONAwwuBG3Q5qiMogD7QfpqzD8/ylo36G+hgz46+Dwp6K9y78f2Bpoe7HM3TGU9vjOliyjDUp3wFRy+2drmcgHsulDv+rZpiHCiZCUqZInfSEfR5DXOj2woMqNKvFqKmFK7qUcEhU7vnnnDRuRj40wlyDAgL6+0uNzy80+MuePKRtee3Y8y0JCS1dqQn0GUg/ekavYYjopatcLvi1rZlVnbx00UKZytz9GWOStn87HCaj/6mH5ONeHVMIndtZXbuzfOGg8QhsUEYcb41yizYhBbAebQb7D408rdbqpkj9UAVmbKHf0i7TkGXgTSQdqecMvKvKSFpjJrLWPq+s6Y2lxwCSLCzpVHRgV4hOHa2++MS/pvwOpbf806WZKFQ9T3Ho+YYnHXLShPXR3xVUGLgpZN3T03S7Pa94S14DbOE3Tw+gqftxOavG1KKRVLJ1OOxqYeiaWc6V3o7SJJdgsBalJaFeOFR6wuP93kg7WQmdS0FJejGrVRIJEiNGz2tVGz0Rw8kj3D4uPD/6JD4TnTC/Ag2R0jt6Wi6GmeYdoLqofF8aFJt6EmzKbQV/VD/iPixlIE6Zsdh1ufJSAFyFfcm9WNZPvNkgtsAIORtuwPchx2YoHJaqt4muKtNJu5tMOe8qO727zkYatHfRNWsUx5OD2onm0AIHoB5CcLiIYKDouS/3+t/gVdZL91wI5lo6MW8c3I18csH9Jo3qWx7uVB6jkVpMcBbBPqdAOsl45IkUsaz8mT9P4huAw85qdhCU2eSBkk2KkwIa4TQd5MtRtXqb0RPwA6k6jrPvLLIudfel912QCZLeqT8GZ3cMxgU44aOnjpFQfVxrA1K1Vw4+WuWCqZQtZhfDY52n3YD6RKWrt8UjkFUf47V1wao4mhSHn5GfNwGBMMTxTFoovd0OoLoWlRu6JmIbejYMAyy96i9Z9/j0Lmo1riUoAMIO54F9xc99efpFLvsTh4D5MtW2TvfCWS10mykkFlTQ8iz7Bq7ou1NV+GuA7qoPduv3ZOI8xZbeBxTiArPq3ExRt1bsUfxQNja8uENHxPNigZTgnYRtPi2hNwLjgdG8tJLsNh+R0uV6JEThvloFVG1kHj2Cs/vQ+SML3dyeU6lJekTItZXUkdt3bhC+aPFV6YHEpdsdaKvEvIIc6BYLrD+rpgR6/Vl2kNOyxfuBcBiYG5PLFI5HaPAs7CbbQZtCPPw7KoqODIp8c1SZ6pc7FTvCkvtO2u7R1pL5H07/Zmktva9LpPMrQcs8g71sJx1/qe/QMi9UMFCwKSekcAtukbmMxprKA7q0ZXpPaBF/bdgwMttZHGZbE+G6Jrp/8rodcfRd4UKYyq9UCx69DsY/ib8mbJDzbxTsvVUfvPTsGDu8ISSyWUS4uf3ZAtZJAp47aI6Xw/ivcU5lfTVk5/dc2enX9afTNYixEwXjVYqm91xsARzGi75CesGvh8clAaP43Trsjv4WdAshS0Ekz+TOeQdatfByuG3O/9s+BlZ9J6nxzF6+hmGklnf3+cRaujuZQqfO3lOtxMvYdwoDs8g8yhnsCgCcJaTTOZ29NHXevPDIUvKbwFPo+ZQ0elaY57Bsw70EpVOfQwdXmvJHadSbEdGSEoDL2izTBmrjT4gvus61fWQmCKaSLDFeqmZUAOcDsjSvUdyRi2JjIV7GwiQSZzOJNl48FQ72+51fBO6mWFM+5T9GSFx0bgsx/kOzHYgFSCvbAX9yVBLm1We+EYYCqnSfx++OjvdM2kWQv5VNcvEWP1pzWdbjVxRXEY1uACyp8rcsVC2Z8kwTo9XNlo4esegwk9Bvp8S4OVQ3YqiMngVsTcpi9lRqmJGkpf1yOBcZshUDMSTzStdWfci50+EcT9IjC0b+6v0rABPTU7obU9ZiLY1KB9GrGnKda5pmMt6iz2jjxkVLSGJAJrB+2AaNkn5kIPeUhF3NtAwtX8EQrcJWkc9S6m/86Wplr3a/CO2EdsFRyXhQiz4Kc/fuJ0EIeVQ4olCZaIPZV2BNtik+bqMkS6JWoAfKERrNn6vagH0RMdHmDYlSTjXTXK2WCeDurIOOeJzcy3gQzqmetfN9ZXDVrbdX1lNYaRundiV8He4iKbfZfC3R0+CTNFYMYZZ524rjVLy6tRCpAJF0R1e0qwXri1T/G4MNQ6Uj6czS09NjdTq803h5zv1yNfr4VbQaUrnVk5flSrqA8cZRCk7qiw63+JwSM5Qb6XCPHRhu02Np/gb62EhhcjWSvg8WsjKC8BQI+Tb0NkHmE6Xk7tJO9jfCZkM=" />
+
+
+<script src="/ScriptResource.axd?d=QGU77JEzD2JpSBADBOyE_2hrxmFtRXxM2JCM18ZOCA6yO6Om00hlIvpTklI_Dyc__WguZzBn1u73gaSgD_byIlJrAAvSq4_cJrNV3TBTZXQlUV45ppVxHGQclFgGY7FK_NuCWdix32ChUtOSOpMV8_3Barjxu2E_7f_B9k7zLbLN3ViKEpV4batuuUBZThkS0&amp;t=72e85ccd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=7JNZkuBl1EcZINNAjfpnY2kE9ZrmAX-7d0EavXeQfcpHWTRxy1FuWHAGJ1hGKyru9LD4s6x6u-FVrsDAxoqRV0exVp13R56x6SbSe4_uSow2aQJ3NJ1ApExH2Vt0URkqvQG8vGObcB5G_u9Axn_BWbwZ_2x0IaKNAdgKD5C15mA1&amp;t=ffffffff9c1fa048" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ldtK-Qlh34zgt1TbjIDOYLa-Bl5469hP3Nw8SC4v0u6doyTaThWJVJq5GhffjiVXxv-4ThaW7V1AqQTxxdDKB1sY076l9Ufg7M_xuY2H2859wvHDWu3Ehol3H8FhdFLr9DSvfrzc7D_yQIqhw7-JZK0NaRjtoah1QryeIPkRmak1&amp;t=ffffffff9c1fa048" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=IunV7PQVZBGLsct2Xv-XEmJUlHHC8ETFK5kx_xH-dArXEXv64MmK9_UOFyNy7S9Pvr8GB6q3pE93I3Wmxlz6JNpqEJu5AgSicFvixCsCRI6RUQkCl2FdIKGQ9hncihb3sccuooP3e-XzmXrlo3jkoM9Eg69x11uNDo8ix0uXSsIZpOp2EYwuIxOG1c4tlNVV0&amp;t=ffffffff9c1fa048" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="856650B6" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="EGwx6zFLPC4vlmyG7FYkqaDkaJsUtZny73PAMAacgo3QZhuBFnjYgAu44LataLHcv0TRgFxCS6MKIWhQYgIrTim6Kii7r+Xz7u0QTKa6S314lrUwhEDdBzv2guNxJITyUZRjDKylMTLqUNGZA2B7cwgOI/D7t1gi2UAYP0yUi1kRUbi9EJO8mBBh5ZXQ9dyQcQ06Xrlso2Y/inhsh8ZeNCt8pbJ6XCRHRh+PSZAkKIMXgFoWSFgQhKapzFHivA4UNJVGAGaVpcm3E/KPNLvq+xZtF7rs98e+YtsWSePBBbrvPwCfOrgQ+976SN+U++HCs463q73tBQeG9GdNuGMwaVBFKXoWgnqNGiQnQwoKflIUIjNe8fCtZcp7rq8hCjnM379XY4tB8D4Jrg+qBEARqhJ6JL5Qo//NPZrilLLdGsfkDV6oots1jUlIYUcbHiR2rjqx0SNYBCQ4nxU1PaQlYqmb9bCJbKYX8f4T8byxcfip/1Vlx4+ff4gBKyoP0dWG7z47ULwpZQmofg8/tW2jkJMakNbtnKP65yzzdWpkiiv/0PPOv+XcR75MZ8AfTgAtjX2BcFGAy5uV3DZxTmKcGDhPaRXaU9bcaRRSg0QgH+YNDI7b1q3PFLvJXo2bVCg64P3Dbnp1awAI2hyjSXTVGg==" />
+    
+    <div class="wrapper">
+        <div class="header">
+            <img class="style1" src="images/header16(NEW).jpg" />
+            
+            <div id="nav_container">
+                <div class="nav_cont_bg" style="float: none">
+                    <ul id="navigation" class="home_navigation">
+                        <li class="active_menu"><a tabindex="10" href="First_page.aspx">HOME PAGE</a> </li>
+                        <li><a tabindex="11" href="Home/wbhs_faq.aspx">FAQ</a> </li>
+                            
+                        <li><a tabindex="13" href="Home/wbhs_services.aspx">SERVICES<span class="arrow">&#9660;</span></a>
+                        </li>
+                        <li class="void_space"><a tabindex="14" href="Home/wbhs_about_us.aspx">ABOUT US</a>
+                        </li>
+                        <li class="void_space"><a tabindex="15" href="Online_Registration/wbhs_guideline_online_reg.aspx">
+                            ONLINE ENROLMENT</a> </li>
+                        <li class="void_space"><a tabindex="18" href="Home/wbhs_circular_memos.aspx">CIRCULARS
+                            AND MEMOS</a> </li>
+                        <li class="void_space"><a tabindex="16" href="Home/wbhs_helpline_page.aspx">HELPLINE</a>
+                        </li>
+                        <li class="void_space"><a tabindex="17" href="Home/wbhs_contactus.aspx">CONTACT US</a>
+                        </li>
+                        <li class="menu_hoverbtm" style="left: 20px; width: 37px;"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menubar">
+            <ul class="infobar">
+                <li class="info"><b>Information Menu</b></li>
+            </ul>
+            <div id="navbar">
+                <ul>
+                    <li><a href="#">GENERAL GUIDELINE</a>
+                        <ul>
+                            <li><a href="Home/wbhs_guidelines_ddo.aspx"><b>GUIDELINES FOR DDOS</b></a></li>
+                            <li><a href="Home/wbhs_guidelines_treasury.aspx"><b>TREASURY GUIDELINES</b></a></li>
+                            <li><a href="Home/wbhs_guidelines_hco.aspx"><b>GUIDELINES FOR HCO</b></a></li>
+                            <li><a href="Home/wbhs_viewform_employee.aspx">FORMS RELATING TO EMPLOYEES</a></li>
+                            <li><a href="Home/wbhs_viewform_pensioner.aspx">FORMS RELATING TO PENSIONERS</a></li>
+                            <li><a href="Home/Display_hco_list.aspx">LIST OF HEALTH CARE ORGANISATION</a></li>
+                            <li><a href="Home/Wbsh_View_Ratelist.aspx">REVISED RATE LIST</a></li>
+                            <li><a href="Home/wbhs_guide_sattlement_claims.aspx">GUIDELINE FOR SETTLEMENT OF CLAIM</a></li>
+                            <li><a href="Home/wbhs_empanelment_crtea.aspx">EMPANELMENT CRITERIA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">EXTENSION BENEFITS</a>
+                        <ul>
+                            <li><a href="Home/wbhs_extn_bene_ais_offcer.aspx">TO THE AIS OFFICERS</a></li>
+                            <li><a href="Home/wbhs_extn_ret_ais_offcr.aspx">RETIRED AIS OFFICERS</a></li>
+                            <li><a href="Home/wbhs_moa.aspx">MEMORANDUM OF AGREEMENT</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">REIMBURSEMENT</a>
+                        <ul>
+                            <li><a href="Home/wbhs_guideline_med.aspx">GUIDELINES FOR MEDICAL TREATMENT</a></li>
+                            <li><a href="Home/wbhs_sattlement_claims.aspx">SETTLEMENT OF CLAIMS</a></li>
+                            <li><a href="Home/wbhs_checklist.aspx">CHECKLIST</a></li>
+                            <li><a href="Home/wbhs_new_tr_forms.aspx">NEW T.R FORMS</a></li>
+                            <li><a href="Home/wbhs_clarifications.aspx">CLARIFICATION ON ENROLMENT</a></li>
+                        </ul>
+                    </li>
+                    <li><a  href="#">EMP/PEN LOGIN
+                        <img src="images/new-animate.gif" /></a>
+                          <ul>
+                           <li><a id="modaltrigger1" href="#loginmodal1">EMPLOYEE <img src="images/new-animate.gif" /></a></li>
+                            <li><a id="modaltrigger2" href="#loginmodal2">PENSIONER <img src="images/new-animate.gif" /></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CARC QUERY
+                        <img src="images/new-animate.gif" /></a>
+                        <ul>
+                            <li><a href="Home/wbhs_carc_status_query.aspx">EMPLOYEE
+                                <img src="images/new-animate.gif" /></a></li>
+                            <li><a href="Home/wbhs_carc_status_query.aspx">PENSIONER
+                                <img src="images/new-animate.gif" /></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CASHLESS HCOS
+                        <img src="images/new-animate.gif" /></a> 
+                         <ul>
+                           <li><a href="Online_Registration/wbhs_hco_application.aspx">NEW HCO REGISTRATION <img src="images/new-animate.gif" /></a></li>
+                           <li><a href="GeneralInfo_HCO/wbhs_cashless_given_hco's.aspx">VIEW HCO LIST <img src="images/new-animate.gif" /></a></li>
+                        </ul>
+                     </li>
+                </ul>
+            </div>
+        </div>
+        <div class="middle_image">
+            <div class="slider-wrapper theme-default">
+                <div id="nivo-slider" class="nivoSlider">
+                    <img src="images/image01.jpg" alt="" />
+                    <img src="images/image02.jpg" alt="" />
+                    <img src="images/image04.jpg" alt="" />
+                    <img src="images/image05.jpg" alt="" />
+                    <img src="images/healthcare.jpg" alt="" />
+                    <img src="images/Healthcare0.jpg" alt="" />
+                    <img src="images/healthcare1.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="login_form">
+            <table class="style2">
+                <tr>
+                    <td class="style4">
+                    </td>
+                    <td class="style10">
+                        LOGIN(DDO,HCO,TO ETC.)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style7">
+                        &nbsp;User Id
+                    </td>
+                    <td class="style3">
+                        <input name="txtUser_Id" type="text" id="txtUser_Id" Placeholder="Enter UserId" style="padding: 3px; margin-left: 6px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style11">
+                        Password
+                    </td>
+                    <td>
+                        <input name="txtPassword" type="password" id="txtPassword" Placeholder="Enter Password" style="margin-top: 2px; margin-left: 10px; padding: 3px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style8">
+                        Calculate
+                    </td>
+                    <td class="style9">
+                        
+                        <span id="ASPNET_Captcha1" style="display:inline-block;margin-left: 10px;"><b><font face="Verdana"><img alt = 'Captcha' src = '/Image.ashx?key=8dperQzP6L42aV8T6yTbGGPaXpv9HpnbWn2mpftojl0%3d&color=%233939d2' align = 'Middle' /><input type = 'hidden' name = 'ASPNET_Captcha1_Expression' value = 'zkYH3PMMh/gotLIP4tJ/xA==' /></font></b></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style11" style="margin-top: 30px">
+                        Validation
+                    </td>
+                    <td>
+                        <input name="txtcaptcha" type="password" id="txtcaptcha" Autocomplete="Off" Placeholder="Enter Result" style="margin-left: 10px;" />
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style5" align="center" colspan="2">
+                        <input type="submit" name="Button1" value="OK" onclick="return hashing();" id="Button1" style="text-align: center; margin-left: 30px;
+                            margin-top: 10px" />
+                        <input type="submit" name="Button2" value="CANCEL" id="Button2" style="text-align: center" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="margin-top: 10px; padding-top: 5px; padding-left: 30px;">
+                        <a id="forget_pass" href="javascript:__doPostBack(&#39;forget_pass&#39;,&#39;&#39;)"><b><a id="modaltrigger3" href="#loginmodal3">Forgot Password?</a></b></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="float: right; margin-top: 5px; margin-right: 40px">
+            <table>
+                <td>
+                    <a target="_blank" href="All guideline page/all_guidelines.aspx">
+                        <img src="images/allguideline.gif" />
+                    </a>
+                </td>
+            </table>
+        </div>
+        <div id="news_head">
+            News & Events
+        </div>
+        <div id="news">
+            <marquee height="307px" width="100%" onmouseover="this.setAttribute('scrollamount', 0, 0);"
+                onmouseout="this.setAttribute('scrollamount', 3, 0);" direction="UP" scrolldelay="100"
+                scrollamount="3">
+                                                                                <table>
+                                                                              
+                                                                                <tr>
+                                                                                <td>
+                                                                                <div>
+	<table cellspacing="0" cellpadding="2" align="Left" itemStyle-HorizontalAlign="Left" id="gvLocations" height="200" width="100%">
+		<tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_0">25-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_0" title="25-F(MED)WB.pdf" href="Writereaddata/25-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_1">26-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_1" title="26-F(MED)WB.pdf" href="Writereaddata/26-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_2">17-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_2" title="17-F(MED)WB.pdf" href="Writereaddata/17-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_3">10-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_3" title="10-F(MED)WB.pdf" href="Writereaddata/10-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_4">08-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_4" title="08-F(MED)WB.pdf" href="Writereaddata/08-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_5">05-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_5" title="05-F(MED).pdf" href="Writereaddata/05-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_6">1064-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_6" title="1064-F(MED)WB.pdf" href="Writereaddata/1064-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_7">1018-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_7" title="1018-F(MED)WB.pdf" href="Writereaddata/1018-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_8">953-F(MED)WB Dt 3110201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_8" title="953-F(MED)WB Dt 31102017.pdf" href="Writereaddata/953-F(MED)WB%20Dt%2031102017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_9">914-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_9" title="914-F(MED)WB.pdf" href="Writereaddata/914-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_10">890-F(MED) WB Dt 22.09......</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_10" title="890-F(MED) WB Dt 22.09.17.pdf" href="Writereaddata/890-F(MED)%20WB%20Dt%2022.09.17.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_11">768-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_11" title="768-F(MED).pdf" href="Writereaddata/768-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_12">718-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_12" title="718-F(MED).pdf" href="Writereaddata/718-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_13">724-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_13" title="724-F(MED)WB.pdf" href="Writereaddata/724-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_14">617-F(MED)WB Dt 06.07.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_14" title="617-F(MED)WB Dt 06.07.2017.pdf" href="Writereaddata/617-F(MED)WB%20Dt%2006.07.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_15">528-F(MED)WB_DT-07.06.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_15" title="528-F(MED)WB_DT-07.06.2017.pdf" href="Writereaddata/528-F(MED)WB_DT-07.06.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_16">502-F(MED)WB Dt 01.06.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_16" title="502-F(MED)WB Dt 01.06.2017.pdf" href="Writereaddata/502-F(MED)WB%20Dt%2001.06.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_17">375-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_17" title="375-F(MED)WB.pdf" href="Writereaddata/375-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_18">361-F(MED)WB Dt 18.04.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_18" title="361-F(MED)WB Dt 18.04.2017.pdf" href="Writereaddata/361-F(MED)WB%20Dt%2018.04.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_19">340-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_19" title="340-F(MED)WB.pdf" href="Writereaddata/340-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_20">317-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_20" title="317-F(MED)WB.pdf" href="Writereaddata/317-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_21">323-F(MED)WB Dt 10.04.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_21" title="323-F(MED)WB Dt 10.04.2017.pdf" href="Writereaddata/323-F(MED)WB%20Dt%2010.04.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_22">293-F(MED)-WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_22" title="293-F(MED)-WB.pdf" href="Writereaddata/293-F(MED)-WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_23">Extension of Validity o.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_23" title="Extension of Validity of Enrollment upto 30 th Sept 17.pdf" href="Writereaddata/Extension%20of%20Validity%20of%20Enrollment%20upto%2030%20th%20Sept%2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_24">233-F(MED) Dt 24.03.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_24" title="233-F(MED) Dt 24.03.2017.pdf" href="Writereaddata/233-F(MED)%20Dt%2024.03.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_25">1755  dt 23.03.2017.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_25" title="1755  dt 23.03.2017.pdf" href="Writereaddata/1755%20%20dt%2023.03.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_26">196-F(MED)-WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_26" title="196-F(MED)-WB.pdf" href="Writereaddata/196-F(MED)-WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_27">171-F(MED)WB DT 09.03.2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_27" title="171-F(MED)WB DT 09.03.2017.pdf" href="Writereaddata/171-F(MED)WB%20DT%2009.03.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_28">170-F(MED) Dt 07.03.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_28" title="170-F(MED) Dt 07.03.2017.pdf" href="Writereaddata/170-F(MED)%20Dt%2007.03.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_29">157-F(MED) Dt 01.03.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_29" title="157-F(MED) Dt 01.03.2017.pdf" href="Writereaddata/157-F(MED)%20Dt%2001.03.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_30">142-F(MED) Dt 15.02.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_30" title="142-F(MED) Dt 15.02.2017.pdf" href="Writereaddata/142-F(MED)%20Dt%2015.02.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_31">MOA dt 141-F(MED) dt 15.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_31" title="MOA dt 141-F(MED) dt 15.02.17.pdf" href="Writereaddata/MOA%20dt%20141-F(MED)%20dt%2015.02.17.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_32">Quotation for SSL 133-F.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_32" title="Quotation for SSL 133-F(MED) dt 14.02.2017.pdf" href="Writereaddata/Quotation%20for%20SSL%20133-F(MED)%20dt%2014.02.2017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_33">103-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_33" title="103-F(MED)WB.pdf" href="Writereaddata/103-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_34">1214-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_34" title="1214-F(MED)WB.pdf" href="Writereaddata/1214-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_35">1040-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_35" title="1040-F(MED)WB.pdf" href="Writereaddata/1040-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_36">1018-F[MED]WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_36" title="1018-F[MED]WB.pdf" href="Writereaddata/1018-F%5BMED%5DWB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_37">Extension of empanellme.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_37" title="Extension of empanellment dated 17 11 2016.pdf" href="Writereaddata/Extension%20of%20empanellment%20dated%2017%2011%202016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_38">Extension of empanellme.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_38" title="Extension of empanellment upto 31 03 2017.pdf" href="Writereaddata/Extension%20of%20empanellment%20upto%2031%2003%202017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_39">Rate Revision Committee.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_39" title="Rate Revision Committee.pdf" href="Writereaddata/Rate%20Revision%20Committee.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_40">Extension of empanellme.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_40" title="Extension of empanellment upto 31 10 2016  Dt 13 7 16.pdf" href="Writereaddata/Extension%20of%20empanellment%20upto%2031%2010%202016%20%20Dt%2013%207%2016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_41">483-F(Med) Dt 26.05.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_41" title="483-F(Med) Dt 26.05.2016.pdf" href="Writereaddata/483-F(Med)%20Dt%2026.05.2016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_42">Extension of empanellme.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_42" title="Extension of empanellment upto 31 10 2016.pdf" href="Writereaddata/Extension%20of%20empanellment%20upto%2031%2010%202016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_43">Extn of Enrollment upto.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_43" title="Extn of Enrollment upto 31032017.pdf" href="Writereaddata/Extn%20of%20Enrollment%20upto%2031032017.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_44">139-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_44" title="139-F(MED)WB.pdf" href="Writereaddata/139-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_45">111-F(MED)WBFA-MED-O-2M.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_45" title="111-F(MED)WBFA-MED-O-2M-783-15.pdf" href="Writereaddata/111-F(MED)WBFA-MED-O-2M-783-15.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_46">Empannelment 91.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_46" title="Empannelment 91.pdf" href="Writereaddata/Empannelment%2091.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_47">Extension of HCOs UPTO .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_47" title="Extension of HCOs UPTO 31 3 2016.pdf" href="Writereaddata/Extension%20of%20HCOs%20UPTO%2031%203%202016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_48">Extn. of 3 Nos of HCOs .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_48" title="Extn. of 3 Nos of HCOs upto 31 01 2016.pdf" href="Writereaddata/Extn.%20of%203%20Nos%20of%20HCOs%20upto%2031%2001%202016.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_49">1216-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_49" title="1216-F(MED).pdf" href="Writereaddata/1216-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_50">1215-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_50" title="1215-F(MED)WB.pdf" href="Writereaddata/1215-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_51">Extn of HCOs Upto 31 12.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_51" title="Extn of HCOs Upto 31 12 2015.pdf" href="Writereaddata/Extn%20of%20HCOs%20Upto%2031%2012%202015.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_52">Inclusion of 12th 13th .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_52" title="Inclusion of 12th 13th disease under Cl 7 (1).pdf" href="Writereaddata/Inclusion%20of%2012th%2013th%20disease%20under%20Cl%207%20(1).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_53">884 - F(Med)WB  Dt 31.0.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_53" title="884 - F(Med)WB  Dt 31.07.2015.pdf" href="Writereaddata/884%20-%20F(Med)WB%20%20Dt%2031.07.2015.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_54">811-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_54" title="811-F(MED)WB.pdf" href="Writereaddata/811-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_55">Extension of HCOs UPTO .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_55" title="Extension of HCOs UPTO 30 09 2015.pdf" href="Writereaddata/Extension%20of%20HCOs%20UPTO%2030%2009%202015.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_56">Asian Institute of Gast.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_56" title="Asian Institute of Gastroenterology  signed copy.pdf" href="Writereaddata/Asian%20Institute%20of%20Gastroenterology%20%20signed%20copy.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_57">Chairman WBHSA .signed .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_57" title="Chairman WBHSA .signed copy.pdf" href="Writereaddata/Chairman%20WBHSA%20.signed%20copy.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_58">219-F(Med) Dt 20.03.201.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_58" title="219-F(Med) Dt 20.03.2015.pdf" href="Writereaddata/219-F(Med)%20Dt%2020.03.2015.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_59">EXTENSION OF LAST DATE .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_59" title="EXTENSION OF LAST DATE OF ENROLLMENT IN CASHLESS.pdf" href="Writereaddata/EXTENSION%20OF%20LAST%20DATE%20OF%20ENROLLMENT%20IN%20CASHLESS.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_60">2400-F(Y).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_60" title="2400-F(Y).pdf" href="Writereaddata/2400-F(Y).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_61">No.194_Dt.16thMarch2015.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_61" title="No.194_Dt.16thMarch2015.pdf" href="Writereaddata/No.194_Dt.16thMarch2015.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_62">176-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_62" title="176-F(MED)WB.pdf" href="Writereaddata/176-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_63">92-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_63" title="92-F(MED)WB.pdf" href="Writereaddata/92-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_64">91-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_64" title="91-F(MED)WB.pdf" href="Writereaddata/91-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_65">Notification Renwal  Em.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_65" title="Notification Renwal  Empanelment.pdf" href="Writereaddata/Notification%20Renwal%20%20Empanelment.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_66">01-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_66" title="01-F(MED)WB.pdf" href="Writereaddata/01-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_67">5114-F(MED)WB.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_67" title="5114-F(MED)WB.pdf" href="Writereaddata/5114-F(MED)WB.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_68">5630-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_68" title="5630-F(MED).pdf" href="Writereaddata/5630-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_69">Hands on Software Train.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_69" title="Hands on Software Training.pdf" href="Writereaddata/Hands%20on%20Software%20Training.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_70">5560-F(Med).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_70" title="5560-F(Med).pdf" href="Writereaddata/5560-F(Med).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_71">Submission of bill at M.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_71" title="Submission of bill at Med Cell .pdf" href="Writereaddata/Submission%20of%20bill%20at%20Med%20Cell%20.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_72">ADVERTISEMENT OF Govern.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_72" title="ADVERTISEMENT OF Government of West Bengal FOR CASHLESS  TREATMENT.pdf" href="Writereaddata/ADVERTISEMENT%20OF%20Government%20of%20West%20Bengal%20FOR%20CASHLESS%20%20TREATMENT.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_73">Letter of Finance Secre.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_73" title="Letter of Finance Secretary regarding implementation of Cashless Scheme.pdf" href="Writereaddata/Letter%20of%20Finance%20Secretary%20regarding%20implementation%20of%20Cashless%20Scheme.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_74">4979-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_74" title="4979-F(MED).pdf" href="Writereaddata/4979-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_75">HCO agreement (1).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_75" title="HCO agreement (1).pdf" href="Writereaddata/HCO%20agreement%20(1).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_76">Notification reg. Cashl.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_76" title="Notification reg. Cashless Treatment Facility to the employees &amp; pensioners.pdf" href="Writereaddata/Notification%20reg.%20Cashless%20Treatment%20Facility%20to%20the%20employees%20&amp;%20pensioners.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_77">Hospital list update on.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_77" title="Hospital list update on 13-08-14.pdf" href="Writereaddata/Hospital%20list%20update%20on%2013-08-14.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_78">4201-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_78" title="4201-F(MED).pdf" href="Writereaddata/4201-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_79">8576-F.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_79" title="8576-F.pdf" href="Writereaddata/8576-F.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_80">Revised Rate List Sep 2.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_80" title="Revised Rate List Sep 2013.pdf" href="Writereaddata/Revised%20Rate%20List%20Sep%202013.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_81">Med 7119-F 05Sep2013.pd.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_81" title="Med 7119-F 05Sep2013.pdf" href="Writereaddata/Med%207119-F%2005Sep2013.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_82">3733-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_82" title="3733-F(MED).pdf" href="Writereaddata/3733-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_83">Notification regarding .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_83" title="Notification regarding Digital Hearing Aid.pdf" href="Writereaddata/Notification%20regarding%20Digital%20Hearing%20Aid.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_84">Notification regarding .....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_84" title="Notification regarding treatment at Tata Memorial hospital, Mumbai.pdf" href="Writereaddata/Notification%20regarding%20treatment%20at%20Tata%20Memorial%20hospital,%20Mumbai.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_85">Memorandum 8 Apr 2013.p.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_85" title="Memorandum 8 Apr 2013.pdf" href="Writereaddata/Memorandum%208%20Apr%202013.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_86">Advance purchase of Med.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_86" title="Advance purchase of Medicine for 6 (six) months under WBHS 2008.pdf" href="Writereaddata/Advance%20purchase%20of%20Medicine%20for%206%20(six)%20months%20under%20WBHS%202008.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_87">2153-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_87" title="2153-F(MED).pdf" href="Writereaddata/2153-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_88">1934 F(MED) Revision of.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_88" title="1934 F(MED) Revision of Certain Rates WBHS  Dt 06.03.2013.pdf" href="Writereaddata/1934%20F(MED)%20Revision%20of%20Certain%20Rates%20WBHS%20%20Dt%2006.03.2013.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_89">Notification_for_e-paym.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_89" title="Notification_for_e-payment_no_10618_F(Y)_31-12-2012.pdf" href="Writereaddata/Notification_for_e-payment_no_10618_F(Y)_31-12-2012.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_90">9632-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_90" title="9632-F(MED).pdf" href="Writereaddata/9632-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_91">9496-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_91" title="9496-F(MED).pdf" href="Writereaddata/9496-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_92">201210311404.pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_92" title="201210311404.pdf" href="Writereaddata/201210311404.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_93">6503-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_93" title="6503-F(MED).pdf" href="Writereaddata/6503-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_94">G.O. No. 11254 (Clarifi.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_94" title="G.O. No. 11254 (Clarifications).pdf" href="Writereaddata/G.O.%20No.%2011254%20(Clarifications).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_95">11253(80)-F(MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_95" title="11253(80)-F(MED).pdf" href="Writereaddata/11253(80)-F(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr><tr align="left">
+			<td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        <span id="gvLocations_lb_ttl_96">8435-F (MED).pdf.....</span>
+                                    </b></font></td><td><font face="verdana" color="#3B9ADC" size="1"><b>
+                                        
+                                            <a id="gvLocations_down_96" title="8435-F (MED).pdf" href="Writereaddata/8435-F%20(MED).pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PCV_Technical-Report-Icon.png" Width="25px" Height="25px" /></a>
+                                            
+                                    </b></font></td>
+		</tr>
+	</table>
+</div>
+                                                                                </td>
+                                                                                
+                                                                                </tr>
+                                                                                
+                                                                            
+                                                                                    </table></marquee>
+        </div>
+        <div class="note1">
+            <div class="">
+                <p style="text-align: left; color: #3939d2; padding-top: 10px; font-weight: bold;
+                    font-family: Garamond; margin-left: 16px; font-size: 14pt;">
+                    Welcome to "West Bengal Health Scheme"</p>
+            </div>
+            <div class="note_1">
+                <p style="text-align: center; color: Red; padding-top: -6px; font-weight: bold; font-family: Garamond;
+                    margin-left: 16px; font-size: 11pt;">
+                    <img style="" src="images/imp_note.gif" /></p>
+                <div class="" style="overflow: hidden; width: 100%; padding-top: 2px;">
+                    <marquee direction="up" scrollamount="1" height="170px" onmouseover="this.stop();"
+                        onmouseout="this.start();"><p style="color: #3939d2; font-family: Garamond; font-size:10pt; font-weight: bold;
+                                 width:480px; padding-left:10px;" >
+                                 
+                                 <b style="color:Red; font-size:12pt;">1.</b> AFTER SUCCESSFUL LOGIN STATE GOVERNMENT PENSIONERS ARE REQUESTED TO UPLOAD PHOTO,SIGNATURE AND BLOOD GROUP FOR RESPECTIVE BENEFICIARY. <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">2.</b> STATE GOVERNMENT PENSIONERS ARE REQUESTED TO CREATE PENSIONER LOGIN ID & PASSWORD IMMEDIATELY FROM EMP/PEN LOGIN MENU. <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">3.</b> ONLINE ENROLMENT MANDATORY FOR SETTLEMENT OF REIMBURSEMENT CLAIM ON AND AFTER 01.04.2017 VIDE FD NOTIFICATION NO. 1018-F[MED]WB DATED 25/11/2016 <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">4.</b> OPERATOR LOGIN IS NOW AVAILABLE, ALL DDOS ARE REQUESTED TO CREATE OPERATOR LOGIN. <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">5.</b> ALL DDOS ARE REQUESTED TO  UPDATE EMPLOYEE NO.(HRMS ID) IN HEALTH PORTAL FROM THEIR LOGIN ID. <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">6.</b> EMPLOYEES ARE REQUESTED TO CREATE EMPLOYEE LOGIN ID & PASSWORD IMMEDIATELY FROM EMP/PEN LOGIN MENU. <img src="images/new-animate.gif" /> <br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">7.</b> AFTER SUCCESSFUL LOGIN EMPLOYEES ARE REQUESTED TO UPLOAD PHOTO,SIGNATURE AND BLOOD GROUP FOR RESPECTIVE BENEFICIARY. <img src="images/new-animate.gif" /><br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">8.</b> BENEFICIARY BLOCKING OPTION IS AVAILABLE IN DDOS LOGIN. <img src="images/new-animate.gif" />  <br /><br /> 
+                                 <b style="color:Red; font-size:12pt;">9.</b> TREASURY/PAO CAN RESET PASSWORD OF DDO LOGIN ON THE BASIS OF REQUEST AS RECEIVED  FROM E-MAIL OR HARD COPY.<br /><br />
+                                 <b style="color:Red; font-size:12pt;">10.</b> ALL DDOS CAN NOW UPLOAD PHOTO, SIGNATURE AND BLOOD GROUP FROM THEIR LOGIN. <img src="images/new-animate.gif" />                            </p></marquee>
+                </div>
+            </div>
+        </div>
+        <img style="width: 170px; height: 40px; margin-top: 38px; margin-left: 800px;" src="images/COMING_SOON.gif" />
+        <div class="calender">
+            <div id="etdr_yellow">
+                <div class="pin">
+                    <img src="images/postit_pin.png" align="center"></div>
+                <div class="postpad_animate">
+                    <div class="postpad">
+                        <div class="postpad_container" style="overflow: hidden; width: 100%; padding-top: 25px;">
+                            <marquee direction="up" scrollamount="1" height="150px" onmouseover="this.stop();"
+                                onmouseout="this.start();"><p style="color: #3D4C3D; font-family: Verdana; font-size:7pt; font-weight: bold;
+                                margin-top: 10px;" >
+                                1. ONLINE WBHS REIMBURSEMENT.
+                               
+                            </p></marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="addver">
+            GOVT. PENSIONER ALREADY COMPLETED CASHLESS ONLINE ENROLMENT(wbhealthscheme.gov.in)
+            as GOVT EMPLOYEE NEED NOT APPLY AFRESH FOR ONLINE ENROLMENT AS PENSIONER. CONCERNED
+            DDO WILL CONVERT RETIRED GOVT. EMPLOYEE AS PENSIONER FROM THE OPTION GIVEN IN DDOs
+            LOGIN.</p>
+        <div style="float: right; margin-top: -100px; margin-right: 5px">
+            <table>
+                <td style="border: 1px solid">
+                    <a target="_blank" href="http://www.wbifms.gov.in/">
+                        <img src="images/IFMS_new.png" /></a>
+                </td>
+            </table>
+        </div>
+        
+        <div class="lable">
+            <table class="myinput">
+                <tr>
+                    <td align="left">
+                        <b style="font-family: verdana; font-size: small;">NO. OF USERS ONLINE:</b>
+                    </td>
+                    <td style="color: Red; font-family: verdana; font-size: small; font-weight: bold;">
+                         40
+                    </td>
+                </tr>
+               
+            </table>
+        </div>
+        <div style="float: right; margin-top: -50px; margin-right: 4px">
+            <table>
+                <td>
+                    <a target="_blank" href="http://india.gov.in/">
+                        <img src="images/India_Gov_Banner.jpg" /></a>
+                </td>
+            </table>
+        </div>
+        <div class="notice2">
+            <h1>
+                Order :No. 1018-F(MED)WB
+                <img src="images/new-animate.gif" /></h1>
+            <br />
+            <p style="font-family: Verdana; font-weight: bold; font-size: 9pt; color: #3b9adc">
+                Government Employees / Pensioners may avail reimbursement treatment facility on and after 01.04.2017 with old manual WBHS, 2008 card in the HCOs but their all types of reimbursement treatment claim bill will be processed from Head of Office / DDO end after completion of Online Enrolment and issuance of Certificate of Enrolment from respective DDO. Online Certificate for Enrolment for settlement of reimbursement claim under the said scheme on and after 01.04.2017 will be mandatory.</p>
+            </br> <a target="_blank" href="Writereaddata/1018-F[MED]WB.pdf">««Read
+                More»» </a>
+        </div>
+        <div class="notice3">
+            
+        </div>
+        <div style="float: right; margin-top: -225px; margin-right: 5px">
+            <table>
+                <td style="border: 1px solid">
+                    <a target="_blank" href="http://www.banglarmukh.gov.in/">
+                        <img src="images/banglarmukh.jpg" /></a>
+                </td>
+            </table>
+        </div>
+        <div style="float: right; margin-top: -145px; margin-right: 5px">
+            <table>
+                <td>
+                    <a target="_blank" href="http://www.wbfin.nic.in/cfm/page/login.aspx">
+                        <img src="images/wfts1.gif" /></a>
+                </td>
+            </table>
+        </div>
+        <div class="fin_dept">
+            <a target="_blank" href="http://www.wbfin.nic.in/">
+                <img src="images/fin_dept.jpg"></a>
+        </div>
+        <div class="wbhealth">
+            <a target="_blank" href="http://www.wbhealth.gov.in/">
+                <img src="images/wbhealth.jpg"></a>
+        </div>
+        <div>
+            <table width="980px" style="background-color: #3b9adc; margin-left: 10px; margin-top: 10px;">
+                <tr>
+                    <td align="left" style="width: 300px; font-weight: bold; background-color: #3B9ADC;
+                        font-family: Verdana; color: #FFFFFF; font-size: small; padding-left: 10px;">
+                        &nbsp;&nbsp; VISITOR COUNT: <span id="label2" style="color: #FFFFFF">
+                        6928
+                        </span>
+                    </td>
+                    <td align="left" style="width: 300px; background-color: #3B9ADC; font-weight: bold;
+                        font-family: Verdana; color: #FFFFFF; font-size: small; padding-left: 10px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp; LAUNCHED ON: <span id="Span1" style="color: #FFFFFF;
+                            padding-left: 10px;">15/09/2014 </span>
+                    </td>
+                    <td align="left" style="width: 300px; font-weight: bold; background-color: #3B9ADC;
+                        font-family: Verdana; color: #FFFFFF; font-size: small; padding-left: 10px;">
+                        
+                   LAST UPDATED: <span id="Span2" style="color: #FFFFFF; padding-left: 5px;">11/15/2017 12:31:43 PM</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table width="980px" style="margin-left: 10px; background-color: #3b9adc; margin-bottom: 10px;">
+            </table>
+        </div>
+        <div class="footer">
+            <a target="_blank" href="http://www.nic.in/">
+                <img class="nic" src="images/nic_logo1.jpg" /></a> <a target="_blank" href="Writereaddata/SafetoHost Report-WBHealthScheme-v1.0-r.pdf">
+                    <img class="stqc" src="images/stqc_2.png" />
+                </a>
+            <p class="audit">
+                Audit done by</p>
+        </div>
+    </div>
+    <div id="loginmodal1" style="display:NONE;">
+        <div id="emp">
+	
+                <table id="tbl_emp" style="width: 100%;">
+		<tr id="tr_emp_head">
+			<td>
+                            <h1 id="pop_head">
+                                Employee Login</h1>
+                        </td>
+			<td align="right" valign="middle">
+                            <input type="image" name="btn_close_emp" id="btn_close_emp" src="images/close.png" />
+                        </td>
+		</tr>
+		<tr id="tr_emp_btn_sign_signup">
+			<td class="center1">
+                            <input type="submit" name="btn_optionlogin" value="Log In" id="btn_optionlogin" />
+                            
+                            <input type="submit" name="btn_sign_emp" value="CREATE A/C(FOR  NEW USER)" id="btn_sign_emp" />
+                        </td>
+		</tr>
+		<tr id="tr_forgot_link">
+			<td style="text-align: right; padding-left: 20px;">
+                            
+                            <a id="lbnpwd" href="javascript:__doPostBack(&#39;lbnpwd&#39;,&#39;&#39;)">Forgot Password?</a>
+                        </td>
+		</tr>
+		<tr id="tr1">
+			<td class="center1">
+                            &nbsp;
+                        </td>
+		</tr>
+		<tr id="tr3">
+			<td align="center" style="font-family: Verdana; font-size: small; color: Red; font-weight: bold" colspan="2">
+                            IF YOU HAVE VALID ENROLLMENT CERTIFICATE FROM wbhealthscheme.gov.in portal AND VALID
+                            EMPLOYEE NO(HRMS ID) IN YOUR PAY SLIP BUT YOU ARE UNABLE TO LOGIN OR SIGN UP HERE,
+                            PLEASE CONTACT TO YOUR CONCERNED DDO TO UPDATE THE EMPLOYEE NO(HRMS ID) IN THIS
+                            PORTAL.
+                        </td>
+		</tr>
+		<tr id="tr4">
+			<td align="center" style="font-family: Verdana; font-size: small; color: Red; font-weight: bold" colspan="2">
+                            FOR DETAILED GUIDELINE CLICK THE PDF ICON&nbsp;
+                            <a id="down" href="Writereaddata/GUIDE%20LINE%20FOR%20EMPLOYEE%20LOGIN.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PDF.GIF"  /></a>
+                        </td>
+		</tr>
+		<tr id="tr_emp_space">
+			<td style="text-align: right; padding-left: 20px;">
+                            &nbsp;
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            &nbsp;
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            &nbsp;
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            &nbsp;
+                        </td>
+		</tr>
+	</table>
+	
+            
+</div>
+    </div>
+    <div id="loginmodal2" style="display:none;">
+        <div id="pen">
+	
+                <table id="tbl_pen" style="width: 100%">
+                    <tr id="tr_pen_head">
+		<td colspan="2">
+                            <h1 id="pop_head">
+                                Pensioner Login</h1>
+                        </td>
+		<td align="right" valign="middle">
+                            <input type="image" name="btn_close_pen" id="btn_close_pen" src="images/close.png" />
+                        </td>
+	</tr>
+	
+                    
+                    
+                    <tr id="tr_pen_btn_sign_signup">
+		<td class="center1">
+                            <input type="submit" name="btn_optionlogin_pen" value="Log In" id="btn_optionlogin_pen" />
+                            
+                            <input type="submit" name="btn_sign_pen" value="CREATE A/C(FOR  NEW USER)" id="btn_sign_pen" />
+                        </td>
+	</tr>
+	
+                    
+                    <tr id="tr_forgot_link_pen">
+		<td style="text-align: right; padding-left: 20px;">
+                            
+                            <a id="LinkButton1_pen" href="javascript:__doPostBack(&#39;LinkButton1_pen&#39;,&#39;&#39;)">Forgot Password?</a>
+                        </td>
+	</tr>
+	
+                    
+                    
+                    <tr id="tr_pen_space">
+		<td style="text-align: right; padding-left: 20px;">
+                            &nbsp;
+                        </td>
+	</tr>
+	
+                    <tr id="tr_guide_pen">
+		<td align="center" style="font-family: Verdana; font-size: small; color: Red; font-weight: bold" colspan="2">
+                            FOR DETAILED GUIDELINE CLICK THE PDF ICON&nbsp;
+                            <a id="HyperLink1" href="Writereaddata/GUIDE%20LINE%20FOR%20PENSIONER%20LOGIN.pdf" target="_blank">
+                                            <img style ="border :none;" alt ="" src ="images/PDF.GIF"  /></a>
+                        </td>
+	</tr>
+	
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                </table>
+            
+</div>
+    </div>
+    <div id="loginmodal3" style="display:none;">
+        <div id="UpdatePanel1">
+	
+                <table id="Table3" style="width: 97%">
+                   
+                    <tr id="tr5">
+		<td>
+                            <h1 id="H3" style="padding-left: 20px; text-align:center;">
+                                <u>FORGOT PASSWORD</u></h1>
+                        </td>
+		<td align="right" valign="middle">
+                            <input type="image" name="ImageButton1" id="ImageButton1" src="images/close.png" />
+                        </td>
+	</tr>
+	
+                    </table>
+                     <table id="Table4" style="width: 100%">
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <label for="SELECT USER TYPE" id="Label43" style="font-size:14pt; font-weight:bold;">
+                                            SELECT USER TYPE :</label></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                        <td class="style12">
+                          
+                        </td>
+                        <td class="style12">
+                            <span id="RadioButtonList1" style="display:inline-block;"><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="1" /><label for="RadioButtonList1_0">HCO</label><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="2" /><label for="RadioButtonList1_1">DDO</label><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="3" /><label for="RadioButtonList1_2"> DDO OPERATOR</label><input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="4" /><label for="RadioButtonList1_3">OFFICIALS OF MEDICAL CELL</label><input id="RadioButtonList1_4" type="radio" name="RadioButtonList1" value="5" /><label for="RadioButtonList1_4">TREASURY</label><input id="RadioButtonList1_5" type="radio" name="RadioButtonList1" value="6" /><label for="RadioButtonList1_5">OTHERS</label></span>
+                        </td>
+                    </tr>
+                     <tr>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    
+                    
+                    
+                        
+                         </tr>
+                         <tr>
+                             <td>
+                                       </td>
+                             <td>
+                                 <label ID="Label44" for="SELECT USER TYPE" 
+                                     style="font-size:14pt; font-weight:bold;">
+                                 ENTER USER ID:
+                                 </label>
+                                 </td>
+                             <tr>
+                                 <td>
+                                 </td>
+                                 <td>
+                                     <input name="txt_user_id" type="text" id="txt_user_id" class=" mytxtbox" />
+                                 </td>
+                             </tr>
+                             
+                             
+                             <tr>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     &nbsp;</td>
+                             </tr>
+                             <tr>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                      <label for="SQRT QUES" id="Label46" style="color: Red;">
+                                            ONE TIME PASSWORD WILL BE SENT TO REGISTERED MAIL ID ALONG WITH USER ID.
+                                        </label></td>
+                             </tr>
+                             <tr>
+                                 <td>
+                                     &nbsp;</td>
+                                 <td>
+                                     &nbsp;</td>
+                             </tr>
+                             <tr>
+                                 <td align="center" colspan="2">
+                                     <input type="submit" name="btn_reset" value="RESET" id="btn_reset" class="btn_style" />
+                                     <input type="submit" name="btn_cncel" value="CANCEL" id="btn_cncel" class="btn_style" />
+                                 </td>
+                             </tr>
+                         </tr>
+                    
+                    
+                    
+                </table>
+            
+</div>
+    </div>
+    <div id="slideshow">
+        <img src="images/med1.jpg" alt="Slideshow Image 1" class="active" />
+        <img src="images/med2.jpg" alt="Slideshow Image 2" />
+        <img src="images/med3.jpg" alt="Slideshow Image 3" />
+        <img src="images/med4.jpg" alt="Slideshow Image 4" />
+        <img src="images/med5.jpg" alt="Slideshow Image 5" />
+        <img src="images/med6.jpg" alt="Slideshow Image 5" />
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.FilteredTextBoxBehavior, {"FilterMode":2,"InvalidChars":"`~!^{} ()[]\u0027+|=?\u0027;,:?/\\\u003c\u003e","id":"txtcaptcha_FilteredTextBoxExtender"}, null, null, $get("txtcaptcha"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

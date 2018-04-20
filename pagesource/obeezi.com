@@ -1,0 +1,2409 @@
+<!doctype html>
+<html lang="en-US">
+    <head >
+        <script>
+    var require = {
+        "baseUrl": "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US"
+    };
+</script>
+        <meta charset="utf-8"/>
+<meta name="description" content="The Most Trusted Online Mall in Nigeria where you'll find the Best Prices in Fashion, Wristwatches, Shoes, etc. Get Best Collection for Men &amp; Women Fashion Today!"/>
+<meta name="keywords" content="online shopping nigeria,online shopping in nigeria,nigeria online shopping,shop online in nigeria,nigeria online store,online store in nigeria,shop online nigeria,nigerian men fashion"/>
+<meta name="robots" content="INDEX,NOFOLLOW"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<title>Nigeria Online Fashion Mall - Clothing, Shoes, Wrist watches, Sunglasses &amp; More</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/mage/gallery/gallery.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Magento_Swatches/css/swatches.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Codazon_QuickShop/css/quickshop.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Codazon_Slideshow/css/owl.carousel.min.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Codazon_Slideshow/css/owl.theme.default.min.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Codazon_Slideshow/css/animate.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/mage/calendar.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Codazon_MegaMenu/css/font-awesome/font-awesome.min.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/styles-m.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Magenest_ShopByBrand/css/owl.carousel.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Magenest_ShopByBrand/css/style.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/MageWorx_SearchSuiteAutocomplete/css/searchsuiteautocomplete.css" />
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/styles-l.css" />
+<link  rel="stylesheet" type="text/css"  media="print" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/print.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/fontawesome/font-awesome.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/fontpeicon/pe-icon-7-stroke.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/css/obeezi/obeezi.css" />
+<link  rel="stylesheet" type="text/css"  ifconfig="sociallogin/general/is_enabled" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Mageplaza_SocialLogin/css/style.css" />
+<link  rel="stylesheet" type="text/css"  ifconfig="sociallogin/general/is_enabled" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Mageplaza_SocialLogin/css/bootstrap-grid.css" />
+<link  rel="stylesheet" type="text/css"  ifconfig="sociallogin/general/is_enabled" href="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Mageplaza_Core/css/magnific-popup.css" />
+<script  type="text/javascript"  src="https://www.obeezi.com/pub/static/_cache/merged/3f50b40969b0bb1d379db14cc1723c21.min.js"></script>
+<script  type="text/javascript"  src="https://static.criteo.net/js/ld/ld.js"></script>
+<link  rel="icon" type="image/x-icon" href="https://www.obeezi.com/pub/media/favicon/stores/1/obeezi-favicon.png" />
+<link  rel="shortcut icon" type="image/x-icon" href="https://www.obeezi.com/pub/media/favicon/stores/1/obeezi-favicon.png" />
+            <!--canonical link tag generated by Mageplaza_SEO-->
+    <link rel="canonical" href="https://www.obeezi.com/"/>
+<link href='https://fonts.googleapis.com/css?family=Poppins:200,200italic,300,300italic,400,400italic,500,500italic,600italic,600italic,700,700italic,800,800italic,900,900italic&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+<script type="text/javascript">
+	var ThemeOptions = {
+		box_wide: 0,
+		rtl_layout: 0,
+		sticky_header: 1		
+	}; 
+	if(navigator.userAgent.match(/iPad|iPhone|iPod|iPad Simulator|iPhone Simulator|iPod Simulator/i) !== null){
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			document.body.classList.add('iMenu');
+		});
+	}
+</script>
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/images/loader-2.gif"}}' class="cms-online-fashion-marketplace-fashion-shoes-wristwatshes-sunglasses-more cms-index-index page-layout-1column">
+        <style>
+    #social-login-popup .social-login-title {
+        background-color: #3399cc    }
+
+    #social-login-popup .social-login #bnt-social-login-authentication {
+        background-color: #3399cc;
+        border:#3399cc
+    }
+    #social-login-popup .forgot .primary button {
+        background-color: #3399cc;
+        border:#3399cc    }
+    #social-login-popup .create .primary button {
+        background-color: #3399cc;
+        border:#3399cc    }
+    </style>
+<script type="text/x-magento-init">
+{	"*":{
+		"Magento_Theme/js/fastest_bigmarket":{}
+	}
+}
+</script>    <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+                if (versionObj.version !== 'fb6b156297f1a9ffc4edda2f73ff767579bc7b0a') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: 'fb6b156297f1a9ffc4edda2f73ff767579bc7b0a'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/",
+                "domain": ".www.obeezi.com",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+    <noscript>
+        <div class="message global noscript">
+            <div class="content">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong>
+                    <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span>
+                </p>
+            </div>
+        </div>
+    </noscript>
+<!-- BEGIN GOOGLE ANALYTICS CODE -->
+<script>
+//<![CDATA[
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    
+ga('create', 'UA-56615938-1', 'auto');
+ga('send', 'pageview');
+    
+//]]>
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+<!-- Customizing Knowledge Graph by Mageplaza SEO-->
+<!--Social Profiles, Business information -->
+<!--Include Your Site Name in Search Results by Mageplaza SEO-->
+<div class="page-wrapper"><header class="page-header"><div class="panel wrapper"><div class="panel header"><div class="header-stores">
+</div><a class="action skip contentarea" href="#contentarea"><span>Skip to Content</span></a>
+<ul class="header links">        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span data-bind="text: new String('Welcome, %1!').replace('%1', customer().firstname)">
+            </span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span data-bind="html:'Right Mall, Right Place'"></span>
+            <!-- /ko -->
+        </li>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    <li class="link wishlist" data-bind="scope: 'wishlist'">
+    <a href="https://www.obeezi.com/wishlist/">Wishlist        <!-- ko if: wishlist().counter -->
+        <span data-bind="text: wishlist().counter" class="counter qty"></span>
+        <!-- /ko -->
+    </a>
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+<li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+    <a class="action compare no-display" title="Compare"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        Compare        <!-- ko if: compareProducts().count -->
+        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+         <!-- /ko -->
+    </a>
+</li>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+<li class="authorization-link switcher log-in" id="authorization-top-link"> 		<a style="display:none" class="log-in link" href="https://www.obeezi.com/customer/account/login/referer/aHR0cHM6Ly93d3cub2JlZXppLmNvbS8,/">
+        Sign In    </a>
+	<div class="actions dropdown options switcher-options">
+		<div class="action toggle switcher-trigger" id="authorization-trigger">
+			Sign In		</div>
+		<div style="display:none;" id="cdz-login-form-dropdown" class="cdz-login-form-dropdown dropdown switcher-dropdown"  data-mage-init='{"dropdownDialog":{
+					"appendTo":"#authorization-top-link > .options",
+					"triggerTarget":"#authorization-trigger",
+					"closeOnMouseLeave": false,
+					"triggerClass":"active",
+					"parentClass":"active",
+					"buttons":null}}'>
+			<div class="block block-customer-login">
+    <div class="block-content" >
+        <form class="form form-login"
+              action="https://www.obeezi.com/customer/account/loginPost/"
+              method="post"
+              id="login-form-mini"
+              data-mage-init='{"validation":{}}'>
+            <input name="form_key" type="hidden" value="Xb5fHlZNnNylNz4M" />            <fieldset class="fieldset login" data-hasrequired="* Required Fields">
+                <div class="field email required">
+                    <!--<label class="label" for="email"><span>Email</span></label>-->
+                    <div class="control">
+                        <input placeholder="Email" name="login[username]" value=""  autocomplete="off" id="email" type="email" class="input-text" title="Email" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <!--<label for="pass" class="label"><span>Password</span></label>-->
+                    <div class="control">
+                        <input placeholder="Password" name="login[password]" type="password"  autocomplete="off" class="input-text" id="pass" title="Password" data-validate="{required:true, 'validate-password':true}">
+                    </div>
+                </div>
+                                <div class="actions-toolbar">
+                    <div class="">
+						<button type="submit" class="action login primary" name="send" id="send2"><span>Login</span></button></div>
+						<!--<a class="action create primary" href="https://www.obeezi.com/customer/account/create/"><span>Sign up</span></a>-->
+					<div class="secondary">
+					<a class="action remind" href="https://www.obeezi.com/customer/account/forgotpassword/"><span>Forgot Your Password?</span></a>
+					</div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+		</div>
+	</div>
+	</li>
+<li><a href="https://www.obeezi.com/customer/account/create/" class="register-link" >Create an Account</a></li></ul></div></div><div class="header-wrapper-content sticky-menu"><div class="header content"><div class="row"><div class="col-sm-10 col-md-7"><div class="header-wrapper-left"><div class="logo-left"><style>
+  
+
+.create-account-checkbox.field.choice.col-mp.mp-12 {
+    display: none;
+}
+.cdz-best-seller-wrap.cdz-products.product-style08.box-product .field.qty.box-tocart {
+    display: none;
+}
+  
+  
+@media (min-width: 768px){
+.cdz-best-seller-wrap.cdz-products.product-style08.box-product {
+    height: 300px;
+}} 
+  
+  
+  @media only screen and (max-width: 767px){
+  .page-header .minicart-wrapper .action.showcart:before {
+     font-size: 36px;
+    font-family: 'Pe-icon-7-stroke';
+    speak: none;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 53px;
+    height: 53px;
+    line-height: 38px;
+
+  }}
+  
+  
+  @media only screen and (max-width: 767px){
+
+    .header-wrapper-bottom .header.content {
+    background: #fff;
+}}
+
+@media only screen and (max-width: 767px){
+.header.content {
+    background: #ffffff;
+}}
+  
+  
+  @media only screen and (max-width: 767px){
+.page-header .minicart-wrapper .action.showcart .counter.qty {
+    top: -7px;
+    left: 10px;
+    height: 22px;
+    line-height: 24px;
+    background: #ffc300;
+    color: #000;
+    font-size: 13px;
+    min-width: 22px;
+    position: relative;
+}}
+@media only screen and (max-width: 767px){
+.page-header .mobile-search-wrapper .mobile-search-content {
+    position: absolute;
+    right: 98px;
+    top: 20px;
+    z-index: 6;
+}
+}
+
+@media only screen and (max-width: 767px){
+bile-search-wrapper .mobile-search-content {
+    position: absolute;
+    right: 76px;
+    top: 15px;
+    z-index: 6;
+}}
+
+
+@media only screen and (max-width: 767px){
+.page-header .logo {
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    text-align: center;
+    max-width: 50%;
+    padding: 0 10px 0 50px;
+    margin: 0 0 10px;
+    min-height: 5px;
+    margin-left: 50px;
+    margin-top: -14px;
+}}
+
+
+@media only screen and (max-width: 767px){
+.nav-toggle {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    left: 22px;
+    position: absolute;
+    top: 23px;
+    z-index: 14;
+    width: 26px;
+    height: 18px;
+}}
+
+
+@media only screen and (max-width: 767px){
+.page-header .logo .small-logo {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 0px -4px;
+}}
+
+
+
+@media only screen and (max-width: 767px){
+.page-header .minicart-wrapper .action.showcart {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    z-index: 5;
+}}
+  
+  @media (min-width: 800px), print{
+.sticky-menu:not(.active) .search-wrapper .block-search .action.search {
+    background: #f3ae08 !important;
+    border-color: #ffc300 !important;
+    height: 38px !important;
+    width: 50px;
+    line-height: 35px;
+    border-radius: 2px !important;
+    margin-top: -1px !important;
+    margin-right: -6px !important;
+}}
+  
+
+.cart-footer .cart-qty {
+    background: #006bb4 !important;
+    border-color: #006bb4 !important;
+}
+
+
+#back-top {
+    background: #ffffff !important;
+    color: #006bb4 !important;
+    border-color: #006bb4 !important;
+}
+
+
+.sticky-menu:not(.active) .search-wrapper .block-search input[type="text"] {
+    /* border-width: 0; */
+    /* height: 35px; */
+    /* border: 1px solid #006bb4; */
+    border-width: 0;
+    height: 35px;
+}
+
+.modes-mode.active {
+    color: #fff;
+    background-color: #006bb4;
+    border-color: #006bb4;
+    border: 1px solid #006bb4;
+    border-width: 1px;
+}
+
+
+.modes-mode:before {
+    -webkit-font-smoothing: antialiased;
+    line-height: inherit;
+    color: #006bb4;
+    content: '\e60d';
+    font-family: 'luma-icons';
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+
+.modes-mode {
+    border: 1px solid #006bb4;
+}
+
+.product-buttons-inner .actions-secondary .action, .cdz-buttons-container .action, .addto-hover-container .action, .product-buttons-inner .table-comparison .action.towishlist {
+    color: #fff;
+    background-color: #006bb4;
+    border-color: #FFEB3B;
+}
+
+
+button {
+    background-color: #006bb4;
+    border-color: #FFEB3B;
+}
+
+
+.products-list .qs-button-icon .qs-button, .products-grid .qs-button-icon .qs-button {
+
+    background-color: #006bb4;
+    border-color: #FFEB3B;
+}
+
+
+
+.qs-button {
+    background-image: none;
+    background: #006bb4;
+}
+
+
+.products-list .cdz-buttons-container form, .products-grid .cdz-buttons-container form {
+    background: #006bb4;
+}
+
+  
+</style>
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5JR838R');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JR838R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '181543885639044', {
+em: 'insert_email_variable,'
+});
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=181543885639044&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = '3eLeLQLvnLXgLChBd';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = (d.location.protocol === 'https:' ? 'https:': 'http:')
+        + '//call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+
+
+
+
+<span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
+    <strong class="logo">
+        <img class="main-logo" src="https://www.obeezi.com/pub/media/logo/stores/1/obeezi.png"
+             alt="obeezi"
+             width="200"             height="58"        />		
+        <img class="small-logo" src="https://www.obeezi.com/pub/media/logo/stores/1/obeezi.png"
+             alt="obeezi"
+             width="200"             height="58"        />		
+    </strong>
+
+<script type="text/javascript">
+require(['jquery'],function($){      
+      var logoSrc = "https://www.obeezi.com/pub/media/logo/stores/1/obeezi.png";
+      var imageType = logoSrc.substr(-4);
+	var imageName = logoSrc.substr(0, logoSrc.length - 4);
+	imageName += "-small" + imageType;
+	$('.small-logo').attr('src',imageName);
+});
+</script>
+</div></div></div><div class="col-sm-8 col-md-10"><div class="header-wrapper-center"><div class="search-wrapper">
+	<div class="search-content block block-search" id="search-content">
+        <a class="search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>        
+		
+		<div class="search-form-container"  >
+			<form class="form minisearch" id="search_mini_form" action="https://www.obeezi.com/catalogsearch/result/" method="get">
+				<div class="field search">
+					<label class="label" for="search" data-role="minisearch-label">
+						<span>Search</span>
+					</label>
+					<div class="control">
+						<input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"https://www.obeezi.com/search/ajax/suggest/",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="q"
+                           value=""
+                           placeholder="Search entire store here..."
+                           class="input-text"
+						   onfocus="this.placeholder = ''" 
+						   onblur="this.placeholder = 'Search entire store here...'"
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+						<div id="search_autocomplete" class="search-autocomplete"></div>
+						
+<div data-bind="scope: 'searchsuiteautocomplete_form'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "searchsuiteautocomplete_form": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/autocomplete"
+                },
+                "searchsuiteautocompleteBindEvents": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/bindEvents",
+                    "config": {
+                        "searchFormSelector": "#search_mini_form",
+                        "searchButtonSelector": "button.search",
+                        "inputSelector": "#search, #mobile_search, .minisearch input[type=\"text\"]",
+                        "searchDelay": "500"
+                    }
+                },
+                "searchsuiteautocompleteDataProvider": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/dataProvider",
+                    "config": {
+                        "url": "https://www.obeezi.com/mageworx_searchsuiteautocomplete/ajax/index/"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>					</div>
+				</div>
+				<div class="actions">
+					<button type="submit"
+					title="Search"
+					class="action search primary">
+						<span>Search</span>
+					</button>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</div>
+<div class="mobile-search-wrapper">
+	<div class="mobile-search-content block block-search" id="mobile-search-content">
+        <a class="mobile-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>        
+		
+		<div class="mobile-search-form-container" data-mage-init='{"dropdownDialog":{
+            "appendTo":".mobile-search-wrapper",
+            "triggerEvent":"click",
+            "triggerTarget":".mobile-search-icon",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null}}' >
+			<form class="form minisearch" id="mobile_search_mini_form" action="https://www.obeezi.com/catalogsearch/result/" method="get">
+				<div class="field search">
+					<label class="label" for="search" data-role="minisearch-label">
+						<span>Search</span>
+					</label>
+					<div class="control">						
+						<input id="mobile_search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#mobile_search_mini_form",
+                                "url":"https://www.obeezi.com/search/ajax/suggest/",
+                                "destinationSelector":"#mobile_search_autocomplete"}
+                           }'
+                           type="text"
+                           name="q"
+                           value=""
+                           placeholder="Search entire store here..."
+                           class="input-text"
+						   onfocus="this.placeholder = ''" 
+						   onblur="this.placeholder = 'Search entire store here..."
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+						<div id="mobile_search_autocomplete" class="search-autocomplete"></div>
+											</div>
+				</div>
+				<div class="actions">
+					<button type="submit"
+					title="Search"
+					class="action search primary">
+						<span>Search</span>
+					</button>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</div>
+</div></div><div class="col-sm-6 col-md-7"><div class="header-wrapper-right">
+<div data-block="minicart" class="minicart-wrapper">
+    <a class="action showcart" href="https://www.obeezi.com/checkout/cart/"
+       data-bind="scope: 'minicart_content'">
+        <span class="text">My Cart</span>        
+        <span class="price-label" data-bind="html: getCartParam('subtotal')"><!-- ko text: getCartParam('subtotal') --><!-- /ko --></span>        
+        <!-- ko ifnot: getCartParam('subtotal') -->
+        <span class="price-label">        
+                <!-- ko i18n: '0.00 ' --><!-- /ko -->        
+        </span>
+            <!-- /ko -->
+        <span class="counter qty empty"
+              data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+            <span class="counter-number">
+             <!-- ko ifnot: getCartParam('summary_count') -->
+                <!-- ko i18n: '0 ' --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: getCartParam('summary_count') -->
+            	<!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+            <!-- /ko -->            	
+            </span>
+            <span class="counter-label">
+            <!-- ko if: getCartParam('summary_count') -->
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                <!-- ko i18n: 'items' --><!-- /ko -->
+            <!-- /ko -->
+            </span>
+        </span>
+    </a>
+            <div class="block block-minicart empty"
+             data-role="dropdownDialog"
+             data-mage-init='{"dropdownDialog":{
+                "appendTo":"[data-block=minicart]",
+                "triggerTarget":".showcart",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+                    </div>
+        <script>
+        window.checkout = {"shoppingCartUrl":"https:\/\/www.obeezi.com\/checkout\/cart\/","checkoutUrl":"https:\/\/www.obeezi.com\/onestepcheckout\/","updateItemQtyUrl":"https:\/\/www.obeezi.com\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"https:\/\/www.obeezi.com\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"https:\/\/www.obeezi.com\/","minicartMaxItemsVisible":5,"websiteId":"1","customerLoginUrl":"https:\/\/www.obeezi.com\/customer\/account\/login\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/www.obeezi.com\/captcha\/refresh\/","isRequired":false},"guest_checkout":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/www.obeezi.com\/captcha\/refresh\/","isRequired":false}}};
+    </script>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
+        "*": {
+            "Magento_Ui/js/block-loader": "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/images/loader-1.gif"
+        }
+    }
+    </script>
+</div>
+
+
+</div></div></div></div><div class="header-wrapper-bottom"><div class="header content"><div class="row"><div class="col-sm-6"><div class="header-bottom-left"><div class="cdz-main-menu left-navigation"><div class="widget block block-static-block">
+    <div class="cdz-main-menu left-navigation"><nav id="left-nav" class="navigation">
+<div class="menu-title">All Categories</div>
+
+
+
+<div class="cdz-menu cdz-vertical-menu  cdz-normal" id="menu-1-5aaceb2babcee" data-mage-init='{"megamenu":{"dropdownEffect":"normal","type":1}}'>
+<ul class="groupmenu">
+	    <li	 class="item level0 fixtop level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/fashion-by-obeezi"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/shirt.png"></i> <span>Clothings</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/CLASSIC.png" style="right:-50px; bottom:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-12" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="fashion_wears">FASHION WEARS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/shirts" >Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/polo-shirts">Polo Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/t-shirts" >T-Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/sweat-shirts">Sweat Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/suits" >Suits &amp; Blazers</a></li>
+<li class="item"><a href="https://www.obeezi.com/traditional-wears-2">Traditional Wears</a></li>
+<li class="item"><a href="https://www.obeezi.com/fabrics">Fabrics</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/trousers">TROUSERS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/jeans" >Jeans</a></li>
+<li class="item"><a href="https://www.obeezi.com/chinos" ">Chinos</a></li>
+<li class="item"><a href="https://www.obeezi.com/formal-trousers">Formal Trousers</a></li>
+<li class="item"><a href="https://www.obeezi.com/sweat-pants-joggers">Sweat Pants &amp; Joggers</a></li>
+<li class="item"><a href="https://www.obeezi.com/shorts" >Shorts</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/sports-outdoor">SPORT WEARS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/jersey">Men Jersey</a></li>
+<li class="item"><a href="https://www.obeezi.com/jersey-2" >Women Jersey</a></li>
+<li class="item"><a href="https://www.obeezi.com/track-suits" >Track Suit</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/shoes"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/female-flamenco-dancer-shoes.png"></i> <span>Shoes</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/SHOES_5.png" style="right:-80px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/causal-shoes">CASUAL SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/sneakers">Sneakers</a></li>
+<li class="item"><a href="https://www.obeezi.com/loafers-moccasins">Loafers &amp; Moccasins</a></li>
+<li class="item"><a href="https://www.obeezi.com/exotic-shoes">Exotic Shoes</a></li>
+<li class="item"><a href="https://www.obeezi.com/exotic-shoes">Casual Boots</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/formal-shoes">FORMAL SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/oxfords-lace-up">Oxford &amp; Lace-Up</a></li>
+<li class="item"><a href="https://www.obeezi.com/oxfords-lace-up">Brogues</a></li>
+<li class="item"><a href="https://www.obeezi.com/formal-boots">Formal Boots</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/slippers-sandals">SLIPPERS &amp; SANDALS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/slippers">Slippers</a></li>
+<li class="item"><a href=https://www.obeezi.com/"slippers">Sandals</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/watches"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/wristwatch.png"></i> <span>Watches</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/WATCH_1.png" style="right:-30px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" padding-right:100px;">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/men-watches" target="_self">MEN'S&nbsp;WATCH</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/watches/men-watches/analogue.html" target="_self">Men's&nbsp;Analogue&nbsp;watch</a></li>
+<li class="item"><a href="watches/men-watches/digital.html" target="_self">Men's&nbsp;Digital Watch</a></li>
+<li class="item"><a href="watches/men-watches/rubber-strap.html" target="_self">Men's&nbsp;Rubber Watch</a></li>
+<li class="item"><a href="watches/men-watches/men-leather-strap.html" target="_self">Men's Leather Watch</a></li>
+<li class="item"><a href="watches/men-watches/bracelet-strap.html" target="_self">Men's Bracelet Strap</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/women-watches">WOMEN WATCHES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rubber-strap">Rubber Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap">Leather Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap">Bracelet Strap</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/unisex-2">UNISEX</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rubber-strap-2">Rubber Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap-2">Leather Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/bracelet-strap-2">Bracelet Strap</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/fragrances"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/small-perfume-bottle.png"></i> <span>Fragrances</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/PEFUME_3.png" style="right:-30px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-9" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-12"><p class="groupdrop-title"><a href="https://www.obeezi.com/bracelet-strap-2">MEN'S COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/mens-perfume">Men's Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/mens-body-spray">Men's Body Spray</a></li>
+</ul>
+<p class="groupdrop-title"><a href="https://www.obeezi.com/celebrity-cologne">CELEBRITY COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/mens-celebrity-perfume">Men's Celebrity Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/ladies-celebrity-perfume">Ladies Celebrity Perfume</a></li>
+</ul></div>
+                        	<div class="col-sm-12"><p class="groupdrop-title"><a href="https://www.obeezi.com/fragances-ladies">WOMEN'S COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/ladies-perfume">Ladies Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/ladies-body-spray">Ladies Body Spray</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/sunglasses"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/sunglasses.png"></i> <span>Sunglasses</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/glass.png" style="right:-150px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" padding-bottom:93px;">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/square-sunglasses">SQUARE SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/wayfarers">Wayfarers</a></li>
+<li class="item"><a href="https://www.obeezi.com/butterfly-sunglasses">Butterfly Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/oversized-sunglasses">Oversized Sunglasses</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/oblong-sunglasses">OBLONG SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rimless-sunglasses">Rimless Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/cateye-sunglasses">Cateye Sunglasses</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/oval-sunglasses">OVAL SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/aviator-sunglasses">Aviator</a></li>
+<li class="item"><a href="https://www.obeezi.com/round-sunglasses">Round Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/club-master-style">Club Master Style</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/accessories"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/tie.png"></i> <span>Accessories</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <div class=" groupmenu-drop-content groupmenu-width-8" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-12"><p class="groupdrop-title">MEN'S ACCESSORIES</p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/belts-wallets"><span>Belts&nbsp;&amp; Wallets</span></a></li>
+<li class="item"><a href="https://www.obeezi.com/bags-caps-hats"><span>Caps &amp; Hats</span></a></li>
+<li class="item"><a href="https://www.obeezi.com/bracelets">Bracelets</a></li>
+<li class="item"><a href="https://www.obeezi.com/socks-underwear">Socks &amp; Underwears</a></li>
+<li class="item"><a href="https://www.obeezi.com/ties-cufflinks">Tie &amp; Cufflinks</a></li>
+</ul></div>
+                        	<div class="col-sm-12"><div class="groupdrop-banner"><a href="https://www.obeezi.com/accessories"><img src="https://www.obeezi.com/pub/media/wysiwyg/access_upload._1.jpg" alt="Accessories" width="221" height="290" /></a></div></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/women-fashion"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/dress.png"></i> <span>Women Fashion</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/woman_fash_1.png" style="left:0px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-15" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-clothing">WOMEN'S CLOTHING</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/womens-dresses">Dresses</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-tops" target="_self">Tops</a></li>
+<li class="item"><a href="https://www.obeezi.com/womans-skirts">Skirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-trousers">Trousers</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-underwears">Underwears</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-plus-sizes">Plus Sizes</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-shoes-flats-heels-and-wedges" target="_self">WOMEN'S SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/ballerinas-flats">Ballerinas &amp; Flats</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-heels">Heels</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-wedges">Wedges</a><a href="womens-heels" target="_self"></a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-sports-shoes">Sports Shoes</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-sandals-slippers">Slippers &amp; Sandals</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-accessories">WOMEN'S ACCESSORIES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/women-accessories-bags">Bags</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-jewellery">Jewellery</a></li>
+<li class="item"><a href="https://www.obeezi.com/purses-clutches">Purses &amp; Clutches</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-belt">Belts</a></li>
+<li class="item"><a href="https://www.obeezi.com/hat-scarves">Hat &amp; Scarves</a></li>
+<li class="item"><a href="https://www.obeezi.com/make-up">Make Up</a><a href="hat-scarves" target="_self"></a></li>
+<li class="item"><a href="https://www.obeezi.com/hair-and-hair-care">Hair and Hair Care</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0 obeezi-new-d level-top" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/newarrivals"><i class="menu-icon fa fa-star"></i> <span>NEW ARRIVALS</span></a>
+        		        
+	</li>	    <li	 class="item level0  level-top" >
+				
+        <a class="menu-link" href="newarrivals"><i class="menu-icon fa fa-flash"></i> <span>Hot Deals</span></a>
+        		        
+	</li></ul>
+</div>
+ </nav></div></div>
+</div></div></div><div class="col-sm-14 col-md-14"><div class="header-bottom-center"><div class="header-main-menu">    <div class="sections nav-sections">
+                <div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+                                            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                    <a class="nav-sections-item-switch" data-toggle="switch" href="#store.menu">Menu</a>
+                </div>
+                <div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content"><div class="menu-container"><div class="widget block block-static-block">
+    <div class="cdz-main-menu">
+
+
+<div class="cdz-menu cdz-horizontal-menu  cdz-normal" id="menu-2-5aaceb2bad017" data-mage-init='{"megamenu":{"dropdownEffect":"normal","type":0}}'>
+<ul class="groupmenu">
+	    <li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com//fashion-by-obeezi"> <span>Men</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <div class=" groupmenu-drop-content groupmenu-width-18" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="fashion-by-obeezi" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/MENS_CLOTH.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title"><a href="fashion-by-obeezi" target="_self">CLOTHINGS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="fashion-by-obeezi" target="_self">Shirts</a></li>
+<li class="item"><a href="polo-shirts" target="_self">Polo Shirt</a>s</li>
+<li class="item"><a href="t-shirts" target="_self">T-Shirts</a></li>
+<li class="item"><a href="jeans" target="_self">Jeans</a></li>
+<li class="item"><a href="sweat-pants-joggers" target="_self">Sweat Pants &amp; Joggers</a></li>
+<li class="item"><a href="suits" target="_self">Suits &amp; Blazers</a></li>
+<li class="item"><a href="traditional-wears-2" target="_self">Traditional Wears</a></li>
+<li class="item last"><a href="sports-outdoor" target="_self">Jerseys</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="shoes" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/sneakers.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title"><a href="shoes" target="_self">SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="sneakers" target="_self">Sneakers</a></li>
+<li class="item"><a href="loafers-moccasins" target="_self">Loafers &amp; Moccasins</a></li>
+<li class="item"><a href="oxfords-lace-up" target="_self">Oxford &amp; Lace-Up</a></li>
+<li class="item"><a href="brogues" target="_self">Brogues</a></li>
+<li class="item"><a href="formal-boots" target="_self">Formal Boots</a></li>
+<li class="item"><a href="exotic-shoes" target="_self">Exotic Shoes</a></li>
+<li class="item"><a href="exotic-shoes" target="_self">Casual Boots</a></li>
+<li class="item"><a href="slippers-sandals" target="_self">Slippers&nbsp;&amp; Sandals</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="sunglasses" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/men_acc.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title">MEN'S ACCESSORIES</p>
+<ul class="groupdrop-link">
+<li class="item"><a href="men-watches" target="_self">Watches</a></li>
+<li class="item"><a href="sunglasses" target="_self">S</a><a href="sunglasses" target="_self">unglasses</a></li>
+<li class="item"><a href="fragances" target="_self">Fragrances</a></li>
+<li class="item"><a href="belts-wallets" target="_self">Belts&nbsp;&amp; Wallets</a></li>
+<li class="item"><a href="socks-underwear" target="_self">Socks &amp; Underwears</a></li>
+<li class="item"><a href="ties-cufflinks" target="_self">Tie &amp; Cufflinks</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner"><a href="fashion-by-obeezi" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/mens.jpg" width="274" height="455" /></a></div></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/women-fashion"> <span>Women</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <div class=" groupmenu-drop-content groupmenu-width-18" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="#"><img src="https://www.obeezi.com/pub/media/wysiwyg/clothing.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title"><a href="womens-clothing" target="_self">WOMEN'S CLOTHING</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="womens-dresses" target="_self">Dresses</a></li>
+<li class="item"><a href="womens-tops" target="_self">Tops</a></li>
+<li class="item"><a href="womans-skirts" target="_self">Skirts</a></li>
+<li class="item"><a href="womens-trousers" target="_self">Trousers</a></li>
+<li class="item"><a href="women-underwears" target="_self">Underwears</a></li>
+<li class="item"><a href="womens-plus-sizes" target="_self">Plus Sizes</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="womens-shoes-flats-heels-and-wedges" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/SHOES.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title"><a href="womens-shoes-flats-heels-and-wedges" target="_self">WOMEN'S SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="ballerinas-flats" target="_self">Ballerinas &amp; Flats</a></li>
+<li class="item"><a href="womens-heels" target="_self">Heels</a></li>
+<li class="item"><a href="womens-wedges" target="_self">Wedges</a><a href="womens-heels" target="_self"></a></li>
+<li class="item"><a href="womens-sports-shoes" target="_self">Sports Shoes</a></li>
+<li class="item"><a href="women-sandals-slippers" target="_self">Slippers &amp; Sandals</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner space-s"><a href="womens-accessories" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/acessoriess.jpg" width="275" height="140" /></a></div>
+<p class="groupdrop-title"><a href="womens-accessories" target="_self">WOMEN'S ACCESSORIES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="women-watches" target="_self">Watches</a></li>
+<li class="item"><a href="women-jewellery" target="_self">Jewellery</a></li>
+<li class="item"><a href="purses-clutches" target="_self">Purses &amp; Clutches</a></li>
+<li class="item"><a href="hat-scarves" target="_self">Hat &amp; Scarves</a></li>
+<li class="item"><a href="sunglasses" target="_self">Sunglasses</a></li>
+<li class="item"><a href="fragances-ladies" target="_self">Fragrances</a></li>
+</ul></div>
+                        	<div class="col-sm-6"><div class="groupdrop-banner"><a href="women-fashion" target="_self"><img style="vertical-align: baseline;" src="https://www.obeezi.com/pub/media/wysiwyg/274.jpg" width="294" height="462" /></a></div></div>
+                        </div>
+                    </div>
+                        
+	</li></ul></ul>
+</div>
+</div></div>
+</div></div>
+                                            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                    <a class="nav-sections-item-switch" data-toggle="switch" href="#store.links">Account</a>
+                </div>
+                <div class="section-item-content nav-sections-item-content" id="store.links" data-role="content"><!-- Account links --></div>
+                                    </div>
+    </div>
+</div></div></div><div class="col-sm-4 col-md-4"><div class="header-bottom-right pull-right"><div class="widget block block-static-block">
+    <div class="header-call-us hidden-xs"><a href="tel:08093000006" target="_self">Call Us:08093000006</a></div></div>
+</div></div></div></div></div></div></header><main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+<div class="slideshow-wrapper"><div class="widget block block-static-block">
+    <div class="space-base">
+<div class="row">
+<div class="col-sm-6">
+<div class="cdz-main-menu left-navigation hidden-xs"><nav id="left-nav" class="navigation">
+
+
+<div class="cdz-menu cdz-vertical-menu  cdz-normal" id="menu-1-5aaceb2babcee" data-mage-init='{"megamenu":{"dropdownEffect":"normal","type":1}}'>
+<ul class="groupmenu">
+	    <li	 class="item level0 fixtop level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/fashion-by-obeezi"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/shirt.png"></i> <span>Clothings</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/CLASSIC.png" style="right:-50px; bottom:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-12" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="fashion_wears">FASHION WEARS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/shirts" >Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/polo-shirts">Polo Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/t-shirts" >T-Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/sweat-shirts">Sweat Shirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/suits" >Suits &amp; Blazers</a></li>
+<li class="item"><a href="https://www.obeezi.com/traditional-wears-2">Traditional Wears</a></li>
+<li class="item"><a href="https://www.obeezi.com/fabrics">Fabrics</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/trousers">TROUSERS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/jeans" >Jeans</a></li>
+<li class="item"><a href="https://www.obeezi.com/chinos" ">Chinos</a></li>
+<li class="item"><a href="https://www.obeezi.com/formal-trousers">Formal Trousers</a></li>
+<li class="item"><a href="https://www.obeezi.com/sweat-pants-joggers">Sweat Pants &amp; Joggers</a></li>
+<li class="item"><a href="https://www.obeezi.com/shorts" >Shorts</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/sports-outdoor">SPORT WEARS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/jersey">Men Jersey</a></li>
+<li class="item"><a href="https://www.obeezi.com/jersey-2" >Women Jersey</a></li>
+<li class="item"><a href="https://www.obeezi.com/track-suits" >Track Suit</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/shoes"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/female-flamenco-dancer-shoes.png"></i> <span>Shoes</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/SHOES_5.png" style="right:-80px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/causal-shoes">CASUAL SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/sneakers">Sneakers</a></li>
+<li class="item"><a href="https://www.obeezi.com/loafers-moccasins">Loafers &amp; Moccasins</a></li>
+<li class="item"><a href="https://www.obeezi.com/exotic-shoes">Exotic Shoes</a></li>
+<li class="item"><a href="https://www.obeezi.com/exotic-shoes">Casual Boots</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/formal-shoes">FORMAL SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/oxfords-lace-up">Oxford &amp; Lace-Up</a></li>
+<li class="item"><a href="https://www.obeezi.com/oxfords-lace-up">Brogues</a></li>
+<li class="item"><a href="https://www.obeezi.com/formal-boots">Formal Boots</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/slippers-sandals">SLIPPERS &amp; SANDALS</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/slippers">Slippers</a></li>
+<li class="item"><a href=https://www.obeezi.com/"slippers">Sandals</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/watches"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/wristwatch.png"></i> <span>Watches</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/WATCH_1.png" style="right:-30px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" padding-right:100px;">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/men-watches" target="_self">MEN'S&nbsp;WATCH</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/watches/men-watches/analogue.html" target="_self">Men's&nbsp;Analogue&nbsp;watch</a></li>
+<li class="item"><a href="watches/men-watches/digital.html" target="_self">Men's&nbsp;Digital Watch</a></li>
+<li class="item"><a href="watches/men-watches/rubber-strap.html" target="_self">Men's&nbsp;Rubber Watch</a></li>
+<li class="item"><a href="watches/men-watches/men-leather-strap.html" target="_self">Men's Leather Watch</a></li>
+<li class="item"><a href="watches/men-watches/bracelet-strap.html" target="_self">Men's Bracelet Strap</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/women-watches">WOMEN WATCHES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rubber-strap">Rubber Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap">Leather Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap">Bracelet Strap</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/unisex-2">UNISEX</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rubber-strap-2">Rubber Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/leather-strap-2">Leather Strap</a></li>
+<li class="item last"><a href="https://www.obeezi.com/bracelet-strap-2">Bracelet Strap</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/fragrances"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/small-perfume-bottle.png"></i> <span>Fragrances</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/PEFUME_3.png" style="right:-30px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-9" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-12"><p class="groupdrop-title"><a href="https://www.obeezi.com/bracelet-strap-2">MEN'S COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/mens-perfume">Men's Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/mens-body-spray">Men's Body Spray</a></li>
+</ul>
+<p class="groupdrop-title"><a href="https://www.obeezi.com/celebrity-cologne">CELEBRITY COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/mens-celebrity-perfume">Men's Celebrity Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/ladies-celebrity-perfume">Ladies Celebrity Perfume</a></li>
+</ul></div>
+                        	<div class="col-sm-12"><p class="groupdrop-title"><a href="https://www.obeezi.com/fragances-ladies">WOMEN'S COLOGNE</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/ladies-perfume">Ladies Perfume</a></li>
+<li class="item"><a href="https://www.obeezi.com/ladies-body-spray">Ladies Body Spray</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/sunglasses"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/sunglasses.png"></i> <span>Sunglasses</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/glass.png" style="right:-150px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-11" style=" padding-bottom:93px;">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/square-sunglasses">SQUARE SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/wayfarers">Wayfarers</a></li>
+<li class="item"><a href="https://www.obeezi.com/butterfly-sunglasses">Butterfly Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/oversized-sunglasses">Oversized Sunglasses</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/oblong-sunglasses">OBLONG SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/rimless-sunglasses">Rimless Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/cateye-sunglasses">Cateye Sunglasses</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/oval-sunglasses">OVAL SUNGLASSES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/aviator-sunglasses">Aviator</a></li>
+<li class="item"><a href="https://www.obeezi.com/round-sunglasses">Round Sunglasses</a></li>
+<li class="item"><a href="https://www.obeezi.com/club-master-style">Club Master Style</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/accessories"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/tie.png"></i> <span>Accessories</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <div class=" groupmenu-drop-content groupmenu-width-8" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-12"><p class="groupdrop-title">MEN'S ACCESSORIES</p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/belts-wallets"><span>Belts&nbsp;&amp; Wallets</span></a></li>
+<li class="item"><a href="https://www.obeezi.com/bags-caps-hats"><span>Caps &amp; Hats</span></a></li>
+<li class="item"><a href="https://www.obeezi.com/bracelets">Bracelets</a></li>
+<li class="item"><a href="https://www.obeezi.com/socks-underwear">Socks &amp; Underwears</a></li>
+<li class="item"><a href="https://www.obeezi.com/ties-cufflinks">Tie &amp; Cufflinks</a></li>
+</ul></div>
+                        	<div class="col-sm-12"><div class="groupdrop-banner"><a href="https://www.obeezi.com/accessories"><img src="https://www.obeezi.com/pub/media/wysiwyg/access_upload._1.jpg" alt="Accessories" width="221" height="290" /></a></div></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0  level-top parent" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/women-fashion"><i class="menu-icon img-icon"><img src="https://www.obeezi.com/pub/media/wysiwyg/icons/dress.png"></i> <span>Women Fashion</span></a>
+        		        
+		    <ul class="groupmenu-drop"><li	        class="item level1  text-content">
+                		        <img class="groupdrop-banner-pos" src="https://www.obeezi.com/pub/media/wysiwyg/woman_fash_1.png" style="left:0px; top:0px" />
+                <div class=" groupmenu-drop-content groupmenu-width-15" style=" ">
+        	        	<div class="row">
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-clothing">WOMEN'S CLOTHING</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/womens-dresses">Dresses</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-tops" target="_self">Tops</a></li>
+<li class="item"><a href="https://www.obeezi.com/womans-skirts">Skirts</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-trousers">Trousers</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-underwears">Underwears</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-plus-sizes">Plus Sizes</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-shoes-flats-heels-and-wedges" target="_self">WOMEN'S SHOES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/ballerinas-flats">Ballerinas &amp; Flats</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-heels">Heels</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-wedges">Wedges</a><a href="womens-heels" target="_self"></a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-sports-shoes">Sports Shoes</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-sandals-slippers">Slippers &amp; Sandals</a></li>
+</ul></div>
+                        	<div class="col-sm-8"><p class="groupdrop-title"><a href="https://www.obeezi.com/womens-accessories">WOMEN'S ACCESSORIES</a></p>
+<ul class="groupdrop-link">
+<li class="item"><a href="https://www.obeezi.com/women-accessories-bags">Bags</a></li>
+<li class="item"><a href="https://www.obeezi.com/women-jewellery">Jewellery</a></li>
+<li class="item"><a href="https://www.obeezi.com/purses-clutches">Purses &amp; Clutches</a></li>
+<li class="item"><a href="https://www.obeezi.com/womens-belt">Belts</a></li>
+<li class="item"><a href="https://www.obeezi.com/hat-scarves">Hat &amp; Scarves</a></li>
+<li class="item"><a href="https://www.obeezi.com/make-up">Make Up</a><a href="hat-scarves" target="_self"></a></li>
+<li class="item"><a href="https://www.obeezi.com/hair-and-hair-care">Hair and Hair Care</a></li>
+</ul></div>
+                        </div>
+                    </div>
+                        
+	</li></ul>	    </li><li	 class="item level0 obeezi-new-d level-top" >
+				
+        <a class="menu-link" href="https://www.obeezi.com/newarrivals"><i class="menu-icon fa fa-star"></i> <span>NEW ARRIVALS</span></a>
+        		        
+	</li>	    <li	 class="item level0  level-top" >
+				
+        <a class="menu-link" href="newarrivals"><i class="menu-icon fa fa-flash"></i> <span>Hot Deals</span></a>
+        		        
+	</li></ul>
+</div>
+</nav></div>
+</div>
+<div class="col-sm-18">
+<div class="row no-margin">
+<div class="col-sm-16 no-padding">
+<div class="slideshow-container"><div class="cdz-slideshow">        
+        <div class="slider-wrapper theme-default loading" style="min-height:462px">
+        	 <div class="slider-item f-image">
+                                                <a href="shoes">
+                                                    
+                            <img src="https://www.obeezi.com/pub/media/codazon/slideshow/cache/590x462/s/n/sneakerhome.png"                              
+                            alt="shoes" title="shoes" />                           
+                                                </a>
+                                                <div class="cdz-slideshow-description">                            
+                                <div class="cdz-owlcarousel-des">
+                                                                    </div>                            
+                        </div>
+            </div>
+            <div class="owl-carousel owl-theme b571091faa43f2f6d1629ea0e7ac87d6">
+                                
+                                        <div class="slider-item">
+                                                <a href="shoes">
+                                                                           
+                            <img 
+                             
+                             src='https://www.obeezi.com/pub/media/codazon/slideshow/cache/590x462/s/n/sneakerhome.png'
+                              
+                              alt="shoes" title="shoes" 
+                            
+                            />
+                           
+                                                </a>
+                                                <div class="cdz-slideshow-description">                            
+                                <div class=" cdz-owlcarousel-des">
+                                                                    </div>                            
+                        </div>
+                    </div>
+                                        
+                                
+                                        <div class="slider-item">
+                                                <a href="fashion-by-obeezi">
+                                                                           
+                            <img 
+                             
+                             src='https://www.obeezi.com/pub/media/codazon/slideshow/cache/590x462/h/o/home2.png'
+                              
+                              alt="fashion-by-obeezi" title="fashion-by-obeezi" 
+                            
+                            />
+                           
+                                                </a>
+                                                <div class="cdz-slideshow-description">                            
+                                <div class=" cdz-owlcarousel-des">
+                                                                    </div>                            
+                        </div>
+                    </div>
+                                        
+                                
+                                        <div class="slider-item">
+                                                <a href="watches">
+                                                                           
+                            <img 
+                             
+                             src='https://www.obeezi.com/pub/media/codazon/slideshow/cache/590x462/h/o/home4.png'
+                              
+                              alt="watches" title="watches" 
+                            
+                            />
+                           
+                                                </a>
+                                                <div class="cdz-slideshow-description">                            
+                                <div class=" cdz-owlcarousel-des">
+                                                                    </div>                            
+                        </div>
+                    </div>
+                                        
+                                
+                                        <div class="slider-item">
+                                                <a href="women-fashion">
+                                                                           
+                            <img 
+                             
+                             src='https://www.obeezi.com/pub/media/codazon/slideshow/cache/590x462/w/o/woman_homepage.png'
+                              
+                              alt="women-fashion" title="women-fashion" 
+                            
+                            />
+                           
+                                                </a>
+                                                <div class="cdz-slideshow-description">                            
+                                <div class=" cdz-owlcarousel-des">
+                                                                    </div>                            
+                        </div>
+                    </div>
+                                        
+                                
+            </div>
+                    </div>
+
+</div>    
+
+    <script type="text/javascript">
+    require(['jquery','owlSlider','domReady!'],function($){
+    	var owl = $('.b571091faa43f2f6d1629ea0e7ac87d6');    	
+    	if(owl.length){
+    		owl.on('initialized.owl.carousel', function(e) {	        	
+	        	var parentDiv = $(this).parent();		        	
+	        	if(parentDiv.hasClass('loading')) 
+	        	{
+	        		parentDiv.removeClass('loading');
+	        		parentDiv.removeAttr('style');
+	        	}        
+	        	var firstImage = parentDiv.find('div.f-image'); 
+	        	firstImage.fadeTo('fast',0);
+	        	firstImage.remove();
+	        	
+			});
+	        owl.owlCarousel({
+	            animateOut: "fadeOutRight",
+	            animateIn: "fadeInLeft",
+	            items: 1,
+	            loop: true,
+	            center: true,
+	            //rewind: false,
+	
+	            startPosition: 0,
+	            rtl: ThemeOptions.rtl_layout == 1 ? true : false,                                   
+	
+	            autoplay : true,
+	            
+	            autoplayHoverPause : true,
+	            autoplaySpeed: false,
+	            nav: false,
+	            dots: true,
+	            lazyLoad: false,
+	            URLhashListener: false,
+	                        
+	        });	        	     
+    	}
+    });           
+    </script>
+    </div>
+</div>
+<div class="col-sm-8 no-padding">
+<div class="banners-wrapper row hidden-xs">
+<div class="col-sm-24"><a href="fashion-by-obeezi" target="_self"> <img src="https://www.obeezi.com/pub/media/wysiwyg/smallhome1.png" alt="banner 1" width="295" height="231" /></a></div>
+<div class="col-sm-24"><a href="fashion-by-obeezi" target="_blank"><img src="https://www.obeezi.com/pub/media/wysiwyg/smallhome2.png" alt="jersey" width="295" height="231" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><div class="widget block block-static-block">
+    <div class="box-cate-style01 bkg-color03 product-style08">
+<div class="row">
+<div class="col-sm-24" style="top: 0px !important; position: relative;">
+<div class="row">
+<div class="col-sm-8">
+<div class="block-title">
+<p class="b-title h2" style="margin-left: 10px;"><span>DEAL OF THE DAY</span></p>
+</div>
+</div>
+<div class="col-sm-16">&nbsp;</div>
+</div>
+<div class="row">
+<div class="col-sm-24" style="top: 0px !important; position: relative;">
+<div class="box-cate-products">
+<div class="row no-margin">
+<div class="col-sm-6 col-md-5 no-padding  hidden-xs"><a href="shoes" target="_self"><img src="https://www.obeezi.com/pub/media/wysiwyg/smallban2.png" alt="Main Content Banner" width="205" height="282" /></a></div>
+<div class="col-sm-18 col-md-19 text-center cdz-best-seller-wrap cdz-products no-padding">
+<div class="box-products">
+<div class="cdz-best-seller-wrap cdz-products product-style08 box-product">
+<div class="row">&nbsp;</div>
+<div class="row">
+<div class="col-sm-24 text-center" style="position: relative; top: 0px !important; margin-bottom: -59px;"><div class="ajax_45bb40bd5e8a03be2960a337fa575904">
+    <div class="icon-loading"><span>Loading...<span></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+	".ajax_45bb40bd5e8a03be2960a337fa575904":{
+		"Codazon_ProductFilter/js/firstload":{
+			"ajaxUrl": "https://www.obeezi.com/productfilter/index/firstLoad/",
+			"currentUrl": "https://www.obeezi.com/",
+			"jsonData": {"is_ajax":1,"title":null,"display_type":"all_products","products_count":"40","order_by":"entity_id DESC","show":"thumb,name,review,price,addtocart,addto","thumb_width":"220","thumb_height":"220","filter_template":"custom","custom_template":"grid_slider_1.phtml","show_slider":"1","slider_item":"4","conditions_encoded":"a:4:[i:1;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Combine`;s:10:`aggregator`;s:3:`all`;s:5:`value`;s:1:`1`;s:9:`new_child`;s:0:``;]s:4:`1--1`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:25:`quantity_and_stock_status`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`1`;]s:4:`1--2`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:10:`visibility`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`4`;]s:4:`1--3`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:12:`category_ids`;s:8:`operator`;s:2:`==`;s:5:`value`;s:3:`110`;]]"}		}
+	}
+}
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</p></div>
+</div><div class="page messages"><div data-placeholder="messages"></div>
+<div data-bind="scope: 'messages'">
+    <div data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <div data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+</div><div class="columns"><div class="column main"><div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+    <script>
+        window.authenticationPopup = {"customerRegisterUrl":"https:\/\/www.obeezi.com\/customer\/account\/create\/","customerForgotPasswordUrl":"https:\/\/www.obeezi.com\/customer\/account\/forgotpassword\/","baseUrl":"https:\/\/www.obeezi.com\/"};
+    </script>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/images/loader-1.gif"
+            }
+        }
+    </script>
+</div>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","customer\/account\/logout":"*","customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/ajax\/login":["checkout-data","cart"],"*":["messages"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","osc-data"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart","checkout-data","osc-data"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data","osc-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","osc-data"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"review\/product\/post":["review"],"ajaxcartpro\/cart\/add":["cart"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"rest\/*\/v1\/carts\/*\/update-item":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/update-item":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/remove-item":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/remove-item":["cart","checkout-data"]},"clientSideSections":["checkout-data","osc-data"],"baseUrls":["https:\/\/www.obeezi.com\/"]}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"https:\/\/www.obeezi.com\/customer\/section\/load\/","cookieLifeTime":"3600","updateSessionUrl":"https:\/\/www.obeezi.com\/customer\/account\/updateSession\/"}}}</script>
+<input name="form_key" type="hidden" value="Xb5fHlZNnNylNz4M" /><script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"https:\/\/www.obeezi.com\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_online-fashion-marketplace-fashion-shoes-wristwatshes-sunglasses-more"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+<script type="text/x-magento-init">
+{
+	"[data-block='footer_minicart']": {
+		"Magento_Ui/js/core/app": {"types":[],"components":{"ajaxcart_content":{"component":"Codazon_AjaxCartPro\/js\/ajaxcart","config":{"template":"Codazon_AjaxCartPro\/ajaxcart\/content"},"children":{"added_item":{"component":"uiComponent","config":{"displayArea":"addedItemContainer","template":"Codazon_AjaxCartPro\/ajaxcart\/added_item"},"children":{"component":"uiComponent","config":{"template":"Codazon_AjaxCartPro\/ajaxcart\/added_item"}}},"cart_summary":{"component":"uiComponent","config":{"displayArea":"cartSummaryContainer","template":"Codazon_AjaxCartPro\/ajaxcart\/cart_summary"},"children":{"component":"uiComponent","config":{"template":"Codazon_AjaxCartPro\/ajaxcart\/cart_summary"}}},"crossell":{"component":"uiComponent","config":{"displayArea":"crossellContainer","template":"Codazon_AjaxCartPro\/ajaxcart\/crossell"},"children":{"component":"uiComponent","config":{"template":"Codazon_AjaxCartPro\/ajaxcart\/crossell"}}}}}}}	},
+	"*": {
+		"Magento_Ui/js/block-loader": "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/images/loader-1.gif"
+	}
+}
+</script><!--
+/**
+ * Mageplaza_SocialLogin extension
+ *                     NOTICE OF LICENSE
+ *
+ *                     This source file is subject to the MIT License
+ *                     that is bundled with this package in the file LICENSE.txt.
+ *                     It is also available through the world-wide-web at this URL:
+ *                     http://opensource.org/licenses/mit-license.php
+ *
+ *                     @category  Mageplaza
+ *                     @package   Mageplaza_SocialLogin
+ *                     @copyright Copyright (c) 2016
+ *                     @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+    <div id="social-login-popup" class="white-popup mfp-with-anim mfp-hide">
+        <div class="social-login block-container authentication">
+    <div class="social-login-title">
+        <h2 class="login-title">
+            Sign In        </h2>
+    </div>
+    <div class="block social-login-customer-authentication col-mg mg-7">
+        <div class="block-title">
+            <span id="block-customer-login-heading" role="heading" aria-level="2">Registered Customers</span>
+        </div>
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <form class="form-customer-login"
+                  id="social-form-login"
+                  data-mage-init='{"validation":{}}'>
+                <input name="form_key" type="hidden" value="Xb5fHlZNnNylNz4M" />                <fieldset class="fieldset login" data-hasrequired="* Required Fields">
+                    <div class="field email required">
+                        <label class="label" for="email"><span>Email</span></label>
+
+                        <div class="control">
+                            <input name="username"
+                                   value=""  autocomplete="off"                                   id="email" type="email" class="input-text" title="Email" data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                    <div class="field password required">
+                        <label for="pass" class="label"><span>Password</span></label>
+
+                        <div class="control">
+                            <input name="password"
+                                   type="password"  autocomplete="off"                                   class="input-text" id="pass" title="Password" data-validate="{required:true, 'validate-password':true}">
+                        </div>
+                    </div>
+                                                            <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="button" class="action login primary" id="bnt-social-login-authentication">
+                            <span>Login</span></button>
+                        </div>
+                        <div class="secondary"><a class="action remind" href="#"><span>Forgot Your Password?</span></a></div>
+                    </div>
+                    <div class="actions-toolbar">
+                        <div class="primary"><a class="action create" href="#"><span>Create New Account?</span></a></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </div>
+
+        <div class="social-login block-container create" style="display: none">
+    <div class="social-login-title">
+        <h2 class="create-account-title">
+            Create New Account        </h2>
+    </div>
+    <div class="block col-mg mg-12">
+        <div class="block-content">
+                                                <form class="form-customer-create"
+                  id="social-form-create" enctype="multipart/form-data"
+                  autocomplete="off">
+                <fieldset class="fieldset create info">
+                    <input type="hidden" name="success_url" value="">
+                    <input type="hidden" name="error_url" value="">
+                    
+
+            <div class="field field-name-firstname required">
+            <label class="label" for="firstname">
+                <span>First Name</span>
+            </label>
+
+            <div class="control">
+                <input placeholder="First Name" type="text" id="firstname"
+                       name="firstname"
+                       value=""
+                       title="First Name"
+                       class="input-text required-entry"   data-validate="{required:true}">
+            </div>
+        </div>
+            <div class="field field-name-lastname required">
+            <label class="label"  for="lastname">
+                <span>Last Name</span>
+            </label>
+
+            <div class="control">
+                <input placeholder="Last Name" type="text" id="lastname"
+                       name="lastname"
+                       value=""
+                       title="Last Name"
+                       class="input-text required-entry"   data-validate="{required:true}">
+            </div>
+        </div>
+    
+                        <div class="field required">
+                        <label for="email_address" class="label"><span>Email</span></label>
+
+                        <div class="control">
+                            <input type="email" name="email" id="email_address"
+                                   value=""
+                                   title="Email" class="input-text"
+                                   data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                                            <div class="field choice newsletter">
+                            <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1"
+                                   id="is_subscribed"                                   class="checkbox">
+                            <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
+                        </div>
+                                                                    
+                                                                <div class="field date field-dob">
+    <label class="label" for="dob"><span>Date of Birth</span></label>
+    <div class="control customer-dob">
+        <input type="text" name="dob" id="dob" value="" class="" /> <script type="text/javascript">
+            require(["jquery", "mage/calendar"], function($){
+                    $("#dob").calendar({
+                        showsTime: false,
+                        
+                        dateFormat: "M/d/yy",
+                        buttonImage: "https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/Magento_Theme/calendar.png",
+                        yearRange: "-120y:c+nn",
+                        buttonText: "Select Date", maxDate: "-1d", changeMonth: true, changeYear: true, showOn: "both"})
+            });
+            </script>            </div>
+</div>
+                    
+                                        
+                                                                <div class="field gender required">
+    <label class="label" for="gender"><span>Gender</span></label>
+    <div class="control">
+        <select id="gender" name="gender" title="Gender" class="validate-select" data-validate="{required:true}" >
+                                                    <option value="" selected="selected"></option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Not Specified</option>
+                    </select>
+    </div>
+</div>
+                                    </fieldset>
+                                <fieldset class="fieldset create account" data-hasrequired="* Required Fields">
+                    <div class="field password required">
+                        <label for="password" class="label"><span>Password</span></label>
+
+                        <div class="control">
+                            <input type="password" name="password" id="password-social" title="Password" class="input-text"
+                                   data-validate="{required:true, 'validate-password':true}" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="field confirmation required">
+                        <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+
+                        <div class="control">
+                            <input type="password" name="password_confirmation" title="Confirm Password" id="password-confirmation-social" class="input-text"
+                                   data-validate="{required:true, equalTo:'#password-social'}" autocomplete="off">
+                        </div>
+                    </div>
+                                                        </fieldset>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="button" class="action create primary" title="Create an Account"><span>Create an Account</span></button>
+                    </div>
+                    <div class="secondary">
+                        <a class="action back"
+                           href="#"><span>Back</span></a>
+                    </div>
+                </div>
+            </form>
+            <script>
+                require([
+                    'jquery',
+                    'mage/mage'
+                ], function ($) {
+
+                    var dataForm = $('#social-form-create');
+                    var ignore = 'input[id$="full"]';
+
+                    dataForm.mage('validation', {
+                                                errorPlacement: function (error, element) {
+                            if (element.prop('id').search('full') !== -1) {
+                                var dobElement = $(element).parents('.customer-dob'),
+                                    errorClass = error.prop('class');
+                                error.insertAfter(element.parent());
+                                dobElement.find('.validate-custom').addClass(errorClass)
+                                    .after('<div class="' + errorClass + '"></div>');
+                            }
+                            else {
+                                error.insertAfter(element);
+                            }
+                        },
+                        ignore: ':hidden:not(' + ignore + ')'
+                                            }).find('input:text').attr('autocomplete', 'off');
+
+                });
+            </script>
+                    </div>
+    </div>
+</div>
+        <div class="social-login block-container forgot" style="display:none">
+    <div class="social-login-title">
+        <h2 class="forgot-pass-title">
+            Forgot Password        </h2>
+    </div>
+    <div class="block col-mg mg-12">
+        <div class="block-content">
+            <form class="form-password-forget"
+                  id="social-form-password-forget"
+                  data-mage-init='{"validation":{}}'>
+                <fieldset class="fieldset" data-hasrequired="* Required Fields">
+                    <div class="field note">Please enter your email address below to receive a password reset link.</div>
+                    <div class="field email required">
+                        <label for="email_address" class="label"><span>Email</span></label>
+
+                        <div class="control">
+                            <input type="email" name="email" alt="email" id="email_address" class="input-text"
+                                   value=""
+                                   data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                                        
+                </fieldset>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="button" class="action send primary"><span>Submit</span></button>
+                    </div>
+                    <div class="secondary">
+                        <a class="action back" href="#"><span>Go back</span></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    </div>
+    <div style="clear: both"></div>
+    <script>
+        require(['Mageplaza_SocialLogin/js/sociallogin/form'], function (SocialLoginForm) {
+            var config = {
+                /*General*/
+                popup: '#social-login-popup',
+                popupEffect: 'mfp-move-from-top',
+                headerLink: '.header .links',
+                sectionLink: '.section-item-content .header.links',
+                ajaxLoading: '#social-login-popup .ajax-loading',
+                /*Login*/
+                loginFormContainer: '.social-login.authentication',
+                loginFormContent: '.social-login.authentication .block-content',
+                loginForm: '#social-form-login',
+                loginBtn: '#bnt-social-login-authentication',
+                forgotBtn: '#social-form-login .action.remind',
+                createBtn: '#social-form-login .action.create',
+                formLoginUrl: 'https://www.obeezi.com/sociallogin/popup/login/',
+                /*Forgot*/
+                forgotFormContainer: '.social-login.forgot',
+                forgotFormContent: '.social-login.forgot .block-content',
+                forgotForm: '#social-form-password-forget',
+                forgotSendBtn: '#social-form-password-forget .action.send',
+                forgotBackBtn: '#social-form-password-forget .action.back',
+                forgotFormUrl: 'https://www.obeezi.com/sociallogin/popup/forgot/',
+                /*Create*/
+                createFormContainer: '.social-login.create',
+                createFormContent: '.social-login.create .block-content',
+                createForm: '#social-form-create',
+                createAccBtn: '#social-form-create .action.create',
+                createBackBtn: '#social-form-create .action.back',
+                createFormUrl: 'https://www.obeezi.com/sociallogin/popup/create/',
+                /*Captcha*/
+                loginCaptchaImg: '.authentication .captcha-img',
+                createCaptchaImg: '.create .captcha-img',
+                forgotCaptchaImg: '.forgot .captcha-img'
+
+            };
+            new SocialLoginForm(config);
+        });
+        require(['jquery', 'mageplaza/core/jquery/popup'], function ($) {
+            var headerLink = $('.header .links');
+            if(headerLink.length) {
+                headerLink.magnificPopup({
+                    delegate: 'a.social-login',
+                    removalDelay: 500, //delay removal by X to allow out-animation
+                    callbacks: {
+                        beforeOpen: function () {
+                            this.st.mainClass = this.st.el.attr('data-effect');
+                        }
+                    },
+                    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+                });
+            }
+
+            var menuSection = $('.section-item-content');
+            if(menuSection.length) {
+                menuSection.magnificPopup({
+                    delegate: 'a.social-login',
+                    removalDelay: 500, //delay removal by X to allow out-animation
+                    callbacks: {
+                        beforeOpen: function () {
+                            this.st.mainClass = this.st.el.attr('data-effect');
+                        }
+                    },
+                    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+                });
+            }
+        });
+
+    </script>
+
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    <style type="text/css" xml="space"><!--
+    .col-sm-24.obeezi-ma {
+       padding: 19px;}
+
+.obeezi-effect:hover{
+           border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;}
+--></style>
+<div class="box-cate-style01 product-style08" style="margin-top: 30px;">
+<div class="row">
+<div class="col-sm-24">
+<div class="row">
+<div class="col-sm-8">
+<div class="block-title">
+<p class="b-title h2"><a href="fashion-by-obeezi" target="_self"><span style="color: #333399;">Men Wears</span></a></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-24">
+<div class="box-cate-products">
+<div class="row no-margin">
+<div class="col-sm-4 hidden-xs">
+<div class="col-sm-24 obeezi-ma"><a href="brand/ralph-lauren"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/RL.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/burberry" target="_self"> <img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/burberry.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/tommy-hilfiger" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/tommy.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/Lacoste" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/men_fashion/lac.png" alt="" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/mcm" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/mcm.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/balmain" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/balmain.jpg" width="121" height="40" /> </a></div>
+</div>
+<div class="col-sm-8 col-xs-10 hidden-xs"><a title="men's wear" href="fashion-wears" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/mf1.png" alt="Banner" width="400" height="485" /></a></div>
+<div class="box-products">
+<div class="col-sm-6 col-xs-12"><a href="sweat-pants-joggers" target="_blank"><img class="img-responsive obeezi-effect" style="margin-bottom: -3PX;" src="https://www.obeezi.com/pub/media/wysiwyg/m3.png" alt="joggers" width="294" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="polo-shirts" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/m4.png" alt="shirt" width="294" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="shirts" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/m2.png" alt="jersey" width="294" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="trousers" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/m1.png" alt="shirts" width="294" height="251" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    <style type="text/css" xml="space"><!--
+    .col-sm-24.obeezi-ma {
+       padding: 19px;}
+
+.obeezi-effect:hover{
+           border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;}
+--></style>
+<div class="box-cate-style01 bkg-color03 product-style08">
+<div class="row">
+<div class="col-sm-24">
+<div class="row">
+<div class="col-sm-8">
+<div class="block-title">
+<p class="b-title h2"><span style="color: #ee1910;"><a href="shoes" target="_self"><span style="color: #ee1910;">Shoes</span></a></span></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-24">
+<div class="box-cate-products">
+<div class="row no-margin">
+<div class="col-sm-4 hidden-xs">
+<div class="col-sm-24 obeezi-ma"><span style="color: #ee1910;"><a href="brand/adidas" target="_self"><span style="color: #ee1910;"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/men_fashion/adis.png" alt="" />&nbsp;</span></a></span></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/louis-vuitton" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/lv.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/balenciaga" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/balenciaga.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/christian-louboutin"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/louboutin.jpg" width="121" height="40" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/giuseppe-zanotti" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/zanotti.jpg" width="121" height="40" /> </a></div>
+</div>
+<div class="col-sm-8 col-xs-10 hidden-xs"><a href="shoes"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/FOOTWEAR.png" alt="Shoes" width="400" height="485" /></a></div>
+<div class="box-products">
+<div class="col-sm-6 col-xs-12"><a href="sneakers"><img class="img-responsive obeezi-effect" style="margin-bottom: -3PX;" src="https://www.obeezi.com/pub/media/wysiwyg/s1.png" alt="sneakers" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="sandals"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/s4.png" alt="shoes" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="shoes" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/s3.png" alt="shoes" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="slippers-sandals" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/s2.png" alt="loafers" width="290" height="251" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    <style type="text/css" xml="space"><!--
+    .col-sm-24.obeezi-ma {
+       padding: 19px;}
+
+.obeezi-effect:hover{
+           border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;}
+--></style>
+<div class="box-cate-style01 bkg-color02 product-style08" style="margin-top: 30px;">
+<div class="row">
+<div class="col-sm-24">
+<div class="row">
+<div class="col-sm-8">
+<div class="block-title">
+<p class="b-title h2"><span style="color: #339966;"><a href="fragrances" target="_self"><span style="color: #339966;">Fragrances</span></a></span></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-24">
+<div class="box-cate-products" style="border: 1px solid #118106; background: #118106;">
+<div class="row no-margin">
+<div class="col-sm-4 hidden-xs">
+<div class="col-sm-24 obeezi-ma"><span style="background-color: #ffffff;"><a href="brand/Paco-Rabanne" target="_self"><span style="background-color: #ffffff;"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/pacco_1.jpg" width="167" height="74" /> </span></a></span></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/hugo-boss" target="_self"> <img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/flagrances/hb.png" alt="" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/Yves-Saint-Laurent" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/YSL_1.jpg" width="167" height="74" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/D&amp;G" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/flagrances/dg.png" alt="" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/Calvin-Klein" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/flagrances/ck.png" alt="" /> </a></div>
+</div>
+<div class="col-sm-8 col-xs-10 hidden-xs"><a href="fragrances" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/frag1.png" alt="fragrances" width="400" height="485" /></a></div>
+<div class="box-products">
+<div class="col-sm-6 col-xs-12"><a href="mens-perfume" target="_blank"><img class="img-responsive obeezi-effect" style="margin-bottom: -3PX;" src="https://www.obeezi.com/pub/media/wysiwyg/p2.png" alt="Men" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="mens-body-spray" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/p.png" alt="body spray" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="ladies-perfume" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/p1.png" alt="pefumes" width="290" height="251" /></a></div>
+<div class="col-sm-6 col-xs-12"><a href="celebrity-cologne" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/p4.png" alt="celebrity" width="290" height="251" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="widget block block-static-block">
+    <style type="text/css" xml="space"><!--
+    .col-sm-24.obeezi-ma {
+       padding: 19px;}
+
+.obeezi-effect:hover{
+           border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;}
+--></style>
+<div class="box-cate-style01 bkg-color02 product-style08" style="margin-top: 30px;">
+<div class="row">
+<div class="col-sm-24">
+<div class="row">
+<div class="col-sm-8">
+<div class="block-title">
+<p class="b-title h2"><a href="accessories" target="_self"><span style="color: #000000;"> Accessories</span></a></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-24">
+<div class="box-cate-products" style="border: 1px solid  #000000; background: #000000; border-top: 2px solid #000000;">
+<div class="row no-margin">
+<div class="col-sm-4 hidden-xs">
+<div class="col-sm-24 obeezi-ma"><a href="brand/hermes" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/hermes.jpg" width="166" height="74" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/gucci" target="_self"> <img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/gucci.jpg" width="167" height="74" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/Philipp-Plien" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/phillipp_plien.jpg" width="167" height="74" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/salvatore-ferragamo" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/ferragamo.jpg" width="167" height="74" /> </a></div>
+<div class="col-sm-24 obeezi-ma"><a href="brand/versace" target="_self"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/versace.jpg" width="167" height="74" /> </a></div>
+</div>
+<div class="col-sm-8  col-xs-10 hidden-xs"><a href="accessories" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/acc1_1.png" alt="Accessories" width="400" height="485" /></a></div>
+<div class="box-products">
+<div class="col-sm-6  col-xs-12"><a href="accessories" target="_blank"><img class="img-responsive obeezi-effect" style="margin-bottom: -3PX;" src="https://www.obeezi.com/pub/media/wysiwyg/a3.png" alt="TIES" width="290" height="251" /></a></div>
+<div class="col-sm-6  col-xs-12"><a href="accessories" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/a4.png" alt="Belts" width="290" height="251" /></a></div>
+<div class="col-sm-6  col-xs-12"><a href="accessories" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/a.png" alt="accessories " width="290" height="251" /></a></div>
+<div class="col-sm-6  col-xs-12"><a href="accessories" target="_blank"><img class="img-responsive obeezi-effect" src="https://www.obeezi.com/pub/media/wysiwyg/a2.png" alt="Accessories" width="290" height="251" /></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    </div>
+<div class="widget block block-static-block">
+    <div class="row">
+<div class="cdz-products col-sm-6 product-list-style02 space-xs">
+<div class="cdz-block-title">
+<p class="b-title h2"><span>Our pick</span></p>
+</div>
+<div class="cdz-products-list"><div class="ajax_f4d0e1e7d1c61a85b40321750c402881">
+    <div class="icon-loading"><span>Loading...<span></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+	".ajax_f4d0e1e7d1c61a85b40321750c402881":{
+		"Codazon_ProductFilter/js/firstload":{
+			"ajaxUrl": "https://www.obeezi.com/productfilter/index/firstLoad/",
+			"currentUrl": "https://www.obeezi.com/",
+			"jsonData": {"is_ajax":1,"title":null,"display_type":"all_products","products_count":"4","order_by":"entity_id DESC","show":"thumb,name,review,price,addtocart,addto","thumb_width":"70","thumb_height":"70","filter_template":"custom","custom_template":"custom_list.phtml","show_slider":null,"slider_item":null,"conditions_encoded":"a:4:[i:1;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Combine`;s:10:`aggregator`;s:3:`all`;s:5:`value`;s:1:`1`;s:9:`new_child`;s:0:``;]s:4:`1--1`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:25:`quantity_and_stock_status`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`1`;]s:4:`1--2`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:10:`visibility`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`4`;]s:4:`1--3`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:12:`category_ids`;s:8:`operator`;s:2:`==`;s:5:`value`;s:3:`152`;]]"}		}
+	}
+}
+</script>
+</div>
+</div>
+<div class="cdz-products col-sm-6 product-list-style02 space-xs">
+<div class="cdz-block-title">
+<p class="b-title h2"><span>Trends</span></p>
+</div>
+<div class="cdz-products-list"><div class="ajax_f9c1d9ece874d3f966e8598c0adfd676">
+    <div class="icon-loading"><span>Loading...<span></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+	".ajax_f9c1d9ece874d3f966e8598c0adfd676":{
+		"Codazon_ProductFilter/js/firstload":{
+			"ajaxUrl": "https://www.obeezi.com/productfilter/index/firstLoad/",
+			"currentUrl": "https://www.obeezi.com/",
+			"jsonData": {"is_ajax":1,"title":null,"display_type":"all_products","products_count":"4","order_by":"entity_id DESC","show":"thumb,name,review,price,addtocart,addto","thumb_width":"70","thumb_height":"70","filter_template":"custom","custom_template":"custom_list.phtml","show_slider":null,"slider_item":null,"conditions_encoded":"a:4:[i:1;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Combine`;s:10:`aggregator`;s:3:`all`;s:5:`value`;s:1:`1`;s:9:`new_child`;s:0:``;]s:4:`1--1`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:25:`quantity_and_stock_status`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`1`;]s:4:`1--2`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:10:`visibility`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`4`;]s:4:`1--3`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:12:`category_ids`;s:8:`operator`;s:2:`==`;s:5:`value`;s:3:`109`;]]"}		}
+	}
+}
+</script>
+</div>
+</div>
+<div class="cdz-products col-sm-6 product-list-style02 space-xs">
+<div class="cdz-block-title">
+<p class="b-title h2"><span>For men</span></p>
+</div>
+<div class="cdz-products-list"><div class="ajax_6005e6d68278d90c7658cced348451e1">
+    <div class="icon-loading"><span>Loading...<span></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+	".ajax_6005e6d68278d90c7658cced348451e1":{
+		"Codazon_ProductFilter/js/firstload":{
+			"ajaxUrl": "https://www.obeezi.com/productfilter/index/firstLoad/",
+			"currentUrl": "https://www.obeezi.com/",
+			"jsonData": {"is_ajax":1,"title":null,"display_type":"all_products","products_count":"4","order_by":"entity_id DESC","show":"thumb,name,review,price,addtocart,addto","thumb_width":"70","thumb_height":"70","filter_template":"custom","custom_template":"custom_list.phtml","show_slider":null,"slider_item":null,"conditions_encoded":"a:4:[i:1;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Combine`;s:10:`aggregator`;s:3:`all`;s:5:`value`;s:1:`1`;s:9:`new_child`;s:0:``;]s:4:`1--1`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:25:`quantity_and_stock_status`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`1`;]s:4:`1--2`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:10:`visibility`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`4`;]s:4:`1--3`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:12:`category_ids`;s:8:`operator`;s:2:`==`;s:5:`value`;s:3:`110`;]]"}		}
+	}
+}
+</script>
+</div>
+</div>
+<div class="cdz-products col-sm-6 product-list-style02 space-xs">
+<div class="cdz-block-title">
+<p class="b-title h2"><span>For women</span></p>
+</div>
+<div class="cdz-products-list"><div class="ajax_5b7c16dc92ae92776054044bb2992130">
+    <div class="icon-loading"><span>Loading...<span></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+	".ajax_5b7c16dc92ae92776054044bb2992130":{
+		"Codazon_ProductFilter/js/firstload":{
+			"ajaxUrl": "https://www.obeezi.com/productfilter/index/firstLoad/",
+			"currentUrl": "https://www.obeezi.com/",
+			"jsonData": {"is_ajax":1,"title":null,"display_type":"all_products","products_count":"4","order_by":"entity_id DESC","show":"thumb,name,review,price,addtocart,addto","thumb_width":"70","thumb_height":"70","filter_template":"custom","custom_template":"custom_list.phtml","show_slider":null,"slider_item":null,"conditions_encoded":"a:3:[i:1;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Combine`;s:10:`aggregator`;s:3:`all`;s:5:`value`;s:1:`1`;s:9:`new_child`;s:0:``;]s:4:`1--1`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:25:`quantity_and_stock_status`;s:8:`operator`;s:2:`==`;s:5:`value`;s:1:`1`;]s:4:`1--2`;a:4:[s:4:`type`;s:50:`Magento|CatalogWidget|Model|Rule|Condition|Product`;s:9:`attribute`;s:12:`category_ids`;s:8:`operator`;s:2:`==`;s:5:`value`;s:3:`136`;]]"}		}
+	}
+}
+</script>
+</div>
+</div>
+</div></div>
+<div class="widget block block-static-block">
+    <div class="row main-social wrapper-ads08">
+<div class="col-sm-6 space-xs">
+<div class="box fb-box">
+<div class="social-title"><span>Facebook</span></div>
+<div class="social-cap"><span>Follow us on facebook</span></div>
+<div class="social-desc"><span>Stay up to date on new arrivals.</span></div>
+<div class="button"><a href="https://www.facebook.com/obeezi" target="_blank"><span>Like Us</span></a></div>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="box tw-box">
+<div class="social-title"><span>Twitter</span></div>
+<div class="social-cap"><span>Follow us on Twitter</span></div>
+<div class="social-desc"><span>Get Latest Tweets.</span></div>
+<div class="button"><a href="https://twitter.com/shopobeezi" target="_blank"><span>Twitter Now</span></a></div>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="box go-box">
+<div class="social-title"><span>Google +</span></div>
+<div class="social-cap"><span>Follow us on google +</span></div>
+<div class="social-desc"><span>Get Latest Updates Feed.</span></div>
+<div class="button"><a href="https://plus.google.com/+obeezi" target="_blank"><span>Follow us</span></a></div>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="box in-box">
+<div class="social-title"><span>Instagram</span></div>
+<div class="social-cap"><span>Follow us on instagram</span></div>
+<div class="social-desc"><span>Make shopping easier on everyday review.</span></div>
+<div class="button"><a href="https://www.instagram.com/Obeezimall/" target="_blank"><span>Follow us</span></a></div>
+</div>
+</div>
+</div>
+ 
+</div>
+<div class="widget block block-static-block">
+    <div class="wrapper-ads07 hidden-xs">
+<div class="row">
+<div class="col-sm-6 space-xs">
+<div class="text-area"><span class="icon-font pe-7s-ticket">&nbsp;</span>
+<h4>Fashion Products</h4>
+<p class="text">Over 10,000 products</p>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="text-area"><span class="icon-font pe-7s-star">&nbsp;</span>
+<h4>More than 20 Categories</h4>
+<p class="text">Shoes , Watches, Clothings</p>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="text-area"><span class="icon-font pe-7s-car">&nbsp;</span>
+<h4>Fast Delivery</h4>
+<p class="text">Efficient And Fast Deliveries</p>
+</div>
+</div>
+<div class="col-sm-6 space-xs">
+<div class="text-area"><span class="icon-font pe-7s-piggy">&nbsp;</span>
+<h4>Money Back Guarantee</h4>
+<p class="text">100% guarantee</p>
+</div>
+</div>
+</div>
+</div></div>
+<p><script type="text/javascript">
+var dataLayer = dataLayer || [];
+dataLayer.push({
+	'PageType': 'Homepage', 
+	'HashedEmail':'', 
+});
+</script></p><div class="quickshop-modal"><div id="quickshop" class="quickshop-modal">
+	<div class="content-wrap">
+    	<div class="qs-loading-wrap" style="display:none;">
+        	<div class="qs-loader"><img src="https://www.obeezi.com/pub/static/frontend/Codazon/fastest_bigmarket/en_US/images/loader-1.gif" alt="Loading..." /></div>
+		</div>
+        <div class="qs-content qs-main" style="display:none;"></div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+{
+	"body":{
+		"Codazon_QuickShop/js/quickshop":{
+			"baseUrl": "https://www.obeezi.com/",
+			"qsLabel": "Quick Shop",
+			"itemClass": ".product-item",
+			"target": ".product-item-info",
+			"autoAddButtons":true			}
+	}
+}
+</script></div></div></div></main><footer class="page-footer"><div id="topfooter" class="top-footer-wrapper"><div class="footer content footer-content-top"><div class="widget block block-static-block">
+    <div class="row">
+<div class=" col-sm-12">
+<div class="newsletter-wrapper">
+<div class="newsletter-container"><div class="block newsletter">
+    <div class="title"><strong>Newsletter</strong></div>
+    <div class="content">
+        <form class="form subscribe"
+            novalidate
+            action="https://www.obeezi.com/newsletter/subscriber/new/"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <label class="label" for="newsletter"><span>Sign Up for Our Newsletter:</span></label>
+                <div class="control">
+                    <input name="email" type="email" id="newsletter"
+                                placeholder="Enter your email address"
+                                data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="action subscribe primary" title="Subscribe" type="submit">
+                    <span>Subscribe</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="footer-text">
+<span class="pull-right">Sign up for new Customer, updates, surveys & offers.</span>
+</div>
+</div>
+</div></div>
+</div></div><div class="footer content footer-container-wrapper"><div class="widget block block-static-block">
+    <div class="row">
+<div class="col-sm-6">
+<div class="footer-box">
+<p class="h5" data-cdz-toggle="#footer-content-1">CORPORATE</p>
+<ul id="footer-content-1" class="footer-link showhide">
+<li><a href="https://www.obeezi.com/about-us">About Us</a></li>
+<li><a href="shipping-returns" target="_self">Shipping &amp; Returns</a></li>
+<li><a href="https://www.obeezi.com/contact" target="_self">Contact Us</a></li>
+<li class="last"><a href="privacy-policy" target="_self">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="footer-box">
+<p class="h5" data-cdz-toggle="#footer-content-2">Your Links</p>
+<ul id="footer-content-2" class="footer-link showhide">
+<li><a href="#">Shipping guide</a></li>
+<li><a href="https://www.obeezi.com/about-us">Store location</a></li>
+<li><a href="#">Afiliates</a></li>
+<li class="last"><a href="http://www.obeezi.com/blog/" target="_blank">Obeezi Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="footer-box">
+<p class="h5" data-cdz-toggle="#footer-content-3">Support</p>
+<ul id="footer-content-3" class="footer-link showhide">
+<li><a href="faq" target="_self">FAQ</a></li>
+<li><a href="customer-service" target="_self">Customer&nbsp;service</a></li>
+<li><a href="https://www.obeezi.com/contact">Contact Us</a></li>
+<li class="last"><a href="terms-conditions" target="_self">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="footer-box">
+<p class="h5" data-cdz-toggle="#footer-content-4">SHOP LOCATION</p>
+<ul id="footer-content-4" class="footer-link showhide">
+<li><span class="fa fa-map-marker">&nbsp;</span>&nbsp;Lagos, Nigeria,&nbsp;<span>100252</span></li>
+<li><span class="fa fa-phone">&nbsp;</span>Phone: +234 (0) 8093000006</li>
+<li><span class="fa fa-envelope">&nbsp;</span>Email: Service@obeezi.com</li>
+<li class="last"><span class="fa fa-clock-o">&nbsp;W</span>hatsapp +234 (0) 8090442000</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div><div id="bottomfooter" class="bottom-footer-wrapper"><div class="footer content"><small class="copyright">    
+    <span class="f-left">
+		Copyright © 2016  obeezi.com. All rights reserved.		
+	</span>						
+</small>
+<div class="footer-custom-block"><div class="widget block block-static-block">
+    <div class="pull-right footer-payment-logo">
+<div class="cdz-footer-bottom-payment"><img src="https://www.obeezi.com/pub/media/wysiwyg/payment_1.png" width="215" height="30" /></div>
+</div></div>
+</div></div></div></footer><div id="back-top" style="display: none;"><a title="Top" href="#top">Top</a></div>
+<div class="cart-footer" id="cart-footer" data-bind="scope: 'ajaxcart_content'" style="display:none;" data-block="footer_minicart">
+    <div class="cart-qty" id="footer-cart-trigger" data-bind="click: toggleFooterSidebar.bind(this)">
+        <span class="number"><!-- ko text: cartSidebar().summary_count --><!-- /ko --></span>
+        item(s) in your cart    </div>
+    <div id="footer-mini-cart" class="footer-mini-cart" style="display:none;">
+    	<span class="cart-icon"></span>
+        <div class="cart-items" id="footer-cart-list">
+            <div class="cart-items-inner">
+            <!-- ko foreach: { data: cartSidebar().items, as: 'item' } -->
+                <!-- ko template: 'Codazon_AjaxCartPro/ajaxcart/cart_items' --><!-- /ko -->
+            <!-- /ko -->
+            </div>
+        </div>
+		<div class="footer-cart-additional">
+			<div class="footer-cart-summary">
+			<!-- ko template: 'Codazon_AjaxCartPro/ajaxcart/summary' --><!-- /ko -->
+			</div>
+			<!-- ko if: cartSidebar().possible_onepage_checkout -->
+			<div class="footer-cart-actions">
+				<div class="primary">
+					<button
+							id="footer-cart-btn-checkout"
+							type="button"
+							class="action primary checkout"
+							data-bind="attr: {title: $t('Go to Checkout')}">
+						Go to Checkout					</button>
+					<div data-bind="html: cartSidebar().extra_actions"></div>
+				</div>
+			</div>
+			<!-- /ko -->
+			
+		</div>
+    </div>
+</div>
+<div class="widget block block-static-block">
+    </div>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '369229836832795');
+fbq('track', 'PageView');
+
+fbq('track', 'ViewContent');
+
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Facebook Pixel" 
+src="https://www.facebook.com/tr?id=369229836832795&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+</div>    </body>
+</html>

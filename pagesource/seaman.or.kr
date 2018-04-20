@@ -1,0 +1,1202 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>한국해양수산연수원</title>
+	<link rel="stylesheet" href="/css/egovframework/com/seapt/main.css">
+	<script src="/js/egovframework/com/seapt/default.js"></script>
+	<script src="/js/egovframework/com/seapt/cmm/banner.js"></script>
+	<script>	
+ 	   
+	   
+	   $(document).ready(function() {
+		    //점검팝업
+		    var popupCheckParam = {
+		    		cookieName :  'popupCheck2'
+		    		, url : '/seapt/main/selectTempPopupCall.do'
+		    		, target : 'mainPopup'
+		    		, width : 618
+			    	, height : 845
+		    		, limitDate : new Date("2017/01/31 18:00")
+		    };
+		    popupOpen(popupCheckParam);
+		});
+	   
+	   $(document).ready(function() {
+		    //오션폴리텍모집공고
+		    var popupCheckParam = {
+		    		cookieName :  'popupCheck3'
+		    		, url : '/seapt/main/selectTempPopup.do'
+		    		, target : 'mainPopup2'
+		    		, width : 530
+			    	, height : 620
+		    		, limitDate : new Date("2017/01/18 18:00")
+		    };
+		    popupOpen(popupCheckParam);
+		});
+	   
+	   /*
+	   $(document).ready(function() {
+		    //오션폴리텍모집공고
+		    var popupCheckParam = {
+		    		cookieName :  'popupCheck3'
+		    		, url : '/seapt/main/selectTempPopup.do'
+		    		, target : 'mainPopup2'
+		    		, width : 530
+			    	, height : 620
+		    		, limitDate : new Date("2017/01/18 18:00")
+		    };
+		    popupOpen(popupCheckParam);
+		});
+	   */
+	   $(document).ready(function() {
+		    //오션폴리텍모집공고
+		    var popupCheckParam = {
+		    		cookieName :  'popupCheck3'
+		    		, url : '/seapt/main/selectTempPopup.do'
+		    		, target : 'mainPopup2'
+		    		, width : 597
+			    	, height : 669
+		    		, limitDate : new Date("2018/05/18 18:00")
+		    };
+		    popupOpen(popupCheckParam);
+		});
+	   
+		// 팝업 오픈 함수
+		   function popupOpen(obj) {
+		   	var cookieName = obj.cookieName;
+		   	var url = obj.url;
+		   	var target = obj.target;
+		   	var width = obj.width;
+		   	if (width == undefined) {
+		   		width = 595;
+		   	}
+		   	var height = obj.height;
+		   	if (height == undefined) {
+		   		height = 445;
+		   	}
+		   	var limitDate = obj.limitDate;
+		   	if (limitDate == undefined) {
+		   		limitDate = new Date('9999/12/31 23:59');
+		   	}
+		   	var inTime = false;
+		       if (new Date().getTime() <= limitDate.getTime()) {
+		       	inTime = true;
+		       }
+		       if(inTime && getCookie(cookieName) != "done"){
+		           window.open(url, target, "width=" + width + ", height=" + height + ", menubar=no,status=no,scrollbars=no");
+		       }
+		   }
+		
+
+		   function getCookie( name )
+		   {
+		       var nameOfCookie = name + "=";
+		       var x = 0;
+		       while ( x <= document.cookie.length )
+		       {
+		           var y = (x+nameOfCookie.length);
+		           if ( document.cookie.substring( x, y ) == nameOfCookie )
+		           {
+		               if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+		                   endOfCookie = document.cookie.length;
+		               return unescape( document.cookie.substring( y, endOfCookie ) );
+		           }
+		           x = document.cookie.indexOf( " ", x ) + 1;
+		           if ( x == 0 )
+		               break;
+		       }
+		       return "";
+		   }
+	   
+		function fnPopupCompulsion(){			
+			$.ajax
+			( { type:"post"
+			, dataType:"xml"	
+			, url:"/seapt/main/detailPopupOnLoadView.do"
+			, async:false
+			, success:function(xml){
+				var popSeq = "";
+				var popW = "";
+				var popH = "";
+				var popL = "";
+				var popT = "";
+				var popCookie = "";
+				if ( $(xml).find("newaddr").length > 0 ) {
+					$(xml).find("newaddr").each(function() {
+						newAddrYn = $(this).find("newAddrYn").text();
+						userSeq = $(this).find("userSeq").text();
+						if(newAddrYn != "Y" ){  	
+							fnNewAddr(userSeq);
+						}
+						email = $(this).find("email").text();
+						handphone = $(this).find("handphone").text();
+						if(email =='N' || handphone == 'N'){
+							if(confirm("회원정보 중  필수정보가 없습니다. 정보수정을 하시겠습니까?") == true){
+								location.href="/seapt/user/upuserinfo/selectUserInfoView.do";
+							}
+						}
+					});
+				}
+				
+				if ( $(xml).find("result").length > 0 ) {
+					$(xml).find("result").each(function() {
+						popSeq = $(this).find("popupzoneSeq").text();
+						popW = $(this).find("widthSize").text();
+						popH = $(this).find("heightSize").text();
+						popL = $(this).find("widthPosition").text();
+						popT = $(this).find("heightPosition").text();
+						popCookie = "CK" + $(this).find("popupzoneSeq").text();
+						if(fnGetCookie(popCookie) != "done" ){  	
+							fnOpenPopup(popSeq, popW, popH, popL, popT);
+						}
+					});
+				} else {
+					return;
+				}
+
+				
+			}
+			, error: function(xhr, status, error) {
+			}
+		} 
+		);}
+
+		function fnGetCookie(name){
+			var nameOfCookie = name + "=";
+			var x = 0;
+			while ( x <= document.cookie.length )
+			{
+				var y = (x+nameOfCookie.length);
+				if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+					if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+						endOfCookie = document.cookie.length;
+					return unescape( document.cookie.substring( y, endOfCookie ) );
+				}
+				x = document.cookie.indexOf( " ", x ) + 1;
+				if ( x == 0 )
+					break;
+			}
+			return "";
+		}
+	
+		function fnBbsView(bbsMasterSeq, bbsSeq, menuSeq){
+			var fm = document.mainForm;
+			if(bbsMasterSeq != 'BOARD_MAS_0000000020'){
+				fm.bbsMasterSeq.value = bbsMasterSeq;
+				fm.bbsSeq.value = bbsSeq;
+				fm.menuSeq.value = menuSeq;
+				fm.action = "/seapa/cmm/bbs/detailBbsList.do";
+				fm.submit();
+			}else{
+				window.open("http://lems.seaman.or.kr/CInformation/Notice/selectNoticeDetail.do?bbsSubSeq="+bbsSeq);
+			}
+			
+		}
+
+		function fnBbs(bbsMasterSeq){
+			var fm = document.mainForm;
+			fm.bbsMasterSeq.value = bbsMasterSeq;
+			fm.action = "/seapa/cmm/bbs/selectBbsList.do";
+			fm.submit();
+		}
+
+		function fnOpenPopup(popSeq, popW, popH, popL, popT){
+			var target = "popup"+popSeq;
+			var width = popW;
+			var height = popH;
+			var popLeftPos = (screen.width - popL) / 2;
+			var popTopPos = (screen.height - popT) / 2;
+			var popScroll = "Yes";
+			var popOpt = "width="+ width +", height="+ height +", top="+ popTopPos +", left="+ popLeftPos +", scrollbars="+popScroll+", menubar=No, location=No, resizable=Yes, status=No, toolbar=No";
+			pop = window.open("/seapt/main/popupView.do?popSeq="+popSeq , target, popOpt + "");
+		}
+		
+		function fnOpenPopupUrl(url, type){
+			if(type == 'B'){
+				window.open(url,'_blank');
+			}else if(type == 'S'){
+				window.open(url,'_self');
+			}else{
+				alert("잘못된 속성값이 포함되어있습니다.");
+			}
+		}
+
+		function fnIsGo(){
+			var fm = document.xform;
+			var userId = fm.userId.value;
+			var authSeq = fm.authSeq.value;
+			var authSeqRelation =fm.authSeqRelation.value;
+			if(userId == "" || userId == null){
+				alert("로그인 후 유관기관 메뉴를 사용 하실수 있습니다.");
+				location.href="/seapt/cmm/login/actionLoginPage.do";
+				return;
+			}
+			if(authSeqRelation != "DTL0000007"){
+				alert("유관기관 회원만 메뉴를 사용 하실수 있습니다.");
+				return;
+			}
+			//fm.action = "/seapt/is/selectIsMain.do";
+			fm.action ="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000100";
+			fm.submit();
+		}
+
+		function fnScsGo(){
+			var fm = document.xform;
+			var userId = fm.userId.value;
+			var authSeq = fm.authSeq.value;
+			var authSeqPort = fm.authSeqPort.value;
+			var cuscod = fm.cusCod.value;
+			if(userId == "" || userId == null){
+				alert("로그인 후 선사지원 메뉴를 사용 하실수 있습니다.");
+				location.href="/seapt/cmm/login/actionLoginPage.do";
+				return;
+			}
+			if(authSeqPort != "DTL0000005"){
+				alert("선사회원만 메뉴를 사용 하실수 있습니다.");
+				return;
+			}
+			if(cuscod == "" || cuscod == "null"){
+				alert("선사회원 승인 대기중입니다.");
+				return;
+			}			
+			//fnPopupSunsaInfo();						
+			//20160416 교육예약시스템으로 이동
+			//fm.action = "/seapt/scs/workexer/confirm/selectFinishConfirmList.do";
+			//fm.submit();
+			
+			
+			
+			//20160526 해양수산연수원 교육예약시스템 알림판 추가
+			//20160526 선사알림판페이지로 이동
+			//20160526 기존메인페이지 이동 주석
+			//window.open('/eduRsv/main.do', '_blank');
+			window.open('/eduRsv/crew/notice.do', '_blank');
+		}
+		
+		function fnPopupSunsaInfo(){			
+			$.ajax
+			( { type:"post"
+			, dataType:"xml"	
+			, url:"/seapt/main/modSunsaInfoView.do"
+			, async:false
+			, success:function(xml){
+				if ( $(xml).find("sunsa").length > 0 ) {
+					$(xml).find("sunsa").each(function() {
+						sunsaInfoYn = $(this).find("sunsaInfoYn").text();
+						userSeq = $(this).find("userSeq").text();
+						if(sunsaInfoYn == "Y" ){  	
+							fnSunsaInfo(userSeq);
+						}else{		
+							var fm = document.xform;
+							fm.action = "/eduRsv/crew/notice.do";
+							fm.submit();
+						}
+					});
+				}
+				
+			}
+			, error: function(xhr, status, error) {
+			}
+		} 
+		);}
+
+		function fnSunsaInfo(userSeq){			
+			var fm = document.xform;
+			fm.userSeq.value=userSeq;
+			window.open('','Pop_sunsaUpdateView','scrollbars=no,toolbar=0,location=no,resizable=0,status=0,menubar=0,width=600,height=600,left=0,top=0');
+			fm.target="Pop_sunsaUpdateView";
+			fm.action="/seapt/main/sunsaUpdateView.do";
+			fm.submit();
+		}
+
+		function fnMain03Sunsa(idx){
+			var fm = document.xform;
+			var userId = fm.userId.value;
+			var authSeq = fm.authSeq.value;
+			var authSeqPort = fm.authSeqPort.value;
+			var cuscod = fm.cusCod.value;
+			if(userId == "" || userId == null){
+				alert("로그인 후 선사회원만  메뉴를 사용 하실수 있습니다.");
+				location.href="/seapt/cmm/login/actionLoginPage.do";
+				return;
+			}
+			if(authSeqPort != "DTL0000005"){
+				alert("선사회원만 메뉴를 사용 하실수 있습니다.");
+				return;
+			}
+			if(cuscod == "" || cuscod == "null"){
+				alert("선사회원 승인 대기중입니다.");
+				return;
+			}
+
+			if(idx == "1"){
+				fm.action = "/eduRsv/crew/notice.do";
+			}else if(idx == "2"){
+				fm.action = "/eduRsv/scs/accountBill/eduRsvAccountBillList.do";
+			}else if(idx == "3"){
+				fm.action = "/eduRsv/scs/workcerti/eduWorkCertiListView.do";
+			}else if(idx == "4"){
+				fm.action = "/seapt/mypage/edu/edupay/selectCostApplication.do";
+			}
+			fm.submit();
+			
+		}
+		function fnNewAddr(userSeq){			
+			var fm = document.mainForm;
+			fm.userSeq.value=userSeq;
+			window.open('','Pop_NewAddr','scrollbars=no,toolbar=0,location=no,resizable=0,status=0,menubar=0,width=600,height=700,left=0,top=0');
+			fm.target="Pop_NewAddr";
+			fm.action="/seapt/main/newAddrInfoView.do";
+			fm.submit();
+			//window.open("/seapt/main/newAddrInfoView.do","Popup","width=600,height=450,scrollbars=yes");
+		}
+		
+		function fnMainEp(){
+			var fm = document.xform;
+			var userId = fm.userId.value;
+			var authSeqObtain = fm.authSeqObtain.value;
+			if(userId == "" || userId == null){
+				alert("로그인 후 메뉴를 사용 하실수 있습니다.");
+				location.href="/seapt/cmm/login/actionLoginPage.do";
+				return;
+			}
+			if(authSeqObtain != "DTL0000006"){
+				location.href="/seapt/guide/authreq/selectAuthReqStplat.do?userSignGbn=obtain";				
+				return;
+			}else{
+				location.href="/seapt/user/upuserinfo/selectUserInfoView.do";				
+				return;
+			}		
+		}
+		
+		function modSunsaInfoView(userSeq){			
+			var fm = document.mainForm;
+			fm.userSeq.value=userSeq;
+			window.open('','Pop_sunsa','scrollbars=no,toolbar=0,location=no,resizable=0,status=0,menubar=0,width=600,height=700,left=0,top=0');
+			fm.target="Pop_sunsa";
+			fm.action="/seapt/main/sunsaUpdateView.do";
+			fm.submit();
+			//window.open("/seapt/main/newAddrInfoView.do","Popup","width=600,height=450,scrollbars=yes");
+		}
+		
+		function goEduRsv(){
+			var fm = document.xform;
+			var userId = fm.userId.value;
+			var authSeqPort = fm.authSeqPort.value;
+			if(userId == "" || userId == null){
+				alert("로그인 후 메뉴를 사용 하실수 있습니다.");
+				location.href="/seapt/cmm/login/actionLoginPage.do";
+				return;
+			}
+			if(authSeqPort == "DTL0000005"){
+				fnScsGo();
+			}else{
+				location.href="/eduRsv/eduReservationStep1.do";				
+				return;
+			}		
+		}
+		
+		function pinAuthentication(){
+			
+			if(confirm("본 홈페이지는 핀인증제도를 도입하고 있습니다.\n핀인증을 하시면 좀 더 편리하고 보안을 고려한 \n환경에서 서비스 이용이 가능합니다.\n핀 인증을 진행 하시겠습니까?")){
+				location.href = "/eduRsv/main/userCert.do?type=mainHome";	
+			}else{
+				fnPopupCompulsion();
+			}
+			
+			
+		}
+	</script>
+</head>
+<body onload='fnPopupCompulsion()'>
+
+<!-- <body onload="javascript:fnPopupCompulsion();"> -->
+<!--<body onload="javascript:fntest();">-->
+	<header>
+		
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-83803424-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+		<form name="xform" method="post" action="#a">
+			<input type="hidden" name="ajaxMessage">
+			<input type="hidden" name="presMenuId"  value="">
+			<input type="hidden" name="topMenuId"  value="">
+			<input type="hidden" name="loginGbn"  value="">
+			<input type="hidden" name="depTh"  value="">
+			<input type="hidden" name="urlPath"  value="">
+			<input type="hidden" name="programFileNm"  value="">
+			<input type="hidden" name="url"  value="">
+			<input type="submit" class="hide">
+		
+			<input type="hidden" name="userId" value="">
+<input type="hidden" name="userSeq" value="">
+<input type="hidden" name="authSeq" value="">
+<input type="hidden" name="cusCod" value="">
+<input type="hidden" name="authSeqPort" value="">
+<input type="hidden" name="authSeqObtain" value="">
+<input type="hidden" name="authSeqRelation" value="">
+
+		</form>
+		<!-- section class="beforehome"><a href="http://2011x.seaman.or.kr"><img src="/images/egovframework/com/seapt/common/bt_2011home.gif" alt="이전홈페이지 이용하기"></a></section -->
+		<h1><a href="/"><span>한국해양수산연수원</span></a></h1>
+		<nav id="specialization">
+			<ul>
+				<li class="m4"><a href="http://www.oceanpolytech.or.kr/main.do" target="_blank"><span>오션폴리텍</span></a></li>
+				<!-- <li class="m1"><a href=" http://kimtus.seaman.or.kr/" target="_blank"><span>IOP</span></a></li> -->
+				<li class="m3"><a href="http://www.alime.or.kr" target="_blank"><span>선원정보알림e</span></a></li>
+				<!-- <li class="m2"><a href="http://lib.seaman.or.kr/" target="_blank"><span>전자도서관</span></a></li> -->
+				
+			</ul>
+		</nav>
+		<nav id="gnb">
+			<ul>
+				<li class="m1"><a href="/"><span>HOME</span></a></li>
+				<!-- li class="m2"><a href="/seapt/guide/selectMemberSignUp.do"><span>회원가입</span></a></li -->
+				
+				
+				<li class="m4"><a href="/seapt/guide/selectSitemap.do"><span>사이트맵</span></a></li>
+				<!-- li class="m5"><a href="#a"><span>이용안내</span></a></li -->
+				<li class="m6"><a href="/en/about/about_01.do" target="_blank"><span>ENGLISH</span></a></li>
+			</ul>
+		</nav>
+		<section class="lnb_area">
+			
+
+
+
+
+
+
+
+
+
+			<section class="leftArea">
+				<section class="login">
+					<h2 onclick="javascript:fnLoginShowHide('login2');"><span>로그인</span></h2>
+					<ul>
+						<li class="m1"><a href="/seapt/guide/searchinfo/selectFindId.do"><span>ID/PW 찾기</span></a></li>
+						<li class="m2"><a href="/seapt/guide/selectMemberSignUp.do"><span>회원가입</span></a></li>
+					</ul>
+				</section>
+				<form id="sMLoginVO" name="loginForm" action="/;jsessionid=42700D102CB8ECE9BC35FED2EA5B2F0C.seamanPT01" method="post">
+				<section id="login2">
+					<ul>
+						<li><label for="userId" class="hide">아이디</label><input type="text"  title="아이디" name="userId" id="userId" onclick="this.style.backgroundPosition='bottom'" onfocus="this.style.backgroundPosition='bottom'" onblur="this.style.backgroundPosition='top'"><label class="displayNone"><input title="아이디 저장" type="checkbox" onClick="confirmSave(this)" name="idcheck" class="check"> ID저장</label></li>
+						<li><label for="password" class="hide">비밀번호</label><input type="password"  title="비밀번호" name="password" id="password" onclick="this.style.backgroundPosition='bottom'" onfocus="this.style.backgroundPosition='bottom'" onblur="this.style.backgroundPosition='top'" onkeydown="javascript:if(event.keyCode == 13){fnLogin();}"></li>
+						<li><input type="image" src="/images/egovframework/com/seapt/common/bt_login.gif" id="bt_login" name="bt_login" alt="로그인" onclick="javascript:fnLogin();"></li>
+					</ul>
+				</section>
+				</form>
+				<script>
+				getLogin();
+				</script>
+			</section>
+
+			
+<section id="viewAllDiv"></section>
+<section id="topMenuDiv"></section>
+<script>
+	fncViewallTree("viewAllDiv");
+</script>
+			<script>
+				fncTopTree("topMenuDiv");
+			</script>
+		</section>
+	</header>
+	<section id="container">
+	<form id="sMMainVO" name="mainForm" action="/;jsessionid=42700D102CB8ECE9BC35FED2EA5B2F0C.seamanPT01" method="post">
+	<input type="hidden" name="bbsMasterSeq" value="">
+	<input type="hidden" name="bbsSeq" value="">
+	<input type="hidden" name="menuSeq" value="">
+	<input type="hidden" name="userSeq" value="">
+		<section class="m_leftArea">
+		
+			
+			<section class="openmanagement">
+				<h2><span>열린경영! 맞춤서비스! 정부 3.0</span></h2>
+				<ul>
+			
+                    <li class="m1"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000099"><span>정부3.0자료실</span></a></li>
+                    <li class="m2"><a href="/seapt/cs/selectBeforehandOF.do"><span>사전정보공표</span></a></li>
+                    <li class="m3"><a href="https://www.open.go.kr/pa/main/paMain.do" target="_BLANK"><span>정보공개청구 </span></a></li>
+				</ul>
+			</section>
+			<!--section class="location2">
+				<h2><span>알림</span></h2>
+				<ul>
+					<li class="m1"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017"><span>알림</span></a></li>
+					<li class="m1"><a href="/seapt/intro/selectLocationYoungdo.do"><span>안내</span></a></li>
+				</ul>
+			</section-->
+			
+			<section class="epeople">
+				<img src="/images/egovframework/com/seapt/main/ecs_center.png" alt="콜센터안내"  style="margin-top: 17px;"/>
+			</section>
+            <section class="customerservice">
+            	<h2><span>고객서비스</span></h2>
+               	<ul>
+                	<li class="m1"><a href="/seapt/cs/minwon/selectMinwonAppList.do"><span>민원신청하기</span></a></li>
+                    
+                    <li class="m2"><a href="/seapt/edu/selectDormitoryInfo.do"><span>생활관이용안내</span></a></li>
+                    <li class="m3"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000028" target="_blank"><span>민원서류다운로드</span></a></li>
+                    <li class="m4"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000026"><span>고객서비스 FAQ</span></a></li>
+				</ul>
+            </section>
+            <section class="location">
+				<h2><span>연수원 오시는길</span></h2>
+				<ul>
+					<li class="m1"><a href="/seapt/intro/selectLocationYoungdo.do"><span>영도본원</span></a></li>
+					<li class="m2"><a href="/seapt/intro/selectLocationYongdang.do"><span>용당캠퍼스</span></a></li>
+					<li class="m3"><a href="/seapt/intro/selectLocationIncheon.do"><span>인천사무소</span></a></li>
+				</ul>
+			</section>
+			<section class="carBoard">
+				<h2><span>카풀게시판</span></h2>
+				<ul>
+					<li class="m1"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000107&carBoardType=2"><span>태워드려요</span></a></li>
+					<li class="m2"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000107&carBoardType=1"><span>태워주세요</span></a></li>
+				</ul>
+			</section>
+		</section>
+		<section class="m_middleArea m1">
+			<span class="hide">세계일류 해양·수산 인적자원 개발 전문기관</span>
+			<ul>
+				<li class="m1"><a href="#a" class="bgbt"><span>교육훈련</span></a>
+					<h2><span>교육훈련 : 교육훈련안내, 예약신청, 교육비 수납 등 편리하게 이용가능 합니다.</span></h2>
+					<ul>
+						<!-- 20160416 교육예약 개편에 따른 링크수정 -->
+						<li class="sm4"><a href="#" onclick="goEduRsv()" ><span>교육예약</span></a></li>
+						<li class="sm2"><a href="/eduRsv/edu/eduprocess/eduListView.do" target="_blank"><span>교육안내</span></a></li>
+						<li class="sm3"><a href="/eduRsv/edu/schedule/eduScheduleListView.do" target="_blank"><span>교육일정안내</span></a></li>
+						<li class="sm1"><a href="/eduRsv/edu/facilities/eduFacilitiesListView.do" target="_blank"><span>교육시설안내</span></a></li>
+						<li class="sm5"><a href="/eduRsv/eduReservationCrewManList.do" target="_blank"><span>예약조회 및 납부</span></a></li>
+						<li class="sm6"><a href="/eduRsv/eduReservationCrewManCancel.do" target="_blank"><span>예약취소 및 환불</span></a></li>
+						<!-- <li class="sm7"><a href="/seapt/edu/certificate/selectCertificateInfo.do"><span>증명서발급</span></a></li> -->
+						<li class="sm7"><a href="http://www.alime.or.kr/member/onlineIssue/displayOnlineIssueStep1.do" target="_blank"><span>증명서발급</span></a></li>
+						<li class="sm8"><a href="/seapt/edu/selectDormitoryInfo.do"><span>연수원생활관 안내</span></a></li>
+						
+					</ul>
+				</li>
+				<li class="m2"><a href="#a" class="bgbt"><span>자격검정</span></a>
+					<h2><span>자격검정 : 해기사(해기사, 기관사, 통신사, 운항사, 수면비행선박조종사, 소형선박조종사), 의료관리자, 수산질병 관리사, 전파전자기능사에 대한 시험정보와 인터넷접수, 합격자 발표 등을 이용하실 수 있습니다.</span></h2>
+					<ul>
+						<li class="sm1"><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" target="_blank"><span>공지사항</span></a></li>
+						<li class="sm2"><a href="http://lems.seaman.or.kr/Lems/Outline/selectOutlineView.do" target="_blank"><span>해기사</span></a></li>
+						<li class="sm3"><a href="http://lems.seaman.or.kr/MedicalManager/MMOutline/selectMMOutlineView.do" target="_blank"><span>의료관리자</span></a></li>
+						<li class="sm4"><a href="http://lems.seaman.or.kr/MFS/MFSOutline/selectMFSOutlineView.do" target="_blank"><span>수산질병관리사</span></a></li>
+						<li class="sm5"><a href="http://lems.seaman.or.kr" target="_blank"><span>인터넷접수</span></a></li>
+						<li class="sm6"><a href="http://lems.seaman.or.kr/ExamOpen/ExamAnswer/selectExamAnswerList.do" target="_blank"><span>시험문제공개</span></a></li>
+						<li class="sm7"><a href="http://lems.seaman.or.kr/SInformation/EPSearch/selectIPassList.do" target="_blank"><span>합격자발표</span></a></li>
+						<li class="sm8"><a href="http://lems.seaman.or.kr/CInformation/Archives/selectArchivesList.do" target="_blank"><span>민원서류다운로드</span></a></li>
+					</ul>
+				</li>
+				<li class="m3"><a href="#a" class="bgbt"><span>직업능력개발</span></a>
+					<h2><span>직업능력개발 : JADT-NET은 한국해양수산연수원에서 운영하는 직업능력개발훈련 종합정보망입니다.</span></h2>
+					<ul>
+						<li class="sm1"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021"><span>공지사항</span></a></li>
+						<!-- <li class="sm2"><a href="/seapt/jadt/selectJADTIntro.do"><span>훈련안내</span></a></li> -->
+						<li class="sm2"><a href="/eduRsv/jadt/eduCompanyInfoAView.do"><span>훈련안내</span></a></li>
+						<!-- <li class="sm3"><a href="/seapt/jadt/course/fixcourse/selectFixCourseList.do"><span>훈련과정</span></a></li> -->
+						<li class="sm3"><a href="/eduRsv/jadt/fixcourse/eduCompanyInfoBView.do"><span>훈련과정</span></a></li>
+						<li class="sm4"><a href="#" onclick="fnMain03Sunsa('1');"><span>훈련접수및수료</span></a></li>
+						<li class="sm5"><a href="#" onclick="fnMain03Sunsa('2');"><span>계산서</span></a></li>
+						<li class="sm6"><a href="#" onclick="fnMain03Sunsa('3');"><span>고용보험 수료증</span></a></li>
+						<li class="sm7"><a href="#" onclick="fnMain03Sunsa('4');"><span>훈련비용신청</span></a></li>
+					</ul>
+				</li>
+				<li class="m4"><a href="#a" class="bgbt"><span>오션폴리텍 해기사양성</span></a>
+					<h2><span>오션폴리텍 해기사양성의 교육과정, 교육일정 및 채용공고 등을 편리하게 이용할 수 있습니다.</span></h2>
+					<ul>
+						<li class="sm1"><a href="http://www.oceanpolytech.or.kr/main.do"><span>홈페이지</span></a></li>
+						<li class="sm2"><a href="http://www.oceanpolytech.or.kr/information/noticeboard/selectWebNoticeBoardList.do"><span>공지사항</span></a></li>
+						<li class="sm3"><a href="http://www.oceanpolytech.or.kr/education/educationcourse/selectEducationCourseList.do"><span>교육과정</span></a></li>
+						<li class="sm4"><a href="http://www.oceanpolytech.or.kr/education/educationschedule/selectEducationScheduleView.do"><span>교육일정</span></a></li>
+						<li class="sm5"><a href="http://www.oceanpolytech.or.kr/community/boardcommunity/selectWebBoardCommunity.do"><span>기수별이야기</span></a></li>
+						<li class="sm6"><a href="http://www.oceanpolytech.or.kr/information/generalboard/selectWebGeneralBoardList.do"><span>일반게시판</span></a></li>
+						<li class="sm7"><a href="http://www.oceanpolytech.or.kr/information/jobinfo/selectJobInfo.do"><span>채용공고</span></a></li>
+						<li class="sm8"><a href="http://www.oceanpolytech.or.kr/information/faqinfo/selectFaqInfo.do"><span>FAQ</span></a></li>
+					</ul>
+				</li>
+				<li class="m5"><a href="#a" class="bgbt"><span>해양플랜트 컨소시엄교육</span></a>
+					<h2><span>국가인적자원개발 컨소시엄(CHAMP) 해양플랜트 관련 분야 기업의 재직자를 위한 교육과정 열람 및 신청이 가능합니다.</span></h2>
+					<ul>
+						<li class="sm1"><a href="http://champ.seaman.or.kr/bbsNotice/selectBBSNoticeList.do"><span>공지사항</span></a></li>
+						<li class="sm2"><a href="http://champ.seaman.or.kr/EduCourse/JobImprove/JobImproveView.do"><span>교육과정(재직자)</span></a></li>
+						<li class="sm3"><a href="http://champ.seaman.or.kr/koodc/cnt/contentsPage.do?cntId=C21"><span>교육신청(재직자)</span></a></li>
+						<li class="sm8"><a href="#a"><span></span></a></li>
+						<li class="sm4"><a href="http://champ.seaman.or.kr/koodc/cnt/contentsPage.do?cntId=C30"><span>협약기업</span></a></li>
+						<li class="sm5"><a href="http://champ.seaman.or.kr/EduCourse/RecruitmentEdu/RecruitmentEduView.do"><span>양성과정(실업자)</span></a></li>
+						<li class="sm6"><a href="http://champ.seaman.or.kr/koodc/cnt/contentsPage.do?cntId=C20"><span>교육지원(양성과정)</span></a></li>
+						<li class="sm7"><a href="http://champ.seaman.or.kr/Mypage/MyClass/MyClassView.do"><span>마이페이지</span></a></li>						
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section class="m_rightArea">
+			<section class="popupzone m1">
+				<h2><span>알림판</span></h2>
+					<ul>
+						
+							
+								
+									<li class="m1"><a href="#a" class="bgbt"><span>1</span></a>
+									
+										
+										
+										
+										
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopup('POPUP_Z_000000000332', '600', '830', '1000', '1000');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20180226054717139.png" alt="근로자의날교육변경알림_알림판" ></a></span>
+										
+									
+									</li>
+								
+									<li class="m2"><a href="#a" class="bgbt"><span>2</span></a>
+									
+										
+										
+										
+										
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopup('POPUP_Z_000000000330', '600', '735', '0', '0');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20180222111221197.png" alt="선박평형수관리교육운영알림" ></a></span>
+										
+									
+									</li>
+								
+									<li class="m3"><a href="#a" class="bgbt"><span>3</span></a>
+									
+										
+										
+										<!-- _BLANK -->
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopupUrl('http://www.seaman.or.kr/seapa/cmm/bbs/detailBbsList.do?bbsSeq=BBS_0000000000000703&p_bbsMasterSeq=BOARD_MAS_0000000028&menuSeq=5|8', 'B');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20170118012116107.png" alt="" ></a></span>
+										
+										
+									
+									</li>
+								
+							
+							
+					</ul>
+			</section>
+			<section class="popupzone2 m1">
+				<h2><span>홍보판</span></h2>
+					<ul>
+						
+							
+								
+									<li class="m1"><a href="#a" class="bgbt"><span>1</span></a>
+									
+										
+										
+										<!-- _BLANK -->
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopupUrl('http://www.mybudget.go.kr', 'B');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20180321034114752.jpg" alt="국민참여예산" ></a></span>
+										
+										
+									
+									</li>
+								
+									<li class="m2"><a href="#a" class="bgbt"><span>2</span></a>
+									
+										
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopup('POPUP_Z_000000000336', '400', '580', '0', '0');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20180316014707008.jpg" alt="수산의날" ></a></span>
+										
+										
+										
+										
+									
+									</li>
+								
+									<li class="m3"><a href="#a" class="bgbt"><span>3</span></a>
+									
+										
+										
+										<!-- _BLANK -->
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopupUrl('http://www.give.go.kr', 'B');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20151023115155418.png" alt="정치후원금 기탁" ></a></span>
+										
+										
+									
+									</li>
+								
+									<li class="m4"><a href="#a" class="bgbt"><span>4</span></a>
+									
+										
+										
+										<!-- _BLANK -->
+											<span class="view"><a href="#a" onclick="javascript:fnOpenPopupUrl('https://www.epeople.go.kr/jsp/user/pc/serp/intro.jsp', 'B');">
+											<img src="/seapt/utl/image/imageView.do?fileName=20141024114017780.png" alt="안전신문고" ></a></span>
+										
+										
+									
+									</li>
+								
+							
+							
+					</ul>
+			</section>
+			<section class="support">
+				<h2><span>지원서비스</span></h2>
+				<ul>
+					
+					<li class="m1"><a href="/ttsbook/2015/index.html" target="_BLANK"><span>유관기관지원</span></a></li>
+					<li class="m2"><a href="javascript:fnScsGo();" > <!-- onclick="javascript:fnScsGo();" --><span>선사지원</span></a></li>
+				</ul>
+			</section>
+			
+					
+						
+		</section>
+		<section class="m_bottomArea">
+			<section class="hottopic">	
+			<h2><span>HOT토픽</span></h2>			
+				
+				<section class="notice m1">
+				<h2><span>공지사항</span></h2>				
+				<ul>								
+					<li class="m1"><a href="#a" class="bgbt"><span>전체</span></a>
+						<ul>
+						
+						
+							
+							
+							
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003925', '1|1');">[면접안내] 2018년도 오션폴리텍 면접전형 안내(내항상선5급)</a></li>
+							
+								
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000020" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001914', '');">[수송버스 운행안내]2018년 정기 제1회 해기사 면접시험[부산] 응시생 수송버스 운행 안...</a></li>
+							
+								
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000020" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001913', '');">[시행공고] 2018년 2분기 상시필기 제8회 ~ 제16회 해기사시험 시행 공고</a></li>
+							
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003923', '1|1');">[접수알림] 2018년 오션폴리텍 내항상선5급 접수알림 및 인성검사 진행방법 안내</a></li>
+							
+								
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000020" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001911', '');">[수송버스 운행안내]2018년 정기 제1회 해기사시험 [부산] 응시생 수송버스 운행 안내(...</a></li>
+							
+								
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000020" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001910', '');">[필기시험 장소] 2018년 정기 제1회 해기사 및 의료관리자시험 지역별 시험실 안내</a></li>
+							
+								
+								
+									
+									
+								
+								
+								
+								
+								
+								
+								
+																
+								
+								<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003918', '1|1');">2018년도 내항상선5급 교육과정 모집 경쟁률 공지(최종)</a></li>
+							
+						
+						
+						
+						</ul>
+					</li>
+					<li class="m8"><a href="#a" class="bgbt"><span>알립니다</span></a>										
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003917', '6|11');">한국해양수산연수원 실습선 한반도호 취항식 개최 안내</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003887', '6|11');">[채용정보] (재)한국해사안전국제협력센터 해사안전연구소 직원 채용 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003827', '6|11');">2018년도 신년 하례식사</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003825', '6|11');">2017년 종무식 식사</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003742', '6|11');">[채용정보] 한국해사안전국제협력센터 해사안전연구소 직원 채용 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003627', '6|11');">공공기관 청렴도 측정 관련 개인정보 제3자 제공사항 알림</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000097" style="cursor: hand;"><span class="div ic7"><span>알립니다</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000097', 'BBS_0000000000003624', '6|11');">[모집]2017년 선원가족과 일반시민이 함께하는 체험안전교육 참가자 모집 공고</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+					<li class="m2"><a href="#a" class="bgbt"><span>교육훈련</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003925', '1|1');">[면접안내] 2018년도 오션폴리텍 면접전형 안내(내항상선5급)</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003923', '1|1');">[접수알림] 2018년 오션폴리텍 내항상선5급 접수알림 및 인성검사 진행방법 안내</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003918', '1|1');">2018년도 내항상선5급 교육과정 모집 경쟁률 공지(최종)</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003907', '1|1');">[교육안내] 선박평형수관리교육 일정 안내</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003904', '1|1');">[추가개설]면허갱신(소형선박)교육-인천사무소</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003897', '1|1');">[교육생모집공고]2018년도 오션폴리텍(내항상선5급 해기사양성)교육과정 교육생 모집</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000017" style="cursor: hand;"><span class="div ic1"><span>교육훈련</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000017', 'BBS_0000000000003884', '1|1');">[최종합격자발표]2018년 외항상선3급 교육과정 최종합격자 발표 및 합격자등록안내</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+					<li class="m3"><a href="#a" class="bgbt"><span>자격검정</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do">more +</a></span>
+						
+						
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001914', '2');">[수송버스 운행안내]2018년 정기 제1회 해기사 면접시험[부산] 응시생 수송버스 운행 안...</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001913', '2');">[시행공고] 2018년 2분기 상시필기 제8회 ~ 제16회 해기사시험 시행 공고</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001911', '2');">[수송버스 운행안내]2018년 정기 제1회 해기사시험 [부산] 응시생 수송버스 운행 안내(...</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001910', '2');">[필기시험 장소] 2018년 정기 제1회 해기사 및 의료관리자시험 지역별 시험실 안내</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001908', '2');">2018년 해기능력평가 일정</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001907', '2');">2018년 상시필기 제6회 해기사시험(CBT) 합격자 공고</a></li>
+						
+							<li><a href="http://lems.seaman.or.kr/CInformation/Notice/selectNoticeList.do" style="cursor: hand;"><span class="div ic2"><span>자격검정</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000020', 'BSUB_0000001906', '2');">2018년 상시필기 제5회 해기사시험(CBT) 합격자 공고</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+										
+ 					<li class="m5"><a href="#a" class="bgbt"><span>고객지원</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000022">more +</a></span>
+						
+						
+						
+							<li>등록된 공지사항이 없습니다.</li>
+						
+						
+						</ul>
+					</li>
+					<li class="m6"><a href="#a" class="bgbt"><span>채용공고</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003908', '6|12');">무기계약직 임용예정자 선정 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003885', '6|12');">무기계약직 면접심사 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003865', '6|12');">한국해양수산연수원 계약직 채용 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003822', '6|12');">전환 예정자 공고문 알림</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003787', '6|12');">인턴직 임용예정자 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003786', '6|12');">전임강사 임용예정자 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000093" style="cursor: hand;"><span class="div ic5"><span>채용공고</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000093', 'BBS_0000000000003778', '6|12');">전환등록포기서 공지</a></li>
+						
+						
+						
+						
+						</ul>
+					</li> 
+					<li class="m4"><a href="#a" class="bgbt"><span>직업능력개발</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000003761', '3');">[홍보] 2017. 12. 5(화) 하반기 선사설명회 개최</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000003486', '3');">[홍보] 2017. 1. 13(금) 선사설명회 개최</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000003138', '3');">채용예정자(취득예정자)  재직구분 환급 대상 제외 알림</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000003137', '3');">교육 시 예약정원에 대해서만 고용보험 환급 가능</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000002663', '3');">고용보험 출석부 작성 사전 안내 요청</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000002662', '3');">직업능력개발훈련 기본 매뉴얼/ 계약서 양식</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000021" style="cursor: hand;"><span class="div ic3"><span>직업능력개발</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000021', 'BBS_0000000000002624', '3');">[필독] 고용보험 실시신고 마감변경/  2015.02 작성</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+					<li class="m7"><a href="#a" class="bgbt"><span>컨소시업교육</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000003305', '14');">취업연계과정 해양조선 선박설비 분야 교육생 추가모집</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000003299', '14');">조선해양분야 역량 강화 세미나 개최 알림</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000003221', '14');">취업연계과정 해양조선 선박설비 분야  교육생 모집</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000003106', '14');">2016년 제5기 해양 Commissioning 인력교육 전형 합격자 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000003096', '14');">취업연계과정 교육생 모집 (해양플랜트 시운전분야)</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000002873', '14');">2015년도 채용예정자과정(해양조선 선박설비 운영교육) 면접전형 합격자 공고</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000081" style="cursor: hand;"><span class="div ic6"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000081', 'BBS_0000000000002863', '14');">2015년도 채용예정자과정(해양 조선 선박 설비 운영교육) 교육생 모집</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+					<li class="m9"><a href="#a" class="bgbt"><span>보도자료</span></a>
+						<ul>
+						<span style="margin-right: 8px !important; margin-top : -34px !important; float: right !important;"><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095">more +</a></span>
+						
+						
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003915', '6|9|0');">해양수산연수원, 오션폴리텍 외항상선 3급 입교식</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003906', '6|9|0');">한국해양수산연수원, APEC 해양교육훈련(MET) 네트워크 구축 전략회의 개최</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003862', '6|9|0');">무한한 일자리의 바다, 오션폴리텍 교육생 모집</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003785', '6|9|0');">한국해양수산연수원, 2017년도 제6차 이사회 개최</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003777', '6|9|0');">한국해양수산연수원, 고객과 만남의 장 열어</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003757', '6|9|0');">한국해양수산연수원, 오션폴리텍 해기사 양성과정 수료식 개최</a></li>
+						
+							<li><a href="/seapa/cmm/bbs/selectBbsList.do?bbsMasterSeq=BOARD_MAS_0000000095" style="cursor: hand;"><span class="div ic8"><span>컨소시엄교육</span></span></a><a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000095', 'BBS_0000000000003756', '6|9|0');">한국해양수산연수원, 2017년도 추계학술발표회 개최</a></li>
+						
+						
+						
+						
+						</ul>
+					</li>
+				</ul>
+				
+			</section>			
+				<h1><span>배포자료</span></h1>		
+  				<ul class="photo">  				
+					
+					
+					
+					
+					
+					<li>
+						<a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000051', 'BBS_0000000000003913', '6|9|1');"><img src="/seapt/utl/image/imageView.do?fileName=20180305030250933_th.JPG" alt="2018년 오션폴리텍 외항상선3급 교육과정 입교식"><span>2018년 오션폴리텍 외항상...</span></a>
+					</li>	
+					
+					
+					
+					
+					
+					<li>
+						<a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000051', 'BBS_0000000000003905', '6|9|1');"><img src="/seapt/utl/image/imageView.do?fileName=20180228105308704_th.JPG" alt="2018년도 APEC 전략회의 개최"><span>2018년도 APEC 전략회...</span></a>
+					</li>	
+					
+					
+					
+					
+					
+					
+					
+					<li>
+						<a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000054', 'BBS_0000000000003208', '6|9|2');"><img src="/seapt/utl/image/imageView.do?fileName=20160614103633247_th.jpg" alt="추월 피추월선의 항법(음향신호)"><span>추월 피추월선의 항법(음향신...</span></a>
+					</li>	
+					
+					
+					
+					
+					
+					<li>
+						<a href="#a" onclick="javascript:fnBbsView('BOARD_MAS_0000000054', 'BBS_0000000000003206', '6|9|2');"><img src="/seapt/utl/image/imageView.do?fileName=20160614103510496_th.jpg" alt="안전속력과 무중항법"><span>안전속력과 무중항법</span></a>
+					</li>	
+					
+				</ul> 
+
+			</section>
+			<!-- 섹션에대하여! facebook: m1 / twitter: m2 -->
+			<div id="fb-root"></div>
+<script language="javascript" type="text/javascript">
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=178106652318619";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+			<section class="m_sns m1">
+				<h2><span>SNS서비스</span></h2>
+				<ul>
+					<li class="m1"><a href="#a" class="bgbt"><span>페이스북</span></a>
+						<div class="fb-page" data-href="http://www.facebook.com/Korea.KIMFT" data-tabs="timeline" data-width="270" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="http://www.facebook.com/Korea.KIMFT" class="fb-xfbml-parse-ignore"><a href="http://www.facebook.com/Korea.KIMFT">한국해양수산연수원</a></blockquote></div>
+					</li>			
+				 	<li class="m2"><a href="#a" class="bgbt"><span>트위터</span></a>
+						<section>
+							<iframe src="/seapt/intro/selectEPRSns02.do" frameborder="0" scrolling="no" title="트위터"></iframe>
+						</section>
+					</li>
+				</ul>
+			</section>
+		</section>
+	</form>
+	</section>
+	
+	<footer>
+		<section class="banner_zone" id="banner_zone">
+			<h2><span>배너존</span></h2>
+			<section class="banner" id="banner">
+				<div id="bannerDiv" style="overflow:hidden;position:relative;top:0px;height:40px;z-index:1" onMouseOver="javascript:stopTimeOut();" onMouseOut="javascript:startTimeOut();">
+					<script>
+						fncBanner("bannerDiv");
+					</script>
+				</div>
+			</section>
+			<section class="bt">
+				<ul>
+					<li class="m1"><a href="#a" onclick="javascript:changeDiv();"><span>전체보기</span></a></li>
+					<li class="m2"><a href="#a" onclick="javascript:moveUP();"><span>위로</span></a></li>
+					<li class="m3"><a href="#a" onclick="javascript:stopBt();"><span>정지</span></a></li>
+					<li class="m4"><a href="#a" onclick="javascript:moveDOWN();"><span>아래로</span></a></li>
+				</ul>
+			</section>
+		</section>
+		<section class="address">
+			<h2><span>세계 최고의 선원교육기관 한국해양수산연수원</span></h2>
+			<ul>
+				<li>부산본원 : (49111) 부산광역시 영도구 해양로 367(동삼동)&nbsp; 콜센터: 1899-3600 / +82-51-624-4521</li>
+				<li>용당캠퍼스 : (48562) 부산광역시 남구 신선로 356번길  93(용당동)&nbsp;</li>
+				<li>인천사무소 : (22133) 인천광역시 남구 주안로 115 (주안동) 전시문화빌딩 5층  &nbsp; TEL : 032.765.2335~7</li>
+				
+			</ul>
+		</section>
+		<section class="copyright_zone">
+			<section class="gnb_footer">
+				<ul>
+					<li class="m1"><a href="/seapt/guide/selectPrivacyInfoProtection.do"><span>개인정보처리방침</span></a></li>
+					<li class="m2"><a href="/seapt/guide/selectMemberClause.do"><span>약관및보호정책</span></a></li>
+					<li class="m3"><a href="/seapt/guide/improve/selectOpinions.do"><span>홈페이지의견수렴</span></a></li>
+					<li class="m4"><a href="/seapt/intro/selectLocationYoungdo.do"><span>찾아오시는길</span></a></li>
+				</ul>
+			</section>
+			<section class="copyright">
+				<ul>
+					<li>본 홈페이지는 게시된 이메일주소가 자동 수집되는것을 거부하며 이를 위반시<br>정보통신망법에 의해 처벌됨을 유념하여주시기 바랍니다.</li>
+					<li>Copyright ⓒ2012 seaman All rights reserved. / e-mail :<a href="mailto:admin@seaman.or.kr">admin@seaman.or.kr</a></li>
+				</ul>
+			</section>
+		</section>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,1168 @@
+
+
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Cinematográfica Cine Araújo</title>
+
+		<meta name='pagename' content='Cinematográfica Cine Araújo'>
+		<meta name='keywords' content='cinematográfica, cine, araújo, cinema, filme, filmes, movie, movies, ingressos, tickets, sessão, em cartaz'>
+		<meta name='description' content='150 words'>
+		<meta name='copyright' content='Cinematográfica Cine Araújo'>
+		<meta name='language' content='pt_BR'>
+		<meta name='robots' content='index,follow,noodp,noydir'>
+		<meta name='googlebot' content='noarchive'>
+
+		<!-- Social Meta Tags -->
+		<meta property="og:locale" content="pt_BR">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Cinematográfica Cine Araújo">
+		<meta property="og:description" content="">
+		<meta property="og:url" content="/">
+		<meta property="og:site_name" content="Cinematográfica Cine Araújo">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Cinematográfica Cine Araújo">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:site" content="@cinemasaraujo">
+		<meta name="twitter:creator" content="@cinemasaraujo">
+
+		<link rel='canonical' href='/'>
+		<!-- Shortcut Icon -->
+		<link rel="shortcut icon" href="assets/img/favicons/favicon.png">
+		<link rel="icon" type="image/png" href="assets/img/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="assets/img/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="assets/img/favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="assets/img/favicons/favicon-160x160.png" sizes="160x160">
+		<link rel="icon" type="image/png" href="assets/img/favicons/favicon-192x192.png" sizes="192x192">
+		<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+
+		<link href="assets/css/normalize.css" rel="stylesheet">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="assets/css/font-face.css" rel="stylesheet">
+		<link href="assets/css/animate.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/owl.theme.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/solid-menu-core.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/solid-menu-media.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/solid-menu-theme.css" type="text/css">
+
+		<link href="assets/css/frontend.css"  rel="stylesheet">
+		<link href="assets/css/jcarousel.css" rel="stylesheet" type="text/css" />
+
+		<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="assets/banners/megabanner.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("MEGABANNER201X");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	//exportRoot = new lib.megabanner();
+	exportRoot = new lib.megabanner();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	function makeResponsive(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}
+
+			// canvas.width = w*pRatio*sRatio;			
+			// canvas.height = h*pRatio*sRatio;
+			// canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
+			// canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+			// stage.scaleX = pRatio*sRatio;			
+			// stage.scaleY = pRatio*sRatio;			
+			// lastW = iw; lastH = ih; lastS = sRatio;  
+			resizeCanvasCustom();
+
+			stage.tickOnUpdate = false;            
+			stage.update();            
+			stage.tickOnUpdate = true;		
+		}
+		function resizeCanvasCustom() {
+			// Marciano - 2017.11.28
+			// Funcao atribuida para responsividade
+			var e = $('canvas'),
+				w = e.parent().parent().width(),
+				h = w * 0.4179487179487179;
+
+				canvas.width = w;			
+				canvas.height = h;
+				canvas.style.width = w+'px';			
+				canvas.style.height = h+'px';
+				
+				stage.scaleX = w / lib.properties.width;	
+				stage.scaleY = w / lib.properties.width;
+
+				anim_container.style.width = w+'px';			
+				anim_container.style.height = h+'px';
+
+				dom_overlay_container.style.width = w+'px';			
+				dom_overlay_container.style.height = h+'px';
+		}
+	}
+
+	makeResponsive(false,'both',false,1);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+
+}
+</script>
+
+	</head>
+
+	<body class="page-home animated fadeIn" onload="init();">
+		<div class="wrapper">
+			<div class="jcarousel-wrapper">
+				<div class="jcarousel">
+					<ul>
+					
+		<li><a href="filme.asp?fil_id=2443"><img src="filmes/filme2443_f19.jpg" alt="Cinquenta Tons de Liberdade " title="Cinquenta Tons de Liberdade " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2447"><img src="filmes/filme2447_f19.jpg" alt="Pantera Negra " title="Pantera Negra " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2449"><img src="filmes/filme2449_f19.jpg" alt="Os Farofeiros" title="Os Farofeiros" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2454"><img src="filmes/filme2454_f19.jpg" alt="A Maldição da Casa Winchester" title="A Maldição da Casa Winchester" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2456"><img src="filmes/filme2456_f19.jpg" alt="Tomb Raider - A Origem" title="Tomb Raider - A Origem" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2457"><img src="filmes/filme2457_f19.jpg" alt="Maria Madalena " title="Maria Madalena " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2487"><img src="filmes/filme2487_f19.jpg" alt="Operação Red Sparrow" title="Operação Red Sparrow" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2491"><img src="filmes/filme2491_f19.jpg" alt="O Passageiro " title="O Passageiro " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2494"><img src="filmes/filme2494_f19.jpg" alt="12 Heróis " title="12 Heróis " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2437"><img src="filmes/filme2437_f19.jpg" alt="A Melhor Escolha" title="A Melhor Escolha" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2442"><img src="filmes/filme2442_f19.jpg" alt="O Homem das Cavernas " title="O Homem das Cavernas " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2458"><img src="filmes/filme2458_f19.jpg" alt="Círculo de Fogo: A Revolta " title="Círculo de Fogo: A Revolta " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2459"><img src="filmes/filme2459_f19.jpg" alt="Pedro Coelho" title="Pedro Coelho" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2460"><img src="filmes/filme2460_f19.jpg" alt="Uma Dobra no Tempo" title="Uma Dobra no Tempo" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2481"><img src="filmes/filme2481_f19.jpg" alt="Jogador Nº1 " title="Jogador Nº1 " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2482"><img src="filmes/filme2482_f19.jpg" alt="Nada a Perder - Contra Tudo. Por Todos " title="Nada a Perder - Contra Tudo. Por Todos " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2492"><img src="filmes/filme2492_f19.jpg" alt="Com Amor, Simon" title="Com Amor, Simon" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2493"><img src="filmes/filme2493_f19.jpg" alt="Por Trás dos Seus Olhos" title="Por Trás dos Seus Olhos" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2496"><img src="filmes/filme2496_f19.jpg" alt="Um Lugar Silencioso " title="Um Lugar Silencioso " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2497"><img src="filmes/filme2497_f19.jpg" alt="Baseado em Fatos Reais " title="Baseado em Fatos Reais " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2498"><img src="filmes/filme2498_f19.jpg" alt="Rampage - Destruição total" title="Rampage - Destruição total" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2499"><img src="filmes/filme2499_f19.jpg" alt="Alguém Como Eu" title="Alguém Como Eu" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2500"><img src="filmes/filme2500_f19.jpg" alt="Tudo que Quero" title="Tudo que Quero" style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2501"><img src="filmes/filme2501_f19.jpg" alt="7 dias em Entebbe " title="7 dias em Entebbe " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2502"><img src="filmes/filme2502_f19.jpg" alt="Vingadores: Guerra Infinita " title="Vingadores: Guerra Infinita " style="" /></a></li>
+		
+		<li><a href="filme.asp?fil_id=2503"><img src="filmes/filme2503_f19.jpg" alt="Covil de Ladrões" title="Covil de Ladrões" style="" /></a></li>
+		
+					</ul>
+				</div>
+				<a href="#" class="jcarousel-control-prev"></a>
+				<a href="#" class="jcarousel-control-next"></a>
+			</div>
+
+			
+
+<header id="header">
+	<section name="carousel-movies">
+		<div class="container-fluid">
+			
+		</div>
+	</section>
+	<section name="menu-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2 wr-logo hidden-xs">
+					<a href="/">
+						<img src="assets/img/logo-cinearaujo-100x150-72dpi.png">
+					</a>
+				</div>
+				<div class="col-xs-12 col-sm-10">
+					<div class="row">
+						<div class="col-lg-12 wr-banner-header hidden-xs">
+							<div class="banner-header">
+								<!-- HTML Custom -->
+							</div>
+						</div>
+						<div class="col-lg-12 wr-nav-section">
+							<!-- -------------------------------------------------------------------------------- -->
+							<section id="nav-section">
+								<div class="container-fluid solid-menus" id="solidMenus">
+									<div class="row visible-xs navbar-header-title">
+										<div class="col-xs-12">
+											Programação
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<nav class="navbar navbar-default navbar-default-light no-border-radius no-margin">
+												<div class="container-fluid" id="navbar-inner-container">
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="navbar-header hidden-xs">
+																<div class="navbar-brand navbar-brand-center " href="#">Procure por:</div>
+															</div>
+															<div class="collapse navbar-collapse" id="solidMenu">
+																<ul class="nav navbar-nav">
+																	<!-- -------------- -->
+																	<li class="dropdown dropdown-full-width" data-animation="fadeIn">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Filme"><span> Filme </span><i class="fa fa-angle-down"></i></a>
+																		<div class="dropdown-menu no-border-radius no-padding">
+																			<div class="row-autoheight">
+																				<div class="col-xs-12 clearfix">
+																					<div class="col-xs-12 no-padding">
+																						<div class="pad-2">
+																							<h5 class="text-candy"><strong> <a href="/emcartaz.asp">Filmes em Cartaz</a> </strong></h5>
+																							<div class="owl-carousel">
+																								
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2494"
+			
+				title="12 Heróis "
+			
+		><img src="filmes/filme2494_cp.jpg" alt="12 Heróis " class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>12 Heróis </strong></h5>
+		<a href="filme.asp?fil_id=2494" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="12 Heróis ">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2491"
+			
+				title="O Passageiro "
+			
+		><img src="filmes/filme2491_cp.jpg" alt="O Passageiro " class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>O Passageiro </strong></h5>
+		<a href="filme.asp?fil_id=2491" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="O Passageiro ">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2487"
+			
+				title="Operação Red Sparrow"
+			
+		><img src="filmes/filme2487_cp.jpg" alt="Operação Red Sparrow" class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Operação Red Sparrow</strong></h5>
+		<a href="filme.asp?fil_id=2487" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Operação Red Sparrow">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2457"
+			
+				title="Maria Madalena "
+			
+		><img src="filmes/filme2457_cp.jpg" alt="Maria Madalena " class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Maria Madalena </strong></h5>
+		<a href="filme.asp?fil_id=2457" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Maria Madalena ">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2456"
+			
+				title="Tomb Raider - A Origem"
+			
+		><img src="filmes/filme2456_cp.jpg" alt="Tomb Raider - A Origem" class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Tomb Raider - A Origem</strong></h5>
+		<a href="filme.asp?fil_id=2456" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Tomb Raider - A Origem">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2454"
+			
+				title="A Maldição da Casa Winchester"
+			
+		><img src="filmes/filme2454_cp.jpg" alt="A Maldição da Casa Winchester" class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>A Maldição da Casa Winchester</strong></h5>
+		<a href="filme.asp?fil_id=2454" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="A Maldição da Casa Winchester">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2449"
+			
+				title="Os Farofeiros"
+			
+		><img src="filmes/filme2449_cp.jpg" alt="Os Farofeiros" class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Os Farofeiros</strong></h5>
+		<a href="filme.asp?fil_id=2449" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Os Farofeiros">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2447"
+			
+				title="Pantera Negra "
+			
+		><img src="filmes/filme2447_cp.jpg" alt="Pantera Negra " class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Pantera Negra </strong></h5>
+		<a href="filme.asp?fil_id=2447" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Pantera Negra ">Ver Detalhes</a>
+		
+	</div>
+	
+	<div class="item text-center">
+		
+		<a href="filme.asp?fil_id=2443"
+			
+				title="Cinquenta Tons de Liberdade "
+			
+		><img src="filmes/filme2443_cp.jpg" alt="Cinquenta Tons de Liberdade " class="img-responsive"></a>
+		
+		<h5 class="margin-top-1"><strong>Cinquenta Tons de Liberdade </strong></h5>
+		<a href="filme.asp?fil_id=2443" class="btn btn-default btn-mina btn-mina-rip-m margin-top-1" title="Cinquenta Tons de Liberdade ">Ver Detalhes</a>
+		
+	</div>
+															
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-xs-12 col-lg-4">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5 class="text-candy"><strong><a href="/embreve.asp">Filmes Em Breve</a></strong></h5>
+																							<ul class="s-list l-embreve no-padding">
+																							
+		<li><a href="filme.asp?fil_id=2437" alt="A Melhor Escolha">A Melhor Escolha (22/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2458" alt="Círculo de Fogo: A Revolta ">Círculo de Fogo: A Revolta  (22/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2459" alt="Pedro Coelho">Pedro Coelho (22/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2493" alt="Por Trás dos Seus Olhos">Por Trás dos Seus Olhos (22/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2460" alt="Uma Dobra no Tempo">Uma Dobra no Tempo (29/03 )</a></li>
+	
+		<li><a href="filme.asp?fil_id=2481" alt="Jogador Nº1 ">Jogador Nº1  (29/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2482" alt="Nada a Perder - Contra Tudo. Por Todos ">Nada a Perder - Contra Tudo. Por Todos  (29/03)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2442" alt="O Homem das Cavernas ">O Homem das Cavernas  (05/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2492" alt="Com Amor, Simon">Com Amor, Simon (05/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2496" alt="Um Lugar Silencioso ">Um Lugar Silencioso  (05/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2503" alt="Covil de Ladrões">Covil de Ladrões (05/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2504" alt="Covil de Ladrões">Covil de Ladrões (05/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2497" alt="Baseado em Fatos Reais ">Baseado em Fatos Reais  (12/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2498" alt="Rampage - Destruição total">Rampage - Destruição total (12/04 )</a></li>
+	
+		<li><a href="filme.asp?fil_id=2499" alt="Alguém Como Eu">Alguém Como Eu (19/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2501" alt="7 dias em Entebbe ">7 dias em Entebbe  (19/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2500" alt="Tudo que Quero">Tudo que Quero (26/04)</a></li>
+	
+		<li><a href="filme.asp?fil_id=2502" alt="Vingadores: Guerra Infinita ">Vingadores: Guerra Infinita  (26/04)</a></li>
+	
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-xs-12 col-lg-4">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5 class="text-candy invisible"><strong>Filmes Em Breve</strong></h5>
+																							<ul class="s-list l-embreve no-padding">
+																								
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-xs-12 col-lg-4">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5 class="text-candy invisible"><strong>Filmes Em Breve</strong></h5>
+																							<ul class="s-list l-embreve no-padding">
+																								
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<!-- -------------- -->
+																	<li class="dropdown dropdown-full-width dropdown-autoheight" data-animation="fadeIn">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Cinema <i class="fa fa-angle-down"></i></a> 
+																		<div class="dropdown-menu no-border-radius no-padding" data-adjust="2">
+																			<div class="row-autoheight">
+																				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-autoheight">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5 class="text-candy"><strong><a href="/localizacao.asp" title="Todas unidades Cine Araújo">Unidades Cine Araújo</a></strong></h5>
+																							<p>Confira a programação e detalhes dos cinemas.</p>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_ac.asp" title="Unidades Cine Araújo no estado do Acre">Acre</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/ac_riobranco_viaverde.asp" class="no-padding" title="Multiplex Via Verde (Rio Branco)">Multiplex Via Verde (Rio Branco)</a></li>
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_am.asp" title="Unidades Cine Araújo no estado do Amazonas">Amazonas</strong></a></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/ma_via_norte.asp" class="no-padding" title="Multiplex Via Norte (Manaus)">Multiplex Via Norte (Manaus)</a></li>
+																								<!--<li><a href="/ma_via_norte_vip.asp" class="no-padding" title="Multiplex Via Norte VIP (Manaus)">Multiplex Via Norte VIP (Manaus)</a></li>-->
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_es.asp" title="Unidades Cine Araújo no estado do Espírito Santo">Espírito Santo</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/es_serra_mestrealvaro.asp" class="no-padding" title="Multiplex Shopping Mestre Álvaro (Serra)">Multiplex Shopping Mestre Álvaro (Serra)</a></li>
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_mt.asp" title="Unidades Cine Araújo no estado do Mato Grosso">Mato Grosso</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/mt_cuiaba_shoppingpantanal.asp" class="no-padding" title="Cuiabá Shopping Pantanal (Cuiabá)">Cuiabá Shopping Pantanal (Cuiabá)</a></li>
+																								<!--<li><a href="/multiplex_pantanal_cuiaba.asp" class="no-padding" title="Cuiabá Shopping Pantanal VIP (Cuiabá)">Cuiabá Shopping Pantanal VIP (Cuiabá)</a></li>-->
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_ms.asp" title="Unidades Cine Araújo no estado do Mato Grosso do Sul">Mato Grosso do Sul</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/ms_dourados_avenida.asp" class="no-padding" title="Avenida (Dourados)">Avenida (Dourados)</a></li>
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-autoheight">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5><strong><a href="/localizacao_pr.asp" title="Unidades Cine Araújo no estado do Paraná">Paraná</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/pr_maringa_avenidacenter.asp" class="no-padding" title="Cines Avenida (Maringá)">Cines Avenida (Maringá)</a></li>
+																								<li><a href="/pr_londrina_catuai.asp" class="no-padding" title="Multiplex Catuaí (Londrina)">Multiplex Catuaí (Londrina)</a></li>
+																								<!--<li><a href="/pr_londrina_catuai_vip.asp" class="no-padding" title="Multiplex Catuaí VIP (Londrina)">Multiplex Catuaí VIP (Londrina)</a></li>-->
+																								<li><a href="/pr_maringa_catuai.asp" class="no-padding" title="Multiplex Catuaí Maringá (Maringá)">Multiplex Catuaí Maringá (Maringá)</a></li>
+																								<!--<li><a href="/pr_maringa_catuai_vip.asp" class="no-padding" title="Multiplex Catuaí Maringá VIP (Maringá)">Multiplex Catuaí Maringá VIP (Maringá)</a></li>-->
+																								<li><a href="/pr_pontagrossa_palladium.asp" class="no-padding" title="Multiplex Palladium (Ponta Grossa)">Multiplex Palladium (Ponta Grossa)</a></li>
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_rj.asp" title="Unidades Cine Araújo no estado do Rio de Janeiro">Rio de Janeiro</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/rj_duquedecaxias_cineduque.asp" class="no-padding" title="Cine Duque (Duque de Caxias)">Cine Duque (Duque de Caxias)</a></li>
+																								<li><a href="/rj_goytacazes_boulevard.asp" class="no-padding" title="Multiplex Boulevard (Campos dos Goytacazes)">Multiplex Boulevard (Campos dos Goytacazes)</a></li>
+																								<li><a href="/rj_riodejaneiro_guadalupe.asp" class="no-padding" title="Multiplex Jardim Guadalupe (Rio de Janeiro)">Multiplex Jardim Guadalupe (Rio de Janeiro)</a></li>
+																								<li><a href="/rj_multiplex_park_lagos.asp" class="no-padding" title="Multiplex Park Lagos (Cabo Frio)">Multiplex Park Lagos (Cabo Frio)</a></li>
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_ro.asp" title="Unidades Cine Araújo no estado de Rondônia">Rondônia</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/ro_portovelho_cineportovelho.asp" class="no-padding" title="Cine Araújo Porto Velho (Porto Velho)">Cine Araújo Porto Velho (Porto Velho)</a></li>
+																							</ul>
+																							<h5 class="margin-top-2"><strong><a href="/localizacao_rr.asp" title="Unidades Cine Araújo no estado de Roraima">Roraima</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/rr_boa_vista.asp" class="no-padding" title="Multiplex Pátio Roraima (Boa Vista)">Multiplex Pátio Roraima (Boa Vista)</a></li>
+																								<!--<li><a href="/rr_boa_vista_vip.asp" class="no-padding" title="Multiplex Pátio Roraima VIP (Boa Vista)">Multiplex Pátio Roraima VIP (Boa Vista)</a></li>-->
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-autoheight">
+																					<div class="col-lg-12 no-padding">
+																						<div class="pad-2">
+																							<h5><strong><a href="/localizacao_sp.asp" title="Unidades Cine Araújo no estado de São Paulo">São Paulo</a></strong></h5>
+																							<ul class="s-list s-list-pl s-list-no-hover no-padding">
+																								<li><a href="/sp_aracatuba_aracatuba.asp" class="no-padding" title="Cine Araçatuba (Araçatuba)">Cine Araçatuba (Araçatuba)</a></li>
+																								<li><a href="/sp_bauru_multiplex.asp" class="no-padding" title="Multiplex Bauru Shopping (Bauru)">Multiplex Bauru Shopping (Bauru)</a></li>
+																								<li><a href="/sp_botucatu_multiplex.asp" class="no-padding" title="Multiplex Boulevard Botucatu (Botucatu)">Multiplex Boulevard Botucatu (Botucatu)</a></li>
+																								<li><a href="/sp_campinas_multiplex.asp" class="no-padding" title="Multiplex Parque das Bandeiras (Campinas)">Multiplex Parque das Bandeiras (Campinas)</a></li>
+																								<!--<li><a href="/sp_campinas_multiplex_vip.asp" class="no-padding" title="Multiplex Parque das Bandeiras VIP (Campinas)">Multiplex Parque das Bandeiras VIP (Campinas)</a></li>-->
+																								<li><a href="/sp_itatiba_mall.asp" class="no-padding" title="Multiplex Itatiba Mall (Itatiba)">Multiplex Itatiba Mall (Itatiba)</a></li>
+																								<li><a href="/sp_itu_plaza.asp" class="no-padding" title="Cines Plaza Shopping (Itu)">Cines Plaza Shopping (Itu)</a></li>
+																								<li><a href="/sp_maua_multiplex.asp" class="no-padding" title="Multiplex Plaza Shopping (Mauá)">Multiplex Plaza Shopping (Mauá)</a></li>
+																								<li><a href="/sp_piracicaba_piracicaba.asp" class="no-padding" title="Cines Shopping Piracicaba (Piracicaba)">Cines Shopping Piracicaba (Piracicaba)</a></li>
+																								<!--<li><a href="/sp_piracicaba_vip.asp" class="no-padding" title="Cines Shopping Piracicaba VIP (Piracicaba)">Cines Shopping Piracicaba VIP (Piracicaba)</a></li>-->
+																								<li><a href="javascript:void(0);" class="no-padding" title="Multiplex Vic Center Santa Bárbara (Santa Bárbara D'Oeste)">Multiplex Vic Center Santa Bárbara (Santa Bárbara D'Oeste)</a></li>
+																								<!-- /sp_santabarbara_multiplex.asp -->
+																								<li><a href="/sp_saocarlos_iguatemi.asp" class="no-padding" title="Cines Iguatemi (São Carlos)">Cines Iguatemi (São Carlos)</a></li>
+																								<li><a href="/sp_sjrp_sjrpshopping.asp" class="no-padding" title="Multiplex Rio Preto Shopping (São José do Rio Preto)">Multiplex Rio Preto Shopping (São José do Rio Preto)</a></li>
+																								<!--<li><a href="/sp_sjrp_shopping_vip.asp" class="no-padding" title="Multiplex Rio Preto Shopping VIP (São José do Rio Preto)">Multiplex Rio Preto Shopping VIP (São José do Rio Preto)</a></li>-->
+																								<li><a href="/sp_campolimpo_multiplex.asp" class="no-padding" title="Multiplex Campo Limpo (São Paulo)">Multiplex Campo Limpo (São Paulo)</a></li>
+																								<li><a href="/sp_sorocaba_multiplex.asp" class="no-padding" title="Multiplex Shopping Cidade (Sorocaba)">Multiplex Shopping Cidade (Sorocaba)</a></li>
+																								<!--<li><a href="/sp_sorocaba_multiplex_vip.asp" class="no-padding" title="Multiplex Shopping Cidade VIP (Sorocaba)">Multiplex Shopping Cidade VIP (Sorocaba)</a></li>-->
+																								<li><a href="/sp_multiplex_patio_ciane.asp" class="no-padding" title="Multiplex Pátio Cianê (Sorocaba)">Multiplex Pátio Cianê (Sorocaba)</a></li>
+																								<!--<li><a href="/sp_multiplex_patio_ciane_vip.asp" class="no-padding" title="Multiplex Pátio Cianê VIP (Sorocaba)">Multiplex Pátio Cianê VIP (Sorocaba)</a></li>-->
+																								<li><a href="/sp_taboao_multiplex.asp" class="no-padding" title="Multiplex Shopping Taboão (Taboão da Serra)">Multiplex Shopping Taboão (Taboão da Serra)</a></li>
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</li>
+																	<!-- -------------- -->
+																	<li class="dropdown dropdown-full-width" data-animation="fadeIn">
+																		<a class="dropdown-toggle" href="/precos.asp"> Preços </a>
+																	</li>
+																	<li class="dropdown dropdown-full-width" data-animation="fadeIn">
+																		<a class="dropdown-toggle" href="/eventos.asp"> Eventos Especiais </a>
+																	</li>
+																	<li class="dropdown dropdown-full-width" data-animation="fadeIn">
+																		<a class="dropdown-toggle" href="/contato.asp"> Contato</a>
+																	</li>
+																	<li class="dropdown dropdown-full-width" data-animation="fadeIn">
+																		<a class="dropdown-toggle" href="/anuncie.asp"> Anuncie </a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</section>
+							<!-- -------------------------------------------------------------------------------- -->	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</header>
+			
+			<section class="wr-conteudo">
+				<section id="wr-bgbanner">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-tn-4 col-xs-3 wr-logo visible-xs">
+								<img src="assets/img/logo-cinearaujo-100x150-72dpi.png">
+							</div>
+							
+							<div class="wr-logo-pat text-right col-xs-12 hidden-xs">
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="wr-search">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<h1>Cine Araújo mais próximo de você!</h1>
+								<form id="pesquisa" name="pesquisa" method="post">
+									<select name="cid_id" id="sel_cidades" onchange="envia();">
+										<option value="">Escolha sua cidade e confira a programa&ccedil;&atilde;o</option>
+<option value="12" >Araçatuba - SP</option>
+<option value="2" >Bauru - SP</option>
+<option value="32" >Boa vista - RR</option>
+<option value="33" >Botucatu - SP</option>
+<option value="30" >Cabo Frio - RJ</option>
+<option value="17" >Campinas - SP</option>
+<option value="25" >Campos dos Goytacazes - RJ</option>
+<option value="3" >Cuiabá - MT</option>
+<option value="4" >Dourados - MS</option>
+<option value="22" >Duque de Caxias - RJ</option>
+<option value="35" >Itatiba - SP</option>
+<option value="14" >Itu - SP</option>
+<option value="5" >Londrina - PR</option>
+<option value="31" >Manaus - AM</option>
+<option value="15" >Maringá - PR</option>
+<option value="19" >Mauá - SP</option>
+<option value="6" >Piracicaba - SP</option>
+<option value="20" >Ponta Grossa - PR</option>
+<option value="23" >Porto Velho - RO</option>
+<option value="26" >Rio Branco - AC</option>
+<option value="28" >Rio de Janeiro - RJ</option>
+<option value="36" >Santa Bárbara do Oeste - SP</option>
+<option value="16" >São Carlos - SP</option>
+<option value="7" >São José do Rio Preto - SP</option>
+<option value="18" >São Paulo - SP</option>
+<option value="29" >Serra - ES</option>
+<option value="21" >Sorocaba - SP</option>
+<option value="10" >Taboão da Serra - SP</option>
+                        
+									</select>
+									<input type="button" class="btn btn-default" onclick="javascript:envia();" value="Procurar">
+								</form>
+								<p>
+									<a href="/ingresso.asp"><i class="fa fa-ticket"></i>Clique aqui e compre seu ingresso com facilidade</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="wr-carousel">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								<div id="animation_container">
+									<canvas id="canvas"></canvas>
+									<div id="dom_overlay_container"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="wr-filmes">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-md-8">
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="row">
+											<div class="col-xs-12">
+												<div class="section-title clearfix">
+													<h2>Em Cartaz</h2>
+													<a href="/emcartaz.asp">Ver Todos <i class="fa fa-chevron-right"></i></a>
+												</div>
+											</div>
+											
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2494" alt="12 Heróis ">
+			
+			<img src="filmes/filme2494_cp.jpg" alt="12 Heróis " title="12 Heróis " />
+			
+			<label>12 Heróis </label>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2491" alt="O Passageiro ">
+			
+			<img src="filmes/filme2491_cp.jpg" alt="O Passageiro " title="O Passageiro " />
+			
+			<label>O Passageiro </label>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2487" alt="Operação Red Sparrow">
+			
+			<img src="filmes/filme2487_cp.jpg" alt="Operação Red Sparrow" title="Operação Red Sparrow" />
+			
+			<label>Operação Red Sparrow</label>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2457" alt="Maria Madalena ">
+			
+			<img src="filmes/filme2457_cp.jpg" alt="Maria Madalena " title="Maria Madalena " />
+			
+			<label>Maria Madalena </label>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2456" alt="Tomb Raider - A Origem">
+			
+			<img src="filmes/filme2456_cp.jpg" alt="Tomb Raider - A Origem" title="Tomb Raider - A Origem" />
+			
+			<label>Tomb Raider - A Origem</label>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2454" alt="A Maldição da Casa Winchester">
+			
+			<img src="filmes/filme2454_cp.jpg" alt="A Maldição da Casa Winchester" title="A Maldição da Casa Winchester" />
+			
+			<label>A Maldição da Casa Winchester</label>
+			
+			</a>
+		</div>
+	</div>
+	
+										</div>
+									</div>
+
+									<div class="col-xs-12">
+										<div class="row">
+											<div class="col-xs-12">
+												<div class="section-title clearfix">
+													<h2>Em Breve</h2>
+													<a href="/embreve.asp">Ver Todos <i class="fa fa-chevron-right"></i></a>
+												</div>
+											</div>
+											
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2437" alt="A Melhor Escolha">
+			
+			<img src="filmes/filme2437_cp.jpg" alt="A Melhor Escolha" title="A Melhor Escolha" />
+			
+			<label>A Melhor Escolha</label>
+			<span>Estreia: 22/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2458" alt="Círculo de Fogo: A Revolta ">
+			
+			<img src="filmes/filme2458_cp.jpg" alt="Círculo de Fogo: A Revolta " title="Círculo de Fogo: A Revolta " />
+			
+			<label>Círculo de Fogo: A Revolta </label>
+			<span>Estreia: 22/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2459" alt="Pedro Coelho">
+			
+			<img src="filmes/filme2459_cp.jpg" alt="Pedro Coelho" title="Pedro Coelho" />
+			
+			<label>Pedro Coelho</label>
+			<span>Estreia: 22/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2493" alt="Por Trás dos Seus Olhos">
+			
+			<img src="filmes/filme2493_cp.jpg" alt="Por Trás dos Seus Olhos" title="Por Trás dos Seus Olhos" />
+			
+			<label>Por Trás dos Seus Olhos</label>
+			<span>Estreia: 22/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2460" alt="Uma Dobra no Tempo">
+			
+			<img src="filmes/filme2460_cp.jpg" alt="Uma Dobra no Tempo" title="Uma Dobra no Tempo" />
+			
+			<label>Uma Dobra no Tempo</label>
+			<span>Estreia: 29/03 </span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2481" alt="Jogador Nº1 ">
+			
+			<img src="filmes/filme2481_cp.jpg" alt="Jogador Nº1 " title="Jogador Nº1 " />
+			
+			<label>Jogador Nº1 </label>
+			<span>Estreia: 29/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2482" alt="Nada a Perder - Contra Tudo. Por Todos ">
+			
+			<img src="filmes/filme2482_cp.jpg" alt="Nada a Perder - Contra Tudo. Por Todos " title="Nada a Perder - Contra Tudo. Por Todos " />
+			
+			<label>Nada a Perder - Contra Tudo. Por Todos </label>
+			<span>Estreia: 29/03</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2442" alt="O Homem das Cavernas ">
+			
+			<img src="filmes/filme2442_cp.jpg" alt="O Homem das Cavernas " title="O Homem das Cavernas " />
+			
+			<label>O Homem das Cavernas </label>
+			<span>Estreia: 05/04</span>
+			
+			</a>
+		</div>
+	</div>
+	
+	<div class="col-xs-6 col-sm-4">
+		<div class="section-box">
+			<a href="filme.asp?fil_id=2492" alt="Com Amor, Simon">
+			
+			<img src="filmes/filme2492_cp.jpg" alt="Com Amor, Simon" title="Com Amor, Simon" />
+			
+			<label>Com Amor, Simon</label>
+			<span>Estreia: 05/04</span>
+			
+			</a>
+		</div>
+	</div>
+	
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="wr-top5" class="col-xs-12 col-sm-12 col-md-4">
+							
+
+<div class="row">
+	
+	<div class="col-xs-6 col-sm-6 col-md-12 pos-1" style="background-image:url(filmes/top5_img.jpg);">
+		<div>1</div>
+		<h3>TOP</h3>
+		<img src="filmes/top5_img.jpg" />		
+		<h4><a href="filme.asp?fil_id=2447" title="Pantera Negra ">Pantera Negra </a></h4>
+		<h4>Ação, Fantasia</h4>
+	</div>
+	
+	<div class="col-xs-6 col-sm-6 col-md-12 pos-2">
+		<div>2</div>
+		<h5><a href="filme.asp?fil_id=2449" title="Os Farofeiros"><strong>Os Farofeiros</strong></a></h5>
+		<h6>Comédia</h6>
+	</div>
+	
+	<div class="col-xs-6 col-sm-6 col-md-12 pos-3">
+		<div>3</div>
+		<h5><a href="filme.asp?fil_id=2454" title="A Maldição da Casa Winchester"><strong>A Maldição da Casa Winchester</strong></a></h5>
+		<h6>Terror, Biografia</h6>
+	</div>
+	
+	<div class="col-xs-6 col-sm-6 col-md-12 pos-4">
+		<div>4</div>
+		<h5><a href="filme.asp?fil_id=2442" title="O Homem das Cavernas "><strong>O Homem das Cavernas </strong></a></h5>
+		<h6>Animação</h6>
+	</div>
+	
+	<div class="col-xs-6 col-sm-6 col-md-12 pos-5">
+		<div>5</div>
+		<h5><a href="filme.asp?fil_id=2443" title="Cinquenta Tons de Liberdade "><strong>Cinquenta Tons de Liberdade </strong></a></h5>
+		<h6>Romance</h6>
+	</div>
+	
+</div>
+
+   
+							</div>
+							<div id="wr-nov" class="col-xs-12 col-sm-12 col-md-4">
+								<div class="row">
+									<div class="col-xs-12">
+										
+									</div>
+								</div>
+							</div>
+							<div id="wr-prom-01" class="col-xs-12 col-sm-12 col-md-4">
+								<div class="row">
+									<div class="col-xs-12">
+										
+									</div>
+								</div>
+							</div>
+							<div id="wr-prom-02" class="col-xs-12 col-sm-12 col-md-4">
+								<div class="row">
+									<div class="col-xs-12">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24616457-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>			<footer id="footer">
+				<section>
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4" name="col-info">
+								<h5>Fique por dentro</h5>
+								<h1>Informações</h1>
+								<ul class="nav nav-pills">
+									<!-- <li class="item-3d"><a href="#" title="">3D</a></li> -->
+									<li class="item-ingressos"><a href="/precos.asp" title="Ingressos">Ingressos</a></li>
+									<li class="item-filmesbreve"><a href="/embreve.asp" title="Filmes em breve">Filmes em breve</a></li>
+									<li class="item-filmescartaz"><a href="/emcartaz.asp" title="Filmes em cartaz">Filmes em cartaz</a></li>
+									<!-- <li class="item-fullhd"><a href="#" title="Full HD">Full HD</a></li> -->
+									<!-- <li class="item-salas"><a href="#" title="Salas">Salas</a></li> -->
+									<!-- <li class="item-vip"><a href="/sp_sjrp_shopping_vip.asp" title="VIP">VIP</a></li> -->
+									<li class="item-perg_freq"><a href="/perguntas_frequentes.asp" title="Perguntas Frequentes">Perguntas Frequentes</a></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4" name="col-nome">
+								<h5>Cine Araújo</h5>
+								<h1>Sobre nós</h1>
+								<p>
+								Nosso objetivo é levar a magia do cinema para várias cidades e nossa principal preocupação é transformar um simples filme em uma experiência única para nossos clientes. Para isso estamos investindo constantemente em conforto e qualidade. Se você deseja entrar em contato, fique a vontade e utilize nossos canais abaixo:
+								</p>								
+								<ul class="nav nav-pills">
+									<li class="item-anuncie"><a href="/anuncie.asp" title="Anuncie">Anuncie</a></li>
+									<li class="item-eventos"><a href="/eventos.asp" title="Eventos">Eventos</a></li>
+									<li class="item-diretor hidden"><a href="/diretor.asp" title="Fale com o Diretor">Fale com o Diretor</a></li>
+									<li class="item-localizacao"><a href="/localizacao.asp" title="Localização">Localização</a></li>
+									<li class="item-institucional"><a href="/institucional.asp" title="Institucional">Institucional</a></li>
+								</ul>								
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-4" name="col-links">
+								<h5>Cine Araújo</h5>
+								<h1>Links</h1>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+										<div class="col-xs-6  col-sm-6">
+											<a href="http://twitter.com/Cinemasaraujo" title="Twitter, Cine Araújo" class="icon-twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+										</div>
+										<div class="col-xs-6  col-sm-6">
+											<a href="http://www.facebook.com/Cinearaujo" title="Facebook, Cine Araújo" class="icon-facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+										</div>
+										<div class="col-xs-6  col-sm-6">
+											<!-- <a href="/anuncie.asp" title="" class="icon-anuncie"><i class="fa fa-bullhorn"></i></a> -->
+											<a href="https://www.instagram.com/cinearaujooficial/" title="Instagram, Cine Araújo" class="icon-anuncie" target="_blank"><i class="fa fa-instagram"></i></a>
+										</div>
+										<!-- 
+										<div class="col-xs-4  col-sm-6">
+											<a href="/localizacao.asp" title="" class="icon-localizacao"><i class="fa fa-map-marker"></i></a>
+										</div>
+										 -->
+										<div class="col-xs-6  col-sm-6">
+											<a href="/novalei.asp" title="" class="icon-classificacao">L</a>
+										</div>
+										<!-- <div class="col-xs-4  col-sm-6">
+											<a href="/sp_sjrp_shopping_vip.asp" title="" class="icon-vip">VIP</a>
+										</div> -->
+									</div>
+									<div class="col-xs-12 col-sm-6">
+										<div class="col-xs-12">
+											<a href="/contato.asp" title="" class="icon-diretor"><i class="fa fa-envelope"></i><span>Contato</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 text-center" name="col-parceiros">
+								<img src="/assets/img/logo-cocacola.png" class="logo-cocacola">
+							</div>
+						</div>
+					</div>
+				</section>
+			</footer>
+
+			<a href="#" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
+
+			<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+				<script src="assets/js/html5shiv.min.js"></script>
+				<script src="assets/js/respond.min.js"></script>
+			<![endif]-->
+			<script src="assets/js/jquery-1.12.4.min.js"></script>
+			<script src="assets/js/modernizr-custom.js"></script>
+			<script src="assets/js/bootstrap.min.js"></script>
+			<script src="assets/js/mobile-detect.min.js"></script>
+			<script src="assets/js/platform.js"></script>
+			<script src="assets/js/matchHeight.js"></script>
+			<script src="assets/js/response.min.js"></script>
+			<script src="assets/js/addurl.js"></script>
+			<script src="assets/js/frontend.js"></script>
+
+			<script src="assets/js/jquery.easing.js"></script>
+			<script src="assets/js/owl.carousel.min.js"></script>
+			<script src="assets/js/solid-menu.js"></script>
+
+			<script type="text/javascript" src="assets/js/jquery.jcarousel.min.js"></script>
+			<script type="text/javascript" src="assets/js/jcarousel.js"></script>
+
+		</div>
+
+		<script type="text/javascript">
+			function envia(){
+				if (document.getElementById("pesquisa").cid_id.options[document.getElementById("pesquisa").cid_id.selectedIndex].value != "") { 
+					document.getElementById("pesquisa").action="cidade.asp"; 
+					document.getElementById("pesquisa").submit();
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			
+			$(function() {
+				$('.section-box').matchHeight(
+					{
+					    byRow: true,
+					    property: 'height',
+					    target: null,
+					    remove: false
+					}
+				);
+			});
+		</script>
+		<script type="text/javascript">
+			
+			function top5MatchHeight() {
+				var top5 = $('#wr-top5 .pos-1');
+				if (window.innerWidth < 768) {
+					top5.matchHeight(
+						{
+						    byRow: true,
+						    property: 'height',
+						    target: $('#wr-top5'),
+						    remove: false
+						}
+					);
+				} else {
+					top5.matchHeight({ remove: true });
+				}
+			}
+
+			$(function() {
+				// document.ready
+				top5MatchHeight();				
+				// on resize
+				if (window.addEventListener) {
+					window.addEventListener('resize', function(event){
+						top5MatchHeight();
+				}, false);
+				// on resize IE
+				} else if (window.attachEvent)  {
+					window.attachEvent('onresize', function(event){
+						top5MatchHeight();
+					});
+				}
+			});
+
+
+			$(function() {
+				// document.ready
+				function alturaBanner() {
+					var bannerContainer = $('#animation_container'),
+						bannerContainerWidth = bannerContainer.width();
+					bannerContainer.height( bannerContainerWidth * 0.4179487179487179);
+				}				
+				alturaBanner();
+			});
+
+			
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

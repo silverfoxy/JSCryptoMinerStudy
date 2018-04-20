@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<title>Internet Bandwidth Test &amp; Speed Test.تست سرعت اینترنت</title>
+<meta name="description" content="Internet Bandwidth , Performance and Speed Test .تست پهنای باند ، کیفیت و سرعت اینترنت" />
+<meta name="keywords" content="speed test, internet bandwidth test, internet performance test, internet speed test, connection speed test, speedometer, internet speedometer, تست سرعت, تست پهنای باند, تست کیفیت اینترنت, تست سرعت اتصال اینترنت, سرعت سنج اینترنت" />
+<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/fontawesome-all.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+<script type="text/javascript">
+function I(id){return document.getElementById(id);}
+var meterBk="#E0E0E0";
+var dlColor="#bf71ff",
+	ulColor="#00ff08",
+	pingColor="#00ffd0",
+	jitColor="#00ffd0";
+var progColor="#EEEEEE";
+var data=null; //data from worker
+//CODE FOR GAUGES
+function drawMeter(c,amount,bk,fg,progress,prog){ 
+	var ctx=c.getContext("2d");
+	var dp=window.devicePixelRatio||1;
+	var cw=c.clientWidth*dp, ch=c.clientHeight*dp;
+	var sizScale=ch*0.0055;
+	if(c.width==cw&&c.height==ch){
+		ctx.clearRect(0,0,cw,ch);
+	}else{
+		c.width=cw;
+		c.height=ch;
+	}
+	ctx.beginPath();
+	ctx.strokeStyle=bk;
+	ctx.lineWidth=16*sizScale;
+	ctx.arc(c.width/2,c.height-58*sizScale,c.height/1.8-ctx.lineWidth,-Math.PI*1.1,Math.PI*0.1);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.strokeStyle=fg;
+	ctx.lineWidth=16*sizScale;
+	ctx.arc(c.width/2,c.height-58*sizScale,c.height/1.8-ctx.lineWidth,-Math.PI*1.1,amount*Math.PI*1.2-Math.PI*1.1);
+	ctx.stroke();
+	if(typeof progress !== "undefined"){
+		ctx.fillStyle=prog;
+		ctx.shadowColor = '#fffefe85';
+		ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 2;
+		ctx.fillRect(c.width*0.3,c.height-16*sizScale,c.width*0.4*progress,4*sizScale);
+	}
+}
+function mbpsToAmount(s){
+	return 1-(1/(Math.pow(1.3,Math.sqrt(s))));
+}
+function msToAmount(s){
+	return 1-(1/(Math.pow(1.08,Math.sqrt(s))));
+}
+var w=null; //speedtest worker
+var chart1;
+
+
+function startStop(value){
+	/*CHART*/
+	if(chart1) chart1.destroy();
+	var chart1ctx = document.getElementById('chart1Area').getContext('2d')
+	var dlDataset = {
+                label: '',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(75,192,192,0)',
+                borderColor: '#bf71ff',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: '#bf71ff',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 8,
+				borderWidth: 6,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: '#bf71ff',
+                pointHoverBorderColor: '#bf71ff',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [0],
+                spanGaps: false
+            }
+            var ulDataset = {
+                label: '',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(192,192,75,0.4)',
+                borderColor: 'rgba(192,192,75,1)',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(192,192,75,1)',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 8,
+				borderWidth: 6,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(192,192,75,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [0],
+                spanGaps: false
+            }
+	if(value == 'download')  datasetValue =  [dlDataset]
+	else datasetValue =[dlDataset, ulDataset];
+	var chart1Options = {
+                type: 'line',
+                data: {
+                    datasets: datasetValue
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+						 display: false
+                    },
+					tooltips: {
+						enabled: false
+					 },
+					scaleOverride : true,
+                    scales: {
+                        xAxes: [{
+                            display: false,
+                            scaleLabel: {
+                                display: false
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            display: false,
+                            scaleLabel: {
+                                display: false
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            }
+			
+			chart1 = new Chart(chart1ctx, chart1Options)
+			/*CHART*/
+	$("#resultTest").attr("class" , "unvisible");
+	if(w!=null){
+		//speedtest is running, abort
+		w.postMessage('abort');
+		w=null;
+		data=null;
+		I("startStopBtn").className="";
+		initUI();
+	}else{
+		//test is not running, begin
+		w=new Worker('speedtest_worker.min.js');
+		if(value == 'download') 
+			w.postMessage('start {"test_order": "ID" , "telemetry_level":"full"}'); 
+		else  
+			w.postMessage('start {"telemetry_level":"full"}'); 
+		I("startStopBtn").className="running";
+		w.onmessage=function(e){ 
+			data=e.data.split(';');
+			var status=Number(data[0]);
+			if(status>=4){ 
+				//test completed
+				I("startStopBtn").className="";
+				if(data[2]=='') $("#more").removeClass("no-show");
+				else $("#more").addClass("no-show");
+				w=null;
+				updateUI(true); 
+				
+			}
+			if (status === 1 && Number(data[1]) > 0) {
+                    chart1.data.datasets[0].data[~~(20*Number(data[6]))]=(Number(data[1]))
+                    chart1.data.labels[chart1.data.datasets[0].data.length - 1] = ''
+                    chart1.update()
+                }
+                if (status === 3 && Number(data[2]) > 0) {//console.log(data);
+                    chart1.data.datasets[1].data[~~(20*Number(data[7]))]=(Number(data[2]))
+                    chart1.data.labels[chart1.data.datasets[1].data.length - 1] = ''
+                    chart1.update()
+                }
+		};
+	}
+}
+function getCookie(cname){
+	var name = cname + "=";
+	var decodedCookie = (document.cookie).replace(/\s/g, '');
+	var ca = decodedCookie.split(';');
+	for(var i=0; i<ca.length;i++){
+		var c = ca[i];
+		if(c.indexOf(name) == 0 ) {
+			return c.substring(name.length, c.length);
+			}
+		}
+		return '';
+}
+function setCookie(cname,cvalue){
+	var name = cname + "=";
+	var decodedCookie = (document.cookie).replace(/\s/g, '');
+	var ca = decodedCookie.split(';');
+	finalstr = '';
+	for(var i=0; i<ca.length;i++){
+		var c = ca[i];
+		if(c.indexOf(name) == 0 ) {
+			finalstr+=name+cvalue;
+			}
+		else finalstr+=ca[i];
+		}
+	document.cookie = finalstr;	
+}
+//this function reads the data sent back by the worker and updates the UI
+function updateUI(forced){
+	if(!forced&&(!data||!w)) return;
+	var status=Number(data[0]);
+	I("ip").textContent=data[4];
+	I("dlText").textContent=(status==1&&data[1]==0)?"...":data[1];
+	 if(checkParent("dlMeter")) drawMeter(I("dlMeter"),mbpsToAmount(Number(data[1]*(status==1?oscillate():1))),meterBk,dlColor,Number(data[6]),progColor);
+	I("ulText").textContent=(status==3&&data[2]==0)?"...":data[2];
+	if(checkParent("ulMeter")) drawMeter(I("ulMeter"),mbpsToAmount(Number(data[2]*(status==3?oscillate():1))),meterBk,ulColor,Number(data[7]),progColor);
+	I("pingText").textContent=data[3];
+	 if(checkParent("pingMeter")) drawMeter(I("pingMeter"),msToAmount(Number(data[3]*(status==2?oscillate():1))),meterBk,pingColor,Number(data[8]),progColor);
+	I("jitText").textContent=data[5];
+	 if(checkParent("jitMeter"))  drawMeter(I("jitMeter"),msToAmount(Number(data[5]*(status==2?oscillate():1))),meterBk,jitColor,Number(data[8]),progColor);
+			
+}
+function checkParent(id){
+	if($("#"+id).parent().hasClass("no-show")) return false;
+	else return true;
+}
+function oscillate(){
+	return 1+0.02*Math.sin(Date.now()/100);
+}
+
+lastcookie = getCookie('resultId');
+//poll the status from the worker every 200ms (this will also update the UI)
+setInterval(function(){
+	if(w) w.postMessage('status');
+	if(getCookie('resultId')){
+		if(lastcookie < getCookie('resultId')){ //console.log(lastcookie+" " +getCookie('resultId'))
+			lastcookie = getCookie('resultId');
+			$("#resultId").attr("href","result.php?id="+ getCookie('resultcode'));
+			createResult('resultdl' , 'dl');
+			createResult('resultul' , 'ul');
+			createResult('resultping' , 'ping');
+			createResult('resultjitter' , 'jit');
+			createSocialLinks("result.php?id="+ getCookie('resultcode'));
+			$("#resultTest").removeClass("unvisible");
+			
+		}
+	}
+},200);
+function createResult($cookieId , $cls){
+	if(getCookie($cookieId)){
+				$("."+$cls+", ."+$cls+"_val").removeClass("no-show");
+				$("."+$cls+"_val").html(getCookie($cookieId));
+			}
+}
+function createSocialLinks(link){
+	var host = window.location.hostname;	
+	links = "http://" + host +"/"+ link;
+	$("#telegramLnk").attr("href","https://telegram.me/share/url?url="+links+"&amp;text=Here Is My Speed Test Result!");
+	$("#gmailLnk").attr("href","https://mail.google.com/mail/u/0/?view=cm&amp;ui=2&amp;tf=0&amp;fs=1&amp;su= My Result Test &amp;body= Hi, Here Is My Speed Test Result: " + links);
+	$("#facebookLnk").attr("href","https://www.facebook.com/sharer.php?u="+links+"&amp;display=popup");
+	$("#twitterLnk").attr("href","https://twitter.com/home?status="+links);
+	$("#googleplusLnk").attr("href","https://plus.google.com/share?url="+links);
+}
+//update the UI every frame
+window.requestAnimationFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame||(function(callback,element){setTimeout(callback,1000/60);});
+function frame(){
+	requestAnimationFrame(frame);
+	updateUI();
+}
+frame(); //start frame loop
+
+
+//function to (re)initialize UI
+function initUI(){
+	if(checkParent("dlMeter"))  drawMeter(I("dlMeter"),0,meterBk,dlColor,0);
+	if(checkParent("ulMeter"))  drawMeter(I("ulMeter"),0,meterBk,ulColor,0);
+	if(checkParent("pingMeter"))  drawMeter(I("pingMeter"),0,meterBk,pingColor,0);
+	if(checkParent("jitMeter"))  drawMeter(I("jitMeter"),0,meterBk,jitColor,0);
+	
+	I("dlText").textContent="";
+	I("ulText").textContent="";
+	I("pingText").textContent="";
+	I("jitText").textContent="";
+	I("ip").textContent="";
+}
+function runSpeedTest(value){
+	if(typeof(Worker) !== "undefined"){ // window.Worker
+		if(value){
+			$(".testArea").addClass("no-show");
+			if(value == "download") $("#downloadArea").removeClass("no-show");
+			startStop(value);
+			
+			
+		}else if(!$("#more").hasClass("no-show")){
+			startStop('download');
+		}else {
+			startStop();
+		}
+	}else{
+		window.location='http://speedtest.com/';
+	}
+}
+$(document).ready(function(){
+	$(".responsive_menu").click(function(){
+		if($(".menu").css("display") == "block") $(".menu").css("display","none");
+		else $(".menu").css("display","block");
+	});
+	
+	$("#more").click(function(){
+		$(".testArea").removeClass("no-show");
+		startStop();
+		$("#more").addClass("no-show");
+	});
+});
+</script>
+</head>
+<body onload="runSpeedTest('download');" > 
+<div class="container-fluid bgDiv">
+	<div class="row">
+		<div class="col-md-2" ><h3><i class="fas fa-tachometer-alt"></i> Speed Test</h3></div>
+		<div class="col-md-7 topad" align="center" ><!--<a href="http://www.clubrenter.com/"  target="_blank"><img id="ad_head" src="ads/club_center728.gif" /></a>--><!--728X90-->
+<ins data-revive-zoneid="87" data-revive-ct0="INSERT_ENCODED_CLICKURL_HERE" data-revive-id="17a0dd21bb158aee9af8dd485db4ab4e"></ins>
+<script async src="//adserver.netshahr.com/delivery/asyncjs.php"></script></div>
+		<div class="col-md-3" >
+			<div class="responsive_menu" ><i class="fas fa-bars"></i></div>
+			<ul class="menu">
+				<li><a href="/">Home</a></li>
+				<li><a href="/about.php">About</a></li>
+				<li><a target="_blank" href="http://old.speedtest.ir">Old SpeedTest</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row mainrow">
+	<!--<div class=" cleft col-md-2 col-xs-12" >
+		<div id="ad_left_1"></div>
+		<div id="ad_left_2"></div>
+	</div>-->
+	<div class=" cmiddle col-md-9 col-xs-12"><div id="resultTest" class="unvisible">
+	<table cellspacing="3px" >
+	<tr>
+		<th class="dl no-show"><i class="fas fa-download"></i></th>
+		<th class="ul no-show"><i class="fas fa-upload"></i></th>
+		<th class="ping no-show"><i class="fas fa-plug"></i></th>
+		<th class="jit no-show"><i class="fas fa-asterisk"></i></th>
+		<td class="lastcell">
+			<a id="telegramLnk" class="bn-share-link" data-socialsharetype="telegram" target="_blank" href="" data-share-btn="private" title="Telegram"><i class="fab fa-telegram"></i></a>
+			<a id="gmailLnk" class="bn-share-link" data-socialsharetype="gmail" target="_blank" href="" data-share-btn="gmail" title="Gmail"><i class="fas fa-envelope-square"></i></a> 
+			<a id="facebookLnk" class="bn-share-link" data-socialsharetype="facebook" target="_blank" href="" data-share-btn="facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+			<a id="twitterLnk" class="bn-share-link" data-socialsharetype="twitter" target="_blank" href="" data-share-btn="twitter" title="Twitter"><i class="fab fa-twitter-square"></i></a>     
+			<a id="googleplusLnk" class="bn-share-link" data-socialsharetype="googleplus" target="_blank" href="" data-share-btn="gplus" title="Google Plus"><i class="fab fa-google-plus-square"></i></a>
+		</td>
+	</tr>
+	<tr>
+		<td class="dl dl_val no-show"></td>
+		<td class="ul ul_val no-show"></td>
+		<td class="ping ping_val no-show"></td>
+		<td class="jit jit_val no-show"></td>
+		<td class="lastcell" ><a id="resultId" name="resultId" target="_blank"><i class="fas fa-file-alt"></i> Result</a></td>
+	</tr>
+</table>
+	
+	</div>
+	
+<div id="chart1AreaHolder" ><canvas id="chart1Area"></canvas></div>
+<div id="test">
+	<div class="testGroup">
+		<div id="downloadArea" class="testArea no-show">
+			<div class="testName"><i class="fas fa-download"></i> Download</div>
+			<canvas id="dlMeter" class="meter"></canvas>
+			<div id="dlText" class="meterText"></div>
+			<div class="unit">Mbps</div>
+		</div>
+		<div class="testArea no-show">
+			<div class="testName"><i class="fas fa-upload"></i> Upload</div>
+			<canvas id="ulMeter" class="meter"></canvas>
+			<div id="ulText" class="meterText"></div>
+			<div class="unit">Mbps</div>
+		</div>
+	</div>
+	<div class="testGroup">
+		<div class="testArea no-show">
+			<div class="testName"><i class="fas fa-plug"></i> Ping</div>
+			<canvas id="pingMeter" class="meter"></canvas>
+			<div id="pingText" class="meterText"></div>
+			<div class="unit">ms</div>
+		</div>
+		<div class="testArea no-show">
+			<div class="testName"><i class="fas fa-asterisk"></i> Jitter</div>
+			<canvas id="jitMeter" class="meter"></canvas>
+			<div id="jitText" class="meterText"></div>
+			<div class="unit">ms</div>
+		</div>
+	</div>
+	
+	<div class="holder">
+		<div class="left">
+			<div id="ipArea"><i class="fas fa-user"></i> IP: <span id="ip"></span></div>
+		</div>
+		<div class="right">
+			
+		</div>
+	</div>
+	<div class="holder">
+		<div id="more" class="no-show morebtn" ><span><i class="fas fa-angle-double-right"></i> Full Test...</span></div>
+		<div id="startStopBtn" onclick="runSpeedTest()"></div>
+	</div>
+</div>
+</div>
+	<div class=" cright col-md-3 col-xs-12" >
+	
+		<!--300X250-->
+<ins data-revive-zoneid="88" data-revive-ct0="INSERT_ENCODED_CLICKURL_HERE" data-revive-id="17a0dd21bb158aee9af8dd485db4ab4e"></ins>
+<script async src="//adserver.netshahr.com/delivery/asyncjs.php"></script>
+	</div>
+
+</div>
+<script type="text/javascript">setTimeout(initUI,100);</script></div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-149771-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

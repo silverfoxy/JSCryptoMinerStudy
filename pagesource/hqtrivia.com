@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://hqtrivia.com/">https://hqtrivia.com/</a></p>

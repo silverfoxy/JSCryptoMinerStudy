@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.mockdraftable.com/">https://www.mockdraftable.com/</a></p>

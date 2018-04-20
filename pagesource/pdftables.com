@@ -1,0 +1,1 @@
+<a href="https://pdftables.com/">Temporary Redirect</a>.

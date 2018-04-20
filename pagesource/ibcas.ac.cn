@@ -1,0 +1,1467 @@
+<HTML><HEAD><TITLE>中国科学院植物研究所</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name="keywords" content="植物，研究所、科研、科普、标本，进化，项目研究、植物资源和生物多样性保护于一体的综合性网站，并同时提供专业的植物数据库、文献信息资源和系统平台服务">
+<META name="description" content="中国科学院植物研究所网站主要对科研成果，合作交流，人才招聘、科普教育、专业资料参考、珍稀植物、植物数据库、植物志、GIS、植物生物地理、分子生物学、植物化学、北京植物园、中国标本馆、种质资源库、生物多样性保护、可持续发展、植物资源、国家重点实验室进行介绍">
+<SCRIPT type=text/javascript src="./images/jquery-1.3.2.min.js"></SCRIPT>
+<SCRIPT type=text/javascript src="./images/commn.js"></SCRIPT>
+<LINK rel=stylesheet type=text/css href="./images/topflash.css" media=screen>
+<LINK rel=stylesheet type=text/css href="./images/movie_base.css">
+<LINK rel=stylesheet type=text/css href="./images/css.css">
+
+<script src="./images/jquery-1.4.4.min.js"></script>
+<script src="./images/jquery.cookie.js"></script>
+<script type="text/javascript">
+if(/Android|webOS|iPhone|Symbian|Windows Phone|iPod|BlackBerry/i.test(navigator.userAgent)){
+	if($.cookie('www.ib.cas.cn_mobile')!='yes'){
+		if(window.location.href.indexOf("?m")<0){try{window.location.href="http://www.ib.cas.cn/include/message/"}catch(e){}}
+	}	
+}
+</script>
+<STYLE type=text/css>.flashbox {
+	POSITION: relative; MARGIN-BOTTOM: 10px; HEIGHT: 185px
+}
+.flashbox .pic {
+	BORDER-BOTTOM: #bfdcec 1px solid; POSITION: absolute; BORDER-LEFT: #bfdcec 1px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; WIDTH: 390px; PADDING-RIGHT: 1px; HEIGHT: 190px; BORDER-TOP: #bfdcec 1px solid; TOP: 0px; BORDER-RIGHT: #bfdcec 1px solid; PADDING-TOP: 1px; LEFT: 0px
+}
+.flashbox UL {
+	POSITION: absolute; WIDTH: 90px; TOP: -2px; LEFT: 395px
+}
+.flashbox LI {
+	LINE-HEIGHT: 24px; MARGIN-BOTTOM: 1px; HEIGHT: 48px; OVERFLOW: hidden
+}
+.flashbox LI A {
+	POSITION: relative; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 90px; DISPLAY: block; HEIGHT: 50px; COLOR: #333; PADDING-TOP: 10px
+}
+.flashbox LI.selected A {
+	BACKGROUND: url(images/index_icon.gif) repeat-x; COLOR: #333; TEXT-DECORATION: none
+}
+.flashbox LI A:hover {
+	BACKGROUND: url(images/index_icon.gif) repeat-x; COLOR: #333; TEXT-DECORATION: none
+}
+.flashbox LI STRONG {
+	LINE-HEIGHT: 14px; DISPLAY: block; HEIGHT: 14px; OVERFLOW: hidden; CURSOR: pointer
+}
+.flashbox LI IMG {
+	POSITION: absolute; WIDTH: 74px; HEIGHT: 44px; TOP: 2px; RIGHT: 7px
+}
+.SwitchWord {
+	TEXT-ALIGN: center; WIDTH: 480px
+}
+.SwitchWord DIV {
+	DISPLAY: none; COLOR: #222
+}
+.yingwen {
+	FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; FONT-SIZE: 12px
+}
+</STYLE>
+<SCRIPT type=text/javascript src="./images/prototype.js"></SCRIPT>
+
+<SCRIPT>
+var SwitchPic = function(args) {
+	this.bigpic = $(args.bigpic) ;
+	this.switchnav = $(args.switchnav) ;
+	this.switchword = $(args.switchword) ;
+	this.selectstyle = args.selectstyle ;
+	this.objname = args.objname ;
+	this.curpage = 0 ;
+	this.autotimeintval = 3000 ;
+	var bigpics = $(this.bigpic).getElementsByTagName("div") ;
+	var switchwords = $(this.switchword).getElementsByTagName("div") ;
+	this.totalcount = bigpics.length ;
+	//this.bigpics = bigpics ;
+	
+	for (i=0;i<bigpics.length;i++) {
+		bigpics[i].onmouseover = new Function(this.objname+".pauseSwitch();") ;
+		bigpics[i].onmouseout = new Function(this.objname+".goonSwitch("+this.objname+");") ;
+	}
+	
+	var switchnavs = $(this.switchnav).getElementsByTagName("li") ;
+	for (i=0;i<switchnavs.length;i++) {
+		switchnavs[i].onmouseover = new Function(this.objname+".goSwitch("+this.objname+","+i+");"+this.objname+".pauseSwitch();") ;
+		switchnavs[i].onmouseout = new Function(this.objname+".goonSwitch("+this.objname+");") ;
+	}
+
+}
+SwitchPic.prototype.goSwitch = function(obj,page) {
+	if (page >= this.totalcount) { page = 0 ;}
+	this.curpage = page ;
+	
+	var bigpics = $(this.bigpic).getElementsByTagName("div") ;
+	var switchwords = $(this.switchword).getElementsByTagName("div") ;
+	for (i=0;i<bigpics.length;i++) {
+		if (i == page) {bigpics[i].style.display = "block" ;switchwords[i].style.display = "block" ;}
+		else {bigpics[i].style.display = "none" ;switchwords[i].style.display = "none" ;}
+	}
+	var switchnavs = $(this.switchnav).getElementsByTagName("li") ;
+	for (i=0;i<switchnavs.length;i++) {
+		if (i == page) {Element.addClassName(switchnavs[i], this.selectstyle); }
+		else { Element.removeClassName(switchnavs[i],this.selectstyle); }
+	}
+}
+SwitchPic.prototype.autoSwitch = function(obj) {
+	this.curpage ++ ;
+	this.goSwitch(obj,this.curpage) ;
+	this.autoSwitchTimer = setTimeout(obj.objname+".autoSwitch("+obj.objname+");", this.autotimeintval);
+}
+SwitchPic.prototype.pauseSwitch = function() {
+	clearTimeout(this.autoSwitchTimer);
+}
+SwitchPic.prototype.goonSwitch = function(obj) {
+	clearTimeout(this.autoSwitchTimer);
+	this.autoSwitchTimer = setTimeout(obj.objname+".autoSwitch("+obj.objname+");", this.autotimeintval);
+}
+</SCRIPT>
+<!--
+<DIV style="Z-INDEX:99; POSITION: absolute; TOP: 200px; LEFT: 300px" id=float_AD  onMouseOver="stop();" onMouseOut="start();"  >
+<a href=http://www.ib.cas.cn/jieshao/zhici/><img width="300" height="240" border="0" src="http://botany.ibcas.ac.cn/image/2018xn.jpg" /></a>
+<img src="./images/gif-x.gif" style="CURSOR:hand;" onClick="hide();" />
+</div>
+<script>
+var xPos = 80;
+var yPos = 60;
+var step = 1;
+var delay = 30;
+var height = 0;
+var Hoffset = 0;
+var Woffset = 0;
+var yon = 0;
+var xon = 0;
+var pause = true;
+var interval;
+function hide(){
+var div=document.getElementById("float_AD");
+div.style.display="none";
+div.onmouseout= function(){div.style.visibility = "hidden"; }
+}
+//img1.style.top = yPos;
+function changePos()
+{
+width = document.body.clientWidth;
+height = document.body.clientHeight;
+
+var ad = document.getElementById("float_AD");
+Hoffset = ad.offsetHeight;
+Woffset = ad.offsetWidth;
+ad.style.left = (xPos + document.body.scrollLeft)+"px";
+ad.style.top = (yPos + document.body.scrollTop)+"px";
+
+if (yon)
+{yPos = yPos + step;}
+else
+{yPos = yPos - step;}
+if (yPos < 0)
+{yon = 1;yPos = 0;}
+if (yPos >= (height - Hoffset))
+{yon = 0;yPos = (height - Hoffset);}
+if (xon)
+{xPos = xPos + step;}
+else
+{xPos = xPos - step;}
+if (xPos < 0)
+{xon = 1;xPos = 0;}
+if (xPos >= (width - Woffset))
+{xon = 0;xPos = (width - Woffset);  }
+
+}
+
+function start()
+{
+var ad = document.getElementById("float_AD");
+ad.style.top = yPos+"px";
+ad.style.display = "";
+interval = setInterval('changePos()', delay);
+}
+
+start();
+function stop(){
+var ad = document.getElementById("float_AD");
+clearInterval(interval);
+}
+</SCRIPT>
+-->
+</head>
+<body>
+<div align="center">
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="170" align="center" valign="bottom">
+
+<table width="1000" class="top" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td width="100" height="20">&nbsp;</td>
+    <td height="20" align="right"><a href="http://www.ib.cas.cn/map/" target="_top">网站地图</a> | <a href="http://www.ib.cas.cn/jieshao/lianxifangshi/" target="_top">联系我们</a> | <a href="http://sj.admin.cas.cn/" target="_blank">管理系统</a> | <a href="http://mail.cstnet.cn" target="_top">登录邮箱</a> | <a href="http://botany.ibcas.ac.cn" target="_blank">内网办公</a> | <a href="http://english.ib.cas.cn" target="_blank">English</a> | <a href="http://www.cas.cn/" target="_blank">中国科学院</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100" align="right" valign="top"></td>
+    <td height="100" align="right" valign="top"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="500" height="60">
+      <param name="movie" value="http://www.ib.cas.cn/images/txt.swf" />
+      <param name="quality" value="high" />
+      <param name="WMODE" value="transparent" />
+      <embed src="http://www.ib.cas.cn/images/txt.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="500" height="60"></embed>
+    </object></td>
+  </tr>
+</table>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" background="http://www.ib.cas.cn/images/cn1_dh.jpg" class="dh">
+  <tr>
+    <td width="775"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="right"><a href="http://www.ibcas.ac.cn" target="_top">首页</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/jieshao/" target="_top">所况介绍</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/jigou/" target="_top">机构设置</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/chengguo/" target="_top">科研成果</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/duiwu/" target="_top">研究队伍</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/hezuojiaoliu/" target="_top">合作交流</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/jiaoyuzhaosheng/" target="_top">研究生教育</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/dangqun/" target="_top">党群园地</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/kepu/" target="_top">科学传播</a></td>
+        <td align="center"><a href="http://www.ib.cas.cn/xxgk/" target="_top">信息公开</a></td>
+
+
+      </tr>
+    </table></td> <td>&nbsp;</td>
+       <td width="185">
+<table width="160" border="0" align="center" cellpadding="0" cellspacing="0" class="borgr3">
+	<FORM name="searchform" action="http://search.cas.cn/search" method="post" onsubmit="return search_check()" target="_top">
+	<input type="hidden" name="channelid" value="2802" />
+	<input type="hidden" name="option" value="ideosingle" />
+	<input type="hidden" name="searchword" value="" />
+	<input type="hidden" name="preKeyword" value="" />
+	
+      <tr>
+        <td width="105"><label>
+          <input name="iptSword" id="iptSword" type="text" onClick="javascript:if(this.value=='请输入关键字') this.value=''" class="input" value="请输入关键字" border="0" size="15" />
+        </label></td>
+        <td width="53"><input type="image" src="http://www.ib.cas.cn/images/cn1_menu3.gif" width="53" height="21" /></td>
+      </tr>
+	  </FORM>
+	<script type="text/javascript">
+function escapeTrs(str){//转义trs关键字
+	var arr = new Array("\\\\","!","@","#","\\$","\%","\\^","\&","\\*","\\(","\\)","\\_","\\+","\-","\=","\\{","\\}","\\|","\\[","\\]",";","'",":","\"","\<","\>","\\?","\,","\\.","\/");
+	
+	for(var i=0;i<arr.length;i++){
+	 var re = new RegExp(arr[i],"img");
+	 str = str.replace(re, '\\' + arr[i]);
+	}
+	
+	return str;
+}
+function dealKeywords(sword, relation)
+{	
+	var sTemp = "";
+	var swordtemp = ""; 
+	var sArray;
+
+	if(sword.indexOf("*")<0&&sword.indexOf("+")<0&&sword.indexOf(")")<0&&sword.indexOf("(")<0&&sword.indexOf("\\")<0)
+	{
+		sword = escapeTrs(sword);
+		//不含trs关键字
+		sArray = sword.split(" ");//输入框空格处理,空格表示 relation 关系
+		for(var i=0; i<sArray.length;i++)
+		{	
+			sTemp = sArray[i].replace(/^\s+|\s+$/g,"");//去掉sword前后空格
+			if(sTemp!="")
+			{
+				swordtemp += "'"+ sTemp + "' "+relation+" ";/*加上''符号,处理trs带运算符的检索词报错的问题*/
+			}					
+		}
+		if(swordtemp.lastIndexOf(" "+relation+" ")!=-1)//去掉relation结尾
+		{
+			swordtemp = swordtemp.substring(0,swordtemp.length-relation.length-2);
+		} 
+	}
+	
+	else//包含trs关键字
+	{    
+		 if(sword.indexOf("\\")!=-1){
+		 	var re = new RegExp("\\\\","img");
+	 		sword = sword.replace(re, '\\\\');
+		 }
+		 swordtemp = "'"+sword+"'";
+	}
+	return swordtemp;	
+} 
+
+function search_check() {
+	var sword =document.getElementById("iptSword").value.replace(/^\s+|\s+$/g,"");
+	
+	if (sword=='' || sword=='请输入关键字') {
+		alert('请输入关键字!');
+		return false;
+	} else {	
+		document.searchform.searchword.value = dealKeywords(sword, "and");
+		document.searchform.preKeyword.value = encodeURI(document.getElementById("iptSword").value);//传参前进行编码
+		document.searchform.submit();
+	}
+}
+</script>
+</table>
+      <table width="200" border="0" cellpadding="0" cellspacing="0">
+  <tr></tr>
+    </table></td>
+  </tr>
+</table>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=1000 bgColor=#ffffff align=center>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=220><TABLE border=0 cellSpacing=0 cellPadding=0 width=221 background=./images/cn1_rightbg.gif>
+      <TBODY>
+        <TR>
+          <TD height=244 vAlign=top>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=220 align=center height=234>
+              <TBODY>
+                <TR>
+                  <TD class=middtitle height=48>&nbsp;&nbsp;&nbsp;&nbsp;<a href=" ./keyanjinzhan/" target="_target">科研进展</a></TD>
+                </TR>
+                <TR>
+                  <TD vAlign=top align="center">
+<!--
+		 <div class="imagelist">
+      <div id="KinSlideshow" style="visibility:hidden;">
+	       
+					  <a  href="./keyanjinzhan/201803/t20180313_4972707.html"><img src="./keyanjinzhan/201803/W020180313770377282462.jpg" alt="r.jpg" width='200' height='190'/></a>				    
+					  <a  href="./keyanjinzhan/201802/t20180210_4946946.html"><img src="./keyanjinzhan/201802/W020180211322133841621.jpg" alt="W020180211322133841621.jpg" width='200' height='190'/></a>				    
+					  <a  href="./keyanjinzhan/201802/t20180201_4940962.html"><img src="./keyanjinzhan/201802/W020180201420531947497.jpg" width='200' height='190'/></a>				    
+					  <a  href="./keyanjinzhan/201801/t20180126_4938999.html"><img src="./keyanjinzhan/201801/W020180126429631352044.jpg" width='200' height='190'/></a>				    
+					  <a  href="./keyanjinzhan/201801/t20180123_4937566.html"><img src="./keyanjinzhan/201801/W020180123699907888310.png" width='200' height='190'/></a>				   
+      
+		
+    </div>
+      </div>    
+-->
+
+  <div id="demoa" onMouseOver="ij=1" style="border:0px solid gray;OVERFLOW: hidden; 
+
+HEIGHT: 180px; width:100%" onMouseOut="ij=0">
+		<div id="demoa1">
+                      <TABLE border=0 cellSpacing=0 cellPadding=0 width="200">
+                      <TBODY>
+                        
+              <tr>
+                <td height=20>
+                <P align="center"><a href="./keyanjinzhan/201803/t20180313_4972707.html"><img src="./keyanjinzhan/201803/W020180313770377282462.jpg" alt="r.jpg"/></a></P>
+                <P align="left"><a href="./keyanjinzhan/201803/t20180313_4972707.html" title="植物所科研人员揭示植物三萜代谢物多样性形成的催化机制">植物所科研人员揭示植物三萜代谢物多样性形成的催化机制</a><BR>
+                <hr color=red>
+                 </td>
+              </tr>
+              
+              <tr>
+                <td height=20>
+                <P align="center"><a href="./keyanjinzhan/201802/t20180210_4946946.html"><img src="./keyanjinzhan/201802/W020180211322133841621.jpg" alt="W020180211322133841621.jpg"/></a></P>
+                <P align="left"><a href="./keyanjinzhan/201802/t20180210_4946946.html" title="植物所科研人员在水稻萜类代谢调控新型湿敏雄性不育方面取得重要进展">植物所科研人员在水稻萜类代谢调控新型湿敏雄性不育方面取得重要进展</a><BR>
+                <hr color=red>
+                 </td>
+              </tr>
+              
+              <tr>
+                <td height=20>
+                <P align="center"><a href="./keyanjinzhan/201802/t20180201_4940962.html"><img src="./keyanjinzhan/201802/W020180201420531947497.jpg"/></a></P>
+                <P align="left"><a href="./keyanjinzhan/201802/t20180201_4940962.html" title="植物所科研人员在中国被子植物区系进化历史研究方面取得重要进展">植物所科研人员在中国被子植物区系进化历史研究方面取得重要进展</a><BR>
+                <hr color=red>
+                 </td>
+              </tr>
+              
+              <tr>
+                <td height=20>
+                <P align="center"><a href="./keyanjinzhan/201801/t20180126_4938999.html"><img src="./keyanjinzhan/201801/W020180126429631352044.jpg"/></a></P>
+                <P align="left"><a href="./keyanjinzhan/201801/t20180126_4938999.html" title="植物所科研人员发现水稻低温适应性的“分子开关”">植物所科研人员发现水稻低温适应性的“分子开关”</a><BR>
+                <hr color=red>
+                 </td>
+              </tr>
+              
+              <tr>
+                <td height=20>
+                <P align="center"><a href="./keyanjinzhan/201801/t20180123_4937566.html"><img src="./keyanjinzhan/201801/W020180123699907888310.png"/></a></P>
+                <P align="left"><a href="./keyanjinzhan/201801/t20180123_4937566.html" title="植物所科研人员在植物细胞全能性分子调控方面取得新进展">植物所科研人员在植物细胞全能性分子调控方面取得新进展</a><BR>
+                <hr color=red>
+                 </td>
+              </tr>
+              	
+                      </TBODY>
+                    </TABLE>
+				   </div>
+		 <div id="demoa2"></div>
+		 </div>
+                      <script> 
+					var ij=0;t=document.getElementById("demoa").scrollTop 
+					document.getElementById("demoa2").innerHTML=document.getElementById
+
+("demoa1").innerHTML 
+					function qswhMarquee(){ 
+					if (ij==1)return 
+					if(document.getElementById("demoa2").offsetTop-document.getElementById
+
+("demoa").scrollTop<=0) 
+					document.getElementById("demoa").scrollTop-=document.getElementById
+
+("demoa1").offsetHeight 
+					else 
+					document.getElementById("demoa").scrollTop++ 
+					} 
+					setInterval(qswhMarquee,100) 
+                    </script>                 </TD>
+                </TR>
+              </TBODY>
+          </TABLE>
+</TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+        <TBODY>
+          <TR>
+            <TD bgColor=#eeeeee><TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                <TBODY>
+                  <TR>
+                    <TD height=3></TD>
+                  </TR>
+                </TBODY>
+            </TABLE>
+                <TABLE border=0 cellSpacing=4 cellPadding=0 width=200 align=center height=174>
+                  <TBODY>
+                    
+                    <TR>
+                      <TD height=30 align=middle><a href=" ./xueshu/Xiangshan_Ecology/" target="_target"><IMG border=1 src="./images/xsstlt.jpg" width=180 height=40 /></A></TD>
+                    </TR>
+                    
+                    <TR>
+                      <TD height=30 align=middle><a href=" ./xueshu/evolutionary_biology/" target="_target"><IMG border=0 src="./images/jhzwx.jpg" width=180 height=40 /></A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=30 align=middle><a href=" ./xueshu/Photosynthesis/" target="_target"><IMG border=0 src="./images/ghzygflt.jpg" width=180 height=40 /></A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=30 align=middle><a href=" ./xueshu/Plant_Biology/" target="_target"><img border=0 src="./images/zwswxlt.jpg" width=180 height=40 /></a></TD>
+                    </TR>
+                    <TR>
+                      <TD height=30 align=middle><a href=" ./xueshu/klpr_Biology/" target="_target"><img src="./images/zyzwlt.jpg" alt="zyzwlt" width=180 height=40 border=0 /></a></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+                <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+              </TABLE></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+        <TBODY>
+          <TR>
+            <TD height=3></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+        <TBODY>
+        <TR>
+          <TD class=rightbg>&nbsp;&nbsp;<A 
+            href="/jigou/keyan/" 
+          target=_target>科研部门</A></TD></TR>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=6></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+                <TR>
+                  <TD height=20><P>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="http://www.lseb.cn" target="_blank">系统与进化植物学国家重点实验室</A>　<BR>
+                  </P></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="http://lvec.ibcas.ac.cn" target="_blank">植被与环境变化国家重点实验室</A>
+                      </P></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><a href="http://www.klpmp.net/" target="_blank">中科院植物分子生理学重点实验室</a> </TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="http://www.klpbcas.com/" target="_blank">中科院光生物学重点实验室</A></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><a href="http://klpr.ibcas.ac.cn/" target="_blank">中科院北方资源植物重点实验室</a></TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=6></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+				<TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+		  </TABLE>
+				<TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+        <TBODY>
+        <TR>
+          <TD class=rightbg>&nbsp;&nbsp;<A 
+            href="/duiwu/" 
+          target=_target>研究队伍</A></TD>
+        </TR>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=4></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+                <TR>
+                  <TD height=20><P>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="/duiwu/yuanshi/" target="_blank">中国科学院院士</A>　<BR>
+                  </P></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="/duiwu/jiechuqingnian/" target="_blank">国家杰出青年基金</A>
+                      </P></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><a href="/duiwu/brjh/" target="_blank">百人计划 </a> &nbsp; &nbsp;  <FONT 
+                        color=#008000>・</FONT><a href="/duiwu/qianrenjihua/" target="_blank">千人计划</a></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><A href="/duiwu/xinshiji/" target="_blank">国家百千万人才工程 </A></TD>
+                </TR>
+                <TR>
+                  <TD height=20>&nbsp;<FONT 
+                        color=#008000>・</FONT><a href="/duiwu/zuzhang/" target="_blank">研究组长 </a> &nbsp; &nbsp; <FONT 
+                        color=#008000>・</FONT><a href="/duiwu/tepin/" target="_blank">特聘研究员</a></TD>
+                </TR>
+              </TBODY>
+            </TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=4></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+				<TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+		  </TABLE>
+				<TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=4></TD></TR></TBODY></TABLE>
+            <TABLE width="200" border=0 align="center" cellPadding=0 cellSpacing=4>
+              <TBODY>
+                <TR>
+                  <TD height="48"><div align="center"><a href="/jiaoyuzhaosheng/dabian/" target="_blank">﻿<img src="./images/dabian.jpg" width="180" height="46" /></a></div></TD>
+                </TR>
+                <TR>
+                  <TD height=43><div align="center"><img src="./images/nianjian.jpg" width="180" height="41" border="0" usemap="#Map" /></div></TD>
+                </TR>
+<TR>
+                  <TD height="42"><div align="center"><a href="http://platform.ibcas.ac.cn" target="_blank"><img src="./images/ggjs.jpg" width="180" height="40" /></a></div></TD>
+                </TR>
+
+              </TBODY>
+            </TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=4></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+                <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+                <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+                  <TBODY>
+                    <TR>
+                      <TD class=rightbg>&nbsp;&nbsp;<A 
+            href="http://pic.ib.cas.cn" 
+          target=_target>图片集</A></TD>
+                    </TR>
+                    <TR>
+                      <TD><table width="218" border="0" cellpadding="2">
+                            <tr>
+                              <td><div id="demo" style="overflow:hidden;width:215px">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                                  <tr>
+                                    <td id="demo1"><table width="213" border="0" cellspacing="5" cellpadding="0">
+                                        <tr>
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20170111/201703/t20170305_4755154.html"><img src="http://pic.ib.cas.cn/20170111/201703/W020170305407824235424.jpg" alt="4.所党委书记种康做述职报告" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20161110/201703/t20170305_4755142.html"><img src="http://pic.ib.cas.cn/20161110/201703/W020170305377647082580.jpg" alt="1.11月10日，植物所参加中科院学习宣传十八届六中全会精神工作部署视频会" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160908/201702/t20170213_4744661.html"><img src="http://pic.ib.cas.cn/20160908/201702/W020170213664079118913.jpg" alt="01 植物所2016年发展战略研讨会会场" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160829/201702/t20170213_4744656.html"><img src="http://pic.ib.cas.cn/20160829/201702/W020170213660534452751.jpg" alt="1、植物所方精云院士向汪洋副总理讲解试验区概况" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160811/201702/t20170213_4744633.html"><img src="http://pic.ib.cas.cn/20160811/201702/W020170213639887559545.jpg" alt="1、河北省省委常委、常务副省长袁桐利在座谈会上讲话" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160712/201607/t20160721_4643868.html"><img src="http://pic.ib.cas.cn/20160712/201607/W020160721528530273999.jpg" alt="1 植物所领导班子成员任免会议会场" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160704/201607/t20160721_4643846.html"><img src="http://pic.ib.cas.cn/20160704/201607/W020160721514204745967.jpg" alt="图1 7月4日，中科院植物所召开纪念中国共产党成立95周年暨先进表彰会议" width="149" height="100"/></a></td> 
+
+
+
+ <td align="center"><a href="http://pic.ib.cas.cn/20160629/201607/t20160721_4643837.html"><img src="http://pic.ib.cas.cn/20160629/201607/W020160721510414542208.png" alt="1 植物所2016年研究生毕业典礼暨学位授予仪式" width="149" height="100"/></a></td> 
+
+
+
+                                         </tr>
+                                    </table></td>
+                                    <td id="demo2"></td>
+                                  </tr>
+                                </table>
+                                <script>   
+									var speed=30;
+									document.getElementById("demo2").innerHTML=document.getElementById("demo1").innerHTML;
+									function MarqueeLeft() {
+										if(document.getElementById("demo").scrollLeft>=document.getElementById("demo2").offsetWidth) {   
+											document.getElementById("demo").scrollLeft-=document.getElementById("demo1").offsetWidth;
+										} else {   
+											document.getElementById("demo").scrollLeft++;
+										}   
+									} 
+									
+									var MyMar=setInterval(MarqueeLeft,speed);
+									document.getElementById("demo").onmouseover=function() {clearInterval(MyMar);}   
+									document.getElementById("demo").onmouseout=function() {MyMar=setInterval(MarqueeLeft,speed);}
+								</script>
+                              </div></td>
+                            </tr>
+                          </table>
+                      </TD>
+                    </TR>
+                  </TBODY>
+        </TABLE>
+                <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE></TD>
+    <TD width=10>&nbsp;</TD>
+    <TD vAlign=top width=517>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=540 background=./images/cn1_middlebg.gif>
+        <TBODY>
+        <TR>
+          <TD height=270 vAlign=top width=540 align=middle>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=480>
+              <TBODY>
+              <TR>
+                <TD height=38 colSpan=3>&nbsp;</TD></TR>
+              <TR>
+                <TD width=30></TD>
+                <TD>
+                  <DIV style="TEXT-ALIGN: left">
+                  <div class="flashbox"> 
+				<div id="SwitchBigPic">
+				    
+					  <div><a  href="./redian/201803/t20180323_4982350.html"><img src="./redian/201803/W020180323564771951845.jpg" width='390' height='190'/></a></div>
+				    
+					  <div><a  href="./redian/201803/t20180307_4970705.html"><img src="./redian/201803/W020180307577105586157.jpg" width='390' height='190'/></a></div>
+				    
+					  <div><a  href="./redian/201802/t20180227_4968314.html"><img src="./redian/201802/W020180227553529212546.jpg" width='390' height='190'/></a></div>
+				    
+					  <div><a  href="./redian/201802/t20180212_4951255.html"><img src="./redian/201802/W020180212400562365738.jpg" width='390' height='190'/></a></div>
+				      
+				</div>
+				
+				<ul id="SwitchNav">
+				  <li><a href=" ./redian/201803/t20180323_4982350.html"><strong>&nbsp;</strong>&nbsp;<img src="./redian/201803/W020180323564771951845.jpg" align='top' width='70' height='44'/></a></li>
+				  <li><a href=" ./redian/201803/t20180307_4970705.html"><strong>&nbsp;</strong>&nbsp;<img src="./redian/201803/W020180307577105586157.jpg" align='top' width='70' height='44'/></a></li>
+				  <li><a href=" ./redian/201802/t20180227_4968314.html"><strong>&nbsp;</strong>&nbsp;<img src="./redian/201802/W020180227553529212546.jpg" align='top' width='70' height='44'/></a></li>
+				  <li><a href=" ./redian/201802/t20180212_4951255.html"><strong>&nbsp;</strong>&nbsp;<img src="./redian/201802/W020180212400562365738.jpg" align='top' width='70' height='44'/></a></li>
+				</ul>
+			  </div>
+			  <div id="SwitchWord" class="SwitchWord">
+				  <div><a href="./redian/201803/t20180323_4982350.html" target="_blank" class='extra'>植物所召开重要资源植物研发工作及发展规划座谈会</a></div>
+				  <div><a href="./redian/201803/t20180307_4970705.html" target="_blank" class='extra'>植物所与亳州市人民政府座谈落实科技合作框架协议</a></div>
+				  <div><a href="./redian/201802/t20180227_4968314.html" target="_blank" class='extra'>植物所召开2017年度领导班子民主生活会</a></div>
+				  <div><a href="./redian/201802/t20180212_4951255.html" target="_blank" class='extra'>植物所与兰州大学签署框架合作协议</a></div>
+			  </div>
+			</div>
+			 </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=543>
+        <TBODY>
+          <TR>
+            <TD height=34 background=./images/cn1_banner1.gif><TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+                <TBODY>
+                  <TR>
+                    <TD width=10>&nbsp;</TD>
+                    <TD class=middtitle height=24 width=150>::: 新闻汇总 :::</TD>
+                    <TD class=middtitle width=340 align=right><a href="./News/"><IMG border=0 src="./images/cn1_moregif.gif" width=41 height=11 /></A></TD>
+                  </TR>
+                </TBODY>
+            </TABLE></TD>
+          </TR>
+          <TR>
+            <TD height=164 vAlign=top><TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+                <TBODY>
+                  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201802/t20180214_4952094.html" target="_blank" title="脚踏实地，开拓进取，以优异成绩向研究所90华诞献礼——2018年新春致辞"><font color="#ff0000">脚踏实地，开拓进取，以优异成绩向研究所90华诞献礼——2018年新春致辞</font></a></TD>
+		        <TD width="95">(2018-02-14)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201803/t20180323_4982257.html" target="_blank" title="植物所召开重要资源植物研发工作及发展规划座谈会">植物所召开重要资源植物研发工作及发展规划座谈会</a></TD>
+		        <TD width="95">(2018-03-23)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201803/t20180313_4972703.html" target="_blank" title="植物所科研人员揭示植物三萜代谢物多样性形成的催化机制">植物所科研人员揭示植物三萜代谢物多样性形成的催化机制</a></TD>
+		        <TD width="95">(2018-03-13)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201803/t20180313_4972702.html" target="_blank" title="中科院生态草牧业示范区项目团队赴呼伦贝尔对接落实2018年工作任务">中科院生态草牧业示范区项目团队赴呼伦贝尔对接落实2018年工作任务</a></TD>
+		        <TD width="95">(2018-03-13)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201803/t20180313_4972701.html" target="_blank" title="植物所举办庆祝“三八”妇女节“身心健康与运动魅力”讲座">植物所举办庆祝“三八”妇女节“身心健康与运动魅力”讲座</a></TD>
+		        <TD width="95">(2018-03-13)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201803/t20180306_4969956.html" target="_blank" title="植物所与亳州市人民政府座谈落实科技合作框架协议">植物所与亳州市人民政府座谈落实科技合作框架协议</a></TD>
+		        <TD width="95">(2018-03-06)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201802/t20180227_4968303.html" target="_blank" title="植物所召开2017年度领导班子民主生活会">植物所召开2017年度领导班子民主生活会</a></TD>
+		        <TD width="95">(2018-02-27)</TD>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="450"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+		<a href="./News/201802/t20180226_4968065.html" target="_blank" title="植物所与安徽省阜阳市、亳州市签署科技合作框架协议">植物所与安徽省阜阳市、亳州市签署科技合作框架协议</a></TD>
+		        <TD width="95">(2018-02-26)</TD>
+              </tr>
+			  
+                </TBODY>
+            </TABLE>
+                <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=6></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=543>
+        <TBODY>
+        <TR>
+          <TD height=34 background=./images/cn1_banner1.gif>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD width=10>&nbsp;</TD>
+                <TD class=middtitle height=20 width=150>::: 传媒扫描 :::</TD>
+                <TD class=middtitle width=340 align=right><a href="./meiti/"><IMG border=0 src="./images/cn1_moregif.gif" width=41 height=11 /></A></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD height=104 vAlign=top>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+             
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./meiti/201802/t20180223_4960026.html" target="_blank" title="【中国绿色时报】自然保护区建设要考虑区系的演化历史">【中国绿色时报】自然保护区建设要考虑区系的演化历史</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="http://tv.cctv.com/2018/02/14/VIDEWYRtjs5O35GF8h1SraGF180214.shtml" target="_blank" title="【CCTV10 走近科学】果蔬锁鲜">【CCTV10 走近科学】果蔬锁鲜</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./meiti/201802/t20180212_4951566.html" target="_blank" title="【中国科学报】中科院植物所发现新型水稻雄性不育材料">【中国科学报】中科院植物所发现新型水稻雄性不育材料</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./meiti/201802/t20180212_4951564.html" target="_blank" title="【中国科学报】科学家发现水稻低温适应性分子开关">【中国科学报】科学家发现水稻低温适应性分子开关</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./meiti/201802/t20180211_4949540.html" target="_blank" title="【中国科学报】中科院植物所发现植物细胞全能性分子调控新过程">【中国科学报】中科院植物所发现植物细胞全能性分子调控新过程</a></td>
+              </tr>
+			  
+			 
+			 </TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=6></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=543>
+        <TBODY>
+        <TR>
+          <TD height=34 background=./images/cn1_banner1.gif>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD width=10>&nbsp;</TD>
+                <TD class=middtitle height=20 width=150>::: 学术动态 :::</TD>
+                <TD class=middtitle width=340 align=right><a href="./xueshu/"><IMG border=0 src="./images/cn1_moregif.gif" width=41 height=11 /></A></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD height=104 vAlign=top>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+             
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./xueshu/Academic_report/201803/t20180322_4981390.html" target="_blank" title="3月27日：北京生科院精品讲座第149期、150期">3月27日：北京生科院精品讲座第149期、150期</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./xueshu/evolutionary_biology/201803/t20180322_4980778.html" target="_blank" title="3月30日第75期“进化生物学论坛”预告">3月30日第75期“进化生物学论坛”预告</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./xueshu/Academic_report/201803/t20180316_4975205.html" target="_blank" title="系统与进化植物学国家重点实验室青年论坛第三期预告">系统与进化植物学国家重点实验室青年论坛第三期预告</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./xueshu/Xiangshan_Ecology/201803/P020180315580706813537.pdf" target="_blank" title="3月19日第2018-3期“香山生态论坛”">3月19日第2018-3期“香山生态论坛”</a></td>
+              </tr>
+			  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+                <TD width="550"><img src="./images/cn1_listicon.gif" width=3 height=5 /> 
+                <a href="./xueshu/Academic_report/201803/t20180313_4972188.html" target="_blank" title="系统与进化植物学国家重点实验室青年论坛 第二期预告">系统与进化植物学国家重点实验室青年论坛 第二期预告</a></td>
+              </tr>
+			  
+			 
+			 </TBODY></TABLE>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=6></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=543>
+        <TBODY>
+        <TR>
+          <TD height=34 background=./images/cn1_banner1.gif>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD width=10>&nbsp;</TD>
+                <TD class=middtitle height=20 width=200>::: 近期发表重要论文 :::</TD>
+                <TD class=middtitle width=290 align=right><a href="./chengguo/lunwen/"><IMG border=0 src="./images/cn1_moregif.gif" width=41 height=11 /></A></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD height=100 vAlign=top align="center">
+		  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+		  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+		<TD height=20 width="8" valign="top" align="center"><IMG border=0 src="./images/cn1_listicon.gif" width=3 height=5 />&nbsp;</TD>
+                <td class='yingwen'>
+               Chen LP, Zhao Y, Xu SJ, Zhang ZY, Xu YY, Zhang JY, Chong K*.
+ <a href="http://sourcedb.ib.cas.cn/cn/ibthesis/201803/t20180322_4980772.html" target="_blank">OsMADS57 together with OsTB1 coordinates transcription of its target OsWRKY94 and D14 to switch its organogenesis to defense for cold adaptation in rice</a>.
+				<strong><em>New Phytologist</em></strong>.
+				2018
+				<script language="javascript">
+				    var i='218';
+					var temp = '218():';
+					
+				    if(i!=null&&i!="")
+				    {
+				     	document.write(temp);
+				    }
+				</script>
+				219–231
+				</td>
+              </tr>
+		  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+		<TD height=20 width="8" valign="top" align="center"><IMG border=0 src="./images/cn1_listicon.gif" width=3 height=5 />&nbsp;</TD>
+                <td class='yingwen'>
+               Liu SS, Yang YH, Shen HH, Hu HF, Zhao X, Li H, Liu TY, Fang JY*.
+ <a href="http://sourcedb.ib.cas.cn/cn/ibthesis/201803/t20180322_4980766.html" target="_blank">No significant changes in topsoil carbon in the grasslands of northern China between the 1980s and 2000s</a>.
+				<strong><em>Science of The Total Environment</em></strong>.
+				2018
+				<script language="javascript">
+				    var i='624';
+					var temp = '624():';
+					
+				    if(i!=null&&i!="")
+				    {
+				     	document.write(temp);
+				    }
+				</script>
+				1478-1487
+				</td>
+              </tr>
+		  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+		<TD height=20 width="8" valign="top" align="center"><IMG border=0 src="./images/cn1_listicon.gif" width=3 height=5 />&nbsp;</TD>
+                <td class='yingwen'>
+               Sun RZ*, Lin CT, Zhang XF, Duan LX, Qi XQ, Gong YH, Deng X*.
+ <a href="http://sourcedb.ib.cas.cn/cn/ibthesis/201803/t20180315_4973726.html" target="_blank">Acclimation-induced metabolic reprogramming contributes to rapid desiccation tolerance acquisition in Boea hygrometrica</a>.
+				<strong><em>Environmental and Experimental Botany</em></strong>.
+				2018
+				<script language="javascript">
+				    var i='148';
+					var temp = '148():';
+					
+				    if(i!=null&&i!="")
+				    {
+				     	document.write(temp);
+				    }
+				</script>
+				70-84
+				</td>
+              </tr>
+		  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+		<TD height=20 width="8" valign="top" align="center"><IMG border=0 src="./images/cn1_listicon.gif" width=3 height=5 />&nbsp;</TD>
+                <td class='yingwen'>
+               Yang GB, Peng YF, Olefeld D, Chen YL, Wang GQ, Li F, Zhang DY, Wang J, Yu JC, Liu L, Qin SQ, Sun TY, Yang YH*.
+ <a href="http://sourcedb.ib.cas.cn/cn/ibthesis/201803/t20180308_4970967.html" target="_blank">Changes in Methane Flux along a Permafrost Thaw Sequence on the Tibetan Plateau</a>.
+				<strong><em>Environmental Science and Technology</em></strong>.
+				2018
+				<script language="javascript">
+				    var i='52';
+					var temp = '52(3):';
+					
+				    if(i!=null&&i!="")
+				    {
+				     	document.write(temp);
+				    }
+				</script>
+				1244–1252
+				</td>
+              </tr>
+		  
+              <tr>
+                <TD height=20 width="8">&nbsp;</TD>
+		<TD height=20 width="8" valign="top" align="center"><IMG border=0 src="./images/cn1_listicon.gif" width=3 height=5 />&nbsp;</TD>
+                <td class='yingwen'>
+               Dai GH, Ma T, Zhu SS, Liu ZG, Chen DM, Bai YF, Chen LT, He JS, Zhu JT, Zhang YJ, Lu XT, Wang XB, Han XG, Feng XJ*.
+ <a href="http://sourcedb.ib.cas.cn/cn/ibthesis/201803/t20180308_4970960.html" target="_blank">Large-Scale Distribution of Molecular Components in Chinese Grassland Soils: The Influence of Input and Decomposition Processes</a>.
+				<strong><em>Journal of Geophysical Research: Biogeosciences</em></strong>.
+				2018
+				<script language="javascript">
+				    var i='123';
+					var temp = '123(1):';
+					
+				    if(i!=null&&i!="")
+				    {
+				     	document.write(temp);
+				    }
+				</script>
+				239-255
+				</td>
+              </tr>
+		  
+		  
+          </table>
+		  </TD>
+        </TR></TBODY></TABLE>
+      </TD>
+    <TD height=10 width=25>&nbsp;</TD>
+    <TD vAlign=top width=221>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=221 background=./images/cn1_rightbg.gif>
+        <TBODY>
+        <TR>
+          <TD height=244 vAlign=top>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200 align=center height=234>
+              <TBODY>
+              <TR>
+                <TD class=middtitle height=48>&nbsp;&nbsp;&nbsp;<A 
+                  href="http://www.ibcas.ac.cn/gonggaos/">通知公告</A></TD></TR>
+              <TR>
+                <TD vAlign=top align="center">
+                 <div id="demob" onMouseOver="ij=1" style="border:0px solid gray;OVERFLOW: hidden; HEIGHT: 180px; width:100%" onMouseOut="ij=0">
+		<div id="demob1">              
+				 <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+					
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201802/t20180211_4947789.html" target="_blank" title="中国科学院植物研究所胚胎与胚乳发育研究组岗位招聘启事">中国科学院植物研究所胚胎与胚乳发育研究组岗位招聘启事</a><FONT color=#999999>2018-02-11</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201801/t20180119_4936432.html" target="_blank" title="中国科学院植物研究所行政处副处长岗位招聘启事">中国科学院植物研究所行政处副处长岗位招聘启事</a><FONT color=#999999>2018-01-19</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201801/t20180119_4936173.html" target="_blank" title="中国科学院植物研究所2018年招收博士后计划">中国科学院植物研究所2018年招收博士后计划</a><FONT color=#999999>2018-01-19</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201801/t20180104_4928469.html" target="_blank" title="中国科学院植物研究所财务处会计岗位招聘启事">中国科学院植物研究所财务处会计岗位招聘启事</a><FONT color=#999999>2018-01-04</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./gonggao/201712/t20171215_4918411.html" target="_blank" title="中科院植物所北京植物园展览温室改造通知">中科院植物所北京植物园展览温室改造通知</a><FONT color=#999999>2017-12-15</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201712/t20171215_4918195.html" target="_blank" title="中国科学院植物研究所2018年度科技岗位招聘启事">中国科学院植物研究所2018年度科技岗位招聘启事</a><FONT color=#999999>2017-12-15</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201709/t20170914_4859859.html" target="_blank" title="中国科学院植物研究所植物工厂研发中心招聘启事">中国科学院植物研究所植物工厂研发中心招聘启事</a><FONT color=#999999>2017-09-14</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                      <TR>
+                        <TD height=20><P style="MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; TEXT-INDENT: 10px; LINE-HEIGHT: 100%"><FONT color=#008000>・</FONT><SPAN style="FONT-SIZE: 13px"><a href="./zhaopin/201708/t20170825_4851742.html" target="_blank" title="中国科学院植物研究所“环境污染与生态系统响应”研究组博士后招聘启事">中国科学院植物研究所“环境污染与生态系统响应”研究组博士后招聘启事</a><FONT color=#999999>2017-08-25</FONT></SPAN></P></TD>
+                      </TR>
+					  
+                  </TABLE>
+				  </div> 
+						 <div id="demob2"></div>
+		 </div>
+                      <script> 
+					var ij=0;t=document.getElementById("demob").scrollTop 
+					document.getElementById("demob2").innerHTML=document.getElementById("demob1").innerHTML 
+					function qswhMarquee(){ 
+					if (ij==1)return 
+					if(document.getElementById("demob2").offsetTop-document.getElementById("demob").scrollTop<=0) 
+					document.getElementById("demob").scrollTop-=document.getElementById("demob1").offsetHeight 
+					else 
+					document.getElementById("demob").scrollTop++ 
+					} 
+					setInterval(qswhMarquee,100) 
+                    </script>
+                  <P></P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=221>
+        <TBODY>
+        <TR>
+          <TD bgColor=#eeeeee>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=3></TD></TR></TBODY></TABLE>
+            <TABLE border=0 cellSpacing=3 cellPadding=0 width=200 align=center height=174>
+              <TBODY>
+              <TR>
+                <TD height=30 align=middle><a href="./zhaopin/"><img src="./images/zhaopin.jpg" width="180" height="40" /></A></TD>
+              </TR>
+              <TR>
+                <TD height=30 align=middle><A href="http://www.nsii.org.cn/" 
+                  target=_blank><IMG border=1 src="./images/NSII.png" width=180 height=40 /></A></TD>
+              </TR>
+
+              <TR>
+                <TD height=30 align=middle><A href="http://www.cvh.ac.cn/" 
+                  target=_blank><IMG border=1 src="./images/cvh.gif" width=180 height=39 /></A></TD>
+              </TR>
+              <TR>
+                <TD height=30 align=middle><A href="http://www.plant.nsdc.cn/" 
+                  target=_blank><IMG src="./images/zgzwztsjk.jpg" alt="zgzwztsjk" width=180 height=39 border=1 /></A></TD>
+              </TR>
+              <TR>
+                <TD height=30 align=middle><A href="http://www.plantphoto.cn/" 
+                  target=_blank><IMG border=0 src="./images/logo_ppbc.gif" width=180 height=40 /></A></TD>
+              </TR>
+                           </TBODY></TABLE>
+
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=3></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+
+     
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+        <TBODY>
+        <TR>
+          <TD height=3></TD></TR></TBODY></TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=221>
+        <TBODY>
+        <TR>
+          <TD class=rightbg>&nbsp;&nbsp;<a href="./xxfw/">信息服务</A> </TD>
+        </TR>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=3></TD></TR></TBODY></TABLE>
+            <table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
+			
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://www.bhl-china.org" target="_blank" title="中国生物多样性历史文献图书馆">中国生物多样性历史文献图书馆</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://www.cfh.ac.cn" target="_blank" title="中国自然标本馆">中国自然标本馆</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://foc.eflora.cn" target="_blank" title="Flora of China">Flora of China</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://gcte.ibcas.ac.cn/" target="_blank" title="全球变化与陆地生态系统">全球变化与陆地生态系统</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://www.cvh.ac.cn/" target="_blank" title="中国数字植物标本馆">中国数字植物标本馆</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="http://www.cvbg.cn" target="_blank" title="中国数字植物园">中国数字植物园</a></td>
+              </tr>
+			  
+              <tr>
+                <td height="18"><img height="11" src="./images/cn1_icon1.gif" width="11" border="0" /> <a href="./xxfw/201111/t20111111_3394468.html" target="_blank" title="CERN生物分中心数据共享平台">CERN生物分中心数据共享平台</a></td>
+              </tr>
+			  
+            </table>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=3></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+        <TBODY>
+          <TR>
+            <TD height=3></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=220>
+        <TBODY>
+          <TR>
+            <TD class=rightbg>&nbsp;&nbsp;&nbsp;学术期刊</TD>
+          </TR>
+          <TR>
+            <TD><TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                <TBODY>
+                  <TR>
+                    <TD height=3></TD>
+                  </TR>
+                </TBODY>
+            </TABLE>
+                <TABLE border=0 cellSpacing=0 cellPadding=0 width=220 align=center height=112>
+                  <TBODY>
+                    <TR>
+                      <TD height=28 align=middle><div align="center"><A 
+                  href="http://www.jipb.net/" target=_blank><IMG border=1 src="http://botany.ibcas.ac.cn/images/kan/jipb.gif" height=20 width="90" /></A></div></TD>
+                      <TD width=113 align=middle><div align="center"><a href="http://www.jse.ac.cn/" 
+                  target=_blank><img src="./images/zwflxb.jpg" height="20" /></a></div></TD>
+                    </TR>
+
+                    <TR>
+                      <TD height=28 align=middle><div align="center"><A 
+                  href="http://www.biodiversity-science.net/" target=_blank><IMG border=1 src="./images/swdyx.jpg" height=20 /></A></div></TD>
+                      <TD align=middle><div align="center"><a 
+                  href="http://www.plant-ecology.com/" target=_blank><img border=1 src="./images/zwstxb.jpg" height=20 /></a></div></TD>
+                    </TR>
+
+                    <TR>
+                      <TD height=28 align=middle><div align="center"><A 
+                  href="http://www.chinbullbotany.com/" target=_blank><IMG border=1 src="./images/zwxtb.jpg" height=20 /></A></div></TD>
+                      <TD align=middle><div align="center"><a href="http://www.lifeworld.com.cn/" 
+                  target=_blank><img border=1 src="./images/smsj.jpg" height=20 /></a></div></TD>
+                    </TR>
+                    <TR>
+                      <TD height=28 align=middle><div align="center"><A 
+                  href="http://jpe.oxfordjournals.org/" target=_blank><IMG src="./images/jpe.jpg" width="90" height=20 border=1 /></A></div></TD>
+                      <TD align=middle><div align="center"><a href="http://www.lifeworld.com.cn/" 
+                  target=_blank></a></div></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+              <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+                  <TBODY>
+                    <TR>
+                      <TD height=3></TD>
+                    </TR>
+                  </TBODY>
+              </TABLE></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+       <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+        <TBODY>
+        <TR>
+          <TD height=3></TD></TR></TBODY></TABLE>
+      <TABLE class=borgr2 border=0 cellSpacing=0 cellPadding=0 width=221>
+        <TBODY>
+        <TR>
+          <TD class=rightbg>&nbsp;&nbsp;友情链接 </TD></TR>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=200>
+              <TBODY>
+              <TR>
+                <TD height=3></TD></TR></TBODY></TABLE>
+            <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                             <tr>
+                             
+                             </tr> 
+                              <tr valign="bottom">
+                                <td height="22" align="left"> &nbsp;<IMG height=15 src='./images/CAS.jpg' width=15 />&nbsp;<a href="http://www.cas.cn" target="_blank"><SPAN class=mylink>中国科学院</span></a> </td>
+                                <td align="left">&nbsp;<img height=15 src='./images/MOST.jpg' width=15 />&nbsp;<a href="http://www.most.gov.cn" target="_blank"><SPAN class=mylink>科学技术部</span></a></td>
+                              </tr>
+                              <tr valign="bottom">
+                                <td height="22" align="left">&nbsp;<img height=15 src='./images/863.jpg' width=15 />&nbsp;<a href="http://www.863.org.cn/" target="_blank"><SPAN class=mylink>863 计划</span></a>  </td>
+                                <td height="22" align="left">&nbsp;<img height=15 src='./images/973.jpg' width=15 />&nbsp;<a href="http://www.973.gov.cn/"><SPAN class=mylink>973 计划</span></a></td>
+                              </tr>
+                              <tr valign="bottom">
+                                <td height="22" colspan="2" align="left">&nbsp;<IMG height=15 src='./images/NSFC.jpg' width=15 />&nbsp;<a href="http://www.nsfc.gov.cn" target="_blank"><SPAN class=mylink>国家自然科学基金委员会</span></a> </td>
+                              </tr>
+                              <tr valign="bottom">
+                                <td height="22" align="left">&nbsp;<img height=15 src='./images/NATURE.jpg' width=15 />&nbsp;<a href="http://www.nature.com/index.html"  target="_blank"><SPAN class=mylink>《自然》</span></a></td>
+                                <td height="22" align="left">&nbsp;<img height=15 src='./images/SCIENCES.jpg' width=15 />&nbsp;<a href="http://www.sciencemag.org/"  target="_blank"><SPAN class=mylink>《科学》</span></a></td>
+                              </tr>
+                             <tr valign="bottom">
+                            <td height="23">
+                              <p>&nbsp;<img height=15 src='./images/botany.gif' width=15 />&nbsp;<a href="http://www.botany.org.cn/"  target="_blank"><SPAN class=mylink>中国植物学会</span></a></p></td><td height="22" align="left">&nbsp;<img height=15 src='./images/escience.jpg' width=15 />&nbsp;<a href="http://www.escience.cn"  target="_blank"><SPAN class=mylink>科研在线</span></a></td>
+
+                            </tr> 
+			    <tr valign="bottom">
+                            <td height="5" colspan="2">
+                        </td>
+                      </tr>                        
+                  </table>
+         </TD>
+        </TR></TBODY></TABLE>
+      </TD></TR></TBODY></TABLE>
+
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="3" colspan="2" class="greenbg"></td>
+  </tr>
+  <tr>
+    <td width="520" class="graybg">| <a href="http://www.ib.cas.cn/map/" target="_top">本站导航</a> | <span lang="zh-cn" xml:lang="zh-cn"><a href="http://pic.ib.cas.cn/garden/" target="_top">园区风光</a></span>| <span lang="zh-cn" xml:lang="zh-cn"><a href="http://www.ib.cas.cn/jieshao/lianxifangshi/" target="_top">联系我们</a></span> |</td>
+    <td valign="middle" class="graybg">
+      <table border="0" cellpadding="0" cellspacing="0" align="right">
+        <tr>
+          <td width="75" style="padding-right:15px;"><a href="http://www.ib.cas.cn/szxx/" target="_top" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image96','','http://www.ib.cas.cn/images/cn1_menu7.gif',1)"><img src="http://www.ib.cas.cn/images/cn1_menu4.gif" name="Image96" width="75" height="19" border="0" id="Image96" /></a></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="211" align="left" class="greenbg1"><a href="http://www.cas.cn" target="_blank"><img src="http://www.ib.cas.cn/images/cn1_bottomlogo.gif" width="229" height="52" border="0" /></a></td>
+    <td width="694" class="greenbg1"><div align="left">版权所有：中国科学院植物研究所 地址：北京市海淀区香山南辛村20号   邮编:100093   电话:010-62590835      <br>
+      网站备案号：京ICP备16067583号-24 &nbsp;  &nbsp;  &nbsp; 文保网安备案号：1101080078</div></td>
+    <td width="95" class="greenbg1">&nbsp;<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/33/000/0000/60447746/CA330000000604477460003.js' type='text/javascript'%3E%3C/script%3E"));</script></td>
+  </tr>
+</table>
+
+<SCRIPT>
+			var bigswitch = new SwitchPic(
+				{
+					bigpic:"SwitchBigPic",
+					switchnav:"SwitchNav",
+					switchword:"SwitchWord",
+					selectstyle:"selected",
+					objname:"bigswitch"
+				}
+			) ;
+			bigswitch.goSwitch(bigswitch,0);
+			bigswitch.autoSwitchTimer = setTimeout("bigswitch.autoSwitch(bigswitch) ;", 3000);
+		</SCRIPT>
+
+<map name="Map"><area shape="rect" coords="4,3,87,39" href="/nianjian/" target="_blank">
+<area shape="rect" coords="95,3,179,39" href="/nianbao/" target="_blank">
+</map>
+<!--
+<div id="zzjsnetshowad" style="position:absolute;z-index:100;">
+
+
+<a href="http://www.ibc2017.cn/Abstracts/?61" target=_blank><img width="250" height="100" border="0" src="./images/IBC20172.jpg" /></a>
+
+<div style="width:250;height:18px;font-size:14px;font-weight:bold;text-align:right;cursor:hand;" onClick="closead();"><font color="ff0000">关闭</font></div>
+
+</div>
+<script language="javascript">
+var bodyfrm = ( document.compatMode.toLowerCase()=="css1compat" ) ? document.documentElement : document.body;
+var adst = document.getElementById("zzjsnetshowad").style;
+ adst.top = ( bodyfrm.clientHeight -500-22 ) + "px";
+ adst.left = ( bodyfrm.clientWidth -260 ) + "px";
+function moveR() {
+ adst.top = ( bodyfrm.scrollTop + bodyfrm.clientHeight - 500-22) + "px";
+ adst.left = ( bodyfrm.scrollLeft + bodyfrm.clientWidth - 260 ) + "px";
+}
+setInterval("moveR();", 80);
+function closead()
+{
+ adst.display='none';
+}
+</script>
+
+-->
+<style type="text/css">
+#msg_win{position:absolute;right:0px;display:none;overflow:hidden;z-index:99;border:1px solid #c00;background:#F9EFFC;width:160px;font-size:12px;margin:0px;}
+#msg_win .icos{position:absolute;top:2px;*top:0px;right:2px;z-index:9;}
+.icos a{float:left;color:#FFFFFF;margin:1px;text-align:center;font-weight:bold;width:14px;height:22px;line-height:22px;padding:1px;text-decoration:none;font-family:webdings;}
+.icos a:hover{color:#FFCC00;}
+#msg_title{background:#AC19E3;border-bottom:1px solid #710B97;border-top:1px solid #FFF;border-left:1px solid #FFF;color:#FFFFFF;height:25px;line-height:25px;text-indent:5px;font-weight:bold;}
+#msg_content{margin:5px;margin-right:0;width:150px;height:150px;overflow:hidden;}
+</style>
+
+<div id="msg_win" style="display:block;top:503px;visibility:visible;opacity:1;">
+  <div class="icos"><a id="msg_min" title="最小化" href="javascript:void 0">_</a><a id="msg_close" title="关闭" href="javascript:void 0">×</a></div>
+  <div id="msg_title">官方微信</div>
+  <div id="msg_content"><img src="./images/weixin.jpg" width="150" height="150" /></div>
+</div>
+<script language="javascript">
+var Message={
+set: function() {//最小化与恢复状态切换
+var set=this.minbtn.status == 1?[0,1,'block',this.char[0],'最小化']:[1,0,'none',this.char[1],'恢复'];
+this.minbtn.status=set[0];
+this.win.style.borderBottomWidth=set[1];
+this.content.style.display =set[2];
+this.minbtn.innerHTML =set[3]
+this.minbtn.title = set[4];
+this.win.style.top = this.getY().top;
+},
+close: function() {//关闭
+this.win.style.display = 'none';
+window.onscroll = null;
+},
+setOpacity: function(x) {//设置透明度
+var v = x >= 100 ? '': 'Alpha(opacity=' + x + ')';
+this.win.style.visibility = x<=0?'hidden':'visible';//IE有绝对或相对定位内容不随父透明度变化的bug
+this.win.style.filter = v;
+this.win.style.opacity = x / 100;
+},
+show: function() {//渐显
+clearInterval(this.timer2);
+var me = this,fx = this.fx(0, 100, 0.1),t = 0;
+this.timer2 = setInterval(function() {
+t = fx();
+me.setOpacity(t[0]);
+if (t[1] == 0) {clearInterval(me.timer2)	}
+},6);//10 to 6
+},
+fx: function(a, b, c) {//缓冲计算
+var cMath = Math[(a - b) > 0 ? "floor": "ceil"],c = c || 0.1;
+return function() {return [a += cMath((b - a) * c), a - b]}
+},
+getY: function() {//计算移动坐标
+var d = document,b = document.body,	e = document.documentElement;
+var s = Math.max(b.scrollTop, e.scrollTop);
+var h = /BackCompat/i.test(document.compatMode)?b.clientHeight:e.clientHeight;
+var h2 = this.win.offsetHeight;
+return {foot: s + h + h2 + 2+'px',top: s + h - h2 - 2+'px'}
+},
+moveTo: function(y) {//移动动画
+clearInterval(this.timer);
+var me = this,a = parseInt(this.win.style.top)||0;
+var fx = this.fx(a, parseInt(y));
+var t = 0 ;
+this.timer = setInterval(function() {
+t = fx();
+me.win.style.top = t[0]+'px';
+if (t[1] == 0) {
+clearInterval(me.timer);
+me.bind();
+}
+},6);//10 to 6
+},
+bind:function (){//绑定窗口滚动条与大小变化事件
+var me=this,st,rt;
+window.onscroll = function() {
+clearTimeout(st);
+clearTimeout(me.timer2);
+me.setOpacity(0);
+st = setTimeout(function() {
+me.win.style.top = me.getY().top;
+me.show();
+},100);//600 mod 100
+};
+window.onresize = function (){
+clearTimeout(rt);
+rt = setTimeout(function() {me.win.style.top = me.getY().top},100);
+}
+},
+init: function() {//创建HTML
+function $(id) {return document.getElementById(id)};
+this.win=$('msg_win');
+var set={minbtn: 'msg_min',closebtn: 'msg_close',title: 'msg_title',content: 'msg_content'};
+for (var Id in set) {this[Id] = $(set[Id])};
+var me = this;
+this.minbtn.onclick = function() {me.set();this.blur()};
+this.closebtn.onclick = function() {me.close()};
+this.char=navigator.userAgent.toLowerCase().indexOf('firefox')+1?['_','::','×']:['0','2','r'];//FF不支持webdings字体
+this.minbtn.innerHTML=this.char[0];
+this.closebtn.innerHTML=this.char[2];
+setTimeout(function() {//初始化最先位置
+me.win.style.display = 'block';
+me.win.style.top = me.getY().foot;
+me.moveTo(me.getY().top);
+},0);
+return this;
+}
+};
+Message.init();
+</script>
+
+
+
+	</BODY></HTML>

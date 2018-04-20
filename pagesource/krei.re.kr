@@ -1,0 +1,78 @@
+<script type="text/javascript" src="/html/js/jquery142/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	j$ = jQuery;
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var domainStr = "krei.re.kr|krei.re.kr";
+		var domainArr = domainStr.split("|");
+		var domain = document.domain;
+		var subdomain = "";
+		var isMobile = false;
+		var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson');
+
+		// check user agent for mobile site
+		for (var mobileWord in mobileKeyWords){
+			if (navigator.userAgent.match(mobileKeyWords[mobileWord]) != null){
+				isMobile = true;
+				break;
+			}
+		}
+
+
+
+
+		/////////////////////////////////
+		//isMobile = false;
+	
+                  for (var i=0; i<domainArr.length; i++) {
+                                if (domain.indexOf(domainArr[i])>-1) {
+                                        if (domain.indexOf("." + domainArr[i])>-1) {
+                                                subdomain = domain.substr(0, domain.indexOf("." + domainArr[i]));
+                                        } else {
+                                                subdomain = "www";
+                                        }
+
+                                        break;
+                                }
+                  }
+
+               if (subdomain == "worldagri"){
+		   isMobile = false;
+        	}	
+		
+
+               if (isMobile) {
+			// redirect to mobile site
+			//location.href = "http://krei.re.kr:8089/m/index.krei";
+			location.href = "http://www.krei.re.kr:8089/m/index.krei";
+
+		} else {
+			// redirect to normal site
+			for (var i=0; i<domainArr.length; i++) {
+				if (domain.indexOf(domainArr[i])>-1) {
+					if (domain.indexOf("." + domainArr[i])>-1) {
+						subdomain = domain.substr(0, domain.indexOf("." + domainArr[i]));
+					} else {
+						subdomain = "www";
+					}
+
+					break;
+				} 
+			}
+
+			if (subdomain == "rurallife") {
+				// mobile site			
+				location.href = "/web/rurallife/home";
+
+                        } else if (subdomain == "worldagri"){
+                                location.href = "/web/worldagri";
+
+			} else {
+				// other sites
+				location.href = "/web/www/home";
+			}
+
+		}
+	});
+</script>

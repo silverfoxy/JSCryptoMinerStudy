@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>News API - A JSON API for live news and blog headlines</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get live article metadata from a range of sources including BBC News, TechCrunch, Huffington Post and more with our free News API.">
+    <meta name="keywords" content="news api, api, news headlines">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="News API - A JSON API for live news and blog headlines">
+    <meta itemprop="description" content="Get live article metadata from a range of sources including BBC News, TechCrunch, Huffington Post and more with our free News API.">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="News API - A JSON API for live news and blog headlines">
+    <meta name="twitter:description" content="Get live article metadata from a range of sources including BBC News, TechCrunch, Huffington Post and more with our free News API.">
+    <meta name="twitter:site" content="@NewsAPIorg">
+    <meta name="twitter:creator" content="@NewsAPIorg">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="News API - A JSON API for live news and blog headlines">
+    <meta name="og:description" content="Get live article metadata from a range of sources including BBC News, TechCrunch, Huffington Post and more with our free News API.">
+    <meta name="og:url" content="https://newsapi.org">
+    <meta name="og:site_name" content="News API">
+    <meta name="og:locale" content="en_US">
+    <meta name="og:type" content="website">
+
+    <link rel="canonical" href="https://newsapi.org/">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.9.0/tachyons.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Bree+Serif" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css" />
+    <style>.jsonview .prop { color:#000; }</style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.5/ladda-themeless.min.css" />
+    <link rel="stylesheet" href="/css/v2.css?v=1.0.6649.40982" />
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-17563040-17', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body class="black-60 ma0">
+    <div class="center-l fixed left-0 mh3 mw6-l w-third-l right-0 top-1 z-5" id="alert-container">
+        
+    </div>
+
+    
+
+
+<script type='application/ld+json'> 
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "name": "News API",
+    "url": "https://newsapi.org",
+    "sameAs": [
+        "https://twitter.com/NewsAPIorg",
+        "https://github.com/news-api-gh"
+    ],
+    "logo": "https://newsapi.org/images/n-logo-border.png",
+    "description": "A simple HTTP REST API for searching and retrieving live news articles from all over the web.",
+    "email": "support@newsapi.org",
+    "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+13473218989",
+        "contactType": "customer service",
+        "areaServed": "US"
+    }, {
+        "@type": "ContactPoint",
+        "telephone": "+442801234589",
+        "contactType": "customer service",
+        "areaServed": "UK"
+    }],
+    "numberOfEmployees": "5"
+}
+ </script>
+
+
+
+<!-- Top navbar & branding -->
+<header class="bg-white pv3 pv4-l bb b--black-10 fixed top-0 left-0 right-0" style="z-index:10;">
+    <div class="w-90 mw8 center flex justify-between items-center">
+        <div class="nav-logo mv0 normal f3 black-90"><a class="color-inherit no-underline" href="/">News API</a></div>
+        
+        <ul class="list mv0 pl0 flex items-center">
+            <li class="dn dib-l mr4">
+                <a class="no-underline color-inherit dim pv2" href="/docs/get-started">Get started</a>
+            </li>
+            <li class="dn dib-l mr4">
+                <a class="no-underline color-inherit dim pv2" href="/docs">Documentation</a>
+            </li>
+            <li class="dn dib-l mr4">
+                <a class="no-underline color-inherit dim pv2" href="/sources">News sources</a>
+            </li>
+            <li class="dn dib-l mr4">
+                <a class="no-underline color-inherit dim pv2" href="/pricing">Pricing</a>
+            </li>
+                <li class="dn dib-l mr4">
+                    <a class="no-underline color-inherit dim pv2" href="/login">Login</a>
+                </li>
+                <li class="dib">
+                    <a class="no-underline dim bg-na-blue pv2 ph3 br2 white" href="/register">Get API key</a>
+                </li>
+            <li class="dn-l dib ml4">
+                <button id="open-menu-btn" class="color-inherit bn bg-white db f2 ph1 pv0">
+                    <i class="fa fa-bars"></i>
+                </button>                
+                <div class="bg-white bb b--black-20 pa2 fixed left-0 right-0 h-100" id="menu" style="overflow:auto; top:-120%; transition: all 500ms ease-in-out; z-index:20">
+                    <div class="absolute top-2 right-2">
+                        <button id="close-menu-btn" class="color-inherit bn bg-white db f2 ph1 pv0">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                    <ul class="list mv0 pa4 f2">
+                        <li class="mb4">
+                            <a class="no-underline color-inherit dim" href="/docs/get-started">Get started</a>
+                        </li>
+                        <li class="mb4">
+                            <a class="no-underline color-inherit dim" href="/docs">Documentation</a>
+                        </li>
+                        <li class="mb4">
+                            <a class="no-underline color-inherit dim" href="/sources">News sources</a>
+                        </li>
+                        <li class="mb4">
+                            <a class="no-underline color-inherit dim" href="/pricing">Pricing</a>
+                        </li>
+                            <li class="bt b--black-10 pt4 mb4">
+                                <a class="no-underline color-inherit dim" href="/login">Login</a>
+                            </li>
+                            <li class="">
+                                <a class="no-underline dim bg-na-blue pv2 ph3 br2 white" href="/register">Get API key</a>
+                            </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-- END Top navbar & branding -->
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#open-menu-btn', function () {
+            $('#menu').css('top', '0');
+        })
+        $(document).on('click', '#close-menu-btn', function () {
+            $('#menu').css('top', '-100%');
+        })
+    });
+</script>
+
+
+<div class="center mw7 mt5-l pt6 pb5 tc w-90">
+    <h2 class="f2 mt0 mb2 fw3 typed-cursor lh-title black-90">Access worldwide news with code</h2>
+    <div class="fw2 f3 mv4 black-60 lh-copy">Get breaking news headlines, and search for articles from over 30,000 news sources and blogs with our news API</div>
+    <a class="f4 dib ba no-underline ph4 pv3 mv3 br2 grow white bg-na-blue" href="/register">Get API key</a>
+</div>
+
+<div class="code-carousel">
+
+
+<div class="ba br2 bg-white-1 b--black-10 center mw7 w-90 w-100-l" style="box-shadow:0 0 10px rgba(0,0,0,0.1)">
+    <div class="tc pv2 flex items-center justify-center">
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white prev" style="border:none;"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="w-80">Top business headlines in the US right now</div>
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white next" style="border:none;"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="flex items-center bb bt b--black-10 bg-na-grey-1">
+        <div class="pa3 tc">
+            <span class="label label-primary http-method">GET</span>
+        </div>
+        <div class="pa3 lh-copy bl b--black-10"><span class="http-url">https://newsapi.org/v2/top-headlines?<strong>country=us</strong>&amp;<strong>category=business</strong>&amp;apiKey=API_KEY</span></div>
+    </div>
+    <div id="7c4e43f4-a062-466b-9dba-97d9147a1ae7" class="json-wrapper" style="max-height:600px;">
+<div class="spinner">
+    <svg class="spinner-inner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+    </div>
+
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/v2/top-headlines?country=us&category=business&apiKey=79e026a9909e472a81198212fdd9a88c'
+                })
+                .done(function (data) {
+                    $('#7c4e43f4-a062-466b-9dba-97d9147a1ae7').JSONView(data);
+                })
+                .fail(function (response) {
+                    $('#7c4e43f4-a062-466b-9dba-97d9147a1ae7').JSONView(response.responseJSON);
+                })
+            })
+    </script>
+</div>
+
+
+<div class="ba br2 bg-white-1 b--black-10 center mw7 w-90 w-100-l" style="box-shadow:0 0 10px rgba(0,0,0,0.1)">
+    <div class="tc pv2 flex items-center justify-center">
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white prev" style="border:none;"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="w-80">All articles about Bitcoin from the last 6 months, sorted by recent first</div>
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white next" style="border:none;"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="flex items-center bb bt b--black-10 bg-na-grey-1">
+        <div class="pa3 tc">
+            <span class="label label-primary http-method">GET</span>
+        </div>
+        <div class="pa3 lh-copy bl b--black-10"><span class="http-url">https://newsapi.org/v2/everything?<strong>q=bitcoin</strong>&amp;sortBy=publishedAt&amp;apiKey=API_KEY</span></div>
+    </div>
+    <div id="f3807880-5272-4b15-87c4-fe6941d21f10" class="json-wrapper" style="max-height:600px;">
+<div class="spinner">
+    <svg class="spinner-inner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+    </div>
+
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/v2/everything?q=bitcoin&language=en&sortBy=publishedAt&apiKey=79e026a9909e472a81198212fdd9a88c'
+                })
+                .done(function (data) {
+                    $('#f3807880-5272-4b15-87c4-fe6941d21f10').JSONView(data);
+                })
+                .fail(function (response) {
+                    $('#f3807880-5272-4b15-87c4-fe6941d21f10').JSONView(response.responseJSON);
+                })
+            })
+    </script>
+</div>
+
+
+<div class="ba br2 bg-white-1 b--black-10 center mw7 w-90 w-100-l" style="box-shadow:0 0 10px rgba(0,0,0,0.1)">
+    <div class="tc pv2 flex items-center justify-center">
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white prev" style="border:none;"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="w-80">Top headlines from TechCrunch right now</div>
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white next" style="border:none;"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="flex items-center bb bt b--black-10 bg-na-grey-1">
+        <div class="pa3 tc">
+            <span class="label label-primary http-method">GET</span>
+        </div>
+        <div class="pa3 lh-copy bl b--black-10"><span class="http-url">https://newsapi.org/v2/top-headlines?<strong>sources=techcrunch</strong>&amp;apiKey=API_KEY</span></div>
+    </div>
+    <div id="49b6230f-2f8d-4077-98a5-b5d4d915a10a" class="json-wrapper" style="max-height:600px;">
+<div class="spinner">
+    <svg class="spinner-inner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+    </div>
+
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/v2/top-headlines?sources=techcrunch&apiKey=79e026a9909e472a81198212fdd9a88c'
+                })
+                .done(function (data) {
+                    $('#49b6230f-2f8d-4077-98a5-b5d4d915a10a').JSONView(data);
+                })
+                .fail(function (response) {
+                    $('#49b6230f-2f8d-4077-98a5-b5d4d915a10a').JSONView(response.responseJSON);
+                })
+            })
+    </script>
+</div>
+
+
+<div class="ba br2 bg-white-1 b--black-10 center mw7 w-90 w-100-l" style="box-shadow:0 0 10px rgba(0,0,0,0.1)">
+    <div class="tc pv2 flex items-center justify-center">
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white prev" style="border:none;"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="w-80">All articles mentioning Apple from yesterday, sorted by popular publishers first</div>
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white next" style="border:none;"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="flex items-center bb bt b--black-10 bg-na-grey-1">
+        <div class="pa3 tc">
+            <span class="label label-primary http-method">GET</span>
+        </div>
+        <div class="pa3 lh-copy bl b--black-10"><span class="http-url">https://newsapi.org/v2/everything?<strong>q=apple</strong>&amp;<strong>from=2018-03-17</strong>&amp;<strong>to=2018-03-17</strong>&amp;<strong>sortBy=popularity</strong>&amp;apiKey=API_KEY</span></div>
+    </div>
+    <div id="2b34cecd-5aa7-4520-b26b-37bfb70dbf54" class="json-wrapper" style="max-height:600px;">
+<div class="spinner">
+    <svg class="spinner-inner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+    </div>
+
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/v2/everything?q=Apple&from=2018-03-17&to=2018-03-17&sortBy=popularity&apiKey=79e026a9909e472a81198212fdd9a88c'
+                })
+                .done(function (data) {
+                    $('#2b34cecd-5aa7-4520-b26b-37bfb70dbf54').JSONView(data);
+                })
+                .fail(function (response) {
+                    $('#2b34cecd-5aa7-4520-b26b-37bfb70dbf54').JSONView(response.responseJSON);
+                })
+            })
+    </script>
+</div>
+
+
+<div class="ba br2 bg-white-1 b--black-10 center mw7 w-90 w-100-l" style="box-shadow:0 0 10px rgba(0,0,0,0.1)">
+    <div class="tc pv2 flex items-center justify-center">
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white prev" style="border:none;"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div class="w-80">All articles published by the Wall Street Journal in the last 6 months, sorted by recent first</div>
+        <div class="w-10 tc">
+            <button class="black-20 pointer pa2 bg-white next" style="border:none;"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="flex items-center bb bt b--black-10 bg-na-grey-1">
+        <div class="pa3 tc">
+            <span class="label label-primary http-method">GET</span>
+        </div>
+        <div class="pa3 lh-copy bl b--black-10"><span class="http-url">https://newsapi.org/v2/everything?<strong>domains=wsj.com</strong>&amp;apiKey=API_KEY</span></div>
+    </div>
+    <div id="99747841-fac2-4b01-ab31-dab470dd3cd1" class="json-wrapper" style="max-height:600px;">
+<div class="spinner">
+    <svg class="spinner-inner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+    </div>
+
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/v2/everything?domains=wsj.com&language=en&apiKey=79e026a9909e472a81198212fdd9a88c'
+                })
+                .done(function (data) {
+                    $('#99747841-fac2-4b01-ab31-dab470dd3cd1').JSONView(data);
+                })
+                .fail(function (response) {
+                    $('#99747841-fac2-4b01-ab31-dab470dd3cd1').JSONView(response.responseJSON);
+                })
+            })
+    </script>
+</div>
+</div>
+
+
+<div class="pv5 ba-l bb bt bg-na-grey-1 b--black-10 center-l mv5">
+    <p class="mw7 w-80 mb5 center tc lh-copy f4"><strong class="black-90">News API</strong> is a simple and easy-to-use API that returns JSON metadata for headlines and articles live all over the web right now.</p>
+
+    <div class="w-90 mw8 center flex-l items-top">
+        <div class="w-third-l mb4-l mb5 ph4 tc ">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 40 40" style="width:120px;" xml:space="preserve">
+            <g>
+            <circle style="fill:#FFFFFF;" cx="7.5" cy="20.5" r="3"></circle>
+            <g>
+            <path style="fill:#4788C7;" d="M7.5,18c1.378,0,2.5,1.121,2.5,2.5S8.878,23,7.5,23C6.121,23,5,21.879,5,20.5S6.121,18,7.5,18     M7.5,17C5.567,17,4,18.567,4,20.5C4,22.433,5.567,24,7.5,24s3.5-1.567,3.5-3.5C11,18.567,9.433,17,7.5,17L7.5,17z"></path>
+	                </g>
+                </g>
+            <g>
+            <path style="fill:#DFF0FE;" d="M28.374,38.481c-0.158,0-0.325-0.042-0.496-0.125c-0.625-0.305-1.186-0.873-1.836-1.531   C24.579,35.344,22.757,33.5,19,33.5c-1.739,0-3.5-0.858-3.5-2.5c0-0.874,0.456-1.285,0.984-1.761   C16.96,28.811,17.5,28.324,17.5,27.5c0-0.741-0.835-0.922-2.1-1.195C13.051,25.796,9.5,25.028,9.5,21c0-6.273,5.118-8.5,9.5-8.5   c1.531,0,2.435,0.319,3.232,0.602C22.811,13.307,23.357,13.5,24,13.5c0.747,0,1.254-0.354,1.431-0.973   c2.021,0.259,3.893,2.28,5.708,4.239c0.228,0.247,0.456,0.492,0.683,0.733h-0.614l0.34,0.715C32.029,19.224,32.5,21.594,32.5,23   c0,4.598-1.996,7.622-5.62,8.515l-0.889,0.219l0.665,0.63c1.073,1.017,1.788,1.965,2.199,2.581   c0.806,1.209,0.719,2.332,0.401,2.928C29.048,38.26,28.727,38.481,28.374,38.481L28.374,38.481z"></path>
+            <g>
+            <path style="fill:#4788C7;" d="M19,13c1.445,0,2.306,0.305,3.066,0.573C22.686,13.793,23.272,14,24,14    c0.794,0,1.405-0.336,1.732-0.907c1.681,0.417,3.334,2.173,4.941,3.907h-0.257l0.68,1.43C31.503,19.284,32,21.561,32,23    c0,2.517-0.681,6.906-5.239,8.029l-1.777,0.438l1.329,1.259c1.039,0.985,1.73,1.901,2.127,2.495    c0.683,1.025,0.63,1.941,0.376,2.414c-0.069,0.129-0.219,0.346-0.442,0.346c-0.081,0-0.174-0.025-0.276-0.075    c-0.548-0.267-1.082-0.808-1.7-1.434C24.949,35.008,22.966,33,19,33c-1.206,0-3-0.533-3-2c0-0.622,0.281-0.904,0.818-1.389    C17.317,29.162,18,28.547,18,27.5c0-1.145-1.156-1.395-2.494-1.684C12.604,25.188,10,24.348,10,21C10,15.102,14.649,13,19,13     M25,12c0,0.657-0.343,1-1,1c-1.351,0-2.25-1-5-1c-5.218,0-10,2.813-10,9c0,6.311,8,5.365,8,6.5c0,1.336-2,1.506-2,3.5    c0,1.971,2.028,3,4,3c5.208,0,6.459,3.733,8.659,4.806c0.247,0.12,0.487,0.176,0.714,0.176c1.423,0,2.319-2.184,0.898-4.315    C28.897,34.106,28.153,33.093,27,32c4.147-1.021,6-4.538,6-9c0-1.527-0.499-3.947-1-5c0.346,0,0.424,0,0.424,0    c0.073,0,0.236,0,0.576,0C30.497,15.497,28,12,25,12L25,12z M32.424,18c-0.039,0-0.052,0-0.052,0H32.424L32.424,18z"></path>
+	                </g>
+                </g>
+            <g>
+            <path style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" d="M21.5,30.5c4.25,0,6.433,3.225,6.994,3.921"></path>
+                </g>
+            <g>
+            <path style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" d="M22.5,22.5c3.743,0,5.994,1.755,5.994,4   s-2.9,4-6.994,4"></path>
+                </g>
+            <g>
+            <path style="fill:#DFF0FE;" d="M32.692,10.715C30.361,8.352,23.544,4.5,19.714,4.5C18.493,4.5,17.5,3.827,17.5,3   s0.993-1.5,2.214-1.5c3.455,0,9.913,3.215,12.957,5.876C32.933,7.703,32.831,9.468,32.692,10.715z"></path>
+            <g>
+            <path style="fill:#4788C7;" d="M19.714,2c3.225,0,9.538,3.1,12.538,5.675c0.109,0.343,0.093,1.19,0.031,2.039    C29.299,7.177,23.147,4,19.714,4C18.704,4,18,3.473,18,3S18.704,2,19.714,2 M19.714,1C18.215,1,17,1.876,17,3    c0,1.124,1.215,2,2.714,2C24.479,5,33,10.841,33,12c0,0.005,0,0.008,0.001,0.008c0.033,0,0.724-4.374-0.001-5.008    C29.913,4.301,23.333,1,19.714,1L19.714,1z"></path>
+	                </g>
+                </g>
+            <g>
+            <path style="fill:#DFF0FE;" d="M30.898,12.291C28.4,10.269,21.259,7.5,17.714,7.5C16.493,7.5,15.5,6.827,15.5,6   s0.993-1.5,2.214-1.5c3.343,0,9.867,2.175,12.957,4.876C30.933,9.649,30.956,11.153,30.898,12.291z"></path>
+            <g>
+            <path style="fill:#4788C7;" d="M17.714,5c3.234,0,9.525,2.09,12.562,4.696c0.114,0.273,0.153,0.935,0.149,1.637    c-0.825-0.536-2.016-1.176-3.736-1.932c-1.641-0.722-5.8-2.4-8.975-2.4C16.704,7,16,6.473,16,6S16.704,5,17.714,5 M17.714,4    C16.215,4,15,4.876,15,6c0,1.124,1.215,2,2.714,2c4.765,0,13.571,4.341,13.571,5.5c0,0.006,0,0.008,0.001,0.008    c0.022,0,0.436-3.876-0.287-4.508C27.913,6.301,21.333,4,17.714,4L17.714,4z"></path>
+	                </g>
+                </g>
+            <g>
+            <path style="fill:#DFF0FE;" d="M30.687,17.5c-2.86,0-5.187-2.243-5.187-5s2.327-5,5.187-5h0.438c4.569,0,7.375,4.145,7.375,7.115   c0,1.427-0.535,2.885-4.5,2.885H30.687z"></path>
+            <path style="fill:#4788C7;" d="M31.125,8C35.703,8,38,12.241,38,14.615C38,15.769,37.691,17,34,17h-2h-1.313   C28.103,17,26,14.981,26,12.5S28.103,8,30.687,8H31.125 M31.125,7c-0.201,0,0.014,0-0.438,0C27.546,7,25,9.462,25,12.5   c0,3.038,2.546,5.5,5.687,5.5c1.115,0,0.346,0,1.313,0c0.711,0,1.307,0,2,0c3.112,0,5-0.852,5-3.385C39,11.578,36.132,7,31.125,7   L31.125,7z"></path>
+                </g>
+            <circle style="fill:#4788C7;" cx="33.5" cy="12.5" r="1.5"></circle>
+            <path style="fill:#4788C7;" d="M13.5,9h-8C5.225,9,5,8.775,5,8.5v0C5,8.225,5.225,8,5.5,8h8C13.775,8,14,8.225,14,8.5v0  C14,8.775,13.775,9,13.5,9z"></path>
+            <path style="fill:#4788C7;" d="M9.5,12h-6C3.225,12,3,11.775,3,11.5v0C3,11.225,3.225,11,3.5,11h6c0.275,0,0.5,0.225,0.5,0.5v0  C10,11.775,9.775,12,9.5,12z"></path>
+            <path style="fill:#4788C7;" d="M6.5,15h-5C1.225,15,1,14.775,1,14.5v0C1,14.225,1.225,14,1.5,14h5C6.775,14,7,14.225,7,14.5v0  C7,14.775,6.775,15,6.5,15z"></path>
+            </svg>
+            <h4 class="fw4 black ttu">Freaking fast</h4>
+            <p class="lh-copy">Everything is asynchronously cached for a super-fast response.</p>
+        </div>
+        <div class="w-third-l mb4-l mb5 ph4 tc ">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 40 40" style="width:120px;" xml:space="preserve">
+            <g id="Layer_1">
+            <g>
+            <circle style="fill:#DFF0FE;" cx="24" cy="13" r="4.5"></circle>
+            <path style="fill:#4788C7;" d="M24,9c2.206,0,4,1.794,4,4s-1.794,4-4,4s-4-1.794-4-4S21.794,9,24,9 M24,8c-2.761,0-5,2.239-5,5    s2.239,5,5,5s5-2.239,5-5S26.761,8,24,8L24,8z"></path>
+	                    </g>
+            <line style="fill:none;stroke:#4788C7;stroke-width:2;stroke-miterlimit:10;" x1="4.148" y1="6.615" x2="11.935" y2="9.403"></line>
+            <g>
+            <g>
+            <path style="fill:#B6DCFE;" d="M30.189,34.5l-3.194-4.795L26.545,34.5h-10.97l1.423-10.187l-5.92-5.821     C10.71,18.097,10.5,17.562,10.5,17V8.5c0-1.103,0.897-2,2-2s2,0.897,2,2v7.734l3.861,3.217l7.509,2.031     c0.583,0.146,1.069,0.515,1.376,1.04L35.048,34.5H30.189z"></path>
+		                    </g>
+            <g>
+            <path style="fill:#4788C7;" d="M12.5,7C13.327,7,14,7.673,14,8.5V9v3.5V16v0.468l0.36,0.3l3.597,2.998l0.168,0.14l0.211,0.057     l7.422,2.007c0.443,0.111,0.818,0.396,1.082,0.846L34.125,34h-3.668l-2.264-3.398l-1.564-2.348l-0.264,2.809L26.09,34h-9.94     l1.309-9.368l0.07-0.499l-0.359-0.353l-5.71-5.613C11.163,17.849,11,17.435,11,17v-4.5V9V8.5C11,7.673,11.673,7,12.5,7 M12.5,6     C11.119,6,10,7.119,10,8.5V9v3.5V17c0,0.686,0.26,1.347,0.727,1.849l5.741,5.645L15,35h12l0.361-3.844L29.922,35h6.049     l-8.293-12.729C27.319,21.658,26.733,21.183,26,21l-7.403-2.002L15,16v-3.5V9V8.5C15,7.119,13.881,6,12.5,6L12.5,6z"></path>
+		                    </g>
+	                    </g>
+            <g>
+            <rect x="1.5" y="34.5" style="fill:#98CCFD;" width="37" height="4"></rect>
+            <g>
+            <path style="fill:#4788C7;" d="M38,35v3H2v-3H38 M39,34H1v5h38V34L39,34z"></path>
+		                    </g>
+	                    </g>
+            <g>
+            <polygon style="fill:#98CCFD;" points="1.549,9.004 4.107,1.631 7.378,2.729 3.875,12.833   "></polygon>
+            <path style="fill:#4788C7;" d="M4.418,2.263l2.323,0.78l-2.989,8.622L2.099,8.946L4.418,2.263 M3.797,1L1,9.063L4,14L8.016,2.416    L3.797,1L3.797,1z"></path>
+	                    </g>
+                    </g>
+            <g id="Layer_2">
+                    </g>
+                </svg>
+            <h4 class="fw4 black ttu">Free for developers</h4>
+            <p class="lh-copy">Jump right in if you're in development or open source.</p>
+        </div>
+        <div class="w-third-l mb4-l mb5 ph4 tc ">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 40 40" style="width:120px;" xml:space="preserve">
+            <g>
+            <rect x="1" y="1" style="fill:#FFFFFF;" width="38" height="30"></rect>
+                </g>
+            <polyline style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" points="25.5,30.5 38.5,30.5 38.5,1.5   1.5,1.5 1.5,30.5 16.5,30.5 "></polyline>
+            <g>
+            <rect x="2" y="2" style="fill:#98CCFD;" width="36" height="7"></rect>
+                </g>
+            <rect x="14" y="4" style="fill:#FFFFFF;" width="22" height="3"></rect>
+            <circle style="fill:#DFF0FE;" cx="10.5" cy="5.5" r="1.5"></circle>
+            <circle style="fill:#DFF0FE;" cx="5.5" cy="5.5" r="1.5"></circle>
+            <g>
+            <path style="fill:#98CCFD;" d="M1.5,38.5v-3H17c1.379,0,2.5-1.121,2.5-2.5v-9.5h-4.398L21,16.76l5.898,6.74H22.5V33   c0,3.032-2.468,5.5-5.5,5.5H1.5z"></path>
+            <g>
+            <path style="fill:#4788C7;" d="M21,17.519L25.796,23H23h-1v1v9c0,2.757-2.243,5-5,5H2v-2h15c1.654,0,3-1.346,3-3v-9v-1h-1h-2.796    L21,17.519 M21,16l-7,8h5v9c0,1.105-0.895,2-2,2H1v4h16c3.314,0,6-2.686,6-6v-9h5L21,16L21,16z"></path>
+	                </g>
+                </g>
+                </svg>
+            <h4 class="fw4 black ttu">CORS enabled</h4>
+            <p class="lh-copy">Make requests directly from the front-end!</p>
+        </div>
+    </div>
+</div>
+
+<div class="mw7 mv5 w-90 center">
+    <h3 class="f2 fw3 black-90 lh-title tc">A huge range of publishers</h3>
+    <p class="f4 mb5 lh-copy tc"><strong class="black-90">News API</strong> indexes articles from over 30,000 worldwide sources, including:</p>
+
+    <div class="sources-container mb4 center relative">
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/abc-news-api" title="ABC News">
+                    <img alt="ABC News" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://abcnews.go.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="ABC News">
+                        ABC News
+                    </div>
+                    <div><kbd title="id: abc-news">abc-news</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/abc-news-au-api" title="ABC News (AU)">
+                    <img alt="ABC News (AU)" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.abc.net.au/news&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="ABC News (AU)">
+                        ABC News (AU)
+                    </div>
+                    <div><kbd title="id: abc-news-au">abc-news-au</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/aftenposten-api" title="Aftenposten">
+                    <img alt="Aftenposten" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=https://www.aftenposten.no&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Aftenposten">
+                        Aftenposten
+                    </div>
+                    <div><kbd title="id: aftenposten">aftenposten</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/al-jazeera-english-api" title="Al Jazeera English">
+                    <img alt="Al Jazeera English" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.aljazeera.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Al Jazeera English">
+                        Al Jazeera English
+                    </div>
+                    <div><kbd title="id: al-jazeera-english">al-jazeera-english</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/ansa-api" title="ANSA.it">
+                    <img alt="ANSA.it" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.ansa.it&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="ANSA.it">
+                        ANSA.it
+                    </div>
+                    <div><kbd title="id: ansa">ansa</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/argaam-api" title="Argaam">
+                    <img alt="Argaam" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.argaam.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Argaam">
+                        Argaam
+                    </div>
+                    <div><kbd title="id: argaam">argaam</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/ars-technica-api" title="Ars Technica">
+                    <img alt="Ars Technica" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://arstechnica.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Ars Technica">
+                        Ars Technica
+                    </div>
+                    <div><kbd title="id: ars-technica">ars-technica</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/ary-news-api" title="Ary News">
+                    <img alt="Ary News" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=https://arynews.tv/ud/&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Ary News">
+                        Ary News
+                    </div>
+                    <div><kbd title="id: ary-news">ary-news</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/associated-press-api" title="Associated Press">
+                    <img alt="Associated Press" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=https://apnews.com/&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Associated Press">
+                        Associated Press
+                    </div>
+                    <div><kbd title="id: associated-press">associated-press</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/australian-financial-review-api" title="Australian Financial Review">
+                    <img alt="Australian Financial Review" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.afr.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Australian Financial Review">
+                        Australian Financial Review
+                    </div>
+                    <div><kbd title="id: australian-financial-review">australian-financial-review</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/axios-api" title="Axios">
+                    <img alt="Axios" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=https://www.axios.com&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="Axios">
+                        Axios
+                    </div>
+                    <div><kbd title="id: axios">axios</kbd></div>
+                </a>
+            </div>
+            <div class="source fl-l w-50-l mb2 ph1">
+                <a class="db no-underline grow" href="/s/bbc-news-api" title="BBC News">
+                    <img alt="BBC News" class="icon" data-src="https://besticon-demo.herokuapp.com/icon?url=http://www.bbc.co.uk/news&size=70..120..200" referrerpolicy="no-referrer" />
+                    <div class="name f3" title="BBC News">
+                        BBC News
+                    </div>
+                    <div><kbd title="id: bbc-news">bbc-news</kbd></div>
+                </a>
+            </div>
+        <div style="background:linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1)); bottom:0; height:180px; left:0; pointer-events:none; position:absolute; right:0; "></div>
+    </div>
+    <div class="tc">
+        <a class="f4 dib ba no-underline grow ph4 pv3 mb3 br2 na-blue b--na-blue" href="/sources">View all (there's over 30,000 more!)</a>
+    </div>
+</div>
+
+<div class="bg-na-blue pv3 tc">
+    <a class="f4 dib ba no-underline ph4 pv3 br2 grow na-blue bg-white" href="/register">Get API key</a>
+</div>
+
+<footer class="bg-na-coal">
+    <p class="white f3 lh-copy pa4 mt0 mb3 tc">Need to talk to someone? <a class="na-green no-underline" href="mailto:support@newsapi.org">Email us</a> or <a class="na-green no-underline" href="https://twitter.com/NewsAPIorg" target="_blank">send us a tweet</a>.</p>
+    
+    <div class="mw7 w-80 mb3 flex-ns center white-80 fw1">
+        <div class="w-third-ns">
+            <h6 class="f6 ttu mb2 white">News API</h6>
+            <div class="mv3"><a class="white-60 no-underline" href="/docs/get-started">Get started</a></div>
+            <div class="mv3"><a class="white-60 no-underline" href="/docs">Documentation</a></div>
+            <div class="mv3"><a class="white-60 no-underline" href="/sources">News sources</a></div>
+            <div class="mv3"><a class="white-60 no-underline" href="/pricing">Pricing</a></div>
+        </div>
+        <div class="w-third-ns">
+            <h6 class="f6 ttu mb2 white">Company</h6>
+            <div class="mv3"><a class="white-60 no-underline" href="/our-team">Our team</a></div>
+            <div class="mv3">
+                <div style="width:100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <a class="white-60 no-underline" href="/blog/">Blog</a> - <a id="blog-latest-article-title" class="white-80"></a>
+                </div>
+            </div>
+            <div class="mv3"><a class="white-60 no-underline" href="/privacy" target="_blank">Privacy policy</a></div>
+            <div class="mv3"><a class="white-60 no-underline" href="/terms" target="_blank">Terms of service</a></div>
+        </div>
+        <div class="w-third-ns tr">
+            <h6 class="f6 ttu mb2 white">Support</h6>
+            <div class="mv3"><a class="color-inherit no-underline" href="mailto:support@newsapi.org"><i class="fa fa-envelope"></i> Contact</a></div>
+            <div class="mv3"><a class="color-inherit no-underline" href="https://twitter.com/NewsAPIorg" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></div>
+            <div class="mv3">&nbsp;</div>
+            <div class="mv3"><a class="color-inherit no-underline" href="https://github.com/News-API-gh" target="_blank"><i class="fa fa-github"></i> Github</a></div>
+        </div>
+    </div>
+    <div >
+        <p class="tc white f7 ma0 pv3"></p>
+    </div>
+
+    <script>
+        const $blogLatestArticleTitle = $('#blog-latest-article-title');
+        $.getJSON('https://newsapi.org/blog/feed/json', function (response) {
+            $blogLatestArticleTitle.text(response.items[0].title);
+            $blogLatestArticleTitle.attr('href', response.items[0].url);
+        })
+    </script>
+</footer>
+
+<script src="/js/codecarousel.js"></script>
+<script>
+    $('.code-carousel').codeCarousel();
+</script>
+
+<script>
+    (function (w, d) {
+        var b = d.getElementsByTagName('body')[0];
+        var s = d.createElement("script"); s.async = true;
+        var v = !("IntersectionObserver" in w) ? "8.5.2" : "10.3.5";
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+        w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
+        b.appendChild(s);
+    }(window, document));
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.5/spin.min.js"></script>
+    <script src="/js/ladda.js"></script>
+    <script src="/js/v2.js?v=1.0.6649.40982"></script>
+</body>
+</html>

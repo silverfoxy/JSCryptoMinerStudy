@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Web Application Security, Testing, &amp; Scanning | PortSwigger</title>
+
+    <meta name="description" content="PortSwigger offers tools for web application security, testing &amp; scanning. Choose from a wide range of security tools &amp; identify the very latest vulnerabilities.">
+    <!-- Twitter data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Application Security, Testing, &amp; Scanning | PortSwigger">
+    <meta name="twitter:description" content="PortSwigger offers tools for web application security, testing &amp; scanning. Choose from a wide range of security tools &amp; identify the very latest vulnerabilities.">
+<meta name="twitter:image" content="https://portswigger.net/content/images/logos/portswigger-twittercardlogo.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Web Application Security, Testing, &amp; Scanning | PortSwigger" />
+    <meta name="og:description" content="PortSwigger offers tools for web application security, testing &amp; scanning. Choose from a wide range of security tools &amp; identify the very latest vulnerabilities.">
+<meta property="og:url" content="https://portswigger.net" />
+<meta property="og:image" content="https://portswigger.net/content/images/logos/portswigger-twittercardlogo.png"/>
+<meta property="og:type" content="website"/>   
+    <link rel="canonical" href="https://portswigger.net"/>
+    <link rel="icon" href="/content/images/logos/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/content/images/logos/apple-touch-icon.png">
+    <link rel="stylesheet" href="/areas/public/content/pspublic.css" type="text/css">
+    <script src="/bundles/jquery?v=9gwFHobey3n39JWt6PXcKdtDGkLDMDQ36cMTBIbXUsE1"></script>
+
+    <script async src="/areas/shared/scripts/googleanalytics.js"></script>
+</head>
+<body>
+    <header id="top">
+        
+
+<div class="header">
+    <div class="container">
+        <div class="right"><a class="login" href="/users">Login</a></div>
+        <div class="right main-nav-wrap">
+            <span class="main-menu">
+                <div class="ps-nav">
+                    <ul>
+                        <li><a href="/burp">Get Burp</a></li>
+                        <li><a href="https://support.portswigger.net/">Support</a></li>
+                        <li><a href="/news">About</a></li>
+                    </ul>
+                </div>
+            </span>
+            <input id="burger-menu-triggerinput" class="hidden" type="checkbox" />
+            <span id="burger-menu" class="burger-menu" data-hovermenuinputid="burger-menu-triggerinput" data-triggerid="burger-menu-trigger">
+                <label id="burger-menu-trigger" for="burger-menu-triggerinput">
+                    <span class="icon-ps-burger-menu"></span>
+                </label><span id="mobile-nav-wrap">
+                    <ul>
+                        <li class="mobile-item"><a href="/burp">Get Burp</a></li>
+                        <li><a href="http://blog.portswigger.net">Blog</a></li>
+                        <li>
+                            <a href="https://support.portswigger.net/" class="support-link">Support</a>
+                            <input id="support-submenu-triggerinput" class="hidden" type="checkbox" />
+                            <span id="support-submenu" class="dropdown-arrow-wrap" data-disablehover="" data-hovermenuinputid="support-submenu-triggerinput" data-triggerid="support-submenu-trigger">
+                                <label id="support-submenu-trigger" for="support-submenu-triggerinput">
+                                    <span class="icon-ps-arrow white"></span>
+                                </label>
+                                <span id="support-submenu-content">
+                                    <ul id="mobile-nav-sub-item">
+                                        <li><a href="https://support.portswigger.net/customer/portal/articles/1816883-getting-started-with-burp-suite">Getting Started</a></li>
+                                        <li><a href="/burp/help">Documentation</a></li>
+                                        <li><a href="/kb/issues">Knowledge Base</a></li>
+                                        <li><a href="/training">Training</a></li>
+                                        <li><a href="/burp/help/suite_troubleshooting">Troubleshooting</a></li>
+                                        <li><a href="/burp/extender">Extensibility</a></li>
+                                        <li><a href="/bappstore">BApp Store</a></li>
+                                        <li><a href="http://releases.portswigger.net">Release Notes</a></li>
+                                    </ul>
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mobile-item"><a href="/users">Login</a></li>
+                        <li class="mobile-item"><a href="/news">About</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/legal">Legal</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li id="daily-swig-navlink"><a href="/daily-swig">The Daily Swig</a></li>
+                    </ul>
+                </span>
+            </span>
+        </div>
+        <div class="logo"><a href="/"><img src="/content/images/logos/portswigger-logo.svg" alt="PortSwigger Web Security"></a></div>
+        <div class="mobile-logo"><a href="/"><img src="/content/images/svg/ps-mobile-logo.svg" /></a></div>
+    </div>
+</div>
+    </header>
+    <section>
+        
+
+<div class="page-content">
+    <div class="wrapper">
+        <section>
+    <article id="cc-slider">
+        <input checked="checked" name="cc-slider" id="slide1" type="radio">
+        <input name="cc-slider" id="slide2" type="radio">
+        <input name="cc-slider" id="slide3" type="radio">
+        <div id="cc-slides">
+            <div id="overflow">
+                <div class="inner">
+                    <article>
+                        <div class="cctooltip container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10 slider-inner">
+                                    <h1>Burp Suite is the leading software for web security testing<span class="blink">_</span></h1>
+                                    <h4>Thousands of organizations use Burp Suite to find security exposures before it’s too late.</h4>
+                                    <a href="/burp"><div class="btn orange-bg-dark-bg">Find out more</div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="cctooltip container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10 slider-inner">
+                                    <p class="h1">Benefit from cutting-edge scanning technology<span class="blink">_</span></p>
+                                    <p class="h4">Burp Suite constantly raises the bar of what security testing is able to achieve.</p>
+                                    <a href="/vulnerability-scanner" ><div class="btn orange-bg-dark-bg">Find out more</div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="cctooltip container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10 slider-inner">
+                                    <p class="h1">Identify the very latest vulnerabilities<span class="blink">_</span></p>
+                                    <p class="h4">Burp Suite researchers frequently uncover brand new vulnerability classes that Burp is the first to report.</p>
+                                    <a href="/burp" ><div class="btn orange-bg-dark-bg">Find out more</div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div id="controls">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+        </div>
+    </article>
+</section>
+
+    </div>
+</div>
+
+<section class="features-banner editions-banner-white white x-x-light-grey-bg border-bottom-x-light-grey">
+    <div class="container">
+        <h2 class="text-center charcoal">Burp Suite Editions</h2>
+        <div class="text-center editions-comparison margin-bottom-m ">
+    <div class="light-charcoal-bg-translucent light-grey-border padding-l margin-right-m inline-block">
+        <div class="icon-ps-using-burp-circle-lrg icon-lrg"></div>
+<h3 class="margin-bottom-s margin-top-s">Professional</h3>
+<p id="ProNetCost" class="light-grey">$349.00 per user, per year</p>
+<div class="text-left padding-bottom-s padding-top-s">
+    <p><span class="icon-ps-tick padding-right-m icon-size-m light-green top-s"></span>Web vulnerability scanner</p>
+    <p><span class="icon-ps-tick padding-right-m icon-size-m light-green top-s"></span>Advanced manual tools</p>
+    <p><span class="icon-ps-tick padding-right-m icon-size-m light-green top-s"></span>Essential manual tools</p>
+</div>
+<a href="/buy" class="btn orange-bg-dark-bg full-width">Buy now</a>
+<a href="/requestfreetrial" class="btn yellow-bg margin-none full-width">Try for free</a>
+    </div>
+    <div class="light-charcoal-bg-translucent light-grey-border padding-l margin-left-m inline-block top">
+        <div class="icon-ps-community-circle-lrg icon-lrg"></div>
+<h3 class="margin-bottom-s margin-top-s">Community Edition</h3>
+<p class="light-grey">For researchers and hobbyists</p>
+<div class="text-left padding-bottom-s padding-top-s">
+    <p><span class="icon-ps-cross padding-right-m icon-size-m light-grey top-s"></span>Web vulnerability scanner</p>
+    <p><span class="icon-ps-cross padding-right-m icon-size-m light-grey top-s"></span>Advanced manual tools</p>
+    <p><span class="icon-ps-tick padding-right-m icon-size-m light-green top-s"></span>Essential manual tools</p>
+</div>
+<a href="/burp/communitydownload" class="btn light-grey-bg full-width">Download</a>
+    </div>
+</div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row company-logos">
+            <div class="company-icon">
+	<svg id="google" class="google" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
+		<title>google</title>
+	    <path class="google-color0" d="M115.8,47.2c0,12.8-10,22.2-22.2,22.2S71.2,60,71.2,47.2c0-12.9,10-22.2,22.2-22.2S115.8,34.3,115.8,47.2z   M106,47.2c0-8-5.8-13.4-12.5-13.4S81,39.2,81,47.2c0,7.9,5.8,13.4,12.5,13.4S106,55.1,106,47.2z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path class="google-color1" d="M163.8,47.2c0,12.8-10,22.2-22.2,22.2s-22.2-9.4-22.2-22.2c0-12.8,10-22.2,22.2-22.2S163.8,34.3,163.8,47.2z   M154,47.2c0-8-5.8-13.4-12.5-13.4S129,39.2,129,47.2c0,7.9,5.8,13.4,12.5,13.4S154,55.1,154,47.2z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path class="google-color2" d="M209.8,26.3v39.8c0,16.4-9.7,23.1-21.1,23.1c-10.8,0-17.2-7.2-19.7-13.1l8.5-3.5c1.5,3.6,5.2,7.9,11.2,7.9  c7.3,0,11.8-4.5,11.8-13v-3.2h-0.3c-2.2,2.7-6.4,5-11.7,5c-11.1,0-21.2-9.7-21.2-22.1c0-12.5,10.2-22.3,21.2-22.3  c5.3,0,9.5,2.4,11.7,5h0.3v-3.6L209.8,26.3L209.8,26.3z M201.2,47.3c0-7.8-5.2-13.5-11.8-13.5c-6.7,0-12.4,5.7-12.4,13.5  c0,7.7,5.6,13.4,12.4,13.4C196,60.6,201.2,55,201.2,47.3z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path class="google-color3" d="M225,3v65h-9.5V3H225z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path class="google-color0" d="M262,54.5l7.6,5c-2.4,3.6-8.3,9.8-18.5,9.8c-12.6,0-22-9.7-22-22.2C229.1,34,238.6,25,250,25  c11.5,0,17.1,9.2,19,14.1l1,2.5l-29.6,12.3c2.3,4.5,5.8,6.7,10.8,6.7C256.1,60.6,259.5,58.2,262,54.5L262,54.5z M238.7,46.5  l19.8-8.2c-1.1-2.8-4.4-4.7-8.2-4.7C245.4,33.6,238.5,37.9,238.7,46.5z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path class="google-color2" d="M35.3,41.4V32H67c0.3,1.6,0.5,3.6,0.5,5.7c0,7.1-1.9,15.8-8.2,22c-6,6.3-13.8,9.7-24,9.7  c-19,0-34.9-15.5-34.9-34.4s16-34.4,34.9-34.4c10.5,0,18,4.1,23.6,9.5l-6.6,6.6c-4-3.8-9.5-6.7-17-6.7c-13.9,0-24.7,11.2-24.7,25  s10.8,25,24.7,25c9,0,14.1-3.6,17.4-6.9c2.7-2.7,4.4-6.5,5.1-11.7L35.3,41.4z" xmlns="http://www.w3.org/2000/svg"></path>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="amazon" class="amazon" viewBox="0 0 971.7 195.7" xmlns="http://www.w3.org/2000/svg">
+		<title>amazon</title>
+		<g id="layer1" transform="translate(151.616,-642.7961)">
+			<g id="g1967" transform="translate(7.081691,7.081144)">
+				<path id="path8" class="amazon-color0" d="M222,784.7c-35,25.8-85.7,39.6-129.4,39.6c-61.2,0-116.4-22.7-158.1-60.3c-3.3-3-0.3-7,3.6-4.7    c45,26.2,100.7,41.9,158.2,41.9c38.8,0,81.4-8,120.6-24.7C222.9,774,227.8,780.4,222,784.7"></path>
+				<path id="path10" class="amazon-color0" d="M236.6,768.1c-4.5-5.7-29.6-2.7-40.8-1.4c-3.4,0.4-4-2.6-0.9-4.7c20-14.1,52.8-10,56.7-5.3    c3.8,4.7-1,37.6-19.8,53.4c-2.9,2.4-5.6,1.1-4.4-2.1C231.6,797.4,241.1,773.8,236.6,768.1"></path>
+				<path id="path12" class="amazon-color1" d="M196.5,662.6v-13.7c0-2.1,1.6-3.5,3.5-3.5h61.3c2,0,3.5,1.4,3.5,3.5v11.7c0,2-1.7,4.5-4.6,8.6    l-31.7,45.3c11.8-0.3,24.3,1.5,34.9,7.5c2.4,1.4,3.1,3.4,3.3,5.3V742c0,2-2.2,4.3-4.5,3.1c-18.8-9.9-43.9-11-64.7,0.1    c-2.1,1.2-4.4-1.2-4.4-3.1v-13.9c0-2.2,0-6,2.3-9.4l36.8-52.7h-32C198.1,666.1,196.5,664.7,196.5,662.6"></path>
+				<path id="path14" class="amazon-color1" d="M-27,748h-18.6c-1.8-0.1-3.2-1.5-3.3-3.2v-95.7c0-1.9,1.6-3.4,3.6-3.4H-28    c1.8,0.1,3.3,1.5,3.4,3.2v12.5h0.3c4.5-12.1,13.1-17.7,24.5-17.7c11.7,0,19,5.6,24.2,17.7c4.5-12.1,14.8-17.7,25.7-17.7    c7.8,0,16.4,3.2,21.6,10.5c5.9,8,4.7,19.7,4.7,30l0,60.4c0,1.9-1.6,3.5-3.6,3.5H54.3c-1.9-0.1-3.4-1.6-3.4-3.5v-50.7    c0-4,0.4-14.1-0.5-17.9c-1.4-6.4-5.6-8.2-11-8.2c-4.5,0-9.2,3-11.1,7.8s-1.7,12.9-1.7,18.3v50.7c0,1.9-1.6,3.5-3.6,3.5H4.3    c-1.9-0.1-3.4-1.6-3.4-3.5l0-50.7c0-10.7,1.8-26.4-11.5-26.4c-13.4,0-12.9,15.3-12.9,26.4v50.7C-23.4,746.5-25,748-27,748"></path>
+				<path id="path16" class="amazon-color1" d="M317.5,643.7c27.7,0,42.6,23.8,42.6,54c0,29.2-16.5,52.3-42.6,52.3c-27.2,0-41.9-23.8-41.9-53.4    C275.6,666.9,290.6,643.7,317.5,643.7 M317.7,663.2c-13.7,0-14.6,18.7-14.6,30.4c0,11.7-0.2,36.7,14.4,36.7    c14.4,0,15.1-20.1,15.1-32.4c0-8.1-0.3-17.7-2.8-25.4C327.8,665.8,323.6,663.2,317.7,663.2"></path>
+				<path id="path18" class="amazon-color1" d="M396,748h-18.6c-1.9-0.1-3.4-1.6-3.4-3.5l0-95.7c0.2-1.8,1.7-3.1,3.6-3.1H395    c1.6,0.1,3,1.2,3.3,2.7V663h0.3c5.2-13.1,12.5-19.3,25.4-19.3c8.4,0,16.5,3,21.8,11.3c4.9,7.7,4.9,20.5,4.9,29.8V745    c-0.2,1.7-1.8,3-3.6,3h-18.7c-1.7-0.1-3.1-1.4-3.3-3v-52c0-10.5,1.2-25.8-11.7-25.8c-4.5,0-8.7,3-10.8,7.7c-2.6,5.8-3,11.7-3,18.1    v51.5C399.6,746.5,398,748,396,748"></path>
+				<path id="path20" class="amazon-color1" d="M462.3,740.4c0-4.8,4.1-8.7,9.2-8.7s9.2,3.9,9.2,8.7c0,4.8-4.1,8.7-9.2,8.7    C466.4,749.1,462.3,745.2,462.3,740.4"></path>
+				<path id="path22" class="amazon-color1" d="M659.8,748c-1.9-0.1-3.5-1.6-3.5-3.5v-95.7c0.1-1.7,1.5-3,3.3-3.1h6.8c1.9,0,3.4,1.4,3.6,3.1    v13.9c4.9-11.1,13.9-19.7,25.4-19.7h0.7h0.7c12.2,0,21.1,9,24.4,22c5.2-12.9,14.9-22,27.7-22h0.7h0.8c9,0,17.7,5.8,22.3,14.7    c4.4,8.5,4.2,19.7,4.2,29.2l0,57.5c0,1.8-1.5,3.3-3.3,3.5h-8.2c-1.8-0.1-3.2-1.3-3.5-3v-58c0-6.8,0.3-14.1-2.4-20.3    c-2.8-6.4-8.3-10.4-14.1-10.6c-6.5,0.3-12.5,5.1-16.4,11.5c-5,8.3-4.9,15.7-4.9,25.4v52.3c-0.2,1.6-1.6,2.8-3.3,2.9h-8.1    c-1.9-0.1-3.5-1.6-3.5-3.5l-0.1-61.4c0-5.6-0.3-12.3-2.9-17.3c-3-5.8-8.4-9.5-14.1-9.8c-5.9,0.3-11.8,4.8-15.3,10    c-4.5,6.7-5.4,14.9-5.4,23.4v55.1c0,1.8-1.5,3.3-3.4,3.5H659.8"></path>
+				<path id="path24" class="amazon-color1" d="M603.7,750c-26.5,0-38.3-27-38.3-54c0-28.4,13.9-52.9,40.6-52.9h0.7h0.7    c25.9,0,38.8,26.2,38.8,53.1c0,28.6-14.3,53.7-41.1,53.7h-0.7L603.7,750 M605.6,736.9c8.7-0.3,15.6-5.7,19.6-14.7    c3.6-8.1,4.4-17.3,4.4-26.2c0-9.6-1-19.7-5.6-28c-4.1-7.2-11-11.8-18.4-12.1c-8.2,0.3-15.6,5.9-19.3,14.5    c-3.3,7.4-4.4,17.3-4.4,25.6c0,9.3,1.2,20,5,28C590.7,731.7,597.8,736.7,605.6,736.9"></path>
+				<path id="path26" class="amazon-color1" d="M521,736.5c11.9-0.4,18.1-9.9,20.7-22.2c0.5-1.5,1.7-2.7,3.4-2.7l7.8,0c1.9,0.1,3.6,1.5,3.4,3.2    c-3.6,21-16.3,35.2-34.3,35.2h-0.7h-0.7c-26.3,0-37.6-26.4-37.6-53.1c0-26.6,11.5-53.7,37.8-53.7h0.7h0.7    c18.2,0,31.3,14.1,34.1,35.1c0,1.6-1.5,2.9-3.2,3.1l-8.2-0.1c-1.7-0.2-2.9-1.7-3.1-3.4c-2-11.7-8.7-21.1-19.9-21.4    c-17.9,0.6-22.9,22.5-22.9,39.5C498.9,712.2,503.1,735.9,521,736.5"></path>
+				<path class="amazon-color1" d="M180.9,730.5c-3.4-4.7-7-8.5-7-17.3v-29c0-12.3,0.9-23.6-8.2-32.1c-7.2-6.9-19-9.3-28.1-9.3    c-17.7,0-37.5,6.6-41.7,28.5c-0.4,2.3,1.3,3.6,2.8,3.9l18.1,1.9c1.7-0.1,2.9-1.7,3.3-3.4c1.5-7.6,7.9-11.2,15-11.2    c3.9,0,8.2,1.4,10.5,4.9c2.6,3.8,2.3,9.1,2.3,13.5v2.4c-10.8,1.2-24.9,2-35.1,6.5c-11.7,5-19.9,15.3-19.9,30.5    c0,19.4,12.2,29,27.9,29c13.2,0,20.5-3.1,30.7-13.6c3.4,4.9,4.5,7.3,10.7,12.4c1.4,0.7,3.2,0.7,4.4-0.4v0h0l0,0l0,0.1    c3.7-3.3,10.5-9.2,14.3-12.4C182.3,734.2,182,732.1,180.9,730.5z M144.2,722.1c-3,5.2-7.7,8.5-12.9,8.5c-7.2,0-11.4-5.5-11.4-13.5    c0-15.9,14.2-18.8,27.7-18.8v4C147.7,709.6,147.9,715.6,144.2,722.1z"></path>
+				<path class="amazon-color1" d="M-63.5,730.5c-3.4-4.7-7-8.5-7-17.3v-29c0-12.3,0.9-23.6-8.2-32.1c-7.2-6.9-19-9.3-28.1-9.3    c-17.7,0-37.5,6.6-41.7,28.5c-0.4,2.3,1.3,3.6,2.8,3.9l18.1,1.9c1.7-0.1,2.9-1.7,3.2-3.4c1.5-7.6,7.9-11.2,15-11.2    c3.8,0,8.2,1.4,10.5,4.9c2.6,3.8,2.3,9.1,2.3,13.5v2.4c-10.8,1.2-24.9,2-35.1,6.5c-11.7,5-19.9,15.3-19.9,30.5    c0,19.4,12.2,29,27.9,29c13.3,0,20.5-3.1,30.7-13.6c3.4,4.9,4.5,7.3,10.7,12.4c1.4,0.7,3.2,0.7,4.4-0.4l0.1,0.1    c3.7-3.3,10.5-9.2,14.3-12.4C-62,734.2-62.3,732.1-63.5,730.5z M-100.2,722.1c-3,5.2-7.7,8.5-12.9,8.5c-7.2,0-11.3-5.5-11.3-13.5    c0-15.9,14.2-18.8,27.7-18.8v4l0,0C-96.7,709.6-96.5,715.6-100.2,722.1z"></path>
+				<path id="path32" class="amazon-color1" d="M796.1,646.8c4.5,0,8.2,3.6,8.2,8.2c0,4.5-3.7,8.2-8.2,8.2c-4.5,0-8.2-3.7-8.2-8.2    C787.9,650.3,791.7,646.8,796.1,646.8 M796.1,645.2c-5.2,0-9.8,4.2-9.8,9.8c0,5.4,4.5,9.8,9.8,9.8c5.3,0,9.8-4.4,9.8-9.8    C805.9,649.5,801.4,645.2,796.1,645.2 M792.5,660.5h2.1v-4.4h1.9c0.8,0,1,0.3,1.1,0.9c0,0.2,0.4,2.9,0.4,3.5h2.3    c-0.3-0.5-0.4-2-0.6-2.9c-0.2-1.4-0.3-2.4-1.8-2.5c0.8-0.3,2.1-0.7,2.1-2.7c0-2.9-2.5-2.9-3.9-2.9h-3.7V660.5 M794.5,651.3h1.8    c0.6,0,1.6,0,1.6,1.5c0,0.6-0.3,1.5-1.7,1.5h-1.7V651.3"></path>
+			</g>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="atandt" class="atandt" viewBox="0 0 1000.3 411.1" xmlns="http://www.w3.org/2000/svg">
+		<title>atandt</title>
+		<g id="g3">
+			<path id="path5" class="atandt-color0" d="M925.5,287.9c-2.7,0-4.5-1.9-4.5-4.5V150.9h-45c-2.7,0-4.5-1.8-4.5-4.5v-18.3   c0-2.7,1.8-4.5,4.5-4.5h119.8c2.7,0,4.5,1.9,4.5,4.5v18.3c0,2.7-1.8,4.5-4.5,4.5h-45v132.5c0,2.7-1.9,4.5-4.5,4.5H925.5    M580.6,221.8L557,154l-23.8,67.8H580.6z M633,282.6c1,2.7-0.6,5.4-3.5,5.4h-21.4c-3.1,0-4.9-1.4-6-4.3l-12.1-35h-66.4l-12.1,34.9   c-1,2.9-2.9,4.3-6,4.3h-20.1c-2.7,0-4.5-2.7-3.5-5.4l55.7-154.9c1-2.9,2.9-4.1,6-4.1h27.5c3.1,0,5.1,1.2,6.2,4.1L633,282.6    M792.7,265.7c13.1,0,22-6.4,29.2-17.3l-33.3-35.8c-12.8,7.2-21,14.4-21,28.8C767.6,255.7,779.1,265.7,792.7,265.7 M801.9,145.3   c-10.7,0-16.9,6.8-16.9,15.8c0,7,3.7,13.1,12.1,22.2c14.6-8.4,20.8-13.6,20.8-22.6C817.9,152.3,812.6,145.3,801.9,145.3 M893,282.2   c2.7,2.9,1,5.8-2.3,5.8h-26.1c-3.5,0-5.3-0.8-7.6-3.5l-15.6-17.3c-10.5,14-25.1,24.4-49.3,24.4c-30,0-53.7-18.1-53.7-49.1   c0-23.8,12.8-36.6,32.1-47.3c-9.5-10.9-13.8-22.4-13.8-32.5c0-25.5,17.9-42.9,44.8-42.9c27.5,0,44.4,16.2,44.4,40.3   c0,20.5-14.8,32-30.4,40.7l23,24.9l12.9-22.6c1.6-2.7,3.5-3.7,6.8-3.7h19.9c3.3,0,5.1,2.3,3.1,5.8l-23,39.4L893,282.2 M687.8,287.9   c2.7,0,4.5-1.9,4.5-4.5V150.9h45c2.7,0,4.5-1.8,4.5-4.5v-18.3c0-2.7-1.8-4.5-4.5-4.5H617.5c-2.7,0-4.5,1.9-4.5,4.5v18.3   c0,2.7,1.8,4.5,4.5,4.5h45v132.5c0,2.7,1.9,4.5,4.5,4.5H687.8L687.8,287.9z"></path>
+			<path id="path9" class="atandt-color1" d="M79.5,367.9c34.9,27,78.6,43.2,126.1,43.2c51.9,0,99.3-19.3,135.5-50.9c0.4-0.4,0.2-0.6-0.2-0.4   c-16.2,10.8-62.4,34.5-135.2,34.5c-63.3,0-103.2-14.1-125.8-26.7C79.4,367.3,79.2,367.6,79.5,367.9 M219.6,378.4   c50.6,0,106.2-13.8,139.5-41.1c9.1-7.4,17.8-17.3,25.5-30.6c4.5-7.7,8.8-16.8,12.4-25.7c0.2-0.4-0.1-0.6-0.4-0.2   c-30.9,45.5-120.5,73.9-212.9,73.9c-65.4,0-135.7-20.9-163.2-60.8c-0.3-0.4-0.5-0.2-0.4,0.2C45.6,348.6,123.4,378.4,219.6,378.4    M164.3,287.9c-105.2,0-154.9-49-163.9-82.5C0.3,205,0,205.1,0,205.5c0,11.3,1.1,25.8,3.1,35.4c0.9,4.7,4.7,12.1,10.3,17.9   c25.5,26.6,89,63.8,199,63.8c149.9,0,184.2-49.9,191.2-66.4c5-11.7,7.6-33,7.6-50.8c0-4.3-0.1-7.8-0.3-11.1c0-0.5-0.3-0.6-0.4-0.1   C403,234.5,275,287.9,164.3,287.9 M19.8,117.4c-6,12-12.7,32.2-14.7,42.6c-0.9,4.5-0.5,6.6,1.1,10c12.6,26.8,76.4,69.6,225.2,69.6   c90.8,0,161.3-22.3,172.7-63c2.1-7.5,2.2-15.4-0.5-26.1c-3-11.9-8.7-25.8-13.5-35.6c-0.2-0.3-0.4-0.3-0.4,0.1   c1.8,53.4-147.1,87.8-222.2,87.8c-81.4,0-149.2-32.4-149.2-73.4c0-3.9,0.8-7.9,1.8-12C20.3,117.1,20,117,19.8,117.4 M341.4,51.8   c0.9,1.4,1.3,2.8,1.3,4.7c0,22.8-69.9,63.2-181.1,63.2c-81.7,0-97.1-30.3-97.1-49.6c0-6.9,2.6-13.9,8.5-21.1c0.3-0.4,0-0.6-0.3-0.3   c-10.6,9-20.4,19.1-28.9,30.1c-4.1,5.2-6.6,9.8-6.6,12.5c0,40,100.2,68.9,193.9,68.9c99.8,0,144.4-32.6,144.4-61.2   c0-10.2-4-16.2-14.2-27.8c-6.6-7.5-12.9-13.7-19.5-19.7C341.4,51.3,341.2,51.5,341.4,51.8 M310.8,29C280,10.5,244.2,0,205.6,0   C166.8,0,129.9,10.9,99,29.8C89.7,35.6,84.5,40.1,84.5,46c0,17.3,40.5,36,112.4,36c71.1,0,126.3-20.4,126.3-40.1   C323.2,37.2,319.1,33.9,310.8,29"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="walmart" class="walmart" viewBox="-231.5 619.2 887.2 214.2" xmlns="http://www.w3.org/2000/svg">
+		<title>walmart</title>
+		<g id="layer1" transform="matrix(3.32199,0,0,3.32199,710.49102,-3457.6137)">
+			<path id="path2974" inkscape:connector-curvature="0" class="walmart-color0" d="M-45.2,1248.9c1.5,0,2.8-0.8,2.9-1.8l1.5-16.9   c0-1.7-2-3-4.4-3c-2.5,0-4.4,1.4-4.4,3l1.5,16.9C-48,1248.1-46.7,1248.9-45.2,1248.9L-45.2,1248.9" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2976" inkscape:connector-curvature="0" class="walmart-color0" d="M-54.4,1254.2c0.8-1.3,0.7-2.8-0.1-3.4l-13.9-9.7   c-1.4-0.8-3.6,0.2-4.8,2.3c-1.2,2.1-1,4.5,0.4,5.3l15.4,7.2C-56.4,1256.2-55.1,1255.5-54.4,1254.2L-54.4,1254.2" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2978" inkscape:connector-curvature="0" class="walmart-color0" d="M-36.1,1254.2c0.8,1.3,2.1,2,3,1.6l15.4-7.2   c1.4-0.8,1.7-3.2,0.4-5.3c-1.2-2.1-3.4-3.1-4.8-2.3l-13.9,9.7C-36.8,1251.4-36.9,1252.9-36.1,1254.2L-36.1,1254.2" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2980" inkscape:connector-curvature="0" class="walmart-color0" d="M-45.2,1270c1.5,0,2.8,0.8,2.9,1.8l1.5,16.9c0,1.7-2,3-4.4,3   c-2.5,0-4.4-1.4-4.4-3l1.5-16.9C-48,1270.8-46.7,1270-45.2,1270L-45.2,1270" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2982" inkscape:connector-curvature="0" class="walmart-color0" d="M-36.1,1264.7c0.8-1.3,2.1-2,3-1.6l15.4,7.1   c1.4,0.8,1.7,3.2,0.4,5.3c-1.2,2.1-3.4,3.1-4.8,2.3l-13.9-9.7C-36.8,1267.5-36.9,1266-36.1,1264.7L-36.1,1264.7" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2984" inkscape:connector-curvature="0" class="walmart-color0" d="M-54.4,1264.7c0.8,1.3,0.7,2.8-0.1,3.4l-13.9,9.7   c-1.4,0.8-3.6-0.2-4.8-2.3c-1.2-2.1-1-4.5,0.4-5.3l15.4-7.1C-56.4,1262.7-55.1,1263.4-54.4,1264.7L-54.4,1264.7" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2986" inkscape:connector-curvature="0" class="walmart-color1" d="M-132.7,1268.1c0,0.5,0,1.1-0.2,1.5c-0.6,1.9-2.6,3.6-5.1,3.6   c-2.1,0-3.8-1.2-3.8-3.7c0-3.9,4.3-4.9,9.1-4.9L-132.7,1268.1L-132.7,1268.1z M-125.1,1261.4c0-6.4-2.7-12-11.9-12   c-4.7,0-8.5,1.3-10.5,2.5l1.5,5.1c1.9-1.2,4.8-2.2,7.7-2.2c4.7,0,5.4,2.6,5.4,4.3v0.4c-10.2,0-16.6,3.5-16.6,10.7   c0,4.4,3.3,8.5,9,8.5c3.5,0,6.4-1.4,8.2-3.6h0.2c0,0,1.2,4.9,7.6,3c-0.3-2-0.4-4.2-0.4-6.8L-125.1,1261.4" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2988" inkscape:connector-curvature="0" class="walmart-color1" d="M-283.6,1240.7c0,0,6.6,27.2,7.7,31.6   c1.2,5.2,3.5,7.1,9.9,5.8l4.1-16.9c1.1-4.2,1.8-7.2,2.4-11.4h0.1c0.5,4.3,1.2,7.3,2,11.5c0,0,1.7,7.7,2.6,11.7   c0.9,4,3.3,6.6,9.6,5.2l9.9-37.4h-8l-3.4,16.2c-0.9,4.7-1.7,8.4-2.4,12.7h-0.1c-0.6-4.3-1.3-7.8-2.2-12.4l-3.5-16.5h-8.3l-3.8,16.1   c-1.1,4.9-2.1,8.8-2.7,13h-0.1c-0.6-3.9-1.5-8.9-2.4-13.6c0,0-2.2-11.5-3-15.5L-283.6,1240.7" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2990" inkscape:connector-curvature="0" class="walmart-color1" d="M-220.1,1268.1c0,0.5,0,1.1-0.2,1.5c-0.6,1.9-2.6,3.6-5.1,3.6   c-2.1,0-3.8-1.2-3.8-3.7c0-3.9,4.3-4.9,9.1-4.9L-220.1,1268.1L-220.1,1268.1z M-212.5,1261.4c0-6.4-2.7-12-11.9-12   c-4.7,0-8.5,1.3-10.5,2.5l1.5,5.1c1.9-1.2,4.8-2.2,7.7-2.2c4.7,0,5.4,2.6,5.4,4.3v0.4c-10.2,0-16.6,3.5-16.6,10.7   c0,4.4,3.3,8.5,9,8.5c3.5,0,6.4-1.4,8.2-3.6h0.2c0,0,1.2,4.9,7.6,3c-0.3-2-0.4-4.2-0.4-6.8V1261.4" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2992" inkscape:connector-curvature="0" class="walmart-color1" d="M-199.9,1270.2v-29.5h-7.6v37.4h7.6V1270.2" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2994" inkscape:connector-curvature="0" class="walmart-color1" d="M-100.4,1240.7c0,3.6,0,27.6,0,27.6c0,3.8,0.7,6.5,2.2,8.1   c1.3,1.4,3.5,2.3,6.2,2.3c2.2,0,4.5-0.4,5.5-0.8l-0.1-5.9c-0.8,0.2-1.7,0.3-2.9,0.3c-2.6,0-3.5-1.7-3.5-5.1v-10.6h6.6v-7.2h-6.6   v-8.8H-100.4" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2996" inkscape:connector-curvature="0" class="walmart-color1" d="M-120.1,1250v28.1h7.8v-14.4c0-0.8,0-1.5,0.2-2.1   c0.6-3,2.9-4.9,6.2-4.9c0.9,0,1.6,0.1,2.3,0.2v-7.4c-0.6-0.1-1-0.2-1.7-0.2c-2.9,0-6.3,1.9-7.7,5.9h-0.2v-5.3H-120.1" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path2998" inkscape:connector-curvature="0" class="walmart-color1" d="M-194.5,1250v28.1h7.6v-16.5c0-0.8,0.1-1.6,0.4-2.3   c0.6-1.7,2.2-3.6,4.6-3.6c3.1,0,4.5,2.6,4.5,6.4v16h7.6v-16.7c0-0.7,0.1-1.6,0.3-2.3c0.6-1.9,2.3-3.4,4.6-3.4c3.1,0,4.6,2.6,4.6,7   c0,0,0,11.9,0,15.4h7.6v-16.6c0-8.7-4.4-12.2-9.4-12.2c-2.2,0-4,0.6-5.5,1.5c-1.3,0.8-2.5,2-3.6,3.5h-0.1c-1.2-3-4-5-7.7-5   c-4.8,0-6.9,2.4-8.2,4.5h-0.1v-3.8L-194.5,1250" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="verizon" class="verizon" viewBox="0 0 500 112.3" xmlns="http://www.w3.org/2000/svg">
+		<title>verizon</title>
+		<g id="layer1" transform="translate(-198.17266,-454.79177)">
+			<g id="g3346" transform="matrix(2.459665,0,0,-2.459665,686.17304,455.79177)">
+				<path id="path3348" class="verizon-color0" d="M0,0l-11-23.7l-4.2,9h-4.5l6.8-14.7h3.6L4.5,0v0H0z"></path>
+			</g>
+			<path id="path3358" class="verizon-color1" d="M397.7,466.3h22.1v19.5h-22.1V466.3z M224.2,563.9h23l25-72h-22.1l-14.1,46.2h-0.3l-14.1-46.2   h-22.6L224.2,563.9L224.2,563.9z M305.1,505.5c7.7,0,13.1,5.8,13.9,14.2h-29.4C291.4,511.2,296,505.5,305.1,505.5 M306.3,550.1   c-9.7,0-15.6-6.3-16.7-16h51.9c0.1-15.5-3.9-27.8-12.5-35.6c-6-5.6-14.1-8.7-24.2-8.7c-21.6,0-36.7,16.4-36.7,37.9   c0,21.6,14.3,38.2,38.1,38.2c9,0,16.2-2.4,22.1-6.5c6.3-4.4,10.8-10.7,12.1-17h-21.1C317.1,547.3,312.7,550.1,306.3,550.1    M346.6,563.9h21.9v-33c0-15,9-21.6,22.8-19.8h0.4v-19c-1.1-0.4-2.4-0.6-4.5-0.6c-8.6,0-14.3,3.9-19.3,12.4h-0.4v-11.9h-20.9   L346.6,563.9L346.6,563.9z M397.7,563.9h22.1v-72h-22.1V563.9z M425.9,563.9h61.6v-17.3h-34.9v-0.4l33.3-37.4v-16.9h-60v17.3h33.7   v0.4l-33.7,37.7V563.9L425.9,563.9z M526.3,549.9c-10.4,0-15.9-8.7-15.9-21.9c0-13.4,5.5-21.9,15.9-21.9c10.4,0,16.2,8.6,16.2,21.9   C542.5,541.2,536.7,549.9,526.3,549.9 M526.5,489.9c-22.9,0-38.2,16.4-38.2,38.1c0,21.5,15.3,38.1,38.2,38.1   c22.9,0,38.2-16.6,38.2-38.1C564.7,506.4,549.4,489.9,526.5,489.9 M569.5,563.9h21.9v-40.1c0-9.1,5.3-15.6,13.2-15.6   c7.6,0,11.5,5.3,11.5,12.9v42.7h21.9v-46.9c0-15.9-9.6-27.1-25-27.1c-9.8,0-16.7,4.2-21.9,11.9h-0.4v-9.8h-21.2L569.5,563.9   L569.5,563.9z"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="salesforce" class="salesforce" viewBox="0 0 999 699.2" xmlns="http://www.w3.org/2000/svg">
+		<title>salesforce</title>
+	    <path class="salesforce-color0" d="M394.5,296.7c-7.6,0-13,3-16.5,8.4c-2.4,3.6-3.9,8.1-4.7,13.7h41.3c-0.4-5.3-1.5-10.1-3.8-13.7  C407.1,299.7,402.1,296.7,394.5,296.7z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path class="salesforce-color0" d="M280.7,331.6c-5.2-0.8-10.4-1.2-15.7-1.3c-11.8-0.2-16.8,4.2-16.8,4.2c-3.5,2.5-5.2,6.1-5.2,11.2  c-0.1,2.6,0.5,5.2,1.7,7.5c0.9,1.4,2,2.5,3.3,3.4c0,0,5.2,4.1,17,3.4c5.3-0.3,10.5-1,15.6-2.1l0,0L280.7,331.6z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path class="salesforce-color0" d="M627.3,297c-7.6,0-13,2.6-16.6,8s-5.4,13.3-5.4,23.2s1.8,17.8,5.4,23.2s9,8.1,16.6,8.1s13-2.7,16.7-8.1  s5.5-13.3,5.5-23.2s-1.8-17.7-5.5-23.2S635,297,627.3,297z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path class="salesforce-color0" d="M783.6,94.7c-30,0-59.7,6.3-87.1,18.5c-30.6-54.6-88.2-91.4-154.1-91.4c-49.6,0-94.5,20.8-126.7,54.4  C379,28.2,322-0.1,261.5,0c-107.2,0-194,86.8-194,193.8c0,26.5,5.4,52.7,16,77.1C31.7,301.2-0.1,356.7,0,416.8  c0,93,74.7,168.5,166.7,168.5c11.5,0,23-1.2,34.3-3.6c34.3,93.1,137.5,140.8,230.6,106.5c46.5-17.1,83.9-52.7,103.3-98.4  c75.1,36.5,165.6,8.1,206.3-64.8c14,2.8,28.2,4.2,42.4,4.2C902.6,529.2,999,432,999,312S902.6,94.7,783.6,94.7z M213.9,346.9  c0,17.5-12.7,28.5-33.2,28.5c-10.1,0-19.7-1.6-29.9-7c-2-1-3.9-2.2-5.7-3.4c-0.2-0.3-1.1-0.6-0.4-2.3l4-11.2c0.1-0.9,1-1.5,1.9-1.3  c0.3,0.1,0.6,0.2,0.8,0.4c1.1,0.7,1.9,1.3,3.4,2.1c7.9,5,17.1,7.7,26.4,7.6c8.9,0,14.4-4.7,14.4-11.1v-0.3c0-6.9-8.5-9.5-18.4-12.6  l-2.2-0.7c-13.5-3.9-28-9.4-28-26.5v-0.3c0-16.2,13.1-27.6,31.9-27.6h2c10.3,0,20.4,2.7,29.4,7.9c0.9,0.4,1.3,1.4,1,2.3  c-0.4,1-3.8,10.2-4.2,11.2c-0.7,1.9-2.7,0.6-2.7,0.6c-8-4.2-16.9-6.4-25.9-6.6c-7.9,0-13.1,4.2-13.1,9.9v0.4  c0,6.7,8.8,9.5,18.9,12.8l1.8,0.6c13.5,4.3,27.8,10.1,27.8,26.4L213.9,346.9z M297.8,369.7c0,0-2.1,0.6-4.1,1s-8.9,1.8-14.6,2.8  c-5.8,1-11.7,1.5-17.6,1.5c-5.2,0-10.3-0.5-15.3-1.6c-4.2-0.9-8.3-2.6-11.8-5.1c-3.2-2.3-5.8-5.4-7.6-9c-1.9-4.2-2.8-8.7-2.6-13.2  c-0.3-9.1,4-17.7,11.5-22.9c3.7-2.6,7.8-4.5,12.1-5.6c4.7-1.2,9.4-1.9,14.3-1.8c3.6,0,6.7,0.1,9,0.3c0,0,4.6,0.4,9.5,1.1v-2.5  c0-7.7-1.6-11.4-4.8-13.8s-8-3.7-14.3-3.7c0,0-14.1-0.2-25.2,5.9c-0.3,0.2-0.7,0.3-1,0.5c-0.8,0.2-1.6-0.2-1.8-0.9l-4.1-11  c-0.4-0.8-0.2-1.8,0.5-2.3c5.2-4.1,17.9-6.5,17.9-6.5c5.1-0.9,10.3-1.4,15.5-1.4c11.6,0,20.5,2.7,26.6,8s9.2,14,9.2,25.6v53  C299.2,368.6,298.6,369.4,297.8,369.7L297.8,369.7z M336.7,371.3c0,0.9-0.7,1.7-1.6,1.7c0,0,0,0-0.1,0h-15.4c-0.9,0-1.7-0.8-1.7-1.7  c0,0,0,0,0-0.1V247.8c0-0.9,0.7-1.7,1.6-1.7c0,0,0,0,0.1,0H335c0.9,0,1.7,0.8,1.7,1.7c0,0,0,0,0,0.1L336.7,371.3z M432.6,331.6  c-0.1,0.9-0.8,1.5-1.7,1.5L373,333c0.4,8.8,2.5,15,6.8,19.3s10.8,6.8,19.8,6.8c13.8,0,19.6-2.7,23.8-4.3c0.9-0.3,1.8,0.1,2.2,1  c0,0,0,0,0,0l3.8,10.6c0.8,1.8,0.2,2.4-0.5,2.8c-3.6,2-12.4,5.7-29.2,5.8c-7.1,0.2-14.3-1-21-3.4c-11.1-4-19.6-13.1-23-24.4  c-1.8-6-2.7-12.2-2.6-18.5c0-6.3,0.8-12.5,2.5-18.5c1.6-5.5,4.2-10.6,7.8-15c3.6-4.3,8.2-7.8,13.3-10.2c5.3-2.5,11.9-3.7,19.1-3.7  c5.7,0,11.4,1.1,16.7,3.3c3.6,1.6,7.3,4.4,11,8.4c3.4,3.9,5.9,8.6,7.4,13.5C433.1,314.7,433.7,323.2,432.6,331.6L432.6,331.6z   M450.8,368.3c-2-1-3.9-2.2-5.7-3.4c-0.2-0.3-1-0.6-0.4-2.3l4-11.2c0.3-0.9,1.2-1.5,2.2-1.2c0.2,0.1,0.4,0.1,0.5,0.3  c1.1,0.7,1.9,1.3,3.4,2.1c7.9,5,17.1,7.7,26.4,7.6c8.9,0,14.4-4.7,14.4-11.1v-0.3c0-6.9-8.5-9.5-18.4-12.6l-2.2-0.7  c-13.5-3.9-28-9.4-28-26.5v-0.3c0-16.2,13.1-27.6,31.9-27.6h2c10.3,0,20.4,2.7,29.4,7.9c0.9,0.4,1.3,1.4,1,2.3  c-0.4,1-3.8,10.2-4.2,11.2c-0.7,1.9-2.7,0.6-2.7,0.6c-8-4.2-16.9-6.4-25.9-6.6c-7.9,0-13.1,4.2-13.1,9.9v0.4  c0,6.7,8.8,9.5,18.9,12.8l1.8,0.6c13.5,4.3,27.8,10.1,27.8,26.4v0.3c0,17.5-12.7,28.5-33.2,28.5C470.6,375.3,461,373.7,450.8,368.3  L450.8,368.3z M584,285l-2.2,12c-0.2,1-1,1.7-1.9,1.7h-19.1l-13,73.8c-1.1,6.6-2.8,13.1-5.1,19.4c-1.6,4.8-4.2,9.2-7.5,13  c-2.9,3.3-6.6,5.9-10.7,7.5c-4.6,1.5-9.4,2.3-14.2,2.2c-2.8,0.1-5.7-0.2-8.5-0.8c-1.8-0.4-3.6-0.9-5.3-1.5c-0.9-0.4-1.3-1.4-0.9-2.3  c0,0,0,0,0,0c0.4-1.1,3.8-10.5,4.3-11.8c0.3-0.8,1.2-1.2,2.1-0.9c0,0,0,0,0,0c1,0.5,2.1,0.8,3.1,1c1.5,0.3,3.1,0.5,4.6,0.5  c2.3,0,4.6-0.3,6.8-1c2.2-0.8,4-2.2,5.3-4.1c1.8-2.5,3.1-5.3,4-8.2c1.5-4.7,2.7-9.4,3.5-14.3l13-72.5h-12.8c-1.5,0-2-0.7-1.9-1.9  l2.2-12c0.2-1,1-1.7,1.9-1.7h13.2l0.7-3.9c2-11.6,5.9-20.5,11.6-26.3s14-8.8,24.5-8.8c2.6,0,5.3,0.2,7.9,0.6  c1.9,0.3,3.8,0.8,5.7,1.4c0.8,0.2,1.3,1.1,1.1,1.9c0,0,0,0.1,0,0.1l-4.4,12.1c-0.4,0.9-0.6,1.5-2.5,0.9c-0.5-0.1-1.2-0.3-3-0.7  c-1.6-0.3-3.2-0.5-4.8-0.5c-2.1,0-4.2,0.3-6.2,0.9c-1.8,0.6-3.5,1.6-4.8,3c-1.8,1.7-3.2,3.8-4.1,6.2c-1.4,4.3-2.4,8.6-3.1,13.1h18.5  C583.7,283.1,584.2,283.8,584,285z M666.6,346.6c-1.5,5.4-4.2,10.5-7.8,14.9c-3.6,4.3-8.1,7.6-13.1,9.9c-11.8,4.8-24.9,4.8-36.7,0  c-5.1-2.3-9.6-5.6-13.1-9.9c-3.6-4.4-6.2-9.4-7.8-14.9c-3.3-12-3.3-24.7,0-36.8c1.6-5.4,4.2-10.5,7.8-14.9c3.6-4.3,8.1-7.7,13.2-10  c11.7-4.9,24.9-4.9,36.7,0c5.1,2.3,9.6,5.7,13.1,10c3.6,4.4,6.2,9.4,7.8,14.9C670,321.9,670,334.6,666.6,346.6L666.6,346.6z   M738.2,286.1c-0.5,1.6-3.4,9.5-4.3,12.1c-0.4,1-1,1.7-2.1,1.6c-2.1-0.5-4.2-0.7-6.4-0.8c-2.6,0-5.2,0.4-7.8,1.1  c-2.7,0.8-5.1,2.3-7.2,4.3c-2.3,2.4-4.1,5.3-5.1,8.5c-1.3,3.6-1.9,9.4-1.9,15.2v43.1c0,1-0.8,1.8-1.8,1.8h-15.2  c-1,0-1.8-0.8-1.8-1.8V285c0-0.9,0.7-1.7,1.6-1.8c0,0,0,0,0.1,0h14.8c0.9,0,1.7,0.8,1.7,1.7c0,0,0,0,0,0.1v7c2.2-3,6.2-5.6,9.8-7.2  s7.7-2.9,14.9-2.4c3.3,0.2,6.5,0.8,9.7,1.7C738.1,284.3,738.5,285.2,738.2,286.1C738.2,286.1,738.2,286.1,738.2,286.1L738.2,286.1z   M810.6,370.6c-7.8,2.9-16,4.3-24.2,4.3c-14.8,0-26.2-4.3-33.8-12.7s-11.4-19.9-11.4-34c0-6.2,0.9-12.5,2.8-18.4  c1.7-5.5,4.6-10.5,8.3-14.9c3.8-4.3,8.5-7.7,13.8-10c6-2.6,12.5-3.8,19.1-3.7c4.3,0,8.6,0.3,12.8,0.9c3.9,0.6,7.7,1.6,11.4,2.9  c0.8,0.2,1.3,1.1,1.1,1.9c0,0,0,0.1,0,0.1c-1.6,4.6-2.7,7.5-4.2,11.7c-0.6,1.8-2,1.2-2,1.2c-5.8-1.8-11.9-2.7-18.1-2.6  c-8.5,0-14.8,2.8-19,8.4s-6.5,12.8-6.6,22.5c0,10.6,2.6,18.5,7.3,23.4s11.3,7.3,19.6,7.3c3.1,0,6.3-0.2,9.4-0.7  c2.7-0.5,5.4-1.2,8-2.3c0.8-0.4,1.8,0,2.1,0.9c0,0,0,0.1,0.1,0.1l4.2,11.6C811.7,369.3,811.4,370.2,810.6,370.6  C810.6,370.6,810.6,370.6,810.6,370.6L810.6,370.6z M896.3,331.6c-0.1,0.9-0.8,1.5-1.7,1.5l-57.9-0.1c0.4,8.8,2.5,15,6.8,19.3  s10.8,6.8,19.8,6.8c13.7,0,19.6-2.7,23.8-4.3c0.9-0.3,1.8,0.1,2.2,0.9c0,0,0,0,0,0.1l3.8,10.6c0.8,1.8,0.2,2.4-0.5,2.8  c-3.6,2-12.4,5.7-29.2,5.8c-7.1,0.2-14.3-1-21-3.4c-11.1-4-19.6-13.1-23-24.4c-1.8-6-2.7-12.2-2.6-18.5c0-6.3,0.8-12.5,2.5-18.5  c1.6-5.5,4.2-10.6,7.8-15c3.6-4.4,8.2-7.9,13.3-10.2c5.3-2.5,11.9-3.7,19.1-3.7c5.7,0,11.3,1.1,16.6,3.4c3.6,1.6,7.3,4.4,11,8.4  c3.4,3.9,5.9,8.6,7.4,13.5C896.9,314.7,897.4,323.2,896.3,331.6L896.3,331.6z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path class="salesforce-color0" d="M858.2,296.7c-7.6,0-13,3-16.5,8.4c-2.3,3.6-3.9,8.1-4.7,13.7h41.3c-0.4-5.3-1.5-10.1-3.8-13.7  C870.8,299.7,865.8,296.7,858.2,296.7z" xmlns="http://www.w3.org/2000/svg"></path>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="ebay" class="ebay" viewBox="0 0 300 120.3" xmlns="http://www.w3.org/2000/svg">
+		<title>ebay</title>
+	    <path id="e" class="ebay-color0" d="M38.9,26.3c-21.1,0-38.8,9-38.8,36c0,21.4,11.8,34.9,39.3,34.9C71.7,97.3,73.8,76,73.8,76H58.1  c0,0-3.4,11.5-19.7,11.5c-13.3,0-22.9-9-22.9-21.6h59.9V58C75.4,45.5,67.5,26.3,38.9,26.3L38.9,26.3z M38.3,36.4  c12.7,0,21.3,7.8,21.3,19.4H15.9C15.9,43.5,27.2,36.4,38.3,36.4z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path id="b" class="ebay-color1" d="M75.4,0.1v83.6c0,4.7-0.3,11.4-0.3,11.4H90c0,0,0.5-4.8,0.5-9.2c0,0,7.4,11.5,27.5,11.5  c21.1,0,35.5-14.7,35.5-35.7c0-19.6-13.2-35.3-35.5-35.3c-20.9,0-27.3,11.3-27.3,11.3V0.1L75.4,0.1z M114.2,36.9  c14.4,0,23.5,10.7,23.5,24.9c0,15.3-10.5,25.4-23.4,25.4c-15.3,0-23.6-12-23.6-25.2C90.7,49.6,98.1,36.9,114.2,36.9z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path id="a" class="ebay-color2" d="M190.6,26.3c-31.8,0-33.9,17.4-33.9,20.2h15.8c0,0,0.8-10.2,16.9-10.2c10.5,0,18.6,4.8,18.6,14v3.3  h-18.6c-24.6,0-37.7,7.2-37.7,21.8c0,14.4,12,22.2,28.3,22.2c22.2,0,29.3-12.3,29.3-12.3c0,4.9,0.4,9.7,0.4,9.7H224  c0,0-0.5-6-0.5-9.8V52.4C223.4,30.9,206,26.3,190.6,26.3L190.6,26.3z M208.1,63.4v4.4c0,5.7-3.5,19.9-24.2,19.9  c-11.3,0-16.2-5.7-16.2-12.2C167.7,63.5,184.1,63.4,208.1,63.4L208.1,63.4z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path id="y" class="ebay-color3" d="M214.9,29h17.8l25.6,51.2L283.8,29h16.1l-46.5,91.2h-16.9l13.4-25.4L214.9,29z" xmlns="http://www.w3.org/2000/svg"></path>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="twitter" class="twitter" viewBox="0 0 300 244.2" xmlns="http://www.w3.org/2000/svg">
+		<title>twitter</title>
+		<g transform="translate(-539.18 -568.86)">
+			<path class="twitter-color0" d="M633.9,812c112.5,0,174-93.2,174-174c0-2.6-0.1-5.3-0.2-7.9c11.9-8.6,22.3-19.4,30.5-31.7   c-11,4.9-22.7,8.1-35.1,9.6c12.6-7.6,22.3-19.5,26.9-33.8c-11.8,7-24.9,12.1-38.8,14.8c-11.2-11.9-27-19.3-44.6-19.3   c-33.8,0-61.1,27.4-61.1,61.1c0,4.8,0.5,9.5,1.6,13.9c-50.8-2.6-95.9-26.9-126-63.9c-5.3,9-8.3,19.5-8.3,30.7   c0,21.2,10.8,39.9,27.2,50.9c-10-0.3-19.5-3.1-27.7-7.6c0,0.3,0,0.5,0,0.8c0,29.6,21.1,54.3,49.1,59.9c-5.1,1.4-10.5,2.2-16.1,2.2   c-3.9,0-7.8-0.4-11.5-1.1c7.8,24.3,30.4,42,57.1,42.5c-20.9,16.4-47.3,26.2-75.9,26.2c-4.9,0-9.8-0.3-14.6-0.8   C567.2,801.9,599.4,812,633.9,812"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="hp" class="hp" viewBox="0 0 433.7 433.7" xmlns="http://www.w3.org/2000/svg">
+		<title>hp</title>
+		<path class="hp-color0" d="M216.9,432.9c-2.1,0-4.3,0-6.4-0.1l44.1-121.3h60.8c10.7,0,22.4-8.2,26-18.2l47.9-131.5  c7.8-21.5-4.5-39.2-27.4-39.2h-84.3l-70.7,194.3h0L166.7,427C71.6,404.4,0.9,318.9,0.9,216.9c0-99.1,66.7-182.6,157.7-208  l-41.4,113.7h0L48.4,311.4l45.8,0l58.5-160.5h34.4l-58.5,160.5l45.8,0l54.5-149.8c7.8-21.5-4.5-39.2-27.4-39.2H163L207.1,1.1  c3.2-0.1,6.5-0.2,9.7-0.2c119.3,0,216,96.7,216,216C432.9,336.1,336.1,432.9,216.9,432.9z M347.5,150.8h-34.4L265,282.9h34.4  L347.5,150.8z" xmlns="http://www.w3.org/2000/svg"></path>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="vodaphone" class="vodaphone" viewBox="0 0 107.9 68.9" xmlns="http://www.w3.org/2000/svg">
+		<title>vodaphone</title>
+		<g>
+			<g>
+				<polygon class="vodaphone-color0" points="4.2,55.7 7.3,64.1 10.4,55.7 14.4,55.7 9.2,68.6 5.4,68.6 0,55.7 4.2,55.7   "></polygon>
+				<path class="vodaphone-color0" d="M21.2,58.3c-2,0-3,1.8-3,3.9s1,3.8,3,3.8s3-1.7,3-3.8S23.2,58.3,21.2,58.3L21.2,58.3z M21.2,68.9    c-3.7,0-6.8-3-6.8-6.8s3-6.8,6.8-6.8s6.8,3,6.8,6.8l0,0c0.2,3.5-2.5,6.6-6.1,6.8C21.7,68.9,21.4,68.9,21.2,68.9L21.2,68.9z"></path>
+				<path class="vodaphone-color0" d="M38.8,58.9c-0.8-0.4-1.6-0.6-2.5-0.6c-1.9,0-3,1.6-3,3.7c-0.2,1.9,1.2,3.6,3.2,3.8c0.2,0,0.3,0,0.5,0    c0.6,0,1.3,0,1.9-0.1L38.8,58.9L38.8,58.9L38.8,58.9z M42.3,50.4v17.9c-1.8,0.4-3.6,0.6-5.5,0.6c-4.4,0-7.3-2.3-7.3-6.8    c-0.2-3.5,2.5-6.5,6-6.7c0.2,0,0.3,0,0.5,0c1,0,1.9,0.2,2.8,0.5v-5.4L42.3,50.4L42.3,50.4z"></path>
+				<path class="vodaphone-color0" d="M53.2,58.7c-0.7-0.2-1.3-0.2-2-0.2c-2,0-3.5,1.7-3.5,3.6c0,0.1,0,0.1,0,0.2c0,2.5,1.4,3.7,3,3.7    c1,0,2-0.5,2.5-1.3L53.2,58.7L53.2,58.7L53.2,58.7z M43.9,62.4c0-4.1,3-7,7.3-7c1.9,0,3.8,0.3,5.5,1v12.2h-3.1l-0.2-1.1    c-0.9,1-2.1,1.5-3.5,1.4C46.5,68.9,43.9,66.4,43.9,62.4L43.9,62.4L43.9,62.4z"></path>
+				<path class="vodaphone-color0" d="M63.6,50.1c0.9,0,1.8,0.1,2.7,0.3v3.1c-0.6-0.1-1.5-0.1-2-0.1c-0.5-0.1-1,0.1-1.4,0.4    c-0.3,0.3-0.4,0.7-0.3,1.1v0.8h3.2v3.1h-3.3v9.8H59V54.7c-0.1-1.3,0.4-2.5,1.3-3.4C61.2,50.5,62.4,50.1,63.6,50.1L63.6,50.1    L63.6,50.1z"></path>
+				<path class="vodaphone-color0" d="M72.9,58.3c-2,0-3,1.8-3,3.9s1,3.8,3,3.8s3-1.7,3-3.8S74.9,58.3,72.9,58.3L72.9,58.3z M72.9,68.9    c-3.7,0-6.8-3-6.8-6.7c0-3.7,3-6.8,6.7-6.8s6.8,3,6.8,6.7c0,0,0,0,0,0c0.2,3.5-2.5,6.6-6.1,6.7C73.3,68.9,73.1,68.9,72.9,68.9    L72.9,68.9z"></path>
+				<path class="vodaphone-color0" d="M90.3,61.5c0-1.9-1-2.9-2.9-2.9c-0.9,0-1.8,0.1-2.6,0.3v9.6h-3.5V56.4c2-0.7,4.1-1,6.2-1c4.1,0,6.5,2,6.5,5.4    v7.8h-3.6L90.3,61.5L90.3,61.5L90.3,61.5z"></path>
+				<path class="vodaphone-color0" d="M104.6,60.7c-0.1-1.4-1.3-2.5-2.7-2.4c0,0,0,0-0.1,0c-1.3-0.1-2.5,0.8-2.6,2.1c0,0.1,0,0.2,0,0.3H104.6z     M95.5,62.1c0-4.1,2.6-6.7,6.3-6.7s6,2.9,6,6.5c0,0.5,0,1.2-0.1,1.4h-8.6c0.2,1.8,1.4,2.8,3.7,2.8c1.5,0,3.1-0.2,4.5-0.7v2.3    c-1.4,0.7-3,1.1-4.7,1.1C98.2,68.8,95.6,66.4,95.5,62.1L95.5,62.1L95.5,62.1z"></path>
+			</g>
+			<path class="vodaphone-color0" d="M50.4,0c-13,0-23.6,10.5-23.6,23.6c0,13,10.5,23.6,23.6,23.6c13,0,23.6-10.5,23.6-23.6C74,10.5,63.5,0,50.4,0   L50.4,0z M61.9,30.2c-0.6,1.2-1.4,2.3-2.3,3.2c-0.4,0.4-0.7,0.7-1.1,1c-2.7,2.1-6.1,3.1-9.5,2.7c-0.7-0.1-1.4-0.2-2.1-0.4   c-3.2-0.9-5.9-3-7.7-5.8c-0.8-1.2-1.4-2.5-1.8-3.9l-0.1-0.3c-0.4-1.4-0.5-2.8-0.5-4.2v-0.7c0,0,0-0.3,0-0.2   c0.1-1.2,0.2-2.3,0.5-3.5c1.1-4.3,3.5-8.1,6.9-10.9c2-1.7,4.3-3,6.7-3.9c0.7-0.2,1.3-0.5,2-0.7l1.3-0.3c1-0.3,2-0.4,3.1-0.6   c0.4,0,0.9-0.1,1.2-0.1c-0.2,0.1-0.5,0.2-0.7,0.4c-3.4,1.9-5.5,5.5-5.5,9.4v0.2l0.3,0.3l0.1,0.3c1.8,0.4,3.5,1,5.1,2   c1.3,0.8,2.4,1.8,3.3,3l0.2,0.3c0.6,0.9,1.1,2,1.4,3.1c0.3,1.1,0.5,2.3,0.6,3.5v0.5C63.2,26.4,62.8,28.4,61.9,30.2L61.9,30.2z"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="microsoft" class="microsoft" viewBox="0 0 1033.7 220.7" xmlns="http://www.w3.org/2000/svg">
+		<title>microsoft</title>
+	    <path id="path5056" class="microsoft-color0" d="M1033.7,99.8V81.7h-22.6V53.4l-0.8,0.2l-21.2,6.5l-0.4,0.1v21.4h-33.5V69.7  c0-5.6,1.2-9.8,3.7-12.6c2.4-2.8,5.9-4.2,10.3-4.2c3.2,0,6.5,0.8,9.8,2.2l0.8,0.4V36.3l-0.4-0.1c-3.1-1.1-7.3-1.7-12.5-1.7  c-6.6,0-12.6,1.4-17.8,4.3c-5.2,2.8-9.3,6.9-12.2,12.1c-2.9,5.2-4.3,11.1-4.3,17.7v13.1H917v18.2h15.7v76.6h22.6V99.8h33.5v48.7  c0,20,9.5,30.2,28.1,30.2c3.1,0,6.3-0.4,9.6-1.1c3.4-0.7,5.6-1.4,7-2.2l0.3-0.2v-18.3l-0.9,0.6c-1.2,0.8-2.8,1.5-4.5,2  c-1.8,0.5-3.3,0.8-4.5,0.8c-4.4,0-7.6-1.2-9.6-3.5c-2-2.3-3.1-6.4-3.1-12.2V99.8L1033.7,99.8L1033.7,99.8z M866.6,160.3  c-8.2,0-14.6-2.7-19.2-8.1c-4.6-5.4-6.9-13-6.9-22.8c0-10,2.3-17.9,6.9-23.4c4.6-5.4,11-8.2,19-8.2c7.8,0,14.1,2.6,18.5,7.8  c4.5,5.2,6.8,13,6.8,23.2c0,10.3-2.1,18.2-6.4,23.5C881.2,157.6,874.9,160.3,866.6,160.3 M867.6,79.4c-15.6,0-28,4.6-36.9,13.6  c-8.8,9-13.3,21.5-13.3,37.2c0,14.8,4.4,26.8,13,35.5c8.6,8.7,20.4,13.1,34.9,13.1c15.1,0,27.3-4.6,36.2-13.8  c8.8-9.1,13.3-21.5,13.3-36.8c0-15.1-4.2-27.1-12.5-35.7C894,83.8,882.4,79.4,867.6,79.4 M781,79.4c-10.6,0-19.4,2.7-26.1,8.1  c-6.8,5.4-10.2,12.5-10.2,21c0,4.4,0.7,8.4,2.2,11.8c1.5,3.4,3.7,6.3,6.7,8.8c3,2.5,7.6,5,13.7,7.7c5.1,2.1,9,3.9,11.4,5.3  c2.4,1.4,4.1,2.8,5,4.1c0.9,1.3,1.4,3.1,1.4,5.4c0,6.4-4.8,9.5-14.6,9.5c-3.6,0-7.8-0.8-12.3-2.3c-4.5-1.5-8.8-3.6-12.6-6.4  l-0.9-0.7v21.7l0.3,0.2c3.2,1.5,7.2,2.7,12,3.7c4.7,1,9,1.5,12.8,1.5c11.5,0,20.8-2.7,27.6-8.1c6.8-5.4,10.3-12.7,10.3-21.5  c0-6.4-1.9-11.9-5.5-16.3c-3.6-4.4-10-8.4-18.8-12c-7-2.8-11.5-5.2-13.4-7c-1.8-1.7-2.7-4.2-2.7-7.3c0-2.8,1.1-5,3.4-6.8  c2.3-1.8,5.6-2.7,9.6-2.7c3.8,0,7.6,0.6,11.4,1.8c3.8,1.2,7.2,2.7,10,4.6l0.9,0.6V83.5l-0.4-0.2c-2.6-1.1-6-2.1-10.1-2.8  C788,79.8,784.3,79.4,781,79.4 M685.9,160.3c-8.2,0-14.6-2.7-19.2-8.1c-4.6-5.4-6.9-13-6.9-22.8c0-10,2.3-17.9,6.9-23.4  c4.5-5.4,10.9-8.2,19-8.2c7.8,0,14.1,2.6,18.5,7.8c4.5,5.2,6.8,13,6.8,23.2c0,10.3-2.1,18.2-6.4,23.5  C700.4,157.6,694.1,160.3,685.9,160.3 M686.9,79.4c-15.6,0-28,4.6-36.9,13.6c-8.8,9-13.3,21.5-13.3,37.2c0,14.8,4.4,26.8,13,35.5  c8.6,8.7,20.4,13.1,34.9,13.1c15.1,0,27.3-4.6,36.2-13.8c8.8-9.1,13.3-21.5,13.3-36.8c0-15.1-4.2-27.1-12.5-35.7  C713.3,83.8,701.6,79.4,686.9,79.4 M602.4,98.1V81.7h-22.3v94.8h22.3v-48.5c0-8.2,1.9-15,5.6-20.1c3.6-5.1,8.5-7.6,14.4-7.6  c2,0,4.3,0.3,6.7,1c2.4,0.7,4.2,1.4,5.2,2.1l0.9,0.7V81.5l-0.4-0.2c-2.1-0.9-5-1.3-8.7-1.3c-5.6,0-10.6,1.8-14.9,5.3  c-3.8,3.1-6.5,7.4-8.6,12.7C602.6,98.1,602.4,98.1,602.4,98.1z M540.2,79.4c-10.2,0-19.3,2.2-27.1,6.5c-7.8,4.3-13.8,10.5-17.9,18.4  c-4.1,7.8-6.1,17-6.1,27.2c0,9,2,17.2,6,24.4c4,7.3,9.6,12.9,16.7,16.9c7.1,3.9,15.3,5.9,24.4,5.9c10.6,0,19.6-2.1,26.9-6.3l0.3-0.2  v-20.4l-0.9,0.7c-3.3,2.4-7,4.3-10.9,5.7c-3.9,1.4-7.5,2.1-10.7,2.1c-8.7,0-15.8-2.7-20.9-8.1c-5.1-5.4-7.7-13-7.7-22.5  c0-9.6,2.7-17.4,8-23.1c5.3-5.7,12.3-8.6,20.9-8.6c7.3,0,14.5,2.5,21.2,7.4l0.9,0.7V84.4l-0.3-0.2c-2.5-1.4-6-2.6-10.3-3.5  C548.4,79.8,544.2,79.4,540.2,79.4 M473.7,81.7h-22.3v94.8h22.3V81.7z M462.8,41.3c-3.7,0-6.9,1.2-9.5,3.7c-2.6,2.5-4,5.6-4,9.3  c0,3.6,1.3,6.7,3.9,9.1c2.6,2.4,5.8,3.6,9.5,3.6c3.7,0,7-1.2,9.6-3.6c2.6-2.4,4-5.5,4-9.1c0-3.6-1.3-6.7-3.9-9.2  C469.9,42.6,466.7,41.3,462.8,41.3 M407.2,74.7v101.8h22.8V44.2h-31.5l-40,98.2l-38.8-98.2h-32.8v132.2h21.4V74.7h0.7l41,101.8h16.1  l40.4-101.8L407.2,74.7L407.2,74.7z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path id="path5058" class="microsoft-color1" d="M104.9,104.9H0V0h104.9V104.9z" xmlns="http://www.w3.org/2000/svg"></path>
+	    <path id="path5060" class="microsoft-color2" d="M220.7,104.9H115.8V0h104.9V104.9z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path id="path5062" class="microsoft-color3" d="M104.9,220.7H0V115.8h104.9V220.7z" xmlns="http://www.w3.org/2000/svg"></path>
+        <path id="path5064" class="microsoft-color4" d="M220.7,220.7H115.8V115.8h104.9V220.7z" xmlns="http://www.w3.org/2000/svg"></path>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="oracle" class="oracle" viewBox="0 0 662.8 94.1" xmlns="http://www.w3.org/2000/svg">
+		<title>oracle</title>
+		<g id="layer1" transform="translate(-702.6538,-712.5837)">
+			<g id="g16337">
+				<path id="path16197" class="oracle-color0" d="M980.7,771.7h40.7l-21.5-34.6l-39.5,62.5h-18l48-75.1c2.1-3,5.6-4.9,9.4-4.9    c3.7,0,7.2,1.8,9.2,4.7l48.2,75.2h-18l-8.5-14h-41.2L980.7,771.7z M1167.2,785.7v-65.2h-15.2v71.6c0,2,0.8,3.9,2.2,5.3    c1.5,1.5,3.4,2.3,5.6,2.3h69.5l9-14H1167.2z M915.1,774c14.8,0,26.8-11.9,26.8-26.7s-12-26.8-26.8-26.8h-66.7v79.2h15.2v-65.2    h50.4c7.1,0,12.8,5.8,12.8,12.8c0,7.1-5.7,12.8-12.8,12.8l-43-0.1l45.5,39.6h22.1L908.1,774H915.1z M754.7,799.6    c-21.9,0-39.6-17.7-39.6-39.6c0-21.9,17.7-39.6,39.6-39.6h46c21.9,0,39.6,17.8,39.6,39.6c0,21.9-17.7,39.6-39.6,39.6H754.7z     M799.7,785.7c14.2,0,25.6-11.4,25.6-25.6c0-14.2-11.5-25.7-25.6-25.7h-44c-14.2,0-25.6,11.5-25.6,25.7    c0,14.2,11.5,25.6,25.6,25.6H799.7z M1089,799.6c-21.9,0-39.6-17.7-39.6-39.6c0-21.9,17.8-39.6,39.6-39.6h54.7l-8.9,14H1090    c-14.2,0-25.7,11.5-25.7,25.7c0,14.2,11.5,25.6,25.7,25.6h54.9l-9,14H1089z M1275.3,785.7c-11.7,0-21.6-7.8-24.7-18.7h65.1l9-14    h-74.1c3-10.7,13-18.7,24.7-18.7h44.7l9-14h-54.8c-21.9,0-39.6,17.8-39.6,39.6c0,21.9,17.8,39.6,39.6,39.6h47l9-14H1275.3"></path>
+				<path id="path16199" class="oracle-color0" d="M1337.2,728.8c0-3.9,3.1-7,7-7c3.9,0,7,3.1,7,7c0,3.9-3.1,7-7,7    C1340.3,735.9,1337.2,732.8,1337.2,728.8z M1344.2,737.8c4.9,0,8.9-4,8.9-8.9s-4-8.9-8.9-8.9c-4.9,0-8.9,4-8.9,8.9    S1339.3,737.8,1344.2,737.8z M1343.4,723.6c1.4,0,2,0.1,2.6,0.3c1.8,0.6,2,2.1,2,2.8c0,0.1,0,0.4-0.1,0.8    c-0.1,0.4-0.3,1.1-1.2,1.7c-0.1,0.1-0.2,0.1-0.4,0.3l2.3,4.1h-2.2l-2-3.8h-1.4v3.8h-2v-10H1343.4z M1344.1,728.1    c0.6-0.1,1.3-0.1,1.6-0.6c0.2-0.3,0.3-0.5,0.3-0.9c0-0.5-0.3-0.9-0.8-1.2c-0.4-0.2-0.9-0.2-1.8-0.2h-0.6v2.9H1344.1"></path>
+			</g>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="facebook" class="facebook" viewBox="0 0 216.1 42.8" xmlns="http://www.w3.org/2000/svg">
+		<title>facebook</title>
+		<g>
+			<path class="facebook-color0" d="M82.8,13.5c-9.6,0-12.4,5.1-12.4,11.4v5.8c0,7.1,3.7,12.1,13.1,12.1c4.3,0,6.6-0.2,10.9-1.1v-7.1   c-4.5,0.8-6.7,1-10.2,1c-3.9,0-5.1-0.9-5.1-4.2v-0.6h16v-5.8C95.2,18.5,92.4,13.5,82.8,13.5z M86.4,24.8h-7.3v-1.1   c0-2,0.7-3.7,3.6-3.7c3,0,3.6,1.6,3.6,3.7V24.8z"></path>
+			<path class="facebook-color0" d="M30.8,13.9h-8.2l-0.7,7.3h7.5c4.6,0,4.9,0.9,4.9,3.8v1.3h-6c-5.9,0-9.3,2.1-9.3,7.9c0,4.9,2.8,8.5,8.2,8.5   c2,0,4.9-0.3,8.3-2.1l0.3,1.8H43V25.1C43,17,40.8,13.9,30.8,13.9z M34.3,35.3c-1.3,0.6-2.4,1.2-4.1,1.2c-1.7,0-2.4-0.8-2.4-2.4   c0-1.6,0.8-2,2.7-2h3.9V35.3z"></path>
+			<path class="facebook-color0" d="M45.9,25.6v5.1c0,7.1,3.7,12.1,13.1,12.1c2.2,0,4.8-0.2,8.8-1.1v-7.1c-4.5,0.8-5.8,1-8,1   c-3.9,0-5.1-0.9-5.1-4.2V25c0-3.3,1.2-4.2,5.1-4.2c2.2,0,3.5,0.2,8,0.9v-7.1c-4-0.9-6.6-1.1-8.8-1.1C49.7,13.5,45.9,18.4,45.9,25.6   z"></path>
+			<path class="facebook-color0" d="M166.9,13.5c-10.3,0-12.8,5.8-12.8,11.7v5.7c0,5.9,2.5,11.7,12.8,11.7c10.3,0,12.7-5.8,12.7-11.7v-5.7   C179.7,19.3,177.2,13.5,166.9,13.5z M170.9,31.8c0,2-1,3.7-4,3.7c-3,0-4-1.6-4-3.7v-7.4c0-2,1-3.6,4-3.6c3,0,4,1.6,4,3.6V31.8z"></path>
+			<path class="facebook-color0" d="M19.7,13.9h-6.6l0-3.7c0-1.9,0.2-2.9,2.9-2.9h3.6V0h-5.8c-7,0-9.5,3.5-9.5,9.5v4.4H0v7.3h4.4v21.2h8.7V21.2H19   L19.7,13.9z"></path>
+			<polygon class="facebook-color0" points="198.9,13.9 190.9,26.6 190.9,0.7 182.2,2.2 182.2,42.3 190.9,42.3 190.9,29 198.9,42.3 208.4,42.3    199.7,27.7 208.4,13.9  "></polygon>
+			<path class="facebook-color0" d="M113.4,13.5c-2.2,0-4.7,0.4-6.6,1.1V0.7l-8.7,1.5v39.4c4.8,0.7,7.3,1.1,11.6,1.1c11.9,0,13.9-5,13.9-11.9v-7.1   C123.6,17.4,122.2,13.5,113.4,13.5z M114.9,30.9c0,2.7-0.6,4.7-4.9,4.7c-1.2,0-1.9,0-3.2-0.1V21.9c1.3-0.6,2.6-1.2,4.4-1.2   c3,0,3.6,1.6,3.6,3.6V30.9z"></path>
+			<path class="facebook-color0" d="M138.9,13.5c-10.3,0-12.8,5.8-12.8,11.7v5.7c0,5.9,2.5,11.7,12.8,11.7c10.3,0,12.7-5.8,12.7-11.7v-5.7   C151.7,19.3,149.2,13.5,138.9,13.5z M142.9,31.8c0,2-1,3.7-4,3.7c-3,0-4-1.6-4-3.7v-7.4c0-2,1-3.6,4-3.6c3,0,4,1.6,4,3.6V31.8z"></path>
+			<path class="facebook-color0" d="M213.9,40.1L213.9,40.1c0.3-0.1,0.6-0.4,0.6-0.8c0-0.3-0.1-0.5-0.3-0.6c-0.2-0.1-0.5-0.2-0.9-0.2   c-0.4,0-0.6,0-0.9,0.1v3h0.5v-1.3h0.3c0.4,0,0.6,0.1,0.6,0.5c0.1,0.4,0.1,0.7,0.2,0.8h0.5c0-0.1-0.1-0.3-0.2-0.7   C214.3,40.4,214.2,40.2,213.9,40.1z M213.2,40h-0.3v-1c0.1,0,0.2,0,0.3,0c0.5,0,0.7,0.3,0.7,0.5C214,39.8,213.6,40,213.2,40z"></path>
+			<path class="facebook-color0" d="M213.4,37.3L213.4,37.3c-1.5,0-2.7,1.2-2.7,2.7c0,1.5,1.2,2.7,2.7,2.7c1.5,0,2.7-1.2,2.7-2.7   C216.1,38.6,214.9,37.3,213.4,37.3z M213.4,42.3c-1.2,0-2.2-1-2.2-2.3c0-1.3,1-2.3,2.2-2.3h0c1.2,0,2.2,1,2.2,2.3   S214.6,42.4,213.4,42.3z"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="samsung" class="samsung" viewBox="0 0 91 30.2" xmlns="http://www.w3.org/2000/svg">
+		<title>samsung</title>
+		<g>
+			<path class="samsung-color0" d="M72,17.6c0-0.3,0-0.4,0-0.6l0-4c0-0.2,0-0.5,0-0.6c0.2-1.8,1.6-2.3,3.3-2.3c1.7,0,3.1,0.6,3.3,2.3   c0,0.3,0,0.6,0,0.6v0.3h-2.4v-0.5c0,0,0-0.2,0-0.4c0-0.2-0.2-0.7-0.9-0.7c-0.7,0-0.9,0.5-0.9,0.7c0,0.1,0,0.3,0,0.4v4.3   c0,0.1,0,0.2,0,0.4c0,0.3,0.3,0.7,1,0.7c0.7,0,0.9-0.4,1-0.7c0-0.1,0-0.2,0-0.4v-1.4h-1v-1.4h3.3V17c0,0.2,0,0.3,0,0.6   c-0.1,0.8-0.4,1.3-1,1.7c8.8-4,13.9-8.4,13.3-12.1c-1.2-7.1-22.6-9.3-47.7-5c-11,1.9-20.9,4.8-28.4,8c0.4-0.1,0.9-0.2,1.3-0.2   c1.3,0,3.2,0.3,3.2,2.4v0.7h-2.3c0,0,0-0.4,0-0.6c0-0.5-0.3-0.9-0.9-0.9c-0.6,0-0.8,0.3-0.9,0.6c0,0.1,0,0.3,0,0.5   c0.3,1.1,3.8,1.7,4.2,3.7c0,0.2,0.1,0.7,0,1.5c-0.2,1.6-1.6,2.2-3.3,2.2c-1.8,0-3.4-0.6-3.4-2.7l0-0.7h2.5v0.9   c0,0.5,0.4,0.9,0.9,0.9c0.6,0,0.8-0.3,0.9-0.6c0-0.2,0.1-0.5,0-0.7c-0.5-1.2-3.8-1.8-4.2-3.7c-0.1-0.5-0.1-0.8,0-1.3   c0.1-0.7,0.4-1.1,0.9-1.5C4.8,14.7-0.6,19.2,0.1,23c1.2,7.1,22.6,9.3,47.7,5C59,26,69,23.1,76.6,19.8c-0.4,0.1-0.8,0.1-1.3,0.1   C73.7,19.9,72.2,19.3,72,17.6z M26.3,19.8L25,11.2H25l-1.3,8.5h-2.5l1.7-9.4h4.2l1.7,9.4H26.3z M38.8,19.8l-0.1-8.5h0l-1.6,8.5   h-2.4l-1.6-8.5h-0.1l-0.1,8.5h-2.4l0.2-9.4h3.8l1.2,7.2h0l1.2-7.2H41l0.2,9.4H38.8z M50.1,18c-0.2,1.6-1.6,2.1-3.3,2.1   c-1.8,0-3.4-0.6-3.4-2.7l0-0.7H46l0,0.9c0,0.5,0.4,0.8,0.9,0.8c0.6,0,0.8-0.3,0.9-0.6c0-0.2,0.1-0.5,0-0.7   c-0.5-1.2-3.8-1.8-4.2-3.7c-0.1-0.5-0.1-0.8,0-1.3c0.2-1.5,1.6-2.1,3.3-2.1c1.3,0,3.1,0.3,3.1,2.3v0.7h-2.3c0,0,0-0.4,0-0.6   c0-0.5-0.3-0.8-0.9-0.8c-0.6,0-0.8,0.3-0.9,0.6c0,0.1,0,0.3,0,0.5c0.3,1.1,3.8,1.7,4.2,3.6C50.2,16.6,50.3,17.2,50.1,18z M59,17.7   c-0.2,1.8-1.6,2.3-3.3,2.3c-1.7,0-3.1-0.6-3.3-2.3c0-0.1,0-0.4,0-0.6v-6.8h2.4v7c0,0.1,0,0.3,0,0.4c0.1,0.2,0.2,0.7,0.9,0.7   c0.7,0,0.9-0.5,0.9-0.7c0-0.1,0-0.2,0-0.4v-7H59v6.8C59,17.3,59,17.6,59,17.7z M69.5,19.7h-3.4L63.9,12h-0.1l0.1,7.6h-2.3v-9.3h3.5   l2.2,7.4h0.1l-0.1-7.4h2.3V19.7z"></path>
+			<path class="samsung-color0" d="M13.9,10.7c0.3-0.2,0.7-0.3,1-0.5C14.5,10.3,14.1,10.5,13.9,10.7z"></path>
+			<path class="samsung-color0" d="M76.6,19.8c0.4-0.1,0.8-0.3,1.1-0.5C77.3,19.5,77,19.6,76.6,19.8z"></path>
+		</g>
+	</svg>
+</div>
+
+            <div class="company-icon">
+	<svg id="fedex" class="fedex" viewBox="0 0 74.5 33.9" xmlns="http://www.w3.org/2000/svg">
+		<title>fedex</title>
+		<g id="g6" transform="translate(-0.81,-0.35400034)">
+			<polygon id="polygon10" class="fedex-color0" points="60,7.8 62.9,11.1 65.8,7.8 71.9,7.8 65.9,14.5 72,21.3 65.6,21.3 62.7,18 59.8,21.3    53.6,21.3 59.6,14.5 53.6,7.8  "></polygon>
+			<polygon id="polygon12" class="fedex-color0" points="53.6,7.8 53.6,12.3 46.8,12.3 46.8,16.5 53.6,16.5 53.6,21.3 41.8,21.3 41.8,0 53.6,0    53.6,4.7 46.8,4.7 46.8,7.8  "></polygon>
+			<path id="path14" inkscape:connector-curvature="0" class="fedex-color1" d="M36.8,0v8.7h-0.1C35.7,7.4,34.3,7,32.7,7   c-3.3,0-5.7,2.2-6.6,5.2c-1-3.2-3.5-5.2-7.3-5.2c-3.1,0-5.5,1.4-6.8,3.6V7.8H5.7v-3h6.9V0H0v21.3h5.7v-8.9h5.6   C11.1,13,11,13.7,11,14.4c0,4.4,3.4,7.6,7.7,7.6c3.6,0,6-1.7,7.3-4.8h-4.8c-0.7,0.9-1.2,1.2-2.5,1.2c-1.5,0-2.8-1.3-2.8-2.9h9.9   c0.4,3.5,3.2,6.6,6.9,6.6c1.6,0,3.1-0.8,4-2.1h0.1v1.4h5V0H36.8z M16.1,12.4c0.3-1.4,1.4-2.2,2.7-2.2c1.4,0,2.4,0.9,2.7,2.2   C21.6,12.4,16.1,12.4,16.1,12.4z M33.8,18c-1.8,0-3-1.7-3-3.5c0-1.9,1-3.7,3-3.7c2.1,0,2.9,1.8,2.9,3.7C36.7,16.4,35.8,18,33.8,18z   " xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path16" inkscape:connector-curvature="0" class="fedex-color1" d="M41.8,31.9v-7.6H46v0.6h-3.5v2.8h3.4v0.6h-3.4v3.1h3.7v0.6   L41.8,31.9L41.8,31.9z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path18" inkscape:connector-curvature="0" class="fedex-color1" d="M46.7,31.9l2.1-2.7l-1.9-2.6h0.8l1.6,2.1l1.6-2.1h0.8l-2,2.6   l2.1,2.7h-0.8l-1.7-2.3l-1.6,2.3C47.5,31.9,46.7,31.9,46.7,31.9z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path20" inkscape:connector-curvature="0" class="fedex-color1" d="M52.9,33.9h-0.6v-5.7c0-0.5,0-1.1,0-1.6h0.6l0,0.8   c0.4-0.6,0.9-0.9,1.7-0.9c1.6,0,2.3,1.4,2.3,2.8c0,1.4-0.7,2.8-2.3,2.8c-0.7,0-1.3-0.3-1.7-0.9C52.9,31.2,52.9,33.9,52.9,33.9z    M56.3,29.3c0-1.1-0.5-2.3-1.7-2.3c-1.2,0-1.6,1-1.6,2.3c0,1.3,0.4,2.3,1.6,2.3C55.8,31.5,56.3,30.4,56.3,29.3z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path22" inkscape:connector-curvature="0" class="fedex-color1" d="M60.3,27.1c-1.1,0-1.4,0.9-1.4,1.8v3h-0.6v-3.8c0-0.5,0-1,0-1.6   h0.6l0,0.8c0.3-0.6,0.8-0.9,1.5-0.9c0.1,0,0.2,0,0.3,0v0.6C60.5,27.1,60.4,27.1,60.3,27.1z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path24" inkscape:connector-curvature="0" class="fedex-color1" d="M61.5,29.4c0,1.2,0.6,2.2,1.7,2.2c0.9,0,1.3-0.6,1.5-1.2h0.6   c-0.3,1.1-1,1.7-2.2,1.7c-1.6,0-2.3-1.2-2.3-2.7c0-1.5,0.7-2.9,2.4-2.9c1.7,0,2.1,1.5,2.1,2.9C65.4,29.4,61.5,29.4,61.5,29.4z    M61.5,28.9h3.2c0-1-0.5-1.9-1.5-1.9C62.3,27,61.6,27.6,61.5,28.9z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path26" inkscape:connector-curvature="0" class="fedex-color1" d="M67.9,32.1c-1.1,0-1.9-0.5-1.9-1.7h0.6c0,0.8,0.5,1.2,1.3,1.2   c0.7,0,1.3-0.3,1.3-1.1c0-0.6-0.7-0.8-1.4-1C67,29.2,66.1,29,66.1,28c0-1.1,1-1.5,1.9-1.5c1,0,1.8,0.4,1.8,1.5h-0.6   c0-0.6-0.5-1-1.2-1c-0.5,0-1.2,0.2-1.2,0.9c0,0.6,0.7,0.8,1.3,1c0.8,0.2,1.8,0.5,1.8,1.5C69.9,31.6,69,32.1,67.9,32.1z" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+			<path id="path28" inkscape:connector-curvature="0" class="fedex-color1" d="M72.3,32.1c-1.1,0-1.9-0.5-1.9-1.7H71c0,0.8,0.5,1.2,1.3,1.2   c0.7,0,1.3-0.3,1.3-1.1c0-0.6-0.7-0.8-1.4-1c-0.8-0.2-1.8-0.5-1.8-1.5c0-1.1,1-1.5,1.9-1.5c1,0,1.8,0.4,1.8,1.5h-0.6   c0-0.6-0.5-1-1.2-1c-0.5,0-1.2,0.2-1.2,0.9c0,0.6,0.7,0.8,1.3,1c0.8,0.2,1.8,0.5,1.8,1.5C74.3,31.6,73.4,32.1,72.3,32.1L72.3,32.1z   " xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"></path>
+		</g>
+	</svg>
+</div>
+
+        </div>
+    </div>
+</section>
+<section class="grey-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 center-block text-center quote-slider">
+                <div class="slideshow" data-transition="fade">
+                        <input type="radio" name="ss2" id="ss2-item-1" class="slideshow--bullet-radio is-hidden" checked="checked" />
+                    <label class="slideshow--bullet" for="ss2-item-1"></label>
+                        <div class="slideshow--item">
+                            <p>"Thanks for such a fantastic tool and for your support responses"</p>
+                            <p class="orange">- Michelle Simpson, Security Consultant, NCC Group</p>
+                            <label for="ss2-item-3" class="slideshow--nav slideshow--nav-previous"></label>
+                            <label for="ss2-item-2" class="slideshow--nav slideshow--nav-next"></label>
+                        </div>
+                        <input type="radio" name="ss2" id="ss2-item-2" class="slideshow--bullet-radio is-hidden" />
+                    <label class="slideshow--bullet" for="ss2-item-2"></label>
+                        <div class="slideshow--item">
+                            <p>“Burp rules them all. Keep it up. :-)”</p>
+                            <p class="orange">- Russ McRee, Principal Security PM Lead, Microsoft</p>
+                            <label for="ss2-item-1" class="slideshow--nav slideshow--nav-previous"></label>
+                            <label for="ss2-item-3" class="slideshow--nav slideshow--nav-next"></label>
+                        </div>
+                        <input type="radio" name="ss2" id="ss2-item-3" class="slideshow--bullet-radio is-hidden" />
+                    <label class="slideshow--bullet" for="ss2-item-3"></label>
+                        <div class="slideshow--item">
+                            <p>"Burp is my go to tool for testing web applications.  It's best in class!  Can't wait to see what the future holds."  </p>
+                            <p class="orange">- Kevin Johnson, CEO, Secure Ideas</p>
+                            <label for="ss2-item-2" class="slideshow--nav slideshow--nav-previous"></label>
+                            <label for="ss2-item-1" class="slideshow--nav slideshow--nav-next"></label>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container boxes">
+        <div class="box box-orange inline-block width-30">
+            <div>
+                <h4 class="text-center">Organizations</h4>
+                <div class="animation-container">
+                    <img src="/content/images/svg/org.svg" alt="Organizations Icon">
+                </div>
+                <p class="text-center">Find your security holes before you get hacked</p>
+                <a href="/organizations" class="btn orange-bg-dark-bg">Read More</a>
+            </div>
+        </div>
+        <div class="box box-green inline-block width-30">
+            <div>
+                <h4 class="text-center">Testers</h4>
+                <div class="animation-container">
+                    <img src="/content/images/svg/testers.svg" alt="Testers Icon">
+                </div>
+                <p class="text-center">Take your security testing to a new level</p>
+                <a href="/testers" class="btn green-bg">Read More</a>
+            </div>
+        </div>
+        <div class="box box-yellow inline-block width-30">
+            <div>
+                <h4 class="text-center">Developers</h4>
+                <div class="animation-container">
+                    <img src="/content/images/svg/developers.svg" alt="Developers Icon">
+                </div>
+                <p class="text-center">Build secure and robust applications</p>
+                <a href="/developers" class="btn yellow-bg">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="split-bg">
+    <div class="container">
+        <div class="row two-columns">
+            <div class="col-sm-7 col-xs-12 green-bg">
+    <h3 class="text-center">PortSwigger News</h3>
+    <div class="split-bg-link-list link-list">
+<a href='http://releases.portswigger.net/2017/12/1730.html'>Burp Suite 1.7.30: New granular configuration of scan issues.</a><a href='http://blog.portswigger.net/2017/11/the-daily-swig.html'>Blog post: The Daily Swig</a><a href='http://blog.portswigger.net/2017/07/cracking-lens-targeting-https-hidden.html'>Blog post: Cracking the Lens: Targeting HTTP's Hidden Attack-Surface</a><a href='http://blog.portswigger.net/2017/07/oast-out-of-band-application-security.html'>Blog post: OAST (Out-of-band Application Security Testing)</a><a href='http://blog.portswigger.net/2017/06/behind-enemy-lines-bug-hunting-with.html'>Blog post: Behind enemy lines: Bug hunting with Burp Infiltrator</a>    </div>
+    <a href="/news" class="btn blue-bg">View More</a>
+</div>
+            <div class="col-sm-5 col-xs-12 blue-bg">
+    <h3 class="text-center">Success Stories</h3>
+    <div class="split-bg-link-list link-list">
+        <a href="/burp/successstories?story=securityteams_thesecurityteam">Security Team</a>
+        <a href="/burp/successstories?story=securityconsultancy_threatintelligence">Security Consultancy</a>
+        <a href="/burp/successstories?story=securityconsultancy_securitum">Penetration Testers</a>
+        <a href="/burp/successstories?story=freelancepentesters_thefreelancepentester">Freelance Pentester</a>
+        <a href="/burp/successstories?story=bugbountyhunters_thebugbountyhunter">Bug Bounty Hunter</a>
+    </div>
+    <a href="/burp/successstories" class="btn green-bg">View More</a>
+</div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="get-burp text-center">
+        <div>
+            <a href="/burp" class="btn orange-bg">
+                Get Burp
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="full-width-image"></section>
+
+
+
+<script src="/bundles/public/main?v=cxCLvxT65JUwwW_HlaAj0REi3IFIiEVwKXO7gqkKObg1"></script>
+
+<script src="/bundles/generic/delayedquoteslider?v=edEuBRbKx5gOOeWGLT1APh7O6u6m9cQPfLjnrOD_gI41"></script>
+
+
+    </section>
+    <footer>
+        <hr>
+<div class="container footer">
+    <div>
+        <strong>Burp Suite</strong>
+        <a href="/vulnerability-scanner">Web vulnerability scanner</a>
+        <a href="/burp">Burp Suite editions</a>
+        <a href="http://releases.portswigger.net">Release notes</a>
+    </div>
+    <div>
+        <strong>Vulnerabilities</strong>
+        <a href="/kb/issues/00200300_cross-site-scripting-reflected">Cross-site scripting (XSS)</a>
+        <a href="/kb/issues/00100200_sql-injection">SQL injection</a>
+        <a href="/kb/issues/00100100_os-command-injection">OS command injection</a>
+        <a href="/kb/issues/00100300_file-path-traversal">File path traversal</a>
+    </div>
+    <div>
+        <strong>Customers</strong>
+        <a href="/organizations">Organizations</a>
+        <a href="/testers">Testers</a>
+        <a href="/developers">Developers</a>
+    </div>
+    <div>
+        <strong>Company</strong>
+        <a href="/news">About us</a>
+        <a href="/careers">Careers</a>
+        <a href="/contact">Contact</a>
+        <a href="/legal">Legal</a>
+    </div>
+    <div>
+        <strong>Insights</strong>
+        <a href="http://blog.portswigger.net">Blog</a>
+        <a href="/daily-swig">The Daily Swig</a>
+    </div>
+    <div>
+        <a href="#top"><img src="/content/images/logos/portswigger-logo.svg" alt="PortSwigger Logo" class="footer-logo"></a>
+        <a class="btn orange-bg" href="https://twitter.com/burp_suite"><span class="icon-ps-twitter-solid top-s"></span> Follow us</a>
+        <p>&copy; 2018 PortSwigger Ltd.</p>
+    </div>
+</div>
+<div class="back-to-top">
+    <a href="#top"><i class="icon-ps-arrow-circle"></i></a>
+</div>
+    </footer>
+</body>
+</html>

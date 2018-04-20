@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://railscasts.com/">redirected</a>.</body></html>

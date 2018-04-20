@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://cbpassiveincome30.com/livepage">redirected</a>.</body></html>

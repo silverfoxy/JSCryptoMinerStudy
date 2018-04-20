@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="sv"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="google-site-verification" content="7eSeOgFjoV3G_S6vA-eR7fj6QGQdhUHZ3a_qI03W8AU"><meta name="msvalidate.01" content="039D633B9067F40846A730034AA77E6A"><meta name="apple-mobile-web-app-title" content="ATG.se"><meta name="msapplication-TileColor" content="#ffffff"><meta name="theme-color" content="#004f9f"><meta name="title" content=""><meta name="description" content=""><meta name="robots" content=""><meta name="format-detection" content="telephone=no"><meta name="apple-itunes-app" content="app-id=1055286233, app-argument=atglive://"><meta name="application-name" content="atg.se"><title>ATG</title><link rel="canonical" href=""><link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<meta name="msapplication-TileImage" content="/assets/icons/mstile-144x144.png">
+<meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png" sizes="32x32">
+ <script>
+    /**
+    * Microsoft doesn't include 'MSIE' in Internet Explorer 11 User-agent string:
+    * https://msdn.microsoft.com/library/bg182625(v=vs.110).aspx
+    */
+    window.isIeLowerThan11 = navigator.userAgent.indexOf("MSIE") >= 0;
+</script>
+
+<script>
+    (function () {
+        // http://stackoverflow.com/questions/14403766/how-to-detect-the-stock-android-browser
+        function isOldAndroidBrowser() {
+            var navU = navigator.userAgent;
+            // Android Mobile
+            var isAndroidMobile = navU.indexOf('Android') > -1 && navU.indexOf('Mozilla/5.0') > -1 && navU.indexOf('AppleWebKit') > -1;
+            // Android Browser (not Chrome)
+            var regExAppleWebKit = new RegExp(/AppleWebKit\/([\d.]+)/);
+            var resultAppleWebKitRegEx = regExAppleWebKit.exec(navU);
+            var appleWebKitVersion = (resultAppleWebKitRegEx === null ? null : parseFloat(regExAppleWebKit.exec(navU)[1]));
+            var isAndroidBrowser = isAndroidMobile && appleWebKitVersion !== null && appleWebKitVersion < 537;
+            return isAndroidBrowser;
+        }
+
+        try {
+            if (isOldAndroidBrowser()) {
+                document.getElementById('old-browser-root').innerHTML =
+                        '<div class="alert alert--danger alert--small-margin hidden-print" id="oldAndroidBrowser">Vi rekommenderar att du använder Google Chrome som webbläsare. Det är inte säkert att ATG.se fungerar optimalt i din nuvarande webbläsare.<a href="https://play.google.com/store/apps/details?id=com.android.chrome">Ladda ner Google Chrome</a></div>'
+            } else if (window.isIeLowerThan11) {
+                document.getElementById('old-browser-root').innerHTML =
+                        '<div class="alert alert--danger alert--small-margin hidden-print" id="oldIeBrowser">I nuläget stöds inte din webbläsare av ATG.se. Här kan du ladda ned en ny webbläsare: <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Ladda ner Google Chrome</a></div>';
+            } else if (/Edge\//.test(navigator.userAgent)) {
+                // Edge 14 has brokent implementation of fetch() method
+                // which trows an TypeMismatchError on 401/403/404 responses
+                // This line disables native implementation, so we can use a polyfill,
+                // that handles these situations correctly
+                window.fetch = undefined;
+            }
+        } catch (e) {
+        }
+    })();
+</script>
+ <script>
+    window.clientVersion = "4.440.17";
+    var clientConfig = {
+        livePositionsWebsocketURL: "wss://push.atg.se/livepositions",
+        solaceWebsocketURL: "wss://push.atg.se/",
+        solaceVpnName: "atgse",
+        solacePassword: "web",
+        searchUrl: "https://search.atg.se",
+        videoArchiveSearchURL: "https://search.atg.se/videoarkiv",
+        VMiV75URL: "https://vmiv75.atg.se/hem"
+    };
+    var mpxPlayerSettings = {
+        jwplayerkey: "BBM1ipFc45YNbiMzhGytitbypjdc4DtJQky/Ag&#x3D;&#x3D;"
+    };
+    var clientFeatures = {
+            livePositions: false,
+            swishPaymentDebug: false,
+            newWithdraw: false,
+            CedexisCdnSwitch: false,
+            shopAppFeature: false,
+            newAccountBets: false,
+            userInquiry: false
+    };
+</script>
+<link href="/assets/app.d9f53b7f586375cd5e55cfc2a7cdb652.css" rel="stylesheet"></head><body><div id="old-browser-root"></div><div id="react-root"></div><script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5683568"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.defer=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+<noscript><img src="//bat.bing.com/action/0?ti=5683568&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+ <script src='//dd6zx4ibq538k.cloudfront.net/smartserve-4828.js' async></script>
+ <script>
+var isLiveApp = location.href.indexOf("atgliveview=") !== -1;
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var
+        f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.defer=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer', isLiveApp ? 'GTM-N868WCJ' : 'GTM-N8Q28JK');
+</script>
+ <script>var isLiveApp = location.href.indexOf("atgliveview=") !== -1;
+    if(!isLiveApp){
+        (function(e,c,a,g,f){function d(){var b=c.createElement("script");b.async=!0;
+        b.src="//radar.cedexis.com/1/21883/radar.js";c.body.appendChild(b)}
+        (function(){for(var b=[/\bMSIE (5|6)/i],a=b.length;a--;)if(b[a]
+        .test(navigator.userAgent))return!1;return!0})()
+        &&("complete"!==c.readyState?(a=e[a])?a(f,d,!1):(a=e[g])&&a("on"+f,d):d())})
+        (window,document,"addEventListener","attachEvent","load");
+    }
+</script>
+ <script src="//platform.instagram.com/sv_SE/embeds.js" defer></script>
+<script type="text/javascript">var atgServiceData={}</script><script type="text/javascript" src="/assets/lib/video.min.js"></script><script type="text/javascript">!function(d){function i(e){if(c[e])return c[e].exports;var a=c[e]={i:e,l:!1,exports:{}};return d[e].call(a.exports,a,a.exports,i),a.l=!0,a.exports}var b=window.webpackJsonp;window.webpackJsonp=function(e,a,c){for(var r,t,n,o=0,f=[];o<e.length;o++)t=e[o],l[t]&&f.push(l[t][0]),l[t]=0;for(r in a)Object.prototype.hasOwnProperty.call(a,r)&&(d[r]=a[r]);for(b&&b(e,a,c);f.length;)f.shift()();if(c)for(o=0;o<c.length;o++)n=i(i.s=c[o]);return n};var c={},l={58:0};i.e=function(c){function e(){n.onerror=n.onload=null,clearTimeout(o);var e=l[c];0!==e&&(e&&e[1](new Error("Loading chunk "+c+" failed.")),l[c]=void 0)}var r=l[c];if(0===r)return new Promise(function(e){e()});if(r)return r[2];var a=new Promise(function(e,a){r=l[c]=[e,a]});r[2]=a;var t=document.getElementsByTagName("head")[0],n=document.createElement("script");n.type="text/javascript",n.charset="utf-8",n.async=!0,n.timeout=12e4,i.nc&&n.setAttribute("nonce",i.nc),n.src=i.p+""+({0:"galopp-nyheter",1:"galopp-article",2:"trio",3:"V75",4:"vr",5:"V5",6:"harryboy",7:"NewsPage",8:"V75-results",9:"ArchivePage",10:"dd",11:"BetCodePageController",12:"hotgames",13:"hotgamesHarryBoy",14:"startpagerouter",15:"NewsArchive",16:"startpageTeasers",17:"VaraVinnare",18:"gamepagerouter",19:"LivePage",20:"acccountpagerouter",21:"PurchaseFlow",22:"VideoFrame",23:"internal-BetGalleryContainer",24:"WarmupPage",25:"top7",26:"CmsArticleRootPage",27:"ShopApp",28:"PreviewPage",29:"galopp",30:"VideoSearch",31:"Top7TakeOver",32:"CampaignPreview",33:"CampaignCmsRootPage",34:"StartDetailsModal",35:"internal-styleguide",36:"GS75TakeOver",37:"GS75Champion",38:"MemberRegisterPage",39:"proStartpage",40:"VMiV75",41:"SpelSkolan",42:"AliasAuthVerification",43:"MemberRecoveryController",44:"internal-filebetdemo",45:"highlights",46:"internal-videoplayer",47:"internal-modals",48:"internal-icongallery",49:"internal-client-features",50:"AliasModals",53:"quickplay",54:"fileBetPageRouter",55:"AccountApp",56:"calendarpagerouter",57:"newSubscriptionPage"}[c]||c)+"."+{0:"190deabf037102242821",1:"42932cc99f4c680eb1fd",2:"d04405c74868cfa57e8d",3:"d3f5fee6c353645985ab",4:"6bb8ac51b7e46d3f830e",5:"779d1537958671b64170",6:"f420c378e9ce599d4d8a",7:"09baa37a1f8f362d1d65",8:"bd8956421908df710250",9:"a05b83a90bc45626d891",10:"ad5229eb9d0cb877cf44",11:"297f5c8bc0d2a94147a9",12:"dea68a89833b4f1ec32f",13:"c4f4a440aec88c3c77df",14:"aa62b8da65df5590a8a5",15:"48028cb5b1e387677c45",16:"3580cfd2cad2685a3ec2",17:"c4a613da21951cc8a79a",18:"c5a3f455787aee2914e1",19:"cfc118994691e8d3ab97",20:"4feed3018c8e1da9d39f",21:"710e57ff97aef357fa86",22:"9ed0137b8bd56de36ab1",23:"77c0c82e56a8b909ffc8",24:"19d23dc0da431ce7748b",25:"1648c53f2e2d44782302",26:"0b7283d624bc68ff91fa",27:"36ac05302bf7aaf78bd2",28:"2f77d0392e81cff6582b",29:"187fd315b34879235703",30:"7d4e08f30ef218b49da3",31:"8c8e411584823b69c109",32:"0355cf82b110c6c052a6",33:"0076f21b518e4147faaa",34:"4564e1877df9116eeb35",35:"fa4ce4445cec2ee692d1",36:"b2997cc52337ad9f5ed0",37:"11700d0124ddc586c863",38:"d001d8b678e6f318d180",39:"19170f52ec9debedfd25",40:"a55b2991c8fbd6ee4cbf",41:"0ec81afabc80687a9208",42:"d5698760ce4c2ba42010",43:"29df532f86703ce36d75",44:"3eac5e5c15cfb7e99baf",45:"dd34c7f23243e4eb96b4",46:"2325816a891d193a302f",47:"121a8cc2952d66cfc0c4",48:"05295bb9b10ea676ab65",49:"3a6c25acdb34270f1643",50:"6aa177617c2352001f55",53:"4a1f07fbff46c18f478e",54:"85438b0a9a3c9836723e",55:"abb92886df462a0d80c0",56:"52784db388c62bee4130",57:"b6e91ca6605fea6ddd7e"}[c]+".js";var o=setTimeout(e,12e4);return n.onerror=n.onload=e,t.appendChild(n),a},i.m=d,i.c=c,i.d=function(e,a,c){i.o(e,a)||Object.defineProperty(e,a,{configurable:!1,enumerable:!0,get:c})},i.n=function(e){var a=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(a,"a",a),a},i.o=function(e,a){return Object.prototype.hasOwnProperty.call(e,a)},i.p="/assets/",i.oe=function(e){throw console.error(e),e}}([])</script><script type="text/javascript" src="/assets/vendor.bundle.0c119b2dacbe0fed3a58.js"></script><script type="text/javascript" src="/assets/app.cd3d3485b8e299281d82.js"></script></body></html>

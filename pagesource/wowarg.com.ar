@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<!--
+
+ This website is powered by
+  ______         _              _____ __  __  _____ 
+ |  ____|       (_)            / ____|  \/  |/ ____|
+ | |__ _   _ ___ _  ___  _ __ | |    | \  / | (___  
+ |  __| | | / __| |/ _ \| '_ \| |    | |\/| |\___ \ 
+ | |  | |_| \__ \ | (_) | | | | |____| |  | |____) |
+ |_|   \__,_|___/_|\___/|_| |_|\_____|_|  |_|_____/ 
+
+ fusion.raxezdev.com
+
+-->
+
+<html>
+	<head>
+		<title>WoWArg</title>
+		
+		<link rel="stylesheet" href="http://wowarg.com.ar/application/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="http://wowarg.com.ar/application/themes/frostmourne/css/cms.css" type="text/css" />
+		<link rel="stylesheet" href="http://wowarg.com.ar/application/themes/frostmourne/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="http://wowarg.com.ar/application/modules/news/css/news.css" type="text/css" />		
+		<link rel="shortcut icon" href="http://wowarg.com.ar/application/themes/frostmourne/images/favicon.gif" />
+		
+		<!-- Search engine related -->
+		<meta name="description" content="Servidor Argentino de World of Warcraft" />
+		<meta name="keywords" content="world of warcraft, wow, wowarg, server, argentina, servidor, argentino" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+		
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        
+        <!-- Prueba -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Load scripts -->
+		<script src="http://wowarg.com.ar/application/js/html5shiv.js"></script>
+		<script type="text/javascript" src="http://wowarg.com.ar/application/js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://wowarg.com.ar/application/js/router.js"></script>
+		<script type="text/javascript" src="http://wowarg.com.ar/application/js/require.js"></script>
+		<script type="text/javascript">
+
+			if(!window.console)
+			{
+				var console = {
+				
+					log: function()
+					{
+						// Prevent stupid browsers from doing stupid things
+						// *cough* Internet Explorer *cough*
+					}
+				};
+			}
+
+			function getCookie(c_name)
+			{
+				var i, x, y, ARRcookies = document.cookie.split(";");
+
+				for(i = 0; i < ARRcookies.length;i++)
+				{
+					x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+					y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+					x = x.replace(/^\s+|\s+$/g,"");
+					
+					if(x == c_name)
+					{
+						return unescape(y);
+					}
+				}
+			}
+
+			function setCookie(c_name,value,exdays)
+			{
+				var exdate = new Date();
+				exdate.setDate(exdate.getDate() + exdays);
+				var c_value = escape(value) + ((exdays == null) ? "" : "; expires="+exdate.toUTCString());
+				document.cookie = c_name + "=" + c_value;
+			}
+
+			var Config = {
+				URL: "http://wowarg.com.ar/",			
+				image_path: "http://wowarg.com.ar/application/themes/frostmourne/images/",
+				CSRF: getCookie('csrf_cookie_name'),
+				language: "english",
+
+				UseFusionTooltip: 1,
+
+				Slider: {
+					interval: 5000,
+					effect: "",
+					id: "slider_bg"
+				},
+				
+				voteReminder: 0,
+
+				Theme: {
+					next: "Siguiente",
+					previous: "Previo"
+				}
+			};
+
+			var scripts = [
+				"http://wowarg.com.ar/application/js/ui.js",
+				"http://wowarg.com.ar/application/js/fusioneditor.js",
+				"http://wowarg.com.ar/application/js/flux.min.js",
+				"http://wowarg.com.ar/application/js/jquery.placeholder.min.js",
+				"http://wowarg.com.ar/application/js/jquery.sort.js",
+				"http://wowarg.com.ar/application/js/jquery.transit.min.js",
+				"http://wowarg.com.ar/application/js/language.js",
+				,"http://wowarg.com.ar/application/modules/news/js/ajax.js"			];
+
+			if(typeof JSON == "undefined")
+			{
+				scripts.push("http://wowarg.com.ar/application/js/json2.js");
+			}
+
+			require(scripts, function()
+			{
+				$(document).ready(function()
+				{
+											Language.set("null");
+					
+					UI.initialize();
+
+											Router.loadedCSS.push("modules/news/css/news.css");
+					
+											Router.loadedJS.push("modules/news/js/ajax.js");
+									});
+			});
+		</script>
+
+			</head>
+<script type="text/javascript" src="http://wowarg.com.ar/application/themes/frostmourne/images/resources/min/?f=template/js/jquery-1.7.js,template/js/custom.js,template/js/alertbox.js,template/js/jquery.cycle.all.js,template/js/jquery.easing.1.3.js,template/js/video.bg.js"></script>
+	<body>
+		<!--[if lte IE 8]>
+			<style type="text/css">
+				body {
+					background-image:url(images/bg.jpg);
+					background-position:top center;
+				}
+			</style>
+		<![endif]-->
+		<section id="wrapper">
+			<div id="popup_bg"></div>
+
+<!-- confirm box -->
+<div id="confirm" class="popup">
+	<h1 class="popup_question" id="confirm_question"></h1>
+
+	<div class="popup_links">
+		<a href="javascript:void(0)" class="popup_button" id="confirm_button"></a>
+		<a href="javascript:void(0)" class="popup_hide" id="confirm_hide" onClick="UI.hidePopup()">
+			Cancel
+		</a>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+
+<!-- alert box -->
+<div id="alert" class="popup">
+	<h1 class="popup_message" id="alert_message"></h1>
+
+	<div class="popup_links">
+		<a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+
+
+            
+            <div id="header">
+            	
+                <div class="top_container">
+                
+                	<div class="login_box_top">
+                    	<div class="actions_cont">
+                        
+                        	                            	<div class="login_form_top">
+                                    <form action="http://wowarg.com.ar/login" method="post" accept-charset="utf-8"><div style="display:none">
+<input type="hidden" name="csrf_token_name" value="1b164403e71d7f17debf48f27c93b571" />
+</div>
+                                            <input type="text" name="login_username" id="login_username" value="" placeholder="Nombre de usuario">
+                                            <input type="password" name="login_password" id="login_password" value="" placeholder="Contraseña">
+                                            <input type="submit" name="login_submit" value="Entrar">
+											
+                                    </form>
+                            	</div>
+                                                        
+                        </div>
+                    </div>
+                <a id="server_logo" href="./" title="WoWArg"><p>WoWArg</p></a>
+                    <div class="top_menu">
+                        <ul id="top_menu">
+                                                            <li><a href="http://wowarg.com.ar/news" direct="0">Principal</a></li>
+                                                            <li><a href="http://wowarg.com.ar/register" direct="0">Registrarse</a></li>
+                                                            <li><a href="http://wowarg.com.ar/page/descargas/" direct="0">Descargas</a></li>
+                                                            <li><a href="http://foros.gxzone.com/world_warcraft-686.html" direct="0">Foro</a></li>
+                                                            <li><a href="http://head.wowarg.com.ar/" direct="0">HeadArg</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                
+                                    	<a href="http://wowarg.com.ar/register" id="register_banner"><p>Crear Cuenta</p></a>
+                                    
+				<div class="statusblock">
+					
+			</div>
+					
+                
+				
+                <!--<div class="accp_register">
+                                            <a href="./register" id="register_button"><h1>Register</h1></a> 
+                                    </div>-->
+                
+                <!--WoWArg-->
+           	
+					</div>
+					
+			<div id="main">
+            
+                
+				<aside id="left">
+				
+                	
+                    
+                    <article>
+						<ul id="left_menu">
+															<li><a href="http://wowarg.com.ar/login" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Identificarse</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/page/connect" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Cómo Conectarse</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/page/politica" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Política del Servidor</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/page/caracteristicasunicas" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Características únicas</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/page/informacion/" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Información</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/changelog" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Changelog</a><p></p></li>
+															<li><a href="http://wowarg.com.ar/online" direct="0"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/bullet.png">Jugadores Online</a><p></p></li>
+							                            <li class="bot_shadow"></li>
+						</ul>
+					</article>                   
+                   	
+                    						<article class="sidebox">
+							<h1 class="top"><p>Área de Usuario</p></h1>
+							<section class="body">
+								<form action="http://wowarg.com.ar/login" method="post" accept-charset="utf-8"><div style="display:none">
+<input type="hidden" name="csrf_token_name" value="1b164403e71d7f17debf48f27c93b571" />
+</div>
+	<center id="sidebox_login">
+		<input type="text" name="login_username" id="login_username" value="" placeholder="Nombre de usuario">
+		<input type="password" name="login_password" id="login_password" value="" placeholder="Contraseña">
+		<input type="submit" name="login_submit" value="¡Conectarse!">
+	</center>
+</form>
+							</section>
+						</article>
+											<article class="sidebox">
+							<h1 class="top"><p>Estado del Servidor</p></h1>
+							<section class="body">
+								<link rel="stylesheet" href="http://wowarg.com.ar/application/modules/sidebox_online_players_extended/assets/css/online-players.css" type="text/css" />
+
+<section id="update_status">
+    <div style="text-align:center;margin-top:10px;margin-bottom:10px;">
+        <img src="http://wowarg.com.ar/application/themes/frostmourne/images/ajax.gif" />
+    </div>
+</section>
+
+<script type="text/javascript">
+    var Status = {
+        statusField: $("#update_status"),
+
+        /**
+         * Refresh the realm status
+         */
+        update: function()
+        {
+            $.get(Config.URL + "sidebox_online_players_extended/status", function(data) {
+                Status.statusField.html(data);
+            });
+        }
+    }
+
+    Status.update();
+
+        </script>
+
+							</section>
+						</article>
+											<article class="sidebox">
+							<h1 class="top"><p>Votación</p></h1>
+							<section class="body">
+								<a href="http://www.top100arena.com/wow-private-server/" title="WoW private server"><img src="http://www.top100arena.com/hit.asp?id=88603&amp;c=WoW&amp;t=1" alt="WoW private server" width="88px" border="0" height="31px"></a>
+<br><br>
+<a href="https://topg.org/es/wow-private-servers/in-415941" title="WoW private server">Topg.org</a>
+<br><br>
+<!-- Begin XtremeTop100 code -->
+<a href="http://www.xtremetop100.com/in.php?site=1132357386" title="World of Warcraft Server">
+<img src="http://www.xtremeTop100.com/votenew.jpg" alt="World of Warcraft Server" border="0">
+</a>
+<!-- End XtremeTop100 code -->
+							</section>
+						</article>
+					                    
+				</aside>
+
+				<aside id="right">
+                    <!-- TextSlider -->
+                        <section id="slider_bg" >
+						<div id="slider">
+															<a href="http://wowarg.com.ar/"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/bienvenidos2.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/page/arenaspectator"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/spectator1.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/page/raf"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/raf.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/page/eventosilithus"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/silithus.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/page/donamontucustom"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/montucustom.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/icc2.jpg" title=""/></a>
+															<a href="http://wowarg.com.ar/page/donacuentavip#Transmorg"><img src="http://wowarg.com.ar/application/themes/frostmourne/images/slides/transmorg.jpg" title=""/></a>
+													</div>
+					</section>
+			<!-- TextSlider.End -->
+						
+					<div id="content_ajax">
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias]
+
+Edit: Server UP
+
+ Down para  ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias]<br />
+<br />
+Edit: Server UP<br />
+<br />
+ Down para mantenimiento: Tiempo estimado: 15 mins.<br />
+<br />
+Aca esta la lista de cambios aplicados<br />
+<a href="http://wowarg.com.ar/changelog" target="_blank">http://wowarg.com.ar/changelog</a>
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/03/16</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1295992247169491'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Como todo domingo...activado  ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Como todo domingo...activado Happy Hour de Arenas!!! rate x2 hasta la 1 am!
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/03/11</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1291730887595627'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Happy hour de arenas!! Rate x ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Happy hour de arenas!! Rate x2 (perdidas/ganadas) ... hasta las 1am!!!!
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/03/04</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1285450154890367'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">Bonus y rates de experiencia</a>
+        </div>
+		<section class="body">
+						
+			<p><span id="fbPhotoSnowliftCaption" class="fbPhotosPhotoCaption" data-ft="{"><span class="hasCaption"><strong>★ WoWArg ★ Servidor Latino (Arg.), 10 a&ntilde;os funcionando.</strong><br /> Reino principal WOTLK 3.3.5a = Blizzlike x1-x2 / Diferentes bonus de experiencia<br /> Reino secundario TBC 2.4.3 = Instant 60, Rates x7 en Excelente condiciones.<br /> <br /> Info sobre los reinos, descargas, preguntas frecuentes:<span class="text_exposed_show"><br /> <a href="https://www.facebook.com/WoWArgGX/notes" rel="nofollow"><span>https://www.facebook.com/</span>WoWArgGX/notes</a><br /> <br /> * En el reino WotLK, tienen un comando .modrates on/off para alternar entre rates x2-x1<br /> * Adem&aacute;s, hay Exp x3 gratis si vincul&aacute;s tu cuenta a otra y levelean juntos en party (como RaF del offi). <span style="color: #bbbbbb;"> <a href="page\Raf">Info.</a></span><br /> * Donando podr&aacute;s tener Exp x3 de forma individual al personaje que elijas. <span style="color: #bbbbbb;"><span style="color: #bbbbbb;"><a href="page\Raf">Info.</a></span></span><br />* Tambi&eacute;n ten&eacute;s Experiencia x3 si leveleas haciendo RDF (mazmorras aleatorias) o Exp x6 por kill en BG.<br /> * Se puede donar para subir personaje a nivel 80. <span style="color: #bbbbbb;"><a href="page\donanivel80">Info.</a></span><br /></span></span></span></p>
+<p><span id="fbPhotoSnowliftCaption" class="fbPhotosPhotoCaption" data-ft="{"><span class="hasCaption"><span class="text_exposed_show"><br /> <strong>Todos los bonus son acumulables, de la siguiente manera:</strong><br /> <br /> Eligiendo rates x1 = x1<br /> rates x1 * raf grupal &oacute; individual x3 = x3<br /> rates x1 * raf grupal x3 y raf individual x3 = x6<br /> <br /> Eligiendo rates x2 = x2<br /> rates x2 * raf grupal &oacute; individual x3 = x6<br /> rates x2 * raf grupal x3 y raf individual x3 = x9<br /> <br /> ...mas los bonus por kill en rdf o bg.</span></span></span></p>
+<p><span id="fbPhotoSnowliftCaption" class="fbPhotosPhotoCaption" data-ft="{"><span class="hasCaption"><span class="text_exposed_show"><span style="color: #bbbbbb;">Cualquier duda, pueden consultar en el <a href="http://foros.gxzone.com/forums/686-World-of-Warcraft">foro</a> o en nuestro <a href="https://www.facebook.com/WoWArgGX/">facebook oficial.<br /></a></span></span></span></span><span id="fbPhotoSnowliftCaption" class="fbPhotosPhotoCaption" data-ft="{"><span class="hasCaption"><span class="text_exposed_show">&iexcl;Que disfruten del server!<br /></span></span></span></p>
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/911145" data-tip="View profile">Fearz</a> on 2018/02/28</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_27'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Mas vale tarde q nunca!...Hap ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Mas vale tarde q nunca!...Happy hour de arenas (Rate x2) dominguero hasta la 1am!!!!! Q tul?
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/02/26</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1279414248827291'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Evento de rates x3, desde el  ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Evento de rates x3, desde el Sábado 10 hasta el Martes 13 de Febrero, inclusive!<br />
+¡Traé a tus amigos a WoWArg!.<br />
+<br />
+Sorteamos: Monturas personalizables terrestres* y RaF individual (exp x3 a un pj tuyo q elijas) ¡COMPARTÍ esta imagen, y participá del sorteo!<br />
+<br />
+También ofrecemos RaF grupal Gratuito. Vinculando tu cuenta con la de un amigo y leveleando juntos en grupo tienen Exp x3 ambos.<br />
+También, disponemos de exp x3 anotando RDF y exp x6 en muertes en BG. Todos los bonus son acumulables.<br />
+(el comando de .modrates se deshabilita mientras esté este evento activo).<br />
+<br />
+*Aclaraciones* (LEER) :<br />
+- Los diferentes bonus de Exp x3 se suma/multiplican de la siguiente manera:<br />
+server x3 + Raf grupal= x9.<br />
+server x3 + Raf individual= x9.<br />
+server x3 + ambos Raf = x12.<br />
+server x3 + rdf = x9 (solo en kill de npc en mazmorra)<br />
+server x3 + rdf + un raf = x12 (solo en kill de npc en mazmorra)<br />
+server x3 + rdf + 2 raf = x15 (solo en kill de npc en mazmorra)<br />
+server x3 + bg = x10 (solo en kill de pjs en bg)<br />
+server x3 + bg + un raf = x16 (solo en kill de pjs en bg)<br />
+server x3 + bg + 2 raf = x19 (solo en kill de pjs en bg)<br />
+<br />
+- Info sobre el RaF: <a href="http://wowarg.com.ar/page/raf" target="_blank">http://wowarg.com.ar/page/raf</a><br />
+<br />
+- Al compartir esta imagen, recordá de hacerlo al PÚBLICO, y no a amigos, sino no podremos verte en la lista de personas que compartió la imagen y contarte para el sorteo.<br />
+<br />
+- *¿Que es una Montura Personalizable? Es una montura que podrán elegirle el nombre y el modelo/skin, son para siempre y la podrás usar cuando quieras mientras cumplas con los requisitos, aclarados en el foro o en la web, LEELOS!:<br />
+Info en la web: <a href="http://wowarg.com.ar/page/donamontucustom" target="_blank">http://wowarg.com.ar/page/donamontucustom</a><br />
+Info en el foro: <a href="http://foros.gxzone.com/threads/243925-Nuevas-Monturas-Personalizables" target="_blank">http://foros.gxzone.com/threads/243925-Nuevas-Monturas-Personalizables</a><br />
+<br />
+- Todos los bonus de Exp se aplican solo Reino WotLK. Los premios son solo para Reino WotLK y son 3 ganadores que se llevan 1 (un) premio cada uno. Los ganadores los contactaremos por privado y luego lo publicamos acá mismo.<br />
+El sorteo lo hago el sábado.<br />
+<br />
+Realmlist para todos reinos: <br />
+set realmlist www.wowarg.com.ar<br />
+<br />
+Post oficial en el foro sobre este anuncio: <a href="http://foros.gxzone.com/threads/255449-Evento-Exp-x3-desde-el-10-al-13-de-Febrero" target="_blank">http://foros.gxzone.com/threads/255449-Evento-Exp-x3-desde-el-10-al-13-de-Febrero</a><br />
+<br />
+www.facebook.com/WowArgGx<br />
+Saludos!
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/02/08</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1264264143675635'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Buscamos Devs (Desarrolladore ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Buscamos Devs (Desarrolladores) para incorporar al Staff. <br />
+Quien esté interesado, por favor, lea la siguiente publicación en el foro:<br />
+<a href="http://foros.gxzone.com/threads/255071-El-Staff-busca-Devs-(Desarrolladores)" target="_blank">http://foros.gxzone.com/threads/255071-El-Staff-busca-Devs-(Desarrolladores)</a><br />
+<br />
+Tengan en cuenta unas cosas: <br />
+Si ya tienen experiencia fixeando spells/quest, etc, genial. <br />
+Si saben programar, pero no aplicado al emulador, requiere mucho esfuerzo por parte de uds en aprender, van a tener q leer guias y consultar las dudas que tengan.<br />
+Esto es a modo de grupo de investigación, no es un curso de Sql y ni de C++, lo que implica que para aprender tienen que leer y ponerse ustedes; si tienen dudas y no las pueden resolver por si solos, estamos todos para ayudar.<br />
+<br />
+Aclaramos nuevamente: No buscamos Gms ingame, buscamos Devs, gente para arreglar misiones-spells-raids-etc.<br />
+<br />
+Saludos!
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/01/12</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1243006292468087'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">[Noticias] Edit: Server UP y COMIENZO DE ....</a>
+        </div>
+		<section class="body">
+							<div class="avatar">
+					<img src="https://graph.facebook.com/WoWArgGX/picture?type=normal&return_ssl_resources=1" alt="avatar" height="120" width="120">
+				</div>
+						
+			[Noticias] Edit: Server UP y COMIENZO DE SEASON, la cual tiene los cambios anunciados en:<br />
+<br />
+<a href="http://foros.gxzone.com/threads/255019-Nueva-Season-11-01-18?p=4889222#post4889222" target="_blank">http://foros.gxzone.com/threads/255019-Nueva-Season-11-01-18?p=4889222#post4889222</a>
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/947428" data-tip="View profile">Facebook - WoWArg</a> on 2018/01/11</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_397322237036501_1241881582580558'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">Canal comerciar</a>
+        </div>
+		<section class="body">
+						
+			<p><span style="font-size: small;">Los invitamos a usar el canal 'comerciar' para realizar dichas actividades.</span></p>
+<p>&nbsp;</p>
+<table style="margin-left: auto;" border="0" cellspacing="5" cellpadding="3" align="left">
+<thead>
+<tr style="background-color: #1e1e23;">
+<td><span style="text-decoration: underline;">Canal</span></td>
+<td><span style="text-decoration: underline;">Funci&oacute;n</span></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>World</strong></td>
+<td>Charlas generales, b&uacute;squeda de raids, etc</td>
+</tr>
+<tr>
+<td><strong>Comerciar</strong></td>
+<td>Compra y venta personajes (Obligatorio usar este canal. Transacciones via m&oacute;dulo de intercambio desde la web), tambi&eacute;n pueden usarlo para objetos, profesiones, etc.</td>
+</tr>
+</tbody>
+</table>
+<p><br />&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Para entrar a los canales, tienen que tipear:<br />/join comerciar<br />&oacute;<br />/unirse comerciar<br /><br />&iexcl;Saludos!</p>
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/911145" data-tip="View profile">Fearz</a> on 2017/08/19</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_24'></div>
+		</section>
+	</article>
+
+
+	<article>
+    	<div class="news_head">
+			<a  class="top">Server Cata TEST up</a>
+        </div>
+		<section class="body">
+						
+			<p>Buenas!</p>
+<p>El admin ya baj&oacute; el reino WotLK y <strong>se habilit&oacute; el Cata test en la pc principal para poder realizar el test acordado.</strong></p>
+<p>El reino WotLK estar&aacute; desconectado hasta que termine el test que &eacute;l quiere hacer. No van a perder nada, ni nada. Luego vuelve como estaba todo.</p>
+<p><strong>Mientras mas gente entre al test de cata hoy, mejor.</strong> Si quieren colaborar, pueden descargarse este instalador:</p>
+<p><a href="http://www56.zippyshare.com/v/Se1ZGzwO/file.html">http://www56.zippyshare.com/v/Se1ZGzwO/file.html</a></p>
+<p>Lo ponen en otra carpeta diferente a la del WotLK, y ejecutan el wow.exe. Ya viene con nuestro realmlist (es el mismo de siempre).</p>
+<p>Gracias! Saludos!</p>
+            
+			<div class="clear"></div>
+            
+            <div class="post_info">
+                <p>Posted by <a href="http://wowarg.com.ar/profile/911145" data-tip="View profile">Fearz</a> on 2016/10/18</p>
+                <span>
+                                    </span>
+                <div class="clear"></div>
+           	</div>
+
+			<div class="comments" id='comments_15'></div>
+		</section>
+	</article>
+
+<div id="news_pagination">&nbsp;<a href="http://wowarg.com.ar/news/10">Older posts &rarr;</a>&nbsp;</div></div>
+				</aside>
+
+				<div class="clear"></div>
+			</div>
+			<footer>
+            	
+			</footer>
+		</section>
+	</body>
+</html>

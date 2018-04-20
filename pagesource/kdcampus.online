@@ -1,0 +1,302 @@
+<html lang="en">
+  <head>
+  <title>SSC Mock Test</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<title> </title>
+	<!-- bootstrap css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="http://kdcampus.online/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- custom css -->
+	<link href="http://kdcampus.online/css/style.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="http://kdcampus.online/css/material-design-iconic-font.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="http://kdcampus.online/css/jquery.circliful.css">
+	<script>
+	
+	var base_url="http://kdcampus.online/";
+
+	</script>
+	
+	<!-- jquery -->
+	<script src="http://kdcampus.online/js/jquery.js"></script>
+	
+	<!-- custom javascript -->
+	  	<script src="http://kdcampus.online/js/basic.js"></script>
+
+	<!-- bootstrap js -->
+    <script src="http://kdcampus.online/bootstrap/js/bootstrap.min.js"></script>
+	
+		<script src = "http://kdcampus.online/js/angular.min.js"></script>	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script> 	
+		<script>
+		   var myApp = angular.module('myApp',[]);
+		   myApp.controller('myctlr',function($scope,$http){
+		        $("#otp").css("display", "none");
+		        $("#password").css("display", "none");
+		        
+		        $scope.checkuser = function($event){
+		            
+		           $event.preventDefault();
+		            
+		           mobile   = $scope.mobile;
+		           password = $scope.password;
+		           otp      = $scope.otp;
+		           
+		         $("#msg").css("display", "none");
+		     
+		      if($("#btn_gen_otp").hasClass( "mob" ) === true && mobile === undefined){
+		             $("#msg").css("display", "block");
+		             $scope.message = "Enter Registered Mobile Number !!";
+		             return false;
+		       }
+		         
+		       if($("#btn_gen_otp").hasClass( "otp" ) === true && (otp === undefined || otp === '')){
+		             $("#msg").css("display", "block");
+		             $scope.message = "Enter OTP Value !!";
+		             return false;
+		       }
+		      
+		       
+		       if($("#btn_gen_otp").hasClass( "password" ) === true && password === undefined){
+		             $("#msg").css("display", "block");
+		             $scope.message = "Enter Password Value !!";
+		             return false;
+		         }
+		      
+		       
+		           $http.post("http://kdcampus.online/index.php/Login_user/forgetpass",{'mob':mobile,'otp':otp,'pass':password}).success(function(data,success){
+		           //console.log(data);
+    		        if(data != ''){
+    		           
+    		                
+    		           $scope.showTheForm="hideByDefault";
+    		           if(mobile != '' && password == undefined && otp == undefined){
+    		               userid = data.mobileno;
+    		               $("#mobile").css("display", "none");
+    		               $("#btn_gen_otp").removeClass("mob");
+    		               $("#otp").css("display", "block");
+    		               $("#btn_gen_otp").addClass("otp");
+    		               //$scope.mobile = undefined; 
+    		           } else if(otp != '' && mobile != undefined && password == undefined){
+    		               
+    		               $("#btn_gen_otp").removeClass("otp");
+    		               $("#btn_gen_otp").addClass("password");
+    		               $("#otp").css("display", "none");   
+    		               $("#password").css("display", "block");
+    		               $scope.otp = undefined; 
+    		               
+    		           }else if(password != '' && mobile != undefined && otp == undefined){
+    		               
+    		               $("#password").css("display", "none");
+    		               alert('Password Change Successfull, Login Your Account !');
+    		               window.location.href = "http://kdcampus.online/index.php/Login_user";
+    		               
+    		           } 
+    		        }else{
+    		              $("#msg").css("display", "block");
+    		            if(mobile != '' && password == undefined && otp == undefined){
+    		               $scope.message = "This Mobile Number Not Registered !"; 
+    		               
+    		            }else if(otp != '' && mobile != undefined && password == undefined){
+    		               $scope.message = "OTP Incorrect,Please Enter correct OTP !";
+    		                $scope.otp = undefined; 
+    		            }
+    		         }
+    		       }); 
+    		    
+		     }
+		 });
+ </script>
+ <script>
+       var updateApp = angular.module('updateApp',['ngMessages']);
+     updateApp.controller('updatectlr',function($scope,$http){
+       $scope.mobile = "";
+       $scope.mobile = "8218241644";
+       sendotp = '';
+       $scope.readpro = false;
+       $scope.updatemobile = function($event){
+          $event.preventDefault(); 
+          $("#msg").css("display", "none");
+          mobile      = $scope.mobile;
+          new_mobile  = $scope.new_mobile;
+          new_otp     = $scope.otp;
+          //alert(new_mobile);
+          if(new_otp !== undefined && new_otp != sendotp){
+            $scope.message = "OTP Incorrect,Please Enter correct OTP !"; 
+            $("#msg").css("display", "block");
+            return false;
+          }
+          
+         if(new_mobile === undefined){
+            $scope.message = "Enter New mobile Number !!"; 
+            $("#msg").css("display", "block");
+            return false;
+          }
+         
+         $http.post("http://kdcampus.online/index.php/Login_user/update_mobile",{'old_mob':mobile,'new_mob':new_mobile,'otp':new_otp}).success(function(data,success){
+             alert(data.msgg);
+             if((data.statuss) === true){
+                $scope.readpro = true; 
+                sendotp        = data.otp; 
+                $("#otp").css("display", "block"); 
+              }else if((data.statuss) == 2){
+                alert('New Number Successfully Updated,Please Login to your account !!');  
+                window.location.href = "http://kdcampus.online/index.php/Login_user";
+            }
+         });
+       }
+    });
+     
+ </script>
+	
+	
+ </head>
+  <body>
+  	
+		
+<style>
+
+
+@media only screen and (min-width: 500px) {
+    .butt {
+       padding: 5px 82px 0px 83px;
+       margin-top:0px;
+    }
+     .rounded-list ol 
+{
+counter-reset:li; 
+margin-left:0; 
+padding-left:127px; 
+}
+
+/* item  */
+.rounded-list ol > li
+{
+position:relative; /* Create a positioning context */
+list-style:none; /* Disable the normal item numbering */
+background:#f6f6f6; /* Item background color */
+margin:0; /* Give each list item a left margin to make room for the numbers */
+padding-left: 15px; /* Add some spacing around the content */
+padding-bottom:0px;
+padding-top:0px;
+}
+
+/* number  */
+.rounded-list ol > li p:before
+{
+content: counter(li); 
+counter-increment: li; 
+position: absolute; 
+left: -1.3em;
+top: 50%;
+
+/* number background */
+background: #29166f;; 
+height: 2em;
+width: 2em;
+margin-top: -1em;
+line-height: 1.5em;
+border: .3em solid #fff;
+text-align: center;
+font-weight: bold;
+border-radius: 2em;
+color:white;
+}
+}
+</style>
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+	<div class="login-panel panel panel-default">
+	    <div class="panel-body" style="text-align : center"> 
+		<img align="center" alt="KD Campus Logo" src="http://kdcampus.online/images/kd-campus-large.png">
+		<div id="errs" style="background: rgb(185, 43, 43); color: #fff; padding: 5px 0px;margin: 5px 0px;">
+        	
+		</div>
+		<div><b style="FONT-SIZE: 20;">Kind attention students of KD Campus.</b></br><p>Welcome to SSC Tier "I"LIVE Weekly Tests. These LIVE tests are absolutely free for the classroom students of KD Campus. Our classroom students can give these tests by using the same username and password as that of the Student Portal.<br/>Students can only take test from Sunday to Monday morning.</p></div>
+		<div class="pricingTable-sign-up butt" style="">
+		<a href="http://kdcampus.online/index.php/Login_user" class="btn btn-block btn-default" style="background-color: #29166f;color: white;margin-top: -12px;">KD Campus Student's Login</a>
+		<BR><a href="http://kdcampustest.in/Login/ForgetPassword" target="_blank">Forgot your password?</a>
+		</div>
+		<div style="margin-top: 30;"><b style="FONT-SIZE: 20;">Aspirants who are not the students of KD Campus.</b></br><p>Welcome to SSC Tier "I"LIVE Weekly Tests. You purchase the Weekly Test package for 1 year for INR 900 and give these tests. You will get the following services in the package:
+		<!--	1.Regular LIVE Tests
+2.All India rank
+3.Comprehensive performance analysis
+4.Solutions.-->
+		</p>
+
+	 <table border=0 class="rounded-list tabres">
+        <tr>
+            <td>
+            <ol id="example1">
+            <li><p style="font-size: 13.5;">Regular LIVE Tests</p></li>
+            <li><p style="font-size: 13.5;">All India rank</p></li>
+            <li><p style="font-size: 13.5;">Comprehensive performance analysis</p></li>
+            <li><p style="font-size: 13.5;">Solutions</p></li>
+            </ol>
+            </td>
+        </tr>
+    </table>
+		</div>
+		<div class="pricingTable-sign-up butt" style="">
+		<a href="http://kdcampus.online/index.php/Package_purchase" class="btn btn-block btn-default" style="background-color: #29166f;color: white;">Purchase package (INR 900)</a>
+		</div>
+			 <div><b style="FONT-SIZE: 20;">Already Purchased?</b></div>	
+				<div class="pricingTable-sign-up butt" style="">
+		<a href="http://kdcampus.online/index.php/Login_user" class="btn btn-block btn-default" style="background-color: #29166f;color: white;margin-top: 0px;">Login here</a>
+		</div>
+	<!--	<div class="bs-example">
+	    <ul class="list-unstyled">
+      <ul>
+      <li><a href="http://kdcampus.online/index.php/Login_user"><h3>Kdcampus Students & Already Purchase</h3></a></li>
+      <li><a href="http://kdcampus.online/index.php/Package_purchase"><h3>Package Purchase</h3></a></li>
+  
+    </ul>
+  
+</ul>
+	</div>-->
+		    
+		    
+	    </div>
+	    </div>
+	</div>
+    </div>
+    <div class="col-md-3"></div>
+</div>	<script type="text/javascript" src="http://kdcampus.online/editor/tiny_mce.js"></script>
+	<script type="text/javascript">
+ 
+			tinyMCE.init({
+	
+    mode : "textareas",
+		theme : "advanced",
+		relative_urls:"false",
+	 plugins: "jbimages",
+	  
+	
+  // ===========================================
+  // PUT PLUGIN'S BUTTON on the toolbar
+  // ===========================================
+	
+ 
+	
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "jbimages,insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft,visualblocks",
+		
+		
+	});
+	
+ 
+</script>
+
+	
+	
+</body>
+</html>

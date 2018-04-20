@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        MyCarInfo | Information That Matters
+    </title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Information that matters! Get FREE vehicle market value, find out your NCD rate, check vehicle status-stolen/total loss & vehicle past insurance details.">
+    <meta name="keywords" content="Car price, car current price, used car price, past insurer, insurance company, total loss, stolen, vehicle history, car standard features/specifications, current insurance company">
+    <link href="/Content/themes/start/css?v=u5cYQf-CfgVnTrOJW6oMqK-IiiE0hi0VHrwDD7jR0Gg1" rel="stylesheet"/>
+
+    <script src="/bundles/json?v=d1Efh1-9UFdw-Pnj4VVUxViXmZK9H1kqbY_kx2U79DM1"></script>
+
+    <script src="/bundles/jquery?v=AK07nPig1IY6QbSCFsm1xAAMHGKcPzOnxN7L1FjtkiI1"></script>
+
+    <script src="/bundles/jqueryui?v=UhypHngPn7iFExF42P1Fw0nsiNHIRWwRKwdtMC5o1LM1"></script>
+
+    <script src="/bundles/jqueryval?v=O-poYZ-r6-W__7OMk263MmJOcXVOkEsG2HfxdwjgzfU1"></script>
+
+    <script type="text/javascript">
+        var _root = '/';
+        var ssX = 'w4+XZPiWAVbiTAi6uf6DpgI+cv7zv4xy5uHhb3jo5fs=';
+        $(document).ready(function () {
+            var msg = '';
+            if (msg)
+                $('<div>{0}</div>'.format(msg)).message();
+
+            $('#cssmenu li').hover(function () {
+                $('ul', this).css({ display: 'none' }).slideDown(300);
+            }, function () {
+                $('ul', this).hide();
+            });
+
+            if ($('#logoffLink').length)
+                SecurityCheck();
+
+            //            if ($('#divAdLeft').length || $('#divAdRight').length) {
+            //                $('.header-top').addClass('content-wrapper-with-ad-lr');
+            //                $('#footer').addClass('content-wrapper-with-ad-lr');
+            //            }
+        });
+        var timeout, counting;
+        function SecurityCheck() {
+            if (timeout) clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                var dlg = $('#dlgContinueLogin').message(function () {
+                    counting = false;
+                    SecurityCheck();
+                    $.CallService({
+                        url: '/Account/StillAlive',
+                        success: function (a) {
+                        }
+                    });
+                });
+                counting = true;
+                CountDownLogOff();
+            }, 2 * 60 * 60 * 1000);
+        }
+        function CountDownLogOff() {
+            setTimeout(function () {
+                var sec = $('.ui-dialog #logoffsec');
+                if (counting) {
+                    sec.html(sec.html().trim() - 1);
+                    if (sec.html().trim() <= 0)
+                        LogOff();
+                    else
+                        CountDownLogOff(sec);
+                }
+            }, 1000);
+        }
+        function LogOff() {
+            $('#logoffLink').parent()[0].submit();
+        }
+        function SetMenu(id) {
+            var item = $(id);
+            while (item.length && item[0].tagName == 'LI') {
+                item.addClass('active');
+                item = item.parent().parent();
+            }
+        }
+    </script>
+    <style type="text/css">
+        #logoffsec
+        {
+            color: Red;
+        }
+        .ui-icon-locked
+        {
+	        background-image: url(/Content/themes/start/images/ui-icons_f7a50d_256x240.png);
+        }
+    </style>
+    <script src="/bundles/common?v=L8uDmvDYEAmHUDdNGrv5ZIWxqsWJHFeY_O0l4MPNN_o1"></script>
+
+    <link href="/Content/css?v=poKe0WOQX2LvKQ_CHPaYSFi4SCXAJfXsZ8g9_QQdPtg1" rel="stylesheet"/>
+
+    
+    <script src="/bundles/flexslider?v=IsP1VcBZ6REs4tNnv4J_V-JBKeBwUKkQed8nVcDgZTI1"></script>
+
+    <link href="/Content/flexslider?v=g6HN1pxFJ_mRh6P9rRwQJd74gtl3_tOaEFRHh2C8Ba41" rel="stylesheet"/>
+
+    <link href="/Content/zoomie?v=yCjiS6Hf5Wa9eKm-tyAjJ0OFSJC__8JhnCr6P2MT26g1" rel="stylesheet"/>
+
+    <script src="/bundles/zoomie?v=nZbhR-d3D1Ou_LipRz96J4FfMV1AKe8xrk4i6voAkIg1"></script>
+
+    <script src="/bundles/rssfeed?v=hguvTmKxsy7VnF6IF4OZEFsYgw5jMOlxiQs4r11cXAQ1"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            SetMenu('.menuHome');
+
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                before: sliderChange
+            });
+
+            InitDDL();
+
+            $('.banner-item button').on('touchstart click', function () {
+                slideTo($(this).attr('value'));
+            });
+
+            var z = $('ul.viewer');
+            if (z.length) {
+                z.zoomie();
+                setTimeout(function () {
+                    z.css('margin-bottom', 0);
+                }, 100);
+            }
+
+            $('.CrossSaleTitle').hide(); //Share Cross Sale partial page
+
+            InitFeeds();
+        });
+        function InitDDL() {
+            var yrChanged = function () {
+                var fm = $(this).closest('form'), year = this.value, price = $('[name="compare1.Price"]', fm).val();
+                var make = $('[name="compare1.Make"]', fm).dropdownlist({ url: '/Valuation/GetMakes', data: { 'year': year, 'price': price }, defaultValue: true }).val();
+                if (make)
+                    $('[name="compare1.Model"]', fm).dropdownlist({ url: '/Valuation/GetModels', data: { 'make': make, 'year': year, 'price': price }, defaultValue: true });
+                else
+                    $('[name="compare1.Model"]', fm).dropdownlist({ defaultValue: true });
+            };
+            var yr = $('[name="compare1.Year"]').change(yrChanged);
+            var priceFrom = $('[name="compare1.PriceFrom"]').change(function () {
+                var fm = $(this).closest('form'), priceFrom = this.value || 0, priceTo = $('[name="compare1.PriceTo"]', fm).val(), year = $('[name="compare1.Year"]', fm).val();
+                var make = $('[name="compare1.Make"]', fm).dropdownlist({ url: '/Valuation/GetMakes', data: { 'year': year, 'priceFrom': priceFrom, 'priceTo': priceTo }, defaultValue: true }).val();
+                if (make)
+                    $('[name="compare1.Model"]', fm).dropdownlist({ url: '/Valuation/GetModels', data: { 'make': make, 'year': year, 'priceFrom': priceFrom, 'priceTo': priceTo }, defaultValue: true });
+                else
+                    $('[name="compare1.Model"]', fm).dropdownlist({ defaultValue: true });
+
+                $('[name="compare1.PriceTo"] option').each(function () {
+                    var val = $.parseNum($(this).val());
+                    if (val) {
+                        if (val <= $.parseNum(priceFrom))
+                            $(this).hide();
+                        else
+                            $(this).show();
+                    }
+                });
+            });
+            var priceTo = $('[name="compare1.PriceTo"]').change(function () {
+                var fm = $(this).closest('form'), priceTo = this.value || 0, priceFrom = $('[name="compare1.PriceFrom"]', fm).val(), year = $('[name="compare1.Year"]', fm).val();
+                var make = $('[name="compare1.Make"]', fm).dropdownlist({ url: '/Valuation/GetMakes', data: { 'year': year, 'priceFrom': priceFrom, 'priceTo': priceTo }, defaultValue: true }).val();
+                if (make)
+                    $('[name="compare1.Model"]', fm).dropdownlist({ url: '/Valuation/GetModels', data: { 'make': make, 'year': year, 'priceFrom': priceFrom, 'priceTo': priceTo }, defaultValue: true });
+                else
+                    $('[name="compare1.Model"]', fm).dropdownlist({ defaultValue: true });
+
+                $('[name="compare1.PriceFrom"] option').each(function () {
+                    var val = $.parseNum($(this).val());
+                    if (val) {
+                        if (val <= $.parseNum(priceTo))
+                            $(this).hide();
+                        else
+                            $(this).show();
+                    }
+                });
+            });
+            var mk = $('[name="compare1.Make"]').change(function () {
+                var fm = $(this).closest('form');
+                var year = $('[name="compare1.Year"]', fm), priceFrom = $('[name="compare1.PriceFrom"]', fm), priceTo = $('[name="compare1.PriceTo"]', fm);
+
+                year.dropdownlist({ url: '/Valuation/GetYears', data: { make: this.value, 'priceFrom': priceFrom.val(), 'priceTo': priceTo.val() }, defaultValue: true });
+                if (year.length)
+                    year = year.val() || 0;
+                else
+                    year = 0;
+
+                priceFrom.dropdownlist({ url: '/Valuation/GetPrices', data: { make: this.value, 'year': year, 'priceTo': priceTo.val() || 0 }, defaultValue: true });
+                priceTo.dropdownlist({ url: '/Valuation/GetPrices', data: { make: this.value, 'year': year, 'priceFrom': priceFrom.val() || 0 }, defaultValue: true });
+
+                var make = this.value;
+                if (make)
+                    $('[name="compare1.Model"]', fm).dropdownlist({ url: '/Valuation/GetModels', data: { 'make': make, 'year': year, 'priceFrom': priceFrom.val(), 'priceTo': priceTo.val() }, defaultValue: true });
+                else
+                    $('[name="compare1.Model"]', fm).dropdownlist({ defaultValue: true });
+            });
+            //            if (yr.val()) yr.change();
+            yrChanged.apply($('select[name="compare1.Year"]')[0]);
+            yrChanged.apply($('input[name="compare1.Year"]')[0]);
+            if (priceFrom.val()) priceFrom.change();
+            if (priceTo.val()) priceTo.change();
+            if (mk.val()) mk.change();
+        }
+
+        function sliderChange() {
+            $($('.banner-item').removeClass('active')[$('.flexslider').data('flexslider').animatingTo]).addClass('active');
+        }
+        function slideTo(i) {
+            $('.flexslider').flexslider($.parseNum(i));
+        }
+
+        function ValidateForm(fm, ignoreYear) {
+            var item = $(fm).serializeObject();
+            var isValid = false;
+            for (var i in item) {
+                if (i != 'version' && i != 'ssX' && item[i] && !(ignoreYear && i == 'compare1.Year')) {
+                    isValid = true;
+                    break;
+                }
+            }
+            if (isValid)
+                return true;
+            else {
+                $('<div>Please select at least one criteria to continue.</div>').message();
+                return false;
+            }
+        }
+
+        function InitFeeds() {
+            $("#divFeeds").rss("https://news.mycarinfo.com.my/feed", {
+                ssl: true,
+                limit: 3,
+                layoutTemplate: $('#hdnFeedPanel').html().trim(), //"<div class='feed-container'>{entries}</div>",
+                entryTemplate: $('#hdnFeed').html().trim(),
+                tokens: {
+                    refineBody: function (entry, tokens) {
+                        var text, content = $('<div>{0}</div>'.format(entry.content));
+                        $('p', content).each(function () {
+                            text = $(this).text().trim();
+                            if (text) return false;
+                        });
+                        if (!text || (text && text.length < 100))
+                            text = content.text().trim();
+                        if (text && text.length > 500)
+                            text = text.substring(0, 500) + '...';
+                        return text;
+                    }
+                },
+
+                dateFormatFunction: function (date) {
+                    return new Date(date).toString('MMMM dd, yyyy');
+                },
+                // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
+                effect: 'slideFastSynced',
+                error: function () { },
+                success: function () { },
+                onData: function () { }
+            });
+        }
+    </script>
+    <style type="text/css">
+        .image-display, .image-viewer ul.viewer
+        {
+            width: 430px;
+            height: 280px;
+            position: relative;
+        }
+        .banner-content
+        {
+            height: 305px;
+            width: 990px;
+        }
+        .banner-content-1
+        {
+            background: url(Images/banner-01.jpg) repeat-x center top;
+        }
+        .banner-content-2
+        {
+            background: url(Images/banner-02.jpg) repeat-x center top;
+        }
+        .banner-content-3
+        {
+            background: url(Images/banner-03.jpg) repeat-x center top;
+        }
+        .banner-content-4
+        {
+            background: url(Images/banner-04.jpg) repeat-x center top;
+        }
+        .banner-nav
+        {
+            background: url(Images/banner-nav.png);
+            width: 316px;
+            height: 429px;
+            position: absolute;
+            top: 139px;
+        }
+        .banner-nav-container
+        {
+            width: 326px;
+            float: right;
+        }
+        .banner-nav .banner-item
+        {
+            width: 276px;
+            height: 66px;
+            padding: 20px;
+        }
+        .banner-nav .banner-item button
+        {
+            color: white;
+        }
+        .banner-nav .banner-item:hover button
+        {
+            color: #87CEFA;
+        }
+        .banner-nav .banner-item.active button
+        {
+            color: #87CEFA;
+        }
+        .banner-header
+        {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        .main-function
+        {
+            text-align: right;
+        }
+        .main-function .message
+        {
+            margin-top: 30px;
+            margin-left: 500px;
+            color: #000;
+            display: block;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .main-function .function-content
+        {
+            padding: 40px;
+        }
+        .main-function .big-title
+        {
+            font-weight: bold;
+            color: #447fcd;
+            font-size: 4em; /*text-shadow: 1px 1px #555;*/
+        }
+        .main-function .sub-title
+        {
+            font-weight: bold;
+            color: #447fcd;
+            font-size: 3em; /*text-shadow: 1px 1px #555;*/
+        }
+        .main-function .buttons
+        {
+            margin-top: 30px;
+        }
+        .advance-search-wrapper
+        {
+            background-color: White;
+        }
+        .advance-search-content
+        {
+            height: 130px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        .advance-search-content .title
+        {
+            color: #87CEFA;
+        }
+        .advance-search-content .more-link
+        {
+            color: orange;
+            font-style: italic;
+        }
+        
+        .advance-search label
+        {
+            display: block;
+            margin-bottom: 9px;
+        }
+        .compare-panel
+        {
+            background-color: #fafafa;
+            border-top: 3px solid #E7ECEF;
+            padding: 20px;
+        }
+        .latest-new
+        {
+            width: 430px;
+            float: left;
+            background-color: white;
+            margin-bottom: 9px;
+        }
+        .week-offer
+        {
+            line-height: 20px; /*border-bottom: 3px solid #CDD6DB;*/
+            padding: 20px;
+        }
+        .latest-new .title
+        {
+            color: #87CEFA;
+            float: left;
+        }
+        .latest-new .price
+        {
+            color: #F25721;
+            float: right;
+        }
+        .flexslider
+        {
+            border: 0;
+            margin: 10px auto 30px auto;
+            width: 990px;
+        }
+        
+        .brands
+        {
+            border-top: 2px solid #e6ecef;
+            background: #f0f3f5;
+            border-bottom: 1px solid #c0c2c4;
+            padding: 30px 0 40px;
+        }
+        
+        .brand-list h2
+        {
+            color: #3f4b56;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .brand-list ul
+        {
+            list-style: none outside;
+            margin: 0;
+        }
+        
+        .brand-list ul li
+        {
+            display: inline;
+            margin: 16px;
+        }
+        
+        .brand-list ul li a
+        {
+            opacity: 0.8;
+            filter: alpha(opacity=50);
+        }
+        
+        .brand-list ul li a:hover
+        {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        
+        .car-types
+        {
+            background: #e0e4e7;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 30px 0 10px;
+        }
+        .car_types_list
+        {
+            text-align: center;
+        }
+        
+        .car_types_list h2
+        {
+            color: #3f4b56;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            font-weight: 500;
+        }
+        
+        .car_types_list ul
+        {
+            padding: 0;
+            margin: 50px 0;
+        }
+        
+        .car_types_list li
+        {
+            display: inline-block;
+            position: relative;
+            width: 172px;
+            height: 156px;
+            margin: 0 3px;
+            -webkit-perspective: 600px;
+            -moz-perspective: 600px;
+            perspective: 1000;
+        }
+        
+        .ie7 .car_types_list li
+        {
+            display: inline;
+        }
+        
+        .car_types_list li .front, .car_types_list li .back
+        {
+            float: left;
+            width: 120px;
+            height: 96px;
+            padding: 26px 26px 34px 26px;
+            font-size: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #62c1ed;
+            -moz-backface-visibility: hidden;
+            -moz-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            -o-transition: all .3s ease-in-out;
+            -ms-transition: all .3s ease-in-out;
+            -moz-transition: .3s;
+            -webkit-transition: all .3s ease-in-out;
+            transition: .3s;
+        }
+        
+        .car_types_list li .front
+        {
+            z-index: 2;
+            -webkit-transform: rotateX(0deg) rotateY(0deg);
+            -moz-transform: rotateX(0deg) rotateY(0deg);
+        }
+        
+        .car_types_list li .back
+        {
+            z-index: 1;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+        }
+        
+        .car_types_list li:hover .front
+        {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+        }
+        
+        .car_types_list li:hover .back
+        {
+            z-index: 3;
+            -webkit-transform: rotateX(0deg) rotateY(0deg);
+            -moz-transform: rotateX(0deg) rotateY(0deg);
+        }
+        
+        .car_types_list li a strong
+        {
+            color: #fff;
+            display: block;
+            padding-bottom: 50px;
+            height: 35px;
+            line-height: 1.4em;
+            text-transform: uppercase;
+            font-size: .9em;
+        }
+        
+        .car_types_list li:hover a strong
+        {
+            color: #62c1ed;
+        }
+        
+        .car_types_list li a em
+        {
+            color: #105879;
+            font-style: normal;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .car_types_list li.cart_type_1 .front
+        {
+            background-image: url(Images/car_types_1_1.png);
+        }
+        .car_types_list li.cart_type_1 .back
+        {
+            background-image: url(Images/car_types_1_2.png);
+        }
+        .car_types_list li.cart_type_2 .front
+        {
+            background-image: url(Images/car_types_2_1.png);
+        }
+        .car_types_list li.cart_type_2 .back
+        {
+            background-image: url(Images/car_types_2_2.png);
+        }
+        
+        .compare-criteria
+        {
+            float: left;
+            height: 125px;
+            width: 258px;
+            padding: 15px;
+            background-color: white;
+            border-right: 4px solid #F25721; /*border-bottom: 4px solid #CDD6DB;*/
+        }
+        
+        .border-left
+        {
+        }
+        .compare-criteria .display-label
+        {
+            width: 70px;
+        }
+        .main-header
+        {
+            margin-bottom: 20px;
+        }
+        .main-content
+        {
+            padding-top: 15px;
+            padding-bottom: 0;
+            background-image: url(images/banner-bg.png);
+        }
+        .buttons div small
+        {
+            font-size: .85em;
+            color: #F5F9A7;
+        }
+        
+        #divFeeds img.teaser-image
+        {
+            width: 200px !important;
+        }
+    </style>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46329507-1', 'mycarinfo.com.my');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Start Header Banner-->
+
+        <style type="text/css">
+            body
+            {
+                min-width: 1353px;
+            }
+        </style>
+</head>
+<body>
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+        _atrk_opts = { atrk_acct: "aKUwl1aAFUE0fn", domain: "mycarinfo.com.my", dynamic: true };
+        (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript>
+        <img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=aKUwl1aAFUE0fn" style="display: none"
+             height="1" width="1" alt="" />
+    </noscript>
+    <input name="__RequestVerificationToken" type="hidden" value="qEN9CpsfupTLQtuGo8jRKCiLdHT3mjN3p_StASpywVKQ7HO7DIe2M9h-3aGU8qd3lVcw_xiOK5o075Sl5gBmnoVjuK_kYN_7NPj5K8npKQKQ7I2Jy2oYsdascPXmfH-waagCqd7p5xvJcdnH63sea84Rjl0sg2eygWHLh6WOsco1" />
+    <!-- End Alexa Certify Javascript -->
+    <div style="display: none;">
+        
+    <div id="hdnFeed">
+        <div class="feed-item">
+            <div class="span3">
+                <a href="{url}" class="teaser-image">{teaserImage}</a>
+            </div>
+            <div class="span9">
+                <h2 class="article-title">
+                    <a href="{url}">{title}</a><small class="right">Posted on <span class="published-on">
+                        {date}</span></small>
+                </h2>
+                <div class="article-content">
+                    {refineBody}
+                </div>
+                <a href="{url}" class="continue-read">Continue reading...</a>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+    <div id="hdnFeedPanel">
+        <div class="feed-panel">
+            <div class="content-wrapper">
+                <h4 class="ish3">
+                    <a href="http://news.mycarinfo.com.my/">ARTICLES</a></h4>
+                {entries}
+                <h4>
+                    <a href="http://news.mycarinfo.com.my/">More Articles</a>
+                </h4>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+
+        <div id="dlgContinueLogin" title="Attention!">
+            Your session will expire in <span id="logoffsec">30</span> seconds. Do you want
+            to continue stay in this page?
+        </div>
+    </div>
+    <div class="header-top">
+        <div class="inner-content">
+            <div class="navigation-area">
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <a href="/">
+                            <img id="logo" alt="CarInfo.com.my" src="/Images/logo_01.png" />
+                        </a>
+                    </div>
+                    <div id="login" class="float-right">
+                        
+<div class="login-info">
+    <span>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <label>
+            <a class="signup" href="/Account/Register">Sign Up</a>
+        </label>
+        <span>|</span>
+        <label>
+            <a href="/Account/Login" id="loginLink">Sign in</a>
+        </label>
+        <span class="ui-icon ui-icon-locked ui-icon-inline"></span>
+</div>
+
+                    </div>
+                    <div class="float-right" id="cssmenu">
+                        <ul id="menu">
+                            <li class="menuHome"><a href="/">Home</a></li>
+                            <li class="menuFinder"><a href="/FindCar/Compare/0/0">Car Finder</a></li>
+                            <li style="padding: 0 10px; line-height: 28px" class="has-sub">
+                                SERVICES
+                                <ul>
+                                        <li class="menuValuation"><a href="/MarketValue">Vehicle Market Value</a></li>
+                                    <li class="menuNCDCheck"><a href="/NCDCheck">NCD Enquiry</a></li>
+                                    <li class="menuISearch"><a href="/ISearch">I-Search</a></li>
+                                    <li class="menuVehicleCheck"><a href="/VehicleCheck">Vehicle Check</a></li>
+                                </ul>
+                            </li>
+                            <li class="menuNew">
+                                <a alt="News" target="_blank" href="http://news.mycarinfo.com.my/">
+                                    Articles
+                                </a>
+                            </li>
+                            <li class="menuPackage"><a href="/Package">Credit Package</a></li>
+                                                            <li class="menuFAQ"><a href="/Home/FAQ">Glossary</a></li>
+                                <li class="menuAbout"><a href="/Home/About">About Us</a></li>
+                                <li class="menuContact"><a href="/Home/Contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="body">
+        
+        <div class="main-content">
+            <div class="inner-content">
+                                    <div class="content-wrapper">
+                        
+
+                    </div>
+                
+<div class="advance-search-wrapper">
+    <div class="advance-search-content" style="height: auto">
+        <div class="content-wrapper">
+            <h1 style="font-size: 1.3em; line-height: 1.0556; font-weight: 600; letter-spacing: -0.015em;
+                text-align: left; padding: 0;">
+                Welcome to MyCarInfo!
+            </h1>
+            <p style="font-size: 1.0em; line-height: 1.3333; font-weight: 200; text-align: left;
+                padding: 0;">
+                Check your Vehicle Market Value! Get NCD information! Check vehicle insurance information!
+                and more with MyCarInfo. Get all the <strong>INFORMATION THAT MATTERS</strong> with
+                our tools, services and extensive database. Our information is updated regularly.
+                If there are any errors, please do not hesitate to <a  href="Home/Contact" style="text-decoration: underline;">
+                    contact us</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="flexslider">
+    <ul class="slides">
+        <li class="slide-item"><a href="/MarketValue">
+            <img alt="Slider banner 1" src="/Images/banner-01.jpg" width="990" height="305" />
+        </a></li>
+        <li class="slide-item"><a href="/NCDCheck">
+            <img alt="Slider banner 2" src="/Images/banner-02.jpg" width="990" height="305" />
+        </a></li>
+        <li class="slide-item"><a href="/ISearch">
+            <img alt="Slider banner 3" src="/Images/banner-03.jpg" width="990" height="305" />
+        </a></li>
+        <li class="slide-item"><a href="/VehicleCheck">
+            <img alt="Slider banner 4" src="/Images/banner-04.jpg" width="990" height="305" />
+        </a></li>
+    </ul>
+    <div class="clear">
+    </div>
+    
+</div>
+<div class="clear">
+</div>
+<div class="advance-search-wrapper">
+    <div class="advance-search-content">
+        <div class="content-wrapper">
+            <h4 class="ish3 CrossSaleTitle">
+    Related:
+</h4>
+<div class="span3 MkVal">
+    <h4 class="ish3 title">
+        <a href="/MarketValue">
+            <img alt="Vehicle Market Value" src="/Images/icon-service-1.png" class="cust-icon-services"/>Vehicle Market Value
+        </a>
+    </h4>
+    Get a market price estimation of your vehicle
+</div>
+<div class="span3 NCD">
+    <h4 class="ish3 title">
+        <a href="/NCDCheck">
+            <img alt="NCD Enquiry" src="/Images/icon-service-2.png" class="cust-icon-services" />NCD Enquiry
+        </a>
+    </h4>
+    Get the No Claims Discount (NCD) information of an insured vehicle
+</div>
+<div class="span3 ISrch">
+    <h4 class="ish3 title">
+        <a href="/ISearch">
+            <img alt="I-Search" src="/Images/icon-service-3.png" class="cust-icon-services" />I-Search
+        </a>
+    </h4>
+    Get information on current and past insurers of a vehicle
+</div>
+<div class="span3 VehCheck">
+    <h4 class="ish3 title">
+        <a href="/VehicleCheck">
+            <img alt="Vehicle Check" src="/Images/icon-service-4.png" class="cust-icon-services" />Vehicle Check
+        </a>
+    </h4>
+    Check if a vehicle has been in a total loss or stolen
+</div>
+<div class="clear" style="margin-bottom: 20px;">
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>
+<div id="divFeeds">
+</div>
+<div class="compare-panel">
+    <div class="content-wrapper">
+        <div class="span6">
+            <div>
+                <h4 class="ish3">
+                    FIND YOUR NEW CAR</h4>
+                <form id="fmCompare2" action="/Valuation/SelectVehicle?version=compare" onsubmit="return ValidateForm(this, true);">
+                <input type="hidden" name="version" value="compare" />
+                <input type="hidden" id="compare1_Year2" name="compare1.Year" value="2018" />
+                <fieldset>
+                    <div>
+                        <span>Find out the specifications of cars you want to know more about and compare them.</span>
+                    </div>
+                    <div class="compare-criteria">
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_PriceFrom">Price From</label>
+                            </div>
+                            <select id="compare1_PriceFrom" name="compare1.PriceFrom"><option value="">- Select -</option>
+</select>
+                        </div>
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_PriceTo">Price To</label>
+                            </div>
+                            <select id="compare1_PriceTo" name="compare1.PriceTo"><option value="">- Select -</option>
+</select>
+                        </div>
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_Make">Make</label>
+                            </div>
+                            <select id="compare1_Make" name="compare1.Make"><option value="">- Select -</option>
+<option value="ALFA ROMEO">ALFA ROMEO</option>
+<option value="AUDI">AUDI</option>
+<option value="BENTLEY">BENTLEY</option>
+<option value="BMW">BMW</option>
+<option value="CHANA">CHANA</option>
+<option value="CHERY">CHERY</option>
+<option value="CHEVROLET">CHEVROLET</option>
+<option value="CHRYSLER">CHRYSLER</option>
+<option value="CITROEN">CITROEN</option>
+<option value="DAIHATSU">DAIHATSU</option>
+<option value="DS">DS</option>
+<option value="FERRARI">FERRARI</option>
+<option value="FIAT">FIAT</option>
+<option value="FORD">FORD</option>
+<option value="GREAT WALL">GREAT WALL</option>
+<option value="HAVAL">HAVAL</option>
+<option value="HONDA">HONDA</option>
+<option value="HUANGHAI">HUANGHAI</option>
+<option value="HYUNDAI">HYUNDAI</option>
+<option value="INFINITI">INFINITI</option>
+<option value="INOKOM">INOKOM</option>
+<option value="ISUZU">ISUZU</option>
+<option value="JAGUAR">JAGUAR</option>
+<option value="JEEP">JEEP</option>
+<option value="KIA">KIA</option>
+<option value="KING LONG">KING LONG</option>
+<option value="LAND ROVER">LAND ROVER</option>
+<option value="LEXUS">LEXUS</option>
+<option value="LOTUS">LOTUS</option>
+<option value="M.G.">M.G.</option>
+<option value="MAHINDRA">MAHINDRA</option>
+<option value="MAZDA">MAZDA</option>
+<option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+<option value="MINI">MINI</option>
+<option value="MITSUBISHI">MITSUBISHI</option>
+<option value="MITSUOKA">MITSUOKA</option>
+<option value="NAZA">NAZA</option>
+<option value="NISSAN">NISSAN</option>
+<option value="OPEL">OPEL</option>
+<option value="PERODUA">PERODUA</option>
+<option value="PEUGEOT">PEUGEOT</option>
+<option value="PORSCHE">PORSCHE</option>
+<option value="PROTON">PROTON</option>
+<option value="RENAULT">RENAULT</option>
+<option value="ROVER">ROVER</option>
+<option value="SAAB">SAAB</option>
+<option value="SKODA">SKODA</option>
+<option value="SMART">SMART</option>
+<option value="SSANGYONG">SSANGYONG</option>
+<option value="SUBARU">SUBARU</option>
+<option value="SUZUKI">SUZUKI</option>
+<option value="TATA">TATA</option>
+<option value="TD2000">TD2000</option>
+<option value="TOYOTA">TOYOTA</option>
+<option value="TVR">TVR</option>
+<option value="VOLKSWAGEN">VOLKSWAGEN</option>
+<option value="VOLVO">VOLVO</option>
+</select>
+                        </div>
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_Model">Model</label>
+                            </div>
+                            <select id="compare1_Model" name="compare1.Model"><option value="">- Select -</option>
+</select>
+                        </div>
+                    </div>
+                    <img class="right" height="155" width="157" src="/Images/CompareC_A.jpg" alt="Find Your New Car" />
+                    <div class="clear" style="height: 20px;">
+                    </div>
+                    <button type="submit" class="right btn-red">
+                        Go</button>
+                </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="span6">
+            <div>
+                <h4 class="ish3">
+                    KNOW YOUR CAR BETTER</h4>
+                <form id="fmCompare" action="/Valuation/SelectVehicle?version=compare" onsubmit="return ValidateForm(this);">
+                <input type="hidden" name="version" value="compare" />
+                <input type="hidden" id="compare1_PriceFrom2" name="compare1.PriceFrom" value="" />
+                <input type="hidden" id="compare1_PriceTo2" name="compare1.PriceTo" value="" />
+                <fieldset>
+                    <div>
+                        <span>Get all the information you need about your current car.</span></div>
+                    <br />
+                    <div class="compare-criteria">
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_Year">Year</label>
+                            </div>
+                            <select id="compare1_Year" name="compare1.Year"><option value="">- Select -</option>
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+<option value="2011">2011</option>
+<option value="2010">2010</option>
+<option value="2009">2009</option>
+<option value="2008">2008</option>
+<option value="2007">2007</option>
+<option value="2006">2006</option>
+<option value="2005">2005</option>
+<option value="2004">2004</option>
+<option value="2003">2003</option>
+<option value="2002">2002</option>
+<option value="2001">2001</option>
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+</select>
+                        </div>
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_Make">Make</label>
+                            </div>
+                            <select id="compare1_Make2" name="compare1.Make">
+                                <option value="">- Select -</option>
+                                    <option value="ALFA ROMEO">ALFA ROMEO</option>
+                                    <option value="AUDI">AUDI</option>
+                                    <option value="BENTLEY">BENTLEY</option>
+                                    <option value="BMW">BMW</option>
+                                    <option value="CHANA">CHANA</option>
+                                    <option value="CHERY">CHERY</option>
+                                    <option value="CHEVROLET">CHEVROLET</option>
+                                    <option value="CHRYSLER">CHRYSLER</option>
+                                    <option value="CITROEN">CITROEN</option>
+                                    <option value="DAIHATSU">DAIHATSU</option>
+                                    <option value="DS">DS</option>
+                                    <option value="FERRARI">FERRARI</option>
+                                    <option value="FIAT">FIAT</option>
+                                    <option value="FORD">FORD</option>
+                                    <option value="GREAT WALL">GREAT WALL</option>
+                                    <option value="HAVAL">HAVAL</option>
+                                    <option value="HONDA">HONDA</option>
+                                    <option value="HUANGHAI">HUANGHAI</option>
+                                    <option value="HYUNDAI">HYUNDAI</option>
+                                    <option value="INFINITI">INFINITI</option>
+                                    <option value="INOKOM">INOKOM</option>
+                                    <option value="ISUZU">ISUZU</option>
+                                    <option value="JAGUAR">JAGUAR</option>
+                                    <option value="JEEP">JEEP</option>
+                                    <option value="KIA">KIA</option>
+                                    <option value="KING LONG">KING LONG</option>
+                                    <option value="LAND ROVER">LAND ROVER</option>
+                                    <option value="LEXUS">LEXUS</option>
+                                    <option value="LOTUS">LOTUS</option>
+                                    <option value="M.G.">M.G.</option>
+                                    <option value="MAHINDRA">MAHINDRA</option>
+                                    <option value="MAZDA">MAZDA</option>
+                                    <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+                                    <option value="MINI">MINI</option>
+                                    <option value="MITSUBISHI">MITSUBISHI</option>
+                                    <option value="MITSUOKA">MITSUOKA</option>
+                                    <option value="NAZA">NAZA</option>
+                                    <option value="NISSAN">NISSAN</option>
+                                    <option value="OPEL">OPEL</option>
+                                    <option value="PERODUA">PERODUA</option>
+                                    <option value="PEUGEOT">PEUGEOT</option>
+                                    <option value="PORSCHE">PORSCHE</option>
+                                    <option value="PROTON">PROTON</option>
+                                    <option value="RENAULT">RENAULT</option>
+                                    <option value="ROVER">ROVER</option>
+                                    <option value="SAAB">SAAB</option>
+                                    <option value="SKODA">SKODA</option>
+                                    <option value="SMART">SMART</option>
+                                    <option value="SSANGYONG">SSANGYONG</option>
+                                    <option value="SUBARU">SUBARU</option>
+                                    <option value="SUZUKI">SUZUKI</option>
+                                    <option value="TATA">TATA</option>
+                                    <option value="TD2000">TD2000</option>
+                                    <option value="TOYOTA">TOYOTA</option>
+                                    <option value="TVR">TVR</option>
+                                    <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                                    <option value="VOLVO">VOLVO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="display-label">
+                                <label for="compare1_Model">Model</label>
+                            </div>
+                            <select id="compare1_Model2" name="compare1.Model">
+                                <option value="">- Select -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <img class="left" height="155" width="157" src="/Images/CompareC_A.jpg" alt="Know Your Car Better" />
+                    <div class="clear" style="height: 20px;">
+                    </div>
+                    <button type="submit" class="right btn-red">
+                        Go</button>
+                </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+                    <div class="content-wrapper">
+                        
+
+                    </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div id="footer">
+            <div class="content-wrapper">
+                <div class="span3">
+                    <h4 class="headline">
+                        Quick Access
+                    </h4>
+                    <ul class="list-unstyled">
+                            <li><a href="/MarketValue">Vehicle Market Value</a></li>
+                        <li><a href="/NCDCheck">NCD Enquiry</a></li>
+                        <li><a href="/ISearch">I-Search</a></li>
+                        <li><a href="/VehicleCheck">Vehicle Check</a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <h4 class="headline">
+                        Help
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/FindCar/Compare/0/0">Car Finder</a></li>
+                        <li><a href="/Home/FAQ">Glossary</a></li>
+                        
+                        <li><a href="/Home/SiteMap">Site Map</a></li>
+                         
+                    </ul>
+                </div>
+                <div class="span3">
+                    <h4 class="headline">
+                        Company
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/Home/About">About Us</a></li>
+                        
+                        <li><a href="/Home/Contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <h4 class="headline">
+                        Useful Links
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.ism.net.my/" target="_blank">ISM Insurance Services Malaysia</a></li>
+                        
+                        
+                        <li><a href="http://www.insuranceinfo.com.my/" target="_blank">INFO Insurance</a></li>
+                        <li><a href="http://www.bnm.gov.my/" target="_blank">Bank Negara Malaysia (BNM)</a></li>
+                        <li><a href="http://www.malaysiantakaful.com.my/Phased-Liberalisation/Motor-Product-Selector.aspx" target="_blank">Motor Takaful Product Selector</a></li>
+                        <li><a href="http://www.piam.org.my/phased-liberalisation-section/motor-product-selector/" target="_blank">Motor Product Selector</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="hr margin-top">
+            </div>
+            <div class="content-wrapper">
+                
+                <div class="span12" style="text-align: center;">
+                    <ul class="list-inline">
+                        <li>Copyright © MyCarInfo 2014 . All Rights Reserved.</li>
+                        <li><a href="/Home/Term">Terms and Conditions</a> | <a href="/Home/Privacy">Privacy Policy</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

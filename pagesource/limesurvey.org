@@ -1,0 +1,951 @@
+<!DOCTYPE HTML>
+<html lang="en-gb" dir="ltr"  data-config='{"twitter":0,"plusone":0,"facebook":0,"style":"ls2017"}'>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="https://www.limesurvey.org/" />
+	<meta name="keywords" content="LimeSurvey, PHPSurveyor, free, open source, Survey, tool, web tool, Questionnaires, mysql, PHP, mssql, umfrage, umfragen, MySQL, Microsoft SQL Server, Postgres, MSSQL, PHPESP, UCCASS, SPSS" />
+	<meta name="author" content="Carsten Schmitz" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="LimeSurvey: the Online-Umfrage Tool - Open-Source Suryeys" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>LimeSurvey: the online survey tool - open source surveys</title>
+	<link href="/templates/yoo_moustache/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.limesurvey.org/components/com_comprofiler/plugin/templates/default/bootstrap.css?v=311c53b77319f22e" rel="stylesheet" type="text/css" />
+	<link href="https://www.limesurvey.org/components/com_comprofiler/plugin/templates/default/fontawesome.css?v=311c53b77319f22e" rel="stylesheet" type="text/css" />
+	<link href="https://www.limesurvey.org/components/com_comprofiler/plugin/templates/default/template.css?v=311c53b77319f22e" rel="stylesheet" type="text/css" />
+	<link href="https://www.limesurvey.org/components/com_comprofiler/plugin/user/plug_cbconnect/css/cbconnect.css?v=e54ccd065d429889" rel="stylesheet" type="text/css" />
+	<link href="/media/mod_falang/css/template.css" rel="stylesheet" type="text/css" />
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"e28bc72131a1a946cef90da1d068bf4e","system.paths":{"root":"","base":""},"system.keepalive":{"interval":3600000,"uri":"\/component\/ajax\/?format=json"}}</script>
+	<script src="/media/template/gzip.php?jquery.min-eeb3cc93.js" type="text/javascript"></script>
+	<script src="/media/template/gzip.php?jquery-noconflict-ee2f5d4d.js" type="text/javascript"></script>
+	<script src="/media/template/gzip.php?jquery-migrate.min-2e5ea502.js" type="text/javascript"></script>
+	<script src="/media/template/gzip.php?bootstrap.min-bd24a851.js" type="text/javascript"></script>
+	<script src="/media/system/js/core.js?b13d0cb26dad4af4927d181c0ea5a86e" type="text/javascript"></script>
+	<!--[if lt IE 9]><script src="/media/system/js/polyfill.event.js?b13d0cb26dad4af4927d181c0ea5a86e" type="text/javascript"></script><![endif]-->
+	<script src="/media/system/js/keepalive.js?b13d0cb26dad4af4927d181c0ea5a86e" type="text/javascript"></script>
+	<script src="/media/widgetkit/uikit2-711b4ba0.js" type="text/javascript"></script>
+	<script src="/media/widgetkit/wk-scripts-db825e9e.js" type="text/javascript"></script>
+
+<link rel="apple-touch-icon-precomposed" href="/templates/yoo_moustache/apple_touch_icon.png">
+<link rel="stylesheet" href="/media/template/gzip.php?bootstrap-d3c9ad0e.css">
+<link rel="stylesheet" href="/media/template/gzip.php?theme-ecdcd187.css">
+<script src="/media/template/gzip.php?theme-ecbc2052.js"></script>
+
+<link rel="apple-touch-icon" href="/templates/yoo_moustache/apple_touch_icon.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/templates/yoo_moustache/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/templates/yoo_moustache/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/templates/yoo_moustache/favicons/manifest.json">
+<link rel="mask-icon" href="/templates/yoo_moustache/favicons/safari-pinned-tab.svg" color="#51c52c">
+<meta name="apple-mobile-web-app-title" content="LimeSurvey">
+<meta name="application-name" content="LimeSurvey">
+<meta name="theme-color" content="#ff0000">
+<meta name="p:domain_verify" content="4e66ff3db305453e8531a0f427e6b04f"/>
+
+
+<!-- Piwik/Matomo -->
+<script type="text/javascript">
+  
+  // Some cookie functions from https://stackoverflow.com/questions/1458724/how-do-i-set-unset-a-cookie-with-jquery
+  function createCookie(name, value, days) {
+      var expires;
+  
+      if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toGMTString();
+      } else {
+          expires = "";
+      }
+      document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+  }
+  
+  function readCookie(name) {
+      var nameEQ = encodeURIComponent(name) + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) === ' ')
+              c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0)
+              return decodeURIComponent(c.substring(nameEQ.length, c.length));
+      }
+      return null;
+  }
+  
+  function eraseCookie(name) {
+      createCookie(name, "", -1);
+  }
+
+  var _paq = _paq || [];
+  // Tracking for Facebook ad campaign with custom dimension.
+  // Further details in fblanding Joomla article.
+  var cookie = readCookie('customFacebookUserId');
+  if (cookie) {
+    customFacebookUserId = cookie;
+    _paq.push(['setCustomDimension', 1, customFacebookUserId]);
+    console.log('Pushed customFacebookUserId ' + customFacebookUserId);
+  }
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.limesurvey.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+
+  
+</head>
+
+<body class="tm-isblog  tm-navbar-fixed">
+
+		<div id="tm-headerbar" class="tm-headerbar">
+
+		
+				<nav class="tm-navbar uk-navbar">
+			<div class="uk-container uk-container-center">
+				<div class="uk-clearfix">
+
+										<a class="tm-logo uk-navbar-brand uk-hidden-small" href="https://www.limesurvey.org">
+	<img class="size-auto" width="200px" src="/images/logos/logo_main_white.png" alt="LimeSurvey Logo" /></a>
+					
+										<div class="uk-navbar-flip uk-visible-large">
+						<div class="uk-navbar-content">
+<form id="search-89-5aad8dbfef563" class="uk-search" action="/" method="post" data-uk-search="{'source': '/component/search/?tmpl=raw&amp;type=json&amp;ordering=&amp;searchphrase=all', 'param': 'searchword', 'msgResultsHeader': 'Search Results', 'msgMoreResults': 'More Results', 'msgNoResults': 'No results found', flipDropdown: 1}">
+	<input class="uk-search-field" type="text" name="searchword" placeholder="search...">
+	<input type="hidden" name="task"   value="search">
+	<input type="hidden" name="option" value="com_search">
+	<input type="hidden" name="Itemid" value="2601">
+</form>
+</div>
+					</div>
+					
+										<div class="uk-navbar-flip">
+						<ul class="uk-navbar-nav uk-visible-large"><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="/editions-and-prices">Editions &amp; Pricing</a><div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li class="uk-parent uk-nav-header">LimeSurvey Pro
+<ul class="uk-nav-sub"><li><a href="/editions-and-prices/limesurvey-pro/editions-and-prices-professional">Editions &amp; Pricing</a></li><li><a href="/editions-and-prices/limesurvey-pro/professional-features" class=" custom custom-action-colorize-parent primary">Features</a></li></ul></li><li class="uk-parent uk-nav-header">LimeSurvey CE
+<ul class="uk-nav-sub"><li><a href="/editions-and-prices/limesurvey-ce/editions-and-prices-community" class=" custom custom-hover-secondary">Editions &amp; Pricing</a></li><li><a href="/editions-and-prices/limesurvey-ce/community-features" class=" custom custom-action-colorize-parent secondary custom-hover-secondary">Features</a></li></ul></li></ul></div></div></div></li><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="/examples">Examples</a><div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li><a href="/examples/market-research">Market research</a></li><li><a href="/examples/employee-surveys">Employee surveys</a></li><li><a href="/examples/supplier-rating">Supplier rating</a></li><li><a href="/examples/customer-feedback">Customer feedback</a></li><li class="uk-parent"><a href="/examples/students">Students</a><ul class="uk-nav-sub"><li><a href="/examples/students/universities">Universities</a></li><li><a href="/examples/students/masterthesis">Master thesis</a></li></ul></li><li><a href="/examples/feedback">Feedback</a></li><li><a href="/examples/polls">Polls</a></li><li><a href="/examples/charities">Charities</a></li></ul></div></div></div></li><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="/community">Community</a><div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li><a href="/community/forums">Forums</a></li><li><a href="/community/extensions">Extensions</a></li><li><a href="/community/live-chat">IRC Live chat</a></li><li><a href="http://www.limesurvey.org/community/irc-logs-limesurvey">IRC logs</a></li><li><a href="/community/feature-requests">Feature requests</a></li><li><a href="/community/bug-tracker">Bug tracker</a></li><li class="uk-parent uk-nav-header">Help us!
+<ul class="uk-nav-sub"><li><a href="/community/contribute/translations-status" class=" custom custom-action-colorize-parent primary">Translations status</a></li><li><a href="http://manual.limesurvey.org/Development_overview" target="_blank" rel="noopener noreferrer">Development Wiki</a></li><li><a href="http://manual.limesurvey.org/How_to_join_the_LimeSurvey_project_team" target="_blank" rel="noopener noreferrer">Join the team!</a></li></ul></li></ul></div></div></div></li><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="#">Resources</a>
+<div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li><a href="/about-limesurvey/team-contributors">Team &amp; contributors</a></li><li><a href="/about-limesurvey/download">Download</a></li><li><a href="http://demo.limesurvey.org/admin/admin.php" target="_blank" rel="noopener noreferrer">Demo</a></li><li><a href="https://manual.limesurvey.org">Manual</a></li><li><a href="/about-limesurvey/references">References</a></li><li><a href="/about-limesurvey/license">License</a></li></ul></div></div></div></li><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="#">Partners</a>
+<div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li><a href="http://www.limesurvey.com/template-design">Template design</a></li><li><a href="http://www.limesurvey.com/support">Support</a></li><li><a href="http://www.limesurvey.com/integration">Integration</a></li><li><a href="http://www.limesurvey.com/training">Training</a></li><li><a href="http://www.limesurvey.com/customization">Customization</a></li><li><a href="http://www.limesurvey.com/installation">Installation</a></li><li><a href="http://www.limesurvey.com/survey-creation">Survey creation</a></li></ul></div></div></div></li><li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="/customer-support">Support</a><div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1"><div class="uk-grid uk-dropdown-grid"><div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar"><li><a href="/customer-support/contact-us">Contact us</a></li><li><a href="/customer-support/frequently-asked-questions">Frequently asked questions</a></li></ul></div></div></div></li></ul>
+
+		<ul class="uk-navbar-nav uk-visible-large">
+			<li class="uk-parent" data-uk-dropdown>
+				<a href="#">Log in</a>
+				<div class="uk-dropdown uk-dropdown-navbar"><form action="https://www.limesurvey.org/login" method="post" id="login-form" class="form-inline cbLoginForm">
+	<input type="hidden" name="option" value="com_comprofiler" />
+	<input type="hidden" name="view" value="login" />
+	<input type="hidden" name="op2" value="login" />
+	<input type="hidden" name="return" value="B:aHR0cHM6Ly93d3cubGltZXN1cnZleS5vcmcv" />
+	<input type="hidden" name="message" value="0" />
+	<input type="hidden" name="loginfrom" value="loginmodule" />
+	<input type="hidden" name="cbsecuritym3" value="cbm_78b79440_06497e98_f29f837bcb170051116229cbe5cbe307" />
+						<div class="userdata">
+			<div id="form-login-username" class="control-group">
+				<div class="controls">
+																									<div class="input-prepend input-append">
+								<span class="add-on">
+									<span class="cb_template cb_template_default">
+										<span class="cbModuleUsernameIcon fa fa-user" title="Username"></span>
+									</span>
+								</span>
+								<input id="modlgn-username" type="text" name="username" class="input-small" size="13" placeholder="Username" />
+							</div>
+															</div>
+			</div>
+			<div id="form-login-password" class="control-group">
+				<div class="controls">
+																									<div class="input-prepend input-append">
+								<span class="add-on">
+									<span class="cb_template cb_template_default">
+										<span class="cbModulePasswordIcon fa fa-lock" title="Password"></span>
+									</span>
+								</span>
+								<input id="modlgn-passwd" type="password" name="passwd" class="input-small" size="13" placeholder="Password"  />
+							</div>
+															</div>
+			</div>
+												<div id="form-login-submit" class="control-group">
+				<div class="controls">
+					<button type="submit" name="Submit" class=" uk-button uk-button-primary selector__action_add_click_dropdown">
+																			Log in											</button>
+				</div>
+			</div>
+			<p class="cbLoginFormAfterButton"><div class="cb_template cb_template_default cbConnectButtons"><button type="button" class="cbConnectButton cbConnectButtonIconText cbConnectButtonTwitter btn btn-default btn-sm btn-block" onclick="window.location='https://www.limesurvey.org/cbprofile/pluginclass/cbconnect?provider=twitter&return=aHR0cHM6Ly93d3cubGltZXN1cnZleS5vcmcv'; return false;" title="Sign in with your Twitter account"><span class="fa fa-twitter text-info fa-lg cbConnectButtonPrefix"></span>Log in with Twitter</button><button type="button" class="cbConnectButton cbConnectButtonIconText cbConnectButtonGoogle btn btn-danger btn-sm btn-block" onclick="window.location='https://www.limesurvey.org/cbprofile/pluginclass/cbconnect?provider=google&return=aHR0cHM6Ly93d3cubGltZXN1cnZleS5vcmcv'; return false;" title="Sign in with your Google account"><span class="fa fa-google-plus fa-lg cbConnectButtonPrefix"></span>Log in with Google</button><button type="button" class="cbConnectButton cbConnectButtonIconText cbConnectButtonGithub btn btn-default btn-sm btn-block" onclick="window.location='https://www.limesurvey.org/cbprofile/pluginclass/cbconnect?provider=github&return=aHR0cHM6Ly93d3cubGltZXN1cnZleS5vcmcv'; return false;" title="Sign in with your GitHub account"><span class="fa fa-github fa-lg cbConnectButtonPrefix"></span>Log in with GitHub</button></div></p>		</div>
+				<ul id="form-login-links" class="unstyled">
+							<li id="form-login-forgot">
+					<a href="https://www.limesurvey.org/forgot-login">
+																			Forgot Login?											</a>
+				</li>
+								</ul>
+				</form>
+</div>
+			</li>
+		</ul>
+<ul class="uk-navbar-nav uk-visible-large"><li><a href="/sign-up" class=" uk-button uk-button-tertiary uk-button-outline custom-sign-up-link">Sign up</a></li></ul>					</div>
+					
+										<a href="#offcanvas" class="uk-navbar-toggle uk-navbar-flip uk-hidden-large" data-uk-offcanvas></a>
+					
+										<a class="tm-logo-small uk-navbar-brand uk-visible-small" href="https://www.limesurvey.org">
+	<img class="size-auto" width="200px" src="/images/logos/logo_main_white.png" alt="LimeSurvey Logo" /></a>
+					
+				</div>
+			</div>
+		</nav>
+		
+	</div>
+	
+	
+		<div id="tm-top-a" class="tm-block tm-block-full">
+		<div class="uk-container uk-container-center">
+			<section class="tm-top-a uk-grid" data-uk-scrollspy="{targets:true, repeat:true}" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin><div class="uk-width-1-1">
+	<div class="uk-panel  custom-action-remove-body-padding">
+	<!-- 
+	"show_title" => false
+	"module class suffix" =>  custom-action-remove-body-padding
+	
+-->
+<div id="teaser_container" class="uk-container-center" style="position: relative;">
+    <!-- This teaser will be positioned top-a only on the frontpage -->
+    <div
+        class="uk-container-center uk-viewport-height uk-width-1-1 uk-flex uk-flex-column uk-flex-center uk-flex-middle"
+        style="height: 100%; background-image: url('/images/stock/teaser_people_back3_web.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center bottom;">
+        <div class="uk-container-center uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1 uk-text-center">
+            <div class="uk-container-center uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-width-small-1-1 uk-width-medium-10-10 custom custom-teaser custom-no-padding custom-background-muted faded-30">
+              <div class="uk-container uk-margin-top uk-margin-bottom">
+                <p class="uk-h1 teaser uk-text-center uk-width-1-1">Professional online surveys <br/>with LimeSurvey</p>
+                <p class="teaser uk-text-center uk-margin-large-bottom uk-width-1-1">The worldwide leading open source survey software
+                  <br/>as a professional <span data-uk-tooltip title="Software as a Service">SaaS</span> solution or as a self-hosted Community Edition.<br />Try out our free version or go straight for our advanced options.</p>
+                <div class="uk-container-center uk-grid uk-grid-large uk-margin-top uk-width-1-1 uk-margin-large-bottom">
+                    <a class="uk-button uk-button-primary uk-border-rounded uk-width-large-2-5 uk-width-medium-1-2 uk-width-small-1-1 uk-container-center" href='/index.php?option=com_limeservice&amp;view=limeservice&amp;task=limeservice.routeAlternatives'>Start now</a>
+                  <span class="uk-width-medium-1-5 uk-visible-large"></span>
+                    <a class="uk-button uk-button-secondary uk-border-rounded uk-width-large-2-5 uk-width-medium-1-2 uk-width-small-1-1 uk-container-center" href='/stable-release'>Host yourself</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-container-center uk-width-1-1 uk-hidden-small goToMain">
+      <a class="custom custom-scroll-down-arrow" href="#main"><i style="font-size:64px;" class="uk-icon-chevron-down"></i></a>
+    </div>
+</div></div></div>
+</section>
+		</div>
+	</div>
+	
+	
+		<div id="tm-middle" class="tm-block ">
+		<div class="uk-container uk-container-center">
+			<div class="tm-middle uk-grid" data-uk-scrollspy="{targets:true, repeat:true}" data-uk-grid-match data-uk-grid-margin>
+
+								<div class="tm-main uk-width-medium-1-1">
+
+					
+										<main class="tm-content">
+
+						
+						<div id="system-message-container">
+</div>
+<article class="uk-article" >
+
+	
+	
+	
+	
+	
+	
+	<div>
+		
+<div class="uk-container-center uk-width-1-1 uk-margin-top">
+    <h1 id="main" class="custom custom-margin top-15 bottom-15" align="center">LimeSurvey - The No.1 of open source survey tools</h1>
+        <div class="uk-container-center uk-margin-large-bottom uk-text-center">
+            <!--<h3>Let us convince you of our great software.</h3>-->
+            <p class="uk-margin-remove">LimeSurvey is the tool to use for your online surveys.<br/>
+              Whether you are conducting simple questionnaires with just a couple of questions or advanced assessments with conditionals and quota management, LimeSurvey has got you covered.<br/>
+              LimeSurvey is 100% open source and will always be transparently developed.<br/>
+              We can help you reach your goals.
+            </p>
+          	<p class="uk-margin-remove">
+              &nbsp;
+          </p>
+        </div>
+        <div class="uk-width-small-1-1 uk-margin-top uk-margin-bottom">
+            
+        </div>
+
+        <div class="uk-container-center uk-margin-large-top uk-text-center">
+            <h3 id='features'>Features tailored to your every need.</h3>
+            <p>
+              Explore the vast possibilities you have to create your survey professionally with LimeSurvey.<br/>
+              Starting with the inbuilt template editor through to advanced scripting abilities inside of the question editor and the mighty expression manager.<br/>
+              However, if some feature you need is missing, you may also submit a feature request.
+            </p>
+        </div>
+        <div class=" uk-width-small-1-1 uk-margin-large-bottom uk-margin-large-top">
+            		<div class="moduletable">
+						
+	<div class="uk-container-center uk-grid custom-invertable">
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_hosting custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_hosting', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-globe"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Hosting locations</h3>
+            <p class="uk-margin-large-bottom">Hosting locations in Germany, Canada, USA, Australia and the United Kingdom</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">During setup you may choose between Germany, Canada, USA, Australia and the United Kingdom. <br/> All of your survey data will be securely held on servers in the chosen country. </div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_hosting', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_language custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_language', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-language"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Multilingual</h3>
+            <p class="uk-margin-large-bottom">Supporting more than 80 languages</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Create your survey in more than 80 languages. You may even run one survey in several translations at the same time without the need to copy it.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_language', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_administrators custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_administrators', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-users"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Unlimited administrators</h3>
+            <p class="uk-margin-large-bottom">Give administrative access to colleagues or friends</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">With our fine-grained configurable permission system you can determine who may see which survey, edit certain aspects or whether survey administration users may create surveys at all and much more.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_administrators', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_questiontypes custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_questiontypes', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-comments"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">28 different question types</h3>
+            <p class="uk-margin-large-bottom">We have them all!</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">From simple single choice or multiple choice questions to complex Google Maps, file upload, equations and semantic differential question types - all at your fingertips.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_questiontypes', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_wysiwyg custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_wysiwyg', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-pencil-square-o"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">What you see is what you get</h3>
+            <p class="uk-margin-large-bottom">Simple editing of your HTML content</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Edit your survey contents with our HTML WYSIWYG editor. Enter any HTML code if you need to. Use piping, placeholder, micro-tailoring to display answers from previous questions later on.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_wysiwyg', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_quotas custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_quotas', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-ticket"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Quota management</h3>
+            <p class="uk-margin-large-bottom">Control your target group participation by quotas</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Create as many quotas as you like for your survey to ensure the required composition of your participant group. For example: You would like to question 500 women and 500 men of a certain age range.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_quotas', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_branching custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_branching', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-sitemap"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Skip logic &#x2F; branching</h3>
+            <p class="uk-margin-large-bottom">Set conditions for your questions based on previous answers</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Filter subquestions based on previous multiple choice questions or skip questions based on previous answers. That way you can avoid non-relevant questions and keep your survey participants happy.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_branching', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_cloning custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_cloning', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-clone"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Reuse survey content</h3>
+            <p class="uk-margin-large-bottom">Copy questions, answers or complete surveys</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">You can easily copy existing questions, answer options, partial or whole surveys at your convenience. This will save you a lot of work when setting up extensive surveys.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_cloning', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom dd_boundary_asessement custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.dd_boundary_asessement', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-tasks"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Analyze your surveys easier</h3>
+            <p class="uk-margin-large-bottom">Use assessment scores to analyze survey site.</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Use LimeSurvey's inbuilt assessment score system to create valuable analysis scores in your answer options. Immediately assess during the survey to create scores visible to the participant or not.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.dd_boundary_asessement', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_invite custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_invite', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-bullhorn"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Invite and remind</h3>
+            <p class="uk-margin-large-bottom">Invite your participant using LimeSurvey</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Send survey emails using our email server or your own email server. Non-responding participants can be reminded by email. Automatic bounce handling marks email addresses as invalid, so they are not invited again.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_invite', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_anonymous custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_anonymous', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-user-secret"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Anonymized responses - protected participants</h3>
+            <p class="uk-margin-large-bottom">Invite participants by email and anonymize their responses</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">If this feature is active you and your participants can be sure that there is no relation between the response and the participant. Once activated for a survey it is no longer possible to deactivate it once the survey was launched.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_anonymous', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_public custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_public', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-low-vision"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Open and closed surveys</h3>
+            <p class="uk-margin-large-bottom">Create invite-only, open or public surveys</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Enable public participation in your surveys or allow access just by personalized email invitation. You can also ask participants to register before participating.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_public', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_design custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_design', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-magic"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Design your survey appearance</h3>
+            <p class="uk-margin-large-bottom">Individual design of your survey</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Adjust your logo, colors, font type and sizes or adjust the whole survey layout to your individual requirement. Insert your own HTML or JavaScript code.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_design', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_offline custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_offline', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-print"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Offline functionality</h3>
+            <p class="uk-margin-large-bottom">Printable version and manual data entry</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Execute pen-and-paper surveys or personal surveys. After capturing the response data, enter it manually by using a convenient data entry mode and process it further.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_offline', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_visualize custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_visualize', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-line-chart"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Visualize your response data</h3>
+            <p class="uk-margin-large-bottom">Create statistics and graphs inside the application</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Create statistics and engaging graphs with a few clicks for all questions of your survey. Filter the results based on certain responses. Export the statistics to Excel or PDF.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_visualize', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_export custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_export', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-share-alt"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Export your responses</h3>
+            <p class="uk-margin-large-bottom">Export to all common formats and applications</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Export your responses as Microsoft Excel<sup>&reg;</sup>, Microsoft Word<sup>&reg;</sup>, SPSS<sup>&reg;</sup>, R, Stata<sup>&reg;</sup>, PDF or just as CSV file format.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_export', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+  <div class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1 uk-panel uk-position-relative lsi-feature uk-grid-margin">
+    <div class="uk-panel uk-panel-box custom action_boundary_reuseanswers custom-invertable primary custom-background-muted faded-50 uk-text-center">
+        <div class="uk-container-center uk-width-1-1 uk-position-relative" style="height: 350px;" data-uk-toggle="{target: '.action_boundary_reuseanswers', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+          <div class="custom-inverted-hidden uk-height-1-1">
+            <div class="uk-width-1-1 uk-text-center  ">
+              <div class="uk-vertical-align uk-container-center custom custom-icon-container only-border border-primary">
+                <i class="uk-container-center uk-vertical-align-middle uk-icon-recycle"></i>
+              </div>
+            </div>
+            <h3 class="uk-panel-title uk-margin">Dynamic questions</h3>
+            <p class="uk-margin-large-bottom">Create questions based on previous answers</p>
+          </div>
+          <div class="uk-height-1-1 custom-inverted-shown uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-text-center">Use answers given to your previous questions to validate and refine your results. Our powerful expression manager serves this purpose.</div>
+          </div>
+        </div>
+      <p class="uk-margin-remove">&nbsp;</p>
+      <button class="uk-button uk-button-primary uk-border-rounded uk-button-outline uk-width-8-10" data-uk-toggle="{target: '.action_boundary_reuseanswers', cls: 'custom-inverted', animation: 'uk-animation-fade'}">
+        <span class="custom-inverted-hidden ">Read more...</span><span class="custom-inverted-shown uk-flex-center">Read less...</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+		</div>
+	
+        </div>
+  		<div class=" uk-width-small-1-1 uk-margin-large-top">
+  					<div class="moduletable uk-container-center uk-container uk-grid uk-contrast custom custom-background-image custom-fullwidth custom-midmodule city-lightmap">
+						
+	<div class="uk-width-medium-1-2 uk-text-center uk-flex uk-flex-middle uk-flex-center uk-flex-column custom custom-background-primary faded-40 arrow-right">
+  <div class="uk-flex">
+    <h3 class="uk-width-9-10 uk-container-center">
+      LimeSurvey has a lot more features. Try it for free by creating an account now or convince yourself in our online demo.
+    </h3>
+  </div>
+</div>
+<div class="uk-width-medium-1-2 uk-text-center uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+    <a href="/component/limeservice/?view=limeservice&amp;task=limeservice.routeAlternatives" class="uk-button uk-button-primary custom custom-background-primary uk-border-rounded uk-width-medium-1-2 uk-margin-bottom">Sign up for free</a>
+  	<a href="http://demo.limesurvey.org/admin/admin.php" class="uk-button uk-button-tertiary uk-border-rounded uk-width-medium-1-2 uk-margin-bottom">Online Demo</a>
+</div>		</div>
+	
+        </div>
+        <div class="uk-container-center uk-width-1-1 custom custom-background-primary faded-90 custom-fullwidth">
+          <div class="uk-container uk-container-center custom custom-add-padding right-35 left-35">
+            <div class="uk-container-center uk-width-small-1-1 uk-margin-large-top">
+                <h3>Profit from our vibrant community.</h3>
+                <p>The main force of LimeSurvey is that it is transparent as well as publicly accessible. Open source is essentially the product of a community.<br/>
+                  It pools the power of many coders in order to achieve bigger things.<br/>
+                  Our community is our foundation. Thanks to the continuous feedback and the fresh ideas, we can constantly advance LimeSurvey.
+                  We control the flow of ideas to ensure that LimeSurvey is always a stable and reliable solution for your business.
+                 </p>
+            </div>
+          <div class="uk-width-small-1-1 uk-container-center uk-margin-remove custom custom-add-padding bottom-35">
+            		<div class="moduletable">
+						
+	<!-- This module should be defined as followed:
+    "show title" => false
+    Menu Assignment => only on 'the-tool'
+-->
+<!-- Modul auf Startseite-->
+<div class="uk-panel uk-panel-box uk-width-1-1" style="background: transparent;">
+    <div class="uk-container-center uk-grid" data-uk-grid-match="">
+        <div class="uk-width-medium-1-3 uk-width-small-1-1 uk-flex uk-flex-column">
+              <div class="uk-flex uk-flex-middle" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: false}">
+                  <img class="uk-container-center uk-width-1-2 uk-margin" src="/images/icons/icon_community_inverted.png" alt="A stylized circle of people." />
+              </div>
+              <div class="uk-width-1-1 uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-text-center">
+                  <h3>Vibrant community</h3>
+                  <a class="uk-container-center uk-width-1-1 uk-button uk-border-rounded uk-button-primary uk-margin-bottom uk-margin-top" href="/index.php/community"> Read more... </a>
+            </div>
+        </div>
+        <div class="uk-width-medium-2-3 uk-width-small-1-1 uk-flex">
+            <div class="uk-width-1-1 uk-container-center uk-margin-large uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+                <ul class="uk-width-1-1 uk-list custom custom-list custom-icon-check">
+                    <li>Use all advantages of our vibrant community</li>
+                    <li>Thousands of users worldwide help each other</li>
+                    <li>Community forum for your questions to other users</li>
+                    <li>Open source for 100% software transparency</li>
+                    <li>Template and Plugin directory with many user contributions</li>
+                    <li>Live chat for personal contact and quick help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+		</div>
+	
+          </div>
+      </div>
+	</div>
+</div>
+ 	</div>
+
+	
+	
+	
+	
+	
+</article>
+					</main>
+					
+					
+				</div>
+				
+		        		        		        
+			</div>
+		</div>
+	</div>
+	
+	
+	
+					<div id="tm-bottom-c" class="tm-block tm-block-dark ">
+			<div class="uk-container uk-container-center">
+				<section class="tm-bottom-c uk-grid" data-uk-scrollspy="{targets:true, repeat:true}" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin><div class="uk-width-1-1">
+	<div class="uk-panel  uk-container-center uk-margin-remove uk-container  
+uk-grid custom custom-background-primary">
+	<div class="uk-flex uk-flex-column uk-flex-space-around uk-text-center uk-container-center uk-width-1-1 custom custom-add-padding add35 custom-margin add35" style="min-height: 150px">
+  <h2>
+    Start now!
+  </h2>
+  <h4>
+    Just create your account and start using Limesurvey today.
+  </h4>
+  <a href="/index.php/cb-registration/registers" class="uk-container-center uk-button uk-button-tertiary uk-border-rounded uk-button-large uk-width-1-2">Register now</a>
+</div></div><div class="uk-panel">
+	<div id="join-newsletter-modal"  class="uk-modal">
+    <div class="uk-modal-dialog uk-modal-dialog-blank">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-modal-header">
+            Join our Newsletter!
+      	</div>
+      
+      
+  </div>
+</div>
+</div></div>
+</section>
+			</div>
+		</div>
+			
+		<div class="tm-block tm-block-footer">
+		<div class="uk-container uk-container-center">
+
+			<footer class="tm-footer uk-text-center">
+
+				
+				<div class="uk-panel">
+	<div class="uk-flex uk-center uk-flex-middle uk-margin-bottom">
+  <div class="uk-container-center">
+    <a href="https://www.facebook.com/LimeSurvey/" title="Like us on Facebook" data-uk-tooltip><i style="font-size:36px" class="uk-icon-facebook"></i></a>
+  </div>
+  <div class="uk-container-center">
+    <a href="https://twitter.com/LimeSurvey" title="Follow us on Twitter" data-uk-tooltip><i style="font-size:36px" class="uk-icon-twitter"></i></a>
+  </div>
+  <div class="uk-container-center">
+    <a href="https://github.com/LimeSurvey/LimeSurvey" title="Star us on GitHub" data-uk-tooltip><i style="font-size:36px" class="uk-icon-github"></i></a>
+  </div>
+  <div class="uk-container-center">
+    <a href="https://www.instagram.com/limesurvey/" title="Follow us on Instagram" data-uk-tooltip><i style="font-size:36px" class="uk-icon-instagram"></i></a>
+  </div>
+  <div class="uk-container-center">
+    <a href="https://www.linkedin.com/company-beta/12954515/" title="Follow us on LinkedIn" data-uk-tooltip><i style="font-size:36px" class="uk-icon-linkedin"></i></a>
+  </div>
+  <div class="uk-container-center">
+    <a href="https://www.xing.com/companies/limesurveygmbh" title="Follow us on Xing" data-uk-tooltip><i style="font-size:36px" class="uk-icon-xing"></i></a>
+  </div>
+</div></div>
+<div class="uk-panel  custom custom-footer-language-menu">
+
+
+<div class="mod-languages custom custom-footer-language-menu ">
+	<div class="pretext"><p>Language</p></div>
+
+    
+
+
+<ul class="lang-inline">
+    
+        <!-- >>> [PAID] >>> -->
+                    <li class="lang-active" dir="ltr">
+                                    <a href="/">
+                                                                            English                                            </a>
+                            </li>
+                <!-- <<< [PAID] <<< -->
+        
+    
+        <!-- >>> [PAID] >>> -->
+                    <li class="" dir="ltr">
+                                    <a href="/de/">
+                                                                            Deutsch                                            </a>
+                            </li>
+                <!-- <<< [PAID] <<< -->
+        
+    
+        <!-- >>> [PAID] >>> -->
+                    <li class="" dir="ltr">
+                                    <a href="/es/">
+                                                                            Español                                            </a>
+                            </li>
+                <!-- <<< [PAID] <<< -->
+        
+    
+        <!-- >>> [PAID] >>> -->
+                    <li class="" dir="ltr">
+                                    <a href="/fr/">
+                                                                            Français                                            </a>
+                            </li>
+                <!-- <<< [PAID] <<< -->
+        
+    </ul>
+
+</div>
+</div>
+<div class="uk-panel  custom custom-footer-menu"><ul id="footer-menu" class="uk-subnav uk-subnav-line uk-flex-center"><li class="uk-parent uk-nav-header">About us
+<ul><li><a href="/about-us/imprint">Legal notice</a></li><li><a href="/about-us/news">News</a></li><li><a href="/about-us/newsletter">Newsletter</a></li><li><a href="/about-us/blog">Blog</a></li></ul></li><li class="uk-parent uk-nav-header">Policies 
+<ul><li><a href="/policies/terms-conditions">Terms &amp; Conditions</a></li><li><a href="/policies/privacy-policy">Privacy policy</a></li><li><a href="/policies/revocation-information">Revocation information</a></li></ul></li></ul></div>
+			</footer>
+
+		</div>
+	</div>
+	
+	
+		<div id="offcanvas" class="uk-offcanvas">
+		<div class="uk-offcanvas-bar uk-offcanvas-bar-flip"><ul class="uk-nav uk-nav-offcanvas"><li class="uk-parent"><a href="/editions-and-prices">Editions &amp; Pricing</a><ul class="uk-nav-sub"><li class="uk-parent uk-nav-header">LimeSurvey Pro
+<ul><li><a href="/editions-and-prices/limesurvey-pro/editions-and-prices-professional">Editions &amp; Pricing</a></li><li><a href="/editions-and-prices/limesurvey-pro/professional-features" class=" custom custom-action-colorize-parent primary">Features</a></li></ul></li><li class="uk-parent uk-nav-header">LimeSurvey CE
+<ul><li><a href="/editions-and-prices/limesurvey-ce/editions-and-prices-community" class=" custom custom-hover-secondary">Editions &amp; Pricing</a></li><li><a href="/editions-and-prices/limesurvey-ce/community-features" class=" custom custom-action-colorize-parent secondary custom-hover-secondary">Features</a></li></ul></li></ul></li><li class="uk-parent"><a href="/examples">Examples</a><ul class="uk-nav-sub"><li><a href="/examples/market-research">Market research</a></li><li><a href="/examples/employee-surveys">Employee surveys</a></li><li><a href="/examples/supplier-rating">Supplier rating</a></li><li><a href="/examples/customer-feedback">Customer feedback</a></li><li class="uk-parent"><a href="/examples/students">Students</a><ul><li><a href="/examples/students/universities">Universities</a></li><li><a href="/examples/students/masterthesis">Master thesis</a></li></ul></li><li><a href="/examples/feedback">Feedback</a></li><li><a href="/examples/polls">Polls</a></li><li><a href="/examples/charities">Charities</a></li></ul></li><li class="uk-parent"><a href="/community">Community</a><ul class="uk-nav-sub"><li><a href="/community/forums">Forums</a></li><li><a href="/community/extensions">Extensions</a></li><li><a href="/community/live-chat">IRC Live chat</a></li><li><a href="http://www.limesurvey.org/community/irc-logs-limesurvey">IRC logs</a></li><li><a href="/community/feature-requests">Feature requests</a></li><li><a href="/community/bug-tracker">Bug tracker</a></li><li class="uk-parent uk-nav-header">Help us!
+<ul><li><a href="/community/contribute/translations-status" class=" custom custom-action-colorize-parent primary">Translations status</a></li><li><a href="http://manual.limesurvey.org/Development_overview" target="_blank" rel="noopener noreferrer">Development Wiki</a></li><li><a href="http://manual.limesurvey.org/How_to_join_the_LimeSurvey_project_team" target="_blank" rel="noopener noreferrer">Join the team!</a></li></ul></li></ul></li><li class="uk-parent uk-nav-header">Resources
+<ul class="uk-nav-sub"><li><a href="/about-limesurvey/team-contributors">Team &amp; contributors</a></li><li><a href="/about-limesurvey/download">Download</a></li><li><a href="http://demo.limesurvey.org/admin/admin.php" target="_blank" rel="noopener noreferrer">Demo</a></li><li><a href="https://manual.limesurvey.org">Manual</a></li><li><a href="/about-limesurvey/references">References</a></li><li><a href="/about-limesurvey/license">License</a></li></ul></li><li class="uk-parent uk-nav-header">Partners
+<ul class="uk-nav-sub"><li><a href="http://www.limesurvey.com/template-design">Template design</a></li><li><a href="http://www.limesurvey.com/support">Support</a></li><li><a href="http://www.limesurvey.com/integration">Integration</a></li><li><a href="http://www.limesurvey.com/training">Training</a></li><li><a href="http://www.limesurvey.com/customization">Customization</a></li><li><a href="http://www.limesurvey.com/installation">Installation</a></li><li><a href="http://www.limesurvey.com/survey-creation">Survey creation</a></li></ul></li><li class="uk-parent"><a href="/customer-support">Support</a><ul class="uk-nav-sub"><li><a href="/customer-support/contact-us">Contact us</a></li><li><a href="/customer-support/frequently-asked-questions">Frequently asked questions</a></li></ul></li></ul>
+<div class="uk-panel"><h3 class="uk-panel-title">Log in</h3><form action="https://www.limesurvey.org/login" method="post" id="login-form" class="form-inline cbLoginForm">
+	<input type="hidden" name="option" value="com_comprofiler" />
+	<input type="hidden" name="view" value="login" />
+	<input type="hidden" name="op2" value="login" />
+	<input type="hidden" name="return" value="B:aHR0cHM6Ly93d3cubGltZXN1cnZleS5vcmcv" />
+	<input type="hidden" name="message" value="0" />
+	<input type="hidden" name="loginfrom" value="loginmodule" />
+	<input type="hidden" name="cbsecuritym3" value="cbm_5807f2e9_07e007d4_75c39f227c96fae9fcd4af44bd71dbba" />
+						<div class="userdata">
+			<div id="form-login-username" class="control-group">
+				<div class="controls">
+																									<div class="input-prepend input-append">
+								<span class="add-on">
+									<span class="cb_template cb_template_default">
+										<span class="cbModuleUsernameIcon fa fa-user" title="Username"></span>
+									</span>
+								</span>
+								<input id="modlgn-username" type="text" name="username" class="input-small" size="14" placeholder="Username" />
+							</div>
+															</div>
+			</div>
+			<div id="form-login-password" class="control-group">
+				<div class="controls">
+																									<div class="input-prepend input-append">
+								<span class="add-on">
+									<span class="cb_template cb_template_default">
+										<span class="cbModulePasswordIcon fa fa-lock" title="Password"></span>
+									</span>
+								</span>
+								<input id="modlgn-passwd" type="password" name="passwd" class="input-small" size="14" placeholder="Password"  />
+							</div>
+															</div>
+			</div>
+										<input id="modlgn-remember" type="hidden" name="remember" class="inputbox" value="yes" />
+									<div id="form-login-submit" class="control-group">
+				<div class="controls">
+					<button type="submit" name="Submit" class="btn btn-primary">
+																			Log in											</button>
+				</div>
+			</div>
+					</div>
+				<ul id="form-login-links" class="unstyled">
+							<li id="form-login-forgot">
+					<a href="https://www.limesurvey.org/forgot-login">
+																			Forgot Login?											</a>
+				</li>
+										<li id="form-login-register">
+					<a href="https://www.limesurvey.org/cb-registration">
+																			Sign up											</a>
+				</li>
+					</ul>
+				</form>
+</div></div>
+	</div>
+	
+	
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.www.limesurvey.org"]);
+  _paq.push(["setDomains", ["*.www.limesurvey.org"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.limesurvey.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.limesurvey.org/piwik.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code --><noscript><strong>JavaScript is currently disabled.</strong>Please enable it for a better experience of <a href="http://2glux.com/projects/jumi">Jumi</a>.</noscript></body>
+</html>

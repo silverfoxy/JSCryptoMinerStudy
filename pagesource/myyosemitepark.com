@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.myyosemitepark.com/">https://www.myyosemitepark.com/</a></p>

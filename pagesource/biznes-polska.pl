@@ -1,0 +1,1 @@
+<html><head><title>Redirect</title></head><body><h1>Redirect</h1><p>You should go to <a href="https://www.biznes-polska.pl/">https://www.biznes-polska.pl/</a></p></body></html>

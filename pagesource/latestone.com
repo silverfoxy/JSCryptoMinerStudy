@@ -1,0 +1,1600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<link rel="dns-prefetch" href="//connect.facebook.net/">
+<link rel="dns-prefetch" href="//www.googleapis.com/">
+<link rel="dns-prefetch" href="//www.googletagmanager.com/">
+<link rel="dns-prefetch" href="//www.latestone.com/">
+<link rel="dns-prefetch" href="//schema.org/">
+<link rel="dns-prefetch" href="//cdn1.latestone.com/">
+<link rel="dns-prefetch" href="//cdn2.latestone.com/">
+<link rel="dns-prefetch" href="//cdn3.latestone.com/">
+<link rel="dns-prefetch" href="//cdn4.latestone.com/">
+<link rel="dns-prefetch" href="//d31qbv1cthcecs.cloudfront.net/">
+<link rel="dns-prefetch" href="//d5nxst8fruw4z.cloudfront.net/">
+<link rel="dns-prefetch" href="//www.facebook.com/">
+<link rel="dns-prefetch" href="//www.google.com/">
+<link rel="dns-prefetch" href="//www.google-analytics.com/">
+<link rel="dns-prefetch" href="//www.googleadservices.com/">
+<link rel="dns-prefetch" href="//secure.ccavenue.com/">
+<link rel="dns-prefetch" href="//secure.paytm.in/">
+<link rel="dns-prefetch" href="//secure.payu.in/">
+<link rel="dns-prefetch" href="//schema.org/Product">
+<link rel="dns-prefetch" href="//schema.org/Offer">
+<link rel="dns-prefetch" href="//2factor.in/">
+<link rel="dns-prefetch" href="//plus.google.com/">
+<link rel="dns-prefetch" href="//apis.google.com/">
+<link rel="dns-prefetch" href="//s2.smartlook.com/">
+<link rel="dns-prefetch" href="//rec.getsmartlook.com/">
+<link rel="dns-prefetch" href="//accounts.google.com/">
+<link rel="dns-prefetch" href="//web.facebook.com/">
+<link rel="dns-prefetch" href="//staticxx.facebook.com/">
+<link rel="dns-prefetch" href="//ssl.gstatic.com/">
+<link rel="dns-prefetch" href="//googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="//www.google.co.in/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<!-- Pixel Tracking -->
+<!-- Pixel Tracking -->
+<meta content="all,index,follow" name="robots"/>
+<title> Power Bank, Bluetooth Headset, Wrist Watch, Mobile Covers, Buy Online</title>
+<link rel="shortcut icon" href="http&#58;&#47;&#47;cdn4.latestone.com/user_content/images/favicon.gif" />
+<style type="text/css">
+@charset "utf-8";.redfocus{background-color: rgb(255, 240, 240) !important;border: 1px solid rgb(219, 177, 177) !important;box-shadow: rgb(217, 92, 92) 2px 0px 0px 0px inset !important;}.styled-select select:focus{border:none;background:#99000061;}.styled-select{background:url(//cdn4.latestone.com/user_content/images/down-arrow-button.png) no-repeat 98% 0;height:29px;width:50px;display:inline-flex}.black{background-color:#ebebeb}.styled-select select{background:transparent;border:none;font-size:14px;height:29px;padding:5px;width:60px!important}.Update{float:right!important;}.myAccountUpdateLogin label{display:inline-block !important;text-align:left;}a:hover,a:hover>span,a>span:hover{text-decoration:none}.backButton{position: absolute;color: blue !important;margin-left: 12px;line-height: 45px;text-decoration: underline;}.click-nav ul li ul,.togled{box-shadow:0 4px 8px -3px #555454}#main,.click-nav ul li,.nave ul,.ui-helper-reset,.ui-menu,ol,ul,ul#slideshow{list-style:none}a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,textarea,font,form,h1,h2,h3,h4,h5,h6,html,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:arial, Helvetica, tahoma, sans-serif;font-size:inherit}h3,h4{font-size:14px}h2,h3,h4,strong{font-weight:700}body{font-size:100%;background:#f1f1f1 !important;background-size:100% 100%}:after,:before,:focus{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}*,::after,::before{box-sizing:border-box;margin:0;padding:0}hr{background-color:#D4D4D4;border:0;clear:both;color:#D4D4D4;height:1px;margin:9px 0}fieldset,textarea.largeArea{width:100%}input,option,select,textarea{color:#010101;font-size:13px;background:#fff;padding:2px}select{padding:1px !important;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #ccc}input[type=file],option{border:none !important;padding:0 !important}input[type=checkbox],input[type=checkbox]:focus,input[type=radio],input[type=radio]:focus{border:none}:focus{outline:0}input:focus,select:focus,textarea:focus{border:1px solid #900}.about,.ship{border:1px solid #ccc}textarea{margin:0 5px 0 0}blockquote:after,blockquote:before,q:after,q:before{content:""}blockquote,q{quotes:"" ""}em{font-style:italic}a span{color:inherit}a:hover,a>span:hover{cursor:pointer}h1{font-size:20px;margin:0 0 5px}h2{font-size:18px}h3{color:#b61517}h4{color:#000}.headerHelper{font-size:small;font-weight:400;width:auto !important}.caption,label,label span{color:#555;font-size:84%;padding:0 5px 0 0;text-align:right}label span{padding:0 !important}table{border-collapse:collapse;border-spacing:0}<!--[iflteIE8]>#eCommercePageBody{background-color:#fff;zoom:1;filter:progid: DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=6)}<![endif]-->.container{float:left;margin:0 auto;width:100%}.design,.displayActionList{margin-top:10px}.displayActionList ul,li{list-style-type:none}.mainPanel h1,.newCustomer h3{color:#b61517}.pesSpot,.ptsSpot{float:left;width:100%}.plpEspot img{max-width:100%;height:auto}.eCommerceProductLink span{font-size:100%;width:auto}.design h3{color:#B61517}.design{width:374px;margin-bottom:10px;padding:15px 0 15px 10px;background-color:#f9f9f9;height:160px;display:inline-table}.ship{margin-left:-3px;border-left:none}.shippingaddress{font-size:13px;text-transform:capitalize;margin-left:20px}.account,.footer-terms-text,.form-wrapper button,.text1,.text2{text-transform:uppercase}.shippingaddress ul li div span{overflow-wrap:break-word}.shippingAddressShippingAddress{border:1px solid #eee;padding:10px}.displayList.address{display:block;float:none;width:100%}.displayList.address li{display:block !important;float:none !important;padding:0 !important;width:auto !important}.displayList.address li div{padding:2px 0 !important;text-align:left}.displayList.address li div span{display:inline;margin:0 2px 0 0}.multiAddressItems.group.group2,.multiAddressItems.grouping.grouping1,.shippingGroupCartItem.group.group2,.shippingGroupCartItem.grouping.grouping1{width:72%}.multiAddressItemAddress,.shippingGroupSummaryShipAddress,.shippingGroupSummaryShipOption{width:287px}.shippingGroupSummaryShipAddress .hide{display:none}.multiAddressItems.group.group1,.shippingGroupCartItem.group.group1{clear:left;float:left}.groupRow{display:table-row}.standardBtn a{color:#fff}a.standardBtn,input.standardBtn[type=button],input.standardBtn[type=submit]{-webkit-appearance:none;display:inline-block;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;color:#fff;font-size:14px;font-weight:400;padding:5px 15px;text-decoration:none;border:1px solid #900;background:#c00!important;}a.standardBtn:hover,input.standardBtn[type=button]:hover,input.standardBtn[type=submit]:hover{background:#c00 !important;color:#fff;text-decoration:none !important}a.standardBtn:hover span,input.standardBtn[type=button]:hover span,input.standardBtn[type=submit]:hover span{text-decoration:none !important;color:#fff}a.standardBtn:active,input.standardBtn[type=button]:active,input.standardBtn[type=submit]:active{color:#fff}.button{float:left;width:100%}.button a{color:#fff}.clearboth{clear:both !important}.previousButton{float:left;margin:10px 0 0}.continueButton{margin:10px 0 0;width:50%}.submitButton{float:left;margin:0 0 0 149px}.cancelButton,.exportToPdfButton,.showCartButton{float:left;margin:20px 0 0}.addressButton{float:left;margin:20px 0 0 10px}#eCommerceFooter:after,#eCommerceHeader:after,#eCommerceOuterBasicBevelWrap:after,#eCommercePageBody:after,#eCommerceProductDetailContainer:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}#eCommerceInnerBasicBevelWrapper{background-color:#fff;width:980px;margin:0 auto;padding:0}#eCommerceOuterBasicBevelWrap{margin:0 auto;padding:0}#eCommerceContent{width:100%;margin:0 auto}.links1{line-height:38px;display:block}.links1 a{display:inline;padding:0 10px;color:#a6a6a6 !important;text-decoration:none;font-size:12px;position:relative}.links1 a+a:before{display:inline;content:"|";clear:both;height:0;color:#a6a6a6;font-size:11px;padding-left:12px;position:absolute;left:-15px}#eCommerceHeader,.siteHeaderCart #siteCartStats a#siteShoppingCartSize{position:relative}.links1 a:hover{color:#D45C93 !important}.siteHeaderLinks{color:#a6a6a6;background-color:#f8f8f8;text-align:right;margin:0 0 8px;width:auto}.siteHeaderLinks ul{float:right}.siteHeaderLinks li:first-child{border-left:none}.siteHeaderLinks li:last-child{border-right:none}.siteHeaderLinks ul,a,li{font-size:small;color:#555}.footerLinks a{font-size:.85em !important;color:#555}.siteHeaderLinks a:hover{text-decoration:underline}.siteHeaderLinks a:visited{color:#555}.siteHeaderLinks li:first-child a{border-left:none;color:#555}#eCommerceHeader{float:left;width:100%;z-index:3;background:#f1f1f1}.siteHeaderLogo{float:left}.cartsize .cartList{overflow-y:auto;max-height:240px;width:730px}#eCommerceShowCart{position:relative;left:auto;top:auto;width:auto;height:auto}.siteHeaderCart{float:right;margin:5px 10px 5px 0}.siteHeaderCart #siteCartStats,.siteHeaderCart p{display:inline-block}#siteShoppingCart{margin-top:0;float:right;margin: 0px 0px;}.siteHeaderCart #siteCartStats .price,.siteHeaderCart #viewCartButton{display:none}.siteHeaderSearch{float:right;margin-top:10px;margin-left:50px;clear:right}#eCommerceFooter,#footer-bottom,.ui-helper-clearfix:after{clear:both}#searchAutoComplete ul.ui-autocomplete{-webkit-border-radius:none !important;width:518px !important;z-index:9999 !important}#searchButton{float:right;width:40px;z-index:1}
+#searchButton1 {float: right;z-index: 1;background: #d83c3c;padding:10px 15px;border: 1px solid #d83c3c;color:#fff;font-weight:700;-webkit-appearance: none;cursor: pointer;}.orIcon{padding:7px;background:red;border-radius:1400%;color:#fff;border:1px solid red}#errorMsg{font-size:13px;color:red;text-align:center;padding:5px 3px}#trackShipment input[type=text]{padding:8px;border:1px solid #ccc;font-size:12px}.details th,.leftt{font-weight:700;font-size:13px;color:#000}.leftt{padding:0 5px;min-width:120px;display:inline-block}.details td,.details th{padding:10px}#shippinmentAddressDetails{border-top:1px solid #ececec;margin:5px 0}#shippinmentAddressDetails td{vertical-align:top;padding:10px}#shippinmentAddressDetails td p{line-height:25px}.deatilsBLock{width:100%;overflow:scroll}.details{margin:3px 0;background:#f7f7f7;box-shadow:0 0 0 1px #efefef inset}.deatilsBLock .details{min-width:550px}.details th{text-align:left}#main{padding:0}#main li{float:left;width:150px;text-align:center;line-height:21px;background:#fff}#main li ul li{border-bottom:1px solid #ccc}#main li:hover{background:#e7e7e7}#main li a{display:block;padding:5px;color:#333;border:none !important;text-decoration:none}.togled{display:none;position:absolute;z-index:999;width:150px;border-bottom:2px solid #d30f31; }click-nav ul{font-weight:900}#main_div>li{position:relative;display:inline-block;cursor:pointer;}.click-nav ul li ul{position:absolute;z-index:9999;border:1px solid #e7e7e7;background:#fff}#eCommerceNavBar,#eCommerceNavBarMenu li.topLevel{float:left;position:relative}.click-nav ul .clicker{background:#2284B5;color:#FFF}.click-nav ul .active,.click-nav ul .clicker:hover{background:#196F9A}.click-nav ul li a{transition:background-color .2s ease-in-out;-webkit-transition:background-color .2s ease-in-out;-moz-transition:background-color .2s ease-in-out;display:block;padding:5px;color:#444;text-decoration:none !important;text-align:center;font-size:14px}.click-nav ul li a:hover{background:#F2F2F2}.click-nav .no-js ul{display:none}.click-nav .no-js:hover ul{display:block}.nav-link a{color:#2BA6CB;text-decoration:none}.siteHeaderCart #frmSearchForm{display:inline-block}#eCommerceNavBar{width:100%;z-index:5;margin-top:5px}#eCommerceNavBarWidget{display:none}#eCommerceNavBar ul#eCommerceNavBarMenu{float:left;position:relative;width:980px;border-top:2px solid #e7e7e7;border-bottom:5px solid #444;margin-top:10px;background:#fff}#eCommerceNavBarMenu li a{display:block}#eCommerceNavBarMenu li.navSpacer{float:left}#eCommerceNavBarMenu li.topLevel>a{text-decoration:none;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-weight:700;line-height:20px;padding:9px 24px !important;text-align:center;color:#333;text-transform:capitalize}#eCommerceNavBarMenu li.topLevel:hover>a,#eCommerceNavBarMenu li.topLevel>a:hover{color:red}#eCommerceNavBarMenu>li:hover{visibility:inherit;color:#000;background-color:#f0f0f0}#eCommerceNavBarMenu ul{border:1px solid #ccc;background:#FFF;border-top:none;left:-9999px;width:195px;position:absolute;z-index:999}#eCommerceNavBarMenu li ul li:nth-child(n+12),#eCommerceNavBarMenu li:hover ul ul,#eCommerceNavBarMenu li:hover ul ul ul,#eCommerceNavBarMenu li:hover ul ul ul ul,#eCommerceNavBarMenu ul li ul{display:none}#eCommerceNavBarMenu ul li:hover ul{display:block;margin-left:188px;margin-top:-29px;max-width:190px}#eCommerceNavBarMenu li li li li:hover ul,#eCommerceNavBarMenu li li li:hover ul,#eCommerceNavBarMenu li li:hover ul,#eCommerceNavBarMenu li:hover ul{display:block}#eCommerceNavBarMenu li>a:after{float:right;content:'+'}#eCommerceNavBarMenu li.topLevel>a:after{content:none}#eCommerceNavBarMenu ul li a{padding:3px 1px;display:block;font-size:100%;font-weight:500;text-decoration:none;max-width:180px}#eCommerceNavBarMenu li>a:only-child:after,#eCommerceNavBarMenu>li>a:after{margin-left:0;content:''}#eCommerceNavBarMenu li.sfHover ul,#eCommerceNavBarMenu li:hover ul{left:0}#eCommerceNavBarMenu li li a{color:#444}#eCommerceNavBarMenu li li a:hover{color:#d81b22}#eCommerceNavBarMenu ul li:hover{background-color:#eee}.subLevel{padding:5px 8px;border-bottom:1px solid #ccc}a.subLevel{border:0}#eCommercePageBody{display:block;clear:both;z-index:1;background-color:#fff}#eCommercePageBody #eCommerceMainPanel.homePage{background-color:#f1f1f1}#eCommerceMainPanel.leftPanel{border-left:1px dotted #ccc;display:inline;float:left;margin:10px 0;padding:0 10px;width:80%;z-index:0}.ui-tabs,.ui-tabs-nav{border:none !important}#eCommercePageBody #eCommerceMainPanel.mainPanel{float:left;padding:10px;width:100%}#eCommerceLeftPanel{display:inline;float:left;margin:10px 0;padding:0 5px 0 1px;width:20%}.container.tabs.pdpTabs{margin:0;padding:0}.ui-tabs{width:100%}.decriptionview{width:70%;float:left;margin-top:10px}.ui-tabs-nav{background-color:#ccc}.ui-tabs-nav li{background:#e3e3e3 !important}.ui-tabs-nav li a{color:#7D7D7D;font-size:16px;font-weight:400}.ui-tabs-nav li.ui-state-active{background:#fff !important}#leftcolumn{margin-top:10px;min-height:200px;width:20%;float:left;display:block}#rightcolumn{width:75%;margin-top:15px;display:block;float:right}#footer-bottom .copyright{color:#444;padding:15px;text-align:center;background-color:#fff;font-size:.7em}#eCommerceFooter{position:relative;width:980px;margin:0 auto;background-color:#fff;border-top:1px dotted #ccc}.footerColumn{float:left;margin:0;min-height:125px;min-width:150px;padding:0 0 0 46px;width:25%}.ui-helper-zfix,.ui-widget-overlay{left:0;top:0;width:100%;height:100%}.footerColumn h3{margin-top:10px;color:#fff}.footerLinks a:link,.footerLinks a:visited{color:#666}.footerLinks li{margin:7px 0 0;color:#666;font-weight:700;font-size:.8em}.footerLinks a:hover{text-decoration:underline}.ui-helper-hidden{display:none}.ui-helper-hidden-accessible{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px)}.ui-helper-reset{margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font-size:100%}.ui-helper-clearfix:after,.ui-helper-clearfix:before{content:"";display:table}.ui-helper-clearfix{zoom:1}.ui-helper-zfix{position:absolute;opacity:0;filter:Alpha(Opacity=0)}.dialog{width:auto !important;height:auto !important}#scrollToTop{position:fixed;right:10px;bottom:20%; z-index:55;}#slideshowWrapper,.container,.container>header{position:relative}.sizeChart table{margin:0 0 10px;width:100%}.sizeChart h3{margin:0 0 10px}.ui-tabs-panel .displayBox1 p{padding:0 0 5px;width:100%}.clearfix:after,.clearfix:before{content:" ";display:table}.container>header{width:90%;max-width:1240px;margin:0 auto;padding:30px}.main{padding-bottom:80px}.container>header h1{font-size:34px;line-height:38px;margin:0;font-weight:700;color:#333;float:left}.container>header h1 span{display:block;font-size:20px;line-height:26px;font-weight:300}#left{float:left;width:63%;border:1px solid #ccc}#right{float:right;width:35%}.account{padding:5px 0;font-size:16px;color:#848484}.box{background:#e4e4e4;border-bottom:1px solid #ccc}.left{float:left}.right{float:right}.buttons{width:75%;display:inline-block;padding:10px 0;background-color:#fff}#slideshowWrapper ul,.nave ul,a,li{padding:0}.horizontalList iframe{margin-top:0}#slideshowWrapper{width:auto;margin:auto;height:300px}#fssNext,#fssPrev{position:absolute;top:80px;width:67px;height:143px;text-indent:-999999px}#fssPrev{left:-20px;background:url(//cdn4.latestone.com/user_content/images/arrows.png) -67px 0}#fssNext{left:690px;background:url(//cdn4.latestone.com/user_content/images/arrows.png) no-repeat}.nave,.nave ul li a,.nave ul li a:hover{background:#eee}ul#slideshow{margin:auto;width:980px;height:297px;overflow:hidden}#fssList,#fssNext a,#fssPlayPause,#fssPrev a{display:none}#fssNext a:hover,#fssPrev a:hover,.nave ul li{display:block}.nave{float:left;margin-top:25px}.nave ul{margin:0}.nave ul li{position:relative;float:left}.nave li ul{display:none;border:1px solid #eee}.nave ul li a{display:block;padding:5px 10px;white-space:nowrap;color:#444}.nave li:hover ul{display:block;position:absolute}.nave li:hover li{float:none}.nave li:hover a{background:#fff}#drop-nav li,#drop-nav li:hover,.nave li:hover li a:hover{background:#eee}.nave #drop-nav li ul li{border-top:0}.images img{margin:0 auto;max-width:100%;height:auto;opacity:.7}.footer-terms-text{padding:3px 0 0 15px;color:#848484}.ch-footer-bottom,.ch-footer-bottom a{color:#848484}.ch-footer-bottom{clear:both;font-size:12px;padding:5px;background-color:#fff}.form-wrapper{width:628px;background:#444;background:rgba(0, 0, 0, .2)}.form-wrapper input{width:521px;height:40px;padding:10px 5px;float:left;font:14px;font-style:italic;background:#fff;border:1px solid #ccc}.form-wrapper input:focus{outline:0;background:#fff}.form-wrapper input::-webkit-input-placeholder{color:#999;font-weight:400;font-style:italic}.form-wrapper input:-moz-placeholder{color:#999;font-weight:400;font-style:italic}.form-wrapper input:-ms-input-placeholder{color:#999;font-weight:400;font-style:italic}.form-wrapper button{overflow:visible;position:relative;float:right;border:0;padding:0;cursor:pointer;height:40px;width:110px;font:700 15px/40px 'lucida sans', 'trebuchet MS', Tahoma;color:#fff;background:#d83c3c;}.text1,.text2{font-weight:700}.form-wrapper button:hover{background:#e54040}.form-wrapper button:active,.form-wrapper button:focus{background:#c42f2f}.form-wrapper button:before{content:'';position:absolute;border-width:8px 8px 8px 0;border-style:solid solid solid none;border-color:transparent #d83c3c;top:12px;left:-6px}.form-wrapper button:hover:before{border-right-color:#e54040}.form-wrapper button:focus:before{border-right-color:#c42f2f}.form-wrapper button::-moz-focus-inner{border:0;padding:0}.cf:after,.cf:before{content:"";display:table}.cf{zoom:1}.contact{font-size:16px;text-decoration:underline;color:#078cde}.text1{color:#ad0800;font-size:20px}.text2{color:#444;font-size:15px;margin-top:10px}#search_displayDialog{max-width:600px !important}s{text-decoration:none !important;font-size:14px;color:#676767 !important;padding:0 5px 0 0}.best{width:100%;padding:0;margin-top:10px;height:100%}.deals,.sellers{padding:0;height:auto;margin:0}.sellers{float:left;width:70%;background:#f1f1f1 !important}.deals{float:right;width:28%}.banner,.sellershead{width:100%;background:#fff}.sellershead{font-size:20px;border-bottom:5px solid #4d4d4d;margin-bottom:10px}.banner{padding:0;margin:0;height:auto}.banner1,.banner2,.hotdeal,.hotdeal1{background:#fff;padding:0;margin:0 0 10px;height:auto}.banner1,.banner2{width:49%;border:1px solid #ccc}.banner1{float:left}.banner2{float:right}.hotdeal,.hotdeal1{width:100%;border:1px solid #dddcde}.brands{width:100%;padding:0;margin:0;height:100%;text-align:center}.banner1_img,.brand1,.brand2{height:auto}.brand1{width:18.5%;margin:0 0 10px 5px;border:1px solid #ccc;display:inline-block}.brand2{width:19%;margin:0 0 10px 15px;border:1px solid #fff;float:left;background:#fff}.banner1_img,.side{max-width:100%;width:100%}.brand1:hover,.brand2:hover{border:1px solid #27a6d3;cursor:pointer}.side{height:101px}.brandimg{width:auto;max-width:100%;height:auto}.sale_head{text-align:center;margin-top:10px;padding:10px;border-bottom:2px solid #ad0800;background-color:#e2e2e2}.plpEspot p{font-size:10px;text-align:justify;color:#444;font-family:arial;padding:5px}#flip,#panel{display:none}h3.CategoryFacetTitle{display:none;margin:0 0 20px}.facetGroup,h3.facetGroup{margin-left:5px}h3.facetGroup{color:#444;font-weight:700;border-bottom:2px solid #444;font-size:100%;padding:6px 2px;margin-top:0}h3.facetGroup.seeMoreFacetGroupLink{cursor:pointer;background:url(//cdn4.latestone.com/user_content/images/facetCollapseArrow.png) left 50% no-repeat}h3.facetGroup.seeLessFacetGroupLink{cursor:pointer;background:url(//cdn4.latestone.com/user_content/images/facetExpandArrow.png) left 50% no-repeat}.pagingBtn.first a,.pagingBtn.first.disabled,.pagingBtn.last a,.pagingBtn.last.disabled,.pagingBtn.next a,.pagingBtn.next.disabled,.pagingBtn.previous a{background-repeat:no-repeat}#shop_by_category{margin-bottom:10px}#shop_by_category li:hover{background-color:#dedede}ul.facetGroup li{margin:0 0 5px;padding:5px 0 5px 3px}ul.facetGroup li:last-child{margin:0 0 20px}a.seeLessLink,a.seeMoreLink{border-bottom:1px dotted;color:#2b2b2b;padding:0 0 1px}a.seeLessLink:hover,a.seeMoreLink:hover{border-bottom:1px solid !important;text-decoration:none}.js_facetValue li,a:hover{color:#d81b22}.clp-box-padd span,.loicn,.loicn1{display: inline-block;}.btn,.desc_block,.loicn,.outofstock{vertical-align:middle}.lo-fa,.lo-gp,.lo-pe,.lo-tw{width:15px;height:15px}.loicn{background-image:url("//cdn4.latestone.com/user_content/images/lo_icons.png");background-repeat:no-repeat}.lo-fa{background-position:-12px -94px}.lo-tw{background-position:-12px -117px}.lo-pe{background-position:-12px -140px}.lo-gp{background-position:-12px -162px}.lo-db-ar-right{width:12px;height:12px;background-position:-23px -326px}.lo-cart{width:23px;height:23px;background-position:-6px -184px}.lo-cart-ready{width:23px;height:22px;background-position:-6px -208px}.lo-top-scroll{width:40px;height:40px;background-position:3px 0}.lo-top-scroll:hover{background-position:3px -47px}.lo-secure-lock{width:28px;height:32px;background-position:-7px -235px}.lo-money-back{width:28px;height:28px;background-position:-6px -272px}.lo-user{width:23px;height:20px;background-position:-6px -565px;margin:0 auto}.lo-truck{width:24px;height:23px;background-position:-6px -705px;margin:0 auto}.lo-caret{width:15px;height:20px;background-position:-9px -590px;margin:0 auto}.lo-refresh{width:33px;height:31px;background-position:-2px -342px;margin:0 auto}.lo-remove{width:26px !important;height:27px;background-position:-7px -382px;margin:0 auto;margin-left:0 !important}.lo-double-right:after{content:">>"}.lo-double-left:after{content:"<<"}.lo-fb{background-position:-7px -421px;margin-left:0 !important}.lo-fb,.lo-gp-big{width:26px;height:31px;margin:0 auto}.lo-gp-big{background-position:-5px -467px;margin-left:0 !important}.lo-arrow-down{background-position:-5px -542px;margin-right:-17px;width:20px;height:15px}.safesecure_block{display:block;padding:5px 10px;width:calc(100% - 13px);border:1px solid #DDD;background-color:#F0F0F0}.safesecure_block:after{content:"";display:block;clear:both}.img_block{float:left;width:35%}.desc_block{float:right;width:65%;padding:10px 0}.desc_block h1{font-size:16px;color:#13164C}.desc_block P{font-size:12px;font-style:italic;color:#7A1717;line-height:20px}.readmorebtn{padding:5px 10px;border:1px solid #BB0909;background-color:#BB0909;color:#fff;font-size:11px}.action.detailLink.plpDetailLink{text-align:center}.red,.red_small{color:#fff;background:#d30f31 none repeat scroll 0 0;text-shadow:1px 1px 1px #d30f31}.button{border:0px;-webkit-appearance: none;border-radius:5px;box-shadow:0 0 2px #fff inset;text-transform: none !important;font-size:1.2em;margin-top:10px;padding:8px 10px;text-decoration:none !important;}.container.shipAddress.shippingGroupSummaryShipAddress.firstRow label{font-size:12px;font-weight:700;text-transform:uppercase}.nave ul li a,a{text-decoration:none}.boxListItemGrid.productItem.PLP ul{min-height:290px;padding:4px;border:1px solid #fff}.boxListItemGrid.productItem.PLP{min-height:290px;border:1px dotted #ccc}.productItem{float:left;margin:0 10px 10px 0;width:180px !important;min-height:200px}.plpThumbImage img{display:block;min-height:136px;max-width:160px;max-height:155px;width:auto;height:auto;margin:auto}.priceSavingPercent label,.priceSavingPercent span{color:green;font-size:small;font-weight:700}.priceOnline label,.priceOnline span{color:#900}.currency label,.currency span{text-align:center}.mainPanel h1{display:none;}.cart_text {font-size: 20px;color: #B80000;margin-bottom: 10px}
+.boxListItemTabular .showCartOrderItemsItemName.itemName span{max-height: 65px;overflow: hidden;}.ShowCartOrderItems .group1{min-width:380px;}.inlineQty{min-width:200px;}.item-image-s{min-width:190px;}.item-s{display:none;}.item-address{display:none;}.shippingaddress{margin-left:0px!important}.update-btn{bottom:10px;position:absolute;}.shippingGroupSummaryItemQty{width:35%!important;}.cart-nameqty{width:70%}.shipping-s{width:29%;}.cart-items-s{width:19%!Important;}.cart-description1-s, .cart-price-s{width:25%!Important;}.cart-total1-s{width:20%!important;text-align:left!important;}.itemName-s{width:49%!important;min-width: 236px;}.itemQty-s{width:30%!important;}.shippingaddress-s{margin-left:0px!important;width:40%;}.select_wrapper {background:url(//cdn4.latestone.com/user_content/images/down-arrow-button.png) no-repeat 100% 0;height:29px;background-color:#ececec;line-height: 30px;width: 50px;display: inline-block;border-radius: 3px;cursor: pointer;position: relative;}.select_wrapper:hover {background:#ec5c7c3;}.select_wrapper span {display: block;width: 25px!important;text-align:center!important;margin: 0 3px 0 1px;padding:0 3px;}.select_wrapper .select_inner {background: #fff;display: none;border-radius: 5px;border-top-left-radius: 0px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);color: #687278;position: absolute;left: -1px;top: -1px;width: 180%;z-index: 3;}.select_wrapper .select_inner li {border-bottom: 1px solid #eee;text-align: center;padding: 0 5px;display:block!important;}.select_wrapper:focus{border: 1px solid #717070}.select_wrapper:hover{border: 1px solid #717070}.select_wrapper.active,.select_wrapper:active{border: 1px solid #717070}.select_wrapper:visited{border: 1px solid #717070}.select_wrapper .select_inner li:hover {background: #eee;}.select_wrapper .select_inner li:active {background: #eee;}.select_wrapper .select_inner li:focus {background: #eee;}.select_wrapper .select_inner li:last-child {border: none;border-radius: 0 0 5px 5px;}.select_wrapper .select_inner li:first-child {border-radius: 5px 5px 0 0;}.close {color: #aaaaaa;float: right;font-size: 18px;font-weight: bold;}.close:hover, .close:focus {color: #000;text-decoration: none;cursor: pointer;}.maxQmsg{color: #f00;font-size: 12px;width: 200px;display: inline-block;min-height: 30px;vertical-align: middle;margin-left: 4px;}
+@media only screen and (max-width:769px){.ShowCartOrderItems .group1{min-width:380px;}.boxList .shippingGroupSummary.boxListItemTabular {margin-top:0px;border: 0px solid #ddd !important;}.item-image-s{min-width:120px!important;}.displayBox ul{position:relative;}.mobileabsRyt{position:absolute;right:35px;bottom:10px;}.boxListItemTabular span.inlineQty{min-width:20px;display:inline-block;}.item-s{display:inline-block!Important;bottom:30px;positon:absolute;}.margin-top-10{margin-top:8px!important;}.cart-mobile{display:none;}.categoryItem{width:100% !important;min-height:30px !important;margin:0!important;display:block !important;}.padding{padding:13px 15px !important}}@media only screen and (max-width: 640px){.PDP.group{width:100% !important}#eCommerceLeftPanel,#lightCart_displayDialog{display:none}.head_security,.mainul,.cont-rightship1{display:none}.button_font{font-size:11px !important}}@media only screen and (max-width: 640px){.siteHeaderSearch{width:85% !important;margin-top:0}.form-wrapper{width:100%;background-color:#fff}.form-wrapper button{width:100%;font-size:80%}#searchContainer{width:100%}.form-wrapper button{width:100%;font-size:80%}#searchButton{width:20%}#searchContainer input[type="text"]{float:right;width:100% !important}#eCommerceInnerBasicBevelWrapper{background-color:#fff;width:100%;margin:0 auto;padding:0}#searchField{float:left;margin-left:0;overflow:hidden;padding:0 5px 0 0;width:99%}#eCommercePageBody #eCommerceMainPanel.leftPanel,#eCommercePageBody #eCommerceMainPanel.mainPanel{width:100%;margin:10px 0}}@media only screen and (max-width: 640px) and (min-width: 360px) and (orientation: portrait){#searchField{float:left;margin-left:0;overflow:hidden;padding:0 5px 0 0;width:80%}#searchContainer{width:100%}}@media only screen and (max-width: 480px) and (min-width: 200px){.siteHeaderLogo{float:none !important;text-align:center}.sellers,.banner,.banner1,.banner2,.deals,#header .checkout-logo{width:100%}#leftcolumn,.ShowCartOrderItems.group3{display:none}#eCommerceFooter,#rightcolumn,.signin-footer{width:100%}.footerColumn{min-width:50%}.productItem{float:none !important;width:auto !important}.boxList{width:100%}img{max-width:100%;height:auto}}@media only screen and (min-width: 200px) and (max-width: 480px) and (orientation: portrait){#siteLogo{width:45% !important}#searchField{float:left;margin-left:0;overflow:hidden;padding:0 5px 0 0;width:80%}}
+@media only screen and (max-width:570px){.ShowCartOrderItems .group1{min-width:200px!important;}.item-address{display:block!Important;padding:3px 0;font-weight: 700;}.shippingGroupItemName div span{min-width:288px !important;margin-right: 20px;}.boxListItemTabular span {display: block;}.cart-items-s{width:40%!important;}.cart-description1-s{width:60%;}.pr-width{min-width:40%!important;}.it-width{min-width:60%!important;}.multiAddressItems.group.group2, .multiAddressItems.grouping.grouping1, .shippingGroupCartItem.group.group2, .shippingGroupCartItem.grouping.grouping1{width:100%!important;}.itemName-s{width:49%!Important;}.update-btn{padding-left:17px!important;bottom:10px;position:static!important;}.cart-nameqty{width:100%!important;}.send-email-button{font-size:small;margin-left:0px !important;float:right;margin-right:10px!important;}.cart_text{padding: 8px 0px;margin-bottom: 0px;font-weight: 700;font-size: 17px;color: #000;background: #ccc;}.forgot-input{width:100% !important; margin-left:0px !important}.cart-item-heading-bg{display:none;}.boxListItemTabular .group, .boxListItemTabular .grouping{display: block !important;}.ShowCartOrderItems .group1{width:100% !important;}.ShowCartOrderItems .group2{width: 30% !important;display:none !important;}.ShowCartOrderItems .group3{width:100% !important;padding-left: 37%;display: inline-block !important;border-bottom: 1px solid #ddd;}.ShowCartOrderItems .group4{text-align: center;vertical-align:middle !important;}.ShowCartOrderItems .group4,.ShowCartOrderItems .group5{width:49% !important;display:inline-block !important;}.remove{margin: 5px 0px !important;width: 100%;text-align: center;display: block;line-height:35px!important;}.ShowCartOrderItems .group5{float:left!important;border-right: 2px solid #ccc;position: relative !important;bottom: 0px !important;left: 0px !important;}.displayList li.itemTotal{float:none !important;line-height: 26px;}.boxList .boxListItemTabular{border: 1px solid #ddd !important;border-width: 1px 0px 1px 0px !important;margin-top: 15px;}.itemQty div input{width:50px !important;}.itemQty div input,.quantity a{display:inline-block !important;margin-left:0px !important;}.msbtotal{line-height:45px;}.cartList{background: #efefef;}}
+@media only screen and (max-width: 480px) and (min-width: 200px){.shippingGroupSummaryShipAddress{float:left!important;}#emailPasswordEntry .basic-grey label>span{font-size:small;margin-top:2px;text-align:left;}.forgot-input{width:100% !important; margin-left:0px !important}}
+@media only screen and (max-width: 380px){.myAccountUpdateLogin label{width:82px !important;}.margin-label-top{margin-top:6px !important;}}@media only screen and (max-width: 480px) and (min-width: 200px) and (orientation: portrait){#changePassword h3{margin-bottom:10px;} #changePassword .basic-grey label>span{text-align: left;}.button {padding: 10px 11px !important;font-size:11px !important; }}@media only screen and (max-width: 380px){.margin-label-top {margin-top:0px!important;}.maxQmsg{width:160px;}}
+@media only screen and (max-width: 320px){.cart-items-s{width:50%!important;}.cart-description1-s{width:50%;}.pr-width{min-width:50%!important;}.it-width{min-width:50%!important;}}
+</style>
+<meta name="google-site-verification" content="BRxyXqYxx0TI_op4cQDifgBlGy-pQ5CHtVhfIO9jTRI" />
+<meta name="description" content="LatestOne.com: Online Shopping India - Buy mobile covers, power bank, selfie stick, bluetooth headset, wrist watch upto 80% off. Free Shipping &amp; COD"/>
+<meta name="keywords" content="power bank, bluetooth headset, headphones, bluetooth speaker, mobile covers, earphones, mobile accessories, bluetooth speakers, smart watch, watches"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="google-site-verification" content="BRxyXqYxx0TI_op4cQDifgBlGy-pQ5CHtVhfIO9jTRI" />
+<!--[if IE 7]>
+<link rel="stylesheet" media="screen" href="//cdn2.latestone.com/css/bigFishIE7StyleAdjustments.css" type="text/css"/>
+<![endif]-->
+<style type="text/css">#eCommerceNavBarMenu li.topLevel>a{padding: 8px 23px !important;font-size:15px;font-weight:500;}.pdpLongDescription .displayBox{ word-break: break-word;}.productItem{ position: relative;}.detailLink div a.design{width: auto;}.pdpUrl .ribbon{background-color:#ffee82;bottom:1em;color:#000; font-weight: 700;font-family:sans-serif;margin-right:1em;padding:.5em 0;position:absolute;white-space:nowrap;transform:rotate(-45deg);top:6px;left:-4px;height:20px;font-size:9px}.pdpUrl .ribbon::after,.pdpUrl .ribbon::before{width:0;height:0;position: absolute;content: "";background:no-repeat;top:-1px;}.pdpUrl .ribbon::before{border-top:21px solid transparent;border-bottom:0 solid transparent;border-right:20px solid #ffee82;left:-20px}.pdpUrl .ribbon::after{border-top:20px solid transparent;border-bottom:1px solid transparent;border-left:21px solid #ffee82;right:-20px;left:auto}.eCommerceThumbNailHolder{position:relative}.productName.pdpProductName{width:100%;}#js_altImageThumbnails.rslides
+img{width:auto !important;}@media only screen and (min-width:
+640px){#js_productDetailsImageContainer img{max-width:320px
+!important;max-height:320px !important;}}@media only screen and
+(max-width: 1024px) and (min-width: 768px){
+#js_productDetailsImageContainer img {max-height: 227px !important;
+max-width: 222px !important; } }</style>
+<!-- page Tag at Head End -->
+<!-- Pixel Tracking -->
+<!-- Pixel Tracking -->
+<script type="text/javascript">
+function checkProductInStorePlp(e,t){null!=e&&"Y"==e?(null!=document.getElementById("js_plpPdpInStoreOnlyLabel_"+t)&&document.getElementById("js_plpPdpInStoreOnlyLabel_"+t).innerHTML.length&&(document.getElementById("js_plpPdpInStoreOnlyLabel_"+t).style.display="block"),null!=document.getElementById("js_plp_div_qty_"+t)&&document.getElementById("js_plp_div_qty_"+t).innerHTML.length&&(document.getElementById("js_plp_div_qty_"+t).style.display="hide"),null!=document.getElementById("js_plpAddtoCart_div_"+t)&&document.getElementById("js_plpAddtoCart_div_"+t).innerHTML.length&&(document.getElementById("js_plpAddtoCart_div_"+t).style.display="hide"),null!=document.getElementById("js_addToWishlist_div_"+t)&&document.getElementById("js_addToWishlist_div_"+t).innerHTML.length&&(document.getElementById("js_addToWishlist_div_"+t).style.display="hide")):(null!=document.getElementById("js_plpPdpInStoreOnlyLabel_"+t)&&null!=document.getElementById("js_plpPdpInStoreOnlyLabel_"+t).value.length&&(document.getElementById("js_plpPdpInStoreOnlyLabel_"+t).style.display="hide"),null!=document.getElementById("#js_plp_div_qty_"+t)&&null!=document.getElementById("#js_plp_div_qty_"+t).innerHTML.length&&(document.getElementById("js_plp_div_qty_"+t).style.display="block"),null!=document.getElementById("js_plpAddtoCart_div_"+t)&&null!=document.getElementById("js_plpAddtoCart_div_"+t).innerHTML.length&&(document.getElementById("js_plpAddtoCart_div_"+t).style.display="block"),null!=document.getElementById("js_addToWishlist_div_"+t)&&null!=document.getElementById("js_addToWishlist_div_"+t).innerHTML.length&&(document.getElementById("js_addToWishlist_div_"+t).style.display="block"))}
+function onImgError(a,e){var o="//cdn4.latestone.com/user_content/images/",P="NotFoundImage.jpg";switch(e){case"PLP-Thumb":P="NotFoundImagePLPThumb.jpg";break;case"PLP-Swatch":P="NotFoundImagePLPSwatch.jpg";break;case"PDP-Large":P="NotFoundImagePDPLarge.jpg";break;case"PDP-Alt":P="NotFoundImagePDPAlt.jpg";break;case"PDP-Detail":P="NotFoundImagePDPDetail.gif";break;case"PDP-Swatch":P="NotFoundImagePDPSwatch.jpg";break;case"CLP-Thumb":P="NotFoundImageCLPThumb.jpg";break;case"MANU-Image":P="NotFoundImage.jpg"}return a.src=o+P,a.onerror="",!0}
+</script>
+<!--Start of GTM-->
+<!--Google Tag Manager on 27/2/2015-->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TDDR2L"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-TDDR2L');</script><!--End Google Tag Manager-->
+<!--End of GTM-->
+<!--Added for smart look tracking for secured and order confirmation page-->
+<!--Ended-->
+<meta property="fb:app_id" content="440642266327928" />
+<meta property="og:url" content="https://www.latestone.com/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content=" Power Bank, Bluetooth Headset, Wrist Watch, Mobile Covers, Buy Online"/>
+<meta property="og:description" content="LatestOne.com: Online Shopping India - Buy mobile covers, power bank, selfie stick, bluetooth headset, wrist watch upto 80% off. Free Shipping &amp; COD" />
+<meta property="og:image" content="https://cdn1.latestone.com/images/catalog/products/small/140302859.jpg" />
+</head>
+<body>
+<!--Added for fbwebview-->
+<script>
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/platform.Extensions.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-ixsdk'));
+</script>
+<input type= "hidden" autocomplete="address-level1">
+<input type= "hidden" autocomplete="address-level2">
+<input type= "hidden" autocomplete="address-line1">
+<input type= "hidden" autocomplete="country-name">
+<input type= "hidden" autocomplete="email">
+<input type= "hidden" autocomplete="name">
+<input type= "hidden" autocomplete="postal-code">
+<input type= "hidden" autocomplete="street-address">
+<input type= "hidden" autocomplete="tel-local">
+<script>
+window.extAsyncInit = function() {
+FBExtensions.isInExtensions();
+//Getting a User ID
+FBExtensions.getUserID(
+function(result) {
+console.log(result.asid, result.psid); // 123456789 987654321
+},
+function(errorCode, errorMessage) {}
+);
+//Requesting Information
+// requestCurrentPosition
+//Using Location in Webviews
+FBExtensions.requestCurrentPosition(
+function(result) {
+console.log(result);
+// {
+// coords: { // Space needle in Seattle
+// latitude: 47.620419,
+// longitude: -122.349256,
+// accuracy: 5, // accuracy in meters.
+// },
+// timestamp: 1472844702318,
+// }
+},
+function(errorCode, errorMessage) {
+if (errorCode === 1) {
+// the user has denied the permission
+} else {
+// other reasons
+}
+}
+);
+};
+</script>
+<!--Ended-->
+<div id="print"></div>
+<!-- page Tag at Body Start -->
+<!-- Pixel Tracking -->
+<!-- Pixel Tracking -->
+<script type="text/javascript">
+sessionStorage.removeItem("Page2Visited");
+</script>
+<script type="text/javascript">
+</script>
+<div id="scrollerPageTop">
+</div><div id="eCommerceOuterBasicBevelWrap">
+<div id="commonSearchDialog">
+<div id="search_dialog" class="dialogOverlay"></div>
+<div id="search_displayDialog" style="display:none" class="">
+<input type="hidden" name="search_dialogBoxTitle" id="search_dialogBoxTitle" value=""/>
+<div class="displayBox confirmDialog">
+<h3>Please Confirm</h3>
+<div class="confirmTxt">Please enter a search phrase in the text box and click on the Search icon.</div>
+<div class="container button">
+<input type="button" class="button red auto" name="noBtn" value='Ok' onClick="javascript:confirmDialogResult('N','search_');"/>
+</div>
+</div>
+</div>
+</div><div id="pincodeChecker_dialog" class="dialogOverlay"></div>
+<div id="pincodeChecker_displayDialog" style="display:none" class="">
+<input type="hidden" name="pincodeChecker_dialogBoxTitle" id="pincodeChecker_dialogBoxTitle" value="DELIVERY &amp; CoD AVAILABILITY"/>
+<div id="js_pincodeCheckContainer">
+<style type="text/css">
+.content-messages p{margin: 4px 30px 0px !important;}.content-messages{padding: 4px !important;}
+</style>
+<div id="pincodeChecker" class="pincodeChecker">
+<form method="post" class="pincodeChecker_Form" action="/pincodeSearch" name="pincodeSearchForm">
+<p class="instructions">
+Please enter your PIN Code to check delivery time and Cash on Delivery availability
+</p>
+<div class="entry">
+<label>PIN CODE&#58;</label>
+<input type="text" maxlength="255" name="pincode" id="pincode" value=""/>
+</div>
+<div class="action previousButton">
+<a href="javascript:void(0);" class="standardBtn js_cancelPinCodeChecker">Close</a>
+</div>
+<div class="action continueButton">
+<input type="submit" value="CHECK PIN CODE" class="standardBtn action"/>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div id="eCommerceInnerBasicBevelWrapper">
+<div id="eCommerceContent" class="eCommerceHomePage">
+<div id="eCommerceHeader">
+<div class="content cart siteHeaderCart">
+<div id="siteShoppingCart">
+<!-- defaultDevice renders on the fullscreen/desktop versions and is hidden on mobile/small device versions -->
+<a href="https://www.latestone.com/eCommerceShowcart">
+<div class="defaultDevice">
+<p><span class="loicn lo-cart"></span> <s>Cart</s></p>
+<div id="siteCartStats">
+<div class="highlightGroup">
+<a href="https://www.latestone.com/eCommerceShowcart" id="siteShoppingCartSize" class="">
+<span class="count-badge">0</span>
+</a>
+<a href="https://www.latestone.com/eCommerceShowcart" class="price">₹0</a>
+</div>
+</div>
+</div></a>
+<!-- shopping cart code for mobile/small devices is found in CONTENT / SITE INFO / SI_LOGO --> </div>
+</div>
+<div class="content links siteHeaderLinks">
+<div id="siteHeaderLinks">
+<!-- Modified by Venkata Ramana on 19-08-2015 -->
+<div class="click-nav">
+<ul class="no-js" id="main_div">
+<li><a href="/eCommerceNewCustomer" style="min-width:100px;line-height: 21px">Signup/Login</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content logo siteHeaderLogo">
+<div id="siteLogo">
+<!-- defaultDevice renders on the fullscreen/desktop versions and is hidden on mobile/small device versions -->
+<div class="defaultDevice">
+<a href="/">
+<img alt="LatestOne.com" src="//cdn4.latestone.com/user_content/images/Latestone.png"/>
+</a>
+</div>
+</div>
+</div>
+<div class="content search siteHeaderSearch">
+<div id="siteSearch">
+<script type="text/javascript">
+function clearIt(what)
+{
+if(what.value == what.defaultValue) what.value = '';
+}
+function setIt(what)
+{
+if(what.value == '') what.value = what.defaultValue;
+}
+</script>
+<form id="frmSearchForm" class="form-wrapper cf" onsubmit="return submitSearchForm(document.frmSearchForm);" action="siteSearch" name="frmSearchForm" method="get">
+<div id="searchContainer">
+<div id="searchField">
+<input type="text" placeholder="Search for a product, category or brand" value="" name="searchText" id="searchText" onblur="setIt(this)" onfocus="clearIt(this)" autocomplete="off" />
+</div>
+<div id="searchButton">
+<button type="submit" value="" />Search</button>
+</div>
+</div>
+<div class="searchAutoComplete" id="searchAutoComplete"></div>
+</form>
+</div>
+</div>
+<div class="content navigation siteHeaderNavigation" id="eCommerceNavBar">
+<div id="eCommerceNavBarWidget">
+<a href="javascript:void(0);" class="showNavWidget"><span> </span></a>
+<a href="javascript:void(0);" class="hideNavWidget" style="display:none"><span> </span></a>
+</div>
+<ul id="eCommerceNavBarMenu">
+<div id="siteSuperMegaMenu">
+<li class="topLevel navfirstitem"><a class="topLevel" href="/accessories" style="padding-left:10px!important;">Mobile Accessories</a>
+<ul class="/accessories">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/mobile-covers">Mobile Covers</a>
+<ul class="/mobile-covers">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/for-samsung">For Samsung</a>
+<ul class="/for-samsung">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/samsung-galaxy-j7-mobile-covers">Samsung Galaxy J7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-j2-accessories">Samsung Galaxy J2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-j5-mobile-covers">Samsung Galaxy J5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-a5-accessories">Samsung Galaxy A5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-grand-2">Samsung Galaxy Grand 2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-on7-accessories">Samsung Galaxy On7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-a7-covers">Samsung Galaxy A7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-grand-prime">Samsung Galaxy Grand Prime</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/samsung-galaxy-e7-accessories">Samsung Galaxy E7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-samsung"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-apple">For Apple</a>
+<ul class="/for-apple">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/apple-iphone-8-mobile-covers">iPhone 8</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/iphone-6">iPhone 6</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/iphone-6-plus">iPhone 6 Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/apple-iphone-6s-accessories">iPhone 6s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/iphone-6s-plus-accessories">iPhone 6s Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/apple-iphone-7-mobile-covers">iPhone 7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/apple-iphone-7-plus-mobile-covers">iPhone 7 Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/iphone-5-5s-mobile-accessories">iPhone 5 5S</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/iphone-4-4s-mobile-accessories">iPhone 4 4s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-apple"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-xiaomi">For Xiaomi</a>
+<ul class="/for-xiaomi">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/xiaomi-redmi-note-3-accessories">Xiaomi Redmi Note 3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-mi-4i-covers">Xiaomi Mi 4i</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-redmi-2-mobile-covers">Xiaomi Redmi 2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-redmi-note-accessories">Xiaomi Redmi Note</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-redmi-1s-accessories">Xiaomi Redmi 1s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-mi4">Xiaomi Mi4</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-mi5-accessories">Xiaomi Mi5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-mi3-accessories">Xiaomi Mi3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/xiaomi-redmi-note-prime-accessories">Xiaomi Redmi Note Prime</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-xiaomi"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-motorola">For Motorola</a>
+<ul class="/for-motorola">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/motorola-moto-g3-accessories">Motorola Moto G3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/motorola-moto-g2">Motorola Moto G2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/moto-g-mobile-accessories">Motorola Moto G</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/moto-e-mobile-accessories">Motorola Moto E</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/motorola-moto-g4-plus-accessories">Motorola Moto G4 Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/motorola-moto-e2-">Motorola Moto E2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/motorola-moto-x2-">Motorola Moto X2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/moto-x-mobile-accessories">Motorola Moto X</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/motorola-moto-x-play-accessories">Motorola Moto X Play</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-motorola"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-lenovo">For Lenovo</a>
+<ul class="/for-lenovo">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/lenovo-k3-note-covers">Lenovo K3 Note</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-k4-note-accessories">Lenovo K4 Note</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-a6000-accessories">Lenovo A6000</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-a7000-accessories">Lenovo A7000</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-vibe-k5-accessories">Lenovo Vibe K5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-vibe-p1-accessories">Lenovo Vibe P1</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-k3-mobile-covers">Lenovo K3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-a6000-plus-covers">Lenovo A6000 Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/lenovo-vibe-s1-accessories">Lenovo Vibe S1</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-lenovo"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-vivo">For Vivo</a>
+<ul class="/for-vivo">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/vivo-v3-accessories">Vivo V3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-y51l-mobile-accessories">Vivo Y51L</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-y51-accessories">Vivo Y51</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-v3-max-accessories">Vivo V3 Max</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-y11-accessories">Vivo Y11</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-x3s-accessories">Vivo X3s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-v1-accessories">Vivo V1</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-y28-accessories">Vivo Y28</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/vivo-y27-accessories">Vivo Y27</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-vivo"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-oppo">For Oppo</a>
+<ul class="/for-oppo">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/oppo-neo-7-accessories">Oppo Neo 7</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-f1-accessories">Oppo F1</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-f1s-mobile-covers">Oppo F1s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-f1-plus-mobile-accessories">Oppo F1 Plus</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-a37-accessories">Oppo A37</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-a53-accessories">Oppo A53</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-r7-lite-mobile-covers">Oppo R7 Lite</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-joy-3-mobile-covers">Oppo Joy 3</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/oppo-r5-mobile-covers">Oppo R5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-oppo"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-htc">For HTC</a>
+<ul class="/for-htc">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/htc-desire-620g-mobile-accessories">HTC Desire 620G</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-816-accessories">HTC Desire 816</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-820s-mobile-covers">HTC Desire 820s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-826-mobile-covers">HTC Desire 826</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-628-dual-sim-accessories">HTC Desire 628 Dual Sim</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-516-covers">HTC Desire 516</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-one-e9s-dual-sim-accessories">HTC One E9s Dual Sim</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-desire-526-covers">HTC Desire 526</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/htc-one-m8s-accessories">HTC One M8s</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-htc"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/for-asus">For Asus</a>
+<ul class="/for-asus">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/asus-zenfone-5-mobile-accessories">Asus Zenfone 5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-max-zc550kl-accessories">Asus Zenfone Max</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-2-mobile-accessories">Asus Zenfone 2</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-2-laser-55-accessories">Asus Zenfone 2 Laser 5.5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-4-mobile-accessories">Asus Zenfone 4</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-selfie-accessories">Asus Zenfone Selfie</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-6-mobile-accessories">Asus Zenfone 6</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-go-45-accessories">Asus Zenfone Go 4.5</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/asus-zenfone-2-deluxe-ze551ml-accessories">Asus Zenfone 2 ZE551ML</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/for-asus"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/mobile-covers">View All</a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/headphones">Headphones</a>
+<ul class="/headphones">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/headphones-with-mic">Headphones With Mic</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/wireless-headphones">Wireless Headphones</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/earphones">Earphones</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/in-ear-headphones">In Ear Headphones</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/headsets">Headsets</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/headphone-splitters">Headphones Splitters</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/apple-headphones">Headphones For Apple</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/headphones-for-samsung">Headphones For Samsung</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/headphones-for-sony">Headphones For Sony</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/headphones"> View All </a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/power-banks">Power Banks</a>
+<ul class="/power-banks">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/power-bank-for-samsung-mobiles">Power Banks For Samsung</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-for-xiaomi-mobiles">Power Banks For Xiaomi</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-for-oneplus-mobiles">Power Banks For Oneplus</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-for-mobile">Power Bank For Mobile</a></li>
+<li class="subLevel"><a class="subLevel" href="/battery-bank">Battery Bank</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-charger">Power Bank Charger</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-for-apple-mobiles">Power Banks For iPhone</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-bank-for-htc-mobiles">Power Banks For HTC</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-power-banks">PTron Power Banks</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/power-banks">View All</a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-headsets">Bluetooth Headphones</a>
+<ul class="/bluetooth-headsets">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/bluetooth-headsets-for-samsung">Bluetooth Headsets For Samsung</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-headsets-for-sony">Bluetooth Headsets For Sony</a></li>
+<li class="subLevel"><a class="subLevel" href="/lg-headphones">Bluetooth Headsets For LG</a></li>
+<li class="subLevel"><a class="subLevel" href="/wireless-headsets">Wireless Earphones</a></li>
+<li class="subLevel"><a class="subLevel" href="/wireless-headphones-for-mobile">Wireless Headphones For Mobile</a></li>
+<li class="subLevel"><a class="subLevel" href="/wireless-bluetooth-headphones">Wireless Bluetooth Headphones</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-earphones">Bluetooth Earphones</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-stereo-headset">Bluetooth Stereo Headsets</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/bluetooth-headsets">View All</a></li>
+</ul></li>
+<li class="subLevel"><a class="subLevel" href="/smart-watches">Smart Watches</a>
+<ul class="/ptron-smart-watches">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/android-wear">Android Wear</a></li>
+<li class="subLevel"><a class="subLevel" href="/mobile-watch">Mobile Watch</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-watch">Bluetooth Watch</a></li>
+<li class="subLevel"><a class="subLevel" href="/smart-watch-phone">Smart Watch Phone</a></li>
+<li class="subLevel"><a class="subLevel" href="/fitness-band-tracker">Fitness Tracker</a></li>
+<li class="subLevel"><a class="subLevel" href="/phone-watch">Phone Watch</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-smart-watches">PTron Smart Watches</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/smart-watches">View All</a></li>
+</ul>
+</li>
+<li class="subLevel"><a class="subLevel" href="/monopod-selfie-sticks">Selfie Sticks</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-speakers">Bluetooth Speakers</a></li>
+<li class="subLevel"><a class="subLevel" href="/otg-pen-drive">OTG</a></li>
+<li class="subLevel"><a class="subLevel" href="/chargers-and-adapters">Chargers & Cables</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/accessories">View All Brands</a></li>
+</ul></li>
+<li class="topLevel"><a class="topLevel" href="/fashion-accessories">Fashion</a>
+<ul class="/fashion-accessories" >
+<li class="subLevel navfirstitem"><a class="subLevel" href="/watches">Watches</a>
+<ul class="/watches">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/watches-for-men">Watches For Men</a></li>
+<li class="subLevel"><a class="subLevel" href="/watches-for-women">Watches For Women</a></li>
+<li class="subLevel"><a class="subLevel" href="/dazon-watches">DaZon Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/stylish-watches">Stylish Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/digital-watches">Digital Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/luxury-watches">Luxury Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/watches">View All</a></li>
+</ul></li>
+<li class="subLevel navfirstitem"><a class="subLevel" href="/sunglasses">Sunglasses</a>
+<ul class="/sunglasses">
+<li class="subLevel"><a class="subLevel" href="/sunglasses-for-men">Sunglasses For Men </a></li>
+<li class="subLevel"><a class="subLevel" href="/sunglasses-for-women">Sunglasses For Women</a></li>
+</ul>
+</li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/fashion-accessories">View All</a></li>
+</ul>
+</li>
+<li class="topLevel"><a class="topLevel" href="/ptron">PTron</a>
+<ul class="/ptron">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/ptron-headsets">PTron Headsets</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-bluetooth-headsets">PTron Bluetooth Headsets</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-bluetooth-speakers ">PTron Bluetooth Speakers</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-smart-watches">PTron Smart Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-power-banks">PTron Power Banks</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-cables">PTron Cables</a></li>
+<li class="subLevel"><a class="subLevel" href="/ptron-chargers">PTron Chargers</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/ptron">View All</a></li>
+</ul>
+</li>
+<li class="topLevel"><a class="topLevel" href="/dazon">DaZon</a>
+<ul class="/dazon">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/dazon-watches">DaZon Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/dazon-watches-for-men">DaZon Men's Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/dazon-watches-for-women">DaZon Ladies Watches</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/dazon">View All</a></li>
+</ul>
+</li>
+<li class="topLevel" ><a class="topLevel" href="/deal-of-the-day" style="text-transform:none">Deal of the Day</a></li>
+<li class="topLevel"><a class="topLevel" href="/whats-latest">What's Latest</a></li>
+<li class="topLevel"><a class="topLevel" href="/accessories">Other Accessories</a>
+<ul class="/accessories" >
+<li class="subLevel navfirstitem"><a class="subLevel" href="/tv-accessories">TV Accessories</a>
+<ul class="/tv-accessories">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/mini-pc">Smart TV Box</a></li>
+<li class="subLevel"><a class="subLevel" href="/tv-remote">TV Remotes</a></li>
+<li class="subLevel"><a class="subLevel" href="/cables">Cables</a></li>
+<li class="subLevel"><a class="subLevel" href="/headsets">Headsets</a></li>
+<li class="subLevel"><a class="subLevel" href="/cctv">CCTVs</a></li>
+<li class="subLevel"><a class="subLevel" href="/audio-video-cables-and-converters">Audio & Video Cables</a></li>
+<li class="subLevel"><a class="subLevel" href="/ntsc-pal-converters">Video Converters</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/tv-accessories">View All</a></li>
+</ul></li>
+<li class="subLevel navfirstitem"><a class="subLevel" href="/tablet-accessories">Tablet</a>
+<ul class="/tablet-accessories">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/apple-ipad">Apple iPad</a></li>
+<li class="subLevel"><a class="subLevel" href="/galaxy-tab-3-covers">Galaxy Tab 3 Covers</a></li>
+<li class="subLevel"><a class="subLevel" href="/samsung-tablet-covers">Samsung Tablet Covers</a></li>
+<li class="subLevel"><a class="subLevel" href="/power-banks">Power Banks</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-headsets">Bluetooth Headsets</a></li>
+<li class="subLevel"><a class="subLevel" href="/bluetooth-speakers">Bluetooth Speakers</a></li>
+<li class="subLevel"><a class="subLevel" href="/smart-watches">Smart Watches</a></li>
+<li class="subLevel"><a class="subLevel" href="/samsung-tab-4-t531">Samsung Tab 4 T531</a></li>
+<li class="subLevel"><a class="subLevel" href="/samsung-note-p601">Samsung Note P601</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/tablet-accessories">View All Brands</a></li>
+</ul></li>
+<li class="subLevel navfirstitem"><a class="subLevel" href="/computers">Computer</a>
+<ul class="/computers">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/headsets">Headsets</a></li>
+<li class="subLevel"><a class="subLevel" href="/wireless-keyboard">Bluetooth Keyboards</a></li>
+<li class="subLevel"><a class="subLevel" href="/otg-pen-drive">Pen Drives</a></li>
+<li class="subLevel"><a class="subLevel" href="/dvd-writer">DVD Writer</a></li>
+<li class="subLevel"><a class="subLevel" href="/ram">RAM</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/computers">View All</a></li>
+</ul></li>
+<li class="subLevel navfirstitem"><a class="subLevel" href="/cables">Cables</a>
+<ul class="/cables">
+<li class="subLevel navfirstitem"><a class="subLevel" href="/hdmi-cables-and-converters">HDMI</a></li>
+<li class="subLevel"><a class="subLevel" href="/vga-cables-and-converters">VGA</a></li>
+<li class="subLevel"><a class="subLevel" href="/dvi-cables-and-converters">DVI</a></li>
+<li class="subLevel"><a class="subLevel" href="/toslink-cables">Toslink</a></li>
+<li class="subLevel"><a class="subLevel" href="/audio-video-cables-and-converters">Audio Video</a></li>
+<li class="subLevel"><a class="subLevel" href="/usb-cables-and-converters">USB</a></li>
+<li class="subLevel"><a class="subLevel" href="/networking-cables">Networking</a></li>
+<li class="subLevel"><a class="subLevel" href="/hdmi-switchers-and-splitters">HDMI Switchers and Splitters</a></li>
+<li class="subLevel"><a class="subLevel" href="/display-ports-cables-and-converters">Display Ports</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/cables">View All</a></li>
+</ul></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/car-accessories">Car Accessories</a></li>
+<li class="subLevel navlastitem"><a class="subLevel" href="/accessories">View All</a></li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div><div id="eCommercePageBody">
+<div id="scrollToTop" class="js_scrollToTop" style="display:none;">
+<a href="#scrollerPageTop" style="font-size:50px;">
+<span class="loicn lo-top-scroll"></span>
+</a>
+</div>
+<div id="eCommerceMainPanel" class="homePage">
+<style type="text/css">
+.content-messages p{margin: 4px 30px 0px !important;}.content-messages{padding: 4px !important;}
+</style>
+<div class="eCommerceHomeSpots">
+<div id="eCommerceHomeSpot_1" class="eCommerceHotSpot">
+<div class="row">
+<style type="text/css">
+.divide_bnrs {border:none; box-shadow:none;}.rslides_container{position:relative;float:left;width:100%}.centered-btns_nav,.large-btns_nav,.transparent-btns_nav{overflow:hidden;text-indent:-9999px;z-index:3;position:absolute;-webkit-tap-highlight-color:transparent}.centered-btns_nav{top:50%;left:0;opacity:.7;text-decoration:none;height:61px;width:38px;background:url(//cdn2.latestone.com/css/themes/4/themes.png) left top no-repeat;margin-top:-45px}.centered-btns_nav:active{opacity:1}.centered-btns_nav.next{left:auto;background-position:right top;right:0}.centered-btns_nav:focus,.large-btns_nav:focus,.transparent-btns_nav:focus{outline:0}.centered-btns_tabs,.large-btns_tabs,.transparent-btns_tabs{margin-top:10px;text-align:center}.centered-btns_tabs li,.large-btns_tabs li,.transparent-btns_tabs li{display:inline;float:none; margin: 3px;padding: 3px; margin-right: 5px;}.centered-btns_tabs a,.large-btns_tabs a,.transparent-btns_tabs a{text-indent:-9999px;overflow:hidden;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;background:#ccc;background:rgba(0,0,0,.2);display:inline-block;-webkit-box-shadow:inset 0 0 2px 0 rgba(0,0,0,.3);-moz-box-shadow:inset 0 0 2px 0 rgba(0,0,0,.3);box-shadow:inset 0 0 2px 0 rgba(0,0,0,.3);width:9px;height:9px}.centered-btns_here a,.large-btns_here a,.transparent-btns_here a{background:#222;background:rgba(0,0,0,.8)}.rslides{position:relative;list-style:none;overflow:hidden;width:100%;padding:0;margin:0; margin-bottom:5px;}.rslides li{-webkit-backface-visibility:hidden;box-shadow:0 0 2px 0 #d3cbb8;position:absolute;display:none;width:100%;left:0;top:0}.rslides li:first-child{position:relative;display:block;float:left}.rslides img{display:block;height:auto;float:left;width:100%;border:0}
+</style>
+<!-- desktop 1 -->
+<div class="rslides_container">
+<ul class="rslides" id="slider1">
+<li> <a href="/ptron-bluetooth-speakers" title="Bluetoothspeaker">
+<img src="http://cdn4.latestone.com/user_content/images/banners/diwali17/home2.jpg" alt="Bluetoothspeaker" height="284px">
+</a> </li>
+<li> <a href="/hot-deals" title="Hotdeals">
+<img src="http://cdn4.latestone.com/user_content/images/banners/diwali17/home5.jpg" alt="Hotdeals" height="284px">
+</a> </li>
+<li> <a href="/deal-of-the-day" title="Dealoftheday">
+<img src="http://cdn4.latestone.com/user_content/images/banners/diwali17/home6.jpg" alt="Dealoftheday" height="284px">
+</a> </li>
+</ul>
+</div>
+</div><div id="eCommerceHomeSpot_2" class="eCommerceHotSpot">
+<style>
+.new_footer,.new_footer a{color:#666;font-size:11px}.new_footer,.pre_footer{border-top:1px dotted #ccc;font-size:11px}.new_footer{text-align:justify !important;clear:both;padding:10px; background:#fff !important;}.pre_footer{background:#fff}.pre_footer a{font-size:11px!important;margin-bottom:10px}@media only screen and (max-width:768px) and (max-height:1024px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:600px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:640px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:800px) and (min-width:700px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media screen and (max-device-width:480px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}.new_footer a {
+color: #333 !important;}.pre_footer_p {padding-left: 5px;}.media-logos{width:100%;margin:0 auto;max-width:100%;overflow:hidden;display:block;text-align:center;margin-bottom:10px;}.media-logos a{display:inline-block;padding:5px 10px 5px 0;}.media-logos a img{width:182px;float:left;}
+</style>
+<div class="best">
+<div class="sellers">
+<div class="sellershead"></div>
+<div class="banner">
+<div class="banner1"><a href="/deal-of-the-day" title="Deal Of The Day"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/1bs.jpg" class="banner1_img"/></a></div>
+<div class="banner2"><a href="/whats-Latest" title="Latest Products"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/2bs.jpg" class="banner1_img"/></a></div>
+</div>
+<div class="banner">
+<div class="banner1"><a href="/watches" title="Watches "><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/3bs.jpg" class="banner1_img"/></a></div>
+<div class="banner2"><a href="/bluetooth-headsets" title="Bluetooth Headphones"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/4bs.jpg" class="banner1_img"/></a></div>
+</div>
+<div class="banner">
+<div class="banner1"><a href="/smart-watches" title="Smart Watches "><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/5bs.jpg" class="banner1_img"/></a></div>
+<div class="banner2"><a href="/mobile-covers" title="Mobile Covers "><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/bestsellers/6bs.jpg" class="banner1_img"/></a></div>
+</div>
+</div>
+<div class="deals">
+<div class="sellershead"></div>
+<div class="hotdeal"><a href="/hot-deals" title="Hot Deals"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/hotoffers/side1bs.jpg" class="side"/></a></div>
+<div class="hotdeal"><a href="/sunday-flea-market" title="Sunday Flea Market"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/hotoffers/side2bs.jpg" class="side"/></a></div>
+<div class="hotdeal1"><a href="/combo-offers" title="Combo Offers"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/hotoffers/side3bs.jpg" class="side"/></a></div>
+<div class="hotdeal"><a href="/birthday-gifts" title="Birthday Gifts"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/hotoffers/side4bs.jpg" class="side"/></a></div>
+<div class="hotdeal"><a href="/bluetooth-speakers" title="Bluetooth speakers"><img src="http://cdn4.latestone.com/user_content/images/banners/supersaveroffer/hotoffers/side5bs.jpg" class="side"/></a></div>
+</div>
+</div>
+<!--Commented by hema-->
+<!-- <img src="http://cdn4.latestone.com/user_content/images/banners/home/appbanner.jpg" style="width:100%;max-width:100%;height:auto; margin-bottom:10px;"/> -->
+<!--Social icons Added by hema-->
+<div class="media-logos">
+<div class="sellershead" style="text-align:left;">Follow Us:</div>
+<a href="https://www.youtube.com/latestonecom" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/youtube-latestone.png" /> </a>
+<a href="https://www.facebook.com/Latestonecom" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/facebook-latestone.png" /> </a>
+<a href="https://twitter.com/LatestOneCom" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/twitter-latestone.png" /> </a>
+<a href="https://plus.google.com/+Latestonecom" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/google-latestone.png" /> </a>
+<a href="https://in.pinterest.com/latestone/" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/pinterest-latestone.png" /> </a>
+</div>
+<!--Added by hema-->
+<div class="media-logos">
+<div class="sellershead" style="text-align:left;">Featured In:</div>
+<a href="http://economictimes.indiatimes.com/markets/stocks/news/palred-tech-raises-rs-22-crore-from-florintree-others/articleshow/57622253.cms" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/link-6.jpg" /> </a>
+<a href="http://www.deccanchronicle.com/technology/gadgets/080317/latestonecom-launches-ptron-hbe8-earphone-at-rs-299.html" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/link-7.jpg" /> </a>
+<a href="http://retail.franchiseindia.com/news/LatestOne-com-supports-Government-s-Make-in-India-campaign.n7078/" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/link-8.jpg" /> </a>
+<a href="http://www.news18.com/news/tech/latestone-com-launches-ptron-hbe9-earphones-at-rs-399-1336899.html" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/link-9.jpg" /> </a>
+<a href="http://epaperbeta.timesofindia.com//Gallery.aspx?id=22_03_2017_012_061_002&type=P&artUrl=DONE-DEALS-22032017012061&eid=31807" target="_blank"> <img src="http://cdn4.latestone.com/user_content/images/banners/home/media-logos/link-10.jpg" /> </a>
+</div>
+<div class="new_footer">
+<p style="line-height: 1.5;">LatestOne.com, India's No. 1 e-tailer specializes in mobile, tech and fashion accessories. Stocking over 10,000 products in its inventory, we operate from our Delhi and Mumbai based fulfillment centers. LatestOne.com is owned by Palred Online Technologies Pvt. Ltd (POT) which is a subsidiary company of Palred Technologies Ltd (PTL). This is a BSE and NSE listed company since 2004.
+</p><br>
+<p style="line-height: 1.5;">Our objective is to provide the latest accessories to our consumers at most competitive price range with the additional advantage of the reliability of product and quickness of delivery. 24/7 discounts and competitive prices are always at your disposal. Products are well tested and checked for best performance, quality and durability before making them available online for our consumers to buy.
+</p><br>
+<p style="line-height: 1.5;">LatestOne.com has partnered with India's most reputed logistics organizations that offer product delivery within 72 working hours across India. Committed to 100% Purchase Protection, LatestOne.com will make your online ordering experience safe and secure with convenient payment options that include cash on delivery and online payments. Additionally, easy returns and completely hassle-free online shopping experience will be waiting for you.
+</p><br>
+<p style="line-height: 1.5;">Good News for All Apple users is that we keep iPhone 5/5s designer mobile covers, power cases and much more triumphed accessories for the valued brand. Same goes for Samsung Mobiles and tablets, where Galaxy Note 4 Wallet Flip Covers, old phone covers like and apparently many other of its brand's accessories are found here. Also, others like the bestselling in-house brand PTron Power Banks, Smart Watches, Virtual Reality Headsets and much more that you cannot think of!
+</p><br>
+<p style="line-height: 1.5;">The hottest selling Headsets like HBE6, HBE7, HBE9, Magg and other exclusive in-ear headphones will compel you to buy a lot more than actually required. Not to forget slightly high-end products like Bluetooth audio devices, smart wearable, Bluetooth headsets, smart power banks, high-speed chargers & adapters, CCTV, HDMI cables, Android TV boxes and much more. We put our success down to responding to what our consumers want, our extensive range of the latest accessories.
+</p><br>
+<p style="line-height: 1.5;">In short, we have the multiple lines of fashionable and useful accessories under one broad virtual roof called LatestOne.com. So, gear up guys, it is shopping time!
+</p>
+</div>
+<div class="pre_footer">
+<div class="pre_footer_p">
+<p style="padding-left:5px;padding-top:5px;"><span style="color:#555;cursor:pointer; text-transforam:upparcase;font-weight:bold;">TOP SEARCHES :</span>
+<a href="http://www.latestone.com/power-banks">Power Bank</a> |
+<a href="http://www.latestone.com/monopod-selfie-sticks">Selfie Stick</a> |
+<a href="http://www.latestone.com/smart-watches">Smart Watch</a> |
+<a href="http://www.latestone.com/bluetooth-headsets">Bluetooth Headset</a> |
+<a href="http://www.latestone.com/mobile-camera-lens"> Mobile Camera Lens</a> |
+<a href="http://www.latestone.com/otg-pen-drive">OTG Pen Drive</a> |
+<a href="http://www.latestone.com/earphones">Earphones</a>
+</p>
+<p style="padding:5px;"><span style="text-transforam:upparcase; font-weight:bold;">
+<a href="http://www.latestone.com/eCommerceCategoryList?productCategoryId=1403">MOBILE COVERS</a> <span style="color: #555;">FOR:</span> </span>
+<a href="http://www.latestone.com/iphone-6">iPhone 6</a> |
+<a href="http://www.latestone.com/apple-iphone-6s-accessories">iPhone 6s</a> |
+<a href="http://www.latestone.com/iphone-5-5s-mobile-accessories">iPhone 5</a> |
+<a href="http://www.latestone.com/samsung-galaxy-j7-mobile-covers">Samsung J7</a> |
+<a href="http://www.latestone.com/samsung-galaxy-j2-accessories">Samsung J2</a> |
+<a href="http://www.latestone.com/vivo-y51l-mobile-accessories">Vivo Y51L</a> |
+<a href="http://www.latestone.com/xiaomi-redmi-note-3-accessories">Redmi Note 3</a> |
+<a href="http://www.latestone.com/oppo-f1s-mobile-covers">Oppo F1s</a>
+</p>
+<p style="padding-left:5px;"><span style="text-transforam:upparcase; font-weight:bold;">
+<a href="http://www.latestone.com/cables">CABLES </a>:</span>
+<a href="http://www.latestone.com/data-cable">Data Cable</a> |
+<a href="http://www.latestone.com/usb-type-c-cable">USB Type C</a> |
+<a href="http://www.latestone.com/hdmi-cable">HDMI</a> |
+<a href="http://www.latestone.com/vga-cables">VGA</a> |
+<a href="http://www.latestone.com/aux-cable">AUX</a> |
+<a href="http://www.latestone.com/eCommerceCategoryList?productCategoryId=1506">Audio</a>
+</p>
+<p style="padding:5px;"><span style="text-transforam:upparcase;font-weight:bold;">
+<a href="http://www.latestone.com/watches">WATCHES</a> :</span>
+<a href="http://www.latestone.com/ladies-watches">Ladies Watches</a> |
+<a href="http://www.latestone.com/watches-for-men">Watches For Men</a> |
+<a href="http://www.latestone.com/stylish-watches">Stylish Watches</a> |
+<a href="http://www.latestone.com/digital-watches">Digital Watches</a> |
+<a href="http://www.latestone.com/luxury-watches">Luxury Watches</a>
+</p>
+</div>
+</div></div><div id="eCommerceHomeSpot_3" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_4" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_5" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_6" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_7" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_8" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_9" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_10" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_11" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_12" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_13" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_14" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_15" class="eCommerceHotSpot">
+</div><div id="eCommerceHomeSpot_16" class="eCommerceHotSpot">
+</div></div></div></div></div></div><div id="eCommerceFooter">
+<style>
+.new_footer,.new_footer a{color:#666;font-size:11px}.new_footer,.pre_footer{border-top:1px dotted #ccc;font-size:11px}.new_footer{text-align:left;clear:both;padding:10px}.pre_footer{background:#fff}.pre_footer a{font-size:11px!important;margin-bottom:10px}@media only screen and (max-width:768px) and (max-height:1024px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:600px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:640px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media only screen and (max-width:800px) and (min-width:700px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}@media screen and (max-device-width:480px){.new_footer,.new_footer a{font-size:11px}.new_footer a{color:#666}}.new_footer a {
+color: #333 !important;}.pre_footer_p {padding-left: 5px;}
+</style>
+<div id="leftcolumn">
+<div class="content-securityBadges" style="margin-left:15px;">
+<img alt="Secure Shopping Badges" width="154px" height="220px" src="http://cdn4.latestone.com/user_content/images/banners/payment_methodqa.jpg">
+</div>
+</div>
+<div id="rightcolumn">
+<div class="content-securityBadges">
+<!-- <div class="safesecure_block">
+<div class="img_block">
+<img alt="Secure Shopping Badges" width="209" height="80" src="/osafe_theme/images/user_content/images/sucure.png">
+</div>
+<div class="desc_block">
+<h1>Safe and Secure Shopping</h1>
+<p>All Major Credit and Debit Cards adre accpeted We also accpet payemtns by Internet Banking and Equalated Monthly Installemnts (EMI)</p>
+</div>
+<div class="extra_bLock">
+<button type="button" class="readmorebtn"> Read More </button>
+</div>
+</div> -->
+<img alt="Secure Shopping Badges" usemap="#planetmap" width="723px" height="104px" src="http://cdn4.latestone.com/user_content/images/foot1.png">
+<map id="planetmap" name="planetmap">
+<area id="myarea" shape="rect" coords="42,9,242,99" onclick="window.open('eCommerceContent?contentId=SP_TRUST_PAGE','popup','width=900,height=500,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no,left=50,top=0'); return false" href="eCommerceContent?contentId=SP_TRUST_PAGE"/>
+<area id="myarea" shape="rect" coords="617,70,716,98" onclick="window.open('eCommerceContent?contentId=SP_TRUST_PAGE','popup','width=900,height=500,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=no,left=50,top=0'); return false" href="eCommerceContent?contentId=SP_TRUST_PAGE"/>
+</map>
+</div>
+<div class="footerColumn">
+<ul class="footerLinks">
+<li><a href="/about-us"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+<li><a href="/terms-and-conditions"><i class="fa fa-angle-double-right"></i> Terms & Conditions</a></li>
+<li><a href="/shipping-delivery"><i class="fa fa-angle-double-right"></i> Shipping Delivery</a></li>
+</ul>
+</div>
+<div class="footerColumn">
+<ul class="footerLinks">
+<li><a href="/privacy-policy"><i class="fa fa-angle-double-right"></i> Privacy Policy</a></li>
+<li><a href="/disclaimer-policy"><i class="fa fa-angle-double-right"></i> Disclaimer</a></li>
+<li><a href="/cancellation-refund"><i class="fa fa-angle-double-right"></i> Return Policy</a></li>
+</ul>
+</div>
+<div class="footerColumn">
+<ul class="footerLinks">
+<li><a href="/contactUs/"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+<li style="color:#666!important;"><a onclick="window.open('http://techtalk.latestone.com/','_blank');return false" ><i class="fa fa-angle-double-right"></i> Tech Talk</a></li>
+<li><a href="/coupons/"><i class="fa fa-angle-double-right"></i> Coupons </a></li>
+</ul>
+</div>
+<div class="footerColumn">
+<ul class="footerLinks">
+<li>Follow Us<li>
+<li><a href="http://www.facebook.com/Latestonecom" target="blank"><span class="loicn lo-fa"></span> Facebook</a></li>
+<li><a href="http://twitter.com/LatestOneCom" target="blank"><span class="loicn lo-tw"></span> Twitter</a></li>
+<li><a href="http://www.pinterest.com/latestone" target="blank"><span class="loicn lo-pe"></span> Pinterest</a></li>
+<li><a href="http://plus.google.com/b/111828810685362275319/111828810685362275319" target="blank"><span class="loicn lo-gp"></span></i> Google +</a></li>
+</ul>
+</div>
+</div>
+<div id="footer-bottom">
+<div class="copyright">Copyright &#169; 2018 Latestone.com India. All rights reserved. Designated trademarks, products & brands are the property of their respective owners.</div>
+</div>
+</div><div id="eCommerceBuiltByBevelWrapper">
+<div id="eCommerceBuiltBy">
+</div></div></div><!--Cart Merge-->
+<link rel="stylesheet" href="//cdn2.latestone.com/css/v6/bigFishClientSkin.css" type="text/css"/>
+<link rel="stylesheet" media="screen" href="http&#58;&#47;&#47;cdn2.latestone.com/css/v6/bigFishRwdAdjustments.css" type="text/css"/>
+<script type="text/javascript" src="http&#58;&#47;&#47;cdn3.latestone.com/js/lib/jquery.min.js"></script>
+<script type="text/javascript" defer src="http&#58;&#47;&#47;cdn3.latestone.com/js/lib/jquery-ui.js"></script>
+<!-- mobile menu script laded script replced here -->
+<!-- end mobile menu script laded script replced here -->
+<script src="http&#58;&#47;&#47;cdn2.latestone.com/css/themes/4/responsiveslides.min.js"></script>
+<script>
+jQuery(function () {
+// Slideshow 1
+jQuery("#slider1").responsiveSlides({
+auto: true,
+pager: true,
+nav: true,
+speed: 500,
+maxwidth: 800,
+namespace: "centered-btns"
+});
+});
+</script>
+<script type="text/javascript">
+jQuery("ul#eCommerceNavBarMenu li ul li:nth-child(11)").replaceWith("<li class=\"subLevel\"><a class=\"subLevel\" onclick=\"mouserHover(this)\">View All</a></li>");
+function mouserHover(x){ var url = x.parentNode.parentNode.className; window.location.replace(url);}
+</script>
+<!-- forgot password -->
+<!-- forgot passowrd end -->
+<script type="text/javascript">
+var displayDialogId;
+var myDialog;
+var titleText;
+function displayDialogBox(dialogPurpose)
+{
+var dialogId = '#' + dialogPurpose + 'dialog';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+if(dialogPurpose == "largeImage_"){
+var image = document.getElementById("js_largeImage");
+if(image.src.indexOf("NotFound") > 0 || image.src.indexOf("cdn1.latestone.com") < 0){
+image.src = document.getElementById("firsTime").innerHTML;
+}
+}
+showDialog(dialogId, displayDialogId, titleText);
+}
+function sliderdisplayDialogBox(dialogPurpose,lrgSrc)
+{
+var dialogId = '#' + dialogPurpose + 'dialog';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+if(dialogPurpose == "largeImage_"){
+var image = document.getElementById("js_largeImage");
+image.src = "";
+if(image.src.indexOf("NotFound") > 0 || image.src.indexOf("cdn1.latestone.com") < 0){
+image.src = lrgSrc;
+}
+}
+if(lrgSrc.indexOf("cdn1.latestone.com") > 0){
+showDialog(dialogId, displayDialogId, titleText);
+}
+}
+function showDialog(dialog, displayDialog, titleText)
+{
+myDialog = jQuery(displayDialog).dialog({
+modal: true,
+draggable: true,
+resizable: true,
+autoResize: true,
+width: 'auto',
+position: 'center',
+title: titleText
+});
+jQuery(myDialog).parent().addClass('uiDialogBox');
+var dialogClass = displayDialog;
+dialogClass = dialogClass.replace(/^#+/, "");
+jQuery(myDialog).parent().addClass(dialogClass);
+jQuery(myDialog).siblings('.ui-dialog-titlebar').width(jQuery(myDialog).width());
+}
+function confirmDialogResult(result, dialogPurpose)
+{
+dialogId = '#'+ dialogPurpose +'dialog';
+displayDialogId = '#'+ dialogPurpose +'displayDialog';
+jQuery(displayDialogId).dialog('close');
+if (result == 'Y')
+{
+postConfirmDialog();
+}
+}
+function postConfirmDialog()
+{
+form = document.detailForm;
+form.action="/confirmAction";
+form.submit();
+}
+function newPopupWindow(url)
+{
+popupWindow = window.open(
+url,'popUpWindow','height=350,width=500,left=400,top=200,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+function setDeleteId(deleteId,hiddenInputId)
+{
+if (jQuery('#'+hiddenInputId).length)
+{
+jQuery('#'+hiddenInputId).val(deleteId);
+}
+}
+function deleteConfirm(appendText)
+{
+jQuery('.confirmTxt').html(' '+appendText+'?');
+displayDialogBox('confirm_');
+}
+function submitSearchForm(form)
+{
+var searchText = form.searchText.value;
+if(form.searchText.value == "lap top" || form.searchText.value == "lap tops"){
+form.searchText.value = "laptop";
+}
+if(searchText == "" || searchText == "What are you looking for?") {
+displayDialogBox('search_');
+return false;
+} else {
+var url = "/siteSearchNew";
+var httpsTrue = url.indexOf("https:");
+if (location.protocol === 'https:') {
+if(httpsTrue == -1){
+url = url.replace("http:", "https:");
+url = url.replace("8080", "8443");
+}
+}
+else{
+if(httpsTrue == 0){
+url = url.replace("https:", "http:");
+url = url.replace("8443", "8080");
+}
+}
+form.action= url;
+form.submit();
+}
+}
+function prepareActionDialog(dialogPurpose)
+{
+jQuery('#'+ dialogPurpose +'displayDialog').find('.eCommerceErrorMessage').hide();
+}
+function displayActionDialogBox(dialogPurpose,elm)
+{
+var params = jQuery(elm).siblings('input.param').serialize();
+var dialogId = '#' + dialogPurpose + 'dialog';
+var displayContainerId = '#js_' + dialogPurpose + 'Container';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+jQuery(displayContainerId).html('<div id=loadingDiv class=loadingImg></div>');
+getActionDialog(displayContainerId,params);
+showDialog(dialogId, displayDialogId, titleText);
+}
+function displayActionDialogBoxQuicklook(dialogPurpose,elm)
+{
+var params = jQuery(elm).siblings('input.param').serialize();
+var oldhtml = jQuery(elm).html();
+jQuery(elm).find('img').remove();
+jQuery(elm).append('<div id=loadingDiv class=loadingImg></div>');
+//jQuery(elm).html('<div id=loadingDiv class=loadingImg></div>');
+var dialogId = '#' + dialogPurpose + 'dialog';
+var displayContainerId = '#js_' + dialogPurpose + 'Container';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+var url = "";
+if (params)
+{
+url = '/dialogActionRequest?'+params;
+}
+else
+{
+url = '/dialogActionRequest';
+}
+jQuery.get(url, function(data)
+{
+jQuery(elm).find('#loadingDiv').remove();
+jQuery(elm).append(oldhtml);
+jQuery(displayContainerId).replaceWith(data);
+showDialog(dialogId, displayDialogId, titleText);
+});
+}
+function displayProductScrollActionDialogBox(dialogPurpose,elm)
+{
+var params = jQuery(elm).siblings('input.param').serialize();
+var dialogId = '#' + dialogPurpose + 'dialog';
+var displayContainerId = '#' + dialogPurpose + 'Container';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+jQuery(displayContainerId).html('<div id=loadingImg></div>');
+getActionDialog(displayContainerId,params);
+}
+function getActionDialog (displayContainerId,params)
+{
+var url = "";
+if (params)
+{
+url = 'dialogActionRequest?'+params;
+} else {
+url = 'dialogActionRequest';
+}
+jQuery.get(url, function(data)
+{
+jQuery(displayContainerId).replaceWith(data);
+//jQuery(myDialog).dialog( "option", "position", 'center' );
+});
+}
+var isWhole_re = /^\s*\d+\s*$/;
+function isWhole (s) {
+return String(s).search (isWhole_re) != -1
+}
+function getExpDate(days, hours, minutes) {
+var expDate = new Date();
+if (typeof days == "number" && typeof hours == "number" && typeof hours == "number") {
+expDate.setDate(expDate.getDate() + parseInt(days));
+expDate.setHours(expDate.getHours() + parseInt(hours));
+expDate.setMinutes(expDate.getMinutes() + parseInt(minutes));
+return expDate.toGMTString();
+}
+}
+function getCookieVal(offset)
+{
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+{
+endstr = document.cookie.length;
+}
+return unescape(document.cookie.substring(offset, endstr));
+}
+function getCookie(name)
+{
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen)
+{
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+{
+return getCookieVal(j);
+}
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break;
+}
+return null;
+}
+function setCookie(name, value, expires, path, domain, secure)
+{
+document.cookie = name + "=" + escape (value) +
+((expires) ? "; expires=" + expires : "") +
+((path) ? "; path=" + path : "") +
+((domain) ? "; domain=" + domain : "") +
+((secure) ? "; secure" : "");
+}
+function deleteCookie(name,path,domain)
+{
+if (getCookie(name))
+{
+document.cookie = name + "=" +
+((path) ? "; path=" + path : "") +
+((domain) ? "; domain=" + domain : "") +
+"; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+}
+jQuery(document).ready(function ()
+{
+jQuery('.showNavWidget').click(function()
+{
+jQuery('.showNavWidget').hide();
+jQuery('.hideNavWidget').show();
+jQuery('#eCommerceNavBarMenu').show();
+});
+jQuery('.hideNavWidget').click(function()
+{
+jQuery('.hideNavWidget').hide();
+jQuery('.showNavWidget').show();
+jQuery('#eCommerceNavBarMenu').hide();
+});
+jQuery('.dateEntry').each(function(){datePicker(this);});
+jQuery('.checkboxPartyAcc').click(function(){
+var name = jQuery(this).attr("name");
+var containsOthers = "N";
+jQuery("input[name="+name+"]:checked").each( function () {
+var value = jQuery(this).val();
+if(value.toLowerCase().indexOf("other") >= 0){
+containsOthers = "Y"
+}
+});
+if(containsOthers == "Y"){
+jQuery("#"+name+"_OtherDiv").show();
+}
+else{
+jQuery("#"+name+"_OtherDiv").hide();
+}
+});
+jQuery('.radioPartyAcc').click(function(){
+var name = jQuery(this).attr("name");
+var containsOthers = "N";
+var value = jQuery(this).val();
+if(value.toLowerCase().indexOf("other") >= 0){
+jQuery("#"+name+"_OtherDiv").show();
+}
+else{
+jQuery("#"+name+"_OtherDiv").hide();
+}
+});
+jQuery('.dropdownPartyAcc').click(function(){
+var name = jQuery(this).attr("name");
+var containsOthers = "N";
+var value = jQuery(this).val();
+if(value.toLowerCase().indexOf("other") >= 0){
+jQuery("#"+name+"_OtherDiv").show();
+}
+else{
+jQuery("#"+name+"_OtherDiv").hide();
+}
+});
+jQuery('.other_attribute').blur(function () {
+//If other fields are mandatory, add check validation here.
+var value = jQuery(this).val();
+var name = jQuery(this).attr("name");
+relatedElementName = name.replace('_OTHERVAL','');
+var inputElement = jQuery("input[name="+relatedElementName+"]");
+var elementName = inputElement.attr('name');
+var elementType = inputElement.attr('type');
+if(!elementType){
+var mySelect = $('select[name='+relatedElementName+']');
+if(mySelect){
+var dropDown = jQuery(mySelect).val();
+jQuery("select[name="+relatedElementName+"] option:selected ").val("_OTHERS_"+value);
+}
+}
+if(elementType == "checkbox"){
+jQuery("input[name="+elementName+"]:checked").each( function () {
+var checkedValue = jQuery(this).val();
+if(checkedValue.toLowerCase().indexOf("other") >= 0){
+jQuery(this).val("_OTHERS_"+value);
+}
+});
+}
+if(elementType == "radio"){
+var selectedVal = jQuery("input[name="+elementName+"]:checked").val();
+if(selectedVal.toLowerCase().indexOf("other") >= 0){
+jQuery("input[name="+elementName+"]:checked").val("_OTHERS_"+value);
+}
+}
+});
+jQuery('.showLightBoxCart').hover(
+function(e) {
+},
+function()
+{
+}
+);
+jQuery('#eCommerceNavBar').mouseover(function(e)
+{
+var id = e.target.id;
+if((id != "lightCart_displayDialog") && (id != "js_lightBoxCartTitleBar"))
+{
+jQuery('.js_lightBoxCartContainer').delay(0).slideUp(850, function() {
+jQuery('.js_lightBoxCartContainer').remove();
+});
+}
+});
+jQuery('#eCommercePageBody').mouseover(function(e)
+{
+var id = e.target.id;
+if((id != "lightCart_displayDialog") && (id != "js_lightBoxCartTitleBar"))
+{
+jQuery('.js_lightBoxCartContainer').delay(0).slideUp(850, function()
+{
+jQuery('.js_lightBoxCartContainer').remove();
+});
+}
+});
+jQuery('#eCommerceHeader').mouseover(function(e)
+{
+var id = e.target.id;
+if((id != "siteShoppingCartSize") && (id != "lightCart_displayDialog"))
+{
+jQuery('.js_lightBoxCartContainer').delay(0).slideUp(850, function() {
+jQuery('.js_lightBoxCartContainer').remove();
+});
+}
+});
+jQuery(window).scroll(function()
+{
+var heightBody = jQuery('#eCommercePageBody').height();
+var y = jQuery(window).scrollTop();
+if( y > (heightBody*.10) )
+{
+jQuery(".js_scrollToTop").fadeIn("slow");
+}
+else
+{
+jQuery('.js_scrollToTop').fadeOut('slow');
+}
+});
+var autoSuggestionList = [""];
+jQuery(function()
+{
+var ccav = window.location.href;
+if(ccav.indexOf("Avenue") == -1){
+jQuery("#searchText").autocomplete({source: autoSuggestionList});
+}
+});
+jQuery("#searchText").keyup(function(e)
+{
+var keyCode = e.keyCode;
+if(keyCode != 40 && keyCode != 38)
+{
+var searchText = jQuery(this).attr('value');
+jQuery("#searchText").autocomplete({
+appendTo:"#searchAutoComplete",
+source: function(request, response) {
+jQuery.ajax({
+url: "/findAutoSuggestions?searchText="+searchText+"",
+dataType: "json",
+type: "POST",
+success: function(data) {
+if(data.autoSuggestionList != null)
+{
+response(jQuery.map(data.autoSuggestionList, function(item)
+{
+return {
+value: item
+}
+}))
+}
+else
+{
+response(function() {
+return {
+value: ""
+}
+})
+}
+}
+});
+},
+minLength: 1
+});
+}
+});
+jQuery('.checkDelivery').click(function(e)
+{
+displayActionDialogBox('pincodeChecker_',this);
+});
+jQuery('.pincodeChecker_Form').submit(function(event)
+{
+event.preventDefault();
+jQuery.get(jQuery(this).attr('action')+'?'+jQuery(this).serialize(), function(data)
+{
+jQuery('#js_pincodeCheckContainer').replaceWith(data);
+});
+});
+jQuery('.js_cancelPinCodeChecker').click(function(event)
+{
+event.preventDefault();
+jQuery(displayDialogId).dialog('close');
+});
+});
+function displayLightDialogBox(dialogPurpose)
+{
+var dialogId = '#' + dialogPurpose + 'dialog';
+displayDialogId = '#' + dialogPurpose + 'displayDialog';
+dialogTitleId = '#' + dialogPurpose + 'dialogBoxTitle';
+titleText = jQuery(dialogTitleId).val();
+showLightBoxDialog(dialogId, displayDialogId, titleText);
+}
+function showLightBoxDialog(dialog, displayDialog, titleText)
+{
+myDialog = jQuery(displayDialog).dialog({
+modal: false,
+draggable: true,
+resizable: true,
+width: 'auto',
+autoResize:true,
+position: 'center',
+title: titleText
+});
+var dialogClass = displayDialog;
+dialogClass = dialogClass.replace(/^#+/, "");
+jQuery(myDialog).parent().addClass(dialogClass);
+jQuery(myDialog).siblings('.ui-dialog-titlebar').width(jQuery(myDialog).width());
+}
+function addMultiOrderItems()
+{
+var addItemsToCart = "true";
+var itemSelected = false;
+var count = 0;
+jQuery('.js_add_multi_product_quantity').each(function ()
+{
+reOrderQtyIdArr = jQuery(this).attr("id").split("_");
+variantIsChecked = jQuery('#js_add_multi_product_id_'+reOrderQtyIdArr[5]).is(":checked");
+if(variantIsChecked)
+{
+itemSelected = true;
+var quantity = jQuery(this).val();
+var add_productId = jQuery('#js_add_multi_product_id_'+reOrderQtyIdArr[5]).val();
+var productName = jQuery('#js_productName_'+count).val();
+if(quantity != "")
+{
+if(isQtyWhole(quantity,productName))
+{
+if(!(isQtyZero(quantity,productName,add_productId)))
+{
+quantity = Number(quantity) + Number(getQtyInCart(add_productId));
+if(!(validateQtyMinMax(add_productId,productName,quantity)))
+{
+addItemsToCart = "false";
+}
+}
+else
+{
+addItemsToCart = "false";
+}
+}
+else
+{
+addItemsToCart = "false";
+}
+}
+else
+{
+addItemsToCart = "false";
+}
+}
+count = count + 1;
+});
+if (!itemSelected)
+{
+alert("Please select items to order");
+addItemsToCart = "false";
+}
+if(addItemsToCart == "true")
+{
+document.reOrderItemForm.action="/";
+document.reOrderItemForm.submit();
+}
+}
+function seqReOrderCheck(elm)
+{
+reOrderQtyIdArr = jQuery(elm).attr("id").split("_");
+if(jQuery(elm).val()=="")
+{
+jQuery('#js_add_multi_product_id_'+reOrderQtyIdArr[5]).attr("checked", false);
+}
+else
+{
+jQuery('#js_add_multi_product_id_'+reOrderQtyIdArr[5]).attr("checked", true);
+}
+}
+function findOrderItems(elm)
+{
+document.reOrderItemSearchForm.action="https://www.latestone.com/eCommerceReOrderItems";
+document.reOrderItemSearchForm.submit();
+}
+function showTooltip(text, elm)
+{
+var tooltipBox = jQuery('.js_tooltip')[0];
+var obj2 = jQuery('.js_tooltipText')[0];
+obj2.innerHTML = text;
+tooltipBox.style.display = 'block';
+var st = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
+var sl = Math.max(document.body.scrollLeft,document.documentElement.scrollLeft);
+var eCommerceContentLeftPos = 0;
+var WW = jQuery(window).width();
+var WH = jQuery(window).height();
+//subtracting the sl and st from element left and top position because element left and top includes the scroll pixels.
+var EX = jQuery(elm).children().offset().left - sl;
+var EY = jQuery(elm).children().offset().top - st;
+var TTW = jQuery(tooltipBox).width();
+var TTH = jQuery(tooltipBox).height();
+var LP = 0;
+var TP = 0;
+var EH = jQuery(elm).children().height();
+var EW = jQuery(elm).children().width();
+var TOP = eval(EY > TTH);
+var BOTTOM = eval(!(TOP));
+var LEFT = eval((TTW + EX) > WW);
+var RIGHT = eval(!(LEFT));
+if(BOTTOM && LEFT)
+{
+jQuery('.js_tooltipTop').removeClass("tooltipTopLeftArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomRightArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomLeftArrow");
+jQuery('.js_tooltipTop').addClass("tooltipTopRightArrow");
+}
+else if(BOTTOM && RIGHT)
+{
+jQuery('.js_tooltipTop').removeClass("tooltipTopRightArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomRightArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomLeftArrow");
+jQuery('.js_tooltipTop').addClass("tooltipTopLeftArrow");
+}
+else if(TOP && LEFT)
+{
+jQuery('.js_tooltipTop').removeClass("tooltipTopLeftArrow");
+jQuery('.js_tooltipTop').removeClass("tooltipTopRightArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomLeftArrow");
+jQuery('.js_tooltipBottom').addClass("tooltipBottomRightArrow");
+}
+else if(TOP && RIGHT)
+{
+jQuery('.js_tooltipTop').removeClass("tooltipTopLeftArrow");
+jQuery('.js_tooltipBottom').removeClass("tooltipBottomRightArrow");
+jQuery('.js_tooltipTop').removeClass("tooltipTopRightArrow");
+jQuery('.js_tooltipBottom').addClass("tooltipBottomLeftArrow");
+}
+if(LEFT)
+{
+LP = EX - eCommerceContentLeftPos -TTW + sl + EW;
+}
+else
+{
+LP = EX - eCommerceContentLeftPos + sl;
+}
+if(BOTTOM)
+{
+TP = (EY + st + EH);
+}
+else
+{
+TP = (EY- TTH + st);
+}
+jQuery(tooltipBox).css({ top: TP+'px' });
+jQuery(tooltipBox).css({ left: LP+'px' });
+}
+function hideTooltip()
+{
+document.getElementById('tooltip').style.display = "none";
+}
+function validateQtyMinMax(productId,productName,quantity)
+{
+//alert("validateQtyMinMax==="+productId+"==="+productName+"===="+quantity);
+var lowerLimit = Number(getMinQty(productId));
+var upperLimit = Number(getMaxQty(productId));
+//alert("lowerLimit=="+lowerLimit+"====upperLimit==="+upperLimit);
+if(quantity != 0)
+{
+if(quantity < lowerLimit)
+{
+var pdpMinQtyErrorText = "The Quantity for Product _PRODUCT_NAME_ is less than the minimum allowed. The minimum allowed is _PDP_QTY_MIN_. Please retry.";
+pdpMinQtyErrorText = pdpMinQtyErrorText.replace('_PRODUCT_NAME_',productName);
+pdpMinQtyErrorText = pdpMinQtyErrorText.replace('_PDP_QTY_MIN_',lowerLimit);
+alert(pdpMinQtyErrorText);
+return false;
+}
+else if((upperLimit!= 0 ) && (quantity > upperLimit ))
+{
+// alert("not");
+var pdpMaxQtyErrorText = "The Quantity for Product _PRODUCT_NAME_ is greater than the maximum allowed. The maximum allowed is _PDP_QTY_MAX_. Please retry.";
+//pdpMaxQtyErrorText = pdpMaxQtyErrorText.replace('_PRODUCT_NAME_',productName);
+pdpMaxQtyErrorText = pdpMaxQtyErrorText.replace('_CART_QTY_',Number(getQtyInCart(productId)));
+pdpMaxQtyErrorText = pdpMaxQtyErrorText.replace('_PDP_QTY_MAX_',upperLimit);
+//alert(pdpMaxQtyErrorText);
+$('#maxQmsg').html(pdpMaxQtyErrorText);
+$('#js_addToCart').css("pointer-events","none");
+$(".select_wrapper").addClass('active');
+return false;
+}
+}
+$("#maxQmsg").text('');
+$(".select_wrapper").removeClass('active');
+$('#js_addToCart').css("pointer-events","auto");
+return true;
+}
+function getMaxQty(productId)
+{
+var upperLimit = Number(999);
+if(jQuery('#js_pdpQtyMaxAttributeValue_'+productId).length)
+{
+upperLimit = Number(jQuery('#js_pdpQtyMaxAttributeValue_'+productId).val());
+}
+return upperLimit;
+}
+function getMinQty(productId)
+{
+var lowerLimit = Number(1);
+if(jQuery('#js_pdpQtyMinAttributeValue_'+productId).length)
+{
+lowerLimit = Number(jQuery('#js_pdpQtyMinAttributeValue_'+productId).val());
+}
+return lowerLimit;
+}
+function isQtyWhole(quantity,productName)
+{
+if(!isWhole(quantity))
+{
+var pdpMaxQtyErrorText = "The Quantity entered for Product _PRODUCT_NAME_ must be a whole number, decimals are not allowed, please retry.";
+pdpMaxQtyErrorText = pdpMaxQtyErrorText.replace('_PRODUCT_NAME_',productName);
+alert(pdpMaxQtyErrorText);
+return false;
+}
+return true;
+}
+function isQtyZero(quantity,productName,productId)
+{
+var lowerLimit = Number(getMinQty(productId));
+if(quantity == 0)
+{
+var pdpMinQtyErrorText = "The Quantity for Product _PRODUCT_NAME_ is less than the minimum allowed. The minimum allowed is _PDP_QTY_MIN_. Please retry.";
+pdpMinQtyErrorText = pdpMinQtyErrorText.replace('_PRODUCT_NAME_',productName);
+pdpMinQtyErrorText = pdpMinQtyErrorText.replace('_PDP_QTY_MIN_',lowerLimit);
+alert(pdpMinQtyErrorText);
+return true;
+}
+return false;
+}
+function getQtyInCart(productId)
+{
+var qtyInCart = Number(0);
+return qtyInCart;
+}
+function getTotalQtyFromScreen(inputName,rowNum)
+{
+var quantity = Number(0);
+var quantityInputClassAttr = jQuery('#'+inputName+rowNum).attr("class");
+jQuery('.'+quantityInputClassAttr).each(function ()
+{
+if (jQuery(this).val() != '')
+{
+quantity = quantity + Number(jQuery(this).val());
+}
+});
+return quantity;
+}
+function isItemSelectedPdp()
+{
+//alert(document.getElementById("add_product_id").value)
+if (document.addform.add_product_id.value == 'NULL' || document.addform.add_product_id.value == '')
+{
+OPT = eval("getFormOption()");
+for (i = 0; i < OPT.length; i++)
+{
+var optionName = OPT[i];
+var indexSelected = document.forms["addform"].elements[optionName].selectedIndex;
+if(indexSelected <= 0)
+{
+var properName = OPT[i].substr(2);
+var parts = properName.split('_');
+parts.each(function(element,index){
+parts[index] = element.capitalize();
+});
+properName = parts.join(" ");
+alert("Please select a " + properName);
+break;
+}
+}
+return false;
+}
+return true;
+}
+function isItemSelectedPlp(selectFeatureDiv)
+{
+if (!jQuery('#'+selectFeatureDiv+'_add_product_id').length || jQuery('#'+selectFeatureDiv+'_add_product_id').val() == 'NULL' || jQuery('#'+selectFeatureDiv+'_add_product_id').val() == '')
+{
+OPT = eval("getFormOption" + selectFeatureDiv + "()");
+for (i = 0; i < OPT.length; i++)
+{
+var optionName = OPT[i];
+var indexSelected = jQuery('div#'+selectFeatureDiv+' select.'+optionName).prop("selectedIndex");
+if(indexSelected <= 0 || !jQuery('#'+selectFeatureDiv+'_add_product_id').length)
+{
+var properName = OPT[i].substr(2);
+var properName = properName.replace("_"+selectFeatureDiv,"");
+var parts = properName.split('_');
+parts.each(function(element,index){
+parts[index] = element.capitalize();
+});
+properName = parts.join(" ");
+alert("Please select a " + properName);
+break;
+}
+}
+return false;
+}
+return true;
+}
+function validateCart()
+{
+var cartIsValid = true;
+var productId = "";
+var productName = "";
+var quantity = "";
+return cartIsValid;
+}
+function submitMultiSearchForm(form)
+{
+var isValid = false;
+jQuery('form[name=entryForm] input[type="text"]').each(function()
+{
+if (jQuery.trim(jQuery(this).val()) != '')
+{
+isValid = true;
+}
+});
+if (isValid == false)
+{
+displayDialogBox('search_');
+return false;
+}
+else
+{
+form.submit();
+}
+}
+</script>
+<!-- payment page -->
+<!-- added cart js -->
+<!-- added js for anonshipping address & removed script from coomonaddressEntry.ftl -->
+<!-- removed from registrationpage.ftl page -->
+<!-- page Tag at Body End -->
+<!-- Pixel Tracking -->
+<!-- Pixel Tracking -->
+<!-- gosf script -->
+<!-- bulk orders js -->
+<!-- gosf end -->
+<span id="firsTime" style="display:none!important;">http&#58;&#47;&#47;</span>
+<!-- virtua reality js -->
+<!-- added for ccavenue -->
+</body>
+</html>

@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://www.knmi.nl/home">redirected</a>.</body></html>

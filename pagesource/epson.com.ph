@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<!--[if lte IE 9]>
+	<script>
+		if(!(window.location.pathname == "/interstitialPage"))
+		window.location.pathname = "/interstitialPage";
+	</script>
+<![endif]-->
+
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script type="text/javascript" src="//tags.tiqcdn.com/utag/epson/southeastasia/prod/utag.sync.js"></script>
+<!-- Encoding html special characters  -->
+	<title>Epson Philippines | Homepage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<meta name="keywords">
+<meta name="description" content="Epson has an extensive range of Multifunction printers, data and home theatre projectors, as well as POS printers and large format printing solutions.">
+<link rel="shortcut icon" type="image/x-icon" media="all" href="/_ui/desktop/theme-blue/images/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" />
+<link rel="stylesheet" type="text/css" media="all" href="/_ui/_v10653/responsive/theme-blue/css/style.css"/>
+		<script type="text/javascript" src="/_ui/_v10653/shared/js/analyticsmediator.js" async></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="page-homepage pageType-ContentPage template-pages-layout-landingLayout2Page pageLabel--homepage language-en">
+
+	
+
+<!-- Tealium -->
+<!-- UDO for page type "homepage" -->
+    <script type='text/javascript'>
+	var utag_data = 
+{
+	"site_region":"en",
+	"site_type":"Philippines",
+	"page_type":"homepage",
+	"cart_total_items":"",
+	"cart_total_value":"0.00",
+	"cart_product_quantity":[],
+	"site_currency":"PHP",
+	"site_section":"homepage",
+	"language_code":"en",
+	"cart_id":"",
+	"cart_product_price":[],
+	"customer_group":"guest",
+	"page_name":"Philippines:homepage:homepage",
+	"customer_status":"guest",
+	"cart_product_sku":[],
+	"cart_product_id":[]
+}
+</script>
+<script type='text/javascript'>
+	(function(a,b,c,d){
+	a='//tags.tiqcdn.com/utag/epson/southeastasia/prod/utag.js';
+	b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+	a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+	})();
+</script>
+
+<!-- End Tealium --><div class="branding-mobile hidden-md hidden-lg">
+			<div class="js-mobile-logo">
+				</div>
+		</div>
+		<main data-currency-iso-code="PHP">
+			<a href="#skip-to-content" class="skiptocontent" data-role="none">text.skipToContent</a>
+			<a href="#skiptonavigation" class="skiptonavigation" data-role="none">text.skipToNavigation</a>
+
+
+			<header class="main-header main-header-md">
+<div class="container-fluid container-secondary-nav nav-country">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="md-secondary-navigation pull-left">
+		<ul>
+			<li>
+				<a href="http://www.epson.com/?_re=1" title="Epson Southeast Asia" class="md-secondary-navigation__worldwide"  style="background: url(https://mediaserver.goepson.com/ImConvServlet/imconv/d9fad3ba0588ca50dabbdd9efe886aad792e1c6e/original?use=banner&assetDescr=globe) no-repeat left center;">
+				Epson Philippines</a>
+			</li> 
+		</ul>
+	</div>
+
+</div>
+			<div class="col-sm-9">
+				<div class="md-secondary-navigation">
+					<ul>
+						<li class=" auto has-sub js-enquire-has-sub"><a>CONNECT WITH US<span class="caret"></span></a>
+	<div class="sub-navigation">
+		<div class="row">
+			<div class="sub-navigation-section"> 
+				<ul class="sub-navigation-list social-links" id="social_top">
+				
+					<li class="yCmsComponent"><a target="_blank" href="http://www.facebook.com/EpsonPhilippines" class="social-icon" title="Facebook" onclick="return tealiumSocialShareEvent();"
+								 style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/e24136fc7d37aeb19606bfde80849fd1e94b3256/original?use=banner&assetDescr=icon-social-facebook');">Facebook</a></li>
+						<li class="yCmsComponent"><a target="_blank" href="http://twitter.com/epsonph" class="social-icon" title="Twitter" onclick="return tealiumSocialShareEvent();"
+								 style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/b09f62223ae097ad5792fbc468bcd68fedc6dbf7/original?use=banner&assetDescr=icon-social-twitter');">Twitter</a></li>
+						<li class="yCmsComponent"><a target="_blank" href="https://www.linkedin.com/company/epson-southeast-asia" class="social-icon" title="LinkedIn" onclick="return tealiumSocialShareEvent();"
+								 style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/132abde2e8fe709719ec5a3b8947e2da10090576/original?use=banner&assetDescr=icon-social-linkedin');">LinkedIn</a></li>
+						<li class="yCmsComponent"><a target="_blank" href="http://www.youtube.com/playlist?list=PLKobqzpNDc0n2Io-M-zij507wXJsM514m" class="social-icon" title="Youtube" onclick="return tealiumSocialShareEvent();"
+								 style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/bd69d909502ff72f3b210f81fec6cca560239302/original?use=banner&assetDescr=icon-social-youtube');">Youtube</a></li>
+						<li class="yCmsComponent"><a target="_blank" href="https://www.instagram.com/epsonph/" class="social-icon" title="Instagram" onclick="return tealiumSocialShareEvent();"
+								 style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/59d27d7ebd26883520a8c9e7bd53d16bf35ad8a4/original?use=banner&assetDescr=instagram_icon_white_on_blue-31x31');">Instagram</a></li>
+						</ul>
+			</div>
+		</div>
+	</div>
+</li><li class="auto has-sub js-enquire-has-sub secondary-navigation-language">
+							 		</li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+	
+<a id="skiptonavigation"></a>
+
+	<div class="container-fluid container-main-nav">
+		<div class="row">
+		  <div class="sm-navigation">
+				<button class="btn btn-nav btn-nav__menu js-toggle-sm-navigation" type="button">
+					<span class="icon-hamburger"></span> <span class="label">Menu</span>
+				</button>
+			</div>
+		<div class="site-logo-column">
+				<div class="site-logo">
+					<div class="simple-banner-component">
+	<a href="/"><img title=""
+				alt="" src="https://mediaserver.goepson.com/ImConvServlet/imconv/c1b4fa94fafe4789d9b6331b9597bec3fa775695/original?use=banner&assetDescr=logo-sea"></a>
+		</div>
+</div>
+			</div>
+			
+			<div class="sm-navigation text-right">
+				<button class="btn btn-nav js-toggle-xs-search" data-toggle-target="-main" type="button">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+				</div>
+
+
+			<nav class="main-navigation js-enquire-offcanvas-navigation" role="navigation">
+		<div class="auto off-canvas-heading">
+			<div class="row">
+				<div class="sm-navigation">
+					<button class="btn btn-nav js-toggle-sm-navigation" type="button">
+						<span class="glyphicon glyphicon-remove icon-close"></span>
+					</button>
+				</div>
+				<div class="site-logo-column">
+					<div class="site-logo">
+						<div class="simple-banner-component">
+	<a href="/"><img title=""
+				alt="" src="https://mediaserver.goepson.com/ImConvServlet/imconv/c1b4fa94fafe4789d9b6331b9597bec3fa775695/original?use=banner&assetDescr=logo-sea"></a>
+		</div>
+</div>
+				</div>
+				</div>
+			<div class="row">
+				<div class="site-search-container site-search-container-sub">
+					<div class="site-search ui-front row">
+						<div class="row search-form-row" data-learn-more='Learn More' data-support='Support'>
+							<div class="col-xs-12 col-md-10">
+								<form name="search_form_EpsonSearchBox" method="get" action="/search/">
+	<div class="input-group">
+		<span class="input-group-btn"> <button class="btn btn-link" type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		<input type="text" id="js-site-search-input" class="form-control js-site-search-input ui-autocomplete-input" name="text" value="" maxlength="100"
+				placeholder="Hit Enter to search"
+				data-options='{"autocompleteUrl" : "/search/autocomplete/EpsonSearchBox","minCharactersBeforeRequest" : "3","waitTimeBeforeRequest" : "10","displayProductImages" : true}'>
+		</div>
+</form></div>
+							<div class="col-md-2 hidden-xs hidden-sm text-right">
+								<button class="btn btn-nav js-toggle-xs-search" type="button">
+									<span class="glyphicon glyphicon-remove icon-close"></span>
+								</button>
+							</div>
+						</div>
+						<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul class="nav nav-pills">
+			<!-- my account for responsive view -->
+			<!-- navigation bar collection -->
+			<li class=" auto has-sub js-enquire-has-sub"><a href="/For-Home/h/h"  title="FOR HOME" >FOR HOME</a><div class="sub-navigation">
+				<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+				<div class="sub-navigation-section">
+					<ul class="sub-navigation-list">
+						<li class="yCmsComponent auto hidden-md hidden-lg category-home">
+							<a href="/For-Home/h/h"  title="FOR HOME" >FOR HOME</a></li>
+						<li
+											class="yCmsComponent auto has-sub js-enquire-has-sub-secondary">
+											<a href="/For-Home/Printers/h/h1"  title="Printers" >Printers</a><div class="sub-navigation sub-navigation__secondary">
+												<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+												<div class="sub-navigation-section">
+													<ul class="sub-navigation-list">
+														<li
+															class="yCmsComponent auto hidden-md hidden-lg category-home">
+															<a href="/For-Home/Printers/h/h1"  title="Printers" >Printers</a></li>
+														<li class="yCmsComponent auto"><a href="/For-Home/Printers/Inkjet/c/h110ph"  title="Inkjet Printers" >Inkjet Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/Ink-Tank/c/itfr"  title="Ink Tank Printers" >Ink Tank Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/Label-Printers/c/h130"  title="Label Printers" >Label Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/For-Home/Printers/h/h1"  title="See All Printers" >See All Printers</a></li>
+															</ul>
+												</div>
+											</div>
+										</li>
+									<li class="yCmsComponent auto"><a href="/homeprojector"  title="Projectors" >Projectors</a></li>
+												<li class="yCmsComponent auto"><a href="/For-Home/Scanners/h/h2"  title="Scanners" >Scanners</a></li>
+												<li class="yCmsComponent auto"><a href="/Smart-Glasses/c/h420"  title="Smart Glasses" >Smart Glasses</a></li>
+												<li class="yCmsComponent auto"><a href="/InkFinder"  title="Ink" >Ink</a></li>
+												<li
+											class="yCmsComponent auto has-sub js-enquire-has-sub-secondary">
+											<div class="sub-navigation sub-navigation__secondary">
+												<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+												<div class="sub-navigation-section">
+													<ul class="sub-navigation-list">
+														<li
+															class="yCmsComponent auto hidden-md hidden-lg category-home">
+															</li>
+														<li class="yCmsComponent auto"><a href="/Paper/Business-and-Presentation-Media/c/h610"  title="Business and Presentation Media" >Business and Presentation Media</a></li>
+															<li class="yCmsComponent auto"><a href="/Paper/Fine-Arts-%26-Specialties-Media/c/w620"  title="Fine Arts & Specialties Media" >Fine Arts & Specialties Media</a></li>
+															<li class="yCmsComponent auto"><a href="/Paper/h/h6"  title="See All Paper" >See All Paper</a></li>
+															</ul>
+												</div>
+											</div>
+										</li>
+									<li class="yCmsComponent auto"><a href="/promos"  title="Promos and Events" >Promos and Events</a></li>
+												</ul>
+				</div>
+
+			</div></li>
+	<li class=" auto has-sub js-enquire-has-sub"><a href="/business-solutions"  title="For Work" >For Work</a><div class="sub-navigation">
+				<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+				<div class="sub-navigation-section">
+					<ul class="sub-navigation-list">
+						<li class="yCmsComponent auto hidden-md hidden-lg category-home">
+							<a href="/business-solutions"  title="For Work" >For Work</a></li>
+						<li
+											class="yCmsComponent auto has-sub js-enquire-has-sub-secondary">
+											<a href="/For-Work/Printers/h/w1"  title="Printers" >Printers</a><div class="sub-navigation sub-navigation__secondary">
+												<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+												<div class="sub-navigation-section">
+													<ul class="sub-navigation-list">
+														<li
+															class="yCmsComponent auto hidden-md hidden-lg category-home">
+															<a href="/For-Work/Printers/h/w1"  title="Printers" >Printers</a></li>
+														<li class="yCmsComponent auto"><a href="/For-Work/Printers/Business-Inkjet-Printers/c/w110ph"  title="Business Inkjet Printers" >Business Inkjet Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/Ink-Tank/c/itfr"  title="Ink Tank Printers" >Ink Tank Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/For-Work/Printers/Photo-Printers/c/w120ph"  title="Photo Printers" >Photo Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/dotmatrix"  title="Dot Matrix Printers" >Dot Matrix Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/Label-Printers-and-Presses/c/w130"  title="Label Printers and Presses" >Label Printers and Presses</a></li>
+															<li class="yCmsComponent auto"><a href="/largeformat"  title="Large Format Printers" >Large Format Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/Laser-Printers/c/w180"  title="Laser Printers" >Laser Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/For-Work/Printers/POS-Printers/c/w150"  title="POS Printers" >POS Printers</a></li>
+															<li class="yCmsComponent auto"><a href="/For-Work/Printers/Photo-Lab/c/w191"  title="Photo Lab" >Photo Lab</a></li>
+															<li class="yCmsComponent auto"><a href="/For-Work/Printers/h/w1"  title="See All Printers" >See All Printers</a></li>
+															</ul>
+												</div>
+											</div>
+										</li>
+									<li
+											class="yCmsComponent auto has-sub js-enquire-has-sub-secondary">
+											<a href="/Projectors/h/w3"  title="Projectors" >Projectors</a><div class="sub-navigation sub-navigation__secondary">
+												<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+												<div class="sub-navigation-section">
+													<ul class="sub-navigation-list">
+														<li
+															class="yCmsComponent auto hidden-md hidden-lg category-home">
+															<a href="/Projectors/h/w3"  title="Projectors" >Projectors</a></li>
+														<li class="yCmsComponent auto"><a href="/Projectors/Corporate-and-Education/c/w310ph"  title="Corporate and Education Projectors" >Corporate and Education Projectors</a></li>
+															<li class="yCmsComponent auto"><a href="/highbrightness"  title="High Brightness Projectors" >High Brightness Projectors</a></li>
+															<li class="yCmsComponent auto"><a href="/Ultra-portable/c/w330"  title="Ultra-portable Projectors" >Ultra-portable Projectors</a></li>
+															<li class="yCmsComponent auto"><a href="/interactive"  title="Interactive Projectors" >Interactive Projectors</a></li>
+															<li class="yCmsComponent auto"><a href="/Projectors/Short-Throw-Ultra-short-Throw/c/w350ph"  title="Short Throw/Ultra-short Throw Projectors" >Short Throw/Ultra-short Throw Projectors</a></li>
+															<li class="yCmsComponent auto"><a href="/document-cameras"  title="Document Cameras" >Document Cameras</a></li>
+															<li class="yCmsComponent auto"><a href="/Projectors/h/w3"  title="See All Projectors" >See All Projectors</a></li>
+															</ul>
+												</div>
+											</div>
+										</li>
+									<li class="yCmsComponent auto"><a href="/Scanners/c/w2"  title="Scanners" >Scanners</a></li>
+												<li class="yCmsComponent auto"><a href="/industrial-robots"  title="Industrial Robots" >Industrial Robots</a></li>
+												<li class="yCmsComponent auto"><a href="/For-Work/IC-Handler/IC-Handler/c/w900"  title="IC Handler" >IC Handler</a></li>
+												<li class="yCmsComponent auto"><a href="/For-Work/Discproducers/Discproducers/c/w11a"  title="Discproducer" >Discproducer</a></li>
+												<li class="yCmsComponent auto"><a href="/Smart-Glasses/c/w420"  title="Smart Glasses" >Smart Glasses</a></li>
+												<li
+											class="yCmsComponent auto has-sub js-enquire-has-sub-secondary">
+											<a href="/electronic-devices"  title="Electronic Devices" >Electronic Devices</a><div class="sub-navigation sub-navigation__secondary">
+												<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+												<div class="sub-navigation-section">
+													<ul class="sub-navigation-list">
+														<li
+															class="yCmsComponent auto hidden-md hidden-lg category-home">
+															<a href="/electronic-devices"  title="Electronic Devices" >Electronic Devices</a></li>
+														<li class="yCmsComponent auto"><a href="http://www5.epsondevice.com/en/products/"  title="Quartz Devices" >Quartz Devices</a></li>
+															<li class="yCmsComponent auto"><a href="http://global.epson.com/products_and_drivers/semicon/index.html"  title="Epson Semiconductors" >Epson Semiconductors</a></li>
+															</ul>
+												</div>
+											</div>
+										</li>
+									<li class="yCmsComponent auto"><a href="/InkFinder"  title="Ink" >Ink</a></li>
+												<li class="yCmsComponent auto"><a href="http://site.epson.asia/philippines/ink_and_supplies/ink_and_supplies.html"  title="Paper" >Paper</a></li>
+												<li class="yCmsComponent auto"><a href="/promos"  title="Promos and Events" >Promos and Events</a></li>
+												</ul>
+				</div>
+
+			</div></li>
+	<li class=" auto has-sub js-enquire-has-sub"><a href="/Support/sl/s"  title="SUPPORT" >SUPPORT</a><div class="sub-navigation">
+				<a href="#" class="sm-back js-enquire-sub-close">Back</a>
+
+				<div class="sub-navigation-section">
+					<ul class="sub-navigation-list">
+						<li class="yCmsComponent auto hidden-md hidden-lg category-home">
+							<a href="/Support/sl/s"  title="SUPPORT" >SUPPORT</a></li>
+						<li class="yCmsComponent auto"><a href="/Support/Printers/sh/s1"  title="Printers" >Printers</a></li>
+												<li class="yCmsComponent auto"><a href="/Support/Scanners/sh/s2"  title="Scanners" >Scanners</a></li>
+												<li class="yCmsComponent auto"><a href="/Support/Projectors/sh/s3"  title="Projectors" >Projectors</a></li>
+												<li class="yCmsComponent auto"><a href="/Support/ServiceCenterLocator"  title="Service Center Locator" >Service Center Locator</a></li>
+												<li class="yCmsComponent auto"><a href="https://customer.epson.asia/customer/ewarranty.do#/reg/PH"  title="Warranty Registration" >Warranty Registration</a></li>
+												</ul>
+				</div>
+
+			</div></li>
+	<!-- language component for responsive view -->
+
+			<!-- search component -->
+			<li class="auto nav-item-search">
+				<button class="btn btn-main-nav js-toggle-xs-search" data-toggle-target="-main" type="button">
+					SEARCH<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</li>
+
+			<!-- Epson World wide links -->
+			<li class="auto nav-item-epson-worldwide"><a href="http://www.epson.com/?_re=1">Epson Southeast Asia</a>
+
+			</li>
+
+			<!-- social links for responsive -->
+			<li class=" auto nav-item-social-links">
+				<ul class="social-links" id="hook_mbl_social">
+				</ul>
+			</li>
+
+		</ul>
+	</nav>
+
+</div>
+
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQQFVlJaARABU1VSAggPUg=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script></header>
+
+</div>
+	</div>
+
+
+	<div class="container-fluid site-search-container site-search-container-main">
+		<div class="site-search ui-front row">
+			<div class="row search-form-row">
+				<div class="col-xs-12 col-md-10">
+					<form name="search_form_EpsonSearchBox" method="get" action="/search/">
+	<div class="input-group">
+		<span class="input-group-btn"> <button class="btn btn-link" type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		<input type="text" id="js-site-search-input" class="form-control js-site-search-input ui-autocomplete-input" name="text" value="" maxlength="100"
+				placeholder="Hit Enter to search"
+				data-options='{"autocompleteUrl" : "/search/autocomplete/EpsonSearchBox","minCharactersBeforeRequest" : "3","waitTimeBeforeRequest" : "10","displayProductImages" : true}'>
+		</div>
+</form></div>
+				<div class="col-md-2 hidden-xs hidden-sm text-right">
+					<button class="btn btn-nav js-toggle-xs-search js-toggle-xs-search" type="button">
+						<span class="glyphicon glyphicon-remove icon-close"></span>
+					</button>
+				</div>
+			</div>
+			<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+		</div>
+	</div>
+
+</header>
+
+
+<div class="yCmsContentSlot container">
+</div><a id="skip-to-content"></a>
+		
+			
+				<!-- Display stock error on different pages upon Add to Cart button not adding products -->
+<script type="text/javascript"
+	src="/_ui/_v10653/responsive/common/js/jquery-2.1.1.min.js"></script>
+
+<div class="container-fluid container-main-nav">
+	<div class="row hidden-md hidden-lg">
+		<!-- Left is Default -->
+				<div class="row">
+					<div
+						class="simple-responsive-banner-component MIDDLE module-cta right-content"
+						style="background-color: #172333; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/649aaa4710e803c84c5e6d960446d605194403d5/original?use=banner&assetDescr=17029-EPSON-Workforce-Microsite-KV-Carousel2');">
+						<div class="module-content">
+							<h3 style="color:#fff"><h1>0 - 100 Pages in 60 Seconds.</h1></h3>
+							<p style="color:#fff">The WorkForce Enterprise</p>
+							<a href="/enterpriseprinting"
+									
+									class="module-cta-cta"><span>Find Out More</span></a>
+							</div>
+					</div>
+				</div>
+			</div>
+	<div class="no-space">
+		<div class="carousel carousel-feature js-owl-carousel js-owl-rotating-feature hidden-xs hidden-sm">
+			<!-- Left is Default -->
+						<div class="row">
+							<div class="simple-responsive-banner-component MIDDLE module-cta right-content"
+								style="background-color: #172333; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/649aaa4710e803c84c5e6d960446d605194403d5/original?use=banner&assetDescr=17029-EPSON-Workforce-Microsite-KV-Carousel2');">
+								<div class="module-content">
+									<h3 style="color:#fff"><h1>0 - 100 Pages in 60 Seconds.</h1></h3>
+									<p style="color:#fff">The WorkForce Enterprise</p>
+									<a href="/enterpriseprinting"
+											
+											class="module-cta-cta"><span>Find Out More</span></a>
+									</div>
+							</div>
+						</div>
+			<!-- Left is Default -->
+						<div class="row">
+							<div class="simple-responsive-banner-component BOTTOM module-cta center-content"
+								style="background-color: #14243e; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/5b3db6cd45697cd6f761eff4321d44533e9f35fd/original?use=banner&assetDescr=kv-homepage-b2b');">
+								<div class="module-content">
+									<h3 style="color:#fff">IT'S IN THE DETAILS</h3>
+									<p style="color:#fff">Our focus on perfecting the details can make a big difference to your business. Discover how Epson’s breakthrough technologies can enhance your performance.</p>
+									<a href="/business-solutions"
+											
+											class="module-cta-cta"><span>Explore the Details</span></a>
+									</div>
+							</div>
+						</div>
+			<!-- Left is Default -->
+						<div class="row">
+							<div class="simple-responsive-banner-component MIDDLE module-cta left-content"
+								style="background-color: #000; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/e89927e93fb29d3fda99c9c5268b8ca496cddfbe/original?use=banner&assetDescr=1400x570_Static_Web_Banner');">
+								<div class="module-content">
+									<h3 style="color:#fff">Epson Digital Textile Printers</h3>
+									<p style="color:#fff">Only limited by your imagination.</p>
+									<a href="http://site.epson.asia/philippines/textileprinting/index.html"
+											target="_blank"
+											class="module-cta-cta"><span>Discover More</span></a>
+									</div>
+							</div>
+						</div>
+			<!-- Left is Default -->
+						<div class="row">
+							<div class="simple-responsive-banner-component MIDDLE module-cta right-content"
+								style="background-color: #000; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/6662daf37b2391cc55b63d6f116effaf79e59713/original?use=banner&assetDescr=ESP_homepage-inkjet');">
+								<div class="module-content">
+									<h3 style="color:#fff">It's All About the Ink</h3>
+									<p style="color:#fff">To help small businesses go further, the original Epson ink tank system printer prints up to 7,500 colour pages and 4,500 black and white pages.</p>
+									<a href="/inkoutsideprinter"
+											
+											class="module-cta-cta"><span>Learn More</span></a>
+									</div>
+							</div>
+						</div>
+			<!-- Left is Default -->
+						<div class="row">
+							<div class="simple-responsive-banner-component MIDDLE module-cta left-content"
+								style="background-color: #0000; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/979b53265162a57d8bc7360ba5bb033f343fa4f1/original?use=banner&assetDescr=homepage-cta-performance02');">
+								<div class="module-content">
+									<h3 style="color:#fff">Masters of Performance</h3>
+									<p style="color:#fff">The best in its class with unbeaten specifications, truly extraordinary results.</p>
+									<a href="http://site.epson.asia/philippines/master_of_performance/index.html"
+											target="_blank"
+											class="module-cta-cta"><span>Learn More</span></a>
+									</div>
+							</div>
+						</div>
+			</div>
+	</div>
+</div>
+
+<!--  Script in jsp to override the slide transition time from owl carousel js -->
+<script type="text/javascript">
+$(document).ready(function(){
+	ACC.carousel = {
+
+			_autoload: [
+				["bindCarousel", $(".js-owl-carousel").length >0]
+			],
+
+			rotations: 0,
+
+			carouselConfig:{
+				"default":{
+					navigation:true,
+					navigationText : ["<span class='glyphicon glyphicon-chevron-left icon-left-arrow'></span>", "<span class='glyphicon glyphicon-chevron-right icon-right-arrow'></span>"],
+					pagination:false,
+					scrollPerPage:true,
+					itemsCustom : [[0, 3], [640, 4], [1024, 6], [1400, 6]]
+				},
+				"rotating-image":{
+					navigation:false,
+					pagination:true,
+					singleItem : true,
+				},
+
+				"rotating-four":{
+					navigation:true,
+					navigationText : ["<span class='glyphicon glyphicon-chevron-left icon-left-arrow'></span>", "<span class='glyphicon glyphicon-chevron-right icon-right-arrow'></span>"],
+					pagination:true,
+					autoHeight : true,
+					scrollPerPage:true,
+					itemsCustom : [[0, 3], [640, 4], [1024, 4], [1400, 4]]
+				},
+
+				"rotating-feature":{
+					navigation:false,
+					pagination:true,
+					singleItem:true,
+					autoPlay:5000,
+					stopOnHover:true,
+					autoHeight : true					
+				},
+				"lazy-reference":{
+					navigation:true,
+					navigationText : ["<span class='glyphicon glyphicon-chevron-left'></span>", "<span class='glyphicon glyphicon-chevron-right'></span>"],
+					pagination:false,
+					itemsDesktop : [5000,7], 
+					itemsDesktopSmall : [1200,5], 
+					itemsTablet: [768,4], 
+					itemsMobile : [480,3], 
+					lazyLoad:true,		
+				}
+			},
+
+			bindCarousel: function(){
+				
+				$(".js-owl-carousel").each(function(){
+					var $c = $(this);
+					$.each(ACC.carousel.carouselConfig,function(key,config){
+						if($c.hasClass("js-owl-"+key)){
+							var $e = $(".js-owl-"+key);
+							$e.owlCarousel(config);
+						}
+					});
+				});
+
+			}
+
+		};
+});
+
+</script>
+<div class="container-fluid container-main-content">
+	<div class="carousel-component">
+		<div class="carousel carousel-products js-owl-carousel js-owl-default" style="opacity: 1; display: block;">
+			<div class="item">
+					<a href="/For-Home/Printers/h/h1">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/5a51f3312628ff96ca19ed8829c591ea62209d46/515Wx515H?use=productpictures&assetDescr=carousel-for-home001" alt="category.picture.alt" title="Printers for Home" />
+						</div>
+						<div class="item-name">Printers for Home</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/For-Work/Printers/h/w1">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/36f32410642101be6fa594d4411a4db1ca854839/515Wx515H?use=productpictures&assetDescr=carousel-for-work001" alt="category.picture.alt" title="Printers for Work" />
+						</div>
+						<div class="item-name">Printers for Work</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/For-Home/Projectors/h/h3">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/9be3aae39a57a556efef098be23f3060f84f453c/515Wx515H?use=productpictures&assetDescr=carousel-for-home002" alt="category.picture.alt" title="Projectors for Home" />
+						</div>
+						<div class="item-name">Projectors for Home</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/Projectors/h/w3">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/62ae77ee25228fcbcd6c9e726f6a73f6311417da/515Wx515H?use=productpictures&assetDescr=For+Work+Projectors+W28+projector" alt="category.picture.alt" title="Projectors for Work" />
+						</div>
+						<div class="item-name">Projectors for Work</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/For-Home/Scanners/h/h2">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/a8ada2d56ccf30f9ae68bf0d442745d0711487a9/515Wx515H?use=productpictures&assetDescr=For+Home+Scanner+V39+photo-scanner" alt="category.picture.alt" title="Scanners for Home" />
+						</div>
+						<div class="item-name">Scanners for Home</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/Scanners/c/w2">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/f67517ef25a64cfe95a525061b611aa420fff765/515Wx515H?use=productpictures&assetDescr=ph-DS860-workgroup-scanner" alt="category.picture.alt" title="Scanners for Work" />
+						</div>
+						<div class="item-name">Scanners for Work</div>
+					</a>
+				</div>
+			<div class="item">
+					<a href="/InkFinder">
+						<div class="thumb">
+							<img src="https://mediaserver.goepson.com/ImConvServlet/imconv/ebe95d4a0b4a3170220002e2619dd4fe3d13d736/515Wx515H?use=productpictures&assetDescr=Carousel-Ink-664-296-copy" alt="category.picture.alt" title="Products for the Workplace" />
+						</div>
+						<div class="item-name">Products for the Workplace</div>
+					</a>
+				</div>
+			</div>
+	</div>
+</div>
+<div class="row hidden-xs hidden-sm">
+		<!-- social -->
+		<div class="simple-responsive-banner-component module-social">
+			<div class="module-content">
+			<p>
+				<span class="title">Get Social With Us</span> <span class="social-links">
+					<a class="social-icon" href="http://www.facebook.com/EpsonPhilippines" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Facebook"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/e24136fc7d37aeb19606bfde80849fd1e94b3256/original?use=banner&assetDescr=icon-social-facebook');">Facebook</a>
+							<a class="social-icon" href="http://twitter.com/epsonph" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Twitter"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/b09f62223ae097ad5792fbc468bcd68fedc6dbf7/original?use=banner&assetDescr=icon-social-twitter');">Twitter</a>
+							<a class="social-icon" href="https://www.linkedin.com/company/epson-southeast-asia" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="LinkedIn"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/132abde2e8fe709719ec5a3b8947e2da10090576/original?use=banner&assetDescr=icon-social-linkedin');">LinkedIn</a>
+							<a class="social-icon" href="http://www.youtube.com/playlist?list=PLKobqzpNDc0n2Io-M-zij507wXJsM514m" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Youtube"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/bd69d909502ff72f3b210f81fec6cca560239302/original?use=banner&assetDescr=icon-social-youtube');">Youtube</a>
+							<a class="social-icon" href="https://www.instagram.com/epsonph/" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Instagram"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/59d27d7ebd26883520a8c9e7bd53d16bf35ad8a4/original?use=banner&assetDescr=instagram_icon_white_on_blue-31x31');">Instagram</a>
+							</span>
+			</p>
+		</div>
+	</div>
+	</div>
+<!-- Left is Default -->
+<div class="row" >
+		<div class="simple-responsive-banner-component  module-cta right-content"
+			style="background-color: BLACK; background-image: url('/medias/homepage-cta-01.png?context=bWFzdGVyfGltYWdlc3wzNzg0MDV8aW1hZ2UvcG5nfGltYWdlcy9oMTUvaDI5Lzg4NDE0NzYzNzQ1NTgucG5nfGMyY2EwN2E5NjBiYzAxM2JlMTgxOWIxYmFiZjVjODUwMTRmZmY2MGM3Y2JhYjllNTQyNGMzYzI0NGJiZjdlZTM');">
+			<div class="module-content">
+				<h3 style="color:WHITE">Professional Imaging Printers</h3>
+				<div class="text-container" style="color:WHITE"><p>Industry-leading large format printers for photography, graphic arts, and commercial printing.</p></div>
+				<a href="For-Work/Printers/Large-Format/c/w140"
+							   target="_blank"
+							   class="module-cta-cta"><span>Pro Imaging Printers</span></a>
+						</div>
+		</div>
+	</div>
+<!-- Left is Default -->
+<div class="row" >
+		<div class="simple-responsive-banner-component  module-cta left-content"
+			style="background-color: BLACK; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/54f4233feeeb1f3791f5c64d5543df6a0a2d54be/original?use=banner&assetDescr=inktank-homepage-cta-05');">
+			<div class="module-content">
+				<h3 style="color:#ffffff">Ink Tank Printers</h3>
+				<div class="text-container" style="color:#ffffff"><p>Our revolutionary ink tank system printers feature super-high-capacity refillable ink tanks and ultra low-cost replacement inks.</p>
+</div>
+				<a href="/For-Work/Printers/Ink-Tank-System-Printers-/c/w170"
+							   
+							   class="module-cta-cta"><span>Learn More</span></a>
+						</div>
+		</div>
+	</div>
+<!-- Left is Default -->
+<div class="row" >
+		<div class="simple-responsive-banner-component  module-cta right-content"
+			style="background-color: GRAY; background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/4d0d921c94787f744cab25b82346c8ade69d05ec/original?use=banner&assetDescr=homepage-cta-03');">
+			<div class="module-content">
+				<h3 style="color:BLACK">Business Inkjet Printers</h3>
+				<div class="text-container" style="color:BLACK"><p>Epson printers and all-in-ones deliver amazing quality, blazing-fast speed, and exceptional reliability in office.</p></div>
+				<a href="/For-Work/Printers/Business-Inkjet-Printers/c/w110"
+							   
+							   class="module-cta-cta"><span>Learn More</span></a>
+						</div>
+		</div>
+	</div>
+<section class="row">
+			<article class="simple-responsive-banner-component full-bleed-tout "
+					style="background-color: #353535; background-image: url('');">
+					<div class="full-bleed-tout-outer tout-height-adjuster">
+						<div class="full-bleed-tout-inner" style="color:#fff;">
+							<h2>Looking for Your Ink?</h2><p>Epson inks, specialty papers, printers work together to deliver excellent results.</p><a href="/InkFinder"
+									   
+									   class="btn btn-default btn-block btn-with-arrow no-arrow" style="color:#fff;">Go to Epson Ink Finder<span class="more-arrow-arrow" style="border-left-color:#fff;"></span></a>
+								</div>
+					</div>
+				</article>
+			<article class="simple-responsive-banner-component full-bleed-tout "
+					style="background-color: #003399; background-image: url('');">
+					<div class="full-bleed-tout-outer tout-height-adjuster">
+						<div class="full-bleed-tout-inner" style="color:#fff;">
+							<h2>Find Epson Support</h2>
+<p>Get drivers &amp; support for your product by searching for all or part of the product name.</p><a href="/Support/sl/s"
+									   
+									   class="btn btn-default btn-block btn-with-arrow no-arrow" style="color:#fff;">Get Epson Support<span class="more-arrow-arrow" style="border-left-color:#fff;"></span></a>
+								</div>
+					</div>
+				</article>
+			</section>
+	<div class="row hidden-xs hidden-sm">
+		<!-- social -->
+		<div class="simple-responsive-banner-component module-social">
+			<div class="module-content">
+			<p>
+				<span class="title">Get Social With Us</span> <span class="social-links">
+					<a class="social-icon" href="http://www.facebook.com/EpsonPhilippines" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Facebook"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/e24136fc7d37aeb19606bfde80849fd1e94b3256/original?use=banner&assetDescr=icon-social-facebook');">Facebook</a>
+							<a class="social-icon" href="http://twitter.com/epsonph" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Twitter"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/b09f62223ae097ad5792fbc468bcd68fedc6dbf7/original?use=banner&assetDescr=icon-social-twitter');">Twitter</a>
+							<a class="social-icon" href="https://www.linkedin.com/company/epson-southeast-asia" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="LinkedIn"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/132abde2e8fe709719ec5a3b8947e2da10090576/original?use=banner&assetDescr=icon-social-linkedin');">LinkedIn</a>
+							<a class="social-icon" href="http://www.youtube.com/playlist?list=PLKobqzpNDc0n2Io-M-zij507wXJsM514m" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Youtube"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/bd69d909502ff72f3b210f81fec6cca560239302/original?use=banner&assetDescr=icon-social-youtube');">Youtube</a>
+							<a class="social-icon" href="https://www.instagram.com/epsonph/" onclick="return tealiumSocialShareEvent();"
+									target="_blank"
+									title="Instagram"
+									style="background-image: url('https://mediaserver.goepson.com/ImConvServlet/imconv/59d27d7ebd26883520a8c9e7bd53d16bf35ad8a4/original?use=banner&assetDescr=instagram_icon_white_on_blue-31x31');">Instagram</a>
+							</span>
+			</p>
+		</div>
+	</div>
+	</div>
+<div class="row no-margin">
+        <div class="col-xs-12 col-md-6 no-space">
+            </div>
+        <div class="col-xs-12 col-md-6 no-space">
+            </div>
+        <div class="col-xs-12">
+            </div>
+    </div>
+
+    <footer class="main-footer">
+	<div class="container">
+			<div class="row">
+				<div class="row hidden-xs hidden-sm">
+					<div class="links">
+									<div class="title">For Home</div>
+									<ul>
+										<li class="yCmsComponent">
+<a href="/For-Home/Printers/h/h1"  title="Printers" >Printers</a></li><li class="yCmsComponent">
+<a href="/For-Home/Scanners/h/h2"  title="Scanners" >Scanners</a></li><li class="yCmsComponent">
+<a href="/moverio-augmented-reality"  title="Smart Glasses" >Smart Glasses</a></li><li class="yCmsComponent">
+<a href="/InkFinder"  title="Ink" >Ink</a></li><li class="yCmsComponent">
+<a href="/promos"  title="Promos and Events" >Promos and Events</a></li></ul>
+	
+								</div>
+							<div class="links">
+									<div class="title">For Work</div>
+									<ul>
+										<li class="yCmsComponent">
+<a href="/For-Work/Printers/h/w1"  title="Printers" >Printers</a></li><li class="yCmsComponent">
+<a href="/Projectors/h/w3"  title="Projectors" >Projectors</a></li><li class="yCmsComponent">
+<a href="/industrial-robots"  title="Industrial Robots" >Industrial Robots</a></li><li class="yCmsComponent">
+<a href="/For-Work/IC-Handler/h/w9"  title="IC Handler" >IC Handler</a></li><li class="yCmsComponent">
+<a href="/For-Work/Discproducers/Discproducers/c/w11a"  title="Discproducer" >Discproducer</a></li><li class="yCmsComponent">
+<a href="/moverio-augmented-reality"  title="Smart Glasses" >Smart Glasses</a></li><li class="yCmsComponent">
+<a href="/electronic-devices"  title="Electronic Devices" >Electronic Devices</a></li><li class="yCmsComponent">
+<a href="/InkFinder"  title="Ink" >Ink</a></li><li class="yCmsComponent">
+<a href="/promos"  title="Promos and Events" >Promos and Events</a></li></ul>
+	
+								</div>
+							<div class="links">
+									<div class="title">Support</div>
+									<ul>
+										<li class="yCmsComponent">
+<a href="/Support/Printers/sh/s1"  title="Printers" >Printers</a></li><li class="yCmsComponent">
+<a href="/Support/Scanners/sh/s2"  title="Scanners" >Scanners</a></li><li class="yCmsComponent">
+<a href="/Support/Projectors/sh/s3"  title="Projectors" >Projectors</a></li><li class="yCmsComponent">
+<a href="/Support/ServiceCenterLocator"  title="Service Center Locator" >Service Center Locator</a></li><li class="yCmsComponent">
+<a href="https://customer.epson.asia/customer/ewarranty.do#/home/ph"  title="Warranty Registration " >Warranty Registration </a></li></ul>
+	
+								</div>
+							<div class="links">
+									<div class="title">About  </div>
+									<ul>
+										<li class="yCmsComponent">
+<a href="/about-us"  title="About Us" >About Us</a></li><li class="yCmsComponent">
+<a href="/environment"  title="Environment" >Environment</a></li><li class="yCmsComponent">
+<a href="/innovation"  title="Innovation" >Innovation</a></li><li class="yCmsComponent">
+<a href="http://news.epson.com.ph"  title="Newsroom" >Newsroom</a></li><li class="yCmsComponent">
+<a href="/contact"  title="Contact Us" >Contact Us</a></li></ul>
+	
+								</div>
+							</div>
+			</div>
+	
+		</div>
+	<div class="copyright">
+		<div class="container">Copyright © 2018
+			&nbsp;Epson Philippines Corp. All rights reserved.<div class="pull-right">
+				<ul>
+					<li class="yCmsComponent">
+<a href="https://www.epson.com.ph/contact"  title="Contact Us" >Contact Us</a></li><li class="yCmsComponent">
+<a href="/promos"  title="Promotions" >Promotions</a></li><li class="yCmsComponent">
+<a href="/termsofuse"  title="Terms of Use" >Terms of Use</a></li><li class="yCmsComponent">
+<a href="/privacypolicy"  title="Privacy" >Privacy</a></li></ul>
+			</div>
+		</div>
+
+	</div>
+</footer>
+</main></main>
+
+	<form name="accessiblityForm">
+		<input type="hidden" id="accesibility_refreshScreenReaderBufferField" name="accesibility_refreshScreenReaderBufferField" value=""/>
+	</form>
+	<div id="ariaStatusMsg" class="skip" role="status" aria-relevant="text" aria-live="polite"></div>
+
+	<script type="text/javascript">
+		/*<![CDATA[*/
+		
+		var ACC = { config: {} };
+			ACC.config.site_type = 'Philippines';
+			ACC.config.contextPath = "";
+			ACC.config.encodedContextPath = "";
+			ACC.config.commonResourcePath = "/_ui/_v10653/responsive/common";
+			ACC.config.themeResourcePath = "/_ui/_v10653/responsive/theme-blue";
+			ACC.config.siteResourcePath = "/_ui/_v10653/responsive/site-b2c-ph";
+			ACC.config.rootPath = "/_ui/_v10653/responsive";	
+			ACC.config.CSRFToken = "fbdbf96b-64ef-4adb-a3ae-3853ed26edb3";
+			ACC.pwdStrengthVeryWeak = 'Very weak';
+			ACC.pwdStrengthWeak = 'Weak';
+			ACC.pwdStrengthMedium = 'Medium';
+			ACC.pwdStrengthStrong = 'Strong';
+			ACC.pwdStrengthVeryStrong = 'Very strong';
+			ACC.pwdStrengthUnsafePwd = 'password.strength.unsafepwd';
+			ACC.pwdStrengthTooShortPwd = 'password.strength.tooshortpwd';
+			ACC.pwdStrengthMinCharText = 'Minimum length is %d characters';
+			ACC.accessibilityLoading = 'Loading... Please wait...';
+			ACC.accessibilityStoresLoaded = 'Stores loaded';
+			ACC.config.googleApiKey="AIzaSyDwqzu-Uc1qlNcjFNwToPXDqDX4FHSN4dE";
+			ACC.config.googleApiVersion="3.7";
+
+			
+			ACC.autocompleteUrl = '/search/autocompleteSecure';
+
+			
+			ACC.config.loginUrl = '/login';
+
+			
+			ACC.config.authenticationStatusUrl = '/authentication/status';
+
+			
+		/*]]>*/
+	</script>
+	<script type="text/javascript">
+	/*<![CDATA[*/
+	ACC.addons = {};	//JS holder for addons properties
+			
+	
+		ACC.addons.tealiumIQ = [];
+		
+		ACC.addons.kountaddon = [];
+		
+		ACC.addons.xyformsstorefrontcommons = [];
+		
+	/*]]>*/
+</script>
+<script type="text/javascript" src="/_ui/_v10653/shared/js/generatedVariables.js"></script><script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery-2.1.1.min.js"></script>
+
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/mobile-detect.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/enquire.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/Imager.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.blockUI-2.66.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.colorbox-min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.form.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.hoverIntent.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.pstrength.custom-1.2.0.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.syncheight.custom.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.tabs.custom.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery-ui-1.11.2.custom.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.zoom.custom.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/truncate.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/owl.carousel.custom.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.waypoints.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.waypoints.sticky.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/jquery.smoothscroll.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/helpers.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/URI.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/iframeResizer.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/forms.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.support.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.global.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/salesforce/forms-global.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/epsonInkFinder.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.stickyNav.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.account.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.address.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.autocomplete.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.carousel.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.buyink.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.cart.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.cartitem.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.checkout.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.checkoutsteps.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.colorbox.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.common.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.forgottenpassword.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.imagegallery.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.langcurrencyselector.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.minicart.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.navigation.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.orbeonforms.min.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.order.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.paginationsort.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.paymentDetails.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.pickupinstore.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.printsection.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.product.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.productDetail.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.quickview.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.tabs.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.track.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.compare.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.productQuickview.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.ratingstars.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.refinements.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.savedAddresses.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.savedCards.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.cartupdateform.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.placeorder.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/resetfilter.min.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.videoModal.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.silentorderpost.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.storefinder.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/_autoload.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/slick.min.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/tab-slider.min.js" ></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/accordion.min.js"></script>
+		<script type="text/javascript" src="//fast.fonts.net/jsapi/0ff7458e-e5e6-4a86-a2b0-19ba3a16ee27.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/email.subscribe.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.carouselslick.min.js"></script>
+		<script type="text/javascript" src="/_ui/_v10653/responsive/common/js/acc.supportfaq.min.js"></script>
+    <script type="text/javascript" src="/_ui/_v10653/addons/captchaaddon/responsive/common/js/captchaaddon.js"></script>
+<script type="text/javascript">
+
+	var currentCountry = 'PH';
+	var currentLanguage = 'en';
+
+	function tealiumDownloadEvent() {
+		utag.link({
+			"download_name":"" + arguments[0] + "",
+			"download_os":"" + arguments[1] + "",
+			"download_type":"" + arguments[2] + "",
+			"link_id":"" + arguments[3] + "",
+			"link_name":"" + arguments[4] + "",
+			"link_type":"download",
+			"product_id":["" + arguments[5] + ""]
+		});
+	}
+
+	function tealiumLogEvent() {
+		utag.link({
+			"customer_email":"" + arguments[0] + "",
+			"customer_id":"" + arguments[0] + "",
+			"customer_status":"" + arguments[1] + "",
+			"link_id":"",
+			"link_name":"" + arguments[2] + "",
+			"link_type":"" + arguments[3] + ""
+		});
+	}
+
+	function tealiumRegisterEvent() {
+		utag.link({
+			"link_name":"" + arguments[0] + "",
+			"link_type":"register"
+		});
+	}
+
+	function tealiumCartEvent() {
+		utag.link({
+			"link_id":"" + arguments[0] + "",
+			"link_name":"" + arguments[0] + "",
+			"link_type":"" + arguments[1] + ""
+		});
+	}
+
+	function tealiumSocialShareEvent() {
+		utag.link({
+			"link_type":"social share"
+		});
+	}
+
+	function tealiumMeganavEvent() {
+		utag.link({
+			"link_type":"mega nav"
+		});
+	}
+
+	function tealiumGlobalSearchResultsTabClickEvent() {
+		utag.link({
+			"search_type":"" + arguments[0] + "",
+			"page_name":"" + arguments[1] + ":global search:" + arguments[2] + "?text=" + arguments[3] + "#" + arguments[4]
+		});
+	}
+
+	function tealiumSupportClickEvent() {
+		utag.link({
+			"link_name":"" + arguments[0] + "",
+			"link_type":"support click"
+		});
+	}
+
+	function tealiumVideoEvent() {
+		utag.link({
+			"link_name":"" + arguments[0] + "",
+			"link_type":"video_start"
+		});
+	}
+
+	function tealiumWhereToBuyEvent() {
+		utag.link({
+			"link_type":"where to buy"
+		});
+	}
+
+	function tealiumRebateClickEvent() {
+		utag.link({
+			"link_name":"" + arguments[0] + "",
+			"link_type":"rebate_click"
+		});
+	}
+
+	function tealiumInkQuantityAddEvent() {
+		utag.link({
+			"event_name":"inkresults:add ink quantity",
+			"link_id":"add_ink_quantity:" + arguments[0] + "",
+			"link_name":"add_ink_quantity:" + arguments[0] + ""
+		});
+	}
+
+	function tealiumInkQuantitySubtractEvent() {
+		utag.link({
+			"event_name":"inkresults:subtract ink quantity",
+			"link_id":"subtract_ink_quantity:" + arguments[0] + "",
+			"link_name":"subtract_ink_quantity:" + arguments[0] + ""
+		});
+	}
+
+	function tealiumInkExpandCampatibilityEvent() {
+		utag.link({
+			"event_name":"inkresults - expand compatible hardware",
+			"link_id":"expand_compatible_hw:" + arguments[0] + "",
+			"link_name":"expand_compatible_hw:" + arguments[0] + ""
+		});
+	}
+
+</script>
+
+<script type="text/javascript">
+	function bazaarvoiceROIBeacon() {
+		$BV.SI.trackConversion({
+			"type": "StoreLocator",
+			"label": "ProductPage: " + arguments[0],
+			"value": 1
+		});
+
+		tealiumWhereToBuyEvent();
+	}
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam.nr-data.net","licenseKey":"e6b0a31a93","agent":"","beacon":"bam.nr-data.net","applicationTime":137,"applicationID":"17405984","transactionName":"ZVUGMkYDCEAHUEZZWlwfNxZGCwhUJVxcREddXAgDRk0uXAtWYlFSV3MLCEAQCV8KVkAfXV1dAQ==","queueTime":0}</script></body>
+
+</html>

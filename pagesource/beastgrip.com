@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://beastgrip.com/">redirected</a>.</body></html>

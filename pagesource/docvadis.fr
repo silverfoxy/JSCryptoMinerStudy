@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<link rel="manifest" href="/js/manifest.json">
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="gwt:property" content="locale=fr">
+
+			<title>Docvadis : une solution 3 en 1 pour les médecins et leurs patients</title>
+			<meta name="description" content="Créez un site web adapté à votre pratique médicale, partagez des conseils santé avec vos patients et gérez l'agenda de consultations de votre cabinet médical">
+			<meta property="og:locale:alternate" content="fr_FR">
+			<meta property="og:type" content="website">
+			<meta property="og:site_name" content="Docvadis">
+			<meta property="og:title" content="Docvadis : une solution 3 en 1 pour les médecins et leurs patients">
+			<meta property="og:description" content="Créez un site web adapté à votre pratique médicale, partagez des conseils santé avec vos patients et gérez l'agenda de consultations de votre cabinet médical">
+			<meta property="og:url" content="https://www.docvadis.fr/">
+
+		<link rel="shortcut icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="/css/styles.css?v=1521241315453" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,100,100italic,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic" rel="stylesheet" type="text/css">
+
+		<script src="/js/lib/jquery-2.2.0.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="/Project/Project.nocache.js?v=1521282479188"></script>
+
+	<script src="/js/janrain/janrain-init-prod.js"></script>
+<script type="text/javascript">
+
+    function readCookie(name) {
+      var nameEQ = name + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires="+date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+		function janrainSpecificCaptureWidgetOnLoad() {
+		  janrain.events.onCaptureSessionFound.addHandler(function(result) {
+				janrain.capture.ui.modal.close();
+			});
+
+      janrain.events.onCaptureLoginSuccess.addHandler(function(result) {
+				var fromDeepLink = (readCookie('dvd-iam-deeplink') !== null);
+        setCookie("dvd-iam-deeplink", "", -1);
+        if(fromDeepLink || true) {
+					janrain.capture.ui.modal.close();
+					xhr = new XMLHttpRequest();
+					var url = '/api/connect/connect/user/';
+					xhr.open("POST", url, true);
+					xhr.timeout = 30000;
+					xhr.setRequestHeader("Content-type", "application/json");
+					xhr.onreadystatechange = function () {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							document.location.href = '/';
+						}
+					};
+					xhr.send(JSON.stringify(result));
+				}
+			});
+
+      janrain.events.onCaptureSessionEnded.addHandler(function(result) {
+      });
+
+      janrain.events.onCaptureProfileCookieSet.addHandler(function(result) {
+        /*console.log('onCaptureProfileCookieSet');*/
+        /*console.log(result);*/
+        /* Do nothing */
+      });
+
+      janrain.events.onCaptureRegistrationSuccess.addHandler(function(result) {
+        janrain.capture.ui.modal.close();
+        xhr = new XMLHttpRequest();
+        var url = '/api/connect/create/user/';
+        xhr.open("POST", url, true);
+        xhr.timeout = 30000;
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            document.location.href = '/';
+          }
+        };
+				xhr.send(JSON.stringify(result));
+      });
+
+      janrain.events.onCaptureValidationFailed.addHandler(function(result) {
+      });
+
+      janrain.events.onCaptureAccessDenied.addHandler(function(){
+				var iamCookie = readCookie('dvd-iam');
+				if(iamCookie !== null){
+				  return;
+        }
+      });
+
+      janrain.events.onCaptureScreenShow.addHandler(function(result) {
+      });
+
+      janrain.capture.ui.start();
+    }
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+
+	var urlProtected = false; 
+	var stage = "PRODUCTION"; 
+	var logged = false; 
+	var url = "http://dvd-prod/"; 
+	var hash = 2019089575; 
+	var popularSpecialtiesJs = new Array();
+popularSpecialtiesJs["XQaDbEgZFw7JfcIyYNw3LA"]="Médecine générale"; popularSpecialtiesJs["MOgomRE7TW3lcb1oDy10AA"]="Ophtalmologie"; popularSpecialtiesJs["78phCVRRjM1FlTN2LVmayQ"]="Cardiologie"; popularSpecialtiesJs["hBgE4CbToSkTz6Bvre0S6w"]="Gynécologie "; popularSpecialtiesJs["QhXVg8WlfhbYqgw9l0uvZQ"]="Addictologie"; popularSpecialtiesJs["oYnl_F5AFwk1rYDknkHS9g"]="Allergologie"; popularSpecialtiesJs["nKSpy4DhuYULnR_Iw6Hz7g"]="Anesthésie - Réanimation"; popularSpecialtiesJs["zTwKBDZ1gXrauftfirllbg"]="Chirurgie"; popularSpecialtiesJs["OT6S80IYhrHWS5-Fb-Jpaw"]="Chirurgie ambulatoire"; popularSpecialtiesJs["nlSREWebqw-vjCA6wAFr3Q"]="Chirurgie orthopédique"; popularSpecialtiesJs["nCKWrDy-g1o2IcIn0BZXTQ"]="Chirurgie vasculaire"; popularSpecialtiesJs["wG9HkzBKEPyfygcfRa3KbA"]="Chirurgie viscérale"; popularSpecialtiesJs["D-hmtahI6RrgLuntaytNYA"]="Dermatologie - vénérologie"; popularSpecialtiesJs["EYljDWjy6JOH3a_hRzyxMw"]="Endocrinologie"; popularSpecialtiesJs["Rutza-OkOQltsGRJljHbHA"]="Fertilité"; popularSpecialtiesJs["A_XaXkAJb6Zb-OyOfecZxQ"]="Gastro-entérologie"; popularSpecialtiesJs["v_711OSZZ2UXB1FDGzCV8Q"]="Génétique"; popularSpecialtiesJs["mnptA7ln-TftghMnMY3zNA"]="Gériatrie"; popularSpecialtiesJs["aAV9DlDq2uRzg7DZQSsWJw"]="Hématologie"; popularSpecialtiesJs["ouhmz7nbMi8-BF76FzmlYw"]="Hépatologie"; popularSpecialtiesJs["zki6vKCpQxj6q3r8FRv-TA"]="Immunologie"; popularSpecialtiesJs["GdsKd5hOFd8MV0bp7p22Lw"]="Infectiologie"; popularSpecialtiesJs["QHNt0bLCQm4b7fiqd0smtw"]="Médecine des voyages"; popularSpecialtiesJs["7SOff3-egvgMiObfNt116w"]="Médecine du sport"; popularSpecialtiesJs["4UKkpaCcnna_zHCS6dI2oQ"]="Médecine interne"; popularSpecialtiesJs["JyUA5e1SnV0JghWLueFsZg"]="Médecine physique et réadaptation"; popularSpecialtiesJs["XBDod3BF0-yEeKhnpRVIUA"]="Néphrologie"; popularSpecialtiesJs["UYFB6sk9m-MiaZgPtjMJCQ"]="Neurochirurgie"; popularSpecialtiesJs["gm-Atql_VMmyXCftgu0_6w"]="Neurologie"; popularSpecialtiesJs["x1wab7y15oVoH8hdmi5gMQ"]="Nutrition"; popularSpecialtiesJs["abAuPLnvIAzxdvmwdjLF7A"]="Oncologie"; popularSpecialtiesJs["IiCusnEAFTcI3wiaLb9u-g"]="Ostéopathie"; popularSpecialtiesJs["PSVfn7Im0ZBLu8KXtGR2dg"]="Oto-rhino-laryngologie"; popularSpecialtiesJs["zIJYgKBo2IKt2W75Lz5RwA"]="Pathologie Clinique"; popularSpecialtiesJs["jS1KB9jOwbSy0DAEQ8wdaw"]="Pédiatrie"; popularSpecialtiesJs["Cjqf8vyjRSWoVstoAdj8gA"]="Pharmacie, Hôpital"; popularSpecialtiesJs["sRjRgt6lR6rNr5uzkUj6_A"]="Pneumologie"; popularSpecialtiesJs["LsCPdkB2MH56Rtc7XyhOyw"]="Proctologie"; popularSpecialtiesJs["X_h6TD4tq6Shl9uESwcVrA"]="Psychiatrie"; popularSpecialtiesJs["nSg0PQVkcYfltRSGUJZiRg"]="Radiologie/Imagerie"; popularSpecialtiesJs["6-DTHTgYWlLg-eBJq9-wcA"]="Réanimation"; popularSpecialtiesJs["HP31IxzB2DpsY8P_P8NMOQ"]="Réanimation médicale"; popularSpecialtiesJs["7zEYT3Rip0cw42WKgY_SAA"]="Rhumatologie"; popularSpecialtiesJs["q_axRpHOLKEOvhiUHw_gsg"]="Stomatologie"; popularSpecialtiesJs["RFP0iI_CCVD9jhdM8Nek6A"]="Urgences"; popularSpecialtiesJs["_RChpvGrsQu-Yso5V7Bl4A"]="Urologie"; popularSpecialtiesJs["MsDN-754Yam0ph-PiWiihQ"]="Autre"; 
+	var specialtiesJs = new Array();
+specialtiesJs["QhXVg8WlfhbYqgw9l0uvZQ"]="Addictologie"; specialtiesJs["oYnl_F5AFwk1rYDknkHS9g"]="Allergologie"; specialtiesJs["nKSpy4DhuYULnR_Iw6Hz7g"]="Anesthésie - Réanimation"; specialtiesJs["MsDN-754Yam0ph-PiWiihQ"]="Autre"; specialtiesJs["78phCVRRjM1FlTN2LVmayQ"]="Cardiologie"; specialtiesJs["zTwKBDZ1gXrauftfirllbg"]="Chirurgie"; specialtiesJs["OT6S80IYhrHWS5-Fb-Jpaw"]="Chirurgie ambulatoire"; specialtiesJs["nlSREWebqw-vjCA6wAFr3Q"]="Chirurgie orthopédique"; specialtiesJs["nCKWrDy-g1o2IcIn0BZXTQ"]="Chirurgie vasculaire"; specialtiesJs["wG9HkzBKEPyfygcfRa3KbA"]="Chirurgie viscérale"; specialtiesJs["D-hmtahI6RrgLuntaytNYA"]="Dermatologie - vénérologie"; specialtiesJs["EYljDWjy6JOH3a_hRzyxMw"]="Endocrinologie"; specialtiesJs["Rutza-OkOQltsGRJljHbHA"]="Fertilité"; specialtiesJs["A_XaXkAJb6Zb-OyOfecZxQ"]="Gastro-entérologie"; specialtiesJs["hBgE4CbToSkTz6Bvre0S6w"]="Gynécologie "; specialtiesJs["v_711OSZZ2UXB1FDGzCV8Q"]="Génétique"; specialtiesJs["mnptA7ln-TftghMnMY3zNA"]="Gériatrie"; specialtiesJs["aAV9DlDq2uRzg7DZQSsWJw"]="Hématologie"; specialtiesJs["ouhmz7nbMi8-BF76FzmlYw"]="Hépatologie"; specialtiesJs["zki6vKCpQxj6q3r8FRv-TA"]="Immunologie"; specialtiesJs["GdsKd5hOFd8MV0bp7p22Lw"]="Infectiologie"; specialtiesJs["QHNt0bLCQm4b7fiqd0smtw"]="Médecine des voyages"; specialtiesJs["7SOff3-egvgMiObfNt116w"]="Médecine du sport"; specialtiesJs["XQaDbEgZFw7JfcIyYNw3LA"]="Médecine générale"; specialtiesJs["4UKkpaCcnna_zHCS6dI2oQ"]="Médecine interne"; specialtiesJs["JyUA5e1SnV0JghWLueFsZg"]="Médecine physique et réadaptation"; specialtiesJs["UYFB6sk9m-MiaZgPtjMJCQ"]="Neurochirurgie"; specialtiesJs["gm-Atql_VMmyXCftgu0_6w"]="Neurologie"; specialtiesJs["x1wab7y15oVoH8hdmi5gMQ"]="Nutrition"; specialtiesJs["XBDod3BF0-yEeKhnpRVIUA"]="Néphrologie"; specialtiesJs["abAuPLnvIAzxdvmwdjLF7A"]="Oncologie"; specialtiesJs["MOgomRE7TW3lcb1oDy10AA"]="Ophtalmologie"; specialtiesJs["IiCusnEAFTcI3wiaLb9u-g"]="Ostéopathie"; specialtiesJs["PSVfn7Im0ZBLu8KXtGR2dg"]="Oto-rhino-laryngologie"; specialtiesJs["zIJYgKBo2IKt2W75Lz5RwA"]="Pathologie Clinique"; specialtiesJs["Cjqf8vyjRSWoVstoAdj8gA"]="Pharmacie, Hôpital"; specialtiesJs["sRjRgt6lR6rNr5uzkUj6_A"]="Pneumologie"; specialtiesJs["LsCPdkB2MH56Rtc7XyhOyw"]="Proctologie"; specialtiesJs["X_h6TD4tq6Shl9uESwcVrA"]="Psychiatrie"; specialtiesJs["jS1KB9jOwbSy0DAEQ8wdaw"]="Pédiatrie"; specialtiesJs["nSg0PQVkcYfltRSGUJZiRg"]="Radiologie/Imagerie"; specialtiesJs["7zEYT3Rip0cw42WKgY_SAA"]="Rhumatologie"; specialtiesJs["6-DTHTgYWlLg-eBJq9-wcA"]="Réanimation"; specialtiesJs["HP31IxzB2DpsY8P_P8NMOQ"]="Réanimation médicale"; specialtiesJs["q_axRpHOLKEOvhiUHw_gsg"]="Stomatologie"; specialtiesJs["RFP0iI_CCVD9jhdM8Nek6A"]="Urgences"; specialtiesJs["_RChpvGrsQu-Yso5V7Bl4A"]="Urologie"; 
+
+/* ]]> */
+</script>
+
+	
+
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NXSSJJ');</script>
+		<!-- End Google Tag Manager -->
+	</head>
+	<body class="main">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXSSJJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	<header class="disconnected">
+		<div id="header_content">
+			<a class="logo left" href="/">
+				<img src="/images/header/logo_docvadis.png" alt="docvadis" />
+			</a>
+					<a href="javascript:" id="nav_mobile" class="button outline nav mobile">
+						<span>
+							<img src="/images/header/icon_nav_mobile.png" alt=""/>
+						</span>
+					</a>
+					<ul class="nav home left" id="nav_mobile_container">
+						<li class="left">
+							<a href="javascript:" id="website">
+								Site web médical
+							</a>
+						</li>
+						<li class="left">
+							<a href="javascript:" id="appointments">
+								Rendez-vous médicaux en ligne
+							</a>
+						</li>
+						<li class="left">
+							<a href="javascript:" id="documents">
+								Fiches conseils patients
+							</a>
+						</li>
+						<li class="left last">
+							<a href="javascript:" id="testimonies">
+								Témoignages médecins
+							</a>
+						</li>
+					</ul>
+					<ul class="login right">
+						<li class="left">
+							<a href="javascript:" id="login" class="button outline">
+								<span class="desktop">
+									Connexion
+								</span>
+								<span class="tablet">
+									<img src="/images/header/icon_login.png" alt="Connexion"/>
+								</span>
+							</a>
+						</li>
+						<li class="left">
+							<a href="/subscription/" class="button blue">
+								<span class="desktop">
+									M'inscrire
+								</span>
+								<span class="tablet">
+									<img src="/images/header/icon_subscription.png" alt="Inscription"/>
+								</span>
+							</a>
+						</li>
+					</ul>
+					<div class="login_janrain_container">
+						<div style="display:none;" id="signIn">
+							<h3 class="center">
+								Connectez-vous
+							</h3>
+					        {* #userInformationForm *}
+					            {* username *}
+					            {* currentPassword *}
+					            <a href="/forget-password/" class="mdp-oublie">Mot de passe oublié</a>
+					            {* signInButton *}
+					        {* /userInformationForm *}
+							<div class="univadis-connect"></div>
+								<div id="univadis-root" data-client="8af4e292007f45ac4b05d812973baa8b39734eed&cr=FR" data-url="https://lwu.univadis.com/lwu/iframe" data-lang="fr_FR"></div>
+							<a href="/connexion/" class="connect-other">Connexion autre compte</a>
+						</div>
+					</div>
+		</div>
+	</header>
+
+<div class="popup" style="display:none;" id="legalAcceptanceScreen">
+	<div id="overlay" class="overlay" onclick="location.reload()"></div>
+	<div style="position: fixed;z-index: 101;background: white;width: 80rem;">
+	    <div class="popup_top">
+	        <h4>Merci d'accepter les conditions d'utilisation.</h4>
+	        <a class="close right">
+	        	<img src="/images/close.png" alt="Fermer" onclick="location.reload()"/>
+	        </a>
+	    </div>
+	    {* #legalAcceptancePostLoginForm *}
+	    <div class="popup_content center">
+		    <p class="center">
+		        {* acceptLegalAgreements *}
+		    </p>
+		    <ul class="cg_links">
+		    	<li class="left">
+		    		<a href="/cgu">Conditions d'utilisation</a>
+		    	</li>
+		    	<li class="left">
+		    		<a href="http://www.msd-france.com/about-us/pages/privacy.aspx" target="_blank">Règles de confidentialité</a>
+		    	</li>
+		    	<li class="left">
+		    		<a href="https://www.conseil-national.medecin.fr/article/livre-blanc-deontologie-medicale-sur-le-web-1153" target="_blank">Recommandations du CNOM</a>
+		    	</li>
+		    </ul>
+	    </div>
+	    <div class="popup_bottom">
+	        {* legalAcceptanceAcceptButton *}
+	    </div>
+	    {* /legalAcceptancePostLoginForm *}
+	</div>
+</div>
+<div class="popup" style="display:none;" id="inactiveUser">
+	<div id="overlay" class="overlay" onclick="$(this.parentElement).hide()"></div>
+	<div style="position: fixed;z-index: 101;background: white;width: 80rem;">
+	    <div class="popup_top">
+	        <h4>Compte utilisateur inactif</h4>
+	    </div>
+	    <div class="popup_content">
+		    <p>
+		        Impossible de se connecter, votre compte est inactif.
+		    </p>
+	    </div>
+	</div>
+</div>
+<div class="popup" style="display:none;" id="rejectedUser">
+	<div id="overlay" class="overlay" onclick="$(this.parentElement).hide()"></div>
+	<div style="position: fixed;z-index: 101;background: white;width: 80rem;">
+	    <div class="popup_top">
+	        <h4>Compte utilisateur rejeté</h4>
+	    </div>
+	    <div class="popup_content">
+		    <p>
+		        Impossible de se connecter, votre inscription a été refusé.
+		    </p>
+		</div>
+	</div>
+</div>
+<div class="popup" style="display:none;" id="pendingUser">
+	<div id="overlay" class="overlay" onclick="$(this.parentElement).hide()"></div>
+	<div style="position: fixed;z-index: 101;background: white;width: 80rem;">
+	    <div class="popup_top">
+	        <h4>Compte en attente de validation</h4>
+	    </div>
+	    <div class="popup_content">
+		    <p>
+		    	Impossible de se connecter, votre inscription est en attente de validation.
+		    </p>
+	    </div>
+	 </div>
+</div>
+<div class="popup" style="display:none;" id="invalidCountry">
+	<div id="overlay" class="overlay" onclick="$(this.parentElement).hide()"></div>
+	<div style="position: fixed;z-index: 101;background: white;width: 80rem;">
+	    <div class="popup_top">
+	        <h4>Pays non autorisé</h4>
+	    </div>
+	    <div class="popup_content">
+		    <p>
+		    	Impossible de se connecter, l'inscription à Docvadis n'est pas (encore) autorisé pour ce pays.
+		    </p>
+		</div>
+	</div>
+</div>
+		<div id="layout" class="fr">
+<div
+ 	id="wrapper"
+			class="homepage"
+	>
+	<div id="top">
+<section class="wrapper_intro no_padding">
+	<div class="bg">
+		<img src="/images/homepage/bg_intro.png" alt=""/>
+		<div class="bg_colours" style="background: url('/images/homepage/bg_colours_intro.png') bottom left no-repeat;">
+			<img src="/images/homepage/bg_colours_intro.png" alt=""/>
+		</div>
+	</div>
+	<div class="content center clear">
+		<h1 class="page_title center">
+			Votre site web,<br/>Une nouvelle façon d'interagir avec vos patients
+		</h1>
+		<span class="sep"></span>
+		<h3 class="light center">
+			Docvadis est la meilleure façon de prolonger la relation avec vos patients.<br/><br/>
+			En quelques clics, profitez d'un service 3 en 1 pour créer un site web adapté à votre pratique médicale, partager des conseils santé avec vos patients et gérer simplement<br/> vos consultations en ligne.<br/><br/>
+			Moderne, intuitif et entièrement gratuit.
+		</h3>
+		<a href="/subscription/" class="button green">
+			Commencez maintenant
+		</a>
+	</div>
+</section>
+<section class="wrapper_cta">
+	<div class="content clear">
+		<ul>
+			<li class="left center">
+				<img src="/images/homepage/cta_1.png" alt="" />
+				<strong>
+					Au service des médecins depuis 2008
+				</strong>
+			</li>
+			<li class="left center">
+				<img src="/images/homepage/cta_2.png" alt="" />
+				<strong>
+					Plus de 20 000 sites web médicaux en ligne
+				</strong>
+			</li>
+			<li class="left center">
+				<img src="/images/homepage/cta_3.png" alt="" />
+				<strong>
+					82% des utilisateurs satisfaits de Docvadis
+				</strong>
+			</li>
+			<li class="left last center">
+				<img src="/images/homepage/cta_4.png" alt="" />
+				<strong>
+					Plus de 10 milions de visites patients par an
+				</strong>
+			</li>
+		</ul>
+	</div>
+</section>
+<section class="wrapper_website no_padding" id="website">
+	<div class="templates">
+		<div class="content clear">
+			<h1 class="white center">
+				Créez votre site médical personnalisé<br/> en quelques minutes
+			</h1>
+			<p class="white center">
+				Choisissez parmi nos différents modèles de sites
+			</p>
+						<ul class="templates-slider slider" style="margin-top: 30px">
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme1">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template1-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme4">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template4-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme7">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template7-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme2">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template2-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme5">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template5-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme8">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template8-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme3">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template3-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme6">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template6-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+				<li class="templates-box">
+					<a href="javascript:" class="templates-link" id="theme9">
+						<div class="templates-img">
+							<span class="templates-choose">Choisir ce theme</span>
+							<span class="topbar"><span class="field"></span></span>
+							<img src="/images/templates/capture-template9-small.jpg" alt="template" />
+						</div>
+					</a>
+				</li>
+			</ul>
+			<p class="white center">
+				Tous nos modèles de sites web sont optimisés pour les mobiles et vous assurent un bon référencement sur les moteurs de recherche pour que vos patients vous retrouvent facilement sur internet.
+			</p>
+		</div>
+	</div>
+	<div class="demo center">
+		<div class="content clear">
+			<div class="border">
+				<p>
+					Vous hésitez encore à vous lancer ?
+				</p>
+			</div>
+			<p class="white center">
+				Essayez notre démo en ligne pour prévisualiser votre site Docvadis
+			</p>
+			<div class="search_bar left">
+				<input type="text" placeholder="Nom" class="first" id="meta_last_name">
+				<input type="text" placeholder="Prénom" id="meta_first_name">
+				<span class="white center">ou</span>
+				<input type="text" placeholder="Établissement" id="meta_hospital">
+			</div>
+			<a href="javascript:" class="button green left" id="meta_see_demo">
+				Voir une démo
+			</a>
+		</div>
+	</div>
+</section>
+<section class="wrapper_appointments no_padding" id="appointments">
+	<div class="bg">
+		<img src="/images/homepage/bg_appointments.png" alt=""/>
+		<div class="bg_colours" style="background: url('/images/homepage/bg_colours_appointments.png') top right no-repeat;">
+			<img src="/images/homepage/bg_colours_appointments.png" alt=""/>
+		</div>
+	</div>
+	<div class="content center">
+		<h2 class="center">
+			Gérez vos rendez-vous en ligne
+		</h2>
+		<h3 class="light center">
+			Avec Docvadis, simplifiez la gestion de votre agenda de consultations<br/> et proposez un service moderne de prise de rendez-vous à vos patients.
+		</h3>
+		<div class="buttons">
+			<a href="/subscription/" class="button green">
+				Commencez maintenant
+			</a>
+		</div>
+	</div>
+</section>
+<section class="wrapper_cta" id="cta">
+	<div class="content clear">
+		<ul>
+			<li class="left center">
+				<img src="/images/homepage/cta_5.png" alt="" />
+				<strong>
+					Simple et intuitif
+				</strong>
+			</li>
+			<li class="left center">
+				<img src="/images/homepage/cta_6.png" alt="" />
+				<strong>
+					Rappels de RDV <br/>
+					Accès secrétaire
+				</strong>
+			</li>
+			<li class="left center">
+				<img src="/images/homepage/cta_7.png" alt="" />
+				<strong>
+					100% gratuit <br/>
+					pour vous et vos patients
+				</strong>
+			</li>
+			<li class="left last center">
+				<img src="/images/homepage/cta_8.png" alt="" />
+				<strong>
+					Sécurisé HADS <br/>
+					Intégré à votre interface Docvadis
+				</strong>
+			</li>
+		</ul>
+	</div>
+</section>
+<section class="wrapper_documents slider" id="documents">
+		<div class="library">
+			<div class="bg" style="background: url('/images/homepage/bg_library.png') top left no-repeat;background-size: contain;">
+				<img src="/images/homepage/bg_library.png" alt=""/>
+			</div>
+			<div class="content center">
+				<h2 class="center">
+					Partagez des conseils médicaux fiables avec vos patients
+				</h2>
+				<h3 class="light center">
+					Avec Docvadis, aidez vos patients en relayant de l'information fiable et gagnez ainsi du temps en consultation.
+					Publiez en 2 clics les documents conçus et validés par nos experts ou créez vos propres documents à partager avec vos patients.
+				</h3>
+				<a href="/subscription/" class="button green">
+					Découvrir la bibliothèque Docvadis
+				</a>
+			</div>
+		</div>
+		<div class="front_documents">
+			<div class="bg" style="background: url('/images/homepage/bg_front_documents.png') bottom right no-repeat;background-size: contain;">
+				<img src="/images/homepage/bg_front_documents.png" alt=""/>
+			</div>
+	<div class="content center">
+				<h2>
+					Les documents les plus consultés <br/>par les patients
+				</h2>
+                <h3 class="light center">
+                	Plus de 1400 contenus médicaux exclusifs sont disponibles dans la bibliothèque Docvadis pour répondre aux questions de vos patients
+                </h3>
+				<ul class="documents documents-slider slider">
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/AUZdz3Wb7FJbqTSERncWzQ/?size=s" alt="Ma fille va avoir 12 ans. Est-ce le bon moment pour la faire vacciner contre le papillomavirus ?" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 16/10/2017
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Ma fille va avoir 12 ans. Est–ce le bon moment pour la faire...
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													La vaccination contre les infections causées par des papillomavirus (HPV) a été mise en place en 2007 pour prévenir le cancer du col...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												136241 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												44 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$59414965e4b02882dac59c44" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Infectiologie
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/89qWVfD6IQDlD2dzNXUwJQ/?size=s" alt="Etant à risque, je comprends le dépistage et la surveillance de lésions liées au virus HPV" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 08/03/2012
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Etant à risque, je comprends le dépistage et la surveillance...
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Les infections virales à papillomavirus humain, peuvent être à l’origine de lésions précancéreuses au niveau du canal anal chez les...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												109290 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												247 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d4544be4b07f2aa6c9b81c" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Pneumologie
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/xyvzshmTU1COpSW5U6_FTg/?size=s" alt="Légionellose : ce que je dois savoir" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 02/09/2013
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Légionellose : ce que je dois savoir
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													La légionellose est une infection pulmonaire touchant principalement les personnes fragilisées. Sa prévention passe par des mesures...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												109280 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												390 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d4547fe4b07f2aa6c9b943" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Médecine générale
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/pWuqLwjwtlXgYLy3nukPtQ/?size=s" alt="Je me protège et je protège les autres en cas de maladie contagieuse" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 22/01/2018
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Je me protège et je protège les autres en cas de maladie contagieuse...
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Les maladies contagieuses se transmettent d’une personne à l’autre. Vos vaccinations doivent être à jour. Quelques règles simples permettent...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												105090 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												1387 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d4544ae4b07f2aa6c9b80a" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Médecine générale
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/RVFha4mHIs8jO3rJ2VwJKQ/?size=s" alt="Zona, que dois-je savoir ?" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 04/12/2017
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Zona, que dois-je savoir ?
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Le zona est une maladie infectieuse. Il se manifeste par des douleurs parfois intenses, aiguës, d’un seul côté du corps ou du visage...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												96985 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												1076 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d4543ce4b07f2aa6c9b769" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Oncologie
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/3SRjts6U6qTBRcupP2Kg_A/?size=s" alt="Je sais comment se développe un cancer" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 20/10/2008
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Je sais comment se développe un cancer
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Un cancer est la conséquence d’un dérèglement du fonctionnement de certaines cellules qui conduit à leur multiplication anarchique....
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												37327 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												284 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d45437e4b07f2aa6c9b74f" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Médecine générale
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/T8_buYHI9qwKjhRAUu8BTQ/?size=s" alt="Je comprends ce qu'est la ménopause" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 05/03/2015
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Je comprends ce qu'est la ménopause
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													La ménopause correspond à l’arrêt de la sécrétion d’hormones par les ovaires et se manifeste par la disparition des règles. Cette période...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												36121 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												642 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d4540fe4b07f2aa6c9b622" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Oncologie
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/V8raMqQdLMmfv4lmKKKHpQ/?size=s" alt="Cancer : je vais avoir une chimiothérapie" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 05/02/2018
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Cancer : je vais avoir une chimiothérapie
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Une chimiothérapie vous a été proposée pour traiter votre cancer. Il s’agit d’un traitement qui utilise des médicaments capables de...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												35480 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												708 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d45413e4b07f2aa6c9b647" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+						<li class="cartouche document left">
+							<div class="cartouche_top">
+									<div class="committee">
+										<div class="image">
+											<a href="/comites-scientifiques/" target="_blank">
+												<img src="/images/global/docvadis_sign_infos.png" alt="" class="left" />
+											</a>
+										</div>
+										<p class="light left">
+											<a href="/comites-scientifiques/" target="_blank">
+												Validé par<br/>
+												<span class="green">
+																le Comité Scientifique Oncologie
+												</span>
+											</a>
+										</p>
+									</div>
+							</div>
+							<div class="cartouche_content">
+								<div class="image">
+									<a href="/subscription/">
+											<img src="/files/images/4WTWFnSkWZGfQK3vJwqMNg/?size=s" alt="Je garde un bon équilibre alimentaire pendant ma chimiothérapie en suivant des conseils logiques" />
+									</a>
+								</div>
+							</div>
+							<div class="cartouche_bottom">
+								<div class="container">
+									<div class="date">
+										<span class="update">
+											<a href="/subscription/">
+													Mis à jour le 11/01/2018
+											</a>
+										</span>
+									</div>
+									<h4>
+										<a href="/subscription/">
+												Je garde un bon équilibre alimentaire pendant ma chimiothérapie...
+										</a>
+									</h4>
+									<p class="serif">
+											<a href="/subscription/">
+													Un traitement par chimiothérapie peut provoquer une perte d’appétit, une modification du goût, un amaigrissement ou, au contraire,...
+											</a>
+									</p>
+									<ul class="infos">
+										<li class="views left">
+											<a href="/subscription/">
+												33974 lus
+											</a>
+										</li>
+										<li class="publication last left">
+											<a href="/subscription/">
+												429 publications
+											</a>
+										</li>
+									</ul>
+								</div>
+								<a href="javascript:" id="meta_publish_document$56d45457e4b07f2aa6c9b85d" class="meta_publish_document_button button">
+									<span class="publish">
+										<img src="/images/documents/icon_publication.png" alt="" />
+									</span>
+									Publier
+								</a>
+							</div>
+						</li>
+				</ul>
+	</div>
+		</div>
+</section>
+<section class="wrapper_testimonies bg_blue" id="testimonies">
+	<div class="content center">
+		<h2 class="white center">
+			Ils nous font déjà confiance
+		</h2>
+		<ul>
+			<li class="left">
+				<div class="col_content">
+					<span class="guillemet">
+						“
+					</span>
+					<p class="subtitle white">
+						Docvadis va au-delà de mes attentes.
+						Les patients regardent mon site, m'en parlent, ils sont contents.
+					</p>
+				</div>
+			</li>
+			<li class="left">
+				<div class="col_content">
+					<span class="guillemet">
+						“
+					</span>
+					<p class="subtitle white">
+						Docvadis s'est enrichi, on a grandi ensemble
+					</p>
+				</div>
+			</li>
+			<li class="left">
+				<div class="col_content">
+					<span class="guillemet">
+						“
+					</span>
+					<p class="subtitle white">
+						La bibliothèque docvadis est très large, adaptée à toutes les spécialités
+					</p>
+				</div>
+			</li>
+		</ul>
+		<a href="/subscription/" class="button blue">
+			Créer mon site gratuitement
+		</a>
+	</div>
+</section>
+		<div class="clear"></div>
+	</div>
+	<div id="bottom">
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+		</div>
+<footer>
+	<div id="help">
+		<div class="content center">
+			<h3 class="green center">
+				Une question sur l'utilisation de Docvadis ?
+			</h3>
+			<p class="center">
+				Nous sommes là pour vous accompagner :
+			</p>
+			<ul>
+				<li class="left tel">
+					<p class="white left">
+						N°Gratuit
+					</p>
+					<p class="green left">
+						<a href="tel:0800112098">
+							0 800 11 20 98
+						</a>
+					</p>
+					<span class="smalltxt">
+						9h30 - 18h du Lundi au Vendredi
+					</span>
+				</li>
+				<li class="left email">
+					<a href="/nous-contacter/">
+						Nous contacter par e-mail
+					</a>
+				</li>
+				<li class="left faq">
+					<a href="/faq/" target="_blank">
+						Consultez<br/>la FAQ de Docvadis
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer" class="center">
+		<div class="footer_content">
+			<div class="contact left">
+				<h4>
+					Nous contacter :
+				</h4>
+				<ul>
+					<li>
+						Par téléphone : <a href="tel:0800112098">0 800 11 20 98</a>
+					</li>
+										<li>
+						Par le biais de notre <a href="/nous-contacter/">formulaire de contact</a>
+					</li>
+				</ul>
+			</div>
+			<div class="cg left">
+				<h4>
+					À propos de Docvadis :
+				</h4>
+				<ul>
+					<li>
+						<a href="/cgu/" rel="nofollow">Conditions générales d'utilisation</a>
+					</li>
+					<li>
+						<a href="http://www.msd-france.com/informations-generales/politique-de-confidentialite.xhtml" target="_blank">Protection des données personnelles</a>
+					</li>
+					<li>
+						<a href="/comites-scientifiques/" target="_blank">Les comités scientifiques Docvadis</a>
+					</li>
+				</ul>
+			</div>
+			<div class="services left">
+				<h4>
+					Nos autres services :
+				</h4>
+				<ul>
+					<li>
+						<a href="https://www.comuniti.fr/" target="_blank">Comuniti</a>
+					</li>
+					<li>
+						<a href="http://www.msdconnect.fr" target="_blank">MSD Connect</a>
+					</li>
+					<li>
+						<a href="https://www.medelli.fr/" target="_blank">Medelli</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content center">
+			<p class="center">
+				docvadis&reg; est une marque déposée de Merck &amp; Co., Inc., Kenilworth, New Jersey, États-Unis. <br/> Copyright ©1999-2018 Merck Sharp &amp; Dohme Ltd. Tous droits réservés.
+			</p>
+		</div>
+	</div>
+	<div class="cookies" id="meta_cookies" style="display:none;">
+		<div class="cookies_content">
+			<div class="text white">
+				Les cookies vous assurent de profiter pleinement des services de Docvadis. En utilisant Docvadis, vous acceptez d'utiliser les cookies.<br/>
+				<a href="http://www.msd-france.com/about-us/pages/privacy.aspx" target="_blank">En&nbsp;savoir&nbsp;plus&nbsp;&raquo;</a>
+			</div>
+			<div class="btn">
+				<a href="javascript:" onclick="createCookie();" class="button">
+					OK
+				</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</footer>
+
+
+		<script src="/js/placeholder/jquery.html5-placeholder-shim.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/js/docvadis/docvadis-global.js" type="text/javascript" charset="utf-8"></script>
+
+			<script src="/js/docvadis/docvadis-home.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+
+		<script type="text/javascript">
+			(function() {
+				var idz = document.createElement('script'); idz.type = 'text/javascript'; idz.async = true; idz.src = document.location.protocol + "//lc.iadvize.com/iadvize.js?sid=16331&lang=fr"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(idz, s);
+			})();
+		</script>
+
+
+			<script type="text/javascript" src="/js/docvadis/docvadis-cookies.min.js"></script>
+			<script>
+				(function(u, n, id) {
+					var js, ujs = u.getElementsByTagName(n)[0];
+					if (u.getElementById(id)) return;
+					js = u.createElement(n); js.id = id;
+						js.src = "https://lwu.univadis.com/lwu/resources/subassets/js/main.min.js";
+					ujs.parentNode.insertBefore(js, ujs);
+				 }(document, 'script', 'univadis-connect-script'));
+			</script>
+
+		<!--[if IE 8]>
+		<div id="popup_compatibility">
+			<div class="overlay"></div>
+			<div class="popup compatibility ie8">
+				<a class="close" onclick="document.getElementById('popup_compatibility').className='display';">
+					<img src="/images/close.png">
+				</a>
+				<div class="popup_top">
+					<h4 class="center">
+						Attention !
+					</h4>
+				</div>
+				<div class="popup_content">
+					<p class="center">La site Docvadis n'est pas compatible avec la version de votre navigateur.</p>
+					<p class="center">Pour y accéder, veuillez le mettre à jour ou utiliser un navigateur récent.</p>
+				</div>
+			</div>
+		</div>
+		<![endif]-->
+
+
+	</body>
+</html>

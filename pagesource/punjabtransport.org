@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Punjab Transport Department</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+
+    <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+
+    <script type='text/javascript' src='js/basic.js'></script>
+
+    <script type="text/javascript">
+
+        /***********************************************
+        * Ultimate Fade-In Slideshow (v1.51):   Dynamic Drive (http://www.dynamicdrive.com)
+        * This notice MUST stay intact for legal use
+        * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+        ***********************************************/
+
+        var fadeimages = new Array()
+        //SET IMAGE PATHS. Extend or contract array as needed
+        fadeimages[0] = ["images/banner-1.jpg", "", ""] //plain image syntax
+        fadeimages[1] = ["images/banner-2.jpg", "", ""] //image with link syntax
+        fadeimages[2] = ["images/banner-3.jpg", "", ""] //image with link syntax
+        fadeimages[3] = ["images/banner-4.jpg", "", ""] //image with link syntax
+        fadeimages[4] = ["images/banner-5.jpg", "", ""] //image with link syntax
+        fadeimages[5] = ["images/banner-5.jpg", "", ""] //image with link syntax
+        fadeimages[6] = ["images/banner-6.jpg", "", ""] //image with link syntax
+        fadeimages[7] = ["images/banner-7.jpg", "", ""] //image with link syntax
+        fadeimages[8] = ["images/banner-8.jpg", "", ""] //image with link syntax
+
+
+        var fadebgcolor = "black"
+
+        ////NO need to edit beyond here/////////////
+
+        var fadearray = new Array() //array to cache fadeshow instances
+        var fadeclear = new Array() //array to cache corresponding clearinterval pointers
+
+        var dom = (document.getElementById) //modern dom browsers
+        var iebrowser = document.all
+
+        function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder) {
+            this.pausecheck = pause
+            this.mouseovercheck = 0
+            this.delay = delay
+            this.degree = 10 //initial opacity degree (10%)
+            this.curimageindex = 0
+            this.nextimageindex = 1
+            fadearray[fadearray.length] = this
+            this.slideshowid = fadearray.length - 1
+            this.canvasbase = "canvas" + this.slideshowid
+            this.curcanvas = this.canvasbase + "_0"
+            if (typeof displayorder != "undefined")
+                theimages.sort(function() { return 0.5 - Math.random(); }) //thanks to Mike (aka Mwinter) :)
+            this.theimages = theimages
+            this.imageborder = parseInt(borderwidth)
+            this.postimages = new Array() //preload images
+            for (p = 0; p < theimages.length; p++) {
+                this.postimages[p] = new Image()
+                this.postimages[p].src = theimages[p][0]
+            }
+
+            var fadewidth = fadewidth + this.imageborder * 2
+            var fadeheight = fadeheight + this.imageborder * 2
+
+            if (iebrowser && dom || dom) //if IE5+ or modern browsers (ie: Firefox)
+                document.write('<div id="master' + this.slideshowid + '" style="position:relative;width:' + fadewidth + 'px;height:' + fadeheight + 'px;overflow:hidden;"><div id="' + this.canvasbase + '_0" style="position:absolute;width:' + fadewidth + 'px;height:' + fadeheight + 'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:' + fadebgcolor + '"></div><div id="' + this.canvasbase + '_1" style="position:absolute;width:' + fadewidth + 'px;height:' + fadeheight + 'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:' + fadebgcolor + '"></div></div>')
+            else
+                document.write('<div><img name="defaultslide' + this.slideshowid + '" src="' + this.postimages[0].src + '"></div>')
+
+            if (iebrowser && dom || dom) //if IE5+ or modern browsers such as Firefox
+                this.startit()
+            else {
+                this.curimageindex++
+                setInterval("fadearray[" + this.slideshowid + "].rotateimage()", this.delay)
+            }
+        }
+
+        function fadepic(obj) {
+            if (obj.degree < 100) {
+                obj.degree += 10
+                if (obj.tempobj.filters && obj.tempobj.filters[0]) {
+                    if (typeof obj.tempobj.filters[0].opacity == "number") //if IE6+
+                        obj.tempobj.filters[0].opacity = obj.degree
+                    else //else if IE5.5-
+                        obj.tempobj.style.filter = "alpha(opacity=" + obj.degree + ")"
+                }
+                else if (obj.tempobj.style.MozOpacity)
+                    obj.tempobj.style.MozOpacity = obj.degree / 101
+                else if (obj.tempobj.style.KhtmlOpacity)
+                    obj.tempobj.style.KhtmlOpacity = obj.degree / 100
+                else if (obj.tempobj.style.opacity && !obj.tempobj.filters)
+                    obj.tempobj.style.opacity = obj.degree / 101
+            }
+            else {
+                clearInterval(fadeclear[obj.slideshowid])
+                obj.nextcanvas = (obj.curcanvas == obj.canvasbase + "_0") ? obj.canvasbase + "_0" : obj.canvasbase + "_1"
+                obj.tempobj = iebrowser ? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+                obj.populateslide(obj.tempobj, obj.nextimageindex)
+                obj.nextimageindex = (obj.nextimageindex < obj.postimages.length - 1) ? obj.nextimageindex + 1 : 0
+                setTimeout("fadearray[" + obj.slideshowid + "].rotateimage()", obj.delay)
+            }
+        }
+
+        fadeshow.prototype.populateslide = function(picobj, picindex) {
+            var slideHTML = ""
+            if (this.theimages[picindex][1] != "") //if associated link exists for image
+                slideHTML = '<a href="' + this.theimages[picindex][1] + '" target="' + this.theimages[picindex][2] + '">'
+            slideHTML += '<img src="' + this.postimages[picindex].src + '" border="' + this.imageborder + 'px">'
+            if (this.theimages[picindex][1] != "") //if associated link exists for image
+                slideHTML += '</a>'
+            picobj.innerHTML = slideHTML
+        }
+
+
+        fadeshow.prototype.rotateimage = function() {
+            if (this.pausecheck == 1) //if pause onMouseover enabled, cache object
+                var cacheobj = this
+            if (this.mouseovercheck == 1)
+                setTimeout(function() { cacheobj.rotateimage() }, 100)
+            else if (iebrowser && dom || dom) {
+                this.resetit()
+                var crossobj = this.tempobj = iebrowser ? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+                crossobj.style.zIndex++
+                fadeclear[this.slideshowid] = setInterval("fadepic(fadearray[" + this.slideshowid + "])", 50)
+                this.curcanvas = (this.curcanvas == this.canvasbase + "_0") ? this.canvasbase + "_1" : this.canvasbase + "_0"
+            }
+            else {
+                var ns4imgobj = document.images['defaultslide' + this.slideshowid]
+                ns4imgobj.src = this.postimages[this.curimageindex].src
+            }
+            this.curimageindex = (this.curimageindex < this.postimages.length - 1) ? this.curimageindex + 1 : 0
+        }
+
+        fadeshow.prototype.resetit = function() {
+            this.degree = 10
+            var crossobj = iebrowser ? iebrowser[this.curcanvas] : document.getElementBy  (this.curcanvas)
+            if (crossobj.filters && crossobj.filters[0]) {
+                if (typeof crossobj.filters[0].opacity == "number") //if IE6+
+                    crossobj.filters(0).opacity = this.degree
+                else //else if IE5.5-
+                    crossobj.style.filter = "alpha(opacity=" + this.degree + ")"
+            }
+            else if (crossobj.style.MozOpacity)
+                crossobj.style.MozOpacity = this.degree / 101
+            else if (crossobj.style.KhtmlOpacity)
+                crossobj.style.KhtmlOpacity = this.degree / 100
+            else if (crossobj.style.opacity && !crossobj.filters)
+                crossobj.style.opacity = this.degree / 101
+        }
+
+        fadeshow.prototype.startit = function() {
+            var crossobj = iebrowser ? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+            this.populateslide(crossobj, this.curimageindex)
+            if (this.pausecheck == 1) { //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+                var cacheobj = this
+                var crossobjcontainer = iebrowser ? iebrowser["master" + this.slideshowid] : document.getElementById("master" + this.slideshowid)
+                crossobjcontainer.onmouseover = function() { cacheobj.mouseovercheck = 1 }
+                crossobjcontainer.onmouseout = function() { cacheobj.mouseovercheck = 0 }
+            }
+            this.rotateimage()
+        }
+    </script>
+
+    <script type="text/javascript" language="JavaScript">
+        function HidePart(d) { document.getElementById(d).style.display = "none"; }
+        function ShowPart(d) { document.getElementById(d).style.display = "block"; }
+        function RTypeChecked(b, d, a) {
+            if (b) { alert('web cliked') } //ShowPart(d); }
+
+            else { alert('site cliked') } // HidePart(d); }
+        }
+        RTypeChecked(document.myform.RType.checked, 'RTypediv', document.myform.RType.value);
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+        function doSubmit() {
+            var FeedbackSumbitUrl = document.getElementById("HdfdSubmitUrl").value;
+            alert(FeedbackSumbitUrl);
+            document.form1.action = document.form1.target = FeedbackSumbitUrl;
+            document.form1.submit();
+            //window.close();		
+        }
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <div class="round-bg-top">
+            <div class="round-bg-bottom">
+                <div class="round-bg-middle">
+                    <div id="header">
+                        <div class="left_header">
+                            <h2 class="logo">
+                                <img src="images/logo.jpg" width="485" height="55" alt=" " /></h2>
+                        </div>
+                        <div class="right_header">
+                            <div id="cse-search-form" style="width: 100%;">
+                                Loading</div>
+
+                            <script src="js/jsapi.js" type="text/javascript"></script>
+
+                            
+
+                            <script type="text/javascript">
+                                google.load('search', '1', { language: 'en' });
+                                google.setOnLoadCallback(function() {
+                                    var customSearchControl = new google.search.CustomSearchControl('011459074847416054543:mc8slr27hlw');
+                                    customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+                                    var options = new google.search.DrawOptions();
+                                    options.enableSearchboxOnly("http://www.google.com/cse?cx=011459074847416054543:mc8slr27hlw");
+                                    customSearchControl.draw('cse-search-form', options);
+                                }, true);
+                            </script>
+
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <!--navs start here-->
+                    <div id="navigations_wrapper">
+                        <div class="navs">
+                            <ul>
+                                <li><a href="index.aspx" title="Home" class="active">Home</a></li>
+                                <li><a href="aboutus.aspx" title="About&nbsp;Us">About&nbsp;Us</a></li>
+                                <li><a href="registration.aspx" title="Registration">Registration</a></li>
+                                <li><a href="driving licence.aspx" title="Driving&nbsp;License">License</a></li>
+                                <li><a href="permit.aspx" title="Permit">Permit</a></li>
+                                <li><a href="forms.aspx" title="Forms">Forms</a></li>
+                                <li><a href="FeesTaxes.aspx" title="Fees and Taxes">Fees&nbsp;&&nbsp;Taxes</a></li>
+                                <li><a href="RTI.aspx" title="RTI">RTI</a></li>
+                                <li style="background: none;"><a href="contactus.aspx" title="Contacts">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--navs end here-->
+                    <div id="banner_wrap">
+                        <div class="banner">
+                            <div class="banner_left">
+                                <div class="help_box_wrap">
+                                    <h3 class="help_box_heading">
+                                        <a href="helpyourself.aspx">Help&nbsp;Yourself</a></h3>
+                                    <div class="help_box">
+                                        <div class="news-content-wrap1">
+                                            <ul>
+                                                <marquee direction="up" style="height: 110px; width: auto" loop="-1" onmouseover="stop()"
+                                                    onmouseout="start()" scrollamount="2" vspace="6" hspace="6">
+                                                        <li><a href="learnerlicence.aspx">Fresh Learner License.</a></li>
+                                                        <li><a href="permanentlicence.aspx">Fresh Permanent license.</a></li>
+                                                        <li><a href="newvehicle.aspx">Fresh Certificate of Registration.</a></li>
+                                                        <li><a href="To.aspx">Certificate of Registration for Transfer of Ownership.</a></li>
+                                                        <li><a href="Ca.aspx">Certificate of Registration for Change of Address.</a></li>
+                                                </marquee>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="help_box_wrap" style="margin-left: 15px;">
+                                    <h3 class="help_box_heading">
+                                        <a href="egoverance.aspx">E-Governance </a>
+                                    </h3>
+                                    <div class="help_box1">
+                                        <div class="news-content-wrap1">
+                                            <ul>
+                                                <marquee direction="up" style="height: 110px; width: auto" loop="-1" onmouseover="stop()"
+                                                    onmouseout="start()" scrollamount="2" vspace="6" hspace="6">
+                                                    <li><a href="GPInstruc.aspx">Instruction for Principals of Government College as licenses Authority.</a></li>
+                                                    <li><a href="PPInstruc.aspx">Instruction for Principals of Private College as licenses Authority.</a></li>
+                                                    <li><a href="DPInstruc.aspx">Instruction for Dealers as Registering Authority.</a></li>
+                                                    <li><a href="egoverance.aspx">Education material.</a></li>
+                                                    <li><a href="OnlineOtherStateInstruc.aspx">Instruction for Online Other State Instant Tax Payments.</a></li>
+                                                    <li><a href="OnlineOtherStateRegisteredInstruc.aspx">Instruction for Online Other State Registered User Tax Payments.</a></li>
+                                                </marquee>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner_right">
+
+                                <script type="text/javascript">
+
+                                    //new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+                                    new fadeshow(fadeimages, 545, 183, 0, 3500, 1, "R")
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div id="basic-modal" class="feedback">
+                            <a href="#" id="btnFeed" class="basic" title="Feedback">&nbsp;</a>
+                            <img src="images/new.gif" style="margin-top: 19.2%; position: fixed; right: 0px;
+                                float: right;" />
+                        </div>
+                        <!-- modal content -->
+                        <div id="basic-modal-content">
+                                <script language="javascript" type="text/javascript">
+
+        var numb = "0123456789";
+        function res(t, v) {
+            if (!Number(t.value)) {
+                //alert('Please Enter Number Only');
+            }
+            var w = "";
+            for (i = 0; i < t.value.length; i++) {
+                x = t.value.charAt(i);
+                if (v.indexOf(x, 0) != -1)
+                    w += x;
+            }
+            t.value = w;
+        }
+        
+        function valid() {
+		    if(document.form1.hdName.value=="") {
+		        alert("Name is required");
+		        document.form1.hdName.focus();
+		        return false;
+	        }
+		    if(document.form1.hdMailId.value=="") {
+		        alert("Mail id is required");
+		        document.form1.hdMailId.focus();
+		        return false;
+	        }
+	        var name = document.form1.hdMailId.value;
+		    var pattern = /^[A-Za-z0-9\.\-\_]+[@][A-Za-z0-9\.\-\_]+[.][a-z\.]+$/;
+		    if (!pattern.test(name)) {
+			    alert(name +" is of invalid format. Please enter valid Email ID!");
+			    document.form1.hdMailId.focus();
+			    return false;
+		    }
+		    if(document.form1.hdMobNo.value=="") {
+			    alert("Mobile no is required");
+			    document.form1.hdMobNo.focus();
+			    return false;
+		    }
+		    if(isNaN(document.form1.hdMobNo.value)) {
+			    document.form1.hdMobNo.focus();
+			    return false;
+		    }
+		    if(document.form1.hdSubject.value=="") {
+		        alert("Subject is required");
+		        document.form1.hdSubject.focus();
+		        return false;
+	        }
+	        if(document.form1.hdMsg.value=="") {
+		        alert("Message is required");
+		        document.form1.hdMsg.focus();
+		        return false;
+	        }
+		    return true;
+		}
+    
+    </script>
+
+    <form action="https://olps.punjabtransport.org/Dealer/FeedbackSubmited.aspx" method="post" enctype="multipart/form-data"
+        name="form1">
+        <h2 style="text-align: center;">
+            Feedback Form</h2>
+        <br />
+        <fieldset>
+            <table width="100%" cellspacing="8px" class="FormD">
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                        <span id="spName" class="star">*</span>Name :
+                    </th>
+                    <td style="width: 75%">
+                        <input name="hdName" type="text" maxlength="40" class="textbox" />
+                    </td>
+                </tr>
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                        <span class="star" style="font-size: 16px;">*</span>Email :</th>
+                    <td style="width: 75%">
+                        <input name="hdMailId" maxlength="35" class="textbox" /></td>
+                </tr>
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                        <span class="star" style="font-size: 16px;">*</span>Contact :</th>
+                    <td style="width: 75%">
+                        <input name="hdMobNo" type="text" maxlength="10" onkeyup="res(this,numb);" class="textbox" /></td>
+                </tr>
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                        <span class="star" style="font-size: 16px;">*</span>Subject :
+                    </th>
+                    <td style="width: 75%">
+                        <input name="hdSubject" maxlength="50" type="text" class="textbox" /></td>
+                </tr>
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                        <span class="star" style="font-size: 16px;">*</span>Message :</th>
+                    <td style="width: 75%">
+                        <textarea name="hdMsg" rows="4" cols="29" class="textfield"></textarea></td>
+                </tr>
+                <tr>
+                    <th align="right" style="width: 25%; font-size: 16px;">
+                    </th>
+                    <td style="width: 75%">
+                    <span>
+                        <input name="submit" type="submit" id="btnSubmit" class="feedBtn" onclick="return valid()"
+                            value="Submit" /></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+                        </div>
+                    </div>
+                    
+                    <div id="center_wrap">
+                        <div class="center_left">
+                            <h2 class="center_left_heading">
+                                <span class="clr">E - governance</span> in Punjab Transport Department</h2>
+                            <p class="center_left_heading_text">
+                                Punjab Transport Department is pioneer in using Information Technology for providing
+                                citizen centric services. Computerization of department started 10 years ago with
+                                the implemenation of VAHAN and SARATHI along with computerization of all the managerial
+                                functions of the Transport Department.<br   
+                                <br />
+                                Gradually all the processes of the Transport Department are being computerized and
+                                the data is made available through Internet or SMS for access by citizens. Punjab
+                                is the First state to successfully implement Vahan & Sarathi across the state.<br />
+                                <br />
+                                There are 22 DTO s and 52 SDM's distributed geographically in the state of Punjab
+                                keeping the public convenience in mind and vehicle population within the region.<br />
+                                <br />
+                            </p>
+                            <div>
+                                <div class="news_box">
+                                    <h4 class="news_box_heading">
+                                        What's&nbsp;New</h4>
+                                    <div class="news-content-wrap">
+                                        <ul>
+                                            <marquee direction="up" style="height: 70px; width: auto" loop="-1" onmouseover="stop()"
+                                                onmouseout="start()" scrollamount="2" vspace="6" hspace="6"><!--<a href="#" class="read-more">read more..</a>-->
+						<li><a href=CitizenCharter.pdf" target="_blank"><b>25 June 2014</b><br />Citizen Charter</a></li>
+                                                 <li><a href="BusNotification.pdf" target="_blank"><b>19 Nov 2013</b><br />School Bus Notification</a></li>
+                                                 <li><a href="https://vahan.nic.in" target="_blank"><b>13 May 2013</b><br />National Portal (Vahan)</a></li>
+                                                 <li><a href="Central Motor Vehcile Act 1988.pdf" target="_blank"><b>13 May 2013</b><br />CMV Act</a></li> 
+               		                    	<li><a href="MotorVehiclesTax(31.08.2012).pdf" target="_blank"><b>31 Aug 2012</b><br />Revised Notification Regarding Motor Vehicles Tax</a></li>
+               		                    	<li><a href="PRTS ACT.pdf" target="_blank"><b>11 Jun 2012</b><br /> PRTS ACT</a></li>
+               		                    	<li><a href="#"><b>27 Aug 2011</b><br /> Vehicle Registration at the Dealer Desk is launched.</a></li>
+               		                    	<li><a href="#"><b>27 Aug 2011</b><br /> Now you can pay motor vehicle Fees & Taxes from your home.</a></li>
+               		                    	<li><a href="egoverance.aspx"><b>28 Sep 2011</b><br /> Education material has launched.</a></li>
+               		                    	<li><a href="OnlineOtherStateInstruc.aspx"><b>3 Dec 2011</b><br />Instruction for Online Other State Instant Tax Payments.</a></li>
+                                            <li><a href="OnlineOtherStateRegisteredInstruc.aspx"><b>3 Dec 2011</b><br />Instruction for Online Other State Registered User Tax Payments.</a></li>
+               		                    	
+                                    </marquee>
+                                        </ul>
+                                    </div>
+                                </div>
+                               <p class="center_left_heading_text">  <img src="images/new.gif" /><b>  "Kindly Fill Your Online Application & Book Your Slot for Non-Commercial Learner's License at this link mentioned below" </b></p>
+                            </div>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="http://olps.punjabtransport.org/eAuctionSystem/Home.aspx" target="_blank">
+                                    e-Auction For Special Registration Number</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="checkurl.aspx?appl=olps" target="_blank">Pay your Taxes &amp; Fees</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="checkurl.aspx?appl=ptos" target="_blank">Pay Taxes For Other State Vehicle</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="checkurl.aspx?appl=dprs" target="_blank">Vehicle Registeration at Dealer desk</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="checkurl.aspx?appl=adprs" target="_blank">Administrative&nbsp;Portal for Transport
+                                    Department</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="PRTS ACT.pdf" target="_blank">PRTS ACT</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="CitizenCharter.pdf">Citizen Charter</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="Notifications.aspx">Notifications</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="Tenders.aspx">Tenders</a></h3>
+                        </div>
+                        <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="https://olps.punjabtransport.org/VehicleDetails/SearchVehicle.aspx" target="_blank">Registration Data Verification</a></h3>
+                        </div>
+                         <div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="https://parivahan.gov.in">Application for Online Learner License</a></h3>
+                        </div>
+<div class="center_right">
+                            <h3 class="center_right_text">
+                                <a href="AppellantAuthority.aspx">APPELLANT AUTHORITY (RTI)</a></h3>
+                        </div>
+
+
+                        
+                        
+                    </div>
+                    <div class="bottom_divider">
+                        <img src="images/bottom_divider.jpg" width="960" height="20" /></div>
+                    <div style="text-align: center; display: block; position: relative; clear: both;
+                        color: #5481ad">
+                        Page Viewed :
+
+                        <script type="text/javascript">
+                            var sc_project = 5756159;
+                            var sc_invisible = 0;
+                            var sc_security = "4ea8df50";
+                        </script>
+
+                        <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+
+                                                
+                        <!-- End of StatCounter Code -->
+                    </div>
+                    <p class="copyright">
+                        Site and portal Developed, maintained and managed by BOOT Operator appointed by
+                        Transport Department
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language="JavaScript" type="text/javascript">
+        doSubmit()	
+    </script>
+
+</body>
+</html>

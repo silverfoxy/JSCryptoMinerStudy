@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Play agario with no lag in the best agario server! No registration needed, xp system, chat, skins and a lot of different gamemodes and features!" />
+<meta name="keywords" content="agario,agar,agar.io,server,private,modded,agario server,agario private server,hub,agariohub,dream,crazy" />
+<meta name="author" content="CodeTunnel" />
+<meta name="google-site-verification" content="bZO5nr4wDPt45wVBliiqEc2VEAk48OyRNpQPS_Zdm1w" />
+<title>
+			AgarIO Hub - Best modded private agar.io server
+		</title>
+<link rel="shortcut icon" type="image/png" href="https://cdn.codetunnel.net/ahub/logo-transparent.png" />
+<script async src="//api.adinplay.com/display/pub/AGH/agariohub.net/display.min.js"></script>
+<script>
+		var aiptag = aiptag || {};
+		aiptag.cmd = aiptag.cmd || [];
+		aiptag.cmd.display = aiptag.cmd.display || [];
+		</script>
+<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-69122021-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+<link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">var _0xacd1=["\x23\x6C","\x69\x6E\x64\x65\x78\x4F\x66","\x68\x61\x73\x68","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","","\x6A\x6F\x69\x6E","\x73\x70\x6C\x69\x74","\x47\x45\x54","\x68\x74\x74\x70\x3A\x2F\x2F\x61\x70\x69\x2E\x61\x67\x61\x72\x69\x6F\x68\x75\x62\x2E\x6E\x65\x74\x2F\x66\x72\x65\x65\x2D\x62\x6F\x6F\x73\x74\x2F","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x61\x6A\x61\x78"];$(function(){if(window[_0xacd1[3]][_0xacd1[2]][_0xacd1[1]](_0xacd1[0])!=  -1){var _0x4316x1=window[_0xacd1[3]][_0xacd1[2]][_0xacd1[6]](_0xacd1[0])[_0xacd1[5]](_0xacd1[4]);if(!isNaN(_0x4316x1)){$[_0xacd1[10]]({type:_0xacd1[7],url:_0xacd1[8]+ btoa(JSON[_0xacd1[9]]({id:_0x4316x1}))})}}})</script>
+<script type="text/javascript" src="http://agariohub.net/client/global.js"></script>
+<link href="http://agariohub.net/rooms.css" rel="stylesheet" />
+
+<script type="text/javascript">
+			var servers = [];
+			$(function(){
+				var totalOnline = 0;
+
+				if(getCookie("theme") == "dark"){
+					$('<link>').appendTo('head').attr({type: 'text/css', rel: 'stylesheet', href: 'http://agariohub.net/rooms-dark.css'});
+				}
+
+				function getServer(label, location) {
+					for(var i = 0; i < servers.length; i++){
+						if(servers[i].label == label && servers[i].location == location)
+							return servers[i];
+					}
+					return null;
+				}
+
+				function buildMenu() {
+					$("#player-global").html(totalOnline + " Alive Players");
+
+					for(var i = 0; i < servers.length; i++){
+						var target = servers[i];
+
+						var location = "";
+						switch(target.location) {
+							case 1:
+								location = "na";
+							break;
+
+							case 2:
+								location = "eu";
+							break;
+
+							case 3:
+								location = "as";
+							break;
+
+							default:
+								location = "unknown";
+						}
+
+						$("#servers-" + location).append($("#model-server").html()
+							.split("%label%").join(target.label)
+							.split("%players%").join(target.message == "no_message" ? target.players + " Alive players" : target.message)
+							.split("%can_choose%").join(target.canChoose?"":" disabled")
+							.split("%id%").join( target.label.toLowerCase().split(" ").join("-") + target.location ));
+					}
+				}
+
+				$.ajax({
+					type: 'GET',
+					url: 'http://api.agariohub.net/servers'
+				}).done(function(r){
+					$("#loading").fadeOut(200);
+					totalOnline = 0;
+					for(var i = 0; i < r.servers.length; i++){
+						totalOnline += r.servers[i].players;
+						if(getServer(r.servers[i].label, r.servers[i].location)){
+							getServer(r.servers[i].label, r.servers[i].location).players += r.servers[i].players;
+							getServer(r.servers[i].label, r.servers[i].location).canChoose = true;
+							if(r.servers[i].message != getServer(r.servers[i].label, r.servers[i].location).message)
+								getServer(r.servers[i].label, r.servers[i].location).message = "no_message";
+						}else{
+							servers.push({
+								label: r.servers[i].label,
+								players: r.servers[i].players,
+								location: r.servers[i].location,
+								message: r.servers[i].message,
+								canChoose: false
+							});
+						}
+					}
+					servers.sort(function(a,b){return b.players-a.players;});
+					buildMenu();
+					if(getCookie("location") != "")
+						$(".location[data-show='" + getCookie("location") + "']").delay(10000).click();
+				}).fail(function(){
+					addAlert("red", "Error! We couldn't connect to our login servers, try again later!");
+				});
+
+				if(getCookie("location") == ""){
+					var usTime = Date.now();
+					var euTime = 0;
+					var asTime = 0;
+					$.ajax({
+						type: 'GET',
+						url: 'http://ping-us.codetunnel.net:14159'
+					}).done(function(){
+						usTime = Date.now() - usTime;
+						euTime = Date.now();
+						$.ajax({
+							type: 'GET',
+							url: 'http://ping-eu.codetunnel.net:14159'
+						}).done(function(){
+							euTime = Date.now() - euTime;
+							asTime = Date.now();
+							$.ajax({
+								type: 'GET',
+								url: 'http://ping-as.codetunnel.net:14159'
+							}).done(function(){
+								asTime = Date.now() - asTime;
+								console.log("Your latency to our US network: " + usTime + "ms");
+								console.log("Your latency to our EU network: " + euTime + "ms");
+								console.log("Your latency to our AS network: " + asTime + "ms");
+								console.info("NOTE: Thats not the actual latency as this time is the time it takes to get an http response!!!");
+								console.log("To get the actual latency ping our networks");
+								if(euTime < usTime && euTime < asTime)
+									$(".location[data-show='servers-eu']").click();
+								if(asTime < euTime && asTime < usTime)
+									$(".location[data-show='servers-as']").click();
+							});
+						});
+					});
+				}
+				setInterval(function(){
+					$.ajax({
+						type: 'GET',
+						url: 'http://api.agariohub.net/servers'
+					}).done(function(r){
+						totalOnline = 0;
+						for(var i = 0; i < servers.length; i++){
+							servers[i].players = 0;
+							servers[i].message = "";
+						}
+						for(var i = 0; i < r.servers.length; i++){
+							var respServer = r.servers[i],
+								target     = getServer(r.servers[i].label, r.servers[i].location);
+
+							totalOnline += respServer.players;
+							target.players += respServer.players;
+							if(target.message == ""){
+								target.message = respServer.message;
+							}else if(target.message != respServer.message){
+								target.message = "no_message";
+							}
+						}
+						for(var i = 0; i < servers.length; i++){
+							var onlineMessage = servers[i].players + " Alive Players";
+							if(servers[i].message != "no_message") onlineMessage = servers[i].message;
+							$(".online[data-id='" + servers[i].label.toLowerCase().split(" ").join("-") + servers[i].location + "']").html(onlineMessage);
+						}
+						$("#player-global").html(totalOnline + " Alive Players");
+					});
+				}, 10000);
+
+				$(".location").click(function(){
+					$(".servers").hide();
+					$(".servers#" + $(this).data("show")).show();
+
+					$(".location").removeClass("selected");
+					$(this).addClass("selected");
+
+					setCookie("location", $(this).data("show"), 365);
+				});
+				$("#mask").click(function(){
+					$("#mask").fadeOut(400);
+					$(".modal").fadeOut(200);
+				});
+				$(".modal-btn").click(function(){
+					$("#mask").fadeOut(400);
+					$(".modal").fadeOut(200);
+				});
+			});
+			function connectServer(id){
+				var that = this;
+				$.ajax({
+					type: 'GET',
+					url: 'http://api.agariohub.net/servers'
+				}).done(function(r){
+					r.servers.reverse();
+					for(var i = 0; i < servers.length; i++){
+						if(id != servers[i].label.toLowerCase().split(" ").join("-") + servers[i].location)
+							continue;
+						for(var j = 0; j < r.servers.length; j++){
+							if(r.servers[j].label != servers[i].label || r.servers[j].location != servers[i].location)
+								continue;
+							if(["OFFLINE", "Under Maintenance!", "Arena Closed!", "Full!"].indexOf(r.servers[j].message) > -1)
+								continue;
+							window.location = "http://agariohub.net/" + r.servers[j].label.toLowerCase().split(" ").join("-") + "-" + r.servers[j].arena;
+							return;
+						}
+					}
+					addAlert("red", "There is no available arena running this gamemode at the moment");
+				});
+			}
+			function connectArena(id){
+				var that = this;
+				$.ajax({
+					type: 'GET',
+					url: 'http://api.agariohub.net/servers'
+				}).done(function(r){
+					r.servers.reverse();
+					for(var i = 0; i < r.servers.length; i++){
+						if(id != r.servers[i].label.toLowerCase().split(" ").join("-") + r.servers[i].location + r.servers[i].arena)
+							continue;
+						if(["OFFLINE", "Under Maintenance!", "Arena Closed!", "Full!"].indexOf(r.servers[i].message) > -1)
+							continue;
+						window.location = "http://agariohub.net/" + r.servers[i].label.toLowerCase().split(" ").join("-") + "-" + r.servers[i].arena;
+						return;
+					}
+					addAlert("red", "This arena is unavailable at the moment");
+				});
+			}
+			function chooseArena(id){
+				var that = this;
+				$.ajax({
+					type: 'GET',
+					url: 'http://api.agariohub.net/servers'
+				}).done(function(r){
+					r.servers.reverse();
+					$(".arenas").html("");
+					for(var i = 0; i < servers.length; i++){
+						if(id != servers[i].label.toLowerCase().split(" ").join("-") + servers[i].location)
+							continue;
+						$(".modal h2").html(servers[i].label);
+						for(var j = 0; j < r.servers.length; j++){
+							if(r.servers[j].label != servers[i].label || r.servers[j].location != servers[i].location)
+								continue;
+							$(".arenas").append($("#model-arena").html()
+								.split("%label%").join(r.servers[j].label + " #" + r.servers[j].arena)
+								.split("%players%").join(r.servers[j].message == "no_message" ? r.servers[j].players + " Alive Players" : r.servers[j].message)
+								.split("%id%").join( r.servers[j].label.toLowerCase().split(" ").join("-") + r.servers[j].location + r.servers[j].arena )
+								.split("%list%").join(r.servers[j].users.join("<br>")));
+						}
+						break;
+					}
+					$("#mask").fadeIn(200);
+					$(".modal").fadeIn(400);
+				});
+			}
+			function addAlert(color, message) {
+				$("#alerts").append($("#model-alert").html().split("%color%").join(color).split("%message%").join(message));
+			}
+			function removeMe(me){
+				$(me).fadeOut(200, function(){
+					$(me).remove();
+				});
+			}
+		</script>
+
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+			var OneSignal = window.OneSignal || [];
+			OneSignal.push(function() {
+				OneSignal.init({
+					appId: "4f24a188-e832-4e38-af8b-f6d4cd1dd29b",
+				});
+			});
+		</script>
+</head>
+<body>
+<div id="alerts"></div>
+<div id="navbar">
+<label id="player-global">0 Alive Players</label>
+</div>
+<div id="slogan-container">
+<h1 id="name">AgarIO Hub</h2>
+<p id="slogan">Bringing you unique features and gameplay</p>
+</div>
+<div id="location-menu">
+<div class="location selected" data-show="servers-na">
+North America
+</div><div class="location" data-show="servers-eu">
+Europe
+</div><div class="location" data-show="servers-as">
+Asia
+</div>
+</div>
+<div id="page">
+<div id="servers-na" class="servers"></div>
+<div id="servers-eu" class="servers" style="display: none;"></div>
+<div id="servers-as" class="servers" style="display: none;"></div>
+</div>
+<div id="adbox">
+
+
+
+
+
+<div id='agariohub-net_300x250'>
+<script type='text/javascript'>
+					aiptag.cmd.display.push(function() { aipDisplayTag.display('agariohub-net_300x250'); });
+				</script>
+</div>
+</div>
+
+<div id="more-menu">
+<div id="more-ball">
+<div id="more-options">
+<a href="http://agariohub.net/login" target="_blank"><div class="more-option">Login</div></a>
+<a href="https://discord.gg/agariohub" target="_blank"><div class="more-option">Discord</div></a>
+<a href="https://twitter.com/agario_hub" target="_blank"><div class="more-option">Twitter</div></a>
+<a href="/cdn-cgi/l/email-protection#cfaea8aebda6a0a7baad8fa8a2aea6a3e1aca0a2" target="_blank"><div class="more-option">Email</div></a>
+</div>
+</div>
+</div>
+<div id="mask" style="display: none;"></div>
+<div class="modal" style="display: none;">
+<h2></h2>
+<div class="arenas"></div>
+<br>
+<div class="button modal-btn">Close</div>
+</div>
+<div id="loading">
+<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+</svg>
+</div>
+<div id="models" style="display: none;">
+<div id="model-server">
+<div class="server">
+<label class="gamemode">%label%</label>
+<div class="button" onclick="connectServer('%id%');">Play</div>
+<div class="button%can_choose%" onclick="chooseArena('%id%');">Choose Arena</div>
+<label class="online" data-id="%id%">%players%</label>
+</div>
+</div>
+<div id="model-arena">
+<div class="server">
+<label class="gamemode">%label%</label>
+<div class="button" onclick="connectArena('%id%');">Play</div>
+<label class="online">%players%</label>
+<div class="player-list">
+%list%
+</div>
+</div>
+</div>
+<div id="model-alert">
+<div class="alert %color%" onclick="removeMe(this);">
+<label>%message%</label>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+		var _qevents = _qevents || [];
+
+		(function() {
+		var elem = document.createElement('script');
+		elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+		elem.async = true;
+		elem.type = "text/javascript";
+		var scpt = document.getElementsByTagName('script')[0];
+		scpt.parentNode.insertBefore(elem, scpt);
+		})();
+
+		_qevents.push({
+		qacct:"p-JWrbMFBJutRhv"
+		});
+		</script>
+<noscript>
+		<div style="display:none;">
+		<img src="//pixel.quantserve.com/pixel/p-JWrbMFBJutRhv.gif" border="0" height="1" width="1" alt="Quantcast"/>
+		</div>
+		</noscript>
+
+</body>
+</html>

@@ -1,0 +1,2542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="yandex-verification" content="4044debdbc7e39d2" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="http://www.gorod.lt/css/style.css?v=2" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="http://www.gorod.lt/js/jquery.form.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  <script src="http://www.gorod.lt/js/library.js?v=2"></script>
+  <script src="http://www.gorod.lt/js/jquery.metadata.js" type="text/javascript"></script>
+  <script src="http://www.gorod.lt/js/jquery.validate.min.js?v=6" type="text/javascript"></script>
+  <link href="http://www.gorod.lt/images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="http://www.gorod.lt/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <title>Доска объявлений в Висагинасе</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="Доска объявлений, расписание транпорта и поликлиники, карта города, новости Висагинасе!" />
+  <meta name="keywords" content="Доска объявлений в Висагинасе, поиск попутчиков, карта города Висагинас, новости Висагинаса, расписания в Висагинасе, Висагинас, Visaginas, skelbimu lenta Visagine" />
+  <style>
+    .container {
+      max-width: 1329px;
+    }
+    @media (max-width: 767px) {
+      .banners {
+        max-height: 350px;
+        overflow: auto;
+      }
+    }
+    .pic_advert {
+      padding: 0px !important;
+      text-align: center;
+    }
+    .row-image-no {
+      max-width: 194px;
+      max-height: 146px;
+    }
+    .row-image {
+      width: 194px;
+      height: 146px;
+      border-radius: 0px;
+    }
+    .advert_description {
+      overflow-y: hidden;
+      position: relative;
+      line-height: 20px;
+      height: 55px;
+    }
+    .advert_description::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 20px;
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+    }
+    .table-striped tbody tr:nth-of-type(odd) .advert_description::after {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0), #f2f2f2);
+    }
+  </style>
+</head>
+<body>
+<div id="loading"></div>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/images/visaginas.png" style="max-height: 20px;" class="d-inline-block" />
+      Gorod.lt
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/adverts">
+            <i class="far fa-bookmark fa-fw"></i>
+            Объявления
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://varau.lt/" target="_blank">
+            <i class="fas fa-car fa-fw"></i>
+            Попутчики
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://vk.com/ltnews" target="_blank">
+            <i class="far fa-newspaper fa-fw"></i>
+            Новости
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shedule">
+            <i class="far fa-clock fa-fw"></i>
+            Расписания
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/map">
+            <i class="far fa-map fa-fw"></i>
+            Карта города
+          </a>
+        </li>
+      </ul>
+      
+	<a href="/account" class="btn btn-sm btn-primary active my-2 my-sm-0">
+		<i class="far fa-bookmark fa-fw"></i>
+		Мои объявления
+	</a>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="content" style="margin-top: 85px">
+  <script type="text/javascript" src="/js/swfobject.js"></script>
+<link rel="stylesheet" href="http://www.gorod.lt/css/bricklayer.min.css" />
+
+<!-- Действия -->
+<form name="new_advert" id="new_advert" method="post" action="/">
+  <div class="row" id="filter_list_adverts">
+    <!-- Подать объявление -->
+    <div class="col-md-3" style="margin-bottom: 1.5rem;">
+      <a href="/adverts/new" id="new_advert_button" class="btn btn-block btn-primary">
+        <i class="fas fa-plus fa-fw"></i>
+        Подать объявление
+      </a>
+    </div>
+    <!-- Сортировать -->
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-8">
+          <!-- Тип -->
+          <div class="input-group" style="margin-bottom: 1.5rem;">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                Тип
+              </span>
+            </div>
+            <select name="type_advert" class="form-control">
+              <option value="0" selected="selected">Все</option>
+              <option value="1" {type1}>Продам</option>
+              <option value="2" {type2}>Куплю</option>
+              <option value="3" {type3}>Услуги</option>
+              <option value="4" {type4}>Объявляю</option>
+            </select>
+            <!-- Раздел -->
+            <div class="input-group-append input-group-prepend">
+              <span class="input-group-text">
+                Раздел
+              </span>
+            </div>
+            <select name="category_advert" class="form-control">
+              <option value="0" selected="selected">Все</option>
+              <option value="1" {category1}>Мобильная связь</option>
+              <option value="2" {category2}>Комп. техника</option>
+              <option value="3" {category3}>Флора\фауна</option>
+              <option value="4" {category4}>Недвижимость</option>
+              <option value="5" {category5}>Бытовая техника</option>
+              <option value="6" {category6}>Транспорт</option>
+              <option value="7" {category7}>Другое</option>
+              <option value="8" {category8}>Услуги</option>
+              <option value="9" {category9}>Мебель</option>
+              <option value="10" {category10}>Хобби\Коллекционирование</option>
+            </select>
+          </div>
+        </div>
+        <!-- Сортировать -->
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-secondary btn-block" id="sort-button" style="margin-bottom: 1.5rem;">
+            <i class="fas fa-filter fa-fw"></i>
+            Сортировать
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Искать -->
+    <div class="col-md-3">
+      <div class="input-group" style="margin-bottom: 1.5rem;">
+        <input type="text" class="form-control" id="search_field" name="search" value="" placeholder="Поиск..." />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-secondary" id="search-button">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Контент -->
+<div class="row">
+  <!-- Объявления -->
+  <div class="col-md-9">
+    <table class="table table-striped table-responsive-sm">
+      <tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118834" class="mb-1 text-dark font-weight-bold">
+        б.у двери,окна
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 22:43</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      отдам двери и окна(со стеклами),самовынос,самовывоз(из подвала)От клайпедского дома.Тел.  8 656 73 822
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118834"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118834" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118834" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118834', 'response118834', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118833" class="mb-1 text-dark font-weight-bold">
+        Сдается посуточно квартира
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 22:37</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Сдается посуточно чистая, уютная, современная квартира с евроремонтом. Полностью оборудована: мебель, техника, постельное белье, полотенца, вся необходимая посуда. тел. +37067378568
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118833"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118833" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118833" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118833', 'response118833', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/8bb0aafd880ad9a5af95bae7615b66c5.jpg?v3" data-fancybox="advert_118829" title="серьга">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/8bb0aafd880ad9a5af95bae7615b66c5.jpg?v=3" alt="серьга">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118829" class="mb-1 text-dark font-weight-bold">
+        серьга
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 22:00</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Утеряна сережка,в районе  городской поликлиники,и может быть христианская больница.Тел. 865754821   Лариса.Нашедшего,прошу позвонить.
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118829"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118829" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118829" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118829', 'response118829', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118827" class="mb-1 text-dark font-weight-bold">
+        70€
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:37</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Sveiki parduodamas samsung galaxsy s5 bukle 9/10  geras neskiles telefonas priedai dezute, pakrovejas ir grudintas naujas stikliukas
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118827"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118827" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118827" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118827', 'response118827', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/5f964a538f0779c8aacb531cc7d2afea.jpg?v3" data-fancybox="advert_118826" title="Покупаем старые ненужные нерабочие компьютера">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/5f964a538f0779c8aacb531cc7d2afea.jpg?v=3" alt="Покупаем старые ненужные нерабочие компьютера">
+    </a>
+    <a class="" data-fancybox="advert_118826" href="http://www.gorod.lt/my_pictures/d8702686483ca7f4a9698cc9f75d1812.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_d8702686483ca7f4a9698cc9f75d1812.jpg?v=2" alt="2" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118826" class="mb-1 text-dark font-weight-bold">
+        Покупаем старые ненужные нерабочие компьютера
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:24</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Покупаем старые ненужные нерабочие компьютера, по символической цене 1-2 евро, вывозим сами, мониторы не предлагать, тел 862106928 или на почту
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118826"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118826" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118826" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118826', 'response118826', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/69f688db56f4d955a072081c8134ce94.jpg?v3" data-fancybox="advert_118824" title="Строим">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/69f688db56f4d955a072081c8134ce94.jpg?v=3" alt="Строим">
+    </a>
+    <a class="" data-fancybox="advert_118824" href="http://www.gorod.lt/my_pictures/8a4ac502233a7769269e334262aeb5b8.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_8a4ac502233a7769269e334262aeb5b8.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118824" href="http://www.gorod.lt/my_pictures/c30a19490149c7ac2d19ab80570d3372.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_c30a19490149c7ac2d19ab80570d3372.jpg?v=2" alt="3" />
+</a>
+<a class="" data-fancybox="advert_118824" href="http://www.gorod.lt/my_pictures/c9f6b7d4dff288f8088f3c3fb2db2d85.jpg?v=2" title="4" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_c9f6b7d4dff288f8088f3c3fb2db2d85.jpg?v=2" alt="4" />
+</a>
+<a class="" data-fancybox="advert_118824" href="http://www.gorod.lt/my_pictures/7f7b0381fe6688ee4446d90f0026652a.jpg?v=2" title="5" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_7f7b0381fe6688ee4446d90f0026652a.jpg?v=2" alt="5" />
+</a>
+<a class="" data-fancybox="advert_118824" href="http://www.gorod.lt/my_pictures/f90d3ead83dfc671fa395b658f53895e.jpg?v=2" title="6" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_f90d3ead83dfc671fa395b658f53895e.jpg?v=2" alt="6" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118824" class="mb-1 text-dark font-weight-bold">
+        Строим
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:20</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Строим: деревянные дома, бани, беседки, уличную мебель и т.д. Продаём различные пиломатериалы. Предоставляем услуги пилорамы. Тел.: 8(688)87481.  http://www.ovdija. lt
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118824"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118824" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118824" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118824', 'response118824', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/53cc917ab39a1ebbb5047fc487c85391.jpg?v3" data-fancybox="advert_117945" title="kupliu">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/53cc917ab39a1ebbb5047fc487c85391.jpg?v=3" alt="kupliu">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/117945" class="mb-1 text-dark font-weight-bold">
+        kupliu
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:08</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Kupliu garaz
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response117945"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/117945" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#117945" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=117945', 'response117945', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/55afa31d4930a801fa2561bb1ca4dcf1.jpg?v3" data-fancybox="advert_118377" title="Куплю любую зарядку для ноутбука до 5 е">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/55afa31d4930a801fa2561bb1ca4dcf1.jpg?v=3" alt="Куплю любую зарядку для ноутбука до 5 е">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118377" class="mb-1 text-dark font-weight-bold">
+        Куплю любую зарядку для ноутбука до 5 е
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:08</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Куплю любую зарядку для ноутбука до 5 евро
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118377"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118377" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118377" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118377', 'response118377', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/c7edcbfe405b59a545165ef79156acfa.jpg?v3" data-fancybox="advert_118823" title="Kуплю старые мобильные телефоны">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/c7edcbfe405b59a545165ef79156acfa.jpg?v=3" alt="Kуплю старые мобильные телефоны">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118823" class="mb-1 text-dark font-weight-bold">
+        Kуплю старые мобильные телефоны
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 21:07</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Kуплю старые мобильные телефоны, нерабочие, сломанные,по символической цене, предлагать на майл.
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118823"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118823" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118823" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118823', 'response118823', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118821" class="mb-1 text-dark font-weight-bold">
+        Петушки
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 20:02</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам молодых петушков.Тел.: 862128056
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118821"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118821" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118821" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118821', 'response118821', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/883e4a30b1607fbd2be6791a63ebb77a.jpg?v3" data-fancybox="advert_118492" title="Продам телевизор Thomson(огромный, тяжелый)">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/883e4a30b1607fbd2be6791a63ebb77a.jpg?v=3" alt="Продам телевизор Thomson(огромный, тяжелый)">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118492" class="mb-1 text-dark font-weight-bold">
+        Продам телевизор Thomson(огромный, тяжелый)
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 19:44</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам телевизор Thomson(огромный, тяжелый): 4/3. Размер экрана: диагональ (см/дюймы): 72/29. Dolby System: Virtual Dolby Surround. Частота: 100 Hz High Focus. Тип звука: Stereo Nicam. Музыкальная выходная мощность (Вт): 2 x 20. Navilight: Navilight. Тип кинескопа: Extra-Flat. Цвет: Серебряный. TV Guide: Program Info. Показывает отлично, пульт есть. Цена 15 евро. Tел +37062115730
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118492"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118492" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118492" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118492', 'response118492', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118820" class="mb-1 text-dark font-weight-bold">
+        Объявляю вознаграждение за информацию
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 18:58</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Обращаюсь к свидетелям драки в ночь с 16/03 на 17/03 в кафе-ресторане Вилкарагис. Объявляю вознаграждение в размере 200 евро за информацию о трех лицах. 2 особи женского пола - приметы - обе рост примерно 170см, вес также у обеих около 70-75 кг. Обе ходят в очках. Волосы одной до плеч. Цвет волос у обеих темный. 1 особь мужского пола. Рост примерно 180 см, среднего телосложения, также носит очки. После нанесения увечий, данные особи сбежали из заведения. Возможно кто видел или знает их. Отдельная просьба к работникам службы частного извоза (ТАКСИ) сообщить не пользовались ли похожие по приметам вашими услугами. Все произошло в районе 00:30 - 01:00. Конфиденциальность гарантирую! Информацию прошу высылать на почту и оставить свой контактный номер телефона чтобы связаться для выдачи вознаграждения!
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118820"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118820" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118820" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118820', 'response118820', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118818" class="mb-1 text-dark font-weight-bold">
+        Саша Сотник в Литве
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 18:33</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      TTC по своему подлому обыкновению забанил меня без всякого уведомления и объяснения. так вот ТТС отвечу тебе здесь - Саша Сотник с семьей уже в Литве. и правду вы не скроете.  правда на нашей стороне! а вы подлейшие мерзкие совки ответите перед богом!
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118818"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118818" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118818" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118818', 'response118818', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118817" class="mb-1 text-dark font-weight-bold">
+        Продам шалевку
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 17:36</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам шалевку для бани, ольха, 240x10 cm, 20 kv.m. Тел. 865773863б 865773864
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118817"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118817" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118817" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118817', 'response118817', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118816" class="mb-1 text-dark font-weight-bold">
+        Сниму 1-комн. квартиру
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 17:35</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Сниму 1-комн. квартиру в кирпичном доме за коммун. плату, на длительный срок, не дгт. Обращаться по телефону 862909016
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118816"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118816" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118816" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118816', 'response118816', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118814" class="mb-1 text-dark font-weight-bold">
+        Продам жилой дом в Дукштасе
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 17:31</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам жилой дом в Дукштасе. Участок 30 соток, баня, хоз постройки, теплицы, плодоносящий сад.  Есть фото      +37060542008
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118814"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118814" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118814" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118814', 'response118814', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118449" class="mb-1 text-dark font-weight-bold">
+        Arduino Mega 2560
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 17:22</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам плату Arduino Mega 2560. Посмотреть можно здесь;- https://store.arduino.cc/arduino-mega-2560-rev3 7 евро. t.868265395
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118449"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118449" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118449" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118449', 'response118449', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/5d4e5bd33924b5eaa646bef9d917bad0.jpg?v3" data-fancybox="advert_118813" title="Ремонт и отделка ванной комнаты и санузла любой сложности">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/5d4e5bd33924b5eaa646bef9d917bad0.jpg?v=3" alt="Ремонт и отделка ванной комнаты и санузла любой сложности">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118813" class="mb-1 text-dark font-weight-bold">
+        Ремонт и отделка ванной комнаты и санузла любой сложности
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:48</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Ремонт и отделка ванной комнаты и санузла любой сложности: укладка керамической плитки. замена труб водопровода и канализации. монтаж пластиковых потолков. установка сантехники,душевой кабины, ванны. квалификация и аккуратность работ. Мои работы посмотреть можно здесь: https://vk.com/mozayka2016 Тел:865972913
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118813"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118813" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118813" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118813', 'response118813', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/31600706dc3cfd0f0cc99d29c2678f14.jpg?v3" data-fancybox="advert_118812" title="Продам планшет iPAD 16Gb">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/31600706dc3cfd0f0cc99d29c2678f14.jpg?v=3" alt="Продам планшет iPAD 16Gb">
+    </a>
+    <a class="" data-fancybox="advert_118812" href="http://www.gorod.lt/my_pictures/0ace76081ea2cafe92de7de45f1e3a79.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_0ace76081ea2cafe92de7de45f1e3a79.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118812" href="http://www.gorod.lt/my_pictures/0a625a51653a7b1e0616a70c09724033.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_0a625a51653a7b1e0616a70c09724033.jpg?v=2" alt="3" />
+</a>
+<a class="" data-fancybox="advert_118812" href="http://www.gorod.lt/my_pictures/4f448eca58e057880b96524217ad8a76.jpg?v=2" title="4" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_4f448eca58e057880b96524217ad8a76.jpg?v=2" alt="4" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118812" class="mb-1 text-dark font-weight-bold">
+        Продам планшет iPAD 16Gb
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:40</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам планшет iPAD 16Gb в очень хорошом состоянии,работает как положено.Цена 55eur.тел.8-650 15616
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118812"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118812" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118812" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118812', 'response118812', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/9fee1702b8674ead87c7bdf40ab1259a.jpg?v3" data-fancybox="advert_118811" title="Продам настольную игру Kingdom Death: Monster">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/9fee1702b8674ead87c7bdf40ab1259a.jpg?v=3" alt="Продам настольную игру Kingdom Death: Monster">
+    </a>
+    <a class="" data-fancybox="advert_118811" href="http://www.gorod.lt/my_pictures/20623bebd6bc5bc3c938547816d8df9d.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_20623bebd6bc5bc3c938547816d8df9d.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118811" href="http://www.gorod.lt/my_pictures/9f38059f10d389894914a4ab438a5290.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_9f38059f10d389894914a4ab438a5290.jpg?v=2" alt="3" />
+</a>
+<a class="" data-fancybox="advert_118811" href="http://www.gorod.lt/my_pictures/f9ffea632cae7371063a724ac98f4487.jpg?v=2" title="4" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_f9ffea632cae7371063a724ac98f4487.jpg?v=2" alt="4" />
+</a>
+<a class="" data-fancybox="advert_118811" href="http://www.gorod.lt/my_pictures/347dea6593a6e73c0efb70a21829f189.jpg?v=2" title="5" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_347dea6593a6e73c0efb70a21829f189.jpg?v=2" alt="5" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118811" class="mb-1 text-dark font-weight-bold">
+        Продам настольную игру Kingdom Death: Monster
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:26</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Вся инфа тут: https://shop.kingdomdeath.com/products/kingdom-death-monster<br />на фото можно увидеть склеенные миниатюры все остальное не собрано и в упоквке<br />цена 310евро
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118811"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118811" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118811" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118811', 'response118811', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118810" class="mb-1 text-dark font-weight-bold">
+        Дополнительный заработок
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:14</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Предлагаем  активным, настойчивым и целеустремленным людям!<br />Возможность дополнительного заработка.<br />Для Вас идеально подходит если: <br />-если Вам нужна работа с гарантиями и пенсией.<br />  -Вы ищи новые возможности;<br />-нужен подработок без отрыва от основной работы;<br />-у кого маленькие дети.<br />Звоните:+37068500810
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118810"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118810" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118810" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118810', 'response118810', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118809" class="mb-1 text-dark font-weight-bold">
+        работа в команде
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:13</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Вы ищи новые возможности,хотите улучшить свою жизнь?<br />У кого есть желания, добиться финансовой свободы.<br />Покажем,расскажем,научим.Работа в команде,помощь команды.	<br />--доходный;-легальный ;-высокоэффективны;-cвободный временной режим.<br />Мы помогаем людям,которые хотят добиться успеха!<br />+37062870073
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118809"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118809" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118809" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118809', 'response118809', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/af475e49be9201123231f643af0e3c55.jpg?v3" data-fancybox="advert_117529" title="Ремонт">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/af475e49be9201123231f643af0e3c55.jpg?v=3" alt="Ремонт">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/117529" class="mb-1 text-dark font-weight-bold">
+        Ремонт
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:13</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Ремонт. Все виды отделочных работ тел. 862222412
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response117529"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/117529" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#117529" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=117529', 'response117529', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118808" class="mb-1 text-dark font-weight-bold">
+        система  очистки воздуха  Sky
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:12</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Новинка рынка<br />Передовая система  очистки воздуха  Sky,позволяет эффективно удалять в воздухе аллергены, пыльцу, химикаты, запахи, бактерии и сотни вирусов.<br />     Трехступенчатая система фильтрации обеспечивает максимальную очистку воздуха.Он удаляет 99,99% частиц с 0,007 мкм (микрон) из воздуха.<br />Уникальная трехступенчатая система фильтрации эффективно удаляет из воздуха более 300 видов загрязняющих веществ, включая аллергены, пыльцу, химикаты, ароматизаторы, бактерии и сотни вирусов в воздухе.Так же эффективно удаляет<br />кухонные запахи и запахи, характерных для домашних животных и табачного дыма.<br />Система  очистки воздуха  Sky имеет множество сертификатов и наград. Характеризуется как самый  скоростной очиститель воздуха, доступных на рынке на уровне 500 м3 / ч.<br />Имеет ручное и  дистанционно управление .Гарантия до 5 лет .<br />+37062870073
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118808"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118808" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118808" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118808', 'response118808', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118807" class="mb-1 text-dark font-weight-bold">
+        Система очистки воды eSpring.
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:10</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Внимание Акции от производителя -20% только до 20 марта 2018!<br /> Предлагаем систему очистки воды eSpring.Эта система является самой  востребованной мировой маркой бытовых систем очистки воды.  Трехуровневая система очистки сочетает в себя признанные передовые технологии. Используется фильтр из угольного блока, который удаляет из воды твердые частицы и более 145 загрязняющих веществ (даже асбест и металлы).А встроенная ультрафиолетовая лампа обезвреживает свыше 99,99% потенциально присутствующих в воде бактерий и вирусов передающихся с водой.  В отличие от других фильтров, питательные вещества остаются в воде(кальций,магний,фтор).Мало габаритный, что позволяет его использовать  как переносной. Гарантия 5 лет. Чистая, полезная  и качественная вода eSpring не идет в сравнение с качеством воды из фильтров кувшинного типа,фильтра обратного осмоса и бутилированной водой Звоните +37062870073
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118807"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118807" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118807" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118807', 'response118807', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118806" class="mb-1 text-dark font-weight-bold">
+        Посуда  iCook
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 14:09</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Внимание Акции от производителя -20% только до 20 марта 2018!<br />Предлагаем  посуду пятого поколения iCook,аналогов по качеству нет.  Приготовление пищи с минимальным количеством жидкости, благодаря чему в продукте гораздо больше важнейших витаминов и минералов. Благодаря особенностям конструкции, посуда iCook является посудой пятого поколения, обеспечивает высокое удержание и распределение тепла. Она легко очищается, не вступает во взаимодействие с пищевыми продуктами, соответственно – не меняет их вкуса. Вы можете готовить, используя каждую единицу посуды отдельно, или одновременно готовить несколько блюд, устанавливая посуду ярусами – посуда меньшего размера ставится на посуду большего размера.Предлагаются следующие комплектации:-большая-27 предметов;-расширенная-17 предметов;-средняя-10 предметов;-малая-10 предметов.<br />Звоните:+37068500810
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118806"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118806" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118806" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118806', 'response118806', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/5c6d5c015570bf5e246966ded88d10b0.jpg?v3" data-fancybox="advert_116878" title="Продам Nokia 3410">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/5c6d5c015570bf5e246966ded88d10b0.jpg?v=3" alt="Продам Nokia 3410">
+    </a>
+    <a class="" data-fancybox="advert_116878" href="http://www.gorod.lt/my_pictures/27e029ba3036f09aeaab951e64324236.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_27e029ba3036f09aeaab951e64324236.jpg?v=2" alt="2" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/116878" class="mb-1 text-dark font-weight-bold">
+        Продам Nokia 3410
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 12:08</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам Nokia 3410, состояние хорошее, новая батарейка. Телефон для ценителей брэнда :) Цена 25€.<br /><br />+37069979966
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response116878"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/116878" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#116878" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=116878', 'response116878', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/5195accb19f0a59e2ca6740339f76a3a.jpg?v3" data-fancybox="advert_109042" title="Одежда для мужчин.Перчатки женские и мужские.">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/5195accb19f0a59e2ca6740339f76a3a.jpg?v=3" alt="Одежда для мужчин.Перчатки женские и мужские.">
+    </a>
+    <a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/8df89eda8fc807af108fb7a24e7cb048.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_8df89eda8fc807af108fb7a24e7cb048.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/2172d4a294f77198ecd78ee5a19b3661.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_2172d4a294f77198ecd78ee5a19b3661.jpg?v=2" alt="3" />
+</a>
+<a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/2cbcd464f58c2283d51033cd3424380d.jpg?v=2" title="4" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_2cbcd464f58c2283d51033cd3424380d.jpg?v=2" alt="4" />
+</a>
+<a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/cba10bae602d2503d4e0327139174fb9.jpg?v=2" title="5" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_cba10bae602d2503d4e0327139174fb9.jpg?v=2" alt="5" />
+</a>
+<a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/e94e197d1003a1faa3a13bda750f8c69.jpg?v=2" title="6" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_e94e197d1003a1faa3a13bda750f8c69.jpg?v=2" alt="6" />
+</a>
+<a class="" data-fancybox="advert_109042" href="http://www.gorod.lt/my_pictures/31ddd15c2b3ec7c34d03136db759d313.jpg?v=2" title="7" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_31ddd15c2b3ec7c34d03136db759d313.jpg?v=2" alt="7" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/109042" class="mb-1 text-dark font-weight-bold">
+        Одежда для мужчин.Перчатки женские и мужские.
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 12:07</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Магазин мужской одежды. Перчатки (женские и мужские) большой ассортимент и цветовая палитра. Обновление ассортимента каждую неделю. Работаем в Висагинасе с 1999 года. Тарибу 3. &quot;Sanarko&quot;. <br /><br />Так же торгуем и на рынке в 3-ем микрорайоне (суббота,воскресение). Цены на рынке и в магазине идентичны.
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response109042"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/109042" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#109042" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=109042', 'response109042', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118804" class="mb-1 text-dark font-weight-bold">
+        Фотоуслуги
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 12:03</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Фотоуслуги: свадьбы, банкеты, юбилеи и прочие мероприятия. Переснимаю и реставрирую старые фотографии. Фото на документы для тех, кому сложно самостоятельно передвигаться, выполню дома у заказчика. Фото смотреть здесь. https://fotki.yandex.ru/users/lavrushka1954/album/557387/
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118804"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118804" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118804" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118804', 'response118804', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/002aa117e0243c3f18795726f352af8e.jpg?v3" data-fancybox="advert_118442" title="медиобокс &quot;Acme&quot;">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/002aa117e0243c3f18795726f352af8e.jpg?v=3" alt="медиобокс &quot;Acme&quot;">
+    </a>
+    <a class="" data-fancybox="advert_118442" href="http://www.gorod.lt/my_pictures/a831b0a883825932b9c9ae40edb4bebc.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_a831b0a883825932b9c9ae40edb4bebc.jpg?v=2" alt="2" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118442" class="mb-1 text-dark font-weight-bold">
+        медиобокс &quot;Acme&quot;
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 11:38</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам медиобокс &quot;Acme&quot; (ACME Portable Media Center (MPO1)), в отличном состоянии. Есть все провода, зарядка, пульт д\у, входы для USB и карточки SD. HDD на 160 Ггб. Посмотреть можно здесь;-https://www.gadgetspeak.com/gadget/article.rhtm/751/654561/Acme_Portable_Media_Centre.html     20 евро. Торг. t.868265395
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118442"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118442" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118442" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118442', 'response118442', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/9bfa89150923a504728b0bbd161b312e.jpg?v3" data-fancybox="advert_118801" title="Konteineris gyvunu pervezimui">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/9bfa89150923a504728b0bbd161b312e.jpg?v=3" alt="Konteineris gyvunu pervezimui">
+    </a>
+    <a class="" data-fancybox="advert_118801" href="http://www.gorod.lt/my_pictures/3c74d9d46685623d5c1d65b5f4c1d5de.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_3c74d9d46685623d5c1d65b5f4c1d5de.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118801" href="http://www.gorod.lt/my_pictures/1e2a3e0b2c44a075319fbbb8191be217.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_1e2a3e0b2c44a075319fbbb8191be217.jpg?v=2" alt="3" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118801" class="mb-1 text-dark font-weight-bold">
+        Konteineris gyvunu pervezimui
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 11:28</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Toks didokas apie 0.50cm ilgio it 0.38 ant 0.38 aukscio ir plocio.20euru. Tel. 865245212
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118801"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118801" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118801" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118801', 'response118801', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/9bf01d66c1df81fb36c1f9acc39f3a14.jpg?v3" data-fancybox="advert_118799" title="Детские вещи">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/9bf01d66c1df81fb36c1f9acc39f3a14.jpg?v=3" alt="Детские вещи">
+    </a>
+    <a class="" data-fancybox="advert_118799" href="http://www.gorod.lt/my_pictures/0df4787867ad7da694a90a04697f3c84.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_0df4787867ad7da694a90a04697f3c84.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118799" href="http://www.gorod.lt/my_pictures/994f15096044f5c2fda8b7b0348fb6bf.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_994f15096044f5c2fda8b7b0348fb6bf.jpg?v=2" alt="3" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118799" class="mb-1 text-dark font-weight-bold">
+        Детские вещи
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 11:17</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам детскую деревянную кроватку с полкой для белья и матрасом из гречи, кроватка не использовалась по назначению так как ребёнок поспал всего один день, так же продам развивающий столик для ребёнка, подарочную декорацию на день рождение 1-го годика, так же продам неношенные комбинезоны, всего было много неуспевали носить. Цены символические. Тел. ‭864759481‬
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118799"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118799" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118799" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118799', 'response118799', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118797" class="mb-1 text-dark font-weight-bold">
+        продам авто
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 10:59</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам минивен Хюндай Атос 1998г 1 литр бензин ТО до 2018-09 страховка торг тел 869841771
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118797"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118797" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118797" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118797', 'response118797', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/78c2f9c61515fedee0e14f5531761351.jpg?v3" data-fancybox="advert_118440" title="Блок управления системой впрыска">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/78c2f9c61515fedee0e14f5531761351.jpg?v=3" alt="Блок управления системой впрыска">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118440" class="mb-1 text-dark font-weight-bold">
+        Блок управления системой впрыска
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 10:51</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам - Блок управления системой впрыска 7700851740 для RENAULT ESPACE (1992 - 1996). Посмотреть можно здесь;- \r\nhttps://www.tav-autoverwertung.de/shop/Engine-control-unit-S101260104-A-HOM-7700-851-740-BVM-7700-851-634-Renault-Espace-28-V6 Оригинал. 30 евро. Звоните 868265395.
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118440"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118440" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118440" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118440', 'response118440', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/8e0a722e768f3ce9e252810eb6bf3d25.jpg?v3" data-fancybox="advert_118796" title="ПРОДАМ ЖЕНСКИЕ ЛЫЖНЫЕ  ШТАНЫ">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/8e0a722e768f3ce9e252810eb6bf3d25.jpg?v=3" alt="ПРОДАМ ЖЕНСКИЕ ЛЫЖНЫЕ  ШТАНЫ">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118796" class="mb-1 text-dark font-weight-bold">
+        ПРОДАМ ЖЕНСКИЕ ЛЫЖНЫЕ  ШТАНЫ
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 10:22</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам новые женские лыжные штаны, подойдут как для пеших прогулок ,так и для скандинавской ходьбы , польской марки 4F ,чёрного цвета ,размер XL ( 48-52 ) . Есть подтяжки ,регулирующие длину , талия тоже регулируеться липучками ...25 € ,обращаться на эл. почту или по тел.8-608-18-776 ( viber )
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118796"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118796" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118796" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118796', 'response118796', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118795" class="mb-1 text-dark font-weight-bold">
+        СНИМУ КВАРТИРУ НА 1,5 ГОДА
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 10:19</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Порядочная семья из 2-х человек в возрасте , без детей и животных , снимет 1.5 или 2-х комнатную квартиру ,в хорошем состоянии с необходимой мебелью и бытовой техникой на 1-м этаже , если с лифтом , не выше 3-го этажа , желательно в 3-м или 2-м мк-не , с августа месяца на длительный срок , минимум до 1,5 лет . Порядок и своевременную оплату коммунальных услуг гарантируем...Предложения по тел. 8-608-18-776 ( viber )
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118795"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118795" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118795" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118795', 'response118795', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/ca2cf5ad546cdbb248bdea20e5cbbd3a.jpg?v3" data-fancybox="advert_110820" title="Компьютерная помощь на дому">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/ca2cf5ad546cdbb248bdea20e5cbbd3a.jpg?v=3" alt="Компьютерная помощь на дому">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/110820" class="mb-1 text-dark font-weight-bold">
+        Компьютерная помощь на дому
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 09:28</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Компьютерная помощь на дому! Мастер решит любые проблемы с вашим компьютером или ноутбуком! Установка, и переустановка Windows; Лечение от вирусов, Антивирусная защита; Восстановление данных; Установка программ; Настройка роутеров; Диагностика ПК; Замена термопасты; Сборка компьютеров; Обучение и консультации; И многое другое; Выезд на дом бесплатный. Даем гарантии на все виды работ. Выполняем удаленную работу. Без выходных. Тел. (8-671)59318 (viber, whatsapp) Skype:Volmax19
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response110820"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/110820" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#110820" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=110820', 'response110820', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/aae8fefe018820c902ec10eac44ac097.jpg?v3" data-fancybox="advert_118794" title="запчасти">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/aae8fefe018820c902ec10eac44ac097.jpg?v=3" alt="запчасти">
+    </a>
+    <a class="" data-fancybox="advert_118794" href="http://www.gorod.lt/my_pictures/9b862c2ef016695f705495645ac0aa95.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_9b862c2ef016695f705495645ac0aa95.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118794" href="http://www.gorod.lt/my_pictures/e29ee0248cddae4cf113f6fa49b2cb57.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_e29ee0248cddae4cf113f6fa49b2cb57.jpg?v=2" alt="3" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118794" class="mb-1 text-dark font-weight-bold">
+        запчасти
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 09:04</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      продам шторку в багажник,передняя фара,домкрат запаску,все для BMW 525  39кузов 1998 года
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118794"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118794" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118794" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118794', 'response118794', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/c35f719b96039348b4c7dc3e1fca3b4a.jpg?v3" data-fancybox="advert_118793" title="Smart TECH">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/c35f719b96039348b4c7dc3e1fca3b4a.jpg?v=3" alt="Smart TECH">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118793" class="mb-1 text-dark font-weight-bold">
+        Smart TECH
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 08:53</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      SMART TECH – настройка и улучшение вашего телевизора(SMART), компьютера, планшета, телефона до максимальной производительности! Помогаем настроить интернет телевиденье (IPTV) на телевизорах SMART и TV приставках. Если у Вас возникают трудности с выбором техники, консультанты из SMART TECH помогут Вам сделать правильный выбор!  В наличие есть Android TV BOX приставки, который сделают Ваш телевизор современным!<br />Только со SMART TECH командой вы будете использовать самый новые технологии в мире интернет вешания!<br />Больше информации звоните по телефону +37060121177
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118793"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118793" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118793" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118793', 'response118793', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/fc8670cc4f5982ae529cbf9bcf86940e.jpg?v3" data-fancybox="advert_118792" title="автоклав">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/fc8670cc4f5982ae529cbf9bcf86940e.jpg?v=3" alt="автоклав">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118792" class="mb-1 text-dark font-weight-bold">
+        автоклав
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 08:52</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      продам автоклав(аппарат,для приготовления тушенки в домашних условиях)Испытан,качественный,из нержавеющей стали.Тел. 8 656 73 822    90евро
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118792"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118792" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118792" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118792', 'response118792', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/5c7433ee143fb9b26802371aa07f9f1d.jpg?v3" data-fancybox="advert_118791" title="Отдам компьютерный стол">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/5c7433ee143fb9b26802371aa07f9f1d.jpg?v=3" alt="Отдам компьютерный стол">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118791" class="mb-1 text-dark font-weight-bold">
+        Отдам компьютерный стол
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 08:40</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Отдам угловой компьютерный стол за 2 киндера сюрприза 862311995
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118791"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118791" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118791" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118791', 'response118791', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/efe5914054a0e2a3cf3ea8e2aae2fbea.jpg?v3" data-fancybox="advert_69577" title="Оформление могил">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/efe5914054a0e2a3cf3ea8e2aae2fbea.jpg?v=3" alt="Оформление могил">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/69577" class="mb-1 text-dark font-weight-bold">
+        Оформление могил
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 08:30</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Полное оформление могил. Памятники, гравировка надписей и портретов. Гарантия. <br />Так же рассмотрю варианты ремонта и реставрации старых захоронений.<br />Принимаю заказы на следующий сезон.<br />Тел. 861274553
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response69577"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/69577" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#69577" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=69577', 'response69577', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/8bdecbad71dfd201fda7b12af341f482.jpg?v3" data-fancybox="advert_118789" title="Телевизор">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/8bdecbad71dfd201fda7b12af341f482.jpg?v=3" alt="Телевизор">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118789" class="mb-1 text-dark font-weight-bold">
+        Телевизор
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 07:29</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам Samsung 3Д смарт ЖК-телевизор 2016г.6серии UE55H6400-Диагональ:55&quot;(138см) -Формат экрана:16:9-Максимальное разрешение:1920x1080-Поддержка HD:1080p Full HD -LED подсветка:есть-Стереозвук:есть-Частота обновления:400 Гц-Поддержка 3D:есть, затворная технология, конвертация 2D в 3D -Smart TV с доступом в интернет:есть 3Д очки в подарок+4шт(500евро торг)+37062793578
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118789"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118789" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118789" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118789', 'response118789', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/19af4d9f274329156bd8779f57d44ea0.jpg?v3" data-fancybox="advert_118788" title="телевизоры Б/У">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/19af4d9f274329156bd8779f57d44ea0.jpg?v=3" alt="телевизоры Б/У">
+    </a>
+    <a class="" data-fancybox="advert_118788" href="http://www.gorod.lt/my_pictures/f8af030c1d1f5323578c465c62bfed9d.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_f8af030c1d1f5323578c465c62bfed9d.jpg?v=2" alt="2" />
+</a>
+<a class="" data-fancybox="advert_118788" href="http://www.gorod.lt/my_pictures/da4837df7a87cad9fd6e54ebd3d37bc5.jpg?v=2" title="3" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_da4837df7a87cad9fd6e54ebd3d37bc5.jpg?v=2" alt="3" />
+</a>
+<a class="" data-fancybox="advert_118788" href="http://www.gorod.lt/my_pictures/fa41860e109b53385acb044284312da1.jpg?v=2" title="4" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_fa41860e109b53385acb044284312da1.jpg?v=2" alt="4" />
+</a>
+<a class="" data-fancybox="advert_118788" href="http://www.gorod.lt/my_pictures/77299ffa720ca7c8d493b980ff6de03b.jpg?v=2" title="5" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_77299ffa720ca7c8d493b980ff6de03b.jpg?v=2" alt="5" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118788" class="mb-1 text-dark font-weight-bold">
+        телевизоры Б/У
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 07:21</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам телевизоры LED LG-100cm USB \\\Samsung -44cm\\\ LED LG-80см\\\ LCD LG- 90см\\\  LCD Tevion-57cm(40evr)\\ LCDTatung-82cm\\ Panasonic-37cm\\\ Saba-37cm(10evr) \\\Ноутбук ACER и Ноутбук FujitsuSiemens\\ автомобильные магнитолы\\\Фестивале 1А . 862411105
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118788"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118788" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118788" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118788', 'response118788', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/ff01e51891f1e6ece2b92d1ab13710ea.jpg?v3" data-fancybox="advert_118787" title="Samsung S6 edge+">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/ff01e51891f1e6ece2b92d1ab13710ea.jpg?v=3" alt="Samsung S6 edge+">
+    </a>
+    <a class="" data-fancybox="advert_118787" href="http://www.gorod.lt/my_pictures/9adc8c0922513c8b198018cb27f5dc6c.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_9adc8c0922513c8b198018cb27f5dc6c.jpg?v=2" alt="2" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118787" class="mb-1 text-dark font-weight-bold">
+        Samsung S6 edge+
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 04:10</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      prodam smartfon Samsung S6 edge plus v otlicnom sostojanii. super amoled 5.7 ekran,4Gb ram i t.d.. v komplekte zariadka,usb shnur,naushniki,orig.cexol knizka
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118787"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118787" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118787" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118787', 'response118787', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118786" class="mb-1 text-dark font-weight-bold">
+        HDD
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 03:42</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      kuplliu malenkij perenosnoj zostkij disk (2,5mm) na 1terabajt i boleje  862120900
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118786"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118786" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118786" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118786', 'response118786', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/01ca429f93f6ec26ba3c64c61564f4a5.jpg?v3" data-fancybox="advert_115188" title="Массаж">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/01ca429f93f6ec26ba3c64c61564f4a5.jpg?v=3" alt="Массаж">
+    </a>
+    <a class="" data-fancybox="advert_115188" href="http://www.gorod.lt/my_pictures/3b3f33a274dd34719ffce67ef7a691e5.jpg?v=2" title="2" style="display: none;">
+	<img src="http://www.gorod.lt/my_pictures/thumb_3b3f33a274dd34719ffce67ef7a691e5.jpg?v=2" alt="2" />
+</a>
+
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/115188" class="mb-1 text-dark font-weight-bold">
+        Массаж
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 02:30</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Разные массажи для лица и тела. Подберу лучшую методику соответственно вашим потребностям. Умеренные цены ..большой стаж работы. т.862965695
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response115188"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/115188" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#115188" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=115188', 'response115188', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118785" class="mb-1 text-dark font-weight-bold">
+        Вильнюс аэропорт
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-17 02:27</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      20 марта в 22.30 еду в Вильнюс в аэропорт туда-обратно....возьму попутчиков т.37062965695
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118785"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118785" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118785" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118785', 'response118785', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <a class="toppic" href="http://www.gorod.lt/my_pictures/ecfff6f18d8874475c682b8f003cd358.jpg?v3" data-fancybox="advert_94377" title="Android TV BOX">
+      <img class="row-image" src="http://www.gorod.lt/my_pictures/ecfff6f18d8874475c682b8f003cd358.jpg?v=3" alt="Android TV BOX">
+    </a>
+    
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/94377" class="mb-1 text-dark font-weight-bold">
+        Android TV BOX
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-16 19:19</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      Продам новый  Android TV BOX M8S. <br />4X CPU Cortex -A9.<br /> 8X GPU MALI-450. 35 EU.
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response94377"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/94377" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#94377" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=94377', 'response94377', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- Картинка -->
+  <td class="pic_advert">
+    <img class="row-image-no" src="/images/noimage.png?v=3" alt="Нет фотографии">
+  </td>
+  <!-- Контент -->
+  <td>
+    <!-- Заголовок и Дата -->
+    <div class="d-flex w-100 justify-content-between">
+      <!-- Заголовок -->
+      <a href="/adverts/118779" class="mb-1 text-dark font-weight-bold">
+        срочно куплю кухню
+      </a>
+      <!-- Дата -->
+      <small><i class="far fa-clock"></i> 2018-03-16 18:30</small>
+    </div>
+    <!-- Текст -->
+    <div class="text-muted advert_description">
+      срочно не дорого  куплю б/у кухню
+    </div>
+    <div style="margin-top: 0.5rem;">
+      <!-- Ответ -->
+      <div class="grid_15 response_advert" id="response118779"></div>
+      <!-- Кнопки -->
+      <div class="btn-group">
+        <a href="/adverts/118779" class="btn btn-sm btn-info">
+          <i class="fas fa-eye fa-fw"></i>
+          Подробнее
+        </a>
+        
+        <!--<a class="grid_2 response_button btn btn-primary btn-sm" href="#118779" onclick="ajaxLoad('/?ajaxmode=1&module=adverts&action=response&id_advert=118779', 'response118779', 0); return false;">
+  <i class="fa fa-reply fa-fw"></i>
+  Связаться с автором объявления
+</a>
+-->
+      </div>
+    </div>
+  </td>
+</tr>
+
+    </table>
+  </div>
+  <!-- Реклама -->
+  <div class="col-md-3">
+    
+    <div class="card">
+      <div class="card-header">
+        Партнеры
+      </div>
+      <div class="card-body banners text-center" style="padding: 0px;">
+        <div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="https://potolok.lt/">
+        <img src="/uploads/banners/pot.jpg" style="max-width: 100%;" />
+    </a>
+</div>
+<div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="http://technosell.lt/">
+        <img src="/uploads/banners/tecno.gif" style="max-width: 100%;" />
+    </a>
+</div>
+<div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="http://www.autoelectric.lt/">
+        <img src="/uploads/banners/Sgif.gif" style="max-width: 100%;" />
+    </a>
+</div>
+<div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="">
+        <img src="/uploads/banners/taksa.gif" style="max-width: 100%;" />
+    </a>
+</div>
+<div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="http://www.visaginietis.lt">
+        <img src="/uploads/banners/visaginietis-300x300banner.jpg" style="max-width: 100%;" />
+    </a>
+</div>
+<div class="banner" style="border-bottom: 1px solid rgba(0,0,0,.125);">
+    <a href="http://vk.com/ltnews">
+        <img src="/uploads/banners/547f6fd455c7b.jpg" style="max-width: 100%;" />
+    </a>
+</div>
+
+        <p class="text-left" style="padding: 1rem; margin: 0px;">
+          Как получить <a href="https://zabugrom.eu/%D0%BA%D0%B0%D0%BA-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C-%D1%81%D1%82%D0%B0%D1%80%D1%82%D0%B0%D0%BF-%D0%B2%D0%B8%D0%B7%D1%83-%D0%B2-%D0%BB%D0%B8%D1%82%D0%B2%D1%83/">стартап визу в литве</a>
+          и иммигрировать в европу?
+        </p>
+      </div>
+      <div class="card-footer text-center">
+        По вопросам заказа рекламы: <a href="mailto:reklama@gorod.lt">reklama@gorod.lt</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Пагинация -->
+<div id="pages" style="display: block; width: 100%; overflow: auto;margin-top: 1.5rem;">
+  
+      <nav aria-label="Пагинация">
+        <ul class="pagination">
+          <li class="page-item active"><a href="http://www.gorod.lt/?page=1" class="page-link">1</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=2" class="page-link">2</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=3" class="page-link">3</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=4" class="page-link">4</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=5" class="page-link">5</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=6" class="page-link">6</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=7" class="page-link">7</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=8" class="page-link">8</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=9" class="page-link">9</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=10" class="page-link">10</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=11" class="page-link">11</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=12" class="page-link">12</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=13" class="page-link">13</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=14" class="page-link">14</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=15" class="page-link">15</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=16" class="page-link">16</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=17" class="page-link">17</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=18" class="page-link">18</a></li><li class="page-item"><a href="http://www.gorod.lt/?page=2" class="page-link"> След. </a></li>
+        </ul>
+      </nav>
+    
+</div>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- gorod.lt -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8119263671937781"
+     data-ad-slot="6056806152"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script type="text/javascript" src="http://www.gorod.lt/js/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="http://www.gorod.lt/css/jquery.fancybox-buttons.css?v=2.0.4" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.gorod.lt/js/jquery.fancybox-buttons.js?v=2.0.4"></script>
+<link rel="stylesheet" href="http://www.gorod.lt/css/jquery.fancybox-thumbs.css?v=2.0.4" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.gorod.lt/js/jquery.fancybox-thumbs.js?v=2.0.4"></script>
+
+<script>
+$(document).ready(function() {
+	$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			overlay	: {
+				opacity : 0.8,
+				css : {
+					'background-color' : '#000'
+				}
+			},
+			thumbs	: {
+				width	: 100,
+				height	: 100
+			}
+		}
+	});
+});
+</script>
+
+</div>
+
+
+<!-- Ноги сайта -->
+<footer class="pt-4 my-md-5 pt-md-5 border-top mt-5" id="footer">
+  <div class="container">
+    <div class="row">
+      <!-- Герб -->
+      <div class="col-md-2 text-center" style="margin-bottom: 0.5rem;">
+        <a href="/">
+          <img src="/images/visaginas.png" style="max-width: 40px;" />
+        </a>
+      </div>
+      <!-- Копирайт -->
+      <div class="col-md-6">
+        <small class="d-block mb-3 text-muted">
+          Доска объявлений в Висагинасе 2018 © www.gorod.lt<br />
+          <a href="mailto:info@gorod.lt">info@gorod.lt</a>
+        </small>
+      </div>
+      <!-- Hey Счетчик -->
+      <div class="col-md-2 text-center">
+        <script language="javascript" type="text/javascript">
+          <!--
+          var _hey_lt_w = "", _hey_lt_h = "", _hey_lt_c = "";
+          //-->
+        </script>
+        <script language="javascript1.2" type="text/javascript">
+          <!--
+          _hey_lt_w = screen.width; _hey_lt_h = screen.height; _hey_lt_c = navigator.appName.indexOf("Microsoft") >= 0 ? screen.colorDepth : screen.pixelDepth;
+          //-->
+        </script>
+        <div style="margin-top: 0.5rem;">
+          <script language="javascript" type="text/javascript">
+          <!--
+          document.write("<a target='_blank' href='http://www.hey.lt/details.php?id=gorod'><img width='88' height='31' border='0' src='http://www.hey.lt/count.php?id=gorod&width=" + _hey_lt_w + "&height=" + _hey_lt_h + "&color=" + _hey_lt_c + "&referer=" + escape(document.referrer) + "' alt='Hey.lt - Nemokamas lankytojų skaitliukas'><\/a>");
+          //-->
+          </script>
+        </div>
+        <noscript>
+          <a target="_blank" href="http://www.hey.lt/details.php?id=gorod"><img width="88" height="31" border="0" src="http://www.hey.lt/count.php?id=gorod" alt="Hey.lt - Nemokamas lankytojų skaitliukas"></a>
+        </noscript>
+      </div>
+      <!-- Копирайт -->
+      <div class="col-md-2 text-center">
+        <a style="margin-top: 0.5rem;" href="http://klybok.net" target="_blank" class="btn btn-sm btn-light active" data-placement="top" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Разработка и безопасность">
+          <i class="fas fa-code"></i> Klybok.NET
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Правила сайта -->
+<div class="modal fade bd-example-modal-lg" id="reulsModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fas fa-shield-alt fa-fw"></i>
+          Условия и Правила
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Запрещается создавать объявления содержащие ненормативную лексику, информацию оскорбительного характера.</li>
+          <li>Информация и материалы публикуемые пользователем при создании объявления не должны противоречить законам Литовской республики. </li>
+          <li>Администрация сайта не несёт никакой ответственности за объявления созданные другими пользователями. </li>
+          <li>Администрация сайта в праве удалять любые объявления по своему усмотрению без объяснения причины. </li>
+          <li>
+            Объявления на сайте gorod.lt должны создаваться или обновляться по определенным правилам:
+            <ul>
+              <li>Для физических лиц, продающих вещи: объявление c одним и тем же (похожим) содержанием – раз в неделю.</li>
+              <li>Для юридических лиц и лиц оказывающих услуги: объявление c одним и тем же (похожим) содержанием – раз в неделю.</li>
+            </ul>
+            В противном случае блокируются все IP адреса связанные с повторяющимся объявлением.
+          </li>
+          <li>Администрация сайта в праве изменять условия и правила в любое время без оповещения об этом пользователей.</li>
+        </ol>
+      </div>
+      <div class="card-footer text-right">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter47807950 = new Ya.Metrika2({ id:47807950, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks2"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/47807950" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>$(function () { $('[data-toggle="popover"]').popover(); })</script>
+</body>
+</html>

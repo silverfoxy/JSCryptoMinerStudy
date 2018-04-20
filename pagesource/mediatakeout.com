@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.mediatakeout.com/">https://www.mediatakeout.com/</a></p>

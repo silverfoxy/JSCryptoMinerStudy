@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="/top">/top</a></p>

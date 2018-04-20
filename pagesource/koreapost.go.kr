@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="robots" content="noindex">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="naver-site-verification" content="d5251116245cec882588ba4fee90672c1b43a16f"/>
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<title>우정사업본부</title>
+		<script src="/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var searchCode = "/kpost/index.do";
+				if("jodal.koreapost.go.kr"==window.location.host){
+					$("title").text("우정사업조달센터");
+				}
+				if("koreapost.go.kr"==window.location.host){
+					location.href="http://www.koreapost.go.kr";
+				}
+				$.post("/common/extra/mainTitleCode.do", function(searchData){
+					if("www.koreapost.go.kr"==window.location.host){
+						$("#openFrame").attr("title","우정사업본부");
+						searchCode="/kpost/index.do";
+					}else if("kpoti.koreapost.go.kr"==window.location.host){
+						$("#openFrame").attr("title","우정공무원교육원");
+						searchCode="/kpoti/index.do";
+					}else if("kpic.koreapost.go.kr"==window.location.host){
+						$("#openFrame").attr("title","우정사업정보센터");
+						searchCode="/kpic/index.do";
+					}else if("jodal.koreapost.go.kr"==window.location.host){
+						$("#openFrame").attr("title","우정사업조달센터");
+						searchCode="/jodal/index.do";
+					}
+					if(null!=searchData && ""!=searchData){
+						searchCode = searchData;
+					}
+					$("#openFrame").attr("src",searchCode.replace(/amp;/g,""));
+				});
+			});
+			$(function(){
+				$("#openFrame").load(function(){
+					(this).height=(this).contentWindow.document.body.scrollHeight;
+						if(window.openFrame.location.href==window.location.protocol+"//"+window.location.host+"/kpost/index.do"){
+							if(800>=$(window).width()){
+								(this).height=2400;
+							}else if(1182>=$(window).width() && 800<$(window).width()){
+								(this).height=1900;
+							}else{
+								(this).height=1470;
+							}
+						}
+					if(""!=$(this).contents().find("title").text()){
+						$("title").text($(this).contents().find("title").text());
+					}
+				});
+				$(window).resize(function(){
+					if(navigator.userAgent.indexOf('Mobile') == -1){
+						$("#openFrame").load();
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1 style="display: none;"></h1>
+		<input type='hidden' name='checkFrame' id="checkFrame" value='Y'>
+		<iframe scrolling="no" width="100%" height="100%" frameborder="0" id="openFrame" name="openFrame" title="우정사업본부"></iframe>
+	</body>
+</html>

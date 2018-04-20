@@ -1,0 +1,394 @@
+
+
+
+
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+    <title>
+        店舗・ATMの検索 | りそなグループ    </title>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/bootstrap.min.css?20180216">
+    <link rel="stylesheet" href="./css/material.min.css?20180216">
+    <link rel="stylesheet" href="./css/reset.min.css">
+    <link rel="stylesheet" href="./css/iziModal.min.css">
+    <link rel="stylesheet" href="./css/iPhone-map.min.css">
+    <link rel="stylesheet" href="./css/style.min.css?20180216">
+    <link rel="stylesheet" href="./css/base.min.css?20180216">
+
+    <style>.iziModal .iziModal-header.iziModal-noSubtitle .iziModal-header-title {
+            top: 2px;
+            font-weight: 700;
+            font: 14px Helvetica, Arial, Tahoma, sans-serif;
+            font-family: "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+        }</style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?libraries=places,geometry&client=gme-resonabanklimited1&v=3.31"></script>
+    <script src="/js/material.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/underscore-min.js"></script>
+    <script src="/js/iziModal.min.js"></script>
+    <script src="/api/rbgr.min.js?20180216"></script>
+    <script src="/js/common.min.js?20180216"></script>
+
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row  mdl-grid">
+            <div class="mdl-cell mdl-cell--9-col mdl-cell--9-col-tablet mdl-cell--2-col-phone">
+                <span class="mdl-layout-title">
+                    <a href="/">
+                        <span class="sp-size">
+                            <img src="/assets/logo_group.svg" style="margin-left: 0px;" alt="りそなグループ">
+                        </span>
+                    </a>
+                </span>
+            </div>
+            <div class="icon_navi header">
+                <div class="button">
+                    <button id="button" type="button">
+                        店舗の絞り込み
+                    </button>
+                    <a href="https://storage.googleapis.com/signite-dev.appspot.com/sgl/manual/index.html"
+                       class="help-menu" target="_blank">
+                        <i class="material-icons">
+                            help
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mdl-layout__drawer">
+        <nav class="mdl-navigation">
+            <span class="title"></span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="top-content">
+                <div id="conteiner">
+                    <div id="map_canvas"></div>
+                </div>
+                <div id="search_content" style="padding: 0px">
+                    <div id="side_left_button">
+                        <i class="material-icons">
+                            keyboard_arrow_right
+                        </i>
+                    </div>
+                    <div id="search-wrap" style="">
+                        <dl class="accordion">
+                            <dt class="on sp-hidden">
+                                <label for="category" class="select-wrap entypo-down-open-mini">
+                                    <select class="category">
+                                        <option value="freeword">フリーワードから探す</option>
+                                        <option value="shopno">店番号から探す</option>
+                                        <option value="shopname">店名から探す</option>
+                                        <option value="station">最寄駅から探す</option>
+                                    </select>
+                                </label>
+                                <span class="cont_show">
+                                <a href="javascript:void(0);">
+                                    <i class="material-icons">
+                                        arrow_drop_up
+                                    </i>
+                                </a>
+                            </span>
+                            </dt>
+                            <dd class="sp-hidden">
+                                <input type="text" name="search-field" class="search-field">
+                                <button name="find_area" class="find_area" type="button">
+                                    <i class="material-icons">
+                                        search
+                                    </i>
+                                </button>
+                            </dd>
+                            <dt>
+                                銀行・ATMを絞り込む
+                                <span class="cont_show">
+                                <a href="javascript:void(0);">
+                                    <i class="material-icons">
+                                        arrow_drop_up
+                                    </i>
+                                </a>
+                            </span>
+                            </dt>
+                            <dd id="s_d">
+                                                                                                    <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/2.png" width="28px">
+                                        <span class="category-search" data-id="1">
+                                            りそな銀行                                        </span>
+                                    </li>
+                                                                                                        <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/2.png" width="28px">
+                                        <span class="category-search" data-id="2">
+                                            埼玉りそな銀行                                        </span>
+                                    </li>
+                                                                                                        <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/3.png" width="28px">
+                                        <span class="category-search" data-id="3">
+                                            近畿大阪銀行                                        </span>
+                                    </li>
+                                                                                                        <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/_4.png" width="28px">
+                                        <span class="category-search" data-id="4">
+                                            無人ATM                                        </span>
+                                    </li>
+                                                                                                        <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/5.png" width="28px">
+                                        <span class="category-search" data-id="5">
+                                            ココニモATM                                        </span>
+                                    </li>
+                                                                                                        <li class="category-wrap">
+                                        <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/categories/6.png" width="28px">
+                                        <span class="category-search" data-id="6">
+                                            バンクタイムATM                                        </span>
+                                    </li>
+                                                                                                </dd>
+                            <dt>
+                                サービスを絞り込む
+                                <span class="cont_show">
+                                    <a href="javascript:void(0);">
+                                        <i class="material-icons">
+                                            arrow_drop_up
+                                        </i>
+                                    </a>
+                                </span>
+                            </dt>
+                            <dd id="s_d">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/5.png" width="20" height="20">
+                                            <span class="maL_10" data-id="0" data-name="loan_flag">
+                                                住宅ローン専門店                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/6.jpg" width="20" height="20">
+                                            <span class="maL_10" data-id="1" data-name="seven_flag">
+                                                セブンデイズプラザ                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/7.png" width="20" height="20">
+                                            <span class="maL_10" data-id="2" data-name="overseas_flag">
+                                                海外発行カード対応                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/8.png" width="20" height="20">
+                                            <span class="maL_10" data-id="3" data-name="bio_flag">
+                                                生体認証                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/9.png" width="20" height="20">
+                                            <span class="maL_10" data-id="4" data-name="ic_flag">
+                                                IC認証                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/10.png" width="20" height="20">
+                                            <span class="maL_10" data-id="5" data-name="exchange_flag">
+                                                外貨両替取扱店                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/11.png" width="20" height="20">
+                                            <span class="maL_10" data-id="6" data-name="realestate_flag">
+                                                不動産業務取扱店                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/12.png" width="20" height="20">
+                                            <span class="maL_10" data-id="7" data-name="consultation_flag">
+                                                プレミアオフィス（個人資産相談）                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/13.png" width="20" height="20">
+                                            <span class="maL_10" data-id="8" data-name="seat_flag">
+                                                優先シート                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/14.png" width="20" height="20">
+                                            <span class="maL_10" data-id="9" data-name="dog_flag">
+                                                ほじょ犬同伴可                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/15.png" width="20" height="20">
+                                            <span class="maL_10" data-id="10" data-name="writing_flag">
+                                                筆談対応可                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/16.png" width="20" height="20">
+                                            <span class="maL_10" data-id="11" data-name="communication_flag">
+                                                コミュニケーションボード                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/17.png" width="20" height="20">
+                                            <span class="maL_10" data-id="12" data-name="steps_flag">
+                                                段差解消                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/18.png" width="20" height="20">
+                                            <span class="maL_10" data-id="13" data-name="braille_flag">
+                                                点字ブロック有り                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/19.png" width="20" height="20">
+                                            <span class="maL_10" data-id="14" data-name="wheelchair_flag">
+                                                車椅子対応ATM                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/21.png" width="20" height="20">
+                                            <span class="maL_10" data-id="15" data-name="voice_flag">
+                                                音声案内機能付きATM                                            </span>
+                                        </li>
+                                                                                                                                                                                                                        <li class="search">
+                                            <img src="https://storage.googleapis.com/dev-splice-178304.appspot.com/conditions/20.png" width="20" height="20">
+                                            <span class="maL_10" data-id="16" data-name="preferred_flag">
+                                                優先ATM                                            </span>
+                                        </li>
+                                                                                                                                    </dd>
+                                                    </dl>
+                    </div>
+                </div>
+                <div class="right_content">
+                    <div id="side_button">
+                        <i class="material-icons">
+                            keyboard_arrow_left
+                        </i>
+                    </div>
+                    <div id="side_content">
+                        <div id="side_content_in">
+                            <div class="search_cont" style="display:block;">
+                                <dl class="accordion">
+                                    <dt>
+                                        <span id="number">0</span>
+                                        件の店舗が見つかりました
+                                    </dt>
+                                    <dd id="s_t" style="displey: block;"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="mobile_search">
+                    <button id="mobile-menu-lower-left"
+                            class="mdl-button mdl-button-menu mdl-js-button mdl-button--icon" style="float: left;">
+                        <i class="material-icons">
+                            menu
+                        </i>
+                    </button>
+                    <div>
+                        <input type="text" name="search-field" class="search-field" placeholder="フリーワードから探す"
+                               style="float: left;">
+                        <button name="find_area" class="find_area" type="button" style="float: left;">
+                            <i class="material-icons">
+                                search
+                            </i>
+                        </button>
+                    </div>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+                        for="mobile-menu-lower-left">
+                        <li class="mdl-menu__item" data-value="freeword">
+                            フリーワードから探す
+                        </li>
+                        <li class="mdl-menu__item" data-value="shopno">
+                            店番号から探す
+                        </li>
+                        <li class="mdl-menu__item" data-value="shopname">
+                            店名から探す
+                        </li>
+                        <li class="mdl-menu__item" data-value="station">
+                            最寄駅から探す
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <footer role="contentinfo"
+        style="transform: translate3d(0px, 0px, 0px); position: relative; transition: transform 0.5s cubic-bezier(0.16, 0.805, 0.22, 1);">
+    <div id="footerInfo" class="simpleFooter">
+        <div id="copyRight">
+            <small>Copyright (c) Resona Group All Rights Reserved.</small>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $.rbgrApi.config({host: 'https://rbgr.signite.jp'});
+</script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106794070-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments)};
+        gtag('js', new Date());
+        gtag('config', 'UA-106794070-1');
+    </script>
+        </div>
+    </main>
+</div>
+
+<div id="modal-alert" style="display: none;"></div>
+
+
+<script>
+    const PAGENAME = 'index';
+    const DEFAULT_LAT = 35.6811485;
+    const DEFAULT_LNG = 139.7658519;
+    const DEFAULT_ZOOM = 17;
+    const CONICONS = {"1":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/noimg.jpg","2":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/noimg.jpg","3":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/noimg.jpg","4":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/5.png","5":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/6.jpg","6":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/7.png","7":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/8.png","8":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/9.png","9":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/10.png","10":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/11.png","11":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/12.png","12":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/13.png","13":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/14.png","14":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/15.png","15":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/16.png","16":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/17.png","17":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/18.png","18":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/19.png","19":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/21.png","20":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/conditions\/20.png"};
+    const CATICONS = {"1":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/2.png","2":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/2.png","3":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/3.png","4":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/_4.png","5":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/5.png","6":"https:\/\/storage.googleapis.com\/dev-splice-178304.appspot.com\/categories\/6.png"};
+</script>
+
+<script type="text/template" id="marker-template">
+    <div style="width: auto;cursor: pointer;" data-id="<%= id %>" class="marker-location">
+        <div class=shop_link_detail>
+            <a href="javascript:void(0);" style="line-height: 46px;" target="_blank">
+                詳細
+            </a>
+        </div>
+        <div class=shop_link>
+            <a href="javascript:void(0);" class="store_name" target="_blank">
+                <%= name %>
+            </a>
+            <br>
+            <p style="font-size: 11px;margin: 0;color: #777;position: relative;top: 2px;">
+                <%= address %>
+            </p>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="shop-template">
+    <div style="cursor: pointer;" onclick='window.open("/detail.php?id=<%= id %>")'>
+        <div class=s_template>
+            <div class=store_name>
+                <%= name %>
+            </div>
+            <p style="font-size: 11px;margin: 0;color: #777;margin-bottom: -5px;">
+                <%= address %>
+            </p>
+        </div>
+    </div>
+</script>
+
+</body>
+</html>

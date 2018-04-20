@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <title>Флап. Пишите отзывы, помогайте другим.</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Флап. Пишите отзывы, помогайте другим." />
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta http-equiv="Content-Script-Type" content="text/javascript" />
+ <meta http-equiv="Content-Style-Type" content="text/css" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link id="favicon" rel="shortcut icon" type="image/png" href="/favicon.ico" />
+ <!--[if lt IE 9]>
+    <script src="https://raw.github.com/douglascrockford/JSON-js/master/json2.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/ie8.css">
+ <![endif]-->
+    <script type="text/javascript">
+    var Flap = Flap || {};
+    Flap.NO_DFP = false;
+    /*содержит серверное время на начало сеанса*/
+
+    Flap.ForumSections = {};
+    Flap.Category = {};
+    Flap.Regions = {};
+    Flap.lang = 'ru';
+    Flap.mainRelatedLanguage = 'ru';
+    Flap.Rights = []; Flap.ServerRights = [];    Flap._debug = false;
+    Flap.Mobile =0;
+    Flap.amalkerHeader = function () {
+        return '<div class="amalkerBlockHeader" ><a target="_blank" href="/amalker?action=go&id=1&url=http%3A%2F%2Fru.wiki.flap.biz%2Findex.php%3Ftitle%3D%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0_%D0%BD%D0%B0_%D0%A4%D0%BB%D0%B0%D0%BF%D0%B5" \n\
+           >' + tr('Advertise on Flap') + '</a></div>'
+    };
+    Flap.Region={"id":5188529,"GlobalTitle":"Films","RegionId":"5190698","Status":"opened","Phone":"","Fax":"","Site":"","Mail":"","Monday":"","Tuesday":"","Wednesday":"","Thursday":"","Friday":"","Saturday":"","Sunday":"","Rating":"8.3","PopularityWeight":"7.1500","price":"0","NumberOfReviews":"7","NumberOfDeniedReviews":"0","NumberOfUserPhotos":"9","StreetId":null,"Street":"","HouseNumber":"","ShortNumber":null,"Address2":"","Longitude":null,"Latitude":null,"Metro":null,"LastVerification":"2011-01-01","LastVerificationFlaperId":null,"owners":"","avatar":"0","bestPhoto":"6796862","waitingReviews":"0","extraTabs":"","categoriesIds":null,"bestReviewId":"6768189","BrandId":null,"fromMobile":"0","scoresNumber":"0","titles":{"bg":"Films","da":"Films","en":"Films","et":"Films","fi":"Films","ga":"Films","hr":"Films","ht":"Films","is":"Films","ka":"Films","kk":"Films","km":"Films","ky":"Films","lo":"Films","lv":"Films","mk":"Films","mo":"Films","my":"Films","no":"Films","ru":"\u041a\u0438\u043d\u043e","rw":"Films","sk":"Films","sl":"Films","so":"Films","sq":"Films","sr":"Films","sv":"Films","sw":"Films","tk":"Films"},"companyPages":{"bg":"Films","da":"Films","en":"Films","et":"Films","fi":"Films","ga":"Films","hr":"Films","ht":"Films","is":"Films","ka":"Films","kk":"Films","km":"Films","ky":"Films","lo":"Films","lv":"Films","mk":"Films","mo":"Films","my":"Films","no":"Films","ru":"\u041a\u0438\u043d\u043e","rw":"Films","sk":"Films","sl":"Films","so":"Films","sq":"Films","sr":"Films","sv":"Films","sw":"Films","tk":"Films"},"UsersEvaluation":0,"imgSrc":"http:\/\/photo.flap.biz\/i\/orgs\/6\/796\/6796862_thumb.jpg","rootCategory":"3327796","UTC":"4","restriction":"-1","countryId":"sp","subjectId":null,"phoneCodes":[""],"numOrgs":"173820","numReviews":"52791","activity":"60.791","mayorId":0,"electionEnd":0,"countryCode":"7","phoneLength":"11","country":"Special","lang":"ru","subject":null,"name":"\u041a\u0438\u043d\u043e","codename":"\u041a\u0438\u043d\u043e","link":"xn--80avnr.xn--p1ai\/\u041a\u0438\u043d\u043e","options":{"newsVisitTitle":"watched","visitButtonTitle":"I watched this","addButtonTitle":"Add film","visitersTitle":"watched by","notVisitYetTitle":"not watched yet","":""}};    Flap._probableRegion ={"id":5188529,"GlobalTitle":"Films","RegionId":"5190698","Status":"opened","Phone":"","Fax":"","Site":"","Mail":"","Monday":"","Tuesday":"","Wednesday":"","Thursday":"","Friday":"","Saturday":"","Sunday":"","Rating":"8.3","PopularityWeight":"7.1500","price":"0","NumberOfReviews":"7","NumberOfDeniedReviews":"0","NumberOfUserPhotos":"9","StreetId":null,"Street":"","HouseNumber":"","ShortNumber":null,"Address2":"","Longitude":null,"Latitude":null,"Metro":null,"LastVerification":"2011-01-01","LastVerificationFlaperId":null,"owners":"","avatar":"0","bestPhoto":"6796862","waitingReviews":"0","extraTabs":"","categoriesIds":null,"bestReviewId":"6768189","BrandId":null,"fromMobile":"0","scoresNumber":"0","titles":{"bg":"Films","da":"Films","en":"Films","et":"Films","fi":"Films","ga":"Films","hr":"Films","ht":"Films","is":"Films","ka":"Films","kk":"Films","km":"Films","ky":"Films","lo":"Films","lv":"Films","mk":"Films","mo":"Films","my":"Films","no":"Films","ru":"\u041a\u0438\u043d\u043e","rw":"Films","sk":"Films","sl":"Films","so":"Films","sq":"Films","sr":"Films","sv":"Films","sw":"Films","tk":"Films"},"companyPages":{"bg":"Films","da":"Films","en":"Films","et":"Films","fi":"Films","ga":"Films","hr":"Films","ht":"Films","is":"Films","ka":"Films","kk":"Films","km":"Films","ky":"Films","lo":"Films","lv":"Films","mk":"Films","mo":"Films","my":"Films","no":"Films","ru":"\u041a\u0438\u043d\u043e","rw":"Films","sk":"Films","sl":"Films","so":"Films","sq":"Films","sr":"Films","sv":"Films","sw":"Films","tk":"Films"},"UsersEvaluation":0,"imgSrc":"http:\/\/photo.flap.biz\/i\/orgs\/6\/796\/6796862_thumb.jpg","rootCategory":"3327796","UTC":"4","restriction":"-1","countryId":"sp","subjectId":null,"phoneCodes":[""],"numOrgs":"173820","numReviews":"52791","activity":"60.791","mayorId":0,"electionEnd":0,"countryCode":"7","phoneLength":"11","country":"Special","lang":"ru","subject":null,"name":"\u041a\u0438\u043d\u043e","codename":"\u041a\u0438\u043d\u043e","link":"xn--80avnr.xn--p1ai\/\u041a\u0438\u043d\u043e","options":{"newsVisitTitle":"watched","visitButtonTitle":"I watched this","addButtonTitle":"Add film","visitersTitle":"watched by","notVisitYetTitle":"not watched yet","":""}};
+        Flap.AUTH = null;
+        Flap.ImagesHost = "http://photo.flap.biz/";
+    Flap.mainDomain = "флап.рф";
+    Flap.RegionRootCategory = 3487094;
+    Flap.CategoriesVisitedOnce = [3554420,4235216,4248389,4279886,4287869,4307081,4316511,4395977,6434596];
+    Flap.HelpLinks = {"souvenirs":"\u0421\u0443\u0432\u0435\u043d\u0438\u0440\u043d\u0430\u044f_\u043f\u0440\u043e\u0434\u0443\u043a\u0446\u0438\u044f","translations":"\u043f\u0435\u0440\u0435\u0432\u043e\u0434_\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430","pointsForReviews":"\u0411\u0430\u043b\u043b\u044b_\u0437\u0430_\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u044b"};
+        Flap.Restriction = {
+        MIN: -1,
+        MAX: 100,
+        map: {"-1":"\u0432\u0441\u0435\u043c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c","0":"\u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u043c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c","1":"\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u0432\u044b\u0448\u0435 0","2":"\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u0432\u044b\u0448\u0435 1","3":"\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u0432\u044b\u0448\u0435 2","4":"\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u0432\u044b\u0448\u0435 3","5":"\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u0432\u044b\u0448\u0435 4","100":"\u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430\u043c \u0438 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u0430\u043c"}    };
+        Flap.Data = {
+        numberOfReviews: 600000,
+        numberOfObjects: 1000000,
+        numberOfPhotos: 550000    };
+        Flap.SupportManager = {"phoneWidget":"<div class=\"supportWidget center\"><a href=\"http:\/\/flaper.org\/p\/support\/premium\" target=\"_blank\"><b><i class=\"glyphicon glyphicon-globe\"><\/i> \u041f\u0440\u0435\u043c\u0438\u0443\u043c \u041f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0424\u043b\u0430\u043f<\/b><\/a><\/div>"};
+</script>
+
+
+ <script type="text/javascript">
+     fq = [];
+ var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+if (true) {
+    (function () {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+
+    googletag.cmd.push(function () {
+        googletag.pubads().setTargeting('city', Flap.Region.codename);
+        googletag.defineSlot('/113097344/city_top_1', [190, 100], 'div-gpt-ad-1425761208814-0').addService(googletag.pubads());
+        googletag.defineSlot('/113097344/city_top_2', [190, 100], 'div-gpt-ad-1425761208814-1').addService(googletag.pubads());
+        googletag.defineSlot('/113097344/city_top_3', [190, 100], 'div-gpt-ad-1425761208814-2').addService(googletag.pubads());
+        googletag.defineSlot('/113097344/main_city_page', [300, 250], 'div-gpt-ad-1417859409789-0').addService(googletag.pubads());
+        googletag.defineSlot('/113097344/top_banner_auth', [900, 60], 'div-gpt-ad-1458545335296-0').addService(googletag.pubads());
+        var slot1 = googletag.defineSlot('/113097344/top_banner', [[650, 60], [900, 60]], 'div-gpt-ad-1418892793900-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+        setInterval(function () {
+            googletag.pubads().refresh([slot1])
+        }, 20000);
+    });
+}
+ //var YANDEX_AMALKER_ID = 88467;
+var YANDEX_AMALKER_ID = 124991;
+/**
+ * w - window
+ * d - document
+ * n yandex_context_callbacks
+ * s - null
+ * type - "sender"
+ * statId - для статистики
+ * align - horizontal/vertical
+  */
+function yandexAd (yandexAdDiv,align, statId, limit) {
+    if (!statId) statId = "0";
+    if (!limit) limit = 3;
+    var auth = (Flap && Flap.Flaper && Flap.Flaper.CurrentUser())? true : false;
+   
+    statId =( auth ? '1' : '0') + statId ;
+    yandexAdCommon(window, document, "yandex_context_callbacks",null,"sender", yandexAdDiv,align, statId, limit, auth, getYandexStyle(statId,align,limit));
+ };
+ 
+ function yandexAdMobile(yandexAdDiv,align, statId, limit){
+     if (!statId) statId = 20;
+     if (!limit) limit = 2;
+    yandexAdCommon(window, document, "yandex_context_callbacks",null,"sender", yandexAdDiv , align , statId , limit, false,getYandexAdMobileStyle(statId,align,limit) );
+   
+ };
+ 
+ /**
+  * 
+  * @param {type} w
+  * @param {type} d
+  * @param {type} n
+  * @param {type} s
+  * @param {type} type
+  * @param {type} yandexAdDiv
+  * @param {type} align
+  * @param {type} statId
+  * @param {type} limit
+  * @param {boolean} auth - true/false - авторизован ли пользователь
+  * @returns {undefined}
+  */
+ function yandexAdCommon(w, d, n, s, type, yandexAdDiv,align, statId, limit, auth,style){
+    w[n] = w[n] || [];
+    if (!style) style = getYandexStyle(statId,align,limit);
+    w[n].push(function() {
+            Ya.Direct.insertInto(YANDEX_AMALKER_ID, yandexAdDiv, style );
+    });
+
+    t = d.documentElement.firstChild;
+    s = d.createElement("script");
+    s.type = "text/javascript";
+    s.src = "http://an.yandex.ru/system/context.js";
+    s.setAttribute("async", "true");
+    t.insertBefore(s, t.firstChild);
+ }
+ 
+ /*id - для статистики
+ * align - horizontal/vertical
+ * 
+  */
+ function getYandexStyle(id,align,limit){
+     return {
+            site_charset: "utf-8",
+            ad_format: "direct",
+            font_size: 1,
+            type: align,
+            stat_id: id,
+            limit: limit,
+            title_font_size: 3,
+            site_bg_color: "FFFFFF",
+            header_bg_color: "FFFFFF",
+            title_color: "2B587A",
+            url_color: "2B587A",
+            all_color: "2B587A",
+            text_color: "000000",
+            hover_color: "172F41",
+            favicon: true
+            };
+ }
+ function getYandexAdMobileStyle(id,align,limit){
+      return {
+            site_charset: "utf-8",
+            ad_format: "direct",
+            font_size: "12px",
+            type: align,
+            stat_id: id,
+            limit: limit,
+            title_font_size: 3,
+            site_bg_color: "FFFFFF",
+            header_bg_color: "FFFFFF",
+            title_color: "#DD7800",
+            url_color: "#DD7800",
+            all_color: "#DD7800",
+            text_color: "000000",
+            hover_color: "#DD7800",
+            favicon: true
+            };    
+ }
+(function(){document.createElement('footer');document.createElement('header');})();
+ </script>
+
+<!-- При изменении скриптов и стилей сторонних библиотек смена названий файлов обязательна (для предотвращения получения этих файлов пользователями из кэша браузера) -->
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/js/jquery/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="/temp/public/style-default-914f4ea928e1df25ba9a054626fadfe9.css">
+</head>
+
+<body platform="Flap" itemscope itemtype="http://schema.org/WebPage">
+ <script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            var params = {};
+            var el =  document.getElementById('OrgId');
+            if (el){
+                params.orgId = el.value;
+            }
+            w.yaCounter13290298 = new Ya.Metrika({id:13290298, enableAll: true, webvisor:true, params: params});
+
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/13290298" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<header class="holdHeader ">
+                        <div id="authBar" class="notMobile">
+            <div id ="AuthPanel" style="">
+                <div class="fixed_width">
+                    <div style="width:990px;margin:auto;">
+                                                <table style="border-collapse: collapse;">
+                            <tr>
+                                <td>
+                                    <div style="padding-left:20px;">
+                                                                                    <span class="loginButton socialVkButton" onclick="Flap.Auth.Social('Vk')"><div>Войти под "ВКонтакте"</div></span>                                            <span class="loginButton socialOdnButton" onclick="Flap.Auth.Social('Odn')"><div>Войти под "Одноклассники"</div></span>                                            <span class="loginButton socialMailruButton" onclick="Flap.Auth.Social('Mailru')"><div>Войти под "Mail.ru"</div></span>                                                                                    <span class="loginButton socialFbButton" onclick="Flap.Auth.Social('Fb')"><div>Войти под "Facebook"</div></span>                                                                            </div>
+                                </td>
+                            </tr>
+                        </table>
+                                            </div>
+                </div>
+
+            </div>
+            </div>
+            <div id="Search" style="margin: auto; width: 990px; height: 62px; background: url('/images/searchPanelRu.png') no-repeat;">
+            <div>
+                <table style="height: 39px; width: 985px; table-layout: auto;">
+                <tr>
+                    <td style="width: 130px;">
+                        <a id="SearchMainPage" href="/">&nbsp;</a>
+                    </td>
+                    <td style="width: 150px;">
+                        <div id="RegionSelector" onclick="Flap.selectRegion();">
+    <small>Выберите город:</small>
+    <b id="ProbableRegionName">
+        Кино    </b>
+    <span style="font-size: 11px;">&#x25BC;</span>
+</div>                    </td>
+                    <td>
+                        <input id="words" class="corners4" autofocus="autofocus"
+                               placeholder="поиск" type="text" value="" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        <span id="searchButton" class="corners4" onclick="Flap.Search()">Найти</span>
+                    </td>
+                                        </tr>
+                </table>
+            <div>
+                <div id="headerLinks" class="right">
+                    <img id="loader" src="/images/ajax-loader2.gif" style="vertical-align: middle;"/>
+                                        <a href="/Модерация" style="">Модерация</a>
+                    &nbsp;|&nbsp;
+                    <div class="dropdown">
+                        <span data-toggle="dropdown" id="changeLanguage" class="bluelink">
+                            Русский <span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="#" name="ru" class="bold">Русский</a>
+                            </li>
+                            <li>
+                                <a href="#" name="be" >Беларуская</a>
+                            </li>
+                            <li>
+                                <a href="#" name="uk" >Українська</a>
+                            </li>
+                            <li>
+                                <a href="#" name="en" >English</a>
+                            </li>
+                            <li>
+                                <a href="#" name="de" >Deutsch</a>
+                            </li>
+                            <li>
+                                <a href="#" name="fr" >Français</a>
+                            </li>
+                            <li>
+                                <a href="#" name="es" >Español</a>
+                            </li>
+                            <li>
+                                <a href="#">другие...</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    &nbsp;|&nbsp;
+                    <div class="dropdown">
+                        <span data-toggle="dropdown" class="bluelink extraMenu">
+                            Еще <span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu pull-right">
+                             <li><a href="/Фонд_Флапа">Фонд Флапа</a></li>
+<li><a href="/Кино/страницы/город">О городе</a></li>
+<li><a href="/Кино/топ">Флаперы</a></li>
+    <li><a href="http://ru.wiki.flap.biz/index.php?title=Сувенирная_продукция" target="_blank">Сувенирная продукция</a></li>
+<li><a href="http://флап.рф/Branch_network" style="">Сети филиалов</a></li>
+<li><a href="http://0.xn--80avnr.xn--p1ai/" target="_blank">0.флап.рф<img src="/img/flap/cellphone2.png" style="vertical-align:middle;"/></a></li>
+<li class="divider"></li>
+<li><a href="http://ru.wiki.flap.biz/index.php?title=" target="_blank">Справка</a></li>                        </ul>
+                    </div>
+                                            &nbsp;|&nbsp;
+                        <span class="bluelink" onclick="Flap.Auth.Show()">Войти&nbsp;/&nbsp;Зарегистрироваться</span>
+                    
+                    <a href="http://ru.wiki.flap.biz/index.php?title=" title="Справка" target="_blank"><img src="/images/help2.png" style=" height: 18px; vertical-align:bottom; margin-left: 5px;" /></a>
+                </div>
+                <div id="MainMenu" style="line-height: 20px; margin-left:10px; font-weight:bold; font-size:13px;">
+                                            <a href="/pages/add" class="withBackgroundOnHover">
+                            <img style="vertical-align: -1px;" src="/images/plus_orange.png"><span style="padding: 0;" id="addOrgButtonTitle">Добавить кино</span>
+                        </a>
+                                                            <span id="mapLinkHeader" style="display: none; padding: 0px;">
+                        <a href="http://xn--80avnr.xn--p1ai/Кино/карта/" class="mapLink withBackgroundOnHover"><img style="vertical-align: -4px;" src="/images/marker_orange1.png">Карта</a>   
+                    </span>
+                    <span style="padding: 0px;">
+                        <a href="/amalker?action=go&id=-33&url=/pages/invites" class="withBackgroundOnHover"><img style="vertical-align: -3px;padding-right: 2px;" src="/img/flap/friends.png">
+                            Пригласить друзей (+20%)
+                        </a>
+                    </span>
+                                        <a class="withBackgroundOnHover" href="/Фонд_Флапа" title="Благотворительность"><img style="margin-top: -2px;" src="/images/hearth.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<div class="holdBody ">
+                    <div class="FixedWidth" style="margin-bottom: 5px; text-align: center;">
+                    <!-- Яндекс.Директ -->
+                    <script type='text/javascript'>
+                    yandex_partner_id = 124991;
+                    yandex_site_bg_color = 'FFFFFF';
+                    yandex_ad_format = 'direct';
+                    yandex_font_size = 1;
+                    yandex_direct_type = 'horizontal';
+                    yandex_direct_limit = 2;
+                    yandex_direct_title_font_size = 3;
+                    yandex_direct_links_underline = true;
+                    yandex_direct_header_bg_color = 'FFFFFF';
+                    yandex_direct_title_color = '2B587A';
+                    yandex_direct_url_color = '2B587A';
+                    yandex_direct_text_color = '000000';
+                    yandex_direct_hover_color = '172F41';
+                    yandex_direct_sitelinks_color = '2B587A';
+                    yandex_direct_favicon = true;
+                    yandex_no_sitelinks = false;
+                    document.write('<scr'+'ipt type=\'text/javascript\' src=\'//an.yandex.ru/system/context.js\'></scr'+'ipt>');
+                    </script>                 </div>
+        <div id="main" class="FixedWidth" platformContent >
+        <div id="mainPage" master="main">
+    <div id="leftColumn">
+    <div id="categoriesMenu" class="flapMenu section">
+    <div class="sectionTitle">
+        <a href="/pages/Catalog/5188529" class="second">Категории</a>
+    </div>
+    <div class="sectionBody" style="overflow: visible;">
+		        <ul >
+            <li >
+            <a href="/Кино/Категория/Драма">Драма</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Комедия">Комедия</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Мелодрама">Мелодрама</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Триллер">Триллер</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Боевик">Боевик</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Ужасы">Ужасы</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Сериал">Сериал</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Детектив">Детектив</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Военный">Военный</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Биография">Биография</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/История">История</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Документальный">Документальный</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Короткометражки">Короткометражки</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Криминал">Криминал</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Мюзикл">Мюзикл</a>                    </li>
+                    <li class="showAllCategories bluelink" onclick="$(this).nextAll().show().end().remove();">
+                ↓ Показать все ↓
+            </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Приключения">Приключения</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Фантастика">Фантастика</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Фэнтези">Фэнтези</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Ток-шоу">Ток-шоу</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Спорт">Спорт</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Для_взрослых">Для взрослых</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Вестерн">Вестерн</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Советское">Советское</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Аниме">Аниме</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Телепередачи">Телепередачи</a>                            <ul style="display: none;">
+            <li >
+            <a href="/Кино/Категория/Ток-шоу">Ток-шоу</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Телепередачи._Реалити-Шоу">Телепередачи. Реалити-Шоу</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Телепередачи._Юмор">Телепередачи. Юмор</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Новостные_телепередачи">Новостные телепередачи</a>                    </li>
+        		    </ul>
+                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Телепередачи._Реалити-Шоу">Телепередачи. Реалити-Шоу</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Телепередачи._Юмор">Телепередачи. Юмор</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Мистика">Мистика</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Экранизация">Экранизация</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Сатира">Сатира</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Искусство">Искусство</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Фильм-катастрофа">Фильм-катастрофа</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Природа">Природа</a>                    </li>
+        		            <li style="display: none;">
+            <a href="/Кино/Категория/Для_детей">Для детей</a>                            <ul style="display: none;">
+            <li >
+            <a href="/Кино/Категория/Мультфильм">Мультфильм</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Семейный">Семейный</a>                    </li>
+        		            <li >
+            <a href="/Кино/Категория/Сказка">Сказка</a>                    </li>
+        		    </ul>
+                    </li>
+        		    </ul>
+    </div>
+</div>
+<div id="waitingReviews" class="section">
+    <div class="sectionTitle">
+        <a href="/Кино/организации/ждут-отзыва" class="second">Ждут отзыва</a>
+    </div>
+    <div class="sectionBody">
+        <ul class="mainpageUl">
+                            <li>
+                        <a href="/Кино/Любовь_на_сене" class="bold">
+        Любовь на сене    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Отдаленные_последствия" class="bold">
+        Отдаленные последствия    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Ночной_гость" class="bold">
+        Ночной гость    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/А_я_люблю_женатого" class="bold">
+        А я люблю женатого    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Гараж" class="bold">
+        Гараж    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Совершенно_серьёзно" class="bold">
+        Совершенно серьёзно    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Пуччини" class="bold">
+        Пуччини    </a>
+                        <b>(2<img title="2 человека" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/На_семи_ветрах" class="bold">
+        На семи ветрах    </a>
+                        <b>(2<img title="2 человека" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Долгое_приветствие_и_быстрое_прощание" class="bold">
+        Долгое приветствие и быстрое прощание    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                            <li>
+                        <a href="/Кино/Найди_меня" class="bold">
+        Найди меня    </a>
+                        <b>(1<img title="1 человек" src="/images/flaper2.png">)</b>
+                </li>
+                                <li>
+                <a href="/Кино/организации/ждут-отзыва">
+                    <b>Показать еще...</b>
+                </a>
+            </li>
+                </ul>
+    </div>
+</div><div class="topCompetitors section">
+    <div class="sectionTitle">
+        <a class="second" href="/топ">
+            Топ 10 флаперов *
+        </a>
+    </div>
+    <div class="sectionBody">
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/36607">
+                        <img src="http://avt-30.foto.mail.ru/mail/reket78/_avatarsmall?1489795574" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Марина Екерт" href="/36607">Марина Екерт</a>
+                </div>
+                <div>
+                    <span title="53 отзыва" class="number">53<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/48240">
+                        <img src="http://avt-15.foto.mail.ru/mail/89524951535/_avatarsmall?1489941585" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="алексей золотарев" href="/48240">а. золотарев</a>
+                </div>
+                <div>
+                    <span title="52 отзыва" class="number">52<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/47981">
+                        <img src="https://pp.userapi.com/c636419/v636419778/58320/D8RLKRq9Gvw.jpg" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Марина Козлова" href="/47981">Марина Козлова</a>
+                </div>
+                <div>
+                    <span title="49 отзывов" class="number">49<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/43897">
+                        <img src="http://avt-21.foto.mail.ru/mail/max_proc/_avatarsmall?1477412549" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="maxim maxim" href="/43897">maxim maxim</a>
+                </div>
+                <div>
+                    <span title="36 отзывов" class="number">36<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/48039">
+                        <img src="http://avt-22.foto.mail.ru/mail/pili_83/_avatarsmall" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Ольга Самохина" href="/48039">Ольга Самохина</a>
+                </div>
+                <div>
+                    <span title="30 отзывов" class="number">30<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/49576">
+                        <img src="https://pp.userapi.com/c626227/v626227749/59ce7/Cbsru752Bkc.jpg" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Валентин Соколов" href="/49576">В. Соколов</a>
+                </div>
+                <div>
+                    <span title="30 отзывов" class="number">30<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/32964">
+                        <img src="http://avt-6.foto.mail.ru/mail/glebkarepka/_avatarsmall?1495116107" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Баян Болтунович" href="/32964">Баян Болтунович</a>
+                </div>
+                <div>
+                    <span title="29 отзывов" class="number">29<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/42973">
+                        <img src="http://graph.facebook.com/1652214878426019/picture" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Мария Забелина" href="/42973">Мария Забелина</a>
+                </div>
+                <div>
+                    <span title="21 отзыв" class="number">21<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/41204">
+                        <img src="http://graph.facebook.com/1056273187760748/picture" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="ЮРИЙ ЧУЙКОВ" href="/41204">ЮРИЙ ЧУЙКОВ</a>
+                </div>
+                <div>
+                    <span title="17 отзывов" class="number">17<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                    <div class="hoverElement" style="overflow: hidden;">
+                <div style="float: left; margin: 0 4px 4px 0">
+                    <a href="/14894">
+                        <img src="https://sun9-8.userapi.com/c840532/v840532463/35d57/ifJSzYOdgHk.jpg" style="height: 32px; width: 32px;" class="shadow2 corners3">
+                    </a>
+                </div>
+                <div>
+                    <a style="font-size: 11px;" class="bold" title="Елена Любимова" href="/14894">Елена Любимова</a>
+                </div>
+                <div>
+                    <span title="16 отзывов" class="number">16<img style="height: 14px; width: 14px;" src="/img/flap/System-Text-icon.png"></span>
+                </div>
+            </div>
+                <div><span >* за последние 365 дней</span> <a href="/топ" onclick="return go(this)">весь топ...</a></div>    
+    </div>
+</div>     </div>
+<div id="middleColumn">
+    <div id="content">
+        <div style="padding:10px 0;text-align: center">
+            <h2 style="display:inline" id="main-page-title">Пишите отзывы, помогайте другим.</h2>
+        </div>
+            <div class="popularHeaderHomePage clear">
+        <a class="bold" style="font-size: 16px;" href="/amalker?action=go&id=-3000&url=%2F%D0%9A%D0%B8%D0%BD%D0%BE%2Fpages%2Frecommendations">
+            Рекомендации. Кино        </a>
+    </div>
+    
+    <div>
+                                        <div class="clear">            <div class="left popularOrgWrapper">
+                <a href="/Кино/Интерны">
+                                            <img src="http://photo.flap.biz/i/orgs/4/326/4326995_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Интерны" title="Интерны">Интерны</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Привидение">
+                                            <img src="http://photo.flap.biz/i/orgs/6/743/6743920_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Привидение" title="Привидение">Привидение</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Жил-был_Пес-2">
+                                            <img src="http://photo.flap.biz/i/orgs/4/198/4198080_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Жил-был_Пес-2" title="Жил-был Пес">Жил-был Пес</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Король_Лев">
+                                            <img src="http://photo.flap.biz/i/orgs/4/343/4343094_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Король_Лев" title="Король Лев">Король Лев</a>
+                </div>
+            </div>
+            </div>                                <div class="clear">            <div class="left popularOrgWrapper">
+                <a href="/Кино/Ходячие_Мертвецы._Сезоны_1,2,3,4,5,6.">
+                                            <img src="http://photo.flap.biz/i/orgs/7/510/7510198_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Ходячие_Мертвецы._Сезоны_1,2,3,4,5,6." title="Ходячие Мертвецы. Сезоны 1,2,3,4,5,6.">Ходячие Мертвецы. Сезоны ...</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Обезьянки">
+                                            <img src="http://photo.flap.biz/i/orgs/3/495/3495646_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Обезьянки" title="Обезьянки">Обезьянки</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Квартирный_вопрос">
+                                            <img src="http://photo.flap.biz/i/orgs/7/200/7200581_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Квартирный_вопрос" title="Квартирный вопрос">Квартирный вопрос</a>
+                </div>
+            </div>
+                                                        <div class="left popularOrgWrapper">
+                <a href="/Кино/Форрест_Гамп">
+                                            <img src="http://photo.flap.biz/i/orgs/3/473/3473674_thumb.jpg" class="popularImg">
+                                    </a>
+
+                <div class="popularOrgTitle">
+                    <a class="bold" href="/Кино/Форрест_Гамп" title="Форрест Гамп">Форрест Гамп</a>
+                </div>
+            </div>
+            </div>            
+            </div>
+
+    <div class="separator"></div>
+<a href="http://xn--80avnr.xn--p1ai/Кино" class="right" style="font-size:13px;padding-top:10px;text-decoration: underline;">Перейти к городу</a><a href="http://xn--80avnr.xn--p1ai/Кино" class="regionsLastReviewsTitle">Кино:</a>
+        <div>
+                <div class="post" id="8144562" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/Кино/Любовь_и_голуби"/>
+                    <meta itemprop="url" content="/Кино/Любовь_и_голуби"/>
+                    <meta itemprop="name" content="Любовь и голуби"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144562">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144553">
+                                <img itemprop="image" class="avatarImg" src="http://avt-5.foto.mail.ru/mail/olga-malayrenko/_avatarsmall?1388212485">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144553">
+                                                
+                        <span class="bold" itemprop="name">
+                            ольга маляренко                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144553">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        5        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/Кино/Любовь_и_голуби/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144562" class="bold">
+    Любовь и голуби</a>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                5 часов назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+            <div>
+            <h3 itemprop="name" class="reviewTitle">Людка, а Людка</h3>    
+        </div>
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Фильм "Любовь и голуби" смотрела много раз. Он только потеряв жену и детей, изменив на курорте, понял что нужна ему его семья и голуби.
+Актёры вполне отлично сыграли, естественно и реально, как прожили. Фон хороший, музыка хорошая.
+В общем, это ...<a href="/Кино/Любовь_и_голуби/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144562" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Великолепно" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/inactive_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="9">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144562)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="3328305">Я смотрел<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144562, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144562 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144562)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144562,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144562)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144562" id="comments8144562">
+                
+<div id='reply8144562'  class="post-reply answerInvisible">
+    <div id="viewReply8144562">
+                </div>
+        <div id="newReplyTo8144562">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+                            
+                            <div class="marginLeft">
+                                        <div class="loadMore group" onclick="Flap.LoadMoreGroup(this, '8144560,8144558,8144556,8144554', 'review')">Показать еще: <b>4</b></div>
+                </div>
+                        </div>
+
+<hr/><div>
+    <div class="regionsLastReviewsTitle">Новые на Флапе:</div>
+    <div style="padding: 10px 5px; float: right;">
+        <a style="text-decoration: underline;" href="/pages/top_week_reviews">
+            Лучшие отзывы        </a>
+    </div>
+</div>            <div class="post" id="8144648" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/москва/Сервисный_центр_Samsung"/>
+                    <meta itemprop="url" content="/москва/Сервисный_центр_Samsung"/>
+                    <meta itemprop="name" content="Сервисный центр Samsung"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144648">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8119586">
+                                <img itemprop="image" class="avatarImg" src="http://avt-1.foto.mail.ru/inbox/nikolaj.kol/_avatarsmall">
+                            </a>
+
+                                                            <div class="online">
+                                    online
+                                                                    </div>
+                                                    </div>
+                    
+                    <a href="/гость8119586">
+                                                
+                        <span class="bold" itemprop="name">
+                            николай кол.                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8119586">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        56        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        30        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/москва/Сервисный_центр_Samsung/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144648" class="bold">
+    Сервисный центр Samsung</a>
+    <span style="color: gray;">
+        (Москва)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                16 минут назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Второй раз обращаюсь в сервисный центр samsung на этот раз нужно было микроволновую печь починить .у нее сломали защелку открывания дверцы одни очень нетерпеливые приятели. Новую покупать из за такой поломки было бы расточительно. а в том сервисном ...<a href="/москва/Сервисный_центр_Samsung/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144648" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+                    <div>
+                <span style="font-size: 13px; line-height: 18px;"><b>Уровень цен:&nbsp;</b>Средне</span>
+            </div>
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144648)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="8090316">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144648, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144648 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144648)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144648,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144648)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144648" id="comments8144648">
+                
+<div id='reply8144648'  class="post-reply answerInvisible">
+    <div id="viewReply8144648">
+                </div>
+        <div id="newReplyTo8144648">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144646" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/санкт_петербург/MasterTurbo"/>
+                    <meta itemprop="url" content="/санкт_петербург/MasterTurbo"/>
+                    <meta itemprop="name" content="MasterTurbo"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144646">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144645">
+                                <img itemprop="image" class="avatarImg" src="http://avt-13.foto.mail.ru/mail/seregafom71/_avatarsmall">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144645">
+                                                
+                        <span class="bold" itemprop="name">
+                            Сергей Фомин                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144645">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        1        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/санкт_петербург/MasterTurbo/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144646" class="bold">
+    MasterTurbo</a>
+    <span style="color: gray;">
+        (Санкт-Петербург)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                18 минут назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Делал в данном сервисе замену тормозных
+дисков и по мелочи(замена масла, регулировка фар). Понравился подход мастеров к
+работе. Не тянут время, не набивают себе цену, приехал, продиагностировали,
+озвучили адекватную цену на работы. Меня все устроило,...<a href="/санкт_петербург/MasterTurbo/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144646" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144646)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="7332452">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144646, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144646 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144646)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144646,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144646)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144646" id="comments8144646">
+                
+<div id='reply8144646'  class="post-reply answerInvisible">
+    <div id="viewReply8144646">
+                </div>
+        <div id="newReplyTo8144646">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144642" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/москва/Сервисный_центр_APPLE_(эпл)"/>
+                    <meta itemprop="url" content="/москва/Сервисный_центр_APPLE_(эпл)"/>
+                    <meta itemprop="name" content="Сервисный центр APPLE (эпл)"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144642">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8126321">
+                                <img itemprop="image" class="avatarImg" src="http://avt-22.foto.mail.ru/mail/desakey58/_avatarsmall?1517312584">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8126321">
+                                                
+                        <span class="bold" itemprop="name">
+                            Валентин Ш.                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8126321">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        56        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        24        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/москва/Сервисный_центр_APPLE_(эпл)/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144642" class="bold">
+    Сервисный центр APPLE (эпл)</a>
+    <span style="color: gray;">
+        (Москва)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                32 минуты назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Искал сервисный центр для замены сенсорного стекла на IPOD TOUCH 5. у многих компаний все прекрасно на сайтах но проверить оказалось можно только при непосредственном обращении . ну вроде я с выбором не ошибся .сделали все качественно и с гарантией ....<a href="/москва/Сервисный_центр_APPLE_(эпл)/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144642" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+                    <div>
+                <span style="font-size: 13px; line-height: 18px;"><b>Уровень цен:&nbsp;</b>Средне</span>
+            </div>
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144642)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="8090618">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144642, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144642 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144642)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144642,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144642)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144642" id="comments8144642">
+                
+<div id='reply8144642'  class="post-reply answerInvisible">
+    <div id="viewReply8144642">
+                </div>
+        <div id="newReplyTo8144642">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144638" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/москва/Ремонт_очистителей_и_увлажнителей_воздуха"/>
+                    <meta itemprop="url" content="/москва/Ремонт_очистителей_и_увлажнителей_воздуха"/>
+                    <meta itemprop="name" content="Ремонт очистителей и увлажнителей воздуха"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144638">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8126321">
+                                <img itemprop="image" class="avatarImg" src="http://avt-22.foto.mail.ru/mail/desakey58/_avatarsmall?1517312584">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8126321">
+                                                
+                        <span class="bold" itemprop="name">
+                            Валентин Ш.                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8126321">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        56        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        24        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/москва/Ремонт_очистителей_и_увлажнителей_воздуха/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144638" class="bold">
+    Ремонт очистителей и увлажнителей воздуха</a>
+    <span style="color: gray;">
+        (Москва)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                49 минут назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Вызвал мастера по ремонту очистителей воздуха в офис чтоб посмотрел почему очиститель перестал включаться . Сработали оперативно мастер через 40 минут приехал . на поиск неисправности потратил совсем немного времени что паяльником потыкал и работать ...<a href="/москва/Ремонт_очистителей_и_увлажнителей_воздуха/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144638" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+                    <div>
+                <span style="font-size: 13px; line-height: 18px;"><b>Уровень цен:&nbsp;</b>Средне</span>
+            </div>
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144638)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="8128889">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144638, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144638 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144638)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144638,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144638)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144638" id="comments8144638">
+                
+<div id='reply8144638'  class="post-reply answerInvisible">
+    <div id="viewReply8144638">
+                </div>
+        <div id="newReplyTo8144638">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144634" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/оренбург/Много_Мебели-2"/>
+                    <meta itemprop="url" content="/оренбург/Много_Мебели-2"/>
+                    <meta itemprop="name" content="Много Мебели"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144634">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144633">
+                                <img itemprop="image" class="avatarImg" src="http://avt-11.foto.mail.ru/list/nastya.chajkina/_avatarsmall">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144633">
+                                                
+                        <span class="bold" itemprop="name">
+                            Настя Чайкина                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144633">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        1        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/оренбург/Много_Мебели-2/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144634" class="bold">
+    Много Мебели</a>
+    <span style="color: gray;">
+        (Оренбург)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                55 минут назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+            <div>
+            <h3 itemprop="name" class="reviewTitle">дешевле, чем в большинстве магазинов</h3>    
+        </div>
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Раньше работала в магазине продавцом. Знаю, что у них не самого высоко качества мебель, но зато она дешевая. Ну всмысле дешевле, чем в большинстве магазинов. Еще когда там работала понравился (тогда только начали его делать) диван Монако. Очень ...<a href="/оренбург/Много_Мебели-2/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144634" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144634)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="6164460">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144634, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144634 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144634)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144634,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144634)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144634" id="comments8144634">
+                
+<div id='reply8144634'  class="post-reply answerInvisible">
+    <div id="viewReply8144634">
+                </div>
+        <div id="newReplyTo8144634">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144632" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/москва/Ремонт_телевизоров_(Телеателье)"/>
+                    <meta itemprop="url" content="/москва/Ремонт_телевизоров_(Телеателье)"/>
+                    <meta itemprop="name" content="Ремонт телевизоров (Телеателье)"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144632">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8126321">
+                                <img itemprop="image" class="avatarImg" src="http://avt-22.foto.mail.ru/mail/desakey58/_avatarsmall?1517312584">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8126321">
+                                                
+                        <span class="bold" itemprop="name">
+                            Валентин Ш.                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8126321">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        56        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        24        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/москва/Ремонт_телевизоров_(Телеателье)/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144632" class="bold">
+    Ремонт телевизоров (Телеателье)</a>
+    <span style="color: gray;">
+        (Москва)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                1 час назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                По поводу ремонта своего телевизора ВВК оставил заявку на сайте Ремонта телевизоров .почти сразу поступил ответный звонок в ходе которого менеджер у меня уточнил о поломке меня в свою очередь прежде всего интересовало возможность ремонта на дому и ...<a href="/москва/Ремонт_телевизоров_(Телеателье)/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144632" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+                    <div>
+                <span style="font-size: 13px; line-height: 18px;"><b>Уровень цен:&nbsp;</b>Средне</span>
+            </div>
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144632)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="8127063">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144632, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144632 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144632)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144632,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144632)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144632" id="comments8144632">
+                
+<div id='reply8144632'  class="post-reply answerInvisible">
+    <div id="viewReply8144632">
+                </div>
+        <div id="newReplyTo8144632">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144629" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/производители/Тонизирующая_маска_для_лица"/>
+                    <meta itemprop="url" content="/производители/Тонизирующая_маска_для_лица"/>
+                    <meta itemprop="name" content="Тонизирующая маска для лица"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144629">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144609">
+                                <img itemprop="image" class="avatarImg" src="http://avt-8.foto.mail.ru/mail/wiktoriyakorabelnikova88/_avatarsmall">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144609">
+                                                
+                        <span class="bold" itemprop="name">
+                            wiktoriya Korabelnikova                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144609">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        2        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/производители/Тонизирующая_маска_для_лица/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144629" class="bold">
+    Тонизирующая маска для лица</a>
+    <span style="color: gray;">
+        (Бренды производителей)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                1 час назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+            <div>
+            <h3 itemprop="name" class="reviewTitle">Крутая маска от Coral club</h3>    
+        </div>
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Мне 35 лет. Я совсем недавно первый раз попробовала тонизирующую маску для лица. Посоветовала мне ее косметолог. Результат - 1. Кожа подтянулась и стала выглядеть моложе. 2. Значительно уменьшаются морщинки. 3. Пигментные пятна исчезают. 4. ...<a href="/производители/Тонизирующая_маска_для_лица/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144629" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144629)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="8144624">Я использовал<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144629, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144629 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144629)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144629,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144629)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144629" id="comments8144629">
+                
+<div id='reply8144629'  class="post-reply answerInvisible">
+    <div id="viewReply8144629">
+                </div>
+        <div id="newReplyTo8144629">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144622" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/уфа/Веб-студия_РегионОФФ"/>
+                    <meta itemprop="url" content="/уфа/Веб-студия_РегионОФФ"/>
+                    <meta itemprop="name" content="Веб-студия РегионОФФ"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144622">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/46189">
+                                <img itemprop="image" class="avatarImg" src="http://avt-4.foto.mail.ru/mail/maryam_ismagilova/_avatarsmall?1482657174">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/46189">
+                                                
+                        <span class="bold" itemprop="name">
+                            Марьям Исмагилова                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/46189">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        5        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        9        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/уфа/Веб-студия_РегионОФФ/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144622" class="bold">
+    Веб-студия РегионОФФ</a>
+    <span style="color: gray;">
+        (Уфа)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                1 час назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Данная компания занималась разработкой сайта (интернет-магазина) для нашей компании и его дальнейшим продвижением. Сама лично общалась со специалистом, прикрепленным к нашему сайту. И я осталась довольна. Например, после очередной выполненной работы ...<a href="/уфа/Веб-студия_РегионОФФ/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144622" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+                    <div>
+                <span style="font-size: 13px; line-height: 18px;"><b>Уровень цен:&nbsp;</b>Средне</span>
+            </div>
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144622)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="6989297">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144622, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144622 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144622)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144622,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144622)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144622" id="comments8144622">
+                
+<div id='reply8144622'  class="post-reply answerInvisible">
+    <div id="viewReply8144622">
+                </div>
+        <div id="newReplyTo8144622">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144620" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/уфа/Много_мебели"/>
+                    <meta itemprop="url" content="/уфа/Много_мебели"/>
+                    <meta itemprop="name" content="Много мебели"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144620">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144619">
+                                <img itemprop="image" class="avatarImg" src="http://avt-15.foto.mail.ru/bk/varvar.r86/_avatarsmall?1521389288">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144619">
+                                                
+                        <span class="bold" itemprop="name">
+                            Варя Руднева                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144619">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        1        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/уфа/Много_мебели/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144620" class="bold">
+    Много мебели</a>
+    <span style="color: gray;">
+        (Уфа)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                1 час назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+            <div>
+            <h3 itemprop="name" class="reviewTitle">Отличная детская мебель</h3>    
+        </div>
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                Делали в детской ремонт, ходили долго по салонам подыскивали подходящую мебель. В салоне Много Мебели увидели отличную детскую мебель. Интересный дизайн, качество неплохое, а цена оптимальная. Доченька уже в салоне сказала, что придумала где и что ...<a href="/уфа/Много_мебели/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144620" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144620)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="7711722">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144620, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144620 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144620)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144620,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144620)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144620" id="comments8144620">
+                
+<div id='reply8144620'  class="post-reply answerInvisible">
+    <div id="viewReply8144620">
+                </div>
+        <div id="newReplyTo8144620">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+                <div class="post" id="8144617" data-review="1">
+    <!-- Отзыв -->
+    <div class="post-content" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <span itemprop="itemReviewed" />
+                <span  itemscope content="/оренбург/Много_Мебели-2"/>
+                    <meta itemprop="url" content="/оренбург/Много_Мебели-2"/>
+                    <meta itemprop="name" content="Много Мебели"/>
+                </span>
+            </span>
+                <div class="post-header">
+                                    
+            <!-- Likes -->
+            <div class="post-likes likes" data-id="8144617">
+        <span class="NumberWhoLikes invisible"
+            style="color:red">
+        0    </span>
+</div>
+            
+
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                                            <div class="avatar">
+                            <a href="/гость8144616">
+                                <img itemprop="image" class="avatarImg" src="http://avt-15.foto.mail.ru/mail/niki.a81/_avatarsmall?1521388453">
+                            </a>
+
+                                                    </div>
+                    
+                    <a href="/гость8144616">
+                                                
+                        <span class="bold" itemprop="name">
+                            Нина Аникина                        </span>
+                    </a>
+                    <meta itemprop="url" content="http://xn--80avnr.xn--p1ai/%D0%B3%D0%BE%D1%81%D1%82%D1%8C8144616">
+                    <span class="flaperMainStats">
+    <span title="Number of approved reviews">
+        1        <img src="/img/flap/System-Text-icon.png">
+    </span>
+    <span title="Репутация">
+        0        <img src="/img/flap/thumb_up.png">
+    </span>
+</span>                    
+                </span>
+            
+                            <span style="color: #888;">
+                    про                    <a href="/оренбург/Много_Мебели-2/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144617" class="bold">
+    Много Мебели</a>
+    <span style="color: gray;">
+        (Оренбург)
+    </span>
+                </span>
+            
+            <br>
+                        <span class="post-date">
+                1 час назад            </span>
+        </div>
+
+
+        <div class="marginLeft">
+
+            <div class="post-body visible">
+
+    <!-- Единственный отзыв -->
+    
+            <div>
+            <h3 itemprop="name" class="reviewTitle">Небольшая кухня Асти</h3>    
+        </div>
+    
+    
+    <div class="post-text" itemprop="reviewBody">
+                                                                В много мебели недавно купили небольшую кухню, хорошо что появились новинки в ассортименте. Мы выбрали, на мой взгляд, самый универсальный вариант кухню Асти. Фасады кухни из мдф, глянцевые. В уборке неприхотливы, легко моются влажной тряпкой. Много ...<a href="/оренбург/Много_Мебели-2/%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/8144617" target="_blank">(читать далее)</a>
+                                </div>    
+    <meta itemprop="datePublished" content="2018-03-18">
+
+    
+    <div style="padding: 5px 0px;">
+        <!-- IP -->
+        <div>
+            <div title="Идеально" class="ratingDefault">
+    <span style="font-weight: bold; vertical-align: middle;">Рейтинг:</span>
+    <span class="raty">
+        <img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png"><img src="http://флап.рф/img/flap/raty/active_small_star.png">  
+    </span>
+</div>                    
+        </div>
+
+        <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="worstRating" content = "1"/>
+            <meta itemprop="ratingValue" content="10">
+            <meta itemprop="bestRating" content="10">
+        </span>
+
+            </div>
+    
+    
+</div>
+            
+            <!-- Footer -->
+            <div class="post-footer">
+                <span class="reply bluelink" onclick="Event.comments(8144617)">Комментировать</span>
+                &nbsp;·&nbsp;
+
+                                    <span class="checkInCommon bluelink" orgId="6164460">Я был тут<span></span></span>                    &nbsp;·&nbsp;
+                
+                <span class="bluelink" onmouseover="Flap.prepareToShare(8144617, 'review', this)">Поделиться</span>
+
+                <span class="cursorPointer bookmarkStar bookmark8144617 glyphicon glyphicon-star inactive" title="Закладки"
+                      onclick="Flap.Bookmark.AddBookmark(this,8144617)">
+                </span>
+                
+                <span class="footerActionsBlock dropdown" style="float:right;">
+                    <span data-toggle="dropdown" class="footerActions">
+                        Действия &#9660;
+                    </span>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" onclick="remotejs('Complaint.Complaint',8144617,'review')">
+                                Пожаловаться                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Templates.Review.ShowLink(8144617)">
+                                Ссылка на отзыв                            </a>
+                        </li>
+                                                                    </ul>
+                </span>
+            </div>
+
+            <!-- Прощлый отзыв -->
+            
+            <!-- Ответ компании -->
+            
+            <!-- Комментарии -->
+            <div class="comments" placeId="8144617" id="comments8144617">
+                
+<div id='reply8144617'  class="post-reply answerInvisible">
+    <div id="viewReply8144617">
+                </div>
+        <div id="newReplyTo8144617">
+            </div>
+
+
+    </div>            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+    <div class="loadMoreLastReviews loadMore" style="margin-bottom: 10px;" data-since-id="8144617">
+    Больше отзывов</div>
+    </div>   
+</div>
+<div id="rightColumn">
+    <!-- city_top_1 -->
+    <div id='div-gpt-ad-1425761208814-0' class="amalker_main_right" style='width:190px; height:100px;'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1425761208814-0'); });
+        </script>
+    </div>
+
+    <!-- city_top_2 -->
+    <div id='div-gpt-ad-1425761208814-1' class="amalker_main_right" style='width:190px; height:100px;'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1425761208814-1'); });
+        </script>
+    </div>
+
+    <!-- city_top_3 -->
+    <div id='div-gpt-ad-1425761208814-2' class="amalker_main_right" style='width:190px; height:100px;'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1425761208814-2'); });
+        </script>
+    </div>
+    <div class="section">
+        <div class="sectionTitle">
+            <span class="second">Выберите свой город</span>
+        </div>
+        <div class="sectionBody welcomeRegions">
+            <div style="overflow:hidden">
+                            <a class="welcomeRegionName" href="/уфа/">Уфа</a>
+                <div class="welcomeRegionsInfo">Отзывы: 77915</div>
+                            <a class="welcomeRegionName" href="/челябинск/">Челябинск</a>
+                <div class="welcomeRegionsInfo">Отзывы: 58728</div>
+                            <a class="welcomeRegionName" href="/Кино/">Кино</a>
+                <div class="welcomeRegionsInfo">Отзывы: 52791</div>
+                            <span class="chooseCity bluelink underline" style="text-align: right" onclick="Flap.selectRegion();">Еще города (более чем 1000)</span>
+            </div>
+            <br/>
+            <h2>Особые:</h2>
+            <br/>
+            <div  style="overflow:hidden">
+                            <a class="welcomeRegionName" href="/Кино/">Кино</a>
+                <div class="welcomeRegionsInfo">Отзывы: 52791</div>
+                            <a class="welcomeRegionName" href="/производители/">Бренды производителей</a>
+                <div class="welcomeRegionsInfo">Отзывы: 38314</div>
+                            <a class="welcomeRegionName" href="/Еда/">Еда</a>
+                <div class="welcomeRegionsInfo">Отзывы: 28064</div>
+                            <a class="welcomeRegionName" href="/Медицина/">Медицина</a>
+                <div class="welcomeRegionsInfo">Отзывы: 25257</div>
+                            <a class="welcomeRegionName" href="/Сайты_и_программы/">Сайты и программы</a>
+                <div class="welcomeRegionsInfo">Отзывы: 16133</div>
+                            <a class="welcomeRegionName" href="/Флапгород/">Флапгород</a>
+                <div class="welcomeRegionsInfo">Отзывы: 11636</div>
+                            <a class="welcomeRegionName" href="/Животные_и_растения/">Животные и растения</a>
+                <div class="welcomeRegionsInfo">Отзывы: 11060</div>
+                            <a class="welcomeRegionName" href="/косметика/">Косметика</a>
+                <div class="welcomeRegionsInfo">Отзывы: 7996</div>
+                            <a class="welcomeRegionName" href="/люди/">Люди</a>
+                <div class="welcomeRegionsInfo">Отзывы: 7835</div>
+                            <a class="welcomeRegionName" href="/Книги/">Книги</a>
+                <div class="welcomeRegionsInfo">Отзывы: 7315</div>
+                        <span class="chooseCity bluelink underline" onclick="go('/города?country=sp')">Еще особые города...</span>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>    </div>
+    
+<footer class="FixedWidth" style="clear: both;">
+    <div class="footerSection" style="width: 200px">
+        <h5>Флапер</h5>
+        <ul id="socialBlock">
+            <li><a href="http://flaper.org">Главная</a></li>
+            <li><a href="http://flaper.org/s/%D0%91%D0%B0%D0%BB%D0%BB%D1%8B">Баллы</a></li>
+            <li><a href="http://flaper.org/s/%D0%A4%D0%BB%D0%B0%D0%BF%D0%B5%D1%80">Общая информация</a></li>
+            <li><a href="http://flaper.org/s/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0">Правила</a></li>
+        </ul>
+    </div>
+    <div class="footerSection" style="width:200px;">
+        <h5>Flaper API & Development</h5>
+        <ul>
+            <li><a href="http://api.flaper.org/explorer">Api Explorer</a></li>
+            <li><a href="http://github.com/flaper">Github</a></li>
+            <li><a href="https://github.com/flaper/dockers">Dockers</a></li>
+        </ul>
+    </div>
+    <div class="footerSection" style="width:200px;">
+        <h5>Инфо</h5>
+        <ul>
+            <li><a href="http://ru.wiki.flap.biz/index.php?title=Пользовательское_соглашение">Условия использования</a></li>
+            <li><a href="http://ru.wiki.flap.biz/index.php?title=Правообладателям">Правообладателям</a></li>
+        </ul>
+    </div>
+
+    <div class="footerSection" id="cities" style="width:200px;">
+        <h5>Города</h5>
+        <ul>
+                                    <li>
+                <a href="http://xn--80avnr.xn--p1ai/уфа/" target="_blank">Уфа</a>
+            </li>
+                                    <li>
+                <a href="http://xn--80avnr.xn--p1ai/челябинск/" target="_blank">Челябинск</a>
+            </li>
+                                    <li>
+                <a href="http://xn--80avnr.xn--p1ai/Кино/" target="_blank">Кино</a>
+            </li>
+                        <li>
+                <a href="http://флап.рф/города" target="_blank">Топ городов</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="copyright" style="display: table-cell; text-align: center;">
+        <div style="font-size:1.2em">&copy; 2018 <a href="/"
+                                                                        onclick="return go(this)">Флап</a>
+        </div>
+        <div class="supportWidget center"><a href="http://flaper.org/p/support/premium" target="_blank"><b><i class="glyphicon glyphicon-globe"></i> Премиум Поддержка Флап</b></a></div>        <div>
+            <iframe id="counters" src="/counters.html" width="88" height="40" marginwidth="0" marginheight="0"
+                    scrolling="no" frameborder="0"></iframe>
+        </div>
+    </div>
+
+</footer>
+</div>
+<div id="rightBottomDiv">
+    <div id="FeedbackButton" onclick="Flap.Feedback.Dialog()">Я нашел ошибку!</div>
+</div>
+<div id="dialog"></div>
+
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='/js/jquery/jquery-1.8.3.min.js'>\x3C/script>")</script>
+
+<!-- jQuery UI -->
+<script src="/js/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+
+<!-- Twitter Bootstrap -->
+<script src="/js/lib/bootstrap_20130913.min.js"></script>
+
+<!-- Flap -->
+
+    <script type="text/javascript" src="/temp/public/script-defaultLibs-b299057015d5f68307f39647b2574f0a.js"></script>
+    <script type="text/javascript" src="/temp/public/script-default-4a80fcbbc4f96d9457f92bbb8d3c6cfc.js"></script>
+    <script type="text/javascript" src="/temp/public/script-tpls-instantiation-mainPage-69a5b5995110b36a9a347898d97a610e.js"></script>
+<script type="text/javascript">
+    __loadedcss = ["\/temp\/public\/style-default-914f4ea928e1df25ba9a054626fadfe9.css"];
+    Flap._loadedScripts = ["\/temp\/public\/script-defaultLibs-b299057015d5f68307f39647b2574f0a.js","\/temp\/public\/script-default-4a80fcbbc4f96d9457f92bbb8d3c6cfc.js","\/temp\/public\/script-tpls-instantiation-mainPage-69a5b5995110b36a9a347898d97a610e.js"];
+</script>
+
+ <script src="/temp/lang/ru1455356071.js"></script>        <script type="text/javascript" src="/temp/public/jqt-default-e4c60bf7a076969fc058178b44f2f054.js"></script>
+             <script type="text/javascript" src="/temp/public/jqt-homepage-598920e11d1eb2a49501d59fce5ecbb7.js"></script>
+     
+ <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" async text="text/javascript" ></script>
+ <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    /* all see main-variables.tpl.php - they are initialized at header*/
+    $(document).ready(function () {
+        /*содержит серверное время на начало сеанса*/
+        Flap.Date.ServerStartTime = new Date(1521394632 * 1000
+        )
+        ;
+        /*содержит клиентское время на начало сеанса*/
+        Flap.Date.ClientStartTime = new Date();
+        Flap.Flaper.CurrentUserId = null;
+        $.extend(Flap.Regions, {"5188529":{"id":5188529,"name":"\u041a\u0438\u043d\u043e","codename":"\u041a\u0438\u043d\u043e","countryId":"sp","link":"xn--80avnr.xn--p1ai\/\u041a\u0438\u043d\u043e","UTC":"4","electionEnd":0,"lang":"ru","rootCategory":"3327796","options":{"newsVisitTitle":"watched","visitButtonTitle":"I watched this","addButtonTitle":"Add film","visitersTitle":"watched by","notVisitYetTitle":"not watched yet","":""}}});;
+        Flap.Start();
+                if (getCookie('clientUTC') == false) {
+            var clientTime = Flap.Date.ClientStartTime.getTime();//(C0)
+            var serverTime = Flap.Date.ServerStartTime.getTime();//(S0)
+            //если разница клиентского времени с серверным больше 14 часов- значит у клиента время стоит неверно!
+            if (Math.abs(clientTime - serverTime) < 14 * 60 * 60 * 1000) {
+                var date = new Date();
+                var utc = -date.getTimezoneOffset() / 60;
+                date.setTime(date.getTime() + 24 * 60 * 60 * 1000);//на день
+                date = date.toUTCString();
+                setCookie('clientUTC', utc, date, '/');
+            }
+        }
+        Templates.MainPage();
+                                Flap.Auth.VisitPopular();
+                
+        Flap.BaseEvents();
+
+        Flap.News.StartNews();
+
+        stats("");
+
+                Flap.StartQueue();
+    });
+</script></body>
+
+</html>

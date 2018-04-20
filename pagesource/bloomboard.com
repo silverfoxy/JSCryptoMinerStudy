@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://bloomboard.com:/">https://bloomboard.com:/</a></p>

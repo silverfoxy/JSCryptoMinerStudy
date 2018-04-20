@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="es" ng-app="autocomplete">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Encuentra lugares, empresas y negocios. Contamos con más de 5 millones de negocios y empresas registradas en México">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Guiamexico</title>
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://guiamexico.mx/m" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.min.css">
+    <link rel="stylesheet" href="/css/angular-material.min.css">
+    <link rel="stylesheet" href="/css/styles-template.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <meta property="og:url"           content="https://guiamexico.mx" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Guiamexico.mx" />
+    <meta property="og:description"   content="Encuentra lugares, empresas y negocios. Contamos con más de 5 millones de negocios y empresas registradas en México" />
+    <meta property="og:image"         content="/images/fb.png" />
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">
+            <a href="/"><i class="material-icons left">place</i> Guiamexico.mx</a>
+          </span>
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link" href="/#buscar"><i class="material-icons md-20">search</i></a>  
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#actividades-economicas"><i class="material-icons">list</i> Actividades económicas</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/buscar/lugares-cercanos"><i class="material-icons">place</i> Lugares cercanos</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        <div class="android-be-together-section mdl-typography--text-center">
+          <div class="logo-font android-slogan">Encuentra lo que necesitas</div>
+          <div class="logo-font android-sub-slogan">Con más de <i class="material-icons">looks_5</i> millones de negocios y empresas registradas</div>
+          <div class="logo-font android-create-character">
+            Registra tu negocio o empresa<i class="material-icons">touch_app</i>
+          </div>
+
+          <a href="#form-search">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        <div id="actividades-economicas" class="android-customized-section mdl-grid">
+            <div id="form-search">
+
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+
+              <div class="mdl-tabs__tab-bar">
+                  <a href="#servicios" class="mdl-tabs__tab is-active"><i class="material-icons">search</i>Servicios y Actividades económicas</a>
+              </div>
+
+              <div class="mdl-tabs__panel is-active" id="servicios">
+                    <div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak class="mdl-cell mdl-cell--6-col centered">
+
+                      <md-content class="md-padding">
+                        <form ng-submit="$event.preventDefault()">
+                          <md-autocomplete
+                              ng-disabled="ctrl.isDisabled"
+                              md-no-cache="ctrl.noCache"
+                              md-selected-item="ctrl.selectedItem"
+                              md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                              md-search-text="ctrl.searchText"
+                              md-selected-item-change="ctrl.selectedItemChange(item)"
+                              md-items="item in ctrl.querySearch(ctrl.searchText)"
+                              md-item-text="ctrl.display(item)"
+                              md-min-length="0"
+                              placeholder="Ingresa palabra clave"
+                              md-menu-class="autocomplete-custom-template">
+                            <md-item-template>
+                            <a href="/{{item.serv_url}}">
+                              <span class="item-title">
+                                {{item.servicio}}
+                              </span>
+                              <span class="item-metadata">
+                                <span class="item-metastat">
+                                  <strong>{{item.count}}</strong> Resultados
+                                </span>
+                              </span>
+                            </a>  
+                            </md-item-template>
+                          </md-autocomplete>
+                        </form>
+                      </md-content>
+                    </div>
+              </div>
+
+
+            </div>
+
+          <div class="android-section-title mdl-typography--display-1-color-contrast margin-top-2">Actividades económicas y Servicios</div>
+          <div class="android-card-container">
+
+            <ul class="demo-list-two mdl-list mdl-grid">
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/comercio-al-por-menor"><span>Comercio al por menor</span></a>
+                  <span class="mdl-list__item-sub-title">2098862 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/actividades-legislativas-y-gubernamentales"><span>Actividades legislativas y gubernamentales</span></a>
+                  <span class="mdl-list__item-sub-title">83052 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/mineria"><span>Minería</span></a>
+                  <span class="mdl-list__item-sub-title">3581 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/transportes-correos-y-almacenamiento"><span>Transportes, correos y almacenamiento</span></a>
+                  <span class="mdl-list__item-sub-title">36142 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/energia-electrica-suministro-de-agua-y-de-gas"><span>Energía eléctrica, suministro de agua y de gas</span></a>
+                  <span class="mdl-list__item-sub-title">8025 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-de-salud-y-de-asistencia-social"><span>Servicios de salud y de asistencia social</span></a>
+                  <span class="mdl-list__item-sub-title">207071 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/industrias-manufactureras"><span>Industrias manufactureras</span></a>
+                  <span class="mdl-list__item-sub-title">524717 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-de-reparacion-y-mantenimiento-servicios-personales-y-domesticos"><span>Servicios de reparación y mantenimiento, Servicios personales y domésticos</span></a>
+                  <span class="mdl-list__item-sub-title">728524 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-educativos"><span>Servicios educativos</span></a>
+                  <span class="mdl-list__item-sub-title">139501 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/agricultura-cria-y-explotacion-de-animales"><span>Agricultura, cría y explotación de animales</span></a>
+                  <span class="mdl-list__item-sub-title">20901 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/construccion"><span>Construcción</span></a>
+                  <span class="mdl-list__item-sub-title">25751 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/comercio-al-por-mayor"><span>Comercio al por mayor</span></a>
+                  <span class="mdl-list__item-sub-title">144126 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/corporativos"><span>Corporativos</span></a>
+                  <span class="mdl-list__item-sub-title">430 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-inmobiliarios"><span>Servicios inmobiliarios</span></a>
+                  <span class="mdl-list__item-sub-title">68274 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-profesionales-cientificos-y-tecnicos"><span>Servicios profesionales, científicos y técnicos</span></a>
+                  <span class="mdl-list__item-sub-title">98770 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-de-apoyo-a-los-negocios"><span>Servicios de apoyo a los negocios</span></a>
+                  <span class="mdl-list__item-sub-title">103907 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/informacion-en-medios-masivos"><span>Información en medios masivos</span></a>
+                  <span class="mdl-list__item-sub-title">19284 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/hoteles-y-restaurantes"><span>Hoteles y Restaurantes</span></a>
+                  <span class="mdl-list__item-sub-title">575198 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-financieros-y-de-seguros"><span>Servicios financieros y de seguros</span></a>
+                  <span class="mdl-list__item-sub-title">54399 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--12-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/actividad/servicios-de-esparcimiento-culturales-y-deportivos"><span>Servicios de esparcimiento culturales y deportivos</span></a>
+                  <span class="mdl-list__item-sub-title">64471 Negocios</span>
+                </span>
+              </li>
+            </ul>
+
+          </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="buscar" class="android-more-section">
+
+            <div class="box-search home-box-search">
+              <div class="container-1">
+                <form action="/buscar" method="GET">
+                    <input type="search" id="search" placeholder="Búsqueda rápida ..." name="q" />
+                    <button class="icon"><i class="material-icons">search</i></button>
+                </form>    
+              </div>
+            </div>
+
+          <div class="android-section-title mdl-typography--display-1-color-contrast margin-top-3 text-center">Servicios más buscados</div>
+          <div class="android-card-container">
+
+            <ul class="demo-list-two mdl-list mdl-grid">
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/bufetes-juridicos"><span>Abogados</span></a>
+                  <span class="mdl-list__item-sub-title">25459 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/agencias-de-anuncios-publicitarios"><span>Agencias de anuncios publicitarios</span></a>
+                  <span class="mdl-list__item-sub-title">391 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/agencias-de-cobranza"><span>Agencias de cobranza</span></a>
+                  <span class="mdl-list__item-sub-title">1092 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/agencias-de-empleo-temporal"><span>Agencias de empleo temporal</span></a>
+                  <span class="mdl-list__item-sub-title">484 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/agencias-de-viajes"><span>Agencias de viajes</span></a>
+                  <span class="mdl-list__item-sub-title">6361 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/agentes-ajustadores-y-gestores-de-seguros-y-fianzas"><span>Agentes de seguros y fianzas</span></a>
+                  <span class="mdl-list__item-sub-title">4722 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-aparatos-electricos-y-electronicos-para-el-hogar-y-personales"><span>Alquiler de aparatos eléctricos y electrónicos</span></a>
+                  <span class="mdl-list__item-sub-title">259 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-autobuses-con-chofer"><span>Alquiler de autobuses</span></a>
+                  <span class="mdl-list__item-sub-title">1044 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-autobuses-minibuses-y-remolques-sin-chofer"><span>Alquiler de autobuses, minibuses y remolques</span></a>
+                  <span class="mdl-list__item-sub-title">182 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-automoviles-sin-chofer"><span>Alquiler de automóviles</span></a>
+                  <span class="mdl-list__item-sub-title">1416 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-instrumentos-musicales"><span>Alquiler de instrumentos musicales</span></a>
+                  <span class="mdl-list__item-sub-title">14 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-maquinaria-y-equipo-comercial-y-de-servicios"><span>Alquiler de maquinaria y equipo comercial</span></a>
+                  <span class="mdl-list__item-sub-title">2187 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-de-mesas-sillas-vajillas-y-similares"><span>Alquiler de mesas, sillas, vajillas</span></a>
+                  <span class="mdl-list__item-sub-title">10791 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-sin-intermediacion-de-viviendas-amuebladas"><span>Alquiler de viviendas amuebladas</span></a>
+                  <span class="mdl-list__item-sub-title">137 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/alquiler-sin-intermediacion-de-viviendas-no-amuebladas"><span>Alquiler de viviendas no amuebladas</span></a>
+                  <span class="mdl-list__item-sub-title">2002 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-articulos-de-joyeria-y-relojes"><span>Artículos de joyería y relojes</span></a>
+                  <span class="mdl-list__item-sub-title">14335 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-articulos-de-papeleria"><span>Artículos de papelería</span></a>
+                  <span class="mdl-list__item-sub-title">2157 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-articulos-de-perfumeria-y-cosmeticos"><span>Artículos de perfumería y cosméticos</span></a>
+                  <span class="mdl-list__item-sub-title">18039 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-articulos-usados"><span>Artículos usados</span></a>
+                  <span class="mdl-list__item-sub-title">44418 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/bibliotecas-y-archivos-del-sector-privado"><span>Bibliotecas privadas</span></a>
+                  <span class="mdl-list__item-sub-title">240 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/billares"><span>Billares</span></a>
+                  <span class="mdl-list__item-sub-title">5017 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/cafeterias-fuentes-de-sodas-neverias-refresquerias-y-similares"><span>Cafeterías</span></a>
+                  <span class="mdl-list__item-sub-title">59054 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-calzado"><span>Calzado</span></a>
+                  <span class="mdl-list__item-sub-title">48323 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/casas-de-cambio"><span>Casas de cambio</span></a>
+                  <span class="mdl-list__item-sub-title">113 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/casas-de-empeno"><span>Casas de empeño</span></a>
+                  <span class="mdl-list__item-sub-title">9190 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/casas-de-juegos-electronicos"><span>Casas de juegos electrónicos</span></a>
+                  <span class="mdl-list__item-sub-title">17168 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-de-casetas-telefonicas"><span>Casetas telefónicas</span></a>
+                  <span class="mdl-list__item-sub-title">2557 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/centros-de-planificacion-familiar-del-sector-privado"><span>Centros de planificación familiar</span></a>
+                  <span class="mdl-list__item-sub-title">14 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/cerrajerias"><span>Cerrajerías</span></a>
+                  <span class="mdl-list__item-sub-title">9637 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-abarrotes"><span>Comercio al por mayor de abarrotes</span></a>
+                  <span class="mdl-list__item-sub-title">5040 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-calzado"><span>Comercio al por mayor de calzado</span></a>
+                  <span class="mdl-list__item-sub-title">1452 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-carnes-rojas"><span>Comercio al por mayor de carnes rojas</span></a>
+                  <span class="mdl-list__item-sub-title">1101 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/companias-de-seguros"><span>Compañías de seguros</span></a>
+                  <span class="mdl-list__item-sub-title">1297 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/confeccion-de-otros-accesorios-y-prendas-de-vestir-no-clasificados-en-otra-parte"><span>Confección de accesorios y prendas de vestir</span></a>
+                  <span class="mdl-list__item-sub-title">825 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/consultorios-de-medicina-general-del-sector-privado"><span>Consultorios de medicina general</span></a>
+                  <span class="mdl-list__item-sub-title">33352 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/consultorios-dentales-del-sector-privado"><span>Consultorios dentales</span></a>
+                  <span class="mdl-list__item-sub-title">54299 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/consultorios-de-optometria"><span>Consultorios de optometría</span></a>
+                  <span class="mdl-list__item-sub-title">563 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/consultorios-de-psicologia-del-sector-privado"><span>Consultorios de psicología</span></a>
+                  <span class="mdl-list__item-sub-title">5085 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/consultorios-de-quiropractica-del-sector-privado"><span>Consultorios de quiropráctica</span></a>
+                  <span class="mdl-list__item-sub-title">1295 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/centros-nocturnos-discotecas-y-similares"><span>Discotecas</span></a>
+                  <span class="mdl-list__item-sub-title">1814 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/diseno-grafico"><span>Diseño gráfico</span></a>
+                  <span class="mdl-list__item-sub-title">1868 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-mobiliario-y-equipo-de-oficina"><span>Equipos de oficina</span></a>
+                  <span class="mdl-list__item-sub-title">1115 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-mobiliario-equipo-y-accesorios-de-computo"><span>Equipos y accesorios de cómputo</span></a>
+                  <span class="mdl-list__item-sub-title">1878 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-equipo-y-material-electrico"><span>Equipos y material eléctrico</span></a>
+                  <span class="mdl-list__item-sub-title">4768 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-computacion-del-sector-privado"><span>Escuelas de computación</span></a>
+                  <span class="mdl-list__item-sub-title">1224 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-deporte-del-sector-privado"><span>Escuelas de deporte</span></a>
+                  <span class="mdl-list__item-sub-title">6689 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-educacion-media-superior-del-sector-privado"><span>Escuelas de educación media superior</span></a>
+                  <span class="mdl-list__item-sub-title">2680 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-educacion-preescolar-del-sector-privado"><span>Escuelas de educación preescolar</span></a>
+                  <span class="mdl-list__item-sub-title">10642 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-educacion-primaria-del-sector-privado"><span>Escuelas de educación primaria</span></a>
+                  <span class="mdl-list__item-sub-title">3289 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-educacion-secundaria-tecnica-del-sector-privado"><span>Escuelas de educación secundaria técnica</span></a>
+                  <span class="mdl-list__item-sub-title">63 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-educacion-superior-del-sector-privado"><span>Escuelas de educación superior</span></a>
+                  <span class="mdl-list__item-sub-title">3436 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/escuelas-de-idiomas-del-sector-privado"><span>Escuelas de idiomas</span></a>
+                  <span class="mdl-list__item-sub-title">2803 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/farmacias-sin-minisuper"><span>Farmacias</span></a>
+                  <span class="mdl-list__item-sub-title">45303 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-en-ferreterias-y-tlapalerias"><span>Ferreterías y tlapalerías</span></a>
+                  <span class="mdl-list__item-sub-title">61070 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/centros-de-acondicionamiento-fisico-del-sector-privado"><span>Gimnasios</span></a>
+                  <span class="mdl-list__item-sub-title">20567 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/guarderias-del-sector-privado"><span>Guarderías</span></a>
+                  <span class="mdl-list__item-sub-title">8576 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/hospitales-generales-del-sector-privado"><span>Hospitales generales</span></a>
+                  <span class="mdl-list__item-sub-title">1538 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/hospitales-generales-del-sector-publico"><span>Hospitales públicos generales</span></a>
+                  <span class="mdl-list__item-sub-title">5072 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/hoteles-con-otros-servicios-integrados"><span>Hoteles</span></a>
+                  <span class="mdl-list__item-sub-title">6369 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/otros-juegos-de-azar"><span>Juegos de azar</span></a>
+                  <span class="mdl-list__item-sub-title">467 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-juguetes-y-bicicletas"><span>Juguetes y bicicletas</span></a>
+                  <span class="mdl-list__item-sub-title">462 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/lavanderias-y-tintorerias"><span>Lavanderías y tintorerías</span></a>
+                  <span class="mdl-list__item-sub-title">34548 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/moteles"><span>Moteles</span></a>
+                  <span class="mdl-list__item-sub-title">2861 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-muebles-para-el-hogar"><span>Muebles para el hogar</span></a>
+                  <span class="mdl-list__item-sub-title">20028 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-articulos-de-papeleria"><span>Papelerías</span></a>
+                  <span class="mdl-list__item-sub-title">117701 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/restaurantes-con-servicio-de-preparacion-de-pizzas-hamburguesas-hot-dogs-y-pollos-rostizados-para-llevar"><span>Pizzas, hamburguesas, hot dogs y pollos - Restaurantes</span></a>
+                  <span class="mdl-list__item-sub-title">55794 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-regalos"><span>Regalos</span></a>
+                  <span class="mdl-list__item-sub-title">46365 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/reparacion-del-sistema-electrico-de-automoviles-y-camiones"><span>Reparación del sistema eléctrico de automóviles y camiones</span></a>
+                  <span class="mdl-list__item-sub-title">19046 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/reparacion-de-suspensiones-de-automoviles-y-camiones"><span>Reparación de suspensiones de automóviles y camiones</span></a>
+                  <span class="mdl-list__item-sub-title">4957 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/reparacion-de-tapiceria-de-muebles-para-el-hogar"><span>Reparación de tapicería de muebles para el hogar</span></a>
+                  <span class="mdl-list__item-sub-title">9897 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/otras-reparaciones-mecanicas-de-automoviles-y-camiones"><span>Reparaciones mecánicas de automóviles y camiones</span></a>
+                  <span class="mdl-list__item-sub-title">15742 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/residencias-del-sector-privado-con-cuidados-de-enfermeras-para-enfermos-convalecientes-en-rehabilitacion-incurables-y-terminales"><span>Residencias con cuidados de enfermeras</span></a>
+                  <span class="mdl-list__item-sub-title">61 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/restaurantes-con-servicio-de-preparacion-de-alimentos-a-la-carta-o-de-comida-corrida"><span>Restaurantes</span></a>
+                  <span class="mdl-list__item-sub-title">56103 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/restaurantes-de-autoservicio"><span>Restaurantes de autoservicio</span></a>
+                  <span class="mdl-list__item-sub-title">4644 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/restaurantes-con-servicio-de-preparacion-de-pescados-y-mariscos"><span>Restaurantes de mariscos</span></a>
+                  <span class="mdl-list__item-sub-title">19091 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-de-revistas-y-periodicos"><span>Revistas y periódicos</span></a>
+                  <span class="mdl-list__item-sub-title">8283 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-mayor-de-ropa-bisuteria-y-accesorios-de-vestir"><span>Ropa, bisutería y accesorios de vestir</span></a>
+                  <span class="mdl-list__item-sub-title">2042 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-de-ambulancias"><span>Servicios de ambulancias</span></a>
+                  <span class="mdl-list__item-sub-title">492 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-de-grua"><span>Servicios de grúa</span></a>
+                  <span class="mdl-list__item-sub-title">1319 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/otros-servicios-de-limpieza"><span>Servicios de limpieza</span></a>
+                  <span class="mdl-list__item-sub-title">164 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-de-mudanzas"><span>Servicios de mudanzas</span></a>
+                  <span class="mdl-list__item-sub-title">761 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-funerarios"><span>Servicios funerarios</span></a>
+                  <span class="mdl-list__item-sub-title">4870 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/servicios-de-apoyo-para-efectuar-tramites-legales"><span>Servicios legales</span></a>
+                  <span class="mdl-list__item-sub-title">2608 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-en-supermercados"><span>Supermercados</span></a>
+                  <span class="mdl-list__item-sub-title">5530 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/comercio-al-por-menor-en-tiendas-de-artesanias"><span>Tiendas de artesanías</span></a>
+                  <span class="mdl-list__item-sub-title">18026 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/transporte-escolar-y-de-personal"><span>Transporte escolar y de personal</span></a>
+                  <span class="mdl-list__item-sub-title">469 Negocios</span>
+                </span>
+              </li>
+              <li class="mdl-list__item mdl-list__item--two-line mdl-cell mdl-cell--4-col">
+                <span class="mdl-list__item-primary-content">
+                  <a class="mdl-list__item-secondary-action" href="/otro-transporte-turistico"><span>Transporte turístico</span></a>
+                  <span class="mdl-list__item-sub-title">9 Negocios</span>
+                </span>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <footer class="android-footer mdl-mega-footer">
+
+          <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">Guiamexico © 2016</p>
+            <p class="mdl-typography--font-light">Directorio de empresas y negocios en México</p>
+          </div>
+
+          <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link mdl-typography--font-light" href="/contacto">Contacto</a>
+            <a class="android-link mdl-typography--font-light" href="/cookies">Cookies</a>
+            <a class="android-link mdl-typography--font-light" href="/politica-privacidad">Política de Privacidad</a>
+            <div class="fb-like" data-href="https://guiamexico.mx" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+            <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+            <div class="g-plus" data-action="share" data-annotation="none"></div>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="/js/angular-material.min.js"></script>
+    <script src="/js/directorio/servicios-autocompletar.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-85013471-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script src="https://apis.google.com/js/platform.js" async defer>
+    {lang: 'es-419'}
+    </script>
+  </body>
+</html>

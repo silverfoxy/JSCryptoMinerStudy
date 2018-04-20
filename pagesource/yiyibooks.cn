@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="/static/libs/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/libs/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/nav.css">
+
+  <script src="/static/libs/jquery-3.2.1.min.js"></script>
+  <script src="/static/libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script src="/static/libs/js.cookie.min.js"></script>
+  <script src="/static/yiyi.js"></script>
+  <script src="/static/nav.js"></script>
+  <title>一译</title>
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/static/documents/documents.css">
+<script src="/static/documents/documents.js"></script>
+
+</head>
+<body>
+  <div class="content">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sign-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">一译</a>
+          <a class="navbar-brand logo" href="/">
+            <img alt="yiyi" src="/static/yiyi.png" style="width: 32px; height: 32px">
+          </a>
+        </div>
+
+        <form class="navbar-form navbar-left" action="/">
+          <div class="form-group">
+            
+              <input type="text" class="form-control" placeholder="搜索文档" name="search">
+            
+          </div>
+        </form>
+
+        <div class="collapse navbar-collapse" id="sign-navbar-collapse">
+          
+          <div class="nav navbar-nav navbar-right">
+            <a type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signup-modal">注 册</a>
+            <a type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#login-modal">登 录</a>
+            <a type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#dashang">打 赏</a>
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="login-form">
+            <div class="modal-header">
+              <a type="button" class="close" data-dismiss="modal"><span>&times;</span></a>
+              <h4 class="modal-title">用户登录</h4>
+            </div>
+            <div class="modal-body">
+              <input type='hidden' name='csrfmiddlewaretoken' value='ZI6knp5II8zUgIwwKXUAynQZseRIT18MIu4leqTobneF1CPjGu1gpvUgL70e49mV' />
+              <div class="form-group username-field" >
+                <label class="control-label">用户名/邮箱</label>
+                <input class="form-control" name="username" maxlength="256" placeholder="用户名或者邮箱" type="text">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group password-field">
+                <label class="control-label">密码</label>
+                <input class="form-control" name="password" maxlength="32" placeholder="密码" type="password">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group">
+                <label><input type="checkbox" checked="checked" name="remember">下次自动登录</label>
+              </div>
+              <div class="form-group">
+                <a href="#" id="reset-password-link">忘记密码</a>
+              </div>
+              <div class="form-group non-field">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-default" data-dismiss="modal">关 闭</a>
+              <button type="submit" class="btn btn-success">登 录</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="signup-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="signup-form">
+            <div class="modal-header">
+              <a type="button" class="close" data-dismiss="modal"><span>&times;</span></a>
+              <h4 class="modal-title">用户注册</h4>
+            </div>
+            <div class="modal-body">
+              <input type='hidden' name='csrfmiddlewaretoken' value='ZI6knp5II8zUgIwwKXUAynQZseRIT18MIu4leqTobneF1CPjGu1gpvUgL70e49mV' />
+              <div class="form-group username-field">
+                <label class="control-label">用户名</label>
+                <input class="form-control" name="username"  maxlength="32" placeholder="2-32个字符，支持汉字、字母、数字和 -、_" type="text">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group password-field">
+                <label class="control-label">密码</label>
+                <input class="form-control" name="password"  maxlength="32" placeholder="8-32位字符，建议由字母、数字和符号两种以上组合" type="password">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group password-cfm-field">
+                <label class="control-label">确认密码</label>
+                <input class="form-control" name="password_cfm"  maxlength="32" placeholder="请再次输入密码" type="password">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group email-field">
+                <label class="control-label">邮箱（可选）</label>
+                <input class="form-control" name="email"  maxlength="256" placeholder="邮箱可以用于登录和找回密码等" type="email">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group non-field">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-default" data-dismiss="modal">关 闭</a>
+              <button type="submit" class="btn btn-primary">注 册</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="reset-password-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="reset-password-form">
+            <div class="modal-header">
+              <a type="button" class="close" data-dismiss="modal"><span>&times;</span></a>
+              <h4 class="modal-title">重设密码</h4>
+            </div>
+            <div class="modal-body">
+              <input type='hidden' name='csrfmiddlewaretoken' value='ZI6knp5II8zUgIwwKXUAynQZseRIT18MIu4leqTobneF1CPjGu1gpvUgL70e49mV' />
+              <div class="form-group email-field">
+                <label class="control-label">注册的邮箱</label>
+                <input class="form-control" name="email"  maxlength="256" placeholder="注册的邮箱" type="email">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group code-field">
+                <label class="control-label">验证码</label>
+                <div class="input-group">
+                  <input class="form-control" name="code"  maxlength="8" placeholder="邮箱收到的验证码" type="text">
+                  <a type="button" class="btn btn-default input-group-addon" id="reset-password-code">发送验证码</a>
+                </div>
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group password-field">
+                <label class="control-label">新的密码</label>
+                <input class="form-control" name="password" maxlength="32" placeholder="8-32位字符，建议由字母、数字和符号两种以上组合" type="password">
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group non-field">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-default" id="reset-password-cancel">取 消</a>
+              <button type="submit" class="btn btn-primary">确 认</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="modal fade" id="dashang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">打赏本站</h4>
+          </div>
+          <div class="modal-body" style="text-align: center;">
+             <span>微信</span>
+             <img src="/static/wx.png" style="width: 120px; vertical-align: middle;">
+             <span style="margin-left: 50px; ">支付宝</span>
+             <img src="/static/zfb.png" style="width: 120px; vertical-align: middle;">
+         </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-1">
+      <div class="panel panel-default text-right">
+        <div class="panel-body sort">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-sm">排序：已翻译语句数目</button>
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">排序：</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="?sort=stars_num&">星星数目</a></li>
+              <li><a href="?sort=trslators&">译者数目</a></li>
+              <li><a href="?sort=trslations&">已翻译语句数目</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/xx/python_352/">Python 352 文档</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">Python 352 文档的中文翻译</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>2</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>194</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>9435</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/xx/">xx</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/xx/">
+                  <img class="media-object" src="/media/avatars/28/ac/e11ff1dd0349d29b506e4db16b4b85333ac89f9b847d91d57fffeb39f202/rbv97boh.png" alt="xx">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/yiyi/nltk_python/">NLTK with Python 3</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">用Python进行自然语言处理一书的第二版</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>4</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>7459</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/yiyi/">yiyi</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/yiyi/">
+                  <img class="media-object" src="/media/avatars/f4/19/e6f013d61cd00e96c31f733be7ce96a4d3b9d20f0c54ce8729d0b06f3b90/0jnjnahj.png" alt="yiyi">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/zdj999123/Django111_LTS/">Django1.11 LTS中文翻译</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">Django1.11 LTS中文翻译</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>24</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>3207</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/zdj999123/">zdj999123</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/zdj999123/">
+                  <img class="media-object" src="/media/avatars/da/00/6e69dad02d882d3473b0233bf382549b29deaf9c92435356da1f6089b35f/vutpijvk.png" alt="zdj999123">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/Phiix/bash_reference_manual/">bash_reference_manual</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">Bash 参考手册</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>1</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>3016</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/Phiix/">Phiix</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/Phiix/">
+                  <img class="media-object" src="/media/avatars/09/b8/59d00d3bd273309f773539b9c243deaf11524fa0e2641c18a9bba1ca5a55/0gbvxt43.png" alt="Phiix">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/xx/Django_111/">Django 1.11.6 中文</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">Django 1.11.6 中文 翻译 翻译迁移自本站 Django 1.8.2 文档</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>28</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>2876</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/xx/">xx</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/xx/">
+                  <img class="media-object" src="/media/avatars/28/ac/e11ff1dd0349d29b506e4db16b4b85333ac89f9b847d91d57fffeb39f202/rbv97boh.png" alt="xx">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/xx/django_182/">Django 182 中文</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">django 182 中文 翻译</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>175</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>2836</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/xx/">xx</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/xx/">
+                  <img class="media-object" src="/media/avatars/28/ac/e11ff1dd0349d29b506e4db16b4b85333ac89f9b847d91d57fffeb39f202/rbv97boh.png" alt="xx">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/xx/docker/">docker 官方文档</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">docker 中文文档</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>5</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>2558</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/xx/">xx</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/xx/">
+                  <img class="media-object" src="/media/avatars/28/ac/e11ff1dd0349d29b506e4db16b4b85333ac89f9b847d91d57fffeb39f202/rbv97boh.png" alt="xx">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="panel panel-default document">
+          <div class="panel-heading">
+            <a href="/information/yiyi/theano_09/">theano 0.9 中文文档</a>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-body">
+                <div>
+                  <pre class="stats">theano 官方文档中文翻译</pre>
+                </div>
+                <div class="text-muted">
+                  <small>
+                    <span class="stats" title="星星数目"><span class="glyphicon glyphicon-star"></span> <span>0</span></span>
+                    <span class="stats" title="译者人数"><span class="glyphicon glyphicon-grain"></span> <span>5</span></span>
+                    <span class="stats" title="人工提交翻译数目"><span class="glyphicon glyphicon-stats"></span> <span>2055</span></span>
+                    <span class="stats" title="创建时间"><span class="glyphicon glyphicon-time"></span> <span>2018/03/16</span></span>
+                    <span class="stats" title="拥有者"><span class="glyphicon glyphicon-user"></span> <a href="/documents/user/yiyi/">yiyi</a></span></span>
+                  </small>
+                </div>
+              </div>
+              <div class="media-right">
+                <a href="/documents/user/yiyi/">
+                  <img class="media-object" src="/media/avatars/f4/19/e6f013d61cd00e96c31f733be7ce96a4d3b9d20f0c54ce8729d0b06f3b90/0jnjnahj.png" alt="yiyi">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+      <ul class="pager">
+        <li class="previous  disabled ">
+          
+            <a href="#">← 上一页</a>
+          
+        </li>
+        <li class="next ">
+          
+            <a href="?page=2&">下一页 →</a>
+          
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  <div class="container footer">
+    <footer>
+      <a href="http://www.miibeian.gov.cn/" target="_blank" style="color: #777;">苏ICP备14012136号</a>
+    </footer>
+  </div>
+</body>
+</html>

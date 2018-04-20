@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://gravityblankets.com/">redirected</a>.</body></html>

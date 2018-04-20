@@ -1,0 +1,1 @@
+Wait Please..<META HTTP-EQUIV="refresh" CONTENT="0;URL=https://www.4sedan.com/egy/ar/home">

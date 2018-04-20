@@ -1,0 +1,1 @@
+<h1>Vous avez été banni de ce site.</h1><p>Si vous pensez qu&#039;il y a eu une erreur, contactez l&#039;administrateur via le serveur proxy.</p>

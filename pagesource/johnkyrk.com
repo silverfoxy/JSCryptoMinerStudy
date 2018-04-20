@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>	<head>		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">		<meta name="generator" content="Adobe GoLive">				<link rel="shortcut icon" href="favicon.ico" /><link rel="icon" href="favicon.png" type="image/png" />		<title>communicating at an unknown rate</title>		<meta content="Flash, DNA, Amino Acids, Proteins, Cell Anatomy, Cell Membranes, Chromosome structure, Diffusion, DNA structure, DNA replication, DNA transcription, RNA translation, Evolution, Glycolysis, Golgi Apparatus, Krebs Citric Acid Cycle, Meiosis, Mitochondria, Electron transport, Mitosis, Photosynthesis, Virus, Water">	</head>	<body bgcolor="#000000" link="#cccccc" vlink="#cccccc">		<p><embed src="indexkaleido7x7.swf" width="1000" height="618"></p>		<div align="left">			<p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><a href="indexkaleido7x7.swf"><em>&lt;&lt;&gt;&gt;</em></a></font></p>			<p><a href="http://www.merlot.org"><img src="PeerReviewedbyAwardiconA.gif" alt="" width="69" height="68" border="0"></a>			<p><font size="-1" color="#999999" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><i>iOS > <a href="https://itunes.apple.com/us/app/puffin-web-browser-free/id472937654?mt=8&ign-mpt=uo%3D4">Puffin</i></a>		    <p><font size="-1" color="#999999" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><i>Android > <a href="https://play.google.com/store/apps/details?id=com.cloudmosa.puffinFree&hl=en">Puffin</i></a>		</a></font></p>		</div>			<!-- Site Meter --><script type="text/javascript" src="http://s40.sitemeter.com/js/counter.js?site=s40headcounter"></script><noscript><a href="http://s40.sitemeter.com/stats.asp?site=s40headcounter" target="_top"><img src="http://s40.sitemeter.com/meter.asp?site=s40headcounter" alt="Site Meter" border="0"/></a></noscript><!-- Copyright (c)2009 Site Meter -->		<!-- WiredMinds eMetrics tracking with Enterprise Edition V5.4 START -->
+<script type='text/javascript' src='https://count.carrierzone.com/app/count_server/count.js'></script>
+<script type='text/javascript'><!--
+wm_custnum='af98924f6f8551a2';
+wm_page_name='index.html';
+wm_group_name='/services/webpages/j/o/johnkyrk.com/public';
+wm_campaign_key='campaign_id';
+wm_track_alt='';
+wiredminds.count();
+// -->
+</script>
+<!-- WiredMinds eMetrics tracking with Enterprise Edition V5.4 END -->
+</body></html>

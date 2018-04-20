@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>Проверка техосмотра по базе ЕАИСТО</title>
+<meta name="Keywords" content="техосмотр, диагностическая карта, база еаисто, онлайн, по вин, по гос номеру, рса" />
+<link rel="stylesheet" href="files/bootstrap.min.css">
+<script src="files/jquery-3.1.1.min.js" type="text/javascript"></script>
+<style>
+.paddingL0{
+	padding-left:0;
+}
+.top_text{
+	line-height:2.3;
+	color:#DCDCDC;
+	font-size:23px;
+	padding-left:0;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+@media (min-width:320px) and (max-width: 768px){
+.top_text{
+	line-height:1.1;
+	font-size:23px;
+}
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46000941 = new Ya.Metrika({
+                    id:46000941,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/46000941" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+function validateCheckForm(){
+if(($("#vin").val() == "")&&($("#registr").val() == "")&&($("#body").val() == "")&&($("#chassis").val() == "")&&($("#eaisto").val() == "")){
+$("#card_alert").removeClass("hidden");
+$("#card_alert").text("Введите данные в одно из полей.");
+$("#card_alert").removeClass("show");
+return false;
+}
+return true;
+}
+
+function showAlertModal(){
+	$("#myModalAlert").modal("show");
+}
+</script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<h1 style="display:none;">Проверка техосмотра по базе ЕАИСТО</h1>
+<div class="row" style="width:calc(100%-30px);height:100%;margin:0 15px;padding:20px 15px 0;">
+<div class="col-xs-12" style="background-color:#0E3047;padding-right:0;">
+	<span class="col-xs-10 col-sm-11 top_text">Единая автоматизированная информационная система</span>
+	<div class="col-xs-2 col-sm-1 text-right"><img src="images/gibdd.png" style="height:55px;" /></div>
+</div>
+<div class="col-xs-12 paddingL0">
+	<div class="col-xs-12" style="margin:20px 0 0;"><span style="line-height:2.7;">Уважаемые пользователи! Проверка легитимности диагностической карты в сервисе единой автоматизированной системы осуществляется путем скоринга данных, введенных в поле формы проверки по базе ЕАИСТО.</span></div>
+	<div class="col-xs-12" style="margin:20px 0;"><span>Необходимо заполнить одно поле формы поиска и нажать кнопку "Проверить"</span></div>
+</div>
+<div class="col-xs-12 col-md-6 paddingL0">
+		<div id="card_alert" class="alert alert-danger hidden col-xs-12"> </div>
+		<form method="POST" role="form" onsubmit="return validateCheckForm()">
+		<input type="hidden" name="action" value="checkNum">
+		<div class="form-group col-xs-12">
+			<label for="vin" class="control-label text-muted">VIN номер автомобиля:</label>
+			<div>
+				<input type="text" class="form-control input-lg" id="vin" name="vin" placeholder="VIN состоит из 17 символов. Только заглавные буквы и цифры." value="">
+			</div>
+		</div>
+		<div class="form-group col-xs-12">
+			<label for="registr" class="control-label text-muted">Регистрационный знак автомобиля:</label>
+			<div>
+				<input type="text" class="form-control input-lg" id="registr" name="registr" placeholder="Введите только заглавные русские буквы, цифры и регион." value="">
+			</div>
+		</div>
+		<div class="form-group col-xs-12">
+			<label for="body" class="control-label text-muted">Номер кузова:</label>
+			<div>
+				<input type="text" class="form-control input-lg" id="body" name="body" placeholder="Введите номер кузова." value="">
+			</div>
+		</div>
+		<div class="form-group col-xs-12">
+			<label for="chassis" class="control-label text-muted">Номер рамы:</label>
+			<div>
+				<input type="text" class="form-control input-lg" id="chassis" name="chassis" placeholder="Введите номер рамы." value="">
+			</div>
+		</div>
+		<div class="form-group col-xs-12">
+			<label for="eaisto" class="control-label text-muted">Номер Диагностической карты:</label>
+			<div>
+				<input type="text" class="form-control input-lg" id="eaisto" name="eaisto" placeholder="Введите номер ЕАИСТО (15 или 21 знак)." value="">
+			</div>
+		</div>
+		<div class="form-group col-xs-12">
+			<div class="g-recaptcha" data-sitekey="6LcssDwUAAAAAHAw_cJQHuNgmf4k4m9pdX-p1Mu5"></div>
+		</div>
+		<div class="col-xs-12"><input type="submit" class="btn btn-lg btn-info col-xs-12" value="Проверить"></div>
+	</form>
+		<div class="col-xs-12">&nbsp;</div>
+</div>
+<div class="col-xs-12 col-md-6" style="margin-top:10px;">
+</div>
+</div>
+<div id="myModalAlert" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title text-center text_black_16sb lheight">Оформление ОСАГО</h4>
+			</div>
+			<div class="modal-body">
+				<p class='text-info'>Уважаемые пользователи, если при оформлении электронного полиса ОСАГО у Вас возникнут какие-либо сложности, Вы можете отправить заявку на оформление полиса ОСАГО на email: <b>osago@eaisto.info</b></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="files/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+<a href="https://www.hscbook.com/">Moved Permanently</a>.

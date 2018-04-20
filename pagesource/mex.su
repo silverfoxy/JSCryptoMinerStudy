@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="El servicio le permite acortar la URL para publicar más en foros y blogs." />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Acortador de URL</title>
+		<script type="text/javascript" src="/zepto.min.js"></script>
+		<link href="http://fonts.googleapis.com/css?family=Philosopher:400,700&amp;subset=latin" rel="stylesheet" type="text/css">
+	</head>
+<body onload="document.getElementById('addform').url.focus()">
+<style type="text/css">
+	html, body {margin:0; padding:0; font-size:1em; font-family:'Philosopher', sans-serif; color:#111; background-color:#fff}
+	#main {margin:10% auto 0 auto; padding:0; width:90%; max-width:460px; background-color:#fff; text-align: center}
+	a {color:#111; text-decoration:underline}
+	a:hover {color:#0cf}
+	#footer {margin:10% auto 0 auto; max-width:460px; color:#777; font-size:1em; padding:15px 0 30px; border-top:1px solid #dedede ;vertical-align:middle}
+	img {border:0}
+	h1 {font-size:2.2em}
+	input {font-size: 1.6em !important; padding:5px 10px}
+	input[type="text"] {width:100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box}
+	input:-webkit-autofill {-webkit-box-shadow:0 0 0 1000px white inset !important}
+	textarea:focus, input:focus {outline:none}
+	#api-desc {margin-top:30px; display:none}
+	#right-container {float:right}
+	#right-container a {margin-left:20px}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#addform').submit(function() {
+		var url = $('#url').val();
+		if ($.trim(url).length < 4) return false;
+		$.get('http://mex.su/api?url='+encodeURIComponent(url)+'&format=text', function(data){
+			if (data.indexOf('http://') == -1){
+				alert('Invalid URL format');
+				return false;
+			}
+			$('#result-container').prepend('<p>URL corto:<br /><input type="text" readonly="readonly" value="'+data+'" onfocus="this.select();" onclick="this.select();" /></p>');
+			$('#url').val('');
+		});
+		return false;
+	});
+	$('#api-toggle').click(function() {
+		$('#api-desc').toggle();
+		return false;
+	});
+});
+</script>
+
+<div id="main">
+	<h1>Acortador de URL</h1>
+	<form id="addform" action="/api" method="get">
+		URL:<br /><input id="url" type="text" name="url" value="" />
+		<input type="hidden" name="format" value="html" /><br /><br />
+		<input type="submit" value=" Acortar " />
+	</form>
+	<div id="result-container"></div>
+	<div id="footer">
+		<div>
+			<span style="float:left"><a id="api-toggle" href="#">API</a></span>
+			<span id="right-container"><a href="http://crearunforo.es/" title="Crear un foro gratis">Crear un foro</a></span>
+			<span style="display:none"><!--LiveInternet counter--><script type="text/javascript">document.write("<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t26.1;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) + ";" + Math.random() + "' border=0 width=88 height=15 alt='' title='LiveInternet'><\/a>")</script><!--/LiveInternet--></span>
+		</div>
+		<div id="api-desc"><span>Acortar su URL: http://mex.su/api?url=URL</span></div>
+	</div>
+</div>
+
+</body>
+</html>

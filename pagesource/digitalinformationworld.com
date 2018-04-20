@@ -1,0 +1,2760 @@
+<!DOCTYPE html>
+<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+ 
+<head>
+
+
+<script src='//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js' type='text/javascript'></script><script type='text/javascript'>window.newShareCountsAuto="smart";</script>
+<meta content='B14888599EF3BCAE601EB9A7C2DB24B3' name='msvalidate.01'/>
+<script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8682825476341296",
+          enable_page_level_ads: true
+     });
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TN87DS');</script>
+<!-- End Google Tag Manager -->
+<meta content='summary_large_image' name='twitter:card'/>
+<meta content='@digitaliworld' name='twitter:site'/>
+<meta content='@irfanahmad1989' name='twitter:creator'/>
+<meta content='https://www.digitalinformationworld.com/' name='twitter:domain'/>
+<meta content='https://www.digitalinformationworld.com/' name='twitter:url'/>
+<meta content='Digital Information World' name='twitter:title'/>
+<meta content='Image URL' name='twitter:image:src'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' name='twitter:description'/>
+<meta content='https://www.digitalinformationworld.com/' name='twitter:url'/>
+<meta content='537B7xacp-fLpLTGsZobtpOaCZdm2TXp11z-6LgLztE' name='google-site-verification'/>
+<meta content='tiv8Iq0WSGfpfBJSP7VhTkNrJ5M' name='alexaVerifyID'/>
+<!-- BEGIN Open Graph tags -->
+<meta content='Digital Information World' name='keywords'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' name='description' property='og:description'/>
+<meta content='en_GB' property='og:locale'/>
+<!-- other pages -->
+<meta content='Digital Information World' property='og:title'/>
+<meta content='https://www.digitalinformationworld.com/' property='og:url'/>
+<meta content='https://1.bp.blogspot.com/-IViejHjMfsM/VH2ap_sZUdI/AAAAAAAAsd0/_diaoaqwXcY/s0/Digital-info-world-social-media-cover-smalljpg.jpg' property='og:image'/>
+<!-- END Open Graph tags -->
+<meta content='a706a7df47e9fd931537c894c6837096' name='p:domain_verify'/>
+<!-- set theme color for mobile browsers -->
+<meta content='#111111' name='theme-color'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title>Digital Information World</title>
+<!-- all head content -->
+<!-- <b:include data='blog' name='all-head-content'/> -->
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://www.digitalinformationworld.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://www.digitalinformationworld.com/' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Digital Information World - Atom" href="https://www.digitalinformationworld.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Digital Information World - RSS" href="https://www.digitalinformationworld.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Digital Information World - Atom" href="https://www.blogger.com/feeds/5050352549609773373/posts/default" />
+<link href='https://www.blogger.com/openid-server.g' rel='openid.server'/>
+<link href='https://www.digitalinformationworld.com/' rel='openid.delegate'/>
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/3409755933-ieretrofit.js"></script> <![endif]-->
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<!-- all head content -->
+<style id='normalizeCSS' type='text/css'>
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+/*!
+ * Bootstrap v3.3.7 (https://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}@media (min-width: 768px){.container{width:750px}}@media (min-width: 992px){.container{width:970px}}@media (min-width: 1200px){.container{width:1170px}}.container-fluid{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}.row{margin-left:-15px;margin-right:-15px}.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12{position:relative;min-height:1px;padding-left:15px;padding-right:15px}.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{float:left}.col-xs-12{width:100%}.col-xs-11{width:91.66666667%}.col-xs-10{width:83.33333333%}.col-xs-9{width:75%}.col-xs-8{width:66.66666667%}.col-xs-7{width:58.33333333%}.col-xs-6{width:50%}.col-xs-5{width:41.66666667%}.col-xs-4{width:33.33333333%}.col-xs-3{width:25%}.col-xs-2{width:16.66666667%}.col-xs-1{width:8.33333333%}.col-xs-pull-12{right:100%}.col-xs-pull-11{right:91.66666667%}.col-xs-pull-10{right:83.33333333%}.col-xs-pull-9{right:75%}.col-xs-pull-8{right:66.66666667%}.col-xs-pull-7{right:58.33333333%}.col-xs-pull-6{right:50%}.col-xs-pull-5{right:41.66666667%}.col-xs-pull-4{right:33.33333333%}.col-xs-pull-3{right:25%}.col-xs-pull-2{right:16.66666667%}.col-xs-pull-1{right:8.33333333%}.col-xs-pull-0{right:auto}.col-xs-push-12{left:100%}.col-xs-push-11{left:91.66666667%}.col-xs-push-10{left:83.33333333%}.col-xs-push-9{left:75%}.col-xs-push-8{left:66.66666667%}.col-xs-push-7{left:58.33333333%}.col-xs-push-6{left:50%}.col-xs-push-5{left:41.66666667%}.col-xs-push-4{left:33.33333333%}.col-xs-push-3{left:25%}.col-xs-push-2{left:16.66666667%}.col-xs-push-1{left:8.33333333%}.col-xs-push-0{left:auto}.col-xs-offset-12{margin-left:100%}.col-xs-offset-11{margin-left:91.66666667%}.col-xs-offset-10{margin-left:83.33333333%}.col-xs-offset-9{margin-left:75%}.col-xs-offset-8{margin-left:66.66666667%}.col-xs-offset-7{margin-left:58.33333333%}.col-xs-offset-6{margin-left:50%}.col-xs-offset-5{margin-left:41.66666667%}.col-xs-offset-4{margin-left:33.33333333%}.col-xs-offset-3{margin-left:25%}.col-xs-offset-2{margin-left:16.66666667%}.col-xs-offset-1{margin-left:8.33333333%}.col-xs-offset-0{margin-left:0}@media (min-width: 768px){.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{float:left}.col-sm-12{width:100%}.col-sm-11{width:91.66666667%}.col-sm-10{width:83.33333333%}.col-sm-9{width:75%}.col-sm-8{width:66.66666667%}.col-sm-7{width:58.33333333%}.col-sm-6{width:50%}.col-sm-5{width:41.66666667%}.col-sm-4{width:33.33333333%}.col-sm-3{width:25%}.col-sm-2{width:16.66666667%}.col-sm-1{width:8.33333333%}.col-sm-pull-12{right:100%}.col-sm-pull-11{right:91.66666667%}.col-sm-pull-10{right:83.33333333%}.col-sm-pull-9{right:75%}.col-sm-pull-8{right:66.66666667%}.col-sm-pull-7{right:58.33333333%}.col-sm-pull-6{right:50%}.col-sm-pull-5{right:41.66666667%}.col-sm-pull-4{right:33.33333333%}.col-sm-pull-3{right:25%}.col-sm-pull-2{right:16.66666667%}.col-sm-pull-1{right:8.33333333%}.col-sm-pull-0{right:auto}.col-sm-push-12{left:100%}.col-sm-push-11{left:91.66666667%}.col-sm-push-10{left:83.33333333%}.col-sm-push-9{left:75%}.col-sm-push-8{left:66.66666667%}.col-sm-push-7{left:58.33333333%}.col-sm-push-6{left:50%}.col-sm-push-5{left:41.66666667%}.col-sm-push-4{left:33.33333333%}.col-sm-push-3{left:25%}.col-sm-push-2{left:16.66666667%}.col-sm-push-1{left:8.33333333%}.col-sm-push-0{left:auto}.col-sm-offset-12{margin-left:100%}.col-sm-offset-11{margin-left:91.66666667%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-0{margin-left:0}}@media (min-width: 992px){.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{float:left}.col-md-12{width:100%}.col-md-11{width:91.66666667%}.col-md-10{width:83.33333333%}.col-md-9{width:75%}.col-md-8{width:66.66666667%}.col-md-7{width:58.33333333%}.col-md-6{width:50%}.col-md-5{width:41.66666667%}.col-md-4{width:33.33333333%}.col-md-3{width:25%}.col-md-2{width:16.66666667%}.col-md-1{width:8.33333333%}.col-md-pull-12{right:100%}.col-md-pull-11{right:91.66666667%}.col-md-pull-10{right:83.33333333%}.col-md-pull-9{right:75%}.col-md-pull-8{right:66.66666667%}.col-md-pull-7{right:58.33333333%}.col-md-pull-6{right:50%}.col-md-pull-5{right:41.66666667%}.col-md-pull-4{right:33.33333333%}.col-md-pull-3{right:25%}.col-md-pull-2{right:16.66666667%}.col-md-pull-1{right:8.33333333%}.col-md-pull-0{right:auto}.col-md-push-12{left:100%}.col-md-push-11{left:91.66666667%}.col-md-push-10{left:83.33333333%}.col-md-push-9{left:75%}.col-md-push-8{left:66.66666667%}.col-md-push-7{left:58.33333333%}.col-md-push-6{left:50%}.col-md-push-5{left:41.66666667%}.col-md-push-4{left:33.33333333%}.col-md-push-3{left:25%}.col-md-push-2{left:16.66666667%}.col-md-push-1{left:8.33333333%}.col-md-push-0{left:auto}.col-md-offset-12{margin-left:100%}.col-md-offset-11{margin-left:91.66666667%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-9{margin-left:75%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-6{margin-left:50%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-3{margin-left:25%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-0{margin-left:0}}@media (min-width: 1200px){.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{float:left}.col-lg-12{width:100%}.col-lg-11{width:91.66666667%}.col-lg-10{width:83.33333333%}.col-lg-9{width:75%}.col-lg-8{width:66.66666667%}.col-lg-7{width:58.33333333%}.col-lg-6{width:50%}.col-lg-5{width:41.66666667%}.col-lg-4{width:33.33333333%}.col-lg-3{width:25%}.col-lg-2{width:16.66666667%}.col-lg-1{width:8.33333333%}.col-lg-pull-12{right:100%}.col-lg-pull-11{right:91.66666667%}.col-lg-pull-10{right:83.33333333%}.col-lg-pull-9{right:75%}.col-lg-pull-8{right:66.66666667%}.col-lg-pull-7{right:58.33333333%}.col-lg-pull-6{right:50%}.col-lg-pull-5{right:41.66666667%}.col-lg-pull-4{right:33.33333333%}.col-lg-pull-3{right:25%}.col-lg-pull-2{right:16.66666667%}.col-lg-pull-1{right:8.33333333%}.col-lg-pull-0{right:auto}.col-lg-push-12{left:100%}.col-lg-push-11{left:91.66666667%}.col-lg-push-10{left:83.33333333%}.col-lg-push-9{left:75%}.col-lg-push-8{left:66.66666667%}.col-lg-push-7{left:58.33333333%}.col-lg-push-6{left:50%}.col-lg-push-5{left:41.66666667%}.col-lg-push-4{left:33.33333333%}.col-lg-push-3{left:25%}.col-lg-push-2{left:16.66666667%}.col-lg-push-1{left:8.33333333%}.col-lg-push-0{left:auto}.col-lg-offset-12{margin-left:100%}.col-lg-offset-11{margin-left:91.66666667%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-0{margin-left:0}}.clearfix:before,.clearfix:after,.container:before,.container:after,.container-fluid:before,.container-fluid:after,.row:before,.row:after{content:" ";display:table}.clearfix:after,.container:after,.container-fluid:after,.row:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right!important}.pull-left{float:left!important}.hide{display:none!important}.show{display:block!important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none!important}.affix{position:fixed}
+</style>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#ffffff"/>
+<Group description="Page" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.background.color" description="Background Color" type="color" default="#000000"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#ffffff"/>
+</Group>
+<Group description="AtPage" selector="h1">
+<Variable name="hatt.tyuu" description="Font" type="font"
+default="normal normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.background.colors" description="Background Color" type="color" default="#000000"/>
+<Variable name="body.text.colors" description="Text Color" type="color" default="#ffffff"/>
+</Group>
+<Group description="Links" selector=".main-inner">
+<Variable name="link.color" description="Link Color" type="color" default="#888888"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#444444"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#cccccc"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Title Font" type="font"
+default="normal bold 40px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#333333" />
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="description.text.color" description="Text Color" type="color"
+default="#333333" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#333333"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#333333"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#141414"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#444444"/>
+<Variable name="tabs.border.color" description="Border Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Date Header" selector=".main-inner .widget h2.date-header, .main-inner .widget h2.date-header span">
+<Variable name="date.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="date.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="date.border.color" description="Border Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, h4, h3.post-title a">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="post.title.text.color" description="Text Color" type="color" default="#333333"/>
+</Group>
+<Group description="Post Background" selector=".post">
+<Variable name="post.background.color" description="Background Color" type="color" default="#ffffff" />
+<Variable name="post.border.color" description="Border Color" type="color" default="#eeeeee" />
+<Variable name="post.border.bevel.color" description="Bevel Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadget Title" selector="h2">
+<Variable name="widget.title.font" description="Font" type="font"
+default="normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Text Color" type="color" default="#333333"/>
+</Group>
+<Group description="Gadget Text" selector=".sidebar .widget">
+<Variable name="widget.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.text.color" description="Text Color" type="color" default="#333333"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#666666"/>
+</Group>
+<Group description="Gadget Links" selector=".sidebar .widget">
+<Variable name="widget.link.color" description="Link Color" type="color" default="#3778cd"/>
+<Variable name="widget.link.visited.color" description="Visited Color" type="color" default="#4d469c"/>
+<Variable name="widget.link.hover.color" description="Hover Color" type="color" default="#3778cd"/>
+</Group>
+<Group description="Gadget Background" selector=".sidebar .widget">
+<Variable name="widget.background.color" description="Background Color" type="color" default="#141414"/>
+<Variable name="widget.border.color" description="Border Color" type="color" default="#222222"/>
+<Variable name="widget.border.bevel.color" description="Bevel Color" type="color" default="#000000"/>
+</Group>
+<Group description="Sidebar Background" selector=".column-left-inner .column-right-inner">
+<Variable name="widget.outer.background.color" description="Background Color" type="color" default="transparent" />
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="transparent"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="transparent"/>
+</Group>
+<Group description="Feed" selector=".blog-feeds">
+<Variable name="feed.text.color" description="Text Color" type="color" default="#333333"/>
+</Group>
+<Group description="Feed Links" selector=".blog-feeds">
+<Variable name="feed.link.color" description="Link Color" type="color" default="#3778cd"/>
+<Variable name="feed.link.visited.color" description="Visited Color" type="color" default="#4d469c"/>
+<Variable name="feed.link.hover.color" description="Hover Color" type="color" default="#3778cd"/>
+</Group>
+<Group description="Pager" selector=".blog-pager">
+<Variable name="pager.background.color" description="Background Color" type="color" default="#ffffff" />
+</Group>
+<Group description="Footer" selector=".footer-outer">
+<Variable name="footer.background.color" description="Background Color" type="color" default="#ffffff" />
+<Variable name="footer.text.color" description="Text Color" type="color" default="#333333" />
+</Group>
+<Variable name="title.shadow.spread" description="Title Shadow" type="length" default="-1px"/>
+<Variable name="body.background" description="Body Background" type="background"
+color="#f8f8f8"
+default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="none"/>
+<Variable name="body.background.size" description="Body Background Size" type="string" default="auto"/>
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="none"/>
+<Variable name="header.background.gradient" description="Header Background Gradient" type="url" default="none" />
+<Variable name="header.padding.top" description="Header Top Padding" type="length" default="22px" />
+<Variable name="header.margin.top" description="Header Top Margin" type="length" default="0" />
+<Variable name="header.margin.bottom" description="Header Bottom Margin" type="length" default="0" />
+<Variable name="widget.padding.top" description="Widget Padding Top" type="length" default="8px" />
+<Variable name="widget.padding.side" description="Widget Padding Side" type="length" default="15px" />
+<Variable name="widget.outer.margin.top" description="Widget Top Margin" type="length" default="0" />
+<Variable name="widget.outer.background.gradient" description="Gradient" type="url" default="none" />
+<Variable name="widget.border.radius" description="Gadget Border Radius" type="length" default="0" />
+<Variable name="outer.shadow.spread" description="Outer Shadow Size" type="length" default="0" />
+<Variable name="date.header.border.radius.top" description="Date Header Border Radius Top" type="length" default="0" />
+<Variable name="date.header.position" description="Date Header Position" type="length" default="15px" />
+<Variable name="date.space" description="Date Space" type="length" default="30px" />
+<Variable name="date.position" description="Date Float" type="string" default="static" />
+<Variable name="date.padding.bottom" description="Date Padding Bottom" type="length" default="0" />
+<Variable name="date.border.size" description="Date Border Size" type="length" default="0" />
+<Variable name="date.background" description="Date Background" type="background" color="transparent"
+default="$(color) none no-repeat scroll top left" />
+<Variable name="date.first.border.radius.top" description="Date First top radius" type="length" default="0" />
+<Variable name="date.last.space.bottom" description="Date Last Space Bottom" type="length"
+default="20px" />
+<Variable name="date.last.border.radius.bottom" description="Date Last bottom radius" type="length" default="0" />
+<Variable name="post.first.padding.top" description="First Post Padding Top" type="length" default="0" />
+<Variable name="image.shadow.spread" description="Image Shadow Size" type="length" default="0"/>
+<Variable name="image.border.radius" description="Image Border Radius" type="length" default="0"/>
+<Variable name="separator.outdent" description="Separator Outdent" type="length" default="15px" />
+<Variable name="title.separator.border.size" description="Widget Title Border Size" type="length" default="1px" />
+<Variable name="list.separator.border.size" description="List Separator Border Size" type="length" default="1px" />
+<Variable name="shadow.spread" description="Shadow Size" type="length" default="0"/>
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+<Variable name="date.side" description="Side where date header is placed" type="string" default="right"/>
+<Variable name="pager.border.radius.top" description="Pager Border Top Radius" type="length" default="0" />
+<Variable name="pager.space.top" description="Pager Top Space" type="length" default="1em" />
+<Variable name="footer.background.gradient" description="Background Gradient" type="url" default="none" />
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string"
+default="auto"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+*/
+.inline-ad:last-child,.main-inner .widget #ArchiveList ul.flat li:last-child,.main-inner .widget ul li:last-child,.post-outer:last-child{border-bottom:none}body{font:normal normal 16px Arial, Tahoma, Helvetica, FreeSans, sans-serif;color:#333333;background:0 0}html body .content-outer{min-width:0;max-width:100%;width:100%}.body-fauxcolumn-outer .cap-top{position:absolute;z-index:1;height:276px;width:100%;background:top left repeat-x}.content-inner{padding:0}.main-inner{padding-top:30px}.main-inner .column-center-inner,.main-inner .column-left-inner,.main-inner .column-right-inner{padding:0 5px}#layout .main-inner .column-center-inner{margin-top:0}.main-inner .section{padding:0}.main-inner .column-left-outer,.main-inner .column-right-outer{margin-top:0}#layout .main-inner .column-left-inner,#layout .main-inner .column-left-outer,#layout .main-inner .column-right-inner,#layout .main-inner .column-right-outer{margin-top:0}.main-inner .column-left-inner,.main-inner .column-right-inner{background:0 0}.main-inner .widget #ArchiveList ul.flat,.main-inner .widget ul{margin:-8px -15px 0;padding:0;list-style:none}.main-inner .widget #ArchiveList{margin:-8px 0 0}.main-inner .widget #ArchiveList ul li{padding-top:.25em;padding-bottom:.25em}.main-inner .widget #ArchiveList ul.flat li:first-child,.main-inner .widget ul li:first-child{border-top:none}.main-inner .widget .post-body ul{padding:0 2.5em;margin:.5em 0;list-style:disc}.main-inner .widget .post-body ul li{padding:.25em 0;margin-bottom:.25em;color:#333333;border:none}.main-inner .section:last-child .Blog:last-child,body .main-inner .Blog{padding:0;margin-bottom:1em}.footer-inner .widget ul{padding:0;list-style:none}.widget .zippy{color:#666666}body .main-inner .Blog{background-color:transparent;border:none}.main-inner .widget h2.date-header{margin:0 -15px 1px;padding:0 0 0;font:normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;color:#444444;background:0 0;position:static;bottom:100%;right:15px}h3.post-title,h3.post-title a,h4{color:#333333}.main-inner .widget h2.date-header span{font:normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;display:block;padding:.5em 15px;border-left:0 solid #eeeeee;border-right:0 solid #eeeeee}.date-outer:first-child{margin-top:0}.date-outer:last-child{margin-bottom:20px}.date-posts{margin:0 -15px;padding:0 15px;clear:both}.inline-ad,.post-outer{border-top:1px solid #eeeeee;margin:0 -15px;padding:15px 15px}.post-outer{padding-bottom:10px}.post-outer:first-child{padding-top:0;border-top:none}.post-body img{}h3.post-title,h4{font:normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif}h3.post-title a:hover{color:#3778cd;text-decoration:underline}.post-header{margin:0 0 1em}.post-body{position:relative;line-height:1.4}.post-outer h2{color:#333333}.post-footer{margin:1.5em 0 0}#blog-pager{padding:15px;margin-top:1em}.blog-feeds,.post-feeds{display:none;margin:1em 0;text-align:center;color:#333333}.blog-feeds a,.post-feeds a{color:#3778cd}.blog-feeds a:visited,.post-feeds a:visited{color:#4d469c}.blog-feeds a:hover,.post-feeds a:hover{color:#3778cd}.post-outer .comments{margin-top:2em}.comments .comments-content .icon.blog-author{background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==)}.comments .comments-content .loadmore a{border-top:1px solid #999999;border-bottom:1px solid #999999}.comments .continue{border-top:2px solid #999999}body.mobile{background-size:auto}.mobile .body-fauxcolumn-outer{background:0 0}.mobile .main-inner .widget{padding:0 0 15px}.mobile .footer-inner .widget h2+div,.mobile .main-inner .widget h2+div{border-top:none;padding-top:0}.mobile .footer-inner .widget h2{padding:.5em 0;border-bottom:none}.mobile .main-inner .widget #ArchiveList ul.flat,.mobile .main-inner .widget ul{margin:0 -15px}.mobile .main-inner .widget h2.date-header{right:0}.mobile .date-header span{padding:.4em 0}.mobile .date-outer:first-child{margin-bottom:0;border:1px solid;-moz-border-radius-topleft:0;-moz-border-radius-topright:0;-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;-goog-ms-border-top-left-radius:0;-goog-ms-border-top-right-radius:0;border-top-left-radius:0;border-top-right-radius:0}.mobile .date-outer{border-color:#eeeeee;border-width:0 1px 1px}.mobile .date-outer:last-child{margin-bottom:0}.mobile .main-inner{padding:0}.mobile .header-inner .section{margin:0}.mobile .inline-ad,.mobile .post-outer{padding:5px 0}.mobile .tabs-inner .section{margin:0 10px}.mobile .main-inner .widget h2{margin:0;padding:0}.mobile .main-inner .widget h2.date-header span{padding:0}.mobile .main-inner .widget .widget-content{margin:0;padding:7px 0 0}.mobile #blog-pager{border:1px solid transparent;background:0 0}.mobile .main-inner .column-left-inner,.mobile .main-inner .column-right-inner{background:0 0;-moz-box-shadow:none;-webkit-box-shadow:none;-goog-ms-box-shadow:none;box-shadow:none}.mobile .date-posts{margin:0;padding:0}.mobile .footer-fauxborder-left{margin:0;border-top:inherit}.mobile .main-inner .section:last-child .Blog:last-child{margin-bottom:0}.mobile-index-contents{color:#333333}.mobile .mobile-link-button{background:0 0}.mobile-link-button a:link,.mobile-link-button a:visited{color:#ffffff}.mobile .tabs-inner .PageList .widget-content{background:0 0;border-top:1px solid;border-color:#999999;color:#333333}.mobile .tabs-inner .PageList .widget-content .pagelist-arrow{border-left:1px solid #999999}
+div#ContactForm1 { display: none !important; }
+google_pedestal_container {
+display: none;
+}
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+.container-inner {
+max-width: 1120px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1120px;
+max-width: 1120px;
+_width: 1120px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 400px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 400px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("400px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 400px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 400px;
+margin-right: -400px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+body#layout #Adsense_Ad_Top {
+background-color: #191919;
+color: #fff;
+}
+body#layout #Adsense_Ad_Top a:visited {
+color: #e6bf4d;
+}
+body#layout #Adsense_Ad_Top .add_widget a {
+color: #e6bf4d;
+}
+--></style>
+<noscript id='deferred-styles-0'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:700' rel='stylesheet'/>
+<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
+</noscript>
+<noscript id='deferred-styles'>
+<link href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' rel='stylesheet'/>
+<link href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css' rel='stylesheet' type='text/css'/>
+</noscript>
+<noscript id='deferred-styles-3'>
+<link href='https://www.blogger.com/static/v1/widgets/304508860-css_bundle_v2.css' rel='stylesheet'/>
+</noscript>
+<script>
+//<![CDATA[
+
+      var normalizeCSS = document.getElementById("normalizeCSS");
+
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement);
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+
+
+
+     var loadDeferredStyles2 = function() {
+        var addStylesNode2 = document.getElementById("deferred-styles-0");
+        var replacement2 = document.createElement("div");
+        replacement2.innerHTML = addStylesNode2.textContent;
+        document.body.appendChild(replacement2);
+        addStylesNode2.parentElement.removeChild(addStylesNode2);
+      };
+
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles2, 0); });
+      else window.addEventListener('load', loadDeferredStyles2);
+
+ 
+     
+     var loadDeferredStyles3 = function() {
+        var addStylesNode3 = document.getElementById("deferred-styles-3");
+        var replacement3 = document.createElement("link");
+            replacement3.rel = 'stylesheet';
+            replacement3.href = 'https://www.blogger.com/static/v1/widgets/304508860-css_bundle_v2.css';
+
+        //replacement3.innerHTML = addStylesNode3.textContent;
+        document.head.insertBefore(replacement3, normalizeCSS);
+      };
+
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles3, 0); });
+      else window.addEventListener('load', loadDeferredStyles3);
+//]]>
+</script>
+<style>
+
+.label-feature-post .loader-box,
+.post-header--hero .loader-box {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212121;
+    background-image: -webkit-linear-gradient(-45deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    z-index: 1;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+    
+}
+
+#label_feature_1 .loader-box  { background-color: #111; animation-delay: 0; }
+#label_feature_2 .loader-box  { background-color: #111; animation-delay: 0.2s;}
+#label_feature_3 .loader-box  { background-color: #111; animation-delay: 0.4s;}
+
+#label_feature_1 .loader-box,
+#label_feature_2 .loader-box,
+#label_feature_3 .loader-box  { 
+    /*background-color: #222;*/ 
+}
+
+
+.label-feature-post .loader-box  svg, 
+.post-header--hero .loader-box svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(0.5);
+}
+
+.label-feature-post .loader-box svg circle, 
+.post-header--hero .loader-box svg circle {
+  fill: #ffffff;
+}
+
+@keyframes hideLoader{
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0.2;
+  }
+  99% {
+    opacity: 0;
+    width: 100%; 
+  }
+
+  100% {
+    opacity: 0;
+    width: 0; 
+  }
+}
+</style>
+<style type='text/css'>
+/*
+CSS Stylesheet for Blogger Template
+
+ #Designed by    : Deepak Kamat
+
+@ Reuse of this file with permission is prohibited. 
+@ For questions please contact either the author or the publisher at the given contact details
+
+*/
+
+
+/******************************
+main styles 
+******************************/
+html,body{font:16px/1.4 normal normal Helvetica,Arial,sans-serif;font-family:"Open Sans",Arial,sans-serif;color:#333;background:#f7f7f7}
+*,:after,:before{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+.clear,.clearfix,.cl{display:block;clear:both}
+.pull-left{float:left}
+.pull-right{float:right}
+.container-inner{max-width:1170px;min-width:320px;margin:0 auto}
+a,a:visited{color:#f93333;text-decoration:none}
+a:focus,a:hover{color:#ff8f00;text-decoration:underline}
+#navbar{display:none}
+.main-inner .column-center-inner,.main-inner .column-left-inner,.main-inner .column-right-inner{padding:0}
+.content-outer,.content-fauxcolumn-outer,.region-inner{min-width:320px}
+body .main-inner .widget ul,body .main-inner .widget #ArchiveList ul.flat{margin:0}
+.widget > h2,.widget > .title{position:relative;font-size:1em;font-weight:700;margin:.5em 0;padding:.5em 0;margin-bottom:1em;text-transform:uppercase}
+.main-header{background:#1f1f1f;color:#fff}
+#headerMenu,#headerLogo{display:inline-block;vertical-align:middle}
+#header{float:left}
+#Header1{margin:0;padding:0;margin-right:1em;line-height:72px}
+#Header1 .title{display:block;margin:0;padding:0;font-size:1.25em;font-weight:700}
+#Header1 .title,#Header1 .title a{color:#fff;text-decoration:none;font-family:"Open Sans",Arial,sans-serif}
+#Header1_headerimg{display:block;max-height:52px;width:auto;vertical-align:middle;margin:8px 0}
+#Header1 .description-container{display:none}
+#headerMenu{text-align:right;font-size:14px}
+#headerMenu .PageList.widget{margin:12px 0;vertical-align:middle}
+#headerMenu .PageList.widget h2{display:none}
+#headerMenu .PageList.widget .widget-content ul{margin:0;padding:0;list-style-type:none}
+#headerMenu .PageList.widget .widget-content ul li{display:inline-block;padding:0;margin:0;margin-right:10px;line-height:1.8}
+#headerMenu .PageList.widget .widget-content ul li a{display:inline-block;padding:10px;color:#fff;font-weight:700;text-transform:uppercase;text-decoration:none;transition:.2s all ease-in-out}
+#headerMenu .PageList.widget .widget-content ul li:hover a{opacity:.8}
+.mainMenuIconWrap{font-size:20px;display:none;text-align:right;vertical-align:middle;float:none;line-height:52px}
+.mainMenuIconWrap a{color:#fff;display:inline-block;padding:10px 5px;margin-right:10px;transition:.2s all ease-in-out}
+.mainMenuIconWrap a:hover{opacity:.8}
+@media screen and (max-width: 991px) {
+.main-header{max-height:initial}
+.mainMenuIconWrap{display:inline-block}
+#headerMenu{display:none;width:100%;float:none;text-align:center}
+#headerMenu .PageList.widget{margin:10px 0}
+#headerMenu .PageList.widget .widget-content ul li,#headerMenu .PageList.widget .widget-content ul li a{display:block}
+#headerMenu .PageList.widget .widget-content ul li a:focus{background-color:#fff;color:#222}
+#headerMenu .PageList.widget .widget-content ul li{border-top:1px solid rgba(255,255,255,0.1)}
+#headerMenu .PageList.widget .widget-content ul li:first-of-type{border-top:1px solid rgba(255,255,255,0.0)}
+#headerMenu .PageList.widget .widget-content ul li.search-icon{display:none}
+}
+#main{margin-right:30px}
+.message-box{font-weight:300;text-align:center;color:#999;margin-bottom:2em;padding:1em 20px;font-size:1.2em;background-color:#fff;box-shadow:0 2px 2px rgba(0,0,0,0.1)}
+.message-box a{display:inline-block;font-weight:400;color:#ff4141;text-decoration:none}
+.message-box a:hover{color:#191919}
+@media screen and (max-width: 640px) {
+.message-box{margin:1em -20px;box-shadow:none;border:1px solid #eee}
+}
+.main-ad{background-color:#efefef;box-shadow:inset 0 6px 10px -5px rgba(0,0,0,0.2),0 3px 5px rgba(0,0,0,0.0);border-bottom:1px solid rgba(0,0,0,0.1)}
+.main-ad .container-inner{text-align:center;padding:1.5em 0}
+.main-ad .container-inner img{max-width: 100%;height: auto;}
+.col-sm-6.label-feature-cols{padding:0}
+.label-feature-post{position:relative;background-color:#000;padding:20px;overflow:hidden;box-shadow:inset 0 10px 20px rgba(0,0,0,0.7)}
+.label-feature-post h1{margin:0}
+.label-feature-post.full-size{height:500px}
+.label-feature-post.half-size{display:block;height:250px}
+.label-post-content .content{position:absolute;bottom:0;left:0;right:0;padding:1em 40px;padding-top:10%;padding-bottom:20px;background-color:#000;background:-moz-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.76) 82%,rgba(0,0,0,0.79) 97%,rgba(0,0,0,0.8) 100%);background:-webkit-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.76) 82%,rgba(0,0,0,0.79) 97%,rgba(0,0,0,0.8) 100%);background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0.76) 82%,rgba(0,0,0,0.79) 97%,rgba(0,0,0,0.8) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#cc000000',GradientType=0)}
+@media screen and (max-width: 769px) {
+.label-feature-post.half-size,.label-feature-post.full-size{height:250px}
+.label-post-content .content{padding:1em 20px}
+}
+.label-post-content .first-image-bg{position:absolute;top:0;left:0;right:0;bottom:0;background-size:cover;background-position:center center;-webkit-filter:blur(4px);box-shadow:inset 0 8px 10px 0 rgba(0,0,0,0.5);transform:scale(1);transition:.4s all cubic-bezier(0.11,0.9,0.18,0.84)}
+.label-post-content:hover .first-image-bg{opacity:.7;transform:scale(1.56);-webkit-filter:blur(10px)}
+.label-post-content:active .first-image-bg{opacity:.7;transform:scale(1.56);-webkit-filter:blur(0px)}
+.label-post-content .primary-label{color:#fff;background-color:#000;display:inline-block;padding:.25em 1em;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:4px;font-size:.8em;color:#ccc;margin-bottom:10px}
+.label-post-content .title-post h3{font-weight:400;font-size:1.6em;margin:.25em 0;padding-bottom:.5em}
+.label-post-content .title-post h3 a{display:block;color:#fff;opacity:.8;text-decoration:none;transition:.1s all ease-in-out}
+.label-post-content .title-post h3:hover a{opacity:1}
+.ABNotice{position:absolute;background:rgba(235,235,235,0.87);bottom:0;top:0;right:0;z-index:1;left:0;border-radius:10px;padding:20px;margin:-0 -20px;box-shadow:0 2px 10px rgba(0,0,0,0.0);opacity:1;background:-moz-linear-gradient(top,rgba(255,255,255,0.48) 0%,rgba(255,255,255,0.9) 13%,rgba(255,255,255,0.94) 25%,rgba(255,255,255,0.92) 35%,rgba(255,255,255,1) 44%,rgba(255,255,255,0.9) 57%,rgba(255,255,255,1) 78%,rgba(255,255,255,0.9) 100%);background:-webkit-linear-gradient(top,rgba(255,255,255,0.48) 0%,rgba(255,255,255,0.9) 13%,rgba(255,255,255,0.94) 25%,rgba(255,255,255,0.92) 35%,rgba(255,255,255,1) 44%,rgba(255,255,255,0.9) 57%,rgba(255,255,255,1) 78%,rgba(255,255,255,0.9) 100%);background:linear-gradient(to bottom,rgba(255,255,255,0.48) 0%,rgba(255,255,255,0.9) 13%,rgba(255,255,255,0.94) 25%,rgba(255,255,255,0.92) 35%,rgba(255,255,255,1) 44%,rgba(255,255,255,0.9) 57%,rgba(255,255,255,1) 78%,rgba(255,255,255,0.9) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7affffff',endColorstr='#e6ffffff',GradientType=0)}
+.ABNotice .notice{margin-top:9em;padding:20px;text-align:center;font-size:1.4em;text-shadow:2px 2px 1px rgba(0,0,0,0.1);background:rgba(255,255,255,0.93);border:1px solid #ccc}
+.ABNotice .notice h3{color:#F44336;font-weight:700;font-size:1.45em}
+.post-outer,.inline-ad{border-top:none}
+.adsense-after-break{text-align:center;margin:1em 0;padding:.5em 0;font-size:.9em;border:0 solid #e6e6e6}
+@media screen and (max-width: 640px) {
+.adsense-after-break{margin:1em -20px}
+}
+.post-summary--type{padding-bottom:1em;margin-bottom:1em;border-bottom:2px solid #dcdcdc}
+.post-summary--type .thumbImage{position:relative;overflow:hidden;cursor:pointer;margin-bottom:1em;box-shadow:0 5px 12px rgba(0,0,0,0.2);max-height:200px;transition:.2s all ease-in-out}
+.post-summary--type .thumbImage:hover{box-shadow:0 5px 8px rgba(0,0,0,0.4)}
+.post-summary--type .thumbImage img{display:block;max-width:100%;min-width:285px;min-height:200px;height:auto;text-align:center;margin:0 auto;transform:scale(1);transition:.2s all ease-in-out}
+.post-summary--type .thumbImage:hover img{transform:scale(1.2)}
+.post-summary--type .thumbImage .img-thumb-link{font-size:2.5em;position:absolute;background-color:rgba(16,16,16,0.46);color:rgba(255,255,255,0.8);top:0;bottom:0;right:0;left:0;margin:0 auto;margin-top:0;z-index:1;width:100%;text-align:center;line-height:200px;opacity:0;transform:scale(0.6);transition:.15s all ease-in-out}
+.post-summary--type .thumbImage:hover .img-thumb-link{opacity:1;transform:scale(1)}
+.post-summary--type .post-data-meta{margin:1em 0;font-size:.9em;text-transform:uppercase}
+.post-summary--type .post-title{font-size:1em}
+.post-summary--type .post-title a,.post-summary--type .post-title span{font-size:1.6em;font-weight:700;text-decoration:none;transition:.1s all ease-in-out}
+.post-summary--type .post-title a:hover{text-decoration:none;color:#ea5631}
+.post-summary--type .post-data-meta .block-meta{display:inline-block;padding-right:10px;color:#666}
+.post-summary--type .post-data-meta .block-meta.post-comments{display:none}
+.post-summary--type .post-data-meta .block-meta a{color:#444;font-weight:600}
+.post-summary--type .post-data-meta .block-meta i.fa{padding:0 8px}
+.post-summary--type .post-summary-excerpt{display:none;font-size:1.1em;font-weight:300;color:#999}
+.post-summary--share{display:inline-block}
+.post-summary--share .share-post{padding:.2em 0;margin-top:.5em;word-spacing:-2px}
+.post-summary--share .share-post .share_widget.gplus{display:inline-block;margin-bottom:.25em;display:none}
+.post-summary--share .share-post .inline-block{display:inline-block}
+.post-summary--share .share-post .share_url{margin-right:.5em;margin-top:.5em}
+.post-summary--share .share-post .share_url .share_link{position:relative;display:block;color:#fff;background-color:#333;width:24px;height:24px;text-align:center;line-height:24px;border-radius:12px;-webkit-transition:.2s all ease-in-out;-moz-transition:.2s all ease-in-out;-ms-transition:.2s all ease-in-out;transition:.2s all ease-in-out}
+.post-summary--share .share-post .share_url .share_link:focus,.share-post .share_url .share_link:hover{opacity:.8;box-shadow:2px 2px 15px rgba(0,0,0,.6);-webkit-filter:brightness(1) contrast(1.3)}
+.post-summary--share .share-post .share_url.facebook .share_link{background-color:#3b5998}
+.post-summary--share .share-post .share_url.gplus .share_link{background-color:#dc4e41}
+.post-summary--share .share-post .share_url.twitter .share_link{background-color:#55acee}
+.post-summary--share .share-post .share_url.email .share_link{background-color:#333}
+aside.post-header{padding:10px 0;margin-bottom:20px;border:1px solid rgba(0,0,0,0.05);border-width:0}
+aside.post-header .block-meta{display:inline-block;margin-right:20px;vertical-align:middle;font-size:.85em}
+aside.post-header .block-meta a{color:#333;text-decoration:none;font-weight:600;transition:.1s all ease-in-out}
+aside.post-header .block-meta a:hover{color:#333}
+.block-meta i.fa{color:#ccc;margin-right:5px}
+.block-meta.meta-author .author-img-container{width:32px;height:32px;overflow:hidden;display:inline-block;vertical-align:middle;border-radius:50%;border:1px solid rgba(0,0,0,0.1);margin-right:5px}
+.block-meta.meta-author .author-img{width:100%;vertical-align:middle;border-radius:50%}
+.block-meta.meta-author a{font-weight:700}
+.block-meta.meta-tags .sep_comma{display:none}
+.block-meta.meta-tags .post-tag{font-size:1em;color:#464646;padding:0 4px;display:inline-block;margin-right:.5em;background-color:rgba(31,31,31,0);border-radius:4px}
+.block-meta.meta-tags .post-tag:hover{color:#fff;background-color:#f7b743}
+.post-header--hero{overflow:hidden;position:relative;height:70vh;max-height:420px;min-height:360px;background-color:#333;color:#fff}
+.post-header--hero .bg-image,.post-header--hero .bg-image-blur{position:absolute;left:0;right:0;top:0;bottom:0;width:100%;background:url(#none) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:fixed;background-position:center center;background-repeat:no-repeat;max-width:100%;max-height:100%;width:auto}
+.post-header--hero .bg-image-overlay{position:absolute;left:0;right:0;top:0;bottom:0;background-color:rgba(0,0,0,0.5);background:-moz-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);background:-webkit-linear-gradient(top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#a6000000',GradientType=0)}
+.post-header--hero .post-information-block{position:absolute;left:0;right:0;bottom:0}
+.post-header--hero .container-inner{padding:1em 20px;padding-bottom:2em}
+.post-title--hero h1{font-family:"Roboto Slab","Open Sans",Arial,serif;font-size:2.6em;font-weight:700;margin:1em 0;margin-bottom:.5em}
+.post-title--hero h1 a{display:inline-block;color:#fff;text-decoration:none;text-shadow:2px 2px rgba(0,0,0,0.2)}
+.post-data--hero{margin:.5em 0}
+.post-data--hero .post-data-block{display:inline-block;vertical-align:middle;margin-right:5px;padding:8px;font-size:.9em;opacity:.6;transition:.2s all ease-in-out}
+.post-header--hero:hover .post-data--hero .post-data-block{opacity:1}
+.post-data--hero .post-data-block a{color:#fff;text-decoration:none}
+.post-data--hero .post-data-block i.fa{display:inline-block;margin-right:4px;opacity:.6}
+.post-data-block.author{vertical-align:middle}
+.post-data-block.author a.author-details{display:inline-block}
+.post-data-block.author .author-img-container img,.post-data-block.author a.author-details span{vertical-align:middle}
+.post-data-block.author .author-img-container{display:inline-block;width:32px;height:32px;vertical-align:middle;border-radius:50%;overflow:hidden;margin-right:5px}
+.post-data-block.author .author-img-container img{margin-right:0;width:100%;height:auto}
+@media screen and (max-width: 640px) {
+.post-header--hero{height:50vh;min-height:360px}
+.post-data--hero,.post-title--hero{text-align:center}
+.post-title--hero h1{font-size:2em}
+}
+body.index .date-header{display:none}
+.date-header{margin:1em 0;font-size:1em;font-weight:400;color:#333;text-transform:uppercase;letter-spacing:.15em;display:block}
+.date-header::before{content:"Posted on: ";color:#666}
+@media screen and (max-width: 640px) {
+.date-header{text-align:center}
+.date-header::before{display:block}
+}
+h3.post-title,h1.post-title{font-family:"Roboto Slab","Open Sans",Arial,serif;font-weight:700}
+.post-body{color:#666;font-size:16px;font-family:Arial,sans-serif;line-height:1.6}
+.post-body a:hover{color:#333}
+.post-body img{max-width:100%;height:auto}
+.post-body a:first-of-type[style*='float: left'],.post-body a:first-of-type[style*='float:left']{max-width:100%!important;width:100%;float:none!important}
+.post-body .tr_bq{margin:1em .5em;padding:.5em 1em;color:#666;font-family:"Georgia";font-size:1.2em;border-top:1px solid rgba(0,0,0,0.1);color:rgba(0,0,0,0.7)}
+.post-body .tr_bq cite{display:block;font-size:1rem;color:#999}
+.post-body h2{font-size:1.82em;font-family:"Roboto Slab","Open Sans",Arial,sans-serif;margin:.65em 0;color:#333}
+.post-body h3{font-size:1.3em;font-family:"Open Sans",Arial,sans-serif;margin:.65em 0;color:#333;border-bottom:1px solid #ccc;padding-bottom:.325em;border-top:1px solid #ccc;padding-top:.325em}
+.post-body h4{font-size:1em;font-family:"Open Sans",Arial,sans-serif;margin:.65em 0;color:#333;text-transform:uppercase}
+.share-btns-post{padding-top:1em;display:inline-block}
+.share-btns-post .share-post{padding:.2em 0;margin-top:.5em;word-spacing:-2px}
+.share-btns-post .share-post .share_widget.gplus{display:inline-block;margin-bottom:.25em;display:none}
+.share-btns-post .share-post .inline-block{display:inline-block}
+.share-btns-post .share-post .share_url{margin-right:.5em;margin-top:.5em}
+.share-btns-post .share-post .share_url .share_link{position:relative;display:block;color:#fff;background-color:#333;width:62px;height:34px;text-align:center;line-height:32px;border-radius:0;-webkit-transition:.2s all ease-in-out;-moz-transition:.2s all ease-in-out;-ms-transition:.2s all ease-in-out;transition:.2s all ease-in-out}
+.share-btns-post .share-post .share_url .share_link:focus,.share-post .share_url .share_link:hover{opacity:.8;box-shadow:2px 2px 4px rgba(0,0,0,.6);-webkit-filter:brightness(1) contrast(1.3)}
+.share-btns-post .share-post .share_url.facebook .share_link{background-color:#3b5998}
+.share-btns-post .share-post .share_url.gplus .share_link{background-color:#dc4e41}
+.share-btns-post .share-post .share_url.twitter .share_link{background-color:#55acee}
+.share-btns-post .share-post .share_url.email .share_link{background-color:#333}
+.post-footer{color:#666;border-top:1px solid #ccc;padding:1em;font-size:.9em}
+.post-footer a{color:#333;font-weight:500;text-decoration:none}
+.post-footer a:hover{color:#ff600f}
+.post-footer .post-footer-line{display:block;margin:.25em 0}
+.post-footer .post-labels a{display:inline-block;color:#888;background-color:#ececec;padding:.5em 1em;margin:.25em 0;text-decoration:none;border-radius:16px;font-size:.8em;font-weight:400;line-height:1.2}
+.post-footer .post-labels a:hover{background-color:#333;color:#fff}
+.post-footer .post-author span a{color:#444;font-weight:700}
+.post-footer .post-timestamp .timestamp-link abbr{border-bottom:0;text-decoration:none;color:#444;font-weight:700}
+
+
+
+
+.sidebar .widget a:focus,.sidebar .widget a:hover{color:#ff8f00;text-decoration:none}
+.column-right-outer .sidebar .widget{margin:0;margin:30px 0}
+.column-right-outer .sidebar .widget > h2{position:relative;margin:.5em 0;padding:.5em 0;margin-bottom:1em;color:#333;border-bottom:1px solid rgba(0,0,0,0.1);text-transform:uppercase}
+.links-section-block{margin-bottom:0}
+.links-section-block.socialLinks{text-align:left;padding-bottom:.5em;border-bottom:1px solid #eee}
+.links-section-block.socialLinks ul li{display:inline-block}
+.links-section-block.socialLinks ul li a{display:block;width:32px;height:32px;text-align:center;line-height:32px;background-color:#333;color:#fff;border-radius:50%;margin-right:10px;margin-left:10px;transition:.1s all ease-in-out}
+.links-section-block.socialLinks ul li a:hover,.links-section-block.socialLinks ul li a:active,.links-section-block.socialLinks ul li a:focus{color:#fff;background-color:#666}
+.links-section-block.socialLinks ul li.fb a:hover{background-color:#3b5998}
+.links-section-block.socialLinks ul li.tw a:hover{background-color:#1da1f2}
+.links-section-block.socialLinks ul li.gp a:hover{background-color:#dd4b39}
+.links-section-block.socialLinks ul li.pi a:hover{background-color:#bd081c}
+.links-section-block.pages ul li{display:block;padding:.5em 20px;border-bottom:1px solid #eee}
+.links-section-block.pages ul li i.fa{color:#777;vertical-align:middle;margin-right:1em}
+.links-section-block.pages ul li a{padding:.25em 0;display:inline-block;vertical-align:middle;color:#333}
+.links-section-block.pages ul li a:hover{color:#666}
+.PopularPosts .popular-posts ul li{border:none;padding:.5em 15px;margin:0;margin-bottom:1em}
+.PopularPosts .popular-posts ul li:hover{border-left-color:#ccc}
+.PopularPosts .item-content{font-size:.9em;vertical-align:middle}
+.PopularPosts .item-content .item-thumbnail{display:block;overflow:hidden;width:100%;max-height:160px;margin:0;padding:0;float:none;opacity:.8;transition:.1s all ease-in-out}
+.PopularPosts ul li:hover .item-content .item-thumbnail{opacity:1}
+.PopularPosts .item-content .item-thumbnail a img{display:block;width:100%;height:auto;padding:0}
+.PopularPosts .item-content .item-title{font-family:"Open Sans",Arial,sans-serif;font-size:1.26em;font-weight:400;padding:0;line-height:1.6}
+.PopularPosts .item-content .item-title a{color:#969696;text-decoration:none;transition:.1s all ease-in-out;border-bottom:1px solid rgba(255,255,255,0);font-weight:400;letter-spacing:-.05em}
+.PopularPosts .item-content .item-title a:hover{color:#111}
+.PopularPosts .item-content .item-snippet{display:none}
+.sidebar .widget.Label ul{margin:0}
+.sidebar .widget.Label ul li{border:0;padding:0;display:inline-block}
+.sidebar .widget.Label ul li a{display:block;color:#888;background-color:#ececec;padding:.5em 1em;margin:.25em 0;text-decoration:none;border-radius:16px;font-size:.9em;font-weight:400}
+.sidebar .widget.Label ul li a:hover{background-color:#333;color:#fff}
+
+@keyframes pulse {
+0%{opacity:1}
+50%{opacity:.2}
+100%{opacity:1}
+}
+@media screen and (max-width: 991px) {
+#main{margin-right:15px;margin-left:15px}
+.main-inner .columns{padding-right:0;padding-left:0;width:100%}
+.main-inner .column-right-outer{width:100%;margin-right:0}
+.main-inner .column-left-outer{width:100%;margin-left:0}
+.column-right-outer .sidebar .widget > h2,.footer-main .widget > h2{margin-left:-15px;margin-top:0;margin-right:-15px;padding:15px;font-size:1.2em;font-weight:400}
+table.section-columns td.columns-cell{margin:1em 0}
+table.columns-2 td.columns-cell{width:100%;display:block}
+table.columns-3 td.columns-cell{width:100%;display:block}
+.item .post-outer{padding:0 1em}
+.item .date-header{text-align:center;font-size:.8em}
+.item .date-header > span{font-weight:600;font-size:1em;color:#777}
+.item .post-outer h1.post-title{font-family:"Roboto Slab","Open Sans",Arial,serif;font-size:1.5em;margin-top:0;text-align:center}
+.item .post-outer .post-header{text-align:center}
+.index .post-outer,.index .date-outer,.index .date-posts{display:inline!important}
+.index .post-outer{padding:0;margin:0}
+.index .post-header{display:none!important}
+.index .post-outer{display:inline-block!important;width:45%!important;margin:0 2%!important;vertical-align:top}
+.index .post-outer .post-summary--type .post-summary-excerpt{font-size:.9em}
+.index .post-outer .post-summary--type .post-title a{font-size:1.2em}
+.post-summary--type .img-thumb-link{display:block;top:0;left:0;right:0;bottom:0;opacity:0!important;font-size:0;background-color:transparent}
+body .post-summary--type .thumbImage{box-shadow:none!important;max-height:140px!important;min-height:140px;vertical-align:middle;margin-bottom:1.2em}
+.post-summary--type .thumbImage:hover img{transform:scale(1)!important}
+.post-header--hero{height:50vh}
+}
+@media screen and (max-width: 640px) {
+#searchEnter1{width:80%;max-width:80%;padding:1em 0}
+.index .post-outer{display:inline-block!important;width:100%!important;margin:0!important;padding:0 20px;vertical-align:top}
+body .post-summary--type .thumbImage{max-height:250px!important;min-height:180px;vertical-align:middle;margin-bottom:1.2em}
+body .post-summary--type .thumbImage img{width:100%;height:auto}
+.post-header--hero{height:40vh}
+}
+.item .post .post-title,.item .post .post-header,.item .date-header{display:none}
+
+</style>
+<style type='text/css'>
+/* Fitting Header */
+@media screen and (max-width: 991px) {
+    body {min-width: 320px;}
+    body #headerLogo {padding-right: 0;}
+    body #Header1 {margin-right: 0 ;}
+    body #Header1 .title {font-size: 1.1em;}
+    .mainMenuIconWrap a.searchOpenBtn {margin-right: 0 !important;}
+    .mainMenuIconWrap {padding-left: 0 !important;}
+}
+
+@media screen and (max-width: 400px) {
+    body #Header1 .title {font-size: .9em;}
+    .mainMenuIconWrap {font-size: 16px;}
+}
+
+@media all and (orientation: landscape) and (max-width: 991px) { 
+    #Header1 {
+       line-height: 60px;
+    }
+
+    .mainMenuIconWrap a {
+        padding: 4px 5px;
+    }
+}
+</style>
+<script>var _bloggerPageType_ = 'index';</script>
+<!-- AdSense -->
+<script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+
+
+
+
+
+
+
+
+
+
+</head><!--<head>
+<link href='https://www.blogger.com/static/v1/widgets/2437439463-css_bundle_v2.css' rel='stylesheet' type='text/css'/>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=5050352549609773373&amp;zx=0342a382-0989-495f-885f-4d3b01e9ff49' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=5050352549609773373&amp;zx=0342a382-0989-495f-885f-4d3b01e9ff49' rel='stylesheet'/></noscript>
+</head>-->
+
+  <body class='bodyLoading loading index'>
+<style>
+body {opacity: 1; transition: 0.2s opacity ease-in-out;}
+</style>
+<noscript>
+<style>body {opacity: 1; transition: 0.2s opacity ease-in-out;}</style>
+</noscript>
+<script>
+
+</script>
+<!-- Ads Set Off and On Flag Snippet -->
+<!-- content reading -->
+<!-- Big Search -->
+<div class='search-overflow' id='searchBoxBig' style='display: none;'>
+<div class='inner'>
+<a class='close-button' title='Close'>
+<span><i class='fa fa-close'></i></span>
+</a>
+<div class='search-input-container'>
+<form action='/search' id='bigSearch' method='get'>
+<input autocomplete='off' id='searchInput1' name='q' placeholder='search for posts..' type='text'/>
+<input id='searchEnter1' type='submit' value='&#xf002 Search '/>
+</form>
+</div>
+</div>
+</div>
+<!-- Big Search End -->
+<div itemscope='itemscope' itemtype='https://schema.org/Blog' style='display: none;'>
+<meta content='Digital Information World' itemprop='name'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' itemprop='description'/>
+</div>
+<header class='main-header sticky'>
+<div class='container-inner container'>
+<div class='header-outer'>
+<div class='fauxborder-left header-fauxborder-left'>
+<div class='region-inner header-inner row'>
+<div class='clearfix'></div>
+<div class='col-md-4 col-xs-8 .col-sm-6' id='headerLogo'>
+<div class='header section' id='header'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<a href='https://www.digitalinformationworld.com/' style='display: block'>
+<img alt='Digital Information World' height='150px; ' id='Header1_headerimg' src='https://3.bp.blogspot.com/-yaFt216GOKw/WeSOiJ7ErhI/AAAAAAABO3Q/drqUN6KAXUIv4s2OJsMv0hfh7ns8y2-AgCK4BGAYYCw/s1600/digital-information-world-logo.png' style='display: block' width='446px; '/>
+</a>
+</div>
+</div></div>
+</div>
+<div class='mainMenuIconWrap col-xs-4 .col-sm-4'>
+<a class='mainMenuIcon' href='#'><i aria-hidden='true' class='fa fa-bars'></i></a>
+<a class='searchIcon searchOpenBtn' href='#'><i aria-hidden='true' class='fa fa-search'></i></a>
+</div>
+<div class='col-md-8' id='headerMenu'>
+<div class='top-menu section' id='topMenu'><div class='widget PageList' data-version='1' id='PageList1'>
+<h2>Pages</h2>
+<div class='widget-content'>
+<ul>
+<li>
+<a href='https://www.digitalinformationworld.com/p/guest-contribution.html'>Contribute</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/about.html'>About Us</a>
+</li>
+<li class='search-icon searchOpenBtn'>
+<a href='#'><i class='fa fa-search'></i></a>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=PageList&widgetId=PageList1&action=editWidget&sectionId=topMenu' onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList1"));' target='configPageList1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+<div class='clearfix'></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<style>
+.main-header.sticky {
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+
+/*
+#Header1 {
+    line-height: 60px;
+}
+.main-header {
+    height: 60px;
+}
+
+#headerMenu .PageList.widget {
+    margin: 6px 0;
+}
+*/
+
+/* Prevent horizontal overflow */
+@media screen and (max-width: 640px) {
+    body { overflow-x: hidden;  }
+}
+</style>
+<style>
+  .label-feature-post .label-primary-box {
+      display: inline-block;
+      position: relative;
+  }
+  .label-feature-post .full-link {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  }
+</style>
+<aside class='label-post-feature-box' style='display: block;'>
+<div class='container-fluid'>
+<div class='row'>
+<div class='col-sm-6  col-md-7 label-feature-cols'>
+<div class='label-feature-post full-size' data-label='Featured' id='label_feature_1'>
+<div class='loader-box'>
+<svg height='20' width='70'>
+<circle cx='10' cy='10' r='10'>
+<animate attributeName='r' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='35' cy='10' r='10'>
+<animate attributeName='r' begin='200ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='60' cy='10' r='10'>
+<animate attributeName='r' begin='400ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+</svg></div>
+<div class='label-post-content'>
+<div class='first-image-bg' style=''></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='content'>
+<div class='label-primary-box'><a class='primary-label' href='#link-label'></a></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='title-post'>
+<h3><a href='#post-link' title=''></a></h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='col-sm-6 col-md-5 label-feature-cols'>
+<div class='label-feature-post half-size' data-label='Featured' id='label_feature_2'>
+<div class='loader-box'>
+<svg height='20' width='70'>
+<circle cx='10' cy='10' r='10'>
+<animate attributeName='r' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='35' cy='10' r='10'>
+<animate attributeName='r' begin='200ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='60' cy='10' r='10'>
+<animate attributeName='r' begin='400ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+</svg></div>
+<div class='label-post-content'>
+<div class='first-image-bg' style=''></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='content'>
+<div class='label-primary-box'><a class='primary-label' href='#link-label'></a></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='title-post'>
+<h3><a href='#post-link' title=''></a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class='label-feature-post half-size' data-label='Featured' id='label_feature_3'>
+<div class='loader-box'>
+<svg height='20' width='70'>
+<circle cx='10' cy='10' r='10'>
+<animate attributeName='r' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='35' cy='10' r='10'>
+<animate attributeName='r' begin='200ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+<circle cx='60' cy='10' r='10'>
+<animate attributeName='r' begin='400ms' dur='1000ms' from='0' repeatCount='indefinite' to='10' values='0;10;10;10;0'></animate>
+</circle>
+</svg></div>
+<div class='label-post-content'>
+<div class='first-image-bg' style=''></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='content'>
+<div class='label-primary-box'><a class='primary-label' href='#link-label'></a></div>
+<a class='full-link' href='#post-link' title=''></a>
+<div class='title-post'>
+<h3><a href='#post-link' title='Name Name Name'></a></h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<aside class='main-ad' id='ad_1'>
+<div class='container-inner'>
+<div class='ads-section section' id='Adsense_Ad_Top'><div class='widget AdSense' data-version='1' id='AdSense1'>
+<div class='widget-content'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ipadfour_Adsense_Ad_Top_AdSense1_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8682825476341296"
+     data-ad-host="ca-host-pub-1556223355139109"
+     data-ad-host-channel="L0006"
+     data-ad-slot="1981005830"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=AdSense&widgetId=AdSense1&action=editWidget&sectionId=Adsense_Ad_Top' onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense1"));' target='configAdSense1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+</aside>
+<div class='content'>
+<div class='content-outer'>
+<div class='fauxborder-left content-fauxborder-left'>
+<div class='content-inner'>
+<nav class='tabs-outer navigation-bar main-navbar'>
+<div class='fauxborder-left tabs-fauxborder-left'>
+<div class='region-inner tabs-inner'>
+<div class='tabs no-items section' id='crosscol'></div>
+<div class='tabs no-items section' id='crosscol-overflow'></div>
+</div>
+</div>
+</nav>
+<div class='main-outer'>
+<div class='fauxborder-left main-fauxborder-left'>
+<div class='region-inner main-inner container-inner'>
+<div class='columns fauxcolumns'>
+<!-- corrects IE6 width calculation -->
+<div class='columns-inner'>
+<div class='column-center-outer'>
+<div class='column-center-inner'>
+<div class='main section' id='main'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!--Can't find substitution for tag [defaultAdStart]-->
+
+          <div class="date-outer">
+        
+<time class='date-header'><span>Saturday, March 17, 2018</span></time>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://2.bp.blogspot.com/-3cf3cp6L9iA/Wqo74tOxk_I/AAAAAAAAIbE/bwn_6WFnp5cNtpdZDfbfLCjDBTb2op5cwCLcBGAs/s1600/elon%2Bmusk.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='Saturday, March 17, 2018' itemprop='datePublished'/>
+<meta content='Saturday, March 17, 2018' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html' itemprop='mainEntityOfPage'/>
+<meta content='Machines that can think for themselves could bring down humanity, Elon Musk [video]' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='2413177250172543880'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://2.bp.blogspot.com/-3cf3cp6L9iA/Wqo74tOxk_I/AAAAAAAAIbE/bwn_6WFnp5cNtpdZDfbfLCjDBTb2op5cwCLcBGAs/s72-c/elon%2Bmusk.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html'>Machines that can think for themselves could bring down humanity, Elon Musk [video]</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 17, 2018'>March 17, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html&text=Machines that can think for themselves could bring down humanity, Elon Musk [video]' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/machines-that-can-think-for-themselves.html&media=https://2.bp.blogspot.com/-3cf3cp6L9iA/Wqo74tOxk_I/AAAAAAAAIbE/bwn_6WFnp5cNtpdZDfbfLCjDBTb2op5cwCLcBGAs/s1600/elon%2Bmusk.jpg&description=Machines that can think for themselves could bring down humanity, Elon Musk [video]' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  The head of SpaceX and Tesla came to SXSW event this week and gave a grave talk about the future of humanity.  </p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://2.bp.blogspot.com/-noqG2cBT0WM/WqojXg8D3GI/AAAAAAAAIY0/c_HeMaaphqEdt7qcqAxbBxNAIQ_9_CHfwCLcBGAs/s1600/HigherLogic_image-Infographic_Marketer_s-Toolbox.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html' itemprop='mainEntityOfPage'/>
+<meta content='The Marketer&#39;s Toolbox: Indispensable Marketing Techniques and Technologies - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='6036534171171029304'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://2.bp.blogspot.com/-noqG2cBT0WM/WqojXg8D3GI/AAAAAAAAIY0/c_HeMaaphqEdt7qcqAxbBxNAIQ_9_CHfwCLcBGAs/s72-c/HigherLogic_image-Infographic_Marketer_s-Toolbox.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html'>The Marketer's Toolbox: Indispensable Marketing Techniques and Technologies - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 17, 2018'>March 17, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html&text=The Marketer&#39;s Toolbox: Indispensable Marketing Techniques and Technologies - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/the-marketers-toolbox-indispensable.html&media=https://2.bp.blogspot.com/-noqG2cBT0WM/WqojXg8D3GI/AAAAAAAAIY0/c_HeMaaphqEdt7qcqAxbBxNAIQ_9_CHfwCLcBGAs/s1600/HigherLogic_image-Infographic_Marketer_s-Toolbox.jpg&description=The Marketer&#39;s Toolbox: Indispensable Marketing Techniques and Technologies - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  Modern marketing is complicated. But when you break down the components of a strong marketing program, it suddenly feels familiar and appr...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<time class='date-header'><span>Friday, March 16, 2018</span></time>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://3.bp.blogspot.com/-MUbijwTzwJw/Wqog4cBABAI/AAAAAAAAIYg/rQwrQjoviNQvoBlmLvMnWP4UzAjr6amtQCLcBGAs/s1600/favorite-color-and-personality-type-can-help-dictate-job-for-you-1.jpg.png' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='Friday, March 16, 2018' itemprop='datePublished'/>
+<meta content='Friday, March 16, 2018' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html' itemprop='mainEntityOfPage'/>
+<meta content='How Your Favorite Color Can Help You Find the Perfect Job - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='4053207105090100013'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://3.bp.blogspot.com/-MUbijwTzwJw/Wqog4cBABAI/AAAAAAAAIYg/rQwrQjoviNQvoBlmLvMnWP4UzAjr6amtQCLcBGAs/s72-c/favorite-color-and-personality-type-can-help-dictate-job-for-you-1.jpg.png' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html'>How Your Favorite Color Can Help You Find the Perfect Job - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 16, 2018'>March 16, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html&text=How Your Favorite Color Can Help You Find the Perfect Job - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/how-your-favorite-color-can-help-you.html&media=https://3.bp.blogspot.com/-MUbijwTzwJw/Wqog4cBABAI/AAAAAAAAIYg/rQwrQjoviNQvoBlmLvMnWP4UzAjr6amtQCLcBGAs/s1600/favorite-color-and-personality-type-can-help-dictate-job-for-you-1.jpg.png&description=How Your Favorite Color Can Help You Find the Perfect Job - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  Asking &#8220;What&#8217;s your favorite color?&#8221; may be a way for children to bond with each other, but the answer might matter even more when we&#8217;re g...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://3.bp.blogspot.com/-pOKoUxNWbV8/Wqof8JKg9wI/AAAAAAAAIYQ/FQQciCa4XF8CXrGEc0KS_1AlX4xHPkitgCLcBGAs/s1600/180215-infographic-essential-email-marketingtips-small.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html' itemprop='mainEntityOfPage'/>
+<meta content='Essential Email Marketing Tips for 2018 - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='2081389851850526537'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://3.bp.blogspot.com/-pOKoUxNWbV8/Wqof8JKg9wI/AAAAAAAAIYQ/FQQciCa4XF8CXrGEc0KS_1AlX4xHPkitgCLcBGAs/s72-c/180215-infographic-essential-email-marketingtips-small.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html'>Essential Email Marketing Tips for 2018 - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 16, 2018'>March 16, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html&text=Essential Email Marketing Tips for 2018 - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/essential-email-marketing-tips-for-2018.html&media=https://3.bp.blogspot.com/-pOKoUxNWbV8/Wqof8JKg9wI/AAAAAAAAIYQ/FQQciCa4XF8CXrGEc0KS_1AlX4xHPkitgCLcBGAs/s1600/180215-infographic-essential-email-marketingtips-small.jpg&description=Essential Email Marketing Tips for 2018 - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  The brand that creates the best inbox experience will almost always win more customers. Here are 6 must-know tips to do just that in 2018....</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://2.bp.blogspot.com/-w2fDtNtm4cw/Wqoe2rRgNRI/AAAAAAAAIX8/QguAk3NHjzwqaciZhtVnlEnignYDJ0CgACLcBGAs/s1600/67-Siege-Media-GetVoip-What-Your-Font-Choices-Say-About-You-v7.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html' itemprop='mainEntityOfPage'/>
+<meta content='What Your Font Choices Say About You - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='5821253327819461335'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://2.bp.blogspot.com/-w2fDtNtm4cw/Wqoe2rRgNRI/AAAAAAAAIX8/QguAk3NHjzwqaciZhtVnlEnignYDJ0CgACLcBGAs/s72-c/67-Siege-Media-GetVoip-What-Your-Font-Choices-Say-About-You-v7.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html'>What Your Font Choices Say About You - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 16, 2018'>March 16, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html&text=What Your Font Choices Say About You - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/what-your-font-choices-say-about-you.html&media=https://2.bp.blogspot.com/-w2fDtNtm4cw/Wqoe2rRgNRI/AAAAAAAAIX8/QguAk3NHjzwqaciZhtVnlEnignYDJ0CgACLcBGAs/s1600/67-Siege-Media-GetVoip-What-Your-Font-Choices-Say-About-You-v7.jpg&description=What Your Font Choices Say About You - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  In 1975, two Swiss designers, Max Miedinger and Eduard Hoffmann came out with the font Helvetica. Since then, it has been used on some of ...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://3.bp.blogspot.com/-wdjcC9qjVW8/WqodmSbjdjI/AAAAAAAAIXw/8H6vpZizzngHe-aPnKKvzya_OcVM_XhhgCLcBGAs/s1600/ways-to-build-a-strong-company-culture.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html' itemprop='mainEntityOfPage'/>
+<meta content='6 Ways to Improve Your Company Culture - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='2240889605099070146'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://3.bp.blogspot.com/-wdjcC9qjVW8/WqodmSbjdjI/AAAAAAAAIXw/8H6vpZizzngHe-aPnKKvzya_OcVM_XhhgCLcBGAs/s72-c/ways-to-build-a-strong-company-culture.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html'>6 Ways to Improve Your Company Culture - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 16, 2018'>March 16, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html&text=6 Ways to Improve Your Company Culture - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/6-ways-to-improve-your-company-culture.html&media=https://3.bp.blogspot.com/-wdjcC9qjVW8/WqodmSbjdjI/AAAAAAAAIXw/8H6vpZizzngHe-aPnKKvzya_OcVM_XhhgCLcBGAs/s1600/ways-to-build-a-strong-company-culture.jpg&description=6 Ways to Improve Your Company Culture - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  Companies want employees to be passionate advocates for their missions, but the sad truth is most employees aren&#8217;t that excited about work...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://3.bp.blogspot.com/-3yYo86pYyr0/Wqobr-QfizI/AAAAAAAAIXY/4AoEJG9CDcoT6ZhgFjlFJUG8y_yuUCxaACLcBGAs/s1600/Content_Marketing_Trends_in_2018_%25E2%2580%2593_What_to_Watch_Out_For.png' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html' itemprop='mainEntityOfPage'/>
+<meta content='Content Marketing Trends in 2018 - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='7960769721426723589'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://3.bp.blogspot.com/-3yYo86pYyr0/Wqobr-QfizI/AAAAAAAAIXY/4AoEJG9CDcoT6ZhgFjlFJUG8y_yuUCxaACLcBGAs/s72-c/Content_Marketing_Trends_in_2018_%25E2%2580%2593_What_to_Watch_Out_For.png' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html'>Content Marketing Trends in 2018 - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 16, 2018'>March 16, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html&text=Content Marketing Trends in 2018 - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/content-marketing-trends-in-2018.html&media=https://3.bp.blogspot.com/-3yYo86pYyr0/Wqobr-QfizI/AAAAAAAAIXY/4AoEJG9CDcoT6ZhgFjlFJUG8y_yuUCxaACLcBGAs/s1600/Content_Marketing_Trends_in_2018_%25E2%2580%2593_What_to_Watch_Out_For.png&description=Content Marketing Trends in 2018 - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  Year over year, content marketing receives more favorable attention from marketers all over the globe &#8211; in fact, almost 90% of companies u...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+            </div></div>
+          
+
+          <div class="date-outer">
+        
+<time class='date-header'><span>Thursday, March 15, 2018</span></time>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://2.bp.blogspot.com/-bCzkOB5dSvU/WqoYz__ViPI/AAAAAAAAIXM/PR4e47cNlxs2vj-2NLwhVCWHQ0QPoHvIwCLcBGAs/s1600/crypto.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='Thursday, March 15, 2018' itemprop='datePublished'/>
+<meta content='Thursday, March 15, 2018' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html' itemprop='mainEntityOfPage'/>
+<meta content='Google To Ban All Crypto Related Ads Starting June 2018 [video]' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='2567358467513597186'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://2.bp.blogspot.com/-bCzkOB5dSvU/WqoYz__ViPI/AAAAAAAAIXM/PR4e47cNlxs2vj-2NLwhVCWHQ0QPoHvIwCLcBGAs/s72-c/crypto.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html'>Google To Ban All Crypto Related Ads Starting June 2018 [video]</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 15, 2018'>March 15, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html&text=Google To Ban All Crypto Related Ads Starting June 2018 [video]' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/google-to-ban-all-crypto-related-ads.html&media=https://2.bp.blogspot.com/-bCzkOB5dSvU/WqoYz__ViPI/AAAAAAAAIXM/PR4e47cNlxs2vj-2NLwhVCWHQ0QPoHvIwCLcBGAs/s1600/crypto.jpg&description=Google To Ban All Crypto Related Ads Starting June 2018 [video]' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  Google will ban all cryptocurrency-related advertising of all types in June 2018, according to a recent update to their Financial Services...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://1.bp.blogspot.com/-B3suR_joOv8/WqoUa5FiTiI/AAAAAAAAIWo/Z_Lmu6lJOScYfVylm1cgm5Z4DfMhD_FnQCLcBGAs/s1600/Vertical-line-v.-0.3.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html' itemprop='mainEntityOfPage'/>
+<meta content='The History of Youtube - #infographic' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='1999621963065685455'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://1.bp.blogspot.com/-B3suR_joOv8/WqoUa5FiTiI/AAAAAAAAIWo/Z_Lmu6lJOScYfVylm1cgm5Z4DfMhD_FnQCLcBGAs/s72-c/Vertical-line-v.-0.3.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html'>The History of Youtube - #infographic</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 15, 2018'>March 15, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html&text=The History of Youtube - #infographic' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/the-history-of-youtube-infographic.html&media=https://1.bp.blogspot.com/-B3suR_joOv8/WqoUa5FiTiI/AAAAAAAAIWo/Z_Lmu6lJOScYfVylm1cgm5Z4DfMhD_FnQCLcBGAs/s1600/Vertical-line-v.-0.3.jpg&description=The History of Youtube - #infographic' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  The way that we consume content has significantly changed over the last few decades. We have come from newspapers and billboards to having...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class='post-outer'>
+<meta content='Digital Information World' property='og:title'/>
+<meta content='We curate the best marketing, technology and design related insights, tips and guides in the world.' property='og:description'/>
+<div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div itemprop='image' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://3.bp.blogspot.com/-FYpBin8KYps/WqoXyUqzdBI/AAAAAAAAIXE/RDYWlaZhBNQTQYxKUgybR326cWr2bgEbgCLcBGAs/s1600/youtube.jpg' itemprop='url'/>
+<meta content='1600' itemprop='width'/>
+<meta content='1600' itemprop='height'/>
+</div>
+<meta content='' itemprop='datePublished'/>
+<meta content='' itemprop='dateModified'/>
+<meta content='https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html' itemprop='mainEntityOfPage'/>
+<meta content='YouTube’s ‘Dark Mode’ Is Arriving On iOS And Android: Here’s How To Enable It [video]' itemprop='headline'/>
+<div itemprop='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization'>
+<link href='https://plus.google.com/116878456413885257297' itemprop='url'/>
+<meta content='Digital Information World' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/-DbEQy6bs3xI/AAAAAAAAAAI/AAAAAAAAC0I/0y2GIPtBq8o/s60-p-rw-no/photo.jpg' itemprop='url'/>
+<meta content='60' itemprop='width'/>
+<meta content='60' itemprop='height'/>
+</span>
+</div>
+<a name='8490235054852621810'></a>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<article class='post-summary--type fadeInUp' style=''>
+<div class='row post-summary-content'>
+<div class='col-md-5 post-summary-col title col'>
+<div class='thumbImage fadeInLeft' data-wow-delay='0.5s'>
+<a class='img-thumb-link' href='https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html'>
+<i class='fa fa-angle-right'></i>
+</a>
+<img data-img='https://3.bp.blogspot.com/-FYpBin8KYps/WqoXyUqzdBI/AAAAAAAAIXE/RDYWlaZhBNQTQYxKUgybR326cWr2bgEbgCLcBGAs/s72-c/youtube.jpg' src=''/>
+</div>
+</div>
+<div class='col-md-7 post-summary-col excerpt-col'>
+<h3 class='post-title entry-title' itemprop='name'>
+<a href='https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html'>YouTube&#8217;s &#8216;Dark Mode&#8217; Is Arriving On iOS And Android: Here&#8217;s How To Enable It [video]</a>
+<meta content='https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html' itemprop='url'/>
+</h3>
+<div class='post-data-meta'>
+<span class='block-meta'>
+<i class='fa fa-calendar'></i>
+<span class='published' itemprop='datePublished' title='March 15, 2018'>March 15, 2018</span>
+</span>
+<span class='block-meta post-comments'>
+<i class='fa fa-comment'></i>
+<span class='comment-link'><a href='https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html#comment-form'>0</a></span>
+</span>
+<div class='post-summary--share'>
+<div class='share-post' id='socialSharePost'>
+<div class='inline-block share_url gplus'>
+<a class='share_link' href='https://plus.google.com/share?url=https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html' target='_blank'>
+<span></span><i class='fa fa-google-plus'></i>
+</a>
+</div>
+<div class='inline-block share_url twitter'>
+<a class='share_link' href='https://twitter.com/share?url=https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html&text=YouTube’s ‘Dark Mode’ Is Arriving On iOS And Android: Here’s How To Enable It [video]' target='_blank'>
+<span></span><i class='fa fa-twitter'></i>
+</a>
+</div>
+<div class='inline-block share_url facebook'>
+<a class='share_link' href='https://www.facebook.com/sharer.php?u=https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html' target='_blank'>
+<span></span><i class='fa fa-facebook'></i>
+</a>
+</div>
+<div class='inline-block share_url pinterest'>
+<a class='share_link' href='https://www.pinterest.com/pin/find/?url=https://www.digitalinformationworld.com/2018/03/youtubes-dark-mode-is-arriving-on-ios.html&media=https://3.bp.blogspot.com/-FYpBin8KYps/WqoXyUqzdBI/AAAAAAAAIXE/RDYWlaZhBNQTQYxKUgybR326cWr2bgEbgCLcBGAs/s1600/youtube.jpg&description=YouTube’s ‘Dark Mode’ Is Arriving On iOS And Android: Here’s How To Enable It [video]' style='background-color: #bd081c;' target='_blank'>
+<span></span><i class='fa fa-pinterest'></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<p class='post-summary-excerpt'>  After YouTube desktop, its mobile apps are the latest in line to join the dark side. The YouTube iOS app is finally getting a new dark the...</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+        </div></div>
+      
+<!--Can't find substitution for tag [adEnd]-->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='https://www.digitalinformationworld.com/search?updated-max=2018-03-15T14:10:00%2B05:00&max-results=10' id='Blog1_blog-pager-older-link' title='Older Posts'><span class='label_text'>Older Posts</span></a>
+</span>
+<a class='home-link' href='https://www.digitalinformationworld.com/'><span class='label_text'>Home</span></a>
+</div>
+<div class='clear'></div>
+<div class='blog-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='https://www.digitalinformationworld.com/feeds/posts/default' target='_blank' type='application/atom+xml'>Posts (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en'};</script>
+</div></div>
+</div>
+</div>
+<div class='column-left-outer'>
+<div class='column-left-inner'>
+<aside>
+</aside>
+</div>
+</div>
+<div class='column-right-outer'>
+<div class='column-right-inner'>
+<aside>
+<div class='sidebar section' id='sidebar-right-1'><div class='widget HTML' data-version='1' id='HTML2'>
+<div class='widget-content'>
+<div id="linksImportant" class="links-section">
+	<div class="links-section-block socialLinks">
+		<ul>
+			<li class="fb"><a href="https://www.facebook.com/digitalinformationworld/" target="_blank" rel="nofollow" title="on Facebook"><i class="fa fa-facebook"></i></a></li>
+			<li class="tw"><a href="https://twitter.com/digitaliworld" rel="nofollow" target="_blank" title="on Twitter"><i class="fa fa-twitter"></i></a></li>
+			<li class="gp"><a href="https://plus.google.com/116878456413885257297" target="_blank" rel="nofollow" title="on Google+"><i class="fa fa-google-plus"></i></a></li>
+			<li class="pi"><a href="https://pinterest.com/digitaliworld/" rel="nofollow" target="_blank" title="on Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                   <li class="pi"><a href="https://www.youtube.com/channel/UCjAaRYB_Zjiw9H-3qL-IZxA/videos?sub_confirmation=1" rel="nofollow" target="_blank" title="youtube"><i class="fa fa-youtube"></i></a></li>
+		
+	</ul></div>
+
+	<div class="links-section-block pages">
+		<ul>
+			<li>
+			    <i class="fa fa-calculator"></i>
+			    <a href="https://www.digitalinformationworld.com/p/word-count-tool.html" title="Words Counter">Words Counter Tool</a>
+			</li>
+
+			<li>
+			    <i class="fa fa-envelope"></i>
+			    <a href="https://www.digitalinformationworld.com/p/subscribe.html" title="Newsletter">Subscribe to our Newsletters</a>
+			</li>
+
+<li>
+			    <i class="fa fa-wrench"></i>
+			    <a href="https://www.digitalinformationworld.com/p/tools.html" title="Resources">Resources</a>
+			</li>
+
+                        
+		</ul>
+	</div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=HTML&widgetId=HTML2&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML2"));' target='configHTML2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget AdSense' data-version='1' id='AdSense2'>
+<div class='widget-content'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ipadfour_sidebar-right-1_AdSense2_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8682825476341296"
+     data-ad-host="ca-host-pub-1556223355139109"
+     data-ad-host-channel="L0001"
+     data-ad-slot="8027539431"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=AdSense&widgetId=AdSense2&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense2"));' target='configAdSense2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Label' data-version='1' id='Label2'>
+<h2>Popular Categories</h2>
+<div class='widget-content list-label-widget-content'>
+<ul>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/Blogging'>Blogging</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/contentmarketing'>contentmarketing</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/digitalmarketing'>digitalmarketing</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/graphic-design'>graphic-design</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/info-graphics'>info-graphics</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/news'>news</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/SEO'>SEO</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/Social-Media'>Social-Media</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/Technology'>Technology</a>
+</li>
+<li>
+<a dir='ltr' href='https://www.digitalinformationworld.com/search/label/video'>video</a>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=Label&widgetId=Label2&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label2"));' target='configLabel2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML1'>
+<h2 class='title'>Recommended Post</h2>
+<div class='widget-content'>
+<script>
+// Change the number of posts to appear
+var recommendedPostCount = 7;
+</script>
+
+
+<div class="recommended-post-container" id="recommended_posts"></div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target='configHTML1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget AdSense' data-version='1' id='AdSense3'>
+<div class='widget-content'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ipadfour_sidebar-right-1_AdSense3_1x1_as -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8682825476341296"
+     data-ad-host="ca-host-pub-1556223355139109"
+     data-ad-host-channel="L0001"
+     data-ad-slot="9504272638"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=AdSense&widgetId=AdSense3&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense3"));' target='configAdSense3' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget HTML' data-version='1' id='HTML3'>
+<div class='widget-content'>
+<a href="https://plus.google.com/116878456413885257297" rel="publisher"></a>
+
+<a href="https://plus.google.com/+IrfanAhmad" rel="author"></a>
+
+<a href="https://plus.google.com/+Imransq" rel="author"></a>
+
+<br/>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=HTML&widgetId=HTML3&action=editWidget&sectionId=sidebar-right-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML3"));' target='configHTML3' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<div style='clear: both'></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+</div>
+<footer class='footer-main'>
+<div class='footer-outer'>
+<div class='fauxborder-left footer-fauxborder-left'>
+<div class='fauxborder-right footer-fauxborder-right'></div>
+<div class='region-inner footer-inner container-inner'>
+<div class='foot no-items section' id='footer-1'></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-3'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='foot section' id='footer-2-1'><div class='widget Profile' data-version='1' id='Profile1'>
+<h2>Contributors</h2>
+<div class='widget-content'>
+<ul>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/112779157177288122748' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>CENT Muruganandam</a></li>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/100517930512757778352' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>Imran Sq</a></li>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/102569637526777046685' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>Irfan Ahmad</a></li>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/100510106794628962094' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>Larry Alton</a></li>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/104458892224225099310' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>Saad Ahmad</a></li>
+<li><a class='profile-name-link g-profile' href='https://www.blogger.com/profile/11147545387069088841' style='background-image: url(//www.blogger.com/img/logo-16.png);'>Sami Insomniac</a></li>
+<li><a class='profile-name-link g-profile' href='https://plus.google.com/111834477868303853143' style='background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);'>Web Desk</a></li>
+<li><a class='profile-name-link g-profile' href='https://www.blogger.com/profile/04873093055881760196' style='background-image: url(//www.blogger.com/img/logo-16.png);'>Zubair Ahmed</a></li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=Profile&widgetId=Profile1&action=editWidget&sectionId=footer-2-1' onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target='configProfile1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</td>
+<td class='columns-cell'>
+<div class='foot section' id='footer-2-2'><div class='widget LinkList' data-version='1' id='LinkList1'>
+<h2>Featured Posts</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='https://www.digitalinformationworld.com/2016/12/infographic-submission-site.html'>7 Websites to Submit Your Infographic and Increase Your Reach</a></li>
+<li><a href='https://www.digitalinformationworld.com/2017/06/auto-reshare-social-media-updates-using-free-tools.html'>How to Schedule and Loop Social Media Posts for Free</a></li>
+<li><a href='https://www.digitalinformationworld.com/2017/06/amazingly-useful-websites-you-never-knew-existed.html'>25 Useful Websites You&#8217;ve Probably Never Heard Of</a></li>
+<li><a href='https://www.digitalinformationworld.com/2016/12/14-best-online-marketplaces-for-graphic-design.html'>15 Best Online Marketplaces for Graphic Design</a></li>
+<li><a href='https://www.digitalinformationworld.com/2017/03/the-ultimate-resource-list-for-making-money-online.html'>7 Ways to Earn Money Online</a></li>
+<li><a href='https://www.digitalinformationworld.com/2016/11/how-to-learn-faster-infographic.html'>25 Ways to Train Your Brain to Learn Faster and Remember More</a></li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=LinkList&widgetId=LinkList1&action=editWidget&sectionId=footer-2-2' onclick='return _WidgetManager._PopupConfig(document.getElementById("LinkList1"));' target='configLinkList1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</td>
+<td class='columns-cell'>
+<div class='foot section' id='footer-2-3'><div class='widget HTML' data-version='1' id='HTML6'>
+<h2 class='title'>See What We Are Sharing On Pinterest</h2>
+<div class='widget-content'>
+<a class="lazy" href="https://www.pinterest.com/digitaliworld/social-media-digital-marketing-blogging-content-ma/" imageanchor="1" rel="nofollow" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img data-original="https://2.bp.blogspot.com/-cVeC4QnN2-U/WVo_IbizMdI/AAAAAAABKv4/XvrGZNWh-QMIJAdE5BcgBBgh3tJUdsEXACLcBGAs/w400-h280-c/diw-pinterest-banner-follow.png" width="100%" height="100%" alt="Follow us on Pinterest" title="Follow our Boards on Pinterest" /></a>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=HTML&widgetId=HTML6&action=editWidget&sectionId=footer-2-3' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML6"));' target='configHTML6' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class='bottom-links section' id='Bottom-Links'><div class='widget PageList' data-version='1' id='PageList2'>
+<h2>Pages</h2>
+<div class='widget-content'>
+<ul>
+<li>
+<a href='https://www.digitalinformationworld.com/p/privacy-policy.html'>Privacy Policy</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/contact-us.html'>Contact Us</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/subscribe.html'>Subscribe</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/guest-contribution.html'>Contribute</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/online-html-editor-tool.html'>HTML Editor</a>
+</li>
+<li>
+<a href='https://www.digitalinformationworld.com/p/services.html'>Services</a>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=PageList&widgetId=PageList2&action=editWidget&sectionId=Bottom-Links' onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList2"));' target='configPageList2' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class='foot section' id='footer-3'><div class='widget ContactForm' data-version='1' id='ContactForm1'>
+<h2 class='title'>Contact Form</h2>
+<div class='contact-form-widget'>
+<div class='form'>
+<form name='contact-form'>
+<p></p>
+Name
+<br/>
+<input class='contact-form-name' id='ContactForm1_contact-form-name' name='name' size='30' type='text' value=''/>
+<p></p>
+Email
+<span style='font-weight: bolder;'>*</span>
+<br/>
+<input class='contact-form-email' id='ContactForm1_contact-form-email' name='email' size='30' type='text' value=''/>
+<p></p>
+Message
+<span style='font-weight: bolder;'>*</span>
+<br/>
+<textarea class='contact-form-email-message' cols='25' id='ContactForm1_contact-form-email-message' name='email-message' rows='5'></textarea>
+<p></p>
+<input class='contact-form-button contact-form-button-submit' id='ContactForm1_contact-form-submit' type='button' value='Send'/>
+<p></p>
+<div style='text-align: center; max-width: 222px; width: 100%'>
+<p class='contact-form-error-message' id='ContactForm1_contact-form-error-message'></p>
+<p class='contact-form-success-message' id='ContactForm1_contact-form-success-message'></p>
+</div>
+</form>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=ContactForm&widgetId=ContactForm1&action=editWidget&sectionId=footer-3' onclick='return _WidgetManager._PopupConfig(document.getElementById("ContactForm1"));' target='configContactForm1' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget HTML' data-version='1' id='HTML5'>
+<div class='widget-content'>
+<div style="text-align:center;"class="Attribution">digitalinformationworld.com (c)</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=5050352549609773373&widgetType=HTML&widgetId=HTML5&action=editWidget&sectionId=footer-3' onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML5"));' target='configHTML5' title='Edit'>
+<img alt='' height='18' src='https://resources.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+</div>
+</div>
+<script type='text/javascript'>
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<!-- CSS -->
+<style type='text/css'>
+.comments{padding:1em 20px;background-color:#fff;border:0 solid #999;box-shadow:0 1px 2px rgba(0,0,0,0.0)}
+.comments > h4{font-family:"Open Sans",Arial,sans-serif;font-size:1.25em;font-weight:300;text-transform:uppercase;letter-spacing:.25em}
+.comments .comment{font-size:.95em}
+.comments .comment a{text-decoration:none}
+.comments .comment .avatar-image-container{border-radius:50%;overflow:hidden;width:45px;height:45px;max-height:45px;margin-right:20px}
+.comments .comment .avatar-image-container img{display:block;width:100%;height:auto;max-width:45px}
+.comments .comment-block{margin-left:65px}
+.comments .comment-block .comment-header{font-size:1em;padding:.5em 0}
+.comments .comment-block .comment-header .user{font-weight:400;color:#999}
+.comments .comment-block .comment-header .user a{color:#999}
+.comments .comment-block:hover .comment-header .user a{color:#666}
+.comments .comment-block .comment-header .datetime{float:right;font-size:.7em;text-transform:uppercase}
+.comments .comment-block .comment-header .datetime a{color:#ccc}
+.comments .comment .datetime a::before{content:"\f017";font-family:FontAwesome;margin-right:10px}
+.comments .comment .comment-actions a{font-size:.8em;display:inline-block;color:#333;padding:0;margin-right:10px;padding:5px 10px;border-radius:5px}
+.comments .comment .comment-actions a:hover{background-color:#f9f9f9;text-decoration:none}
+.comments .comment .comment-actions a[o="r"]::before,.comments .comment .comment-actions span a[o="d"]::before{margin-right:5px;content:"\f112";font-family:FontAwesome;color:#999}
+.comments .comment .comment-actions span a[o="d"]::before{content:"\f00d"}
+.comments .comment{padding-left:20px;transition:.2s all ease-in-out;border-left:4px solid transparent}
+.comments .comment:hover{padding-left:20px;border-left:4px solid #e6e6e6}
+.comments .comment .continue{text-align:center;font-size:1em;text-transform:uppercase;border:0;max-width:50%;margin:0 auto}
+.comments .comment .continue a{color:#333;background-color:transparent;border:2px solid #333;transition:.1s all ease-in-out}
+.comments .comment .continue a:hover{background-color:#333;color:#fff}
+.comments .comment .continue a::before{margin-right:5px;content:"+  ADD ";font-family:"Open Sans",sans-serif;display:inline-block;vertical-align:middle}
+.post-feeds,.blog-feeds{font-size:.85em;opacity:.8;text-transform:uppercase;font-weight:400;letter-spacing:.15em;color:#999}
+.post-feeds .feed-links a,.blog-feeds .feed-links a{color:#000}
+.post-feeds .feed-links::before,.blog-feeds .feed-links::before{content:"\f09e";margin-right:10px;display:inline-block;font-family:FontAwesome;vertical-align:middle;color:#ff8d52}
+#blog-pager span a,#blog-pager a{font-size:.85em;background-color:#e6e6e6;color:#666;text-decoration:none;padding:10px 1em;border-radius:0;text-transform:uppercase;font-weight:700;letter-spacing:.15em;transition:.1s all ease-in-out}
+#blog-pager span a:hover,#blog-pager a:hover{background-color:#333;color:#fff}
+#blog-pager .blog-pager-older-link::after{content:"\f105";font-family:FontAwesome;margin-left:.5em}
+#blog-pager .blog-pager-newer-link::before{content:"\f104";font-family:FontAwesome;margin-right:.5em}
+#blog-pager .home-link::before{content:"\f015";font-family:FontAwesome;margin-right:.5em}
+
+
+.footer-main{background-color:#222;color:#f1f1f1;font-size:1em}
+.footer-main a{color:#f1f1f1;text-decoration:none}
+.footer-main a:hover{color:#f5f5f5}
+.footer-main .widget.Label ul li{padding:0;margin-bottom:1em}
+.footer-main .widget.Label ul li a{opacity:.8;vertical-align:middle;transition:.1s all ease-in-out}
+.footer-main .widget.Label ul li a:hover{color:#ea5631;opacity:1}
+.footer-main .widget.Label ul li a:before{content:"\f105";font-family:FontAwesome;margin-right:.5em;opacity:.4}
+.footer-main .widget.Label ul li .labelCount{display:inline-block;opacity:0;font-size:.7em;padding:5px;text-align:center;border-radius:50%;vertical-align:middle;position:relative;left:-20px;transition:.2s all ease-in-out}
+.footer-main .widget.Label ul li:hover .labelCount{opacity:.5;left:0}
+.footer-main .widget.ContactForm .contact-form-widget{font-size:.78em;text-transform:uppercase;letter-spacing:.15em;max-width:100%}
+.footer-main .widget.ContactForm .contact-form-email,.footer-main .widget.ContactForm .contact-form-name,.footer-main .widget.ContactForm .contact-form-email-message{display:block;width:100%;max-width:initial;padding:1em .5em;background-color:rgba(0,0,0,0.1);border-color:rgba(255,255,255,0.5);color:#fff;font-size:1.2em}
+.footer-main .widget.ContactForm .contact-form-button{width:100%;padding:.5em;font-size:1.1em;height:auto;background:#fff;color:#333;font-weight:700}
+.footer-main .Attribution{font-size:.85em;text-transform:uppercase;letter-spacing:.15em;opacity:.9}
+.footer-main .Attribution .widget-content a{position:relative;font-weight:700;color:#ff8325;display:inline-block;margin-right:-42px}
+.footer-main .Attribution .widget-content a::after{content:".com";color:#fff;opacity:0;font-weight:300;position:relative;left:-44px;transition:.2s all cubic-bezier(0.41,0.25,0.38,1.07)}
+.footer-main .Attribution:hover .widget-content a::after{opacity:1;left:0}
+.search-overflow{position:fixed;z-index:99;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.85);padding:1em}
+.search-overflow .close-button{display:inline-block;color:#fff;width:32px;height:32px;text-align:center;line-height:32px;cursor:pointer;background-color:#f73e3e}
+.search-input-container{position:absolute;left:0;right:0;top:50%;margin-top:-100px;height:200px;vertical-align:middle;line-height:200px}
+#searchInput1,#searchEnter1{display:block;border:1px solid rgba(255,255,255,0.0);background:rgba(0,0,0,0);width:80%;font-family:"Open Sans";font-size:1.6em;font-weight:600;text-align:center;color:#fff;padding:1em;margin:0 auto;outline:0;animation:pulse 2s infinite;transition:.2s all ease-in-out}
+#searchInput1:focus{animation:none;border:1px solid rgba(255,255,255,0.4);box-shadow:0 5px 50px rgba(0,0,0,0.2)}
+#searchEnter1{font-family:"Open Sans","FontAwesome",Arial,sans-serif;animation:none;background-color:#fff;color:#333;border-radius:10px;padding:.4em;max-width:150px;margin:.5em auto;line-height:initial;font-weight:300;font-size:1.2em;opacity:.8;text-transform:uppercase}
+#searchEnter1:hover{opacity:1}
+
+
+
+/* EXTRA STYLES - AFTER */
+.bottom-links.section .PageList {
+    margin: 0.25em auto;
+    margin-top: 1em;
+}
+.bottom-links.section .PageList h2 {
+    display: none;
+}
+.bottom-links.section .PageList ul {
+    padding: 0.5em 0;
+    padding-top: 2em;
+    border-top: 1px solid #444;
+    text-align: center;
+}
+.bottom-links.section .PageList ul li {
+    display: inline-block;
+}
+
+.bottom-links.section .PageList ul li a {
+    position: relative;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
+    margin: 0 0.5em;
+    transition: 0.1s all ease-in-out;
+}
+
+.bottom-links.section .PageList ul li a:hover {
+    color: #b9b9b9;
+}
+
+
+
+/* Blog Pager Extra Styles */
+@media screen and (max-width: 640px){
+    #blog-pager span.label_text{
+        display: none;
+    }
+
+    #blog-pager a::after,
+    #blog-pager a::before {
+        padding: 0 10px;
+        margin: 0 !important;
+    }
+
+    /* Comments Section */
+    .post-outer .comments {
+        margin-left: -20px;
+        margin-right: -20px;
+    } 
+}
+
+
+/* Comments */
+
+.continue[kind=ci] {
+    margin-top: 2em;
+    display: block;
+    border: 0 !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #fff;
+}
+
+.continue[kind=ci] a {
+    color: #333;
+    display: block;
+    background: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5em 2em;
+    border: 4px solid #333;
+    transition: 0.2s all ease-in-out;
+}
+
+.continue[kind=ci] a:hover {
+    color: #fff;
+    background-color: #333;
+}
+</style>
+<!-- Fancy Box Custom Styles -->
+<style type='text/css'>
+@media screen and (min-width:640px){
+    /* Fancy lightbox styles */
+    body .fancybox-slide--image {
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+}
+
+
+/* Simple lightbox styles */
+.sl-overlay {
+    background: #000;
+}
+.sl-wrapper .sl-image {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.sl-wrapper .sl-navigation button {
+    color: #ffbb2f;
+}
+
+.sl-wrapper .sl-close, .sl-wrapper .sl-counter {
+    color: #ffbb2f;
+}
+
+
+/* Recommended Post Container */
+
+.recommended-post-container ul li {
+    border: none;
+    padding: .5em 0;
+    margin: 0.5em 0;
+}
+
+.recommended-post-container ul li:hover {
+    border-left-color: #ccc
+}
+
+.recommended-post-container .item-content {
+    font-size: .9em;
+    vertical-align: middle
+}
+
+
+.recommended-post-container .item-content .item-thumbnail .image-container {
+    display: block;
+    min-height: 240px;
+    background-color: #eee;
+}
+
+.recommended-post-container .item-content .item-thumbnail {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-height: 240px;
+    margin: 0;
+    padding: 0;
+    float: none;
+    opacity: .8;
+    transition: .1s all ease-in-out;
+
+    overflow: hidden;
+    max-width: 360px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+.recommended-post-container ul li:hover .item-content .item-thumbnail {
+    opacity: 1
+}
+
+.recommended-post-container .item-content .item-thumbnail a img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+
+    min-height: 200px;
+}
+
+.recommended-post-container .item-content .item-title {
+    font-family: "Open Sans",Arial,sans-serif;
+    font-size: 1.26em;
+    font-weight: 400;
+    padding: 0.5em 5px;
+    line-height: 1.6;
+}
+
+.recommended-post-container .item-content .item-title a {
+    color: #969696;
+    text-decoration: none;
+    transition: .1s all ease-in-out;
+    border-bottom: 1px solid rgba(255,255,255,0);
+    font-weight: 400;
+    letter-spacing: -.05em
+}
+
+.recommended-post-container .item-content .item-title a:hover {
+    color: #111
+}
+
+.recommended-post-container .item-content .item-snippet {
+    display: none
+}
+
+</style>
+<!-- <link href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' rel='stylesheet'/> <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:700' rel='stylesheet'/> <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/> <link href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css' rel='stylesheet' type='text/css'/> -->
+<div id='dynamic_target'></div>
+<!-- Scripts -->
+<script defer='defer' onload='loadDIWScript(); ' src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' type='text/javascript'></script>
+<script defer='defer' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js'></script>
+<script type='text/javascript'>
+//<![CDATA[
+
+function loadDIWScript(){ // Load Function Start
+
+
+$(document).ready(function(){$(".searchOpenBtn").on("click",function(a){big_search_func("show");a.preventDefault()});$("#searchBoxBig .close-button, #searchBoxBig").on("click",function(){big_search_func("hide")});$("#searchBoxBig form").on("click",function(a){a.stopPropagation()});$(document).on("keydown",function(a){$("#searchBoxBig").is(":visible")&&27==a.which&&big_search_func("hide")});$(".mainMenuIcon").on("click",function(a){991>=$(window).width()&&$("#headerMenu").slideToggle(200);a.preventDefault()});
+$(window).on("resize",function(){991<$(this).width()&&($("#headerMenu").slideDown(0),$("#headerMenu").attr("style",""))});big_post_header();$(".thumbImage").each(function(){var a=$(this).find("img").attr("data-img"),a=a.replace("s72-c","s290");imgUrl_placeholder=a.replace("s290","s32");$(this).find("img").attr("src",imgUrl_placeholder);$(this).find("img").attr("data-original",a)});$(".thumbImage img").lazyload({effect:"fadeIn"});$(".share-post a.share_link").on("click",function(a){var c=Math.round(($(this).offset().top-
+window.pageYOffset)/2),d=Math.round(($(this).offset().left-window.pageXOffset)/1+$(this).width()+20);window.open($(this).attr("href"),"","toolbars=yes, scrollbars=yes, resizable=yes, top="+c+", left="+d+", width=600, height=380");a.preventDefault()});$(".sidebar .PopularPosts .item-thumbnail").each(function(){var a=$(this).find("img").attr("src").replace("w72-h72-p","w180-h90-c");$(this).find("img").attr("src",a)});$(".label-post-feature-box").length&&label_featured_posts()});
+function big_post_header(){var a={url:$("[rel='canonical']").attr("href"),title:$(".post .post-title").text().trim(),date:$(".date-outer .date-header span").text().trim(),first_image:$('[itemprop="image"] [itemprop="url"]').attr("content"),author:{name:$(".meta-author span[itemprop='name']").text(),url:$(".meta-author [itemprop='url']").attr("content"),img:$(".author-image.author-img").attr("src")},commentsCount:$(".comments-count").text()};a.first_image&&($(".post-header--hero .bg-image").hide(),
+$(".post-header--hero .bg-image-blur").css("background-image","url('"+image_resize(a.first_image,"s20")+"')"),$(".post-header--hero .bg-image-blur").fadeOut(600),$(".post-header--hero .bg-image").css("background-image","url('"+image_resize(a.first_image,"s1360")+"')"),$(".post-header--hero .bg-image").fadeIn(1600));a.title&&($(".post-title--hero a").attr(a.url),$(".post-title--hero a").text(a.title));a.author.name?($(".post-data--hero .author-details .author-name").text(a.author.name),$(".post-data--hero .author-details").attr("href",
+a.author.url),a.author.img&&$(".post-data--hero .author-img-container .author-avatar").attr("src",a.author.img)):$(".post-data--hero .post-data-block.author").hide();a.date?$(".post-data--hero .post-data-block.published-date time").text(a.date):$(".post-data--hero .post-data-block.published-date").hide();a.commentsCount?$(".post-data--hero .post-data-block.comment-link .c-count").text(a.commentsCount):$(".post-data--hero .post-data-block.comment-link ").hide();$(".post-header--hero").slideDown(200);
+$(".post-header--hero").fadeIn(200);$(".post-header--hero .loader-box").fadeOut(200);return a}function big_search_func(a){var c=document.getElementById("searchBoxBig");void 0===a?"yes"==window.localStorage.getItem("showBigSearch")?big_search_func("show"):big_search_func("hide"):"show"==a?($(c).fadeIn(200),window.localStorage&&window.localStorage.setItem("showBigSearch","yes")):"hide"==a&&($(c).fadeOut(200),window.localStorage&&window.localStorage.setItem("showBigSearch","no"));return 0}
+function image_resize(a,c){return a.replace(/s\B\d{2,4}/,c)}
+function label_featured_posts(){var a=[],c=[];console.log(c);$(".label-post-feature-box .label-feature-post").each(function(){a.push($(this).data("label"));c.push($(this))});var d="/feeds/posts/default/?q="+("label:"+a[0]+"|label:"+a[1]+"|label:"+a[2])+"&alt=json";console.log(d);$.ajax({url:d,dataType:"jsonp",success:function(e){entries=e.feed.entry;console.log(e);if(3>entries.length)return console.log("Not enough feed."),0;e=[];for(var f=0;f<c.length;f++)for(var b=0;b<entries.length;b++){var d=entries[b].title.$t,
+k=entries[b].link[4].href,g=entries[b].media$thumbnail.url,h=entries[b].category[0].term,l=entries[b].id.$t;console.log("Run "+f+":"+d);entries[b].media$thumbnail.url?(g=g.replace("s72-c","s164"),0!=f&&(g=g.replace("s164","s160"))):g="https://3.bp.blogspot.com/-sCez3knE0YY/WSrrT4NgPMI/AAAAAAAAXU8/QB5WdqXSZEUv7gGrzuWrxuMldOynOTNfQCKgB/s640/photo-1434394673726-e8232a5903b4.jpg";if(0>e.indexOf(l)){console.log(h==a[f]);"Featured"==h&&entries[b].category[1]&&(h=entries[b].category[1].term);b=$(c[f]);b.find(".primary-label").text(h);
+b.find(".primary-label").attr("href","/search/label/"+h);b.find(".full-link").attr("href",k);b.find(".title-post h3 a").text(d);b.find(".title-post h3 a").attr("href",k);b.find(".first-image-bg").css({"background-image":"url("+g+")"});e.push(l);console.log(e);break}}$(".label-post-feature-box .loader-box").fadeOut(200)}})};
+
+
+/* Fancy Box with Lazy Loading */
+$(function() {
+    $("a.lazy img").lazyload({
+        effect: 'fadeIn',
+        skip_invisible : true
+    });
+  
+    $('a.lazy img').parent("a").each(function(){
+      $(this).on('mouseover', function(){
+         $(this).attr('data-src', $(this).find('img').attr('data-original'));
+         $(this).attr('data-fancybox', 'postimages');
+         
+         $(this).parent("a").fancybox({
+           margin : [50, 0],
+           onComplete: function( instance, slide ) {
+            instance.scaleToActual( 0, 0, 0 ); 
+            console.log( instance );
+           }
+         });
+      });
+    });
+
+
+   // Display the recommended post widget
+   recommended_post();
+
+  if ( $('body.item').length > 0 ) {
+    // Show the progress meter
+    window.setTimeout(function(){
+     readProgressMeter();
+    }, 1000);
+   
+
+   // Serve ad Block notice
+   // serve_adBlock_Notice();
+  }  
+
+});
+
+
+
+
+} // Load function end
+
+/* Recommended Post Widget  */
+function recommended_post(){var h=$("#recommended_posts").parent().parent(".widget"),d=[],k="",e=7;void 0!=window.recommendedPostCounts&&(e=window.recommendedPostCounts);$(".post-footer .post-labels a").each(function(){d.push($(this).text().trim())});if(0<d.length)k="/feeds/posts/summary/-/"+d[0]+"/?alt=json&max-results="+e;else return $.ajax({url:"/feeds/posts/summary/-/Featured/?alt=json&max-results="+(e+5),dataType:"jsonp",success:function(b){entries=b.feed.entry;b="";for(var a=5;a<e+5&&"undefined"!=
+typeof entries[a];a++){var c=entries[a].title.$t,g=entries[a].link[4].href,f=entries[a].media$thumbnail.url,l="";entries[a].media$thumbnail.url&&(l=f.replace("s72-c","s340"));b+='<li><div class="item-content"><div class="item-thumbnail"><a class="image-container" href="'+g+'" target="_blank"><img class="lazy" data-original="'+l+'" alt border="0"></a></div><div class="item-title"><a href="'+g+'">'+c+"</a></div></div></li>"}$("#recommended_posts").html("<ul>"+b+"</ul>");h.fadeIn();$(".item-thumbnail img.lazy").lazyload({effect:"fadeIn"})}}),
+0;$.ajax({url:k,dataType:"jsonp",success:function(b){entries=b.feed.entry;b=$(".post-title.entry-title").text().trim();for(var a="",c=0;c<entries.length;c++){var g=entries[c].title.$t,f=entries[c].link[4].href,e=entries[c].media$thumbnail.url,d="";entries[c].media$thumbnail.url&&(d=e.replace("s72-c","s340"));f='<li><div class="item-content"><div class="item-thumbnail"><a class="image-container" href="'+f+'" target="_blank"><img class="lazy" data-original="'+d+'" alt border="0"></a></div><div class="item-title"><a href="'+
+f+'">'+g+"</a></div></div></li>";g!=b&&(a+=f)}$("#recommended_posts").html("<ul>"+a+"</ul>");h.fadeIn();$(".item-thumbnail img.lazy").lazyload({effect:"fadeIn"})}})};
+
+
+
+
+/* Notice AD BLOCK */
+function serve_adBlock_Notice(){
+  if ( typeof window.adsbygoogle.loaded  == "undefined" ) {
+
+    // _notice_ab();
+    var _htmlNotice  = "<h3><i class='fa fa-exclamation-triangle'></i> AdBlock Detected. Disable it to access content.</h3>";
+        _htmlNotice += "<p>It looks like you have AdBlock enabled. To view the content you are requested to at least whitelist our blog in your AdBlock setting and then refresh the page to read our blog.</p>"
+        _htmlNotice += "<br><img style='max-width: 100%; width: 284px; height: auto;' src='https://1.bp.blogspot.com/-_GL1g8UGeuU/WU48M501qwI/AAAAAAAAX7E/CsWFoUS5UAINc0FnLBvj_xJm-HTcrpg6gCK4BGAYYCw/s1600/disableAB.png'/> <br>";
+        _htmlNotice += "<p><a href='#' class='reloadBtn' onClick='location.reload();'>Refresh</a></p>";
+    $("#postHider .notice").html( _htmlNotice );
+    $("#postHider").fadeIn();
+
+    $(".post-body").css({'-webkit-filter': 'blur(0px)'});
+
+    window.setTimeout(function(){
+      if ( typeof window.adsbygoogle.loaded  != "undefined"  ) {
+          $('#postHider').fadeOut();
+          $(".post-body").css({'-webkit-filter': ''});
+      }
+    }, 2000);
+  }
+}
+
+
+//]]>
+</script>
+<script defer='defer' onload='runWowJS()' src='//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+<script>function runWowJS() {document.addEventListener("DOMContentLoaded", function(){new WOW().init()}, false)}</script>
+<!-- <noscript id="sumomeScript"> <script data-sumo-site-id='7c42afaa990fbf5c4a549fd3a081a97dac9a2e6d491aba5118fa1569e11c412b' async='async' src='//load.sumome.com/'/> </noscript> -->
+<script>//<![CDATA[
+       var scriptSumo = document.createElement('script');
+
+        scriptSumo.onreadystatechange = function () {
+            if ((script.readyState == 'complete' || script.readyState == 'loaded') && !isLoaded) {
+                if (callback) callback();
+            }
+        };
+
+        scriptSumo.setAttribute('src', '//load.sumome.com/');
+        scriptSumo.setAttribute('async', 'async');
+        scriptSumo.setAttribute('data-sumo-site-id', '7c42afaa990fbf5c4a549fd3a081a97dac9a2e6d491aba5118fa1569e11c412b');
+        document.head.appendChild(scriptSumo);
+
+//]]></script>
+<script defer='defer' onload='runFancyBox();' src='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js'></script>
+<script type='text/javascript'>
+    function runFancyBox(){ // FancyBox Function Start
+  //<![CDATA[
+
+  /*$(document).ready(function(){
+    var options = {
+      heightRatio: 1
+    };
+    var lightbox = $('.post .single-post-body img').parent('a').simpleLightbox(options);
+  });*/
+
+    /* FancyBox Plugin */
+$(document).ready(function() {
+
+  $('.post .post-body img').parent("a:not(.lazy):not(.no-lightbox)").each(function(){
+         $(this).attr('data-src', $(this).find('img').attr('src'));
+         $(this).attr('data-fancybox', 'postimages');
+    });
+
+
+  $('.post .post-body img').parent("a:not(.lazy):not(.no-lightbox)").fancybox({
+        margin : [50, 0],
+        onComplete: function( instance, slide ) {
+            instance.scaleToActual( 0, 0, 0 ); 
+        }
+  });
+});
+    } // FancyBox function end
+    //]]>
+</script>
+<noscript id='authorizationCSS'>
+<link href='https://draft.blogger.com/dyn-css/authorization.css?targetBlogID=5050352549609773373' rel='stylesheet' type='text/css'/>
+</noscript>
+<script>
+      var loadAuthorizationCSS = function() {
+        var addStylesNode = document.getElementById("authorizationCSS");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadAuthorizationCSS, 0); });
+      else window.addEventListener('load', loadAuthorizationCSS);
+    </script>
+<!-- Scripts for Index Pages Only -->
+<script type='text/javascript'>
+  //<![CDATA[
+    
+  //]]>
+  </script>
+<script async='async' src='https://apis.google.com/js/plusone.js' type='text/javascript'></script>
+<script defer='defer' onload='loadWidgetsJs' src='https://www.blogger.com/static/v1/widgets/2859494812-widgets.js' type='text/javascript'></script>
+<script type='text/javascript'>// <![CDATA[
+
+/* AdSense Below Posts on Post Outer */
+function ads_between_posts() {
+  var adCodes = {
+    "0" : '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8682825476341296" data-ad-slot="3736940631" data-ad-format="auto"></ins>',
+    "1" : '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8682825476341296" data-ad-slot="3736940631" data-ad-format="auto"></ins>'
+  };
+
+  // Do this only on index pages
+  if ( document.getElementsByClassName("index").length ) {
+    var posts = document.getElementsByClassName(  "post-outer" );
+        var n = posts.length;
+
+        if (n  === 1) {
+          posts[0].insertAdjacentHTML('afterend', '<div class="post-outer adsense-ad-outer adsense-post-ad-1"><aside>' + adCodes["0"] + '</aside></div>');
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+
+
+        if (n  >= 8) {
+          posts[3].insertAdjacentHTML('afterend', '<div class="post-outer adsense-ad-outer adsense-post-ad-1"><aside class="ad-inner">' + adCodes["0"] + '</aside></div>');
+          posts[8].insertAdjacentHTML('afterend', '<div class="post-outer adsense-ad-outer adsense-post-ad-2"><aside class="ad-inner">' + adCodes["1"] + '</aside></div>');
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+
+        
+        if (n > 1 && n  < 4) {
+          posts[0].insertAdjacentHTML('afterend', '<div class="post-outer adsense-ad-outer adsense-post-ad-1"><aside class="ad-inner">' + adCodes["0"] + '</aside></div>');
+          posts[2].insertAdjacentHTML('afterend', '<div class="post-outer adsense-ad-outer adsense-post-ad-2"><aside class="ad-inner">' + adCodes["0"] + '</aside></div>');
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+  }
+}
+
+window.addEventListener("load", ads_between_posts);
+//document.addEventListener("DOMContentLoaded", ads_between_posts);
+
+// ]]></script>
+<style>
+.index .post-outer.adsense-ad-outer {
+    padding-bottom: 1em;
+    margin-bottom: 2em !important;
+}
+
+.index .post-outer.adsense-ad-outer .ad-inner {
+    border-bottom: 2px solid #dcdcdc;
+}
+</style>
+<script type='text/javascript'>
+//<![CDATA[
+  function loadWidgetsJs() {
+      var _widgetJS             = document.getElementById("widgetsJS");
+      var _replaceDiv           = document.createElement("div");
+          _replaceDiv.innerHTML = _widgetJS.textContent.replace('</body>', '').trim();
+
+      for (var i = 0; i < _replaceDiv.children.length; i++) {
+        var iType = _replaceDiv.children[i].type;
+        if ( iType = "text/javascript" ) {
+          _replaceDiv.children[i].async = "async";
+        }
+      }
+
+      var _widgetJsScript = document.createElement("script");
+          _widgetJsScript.innerHTML =  _replaceDiv.children[1].innerText;
+
+      var _newReplacementDiv = document.createElement('div');    
+          _newReplacementDiv.appendChild( _widgetJsScript );
+
+      document.head.appendChild( _newReplacementDiv );
+  }
+
+
+  window.addEventListener('load', loadWidgetsJs);
+//]]>
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height='0' src='https://www.googletagmanager.com/ns.html?id=GTM-TN87DS' style='display:none;visibility:hidden' width='0'></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+
+
+
+<noscript id="widgetsJS">
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/698371418-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY6c6OC3noLqvD_iRel7CTI2w1E50g:1521256247212';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d5050352549609773373','//www.digitalinformationworld.com/','5050352549609773373');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '5050352549609773373', 'title': 'Digital Information World', 'url': 'https://www.digitalinformationworld.com/', 'canonicalUrl': 'https://www.digitalinformationworld.com/', 'homepageUrl': 'https://www.digitalinformationworld.com/', 'searchUrl': 'https://www.digitalinformationworld.com/search', 'canonicalHomepageUrl': 'https://www.digitalinformationworld.com/', 'blogspotFaviconUrl': 'https://www.digitalinformationworld.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': true, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Digital Information World - Atom\x22 href\x3d\x22https://www.digitalinformationworld.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Digital Information World - RSS\x22 href\x3d\x22https://www.digitalinformationworld.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Digital Information World - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/5050352549609773373/posts/default\x22 /\x3e\n', 'meTag': '', 'openIdOpTag': '', 'adsenseClientId': 'ca-pub-8682825476341296', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': true, 'ieCssRetrofitLinks': '\x3c!--[if IE]\x3e\x3cscript type\x3d\x22text/javascript\x22 src\x3d\x22https://www.blogger.com/static/v1/jsbin/3658603751-ieretrofit.js\x22\x3e\x3c/script\x3e\n\x3c![endif]--\x3e', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/1eda9627641898c5', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': 'Share to Google+', 'target': 'googleplus'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'Digital Information World', 'metaDescription': 'We curate the best marketing, technology and design related insights, tips and guides in the world.'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Digital Information World', 'description': 'We curate the best marketing, technology and design related insights, tips and guides in the world.', 'url': 'https://www.digitalinformationworld.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'topMenu', null, document.getElementById('PageList1'), {'title': 'Pages', 'links': [{'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/guest-contribution.html', 'id': '2122273634241270658', 'title': 'Contribute'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/about.html', 'id': '2693537557221206980', 'title': 'About Us'}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'Adsense_Ad_Top', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebar-right-1', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense2', 'sidebar-right-1', null, document.getElementById('AdSense2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'sidebar-right-1', null, document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar-right-1', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense3', 'sidebar-right-1', null, document.getElementById('AdSense3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'sidebar-right-1', null, document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'footer-2-1', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList1', 'footer-2-2', null, document.getElementById('LinkList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML6', 'footer-2-3', null, document.getElementById('HTML6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList2', 'Bottom-Links', null, document.getElementById('PageList2'), {'title': 'Pages', 'links': [{'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/privacy-policy.html', 'id': '7981663975151021989', 'title': 'Privacy Policy'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/contact-us.html', 'id': '6952245801761455171', 'title': 'Contact Us'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/subscribe.html', 'id': '826891749116896118', 'title': 'Subscribe'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/guest-contribution.html', 'id': '2122273634241270658', 'title': 'Contribute'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/online-html-editor-tool.html', 'id': '3719529649273442344', 'title': 'HTML Editor'}, {'isCurrentPage': false, 'href': 'https://www.digitalinformationworld.com/p/services.html', 'id': '2612244362000075742', 'title': 'Services'}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'footer-3', null, document.getElementById('ContactForm1'), {'contactFormMessageSendingMsg': 'Sending...', 'contactFormMessageSentMsg': 'Your message has been sent.', 'contactFormMessageNotSentMsg': 'Message could not be sent. Please try again later.', 'contactFormInvalidEmailMsg': 'A valid email address is required.', 'contactFormEmptyMessageMsg': 'Message field cannot be empty.', 'title': 'Contact Form', 'blogId': '5050352549609773373', 'contactFormNameMsg': 'Name', 'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Message', 'contactFormSendMsg': 'Send', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'footer-3', null, document.getElementById('HTML5'), {}, 'displayModeFull'));
+</script>
+</body></noscript> </body>
+
+
+</html>

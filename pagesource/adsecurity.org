@@ -1,0 +1,1188 @@
+<!DOCTYPE html><!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Active Directory Security &#8211; Active Directory &amp; Enterprise Security, Methods to Secure Active Directory, Attack Methods &amp; Effective Defenses, PowerShell, Tech Notes, &amp; Geek Trivia&#8230;</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Active Directory Security &raquo; Feed" href="https://adsecurity.org/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Active Directory Security &raquo; Comments Feed" href="https://adsecurity.org/?feed=comments-rss2" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/adsecurity.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='graphene-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i&#038;subset=latin&#038;ver=2.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='http://adsecurity.org/wp-content/themes/graphene/bootstrap/css/bootstrap.min.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='http://adsecurity.org/wp-content/themes/graphene/fonts/font-awesome/css/font-awesome.min.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='graphene-css'  href='http://adsecurity.org/wp-content/themes/graphene/style.css?ver=2.3.1' type='text/css' media='screen' />
+<link rel='stylesheet' id='graphene-responsive-css'  href='http://adsecurity.org/wp-content/themes/graphene/responsive.css?ver=2.3.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://adsecurity.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/bootstrap/js/bootstrap.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/bootstrap-submenu/bootstrap-submenu.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/html5shiv/html5shiv.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/respond.js/respond.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/jquery.infinitescroll.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='http://adsecurity.org/wp-includes/js/comment-reply.min.js?ver=4.9.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var grapheneJS = {"templateUrl":"http:\/\/adsecurity.org\/wp-content\/themes\/graphene","isSingular":"","shouldShowComments":"1","commentsOrder":"newest","sliderDisable":"","sliderInterval":"7000","infScrollBtnLbl":"Load more","infScrollOn":"","infScrollCommentsOn":"","totalPosts":"232","postsPerPage":"10","isPageNavi":"","infScrollMsgText":"Fetching window.grapheneInfScrollItemsPerPage of window.grapheneInfScrollItemsLeft items left ...","infScrollMsgTextPlural":"Fetching window.grapheneInfScrollItemsPerPage of window.grapheneInfScrollItemsLeft items left ...","infScrollFinishedText":"All loaded!","commentsPerPage":"50","totalComments":"2","infScrollCommentsMsg":"Fetching window.grapheneInfScrollCommentsPerPage of window.grapheneInfScrollCommentsLeft comments left ...","infScrollCommentsMsgPlural":"Fetching window.grapheneInfScrollCommentsPerPage of window.grapheneInfScrollCommentsLeft comments left ...","infScrollCommentsFinishedMsg":"All comments loaded!","isMasonry":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://adsecurity.org/wp-content/themes/graphene/js/graphene.js?ver=2.3.1'></script>
+<link rel='https://api.w.org/' href='https://adsecurity.org/index.php?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://adsecurity.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://adsecurity.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.4" />
+<style type="text/css">
+.header_title, .header_title a, .header_title a:visited, .header_title a:hover, .header_desc {color:#000000}.carousel, .carousel .item{height:400px}@media (max-width: 767px) {.carousel, .carousel .item{height:250px}}#header{max-height:198px}@media (min-width: 1200px) {.container {width:1280px}}
+</style>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		    </head>
+    <body class="home blog custom-background two_col_left two-columns">
+        
+        <div class="container boxed-wrapper">
+            
+                            <div id="top-bar" class="row clearfix ">
+
+                            			<div id="profiles">	<ul class="social-profiles">
+							
+			            <li class="social-profile social-profile-rss">
+			            	<a href="https://adsecurity.org/?feed=rss2" title="Subscribe to Tech, News, and Other Ideations&#039;s RSS feed" id="social-id-1" class="mysocial social-rss">
+			            				                            <i class="fa fa-rss"></i>
+		                        			            	</a>
+			            </li>
+		            
+		    	    </ul>
+    </div>
+
+                                            <button type="button" class="search-toggle navbar-toggle collapsed" data-toggle="collapse" data-target="#top_search">
+                            <span class="sr-only">Toggle search form</span>
+                            <i class="fa fa-search-plus"></i>
+                        </button>
+
+                        <div id="top_search">
+                            <form class="searchform" method="get" action="https://adsecurity.org">
+	<div class="input-group">
+	    <input type="text" name="s" class="form-control" placeholder="Search">
+	    <span class="input-group-btn">
+	    	<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+	    </span>
+    </div>
+    </form>                                                    </div>
+                                        
+                                    </div>
+            
+                        <div id="header" class="row">
+                <img src="http://adsecurity.org/wp-content/themes/graphene/images/headers/fluid.jpg" alt="" />            	
+                                	       
+                                
+        		            </div>
+
+
+                        <nav class="navbar row navbar-inverse">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu-wrap, #secondary-menu-wrap">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                                            <h1 class="header_title">                                                            Active Directory Security                                                    </h1>                        
+                        <h2 class="header_desc">                            Active Directory &amp; Enterprise Security, Methods to Secure Active Directory, Attack Methods &amp; Effective Defenses, PowerShell, Tech Notes, &amp; Geek Trivia&#8230;                        </h2>                    
+                                    </div>
+
+                <div class="collapse navbar-collapse" id="header-menu-wrap">
+        			<ul class="nav navbar-nav flip"><li class="current_page_item"><a href="https://adsecurity.org/">Home</a></li><li class="menu-item menu-item-8"><a href="https://adsecurity.org/?page_id=8" >About</a></li><li class="menu-item menu-item-41"><a href="https://adsecurity.org/?page_id=41" >AD Resources</a></li><li class="menu-item menu-item-293"><a href="https://adsecurity.org/?page_id=293" >Contact</a></li><li class="menu-item menu-item-1821"><a href="https://adsecurity.org/?page_id=1821" >Mimikatz</a></li><li class="menu-item menu-item-1352"><a href="https://adsecurity.org/?page_id=1352" >Presentations</a></li><li class="menu-item menu-item-195"><a href="https://adsecurity.org/?page_id=195" >Schema Versions</a></li><li class="menu-item menu-item-399"><a href="https://adsecurity.org/?page_id=399" >Security Resources</a></li><li class="menu-item menu-item-183"><a href="https://adsecurity.org/?page_id=183" >SPNs</a></li><li class="menu-item menu-item-2532"><a href="https://adsecurity.org/?page_id=2532" >Top Posts</a></li></ul>                    
+        			                    
+                                    </div>
+
+                                
+                            </nav>
+
+            
+            <div id="content" class="clearfix hfeed row">
+                                
+                <div id="content-main" class="clearfix content-main col-md-8">
+                    <div class="carousel slide carousel-fade bgimage-excerpt" data-ride="carousel" id="graphene-slider">
+	    
+	    	    <div class="carousel-inner" role="listbox">
+
+	    					    <div style="background-image:url(https://adsecurity.org/wp-content/uploads/2018/01/RODC-GoldenTicket-LukeSkywalker-823x400.png);" class="item active" id="slider-post-3592">
+				    	
+				    			                	<a href="https://adsecurity.org/?p=3592" class="permalink-overlay" title="View post"></a>
+
+		                	<div class="carousel-caption">
+						    	<h2 class="slider_post_title"><a href="https://adsecurity.org/?p=3592">Attacking Read-Only Domain Controllers (RODCs) to Own Active Directory</a></h2>
+					    		<div class="slider_post_excerpt"><p>I have been fascinated with Read-Only Domain Controllers (RODCs) since RODC was released as a new DC promotion option with Windows Server 2008. Microsoft customers wanted a DC that wasn&#8217;t really a DC. &#8211; something &hellip; </p>
+</div>
+					    								    </div>
+		                
+		                
+
+		                				    </div>
+							    <div  class="item " id="slider-post-3782">
+				    	
+				    			                	<a href="https://adsecurity.org/?p=3782" class="permalink-overlay" title="View post"></a>
+
+		                	<div class="carousel-caption">
+						    	<h2 class="slider_post_title"><a href="https://adsecurity.org/?p=3782">Securing Microsoft Active Directory Federation Server (ADFS)</a></h2>
+					    		<div class="slider_post_excerpt"><p>Many organizations are moving to the cloud and this often requires some level of federation. Federation, put simply, extends authentication from one system (or organization) to another. Gerald Steere (@Darkpawh) and I spoke about cloud &hellip; </p>
+</div>
+					    								    </div>
+		                
+		                
+
+		                				    </div>
+							    <div style="background-image:url(https://adsecurity.org/wp-content/uploads/2017/08/Get-ADRootDSE.png);" class="item " id="slider-post-3719">
+				    	
+				    			                	<a href="https://adsecurity.org/?p=3719" class="permalink-overlay" title="View post"></a>
+
+		                	<div class="carousel-caption">
+						    	<h2 class="slider_post_title"><a href="https://adsecurity.org/?p=3719">Gathering AD Data with the Active Directory PowerShell Module</a></h2>
+					    		<div class="slider_post_excerpt"><p>Microsoft provided several Active Directory PowerShell cmdlets with Windows Server 2008 R2 (and newer) which greatly simplify tasks which previously required putting together lengthy lines of code involving ADSI. On a Windows client, install the &hellip; </p>
+</div>
+					    								    </div>
+		                
+		                
+
+		                				    </div>
+							    <div style="background-image:url(https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell.png);" class="item " id="slider-post-3700">
+				    	
+				    			                	<a href="https://adsecurity.org/?p=3700" class="permalink-overlay" title="View post"></a>
+
+		                	<div class="carousel-caption">
+						    	<h2 class="slider_post_title"><a href="https://adsecurity.org/?p=3700">Beyond Domain Admins &#8211; Domain Controller &#038; AD Administration</a></h2>
+					    		<div class="slider_post_excerpt"><p>Active Directory has several levels of administration beyond the Domain Admins group. In a previous post, I explored: &#8220;Securing Domain Controllers to Improve Active Directory Security&#8221; which explores ways to better secure Domain Controllers and &hellip; </p>
+</div>
+					    								    </div>
+		                
+		                
+
+		                				    </div>
+							    <div style="background-image:url(https://adsecurity.org/wp-content/uploads/2017/06/ActiveDirectory-Object-Permissions-02.png);" class="item " id="slider-post-3658">
+				    	
+				    			                	<a href="https://adsecurity.org/?p=3658" class="permalink-overlay" title="View post"></a>
+
+		                	<div class="carousel-caption">
+						    	<h2 class="slider_post_title"><a href="https://adsecurity.org/?p=3658">Scanning for Active Directory Privileges &#038; Privileged Accounts</a></h2>
+					    		<div class="slider_post_excerpt"><p>Active Directory Recon is the new hotness since attackers, Red Teamers, and penetration testers have realized that control of Active Directory provides power over the organization. I covered ways to enumerate permissions in AD using &hellip; </p>
+</div>
+					    								    </div>
+		                
+		                
+
+		                				    </div>
+					</div>
+        
+        		<ol class="carousel-indicators slider_nav">
+                        	 <li data-target="#graphene-slider" class="active" data-slide-to="0"></li>
+                        	 <li data-target="#graphene-slider"  data-slide-to="1"></li>
+                        	 <li data-target="#graphene-slider"  data-slide-to="2"></li>
+                        	 <li data-target="#graphene-slider"  data-slide-to="3"></li>
+                        	 <li data-target="#graphene-slider"  data-slide-to="4"></li>
+            
+                    </ol>
+
+        <a class="left carousel-control" href="#graphene-slider" role="button" data-slide="prev">
+        	<i class="fa fa-long-arrow-left"></i>
+		    <span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#graphene-slider" role="button" data-slide="next">
+			<i class="fa fa-long-arrow-right"></i>
+		    <span class="sr-only">Next</span>
+		</a>
+        
+    </div>
+    
+	<div class="entries-wrapper">
+	
+                
+
+<div id="post-2362" class="clearfix post post-2362 type-post status-publish format-standard has-post-thumbnail sticky hentry category-activedirectorysecurity category-microsoft-security category-technical-reference tag-activedirectory tag-administratorpassword tag-aesprivatekey tag-aessharedsecret tag-cpassword tag-credentialtheft tag-credentialtheftshuffle tag-domainadmins tag-domaincontroller tag-dumpcredentiasls tag-dumplsass tag-enterpriseadmins tag-get-gpppassword tag-goldentickets tag-gpp tag-grouppolicypreferences tag-groups-xml tag-ifm tag-installfrommedia tag-kb2962486 tag-kb3011780 tag-kekeo tag-kerberoast tag-kerberos tag-kerberoshacking tag-laps tag-lateralmovement tag-localadministratoraccountpassword tag-lsass tag-lsassdumpfile tag-microsoftlaps tag-mimikatz tag-ms14068 tag-ms14068-exe tag-ms14068exploit tag-msdn tag-ntds-dit tag-paws tag-persistence tag-powersploit tag-pykek tag-rc4_hmac_md5 tag-rdp tag-runas tag-scheduledtasks-xml tag-separateadminworkstation tag-serviceprincipalname tag-services-xml tag-spn tag-systemcompromise tag-sysvol tag-tgs tag-tgscracking tag-tgt tag-xml item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2016-01-01T12:00" />
+            <p class="default_date">
+            	<span class="month">Jan</span>
+                <span class="day">01</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=2362" rel="bookmark" title="Permalink to Attack Methods for Gaining Domain Admin Rights in Active Directory">
+				Attack Methods for Gaining Domain Admin Rights in Active Directory            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>There are many ways an attacker can gain Domain Admin rights in Active Directory. This post is meant to describe some of the more popular ones in current use. The techniques described here &#8220;assume breach&#8221; where an attacker already has a foothold on an internal system and has gained domain user credentials (aka post-exploitation).</p>
+<p>The unfortunate reality for most enterprises, is that it often does not take long from an attacker to go from domain user to domain admin. The question on defenders&#8217; minds is &#8220;how does this happen?&#8221;.</p>
+<p>The attack frequently starts with a spear-phishing email to one or more users enabling the attacker to get their code running on a computer inside the target network. Once the attacker has their code running inside the enterprise, the first step is performing reconnaissance to discover useful resources to escalate permissions, persist, and of course, plunder information (often the &#8220;crown jewels&#8221; of an organization).</p>
+<p>While the overall process detail varies, the overall theme remains:</p>
+<ul type="circle">
+<li>Malware Injection (Spear-Phish, Web Exploits, etc)</li>
+<li>Reconnaissance (Internal)</li>
+<li>Credential Theft</li>
+<li>Exploitation &amp; Privilege Escalation</li>
+<li>Data Access &amp; Exfiltration</li>
+<li>Persistence (retaining access)</li>
+</ul>
+<p>We start with the attacker having a foothold inside the enterprise, since this is often not difficult in modern networks. Furthermore, it is also typically not difficult for the attacker to escalate from having user rights on the workstation to having local administrator rights. This escalation can occur by either exploiting an unpatched privilege escalation vulnerability on the system or more frequently, finding local admin passwords in SYSVOL, such as Group Policy Preferences.</p>
+<p>I spoke about most of these techniques when <a href="https://adsecurity.org/?page_id=1352">at several security conferences in 2015 (BSides, Shakacon, Black Hat, DEF CON, &amp; DerbyCon)</a>.</p>
+<p>I also covered some of these issues in the post &#8220;<a href="https://adsecurity.org/?p=1684">The Most Common Active Directory Security Issues and What You Can Do to Fix Them</a>&#8220;.</p>
+<p> <a href="https://adsecurity.org/?p=2362#more-2362" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-20" href="https://adsecurity.org/?tag=activedirectory">ActiveDirectory</a>, <a class="term term-tagpost_tag term-758" href="https://adsecurity.org/?tag=administratorpassword">administratorpassword</a>, <a class="term term-tagpost_tag term-745" href="https://adsecurity.org/?tag=aesprivatekey">AESprivatekey</a>, <a class="term term-tagpost_tag term-789" href="https://adsecurity.org/?tag=aessharedsecret">AESsharedsecret</a>, <a class="term term-tagpost_tag term-747" href="https://adsecurity.org/?tag=cpassword">cpassword</a>, <a class="term term-tagpost_tag term-540" href="https://adsecurity.org/?tag=credentialtheft">CredentialTheft</a>, <a class="term term-tagpost_tag term-752" href="https://adsecurity.org/?tag=credentialtheftshuffle">CredentialTheftShuffle</a>, <a class="term term-tagpost_tag term-384" href="https://adsecurity.org/?tag=domainadmins">DomainAdmins</a>, <a class="term term-tagpost_tag term-101" href="https://adsecurity.org/?tag=domaincontroller">DomainController</a>, <a class="term term-tagpost_tag term-753" href="https://adsecurity.org/?tag=dumpcredentiasls">DumpCredentiasls</a>, <a class="term term-tagpost_tag term-761" href="https://adsecurity.org/?tag=dumplsass">DumpLSASS</a>, <a class="term term-tagpost_tag term-385" href="https://adsecurity.org/?tag=enterpriseadmins">EnterpriseAdmins</a>, <a class="term term-tagpost_tag term-744" href="https://adsecurity.org/?tag=get-gpppassword">Get-GPPPassword</a>, <a class="term term-tagpost_tag term-765" href="https://adsecurity.org/?tag=goldentickets">GoldenTickets</a>, <a class="term term-tagpost_tag term-12" href="https://adsecurity.org/?tag=gpp">GPP</a>, <a class="term term-tagpost_tag term-742" href="https://adsecurity.org/?tag=grouppolicypreferences">GroupPolicyPreferences</a>, <a class="term term-tagpost_tag term-748" href="https://adsecurity.org/?tag=groups-xml">groups.xml</a>, <a class="term term-tagpost_tag term-764" href="https://adsecurity.org/?tag=ifm">IFM</a>, <a class="term term-tagpost_tag term-763" href="https://adsecurity.org/?tag=installfrommedia">InstallFromMedia</a>, <a class="term term-tagpost_tag term-726" href="https://adsecurity.org/?tag=kb2962486">KB2962486</a>, <a class="term term-tagpost_tag term-337" href="https://adsecurity.org/?tag=kb3011780">KB3011780</a>, <a class="term term-tagpost_tag term-531" href="https://adsecurity.org/?tag=kekeo">Kekeo</a>, <a class="term term-tagpost_tag term-673" href="https://adsecurity.org/?tag=kerberoast">Kerberoast</a>, <a class="term term-tagpost_tag term-81" href="https://adsecurity.org/?tag=kerberos">Kerberos</a>, <a class="term term-tagpost_tag term-298" href="https://adsecurity.org/?tag=kerberoshacking">KerberosHacking</a>, <a class="term term-tagpost_tag term-631" href="https://adsecurity.org/?tag=laps">LAPS</a>, <a class="term term-tagpost_tag term-755" href="https://adsecurity.org/?tag=lateralmovement">lateralmovement</a>, <a class="term term-tagpost_tag term-757" href="https://adsecurity.org/?tag=localadministratoraccountpassword">localadministratoraccountpassword</a>, <a class="term term-tagpost_tag term-71" href="https://adsecurity.org/?tag=lsass">LSASS</a>, <a class="term term-tagpost_tag term-762" href="https://adsecurity.org/?tag=lsassdumpfile">LSASSDumpFile</a>, <a class="term term-tagpost_tag term-629" href="https://adsecurity.org/?tag=microsoftlaps">MicrosoftLAPS</a>, <a class="term term-tagpost_tag term-207" href="https://adsecurity.org/?tag=mimikatz">mimikatz</a>, <a class="term term-tagpost_tag term-295" href="https://adsecurity.org/?tag=ms14068">MS14068</a>, <a class="term term-tagpost_tag term-751" href="https://adsecurity.org/?tag=ms14068-exe">ms14068.exe</a>, <a class="term term-tagpost_tag term-334" href="https://adsecurity.org/?tag=ms14068exploit">MS14068Exploit</a>, <a class="term term-tagpost_tag term-746" href="https://adsecurity.org/?tag=msdn">MSDN</a>, <a class="term term-tagpost_tag term-691" href="https://adsecurity.org/?tag=ntds-dit">ntds.dit</a>, <a class="term term-tagpost_tag term-759" href="https://adsecurity.org/?tag=paws">PAWS</a>, <a class="term term-tagpost_tag term-766" href="https://adsecurity.org/?tag=persistence">Persistence</a>, <a class="term term-tagpost_tag term-232" href="https://adsecurity.org/?tag=powersploit">PowerSploit</a>, <a class="term term-tagpost_tag term-329" href="https://adsecurity.org/?tag=pykek">PyKEK</a>, <a class="term term-tagpost_tag term-708" href="https://adsecurity.org/?tag=rc4_hmac_md5">RC4_HMAC_MD5</a>, <a class="term term-tagpost_tag term-478" href="https://adsecurity.org/?tag=rdp">RDP</a>, <a class="term term-tagpost_tag term-754" href="https://adsecurity.org/?tag=runas">RunAs</a>, <a class="term term-tagpost_tag term-749" href="https://adsecurity.org/?tag=scheduledtasks-xml">scheduledtasks.xml</a>, <a class="term term-tagpost_tag term-760" href="https://adsecurity.org/?tag=separateadminworkstation">separateAdminWorkstation</a>, <a class="term term-tagpost_tag term-83" href="https://adsecurity.org/?tag=serviceprincipalname">ServicePrincipalName</a>, <a class="term term-tagpost_tag term-750" href="https://adsecurity.org/?tag=services-xml">Services.xml</a>, <a class="term term-tagpost_tag term-294" href="https://adsecurity.org/?tag=spn">SPN</a>, <a class="term term-tagpost_tag term-756" href="https://adsecurity.org/?tag=systemcompromise">systemcompromise</a>, <a class="term term-tagpost_tag term-621" href="https://adsecurity.org/?tag=sysvol">SYSVOL</a>, <a class="term term-tagpost_tag term-528" href="https://adsecurity.org/?tag=tgs">TGS</a>, <a class="term term-tagpost_tag term-743" href="https://adsecurity.org/?tag=tgscracking">TGSCracking</a>, <a class="term term-tagpost_tag term-529" href="https://adsecurity.org/?tag=tgt">TGT</a>, <a class="term term-tagpost_tag term-728" href="https://adsecurity.org/?tag=xml">xml</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=2362#comments">2 comments</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-1684" class="clearfix post post-1684 type-post status-publish format-standard sticky hentry category-activedirectorysecurity category-microsoft-security category-technical-reference tag-activedirectoryattack tag-activedirectorydefense tag-activedirectorysecurity tag-commonsecurityissues tag-domaincontrollersecurity tag-enterprisesecurity item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2015-10-14T22:50" />
+            <p class="default_date">
+            	<span class="month">Oct</span>
+                <span class="day">14</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=1684" rel="bookmark" title="Permalink to The Most Common Active Directory Security Issues and What You Can Do to Fix Them">
+				The Most Common Active Directory Security Issues and What You Can Do to Fix Them            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>The past couple of years of meeting with customers is enlightening since every environment, though unique, often has the same issues. These issues often boil down to legacy management of the enterprise Microsoft platform going back a decade or more.</p>
+<p>I spoke about Active Directory attack and defense at several security conferences this year including BSides, Shakacon, Black Hat, DEF CON, and DerbyCon. <a href="https://adsecurity.org/?page_id=1352">These talks include information about how to best protect the Active Directory enterprise from the latest, and most successful, attack vectors</a>.</p>
+<p>While the threats have changed over the past decade, the way systems and networks are managed often have not. We continue with the same operations and support paradigm despite the fact that internal systems are compromised regularly. We must embrace the new reality of &#8220;<a href="https://azure.microsoft.com/en-us/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/?rnd=1">Assume Breach</a>.&#8221;</p>
+<p>Assume breach means that we must assume that an attacker has control of a computer on the internal network and can access the same resources the users who have recently logged on to that computer has access to.<br />
+<em>Note that when I describe risks and mitigations of Active Directory,this includes overall enterprise configuration.</em></p>
+<p>Here are some of the biggest AD security issues (as I see them). This list is not complete, but reflects common enterprise issues.<br />
+I continue to find many of these issues when I perform <a href="https://trimarcsecurity.com/security-services">Active Directory Security Assessments</a> for organizations.</p>
+<p> <a href="https://adsecurity.org/?p=1684#more-1684" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-537" href="https://adsecurity.org/?tag=activedirectoryattack">ActiveDirectoryAttack</a>, <a class="term term-tagpost_tag term-538" href="https://adsecurity.org/?tag=activedirectorydefense">ActiveDirectoryDefense</a>, <a class="term term-tagpost_tag term-113" href="https://adsecurity.org/?tag=activedirectorysecurity">ActiveDirectorySecurity</a>, <a class="term term-tagpost_tag term-665" href="https://adsecurity.org/?tag=commonsecurityissues">CommonSecurityIssues</a>, <a class="term term-tagpost_tag term-664" href="https://adsecurity.org/?tag=domaincontrollersecurity">DomainControllerSecurity</a>, <a class="term term-tagpost_tag term-666" href="https://adsecurity.org/?tag=enterprisesecurity">EnterpriseSecurity</a></span></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3592" class="clearfix post post-3592 type-post status-publish format-standard hentry category-activedirectorysecurity category-hacking category-microsoft-security tag-allowed-rodc-password-replication-policy tag-dcsync tag-denied-rodc-password-replication-policy tag-directory-services-restore-mode-password tag-discovering-rodcs tag-domain-controller tag-dsrm tag-golden-ticket tag-hacking-rodcs tag-harden-read-only-domain-controllers tag-harden-rodcs tag-invoke-mimikatz tag-krbtgt tag-krbtgt_ tag-mimikatz tag-msds-authenticatedtoaccountlist tag-msds-keyversionnumber tag-msds-neverrevealgroup tag-msds-reveal-ondemandgroup tag-msds-revealedlist tag-read-only-domain-controller tag-readonly-domain-controller tag-rodc tag-rodc-active-directory tag-rodc-administration tag-rodc-administrators tag-rodc-backlink tag-rodc-golden-ticket tag-rodc-in-the-dmz tag-rodc-krbtgt tag-rodc-managedby-attribute tag-rodc-manager tag-rodc-password tag-rodc-password-replication-policy tag-rodc-replication tag-rodc-security tag-rodc-sysvol tag-silver-tickets item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2018-01-01T09:30" />
+            <p class="default_date">
+            	<span class="month">Jan</span>
+                <span class="day">01</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3592" rel="bookmark" title="Permalink to Attacking Read-Only Domain Controllers (RODCs) to Own Active Directory">
+				Attacking Read-Only Domain Controllers (RODCs) to Own Active Directory            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-1039" href="https://adsecurity.org/?cat=1039">Hacking</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>I have been fascinated with Read-Only Domain Controllers (RODCs) since RODC was released as a new DC promotion option with Windows Server 2008. Microsoft customers wanted a DC that wasn&#8217;t <em>really</em> a DC. &#8211; something that could be deployed in a location that&#8217;s not physically secure and still be able to authenticate users.</p>
+<p>This post covers a few different scenarios on how to attack  Read-Only Domain Controllers in order to escalate privilege. Since RODCs are typically untrusted and viewed as not having the same level of access as writable DCs, it&#8217;s possible in many environments to compromise a RODC  to escalate privileges. <em>Given certain scenarios, it&#8217;s possible to escalate from a Read-Only Domain Controller to a full writable Domain Controller.</em>  This post covers these scenarios and enables Red and Blue teams to better understand and check RODC configurations for issues.</p>
+<p>The information in this post is not from any one customer environment I have seen, but a combination of several. I have found that many AD domains that have RODCs are configured very similarly: many more accounts, both user and computer, have passwords cached on RODCs than is necessary and the ability to manage RODCs is not limited or secured appropriately. This post shows what is possible given common real world RODC deployment configuration. As part of our <a href="https://trimarcsecurity.com/adsa">Active Directory security review services</a>, we scrutinize RODC configuration and identify potential issues with the configuration. Furthermore, we find that when RODCs are deployed in an environment, they are frequently configured  with weak security settings (as noted in &#8220;RODCs in the Real World&#8221; and &#8220;Attacking RODCs&#8221; below).</p>
+<p>The information here describes what is possible in many Active Directory environments with Read-Only Domain Controllers and doesn&#8217;t highlight a misconfiguration, but common configuration issues that could be exploited to escalate privileges in the domain since the RODC is often treated as &#8220;just another server&#8221; (or worse, as a workstation). Accounts are regularly cached on RODCs (since RODCs that don&#8217;t cache passwords aren&#8217;t very useful) and once an attacker gains access to it, these passwords are available and may include delegated Active Directory admin accounts which could be compromised.</p>
+<p>If you want to simply know how best to &#8220;harden Read-Only Domain Controllers&#8221;, skip to the end to read the &#8220;Securing RODCs Against Attack&#8221; section.</p>
+<p><em>Note that throughout this post, I use the Microsoft Active Directory PowerShell cmdlets and some of the attribute names are adjusted in the output from what they are actually named in AD.</em></p>
+<p>&nbsp;</p>
+<p><strong>Enter the Read-Only Domain Controller </strong></p>
+<p>When Microsoft released Windows Server 2008, a new type of Domain Controller was added called the &#8220;Read-Only Domain Controller&#8221;. The <a href="https://adsecurity.org/?p=274">Read-Only Domain Controller (RODC)</a> performs similar services as a writable Domain Controller except they are &#8220;read-only&#8221;. But what does that really mean?</p>
+<p> <a href="https://adsecurity.org/?p=3592#more-3592" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1296" href="https://adsecurity.org/?tag=allowed-rodc-password-replication-policy">Allowed RODC Password Replication Policy</a>, <a class="term term-tagpost_tag term-598" href="https://adsecurity.org/?tag=dcsync">DCSync</a>, <a class="term term-tagpost_tag term-1297" href="https://adsecurity.org/?tag=denied-rodc-password-replication-policy">Denied RODC Password Replication Policy</a>, <a class="term term-tagpost_tag term-1285" href="https://adsecurity.org/?tag=directory-services-restore-mode-password">Directory Services Restore Mode password</a>, <a class="term term-tagpost_tag term-1302" href="https://adsecurity.org/?tag=discovering-rodcs">discovering RODCs</a>, <a class="term term-tagpost_tag term-79" href="https://adsecurity.org/?tag=domain-controller">Domain Controller</a>, <a class="term term-tagpost_tag term-590" href="https://adsecurity.org/?tag=dsrm">DSRM</a>, <a class="term term-tagpost_tag term-1286" href="https://adsecurity.org/?tag=golden-ticket">golden ticket</a>, <a class="term term-tagpost_tag term-1308" href="https://adsecurity.org/?tag=hacking-rodcs">Hacking RODCs</a>, <a class="term term-tagpost_tag term-1310" href="https://adsecurity.org/?tag=harden-read-only-domain-controllers">harden Read-Only Domain Controllers</a>, <a class="term term-tagpost_tag term-1311" href="https://adsecurity.org/?tag=harden-rodcs">harden RODCs</a>, <a class="term term-tagpost_tag term-336" href="https://adsecurity.org/?tag=invoke-mimikatz">Invoke-Mimikatz</a>, <a class="term term-tagpost_tag term-394" href="https://adsecurity.org/?tag=krbtgt">KRBTGT</a>, <a class="term term-tagpost_tag term-1298" href="https://adsecurity.org/?tag=krbtgt_">KRBTGT_######</a>, <a class="term term-tagpost_tag term-207" href="https://adsecurity.org/?tag=mimikatz">mimikatz</a>, <a class="term term-tagpost_tag term-1306" href="https://adsecurity.org/?tag=msds-authenticatedtoaccountlist">msDS-AuthenticatedToAccountList</a>, <a class="term term-tagpost_tag term-1301" href="https://adsecurity.org/?tag=msds-keyversionnumber">msDS-KeyVersionNumber</a>, <a class="term term-tagpost_tag term-1304" href="https://adsecurity.org/?tag=msds-neverrevealgroup">msDS-NeverRevealGroup</a>, <a class="term term-tagpost_tag term-1303" href="https://adsecurity.org/?tag=msds-reveal-ondemandgroup">msDS-Reveal-OnDemandGroup</a>, <a class="term term-tagpost_tag term-1305" href="https://adsecurity.org/?tag=msds-revealedlist">msDS-RevealedList</a>, <a class="term term-tagpost_tag term-106" href="https://adsecurity.org/?tag=read-only-domain-controller">Read-Only Domain Controller</a>, <a class="term term-tagpost_tag term-1157" href="https://adsecurity.org/?tag=readonly-domain-controller">ReadOnly Domain Controller</a>, <a class="term term-tagpost_tag term-104" href="https://adsecurity.org/?tag=rodc">RODC</a>, <a class="term term-tagpost_tag term-1292" href="https://adsecurity.org/?tag=rodc-active-directory">RODC Active Directory</a>, <a class="term term-tagpost_tag term-1294" href="https://adsecurity.org/?tag=rodc-administration">RODC Administration</a>, <a class="term term-tagpost_tag term-1289" href="https://adsecurity.org/?tag=rodc-administrators">RODC administrators</a>, <a class="term term-tagpost_tag term-1300" href="https://adsecurity.org/?tag=rodc-backlink">RODC backlink</a>, <a class="term term-tagpost_tag term-1287" href="https://adsecurity.org/?tag=rodc-golden-ticket">RODC golden ticket</a>, <a class="term term-tagpost_tag term-1309" href="https://adsecurity.org/?tag=rodc-in-the-dmz">RODC in the DMZ</a>, <a class="term term-tagpost_tag term-1299" href="https://adsecurity.org/?tag=rodc-krbtgt">RODC Krbtgt</a>, <a class="term term-tagpost_tag term-1290" href="https://adsecurity.org/?tag=rodc-managedby-attribute">RODC ManagedBy attribute</a>, <a class="term term-tagpost_tag term-1288" href="https://adsecurity.org/?tag=rodc-manager">RODC Manager</a>, <a class="term term-tagpost_tag term-1284" href="https://adsecurity.org/?tag=rodc-password">RODC password</a>, <a class="term term-tagpost_tag term-1295" href="https://adsecurity.org/?tag=rodc-password-replication-policy">RODC Password Replication Policy</a>, <a class="term term-tagpost_tag term-1293" href="https://adsecurity.org/?tag=rodc-replication">RODC replication</a>, <a class="term term-tagpost_tag term-1312" href="https://adsecurity.org/?tag=rodc-security">RODC security</a>, <a class="term term-tagpost_tag term-1291" href="https://adsecurity.org/?tag=rodc-sysvol">RODC SYSVOL</a>, <a class="term term-tagpost_tag term-1307" href="https://adsecurity.org/?tag=silver-tickets">Silver Tickets</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=3592#comments">1 comment</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3782" class="clearfix post post-3782 type-post status-publish format-standard hentry category-cloud-security category-microsoft-security category-security-recommendation category-technical-reading category-technical-reference tag-adfs-certificates tag-adfs-recommendations tag-adfs-security tag-adfs-security-best-practices tag-goldensaml tag-goldensaml-detection tag-goldensaml-protection tag-microsoft-active-directory-federation-servers tag-protecting-adfs tag-securing-adfs item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-11-24T18:59" />
+            <p class="default_date">
+            	<span class="month">Nov</span>
+                <span class="day">24</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3782" rel="bookmark" title="Permalink to Securing Microsoft Active Directory Federation Server (ADFS)">
+				Securing Microsoft Active Directory Federation Server (ADFS)            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-431" href="https://adsecurity.org/?cat=431">Cloud Security</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-1045" href="https://adsecurity.org/?cat=1045">Security Recommendation</a>, <a class="term term-category term-4" href="https://adsecurity.org/?cat=4">Technical Reading</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>Many organizations are moving to the cloud and this often requires some level of federation. Federation, put simply, extends authentication from one system (or organization) to another.</p>
+<p>Gerald Steere (<a href="https://twitter.com/darkpawH">@Darkpawh</a>) and I spoke about cloud security at <a href="https://www.youtube.com/watch?v=LufXEPTlPak">DEF CON in July 2017</a>.<br />
+Presentation slides and video are here: &#8220;<a href="https://trimarcsecurity.com/presentations">Hacking the Cloud</a>&#8221;</p>
+<p>One of the key items we covered was protecting Federation Servers, specifically  Microsoft Active Directory Federation Servers (ADFS).</p>
+<p>Microsoft is currently updating <a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs">guidance for securing ADFS</a>.<br />
+This post describes key ADFS concepts and a short-list of security recommendations on how to properly protect ADFS.</p>
+<h3>Federation Overview</h3>
+<p>The federation server typically lives on the internal network with a proxy server in the DMZ. There are certificates installed on the Federation server.</p>
+<p>ADFS uses the following certificates:</p>
+<ul>
+<li>Service communication</li>
+<li>Token-decrypting</li>
+<li>Token-signing</li>
+</ul>
+<p>ADFS terminology also includes:</p>
+<ul>
+<li>Relying party trusts: cloud services and applications</li>
+<li>Claim rules: determine what type of access and from where access is allowed.</li>
+</ul>
+<p><span style="text-decoration: underline;">Key Federation Points:</span></p>
+<ul>
+<li>Federation: trust between organizations leveraging PKI (certificates matter)</li>
+<li>Cloud SSO often leverages temporary or persistent browser cookies (cookies provide access)</li>
+<li>Several protocols may be supported, though typically SAML. (protocols and versions matter)</li>
+<li>Federation server (or proxy) is on public internet via port 443 (HTTPS).</li>
+</ul>
+<p><strong>Conceptual federation authentication flow</strong> <a href="https://adsecurity.org/?p=3782#more-3782" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1278" href="https://adsecurity.org/?tag=adfs-certificates">ADFS certificates</a>, <a class="term term-tagpost_tag term-1283" href="https://adsecurity.org/?tag=adfs-recommendations">ADFS Recommendations</a>, <a class="term term-tagpost_tag term-1275" href="https://adsecurity.org/?tag=adfs-security">ADFS Security</a>, <a class="term term-tagpost_tag term-1276" href="https://adsecurity.org/?tag=adfs-security-best-practices">ADFS Security Best Practices</a>, <a class="term term-tagpost_tag term-1279" href="https://adsecurity.org/?tag=goldensaml">GoldenSAML</a>, <a class="term term-tagpost_tag term-1281" href="https://adsecurity.org/?tag=goldensaml-detection">GoldenSAML Detection</a>, <a class="term term-tagpost_tag term-1280" href="https://adsecurity.org/?tag=goldensaml-protection">GoldenSAML protection</a>, <a class="term term-tagpost_tag term-1274" href="https://adsecurity.org/?tag=microsoft-active-directory-federation-servers">Microsoft Active Directory Federation Servers</a>, <a class="term term-tagpost_tag term-1282" href="https://adsecurity.org/?tag=protecting-adfs">Protecting ADFS</a>, <a class="term term-tagpost_tag term-1277" href="https://adsecurity.org/?tag=securing-adfs">Securing ADFS</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=3782#comments">2 comments</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3719" class="clearfix post post-3719 type-post status-publish format-standard has-post-thumbnail hentry category-powershell category-technical-reference tag-active-directory-powershell-module tag-active-directory-trusts tag-ad-cmdlets tag-ad-powershell-cmdlets tag-add-windowsfeature-rsat-ad-powershell tag-adsi tag-backup-domain-gpos tag-enumerate-domain-trusts tag-find-ad-kerberos-service-accounts tag-finding-active-directory-flexible-master-single-operation-fsmo-roles tag-get-ad-site-information tag-get-adcomputer tag-get-addomain tag-get-addomaincontroller tag-get-adforest tag-get-adgroup tag-get-adgroupmember tag-get-adreplicationpartnerfailure tag-get-adreplicationpartnermetadata tag-get-adreplicationuptodatenessvectortable tag-get-aduser tag-get-command-module-activedirectory tag-get-module-listavailable tag-get-rootdse tag-import-module-servermanager tag-inventory-domain-controllers tag-powershell tag-powershell-find-inactive-computers tag-powershell-find-inactive-users item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-08-11T07:59" />
+            <p class="default_date">
+            	<span class="month">Aug</span>
+                <span class="day">11</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3719" rel="bookmark" title="Permalink to Gathering AD Data with the Active Directory PowerShell Module">
+				Gathering AD Data with the Active Directory PowerShell Module            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-7" href="https://adsecurity.org/?cat=7">PowerShell</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>Microsoft provided several Active Directory PowerShell cmdlets with Windows Server 2008 R2 (and newer) which greatly simplify tasks which previously required putting together lengthy lines of code involving ADSI.</p>
+<p>On a Windows client, install the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=45520">Remote Sever Administration Tools (RSAT)</a> and ensure the Active Directory PowerShell module is installed.</p>
+<p>On a Windows server (2008 R2 or newer), run the following commands in a PowerShell console (as an Adminsitrator):</p>
+<p><strong><em>Import-Module ServerManager ; Add-WindowsFeature RSAT-AD-PowerShell</em></strong></p>
+<p>Here&#8217;s my (poor) ADSI example:</p>
+<pre>$UserID = “JoeUser”
+$root = [ADSI]''
+$searcher = new-object System.DirectoryServices.DirectorySearcher($root)
+$searcher.filter = "(&amp;(objectClass=user)(sAMAccountName= $UserID))"
+$user = $searcher.findall()
+$user</pre>
+<p>Here&#8217;s the same thing with the AD PowerShell cmdlet:</p>
+<p><em>Import-module ActiveDirectory</em><br />
+<em>$UserID = “JoeUser”</em><br />
+<em>Get-ADUser $UserID –property *</em></p>
+<p>Note that with PowerShell version 3 and newer, you don&#8217;t need to run the first line since Powershell will identify the necessary module and auto load it.</p>
+<p>Once you have the Active Directory PowerShell module loaded, you can do cool stuff like browse AD like a file system</p>
+<p><img class="alignnone wp-image-3720" src="https://adsecurity.org/wp-content/uploads/2017/08/AD-Drive-Usage.png" alt="" width="690" height="399" srcset="https://adsecurity.org/wp-content/uploads/2017/08/AD-Drive-Usage.png 800w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Drive-Usage-300x174.png 300w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Drive-Usage-768x444.png 768w" sizes="(max-width: 690px) 100vw, 690px" /></p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><strong>Finding Useful Commands (Cmdlets):</strong></span></p>
+<p>Discover available PowerShell modules: <strong>Get-Module -ListAvailable</strong></p>
+<p>Discover cmdlets in a PowerShell module: <strong>Get-Command -module ActiveDirectory</strong></p>
+<p><span style="text-decoration: underline;"> PowerShell AD Module Cmdlets:</span></p>
+<ul>
+<li>Windows Server 2008 R2: 76 cmdlets</li>
+<li>Windows Server 2012: 135 cmdlets</li>
+<li>Windows Server 2012 R2: 147 cmdlets</li>
+<li>Windows Server 2016: 147 cmdlets</li>
+</ul>
+<pre><strong>(Get-Command -module ActiveDirectory).count</strong></pre>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><strong>Finding Active Directory Flexible Master Single Operation (FSMO) Roles:</strong></span></p>
+<p><strong>Active Directory Module:</strong></p>
+<ul>
+<li>
+<pre>(Get-ADForest).SchemaMaster</pre>
+</li>
+<li>
+<pre>(Get-ADForest).DomainNamingMaster</pre>
+</li>
+<li>
+<pre>(Get-ADDomain).InfrastructureMaster</pre>
+</li>
+<li>
+<pre>(Get-ADDomain).PDCEmulator</pre>
+</li>
+<li>
+<pre>(Get-ADDomain).RIDMaster
+
+</pre>
+</li>
+</ul>
+<p><strong>.NET Calls:</strong></p>
+<ul>
+<li>
+<pre>([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).SchemaRoleOwner</pre>
+</li>
+<li>
+<pre>([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).NamingRoleOwner</pre>
+</li>
+<li>
+<pre>([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).InfrastructureRoleOwner</pre>
+</li>
+<li>
+<pre>([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).PdcRoleOwner</pre>
+</li>
+<li>
+<pre>([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).RidRoleOwner</pre>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><strong>Active Directory PowerShell Module Cmdlet Examples:</strong></span></p>
+<p> <a href="https://adsecurity.org/?p=3719#more-3719" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1248" href="https://adsecurity.org/?tag=active-directory-powershell-module">Active Directory PowerShell Module</a>, <a class="term term-tagpost_tag term-1266" href="https://adsecurity.org/?tag=active-directory-trusts">Active Directory Trusts</a>, <a class="term term-tagpost_tag term-1249" href="https://adsecurity.org/?tag=ad-cmdlets">AD cmdlets</a>, <a class="term term-tagpost_tag term-1250" href="https://adsecurity.org/?tag=ad-powershell-cmdlets">AD PowerShell cmdlets</a>, <a class="term term-tagpost_tag term-1252" href="https://adsecurity.org/?tag=add-windowsfeature-rsat-ad-powershell">Add-WindowsFeature RSAT-AD-PowerShell</a>, <a class="term term-tagpost_tag term-223" href="https://adsecurity.org/?tag=adsi">ADSI</a>, <a class="term term-tagpost_tag term-1268" href="https://adsecurity.org/?tag=backup-domain-gpos">Backup domain GPOs</a>, <a class="term term-tagpost_tag term-1265" href="https://adsecurity.org/?tag=enumerate-domain-trusts">Enumerate Domain Trusts</a>, <a class="term term-tagpost_tag term-1269" href="https://adsecurity.org/?tag=find-ad-kerberos-service-accounts">Find AD Kerberos Service Accounts</a>, <a class="term term-tagpost_tag term-1255" href="https://adsecurity.org/?tag=finding-active-directory-flexible-master-single-operation-fsmo-roles">Finding Active Directory Flexible Master Single Operation (FSMO) Roles</a>, <a class="term term-tagpost_tag term-1267" href="https://adsecurity.org/?tag=get-ad-site-information">Get AD site information.</a>, <a class="term term-tagpost_tag term-1260" href="https://adsecurity.org/?tag=get-adcomputer">Get-ADComputer</a>, <a class="term term-tagpost_tag term-1258" href="https://adsecurity.org/?tag=get-addomain">Get-ADDomain</a>, <a class="term term-tagpost_tag term-1259" href="https://adsecurity.org/?tag=get-addomaincontroller">Get-ADDomainController</a>, <a class="term term-tagpost_tag term-1257" href="https://adsecurity.org/?tag=get-adforest">Get-ADForest</a>, <a class="term term-tagpost_tag term-1262" href="https://adsecurity.org/?tag=get-adgroup">Get-ADGroup</a>, <a class="term term-tagpost_tag term-1244" href="https://adsecurity.org/?tag=get-adgroupmember">Get-ADGroupMember</a>, <a class="term term-tagpost_tag term-1272" href="https://adsecurity.org/?tag=get-adreplicationpartnerfailure">Get-ADReplicationPartnerFailure</a>, <a class="term term-tagpost_tag term-1271" href="https://adsecurity.org/?tag=get-adreplicationpartnermetadata">Get-ADReplicationPartnerMetadata</a>, <a class="term term-tagpost_tag term-1273" href="https://adsecurity.org/?tag=get-adreplicationuptodatenessvectortable">Get-ADReplicationUptodatenessVectorTable</a>, <a class="term term-tagpost_tag term-1261" href="https://adsecurity.org/?tag=get-aduser">Get-ADUser</a>, <a class="term term-tagpost_tag term-1254" href="https://adsecurity.org/?tag=get-command-module-activedirectory">Get-Command -module ActiveDirectory</a>, <a class="term term-tagpost_tag term-1253" href="https://adsecurity.org/?tag=get-module-listavailable">Get-Module -ListAvailable</a>, <a class="term term-tagpost_tag term-1256" href="https://adsecurity.org/?tag=get-rootdse">Get-RootDSE</a>, <a class="term term-tagpost_tag term-1251" href="https://adsecurity.org/?tag=import-module-servermanager">Import-Module ServerManager</a>, <a class="term term-tagpost_tag term-1270" href="https://adsecurity.org/?tag=inventory-domain-controllers">Inventory Domain Controllers</a>, <a class="term term-tagpost_tag term-575" href="https://adsecurity.org/?tag=powershell">PowerShell</a>, <a class="term term-tagpost_tag term-1263" href="https://adsecurity.org/?tag=powershell-find-inactive-computers">PowerShell Find inactive computers</a>, <a class="term term-tagpost_tag term-1264" href="https://adsecurity.org/?tag=powershell-find-inactive-users">PowerShell Find inactive users</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=3719#comments">4 comments</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3700" class="clearfix post post-3700 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-microsoft-security category-technical-reference tag-active-directory-admins tag-active-directory-groups tag-active-directory-security tag-activedirectory tag-ad-administrators tag-ad-admins tag-ad-security tag-allow-log-on-locally tag-back-up-files-directories tag-backup-operators tag-builtin tag-dc-rights tag-dcsync tag-default-ad-groups tag-default-domain-controller-policy tag-domain-administrators-group tag-domain-admins tag-domain-controller tag-domain-controller-groups tag-domain-controller-rights tag-enable-computer-and-user-accounts-to-be-trusted-for-delegation tag-force-shutdown-from-a-remote-system tag-get-adgroupmember tag-log-on-as-a-batch-job tag-log-on-as-a-service tag-manage-auditing-and-security-log tag-print-operators tag-remote-desktop-users tag-restore-files-directories tag-schema-admins tag-server-operators tag-synchronize-directory-service-data item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-08-10T18:25" />
+            <p class="default_date">
+            	<span class="month">Aug</span>
+                <span class="day">10</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3700" rel="bookmark" title="Permalink to Beyond Domain Admins &#8211; Domain Controller &#038; AD Administration">
+				Beyond Domain Admins &#8211; Domain Controller &#038; AD Administration            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>Active Directory has several levels of administration beyond the Domain Admins group. In a previous post, I explored: &#8220;<a href="https://adsecurity.org/?p=3377">Securing Domain Controllers to Improve Active Directory Security</a>&#8221; which explores ways to better secure Domain Controllers and by extension, Active Directory. For more information on Active Directory specific rights and permission review my post &#8220;<a href="https://adsecurity.org/?p=3658">Scanning for Active Directory Privileges &amp; Privileged Accounts</a>.&#8221;</p>
+<p>This post provides information on how Active Directory is typically administered and the associated roles &amp; rights.</p>
+<ul>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_DomainAdmins"><strong>Domain Admins</strong></a> is the AD group that most people think of when discussing Active Directory administration. This group has full admin rights by default on all domain-joined servers and workstations, Domain Controllers, and Active Directory. It gains admin rights on domain-joined computers since when these systems are joined to AD, the Domain Admins group is added to the computer&#8217;s Administrators group.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_EntAdmins"><strong>Enterprise Admins</strong></a> is a group in the forest root domain that has full AD rights to every domain in the AD forest. It is granted this right through membership in the Administrators group in every domain in the forest.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_Admins"><strong>Administrators</strong></a> in the AD domain, is the group that has default admin rights to Active Directory and Domain Controllers and provides these rights to Domain Admins and Enterprise Admins, as well as any other members.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_SchemaAdmins"><strong>Schema Admins</strong></a> is a group in the forest root domain that has the ability to modify the Active Directory forest schema.</li>
+</ul>
+<p>Since the Administrators group is the domain group that provides full rights to AD and Domain Controllers, it&#8217;s important to monitor this group&#8217;s membership (including all nested groups). The Active Directory PowerShell cmdlet &#8220;Get-ADGroupMember&#8221; can provide group membership information.</p>
+<p><img class="alignnone wp-image-3706" src="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell.png" alt="" width="600" height="530" srcset="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell.png 1221w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell-300x265.png 300w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell-768x678.png 768w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ADAdmins-PowerShell-1024x904.png 1024w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>Default groups in Active Directory often have extensive rights &#8211; many more than typically required. For this reason, we don&#8217;t recommend using these groups for delegation. Where possible, perform custom delegation to ensure the <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">principle of least privilege</a> is followed. The following groups should have a &#8220;DC&#8221; prefix added to them since the scope applies to Domain Controllers by default. Furthermore, they have elevated rights on Domain Controllers and should be considered effectively Domain Controller admins.</p>
+<ul>
+<li><strong><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_BackupOperators">Backup Operators</a> </strong>is granted the ability to logon to, shut down, and perform backup/restore operations on Domain Controllers (assigned via the Default Domain Controllers Policy GPO). This group cannot directly modify AD admin groups, though associated privileges provides a path for escalation to AD admin. Backup Operators have the ability to schedule tasks which may provide an escalation path. They also are able to clear the event logs on Domain Controllers.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_PrintOperators"><strong>Print Operators</strong></a> is granted the ability to manage printers and load/unload device drivers on Domain Controllers as well as manage printer objects in Active Directory. By default, this group can logon to Domain Controllers and shut them down. This group cannot directly modify AD admin groups.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_ServerOperators"><strong>Server Operators</strong></a> is granted the ability to logon to, shut down, and perform backup/restore operations on Domain Controllers (assigned via the Default Domain Controllers Policy GPO). This group cannot directly modify AD admin groups, though associated privileges provides a path for escalation to AD admin.</li>
+</ul>
+<p>To a lesser extend, we&#8217;ll group Remote Desktop Users into this category as well.</p>
+<ul>
+<li><a href="https://technet.microsoft.com/en-us/library/dn579255(v=ws.11).aspx#BKMK_REmoteDesktopUsers"><strong>Remote Desktop Users</strong></a> is a domain group designed to easily provide remote access to systems. In many AD domains, this group is added to the &#8220;Allow log on through Terminal Services&#8221; right in the Default Domain Controllers Policy GPO providing potential remote logon capability to DCs.</li>
+</ul>
+<p>We also see that many times the following is configured via GPO linked to the Domain Controllers OU:</p>
+<ul>
+<li>Remote Desktop Users: granted &#8220;Allow log on through Terminal Services&#8221; right via Group Policy linked to the Domain Controllers OU.</li>
+<li>Server Operators: granted &#8220;Allow log on through Terminal Services&#8221; right via Group Policy linked to the Domain Controllers OU.</li>
+<li>Server Operators: granted &#8220;Log on as a batch job&#8221; right via GPO providing the ability to schedule tasks.</li>
+</ul>
+<p>Review the GPOs linked to the Domain and the Domain Controllers OU and ensure the GPO settings are appropriate.<br />
+We often find that a servers GPO is also linked to the Domain Controllers OU and it adds a &#8220;Server Admins&#8221; group to the local Administrators group. Since Domain Controllers don&#8217;t have a &#8220;local&#8221; Administrators group, the DC updates the domain Administrators group by adding Server Admins. <em>This scenario makes all members of Server Admins Active Directory admins.</em></p>
+<p><em>Any group/account granted logon locally rights to Domain Controllers should be scrutinized.</em></p>
+<p>Server Operators &amp; Backup Operators have elevated rights on Domain Controllers and should be monitored. The Active Directory PowerShell cmdlet &#8220;Get-ADGroupMember&#8221; can provide group membership information.</p>
+<p><img class="alignnone wp-image-3708" src="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ServerOperators-PowerShell.png" alt="" width="469" height="222" srcset="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ServerOperators-PowerShell.png 1153w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ServerOperators-PowerShell-300x142.png 300w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ServerOperators-PowerShell-768x363.png 768w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-ServerOperators-PowerShell-1024x484.png 1024w" sizes="(max-width: 469px) 100vw, 469px" /></p>
+<p><img class="alignnone wp-image-3707" src="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-BackupOperators-PowerShell.png" alt="" width="464" height="155" srcset="https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-BackupOperators-PowerShell.png 1232w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-BackupOperators-PowerShell-300x100.png 300w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-BackupOperators-PowerShell-768x256.png 768w, https://adsecurity.org/wp-content/uploads/2017/08/AD-Recon-BackupOperators-PowerShell-1024x342.png 1024w" sizes="(max-width: 464px) 100vw, 464px" /></p>
+<p>&nbsp;</p>
+<p>Other default groups with elevated rights:</p>
+<p> <a href="https://adsecurity.org/?p=3700#more-3700" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1246" href="https://adsecurity.org/?tag=active-directory-admins">Active Directory Admins</a>, <a class="term term-tagpost_tag term-1231" href="https://adsecurity.org/?tag=active-directory-groups">Active Directory groups</a>, <a class="term term-tagpost_tag term-976" href="https://adsecurity.org/?tag=active-directory-security">Active Directory Security</a>, <a class="term term-tagpost_tag term-20" href="https://adsecurity.org/?tag=activedirectory">ActiveDirectory</a>, <a class="term term-tagpost_tag term-1236" href="https://adsecurity.org/?tag=ad-administrators">AD Administrators</a>, <a class="term term-tagpost_tag term-1247" href="https://adsecurity.org/?tag=ad-admins">AD Admins</a>, <a class="term term-tagpost_tag term-100" href="https://adsecurity.org/?tag=ad-security">AD Security</a>, <a class="term term-tagpost_tag term-1237" href="https://adsecurity.org/?tag=allow-log-on-locally">allow log on locally</a>, <a class="term term-tagpost_tag term-1238" href="https://adsecurity.org/?tag=back-up-files-directories">Back-up files &amp; directories</a>, <a class="term term-tagpost_tag term-1179" href="https://adsecurity.org/?tag=backup-operators">Backup Operators</a>, <a class="term term-tagpost_tag term-1232" href="https://adsecurity.org/?tag=builtin">Builtin</a>, <a class="term term-tagpost_tag term-1229" href="https://adsecurity.org/?tag=dc-rights">DC rights</a>, <a class="term term-tagpost_tag term-598" href="https://adsecurity.org/?tag=dcsync">DCSync</a>, <a class="term term-tagpost_tag term-1233" href="https://adsecurity.org/?tag=default-ad-groups">Default AD groups</a>, <a class="term term-tagpost_tag term-1243" href="https://adsecurity.org/?tag=default-domain-controller-policy">Default Domain Controller Policy</a>, <a class="term term-tagpost_tag term-1245" href="https://adsecurity.org/?tag=domain-administrators-group">domain Administrators group</a>, <a class="term term-tagpost_tag term-1177" href="https://adsecurity.org/?tag=domain-admins">Domain Admins</a>, <a class="term term-tagpost_tag term-79" href="https://adsecurity.org/?tag=domain-controller">Domain Controller</a>, <a class="term term-tagpost_tag term-1230" href="https://adsecurity.org/?tag=domain-controller-groups">Domain Controller groups</a>, <a class="term term-tagpost_tag term-1228" href="https://adsecurity.org/?tag=domain-controller-rights">Domain Controller rights</a>, <a class="term term-tagpost_tag term-1209" href="https://adsecurity.org/?tag=enable-computer-and-user-accounts-to-be-trusted-for-delegation">Enable computer and user accounts to be trusted for delegation</a>, <a class="term term-tagpost_tag term-1239" href="https://adsecurity.org/?tag=force-shutdown-from-a-remote-system">Force shutdown from a remote system</a>, <a class="term term-tagpost_tag term-1244" href="https://adsecurity.org/?tag=get-adgroupmember">Get-ADGroupMember</a>, <a class="term term-tagpost_tag term-1240" href="https://adsecurity.org/?tag=log-on-as-a-batch-job">Log on as a batch job</a>, <a class="term term-tagpost_tag term-1241" href="https://adsecurity.org/?tag=log-on-as-a-service">Log on as a service</a>, <a class="term term-tagpost_tag term-1207" href="https://adsecurity.org/?tag=manage-auditing-and-security-log">Manage auditing and security log</a>, <a class="term term-tagpost_tag term-1181" href="https://adsecurity.org/?tag=print-operators">Print Operators</a>, <a class="term term-tagpost_tag term-1235" href="https://adsecurity.org/?tag=remote-desktop-users">Remote Desktop users</a>, <a class="term term-tagpost_tag term-1242" href="https://adsecurity.org/?tag=restore-files-directories">Restore files &amp; directories</a>, <a class="term term-tagpost_tag term-1178" href="https://adsecurity.org/?tag=schema-admins">Schema Admins</a>, <a class="term term-tagpost_tag term-1234" href="https://adsecurity.org/?tag=server-operators">Server Operators</a>, <a class="term term-tagpost_tag term-1210" href="https://adsecurity.org/?tag=synchronize-directory-service-data">Synchronize directory service data</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=3700#comments">1 comment</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3658" class="clearfix post post-3658 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-microsoft-security tag-account-operators tag-active-directory-permissions tag-active-directory-privileged-access tag-active-directory-security tag-ad tag-ad-acls tag-ad-delegation tag-ad-groups-in-local-groups tag-ad-security tag-adminsdholder tag-allow-logon-locally tag-allow-logon-over-remote-desktop-services tag-backup-operators tag-bloodhound tag-create-gpo-rights tag-createchild tag-dcsync tag-deletechild tag-domain-admins tag-enable-computer-and-user-accounts-to-be-trusted-for-delegation tag-enterprise-admins tag-extended-right tag-full-control tag-genericall tag-genericwrite tag-gpo tag-greoup-policy-delegation tag-group-membership tag-group-policy-object tag-group-policy-permission tag-impersonate-a-client-after-authentication tag-link-gpo-rights tag-manage-auditing-and-security-log tag-manage-group-policy-link tag-powerview tag-print-operators tag-replicating-directory-changes-all tag-restricted-groups tag-s-1-5-512 tag-s-1-5-517 tag-s-1-5-520 tag-s-1-5-21-1102 tag-s-1-5-21-519 tag-s-1-5-21-525 tag-s-1-5-21-571 tag-s-1-5-32-574 tag-s-1-5-32-544 tag-s-1-5-32-548 tag-s-1-5-32-550 tag-s-1-5-32-551 tag-s-1-5-32-554 tag-s-1-5-32-562 tag-s-1-5-32-573 tag-s-1-5-32-578 tag-sacl tag-schema-admins tag-sddl tag-sdprop tag-self tag-semachineaccountprivilege tag-senetworklogonright tag-setcbprivilege tag-setrustedcredmanaccessprivilege tag-sidhistory tag-synchronize-directory-service-data tag-user-rights-assignments tag-validated-write tag-writedacl tag-writeowner tag-writeproperty item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-06-14T01:18" />
+            <p class="default_date">
+            	<span class="month">Jun</span>
+                <span class="day">14</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3658" rel="bookmark" title="Permalink to Scanning for Active Directory Privileges &#038; Privileged Accounts">
+				Scanning for Active Directory Privileges &#038; Privileged Accounts            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>Active Directory Recon is the new hotness since attackers, Red Teamers, and penetration testers have realized that control of Active Directory provides power over the organization.</p>
+<p>I covered ways to enumerate permissions in AD using <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">PowerView </a>(written by Will <a href="https://twitter.com/harmj0y">@harmj0y</a>) during <a href="https://adsecurity.org/?page_id=1352">my Black Hat &amp; DEF CON talks in 2016</a> from both a Blue Team and Red Team perspective.</p>
+<p>This post details how privileged access is delegated in Active Directory and how best to discover who has what rights and permissions in AD. When we perform an <a href="https://trimarcsecurity.com/security-services">Active Directory Security Assessment </a>for customers, we review all of the data points listed in this post, including the privileged groups and the rights associated with them by fully interrogating Active Directory and mapping the associated permissions to rights and associating these rights to the appropriate groups (or accounts).</p>
+<p>I have had this post in draft for a while and with <a href="https://wald0.com/?p=112">Bloodhound now supporting AD ACLs</a> (nice work Will <a href="https://twitter.com/harmj0y">@harmj0y</a> &amp; Andy <a href="https://twitter.com/_wald0">@_Wald0</a>!), it&#8217;s time to get more information out about AD permissions. Examples in this post use the <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">PowerView</a> PowerShell cmdlets.</p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><b>Active Directory Privileged Access </b></span></p>
+<p>The challenge is often determining what access each group actually has. Often the full impact of what access a group actually has is not fully understood by the organization. Attackers <a href="https://adsecurity.org/?p=2362">leverage access (though not always privileged access) to compromise Active Directory</a>.</p>
+<p>The key point often missed is that rights to Active Directory and key resources is more than just group membership, it is the combined rights the user has which is made up of:</p>
+<ul>
+<li>Active Directory group membership.</li>
+<li>AD groups with privileged rights on computers</li>
+<li>Delegated rights to AD objects by modifying the default permissions (for security principals, both direct and indirect).</li>
+<li>Rights assigned to SIDs in SIDHistory to AD objects.</li>
+<li>Delegated rights to Group Policy Objects.</li>
+<li>User Rights Assignments configured on workstations, servers, and Domain Controllers via Group Policy (or Local Policy) defines elevated rights and permissions on these systems.</li>
+<li>Local group membership on a computer or computers (similar to GPO assigned settings).</li>
+<li>Delegated rights to shared folders.</li>
+</ul>
+<p>&nbsp;</p>
+<p> <a href="https://adsecurity.org/?p=3658#more-3658" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1180" href="https://adsecurity.org/?tag=account-operators">Account Operators</a>, <a class="term term-tagpost_tag term-1170" href="https://adsecurity.org/?tag=active-directory-permissions">Active Directory permissions</a>, <a class="term term-tagpost_tag term-1174" href="https://adsecurity.org/?tag=active-directory-privileged-access">Active Directory PRivileged Access</a>, <a class="term term-tagpost_tag term-976" href="https://adsecurity.org/?tag=active-directory-security">Active Directory Security</a>, <a class="term term-tagpost_tag term-1013" href="https://adsecurity.org/?tag=ad">AD</a>, <a class="term term-tagpost_tag term-1169" href="https://adsecurity.org/?tag=ad-acls">AD ACLs</a>, <a class="term term-tagpost_tag term-98" href="https://adsecurity.org/?tag=ad-delegation">AD Delegation</a>, <a class="term term-tagpost_tag term-1214" href="https://adsecurity.org/?tag=ad-groups-in-local-groups">AD groups in Local Groups</a>, <a class="term term-tagpost_tag term-100" href="https://adsecurity.org/?tag=ad-security">AD Security</a>, <a class="term term-tagpost_tag term-654" href="https://adsecurity.org/?tag=adminsdholder">AdminSDHolder</a>, <a class="term term-tagpost_tag term-1211" href="https://adsecurity.org/?tag=allow-logon-locally">Allow logon locally</a>, <a class="term term-tagpost_tag term-1212" href="https://adsecurity.org/?tag=allow-logon-over-remote-desktop-services">Allow logon over Remote Desktop Services</a>, <a class="term term-tagpost_tag term-1179" href="https://adsecurity.org/?tag=backup-operators">Backup Operators</a>, <a class="term term-tagpost_tag term-1173" href="https://adsecurity.org/?tag=bloodhound">Bloodhound</a>, <a class="term term-tagpost_tag term-1226" href="https://adsecurity.org/?tag=create-gpo-rights">Create GPO rights</a>, <a class="term term-tagpost_tag term-1221" href="https://adsecurity.org/?tag=createchild">CreateChild</a>, <a class="term term-tagpost_tag term-598" href="https://adsecurity.org/?tag=dcsync">DCSync</a>, <a class="term term-tagpost_tag term-1222" href="https://adsecurity.org/?tag=deletechild">DeleteChild</a>, <a class="term term-tagpost_tag term-1177" href="https://adsecurity.org/?tag=domain-admins">Domain Admins</a>, <a class="term term-tagpost_tag term-1209" href="https://adsecurity.org/?tag=enable-computer-and-user-accounts-to-be-trusted-for-delegation">Enable computer and user accounts to be trusted for delegation</a>, <a class="term term-tagpost_tag term-1176" href="https://adsecurity.org/?tag=enterprise-admins">Enterprise Admins</a>, <a class="term term-tagpost_tag term-1223" href="https://adsecurity.org/?tag=extended-right">Extended Right</a>, <a class="term term-tagpost_tag term-1227" href="https://adsecurity.org/?tag=full-control">Full Control</a>, <a class="term term-tagpost_tag term-1200" href="https://adsecurity.org/?tag=genericall">GenericAll</a>, <a class="term term-tagpost_tag term-1217" href="https://adsecurity.org/?tag=genericwrite">GenericWrite</a>, <a class="term term-tagpost_tag term-448" href="https://adsecurity.org/?tag=gpo">GPO</a>, <a class="term term-tagpost_tag term-1215" href="https://adsecurity.org/?tag=greoup-policy-delegation">Greoup Policy Delegation</a>, <a class="term term-tagpost_tag term-1175" href="https://adsecurity.org/?tag=group-membership">Group Membership</a>, <a class="term term-tagpost_tag term-1183" href="https://adsecurity.org/?tag=group-policy-object">Group Policy Object</a>, <a class="term term-tagpost_tag term-1182" href="https://adsecurity.org/?tag=group-policy-permission">Group Policy Permission</a>, <a class="term term-tagpost_tag term-1208" href="https://adsecurity.org/?tag=impersonate-a-client-after-authentication">Impersonate a client after authentication</a>, <a class="term term-tagpost_tag term-1225" href="https://adsecurity.org/?tag=link-gpo-rights">Link GPO rights</a>, <a class="term term-tagpost_tag term-1207" href="https://adsecurity.org/?tag=manage-auditing-and-security-log">Manage auditing and security log</a>, <a class="term term-tagpost_tag term-1224" href="https://adsecurity.org/?tag=manage-group-policy-link">Manage Group Policy link</a>, <a class="term term-tagpost_tag term-696" href="https://adsecurity.org/?tag=powerview">PowerView</a>, <a class="term term-tagpost_tag term-1181" href="https://adsecurity.org/?tag=print-operators">Print Operators</a>, <a class="term term-tagpost_tag term-1216" href="https://adsecurity.org/?tag=replicating-directory-changes-all">Replicating Directory Changes All</a>, <a class="term term-tagpost_tag term-1213" href="https://adsecurity.org/?tag=restricted-groups">Restricted Groups</a>, <a class="term term-tagpost_tag term-1192" href="https://adsecurity.org/?tag=s-1-5-512">S-1-5--512</a>, <a class="term term-tagpost_tag term-1189" href="https://adsecurity.org/?tag=s-1-5-517">S-1-5--517</a>, <a class="term term-tagpost_tag term-1195" href="https://adsecurity.org/?tag=s-1-5-520">S-1-5--520</a>, <a class="term term-tagpost_tag term-1191" href="https://adsecurity.org/?tag=s-1-5-21-1102">S-1-5-21--1102</a>, <a class="term term-tagpost_tag term-1193" href="https://adsecurity.org/?tag=s-1-5-21-519">S-1-5-21--519</a>, <a class="term term-tagpost_tag term-1199" href="https://adsecurity.org/?tag=s-1-5-21-525">S-1-5-21--525</a>, <a class="term term-tagpost_tag term-1187" href="https://adsecurity.org/?tag=s-1-5-21-571">S-1-5-21--571</a>, <a class="term term-tagpost_tag term-1188" href="https://adsecurity.org/?tag=s-1-5-32-574">S-1-5-32--574</a>, <a class="term term-tagpost_tag term-1185" href="https://adsecurity.org/?tag=s-1-5-32-544">S-1-5-32-544</a>, <a class="term term-tagpost_tag term-1184" href="https://adsecurity.org/?tag=s-1-5-32-548">S-1-5-32-548</a>, <a class="term term-tagpost_tag term-1198" href="https://adsecurity.org/?tag=s-1-5-32-550">S-1-5-32-550</a>, <a class="term term-tagpost_tag term-1186" href="https://adsecurity.org/?tag=s-1-5-32-551">S-1-5-32-551</a>, <a class="term term-tagpost_tag term-1197" href="https://adsecurity.org/?tag=s-1-5-32-554">S-1-5-32-554</a>, <a class="term term-tagpost_tag term-1190" href="https://adsecurity.org/?tag=s-1-5-32-562">S-1-5-32-562</a>, <a class="term term-tagpost_tag term-1194" href="https://adsecurity.org/?tag=s-1-5-32-573">S-1-5-32-573</a>, <a class="term term-tagpost_tag term-1196" href="https://adsecurity.org/?tag=s-1-5-32-578">S-1-5-32-578</a>, <a class="term term-tagpost_tag term-1171" href="https://adsecurity.org/?tag=sacl">SACL</a>, <a class="term term-tagpost_tag term-1178" href="https://adsecurity.org/?tag=schema-admins">Schema Admins</a>, <a class="term term-tagpost_tag term-1172" href="https://adsecurity.org/?tag=sddl">SDDL</a>, <a class="term term-tagpost_tag term-655" href="https://adsecurity.org/?tag=sdprop">SDProp</a>, <a class="term term-tagpost_tag term-1218" href="https://adsecurity.org/?tag=self">Self</a>, <a class="term term-tagpost_tag term-1206" href="https://adsecurity.org/?tag=semachineaccountprivilege">SeMachineAccountPrivilege</a>, <a class="term term-tagpost_tag term-1204" href="https://adsecurity.org/?tag=senetworklogonright">SeNetworkLogonRight</a>, <a class="term term-tagpost_tag term-1205" href="https://adsecurity.org/?tag=setcbprivilege">SeTcbPrivilege</a>, <a class="term term-tagpost_tag term-1203" href="https://adsecurity.org/?tag=setrustedcredmanaccessprivilege">SeTrustedCredManAccessPrivilege</a>, <a class="term term-tagpost_tag term-547" href="https://adsecurity.org/?tag=sidhistory">SIDHistory</a>, <a class="term term-tagpost_tag term-1210" href="https://adsecurity.org/?tag=synchronize-directory-service-data">Synchronize directory service data</a>, <a class="term term-tagpost_tag term-1106" href="https://adsecurity.org/?tag=user-rights-assignments">User Rights Assignments</a>, <a class="term term-tagpost_tag term-1219" href="https://adsecurity.org/?tag=validated-write">Validated Write</a>, <a class="term term-tagpost_tag term-1201" href="https://adsecurity.org/?tag=writedacl">WriteDACL</a>, <a class="term term-tagpost_tag term-1220" href="https://adsecurity.org/?tag=writeowner">WriteOwner</a>, <a class="term term-tagpost_tag term-1202" href="https://adsecurity.org/?tag=writeproperty">WritePRoperty</a></span></li>
+	        	        <li class="comment-link col-sm-4"><i class="fa fa-comments"></i> <a href="https://adsecurity.org/?p=3658#comments">2 comments</a></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3646" class="clearfix post post-3646 type-post status-publish format-standard hentry category-technical-reference item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-05-30T08:24" />
+            <p class="default_date">
+            	<span class="month">May</span>
+                <span class="day">30</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3646" rel="bookmark" title="Permalink to AD Reading: Windows Server 2016 Active Directory Features">
+				AD Reading: Windows Server 2016 Active Directory Features            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>The following are useful resources for Windows Server 2016 Active Directory Features.</p>
+<p>&nbsp;</p>
+<p><strong>Windows 2016 Features</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-server/identity/whats-new-active-directory-domain-services">What&#8217;s New in Windows 2016 Active Directory</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/windows-server-2016-functional-levels">Windows Server 2016 AD Functional Level</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Privileged Access Management (PAM)</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-server/identity/whats-new-active-directory-domain-services#a-namebkmkpamaprivileged-access-management">Windows 2016 PAM</a></li>
+<li><a href="https://blogs.technet.microsoft.com/askds/2016/03/09/previewing-server-2016-tp4-temporary-group-memberships/">Shadow Security Principals (temporary group membership)</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Azure AD Join</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-server/identity/whats-new-active-directory-domain-services#a-namebkmkpamaprivileged-access-management">Windows 2016 Azure AD Join</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Microsoft Hello for Business (formerly Microsoft Passport)</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-azureadjoin-passport">Windows 2016 &#8211; Hello for Business</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+						
+						
+						
+		</div>
+		
+			</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3621" class="clearfix post post-3621 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-security-conference-presentationvideo tag-active-directory tag-command-logging tag-domain-controllers tag-event-logging tag-microsoft-wef tag-powershell-logging tag-presentation tag-sp4rkcon tag-sysinternals-sysmon item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-05-01T11:30" />
+            <p class="default_date">
+            	<span class="month">May</span>
+                <span class="day">01</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3621" rel="bookmark" title="Permalink to BSides Charm (2017) Talk Slides Posted &#8211; Detecting the Elusive: Active Directory Threat Hunting">
+				BSides Charm (2017) Talk Slides Posted &#8211; Detecting the Elusive: Active Directory Threat Hunting            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-234" href="https://adsecurity.org/?cat=234">Security Conference Presentation/Video</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>I recently presented my talk  &#8220;<a href="http://www.bsidescharm.com/speakers">Detecting the Elusive: Active Directory Threat Hunting</a>&#8221; at BSides Charm in Baltimore, MD.<br />
+Slides are now posted in the <a href="https://adsecurity.org/?page_id=1352">Presentations section</a>.</p>
+<p>I cover some of the information I&#8217;ve posted here before:</p>
+<ul>
+<li><a href="https://adsecurity.org/?p=2921">PowerShell Security</a></li>
+<li>Detecting Kerberoasting: <a href="https://adsecurity.org/?p=3458">Part 1</a> and <a href="https://adsecurity.org/?p=3513">Part 2</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>On Sunday, April 30th, 2017, I spoke at BSides Charm in Track 2 at 2pm.</strong></p>
+<p>Here&#8217;s the talk description from the <a href="http://www.bsidescharm.com/">BSides Charm website</a>:</p>
+<blockquote><p>Detecting the Elusive: Active Directory Threat Hunting<br />
+Attacks are rarely detected even after months of activity. What are defenders missing and how could an attack by detected?</p>
+<p>This talk covers effective methods to detect attacker activity using the features built into Windows and how to optimize a detection strategy. The primary focus is on what knobs can be turned and what buttons can be pushed to better detect attacks.</p>
+<p>One of the latest tools in the offensive toolkit is &#8220;&#8221;Kerberoast&#8221;&#8221; which involves cracking service account passwords offline without admin rights. This attack technique is covered at length including the latest methods to extract and crack the passwords. Furthermore, this talk describes a new detection method the presenter developed.</p>
+<p>The attacker&#8217;s playbook evolves quickly, defenders need to stay up to speed on the latest attack methods and ways to detect them. This presentation will help you better understand what events really matter and how to better leverage Windows features to track, limit, and detect attacks</p></blockquote>
+<p>This presentation covers the type of log data required to properly</p>
+<p>For the curious, here&#8217;s an outline of the talk:</p>
+<p> <a href="https://adsecurity.org/?p=3621#more-3621" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-75" href="https://adsecurity.org/?tag=active-directory">Active Directory</a>, <a class="term term-tagpost_tag term-1159" href="https://adsecurity.org/?tag=command-logging">Command Logging</a>, <a class="term term-tagpost_tag term-1162" href="https://adsecurity.org/?tag=domain-controllers">Domain Controllers</a>, <a class="term term-tagpost_tag term-1163" href="https://adsecurity.org/?tag=event-logging">Event logging</a>, <a class="term term-tagpost_tag term-1161" href="https://adsecurity.org/?tag=microsoft-wef">Microsoft WEF</a>, <a class="term term-tagpost_tag term-959" href="https://adsecurity.org/?tag=powershell-logging">PowerShell logging</a>, <a class="term term-tagpost_tag term-422" href="https://adsecurity.org/?tag=presentation">Presentation</a>, <a class="term term-tagpost_tag term-1158" href="https://adsecurity.org/?tag=sp4rkcon">Sp4rkCon</a>, <a class="term term-tagpost_tag term-1160" href="https://adsecurity.org/?tag=sysinternals-sysmon">Sysinternals SysMon</a></span></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3622" class="clearfix post post-3622 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-security-conference-presentationvideo tag-active-directory-recon tag-ad-admin-tiers tag-credential-theft tag-kerberoasting-detection tag-kerberos-delegation tag-powershell-logging tag-secure-ad-administration item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-05-01T11:00" />
+            <p class="default_date">
+            	<span class="month">May</span>
+                <span class="day">01</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3622" rel="bookmark" title="Permalink to Sp4rkCon (2017) Talk Slides Posted &#8211; Active Directory Security: The Good, the Bad, &#038; the UGLY">
+				Sp4rkCon (2017) Talk Slides Posted &#8211; Active Directory Security: The Good, the Bad, &#038; the UGLY            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-234" href="https://adsecurity.org/?cat=234">Security Conference Presentation/Video</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>I recently presented my talk &#8220;Active Directory Security: The Good, the Bad, &amp; the UGLY&#8221; at <a href="https://twitter.com/Sp4rkCon">Sp4rkCon</a> in Bentonville, AR in April 2017.<br />
+Slides are now posted in the <a href="https://adsecurity.org/?page_id=1352">Presentations section</a>.</p>
+<p>I cover some of the information I&#8217;ve posted here before:</p>
+<ul>
+<li><a href="https://adsecurity.org/?p=2921">PowerShell Security</a></li>
+<li>Detecting Kerberoasting: <a href="https://adsecurity.org/?p=3458">Part 1</a> and <a href="https://adsecurity.org/?p=3513">Part 2</a></li>
+</ul>
+<p>Here&#8217;s the talk description:</p>
+<blockquote><p>Active Directory Security:The Good, the Bad, &amp; the UGLY</p>
+<p>While security of the enterprise has been laid bare for years, exploitation techniques targeting  Active Directory were relatively rare. In recent years, attackers have focused on more than passing hashes and getting Domain Admin. From SPN Scanning for services to Kerberoasting for credentials to Golden Tickets for persistence, there are multiple methods for attacking Active Directory. Active Directory is the primary identity and management infrastructure for most enterprises and properly securing the AD forest has never been more important.</p>
+<p>Some of the topics covered:</p>
+<p>* PowerShell attacks</p>
+<p>* Active Directory recon</p>
+<p>* Credential theft</p>
+<p>* Kerberos delegation</p>
+<p>This talk is an update of Sean&#8217;s talk from 2015 entitled: &#8220;Red vs. Blue:<br />
+Modern Active Directory Attacks &amp; Defense&#8221; where he covered various attack methods and related mitigation. This update explores the current attack techniques and the latest detection.</p>
+<p>The presented Information is useful for both Red &amp; Blue Team members.</p></blockquote>
+<p>This presentation is a remix of talks I did last year with some additional information mixed in. New to this talk is coverage of Kerberos delegation issues (not just unconstrained) and how to detect Kerberoasting.</p>
+<p>For the curious, here&#8217;s an outline of the talk:</p>
+<p> <a href="https://adsecurity.org/?p=3622#more-3622" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-980" href="https://adsecurity.org/?tag=active-directory-recon">Active Directory recon</a>, <a class="term term-tagpost_tag term-1168" href="https://adsecurity.org/?tag=ad-admin-tiers">AD admin tiers</a>, <a class="term term-tagpost_tag term-1164" href="https://adsecurity.org/?tag=credential-theft">Credential theft</a>, <a class="term term-tagpost_tag term-1166" href="https://adsecurity.org/?tag=kerberoasting-detection">Kerberoasting detection</a>, <a class="term term-tagpost_tag term-1165" href="https://adsecurity.org/?tag=kerberos-delegation">Kerberos Delegation</a>, <a class="term term-tagpost_tag term-959" href="https://adsecurity.org/?tag=powershell-logging">PowerShell logging</a>, <a class="term term-tagpost_tag term-1167" href="https://adsecurity.org/?tag=secure-ad-administration">Secure AD administration</a></span></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3513" class="clearfix post post-3513 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-microsoft-security category-technical-reference tag-ap-req tag-audit-kerberos-service-ticket-operations tag-detect-kerberoast-activity tag-detecting-kerberoast-activity tag-event-id-4769 tag-kerberoast-honeypot tag-kerberoasting-activity tag-kerberos-rc4-encryption tag-kerberos-service-ticket tag-kerberos-tgs tag-kerberos-tgs-ticket tag-ntlm-password tag-rc4_hmac_md5 tag-service-account-honeypot tag-tgs-rep tag-tgs-req item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-02-08T08:00" />
+            <p class="default_date">
+            	<span class="month">Feb</span>
+                <span class="day">08</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3513" rel="bookmark" title="Permalink to Detecting Kerberoasting Activity Part 2 &#8211; Creating a Kerberoast Service Account Honeypot">
+				Detecting Kerberoasting Activity Part 2 &#8211; Creating a Kerberoast Service Account Honeypot            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p>In my previous post, &#8220;<a href="https://adsecurity.org/?p=3458">Detecting Kerberoasting Activity</a>&#8221;  I explain how <a href="https://adsecurity.org/?p=2293">Kerberoasting works</a> and describe how to <a href="https://adsecurity.org/?p=3458">detect potential Kerberoasting activity</a>. The trick to this is understanding what activity is normal in order to filter out the noise and increase the fidelity of the alert.</p>
+<p>This post describes how to filter from millions of events to a single one to detect Kerberoasting activity.</p>
+<p> <a href="https://adsecurity.org/?p=3513#more-3513" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1132" href="https://adsecurity.org/?tag=ap-req">AP-REQ</a>, <a class="term term-tagpost_tag term-1135" href="https://adsecurity.org/?tag=audit-kerberos-service-ticket-operations">Audit Kerberos Service Ticket Operations</a>, <a class="term term-tagpost_tag term-1125" href="https://adsecurity.org/?tag=detect-kerberoast-activity">Detect Kerberoast Activity</a>, <a class="term term-tagpost_tag term-1133" href="https://adsecurity.org/?tag=detecting-kerberoast-activity">Detecting Kerberoast activity</a>, <a class="term term-tagpost_tag term-1134" href="https://adsecurity.org/?tag=event-id-4769">Event ID 4769</a>, <a class="term term-tagpost_tag term-1153" href="https://adsecurity.org/?tag=kerberoast-honeypot">Kerberoast honeypot</a>, <a class="term term-tagpost_tag term-1126" href="https://adsecurity.org/?tag=kerberoasting-activity">Kerberoasting activity</a>, <a class="term term-tagpost_tag term-1131" href="https://adsecurity.org/?tag=kerberos-rc4-encryption">Kerberos RC4 Encryption</a>, <a class="term term-tagpost_tag term-1129" href="https://adsecurity.org/?tag=kerberos-service-ticket">Kerberos Service Ticket</a>, <a class="term term-tagpost_tag term-1128" href="https://adsecurity.org/?tag=kerberos-tgs">Kerberos TGS</a>, <a class="term term-tagpost_tag term-1127" href="https://adsecurity.org/?tag=kerberos-tgs-ticket">Kerberos TGS Ticket</a>, <a class="term term-tagpost_tag term-1130" href="https://adsecurity.org/?tag=ntlm-password">NTLM Password</a>, <a class="term term-tagpost_tag term-708" href="https://adsecurity.org/?tag=rc4_hmac_md5">RC4_HMAC_MD5</a>, <a class="term term-tagpost_tag term-1154" href="https://adsecurity.org/?tag=service-account-honeypot">service account honeypot</a>, <a class="term term-tagpost_tag term-571" href="https://adsecurity.org/?tag=tgs-rep">TGS-REP</a>, <a class="term term-tagpost_tag term-570" href="https://adsecurity.org/?tag=tgs-req">TGS-REQ</a></span></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+
+                
+
+<div id="post-3458" class="clearfix post post-3458 type-post status-publish format-standard has-post-thumbnail hentry category-activedirectorysecurity category-hacking category-microsoft-security category-technical-reference tag-ap-req tag-audit-kerberos-service-ticket-operations tag-detect-kerberoast-activity tag-detecting-kerberoast-activity tag-event-id-4769 tag-kerberoasting-active-directory tag-kerberoasting-activity tag-kerberos-rc4-encryption tag-kerberos-service-ticket tag-kerberos-tgs tag-kerberos-tgs-ticket tag-kerberosrequestorsecuritytoken tag-ntlm-password tag-powershell-kerberoast tag-rc4_hmac_md5 tag-tgs-rep tag-tgs-req item-wrap">
+		
+	<div class="entry clearfix">
+    
+    			    	<div class="date updated alpha ">
+        	<span class="value-title" title="2017-02-05T13:45" />
+            <p class="default_date">
+            	<span class="month">Feb</span>
+                <span class="day">05</span>
+                            </p>
+                    </div>
+            
+		        <h2 class="post-title entry-title">
+			<a href="https://adsecurity.org/?p=3458" rel="bookmark" title="Permalink to Detecting Kerberoasting Activity">
+				Detecting Kerberoasting Activity            </a>
+			        </h2>
+		
+					    <ul class="post-meta">
+	    		        <li class="byline">By <span class="author"><a href="https://adsecurity.org/?author=2" rel="author">Sean Metcalf</a></span> in <span class="terms"><a class="term term-category term-565" href="https://adsecurity.org/?cat=565">ActiveDirectorySecurity</a>, <a class="term term-category term-1039" href="https://adsecurity.org/?cat=1039">Hacking</a>, <a class="term term-category term-11" href="https://adsecurity.org/?cat=11">Microsoft Security</a>, <a class="term term-category term-2" href="https://adsecurity.org/?cat=2">Technical Reference</a></span></li>
+	        	    </ul>
+    		
+				<div class="entry-content clearfix">
+						
+							
+												
+								<p><strong>Introduction</strong></p>
+<p>Kerberoasting can be an effective method for extracting service account credentials from Active Directory as a regular user without sending any packets to the target system. This attack is effective since people tend to create poor passwords. The reason why this attack is successful is that most service account passwords are the same length as the domain password minimum (often 10 or 12 characters long) meaning that even brute force cracking doesn’t likely take longer than the password maximum password age (expiration). Most service accounts don’t have passwords set to expire, so it’s likely the same password will be in effect for months if not years. Furthermore, most service accounts are over-permissioned and are often members of Domain Admins providing full admin rights to Active Directory (even when the service account only needs to modify an attribute on certain object types or admin rights on specific servers).</p>
+<p>Tim Medin presented on this at DerbyCon 2014 in his “Attacking Microsoft Kerberos Kicking the Guard Dog of Hades” presentation (<a href="https://files.sans.org/summit/hackfest2014/PDFs/Kicking%20the%20Guard%20Dog%20of%20Hades%20-%20Attacking%20Microsoft%20Kerberos%20%20-%20Tim%20Medin%281%29.pdf">slides</a> &amp; <a href="https://www.youtube.com/watch?v=PUyhlN-E5MU&amp;feature=youtu.be">video</a>) where he released the <a href="https://github.com/nidem/kerberoast">Kerberoast Python TGS cracker</a>.</p>
+<p><em>This is a topic we have covered in the past in the posts &#8220;<a href="https://adsecurity.org/?p=2293">Cracking Kerberos TGS Tickets Using Kerberoast – Exploiting Kerberos to Compromise the Active Directory Domain</a>&#8221; &amp; &#8220;<a href="https://adsecurity.org/?p=3466">Sneaky Persistence Active Directory Trick #18: Dropping SPNs on Admin Accounts for Later Kerberoasting</a>.&#8221;<br />
+Also Will Schroeder, aka Will Harmjoy (<a href="https://twitter.com/harmj0y">@harmj0y</a>), and I spoke at <a href="https://adsecurity.org/?page_id=1352">DerbyCon 2016 about how to Kerberoast to escalate privileges</a>.<br />
+</em></p>
+<p>Note: This attack will not be successful when targeting services hosted by the Windows system since these services are mapped to the computer account in Active Directory which has an associated 128 character password which won’t be cracked anytime soon.</p>
+<p>Let&#8217;s quickly cover how <a href="https://adsecurity.org/?p=227">Kerberos authentication works</a> before diving into <a href="https://adsecurity.org/?p=2293">how Kerberoasting works</a> and how to detect Kerberoast type activity.</p>
+<p> <a href="https://adsecurity.org/?p=3458#more-3458" class="more-link"><span class="btn">Continue reading <i class="fa fa-arrow-circle-right"></i></span></a></p>
+
+						
+						
+						
+		</div>
+		
+			    <ul class="entry-footer">
+	    		        <li class="post-tags col-sm-8"><i class="fa fa-tags" title="Tags"></i> <span class="terms"><a class="term term-tagpost_tag term-1132" href="https://adsecurity.org/?tag=ap-req">AP-REQ</a>, <a class="term term-tagpost_tag term-1135" href="https://adsecurity.org/?tag=audit-kerberos-service-ticket-operations">Audit Kerberos Service Ticket Operations</a>, <a class="term term-tagpost_tag term-1125" href="https://adsecurity.org/?tag=detect-kerberoast-activity">Detect Kerberoast Activity</a>, <a class="term term-tagpost_tag term-1133" href="https://adsecurity.org/?tag=detecting-kerberoast-activity">Detecting Kerberoast activity</a>, <a class="term term-tagpost_tag term-1134" href="https://adsecurity.org/?tag=event-id-4769">Event ID 4769</a>, <a class="term term-tagpost_tag term-1156" href="https://adsecurity.org/?tag=kerberoasting-active-directory">Kerberoasting Active Directory</a>, <a class="term term-tagpost_tag term-1126" href="https://adsecurity.org/?tag=kerberoasting-activity">Kerberoasting activity</a>, <a class="term term-tagpost_tag term-1131" href="https://adsecurity.org/?tag=kerberos-rc4-encryption">Kerberos RC4 Encryption</a>, <a class="term term-tagpost_tag term-1129" href="https://adsecurity.org/?tag=kerberos-service-ticket">Kerberos Service Ticket</a>, <a class="term term-tagpost_tag term-1128" href="https://adsecurity.org/?tag=kerberos-tgs">Kerberos TGS</a>, <a class="term term-tagpost_tag term-1127" href="https://adsecurity.org/?tag=kerberos-tgs-ticket">Kerberos TGS Ticket</a>, <a class="term term-tagpost_tag term-1142" href="https://adsecurity.org/?tag=kerberosrequestorsecuritytoken">KerberosRequestorSecurityToken</a>, <a class="term term-tagpost_tag term-1130" href="https://adsecurity.org/?tag=ntlm-password">NTLM Password</a>, <a class="term term-tagpost_tag term-1155" href="https://adsecurity.org/?tag=powershell-kerberoast">PowerShell Kerberoast</a>, <a class="term term-tagpost_tag term-708" href="https://adsecurity.org/?tag=rc4_hmac_md5">RC4_HMAC_MD5</a>, <a class="term term-tagpost_tag term-571" href="https://adsecurity.org/?tag=tgs-rep">TGS-REP</a>, <a class="term term-tagpost_tag term-570" href="https://adsecurity.org/?tag=tgs-req">TGS-REQ</a></span></li>
+	        	    </ul>
+    	</div>
+</div>
+
+ 
+
+    </div>
+    
+    	<div class="pagination-wrapper">
+		<ul class="pagination">
+			<li class="disabled"><span class="page-numbers"><i class="fa fa-angle-left"></i></span></li>			<li class="active"><span aria-current='page' class='page-numbers current'>1</span></li><li><a class='page-numbers' href='https://adsecurity.org/?paged=2'>2</a></li><li><a class='page-numbers' href='https://adsecurity.org/?paged=3'>3</a></li><li><span class="page-numbers dots">&hellip;</span></li><li><a class='page-numbers' href='https://adsecurity.org/?paged=24'>24</a></li><li><a class="next page-numbers" href="https://adsecurity.org/?paged=2"><i class="fa fa-angle-right"></i></a></li>		</ul>
+	</div>
+	            
+  
+    </div><!-- #content-main -->
+    
+    	
+    
+<div id="sidebar1" class="sidebar sidebar-right col-md-4">
+
+	
+    		<div id="recent-posts-4" class="sidebar-wrap clearfix widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://adsecurity.org/?p=3592">Attacking Read-Only Domain Controllers (RODCs) to Own Active Directory</a>
+									</li>
+											<li>
+					<a href="https://adsecurity.org/?p=3782">Securing Microsoft Active Directory Federation Server (ADFS)</a>
+									</li>
+											<li>
+					<a href="https://adsecurity.org/?p=3719">Gathering AD Data with the Active Directory PowerShell Module</a>
+									</li>
+											<li>
+					<a href="https://adsecurity.org/?p=3700">Beyond Domain Admins &#8211; Domain Controller &#038; AD Administration</a>
+									</li>
+											<li>
+					<a href="https://adsecurity.org/?p=3658">Scanning for Active Directory Privileges &#038; Privileged Accounts</a>
+									</li>
+					</ul>
+		</div><div id="text-3" class="sidebar-wrap clearfix widget_text"><h3>Trimarc Active Directory Security Services</h3>			<div class="textwidget">Have concerns about your Active Directory environment?
+
+Trimarc helps enterprises improve their security posture. <p>
+<a href="http://trimarcsecurity.com/security-services">Find out how...</a> 
+TrimarcSecurity.com</div>
+		</div><div id="widget_tptn_pop-4" class="sidebar-wrap clearfix tptn_posts_list_widget"><h3>Popular Posts</h3><div class="tptn_posts  tptn_posts_widget tptn_posts_widget4"><ul><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=2362"     class="tptn_link"><span class="tptn_title">Attack Methods for Gaining Domain Admin Rights in&hellip;</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=478"     class="tptn_link"><span class="tptn_title">PowerShell Encoding &#038; Decoding (Base64)</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=3299"     class="tptn_link"><span class="tptn_title">Securing Windows Workstations: Developing a Secure Baseline</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=1684"     class="tptn_link"><span class="tptn_title">The Most Common Active Directory Security Issues and&hellip;</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=2653"     class="tptn_link"><span class="tptn_title">Building an Effective Active Directory Lab&hellip;</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=2604"     class="tptn_link"><span class="tptn_title">Detecting Offensive PowerShell Attack Tools</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=1790"     class="tptn_link"><span class="tptn_title">Microsoft Local Administrator Password Solution (LAPS)</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=3377"     class="tptn_link"><span class="tptn_title">Securing Domain Controllers to Improve Active&hellip;</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=2288"     class="tptn_link"><span class="tptn_title">Finding Passwords in SYSVOL &#038; Exploiting Group&hellip;</span></a></span></li><li><span class="tptn_after_thumb"><a href="https://adsecurity.org/?p=2668"     class="tptn_link"><span class="tptn_title">PowerShell Version 5 is Available for Download (again)</span></a></span></li></ul><div class="tptn_clear"></div></div></div><div id="categories-4" class="sidebar-wrap clearfix widget_categories"><h3>Categories</h3>		<ul>
+	<li class="cat-item cat-item-565"><a href="https://adsecurity.org/?cat=565" >ActiveDirectorySecurity</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="https://adsecurity.org/?cat=55" >Apple Security</a>
+</li>
+	<li class="cat-item cat-item-431"><a href="https://adsecurity.org/?cat=431" >Cloud Security</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://adsecurity.org/?cat=17" >Continuing Education</a>
+</li>
+	<li class="cat-item cat-item-396"><a href="https://adsecurity.org/?cat=396" >Entertainment</a>
+</li>
+	<li class="cat-item cat-item-347"><a href="https://adsecurity.org/?cat=347" >Exploit</a>
+</li>
+	<li class="cat-item cat-item-1039"><a href="https://adsecurity.org/?cat=1039" >Hacking</a>
+</li>
+	<li class="cat-item cat-item-168"><a href="https://adsecurity.org/?cat=168" >Hardware Security</a>
+</li>
+	<li class="cat-item cat-item-172"><a href="https://adsecurity.org/?cat=172" >Hypervisor Security</a>
+</li>
+	<li class="cat-item cat-item-126"><a href="https://adsecurity.org/?cat=126" >Linux/Unix Security</a>
+</li>
+	<li class="cat-item cat-item-343"><a href="https://adsecurity.org/?cat=343" >Malware</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://adsecurity.org/?cat=11" >Microsoft Security</a>
+</li>
+	<li class="cat-item cat-item-819"><a href="https://adsecurity.org/?cat=819" >Mitigation</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="https://adsecurity.org/?cat=48" >Network/System Security</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://adsecurity.org/?cat=7" >PowerShell</a>
+</li>
+	<li class="cat-item cat-item-698"><a href="https://adsecurity.org/?cat=698" >RealWorld</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://adsecurity.org/?cat=21" >Security</a>
+</li>
+	<li class="cat-item cat-item-234"><a href="https://adsecurity.org/?cat=234" >Security Conference Presentation/Video</a>
+</li>
+	<li class="cat-item cat-item-1045"><a href="https://adsecurity.org/?cat=1045" >Security Recommendation</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="https://adsecurity.org/?cat=24" >Technical Article</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://adsecurity.org/?cat=4" >Technical Reading</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://adsecurity.org/?cat=2" >Technical Reference</a>
+</li>
+	<li class="cat-item cat-item-156"><a href="https://adsecurity.org/?cat=156" >TheCloud</a>
+</li>
+	<li class="cat-item cat-item-930"><a href="https://adsecurity.org/?cat=930" >Vulnerability</a>
+</li>
+		</ul>
+</div><div id="tag_cloud-3" class="sidebar-wrap clearfix widget_tag_cloud"><h3>Tags</h3><div class="tagcloud"><a href="https://adsecurity.org/?tag=active-directory" class="tag-cloud-link tag-link-75 tag-link-position-1" style="font-size: 9.0537634408602pt;" aria-label="Active Directory (6 items)">Active Directory</a>
+<a href="https://adsecurity.org/?tag=activedirectory" class="tag-cloud-link tag-link-20 tag-link-position-2" style="font-size: 22pt;" aria-label="ActiveDirectory (50 items)">ActiveDirectory</a>
+<a href="https://adsecurity.org/?tag=activedirectoryattack" class="tag-cloud-link tag-link-537 tag-link-position-3" style="font-size: 8pt;" aria-label="ActiveDirectoryAttack (5 items)">ActiveDirectoryAttack</a>
+<a href="https://adsecurity.org/?tag=activedirectorysecurity" class="tag-cloud-link tag-link-113 tag-link-position-4" style="font-size: 14.021505376344pt;" aria-label="ActiveDirectorySecurity (14 items)">ActiveDirectorySecurity</a>
+<a href="https://adsecurity.org/?tag=active-directory-security" class="tag-cloud-link tag-link-976 tag-link-position-5" style="font-size: 9.0537634408602pt;" aria-label="Active Directory Security (6 items)">Active Directory Security</a>
+<a href="https://adsecurity.org/?tag=adreading" class="tag-cloud-link tag-link-5 tag-link-position-6" style="font-size: 13.569892473118pt;" aria-label="ADReading (13 items)">ADReading</a>
+<a href="https://adsecurity.org/?tag=adsecurity" class="tag-cloud-link tag-link-86 tag-link-position-7" style="font-size: 10.559139784946pt;" aria-label="ADSecurity (8 items)">ADSecurity</a>
+<a href="https://adsecurity.org/?tag=dcsync" class="tag-cloud-link tag-link-598 tag-link-position-8" style="font-size: 9.8064516129032pt;" aria-label="DCSync (7 items)">DCSync</a>
+<a href="https://adsecurity.org/?tag=defcon" class="tag-cloud-link tag-link-518 tag-link-position-9" style="font-size: 8pt;" aria-label="DEFCON (5 items)">DEFCON</a>
+<a href="https://adsecurity.org/?tag=domaincontroller" class="tag-cloud-link tag-link-101 tag-link-position-10" style="font-size: 15.52688172043pt;" aria-label="DomainController (18 items)">DomainController</a>
+<a href="https://adsecurity.org/?tag=emet5" class="tag-cloud-link tag-link-338 tag-link-position-11" style="font-size: 8pt;" aria-label="EMET5 (5 items)">EMET5</a>
+<a href="https://adsecurity.org/?tag=goldenticket" class="tag-cloud-link tag-link-303 tag-link-position-12" style="font-size: 11.311827956989pt;" aria-label="GoldenTicket (9 items)">GoldenTicket</a>
+<a href="https://adsecurity.org/?tag=hyperv" class="tag-cloud-link tag-link-3 tag-link-position-13" style="font-size: 8pt;" aria-label="HyperV (5 items)">HyperV</a>
+<a href="https://adsecurity.org/?tag=invoke-mimikatz" class="tag-cloud-link tag-link-336 tag-link-position-14" style="font-size: 10.559139784946pt;" aria-label="Invoke-Mimikatz (8 items)">Invoke-Mimikatz</a>
+<a href="https://adsecurity.org/?tag=kb3011780" class="tag-cloud-link tag-link-337 tag-link-position-15" style="font-size: 9.8064516129032pt;" aria-label="KB3011780 (7 items)">KB3011780</a>
+<a href="https://adsecurity.org/?tag=kdc" class="tag-cloud-link tag-link-80 tag-link-position-16" style="font-size: 8pt;" aria-label="KDC (5 items)">KDC</a>
+<a href="https://adsecurity.org/?tag=kerberos" class="tag-cloud-link tag-link-81 tag-link-position-17" style="font-size: 14.774193548387pt;" aria-label="Kerberos (16 items)">Kerberos</a>
+<a href="https://adsecurity.org/?tag=kerberoshacking" class="tag-cloud-link tag-link-298 tag-link-position-18" style="font-size: 11.913978494624pt;" aria-label="KerberosHacking (10 items)">KerberosHacking</a>
+<a href="https://adsecurity.org/?tag=krbtgt" class="tag-cloud-link tag-link-394 tag-link-position-19" style="font-size: 9.8064516129032pt;" aria-label="KRBTGT (7 items)">KRBTGT</a>
+<a href="https://adsecurity.org/?tag=laps" class="tag-cloud-link tag-link-631 tag-link-position-20" style="font-size: 9.0537634408602pt;" aria-label="LAPS (6 items)">LAPS</a>
+<a href="https://adsecurity.org/?tag=lsass" class="tag-cloud-link tag-link-71 tag-link-position-21" style="font-size: 10.559139784946pt;" aria-label="LSASS (8 items)">LSASS</a>
+<a href="https://adsecurity.org/?tag=mcm" class="tag-cloud-link tag-link-6 tag-link-position-22" style="font-size: 14.322580645161pt;" aria-label="MCM (15 items)">MCM</a>
+<a href="https://adsecurity.org/?tag=microsoftemet" class="tag-cloud-link tag-link-58 tag-link-position-23" style="font-size: 11.311827956989pt;" aria-label="MicrosoftEMET (9 items)">MicrosoftEMET</a>
+<a href="https://adsecurity.org/?tag=microsoftwindows" class="tag-cloud-link tag-link-102 tag-link-position-24" style="font-size: 9.8064516129032pt;" aria-label="MicrosoftWindows (7 items)">MicrosoftWindows</a>
+<a href="https://adsecurity.org/?tag=mimikatz" class="tag-cloud-link tag-link-207 tag-link-position-25" style="font-size: 18.236559139785pt;" aria-label="mimikatz (28 items)">mimikatz</a>
+<a href="https://adsecurity.org/?tag=ms14068" class="tag-cloud-link tag-link-295 tag-link-position-26" style="font-size: 11.311827956989pt;" aria-label="MS14068 (9 items)">MS14068</a>
+<a href="https://adsecurity.org/?tag=passthehash" class="tag-cloud-link tag-link-44 tag-link-position-27" style="font-size: 9.8064516129032pt;" aria-label="PassTheHash (7 items)">PassTheHash</a>
+<a href="https://adsecurity.org/?tag=powershell" class="tag-cloud-link tag-link-575 tag-link-position-28" style="font-size: 18.989247311828pt;" aria-label="PowerShell (31 items)">PowerShell</a>
+<a href="https://adsecurity.org/?tag=powershellcode" class="tag-cloud-link tag-link-22 tag-link-position-29" style="font-size: 15.225806451613pt;" aria-label="PowerShellCode (17 items)">PowerShellCode</a>
+<a href="https://adsecurity.org/?tag=powershellhacking" class="tag-cloud-link tag-link-68 tag-link-position-30" style="font-size: 8pt;" aria-label="PowerShellHacking (5 items)">PowerShellHacking</a>
+<a href="https://adsecurity.org/?tag=powershellv5" class="tag-cloud-link tag-link-69 tag-link-position-31" style="font-size: 8pt;" aria-label="PowerShellv5 (5 items)">PowerShellv5</a>
+<a href="https://adsecurity.org/?tag=powersploit" class="tag-cloud-link tag-link-232 tag-link-position-32" style="font-size: 10.559139784946pt;" aria-label="PowerSploit (8 items)">PowerSploit</a>
+<a href="https://adsecurity.org/?tag=presentation" class="tag-cloud-link tag-link-422 tag-link-position-33" style="font-size: 9.8064516129032pt;" aria-label="Presentation (7 items)">Presentation</a>
+<a href="https://adsecurity.org/?tag=security" class="tag-cloud-link tag-link-576 tag-link-position-34" style="font-size: 8pt;" aria-label="Security (5 items)">Security</a>
+<a href="https://adsecurity.org/?tag=sidhistory" class="tag-cloud-link tag-link-547 tag-link-position-35" style="font-size: 8pt;" aria-label="SIDHistory (5 items)">SIDHistory</a>
+<a href="https://adsecurity.org/?tag=silverticket" class="tag-cloud-link tag-link-304 tag-link-position-36" style="font-size: 11.311827956989pt;" aria-label="SilverTicket (9 items)">SilverTicket</a>
+<a href="https://adsecurity.org/?tag=sneakyadpersistence" class="tag-cloud-link tag-link-596 tag-link-position-37" style="font-size: 9.0537634408602pt;" aria-label="SneakyADPersistence (6 items)">SneakyADPersistence</a>
+<a href="https://adsecurity.org/?tag=sysvol" class="tag-cloud-link tag-link-621 tag-link-position-38" style="font-size: 8pt;" aria-label="SYSVOL (5 items)">SYSVOL</a>
+<a href="https://adsecurity.org/?tag=tgs" class="tag-cloud-link tag-link-528 tag-link-position-39" style="font-size: 9.0537634408602pt;" aria-label="TGS (6 items)">TGS</a>
+<a href="https://adsecurity.org/?tag=tgt" class="tag-cloud-link tag-link-529 tag-link-position-40" style="font-size: 9.0537634408602pt;" aria-label="TGT (6 items)">TGT</a>
+<a href="https://adsecurity.org/?tag=windows7" class="tag-cloud-link tag-link-117 tag-link-position-41" style="font-size: 8pt;" aria-label="Windows7 (5 items)">Windows7</a>
+<a href="https://adsecurity.org/?tag=windows10" class="tag-cloud-link tag-link-494 tag-link-position-42" style="font-size: 10.559139784946pt;" aria-label="Windows10 (8 items)">Windows10</a>
+<a href="https://adsecurity.org/?tag=windowsserver2008r2" class="tag-cloud-link tag-link-46 tag-link-position-43" style="font-size: 9.0537634408602pt;" aria-label="WindowsServer2008R2 (6 items)">WindowsServer2008R2</a>
+<a href="https://adsecurity.org/?tag=windowsserver2012" class="tag-cloud-link tag-link-47 tag-link-position-44" style="font-size: 11.311827956989pt;" aria-label="WindowsServer2012 (9 items)">WindowsServer2012</a>
+<a href="https://adsecurity.org/?tag=windowsserver2012r2" class="tag-cloud-link tag-link-54 tag-link-position-45" style="font-size: 9.8064516129032pt;" aria-label="WindowsServer2012R2 (7 items)">WindowsServer2012R2</a></div>
+</div>    
+        
+    
+</div><!-- #sidebar1 -->    
+    
+</div><!-- #content -->
+
+    
+        
+    <div id="sidebar_bottom" class="sidebar row footer-widget-col-3">
+        
+        		
+		            <div id="text-2" class="sidebar-wrap clearfix widget_text col-sm-4"><h3>Copyright</h3>			<div class="textwidget">Content Disclaimer: This blog and its contents are provided "AS IS" with no warranties, and they confer no rights. Script samples are provided for informational purposes only and no guarantee is provided as to functionality or suitability.
+The views shared on this blog reflect those of the authors and do not represent the views of any companies mentioned.
+
+Content Ownership: All content posted here is intellectual work and under the current law, the poster owns the copyright of the article. Terms of Use Copyright © 2011 - 2017.</div>
+		</div>            </div>
+
+	
+
+<div id="footer" class="row">
+
+    
+    <div class="copyright-developer col-md-4  flip">
+                    <div id="copyright">
+                <p>Content Disclaimer: This blog and its contents are provided "AS IS" with no warranties, and they confer no rights. Script samples are provided for informational purposes only and no guarantee is provided as to functionality or suitability. The views shared on this blog reflect those of the authors and do not represent the views of any companies mentioned. </p>
+            </div>
+        
+                    <div id="developer">
+                <p>
+                                        Made with <i class="fa fa-heart"></i> by <a href="https://www.graphene-theme.com/" rel="nofollow">Graphene Themes</a>.                </p>
+
+                            </div>
+            </div>
+    
+    </div><!-- #footer -->
+
+
+</div><!-- #container -->
+
+		<!-- Start of StatCounter Code -->
+		<script>
+			<!--
+			var sc_project=10100711;
+			var sc_security="4b306538";
+			      var sc_invisible=1;
+			var scJsHost = (("https:" == document.location.protocol) ?
+				"https://secure." : "http://www.");
+			//-->
+					</script>
+		
+<script type="text/javascript"
+				src="https://secure.statcounter.com/counter/counter.js"
+				async></script>		<noscript><div class="statcounter"><a title="web analytics" href="https://statcounter.com/"><img class="statcounter" src="https://c.statcounter.com/10100711/0/4b306538/1/" alt="web analytics" /></a></div></noscript>
+		<!-- End of StatCounter Code -->
+				<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-chevron-up"></i></a>
+	<script type='text/javascript' src='http://adsecurity.org/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+</body>
+</html>

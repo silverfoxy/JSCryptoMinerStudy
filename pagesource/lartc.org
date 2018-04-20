@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>Linux Advanced Routing &amp; Traffic Control HOWTO</title>
+<LINK REL="SHORTCUT ICON" HREF="/tux16-16.ico">
+</head>
+<body bgcolor="#ffffff">
+
+<table width="100%"><tr><td width="80%">
+<H1>Linux Advanced Routing &amp; Traffic Control</H1>
+</td><td></td><td valign="top" align="right"><a href="http://www.powerdns.com"><img
+src="http://ds9a.nl/pub/pdns88x33c.gif" alt="PowerDNS logo"></a><p></td>
+
+<tr><td><a href="http://ds9a.nl/">bert hubert</a> (<a
+href="http://www.powerdns.com">PowerDNS.COM BV</a>) ,<br>
+<table><tr valign="top"><td>
+Section authors: </td>
+<td>
+<a href="http://tgr.kaosu.ch/">Thomas Graf</a>, 
+<a href="http://linuxpower.cx/~greg/">Greg Maxwell</a> <a
+href="mailto:greg@linuxpower.cx"></a>, 
+<a href="http://slashme.org">Remco van Mook</a> (<a
+href="http://www.virtu.nl">Virtu Secure Webservices</a>) <br>
+Martijn van Oosterhout,
+Paul B Schroeder,
+<a href="http://jsp.ds9a.nl/">Jasper Spaans</a>,
+Pedro Larroy
+</td></table>
+<br>
+<a href="#mailinglist">lartc@vger.kernel.org</a>
+(<small>mailing list, the <strong>only</strong> place to send questions!)<br>
+<a href="http://vger.kernel.org/vger-lists.html#lartc">archive of the new mailing list</a>
+<a href="http://mailman.ds9a.nl/pipermail/lartc/">archive of the old mailing list</a><br>
+(<font color="#ff0000"><a href="#mailinglist">subscribe</a> before posting!</font>)<br></small>
+#lartc on <a href="http://www.oftc.net/">irc.oftc.net</a> (<a
+href="http://ds9a.nl/lartcbot/">archives</a>)</td><td valign="bottom" align="right">
+
+</td>
+<td valign="top">Translations:
+<br>
+<a href="LARTC-zh_CN.GB2312.pdf">[ Chinese (zh_CN.GB2312) ] </a>
+<br><a href="http://www.linux-france.org/prj/inetdoc/guides/Advanced-routing-Howto/">
+	[ French ]</a> (fixed)
+<br><a href="http://www.linux.or.jp/JF/JFdocs/Adv-Routing-HOWTO/">
+	[ Japanese (Nihongo) ]</a>
+<br><a href="http://www.gnukorea.org/">
+	[ Korean ]</a>
+<br><a href="http://www.gulic.org/comos/LARTC">
+	[ Spanish ]</a>
+<br><a href="http://mr0vka.eu.org/tlumaczenia/2.4routing.html">
+	[ Polish ]</a>
+ 
+<p>
+<table bgcolor="#ff0000"><tr><td>
+<a href="wondershaper"><font color="#ffffff">ADSL/Cable Wondershaper!</font></a>
+</td></table>
+</td>
+</table>
+<center>
+<table border=1>
+<tr>
+<td><a href="#news">News</a> </td>
+<td><a href="#mailinglist">Mailinglist</a> </td>
+<td><strong><a href="#download">Download</a></strong></td>
+<td><a href="manpages/">Manpages</a></td>
+<td><strong><a href="howto"><font color="#ff0000">Dive
+in!</font></a></strong>
+<td><a href="#jobs">Jobs</a> </td>
+<td><a href="#bazaar">Bazaar</a></td>
+<td><a href="#sponsor">Sponsor</a>
+</td></tr>
+</table>
+Massive thanks to:<br>
+<small>
+ Junk Alins, Joe Van Andel, Michael T. Babcock, Christopher Barton, Peter Bieringer, Adam Burke, Ard van Breemen, Ron Brinker, Lukasz Bromirski, Lennert Buytenhek, Esteve Camps, Ricardo Javier Cardenes, Nelson Castillo, Stef Coene, Don Cohen, Jonathan Corbet, Gerry N5JXS Creager, Marco Davids, Jonathan Day, Martin aka devik Devera, Hannes Ebner, Derek Fawcus, David Fries, Stephan "Kobold" Gehring, Jacek Glinkowski, Andrea Glorioso, Thomas Graf, Sandy Harris, Nadeem Hasan, Erik Hensema, Vik Heyndrickx, Spauldo Da Hippie, Koos van den Hout, Stefan Huelbrock, Ayotunde Itayemi, Alexander W. Janssen, Andreas Jellinghaus, Gareth John, Dave Johnson, Martin Josefsson, Andi Kleen, Andreas J. Koenig, Pawel Krawczyk, Amit Kucheria, Pedro Larroy, Edmund Lau, Philippe Latu, Arthur van Leeuwen, Jose Luis Domingo Lopez, Robert Lowe, Jason Lunz, Stuart Lynne, Alexey Mahotkin, Predrag Malicevic, Patrick McHardy, Andreas Mohr, James Morris, Andrew Morton, Wim van der Most, Stephan Mueller, Togan Muftuoglu, Chris Murray, Takeo NAKANO, Patrick Nagelschmidt, Ram Narula, Jorge Novo, Patrik, Pál Osgyány, Lutz Preßler, Jason Pyeron, Rod Roark, Pavel Roskin, Rusty Russell, Mihai RUSU, Rob Pitman, Jamal Hadi Salim, René Serral, David Sauer, Sheharyar Suleman Shaikh, Stewart Shields, Nick Silberstein, Konrads Smelkov, William Stearns, Andreas Steinmetz, Matthew Strait, Jason Tackaberry, Charles Tassell, Jason Thomas, Glen Turner, Tea Sponsor: Eric Veldhuyzen, Thomas Walpuski, Song Wang, Frank v Waveren, Chris Wilson, Lazar Yanackiev
+</small></center>
+<p>
+
+Linux has very advanced Routing, filtering and traffic shaping options.
+This site attempts to document how to configure and use these features.
+
+<a name="news"></a>
+<h2>News</H2>
+<a href="http://www.worldipv6launch.org" ><img title="WORLD IPV6 LAUNCH is 6 June 2012 – The Future is Forever" src="http://www.worldipv6launch.org/wp-content/themes/ipv6/downloads/World_IPv6_launch_badge_256.png" alt="WORLD IPV6 LAUNCH is 6 June 2012 – The Future is Forever" width="256" height="256" /></a>
+<table border=1>
+<tr><td valign="top">2012-05-20</td>
+<td>lartc.org is now reachable via IPv6!</td>
+<tr><td valign="top">2012-05-20</td>
+<td>The lartc.org website is now valid HTML 4.01 Transitional. Generated
+content (i.e. HTML from Docbook) still needs work, though.</td>
+<tr><td valign="top">2012-05-19</td>
+<td>lartc.org has a new maintainer!<br>
+<a href="http://ds9a.nl/">Bert Hubert</a> has transferred ownership of
+the domain to <a href="http://www.hailfinger.org/">Carl-Daniel Hailfinger</a>.
+A big THANK YOU goes to Bert Hubert for starting and hosting
+lartc.org and the associated mailing list for many years.<br><br>
+Everybody is invited to contribute to lartc.org and a git tree for the
+website (including LARTC HOWTO, Wondershaper and man pages) has been
+created at <a href="http://repo.or.cz/w/lartc.git">
+http://repo.or.cz/w/lartc.git</a>. Please send any patches or
+pull requests to the new LARTC mailing list
+<a href="mailto:lartc@vger.kernel.org">lartc@vger.kernel.org</a> and
+I'll try to integrate them in a timely manner.
+Please note that the old mailing list and old HOWTO submission e-mail
+addresses are no longer active.
+Users of the old mailing list are encouraged to move to
+<a href="mailto:lartc@vger.kernel.org">lartc@vger.kernel.org</a>.<br>
+Bert Hubert has offered to continue hosting the old mailing list archives at
+<a href="http://mailman.ds9a.nl/pipermail/lartc/">
+http://mailman.ds9a.nl/pipermail/lartc/</a>.<br></td>
+</tr>
+<tr>
+<td>200[0123]</td><td><a href="oldnews.html">Older news</a></td>
+</tr>
+</table>
+<a name="mailinglist"></a>
+<H2>LARTC Mailinglist</H2>
+It appears that the topic of our HOWTO is getting popular, so we decided to
+start a mailinglist dedicated to discussions about advanced routing &amp;
+shaping with Linux! 
+<p>
+The advent of the Linux Advanced Routing &amp; Traffic Control list also
+means that questions asked privately will no longer be answered, as these
+answers benefit only single users. Asking questions on the list is far more
+net-friendly. So if you want to ask us a question, 
+<a href="http://vger.kernel.org/vger-lists.html#lartc">subscribe to the new
+mailing list</a>, and ask it! An <a href="http://www.spinics.net/lists/lartc/">
+archive of the new mailing list</a> is available.  An 
+<a href="http://mailman.ds9a.nl/pipermail/lartc/">archive of the old mailing
+list</a> is also available, and google has picked it up as well.
+<p>
+<font color="#ff0000">Please note that due to excessive spam the list has
+become 'members only' - so please <a
+href="http://vger.kernel.org/vger-lists.html#lartc">subscribe</a> first!</font>
+The moderator will not approve postings from non-subscribed addresses as he
+is not available at all times. If you just want to post, and not receive
+mail, you can indicate this on the Mailman mailinglist management page.
+FIXME: Is the new mailing list subscriber-only as well?
+
+<a name="download"></a>
+<H2>Linux Advanced Routing &amp; Traffic Control HOWTO</H2>
+<p>
+Current version is 1.0.1. Files were last updated at 2012-05-19 12:40:48 UTC
+<p>
+The French
+ version by Laurent Foucher and Philippe Latu from the 
+<a href="http://www.linux-france.org/prj/inetdoc">
+Technology Institute of the University of Toulouse</a>
+plus Thierry Mallard and Yannick Quenec'hdu from 
+<a href="http://www.idealx.com/">
+Idealx</a> is available <a href="http://www.linux-france.org/prj/inetdoc/guides/Advanced-routing-Howto">
+here</a>. Terrific work! 
+<p>
+A Korean translation can be found on
+<a href="http://www.gnukorea.org/2.4routing-kr/2.4routing.html">here</a>.
+<p>
+Polish translation is <a
+href="http://mr0vka.eu.org/tlumaczenia/2.4routing.html">here</a>.
+<ul>
+<li><a href="changelog.txt">GIT Changelog</a>
+<li><a href="lartc.db">DocBook SGML</A>
+<li><a href="lartc.txt">ASCII</A>, .txt
+<li><a href="howto/">HTML</A>, <a
+href="lartc.html">One-big-page
+HTML</A>, <a href="html.tar.gz">HTML tarfile</A>
+<li><a href="lartc.ps">ps</A>, <a href="lartc.ps.gz">ps.gz</A>
+<li><a href="lartc.pdf">pdf</A>, <a
+href="lartc.pdf.gz">pdf.gz</A>
+</ul>
+<a name="jobs"></a>
+<H2>Jobs list</H2>
+Like the Linux kernel, we have a jobs list. If you have any expertise
+in any of these areas, please pitch in.
+<ul>
+<li>remove incorrect or dead content
+<li>There are a *lot* of FIXME notices, so this means YOU!</li>
+<li>IPsec</li>
+<li>Multipath routing
+</ul>
+<a name="bazaar"></a>
+<H2>Bazaar</H2>
+This HOWTO is intended to be very much a <a
+href="http://www.catb.org/~esr/writings/cathedral-bazaar/">Bazaar</a> style development. If it
+
+were to be any more open, bits would fall out. 
+<p>
+A GIT tree is available. try this:
+<pre>
+$ git clone git://repo.or.cz/lartc.git
+or (if you're behind a firewall which only allows HTTP)
+$ git clone http://repo.or.cz/r/lartc.git
+Enter the checked out directory:
+$ cd lartc.git
+If you want to update your local copy, run
+$ git pull
+</pre>
+
+If you made changes and want to contribute them, run 'git diff',
+and mail the output to <a href="mailto:lartc@vger.kernel.org">lartc@vger.kernel.org</a>, we
+can then integrate it easily. Thanks! Please make sure that you edit the
+.db file, by the way, the other files are generated from that one. 
+
+The idea is that this HOWTO will be a cooperative effort, much like the
+Linux kernel itself. 
+
+<p>
+<a name="sponsor"></a>
+<H2>Sponsor</h2>
+<a href="http://www.powerdns.com">
+This site made possible by PowerDNS, for all your domain needs and
+nameserver software.
+</a>
+<br>
+<a href="http://ds9a.nl/">Other ds9a.nl projects.</a>
+<!-- Search Google -->
+<center>
+<FORM method=GET action="http://www.google.com/search">
+<TABLE bgcolor="#FFFFFF"><tr><td>
+<A HREF="http://www.google.com/">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border="0"
+ALT="Google" align="middle"></A>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Google Search">
+</td></tr></TABLE>
+</FORM>
+</center>
+<!-- Search Google -->
+<p>
+<a href="http://validator.w3.org/check?uri=referer">
+<img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+</p>
+<center>
+<small>
+$Id$
+
+</small>
+</center>
+</body>
+</html>

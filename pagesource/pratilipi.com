@@ -1,0 +1,1 @@
+<p>Moved Permanently. Redirecting to <a href="https://www.pratilipi.com/">https://www.pratilipi.com/</a></p>

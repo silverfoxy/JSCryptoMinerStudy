@@ -1,0 +1,1 @@
+<p class="error-box"></p>

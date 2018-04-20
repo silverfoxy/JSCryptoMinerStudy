@@ -1,0 +1,356 @@
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#">
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>SrNet - Online Sorozat Sorozatok Online</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="description" content="SrNet online sorozat, online sorozatok. Nézd online kedvenc sorozataid ingyen, regisztráció nélkül!">
+<meta name="keywords" content="sorozat, sorozatok, online, felirat, sorozat letöltés, premier, Szulejmán, Búra Alatt, Trónok harca, The walking dead, Dr. House, Született feleségek, Így jártam anyátokkal, Agymenők, Vámpírnaplók, Castle, CSI, NCIS" />
+<meta name="generator" content="SrNet" />
+<meta name="maValidation" content="9cac98af9c37ecc1bb968a0e639738c3" />
+<link rel="shortcut icon" type="image/x-icon" href="//srnet.eu/o/favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="Srnet Online Sorozatok" href="http://srnet.eu/rss.php" />
+<meta name="clckd" content="a9ffd8ef7eeb7e71d4ad332504833ce9" />
+<link rel="stylesheet" type="text/css" href="/style.css?v=1.694" media="screen" />
+<link rel="stylesheet" href="/o/css/bootstrap.custom.css?v=1.00" />
+<link rel="stylesheet" href="/o/css/font-awesome.css?v=1" />
+<link rel="stylesheet" href="/o/css/owl.carousel.css" />
+<link rel="stylesheet" href="/o/css/owl.theme.css" />
+
+<!--[if lt IE 9]><script src="html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="/o/js/jquery.min.js"></script>
+<script>
+if((typeof jQuery == "undefined") || !window.jQuery ){ 
+var script = document.createElement("script"); 
+script.type = "text/javascript"; 
+script.src = "/o/js/jquery.js";
+document.getElementsByTagName('head')[0].appendChild(script);
+}
+</script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300|Roboto:400,500,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" type="text/css" media="all" />
+<script>
+function makeComp (input){
+    input = input.toLowerCase ();
+    var output = '';
+    for (var i = 0; i < input.length; i ++)
+    {
+        if (input.charAt (i) == 'a')
+            output = output + '[aá]'
+        else if (input.charAt (i) == 'e')
+            output = output + '[eé]';
+        else if (input.charAt (i) == 'i')
+            output = output + '[ií]';
+        else if (input.charAt (i) == 'o' || input.charAt (i) == 'ö' || input.charAt (i) == 'ő' || input.charAt (i) == 'ó')
+            output = output + '[oóőö]';
+        else if (input.charAt (i) == 'u' || input.charAt (i) == 'ü' || input.charAt (i) == 'ű' || input.charAt (i) == 'ú')
+            output = output + '[uúűü]'
+        else
+            output = output + input.charAt (i);
+    }
+    return output;
+}
+
+$(document).ready(function(){
+$('#search_box').keyup(function(){ 
+$('#suggest-results').html('');
+var timer;
+var output = '';
+var num = 0;
+var max = 10;
+clearTimeout(timer);
+
+output = '<center style="padding:10px;"><img src="/o/loaders.gif"></center>';	
+
+if($("#search_box").val().length > 3 ){
+timer = setTimeout(function(){
+			var searchField = $("#search_box").val();
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ max = 5; }
+			var regex = new RegExp(makeComp(searchField), "i");
+			var regex2 = new RegExp(makeComp(searchField), "i");
+			var regex3 = new RegExp(makeComp(searchField), "i");
+			output = ''; output += '<a class="rsg" onclick="CloseResult()" href="javascript:void(0)"><img style="float:right; padding-top:2px;" src="/o/close_button.gif"></a><ul>';
+            $.getJSON('/api/search.json', function(data) {
+              $.each(data, function(key, val){
+                if ((val.cat_name.search(regex) != -1) && num <= max || (val.cat_eng.search(regex2) != -1) && num <= max || (val.year.search(regex3) != -1) && num <= max) {
+                  output += '<li><a href="/' + val.url + '-online">';
+                  output += '<span style="float:left; padding-right:10px;"><img style="width:35px !important; height:51px !important;" src="http://srnet.eu/o/c/' + val.cat_id + '.jpg"></span>';
+                  output += '<span style="font-weight: bold; display: block;line-height: 1;">' + val.cat_name + '</span>';
+				  output += '<span style="font-size:10px;">Év: ' + val.year + '</span></a></li>';
+                  num++;
+                }
+                if (num == 7) {
+                    //output += '<li class="dots"></li><li><a href="http://moovie.cc/kereses/' + searchField + '"><span class="r-title">További találatok >></span></a></li>';
+                    num++;
+                }
+              });
+if(num == 0){ output = '<center style="padding:10px;">Nincs találat a keresett kifejezésre!</center>'; }
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ output += '<li style="text-align: center;"><a href="/channels.php?year=' + $("#search_box").val() + '">Összes ' + $("#search_box").val() + ' sorozat</a></li>'; }
+output += '</ul>';
+$('#suggest-results').show();
+$('#suggest-results').html(output);
+}); 
+
+}, 1500);
+}else{ output = '<center style="padding:10px;">Legalább 4 karakter kell a kereséshez!</center>'; }
+$('#suggest-results').show();
+$('#suggest-results').html(output);
+});
+
+});
+
+function CloseResult() {
+document.getElementById("suggest-results").innerHTML = "";
+document.getElementById("suggest-results").style.border = "0px";
+document.getElementById("search_box").value = "";
+return;
+}
+</script>
+</head>
+<body class="body-home">
+<div class="fixed-top">
+<div class="row block" style="position:relative;">
+<div class="logo-wrapper">
+<a id="show-sidebar" href="javascript:void(0)" title="Show sidebar"><i class="icon icon-bars"></i></a>
+<a href="http://srnet.eu" title="" class="logo"><img src="//srnet.eu/o/logo.png" width="70" height="34" /></a>
+<br style="clear:both;" />
+</div>
+<div class="header">
+<div class="searchWidget">
+
+<div class="form-group form-material floating">
+<div class="input-group">
+<span class="input-group-addon"><i class="icon icon-search"></i></span>
+<div class="form-control-wrap">
+<input type="text" id="search_box" autocomplete="off" class="form-control input-lg empty" name="tag" value="">
+<label class="floating-label">Kereséshez kezd el gépelni a sorozat nevét vagy évszámát</label>
+<div id="suggest-results"> </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="user-quick">
+<a data-target="#search-now" data-toggle="modal" href="javascript:void(0)" class="btn btn-default btn-small" id="show-search"><i class="icon icon-search"></i></a>
+<a id="loginNow" data-target="#login-now" data-toggle="modal" href="javascript:void(0)" class="btn btn-primary btn-small" title="Bejelentkezés"><i class="icon icon-key"></i> <span>Bejelentkezés</span></a></div>
+</div>
+</div>
+</div>
+<style>
+body{
+width:100%; height:100%; background: #f5f5f5;
+}
+#hch{
+	width:100%; margin-left:auto; margin-right:auto; padding-top:50px;
+}
+</style>
+
+<div id="hch" align="center">
+<h3>Kérjük igazold hogy nem vagy ROBOT, vagy lépj be felhasználóként!<br /></h3>
+<script type="text/javascript">
+      var verifyCallback = function(response) {
+        
+      };
+      var onloadCallback = function() {
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        grecaptcha.render('example3', {
+          'sitekey' : '6Ld-HxUUAAAAAGvSPaNL7dxi0QqFR3eD72X2i1dV',
+          'callback' : verifyCallback,
+          'theme' : 'light'
+        });
+      };
+    </script>
+<form action="/" method="POST">
+<div id="example3" style="padding-bottom:10px;"></div>
+<input type="submit" value="Tovább" style="margin-bottom:20px; width:80px; height:30px; font-size:16px; font-weight:bold;">
+</form>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
+<p style="color:blue">
+<b>Jelenleg 37016 online epizód található az oldalon!</b>
+</p>
+<font size="2">
+<p>SrNet.eu does not host or upload any video, films, media files.</p>
+<p>Link removal policy: If you are a copyright owner and wish to report abuse or issue a link removal request, please send email to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f9989b8c8a9cb98a8b979c8dd79c8c">[email&#160;protected]</a> so we can remove the infringing material and ban it from being uploaded again.</p>
+<p>Szervereinken nem tárolunk semmilyen jogsértő tartalmat, minden tartalom nem általunk üzemeltetett weboldalak szerverein található, melyek helyét csak megjelöljük és kategorizáljuk, illetve nem ismerjük azok részletes tartalmát, így nem tudunk semmilyen felelősséget vállalni értük.</p>
+<p>Az oldalon keresztül elérhető, más szolgáltatóknál tárolt filmek és audiovizuális tartalmak jogdíjai a filmeket és egyéb audiovizuális tartalmat szerverein tároló szolgáltatókat terheli!</p>
+<p>Adatlap eltávolítási politika Ha ön szerzői jog tulajdonosa és szeretné jelenteni vagy kérni egy link eltávolítását,kérjük írjon emailt az <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9dfcffe8eef8ddeeeff3f8e9b3f8e8">[email&#160;protected]</a> címre. </p>
+<p>így el tudjuk távolítani a jogsértő anyagot és végleg tiltani, hogy ne legyen feltölthető újra.</p>
+</font>
+</div>
+</div>
+</div>
+<a href="#" id="linkTop" class="backtotop"><i class="icon-angle-double-up"></i></a>
+<footer align="center" style="text-align:center; margin-left:auto; margin-right:auto;">
+<p style="font-size:10px; margin-left:auto; margin-right:auto;">sorozatok online, online sorozatok, online sorozatok a neten, online sorozatbarát, online srnet, online sorozat, ingyen sorozatok, sorozat letöltés</p>
+<img id="whois_track" src="https://whos.amung.us/swidget/oxpji0pdbzjl/1521297774"></footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script id="_waue81">
+function reloadScript2() {
+document.getElementById("whois_track").remove();
+var s=document.createElement("img"); 
+var n = Date.now(); 
+s.id="whois_track";
+s.src="https://whos.amung.us/swidget/oxpji0pdbzjl/"+n;
+document.getElementsByTagName("footer")[0].appendChild(s);
+setTimeout(function() { reloadScript2(); }, 30000);
+}
+
+reloadScript2();
+</script>
+
+<div class="modal fade" id="login-now" aria-hidden="true" aria-labelledby="login-now" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-sidebar modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+<h4 class="modal-title"><i class="icon icon-key"></i> Bejelentkezés</h4>
+</div>
+<div class="modal-body">
+<div class="panel">
+<div class="row">
+<div class="social-login fb-login">
+<a href="/fbconnect.php" class="btn btn-block btn-raised social-facebook"><i class="icon icon-facebook bd-facebook"></i> Bejelentkezés </a>
+</div>
+<form method="post" action="" class="mtop10 modal-form">
+<div class="form-group form-material floating">
+<input type="email" class="form-control" name="email" required data-error="Hibas email cím!" />
+<label class="floating-label"><i class="icon icon-envelope"></i> Email</label>
+</div>
+<div class="form-group form-material floating">
+<input type="password" class="form-control" name="password" required data-error="Hibas jelszó!" />
+<label class="floating-label"><i class="icon icon-key"></i> Jelszó</label>
+</div>
+<div class="form-group clearfix">
+<div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg pull-left">
+<input type="checkbox" id="inputCheckbox" name="remember" checked=checked>
+<label for="inputCheckbox"><i class="icon icon-unlock"></i> Bejelentkezve marad</label>
+</div>
+<a class="pull-right" style="padding-top:5px;" href="/login.php?p=lost_pw">Elfelejtetted a jelszavad ?</a>
+</div>
+<input type="hidden" name="action" value="login" />
+<button type="submit" class="btn btn-primary btn-block mtop20">Bejelentkezés</button>
+</form>
+<p class="mtop10">Nincs még SrNet hozzáférésed?</p>
+<p>Kattints <a href="//srnet.eu/signup.php">IDE</a> az ingyenes regisztrációhoz!</p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Bezárás</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+$('#search_box2').keyup(function(){ 
+$('.mobile_results').html('');
+var timer;
+var output = '';
+var num = 0;
+var max = 10;
+clearTimeout(timer);
+
+output = '<center style="padding:10px;"><img src="/o/loaders.gif"></center>';	
+
+if($("#search_box2").val().length > 3 ){
+timer = setTimeout(function(){
+			var searchField = $("#search_box2").val();
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ max = 5; }
+			var regex = new RegExp(makeComp(searchField), "i");
+			var regex2 = new RegExp(makeComp(searchField), "i");
+			var regex3 = new RegExp(makeComp(searchField), "i");
+			output = ''; output += '<a class="rsg" onclick="CloseResult()" href="javascript:void(0)"><img style="float:right; padding-top:2px;" src="/o/close_button.gif"></a><ul>';
+            $.getJSON('/api/search.json', function(data) {
+              $.each(data, function(key, val){
+                if ((val.cat_name.search(regex) != -1) && num <= max || (val.cat_eng.search(regex2) != -1) && num <= max || (val.year.search(regex3) != -1) && num <= max) {
+                  output += '<li><a href="/' + val.url + '-online">';
+                  output += '<span style="float:left; padding-right:10px;"><img style="width:35px !important; height:51px !important;" src="//srnet.eu/o/c/' + val.cat_id + '.jpg"></span>';
+                  output += '<span style="font-weight: bold; display: block;line-height: 1;">' + val.cat_name + '</span>';
+				  output += '<span style="font-size:10px;">Év: ' + val.year + '</span></a></li>';
+                  num++;
+                }
+                if (num == 7) { num++; }
+              });
+if(num == 0){ output = '<center style="padding:10px;">Nincs találat a keresett kifejezésre!</center>'; }
+if(searchField.length == 4 && $.isNumeric(searchField) && searchField < 2018){ output += '<li style="text-align: center;"><a href="/channels.php?year=' + $("#search_box2").val() + '">Összes ' + $("#search_box2").val() + ' sorozat</a></li>'; }
+output += '</ul>';
+$('.mobile_results').show();
+$('.mobile_results').html(output);
+}); 
+
+}, 1500);
+}else{ output = '<center style="padding:10px;">Legalább 4 karakter kell a kereséshez!</center>'; }
+$('.mobile_results').show();
+$('.mobile_results').html(output);
+});
+
+});
+</script>
+
+<div class="modal fade" id="search-now" aria-hidden="true" data-backdrop="false" aria-labelledby="search-now" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-sidebar" style="width:100%;">
+<div class="modal-content" style="position:absolute; top:40px; width:99%;">
+<div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+<div>
+<div class="panel panel-transparent">
+<div class="row">
+<form action="" method="get" id="searchform">
+<div class="form-group form-material floating">
+<div class="form-control-wrap">
+<input type="text" autocomplete="off" id="search_box2" class="form-control input-lg empty" name="tag" value="">
+<label class="floating-label"><i class="icon icon-search"></i> Sorozat Keresés...</label>
+<div id="suggest-results" style="overflow: scroll; width:99%; height:80% !important; position:fixed; top:104px !important;" class="mobile_results"> </div>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript">
+var next_time = '0';
+var nv_lang = 'Next video starting soon';
+var select2choice = 'Select option';
+</script>
+<script type="text/javascript" src="/o/js/bootstrap.js"></script>
+<script type="text/javascript" src="/o/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.imagesloaded.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="/o/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.emoticons.js"></script>
+<script type="text/javascript" src="/o/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.minimalect.min.js"></script>
+<script type="text/javascript" src="/o/js/jquery.validarium.js"></script>
+<script type="text/javascript" src="/o/js/jquery.tagsinputv2.js?v=12"></script>
+<script type="text/javascript" src="/o/js/jquery.grid-a-licious.min.js"></script>
+<script type="text/javascript" src="/core.js?v=8"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29202088-21']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

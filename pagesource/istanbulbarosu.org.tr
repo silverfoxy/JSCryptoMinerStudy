@@ -1,0 +1,1625 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" /><meta name="author" content="İstanbul Barosu Başkanlığı" /><title>
+	İstanbul Barosu
+</title>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/sweetalert2.min.js"></script>
+    <!-- Css -->
+    <link rel="stylesheet" href="assets/css/main.css" /><link rel="stylesheet" href="assets/css/component.css" /><link rel="stylesheet" href="assets/css/hover.css" /><link rel="stylesheet" href="assets/css/owl.carousel.css" /><link rel="stylesheet" href="assets/css/owl.theme.css" /><link rel="stylesheet" href="assets/css/owl.transitions.css" /><link rel="stylesheet" href="assets/css/form.css" /><link rel="stylesheet" href="assets/css/forgot.css" /><link rel="stylesheet" href="assets/css/jquery.fancybox.css" /><link rel="stylesheet" href="assets/css/sweetalert2.min.css" /><link rel="stylesheet" href="assets/css/jquery-ui.css" /><link rel="stylesheet" href="assets/css/jquery.datetimepicker.css" /><link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print" /><link rel="shortcut icon" href="assets/img/barologo.ico" />
+
+
+    <!-- #Css -->
+    
+    <style type="text/css">
+        #overlayPopUp {
+            display: none;
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            left: 0;
+            top: 0;
+            z-index: 9999;
+        }
+
+
+        #pop-up-container-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -190px;
+            margin-left: -330px;
+            z-index: 9999;
+            height: 390px;
+            border-radius: 5px;
+            padding: 5px;
+            width: 650px;
+            background: #fff !important;
+        }
+
+        #close-popup-popup {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        #popUpImage {
+            max-width: 640px;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        var pageCount = 2;
+        var pageIndex = 1;
+        function GetNextRecords() {
+            pageIndex = parseInt($("#pagerCurrent").text());
+            var tempCounter = parseInt(document.getElementById('pagerTotal').value);
+            if (pageIndex < tempCounter) {
+                $("#loading").fadeOut("slow");
+                pageIndex++;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetNews",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnSuccess,
+                    failure: function (response) {
+                        //$("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        //$("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetPreviosRecords() {
+            pageIndex = parseInt($("#pagerCurrent").text());
+            if (pageIndex > 1) {
+                $("#loading").fadeOut("slow");
+                pageIndex--;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetNews",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnSuccess,
+                    failure: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetFirstRecords() {
+            pageIndex = 1;
+            $("#loading").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetNews",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+        function GetLastRecords() {
+            var tempCounter = document.getElementById('pagerTotal').value;
+            pageIndex = parseInt(tempCounter);
+            $("#loading").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetNews",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+
+        function OnSuccess(response) {
+            var xmlDoc = $.parseXML(response.d);
+            var xml = $(xmlDoc);
+            pageCount = parseInt(xml.find("PageCount").eq(0).find("PageCount").text());
+            $("#pagerTotal").html("" + pageCount + "");
+            $("#pagerCurrent").html(pageIndex);
+            if (pageIndex > 1) {
+                $("#pagerOnceki").html(pageIndex - 1);
+            } else {
+                $("#pagerOnceki").html('');
+            }
+            if (pageIndex == pageCount) {
+                $("#pagerSonraki").html('');
+            } else {
+                $("#pagerSonraki").html(pageIndex + 1);
+            }
+            var news = xml.find("News");
+            var tempString = "";
+            news.each(function () {
+                var haber = $(this);
+                $("#news-list").html('');
+                tempString += "<li class='hvr-float-shadow'>" +
+                    "<a href='HaberDetay.aspx?ID=" + haber.find("HaberID").text() + "&Desc=" + haber.find("BaslikUrl").text() + "' target='_blank'>" +
+                    "<figure class='news-list-image'>" +
+                    "<img style='width: 231px; height: 130px;' src='" + haber.find("HaberResimThumb").text() + "' alt=''>" +
+                    "</figure>" +
+                    "<div class='news-list-title'><span>" +
+                    haber.find("Baslik").text() +
+                    "</span></div>" +
+                    "</a>" +
+                    "</li>";
+
+            });
+            $("#news-list").html(tempString);
+            //$('html, body').animate({
+            //    scrollTop: $('#news-list').offset().top - 100
+            //}, 'slow');
+            $("#loading").hide();
+        }
+    </script>
+    <script type="text/javascript">
+        var pageCount = 2;
+        var pageIndex = 1;
+        function GetNextAnnouncementRecords() {
+            pageIndex = parseInt($("#pagerDuyuruCurrent").text());
+            var tempCounter = parseInt(document.getElementById('pagerAnnouncementTotal').value);
+            if (pageIndex < tempCounter) {
+                $("#loading").fadeOut("slow");
+                pageIndex++;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetAnnouncements",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnAnnouncementSuccess,
+                    failure: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetPreviousAnnouncementRecords() {
+            pageIndex = parseInt($("#pagerDuyuruCurrent").text());
+            if (pageIndex > 1) {
+                $("#loading").fadeOut("slow");
+                pageIndex--;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetAnnouncements",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnAnnouncementSuccess,
+                    failure: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetFirstAnnouncementRecords() {
+            pageIndex = 1;
+            $("#loading").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetAnnouncements",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnAnnouncementSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+        function GetLastAnnouncementRecords() {
+            var tempCounter = document.getElementById('pagerAnnouncementTotal').value;
+            pageIndex = parseInt(tempCounter);
+            //$("#loader").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetAnnouncements",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnAnnouncementSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+
+
+
+        function OnAnnouncementSuccess(response) {
+            var xmlDoc = $.parseXML(response.d);
+            var xml = $(xmlDoc);
+            pageCount = parseInt(xml.find("PageCount").eq(0).find("PageCount").text());
+            $("#pagerAnnouncementTotal").html("" + pageCount + "");
+            $("#pagerDuyuruCurrent").html(pageIndex);
+            if (pageIndex > 1) {
+                $("#pagerDuyuruOnceki").html(pageIndex - 1);
+            } else {
+                $("#pagerDuyuruOnceki").html('');
+            }
+            if (pageIndex == pageCount) {
+                $("#pagerDuyuruSonraki").html('');
+            } else {
+                $("#pagerDuyuruSonraki").html(pageIndex + 1);
+            }
+            var announcements = xml.find("Announcements");
+            var tempString = "";
+            announcements.each(function () {
+                var announcement = $(this);
+                $("#advert-list").html('');
+                //yanında row numberlı
+                //tempString += "<li><a href='DuyuruDetay.aspx?ID=" + announcement.find("HaberID").text() + "&Desc=" + announcement.find("BaslikUrl").text() + "' target='_blank'><i>" + announcement.find("RowNumber").text() + "</i><span>" + announcement.find("Baslik").text() + "</span></a></li>";
+                //
+                tempString += "<li><a href='DuyuruDetay.aspx?ID=" + announcement.find("HaberID").text() + "&Desc=" + announcement.find("BaslikUrl").text() + "' target='_blank'><span>" + announcement.find("Baslik").text() + "</span></a></li>";
+
+            });
+            $("#advert-list").html(tempString);
+            //$('html, body').animate({
+            //    scrollTop: $('#news-list').offset().top - 100
+            //}, 'slow');
+            $("#loading").hide();
+        }
+
+        function ShowPopUp() {
+            //$(document).ready(function() {
+            //    $.fancybox("#example2");
+            //});
+            $("#example2").fancybox({
+                helpers: {
+                    overlay: {
+                        opacity: 0.8, // or the opacity you want 
+                        css: { 'background-color': '#ff0000' } // or your preferred hex color value
+                    } // overlay 
+                } // helpers
+            }); // fancybox
+        }
+    </script>
+    
+    <script type="text/javascript">
+        var pageCount = 2;
+        var pageIndex = 1;
+        function GetNextTwitRecords() {
+            pageIndex = parseInt($("#pagerTwitCurrent").text());
+            var tempCounter = parseInt(document.getElementById('pagerAnnouncementTotal').value);
+            if (pageIndex < tempCounter) {
+                $("#loading").fadeOut("slow");
+                pageIndex++;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetTwits",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnTwitSuccess,
+                    failure: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetPreviousTwitRecords() {
+            pageIndex = parseInt($("#pagerTwitCurrent").text());
+            if (pageIndex > 1) {
+                $("#loading").fadeOut("slow");
+                pageIndex--;
+                $.ajax({
+                    type: "POST",
+                    url: "Anasayfa.aspx/GetTwits",
+                    data: '{pageIndex: ' + pageIndex + '}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnTwitSuccess,
+                    failure: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    },
+                    error: function (response) {
+                        $("#loading").hide();
+                        alert(response.d);
+                    }
+                });
+            }
+        }
+        function GetFirstTwitRecords() {
+            pageIndex = 1;
+            $("#loading").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetTwits",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnTwitSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+        function GetLastAnnouncementRecords() {
+            var tempCounter = document.getElementById('pagerTwitTotal').value;
+            pageIndex = parseInt(tempCounter);
+            //$("#loader").fadeOut("slow");
+            $.ajax({
+                type: "POST",
+                url: "Anasayfa.aspx/GetTwits",
+                data: '{pageIndex: ' + pageIndex + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnTwitSuccess,
+                failure: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                },
+                error: function (response) {
+                    $("#loading").hide();
+                    alert(response.d);
+                }
+            });
+        }
+
+
+
+        function OnTwitSuccess(response) {
+            var xmlDoc = $.parseXML(response.d);
+            var xml = $(xmlDoc);
+            pageCount = 8;
+            $("#pagerTwitTotal").html("" + pageCount + "");
+            $("#pagerTwitCurrent").html(pageIndex);
+            if (pageIndex > 1) {
+                $("#pagerTwitOnceki").html(pageIndex - 1);
+            } else {
+                $("#pagerTwitOnceki").html('');
+            }
+            if (pageIndex == pageCount) {
+                $("#pagerTwitSonraki").html('');
+            } else {
+                $("#pagerTwitSonraki").html(pageIndex + 1);
+            }
+            var announcements = xml.find("Twits");
+            var tempString = "";
+            announcements.each(function () {
+                var announcement = $(this);
+                $("#twit-list").html('');
+                //yanında row numberlı
+                //tempString += "<li><a href='DuyuruDetay.aspx?ID=" + announcement.find("HaberID").text() + "&Desc=" + announcement.find("BaslikUrl").text() + "' target='_blank'><i>" + announcement.find("RowNumber").text() + "</i><span>" + announcement.find("Baslik").text() + "</span></a></li>";
+                //
+                tempString += "<li><a href='" + announcement.find("Url").text() + "' target='_blank'><span>" + announcement.find("Twit").text() + "</span></a></li>";
+
+            });
+            $("#twit-list").html(tempString);
+            //$('html, body').animate({
+            //    scrollTop: $('#news-list').offset().top - 100
+            //}, 'slow');
+            $("#loading").hide();
+        }
+
+        function ShowPopUp() {
+            //$(document).ready(function() {
+            //    $.fancybox("#example2");
+            //});
+            $("#example2").fancybox({
+                helpers: {
+                    overlay: {
+                        opacity: 0.8, // or the opacity you want 
+                        css: { 'background-color': '#ff0000' } // or your preferred hex color value
+                    } // overlay 
+                } // helpers
+            }); // fancybox
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        // Çerez oluşturma
+        function SetCookie(name, value, hours) {
+            var expire = "";
+            expire = new Date((new Date()).getTime() + hours * 3600000);
+            expire = "; expires=" + expire.toGMTString();
+            document.cookie = name + "=" + escape(value) + expire;
+            return true;
+        }
+
+        // Cerez oku
+        function GetCookie(name) {
+            var cookieValue = "";
+            var search = name + "=";
+            if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search);
+                if (offset != -1) {
+                    offset += search.length;
+                    end = document.cookie.indexOf(";", offset);
+                    if (end == -1) end = document.cookie.length;
+                    cookieValue = unescape(document.cookie.substring(offset, end));
+                }
+            }
+            return cookieValue;
+        }
+
+        if (GetCookie('cerez') !== 'istanbulbarosu') {
+            $(document).ready(function () {
+
+                var id = '#pop-up-container-popup';
+                //Get the screen height and width
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+
+                //Set heigth and width to mask to fill up the whole screen
+                $('#overlayPopUp').css({ 'width': maskWidth, 'height': maskHeight });
+
+                //transition effect
+                $('#overlayPopUp').show();
+
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+                //transition effect
+                $(id).show();
+
+                setTimeout(function () {
+                    $('#overlayPopUp').hide();
+                    $(id).hide();
+                    SetCookie('cerez', 'istanbulbarosu', 1);
+                }, 10000);
+
+                //if close button is clicked
+                $('#close-popup-popup').click(function (e) {
+                    //Cancel the link behavior
+                    e.preventDefault();
+
+                    $('#overlayPopUp').hide();
+                    $(id).hide();
+                    SetCookie('cerez', 'istanbulbarosu', 1);  // cerez olusturduk her ziyaretçiye bir kere açılması için
+                });
+
+                //if mask is clicked
+                $('#overlayPopUp').click(function () {
+                    $(this).hide();
+                    $(id).hide();
+                    SetCookie('cerez', 'istanbulbarosu', 1);// cerez olusturduk her ziyaretçiye bir kere açılması için
+                });
+
+            });
+        }
+
+    </script>
+
+
+
+<meta http-equiv="description" name="description" content="İstanbul Barosu Resmi Web Sitesi, Türkiye&#39;nin en büyük barosu, dünyanın en büyük barosu, adliyeler, hukuki bilgiler, hukukla ilgili herşey" /><meta http-equiv="keywords" name="keywords" content="istanbul, istanbul barosu, avukat, uyap, baro, avukat ilanları, bilgi havuzu, avukatlık ücreti, asgari ücret, tarife, hukuk, barovizyon, hesaplama araclari, adalet, cmk, adli yardım, avukat arama, baro levhası, bar association, lawyer, law, justice" /></head>
+<body class="cbp-spmenu-push">
+    <!-- Header -->
+    <header role="banner" class="canakkalegecilmez">
+        <div id="user-agent">
+            <div class="grid-12">
+                <div id="today">
+                </div>
+
+                <div id="social-media">
+                    <ul>
+                        <li><a href="https://www.facebook.com/istbarosu/" class="hvr-bounce-in" target="_blank"><i class="ibaro-icon">&#xf30d;</i></a></li>
+                        <li><a href="https://twitter.com/istbarosu?lang=tr" class="hvr-bounce-in" target="_blank"><i class="ibaro-icon">&#xf30a;</i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC-OaUEKpVMKzQKAmV00xEZA" class="hvr-bounce-in" target="_blank"><i class="ibaro-icon">&#xe824;</i></a></li>
+                    </ul>
+                </div>
+                <div id="users">
+                    <a href="Anasayfa.aspx" style="background: rgba(0,0,0,0.2)">TR</a>
+                    <a href="Home.aspx">EN</a>
+                    <a class'cd-valid' id='belgedogrulama' style='border: 1 px solid white;border-radius:3px;' href=''><i class='ibaro-icon'>&#xe81c;</i> Belge Doğrulama</a><a class='cd-reset' href='javascript:void(0)'><i class='ibaro-icon'>&#xf128;</i> Şifremi Unuttum</a><a class='cd-signin' href='javascript:void(0)'><i class='ibaro-icon'>&#xe823;</i> Siteye Giriş - Kayıt Ol</a>
+
+                    <script type="text/javascript">
+                        $('a#belgedogrulama').click(function () {
+                            window.open('https://belgedogrulama.istanbulbarosu.org.tr', '_blank', 'toolbar=0,location=0,menubar=0,height = 750,width = 980');
+                            return false;
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="header canakkalegecilmez">
+
+            <div id="logo">
+                <a href="Anasayfa.aspx">İstanbul Barosu
+                </a>
+            </div>
+            <div class="mobile-menu">
+                <div id="open-side-menu" class="c-hamburger c-hamburger--htx">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Menü
+                </div>
+            </div>
+            
+            <div class='mobile-login' id='mobile-login'><a class='cd-signin' href='javascript:void(0)'>Siteye Giriş</a></div>
+            <div id="mobile-logo">
+                <a href="">
+                    <img src="assets/img/mobile-logo.png" width="300" height="82" alt="Mobil Logo">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="mobile-search">
+        <form id="searchForm" method="post" action="AramaSonuclari.aspx">
+            <input type="search" class="mobile-search-input" name="search" autocomplete="off" id="search-input" placeholder="Site içi arama.." />
+            <button type="submit" class="mobile-search-button">Ara</button>
+        </form>
+    </div>
+    <!-- ## Header -->
+    <!-- Menu -->
+    <nav id="general-nav">
+        <div id="baro-menu">
+            <ul>
+                <li class="hvr-underline-from-center active"><a href="Anasayfa.aspx">ANASAYFA</a></li>
+                <li class="hvr-underline-from-center"><a href="MenuContent.aspx?id=12">BARO ODALARI</a></li>
+                <li class="hvr-underline-from-center"><a href="BaroLevhasi.aspx">BARO LEVHASI</a></li>
+                <li class="hvr-underline-from-center"><a href="BilgiHavuzu.aspx">BİLGİ HAVUZU</a></li>
+                <li class="hvr-underline-from-center"><a href="http://bilgibankasi.istanbulbarosu.org.tr" target="_blank">BİLGİ BANKASI</a></li>
+                <li class="hvr-underline-from-center"><a href="UcretTarifeleri.aspx">ÜCRET TARİFELERİ</a></li>
+                <li class="hvr-underline-from-center"><a href="Iletisim.aspx">İLETİŞİM</a></li>
+                <li id="open-search"><i class="ibaro-icon">&#xe81e;</i></li>
+            </ul>
+            <div id="menu-search">
+                <form id="searchForm" method="post" action="AramaSonuclari.aspx">
+                    
+
+                    <input type="text" name="search" autocomplete="off" class="menu-search-input" placeholder="Site içi arama..">
+                    <span>
+                        <button type="submit">Ara</button></span>
+                    <div id="close-search">
+                        <i class="ibaro-icon">&#xe81d;</i>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </nav>
+    <!-- ## Menu -->
+
+    <!-- Responsive Menu -->
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <h3>Baro Menü</h3>
+        <ul>
+            <li><a href="Anasayfa.aspx">&raquo;  ANASAYFA</a></li>
+            <li><a href="MenuContent.aspx?id=12&Desc=Baro-Odalari">&raquo;  BARO ODALARI</a></li>
+            <li><a href="BaroLevhasi.aspx">&raquo;  BARO LEVHASI</a></li>
+            <li><a href="BilgiHavuzu.aspx">&raquo;  BİLGİ HAVUZU</a></li>
+            <li><a href="http://bilgibankasi.istanbulbarosu.org.tr">&raquo;  BİLGİ BANKASI</a></li>
+            <li><a href="UcretTarifeleri.aspx">&raquo;  ÜCRET TARİFELERİ</a></li>
+            <li><a href="Iletisim.aspx">&raquo;  İLETİŞİM</a></li>
+        </ul>
+    </nav>
+    <!-- ##Responsive Menu -->
+
+    <!-- Responsive Profil Menu -->
+    
+    <!-- ##Responsive Profil Menu -->
+
+    <!-- Login Form -->
+    <div class="cd-user-modal">
+        <div class="cd-user-modal-container">
+            <ul class="cd-switcher">
+                <li><a href="javascript:void(0)">Giriş Yap</a></li>
+                <li><a href="javascript:void(0)">Kayıt Ol</a></li>
+            </ul>
+
+            <div id="cd-login">
+                <form class="cd-form" id="loginForm" method="post" action="Gateway.aspx">
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signin-type">Ünvan</label>
+                        <select name="signin-type" id="signin-type" class="full-width has-padding has-border">
+                            <option value="0">Ünvan Seçin</option>
+                            <option value="1">Avukat</option>
+                            <option value="2">Stajyer Avukat</option>
+                        </select>
+                        <span class="cd-error-message">Giriş Tipini boş bıraktınız!</span>
+                    </p>
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signin-sicil">Sicil No</label>
+                        <input class="full-width has-padding has-border" name="signin-sicil" id="signin-sicil" autocomplete="off" type="text" placeholder="Sicil No" maxlength="5">
+                        <span class="cd-error-message">Sicil No'yu boş bıraktınız!</span>
+                    </p>
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signin-username">Kullanıcı Adı</label>
+                        <input class="full-width has-padding has-border" id="signin-username" name="signin-username" autocomplete="off" type="text" placeholder="Kullanıcı Adı">
+                        <span class="cd-error-message">Kullanıcı Adını boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-password" for="signin-password">Şifre</label>
+                        <input class="full-width has-padding has-border" name="signin-password" id="signin-password" type="password" placeholder="Şifre">
+                        <span class="cd-error-message">Şifrenizi boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <button class="full-width" type="submit">Giriş Yap</button>
+                    </p>
+                    <input type="hidden" name="type" value="1" />
+                </form>
+                <a href="#0" class="cd-close-form">Kapat</a>
+            </div>
+
+            <div id="cd-signup">
+                <form class="cd-form" method="post" id="registerForm" action="Gateway.aspx">
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-type">Ünvan</label>
+                        <select name="signup-type" id="signup-type" class="full-width has-padding has-border">
+                            <option value="0">Ünvan Seçin</option>
+                            <option value="1">Avukat</option>
+                            <option value="2">Stajyer Avukat</option>
+                        </select>
+                        <span class="cd-error-message">Ünvanı boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-sicil">Sicil No</label>
+                        <input class="full-width has-padding has-border" name="signup-sicil" autocomplete="off" maxlength="5" id="signup-sicil" type="text" placeholder="Sicil No">
+                        <span class="cd-error-message">Sicil No'yu boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-kimlik">T.C Kimlik No</label>
+                        <input class="full-width has-padding has-border" name="signup-kimlik" autocomplete="off" id="signup-kimlik" type="text" placeholder="T.C Kimlik No" maxlength="11">
+                        <span class="cd-error-message">T.C Kimlik No'yu boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-username">Kullanıcı Adı</label>
+                        <input class="full-width has-padding has-border" name="signup-username" id="signup-username" autocomplete="off" type="text" placeholder="Kullanıcı Adı">
+                        <span class="cd-error-message">Kullanıcı adını boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <button class="full-width has-padding" type="submit">Kayıt Ol</button>
+                    </p>
+                    <input type="hidden" name="type" value="2" />
+                </form>
+
+                <a href="#0" class="cd-close-form">Kapat</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- Login Form -->
+
+    <div class="cd-user-modal-forgot">
+        <div class="cd-user-modal-container-forgot">
+            <ul class="cd-switcher-forgot">
+                <li><a href="#0">Şifremi Unuttum</a></li>
+            </ul>
+            <div id="cd-reset-password-forgot">
+                <p class="cd-form-message-forgot">Şifremi Unuttum işlemi tamamlandığında kayıtlı cep telefonu numaranıza Kullanıcı Adı ve Şifreniz gönderilir</p>
+
+                <form class="cd-form-forgot" id="forgotForm" method="post" action="Gateway.aspx">
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="forget-type">Ünvan</label>
+                        <select name="forget-type" id="forget-type" class="full-width has-padding has-border">
+                            <option value="0">Ünvan Seçin</option>
+                            <option value="1">Avukat</option>
+                            <option value="2">Stajyer Avukat</option>
+                        </select>
+                        <span class="cd-error-message-forgot">Ünvanı boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="forget-sicil">Sicil No</label>
+                        <input class="full-width has-padding has-border" name="forget-sicil" id="forget-sicil" maxlength="5" autocomplete="off" type="text" placeholder="Sicil No">
+                        <span class="cd-error-message-forgot">Sicil No'yu boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="forget-kimlik">T.C Kimlik No</label>
+                        <input class="full-width has-padding has-border" name="forget-kimlik" autocomplete="off" maxlength="11" id="forget-kimlik" type="text" placeholder="T.C Kimlik No" />
+                        <span class="cd-error-message-forgot">T.C Kimlik No'yu boş bıraktınız!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <button class="full-width has-padding" type="submit">Gönder</button>
+                    </p>
+                    <input type="hidden" name="type" value="3" />
+                </form>
+                <a href="#0" class="cd-close-form-forgot">Kapat</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        
+    <!-- Slider -->
+    <form method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3ODQzOTcxNDYPZBYCZg9kFgwCAw8WAh4EVGV4dAXuAjxhIGNsYXNzJ2NkLXZhbGlkJyBpZD0nYmVsZ2Vkb2dydWxhbWEnIHN0eWxlPSdib3JkZXI6IDEgcHggc29saWQgd2hpdGU7Ym9yZGVyLXJhZGl1czozcHg7JyBocmVmPScnPjxpIGNsYXNzPSdpYmFyby1pY29uJz4mI3hlODFjOzwvaT4gQmVsZ2UgRG/En3J1bGFtYTwvYT48YSBjbGFzcz0nY2QtcmVzZXQnIGhyZWY9J2phdmFzY3JpcHQ6dm9pZCgwKSc+PGkgY2xhc3M9J2liYXJvLWljb24nPiYjeGYxMjg7PC9pPiDFnmlmcmVtaSBVbnV0dHVtPC9hPjxhIGNsYXNzPSdjZC1zaWduaW4nIGhyZWY9J2phdmFzY3JpcHQ6dm9pZCgwKSc+PGkgY2xhc3M9J2liYXJvLWljb24nPiYjeGU4MjM7PC9pPiBTaXRleWUgR2lyacWfIC0gS2F5xLF0IE9sPC9hPmQCBQ8WAh8AZWQCBw8WAh8ABXI8ZGl2IGNsYXNzPSdtb2JpbGUtbG9naW4nIGlkPSdtb2JpbGUtbG9naW4nPjxhIGNsYXNzPSdjZC1zaWduaW4nIGhyZWY9J2phdmFzY3JpcHQ6dm9pZCgwKSc+U2l0ZXllIEdpcmnFnzwvYT48L2Rpdj5kAgkPFgIfAGVkAgsPZBYCAgEPZBYQAgEPFgIeC18hSXRlbUNvdW50AhAWIGYPZBYCZg8VA31IYWJlckRldGF5LmFzcHg/SUQ9MTMyMDkmRGVzYz3Dh2FuYWtrYWxlLVphZmVyaeKAmW5pbi0xMDMuLVnEsWzEsW5kYS1Cw7x5w7xrLURlc3RhbsSxbi1ZYXJhdMSxY8SxbGFyxLFuxLEtU2F5Z8SxeWxhLUFuxLF5b3J1ekhodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9oYWJlci8xMzIxMC90aHVtYi8xOE1BUlQyMDE4LS5qcGdfw4dhbmFra2FsZSBaYWZlcmnigJluaW4gMTAzLiBZxLFsxLFuZGEgQsO8ecO8ayBEZXN0YW7EsW4gWWFyYXTEsWPEsWxhcsSxbsSxIFNheWfEsXlsYSBBbsSxeW9ydXpkAgEPZBYCZg8VA4EBSGFiZXJEZXRheS5hc3B4P0lEPTEzMjAyJkRlc2M9VGVtZWwtSGFrLVZlLcOWemfDvHJsw7xrbGVyLcOHb8SfdW5sdWstxLBkZW9sb2ppbGVyaW5pbi1UYXJ0xLHFn21hbMSxLURlxJ9lcmxlcmluZS1GZWRhLUVkaWxlbWV6bGVyTGh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2hhYmVyLzEzMjAyL3RodW1iL0tSVFRWMDkwMzIwMThCLS5qcGdjVGVtZWwgSGFrIFZlIMOWemfDvHJsw7xrbGVyIMOHb8SfdW5sdWsgxLBkZW9sb2ppbGVyaW5pbiBUYXJ0xLHFn21hbMSxIERlxJ9lcmxlcmluZSBGZWRhIEVkaWxlbWV6bGVyZAICD2QWAmYPFQNTSGFiZXJEZXRheS5hc3B4P0lEPTEzMjA3JkRlc2M9QXZ1a2F0bGFyYS1FbGVrdHJvbmlrLVRlYmxpZ2F0LVpvcnVubHVsdcSfdS1HZXRpcmlsZGlHaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMyMDcvdGh1bWIvcmVzbWlrdWN1ay5wbmc1QXZ1a2F0bGFyYSBFbGVrdHJvbmlrIFRlYmxpZ2F0IFpvcnVubHVsdcSfdSBHZXRpcmlsZGlkAgMPZBYCZg8VA11IYWJlckRldGF5LmFzcHg/SUQ9MTMyMDUmRGVzYz0xNS1NYXJ0LUTDvG55YS1Uw7xrZXRpY2ktSGFrbGFyxLEtR8O8bsO8LXZlLUfDvG5jZWwtR2VsacWfbWVsZXJFaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMyMDUvdGh1bWIvZ3JpYnV5dWsucG5nPzE1IE1hcnQgRMO8bnlhIFTDvGtldGljaSBIYWtsYXLEsSBHw7xuw7wgdmUgR8O8bmNlbCBHZWxpxZ9tZWxlcmQCBA9kFgJmDxUDZUhhYmVyRGV0YXkuYXNweD9JRD0xMzIxMSZEZXNjPcSwxZ95ZXJsZXJpbmRlLcSwxZ/Dp2luaW4txLDFn3ZlcmVuLVRhcmFmxLFuZGFuLcSwemxlbm1lc2ktRGVuZXRsZW5tZXNpS2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2hhYmVyLzEzMjExL3RodW1iLzIwMTgwMzI2UEFORUwtLmpwZ0fEsMWfeWVybGVyaW5kZSDEsMWfw6dpbmluIMSwxZ92ZXJlbiBUYXJhZsSxbmRhbiDEsHpsZW5tZXNpIERlbmV0bGVubWVzaWQCBQ9kFgJmDxUDPUhhYmVyRGV0YXkuYXNweD9JRD0xMzE5MiZEZXNjPVRvcGx1bWRhLUthZMSxbsSxbi1TZXNpLVppcnZlc2lRaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMxOTIvdGh1bWIvMjAxODAzMjZLQURJTklOU0VTSS0uanBnH1RvcGx1bWRhIEthZMSxbsSxbiBTZXNpIFppcnZlc2lkAgYPZBYCZg8VA2ZIYWJlckRldGF5LmFzcHg/SUQ9MTMxNTEmRGVzYz1LYW11LUF2dWthdGxhcsSxbsSxbi3Dh2FsxLHFn21hLUhheWF0xLFuZGFuLUVtZWtsaWxpxJ9pbmUtVXphbmFuLVPDvHJlY2lKaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMxNTEvdGh1bWIvMjAxODAzMzBLQU1VLS5qcGdIS2FtdSBBdnVrYXRsYXLEsW7EsW4gw4dhbMSxxZ9tYSBIYXlhdMSxbmRhbiBFbWVrbGlsacSfaW5lIFV6YW5hbiBTw7xyZWNpZAIHD2QWAmYPFQNjSGFiZXJEZXRheS5hc3B4P0lEPTEzMjI3JkRlc2M9QW5heWFzYS1NYWhrZW1lc2ktQmlyZXlzZWwtQmHFn3Z1cnUtS2FyYXJsYXLEsW7EsW4tWWVyaW5lLUdldGlyaWxtZXNpSWh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2hhYmVyLzEzMjI3L3RodW1iL2FuYXlhc2EyMDE4LS5qcGdFQW5heWFzYSBNYWhrZW1lc2kgQmlyZXlzZWwgQmHFn3Z1cnUgS2FyYXJsYXLEsW7EsW4gWWVyaW5lIEdldGlyaWxtZXNpZAIID2QWAmYPFQNNSGFiZXJEZXRheS5hc3B4P0lEPTEzMjEyJkRlc2M9SGF2YS1UYcWfxLFtYWPEsWzEscSfxLEtdmUtSGF2YS1UYcWfxLFtYS1IdWt1a3VKaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMyMTIvdGh1bWIvMjAxODAzMzBIQVZBLS5qcGcvSGF2YSBUYcWfxLFtYWPEsWzEscSfxLEgdmUgSGF2YSBUYcWfxLFtYSBIdWt1a3VkAgkPZBYCZg8VA1NIYWJlckRldGF5LmFzcHg/SUQ9MTMxOTkmRGVzYz1LYWTEsW5hLVnDtm5lbGlrLcWeaWRkZXRpbi1VbHVzbGFyYXJhcmFzxLEtQm95dXRsYXLEsUxodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9oYWJlci8xMzE5OS90aHVtYi8yMDE4MDMxMEtBRElOMS0uanBnNUthZMSxbmEgWcO2bmVsaWsgxZ5pZGRldGluIFVsdXNsYXJhcmFyYXPEsSBCb3l1dGxhcsSxZAIKD2QWAmYPFQNTSGFiZXJEZXRheS5hc3B4P0lEPTEzMTcyJkRlc2M9MjAxOS1Ew7ZuZW1lY2luaS1CaWxpbsOnbGUtQcWfYWJpbGVjZWstxLBuYW7Dp3RhecSxei1OaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMxNzMvdGh1bWIvMjAxODAzMDNERVZSSU1ZMS0uanBnNTIwMTkgRMO2bmVtZWNpbmkgQmlsaW7Dp2xlIEHFn2FiaWxlY2VrIMSwbmFuw6d0YXnEsXogZAILD2QWAmYPFQM1SGFiZXJEZXRheS5hc3B4P0lEPTEzMjEwJkRlc2M9S2FyYWRlbml6LUJhdHVtLUdlemlzaS1TaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvaGFiZXIvMTMyMTAvdGh1bWIvMjAxODA0MjdLQVJBREVOSVoyMDE4LS5qcGcXS2FyYWRlbml6IEJhdHVtIEdlemlzaSBkAgwPZBYCZg8VA1NIYWJlckRldGF5LmFzcHg/SUQ9MTMxOTUmRGVzYz1TdGFqxLFuxLEtVGFtYW1sYXlhbi00NS1NZXNsZWt0YcWfxLFtxLF6LVJ1aHNhdC1BbGTEsUxodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9oYWJlci8xMzE5Ny90aHVtYi8yMDE4MDMwOFJIU0FUMS0uanBnNVN0YWrEsW7EsSBUYW1hbWxheWFuIDQ1IE1lc2xla3RhxZ/EsW3EsXogUnVoc2F0IEFsZMSxZAIND2QWAmYPFQNDSGFiZXJEZXRheS5hc3B4P0lEPTEzMjA4JkRlc2M9SVYuLVVsdXNhbC1TYcSfbMSxay1IdWt1a3UtU2VtcG96eXVtdU1odHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9oYWJlci8xMzIxMC90aHVtYi8yMDE4MDMxNFNBR0xJSzEtLmpwZyVJVi4gVWx1c2FsIFNhxJ9sxLFrIEh1a3VrdSBTZW1wb3p5dW11ZAIOD2QWAmYPFQM6SGFiZXJEZXRheS5hc3B4P0lEPTEzMTU5JkRlc2M9QXZ1a2F0bGFyLUFua2FyYeKAmWRheWTEseKAplFodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9oYWJlci8xMzE2MC90aHVtYi9JTUctMjAxODAyMjYtV0EwMDIwLS5qcGccQXZ1a2F0bGFyIEFua2FyYeKAmWRheWTEseKApmQCDw9kFgJmDxUDO0hhYmVyRGV0YXkuYXNweD9JRD0xMzE5NCZEZXNjPVlhcmfEsXRheeKAmWRhLcSwxZ8tQsO2bMO8bcO8T2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2hhYmVyLzEzMTk0L3RodW1iL3lhcmdpdGF5MDEyMDE3LmpwZy5wbmcdWWFyZ8SxdGF54oCZZGEgxLDFnyBCw7Zsw7xtw7xkAgMPFgIfAAWeBDxsaT48YSBpZD0ncGFnZXJJbGsnIG9uY2xpY2s9J0dldFByZXZpb3NSZWNvcmRzKCknPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSdhc3NldHMvaW1nL25ld3MtcHJldi5wbmcnIGFsdD0nJz48L2E+PC9saT4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBpZD0ncGFnZXJPbmNla2knIG9uY2xpY2s9J0dldFByZXZpb3NSZWNvcmRzKCknPjwvYT48L2xpPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGxpIGNsYXNzPSdhY3RpdmUnPjxhIGlkPSdwYWdlckN1cnJlbnQnPjE8L2E+PC9saT4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBpZD0ncGFnZXJTb25yYWtpJyBvbmNsaWNrPSdHZXROZXh0UmVjb3JkcygpJz4yPC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgaWQ9J3BhZ2VyU29uJyBvbmNsaWNrPSdHZXROZXh0UmVjb3JkcygpJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0nYXNzZXRzL2ltZy9uZXdzLW5leHQucG5nJyBhbHQ9Jyc+PC9hPjwvbGk+ZAIJDxYCHwECBhYMZg9kFgJmDxUFQWh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2Jhcm92aXp5b24vVmlkZW9EZXRheS5hc3B4P0lEPTc4TGh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2Jhcm92aXp5b24vc2l0ZXRodW1icy84TzNLUmQyY1ZqYy5qcGcJMjIuNS4yMDE3UUxvamlzdGlrdGUgSHVrdWtzYWwgU29ydW5sYXIsIFPDtnpsZcWfbWVsZXJpbiB2ZSBTdGFuZGFydGxhcsSxbiDDlm5lbWkgMi4gQsO2bMO8bQ9Mb2ppc3RpayBIdWt1a3VkAgEPZBYCZg8VBUFodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9iYXJvdml6eW9uL1ZpZGVvRGV0YXkuYXNweD9JRD02N0xodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9iYXJvdml6eW9uL3NpdGV0aHVtYnMvWmVaMzR6SW1JWFUuanBnCDIuOC4yMDE2PkJhcm92aXp5b24gSHVrdWtpIFNvaGJldGxlciAtIDMuIELDtmzDvG0gLSDEsHN0aXJkYXQgRGF2YWxhcsSxE8SwY3JhIMSwZmxhcyBIdWt1a3VkAgIPZBYCZg8VBUBodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9iYXJvdml6eW9uL1ZpZGVvRGV0YXkuYXNweD9JRD0zTGh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL2ZpbGVzL2Jhcm92aXp5b24vc2l0ZXRodW1icy82Q2VRcmNkWTc3TS5qcGcJMTEuNC4yMDE2G1RlbmtpcyBEYXZhbGFyxLEgMS4gQsO2bMO8bQZUZW5raXNkAgMPZBYCZg8VBUFodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9iYXJvdml6eW9uL1ZpZGVvRGV0YXkuYXNweD9JRD05N0xodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9maWxlcy9iYXJvdml6eW9uL3NpdGV0aHVtYnMvaFhkRThyTkFRcjQuanBnCDkuOC4yMDE3QUJhcm92aXp5b24gSHVrdWtpIFNvaGJldGxlciAtIEF2dWthdGzEsWsgU8O2emxlxZ9tZWxlcmkgMS5Cw7Zsw7xtF0F2dWthdGzEsWsgU8O2emxlxZ9tZXNpZAIED2QWAmYPFQVBaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvYmFyb3Zpenlvbi9WaWRlb0RldGF5LmFzcHg/SUQ9NzFMaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvYmFyb3Zpenlvbi9zaXRldGh1bWJzL1ZXZGtMUGVwVjNNLmpwZwkxNy4xLjIwMTdESHVrdWtzYWwgR2Vyw6dla2xpa2xlciBCYcSfbGFtxLFuZGEgQW5heWFzYSBEZcSfacWfaWtsacSfaSAxLiBPdHVydW0OQW5heWFzYSBIdWt1a3VkAgUPZBYCZg8VBUJodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9iYXJvdml6eW9uL1ZpZGVvRGV0YXkuYXNweD9JRD0xMzNMaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvZmlsZXMvYmFyb3Zpenlvbi9zaXRldGh1bWJzLzlBbmVYQzFVMXlVLmpwZwkyOC4yLjIwMThEQXZ1a2F0bGFyxLFuIFZlcmdpbGVuZGlyaWxtZXNpbmRlIEfDvG5jZWwgU29ydW5sYXIgUGFuZWxpIDEuIELDtmzDvG0fQXZ1a2F0bGFyxLFuIFZlcmdpbGVuZGlyaWxtZXNpIGQCCw8WAh8BAgUWCmYPZBYCZg8VAklEdXl1cnVEZXRheS5hc3B4P0lEPTEzMjI1JkRlc2M9VMSwQ0FSRVQtSFVLVUtVLS1LVVJHVVNBTC1EQVZBLcOHQUxJxZ5NQVNJL1TEsENBUkVUICBIVUtVS1UgICAgS1VSR1VTQUwgIERBVkEgIMOHQUxJxZ5NQVNJZAIBD2QWAmYPFQJGRHV5dXJ1RGV0YXkuYXNweD9JRD0xMzIyNCZEZXNjPU1FREVOxLAtSFVLVUstS1VSR1VTQUwtREFWQS3Dh0FMScWeTUFTSShNRURFTsSwIEhVS1VLICBLVVJHVVNBTCBEQVZBIMOHQUxJxZ5NQVNJZAICD2QWAmYPFQJKRHV5dXJ1RGV0YXkuYXNweD9JRD0xMzIyNiZEZXNjPVTEsENBUkVULUhVS1VLVS0yLUtVUkdVU0FMLURBVkEtw4dBTEnFnk1BU0kwVMSwQ0FSRVQgIEhVS1VLVSAgMiAgS1VSR1VTQUwgIERBVkEgIMOHQUxJxZ5NQVNJZAIDD2QWAmYPFQJJRHV5dXJ1RGV0YXkuYXNweD9JRD0xMzIyMyZEZXNjPUtBVC1Nw5xMS8SwWUVUxLAtS1VSR1VTQUwtREFWQS3Dh0FMScWeTUFTSS1LQVQgTcOcTEvEsFlFVMSwICBLVVJHVVNBTCAgREFWQSAgw4dBTEnFnk1BU0lkAgQPZBYCZg8VAllEdXl1cnVEZXRheS5hc3B4P0lEPTEzMjIyJkRlc2M9xLDFni12ZS1TT1NZQUwtR8OcVkVOTMSwSy1IVUtVS1UtS1VSR1VTQUwtREFWQS3Dh0FMScWeTUFTST3EsMWeIHZlIFNPU1lBTCBHw5xWRU5MxLBLICBIVUtVS1UgIEtVUkdVU0FMICBEQVZBIMOHQUxJxZ5NQVNJZAINDxYCHwAF8gQ8bGk+PGEgaWQ9J3BhZ2VyRHV5dXJ1SWxrJyBvbmNsaWNrPSdHZXRQcmV2aW91c0Fubm91bmNlbWVudFJlY29yZHMoKSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9J2Fzc2V0cy9pbWcvYWR2ZXJ0LXByZXYucG5nJyBhbHQ9Jyc+PC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgaWQ9J3BhZ2VyRHV5dXJ1T25jZWtpJyBvbmNsaWNrPSdHZXRQcmV2aW91c0Fubm91bmNlbWVudFJlY29yZHMoKSc+PC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgICAgICA8bGkgY2xhc3M9J2FjdGl2ZSc+PGEgaWQ9J3BhZ2VyRHV5dXJ1Q3VycmVudCc+MTwvYT48L2xpPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGlkPSdwYWdlckR1eXVydVNvbnJha2knIG9uY2xpY2s9J0dldE5leHRBbm5vdW5jZW1lbnRSZWNvcmRzKCknPjI8L2E+PC9saT4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBpZD0ncGFnZXJEdXl1cnVTb24nIG9uY2xpY2s9J0dldE5leHRBbm5vdW5jZW1lbnRSZWNvcmRzKCknPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPSdhc3NldHMvaW1nL2FkdmVydC1uZXh0LnBuZycgYWx0PScnPjwvYT48L2xpPmQCEw8WAh8BAgUWCmYPZBYCZg8VAhdodHRwczovL3QuY28vSm1LR3VZanIzU4EBQmlyIG1lbWxla2V0aSBtZW1sZWtldCB5YXBhbiDFn2V5LCBrYXphbmTEscSfxLEgecO8Y2UgemFmZXJsZXJkaXIhCgoxOCBNYXJ0IMOHYW5ha2thbGUgWmFmZXJpbmluIHnEsWxkw7Zuw7xtw7xuZGUKCsOHYW5ha2thbGXigKYgZAIBD2QWAmYPFQIXaHR0cHM6Ly90LmNvL0ptS0d1WWpyM1OBAUJpciBtZW1sZWtldGkgbWVtbGVrZXQgeWFwYW4gxZ9leSwga2F6YW5kxLHEn8SxIHnDvGNlIHphZmVybGVyZGlyIQoKMTggTWFydCDDh2FuYWtrYWxlIFphZmVyaW5pbiB5xLFsZMO2bsO8bcO8bmRlCgrDh2FuYWtrYWxl4oCmIGQCAg9kFgJmDxUCF2h0dHBzOi8vdC5jby90Y1ZnUlBQOU9SgwHigJxBeWTEsW5sYW5tYSBEZXZyaW1pLCBBdGF0w7xyayBEZXZyaW1pIGRlZGnEn2ltaXogxZ9leSwgYXNsxLFuZGEgw7ZuY2UgY3VtaHVyaXlldGluIHNvbnJhIGRlbW9rcmFzaW5pbiBhbHQgeWFwxLFzxLFuxLEgb2x1xZ904oCmIGQCAw9kFgJmDxUCF2h0dHBzOi8vdC5jby9ibmh1OTBEUlJJggEiMjAxOSBUw7xyayBzaXlhc2FsIHRhcmloaW5kZSwgVMO8cmsgaHVrdWsgdGFyaWhpbmRlLCBrxLFzYWNhIFTDvHJraXll4oCZbmluIHRhcmloaW5kZSDDp29rIMO2bmVtbGkgYmlyIGTDtm5lbWXDpy4gQml6IGJ1IGTDtm7igKYgZAIED2QWAmYPFQIXaHR0cHM6Ly90LmNvL1I2emt4R1lnN1aMAeKAnE1lc2xlxJ9pbWl6ZSBvbGFuIGR1eWFybMSxbMSxa2xhcsSxbcSxeiBrYXluYcSfxLFuZGEgc2F2dW5tYSBoYWtrxLFuxLEsIGhhbGvEsW4gaGFrIGFyYW1hIMO2emfDvHJsw7zEn8O8bsO8IGJhcsSxbmTEsXLEsXIuIFRlc2xpbSBvbHXigKYgZAIVDxYCHwAFygQ8bGk+PGEgaWQ9J3BhZ2VyVHdpdElsaycgb25jbGljaz0nR2V0UHJldmlvdXNUd2l0UmVjb3JkcygpJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0nYXNzZXRzL2ltZy9wcmV2LWdhbGxlcnkucG5nJyBhbHQ9Jyc+PC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgaWQ9J3BhZ2VyVHdpdE9uY2VraScgb25jbGljaz0nR2V0UHJldmlvdXNUd2l0UmVjb3JkcygpJz48L2E+PC9saT4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsaSBjbGFzcz0nYWN0aXZlJz48YSBpZD0ncGFnZXJUd2l0Q3VycmVudCc+MTwvYT48L2xpPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGlkPSdwYWdlclR3aXRTb25yYWtpJyBvbmNsaWNrPSdHZXROZXh0VHdpdFJlY29yZHMoKSc+MjwvYT48L2xpPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGlkPSdwYWdlclR3aXRTb24nIG9uY2xpY2s9J0dldE5leHRUd2l0UmVjb3JkcygpJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz0nYXNzZXRzL2ltZy9uZXh0LWdhbGxlcnkucG5nJyBhbHQ9Jyc+PC9hPjwvbGk+ZAIbDxYCHwECFBYoZg9kFgJmDxUDHVZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTExODU3M2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzExLzExODU3LmpwZzJBVlVLQVQgS1VEUkVUIFlJTERJUklNICgxMTg1Nyk8YnI+PGk+MTQuMy4yMDE4PC9pPmQCAQ9kFgJmDxUDHVZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTEzNTc1M2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzEzLzEzNTc1LmpwZzZBVlVLQVQgWVVTVUYgSEFLS0kgRVJHw5xWRU4gKDEzNTc1KTxicj48aT41LjMuMjAxODwvaT5kAgIPZBYCZg8VAx1WZWZhdEF2dWthdEJpbGdpLmFzcHg/cz00ODM0NzNodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9yZXNpbS80OC80ODM0Ny5qcGctQVZVS0FUIE1BSE1VVCBBS0FZICg0ODM0Nyk8YnI+PGk+NS4zLjIwMTg8L2k+ZAIDD2QWAmYPFQMcVmVmYXRBdnVrYXRCaWxnaS5hc3B4P3M9NTE0MDJodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9yZXNpbS81MS81MTQwLmpwZzZBVlVLQVQgTUVITUVUIFRVUkFOIEJPTEFZSVIgKDUxNDApPGJyPjxpPjI4LjIuMjAxODwvaT5kAgQPZBYCZg8VAx1WZWZhdEF2dWthdEJpbGdpLmFzcHg/cz0xMzQ2NjNodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9yZXNpbS8xMy8xMzQ2Ni5qcGcwQVZVS0FUIE5BS8SwIFRPTFVOQVkgKDEzNDY2KTxicj48aT4yNy4yLjIwMTg8L2k+ZAIFD2QWAmYPFQMdVmVmYXRBdnVrYXRCaWxnaS5hc3B4P3M9NDE2MjAzaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvcmVzaW0vNDEvNDE2MjAuanBnMUFWVUtBVCBFTVJBSCBLVU5EVVJMVSAoNDE2MjApPGJyPjxpPjE5LjIuMjAxODwvaT5kAgYPZBYCZg8VAxxWZWZhdEF2dWthdEJpbGdpLmFzcHg/cz04NTUwMmh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzg1Lzg1NTAuanBnOUFWVUtBVCBNVVNUQUZBIEVSU8SwTiBTT1lEQU5FUiAoODU1MCk8YnI+PGk+MTcuMi4yMDE4PC9pPmQCBw9kFgJmDxUDHFZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTQ2ODYyaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvcmVzaW0vNDYvNDY4Ni5qcGczQVZVS0FUIE9TTUFOIEVSR1VOIMSwTkNFICg0Njg2KTxicj48aT4xNC4yLjIwMTg8L2k+ZAIID2QWAmYPFQMcVmVmYXRBdnVrYXRCaWxnaS5hc3B4P3M9NjIyMjJodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9yZXNpbS82Mi82MjIyLmpwZzJBVlVLQVQgS0FaSU0gS09MQ1VPxJ5MVSAoNjIyMik8YnI+PGk+MzAuMS4yMDE4PC9pPmQCCQ9kFgJmDxUDHVZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTEwNDc0M2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzEwLzEwNDc0LmpwZzBBVlVLQVQgSMSwREFZRVQgS0FZQSAoMTA0NzQpPGJyPjxpPjI2LjEuMjAxODwvaT5kAgoPZBYCZg8VAx1WZWZhdEF2dWthdEJpbGdpLmFzcHg/cz0xNTkzMTNodHRwOi8vd3d3LmlzdGFuYnVsYmFyb3N1Lm9yZy50ci9yZXNpbS8xNS8xNTkzMS5qcGcyQVZVS0FUIENFTkfEsFogVMOcUktFUiAoMTU5MzEpPGJyPjxpPjIyLjEuMjAxODwvaT5kAgsPZBYCZg8VAxxWZWZhdEF2dWthdEJpbGdpLmFzcHg/cz01OTQwMmh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzU5LzU5NDAuanBnNkFWVUtBVCBFS1JFTSBSVUjEsCDDllpUw5xSSyAoNTk0MCk8YnI+PGk+MTAuMS4yMDE4PC9pPmQCDA9kFgJmDxUDHVZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTE1MjE3M2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzE1LzE1MjE3LmpwZy1BVlVLQVQgQVlLVVQgQVJLQU4gKDE1MjE3KTxicj48aT45LjEuMjAxODwvaT5kAg0PZBYCZg8VAxxWZWZhdEF2dWthdEJpbGdpLmFzcHg/cz0zMDY4Mmh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzMwLzMwNjguanBnN0FWVUtBVCBNRUhNRVQgSFVMVVPEsCBBTFRJTkVMICgzMDY4KTxicj48aT43LjEuMjAxODwvaT5kAg4PZBYCZg8VAxxWZWZhdEF2dWthdEJpbGdpLmFzcHg/cz00MzgxMmh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzQzLzQzODEuanBnNEFWVUtBVCBGQVRNQSBIQVlBVCBURUtFTMSwICg0MzgxKTxicj48aT43LjEuMjAxODwvaT5kAg8PZBYCZg8VAxxWZWZhdEF2dWthdEJpbGdpLmFzcHg/cz04ODI5Mmh0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzg4Lzg4MjkuanBnLEFWVUtBVCBBSE1FVCBEVVJBSyAoODgyOSk8YnI+PGk+NS4xLjIwMTg8L2k+ZAIQD2QWAmYPFQMdVmVmYXRBdnVrYXRCaWxnaS5hc3B4P3M9MzQ4NDMzaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvcmVzaW0vMzQvMzQ4NDMuanBnM0FWVUtBVCBTT0xNQVogRVJZSUxNQVogKDM0ODQzKTxicj48aT4yOC4xMi4yMDE3PC9pPmQCEQ9kFgJmDxUDHFZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTE5NzIyaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvcmVzaW0vMTkvMTk3Mi5qcGc3QVZVS0FUIE1FSE1FVCBLRU1BTCBEw5xOREFSICgxOTcyKTxicj48aT4yMC4xMi4yMDE3PC9pPmQCEg9kFgJmDxUDHFZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTU1OTQyaHR0cDovL3d3dy5pc3RhbmJ1bGJhcm9zdS5vcmcudHIvcmVzaW0vNTUvNTU5NC5qcGcxQVZVS0FUIFlJTE1BWiDDh0VUxLBOICg1NTk0KTxicj48aT4yMC4xMi4yMDE3PC9pPmQCEw9kFgJmDxUDHVZlZmF0QXZ1a2F0QmlsZ2kuYXNweD9zPTM3MDI3M2h0dHA6Ly93d3cuaXN0YW5idWxiYXJvc3Uub3JnLnRyL3Jlc2ltLzM3LzM3MDI3LmpwZzhBVlVLQVQgWUlMRElaIEVSVFXEniDDnE5ERVIgKDM3MDI3KTxicj48aT4xMy4xMi4yMDE3PC9pPmQCDQ8WAh8ABaZHPHVsIGNsYXNzPSdwYWdlLWxpbmstbGlzdCc+PGxpPjxhPkJhcm88L2E+PHVsPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MSZEZXNjPVRhcmlow6dlJz5UYXJpaMOnZTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MiZEZXNjPUJhxZ9rYW4tdmUtWcO2bmV0aW0tS3VydWx1Jz5CYcWfa2FuIHZlIFnDtm5ldGltIEt1cnVsdTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MTQmRGVzYz1Zw7ZuZXRpbS1LdXJ1bGxhcsSxbcSxeic+WcO2bmV0aW0gS3VydWxsYXLEsW3EsXo8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTE2JkRlc2M9RGlzaXBsaW4tS3VydWx1Jz5EaXNpcGxpbiBLdXJ1bHU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTE4JkRlc2M9RGVuZXRsZW1lLUt1cnVsdSc+RGVuZXRsZW1lIEt1cnVsdTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjAmRGVzYz1UQkItRGVsZWdlbGVyaSc+VEJCIERlbGVnZWxlcmk8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTIxJkRlc2M9QsO2bGdlLVRlbXNpbGNpbGVyaSc+QsO2bGdlIFRlbXNpbGNpbGVyaTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjImRGVzYz3EsGRhcmktQmlyaW1sZXInPsSwZGFyaSBCaXJpbWxlcjwvYT48L2xpPjwvdWw+PC9saT48bGk+PGE+QmFybyBNZWNsaXNpPC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTQmRGVzYz1CYXJvLU1lY2xpcy1EaXZhbsSxJz5CYXJvIE1lY2xpcyBEaXZhbsSxPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD02JkRlc2M9TWVjbGlzLVnDtm5lcmdlbGVyaSc+TWVjbGlzIFnDtm5lcmdlbGVyaTwvYT48L2xpPjwvdWw+PC9saT48bGk+PGE+S3VydWxsYXI8L2E+PHVsPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MTAmRGVzYz1CYcSfbMSxLcOHYWzEscWfYW4tQXZ1a2F0bGFyLUt1cnVsdSc+QmHEn2zEsSDDh2FsxLHFn2FuIEF2dWthdGxhciBLdXJ1bHU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTExJkRlc2M9S2FsaXRlLUtvb3JkaW5hc3lvbi1LdXJ1bHUnPkthbGl0ZSBLb29yZGluYXN5b24gS3VydWx1PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMyZEZXNjPUt1cnVtLVZlLUthbXUtQXZ1a2F0bGFyxLEtS3VydWx1Jz5LdXJ1bSBWZSBLYW11IEF2dWthdGxhcsSxIEt1cnVsdTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MTcmRGVzYz1NZXNsZWstU29ydW5sYXLEsS1LdXJ1bHUnPk1lc2xlayBTb3J1bmxhcsSxIEt1cnVsdTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MTUmRGVzYz1Lw7xsdMO8ci1TYW5hdC1LdXJ1bHUnPkvDvGx0w7xyLVNhbmF0IEt1cnVsdTwvYT48L2xpPjwvdWw+PC9saT48bGk+PGE+U2lnb3J0YTwvYT48dWw+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMDUmRGVzYz1EZcSfacWfZW4tVG9wbHVsdWstU2lnb3J0YXPEsS12ZS1CYcSfa3VyJz5EZcSfacWfZW4gVG9wbHVsdWsgU2lnb3J0YXPEsSB2ZSBCYcSfa3VyPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMDYmRGVzYz1TWURGJz5TWURGPC9hPjwvbGk+PC91bD48L2xpPjwvdWw+PHVsIGNsYXNzPSdwYWdlLWxpbmstbGlzdCc+PGxpPjxhPkF2dWthdGzEsWsgSHVrdWt1PC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTQwJkRlc2M9TWVya2V6bGVyLEtvbWlzeW9ubGFyLEt1cnVsbGFyLVnDtm5lcmdlc2knPk1lcmtlemxlcixLb21pc3lvbmxhcixLdXJ1bGxhciBZw7ZuZXJnZXNpPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD00MiZEZXNjPUF2dWthdGzEsWstQWRsaS1ZYXJkxLFtLVnDtm5ldG1lbGnEn2knPkF2dWthdGzEsWsgQWRsaSBZYXJkxLFtIFnDtm5ldG1lbGnEn2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTMwJkRlc2M9QXZ1a2F0bMSxay1PcnRha2zEscSfxLEtWcO2bmV0bWVsacSfaSc+QXZ1a2F0bMSxayBPcnRha2zEscSfxLEgWcO2bmV0bWVsacSfaTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjYmRGVzYz1BdnVrYXRsxLFrLVlhc2FzxLEnPkF2dWthdGzEsWsgWWFzYXPEsTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjgmRGVzYz1BdnVrYXRsxLFrLUthbnVudS1Zw7ZuZXRtZWxpxJ9pJz5BdnVrYXRsxLFrIEthbnVudSBZw7ZuZXRtZWxpxJ9pPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD00NCZEZXNjPVJla2xhbS1ZYXNhxJ/EsS1Zw7ZuZXRtZWxpxJ9pJz5SZWtsYW0gWWFzYcSfxLEgWcO2bmV0bWVsacSfaTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9NDgmRGVzYz1BdnVrYXRsxLFrLVN0YWotWcO2bmV0bWVsacSfaSc+QXZ1a2F0bMSxayBTdGFqIFnDtm5ldG1lbGnEn2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTUxJkRlc2M9U3Rhai1LcmVkaS1Zw7ZuZXRtZWxpxJ9pJz5TdGFqIEtyZWRpIFnDtm5ldG1lbGnEn2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTUzJkRlc2M9QXZydXBhLUJpcmxpxJ9pLU1lc2xlay1LdXJhbGxhcsSxJz5BdnJ1cGEgQmlybGnEn2kgTWVzbGVrIEt1cmFsbGFyxLE8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTU1JkRlc2M9VEJCLU1lc2xlay1LdXJhbGxhcsSxJz5UQkIgTWVzbGVrIEt1cmFsbGFyxLE8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTU2JkRlc2M9VGJiLURpc2lwbGluLUt1cnVsdS1LYXJhci3DlnpldGxlcmknPlRiYiBEaXNpcGxpbiBLdXJ1bHUgS2FyYXIgw5Z6ZXRsZXJpPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD05OSZEZXNjPVNvc3lhbC1ZYXJkxLFtLXZlLURheWFuxLHFn21hLUZvbnUtWcO2bmV0bWVsacSfaSc+U29zeWFsIFlhcmTEsW0gdmUgRGF5YW7EscWfbWEgRm9udSBZw7ZuZXRtZWxpxJ9pPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMDAmRGVzYz1DTUstWcO2bmV0bWVsacSfaSc+Q01LIFnDtm5ldG1lbGnEn2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTEwNyZEZXNjPUF2dWthdGzEsWstT3J0YWtsxLFrbGFyxLEnPkF2dWthdGzEsWsgT3J0YWtsxLFrbGFyxLE8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTExMCZEZXNjPVN0YWotRcSfaXRpbS1NZXJrZXppLVnDtm5ldG1lbGnEn2knPlN0YWogRcSfaXRpbSBNZXJrZXppIFnDtm5ldG1lbGnEn2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTExMSZEZXNjPUdlbGlyLVZlcmdpc2ktQmV5YW5uYW1lc2ktRMO8emVubGVubWUtUmVoYmVyaSc+R2VsaXIgVmVyZ2lzaSBCZXlhbm5hbWVzaSBEw7x6ZW5sZW5tZSBSZWhiZXJpPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YT5TdGFqIEXEn2l0aW0gTWVya2V6aTwvYT48dWw+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD01NyZEZXNjPVnDvHLDvHRtZS1LdXJ1bHUnPlnDvHLDvHRtZSBLdXJ1bHU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTEwMyZEZXNjPcSwc3RhbmJ1bC1CYXJvc3UtU3Rhai1FxJ9pdGltLU1lcmtlemknPsSwc3RhbmJ1bCBCYXJvc3UgU3RhaiBFxJ9pdGltIE1lcmtlemk8L2E+PC9saT48L3VsPjwvbGk+PC91bD48dWwgY2xhc3M9J3BhZ2UtbGluay1saXN0Jz48bGk+PGE+TWVya2V6bGVyPC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTM1JkRlc2M9SGF5dmFuLUhha2xhcsSxLU1lcmtlemknPkhheXZhbiBIYWtsYXLEsSBNZXJrZXppPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD01OCZEZXNjPUN1bWh1cml5ZXQtQXJhxZ90xLFybWFsYXLEsS1NZXJrZXppJz5DdW1odXJpeWV0IEFyYcWfdMSxcm1hbGFyxLEgTWVya2V6aTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9NTkmRGVzYz3Dh29jdWstSGFrbGFyxLEtTWVya2V6aSc+w4dvY3VrIEhha2xhcsSxIE1lcmtlemk8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTYxJkRlc2M9RW5nZWxsaS1IYWtsYXLEsS1NZXJrZXppJz5FbmdlbGxpIEhha2xhcsSxIE1lcmtlemk8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTYyJkRlc2M9xLBuc2FuLUhha2xhcsSxLU1lcmtlemknPsSwbnNhbiBIYWtsYXLEsSBNZXJrZXppPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD02NCZEZXNjPUthZMSxbi1IYWtsYXLEsS1NZXJrZXppJz5LYWTEsW4gSGFrbGFyxLEgTWVya2V6aTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9NjUmRGVzYz1ExLHFny3EsGxpxZ9raWxlci1NZXJrZXppJz5ExLHFnyDEsGxpxZ9raWxlciBNZXJrZXppPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD02NiZEZXNjPUFkaWwtWWFyZ8SxbGFtYS1UYWtpcC1NZXJrZXppJz5BZGlsIFlhcmfEsWxhbWEgVGFraXAgTWVya2V6aTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9NjcmRGVzYz1Uw7xrZXRpY2ktSGFrbGFyxLEtdmUtUmVrYWJldC1IdWt1a3UtTWVya2V6aSc+VMO8a2V0aWNpIEhha2xhcsSxIHZlIFJla2FiZXQgSHVrdWt1IE1lcmtlemk8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTY4JkRlc2M9U2HEn2zEsWstSHVrdWt1LU1lcmtlemknPlNhxJ9sxLFrIEh1a3VrdSBNZXJrZXppPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMDImRGVzYz1BdnVrYXQtSGFrbGFyxLEtTWVya2V6aSc+QXZ1a2F0IEhha2xhcsSxIE1lcmtlemk8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhPkFkbGkgWWFyZMSxbTwvYT48dWw+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD02OSZEZXNjPVRhbsSxdMSxbSc+VGFuxLF0xLFtPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD03MyZEZXNjPUJhxZ92dXJ1LXZlLcSwbGnFn2tpbi1CZWxnZWxlcic+QmHFn3Z1cnUgdmUgxLBsacWfa2luIEJlbGdlbGVyPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD05MiZEZXNjPU1lcmtlei12ZS3FnnViZWxlcic+TWVya2V6IHZlIMWedWJlbGVyPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YT5BdnVrYXRsxLFrIFPDtnpsZcWfbWVsZXJpPC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTc2JkRlc2M9VEJCLUF2dWthdGzEsWstT3J0YWtsxLHEn8SxLVRpcC1BbmEtU8O2emxlxZ9tZXNpJz5UQkIgQXZ1a2F0bMSxayBPcnRha2zEscSfxLEgVGlwIEFuYSBTw7Z6bGXFn21lc2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTc3JkRlc2M9VEJCLURhbsSxxZ9tYW5sxLFrLUhpem1ldGxlcmktQXZ1a2F0bMSxay1PcnRha2zEscSfxLEtVGlwLUFuYS1Tw7Z6bGXFn21lc2knPlRCQiBEYW7EscWfbWFubMSxayBIaXptZXRsZXJpIEF2dWthdGzEsWsgT3J0YWtsxLHEn8SxIFRpcCBBbmEgU8O2emxlxZ9tZXNpPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0xMDEmRGVzYz1ZZXRraS1CZWxnZXNpLcOWcm5lxJ9pJz5ZZXRraSBCZWxnZXNpIMOWcm5lxJ9pPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YT5ZYXnEsW4gS3VydWx1PC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTc0JkRlc2M9WWF5xLFuLUt1cnVsdSc+WWF5xLFuIEt1cnVsdTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9NzUmRGVzYz1ZYXnEsW4tS3VydWx1LVnDtm5lcmdlc2knPllhecSxbiBLdXJ1bHUgWcO2bmVyZ2VzaTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MTA5JkRlc2M9QmFyby1EZXJnaXNpLU1ha2FsZS1EaXppbmknPkJhcm8gRGVyZ2lzaSBNYWthbGUgRGl6aW5pPC9hPjwvbGk+PC91bD48L2xpPjwvdWw+PHVsIGNsYXNzPSdwYWdlLWxpbmstbGlzdCc+PGxpPjxhPktvbWlzeW9ubGFyPC9hPjx1bD48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTIzJkRlc2M9QXZydXBhLUJpcmxpxJ9pLUh1a3VrdS1Lb21pc3lvbnUnPkF2cnVwYSBCaXJsacSfaSBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0yNCZEZXNjPUJhbmthLXZlLUZpbmFucy1IdWt1a3UtS29taXN5b251Jz5CYW5rYSB2ZSBGaW5hbnMgSHVrdWt1IEtvbWlzeW9udTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjUmRGVzYz1CYXPEsW4tdmUtxLBsZXRpxZ9pbS1IdWt1a3UtS29taXN5b251Jz5CYXPEsW4gdmUgxLBsZXRpxZ9pbSBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0yOSZEZXNjPcOHZXZyZSwtS2VudC12ZS3EsG1hci1IdWt1a3UtS29taXN5b251Jz7Dh2V2cmUsIEtlbnQgdmUgxLBtYXIgSHVrdWt1IEtvbWlzeW9udTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MjcmRGVzYz1CaWxpxZ9pbS1IdWt1a3UtS29taXN5b251Jz5CaWxpxZ9pbSBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD00MyZEZXNjPVRhxZ/EsW1hLXZlLUxvamlzdGlrLUh1a3VrdS1Lb21pc3lvbnUnPlRhxZ/EsW1hIHZlIExvamlzdGlrIEh1a3VrdSBLb21pc3lvbnU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTQxJkRlc2M9U3Bvci12ZS1TcG9yLUh1a3VrdS1Lb21pc3lvbnUnPlNwb3IgdmUgU3BvciBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0zNiZEZXNjPUh1a3VrLUZlbHNlZmVzaS12ZS1Tb3N5b2xvamlzaS1Lb21pc3lvbnUnPkh1a3VrIEZlbHNlZmVzaSB2ZSBTb3N5b2xvamlzaSBLb21pc3lvbnU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTM3JkRlc2M9xLBkYXJlLXZlLVZlcmdpLUh1a3VrdS1Lb21pc3lvbnUnPsSwZGFyZSB2ZSBWZXJnaSBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0zOCZEZXNjPcSwxZ8tdmUtU29zeWFsLUfDvHZlbmxpay1IdWt1a3UtS29taXN5b251Jz7EsMWfIHZlIFNvc3lhbCBHw7x2ZW5saWsgSHVrdWt1IEtvbWlzeW9udTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MzkmRGVzYz1TaWdvcnRhLUh1a3VrdS1Lb21pc3lvbnUnPlNpZ29ydGEgSHVrdWt1IEtvbWlzeW9udTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MzEmRGVzYz1EZW5pei1IdWt1a3UtS29taXN5b251Jz5EZW5peiBIdWt1a3UgS29taXN5b251PC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD0zMiZEZXNjPUVuZXJqaS1IdWt1a3UtS29taXN5b251Jz5FbmVyamkgSHVrdWt1IEtvbWlzeW9udTwvYT48L2xpPjxsaT48YSBocmVmPSdGb290ZXJDb250ZW50LmFzcHg/SUQ9MzMmRGVzYz1GaWtyaS12ZS1TxLFuYWktSGFrbGFyLUtvbWlzeW9udSc+RmlrcmkgdmUgU8SxbmFpIEhha2xhciBLb21pc3lvbnU8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTM0JkRlc2M9SGF2YWPEsWzEsWstdmUtVXpheS1IdWt1a3UtS29taXN5b251Jz5IYXZhY8SxbMSxayB2ZSBVemF5IEh1a3VrdSBLb21pc3lvbnU8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhPkNNSzwvYT48dWw+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD03OCZEZXNjPUNNSy1UYW7EsXTEsW0nPkNNSyBUYW7EsXTEsW08L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTc5JkRlc2M9QmHFn3NhdmPEsWzEsWtsYXLEsW4tVmVyZ2ktTnVtYXJhbGFyxLEnPkJhxZ9zYXZjxLFsxLFrbGFyxLFuIFZlcmdpIE51bWFyYWxhcsSxPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD04MSZEZXNjPUNNSy1FxJ9pdGltLU1lcmtlemktWcO2bmVyZ2VzaSc+Q01LIEXEn2l0aW0gTWVya2V6aSBZw7ZuZXJnZXNpPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD04MiZEZXNjPULDtmxnZWxlci12ZS1Tb3J1bWx1bGFyxLEnPkLDtmxnZWxlciB2ZSBTb3J1bWx1bGFyxLE8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTgzJkRlc2M9w5ZkZW1lLVRhcmlmZXNpJz7DlmRlbWUgVGFyaWZlc2k8L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTg1JkRlc2M9TWVzbGVrLcSww6dpLUXEn2l0aW0tU2VtaW5lcmxlcmknPk1lc2xlayDEsMOnaSBFxJ9pdGltIFNlbWluZXJsZXJpPC9hPjwvbGk+PGxpPjxhIGhyZWY9J0Zvb3RlckNvbnRlbnQuYXNweD9JRD05MyZEZXNjPUNNSy1VeWd1bGFtYS1TZXJ2aXNpLcSwbGV0acWfaW0nPkNNSyBVeWd1bGFtYSBTZXJ2aXNpIMSwbGV0acWfaW08L2E+PC9saT48bGk+PGEgaHJlZj0nRm9vdGVyQ29udGVudC5hc3B4P0lEPTEwOCZEZXNjPUNNSy1NdWhhc2ViZS1CaXJpbWxlcmktxLBsZXRpxZ9pbSc+Q01LIE11aGFzZWJlIEJpcmltbGVyaSDEsGxldGnFn2ltPC9hPjwvbGk+PC91bD48L2xpPjwvdWw+ZGTN8sBik/f8yaKHcT/+bD6TeYBkHLLhhnHB5/Ab3MK6lw==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C659223F" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAcXxfKpSHJU7DYTQR0ex48eae0TAycEAWYp/MFLMAv171tYV+J7SMWl6lSPns8Jt1DL7/V+FoNVq4ubbHBqxV3cCc/zT6RHHH18RyhKJ5RMeMBxYhmjZ8k75AtCsS87KDx0s7IZO/HVXt47A8bN293SXxN8UpLJdh5m80Le5ZDKzJd+hcVOlAIXraMzUm8ydxs=" />
+        <div id="slider">
+            <iframe src="https://www.youtube.com/embed/xNRGRS5jdbo?color=ffffff&title=0&byline=0&rel=0&portrait=0" width="970" height="546" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            
+        </div>
+        <!-- ##Slider -->
+        
+        <!-- Navigation Bar -->
+        <div id="navigation-bar">
+            <ul id="navigation-menu">
+                <li class="hvr-sweep-to-right"><a href="https://baronet.istanbulbarosu.org.tr" target="_blank"><i class="baro"></i><span>BARONET</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="https://cmkasistan.istanbulbarosu.org.tr" target="_blank"><i class="cmk"></i><span>CMK ASİSTAN</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="MazeretliHakimler.aspx"><i class="evrak"></i><span>MAZ. HAKİMLER</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="http://adliyedeyim.istanbulbarosu.org.tr" target="_blank"><i class="adliye"></i><span>ADLİYEDEYİM</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="Yayinlar.aspx"><i class="yayinlar"></i><span>YAYINLAR</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="HesaplamaAraclari.aspx" target="_blank"><i class="etkinlik"></i><span>HESAPLAMALAR</span></a></li>
+                <li class="hvr-sweep-to-right"><a href="AdliyeRehberi.aspx"><i class="rehber"></i><span>ADLİYE REHBERİ</span></a></li>
+            </ul>
+        </div>
+        <!-- Navigation Bar -->
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- News List -->
+            <div class="wrapper-block">
+                <div class="grid-12">
+                    <div class="wrapper-title cat-101">
+                        <a href="Haberler.aspx">Haberler</a>
+                        <span class="news-all"><a href="Haberler.aspx">Daha Fazla Haber</a></span>
+                    </div>
+                    <ul id="news-list">
+                        
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13209&Desc=Çanakkale-Zaferi’nin-103.-Yılında-Büyük-Destanın-Yaratıcılarını-Saygıyla-Anıyoruz" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13210/thumb/18MART2018-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Çanakkale Zaferi’nin 103. Yılında Büyük Destanın Yaratıcılarını Saygıyla Anıyoruz</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13202&Desc=Temel-Hak-Ve-Özgürlükler-Çoğunluk-İdeolojilerinin-Tartışmalı-Değerlerine-Feda-Edilemezler" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13202/thumb/KRTTV09032018B-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Temel Hak Ve Özgürlükler Çoğunluk İdeolojilerinin Tartışmalı Değerlerine Feda Edilemezler</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13207&Desc=Avukatlara-Elektronik-Tebligat-Zorunluluğu-Getirildi" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13207/thumb/resmikucuk.png" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Avukatlara Elektronik Tebligat Zorunluluğu Getirildi</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13205&Desc=15-Mart-Dünya-Tüketici-Hakları-Günü-ve-Güncel-Gelişmeler" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13205/thumb/gribuyuk.png" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>15 Mart Dünya Tüketici Hakları Günü ve Güncel Gelişmeler</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13211&Desc=İşyerlerinde-İşçinin-İşveren-Tarafından-İzlenmesi-Denetlenmesi" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13211/thumb/20180326PANEL-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>İşyerlerinde İşçinin İşveren Tarafından İzlenmesi Denetlenmesi</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13192&Desc=Toplumda-Kadının-Sesi-Zirvesi" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13192/thumb/20180326KADININSESI-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Toplumda Kadının Sesi Zirvesi</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13151&Desc=Kamu-Avukatlarının-Çalışma-Hayatından-Emekliliğine-Uzanan-Süreci" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13151/thumb/20180330KAMU-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Kamu Avukatlarının Çalışma Hayatından Emekliliğine Uzanan Süreci</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13227&Desc=Anayasa-Mahkemesi-Bireysel-Başvuru-Kararlarının-Yerine-Getirilmesi" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13227/thumb/anayasa2018-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Anayasa Mahkemesi Bireysel Başvuru Kararlarının Yerine Getirilmesi</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13212&Desc=Hava-Taşımacılığı-ve-Hava-Taşıma-Hukuku" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13212/thumb/20180330HAVA-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Hava Taşımacılığı ve Hava Taşıma Hukuku</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13199&Desc=Kadına-Yönelik-Şiddetin-Uluslarararası-Boyutları" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13199/thumb/20180310KADIN1-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Kadına Yönelik Şiddetin Uluslarararası Boyutları</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13172&Desc=2019-Dönemecini-Bilinçle-Aşabilecek-İnançtayız-" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13173/thumb/20180303DEVRIMY1-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>2019 Dönemecini Bilinçle Aşabilecek İnançtayız </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13210&Desc=Karadeniz-Batum-Gezisi-" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13210/thumb/20180427KARADENIZ2018-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Karadeniz Batum Gezisi </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13195&Desc=Stajını-Tamamlayan-45-Meslektaşımız-Ruhsat-Aldı" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13197/thumb/20180308RHSAT1-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Stajını Tamamlayan 45 Meslektaşımız Ruhsat Aldı</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13208&Desc=IV.-Ulusal-Sağlık-Hukuku-Sempozyumu" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13210/thumb/20180314SAGLIK1-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>IV. Ulusal Sağlık Hukuku Sempozyumu</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13159&Desc=Avukatlar-Ankara’daydı…" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13160/thumb/IMG-20180226-WA0020-.jpg" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Avukatlar Ankara’daydı…</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="HaberDetay.aspx?ID=13194&Desc=Yargıtay’da-İş-Bölümü" target="_blank">
+                                        <figure class="news-list-image">
+                                            <img style="width: 231px; height: 130px;" src="http://www.istanbulbarosu.org.tr/files/haber/13194/thumb/yargitay012017.jpg.png" alt="">
+                                        </figure>
+                                        <div class="news-list-title">
+                                            <span>Yargıtay’da İş Bölümü</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                    </ul>
+                    <ul class="pager-news">
+                        <li><a id='pagerIlk' onclick='GetPreviosRecords()'>
+                            <img src='assets/img/news-prev.png' alt=''></a></li>
+                        <li><a id='pagerOnceki' onclick='GetPreviosRecords()'></a></li>
+                        <li class='active'><a id='pagerCurrent'>1</a></li>
+                        <li><a id='pagerSonraki' onclick='GetNextRecords()'>2</a></li>
+                        <li><a id='pagerSon' onclick='GetNextRecords()'>
+                            <img src='assets/img/news-next.png' alt=''></a></li>
+                    </ul>
+                    <div>
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$pagerTotal" id="pagerTotal" value="430" />
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$haberlerCurrentPage" id="haberlerCurrentPage" value="1" />
+                    </div>
+                </div>
+            </div>
+            <!-- Haber List -->
+
+            <!-- Barovizyon Block -->
+            <div class="wrapper-block">
+                <div class="grid-12">
+                    <div class="wrapper-title cat-103">
+                        <a target="_blank" href="http://www.istanbulbarosu.org.tr/barovizyon">
+                            <img src="assets/img/barovizyon.png" height="40" alt=""></a>
+                        <span class="baro-all"><a href="http://www.istanbulbarosu.org.tr/barovizyon" target="_blank">Daha Fazla Video</a></span>
+                    </div>
+
+                    <ul id="barovizyon-list">
+                        
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=78" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/8O3KRd2cVjc.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">22.5.2017</span>
+                                        <div class="barovizyon-list-title">
+                                            Lojistikte Hukuksal Sorunlar, Sözleşmelerin ve Standartların Önemi 2. Bölüm
+                                        </div>
+                                        <span class="barovizyon-list-cat">Lojistik Hukuku</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=67" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/ZeZ34zImIXU.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">2.8.2016</span>
+                                        <div class="barovizyon-list-title">
+                                            Barovizyon Hukuki Sohbetler - 3. Bölüm - İstirdat Davaları
+                                        </div>
+                                        <span class="barovizyon-list-cat">İcra İflas Hukuku</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=3" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/6CeQrcdY77M.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">11.4.2016</span>
+                                        <div class="barovizyon-list-title">
+                                            Tenkis Davaları 1. Bölüm
+                                        </div>
+                                        <span class="barovizyon-list-cat">Tenkis</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=97" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/hXdE8rNAQr4.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">9.8.2017</span>
+                                        <div class="barovizyon-list-title">
+                                            Barovizyon Hukuki Sohbetler - Avukatlık Sözleşmeleri 1.Bölüm
+                                        </div>
+                                        <span class="barovizyon-list-cat">Avukatlık Sözleşmesi</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=71" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/VWdkLPepV3M.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">17.1.2017</span>
+                                        <div class="barovizyon-list-title">
+                                            Hukuksal Gerçeklikler Bağlamında Anayasa Değişikliği 1. Oturum
+                                        </div>
+                                        <span class="barovizyon-list-cat">Anayasa Hukuku</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="hvr-float-shadow">
+                                    <a href="http://www.istanbulbarosu.org.tr/barovizyon/VideoDetay.aspx?ID=133" target="_blank">
+                                        <figure class="barovizyon-list-image">
+                                            <img src="http://www.istanbulbarosu.org.tr/files/barovizyon/sitethumbs/9AneXC1U1yU.jpg" alt="">
+                                            <figcaption class="play"></figcaption>
+                                        </figure>
+                                        <span class="barovizyon-list-date">28.2.2018</span>
+                                        <div class="barovizyon-list-title">
+                                            Avukatların Vergilendirilmesinde Güncel Sorunlar Paneli 1. Bölüm
+                                        </div>
+                                        <span class="barovizyon-list-cat">Avukatların Vergilendirilmesi </span>
+                                    </a>
+                                </li>
+                            
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Barovizyon List -->
+
+            <!-- Duyuru&Twitteer Block -->
+            <div class="wrapper-block">
+                <div class="grid-12">
+                    <div class="grid-6-left">
+                        <div class="wrapper-title cat-102">
+                            <a>Duyurular </a>
+                            
+                        </div>
+                        <ul id="advert-list">
+                            
+                                    <li><a href="DuyuruDetay.aspx?ID=13225&Desc=TİCARET-HUKUKU--KURGUSAL-DAVA-ÇALIŞMASI" target="_blank"><span>TİCARET  HUKUKU    KURGUSAL  DAVA  ÇALIŞMASI</span></a></li>
+                                
+                                    <li><a href="DuyuruDetay.aspx?ID=13224&Desc=MEDENİ-HUKUK-KURGUSAL-DAVA-ÇALIŞMASI" target="_blank"><span>MEDENİ HUKUK  KURGUSAL DAVA ÇALIŞMASI</span></a></li>
+                                
+                                    <li><a href="DuyuruDetay.aspx?ID=13226&Desc=TİCARET-HUKUKU-2-KURGUSAL-DAVA-ÇALIŞMASI" target="_blank"><span>TİCARET  HUKUKU  2  KURGUSAL  DAVA  ÇALIŞMASI</span></a></li>
+                                
+                                    <li><a href="DuyuruDetay.aspx?ID=13223&Desc=KAT-MÜLKİYETİ-KURGUSAL-DAVA-ÇALIŞMASI" target="_blank"><span>KAT MÜLKİYETİ  KURGUSAL  DAVA  ÇALIŞMASI</span></a></li>
+                                
+                                    <li><a href="DuyuruDetay.aspx?ID=13222&Desc=İŞ-ve-SOSYAL-GÜVENLİK-HUKUKU-KURGUSAL-DAVA-ÇALIŞMASI" target="_blank"><span>İŞ ve SOSYAL GÜVENLİK  HUKUKU  KURGUSAL  DAVA ÇALIŞMASI</span></a></li>
+                                
+                        </ul>
+
+                        <ul class="pager-advert">
+                            <li><a id='pagerDuyuruIlk' onclick='GetPreviousAnnouncementRecords()'>
+                            <img src='assets/img/advert-prev.png' alt=''></a></li>
+                        <li><a id='pagerDuyuruOnceki' onclick='GetPreviousAnnouncementRecords()'></a></li>
+                        <li class='active'><a id='pagerDuyuruCurrent'>1</a></li>
+                        <li><a id='pagerDuyuruSonraki' onclick='GetNextAnnouncementRecords()'>2</a></li>
+                        <li><a id='pagerDuyuruSon' onclick='GetNextAnnouncementRecords()'>
+                            <img src='assets/img/advert-next.png' alt=''></a></li>
+                        </ul>
+                        <div>
+                            <input type="hidden" name="ctl00$ContentPlaceHolder1$pagerAnnouncementTotal" id="pagerAnnouncementTotal" value="419" />
+                            <input type="hidden" name="ctl00$ContentPlaceHolder1$duyurularCurrentPage" id="duyurularCurrentPage" value="1" />
+                        </div>
+                    </div>
+                    <div class="grid-6-right">
+                        <div class="wrapper-title cat-107">
+                            <a href="https://twitter.com/istbarosu" target="_blank">Twitter </a>
+                            
+                        </div>
+                        <ul id="twit-list">
+                            
+                                    <li><a href="https://t.co/JmKGuYjr3S" target="_blank"><span>Bir memleketi memleket yapan şey, kazandığı yüce zaferlerdir!
+
+18 Mart Çanakkale Zaferinin yıldönümünde
+
+Çanakkale… </span></a></li>
+                                
+                                    <li><a href="https://t.co/JmKGuYjr3S" target="_blank"><span>Bir memleketi memleket yapan şey, kazandığı yüce zaferlerdir!
+
+18 Mart Çanakkale Zaferinin yıldönümünde
+
+Çanakkale… </span></a></li>
+                                
+                                    <li><a href="https://t.co/tcVgRPP9OR" target="_blank"><span>“Aydınlanma Devrimi, Atatürk Devrimi dediğimiz şey, aslında önce cumhuriyetin sonra demokrasinin alt yapısını oluşt… </span></a></li>
+                                
+                                    <li><a href="https://t.co/bnhu90DRRI" target="_blank"><span>"2019 Türk siyasal tarihinde, Türk hukuk tarihinde, kısaca Türkiye’nin tarihinde çok önemli bir dönemeç. Biz bu dön… </span></a></li>
+                                
+                                    <li><a href="https://t.co/R6zkxGYg7V" target="_blank"><span>“Mesleğimize olan duyarlılıklarımız kaynağında savunma hakkını, halkın hak arama özgürlüğünü barındırır. Teslim olu… </span></a></li>
+                                
+                        </ul>
+
+                        <ul class="pager-twit">
+                            <li><a id='pagerTwitIlk' onclick='GetPreviousTwitRecords()'>
+                            <img src='assets/img/prev-gallery.png' alt=''></a></li>
+                        <li><a id='pagerTwitOnceki' onclick='GetPreviousTwitRecords()'></a></li>
+                        <li class='active'><a id='pagerTwitCurrent'>1</a></li>
+                        <li><a id='pagerTwitSonraki' onclick='GetNextTwitRecords()'>2</a></li>
+                        <li><a id='pagerTwitSon' onclick='GetNextTwitRecords()'>
+                            <img src='assets/img/next-gallery.png' alt=''></a></li>
+                        </ul>
+                        <div>
+                            <input type="hidden" name="ctl00$ContentPlaceHolder1$pagerTwitTotal" id="pagerTwitTotal" value="8" />
+                            <input type="hidden" name="ctl00$ContentPlaceHolder1$twitCurrentPage" id="twitCurrentPage" value="1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Duyuru Block -->
+        <!-- -- Baro Panosu -->
+        <div id="ibaro-pano">
+            <div class="grid-12">
+                <ul class="ibaro-pano-list">
+                    <li>
+                        <a href="MenuContent.aspx?id=11&Desc=Aidat-İslemleri">
+                            <img src="assets/img/altmenu/aidatislemleri.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=5&Desc=Adliye-Servisleri">
+                            <img src="assets/img/altmenu/adliyeservisleri.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=6&Desc=Baro-Cocuk">
+                            <img src="assets/img/altmenu/barococuk.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=7&Desc=SYDF">
+                            <img src="assets/img/altmenu/sydf.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="KurumsalEtkinlik.aspx">
+                            <img src="assets/img/altmenu/kurumsaletkinlikler.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MedyadaBaro.aspx">
+                            <img src="assets/img/altmenu/medyadabaro.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="BasindaBaro.aspx">
+                            <img src="assets/img/altmenu/basindabaro.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=9&Desc=Almanya-Vizesi">
+                            <img src="assets/img/altmenu/almanyavizesi.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=17&Desc=Avukata-Yardim">
+                            <img src="assets/img/altmenu/avukatayardim.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://adabarobahce.com/" target="_blank">
+                            <img src="assets/img/altmenu/barobahce.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.avukatkart.com/" target="_blank">
+                            <img src="assets/img/altmenu/avukatkart.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=15&Desc=Afilli-Bonus">
+                            <img src="assets/img/altmenu/afillibonus.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MenuContent.aspx?id=3&Desc=Kayit-İslemleri">
+                            <img src="assets/img/pano/kayitislemleri.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AnlasmaliKuruluslar.aspx">
+                            <img src="assets/img/pano/anlasmalikuruluslar.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="IcraIbanSorgula.aspx">
+                            <img src="assets/img/pano/icraiban.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://istanbulbarosu.org.tr/uyapyardim/uyap.html" target="_blank">
+                            <img src="assets/img/pano/uyapfaaliyet.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ## Baro Panosu -->
+        <!-- Kaybettiklerimiz Block -->
+        <div class="wrapper-block">
+            <div class="grid-12">
+                <div class="wrapper-title cat-104">
+                    <a href="">KAYBETTİKLERİMİZ</a>
+                </div>
+                <div id="dead-prev">
+                    <img src="assets/img/prev-gallery.png" alt=""><a href="assets/">assets/</a>
+                </div>
+                <ul id="dead-list" class="owl-carousel">
+                    
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=11857" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/11/11857.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT KUDRET YILDIRIM (11857)<br><i>14.3.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=13575" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/13/13575.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT YUSUF HAKKI ERGÜVEN (13575)<br><i>5.3.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=48347" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/48/48347.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT MAHMUT AKAY (48347)<br><i>5.3.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=5140" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/51/5140.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT MEHMET TURAN BOLAYIR (5140)<br><i>28.2.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=13466" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/13/13466.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT NAKİ TOLUNAY (13466)<br><i>27.2.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=41620" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/41/41620.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT EMRAH KUNDURLU (41620)<br><i>19.2.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=8550" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/85/8550.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT MUSTAFA ERSİN SOYDANER (8550)<br><i>17.2.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=4686" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/46/4686.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT OSMAN ERGUN İNCE (4686)<br><i>14.2.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=6222" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/62/6222.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT KAZIM KOLCUOĞLU (6222)<br><i>30.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=10474" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/10/10474.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT HİDAYET KAYA (10474)<br><i>26.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=15931" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/15/15931.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT CENGİZ TÜRKER (15931)<br><i>22.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=5940" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/59/5940.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT EKREM RUHİ ÖZTÜRK (5940)<br><i>10.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=15217" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/15/15217.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT AYKUT ARKAN (15217)<br><i>9.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=3068" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/30/3068.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT MEHMET HULUSİ ALTINEL (3068)<br><i>7.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=4381" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/43/4381.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT FATMA HAYAT TEKELİ (4381)<br><i>7.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=8829" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/88/8829.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT AHMET DURAK (8829)<br><i>5.1.2018</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=34843" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/34/34843.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT SOLMAZ ERYILMAZ (34843)<br><i>28.12.2017</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=1972" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/19/1972.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT MEHMET KEMAL DÜNDAR (1972)<br><i>20.12.2017</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=5594" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/55/5594.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT YILMAZ ÇETİN (5594)<br><i>20.12.2017</i><br>
+                                    </div>
+                                </a>
+                        
+                            <li class="item">
+                                <a href="VefatAvukatBilgi.aspx?s=37027" data-fancybox-type="iframe" class='avukat-detay'>
+                                    <figure class="dead-list-image">
+                                        <img src="http://www.istanbulbarosu.org.tr/resim/37/37027.jpg" alt="" onerror="this.onerror=null;this.src='http://www.istanbulbarosu.org.tr/siyahvefat.jpg'" style="filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);">
+                                    </figure>
+                                    <div class="dead-list-name">
+                                        AVUKAT YILDIZ ERTUĞ ÜNDER (37027)<br><i>13.12.2017</i><br>
+                                    </div>
+                                </a>
+                        
+                </ul>
+                <div id="dead-next">
+                    <img src="assets/img/next-gallery.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Wrapper Block -->
+        </div>
+        <!-- ## Wrapper -->
+
+
+    </form>
+
+    </div>
+
+    <!-- Category List -->
+    <div id="category-link-list">
+        <div class="grid-12">
+            <ul class="category-link-list">
+                <li><a href="RuhsatTorenleri.aspx">Aramıza Katılan Meslektaşlar</a></li>
+                
+                <li><a href="MenuContent.aspx?id=4&Desc=Kan-Bilgi-Havuzu">Kan Bilgi Havuzu</a></li>
+                <li><a href="Yayinlar.aspx">Yayınlar</a></li>
+                <li><a href="BilgiEdinme.aspx">Bilgi Edinme Başvuruları</a></li>
+                <li><a href="HesaplamaAraclari.aspx">Hesaplama Araçları</a></li>
+                <li><a href="MenuContent.aspx?id=16&Desc=Bilgilendirme-Kitapciklari">Bilgilendirme Kitapçıkları</a></li>
+                <li><a href="MenuContent.aspx?id=18&Desc=Ofislerde-Risk-Degerlendirmesi">Ofislerde Risk Değerlendirmesi</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <!-- ## Category List -->
+    <input type="hidden" id="refreshed" value="no">
+
+    <script type="text/javascript">
+        onload = function () {
+            var e = document.getElementById("refreshed");
+            if (e.value == "no") e.value = "yes";
+            else { e.value = "no"; location.reload(); }
+        }
+    </script>
+
+    <!-- Page List -->
+    <div id="page-link-list">
+        <div class="grid-12">
+            <ul class='page-link-list'><li><a>Baro</a><ul><li><a href='FooterContent.aspx?ID=1&Desc=Tarihçe'>Tarihçe</a></li><li><a href='FooterContent.aspx?ID=2&Desc=Başkan-ve-Yönetim-Kurulu'>Başkan ve Yönetim Kurulu</a></li><li><a href='FooterContent.aspx?ID=14&Desc=Yönetim-Kurullarımız'>Yönetim Kurullarımız</a></li><li><a href='FooterContent.aspx?ID=16&Desc=Disiplin-Kurulu'>Disiplin Kurulu</a></li><li><a href='FooterContent.aspx?ID=18&Desc=Denetleme-Kurulu'>Denetleme Kurulu</a></li><li><a href='FooterContent.aspx?ID=20&Desc=TBB-Delegeleri'>TBB Delegeleri</a></li><li><a href='FooterContent.aspx?ID=21&Desc=Bölge-Temsilcileri'>Bölge Temsilcileri</a></li><li><a href='FooterContent.aspx?ID=22&Desc=İdari-Birimler'>İdari Birimler</a></li></ul></li><li><a>Baro Meclisi</a><ul><li><a href='FooterContent.aspx?ID=4&Desc=Baro-Meclis-Divanı'>Baro Meclis Divanı</a></li><li><a href='FooterContent.aspx?ID=6&Desc=Meclis-Yönergeleri'>Meclis Yönergeleri</a></li></ul></li><li><a>Kurullar</a><ul><li><a href='FooterContent.aspx?ID=10&Desc=Bağlı-Çalışan-Avukatlar-Kurulu'>Bağlı Çalışan Avukatlar Kurulu</a></li><li><a href='FooterContent.aspx?ID=11&Desc=Kalite-Koordinasyon-Kurulu'>Kalite Koordinasyon Kurulu</a></li><li><a href='FooterContent.aspx?ID=13&Desc=Kurum-Ve-Kamu-Avukatları-Kurulu'>Kurum Ve Kamu Avukatları Kurulu</a></li><li><a href='FooterContent.aspx?ID=17&Desc=Meslek-Sorunları-Kurulu'>Meslek Sorunları Kurulu</a></li><li><a href='FooterContent.aspx?ID=15&Desc=Kültür-Sanat-Kurulu'>Kültür-Sanat Kurulu</a></li></ul></li><li><a>Sigorta</a><ul><li><a href='FooterContent.aspx?ID=105&Desc=Değişen-Topluluk-Sigortası-ve-Bağkur'>Değişen Topluluk Sigortası ve Bağkur</a></li><li><a href='FooterContent.aspx?ID=106&Desc=SYDF'>SYDF</a></li></ul></li></ul><ul class='page-link-list'><li><a>Avukatlık Hukuku</a><ul><li><a href='FooterContent.aspx?ID=40&Desc=Merkezler,Komisyonlar,Kurullar-Yönergesi'>Merkezler,Komisyonlar,Kurullar Yönergesi</a></li><li><a href='FooterContent.aspx?ID=42&Desc=Avukatlık-Adli-Yardım-Yönetmeliği'>Avukatlık Adli Yardım Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=30&Desc=Avukatlık-Ortaklığı-Yönetmeliği'>Avukatlık Ortaklığı Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=26&Desc=Avukatlık-Yasası'>Avukatlık Yasası</a></li><li><a href='FooterContent.aspx?ID=28&Desc=Avukatlık-Kanunu-Yönetmeliği'>Avukatlık Kanunu Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=44&Desc=Reklam-Yasağı-Yönetmeliği'>Reklam Yasağı Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=48&Desc=Avukatlık-Staj-Yönetmeliği'>Avukatlık Staj Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=51&Desc=Staj-Kredi-Yönetmeliği'>Staj Kredi Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=53&Desc=Avrupa-Birliği-Meslek-Kuralları'>Avrupa Birliği Meslek Kuralları</a></li><li><a href='FooterContent.aspx?ID=55&Desc=TBB-Meslek-Kuralları'>TBB Meslek Kuralları</a></li><li><a href='FooterContent.aspx?ID=56&Desc=Tbb-Disiplin-Kurulu-Karar-Özetleri'>Tbb Disiplin Kurulu Karar Özetleri</a></li><li><a href='FooterContent.aspx?ID=99&Desc=Sosyal-Yardım-ve-Dayanışma-Fonu-Yönetmeliği'>Sosyal Yardım ve Dayanışma Fonu Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=100&Desc=CMK-Yönetmeliği'>CMK Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=107&Desc=Avukatlık-Ortaklıkları'>Avukatlık Ortaklıkları</a></li><li><a href='FooterContent.aspx?ID=110&Desc=Staj-Eğitim-Merkezi-Yönetmeliği'>Staj Eğitim Merkezi Yönetmeliği</a></li><li><a href='FooterContent.aspx?ID=111&Desc=Gelir-Vergisi-Beyannamesi-Düzenlenme-Rehberi'>Gelir Vergisi Beyannamesi Düzenlenme Rehberi</a></li></ul></li><li><a>Staj Eğitim Merkezi</a><ul><li><a href='FooterContent.aspx?ID=57&Desc=Yürütme-Kurulu'>Yürütme Kurulu</a></li><li><a href='FooterContent.aspx?ID=103&Desc=İstanbul-Barosu-Staj-Eğitim-Merkezi'>İstanbul Barosu Staj Eğitim Merkezi</a></li></ul></li></ul><ul class='page-link-list'><li><a>Merkezler</a><ul><li><a href='FooterContent.aspx?ID=35&Desc=Hayvan-Hakları-Merkezi'>Hayvan Hakları Merkezi</a></li><li><a href='FooterContent.aspx?ID=58&Desc=Cumhuriyet-Araştırmaları-Merkezi'>Cumhuriyet Araştırmaları Merkezi</a></li><li><a href='FooterContent.aspx?ID=59&Desc=Çocuk-Hakları-Merkezi'>Çocuk Hakları Merkezi</a></li><li><a href='FooterContent.aspx?ID=61&Desc=Engelli-Hakları-Merkezi'>Engelli Hakları Merkezi</a></li><li><a href='FooterContent.aspx?ID=62&Desc=İnsan-Hakları-Merkezi'>İnsan Hakları Merkezi</a></li><li><a href='FooterContent.aspx?ID=64&Desc=Kadın-Hakları-Merkezi'>Kadın Hakları Merkezi</a></li><li><a href='FooterContent.aspx?ID=65&Desc=Dış-İlişkiler-Merkezi'>Dış İlişkiler Merkezi</a></li><li><a href='FooterContent.aspx?ID=66&Desc=Adil-Yargılama-Takip-Merkezi'>Adil Yargılama Takip Merkezi</a></li><li><a href='FooterContent.aspx?ID=67&Desc=Tüketici-Hakları-ve-Rekabet-Hukuku-Merkezi'>Tüketici Hakları ve Rekabet Hukuku Merkezi</a></li><li><a href='FooterContent.aspx?ID=68&Desc=Sağlık-Hukuku-Merkezi'>Sağlık Hukuku Merkezi</a></li><li><a href='FooterContent.aspx?ID=102&Desc=Avukat-Hakları-Merkezi'>Avukat Hakları Merkezi</a></li></ul></li><li><a>Adli Yardım</a><ul><li><a href='FooterContent.aspx?ID=69&Desc=Tanıtım'>Tanıtım</a></li><li><a href='FooterContent.aspx?ID=73&Desc=Başvuru-ve-İlişkin-Belgeler'>Başvuru ve İlişkin Belgeler</a></li><li><a href='FooterContent.aspx?ID=92&Desc=Merkez-ve-Şubeler'>Merkez ve Şubeler</a></li></ul></li><li><a>Avukatlık Sözleşmeleri</a><ul><li><a href='FooterContent.aspx?ID=76&Desc=TBB-Avukatlık-Ortaklığı-Tip-Ana-Sözleşmesi'>TBB Avukatlık Ortaklığı Tip Ana Sözleşmesi</a></li><li><a href='FooterContent.aspx?ID=77&Desc=TBB-Danışmanlık-Hizmetleri-Avukatlık-Ortaklığı-Tip-Ana-Sözleşmesi'>TBB Danışmanlık Hizmetleri Avukatlık Ortaklığı Tip Ana Sözleşmesi</a></li><li><a href='FooterContent.aspx?ID=101&Desc=Yetki-Belgesi-Örneği'>Yetki Belgesi Örneği</a></li></ul></li><li><a>Yayın Kurulu</a><ul><li><a href='FooterContent.aspx?ID=74&Desc=Yayın-Kurulu'>Yayın Kurulu</a></li><li><a href='FooterContent.aspx?ID=75&Desc=Yayın-Kurulu-Yönergesi'>Yayın Kurulu Yönergesi</a></li><li><a href='FooterContent.aspx?ID=109&Desc=Baro-Dergisi-Makale-Dizini'>Baro Dergisi Makale Dizini</a></li></ul></li></ul><ul class='page-link-list'><li><a>Komisyonlar</a><ul><li><a href='FooterContent.aspx?ID=23&Desc=Avrupa-Birliği-Hukuku-Komisyonu'>Avrupa Birliği Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=24&Desc=Banka-ve-Finans-Hukuku-Komisyonu'>Banka ve Finans Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=25&Desc=Basın-ve-İletişim-Hukuku-Komisyonu'>Basın ve İletişim Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=29&Desc=Çevre,-Kent-ve-İmar-Hukuku-Komisyonu'>Çevre, Kent ve İmar Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=27&Desc=Bilişim-Hukuku-Komisyonu'>Bilişim Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=43&Desc=Taşıma-ve-Lojistik-Hukuku-Komisyonu'>Taşıma ve Lojistik Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=41&Desc=Spor-ve-Spor-Hukuku-Komisyonu'>Spor ve Spor Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=36&Desc=Hukuk-Felsefesi-ve-Sosyolojisi-Komisyonu'>Hukuk Felsefesi ve Sosyolojisi Komisyonu</a></li><li><a href='FooterContent.aspx?ID=37&Desc=İdare-ve-Vergi-Hukuku-Komisyonu'>İdare ve Vergi Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=38&Desc=İş-ve-Sosyal-Güvenlik-Hukuku-Komisyonu'>İş ve Sosyal Güvenlik Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=39&Desc=Sigorta-Hukuku-Komisyonu'>Sigorta Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=31&Desc=Deniz-Hukuku-Komisyonu'>Deniz Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=32&Desc=Enerji-Hukuku-Komisyonu'>Enerji Hukuku Komisyonu</a></li><li><a href='FooterContent.aspx?ID=33&Desc=Fikri-ve-Sınai-Haklar-Komisyonu'>Fikri ve Sınai Haklar Komisyonu</a></li><li><a href='FooterContent.aspx?ID=34&Desc=Havacılık-ve-Uzay-Hukuku-Komisyonu'>Havacılık ve Uzay Hukuku Komisyonu</a></li></ul></li><li><a>CMK</a><ul><li><a href='FooterContent.aspx?ID=78&Desc=CMK-Tanıtım'>CMK Tanıtım</a></li><li><a href='FooterContent.aspx?ID=79&Desc=Başsavcılıkların-Vergi-Numaraları'>Başsavcılıkların Vergi Numaraları</a></li><li><a href='FooterContent.aspx?ID=81&Desc=CMK-Eğitim-Merkezi-Yönergesi'>CMK Eğitim Merkezi Yönergesi</a></li><li><a href='FooterContent.aspx?ID=82&Desc=Bölgeler-ve-Sorumluları'>Bölgeler ve Sorumluları</a></li><li><a href='FooterContent.aspx?ID=83&Desc=Ödeme-Tarifesi'>Ödeme Tarifesi</a></li><li><a href='FooterContent.aspx?ID=85&Desc=Meslek-İçi-Eğitim-Seminerleri'>Meslek İçi Eğitim Seminerleri</a></li><li><a href='FooterContent.aspx?ID=93&Desc=CMK-Uygulama-Servisi-İletişim'>CMK Uygulama Servisi İletişim</a></li><li><a href='FooterContent.aspx?ID=108&Desc=CMK-Muhasebe-Birimleri-İletişim'>CMK Muhasebe Birimleri İletişim</a></li></ul></li></ul>
+        </div>
+    </div>
+    <!-- ## Page List -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="grid-12">
+            <div class="footer">
+                <div id="footer-logo">
+                    <img src="assets/img/footer.png" alt="">
+                </div>
+                <h3>İSTANBUL BAROSU</h3>
+                <div class="footer-adress">
+                    <p>
+                        İstiklal Caddesi, Orhan Adli Apaydın Sokak, No:2, 34430, Beyoğlu/İSTANBUL
+                    </p>
+                    <p>
+                        Tel: 0212 393 07 00 - 444 18 78   Faks: 0212 293 89 60
+                    </p>
+                    <p>
+                        e-posta: <a href="mailto:baro@istanbulbarosu.org.tr">baro@istanbulbarosu.org.tr</a>
+                    </p>
+                </div>
+                <h4>© 2016 - Tüm Hakları İstanbul Barosu’na aittir.</h4>
+                <ul class="footer-social">
+                    <li class="fb"><a href="https://www.facebook.com/istbarosu/">fb</a></li>
+                    <li class="tt"><a href="https://twitter.com/istbarosu?lang=tr" target="_blank">tt</a></li>
+                    <li class="yt"><a href="https://www.youtube.com/channel/UC-OaUEKpVMKzQKAmV00xEZA" target="_blank">yt</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+    <div id="go-up">
+        <img src="assets/img/up.png" alt="">
+    </div>
+    <!-- JS -->
+
+    <div id="loading">
+        <div class="loader">Yükleniyor...</div>
+    </div>
+
+    
+
+    <script src="assets/js/form.js"></script>
+    <script src="assets/js/forgot.js"></script>
+    <script src="assets/js/jquery.datetimepicker.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/mobile-login.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/modernizr.js"></script>
+    <script src="assets/js/hesaplama.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/classie.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-9677440-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- JS -->
+    
+</body>
+</html>

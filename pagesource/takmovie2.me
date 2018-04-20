@@ -1,0 +1,1414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="دانلود برترین فیلم ها و سریال ها | تک مووی" />
+<meta name="keywords" content="دانلود فیلم ، دانلود سریال ، لینک مستقیم ، دانلود فیلم با لینک مستقیم ، دانلود سریال با لینک مستقیم ، دانلود فیلم و سریال با لینک مستقیم" />
+<meta property="og:title" content="TakMovie :: دانلود فیلم و سریال با لینک مستقیم" />
+<meta property="og:site_name" content="TakMovie :: دانلود فیلم و سریال با لینک مستقیم" />
+<link href="http://www.takmovie2.me/style.css" rel="stylesheet" type="text/css" />
+<link href="http://www.takmovie2.me/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.takmovie2.me/js/jquery-1.8.2.min.js"></script>
+<script src="http://www.takmovie2.me/js/jquery-ui.min.js"></script>
+<script src="http://www.takmovie2.me/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="http://www.takmovie2.me/jwplayer/jwplayer.js"></script>
+<script>jwplayer.key="JmQlB4M8fe16T5vP4JTgDvhihfv4of+6uJma8A==";</script>         
+<script>
+(function($){
+	$(window).load(function(){
+		$("#content_1,#content_2").mCustomScrollbar({
+			scrollButtons:{
+				enable:true
+			}
+		});
+	});
+})(jQuery);
+</script>
+<script type="text/javascript" src="http://www.takmovie2.me/js/amazon_scroller.js"></script>
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#scroll1").amazon_scroller({
+		scroller_title_show: 'enable',
+		scroller_time_interval: '5000',
+		scroller_window_background_color: "translate",
+		scroller_window_padding: '0',
+		scroller_border_size: '0',
+		scroller_images_width: '635',
+		scroller_images_height: '236',
+		scroller_show_count: '1',
+		directory: 'http://www.takmovie2.me/images/arrow.png'
+	});
+	$("#scroll2").amazon_scroller({
+		scroller_title_show: 'enable',
+		scroller_time_interval: '5000',
+		scroller_window_background_color: "translate",
+		scroller_window_padding: '0',
+		scroller_border_size: '0',
+		scroller_images_width: '247',
+		scroller_images_height: '282',
+		scroller_show_count: '1',
+		directory: 'http://www.takmovie2.me/images/arrow1.png'
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on('click', '.menu .blue', function(){
+		var id = $(this).attr('id');
+		var class_name = $('#'+id+'_ul').css('display');
+
+		if(class_name == 'none'){
+			//$('.menu_ul').css('display','none');
+			$('#'+id+'_ul').css('display','block');
+			$('#'+id+'_ul').removeClass('open');
+			
+			$('#'+id+' p').addClass('open');
+		} else {
+			$('#'+id+'_ul').css('display','none');
+			//$('.menu_ul').css('display','none');
+			$('#'+id+' p').removeClass('open');
+		}
+    });
+	$(document).on('click', '.second_menu', function(){
+		var id = $(this).attr('id');
+		var class_name = $('#'+id+'_ul').css('display');
+
+		if(class_name == 'none'){
+			//$('.menu_ul ul').css('display','none');
+			$('#'+id+'_ul').css('display','block');
+		} else {
+			$('#'+id+'_ul').css('display','none');
+			//$('.menu_ul ul').css('display','none');
+		}
+    });
+	$(document).on('click', '#more', function(){
+		var class_name = $('#actor').css('display');
+
+		if(class_name == 'none'){
+			$('#actor').css('display','block');
+		} else {
+			$('#actor').css('display','none');
+		}
+    });
+	$(document).on('click', '.reply_user', function(){
+		var id = $(this).attr('data');
+		$('.inform').css('display','none');
+		$('#form_'+id).css('display','block');
+    });
+	$(document).on('click', '.dl_tab span', function(){
+		var id = $(this).attr('id');
+		//$('.lists').css('display','none');
+		//$('#'+id+'_list').css('display','block');
+		
+		$('.lists').hide(1000);
+		$('#'+id+'_list').show(1000);
+		
+		$('.dl_tab span').removeClass('active');
+		$(this).addClass('active');
+    });
+	$(document).on('change', '#category_select', function(){
+		var val = $(this).val();
+		$('#year_change').css('display','block');
+		
+		if(val == 1) {
+			$('#change').css('display','block');
+		} else if(val == 'movie') {
+			$('#change').css('display','none');
+		} else {
+			$('#change').css('display','none');
+			$('#year_change').css('display','none');
+		}
+	});
+	
+	$(document).on('click', 'body', function(){
+		$('#result').html('')
+		$('#result').css('display','none')
+	});
+	
+	$(document).on('keyup', '#search_select', function(){
+		var filter = $("#search_select").val();
+		var category = $("#category_select").val();
+		$('#result').css('display','block');
+		$.post('http://www.takmovie2.me/form.php', {filter:filter,category:category}, function(data){
+			$('#result').html(data);
+		});	
+	});
+	
+	$(document).on('click', '.list', function(){
+		var wt = $(this).attr('class');
+		var id = $(this).attr('id');
+		$.post('http://www.takmovie2.me/form.php', {wt:wt,id:id}, function(data){
+			if(data == 1){
+				alert('جهت ثبت لیست ابتدا وارد سایت شوید');
+			} else if(data == 0){
+				$('span#'+id).removeClass('add');
+				$('span#'+id).addClass("remove");
+				$('span#'+id).html("- حذف از لیست");
+				alert('این مطلب با موفقیت به لیست مشاهده اضافه شد');
+			} else {
+				$('span#'+id).removeClass('remove');
+				$('span#'+id).addClass("add");
+				$('span#'+id).html("+ لیست مشاهده");
+				alert('این مطلب با موفقیت از لیست مشاهده حذف شد');
+			}
+		});	
+	});
+	
+	$(document).on('click', '.remove_page', function(){
+		var id = $(this).attr('id');
+		$.post('http://www.takmovie2.me/form.php', {list_page:id}, function(data){
+			alert('این فیلم با موفقیت از لیست حذف شد');
+			$('#result_list_page').html(data);
+		});	
+	});
+	$(document).on('click', '.like', function(){
+		var id = $(this).attr('data');
+		var bid = $(this).attr('id');
+		$.post('http://www.takmovie2.me/form.php', {like:id}, function(data){
+			if(data == 0) {
+				alert('لایک شما قبلا ثبت شده است');
+			} else {
+				$('#'+bid).html(data+' Like');
+			}
+		});	
+	});
+});
+</script>
+<title>TakMovie :: دانلود فیلم و سریال با لینک مستقیم</title>
+</head>
+<body>	<div id="top">
+    	<div class="container">
+        	<h1 id="logo"><a href="http://www.takmovie2.me/" title="TakMovie :: دانلود فیلم و سریال با لینک مستقیم">TakMovie :: دانلود فیلم و سریال با لینک مستقیم</a></h1>
+            <form action="http://www.takmovie2.me/search.php" id="box" autocomplete="off">
+            	<div id="select"><select name="category_select" id="category_select"><option value="1">همه</option><option value="series">سریال</option><option value="movie">فیلم</option><option value="actor">هنرمند</option></select></div>
+            	<input name="search" id="search_select" type="text" placeholder="جستجوی فیلم ، سریال ، هنرمند و ..." />
+                <input type="submit" class="submit" value="" />
+                <div id="result" style="display:none;"></div>
+            </form>
+            <ul id="menu">
+            	<li><a href="http://www.takmovie2.me/top/2/IMDb-Top-250-Series/" target="_blank" title="250 سریال برتر">سریال های برتر<br /><span class="minus20">Best Of Series</span></a></li>
+                <li class="line"></li>
+                <li><p class="menu_top">فیلم های برتـر<br /><span class="minus20">Best Of Movies</span></p><ul><li><a href="http://www.takmovie2.me/page/popular/2017/" title="برترین فیلم های 2017">برترین فیلم های 2017</a></li><li><a href="http://www.takmovie2.me/page/popular/2016/" title="برترین فیلم های 2016">برترین فیلم های 2016</a></li><li><a href="http://www.takmovie2.me/page/popular/2015/" title="برترین فیلم های 2015">برترین فیلم های 2015</a></li><li><a href="http://www.takmovie2.me/page/popular/2014/" title="برترین فیلم های 2014">برترین فیلم های 2014</a></li><li><a href="http://www.takmovie2.me/page/popular/2013/" title="برترین فیلم های 2013">برترین فیلم های 2013</a></li><li><a href="http://www.takmovie2.me/top/2/IMDb-Top-250-Series/" title="IMDb Top 250 Series">IMDb Top 250 Series</a></li><li class="none_bottom"><a href="http://www.takmovie2.me/top/1/IMDb-Top-250-Movies/" title="IMDb Top 250 Movies">IMDb Top 250 Movies</a></li></ul></li>
+                <li class="line"></li>
+                <li><p class="menu_top">فیلم و سریـال<br /><span class="minus30">Movie & Series</span></p>
+                	<ul>
+                    	<li><a href="http://www.takmovie2.me/archive/movie/" title="فقط نمایش فیلم ها">فقط نمایش فیلم ها</a></li>
+                        <li><a href="http://www.takmovie2.me/archive/series/" title="فقط نمایش سریال ها">فقط نمایش سریال ها</a></li>
+                        <li><span class="video">سریال ها براساس شبکه</span><ul id="for_tv"><li><a href="http://www.takmovie2.me/tv/89/e/" title="!E">!E</a></li><li><a href="http://www.takmovie2.me/tv/66/a-and-e/" title="A&amp;E">A&amp;E</a></li><li><a href="http://www.takmovie2.me/tv/10/abc/" title="ABC">ABC</a></li><li><a href="http://www.takmovie2.me/tv/16/abc-family/" title="ABC Family">ABC Family</a></li><li><a href="http://www.takmovie2.me/tv/34/adult-swim/" title="Adult Swim">Adult Swim</a></li><li><a href="http://www.takmovie2.me/tv/59/amazon/" title="Amazon">Amazon</a></li><li><a href="http://www.takmovie2.me/tv/5/amc/" title="AMC">AMC</a></li><li><a href="http://www.takmovie2.me/tv/75/animax/" title="Animax">Animax</a></li><li><a href="http://www.takmovie2.me/tv/91/antena-3/" title="Antena 3">Antena 3</a></li><li><a href="http://www.takmovie2.me/tv/44/atv/" title="ATV">ATV</a></li><li><a href="http://www.takmovie2.me/tv/61/audience-network/" title="Audience Network">Audience Network</a></li><li><a href="http://www.takmovie2.me/tv/96/axn/" title="AXN">AXN</a></li><li><a href="http://www.takmovie2.me/tv/11/bbc/" title="BBC">BBC</a></li><li><a href="http://www.takmovie2.me/tv/84/bbc-america/" title="BBC America">BBC America</a></li><li><a href="http://www.takmovie2.me/tv/20/bbc-one/" title="BBC One">BBC One</a></li><li><a href="http://www.takmovie2.me/tv/32/bbc-three/" title="BBC Three">BBC Three</a></li><li><a href="http://www.takmovie2.me/tv/43/bbc-two/" title="BBC Two">BBC Two</a></li><li><a href="http://www.takmovie2.me/tv/100/bravo/" title="Bravo">Bravo</a></li><li><a href="http://www.takmovie2.me/tv/80/canal/" title="Canal+">Canal+</a></li><li><a href="http://www.takmovie2.me/tv/74/cartoon-network/" title="Cartoon Network">Cartoon Network</a></li><li><a href="http://www.takmovie2.me/tv/42/cbc/" title="CBC">CBC</a></li><li><a href="http://www.takmovie2.me/tv/9/cbs/" title="CBS">CBS</a></li><li><a href="http://www.takmovie2.me/tv/57/channel-4/" title="Channel 4">Channel 4</a></li><li><a href="http://www.takmovie2.me/tv/72/chiller/" title="Chiller">Chiller</a></li><li><a href="http://www.takmovie2.me/tv/22/cinemax/" title="Cinemax">Cinemax</a></li><li><a href="http://www.takmovie2.me/tv/92/cmt/" title="CMT">CMT</a></li><li><a href="http://www.takmovie2.me/tv/56/comedy-central/" title="Comedy Central">Comedy Central</a></li><li><a href="http://www.takmovie2.me/tv/97/crackle/" title="Crackle">Crackle</a></li><li><a href="http://www.takmovie2.me/tv/60/ctv/" title="CTV">CTV</a></li><li><a href="http://www.takmovie2.me/tv/6/cw/" title="CW">CW</a></li><li><a href="http://www.takmovie2.me/tv/77/das-erste/" title="Das Erste">Das Erste</a></li><li><a href="http://www.takmovie2.me/tv/83/discovery-canada/" title="Discovery Canada">Discovery Canada</a></li><li><a href="http://www.takmovie2.me/tv/31/discovery-usa/" title="Discovery USA">Discovery USA</a></li><li><a href="http://www.takmovie2.me/tv/54/disney/" title="Disney">Disney</a></li><li><a href="http://www.takmovie2.me/tv/70/disney-xd/" title="Disney XD">Disney XD</a></li><li><a href="http://www.takmovie2.me/tv/28/dr1/" title="DR1">DR1</a></li><li><a href="http://www.takmovie2.me/tv/26/e4/" title="E4">E4</a></li><li><a href="http://www.takmovie2.me/tv/30/el-rey-network/" title="El Rey Network">El Rey Network</a></li><li><a href="http://www.takmovie2.me/tv/4/fox/" title="FOX">FOX</a></li><li><a href="http://www.takmovie2.me/tv/69/france-3/" title="France 3">France 3</a></li><li><a href="http://www.takmovie2.me/tv/87/freeform/" title="Freeform">Freeform</a></li><li><a href="http://www.takmovie2.me/tv/36/fuji-tv/" title="Fuji TV">Fuji TV</a></li><li><a href="http://www.takmovie2.me/tv/13/fx/" title="FX">FX</a></li><li><a href="http://www.takmovie2.me/tv/98/global/" title="Global">Global</a></li><li><a href="http://www.takmovie2.me/tv/53/hallmark-channel/" title="Hallmark Channel">Hallmark Channel</a></li><li><a href="http://www.takmovie2.me/tv/3/hbo/" title="HBO">HBO</a></li><li><a href="http://www.takmovie2.me/tv/19/history/" title="History">History</a></li><li><a href="http://www.takmovie2.me/tv/71/hulu/" title="Hulu">Hulu</a></li><li><a href="http://www.takmovie2.me/tv/65/ifc/" title="IFC">IFC</a></li><li><a href="http://www.takmovie2.me/tv/58/itv/" title="ITV">ITV</a></li><li><a href="http://www.takmovie2.me/tv/25/itv1/" title="ITV1">ITV1</a></li><li><a href="http://www.takmovie2.me/tv/29/lifetime/" title="Lifetime">Lifetime</a></li><li><a href="http://www.takmovie2.me/tv/73/mbs/" title="MBS">MBS</a></li><li><a href="http://www.takmovie2.me/tv/8/mtv/" title="MTV">MTV</a></li><li><a href="http://www.takmovie2.me/tv/39/national-geographic/" title="National Geographic">National Geographic</a></li><li><a href="http://www.takmovie2.me/tv/2/nbc/" title="NBC">NBC</a></li><li><a href="http://www.takmovie2.me/tv/21/netflix/" title="Netflix">Netflix</a></li><li><a href="http://www.takmovie2.me/tv/50/nhk-e/" title="NHK-E">NHK-E</a></li><li><a href="http://www.takmovie2.me/tv/17/nickelodeon/" title="Nickelodeon">Nickelodeon</a></li><li><a href="http://www.takmovie2.me/tv/47/nine-network/" title="Nine Network">Nine Network</a></li><li><a href="http://www.takmovie2.me/tv/90/nrk1/" title="NRK1">NRK1</a></li><li><a href="http://www.takmovie2.me/tv/24/ntv/" title="NTV">NTV</a></li><li><a href="http://www.takmovie2.me/tv/76/own/" title="OWN">OWN</a></li><li><a href="http://www.takmovie2.me/tv/45/pbs/" title="PBS">PBS</a></li><li><a href="http://www.takmovie2.me/tv/55/playstation/" title="PlayStation">PlayStation</a></li><li><a href="http://www.takmovie2.me/tv/38/science/" title="Science">Science</a></li><li><a href="http://www.takmovie2.me/tv/62/scifi/" title="SciFi">SciFi</a></li><li><a href="http://www.takmovie2.me/tv/23/showcase/" title="ShowCase">ShowCase</a></li><li><a href="http://www.takmovie2.me/tv/12/showtime/" title="ShowTime">ShowTime</a></li><li><a href="http://www.takmovie2.me/tv/27/sky-1/" title="Sky 1">Sky 1</a></li><li><a href="http://www.takmovie2.me/tv/51/sky-atlantic/" title="Sky Atlantic">Sky Atlantic</a></li><li><a href="http://www.takmovie2.me/tv/93/sky-go/" title="Sky Go">Sky Go</a></li><li><a href="http://www.takmovie2.me/tv/40/soho/" title="SoHo">SoHo</a></li><li><a href="http://www.takmovie2.me/tv/68/space/" title="Space">Space</a></li><li><a href="http://www.takmovie2.me/tv/94/spike/" title="Spike">Spike</a></li><li><a href="http://www.takmovie2.me/tv/99/stan/" title="Stan">Stan</a></li><li><a href="http://www.takmovie2.me/tv/7/starz/" title="Starz">Starz</a></li><li><a href="http://www.takmovie2.me/tv/33/sundance/" title="Sundance">Sundance</a></li><li><a href="http://www.takmovie2.me/tv/78/svt1/" title="SVT1">SVT1</a></li><li><a href="http://www.takmovie2.me/tv/1/syfy/" title="Syfy">Syfy</a></li><li><a href="http://www.takmovie2.me/tv/37/syndication/" title="Syndication">Syndication</a></li><li><a href="http://www.takmovie2.me/tv/64/teletoon/" title="Teletoon">Teletoon</a></li><li><a href="http://www.takmovie2.me/tv/101/tf1/" title="TF1">TF1</a></li><li><a href="http://www.takmovie2.me/tv/81/the-movie-network/" title="The Movie Network">The Movie Network</a></li><li><a href="http://www.takmovie2.me/tv/35/tnt/" title="TNT">TNT</a></li><li><a href="http://www.takmovie2.me/tv/49/tokyo-broadcasting/" title="Tokyo Broadcasting">Tokyo Broadcasting</a></li><li><a href="http://www.takmovie2.me/tv/88/tokyo-broadcasting-system/" title="Tokyo Broadcasting System">Tokyo Broadcasting System</a></li><li><a href="http://www.takmovie2.me/tv/85/tokyo-mx/" title="Tokyo MX">Tokyo MX</a></li><li><a href="http://www.takmovie2.me/tv/52/tv-land/" title="TV Land">TV Land</a></li><li><a href="http://www.takmovie2.me/tv/41/tv-tokyo/" title="TV Tokyo">TV Tokyo</a></li><li><a href="http://www.takmovie2.me/tv/82/tvp1/" title="TVP1">TVP1</a></li><li><a href="http://www.takmovie2.me/tv/95/univision/" title="Univision">Univision</a></li><li><a href="http://www.takmovie2.me/tv/79/upn/" title="UPN">UPN</a></li><li><a href="http://www.takmovie2.me/tv/18/usa-network/" title="USA Network">USA Network</a></li><li><a href="http://www.takmovie2.me/tv/48/wgn-america/" title="WGN America">WGN America</a></li><li><a href="http://www.takmovie2.me/tv/67/xbox/" title="Xbox">Xbox</a></li><li><a href="http://www.takmovie2.me/tv/86/youtube/" title="YouTube">YouTube</a></li><li class="none_1"><a href="http://www.takmovie2.me/tv/46/zdf/" title="ZDF">ZDF</a></li></ul></li>
+<!--
+                        <li><a href="http://www.takmovie2.me/page/movie-a-z/" title="لیست کامل فیلم ها">لیست کامل فیلم ها</a></li>
+                        <li class="none_bottom"><a href="http://www.takmovie2.me/page/series-a-z/" title="لیست کامل سریال ها">لیست کامل سریال ها</a></li>
+                 -->  
+                   </ul>
+                </li>
+            </ul>
+        	<br style="clear:both;" />
+        </div>
+    </div>
+    <div class="container">
+    	<ul id="menu_top">
+        	<li><a href="http://www.takmovie2.me/" title="صفحه اصلی">صفحه اصلی</a></li>
+            <li class="line">|</li>
+            
+			                <li><a href="http://www.takmovie2.me/page/register/" title="ثبت نام">ثبت نام</a></li>
+                <li class="line">|</li>
+                <li><a href="http://www.takmovie2.me/page/login/" title="ورود به سایت">ورود به سایت</a></li>
+                <li class="line">|</li>
+                        
+            <li><a href="http://www.takmovie2.me/search.php" title="جستجوی حرفه ای">جستجوی حرفه ای</a></li>
+            <li class="line">|</li>
+            <li><a href="http://www.takmovie2.me/page/help/" title="راهنمای استفاده">راهنمای استفاده</a></li>
+
+                    </ul>
+        <div id="date">27 اسفند 1396 - 01:12 ق.ظ</div>
+        <br style="clear:both;" />        <div id="main">
+            <div id="main_top">
+            </div>
+            <div id="main_middle">
+            	<div id="right">
+                	<div id="scroll1" class="amazon_scroller">
+    <div class="amazon_scroller_mask">
+        <ul style="width:635px;height:234px;">
+            <li><div class="slider"><a href="http://www.takmovie2.me/post/tt2527336/" target="_blank" title="Star Wars: The Last Jedi" class="first_slider"><span></span><img src="http://www.takmovie2.me/upload/post_tt2527336.jpg?ver=1520680246" alt="Star Wars: The Last Jedi" title="Star Wars: The Last Jedi" /></a><a href="http://www.takmovie2.me/post/tt4468740/" target="_blank" title="Paddington 2"><span></span><img src="http://www.takmovie2.me/upload/post_tt4468740.jpg?ver=1520539139" alt="Paddington 2" title="Paddington 2" /></a><a href="http://www.takmovie2.me/post/tt4765284/" target="_blank" title="Pitch Perfect 3"><span></span><img src="http://www.takmovie2.me/upload/post_tt4765284.jpg?ver=1520408910" alt="Pitch Perfect 3" title="Pitch Perfect 3" /></a><a href="http://www.takmovie2.me/post/tt2283362/" target="_blank" title="Jumanji: Welcome to the Jungle" class="last_slider"><span></span><img src="http://www.takmovie2.me/upload/post_tt2283362.jpg?ver=1520381429" alt="Jumanji: Welcome to the Jungle" title="Jumanji: Welcome to the Jungle" /></a></div></li><li><div class="slider"><a href="http://www.takmovie2.me/post/tt5726616/" target="_blank" title="Call Me by Your Name" class="first_slider"><span></span><img src="http://www.takmovie2.me/upload/post_tt5726616.jpg?ver=1519814027" alt="Call Me by Your Name" title="Call Me by Your Name" /></a><a href="http://www.takmovie2.me/post/tt5580390/" target="_blank" title="The Shape of Water"><span></span><img src="http://www.takmovie2.me/upload/post_tt5580390.jpg?ver=1519787538" alt="The Shape of Water" title="The Shape of Water" /></a><a href="http://www.takmovie2.me/post/tt3521126/" target="_blank" title="The Disaster Artist"><span></span><img src="http://www.takmovie2.me/upload/post_tt3521126.jpg?ver=1519776847" alt="The Disaster Artist" title="The Disaster Artist" /></a><a href="http://www.takmovie2.me/post/tt0974015/" target="_blank" title="Justice League" class="last_slider"><span></span><img src="http://www.takmovie2.me/upload/post_tt0974015.jpg?ver=1519619403" alt="Justice League" title="Justice League" /></a></div></li>        </ul>
+    </div>
+    <ul class="amazon_scroller_nav">
+        <li style="margin:138px 0 0 7px;"></li>
+        <li style="margin:138px 583px 0 0;"></li>
+    </ul>
+</div>
+<br style="clear:both;" />
+<div id="page_nav">
+    <a href="http://www.takmovie2.me/search.php?search=&category_select=movie&score=5&country=0&quality=0&genre=0&view=1&from=2016&until=2017" title="مشاهده تمامی مطالب ویژه">مشاهده تمام فیلم های ویژه »</a>
+</div>
+
+<!-- New Item -->
+<div class="box">
+    <div class="box_top">
+    </div>
+    <div class="box_middle">
+        <h4 class="title">جدول پخش هفتگی سریال ها در تک مووی</h4>
+        <br style="clear:both;" />
+        <iframe src="https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=1&showPrint=0&showTabs=0&showTz=0&mode=AGENDA&height=200&wkst=7&bgcolor=%23f9f9fb&src=hi5037vt1ef5ebobmt666e5pk0%40group.calendar.google.com&color=%23060D5E&ctz=Asia%2FBangkok" style="margin:10px 22px 12px;" width="592" height="240" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="box_bottom">
+    </div>
+</div>
+
+<div class="box">
+    <div class="box_top">
+    </div>
+    <div class="box_middle">
+        <h4 class="title">پیام مدیریت</h4>
+        <br style="clear:both;" />
+        <div class="intext">
+			<p dir="rtl" style="text-align:justify;"><span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;"><span style="font-size:10pt;"><strong><span style="color:#993366;">*</span></strong></span> تمامی فیلم های موجود در تک مووی نسخه‌های با کیفیت نهایی (BluRay) می‌باشند، بنابراین قرارگرفتن فیلم‌های جدید در سایت<br />   مستلزم انتشار نسخه بلوری آن ها می باشد و نسخه های با کیفیت پایین تر مانند DVDrip، xvid ، HDrip ، WEB-DL، DVDScr و...<br />   در سایت قرار نمی گیرند (بجز فیلم های شبکه Netflix). لطفا در این مورد سوال یا پیامی ارسال نفرمایید.<br /></span></span></p>
+<p dir="rtl" style="text-align:justify;"><span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;"><span style="font-size:11pt;"><span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;"><span style="font-size:10pt;"><strong><span style="color:#993366;">*</span></strong></span> <span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;">جهت درخواست فیلم یا سریال، کافیست لینک IMDb فیلم مورد نظر را در بخش نظرات ثبت کرده و یا به ایمیل سایت ارسال نمایید.</span></span></span></span></span><br /></span></span></p>
+<p dir="rtl"><span style="font-size:11pt;"><span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;"><span style="font-size:10pt;"><strong><span style="color:#993366;">*</span></strong></span> نشانی ایمیل سایت :<span style="font-size:11pt;"><span style="font-size:8pt;color:#000080;"> <a href="mailto:info@TakMovie.co">info@TakMovie.co</a><br /><br /><a href="http://www.takmovie.co/search.php?search=&amp;category_select=movie&amp;score=0&amp;country=0&amp;quality=BluRay+Full+HD&amp;genre=0&amp;view=1&amp;from=1920&amp;until=2017">           <img src="http://takmovie.co/images/Butt1080.png" alt="آرشیو فیلم های فول اچ دی" width="250" height="49" align="middle" /></a>        </span></span><a href="http://www.takmovie.co/search.php?search=&amp;category_select=movie&amp;score=0&amp;country=0&amp;quality=3D&amp;genre=0&amp;view=1&amp;from=1920&amp;until=2017"><img style="margin-left:auto;margin-right:auto;" src="http://takmovie.co/images/Butt3D.png" alt="آرشیو فیلم های سه بعدی" width="250" height="49" align="middle" /></a><br /></span></span></span></p>        </div>
+    </div>
+    <div class="box_bottom">
+    </div>
+</div>
+
+
+
+ <br/>
+        <div>
+		<a href="https://telegram.me/takmovie"  target="_blank" alt="تلگرام تک مووی"><img src="http://www.takmovie2.me/jpg/TakTele.png" alt="تلگرام تک مووی"></a>	
+        </div>
+
+
+
+<!-- New Item -->
+
+<div class="box">
+    <div class="box_top">
+    </div>
+    <div class="box_middle">
+        <h4 class="title">جستجوی حرفه ای</h4>
+        <br style="clear:both;" />
+        <form action="http://www.takmovie2.me/search.php" id="search">
+            <input name="search" value="" type="text" placeholder="متن جستجو" class="large" />
+            <div class="select"><p>نوع :</p> <span><select name="category_select" id="category_select"><option value="1">همه</option><option value="series">سریال</option><option value="movie">فیلم</option></select></span></div>
+            
+            <div class="select"><p>امتیاز :</p> <span><select name="score"><option value="0">همه</option><option value="9">بالای 9.0</option><option value="8.5">بالای 8.5</option><option value="8">بالای 8.0</option><option value="7.5">بالای 7.5</option><option value="7">بالای 7.0</option><option value="6">بالای 6.0</option><option value="5">بالای 5.0</option><option value="1">زیر 5.0</option></select></span></div>
+            
+            <div class="select"><p>کشور :</p> <span><select name="country"><option value="0">همه</option>
+                        <option value="USA">آمریکا</option><option value="France">فرانسه</option><option value="Italy">ایتالیا</option><option value="UK">انگلستان</option><option value="Germany">آلمان</option><option value="Spain">اسپانیا</option><option value="Iran">ایران</option><option value="Japan">ژاپن</option><option value="China">چین</option><option value="South Korea"> کره جنوبی</option><option value="Hong Kong">هنگ کنگ</option><option value="India">هند</option><option value="Australia">استرالیا</option><option value="Denmark">دانمارک</option><option value="Czech Republic">جمهوری چک</option><option value="Russia">روسیه</option><option value="Thailand">تایلند</option><option value="Finland">فنلاند</option><option value="Taiwan">تایوان</option><option value="Ireland">ایرلند</option><option value="Poland">لهستان</option><option value="Palestine">فلسطین</option><option value="Laos">لائوس</option><option value="Nepal">نپال</option><option value="Malta">مالت</option><option value="Uruguay">اروگوئه</option><option value="Chile">شیلی</option><option value="Paraguay">پاراگوئه</option><option value="Fiji">فیجی</option><option value="Iceland">ایسلند</option><option value="Puerto Rico">پورتو ریکو</option><option value="Panama">پاناما</option><option value="Luxembourg">لوکزامبورگ</option><option value="Georgia">گرجستان</option><option value="Lithuania">لیتوانی</option><option value="Estonia">استونی</option><option value="Belarus">بلاروس</option><option value="Colombia">کلمبیا</option><option value="West Germany">آلمان غربی</option><option value="Indonesia">اندونزی</option><option value="Belgium">بلژیک</option><option value="Norway">نروژ</option><option value="Lebanon">لبنان</option><option value="Soviet Union">شوروی</option><option value="Israel">اسرائیل</option><option value="Nigeria">نیجریه</option><option value="Filipine">فیلیپین</option><option value="Canada">کانادا</option><option value="Federal Republic of Yugoslavia">یوگوسلاوی</option><option value="Romania">رومانی</option><option value="Czechoslovakia">چک و اسلواکی</option><option value="Venezuela">ونزوئلا</option><option value="Greece">یونان</option><option value="Malaysia">مالزی</option><option value="Mexico">مکزیک</option><option value="New Zealand">نیوزلند</option><option value="Netherlands">هلند</option><option value="Cambodia">کامبوج</option><option value="Bosnia and Herzegovina">بوسنی و هرزگوین</option><option value="Portugal">پرتغال</option><option value="Singapore">سنگاپور</option><option value="Sweden">سوئد</option><option value="Switzerland">سوئیس</option><option value="Afghanistan">افغانستان</option><option value="Hungary">مجارستان</option><option value="Austria">اتریش</option><option value="South Africa">آفریقای جنوبی</option><option value="Turkey">ترکیه</option><option value="Brazil">برزیل</option><option value="Argentina">آرژانتین</option><option value="Serbia">صربستان</option><option value="Bulgaria">بلغارستان</option><option value="Libya">لیبی</option><option value="Kenya">کنیا</option><option value="Ukraine">اوکراین</option><option value="Philippines">فیلیپین</option><option value="Azerbaijan">آذربایجان</option><option value="Slovakia">اسلواکی</option><option value="Algeria">الجزایر</option><option value="Mauritania">موریتانی</option><option value="Bangladesh">بنگلادش</option><option value="United Arab Emirates">امارات</option><option value="Cameroon">کامرون</option><option value="Jamaica">جامائیکا</option><option value="Monaco">موناکو</option><option value="Senegal"> سنگال</option><option value="Angola">آنگولا</option><option value="Tanzania">تانزانیا</option><option value="Cuba">کوبا</option><option value="Kazakhstan">قزاقستان</option><option value="Saudi Arabia">عربستان</option><option value="Bahamas">باهاما</option><option value="Croatia">کرواسی</option><option value="Tunisia">تونس</option><option value="Albania">آلبانی</option><option value="Peru">پرو</option><option value="Morocco">مراکش</option><option value="Macao">ماکائو</option><option value="Ghana">غنا</option><option value="Cyprus">قبرس</option><option value="Guatemala">گواتمالا</option><option value="Jordan">اردن</option><option value="Yugoslavia">یوگوسلاوی</option><option value="French Polynesia">پلینزی فرانسه</option><option value="Somalia">سومالی</option><option value="Republic of Macedonia">جمهوری مقدونیه</option><option value="Dominican Republic">جمهوری دومینیکن</option></select></span></div>
+            
+            <div class="select"><p>کیفیت :</p> <span><select name="quality"><option value="0">همه</option>
+                        <option value="BluRay Full HD">BluRay Full HD</option><option value="BluRay 1080p">BluRay 1080p</option><option value="BluRay 720p">BluRay 720p</option><option value="x265">x265</option><option value="3D">3D</option><option value="WEB Netflix">WEB Netflix</option></select></span></div>
+            			<div class="select"><p>ژانر :</p> <span><select name="genre"><option value="0">همه</option>
+                        <option value="Action">اکشن</option><option value="Adventure">ماجراجویی</option><option value="Animation">انیمیشن</option><option value="Biography">بیوگرافی</option><option value="Comedy">کمدی</option><option value="Crime">جنایی</option><option value="Documentary">مستند</option><option value="Drama">درام</option><option value="Family">خانوادگی</option><option value="Fantasy">فانتزی</option><option value="Film-Noir">فیلم نوآر</option><option value="History">تاریخی</option><option value="Horror">ترسناک</option><option value="Music">موزیک</option><option value="Musical">موزیکال</option><option value="Mystery">رازآلود</option><option value="Romance">عاشقانه</option><option value="Sci-Fi">علمی تخیلی</option><option value="Sport">ورزشی</option><option value="Thriller">هیجان انگیز</option><option value="War">جنگی</option><option value="Western">وسترن</option><option value="Short">کوتاه</option><option value="Reality-TV">مراسم</option></select></span></div>
+            
+            <div class="select"><p>ترتیب نمایش :</p> <span><select name="view"><option value="1">تاریخ ثبت</option><option value="2">امتیاز</option><option value="3">سال انتشار</option><option value="4">بازدید</option><option value="5">تعداد رای</option></select></span></div>
+            
+            <div class="select small" id="year_change"><p>سال تولید :</p> <input name="from" type="text" value="1920" /> &nbsp;تا&nbsp; <input name="until" type="text" value="2018" /></div>
+            <br style="clear:both;" />
+            <input type="submit" class="submit" value="تایید و جستجو" />
+            <div id="change">در صورتی که قصد جستجو در سریال ها را دارید، نوع مطلب را بر روی سریال قرار دهید.</div>
+            <br style="clear:both;" />
+        </form>
+    </div>
+    <div class="box_bottom">
+    </div>
+</div>                    <div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt5999530/" title="Before We Vanish" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt5999530.jpg?ver=1521312556" title="Before We Vanish" alt="Before We Vanish" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt5999530/" title="Before We Vanish" target="_blank">Before We Vanish <span class="year">(2017)</span></a></h2>
+					<span class="product">129 دقیقه &nbsp;,&nbsp; محصول ژاپن</span>
+					
+					
+					<span class="gr age">-</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt5999530/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt5999530" title="tt5999530" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>6.0</b></span>/10 از 376 رای</span>
+					<span class="meta">امتیاز منتقدین : 64</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Sci-Fi/">علمی تخیلی</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0475905/" class="blue">Kiyoshi Kurosawa</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm5772332/" class="blue">Tomohiro Maekawa</a> , <a href="http://www.takmovie2.me/actor/nm0475905/" class="blue">Kiyoshi Kurosawa</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0619178/" class="blue">Masami Nagasawa</a> , <a href="http://www.takmovie2.me/actor/nm0559430/" class="blue">Ryûhei Matsuda</a> , <a href="http://www.takmovie2.me/actor/nm4056296/" class="blue">Hiroki Hasegawa</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">سه بیگانه در قالب و ظاهر انسان به زمین می‎آیند تا زمینه‎ی تهاجم‌شان به زمین را آماده کنند و...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt5999530/" title="دانلود Before We Vanish" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt5999530">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt5739586/" title="Tornado Girl" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt5739586.jpg?ver=1521312341" title="Tornado Girl" alt="Tornado Girl" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt5739586/" title="Tornado Girl" target="_blank">Tornado Girl <span class="year">(2017)</span></a></h2>
+					<span class="product">100 دقیقه &nbsp;,&nbsp; محصول ژاپن</span>
+					
+					
+					<span class="gr age">-</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt5739586/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt5739586" title="tt5739586" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>5.9</b></span>/10 از 37 رای</span>
+					<span class="meta">امتیاز منتقدین : -</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Comedy/">کمدی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Romance/">عاشقانه</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm3973064/" class="blue">Hitoshi Ône</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm8158205/" class="blue">Chokkaku Shibuya</a> , <a href="http://www.takmovie2.me/actor/nm3973064/" class="blue">Hitoshi Ône</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm1070494/" class="blue">Satoshi Tsumabuki</a> , <a href="http://www.takmovie2.me/actor/nm3460467/" class="blue">Kiko Mizuhara</a> , <a href="http://www.takmovie2.me/actor/nm1078422/" class="blue">Hirofumi Arai</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">&quot;یوجی کروکی&quot; سی و پنج ساله عاشق &quot;تامیو اوکودا&quot;ی خواننده شده است؛ اما در این عشق مشکلاتی وجود دارد که...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt5739586/" title="دانلود Tornado Girl" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt5739586">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt5451244/" title="The Motive" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt5451244.jpg?ver=1521299445" title="The Motive" alt="The Motive" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt5451244/" title="The Motive" target="_blank">The Motive <span class="year">(2017)</span></a></h2>
+					<span class="product">112 دقیقه &nbsp;,&nbsp; محصول اسپانیا , مکزیک</span>
+					
+					
+					<span class="gr age">-</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt5451244/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt5451244" title="tt5451244" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>6.8</b></span>/10 از 415 رای</span>
+					<span class="meta">امتیاز منتقدین : -</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Comedy/">کمدی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0554532/" class="blue">Manuel Martín Cuenca</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm1333440/" class="blue">Javier Cercas</a> , <a href="http://www.takmovie2.me/actor/nm0379864/" class="blue">Alejandro Hernández</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0349522/" class="blue">Javier Gutiérrez</a> , <a href="http://www.takmovie2.me/actor/nm2725254/" class="blue">María León</a> , <a href="http://www.takmovie2.me/actor/nm2431367/" class="blue">Adelfa Calvo</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">مردی که با ایده نوشتن یک داستان فوق‌العاده، یک سری تضادها و کشمش‌ها در اطراف خود ایجاد می‌کند تا در مورد آن بنویسد...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt5451244/" title="دانلود The Motive" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt5451244">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt1653690/" title="Ong-bak 3" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt1653690.jpg?ver=1521297767" title="Ong-bak 3" alt="Ong-bak 3" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt1653690/" title="Ong-bak 3" target="_blank">Ong-bak 3 <span class="year">(2010)</span></a></h2>
+					<span class="product">99 دقیقه &nbsp;,&nbsp; محصول تایلند</span>
+					
+					
+					<span class="gr age">R</span><div class="more sub_s">S</div>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt1653690/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt1653690" title="tt1653690" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>5.0</b></span>/10 از 11,450 رای</span>
+					<span class="meta">امتیاز منتقدین : 38</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Action/">اکشن</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm1388074/" class="blue">Tony Jaa</a> , <a href="http://www.takmovie2.me/actor/nm1437277/" class="blue">Panna Rittikrai</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm1388074/" class="blue">Tony Jaa</a> , <a href="http://www.takmovie2.me/actor/nm1437277/" class="blue">Panna Rittikrai</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm1388074/" class="blue">Tony Jaa</a> , <a href="http://www.takmovie2.me/actor/nm1933481/" class="blue">Dan Chupong</a> , <a href="http://www.takmovie2.me/actor/nm1033693/" class="blue">Sarunyu Wongkrachang</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">فیلم از ادامه سری قبل یعنی از جایی شروع می‌شود که «تین» رییس خود را کشت و توسط قبیله دشمن دستگیر شد. حالا او را دستگیر کرده و به مقر فرمانده می‌برند و در آنجا نیز پس از شکنجه و مبارزه بسیار سخت او را درحالت مرگ رها می‌کنند اما با کمک و مداوای دختری قوای خود را بدست آورده و برای انتقام آماده می‌شود...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt1653690/" title="دانلود Ong-bak 3" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt1653690">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt2364841/" title="Runner Runner" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt2364841.jpg?ver=1521295043" title="Runner Runner" alt="Runner Runner" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt2364841/" title="Runner Runner" target="_blank">Runner Runner <span class="year">(2013)</span></a></h2>
+					<span class="product">91 دقیقه &nbsp;,&nbsp; محصول آمریکا</span>
+					
+					
+					<span class="gr age">R</span><div class="more sub_s">S</div>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt2364841/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt2364841" title="tt2364841" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>5.6</b></span>/10 از 56,150 رای</span>
+					<span class="meta">امتیاز منتقدین : 36</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Crime/">جنایی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Thriller/">هیجان انگیز</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm1026778/" class="blue">Brad Furman</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm0002718/" class="blue">Brian Koppelman</a> , <a href="http://www.takmovie2.me/actor/nm0505522/" class="blue">David Levien</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0000255/" class="blue">Ben Affleck</a> , <a href="http://www.takmovie2.me/actor/nm0005493/" class="blue">Justin Timberlake</a> , <a href="http://www.takmovie2.me/actor/nm2605345/" class="blue">Gemma Arterton</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">&quot;ریچی فرست&quot; در جریان انجام بازی پوکر آنلاین، تمام شهریه دانشگاهش را به دلیل تقلب از دست می‌دهد و زمانی که متوجه می‌شود این سایت قمار از طریق یک جزیره دورافتاده کنترل می‌شود، تصمیم می‌گیرد به آنجا برود اما...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt2364841/" title="دانلود Runner Runner" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt2364841">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt0068767/" title="Fist of Fury" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt0068767.jpg?ver=1521294889" title="Fist of Fury" alt="Fist of Fury" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt0068767/" title="Fist of Fury" target="_blank">Fist of Fury <span class="year">(1972)</span></a></h2>
+					<span class="product">102 دقیقه &nbsp;,&nbsp; محصول هنگ کنگ</span>
+					
+					
+					<span class="gr age">R</span><div class="more sub_s">S</div>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt0068767/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt0068767" title="tt0068767" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>7.4</b></span>/10 از 19,047 رای</span>
+					<span class="meta">امتیاز منتقدین : -</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Action/">اکشن</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Romance/">عاشقانه</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0516344/" class="blue">Wei Lo</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm0516344/" class="blue">Wei Lo</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0000045/" class="blue">Bruce Lee</a> , <a href="http://www.takmovie2.me/actor/nm0583963/" class="blue">Nora Miao</a> , <a href="http://www.takmovie2.me/actor/nm0862875/" class="blue">James Tien</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">مردی جوان به دنبال گرفتن انتقام خون استادش است و ...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt0068767/" title="دانلود Fist of Fury" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt0068767">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt5208216/" title="Wonderstruck" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt5208216.jpg?ver=1521279655" title="Wonderstruck" alt="Wonderstruck" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt5208216/" title="Wonderstruck" target="_blank">Wonderstruck <span class="year">(2017)</span></a></h2>
+					<span class="product">116 دقیقه &nbsp;,&nbsp; محصول آمریکا</span>
+					
+					
+					<span class="gr age">PG</span><div class="more sub_s">S</div>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt5208216/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt5208216" title="tt5208216" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>6.4</b></span>/10 از 4,180 رای</span>
+					<span class="meta">امتیاز منتقدین : 71</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=x265" class="blue"><b>x265</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Family/">خانوادگی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Mystery/">رازآلود</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0001331/" class="blue">Todd Haynes</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm2561765/" class="blue">Brian Selznick</a> , <a href="http://www.takmovie2.me/actor/nm2561765/" class="blue">Brian Selznick</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm4625502/" class="blue">Oakes Fegley</a> , <a href="http://www.takmovie2.me/actor/nm0000194/" class="blue">Julianne Moore</a> , <a href="http://www.takmovie2.me/actor/nm0931329/" class="blue">Michelle Williams</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">داستان پسر جوانی در غرب میانه، هم‌زمان با قصه دختر جوانی در نیویورک پنجاه سال قبل از او که هر دو ارتباط اسرارآمیز یکسانی را دنبال می‌کنند، روایت می‌شود. سال ۱۹۲۷، &quot;رز&quot; دخترک شیطان ۱۲ ساله‌ای با چهره‌ای عجیب و گربه شکل که تنها و ناشنواست، از عمارت خانوادگی‌‌اش در &quot;هوکوبن&quot; نیوجرسی می‌گریزد تا در میان نورهای درخشان و برج‌های سنگی نیویورک رستگار شود و...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt5208216/" title="دانلود Wonderstruck" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt5208216">+ لیست مشاهده</span>
+					<a href="http://www.takmovie2.me/trailer/362883/" title="Wonderstruck 2017 - Trailer 1" class="more moreRight">نمایش تریلر</a>
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt0064689/" title="Monterey Pop" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt0064689.jpg?ver=1521270730" title="Monterey Pop" alt="Monterey Pop" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt0064689/" title="Monterey Pop" target="_blank">Monterey Pop <span class="year">(1968)</span></a></h2>
+					<span class="product">78 دقیقه &nbsp;,&nbsp; محصول آمریکا</span>
+					
+					
+					<span class="gr age">NOT RATED</span><div class="more sub_s">S</div>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt0064689/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt0064689" title="tt0064689" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>8.1</b></span>/10 از 2,828 رای</span>
+					<span class="meta">امتیاز منتقدین : 77</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Documentary/">مستند</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/History/">تاریخی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Music/">موزیک</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0672060/" class="blue">D.A. Pennebaker</a><br /><!--<b>نویسنده :</b> -<br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0714727/" class="blue">Otis Redding</a> , <a href="http://www.takmovie2.me/actor/nm0001342/" class="blue">Jimi Hendrix</a> , <a href="http://www.takmovie2.me/actor/nm0788170/" class="blue">Ravi Shankar</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">مستندی درباره بزرگترین فستیوال موسیقی راک...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt0064689/" title="دانلود Monterey Pop" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt0064689">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt0049949/" title="While the City Sleeps" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt0049949.jpg?ver=1521270511" title="While the City Sleeps" alt="While the City Sleeps" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt0049949/" title="While the City Sleeps" target="_blank">While the City Sleeps <span class="year">(1956)</span></a></h2>
+					<span class="product">100 دقیقه &nbsp;,&nbsp; محصول آمریکا</span>
+					
+					
+					<span class="gr age">Not Rated</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt0049949/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt0049949" title="tt0049949" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>7.0</b></span>/10 از 4,208 رای</span>
+					<span class="meta">امتیاز منتقدین : -</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Crime/">جنایی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Film-Noir/">فیلم نوآر</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0000485/" class="blue">Fritz Lang</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm0732452/" class="blue">Casey Robinson</a> , <a href="http://www.takmovie2.me/actor/nm0251876/" class="blue">Charles Einstein</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0000763/" class="blue">Dana Andrews</a> , <a href="http://www.takmovie2.me/actor/nm0281766/" class="blue">Rhonda Fleming</a> , <a href="http://www.takmovie2.me/actor/nm0001695/" class="blue">George Sanders</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">مرگ غول رسانه‌ای، &quot;آموس کین&quot;، باعث ایجاد جنگ قدرت بین مدیرانش می‌شود. در این حین زنان نیویورک طعمه یک قاتل سریالی می‌شوند. &quot;ادوارد موبلی&quot; خبرنگاری است که شرایط او را وادار به روبرو شدن با ماموریتی غیرممکن می‌کند، دستگیر کردن قاتل سریالی...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt0049949/" title="دانلود While the City Sleeps" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt0049949">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div><div class="post gr">
+				<div class="right">
+					<a href="http://www.takmovie2.me/post/tt0039305/" title="Dead Reckoning" target="_blank">
+						<div class="myshadow">	<img src="http://www.takmovie2.me/upload/post_tt0039305.jpg?ver=1521270026" title="Dead Reckoning" alt="Dead Reckoning" />
+						</div>
+					</a>
+					
+				</div>
+				<div class="left">
+					<h2><a href="http://www.takmovie2.me/post/tt0039305/" title="Dead Reckoning" target="_blank">Dead Reckoning <span class="year">(1947)</span></a></h2>
+					<span class="product">100 دقیقه &nbsp;,&nbsp; محصول آمریکا</span>
+					
+					
+					<span class="gr age">Passed</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<a href="http://www.imdb.com/title/tt0039305/" target="_blank"><img src="http://www.takmovie2.me/images/imdb.gif" class="imdb" alt="tt0039305" title="tt0039305" /></a>
+					<span class="rate">امتیاز : <span class="blue"><b>7.2</b></span>/10 از 5,030 رای</span>
+					<span class="meta">امتیاز منتقدین : -</span>
+					<br style="clear:both;" />
+					<div class="line_base"></div>
+					<div class="info">
+						<b>کیفیت :</b> <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+720p" class="blue"><b>BluRay 720p</b></a> | <a href="http://www.takmovie2.me/search.php?search=&category_select=1&quality=BluRay+1080p" class="blue"><b>BluRay 1080p</b></a><br />
+						<b>ژانر :</b> <a href="http://www.takmovie2.me/tag/Crime/">جنایی</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Drama/">درام</a> &nbsp;|&nbsp; <a href="http://www.takmovie2.me/tag/Film-Noir/">فیلم نوآر</a> &nbsp;<br />
+						<b>کارگردان :</b> <a href="http://www.takmovie2.me/actor/nm0188669/" class="blue">John Cromwell</a><br /><!--<b>نویسنده :</b> <a href="http://www.takmovie2.me/actor/nm0308177/" class="blue">Oliver H.P. Garrett</a> , <a href="http://www.takmovie2.me/actor/nm0279795/" class="blue">Steve Fisher</a><br />-->
+						<b>ستارگان :</b> <a href="http://www.takmovie2.me/actor/nm0000007/" class="blue">Humphrey Bogart</a> , <a href="http://www.takmovie2.me/actor/nm0779507/" class="blue">Lizabeth Scott</a> , <a href="http://www.takmovie2.me/actor/nm0138885/" class="blue">Morris Carnovsky</a><br />
+						
+					</div>
+					<div class="line_base line_base_margin"></div>
+					<div class="text_info">&quot;ریپ مرداک&quot; و &quot;جانی دارک&quot; در راه واشنگتن هستند اما &quot;جانی&quot; ناپدید شده و جسدش پیدا می‌شود. &quot;ریپ&quot; متوجه می‌شود &quot;جانی&quot; متهم به قتل شده و تصمیم می‌گیرد واقعیت را کشف کند...</div>
+					<div class="line_base"></div>
+					<a href="http://www.takmovie2.me/post/tt0039305/" title="دانلود Dead Reckoning" target="_blank" class="more">ادامه / دانلود</a>
+					<span class="more list add" id="tt0039305">+ لیست مشاهده</span>
+					
+					<br style="clear:both;" />
+				</div>
+				<br style="clear:both;" />
+			</div>                	<div id="page"><a class="lefting active">1</a><a class="lefting" href="http://www.takmovie2.me/index/2/">2</a><a class="lefting" href="http://www.takmovie2.me/index/3/">3</a><a class="lefting" href="http://www.takmovie2.me/index/4/">4</a><a class="lefting" href="http://www.takmovie2.me/index/5/">5</a><span class="space">...</span></a><a class="lefting" href="http://www.takmovie2.me/index/1194/">1194</a><a class="lefting" href="http://www.takmovie2.me/index/1195/">1195</a></div>                </div>
+                
+<div id="left">
+        <div class="block first_block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">تک مووی</h4>
+            <img src="http://www.takmovie2.me/images/1.png" alt="" title="" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="address">
+                        <span></span>
+                        <a href="https://sites.google.com/site/takmovienewaddress/" title="صفحه آدرس ها">تک مووی را در شبکه های اجتماعی دنبال کنید</a>
+                        <br style="clear:both;" />
+                    </div>
+                </div>
+                <div class="white_bottom">
+                </div>
+            </div>
+            <div id="share">
+            	<a href="https://www.facebook.com" target="_blank" class="fb"></a>
+                <a href="mailto:info@takmovie.co" target="_blank" class="fb email"></a>
+                <a href="http://www.instagram.com/takmovie.co" target="_blank" class="fb instagram"></a>
+                <a href="https://telegram.me/takmovie" target="_blank" class="fb tg"></a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+    
+
+
+<div class="bbbb"></div> 
+        <div>
+		<a href="https://www.instagram.com/takmovie.co"  target="_blank" alt="اینستاگرام تک مووی"><img src="http://www.takmovie2.me/jpg/Insta.Tak.png" alt="اینستاگرام تک مووی"></a>	
+        </div>
+
+ <!--
+<div class="bbbb"></div> 
+        <div>
+		<a href="https://telegram.me/takmovie"><img src="http://www.takmovie2.me/jpg/Telegram.Tak.png"  alt="کانال تلگرام" /></a>	
+        </div>
+-->
+
+
+    
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">آخرین تریلرها</h4>
+            <img src="http://www.takmovie2.me/images/3.png" alt="آخرین تریلرها" title="آخرین تریلرها" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="allTrailer">
+                        <a href="http://www.takmovie2.me/trailer/215122/" title="Can You Ever Forgive Me? 2018 - Trailer 1" target="_blank">
+								<img src="http://www.takmovie2.me/upload/trailer_451.jpg" title="Can You Ever Forgive Me? 2018 - Trailer 1" alt="Can You Ever Forgive Me? 2018 - Trailer 1" /><span>Can You Ever Forgive Me? 2018 - Trailer 1</span>
+							</a><a href="http://www.takmovie2.me/trailer/942049/" title="Avengers: Infinity War 2018 - Trailer 2" target="_blank">
+								<img src="http://www.takmovie2.me/upload/trailer2_450.jpg" title="Avengers: Infinity War 2018 - Trailer 2" alt="Avengers: Infinity War 2018 - Trailer 2" />
+							</a><a href="http://www.takmovie2.me/trailer/186688/" title="Ready Player One 2018 - Trailer 4" target="_blank">
+								<img src="http://www.takmovie2.me/upload/trailer2_449.jpg" title="Ready Player One 2018 - Trailer 4" alt="Ready Player One 2018 - Trailer 4" />
+							</a><a href="http://www.takmovie2.me/trailer/853286/" title="Adrift 2018 - Trailer 1" target="_blank">
+								<img src="http://www.takmovie2.me/upload/trailer2_447.jpg" title="Adrift 2018 - Trailer 1" alt="Adrift 2018 - Trailer 1" />
+							</a>                        <br style="clear:both;" />
+                    </div>
+                </div>
+                <div class="white_bottom">
+                </div>
+					<a target="_blank" href="http://www.takmovie2.me/trailers/" title="مشاهده تمام تریلرهای جدید" class="all_box">مشاهده تمام تریلرهای جدید</a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+
+
+
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">آخرین سریال های به روز شده</h4>
+            <img src="http://www.takmovie2.me/images/3.png" alt="آخرین سریال های به روز شده" title="آخرین سریال های به روز شده" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="content_1" class="contentserial">
+                        <div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2364582/" title="Agents of S.H.I.E.L.D." target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2364582.jpg?ver=1521269586" title="Agents of S.H.I.E.L.D." alt="Agents of S.H.I.E.L.D." width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2364582/" title="Agents of S.H.I.E.L.D." target="_blank">Agents of S.H.I.E.L.D.</a></h3>
+                                <span>قسمت 13، فصل پنجم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4474344/" title="Blindspot" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4474344.jpg?ver=1521262891" title="Blindspot" alt="Blindspot" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4474344/" title="Blindspot" target="_blank">Blindspot</a></h3>
+                                <span>قسمت 15، فصل سوم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt1843230/" title="Once Upon a Time" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt1843230.jpg?ver=1521262779" title="Once Upon a Time" alt="Once Upon a Time" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt1843230/" title="Once Upon a Time" target="_blank">Once Upon a Time</a></h3>
+                                <span>قسمت 13، فصل هفتم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5052460/" title="Taken" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5052460.jpg?ver=1521262586" title="Taken" alt="Taken" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5052460/" title="Taken" target="_blank">Taken</a></h3>
+                                <span>قسمت 07، فصل دوم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt6712390/" title="Requiem" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt6712390.jpg?ver=1521262361" title="Requiem" alt="Requiem" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt6712390/" title="Requiem" target="_blank">Requiem</a></h3>
+                                <span>قسمت 06، فصل اول 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt6078096/" title="High Maintenance" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt6078096.jpg?ver=1521256143" title="High Maintenance" alt="High Maintenance" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt6078096/" title="High Maintenance" target="_blank">High Maintenance</a></h3>
+                                <span>قسمت 08، فصل دوم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt3566726/" title="Jane the Virgin" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt3566726.jpg?ver=1521251952" title="Jane the Virgin" alt="Jane the Virgin" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt3566726/" title="Jane the Virgin" target="_blank">Jane the Virgin</a></h3>
+                                <span>قسمت 13، فصل چهارم 720p</span><br/>
+                                <p class="up_gray">26 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4288182/" title="Atlanta" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4288182.jpg?ver=1521178304" title="Atlanta" alt="Atlanta" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4288182/" title="Atlanta" target="_blank">Atlanta</a></h3>
+                                <span>قسمت 03، فصل دوم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt3749900/" title="Gotham" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt3749900.jpg?ver=1521176308" title="Gotham" alt="Gotham" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt3749900/" title="Gotham" target="_blank">Gotham</a></h3>
+                                <span>قسمت 14، فصل چهارم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt3205802/" title="How to Get Away with Murder" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt3205802.jpg?ver=1521175638" title="How to Get Away with Murder" alt="How to Get Away with Murder" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt3205802/" title="How to Get Away with Murder" target="_blank">How to Get Away with Murder</a></h3>
+                                <span>آخرین قسمت فصل چهارم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt1837576/" title="Scandal" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt1837576.jpg?ver=1521175616" title="Scandal" alt="Scandal" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt1837576/" title="Scandal" target="_blank">Scandal</a></h3>
+                                <span>قسمت 14، فصل هفتم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt0413573/" title="Greys Anatomy" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt0413573.jpg?ver=1521175507" title="Greys Anatomy" alt="Greys Anatomy" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt0413573/" title="Greys Anatomy" target="_blank">Greys Anatomy</a></h3>
+                                <span>قسمت 15، فصل چهاردهم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5174766/" title="Beyond" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5174766.jpg?ver=1521175241" title="Beyond" alt="Beyond" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5174766/" title="Beyond" target="_blank">Beyond</a></h3>
+                                <span>قسمت 09، فصل دوم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4477976/" title="Superstore" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4477976.jpg?ver=1521166719" title="Superstore" alt="Superstore" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4477976/" title="Superstore" target="_blank">Superstore</a></h3>
+                                <span>قسمت 15، فصل سوم 720p</span><br/>
+                                <p class="up_gray">25 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4254242/" title="The Magicians" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4254242.jpg?ver=1521092492" title="The Magicians" alt="The Magicians" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4254242/" title="The Magicians" target="_blank">The Magicians</a></h3>
+                                <span>قسمت 10، فصل سوم 720p (زیرنویس فارسی بزودی)</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4820370/" title="Channel Zero" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4820370.jpg?ver=1521090937" title="Channel Zero" alt="Channel Zero" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4820370/" title="Channel Zero" target="_blank">Channel Zero</a></h3>
+                                <span>آخرین قسمت فصل سوم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt6474236/" title="The Looming Tower" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt6474236.jpg?ver=1521090329" title="The Looming Tower" alt="The Looming Tower" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt6474236/" title="The Looming Tower" target="_blank">The Looming Tower</a></h3>
+                                <span>قسمت 05، فصل اول 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt3729898/" title="Hap and Leonard" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt3729898.jpg?ver=1521089279" title="Hap and Leonard" alt="Hap and Leonard" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt3729898/" title="Hap and Leonard" target="_blank">Hap and Leonard</a></h3>
+                                <span>قسمت 02، فصل سوم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5420376/" title="Riverdale" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5420376.jpg?ver=1521089118" title="Riverdale" alt="Riverdale" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5420376/" title="Riverdale" target="_blank">Riverdale</a></h3>
+                                <span>قسمت 15، فصل دوم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2741602/" title="The Blacklist" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2741602.jpg?ver=1521089033" title="The Blacklist" alt="The Blacklist" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2741602/" title="The Blacklist" target="_blank">The Blacklist</a></h3>
+                                <span>قسمت 16، فصل پنجم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt0106179/" title="The X-Files" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt0106179.jpg?ver=1521088893" title="The X-Files" alt="The X-Files" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt0106179/" title="The X-Files" target="_blank">The X-Files</a></h3>
+                                <span>قسمت 09، فصل یازدهم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2788432/" title="American Crime Story" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2788432.jpg?ver=1521088883" title="American Crime Story" alt="American Crime Story" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2788432/" title="American Crime Story" target="_blank">American Crime Story</a></h3>
+                                <span>قسمت 08، فصل دوم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt6088922/" title="Life Sentence" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt6088922.jpg?ver=1521088832" title="Life Sentence" alt="Life Sentence" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt6088922/" title="Life Sentence" target="_blank">Life Sentence</a></h3>
+                                <span>قسمت 02، فصل اول 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5296406/" title="Designated Survivor" target="_blank">
+									<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5296406.jpg?ver=1521088795" title="Designated Survivor" alt="Designated Survivor" width="56" height="84" />
+									</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5296406/" title="Designated Survivor" target="_blank">Designated Survivor</a></h3>
+                                <span>قسمت 13، فصل دوم 720p</span><br/>
+                                <p class="up_gray">24 اسفند 1396
+                            </div>
+                        </div>
+                        <div class="office_line"></div>                    </div>
+                </div>
+                <div class="white_bottom">
+                </div>
+					<a target="_blank" href="http://www.takmovie2.me/archive/series/" title="مشاهده تمام سریال های به روز شده" class="all_box">مشاهده تمام سریال های به روز شده</a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+    
+
+
+ <!--
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">باکس آفیس</h4>
+            <img src="http://www.takmovie2.me/images/2.png" alt="باکس آفیس" title="باکس آفیس" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="scroll2" class="amazon_scroller">
+                        <div class="amazon_scroller_mask">
+                            <ul style="width:247px;height:282px;">
+                                <li><div class="office">
+							<img src="http://www.takmovie2.me/upload/box_tt1259528.jpg" title="Den of Thieves" alt="Den of Thieves" width="26" height="40" />
+							<a href="http://www.imdb.com/title/tt1259528?ref_=cht_bo_0" target="_blank" class="office_note">
+								<b>1. Den of Thieves</b><br /><span>$2.9M</span>
+							</a>
+						</div>
+						<div class="office_line"></div>                            </ul>
+                        </div>
+                        <ul class="amazon_scroller_nav">
+                            <li style="margin:-33px 0 0 227px;"></li>
+                            <li style="margin:27px -5px 0 0;"></li>
+                        </ul>
+                    </div>
+                    <br style="clear:both;" />
+                </div>
+                <div class="white_bottom">
+                </div>
+                <a href="http://www.takmovie2.me/page/box_office/" title="باکس آفیس" class="all_box">اطلاعات بیشتر</a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+
+-->
+
+
+
+
+
+
+ <!--
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">آخرین ریلیزهای اختصاصی تک مووی</h4>
+            <img src="http://www.takmovie2.me/images/3.png" alt="آخرین ریلیزهای اختصاصی تک مووی" title="آخرین ریلیزهای اختصاصی تک مووی" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="content_2" class="content">
+                        <div class="movie">
+						<a href="http://www.takmovie2.me/post/tt5999530/" title="Before We Vanish" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt5999530.jpg?ver=1521312556" title="Before We Vanish" alt="Before We Vanish" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt5999530/" title="Before We Vanish" target="_blank">Before We Vanish</a></h3>
+							<span>محصول : 2017</span>
+							<p class="up_gray">امتیاز : 6.0/10</p> تعداد رای : 376
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt5739586/" title="Tornado Girl" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt5739586.jpg?ver=1521312341" title="Tornado Girl" alt="Tornado Girl" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt5739586/" title="Tornado Girl" target="_blank">Tornado Girl</a></h3>
+							<span>محصول : 2017</span>
+							<p class="up_gray">امتیاز : 5.9/10</p> تعداد رای : 37
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt5451244/" title="The Motive" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt5451244.jpg?ver=1521299445" title="The Motive" alt="The Motive" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt5451244/" title="The Motive" target="_blank">The Motive</a></h3>
+							<span>محصول : 2017</span>
+							<p class="up_gray">امتیاز : 6.8/10</p> تعداد رای : 415
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt1653690/" title="Ong-bak 3" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt1653690.jpg?ver=1521297767" title="Ong-bak 3" alt="Ong-bak 3" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt1653690/" title="Ong-bak 3" target="_blank">Ong-bak 3</a></h3>
+							<span>محصول : 2010</span>
+							<p class="up_gray">امتیاز : 5.0/10</p> تعداد رای : 11450
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt2364841/" title="Runner Runner" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt2364841.jpg?ver=1521295043" title="Runner Runner" alt="Runner Runner" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt2364841/" title="Runner Runner" target="_blank">Runner Runner</a></h3>
+							<span>محصول : 2013</span>
+							<p class="up_gray">امتیاز : 5.6/10</p> تعداد رای : 56150
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt0068767/" title="Fist of Fury" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt0068767.jpg?ver=1521294889" title="Fist of Fury" alt="Fist of Fury" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt0068767/" title="Fist of Fury" target="_blank">Fist of Fury</a></h3>
+							<span>محصول : 1972</span>
+							<p class="up_gray">امتیاز : 7.4/10</p> تعداد رای : 19047
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt0064689/" title="Monterey Pop" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt0064689.jpg?ver=1521270730" title="Monterey Pop" alt="Monterey Pop" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt0064689/" title="Monterey Pop" target="_blank">Monterey Pop</a></h3>
+							<span>محصول : 1968</span>
+							<p class="up_gray">امتیاز : 8.1/10</p> تعداد رای : 2828
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt0049949/" title="While the City Sleeps" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt0049949.jpg?ver=1521270511" title="While the City Sleeps" alt="While the City Sleeps" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt0049949/" title="While the City Sleeps" target="_blank">While the City Sleeps</a></h3>
+							<span>محصول : 1956</span>
+							<p class="up_gray">امتیاز : 7.0/10</p> تعداد رای : 4208
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt0039305/" title="Dead Reckoning" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt0039305.jpg?ver=1521270026" title="Dead Reckoning" alt="Dead Reckoning" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt0039305/" title="Dead Reckoning" target="_blank">Dead Reckoning</a></h3>
+							<span>محصول : 1947</span>
+							<p class="up_gray">امتیاز : 7.2/10</p> تعداد رای : 5030
+						</div>
+					</div>
+					<div class="office_line"></div><div class="movie">
+						<a href="http://www.takmovie2.me/post/tt3521442/" title="Journey to the West" target="_blank">
+								<div class="myshadow2"> <img src="http://www.takmovie2.me/upload/post_60_tt3521442.jpg?ver=1521269536" title="Journey to the West" alt="Journey to the West" width="56" height="84" />
+									</div> </a>
+						<div class="movie_text">
+							<h3><a href="http://www.takmovie2.me/post/tt3521442/" title="Journey to the West" target="_blank">Journey to the West</a></h3>
+							<span>محصول : 2014</span>
+							<p class="up_gray">امتیاز : 6.9/10</p> تعداد رای : 576
+						</div>
+					</div>
+					<div class="office_line"></div>                    </div>
+                </div>
+                <div class="white_bottom">
+                </div>
+                <a target="_blank" href="http://www.takmovie2.me/category/5/exclusive/" title="مشاهده کامل ریلیزهای تک مووی" class="all_box">مشاهده کامل ریلیزهای تک مووی</a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+    
+-->
+
+  <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">دسته بندی</h4>
+            <img src="http://www.takmovie2.me/images/4.png" alt="دسته بندی" title="دسته بندی" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <ul class="menu">
+                        <li><span class="blue" id="menu_1">فیلم<p class="open"></p></span><ul class="menu_ul" id="menu_1_ul" style="display: block;"><li class="second_menu" id="menu_2"><a class="gray"><span class="cr1"></span>بر اساس ژانر</a><ul class="menu_ul" id="menu_2_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/13/action/"><span class="cr2"></span>اکشن</a></li><li><a href="http://www.takmovie2.me/category/14/animation/"><span class="cr2"></span>انیمیشن</a></li><li><a href="http://www.takmovie2.me/category/15/biography/"><span class="cr2"></span>بیوگرافی</a></li><li><a href="http://www.takmovie2.me/category/16/history/"><span class="cr2"></span>تاریخی</a></li><li><a href="http://www.takmovie2.me/category/17/horror/"><span class="cr2"></span>ترسناک</a></li><li><a href="http://www.takmovie2.me/category/18/crime/"><span class="cr2"></span>جنایی</a></li><li><a href="http://www.takmovie2.me/category/19/war/"><span class="cr2"></span>جنگی</a></li><li><a href="http://www.takmovie2.me/category/20/family/"><span class="cr2"></span>خانوادگی</a></li><li><a href="http://www.takmovie2.me/category/21/drama/"><span class="cr2"></span>درام</a></li><li><a href="http://www.takmovie2.me/category/22/mystery/"><span class="cr2"></span>رازآلود</a></li><li><a href="http://www.takmovie2.me/category/23/romance/"><span class="cr2"></span>عاشقانه</a></li><li><a href="http://www.takmovie2.me/category/24/sci-fi/"><span class="cr2"></span>علمی تخیلی</a></li><li><a href="http://www.takmovie2.me/category/25/fantasy/"><span class="cr2"></span>فانتزی</a></li><li><a href="http://www.takmovie2.me/category/26/film-noir/"><span class="cr2"></span>فیلم نوآر</a></li><li><a href="http://www.takmovie2.me/category/27/comedy/"><span class="cr2"></span>کمدی</a></li><li><a href="http://www.takmovie2.me/category/28/adventure/"><span class="cr2"></span>ماجراجویی</a></li><li><a href="http://www.takmovie2.me/category/29/documentary/"><span class="cr2"></span>مستند</a></li><li><a href="http://www.takmovie2.me/category/30/music/"><span class="cr2"></span>موزیک</a></li><li><a href="http://www.takmovie2.me/category/31/musical/"><span class="cr2"></span>موزیکال</a></li><li><a href="http://www.takmovie2.me/category/32/western/"><span class="cr2"></span>وسترن</a></li><li><a href="http://www.takmovie2.me/category/33/sport/"><span class="cr2"></span>ورزشی</a></li><li><a href="http://www.takmovie2.me/category/34/thriller/"><span class="cr2"></span>هیجان انگیز</a></li><li><a href="http://www.takmovie2.me/category/165/short/"><span class="cr2"></span>کوتاه</a></li><li><a href="http://www.takmovie2.me/category/166/tv-special/"><span class="cr2"></span>مراسم</a></li></ul></li><li class="second_menu" id="menu_3"><a class="gray"><span class="cr1"></span>بر اساس سال انتشار</a><ul class="menu_ul" id="menu_3_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/35/1900-1929/"><span class="cr2"></span>1900-1929</a></li><li><a href="http://www.takmovie2.me/category/36/1930-1939/"><span class="cr2"></span>1930-1939</a></li><li><a href="http://www.takmovie2.me/category/37/1940-1949/"><span class="cr2"></span>1940-1949</a></li><li><a href="http://www.takmovie2.me/category/38/1950-1959/"><span class="cr2"></span>1950-1959</a></li><li><a href="http://www.takmovie2.me/category/39/1960-1969/"><span class="cr2"></span>1960-1969</a></li><li><a href="http://www.takmovie2.me/category/40/1970-1979/"><span class="cr2"></span>1970-1979</a></li><li><a href="http://www.takmovie2.me/category/41/1980-1989/"><span class="cr2"></span>1980-1989</a></li><li><a href="http://www.takmovie2.me/category/42/1990-1999/"><span class="cr2"></span>1990-1999</a></li><li><a href="http://www.takmovie2.me/category/43/2000-2009/"><span class="cr2"></span>2000-2009</a></li><li><a href="http://www.takmovie2.me/category/44/2010/"><span class="cr2"></span>2010</a></li><li><a href="http://www.takmovie2.me/category/45/2011/"><span class="cr2"></span>2011</a></li><li><a href="http://www.takmovie2.me/category/46/2012/"><span class="cr2"></span>2012</a></li><li><a href="http://www.takmovie2.me/category/47/2013/"><span class="cr2"></span>2013</a></li><li><a href="http://www.takmovie2.me/category/48/2014/"><span class="cr2"></span>2014</a></li><li><a href="http://www.takmovie2.me/category/173/2015/"><span class="cr2"></span>2015</a></li><li><a href="http://www.takmovie2.me/category/178/2016/"><span class="cr2"></span>2016</a></li><li><a href="http://www.takmovie2.me/category/180/2017/"><span class="cr2"></span>2017</a></li><li><a href="http://www.takmovie2.me/category/182/2018/"><span class="cr2"></span>2018</a></li></ul></li><li><a href="http://www.takmovie2.me/category/181/netflix-movie/"><span class="cr1"></span>فیلم های Netflix</a></li><li><a href="http://www.takmovie2.me/category/4/3d/"><span class="cr1"></span>فیلم های سه بعدی</a></li><li><a href="http://www.takmovie2.me/category/5/exclusive/"><span class="cr1"></span>ریلیزهای اختصاصی</a></li><li class="second_menu" id="menu_6"><a class="gray"><span class="cr1"></span>بر اساس کیفیت</a><ul class="menu_ul" id="menu_6_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/49/1080pbfhd/"><span class="cr2"></span>BluRay Full HD</a></li><li><a href="http://www.takmovie2.me/category/51/1080pb/"><span class="cr2"></span>BluRay 1080p</a></li><li><a href="http://www.takmovie2.me/category/52/720pb/"><span class="cr2"></span>BluRay 720p</a></li><li><a href="http://www.takmovie2.me/category/176/x265/"><span class="cr2"></span>x265</a></li></ul></li><li class="second_menu" id="menu_7"><a class="gray"><span class="cr1"></span>کالکشن ها</a><ul class="menu_ul" id="menu_7_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/53/anightmareonelmstreet/"><span class="cr2"></span>A Nightmare on Elm Street</a></li><li><a href="http://www.takmovie2.me/category/54/alien/"><span class="cr2"></span>Alien</a></li><li><a href="http://www.takmovie2.me/category/55/americanpie/"><span class="cr2"></span>American Pie</a></li><li><a href="http://www.takmovie2.me/category/56/austinpowers/"><span class="cr2"></span>Austin Powers</a></li><li><a href="http://www.takmovie2.me/category/57/backtothefuture/"><span class="cr2"></span>Back to the Future</a></li><li><a href="http://www.takmovie2.me/category/58/basicinstinct/"><span class="cr2"></span>Basic Instinct</a></li><li><a href="http://www.takmovie2.me/category/59/batman/"><span class="cr2"></span>Batman</a></li><li><a href="http://www.takmovie2.me/category/60/beverlyhillscop/"><span class="cr2"></span>Beverly Hills Cop</a></li><li><a href="http://www.takmovie2.me/category/61/blade/"><span class="cr2"></span>Blade</a></li><li><a href="http://www.takmovie2.me/category/62/childsplay/"><span class="cr2"></span>Childs Play</a></li><li><a href="http://www.takmovie2.me/category/63/crank/"><span class="cr2"></span>Crank</a></li><li><a href="http://www.takmovie2.me/category/64/cube/"><span class="cr2"></span>Cube</a></li><li><a href="http://www.takmovie2.me/category/65/deathnote/"><span class="cr2"></span>Death Note</a></li><li><a href="http://www.takmovie2.me/category/66/diehard/"><span class="cr2"></span>Die Hard</a></li><li><a href="http://www.takmovie2.me/category/67/dirtyharry/"><span class="cr2"></span>Dirty Harry</a></li><li><a href="http://www.takmovie2.me/category/68/fantasticfour/"><span class="cr2"></span>Fantastic Four</a></li><li><a href="http://www.takmovie2.me/category/69/fastandfurious/"><span class="cr2"></span>Fast and Furious</a></li><li><a href="http://www.takmovie2.me/category/70/finaldestination/"><span class="cr2"></span>Final Destination</a></li><li><a href="http://www.takmovie2.me/category/71/gijoe/"><span class="cr2"></span>G.I. Joe</a></li><li><a href="http://www.takmovie2.me/category/72/ghostintheshell/"><span class="cr2"></span>Ghost in the Shell</a></li><li><a href="http://www.takmovie2.me/category/73/godfather/"><span class="cr2"></span>Godfather</a></li><li><a href="http://www.takmovie2.me/category/74/halloween/"><span class="cr2"></span>Halloween</a></li><li><a href="http://www.takmovie2.me/category/75/hangover/"><span class="cr2"></span>Hangover</a></li><li><a href="http://www.takmovie2.me/category/76/harrypotter/"><span class="cr2"></span>Harry Potter</a></li><li><a href="http://www.takmovie2.me/category/77/hellraiser/"><span class="cr2"></span>Hellraiser</a></li><li><a href="http://www.takmovie2.me/category/78/highschoolmusical/"><span class="cr2"></span>High School Musical</a></li><li><a href="http://www.takmovie2.me/category/79/hostel/"><span class="cr2"></span>Hostel</a></li><li><a href="http://www.takmovie2.me/category/177/hotel-transylvania/"><span class="cr2"></span>Hotel Transylvania</a></li><li><a href="http://www.takmovie2.me/category/80/hulk/"><span class="cr2"></span>Hulk</a></li><li><a href="http://www.takmovie2.me/category/81/ispitonyourgrave/"><span class="cr2"></span>I Spit on Your Grave</a></li><li><a href="http://www.takmovie2.me/category/82/indianajones/"><span class="cr2"></span>Indiana Jones</a></li><li><a href="http://www.takmovie2.me/category/83/infernalaffairs/"><span class="cr2"></span>Infernal Affairs</a></li><li><a href="http://www.takmovie2.me/category/175/insidious/"><span class="cr2"></span>Insidious</a></li><li><a href="http://www.takmovie2.me/category/84/ipman/"><span class="cr2"></span>IP Man</a></li><li><a href="http://www.takmovie2.me/category/85/ironman/"><span class="cr2"></span>Iron Man</a></li><li><a href="http://www.takmovie2.me/category/86/jamesbond007/"><span class="cr2"></span>James Bond 007</a></li><li><a href="http://www.takmovie2.me/category/87/killbill/"><span class="cr2"></span>Kill Bill</a></li><li><a href="http://www.takmovie2.me/category/88/lethalweapon/"><span class="cr2"></span>Lethal Weapon</a></li><li><a href="http://www.takmovie2.me/category/89/madmax/"><span class="cr2"></span>Mad Max</a></li><li><a href="http://www.takmovie2.me/category/90/matrix/"><span class="cr2"></span>Matrix</a></li><li><a href="http://www.takmovie2.me/category/91/meninblack/"><span class="cr2"></span>Men in Black</a></li><li><a href="http://www.takmovie2.me/category/92/missionimpossible/"><span class="cr2"></span>Mission Impossible</a></li><li><a href="http://www.takmovie2.me/category/93/ocean/"><span class="cr2"></span>Ocean Street</a></li><li><a href="http://www.takmovie2.me/category/94/onepiece/"><span class="cr2"></span>One Piece</a></li><li><a href="http://www.takmovie2.me/category/95/ongbak/"><span class="cr2"></span>Ong bak</a></li><li><a href="http://www.takmovie2.me/category/96/paranormalactivity/"><span class="cr2"></span>Paranormal Activity</a></li><li><a href="http://www.takmovie2.me/category/97/piratesofthecaribbean/"><span class="cr2"></span>Pirates Of The Caribbean</a></li><li><a href="http://www.takmovie2.me/category/98/planetoftheapes/"><span class="cr2"></span>Planet of the Apes</a></li><li><a href="http://www.takmovie2.me/category/99/policestory/"><span class="cr2"></span>Police Story</a></li><li><a href="http://www.takmovie2.me/category/100/rambo/"><span class="cr2"></span>Rambo</a></li><li><a href="http://www.takmovie2.me/category/101/rec/"><span class="cr2"></span>Rec</a></li><li><a href="http://www.takmovie2.me/category/102/redcliff/"><span class="cr2"></span>Red Cliff</a></li><li><a href="http://www.takmovie2.me/category/103/residentevil/"><span class="cr2"></span>Resident Evil</a></li><li><a href="http://www.takmovie2.me/category/104/robocop/"><span class="cr2"></span>RoboCop</a></li><li><a href="http://www.takmovie2.me/category/105/rocky/"><span class="cr2"></span>Rocky</a></li><li><a href="http://www.takmovie2.me/category/106/rushhour/"><span class="cr2"></span>Rush Hour</a></li><li><a href="http://www.takmovie2.me/category/107/saw/"><span class="cr2"></span>Saw</a></li><li><a href="http://www.takmovie2.me/category/108/scarymovie/"><span class="cr2"></span>Scary Movie</a></li><li><a href="http://www.takmovie2.me/category/109/scream/"><span class="cr2"></span>Scream</a></li><li><a href="http://www.takmovie2.me/category/110/sherlockholmes/"><span class="cr2"></span>Sherlock Holmes</a></li><li><a href="http://www.takmovie2.me/category/111/shrek/"><span class="cr2"></span>Shrek</a></li><li><a href="http://www.takmovie2.me/category/112/spiderman/"><span class="cr2"></span>Spiderman</a></li><li><a href="http://www.takmovie2.me/category/113/startrek/"><span class="cr2"></span>Star Trek</a></li><li><a href="http://www.takmovie2.me/category/114/starwars/"><span class="cr2"></span>Star Wars</a></li><li><a href="http://www.takmovie2.me/category/115/stepup/"><span class="cr2"></span>Step Up</a></li><li><a href="http://www.takmovie2.me/category/179/taxi/"><span class="cr2"></span>Taxi</a></li><li><a href="http://www.takmovie2.me/category/174/ted/"><span class="cr2"></span>Ted</a></li><li><a href="http://www.takmovie2.me/category/116/terminator/"><span class="cr2"></span>Terminator</a></li><li><a href="http://www.takmovie2.me/category/117/texaschainsawmassacre/"><span class="cr2"></span>Texas Chainsaw Massacre</a></li><li><a href="http://www.takmovie2.me/category/118/thebourne/"><span class="cr2"></span>The Bourne</a></li><li><a href="http://www.takmovie2.me/category/119/thechroniclesofnarnia/"><span class="cr2"></span>The Chronicles of Narnia</a></li><li><a href="http://www.takmovie2.me/category/120/theevildead/"><span class="cr2"></span>The Evil Dead</a></li><li><a href="http://www.takmovie2.me/category/121/thehobbit/"><span class="cr2"></span>The Hobbit</a></li><li><a href="http://www.takmovie2.me/category/122/thehungergames/"><span class="cr2"></span>The Hunger Games</a></li><li><a href="http://www.takmovie2.me/category/123/thelionking/"><span class="cr2"></span>The Lion King</a></li><li><a href="http://www.takmovie2.me/category/124/thelordoftherings/"><span class="cr2"></span>The Lord of The Rings</a></li><li><a href="http://www.takmovie2.me/category/125/themummy/"><span class="cr2"></span>The Mummy</a></li><li><a href="http://www.takmovie2.me/category/126/thetransporter/"><span class="cr2"></span>The Transporter</a></li><li><a href="http://www.takmovie2.me/category/127/tomandjerry/"><span class="cr2"></span>Tom &amp; Jerry</a></li><li><a href="http://www.takmovie2.me/category/163/toystory/"><span class="cr2"></span>Toy Story</a></li><li><a href="http://www.takmovie2.me/category/128/transformers/"><span class="cr2"></span>Transformers</a></li><li><a href="http://www.takmovie2.me/category/129/twilight/"><span class="cr2"></span>Twilight</a></li><li><a href="http://www.takmovie2.me/category/130/underworld/"><span class="cr2"></span>UnderWorld</a></li><li><a href="http://www.takmovie2.me/category/131/undisputed/"><span class="cr2"></span>Undisputed</a></li><li><a href="http://www.takmovie2.me/category/132/universalsoldier/"><span class="cr2"></span>Universal Soldier</a></li><li><a href="http://www.takmovie2.me/category/133/wrongturn/"><span class="cr2"></span>Wrong Turn</a></li><li><a href="http://www.takmovie2.me/category/134/xmen/"><span class="cr2"></span>X-Men</a></li><li><a href="http://www.takmovie2.me/category/167/iceage/"><span class="cr2"></span>Ice Age</a></li><li><a href="http://www.takmovie2.me/category/168/madagascar/"><span class="cr2"></span>Madagascar</a></li><li><a href="http://www.takmovie2.me/category/169/theomen/"><span class="cr2"></span>The Omen</a></li><li><a href="http://www.takmovie2.me/category/170/deathrace/"><span class="cr2"></span>Death Race</a></li><li><a href="http://www.takmovie2.me/category/171/jurassicpark/"><span class="cr2"></span>Jurassic Park</a></li><li><a href="http://www.takmovie2.me/category/172/balto/"><span class="cr2"></span>Balto</a></li></ul></li></ul></li><li><span class="blue" id="menu_8">سریال<p class="open"></p></span><ul class="menu_ul" id="menu_8_ul" style="display: block;"><li class="second_menu" id="menu_9"><a class="gray"><span class="cr1"></span>بر اساس ژانر</a><ul class="menu_ul" id="menu_9_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/135/tvaction/"><span class="cr2"></span>اکشن</a></li><li><a href="http://www.takmovie2.me/category/136/tvanimation/"><span class="cr2"></span>انیمیشن</a></li><li><a href="http://www.takmovie2.me/category/137/tvbiography/"><span class="cr2"></span>بیوگرافی</a></li><li><a href="http://www.takmovie2.me/category/138/tvhistory/"><span class="cr2"></span>تاریخی</a></li><li><a href="http://www.takmovie2.me/category/139/tvhorror/"><span class="cr2"></span>ترسناک</a></li><li><a href="http://www.takmovie2.me/category/140/tvcrime/"><span class="cr2"></span>جنایی</a></li><li><a href="http://www.takmovie2.me/category/141/tvwar/"><span class="cr2"></span>جنگی</a></li><li><a href="http://www.takmovie2.me/category/142/tvfamily/"><span class="cr2"></span>خانوادگی</a></li><li><a href="http://www.takmovie2.me/category/143/tvdrama/"><span class="cr2"></span>درام</a></li><li><a href="http://www.takmovie2.me/category/144/tvmystery/"><span class="cr2"></span>رازآلود</a></li><li><a href="http://www.takmovie2.me/category/145/tvromance/"><span class="cr2"></span>عاشقانه</a></li><li><a href="http://www.takmovie2.me/category/146/tvsci-fi/"><span class="cr2"></span>علمی تخیلی</a></li><li><a href="http://www.takmovie2.me/category/147/tvfantasy/"><span class="cr2"></span>فانتزی</a></li><li><a href="http://www.takmovie2.me/category/148/tvcomedy/"><span class="cr2"></span>کمدی</a></li><li><a href="http://www.takmovie2.me/category/149/tvadventure/"><span class="cr2"></span>ماجراجویی</a></li><li><a href="http://www.takmovie2.me/category/150/tvdocumentary/"><span class="cr2"></span>مستند</a></li><li><a href="http://www.takmovie2.me/category/151/tvmusical/"><span class="cr2"></span>موزیکال</a></li><li><a href="http://www.takmovie2.me/category/152/tvwestern/"><span class="cr2"></span>وسترن</a></li><li><a href="http://www.takmovie2.me/category/153/tvsport/"><span class="cr2"></span>ورزشی</a></li><li><a href="http://www.takmovie2.me/category/154/tvthriller/"><span class="cr2"></span>هیجان انگیز</a></li></ul></li><li class="second_menu" id="menu_10"><a class="gray"><span class="cr1"></span>بر اساس کیفیت</a><ul class="menu_ul" id="menu_10_ul" style="display: none;"><li><a href="http://www.takmovie2.me/category/155/tv1080pbfh/"><span class="cr2"></span>BluRay 1080p Full HD</a></li><li><a href="http://www.takmovie2.me/category/156/tv720pbhd/"><span class="cr2"></span>BluRay 720p HD</a></li><li><a href="http://www.takmovie2.me/category/157/tv1080pb/"><span class="cr2"></span>BluRay 1080p</a></li><li><a href="http://www.takmovie2.me/category/158/tv720pb/"><span class="cr2"></span>BluRay 720p</a></li><li><a href="http://www.takmovie2.me/category/159/tv1080phdtv/"><span class="cr2"></span>HDTV 1080p</a></li><li><a href="http://www.takmovie2.me/category/160/tv720phdtv/"><span class="cr2"></span>HDTV 720p</a></li><li><a href="http://www.takmovie2.me/category/161/tv720p/"><span class="cr2"></span>720p</a></li><li><a href="http://www.takmovie2.me/category/162/tv480p/"><span class="cr2"></span>480p</a></li></ul></li><li><a href="http://www.takmovie2.me/category/12/tvminiseries/"><span class="cr1"></span>مینی سریال</a></li></ul></li>                    </ul>
+                </div>
+                <div class="white_bottom">
+                </div>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div> 
+
+
+
+
+
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">آخرین سریال های BluRay (نسخه نهایی)</h4>
+            <img src="http://www.takmovie2.me/images/1.png" alt="آخرین سریال های BluRay" title="آخرین سریال های BluRay" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+                    <div id="content_1" class="content">
+                        <div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2364582/" title="Agents of S.H.I.E.L.D." target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2364582.jpg?ver=1521269586" title="Agents of S.H.I.E.L.D." alt="Agents of S.H.I.E.L.D." width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2364582/" title="Agents of S.H.I.E.L.D." target="_blank">Agents of S.H.I.E.L.D.</a></h3>
+                                <span>تا فصل سوم با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4474344/" title="Blindspot" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4474344.jpg?ver=1521262891" title="Blindspot" alt="Blindspot" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4474344/" title="Blindspot" target="_blank">Blindspot</a></h3>
+                                <span>تا فصل اول با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt1843230/" title="Once Upon a Time" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt1843230.jpg?ver=1521262779" title="Once Upon a Time" alt="Once Upon a Time" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt1843230/" title="Once Upon a Time" target="_blank">Once Upon a Time</a></h3>
+                                <span>تا فصل ششم با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5052460/" title="Taken" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5052460.jpg?ver=1521262586" title="Taken" alt="Taken" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5052460/" title="Taken" target="_blank">Taken</a></h3>
+                                <span>تا فصل اول با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt3749900/" title="Gotham" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt3749900.jpg?ver=1521176308" title="Gotham" alt="Gotham" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt3749900/" title="Gotham" target="_blank">Gotham</a></h3>
+                                <span>تا فصل سوم با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt4254242/" title="The Magicians" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt4254242.jpg?ver=1521092492" title="The Magicians" alt="The Magicians" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt4254242/" title="The Magicians" target="_blank">The Magicians</a></h3>
+                                <span>تا فصل دوم با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5420376/" title="Riverdale" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5420376.jpg?ver=1521089118" title="Riverdale" alt="Riverdale" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5420376/" title="Riverdale" target="_blank">Riverdale</a></h3>
+                                <span>تا فصل اول با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2741602/" title="The Blacklist" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2741602.jpg?ver=1521089033" title="The Blacklist" alt="The Blacklist" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2741602/" title="The Blacklist" target="_blank">The Blacklist</a></h3>
+                                <span>تا فصل چهارم با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt2788432/" title="American Crime Story" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt2788432.jpg?ver=1521088883" title="American Crime Story" alt="American Crime Story" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt2788432/" title="American Crime Story" target="_blank">American Crime Story</a></h3>
+                                <span>تا فصل اول با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div><div class="movie">
+                            <a href="http://www.takmovie2.me/post/tt5296406/" title="Designated Survivor" target="_blank">
+								<div class="myshadow2">	<img src="http://www.takmovie2.me/upload/post_60_tt5296406.jpg?ver=1521088795" title="Designated Survivor" alt="Designated Survivor" width="56" height="84" />
+								</div> </a>
+                            <div class="movie_text">
+                                <h3><a href="http://www.takmovie2.me/post/tt5296406/" title="Designated Survivor" target="_blank">Designated Survivor</a></h3>
+                                <span>تا فصل اول با کیفیت BluRay 720p اضافه شد.</span>
+                            </div>
+                        </div>
+                        <div class="office_line"></div>                    </div>
+                </div>
+                <div class="white_bottom">
+                </div>
+                <a target="_blank" href="http://www.takmovie2.me/category/158/tv720pb/" title="مشاهده تمام سریال های BluRay" class="all_box">مشاهده تمام سریال های BluRay</a>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+    <div class="block">
+        <div class="block_top">
+        </div>
+        <div class="block_middle">
+            <h4 class="title_block">آمار سایت</h4>
+            <img src="http://www.takmovie2.me/images/5.png" alt="آمار سایت" title="آمار سایت" class="img_block" />
+            <br style="clear:both;" />
+            <div class="white">
+                <div class="white_top">
+                </div>
+                <div class="white_middle">
+				    <div class="stat"><span>تعداد فیلم های BluRay :</span> 12361</div>
+                    <div class="dot"></div>
+                    <div class="stat">تعداد سریال ها : 863</div>
+                   
+                   
+                </div>
+                <div class="white_bottom">
+                </div>
+            </div>
+        </div>
+        <div class="block_bottom">
+        </div>
+    </div>
+
+
+
+    
+</div>			<br style="clear:both;" />
+                <div class="block best best_bottom">
+                	<div class="block_top">
+                    </div>
+                    <div class="block_middle">
+                    	<h4 class="title_block">آخرین مشاهده های شما</h4>
+                        <img src="http://www.takmovie2.me/images/5.png" title="پیشنهاد ما" alt="پیشنهاد ما" class="img_block" />
+                        <br style="clear:both;" />
+                        <div class="white">
+                            <div class="white_top">
+                            </div>
+                            <div class="white_middle">
+                                <div id="last">
+                                	                                    <br style="clear:both;" />
+                                </div>
+                            </div>
+                            <div class="white_bottom">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block_bottom">
+                    </div>
+                </div>
+            </div>
+            <div id="main_bottom">
+            </div>
+        </div>
+    </div>
+    <div id="copy">
+
+        <br />
+        Copyright © 2016 TakMovie<br />
+    </div>
+</body>
+</html>

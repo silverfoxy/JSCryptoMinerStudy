@@ -1,0 +1,1 @@
+<html><body><br><br><br><script>window.location="/?jdfwkey=eghuw";</script><script>var u=2;for(;u==1;u++);</script><br><br><br><center><h3><a href="/?jdfwkey=eghuw"><p>如果您的页面没有自动跳转，请点击这里</p></a></h3></center></body></html>

@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Бесплатные секс знакомства для взрослых - первая эротическая социальная сеть - секс онлайн! Ваш шанс найти бесплатный секс в своем городе! Смотрите порно видео онлайн, оценивайте частные порно фото. Добавляйте свои приватные фото и видео. Общайтесь в бесплатном секс чате! Виртуальный секс и встречи в реале!">
+
+    <link rel="stylesheet" type="text/css" href="/css/all.css?100" media="all">
+            
+    
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie7.css?9" media="screen"/><![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css?3" media="screen"/><![endif]-->
+        <!--<link rel="stylesheet" type="text/css" href="/css/lotto.css" media="all">-->
+
+    <link rel="canonical" href="http://www.meendorus.net/">
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!--script type="text/javascript" src="/js/adult.js?2"></script-->
+    <!--script type="text/javascript" src="/js/rkn-2017.js?1"></script-->
+    <script type="text/javascript" src="/js/trans/ru.js?6"></script>
+    <script type="text/javascript" src="/js/main.js?18"></script>
+            <script type="text/javascript" src="/js/guest.js?11"></script>
+            
+    <title>Секс Знакомства Бесплатно, Порно Видео, Порно Фото, Секс Онлайн</title>
+
+    <script>
+        (function (i, s, o, g, r, a, m)
+        {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function ()
+            {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-4996837-3', 'auto');
+
+        
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body>
+<div class="table-wrapper">
+    <div id="content">
+        <div class="content-holder">
+            <div class="content-frame">
+                <div class="container">
+
+                    <div class="header">
+    <a href="/?logo" class="logo">Meendo</a>
+
+    <div class="slogan">
+        Эротическая Cоциальная Cеть №1        <ins class="langsel">
+            <i class="langsel-rus"></i>
+            <span>
+                <i class="arr"></i>
+                                    <a href="#" onclick="changeLanguage('en_us');return false;"><i class="langsel-en"></i>English</a>
+                            </span>
+        </ins>
+    </div>
+
+    <div class="signin">
+        <form id="LoginForm" name="LoginForm" method="post">        <em><a href="/signup/">Зарегистрироваться</a> или войти на сайт</em>
+        <input type="text" class="text" name="userLogin">
+        <input type="password" name="userPassword" class="text">
+        <a href="#" class="h_button"><span>Войти</span></a>
+        <a href="/recovery/" class="forgot">Забыли пароль?</a>
+        </form>    </div>
+
+    <div class="navigation">
+                <ul class="usermenu">
+            <li>
+                <a href="/signup/"><i class="ico i-bigmsg"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-inbox"></i><strong>Входящие</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-outbox"></i><strong>Исходящие</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-dialogs"></i><strong>Диалоги</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigguest"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-users"></i><strong>Друзья</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-proposals"></i><strong>Предложения дружбы</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-requests"></i><strong>Мои запросы</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-guest"></i><strong>Мои гости</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-visits"></i><strong>Мои визиты</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigprofile"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-cabinet"></i><strong>Мой кабинет</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-page"></i><strong>Мой профиль</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-page-ext"></i><strong>Расширенный профиль</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-portrait"></i><strong>Автопортрет</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigsettings"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-settings"></i><strong>Настройки</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-privacy"></i><strong>Настройки приватности</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-abuse"></i><strong>Настройки оповещений</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-addbl"></i><strong>Черный список</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigfiles"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-upload"></i><strong>Загрузка новых файлов</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-myuploads"></i><strong>Мои загрузки</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-photo"></i><strong>Мои фото</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-video"></i><strong>Мои видео</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-for"></i><strong>Оценки к моим файлам</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigfavs"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-users"></i><strong>Избранные пользователи</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-photo"></i><strong>Избранные фотографии</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-video"></i><strong>Избранные видеоролики</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-photoalbum"></i><strong>Избранные фотоальбомы</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-videoalbum"></i><strong>Избранные видеоальбомы</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-bigwallet"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-wallet2"></i><strong>Мой Кошелек</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-wallet"></i><strong>Пополнение счета</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-history"></i><strong>История операций</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-vip-small"></i><strong>VIP</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-king"></i><strong>Секс Короли</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-upprofile"></i><strong>Поднять анкету наверх</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-ufo"></i><strong>Невидимка</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+            <li>
+                <a href="/signup/"><i class="ico i-biggift"></i></a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="/signup/"><i class="ico i-gift-my"></i><strong>Мои подарки</strong></a></li>
+                        <li><a href="/signup/"><i class="ico i-gift-sent"></i><strong>Подарки от меня</strong></a></li>
+                    </ul>
+                    <div class="after"></div>
+                </div>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li><a href="/search/">Секс Поиск</a></li>
+            <li><a href="/photos/">Фото</a></li>
+            <li><a href="/videos/">Видео</a></li>
+            <li><a href="/users/">Пользователи</a></li>
+            <li><a href="/broadcasts/">Видеотрансляции</a></li>
+                                    <li><a href="#" onclick="window.open('http://www.intimshop.ru/?partner=7513');">Секс Шоп</a></li>
+            <li class="faq-nav"><a href="/help/"><i>FAQ</i></a></li>
+        </ul>
+    </div>
+</div><!-- END header -->
+                                        
+                    
+                    
+                    
+                    <div class="wrapper">
+                        <!--pageId: 23 pageName: signup24-->
+<div class="wrapper">
+
+    <div class="box">
+        <div class="i0"></div>
+        <div class="i1">
+            <div class="wrapper ind-sign-hold">
+                <div class="ind-sign">
+                    <h2>Бесплатная регистрация:</h2>
+
+                    <p>После регистрации Вам будут доступны в полном объеме все возможности Вашего аккаунта!</p>
+                    <form id="User" autocomplete="off" action="/" method="post">                    <div class="row">
+                        <div class="leftcell">
+                            <label for="User_login">Логин</label>                        </div>
+                        <div class="rightcell">
+                            <input class="text" name="User[login]" id="User_login" type="text" maxlength="20" />                            <span class="default-msg">Только латиница и цифры. Минимум 4 знака</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="leftcell">
+                            <label for="User_password">Пароль</label>                        </div>
+                        <div class="rightcell">
+                            <input class="text pass" name="User[password]" id="User_password" type="text" maxlength="32" />                            <span class="default-msg">Только латиница и цифры. Минимум 6 знаков</span>
+                        </div>
+                    </div>
+                                        <input name="User[confirm]" id="User_confirm" type="hidden" />
+                    <div class="row">
+                        <div class="leftcell">
+                            <label for="User_email">Email</label>
+                        </div>
+                        <div class="rightcell">
+                            <input class="text" name="User[email]" id="User_email" type="text" maxlength="64" />                            <span class="default-msg">Укажите ваш email</span>
+                        </div>
+                    </div>
+
+                    <div class="row setgender">
+                        <div class="leftcell">
+                            Вы                            <br><span id="genlbl"><strong>Мужчина</strong></span>
+                        </div>
+                        <div class="rightcell" id="genicons">
+                            <b class="male checked"></b>
+                            <b class="female"></b>
+                            <b class="couple"></b>
+                            <b class="lesbiancouple"></b>
+                            <b class="gaycouple"></b>
+                            <span class="default-msg">Выберите тип аккаунта</span>
+                        </div>
+                    </div>
+                    <input value="1" name="User[gender]" id="User_gender" type="hidden" />
+                                        <div class="row">
+                        <div class="leftcell" id="bday1_label">
+                            Дата рождения                        </div>
+                        <div class="rightcell">
+                                                        <select class="dd" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay&quot;, &quot;bdMonth&quot;, &quot;bdYear&quot;)" name="User[bdDay]" id="User_bdDay">
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select> <select class="mm" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay&quot;, &quot;bdMonth&quot;, &quot;bdYear&quot;)" name="User[bdMonth]" id="User_bdMonth">
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select> <select class="yy" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay&quot;, &quot;bdMonth&quot;, &quot;bdYear&quot;)" name="User[bdYear]" id="User_bdYear">
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+<option value="1994">1994</option>
+<option value="1993">1993</option>
+<option value="1992">1992</option>
+<option value="1991">1991</option>
+<option value="1990">1990</option>
+<option value="1989">1989</option>
+<option value="1988">1988</option>
+<option value="1987">1987</option>
+<option value="1986">1986</option>
+<option value="1985" selected="selected">1985</option>
+<option value="1984">1984</option>
+<option value="1983">1983</option>
+<option value="1982">1982</option>
+<option value="1981">1981</option>
+<option value="1980">1980</option>
+<option value="1979">1979</option>
+<option value="1978">1978</option>
+<option value="1977">1977</option>
+<option value="1976">1976</option>
+<option value="1975">1975</option>
+<option value="1974">1974</option>
+<option value="1973">1973</option>
+<option value="1972">1972</option>
+<option value="1971">1971</option>
+<option value="1970">1970</option>
+<option value="1969">1969</option>
+<option value="1968">1968</option>
+<option value="1967">1967</option>
+<option value="1966">1966</option>
+<option value="1965">1965</option>
+<option value="1964">1964</option>
+<option value="1963">1963</option>
+<option value="1962">1962</option>
+<option value="1961">1961</option>
+<option value="1960">1960</option>
+<option value="1959">1959</option>
+<option value="1958">1958</option>
+<option value="1957">1957</option>
+<option value="1956">1956</option>
+<option value="1955">1955</option>
+<option value="1954">1954</option>
+<option value="1953">1953</option>
+<option value="1952">1952</option>
+<option value="1951">1951</option>
+<option value="1950">1950</option>
+<option value="1949">1949</option>
+<option value="1948">1948</option>
+<option value="1947">1947</option>
+<option value="1946">1946</option>
+<option value="1945">1945</option>
+<option value="1944">1944</option>
+<option value="1943">1943</option>
+<option value="1942">1942</option>
+<option value="1941">1941</option>
+<option value="1940">1940</option>
+<option value="1939">1939</option>
+<option value="1938">1938</option>
+</select>
+                                                        <span class="default-msg">День &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Месяц &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Год</span>
+                        </div>
+                    </div>
+                    <div class="row" id="couple_birth" style="display:none">
+                        <div class="leftcell" id="bday2_label">
+                            Её дата рождения                        </div>
+                        <div class="rightcell">
+                                                        <select class="dd" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay2&quot;, &quot;bdMonth2&quot;, &quot;bdYear2&quot;)" name="User[bdDay2]" id="User_bdDay2">
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select> <select class="mm" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay2&quot;, &quot;bdMonth2&quot;, &quot;bdYear2&quot;)" name="User[bdMonth2]" id="User_bdMonth2">
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select> <select class="yy" onchange="rewriteDays(&quot;User&quot;, &quot;bdDay2&quot;, &quot;bdMonth2&quot;, &quot;bdYear2&quot;)" name="User[bdYear2]" id="User_bdYear2">
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+<option value="1994">1994</option>
+<option value="1993">1993</option>
+<option value="1992">1992</option>
+<option value="1991">1991</option>
+<option value="1990">1990</option>
+<option value="1989">1989</option>
+<option value="1988">1988</option>
+<option value="1987">1987</option>
+<option value="1986">1986</option>
+<option value="1985" selected="selected">1985</option>
+<option value="1984">1984</option>
+<option value="1983">1983</option>
+<option value="1982">1982</option>
+<option value="1981">1981</option>
+<option value="1980">1980</option>
+<option value="1979">1979</option>
+<option value="1978">1978</option>
+<option value="1977">1977</option>
+<option value="1976">1976</option>
+<option value="1975">1975</option>
+<option value="1974">1974</option>
+<option value="1973">1973</option>
+<option value="1972">1972</option>
+<option value="1971">1971</option>
+<option value="1970">1970</option>
+<option value="1969">1969</option>
+<option value="1968">1968</option>
+<option value="1967">1967</option>
+<option value="1966">1966</option>
+<option value="1965">1965</option>
+<option value="1964">1964</option>
+<option value="1963">1963</option>
+<option value="1962">1962</option>
+<option value="1961">1961</option>
+<option value="1960">1960</option>
+<option value="1959">1959</option>
+<option value="1958">1958</option>
+<option value="1957">1957</option>
+<option value="1956">1956</option>
+<option value="1955">1955</option>
+<option value="1954">1954</option>
+<option value="1953">1953</option>
+<option value="1952">1952</option>
+<option value="1951">1951</option>
+<option value="1950">1950</option>
+<option value="1949">1949</option>
+<option value="1948">1948</option>
+<option value="1947">1947</option>
+<option value="1946">1946</option>
+<option value="1945">1945</option>
+<option value="1944">1944</option>
+<option value="1943">1943</option>
+<option value="1942">1942</option>
+<option value="1941">1941</option>
+<option value="1940">1940</option>
+<option value="1939">1939</option>
+<option value="1938">1938</option>
+</select>
+                                                        <span class="default-msg">День &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Месяц &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Год</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="leftcell">
+                            Страна                        </div>
+                        <div class="rightcell">
+                            <select class="country" name="User[countryId]" id="User_countryId">
+<option value="15">Австралия</option>
+<option value="16">Австрия</option>
+<option value="17">Азербайджан</option>
+<option value="14">Азорские острова</option>
+<option value="2">Аландские острова</option>
+<option value="3">Албания</option>
+<option value="4">Алжир</option>
+<option value="241">Американские Виргинские острова</option>
+<option value="5">Американское Самоа</option>
+<option value="8">Ангилье</option>
+<option value="7">Ангола</option>
+<option value="6">Андорра</option>
+<option value="9">Антарктика</option>
+<option value="10">Антигуа и Барбуда</option>
+<option value="11">Аргентина</option>
+<option value="12">Армения</option>
+<option value="13">Аруба</option>
+<option value="1">Афганистан</option>
+<option value="18">Багамы</option>
+<option value="20">Бангладеш</option>
+<option value="21">Барбадос</option>
+<option value="19">Бахрейн</option>
+<option value="22">Беларусь</option>
+<option value="24">Белиз</option>
+<option value="23">Бельгия</option>
+<option value="25">Бенин</option>
+<option value="26">Бермудские острова</option>
+<option value="35">Болгария</option>
+<option value="28">Боливия</option>
+<option value="29">Босния</option>
+<option value="30">Ботсвана</option>
+<option value="32">Бразилия</option>
+<option value="240">Британские Виргинские острова</option>
+<option value="33">Британской территории в Индийском океане</option>
+<option value="34">Бруней</option>
+<option value="31">Буве</option>
+<option value="36">Буркина-Фасо</option>
+<option value="37">Бурунди</option>
+<option value="27">Бутан</option>
+<option value="237">Вануату</option>
+<option value="232">Великобритания</option>
+<option value="101">Венгрия</option>
+<option value="238">Венесуэла</option>
+<option value="239">Вьетнам</option>
+<option value="80">Габон</option>
+<option value="96">Гаити</option>
+<option value="95">Гайана</option>
+<option value="81">Гамбия</option>
+<option value="84">Гана</option>
+<option value="89">Гваделупа</option>
+<option value="91">Гватемала</option>
+<option value="93">Гвинея</option>
+<option value="94">Гвинея-Бисау</option>
+<option value="83">Германия</option>
+<option value="92">Гернси</option>
+<option value="85">Гибралтар</option>
+<option value="100">Гонг Конг</option>
+<option value="99">Гондурас</option>
+<option value="88">Гренада</option>
+<option value="87">Гренландия</option>
+<option value="86">Греция</option>
+<option value="82">Грузия</option>
+<option value="90">Гуам</option>
+<option value="60">Дания</option>
+<option value="113">Джерси</option>
+<option value="61">Джибути</option>
+<option value="62">Доминика</option>
+<option value="63">Доминиканская Республика</option>
+<option value="65">Египет</option>
+<option value="245">Замбия</option>
+<option value="243">Западная Сахара</option>
+<option value="191">Западное Самоа</option>
+<option value="246">Зимбабве</option>
+<option value="109">Израиль</option>
+<option value="103">Индия</option>
+<option value="104">Индонезия</option>
+<option value="114">Иордания</option>
+<option value="106">Ирак</option>
+<option value="105">Иран</option>
+<option value="107">Ирландия</option>
+<option value="102">Исландия</option>
+<option value="206">Испания</option>
+<option value="110">Италия</option>
+<option value="41">Кабо-Верде Острова</option>
+<option value="115">Казахстан</option>
+<option value="42">Каймановы острова</option>
+<option value="38">Камбоджа</option>
+<option value="39">Камерун</option>
+<option value="40">Канада</option>
+<option value="181">Катар</option>
+<option value="116">Кения</option>
+<option value="58">Кипр</option>
+<option value="117">Кирибати</option>
+<option value="46">Китай</option>
+<option value="48">Кокосовые (Килинг) острова</option>
+<option value="49">Колумбия</option>
+<option value="50">Коморские острова</option>
+<option value="51">Конго</option>
+<option value="118">Корея</option>
+<option value="54">Коста-Рика</option>
+<option value="55">Кот д&#039;Ивуар</option>
+<option value="57">Куба</option>
+<option value="120">Кувейт</option>
+<option value="121">Кыргызстан</option>
+<option value="122">Лаос</option>
+<option value="123">Латвия</option>
+<option value="125">Лесото</option>
+<option value="126">Либерия</option>
+<option value="124">Ливан</option>
+<option value="127">Ливийская Арабская Джамахирия</option>
+<option value="129">Литва</option>
+<option value="128">Лихтенштейн</option>
+<option value="130">Люксембург</option>
+<option value="142">Маврикий</option>
+<option value="141">Мавритании</option>
+<option value="133">Мадагаскар</option>
+<option value="149">Мадейра</option>
+<option value="143">Майотта</option>
+<option value="131">Макао</option>
+<option value="132">Македония</option>
+<option value="134">Малави</option>
+<option value="135">Малайзия</option>
+<option value="137">Мали</option>
+<option value="136">Мальдивы</option>
+<option value="138">Мальта</option>
+<option value="151">Марокко</option>
+<option value="140">Мартиника</option>
+<option value="139">Маршалловы острова</option>
+<option value="144">Мексика</option>
+<option value="152">Мозамбик</option>
+<option value="146">Молдова</option>
+<option value="147">Монако</option>
+<option value="148">Монголия</option>
+<option value="150">Монтсеррате</option>
+<option value="153">Мьянма</option>
+<option value="154">Намибия</option>
+<option value="155">Науру</option>
+<option value="156">Непал</option>
+<option value="162">Нигер</option>
+<option value="163">Нигерия</option>
+<option value="158">Нидерландские Антильские Острова</option>
+<option value="157">Нидерланды</option>
+<option value="161">Никарагуа</option>
+<option value="164">Ниуе</option>
+<option value="160">Новая Зеландия</option>
+<option value="159">Новая Каледония</option>
+<option value="167">Норвегия</option>
+<option value="52">Нормандские острова</option>
+<option value="165">Норфолк</option>
+<option value="231">Объединенные Арабские Эмираты</option>
+<option value="168">Оман</option>
+<option value="47">Остров Рождества</option>
+<option value="97">Остров Херд</option>
+<option value="53">Острова Кука</option>
+<option value="169">Пакистан</option>
+<option value="170">Палау</option>
+<option value="171">Палестинская автономия</option>
+<option value="172">Панама</option>
+<option value="98">Папский Престол (Государство-город Ватикан)</option>
+<option value="173">Папуа-Новая Гвинея</option>
+<option value="174">Парагвай</option>
+<option value="175">Перу</option>
+<option value="177">Питкэрне</option>
+<option value="178">Польша</option>
+<option value="179">Португалия</option>
+<option value="180">Пуэрто-Рико</option>
+<option value="244">Республика Йемен</option>
+<option value="182">Реюньон</option>
+<option value="184">Россия</option>
+<option value="185">Руанда</option>
+<option value="183">Румыния</option>
+<option value="233" selected="selected">США</option>
+<option value="66">Сальвадор</option>
+<option value="192">Сан-Марино</option>
+<option value="193">Сан-Томе и Принсипи</option>
+<option value="190">Санкт Винсент И Гренадины</option>
+<option value="187">Санкт Киттс И Невис</option>
+<option value="188">Санкт Люсия</option>
+<option value="71">Санкт Эстатиус</option>
+<option value="194">Саудовская Аравия</option>
+<option value="211">Свазиленд</option>
+<option value="186">Святой Елены</option>
+<option value="166">Северные Марианские острова</option>
+<option value="197">Сейшельские Острова</option>
+<option value="189">Сен-Пьер и Микелон</option>
+<option value="195">Сенегал</option>
+<option value="196">Сербия</option>
+<option value="199">Сингапур</option>
+<option value="214">Сирия</option>
+<option value="200">Словакия</option>
+<option value="201">Словения</option>
+<option value="202">Соломоновы Острова</option>
+<option value="203">Сомали</option>
+<option value="208">Судан</option>
+<option value="209">Суринам</option>
+<option value="198">Сьерра-Леоне</option>
+<option value="216">Таджикистан</option>
+<option value="218">Таиланд</option>
+<option value="215">Тайвань</option>
+<option value="217">Танзания</option>
+<option value="220">Того</option>
+<option value="221">Токелау</option>
+<option value="222">Тонга</option>
+<option value="219">Тортоле</option>
+<option value="223">Тринидад И Тобаго</option>
+<option value="228">Тувалу</option>
+<option value="224">Тунис</option>
+<option value="227">Турки И Кайкос</option>
+<option value="226">Туркменистан</option>
+<option value="225">Турция</option>
+<option value="229">Уганда</option>
+<option value="236">Узбекистан</option>
+<option value="230">Украина</option>
+<option value="242">Уоллис и острова Футуна</option>
+<option value="235">Уругвай</option>
+<option value="73">Фарерские острова</option>
+<option value="145">Федеративные Штаты Микронезии</option>
+<option value="74">Фиджи</option>
+<option value="176">Филиппины</option>
+<option value="75">Финляндия</option>
+<option value="72">Фолклендские (Мальвинские) острова</option>
+<option value="76">Франция</option>
+<option value="77">Французская Гвиана</option>
+<option value="78">Французская Полинезия</option>
+<option value="79">Французские Южные территории</option>
+<option value="56">Хорватия</option>
+<option value="43">Центральноафриканская Республика</option>
+<option value="44">Чад</option>
+<option value="59">Чешская Республика</option>
+<option value="45">Чили</option>
+<option value="213">Швейцария</option>
+<option value="212">Швеция</option>
+<option value="210">Шпицберген и Ян-Майен</option>
+<option value="207">Шри-Ланка</option>
+<option value="64">Эквадор</option>
+<option value="67">Экваториальная Гвинея</option>
+<option value="68">Эритрея</option>
+<option value="69">Эстония</option>
+<option value="70">Эфиопия</option>
+<option value="204">Южная Африка</option>
+<option value="205">Южная Георгия</option>
+<option value="119">Южная Корея</option>
+<option value="111">Ямайка</option>
+<option value="112">Япония</option>
+<option value="108">о-в Мэн</option>
+</select>                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="leftcell">
+                            Регион                        </div>
+                        <div class="rightcell">
+                            <select class="region" name="User[regionId]" id="User_regionId">
+</select>                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="leftcell">
+                            Город                        </div>
+                        <div class="rightcell">
+                            <select class="city" name="User[cityId]" id="User_cityId">
+</select>                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="rightcell">
+                            <label class="accept"><input checked="checked" disabled="disabled" name="User[agreement]" id="User_agreement" value="1" type="checkbox" />                                Я принимаю условия                                <a href="/terms/">соглашения</a>.<br>
+                                Мне больше 18 лет.
+                            </label>
+                        </div>
+                    </div>
+                    <div id="error_msg"></div>
+                    <div class="row">
+                        <div class="rightcell">
+                            <a href="#" class="m_button"
+                               onclick="submitSignup();return false;"
+                               id="sigButton"><span>Присоединиться!</span></a>
+                        </div>
+                    </div>
+                    </form>                </div>
+
+                <div class="ind-sign-txt right">
+                    <div class="hd-signup">
+                        <h1>Cекс знакомства</h1>: <a href="/search/country/233">США</a>                    </div>
+                    <p>Бесплатные секс знакомства для взрослых - первая эротическая социальная сеть - секс онлайн! Ваш шанс найти бесплатный секс в своем городе! Смотрите порно видео онлайн, оценивайте частные порно фото. Добавляйте свои приватные фото и видео. Общайтесь в бесплатном секс чате! Виртуальный секс и встречи в реале!</p>
+                    <ul class="ind-list">
+                        <li>Бесплатные секс знакомства в вашем городе</li>
+<li>Реальный шанс найти бесплатный секс</li>
+<li>Смотрите онлайн порно видео и частные порно фото</li>
+<li>Узнайте чужие сексуальные фантазии и желания</li>
+<li>Принимайте участие в секс группах</li>
+<li>Организовывайте секс тусовки и встречи свингеров</li>
+<li>Оценивайте других пользователей, фото, видео</li>
+<li>Добавляйте своё любительское порно видео и фото</li>
+<li>Находите партнеров для секса в бесплатном секс чате</li>
+<li>И многое многое другое... Бесплатно!</li>                    </ul>
+                    <div class="user-counter">
+
+    
+    <span>Уже </span><div><strong>5</strong><em>,</em><strong>4</strong><strong>8</strong><strong>1</strong><em>,</em><strong>3</strong><strong>2</strong><strong>0</strong></div><span> хотят познакомиться!</span></div>
+<div class="wrapper">
+    <ul class="ind-stats is1">
+        <li><i class="ico i-couple"></i>5481320            <a href="/search/">Пользователей</a></li>
+        <li><i class="ico i-plus"></i>
+            1643            <a href="/search/?period=1">Сегодня регистраций</a>
+        </li>
+        <li><i class="ico i-msg"></i>
+            3181435 Сообщений        </li>
+    </ul>
+    <ul class="ind-stats is2">
+        <li><i class="ico i-photo"></i>
+            3965599            <a href="/photos/">Фотографий</a>
+        </li>
+        <li><i class="ico i-photo"></i>
+            2274            <a href="/photos/?period=today">Фотографий за сегодня</a>
+        </li>
+        <li><i class="ico i-album"></i>
+            1095736            <a href="/photoalbums/">Фотоальбомов</a>
+        </li>
+    </ul>
+    <ul class="ind-stats is3">
+        <li><i class="ico i-video"></i>
+            359446            <a href="/videos/">Видеороликов</a>
+        </li>
+        <li><i class="ico i-video"></i>
+            214            <a href="/videos/?period=today">Видео за сегодня</a>
+        </li>
+        <li><i class="ico i-album"></i>
+            39737            <a href="/videoalbums/">Видеоальбомов</a>
+        </li>
+    </ul>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ind-bot">
+        <div class="wrapper">
+            <div class="txt">
+                <h3>Бесплатные секс знакомства Meendo</h3>
+
+                <p>Секс Знакомства Meendo - это тысячи людей, ищущие знакомства для секса! Реальная возможность гарантировать себе бесплатный секс в своем городе, в командировке, в отпуске или секс онлайн! Используя приватную переписку или видео чат, найти партнера для регулярного виртуального секса! Или найти спутника жизни!
+                </p>
+
+                <h3>Частные порно фото и реальные порно видео!</h3>
+
+                <p>Бесплатный сервис обмена и просмотра онлайн порно видео и частных порно фото. Вы можете смотреть порно онлайн, оценивать, комментировать, залить свое или скачать порно видео, которое вам понравилось.</p>
+            </div>
+            <!-- tags -->
+<ul class="list-tags">
+            <li>
+            <a href="/all/%D0%BF%D0%B8%D1%81%D1%8F"
+               class="tahoma8">Пися</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%B7%D0%B0%D0%B4%D0%B8"
+               class="tahoma2">Сзади</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B6%D0%BE%D0%BF%D0%B0"
+               class="tahoma2">Жопа</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B8"
+               class="tahoma1">Игрушки</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B6%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D1%8B"
+               class="tahoma2">Женщины</a>
+        </li>
+            <li>
+            <a href="/all/%D1%82%D0%B5%D0%BB%D0%BE"
+               class="arial4">Тело</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0"
+               class="tahoma3">Природа</a>
+        </li>
+            <li>
+            <a href="/all/%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%BE%D0%B5"
+               class="arial6">Частное</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B3%D0%BE%D1%82%D0%BE%D0%B2"
+               class="arial4">Готов</a>
+        </li>
+            <li>
+            <a href="/all/%D1%80%D0%BE%D1%82"
+               class="arial3">Рот</a>
+        </li>
+            <li>
+            <a href="/all/%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5"
+               class="arial5">Работе</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D0%BE%D1%80%D0%BD%D0%BE"
+               class="arial8">Порно</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B5"
+               class="arial3">Природе</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BE%D0%B1%D0%BE%D0%B6%D0%B0%D1%8E"
+               class="tahoma7">Обожаю</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BB%D0%B5%D1%82%D0%BE"
+               class="arial6">Лето</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BC%D0%B0%D1%81%D1%82%D1%83%D1%80%D0%B1%D0%B0%D1%86%D0%B8%D1%8F"
+               class="tahoma1">Мастурбация</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B4%D1%80%D1%83%D0%B3"
+               class="tahoma1">Друг</a>
+        </li>
+            <li>
+            <a href="/all/%D1%88%D0%BB%D1%8E%D1%88%D0%BA%D0%B0"
+               class="arial7">Шлюшка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B5"
+               class="tahoma3">Личные</a>
+        </li>
+            <li>
+            <a href="/all/%D1%80%D0%BE%D1%82%D0%B8%D0%BA"
+               class="arial6">Ротик</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D1%83%D1%87%D0%BA%D0%B0"
+               class="tahoma6">Сучка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D0%BE%D0%B4%D1%80%D1%83%D0%B3%D0%B0"
+               class="arial5">Подруга</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D0%BE%D0%BF%D0%BA%D1%83"
+               class="arial7">Попку</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BC%D0%BC%D0%BC%D0%BC%D0%BC"
+               class="arial2">Ммммм</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BC%D0%B0%D0%BB%D1%8B%D1%88"
+               class="tahoma3">Малыш</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B4%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D0%B5%D0%B5"
+               class="arial8">Домашнее</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B8%D1%89%D1%83"
+               class="tahoma7">Ищу</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B5"
+               class="arial5">Любительское</a>
+        </li>
+            <li>
+            <a href="/all/%D1%82%D1%80%D0%B0%D0%BD%D1%81"
+               class="arial4">Транс</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%B8%D1%81%D0%B8"
+               class="arial2">Сиси</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9"
+               class="arial2">Большой</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D1%8B%D1%88%D0%BA%D0%B0"
+               class="tahoma2">Пышка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D0%B0"
+               class="tahoma6">Красота</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%BC%D1%81%D1%82%D0%B2%D0%B0"
+               class="arial1">Знакомства</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D0%BA%D0%B0"
+               class="arial4">Красотка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0"
+               class="tahoma3">Девушка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B4%D0%B5%D0%B2%D0%BE%D1%87%D0%BA%D0%B8"
+               class="arial3">Девочки</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D0%B0%D0%B9%D1%84"
+               class="tahoma5">Кайф</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B1%D0%B5%D0%BB%D1%8C%D0%B5"
+               class="arial4">Белье</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B4%D0%B5%D0%B2%D0%BE%D1%87%D0%BA%D0%B0"
+               class="tahoma5">Девочка</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B3%D0%BE%D0%BB%D0%B0%D1%8F"
+               class="arial6">Голая</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE"
+               class="arial6">Красиво</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B1%D0%BB%D0%BE%D0%BD%D0%B4%D0%B8%D0%BD%D0%BA%D0%B8"
+               class="tahoma4">Блондинки</a>
+        </li>
+            <li>
+            <a href="/all/%D1%80%D0%B0%D0%BA%D0%BE%D0%BC"
+               class="tahoma7">Раком</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D1%8F"
+               class="arial5">Сладкая</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%BE%D1%81%D0%BA%D0%B0"
+               class="arial2">Соска</a>
+        </li>
+            <li>
+            <a href="/all/%D1%82%D1%80%D0%B0%D1%85"
+               class="arial7">Трах</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B2%D0%B8%D1%80%D1%82"
+               class="arial2">Вирт</a>
+        </li>
+            <li>
+            <a href="/all/%D1%8D%D1%80%D0%BE%D1%82%D0%B8%D0%BA%D0%B0"
+               class="tahoma4">Эротика</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D1%83%D0%BD%D0%B8"
+               class="arial7">Куни</a>
+        </li>
+            <li>
+            <a href="/all/%D1%85%D0%BE%D1%80%D0%BE%D1%88%D0%BE"
+               class="arial5">Хорошо</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B2%D0%B8%D0%B4"
+               class="tahoma4">Вид</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BB%D0%B5%D0%BD%D0%B0"
+               class="arial7">Лена</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BA%D0%B8%D1%81%D0%B0"
+               class="tahoma5">Киса</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BC%D0%B6%D0%BC"
+               class="arial4">Мжм</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5"
+               class="arial8">После</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B1%D1%80%D1%8E%D0%BD%D0%B5%D1%82%D0%BA%D0%B8"
+               class="arial6">Брюнетки</a>
+        </li>
+            <li>
+            <a href="/all/%D0%B8%D0%BD%D1%82%D0%B8%D0%BC"
+               class="tahoma3">Интим</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%B5%D0%BA%D1%81%D0%B0"
+               class="arial8">Секса</a>
+        </li>
+            <li>
+            <a href="/all/%D1%81%D0%BE%D1%81%D0%B5%D1%82"
+               class="arial5">Сосет</a>
+        </li>
+            <li>
+            <a href="/all/%D0%BF%D0%B8%D0%B7%D0%B4%D0%B0"
+               class="tahoma7">Пизда</a>
+        </li>
+    </ul><!-- END tags -->        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    
+    var _initFormTracking = function ()
+    {
+        $('#User input[type="text"],#User input[type="password"]').blur(function ()
+        {
+            if ($(this).val().length > 0)
+            {
+                ga('set', 'nonInteraction', true);
+                ga('send', 'event', {
+                    eventCategory: 'Signup form',
+                    eventAction  : 'input_exit',
+                    eventLabel   : $(this).attr('name')
+                });
+            }
+        });
+        $('#User input[type="radio"], #User input[type="checkbox"]').change(function ()
+        {
+            ga('set', 'nonInteraction', true);
+            ga('send', 'event', {
+                eventCategory: 'Signup form',
+                eventAction  : 'input_exit',
+                eventLabel   : $(this).attr('name')
+            });
+        });
+        $('#User select').blur(function ()
+        {
+            ga('set', 'nonInteraction', true);
+            ga('send', 'event', {
+                eventCategory: 'Signup form',
+                eventAction  : 'input_exit',
+                eventLabel   : $(this).attr('name')
+            });
+        });
+        $('#genicons > b').click(function ()
+        {
+            ga('set', 'nonInteraction', true);
+            ga('send', 'event', {
+                eventCategory: 'Signup form',
+                eventAction  : 'input_exit',
+                eventLabel   : 'User[gender]'
+            });
+        });
+    };
+    $(document).ready(function ()
+    {
+        setTimeout(_initFormTracking, 1000);
+    });
+
+    
+    var _alphanumeric = 'Только латиница и цифры';
+
+    var _loginDefault = 'Только латиница и цифры. Минимум 4 знака';
+    var _loginRequired = 'Логин обязателен. Пример: <strong>userlogin1234</strong>';
+    var _loginLength = 'Минимальная длина логина - 4 символа';
+    var _loginTaken = 'Этот логин уже занят. Попробуйте другой';
+    var _loginOK = 'Логин - OK';
+
+    var _passwordDefault = 'Только латиница и цифры. Минимум 6 знаков';
+    var _passwordRequired = 'Пароль обязателен. Пример: <strong>pa33w0rd123</strong>';
+    var _passwordLength = 'Минимальная длина пароля - 6 символов';
+    var _passwordOK = 'Пароль - OK';
+
+    var _emailDefault = 'Укажите ваш email';
+    var _emailRequired = 'Email обязателен. Пример: <strong>mail@gmail.com</strong>';
+    var _emailBad = 'Email не верный';
+    var _emailTaken = 'Email уже использован. <a href="/recovery/">Напомнить пароль?</a>';
+    var _emailOK = 'Email - OK';
+
+    var _bdateRequired = 'Укажите дату своего рождения ';
+
+    $('#User_login').blur(function ()
+    {
+        if (frmValidateLogin())
+        {
+            $.get('/?r=users/auth/checklogin', {login: $(this).val()}, function (ret)
+            {
+                if (ret == 'OK')
+                {
+                    frmSuccessMessage('#User_login', _loginOK);
+                } else
+                {
+                    frmErrorMessage('#User_login', _loginTaken);
+                }
+            });
+        }
+    }).keyup(function (e)
+    {
+        if (frmValidateLogin())
+        {
+            frmMessage(this, _loginDefault);
+        }
+    }).focus();
+
+    $('#User_password').blur(function ()
+    {
+        if (frmValidatePassword()) frmSuccessMessage('#User_password', _passwordOK);
+    }).keyup(function (e)
+    {
+        if (frmValidatePassword()) frmSuccessMessage(this, _passwordOK);
+    });
+
+    $('#User_email').blur(function ()
+    {
+        if (frmValidateEmail())
+        {
+            $.get('/?r=users/auth/checkemail', {email: $(this).val()}, function (ret)
+            {
+                if (ret == 'OK')
+                {
+                    frmSuccessMessage('#User_email', _emailOK);
+                } else
+                {
+                    frmErrorMessage('#User_email', _emailTaken);
+                }
+            });
+        }
+    }).keyup(function (e)
+    {
+        frmMessage(this, _emailDefault);
+    });
+
+    function submitSignup(logId)
+    {
+        ga('send', 'event', {
+            eventCategory: 'Signup form',
+            eventAction  : 'input_exit',
+            eventLabel   : 'Button Click'
+        });
+
+        $('#User_confirm').val($('#User_password').val());
+
+        //alert($('#User').serialize());return;
+
+        var field, error, login, password, confirm, email,
+            bdYear, bdMonth, bdDay, bdYear2, bdMonth2, bdDay2,
+            gender = $('input[name="User[gender]"]:checked').val(),
+            country = $('#User_countryId').val(),
+            region = $('#User_regionId').val(),
+            city = $('#User_cityId').val();
+
+        if (!country) country = 0;
+        if (!region) region = 0;
+        if (!city) city = 0;
+        $('#error_msg').hide();
+
+        frmValidateLogin();
+        frmValidatePassword();
+        frmValidateEmail();
+        frmValidateBirthDate();
+
+                    var llog = getLogData(1521720207, '113363d57cefffffe7a05310dfd055b7');
+
+        var isOk = true;
+        $('#User div[class^="row"]').each(function (i, o)
+        {
+            if ($(o).hasClass('error-field')) isOk = false;
+        });
+        if (!isOk) return;
+
+        if (error)
+        {
+            //_gaq.push(['_trackEvent', "Signup form", "errors", error]);
+
+            //animErrorMessage('#error_msg',error);
+            //frmErrorMessage(field, error);
+            return;
+        }
+
+        $('#sigButton').hide();
+        var form = {
+            'User[login]'    : login, 'User[password]': password, 'User[confirm]': confirm, 'User[email]': email, 'User[gender]': gender, 'User[agreement]': 1,
+            'User[countryId]': country, 'User[regionId]': region, 'User[cityId]': city,
+            'User[bdYear]'   : bdYear, 'User[bdMonth]': bdMonth, 'User[bdDay]': bdDay
+        };
+        if (gender > 2)
+        {
+            form['User[bdYear2]'] = bdYear2;
+            form['User[bdMonth2]'] = bdMonth2;
+            form['User[bdDay2]'] = bdDay2;
+        }
+        if (logId) form['logId'] = logId;
+
+        //$.post('/?r=/users/auth/checksignup&'+$.param(form), llog, function(data){
+        $.post('/?r=/users/auth/checksignup&User[agreement]=1&' + $('#User').serialize(), llog, function (data)
+        {
+            if (data == 'OK')
+            {
+                ga('send', 'event', {
+                    eventCategory: 'Signup form',
+                    eventAction  : 'input_exit',
+                    eventLabel   : 'SUCCESS'
+                });
+
+                setTimeout(function ()
+                {
+                    document.location = '/profile/';
+                }, 1000);
+            } else
+            {
+                ga('send', 'event', {
+                    eventCategory: 'Signup form',
+                    eventAction  : 'errors',
+                    eventLabel   : data
+                });
+
+                animErrorMessage('#error_msg', data);
+                $('#sigButton').show();
+            }
+        });
+    }
+
+    function frmErrorMessage(field, msg)
+    {
+        $(field).next('span').removeClass().addClass('error-msg').html(msg)
+            .parents('div[class^="row"]').removeClass('confirm-field').addClass('error-field');
+
+        ga('set', 'nonInteraction', true);
+        ga('send', 'event', {
+            eventCategory: 'Signup form',
+            eventAction  : 'errors',
+            eventLabel   : msg
+        });
+
+    }
+    function frmSuccessMessage(field, msg)
+    {
+        $(field).next('span').removeClass().addClass('confirm-msg').html(msg)
+            .parents('div[class^="row"]').removeClass('error-field').addClass('confirm-field');
+    }
+    function frmMessage(field, msg)
+    {
+        $(field).next('span').removeClass().addClass('default-msg').html(msg)
+            .parents('div[class^="row"]').removeClass('error-field').removeClass('confirm-field');
+    }
+
+    function frmValidateLogin()
+    {
+        var login = $('#User_login').val(), validated = true;
+        if (!login)
+        {
+            frmErrorMessage('#User_login', _loginRequired);
+            validated = false;
+        } else if (/[^a-zA-Z0-9]/.test(login))
+        {
+            frmErrorMessage('#User_login', _alphanumeric);
+            validated = false;
+        } else if (login.length < 4)
+        {
+            frmErrorMessage('#User_login', _loginLength);
+            validated = false;
+        }
+
+        return validated;
+    }
+    function frmValidatePassword()
+    {
+        var val = $('#User_password').val(), validated = true;
+        if (!val)
+        {
+            frmErrorMessage('#User_password', _passwordRequired);
+            validated = false;
+        } else if (/[^a-zA-Z0-9]/.test(val))
+        {
+            frmErrorMessage('#User_password', _alphanumeric);
+            validated = false;
+        } else if (val.length < 6)
+        {
+            frmErrorMessage('#User_password', _passwordLength);
+            validated = false;
+        }
+
+        return validated;
+    }
+    function frmValidateEmail()
+    {
+        var val = $('#User_email').val(), validated = true;
+        if (!val)
+        {
+            frmErrorMessage('#User_email', _emailRequired);
+            validated = false;
+        } else if (!val.match(/^([0-9a-z][0-9a-z_\.\-]*)?[0-9a-z]\@([0-9a-z][0-9a-z_\.\-]*)?[0-9a-z]\.[a-z]{2,5}$/i))
+        {
+            frmErrorMessage('#User_email', _emailBad);
+            validated = false;
+        }
+
+        return validated;
+    }
+
+    function frmValidateBirthDate()
+    {
+        var validated = true;
+        var bdYear = $('#User_bdYear').val(),
+            bdMonth = $('#User_bdMonth').val(),
+            bdDay = $('#User_bdDay').val();
+
+        //frmErrorMessage('#User_email', _emailRequired);
+        //validated = false;
+
+        return validated;
+    }
+
+
+</script>
+
+
+<script type="text/javascript">
+    initSignupForm();
+    $(document).ready(function ()
+    {
+        var countryVal = 233;
+        var regionVal = 0;
+        var cityVal = 0;
+        initLocationSelect('User_countryId', 'User_regionId', 'User_cityId', countryVal, regionVal, cityVal);
+    });
+
+    var _lblBirthday = 'Дата рождения';
+    var _lblHisBday = 'Его дата рождения';
+    var _lblHerBday = 'Её дата рождения';
+
+    var _genders = {
+        male         : [1, 'Мужчина'],
+        female       : [2, 'Женщина'],
+        couple       : [3, 'Пара М+Ж'],
+        lesbiancouple: [4, 'Пара Ж+Ж'],
+        gaycouple    : [5, 'Пара М+М']
+    };
+    var _checkedGender = 'male';
+
+    $('#genicons > b').hover(function ()
+    {
+        if ($(this).hasClass('checked')) return;
+
+        var genlbl = _genders[this.className][1];
+        $('#genlbl').html(genlbl);
+    }, function ()
+    {
+        $('#genlbl').html(_checkedGender ? '<strong>' + _genders[_checkedGender][1] + '</strong>' : '');
+    }).click(function ()
+    {
+        $('#genicons > b.checked').removeClass('checked');
+        _checkedGender = $(this).attr("class")
+        $('#User_gender').val(_genders[_checkedGender][0]);
+        $('#genlbl').html('<strong>' + _genders[_checkedGender][1] + '</strong>');
+        $(this).addClass('checked');
+
+        if (_checkedGender != 'male' && _checkedGender != 'female')
+        {
+            $('#couple_birth').show();
+            if (_checkedGender == 'couple')
+            {
+                $('#bday1_label').html(_lblHisBday);
+                $('#bday2_label').html(_lblHerBday);
+            } else
+            {
+                $('#bday1_label').html(_lblBirthday + ' 1');
+                $('#bday2_label').html(_lblBirthday + ' 2');
+            }
+        } else
+        {
+            $('#couple_birth').hide();
+            $('#bday1_label').html(_lblBirthday);
+        }
+    });
+
+</script>                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer">
+        <div class="footer-holder">
+            <div class="footer-frame">
+
+                
+                <div class="footer">
+                    <a href="/" class="footer-logo">Главная</a>
+                    <ul>
+                        <li><a href="/news/">Новости</a></li>
+                        <li><a href="http://meendocash.com">Вебмастерам</a></li>
+                        <li><a href="/terms/">Пользовательское соглашение</a></li>
+                        <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                        <li><a href="/dmca/">DMCA</a></li>
+                                                <li><a href="/feedback/">Связаться с нами</a></li>
+                    </ul>
+                    <a href="/2257/">18 U.S.C. 2257 Record-Keeping Requirements Compliance Statement</a>
+
+                    <p>Просматривая Meendo Вы признаете, что достигли установленного законом возраста для просмотра материалов "для взрослых" в вашей стране</p>
+
+                    <p>&copy; 2009-2018 <a href="/">http://www.meendoru.com</a>
+                        - Бесплатные Секс Знакомства</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    </script>
+
+
+
+
+<!-- News block-->
+<script type="application/javascript">
+    $( '.modal' ).on( 'click', function(e) {
+        e.preventDefault();
+        $.get('/?r=users/news/read', function (data) {
+            if (data == 'OK') {
+                $('.modal').hide();
+                $('.modal-backdrop').hide();
+            }
+        });
+        return false;
+    });
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#notificationModal').modal();
+        $('.modal-dialog').css('margin-left', ($( window ).width() - 732) / 2);
+    });
+
+
+
+</script>
+
+<!-- Show me boobs widget -->
+<!-- "Show me boobs" module -->
+<div class="modal fade show in showmeboobs" id="showMeBoobs" tabindex="-1" role="dialog" aria-labelledby="showMeBoobsLabel" aria-hidden="true" style="display: block; left: 47px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="m-logo"></span>
+                <h5 class="modal-title" id="showMeBoobsLabel" style="text-align: center">Подтвердите что вам уже есть 18 лет!</h5>
+            </div>
+            <div class="modal-body">
+                <p>Данный сайт предназначен сугубо для лиц 18&nbsp;лет и&nbsp;старше. Если Вы&nbsp;моложе 18&nbsp;лет, то, пожалуйста, покиньте этот сайт. Этот сайт содержит графические и&nbsp;видео изображения сексуального характера для взрослых людей. Если доступ и&nbsp;просмотр материалов для взрослых не&nbsp;законен для Вас, пожалуйста, покиньте сайт прямо сейчас.</p>
+                <p>Продолжая и&nbsp;подтверждая, что Вам 18&nbsp;лет и&nbsp;старше, Вы&nbsp;самостоятельно подтверждаете доступ к&nbsp;просмотру сексуально откровенных материалов для взрослых. Вашим выбором&nbsp;Вы берете на&nbsp;себя ответственность за&nbsp;любые Ваши действия на&nbsp;сайте, личные последствия от&nbsp;использования сайта и&nbsp;соблюдение общественных и&nbsp;социальных норм. Создатели этого сайта и&nbsp;поставщики услуг не&nbsp;несут никакой ответственности за&nbsp;Ваш выбор&nbsp;&mdash; продолжить использование этого сайта.</p>
+                <p>Данный сайт не&nbsp;предназначен для совместного использования с&nbsp;лицами младше 18&nbsp;лет и&nbsp;предназначен сугубо для персонального единоличного использования.</p>
+                <p>Нажимая &laquo;Войти&raquo; Вы&nbsp;подтверждаете согласие с&nbsp;вышеприведенной информацией, и&nbsp;то, что вам больше 18&nbsp;лет.</p>
+            </div>
+            <div class="modal-footer">
+                <ul style="text-align: center;">
+                    <li style="display: inline;">
+                        <a class="btn btn-primary btn-sm" href="/boobs/agree">Войти</a>
+                    </li>
+                    <li style="display: inline; font-size: 14px; font-weight: 400;">или <a href="/boobs/disagree">Покинуть сайт</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop in"></div>
+<script type="text/javascript" src="/js/vague.js"></script>
+<script type="text/javascript">
+    $('img').each(function (i, elem) {
+        var vague = $(this).Vague({
+            intensity        : 4,
+            forceSVGUrl      : false,
+            animationOptions : {
+                duration: 1000,
+                easing: 'linear'
+            }
+        });
+        vague.blur();
+    });
+</script>
+<!-- End of "Show me boobs" --><!-- End of show me boobs widget -->
+
+</body>
+</html>

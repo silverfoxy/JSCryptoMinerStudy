@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WoRMS - World Register of Marine Species</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="google-site-verification" content="K3-dDlqPOhXjZBSl_DXhAQ9y-EoX2OogyHQaUtlaSR4"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png?=v2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png?=v2">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png?=v2">
+    <link rel="manifest" href="images/favicon/manifest.json?=v2">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg?=v2" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico?=v2" />
+    <link title="WoRMS search" type="application/opensearchdescription+xml" rel="search" href="/provider.xml" />
+    <link rel="stylesheet" type="text/css" href="http://www.marinespecies.org/aphia/css/third_party.css?1519203195" />
+<script type="text/javascript" src="http://www.marinespecies.org/aphia/js/third_party.js?1518210940" ></script><link type="text/css" rel="stylesheet" href="/styles.css?1511881241" />
+
+<link type="text/css" rel="stylesheet" href="/inc/vliz_news/css/style.css" media="all">
+<link type="text/css" rel="stylesheet" href="/inc/vliz_news/css/ckeditor.css" media="all">
+<script type="text/javascript" src="/inc/share42/share42.js"></script>
+<style>.vliznews_item_image { max-width: 120px; max-height: 120px; vertical-align: top; border: 0 none; }</style>
+
+
+
+</head>
+<body>
+
+<div class="main_bg">
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default worms-header">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header visible-xs">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navigation-shared,#navigation-content" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="/images/layout/worms_logo.png" height="60px"/>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse worms-nav-menu" id="navigation-content">
+                <div class="worms-nav-menu-table">
+                    <div class="worms-nav-menu-table-cell-col1 hidden-xs">
+                        <a class="navbar-left" href="/index.php">
+                            <img src="/images/layout/worms_logo.png" height="100px"/>
+                        </a>
+                    </div>
+                    <div class="worms-nav-menu-table-cell-col2">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="/index.php">Home</a></li>
+                            <li><a href="/about.php">About</a></li>
+                            <li><a href="/subregisters.php">Subregisters</a></li>
+                            <li><a href="/users.php">Users</a></li>
+                            <li><a href="/photogallery.php">Photogallery</a></li>
+                            <li><a href="/documents.php">Documents</a></li>
+                            <li><a href="/lifewatch.php">LifeWatch</a></li>
+                            <li><a href="/contribute.php">Contribute</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.navbar-collapse -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse aphia-nav-menu" id="navigation-shared">
+                <div class="aphia-nav-menu-table">
+                    <div class="aphia-nav-menu-table-cell-col1 hidden-xs">
+                        <form id="aphia-quick-search-form" class="navbar-form navbar-left" action="/aphia.php?p=taxlist" method="post">
+                            <div class="input-group" style="width: 280px;">
+                                <style>
+                                    #aphia-quick-search-form li.select2-selection__choice {
+                                        max-width: 100%;
+                                        overflow: hidden;
+                                        max-height: 26px;
+                                    }
+                                    #aphia-quick-search-form ul.select2-selection__rendered {
+                                        padding-right: 12px !important;
+                                    }
+                                </style>
+                                
+    <script type="text/javascript">
+        var comp_jquery = $;
+        comp_jquery(document).ready(function() {
+                        var select2_instance = comp_jquery("#36d0d613bfc3b9c5");
+        select2_instance.select2({
+            ajax: {
+            url: function (data) {
+                url = "/aphia.php?p=rest&__route__/AjaxAphiaRecordsByNamePart";
+                                    url += "/" + encodeURIComponent(data.term);
+                                return url;
+            },
+            type: 'GET',
+            dataType: 'json',
+            delay: '500',
+            params: {             contentType: 'application/json'
+        },
+        data: function (params) {
+            var data = {
+                                                    'rank_min': "10",
+                                    'rank_max': "240",
+                                    'combine_vernaculars': "0",
+                                    'marine_only': "1",
+                                    'fossil_id': "4",
+                                                                    "value_raw"
+                    :
+                    params.term
+                            };
+            if ($("#quick_search_inc_common").prop('checked')) { data['combine_vernaculars'] = 1; }
+            return data;
+        },
+                    transport: function (params, success, failure) {
+                if (!isNaN(params.data["value_raw"]) && isFinite(params.data["value_raw"])) {
+                    success(); //Simulate no results
+                    return;
+                }
+                //Regular request
+                var request = comp_jquery.ajax(params);
+                request.then(success);
+                request.fail(failure);
+                return request;
+            },
+                            processResults: function (data, params) {
+                                        if (typeof(data) === 'undefined') {
+                    return { results: [] }
+                }
+                            return {                     results: data,
+                };
+            }
+        ,
+        cache: true
+        } ,
+        minimumInputLength: 3,                         debug: true,
+        width: '100%',
+        theme: 'bootstrap',
+        dropdownAutoWidth: true,
+        containerCssClass: 'input-sm',
+        maximumSelectionLength: 1,
+        multiple: true,         tags: true,
+                    createTag: function (params) {
+            var prefix_text = 'search for: ';
+            return {
+            id: -1,
+            text: prefix_text + params.term.replace(prefix_text, ''),
+            newTag: true // add additional parameters
+            }
+            },
+                allowClear: true,
+        placeholder: "Quick search...",
+        language: {
+            errorLoading: function () {
+                return "Searching..."
+                }
+        }
+    });
+        select2_instance.on("change", function (e) {
+                var storage_area = comp_jquery("#36d0d613bfc3b9c5_storage");
+        storage_area.empty();
+
+                                var selectedValues = comp_jquery("#36d0d613bfc3b9c5").val();
+            if (selectedValues !== undefined) {
+
+                var count = selectedValues.length;
+                                for (var index = 0; index < count; index++) {
+                                            var hidden_name = "tid";
+                        if (index > 0) {
+                        hidden_name += index;
+                        }
+                    
+                    var new_hidden_field = comp_jquery("<input type=\"hidden\" name=\"" + hidden_name + "\" value=\"" + selectedValues[index] + "\" />");
+                    storage_area.append(new_hidden_field);
+                }
+            }
+        
+                                var combo_text = comp_jquery('#36d0d613bfc3b9c5 :selected ').text().replace('search for: ', '');
+                        if (combo_text && combo_text.length) {
+                            var new_hidden_field = comp_jquery("<input type=\"hidden\" name=\"tName\" value=\"" + combo_text + "\" />");
+                storage_area.append(new_hidden_field);
+                        }
+                    
+        //Fire change event
+        storage_area.change();
+    });
+
+        
+        
+    
+    select2_instance.closest('form').on('reset', function (e) {
+        //Force change event since the hidden fields wouldn't be updated otherwise!
+        select2_instance.val('')
+        select2_instance.trigger("change");
+    });
+
+        });
+    </script>
+        <div id="36d0d613bfc3b9c5_storage" name="36d0d613bfc3b9c5_storage"></div>
+                                    <div class="input-group">
+                                    <select id="36d0d613bfc3b9c5" class="form-control input-sm"></select>
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span> <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li class="quick_search_inc_chk"><a href="#" data-value="option1" tabIndex="-1"><input id="quick_search_inc_scientific" checked="checked" disabled="disabled" type="checkbox"/>&nbsp;Scientific names</a></li>
+                                            <li class="quick_search_inc_chk"><a href="#" data-value="option2" tabIndex="-1"><input id="quick_search_inc_common" type="checkbox"/>&nbsp;Common names (slower)</a></li>
+                                            <li class="quick_search_inc_chk"><a style="padding-left: 33px;" href="/aphia.php?p=search&adv=1">&nbsp;Advanced search</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $("#36d0d613bfc3b9c5_storage").change(function(event) {
+                                        $(".select2-search--inline").hide();
+                                        var tid = $(this).children('input[name="tid"]').val();
+                                        $("#36d0d613bfc3b9c5").prop("disabled", true);
+                                        if (!isNaN(tid) && isFinite(tid) && tid > 0) {
+                                            window.location = "/aphia.php?p=taxdetails&id=" + tid;
+                                        } else {
+                                            $("#aphia-quick-search-form").submit();
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <input type="hidden" name="searchpar" value="0" />
+                            <input type="hidden" name="tComp" value="begins" />
+                            <input type="hidden" name="action" value="search" />
+                            <input type="hidden" name="rSkips" value="0" />
+                                                        <input type="hidden" name="marine" value="1" />
+                            <input type="hidden" name="fossil" value="4" />
+                                                    </form>
+                    </div>
+                    <div class="aphia-nav-menu-table-cell-col2">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/aphia.php?p=search"><span class="fa fa-search"></span>&nbsp;Taxa</a></li>
+                            <li><a href="/aphia.php?p=sources"><span class="fa fa-graduation-cap fa-1x"></span>&nbsp;Literature</a></li>
+                            <li><a href="/aphia.php?p=checklist"><span class="fa fa-map fa-1x"></span>&nbsp;Distribution</a></li>
+                            <li><a href="/aphia.php?p=specimens"><span class="fa fa-tags fa-1x"></span>&nbsp;Specimen</a></li>
+                                                        <li><a href="/aphia.php?p=editors"><span class="fa fa-users fa-1x"></span>&nbsp;Editors</a></li>
+                            <li><a href="/aphia.php?p=stats"><span class="fa fa-line-chart fa-1x"></span>&nbsp;Statistics</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="fa fa-gears fa-1x"></span>&nbsp;Tools
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/aphia.php?p=match"><span class="fa fa-binoculars fa-1x"></span>&nbsp;Match taxa</a></li>
+                                    <li><a href="/aphia.php?p=webservice"><span class="fa fa-globe fa-1x"></span>&nbsp;Webservices</a></li>
+                                    <li><a href="/aphia.php?p=browser"><span class="fa fa-sitemap fa-1x"></span>&nbsp;Taxon tree</a></li>
+                                    <li><a href="/aphia.php?p=idkeys"><span class="fa fa-puzzle-piece fa-1x"></span>&nbsp;IDKeys</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/aphia.php?p=manual"><span class="fa fa-book fa-1x"></span>&nbsp;Manual</a></li>
+                                                                                                                                                                                                <li><a href="/aphia.php?p=login&amp;decodetype=1&amp;redirect=Lw=="><span class="fa fa-lock fa-1x"></span>&nbsp;Log in</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+</div>
+<div class="container-fluid worms-content">
+<style>
+        .photogallery_classic_item > img {
+        padding-bottom: 10px;
+    }
+</style>
+<script type="text/javascript" src="/js/widgets.js" id="twitter-wjs"></script>
+<script src="js/customize-twitter-1.1.min.js" type="text/javascript"></script>
+
+<div class="row">
+    <div class="index_main_container">
+        <div class="index_main_container_col1">
+            <div class="worms_content_section worms_content_section_colored text-center">
+                <blockquote class="blockquote" style="max-width: 880px; margin: auto">
+                    <p class="h3 worms_content_color_main"><strong>The World Register of Marine Species aims to provide the most authoritative list of names of all marine species globally, ever published</strong></p>
+                </blockquote>
+                <div style="margin: auto;">
+                    <div style="height: 110px; display: flex; flex-flow: row wrap; overflow: hidden; align-items: center; justify-content: center;">
+                    <div class="photogallery_classic_item" style="display:inline;"><a href="photogallery.php?album=5163&pic=34845"><img class="photogallery_thumb" src="http://images.vliz.be/thumbs/34845_bathyarctus-formosanus-author-chan-tin-yam.jpg" width="165" height="110" style="border-width: 0px;" alt="Bathyarctus formosanus, author: Chan, Tin-Yam" title="Bathyarctus formosanus, author: Chan, Tin-Yam" /></a></div>
+&nbsp;&nbsp;
+<div class="photogallery_classic_item" style="display:inline;"><a href="photogallery.php?album=5163&pic=103018"><img class="photogallery_thumb" src="http://images.vliz.be/thumbs/103018_aspidarachna-clypeata-author-merrin-kelly.jpg" width="147" height="110" style="border-width: 0px;" alt="Aspidarachna clypeata, author: Merrin, Kelly" title="Aspidarachna clypeata, author: Merrin, Kelly" /></a></div>
+&nbsp;&nbsp;
+<div class="photogallery_classic_item" style="display:inline;"><a href="photogallery.php?album=5163&pic=100264"><img class="photogallery_thumb" src="http://images.vliz.be/thumbs/100264_chelonia-mydas-author-de-pooter-daphnis.jpg" width="146" height="110" style="border-width: 0px;" alt="Chelonia mydas, author: De Pooter, Daphnis" title="Chelonia mydas, author: De Pooter, Daphnis" /></a></div>
+&nbsp;&nbsp;
+<div class="photogallery_classic_item" style="display:inline;"><a href="photogallery.php?album=5163&pic=1073"><img class="photogallery_thumb" src="http://images.vliz.be/thumbs/1073_alcyonium-digitatum-linnaeus-1758-author-daniel-vaulot.jpg" width="147" height="110" style="border-width: 0px;" alt="Alcyonium digitatum Linnaeus, 1758, author: Daniel Vaulot" title="Alcyonium digitatum Linnaeus, 1758, author: Daniel Vaulot" /></a></div>
+&nbsp;&nbsp;
+<div class="photogallery_classic_item" style="display:inline;"><a href="photogallery.php?album=5163&pic=107"><img class="photogallery_thumb" src="http://images.vliz.be/thumbs/107_grey-sea-slug---aeolidia-papillosa-linnaeus-1761-author-bruno.jpg" width="164" height="110" style="border-width: 0px;" alt="Grey sea slug - Aeolidia papillosa (Linnaeus, 1761), author: Bruno Van Bogaert" title="Grey sea slug - Aeolidia papillosa (Linnaeus, 1761), author: Bruno Van Bogaert" /></a></div>
+&nbsp;&nbsp;
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="index_main_container_col2 hidden-xs">
+            <div class="rss_latest_taxa" style="width: 290px;">
+                <b>Latest taxon additions</b><div id="rss_latest_taxa_last_update"><div class="vliznews_rss"><a href="aphia.php?p=rss" target="_blank"><img border="0" src="/inc/vliz_news/images/rss.png" alt="rss" title="RSS feed"></a></div></div>
+                <ul id="latest_taxa_container" class="list-group">
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(document).ready( function() {
+                    $.ajax({
+                        method: "POST",
+                        dataType: "xml",
+                        url: "aphia.php?p=rss"
+                    }).done(function( xmlDoc ) {
+                        $xml = $( xmlDoc );
+                        //Handle global
+                        var lastBuildDate = new Date($xml.find("lastBuildDate").text());
+                        $('#rss_latest_taxa_last_update').append("<small><i>Updated: " + lastBuildDate.toISOString().slice(0, 16) + "</i></small>");
+
+                        //Handle items
+                        $xml.find("item").each(function(index) {
+                           if (index >= 5) {
+                               return;
+                           }
+                           var cur_item = $(this);
+                           var title = cur_item.find('title').text();
+                           var url = cur_item.find('link').text();
+                           var author = cur_item.find('dc\\:creator').text();
+                           //console.log(cur_item.find('dc\\:creator'));
+                           var category = "";
+                           cur_item.find('category').each(function() {
+                               category += $(this).text() + " > ";
+                            });
+                            category = category.slice(0, category.length - 3);
+                           var date = new Date(cur_item.find('pubDate').text());
+                           var cur_item_id = url.match(/id=(\d+)/);
+
+                           var html =
+                               "<li class=\"list-group-item\">" +
+                                    "<a href=\"" + url + "\" title=\"" + title + "\" target=\"_blank\">" + title + "</a>" +
+                                    "<br />" +
+                                    "<small><i>Added: " + date.toISOString().slice(0, 10) + "</i></small>" +
+                                    "<div class=\"pull-right\">" +
+                                        "<a href=\"http://www.marinespecies.org/imis.php?module=person&show=search&searchField=" + encodeURI(author) + "\" title=\"Author: " + author + "\" target=\"_blank\">" +
+                                            "<span class=\"fa fa-user fa-1\" aria-hidden=\"true\"></span>" +
+                                        "</a>&nbsp;" +
+                                        "<a href=\"aphia.php?p=browser&id[]=" + cur_item_id[1] + "#focus\" title=\"" + category + "\" target=\"_blank\">" +
+                                            "<span class=\"fa fa-sitemap fa-1\" aria-hidden=\"true\"></span>" +
+                                        "</a>" +
+                                    "</div>" +
+                               "</li>";
+                            $("#latest_taxa_container").append(html);
+                        });
+                    });
+                });
+            </script>
+            <div class="twitter-container">
+                                <a class="twitter-timeline"
+                   data-width="290px"
+                   data-height="800px"
+                   data-link-color="#3333CC"
+                   data-chrome="nofooter noscrollbar"
+                   data-border-color="#aaaaaa"
+                   href="https://twitter.com/WRMarineSpecies"
+                   data-widget-id="344748503035154433"
+                >Tweets by @WRMarineSpecies</a>
+                <br />
+                <br />
+                <a href="https://twitter.com/WRMarineSpecies" class="twitter-follow-button" data-show-count="true"></a>
+                <script>CustomizeTwitterWidget({"url": "/twitter.css"});</script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="index_main_container_col1">
+    <style>
+        .vliznews_rss {
+        float: right;
+    }
+    .vliznews_item_title {
+        font-size: 16px;
+        font-weight: bolder;
+        color: #256092;
+    }
+    .vliznews_item_image {
+        padding: 4px;
+        border: 1px solid #ddd;
+        broder-radius: 4px;
+    }
+    .vliznews_title {
+        color: #256092;
+        font-weight: bolder;
+        font-size: 24px;
+    }
+    .vliznews_row {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+        .vliznews_thumb,
+        .vliznews_row_right {
+            display: table-cell!important;
+            padding-top: 0;
+            vertical-align: top;
+        }
+    }
+    @media (max-width: 767px) {
+        .vliznews_thumb,
+        .vliznews_row_right {
+            margin-left: 0 !important;
+        }
+    }
+    .vliznews_row_right {
+        width: 100%;
+    }
+    .vliznews_thumb {
+        width: 140px!important;
+    }
+    .vliznews_item_image {
+        margin: auto;
+        display: block;
+    }
+    .vliznews_item_image_large {
+        max-height: 60%;
+        max-width: 60%;
+        margin-bottom: 30px;
+    }
+    .vliznews_item_addedon_and_addedby {
+        font-style: italic;
+        font-size: 12px;
+        padding-bottom: 10px;
+    }
+    .vliznews_row .vliznews_row_right h2 {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+</style>
+<div class="row">
+    <div class="worms_content_section worms_content_section_colored">
+        <h2 class="vliznews_title">News</h2><div class="vliz_news_header"><div class="vliznews_rss"><a href="news.php?p=rss"><img border="0" src="/inc/vliz_news/images/rss.png" alt="rss" title="RSS feed" /></a></div>
+<div class="clearb"></div></div><div class="vliznews_row_classic"><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/millibase.png" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">So many legs, so little time…</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2018-03-05 10:28:49</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >MilliBase: Global Diplopod species catalog launched: Check it out now and come back often! ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5305">Read more</a></div></span></div></div><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/DSC_4435-1.jpg" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">Expanding MolluscaBase – welcoming freshwater and terrestrial editors during a WoRMS-LifeWatch workshop</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2018-02-19 10:15:10</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >In the week of 5-9 February, the Flanders Marine Institute (VLIZ) – host of Aphia, the online platform behind WoRMS and its many subregisters – welcomed Mollusca-experts for 4 days, to expand the content of MolluscaBase with their freshwater and terrestrial representatives and to document species traits. ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5281">Read more</a></div></span></div></div><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/Katja.jpg" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">Nemys: saying goodbye to its chief editor and major plans to move forward</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2018-02-15 09:09:27</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >Katja Guilini is passing on her chief editor responsibilities after leading Nemys since 2015. Meanwhile, the register will evolve towards a fully global initiative, soon to include freshwater and terrestrial representatives. ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5278">Read more</a></div></span></div></div><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/EJT_logo.jpg" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">Publication based on WoRMS: Improving nomenclatural consistency - a decade of experience in WoRMS</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2018-01-05 14:01:19</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >Just before the end of 2017, an Open Access Opinion Paper was published in the European Journal of Taxonomy by the WoRMS Steering Committee, on the importance of nomenclatural consistency and how this is being dealt with in WoRMS, based on its 10-year experience. This paper also frames within the 10 year anniversary celebration of WoRMS. ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5215">Read more</a></div></span></div></div><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/SCHELDEMONITOR RGB 72DPI.jpg" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">Launch Species Register Scheldt</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2017-12-08 08:52:11</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >First version of the species register for the Scheldt Estuary online! ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5203">Read more</a></div></span></div></div><div class="vliznews_row"><span class="vliznews_thumb" style="width: 120px;"><img class="vliznews_item_image" src="http://www.marinespecies.org/images/news/79401_cassiopea-andromeda.jpg" /></span><div class="vliznews_row_right"><h2 class="vliznews_item_title">WoRMS featured in 'The Conversation UK': How many undiscovered creatures are there in the ocean?</h2><div class='vliznews_item_addedon_and_addedby'><span class="vliznews_addedon">Added on: 2017-11-30 15:02:35</span><span class="vliznews_addedby"> by Vandepitte, Leen</span></div><span class="vliznews_item_text" >The sea remains the least explored habitat on our blue planet. But through WoRMS we know that more than 242,500 species have already been described... ...<div class="vliznews_item_readmore"><a href="news.php?p=show&id=5197">Read more</a></div></span></div></div></div><style>.vliznews_row_classic .vliznews_row_right{ margin-left: 120px; padding: 0 20px; }</style>
+<br/><span class="vliznews_add">[<a href="news.php?p=add">Add</a>]</span>&nbsp;<span class="vliznews_oldernews">[<a href="news.php?p=show&more=1">Older news...</a> ]</span>
+
+    </div>
+</div></div>
+<div class="row">
+    <div class="worms_content_section worms_content_section_colored">
+        <p class="h3 worms_content_color_main"><strong>Currently in WoRMS</strong></p>
+        <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <div class="index_statsbox-image">
+                        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <div class="index_statsbox-content">
+                        <p><b>Accepted marine species</b></p>
+                        <p>
+                            241 522
+                            (95% checked)
+                        </p>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <div class="index_statsbox-image">
+                        <i class="fa fa-database fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <div class="index_statsbox-content">
+                        <p><b>Marine species names, including synonyms</b></p>
+                        <p>
+                            486 372
+                        </p>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs visible-sm"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <div class="index_statsbox-image">
+                        <i class="fa fa-picture-o fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <div class="index_statsbox-content">
+                        <p><b>Species with image</b></p>
+                        <p>
+                            31 396
+                            (55% checked)
+                        </p>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs visible-md"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <a href="aphia.php?p=editors" target="_blank">
+                        <div class="index_statsbox-image">
+                            <i class="fa fa-user fa-4x" aria-hidden="true"></i>
+                        </div>
+                        <div class="index_statsbox-content">
+                            <p><b>WoRMS editors</b></p>
+                            <p>
+                                280
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs visible-sm visible-lg"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <a href="/users.php" target="_blank">
+                        <div class="index_statsbox-image">
+                            <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+                        </div>
+                        <div class="index_statsbox-content">
+                            <p><b>Registered institutional users</b></p>
+                            <p>
+                                173
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <a href="aphia.php?p=stats" target="_blank">
+                        <div class="index_statsbox-image">
+                            <i class="fa fa-globe fa-4x" aria-hidden="true"></i>
+                        </div>
+                        <div class="index_statsbox-content">
+                            <p><b>Webhits</b></p>
+                            <p>
+                                113 434 232 (In 2017)
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <br />
+            </div>
+            <div class="clearfix visible-xs visible-sm visible-md"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="index_statsbox">
+                    <a href="/wormsliterature.php" target="_blank">
+                        <div class="index_statsbox-image">
+                            <i class="fa fa-quote-right fa-4x" aria-hidden="true"></i>
+                        </div>
+                        <div class="index_statsbox-content">
+                            <p><b>Citations</b></p>
+                            <p id="worms_in_literature_global_count">
+                                Loading...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <br />
+            </div>
+            <script type="text/javascript">
+                function about_showRefGlobalCount() {
+                    $.ajax({
+                        method: "GET",
+                        url: "/imis.php",
+                        data: {
+                            module: "ref",
+                            show: "json",
+                            spcolid: 915,
+                            cnt : 1
+                        }
+                    }).done(function( data ) {
+                        $("#worms_in_literature_global_count").html(data.cnt.toString().replace(new RegExp('(\\.|\\,)(?=(\\d{3})+)','g'),'&nbsp;'));
+                    });
+                }
+                $(document).ready(function() {
+                    // executes when HTML-Document is loaded and DOM is ready
+                    about_showRefGlobalCount();
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<br />
+</div>
+<div class="container-fluid worms-footer">
+    <br/>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <div class="worms-footer-column">
+                <h4>WoRMS</h4>
+                <ul class="worms-footer-list">
+                    <li><a href="/about.php#what_is_worms">What is WoRMS</a></li>
+                    <li><a href="/lifewatch.php">What is LifeWatch</a></li>
+                    <li><a href="/subregisters.php">Subregisters</a></li>
+                    <li><a href="/about.php#partners">Partners</a></li>
+                    <li><a href="/about.php#users">WoRMS users</a></li>
+                    <li><a href="/wormsliterature.php">WoRMS in literature</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="worms-footer-column">
+                <h4>Using WoRMS</h4>
+                <ul class="worms-footer-list">
+                    <li><a href="/about.php#cite_worms">Citing WoRMS</a></li>
+                    <li><a href="/about.php#terms">Terms of use</a></li>
+                    <li><a href="/usersrequest.php">Request access</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="worms-footer-column">
+                <h4>Tools</h4>
+                <ul class="worms-footer-list">
+                    <li><a href="aphia.php?p=match">WoRMS Match Taxa</a></li>
+                    <li><a href="http://www.lifewatch.be/data-services/" target="_blank">LifeWatch Match Taxa</a></li>
+                    <li><a href="aphia.php?p=webservice">Webservices</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="worms-footer-column">
+                <h4>Connect with us</h4>
+                <ul class="worms-footer-list">
+                    <li>
+                        <a href="#" onclick="window.location.href='mailto:' + $('<textarea/>').html('&amp;#105;&amp;#110;&amp;#102;&amp;#111;&amp;#64;&amp;#109;&amp;#97;&amp;#114;&amp;#105;&amp;#110;&amp;#101;&amp;#115;&amp;#112;&amp;#101;&amp;#99;&amp;#105;&amp;#101;&amp;#115;&amp;#46;&amp;#111;&amp;#114;&amp;#103;').text() + '?subject=WoRMS Contact'; return false;"><i class="fa fa-envelope" aria-hidden="true"></i>Send us an email</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/WRMarineSpecies" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter page</a>
+                    </li>
+                    <li>
+                                                <a href="aphia.php?p=rss" target="_blank"><i class="fa fa-rss fa-1x" aria-hidden="true"></i>RSS Feed</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <hr class="worms-footer-splitter" />
+    </div>
+    <div class="row">
+        <div class="worms-footer-hosted_by text-center">
+            <small>Website and databases developed and hosted by
+                <a href="http://www.vliz.be" target="_blank">Flanders Marine Institute</a>&nbsp;&middot;&nbsp;Page generated on 2018-03-20 05:13:03+01:00
+            </small>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

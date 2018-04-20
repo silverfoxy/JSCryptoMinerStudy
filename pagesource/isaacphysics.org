@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html lang="en" class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head lang="en">
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<meta name="application-name" content="Isaac Physics" />
+		<meta name="msapplication-TileImage" content="/assets/favicon/isaac-favicon-196x196.png">
+		<meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="Description" content="Isaac Physics a project designed to offer support and activities in physics problem solving to teachers and students from GCSE level through to university.">
+
+    <meta property="og:url" content="https://isaacphysics.org{{relativeCanonicalUrl}}" /> 
+    <meta property="og:site_name" content="Isaac Physics" />
+    <meta property="og:title" ng-content="(pageTitle ? pageTitle : 'Isaac Physics' )" />
+    <meta property="og:description" content="Isaac Physics a project designed to offer support and activities in physics problem solving to teachers and students from GCSE (Y11), through to university." /> 
+    <meta property="og:image" content="https://isaacphysics.org/assets/isaac-logo@2xWider.png" />
+    <meta property="fb:app_id" content="760382960667256" />
+
+    <title ng-bind="'Isaac Physics' + (pageTitle ? ' - ' + pageTitle : '' )">Isaac Physics</title>
+    <link rel="canonical" ng-href="https://isaacphysics.org{{relativeCanonicalUrl}}" />
+    <link rel="icon" href="/assets/favicon/isaac-favicon-196x196.png" sizes="196x196">
+    <link rel="icon" href="/assets/favicon/isaac-favicon-96x96.png"   sizes="96x96">
+    <link rel="icon" href="/assets/favicon/isaac-favicon-32x32.png"   sizes="32x32">
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon-76x76.png"   sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon-precomposed.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Exo:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="/js/lib/katex/katex.min.css">
+    <script src="/js/lib/katex/katex.min.js"></script>
+
+    <script src="/js/lib/nprogress.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?delayStartupUntil=configured"> </script>
+
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <script src="/bower_components/system.js/dist/system.js"></script>
+    <script src="/js/system.config.js"></script>
+
+  </head>
+  <body>
+        <div ng-include="'/partials/mobile_pre_header.html'"></div>
+
+        <!-- Toast message. Must be a child of root scope. -->
+        <div class="hide-for-old-browser-only" toast></div>
+
+        <div loading-overlay></div>
+
+        <!-- Container for hexagon background -->
+        <div class='bg-wrap'>
+            <div ng-class='{"home-bg-math": isHomePage}'></div>
+            <div ng-class='{"home-bg": isHomePage}'></div>
+            <div class="hide-for-old-browser-only" ng-include="'/partials/cookie-message.html'"></div>
+            <div class="hide-for-old-browser-only" ng-if="user._id!=null && user.emailVerificationStatus!='VERIFIED'" ng-include="'/partials/verification-message.html'"></div>
+            <div class="hide-for-old-browser-only" ng-include="'/partials/header.html'"></div>
+
+            <div class="row">
+              <div class="small-16 columns">
+                <div class="body-wrap">
+                  <main class='ru-body hide-for-old-browser-only' fade-on-search ui-view="body"></main>
+                  <noscript>
+                    <h1><img alt='Isaac Physics. You work it out.' class='ru-desktop-menu-img' src='/assets/isaac-logo-strap.png' /></h1>
+                    <h2>Isaac Physics</h2>
+                    <p>
+                      Isaac Physics a project designed to offer support and activities in physics problem solving to teachers and students from GCSE level through to university.
+                    </p>
+                    <h2>JavaScript. You work it out.</h2>
+                    <p>
+                      Your browser does not support JavaScript or you have disabled it within your browsers settings. The Isaac site requires JavaScript in order to operate correctly. Please <a target="_blank" href="http://www.enable-javascript.com/" rel="nofollow">enable JavaScript </a> to continue.
+                    </p>
+                    <a style="display:none;" href="https://plus.google.com/118214242928754076411" rel="publisher"></a>
+                  </noscript>
+                  <div class="show-for-old-browser-only">
+                    <h1><img alt='Isaac Physics. You work it out.' class='ru-desktop-menu-img' src='/assets/isaac-logo-strap.png' /></h1>
+                    <h2>Isaac Physics</h2>
+                    <p>
+                      Isaac Physics a project designed to offer support and activities in physics problem solving to teachers and students from GCSE level through to university.
+                    </p>
+                    <h2>Your browser is out of date</h2>
+                    <p>
+                      Your browser is out of date. Isaac Physics supports the latest version of Chrome, Firefox, Safari and Internet Explorer 10 and above. Please <a href="https://browser-update.org/update.html" target="_blank" rel="nofollow">update your browser</a>.
+                    </p>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="hide-for-old-browser-only" ng-include="'/partials/footer.html'"></div>
+
+        <div id="isaacModal" class="reveal-modal" data-reveal></div>
+
+        <div class="hide-for-old-browser-only" isaac-modal="notification" no-hash>
+          <div class="reveal-modal-head">
+            <h2>{{notificationDoc.title}}</h2>
+            <a class="close-reveal-modal" href="javascript:void(0)"><span class="hide-for-small-only">Close</span> <span class="icon-close"></span></a>
+          </div>
+          <div class="reveal-modal-body">
+              <div isaac-content doc="notificationDoc"></div>
+              <!-- TODO: Add response buttons here -->
+              <div class="text-right">
+                <button ng-click="notificationResponse(notificationDoc, 'ACKNOWLEDGED')">Yes, view questionnaire</button>
+                <button ng-click="notificationResponse(notificationDoc, 'DISABLED')">No thanks</button>  
+                <button ng-click="notificationResponse(notificationDoc, 'POSTPONED')">Ask me later</button>  
+              </div>
+          </div>
+        </div>
+
+        <div class="hide-for-old-browser-only" isaac-modal="userConsistencyError" no-hash>
+          <div class="reveal-modal-head">
+            <h2>Your Isaac Physics session has changed</h2>
+          </div>
+          <div class="reveal-modal-body">
+              <div>
+                <h4>This browser window / tab is out of sync.</h4>
+                <p>This can happen if you have logged out or logged in as another user via another browser window. Please click continue to avoid any issues.</p>
+                <p><strong>Note:</strong> If you would like to be logged in with two accounts at one time you will need to use your browser's <a href="https://en.wikipedia.org/wiki/Privacy_mode" target="_blank" rel="nofollow">private browsing</a> feature.</p>
+              </div>
+              <div class="text-right">
+                <button ui-sref="login">Continue</button>                   
+              </div>
+          </div>
+        </div>        
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-51129534-1', { 'cookieDomain': 'none' });
+
+        </script>
+
+        <div id="equationModal" class="reveal-modal" data-reveal>
+          <div class="reveal-modal-body">
+            <div style="position:fixed;left:0;top:0;right:0;bottom:0;">
+                <div equation-editor style="height:100%"></div>
+            </div>
+          </div>
+        </div>
+
+    <script src="/js/isaac.js"></script>
+
+    <script lang="javascript">
+        System.import('app/app').catch(console.error.bind(console));
+    </script>
+
+  </body>
+</html>

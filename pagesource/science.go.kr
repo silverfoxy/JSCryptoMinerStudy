@@ -1,0 +1,4977 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN“"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+
+<html lang=“ko” xml:lang=“ko” xmlns=“http://www.w3.org/1999/xhtml”> 
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge; IE=EmulateIE9"/>
+
+<meta name="naver-site-verification" content="f6b5a3dc5230b6e7a6d2e029731ec6e56f9085cf"/>
+
+
+
+<title>국립중앙과학관</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/default.css" />
+
+
+
+
+
+
+
+
+
+
+
+<!--파비콘_s-->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+<!--파비콘_e-->
+
+<!-- 매인 팝업 및 배너 관련 start -->
+
+<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+
+  ga('create', 'UA-74176627-1', 'auto');
+
+  ga('send', 'pageview');
+
+var day;
+// var param={"year":year, "month":month, "day":day};
+$(document).ready(function() {
+	if($(".imgWrap").length < 2) {
+		$(".swiper-slide.slidesjs-slide").css({"left":"0px"});
+	}
+	$("#left").on("click", function() {
+		fx('minus','documentReady');//left버튼클릭시
+	});
+	$("#right").on("click", function() {
+		fx('plus','documentReady');//right버튼클릭시
+	})
+	day = 0;
+	fx(0,'documentReady');//처음에달력 뜰때
+
+});
+
+//김혁민 달력함수
+function fx(btn, documentReady) {
+	var listWidth = "";//테이블 달력 날짜 div 저장하는변수
+	if(btn=='plus') {
+		day += 1;
+	} else if(btn=='minus') {
+		day -= 1;
+	}
+	$.ajax({
+		url:"/test111.bs",//url호출
+		data:{"paramType": "month","paramInt": ""+day},//날짜 불러옴
+		success:function(result){
+			var listComment ="";//테이블에들어갈내용
+			listWidth+="<tr>";
+			for(var i=0;i<result.length;i++) {
+				if (i == 0) {
+					$("#yearTitle").html(result[i].date.substring(0,4));//년div도에들어갈것
+					$("#monthTitle").html(result[i].date.substring(4,6)+"월");//월div에들어갈것
+				}
+				listWidth +="<td class='date'><div class='rauder ";//날짜클래스
+				listComment += "<div  class='hideClass' id=\"comment" + result[i].date + "\">";//hideclass에  내용들을 넣어두고 hover 했을때 불러온다.hideclass는 안보인다.
+				if(result[i].restTime == "YES" ) {
+					listWidth += "close";//휴관색깔
+					listComment +="<div style='float:left'>휴관일입니다.</div>";//휴관이면 나타낼 문구.
+					var count = 0;
+					for(var j = 0; j < result[i].dateList.length; j++) {
+							var objectType = result[i].dateList[j].OBJECTTYPE;//이미지
+							var title=result[i].dateList[j].TITLE.replace(/\s/gi,'');//타이틀은 띄어쓰기 쓰면 안되기 때문에 정규식처리로 띄어쓰기 다 없앰
+							if (objectType == "edu") {
+								listComment += "<div class='widBar'> | </div>";
+								listComment += "<div class='wid' title=" + title + "><a href=\""+result[i].dateList[j].URL+"\">";
+								var titleLength = Math.floor(Math.floor(($(".dday").width() - (47 * result[i].dateList.length + $(".widBar").innerWidth()* (result[i].dateList.length -1)))/parseInt($(".wid").css("font-size")))/result[i].dateList.length);//타이틀 길이 구하기
+								
+								if (result[i].dateList[j].TITLE.length > titleLength) {//타이틀 길이...붙일지 말지 정하는것
+									listComment += result[i].dateList[j].TITLE.substring(0, titleLength) + "...";
+								} else {
+									listComment += result[i].dateList[j].TITLE;
+								}
+							
+							//항목에따른 이미지 구분
+								listComment += "<img src='https://www.science.go.kr/images/main/calendar_icon_edu.gif' alt='교육' />" + "</a></div>";
+								
+							}
+							
+					}
+				} else if(result[i].dateList.length > 0) {
+					listWidth += "blueC";//일정있으면색깔
+					for(var j = 0; j < result[i].dateList.length; j++) {
+							var title=result[i].dateList[j].TITLE.replace(/\s/gi,'');//타이틀은 띄어쓰기 쓰면 안되기 때문에 정규식처리로 띄어쓰기 다 없앰
+							listComment += "<div class='wid' title=" + title + "><a href=\""+result[i].dateList[j].URL+"\">";
+							var titleLength = Math.floor(Math.floor(($(".dday").width() - (47 * result[i].dateList.length + $(".widBar").innerWidth()* (result[i].dateList.length -1)))/parseInt($(".wid").css("font-size")))/result[i].dateList.length);//타이틀 길이 구하기
+							
+							if (result[i].dateList[j].TITLE.length > titleLength) {//타이틀 길이...붙일지 말지 정하는것
+								listComment += result[i].dateList[j].TITLE.substring(0, titleLength) + "...";
+							} else {
+								listComment += result[i].dateList[j].TITLE;
+							}
+// 							listComment += result[i].dateList[j].TITLE;
+							var objectType = result[i].dateList[j].OBJECTTYPE;//이미지
+							//항목에따른 이미지 구분
+							if (objectType == "junci") {
+								listComment += "<img src='https://www.science.go.kr/images/main/calendar_icon_exbition.gif' alt='전시' />" + "</a></div>";
+							} else if (objectType == "edu") {
+								listComment += "<img src='https://www.science.go.kr/images/main/calendar_icon_edu.gif' alt='교육' />" + "</a></div>";
+							} else if (objectType == "hengsa") {
+								listComment += "<img src='https://www.science.go.kr/images/main/calendar_icon_event.gif' alt='행사' />" + "</a></div>";
+							}
+							if (result[i].dateList.length - 1 > j) listComment += "<div class='widBar'> | </div>";
+					}
+				} else {
+					listWidth += "black";//둘다 없으면
+					listComment +="일정이없습니다.";//휴관일이 아니고 일정이 없으면 나타낼 문구
+				}
+				listWidth += "'>" + result[i].date.substring(6,8)+"<input type='hidden' class='showClass' value=" + result[i].date +" /></div></td>";//날짜
+				listComment +="</div>";
+			}
+			
+			listWidth+="</tr>";
+			listWidth+="<tr><td colspan="+result.length+" id ='calendarComment' class='nline Tline'></td></tr>";
+			$("#a1").html(listWidth);
+			$(".on2").html(listComment);
+			$(".rauder").hover(function() {
+				$(".gray").removeClass("gray");
+				$(this).addClass("gray");
+// 				console.log($(this).html());
+// 				console.log($("#comment"+$(this).html()).html());
+				$("#calendarComment").html($("#comment" + $(this).children().val()).html());
+			});
+			if(documentReady =='documentReady' && result.length > 0) {
+				$("#calendarComment").html($("#comment"+result[0].date).html());
+			}
+			
+		},error:function(request, status, error){
+			alert("code:" + request.status + "%n message:" + request.responseText + "%n error:" + error);
+		}
+	});
+}
+
+
+<!--
+
+	function main_tab(num){
+
+			popup_sc();
+
+	}
+
+	function trim(str){
+
+		var whitespace = " " + "\n\r\t";
+
+		for(var i=0;i<str.length;i++){
+
+			if(whitespace.indexOf(str.charAt(i)) == -1){
+
+				str = str.substring(i);
+
+				break;
+
+			}
+
+		}
+
+		for(i = str.length-1; i>=0; i--){
+
+			str = str.substring(0,i+1);
+
+			break;
+
+		}
+
+		return whitespace.indexOf(str.charAt(0))==-1?str:"";
+
+	}
+
+	// 팝업띄우기
+
+	function getCookie(name) {
+
+		var Found = false;
+
+		var start, end;
+
+		var i = 0;
+
+		var cookieArr = document.cookie.split(";");
+
+		for(var j=0;j<cookieArr.length;j++) {
+
+			for(i=0;i<=trim(cookieArr[j]).length;i++){
+
+				start = i;
+
+				end = start + name.length;
+
+				if(trim(cookieArr[j]).substring(start, end) == name) {
+
+					Found = true;
+
+					break;
+
+				}
+
+			}
+
+			if(Found == true) {
+
+				start = end + 1;
+
+				end = trim(cookieArr[j]).indexOf(";", start);
+
+				if(end < start){
+
+					end = trim(cookieArr[j]).length + 1;
+
+					return trim(cookieArr[j]).substring(start, end);
+
+				}
+
+			}
+
+		}
+
+		return "";
+
+	}
+
+	//2017-01-23 팝업 레이어에 있던거 이리 옮겼음
+	function setCookie( name, value, expiredays ) {
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		todayDate.setHours(0,0,0,0);
+		/* document.cookie = name + "=" + escape( value ) + "; HttpOnly"; */
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + "; "
+	}
+
+	function closeWin() {
+		if($("#checkbox01").is(":checked")){
+			setCookie("layerPopupWrap", "no" , 1);
+		};
+		$(".layerPopupWrap").hide();
+
+	}
+
+	function popup_sc(){
+		/*
+		var popCookie;
+		popCookie = getCookie("layerPopupWrap");
+		if(popCookie != 'no'){
+			setTimeout( function () {
+				$('.layerPopupWrap').show();  
+				$('.layerPopup').bxSlider({
+						preloadImages:'all',
+						auto:true,
+						slideWidth : 300,
+				  });
+			}, 500);
+		}
+		*/
+	}
+
+//-->
+
+</script>
+<style>.widBar{float:left;color:gray;padding: 0 5px 0 5px;width:5px;}</style>
+</head>
+
+<body class="mainbg" onload="main_tab('1');">
+
+<!-- 접근성네비게이터 시작 -->
+<style>
+	.jumpNav a { position:absolute; left:0px; top:0px; background:#fff; color:#333; outline:1px solid #333; text-align:center; overflow:hidden; width:100%; height:0px; }
+</style>
+<div class='jumpNav'>
+	<a href='#wrapper'>컨텐츠 바로가기</a>
+	<a href='#gnb'>메인메뉴바로가기</a>
+	<a href='#footer'>푸터바로가기</a>
+</div>
+<script>
+$(document).ready(function(){
+	  $(".jumpNav a").focus(function(){
+	    $(this).css("height","auto").css("padding", "5px 0px");
+	  });
+	  $(".jumpNav a").blur(function(){
+	    $(this).css("height","0px").css("padding", "0px");
+	  });
+	
+	});
+
+</script>
+<!-- 접근성네비게이터 시작 -->
+
+<!-- 전체감싸기 시작 -->
+
+<div class="mainwrap">
+	<!-- api문서 =  http://bxslider.com/  -->
+	<link rel="stylesheet" type="text/css" href="/css/jquery.bxslider.css" />
+	<script type="text/javascript" src="/js/jquery.bxslider.js"></script>
+	<style>
+		.layerPopupWrap { position:absolute; left:75%; top:200px; z-index:999; margin:0; padding:0;background: #fff;height: 230px;width: 300px; overflow:hidden; }
+		.layerPopupWrap .bx-wrapper {height: 100%; }
+		.layerPopup {height:300px;width:300px;} 
+		.layerPopup .item {position:absolute; top:0; left:0; z-index:999; background:#000;}
+		.layerPopup .item img { width:100%; height:100%;}
+		.layerPopupWrap .textWrap {position:absolute; top:200px; padding:5px; width:97%; bottom:0; background:#000; height:20px; color:#fff; }
+		.layerPopup .noView { display:inline-block; margin-top:0px; margin-left:20px; color:#fff; }
+		.layerPopupWrap .btn_black { float:right; margin:0px; padding:2px 5px; color:#fff; display:inline-block; vertical-align:middle; border:1px solid #696969; border-radius:4px; background:#666; cursor:pointer;}
+		.layerPopupWrap .bx-wrapper .bx-pager { margin-bottom:30px; }
+	
+	</style>
+
+<!-- 	레이어 팝업 시작 -->
+
+	 <div class='layerPopupWrap'>
+		<div class='layerPopup' id='slides3'>
+			
+				<div class="swiper-slide">
+					<div class='imgWrap'>
+						
+						
+							
+							
+							<a href="http://www.science.go.kr/link.bs?cd=00180&amp;url=boardRead.bs&amp;boardId=SCI_NEWS&amp;pNum=1&amp;dataSid=40635"><img align="center" style="width: 300px; height: 200px;" alt="1차 성인자연탐사 체험프로그램 안내 주제 : 봅곷을 찾아서 탐사일시 2018년 4월 7일 토요일 8시부터 오후 6시30분, 참가대상 전국민(자연에 관심있는 19세 이상 성인, 접수기간, 18년 3월 19일부터 3월 30일까지 모집인원 80명, 자세히 보기" src="/upload/board/201803/151656341521100594984.jpg" border="0" vspace="0" hspace="0"></a>
+						
+					</div>
+				</div>
+			
+				<div class="swiper-slide">
+					<div class='imgWrap'>
+						
+						
+							
+							
+							<img align="center" style="width: 300px; height: 200px;" alt="평창올림픽 입장권 소지자 주차료 무료! ※모바일 티켓은 현장에서 판단하여 무료결정 2017년12월1일부터 2018년 3월 18일까지" src="/upload/board/201712/050955511512435351162.jpg" border="0" vspace="0" hspace="0">
+						
+					</div>
+				</div>
+			
+	
+		</div>
+		<div class='textWrap'>
+			<input type='checkbox' id='checkbox01' />
+			<label for='checkbox01'>오늘 이 창을 띄우지 않음</label>
+			<button class='btn_black' onclick='closeWin();'>창닫기</button>
+		</div> 
+	</div>
+
+	<script>
+		$(window).load( function () {
+			var poperCookie = getCookie("layerPopupWrap");
+			if(poperCookie != 'no'){
+				$('.layerPopupWrap').show();  
+// 				$('.layerPopup').bxSlider({
+// 						preloadImages:'all',
+// 						auto:true,
+// 						slideWidth : 300,
+// 				  });
+			} else {
+				$('.layerPopupWrap').hide(); 
+			}
+	});
+	</script>
+		<!-- 레이어 팝업 끝 -->
+
+
+	<!-- 탑메뉴 시작 -->
+
+	<div class="headerwrap_main" >
+
+		<div class="header2">
+
+			<!-- 유틸 시작 -->
+
+			<div class="gnb">
+			<img src="/images/main/flag.jpg" alt="태극기" style="float:left; padding-right:10px; margin-top:3px;" />
+				<h2><a href="home.bs"><img src="/images/sub/common/1dep_home.gif" alt="국립중앙과학관"/></a></h2>
+
+					<div class="utile">
+					<ul class="top_util">
+
+					<li class="none"><a href="home.bs" title="처음으로">처음으로</a></li>
+
+					
+
+					<li><a href="/memberLogin.bs" title="로그인">로그인</a></li>
+
+					<li><a href="https://www.science.go.kr/joinMemberMain.bs" title="회원가입" style="color:#4911ff; font-weight:bold;">회원가입</a></li>
+
+					
+
+					<li><a href="siteMap.bs" title="사이트맵">사이트맵</a></li>
+
+					<li><a href="http://www.science.go.kr/english/index.html" target="_blank" title="ENGLISH">ENGLISH</a> </li>
+				
+					</ul>
+				
+					<ul class="top_sns">
+
+					<li class="none"><a href="https://www.instagram.com/nsmscience/" target="_blank" title="국립중앙과학관 인스타그램"><img src="/images/sub/common/instagram.png" alt="국립중앙과학관 인스타그램"/></a></li>
+
+					<li class="none"><a href="http://www.facebook.com/nsmscience" target="_blank" title="국립중앙과학관 페이스북"><img src="/images/sub/common/facebook.png" alt="국립중앙과학관 페이스북"/></a></li>
+
+					<li class="none"><a href="http://twitter.com/nsmscience" target="_blank" title="국립중앙과학관 트위터"><img src="/images/sub/common/twitter.png" alt="국립중앙과학관 트위터"/></a></li>
+
+					<li class="none"><a href="http://blog.naver.com/nsmscience/" target="_blank" title="국립중앙과학관 블로그"><img src="/images/sub/common/blog.png" alt="국립중앙과학관 블로그"/></a></li>
+
+					</ul>
+
+
+				    <div class="keysearch">
+
+					<!-- <input id="search_q" title="search" type="text" value="검색어를 입력하세요" style="width:211px; height:18px; background:url(../images/sub/common/top_util5.gif) center 0 no-repeat; border:0; padding:3px 0 3px 7px; font-size:11px;" class="keysearch_box"  onclick="this.value=''" onfocus="javascript:alert('서비스 개선중입니다.')"  onkeydown="javascript:alert('서비스 개선중입니다.');return true;" /> -->
+					<label for="search_q">
+					<input id="search_q" title="search" type="text" value="검색어를 입력하세요" style="width:211px; height:18px; background:url(../images/sub/common/top_util5.gif) center 0 no-repeat; border:0; padding:3px 0 3px 7px; font-size:11px;" class="keysearch_box"  onclick="this.value=''"  />
+					</label>
+
+					<a href=""  onclick="javascript:document.getElementById('q').value=document.getElementById('search_q').value;document.forms.totalSearchFrm.submit(); return false;" title="검색">
+
+						<img src="/images/sub/common/top_util6.png" alt="검색" class="nocolor" />
+
+					</a>
+
+					
+
+				</div>
+
+
+				<form name="totalSearchFrm" action="/search/search.jsp" method="post"><input type="hidden" name="q" id="q" value=""/></form>
+
+				</div>
+			</div>
+
+			<!-- 유틸 끝 -->
+
+			<!-- 1depth메뉴 시작 -->
+
+				<div class="mainsta" id='gnb'>
+				<ul class="mainsta_menu" >
+					<li class="2dept2">
+						<a href="link.bs?cd=00269" title="정보공개"><img src="/images/sub/common/infomation_public.gif" alt="정보공개" /></a>
+						<ul class='depth3'>
+							
+								
+									
+										<li>
+											 <a href="/link.bs?cd=00269"
+												>
+												정보공개제도안내 </a>
+										</li>
+									
+								
+									
+										<li>
+											 <a href="/link.bs?cd=00258"
+												>
+												사전정보공표 </a>
+										</li>
+									
+								
+									
+										<li>
+											 <a href="/link.bs?cd=00254"
+												>
+												정보목록 </a>
+										</li>
+									
+								
+									
+										<li>
+											 <a href="/link.bs?cd=00301"
+												>
+												정보공개청구 </a>
+										</li>
+									
+								
+									
+										<li>
+											 <a href="/link.bs?cd=00266"
+												>
+												공공데이터개방 </a>
+										</li>
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2"><a href="link.bs?cd=00205" title="과학관안내"><img src="/images/sub/common/nsm_intro.gif" alt="과학관안내" /></a>
+						<ul class='depth3'>
+							
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00205"
+													>
+													관람안내 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00024"
+													>
+													기관안내 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00411"
+													>
+													시설안내 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00047"
+													>
+													주변정보 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00025"
+													>
+													찾아오시는 길 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00173"
+													>
+													관련사이트 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00202"
+													>
+													자료실 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00317"
+													>
+													안전관리방 </a>
+											</li>
+										
+									
+										
+											<li>
+												 <a href="/link.bs?cd=00354"
+													>
+													자주묻는질문 </a>
+											</li>
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+							
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="link.bs?cd=00027" title="전시관"><img src="/images/sub/common/exhibit_hall_intro.gif" alt="전시관"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00209"
+													>
+													전시관 안내 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00381"
+													>
+													추천코스 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00032"
+													>
+													과학기술관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00387"
+													>
+													자연사관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00035"
+													>
+													창의나래관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00073"
+													>
+													자기부상열차 체험관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00215"
+													>
+													꿈아띠체험관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00072"
+													>
+													생물탐구관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00076"
+													>
+													천체관 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00078"
+													>
+													사이언스홀 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00075"
+													>
+													야외전시물 </a>
+											</li>
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="link.bs?cd=00040&sub_redirect=272" title="행사·특별전시"><img src="/images/sub/common/culture_event_special_exhibit.gif" alt="행사·특별전시"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00040"
+													>
+													특별전시회 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00048"
+													>
+													사이언스데이 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00356"
+													>
+													수학체험전 </a>
+											</li>
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="/link.bs?cd=00058" title="경진대회"><img src="/images/sub/common/conference.gif" alt="경진대회"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00051"
+													>
+													발명품경진대회 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00053"
+													>
+													전국과학전람회 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00308"
+													>
+													수상실적증명서발급 </a>
+											</li>
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="link.bs?cd=00373" title="교육"><img src="/images/sub/common/science_education.gif" alt="교육"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											
+												<li>
+													 <a href="/link.bs?cd=00373"
+														>
+														교육·캠프·진로체험 </a>
+												</li>
+												
+										
+								
+										
+											
+												<li>
+													 <a href="/link.bs?cd=00234"
+														>
+														교육 시설 </a>
+												</li>
+												
+										
+								
+										
+											
+												<li>
+													 <a href="/link.bs?cd=00420"
+														>
+														무한상상실 </a>
+												</li>
+												
+										
+								
+										
+												
+										
+								
+										
+												
+										
+								
+										
+												
+										
+								
+										
+												
+										
+								
+										
+											
+												<li>
+													 <a href="/link.bs?cd=00236"
+														>
+														교육 자료실 </a>
+												</li>
+												
+										
+								
+										
+											
+												<li>
+													 <a href="/link.bs?cd=00055"
+														>
+														외부 교육 </a>
+												</li>
+												
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="link.bs?cd=00043" title="참여마당"><img src="/images/sub/common/join.gif" alt="참여마당"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00063"
+													>
+													과학관소식 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00310"
+													>
+													웹진 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00262"
+													>
+													고객 서비스 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00270"
+													>
+													110수화(화상) </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00141"
+													>
+													포토갤러리 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00142"
+													>
+													비디오갤러리 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00064"
+													>
+													전자민원 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00206"
+													>
+													기증안내 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00065"
+													>
+													자원봉사자안내 </a>
+											</li>
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+						</ul>
+					</li>
+					<li class="2dept2">
+						<a href="link.bs?cd=00044" title="예약"><img src="/images/sub/common/user_reservation.gif" alt="예약"/></a>
+						<ul class='depth3'>
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+										
+								
+							
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00295"
+													>
+													무한상상실 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00082"
+													>
+													교육·캠프예약 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00114"
+													>
+													전시관관람예약 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00399"
+													>
+													천체관 문화행사 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00083"
+													>
+													전시관해설예약 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00115"
+													>
+													공연예약 </a>
+											</li>
+										
+								
+										
+											<li>
+												 <a href="/link.bs?cd=00364"
+													>
+													자유학기제 </a>
+											</li>
+										
+								
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- 1depth메뉴 끝 -->
+
+		</div>
+
+			<script type="text/javascript">
+
+			/*$( "li.2dept2" ).toggle(function() {
+
+				$( "div.header2depth" ).slideDown( "fast" );
+
+			}, function() {
+
+				$( "div.header2depth" ).slideUp( "fast" );
+
+
+
+				if ( $( "div.header2depth:first" ).is( ":hidden" ) ) {
+
+					$( "div.header2depth" ).slideDown( "fast" );
+
+				}
+
+
+
+			});
+			*/
+			
+			$('.mainsta_menu').on('mouseenter focusin',function(){
+				//alert('over');	
+				$( "div.header2depth" ).stop().slideDown( "fast" );
+				$( ".depth3" ).stop().slideDown( "fast" );	
+			});
+			
+			$('.mainsta_menu').on('mouseleave focusout',function(){
+				//alert('out');
+				$( "div.header2depth" ).stop().slideUp( "fast" );
+				$( ".depth3" ).stop().slideUp( "fast" );	
+			});
+			</script>
+
+		<!-- 2depth메뉴 시작 -->
+
+		<div class="header2depth">
+
+			<!-- <div style='width: 1000px; margin: 0 auto; clear: both; height: 300px'>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00269"
+
+							>
+
+							정보공개제도안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00258"
+
+							>
+
+							사전정보공표 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00254"
+
+							>
+
+							정보목록 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00301"
+
+							>
+
+							정보공개청구 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00266"
+
+							>
+
+							공공데이터개방 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00205"
+
+							>
+
+							관람안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00024"
+
+							>
+
+							기관안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00411"
+
+							>
+
+							시설안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00047"
+
+							>
+
+							주변정보 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00025"
+
+							>
+
+							찾아오시는 길 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00173"
+
+							>
+
+							관련사이트 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00202"
+
+							>
+
+							자료실 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00317"
+
+							>
+
+							안전관리방 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00354"
+
+							>
+
+							자주묻는질문 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00209"
+
+							>
+
+							전시관 안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00381"
+
+							>
+
+							추천코스 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00032"
+
+							>
+
+							과학기술관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00387"
+
+							>
+
+							자연사관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00035"
+
+							>
+
+							창의나래관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00073"
+
+							>
+
+							자기부상열차 체험관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00215"
+
+							>
+
+							꿈아띠체험관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00072"
+
+							>
+
+							생물탐구관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00076"
+
+							>
+
+							천체관 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00078"
+
+							>
+
+							사이언스홀 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00075"
+
+							>
+
+							야외전시물 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00040"
+
+							>
+
+							특별전시회 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00048"
+
+							>
+
+							사이언스데이 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00356"
+
+							>
+
+							수학체험전 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00051"
+
+							>
+
+							발명품경진대회 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00053"
+
+							>
+
+							전국과학전람회 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00308"
+
+							>
+
+							수상실적증명서발급 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00373"
+
+							>
+
+							교육·캠프·진로체험 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00234"
+
+							>
+
+							교육 시설 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00420"
+
+							>
+
+							무한상상실 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00056"
+
+							>
+
+							교육시기별 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00054"
+
+							>
+
+							교육대상별 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00214"
+
+							>
+
+							교육 타입 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00235"
+
+							>
+
+							교육유형 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00236"
+
+							>
+
+							교육 자료실 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00055"
+
+							>
+
+							외부 교육 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00063"
+
+							>
+
+							과학관소식 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00310"
+
+							>
+
+							웹진 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00262"
+
+							>
+
+							고객 서비스 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00270"
+
+							>
+
+							110수화(화상) </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00141"
+
+							>
+
+							포토갤러리 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00142"
+
+							>
+
+							비디오갤러리 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00064"
+
+							>
+
+							전자민원 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00206"
+
+							>
+
+							기증안내 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00065"
+
+							>
+
+							자원봉사자안내 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+				<ul style='padding-right: 0px; float: left'>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00295"
+
+							>
+
+							무한상상실 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00082"
+
+							>
+
+							교육·캠프예약 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00114"
+
+							>
+
+							전시관관람예약 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00399"
+
+							>
+
+							천체관 문화행사 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00083"
+
+							>
+
+							전시관해설예약 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00115"
+
+							>
+
+							공연예약 </a>
+
+					</li>
+
+					
+
+					<li style='width: 110px; padding-left:15px; line-height: 20px;'>
+
+						<a href="/link.bs?cd=00364"
+
+							>
+
+							자유학기제 </a>
+
+					</li>
+
+					
+
+				</ul>
+
+				
+
+			</div> -->
+
+			<script type="text/javascript">
+
+			/*$("div.header2depth").mouseleave(function () {
+
+				$( "div.header2depth" ).slideUp( "fast" );
+
+			});*/
+
+			</script>
+
+
+
+			<!-- 2depth메뉴 끝 -->
+
+		</div>
+
+	</div>
+
+	<!-- 탑메뉴 끝 -->
+
+	<!-- 메인 비주얼 -->
+
+	<!-- 모달 스크립트 -->
+
+	<script type="text/javascript" src="/js/jquery.modalLayer.js"></script>
+
+	<script type="text/javascript">
+
+	jQuery(document).ready(function($) {
+
+		$('.open_modal').modalLayer();
+
+	});
+
+	</script>
+
+	<!-- 모달 스크립트 -->
+
+
+
+	<div id="wrapper">
+
+<!-- <script language='javascript'>
+
+	function video_close() {
+
+	document.getElementById( 'ancient_greek' ).style.display = 'none';
+
+	var video = document.getElementById("Video1");
+
+	if (video.paused) {
+
+	  }else{
+
+		video.pause();
+
+	  }
+
+	}
+
+</script>  그리스 특별전 닫기 스크립트소스-->
+
+<!--2016/10/4 홈페이지 메인 그리스특별전 홍보영상 게재소스 <div style='position:absolute;width:100%; height:516px;top:0px; right:0px; z-index:10000000000000000import!' id='ancient_greek'>
+
+ 
+
+ <!-- close button //
+
+ <div style='position:absolute; right:0px; top:0; cursor:pointer; width:36px; height:36px; z-index:100000000000000000import!;'><a onClick='javascript:video_close();' style="color:#fff; font-size:50px;">×</a></div>
+
+ 
+
+
+
+<video width="100%" height="516" controls autoplay  id="Video1">
+
+<source src="https://www.science.go.kr/upload/movie/ancient_greek.mp4" type="video/mp4">
+
+</video>
+
+
+
+
+
+ </div> -->
+
+
+
+			<div id="slides">	
+
+
+
+			<div class="slide main_event0 main_bg">
+			<div style="height:0; overflow:hidden;">
+			국립중앙과학관 게릴라 가드닝 공모전 자연과 예술의 어울림 in 과학관. 부제 : 재활용품, 예술작품으로 승화 공모주제:자연과 예술의 어울림 in 과학관, 조성장소 : 국립중앙과학관(대전소재), 참가대상 : 자연과 과학에 관심이 있는 전 국민, 진행일정 : 2018년 3월 5일(월) ~ 6월 30일(토), 접수기간 : 3월 5일(월)~3월30일(금), 1차 심사선정 : 4월 23일(월)(30개 개인, 팀 선정), 게릴라 가드닝 활동:5월 9일(수)~5월 11일(금)(국립중앙과학관 중앙광장), 실행계획에 기재한 재료제공('소규모 재활용 소품, 상토, 꽃 등), 2차 최종심사 발표 : 5월 18일(금), 접수방법 : 참가신청서(첨부파일) 및 실행계획(양식 자유) 이메일(ky90@korea.kr)제출, *게릴라 가드닝이란? 낙후된 공간에 꽃과 관목 등을 심어 이동식 정원을 조성하는 활동
+			</div>
+			 <div class="text1">
+			
+			  <button onclick="location.href='http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40628'" class="view_btn3" title="국립중앙과학관 게릴라 가드닝 공모전 「자연과 예술의 어울림 in 과학관」"></button> 
+
+
+
+			</div>
+
+			</div>
+
+
+			<div class="slide main_event3 main_bg"><!--과학으로 만나는 평창올림픽-->
+			<div style="height:0; overflow:hidden;">
+			과학으로 만나는 평창올림픽 2018년 1월 5일부터 3월 18일 국립중앙과학관 사이언스홀 로비
+			</div>
+			<div class="text1">
+			
+			
+			 <button onclick="location.href='http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40599'" class="view_btn3" title="과학으로 만나는 평창올림픽"></button>
+
+			</div>
+
+			</div>
+
+
+
+
+			<!-- <div class="slide main_event1 main_bg"><!--호주퀘스타콘과학체험특별전
+			<div style="height:0; overflow:hidden;">
+			호주 퀘스타콘 과학체험 특별전 두뇌start!과학놀이터 2018년 1월 5일부터 3월 4일까지 국립중앙과학관 특설전시관
+			</div>
+			<div class="text1">
+			
+			
+			 <button onclick="location.href='http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40600'" class="view_btn3" title="호주퀘스타콘과학체험특별전"></button>
+
+			</div>
+
+			</div> -->
+
+
+
+			<div class="slide main_kkumaty main_bg">
+
+			<div class="text1">
+			<div class="Tbox">
+			<h3>꿈아띠체험관</h3>
+			<div></div>
+			<p style="font-size:16px;">영유아대상 꿈아띠체험관 재개관!!<br />나도 예술가, 멜로디 볼, 빛으로 만든 그림 등 예술을 주제로 한 체험시설이 신설되어 나에 대한 탐구를 시작으로 우리를 둘러싼 일상생활, 나아가 세상에 대한 호기심과 궁금증을 충족시킬 수 있도록 꿈아띠 체험관이 탈바꿈하였습니다.</p>
+			</div>
+
+			<button onclick="location.href='http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40618'" class="view_btn3" title="꿈아띠체험관 재개관안내 이동"></button>
+
+
+			</div>
+
+			</div>
+
+
+
+
+			 <div class="slide main_lifecycle main_bg">
+
+			<div class="text1">
+			<div class="Tbox">
+			<h3>과학기술관</h3>
+			<div></div>
+			<p>주 전시관인 과학기술관은 근·현대과학기술, 겨레과학기술, 기초과학, 첨단과학기술체험관을 주제로 과학기술의 원리를 알고, 생동감 있는 전시품들을 체험해보실 수 있습니다.</p>
+			</div>
+
+			<button onclick="location.href='/link.bs?cd=00032'" class="view_btn3" title="과학기술관 전시관안내 이동"></button>
+
+
+			</div>
+
+			</div>
+
+
+			 <div class="slide main_event2 main_bg">
+
+			<div class="text1">
+			<div class="Tbox">
+			<h3>자연사관</h3>
+			<div></div>
+			<p>전문 전시안내해설 교육을 수료한 인력구성으로 ‘주제가 있는 자연사관 해설’과 매주 토·일요일 주니어 해설안내 프로그램이 준비되어 있습니다. </p>
+			</div>
+
+			<button onclick="location.href='/link.bs?cd=00387'" class="view_btn3" title="자연사관 전시관안내 이동"></button>
+
+
+			</div>
+
+			</div>
+
+
+
+			<!-- <div class="slide main_sangsulb1 main_bg">
+
+			<div class="text1">
+
+			<div><h3>인체와 로봇</h3>상징조형물속 공간을 또 다른 전시공간으로 활용하여 인체와 로봇을 해부학적으로 비교, 그 차이를 알기 쉽게 구현한 '인체와 로봇' 코너는 로봇연극무대 및 공연을 준비하여 재미와 감동을 느낄 수 있도록 전시내용을 마련하였습니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00032&sub_redirect=512'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" />
+
+			</div>
+
+			</div> -->
+
+
+
+			<!-- <div class="slide main_sangsul1 main_bg">
+
+			<div class="text1">
+
+			<div><h3>코리올리의 방</h3>상대방을 향해 공을 던지거나 굴리면 공이 앞으로 똑바로 나아가지 않고 한쪽으로 휘어서 나아갑니다. 이를 코리올리효과라고 합니다.<br />지구의 자전 때문에 생기는 현상입니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00032&sub_redirect=40'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" />
+
+			</div>
+
+			</div> -->
+
+
+
+			<!-- <div class="slide main_alive main_bg">
+
+			<div class="text1">
+
+			<div><h3>아라온호</h3>아라온호는 순수 국내 기술로 제작된 우리나라 최초 쇄빙연구선으로 쇄빙기능은 물론 10여개의 실험실과 60가지 이상의 첨단 연구 장비를 갖추고 있는 움직이는 해양연구소라 할 수 있습니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00032&sub_redirect=197'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" />
+
+			</div>
+
+			</div>
+ -->
+
+
+			<!-- <div class="slide main_jagi main_bg">
+
+			<div class="text1">
+
+			<div><h3>자기부상열차</h3>자기부상열차를 타고 지상 8.8m 상공 위를 달리는 미래의 친환경 교통수단 체험에 여러분을 초대합니다. 국립중앙과학관은 국가연구개발 성과인 자기부상열차의 원리탐구 탑승체험 기회를 국민에게 제공함으로써 국가과학기술의 우수성을 홍보하고 과학기술 대중화에 기여하고 있습니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00073'" class="btn_exhibition" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" value="전시관 바로가기" />
+
+			<input type="button" onclick="location.href='/link.bs?cd=00131'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="예약하기" />
+
+			</div>
+
+			</div> -->
+
+
+
+			<!-- <div class="slide main_chang main_bg">
+
+			<div class="text1">
+
+			<h3>창의나래관</h3>
+
+		    <!-- <input type="button" onclick="location.href='/link.bs?cd=00072'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" /> 
+
+			</div>
+
+			</div>-->
+
+
+
+			<!-- <div class="slide main_bio main_bg">
+
+			<div class="text1">
+			<div class="Tbox">
+			<h3>생물탐구관</h3>
+			<div></div>
+			<p>‘꿈틀꿈틀 애벌레와 함께 놀아요’ 해설프로그램을 주중,주말에 개인 또는 단체별로 현장접수를 통해 만나보실 수 있습니다.</p>
+			</div>
+
+			<button onclick="location.href='/link.bs?cd=00072'" class="view_btn3" title="생물탐구관 전시관안내 이동"></button>
+
+
+			</div>
+
+			</div> -->
+
+
+
+			<!-- <div class="slide hidden main_planetarium main_bg">
+
+			<div class="text1">			
+
+			<div><h4>23m 반구형 화면에 천문우주관련 영상을 상영</h4>천체관은 23m 반구형 화면에 천문우주관련 영상을 상영하고, 계절별 별자리 육성해설을 진행하고 있습니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00076'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" />
+
+			<input type="button" onclick="location.href='/link.bs?cd=00130'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="예약하기" />
+
+			</div>
+
+			</div>	 -->	
+
+			
+
+			<!-- <div class="slide hidden main_dinosaur main_bg">
+
+			<div class="text1">			
+
+			<div><h3>과학관에 공룡이 살고 있다!</h3>공룡 증강현실체험 존은 트라이아스기, 쥐라기, 백악기의 대표적인 공룡들의 특징을 증강현실 앱으로 제작 전시하여 공룡이 현실세계에서 실제로 살아 움직이는 듯한 흥미와 공룡 움직임의 특징을 체험학습 할 수 있을 뿐만 아니라 증강현실이란 어떤 것인지에 대한 과학적 원리를 체험 할 수 있는 공간입니다.<br />모든 공룡 및 야외 전시물을 증강체험하시면 선착순으로 공룡카드를 드립니다.</div>
+
+			<input type="button" onclick="location.href='/link.bs?cd=00075&sub_redirect=531'" onmouseover="this.className='in_over';" onmouseout="this.className='in_out';" class="btn_exhibition" value="전시관 바로가기" />
+
+			</div>
+
+			</div>  -->
+
+		</div>
+
+	<div class="calendarsection">
+		<div>
+			<!-- 김혁민 -->
+			<div style="display: none;">
+				<div class="widBar"></div>
+				<div class="wid"></div>
+			</div>
+			<!-- 			끝 -->
+			<div class="on2"></div>
+			<div><div id="yearView"></div><div id="monthView"></div></div>
+			<h1>이달의 전시/교육/행사 일정 안내<div class="Gline"><font color="gray">■</font> 휴관일&nbsp;&nbsp;&nbsp;<font color="#2ba5c3">■</font> 일정</div></h1>
+			<div class="prev_C" id="left">
+			<img src="/images/main/btn_prev.gif" alt="이전달" />
+			</div>
+			<div class="month">
+			<div id ='yearTitle'>2017</div><span style="font-size:16px; font-weight:600;" id='monthTitle'>12월</span>
+			</div>
+			<div class="next_C" id="right">
+			<img src="/images/main/btn_next.gif" alt="다음달" />
+			</div>
+		
+			<div class="dday">
+			<table class="calendarT">
+				
+				<thead id='a1'>
+				</thead>
+				<tbody id='a2'>
+				
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+	<!-- <form action="link.bs" method="post" id="boardForm1">
+			<input name="cd" type="hidden" />
+			<input name="dataSid" type="hidden" />
+			<input name="boardId" type="hidden" />
+			<input name="url" type="hidden" value="boardRead.bs"/>
+			<input name="pNum" type="hidden" value="1"/>
+		</form> -->
+
+
+<!--calendar 20171226전우정 적용본 끝-->
+
+
+<script type="text/javascript">
+function ready() {
+	var variable = "준비중입니다.";
+	alert(variable) ;
+	return false;
+}
+</script>
+		<div class="mainsection">
+		<div class="mainsection1">
+
+			<div>
+
+			<div class="favorite_title">주요서비스<br />바로가기</div>
+
+			<div class="favorite_btn">
+
+				<ul>
+
+				<li class="btn1"><a href="link.bs?cd=00309" title="예약">예약</a></li>
+
+				<!-- <li class="btn2"><a onclick="window.open('http://www.science.go.kr/n_main/schedule/index.html','schedule','width=1200, height=1100, left=0, top=0, scrollbars=yes');return false" href="#" title="새창열림">연간일정</a></li> 
+
+				<li class="btn2"><a onclick="ready(); return false;" href="#" title="새창열림">연간일정</a></li>-->
+
+				<li class="btn3"><a onclick="window.open('http://www.science.go.kr/n_main/map/index.html','map','width=1000, height=646, left=0, top=0, scrollbars=yes');return false" href="#" title="새창열림">지도보기</a></li>
+
+				<li class="btn4"><a href="link.bs?cd=00209&sub_redirect=337" title="대표전시품">대표전시품</a></li>
+
+				<li class="btn5"><a href="http://www.sciencemuseum.or.kr" title="새창열림" target="blank">전국과학관<br />길라잡이</a></li>
+
+				<li class="btn6"><a href="http://www.naris.go.kr" title="새창열림" target="_blank">NARIS</a></li>
+
+				<li class="btn7"><a href="link.bs?cd=00310" title="웹진">웹진</a></li>
+
+				<li class="btn8"><a href="link.bs?cd=00024&sub_redirect=543" title="후원회">후원회</a></li>
+
+				<li class="btn9"><a href="http://www.sciencemuseum.or.kr/scienceSubject/main/list.action" title="새창열림" target="blank">과학학습<br />콘텐츠</a></li>
+
+				</ul>
+
+				<!-- <a href="link.bs?cd=00309"><img src="/images/main/favorite_1.gif" class="btn1" alt="예약" /></a>
+
+				<a onclick="MM_openBrWindow('https://www.science.go.kr/n_main/schedule/index.html','','scrollbars=yes,resizable=no,width=1200,height=1100')" href="#">
+
+				<img src="/images/main/favorite_2.gif" class="btn2" alt="연간일정" /></a>
+
+				<a onclick="MM_openBrWindow('https://www.science.go.kr/n_main/map/index.html','','scrollbars=no,resizable=no,width=800,height=450')" href="#">
+
+				<img src="/images/main/favorite_3.gif" class="btn3" alt="지도보기" /></a>
+
+				<a href="link.bs?cd=00209&sub_redirect=337"><img src="/images/main/favorite_4.gif" class="btn4" alt="대표전시품" /></a>
+
+				<a href="http://smart.science.go.kr/index.action" target="blank"><img src="/images/main/favorite_5.gif" class="btn5" alt="스마트과학관" /></a>
+
+				<a href="http://www.naris.go.kr/v2/index.jsp" target="_blank"><img src="/images/main/favorite_6.gif" class="btn6" alt="나리스" /></a>
+
+				<a href="link.bs?cd=00310"><img src="/images/main/favorite_7.gif" class="btn7" alt="웹진" /></a>
+
+				<a href="link.bs?cd=00024&sub_redirect=543"><img src="/images/main/favorite_8.gif" class="btn8" alt="후원회" /></a> -->
+
+			</div>
+
+			<script type="text/javascript">
+
+				function MM_openBrWindow(theURL,winName,features) { //v2.0
+
+					window.open(theURL,winName,features);
+
+				}
+
+				</script>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+	<!-- SlidesJS Required: Link to jquery.slides.js -->
+
+	<script src="/js/jquery.slides.min.js"></script>
+
+	<!-- End SlidesJS Required -->
+
+	<script>
+
+	$(function() {
+
+      $('#slides').slidesjs({
+
+        width: 1000,
+
+        height: 409,
+
+        play: {
+
+		  active: true,
+
+		  effect: "slide",
+
+		  interval: 9000,
+
+		  auto: true,
+
+		  swap: true,
+
+		  pauseOnHover: false,
+
+		  restartDelay: 2500
+
+		},
+
+		navigation: {
+
+		  active: true,
+
+		  effect: "slide"
+
+		},
+
+		pagination: {
+
+		  active: true,
+
+		  effect: "slide"
+
+		},
+
+		effect: {
+
+		  slide: {
+
+			speed: 500
+
+		  },
+
+		  fade: {
+
+			speed: 500,
+
+			crossfade: true
+
+		  }
+
+		}
+
+      });
+
+    });
+
+	</script>
+
+	<!-- //메인 비주얼 -->
+
+	<!-- 콘텐츠시작 -->
+
+	<div class="maincontents">
+
+		<!-- 주요서비스 바로가기 -->		
+
+		<div class="mainsection2">
+
+			<!-- 관람시간 -->
+
+			<a href="link.bs?cd=00205" class="ms1">
+
+			<div class="opening_hours">
+
+				<div>관람시간</div>
+
+				<div>오전 09:30 ~ 오후 17:50<br />(매표마감 17:00)<br />휴관일 : 매주 월요일<br /><span style="padding-left:44px;">매년 명절(1월 1일, 추석)당일</span></div>
+
+			</div>
+
+			</a>
+
+			<a href="/link.bs?cd=00411&sub_redirect=212" class="ms2">
+
+			<div class="closed">
+
+				<div>시설대관</div>
+
+				<div>국립중앙과학관은 과학관의 기본업무수행에 지장이 없는 범위내에서 국립중앙과학관의 시설물을 대관하고 있습니다.</div>
+			</div>
+
+			</a>
+
+			<a href="http://www.science.go.kr/link.bs?cd=00381" class="ms3">
+
+			<div class="new_content">
+
+				<div>추천관람코스안내</div>
+
+				<div>국립중앙과학관은 여러분의<br />이용편의를 위해<br />시간대별, 대상별 코스를 추천합니다.</div>
+
+			</div>
+
+			</a>
+
+		</div>
+
+		<!-- 게시판/팝업존영역 시작 -->
+		<form action="link.bs" method="post" id="boardForm">
+			<input name="cd" type="hidden" />
+			<input name="dataSid" type="hidden" />
+			<input name="boardId" type="hidden" />
+			<input name="url" type="hidden" value="boardRead.bs"/>
+			<input name="pNum" type="hidden" value="1"/>
+		</form>
+		<form action="link.bs" method="post" id="boardMoreForm">
+			<input name="cd" type="hidden" />
+		</form>
+		<script>
+			function viewBoard(cd,boardId,dataSid){
+				var form = document.getElementById("boardForm");
+				form.cd.value = cd;
+				form.boardId.value = boardId;
+				form.dataSid.value = dataSid;
+				form.submit();
+			}
+			function viewMoreBoard(cd){
+				var form = document.getElementById("boardMoreForm");
+				form.cd.value = cd;
+				form.submit();
+			}
+		</script>
+
+		<div class="mainsection3">
+
+			<!-- <div class="news_tab">
+
+				<ul id="tabs">
+
+					<li><a href="#" title="tab1">새소식</a></li>
+
+					<li class="tab_line"></li>
+
+					<li><a href="#" title="tab2">보도자료</a></li>
+
+					<li class="tab_line"></li>
+
+					<li><a href="#" title="tab3">채용</a></li>
+
+					<li class="tab_line"></li>
+
+					<li><a href="#" title="tab4">이벤트</a></li> 
+
+				</ul>
+
+				<div id="cont"> 					
+
+					<div id="tab1">
+
+						<ul class="maintab_con1" id="news_list">
+
+							
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00180','SCI_NEWS','40636')">
+								
+
+									제40회(2018년 봄) 사이언스데이 과학체험... 
+
+									<p>03.16</p>
+
+								
+
+					
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00180','SCI_NEWS','40635')">
+								
+
+					
+
+								
+
+									성인자연탐사 체험프로그램 참가자 모집공고  <p>03.15</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00180','SCI_NEWS','40634')">
+								
+
+					
+
+								
+
+									2018년 유아대상 과학문화공연 안내(무료)  <p>03.13</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00180','SCI_NEWS','40631')">
+								
+
+					
+
+								
+
+									홈페이지 서비스 일시중지 안내  <p>03.12</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00180','SCI_NEWS','40630')">
+								
+
+									주말창의과학교실 장소 및 시간 변경안내(‘18... 
+
+									<p>03.07</p>
+
+								
+
+					
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="javascript:viewMoreBoard('00180')" title="새소식더보기"><img src="/images/main/tab_plus.gif" alt="새소식더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>					
+
+					<div id="tab2">				
+
+						<ul class="maintab_con1" id="press_list">
+
+							
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00207','SCI_REPORT','4874')">
+
+								
+
+								
+
+											틴틴 우체국에서 4차 산업혁명 만나세요 <p>03.12</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00207','SCI_REPORT','4869')">
+
+								
+
+											자연과 예술의 어울림 in 과학관 - 게릴라 ... <p>03.05</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00207','SCI_REPORT','4866')">
+
+								
+
+											국립중앙과학관, 영유아 대상 꿈아띠체험관 재개... <p>02.19</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00207','SCI_REPORT','4860')">
+
+								
+
+								
+
+											국립중앙과학관 인사 <p>02.08</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00207','SCI_REPORT','4859')">
+
+								
+
+											 국립중앙과학관, 일하는 방식 혁신을 위한 조... <p>02.05</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="javascript:viewMoreBoard('00207')" title="보도자료 더보기"><img src="/images/main/tab_plus.gif" alt="보도자료 더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div id="tab3">						
+
+						<ul class="maintab_con1" id="recurt_list">
+
+							
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00296','recurt','40627')">
+
+								
+
+								
+
+											국립중앙과학관 무기계약직 근로자 채용 공고 <p>03.05</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00296','recurt','40619')">
+
+								
+
+											국립중앙과학관 무기계약직 근로자 채용 예비합격... <p>02.21</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00296','recurt','40614')">
+
+								
+
+											국립중앙과학관 무기계약직 근로자 채용 최종합격... <p>02.06</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00296','recurt','40608')">
+
+								
+
+											국립중앙과학관 무기계약직 근로자 채용 서류전형... <p>01.26</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00296','recurt','40601')">
+
+								
+
+								
+
+											국립중앙과학관 무기계약직 근로자 채용 공고 <p>01.08</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="javascript:viewMoreBoard('00296')" title="채용 더보기"><img src="/images/main/tab_plus.gif" alt="채용" /></a></p>
+
+							</li>
+
+						</ul>					
+
+					</div>
+
+					<div id="tab4">						
+
+						<ul class="maintab_con1" id="event_list">
+
+							
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00181','sci_event','4781')">
+
+								
+
+								
+
+											2017 홈페이지 만족도 조사 실시  <p>10.16</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00181','sci_event','4412')">
+
+								
+
+								
+
+											2016 홈페이지 만족도 조사 실시 <p>10.21</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00181','sci_event','4325')">
+
+								
+
+								
+
+											전국과학전람회 나도심사위원 이벤트 <p>08.19</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00181','sci_event','4302')">
+
+								
+
+								
+
+											나도 심사위원 이벤트 <p>07.14</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="javascript:viewBoard('00181','sci_event','4095')">
+
+								
+
+								
+
+											홈페이지 만족도 조사 실시 <p>09.30</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="javascript:viewMoreBoard('00181')" title="이벤트행사 더보기"><img src="/images/main/tab_plus.gif" alt="이벤트행사 더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+				<script>
+
+				$(document).ready(function() {
+
+					$("#cont div").hide(); // Initially hide all content
+
+					$("#tabs li:first").attr("id","current"); // Activate first tab
+
+					$("#cont div:first").fadeIn(); // Show first tab content
+
+					
+
+					$('#tabs a').click(function(e) {
+
+						e.preventDefault();        
+
+						$("#cont div").hide(); //Hide all content
+
+						$("#tabs li").attr("id",""); //Reset id's
+
+						$(this).parent().attr("id","current"); // Activate this
+
+						$('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+
+					});
+
+				});
+
+				</script>
+
+			</div> -->
+			
+			<style>
+				.new_news_tab { position:relative; width: 338px; height: 159px; border: 1px solid #dddddd; float: left; }
+				.new_news_tab h4 { position:absolute; font-size:14px; line-height:18px; left:0px; top:14px; border-right:2px solid #ddd; padding-right:10px; }
+				.new_news_tab h4 a { color:#333; }
+				.new_news_tab h4 a:hover { color:#005785; }
+				.new_news_tab h4 a.on { color:#005785; }
+				.new_news_tab ul { position:absolute; display:none; left:20px; top:40px; }
+				.new_news_tab ul a { display:block; color:#7d7d7d; width:300px; margin-bottom:10px; }
+				.new_news_tab ul p { float:right; }
+				.new_news_tab .moreView { position:absolute; right:10px; top:10px; }
+				.new_news_tab .tit1 { left:20px; }
+				.new_news_tab .tit2 { left:80px; }
+				.new_news_tab .tit3 { left:155px; }
+				.new_news_tab .tit4 { left:205px; border-right:0; }
+			</style>
+			<script>
+				$(document).ready( function () {
+					$('.new_news_tab h4 a').on('mouseover focus', function () {
+						$('.new_news_tab h4 a.on').removeClass('on');
+						$(this).addClass('on');
+						$('.new_news_tab ul').hide();
+						$('.new_news_tab .moreView').hide();
+						$(this).parent().next().show();
+						$(this).parent().next().next().show();
+					})
+				})
+				
+			</script>
+			<div class='new_news_tab'>
+				<h4 class='tit1'><a href='#' class='on'>새소식</a></h4>
+				<ul style='display:block;'>
+					
+						<li>
+							<a href="javascript:viewBoard('00180','SCI_NEWS','40636')">
+							
+								제40회(2018년 봄) 사이언스데이 과... 
+								<p>03.16</p>
+							
+
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00180','SCI_NEWS','40635')">
+							
+								성인자연탐사 체험프로그램 참가자 모집공고... 
+								<p>03.15</p>
+							
+
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00180','SCI_NEWS','40634')">
+							
+								2018년 유아대상 과학문화공연 안내(무... 
+								<p>03.13</p>
+							
+
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00180','SCI_NEWS','40631')">
+							
+
+							
+								홈페이지 서비스 일시중지 안내  <p>03.12</p>
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00180','SCI_NEWS','40630')">
+							
+								주말창의과학교실 장소 및 시간 변경안내(... 
+								<p>03.07</p>
+							
+
+							
+							</a>
+						</li>
+					
+				</ul>
+				<div class='moreView'><a href="javascript:viewMoreBoard('00180')"><img src='/images/main/tab_plus.gif' alt='새소식 더보기' /></a></div>
+				<h4 class='tit2'><a href='#'>보도자료</a></h4>
+				<ul>
+					
+						<li>
+							<a href="javascript:viewBoard('00207','SCI_REPORT','4874')">
+							
+							
+								틴틴 우체국에서 4차 산업혁명 만나세요 <p>03.12</p>
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00207','SCI_REPORT','4869')">
+							
+								자연과 예술의 어울림 in 과학관 - 게... <p>03.05</p>
+							
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00207','SCI_REPORT','4866')">
+							
+								국립중앙과학관, 영유아 대상 꿈아띠체험관... <p>02.19</p>
+							
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00207','SCI_REPORT','4860')">
+							
+							
+								국립중앙과학관 인사 <p>02.08</p>
+							
+							</a>
+						</li>
+					
+						<li>
+							<a href="javascript:viewBoard('00207','SCI_REPORT','4859')">
+							
+								 국립중앙과학관, 일하는 방식 혁신을 위... <p>02.05</p>
+							
+							
+							</a>
+						</li>
+					
+				</ul>
+				<div class='moreView'><a href="javascript:viewMoreBoard('00207')"><img src='/images/main/tab_plus.gif' alt='보도자료 더보기' /></a></div>
+				<h4 class='tit3'><a href='#'>채용</a></h4>
+				<ul>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00296','recurt','40627')">
+							
+								국립중앙과학관 무기계약직 근로자 채용 공... <p>03.05</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00296','recurt','40619')">
+							
+								국립중앙과학관 무기계약직 근로자 채용 예... <p>02.21</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00296','recurt','40614')">
+							
+								국립중앙과학관 무기계약직 근로자 채용 최... <p>02.06</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00296','recurt','40608')">
+							
+								국립중앙과학관 무기계약직 근로자 채용 서... <p>01.26</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00296','recurt','40601')">
+							
+								국립중앙과학관 무기계약직 근로자 채용 공... <p>01.08</p>
+							
+							
+							</a>
+						</li>
+					
+				</ul>
+				<div class='moreView'><a href="javascript:viewMoreBoard('00296')"><img src='/images/main/tab_plus.gif' alt='채용 더보기' /></a></div>
+				<h4 class='tit4'><a href='#'>이벤트</a></h4>
+				<ul>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00181','sci_event','4781')">
+							
+							
+										2017 홈페이지 만족도 조사 실시  <p>10.16</p>
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00181','sci_event','4412')">
+							
+							
+										2016 홈페이지 만족도 조사 실시 <p>10.21</p>
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00181','sci_event','4325')">
+							
+							
+										전국과학전람회 나도심사위원 이벤트 <p>08.19</p>
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00181','sci_event','4302')">
+							
+							
+										나도 심사위원 이벤트 <p>07.14</p>
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="javascript:viewBoard('00181','sci_event','4095')">
+							
+							
+										홈페이지 만족도 조사 실시 <p>09.30</p>
+							
+							</a>
+						</li>
+					
+				</ul>
+				<div class='moreView'><a href="javascript:viewMoreBoard('00181')"><img src='/images/main/tab_plus.gif' alt='이벤트 더보기' /></a></div>
+			</div>
+			
+
+			<!-- <div class="education_tab">
+
+				<ul id="tabs_2">
+
+					<li><a href="#" title="edu1">주말과학창의...</a></li>
+					<li class="tab_line"></li>
+					<li><a href="#" title="edu3">무한상상실</a></li>
+
+				</ul>
+
+				<div id="cont2"> 
+
+					<div id="edu1">	
+
+						<ul class="maintab_con1" id="scienceClassList">
+
+							
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3092">
+
+								
+
+								
+
+									4월 주말창의수업A(7세)  
+
+									<p>04.07~04.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3091">
+
+								
+
+								
+
+									4월 주말창의수업B(7세)  
+
+									<p>04.07~04.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3090">
+
+								
+
+								
+
+									4월 주말창의 공작A(7세)  
+
+									<p>04.07~04.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3089">
+
+								
+
+								
+
+									4월 주말창의 공작B(7세)  
+
+									<p>04.07~04.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3088">
+
+								
+
+								
+
+									4월 주말창의수업A(가족)  
+
+									<p>04.07~04.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="link.bs?cd=00196" title="과학교실더보기"><img src="/images/main/tab_plus.gif" alt="과학교실더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+					<!--  
+
+					<div id="edu2">
+
+						<ul class="maintab_con1" id="scienceCamp">
+
+							
+
+							
+
+							<li class="con1">
+
+								
+
+								
+
+								<a href="link.bs?cd=00371&url=eduReservView.bs&program_sid=2773">
+
+								
+
+								
+
+									제2기 오감만족 건강과학교실   
+
+									<p>09.05~11.28</p>
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="link.bs?cd=00371" title="과학캠프더보기"><img src="/images/main/tab_plus.gif" alt="과학캠프더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+
+					<div id="edu3">
+
+						<ul class="maintab_con1" id="infiniteImagenation">
+
+							
+
+							
+
+							<li class="con1">
+
+								<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3101">
+
+								
+
+								
+
+								
+
+									★2018년 무한상상실 4월 교육접수(3... <p>04.09~06.22</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3100">
+
+								
+
+								
+
+								
+
+									아두이노(미니피아노제작),성인,월(9:3... <p>04.09~04.23</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3099">
+
+								
+
+								
+
+								
+
+									원스톱 프로젝트(블록코딩_IoT_휴머노이... <p>04.12~06.21</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3098">
+
+								
+
+								
+
+								
+
+									내추럴퓨어(무좀비누_방향제_핸드크림)성인... <p>04.13~04.27</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con1">
+
+								<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3097">
+
+								
+
+								
+
+								
+
+									가죽교실(중급/수공예),성인,목(9:30... <p>04.12~06.21</p>
+
+								
+
+								
+
+								</a>
+
+							</li>
+
+							
+
+							<li class="con2">
+
+								<p><a href="link.bs?cd=00309" title="무한상상실더보기"><img src="/images/main/tab_plus.gif" alt="무한상상실더보기" /></a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+				<br/><br/>
+
+				<script>
+
+				$(document).ready(function() {
+
+					$("#cont2 div").hide(); // Initially hide all content
+
+					$("#tabs_2 li:first").attr("id","current"); // Activate first tab
+
+					$("#cont2 div:first").fadeIn(); // Show first tab content
+
+					
+
+					$('#tabs_2 a').click(function(e) {
+
+						e.preventDefault();        
+
+						$("#cont2 div").hide(); //Hide all content
+
+						$("#tabs_2 li").attr("id",""); //Reset id's
+
+						$(this).parent().attr("id","current"); // Activate this
+
+						$('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+
+					});
+
+				});
+
+				</script>
+
+			</div> -->
+			<style>
+				.new_education_tab { position:relative; width: 338px; height: 159px; border: 1px solid #dddddd; float: left; margin-left:10px;}
+				.new_education_tab h4 { position:absolute; font-size:14px; line-height:18px; left:0px; top:14px; border-right:2px solid #ddd; padding-right:10px; }
+				.new_education_tab h4 a { color:#333; }
+				.new_education_tab h4 a:hover { color:#005785; }
+				.new_education_tab h4 a.on { color:#005785; }
+				.new_education_tab ul { position:absolute; display:none; left:20px; top:40px; }
+				.new_education_tab ul a { display:block; color:#7d7d7d; width:300px; margin-bottom:10px; }
+				.new_education_tab ul p { float:right; }
+				.new_education_tab .moreView { position:absolute; right:10px; top:10px; }
+				.new_education_tab .tit1 { left:20px; }
+				.new_education_tab .tit2 { left:120px; }
+			</style>
+			<script>
+				$(document).ready( function () {
+					$('.new_education_tab h4 a').on('mouseover focus', function () {
+						$('.new_education_tab h4 a.on').removeClass('on');
+						$(this).addClass('on');
+						$('.new_education_tab ul').hide();
+						$('.new_education_tab .moreView').hide();
+						$(this).parent().next().show();
+						$(this).parent().next().next().show();
+					})
+				})
+				
+			</script>
+			<div class='new_education_tab'>
+				<h4 class='tit1'><a href='#' class='on'>주말과학창의...</a></h4>
+				<ul style='display:block;'>
+					
+					
+							<li>
+								
+								
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3092">
+								
+								
+									4월 주말창의수업A(7세)  
+									<p>04.07~04.28</p>
+								
+								</a>
+							</li>
+							
+							<li>
+								
+								
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3091">
+								
+								
+									4월 주말창의수업B(7세)  
+									<p>04.07~04.28</p>
+								
+								</a>
+							</li>
+							
+							<li>
+								
+								
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3090">
+								
+								
+									4월 주말창의 공작A(7세)  
+									<p>04.07~04.28</p>
+								
+								</a>
+							</li>
+							
+							<li>
+								
+								
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3089">
+								
+								
+									4월 주말창의 공작B(7세)  
+									<p>04.07~04.28</p>
+								
+								</a>
+							</li>
+							
+							<li>
+								
+								
+								<a href="link.bs?cd=00196&url=eduReservView.bs&program_sid=3088">
+								
+								
+									4월 주말창의수업A(가족)  
+									<p>04.07~04.28</p>
+								
+								</a>
+							</li>
+							
+				</ul>
+				<div class='moreView'><a href="/link.bs?cd=00196"><img src='/images/main/tab_plus.gif' alt='더보기' /></a></div>
+				<h4 class='tit2'><a href='#'>무한상상실</a></h4>
+				<ul>
+					
+						<li class="con1">
+							<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3101">
+							
+							
+							
+								★2018년 무한상상실 4월 교육... <p>04.09~06.22</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3100">
+							
+							
+							
+								아두이노(미니피아노제작),성인,월... <p>04.09~04.23</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3099">
+							
+							
+							
+								원스톱 프로젝트(블록코딩_IoT_... <p>04.12~06.21</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3098">
+							
+							
+							
+								내추럴퓨어(무좀비누_방향제_핸드크... <p>04.13~04.27</p>
+							
+							
+							</a>
+						</li>
+					
+						<li class="con1">
+							<a href="link.bs?cd=00309&url=eduReservView.bs&program_sid=3097">
+							
+							
+							
+								가죽교실(중급/수공예),성인,목(... <p>04.12~06.21</p>
+							
+							
+							</a>
+						</li>
+					
+				</ul>
+				<div class='moreView'><a href="link.bs?cd=00309"><img src='/images/main/tab_plus.gif' alt='더보기' /></a></div>
+			</div>
+
+			<!-- 베너존 시작 -->
+
+			<div class="popup_list">
+
+				<div id="slides2">
+
+					
+
+					
+
+						
+
+						
+
+						
+
+							<a href="http://www.swalking.co.kr/" target="_blank">
+
+						
+
+							<img src="/upload/bnImg/201803/1411191520993972857.jpg" width="300" height="160" alt="과학동행 봄을 담다 과학을 담다 과학기술인과 시민이 함께하는 2018 과학 어울림마당 걷기대회" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="https://www.safepeople.go.kr/#main" target="_blank">
+
+						
+
+							<img src="/upload/bnImg/201801/2915331517207617290.jpg" width="300" height="160" alt="2018국민과 함께하는 안전한 대한민국 국가안전대진단 기간 2018년 2월 5일(월)~3월30일(금), 54일간" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="http://www.kistep.re.kr/c5/sub2.jsp?brdType=R&bbIdx=11606" target="_blank">
+
+						
+
+							<img src="/upload/bnImg/201712/2114051513832742403.jpg" width="300" height="160" alt="과학기술정보통신부 소관 위원회 자기추천제도" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<img src="/upload/bnImg/201712/0814391512711581098.jpg" width="300" height="160" alt="화재사고는 휴일도 쉬는날도 없습니다. 점점 쌀쌀해지는 요즘 화재사고가 빈번하게 발생합니다. 각별히 안전사고에 유의하세요!" />
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="http://www.scienceplus.kr" target="_blank">
+
+						
+
+							<img src="/upload/bnImg/201711/2817521511859179679.jpg" width="300" height="160" alt="과학기술혁신플러스 과학기술로 만드는 미래대한민국 나의 생각 더하기 참여하기" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40481" target="_self">
+
+						
+
+							<img src="/upload/bnImg/201711/2817471511858846500.jpg" width="300" height="160" alt="유료회원 혜택 변경 국립중앙과학관 유료회원 혜택 추가 안내" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="http://www.science.go.kr/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40479" target="_self">
+
+						
+
+							<img src="/upload/bnImg/201711/2817301511857801547.gif" width="300" height="160" alt="국립중앙과학관일일자원봉사자모집 지원대상:성실한 중고대학생" />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<img src="/upload/bnImg/201711/2817281511857704387.gif" width="300" height="160" alt="가족캠핑장 공지안내 가족캠핑장은 인접지역에 연구성과 전시관 건축공사가 진행중이므로 이용객 안전을 고려하여 2019년 4월까지 운영을 중지하였음을 알려드립니다. 문의 과학교육과042-601-7934" />
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="https://www.science.go.kr/link.bs?cd=00310" target="_self">
+
+						
+
+							<img src="/upload/bnImg/201711/2817261511857607778.jpg" width="300" height="160" alt="webzine 간소화 구독신청 국립중앙과학관에 관심이 있는분이면 누구나 신청 가능합니다." />
+
+						
+
+						</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a href="/link.bs?cd=00180&url=boardRead.bs&boardId=SCI_NEWS&pNum=1&dataSid=40112" target="_blank">
+
+						
+
+							<img src="/upload/bnImg/201711/2817251511857528497.jpg" width="300" height="160" alt="1년 이상 미접속 회원 '휴면계정' 전환 안내" />
+
+						
+
+						</a>
+
+						
+
+					
+
+					
+
+					
+
+				</div>
+
+			  <!-- End SlidesJS Required: Start Slides -->
+
+			  <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+
+			  <script>
+
+				$('#slides2').slidesjs({
+
+					width: 300,
+
+					height: 160,
+
+					navigation: {
+
+					  active: true,
+
+					  effect: "slide"
+
+					},
+
+					pagination: {
+
+					  active: false,
+
+					  effect: "slide"
+
+					},
+
+					play: {
+
+					  active: true,
+
+					  effect: "slide",
+
+					  interval: 5000,
+
+					  auto: true,
+
+					  swap: true,
+
+					  pauseOnHover: false,
+
+					  restartDelay: 2500
+
+					}
+
+				  });
+			$('#slides3').slidesjs({
+
+					width: 300,
+
+					height: 200,
+
+					navigation: {
+
+					  active: ($(".imgWrap").length > 1 ? true:false),
+
+					  effect: "slide"
+
+					},
+
+					pagination: {
+
+					  active: false,
+
+					  effect: "slide"
+
+					},
+
+					play: {
+
+					  active: ($(".imgWrap").length > 1 ? true:false),
+
+					  effect: "slide",
+
+					  interval: 5000,
+
+					  auto: ($(".imgWrap").length > 1 ? true:false),
+
+					  swap: true,
+
+					  pauseOnHover: false,
+
+					  restartDelay: 2500
+
+					}
+
+				  });
+			
+			  </script>
+
+				<!-- 베너존 끝 -->
+
+			</div>
+
+			<!-- 게시판/베너존영역 끝 -->
+
+		</div>
+
+	</div>
+
+	<!-- 콘텐츠 끝 -->
+
+	</div>
+
+	<!-- 푸터시작 -->
+
+	<div class="mainfooter" id='footer'>
+
+		<div class="mainfooter_box">
+
+			<div class="mianinfor1">
+
+				<ul class="maininfor_raw">
+
+					<li><a href="/privacyInfoPolicy.bs" style="color:#015588;">개인정보처리방침</a></li>
+
+					<li>|</li>
+
+					<li><a href="/useProvision.bs">이용약관</a></li>
+
+					<li>|</li>
+
+					<li><a href="/emailAddressCollect.bs">이메일주소무단수집거부</a></li>
+
+					<li>|</li>
+
+					<li><a href="mailto:webadmin@science.go.kr">E-Mail : webadmin@science.go.kr</a></li>
+
+				</ul>
+
+				<ul class="maininfor_link">
+
+					<li style="padding-top:8px;"><label for='chn_site_id'>관련사이트</label></li>
+
+					<li>
+
+						<script type="text/javascript">
+
+						function chn_site(vr){
+
+							document.getElementById("sit").value = vr;
+
+							//window.open(vr);
+
+						}
+
+						function go_site(){
+
+							var sit = document.getElementById("sit").value;
+
+							if(sit != "0"){
+
+								window.open(sit);
+
+							}
+
+						}
+
+						</script>
+
+						<input type="hidden" id="sit" value="http://smart.science.go.kr" />
+
+						<select onchange="chn_site(this.value);" id='chn_site_id'>
+
+							<optgroup label="국립중앙과학관 주요사이트" style="font-style:normal">
+
+							<option value="http://smart.science.go.kr/index.action" title="새창열림" target="_blank">전국과학관 길라잡이</option>
+
+							<option value="http://www.naris.go.kr/" title="새창열림" target="_blank">나리스</option>
+
+							</optgroup>
+
+							<optgroup label="유관기관 사이트">
+
+							<option value="http://www.msip.go.kr/" title="새창열림" target="_blank">과학기술정보통신부</option>
+
+							<option value="https://www.sciencecenter.go.kr/index.do" title="새창열림" target="_blank">국립과천과학관</option>
+
+							<option value="http://www.sciport.or.kr/front/index.do" title="새창열림" target="_blank">국립부산과학관</option>
+
+							<option value="http://www.dnsm.or.kr" title="새창열림" target="_blank">국립대구과학관</option>
+
+							<option value="http://www.sciencecenter.or.kr" title="새창열림" target="_blank">국립광주과학관</option>
+
+							<option value="http://www.scicenter.or.kr/" title="새창열림" target="_blank">한국과학관협회</option>
+
+							<option value="http://www.kofac.re.kr/" title="새창열림" target="_blank">한국과학창의재단</option>
+
+							<option value="https://www.safekorea.go.kr/idsiSFK/index_web.jsp" target="_blank" title="새창 열림">국민재난안전포털</option>
+
+							</optgroup>
+
+						</select>
+
+					</li>
+
+					<li style="padding-top:6px;"><a href="#" onclick="go_site();" title="새창열림"><img src="/images/sub/common/btn_linkgo.gif" alt="이동" /></a></li>
+
+				</ul>
+
+			</div>
+
+			<div class="maininfor2">
+
+				<ul class="maininfor_copy">
+
+					<li>34143 대전광역시 유성구 대덕대로 481 (구성동32-2) 국립중앙과학관, 종합안내센터 (042) 601-7894~6, ARS (042) 601-7979</li>
+
+					<li>Copyright 2012 National Science Museum All Rights Reserved</li>
+
+				</ul>
+
+				<ul class="maininfor_sns">
+					<li><a href="http://wa.or.kr/waMark/status_new.asp" target="_blank" title="웹접근성 인증마크"><img src="/images/sub/common/wa.png" alt="웹접근성 인증마크"/></a></li>
+					
+				</ul>
+
+			</div>
+
+		</div>
+
+		<script>
+			$(document).scroll(function(){
+				if ($(this).scrollTop() >= 50) {
+					$('.goTop').css('display', 'inline');
+				} else {
+					$('.goTop').css('display', 'none');
+				}
+			});
+			function goTop () {
+				$('html, body').animate({scrollTop:0}, 'slow'); 
+			}
+		</script>
+		<div onclick='goTop();' class='goTop' style='position:fixed; display:none; bottom:30px; right:30px; cursor:pointer;'><img src="/images/top.png" alt='페이지 스크롤 탑으로 바로가기' /></div>
+
+
+	</div>
+
+	<!-- 푸터 끝 -->
+
+<!-- 전체감싸기 끝 -->
+	<script type="text/javascript">
+	var passwdCk = "";
+	var ThirdPartyLogin = "";
+	console.log('');
+	if("1"== passwdCk && ThirdPartyLogin !='1'){
+
+		window.open('pwdCheck.bs','패스워드변경안내' , "width=790,height=330");
+
+		}
+
+	</script>
+
+</body>
+
+</html>

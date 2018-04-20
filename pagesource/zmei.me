@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>美咖直播页</title>
+        <link href="/static/images/favicon.ico?v=0.1" mce_href="/static/images/favicon.ico?v=0.1" rel="bookmark" type="image/x-icon" />
+        <link href="/static/images/favicon.ico?v=0.1" mce_href="/static/images/favicon.ico?v=0.1" rel="icon" type="image/x-icon" />
+        <link href="/static/images/favicon.ico?v=0.1" mce_href="/static/images/favicon.ico?v=0.1" rel="shortcut icon" type="image/x-icon" />
+        <link href="//cdn.bootcss.com/normalize/3.0.3/normalize.css" rel="stylesheet"/>
+        <!--<style>-->
+            <!--.main { width: 600px; margin: 0 auto;  }-->
+            <!--h1 { text-align: center;  }-->
+            <!--.form-item label { height: 32px;line-height: 32px;font-size: 15px;}-->
+            <!--.form-item .input .text {width: 500px;height: 32px;font-size: 13px;padding: 0 8px;color: #666;}-->
+            <!--#code {width: 300px;font-size: 18px;}-->
+            <!--.form-item .input .button {height: 37px;padding: 2px 10px;background: #fff;border: 1px solid #aaa;margin-left: 10px;}-->
+            <!--.info {margin-top: 30px; padding: 10px 0;font-size: 14px;line-height: 26px;border-top: 1px dashed #ddd;}-->
+            <!--.info label {margin-right: 20px;}-->
+            <!--.info a {margin-right: 20px;}-->
+            <!--#result {display: none;}-->
+            <!--#goback {color: blue; text-decoration: none; font-size: 14px;float: right;}-->
+            <!--#toast-container > div {opacity: 1 !important; }-->
+        <!--</style>-->
+        <link rel="stylesheet" href="/static/css/code.css?v=0.1">
+        <script src="//cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+        <script src="//cdn.bootcss.com/zeroclipboard/2.0.2/ZeroClipboard.min.js"></script>
+        <link href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+        <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <div class="inner">
+                    <div class="logo"><img width="80" src="/static/images/code/logo.png?v=0.1" alt=""></div>
+                    <h2>美咖直播</h2>
+                </div>
+            </div>
+            <div class="center">
+                <div class="inner">
+                    <h1>美咖直播页</h1>
+                    <div class="form">
+                        <form action="#" id="code_form">
+                            <div class="form-item">
+                                <label>
+                                    请输入手机上显示的8位验证码
+                                </label>
+                                <div class="input">
+                                    <input type="text" class="text" id="code" autocomplete="off"/>
+                                    <input type="submit" class="button" value="确定" id="submit_btn"/>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="hide" id="result">
+                            <div class="back">
+                                <a href="#" id="goback">重新输入验证码</a>
+                            </div>
+                            <div class="form-item">
+                                <label>
+                                    推流地址：
+                                </label>
+                                <div class="input">
+                                    <input type="text" id="push_url" class="text"/>
+                                    <input type="button" id="copy_url" class="button" data-clipboard-target="push_url" data-text="推流地址已复制成功" value="复制"/>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <label>
+                                    推流密钥：
+                                </label>
+                                <div class="input">
+                                    <input type="text" id="push_secret" class="text"/>
+                                    <input type="button" id="copy_secret" class="button" data-clipboard-target="push_secret" data-text="推流密钥已复制成功" value="复制"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div>
+                            <a class="help" target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzAxMjUyNTgyNg==&mid=100000008&idx=1&sn=315e9e45db8185a77956165e59aad254&scene=1&srcid=0516yLDEfDnrDx49VLp1GtZ7&from=singlemessage&isappinstalled=0#wechat_redirect">pc直播使用帮助</a>
+                        </div>
+                        <div class="more">
+                            <label>推流软件下载</label>
+                            <a class="item" href="https://github.com/jp9000/obs-studio/releases/download/0.15.4/OBS-Studio-0.15.4-With-Browser-Installer.exe">windows 本地下载</a>
+                            <a class="item" href="http://lecloud.s3.lecloud.com/obs-0.10.1-installer.dmg">mac 本地下载</a>
+                            <a class="item" target="_blank" href="https://obsproject.com/">官网地址</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                toastr.options = {
+                    positionClass: 'toast-top-center'
+                };
+
+                var sending = false;
+                $('#code_form').submit(function () {
+                    if (!sending) {
+                        var code = $.trim($('#code').val()).replace(/\s+/g, '');
+                        if (!code) {
+                            return toastr.error('请输入正确的验证码');
+                        }
+                        sending = true;
+                        var submitBtn = $('#submit_btn');
+                        var timer = setTimeout(function () {
+                            submitBtn.val('正在获取...');
+                        }, 1500);
+                        $.ajax({
+                            url: '/code',
+                            type: 'post',
+                            data: {
+                                code: code
+                            },
+                            success: function (data) {
+                                $('#code_form').slideUp(function () {
+                                    $('#push_url').val(data.url);
+                                    $('#push_secret').val(data.token);
+                                    $('#result').slideDown();
+                                });
+                            },
+                            error: function (xhr) {
+                                var msg;
+                                var data = xhr.responseJSON;
+                                if (data && data.meta && data.meta.message) {
+                                    msg = data.meta.message;
+                                } else {
+                                    msg = '发生错误';
+                                }
+                                toastr.error(msg);
+                            },
+                            complete: function () {
+                                sending = false;
+                                clearTimeout(timer);
+                                submitBtn.val('确定');
+                            }
+                        });
+                    }
+                    return false;
+                });
+                var copy = function (btn) {
+                    var client = new ZeroClipboard(btn);
+                    client.on('ready', function () {
+                        client.on('aftercopy', function (e) {
+                            toastr.success($(e.target).data('text'));
+                        });
+                    });
+                };
+                var focusSelect = function (input) {
+                    input.focus(function () {
+                        input.select();
+                    });
+                };
+                focusSelect($('#push_url'));
+                copy($('#copy_url')[0]);
+                copy($('#copy_secret')[0]);
+
+                $('#goback').click(function () {
+                    $('#result').slideUp(function () {
+                        $('#code_form').slideDown();
+                    });
+                    return false;
+                });
+            })();
+        </script>
+    </body>
+</html>

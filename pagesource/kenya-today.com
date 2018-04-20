@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kenya News, analysis and in-depth reports | Kenya Today</title>
+
+<meta name="description" content="The latest news &amp; in-dept coverage on business, politics, sports, global news, and more. Kenya Today informs and educates with a focus on Kenya news." />
+<link rel="canonical" href="https://www.kenya-today.com/" />
+<link rel="publisher" href="https://plus.google.com/+Kenyatodaynews" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kenya Today" />
+<meta property="og:description" content="The latest news &amp; in-dept coverage on business, politics, sports, global news, and more. Kenya Today informs and educates with a focus on Kenya news." />
+<meta property="og:url" content="https://www.kenya-today.com/" />
+<meta property="og:site_name" content="Kenya Today" />
+<meta property="fb:app_id" content="493517777362545" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="The latest news &amp; in-dept coverage on business, politics, sports, global news, and more. Kenya Today informs and educates with a focus on Kenya news." />
+<meta name="twitter:title" content="Kenya News, analysis and in-depth reports | Kenya Today" />
+<meta name="twitter:site" content="@KenyaToday1" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.kenya-today.com\/","name":"Kenya Today","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.kenya-today.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Kenya Today &raquo; Feed" href="https://www.kenya-today.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="Kenya Today &raquo; Comments Feed" href="https://www.kenya-today.com/comments/feed" />
+<link rel='stylesheet' id='news-pro-theme-css' href='https://www.kenya-today.com/wp-content/themes/news-pro/style.css?ver=3.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.kenya-today.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ginger-style-css' href='https://www.kenya-today.com/wp-content/plugins/ginger/front/css/cookies-enabler.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-lightbox-swipebox-css' href='https://www.kenya-today.com/wp-content/plugins/responsive-lightbox/assets/swipebox/css/swipebox.min.css?ver=1.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://www.kenya-today.com/wp-includes/css/dashicons.min.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css' href='//fonts.googleapis.com/css?family=Raleway%3A400%2C700%7CPathway+Gothic+One&#038;ver=3.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='gppro-style-css' href='//www.kenya-today.com/wp-content/uploads/gppro/gppro-custom-1.css?ver=1483446463' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='https://www.kenya-today.com/wp-content/plugins/jetpack/css/jetpack.css?ver=5.9' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.kenya-today.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/ginger/addon/analytics/gingeranalytics.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/ginger/front/js/cookies-enabler.min.js?ver=4.9.4'></script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/responsive-lightbox/assets/swipebox/js/jquery.swipebox.min.js?ver=1.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rlArgs = {"script":"swipebox","selector":"lightbox","customEvents":"","activeGalleries":"1","animation":"1","hideCloseButtonOnMobile":"0","removeBarsOnMobile":"0","hideBars":"1","hideBarsDelay":"5000","videoMaxWidth":"1080","useSVG":"1","loopAtEnd":"0","woocommerce_gallery":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=1.7.2'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/themes/news-pro/js/responsive-menu.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var SafeCommentsAjax = {"ajaxurl":"https:\/\/www.kenya-today.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/safe-report-comments/js/ajax.js?ver=4.9.4'></script>
+<link rel='https://api.w.org/' href='https://www.kenya-today.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.kenya-today.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.kenya-today.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel='shortlink' href='https://wp.me/8c4Bi' />
+<meta property="fb:pages" content="293248774116017" />
+<style type="text/css"> .enews .screenread {
+	height: 1px;
+    left: -1000em;
+    overflow: hidden;
+    position: absolute;
+    top: -1000em;
+    width: 1px; } </style> <script type="text/javascript">
+        var ginger_logger = "Y";
+        var ginger_logger_url = "https://www.kenya-today.com";
+        var current_url = "https://www.kenya-today.com/";
+
+        function gingerAjaxLogTime(status) {
+            var xmlHttp = new XMLHttpRequest();
+            var parameters = "ginger_action=time";
+            var url= ginger_logger_url + "?" + parameters;
+            xmlHttp.open("GET", url, true);
+
+            //Black magic paragraph
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xmlHttp.onreadystatechange = function() {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    var time = xmlHttp.responseText;
+                    gingerAjaxLogger(time, status);
+                }
+            }
+
+            xmlHttp.send(parameters);
+        }
+
+        function gingerAjaxLogger(ginger_logtime, status) {
+            console.log(ginger_logtime);
+            var xmlHttp = new XMLHttpRequest();
+            var parameters = "ginger_action=log&time=" + ginger_logtime + "&url=" + current_url + "&status=" + status;
+            var url= ginger_logger_url + "?" + parameters;
+            //console.log(url);
+            xmlHttp.open("GET", url, true);
+
+            //Black magic paragraph
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xmlHttp.send(parameters);
+        }
+
+    </script>
+<style>
+            .ginger_container.light{
+             background-color: #eeeeee;             color: #ffffff;            }
+                        a.ginger_btn.ginger-accept, a.ginger_btn.ginger-disable, .ginger_btn{
+                background: #1e73be !important;
+            }
+            a.ginger_btn.ginger-accept:hover, a.ginger_btn.ginger-disable:hover, .ginger_btn{
+                background: #1e73be !important;
+            }
+                                    a.ginger_btn {
+                color: #ffffff !important;
+            }
+                                            </style>
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<meta property="fb:pages" content="293248774116017" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<meta name="p:domain_verify" content="5bde6633858b6fbb1ccc3667245420fe" />
+<meta name="google-site-verification" content="Np9Ky0pFKdCWhLIEYmTSuqVUhZbetDYgHKtyNDEQhTg" />
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8DMJJ');</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3147195114147053",
+    enable_page_level_ads: true
+  });
+</script><link rel="icon" href="https://www.kenya-today.com/wp-content/uploads/2015/09/cropped-kenyatoday-favicon-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://www.kenya-today.com/wp-content/uploads/2015/09/cropped-kenyatoday-favicon-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.kenya-today.com/wp-content/uploads/2015/09/cropped-kenyatoday-favicon-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://www.kenya-today.com/wp-content/uploads/2015/09/cropped-kenyatoday-favicon-270x270.jpg" />
+</head>
+<body data-rsssl=1 data-rsssl=1 class="home blog content-sidebar news-pro-blue gppro-custom news-pro-home" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><h1 class="site-title" itemprop="headline"><a href="https://www.kenya-today.com/">Kenya Today</a></h1><p class="site-description" itemprop="description">Kenya News, analysis &amp; in-depth reports</p></div><div class="widget-area header-widget-area"><section id="black-studio-tinymce-2" class="widget widget_black_studio_tinymce"><div class="widget-wrap"><div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3147195114147053" data-ad-slot="4699365064" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><ul id="menu-navigation-bar" class="menu genesis-nav-menu menu-primary"><li id="menu-item-51532" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-51532"><a href="https://www.kenya-today.com/" itemprop="url"><span itemprop="name">Home</span></a></li>
+<li id="menu-item-51535" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51535"><a href="https://www.kenya-today.com/news" itemprop="url"><span itemprop="name">News</span></a></li>
+<li id="menu-item-51533" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-51533"><a href="https://www.kenya-today.com/politics" itemprop="url"><span itemprop="name">Politics</span></a>
+<ul class="sub-menu">
+<li id="menu-item-52025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52025"><a href="https://www.kenya-today.com/tag/raila-odinga/" itemprop="url"><span itemprop="name">Raila Odinga</span></a></li>
+<li id="menu-item-52024" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52024"><a href="https://www.kenya-today.com/tag/uhuru-kenyatta/" itemprop="url"><span itemprop="name">Uhuru Kenyatta</span></a></li>
+</ul>
+</li>
+<li id="menu-item-93401" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-93401"><a href="https://www.kenya-today.com/facing-justice" itemprop="url"><span itemprop="name">Facing Justice</span></a></li>
+<li id="menu-item-51534" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51534"><a href="https://www.kenya-today.com/global" itemprop="url"><span itemprop="name">Global</span></a></li>
+<li id="menu-item-51536" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51536"><a href="https://www.kenya-today.com/opinion" itemprop="url"><span itemprop="name">Opinion</span></a></li>
+<li id="menu-item-99536" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-99536"><a href="https://www.kenya-today.com/tv" itemprop="url"><span itemprop="name">Live TV</span></a></li>
+</ul></div></nav><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="home-top widget-area"><section id="featured-post-3" class="widget featured-content featuredpost"><div class="widget-wrap"><article class="post-109000 post type-post status-publish format-standard has-post-thumbnail category-news category-politics entry"><a href="https://www.kenya-today.com/news/amazing-mad-love-kisiis-give-their-spokesman-simba-arati-a-super-warm-reception-at-prof-tumbo-burial-videophotos" class="aligncenter" aria-hidden="true"><img width="740" height="400" src="https://www.kenya-today.com/wp-content/uploads/2018/03/20180317_053731-740x400.jpg" class="entry-image attachment-post" alt="Amazing Mad Love! Kisiis Give Their Spokesman SIMBA ARATI A Super Warm Reception At Prof Tumbo Burial (Video&#038;Photos)" itemprop="image" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/amazing-mad-love-kisiis-give-their-spokesman-simba-arati-a-super-warm-reception-at-prof-tumbo-burial-videophotos">Amazing Mad Love! Kisiis Give Their Spokesman SIMBA ARATI A Super Warm Reception At Prof Tumbo Burial (Video&#038;Photos)</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T22:42:56+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/amazing-mad-love-kisiis-give-their-spokesman-simba-arati-a-super-warm-reception-at-prof-tumbo-burial-videophotos#comments">1 Comment</a></span></p></header><div class="entry-content"><p>By Albert Nyakundi Amenya
+here was jubilation and razzmatazz in Mosocho, Kitutu Chache South at the burial of ODM strategist professor Aloys Tumbo Oeri when Kisii Spokesman hon Simba 'Alert' Arati arrived at the venue.
+Business came to a standstill when word went round that hon Arati had arrived. The funeral emcee had to hold business for more than minutes to let the crowd settle before &#x02026; <a href="https://www.kenya-today.com/news/amazing-mad-love-kisiis-give-their-spokesman-simba-arati-a-super-warm-reception-at-prof-tumbo-burial-videophotos" class="more-link">[Read More...]</a></p></div></article></div></section>
+</div><div class="home-middle"><div class="home-middle-left widget-area"><section id="text-80" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Advertisement</h4>
+<div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3147195114147053" data-ad-slot="4427293867" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</div></section>
+</div><div class="home-middle-right widget-area"><section id="featured-post-4" class="widget featured-content featuredpost"><div class="widget-wrap"><h4 class="widget-title widgettitle">Featured story</h4>
+<article class="post-108989 post type-post status-publish format-standard has-post-thumbnail category-news tag-raila-odinga entry"><a href="https://www.kenya-today.com/news/breaking-video-raila-triumphant-entry-to-kisumu-super-heros-reception" class="aligncenter" aria-hidden="true"><img width="348" height="180" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-17-348x180.jpg" class="entry-image attachment-post" alt="MAD LOVE For Raila, Made Triumphant Entry To Kisumu, Super Hero&#8217;s Reception" itemprop="image" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/breaking-video-raila-triumphant-entry-to-kisumu-super-heros-reception">MAD LOVE For Raila, Made Triumphant Entry To Kisumu, Super Hero&#8217;s Reception</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T20:09:40+00:00">March 16, 2018</time> <span class="entry-comments-link"><a href="https://www.kenya-today.com/news/breaking-video-raila-triumphant-entry-to-kisumu-super-heros-reception#comments">3 Comments</a></span></p></header></article></div></section>
+</div></div><div class="home-bottom widget-area"><section id="featured-post-6" class="widget featured-content featuredpost"><div class="widget-wrap"><h4 class="widget-title widgettitle">More feature posts</h4>
+<article class="post-108984 post type-post status-publish format-standard has-post-thumbnail category-news tag-nairobi entry"><a href="https://www.kenya-today.com/news/incoming-nairobi-deputy-governor-ms-agnes-kariuki-the-best-brain-thatll-transform-nairobi" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/IMG-20180316-WA0003-150x150.jpg" class="entry-image attachment-post" alt="Incoming Nairobi Deputy Governor Ms AGNES KARIUKI, The Best Brain That&#8217;ll Transform Nairobi" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/IMG-20180316-WA0003-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/IMG-20180316-WA0003-300x300.jpg 300w, https://www.kenya-today.com/wp-content/uploads/2018/03/IMG-20180316-WA0003-144x144.jpg 144w, https://www.kenya-today.com/wp-content/uploads/2018/03/IMG-20180316-WA0003.jpg 640w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/incoming-nairobi-deputy-governor-ms-agnes-kariuki-the-best-brain-thatll-transform-nairobi">Incoming Nairobi Deputy Governor Ms AGNES KARIUKI, The Best Brain That&#8217;ll Transform Nairobi</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T16:48:07+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/incoming-nairobi-deputy-governor-ms-agnes-kariuki-the-best-brain-thatll-transform-nairobi#comments">2 Comments</a></span></p></header><div class="entry-content"><p>By Albert Nyakundi Amenya aka the Banana Peddler Word has it that Nairobi governor Mike Sonko is set to appoint a woman as his deputy. The woman to be appointed is not just any other woman, but is a true professional and a woman of impeccable character. Her name is Ms Agnes Kagure Kariuki. Ms [&hellip;]</p>
+</div></article><article class="post-108976 post type-post status-publish format-standard has-post-thumbnail category-politics tag-raila-odinga tag-uhuru-kenyatta entry"><a href="https://www.kenya-today.com/politics/it-was-painful-shaking-hands-with-uhuru-i-did-it-for-peace-raila" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-16-150x150.jpg" class="entry-image attachment-post" alt="&#8221;It Was Painful Shaking Hands With Uhuru, I did It For Peace&#8221;- Raila" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-16-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-16-144x144.jpg 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/politics/it-was-painful-shaking-hands-with-uhuru-i-did-it-for-peace-raila">&#8221;It Was Painful Shaking Hands With Uhuru, I did It For Peace&#8221;- Raila</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T15:42:44+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/politics/it-was-painful-shaking-hands-with-uhuru-i-did-it-for-peace-raila#comments">7 Comments</a></span></p></header><div class="entry-content"><p>Raila said that it was a painful decision to make but after deep thought on challenges facing the country, he had no option. &#8220;I sat with President Uhuru to sign the memorandum because I greatly considered the interests of the country,&#8221; Raila said. &#8220;It was, however, a painful decision to make but in order to [&hellip;]</p>
+</div></article><article class="post-108968 post type-post status-publish format-standard has-post-thumbnail category-entertainment tag-nairobi entry"><a href="https://www.kenya-today.com/entertainment/top-music-star-e-sir-died-today-15years-ago-and-nairobi-still-crying" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-12-150x150.png" class="entry-image attachment-post" alt="Top Music Star E-Sir Died Today 15Years Ago And Nairobi Still Crying Mos mos!" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-12-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-12-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/entertainment/top-music-star-e-sir-died-today-15years-ago-and-nairobi-still-crying">Top Music Star E-Sir Died Today 15Years Ago And Nairobi Still Crying Mos mos!</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T15:18:37+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/entertainment/top-music-star-e-sir-died-today-15years-ago-and-nairobi-still-crying#respond">Leave a Comment</a></span></p></header><div class="entry-content"><p>Kenya Music legend E-sir Umar, Photo courtesy By Mukurima Muriuki On this day in 2003, we lost arguably then Kenya’s fastest rising music superstar: E-Sir. His death was felt in every corner of Kenya, and even the forgetful politicians remembered to honor the departed E-Sir. For the first time, in the history of Kenya’s parliament, [&hellip;]</p>
+</div></article><article class="post-108959 post type-post status-publish format-standard has-post-thumbnail category-politics tag-raila-odinga entry"><a href="https://www.kenya-today.com/politics/not-responsible-wetangula-troubles-only-nasa-summit-decide-raila" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-11-150x150.png" class="entry-image attachment-post" alt="I Am Not Responsible For Wetangula&#8217;s Troubles, Only NASA Summit Can Decide- Raila" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-11-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-11-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/politics/not-responsible-wetangula-troubles-only-nasa-summit-decide-raila">I Am Not Responsible For Wetangula&#8217;s Troubles, Only NASA Summit Can Decide- Raila</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T14:24:52+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/politics/not-responsible-wetangula-troubles-only-nasa-summit-decide-raila#comments">4 Comments</a></span></p></header><div class="entry-content"><p>Photo: Premier Raila arrives in Kisii for burial service of Prof Tumbo Oeri, NASA strategist. NASA supreme leader &#8216;president&#8217; Raila Odinga has denied claims that he is behind the move by NASA/ODM senators to kick out Ford Kenya leader Moses Wetangula from the Senate Minority Leader position, the embattled tough talking yet weak Bungoma senator [&hellip;]</p>
+</div></article><article class="post-108957 post type-post status-publish format-standard has-post-thumbnail category-entertainment category-opinion entry"><a href="https://www.kenya-today.com/entertainment/i-stand-with-chris-kirubi-cancer-survivor" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-150x150.png" class="entry-image attachment-post" alt="I Stand With Chris Kirubi, We Will All Die Anyway, Natural Justice Is Not Fair, But&#8230;&#8230;." itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/entertainment/i-stand-with-chris-kirubi-cancer-survivor">I Stand With Chris Kirubi, We Will All Die Anyway, Natural Justice Is Not Fair, But&#8230;&#8230;.</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T14:06:06+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/entertainment/i-stand-with-chris-kirubi-cancer-survivor#comments">4 Comments</a></span></p></header><div class="entry-content"><p>By Silas Nyanchwani Chris Kirubi is 77 years-old. Over 70 you are bound to die of any ailment. We all die of some cause. You can be killed by cancer even when you are not corrupt. I can understand the overt schadenfreude in many people after a photo of a dishevelled Kirubi surfaced. His chubby [&hellip;]</p>
+</div></article><article class="post-108951 post type-post status-publish format-standard has-post-thumbnail category-news tag-uhuru-kenyatta entry"><a href="https://www.kenya-today.com/news/uhuru-delegation-cuba-blasted" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-10-150x150.png" class="entry-image attachment-post" alt="EMBARRASSING: Uhuru &#8216;Blonde Clueless&#8217; Delegation To Cuba Blasted, Chasing Allowances? No Value To Taxpayers?" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-10-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-10-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/uhuru-delegation-cuba-blasted">EMBARRASSING: Uhuru &#8216;Blonde Clueless&#8217; Delegation To Cuba Blasted, Chasing Allowances? No Value To Taxpayers?</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T13:50:18+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/uhuru-delegation-cuba-blasted#comments">4 Comments</a></span></p></header><div class="entry-content"><p>President Uhuru has bore the brunt of appointing functional &#8216;illiterates&#8217; and fickle minded people into bureaucratic positions after his delegation to Cuba exposed their ineptitude. A photo of Uhuru having a meeting with Cuba leader alongside delegations from both countries have left not only the President but Kenyans hugely embarrassed by their representatives. In the [&hellip;]</p>
+</div></article><article class="post-108947 post type-post status-publish format-standard has-post-thumbnail category-news tag-raila-odinga entry"><a href="https://www.kenya-today.com/news/breaking-president-raila-arrives-in-kisii-for-burial-of-nasa-strategist-prof-tumbo-oeri" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-14-150x150.jpg" class="entry-image attachment-post" alt="BREAKING: &#8216;President&#8217; Raila Arrives In Kisii For Burial Of NASA Strategist Prof Tumbo Oeri" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-14-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-14-144x144.jpg 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/breaking-president-raila-arrives-in-kisii-for-burial-of-nasa-strategist-prof-tumbo-oeri">BREAKING: &#8216;President&#8217; Raila Arrives In Kisii For Burial Of NASA Strategist Prof Tumbo Oeri</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T11:54:37+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/breaking-president-raila-arrives-in-kisii-for-burial-of-nasa-strategist-prof-tumbo-oeri#comments">2 Comments</a></span></p></header><div class="entry-content"><p>Raila arrives in Kisii for the burial of NASA stalwart prof Tumbo Oeri, young brother of long serving minister Dr Zachary Onyonka and uncle of Hon Richard Momoima Onyonka MP Kitutu Chache South/Mosocho</p>
+</div></article><article class="post-108942 post type-post status-publish format-standard has-post-thumbnail category-opinion tag-raila-odinga entry"><a href="https://www.kenya-today.com/opinion/fast-rising-winnie-odinga-causing-jitters-in-nasa-1st-kenyan-woman-president" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-13-150x150.jpg" class="entry-image attachment-post" alt="FAST Rising Winnie Odinga Causing Jitters In NASA, Is She The One? 1st Kenyan Woman President?" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-13-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-13-144x144.jpg 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/opinion/fast-rising-winnie-odinga-causing-jitters-in-nasa-1st-kenyan-woman-president">FAST Rising Winnie Odinga Causing Jitters In NASA, Is She The One? 1st Kenyan Woman President?</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T11:12:33+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/opinion/fast-rising-winnie-odinga-causing-jitters-in-nasa-1st-kenyan-woman-president#comments">2 Comments</a></span></p></header><div class="entry-content"><p>A week before the much acclaimed and equally chided truce between presidents Uhuru Kenyatta and Raila Odinga, self imposed fifth columnist Mutahi Ngunyi made a prediction many rubbished as fallacious. In his YouTube political channel, the analyst famed for the ‘tyranny of numbers’ façade said Winnie Odinga, Raila’s last born daughter will be the first [&hellip;]</p>
+</div></article><article class="post-108936 post type-post status-publish format-standard has-post-thumbnail category-news entry"><a href="https://www.kenya-today.com/news/dasani-contains-cancer-causing-plastic-particles-kenya-leads-as-most-affected-coca-cola-confirms" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/coke-150x150.jpg" class="entry-image attachment-post" alt="Dasani Contains Cancer-Causing Plastic Particles, Kenya Leads As Most Affected, Coca Cola Confirms" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/coke-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/coke-144x144.jpg 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/dasani-contains-cancer-causing-plastic-particles-kenya-leads-as-most-affected-coca-cola-confirms">Dasani Contains Cancer-Causing Plastic Particles, Kenya Leads As Most Affected, Coca Cola Confirms</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T09:23:21+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/dasani-contains-cancer-causing-plastic-particles-kenya-leads-as-most-affected-coca-cola-confirms#comments">2 Comments</a></span></p></header><div class="entry-content"><p>Soft drinks giant Coca-Cola has admitted to the presence of micro-plastics in Dasani water following a study released yesterday that shows the brand is among 93 per cent of world’s famous bottled water products contaminated by tiny pieces of plastic. The concentration of microplastics in Dasani water sourced in Kenya topped 335 plastic pieces for [&hellip;]</p>
+</div></article><article class="post-108926 post type-post status-publish format-standard has-post-thumbnail category-politics tag-raila-odinga entry"><a href="https://www.kenya-today.com/politics/please-let-raila-rest-hes-tired-carrying-back-hon-angwenyi-tells-former-nasa-principals" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/FB_IMG_1521170572752-150x150.jpg" class="entry-image attachment-post" alt="&#8220;Please! Let RAILA Rest, He&#8217;s Tired Of Carrying You On His Back&#8221; Hon ANGWENYI Tells Former NASA Principals" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/FB_IMG_1521170572752-150x150.jpg 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/FB_IMG_1521170572752-144x144.jpg 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/politics/please-let-raila-rest-hes-tired-carrying-back-hon-angwenyi-tells-former-nasa-principals">&#8220;Please! Let RAILA Rest, He&#8217;s Tired Of Carrying You On His Back&#8221; Hon ANGWENYI Tells Former NASA Principals</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-16T04:26:13+00:00">March 16, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/politics/please-let-raila-rest-hes-tired-carrying-back-hon-angwenyi-tells-former-nasa-principals#comments">6 Comments</a></span></p></header><div class="entry-content"><p>Kitutu Chache North Member of Parliament hon Jimmy Nuru Angwenyi has told the three NASA Principals Kalonzo Musyoka, Musalia Mudavadi and Moses Wetangula to let Raila rest because he has carried them on his back for long. Speaking in parliament, hon Angwenyi told them they have rode on H.E. Raila&#8217;s back and it is time [&hellip;]</p>
+</div></article><article class="post-108921 post type-post status-publish format-standard has-post-thumbnail category-news category-politics tag-raila-odinga entry"><a href="https://www.kenya-today.com/news/fight-raila-bitter-end-retain-minority-leader-position-hon-wetangula" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-9-150x150.png" class="entry-image attachment-post" alt="&#8221;I Will Fight Raila To The Bitter End To Retain Minority Leader Position&#8221;- Hon Wetangula" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-9-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-9-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/fight-raila-bitter-end-retain-minority-leader-position-hon-wetangula">&#8221;I Will Fight Raila To The Bitter End To Retain Minority Leader Position&#8221;- Hon Wetangula</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-15T16:10:32+00:00">March 15, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/fight-raila-bitter-end-retain-minority-leader-position-hon-wetangula#comments">24 Comments</a></span></p></header><div class="entry-content"><p>Ford Kenya leader Moses Wetang&#8217;ula has warned Raila Odinga&#8217;s ODM party that he will fight to the bitter end to retain the senate minority leader position, he said the NASA &#8220;divorce will be noisy and messy&#8221;.Meaning he won&#8217;t take the humiliation lying . Senator Wetangula was reacting to a move by ODM/NASA to have him [&hellip;]</p>
+</div></article><article class="post-108916 post type-post status-publish format-standard has-post-thumbnail category-news category-politics entry"><a href="https://www.kenya-today.com/news/drama-moses-wetangula-sacked-replaced-james-orengo-senate-minority-leader" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-8-150x150.png" class="entry-image attachment-post" alt="DRAMA: Moses Wetangula SACKED, Replaced By James Orengo As Senate Minority Leader" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-8-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-8-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/drama-moses-wetangula-sacked-replaced-james-orengo-senate-minority-leader">DRAMA: Moses Wetangula SACKED, Replaced By James Orengo As Senate Minority Leader</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-15T15:17:50+00:00">March 15, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/news/drama-moses-wetangula-sacked-replaced-james-orengo-senate-minority-leader#comments">7 Comments</a></span></p></header><div class="entry-content"><p>Bungoma Senator and Ford-Kenya Leader Hon Moses Masika Wetangula has been striped off Minority leader in the senate position his Siaya counterpart and senior James Orengo (SC) takes over in what is seen as a shake-up following the Raila-Uhuru pact. ODM party that is the largest in NASA coalition wrote to the speaker of the [&hellip;]</p>
+</div></article><article class="post-108913 post type-post status-publish format-standard has-post-thumbnail category-entertainment category-media entry"><a href="https://www.kenya-today.com/media/ntv-jamila-mohamed-quits-nation-media-joins-citizen-tv-replace-swale-mdoe" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-7-150x150.png" class="entry-image attachment-post" alt="NTV&#8217;s Jamila Mohamed QUITS Nation Media, Joins Citizen TV To Replace Swale Mdoe" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-7-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-7-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/media/ntv-jamila-mohamed-quits-nation-media-joins-citizen-tv-replace-swale-mdoe">NTV&#8217;s Jamila Mohamed QUITS Nation Media, Joins Citizen TV To Replace Swale Mdoe</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-15T14:44:26+00:00">March 15, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/media/ntv-jamila-mohamed-quits-nation-media-joins-citizen-tv-replace-swale-mdoe#comments">2 Comments</a></span></p></header><div class="entry-content"><p>NTV Kiswahili news anchor Jamila Mohamed has quit Nation Media Group and is moving to Royal Media Services&#8217;s Citizen TV. Her exit comes two weeks after NTV General Manager Linus Kaikai left the company under pressure from management. Jamila, known for her soft voice and good command of Kiswahili, made the announcement during Wednesday’s NTV [&hellip;]</p>
+</div></article><article class="post-108907 post type-post status-publish format-standard has-post-thumbnail category-business category-entertainment entry"><a href="https://www.kenya-today.com/business/chris-kirubi-ailing-business-mogul-makes-rare-public-appearance" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-150x150.png" class="entry-image attachment-post" alt="Chris Kirubi The Ailing Business Mogul Makes Rare Public Appearance" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-6-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/business/chris-kirubi-ailing-business-mogul-makes-rare-public-appearance">Chris Kirubi The Ailing Business Mogul Makes Rare Public Appearance</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-15T13:20:09+00:00">March 15, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/business/chris-kirubi-ailing-business-mogul-makes-rare-public-appearance#comments">7 Comments</a></span></p></header><div class="entry-content"><p>A rare photo of business mogul and Mt Kenya&#8217;s finest Chris Kirubi went viral. The photo was shared shared on Twitter and widely re-shared on social media platforms. THe photo captures the billionaire industrialist in the company of Kenya National Chamber of Commerce and Industry (KNCCI) Chairman Kiprono Kittony who is also the chairman of [&hellip;]</p>
+</div></article><article class="post-108903 post type-post status-publish format-standard has-post-thumbnail category-facing-justice category-news entry"><a href="https://www.kenya-today.com/facing-justice/outcry-activist-okiya-omtatah-arrested-milimani-law-courts" class="alignleft" aria-hidden="true"><img width="150" height="150" src="https://www.kenya-today.com/wp-content/uploads/2018/03/1-4-150x150.png" class="entry-image attachment-post" alt="OUTCRY: Activist Okiya Omtatah Arrested At Milimani Law Courts" itemprop="image" srcset="https://www.kenya-today.com/wp-content/uploads/2018/03/1-4-150x150.png 150w, https://www.kenya-today.com/wp-content/uploads/2018/03/1-4-144x144.png 144w" sizes="(max-width: 150px) 100vw, 150px" /></a><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/facing-justice/outcry-activist-okiya-omtatah-arrested-milimani-law-courts">OUTCRY: Activist Okiya Omtatah Arrested At Milimani Law Courts</a></h2><p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2018-03-15T12:26:04+00:00">March 15, 2018</time><span class="entry-comments-link"><a href="https://www.kenya-today.com/facing-justice/outcry-activist-okiya-omtatah-arrested-milimani-law-courts#comments">5 Comments</a></span></p></header><div class="entry-content"><p>Activist Okiya Omtatah has been arrested at the Milimani law court for failing to appear for hearing of a criminal matter. Chief magistrate Francis Andayi ordered for his arrest in the case in which he is charged alongside other protesters. Omtatah said he was following other matters at the High court and sent someone to [&hellip;]</p>
+</div></article></div></section>
+<section id="text-81" class="widget widget_text"><div class="widget-wrap"> <div class="textwidget"><p style="text-align: center;"><b><a href="https://www.kenya-today.com/archives/">More news</b></a></p></div>
+</div></section>
+</div></main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope itemtype="https://schema.org/WPSideBar"><section id="text-88" class="widget widget_text"><div class="widget-wrap"> <div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3147195114147053" data-ad-slot="1830237062"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</div></section>
+<section id="search-5" class="widget widget_search"><div class="widget-wrap"><form class="search-form" itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" method="get" action="https://www.kenya-today.com/" role="search"><meta itemprop="target" content="https://www.kenya-today.com/?s={s}" /><input itemprop="query-input" type="search" name="s" placeholder="Search this website &#x2026;" /><input type="submit" value="Search" /></form></div></section>
+<section id="featured-post-7" class="widget featured-content featuredpost"><div class="widget-wrap"><h4 class="widget-title widgettitle">Latest posts</h4>
+<article class="post-109000 post type-post status-publish format-standard has-post-thumbnail category-news category-politics entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/amazing-mad-love-kisiis-give-their-spokesman-simba-arati-a-super-warm-reception-at-prof-tumbo-burial-videophotos">Amazing Mad Love! Kisiis Give Their Spokesman SIMBA ARATI A Super Warm Reception At Prof Tumbo Burial (Video&#038;Photos)</a></h2></header></article><article class="post-108989 post type-post status-publish format-standard has-post-thumbnail category-news tag-raila-odinga entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/breaking-video-raila-triumphant-entry-to-kisumu-super-heros-reception">MAD LOVE For Raila, Made Triumphant Entry To Kisumu, Super Hero&#8217;s Reception</a></h2></header></article><article class="post-108984 post type-post status-publish format-standard has-post-thumbnail category-news tag-nairobi entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/news/incoming-nairobi-deputy-governor-ms-agnes-kariuki-the-best-brain-thatll-transform-nairobi">Incoming Nairobi Deputy Governor Ms AGNES KARIUKI, The Best Brain That&#8217;ll Transform Nairobi</a></h2></header></article><article class="post-108976 post type-post status-publish format-standard has-post-thumbnail category-politics tag-raila-odinga tag-uhuru-kenyatta entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/politics/it-was-painful-shaking-hands-with-uhuru-i-did-it-for-peace-raila">&#8221;It Was Painful Shaking Hands With Uhuru, I did It For Peace&#8221;- Raila</a></h2></header></article><article class="post-108968 post type-post status-publish format-standard has-post-thumbnail category-entertainment tag-nairobi entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/entertainment/top-music-star-e-sir-died-today-15years-ago-and-nairobi-still-crying">Top Music Star E-Sir Died Today 15Years Ago And Nairobi Still Crying Mos mos!</a></h2></header></article><article class="post-108959 post type-post status-publish format-standard has-post-thumbnail category-politics tag-raila-odinga entry"><header class="entry-header"><h2 class="entry-title" itemprop="headline"><a href="https://www.kenya-today.com/politics/not-responsible-wetangula-troubles-only-nasa-summit-decide-raila">I Am Not Responsible For Wetangula&#8217;s Troubles, Only NASA Summit Can Decide- Raila</a></h2></header></article></div></section>
+<section id="text-79" class="widget widget_text"><div class="widget-wrap"> <div class="textwidget"><div class="fb-like-box" data-href="https://www.facebook.com/News.KenyaToday" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+<script src="https://apis.google.com/js/platform.js"></script></div>
+</div></section>
+</aside></div></div><div class="footer-widgets"><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="text-86" class="widget widget_text"><div class="widget-wrap"> <div class="textwidget"><a href="/disclaimer">Disclaimer</a></div>
+</div></section>
+</div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="black-studio-tinymce-3" class="widget widget_black_studio_tinymce"><div class="widget-wrap"><div class="textwidget"><p><a href="/cdn-cgi/l/email-protection#58333d3621392c373c39213b372a28183f35393134763b3735">Contact</a></p>
+</div></div></section>
+</div><div class="widget-area footer-widgets-3 footer-widget-area"><section id="text-89" class="widget widget_text"><div class="widget-wrap"> <div class="textwidget"><p><a href="https://www.kenya-today.com/privacy-cookies">Privacy and cookies</a></p>
+</div>
+</div></section>
+</div></div></div><footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter"><div class="wrap">Copyright @ 2017 | Kenya Today</div></footer></div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8DMJJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.kenya-today.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.1'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201811'></script>
+<script type='text/javascript' src='https://www.kenya-today.com/wp-includes/js/wp-embed.min.js?ver=4.9.4'></script>
+
+<script>
+        COOKIES_ENABLER.init({
+            scriptClass: 'ginger-script',
+            iframeClass: 'ginger-iframe',
+            acceptClass: 'ginger-accept',
+            disableClass: 'ginger-disable',
+            dismissClass: 'ginger-dismiss',
+            bannerClass: 'ginger_banner-wrapper',
+            bannerHTML:
+                document.getElementById('ginger-banner-html') !== null ?
+                    document.getElementById('ginger-banner-html').innerHTML :
+                    '<div class="ginger_banner bottom light ginger_container ginger_container--open">'
+                                                                    +'<a href="#" class="ginger_btn ginger-accept ginger_btn_accept_all">'
+                        + 'Accept Cookies'
+                        +'<\/a>'
+                        +'<p class="ginger_message">'
+                        +'<!--googleoff: index--><span style=\"color: #82878c; font-family: \'Open Sans\', sans-serif; font-size: 18px; font-style: italic;\">This site uses cookies. By continuing to browse the site or clicking OK, you are agreeing to our use of cookies. Read our <a href=\"https://www.kenya-today.com/privacy-cookies\">privacy policy<\/a> for more information.<\/span><!--googleon: index-->'
+                        +'</p>'
+                                        +'<\/div>',
+                                    cookieDuration: 365,
+                        eventScroll: false,
+            scrollOffset: 20,
+            clickOutside: true,
+            cookieName: 'ginger-cookie',
+            forceReload: false,
+            iframesPlaceholder: true,
+            iframesPlaceholderClass: 'ginger-iframe-placeholder',
+            iframesPlaceholderHTML:
+                document.getElementById('ginger-iframePlaceholder-html') !== null ?
+                    document.getElementById('ginger-iframePlaceholder-html').innerHTML :
+                '<p><!--googleoff: index--><span style=\"color: #82878c; font-family: \'Open Sans\', sans-serif; font-size: 18px; font-style: italic;\">This site uses cookies. By continuing to browse the site or clicking OK, you are agreeing to our use of cookies. Read our <\/span><a style=\"font-family: \'Open Sans\', sans-serif; font-size: 18px; font-style: italic;\" href=\"https://www.kenya-today.com/privacy-cookies\">privacy policy<\/a><span style=\"color: #82878c; font-family: \'Open Sans\', sans-serif; font-size: 18px; font-style: italic;\"> for more information.<\/span><!--googleon: index-->'
+                +'<a href="#" class="ginger_btn ginger-accept">Accept Cookies</a>'
+                +'<\/p>'
+        });
+    </script>
+
+<script type='text/javascript' src='https://stats.wp.com/e-201811.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.9',blog:'121088312',post:'0',tz:'1',srv:'www.kenya-today.com'} ]);
+	_stq.push([ 'clickTrackerInit', '121088312', '0' ]);
+</script>
+</body></html>

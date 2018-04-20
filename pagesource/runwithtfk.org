@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - TFK Charity</title>
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link href="/Scripts/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/Plugins/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css" rel="stylesheet" />
+    <link href="/Scripts/Plugins/owl.carousel.2.0.0-beta.2.4/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="/Scripts/Plugins/service.flatcheckbox.jquery-master/src/service.flatcheckbox.jquery.css" rel="stylesheet" />
+    <link href="/Scripts/Plugins/PNotify2.0/pnotify.custom.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Scripts/Plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="/Scripts/jquery-thickbox/thickbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/jquery-tokeninput/token-input-facebook.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/jquery-thickbox/thickbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/cleeditor 1.4.5/jquery.cleditor.css" rel="stylesheet" type="text/css" />
+    <link href="//cloud.typography.com/6062452/675426/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <link href="/Content/redefined.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui-1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/Scripts/Plugins/owl.carousel.2.0.0-beta.2.4/owl.carousel.js" type="text/javascript"></script>
+    <script src="/Scripts/Plugins/service.flatcheckbox.jquery-master/src/service.flatcheckbox.jquery.js" type="text/javascript"></script>
+    <script src="/Scripts/knockout-3.4.0.js" type="text/javascript"></script>
+    <script src="/Scripts/Plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+    <script src="/Scripts/Plugins/PNotify2.0/pnotify.custom.min.js" type="text/javascript"></script>
+    <script src="/Scripts/Plugins/jquery-cookie-master/src/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-thickbox/thickbox-compressed.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-tokeninput/jquery.tokeninput.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ellipsis.js" type="text/javascript"></script>
+    <script src="/Scripts/underscore.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+
+    <script src="/Scripts/cleeditor 1.4.5/jquery.cleditor.min.js" type="text/javascript"></script>
+    <script src="/Scripts/knockout-config.js" type="text/javascript"></script>
+    <script src="/Scripts/models.js" type="text/javascript"></script>
+    <script src="/Scripts/discountService.js" type="text/javascript"></script>
+    <script src="/Scripts/tfk.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="top">
+        <div class="main-content">
+            <div class="signin-form-parent">
+                <form action="/Account/LogOn" method="post">    <div tabindex="0" class="signin-form display-none">
+        <div class="form-header">
+            <div class="row">
+                <div class="col-9">
+                    <div class="title">Member Sign In</div>
+                </div>
+                <div class="col-1">
+                    <a class="btnClose" href="#">×</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-body">
+            <div class="row">
+                <div class="col-10 text-right">
+                    <p class="common-text"><a href="/Account/PasswordRecovery">Forgot password?</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" name="userName" validate-required="required" maxlength="30" class="form-control" placeholder="Username"/>
+                    <p class="validator" validate-type="required">Please enter your username</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <input type="password" name="password" class="form-control" validate-required="required" maxlength="128" placeholder="Password"/>
+                    <p class="validator" validate-type="required">Please enter your password</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5 left-label">
+                    <div class="relative">
+                        <input type="checkbox" name="rememberMe" value="true" class="form-control rememberMe" />
+                    </div>
+                </div>
+                <div class="col-5 text-right">
+                    <a href="#" id="btnSave" attr-role="button-submit" class="btn green-btn">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form><script type="text/javascript">
+
+    $(function () {
+        var signinForm = $('.signin-form');
+
+        function hideForm() {
+            signinForm.hide();
+            ResetValidationMessages(signinForm);
+            signinForm.find('input').val('');
+            signinForm.find('input[type="checkbox"]').prop('checked', false);
+            signinForm.find('.flchecked').removeClass('flchecked');
+        }
+
+        $(document).click(function (e) {
+            if (!signinForm.is(e.target) && signinForm.has(e.target).length === 0 && !$('#btnSignIn').is(e.target)) {
+                hideForm();
+            }
+        });
+
+        $('#btnSignIn').click(function () {
+            signinForm.show();
+            $('.signin-form input[type="text"]').focus();
+        });
+
+        $('.signin-form .btnClose').click(function () {
+            hideForm();
+        });
+
+        $('.rememberMe').flatcheckbox({
+            label: "Remember Me",
+            onChecked: function (el) {
+                el.val(true);
+            },
+            onUnChecked: function (el) {
+                el.val(false);
+            }
+        });
+
+        $('input[type="text"], input[type="password"]', signinForm).on("keypress", function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                e.preventDefault();
+                e.stopPropagation();
+                $('#btnSave').click();
+            }
+        });
+    });
+
+</script>
+
+            </div>
+            <div class="main-button-container">
+                                    <a href="/Account/Join" class="btn green-btn default">Join NYRR Team for Kids</a>
+                    <a href="#" id="btnSignIn" class="btn blue-btn default">Member Sign In</a>
+            </div>
+            <div class="header clearfix">
+                <a href="/" class="logo-container"></a>
+                <div class="navigation">
+
+                    <ul class="nav-list">
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Page/AboutUs" target="_self">
+About Us            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Events" target="_self">
+Events            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Page/Training" target="_self">
+Training            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Donate" target="_self">
+Donate            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Merchandise" target="_self">
+Our Store            </a>
+        </li>
+</ul>
+                </div>
+            </div>
+            
+    <div class="top-content">
+        <div id="slider-selector" class="slider">
+
+<div class="content-item clearfix">
+    <div class="left-section">
+        <div class="title-container">
+            Run the 2018 TCS New York City Marathon
+        </div>
+        <div class="content-container">
+            <span style="font-size: 13.3333px;">Sign up today to run the 2018 TCS New York City Marathon on November 4, 2018! You'll receive guaranteed entry and professional training support while running to inspire future runners by fundraising on behalf of NYRR Youth Programs!</span>
+        </div>
+        <div class="btn-container">
+            <a href="https://www.runwithtfk.org/Events/Details/106" class="btn green-btn default">Sign up Today!</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <div class="right-section-border loader"></div>
+            <img class="owl-lazy" data-src="/image/Upload/SliderImages/284" title="Run the 2018 TCS New York City Marathon" />
+
+            <div class="slider-video-controls ">
+                <div class="link-text">
+                    We run so kids can!
+                    <div class="green-text">Guarantee your spot today with Team for Kids!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-item clearfix">
+    <div class="left-section">
+        <div class="title-container">
+            Run the 2018 Popular Brooklyn Half with TFK
+        </div>
+        <div class="content-container">
+            <p class="MsoNoSpacing"><span style="font-size: 10pt; font-family: Arial, sans-serif;">Guarantee your spot to the 2018 Popular Brooklyn Half by running with Team for Kids! Registration opens now!</span></p><p class="MsoNoSpacing"><o:p></o:p></p>
+        </div>
+        <div class="btn-container">
+            <a href="https://runwithtfk.org/Events/Details/108" class="btn green-btn default">Register Today!</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <div class="right-section-border loader"></div>
+            <img class="owl-lazy" data-src="/image/Upload/SliderImages/287" title="Run the 2018 Popular Brooklyn Half with TFK" />
+
+            <div class="slider-video-controls ">
+                <div class="link-text">
+                    Every Mile Gives Back!
+                    <div class="green-text">Registration Open Now!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-item clearfix">
+    <div class="left-section">
+        <div class="title-container">
+            Run the United Airlines NYC Half with TFK
+        </div>
+        <div class="content-container">
+            <font face="Arial, Verdana"><span style="font-size: 13.3333px;">Guarantee your spot today to run the brand-new course in the 2018 United Airlines NYC Half. You'll run past landmarks like Grand Army Plaza in Brooklyn, the United Nations, Grand Central Terminal, Times Square, and Central Park! Best of all, with Team for Kids, you'll be running to inspire future runners.</span></font>
+        </div>
+        <div class="btn-container">
+            <a href="https://www.runwithtfk.org/Events/Details/101" class="btn green-btn default">Run with TFK</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <div class="right-section-border loader"></div>
+            <img class="owl-lazy" data-src="/image/Upload/SliderImages/273" title="Run the United Airlines NYC Half with TFK" />
+
+            <div class="slider-video-controls ">
+                <div class="link-text">
+                    Run to Inspire Future Runners
+                    <div class="green-text">Run with TFK in the United Airlines NYC Half!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-item clearfix">
+    <div class="left-section">
+        <div class="title-container">
+            Join NYRR Team for Kids and Help Get Kids Running!
+        </div>
+        <div class="content-container">
+            <span style="font-size: 13.3333px;">Teams for Kids runners receive guaranteed entry into premier running events and professional training support while making every mile count by fundraising to support NYRR youth programs.&nbsp;</span>
+        </div>
+        <div class="btn-container">
+            <a href="/Page/AboutUs" class="btn green-btn default">Learn More</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <div class="right-section-border loader"></div>
+            <img class="owl-lazy" data-src="/image/Upload/SliderImages/232" title="Join NYRR Team for Kids and Help Get Kids Running!" />
+
+                <div id="video" class="youtube-player display-none">
+                    <a class="owl-video" href="https://www.youtube.com/watch?v=rd5K80Xq1Vw"></a>
+                </div>
+            <div class="slider-video-controls clickable">
+                <div class="link-text">
+                    Support Our Youth and Run with TFK!
+                    <div class="green-text">Learn about NYRR youth programs</div>
+                </div>
+                    <div class="link-sign with-scroll">
+                        <div class="background-holder"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-item clearfix">
+    <div class="left-section">
+        <div class="title-container">
+            Train With Our Professional Coaches Today!
+        </div>
+        <div class="content-container">
+            NYRR Team for Kids runners receive guaranteed entry into premier running events and professional training support while making every mile count by fundraising on behalf of NYRR youth programs.
+        </div>
+        <div class="btn-container">
+            <a href="/Page/Training" class="btn green-btn default">Train Today</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <div class="right-section-border loader"></div>
+            <img class="owl-lazy" data-src="/image/Upload/SliderImages/181" title="Train With Our Professional Coaches Today!" />
+
+            <div class="slider-video-controls ">
+                <div class="link-text">
+                    Train with Professionals
+                    <div class="green-text">Meet our Coaches!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        </div>
+    </div>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="main-content">
+            
+
+<div class="bottom-section-grid">
+        <div class="content-item not-inverted upcoming-events-container" style="height: 360px">
+            <div class="left-section inset-shadow">
+                <div class="title-container">
+                    Upcoming Events
+                </div>
+                <div class="content-container">
+                    Register today for guaranteed entry, plus training and fundraising support throughout the season.
+                </div>
+                <div class="btn-container">
+                    <a href="/Events" class="btn green-btn default">See All</a>
+                </div>
+            </div>
+            <div class="right-section">
+                    <div class="content-container upcomingEvents" style="height: 360px">
+                        <div class="small-grid">
+
+<div class="upcoming-event" attr-href="/Events/Details/101" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/272" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 United Airlines NYC Half
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip registration-closed" data-title="Registration Closed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Mar
+                </div>
+                <div class="title">18</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/103" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/277" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 Boston Marathon
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip registration-closed" data-title="Registration Closed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Apr
+                </div>
+                <div class="title">16</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/105" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/281" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 Virgin Money London Marathon
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip registration-closed" data-title="Registration Closed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Apr
+                </div>
+                <div class="title">22</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/108" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/289" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 Popular Brooklyn Half
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip available" data-title="Available"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    May
+                </div>
+                <div class="title">19</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/111" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/295" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 NYRR Queens 10K
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip available" data-title="Available"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Jun
+                </div>
+                <div class="title">16</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/107" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/285" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 BMW Berlin Marathon
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip registration-closed" data-title="Registration Closed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Sep
+                </div>
+                <div class="title">16</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/110" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/293" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 New Balance Bronx 10 Mile
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip available" data-title="Available"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Sep
+                </div>
+                <div class="title">30</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/104" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/279" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 Bank of America Chicago Marathon
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip registration-closed" data-title="Registration Closed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Oct
+                </div>
+                <div class="title">7</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/109" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/291" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 NYRR Staten Island Half
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip available" data-title="Available"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Oct
+                </div>
+                <div class="title">14</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-event" attr-href="/Events/Details/106" attr-target="_blank">
+    <div class="grid-item clickable clearfix">
+        <div class="grid-item-logo">
+            <div class="vertalign-center-content">
+<img src="/Home/Images/283" alt="" title="" />            </div>
+        </div>
+        <div class="grid-item-content clearfix">
+            <div class="event-name">
+                <div class="vertalign-center-content">
+                    2018 TCS New York City Marathon
+                </div>
+            </div>
+            <div class="event-status">
+                <div class="vertalign-center-content">
+                    <div class="event-status-container_icon tooltip available" data-title="Available"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item-date event-date">
+            <div class="vertalign-center-content">
+                <div class="small-title">
+                    Nov
+                </div>
+                <div class="title">4</div>
+            </div>
+        </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <div class="content-item dynamic inverted">
+    <div class="left-section">
+        <div class="title-container">
+            Your Miles Help Kids Go the Distance
+        </div>
+        <div class="content-container">
+            Funds raised by Team for Kids support running-based fitness, goal-setting, and nutrition programs benefiting 267,000 students in schools and communities across the United States.
+        </div>
+        <div class="btn-container">
+            <a href="/Page/AboutYouthPrograms" target="_self" class="btn green-btn default">Visit Our Youth Programs</a>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="content-container">
+            <img src="/image/Upload/InformationBlockImages/296" title="Visit Our Youth Programs" alt="" />
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var imagesMoreThanOne = '1' === "1";
+    var timeout = '7000'; //ms
+
+    $(function () {
+        var videoIsPlaying = false;
+
+        $('.upcomingEvents').mCustomScrollbar();
+
+        var owl = $('#slider-selector').owlCarousel({
+            items: 1,
+            lazyLoad: true,
+            loop: imagesMoreThanOne,
+            nav: imagesMoreThanOne,
+            video: true,
+            videoHeight: 322,
+            videoWidth: 480,
+            autoplay: true,
+            autoplayTimeout: timeout,
+            navText: ['', ''],
+            navSpeed: 800,
+            dotsSpeed: 800,
+            autoplaySpeed: 800,
+            mouseDrag: false,
+            autoplayHoverPause: true,
+            dots: imagesMoreThanOne
+        });
+
+        $('.slider-video-controls.clickable').click(function () {
+            var $this = $(this);
+            var container = $this.closest('.content-container');
+
+            $this.find('.link-sign').toggleClass('off');
+
+            if (!videoIsPlaying) {
+                container.find('.owl-video-play-icon').trigger('click.owl.video');
+                videoIsPlaying = true;
+            } else {
+                owl.trigger('refresh.owl.carousel');
+                videoIsPlaying = false;
+            }
+
+            ToggleVisible(container);
+        });
+
+        owl.on('translated.owl.carousel', function () {
+            if ($('#slider-selector').is(':hover')) {
+                $('#slider-selector').trigger('mouseover');
+            }
+        });
+
+        owl.on('changed.owl.carousel', function () {
+            var control = $('.off');
+            control.toggleClass('off');
+            var container = control.closest('.content-container');
+            ToggleVisible(container);
+
+            videoIsPlaying = false;
+        });
+    });
+
+    function ToggleVisible(container) {
+        container.find('#video').toggle();
+        container.find('img').toggle();
+    }
+
+</script>
+
+        </div>
+    </div>
+        <footer>
+        <div class="main-content">
+            <div class="top-section-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="border-right">
+                            <div class="vertalign-center-content">
+
+                                <ul class="nav-list">
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Page/FAQ" target="_self">
+FAQ            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="/Page/ContactUs" target="_self">
+Contact Us            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="https://www.facebook.com/TeamForKids" target="_blank">
+<img src="/Home/Images/190" alt="Facebook" title="Facebook" />            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="https://twitter.com/teamforkids" target="_blank">
+<img src="/Home/Images/191" alt="Twitter" title="Twitter" />            </a>
+        </li>
+        <style type="text/css">
+            .header .nav-list-item 
+            {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        </style>
+        <li class="nav-list-item">
+            <a href="http://instagram.com/teamforkids" target="_blank">
+<img src="/Home/Images/192" alt="Instagram" title="Instagram" />            </a>
+        </li>
+</ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center footer-top-1">
+                        <div class="vertalign-center-content">
+                            <a title="TCS Marathon" target="_blank" href="http://www.tcsnycmarathon.org"><img src="/CmsPages/Image/20150528-17055406" alt="TCS Marathon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-section-footer">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="border-right">
+                            <div class="vertalign-center-content">
+                                <div class="footer-copy">
+                                    <p>Copyright &copy;2017 by New York Road Runners. All rights reserved. NYRR is a registered 501(c)(3) not-for-profit corporation. New York City Marathon is a registered trademark of New York Road Runners, Inc. NYRR is a registered trademark of New York Road Runners. Inc. Young Runners is a registered trademark of New York Road Runners. Inc. Mighty Milers is a registered trademark of New York Road Runners, Inc. Run New York. Five Boroughs. One City is a trademark of New York Road Runners, Inc. | <a href="/Page/terms-of-use-and-privacy-policy-updates">Updates page</a> | <a href="/Page/PrivacyPolicy">Privacy Policy</a> | <a href="/Page/TermsOfUse">Terms Of Use</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-center footer-bottom-logo">
+                        <div class="vertalign-center-content">
+                            <a title="NYRR" target="_blank" href="http://nyrr.org"><img src="/CmsPages/Image/20150528-17055408" alt="NYRR"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+
+        $(function () {
+            /* notification messages */
+            var successNotificationText = '';
+            if (successNotificationText) {
+                ShowSuccessNotification(successNotificationText);
+            }
+
+            var errorNotificationText = '';
+            if (errorNotificationText) {
+                ShowErrorNotification(errorNotificationText);
+            }
+
+            var informationNotificationText = '';
+            if (informationNotificationText) {
+                ShowInformationNotification(informationNotificationText);
+            }
+        });
+
+        $('input[attr-key]').keypress(function (e) {
+            var code = e.keyCode || e.which;
+
+            if (code == 13) {
+                $('a[attr-press]').click();
+
+                return false;
+            }
+        });
+
+    </script>
+
+    <div class="promotion-scripts">
+<script type="text/javascript">
+adroll_adv_id = "3BWWKJOKMRCVBNCQSTT2QG";
+adroll_pix_id = "SZ2FEDXR5FEMRJ27VR7VKJ";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute("async", "true");
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName("head") || [null])[0] ||
+    document.getElementsByTagName("script")[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 982961887;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/982961887/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1663287760582462');
+fbq('track', "PageView");
+
+fbq('init', '510156925818265');
+fbq('track', "PageView");
+
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1663287760582462&ev=PageView&noscript=1" /></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=510156925818265&ev=PageView&noscript=1" /></noscript>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NTFJ2H" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-NTFJ2H');
+        </script>
+        <!-- End Google Tag Manager -->
+    </div>
+    <!-- Version: 2.0.6613.4896 Created: 5/22/2017 10:27:24 AM UTC -->
+</body>
+</html>

@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://bryansk.in-shkola.ru">redirected</a>.</body></html>

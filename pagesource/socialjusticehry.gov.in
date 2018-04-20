@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8" />
+    <title>Department of Social Justice and Empowerment, Haryana</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/select2.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="assets/js/html5shiv.js"></script>
+          <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+    
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+
+    <!-- Block comes to top on 19 Feb 2016-->
+
+    <script src="assets/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/site/app.js" type="text/javascript"></script>
+    <script src="assets/highcharts/highcharts.js" type="text/javascript"></script>
+    <script src="assets/highcharts/data.js" type="text/javascript"></script>
+    <script src="assets/highcharts/exporting.js" type="text/javascript"></script>
+    <script src="assets/js/highcharts.js" type="text/javascript"></script>
+    <script src="assets/js/site/countUp.min.js" type="text/javascript"></script>
+    <script src="js/bjqs-1.3.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/css/bjqs.css" />
+    <style type="text/css">
+        PageLine2V {
+        background: green;
+  width: 5px;
+  float: left;
+  position: relative;
+        }
+    </style>
+    <!-- Block comes to top End on 19 Feb 2016-->
+    <style type="text/css">
+        .img-blk-cnt {
+            display: block;
+            font: bold 10px/12px Arial,Helvetica,sans-serif;
+            min-height: 35px;
+            padding: 2% 1% 0;
+            text-align: center;
+            width: 100%;
+            font-size: 10px !important;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+        }
+    </style>
+    <style type="text/css">
+        .lkbtn {
+            color: Blue;
+            font-family: Tahoma;
+            font-size: 10pt;
+        }
+
+        .auto-style1 {
+            width: 352px;
+        }
+    </style>
+    <script class="secret-source" style="display: none;">
+        jQuery(document).ready(function ($) {
+
+            $('#banner-fade').bjqs({
+                height: 150,
+                width: 200,
+                responsive: true
+            });
+
+        });
+    </script>
+    <script src="js/jquery.secret-source.min.js"></script>
+    <script>
+        jQuery(function ($) {
+
+            $('.secret-source').secretSource({
+                includeTag: false
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Local2.aspx/TotalCountNo",
+                data: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    var Resulti = Result.d;
+                    Result = Result.d;
+                    var data = [];
+                    //alert(Result[0].Type);
+                    //alert(Resulti[0].Value);
+                    $("#lblTotalBen").text(Result[0].Type + ' : ' + Result[0].Value);
+                    $("#lblTotalAcc").text(Result[1].Type + ' : ' + Result[1].Value);
+                    $("#lblTotalAadhar").text(Result[2].Type + ' : ' + Result[2].Value);
+
+                    $("#lstLastUpdated1").text('As on ' + Result[0].LastUpdated);
+                    $("#lstLastUpdated2").text('As on ' + Result[1].LastUpdated);
+                    $("#lstLastUpdated3").text('As on ' + Result[2].LastUpdated);
+
+                    $("#lblinvi1").text('As on' + Result[2].LastUpdated);
+                    $("#lblinvi2").text('As on' + Result[2].LastUpdated);
+                },
+                error: function (Result) {
+                    alert("Server Busy.");
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        var BenlblAppened = "";
+        var benEnrAndMarkDead = "";
+        {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Local2.aspx/BenEnrolledAndMarkedDead",
+                data: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    Result = Result.d;
+                    var data = [];
+                    for (var i in Result) {
+                        if (i == 0) {
+                            benEnrAndMarkDead = "<thead><tr><th></th><th>Beneficiary Added</th><th>Deaths</th></tr></thead> <tbody><tr><th>" + Result[i].MonthName + " " + Result[i].Year + "</th><td>" + Result[i].Enrolled + "</td><td>" + Result[i].MarkedDead + "</td></tr>";
+                            $("#lblLstUpBenDead").text('(As on ' + Result[i].LastUpdated + ')');
+                        }
+                        else {
+                            benEnrAndMarkDead += "<tr><th>" + Result[i].MonthName + " " + Result[i].Year + "</th><td>" + Result[i].Enrolled + "</td><td>" + Result[i].MarkedDead + "</td></tr>";
+                            $("#lblLstUpBenDead").text('(As on ' + Result[i].LastUpdated + ')');
+                        }
+
+                    }
+                    benEnrAndMarkDead += ""
+                    $("#datatable").append(benEnrAndMarkDead);
+                    DreawBenEnrolledAndMarkedDead(data);
+                },
+                error: function (Result) {
+                    alert("Server Busy for Ben. Enrolled And Marked Dead.");
+                }
+            });
+        }
+
+        function DreawBenEnrolledAndMarkedDead(series) {
+
+            $('#container').highcharts({
+                data: {
+                    table: 'datatable'
+                },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ' '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'No. of Beneficiaries '
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b>'
+                        + ' (In ' + this.point.name + ')<br/> ' +
+                            +this.point.y;
+
+                    }
+                }
+            });
+        }
+
+        {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Local2.aspx/PensionDisbursement",
+                data: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    Result = Result.d;
+                    var data = [];
+                    for (var i in Result) {
+                        var serie = new Array(Result[i].Pension_Type + ' (' + Result[i].Value + ')', Result[i].Value);
+                        data.push(serie);
+                        BenlblAppened = 'As on ' + Result[1].LastUpdated;
+
+                    }
+                    DreawChart(data);
+                    $("#lblLastUpdSchWiseBen").text(BenlblAppened);
+                    //$("#lblLastUpdSchWiseBen").text('Last Updated ' + Result[i].LastUpdated);
+                    // $('#combination').append( BenlblAppened);
+                },
+                error: function (Result) {
+                    alert("Server Busy.");
+                }
+            });
+        }
+        function DreawChart(series) {
+            $('#combination').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: ' '
+                },
+                tooltip: {
+                    pointFormat: '<b>{series.name}: {point.percentage:.2f}%</b>' //Result[i].Value
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                legend: {
+                    align: 'left',
+                    itemStyle: {
+                        color: 'blue', fontWeight: 'normal', width: '300'
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Pension share',
+                    colorByPoint: true,
+                    data: series
+                }]
+            });
+        }
+        function detectIE() {
+            var ua = window.navigator.userAgent;
+            // Test values; Uncomment to check result …
+
+            // IE 10
+            // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+
+            // IE 11
+            // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+
+            // IE 12 / Spartan
+            // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+
+            // Edge (IE 12+)
+            // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                // IE 11 => return version number
+                var rv = ua.indexOf('rv:');
+                return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+            }
+
+            var edge = ua.indexOf('Edge/');
+            if (edge > 0) {
+                // Edge (IE 12+) => return version number
+                return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+            }
+
+            // other browser
+            return false;
+        }
+        $(function () {
+            $(document).ready(function () {
+                var IEversion = detectIE();
+                if (IEversion !== false) {
+                    $(".pull-right").trigger("click");
+                } else {
+                }
+                // var browser = jQuery.browser;
+                // alert(browser);
+                // $.each(jQuery.browser, function (i, val) {
+                //     $("<div>" + i + " : <span>" + val + "</span>")
+                //     .appendTo(document.body);
+                // });
+                var loadValue = 0;
+                if (loadValue > 1) {
+
+                }
+                else { }
+                $(".pull-right").click(function () {
+                    loadValue += 1;
+                    if (loadValue > 1) {
+                        return false;
+                    }
+                    else { $(".pull-right").trigger("click"); }
+                });
+
+            });
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        var AccAdharUpdatedMonthwise = "";
+        {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Local2.aspx/AccAndAadharUpdated",
+                dataget: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    Result = Result.d;
+                    var dataget = [];
+                    for (var i in Result) {
+                        AccAdharUpdatedMonthwise += "<tr><th>" + Result[i].MonthName + " " + Result[i].Year + "</th><td>" + Result[i].AccUpload + "</td><td>" + Result[i].AadharUploaded + "</td></tr>";
+                        //if (i == 0) {
+                        //    AccAdharUpdatedMonthwise = "<thead><tr><th></th><th>Account Added</th><th>Aadhar Numbers</th></tr></thead> <tbody>";
+                        //}
+                        //else {
+
+                        //    AccAdharUpdatedMonthwise += "<tr><th>" + Result[i].MonthName + "</th><td>" + Result[i].AccUpload + "</td><td>" + Result[i].AadharUploaded + "</td></tr>";
+                        //}
+                        $("#lblUpdAccAadhaarUpl").text(' (Last Updated ' + Result[i].LastUpdated + ")");
+                    }
+
+                    AccAdharUpdatedMonthwise = "<thead><tr><th></th><th>Untraceable</th><th>Normal From Untraceable </th></tr></thead><tbody>" + AccAdharUpdatedMonthwise
+                    $("#AccAdharUpdatedDt").append(AccAdharUpdatedMonthwise);
+                    DreawAccAdharUpdatedMonthwise(dataget);
+                },
+                error: function (Result) {
+                    alert("Server Busy for Ben. Enrolled And Marked Dead.");
+                }
+            });
+        }
+
+        function DreawAccAdharUpdatedMonthwise(series) {
+            $('#AccAdharUpdated').highcharts({
+                data: {
+                    table: 'AccAdharUpdatedDt'
+                },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ' '
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'No. of Beneficiaries '
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b>'
+                        + ' (In ' + this.point.name + ')<br/> ' +
+                            +this.point.y;
+
+                    }
+                }
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var davSize = 0; //to store current daviation from actual size. Initial value is 0               
+        var defaultSize = 0;
+
+
+        function ChangeFont(size) {
+
+            defaultSize = GetBroswerFontSize();
+
+            if (size == '0') size = -davSize; //to reset font size to its actual value
+            davSize = davSize + parseInt(size);
+            if (davSize > 4 || davSize < -1) { davSize = davSize - parseInt(size); return; }
+            document.getElementById('ctl00_fDav').value = davSize; //to handle postback
+
+            //$('#Form1 p').add('#Form1 li').add('#Form1 td').add('#Form1 th').add('.scroller p').add('#Form1 .link_right h3').add('#Form1 div').add('#copyright').each(function () {
+            //    this.style.fontSize = (parseInt(GetFontSize(this).replace("px", "")) + parseInt(size)) + 'px';
+            //});
+
+            $('#form1 p').add('#form1 li').each(function () {
+                this.style.fontSize = (parseInt(GetFontSize(this).replace("px", "")) + parseInt(size)) + 'px';
+            });
+
+            $('#form1 p').add('#form1 div').each(function () {
+
+                this.style.fontSize = (parseInt(GetFontSize(this).replace("px", "")) + parseInt(size)) + 'px';
+
+            });
+
+            $('#form1 p').add('#form1 td').each(function () {
+                this.style.fontSize = (parseInt(GetFontSize(this).replace("px", "")) + parseInt(size)) + 'px';
+            });
+
+
+
+
+            $('.Parent').add('.maincontainer').each(function () {
+                this.style.fontSize = (parseInt(GetFontSize(this).replace("px", "")) + parseInt(size)) + 'px';
+            });
+            //  alert(this.style.fontSize);
+        }
+        function GetFontSize(control) {
+            if (control.style.fontSize) return control.style.fontSize.toString();
+            var parent = control.parentNode;
+            do {
+                if (parent.style.fontSize) return parent.style.fontSize.toString();
+                else parent = parent.parentElement;
+            } while (parent);
+            return defaultSize;
+        }
+
+        function GetBroswerFontSize() {
+            var measure = document.createElement('div');
+            measure.style.height = '10em';
+            document.body.appendChild(measure);
+            var size = measure.offsetHeight / 10;
+            document.body.removeChild(measure);
+            return size.toString();
+        }
+
+
+
+        
+    </script>
+
+
+
+    
+</head>
+<body class="skin-black" onload="change_layout();ChangeFont('0')">
+    <form name="form1" method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="alT71DdMf2cX8yY+DGQPfPruvjfNw/J7MRcGqg2r2QX17iqzM90fLRKR8X/o0lfMni52rlWCdZfIiN0qv+ct4u+iP9/CfPlbUI4xZngH4N1qMJRw2lEyMj85iVXZksVbiBTwNx2ZGzJheqYWciVNVk0QpJ9foW60PMRxxOG5vFlw5MVT+194enqwzOCUSwgiS3cVuEuJd+nDynbTqH8BketELPeQjUg89rbLWxe/7xfa2q5/ncYety60H131jo4BWbih7muorlZpUKjq6yDCWrizD9X00HcTkcUoJZnOKtA12n7drjE7z+AG+414BDHThAgNbWvEtGFHZWPLC/TeCDnhs6lgPAUZyOnee/tr5XN4CI6tPb9XmbzUAKplRIUKavk5RnYqF1oBXhDGLU7fCYcNwjdg0N60XcJRbL9zollhSqpnDNlS6kKh1JWwxPP749mj3Y4Apil3Z9mClF7swNARkOUfsCiUc3bisfPMSxq9py0O0NYUMAJqbzn1kD9NVAn7JQDow0z0hbznhfKTvX8WEoRFHAKfPIRKQ9Yxw4SkbxQ1e74Q/FDBpOWjtn6wf24dpQTpSbjdD5rAhOBd4qrte/XNONmLvTmhDbPLAj4ftTHu" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B3945EBD" />
+
+        <div>
+            <embed src="images/header.swf" style="height: 82px; width: 100%;" height="128">
+        </div>
+        
+        <div class="topdiv" id="topdiv" style="border: groove">
+
+            <div class="topbuton">
+                <table width="100%" cellpadding="5px">
+                    <tr>
+                        <td align="left" style="color: #0000ff; width: 75px; font-weight: bold; border-right-style: groove">
+                            <a id="HyperLink17" href="Website/Aboutus.pdf" target="_blank"><font face="Tahoma" color="Blue">About Us </font></a>
+                        </td>
+                        <td align="left" style="color: #0000ff; width: 80px; font-weight: bold; border-right-style: groove">
+                            
+                            <a id="HyperLink19" href="contactus.aspx" target="_blank"><font face="Tahoma" color="Blue">Contact Us</font></a></td>
+
+                        <td align="left">
+
+                            <a id="lnkMobileApp" href="javascript:__doPostBack(&#39;lnkMobileApp&#39;,&#39;&#39;)"><b><font face="Tahoma" color="Red">Download Mobile App for latest pension status<img src="images/new.gif" /></font></b></a>
+                        </td>
+
+
+                        <td align="right">
+                            <a href="ScreenReader.html">Screen Reader Access</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#maincontent">Skip to main content</a>
+                            <input type="button" value="A+" style="height: 20px!important; margin-right: 1px!important;"
+                                onclick="ChangeFont('1')" class="increase_font" id="fBig" />
+                            <input type="button" value="A"
+                                style="height: 20px!important; margin-right: 1px!important;" onclick="ChangeFont('0')"
+                                class="normal_font" id="fNormal" />
+                            <input type="button" value="A-" style="height: 20px!important; margin-right: 1px!important;"
+                                onclick="ChangeFont('-1')" class="decrease_font"
+                                id="fSmall" />
+                            <input type="hidden" value="0" id="ctl00_fDav" name="ctl00$fDav" /></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+        <!-- wrapper -->
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <a id="maincontent" name="maincontent"></a>
+            
+            <aside>
+            <section class="content">
+                  <!-- top row -->
+                <div class="row">
+                
+                        <div class="col-lg-12 col-xs-12" style="color:#660000;text-align:center;font-size:22px;">
+                            <table width ="100%">
+                                <tr>
+                        
+                           <td align="left" style="color: #0000ff;font-size:12px ;font-family:Tahoma;padding:0 65px; " >
+                              Helpline: 0172-2560054 
+                                </td>
+                                         <td align="center" width="80%" style="padding:0 283px 0 0; margin:0 0 0 0">
+                                थारी पेंशन, थारे पास  
+                                              </td>
+                            </tr></table>  </div>
+              </div>
+                <!-- top row end -->
+                <!-- second row -->
+                <div class="row">
+                    <section class="col-lg-2 col-xs-12 col-sm-2">
+                        <div class="row">
+                     
+                    <!-- ./col -->
+                     
+                    <!-- ./col -->
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-wood">
+                            <div class="inner">
+                                <h5 id="H2">
+                                    <span id="Span2">General Information</span> </h5>
+                               
+  
+                               <h5> <span id="lblinvi2" style="visibility:hidden;"></span> </h5>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                     <div >
+                        <table>
+                        
+                        <tr>
+                            <td style=" height: 18px;">
+                                 
+                                <a id="HyperLink18" href="Website/org_str.pdf" target="_blank"><font face="Tahoma" color="Blue">Organization Structure</font></a></td>
+                        </tr>
+                        <tr>
+                            <td style=" ">
+                                
+                                </td>
+                        </tr>
+                        <tr>
+                            <td style=" height: 18px;">
+                                 
+                                <a id="HyperLink22" href="Website/Budget%20at%20a%20glance%202016-17.pdf" target="_blank"><font face="Tahoma" color="Blue">Budget At a Glance 2016-17</font></a></td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                
+                                <a id="HyperLink23" href="Website/gazetary_details.pdf" target="_blank"><font face="Tahoma" color="Blue">Gazetteer Details</font></a></td>
+                        </tr>
+                        <tr>
+                            <td >
+                                
+                                <a id="HyperLink24" href="notification_orders.aspx" target="_self"><font face="Tahoma" color="Blue">Notifications & Orders  </font></a></td>
+                        </tr>
+                             <tr>
+                            <td >
+                                
+                                <a id="HyperLink4" href="News_Advertisement.aspx" target="_self"><font face="Tahoma" color="Blue">News/Advertisements<img src="images/new.gif" /></font></a></td>
+                        </tr>
+
+                        <tr>
+                            <td >
+                                 
+                                <a id="HyperLink25" href="Website/telephone_no.pdf" target="_blank"><font face="Tahoma" color="Blue">Telephone Numbers and Offices/Institutes</font></a></td>
+                        </tr>
+                        <tr>
+                            <td >
+                                
+                                <a id="HyperLink26" href="form_and_proc.aspx" target="_self"><font face="Tahoma" color="Blue">Application Forms</font></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                                <a id="HyperLink27" href="rti.aspx" target="_self"><font face="Tahoma" color="Blue">RTI Act</font></a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                                <a id="HyperLink28" href="service_rules.aspx" target="_self"><font face="Tahoma" color="Blue">Service Rules</font></a></td>
+                        </tr>
+                        
+                             <tr>
+                            <td >
+                                
+                                <a id="HyperLink1" href="Pre_Post_Matric.aspx" target="_self"><font face="Tahoma" color="Blue">Scholarship Schemes for Minority Students</font></a>
+                                </td>
+                        </tr>
+
+                        <tr>
+                            <td >
+                                 
+                                <a id="HyperLink30" href="Archives.aspx" target="_self"><font face="Tahoma" color="Blue">Archives</font></a>
+                                </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                
+                                <a id="HyperLink31" href="Website/PMJDY.pdf" target="_blank"><font face="Tahoma" color="Blue">PMJDY FAQ</font></a>
+                                </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                
+                                  <a id="HyperLink32" href="sjh2712/default.aspx" target="_blank"><font face="Tahoma" color="Blue">Administrative Login</font></a>
+                                </td>
+                        </tr> 
+                         <tr>
+                            <td>
+                                
+                                 <a id="HyperLink33" href="sjebankinterface/default.aspx" target="_blank"><font face="Tahoma" color="Blue">Bank IT Nodal Officer Login</font></a>
+                                </td>
+                        </tr><tr>
+                                  <td>
+                              
+                                  <a id="HyperLink10" href="DeathRegistration/default.aspx" target="_blank"><font face="Tahoma" color="Blue">Deaths registration by PHC/CHC/GH/MC<img src="images/new.gif" /></font></a>
+                                </td>
+                            </tr>
+                             <tr>
+                                 <td style="font-weight: 700" >
+                                     Other Related Links:
+                                 </td>
+                             </tr>
+                               
+                            <tr>
+                       
+                            <td  > <a id="HyperLink34" href="http://socialjustice.gov.in" target="_blank"><font face="Tahoma" color="Blue">Ministry of Social Justice & Empowerment</font></a> </td>     </tr>
+                      
+                            <tr> <td> <a id="HyperLink15" href="http://nsap.nic.in" target="_blank"><font face="Tahoma" color="Blue">NSAP Website</font></a></td></tr>
+            <tr> <td ><a id="HyperLink16" href="http://www.momascholarship.gov.in/" target="_blank"><font face="Tahoma" color="Blue">Minority Welfare Scholarship</font></a></td>
+                        </tr>
+                            
+                    </table>
+                         
+                     <div id="banner-fade">
+    <ul class="bjqs">
+        
+                <li>
+                  <img src='WriteReadData/ImageGallery/IMG-20170129-WA0011.jpg'
+                    title='' 
+                    alt="">
+                </li>
+            
+                <li>
+                  <img src='WriteReadData/ImageGallery/Skoch_Award_Gold_2016.JPG'
+                    title='' 
+                    alt="">
+                </li>
+            
+                <li>
+                  <img src='WriteReadData/ImageGallery/Skoch_Award_Order_of_Merit_2016.JPG'
+                    title='' 
+                    alt="">
+                </li>
+            
+                <li>
+                  <img src='WriteReadData/ImageGallery/SSP_DBT_2_Sep_2015_1300000_Ben.jpg'
+                    title='' 
+                    alt="">
+                </li>
+            
+                <li>
+                  <img src='WriteReadData/ImageGallery/SSP_DBT_4_Aug_2015_1000000_Ben.jpg'
+                    title='' 
+                    alt="">
+                </li>
+            
+    </ul>
+</div>
+                        </div>
+                        </section>
+                    <section class="col-lg-6 col-xs-12 col-sm-7">
+                    <div class="row">
+                     <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-sumit" style="width:226px;margin:0 -11px 0 -20px;">
+                            <div class="inner">
+                                <h5 id="count_reg"> <span id="lblTotalBen"></span> </h5>
+                               
+                                <h5><span id="lstLastUpdated1" style="font-weight:normal"></span> </h5>
+                            </div>
+                        
+                            
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                     <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-red" style=" margin: 0 -15px 0 -11px; width: 226px;">
+                            <div class="inner">
+                                <h5 id="count_present">  <span id="lblTotalAcc"></span>
+                                     </h5>
+                               
+                                 <h5><span id="lstLastUpdated2" style="font-weight:normal"></span> </h5>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-wood"  style="width:226px;">
+                            <div class="inner">
+                                <h5 id="count_device">
+                                    <span id="lblTotalAadhar"></span> </h5>
+                               
+                                <h5><span id="lstLastUpdated3" style="font-weight:normal"></span> </h5>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                         <section class="col-lg-6 col-xs-12 col-sm-6 connectedSortable">
+                        <!-- Box (with bar chart) -->
+                        <div class="box box-default" style="height:495px">
+                            <div class="box-header">
+                                <!-- tools box -->
+                              <div class="pull-right box-tools" style="display:none;">
+                                    <button class="btn btn-default btn-xs" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <!-- /. tools -->
+                                
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="chart" id="combination" style="height:480px" ></div> <h5 ><span id="lblLastUpdSchWiseBen" style="display:none;"></span></h5>
+                            
+
+                            <!-- /.box-body -->
+                            <!-- /.box-footer -->
+                      
+                        </div>
+                           
+                        <!-- /.box -->
+                            
+
+                    </section>
+
+                       
+
+                         <section class="col-lg-6 col-xs-12 col-sm-6">
+                     <div >
+                    <div style="background-color:White ; overflow:scroll; overflow-y :auto; overflow-x:hidden; border-right: #3399cc 1px solid; border-top: #3399cc 1px solid; border-left: #3399cc 1px solid; border-bottom: #3399cc 1px solid; text-align:left;  height: 495px;"  >
+                                   
+                                    <ul type="circle"  style=" list-style-type:disc; color:Red; padding:0 18px;">
+                                        
+ <li style="text-align: left ; vertical-align:top">
+                                            
+                                     <b>  <a id="HyperLink_track" href="Ben_Inf.aspx" target="_blank"><font face="Tahoma" color="Green">आधार/पैंशन आई.डी./खाता संख्या से पैंशन विवरण देखें<div style="margin:-16px 86px !important;"> <img src="images/new.gif" /></div></font></a>
+                                </b>   <br />
+                                        </li>
+
+
+                                          <li style="text-align: left ; vertical-align:top">
+                                           <a id="HyperLink6" href="ben_List.aspx" target="_blank"><font face="Tahoma" color="Blue">लाभपात्रों की सूची देखें / View List of Beneficiaries</font></a>
+                                            
+                                             </li>
+
+
+                                     
+                                                                                <li style="text-align: left ; vertical-align:middle">
+                                           
+                                            <a id="HyperLink3" href="District_wise_Aadhar_uploaded.aspx" target="_blank"><font face="Tahoma" color="Blue">जिलावार आधार अपलोडिंग स्थिति / District wise Aadhaar Uploading Status</font></a>
+                                        <br />
+                                        </li>
+                                        <li style="text-align: left ; vertical-align:top">
+                                         
+                                            <a id="Hyper4" href="Bank_wise_acct_uploading.aspx" target="_blank"><font face="Tahoma" color="Blue">बैंक वार खातों की अपलोडिंग की स्थिति / Bank and IFSC code wise uploading status of Accounts</font></a>
+                                             </li>
+                                     <li style="text-align: left ; vertical-align:middle">
+                                        
+                                      <a id="hypedisacc" href="District_wise_bank_acc_uploading_status.aspx" target="_blank"><font face="Tahoma" color="Blue">जिलावार खातों की अपलोडिंग की स्थिति / District wise uploading status of Accounts</font></a>&nbsp;
+                                        </li>
+
+                                        <li style="text-align: left ; vertical-align:middle" >
+                                           
+
+                                            <a id="HyperItnodal" href="IT_nodal_officer_list.aspx" target="_blank"><font face="Tahoma" color="Blue">बैंकों के आईटी नोडल अधिकारियों की सूची / List of IT Nodal Officers of Banks</font></a>
+                                          <br />
+                                        </li>
+                                        
+               
+                                         <li style="text-align: left ; vertical-align:middle;display:none;" >
+                                         
+
+                                            <a id="Hyperphase1" href="Phase1_1744_villages.aspx" target="_blank"><font face="Tahoma" color="Blue">चरण 1: 1744 गांवों के खातों की अपलोडिंग की स्थिति / DBT Started</font></a>&nbsp;&nbsp;
+                                        </li>
+                                        
+                                        
+                                         <li style="text-align: left ; vertical-align:middle;display:none;" >
+                                             
+
+                                            <a id="yp" href="Phase2_1127_Villages.aspx" target="_blank"><font face="Tahoma" color="Blue">चरण 2: 1127 गांवों के खातों की अपलोडिंग की स्थिति जहां DBT शुरू हो चुकी है / DBT Taken Up</font></a>&nbsp;&nbsp;
+                                        </li>
+                                        
+                                        <li style="text-align: left ; vertical-align:middle" >
+                                           
+
+                                            <a id="hyperKnowIdnetifier" href="KnowYourIdentifier.aspx" target="_blank"><font face="Tahoma" color="Blue">गाँव अनुसार पहचानकर्ता की सूची / Village wise Identifier(s) List</font></a>
+                                        </li>
+                                    
+                                        <li style="text-align: left ; vertical-align:middle" >
+                                           
+                                            <a id="hyDisbursingAgency" href="DisbursingAgency.aspx" target="_blank"><font face="Tahoma" color="Blue">गाँव अनुसार पेंशन बांटने का माध्यम/Disbursing Agencies Mapped with Villages</font></a>
+                                        </li>
+                                            <li style="text-align: left; vertical-align:middle">
+                                              
+
+                                                 <a id="HyperLi14" href="District_Blk_Wise_Last_10_Day.aspx" target="_blank"><font face="Tahoma" color="Blue">जिला व खण्ड  अनुसार अंतिम १० दिनों मे खाता अपलोडिंग </font></a>    
+                                                 
+                                                 </li>
+
+
+
+                                     <li style="text-align: left ; vertical-align:middle">
+                                        
+
+                                       <a id="hypmc" href="MC%20wise%20account%20uploading%20status.aspx" target="_blank"><font face="Tahoma" color="Blue">नगर पालिकाओं में खातों की अपलोडिंग की स्थिति / MC wise uploading status of Accounts</font></a>&nbsp;
+                                        </li>
+                                       
+                                     <li style="text-align: left;  vertical-align:middle ">
+                                        
+
+                                                <a id="HyperLink2" href="Bank_wise_last_acc_uploading_during_10_days.aspx" target="_blank"><font face="Tahoma" color="Blue">बैंक वार अंतिम १० दिनों मे खाता अपलोडिंग की स्थिति</font></a>
+                                            
+                                            </li>
+                                      
+                                                                                                                 
+                                        <li style="text-align: left; vertical-align:middle">
+                                        <a id="Lnktable2" class="lkbtn" href="javascript:__doPostBack(&#39;Lnktable2&#39;,&#39;&#39;)">Table 2 format for Bank</a>
+                                        </li>
+                                                                 
+                                        <li style="text-align: left; vertical-align:middle">
+                                         <a id="Lnktxt" class="lkbtn" href="javascript:__doPostBack(&#39;Lnktxt&#39;,&#39;&#39;)">Sample TXT file format for Bank</a>
+                                        </li>
+                                         
+                                         <li style="text-align: left; vertical-align:middle"> 
+                                              
+
+                                            <a id="htp14" href="Add_Aadhar_Number.aspx" target="_blank"><font face="Tahoma" color="Blue">
+                                                 लाभपात्र अपना आधार नंबर लिंक करें</font></a>   
+                                                  
+                                                 </li>
+
+
+                                         <li style="text-align: left; vertical-align:middle"> 
+                                             
+                                                    <a id="HyperLink1k" href="Complaint/UserComplaint.aspx" target="_blank"><font face="Tahoma" color="Blue">
+                                                 कल्याण विंडो मे सुझाव / शिकायत दर्ज करें</font></a>    
+                                                 
+                                                 </li>
+                                        
+                                        <li style="text-align: left; vertical-align:middle"> 
+                                            
+                                              <a id="Hypr45" href="Complaint/FakePension_Stop_.aspx" target="_blank"><font face="Tahoma" color="Blue">गलत बनी हुई पेंशन की जानकारी यहां दे</font></a>     
+                                               
+                                                 </li>
+                                        
+                                        </ul>
+                             
+                                </div>
+                      
+                    </di>
+                             <br />
+                         
+                        </section>
+                        <br />
+                        
+ 
+                         <div class="row">
+                    
+                        <div class="container">
+                             <section  class="col-lg-6 col-xs-12 col-sm-6" style="" >
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+      Beneficiaries enrolled as new and flagged as Dead</button>
+                                 </section>
+                             <section  class="col-lg-6 col-xs-12 col-sm-6"  >
+ 
+                                 </section>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog  modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Beneficiaries enrolled as new and flagged as Dead <br /><span id="lblLstUpBenDead"></span></h4>
+        </div>
+        <div class="modal-body">
+         <div id="container" style="height: 400px; margin: 0 auto"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+                     <table id="datatable" style="display:none;">
+</table>
+
+                    
+
+                </div>
+                  <!-- third row end -->
+                 <!-- last row -->
+                <div class="row">
+                      <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Month wise Untraceable  and Normal from Untraceable <br /><span id="lblUpdAccAadhaarUpl"></span></h4>
+        </div>
+        <div class="modal-body">
+          <p> <div id="AccAdharUpdated" style="height: 320px;"></div></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <table id="AccAdharUpdatedDt" style="display:none;">
+</table>
+
+    </div>
+  </div>
+                  
+
+
+                    </section>
+                    <section class="col-lg-4 col-xs-12 col-sm-3">
+                           <section class="col-lg-8 col-xs-12 col-sm-6 connectedSortable">
+                        <div class="row">
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-blue">
+                            <div class="inner">
+                                <h5 id="H1"> <span id="Span1">Welfare Schemes</span> </h5>
+                               
+                                <h5> <span id="lblinvi1" style="visibility:hidden;"></span> </h5>
+                            </div>
+                        
+                            
+                        </div>
+                    </div>
+                  
+                </div>
+
+                          <div style="background-color:White ; overflow:scroll; overflow-y :auto; overflow-x:hidden; border-right: #3399cc 1px solid; border-top: #3399cc 1px solid; border-left: #3399cc 1px solid; border-bottom: #3399cc 1px solid; text-align:left;  height: 495px;"  >
+                              <ul type="circle"  style=" list-style-type:disc; color:Red;padding:0 18px;">
+                                 <li style="text-align: left ; vertical-align:top">
+                                        <a id="hypOldAgeAllow" href="schemes/OLD_AGE_SAMMAN_ALLOWANCE.pdf" target="_blank"><font face="Tahoma" color="Blue">Old Age Samman Allowance</font></a>
+                                   <br />
+                                        </li>
+
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink46" href="schemes/WIDOW_AND_DESTITUTE_WOMEN_PENSION.pdf" target="_blank"><font face="Tahoma" color="Blue">Widow & Destitute women Pension</font></a>
+                                   <br />
+                                        </li>
+                                    <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink49" href="schemes/DISABILITY_PENSION_SCHEME.pdf" target="_blank"><font face="Tahoma" color="Blue">Disability pension scheme</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink47" href="schemes/FINANCIAL_ASSISTANCE_TO_DESTITUTE_CHILDREN.pdf" target="_blank"><font face="Tahoma" color="Blue">Financial Assistance to Destitute Children</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink48" href="schemes/LADLI_SOCIAL_SECURITY_ALLOWANCE.pdf" target="_blank"><font face="Tahoma" color="Blue">Ladli Social Security allowance</font></a>
+                                   <br />
+                                        </li>
+
+                                   
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink50" href="schemes/FINANCIAL_ASSISTANCE_TO_NON-SCHOOL_GOING_DISABLED_CHILDREN.pdf" target="_blank"><font face="Tahoma" color="Blue">Financial Assistance to Non-School going Disabled Children</font></a>
+                                        </li>
+                                  
+                                       <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink29" href="schemes/Financial_Assistance_to_Kashmiri_Migrants_Families.pdf" target="_blank"><font face="Tahoma" color="Blue">Financial Assistance to Kashmiri Migrants Families Scheme</font></a>
+                                        </li>
+                                  <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink35" href="schemes/Allowance_to_Dwarfs.pdf" target="_blank"><font face="Tahoma" color="Blue">Allowance to Dwarf</font></a>
+                                        </li>
+                                        <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink36" href="schemes/Allowance_to_Eunuchs.pdf" target="_blank"><font face="Tahoma" color="Blue">Allowance to Eunuchs</font></a>
+                                        </li>
+                                      
+
+
+                                  <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink51" href="schemes/DAY_CARE_CENTRES_SENIOR_CITIZEN_CLUBS.pdf" target="_blank"><font face="Tahoma" color="Blue">Day Care Centres/Senior Citizen Clubs</font></a>
+                                   <br />
+                                        </li>
+
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink52" href="schemes/IDENTITY_CARDS_TO_SENIOR_CITIZENS.pdf" target="_blank"><font face="Tahoma" color="Blue">Identity Cards to Senior Citizens</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink53" href="schemes/FREE_SPECTACLES_FOR_BPL_SENIOR_CITIZENS.pdf" target="_blank"><font face="Tahoma" color="Blue">Free Spectacles For BPL Senior Citizens</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink54" href="schemes/50percent_BUS_TRAVEL_CONCESSION_FOR_SENIOR_CITIZENS.pdf" target="_blank"><font face="Tahoma" color="Blue">50% Bus Travel Concession For Senior Citizens</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink55" href="schemes/VIKAS_PUTTAR_AND_YUG_PURUSH_CHAUDHARY_BANSI_LAL.pdf" target="_blank"><font face="Tahoma" color="Blue">Vikas Puttar And Yug Purush Chaudhary Bansi Lal Old Age Home, Rewari</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink56" href="schemes/STATE_AWARDS(FOR_SR._CITIZENS).pdf" target="_blank"><font face="Tahoma" color="Blue">State Awards (for Sr. Citizens)</font></a>
+                                   <br />
+                                        </li>
+
+                                  <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink5" href="schemes/DRUG_DE-ADDICTION-CENTERS.pdf" target="_blank"><font face="Tahoma" color="Blue">Drug De-addiction Centers</font></a>
+                                   <br />
+                                        </li>
+
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink7" href="schemes/Rajiv_Gandhi_Pariwar_Bima_Yojna.pdf" target="_blank"><font face="Tahoma" color="Blue">Rajiv Gandhi Pariwar Bima Yojna </font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink8" href="schemes/Pre-matric%20Scholarship%20Scheme.pdf" target="_blank"><font face="Tahoma" color="Blue">Minority Welfare- Pre-Matric Scholarship</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink9" href="schemes/Post-matric%20Scholarship%20Scheme.pdf" target="_blank"><font face="Tahoma" color="Blue">Post-Matric Scholarship (100%)</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink11" href="schemes/Merit%E2%80%93cum%20Means%20Scholarship%20Scheme.pdf" target="_blank"><font face="Tahoma" color="Blue">Merit-cum-Means Scholarship (100%)</font></a>
+                                   <br />
+                                        </li>
+                                  <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink14" href="schemes/Free%20Coaching%20And%20Allied%20Scheme.pdf" target="_blank"><font face="Tahoma" color="Blue">Free Coaching And Allied Scheme</font></a>
+                                   <br />
+                                        </li>
+                                  <li style="text-align: left ; vertical-align:top">
+                                        <a id="HyperLink20" href="schemes/Multi-Sectoral%20Development%20Programme(MsDP).pdf" target="_blank"><font face="Tahoma" color="Blue">Multi-Sectoral Development Programme(MsDP)</font></a>
+                                   <br />
+                                        </li>
+
+                                     <li style="text-align: left ; vertical-align:top">
+                                       <a id="HyperLink12" href="schemes/NATIONAL_FAMILY_BENEFIT_SCHEME.pdf" target="_blank"><font face="Tahoma" color="Blue">National Family Benefit Scheme</font></a>
+                                   <br />
+                                        </li>
+
+
+                                  </ul>
+                        </div>
+              
+
+                   </section>
+                           <section class="col-lg-4 col-xs-12 col-sm-6">
+
+
+
+                                <div class="row">
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                      
+                       
+                         </div>
+                                    </div>
+                     
+
+                            <div style="background-color:White ; overflow:scroll; overflow-y :auto; overflow-x:hidden; border-right: #3399cc 1px solid; border-top: #3399cc 1px solid; border-left: #3399cc 1px solid; border-bottom: #3399cc 1px solid; text-align:left;  height: 580px; width:128px;"  >
+                        <table>
+                             <tr>
+                            <td >
+                            <div style="padding:0 12px; margin:3px;" >
+                        <img id="Image3" src="images/CM.jpg" border="0" height="85" width="85" />
+                              
+                          </div>
+                            <div class="img-blk-cnt border-box">
+                                   <span> Shri Manohar Lal</span><br /> Hon'ble Chief Minister <br />
+                            </div>
+                               </td>
+                                </tr>
+                            <tr>
+                            
+                           <td >
+                              <div style="padding:8px 12px;" >
+                        <img id="Image1" src="images/KrishanBedi.jpg" border="0" height="82" width="85" />
+                          </div>
+                            <div class="img-blk-cnt border-box">
+                                 <span>Shri Krishan Kumar Bedi</span><br /> Minister of State (Independent Charge)<br />
+                            </div>
+                               </td>
+                            </tr>
+                            <tr>
+                            <td >
+                                
+                            <div style="padding:10px 17px;" >
+                                  <div style=" background: #DCDCDC; width: 85px; height:85px;  position: relative;">
+                                    
+                                       <img id="Image2" src="images/AnilKumar.jpg" border="0" height="82" width="85" />
+                                  </div>
+                    </div>
+                        
+                            <div class="img-blk-cnt border-box" style="font-size:10px;">
+                            <span>
+                                Shri Anil Kumar, IAS
+
+                            </span><br />Principal Secretary <br />
+                            </div>
+                               </td>
+                        </tr>
+                           
+                            <tr>
+                            <td >
+                             <div style="padding:8px 12px;" >
+                        <img id="Image4" border="0" height="85" width="85" />
+                        <!--<img id="Image5" src="images/SanjeevVerma.JPG" border="0" height="85" width="85" />-->
+                          </div>
+                            <div class="img-blk-cnt border-box">
+                              <!--  <span></span></br>   Director <br />-->
+                            </div>
+                               </td>
+                               </tr></table>         
+                         
+                     
+                                   
+                    </div>
+                   
+                               </section>
+                        </section>
+
+                </div>
+                  <!-- second row end -->
+                 <!-- third row -->
+
+
+        
+                 <!-- last row end -->
+                <!-- graph section -->
+
+            </section>
+        </aside>
+        </div>
+        <!-- wrapper end -->
+        <div id="home"></div>
+        <br />
+        <br />
+        <span class="clear"></span>
+
+        <div align="center">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="http://www.haryanaswarnajayanti.org/" title="Haryana Swarn Jayanti" onclick="openChild(this.href,'win','1'); return false;">
+            <img src="images/logo_swarna.jpg" alt="Haryana Swarn Jayanti" title="Haryana Swarn Jayanti" width="230" height="100" /></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="http://www.digitalindia.gov.in/" title="Digital India" onclick="openChild(this.href,'win','1'); return false;">
+                 <img src="images/digital-india-logo.png" title="Digital India" alt="Digital India" /></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          
+            <a href="https://india.gov.in/" title="National Portal Of India" onclick="openChild(this.href,'win','1'); return false;">
+                <img src="Images/indiagov.png" title="National Portal Of India" alt="india-gov" /></a>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://www.swachhbharaturban.in" title="Swachh Bharat" onclick="openChild(this.href,'win','1'); return false;">
+                    <img src="images/logo-right.jpg" alt="Swachh Bharat" title="Swachh Bharat" /></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+              
+            <img src="images/Beti Bachao Beti Padhao_Logo.jpg" alt="Beti Bachao Beti Padhao" title="Beti Bachao Beti Padhao" width="100" height="100" />
+        </div>
+        <br />
+
+        
+<table  width="100%" >
+
+<tr>
+               <td  style=" background-color: #b99ced" align="center">
+                   <span style="font-family: Tahoma">
+                    <span style="color:blue"><span style="font-size: 10pt">
+                       <span style="text-decoration: underline"><strong>Disclaimer</strong> </span></span>
+                        <br />
+                        <span style="font-size: 10pt; color: black;">Web site designed and developed by
+                        </span></span><span  >
+                            <span style="font-size: 9pt; color:black ; ">National Informatics Centre, Haryana State
+                                Centre, Chandigargh.</span></span></span><span style="color:blue"><strong><br />
+                                </strong><span class="style3" style="color: black; font-family: Tahoma"><font face="Arial" size="2">Contents owned, maintained
+                                    and updated by Department of Social Justice and Empowerment,
+                                    Haryana.</font></span></span></td>
+            </tr></table>
+
+        <script type="text/javascript">
+
+
+            function openChild(file, windowmn, val) {
+                if (parseInt(val) == 1) {
+                    if (!confirm('This link shall take you to a page/website outside this website.For any query regarding the contents of the linked page/website, please contact the webmaster of the concerned website.')) {
+                        return false;
+                    }
+                }
+                else if (parseInt(val) != 0) {
+                    var arr = file.split(".");
+                    var ext = arr[arr.length - 1].toLowerCase();
+                    if (ext == "pdf" || ext == "doc" || ext == "xls" || ext == "ppt" || ext == "docx" || ext == "jpg" || ext == "jpeg" || ext == "gif" || ext == "png" || ext == "txt") {
+                    }
+                    else {
+                        if (!confirm('This link shall take you to a page/website outside this website.For any query regarding the contents of the linked page/website, please contact the webmaster of the concerned website.')) {
+                            return false;
+                        }
+                    }
+
+                }
+
+                childWindow = window.open(file, windowmn, 'width=600,height=500,screenX=100,screenY=0,scrollbars=yes,menubar=yes,location=yes,toolbar=yes,resizable=yes');
+                childWindow.focus();
+            }
+
+            //Generating Pop-up Print Preview page
+
+        </script>
+    </form>
+
+
+</body>
+</html>

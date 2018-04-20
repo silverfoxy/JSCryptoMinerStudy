@@ -1,0 +1,1 @@
+Redirecting to <a href="http://mydaikinstore.com/">http://mydaikinstore.com/</a>

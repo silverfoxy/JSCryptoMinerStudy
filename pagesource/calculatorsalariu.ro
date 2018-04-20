@@ -1,0 +1,776 @@
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ro">
+    <head>
+        <title>Calcul salariu net, brut, sporuri, retineri angajat, retineri angajator, salariu complet</title>
+        <meta name="description" content="Calcul salariu net (simulator de salariu) pornind de la salariul brut (brut la net) salariul net (net la brut) sau totalul cheltuielilor suportate de angajator (salariu complet), impreuna cu evidentierea detaliata a tuturor sumelor: salariu brut, net, retineri(cheltuieli) angajat, angajator cu transformare in euro." >
+        <meta name="keywords" content="" >
+        <meta name="verify-v1" content="Z5WyynpzzTMeojoHNFVYO17GgyXHu1E1/E7zbNkQQmA=" />
+        <meta name="google-site-verification" content="PeSrw-UIGDRshAuSV-eB8lLUiz-_RhUezdJkIPlF5KI" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/site.css"/>
+
+        <script type="text/javascript" src="/jquery.js" ></script>
+        <script src="/js/dw_event.js" type="text/javascript"></script>
+        <script src="/js/dw_rotator.js" type="text/javascript"></script>
+
+        <script>
+            var rotator1 = {
+                path: '/banners/', // path to your images
+                id: 'r1', // id assigned in image tag
+                speed: 5000, // rate of rotation (default: 4500)
+                bMouse: true, // pause/resume onmouseover/out
+                bRand:  true, // random rotation
+                images: ["550x150-20180227-1.jpg","550x150-20180227-2.jpg","550x150-20180227-3.jpg","550x150-20180227-4.jpg"],
+                // URLs or other actions onclick of images
+                actions: ["http://www.parfumuri-celebre.eu/", "http://www.parfumuri-celebre.eu/","http://www.parfumuri-celebre.eu/","http://www.parfumuri-celebre.eu/"]
+            }
+
+            function initRotator() {
+                // pass name of variable containing rotator properties
+                dw_Rotator.setup(rotator1);
+            }
+
+            dw_Event.add( window, 'load', initRotator);
+
+            $(document).ready(function(){
+                $("#txtCurs").keyup(function() {
+                    CalculezInValuta();
+                });
+
+                $("#src1").focus(function(){
+                    this.select();
+                });
+
+                $("#src1").mouseup(function(){
+                    this.select();
+                });
+
+                $("#cmdSearch").click(function() {
+                    window.location = "http://www.paginacuoferte.ro/?c=sal&q=" + $("#txtSearch").val();
+                });
+
+                
+                            });
+
+            function KeyCheck(e) {
+                var keycode;
+                if (window.event) keycode = window.event.keyCode;
+                else if (e) keycode = e.which;
+
+                if(keycode == 13){
+                    CalculSimplu();
+                    void(0);
+                }
+            }
+
+            function CalculSimplu(pt2018) {
+                var _suplQS = ""; //&simulare-salariu-2018";
+                var mpt2018 = pt2018 === undefined ? false : pt2018;
+                if($("input:radio[name='ancalcul']:checked").val() == 2018) {
+                    mpt2018 = true;
+                }
+                if(mpt2018){
+                    _suplQS = "&simulare-salariu-2018";
+                }
+                            }
+
+            function showdiv(oname) {
+                $(oname).show();;
+            }
+
+            function addCommas(nStr)
+            {
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+
+            function IsNumeric(sText)
+            {
+                var ValidChars = "0123456789.";
+                var IsNumber=true;
+                var Char;
+
+                for (i = 0; i < sText.length && IsNumber == true; i++)
+                {
+                    Char = sText.charAt(i);
+                    if (ValidChars.indexOf(Char) == -1)
+                    {
+                        IsNumber = false;
+                    }
+                }
+                return IsNumber;
+            }
+
+            function CalculezInValuta() {
+                var curs = $("#txtCurs").val().replace(",", ".");
+                if (curs == '0' || curs == '' || !IsNumeric(curs)) {
+                    return;
+                }
+
+                var bff = Math.round(parseFloat($("#SalariuBrut").text()) / curs * 100) / 100;
+                $("#SalariuBrutVal").text(bff);
+                bff = Math.round(parseFloat($("#BonuriDeMasa").text()) / curs * 100) / 100;
+                $("#BonuriDeMasaVal").text(bff);
+                bff = Math.round(parseFloat($("#BugeteAngajat").text()) / curs * 100) / 100;
+                $("#BugeteAngajatVal").text(bff);
+                bff = Math.round(parseFloat($("#SalariuNet").text()) / curs * 100) / 100;
+                $("#SalariuNetVal").text(bff);
+                bff = Math.round(parseFloat($("#SalariuComplet").text()) / curs * 100) / 100;
+                $("#SalariuCompletVal").text(bff);
+                bff = Math.round(parseFloat($("#BugeteAngajator").text()) / curs * 100) / 100;
+                $("#BugeteAngajatorVal").text(bff);
+                bff = Math.round(parseFloat($("#BugeteTotal").text()) / curs * 100) / 100;
+                $("#BugeteTotalVal").text(bff);
+            }
+        </script>
+
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2902700-4']);
+            _gaq.push(['_setDomainName', 'calculatorsalariu.ro']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+        <script src="https://apis.google.com/js/platform.js" async defer>
+            {lang: 'ro'}
+        </script>
+    </head>
+    <script type="text/javascript">
+        /*
+        var tid = setTimeout('moveBanner()',5000);
+        function moveBanner(){
+            $("#banner-top img").fadeOut();
+            var id = parseInt($("#banner-top img").attr("id"));
+            if(id < 3){
+                id = id + 1;
+            } else {
+                id = 1;
+            }
+            $("#banner-top img").attr("id",id);
+            $("#banner-top img").attr("src","/banners/" + id + ".jpg");
+            $("#banner-top img").fadeIn();
+            tid = setTimeout('moveBanner()',5000);
+        }
+        */
+    </script>
+    <body>
+
+            <table width="100%">
+            <tr>
+                <td height="120px;" bgcolor="#006699" >
+                    <table align="center" width="1000px">
+                        <tr style="color: white;">
+                            <td valign="middle" align="center">
+                                <!-- banner -->
+                                
+                                
+                                                                <div style="white-space: nowrap;">
+                                    <a style="text-decoration: none;padding: 10px; _display: block;font-size: 14pt;"
+                                       href="https://www.facebook.com/calculatorsalariu" target="_blank">
+                                        <img src="images/facebook-icon.png"/>
+                                    </a>
+                                    <a style="text-decoration: none;padding: 10px; _display: block;font-size: 14pt;"
+                                       href="https://plus.google.com/+calculatorsalarii" target="_blank">
+                                        <img src="images/google-plus-icon.png"/>
+                                    </a>
+                                </div>
+                                                            </td>
+                            <td width="100%">
+                                <div>
+                                    <a style="text-decoration: none; cursor: pointer;" href="/">
+                                        <h1 style="text-align: center; color: orange;">Calculator salariu <sup style="font-size: 12pt;">ver. 2.7</sup></h1>
+                                        <p class="subtitlu" style="text-align: center; font-size: 12pt; color: white; margin: 0px;">
+                                            Calcul salariu (simulator salariu) pornind de la <b>salariul brut</b> (brut la net) <b>salariul net</b> (net la brut) sau totalul cheltuielilor suportate de angajator (<b>salariul complet</b>), impreuna cu evidentierea detaliata a tuturor sumelor: <b>salariu brut</b>, <b>salariu net</b>, <b>impozit</b> <b>retineri/taxe</b> (cheltuieli) angajat, angajator cu transformare in euro.
+                                        </p>
+                                    </a>
+                                </div>
+                                <div style="font-size: 10pt; font-weight: bold; color: yellow; text-align: right;">
+                                    Modul de calcul este conform legislatiei in vigoare ! Ultima actualizare, Februarie 2018.
+                                </div>
+                            </td>
+                            <td valign="middle" align="right" style="padding-left: 5px;">
+                                <!-- banner -->
+                                
+                                <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.calculatorsalariu.ro&amp;layout=standard&amp;show_faces=true&amp;width=160&amp;action=recommend&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:65px;" allowTransparency="true"></iframe>
+
+                                <!-- Place this tag where you want the +1 button to render. -->
+                                <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/108989570013756287538" data-rel="author"></div>
+                            </td>
+                        </tr>
+                        <tr </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+                    </table>
+    
+    
+    <!--<div style="text-align: center; background-color: rgb(252, 194, 194);">
+        <div style="font-size: 14pt; color: rgb(145, 3, 3); font-weight: lighter;">Contine actualizarea calcului CAS conform Ordonanţei de urgenţă nr. 3/2017. (Pentru veniturile salariale incepand cu 1 februarie 2017)</div>
+    </div>-->
+
+    <div style="text-align: center; background-color: rgb(252, 194, 194); display: none;">
+        <div style="font-size: 14pt; color: rgb(145, 3, 3); font-weight: lighter;">Contine noua formula de calcul pentru salariile din 2018!</div>
+    </div>
+
+    <div style="text-align: center; background-color: rgb(252, 194, 194);">
+            </div>
+
+    <table border="0" width="100%">
+        <tr><td align="center" valign="top" cellspacing="0" cellpadding="0">
+
+                <table width="1000px" align="center">
+                                            <tr>
+                            <td colspan="2" align="center">
+                                                                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="728" height="90" id="sunquest_hotel_v4_728X90_201507" align="middle">
+                                        <param name="allowScriptAccess" value="sameDomain" />
+                                        <param name="allowFullScreen" value="false" />
+                                        <param name="movie" value="sunquest_hotel_v4_728X90_201606bis.swf" />
+                                        <param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />
+                                        <embed src="/sunquest_hotel_v4_728X90_201606bis.swf"
+                                               quality="high"
+                                               bgcolor="#ffffff"
+                                               width="728"
+                                               height="90"
+                                               name="sunquest_hotel_v4_728X90_201606bis"
+                                               align="middle" allowScriptAccess="sameDomain"
+                                               allowFullScreen="false"
+                                               type="application/x-shockwave-flash"
+                                               pluginspage="http://www.adobe.com/go/getflashplayer" />
+                                    </object>
+                                                            </td>
+
+                            <td rowspan="2" valign="top" align="right" width="210px" bgcolor="#eeeeee" >
+                                <table cellpadding="5">
+
+
+                                    <!--
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <script src="http://www.convertor.ro/widgets/avocat" type="text/javascript"></script>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <span style="font-size: 14pt; font-family: Verdana;">Intră în comunitatea noastră!</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
+                                            <div id="div-8528400590458823848" style="width:276px;border:1px solid #cccccc;"></div>
+                                            <script type="text/javascript">
+                                            var skin = {};
+                                            skin['BORDER_COLOR'] = '#cccccc';
+                                            skin['ENDCAP_BG_COLOR'] = '#e0ecff';
+                                            skin['ENDCAP_TEXT_COLOR'] = '#333333';
+                                            skin['ENDCAP_LINK_COLOR'] = '#0000cc';
+                                            skin['ALTERNATE_BG_COLOR'] = '#ffffff';
+                                            skin['CONTENT_BG_COLOR'] = '#ffffff';
+                                            skin['CONTENT_LINK_COLOR'] = '#0000cc';
+                                            skin['CONTENT_TEXT_COLOR'] = '#333333';
+                                            skin['CONTENT_SECONDARY_LINK_COLOR'] = '#7777cc';
+                                            skin['CONTENT_SECONDARY_TEXT_COLOR'] = '#666666';
+                                            skin['CONTENT_HEADLINE_COLOR'] = '#333333';
+                                            skin['NUMBER_ROWS'] = '4';
+                                            google.friendconnect.container.setParentUrl('/' /* location of rpc_relay.html and canvas.html */);
+                                            google.friendconnect.container.renderMembersGadget(
+                                             { id: 'div-8528400590458823848',
+                                               site: '05166032877516621376' },
+                                              skin);
+                                            </script>
+                                        </td>
+                                    </tr>
+                                    -->
+                                    <tr>
+                                        <td align="center" valign="top">
+                                                                                        <a style="" href="http://www.twinssoftware.com/adgw/?adc=ANAD&url=ANAD01" target="_blank" title="Clinica Anadolu - tratament cancer">
+                                                <img src="/banners/banner-medic-center.gif" style="border: 0px;"/>
+                                                                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="center">
+                                            <a href="http://www.mediccenter.ro" target="_blank" style="text-decoration: none; font-weight: normal; display: inline-block; border: 1px solid #f5f5f5; padding: 3px; background-color: #294AA9; color: white;" title="ANADOLU MEDICAL CENTER">
+                                                MEDIC CENTER facilitează accesul pacienţilor din România la servicii de diagnostic şi tratament din toate specialităţile medicale, în cadrul celor mai renumite clinici din străinătate.
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right" valign="top">
+                        <span style="font-size: 12pt;">
+                            <span style="color: navy; font-weight: bold;">Link-uri utile</span><br>
+                            <hr>
+                            <a target="_blank" href="http://www.legislatiamuncii.ro/" style="text-decoration: none;">Legislatia muncii</a><br />
+                            <a target="_blank" href="http://www.bvb.ro/" style="text-decoration: none;">Bursa de Valori Bucuresti</a><br />
+                            <a target="_blank" href="http://www.bnro.ro/" style="text-decoration: none;">Banca Nationala a Romaniei</a><br />
+                            <a target="_blank" href="http://www.dictionar-englez-roman.ro/" style="text-decoration: none;">Dictionar englez-român</a><br />
+                            <a target="_blank" href="http://www.orar.info/" style="text-decoration: none;">Orarul insituţiilor publice din România</a><br />
+                        </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right" valign="top">
+                                            <!--<a href="http://jorjette.co.cc" target="_blank"><img border="0px" src="http://jorjette.co.cc/wp-content/uploads/2011/05/jorjette200x250.gif" width="200" height="250" alt="Jorjette" /></a>-->
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right" height="100%" valign="top">
+                                            <span style="color: navy; font-weight: bold;">Contact</span><br>
+                                            <hr>
+                                            Ne puteti contacta pentru informatii, propuneri, sugestii sau alte probleme la adresa <a href="mailto:admin@calculatorsalariu.ro">admin@calculatorsalariu.ro</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top">
+                                            <a href="http://www.certificat-web.ro/certificat-calculatorsalariu.ro.html" target="_blank">
+                                                <img src="http://www.certificat-web.ro/certificat/logo.png" alt="Certificat Web" border="0" />
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                                        <tr>
+                                                    <td valign="top" align="left" width="210px" bgcolor="#eeeeee">
+                                <table cellpadding="5">
+                                                                        <tr>
+                                        <td>
+                                            <div style="display: block; padding: 4px;text-align: center;background-color: white;">
+                                                <a href="http://www.twinssoftware.com/adgw/?adc=CSA&url=CSANDR"
+                                                   title="Calculator salariu pentru Android"
+                                                   style="display: block; text-decoration: none; color: red; font-size: 13pt; text-align: right;">
+                                                    <img src="/images/android_100_100.png" style="float: left; width: 65px;">
+                                                    Disponibil și pentru Android<br/>
+                                                    <img src="/images/google_play_icon.png" style="float: right; width: 120px;">
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="display: none;">
+                                        <td>
+                                            <div style="display: block;">
+                                                <div style="text-align: center"><h3>TOP SALARII CALCULATE</h3></div>
+                                                <center>
+                                                    <table cellpadding="4px" style="background-color: #DEDEFF; border: 1px solid blue;">
+                                                        <tr>
+                                                            <th>BRUT</th>
+                                                            <th>NET</th>
+                                                        </tr>
+                                                                                                            </table>
+                                                </center>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                        <tr>
+                                        <td valign="middle" align="center">
+
+
+                                        </td>
+                                    </tr>
+
+                                    <!--
+                                    <tr>
+                                        <td valign="middle">
+                                            <iframe src="http://www.facebook.com/plugins/recommendations.php?site=www.calculatorsalariu.ro&amp;width=200&amp;height=220&amp;header=true&amp;colorscheme=light&amp;font=verdana&amp;border_color" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:220px;" allowTransparency="true"></iframe>
+                                        </td>
+                                    </tr>
+                                    -->
+                                    <!--
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <script type="text/javascript" src="http://profitshare.emag.ro/get_ads.php?zone_id=65995"></script>
+                                        </td>
+                                    </tr>
+                                    -->
+                                    <!--
+                                    <tr>
+                                        <td valign="middle">
+                                            <div style="font-weight: bold; font-size: 16pt; text-align: center;">Calculează-ți vacanța la mare!</div>
+                                            <iframe src="http://www.hotelsunquest.eu/site/rezervarewidget" width="205px" height="340px" scrolling="no" frameborder="0" style="border: 1px solid gray;"></iframe>
+                                        </td>
+                                    </tr>
+                                    -->
+
+                                    <tr>
+                                        <td valign="top" align="center">
+                                            <a href="http://www.twinssoftware.com/adgw/?adc=CSA&url=CAJOBS" target="_blank" style="text-decoration: none; font-weight: normal; display: inline-block; border: 1px solid #f5f5f5; padding: 3px;" title="Trimite CV sau cerere de angajare la toate agentiile de crewing">
+                                                <span style="float: left; display: block; width: 88px;">Click pentru cele mai noi joburi pentru navigatori</span>
+                                                <img src="/banners/sigla_crewingagencies_v2_80.png" style="float: right;" >
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="center">
+                                            <a href="http://www.twinssoftware.com/adgw/?adc=CSA&url=EREP" target="_blank" style="text-decoration: none; font-weight: normal; display: inline-block; border: 1px solid #f5f5f5; padding: 3px;" title="Anunturi si oferte de angajare in echipe de reparatii si constructii navale">
+                                                Cele mai noi oferte si anunturi de angajare pentru echipe de reparatii si constructii civile în toata Europa!
+                                            </a>
+                                            <!--
+                                            <a href="http://www.tigariverzi.ro" target="_blank" style="text-decoration: none; font-weight: normal; display: inline-block; border: 1px solid #f5f5f5; padding: 3px;">Tigara electronica este alternativa perfecta care nu contine substante cancerigene</a>
+                                            -->
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="center">
+                                            <a href="http://www.twinssoftware.com/adgw/?adc=CSA&url=CASENDCV" target="_blank" style="text-decoration: none; font-weight: normal; display: inline-block; border: 1px solid #f5f5f5; padding: 3px;" title="Trimite CV sau cerere de angajare la toate agentiile de crewing">
+                                                Transmite rapid CV sau cerere de angajare la toate agentiile de crewing autorizate ANR din Romania!
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right" valign="top">
+                        <span style="font-size: 10pt;">
+                            <span style="color: navy; font-weight: bold;">Pentru webmasteri</span><br>
+                            <hr>
+                            Puteţi include calculatorul online de salarii in site-ul vostru foarte simplu, folosind codul HTML de mai jos.<br>
+                            <input type=text name=scr1 id=src1 style="border: 1px solid navy; width: 175px;"
+                                   value="&lt;iframe src=&quot;http://www.calculatorsalariu.ro/minicalc.html&quot; frameborder=0 width=&quot;160px&quot; height=&quot;160px&quot; marginwidth=&quot;0px&quot; marginheight=&quot;0px&quot; frameborder=&quot;0px&quot; scrolling=auto&gt;&lt;/iframe&gt;"><br>
+                            <a onclick="javascript:window.open('test.html','Webmaster','height=200px,width=200px');" style="cursor: pointer;">Testează aici</a>
+                        </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        
+                        <td width=560 valign="top" align="center">
+                                                            <table border=0>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table width="100%" class="linkurirapidetop">
+                                                <tr>
+                                                    <td>
+                                                        <a href="/?action=calcs" title="Calcul salariu net de la brut (taxe, impozit)">Calcul salariu NET</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/?action=sims" title="Calcul salariu brut de la net (taxe, impozit)">Calcul salariu BRUT</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/?action=simt" title="Calcul salariu net si brut de la complet (taxe, impozit)">Calcul de la COMPLET</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" valign="top" class="subtitlu" style="    background-color: #ef8888;
+    padding: 10px;
+    font-size: 14pt;
+    text-align: center;">
+                                            <span style="font-weight: bold; font-size: 24pt; color: white;">NOU!</span> Puteti face o comparatie rapida intre salariul net si taxele din 2018 si cele din 2017 pentru orice calcul efectuat in site!
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top">
+                                            <a title="Calcul salariu net" class="buton" href="/?action=calcs"><div class="calculator">Calcul salariu<br>net</div></a>
+                                        </td>
+                                        <td valign="top" class="subtitlu" style="text-align: left; background-color: #bee2fa; padding: 4px;">
+                                            Cel mai rapid mod de lansare al calculului de salariu. Nu trebuie decât să introduceti salariul brut, şi veţi obţine fluturaşul de salariu.
+                                            <br>
+                                            <a href="/?action=calcs">Calculator simplu taxe si impozit salariu</div></a><br/>
+
+                                            <h3>Calcul rapid (sume in RON)</h3>
+                                            <b><a href="/?action=calcs2&suma=1900" title="Calcul salariu net pentru salariul minim pe economie 2018 - 1900 RON">SALARIUL MINIM PE ECONOMIE in 2018</a></b><br/>
+                                            <br/>
+                                            <a href="/?action=calcs2&suma=700" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 700 RON">700</a>,
+                                            <a href="/?action=calcs2&suma=800" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 800 RON">800</a>,
+                                            <a href="/?action=calcs2&suma=900" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 900 RON">900</a>,
+                                            <a href="/?action=calcs2&suma=975" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 975 RON">975</a>,
+                                            <a href="/?action=calcs2&suma=1000" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1000 RON">1000</a>,
+                                            <a href="/?action=calcs2&suma=1015" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1015 RON">1015</a>,
+                                            <a href="/?action=calcs2&suma=1100" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1100 RON">1100</a>,
+                                            <a href="/?action=calcs2&suma=1200" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1200 RON">1200</a>,
+                                            <a href="/?action=calcs2&suma=1300" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1300 RON">1300</a>,
+                                            <a href="/?action=calcs2&suma=1400" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1400 RON">1400</a>,
+                                            <a href="/?action=calcs2&suma=1500" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1500 RON">1500</a>,
+                                            <a href="/?action=calcs2&suma=1600" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1600 RON">1600</a>,
+                                            <a href="/?action=calcs2&suma=1700" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1700 RON">1700</a>,
+                                            <a href="/?action=calcs2&suma=1800" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1800 RON">1800</a>,
+                                            <a href="/?action=calcs2&suma=1900" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 1900 RON">1900</a>,
+                                            <a href="/?action=calcs2&suma=2000" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2000 RON">2000</a>,
+                                            <a href="/?action=calcs2&suma=2100" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2100 RON">2100</a>,
+                                            <a href="/?action=calcs2&suma=2200" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2200 RON">2200</a>,
+                                            <a href="/?action=calcs2&suma=2300" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2300 RON">2300</a>,
+                                            <a href="/?action=calcs2&suma=2400" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2400 RON">2400</a>,
+                                            <a href="/?action=calcs2&suma=2500" title="Calcul salariu net, fluturas de salariu, contributii, taxe la stat pentru un salariu brut de 2500 RON">2500</a><br/>
+                                            <br/>
+                                            <a href="#salariiminimesimedii">Salariul minim si mediu pe economie in ultimii ani</a>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top">
+                                            <a title="Calcul salariu net" class="buton" href="/?action=calca"><div class="calculator">Calcul salariu<br>net - avansat</div>
+                                        </td>
+                                        <td valign="top" class="subtitlu" style="text-align: left; background-color: #bee2fa; padding: 4px;">
+                                            Puteţi lansa un calcul de salariu cu opţiuni avansate, si anume, bonuri de masă, funţie de bază, număr de persoane în întreţinere, dacă salariu este impozabil sau specificarea unor avansuri in procente sau fixe, impozabile sau nu.
+                                            <br/>
+                                            <a href="/?action=calca">Calculator avansat</div></a><br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <a target="_blank" href="http://www.parfumuri-celebre.eu"><img id="r1" src="/banners/550x150-20180227-1.jpg" alt="" /></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top">
+                                            <a title="Calcul salariu brut de la net" class="buton" href="/?action=sims"><div class="simulator">Calcul salariu<br>brut</div>
+                                        </td>
+                                        <td valign="middle" class="subtitlu" style="text-align: left; background-color: #fac382; padding: 4px;">
+                                            Prin această opţiune puteţi calcula salariul brut sau puteti genera fluturaşul de salariu pornind de la salariul net (net la brut).
+                                            <br>
+                                            <a href="/?action=sims">Simulator net la brut</div></a><br/>
+                                            <h3>Simulare rapida (sume in RON)</h3>
+                                            <a href="/?action=sims2&suma=700" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 700 RON">700</a>,
+                                            <a href="/?action=sims2&suma=800" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 800 RON">800</a>,
+                                            <a href="/?action=sims2&suma=900" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 900 RON">900</a>,
+                                            <a href="/?action=simss2&suma=1000" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1000 RON">1000</a>,
+                                            <a href="/?action=sims2&suma=1100" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1100 RON">1100</a>,
+                                            <a href="/?action=sims2&suma=1200" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1200 RON">1200</a>,
+                                            <a href="/?action=sims2&suma=1300" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1300 RON">1300</a>,
+                                            <a href="/?action=sims2&suma=1400" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1400 RON">1400</a>,
+                                            <a href="/?action=sims2&suma=1500" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1500 RON">1500</a>,
+                                            <a href="/?action=sims2&suma=1600" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1600 RON">1600</a>,
+                                            <a href="/?action=sims2&suma=1700" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1700 RON">1700</a>,
+                                            <a href="/?action=sims2&suma=1800" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1800 RON">1800</a>,
+                                            <a href="/?action=sims2&suma=1900" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 1900 RON">1900</a>,
+                                            <a href="/?action=sims2&suma=2000" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2000 RON">2000</a>,
+                                            <a href="/?action=sims2&suma=2100" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2100 RON">2100</a>,
+                                            <a href="/?action=sims2&suma=2200" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2200 RON">2200</a>,
+                                            <a href="/?action=sims2&suma=2300" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2300 RON">2300</a>,
+                                            <a href="/?action=sims2&suma=2400" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2400 RON">2400</a>,
+                                            <a href="/?action=sims2&suma=2500" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu net de 2500 RON">2500</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top">
+                                            <a title="Calcul salariu brut" class="buton" href="/?action=simt"><div class="simulator">Calcul salariu<br>brut de la<br>complet</div>
+                                        </td>
+                                        <td valign="middle" class="subtitlu" style="text-align: left; background-color: #fac382; padding: 4px;">
+                                            Prin această opţiune puteţi calcula salariul brut sau genera fluturaşul de salariu pornind de la suma totală pe care este dispus angajatorul sa o cheltuiască cu angajatul (salariul complet).<br/>
+                                            <a href="/?action=simt">Simulator sal. complet la brut</div></a>
+                                            <br>
+                                            <h3>Simulare rapida (sume in RON)</h3>
+                                            <a href="/?action=simt2&suma=700" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 700 RON">700</a>,
+                                            <a href="/?action=simt2&suma=800" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 800 RON">800</a>,
+                                            <a href="/?action=simt2&suma=900" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 900 RON">900</a>,
+                                            <a href="/?action=simts2&suma=1000" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1000 RON">1000</a>,
+                                            <a href="/?action=simt2&suma=1100" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1100 RON">1100</a>,
+                                            <a href="/?action=simt2&suma=1200" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1200 RON">1200</a>,
+                                            <a href="/?action=simt2&suma=1300" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1300 RON">1300</a>,
+                                            <a href="/?action=simt2&suma=1400" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1400 RON">1400</a>,
+                                            <a href="/?action=simt2&suma=1500" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1500 RON">1500</a>,
+                                            <a href="/?action=simt2&suma=1600" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1600 RON">1600</a>,
+                                            <a href="/?action=simt2&suma=1700" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1700 RON">1700</a>,
+                                            <a href="/?action=simt2&suma=1800" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1800 RON">1800</a>,
+                                            <a href="/?action=simt2&suma=1900" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 1900 RON">1900</a>,
+                                            <a href="/?action=simt2&suma=2000" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2000 RON">2000</a>,
+                                            <a href="/?action=simt2&suma=2100" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2100 RON">2100</a>,
+                                            <a href="/?action=simt2&suma=2200" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2200 RON">2200</a>,
+                                            <a href="/?action=simt2&suma=2300" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2300 RON">2300</a>,
+                                            <a href="/?action=simt2&suma=2400" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2400 RON">2400</a>,
+                                            <a href="/?action=simt2&suma=2500" title="Calcul salariu brut, fluturas de salariu, contributii, taxe la stat pentru un salariu total de 2500 RON">2500</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="middle" align="right" colspan="3">
+                                                                                    </td>
+                                    </tr>
+
+                                                                        <tr>
+                                        <td colspan=3>
+                                            <p style="padding-top: 10px;">
+                                                <a name="salariiminimesimedii"/>
+                                            <h3>Salariul minim si salariul mediu pe economie in ultimii ani</h3>
+
+                                            <b><a href="/?action=calcs2&suma=1250" title="Calcul salariul minim pe economie 2017 pentru luna ianuarie - 1250 RON">SALARIUL MINIM PE ECONOMIE in 2017 pentru luna ianuarie</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=1450" title="Calcul salariul minim pe economie 2017 incepand cu luna februarie - 1450 RON">SALARIUL MINIM PE ECONOMIE in 2017 incepand cu luna februarie</a></b><br/>
+
+                                            <b><a href="/?action=calcs2&suma=1050" title="Calcul salariul minim pe economie 2016 incepind cu luna ianuarie - 1050 RON">SALARIUL MINIM PE ECONOMIE in 2016 din ianuarie</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=1250" title="Calcul salariul minim pe economie 2016 incepand cu luna mai - 1250 RON">SALARIUL MINIM PE ECONOMIE in 2016 din mai</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=2681" title="Calcul salariul mediu pe economie 2016 - 2681 RON">SALARIUL MEDIU PE ECONOMIE in 2016</a></b><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=1050&pentruSRLD=1" title="Calcul salariul minim pe economie 2016 incepind cu luna ianuarie pentru societatile comerciale de tip SRL-D - 1050 RON">SALARIUL MINIM in 2016 din ianuarie pt. SRL-D</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=1250&pentruSRLD=1" title="Calcul salariul minim pe economie 2016 incepand cu luna mai pentru societatile comerciale de tip SRL-D - 1250 RON">SALARIUL MINIM in 2016 din mai pt. SRL-D</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=2681&pentruSRLD=1" title="Calcul salariul mediu pe economie 2016 pentru societatile comerciale de tip SRL-D - 2681 RON">SALARIUL MEDIU in 2016 pt. SRL-D</a></b><br/>
+
+                                            <b><a href="/?action=calcs2&suma=975" title="Calcul salariul minim pe economie 2015 - 975 RON">SALARIUL MINIM PE ECONOMIE in 2015 incepand cu ianuarie</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=1050" title="Calcul salariul minim pe economie 2015 - 1050 RON">SALARIUL MINIM PE ECONOMIE in 2015 incepand cu iulie</a></b><br/>
+
+                                            <b><a href="/?action=calcs2&suma=2415" title="Calcul salariul mediu pe economie in anul 2015 - 2.415 RON">SALARIUL MEDIU PE ECONOMIE in 2015</a></b><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=850" title="Calcul salariul minim pe economie 2014 - 850 RON">SALARIUL MINIM PE ECONOMIE in 2014</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=2298" title="Calcul salariul mediu pe economie in anul 2014 - 2.298 RON">SALARIUL MEDIU PE ECONOMIE in 2014</a></b><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=700" title="Calcul salariul minim pe economie 2013 din ianuarie - 700 RON">SALARIUL MINIM PE ECONOMIE in 2013 din ianuarie</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=750" title="Calcul salariul minim pe economie 2013 din februarie - 750 RON">SALARIUL MINIM PE ECONOMIE in 2013 din februarie</a></b><br/>
+                                            <b><a href="/?action=calcs2&suma=800" title="Calcul salariul minim pe economie 2013 din iulie - 800 RON">SALARIUL MINIM PE ECONOMIE in 2013 din iulie</a></b><br/>
+                                            <a href="/?action=calcs2&suma=2223" title="Calcul salariul mediu pe economie in anul 2013 - 2.223 RON">Salariul mediu pe economie in 2013</a><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=700" title="Calcul salariul minim pe economie 2012 - 700 RON">SALARIUL MINIM PE ECONOMIE in 2012</a></b><br/>
+                                            <a href="/?action=calcs2&suma=2117" title="Calcul salariul mediu pe economie in anul 2012 - 2.117 RON">Salariul mediu pe economie in 2012</a><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=670" title="Calcul salariul minim pe economie 2011 - 670 RON">SALARIUL MINIM PE ECONOMIE in 2011</a></b><br/>
+                                            <a href="/?action=calcs2&suma=2022" title="Calcul salariul mediu pe economie in anul 2011 - 2.022 RON">Salariul mediu pe economie in 2011</a><br/>
+                                            <br/>
+                                            <b><a href="/?action=calcs2&suma=600" title="Calcul salariul minim pe economie 2010 - 600 RON">SALARIUL MINIM PE ECONOMIE in 2010</a></b><br/>
+                                            <a href="/?action=calcs2&suma=1836" title="Calcul salariul mediu pe economie in anul 2010 - 1.836 RON">Salariul mediu pe economie in 2010</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <table>
+                                                <tr>
+                                                    <h3>Note</h3>
+                                                    <td style="font-size: 12px;">
+                                                        <p>
+                                                            - initial este preluat automat cursul BNR valabil astazi<br >
+                                                            - sumele sunt exprimate in RON<br >
+                                                            - toate sumele sunt rotunjite la leu(RON), fara zecimale<br >
+                                                            - Calculatorul/simulatorul de salarii reprezinta un intrument destinat utilizarii in scopul unor estimari privind calculul salariilor pentru cazurile generale.<br>
+                                                            - Ne declinam orice responsabilitate fata de orice persoana cu privire la orice repercusiuni rezultate in urma utilizarii sumelor rezultate.<br >
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                        </td>
+
+                </table>
+
+            </td></tr>
+    </table>
+
+            <table width="100%">
+            <tr>
+                <td align="center" valign="top" colspan="3">
+                    <table style="font-size: 10pt;">
+                        <tr>
+                            <td colspan="5">
+                                <span style="color: navy; font-weight: bold;">Mulţumim celor mai buni refereri ai noştri !</span><br>
+                                <hr>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <a href="http://www.avocatnet.ro" target="_blank">
+                                    <div style="text-align: center;">
+                                        <img border=0 src="images/avocatnet_logo_mic.gif"><br>
+                                        <span>avocatnet.ro - cotidian romanesc de informaţie juridică</span>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="http://www.stiridecluj.ro" target="_blank">
+                                    <div style="text-align: center;">
+                                        <img border=0 src="images/stiri-de-cluj.png"><br>
+                                        <span>stiridecluj.ro - informatii locale non-stop</span>
+                                    </div>
+                                </a>
+                            </td>
+                                                    </tr>
+                        <tr>
+                            <td>
+                                <a href="http://www.roportal.ro" target="_blank">
+                                    <div style="text-align: center;">
+                                        <img border=0 src="images/roportal.gif"><br>
+                                        <span>roportal.ro - ghidul tău pe internet</span>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="http://www.infoest.ro" target="_blank">
+                                    <div style="text-align: center;">
+                                        <img border=0 src="images/infoest.jpg" style="width: 150px;"><br>
+                                        <span>InfoEst - ziar online, stiri Braila</span>
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    
+            <table width="100%">
+            <tr>
+                <td align="center">
+                    <table>
+                        <td>
+                            <!--/Start Trafic.ro/-->
+                            <script type="text/javascript">t_rid="calculatorsalariu";</script>
+                            <script type="text/javascript" src="http://storage.trafic.ro/js/trafic.js"
+                            ></script><noscript><a href="http://www.trafic.ro/top/?rid=calculatorsalariu"
+                                                   target="_blank"><img border="0" alt="trafic ranking"
+                                                                        src="http://log.trafic.ro/cgi-bin/pl.dll?rid=calculatorsalariu"/></a>
+                                <a href="http://www.trafic.ro">Statistici web</a>
+                            </noscript>
+                            <!--/End Trafic.ro/-->
+                        </td>
+                        <td>
+                            <a href="http://www.twinssoftware.com" target="_blank" style="text-decoration: none;font-size: 8pt;width: 120px;display: block;text-align: center;" title="Site dezvoltat și întreținut de Twins Software">
+                                <img src="/banners/twins-software-produced-84x25.png" style="border: 1px solid #5A0000;" alt="Twins Software - web software development">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="http://www.twinssoftware.com/adgw/?adc=CSA&url=HSUN" title="Hotel Sunquest - TURISM de CALITATE"><img alt="Hotel Sunquest - TURISM de CALITATE" src="http://www.twinssoftware.com/adgw/banners/turism-de-calitate-sunquest.png"></a>
+                        </td>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+    
+    <table width="100%">
+        <tr>
+            <td align="center">
+                <a href="https://webgate.ec.europa.eu/odr/main/index.cfm?event=main.home.show&lng=RO" style="text-decoration: none;" target="_blank" title="">SOLUTIONAREA ONLINE A LITIGIILOR</a>
+            </td>
+        </tr>
+    </table>
+
+    <div style="display: none;">
+            </div>
+
+
+    </body>
+    </html>
